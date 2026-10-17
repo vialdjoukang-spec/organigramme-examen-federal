@@ -1,0 +1,68 @@
+/* ===== Apollon · présentation premium (patch tools/patches/0004-apollon-premium.py). Présentation seule : aucun texte, aucune donnée, aucun ID, aucun JS. ===== */
+/* 1. Jetons : polices du système (aucun CDN, rendu identique en file://), couleurs AA, espacements, rayons, ombres, mouvement. */
+:root{--fd:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",P052,Georgia,serif;
+--fb:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif;
+--fm:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,Consolas,"Liberation Mono",monospace;
+--paper:#fffefb;--ink:#17150f;--mut:#575141;--line:#e4dcc8;--soft:#f3eddf;--gold:#7a5b12;--gold2:#d9b65e;--deep:#4a380b;--ok:#1d6a3a;--warn:#8a5207;--bad:#a12a24;--grid:#ece5d3;--grid2:#f6f1e5;--on-gold:#ffffff;
+--bg:color-mix(in srgb,#f5efe1 calc(var(--gilt)*100%),#ffffff);--accent-glow:color-mix(in srgb,var(--gold2) calc(var(--gilt)*55%),transparent);
+--r-sm:8px;--r-md:12px;--r-lg:18px;--r-pill:999px;
+--sh-1:0 1px 2px rgba(40,30,8,.06),0 1px 1px rgba(40,30,8,.04);--sh-2:0 1px 2px rgba(40,30,8,.05),0 8px 24px -12px rgba(40,30,8,.18);--sh-3:0 2px 6px rgba(20,14,2,.10),0 24px 48px -20px rgba(20,14,2,.38);
+--ring:0 0 0 2px var(--paper),0 0 0 4px var(--gold);--ease:cubic-bezier(.2,.7,.2,1);--dur:.16s}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1a1813;--ink:#f4eedf;--mut:#cbc2ac;--line:#38332a;--soft:#24211a;--gold:#e3c374;--gold2:#c9a54f;--deep:#f2dfac;--ok:#74d39b;--warn:#f2bb63;--bad:#f39087;--grid:#2c2921;--grid2:#201e18;--on-gold:#17140c;--bg:color-mix(in srgb,#1a1812 calc(var(--gilt)*100%),#0f0f0e);--sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 1px 2px rgba(0,0,0,.35),0 10px 28px -14px rgba(0,0,0,.7);--sh-3:0 2px 8px rgba(0,0,0,.5),0 28px 56px -22px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{--paper:#1a1813;--ink:#f4eedf;--mut:#cbc2ac;--line:#38332a;--soft:#24211a;--gold:#e3c374;--gold2:#c9a54f;--deep:#f2dfac;--ok:#74d39b;--warn:#f2bb63;--bad:#f39087;--grid:#2c2921;--grid2:#201e18;--on-gold:#17140c;--bg:color-mix(in srgb,#1a1812 calc(var(--gilt)*100%),#0f0f0e);--sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 1px 2px rgba(0,0,0,.35),0 10px 28px -14px rgba(0,0,0,.7);--sh-3:0 2px 8px rgba(0,0,0,.5),0 28px 56px -22px rgba(0,0,0,.85)}
+/* 2. Typographie : échelle 1,2 ; titres serif, corps sans empattement, chiffres tabulaires. */
+body{font:15px/1.55 var(--fb);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern","liga"}
+h1{font:600 clamp(1.85rem,4.2vw,2.75rem)/1.08 var(--fd);letter-spacing:-.012em}h1 em{font-weight:600}
+h2{font:600 1.32rem/1.25 var(--fd);letter-spacing:-.005em}h3{font:650 1rem/1.35 var(--fb);letter-spacing:.005em}
+.eyebrow{font:650 .7rem/1.3 var(--fb);letter-spacing:.2em;color:var(--gold)}
+.st{line-height:1.55;max-width:78ch}
+/* 3. Mise en page et surfaces. */
+.w{gap:18px;padding-block:20px 72px}
+header.top{gap:12px;padding:26px 28px;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--sh-2);background:radial-gradient(90% 150% at 95% -10%,var(--accent-glow),transparent 62%),linear-gradient(180deg,color-mix(in srgb,var(--paper) 100%,transparent),var(--paper));position:relative;overflow:hidden}
+header.top::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--gold2) 20%,var(--gold) 50%,var(--gold2) 80%,transparent);opacity:.85}
+.card{border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-1);border-color:var(--line)}
+.kpis{gap:10px}.kpi{border-radius:var(--r-md);padding:12px 14px;background:var(--soft);border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.kpi b{font:600 1.4rem/1.1 var(--fm);letter-spacing:-.01em;color:var(--ink)}
+/* 4. Barre d’onglets : segmentée, collante, une seule ligne défilante sur mobile. */
+nav.tabs{gap:4px;padding:6px;margin-inline:-2px;border-radius:calc(var(--r-md) + 6px);background:color-mix(in srgb,var(--bg) 95%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);box-shadow:inset 0 0 0 1px var(--line)}
+.tab{font:600 .88rem/1.2 var(--fb);padding:9px 14px;min-height:40px;border-radius:var(--r-md);border:1px solid transparent;background:transparent;color:var(--mut);transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.tab:hover{background:var(--paper);color:var(--ink);box-shadow:var(--sh-1)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:var(--sh-2),inset 0 -2px 0 var(--gold2)}
+.tab:focus-visible{outline:none;box-shadow:var(--ring)}
+@media (max-width:620px){nav.tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}nav.tabs::-webkit-scrollbar{display:none}.tab{flex:none;scroll-snap-align:start;white-space:nowrap}header.top{padding:20px 18px}.kpi{padding:9px 12px}.kpi b{font-size:1.2rem}}
+/* 5. Contrôles : boutons, champs, puces ; cibles d’au moins 24 px (WCAG 2.2). */
+input,select,textarea,button.b{border-radius:var(--r-sm);border-color:var(--line);transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),background-color var(--dur) var(--ease)}
+input:hover,select:hover,textarea:hover,button.b:hover{border-color:color-mix(in srgb,var(--gold) 45%,var(--line))}
+button.b{min-height:36px;padding:7px 14px;box-shadow:var(--sh-1)}
+button.b.p{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}button.b.p:hover{background:color-mix(in srgb,var(--gold) 88%,var(--ink));border-color:color-mix(in srgb,var(--gold) 88%,var(--ink))}
+button.b:active{transform:translateY(1px)}
+input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-visible,.it:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.chips2 button,.picks button{min-height:28px;min-width:28px;padding:4px 10px;transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.chips2 button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ti{width:24px;height:24px;margin-left:4px;font-size:.72rem;color:var(--gold);border-color:color-mix(in srgb,var(--gold) 70%,transparent);transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease)}.ti:hover,.ti:focus-visible{background:var(--gold);color:var(--on-gold)}
+a{color:var(--gold);text-underline-offset:2px}.chk a,#tip .s a{color:var(--gold)}
+/* 6. Listes, calendrier, jauges. */
+.it{border-radius:var(--r-sm);transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),background-color var(--dur) var(--ease)}.it:hover{border-color:color-mix(in srgb,var(--gold) 40%,var(--line));box-shadow:var(--sh-1)}
+.it code,.due .r code{color:var(--gold)}.it.sel{border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold2) 40%,transparent)}
+.fam-h,.nsec{border-radius:var(--r-sm);letter-spacing:.1em;color:var(--deep);background:var(--soft)}
+.gridwrap{border-radius:var(--r-lg);box-shadow:var(--sh-1)}.hd{font-weight:650}.hd.today span{background:var(--gold);color:var(--on-gold)}
+.blk{border-radius:var(--r-sm)}
+.g{border-radius:var(--r-md);padding:14px;border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.bar,.pbar{background:color-mix(in srgb,var(--line) 85%,transparent);box-shadow:inset 0 1px 1px rgba(0,0,0,.06)}.bar i,.pbar i{transition:width .4s var(--ease)}
+.bar i.a{background:linear-gradient(90deg,color-mix(in srgb,var(--ok) 85%,#fff),var(--ok))}
+.phase{border-radius:var(--r-md)}.verdict{border-radius:var(--r-md)}.due .r{border-radius:var(--r-md)}
+.gr .ph{color:var(--gold)}
+table th{font-weight:650;letter-spacing:.07em}tbody tr:hover td{background:color-mix(in srgb,var(--soft) 60%,transparent)}
+.opt fieldset{border-radius:var(--r-md)}
+pre.prompt{border-radius:var(--r-md);border:1px solid var(--line)}
+/* 7. Fenêtre d’information : surface élevée, filet doré, en-tête collant. */
+#tip{border:1px solid color-mix(in srgb,var(--gold) 55%,var(--line));border-top:3px solid var(--gold);border-radius:var(--r-md);box-shadow:var(--sh-3);padding:12px 16px;line-height:1.55}
+#tip .h{color:var(--gold);letter-spacing:.14em}#tip .t{font:600 1rem/1.3 var(--fd)}#tip .h button{color:var(--mut)}#tip .h button:hover{background:var(--soft);color:var(--ink)}
+#tip .vb{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+@media (max-width:620px){#tip{border-radius:var(--r-lg) var(--r-lg) var(--r-md) var(--r-md)}}
+.tw{text-decoration-color:color-mix(in srgb,var(--gold) 65%,transparent);text-decoration-thickness:1px}.tw:hover,.tw[aria-expanded=true]{color:var(--gold)}
+::selection{background:color-mix(in srgb,var(--gold2) 45%,transparent)}
+/* Stabilité : la place des indicateurs est réservée avant leur rendu par le script (décalage de mise en page évité). */
+#kpis:empty{min-height:74px}.disp b{display:inline-block;min-width:3.4em;min-height:1.3em;font-variant-numeric:tabular-nums}@media (max-width:620px){#kpis:empty{min-height:213px}}
+/* 8. Mouvement réduit : aucune transition ni animation. */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
