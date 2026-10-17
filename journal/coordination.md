@@ -25,3 +25,6 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 - 18.10.2026 · Preuve Étape 2 : #71 fusionnée automatiquement et Pages publié sur 843e2c3 (succès du workflow). Premier nohup terminé par le runtime ; veille relancée dans une session persistante au premier plan, sans CLI. Environnement de tests aligné sur la CI (venv Playwright 1.63, Chromium 1243).
 
 - 18.10.2026 · Étape 5 : reprises Panacée #60/#62, rapport d'audit conservé, migrations techniques reconstruites ; attente des tests/CI/fusions, poursuite Étape 6 selon R7.
+
+### Étape 6 · Codex, 17.10.2026 UTC
+98 lignes de doses relues contre 73 documents Refdata (cache hors git). Rapports individuels AIPS-RELECTURE-PR59/61/67/70 et corrections sur chaque branche. KCl : aucune conversion supposée ; aciclovir : discordance AIPS/EAN2026 affichée. #67/#70 attente-vial pour corticostéroïdes dans ICH spontanée aiguë ; aucune validation humaine inventée. Tests du comparateur : 3/3. Contrôles de branches suivis séparément ; critère de fusion pas encore atteint.
