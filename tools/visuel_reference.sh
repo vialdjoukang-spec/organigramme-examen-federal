@@ -10,7 +10,7 @@ read -r br sha < <(gh pr view "$pr" --json headRefName,headRefOid -q '.headRefNa
 gh pr view "$pr" --json labels -q '.labels[].name' | grep -qx "$LABEL" || { echo "ÉCHEC : étiquette $LABEL absente sur #$pr."; exit 1; }
 [ "$(git rev-parse --abbrev-ref HEAD)" = "$br" ] || { echo "ÉCHEC : placez-vous sur la branche $br."; exit 1; }
 [ "$(git rev-parse HEAD)" = "$sha" ] || { echo "ÉCHEC : la branche locale n'est pas à jour avec la PR ($sha)."; exit 1; }
-run=$(gh run list --workflow visuel.yml --branch "$br" --commit "$sha" --status completed --limit 1 --json databaseId -q '.[0].databaseId')
+run=$(gh run list --workflow visuel.yml --branch "$br" --commit "$sha" --status completed --limit 10 --json databaseId,conclusion -q '[.[]|select(.conclusion!="cancelled")][0].databaseId // empty')
 [ -n "$run" ] || { echo "ÉCHEC : aucune exécution Visuel terminée sur $sha ; attendez la CI."; exit 1; }
 tmp=$(mktemp -d); trap 'rm -rf "$tmp"' EXIT
 gh run download "$run" -n visuel-reference-proposee -D "$tmp"
