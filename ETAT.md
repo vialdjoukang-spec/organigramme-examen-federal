@@ -22,9 +22,9 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 
 | État | Tâche | Responsable | Échéance |
 |---|---|---|---|
-| [~] | Livrer l’export et l’import de la progression, et les erreurs de stockage visibles | Atlas | 15.11.2026 |
-| [~] | Écrire tests/test_export.py | Janus, avec Atlas | 15.11.2026 |
-| [ ] | Refondre l’onglet « Exigences » pour la session 2027 (data/EXI.json, cases à statut) | Thémis | 29.11.2026 |
+| [x] | Livrer l’export et l’import de la progression, et les erreurs de stockage visibles | Atlas | 15.11.2026 |
+| [x] | Écrire tests/test_export.py | Janus, avec Atlas | 15.11.2026 |
+| [x] | Refondre l’onglet « Exigences » pour la session 2027 (data/EXI.json, cases à statut ; PR feat/exigences-2027) | Thémis | 29.11.2026 |
 | [x] | Activer les veilles officielles Ve1 et Ve2 à partir de tools/templates/veille-squelette.yml (PR #4 fusionnée) | Argos | 15.11.2026 |
 | [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
 | [x] | Préparer data/MEM.json sans toucher au code (PR #3 fusionnée) | Mnémosyne | 29.11.2026 |
