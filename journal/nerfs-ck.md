@@ -139,6 +139,20 @@ Lyncée ne détecte pas ces termes (règles d’affixes) : G4 passe, mais la rè
 - Nerf : jaune #FFC400 (6,5 px) cerné de #5a4500 (1 px), dessiné au-dessus de tout ; noyaux pleins en jaune.
 - Fonctions : l'aplat « moteur » est retiré (il couvrait la voûte) ; la motricité est portée par le nerf lui-même.
 
+## Hermès · NC-0 interaction · 17.10.2026, Europe/Zurich
+
+Fait : patch 0012, avec le lieur gloLink, la pile de fenêtres imbriquées (5 niveaux, Retour, fil d’Ariane, sans cycle), les types glo, syn, hyp (exploration puis prise en charge), loc (synthèse locale, onglets A et B) et nc (vues, couches, tour 8 vues, repli <img>). Ajouts : tools/nc_svg_js.py, données d’essai tests/fixtures/ck, tests/test_ck_ui.py (49 contrôles, ordinateur et Pixel 7, texte coupé compris). Suite complète 170/170, gardes 5/5.
+Sources : aucune source clinique utilisée ; aucune donnée clinique n’est introduite.
+À vérifier : les entrées de glossaire pour les mots d’interface « Foramens » et « Sites lésionnels » ; le rendu final des .ck-* dans les 10 thèmes d’Apollon ; les doses (AIPS/Swissmedic) relèvent d’Hippocrate et de Janus.
+Prochaine action : après les fusions d’Atlas, d’Hippocrate et de Dédale, rebaser (ssp-fusion-patch), puis rejouer test_ck_ui et les captures sur les vraies données.
+
+### Hermès · intégration sur main (9ae4ed1 puis 4ff1cec) · 17.10.2026, Europe/Zurich
+Fait : le patch est renuméroté 0012, après le 0011 d’Atlas. Le lieur lit CK_GLO_INDEX.e et charge la tranche de définitions à l’ouverture ; syn, hyp, loc, nc, src et doses_ch se chargent à la demande, avec redessin sur place. Plus aucun « .. » (ckP). Les états de Dédale (data-etats) sont branchés. Les vues sont lues dans nc.json (3 vues). nc07.js est régénéré. Sur mobile, le schéma tient en largeur. Le réglage « Fond doré » est retiré de l’en-tête. G7 : l’urgence passe par .urg[data-bloquant]. test_ck_ui compte 61 contrôles, dont 12 sur les données réelles.
+Sources : aucune source clinique ajoutée.
+À vérifier : chevauchement d’étiquettes de la vue de face (Dédale) ; libellé « Par défaut » du sélecteur de fond (Apollon, patch 0005).
+Prochaine action : quand loc.json aura des entrées, ajouter une vérification de la synthèse locale sur les données réelles.
+Ajout (17:45) : repères numérotés g.nc-num, avec bulle « n · nom » et ouverture de la fiche du glossaire dans la pile ; case « Légende numérotée » (couche legende), construite sur le contrat de Dédale avant la fusion de sa PR (données d’essai). test_ck_ui compte 66 contrôles.
+
 ## 17.10.2026 · Dédale · repères numérotés, dessin aéré
 - Retour de l’utilisateur : « Trop saturé d'annotation. Numéro fléché et cliquable avec le nom de la structure anatomique pour aérer au maxi. »
 - Règle pour toutes les paires : aucun texte sur le dessin sauf le titre ; un numéro cerclé (fond blanc, trait sombre, chiffre gras ; 30 px hors tout sur 800 px, 13,5 px à 360 px) et une flèche fine par structure ; repères aérés, jamais l’un sur l’autre ni sur le nerf jaune ; légende numérotée en 2 colonnes, petits caractères, sous le dessin (couche « legende », masquable) ; même numéro, même structure dans les 3 vues.
