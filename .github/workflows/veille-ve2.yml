@@ -1,0 +1,55 @@
+# Veille ve2 (Argos, phase 1), tirée de tools/templates/veille-squelette.yml.
+# Écart au squelette : main est protégée (demande de fusion exigée), si bien que l'état des
+# empreintes s'enregistre sur la branche non protégée « veille-etat » et non sur main.
+# Parade aux 60 jours d'inactivité [G2] : le premier lundi du mois, le workflow se réactive
+# lui-même par l'API (PUT …/enable) et commite son état sur veille-etat.
+# Règles : robots.txt lu avant chaque requête ; Compendium jamais automatisé (I8) ; aucun texte protégé copié.
+name: Veille Ve2 · portail healthreg
+on:
+  schedule:
+    - cron: '41 5 * * 1'   # chaque lundi 05:41 UTC
+  workflow_dispatch:
+permissions:
+  contents: write   # commit de veille/etat.json sur la branche veille-etat
+  issues: write     # ticket seulement si l'empreinte change, ou après deux échecs
+  actions: write    # réactivation mensuelle du workflow (parade aux 60 jours)
+concurrency:
+  group: veille-etat
+  cancel-in-progress: false
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Installer Playwright (Chromium)
+        run: pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+      - name: Récupérer l'état précédent (branche veille-etat)
+        run: |
+          if git fetch --depth=1 origin veille-etat 2>/dev/null; then
+            git show FETCH_HEAD:veille/etat.json > veille/etat.json 2>/dev/null || true
+          fi
+      - name: Comparer l'empreinte normalisée (titres, liens et dates seulement)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: python3 veille/veille.py --id ve2 --sources veille/sources.yml --etat veille/etat.json
+      - name: Enregistrer l'état sur veille-etat
+        if: always()
+        run: |
+          [ -f veille/etat.json ] || exit 0
+          cp veille/etat.json /tmp/etat.json
+          git config user.name "argos-veille[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth=1 origin veille-etat 2>/dev/null; then git checkout -q -B veille-etat FETCH_HEAD; else git checkout -q --orphan veille-etat && git rm -rqf . ; fi
+          mkdir -p veille && cp /tmp/etat.json veille/etat.json
+          git add veille/etat.json
+          git diff --cached --quiet || git commit -qm "veille(ve2): état des empreintes"
+          git push -q origin veille-etat
+      - name: Réactivation mensuelle (parade aux 60 jours)
+        if: always()
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          if [ "$(date -u +%d)" -le 7 ] || [ "${{ github.event_name }}" = workflow_dispatch ]; then
+            gh api -X PUT "repos/${{ github.repository }}/actions/workflows/veille-ve2.yml/enable" && echo "Workflow réactivé."
+          fi
