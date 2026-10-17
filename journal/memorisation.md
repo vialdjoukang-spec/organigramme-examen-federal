@@ -10,3 +10,9 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 - Les 24 DOI se résolvent auprès de doi.org (API des handles, code 1) le 17.10.2026 ; Janus peut rejouer ce contrôle sur la liste `references`.
 - La méthode 12 (techniques à faible utilité) n’a pas de bloc « Preuves en médecine » dans la note ; le champ vaut donc null, et la méthode 5 n’a pas de bloc « Preuves générales ». Je n’ai rien ajouté.
 - L’intégration dans app_v2.html (type m|id de tipFor) attend la phase 2, après la fusion d’Hermès.
+
+## 17.10.2026 · Phase 2 · intégration dans app_v2.html (Mnémosyne)
+- J’ai corrigé tools/build_mem.py : la ligne de séparation du tableau de synthèse était lue comme la méthode 1, donc chaque « synthese » portait la ligne de la méthode précédente.
+- J’ai écrit data/MEM_app.json : pour chaque méthode, une ligne « Pour l’examen fédéral » qui ne cite que des fonctions réelles (calendrier, « Lu · séance accomplie », « QCM réussis % », note de séance, fiche éclair, liste « À réviser », recherche par diagnostic différentiel, notions CK, Synthèse locale, onglet CS), et la liste des phrases du « Texte à coller » qui décrivaient des fonctions absentes (invite « Pourquoi ? », minuteur, masquage du contenu).
+- Patch 0018 : carte de 12 méthodes, type m|id, deux options nouvelles, consigne de séance ; les clés de réglage existantes restent intactes (contrôle reglages_anciens_intacts).
+- Recoupement lu le 17.10.2026 : PubMed 19930508 confirme 39 % contre 26 % et d = 0,91 (Larsen 2009) ; ERIC EJ1310148 confirme g = 0,74 (Latimier 2021).

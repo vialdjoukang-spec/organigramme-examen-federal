@@ -1,10 +1,14 @@
 # Publication GitHub Pages (Héphaïstos) : l'application et ses croquis (assets/) sont publiés.
-# index.html et app_v2.html sont deux copies du même fichier de travail.
+# index.html et app_v2.html sont deux copies du même fichier de travail ; progres.html affiche les jauges des binômes.
+# Après une fusion faite avec GITHUB_TOKEN (auto-fusion), le workflow
+# pages-apres-fusion.yml relance celui-ci via workflow_dispatch : une fusion
+# GITHUB_TOKEN ne déclenche pas on:push, et l'environnement github-pages
+# refuse un déploiement lancé depuis un événement pull_request.
 name: Pages
 on:
   push:
     branches: [main]
-    paths: [app_v2.html, 'assets/**', .github/workflows/pages.yml]
+    paths: [app_v2.html, progres.html, 'assets/**', .github/workflows/pages.yml]
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +29,7 @@ jobs:
           mkdir _site
           cp app_v2.html _site/index.html
           cp app_v2.html _site/app_v2.html
+          cp progres.html _site/progres.html
           if [ -d assets ]; then cp -r assets _site/assets; fi
           touch _site/.nojekyll
       - uses: actions/configure-pages@v6
