@@ -1,0 +1,28 @@
+name: Veille
+description: Un changement détecté sur une source suisse ou européenne surveillée (Argos).
+title: "[Veille] <source> a changé"
+labels: ["agent:argos"]
+body:
+  - type: input
+    id: source
+    attributes: { label: Source, description: Le nom et l’URL de la source surveillée. }
+    validations: { required: true }
+  - type: dropdown
+    id: type
+    attributes:
+      label: Catégorie
+      description: Ajoutez l’étiquette correspondante (veille:officiel, veille:clinique ou veille:digest).
+      options: [veille:officiel, veille:clinique, veille:digest]
+    validations: { required: true }
+  - type: input
+    id: date
+    attributes: { label: Date de détection, description: "JJ.MM.AAAA HH:MM, Europe/Zurich." }
+    validations: { required: true }
+  - type: textarea
+    id: diff
+    attributes: { label: Extrait du changement, description: Un court extrait du diff des titres et des liens ; ne copiez aucun texte protégé. }
+    validations: { required: true }
+  - type: dropdown
+    id: destinataire
+    attributes: { label: Destinataire, options: [Thémis, Asclépios] }
+    validations: { required: true }

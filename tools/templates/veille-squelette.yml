@@ -1,0 +1,30 @@
+# Squelette de veille planifiée remis par Héphaïstos à Argos (phase 1).
+# Argos le copie dans .github/workflows/veille-<id>.yml, renseigne veille/sources.yml
+# et écrit veille/veille.py. Coût : 0 CHF (Actions gratuites sur dépôt public).
+# Règles : robots.txt et conditions du site respectés ; Compendium jamais automatisé (I8) ;
+# Swissmedic seulement par RSS ; aucun texte protégé copié dans un ticket.
+name: Veille <id>
+on:
+  schedule:
+    - cron: '23 5 * * 1'   # chaque lundi 05:23 UTC ; à ajuster par veille
+  workflow_dispatch:
+permissions:
+  contents: write   # commit mensuel de veille/etat.json (garde le workflow actif au-delà de 60 jours)
+  issues: write     # ticket seulement si l'empreinte change
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Comparer l'empreinte normalisée (titres et liens seulement)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: python3 veille/veille.py --id <id> --sources veille/sources.yml --etat veille/etat.json
+      - name: Enregistrer l'état
+        run: |
+          git config user.name "argos-veille[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add veille/etat.json
+          git diff --cached --quiet || git commit -m "veille(<id>): état des empreintes"
+          git push

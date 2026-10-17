@@ -1,0 +1,66 @@
+name: Tâche d’agent
+description: Une tâche attribuée à un agent nommé ; chaque champ reprend la fiche de mission (plan v2, section 4 et annexe E4).
+title: "[<Agent>] <tâche>"
+labels: ["prio:P2"]
+body:
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      description: L’agent qui réalise la tâche ; ajoutez aussi l’étiquette agent:<nom>.
+      options: [Athéna, Thémis, Atlas, Argos, Héphaïstos, Janus, Hermès, Mnémosyne, Asclépios]
+    validations: { required: true }
+  - type: textarea
+    id: mission
+    attributes: { label: Mission, description: Ce que la tâche accomplit, en une ou deux phrases verbales. }
+    validations: { required: true }
+  - type: textarea
+    id: fichiers
+    attributes: { label: Fichiers, description: Les fichiers que l’agent écrit, et ceux qu’il lit seulement par diff ou par extrait. }
+    validations: { required: true }
+  - type: textarea
+    id: entrees
+    attributes: { label: Entrées, description: Les documents, tickets et sources dont l’agent part. }
+    validations: { required: true }
+  - type: textarea
+    id: etapes
+    attributes: { label: Étapes, description: Les étapes numérotées, dans l’ordre. }
+    validations: { required: true }
+  - type: textarea
+    id: interdits
+    attributes:
+      label: Interdits
+      value: |
+        Les interdits communs I1 à I8 s’appliquent : app.html n’est jamais modifié ; tout fait cite une source lue et datée ; seules des sources suisses et européennes sont admises ; aucune image générée ; aucune phrase nominale ; aucune publication sans accord ; seule Athéna fusionne ; aucune lecture automatisée du Compendium.
+    validations: { required: true }
+  - type: textarea
+    id: acceptation
+    attributes: { label: Critères d’acceptation, description: Chaque critère doit correspondre à un test ou à un contrôle nommé. }
+    validations: { required: true }
+  - type: textarea
+    id: sources
+    attributes: { label: Sources requises, description: Les sources à lire, avec leur URL. }
+    validations: { required: true }
+  - type: input
+    id: livrable
+    attributes: { label: Livrable, description: La branche et les fichiers livrés. }
+    validations: { required: true }
+  - type: input
+    id: passation
+    attributes: { label: Passation, description: L’agent qui reçoit le travail, et ce qu’il reçoit. }
+    validations: { required: true }
+  - type: input
+    id: dependances
+    attributes: { label: Dépendances, description: Les tickets ou les phases qui doivent être terminés avant. }
+    validations: { required: true }
+  - type: input
+    id: echeance
+    attributes: { label: Échéance, description: "La date limite (JJ.MM.AAAA, Europe/Zurich)." }
+    validations: { required: true }
+  - type: checkboxes
+    id: regle
+    attributes:
+      label: Règle universelle
+      options:
+        - label: "Le projet cible doit avoir un résultat de HAUTE QUALITÉ. L’usage des jetons doit être raisonnable et optimisé, et tout gaspillage est formellement interdit. L’économie de jetons est autorisée si et seulement si elle ne dégrade pas la qualité du travail."
+          required: true
