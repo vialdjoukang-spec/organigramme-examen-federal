@@ -47,19 +47,20 @@ async def ecran(b, out, nom, vp, mobile):
        cote:v[0]&&R[0].querySelector('.tw').getBoundingClientRect().top<=v[0].getBoundingClientRect().bottom}}""", c0)
     for k, v in r.items():
         out[f'{nom}_{k}'] = v
-    first = pg.locator('#v-not .nr[data-k^="d"] .pv').first
-    await first.scroll_into_view_if_needed()
-    if mobile: await first.tap()
-    else: await first.hover()
-    await pg.wait_for_timeout(700)
-    out[f'{nom}_fenetre_pct'] = await pg.evaluate("!$('#tip').hidden&&/Fréquence du diagnostic/.test($('#tip').textContent)&&/Cadre|à vérifier/.test($('#tip').textContent)")
-    await pg.evaluate("hideTip(true)")
+    out[f'{nom}_pv_liste_sans_cible'] = await pg.evaluate("$$('#v-not .nr .pv').every(e=>!e.hasAttribute('data-t')&&!e.hasAttribute('tabindex'))")
     tw = pg.locator('#v-not .nr[data-k^="d"] .tw').first
+    await tw.scroll_into_view_if_needed()
     if mobile: await tw.tap()
     else: await tw.click()
     await pg.wait_for_timeout(600)
-    out[f'{nom}_fenetre_dd_pct_rouge'] = await pg.evaluate("!$('#tip').hidden&&!!$('#tip .pvl .pv')")
+    out[f'{nom}_fenetre_dd_pct_rouge'] = await pg.evaluate("!$('#tip').hidden&&!!$('#tip .pvl .pv[data-t^=\"pv|\"]')")
     await pg.screenshot(path=os.path.join(SHOTS, f'prevalence-{nom}.png'))
+    pv = pg.locator('#tip .pvl .pv[data-t]').first
+    if mobile: await pv.tap()
+    else: await pv.click()
+    await pg.wait_for_timeout(700)
+    out[f'{nom}_fenetre_pct'] = await pg.evaluate("!$('#tip').hidden&&/Fréquence du diagnostic/.test($('#tip').textContent)&&/Cadre|à vérifier/.test($('#tip').textContent)")
+    await pg.screenshot(path=os.path.join(SHOTS, f'prevalence-{nom}-source.png'))
     out[f'{nom}_sans_erreur'] = not errs
     await c.close()
 

@@ -16,12 +16,12 @@ def rep(a, b):
 
 LEG = ('<p class="pvleg">Le pourcentage en rouge donne la fréquence du diagnostic chez les patients qui consultent pour cette plainte, '
        'dans le cadre indiqué (médecine de famille ou urgences, en Suisse ou en Europe). Une prévalence dans la population générale '
-       'ne sert qu’à défaut, et elle porte alors la mention « population ». Survolez ou touchez le pourcentage pour lire le cadre, '
-       'la source et sa date de lecture. Les diagnostics sont classés par fréquence décroissante ; « % à vérifier » signale qu’aucune '
+       'ne sert qu’à défaut, et elle porte alors la mention « population ». Ouvrez le diagnostic, puis survolez ou touchez son pourcentage pour lire '
+       'le cadre, la source et sa date de lecture. Les diagnostics sont classés par fréquence décroissante ; « % à vérifier » signale qu’aucune '
        'source suisse ou européenne n’a encore été lue, et ces diagnostics suivent, dans l’ordre de leur probabilité clinique.</p>')
 
 rep('</head>',
-    '<style>.pv{color:var(--bad);font:700 .86rem var(--fb);display:inline-block;min-width:24px;min-height:24px;line-height:24px;padding:0 3px;margin-left:.3em;white-space:nowrap;cursor:help;text-decoration:underline dotted;text-underline-offset:3px}'
+    '<style>.pv{color:var(--bad);font:700 .86rem var(--fb);margin-left:.4em;white-space:nowrap}.pv[data-t]{display:inline-block;min-width:24px;min-height:24px;line-height:24px;padding:0 3px;cursor:help;text-decoration:underline dotted;text-underline-offset:3px}'
     '.pv.av{font-weight:600;font-style:italic}.pv small{color:var(--mut);font-weight:500;font-style:normal}'
     '.pvleg{margin:4px 2px 8px;color:var(--ink);font-size:.76rem;line-height:1.4;text-align:justify}.pvl{margin:0 0 6px}</style></head>')
 
@@ -30,8 +30,8 @@ rep('const NLAB=[',
     "const PV_LEG='" + LEG.replace("'", "\\'") + "';\n"
     "function pvOf(c,i){const P=PRV[c];return P?P.find(x=>x[0]===i)||null:null}\n"
     "function pvFmt(x){if(!x||x[1]==null)return '% à vérifier';return (x[2]?x[2]+' ':'')+String(x[1]).replace('.',',')+' %'+(x[3]?' <small>population</small>':'')}\n"
-    "function pvSpan(c,i){const x=pvOf(c,i);return `<span class=\"pv${x&&x[1]!=null?'':' av'}\" data-t=\"pv|${c}|${i}\" tabindex=\"0\" role=\"button\">${pvFmt(x)}</span>`}\n"
-    "function pvLine(c,i){const e=((ckW('PREV')||{})[c]||{})[i];return `<p class=\"pvl\"><b>Fréquence</b> : ${pvSpan(c,i)}${e&&e.cadre?' · '+esc(e.cadre)+'.':' · survolez ou touchez le pourcentage pour lire le cadre et la source.'}</p>`}\n"
+    "function pvSpan(c,i,act){const x=pvOf(c,i);return `<span class=\"pv${x&&x[1]!=null?'':' av'}\"${act?` data-t=\"pv|${c}|${i}\" tabindex=\"0\" role=\"button\"`:''}>${pvFmt(x)}</span>`}\n"
+    "function pvLine(c,i){const e=((ckW('PREV')||{})[c]||{})[i];return `<p class=\"pvl\"><b>Fréquence</b> : ${pvSpan(c,i,1)}${e&&e.cadre?' · '+esc(e.cadre)+'.':' · survolez ou touchez le pourcentage pour lire le cadre et la source.'}</p>`}\n"
     'const NLAB=[')
 
 rep("N[0].forEach((t,i)=>o.push({k:'d'+i,s:'2 · Diagnostics différentiels',t}));",
