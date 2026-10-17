@@ -113,6 +113,15 @@ def validate(root):
         for vue, p in e['vues'].items():
             if not os.path.exists(os.path.join(root, p)):
                 errs.append(('nc', e['id'], f'vue {vue} : {p} introuvable'))
+    ncs = {e['id']: e for e in data['nc']}
+    for e in data['syn']:
+        for lien in e.get('vues', []):
+            _, nid, vue = lien.split('|')
+            if nid not in ncs:
+                errs.append(('syn', e['id'], f'vues renvoie à {nid}, absent de data/ck/nc.json'))
+            elif not (ncs[nid].get('vues') or {}).get(vue):
+                print(f'avertissement : syn {e["id"]} renvoie à la vue {nid}|{vue}, pas encore livrée ; '
+                      f'l’affichage retombe sur la première vue disponible.', file=sys.stderr)
     for e in data['loc']:
         need('loc', e['module'], 'A', 'syn', e['A'])
         need('loc', e['module'], 'B', 'hyp', e['B'])

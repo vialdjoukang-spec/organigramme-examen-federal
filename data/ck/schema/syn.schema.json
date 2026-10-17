@@ -63,6 +63,16 @@
    },
    "statut": {
     "$ref": "src.schema.json#/$defs/statut"
+   },
+   "vues": {
+    "type": "array",
+    "minItems": 1,
+    "uniqueItems": true,
+    "description": "Vues de schéma liées (nc|ncNN|vue). Une vue pas encore livrée donne un avertissement, pas une erreur.",
+    "items": {
+     "type": "string",
+     "pattern": "^nc\\|nc(0[1-9]|1[0-2])\\|(face|profil|trois_quarts|plan|voie_motrice)$"
+    }
    }
   }
  }
