@@ -3,7 +3,7 @@
 
 Chaque contrôle doit réussir sur un jeu d'essai conforme et échouer quand sa règle est violée :
 compilateur et schémas (G5), doses (G1), sources (G2), domaines (G3), Lyncée (G4), verbes (G6),
-rouge (G7), budgets, schémas SVG des nerfs, rapport des fautes et accord de Vial sur une faute critique.
+rouge (G7), justification (G8), budgets, schémas SVG des nerfs, rapport des fautes et accord de Vial sur une faute critique.
 Le jeu d'essai est FICTIF (substance-test, sources d'exemple) et vit dans un dossier temporaire.
 Sortie : une ligne par contrôle, puis le décompte ; code 1 au premier échec.
 """
@@ -25,14 +25,18 @@ GLO = [{'id': 'dyspnee', 'type': 'signe', 'label': 'Dyspnée', 'flexions': ['dys
         'recherche': 'On interroge le patient sur la gêne et on compte la fréquence respiratoire.', 'src': REF},
        {'id': 'signe-exemple', 'type': 'syndrome', 'label': 'Syndrome exemple',
         'def': 'Ce syndrome fictif associe une dyspnée et une gêne au repos.', 'composantes': ['dyspnee'], 'src': REF}]
+# Justification exigée par G8 (mécanisme, principe, pourquoi ce choix ; limites pour un moyen).
+JX = {'mecanisme': 'La maladie fictive bloque la fonction du tissu.', 'principe': 'Le moyen fictif agit sur ce blocage.',
+      'pourquoi_ce_choix': 'Il est disponible partout et plus simple que les autres.'}
 SYN = [{'id': 'syn-ex', 'label': 'Syndrome exemple', 'module': 'neuro-nc', 'signes': ['dyspnee'],
         'a_demander': ['durée de la gêne'], 'hyp': ['hyp-ex'], 'src': REF}]
 HYP = [{'id': 'hyp-ex', 'label': 'Hypothèse exemple', 'syn': ['syn-ex'], 'bloquant': False,
-        'exam': {'lignes': [{'rang': 1, 'nom': 'Examen A', 'pourquoi': 'Il est disponible partout.', 'recherche': 'une anomalie', 'src': REF},
-                            {'rang': 2, 'nom': 'Examen B', 'recherche': 'une cause rare', 'src': REF}]},
+        'exam': {'lignes': [{'rang': 1, 'nom': 'Examen A', **JX, 'recherche': 'une anomalie', 'src': REF},
+                            {'rang': 2, 'nom': 'Examen B', **JX, 'recherche': 'une cause rare', 'src': REF}]},
         'confirmation': 'Le diagnostic se confirme par l’examen A.',
         'pec': {'objectif': 'On rétablit la fonction.', 'mesures_generales': ['On protège la zone atteinte.'],
-                'moyens_specifiques': [{'type': 'pharmaco', 'texte': 'On donne la substance-test 10 mg/j par voie orale.',
+                'moyens_specifiques': [{'type': 'pharmaco', **JX, 'limites': 'Elle est contre-indiquée en cas d’allergie connue.',
+                                        'texte': 'On donne la substance-test 10 mg/j par voie orale.',
                                         'dose_ref': 'substance-test-po', 'src': REF}]}, 'src': REF}]
 NC = [{'id': 'nc07', 'nom': 'Nerf exemple', 'noyaux': ['noyau A'], 'trajet': ['segment A'], 'foramens': ['orifice A'],
        'territoires': ['territoire A'], 'vues': {'face': 'assets/nc/nc07-face.svg'}, 'tour': None,
@@ -109,7 +113,7 @@ def mut(f, fn, g):
 
 
 # Socle : le jeu conforme passe partout.
-case('socle_jeu_conforme_passe_G1_a_G7', lambda f: run('audit/niveau1.py', '--racine', f.d)[0] == 0)
+case('socle_jeu_conforme_passe_G1_a_G8', lambda f: run('audit/niveau1.py', '--racine', f.d)[0] == 0)
 case('socle_ck_build_check_a_jour', lambda f: run('ck_build.py', '--racine', f.d, '--check')[0] == 0)
 case('socle_ck_build_perime_echoue', lambda f: (f.data['glo'][0].update(label='Dyspnée modifiée'), f.save(),
                                                run('ck_build.py', '--racine', f.d, '--check')[0] == 1)[-1])
@@ -172,13 +176,13 @@ case('G4_update_resserre_sans_ajouter', lambda f: (f.data['glo'].append({'id': '
 case('G5_reference_et_lignes_ensemble_echoue', lambda f: mut(f, lambda d: d['hyp'][0]['exam'].update(
     reference={'nom': 'Examen R', 'recherche': 'la cause', 'src': REF}), 'G5'))
 case('G5_sans_deuxieme_intention_echoue', lambda f: mut(f, lambda d: d['hyp'][0]['exam']['lignes'].pop(), 'G5'))
-case('G5_premiere_intention_sans_pourquoi_echoue', lambda f: mut(f, lambda d: d['hyp'][0]['exam']['lignes'][0].pop('pourquoi'), 'G5'))
+case('G5_premiere_intention_sans_pourquoi_ce_choix_echoue', lambda f: mut(f, lambda d: d['hyp'][0]['exam']['lignes'][0].pop('pourquoi_ce_choix'), 'G5'))
 case('G5_sans_objectif_echoue', lambda f: mut(f, lambda d: d['hyp'][0]['pec'].pop('objectif'), 'G5'))
 case('G5_renvoi_croise_inexistant_echoue', lambda f: mut(f, lambda d: d['syn'][0]['signes'].append('absent'), 'G5'))
 case('G5_module_hors_GES_echoue', lambda f: mut(f, lambda d: d['loc'][0].update(module='module-inconnu'), 'G5'))
 case('G5_lesion_incomplete_echoue', lambda f: mut(f, lambda d: d['nc'][0]['lesions'][0].pop('exam_orientant'), 'G5'))
 case('G5_signe_sans_recherche_echoue', lambda f: mut(f, lambda d: d['glo'][0].pop('recherche'), 'G5'))
-case('G5_reference_seule_passe', lambda f: not mut(f, lambda d: d['hyp'][0].update(exam={'reference': {'nom': 'Examen R', 'recherche': 'la cause', 'src': REF}}), 'G5'))
+case('G5_reference_seule_passe', lambda f: not mut(f, lambda d: d['hyp'][0].update(exam={'reference': {'nom': 'Examen R', **JX, 'recherche': 'la cause', 'src': REF}}), 'G5'))
 # G6 verbes
 case('G6_phrase_nominale_echoue', lambda f: mut(f, lambda d: d['hyp'][0]['pec'].update(objectif='Restauration rapide de la fonction motrice.'), 'G6'))
 case('G6_elision_verbale_passe', lambda f: not mut(f, lambda d: d['hyp'][0]['pec'].update(objectif='La fonction s’améliore en quelques jours.'), 'G6'))
@@ -190,6 +194,31 @@ case('G7_urg_sur_bloquant_passe', lambda f: not mut(f, lambda d: d['hyp'][0].upd
     bloquant=True, confirmation='Le diagnostic <span class="urg">se confirme</span> en urgence.'), 'G7'))
 case('G7_css_ck_rouge_echoue', lambda f: (f.app(APP.replace('.ck-win{color:#111}', '.ck-win{color:#c0392b}')), f.gate('G7') == 1)[-1])
 case('G7_css_ck_urg_passe', lambda f: (f.app(APP.replace('.ck-win{color:#111}', '.ck-win .urg{color:var(--bad)}')), f.gate('G7') == 0)[-1])
+# G8 justification
+H0 = lambda d: d['hyp'][0]
+case('G8_jeu_conforme_passe', lambda f: f.gate('G8') == 0)
+case('G8_examen_sans_mecanisme_echoue', lambda f: mut(f, lambda d: H0(d)['exam']['lignes'][1].pop('mecanisme'), 'G8'))
+case('G8_examen_principe_vide_echoue', lambda f: mut(f, lambda d: H0(d)['exam']['lignes'][0].update(principe='  '), 'G8'))
+case('G8_reference_sans_pourquoi_ce_choix_echoue', lambda f: mut(f, lambda d: H0(d).update(exam={'reference': {
+    'nom': 'Examen R', 'mecanisme': JX['mecanisme'], 'principe': JX['principe'], 'recherche': 'la cause', 'src': REF}}), 'G8'))
+case('G8_moyen_sans_limites_echoue', lambda f: mut(f, lambda d: H0(d)['pec']['moyens_specifiques'][0].pop('limites'), 'G8'))
+case('G8_moyen_principe_recopie_echoue', lambda f: mut(f, lambda d: H0(d)['pec']['moyens_specifiques'][0].update(
+    principe=JX['mecanisme']), 'G8'))
+case('G8_champ_trop_court_echoue', lambda f: mut(f, lambda d: H0(d)['pec']['moyens_specifiques'][0].update(pourquoi_ce_choix='Efficace.'), 'G8'))
+case('G8_ancien_champ_pourquoi_echoue', lambda f: mut(f, lambda d: H0(d)['exam']['lignes'][0].update(pourquoi='Il est disponible partout.'), 'G8'))
+case('G8_a_verifier_admis', lambda f: not mut(f, lambda d: H0(d)['pec']['moyens_specifiques'][0].update(
+    limites='Les contre-indications restent À vérifier dans une source suisse.'), 'G8'))
+# Vue liée depuis un syndrome (voie motrice) : nerf absent = erreur ; vue non livrée = avertissement seul.
+case('G5_syn_vue_nerf_absent_echoue', lambda f: mut(f, lambda d: d['syn'][0].update(vues=['nc|nc08|voie_motrice']), 'G5'))
+case('G5_syn_vue_non_livree_avertit', lambda f: (f.data['syn'][0].update(vues=['nc|nc07|voie_motrice']), f.save(),
+                                               (lambda r: r[0] == 0 and 'pas encore livrée' in r[1])(run('ck_build.py', '--racine', f.d)))[-1])
+case('G5_syn_vue_inconnue_echoue', lambda f: mut(f, lambda d: d['syn'][0].update(vues=['nc|nc07|dessus']), 'G5'))
+# Geste (A) relié à un syndrome (Podalire, 17.10.2026) : la clé doit exister dans le catalogue GES de l’application.
+_REEL = open(os.path.join(ROOT, 'app_v2.html'), encoding='utf-8').read()
+case('G5_syn_gestes_cle_connue_passe', lambda f: (f.app(_REEL), f.data['syn'][0].update(gestes=['thorax_8']), f.save(),
+                                                 run('ck_build.py', '--racine', f.d)[0] == 0)[-1])
+case('G5_syn_gestes_cle_absente_echoue', lambda f: (f.app(_REEL), f.data['syn'][0].update(gestes=['thorax_999']), f.save(),
+                                                   (lambda r: r[0] == 1 and 'absente de GES' in r[1])(run('ck_build.py', '--racine', f.d)))[-1])
 # Artefact
 case('artefact_audit_flags_ecrit', lambda f: (mut(f, lambda d: d['glo'][0].pop('src'), 'G2'),
                                              run('audit/niveau1.py', '--racine', f.d, '--sortie', os.path.join(f.d, 'qa', 'audit-flags.json')),

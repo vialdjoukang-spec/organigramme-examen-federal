@@ -1,0 +1,2 @@
+/* Généré par tools/ck_build.py depuis data/ck/ : ne pas modifier à la main. */
+window.CK_GLO_K={"kaliemie":{"def":"Cet examen mesure la concentration de potassium dans le plasma ; elle devient une hyperkaliémie au-dessus de 5,5 millimoles par litre.","flexions":["kaliémies"],"id":"kaliemie","label":"Kaliémie","src":[{"id":"R-ERC-SPEC","loc":"Hyperkalaemia, Definition","lu_le":"2026-10-17"}],"statut":"sourcé","type":"examen","valide_par_vial":false}};

@@ -15,7 +15,8 @@ CHAMPS_NON_TEXTE = {'id', 'type', 'module', 'statut', 'lu_le', 'lu_par', 'url', 
                     'aips_rubrique', 'org', 'loc'}
 # Champs rédigés en phrases complètes : G6 exige une forme verbale conjuguée par phrase.
 CHAMPS_PROSE = {'def', 'orientation', 'pourquoi', 'precautions', 'alternative', 'confirmation',
-                'objectif', 'mesures_generales', 'texte', 'deficit', 'comment'}
+                'objectif', 'mesures_generales', 'texte', 'deficit', 'comment',
+                'mecanisme', 'principe', 'pourquoi_ce_choix', 'limites'}
 
 
 def today():
