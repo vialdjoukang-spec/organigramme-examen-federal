@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Progrès des binômes · CK</title>
+<style>
+:root{--fg:#111;--mut:#444;--line:#d6d6cf}
+*{box-sizing:border-box}
+body{margin:0;background:#fbfbf8;color:var(--fg);font:18px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:900px;margin:0 auto;padding:28px 20px 40px}
+h1{font-size:1.6rem;margin:0 0 4px}
+.meta{color:var(--mut);margin:0 0 26px;font-size:1rem}
+.g{border:1px solid var(--line);border-radius:12px;background:#fff;padding:18px 20px;margin:0 0 22px}
+.g h2{font-size:1.25rem;margin:0 0 2px}
+.who{color:var(--mut);font-size:.95rem;margin:0 0 12px}
+.row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pct{font-size:2.6rem;font-weight:800;line-height:1}
+.pct small{font-size:1.1rem;font-weight:600;color:var(--mut)}
+.bar{position:relative;height:38px;border-radius:8px;background:#e9e9e2;overflow:hidden;margin:12px 0 10px;border:1px solid #c9c9c0}
+.bar i{position:absolute;top:0;bottom:0;left:0;display:block}
+.b1 .m{background:#1d4ed8}.b1 .c{background:#93b4f5}
+.b2 .m{background:#047857}.b2 .c{background:#86d9bb}
+.leg{display:flex;gap:18px;flex-wrap:wrap;font-size:1rem}
+.leg span::before{content:"";display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-2px;background:var(--k)}
+.n{font-variant-numeric:tabular-nums}
+.av{color:#b91c1c;font-weight:700}
+.err{color:#7a4b00;font-size:.95rem;min-height:1.2em}
+</style>
+</head>
+<body>
+<main>
+<h1>Progrès des deux binômes · CK</h1>
+<p class="meta"><span id="maj">Chargement…</span> · <span id="cd"></span></p>
+<section class="g b1">
+<h2>Prévalences des différentiels</h2>
+<p class="who">Asclépios rédige · Galien audite</p>
+<div class="row"><span class="pct" id="p1">0 %</span><span class="n" id="t1"></span></div>
+<div class="bar" role="img" id="r1"><i class="c" id="c1"></i><i class="m" id="m1"></i></div>
+<div class="leg n" id="l1"></div>
+</section>
+<section class="g b2">
+<h2>Monographies des diagnostics</h2>
+<p class="who">Hygie rédige · Hérophile audite</p>
+<div class="row"><span class="pct" id="p2">0 %</span><span class="n" id="t2"></span></div>
+<div class="bar" role="img" id="r2"><i class="c" id="c2"></i><i class="m" id="m2"></i></div>
+<div class="leg n" id="l2"></div>
+</section>
+<p class="err" id="err"></p>
+</main>
+<script>
+"use strict";
+// Portage JS de jauge/binomes.py : mêmes règles de comptage. Aucune donnée personnelle.
+const R="vialdjoukang-spec/organigramme-examen-federal",RAW="https://raw.githubusercontent.com/"+R+"/",
+API="https://api.github.com/repos/"+R+"/branches?per_page=100",PERIOD=180,
+MONO_REQ=["def","epi","phy","cli","exp","dia","but","mes","pha"],
+SSP_RE=/^S\d+(?:\.\d+)+$/,HEAD_RE=/^##\s+.+\(([^)]*)\).*relu/gim,
+LETTRES="-0123456789_abcdefghijklmnopqrstuvwxyz".split("");
+let branches=null,apiHold=0,mainSha="",NOT=null,next=0;
+const $=id=>document.getElementById(id);
+const truthy=v=>!(v==null||v===false||v===0||v===""||(Array.isArray(v)&&!v.length)||(typeof v=="object"&&!Array.isArray(v)&&!Object.keys(v).length));
+async function txt(ref,p){try{const r=await fetch(RAW+ref+"/"+p+"?t="+Date.now(),{cache:"no-store"});return r.ok?await r.text():""}catch(e){return ""}}
+async function js(ref,p){const t=await txt(ref,p);if(!t)return {};try{const o=JSON.parse(t);const out={};if(o&&typeof o=="object")for(const k in o)if(!k.startsWith("_"))out[k]=o[k];return out}catch(e){return {}}}
+function constNOT(app){const k="\nconst NOT=";const i=app.indexOf(k);if(i<0||app.indexOf(k,i+1)>=0)return null;
+ let j=i+k.length,d=0,s=false,q="";for(;j<app.length;j++){const c=app[j];
+  if(s){if(c=="\\")j++;else if(c==q)s=false;continue}
+  if(c=='"'){s=true;q=c}else if(c=="["||c=="{")d++;else if(c=="]"||c=="}"){d--;if(!d){j++;break}}}
+ try{return JSON.parse(app.slice(i+k.length,j))}catch(e){return null}}
+function mid(n){return String(n).toLowerCase().normalize("NFKD").replace(/\p{Mn}/gu,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")}
+function heads(md){const o=[];for(const m of (md||"").matchAll(HEAD_RE))for(const x of m[1].split(","))if(x.trim())o.push(x.trim());return o}
+const isNum=v=>typeof v=="number"||typeof v=="boolean";
+const prevOk=e=>isNum(e.prev_pct)&&truthy(e.src)&&truthy(e.date_lu)&&String(e.loc||"").trim()!=="";
+const prevAv=e=>e.prev_pct==null||e.statut==="À vérifier";
+const monoOk=v=>MONO_REQ.every(f=>v[f]!==undefined&&String(v[f]===null?"None":v[f]).trim()!=="");
+async function loadMono(ref){const M={};const L=await Promise.all(LETTRES.map(l=>js(ref,"data/ck/mono/"+l+".json")));for(const o of L)Object.assign(M,o);return M}
+async function source(ref){const [pv,mono,gm,hm,hh]=await Promise.all([js(ref,"data/ck/prev.json"),loadMono(ref),txt(ref,"audit/RAPPORT_AUDIT_MEDICAL.md"),txt(ref,"audit/RAPPORT_AUDIT_MONO.md"),txt(ref,"audit/RAPPORT_AUDIT_HEROPHILE.md")]);return {pv,mono,gm,hm:hm||hh}}
+// Mesure sur un ensemble de sources (main seul, ou main + branches : le meilleur état par diagnostic l'emporte)
+function mesurer(S){let tot=0,ok=0,av=0;const det={};
+ for(const c in NOT){const bloc=NOT[c],noms=(bloc&&bloc.length?bloc[0]:[])||[];const st=new Array(noms.length).fill(0);
+  for(const s of S){const by={};const it=(s.pv[c]&&s.pv[c].items)||[];for(const e of it)if(e&&Number.isInteger(e.i))by[e.i]=e;
+   for(let i=0;i<noms.length;i++){const e=by[i];const v=e?(prevOk(e)?2:prevAv(e)?1:0):0;if(v>st[i])st[i]=v}}
+  const o=st.filter(v=>v==2).length,a=st.filter(v=>v==1).length;tot+=noms.length;ok+=o;av+=a;det[c]=noms.length}
+ const sa=new Set();for(const s of S)for(const x of heads(s.gm))if(SSP_RE.test(x))sa.add(x);
+ let aud=0;for(const c of sa)aud+=det[c]||0;
+ const ids=new Set();for(const c in NOT){const b=NOT[c];for(const d of (b&&b.length?b[0]:[])||[])if(truthy(d))ids.add(mid(d))}
+ let nm=0;for(const k of ids)if(S.some(s=>s.mono[k]&&monoOk(s.mono[k])))nm++;
+ const ka=new Set();for(const s of S){for(const x of heads(s.hm))if(!SSP_RE.test(x))ka.add(x);for(const k in s.mono){const v=s.mono[k]||{};if(truthy(v.audite)||truthy(v.audite_par)||truthy(v.aud))ka.add(k)}}
+ let am=0;for(const k of ka)if(ids.has(k))am++;
+ return {p:{ok,tot,av,aud},m:{ok:nm,tot:ids.size,aud:am}}}
+const pct=(n,d)=>d?Math.round(100*n/d):0;
+const fr=n=>n.toLocaleString("fr-CH");
+function show(i,a,b,txt2){const pm=pct(a.ok,a.tot),pb=pct(b.ok,b.tot);
+ $("p"+i).innerHTML=pm+" % <small>fusionné"+(pb>pm?" · "+pb+" % avec les branches":"")+"</small>";
+ $("m"+i).style.width=(a.tot?100*a.ok/a.tot:0)+"%";$("c"+i).style.width=(b.tot?100*b.ok/b.tot:0)+"%";
+ $("r"+i).setAttribute("aria-label",pm+" % fusionné, "+pb+" % en cours");
+ $("t"+i).textContent=fr(a.ok)+" / "+fr(a.tot)+" · audités "+fr(a.aud);
+ $("l"+i).innerHTML='<span style="--k:var(--x)">fusionné (main) : '+fr(a.ok)+"</span><span>en cours (branches) : "+fr(b.ok)+" · audités "+fr(b.aud)+"</span>"+txt2(a,b);
+ const sp=$("l"+i).children;sp[0].style.setProperty("--k",i==1?"#1d4ed8":"#047857");sp[1].style.setProperty("--k",i==1?"#93b4f5":"#86d9bb")}
+async function refresh(){let note="";
+ if(Date.now()>=apiHold){try{const r=await fetch(API,{cache:"no-store"});
+  if(r.ok){const L=await r.json();branches=L.filter(b=>/^feat\/(ddx-prev-|mono-)/.test(b.name)).map(b=>b.commit.sha);const m=L.find(b=>b.name=="main");if(m&&m.commit.sha!==mainSha){mainSha=m.commit.sha;NOT=null}}
+  else{apiHold=Date.now()+(r.status==403||r.status==429?15*60e3:5*60e3);note="Liste des branches indisponible (limite GitHub) : dernière liste connue utilisée."}}catch(e){note="Liste des branches indisponible : dernière liste connue utilisée."}}
+ const mref=mainSha||"main";
+ if(!NOT||!mainSha){NOT=constNOT(await txt(mref,"app_v2.html"))||{}}
+ const M=await source(mref);const B=await Promise.all((branches||[]).map(source));
+ const a=mesurer([M]),b=mesurer([M,...B]);
+ show(1,a.p,b.p,(x,y)=>'<span class="av">à vérifier : '+fr(x.av)+(y.av>x.av?" (branches "+fr(y.av)+")":"")+"</span>");
+ show(2,a.m,b.m,()=> "");
+ $("maj").textContent="mis à jour "+new Date().toLocaleTimeString("fr-CH",{timeZone:"Europe/Zurich",hour:"2-digit",minute:"2-digit"})+" (heure de Zurich) · "+(branches?branches.length:0)+" branche(s) en cours";
+ $("err").textContent=note;next=Date.now()+PERIOD*1e3}
+function tick(){if(!next)return;const s=Math.max(0,Math.round((next-Date.now())/1e3));$("cd").textContent="prochaine mise à jour dans "+Math.floor(s/60)+" min "+String(s%60).padStart(2,"0")+" s";
+ if(s<=0){next=0;$("cd").textContent="mise à jour…";run()}}
+function run(){refresh().catch(()=>{$("err").textContent="Lecture impossible : nouvel essai dans 3 min.";next=Date.now()+PERIOD*1e3})}
+setInterval(tick,1000);run();
+</script>
+</body>
+</html>

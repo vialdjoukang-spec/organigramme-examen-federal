@@ -36,6 +36,18 @@ def schemas(root):
     return res, reg
 
 
+def ges(root):
+    """Régions de GES (liste) lues dans app_v2.html, ou None si la constante manque."""
+    app = os.path.join(root, 'app_v2.html')
+    if not os.path.exists(app):
+        return None
+    s = open(app, encoding='utf-8').read()
+    k = '\nconst GES='
+    if s.count(k) != 1:
+        return None
+    return json.JSONDecoder().raw_decode(s, s.find(k) + len(k))[0]
+
+
 def modules_ges(root):
     app = os.path.join(root, 'app_v2.html')
     if not os.path.exists(app):
@@ -113,9 +125,25 @@ def validate(root):
         for vue, p in e['vues'].items():
             if not os.path.exists(os.path.join(root, p)):
                 errs.append(('nc', e['id'], f'vue {vue} : {p} introuvable'))
+    ncs = {e['id']: e for e in data['nc']}
+    for e in data['syn']:
+        for lien in e.get('vues', []):
+            _, nid, vue = lien.split('|')
+            if nid not in ncs:
+                errs.append(('syn', e['id'], f'vues renvoie à {nid}, absent de data/ck/nc.json'))
+            elif not (ncs[nid].get('vues') or {}).get(vue):
+                print(f'avertissement : syn {e["id"]} renvoie à la vue {nid}|{vue}, pas encore livrée ; '
+                      f'l’affichage retombe sur la première vue disponible.', file=sys.stderr)
     for e in data['loc']:
         need('loc', e['module'], 'A', 'syn', e['A'])
         need('loc', e['module'], 'B', 'hyp', e['B'])
+    G = ges(root)
+    if G is not None:
+        cles = {i['k'] for r in G for i in r['items']}
+        for e in data['syn']:
+            for k in e.get('gestes', []):
+                if k not in cles:
+                    errs.append(('syn', e['id'], f'gestes renvoie à la clé {k}, absente de GES'))
     if mods is not None:
         for n, key in (('syn', 'module'), ('loc', 'module')):
             for e in data[n]:
@@ -167,8 +195,10 @@ def main(argv=None):
         print(f'ck_build : {len(errs)} erreur(s) ; rien n’est écrit.')
         return 1
     out = build(data)
+    from prev_build import prev_js  # fréquences des diagnostics différentiels (data/ck/prev.json)
+    out['prev.js'] = prev_js(a.racine)
     d = os.path.join(a.racine, 'assets', 'ck')
-    present = {n for n in os.listdir(d) if n.endswith('.js')} if os.path.isdir(d) else set()
+    present = {n for n in os.listdir(d) if n.endswith('.js') and not n.startswith('mono-')} if os.path.isdir(d) else set()  # mono-* : tools/mono_build.py
     if a.check:
         bad = [n for n, c in out.items() if not os.path.exists(os.path.join(d, n))
                or open(os.path.join(d, n), encoding='utf-8').read() != c]

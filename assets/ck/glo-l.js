@@ -1,0 +1,2 @@
+/* Généré par tools/ck_build.py depuis data/ck/ : ne pas modifier à la main. */
+window.CK_GLO_L={"lactate-sanguin":{"alias":["lactate","lactatémie"],"def":"Cet examen dose dans le sang l’acide lactique, que produisent les cellules qui manquent d’oxygène ; son élévation signale une hypoperfusion des tissus.","id":"lactate-sanguin","label":"Lactate sanguin","src":[{"id":"R-SSC-2021","loc":"Recommendation 3, Rationale","lu_le":"2026-10-17"}],"statut":"sourcé","type":"examen","valide_par_vial":false}};
