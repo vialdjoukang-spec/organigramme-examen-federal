@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit médical de niveau 1 · Janus et Galien · sept contrôles déterministes, zéro jeton (CI).
+"""Audit médical de niveau 1 · Janus et Galien · huit contrôles déterministes, zéro jeton (CI).
 
   python3 tools/audit/niveau1.py --only G2          # un contrôle (une étape de CI par contrôle)
   python3 tools/audit/niveau1.py --sortie qa/audit-flags.json   # tous, et l'artefact des signalements
@@ -13,6 +13,10 @@ G4 termes       Lyncée : aucun terme nouveau non défini, renvois glo|id exista
 G5 chaîne       schémas JSON et renvois croisés : lésion, sémiologie, exploration, objectif, mesures, moyens.
 G6 verbes       chaque phrase d'un champ rédigé contient une forme verbale conjuguée.
 G7 rouge        le rouge n'apparaît que sur un élément bloquant (bloquant: true) ou de classe .urg.
+G8 justification  chaque examen (exam.reference, exam.lignes) porte mecanisme, principe et pourquoi_ce_choix ;
+                chaque moyen spécifique (pec.moyens_specifiques) porte en plus limites. Chaque champ est un texte
+                d'au moins 20 caractères et 3 mots, distinct des autres champs du même élément ; une phrase
+                « … À vérifier » est admise quand aucune source n'a été lue.
 Le signalement (élément, contrôle, motif, fichier, ligne) s'écrit dans --sortie, même vide.
 """
 import argparse, colorsys, gzip, json, os, re, subprocess, sys
@@ -302,7 +306,53 @@ def g7(root, data, F):
                             flag(F, 'G7', 'app_v2.html', f'règle « {sel.strip()[:80]} » : rouge hors .urg ou [data-bloquant]', 'app_v2.html', 0)
 
 
-GATES = {'G1': g1, 'G2': g2, 'G3': g3, 'G4': g4, 'G5': g5, 'G6': g6, 'G7': g7}
+# ---------------------------------------------------------------- G8
+JUSTIF_EXAM = ('mecanisme', 'principe', 'pourquoi_ce_choix')
+JUSTIF_MOYEN = JUSTIF_EXAM + ('limites',)
+JUSTIF_MIN = 20
+
+
+def _justif(item, champs, nom):
+    """Rend les motifs d'échec d'un examen ou d'un moyen : champ absent, vide, trop court ou recopié."""
+    if not isinstance(item, dict):
+        return ['élément illisible (objet attendu)']
+    motifs, vus = [], {}
+    if 'pourquoi' in item:
+        motifs.append('champ pourquoi : il est remplacé par pourquoi_ce_choix')
+    for c in champs:
+        v = item.get(c)
+        if not isinstance(v, str) or not v.strip():
+            motifs.append(f'{c} manquant ou vide')
+            continue
+        t = strip_tags(v).strip()
+        if len(t) < JUSTIF_MIN or len(re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿœŒ]+", t)) < 3:
+            motifs.append(f'{c} trop court (au moins {JUSTIF_MIN} caractères et 3 mots) : « {t[:60]} »')
+            continue
+        k = norm(t)
+        if k in vus:
+            motifs.append(f'{c} recopie {vus[k]}')
+        elif norm(strip_tags(str(item.get(nom, '')))) == k:
+            motifs.append(f'{c} recopie {nom}')
+        vus.setdefault(k, c)
+    return motifs
+
+
+def g8(root, data, F):
+    for e in data['hyp']:
+        ex, pec = e.get('exam') or {}, e.get('pec') or {}
+        items = []
+        if isinstance(ex.get('reference'), dict):
+            items.append(('exam.reference', ex['reference'], JUSTIF_EXAM, 'nom'))
+        for i, l in enumerate(ex.get('lignes') or []):
+            items.append((f'exam.lignes[{i}]', l, JUSTIF_EXAM, 'nom'))
+        for i, m in enumerate(pec.get('moyens_specifiques') or []):
+            items.append((f'pec.moyens_specifiques[{i}]', m, JUSTIF_MOYEN, 'texte'))
+        for path, it, champs, nom in items:
+            for m in _justif(it, champs, nom):
+                flag(F, 'G8', _elem('hyp', e), f'{path} : {m}', *_where(root, 'hyp', e))
+
+
+GATES = {'G1': g1, 'G2': g2, 'G3': g3, 'G4': g4, 'G5': g5, 'G6': g6, 'G7': g7, 'G8': g8}
 
 
 def main(argv=None):

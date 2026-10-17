@@ -892,11 +892,11 @@ function blkFit(r){(r||document).querySelectorAll('.blk').forEach(blkFit1)}
    définitions par tranche (CK_GLO_A…) ; CK_SYN, CK_HYP, CK_NC, CK_LOC, CK_SRC, CK_DOSES_CH (objet par identifiant ou tableau).
    Schémas : CK_SVG[chemin du SVG] = texte SVG (assets/nc/ncXX.js, tools/nc_svg_js.py), états dans data-etats (Dédale). Aucune donnée ici. */
 const CK_MAX=5,tipStk=[],ckCou={};let gloI=null,gloOn=false,gloT=0,ckEt='';const gloQ=new Set(),ckTry=new Map();
-const NC_VUE={face:'Face',profil:'Profil',trois_quarts:'Trois quarts','34':'Trois quarts',plan:'Plan',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes','legende'],
+const NC_VUE={face:'Face',profil:'Profil',trois_quarts:'Trois quarts','34':'Trois quarts',plan:'Plan',voie_motrice:'Voie motrice',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes','legende'],
  NC_COUL={trait:'Trait',nerf:'Nerf',noyaux:'Noyaux',foramens:'Foramens',territoires:'Territoires',lesions:'Sites lésionnels',legendes:'Légendes',legende:'Légende numérotée'},
  NC_ETL={trajet:'Trajet',branches:'Branches',fonctions:'Fonctions',lesions:'Lésions'},
  GLO_TY={signe:'signe',syndrome:'syndrome',terme:'terme',examen:'examen',abreviation:'abréviation',eponyme:'éponyme'},
- CK_MOY={pharmaco:'Pharmacologique',interventionnel:'Interventionnel',reeducation:'Rééducation',suivi:'Suivi'},
+ CK_MOY={pharmaco:'Pharmacologique',interventionnel:'Interventionnel',reeducation:'Rééducation',suivi:'Suivi',chirurgie:'Chirurgical',autre:'Mesure locale'},
  CK_DEP={glo:['glo-index','src'],syn:['syn','hyp','src','glo-index'],hyp:['hyp','syn','src','doses_ch','glo-index'],loc:['loc','syn','hyp'],nc:['nc','syn','hyp','src','glo-index']};
 function ckW(n){return window['CK_'+n]}
 function ckFold(s){let o='';for(let i=0;i<s.length;i++){const c=s[i],f=c.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();o+=f.length===1?f:c}return o}
@@ -957,6 +957,7 @@ function modLab(m){const g=typeof GES!=='undefined'&&GES.find(x=>x.id===m);retur
 function ckSrc(L){const S=ckData('SRC')||{};return ckArr(L).map(s=>{if(typeof s==='string')s={id:s};const r=S[s.id]||{},t=r.titre||r.label||s.id;
  return (r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t))+(r.org?' ('+esc(r.org)+')':'')+(s.loc?', '+esc(s.loc):'')+(s.lu_le?', lu le '+esc(ckDate(s.lu_le)):'')}).join(' · ')}
 function ckFoot(e){const av=e.statut==='À vérifier'||!ckArr(e.src).length;return `<p class="ck-src">${av?'<span class="vb pend">À vérifier</span> ':''}${ckArr(e.src).length?'Sources : '+ckSrc(e.src):'Source à lire.'}</p>`}
+function ckJ(l,v){return v?`<br><i>${l}</i> : ${ckP(v)}`:''}
 function ckList(t,L,f){L=ckArr(L);return L.length?`<p><b>${t}</b> :</p><ul>${L.map(x=>'<li>'+f(x)+'</li>').join('')}</ul>`:''}
 function ckLinks(t,n,ty,L){L=ckArr(L);return L.length?`<p><b>${t}</b> : ${L.map(i=>ckLnk(n,ty,i)).join(', ')}.</p>`:''}
 function ckDose(id){if(!id)return '';const d=(ckData('DOSES_CH')||ckData('DOSES')||{})[id];if(d&&d.dose&&d.lu_le)return ` Dose suisse (AIPS) : ${esc(d.dose)}${d.voie?', '+esc(d.voie):''}${d.population?', '+esc(d.population):''} <small>(${d.url?`<a href="${esc(d.url)}" target="_blank" rel="noopener">AIPS</a>`:'AIPS'}, lu le ${esc(ckDate(d.lu_le))})</small>`;
@@ -970,16 +971,16 @@ function ckTip(ty,a,b){
  if(!ckNeed(ty,a,key))return ckWait({syn:'Syndrome',hyp:'Exploration',loc:'Synthèse locale',nc:'Schéma'}[ty]);
  if(ty==='syn'){const e=(ckData('SYN')||{})[a];if(!e)return null;
   return {hd:'Syndrome'+(e.module?' · '+modLab(e.module):''),ti:e.label,h:(e.comment||e.def?`<p>${ckP(e.comment||e.def)}</p>`:'')+ckLinks('Signes à rechercher','GLO','glo',e.signes)
-   +ckList('À demander',e.a_demander,esc)+ckLinks('Hypothèses','HYP','hyp',e.hyp||e.orientation)+ckFoot(e)}}
+   +ckList('À demander',e.a_demander,esc)+ckLinks('Hypothèses','HYP','hyp',e.hyp||e.orientation)+(ckArr(e.vues).length?`<p><b>Sur le schéma</b> : ${ckArr(e.vues).map(v=>ckL(v,ncVue(String(v).split('|')[2]||v))).join(', ')}.</p>`:'')+ckFoot(e)}}
  if(ty==='hyp'){const e=(ckData('HYP')||{})[a];if(!e)return null;
   if(b==='pec'){const p=e.pec||{};return {hd:'Prise en charge',ti:e.label,h:(p.objectif?`<p><b>1. Objectif</b> : ${ckP(p.objectif)}</p>`:'')+ckList('2. Mesures générales',p.mesures_generales,ckP)
-   +ckList('3. Moyens spécifiques',p.moyens_specifiques,m=>(m.type?`<i>${esc(CK_MOY[m.type]||m.type)}</i> : `:'')+ckP(m.texte)+ckDose(m.dose_ref)+(m.statut==='À vérifier'?' <span class="vb pend">À vérifier</span>':'')+(ckArr(m.src).length?` <small>[${ckSrc(m.src)}]</small>`:''))
+   +ckList('3. Moyens spécifiques',p.moyens_specifiques,m=>(m.type?`<b>${esc(CK_MOY[m.type]||m.type)}</b>`:'')+ckJ('Mécanisme',m.mecanisme)+ckJ('Principe',m.principe)+(m.mecanisme||m.principe?'<br><i>Moyen</i> : ':m.type?' : ':'')+ckP(m.texte)+ckDose(m.dose_ref)+ckJ('Pourquoi ce choix',m.pourquoi_ce_choix)+ckJ('Limites',m.limites)+(m.statut==='À vérifier'?' <span class="vb pend">À vérifier</span>':'')+(ckArr(m.src).length?` <small>[${ckSrc(m.src)}]</small>`:''))
    +(p.objectif||ckArr(p.mesures_generales).length||ckArr(p.moyens_specifiques).length?'':'<p><span class="vb pend">À vérifier</span> Prise en charge à rédiger.</p>')+ckFoot(e)}}
   const x=e.exam||{},R=x.reference,Li=ckArr(x.lignes).slice().sort((p,q)=>p.rang-q.rang),rg=r=>r===1?'1re intention':r+'e intention',
-   part=(l,v)=>v?` <i>${l}</i> : ${ckP(v)}`:'',sr=L=>ckArr(L).length?` <small>[${ckSrc(L)}]</small>`:'';
+   part=(l,v)=>v?` <i>${l}</i> : ${ckP(v)}`:'',jx=o=>ckJ('Mécanisme',o.mecanisme)+ckJ('Principe',o.principe)+ckJ('Recherche',o.recherche)+ckJ('Pourquoi cet examen',o.pourquoi_ce_choix||o.pourquoi)+ckJ('Précautions',o.precautions)+ckJ('Alternative',o.alternative),sr=L=>ckArr(L).length?` <small>[${ckSrc(L)}]</small>`:'';
   return {hd:'Exploration',ti:e.label,h:(e.bloquant?'<p><span class="urg" data-bloquant>Urgence</span></p>':'')
-   +(R?`<p><b>Examen de référence</b> : ${ckP(R.nom)}${part('Recherche',R.recherche)}${sr(R.src)}</p>`:'')
-   +Li.map(l=>`<p><b>${rg(l.rang)}</b> : ${ckP(l.nom)}${part('Pourquoi',l.pourquoi)}${part('Précautions',l.precautions)}${part('Recherche',l.recherche)}${part('Alternative',l.alternative)}${sr(l.src)}</p>`).join('')
+   +(R?`<p><b>Examen de référence</b> : ${ckP(R.nom)}${jx(R)}${sr(R.src)}</p>`:'')
+   +Li.map(l=>`<p><b>${rg(l.rang)}</b> : ${ckP(l.nom)}${jx(l)}${sr(l.src)}</p>`).join('')
    +(R||Li.length?'':'<p><span class="vb pend">À vérifier</span> Aucun examen renseigné.</p>')+(e.confirmation?`<p><b>Confirmation</b> : ${ckP(e.confirmation)}</p>`:'')
    +ckLinks('Syndrome','SYN','syn',e.syn)+(e.pec?`<p>${ckL('hyp|'+a+'|pec','Prise en charge après confirmation →')}</p>`:'')+ckFoot(e)}}
  if(ty==='loc'){const e=(ckData('LOC')||{})[a];if(!e)return null;const t=b==='B'?'B':'A',L=ckArr(e[t]),T={A:'A. Syndromes',B:'B. Diagnostics · Exploration · Prise en charge'};
