@@ -20,7 +20,7 @@ PAGE = ('<section id="fx-ck" class="card"><p id="fx1">Le faciès cushingoïde se
         '<h3 id="fx5">Faciès cushingoïde</h3><p><button type="button" id="fx6">Faciès cushingoïde</button></p>'
         '<p id="fx2"><span class="tw" id="t-loc" data-t="loc|neuro-nc|A" tabindex="0" role="button">Synthèse locale</span> · '
         '<span class="tw" id="t-nc" data-t="nc|ncT|face" tabindex="0" role="button">Schéma de test</span> · '
-        '<span class="tw" id="t-nc99" data-t="nc|nc99|face" tabindex="0" role="button">Schéma sans fichier JS</span> · <span class="tw" id="t-nc07" data-t="nc|nc07|34" tabindex="0" role="button">Nerf facial (VII)</span></p><label class="gr" id="fx7" data-t="g|thorax|0"><input type="checkbox" id="fx7c"><p>Recherche d’un purpura.</p></label></section>')
+        '<span class="tw" id="t-nc99" data-t="nc|nc99|face" tabindex="0" role="button">Schéma sans fichier JS</span></p><label class="gr" id="fx7" data-t="g|thorax|0"><input type="checkbox" id="fx7c"><p>Recherche d’un purpura.</p></label></section>')
 K = "(window.tipK||tipK)"
 
 
@@ -41,8 +41,8 @@ async def profile(b, mobile, out, errs):
     out[pre + 'lieur_sans_accent'] = await ev("!!$('#fx3 .glo[data-t=\"glo|facies-cushingoide\"]')")
     out[pre + 'lieur_abreviation_casse'] = await ev("(()=>{const L=$$('#fx4 .glo');return L.length===1&&L[0].textContent==='AVC'})()")
     out[pre + 'lieur_exclusions'] = await ev("!$('#fx5 .glo')&&!$('#fx6 .glo')&&!$('#grid .glo')&&!$('.tabs .glo')")
-    out[pre + 'index_atlas'] = await ev("(()=>{const o=window.CK_GLO_IDX;window.CK_GLO_IDX={f:[['Faciès cushingoïde','facies-cushingoide']],a:[['AVC','avc']]};const I=gloIndex();"
-                                         "const ok=!!I&&I.mF.get('facies cushingoide')==='facies-cushingoide'&&I.mA.get('AVC')==='avc'&&I.mF.size===1;window.CK_GLO_IDX=o;gloI=null;gloIndex();return ok})()")
+    out[pre + 'index_atlas'] = await ev("(()=>{const o=window['CK_GLO_INDEX'];window['CK_GLO_INDEX']={e:[['facies-cushingoide','signe','Faciès cushingoïde',['faciès de Cushing'],'f'],['avc','abreviation','AVC',[],'a']]};gloI=null;const I=gloIndex();"
+                                         "const ok=!!I&&I.mF.get('facies de cushing')==='facies-cushingoide'&&I.mA.get('AVC')==='avc'&&gloSl('facies-cushingoide')==='f';window['CK_GLO_INDEX']=o;gloI=null;gloIndex();return ok})()")
     # Survol (ordinateur) puis clic qui épingle.
     if not mobile:
         await pg.hover('#fx1 .glo'); await pg.wait_for_timeout(450)
@@ -81,15 +81,15 @@ async def profile(b, mobile, out, errs):
     ok = await ev(f"{K}==='hyp|bell'&&$('#tip .ck-b').textContent.includes('1re intention')&&$('#tip .ck-b').textContent.includes('2e intention')")
     await tap('#tip .ck-b [data-t="hyp|bell|pec"]'); await pg.wait_for_timeout(200)
     out[pre + 'chaine_hypothese'] = ok and await ev(f"{K}==='hyp|bell|pec'&&tipStk.length===2&&$('#tip .ck-b').textContent.includes('Dose suisse (AIPS) : À vérifier')"
-                                                   "&&tipFor('hyp|avc-ischemique').h.includes('ck-urg')&&tipFor('syn|pf-peripherique').h.includes('glo|lagophtalmie')")
+                                                   "&&tipFor('hyp|avc-ischemique').h.includes('class=\"urg\"')&&tipFor('syn|pf-peripherique').h.includes('glo|lagophtalmie')")
     await ev("hideTip(true)")
     # Schéma : SVG chargé à la demande (ncT.js), couches, vues, tour ; repli <img> sans fichier JS.
     await tap('#t-nc'); await pg.wait_for_timeout(600)
     ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===7")
     await tap('#tip input[value=nerf]'); await pg.wait_for_timeout(100)
-    out[pre + 'schema_couches'] = ok and await ev("$('#tip .ck-fig #nerf').style.display==='none'&&$('#tip .ck-fig #trait').style.display===''")
+    out[pre + 'schema_couches'] = ok and await ev("$('#tip .ck-fig #nerf').getAttribute('display')==='none'&&$('#tip .ck-fig #trait').getAttribute('display')==='inline'")
     await tap('#tip [data-k="nc|ncT|profil"]'); await pg.wait_for_timeout(200)
-    out[pre + 'schema_vues'] = await ev(f"{K}==='nc|ncT|profil'&&$('#tip [data-k=\"nc|ncT|profil\"]').getAttribute('aria-pressed')==='true'&&$('#tip .ck-fig svg title').textContent.includes('profil')&&$('#tip .ck-fig #nerf').style.display==='none'")
+    out[pre + 'schema_vues'] = await ev(f"{K}==='nc|ncT|profil'&&$('#tip [data-k=\"nc|ncT|profil\"]').getAttribute('aria-pressed')==='true'&&$('#tip .ck-fig svg title').textContent.includes('profil')&&$('#tip .ck-fig #nerf').getAttribute('display')==='none'")
     await tap('#tip [data-k="nc|ncT|tour"]'); await pg.wait_for_timeout(200)
     await pg.focus('#tip .ck-tour'); await pg.keyboard.press('ArrowRight'); await pg.keyboard.press('ArrowRight')
     ok = await ev("$('#tip .ck-tour').getAttribute('aria-valuenow')==='2'&&$('#tip .ck-couches').disabled")
@@ -103,10 +103,6 @@ async def profile(b, mobile, out, errs):
     out[pre + 'schema_repli_img'] = await ev("!!$('#tip .ck-fig img')&&!$('#tip .ck-fig svg')&&$('#tip .ck-couches').disabled")
     out[pre + 'texte_coupe_schema'] = len(await ev(CLIP_TIP)) == 0
     await ev("hideTip(true)")
-    # Schéma réel de Dédale (assets/nc/nc07-*.svg, intégré par assets/nc/nc07.js) : vue « 34 », couches actives.
-    await tap('#t-nc07'); await pg.wait_for_timeout(900)
-    out[pre + 'schema_reel_nc07'] = await ev("!!$('#tip .ck-fig svg [data-couche=nerf]')&&!$('#tip .ck-couches').disabled&&$$('#tip [data-ck=vue]').length===5&&$('#tip .t').textContent==='Nerf facial (VII) · Trois quarts'")
-    await ev("hideTip(true)")
     # Clavier : Entrée ouvre et épingle, Entrée dans la fenêtre empile, Échap ferme et rend le focus.
     await pg.focus('#fx1 .glo'); await pg.keyboard.press('Enter'); await pg.wait_for_timeout(200)
     ok = await ev(f"tipPin&&{K}==='glo|facies-cushingoide'&&$('#tip').contains(document.activeElement)")
@@ -119,12 +115,60 @@ async def profile(b, mobile, out, errs):
     await c.close()
 
 
+RPAGE = ('<section id="rx" class="card"><p id="r1">Une anisocorie se recherche à l’inspection.</p><p>'
+         '<span class="tw" id="r-nc" data-t="nc|nc07|face" tabindex="0" role="button">Nerf facial (VII)</span> · '
+         '<span class="tw" id="r-syn" data-t="syn|vii-site1-central" tabindex="0" role="button">Site 1</span></p></section>')
+DBL = "!/[^.]\\.\\.(?!\\.)/.test($('#tip .ck-b').textContent)"
+PRET = "!$('#tip').hidden&&!$('#tip .ck-b').textContent.includes('Chargement')"
+
+
+async def reel(b, mobile, out, errs):
+    """Données réelles de main (assets/ck d’Atlas, glossaire d’Hippocrate, chaîne de Podalire, schémas de Dédale)."""
+    pre = 'mobile_' if mobile else ''
+    c = await b.new_context(**(dict(b._pw.devices['Pixel 7']) if mobile else dict(viewport={'width': 1366, 'height': 900})))
+    pg = await c.new_page()
+    pg.on('pageerror', lambda e: errs.append(pre + 'reel ' + str(e)))
+    pg.on('console', lambda m: errs.append(pre + 'reel ' + m.text) if m.type == 'error' else None)
+    await pg.goto(URL); await pg.wait_for_timeout(800)
+    await pg.evaluate("h=>{document.querySelector('.w').insertAdjacentHTML('afterbegin',h);scrollTo(0,0)}", RPAGE)
+    tap = (lambda s: pg.locator(s).first.tap()) if mobile else (lambda s: pg.locator(s).first.click())
+    ev = pg.evaluate
+    try:
+        await pg.wait_for_function("!!window['CK_GLO_INDEX']&&!!document.querySelector('#r1 .glo')", timeout=15000); ok = True
+    except Exception:
+        ok = False
+    out[pre + 'reel_lieur_index_atlas'] = ok and await ev("$('#r1 .glo').dataset.t==='glo|anisocorie'")
+    if ok:
+        await tap('#r1 .glo'); await pg.wait_for_function(PRET, timeout=10000)
+    out[pre + 'reel_glo_definition'] = ok and await ev(f"{K}==='glo|anisocorie'&&$('#tip .ck-b').textContent.length>60&&{DBL}")
+    await ev("hideTip(true)")
+    await tap('#r-syn'); await pg.wait_for_function(PRET + "&&!!$('#tip .ck-b [data-t^=\"hyp|\"]')", timeout=10000)
+    ok = await ev(DBL)
+    await tap('#tip .ck-b [data-t="hyp|avc-ischemique"]'); await pg.wait_for_function(PRET + f"&&{K}==='hyp|avc-ischemique'", timeout=10000)
+    out[pre + 'reel_chaine_sans_double_point'] = ok and await ev(f"tipStk.length===1&&{DBL}&&$('#tip .ck-b').textContent.includes('intention')")
+    await ev("hideTip(true)")
+    await tap('#r-nc'); await pg.wait_for_function("!!$('#tip .ck-fig svg')", timeout=15000); await pg.wait_for_timeout(200)
+    out[pre + 'reel_schema_vues'] = await ev("(()=>{const e=window['CK_NC'].nc07,n=Object.values(e.vues).filter(Boolean).length+(e.tour?1:0);"
+                                             "return $$('#tip [data-ck=vue]').length===n&&$('#tip .t').textContent===e.nom+' · Face'&&!$('#tip .ck-couches').disabled})()")
+    E = await ev("Object.keys(JSON.parse($('#tip .ck-fig svg').dataset.etats))")
+    await tap('#tip [data-ck=etat][data-e="lesions"]'); await pg.wait_for_timeout(150)
+    out[pre + 'reel_schema_etats'] = len(E) >= 2 and await ev(f"$$('#tip [data-ck=etat]').length==={len(E)}&&$('#tip [data-ck=etat][data-e=lesions]').getAttribute('aria-pressed')==='true'"
+                                                             "&&[...$$('#tip .ck-fig svg [data-etat]')].every(g=>g.getAttribute('display')===(g.dataset.etat==='lesions'?'inline':'none'))"
+                                                             "&&$('#tip .ck-fig svg [data-couche=lesions]').getAttribute('display')==='inline'")
+    await ev("$('#tip .ck-fig').scrollIntoView({block:'nearest'})"); await pg.wait_for_timeout(150)
+    out[pre + 'reel_schema_tient'] = await ev("(()=>{const t=$('#tip'),r=$('#tip .ck-fig svg').getBoundingClientRect(),q=t.getBoundingClientRect();return r.width>=q.width*0.6&&r.left>=q.left-1&&r.right<=q.right+1&&r.height<=t.clientHeight})()")
+    out[pre + 'reel_texte_coupe'] = len(await ev(CLIP_TIP)) == 0
+    await c.close()
+
+
 async def main():
     out, errs = {}, []
     async with async_playwright() as p:
         b = await p.chromium.launch(**LAUNCH); b._pw = p
         await profile(b, False, out, errs)
         await profile(b, True, out, errs)
+        await reel(b, False, out, errs)
+        await reel(b, True, out, errs)
         await b.close()
     out['sans_erreur_console'] = not errs
     out['errors'] = errs

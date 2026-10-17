@@ -42,7 +42,7 @@ Contrôle automatique. Iris (tests/visuel/capture.py, CLIP_JS) parcourt chaque v
 
 Sources lues : aucune source externe.
 
-## 17.10.2026 · NC-0 · pile de fenêtres et lieur de termes (patch 0011)
+## 17.10.2026 · NC-0 · pile de fenêtres et lieur de termes (patch 0012)
 
 Fait. gloLink(root) parcourt les nœuds texte avec un TreeWalker. Une seule expression régulière compare les formes repliées (sans accents ni casse), la plus longue d’abord ; une seconde, sensible à la casse, traite les abréviations. Le lieur ne lie que la première occurrence par bloc et exclut les termes déjà ouverts. Un MutationObserver sur .w lie les pages par petits lots en temps libre. Avec 3 200 termes, l’index se construit en 8 ms et aucune tâche longue ne s’ajoute à celles du démarrage. Les fenêtres s’empilent : un terme cliqué dans une fenêtre ouvre le niveau suivant (5 au plus), le fil d’Ariane et « ← Retour » y reviennent, et Échap ferme toute la pile. Au survol dans une fenêtre, la définition courte s’affiche en title. Sur mobile, la pile reste dans le panneau bas. showTip/hideTip gardent leur contrat (le 5e argument « keep » est facultatif).
 

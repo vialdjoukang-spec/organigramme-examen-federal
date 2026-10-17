@@ -1,8 +1,8 @@
 import os, sys
-# Patch 0011 · Hermès · 17.10.2026 · NC-0 : types de fenêtre CK (glo, syn, hyp, nc, loc), lieur du glossaire gloLink(),
+# Patch 0012 · Hermès · 17.10.2026 · NC-0 : types de fenêtre CK (glo, syn, hyp, nc, loc), lieur du glossaire gloLink(),
 # pile de fenêtres imbriquées (5 niveaux, « ← Retour », fil d’Ariane, sans cycle), couches, vues et tour des schémas.
 # Le contrat showTip/hideTip est conservé : les appels existants (4 arguments) gardent leur effet ; le 5e argument
-# (keep) remplace la fenêtre courante sans toucher à la pile. Code dans 0011-ck-interaction.js. Se rejoue après 0010.
+# (keep) remplace la fenêtre courante sans toucher à la pile. Code dans 0012-ck-interaction.js. Se rejoue après 0010.
 p = os.environ.get('APP_FILE') or sys.exit('Indiquez APP_FILE (copie de travail).')
 assert not p.endswith('orig/app.html'), 'Interdit I1'
 s = open(p, encoding='utf-8').read()
@@ -20,18 +20,24 @@ CSS = ('#tip .h .ck-hb{display:flex;gap:6px;align-items:center;margin-left:auto}
        '#tip .ck-fil button:focus-visible{outline:2px solid var(--gold)}#tip .ck-fil [aria-current]{font-weight:700;color:var(--ink)}'
        '#tip.ck .ck-b p{margin:0 0 6px;text-align:justify}#tip.ck .ck-b ul{margin:0 0 6px;padding-left:1.2em}#tip.ck .ck-b li{text-align:justify}'
        '#tip .ck-src{font-size:.72rem;color:var(--mut);border-top:1px solid var(--line);padding-top:6px;margin-top:8px}'
-       '#tip .ck-urg{display:inline-block;padding:1px 8px;border-radius:99px;background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad);font-weight:700}'
+       '#tip .urg{display:inline-block;padding:1px 8px;border-radius:99px;background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad);font-weight:700}'
        '#tip .ck-tabs,#tip .ck-vues{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}#tip .ck-tabs [aria-selected=true],#tip .ck-vues [aria-pressed=true]{border-color:var(--ok);box-shadow:inset 0 -2px 0 var(--ok);font-weight:700}'
        '#tip .ck-couches{display:flex;flex-wrap:wrap;gap:2px 12px;border:1px solid var(--line);border-radius:8px;margin:0 0 8px;padding:4px 10px 6px;font-size:.8rem}'
        '#tip .ck-couches legend{font-weight:700;padding:0 4px}#tip .ck-couches label{display:inline-flex;gap:5px;align-items:center;min-height:28px}'
        '#tip .ck-fig{margin:0}#tip .ck-fig svg,#tip .ck-fig img{display:block;width:100%;height:auto;max-height:46vh}#tip .ck-cr{font-size:.68rem;color:var(--mut);margin-top:4px}'
        '#tip .ck-tour{width:100%;aspect-ratio:4/3;background-size:800% 100%;background-repeat:no-repeat;background-position:0 0;border:1px solid var(--line);border-radius:8px;cursor:ew-resize;touch-action:pan-y}'
        '#tip .ck-tour:focus-visible{outline:2px solid var(--gold)}#tip .ck-list{list-style:none;padding:0;margin:0}#tip .ck-list li{padding:6px 0;border-bottom:1px solid var(--line)}'
-       '@media (max-width:620px){#tip .h .bk{min-height:40px;padding:4px 12px}#tip .ck-couches label{min-height:36px}#tip .ck-list li{padding:9px 0}}')
+       '#tip .ck-etats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}#tip .ck-etats [aria-pressed=true]{border-color:var(--ok);box-shadow:inset 0 -2px 0 var(--ok);font-weight:700}'
+       '#tip .ck-det{margin:8px 0 0}#tip .ck-det summary{cursor:pointer;font-weight:700;min-height:28px}#tip .ck-det ul{margin:4px 0 6px;padding-left:1.2em}#tip .ck-det li{text-align:justify;margin:0 0 4px}'
+       '@media (max-width:620px){#tip.ck-nc{max-height:min(88dvh,760px)}#tip.ck-nc .ck-fig svg,#tip.ck-nc .ck-fig img{max-height:min(54dvh,520px)}#tip .ck-det summary{min-height:36px}#tip .h .bk{min-height:40px;padding:4px 12px}#tip .ck-couches label{min-height:36px}#tip .ck-list li{padding:9px 0}}')
 A = '#grid .blk.nodu b{padding-right:0}'
 rep(A, A + CSS)
 
 # Types CK dans tipFor ; état de la pile.
+# Réglage « Fond doré » retiré de l’en-tête (Athéna, 17.10.2026) : le champ reste caché pour la compatibilité (Iris, patch 0005 d’Apollon).
+rep('<label>Fond doré <input type="range" id="d-gilt" min="0" max="100" step="5"> <b id="d-gv"></b></label>',
+    '<span hidden><input type="range" id="d-gilt" min="0" max="100" step="5" tabindex="-1" aria-label="Fond doré (réglage retiré)"> <b id="d-gv"></b></span>')
+rep('<span>0 % = feuille blanche</span></div>', '</div>')
 rep("return null}\nlet tipT=null,tipK=null", "const ck=ckTip(ty,a,b);if(ck!==undefined)return ck;\n return null}\nlet tipTi='',tipT=null,tipK=null")
 
 # showTip : empilement depuis la fenêtre, remplacement (keep), en-tête « ← Retour » et fil d’Ariane, liaison du corps.
@@ -52,8 +58,8 @@ rep("tipK=null;tipPin=false;tipOp=null}", "tipK=null;tipPin=false;tipOp=null;tip
 rep("if(e.target.closest('#tip .h button')){hideTip(true);return}if(e.target.closest('#tip'))return;",
     "if(tipNav(e))return;if(e.target.closest('#tip .h button')){hideTip(true);return}if(e.target.closest('#tip'))return;")
 
-JS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '0011-ck-interaction.js'), encoding='utf-8').read()
+JS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '0012-ck-interaction.js'), encoding='utf-8').read()
 assert '</script' not in JS
 rep('function renderAll(){', JS + 'function renderAll(){')
 open(p, 'w', encoding='utf-8').write(s)
-print('0011 appliqué')
+print('0012 appliqué')

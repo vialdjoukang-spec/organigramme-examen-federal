@@ -15,3 +15,14 @@
 | Performance du lieur | index de 3 200 termes construit en 8 ms ; aucune tâche longue ajoutée |
 
 Les captures, prises avec les données d’essai (tests/fixtures/ck), ne sont pas versionnées : niveaux 1, 2 et 5, Retour, synthèse A/B, hypothèse et prise en charge, couches, vues, tour et repli <img>, sur ordinateur et mobile.
+
+## Intégration sur main 4ff1cec (17.10.2026, Europe/Zurich)
+
+| Contrôle | Résultat |
+|---|---|
+| tests/run_tests.py | 194/194 |
+| tests/test_ck_ui.py | 61/61, dont 12 sur les données réelles, aucune erreur de console |
+| tests/test_ck.py (Janus) | 61/61 |
+| niveau1 G1 à G7, ck_build --check, nc_svg_check, nc_svg_js --check | réussis |
+| tools/dedale/verifier.py, tests/test_dedale.py | 0 échec, 20/20 |
+| Budget | app_v2.html 5 819 307 / 6 000 000 ; assets/nc 445 293 / 3 000 000 |

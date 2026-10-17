@@ -2,10 +2,11 @@
 """Janus, avec Dédale · tests des contrôles des schémas de nerfs (tools/dedale/verifier.py).
 
 Chaque critère d'acceptation de Dédale a son test : la vérification réussit sur le dépôt, puis échoue
-quand la règle est violée (couche absente, texte trop petit, poids, crédit, couleur, image intégrée,
-SVG modifié à la main, tour hors des paires autorisées).
+quand la règle est violée (couche ou état mal masqué, texte sous 13 px à 360 px, plus de 8 étiquettes par
+état, étiquettes chevauchées, légende de plus de 4 lignes, dessin sous 60 %, poids, crédit, couleur, nerf non
+jaune, aplat vif, image intégrée, SVG modifié à la main, tour de 8 vues ou quatrième vue publiés).
 """
-import json, os, shutil, subprocess, sys, tempfile
+import json, os, re, shutil, subprocess, sys, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -26,14 +27,63 @@ def muter(d, f, a, b):
     open(p, 'w', encoding='utf-8').write(s.replace(a, b, 1))
 
 
+def muter_re(d, f, motif, rempl):
+    p = os.path.join(d, 'assets', 'nc', f)
+    s = open(p, encoding='utf-8').read()
+    t = re.sub(motif, rempl, s, count=1, flags=re.S)
+    assert t != s, (f, motif)
+    open(p, 'w', encoding='utf-8').write(t)
+
+
+def trop_d_etiquettes(d):
+    p = os.path.join(d, 'nc', 'presets', 'nc07.yml')
+    s = open(p, encoding='utf-8').read()
+    a = '      - {ref: F3, texte: "Foramen stylo-mastoïdien", couche: foramens}\n'
+    assert a in s
+    open(p, 'w', encoding='utf-8').write(s.replace(a, a * 3, 1))
+
+
+def chevauchement(d):
+    # deux étiquettes de l'état par défaut au même endroit
+    p = os.path.join(d, 'assets', 'nc', 'nc07-profil.svg')
+    s = open(p, encoding='utf-8').read()
+    t = re.findall(r'<text[^>]*class="lb[^"]*"[^>]*>', s)
+    xy = lambda tag: (re.search(r' x="([-\d.]+)"', tag).group(1), re.search(r' y="([-\d.]+)"', tag).group(1))
+    (x1, y1), (x2, y2) = xy(t[0]), xy(t[1])
+    t2 = t[1].replace(' x="%s"' % x2, ' x="%s"' % x1).replace(' y="%s"' % y2, ' y="%s"' % y1)
+    open(p, 'w', encoding='utf-8').write(s.replace(t[1], t2, 1))
+
+
+def fichier_en_plus(nom, source=None):
+    def f(d):
+        dst = os.path.join(d, 'assets', 'nc', nom)
+        if source:
+            shutil.copy(os.path.join(d, 'assets', 'nc', source), dst)
+        else:
+            open(dst, 'wb').write(b'RIFF0000WEBP')
+    return f
+
+
+V = 'nc07-profil.svg'
 CAS = {
-    'couche_absente_echoue': lambda d: muter(d, 'nc07-face.svg', 'id="foramens"', 'id="autre"'),
-    'texte_trop_petit_echoue': lambda d: muter(d, 'nc07-face.svg', '.cr{font-size:20px', '.cr{font-size:12px'),
-    'poids_depasse_echoue': lambda d: muter(d, 'nc07-face.svg', '</svg>', '<!--' + 'x' * 130000 + '--></svg>'),
-    'couleur_interdite_echoue': lambda d: muter(d, 'nc07-face.svg', 'stroke:#9a9a9a', 'stroke:#1d4ed8'),
-    'rouge_hors_lesions_echoue': lambda d: muter(d, 'nc07-face.svg', 'stroke:#9a9a9a', 'stroke:#b91c1c'),
-    'image_integree_echoue': lambda d: muter(d, 'nc07-face.svg', '</svg>', '<image href="data:image/png;base64,AA"/></svg>'),
-    'svg_retouche_echoue': lambda d: muter(d, 'nc07-34.svg', 'Nerf facial (VII)', 'Nerf facial (VII) '),
+    'couche_absente_echoue': lambda d: muter(d, V, 'id="foramens"', 'id="autre"'),
+    'couche_mal_masquee_echoue': lambda d: muter(d, V, '<g id="lesions" data-couche="lesions" display="none"', '<g id="lesions" data-couche="lesions"'),
+    'etat_mal_masque_echoue': lambda d: muter(d, V, '<g class="legende" data-etat="branches" display="none">', '<g class="legende" data-etat="branches">'),
+    'texte_trop_petit_echoue': lambda d: muter(d, V, '.lb,.lg{font-size:30px', '.lb,.lg{font-size:28px'),
+    'plus_de_8_etiquettes_echoue': trop_d_etiquettes,
+    'etiquettes_chevauchees_echoue': chevauchement,
+    'legende_de_5_lignes_echoue': lambda d: muter(d, V, '<g class="legende" data-etat="trajet">',
+                                                  '<g class="legende" data-etat="trajet"><text class="lg" x="24" y="1">a</text><text class="lg" x="24" y="2">b</text>'),
+    'dessin_sous_60_pourcent_echoue': lambda d: muter(d, V, 'data-zone="0 64 800 800"', 'data-zone="0 64 800 400"'),
+    'poids_depasse_echoue': lambda d: muter(d, V, '</svg>', '<!--' + 'x' * 130000 + '--></svg>'),
+    'couleur_interdite_echoue': lambda d: muter(d, V, '#8a8a8a', '#1d4ed8'),
+    'nerf_vert_echoue': lambda d: muter(d, V, '.n2 path{stroke:#ffc400', '.n2 path{stroke:#156534'),
+    'rouge_hors_lesions_echoue': lambda d: muter(d, V, 'class="pt"', 'class="pt u"'),
+    'aplat_vif_echoue': lambda d: muter(d, V, 'fill="#f6d7b0"', 'fill="#1d4ed8"'),
+    'image_integree_echoue': lambda d: muter(d, V, '</svg>', '<image href="data:image/png;base64,AA"/></svg>'),
+    'svg_retouche_echoue': lambda d: muter(d, V, 'vue de profil droit', 'vue de profil  droit'),
+    'tour_de_8_vues_echoue': fichier_en_plus('nc07-tour.webp'),
+    'quatrieme_vue_echoue': fichier_en_plus('nc07-plan.svg', 'nc07-face.svg'),
 }
 
 
@@ -49,16 +99,6 @@ def credit_sans(champ):
 CAS['credit_sans_licence_echoue'] = credit_sans('licence')
 CAS['credit_sans_mention_derivee_echoue'] = credit_sans('mention')
 
-
-def tour_interdit(d):
-    shutil.copy(os.path.join(d, 'assets', 'nc', 'nc07-tour.webp'), os.path.join(d, 'assets', 'nc', 'nc01-tour.webp'))
-    shutil.copy(os.path.join(d, 'nc', 'annot', 'nc07.yml'), os.path.join(d, 'nc', 'annot', 'nc01.yml'))
-    p = os.path.join(d, 'nc', 'annot', 'nc01.yml')
-    s = open(p, encoding='utf-8').read().replace('vues: [face, profil, "34", plan]', 'vues: []')
-    open(p, 'w', encoding='utf-8').write(s)
-
-
-CAS['tour_hors_V_VII_oculomoteurs_echoue'] = tour_interdit
 
 res = {}
 rejeu = shutil.which('svgo') is not None

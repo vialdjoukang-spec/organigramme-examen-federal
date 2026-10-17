@@ -1,13 +1,16 @@
 """Dédale-3D · rendu au crayon des vues d'un nerf crânien à partir du modèle Z-Anatomy.
 
 INSTRUCTIONS (automate, zéro jeton) ------------------------------------------------
-Commande, depuis le dossier du modèle (jamais versionné, hors dépôt) :
+ATTENTION (17.10.2026) : ce script ouvre le modèle COMPLET (environ 11 Go) : il est interdit sur le box partagé.
+Ses sorties pour le VII (courbes du nerf et ancres, nc/trait/nc07-<vue>.svg/.json) sont versionnées et
+servent telles quelles ; pour une autre paire, le porter d'abord en mode « ajout seul » comme crane.py.
+Le tour de 8 vues est abandonné (trois vues seulement : face, profil, 34).
+Commande historique :
     blender -b /workspace/ssp/nc_src/Z-Anatomy/Startup.blend -P tools/dedale/freestyle.py -- nc07
-    blender -b …/Startup.blend -P tools/dedale/freestyle.py -- nc07 --tour --sortie /workspace/ssp/nc_src/render
 Entrées  : tools/dedale/nerfs.json (noms d'objets du modèle ; aucune coordonnée saisie à la main).
 Sorties  : <sortie>/<nerf>-<vue>.svg (groupes peau, crane, tronc, territoires, nerf) et
            <sortie>/<nerf>-<vue>.json (ancres projetées : centre de chaque objet nommé, en px).
-           Par défaut <sortie> = nc/trait/ du dépôt (vues face, profil, 34) ; --tour ajoute t0…t7.
+           Par défaut <sortie> = nc/trait/ du dépôt (vues face, profil, 34).
 Méthode  : 1. la peau (régions de la tête, de la face et du cou) est fusionnée en un seul maillage
               (sommets confondus à 2 mm près, normales recalculées) ; le tronc cérébral
               (deux moitiés, trois étages) est fusionné de même à 0,5 mm pour ne garder que le contour, sans les coutures des régions ;
@@ -15,7 +18,7 @@ Méthode  : 1. la peau (régions de la tête, de la face et du cou) est fusionn�
               « crâne en transparence » : aucun groupe n'en masque un autre ;
            3. le nerf (courbes de Bézier du modèle) est échantillonné et projeté par la caméra ;
            4. caméras orthographiques : face 0°, profil droit 90°, trois quarts 45° avec 15° de plongée ;
-              tour : 8 vues tous les 45° (plongée 15°) ; échelle et centre identiques pour toutes les vues ;
+              échelle et centre identiques pour toutes les vues ;
            5. post-traitement déterministe : arrondi au dixième de pixel, simplification de Douglas-Peucker
               (0,35 px), découpe au cadre ; deux exécutions donnent le même fichier à l'octet près.
 Interdits: aucun trait dessiné à la main ; aucun fichier du modèle copié dans le dépôt.
@@ -29,7 +32,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 NERF = argv[0] if argv else 'nc07'
-TOUR = '--tour' in argv
 VUES = argv[argv.index('--vues') + 1].split(',') if '--vues' in argv else None
 SORTIE = argv[argv.index('--sortie') + 1] if '--sortie' in argv else os.path.join(ROOT, 'nc', 'trait')
 CFG = json.load(open(os.path.join(HERE, 'nerfs.json'), encoding='utf-8'))
@@ -150,6 +152,7 @@ def lignes(pl_list, minlen=2.0):
 # conservé est détaché de son parent sans changer sa position dans le monde.
 _util = set(o.name for o in coll_meshes(C['peau_collections'])) | set(C['crane_objets']) | set(C['tronc_objets'])
 _util |= set(N['courbes']) | set(N['ancres'])
+_util |= {d[k] for d in N.get('ancres_derivees', []) for k in ('maillage', 'cible') if k in d}
 _util |= {o.name for o in bpy.data.collections[N['territoires_collection']].all_objects
           if o.type == 'MESH' and o.name.endswith('.' + N['cote'])}
 _mw = {n: O[n].matrix_world.copy() for n in _util}
@@ -160,6 +163,86 @@ for n in sorted(_util):
     o.matrix_world = _mw[n]
 bpy.data.batch_remove([o for o in O if o.name not in _util])
 bpy.context.view_layer.update()
+
+# ---------- ancres dérivées (Ariane) ----------
+# Repères qui n'existent pas comme objets dans le modèle (foramens, genoux, segments, origines de branches) :
+# chacun est CALCULÉ sur la géométrie du modèle (tronc du nerf = sa plus longue spline), jamais saisi.
+# Méthodes : debut (émergence), entree / sortie (premier / dernier point du tronc à l'intérieur d'un maillage,
+# test de parité par lancer de rayon), genou (virage maximal du tronc entre deux repères, fenêtre ±4 points),
+# avant (point situé à « mm » millimètres en amont d'un repère, longueur curviligne), milieu (point à mi-longueur
+# entre deux repères), branche_vers (jonction sur le tronc de la branche dont l'extrémité est la plus proche
+# d'un objet cible), branche_depuis (milieu de la branche qui naît à moins de 1,5 mm d'un repère).
+from mathutils.bvhtree import BVHTree
+
+
+def deriver(nerf_cfg):
+    defs = nerf_cfg.get('ancres_derivees', [])
+    if not defs:
+        return {}, {}
+    sp = courbe_pts(O[nerf_cfg['courbes'][0]])
+    tronc = max(sp, key=len)
+    L = [0.0]
+    for a, b in zip(tronc[:-1], tronc[1:]):
+        L.append(L[-1] + (b - a).length)
+    dg = bpy.context.evaluated_depsgraph_get()
+
+    def dedans(nom):
+        o = O[nom]; bvh = BVHTree.FromObject(o, dg); inv = o.matrix_world.inverted()
+        d = Vector((0.31, 0.52, 0.79)).normalized()
+        def f(p):
+            q, n = inv @ p, 0
+            while n < 200:
+                h = bvh.ray_cast(q, d)
+                if h[0] is None:
+                    break
+                n += 1; q = h[0] + d * 1e-6
+            return n % 2 == 1
+        return [k for k, p in enumerate(tronc) if f(p)]
+
+    def virage(k):
+        a, b, c = tronc[max(0, k - 4)], tronc[k], tronc[min(len(tronc) - 1, k + 4)]
+        return (b - a).angle(c - b, 0) if (b - a).length and (c - b).length else 0
+
+    def a_longueur(x):
+        return min(range(len(tronc)), key=lambda k: abs(L[k] - x))
+
+    def plus_proche(q):
+        return min(range(len(tronc)), key=lambda k: (tronc[k] - q).length)
+
+    idx, pts = {}, {}
+    for d in defs:
+        m, nom = d['methode'], d['nom']
+        if m == 'debut':
+            k = 0
+        elif m in ('entree', 'sortie'):
+            ins = dedans(d['maillage'])
+            k = ins[0] if m == 'entree' else ins[-1]
+        elif m == 'genou':
+            a, b = idx[d['entre'][0]] + d.get('marge', 0), idx[d['entre'][1]]
+            k = max(range(a, b + 1), key=virage)
+        elif m == 'avant':
+            k = a_longueur(L[idx[d['repere']]] - d['mm'] / 1000.0)
+        elif m == 'milieu':
+            k = a_longueur((L[idx[d['entre'][0]]] + L[idx[d['entre'][1]]]) / 2)
+        elif m == 'branche_vers':
+            c = centre(O[d['cible']])
+            br = min((s for s in sp if s is not tronc), key=lambda s: (s[-1] - c).length)
+            k = plus_proche(br[0])
+        elif m == 'branche_depuis':
+            r = tronc[idx[d['repere']]]
+            br = [s for s in sp if s is not tronc and (s[0] - r).length < 0.0015]
+            assert br, 'aucune branche ne naît près de %s' % d['repere']
+            s0 = max(br, key=len); pts[nom] = s0[len(s0) // 2]; idx[nom] = idx[d['repere']]
+            continue
+        else:
+            raise SystemExit('méthode inconnue : ' + m)
+        idx[nom] = k; pts[nom] = tronc[k]
+    mesures = {nom: round(L[k] * 1000, 1) for nom, k in idx.items()}
+    return pts, mesures
+
+
+DERIV, MESURES = deriver(N)
+print('DEDALE ancres dérivées (abscisse curviligne en mm)', MESURES)
 peau = fuse(coll_meshes(C['peau_collections']), 'DD_peau', 0.002)
 crane = [O[n] for n in C['crane_objets']]
 tronc = [fuse([O[n] for n in C['tronc_objets']], 'DD_tronc', 0.0005)]
@@ -258,22 +341,20 @@ def vue(nom, az, pl):
     for n in N['ancres']:
         x, y = proj(centre(O[n]))
         anc[n] = [round(x, 1), round(y, 1)]
+    for n, v in DERIV.items():
+        x, y = proj(v)
+        anc[n] = [round(x, 1), round(y, 1)]
     os.makedirs(SORTIE, exist_ok=True)
     open(os.path.join(SORTIE, '%s-%s.svg' % (NERF, nom)), 'w', encoding='utf-8', newline='\n').write(svg)
     json.dump({'nerf': NERF, 'vue': nom, 'azimut': az, 'plongee': pl, 'taille': W,
-               'echelle_m': round(SCALE, 4), 'ancres': anc},
+               'echelle_m': round(SCALE, 4), 'ancres': anc, 'abscisses_mm': MESURES},
               open(os.path.join(SORTIE, '%s-%s.json' % (NERF, nom)), 'w', encoding='utf-8', newline='\n'),
               ensure_ascii=False, indent=1, sort_keys=True)
     print('DEDALE vue', nom, len(svg), 'octets')
 
 
-if TOUR:
-    T = CFG['tour']
-    for k in range(T['n']):
-        vue('t%d' % k, k * T['pas'], T['plongee'])
-else:
-    for nom, v in CFG['vues'].items():
-        if VUES and nom not in VUES:
-            continue
-        vue(nom, v['azimut'], v['plongee'])
+for nom, v in CFG['vues'].items():
+    if VUES and nom not in VUES:
+        continue
+    vue(nom, v['azimut'], v['plongee'])
 print('DEDALE fin', NERF)
