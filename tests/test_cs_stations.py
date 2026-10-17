@@ -22,8 +22,11 @@ async def fiche(pg, c):
 
 async def main():
     out, errs = {}, []
-    out['cs_build_a_jour'] = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'cs_build.py'), '--check'],
-                                            capture_output=True).returncode == 0
+    # assets/st à jour (sans jsonschema, absent du job tests ; la validation complète tourne dans le job garde).
+    sys.path.insert(0, os.path.join(ROOT, 'tools'))
+    import cs_build
+    gen = cs_build.sortie(*cs_build.load(ROOT)); d = os.path.join(ROOT, 'assets', 'st')
+    out['cs_build_a_jour'] = sorted(os.listdir(d)) == sorted(gen) and all(open(os.path.join(d, n), encoding='utf-8').read() == c for n, c in gen.items())
     out['cinq_stations_formats_distincts'] = len(ST) >= 5 and len({s['format'] for s in ST}) >= 4 and len({s['ssp'] for s in ST}) == len(ST)
     async with async_playwright() as p:
         b = await p.chromium.launch(**LAUNCH)
