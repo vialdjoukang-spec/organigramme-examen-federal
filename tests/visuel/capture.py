@@ -63,7 +63,7 @@ localStorage.setItem('orga-ef',JSON.stringify(S0));localStorage.setItem('orga-ta
 
 
 CLS_SRC_INIT = """window.__cls=0;window.__clsS=[];try{new PerformanceObserver(l=>{for(const e of l.getEntries()){if(e.hadRecentInput)continue;
-window.__cls+=e.value;if(e.value>0.005)window.__clsS.push({v:+e.value.toFixed(4),t:Math.round(e.startTime),el:(e.sources||[]).map(x=>x.node?(x.node.nodeName+(x.node.id?'#'+x.node.id:'')):'?').slice(0,4)})}}).observe({type:'layout-shift',buffered:true})}catch(e){}"""
+window.__cls+=e.value;if(e.value>0.005)window.__clsS.push({v:+e.value.toFixed(4),t:Math.round(e.startTime),el:(e.sources||[]).map(x=>(x.node?(x.node.nodeName+(x.node.id?'#'+x.node.id:'')+(x.node.className&&typeof x.node.className=='string'?'.'+x.node.className.split(' ')[0]:'')):'?')+' y'+Math.round(x.previousRect.y)+'>'+Math.round(x.currentRect.y)+' h'+Math.round(x.previousRect.height)+'>'+Math.round(x.currentRect.height)).slice(0,5)})}}).observe({type:'layout-shift',buffered:true})}catch(e){}"""
 
 
 def settle(pg, ms=450):
