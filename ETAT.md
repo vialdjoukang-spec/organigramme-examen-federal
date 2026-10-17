@@ -1,0 +1,39 @@
+# ETAT · Organigramme Examen fédéral
+
+Athéna tient ce fichier à jour à chaque porte d’étape. Chaque tâche a un responsable et une échéance (Europe/Zurich).
+Légende : [x] fait · [ ] à faire · [~] en cours.
+
+## Phase 0 · Socle (19–25.10.2026) · porte : la CI réussit sur app_v2.html tel quel, et l’empreinte de app.html est contrôlée
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Créer le dépôt public, protéger main (demande de fusion et CI verte exigées) | Héphaïstos | 25.10.2026 |
+| [x] | Écrire la CI : garde (empreinte, budget), html (Nu), liens (lychee), tests (Playwright) | Héphaïstos | 25.10.2026 |
+| [x] | Activer Pages, les modèles de tickets, les étiquettes et Dependabot | Héphaïstos | 25.10.2026 |
+| [ ] | Créer le tableau Projects à quatre colonnes (droit « project » du jeton gh requis) | Héphaïstos | 25.10.2026 |
+| [x] | Brancher les tests existants et enregistrer la référence verte (43/43, gardes 5/5) | Janus | 25.10.2026 |
+| [x] | Rédiger les dix skills de la section 10 et en garder la copie versionnée dans skills/ | Athéna | 25.10.2026 |
+| [ ] | Installer les dix skills dans la bibliothèque partagée de l’assistant | Athéna | 25.10.2026 |
+| [x] | Créer ETAT.md, HANDOFF.md et un journal par chantier | Athéna | 25.10.2026 |
+| [ ] | Ouvrir un ticket « Tâche d’agent » par tâche de la phase 1 (brouillons dans journal/coordination.md) | Athéna | 25.10.2026 |
+| [ ] | Publier la version datée de la phase 0 (accord requis, interdit I6) | Athéna | 25.10.2026 |
+
+## Phase 1 · Échéance (26.10–29.11.2026) · porte : Athéna fusionne Atlas puis Thémis avant le 30.11.2026, et la veille officielle produit son premier rapport
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [ ] | Livrer l’export et l’import de la progression, et les erreurs de stockage visibles | Atlas | 15.11.2026 |
+| [ ] | Écrire tests/test_export.py | Janus, avec Atlas | 15.11.2026 |
+| [ ] | Refondre l’onglet « Exigences » pour la session 2027 (data/EXI.json, cases à statut) | Thémis | 29.11.2026 |
+| [ ] | Activer les veilles officielles Ve1 et Ve2 à partir de tools/templates/veille-squelette.yml | Argos | 15.11.2026 |
+| [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
+| [ ] | Préparer data/MEM.json sans toucher au code | Mnémosyne | 29.11.2026 |
+| [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
+
+## Phases suivantes
+
+| Phase | Période | Agents | Porte |
+|---|---|---|---|
+| 2 · Interaction | 30.11.2026–10.01.2027 | Hermès, Mnémosyne | Les tests tactiles et clavier réussissent. |
+| 3 · Confort et CS | 11.01–28.02.2027 | Atlas, Asclépios | Le premier affichage est deux fois plus rapide, et chaque image a sa licence vérifiée. |
+| Continu | jusqu’au CS 2027 | Argos, Thémis, Janus, Athéna | Chaque ticket de veille est traité ou classé en moins de sept jours. |
