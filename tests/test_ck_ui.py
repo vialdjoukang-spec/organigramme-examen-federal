@@ -20,7 +20,7 @@ PAGE = ('<section id="fx-ck" class="card"><p id="fx1">Le faciès cushingoïde se
         '<h3 id="fx5">Faciès cushingoïde</h3><p><button type="button" id="fx6">Faciès cushingoïde</button></p>'
         '<p id="fx2"><span class="tw" id="t-loc" data-t="loc|neuro-nc|A" tabindex="0" role="button">Synthèse locale</span> · '
         '<span class="tw" id="t-nc" data-t="nc|ncT|face" tabindex="0" role="button">Schéma de test</span> · '
-        '<span class="tw" id="t-nc99" data-t="nc|nc99|face" tabindex="0" role="button">Schéma sans fichier JS</span></p><label class="gr" id="fx7" data-t="g|thorax|0"><input type="checkbox" id="fx7c"><p>Recherche d’un purpura.</p></label></section>')
+        '<span class="tw" id="t-nc99" data-t="nc|nc99|face" tabindex="0" role="button">Schéma sans fichier JS</span> · <span class="tw" id="t-nc07" data-t="nc|nc07|34" tabindex="0" role="button">Nerf facial (VII)</span></p><label class="gr" id="fx7" data-t="g|thorax|0"><input type="checkbox" id="fx7c"><p>Recherche d’un purpura.</p></label></section>')
 K = "(window.tipK||tipK)"
 
 
@@ -102,6 +102,10 @@ async def profile(b, mobile, out, errs):
     await tap('#t-nc99'); await pg.wait_for_timeout(700)
     out[pre + 'schema_repli_img'] = await ev("!!$('#tip .ck-fig img')&&!$('#tip .ck-fig svg')&&$('#tip .ck-couches').disabled")
     out[pre + 'texte_coupe_schema'] = len(await ev(CLIP_TIP)) == 0
+    await ev("hideTip(true)")
+    # Schéma réel de Dédale (assets/nc/nc07-*.svg, intégré par assets/nc/nc07.js) : vue « 34 », couches actives.
+    await tap('#t-nc07'); await pg.wait_for_timeout(900)
+    out[pre + 'schema_reel_nc07'] = await ev("!!$('#tip .ck-fig svg [data-couche=nerf]')&&!$('#tip .ck-couches').disabled&&$$('#tip [data-ck=vue]').length===5&&$('#tip .t').textContent==='Nerf facial (VII) · Trois quarts'")
     await ev("hideTip(true)")
     # Clavier : Entrée ouvre et épingle, Entrée dans la fenêtre empile, Échap ferme et rend le focus.
     await pg.focus('#fx1 .glo'); await pg.keyboard.press('Enter'); await pg.wait_for_timeout(200)

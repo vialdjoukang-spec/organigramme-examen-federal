@@ -889,7 +889,7 @@ function blkFit(r){(r||document).querySelectorAll('.blk').forEach(blkFit1)}
    window.CK_GLO_IDX = {f:[[forme pliée, id], …], a:[[abréviation exacte, id], …]} (facultatif : sinon l’index se construit depuis CK_GLO),
    window.CK_SVG[chemin du SVG] = texte SVG (assets/nc/ncXX.js), window.CK_NC_CRED[chemin] = crédit. Après tout chargement : document.dispatchEvent(new Event('ck:pret')). */
 const CK_MAX=5,tipStk=[],ckCou={};let gloI=null,gloOn=false,gloT=0;const gloQ=new Set();
-const NC_VUE={face:'Face',profil:'Profil',trois_quarts:'Trois quarts',plan:'Plan',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes'],
+const NC_VUE={face:'Face',profil:'Profil','34':'Trois quarts',trois_quarts:'Trois quarts',plan:'Plan',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes'],
  NC_COUL={trait:'Trait',nerf:'Nerf',noyaux:'Noyaux',foramens:'Foramens',territoires:'Territoires',lesions:'Sites lésionnels',legendes:'Légendes'},
  GLO_TY={signe:'signe',syndrome:'syndrome',terme:'terme',examen:'examen',abreviation:'abréviation',eponyme:'éponyme'},
  CK_MOY={pharmaco:'Pharmacologique',interventionnel:'Interventionnel',reeducation:'Rééducation',suivi:'Suivi'};
@@ -933,6 +933,7 @@ function gloStart(){gloI=null;if(!gloIndex())return;gloOn=true;const W=document.
 document.addEventListener('ck:pret',gloStart);
 /* Rendus des types CK. ckL : lien explicite vers une autre fenêtre (retiré s’il est déjà dans la pile ou au niveau 5). */
 function ckL(k,t,ti){return `<span class="tw ck-l" data-t="${esc(k)}" tabindex="0" role="button" aria-haspopup="dialog"${ti?` title="${esc(ti)}"`:''}>${esc(t)}</span>`}
+function ncVue(v){return NC_VUE[v]||v}
 function ckLab(n,id){const e=(ckData(n)||{})[id];return e?(e.label||e.nom||id):id}
 function ckLnk(n,ty,id){return (ckData(n)||{})[id]?ckL(ty+'|'+id,ckLab(n,id),ty==='glo'?gloShort(id):''):esc(id)}
 function modLab(m){const g=typeof GES!=='undefined'&&GES.find(x=>x.id===m);return g?g.r:m}
@@ -963,9 +964,9 @@ function ckTip(ty,a,b){
  if(ty==='loc'){const e=(ckData('LOC')||{})[a];if(!e)return null;const t=b==='B'?'B':'A',L=e[t]||[],T={A:'A. Syndromes',B:'B. Diagnostics · Exploration · Prise en charge'};
   return {hd:'Synthèse locale · '+modLab(a),ti:T[t],h:`<div class="ck-tabs ck-ctl" role="tablist" aria-label="Synthèse locale">${['A','B'].map(k=>`<button type="button" class="b" role="tab" id="ck-tab-${k}" aria-selected="${k===t}" aria-controls="ck-pan" tabindex="${k===t?0:-1}" data-ck="tab" data-k="loc|${esc(a)}|${k}">${T[k]}</button>`).join('')}</div>`
    +`<div id="ck-pan" role="tabpanel" aria-labelledby="ck-tab-${t}">${L.length?'<ul class="ck-list">'+L.map(id=>'<li>'+(t==='A'?ckLnk('SYN','syn',id):ckLnk('HYP','hyp',id))+'</li>').join('')+'</ul>':'<p><span class="vb pend">À vérifier</span> Aucune entrée pour ce module.</p>'}</div>`}}
- if(ty==='nc'){const e=(ckData('NC')||{})[a];if(!e)return null;const V=e.vues||{},K=Object.keys(NC_VUE).filter(v=>v!=='tour'&&V[v]),v=b==='tour'&&e.tour?'tour':V[b]?b:K[0];if(!v)return null;
-  const bt=[...K,...(e.tour?['tour']:[])].map(x=>`<button type="button" class="b" data-ck="vue" data-k="nc|${esc(a)}|${x}" aria-pressed="${x===v}">${NC_VUE[x]}</button>`).join('');
-  return {hd:'Schéma · '+(e.nom||a),ti:(e.nom||a)+' · '+NC_VUE[v],h:`<div class="ck-ctl ck-vues" role="group" aria-label="Vue du schéma">${bt}</div>`
+ if(ty==='nc'){const e=(ckData('NC')||{})[a];if(!e)return null;const V=e.vues||{},K=[...Object.keys(NC_VUE).filter(v=>v!=='tour'&&V[v]),...Object.keys(V).filter(v=>!(v in NC_VUE))],v=b==='tour'&&e.tour?'tour':V[b]?b:K[0];if(!v)return null;
+  const bt=[...K,...(e.tour?['tour']:[])].map(x=>`<button type="button" class="b" data-ck="vue" data-k="nc|${esc(a)}|${x}" aria-pressed="${x===v}">${ncVue(x)}</button>`).join('');
+  return {hd:'Schéma · '+ckLab('NC',a),ti:ckLab('NC',a)+' · '+ncVue(v),h:`<div class="ck-ctl ck-vues" role="group" aria-label="Vue du schéma">${bt}</div>`
    +`<fieldset class="ck-ctl ck-couches"${v==='tour'?' disabled':''}><legend>Couches</legend>${NC_COU.map(c=>`<label><input type="checkbox" data-ck="cou" value="${c}"${ckCou[c]===false?'':' checked'}> ${NC_COUL[c]}</label>`).join('')}</fieldset>`
    +`<figure class="ck-fig" data-nc="${esc(a)}" data-vue="${v}"></figure>`}}
  return undefined}
@@ -976,16 +977,16 @@ function ckSvg(fig,src){const d=new DOMParser().parseFromString(src,'image/svg+x
  const n=document.importNode(s,true);n.setAttribute('role','img');n.removeAttribute('width');n.removeAttribute('height');return n}
 function ckApply(fig){const s=fig.querySelector('svg'),F=TIPEL.querySelector('.ck-couches');if(!F)return;
  for(const i of F.querySelectorAll('input[data-ck=cou]')){const g=s&&s.querySelector(`#${i.value},[data-couche="${i.value}"]`);i.disabled=!g;if(g)g.style.display=i.checked?'':'none'}}
-function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{})[id];if(!e)return;const nom=e.nom||id,F=TIPEL.querySelector('.ck-couches');
+function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{})[id];if(!e)return;const nom=ckLab('NC',id),F=TIPEL.querySelector('.ck-couches');
  if(v==='tour'){fig.innerHTML=`<div class="ck-tour" role="slider" tabindex="0" aria-label="Tour du schéma ${esc(nom)} : glissez ou utilisez les flèches" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="0°" style="background-image:url('${esc(e.tour)}')"></div><figcaption class="st">Glissez, ou utilisez les flèches gauche et droite : 8 vues à 45°.</figcaption>`;return}
  const p=e.vues[v],cr=(window.CK_NC_CRED||{})[p]||(e.credits||{})[v],crT=cr?(typeof cr==='string'?cr:(cr.tasl||cr.credit||'')):'',cap=crT?`<figcaption class="ck-cr">${esc(crT)}</figcaption>`:'';
  const src=window.CK_SVG&&CK_SVG[p];
- if(src){const n=ckSvg(fig,src);if(n){n.setAttribute('aria-label','Schéma : '+nom+', vue '+NC_VUE[v]);fig.replaceChildren(n);fig.insertAdjacentHTML('beforeend',cap);ckApply(fig);return}}
+ if(src){const n=ckSvg(fig,src);if(n){n.setAttribute('aria-label','Schéma : '+nom+', vue '+ncVue(v));fig.replaceChildren(n);fig.insertAdjacentHTML('beforeend',cap);ckApply(fig);return}}
  const js=e.js||'assets/nc/'+id+'.js';
  if(!(js in ckJs)){ckJs[js]=0;fig.innerHTML='<p class="st">Chargement du schéma…</p>';const sc=document.createElement('script');sc.src=js;
   sc.onload=()=>{ckJs[js]=1;if(fig.isConnected)ckFig(fig)};sc.onerror=()=>{ckJs[js]=-1;if(fig.isConnected)ckFig(fig)};document.head.appendChild(sc);return}
  if(ckJs[js]===0)return;
- fig.innerHTML=`<img src="${esc(p)}" alt="Schéma : ${esc(nom)}, vue ${NC_VUE[v]}" loading="lazy">${cap}<p class="st">Les couches ne sont pas disponibles pour ce schéma : le fichier ${esc(js)} manque.</p>`;if(F)F.disabled=true}
+ fig.innerHTML=`<img src="${esc(p)}" alt="Schéma : ${esc(nom)}, vue ${ncVue(v)}" loading="lazy">${cap}<p class="st">Les couches ne sont pas disponibles pour ce schéma : le fichier ${esc(js)} manque.</p>`;if(F)F.disabled=true}
 function ckTour(el,d){const f=((+el.getAttribute('aria-valuenow')+d)%8+8)%8;el.setAttribute('aria-valuenow',f);el.setAttribute('aria-valuetext',f*45+'°');el.style.backgroundPositionX=(f*100/7)+'%'}
 /* Pile de fenêtres : un terme ouvert depuis la fenêtre l’empile (5 niveaux au plus) ; « ← Retour » et le fil d’Ariane y reviennent. */
 function tipGo(i){if(i<0||i>=tipStk.length)return;const s=tipStk[i];tipStk.length=i;showTip({dataset:{t:s.k}},true,tipOp,true,true)}
