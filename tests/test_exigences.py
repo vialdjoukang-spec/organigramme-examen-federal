@@ -33,7 +33,7 @@ async def main():
         out['quarante_six_cases_ids_stables'] = await pg.evaluate("(()=>{const b=$$('#exi input[data-x]');return b.length===46&&new Set(b.map(x=>x.id)).size===46&&b.every(x=>x.id==='exi-'+x.dataset.x)})()")
         out['six_groupes'] = await pg.evaluate("$$('#exi fieldset').length===6")
         out['source_officielle_par_case'] = await pg.evaluate("$$('#exi label.chk').every(l=>{const a=l.querySelector('small a');return a&&/^https:\\/\\/(www\\.bag\\.admin\\.ch|healthreg-online\\.admin\\.ch|www\\.fedlex\\.admin\\.ch|www\\.iml\\.unibe\\.ch|www\\.unige\\.ch)\\//.test(a.href)&&a.target==='_blank'})")
-        out['badges_a_verifier_exacts'] = await pg.evaluate("$$('#exi label.chk').filter(l=>l.querySelector('.vb')).map(l=>l.querySelector('input').dataset.x).sort().join()") == ','.join(VERIF)
+        out['badges_a_verifier_exacts'] = await pg.evaluate("$$('#exi label.chk').filter(l=>l.querySelector('.exi-vb')).map(l=>l.querySelector('input').dataset.x).sort().join()") == ','.join(VERIF)
         out['migration_coches_reportees'] = await pg.evaluate("['C1','B4','D1'].every(k=>$('#exi-'+k).checked)&&!$('#exi-F6').checked&&$$('#exi input:checked').length===3")
         out['migration_conserve_autres_cles'] = await pg.evaluate("(()=>{const v=JSON.parse(localStorage.getItem('orga-ef')).exi;return v.e0===true&&v.a0_0===true&&v._m27===1})()")
         # Persistance : on décoche une case migrée, on en coche une autre, puis on recharge.
