@@ -1,8 +1,8 @@
 ---
 name: ssp-revue-diff
 description: >-
-  Lis ce skill pour relire une demande de fusion ou ton propre travail : la revue porte sur ce qui
-  change, pas sur le fichier entier.
+  Lis ce skill pour relire une demande de fusion ou ton propre travail : la
+  revue porte sur ce qui change, pas sur le fichier entier.
 ---
 # But
 Ce skill fait porter la revue sur quelques centaines de lignes au lieu de millions de caractères.
