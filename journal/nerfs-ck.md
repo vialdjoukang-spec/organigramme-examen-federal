@@ -47,3 +47,8 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 - Identifiants hyp à créer dans hyp.json ; data/ck/nc.json attend la fusion de PR #20.
 ### Prochaine action
 - Hippocrate et Galien : 65 termes ; Podalire : chaîne clinique des 5 sites ; puis validation de Vial.
+
+## 17.10.2026 · Dédale · préréglages (une image = une idée)
+- L’image unique de 30 repères est remplacée par 5 préréglages : trajet (rocher agrandi, encart), branches (profil), fonctions (trois quarts, aplats pâles), lésions 1 à 5 (1 en rouge, dans l’encart), plan.
+- Branches en profil plutôt que de face : rendu de face essayé : les 5 branches se tassent sur une bande verticale de la joue et les repères marginal et cervical se confondent ; en profil, elles s’ouvrent en éventail (T-Z-B-M-C de haut en bas).
+- Trajet : l’étiquette « segment labyrinthique » est fondue dans « ganglion géniculé » (repères distants de 12 px même agrandis).
