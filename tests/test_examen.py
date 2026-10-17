@@ -17,7 +17,7 @@ R.nouveaux_sources=GES.every(r=>r.items.every(it=>!/_n\d+$/.test(it.k)||(it.src&
 const T=Object.values(TIP).filter(t=>t.c.length>5);let tb=0,tc=0;const SEQ='0M123456N',SA='0M14325 6N'.replace(' ','');
 T.forEach(t=>{const s=t.c[5];if(s[0]!=='§')return;let reg='',last=-1;s.split('\n').forEach(l=>{if(l[0]==='§'){reg=l.slice(1);last=-1}else if(l[0]==='¶'){const q=(reg==='abdomen'?'0M1432 56N'.replace(' ',''):SEQ).indexOf(l[1]);if(q<=last)tb++;last=q}else if(l[0]==='@'){l.slice(1).split(' ').filter(Boolean).forEach(x=>{if(x.startsWith('r:')?!GES.some(g=>g.id===x.slice(2)):!K.includes(x))tc++})}})});
 R.tip_ordre_phases=tb===0;R.tip_puces_resolues=tc===0;
-R.tip_vides_marques=T.filter(t=>!t.c[5].replace(/<[^>]+>/g,'').trim()).length===0;R.tip_sans_a_completer=T.every(t=>!t.c[5].startsWith('À compléter'));R.tip_autres_rediges=T.every(t=>{const s=t.c[5],i=s.indexOf('§autres');if(i<0)return true;const j=s.indexOf('\n§',i+1);return s.slice(i,j<0?undefined:j).split('\n').filter(l=>l.startsWith('• ')).every(l=>/^• <b>[^<]+<\/b> : .{12,}[.!?]$/.test(l))});
+R.tip_vides_marques=T.filter(t=>!t.c[5].replace(/<[^>]+>/g,'').trim()).length===0;R.s8_differentiels=[1,2,3,4,5,6,7,8,9,10,11,12].every(n=>{const k='S8.'+n;return NOT[k][0].length>=5&&TIP[k].d.length===NOT[k][0].length&&TIP[k].d.every(x=>x.replace(/<[^>]+>/g,'').length>=150)&&!/• &lt;<br>• p<br>/.test(TIP[k].c[12]+TIP[k].c[13])});R.tip_sans_a_completer=T.every(t=>!t.c[5].startsWith('À compléter'));R.tip_autres_rediges=T.every(t=>{const s=t.c[5],i=s.indexOf('§autres');if(i<0)return true;const j=s.indexOf('\n§',i+1);return s.slice(i,j<0?undefined:j).split('\n').filter(l=>l.startsWith('• ')).every(l=>/^• <b>[^<]+<\/b> : .{12,}[.!?]$/.test(l))});
 return R})()"""
 async def main():
   out={};errs=[]
