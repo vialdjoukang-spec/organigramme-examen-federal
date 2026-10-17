@@ -6,6 +6,9 @@
 # verts. La publication Pages est déclenchée par pages.yml (y compris
 # sur pull_request fermée et fusionnée), car une fusion faite avec
 # GITHUB_TOKEN ne relance pas les workflows push.
+# GH_REPO est fixé (aucun dépôt local : « not a git repository » sinon). Si le secret
+# AUTO_FUSION_TOKEN (PAT fin) existe, il remplace GITHUB_TOKEN : les commits de mise à jour
+# déclenchent alors la CI normalement (fin des exécutions « action_required »).
 name: Auto-fusion
 on:
   pull_request:
@@ -34,7 +37,8 @@ jobs:
     steps:
       - name: Mettre à jour la branche avec main si elle est en retard
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
@@ -56,7 +60,8 @@ jobs:
 
       - name: Activer l'auto-merge (commit de fusion)
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number }}
         run: |
           set -euo pipefail
