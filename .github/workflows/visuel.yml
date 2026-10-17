@@ -1,0 +1,107 @@
+# Automate Iris · qualité visuelle (Janus, chantier Frontend Premium).
+# À chaque demande de fusion et chaque lundi : captures Playwright de chaque onglet (ordinateur 1440 et Pixel 7 ;
+# thèmes clair, « Fond doré » et sombre), écarts de pixels contre la référence engagée, axe-core (cliquet sur les
+# problèmes graves et critiques, contraste WCAG AA), débordement horizontal mobile, polices et CLS.
+# La référence ne change que par l'étiquette « visuel:nouvelle-reference » puis un commit explicite (tools/visuel_reference.sh).
+# Avec l’étiquette, la CI publie en plus une référence proposée ; la tâche reste rouge tant qu’elle n’est pas adoptée. La comparaison
+# est toujours bloquante ; sans étiquette, toute modification de la référence échoue.
+name: Visuel
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  schedule:
+    - cron: '41 4 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: visuel-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  PLAYWRIGHT_VERSION: '1.63.0'
+  AXE_VERSION: '4.14.0'
+  AXE_SHA256: '20c09fe157a8a34a30e241aaa1fcdade657734f08ab379ecfbeb7d45cc46e878'
+  LABEL: 'visuel:nouvelle-reference'
+
+jobs:
+  visuel:
+    name: visuel
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - name: Étiquette de nouvelle référence
+        id: lab
+        env:
+          LABELS: ${{ toJson(github.event.pull_request.labels.*.name) }}
+        run: |
+          if [ "${{ github.event_name }}" = pull_request ] && echo "$LABELS" | grep -qF "\"$LABEL\""; then
+            echo "maj=1" >> "$GITHUB_OUTPUT"; echo "Étiquette $LABEL présente : comparaison non bloquante, référence proposée."
+          else echo "maj=0" >> "$GITHUB_OUTPUT"; fi
+      - name: Aucune référence modifiée sans étiquette (jamais en silence)
+        id: ref
+        run: |
+          chg=0
+          if [ "${{ github.event_name }}" = pull_request ] && git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -q '^qa/visuel/reference'; then chg=1; fi
+          echo "chg=$chg" >> "$GITHUB_OUTPUT"
+          if [ "$chg" = 1 ] && [ "${{ steps.lab.outputs.maj }}" != 1 ]; then
+            echo "ÉCHEC : la demande de fusion modifie qa/visuel/reference* sans l'étiquette $LABEL."; exit 1; fi
+          echo "Référence modifiée : $chg ; étiquette : ${{ steps.lab.outputs.maj }}."
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Playwright (version figée), Chromium, Pillow, NumPy
+        run: |
+          pip install --quiet "playwright==$PLAYWRIGHT_VERSION" pillow numpy
+          python -m playwright install --with-deps chromium
+      - name: axe-core (version et empreinte figées)
+        run: |
+          mkdir -p .cache
+          curl -sSfL "https://registry.npmjs.org/axe-core/-/axe-core-$AXE_VERSION.tgz" | tar xz -C .cache package/axe.min.js
+          mv .cache/package/axe.min.js .cache/axe.min.js
+          echo "$AXE_SHA256  .cache/axe.min.js" | sha256sum -c -
+      - name: Captures et mesures
+        run: python tests/visuel/capture.py --sortie qa/visuel/out
+      - name: Comparaison avec la référence
+        id: cmp
+        continue-on-error: true
+        run: python tests/visuel/compare.py --sortie qa/visuel/out ${{ (steps.lab.outputs.maj == '1' && steps.ref.outputs.chg != '1') && '--non-bloquant' || '' }}
+      - name: Référence proposée (étiquette présente ou lancement manuel)
+        if: steps.lab.outputs.maj == '1' || github.event_name == 'workflow_dispatch'
+        run: python tests/visuel/compare.py --sortie qa/visuel/out --proposer qa/visuel/proposee
+      - name: Rapport dans le résumé
+        if: always()
+        run: cat qa/visuel/out/rapport.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: visuel-rapport
+          path: |
+            qa/visuel/out/diff/
+            qa/visuel/out/actuel/
+            qa/visuel/out/rapport.md
+            qa/visuel/out/rapport.json
+            qa/visuel/out/mesures.json
+          retention-days: 14
+      - uses: actions/upload-artifact@v7
+        if: steps.lab.outputs.maj == '1' || github.event_name == 'workflow_dispatch'
+        with:
+          name: visuel-reference-proposee
+          path: qa/visuel/proposee/
+          retention-days: 14
+      - name: Commentaire sur la demande de fusion
+        if: always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          f=qa/visuel/out/rapport.md
+          [ -f "$f" ] || { echo "Pas de rapport."; exit 0; }
+          echo "" >> "$f"; echo "[Exécution et artefacts](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> "$f"
+          gh pr comment "${{ github.event.pull_request.number }}" --edit-last --create-if-none --body-file "$f" \
+            || gh pr comment "${{ github.event.pull_request.number }}" --body-file "$f"
+      - name: Verdict
+        if: steps.cmp.outcome == 'failure'
+        run: |
+          echo "ÉCHEC : régression visuelle, d'accessibilité, de débordement, de police ou de CLS (voir le rapport)."; exit 1
