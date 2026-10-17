@@ -62,6 +62,10 @@ D.forEach((d,i)=>{U.forEach((u,j)=>{S0.seances['clip'+i+j]={date:d,start:7*60+j*
 localStorage.setItem('orga-ef',JSON.stringify(S0));localStorage.setItem('orga-tab','cal')}"""
 
 
+CLS_SRC_INIT = """window.__cls=0;window.__clsS=[];try{new PerformanceObserver(l=>{for(const e of l.getEntries()){if(e.hadRecentInput)continue;
+window.__cls+=e.value;if(e.value>0.005)window.__clsS.push({v:+e.value.toFixed(4),t:Math.round(e.startTime),el:(e.sources||[]).map(x=>x.node?(x.node.nodeName+(x.node.id?'#'+x.node.id:'')):'?').slice(0,4)})}}).observe({type:'layout-shift',buffered:true})}catch(e){}"""
+
+
 def settle(pg, ms=450):
     pg.wait_for_timeout(ms)
     pg.evaluate("()=>document.fonts.ready")
@@ -172,6 +176,21 @@ def main():
                     M.setdefault('texte_coupe', {})[k] = r if n else [{'el': '#grid', 'texte': 'aucune séance rendue', 'sens': '—'}]
                 M['erreurs_page'][f'{vn}_{pn}_cal-bandes'] = errs
                 c.close()
+        # CLS « comme la CI » : processeur ralenti ×6 (CDP), horloge réelle des minuteries ; clés <profil>_lent,
+        # absentes de la référence, donc plafonnées par cls_max. Les sources des décalages sont consignées.
+        for pn in a.profils.split(','):
+            pr = CFG['profils'][pn]
+            if 'device' in pr:
+                ctxa = dict(p.devices[pr['device']]); ctxa['device_scale_factor'] = pr.get('device_scale_factor', ctxa['device_scale_factor'])
+            else:
+                ctxa = {'viewport': {'width': pr['viewport'][0], 'height': pr['viewport'][1]}}
+            ctxa.update(color_scheme='light', reduced_motion='reduce', locale='fr-CH', timezone_id='Europe/Zurich')
+            c = b.new_context(**ctxa); c.add_init_script(CLS_SRC_INIT); pg = c.new_page()
+            c.new_cdp_session(pg).send('Emulation.setCPUThrottlingRate', {'rate': 6})
+            pg.goto('file://' + APP, wait_until='load'); settle(pg, 3000)
+            M['cls'][f'clair_{pn}_lent'] = round(pg.evaluate('window.__cls'), 4)
+            M.setdefault('cls_sources', {})[f'clair_{pn}_lent'] = pg.evaluate('window.__clsS')
+            c.close()
         # Rendu sans réseau : toute dépendance externe (CDN de polices, scripts) modifie la capture.
         c = b.new_context(viewport={'width': 1440, 'height': 900}, color_scheme='light', reduced_motion='reduce',
                           locale='fr-CH', timezone_id='Europe/Zurich')
