@@ -30,7 +30,8 @@ async def ecran(b, out, nom, vp, mobile):
     pg = await c.new_page(); errs = []
     pg.on('pageerror', lambda e: errs.append(str(e)))
     await pg.goto('file://' + APP); await pg.wait_for_timeout(1200)
-    await pg.wait_for_function('!!window.CK_PREV&&!!window.CK_SRC', timeout=8000)
+    out[f'{nom}_rien_au_demarrage'] = await pg.evaluate('!window.CK_PREV')  # prev.js attend une fiche Notions (CLS de l’accueil)
+    await pg.evaluate("Promise.all([ckLoad('prev'),ckLoad('src')])")
     c0 = await pg.evaluate("(()=>{const c=Object.keys(PRV)[0];return c||null})()")
     if not c0:  # aucune donnée encore : jeu d'essai en mémoire, jamais écrit dans le dépôt
         c0 = 'S2.5'
