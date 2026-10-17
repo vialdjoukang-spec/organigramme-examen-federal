@@ -1,0 +1,20 @@
+# Sources de la veille officielle (Argos, phase 1). Annexe D du plan v2, testée le 17.10.2026.
+# Chaque requête lit d'abord robots.txt ; aucune source n'est le Compendium ni une page Swissmedic.
+ve1:
+  nom: "OFSP · examen fédéral et inscription"
+  categorie: veille:officiel
+  destinataire: Thémis
+  methode: html          # titres et liens de la zone <main>, liens PDF compris
+  hebdo_jour: 0          # lundi (0 = lundi)
+  quotidien: ["12-01", "03-31"]   # chaque jour du 1.12 au 31.03
+  urls:
+    - https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine
+    - https://www.bag.admin.ch/fr/inscription-a-lexamen-federal
+ve2:
+  nom: "Portail healthreg · inscription à l'examen"
+  categorie: veille:officiel
+  destinataire: Thémis
+  methode: playwright    # la page n'affiche ses dates qu'avec JavaScript
+  hebdo_jour: 0
+  urls:
+    - https://healthreg-online.admin.ch/examination-registration
