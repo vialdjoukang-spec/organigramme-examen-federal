@@ -1,0 +1,79 @@
+# Auto-fusion après audit (label audit-ok).
+# Les rédacteurs ouvrent leur PR sans fusionner. L'auditeur pousse ses
+# corrections sur la branche et ajoute le label audit-ok. Ce workflow
+# met la branche à jour avec main si besoin, puis active l'auto-merge
+# (commit de fusion). GitHub fusionne dès que les contrôles requis sont
+# verts. La publication Pages est déclenchée par pages.yml (y compris
+# sur pull_request fermée et fusionnée), car une fusion faite avec
+# GITHUB_TOKEN ne relance pas les workflows push.
+name: Auto-fusion
+on:
+  pull_request:
+    types: [labeled, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-fusion-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  auto-fusion:
+    name: auto-fusion
+    if: >
+      github.event.pull_request.merged == false &&
+      github.event.pull_request.draft == false &&
+      (
+        (github.event.action == 'labeled' && github.event.label.name == 'audit-ok') ||
+        (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'audit-ok'))
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mettre à jour la branche avec main si elle est en retard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          echo "PR #${PR} head=${HEAD_SHA}"
+          # PUT update-branch : 202 = mise à jour lancée, 422 = déjà à jour
+          # ou conflit. Jamais de force-push.
+          set +e
+          out=$(gh api -X PUT "repos/${{ github.repository }}/pulls/${PR}/update-branch" \
+            -f expected_head_sha="${HEAD_SHA}" 2>&1)
+          rc=$?
+          set -e
+          echo "update-branch rc=${rc} out=${out}"
+          if [ "$rc" -eq 0 ]; then
+            echo "Branche mise à jour avec main."
+          else
+            echo "Pas de mise à jour (déjà à jour, conflit, ou non applicable) — suite."
+          fi
+
+      - name: Activer l'auto-merge (commit de fusion)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          # Attend les contrôles requis (garde, html, tests, visuel) et
+          # la branche à jour (strict). Aucune protection n'est affaiblie.
+          set +e
+          out=$(gh pr merge "$PR" --repo "${{ github.repository }}" --auto --merge 2>&1)
+          rc=$?
+          set -e
+          echo "gh pr merge --auto rc=${rc} out=${out}"
+          if [ "$rc" -eq 0 ]; then
+            echo "Auto-merge activé pour #${PR}."
+            exit 0
+          fi
+          state=$(gh pr view "$PR" --repo "${{ github.repository }}" --json state,autoMergeRequest,mergeable,mergeStateStatus \
+            --jq '{state,autoEnabled:.autoMergeRequest.enabledAt,mergeable,mergeStateStatus}')
+          echo "État après échec : ${state}"
+          echo "$state" | grep -q '"state":"MERGED"' && { echo "Déjà fusionnée."; exit 0; }
+          echo "$state" | grep -q '"autoEnabled":"' && { echo "Auto-merge déjà actif."; exit 0; }
+          exit 1
