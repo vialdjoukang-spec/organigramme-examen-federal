@@ -85,9 +85,25 @@ async def profile(b, mobile, out, errs):
     await ev("hideTip(true)")
     # Schéma : SVG chargé à la demande (ncT.js), couches, vues, tour ; repli <img> sans fichier JS.
     await tap('#t-nc'); await pg.wait_for_timeout(600)
-    ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===7")
+    ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===8")
     await tap('#tip input[value=nerf]'); await pg.wait_for_timeout(100)
     out[pre + 'schema_couches'] = ok and await ev("$('#tip .ck-fig #nerf').getAttribute('display')==='none'&&$('#tip .ck-fig #trait').getAttribute('display')==='inline'")
+    # Repères numérotés (contrat Dédale : g.nc-num, data-num, data-nom, data-glo) et bascule de la légende numérotée.
+    m1, m2 = '#tip .ck-fig .nc-num[data-num="1"]', '#tip .ck-fig .nc-num[data-num="2"]'
+    if not mobile:
+        await pg.hover(m2); await pg.wait_for_timeout(120)
+        out['repere_survol_bulle'] = await ev("!$('#tip .ck-bulle').hidden&&$('#tip .ck-bulle').textContent.startsWith('2 · Point B')")
+    await tap(m2); await pg.wait_for_timeout(150)
+    ok = await ev(f"{K}==='nc|ncT|face'&&!$('#tip .ck-bulle').hidden&&$('#tip .ck-bulle').textContent.startsWith('2 · Point B')&&tipStk.length===0")
+    await tap(m1); await pg.wait_for_timeout(250)
+    ok = ok and await ev(f"{K}==='glo|hyperhidrose'&&tipStk.length===1&&$('#tip .ck-fil').textContent.includes('Nerf de test · Face ›')")
+    await tap('#tip .bk'); await pg.wait_for_timeout(500)
+    await pg.focus(m1); await pg.keyboard.press('Enter'); await pg.wait_for_timeout(250)
+    out[pre + 'repere_numerote_glossaire'] = ok and await ev(f"{K}==='glo|hyperhidrose'&&tipStk.length===1")
+    await tap('#tip .bk'); await pg.wait_for_timeout(500)
+    await tap('#tip input[value=legende]'); await pg.wait_for_timeout(100)
+    out[pre + 'legende_numerotee_bascule'] = await ev("$('#tip .ck-fig #legende').getAttribute('display')==='none'&&!$('#tip input[value=legende]').checked")
+    await tap('#tip input[value=legende]'); await pg.wait_for_timeout(100)
     await tap('#tip [data-k="nc|ncT|profil"]'); await pg.wait_for_timeout(200)
     out[pre + 'schema_vues'] = await ev(f"{K}==='nc|ncT|profil'&&$('#tip [data-k=\"nc|ncT|profil\"]').getAttribute('aria-pressed')==='true'&&$('#tip .ck-fig svg title').textContent.includes('profil')&&$('#tip .ck-fig #nerf').getAttribute('display')==='none'")
     await tap('#tip [data-k="nc|ncT|tour"]'); await pg.wait_for_timeout(200)
@@ -149,7 +165,7 @@ async def reel(b, mobile, out, errs):
     await ev("hideTip(true)")
     await tap('#r-nc'); await pg.wait_for_function("!!$('#tip .ck-fig svg')", timeout=15000); await pg.wait_for_timeout(200)
     out[pre + 'reel_schema_vues'] = await ev("(()=>{const e=window['CK_NC'].nc07,n=Object.values(e.vues).filter(Boolean).length+(e.tour?1:0);"
-                                             "return $$('#tip [data-ck=vue]').length===n&&$('#tip .t').textContent===e.nom+' · Face'&&!$('#tip .ck-couches').disabled})()")
+                                             "return $$('#tip [data-ck=vue]').length===n&&(e.tour||[...$$('#tip [data-ck=vue]')].map(b=>b.textContent).join('/')==='Face/Profil/Trois quarts')&&$('#tip .t').textContent===e.nom+' · Face'&&!$('#tip .ck-couches').disabled})()")
     E = await ev("Object.keys(JSON.parse($('#tip .ck-fig svg').dataset.etats))")
     await tap('#tip [data-ck=etat][data-e="lesions"]'); await pg.wait_for_timeout(150)
     out[pre + 'reel_schema_etats'] = len(E) >= 2 and await ev(f"$$('#tip [data-ck=etat]').length==={len(E)}&&$('#tip [data-ck=etat][data-e=lesions]').getAttribute('aria-pressed')==='true'"

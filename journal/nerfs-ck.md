@@ -151,3 +151,4 @@ Fait : le patch est renuméroté 0012, après le 0011 d’Atlas. Le lieur lit CK
 Sources : aucune source clinique ajoutée.
 À vérifier : chevauchement d’étiquettes de la vue de face (Dédale) ; libellé « Par défaut » du sélecteur de fond (Apollon, patch 0005).
 Prochaine action : quand loc.json aura des entrées, ajouter une vérification de la synthèse locale sur les données réelles.
+Ajout (17:45) : repères numérotés g.nc-num, avec bulle « n · nom » et ouverture de la fiche du glossaire dans la pile ; case « Légende numérotée » (couche legende), construite sur le contrat de Dédale avant la fusion de sa PR (données d’essai). test_ck_ui compte 66 contrôles.

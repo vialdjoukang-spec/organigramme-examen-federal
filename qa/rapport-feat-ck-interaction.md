@@ -20,8 +20,8 @@ Les captures, prises avec les données d’essai (tests/fixtures/ck), ne sont pa
 
 | Contrôle | Résultat |
 |---|---|
-| tests/run_tests.py | 194/194 |
-| tests/test_ck_ui.py | 61/61, dont 12 sur les données réelles, aucune erreur de console |
+| tests/run_tests.py | 199/199 |
+| tests/test_ck_ui.py | 66/66, dont 12 sur les données réelles, aucune erreur de console |
 | tests/test_ck.py (Janus) | 61/61 |
 | niveau1 G1 à G7, ck_build --check, nc_svg_check, nc_svg_js --check | réussis |
 | tools/dedale/verifier.py, tests/test_dedale.py | 0 échec, 20/20 |

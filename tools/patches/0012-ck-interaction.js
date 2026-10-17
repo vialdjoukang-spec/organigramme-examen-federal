@@ -3,8 +3,8 @@
    définitions par tranche (CK_GLO_A…) ; CK_SYN, CK_HYP, CK_NC, CK_LOC, CK_SRC, CK_DOSES_CH (objet par identifiant ou tableau).
    Schémas : CK_SVG[chemin du SVG] = texte SVG (assets/nc/ncXX.js, tools/nc_svg_js.py), états dans data-etats (Dédale). Aucune donnée ici. */
 const CK_MAX=5,tipStk=[],ckCou={};let gloI=null,gloOn=false,gloT=0,ckEt='';const gloQ=new Set(),ckTry=new Map();
-const NC_VUE={face:'Face',profil:'Profil',trois_quarts:'Trois quarts','34':'Trois quarts',plan:'Plan',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes'],
- NC_COUL={trait:'Trait',nerf:'Nerf',noyaux:'Noyaux',foramens:'Foramens',territoires:'Territoires',lesions:'Sites lésionnels',legendes:'Légendes'},
+const NC_VUE={face:'Face',profil:'Profil',trois_quarts:'Trois quarts','34':'Trois quarts',plan:'Plan',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes','legende'],
+ NC_COUL={trait:'Trait',nerf:'Nerf',noyaux:'Noyaux',foramens:'Foramens',territoires:'Territoires',lesions:'Sites lésionnels',legendes:'Légendes',legende:'Légende numérotée'},
  NC_ETL={trajet:'Trajet',branches:'Branches',fonctions:'Fonctions',lesions:'Lésions'},
  GLO_TY={signe:'signe',syndrome:'syndrome',terme:'terme',examen:'examen',abreviation:'abréviation',eponyme:'éponyme'},
  CK_MOY={pharmaco:'Pharmacologique',interventionnel:'Interventionnel',reeducation:'Rééducation',suivi:'Suivi'},
@@ -118,12 +118,12 @@ function ckEtat(fig,x){const s=fig.querySelector('svg'),M=ckEtats(s);if(!M||!M[x
  s.querySelectorAll('[data-etat]').forEach(g=>g.setAttribute('display',g.dataset.etat===x?'inline':'none'));NC_COU.forEach(c=>{ckCou[c]=M[x].includes(c)});
  TIPEL.querySelectorAll('input[data-ck=cou]').forEach(i=>{i.checked=ckCou[i.value]!==false});TIPEL.querySelectorAll('[data-ck=etat]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.e===x)));ckApply(fig)}
 function ckApply(fig){const s=fig.querySelector('svg'),F=TIPEL.querySelector('.ck-couches');if(!F)return;
- for(const i of F.querySelectorAll('input[data-ck=cou]')){const g=s&&s.querySelector(`#${i.value},[data-couche="${i.value}"]`);i.disabled=!g||!g.childElementCount;if(g)g.setAttribute('display',i.checked?'inline':'none')}}
+ for(const i of F.querySelectorAll('input[data-ck=cou]')){const g=s&&s.querySelector(`#${i.value},[data-couche="${i.value}"]`);i.closest('label').hidden=!g;i.disabled=!g||!g.childElementCount;if(g)g.setAttribute('display',i.checked?'inline':'none')}}
 function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{})[id];if(!e)return;const nom=ckLab('NC',id),F=TIPEL.querySelector('.ck-couches');
  if(v==='tour'){fig.innerHTML=`<div class="ck-tour" role="slider" tabindex="0" aria-label="Tour du schéma ${esc(nom)} : glissez ou utilisez les flèches" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="0°" style="background-image:url('${esc(e.tour)}')"></div><figcaption class="st">Glissez, ou utilisez les flèches gauche et droite : 8 vues à 45°.</figcaption>`;return}
  const p=e.vues[v],SV=ckW('SVG'),src=SV&&SV[p];
  const cred=s=>{let c=(ckW('NC_CRED')||{})[p]||(e.credits||{})[v];/* le SVG de Dédale porte déjà son crédit visible */c=c?(typeof c==='string'?c:(c.tasl||c.credit||'')):'';return c?`<figcaption class="ck-cr">${esc(c)}</figcaption>`:''};
- if(src){const n=ckSvg(fig,src);if(n){n.setAttribute('aria-label','Schéma : '+nom+', vue '+ncVue(v));n.removeAttribute('aria-labelledby');fig.replaceChildren(n);fig.insertAdjacentHTML('beforeend',cred(n));
+ if(src){const n=ckSvg(fig,src);if(n){n.setAttribute('aria-label','Schéma : '+nom+', vue '+ncVue(v));n.removeAttribute('aria-labelledby');fig.replaceChildren(n);fig.insertAdjacentHTML('beforeend',cred(n));ckNum(fig,n);
   const M=ckEtats(n),E=TIPEL.querySelector('.ck-etats');
   if(M&&E){const K=Object.keys(M),x=K.includes(ckEt)?ckEt:(n.dataset.etat&&M[n.dataset.etat]?n.dataset.etat:K[0]);E.innerHTML=K.map(k=>`<button type="button" class="b" data-ck="etat" data-e="${esc(k)}" aria-pressed="${k===x}">${esc(NC_ETL[k]||k)}</button>`).join('');E.hidden=false;ckEtat(fig,x)}else ckApply(fig);return}}
  const js=e.js||'assets/nc/'+id+'.js';
@@ -131,6 +131,20 @@ function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{
   sc.onload=()=>{ckJs[js]=1;if(fig.isConnected)ckFig(fig)};sc.onerror=()=>{ckJs[js]=-1;if(fig.isConnected)ckFig(fig)};document.head.appendChild(sc);return}
  if(ckJs[js]===0)return;
  fig.innerHTML=`<img src="${esc(p)}" alt="Schéma : ${esc(nom)}, vue ${ncVue(v)}" loading="lazy">${cred(null)}<p class="st">Les couches ne sont pas disponibles pour ce schéma : le fichier ${esc(js)} manque.</p>`;if(F)F.disabled=true}
+/* Repères numérotés (Dédale : g.nc-num, data-num, data-nom, data-glo) : bulle « n · nom » au survol, au focus et au toucher ;
+   clic, toucher ou Entrée ouvrent la fiche du glossaire au niveau suivant (même pile), sauf au niveau 5 ou si elle est déjà ouverte. */
+let ckCtx={lv:1,ex:[]};
+function ckNum(fig,s){const {lv,ex}=ckCtx;
+ s.querySelectorAll('.nc-num').forEach(g=>{const id=g.dataset.glo,k=id?'glo|'+id:'',ok=k&&gloMeta(id)&&lv<CK_MAX&&!ex.includes(k);g.setAttribute('tabindex','0');g.setAttribute('role','button');
+  g.setAttribute('aria-label',(g.dataset.num||'')+' · '+(g.dataset.nom||'')+(ok?' : ouvrir la fiche':''));if(ok){g.dataset.t=k;g.classList.add('tw')}else{delete g.dataset.t;g.classList.remove('tw')}});
+ if(!fig.querySelector('.ck-bulle'))fig.insertAdjacentHTML('beforeend','<div class="ck-bulle" role="status" hidden></div>')}
+function ckBulle(g){const fig=g&&g.closest('.ck-fig'),b=fig&&fig.querySelector('.ck-bulle');if(!b)return;const id=g.dataset.glo,d=id?gloShort(id):'';
+ b.innerHTML=`<b>${esc(g.dataset.num||'')} · ${esc(g.dataset.nom||'')}</b>${d?'<br>'+esc(d):''}`;b.hidden=false;
+ const r=g.getBoundingClientRect(),q=fig.getBoundingClientRect(),w=b.offsetWidth;b.style.left=Math.max(0,Math.min(q.width-w,r.left-q.left+r.width/2-w/2))+'px';b.style.top=(r.bottom-q.top+6)+'px'}
+function ckBulleX(){const b=TIPEL.querySelector('.ck-bulle');if(b)b.hidden=true}
+TIPEL.addEventListener('pointerover',e=>{const g=e.target.closest('.nc-num');if(g&&e.pointerType==='mouse')ckBulle(g)});
+TIPEL.addEventListener('pointerout',e=>{const g=e.target.closest('.nc-num');if(g&&e.pointerType==='mouse'&&!g.contains(e.relatedTarget))ckBulleX()});
+TIPEL.addEventListener('focusin',e=>{const g=e.target.closest&&e.target.closest('.nc-num');g?ckBulle(g):ckBulleX()});
 function ckTour(el,d){const f=((+el.getAttribute('aria-valuenow')+d)%8+8)%8;el.setAttribute('aria-valuenow',f);el.setAttribute('aria-valuetext',f*45+'°');el.style.backgroundPositionX=(f*100/7)+'%'}
 /* Pile de fenêtres : un terme ouvert depuis la fenêtre l’empile (5 niveaux au plus) ; « ← Retour » et le fil d’Ariane y reviennent. */
 function tipGo(i){if(i<0||i>=tipStk.length)return;const s=tipStk[i];tipStk.length=i;showTip({dataset:{t:s.k}},true,tipOp,true,true)}
@@ -140,10 +154,11 @@ function tipNav(e){const t=e.target;if(!(t instanceof Element)||!TIPEL.contains(
  const lv=t.closest('[data-lv]');if(lv){e.preventDefault();e.stopPropagation();tipGo(+lv.dataset.lv);return true}
  const et=t.closest('[data-ck=etat]');if(et){e.preventDefault();e.stopPropagation();const f=TIPEL.querySelector('.ck-fig');if(f)ckEtat(f,et.dataset.e);return true}
  const c=t.closest('[data-ck]');if(c&&c.dataset.k){e.preventDefault();e.stopPropagation();const k=c.dataset.k;showTip({dataset:{t:k}},true,tipOp,false,true);const n=TIPEL.querySelector(`[data-k="${CSS.escape(k)}"]`);if(n)n.focus({preventScroll:true});return true}
+ const mk=t.closest('.nc-num');if(mk&&!mk.dataset.t){e.preventDefault();e.stopPropagation();ckBulle(mk);return true}
  const a=t.closest('.ck-b [data-t]');if(a){e.preventDefault();e.stopPropagation();clearTimeout(tipT);showTip(a,true,a,e.detail===0);return true}
  return false}
 TIPEL.addEventListener('change',e=>{const i=e.target.closest('input[data-ck=cou]');if(!i)return;ckCou[i.value]=i.checked;const f=TIPEL.querySelector('.ck-fig');if(f)ckApply(f)});
-TIPEL.addEventListener('keydown',e=>{const t=e.target;if(t.matches('[role=tab]')&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){const L=[...TIPEL.querySelectorAll('[role=tab]')],n=L[(L.indexOf(t)+(e.key==='ArrowRight'?1:L.length-1))%L.length];e.preventDefault();n.click()}
+TIPEL.addEventListener('keydown',e=>{const t=e.target;if((e.key==='Enter'||e.key===' ')&&t.matches('.nc-num:not([data-t])')){e.preventDefault();ckBulle(t);return}if(t.matches('[role=tab]')&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){const L=[...TIPEL.querySelectorAll('[role=tab]')],n=L[(L.indexOf(t)+(e.key==='ArrowRight'?1:L.length-1))%L.length];e.preventDefault();n.click()}
  else if(t.classList.contains('ck-tour')&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();ckTour(t,e.key==='ArrowRight'?1:-1)}});
 TIPEL.addEventListener('pointerdown',e=>{const el=e.target.closest('.ck-tour');if(!el)return;el.setPointerCapture(e.pointerId);let x0=e.clientX;
  const mv=ev=>{const d=Math.trunc((ev.clientX-x0)/40);if(d){ckTour(el,d);x0+=d*40}},up=()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up);el.removeEventListener('pointercancel',up)};
@@ -151,5 +166,5 @@ TIPEL.addEventListener('pointerdown',e=>{const el=e.target.closest('.ck-tour');i
 function tipCk(lv,k){TIPEL.classList.toggle('ck',k.split('|')[0] in CK_DEP);TIPEL.classList.toggle('ck-nc',k.startsWith('nc|'));const B=TIPEL.querySelector('.ck-b');if(!B)return;const ex=tipStk.map(s=>s.k).concat(k);
  B.querySelectorAll('.ck-l[data-t]').forEach(a=>{if(lv>=CK_MAX||ex.includes(a.dataset.t))a.replaceWith(document.createTextNode(a.textContent))});
  if(lv<CK_MAX)gloLink(B,new Set(ex.filter(s=>s.startsWith('glo|')).map(s=>s.split('|')[1])),true);
- B.querySelectorAll('.ck-fig').forEach(ckFig)}
+ ckCtx={lv,ex};B.querySelectorAll('.ck-fig').forEach(f=>ckFig(f))}
 if(ckW('GLO')||ckW('GLO_INDEX'))gloStart();else if(typeof ckLoad==='function')addEventListener('load',()=>ckIdle(()=>ckLoad('glo-index').then(gloStart,()=>{})),{once:true});
