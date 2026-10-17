@@ -1,9 +1,9 @@
 import os, sys
-# Patch 0013 · Podalire · 17.10.2026 · G8 : la fenêtre « Exploration » affiche pour chaque examen le mécanisme, le principe,
+# Patch 0014 · Podalire · 17.10.2026 · G8 : la fenêtre « Exploration » affiche pour chaque examen le mécanisme, le principe,
 # ce qu’il recherche et pourquoi ce choix ; la fenêtre « Prise en charge » affiche pour chaque moyen le mécanisme, le principe,
 # le moyen nommé, pourquoi ce choix et ses limites, une ligne par partie. Le syndrome renvoie à la vue de schéma liée
 # (syn.vues, p. ex. nc|nc07|voie_motrice) ; une vue pas encore livrée retombe sur la première vue du nerf.
-# L’ancien champ pourquoi reste lu pour les jeux d’essai. Se rejoue après 0012.
+# L’ancien champ pourquoi reste lu pour les jeux d’essai. Se rejoue après 0012 ; indépendant du 0013 d’Hermès (repères).
 p = os.environ.get('APP_FILE') or sys.exit('Indiquez APP_FILE (copie de travail).')
 assert not p.endswith('orig/app.html'), 'Interdit I1'
 s = open(p, encoding='utf-8').read()
@@ -31,4 +31,4 @@ rep("${ckP(R.nom)}${part('Recherche',R.recherche)}${sr(R.src)}", "${ckP(R.nom)}$
 rep("${ckP(l.nom)}${part('Pourquoi',l.pourquoi)}${part('Précautions',l.precautions)}${part('Recherche',l.recherche)}${part('Alternative',l.alternative)}${sr(l.src)}",
     "${ckP(l.nom)}${jx(l)}${sr(l.src)}")
 open(p, 'w', encoding='utf-8', newline='').write(s)
-print('0013 appliqué :', p)
+print('0014 appliqué :', p)

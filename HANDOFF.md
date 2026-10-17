@@ -11,7 +11,7 @@ Pièges     : Le lieur ignore titres, boutons, champs, .tw, #grid et .blk, mais 
 À vérifier : Les mots d’interface « Foramens » et « Sites lésionnels » doivent recevoir une entrée de glossaire (Hippocrate).
 
 ## Podalire · chaîne justifiée du VII (G8) · 17.10.2026, Europe/Zurich
-État       : feat/nc07-justification : chaque examen et chaque moyen des 12 hypothèses du VII porte mecanisme, principe, pourquoi_ce_choix (et limites pour un moyen) ; G8 dans niveau1.py, étape CI, 12 tests dans test_ck.py ; syn.vues renvoie à nc|nc07|voie_motrice ; patch 0013 affiche ces champs ; skills ssp-chaine-clinique et ssp-audit-medical à jour.
+État       : feat/nc07-justification : chaque examen et chaque moyen des 12 hypothèses du VII porte mecanisme, principe, pourquoi_ce_choix (et limites pour un moyen) ; G8 dans niveau1.py, étape CI, 12 tests dans test_ck.py ; syn.vues renvoie à nc|nc07|voie_motrice ; patch 0014 affiche ces champs ; skills ssp-chaine-clinique et ssp-audit-medical à jour.
 Prochaine  : Dédale livre assets/nc/nc07-voie-motrice.svg et l’ajoute à nc07.vues.voie_motrice (l’avertissement de ck_build disparaît) ; Galien relit la justification (audit:galien).
 Pièges     : une justification recopiée d’un autre champ ou de moins de 20 caractères fait échouer G8 ; l’ancien champ pourquoi est refusé. Les verbes « enlever », « convenir » et « coaguler » manquent au lexique de G6 : écrire « retirer », « être contre-indiqué ».
 
