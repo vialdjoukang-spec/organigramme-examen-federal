@@ -1,16 +1,15 @@
 # Publication GitHub Pages (Héphaïstos) : l'application et ses croquis (assets/) sont publiés.
 # index.html et app_v2.html sont deux copies du même fichier de travail ; progres.html affiche les jauges des binômes.
-# Une fusion faite avec GITHUB_TOKEN (workflow Auto-fusion) ne relance pas les
-# workflows on:push : on écoute donc aussi pull_request fermée et fusionnée.
+# Après une fusion faite avec GITHUB_TOKEN (auto-fusion), le workflow
+# pages-apres-fusion.yml relance celui-ci via workflow_dispatch : une fusion
+# GITHUB_TOKEN ne déclenche pas on:push, et l'environnement github-pages
+# refuse un déploiement lancé depuis un événement pull_request.
 name: Pages
 on:
   push:
     branches: [main]
     paths: [app_v2.html, progres.html, 'assets/**', .github/workflows/pages.yml]
   workflow_dispatch:
-  pull_request:
-    types: [closed]
-    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -20,16 +19,12 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.event_name != 'pull_request' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.d.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
-        with:
-          # Sur PR fusionnée : publier l'empreinte du commit de fusion sur main.
-          ref: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
       - run: |
           mkdir _site
           cp app_v2.html _site/index.html
