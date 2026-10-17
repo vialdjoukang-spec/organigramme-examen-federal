@@ -35,6 +35,17 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
+## Frontend Premium (17.10.2026) · porte : Iris est requis sur main, et la refonte d’Apollon passe les 69 contrôles et Iris avec une référence adoptée explicitement
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Automate Iris : workflow visuel.yml, captures, écarts de pixels, axe-core en cliquet, débordement, polices, CLS (PR #13) | Janus (Iris) | 17.10.2026 |
+| [x] | Rendre la tâche « visuel » requise sur main | Héphaïstos | 17.10.2026 |
+| [x] | Spécification de la présentation (qa/apollon/spec.md) et maquettes avant/après | Apollon | 17.10.2026 |
+| [~] | Patch 0005 de présentation premium, fusionné après CI verte et adoption de la référence | Apollon | 17.10.2026 |
+| [ ] | Corriger le défaut de rechargement sur « Notions CK » ou « Gestes » (NSEL, GS avant initialisation), et remonter au haut du panneau à chaque changement d’onglet | Hermès | 10.01.2027 |
+| [ ] | Convertir les styles en ligne statiques en classes utilitaires (spec, section 8) | Hermès | 10.01.2027 |
+
 ## Phases suivantes
 
 | Phase | Période | Agents | Porte |

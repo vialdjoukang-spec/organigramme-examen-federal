@@ -33,6 +33,33 @@ FONTS_JS = """async()=>{await document.fonts.ready;const f=[...document.fonts].m
 const css=getComputedStyle(document.body).fontFamily;return {faces:f.length,echecs:f.filter(x=>x.statut==='error').map(x=>x.famille),famille_corps:css}}"""
 
 
+# Séances de démonstration : deux par jour sur la semaine figée (16–22.11.2026), pour juger les bandes de séance
+# sur chaque teinte de jour. Elles vivent seulement dans le stockage local de ce contexte de test.
+SEED_JS = """()=>{const D=['2026-11-16','2026-11-17','2026-11-18','2026-11-19','2026-11-20','2026-11-21','2026-11-22'];
+const A=['Cours CK','Fondamentaux F′','QCM','Révision'];const S0=JSON.parse(localStorage.getItem('orga-ef')||'{}');S0.seances={};
+D.forEach((d,i)=>{for(let j=0;j<2;j++){const c=SSP[(i*31+j*17)%SSP.length][0];S0.seances['iris'+i+j]={date:d,start:7*60+j*120+i*15,dur:j?90:60,ssp:c,act:A[(i+j)%4],done:j===1&&i%2===0,score:0,qcm:null,note:'',maj:''}}});
+localStorage.setItem('orga-ef',JSON.stringify(S0));localStorage.setItem('orga-tab','cal')}"""
+
+# Contraste de chaque texte de séance contre le fond réellement peint (couleurs résolues par un canevas).
+BLK_CONTRAST_JS = """()=>{const cv=document.createElement('canvas').getContext('2d',{willReadFrequently:true});
+const rgb=c=>{cv.clearRect(0,0,1,1);cv.fillStyle='#000';cv.fillStyle=c;cv.fillRect(0,0,1,1);const d=cv.getImageData(0,0,1,1).data;return [d[0],d[1],d[2],d[3]/255]};
+const lum=([r,g,b])=>{const f=v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)};return .2126*f(r)+.7152*f(g)+.0722*f(b)};
+const over=(t,b)=>[0,1,2].map(i=>t[i]*t[3]+b[i]*(1-t[3]));
+const out=[];for(const k of document.querySelectorAll('#grid .blk')){const col=k.closest('.col');let bg=rgb(getComputedStyle(k).backgroundColor);
+if(bg[3]<1){const cb=rgb(getComputedStyle(col).backgroundColor);bg=over(bg,cb[3]?cb:[255,255,255,1]).concat(1)}
+for(const el of [k.querySelector('b'),k.querySelector('.t'),k.querySelector('.du')]){if(!el)continue;const fg=over(rgb(getComputedStyle(el).color),bg);
+const L1=lum(fg),L2=lum(bg),r=(Math.max(L1,L2)+.05)/(Math.min(L1,L2)+.05);out.push({jour:col.dataset.d,el:el.tagName.toLowerCase()+(el.className?'.'+el.className:''),ratio:Math.round(r*100)/100})}}
+const days=[...document.querySelectorAll('#grid>.col')].map(c=>getComputedStyle(c).backgroundColor);
+return {mesures:out,min:out.length?Math.min(...out.map(x=>x.ratio)):null,teintes_jours:days}}"""
+
+
+# Barre d'onglets collante : après un défilement programmé vers le panneau actif, son premier élément visible
+# ne doit pas passer sous la barre (scroll-padding-top).
+MASK_JS = """t=>{const p=document.getElementById('v-'+t);if(!p)return null;p.scrollIntoView({block:'start'});
+const n=document.querySelector('nav.tabs').getBoundingClientRect();let f=p.firstElementChild;while(f&&f.getBoundingClientRect().height===0)f=f.nextElementSibling;
+const top=(f||p).getBoundingClientRect().top;const r={nav_bas:Math.round(n.bottom),haut_contenu:Math.round(top),masque:top<n.bottom-1};window.scrollTo(0,0);return r}"""
+
+
 def axe_run(pg):
     return pg.evaluate("""async(tags)=>{const r=await axe.run(document,{runOnly:{type:'tag',values:tags},resultTypes:['violations']});
 return r.violations.map(v=>({id:v.id,impact:v.impact,aide:v.help,noeuds:v.nodes.length,exemples:v.nodes.slice(0,3).map(n=>n.target.join(' '))}))}""",
@@ -114,7 +141,7 @@ def main():
                     pg.evaluate("g=>{const r=document.getElementById('d-gilt');r.value=g;r.dispatchEvent(new Event('input',{bubbles:true}))}", v['gilt'])
                 if have_axe:
                     pg.add_script_tag(path=AXE)
-                tabs = list(CFG['onglets']) + list(CFG['etats'])
+                tabs = list(CFG['onglets']) + [e for e in CFG['etats'] if e != 'cal-seances']  # cal-seances : après rechargement
                 for t in tabs:
                     tab = 'not' if t == 'not-fenetre' else t
                     loc = pg.locator(f'.tab[data-v={tab}]')
@@ -147,6 +174,24 @@ def main():
                     M['captures'][k] = os.path.relpath(path, a.sortie)
                     if t == 'not-fenetre':
                         pg.keyboard.press('Escape')
+                    else:
+                        M.setdefault('masquage', {})[k] = pg.evaluate(MASK_JS, tab)
+                # État « cal-seances » : séances semées, rechargement, calendrier, contraste des bandes.
+                pg.evaluate(SEED_JS); pg.reload(wait_until='load'); settle(pg, 1500)
+                if v.get('gilt') is not None:
+                    pg.evaluate("g=>{const r=document.getElementById('d-gilt');r.value=g;r.dispatchEvent(new Event('input',{bubbles:true}))}", v['gilt'])
+                loc = pg.locator('.tab[data-v=cal]'); (loc.tap() if ctxa.get('has_touch') else loc.click())
+                pg.evaluate('()=>{window.scrollTo(0,0);document.activeElement&&document.activeElement.blur&&document.activeElement.blur()}')
+                settle(pg)
+                k = f'{key}_cal-seances'
+                M.setdefault('contraste_seances', {})[k] = pg.evaluate(BLK_CONTRAST_JS)
+                if have_axe:
+                    pg.add_script_tag(path=AXE); M['axe'][k] = axe_run(pg)
+                M['debordement'][k] = pg.evaluate(OVERFLOW_JS)
+                path = os.path.join(shots, k + '.png')
+                pg.screenshot(path=path, full_page=True, animations='disabled', caret='hide',
+                              clip={'x': 0, 'y': 0, 'width': pg.viewport_size['width'], 'height': min(pg.evaluate('()=>document.documentElement.scrollHeight'), H)})
+                M['captures'][k] = os.path.relpath(path, a.sortie)
                 M['erreurs_page'][key] = errs
                 c.close()
         # Bandes de séance : aucun texte coupé sans ellipse ni texte complet, en vue Semaine et en vue Jour.

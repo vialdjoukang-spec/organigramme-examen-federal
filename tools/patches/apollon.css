@@ -1,0 +1,113 @@
+/* ===== Apollon · présentation premium (patch tools/patches/0005-apollon-premium.py). Présentation seule : aucun texte, aucune donnée, aucun ID, aucun JS. ===== */
+/* 1. Jetons : polices du système (aucun CDN, rendu identique en file://), couleurs AA, espacements, rayons, ombres, mouvement. */
+/* 2. Typographie : échelle 1,2 ; titres serif, corps sans empattement, chiffres tabulaires. */
+:scope{font:15px/1.55 var(--fb);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern","liga"}
+h1,h2,h3{color:var(--ink)}
+h1{font:700 clamp(1.85rem,4.2vw,2.75rem)/1.08 var(--fd);letter-spacing:-.012em}h1 em{font-weight:700;color:var(--ink)}
+h2{font:700 1.32rem/1.25 var(--fd);letter-spacing:-.005em}h3{font:700 1rem/1.35 var(--fb);letter-spacing:.005em}
+.eyebrow{font:650 .7rem/1.3 var(--fb);letter-spacing:.2em;color:var(--mut)}
+.st{line-height:1.55}
+/* Texte justifié avec césure française (lang="fr") ; à gauche pour les libellés, boutons, cellules et lignes trop étroites. */
+p,.st,.gr p,.chk span,.chk small,#tip>div:not([class]),.phase,.verdict{text-align:justify;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 3 3;text-wrap:pretty}
+label.st,span.st,.row .st,.side .st,.side p,td,th,button,.tab,.kpi,.it,.it span,.nr span,#tip .s,#tip .h,#tip .t,.disp,.legend,.due .r{text-align:left;-webkit-hyphens:manual;hyphens:manual}
+@media (max-width:360px){p,.st,.gr p,.chk span,.chk small,#tip>div:not([class]),.phase,.verdict{text-align:left}}
+/* 3. Mise en page et surfaces. */
+.w{gap:18px;padding-block:20px 72px}
+header.top{background:var(--paper);gap:12px;padding:26px 28px;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--sh-2);position:relative;overflow:hidden}
+.card{border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-1);border-color:var(--line)}
+.kpis{gap:10px}.kpi{border-radius:var(--r-md);padding:12px 14px;background:var(--soft);border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.kpi b{font:600 1.4rem/1.1 var(--fm);letter-spacing:-.01em;color:var(--ink)}
+/* 4. Barre d’onglets : segmentée, collante, une seule ligne défilante sur mobile. */
+nav.tabs{gap:4px;padding:6px;margin-inline:-2px;border-radius:calc(var(--r-md) + 6px);background:color-mix(in srgb,var(--bg) 95%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);box-shadow:inset 0 0 0 1px var(--line)}
+.tab{font:600 .88rem/1.2 var(--fb);padding:9px 14px;min-height:40px;border-radius:var(--r-md);border:1px solid transparent;background:transparent;color:var(--mut);transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.tab:hover{background:var(--paper);color:var(--ink);box-shadow:var(--sh-1)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:var(--sh-2)}
+.tab:focus-visible{outline:none;box-shadow:var(--ring)}
+@media (max-width:620px){nav.tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}nav.tabs::-webkit-scrollbar{display:none}.tab{flex:none;scroll-snap-align:start;white-space:nowrap}header.top{padding:20px 18px}.kpi{padding:9px 12px}.kpi b{font-size:1.2rem}}
+/* 5. Contrôles : boutons, champs, puces ; cibles d’au moins 24 px (WCAG 2.2). */
+input,select,textarea,button.b{border-radius:var(--r-sm);border-color:var(--line);transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),background-color var(--dur) var(--ease)}
+input:hover,select:hover,textarea:hover,button.b:hover{border-color:color-mix(in srgb,var(--gold) 45%,var(--line))}
+button.b{min-height:36px;padding:7px 14px;box-shadow:var(--sh-1)}
+button.b.p{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}button.b.p:hover{background:color-mix(in srgb,var(--gold) 88%,var(--ink));border-color:color-mix(in srgb,var(--gold) 88%,var(--ink))}
+button.b:active{transform:translateY(1px)}
+input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-visible,.it:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.chips2 button,.picks button{min-height:28px;min-width:28px;padding:4px 10px;transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.chips2 button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ti{width:24px;height:24px;margin-left:4px;font-size:.72rem;color:var(--gold);border-color:color-mix(in srgb,var(--gold) 70%,transparent);transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease)}.ti:hover,.ti:focus-visible{background:var(--gold);color:var(--on-gold)}
+a{color:var(--gold);text-underline-offset:2px}.chk a,#tip .s a{color:var(--gold)}
+/* 6. Listes, calendrier, jauges. */
+.it{border-radius:var(--r-sm);transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),background-color var(--dur) var(--ease)}.it:hover{border-color:color-mix(in srgb,var(--gold) 40%,var(--line));box-shadow:var(--sh-1)}
+.it code,.due .r code{color:var(--gold)}.it.sel{border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold2) 40%,transparent)}
+.fam-h,.nsec{border-radius:var(--r-sm);letter-spacing:.1em;color:var(--deep);background:var(--soft)}
+.gridwrap{border-radius:var(--r-lg);box-shadow:var(--sh-1)}.hd{font-weight:650}.hd.today span{background:var(--gold);color:var(--on-gold)}
+.blk{border-radius:var(--r-sm)}
+.g{border-radius:var(--r-md);padding:14px;border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.bar,.pbar{background:color-mix(in srgb,var(--line) 85%,transparent);box-shadow:inset 0 1px 1px rgba(0,0,0,.06)}.bar i,.pbar i{transition:width .4s var(--ease)}
+.bar i.a{background:linear-gradient(90deg,color-mix(in srgb,var(--ok) 85%,#fff),var(--ok))}
+.phase{border-radius:var(--r-md)}.verdict{border-radius:var(--r-md)}.due .r{border-radius:var(--r-md)}
+.gr .ph{color:var(--gold)}
+table th{font-weight:650;letter-spacing:.07em}tbody tr:hover td{background:color-mix(in srgb,var(--soft) 60%,transparent)}
+.opt fieldset{border-radius:var(--r-md)}
+pre.prompt{border-radius:var(--r-md);border:1px solid var(--line)}
+/* 7. Fenêtre d’information : surface élevée, filet doré, en-tête collant. */
+/* Bandeau d’en-tête : la partie (surtitre) et le titre sont au-dessus du contenu, sur une bande vert pâle. */
+#tip{max-width:min(460px,calc(100vw - 24px));border:1px solid var(--band-line);border-radius:var(--r-md);box-shadow:var(--sh-3);padding:12px 16px;line-height:1.55}
+#tip .h{margin:-12px -16px 0;padding:10px 12px 2px 16px;background:var(--band);color:var(--band-lab);letter-spacing:.14em;align-items:center}
+#tip .t{margin:0 -16px 10px;padding:2px 16px 10px;background:var(--band);border-bottom:1px solid var(--band-line);font:700 1.02rem/1.3 var(--fd);color:var(--ink)}
+#tip .h button{color:var(--ink)}#tip .h button:hover{background:color-mix(in srgb,var(--band-line) 70%,transparent)}
+#tip .vb{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+@media (max-width:620px){#tip{border-radius:var(--r-lg) var(--r-lg) var(--r-md) var(--r-md)}#tip .h{border-radius:var(--r-lg) var(--r-lg) 0 0}}
+.tw{text-decoration-color:color-mix(in srgb,var(--gold) 65%,transparent);text-decoration-thickness:1px}.tw:hover,.tw[aria-expanded=true]{color:var(--gold)}
+::selection{background:color-mix(in srgb,var(--gold2) 45%,transparent)}
+/* Bandeaux : même motif, message en tête sur la bande, actions dessous ; le rouge est réservé à l’erreur de stockage. */
+.bak{display:grid;gap:0;padding:0;overflow:hidden;border:1px solid var(--band-line);border-left-width:1px;border-radius:var(--r-md);box-shadow:var(--sh-1)}
+.bak>#bak-t{margin:0;padding:11px 16px;background:var(--band);border-bottom:1px solid var(--band-line);font-weight:700;color:var(--ink);text-align:left;hyphens:manual}
+.bak>.row,.bak>#bak-pv,.bak>#bak-m{padding:10px 16px}.bak>#bak-m{padding-top:0}
+.bak.warn>#bak-t{color:var(--ink);box-shadow:inset 4px 0 0 var(--warn)}
+.bak.bad{border-color:var(--bad)}.bak.bad>#bak-t{background:color-mix(in srgb,var(--bad) 12%,var(--paper));color:var(--bad);border-bottom-color:color-mix(in srgb,var(--bad) 35%,transparent)}
+.exi-bn{padding:0;overflow:hidden;border:1px solid var(--band-line);border-radius:var(--r-md);box-shadow:var(--sh-1);background:var(--paper)}
+.exi-bn>p{margin:0;padding:8px 16px;text-align:left;hyphens:manual}.exi-bn>p:first-child{padding:11px 16px;background:var(--band);border-bottom:1px solid var(--band-line);color:var(--ink);text-align:left;hyphens:manual}.exi-bn>p:last-child{padding-bottom:12px}
+.exi-bn .cd{color:var(--bad);font-weight:700}.exi-bn a,#exi small a{color:var(--gold)}
+.exi-vb{display:inline-block;margin-left:6px;padding:1px 9px;border-radius:var(--r-pill);background:var(--vb-bg);color:var(--ink);border:1px solid var(--vb-line);box-shadow:inset 3px 0 0 var(--warn);font:650 .76rem/1.5 var(--fb);white-space:nowrap}
+.now{background:var(--ink)}
+/* Calendrier (sélecteurs stables, documentés pour Hermès) : une teinte très pâle par jour, du lundi (1) au dimanche (7) ;
+   les séances .blk ont leur propre teinte pâle, un filet et une encre foncée : contraste ≥ 7:1 sur chaque jour. */
+.grid>.col[data-wd="1"],.grid>.hd[data-wd="1"]{--dayc:var(--day1)}
+.grid>.col[data-wd="2"],.grid>.hd[data-wd="2"]{--dayc:var(--day2)}
+.grid>.col[data-wd="3"],.grid>.hd[data-wd="3"]{--dayc:var(--day3)}
+.grid>.col[data-wd="4"],.grid>.hd[data-wd="4"]{--dayc:var(--day4)}
+.grid>.col[data-wd="5"],.grid>.hd[data-wd="5"]{--dayc:var(--day5)}
+.grid>.col[data-wd="6"],.grid>.hd[data-wd="6"]{--dayc:var(--day6)}
+.grid>.col[data-wd="7"],.grid>.hd[data-wd="7"]{--dayc:var(--day7)}
+.grid>.col,.grid>.col:nth-child(odd){background-color:var(--dayc,var(--paper))}
+.grid>.hd{background:var(--dayc,var(--paper))}
+.col.over{background-color:color-mix(in srgb,var(--gold2) 22%,var(--dayc,var(--paper)))}
+.blk{background:color-mix(in srgb,var(--bc) 14%,#ffffff);border:0;border-left:4px solid var(--bc);color:var(--blk-ink);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 38%,transparent),0 1px 2px rgba(0,0,0,.06)}
+.blk.done{background:color-mix(in srgb,var(--bc) 20%,#ffffff)}
+/* Pas de coupure imposée (nowrap, ellipsis) : le texte de séance passe à la ligne ; Hermès règle la hauteur. */
+.blk b{color:var(--blk-ink)}.blk .t{color:var(--blk-ink)}.blk .du{color:var(--mut)}
+/* Composants réservés à l’examen physique (Asclépios) : région, phase, croquis, renvois. Classes stables, sans balisage encore. */
+.ex-region{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--paper);box-shadow:var(--sh-1)}
+.ex-region__h{margin:-16px -18px 4px;padding:11px 18px;background:var(--band);border-bottom:1px solid var(--band-line);border-radius:var(--r-lg) var(--r-lg) 0 0;font:700 1.08rem/1.3 var(--fd);color:var(--ink)}
+.ex-phase{display:flex;align-items:baseline;gap:8px;margin:8px 0 2px;padding-bottom:4px;border-bottom:1px solid var(--line);font:700 .74rem/1.3 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.ex-phase::before{content:attr(data-ordre);min-width:1.6em;font:700 .74rem var(--fm);color:var(--mut)}
+.ex-fig{margin:6px 0;display:grid;gap:6px;justify-items:center}.ex-fig img{max-width:min(100%,520px);height:auto;border-radius:var(--r-sm);border:1px solid var(--line);background:#fff}
+.ex-fig figcaption,.ex-fig__cap{font-size:.84rem;color:var(--ink);text-align:center}.ex-fig__credit{display:block;font-size:.72rem;color:var(--mut);text-align:center}
+.ex-xref{display:flex;flex-wrap:wrap;gap:6px}.ex-xref a,.ex-xref button,.ex-chip{display:inline-flex;align-items:center;min-height:28px;padding:3px 10px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--soft);color:var(--ink);font:600 .76rem/1.2 var(--fb);text-decoration:none;cursor:pointer}
+.ex-xref a:hover,.ex-xref button:hover,.ex-chip:hover{border-color:var(--gold)}
+/* Barre d’onglets collante : tout défilement programmé (ancre, scrollIntoView, focus) s’arrête sous elle. */
+/* Sélecteur « Thème de fond d’écran » : bouton fixe sur chaque onglet, panneau de choix (radios), sous la fenêtre d’information. */
+.fond-btn{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--paper);color:var(--ink);font:650 .84rem/1.2 var(--fb);box-shadow:var(--sh-2);cursor:pointer}
+.fond-btn:hover{border-color:var(--gold)}.fond-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}.fond-btn i{font-style:normal;font-size:1.1rem;line-height:1}
+.fond-pan{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(68px + env(safe-area-inset-bottom,0px));z-index:56;width:min(340px,calc(100vw - 28px));max-height:min(70vh,560px);overflow:auto;padding:0 14px 12px;border:1px solid var(--band-line);border-radius:var(--r-md);background:var(--paper);color:var(--ink);box-shadow:var(--sh-3)}
+.fond-pan .fond-h{position:sticky;top:0;margin:0 -14px 8px;padding:11px 14px;background:var(--band);border-bottom:1px solid var(--band-line);font:700 .95rem/1.3 var(--fb);color:var(--ink);text-align:left}
+.fond-pan label{display:grid;grid-template-columns:auto 34px 1fr;gap:10px;align-items:center;min-height:40px;padding:4px 6px;border-radius:var(--r-sm);cursor:pointer;font-size:.88rem;text-align:left}
+.fond-pan label:hover{background:var(--soft)}.fond-pan input{accent-color:var(--gold);width:18px;height:18px}
+.fond-pan .sw{width:34px;height:24px;border-radius:6px;border:1px solid rgba(0,0,0,.18);box-shadow:inset 0 0 0 5px var(--sw-bg)}
+.fond-pan .row{margin-top:8px;justify-content:flex-end}
+@media (max-width:620px){.fond-btn{padding:8px;width:48px;height:48px;justify-content:center}.fond-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+@media print{.fond-btn,.fond-pan{display:none!important}}
+/* Stabilité : la place des indicateurs est réservée avant leur rendu par le script (décalage de mise en page évité). */
+#kpis:empty{min-height:74px}.disp b{display:inline-block;min-width:3.4em;min-height:1.3em;font-variant-numeric:tabular-nums}@media (max-width:620px){#kpis:empty{min-height:213px}}
+/* 8. Mouvement réduit : aucune transition ni animation. */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}

@@ -35,3 +35,7 @@ Couleur : or soleil
 ## Entrées
 - 17.10.2026 · Iris est écrit et rejoué deux fois sur le poste : 60 captures, 0 changée d’une exécution à l’autre. État de départ mesuré : 271 nœuds en échec de contraste en thème clair (16 en sombre), CLS 0,15 sur ordinateur, polices Google chargées par le réseau (rendu hors ligne différent de 1,08 %). Ces écarts sont tolérés par la référence de départ et désignés à Apollon.
 - 17.10.2026 · Les références sont produites par la CI elle-même (rendu Ubuntu), jamais sur le poste, et stockées en WebP sans perte, à 1800 px de haut au plus, pour limiter le poids du dépôt (≈ 8 Mo par référence).
+- 17.10.2026 · Iris est fusionné (PR #13), avec une référence de 60 captures adoptée par la procédure de l’étiquette. Thémis l’a déjà suivie pour la PR #14.
+- 17.10.2026 · Apollon applique les directives du titulaire : texte justifié avec césure, titres noirs en gras, rouge réservé à l’information capitale, bandeaux d’en-tête vert pâle (fenêtre, sauvegarde, bandeau 2027, badge « À vérifier »), teintes de jour du calendrier et bandes de séance AA.
+- 17.10.2026 · Iris gagne deux contrôles : l’état « cal-seances », qui mesure le contraste de 42 textes de séance (minimum 6,03:1 après refonte, contre 3,44:1 avant), et le « masquage » du haut de panneau sous la barre collante (18 vues masquées sur 18 avant, 0 après).
+- 17.10.2026 · Défaut signalé à Hermès : l’onglet mémorisé « Notions CK » ou « Gestes » lève une erreur au rechargement. Le défaut existe déjà dans orig/app.html.

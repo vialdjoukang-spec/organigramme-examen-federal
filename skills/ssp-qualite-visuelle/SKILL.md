@@ -10,8 +10,8 @@ Ce skill fait juger le rendu par une machine, onglet par onglet, au lieu de le d
 Tu l’appliques à toute branche qui modifie l’apparence, et à chaque rapport « Iris · qualité visuelle ».
 # Étapes
 1. Tu lances en local `python3 tests/visuel/capture.py --sortie /tmp/iris`, puis `python3 tests/visuel/compare.py --sortie /tmp/iris` ; tu lis seulement le décompte et les lignes « ÉCHEC ».
-2. Iris capture 9 onglets et la fenêtre épinglée, sur ordinateur (1440) et Pixel 7, en thème clair, « Fond doré » à 100 % et sombre, horloge figée au 16.11.2026.
-3. Iris bloque : plus de 0,2 % de pixels changés, dimensions changées, nouveau problème axe-core grave ou critique (dont le contraste WCAG AA), débordement horizontal sur mobile, police en échec, CLS au-dessus du plafond, erreur JavaScript.
+2. Iris capture 9 onglets, la fenêtre épinglée et le calendrier semé de 14 séances, sur ordinateur (1440) et Pixel 7, en thème clair, « Fond doré » à 100 % et sombre, horloge figée au 16.11.2026.
+3. Iris bloque : plus de 0,2 % de pixels changés, dimensions changées, nouveau problème axe-core grave ou critique (dont le contraste WCAG AA), débordement horizontal sur mobile, haut de panneau masqué par la barre d’onglets collante, texte de séance sous 4,5:1 sur sa teinte de jour, police en échec, CLS au-dessus du plafond, erreur JavaScript.
 4. Un changement voulu s’accepte ainsi : tu poses l’étiquette `visuel:nouvelle-reference`, tu attends la fin de la tâche « visuel », tu lances `tools/visuel_reference.sh <PR>` sur la branche à jour, puis tu pousses ; la comparaison suivante doit être exacte.
 5. Tu ouvres les images d’écart de l’artefact `visuel-rapport` (référence | actuel | écarts en rouge) avant d’adopter une référence, et tu justifies l’adoption dans la PR.
 6. Une baisse des compteurs axe-core ou du CLS autorise à resserrer la référence par la même procédure ; une hausse exige une justification écrite.
