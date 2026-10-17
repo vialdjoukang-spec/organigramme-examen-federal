@@ -105,5 +105,6 @@ Au rechargement, l’application rouvre le dernier onglet mémorisé (`orga-tab`
 - **Classes stables.** Elles sont `.fond-btn`, `.fond-pan`, `.fond-h` et `.sw`, plus l’attribut `:root[data-fond="<id>"]`.
 
 ## 11. Contraintes du validateur (pour tout agent qui ajoute du CSS)
+- Une règle dont le sélecteur dépend d’un attribut de `<html>` (`data-theme`, `data-fond`) va dans le style de `<head>`, car dans `@scope` (racine `<body>`) elle ne s’applique pas.
 - Les jetons vont dans le style de `<head>` (`tools/patches/apollon-jetons.css`, sélecteurs `:root:root…`). Les composants vont dans le style de `<body>`, à l’intérieur de `@scope { … }`, où le validateur Nu admet les règles.
 - Ces formes font échouer le validateur, il faut les éviter : `nth-child(N of S)` (plantage), et un pourcentage `calc(var(--x)*N%)` ou `var(--x)` dans `color-mix()`.

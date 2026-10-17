@@ -29,6 +29,10 @@ html:root{scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h))}
 :root:root[data-fond="rose-gris"]{--bg:#f3eff0;--paper:#fdfbfb;--soft:#ede6e8;--line:#dcd3d5;--ink:#1f1719;--mut:#504649;--gilt:0;--grid:color-mix(in srgb,var(--line) 70%,transparent);--grid2:var(--soft)}
 :root:root[data-fond="ardoise-sombre"]{--bg:#161a1f;--paper:#1e232a;--soft:#262c34;--line:#343b45;--ink:#e6e9ee;--mut:#b6bec9;--gilt:0;--grid:color-mix(in srgb,var(--line) 70%,transparent);--grid2:var(--soft)}
 :root:root[data-fond="graphite-sombre"]{--bg:#141516;--paper:#1c1e20;--soft:#25282b;--line:#33373b;--ink:#e8eaec;--mut:#b8bdc2;--gilt:0;--grid:color-mix(in srgb,var(--line) 70%,transparent);--grid2:var(--soft)}
+
+/* Bandes de séance en thème sombre (ici, hors @scope, car leur sélecteur dépend de l’attribut de <html>). */
+:root[data-theme="dark"] .grid .blk{background:color-mix(in srgb,var(--bc) 24%,#1a1813)}:root[data-theme="dark"] .grid .blk.done{background:color-mix(in srgb,var(--bc) 30%,#1a1813)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .grid .blk{background:color-mix(in srgb,var(--bc) 24%,#1a1813)}:root:not([data-theme="light"]) .grid .blk.done{background:color-mix(in srgb,var(--bc) 30%,#1a1813)}}
 </style><script>/* Apollon : thème de fond mémorisé, appliqué avant le premier affichage. */try{var f=localStorage.getItem('orga-fond'),T={"blanc-neutre":"light","gris-perle":"light","sauge-pale":"light","gris-bleu":"light","bleu-brume":"light","lavande-grise":"light","menthe-pale":"light","rose-gris":"light","ardoise-sombre":"dark","graphite-sombre":"dark"};if(f&&T[f]){document.documentElement.setAttribute('data-fond',f);document.documentElement.setAttribute('data-theme',T[f])}}catch(e){}</script></head><body>
 <title>Organigramme Examen fédéral</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -245,8 +249,6 @@ pre.prompt{border-radius:var(--r-md);border:1px solid var(--line)}
 .col.over{background-color:color-mix(in srgb,var(--gold2) 22%,var(--dayc,var(--paper)))}
 .blk{background:color-mix(in srgb,var(--bc) 14%,#ffffff);border:1px solid color-mix(in srgb,var(--bc) 38%,transparent);border-left:4px solid var(--bc);color:var(--blk-ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
 .blk.done{background:color-mix(in srgb,var(--bc) 20%,#ffffff)}
-[data-theme="dark"] .blk{background:color-mix(in srgb,var(--bc) 24%,#1a1813)}[data-theme="dark"] .blk.done{background:color-mix(in srgb,var(--bc) 30%,#1a1813)}
-@media (prefers-color-scheme:dark){:not([data-theme="light"])>body .blk{background:color-mix(in srgb,var(--bc) 24%,#1a1813)}:not([data-theme="light"])>body .blk.done{background:color-mix(in srgb,var(--bc) 30%,#1a1813)}}
 .blk b{color:var(--blk-ink);display:block;padding-right:2.4em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.blk .t{color:var(--blk-ink)}.blk .du{color:var(--mut)}
 /* Composants réservés à l’examen physique (Asclépios) : région, phase, croquis, renvois. Classes stables, sans balisage encore. */
 .ex-region{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--paper);box-shadow:var(--sh-1)}

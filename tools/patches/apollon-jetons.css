@@ -27,3 +27,7 @@ html:root{scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h))}
 :root:root[data-fond="rose-gris"]{--bg:#f3eff0;--paper:#fdfbfb;--soft:#ede6e8;--line:#dcd3d5;--ink:#1f1719;--mut:#504649;--gilt:0;--grid:color-mix(in srgb,var(--line) 70%,transparent);--grid2:var(--soft)}
 :root:root[data-fond="ardoise-sombre"]{--bg:#161a1f;--paper:#1e232a;--soft:#262c34;--line:#343b45;--ink:#e6e9ee;--mut:#b6bec9;--gilt:0;--grid:color-mix(in srgb,var(--line) 70%,transparent);--grid2:var(--soft)}
 :root:root[data-fond="graphite-sombre"]{--bg:#141516;--paper:#1c1e20;--soft:#25282b;--line:#33373b;--ink:#e8eaec;--mut:#b8bdc2;--gilt:0;--grid:color-mix(in srgb,var(--line) 70%,transparent);--grid2:var(--soft)}
+
+/* Bandes de séance en thème sombre (ici, hors @scope, car leur sélecteur dépend de l’attribut de <html>). */
+:root[data-theme="dark"] .grid .blk{background:color-mix(in srgb,var(--bc) 24%,#1a1813)}:root[data-theme="dark"] .grid .blk.done{background:color-mix(in srgb,var(--bc) 30%,#1a1813)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .grid .blk{background:color-mix(in srgb,var(--bc) 24%,#1a1813)}:root:not([data-theme="light"]) .grid .blk.done{background:color-mix(in srgb,var(--bc) 30%,#1a1813)}}
