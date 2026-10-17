@@ -29,7 +29,8 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
 | [x] | Préparer data/MEM.json sans toucher au code (PR #3 fusionnée) | Mnémosyne | 29.11.2026 |
 | [x] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, PR #15 fusionnée | Hermès | 17.10.2026 |
-| [~] | Recherche par diagnostic différentiel et notion · patch 0009, tests/test_calendrier.py (34) | Hermès | 17.10.2026 |
+| [x] | Recherche par diagnostic différentiel et notion · patch 0009, PR #18 fusionnée | Hermès | 17.10.2026 |
+| [x] | Bandes de séance sans texte coupé (ordinateur) et contrôle Iris du texte coupé · patch 0010, tests/test_calendrier.py (36) | Hermès | 17.10.2026 |
 | [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
@@ -47,12 +48,12 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 |---|---|---|---|
 | [x] | Schémas JSON data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch) | Atlas | 25.10.2026 |
 | [x] | Compilateur tools/ck_build.py → assets/ck/*.js, contrôle --check en CI (G5) | Atlas | 25.10.2026 |
-| [x] | Chargement différé : ckLoad, ckGlo, index du glossaire à l’inactivité (patch 0010) | Atlas | 25.10.2026 |
+| [x] | Chargement différé : ckLoad, ckGlo, index du glossaire à l’inactivité (patch 0011) | Atlas | 25.10.2026 |
 | [x] | Budgets : assets/ck ≤ 2,5 Mo, SVG ≤ 120 Ko, assets/nc ≤ 3 Mo | Atlas | 25.10.2026 |
 | [x] | Lyncée et qa/termes-baseline.json (3 849 termes, ne peut que baisser) | Janus | 25.10.2026 |
 | [x] | Audit de niveau 1 G1 à G7, Alétheia, artefact audit-flags, étiquette audit:galien | Janus, avec Galien | 25.10.2026 |
 | [x] | tools/audit/rapport_fautes.py et blocage d’une faute critique sans accord de Vial | Janus, avec Galien | 25.10.2026 |
-| [x] | tests/test_audit.py (61) et tests/test_ck_socle.py (12) | Janus | 25.10.2026 |
+| [x] | tests/test_ck.py (61, données, schémas et contrôles) et tests/test_ck_socle.py (12) | Janus | 25.10.2026 |
 | [ ] | Types tipFor (glo, syn, hyp, nc, loc), gloLink(), pile de 5 fenêtres | Hermès | 25.10.2026 |
 | [ ] | Premier lot de 100 signes et syndromes dans data/ck/glo.json | Hippocrate | 25.10.2026 |
 | [ ] | Table suisse des doses data/ck/doses_ch.json (lecture à la main) | Galien | 25.10.2026 |

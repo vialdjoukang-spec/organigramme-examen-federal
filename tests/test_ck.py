@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Janus · tests du socle CK et de l'audit médical de niveau 1 (sans navigateur, quelques secondes).
+"""Janus · tests/test_ck.py : données, schémas et contrôles du socle CK et de l'audit médical de niveau 1 (sans navigateur, quelques secondes).
 
 Chaque contrôle doit réussir sur un jeu d'essai conforme et échouer quand sa règle est violée :
 compilateur et schémas (G5), doses (G1), sources (G2), domaines (G3), Lyncée (G4), verbes (G6),

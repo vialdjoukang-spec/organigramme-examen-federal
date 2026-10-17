@@ -125,6 +125,15 @@ async def profile(b, mobile, out, errs):
     out[pre + 'statut_enregistre'] = await pg.evaluate("/^Enregistré à \\d\\d:\\d\\d$/.test($('#sync').textContent)")
     out[pre + 'miroir_indexeddb'] = await pg.evaluate("svGet('cur').then(r=>svOk(r)&&JSON.parse(r.cles['orga-ef']).seances&&Object.keys(JSON.parse(r.cles['orga-ef']).seances).length===%s)" % await pg.evaluate(NSE))
     out[pre + 'persistance_affichee'] = await pg.evaluate("$('#sv-s').textContent.length>20")
+    # Bandes de séance (patch 0010) : 15 à 120 min, aucun texte coupé sans « … » ; texte complet dans la fenêtre.
+    await pg.evaluate("""(()=>{const k=iso(new Date()),L=SSP.slice().sort((a,b)=>b[1].length-a[1].length);[15,30,45,60,90,120].forEach((u,j)=>{
+      S.seances['bd'+j]={date:k,start:13*60+j*120>H1*60-u?6*60+j*15:13*60+j*120,dur:u,ssp:L[j][0],act:'Cours CK',done:false,score:0,qcm:null,note:'',maj:''}});renderGrid()})()""")
+    await pg.wait_for_timeout(200)
+    out[pre + 'bandes_sans_coupure'] = await pg.evaluate("""(()=>{const B=[...$$('#grid .blk')].filter(k=>k.dataset.id.startsWith('bd'));if(B.length<1)return false;
+      return B.every(k=>[k,...k.querySelectorAll('b,.t')].every(e=>{const c=getComputedStyle(e),v=e.scrollHeight>e.clientHeight+1,h=e.scrollWidth>e.clientWidth+1;
+      if(!v&&!h)return true;return (parseInt(c.webkitLineClamp)>0||c.textOverflow==='ellipsis')&&!!e.closest('[data-t]')}))
+      &&B.every(k=>{const x=tipFor(k.dataset.t);return x&&x.h.includes(esc(BY[S.seances[k.dataset.id].ssp][1]))&&x.h.includes(S.seances[k.dataset.id].dur+'′')})})()""")
+    await pg.evaluate("(()=>{for(const j of [0,1,2,3,4,5])delete S.seances['bd'+j];renderGrid()})()")
     out[pre + 'fichier_auto_degrade'] = await pg.evaluate("$('#sv-fb').hidden===(typeof showSaveFilePicker!=='function')")
     if mobile:
         await c.close(); return

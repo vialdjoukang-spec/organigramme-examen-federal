@@ -61,7 +61,7 @@ jobs:
       - name: Schémas SVG des nerfs (couches, poids, crédits)
         run: python tools/nc_svg_check.py
       - name: Tests du socle CK et de l'audit (chaque contrôle échoue quand sa règle est violée)
-        run: python tests/test_audit.py
+        run: python tests/test_ck.py
       - name: Signalements du niveau 1 (artefact audit-flags)
         if: always()
         run: python tools/audit/niveau1.py --sortie qa/audit-flags.json || true

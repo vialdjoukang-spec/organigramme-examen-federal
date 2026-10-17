@@ -1,4 +1,4 @@
-# Atlas · chargement différé des données CK (patch 0010) : file:// sans réseau, index du glossaire à l'inactivité,
+# Atlas · chargement différé des données CK (patch 0011) : file:// sans réseau, index du glossaire à l'inactivité,
 # autres fichiers au premier besoin, une seule balise <script> par fichier, échec propre si un fichier manque.
 # Sortie : JSON de contrôles booléens + 'errors'. Variables : APP_FILE, CHROME_PATH.
 import asyncio, json, os

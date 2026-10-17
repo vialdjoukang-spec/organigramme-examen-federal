@@ -1,9 +1,9 @@
 import os, sys
-# Patch 0010 · Atlas · 17.10.2026 · Chargement différé des données CK (chantier Nerfs crâniens et CK, NC-0).
+# Patch 0011 · Atlas · 17.10.2026 · Chargement différé des données CK (chantier Nerfs crâniens et CK, NC-0).
 # ckLoad(nom) injecte <script src="assets/ck/<nom>.js"> une seule fois et rend une promesse de window.CK_<NOM>
 # (compatible file://, contrairement à fetch) ; ckGlo(id) charge la tranche de définitions du glossaire.
 # L'index du glossaire (glo-index) se charge quand le navigateur est inactif. Aucune donnée CK dans app_v2.html.
-# Se rejoue après 0009. L'ancrage doit apparaître une seule fois.
+# Se rejoue après 0010 (bandes du calendrier, Hermès). L'ancrage doit apparaître une seule fois.
 p = os.environ.get('APP_FILE') or sys.exit('Indiquez APP_FILE (copie de travail).')
 assert not p.endswith('orig/app.html'), 'Interdit I1'
 s = open(p, encoding='utf-8').read()
@@ -22,4 +22,4 @@ rep('function tipFor(key){',
     'function tipFor(key){')
 
 open(p, 'w', encoding='utf-8').write(s)
-print('0010 appliqué')
+print('0011 appliqué')
