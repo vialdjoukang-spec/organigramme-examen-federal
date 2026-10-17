@@ -152,3 +152,7 @@ Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'exis
 Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
 Pièges     : Doses : jamais de chiffre dans « pha » sans AIPS lue (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget assets/ck 2,5 Mo : ~2 280 monographies × ~2 Ko le dépasseront, prévoir un budget mono séparé (décision de Vial).
 À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS).
+
+## Panacée · monographies des différentiels, depuis la fin · 17.10.2026, Europe/Zurich
+Lot 1 (O7.26, O7.25, O7.24 ; 27 diagnostics) : intoxication-au-paracetamol … paternalisme-excessif. Doses : aucune entrée doses_ch pertinente, toutes « à vérifier (AIPS) » ; épidémiologie chiffrée « à vérifier (source CH/UE) ».
+Prochain : Lot 2 = O7.23 et en dessous (Hygie monte depuis G2).
