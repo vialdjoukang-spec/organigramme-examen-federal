@@ -93,3 +93,23 @@ jobs:
           name: captures-tests
           path: qa/shots/
           retention-days: 7
+
+  # Chantier Nerfs crâniens · Dédale : schémas dérivés par automate (couches, lisibilité à 360 px, poids,
+  # crédits « œuvre dérivée », couleur, rejeu à l'octet par annoter.py + svgo 4.0.0 figé).
+  schemas:
+    name: schemas
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Dépendances (pyyaml, svgo 4.0.0)
+        run: |
+          pip install --quiet pyyaml
+          npm install --global --silent svgo@4.0.0
+          svgo --version
+      - name: Dédale-V · contrôle des schémas assets/nc
+        run: python tools/dedale/verifier.py --tous
+      - name: Tests des contrôles de Dédale (chaque règle violée fait échouer)
+        run: python tests/test_dedale.py

@@ -9,6 +9,12 @@ Sources    : WCAG 2.2 (contraste 1.4.3, taille de cible 2.5.8), axe-core 4.14.0,
 Pièges     : Toute PR qui change l’apparence échoue à « visuel » tant que la référence n’est pas adoptée : il faut l’étiquette visuel:nouvelle-reference, puis tools/visuel_reference.sh <PR> (skill ssp-qualite-visuelle). Deux PR visuelles simultanées entrent en conflit sur qa/visuel/reference/* : on les fusionne l’une après l’autre et on régénère la référence après chaque rebase.
 Pièges     : Apollon ajoute ses règles en fin du style de head ; un nouveau bloc <style> dans body crée des erreurs Nu.
 À vérifier : Le CLS restant (0,042) vient du bandeau #bak rendu par le script ; Atlas peut lui réserver une hauteur.
+## Dédale · schémas des nerfs crâniens (NC-0, pilote VII) · 17.10.2026, Europe/Zurich
+État       : feat/nc-schemas : automates tools/dedale/{freestyle,trace,annoter,verifier}.py avec instructions ; pilote VII dans assets/nc (face, profil, 34, plan, tour de 8 vues en WebP de 52 Ko), crédits dans assets/nc/credits.json ; CI : tâche « schemas » (verifier.py --tous, tests/test_dedale.py 11/11).
+Prochaine  : Ariane remplace nc/annot/nc07.yml (provisoire) ; Dédale recompose par annoter.py ; Vial valide le pilote avant les 11 autres paires.
+Sources    : Z-Anatomy License.txt (CC BY-SA 4.0) ; API Commons Gray788 (domaine public) ; lus le 17.10.2026.
+Pièges     : Blender charge environ 11 Go : une seule instance à la fois. Le modèle reste dans /workspace/ssp/nc_src/ (jamais dans le dépôt). Le rejeu à l’octet exige svgo 4.0.0 exactement. Les ancres sont des noms d’objets Z-Anatomy (nerfs.json) ; une ancre absente fait échouer annoter.py.
+À vérifier : annotations provisoires (seules des ancres du modèle sont placées) ; fragments de légendes anglaises restés sur le plan Gray788.
 
 ## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
 État       : PR #15 fusionnée dans main le 17.10.2026 à 13:26 (commit de fusion 3c9b878, sans écrasement) ; Pages publie la même empreinte que main ; tests/test_calendrier.py rejoué contre le site public : 32/32, aucune erreur de console. Patch 0009 (PR #18, fusionnée le 17.10.2026 à 13:55) : la recherche trouve aussi un SSP par ses diagnostics différentiels et ses notions (NOT), avec le titre trouvé sous le nom ; suite 119/119, gardes 5/5.
