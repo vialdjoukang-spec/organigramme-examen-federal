@@ -69,7 +69,8 @@ bakShow();try{if(sessionStorage.getItem('orga-imp')){sessionStorage.removeItem('
 """
 
 R = [
-    ('.st{font-size:.8rem;color:var(--mut)}\n.heat{', '.st{font-size:.8rem;color:var(--mut)}\n' + CSS + '.heat{'),
+    # Le style du bandeau va dans le <style> de <head> : le validateur Nu refuse toute règle nouvelle dans le <style> de <body>.
+    ('</style></head><body>', CSS.rstrip('\n') + '</style></head><body>'),
     ('</header>\n<nav class="tabs"', '</header>\n' + HTML + '<nav class="tabs"'),
     ('/* ---------- MNÉMOSYNE : persistance', JS + '/* ---------- MNÉMOSYNE : persistance'),
     ("function local(save){try{if(save)localStorage.setItem('orga-ef',JSON.stringify(S));else{const v=JSON.parse(localStorage.getItem('orga-ef')||'null');if(v)S=Object.assign(S,v)}}catch(e){}}",
