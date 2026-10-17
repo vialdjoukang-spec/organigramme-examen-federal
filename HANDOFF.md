@@ -7,17 +7,17 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur (médical et linguistique) audite, pousse ses corrections sur la branche de la PR, puis ajoute le label `audit-ok`. Le reste est automatique :
 
 1. Le workflow `.github/workflows/auto-fusion.yml` se déclenche sur `labeled` (et sur `synchronize` / `reopened` si le label est déjà présent).
-2. Il met la branche à jour avec `main` via l'API `update-branch` (jamais de force-push).
-3. Il active l'auto-merge en **commit de fusion** (`gh pr merge --auto --merge`).
+2. Il active l'auto-merge en **commit de fusion** (`GH_REPO` + `gh pr merge --auto --merge`, sans dépôt git local).
+3. **Pas** de `update-branch` par le bot : un push `GITHUB_TOKEN` ne relance pas la CI et bloque les contrôles requis. Si la PR est en retard, l'auditeur clique **Update branch** (jeton utilisateur) ; l'auto-merge reste armé.
 4. GitHub fusionne dès que les contrôles requis (`garde`, `html`, `tests`, `visuel`) sont verts et que la branche est à jour (`strict`). Aucune protection de branche n'est affaiblie.
-5. La publication Pages : `.github/workflows/pages-apres-fusion.yml` écoute `pull_request` fermée et fusionnée, puis relance `pages.yml` via `workflow_dispatch` sur `main` (exception documentée pour `GITHUB_TOKEN` ; l'environnement `github-pages` refuse un déploiement lancé depuis un événement `pull_request`).
+5. La publication Pages : `.github/workflows/pages-apres-fusion.yml` écoute `pull_request` fermée et fusionnée, puis relance `pages.yml` via `workflow_dispatch` sur `main`.
 
 Réglages dépôt : `allow_auto_merge=true`, `allow_merge_commit=true`, label `audit-ok`.
 
-## Auto-fusion · correctif GraphQL · 17.10.2026, Europe/Zurich
-État       : `gh pr merge --auto` échoue sans dépôt git local dans Actions (« fatal: not a git repository »). L'activation passe par `enablePullRequestAutoMerge` (GraphQL, mergeMethod MERGE).
-Prochaine  : Rejouer le test e2e (PR #56, label `audit-ok`).
-Pièges     : Ne pas réintroduire `gh pr merge` dans ce workflow sans `actions/checkout` préalable.
+## Auto-fusion · GH_REPO, sans update-branch bot · 17.10.2026, Europe/Zurich
+État       : `GH_REPO` + `GH_TOKEN` pour `gh pr merge --auto --merge` (pas de `.git` local). Aucun `update-branch` par `GITHUB_TOKEN` (sinon CI en `action_required`). PR en retard → commentaire, Update branch humain, auto-merge reste armé.
+Prochaine  : Vérifier e2e sur #49 et #50 (audit-ok).
+Pièges     : Ne jamais réintroduire `update-branch` avec `GITHUB_TOKEN` dans ce workflow.
 
 ## Auto-fusion · mise en place · 17.10.2026, Europe/Zurich
 État       : Workflow `auto-fusion.yml`, Pages déclenché aussi sur PR fusionnée, label `audit-ok`, auto-merge du dépôt activé. Test de bout en bout prévu juste après la fusion de cette PR (commentaire dans HANDOFF, label `audit-ok`).

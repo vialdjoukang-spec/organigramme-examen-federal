@@ -1,12 +1,17 @@
 # Auto-fusion après audit (label audit-ok).
 # Les rédacteurs ouvrent leur PR sans fusionner. L'auditeur pousse ses
 # corrections sur la branche et ajoute le label audit-ok. Ce workflow
-# met la branche à jour avec main si besoin, puis active l'auto-merge
-# (commit de fusion) via l'API GraphQL — pas via `gh pr merge`, qui
-# exige un dépôt git local. GitHub fusionne dès que les contrôles
-# requis sont verts. La publication Pages est relancée par
-# pages-apres-fusion.yml (workflow_dispatch), car une fusion faite avec
-# GITHUB_TOKEN ne relance pas les workflows push.
+# active l'auto-merge (commit de fusion). GitHub fusionne dès que les
+# contrôles requis sont verts et que la branche est à jour (strict).
+#
+# Ne PAS mettre à jour la branche avec GITHUB_TOKEN : ce push ne relance
+# pas la CI (événements GITHUB_TOKEN) et laisse les contrôles requis
+# bloqués en action_required. Si la PR est en retard, commenter et
+# laisser l'auditeur / le rédacteur cliquer « Update branch » (jeton
+# utilisateur) ; l'auto-merge reste armé et finalise ensuite.
+#
+# GH_REPO + GH_TOKEN : `gh pr merge --auto` sans dépôt git local.
+# Publication : pages-apres-fusion.yml → workflow_dispatch de pages.yml.
 name: Auto-fusion
 on:
   pull_request:
@@ -14,7 +19,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
 
 concurrency:
@@ -32,62 +37,43 @@ jobs:
         (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'audit-ok'))
       )
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
     steps:
-      - name: Mettre à jour la branche avec main si elle est en retard
+      - name: Activer l'auto-merge (commit de fusion)
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
-          echo "PR #${PR} head=${HEAD_SHA}"
-          set +e
-          out=$(gh api -X PUT "repos/${{ github.repository }}/pulls/${PR}/update-branch" \
-            -f expected_head_sha="${HEAD_SHA}" 2>&1)
-          rc=$?
-          set -e
-          echo "update-branch rc=${rc} out=${out}"
-          if [ "$rc" -eq 0 ]; then
-            echo "Branche mise à jour avec main."
-          else
-            echo "Pas de mise à jour (déjà à jour, conflit, ou non applicable) — suite."
-          fi
+          meta=$(gh pr view "$PR" --json mergeStateStatus,state,autoMergeRequest \
+            --jq '{status:.mergeStateStatus,state,auto:.autoMergeRequest.enabledAt}')
+          echo "PR #${PR} : ${meta}"
+          status=$(echo "$meta" | jq -r .status)
+          if [ "$status" = "BEHIND" ]; then
+            gh pr comment "$PR" --body "$(cat <<'MD'
+          **Auto-fusion** : branche en retard sur `main`.
 
-      - name: Activer l'auto-merge (commit de fusion, API GraphQL)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ github.event.pull_request.number }}
-        run: |
-          set -euo pipefail
-          NODE_ID=$(gh api "repos/${{ github.repository }}/pulls/${PR}" --jq .node_id)
-          echo "PR #${PR} node_id=${NODE_ID}"
+          Cliquez **Update branch** (jeton utilisateur — pas le bot), laissez la CI repasser au vert. L'auto-merge est armé et fusionnera ensuite tout seul.
+          MD
+          )" || true
+          fi
           set +e
-          out=$(gh api graphql -f query='
-            mutation($id: ID!) {
-              enablePullRequestAutoMerge(input: {pullRequestId: $id, mergeMethod: MERGE}) {
-                pullRequest {
-                  number
-                  autoMergeRequest { enabledAt mergeMethod }
-                }
-              }
-            }' -f id="$NODE_ID" 2>&1)
+          out=$(gh pr merge "$PR" --auto --merge 2>&1)
           rc=$?
           set -e
-          echo "enablePullRequestAutoMerge rc=${rc} out=${out}"
+          echo "gh pr merge --auto rc=${rc} out=${out}"
           if [ "$rc" -eq 0 ]; then
             echo "Auto-merge activé pour #${PR}."
             exit 0
           fi
-          # Déjà actif, déjà fusionnée, ou non applicable.
-          state=$(gh pr view "$PR" --repo "${{ github.repository }}" \
-            --json state,autoMergeRequest,mergeable,mergeStateStatus \
+          state=$(gh pr view "$PR" --json state,autoMergeRequest,mergeable,mergeStateStatus \
             --jq '{state,autoEnabled:.autoMergeRequest.enabledAt,mergeable,mergeStateStatus}')
           echo "État après échec : ${state}"
           echo "$state" | grep -q '"state":"MERGED"' && { echo "Déjà fusionnée."; exit 0; }
           echo "$state" | grep -q '"autoEnabled":"' && { echo "Auto-merge déjà actif."; exit 0; }
-          # Message GraphQL courant si déjà activé
-          echo "$out" | grep -qiE 'already enabled|auto.?merge.*(enabled|active)' && {
-            echo "Auto-merge déjà actif (GraphQL)."
+          echo "$out" | grep -qiE 'already enabled|auto.?merge' && {
+            echo "Auto-merge déjà actif (message gh)."
             exit 0
           }
           exit 1
