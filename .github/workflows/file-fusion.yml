@@ -1,0 +1,32 @@
+# File de fusion-publication planifiée (gratuite) : relance tools/file_fusion.sh toutes les 20 minutes.
+# Fusionne seulement les PR de tools/etapes.json (chaînes) qui portent audit-ok, avec CI requise verte
+# et branche à jour, en commit de fusion ; met à jour les branches en retard ; relance Pages après fusion.
+# Ne force jamais rien et n'affaiblit aucune protection. Les échecs vont dans le résumé du job.
+# Jeton : secrets.AUTO_FUSION_TOKEN (PAT fin, droits contents+pull-requests+actions sur ce dépôt) s'il existe,
+# sinon GITHUB_TOKEN (une fusion faite par GITHUB_TOKEN ne déclenche pas pages.yml sur push : le script
+# lance donc pages.yml par workflow_dispatch).
+name: File de fusion
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  checks: read
+concurrency:
+  group: file-fusion
+  cancel-in-progress: false
+jobs:
+  file-fusion:
+    name: file-fusion
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: File de fusion
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: bash tools/file_fusion.sh --ci
