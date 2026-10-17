@@ -76,17 +76,26 @@ def credit_texte(a, s, vue=None):
             'et Cranial Nerves and Foramina (University of Dundee, CAHID, CC BY 4.0).') % '17.10.2026'
 
 
-def placer_badges(items, cy0):
-    """Badges sur deux colonnes (gauche, droite) selon le côté de l'ancre ; espacement vertical minimal 36 px."""
+def placer_badges(items, cy0, haut=W):
+    """Badges sur deux colonnes (gauche, droite) selon le côté de l'ancre ; espacement vertical de 36 px,
+    réduit jusqu'à 32 px si la colonne est pleine ; une colonne trop chargée cède à l'autre ses repères
+    les plus proches du centre, pour que tous les badges restent dans la hauteur du dessin."""
+    cap = max(1, int((haut - 40) // 32) + 1)
     cols = {'g': [], 'd': []}
     for it in items:
         cols['g' if it['x'] < W / 2 else 'd'].append(it)
+    for a, b in (('g', 'd'), ('d', 'g')):
+        cols[a].sort(key=lambda i: abs(i['x'] - W / 2))
+        while len(cols[a]) > cap and len(cols[b]) < cap:
+            cols[b].append(cols[a].pop(0))
     for k, lst in cols.items():
         lst.sort(key=lambda i: i['y'])
+        pas = 36 if len(lst) * 36 <= haut - 40 else max(32, (haut - 40) / max(1, len(lst)))
+        bas = cy0 + haut - 20
         last = cy0 + 20
-        for it in lst:
-            it['by'] = max(it['y'], last)
-            last = it['by'] + 36
+        for n, it in enumerate(lst):
+            it['by'] = min(max(it['y'], last), bas - (len(lst) - 1 - n) * pas)
+            last = it['by'] + pas
             it['bx'] = 34 if k == 'g' else W - 34
     return items
 
@@ -120,7 +129,7 @@ def composer(nerf, vue, a, s):
                 num += 1
                 x, y = anc[e['ancre']]
                 items.append({'couche': couche, 'e': e, 'n': str(num), 'x': x, 'y': y + HEAD})
-    placer_badges(items, HEAD)
+    placer_badges(items, HEAD, DH)
     calques = {c: [] for c in COUCHES}
     calques['trait'] = ['<g class="%s">%s</g>' % (kk, G.get(kk, '')) for kk in ('crane', 'tronc', 'peau')]
     calques['territoires'] = [G.get('territoires', '')]
@@ -159,8 +168,8 @@ def composer(nerf, vue, a, s):
     vides = [c for c in ('foramens', 'lesions') if not C.get(c)]
     if vides or a.get('statut') != 'valide':
         noms = {'foramens': 'foramens', 'lesions': 'sites lésionnels'}
-        txt = 'À vérifier : %s en attente des données d’Ariane ; schéma non encore validé par Vial.' % (
-            ' et '.join(noms[c] for c in vides) or 'annotations')
+        txt = ('À vérifier : %s en attente des données d’Ariane ; schéma non encore validé par Vial.' % ' et '.join(noms[c] for c in vides)
+               if vides else 'À vérifier : annotations d’Ariane sourcées ; schéma non encore validé par Vial.')
         first = True
         for ln in envelopper(txt, FS, W - 48):
             if first:
