@@ -2,6 +2,58 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
+État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
+Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.
+Sources    : sorties gh locales et GitHub Actions, tests/test_file_fusion.py ; aucune source clinique ni app_v2 modifiée.
+Pièges     : erreur HTTP 403 de protection renvoyée sur stdout par gh ; ne jamais la traiter comme des noms de contrôles. Une publication échouée doit être réessayée sans exiger une nouvelle fusion.
+À vérifier : fin des deux sondes, visuel et suite complète en cours ; secret non lisible (403), protection inchangée.
+
+## Codex · état réel Étape 1 · 18.10.2026 01:05 CEST
+État       : branche codex/etape-1, PR Étape 0 #71 en CI ; état complet des PR et checks enregistré dans CONTINUATION C1 ; Pages = origin/main, empreinte vérifiée.
+Prochaine  : Étape 2, corriger le parseur de protection 403 dans file_fusion et prouver fusion/Pages sur une sonde.
+Sources    : gh pr list et statusCheckRollup, origin/main 2228be7, Pages HTTP 200 lus maintenant ; bundle absent des chemins documentés.
+Pièges     : UNKNOWN n'est pas CLEAN ; gh pr edit échoue sur projectCards déprécié, utiliser l'API labels. Le CLI Codex ne se connecte pas, veille mode B.
+À vérifier : audits finaux #58/#64/#68 et relecture intégrale AIPS #59/#61/#67/#70 ; aucune validation clinique ajoutée par l'installation.
+
+## Codex · installation Étape 0 · 18.10.2026, Europe/Zurich
+État       : branche codex/etape-0, worktree /workspace/oef-codex depuis 2228be7 ; neuf actions de porte exécutées ; catalogue complété et présenté, skill ssp-construction-ck, veille B testée puis lancée ; validation porte et PR en cours.
+Prochaine  : verifier0, terminer, commiter/pousser la PR Étape 0, puis étape 1 dans l'ordre. La fusion reste soumise à la CI verte.
+Sources    : AGENTS.md, CONTINUATION.md entier, PROCHAINE_ACTION, ETAT et journaux lus ; six skills de porte et ssp-tests lus ; sorties CLI/gh du 18.10.2026.
+Pièges     : CLI installé sans authentification utilisable ; mode B ne lance pas de session distante. HTTP 403 pour lire la protection malgré droits admin du dépôt. Le serveur codex exec-server ne doit pas être pris pour codex exec.
+À vérifier : CI distante et publication ; Chromium installé après échec initial des tests, suite relancée ; sauvegardes Grok hors de cet environnement à inspecter à l'étape 1.
+
+## Asclépios · fréquence (prévalence) des diagnostics différentiels · 17.10.2026, Europe/Zurich
+État       : feat/ddx-prevalence : data/ck/prev.json (source unique) ; tools/audit/prevalence.py (règles P1 à P7 : chaque DD une fois avec son nom exact, chiffre dans ]0 ; 100], chiffre ⇒ src de src.json + loc + date_lu, sans chiffre ⇒ « À vérifier », ordre décroissant calculé puis rang clinique, somme ≤ 100 %) ; tools/prev_build.py (--check en CI) écrit PRV dans app_v2.html ([index, %, op, population] dans l'ordre d'affichage) et assets/ck/prev.js (cadre, source, emplacement, date) ; ck_build inclut prev.js. Patch 0020 : % rouge (.pv) à côté de chaque DD, fenêtre pv|SSP|i (cadre, source, date), ligne « Fréquence » en tête de la fenêtre du DD, légende du chiffre, tri par PRV ; la clé de progression reste 'd'+index d'origine. tests/test_prevalence.py 35/35 ; prev.js et src.js se chargent à l’ouverture d’une fiche Notions (rien de plus au démarrage). Le % de la liste est un texte (aucune cible tactile de plus) ; le % de la fenêtre du diagnostic ouvre la source (pv|SSP|i).
+Décision   : le chiffre est la fréquence du diagnostic parmi les patients consultant pour la plainte du SSP, dans un cadre nommé (médecine de famille ou urgences, CH ou UE) ; une prévalence de population ne sert qu'à défaut (type « population », affichée). Le texte des 226 SSP rédigés ne change pas : seuls les champs de prev.json et l'ordre s'ajoutent.
+Prochaine  : groupes de contenu, un commit poussé par groupe (Galien audite derrière) : 1 douleur thoracique (S2.5), 2 dyspnée, 3 douleur abdominale, 4 céphalée, 5 fièvre, 6 syncope ; puis les 12 SSP S8 (PR #37) quand elle est fusionnée.
+Pièges     : ne jamais éditer PRV à la main (prev_build --check échoue) ; aucun « window.CK_ » littéral dans app_v2.html (ckW('PREV')) ; un chiffre exige l'emplacement exact (tableau, page).
+Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G2 dyspnée (S2.7), puis S3.1, S7.6, G6, F1.19.
+Groupes poussés : (aucun pour l'instant)
+## Flux de fusion · auto-fusion après audit · 17.10.2026, Europe/Zurich
+
+Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur (médical et linguistique) audite, pousse ses corrections sur la branche de la PR, puis ajoute le label `audit-ok`. Le reste est automatique :
+
+1. Le workflow `.github/workflows/auto-fusion.yml` se déclenche sur `labeled` (et sur `synchronize` / `reopened` si le label est déjà présent).
+2. Il met la branche à jour avec `main` via l'API `update-branch` (jamais de force-push).
+3. Il active l'auto-merge en **commit de fusion** (`gh pr merge --auto --merge`).
+4. GitHub fusionne dès que les contrôles requis (`garde`, `html`, `tests`, `visuel`) sont verts et que la branche est à jour (`strict`). Aucune protection de branche n'est affaiblie.
+5. La publication Pages : `.github/workflows/pages-apres-fusion.yml` écoute `pull_request` fermée et fusionnée, puis relance `pages.yml` via `workflow_dispatch` sur `main` (exception documentée pour `GITHUB_TOKEN` ; l'environnement `github-pages` refuse un déploiement lancé depuis un événement `pull_request`).
+
+Réglages dépôt : `allow_auto_merge=true`, `allow_merge_commit=true`, label `audit-ok`.
+
+## Auto-fusion · mise en place · 17.10.2026, Europe/Zurich
+État       : Workflow `auto-fusion.yml`, Pages déclenché aussi sur PR fusionnée, label `audit-ok`, auto-merge du dépôt activé. Test de bout en bout prévu juste après la fusion de cette PR (commentaire dans HANDOFF, label `audit-ok`).
+Partage    : Les rédacteurs n'appellent plus `gh pr merge`. Seul l'auditeur pose `audit-ok` après audit.
+Prochaine  : Vérifier sur une PR triviale que la fusion et Pages suivent le label.
+Pièges     : Ne pas retirer un contrôle requis ni baisser `required_approving_review_count`. Ne jamais force-push la branche d'une PR labellisée.
+
+## Chiron · stations CS, pilote · 17.10.2026, Europe/Zurich
+État       : feat/cs-stations : format data/cs/format.json (10 règles officielles, 6 formats, ASM 75 % et KK 25 %, chacun sourcé) et data/cs/stations.json (5 stations), schémas data/cs/schema/, compilateur tools/cs_build.py (--check en CI) → assets/st/index.js (window.CS_ST_INDEX) et assets/st/<id>.js, chargés à la demande par stLoad. Patch 0019 : bouton « Station CS » sur la fiche SSP (Notions CK), panneau à sections (consigne, rôle du PS avec « seulement si demandé », résultats, grille ASM avec gestes g|… et chaînes hyp|…, KK, pièges, À vérifier, sources). Lyncée lit data/cs. tests/test_cs_stations.py 15/15 ; suite 241/241 ; G1 à G8 réussis.
+Prochaine  : Vial relit les 5 stations (valide_par_vial reste false) ; Galien audite data/cs (étiquette audit:galien) ; stations suivantes par SSP à haut rendement, une par compétence manquante (dossier, modèle).
+Sources    : Exigences MED 2026 et Infotext MED 2026 (OFSP/MEBEKO), ASSM/FMH 3.2 et 3.3, DGN 030-141 (2026), EAES 2015, EHF/ESC 2017, pädiatrie schweiz 2019, Kinderspital Zürich (fièvre sans foyer), Rev Med Suisse 2016 (examen de l’abdomen) ; toutes lues le 17.10.2026.
+Pièges     : Après toute retouche de data/cs, relancez python3 tools/cs_build.py ; une source citée doit exister dans data/ck/src.json (puis ck_build). cs_build refuse toute dose chiffrée (mg, µg, UI) : écrire « À vérifier ». Les clés GES sont les clés k (comme ckGes), pas des index. Le panneau se place après le premier p.st de nBlock : renderNotSoft lit ce p.st.
+À vérifier : voir le champ a_verifier de chaque station et la note de session 2027 de format.json.
 ## Podalire · urgences CK, lot 2 · 17.10.2026, Europe/Zurich
 État       : feat/ck-urgences-lot2 (sur main 49aef17) : 10 hypothèses bloquantes (hemorragie-digestive-haute, asthme-aigu-grave, exacerbation-bpco, insuffisance-cardiaque-aigue, choc-cardiogenique, hypoglycemie-severe, hyponatremie, insuffisance-renale-aigue, corps-etranger-inhale, polytraumatisme), 8 syndromes urg-* avec gestes GES (dont urg-deficit-neuro-brutal, qui renvoie aux hypothèses AVC du VII sans les dupliquer), 55 entrées de glossaire, 11 sources, loc.json étendu à abdomen, thorax, neuro-nc, tete-cou et neuro-moteur. G1 à G8 réussis ; suite 209/209 ; test_ck 75/75.
 Prochaine  : Galien contre-lit le lot 2 après la fusion (audit:galien) et lit dans l’AIPS les posologies « À vérifier » ; Vial et Argos confirment les domaines liguepulmonaire.ch et abcd.care ; lot 3 possible : hémorragie variqueuse (Baveno VII, non lu), épiglottite, sources suisses de l’asthme (SGP-SSP).
@@ -139,3 +191,18 @@ Vérifie chaque modification avec ssp-tests, et contrôle chaque texte avec ssp-
 Ne modifie jamais app.html. N’utilise que des sources suisses et européennes, et des images réelles.
 Respecte la règle universelle : le projet cible doit avoir un résultat de HAUTE QUALITÉ ; l’usage des jetons doit être raisonnable et optimisé, et tout gaspillage est formellement interdit ; l’économie de jetons est autorisée si et seulement si elle ne dégrade pas la qualité du travail.
 Avant de t’arrêter, mets à jour HANDOFF.md, ETAT.md et ton journal.
+
+## Hygie · monographies des différentiels · 17.10.2026, Europe/Zurich
+État       : Lot 1 poussé (G1, 14 diagnostics) : hyperhidrose-primaire-focale, hyperhidrose-medicamenteuse-et-toxique, thyrotoxicose, pheochromocytome-et-paragangliome, hypoglycemie, lymphome-hodgkinien-ou-non-hodgkinien, tuberculose, endocardite-infectieuse, infection-a-vih, sevrage-alcoolique-complique, syndrome-serotoninergique, menopause-et-syndrome-climaterique, trouble-anxieux-et-attaque-de-panique, syndrome-d-apnees-obstructives-du-sommeil.
+Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'existant TIP.d à reprendre ; clés déjà faites marquées « (fait) »).
+Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
+Pièges     : Doses : jamais de chiffre dans « pha » sans AIPS lue (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget assets/ck 2,5 Mo : ~2 280 monographies × ~2 Ko le dépasseront, prévoir un budget mono séparé (décision de Vial).
+À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS).
+
+## Panacée · monographies des différentiels, depuis la fin · 17.10.2026, Europe/Zurich
+Lot 1 (O7.26, O7.25, O7.24 ; 27 diagnostics) : intoxication-au-paracetamol … paternalisme-excessif. Doses : aucune entrée doses_ch pertinente, toutes « à vérifier (AIPS) » ; épidémiologie chiffrée « à vérifier (source CH/UE) ».
+Lot 2 (O7.23, O7.22, O7.21 ; 29 diagnostics, PR feat/mono-panacee-2, en attente d'audit Hérophile) : decompensation-metabolique-aigue … complements-a-haute-dose.
+Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estimation 2012) ; Elder 2013 PMID 23114748 (porphyrie) ; Br J Dermatol 2024 PMID 38848542 (nécrolyse) ; EAS 2015 PMID 25694464 (statines) ; EAACI 2021 PMID 34343358 (anaphylaxie) ; OFS ESS 2022 su-f-14.02-ESS-COMPLEM_CH (médecine complémentaire) ; CC art. 307, 314c, 443 (fedlex, état 01.07.2026).
+Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
+Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
+Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
