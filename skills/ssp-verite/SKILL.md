@@ -1,8 +1,9 @@
 ---
 name: ssp-verite
 description: >-
-  Lis ce skill avant de livrer tout texte visible et avant chaque fusion : chaque affirmation cite une
-  source lue et datée, sinon elle devient « À vérifier ».
+  Lis ce skill avant de livrer tout texte visible et avant chaque fusion :
+  chaque affirmation cite une source lue et datée, sinon elle devient « À
+  vérifier ».
 ---
 # But
 Ce skill empêche tout fait inventé d’entrer dans l’application.

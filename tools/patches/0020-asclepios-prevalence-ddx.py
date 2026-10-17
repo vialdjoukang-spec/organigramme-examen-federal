@@ -16,22 +16,22 @@ def rep(a, b):
 
 LEG = ('<p class="pvleg">Le pourcentage en rouge donne la fréquence du diagnostic chez les patients qui consultent pour cette plainte, '
        'dans le cadre indiqué (médecine de famille ou urgences, en Suisse ou en Europe). Une prévalence dans la population générale '
-       'ne sert qu’à défaut, et elle porte alors la mention « population ». Survolez ou touchez le pourcentage pour lire le cadre, '
-       'la source et sa date de lecture. Les diagnostics sont classés par fréquence décroissante ; « % à vérifier » signale qu’aucune '
+       'ne sert qu’à défaut, et elle porte alors la mention « population ». Ouvrez le diagnostic, puis survolez ou touchez son pourcentage pour lire '
+       'le cadre, la source et sa date de lecture. Les diagnostics sont classés par fréquence décroissante ; « % à vérifier » signale qu’aucune '
        'source suisse ou européenne n’a encore été lue, et ces diagnostics suivent, dans l’ordre de leur probabilité clinique.</p>')
 
 rep('</head>',
-    '<style>.pv{color:var(--bad);font:700 .86rem var(--fb);margin-left:.45em;white-space:nowrap;cursor:help;border-bottom:1px dotted currentColor}'
+    '<style>.pv{color:var(--bad);font:700 .86rem var(--fb);margin-left:.4em;white-space:nowrap}.pv[data-t]{display:inline-block;min-width:24px;min-height:24px;line-height:24px;padding:0 3px;cursor:help;text-decoration:underline dotted;text-underline-offset:3px}'
     '.pv.av{font-weight:600;font-style:italic}.pv small{color:var(--mut);font-weight:500;font-style:normal}'
-    '.pvleg{margin:4px 2px 8px;color:var(--mut);font-size:.76rem;line-height:1.4;text-align:justify}.pvl{margin:0 0 6px}</style></head>')
+    '.pvleg{margin:4px 2px 8px;color:var(--ink);font-size:.76rem;line-height:1.4;text-align:justify}.pvl{margin:0 0 6px}</style></head>')
 
 rep('const NLAB=[',
     'const PRV={};\n'
     "const PV_LEG='" + LEG.replace("'", "\\'") + "';\n"
     "function pvOf(c,i){const P=PRV[c];return P?P.find(x=>x[0]===i)||null:null}\n"
     "function pvFmt(x){if(!x||x[1]==null)return '% à vérifier';return (x[2]?x[2]+' ':'')+String(x[1]).replace('.',',')+' %'+(x[3]?' <small>population</small>':'')}\n"
-    "function pvSpan(c,i){const x=pvOf(c,i);return `<span class=\"pv${x&&x[1]!=null?'':' av'}\" data-t=\"pv|${c}|${i}\" tabindex=\"0\" role=\"button\" aria-label=\"Fréquence du diagnostic : cadre et source\">${pvFmt(x)}</span>`}\n"
-    "function pvLine(c,i){const e=((ckW('PREV')||{})[c]||{})[i];return `<p class=\"pvl\"><b>Fréquence</b> : ${pvSpan(c,i)}${e&&e.cadre?' · '+esc(e.cadre)+'.':' · survolez ou touchez le pourcentage pour lire le cadre et la source.'}</p>`}\n"
+    "function pvSpan(c,i,act){const x=pvOf(c,i);return `<span class=\"pv${x&&x[1]!=null?'':' av'}\"${act?` data-t=\"pv|${c}|${i}\" tabindex=\"0\" role=\"button\"`:''}>${pvFmt(x)}</span>`}\n"
+    "function pvLine(c,i){const e=((ckW('PREV')||{})[c]||{})[i];return `<p class=\"pvl\"><b>Fréquence</b> : ${pvSpan(c,i,1)}${e&&e.cadre?' · '+esc(e.cadre)+'.':' · survolez ou touchez le pourcentage pour lire le cadre et la source.'}</p>`}\n"
     'const NLAB=[')
 
 rep("N[0].forEach((t,i)=>o.push({k:'d'+i,s:'2 · Diagnostics différentiels',t}));",
@@ -41,7 +41,7 @@ rep('${n.sub?`<small>', "${n.pv||''}${n.sub?`<small>")
 
 rep('<div class="nl">${R.map(n=>nRow(c,n))', '<div class="nl">${k[0]===\'2\'&&R.length?PV_LEG:\'\'}${R.map(n=>nRow(c,n))')
 
-rep("h=T.d[i];src=T.s}else if(b[0]==='f')", "h=pvLine(a,i)+T.d[i];src=T.s}else if(b[0]==='f')")
+rep("h=T.d[i];src=T.s;if(MO)return {hd:'Monographie · '+a,ti:dn,h:MO.h,", "h=pvLine(a,i)+T.d[i];src=T.s;if(MO)return {hd:'Monographie · '+a,ti:dn,h:pvLine(a,i)+MO.h,")
 
 rep('CK_DEP={glo:', "CK_DEP={pv:['prev','src'],glo:")
 
@@ -52,7 +52,8 @@ rep("if(!ckNeed(ty,a,key))return ckWait({syn:'Syndrome',hyp:'Exploration',loc:'S
     "+(e.cadre?`<p><b>Cadre</b> : ${esc(e.cadre)}.</p>`:'')+(S?`<p><b>Source</b> : ${S.url?`<a href=\"${esc(S.url)}\" target=\"_blank\" rel=\"noopener\">${esc(S.titre)}</a>`:esc(S.titre)} (${esc(S.org)})${e.loc?', '+esc(e.loc):''}, lue le ${ckDate(e.date_lu)}.</p>`:'')+(e.note?`<p>${esc(e.note)}</p>`:'')}}\n "
     "if(!ckNeed(ty,a,key))return ckWait({syn:'Syndrome',hyp:'Exploration',loc:'Synthèse locale',nc:'Schéma'}[ty]);")
 
-rep("ckLoad('glo-index').catch(()=>{})", "(ckLoad('glo-index').catch(()=>{}),ckLoad('prev').catch(()=>{}),ckLoad('src').catch(()=>{}))")
+# Chargement de prev.js et src.js à l'ouverture d'une fiche de Notions CK seulement (rien de plus au démarrage : CLS de l'accueil inchangé).
+rep("function nBlock(c,compact){const s=BY[c];if(!s)return '';", "function nBlock(c,compact){const s=BY[c];if(!s)return '';if(PRV[c]&&typeof ckLoad==='function'){ckLoad('prev').catch(()=>{});ckLoad('src').catch(()=>{})}")
 
 open(p, 'w', encoding='utf-8').write(s)
 print('0020 appliqué')

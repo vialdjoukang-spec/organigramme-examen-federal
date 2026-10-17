@@ -27,8 +27,9 @@ def add(c, nom, d, item, vd=None):
         if e.get('rang') is None: e['rang'] = max(x['rang'] for x in it) + 1
         it.append(e)
 NOMS = 'Syncope cardiaque structurelle aiguë (syndrome coronarien aigu, dissection aortique, tamponnade)'
-for e in P['F1.19']['items']:
-    if e['rang'] >= 6: e['rang'] += 1
+if NOMS not in N['F1.19'][0]:
+    for e in P['F1.19']['items']:
+        if e['rang'] >= 6: e['rang'] += 1
 add('F1.19', NOMS,
     '<b style="color:var(--bad)">À ne pas manquer.</b><br>'
     "• <b>Mécanisme</b> : Chute brutale du débit cardiaque par ischémie, obstacle ou compression du cœur.<br>"
@@ -59,7 +60,9 @@ add('G6', 'Infection de la peau et des tissus mous (érysipèle, dermohypodermit
     "• <b>Prise en charge</b> : antibiothérapie active sur le streptocoque, traitement de la porte d'entrée ; chirurgie en urgence si une fasciite nécrosante est suspectée (douleur disproportionnée, nécrose, choc).",
     dict(prev_pct=5.6, type='consultation', src='R-LIMPER-NJM-2011', loc=LOCR, date_lu='2026-10-17',
          note="12 patients sur 213 avaient une infection cutanée selon les Résultats ; le tableau 2 n'en compte que 3, ceux dont l'hémoculture isolait S. pyogenes."))
-P['F1.19']['cadre'] = P['F1.19']['cadre'].rstrip('.') + " ; les pourcentages de l'article se rapportent aux 1653 diagnostics adjugés"
+mention = "les pourcentages de l'article se rapportent aux 1653 diagnostics adjugés"
+if mention not in P['F1.19']['cadre']:
+    P['F1.19']['cadre'] = P['F1.19']['cadre'].rstrip('.') + ' ; ' + mention
 json.dump(N, open('data/NOT.json', 'w'), ensure_ascii=False, separators=(',', ':'))
 json.dump(T, open('data/TIP.json', 'w'), ensure_ascii=False, separators=(',', ':'))
 json.dump(P, open('data/ck/prev.json', 'w'), ensure_ascii=False, indent=1)

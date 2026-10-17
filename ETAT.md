@@ -1,4 +1,40 @@
-# ETAT · Organigramme Examen fédéral
+# ETAT · pilotage Codex (lu par tools/porte.py)
+
+Étape courante : voir `ETAT.json` (`python3 tools/porte.py etat`). Feuille de route : `CONTINUATION.md` (tableau en tête) et `tools/etapes.json`.
+Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes) ne commence tant qu’une case ci-dessous reste vide** (`python3 tools/porte.py commencer 1` refuse).
+
+## Porte de l’Étape 0 (installation, bloquante)
+
+<!-- PORTE-ETAPE-0 -->
+- [ ] 0.1 J’ai lu CONTINUATION.md en entier (toutes les étapes, toutes les règles), puis AGENTS.md, HANDOFF.md (tête), ce fichier, PROCHAINE_ACTION.md
+- [ ] 0.2 J’ai lu docs/skills/README.md et les skills ssp-continuite, ssp-verite, ssp-posologie-suisse, ssp-audit-medical, ssp-fusion-patch, ssp-pilotage-codex
+- [ ] 0.3 Catalogue : `python3 tools/catalogue.py` lancé, sections « À COMPLÉTER PAR CODEX » remplies (MCP, skills de Codex), CATALOGUE.md présenté avant de commencer
+- [ ] 0.4 Proposition de skills : `python3 tools/propose_skills.py` lancé, docs/skills/PROPOSITIONS.md écrit et lu
+- [ ] 0.5 Veille de relance installée et testée (`bash tools/veille_relance.sh --une-fois --dry-run`), puis lancée (cron ou boucle) ; mode A ou B noté ci-dessous
+- [ ] 0.6 Droits de fusion vérifiés (`bash tools/file_fusion.sh --droits` : admin=true, merge_commit=true) ; file de fusion testée (`bash tools/file_fusion.sh --dry-run`)
+- [ ] 0.7 Modèle des tâches répétitives réglé : GPT 6 Luna (`gpt-6-luna`), ou modèle de secours noté ci-dessous
+- [ ] 0.8 Worktree de travail créé depuis origin/main (jamais de changement de branche dans /workspace/oef) ; tests de base OK (`python3 tests/run_tests.py` ou motif d’échec noté)
+- [ ] 0.9 Jauges lues (`python3 tools/jauge/binomes.py`) et valeur de départ notée ci-dessous
+<!-- /PORTE-ETAPE-0 -->
+
+## Réglages notés par Codex à l’Étape 0
+
+- Mode de relance (A = `codex exec`, B = PROCHAINE_ACTION.md) : _à remplir_
+- Lancement de la veille (commande exacte, cron ou boucle) : _à remplir_
+- Modèle des tâches répétitives : _à remplir_ (ordre de Vial : GPT 6 Luna)
+- Jeton de fusion (gh de Codex, ou secret AUTO_FUSION_TOKEN) : _à remplir_ (ne jamais écrire le jeton lui-même)
+- Jauges au départ : Prévalences 0 % (0/2578) · Monographies 3 % (70/2280) le 18.10.2026 00:45 (Europe/Zurich)
+
+## Journal des étapes (une ligne par fin d’étape ou de lot : date, étape, lot, PR, résultat)
+
+- 18.10.2026 · Étape 0 préparée par Grok Bot (scripts, porte, veille, file de fusion) ; à exécuter par Codex.
+
+## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
+
+---
+
+# Historique : phases du plan initial (avant Codex)
+
 
 Athéna tient ce fichier à jour à chaque porte d’étape. Chaque tâche a un responsable et une échéance (Europe/Zurich).
 Légende : [x] fait · [ ] à faire · [~] en cours.
