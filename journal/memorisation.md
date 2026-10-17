@@ -14,5 +14,5 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 ## 17.10.2026 · Phase 2 · intégration dans app_v2.html (Mnémosyne)
 - J’ai corrigé tools/build_mem.py : la ligne de séparation du tableau de synthèse était lue comme la méthode 1, donc chaque « synthese » portait la ligne de la méthode précédente.
 - J’ai écrit data/MEM_app.json : pour chaque méthode, une ligne « Pour l’examen fédéral » qui ne cite que des fonctions réelles (calendrier, « Lu · séance accomplie », « QCM réussis % », note de séance, fiche éclair, liste « À réviser », recherche par diagnostic différentiel, notions CK, Synthèse locale, onglet CS), et la liste des phrases du « Texte à coller » qui décrivaient des fonctions absentes (invite « Pourquoi ? », minuteur, masquage du contenu).
-- Patch 0015 : carte de 12 méthodes, type m|id, deux options nouvelles, consigne de séance ; les clés de réglage existantes restent intactes (contrôle reglages_anciens_intacts).
+- Patch 0018 : carte de 12 méthodes, type m|id, deux options nouvelles, consigne de séance ; les clés de réglage existantes restent intactes (contrôle reglages_anciens_intacts).
 - Recoupement lu le 17.10.2026 : PubMed 19930508 confirme 39 % contre 26 % et d = 0,91 (Larsen 2009) ; ERIC EJ1310148 confirme g = 0,74 (Latimier 2021).

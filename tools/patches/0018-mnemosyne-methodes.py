@@ -1,9 +1,9 @@
 import os, sys
-# Patch 0015 · Mnémosyne · 17.10.2026 · Onglet « Mémorisation » fondé sur les preuves (chantier 2, phase 2).
+# Patch 0018 · Mnémosyne · 17.10.2026 · Onglet « Mémorisation » fondé sur les preuves (chantier 2, phase 2).
 # Douze méthodes sourcées (data/MEM.json → assets/memo/mem.js, window.MEM_DATA, chargé à la demande par memLoad,
 # compatible file://) ; type m|id de tipFor (survol, clic, toucher, clavier, épinglage) ; bouton « i » sur chaque stratégie ;
 # options « Rétroaction obligatoire » et « Réapprentissage successif » ; consigne de séance tirée des options cochées.
-# Les réglages existants (meth, int, rappel, test, inter, feyn, ret, max, hor) restent intacts. Se rejoue après 0012.
+# Les réglages existants (meth, int, rappel, test, inter, feyn, ret, max, hor) restent intacts. Se rejoue après 0015 (Iris) et les patches de main.
 p = os.environ.get('APP_FILE') or sys.exit('Indiquez APP_FILE (copie de travail).')
 assert not p.endswith('orig/app.html'), 'Interdit I1'
 s = open(p, encoding='utf-8').read()
@@ -76,4 +76,4 @@ addEventListener('load',()=>(window.requestIdleCallback||(f=>setTimeout(f,1500))
 /* ---------- MNÉMÉ : mémorisation espacée ---------- */""")
 
 open(p, 'w', encoding='utf-8').write(s)
-print('0015 appliqué')
+print('0018 appliqué')
