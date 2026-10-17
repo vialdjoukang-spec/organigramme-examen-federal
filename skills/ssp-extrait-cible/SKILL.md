@@ -1,8 +1,8 @@
 ---
 name: ssp-extrait-cible
 description: >-
-  Lis ce skill avant toute lecture du fichier de travail app_v2.html : il remplace la lecture du
-  fichier entier par une vue de code sans données.
+  Lis ce skill avant toute lecture du fichier de travail app_v2.html : il
+  remplace la lecture du fichier entier par une vue de code sans données.
 ---
 # But
 Ce skill fait lire environ 2 % du fichier au lieu de 5,4 Mo, sans rien perdre du code.
