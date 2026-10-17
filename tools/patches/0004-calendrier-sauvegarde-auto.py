@@ -22,7 +22,7 @@ CSS = ("#sv-s,#ver{flex-basis:100%;margin:0}#ver{border-top:1px solid var(--line
        "#qp{position:fixed;z-index:60;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;box-sizing:border-box;background:var(--paper);color:var(--ink);"
        "border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);padding:12px 14px}#qp h3{margin:0 0 8px}"
        "#qp .row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:6px 0}#qp input[type=search]{width:100%;box-sizing:border-box}")
-rep('#bak-m.ok{color:var(--ok)}</style>', '#bak-m.ok{color:var(--ok)}' + CSS + '</style>')
+rep('#bak-m.ok{color:var(--ok)}', '#bak-m.ok{color:var(--ok)}' + CSS)
 
 rep('<input type="file" id="bak-f"',
     '<button class="b" id="sv-v" type="button" aria-expanded="false" aria-controls="ver">Restaurer une version</button>'
