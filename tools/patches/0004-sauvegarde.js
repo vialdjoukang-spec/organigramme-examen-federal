@@ -48,7 +48,7 @@ async function svRestore(id){let v;try{v=(await svList()).find(x=>x.id===id)}cat
  try{local(true);await svAdd('avant-restauration')}catch(e){bakMsg('L’état actuel n’a pas pu être mis de côté ; la restauration est donc annulée.','bad');return false}
  svReady=false;if(!svWrite(v.cles)){svReady=true;bakMsg('La restauration a échoué, car le stockage est plein ou bloqué ; l’état antérieur est rétabli.','bad');return false}
  try{await svPut('cur',Object.assign(svRec(),{t:new Date().toISOString()}))}catch(e){}try{sessionStorage.setItem('orga-rest',v.t)}catch(e){}location.reload();return true}
-document.getElementById('sv-v').onclick=()=>svVer();document.getElementById('sv-fb').onclick=svFileClick;
+svFileBtn();document.getElementById('sv-v').onclick=()=>svVer();document.getElementById('sv-fb').onclick=svFileClick;
 document.getElementById('ver').addEventListener('click',async e=>{const t=e.target;if(t.id==='sv-x'){svVer()}
  else if(t.id==='sv-new'){try{local(true);await svAdd('manuel');svVer(true)}catch(_){bakMsg('La version n’a pas pu être créée, car ce navigateur bloque IndexedDB.','bad')}}
  else if(t.dataset.r){t.parentNode.innerHTML='La restauration met d’abord l’état actuel de côté. <button class="b p" type="button" data-ok="'+t.dataset.r+'">Confirmer</button> <button class="b" type="button" data-no="1">Annuler</button>'}

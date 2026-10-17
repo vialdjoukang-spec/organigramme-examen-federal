@@ -11,7 +11,7 @@ def rep(a, b):
     assert s.count(a) == 1, 'Ancrage absent ou répété : ' + a[:60]
     s = s.replace(a, b)
 
-CSS = ("#sv-s,#ver{flex-basis:100%;margin:0}#ver{border-top:1px solid var(--line);padding-top:8px}#ver .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}"
+CSS = ("#sv-s,#ver{flex-basis:100%;margin:0}#sv-s{min-height:2.6em}#ver{border-top:1px solid var(--line);padding-top:8px}#ver .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}"
        ".ver-l{list-style:none;margin:6px 0 0;padding:0;max-height:320px;overflow:auto}.ver-l li{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}"
        ".cq{padding:10px 14px}.cq input{width:100%;box-sizing:border-box}#cq-r,#qp-r{list-style:none;margin:6px 0 0;padding:0;max-height:260px;overflow:auto}"
        ".cq-i{display:flex;align-items:stretch;gap:6px;margin:3px 0}.cq-i .b{min-height:36px}.cq-i .cq-p{flex:1;min-width:0;text-align:left;display:flex;gap:8px;align-items:center}"
@@ -28,7 +28,7 @@ rep('<input type="file" id="bak-f"',
     '<button class="b" id="sv-v" type="button" aria-expanded="false" aria-controls="ver">Restaurer une version</button>'
     '<button class="b" id="sv-fb" type="button" hidden>Activer un fichier de sauvegarde automatique</button>'
     '<input type="file" id="bak-f"')
-rep('<div id="bak-pv" hidden></div>', '<div id="bak-pv" hidden></div><div id="ver" hidden></div><p id="sv-s" class="st"></p>')
+rep('<div id="bak-pv" hidden></div>', '<div id="bak-pv" hidden></div><div id="ver" hidden></div><p id="sv-s" class="st">La copie de secours automatique de ce navigateur démarre.</p>')
 
 rep('<div class="gridwrap"><div class="grid" id="grid"></div></div>',
     '<div class="card cq"><label class="st" for="cq">Cherchez un cours ou un SSP par son nom ou son code, puis placez-le ou ouvrez-le.</label>'
