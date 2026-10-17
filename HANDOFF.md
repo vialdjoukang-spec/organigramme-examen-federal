@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
+État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
+Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.
+Sources    : sorties gh locales et GitHub Actions, tests/test_file_fusion.py ; aucune source clinique ni app_v2 modifiée.
+Pièges     : erreur HTTP 403 de protection renvoyée sur stdout par gh ; ne jamais la traiter comme des noms de contrôles. Une publication échouée doit être réessayée sans exiger une nouvelle fusion.
+À vérifier : fin des deux sondes, visuel et suite complète en cours ; secret non lisible (403), protection inchangée.
+
 ## Codex · état réel Étape 1 · 18.10.2026 01:05 CEST
 État       : branche codex/etape-1, PR Étape 0 #71 en CI ; état complet des PR et checks enregistré dans CONTINUATION C1 ; Pages = origin/main, empreinte vérifiée.
 Prochaine  : Étape 2, corriger le parseur de protection 403 dans file_fusion et prouver fusion/Pages sur une sonde.
