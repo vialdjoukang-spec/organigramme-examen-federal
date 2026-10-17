@@ -241,19 +241,23 @@
    "hypotension-arterielle",
    "turgescence-jugulaire",
    "abolition-du-murmure-vesiculaire",
-   "deviation-tracheale"
+   "deviation-tracheale",
+   "frottement-pericardique"
   ],
   "a_demander": [
    "À quelle heure la douleur a-t-elle commencé, et s’est-elle installée brutalement ?",
    "La douleur serre-t-elle, pèse-t-elle ou brûle-t-elle, ou bien déchire-t-elle et migre-t-elle vers le dos ?",
    "Le patient a-t-il été opéré, immobilisé ou traité pour un cancer récemment, ou a-t-il une jambe gonflée ?",
-   "Le patient a-t-il une maladie connue de l’aorte, une valvulopathie aortique ou un antécédent familial de maladie aortique ?"
+   "Le patient a-t-il une maladie connue de l’aorte, une valvulopathie aortique ou un antécédent familial de maladie aortique ?",
+   "La douleur augmente-t-elle à l’inspiration et diminue-t-elle penché en avant, après une infection récente ?"
   ],
   "hyp": [
    "sca",
    "embolie-pulmonaire",
    "dissection-aortique",
-   "pneumothorax-sous-tension"
+   "pneumothorax-sous-tension",
+   "pericardite-aigue",
+   "tamponnade-cardiaque"
   ],
   "gestes": [
    "constantes_3",
@@ -266,9 +270,10 @@
    "coeur-vaisseaux_18",
    "thorax_8",
    "thorax_6",
-   "tete-cou_15"
+   "tete-cou_15",
+   "coeur-vaisseaux_11"
   ],
-  "comment": "Quatre urgences vitales se cachent derrière une douleur thoracique aiguë. L’ECG se fait dans les 10 minutes, car un sus-décalage du segment ST impose une reperfusion immédiate. La comparaison des pouls et de la pression aux deux bras, l’auscultation du cœur et des poumons, l’examen des jugulaires et de la trachée orientent vers une dissection aortique, une embolie pulmonaire ou un pneumothorax sous tension.",
+  "comment": "Quatre urgences vitales se cachent derrière une douleur thoracique aiguë. L’ECG se fait dans les 10 minutes, car un sus-décalage du segment ST impose une reperfusion immédiate. La comparaison des pouls et de la pression aux deux bras, l’auscultation du cœur et des poumons, l’examen des jugulaires et de la trachée orientent vers une dissection aortique, une embolie pulmonaire ou un pneumothorax sous tension. Une douleur qui augmente à l’inspiration et diminue penché en avant, avec un frottement péricardique, évoque une péricardite, une fois le syndrome coronarien aigu écarté.",
   "src": [
    {
     "id": "R-ESC-SCA",
@@ -289,6 +294,11 @@
     "id": "R-ERC-SPEC",
     "loc": "Tension pneumothorax",
     "lu_le": "2026-10-17"
+   },
+   {
+    "id": "R-ESC-PERI",
+    "loc": "3.3.2 ; 4.3.1",
+    "lu_le": "2026-10-17"
    }
   ],
   "statut": "sourcé"
@@ -305,7 +315,8 @@
    "temps-de-recoloration-capillaire-allonge",
    "alteration-de-la-conscience",
    "fievre",
-   "turgescence-jugulaire"
+   "turgescence-jugulaire",
+   "pouls-paradoxal"
   ],
   "a_demander": [
    "Le patient a-t-il de la fièvre, des frissons ou un foyer infectieux connu ?",
@@ -316,7 +327,8 @@
    "sepsis",
    "anaphylaxie",
    "embolie-pulmonaire",
-   "pneumothorax-sous-tension"
+   "pneumothorax-sous-tension",
+   "tamponnade-cardiaque"
   ],
   "gestes": [
    "constantes_0",
@@ -331,7 +343,7 @@
    "peau_0",
    "coeur-vaisseaux_1"
   ],
-  "comment": "Un état de choc associe une hypotension à des signes de mauvaise perfusion des organes : marbrures, temps de recoloration capillaire allongé, altération de la conscience. L’examen recherche aussitôt le mécanisme : une fièvre et un foyer infectieux orientent vers un sepsis, une exposition à un allergène vers une anaphylaxie, des jugulaires turgescentes vers un obstacle comme une embolie pulmonaire ou un pneumothorax sous tension.",
+  "comment": "Un état de choc associe une hypotension à des signes de mauvaise perfusion des organes : marbrures, temps de recoloration capillaire allongé, altération de la conscience. L’examen recherche aussitôt le mécanisme : une fièvre et un foyer infectieux orientent vers un sepsis, une exposition à un allergène vers une anaphylaxie, des jugulaires turgescentes vers un obstacle comme une embolie pulmonaire ou un pneumothorax sous tension. Une hypotension avec des jugulaires turgescentes et un pouls paradoxal fait chercher une tamponnade par l’échographie.",
   "src": [
    {
     "id": "R-SSC-2021",
@@ -346,6 +358,11 @@
    {
     "id": "R-ERC-SPEC",
     "loc": "Tension pneumothorax ; Sepsis",
+    "lu_le": "2026-10-17"
+   },
+   {
+    "id": "R-ESC-PERI",
+    "loc": "11.8",
     "lu_le": "2026-10-17"
    }
   ],
@@ -1013,6 +1030,46 @@
    {
     "id": "R-DGVS-PAN",
     "loc": "1.6.1 et 1.6.2 ; 2.1.2",
+    "lu_le": "2026-10-17"
+   }
+  ],
+  "statut": "sourcé"
+ },
+ {
+  "id": "urg-fievre-lombaire",
+  "label": "Urgence · fièvre et douleur lombaire",
+  "module": "abdomen",
+  "signes": [
+   "fievre",
+   "frissons",
+   "ebranlement-lombaire-douloureux",
+   "vomissements",
+   "tachycardie",
+   "hypotension-arterielle",
+   "tachypnee",
+   "alteration-de-la-conscience"
+  ],
+  "a_demander": [
+   "Le patient a-t-il des brûlures en urinant ou des envies fréquentes ?",
+   "A-t-il des calculs urinaires connus, une sonde ou une intervention récente sur les voies urinaires ?",
+   "Est-elle enceinte ?",
+   "A-t-il reçu des antibiotiques récemment ?"
+  ],
+  "hyp": [
+   "pyelonephrite-urosepsis"
+  ],
+  "gestes": [
+   "abdomen_13",
+   "constantes_8",
+   "constantes_3",
+   "constantes_5",
+   "constantes_6"
+  ],
+  "comment": "Une fièvre avec des frissons et une douleur à l’ébranlement d’une fosse lombaire évoquent une pyélonéphrite. Une fréquence respiratoire élevée, une confusion ou une pression basse font rechercher un urosepsis, et l’échographie écarte tôt un obstacle.",
+  "src": [
+   {
+    "id": "R-EAU-UI",
+    "loc": "3.6.2 et 3.6.3 ; 3.9.5",
     "lu_le": "2026-10-17"
    }
   ],
