@@ -1,0 +1,27 @@
+# Relance Pages après chaque fusion vers main.
+# Nécessaire quand la fusion est faite avec GITHUB_TOKEN (auto-fusion) :
+# le push qui en résulte ne déclenche pas les workflows, et
+# workflow_dispatch / repository_dispatch sont les exceptions documentées.
+name: Pages après fusion
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  relancer-pages:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: workflow_dispatch de Pages sur main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "PR #${{ github.event.pull_request.number }} fusionnée → relance Pages"
+          gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
+          echo "Pages relancé."
