@@ -196,7 +196,7 @@ def main(argv=None):
         return 1
     out = build(data)
     d = os.path.join(a.racine, 'assets', 'ck')
-    present = {n for n in os.listdir(d) if n.endswith('.js')} if os.path.isdir(d) else set()
+    present = {n for n in os.listdir(d) if n.endswith('.js') and not n.startswith('mono-')} if os.path.isdir(d) else set()  # mono-* : tools/mono_build.py
     if a.check:
         bad = [n for n, c in out.items() if not os.path.exists(os.path.join(d, n))
                or open(os.path.join(d, n), encoding='utf-8').read() != c]
