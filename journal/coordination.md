@@ -17,3 +17,8 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 6. **[Janus] tests/test_export.py** · prio:P0 · agent:janus · échéance 15.11.2026 · avec Atlas.
 
 - 18.10.2026 · Reprise #44 : main intégré ; app repris de main et correctif audité prev_g2_corr rejoué ; contrôles prev/ck/mono --check verts. Suite locale code 1 (voir relève Codex).
+- 18.10.2026 · Codex, Étape 0 : lecture intégrale AGENTS/CONTINUATION et lectures de porte faites ; catalogue réel et propositions examinés ; veille locale mode B, CLI non authentifié. Aucun travail clinique avant verifier0. Sources techniques : dépôt 2228be7, sorties gh, codex --help et tests locaux.
+
+- 18.10.2026 01:05 CEST · Étape 1 : comparaison dépôt/Pages/PR réalisée, sauvegardes Grok indisponibles consignées, C1 corrigé ; poursuite Étape 2 sans question.
+
+- 18.10.2026 01:07 CEST · Étape 2 : défaut 403 corrigé dans file_fusion (erreur JSON exclue des noms de checks) ; publication échouée mémorisée et retentée même sans nouvelle fusion ; auto-fusion suspendue pour attente-vial. Cinq tests d'intégration simulant gh passent, ajoutés à la CI. Sondes #71 et #73, auto-merge demandé ; workflow file-fusion déclenché. Secret AUTO_FUSION_TOKEN non inspectable (403), aucune valeur créée/copée.
