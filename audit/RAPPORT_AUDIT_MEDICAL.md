@@ -112,3 +112,5 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 
 ### Reprise #65 : réserve technique Codex
 Lyncée passe de lyncee-1 à lyncee-2 et la baseline de 3823 à 3876. Le contrôle affiche 92 termes nouveaux lors du changement de règles. Cette hausse ne satisfait pas l’ordre de Vial « baseline ne peut que baisser ». Label audit-ok retiré en attendant le traitement des nouveaux termes ; le passage automatisé actuel ne suffit pas à valider cette migration.
+
+Référence #65 resserrée par --update : 3876 → 3820, sous le total 3823 de main. La différence d’ensemble conserve toutefois 92 candidats nouveaux issus des règles/corpus élargis : examen Janus requis avant de déclarer la migration auditée. Le label reste retiré, sans masquer ce point derrière la seule baisse du total.
