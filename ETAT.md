@@ -28,6 +28,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Activer les veilles officielles Ve1 et Ve2 à partir de tools/templates/veille-squelette.yml (PR #4 fusionnée) | Argos | 15.11.2026 |
 | [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
 | [x] | Préparer data/MEM.json sans toucher au code (PR #3 fusionnée) | Mnémosyne | 29.11.2026 |
+| [~] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, tests/test_calendrier.py (32) | Hermès | 17.10.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
 ## Frontend Premium (17.10.2026) · porte : Iris est requis sur main, et la refonte d’Apollon passe les 69 contrôles et Iris avec une référence adoptée explicitement

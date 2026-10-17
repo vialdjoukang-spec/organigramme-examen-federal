@@ -10,6 +10,22 @@ Pièges     : Toute PR qui change l’apparence échoue à « visuel » tant que
 Pièges     : Apollon ajoute ses règles en fin du style de head ; un nouveau bloc <style> dans body crée des erreurs Nu.
 À vérifier : Le CLS restant (0,042) vient du bandeau #bak rendu par le script ; Atlas peut lui réserver une hauteur.
 
+## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
+État       : Patch 0004 (tools/patches/0004-*.py + 0004-calendrier.js + 0004-sauvegarde.js) sur feat/hermes-calendrier ; suite 88/88 (dont 32 de tests/test_calendrier.py), gardes 5/5.
+Prochaine  : Apollon stylise les jours par l’attribut data-wd (1 = lundi … 7 = dimanche) posé sur .hd et .col, et les séances .blk ; Mnémosyne réutilise showTip/tipToggle inchangés.
+Sources    : MDN StorageManager.persist(), IndexedDB, File System Access API ; WebKit « Full Third-Party Cookie Blocking and More » (plafond de 7 jours), lus le 17.10.2026.
+Pièges     : Tout appel à lsSet déclenche svTouch ; le miroir ne démarre qu’après le contrôle de démarrage (svReady), pour ne jamais écraser la copie de secours par un état vide. test_export simule l’effacement Safari en supprimant aussi IndexedDB.
+Pièges     : Dans les tests mobiles, la barre d’onglets collante masque le haut de l’écran ; faites défiler avec behavior:'instant' et un décalage.
+Pièges     : Un conflit dans app_v2.html ne se résout jamais à la main : reprenez la version de main, puis rejouez votre patch (skill ssp-fusion-patch).
+À vérifier : Le fichier automatique n’existe que sur Chromium de bureau ; ailleurs le bouton reste caché.
+
+## Asclépios · examen physique · 17.10.2026, Europe/Zurich
+État       : feat/asclepios-examen : GES en 3 axes (13 régions, 6 systèmes, 3 populations ; 22 entrées, 315 gestes), sous-régions, ordre strict, 7 gestes nouveaux sourcés, 12 doublons en renvois bidirectionnels, 19 croquis (assets/cs, credits.json) ; TIP champ 5 structuré pour 198 SSP, 15 marqués « À compléter », 35 laissés tels quels (contenu non clinique d’examen). Patch 0008, tests/test_examen.py (16 contrôles), Pages publie assets/.
+Prochaine  : Vial valide les croquis (valide_par_vial) ; Asclépios relit les 113 blocs « Autres éléments ciblés » et rédige les 15 champs vides avec sources.
+Sources    : StatPearls/NCBI (NBK271, NBK551612, NBK549844, NBK538499, NBK558918, NBK256, NBK513250, NBK557639, NBK557862, NBK459125, NBK470595, NBK549859, NBK544226), PMC3993046, PMC5890131 ; Füeßl/Middeke (pages à vérifier) ; Wikimedia Commons et Open-i lus le 17.10.2026.
+Pièges     : La progression des gestes est indexée par it.k (clé historique « région_index ») : ne jamais renuméroter k. Les scripts tools/asclepios/*.py refusent de tourner deux fois (garde d’idempotence). Le champ 5 est un format compact (§ région, ¶ phase, • élément, @ puces) rendu par exFmt().
+À vérifier : Pages Füeßl/Middeke des 7 gestes nouveaux ; classement automatique des éléments du champ 5 (relecture humaine par échantillon).
+Classes    : .ex-axe/.ex-axe__h (rail des régions), .ex-region/.ex-region__h, .ex-phase[data-ordre=1…6|M|N], .ex-items, .ex-fig/.ex-fig__cap/.ex-fig__credit, .ex-xref/.ex-chip[data-gx], .ex-av, .ex-flash — conformes à qa/apollon/spec.md § 7 ; data-ordre « M » (Mesures) et « N » (Neurologique) s’ajoutent aux valeurs 1 à 6.
 ## Thémis · Exigences 2027 · 17.10.2026, Europe/Zurich
 État       : L’onglet « Exigences » compte 46 cases stables (data/EXI.json), un bandeau 2027 et des badges « À vérifier auprès de la MEBEKO » ; SESSION centralise les dates ; patch 0004 ; tests/test_exigences.py (13 contrôles) ; suite 69/69, gardes 5/5.
 Prochaine  : Thémis met data/SESSION.json à jour (tools/build_exi.py, puis json_inject.py inject SESSION) dès que l’OFSP publie les dates 2027.
