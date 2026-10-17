@@ -8,7 +8,8 @@ import os, sys
 # qu'à la fin du script, ce qui rétrécissait le texte voisin : un court script en ligne, placé juste après le
 # bouton, applique le même test (showSaveFilePicker) avant la première peinture. Enfin, #kpis (en-tête) était
 # vide (0 px) jusqu'au rendu des 6 indicateurs (66 px) : il reçoit dans le HTML les 6 mêmes cartes, valeurs « – »,
-# que le rendu remplace à géométrie identique (même grille auto-fit, mêmes libellés). Seuils et référence inchangés.
+# que le rendu remplace à géométrie identique (même grille auto-fit, mêmes libellés). Les réglages d'affichage
+# (#d-gv, #d-fv vides, curseurs à leur milieu) reçoivent leurs valeurs par défaut de applyDisp() (50 %, 100 %). Seuils et référence inchangés.
 p = os.environ.get('APP_FILE') or sys.exit('Indiquez APP_FILE (copie de travail).')
 assert not p.endswith('orig/app.html'), 'Interdit I1'
 s = open(p, encoding='utf-8').read()
@@ -31,6 +32,11 @@ rep('<button class="b" id="sv-fb" type="button" hidden>Activer un fichier de sau
 K = [['SSP couverts (CK lu)'], ['couverture'], ['temps de lecture'], ['séances accomplies'], ['moyenne/jour (14 j)'], ['jours avant le CK']]
 rep('<div class="kpis" id="kpis"></div>',
     '<div class="kpis" id="kpis">' + ''.join('<div class="kpi"><b>–</b><span>' + k[0] + '</span></div>' for k in K) + '</div>')
+
+rep('id="d-gilt" min="0" max="100" step="5" tabindex="-1" aria-label="Fond doré (réglage retiré)"> <b id="d-gv"></b>',
+    'id="d-gilt" min="0" max="100" step="5" value="50" tabindex="-1" aria-label="Fond doré (réglage retiré)"> <b id="d-gv">50 %</b>')
+rep('<input type="range" id="d-fs" min="90" max="130" step="5"> <b id="d-fv"></b>',
+    '<input type="range" id="d-fs" min="90" max="130" step="5" value="100"> <b id="d-fv">100 %</b>')
 
 open(p, 'w', encoding='utf-8').write(s)
 print('0015 appliqué')
