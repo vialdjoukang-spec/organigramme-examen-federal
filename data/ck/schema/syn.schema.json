@@ -1,0 +1,69 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "syn.schema.json",
+ "title": "Syndromes (syn.json)",
+ "description": "Syndrome local d’un module : signes constitutifs (glo), symptômes à demander, hypothèses d’orientation (hyp).",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "label",
+   "module",
+   "signes",
+   "a_demander",
+   "hyp"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "label": {
+    "type": "string",
+    "minLength": 1
+   },
+   "module": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "signes": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "uniqueItems": true
+   },
+   "a_demander": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "string",
+     "minLength": 1
+    }
+   },
+   "hyp": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "uniqueItems": true
+   },
+   "comment": {
+    "type": "string",
+    "minLength": 1
+   },
+   "src": {
+    "$ref": "src.schema.json#/$defs/refs"
+   },
+   "statut": {
+    "$ref": "src.schema.json#/$defs/statut"
+   }
+  }
+ }
+}

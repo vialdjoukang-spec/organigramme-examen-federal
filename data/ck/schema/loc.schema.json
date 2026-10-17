@@ -1,0 +1,40 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "loc.schema.json",
+ "title": "Synthèse locale (loc.json)",
+ "description": "Par module d’examen : A = syndromes locaux (syn), B = diagnostics, exploration et prise en charge (hyp).",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "module",
+   "A",
+   "B"
+  ],
+  "properties": {
+   "module": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "A": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "uniqueItems": true
+   },
+   "B": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "uniqueItems": true
+   }
+  }
+ }
+}

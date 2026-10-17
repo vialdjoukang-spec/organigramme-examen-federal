@@ -42,6 +42,26 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | 3 · Confort et CS | 11.01–28.02.2027 | Atlas, Asclépios | Le premier affichage est deux fois plus rapide, et chaque image a sa licence vérifiée. |
 | Continu | jusqu’au CS 2027 | Argos, Thémis, Janus, Athéna | Chaque ticket de veille est traité ou classé en moins de sept jours. |
 
+## Chantier Nerfs crâniens et CK · NC-0 Socle (17–25.10.2026) · porte : socle, lieur et audit de niveau 1 sur main ; un terme non défini fait échouer la CI
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Schémas JSON data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch) | Atlas | 25.10.2026 |
+| [x] | Compilateur tools/ck_build.py → assets/ck/*.js, contrôle --check en CI (G5) | Atlas | 25.10.2026 |
+| [x] | Chargement différé : ckLoad, ckGlo, index du glossaire après load, à l’inactivité (patch 0011) | Atlas | 25.10.2026 |
+| [x] | Budgets : assets/ck ≤ 2,5 Mo, SVG ≤ 120 Ko, assets/nc ≤ 3 Mo | Atlas | 25.10.2026 |
+| [x] | Lyncée et qa/termes-baseline.json (3 849 termes, ne peut que baisser) | Janus | 25.10.2026 |
+| [x] | Audit de niveau 1 G1 à G7, Alétheia, artefact audit-flags, étiquette audit:galien | Janus, avec Galien | 25.10.2026 |
+| [x] | tools/audit/rapport_fautes.py et blocage d’une faute critique sans accord de Vial | Janus, avec Galien | 25.10.2026 |
+| [x] | tests/test_ck.py (61, données, schémas et contrôles) et tests/test_ck_socle.py (12) | Janus | 25.10.2026 |
+| [ ] | Types tipFor (glo, syn, hyp, nc, loc), gloLink(), pile de 5 fenêtres | Hermès | 25.10.2026 |
+| [x] | Premier lot de 100 signes et syndromes dans data/ck/glo.json (feat/ck-glossaire-lot01) | Hippocrate | 25.10.2026 |
+| [x] | Table suisse des doses data/ck/doses_ch.json (lecture à la main ; 3 lignes, 2 doses « À vérifier ») | Galien | 25.10.2026 |
+| [x] | Six automates d’audit régional et premier rapport des fautes corrigées (29) | Galien | 25.10.2026 |
+| [ ] | Contre-lecture des doses | Asclépios | 25.10.2026 |
+| [ ] | Validation des signes et syndromes du lot 01 et des doses « À vérifier » | Vial | à fixer |
+| [ ] | Régénérer la liste G6 depuis Lexique 3.83 ; filtre MeSH pour le tri | Janus | 25.10.2026 |
+
 ## Chantier Nerfs crâniens · Dédale (plan du 17.10.2026)
 
 | État | Tâche | Responsable | Échéance |
@@ -54,3 +74,15 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Trois vues seulement (face, profil, 34) : crâne au crayon, nerf jaune, états trajet/branches/fonctions/lésions dans chaque SVG ; tour et plan retirés | Dédale | 08.11.2026 |
 | [ ] | Valider le pilote VII (valide_par_vial) | Vial | 08.11.2026 |
 | [ ] | Produire les onze autres paires (3 vues chacune, sans tour) ; porter freestyle.py en mode ajout seul d’abord | Dédale | NC-2 |
+
+## Chantier Nerfs crâniens · Podalire (chaîne clinique, plan du 17.10.2026)
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Chaîne clinique des 5 sites du VII dans data/ck (syn, hyp, nc, src) : 5 syndromes, 12 hypothèses, nc07 (feat/nc07-chaine) | Podalire | 08.11.2026 |
+| [ ] | Revue clinique de niveau 2 de la chaîne du VII (audit:galien) | Galien | 08.11.2026 |
+| [ ] | Définir les termes de la liste « Termes pour Galien » (journal/nerfs-ck.md) | Galien | 08.11.2026 |
+| [ ] | Lire à la main dans l’AIPS les posologies marquées « À vérifier » (corticothérapie, thrombolyse, antibiotiques de la neuroborréliose) | Galien | 08.11.2026 |
+| [ ] | Sourcer les points « À vérifier » (fracture du rocher, otite compliquée, cholestéatome, plaie des rameaux, produits de contraste) | Podalire | NC-1b |
+| [x] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
+

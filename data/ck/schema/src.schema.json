@@ -1,0 +1,110 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "src.schema.json",
+ "title": "Registre des sources (src.json)",
+ "description": "Chaque source citée par une entrée CK : organisation, pays, type et URL. G3 contrôle le domaine contre qa/domaines.yml ; doi.org et europepmc.org exigent un éditeur suisse ou européen (org, pays).",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "titre",
+   "org",
+   "pays",
+   "type",
+   "url"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "pattern": "^[A-Za-z][A-Za-z0-9-]*$"
+   },
+   "titre": {
+    "type": "string",
+    "minLength": 1
+   },
+   "org": {
+    "type": "string",
+    "minLength": 1
+   },
+   "pays": {
+    "type": "string",
+    "pattern": "^[A-Z]{2}$",
+    "description": "Code ISO 3166-1 de l’éditeur ou de la société savante."
+   },
+   "type": {
+    "enum": [
+     "ligne-directrice",
+     "information-professionnelle",
+     "manuel",
+     "article",
+     "anatomie",
+     "base-de-donnees",
+     "glossaire"
+    ]
+   },
+   "url": {
+    "type": "string",
+    "pattern": "^https?://"
+   },
+   "annee": {
+    "type": "integer",
+    "minimum": 1850,
+    "maximum": 2100
+   },
+   "licence": {
+    "type": "string",
+    "minLength": 1
+   },
+   "note": {
+    "type": "string",
+    "minLength": 1
+   }
+  }
+ },
+ "$defs": {
+  "date": {
+   "type": "string",
+   "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+  },
+  "slug": {
+   "type": "string",
+   "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+  },
+  "ref": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "lu_le"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "loc": {
+     "type": "string",
+     "description": "Page, paragraphe ou section lus."
+    },
+    "lu_le": {
+     "type": "string",
+     "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    }
+   }
+  },
+  "refs": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/ref"
+   }
+  },
+  "statut": {
+   "enum": [
+    "sourcé",
+    "À vérifier"
+   ]
+  }
+ }
+}
