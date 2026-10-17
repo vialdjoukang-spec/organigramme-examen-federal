@@ -68,6 +68,13 @@ Sources    : research_exigences.md (S1 à S12, N1), lues le 17.10.2026.
 Pièges     : Les coches vivent sous « x:<id> » dans S.exi, à côté des clés a… (Attendus) et cp… (CS) ; on ne renumérote jamais un identifiant.
 À vérifier : A3, A4, C4, C6, C7, C8, C10, D2, D5, E2 et E3 attendent une réponse de la MEBEKO ou une publication de l’OFSP.
 
+## Asclépios · examen physique (TIP champ 5) · 17.10.2026, Europe/Zurich
+État       : 15 champs « À compléter » écrits et sourcés (v.c[5] « complété ») ; 113 blocs « Autres éléments ciblés » revus (355 éléments → 290 phrases complètes) ; scripts rejouables dans tools/asclepios/tip_*.py.
+Prochaine  : Galien relit le diff de TIP (niveau 2) ; puis diagnostics différentiels du bloc trauma S8.1–S8.12 et sections de cours de moins de 200 caractères.
+Sources    : voir journal/asclepios.md, étape 3 (toutes lues le 17.10.2026).
+Pièges     : Lyncée regroupe les variantes d’un terme ; retirer une variante peut faire apparaître une autre comme « nouvelle » (extra-digestif) ; les titres anglais et les initiales d’auteurs dans v.S sont scannés.
+À vérifier : ESC 2022 (G14), nerf axillaire (S8.4), signes de fracture de la base (S8.7), signes œsophagiens (S8.6), SOSORT, Epworth, ROR, délai des vaccins vivants reconstitués, échelle d’agitation de S9.8.
+
 ## Atlas · sauvegarde · 17.10.2026, Europe/Zurich
 État       : Le chantier export/import est sur feat/sauvegarde (PR #11) : patch 0003, CSS du bandeau dans le style de head, tests/test_export.py (13 contrôles) ; suite locale 56/56 et gardes 5/5.
 Prochaine  : Athéna fusionne PR #11 dès que la CI (garde, html, tests) est verte.
