@@ -1,8 +1,8 @@
 ---
 name: ssp-patch
 description: >-
-  Lis ce skill avant toute modification du code de app_v2.html : chaque changement s’écrit comme un
-  patch à ancrage unique et rejouable.
+  Lis ce skill avant toute modification du code de app_v2.html : chaque
+  changement s’écrit comme un patch à ancrage unique et rejouable.
 ---
 # But
 Ce skill fait écrire seulement le changement, de façon vérifiable et rejouable.
