@@ -1006,8 +1006,10 @@ function ckEtats(s){try{return s&&s.dataset.etats?JSON.parse(s.dataset.etats):nu
 function ckEtat(fig,x){const s=fig.querySelector('svg'),M=ckEtats(s);if(!M||!M[x])return;ckEt=x;s.dataset.etat=x;
  s.querySelectorAll('[data-etat]').forEach(g=>g.setAttribute('display',g.dataset.etat===x?'inline':'none'));NC_COU.forEach(c=>{ckCou[c]=M[x].includes(c)});
  TIPEL.querySelectorAll('input[data-ck=cou]').forEach(i=>{i.checked=ckCou[i.value]!==false});TIPEL.querySelectorAll('[data-ck=etat]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.e===x)));ckApply(fig)}
-function ckApply(fig){const s=fig.querySelector('svg'),F=TIPEL.querySelector('.ck-couches');if(!F)return;
- for(const i of F.querySelectorAll('input[data-ck=cou]')){const g=s&&s.querySelector(`#${i.value},[data-couche="${i.value}"]`);i.closest('label').hidden=!g;i.disabled=!g||!g.childElementCount;if(g)g.setAttribute('display',i.checked?'inline':'none')}}
+/* Couche c : tous ses groupes (#c ou [data-couche=c]) ; un groupe propre à un état (data-etat) ne s’affiche que dans cet état. */
+function ckApply(fig){const s=fig.querySelector('svg'),F=TIPEL.querySelector('.ck-couches');if(!F)return;const et=s&&ckEtats(s)&&s.dataset.etat||'';
+ for(const i of F.querySelectorAll('input[data-ck=cou]')){const G=s?[...s.querySelectorAll(`#${i.value},[data-couche="${i.value}"]`)]:[];i.closest('label').hidden=!G.length;i.disabled=!G.some(g=>g.childElementCount);
+  G.forEach(g=>g.setAttribute('display',i.checked&&(!et||!g.dataset.etat||g.dataset.etat===et)?'inline':'none'))}}
 function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{})[id];if(!e)return;const nom=ckLab('NC',id),F=TIPEL.querySelector('.ck-couches');
  if(v==='tour'){fig.innerHTML=`<div class="ck-tour" role="slider" tabindex="0" aria-label="Tour du schéma ${esc(nom)} : glissez ou utilisez les flèches" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="0°" style="background-image:url('${esc(e.tour)}')"></div><figcaption class="st">Glissez, ou utilisez les flèches gauche et droite : 8 vues à 45°.</figcaption>`;return}
  const p=e.vues[v],SV=ckW('SVG'),src=SV&&SV[p];
