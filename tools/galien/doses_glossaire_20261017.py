@@ -44,4 +44,4 @@ p.write_text(t)
 p=pathlib.Path('qa/domaines.yml');t=p.read_text().replace('europe: [','europe: [ema.europa.eu, larousse.fr, vidal.fr, ameli.fr, ');p.write_text(t)
 if pending:
  p=pathlib.Path('journal/asclepios.md');p.write_text(p.read_text()+'\n### Relecture doses · termes à sourcer (17.10.2026 UTC)\nDéfinitions provisoires signalées « À vérifier », sans validation Vial : '+', '.join(pending)+'. Chercher une référence de terminologie CH/UE avant de les déclarer sourcées.\n')
-print('Glossaire ciblé : définitions sourcées et deux tickets explicites, sans exclusion de terme clinique.')
+print('Glossaire ciblé : définitions sourcées, sans exclusion de terme clinique.')
