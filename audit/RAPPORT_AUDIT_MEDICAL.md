@@ -91,4 +91,4 @@ Validation : doses_check, comparaison des extraits et schémas/compilation à v�
 
 Ce lot reste attente-vial ; aucun audit-ok et aucune fusion avant la décision R13.
 
-Contrôles finaux : doses_check, conformité verbatim hors ligne, 3 tests du lecteur AIPS, ck_build, mono/prev --check, G1/G2/G3/G6 et Lyncée --diff réussis. Ne vaut ni suite complète d’interface ni validation Vial. Glossaire ciblé : 9 entrées ; définitions et absence de circularité relues dans un second rôle Asclépios. Aucune dose numérique ajoutée par le glossaire.
+Contrôles finaux : doses_check, conformité verbatim hors ligne, 3 tests du lecteur AIPS, ck_build, mono/prev --check, G1/G2/G3/G6 et Lyncée --diff réussis. Ne vaut ni suite complète d’interface ni validation Vial. Glossaire ciblé : définitions nécessaires à cette branche ; définitions et absence de circularité relues dans un second rôle Asclépios. Aucune dose numérique ajoutée par le glossaire.
