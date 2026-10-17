@@ -88,6 +88,9 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Sourcer les points « À vérifier » (fracture du rocher, otite compliquée, cholestéatome, plaie des rameaux, produits de contraste) | Podalire | NC-1b |
 | [x] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
 | [x] | Justifier chaque examen et chaque moyen du VII (mécanisme, principe, pourquoi ce choix, limites) et ajouter le contrôle G8 (feat/nc07-justification) | Podalire | 17.10.2026 |
+| [x] | Urgences CK, lot 1 : 10 hypothèses bloquantes, 7 syndromes avec gestes GES reliés, 44 entrées de glossaire, 9 sources ; patch 0017 (feat/ck-urgences-lot1) | Podalire | 17.10.2026 |
+| [ ] | Contre-lire le lot 1 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
+| [ ] | Urgences CK, lot 2 : asthme aigu, exacerbation de BPCO, hémorragie digestive (ESGE) | Podalire | NC-1b |
 | [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
 
