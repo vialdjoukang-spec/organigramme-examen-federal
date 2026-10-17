@@ -67,3 +67,29 @@ Les rayons valent 8, 12 et 18 px, plus une pastille. Les ombres ont trois niveau
 | Contrôles d’interaction | 56/56 | 56/56 |
 
 Restent hors périmètre (balisage, chantier d’Hermès) : `select-name` et `scrollable-region-focusable`, 4 nœuds chacun.
+
+## 6. Calendrier : teintes de jour et bandes de séance (directive du 17.10.2026)
+- Chaque jour de la semaine a sa teinte très pâle : `--day1` lundi (bleu), `--day2` mardi (vert), `--day3` mercredi (ivoire), `--day4` jeudi (lavande), `--day5` vendredi (eau), `--day6` samedi (rose) et `--day7` dimanche (pierre). Le thème sombre a des teintes très sombres et équivalentes. La teinte couvre la colonne et son en-tête de jour.
+- Chaque séance `.blk` mêle 14 % de sa couleur de famille (`--bc`) à du blanc (24 % sur fond sombre). Elle a un filet de 1 px, un liseré gauche de 4 px et une encre `--blk-ink` pour tous ses textes. Le contraste mesuré par Iris est d’au moins 6,0:1 en clair et en doré, et de 6,8:1 en sombre, pour 42 textes sur les 7 jours. Le minimum exigé est de 4,5:1, et un échec bloque la fusion.
+- **Sélecteurs stables pour Hermès.** Ces sélecteurs sont `.grid:not(.day) > .col:nth-child(N of .col)` et `.grid:not(.day) > .hd:nth-child(N+1 of .hd)`, avec les propriétés `--dayc` (teinte effective), `--day1…7`, `--blk-mix`, `--blk-base` et `--blk-ink`. Les classes sont `.blk`, `.blk.done`, `.col.over` (survol de dépôt) et `.now`. Hermès peut changer le balisage s’il garde `.col` dans l’ordre lundi → dimanche, ou ajouter `data-wd="1…7"`, et dans ce cas il remplace `nth-child` par `[data-wd]`. En vue « Jour », la colonne garde `--paper`, faute d’information sur le jour de la semaine dans le balisage.
+- Iris ajoute l’état `cal-seances`. Il sème deux séances par jour dans le stockage local du test, mesure le contraste de chaque texte de séance contre le fond réellement peint (couleurs résolues par canevas) et lance axe-core sur le calendrier rempli.
+
+## 7. Composants réservés à l’examen physique (Asclépios)
+Ces classes sont déjà stylées dans `apollon.css`, sans balisage pour l’instant. Elles sont stables et sémantiques :
+| Classe | Élément conseillé | Rôle |
+|---|---|---|
+| `.ex-region` | `<section>` | Section d’une région anatomique : carte et bandeau d’en-tête |
+| `.ex-region__h` | `<h3>` (premier enfant) | Titre de région sur la bande vert pâle, en gras noir |
+| `.ex-phase` + `data-ordre="1"…"6"` | `<h4>` | Sous-titre de phase dans l’ordre strict : Inspection, Palpation, Percussion, Auscultation, Mobilisation, Tests spéciaux |
+| `.ex-fig` | `<figure>` | Croquis anatomique centré, de 520 px au plus, avec un fond blanc |
+| `.ex-fig figcaption` / `.ex-fig__cap` | `<figcaption>` | Légende complète |
+| `.ex-fig__credit` | `<small>` dans la légende | Crédit TASL (titre, auteur, source, licence), en gris |
+| `.ex-xref` / `.ex-chip` | `<nav>` de liens ou de boutons | Puces de renvoi (région × système, SSP liés), avec une cible de 28 px |
+
+## 8. Organisation du CSS
+`apollon.css` suit l’ordre **jetons → base → mise en page → composants → utilitaires**. Le bloc 1 contient les jetons et les thèmes, le bloc 2 la typographie et la justification, le bloc 3 les surfaces, et les blocs 4 à 7 les onglets, contrôles, listes, calendrier, jauges, fenêtre, bandeaux et composants de l’examen. Le bloc 8 réunit la stabilité (CLS) et le mouvement réduit. Il vient après les deux blocs historiques, pour que ses règles l’emportent à spécificité égale, sans `!important` sauf pour le mouvement réduit.
+- **Polices.** Une pile système remplace Google Fonts : aucun octet ajouté, et un rendu hors ligne identique. L’auto-hébergement aurait coûté environ 250 Ko en base64, sur les 295 Ko de marge du budget de 6 Mo.
+- **Styles en ligne.** Environ 45 attributs `style` restent en place. Environ la moitié portent des valeurs calculées par le script (positions et hauteurs des séances, largeurs des jauges, couleurs de famille `--gc`, `--pc`, `--bc`) et doivent rester en ligne. L’autre moitié est statique (`width:80px`, `margin-left:auto`, `grid-column:1/-1`) et se trouve dans le balisage d’Hermès et d’Atlas. Apollon ne le déplace pas, pour ne changer aucun balisage ; ces styles sont listés pour Hermès, qui pourra les convertir en classes utilitaires lors de sa refonte.
+
+## 9. Défaut trouvé pendant les mesures (hors périmètre, pour Hermès)
+Au rechargement, l’application rouvre le dernier onglet mémorisé (`orga-tab`). Si c’est « Notions CK » ou « Gestes d’examen », le script lève `Cannot access 'NSEL' before initialization` ou `Cannot access 'GS' before initialization`. Le défaut existe déjà dans `orig/app.html`. Iris l’évite dans son état semé en fixant `orga-tab` à « cal », et il faudra le corriger dans le script.

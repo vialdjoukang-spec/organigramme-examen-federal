@@ -77,6 +77,33 @@ pre.prompt{border-radius:var(--r-md);border:1px solid var(--line)}
 .bak.warn>#bak-t{color:var(--ink);box-shadow:inset 4px 0 0 var(--warn)}
 .bak.bad{border-color:var(--bad)}.bak.bad>#bak-t{background:color-mix(in srgb,var(--bad) 12%,var(--paper));color:var(--bad);border-bottom-color:color-mix(in srgb,var(--bad) 35%,transparent)}
 .now{background:var(--ink)}
+/* Calendrier (sélecteurs stables, documentés pour Hermès) : une teinte très pâle par jour, du lundi (1) au dimanche (7) ;
+   les séances .blk ont leur propre teinte pâle, un filet et une encre foncée : contraste ≥ 7:1 sur chaque jour. */
+:root{--day1:#f1f5fb;--day2:#eff7f1;--day3:#fbf6ec;--day4:#f5f2fa;--day5:#eef7f7;--day6:#fbf1f4;--day7:#f6f4ee;--blk-mix:14%;--blk-base:#ffffff;--blk-ink:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--day1:#161b23;--day2:#151d18;--day3:#1f1b14;--day4:#1b1823;--day5:#142020;--day6:#221719;--day7:#1c1a16;--blk-mix:24%;--blk-base:#1a1813}}
+:root[data-theme="dark"]{--day1:#161b23;--day2:#151d18;--day3:#1f1b14;--day4:#1b1823;--day5:#142020;--day6:#221719;--day7:#1c1a16;--blk-mix:24%;--blk-base:#1a1813}
+.grid:not(.day)>.col:nth-child(1 of .col),.grid:not(.day)>.hd:nth-child(2 of .hd){--dayc:var(--day1)}
+.grid:not(.day)>.col:nth-child(2 of .col),.grid:not(.day)>.hd:nth-child(3 of .hd){--dayc:var(--day2)}
+.grid:not(.day)>.col:nth-child(3 of .col),.grid:not(.day)>.hd:nth-child(4 of .hd){--dayc:var(--day3)}
+.grid:not(.day)>.col:nth-child(4 of .col),.grid:not(.day)>.hd:nth-child(5 of .hd){--dayc:var(--day4)}
+.grid:not(.day)>.col:nth-child(5 of .col),.grid:not(.day)>.hd:nth-child(6 of .hd){--dayc:var(--day5)}
+.grid:not(.day)>.col:nth-child(6 of .col),.grid:not(.day)>.hd:nth-child(7 of .hd){--dayc:var(--day6)}
+.grid:not(.day)>.col:nth-child(7 of .col),.grid:not(.day)>.hd:nth-child(8 of .hd){--dayc:var(--day7)}
+.grid>.col,.grid>.col:nth-child(odd){background-color:var(--dayc,var(--paper))}
+.grid>.hd{background:var(--dayc,var(--paper))}
+.col.over{background-color:color-mix(in srgb,var(--gold2) 22%,var(--dayc,var(--paper)))}
+.blk{background:color-mix(in srgb,var(--bc) var(--blk-mix),var(--blk-base));border:1px solid color-mix(in srgb,var(--bc) 38%,transparent);border-left:4px solid var(--bc);color:var(--blk-ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.blk.done{background:color-mix(in srgb,var(--bc) calc(var(--blk-mix) + 6%),var(--blk-base))}
+.blk b{color:var(--blk-ink);display:block;padding-right:2.4em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.blk .t{color:var(--blk-ink)}.blk .du{color:var(--mut)}
+/* Composants réservés à l’examen physique (Asclépios) : région, phase, croquis, renvois. Classes stables, sans balisage encore. */
+.ex-region{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--paper);box-shadow:var(--sh-1)}
+.ex-region__h{margin:-16px -18px 4px;padding:11px 18px;background:var(--band);border-bottom:1px solid var(--band-line);border-radius:var(--r-lg) var(--r-lg) 0 0;font:700 1.08rem/1.3 var(--fd);color:var(--ink)}
+.ex-phase{display:flex;align-items:baseline;gap:8px;margin:8px 0 2px;padding-bottom:4px;border-bottom:1px solid var(--line);font:700 .74rem/1.3 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.ex-phase::before{content:attr(data-ordre);min-width:1.6em;font:700 .74rem var(--fm);color:var(--mut)}
+.ex-fig{margin:6px 0;display:grid;gap:6px;justify-items:center}.ex-fig img{max-width:min(100%,520px);height:auto;border-radius:var(--r-sm);border:1px solid var(--line);background:#fff}
+.ex-fig figcaption,.ex-fig__cap{font-size:.84rem;color:var(--ink);text-align:center}.ex-fig__credit{display:block;font-size:.72rem;color:var(--mut);text-align:center}
+.ex-xref{display:flex;flex-wrap:wrap;gap:6px}.ex-xref a,.ex-xref button,.ex-chip{display:inline-flex;align-items:center;min-height:28px;padding:3px 10px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--soft);color:var(--ink);font:600 .76rem/1.2 var(--fb);text-decoration:none;cursor:pointer}
+.ex-xref a:hover,.ex-xref button:hover,.ex-chip:hover{border-color:var(--gold)}
 /* Stabilité : la place des indicateurs est réservée avant leur rendu par le script (décalage de mise en page évité). */
 #kpis:empty{min-height:74px}.disp b{display:inline-block;min-width:3.4em;min-height:1.3em;font-variant-numeric:tabular-nums}@media (max-width:620px){#kpis:empty{min-height:213px}}
 /* 8. Mouvement réduit : aucune transition ni animation. */
