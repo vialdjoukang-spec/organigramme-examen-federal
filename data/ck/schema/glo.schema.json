@@ -1,0 +1,98 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "glo.schema.json",
+ "title": "Glossaire imbriqué (glo.json)",
+ "description": "Signes, syndromes, termes, examens, abréviations et éponymes. Chaque terme spécialisé employé dans def existe lui-même ici (Lyncée).",
+ "type": "array",
+ "items": {
+  "$ref": "#/$defs/entree"
+ },
+ "$defs": {
+  "entree": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "type",
+    "label",
+    "def"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "type": {
+     "enum": [
+      "signe",
+      "syndrome",
+      "terme",
+      "examen",
+      "abreviation",
+      "eponyme"
+     ]
+    },
+    "label": {
+     "type": "string",
+     "minLength": 1
+    },
+    "alias": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "minLength": 1
+     },
+     "uniqueItems": true
+    },
+    "flexions": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "minLength": 1
+     },
+     "uniqueItems": true,
+     "description": "Pluriels et formes fléchies reconnues par gloLink()."
+    },
+    "def": {
+     "type": "string",
+     "minLength": 20,
+     "description": "Une à trois phrases dans les termes propres au terme."
+    },
+    "composantes": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+     },
+     "uniqueItems": true
+    },
+    "recherche": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Comment on recherche le signe."
+    },
+    "orientation": {
+     "type": "string",
+     "minLength": 1
+    },
+    "voir": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+     },
+     "uniqueItems": true
+    },
+    "src": {
+     "$ref": "src.schema.json#/$defs/refs"
+    },
+    "statut": {
+     "$ref": "src.schema.json#/$defs/statut"
+    },
+    "valide_par_vial": {
+     "type": "boolean"
+    }
+   }
+  }
+ }
+}

@@ -2,6 +2,15 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Atlas et Janus · NC-0 socle CK et audit de niveau 1 · 17.10.2026, Europe/Zurich
+État       : feat/ck-socle : schémas data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch), données vides et conformes, tools/ck_build.py → assets/ck/*.js (742 octets), patch 0010 (ckLoad, ckGlo, index à l’inactivité ; +618 octets dans app_v2.html), budgets étendus, Lyncée et sa référence (3 849 termes), G1 à G7 (tools/audit/niveau1.py, artefact audit-flags), Alétheia, rapport_fautes.py, nc_svg_check.py ; tests : test_audit.py 61/61, test_ck_socle.py 12/12, suite 131/131, gardes 5/5.
+Prochaine  : Hermès branche tipFor et gloLink sur ckLoad/ckGlo/CK_GLO_INDEX ; Hippocrate remplit glo.json par lots et resserre la référence (--update) ; Galien remplit doses_ch.json et fautes.jsonl ; Dédale dépose assets/nc/*.svg et credits.json (couches trait, nerf, legendes ; licence_derivee CC BY-SA).
+Sources    : Plan Nerfs crâniens et CK, sections 3, 4, 8 et 9 ; propositions/audit-medical.yml et domaines.yml (17.10.2026).
+Pièges     : Après toute modification de data/ck, lancez python3 tools/ck_build.py : la CI échoue si assets/ck n’est pas à jour. Le nom de variable suit le fichier : glo-index.js → window.CK_GLO_INDEX, glo-a.js → window.CK_GLO_A.
+Pièges     : Toute demande de fusion qui ajoute un terme médical dans TIP, NOT, GES, le HTML statique ou data/ck échoue à G4 tant qu’il n’est pas défini dans glo.json ou exclu avec motif ; une dose ajoutée dans TIP/NOT/GES échoue à G1 sans « À vérifier » dans le même texte.
+Pièges     : G6 lit tools/audit/verbes_conjugues.txt.gz ; on le régénère par tools/audit/verbes_gen.py, jamais à la main.
+À vérifier : Liste G6 à régénérer depuis Lexique 3.83 (site indisponible le 17.10.2026) ; filtre MeSH pour le tri ; domaines escardio.org, has-sante.fr, escmid.org (Argos).
+
 ## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
 État       : PR #15 fusionnée dans main le 17.10.2026 à 13:26 (commit de fusion 3c9b878, sans écrasement) ; Pages publie la même empreinte que main ; tests/test_calendrier.py rejoué contre le site public : 32/32, aucune erreur de console. Patch 0009 (feat/hermes-recherche-notions) : la recherche trouve aussi un SSP par ses diagnostics différentiels et ses notions (NOT), avec le titre trouvé sous le nom ; suite 119/119, gardes 5/5.
 Prochaine  : Apollon (PR #16) pose les teintes de jour et les bandes de séance pâles : data-wd (1 = lundi … 7 = dimanche) existe désormais sur .hd et .col, y compris en vue « Jour » ; il remplace donc nth-child par [data-wd] et peut teinter la colonne du jour. Mnémosyne réutilise showTip/tipToggle inchangés.

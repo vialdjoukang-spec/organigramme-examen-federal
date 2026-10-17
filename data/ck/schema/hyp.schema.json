@@ -1,0 +1,261 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "hyp.schema.json",
+ "title": "Hypothèses diagnostiques (hyp.json)",
+ "description": "Chaîne exploration → confirmation → prise en charge. exam.reference et exam.lignes s’excluent ; sans référence désignée par une source, une 1re et une 2e intention sont exigées (G5).",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "label",
+   "syn",
+   "bloquant",
+   "exam",
+   "confirmation",
+   "pec"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "label": {
+    "type": "string",
+    "minLength": 1
+   },
+   "syn": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "uniqueItems": true
+   },
+   "bloquant": {
+    "type": "boolean",
+    "description": "Urgence vitale : seule information affichée en rouge (G7)."
+   },
+   "exam": {
+    "type": "object",
+    "additionalProperties": false,
+    "oneOf": [
+     {
+      "required": [
+       "reference"
+      ],
+      "properties": {
+       "reference": {
+        "$ref": "#/$defs/reference"
+       },
+       "lignes": {
+        "maxItems": 0
+       }
+      }
+     },
+     {
+      "required": [
+       "lignes"
+      ],
+      "properties": {
+       "reference": {
+        "type": "null"
+       },
+       "lignes": {
+        "type": "array",
+        "minItems": 2,
+        "items": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "rang",
+          "nom",
+          "recherche"
+         ],
+         "properties": {
+          "rang": {
+           "type": "integer",
+           "minimum": 1,
+           "maximum": 3
+          },
+          "nom": {
+           "type": "string",
+           "minLength": 1
+          },
+          "pourquoi": {
+           "type": "string",
+           "minLength": 1
+          },
+          "precautions": {
+           "type": "string",
+           "minLength": 1
+          },
+          "recherche": {
+           "type": "string",
+           "minLength": 1
+          },
+          "alternative": {
+           "type": "string",
+           "minLength": 1
+          },
+          "src": {
+           "$ref": "src.schema.json#/$defs/refs"
+          },
+          "statut": {
+           "$ref": "src.schema.json#/$defs/statut"
+          }
+         },
+         "if": {
+          "properties": {
+           "rang": {
+            "const": 1
+           }
+          }
+         },
+         "then": {
+          "required": [
+           "pourquoi"
+          ]
+         }
+        },
+        "allOf": [
+         {
+          "contains": {
+           "properties": {
+            "rang": {
+             "const": 1
+            }
+           }
+          }
+         },
+         {
+          "contains": {
+           "properties": {
+            "rang": {
+             "const": 2
+            }
+           }
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "properties": {
+     "reference": {},
+     "lignes": {}
+    }
+   },
+   "confirmation": {
+    "type": "string",
+    "minLength": 1
+   },
+   "pec": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "objectif",
+     "mesures_generales",
+     "moyens_specifiques"
+    ],
+    "properties": {
+     "objectif": {
+      "type": "string",
+      "minLength": 1
+     },
+     "mesures_generales": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     },
+     "moyens_specifiques": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "type",
+        "texte"
+       ],
+       "properties": {
+        "type": {
+         "enum": [
+          "pharmaco",
+          "interventionnel",
+          "reeducation",
+          "suivi",
+          "chirurgie",
+          "autre"
+         ]
+        },
+        "texte": {
+         "type": "string",
+         "minLength": 1
+        },
+        "dose_ref": {
+         "type": [
+          "string",
+          "null"
+         ]
+        },
+        "src": {
+         "$ref": "src.schema.json#/$defs/refs"
+        },
+        "statut": {
+         "$ref": "src.schema.json#/$defs/statut"
+        }
+       }
+      }
+     }
+    }
+   },
+   "src": {
+    "$ref": "src.schema.json#/$defs/refs"
+   },
+   "statut": {
+    "$ref": "src.schema.json#/$defs/statut"
+   }
+  }
+ },
+ "$defs": {
+  "reference": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "nom",
+    "recherche"
+   ],
+   "properties": {
+    "nom": {
+     "type": "string",
+     "minLength": 1
+    },
+    "recherche": {
+     "type": "string",
+     "minLength": 1
+    },
+    "precautions": {
+     "type": "string",
+     "minLength": 1
+    },
+    "alternative": {
+     "type": "string",
+     "minLength": 1
+    },
+    "src": {
+     "$ref": "src.schema.json#/$defs/refs"
+    },
+    "statut": {
+     "$ref": "src.schema.json#/$defs/statut"
+    }
+   }
+  }
+ }
+}
