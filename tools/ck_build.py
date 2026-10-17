@@ -195,6 +195,8 @@ def main(argv=None):
         print(f'ck_build : {len(errs)} erreur(s) ; rien n’est écrit.')
         return 1
     out = build(data)
+    from prev_build import prev_js  # fréquences des diagnostics différentiels (data/ck/prev.json)
+    out['prev.js'] = prev_js(a.racine)
     d = os.path.join(a.racine, 'assets', 'ck')
     present = {n for n in os.listdir(d) if n.endswith('.js') and not n.startswith('mono-')} if os.path.isdir(d) else set()  # mono-* : tools/mono_build.py
     if a.check:
