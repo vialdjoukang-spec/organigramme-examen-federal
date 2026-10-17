@@ -14,8 +14,9 @@ def rep(a, b):
     s = s.replace(a, b)
 
 # Style : bandeau de titre vert pâle, titres en gras noir, texte justifié.
-rep('.opt{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}',
-    '.opt{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}'
+# La feuille va dans <head> : le validateur Nu refuse une règle de style dans un <style> du <body>.
+rep('</head>',
+    '<style id="mnemo-css">'
     '.m-ev{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));margin-top:10px}'
     '.m-it{border:1px solid var(--line);border-radius:12px;background:#fff;min-width:0;overflow:hidden}'
     '.m-it h3{margin:0;padding:8px 12px;background:#eaf4ec;border-bottom:1px solid #cfe3d4;font-size:.95rem;line-height:1.35;font-weight:700;color:#000;display:flex;gap:8px;align-items:baseline}'
@@ -24,7 +25,8 @@ rep('.opt{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240
     '.m-cons{margin:10px 0 4px;text-align:justify;line-height:1.5}.m-intro{text-align:justify}.m-ref{margin:4px 0 0;padding-left:18px}.m-ref li{margin:3px 0;text-align:justify}'
     '@media (max-width:620px),(pointer:coarse){#v-memo .ti{width:24px;height:24px;font-size:.78rem}}'
     '@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .m-it{background:var(--paper)}:root:not([data-theme="light"]) .m-it h3{background:color-mix(in srgb,var(--ok) 16%,var(--paper));border-color:var(--line)}'
-    ':root:not([data-theme="light"]) .m-it h3,:root:not([data-theme="light"]) .m-it h3 .tw,:root:not([data-theme="light"]) .m-it p b,:root:not([data-theme="light"]) .m-n{color:var(--ink)}:root:not([data-theme="light"]) .m-n{background:var(--paper);border-color:var(--ok)}}')
+    ':root:not([data-theme="light"]) .m-it h3,:root:not([data-theme="light"]) .m-it h3 .tw,:root:not([data-theme="light"]) .m-it p b,:root:not([data-theme="light"]) .m-n{color:var(--ink)}:root:not([data-theme="light"]) .m-n{background:var(--paper);border-color:var(--ok)}}'
+    '</style></head>')
 
 # HTML : options nouvelles et libellé du rappel libre (les identifiants existants ne changent pas).
 rep('<label><input type="checkbox" id="m-rappel"><span><b>Rappel libre avant relecture</b> : noter de mémoire le plan du SSP, puis vérifier.</span></label>',
