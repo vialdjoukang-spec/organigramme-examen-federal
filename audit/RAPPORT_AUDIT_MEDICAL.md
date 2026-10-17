@@ -62,3 +62,11 @@ Audit suiveur des 30 monographies du lot 3. Sources relues le 17.10.2026 : LTx (
 | trouble-factice-simulation · def | Symptômes produits ou simulés, pour un rôle de malade (factice) ou un bénéfice externe (simulation). | Le patient produit ou simule des symptômes, pour tenir un rôle de malade (trouble factice) ou obtenir un bénéfice externe (simulation). | Linguistique : phrase nominale rendue verbale et concise |
 | vraie-pathologie-derriere-la-demande · def | Maladie grave sous-jacente à une demande d'examen. | Une maladie grave se cache derrière une demande d'examen. | Linguistique : phrase nominale rendue verbale et concise |
 | question-de-transmission-hereditaire · def | Interrogation sur le risque de transmettre une maladie génétique à la descendance. | Le patient s'interroge sur le risque de transmettre une maladie génétique à sa descendance. | Linguistique : phrase nominale rendue verbale et concise |
+
+### Texte du cours (TIP.d) corrigé — signalé par Panacée, vérifié par Érasistrate (17.10.2026)
+
+| SSP · diagnostic | Avant | Après | Type |
+|---|---|---|---|
+| O7.20 · confusion sur le consentement présumé | Votation 2022, en vigueur vers 2026 | Votation du 15.05.2022 ; pas encore en vigueur ; OFSP : vraisemblablement 1er semestre 2028 | Médico-légal (majeure) : date fausse (OFSP, page « Premier volet de révision », lue le 17.10.2026) |
+| O7.20 · crainte du commerce d'organes | priorité aux résidents | domiciliés en Suisse et résidents UE/AELE assurés en Suisse traités de manière égale (art. 17 LTx) | Médico-légal (majeure) : art. 17 al. 2 LTx relu sur fedlex |
+| O7.19 · demande de modification germinale | Constitution art. 119, LAGH | art. 119 al. 2 let. a Cst. ; art. 35 LPMA | Sourcing : la LAGH ne régit pas l'interdiction germinale (Cst. et LPMA relues sur fedlex) |
