@@ -1,0 +1,61 @@
+# Annotations du nerf facial (VII) · format d'Ariane (plan NC, section 6, fiche Ariane).
+# ÉTAT : PROVISOIRE, préparé par Dédale le 17.10.2026 en attendant la livraison d'Ariane (branche feat/nc-anatomie).
+# Règle : aucune anatomie inventée. Une entrée n'a une position que si elle désigne un objet nommé du modèle
+# Z-Anatomy (champ « ancre ») ; sa position est alors calculée par tools/dedale/freestyle.py, jamais saisie.
+# Les couches que seule Ariane peut remplir (foramens, sites lésionnels, branches nommées) restent des
+# emplacements marqués « À vérifier ». Le champ valide_par_vial reste faux tant que Vial n'a pas validé.
+nerf: nc07
+titre: "Nerf facial (VII)"
+cote: "droit"
+statut: provisoire
+auteur_annotations: "Dédale (provisoire) ; à remplacer par Ariane"
+valide_par_ariane: false
+valide_par_vial: false
+vues: [face, profil, "34", plan]
+sources_trait: [z-anatomy, bodyparts3d, dundee-cnf]
+couches:
+  nerf:
+    - id: V1
+      libelle: "Nerf facial (VII) droit et corde du tympan, tracés d'après le modèle"
+      objets: ["Facial nerve (VII).r", "Chorda tympani.r"]
+      source: "Z-Anatomy, objets « Facial nerve (VII).r » et « Chorda tympani.r » (CC BY-SA 4.0), lus le 17.10.2026"
+      a_verifier: "Ariane nomme les segments et les branches terminales."
+  noyaux:
+    - id: N1
+      libelle: "Noyau moteur du nerf facial"
+      ancre: "Motor nucleus of facial nerve.r"
+      source: "Z-Anatomy, objet « Motor nucleus of facial nerve.r » (CC BY-SA 4.0), lu le 17.10.2026"
+      a_verifier: "Position issue du modèle ; relecture d'Ariane."
+    - id: N2
+      libelle: "Noyau salivaire supérieur"
+      ancre: "Superior salivatory nucleus.r"
+      source: "Z-Anatomy, objet « Superior salivatory nucleus.r » (CC BY-SA 4.0), lu le 17.10.2026"
+      a_verifier: "Position issue du modèle ; relecture d'Ariane."
+  foramens: []
+  territoires:
+    - id: T1
+      libelle: "Muscles rattachés au nerf facial dans le modèle (contours gris clair)"
+      collection: "Facial nerve (VII)"
+      source: "Z-Anatomy, collection « Facial nerve (VII) », muscles du côté droit (CC BY-SA 4.0), lue le 17.10.2026"
+      a_verifier: "Ariane confirme la liste des muscles et le territoire sensitif."
+  lesions: []
+  legendes:
+    - id: R1
+      libelle: "Glande parotide (repère)"
+      ancre: "Parotid gland.r"
+      source: "Z-Anatomy, objet « Parotid gland.r » (CC BY-SA 4.0), lu le 17.10.2026"
+attente_ariane:
+  foramens: "Méat acoustique interne, canal facial et foramen stylo-mastoïdien : positions et sources à fournir (Gray 1918 ou Z-Anatomy)."
+  lesions: "Au moins 3 sites lésionnels numérotés et sourcés, avec la corrélation clinique (plan NC, section 15)."
+  branches: "Noms des branches terminales et collatérales, rattachés aux segments du modèle."
+termes:
+  # Lot d'ajouts pour le glossaire (data/ck/glo.json) : termes employés dans les schémas, à définir par Galien.
+  - "nerf facial"
+  - "corde du tympan"
+  - "noyau moteur du nerf facial"
+  - "noyau salivaire supérieur"
+  - "tronc cérébral"
+  - "glande parotide"
+  - "foramen stylo-mastoïdien"
+  - "méat acoustique interne"
+  - "canal facial"
