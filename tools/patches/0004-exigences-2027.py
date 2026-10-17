@@ -24,7 +24,7 @@ rep('.bak{display:flex', (
  '.exi-bn p{margin:4px 0}.exi-bn .cd{font-weight:700}#exi fieldset{border:1px solid var(--line);border-radius:10px;margin:0 0 14px;padding:4px 14px 8px}'
  '#exi legend{font-weight:700;padding:0 6px}#exi legend small{font-weight:400;color:var(--mut)}'
  '.vb{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:#fde8c8;color:#6b3a00;border:1px solid #c77700;font-size:.78rem;font-weight:600;white-space:nowrap}'
- '.exi-n{display:block;color:var(--mut);font-style:italic}\n.bak{display:flex'))
+ '.exi-n{display:block;color:var(--mut);font-style:italic}#exi small a,.exi-bn a{color:var(--deep)}\n.bak{display:flex'))
 
 # 3. Bandeau et conteneur.
 rep('<div class="card"><h2>Ce qu’il faut réunir et savoir</h2><p class="st">Chaque point cite sa source officielle. Cochez au fur et à mesure : l’état est conservé.</p><div id="exi"></div></div>',
@@ -47,9 +47,8 @@ function renderExi(){if(exiMig())put('reglages','exigences',S.exi);const x=S.exi
 rep("$('#exi').addEventListener('change',e=>{const i=e.target.dataset.i;if(i==null)return;S.exi['e'+i]=e.target.checked;put('reglages','exigences',S.exi)});",
     "$('#exi').addEventListener('change',e=>{const k=e.target.dataset.x;if(!k)return;S.exi._m27=1;S.exi['x:'+k]=e.target.checked;put('reglages','exigences',S.exi);renderExi();const f=document.getElementById('exi-'+k);if(f)f.focus()});")
 
-# 5. Dates : l’onglet Calculs ne présente plus 2026 comme à venir ; la date CK par défaut suit SESSION.
+# 5. Dates : l’onglet Calculs ne présente plus 2026 comme à venir .
 i = s.find('<p class="st">Dates 2026 de référence'); j = s.find('</p>', i) + 4
 s = s[:i] + '<p class="st">La session 2026 est terminée. Pour 2027, la faculté de Genève annonce sous réserve le CK les 10 et 12 août et le CS entre le 6 et le 10 septembre ; ces dates restent à confirmer par l’OFSP (voir l’onglet « Exigences »).</p>' + s[j:]
-rep('exam:"2027-08-03"', 'exam:"2027-08-10"')
 open(p, 'w', encoding='utf-8').write(s)
 print('0004 appliqué.')
