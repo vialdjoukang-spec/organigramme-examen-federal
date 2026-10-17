@@ -1,10 +1,15 @@
-# États d'affichage du nerf facial (VII) · Dédale, 17.10.2026.
+# États d'affichage du nerf facial (VII) · Dédale, 17.10.2026 (repères numérotés, retour de l'utilisateur du 17.10.2026 :
+# « trop saturé d'annotation ; numéro fléché et cliquable avec le nom de la structure, pour aérer au maximum »).
 # Trois images publiées seulement : vues face, profil et trois quarts (assets/nc/nc07-<vue>.svg), crâne au crayon
 # et nerf en jaune. Chaque SVG contient TOUS les états ci-dessous : un état = un jeu de couches visibles et
-# 8 étiquettes au plus ; Hermès passe d'un état à l'autre (data-etats, data-etat) sans changer d'image.
-# Chaque étiquette renvoie (« ref ») à une entrée sourcée de nc/annot/nc07.yml (Ariane) : sa position vient de
+# 8 repères au plus. Sur le dessin, aucun texte (sauf le titre) : chaque structure reçoit un petit numéro cerclé,
+# fléché vers elle (<g class="nc-num" data-num data-nom data-glo>, cliquable par Hermès) ; les noms sont dans la
+# légende en 2 colonnes sous le dessin (couche « legende », présente dans chaque état ; l'application peut la masquer).
+# Numérotation : rang dans la liste de l'état, identique dans les 3 vues (un repère absent d'une vue garde son
+# numéro). Chaque repère renvoie (« ref ») à une entrée sourcée de nc/annot/nc07.yml (Ariane) : sa position vient de
 # l'ancre de cette entrée ; « accroche: nerf » la ramène sur le point du nerf le plus proche ; « entre » prend le
-# milieu de deux repères, ramené sur le nerf. Les textes résument les libellés d'Ariane (texte complet : données).
+# milieu de deux repères, ramené sur le nerf. « nom » résume le libellé d'Ariane ; « glo » : identifiant de
+# data/ck/glo.json, s'il existe.
 nerf: nc07
 titre: "Nerf facial (VII)"
 vues: [face, profil, "34"]
@@ -12,56 +17,52 @@ etat_defaut: trajet
 etats:
   trajet:
     nom: "Trajet"
-    couches: [trait, nerf, noyaux, foramens, legendes]
+    couches: [trait, nerf, noyaux, foramens, legendes, legende]
     etiquettes:
-      - {ref: N1, texte: "Noyau moteur (pont)", couche: noyaux}
-      - {ref: S1, texte: "Segment cisternal", entre: ["VII·émergence", "VII·pore acoustique interne"]}
-      - {ref: F1, texte: "Pore acoustique interne", couche: foramens}
-      - {ref: L2, texte: "Ganglion géniculé", couche: legendes}
-      - {ref: S4, texte: "Segment tympanique", entre: ["VII·premier genou", "VII·second genou"]}
-      - {ref: S5, texte: "Segment mastoïdien"}
-      - {ref: F3, texte: "Foramen stylo-mastoïdien", couche: foramens}
-      - {ref: B2, texte: "Corde du tympan", ancre: "Tympanic membrane.r", accroche: nerf}
+      - {ref: N1, nom: "Noyau moteur du VII (pont)", couche: noyaux}
+      - {ref: S1, nom: "Segment cisternal", entre: ["VII·émergence", "VII·pore acoustique interne"]}
+      - {ref: F1, nom: "Pore acoustique interne", couche: foramens}
+      - {ref: L2, nom: "Ganglion géniculé", couche: legendes}
+      - {ref: S4, nom: "Segment tympanique", entre: ["VII·premier genou", "VII·second genou"]}
+      - {ref: S5, nom: "Segment mastoïdien"}
+      - {ref: F3, nom: "Foramen stylo-mastoïdien", couche: foramens}
+      - {ref: B2, nom: "Corde du tympan", ancre: "Tympanic membrane.r", accroche: nerf}
     legende:
-      - "Trajet : du noyau aux foramens."
+      - "Trajet du noyau aux foramens, puis à la face."
   branches:
     nom: "Branches"
-    couches: [trait, nerf, noyaux, legendes]
+    couches: [trait, nerf, noyaux, legendes, legende]
     etiquettes:
-      - {ref: R1, texte: "Parotide (plexus)"}
-      - {ref: B3, texte: "Temporal", accroche: nerf}
-      - {ref: B4, texte: "Zygomatique", accroche: nerf}
-      - {ref: B5, texte: "Buccal", accroche: nerf}
-      - {ref: B6, texte: "Marginal mandibulaire", accroche: nerf}
-      - {ref: B7, texte: "Cervical", accroche: nerf}
+      - {ref: R1, nom: "Plexus intraparotidien"}
+      - {ref: B3, nom: "Rameau temporal", accroche: nerf}
+      - {ref: B4, nom: "Rameau zygomatique", accroche: nerf}
+      - {ref: B5, nom: "Rameau buccal", accroche: nerf}
+      - {ref: B6, nom: "Rameau marginal mandibulaire", accroche: nerf}
+      - {ref: B7, nom: "Rameau cervical", accroche: nerf}
     legende:
       - "Branches, de haut en bas : T-Z-B-M-C."
   fonctions:
     nom: "Fonctions"
-    couches: [trait, territoires, nerf, noyaux, legendes]
+    couches: [trait, territoires, nerf, noyaux, legendes, legende]
     remplissages: {gout: "#f6d7b0", parasympathique: "#cfe3f5", sensitif: "#e3d6f2"}   # moteur : le nerf lui-même (aplat retiré, il couvrait la voûte)
     etiquettes:
-      - {ref: T1, ancre: "Zygomaticus major muscle.r", texte: "Motricité : mimique", couche: territoires}
-      - {ref: G4, texte: "Goût : 2/3 ant. langue"}
-      - {ref: G1, texte: "Larmes"}
-      - {ref: G2, texte: "Salive"}
-      - {ref: G5, ancre: "Cavity of concha.r", texte: "Sensibilité : conque"}
+      - {ref: T1, ancre: "Zygomaticus major muscle.r", nom: "Motricité : mimique", couche: territoires}
+      - {ref: G4, nom: "Goût : 2/3 ant. de langue"}
+      - {ref: G1, nom: "Glande lacrymale (larmes)"}
+      - {ref: G2, nom: "Glandes salivaires"}
+      - {ref: G5, ancre: "Cavity of concha.r", nom: "Sensibilité : conque"}
     legende:
-      - "Aplats : orange goût, bleu sécrétion,"
-      - "violet sensibilité ; jaune : le nerf."
+      - "Aplats : orange goût, bleu sécrétion, violet sensibilité."
   lesions:
     nom: "Sites lésionnels"
-    couches: [trait, nerf, noyaux, lesions, legendes]
+    couches: [trait, nerf, noyaux, lesions, legendes, legende]
     etiquettes:
-      - {ref: L1, texte: "1 · Central | front épargné"}
-      - {ref: L2, texte: "2 · Géniculé | œil sec"}
-      - {ref: L3, texte: "3 · Tympanique | hyperacousie"}
-      - {ref: L4, texte: "4 · Mastoïdien | goût perdu"}
-      - {ref: L5, texte: "5 · Stylo-mastoïdien | motricité seule"}
+      - {ref: L1, nom: "Central : front épargné", glo: paralysie-faciale-centrale}
+      - {ref: L2, nom: "Géniculé : œil sec", glo: paralysie-faciale-peripherique}
+      - {ref: L3, nom: "Tympanique : hyperacousie", glo: hyperacousie}
+      - {ref: L4, nom: "Mastoïdien : goût perdu", glo: paralysie-faciale-peripherique}
+      - {ref: L5, nom: "Stylo-mastoïdien : motricité seule", glo: paralysie-faciale-peripherique}
     legende:
-      - "1 en rouge : urgence (AVC à exclure)."
-      - "2 à 5 : périphérique, front compris."
-# Retraits par vue (étiquettes dont la structure est cachée ou confondue dans cette vue) : complétés après essai.
-par_vue:
-  face: {retirer: {trajet: [S1]}}     # de face et de trois quarts, le segment cisternal se confond avec le pore
-  "34": {retirer: {trajet: [S1]}}
+      - "1 en rouge : urgence (AVC à exclure) ; 2 à 5 : périphérique, front compris."
+# Retraits par vue (repères dont la structure est cachée ou confondue dans cette vue ; le numéro reste réservé).
+par_vue: {}

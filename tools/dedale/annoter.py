@@ -28,23 +28,30 @@ HERE = os.path.join(ROOT, 'tools', 'dedale')
 OUT = os.path.join(ROOT, 'assets', 'nc')
 DATE = '2026-10-17'
 JAUNE, CERNE, ROUGE = '#ffc400', '#5a4500', '#b91c1c'
-W, HEAD, FS, FT, LH = 800, 64, 30, 32, 38
+W, HEAD, FT = 800, 64, 32
+FL, LL = 22, 28     # légende et crédit : petits caractères (22 px sur 800 px, soit 9,9 px à 360 px), interligne
+CAR_LEG = 0.56      # largeur moyenne d'un caractère de la légende (mesurée dans Chromium : 0,53 au plus)
 CAR = 0.60          # largeur moyenne d'un caractère en em (estimation prudente, contrôlée par verifier.py)
-LBL_H = 36          # hauteur d'une boîte d'étiquette (30 px + interligne)
-BASE = 26           # ligne de base dans la boîte
-MAX_ETIQ, MAX_LEG = 8, 4
+R_NUM, E_NUM, FN = 14, 2.2, 18   # repère numéroté : cercle de 14 px de rayon + trait de 2,2 px (30 px de diamètre hors
+                                 # tout, 13,5 px à 360 px), numéro gras de 18 px
+D_NERF = 8.5 / 2    # demi-épaisseur du nerf (cerne compris) sur l'image de 800 px
+MARGE_NERF = 3      # jeu minimal entre un repère et le nerf
+ECART = 14          # jeu minimal entre deux repères (aération)
+MAX_ETIQ, MAX_NOTE = 8, 2
+COL = (24, 412)     # abscisses des 2 colonnes de la légende
 NOMS_VUES = {'face': 'vue de face', 'profil': 'vue de profil droit', '34': 'vue de trois quarts droite'}
-COUCHES = ('territoires', 'trait', 'nerf', 'noyaux', 'foramens', 'lesions', 'legendes')
+COUCHES = ('territoires', 'trait', 'nerf', 'noyaux', 'foramens', 'lesions', 'legendes', 'legende')
 STYLE = ('text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;fill:#111}'
-         '.tt{font-size:%dpx;font-weight:700}.lb,.lg{font-size:%dpx}'
-         '.lb{paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}'
-         '.lb.u{fill:%s;font-weight:700}'
+         '.tt{font-size:%dpx;font-weight:700}.lg{font-size:%dpx}.lg .n{font-weight:700}'
          '.cs path{fill:#222}.cc path{fill:#2b2b2b}.cd path{fill:#8a8a8a}.ct path{fill:#6b6b6b}.fl path{fill:inherit}'
          '.nf path{fill:none;stroke-linecap:round;stroke-linejoin:round}'
          '.n1 path{stroke:%s;stroke-width:{N1}px}.n2 path{stroke:%s;stroke-width:{N2}px}'
          '.nx path{fill:%s;stroke:%s;stroke-width:{NX}px}'
-         '.ld{fill:none;stroke:#222;stroke-width:1.6}.ld.u{stroke:%s;stroke-width:2.4}'
-         '.pt{fill:#111;stroke:#fff;stroke-width:2}.pt.u{fill:%s}') % (FT, FS, ROUGE, CERNE, JAUNE, JAUNE, CERNE, ROUGE, ROUGE)
+         '.nc-num{cursor:pointer}.nc-num:focus{outline:none}.nc-num:focus .cr,.nc-num:hover .cr{stroke-width:3.4px}'
+         '.ld{fill:none;stroke:#222;stroke-width:1.4px}.ah{fill:#222}'
+         '.cr{fill:#fff;stroke:#222;stroke-width:%.1fpx}.nm{font-size:%dpx;font-weight:700;text-anchor:middle}'
+         '.ld.u{stroke:%s;stroke-width:2px}.ah.u{fill:%s}.cr.u{stroke:%s}.nm.u{fill:%s}'
+         ) % (FT, FL, CERNE, JAUNE, JAUNE, CERNE, E_NUM, FN, ROUGE, ROUGE, ROUGE, ROUGE)
 
 
 def charger(nerf):
@@ -58,7 +65,7 @@ def groupes_trait(svg):
     return dict(re.findall(r'<g id="([a-z-]+)">(.*?)</g>', svg, re.S))
 
 
-def larg(txt, fs=FS):
+def larg(txt, fs=FL):
     return len(txt) * CAR * fs
 
 
@@ -73,8 +80,9 @@ def envelopper(txt, fs, w):
     return out + ([cur] if cur else [])
 
 
-def points_nerf(d_all):
-    """Points (coordonnées de base) des chemins du nerf écrits par freestyle.py (M x y puis l dx dy relatifs)."""
+def points_nerf(d_all, pas=None):
+    """Points (coordonnées de base) des chemins du nerf écrits par freestyle.py (M x y puis l dx dy relatifs) ;
+    avec « pas », chaque segment est densifié (un point tous les « pas » au plus)."""
     pts = []
     for d in re.findall(r' d="([^"]+)"', d_all):
         x = y = 0.0
@@ -84,8 +92,30 @@ def points_nerf(d_all):
                 if cmd == 'M' and k == 0:
                     x, y = v[0], v[1]
                 else:
-                    x, y = x + v[k], y + v[k + 1]
+                    nx, ny = x + v[k], y + v[k + 1]
+                    if pas:
+                        n = int(math.hypot(nx - x, ny - y) / pas)
+                        pts += [(x + (nx - x) * i / (n + 1), y + (ny - y) * i / (n + 1)) for i in range(1, n + 1)]
+                    x, y = nx, ny
                 pts.append((x, y))
+    return pts
+
+
+def points_contours(svg_g, T):
+    """Sommets (coordonnées de l'image) des chemins potrace d'un groupe (noyaux) : transform matrix(), puis M/L/C
+    absolus ou relatifs ; T ramène les coordonnées de base à celles de l'image."""
+    pts = []
+    for att, d in re.findall(r'<path([^>]*?) d="([^"]+)"', svg_g):
+        m = re.search(r'matrix\(([^)]+)\)', att)
+        a_, b_, c_, d_, e_, f_ = [float(t) for t in m.group(1).split()] if m else (1, 0, 0, 1, 0, 0)
+        x = y = 0.0
+        for cmd, nums in re.findall(r'([MmLlCcZz])([^MmLlCcZz]*)', d):
+            v = [float(t) for t in re.findall(r'-?\d+(?:\.\d+)?', nums)]
+            st = 6 if cmd in 'Cc' else 2
+            for k in range(0, len(v) - st + 1, st):
+                ex, ey = v[k + st - 2], v[k + st - 1]
+                x, y = (x + ex, y + ey) if (cmd.islower() and not (cmd == 'm' and k == 0 and not pts)) else (ex, ey)
+                pts.append(T(a_ * x + c_ * y + e_, b_ * x + d_ * y + f_))
     return pts
 
 
@@ -104,23 +134,8 @@ def credit_complet(vue):
             'et Cranial Nerves and Foramina (University of Dundee, CAHID, CC BY 4.0).')
 
 
-# ---------------------------------------------------------------- placement des étiquettes
-def inter(r1, r2, gap=0):
-    return not (r1[0] + r1[2] + gap <= r2[0] or r2[0] + r2[2] + gap <= r1[0] or
-                r1[1] + r1[3] + gap <= r2[1] or r2[1] + r2[3] + gap <= r1[1])
-
-
-def proche(box, x, y):
-    return (min(max(x, box[0]), box[0] + box[2]), min(max(y, box[1]), box[1] + box[3]))
-
-
-def seg_rect(p, q, r):
-    """Le segment pq traverse-t-il le rectangle r (échantillonnage fin, suffisant à cette échelle) ?"""
-    for t in [i / 24 for i in range(1, 24)]:
-        x, y = p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t
-        if r[0] < x < r[0] + r[2] and r[1] < y < r[1] + r[3]:
-            return True
-    return False
+# ---------------------------------------------------------------- placement des repères numérotés
+R_OUT = R_NUM + E_NUM / 2        # rayon hors tout d'un repère
 
 
 def seg_seg(a, b, c, d):
@@ -129,78 +144,116 @@ def seg_seg(a, b, c, d):
     return o(a, b, c) * o(a, b, d) < 0 and o(c, d, a) * o(c, d, b) < 0
 
 
-def candidats(l, labels, zone, interdits, cx, cy, evite=()):
-    lignes = l['texte'].split(' | ')
-    w, h = max(larg(t) for t in lignes) + 6, LBL_H * len(lignes)
-    out_a = math.atan2(l['sy'] - cy, l['sx'] - cx)
+def d_seg(p, a, b):
+    """Distance du point p au segment ab."""
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    L = dx * dx + dy * dy
+    t = 0 if not L else max(0, min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L))
+    return math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy)
+
+
+class Grille:
+    """Index spatial des points à éviter (nerf densifié, contours des noyaux)."""
+    def __init__(self, pts, pas=24):
+        self.pas, self.g = pas, {}
+        for x, y in pts:
+            self.g.setdefault((int(x // pas), int(y // pas)), []).append((x, y))
+
+    def proches(self, x, y, r):
+        p = self.pas
+        for i in range(int((x - r) // p), int((x + r) // p) + 1):
+            for j in range(int((y - r) // p), int((y + r) // p) + 1):
+                for q in self.g.get((i, j), ()):
+                    if (q[0] - x) ** 2 + (q[1] - y) ** 2 < r * r:
+                        yield q
+
+
+def fleche(m, c):
+    """Trait de rappel du bord du cercle vers la structure, pointe de flèche à 2 px de l'ancre."""
+    ax, ay = m['sx'], m['sy']
+    L = math.hypot(ax - c[0], ay - c[1])
+    ux, uy = (ax - c[0]) / L, (ay - c[1]) / L
+    p0 = (c[0] + ux * R_OUT, c[1] + uy * R_OUT)
+    tip = (ax - ux * 2, ay - uy * 2)
+    return p0, tip, (ux, uy)
+
+
+def candidats(m, reperes, zone, G, cx, cy):
+    out_a = math.atan2(m['sy'] - cy, m['sx'] - cx)
     res = []
-    for r in (36, 56, 80, 110, 145, 185, 230, 290, 360, 440):
-        for k in range(32):
-            ang = k * math.pi / 16
-            ex, ey = l['sx'] + r * math.cos(ang), l['sy'] + r * math.sin(ang)
-            c, sn = math.cos(ang), math.sin(ang)
-            bx = ex + 6 if c > 0.35 else (ex - 6 - w if c < -0.35 else ex - w / 2)
-            by = ey if sn > 0.35 else (ey - h if sn < -0.35 else ey - h / 2)
-            box = (round(bx, 1), round(by, 1), round(w, 1), h)
-            if bx < zone[0] + 6 or by < zone[1] + 6 or bx + w > zone[0] + zone[2] - 6 or by + h > zone[1] + zone[3] - 6:
+    for r in (40, 50, 62, 76, 92, 112, 136, 165, 200):
+        for k in range(36):
+            ang = k * math.pi / 18
+            c = (round(m['sx'] + r * math.cos(ang), 1), round(m['sy'] + r * math.sin(ang), 1))
+            if not (zone[0] + R_OUT + 6 <= c[0] <= zone[0] + zone[2] - R_OUT - 6 and
+                    zone[1] + R_OUT + 6 <= c[1] <= zone[1] + zone[3] - R_OUT - 6):
                 continue
-            if any(inter(box, z, 6) for z in interdits):
-                continue
-            if any(box[0] - 10 < m['sx'] < box[0] + w + 10 and box[1] - 10 < m['sy'] < box[1] + h + 10 for m in labels):
-                continue
-            q = proche(box, l['sx'], l['sy'])
-            if not l.get('encart') and any(seg_rect((l['sx'], l['sy']), q, z) for z in interdits):
-                continue
+            if next(G.proches(c[0], c[1], R_OUT + D_NERF + MARGE_NERF + 1), None):
+                continue                           # le repère ne couvre jamais le nerf ni un noyau
+            if any(math.hypot(o['sx'] - c[0], o['sy'] - c[1]) < R_OUT + 8 for o in reperes):
+                continue                           # ni la pointe d'une autre flèche
+            p0, tip, _ = fleche(m, c)
+            # le trait de rappel croise le nerf : permis (structure voisine du nerf), mais coûteux
+            mx, my, rr = (p0[0] + tip[0]) / 2, (p0[1] + tip[1]) / 2, math.hypot(tip[0] - p0[0], tip[1] - p0[1]) / 2 + 4
+            croise = sum(1 for q in G.proches(mx, my, rr) if d_seg(q, p0, tip) < 4 and math.hypot(q[0] - tip[0], q[1] - tip[1]) > 12)
             d_ang = abs((ang - out_a + math.pi) % (2 * math.pi) - math.pi)
-            couvre = sum(1 for x, y in evite if box[0] < x < box[0] + w and box[1] < y < box[1] + h)
-            res.append((round(r + 90 * d_ang / math.pi + 10 * abs(sn) + 3 * couvre, 3), k, box, q))
+            res.append((round(0.6 * r + 40 * d_ang / math.pi + 1.5 * croise, 3), k, c, p0, tip))
     res.sort(key=lambda t: (t[0], t[1]))
     par_dir, out = {}, []
-    for t in res:               # au plus deux rayons par direction : couverture de tous les côtés
-        if par_dir.get(t[1], 0) < 4:
+    for t in res:                    # au plus 3 rayons par direction : couverture de tous les côtés
+        if par_dir.get(t[1], 0) < 3:
             par_dir[t[1]] = par_dir.get(t[1], 0) + 1; out.append(t)
     return out
 
 
-def conflit(l1, c1, l2, c2):
-    b1, q1, b2, q2 = c1[2], c1[3], c2[2], c2[3]
-    p1, p2 = (l1['sx'], l1['sy']), (l2['sx'], l2['sy'])
-    return (inter(b1, b2, 8) or seg_rect(p1, q1, b2) or seg_rect(p2, q2, b1) or seg_seg(p1, q1, p2, q2))
+def conflit(c1, c2):
+    a, b = c1[2], c2[2]
+    if math.hypot(a[0] - b[0], a[1] - b[1]) < 2 * R_OUT + ECART:
+        return True                                        # cercles trop proches
+    if seg_seg(c1[3], c1[4], c2[3], c2[4]):
+        return True                                        # flèches croisées
+    return d_seg(b, c1[3], c1[4]) < R_OUT + 3 or d_seg(a, c2[3], c2[4]) < R_OUT + 3   # flèche sous un cercle
 
 
-def placer(labels, zone, interdits, evite=()):
-    """Placement rejouable : pour chaque étiquette, candidats autour de l'ancre (rayon court d'abord, vers
-    l'extérieur du groupe, en évitant de masquer le nerf) ; recherche locale à graine fixe sur une table de conflits
-    (boîtes disjointes, aucun trait de rappel croisé ni traversant une boîte). Échec explicite sinon."""
-    n = len(labels)
+def repulsion(a, b):
+    d = math.hypot(a[0] - b[0], a[1] - b[1])
+    return max(0.0, 180 - d) * 1.4
+
+
+def placer(reperes, zone, G):
+    """Placement rejouable : candidats autour de l'ancre (court d'abord, vers l'extérieur du groupe, jamais sur le
+    nerf) ; recherche locale à graine fixe sur une table de conflits (cercles disjoints et aérés, flèches non
+    croisées, aucune flèche sous un cercle), puis aération : chaque repère s'éloigne des autres si cela ne crée
+    aucun conflit. Échec explicite sinon."""
+    n = len(reperes)
     if not n:
         return
-    cx = sum(l['sx'] for l in labels) / n; cy = sum(l['sy'] for l in labels) / n
-    C = [candidats(l, labels, zone, interdits, cx, cy, evite) for l in labels]
+    cx = sum(m['sx'] for m in reperes) / n; cy = sum(m['sy'] for m in reperes) / n
+    C = [candidats(m, reperes, zone, G, cx, cy) for m in reperes]
     for i, c in enumerate(C):
         if not c:
-            sys.exit('ÉCHEC : aucune place pour l’étiquette « %s » (préréglage trop chargé).' % labels[i]['texte'])
-    # recherche locale « conflits minimaux » à graine fixe (rejouable à l'octet) : plusieurs départs, on garde la
-    # disposition valide de coût total minimal.
-    rnd = random.Random(0)
-    gagnant, cout_min = None, float('inf')
-    # table des conflits entre candidats, calculée une fois (préfiltre : enveloppes boîte + trait de rappel disjointes)
-    def env(l, c):
-        b, q = c[2], c[3]
-        return (min(b[0], l['sx']) - 8, min(b[1], l['sy']) - 8, max(b[0] + b[2], l['sx']) + 8, max(b[1] + b[3], l['sy']) + 8)
-    EV = [[env(labels[i], c) for c in C[i]] for i in range(n)]
-    X = {}
+            sys.exit('ÉCHEC : aucune place pour le repère %d « %s » (état trop chargé).' % (reperes[i]['num'], reperes[i]['nom']))
+    def env(c):
+        xs = (c[2][0], c[4][0]); ys = (c[2][1], c[4][1])
+        g = R_OUT + ECART / 2 + 4
+        return (min(xs) - g, min(ys) - g, max(xs) + g, max(ys) + g)
+    EV = [[env(c) for c in C[i]] for i in range(n)]
+    X = set()
     for i in range(n):
         for j in range(i + 1, n):
             for ci, ei in enumerate(EV[i]):
                 for cj, ej in enumerate(EV[j]):
-                    if ei[0] < ej[2] and ej[0] < ei[2] and ei[1] < ej[3] and ej[1] < ei[3] \
-                            and conflit(labels[i], C[i][ci], labels[j], C[j][cj]):
-                        X[(i, ci, j, cj)] = X[(j, cj, i, ci)] = True
+                    if ei[0] < ej[2] and ej[0] < ei[2] and ei[1] < ej[3] and ej[1] < ei[3] and conflit(C[i][ci], C[j][cj]):
+                        X.add((i, ci, j, cj)); X.add((j, cj, i, ci))
     def nconf(ch, i, ci):
         return sum(1 for j in range(n) if j != i and (i, ci, j, ch[j]) in X)
-    for depart in range(300):
-        ch = [0 if depart == 0 else rnd.randrange(min(len(C[i]), 6)) for i in range(n)]
+    def cout_total(ch):
+        return sum(C[i][ch[i]][0] for i in range(n)) + sum(repulsion(C[i][ch[i]][2], C[j][ch[j]][2])
+                                                           for i in range(n) for j in range(i + 1, n))
+    rnd = random.Random(0)
+    gagnant, cout_min = None, float('inf')
+    for depart in range(200):
+        ch = [0 if depart == 0 else rnd.randrange(min(len(C[i]), 8)) for i in range(n)]
         for it in range(1500):
             conf = [i for i in range(n) if nconf(ch, i, ch[i])]
             if not conf:
@@ -212,22 +265,25 @@ def placer(labels, zone, interdits, evite=()):
                 ch[i] = min(range(len(C[i])), key=lambda ci: (nconf(ch, i, ci), C[i][ci][0] + rnd.random()))
         else:
             continue
-        cout = sum(C[i][ch[i]][0] for i in range(n))
-        if cout < cout_min:
+        # aération : descente sur coût propre + répulsion, sans jamais créer de conflit
+        for _ in range(6):
+            bouge = False
+            for i in range(n):
+                def local(ci):
+                    return C[i][ci][0] + sum(repulsion(C[i][ci][2], C[j][ch[j]][2]) for j in range(n) if j != i)
+                best = min((ci for ci in range(len(C[i])) if not nconf(ch, i, ci)), key=lambda ci: (local(ci), ci))
+                if local(best) < local(ch[i]) - 1e-9:
+                    ch[i] = best; bouge = True
+            if not bouge:
+                break
+        cout = cout_total(ch)
+        if cout < cout_min - 1e-9:
             gagnant, cout_min = list(ch), cout
     if gagnant is None:
-        sys.exit('ÉCHEC : aucune disposition sans chevauchement (préréglage trop chargé).')
-    # amélioration : chaque étiquette tente un candidat moins coûteux compatible
-    for _ in range(3):
-        for i in range(n):
-            for ci in range(len(C[i])):
-                if C[i][ci][0] >= C[i][gagnant[i]][0]:
-                    break
-                if not nconf(gagnant, i, ci):
-                    gagnant[i] = ci; break
-    best = [dict((i, C[i][gagnant[i]]) for i in range(n))]
-    for i, c in best[0].items():
-        labels[i]['box'], labels[i]['q'] = c[2], c[3]
+        sys.exit('ÉCHEC : aucune disposition sans chevauchement (état trop chargé).')
+    for i in range(n):
+        c = C[i][gagnant[i]]
+        reperes[i]['c'], reperes[i]['p0'], reperes[i]['tip'] = c[2], c[3], c[4]
 
 
 # ---------------------------------------------------------------- composition d'un préréglage
@@ -239,9 +295,12 @@ def entree(a, ref):
     sys.exit('ÉCHEC : référence %r absente de nc/annot (préréglage)' % ref)
 
 
-def etiquettes(nerf, vue, nom_etat, E, a, anc, T, nerf_pts, retirer):
-    labels = []
-    for et in E['etiquettes']:
+def reperes_etat(nerf, vue, nom_etat, E, a, anc, T, nerf_pts, retirer):
+    """Repères d'un état : numéro = rang dans la liste de l'état (identique dans les 3 vues)."""
+    if len(E['etiquettes']) > MAX_ETIQ:
+        sys.exit('ÉCHEC : état %s : %d repères, %d au plus.' % (nom_etat, len(E['etiquettes']), MAX_ETIQ))
+    out = []
+    for num, et in enumerate(E['etiquettes'], 1):
         if et['ref'] in retirer:
             continue
         couche_src, e = entree(a, et['ref'])
@@ -257,26 +316,51 @@ def etiquettes(nerf, vue, nom_etat, E, a, anc, T, nerf_pts, retirer):
         sx, sy = T(x, y)
         couche = et.get('couche') or {'legendes': 'legendes', 'noyaux': 'noyaux', 'foramens': 'foramens', 'lesions': 'lesions',
                                        'territoires': 'territoires', 'nerf': 'legendes'}[couche_src]
-        labels.append({'ref': et['ref'], 'texte': et['texte'], 'sx': sx, 'sy': sy, 'couche': couche,
-                       'urgence': bool(couche == 'lesions' and e.get('urgence')), 'source': e.get('source', '')})
-    if len(labels) > MAX_ETIQ:
-        sys.exit('ÉCHEC : état %s : %d étiquettes, %d au plus.' % (nom_etat, len(labels), MAX_ETIQ))
-    return labels
+        out.append({'num': num, 'ref': et['ref'], 'nom': et['nom'], 'glo': et.get('glo'), 'sx': sx, 'sy': sy, 'couche': couche,
+                    'urgence': bool(couche == 'lesions' and e.get('urgence')), 'source': e.get('source', '')})
+    return out
 
 
-def rendu_etiquette(l):
-    b, q, u = l['box'], l['q'], ' u' if l['urgence'] else ''
-    if q[0] >= b[0] + b[2] - 0.5:
-        ta, tx = ' text-anchor="end"', b[0] + b[2] - 3
-    elif q[0] <= b[0] + 0.5:
-        ta, tx = '', b[0] + 3
-    else:
-        ta, tx = ' text-anchor="middle"', b[0] + b[2] / 2
-    return ('<g class="lbl" data-ref="%s"><path class="ld%s" d="M%.1f %.1fL%.1f %.1f"/><circle class="pt%s" cx="%.1f" cy="%.1f" r="%s"/>'
-            '<text class="lb%s"%s x="%.1f" y="%.1f">%s</text></g>'
-            % (l['ref'], u, l['sx'], l['sy'], q[0], q[1], u, l['sx'], l['sy'], '8' if l['urgence'] else '5.5',
-               u, ta, tx, b[1] + BASE, ''.join('<tspan x="%.1f" dy="%d">%s</tspan>' % (tx, 0 if n == 0 else LBL_H, escape(t))
-                                              for n, t in enumerate(l['texte'].split(' | ')))))
+def rendu_repere(m):
+    u = ' u' if m['urgence'] else ''
+    (cx, cy), p0, tip = m['c'], m['p0'], m['tip']
+    ux, uy = (tip[0] - p0[0]), (tip[1] - p0[1])
+    L = math.hypot(ux, uy) or 1
+    ux, uy = ux / L, uy / L
+    bx, by = tip[0] - ux * 8, tip[1] - uy * 8              # base de la pointe (8 px de long, 7 px de large)
+    glo = ' data-glo="%s"' % escape(m['glo']) if m.get('glo') else ''
+    return ('<g class="nc-num" data-num="%d" data-nom="%s"%s data-ref="%s" tabindex="0" role="button" aria-label="%d · %s">'
+            '<path class="ld%s" d="M%.1f %.1fL%.1f %.1f"/>'
+            '<path class="ah%s" d="M%.1f %.1fL%.1f %.1fL%.1f %.1fz"/>'
+            '<circle class="cr%s" cx="%.1f" cy="%.1f" r="%d"/><text class="nm%s" x="%.1f" y="%.1f">%d</text></g>'
+            % (m['num'], escape(m['nom'], {'"': '&quot;'}), glo, m['ref'], m['num'], escape(m['nom'], {'"': '&quot;'}),
+               u, p0[0], p0[1], bx, by,
+               u, tip[0], tip[1], bx - uy * 3.5, by + ux * 3.5, bx + uy * 3.5, by - ux * 3.5,
+               u, cx, cy, R_NUM, u, cx, cy + 6.3, m['num']))
+
+
+def lignes_legende(E, reperes):
+    """Légende numérotée en 2 colonnes (ordre des numéros, colonne de gauche d'abord), puis notes pleine largeur.
+    Renvoie [(x, rang, num ou None, texte)] et le nombre de rangs."""
+    n_col = int((COL[1] - COL[0] - 12) / (CAR_LEG * FL))
+    ent = []
+    for m in reperes:
+        lig = envelopper(m['nom'], FL, (n_col - 4) * CAR * FL)
+        ent.append((m['num'], lig))
+    moitie = (len(ent) + 1) // 2
+    out, rangs = [], [0, 0]
+    for k, (num, lig) in enumerate(ent):
+        c = 0 if k < moitie else 1
+        for j, t in enumerate(lig):
+            out.append((COL[c] + (0 if j == 0 else 22), rangs[c], num if j == 0 else None, t))
+            rangs[c] += 1
+    r = max(rangs)
+    notes = [ln for t in E.get('legende', []) for ln in envelopper(t, FL, (W - 48) * CAR / CAR_LEG)]
+    if len(notes) > MAX_NOTE:
+        sys.exit('ÉCHEC : note de légende de %d lignes, %d au plus.' % (len(notes), MAX_NOTE))
+    for t in notes:
+        out.append((COL[0], r, None, t)); r += 1
+    return out, r
 
 
 def composer(nerf, vue, p, a):
@@ -293,43 +377,40 @@ def composer(nerf, vue, p, a):
     tr = 'matrix(%.6f 0 0 %.6f %.2f %.2f)' % (k, k, -x0 * k, HEAD - y0 * k)
     zone = (0, HEAD, W, W)
     nerf_pts = points_nerf(G.get('nerf', ''))
-    evite = [T(x, y) for x, y in nerf_pts[::2]]
+    obst = [T(x, y) for x, y in points_nerf(G.get('nerf', ''), pas=1.5 / k)] + points_contours(CR.get('c-noyaux', ''), T)
+    grille = Grille(obst)
     retraits = (p.get('par_vue') or {}).get(vue, {}).get('retirer', {}) if p.get('par_vue') else {}
     defaut = p['etat_defaut']
-    etats, groupes_lbl, legendes, toutes = {}, [], [], []
+    etats, groupes_num, legendes, toutes = {}, [], [], []
     fills = {}
     for nom, E in p['etats'].items():
-        labels = etiquettes(nerf, vue, nom, E, a, anc, T, nerf_pts, retraits.get(nom, []))
+        reperes = reperes_etat(nerf, vue, nom, E, a, anc, T, nerf_pts, retraits.get(nom, []))
         try:
-            placer(labels, zone, [], evite)
+            placer(reperes, zone, grille)
         except SystemExit as ex:
             sys.exit('%s (vue %s, état %s)' % (ex, vue, nom))
         etats[nom] = list(E['couches'])
         cache = '' if nom == defaut else ' display="none"'
         par_couche = {}
-        for l in labels:
-            par_couche.setdefault(l['couche'], []).append(rendu_etiquette(l))
+        for m in reperes:
+            par_couche.setdefault(m['couche'], []).append(rendu_repere(m))
         for c in COUCHES:
             if c in par_couche:
-                groupes_lbl.append('<g class="etiquettes" data-etat="%s" data-couche="%s"%s>%s</g>' % (nom, c, cache, ''.join(par_couche[c])))
-        leg = [ln for t in E.get('legende', []) for ln in envelopper(t, FS, W - 48)]
-        if len(leg) + 2 > MAX_LEG:
-            sys.exit('ÉCHEC : état %s : légende de %d lignes, %d au plus.' % (nom, len(leg) + 2, MAX_LEG))
-        legendes.append((nom, leg, cache))
-        toutes.append((nom, E, labels))
+                groupes_num.append('<g class="numeros" data-etat="%s" data-couche="%s"%s>%s</g>' % (nom, c, cache, ''.join(par_couche[c])))
+        legendes.append((nom, lignes_legende(E, reperes), cache))
+        toutes.append((nom, E, reperes))
         fills.update(E.get('remplissages') or {})
-    nl = max(len(l) for _, l, _ in legendes) + 2
-    y_leg = HEAD + W + 40
-    H = y_leg + (nl - 1) * LH + 16
-    bas = []
-    for nom, leg, cache in legendes:
-        bas.append('<g class="legende" data-etat="%s"%s>%s</g>' % (nom, cache, ''.join(
-            '<text class="lg" x="24" y="%d">%s</text>' % (y_leg + n * LH, escape(t)) for n, t in enumerate(leg))))
-    nleg = {nom: len(leg) for nom, leg, _ in legendes}
-    # crédit court : sous la légende de l'état affiché ; une copie par état (position selon la longueur)
-    for nom, leg, cache in legendes:
-        bas.append('<g class="credit" data-etat="%s"%s>%s</g>' % (nom, cache, ''.join(
-            '<text class="lg" x="24" y="%d">%s</text>' % (y_leg + (len(leg) + n) * LH, escape(t)) for n, t in enumerate(credit_lignes(vue)))))
+    y_leg = HEAD + W + 34
+    nl = max(r for _, (_, r), _ in legendes)
+    y_cred = y_leg + nl * LL + 12
+    H = int(y_cred + LL + 12)
+    leg = []
+    for nom, (lignes, _), cache in legendes:
+        leg.append('<g class="legende" data-etat="%s"%s>%s</g>' % (nom, cache, ''.join(
+            ('<text class="lg" x="%d" y="%d"><tspan class="n">%d</tspan> · %s</text>' % (x, y_leg + r * LL, num, escape(t))) if num
+            else '<text class="lg" x="%d" y="%d">%s</text>' % (x, y_leg + r * LL, escape(t)) for x, r, num, t in lignes)))
+    cred = ''.join('<text class="lg" x="24" y="%d">%s</text>' % (y_cred + n * LL, escape(t))
+                   for n, t in enumerate(credit_lignes(vue)))
     vis = lambda c: '' if c in etats[defaut] else ' display="none"'
     couches = {
         'territoires': '<g transform="%s">%s</g>' % (tr, ''.join('<g class="fl" fill="%s">%s</g>' % (col, M.get('m-' + g, ''))
@@ -340,38 +421,44 @@ def composer(nerf, vue, p, a):
         'noyaux': '<g transform="%s" class="nx">%s</g>' % (tr, CR.get('c-noyaux', '')),
     }
     titre = '%s · %s' % (p['titre'], NOMS_VUES[vue])
-    desc = '%s. États : %s.' % (titre, ' ; '.join('%s (%s)' % (E['nom'], ', '.join(l['texte'].replace(' | ', ' ') for l in L))
+    desc = '%s. États : %s.' % (titre, ' ; '.join('%s (%s)' % (E['nom'], ', '.join('%d %s' % (m['num'], m['nom']) for m in L))
                                                    for _, E, L in toutes))
     meta_txt = json.dumps({'licence': 'CC BY-SA 4.0', 'licence_url': 'https://creativecommons.org/licenses/by-sa/4.0/',
                            'mention': 'Œuvre dérivée', 'credit': credit_complet(vue),
-                           'etats': {nom: [{'ref': l['ref'], 'texte': l['texte'], 'source': l['source']} for l in L] for nom, _, L in toutes},
+                           'etats': {nom: [{'num': m['num'], 'ref': m['ref'], 'nom': m['nom'], 'source': m['source']} for m in L]
+                                     for nom, _, L in toutes},
                            'annotations': a.get('statut'), 'valide_par_vial': bool(a.get('valide_par_vial'))},
                           ensure_ascii=False, sort_keys=True)
     out = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" role="img" aria-labelledby="t d" data-nerf="%s" data-vue="%s" '
            'data-etat="%s" data-etats="%s" data-zone="0 %d %d %d">' % (W, H, nerf, vue, defaut, escape(json.dumps(etats, separators=(',', ':')), {'"': '&quot;'}), HEAD, W, W),
            '<title id="t">%s</title><desc id="d">%s</desc><metadata>%s</metadata>' % (escape(titre), escape(desc), escape(meta_txt)),
-           # épaisseurs du nerf en unités du dessin : 6,5 px de jaune et 1 px de cerne sur l'image de 800 px,
-           # proportionnelles ensuite à la taille d'affichage
-           '<style>%s</style>' % STYLE.replace('{N1}', '%.2f' % (8.5 / k)).replace('{N2}', '%.2f' % (6.5 / k)).replace('{NX}', '%.2f' % (1 / k)),
+           # épaisseurs du nerf en px de l'image de 800 px (6,5 px de jaune, 1 px de cerne de chaque côté) : svgo
+           # applique les transformations aux chemins du nerf et des noyaux (contrôlé dans svgo()), et la feuille de
+           # style l'emporte sur l'attribut stroke-width qu'il ajoute ; proportionnelles ensuite à l'affichage
+           '<style>%s</style>' % STYLE.replace('{N1}', '%.1f' % (2 * D_NERF)).replace('{N2}', '6.5').replace('{NX}', '1'),
            '<rect width="%d" height="%d" fill="#fff"/>' % (W, H),
            '<text class="tt" x="24" y="44">%s</text>' % escape(titre),
            '<svg x="0" y="%d" width="%d" height="%d" viewBox="0 %d %d %d" overflow="hidden">' % (HEAD, W, W, HEAD, W, W)]
-    for c in COUCHES:
+    for c in COUCHES[:-1]:
         out.append('<g id="%s" data-couche="%s"%s>%s</g>' % (c, c, vis(c), couches.get(c, '')))
     out.append('</svg>')
-    out += groupes_lbl
-    out.append('<g id="legende-bas">%s</g></svg>\n' % ''.join(bas))
+    out += groupes_num
+    out.append('<g id="legende" data-couche="legende"%s>%s</g>' % (vis('legende'), ''.join(leg)))
+    out.append('<g id="credit">%s</g></svg>\n' % cred)
     return ''.join(out), toutes
 
 
 def manifeste(nerf, p, res):
     m = {'nerf': nerf, 'note': ('Trois images (une par vue) ; chacune contient tous les états. Changer d’état : afficher '
-                                '[data-etat="X"] et les couches data-etats[X] ([data-couche]), masquer le reste.'),
+                                '[data-etat="X"] et les couches data-etats[X] ([data-couche]), masquer le reste. Repères : '
+                                'g.nc-num (data-num, data-nom, data-glo) ; légende : g#legende, masquable.'),
          'etat_defaut': p['etat_defaut'], 'vues': {}}
     for vue, (t, toutes) in res.items():
         m['vues'][vue] = {'fichier': '%s-%s.svg' % (nerf, vue),
                           'etats': {nom: {'nom': E['nom'], 'couches': E['couches'],
-                                          'etiquettes': [{'ref': l['ref'], 'texte': l['texte']} for l in L]} for nom, E, L in toutes}}
+                                          'reperes': [dict({'num': m['num'], 'ref': m['ref'], 'nom': m['nom']},
+                                                           **({'glo': m['glo']} if m.get('glo') else {})) for m in L]}
+                                    for nom, E, L in toutes}}
     return json.dumps(m, ensure_ascii=False, indent=1) + '\n'
 
 
@@ -385,7 +472,12 @@ def svgo(txt):
     with tempfile.TemporaryDirectory() as d:
         f = os.path.join(d, 'x.svg'); open(f, 'w', encoding='utf-8').write(txt)
         subprocess.run([exe, '--config', os.path.join(HERE, 'svgo.config.mjs'), '-q', '-i', f, '-o', f], check=True)
-        return open(f, encoding='utf-8').read()
+        out = open(f, encoding='utf-8').read()
+    for gid in ('nerf', 'noyaux'):
+        i = out.find('id="%s"' % gid)
+        if 'transform=' in out[i:out.find('</g></g>', i)]:
+            sys.exit('ÉCHEC : svgo n’a pas appliqué la transformation au groupe %s (épaisseurs fausses).' % gid)
+    return out
 
 
 def credit_entree(nerf, vue, a, s, ko, fichier=None, titre=None, mods=None):
@@ -467,7 +559,7 @@ def main():
                           mods=('Crâne au crayon par Freestyle sur les os seuls, décimés (Blender 3.6.19, tools/dedale/crane.py : '
                                 'silhouette épaisse, contours moyens, détails légers ; vectorisation potrace) ; nerf projeté depuis les '
                                 'courbes du modèle (tools/dedale/freestyle.py), en jaune ; aplats des territoires (tools/dedale/masques.py) ; '
-                                'états %s composés par tools/dedale/annoter.py depuis nc/presets/%s.yml et nc/annot/%s.yml ; svgo 4.0.0.')
+                                'états %s (repères numérotés fléchés, légende en 2 colonnes) composés par tools/dedale/annoter.py depuis nc/presets/%s.yml et nc/annot/%s.yml ; svgo 4.0.0.')
                                % (', '.join(n for n, _, _ in toutes), nerf, nerf))
         e['etats'] = [n for n, _, _ in toutes]
         ent.append(e)
