@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 32 faute(s) corrigée(s), dont 0 critique(s), 3 majeure(s) et 29 mineure(s).
+Bilan : 48 faute(s) corrigée(s), dont 0 critique(s), 7 majeure(s) et 41 mineure(s).
 
 ## ck-urgences-lot1
 
@@ -50,3 +50,24 @@ Bilan : 32 faute(s) corrigée(s), dont 0 critique(s), 3 majeure(s) et 29 mineure
 | Mineure | alias | La dysmétrie figurait comme alias de l’hypermétrie, terme que la source ne donne pas ; la dysmétrie désigne plus largement toute erreur d’amplitude du geste. | L’alias a été retiré. | R-CEN-CER, Syndrome cérébelleux, § II.2 Hypermétrie, lu le 2026-10-17 | Galien-Neuro | 39375ed |
 | Mineure | alias | L’hémiparésie figurait comme alias de l’hémiplégie, alors que la définition elle-même la distingue comme une paralysie incomplète ; la source oppose l’atteinte complète (plégie) à l’atteinte incomplète (parésie). | L’alias a été retiré ; la définition explique toujours l’hémiparésie. | R-CEN-PYR, Syndrome pyramidal, § V Formes topographiques, lu le 2026-10-17 | Galien-Neuro | 6b2946c |
 | Mineure | alias | L’paraparésie figurait comme alias de l’paraplégie, alors que la définition elle-même la distingue comme une paralysie incomplète ; la source oppose la paraplégie (atteinte complète) à la paraparésie (atteinte incomplète). | L’alias a été retiré ; la définition explique toujours l’paraparésie. | R-CEN-PYR, Syndrome pyramidal, § V.4 Moelle épinière, lu le 2026-10-17 | Galien-Neuro | f463519 |
+
+## tip-champ5-pr33
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | c[5] | La position penchée en avant était attribuée aussi à l’infarctus ; elle soulage la douleur de la péricardite. | Séparation infarctus (sueurs, angoisse) / péricardite (soulagement penché en avant, aggravation couché et à l’inspiration). | ESC 2025 myocardite et péricardite, § 3.3.2, lu le 2026-10-17 | Galien-CœurThorax | 3f50337 |
+| Majeure | c[5] | Seuils de dénutrition (IMC 18,5 avant 70 ans ; perte de 5 % en 1 mois) incompatibles avec GLIM, que l’application cite ailleurs, et diagnostic posé sur un seul critère phénotypique. | Seuils GLIM (IMC 20/22 ; perte >5 % en 6 mois ou >10 % au-delà) et exigence d’un critère étiologique. | GLIM 2019, Clin Nutr, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Majeure | c[5] | « antiémétique dopaminergique » : le métoclopramide est un antagoniste de la dopamine, d’où le parkinsonisme. | « antidopaminergique (métoclopramide) ». | pharmacologie, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Majeure | c[5] | La dynamique utérine ne signalait que l’hypocinésie et omettait la tachysystolie, dangereuse pour le fœtus. | Ajout : plus de 5 contractions en 10 minutes ; mention À vérifier pour les seuils. | À vérifier (ligne directrice suisse ou européenne à relire), lu le 2026-10-17 | Galien-AbdoPelvis | 3f50337 |
+| Mineure | c[5] | Les gestes de désobstruction citaient l’ERC 2021, remplacé par l’ERC 2025 (premiers secours) ; le texte omettait « jusqu’à 5 », l’alternance des séries et l’interdiction du doigt à l’aveugle. | Texte aligné sur l’ERC 2025, figure 5, avec ajout de la source. | ERC 2025 First Aid, doi 10.1016/j.resuscitation.2025.110752, fig. 5, lu le 2026-10-17 | Galien-CœurThorax | 3f50337 |
+| Mineure | c[5] | L’indication de la TDM omettait l’alternative du dosage de S100B que prévoit la même ligne directrice pour le TCC léger à faible risque. | Ajout de la recommandation 1.2 (S100B dans les 6 heures, seuil 0,10 µg/L). | Undén 2013, BMC Med 11:50, recommandations 1.1 et 1.2, lu le 2026-10-17 | Galien-Neuro | 3f50337 |
+| Mineure | c[5] | Le test du fléchisseur profond était décrit en tenant les autres doigts en extension, technique propre au fléchisseur superficiel. | Blocage de l’IPP du doigt testé pour le fléchisseur profond ; mention À vérifier faute de source détaillée. | À vérifier (technique non détaillée par la S3 Polytrauma), lu le 2026-10-17 | Galien-Locomoteur | 3f50337 |
+| Mineure | c[5] | Accord fautif « tous deux » pour deux noms féminins. | « toutes deux ». | langue, lu le 2026-10-17 | Galien-Locomoteur | 3f50337 |
+| Mineure | c[5] | La secousse palpébrale était attribuée au retour du regard depuis le haut, alors qu’elle se recherche au retour depuis le bas. | Séquence corrigée ; mention À vérifier. | À vérifier, lu le 2026-10-17 | Galien-Neuro | 3f50337 |
+| Mineure | c[5] | Le texte interdisait l’oxygène devant une respiration de Kussmaul, alors que seule la sédation freine la compensation. | « ne freine pas cette respiration par une sédation ». | raisonnement physiologique ; aucune source n’interdit l’oxygène, lu le 2026-10-17 | Galien-CœurThorax | 3f50337 |
+| Mineure | c[5] | Fonte musculaire présentée comme suffisante au diagnostic de dénutrition. | Critère phénotypique GLIM, à compléter par un critère étiologique. | GLIM 2019, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | Même faute que F2.23. | Même correction. | GLIM 2019, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | Même faute, avec un seuil de perte de poids non GLIM. | Seuil GLIM et critère étiologique. | GLIM 2019, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | L’hémolyse de l’échantillon était dite élever le calcium ; elle élève le potassium. | Calcium retiré. | retrait d’une affirmation fausse, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | « l’expose » sans complément. | « y expose ». | langue, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | Diagnostic affirmé (« a une cystite simple ») sur la seule clinique. | « oriente vers ». | prudence diagnostique, lu le 2026-10-17 | Galien-AbdoPelvis | 3f50337 |
