@@ -1,0 +1,2 @@
+/* Généré par tools/ck_build.py depuis data/ck/ : ne pas modifier à la main. */
+window.CK_GLO_X={"xabcde":{"alias":["<C>ABCDE"],"def":"Ce schéma ordonne le bilan primaire du traumatisé : contrôle de l’hémorragie externe massive, voies aériennes, respiration, circulation, état neurologique et exposition.","id":"xabcde","label":"xABCDE","src":[{"id":"R-AWMF-POLY","loc":"Empfehlung 2.2.4 ; Reanimation","lu_le":"2026-10-17"},{"id":"R-EU-SAIGNEMENT","loc":"Recommendation 5, Rationale","lu_le":"2026-10-17"}],"statut":"sourcé","type":"abreviation","valide_par_vial":false}};
