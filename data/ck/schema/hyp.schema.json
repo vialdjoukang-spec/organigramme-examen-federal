@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "hyp.schema.json",
  "title": "Hypothèses diagnostiques (hyp.json)",
- "description": "Chaîne exploration → confirmation → prise en charge. exam.reference et exam.lignes s’excluent ; sans référence désignée par une source, une 1re et une 2e intention sont exigées (G5).",
+ "description": "Chaîne exploration → confirmation → prise en charge. exam.reference et exam.lignes s’excluent ; sans référence désignée par une source, une 1re et une 2e intention sont exigées (G5). Chaque examen et chaque moyen spécifique se justifie (G8) : mécanisme de la maladie, principe qui agit sur lui, pourquoi ce choix plutôt qu’un autre, et limites pour un moyen.",
  "type": "array",
  "items": {
   "type": "object",
@@ -72,6 +72,9 @@
          "required": [
           "rang",
           "nom",
+          "mecanisme",
+          "principe",
+          "pourquoi_ce_choix",
           "recherche"
          ],
          "properties": {
@@ -84,9 +87,20 @@
            "type": "string",
            "minLength": 1
           },
-          "pourquoi": {
+          "mecanisme": {
            "type": "string",
-           "minLength": 1
+           "minLength": 20,
+           "description": "Mécanisme de la maladie que l’examen exploite."
+          },
+          "principe": {
+           "type": "string",
+           "minLength": 20,
+           "description": "Principe : ce que l’examen montre et comment."
+          },
+          "pourquoi_ce_choix": {
+           "type": "string",
+           "minLength": 20,
+           "description": "Pourquoi cet examen plutôt qu’un autre, à ce rang."
           },
           "precautions": {
            "type": "string",
@@ -106,18 +120,6 @@
           "statut": {
            "$ref": "src.schema.json#/$defs/statut"
           }
-         },
-         "if": {
-          "properties": {
-           "rang": {
-            "const": 1
-           }
-          }
-         },
-         "then": {
-          "required": [
-           "pourquoi"
-          ]
          }
         },
         "allOf": [
@@ -182,7 +184,11 @@
        "additionalProperties": false,
        "required": [
         "type",
-        "texte"
+        "mecanisme",
+        "principe",
+        "texte",
+        "pourquoi_ce_choix",
+        "limites"
        ],
        "properties": {
         "type": {
@@ -195,9 +201,30 @@
           "autre"
          ]
         },
+        "mecanisme": {
+         "type": "string",
+         "minLength": 20,
+         "description": "Mécanisme de la maladie sur lequel le moyen agit."
+        },
+        "principe": {
+         "type": "string",
+         "minLength": 20,
+         "description": "Principe thérapeutique qui agit sur ce mécanisme."
+        },
         "texte": {
          "type": "string",
-         "minLength": 1
+         "minLength": 1,
+         "description": "Moyen nommé."
+        },
+        "pourquoi_ce_choix": {
+         "type": "string",
+         "minLength": 20,
+         "description": "Pourquoi ce moyen plutôt que les autres."
+        },
+        "limites": {
+         "type": "string",
+         "minLength": 20,
+         "description": "Limites et contre-indications."
         },
         "dose_ref": {
          "type": [
@@ -230,12 +257,30 @@
    "additionalProperties": false,
    "required": [
     "nom",
+    "mecanisme",
+    "principe",
+    "pourquoi_ce_choix",
     "recherche"
    ],
    "properties": {
     "nom": {
      "type": "string",
      "minLength": 1
+    },
+    "mecanisme": {
+     "type": "string",
+     "minLength": 20,
+     "description": "Mécanisme de la maladie que l’examen exploite."
+    },
+    "principe": {
+     "type": "string",
+     "minLength": 20,
+     "description": "Principe : ce que l’examen montre et comment."
+    },
+    "pourquoi_ce_choix": {
+     "type": "string",
+     "minLength": 20,
+     "description": "Pourquoi cet examen plutôt qu’un autre, à ce rang."
     },
     "recherche": {
      "type": "string",

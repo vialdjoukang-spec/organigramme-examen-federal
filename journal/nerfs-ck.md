@@ -161,4 +161,21 @@ Ajout (17:45) : repères numérotés g.nc-num, avec bulle « n · nom » et ouve
 - Correction au passage : les épaisseurs du nerf (8,5 px, dont 6,5 px de jaune) et du cerne des noyaux (1 px) sont enfin celles de l’image : svgo applique les transformations aux chemins, la feuille de style les réduisait d’un facteur 1,3.
 - Contrat des repères pour Hermès : HANDOFF.md, section Dédale.
 
+
+## Podalire · chaîne justifiée du VII (G8) · 17.10.2026, Europe/Zurich
+Retour de Vial : « Tu parles de thrombolyse comme si tu avais introduit le principe… Pourquoi pas autre chose ? ».
+### Décisions
+- Chaque examen porte `mecanisme`, `principe`, `recherche`, `pourquoi_ce_choix` ; chaque moyen spécifique porte `mecanisme`, `principe`, `texte` (le moyen nommé), `pourquoi_ce_choix`, `limites`. L’ancien champ `pourquoi` disparaît du schéma.
+- G8 (tools/audit/niveau1.py, étape CI dédiée) refuse un champ absent, vide, de moins de 20 caractères ou 3 mots, ou recopié d’un autre champ ; une phrase « … À vérifier » reste admise faute de source lue. Les quatre champs entrent dans CHAMPS_PROSE (G6).
+- Central ou périphérique : syn.json (5 syndromes) et nc07 site 1 disent que la partie haute du noyau reçoit des fibres des deux hémisphères et la partie basse d’un seul ; la lésion au-dessus du noyau épargne donc le front, la lésion du nerf ne l’épargne pas. Chaque syndrome renvoie à `nc|nc07|voie_motrice` (champ syn.vues) ; ck_build avertit tant que Dédale n’a pas livré la vue, et la fenêtre retombe sur la première vue du nerf.
+- Patch 0014 (le 0013 est pris par Hermès) : la fenêtre affiche ces champs, une ligne par partie, et le lien « Sur le schéma ».
+### Sources lues (17.10.2026)
+- CEN, Sémiologie neurologique, chapitre 9, nerf facial : noyau double, partie supérieure à afférences pyramidales bilatérales, partie inférieure à afférences unilatérales.
+- ESO-EANS 2025 (PMC12098356) : la pression élevée s’associe à l’expansion de l’hématome ; baisser la pression vise à la prévenir ; produits de dégradation et lésion secondaire ; antidotes (PCC et vitamine K, idarucizumab, andexanet alfa) à faible niveau de preuve.
+- DGN 030-013 : causes discutées (inflammation auto-immune, réactivation HSV-1, facteurs ischémiques) ; bénéfice des corticoïdes (NNT 10) ; troubles du sommeil rapportés ; antiviral seulement en plus, formes sévères.
+- DGN 030-071 : doxycycline aussi efficace que les bêtalactamines, même tolérance ; limite d’âge de 8 ans levée ; choix selon allergies, grossesse, mode d’administration.
+### À vérifier (en plus de la liste NC-1)
+- Mode d’action des thrombolytiques et des corticoïdes au-delà de ce que disent les lignes directrices lues ; complications propres de la thrombectomie ; « l’hémisphère opposé » pour la partie basse du noyau (le CEN écrit « unilatérales ») ; choix scanner ou IRM pour l’os du rocher.
+### Termes pour Galien (nouveaux)
+zone récupérable (pénombre) ; expansion de l’hématome ; lésion secondaire ; stent retriever ; aspiration au contact ; reperfusion ; fibrine ; inhibiteur du facteur Xa ; idarucizumab ; andexanet alfa ; dabigatran ; bêtalactamine ; afférences pyramidales ; voie motrice ; clairance de la créatinine.
 Suivi (18:30) : patch 0013, car les couches à plusieurs groupes (g.numeros par état) n’étaient réglées que sur leur premier groupe ; contrôles réels des repères de Dédale (bulle, glossaire, légende) ; attente du schéma d’essai par condition, et non plus par délai fixe ; test_ck_ui compte 74 contrôles ; les fichiers d’essai sont servis localement quand APP_URL vise le site public.
