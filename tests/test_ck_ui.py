@@ -91,7 +91,7 @@ async def profile(b, mobile, out, errs):
     await ev("hideTip(true)")
     # Schéma : SVG chargé à la demande (ncT.js), couches, vues, tour ; repli <img> sans fichier JS.
     await tap('#t-nc'); await pg.wait_for_function("!!document.querySelector('#tip .ck-fig svg')", timeout=20000); await pg.wait_for_timeout(150)
-    ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===8")
+    ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].filter(i=>i.value!=='voies').every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===9")
     await tap('#tip input[value=nerf]'); await pg.wait_for_timeout(100)
     out[pre + 'schema_couches'] = ok and await ev("$('#tip .ck-fig #nerf').getAttribute('display')==='none'&&$('#tip .ck-fig #trait').getAttribute('display')==='inline'")
     # Repères numérotés (contrat Dédale : g.nc-num, data-num, data-nom, data-glo) et bascule de la légende numérotée.

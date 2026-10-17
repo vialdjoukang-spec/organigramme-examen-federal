@@ -131,6 +131,45 @@ CAS = {
 }
 
 
+VM = 'nc07-voie-motrice.svg'
+
+
+def sans_fichier(nom):
+    def f(d):
+        os.remove(os.path.join(d, 'assets', 'nc', nom))
+    return f
+
+
+def references_vides(d):
+    p = os.path.join(d, 'assets', 'nc', 'credits.json')
+    data = json.load(open(p, encoding='utf-8'))
+    for e in data:
+        if e['fichier'] == VM:
+            e['references'] = []
+    json.dump(data, open(p, 'w', encoding='utf-8'), ensure_ascii=False)
+
+
+def vm_sur_le_nerf(d):
+    p = os.path.join(d, 'assets', 'nc', VM)
+    s = open(p, encoding='utf-8').read()
+    m = re.search(r'class="n1"><path[^>]* d="[mM](-?\d+(?:\.\d+)?)[ ,]?(-?\d+(?:\.\d+)?)', s)
+    c = re.search(r'<circle[^>]*>', s).group(0)
+    t = re.sub(r' cx="[-\d.]+"', ' cx="%s"' % m.group(1), c)
+    t = re.sub(r' cy="[-\d.]+"', ' cy="%s"' % m.group(2), t)
+    open(p, 'w', encoding='utf-8').write(s.replace(c, t, 1))
+
+
+CAS.update({
+    'schema_cle_absent_echoue': sans_fichier(VM),
+    'schema_cle_texte_sur_le_dessin_echoue': lambda d: muter(d, VM, '<g id="legende"', '<text x="300" y="400" class="lg">Pont</text><g id="legende"'),
+    'schema_cle_couleur_non_declaree_echoue': lambda d: muter(d, VM, '#2563eb', '#16a34a'),
+    'schema_cle_repere_sur_le_nerf_echoue': vm_sur_le_nerf,
+    'schema_cle_sans_reference_echoue': references_vides,
+    'schema_cle_couche_voies_absente_echoue': lambda d: muter(d, VM, 'id="voies"', 'id="autre"'),
+    'schema_cle_retouche_echoue': lambda d: muter(d, VM, 'voie motrice', 'voie  motrice'),
+})
+
+
 def credit_sans(champ):
     def f(d):
         p = os.path.join(d, 'assets', 'nc', 'credits.json')
@@ -151,12 +190,12 @@ with tempfile.TemporaryDirectory() as d:
     copie(d)
     res['depot_conforme_reussit'] = verif(d, *opt) == 0
 for nom, f in CAS.items():
-    if nom == 'svg_retouche_echoue' and not rejeu:
+    if nom in ('svg_retouche_echoue', 'schema_cle_retouche_echoue') and not rejeu:
         continue
     with tempfile.TemporaryDirectory() as d:
         copie(d); f(d)
         # Chaque cas teste sa propre règle : le rejeu (V7) n'est actif que pour le cas « retouché ».
-        res[nom] = verif(d, *(opt if nom == 'svg_retouche_echoue' else ('--sans-rejeu',))) != 0
+        res[nom] = verif(d, *(opt if nom in ('svg_retouche_echoue', 'schema_cle_retouche_echoue') else ('--sans-rejeu',))) != 0
 for k, v in res.items():
     print(('ok    ' if v else 'ÉCHEC ') + k)
 print('Dédale : %d/%d%s.' % (sum(res.values()), len(res), '' if rejeu else ' (svgo absent : rejeu non testé)'))

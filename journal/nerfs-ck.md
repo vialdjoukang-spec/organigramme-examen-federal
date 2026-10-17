@@ -161,6 +161,12 @@ Ajout (17:45) : repères numérotés g.nc-num, avec bulle « n · nom » et ouve
 - Correction au passage : les épaisseurs du nerf (8,5 px, dont 6,5 px de jaune) et du cerne des noyaux (1 px) sont enfin celles de l’image : svgo applique les transformations aux chemins, la feuille de style les réduisait d’un facteur 1,3.
 - Contrat des repères pour Hermès : HANDOFF.md, section Dédale.
 
+## 17.10.2026 · Dédale · schéma clé « voie motrice » du VII
+- Retour de l’utilisateur : les 3 vues du crâne ne montrent pas l’essentiel pour distinguer paralysie faciale centrale et périphérique (noyaux, 1er et 2e motoneurones, innervation cortico-nucléaire bilatérale ou controlatérale).
+- Schéma original en coupe frontale (tools/dedale/voie.py), pas un rendu du modèle : partie haute du noyau facial innervée par les 2 hémisphères, partie basse par l’hémisphère opposé seul (StatPearls NBK526119, NBK555891).
+- États « central » (lésion capsulaire droite, urgence, repère rouge : bas du visage gauche, front épargné) et « peripherique » (nerf facial droit : hémiface droite entière).
+- nc07.vues.voie_motrice en tête ; patch 0013 dans l’application (ordre des vues, case « voies ») ; test_ck_ui ajusté (4 vues, 9 couches).
+- 19:20 : pause des nerfs crâniens (décision de l’utilisateur). Branche poussée sans PR ni fusion ; point de reprise exact dans HANDOFF.md (section Dédale, lignes PAUSE et Reprise).
 
 ## Podalire · chaîne justifiée du VII (G8) · 17.10.2026, Europe/Zurich
 Retour de Vial : « Tu parles de thrombolyse comme si tu avais introduit le principe… Pourquoi pas autre chose ? ».
