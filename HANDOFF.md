@@ -14,6 +14,11 @@ Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur
 
 Réglages dépôt : `allow_auto_merge=true`, `allow_merge_commit=true`, label `audit-ok`.
 
+## Auto-fusion · correctif GraphQL · 17.10.2026, Europe/Zurich
+État       : `gh pr merge --auto` échoue sans dépôt git local dans Actions (« fatal: not a git repository »). L'activation passe par `enablePullRequestAutoMerge` (GraphQL, mergeMethod MERGE).
+Prochaine  : Rejouer le test e2e (PR #56, label `audit-ok`).
+Pièges     : Ne pas réintroduire `gh pr merge` dans ce workflow sans `actions/checkout` préalable.
+
 ## Auto-fusion · mise en place · 17.10.2026, Europe/Zurich
 État       : Workflow `auto-fusion.yml`, Pages déclenché aussi sur PR fusionnée, label `audit-ok`, auto-merge du dépôt activé. Test de bout en bout prévu juste après la fusion de cette PR (commentaire dans HANDOFF, label `audit-ok`).
 Partage    : Les rédacteurs n'appellent plus `gh pr merge`. Seul l'auditeur pose `audit-ok` après audit.
