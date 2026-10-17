@@ -4,7 +4,7 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 
 ## Dédale · schémas des nerfs crâniens (NC-0, pilote VII) · 17.10.2026, Europe/Zurich
 État       : feat/nc-schemas : automates tools/dedale/{freestyle,trace,annoter,verifier}.py avec instructions ; pilote VII dans assets/nc (face, profil, 34, plan, tour de 8 vues en WebP de 52 Ko), crédits dans assets/nc/credits.json ; CI : tâche « schemas » (verifier.py --tous, tests/test_dedale.py 11/11).
-Prochaine  : Ariane remplace nc/annot/nc07.yml (provisoire) ; Dédale recompose par annoter.py ; Vial valide le pilote avant les 11 autres paires.
+Prochaine  : nc07.yml livré par Ariane le 17.10.2026 (sourcé, ancres dérivées du modèle) ; Vial valide le pilote ; repères de la vue plan à poser. Blender complet interdit (OOM) : .blend réduit sous 5 Go.
 Sources    : Z-Anatomy License.txt (CC BY-SA 4.0) ; API Commons Gray788 (domaine public) ; lus le 17.10.2026.
 Pièges     : Blender charge environ 11 Go : une seule instance à la fois. Le modèle reste dans /workspace/ssp/nc_src/ (jamais dans le dépôt). Le rejeu à l’octet exige svgo 4.0.0 exactement. Les ancres sont des noms d’objets Z-Anatomy (nerfs.json) ; une ancre absente fait échouer annoter.py.
 À vérifier : annotations provisoires (seules des ancres du modèle sont placées) ; fragments de légendes anglaises restés sur le plan Gray788.
