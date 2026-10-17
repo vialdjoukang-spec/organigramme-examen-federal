@@ -23,3 +23,14 @@ Les 4 chiffres d'Asclépios ont été vérifiés sur le tableau 1 d'EURODEM, col
 | SSP | Avant | Après | Source | Type |
 |---|---|---|---|---|
 | S2.7 | Le syndrome coronarien aigu manquait aux différentiels de la dyspnée, alors qu'une dyspnée peut en être le seul symptôme (équivalent angineux), surtout chez le sujet âgé, diabétique ou chez la femme. | Le différentiel « Syndrome coronarien aigu (dyspnée comme équivalent angineux) » a été ajouté avec son texte de fenêtre (ECG en 10 minutes, troponine 0/1 h). Il porte « % à vérifier », car EURODEM ne le chiffre pas, et il suit l'embolie pulmonaire dans l'ordre clinique. | ESC 2023, syndromes coronariens aigus (présentation clinique) ; EURODEM (Laribi 2019, Eur J Emerg Med 26:345-349), tableau 1, lus le 2026-10-17 | Médical (majeure) |
+
+## G3 · douleur abdominale (S3.1) · PR #45 · relu le 17.10.2026
+
+Les 7 chiffres d'Asclépios ont été vérifiés sur le tableau 1 d'OPTIMA (n = 1021) : appendicite 284, occlusion 68, cholécystite 52, pancréatite 28, perforation 13, ischémie 12, maladies urologiques 22 + 20. Tous sont exacts, et le cadre (adultes, douleur non traumatique de 2 heures à 5 jours, grossesse et choc hémorragique exclus) reprend fidèlement les Méthodes.
+
+| SSP | Avant | Après | Source | Type |
+|---|---|---|---|---|
+| S3.1 | La diverticulite aiguë, 2e diagnostic de l'étude, manquait aux différentiels ; la note de l'appendicite le signalait sans l'ajouter. | Le différentiel « Diverticulite aiguë » a été ajouté avec 11,6 % (118 sur 1021) et son texte de fenêtre (tomodensitométrie avec injection, abcès ou perforation). | OPTIMA (Laméris 2009, BMJ 338:b2431), tableau 1 ; ESCP 2020, maladie diverticulaire, lus le 2026-10-17 | Médical (majeure) |
+| S3.1 | La douleur abdominale non spécifique, 1re catégorie après l'appendicite, manquait : sans elle, l'ordre décroissant surestime les causes graves. | Le différentiel « Douleur abdominale non spécifique » a été ajouté avec 17,9 % (183 sur 1021), comme diagnostic d'exclusion ; son piège rappelle que l'évaluation clinique seule manquait 12 % des urgences. | OPTIMA, tableaux 1 et 2, lus le 2026-10-17 | Médical (majeure) |
+| S3.1 | Les urgences gynécologiques (torsion d'annexe, infection génitale haute, kyste rompu) manquaient ; seule la grossesse extra-utérine figurait. | Le différentiel a été ajouté avec 2,6 % (27 sur 1021), avec la mention « À ne pas manquer » et la β-hCG en premier examen. | OPTIMA, tableau 1 et sa note *, lus le 2026-10-17 | Médical (majeure) |
+| S3.1 | Le titre de la source contenait « OPTIMA », que Lyncée refusait comme terme non défini ; le job « garde » de #45 échouait. | « OPTIMA » est inscrit dans qa/termes_exclus.txt comme acronyme d'étude du seul titre de source. | Contrôle G4 (Lyncée) | Linguistique |
