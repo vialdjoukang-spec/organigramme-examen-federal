@@ -10,6 +10,7 @@ export default {
         overrides: {
           cleanupIds: false,
           removeEmptyContainers: false,
+          removeHiddenElems: false,
           removeMetadata: false,
           removeDesc: false,
           inlineStyles: false,
