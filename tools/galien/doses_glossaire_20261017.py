@@ -16,7 +16,7 @@ def row_source(rid):
 entries=[
  ('maladie-raynaud','Maladie de Raynaud',[], 'Le froid ou une émotion contracte les petits vaisseaux des doigts, qui deviennent pâles et douloureux.',r,'Définition ; symptômes'),
  ('maladie-buerger','Maladie de Buerger',['maladie de Léo Buerger','thromboangéite oblitérante','thromboangéite'], 'Les artères des membres s’enflamment et se bouchent progressivement.',b,'Définition et obstruction artérielle'),
- 
+
  ('gastro-intestinal','Gastro-intestinal', ['gastro-intestinale','gastro-intestinaux'], 'Cet adjectif décrit ce qui concerne l’estomac et l’intestin.',g,'Définition'),
  ('gastro-entero-pancreatique','Gastro-entéro-pancréatique',['gastro-entéro-pancréatiques'], 'Cet adjectif concerne l’estomac, l’intestin et le pancréas.',e,'Définition initiale des sites anatomiques'),
  ('egfr','eGFR',['DFG estimé'], 'Ce nombre est une estimation du volume de plasma filtré par les reins par unité de temps.',v,'Résumé et définition'),
@@ -44,4 +44,4 @@ p.write_text(t)
 p=pathlib.Path('qa/domaines.yml');t=p.read_text().replace('europe: [','europe: [ema.europa.eu, larousse.fr, vidal.fr, ameli.fr, ');p.write_text(t)
 if pending:
  p=pathlib.Path('journal/asclepios.md');p.write_text(p.read_text()+'\n### Relecture doses · termes à sourcer (17.10.2026 UTC)\nDéfinitions provisoires signalées « À vérifier », sans validation Vial : '+', '.join(pending)+'. Chercher une référence de terminologie CH/UE avant de les déclarer sourcées.\n')
-print('Glossaire ciblé : définitions sourcées et deux tickets explicites, sans exclusion de terme clinique.')
+print('Glossaire ciblé : définitions sourcées, sans exclusion de terme clinique.')
