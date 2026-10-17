@@ -180,4 +180,8 @@ Pièges     : Doses : jamais de chiffre dans « pha » sans AIPS lue (« dose : 
 
 ## Panacée · monographies des différentiels, depuis la fin · 17.10.2026, Europe/Zurich
 Lot 1 (O7.26, O7.25, O7.24 ; 27 diagnostics) : intoxication-au-paracetamol … paternalisme-excessif. Doses : aucune entrée doses_ch pertinente, toutes « à vérifier (AIPS) » ; épidémiologie chiffrée « à vérifier (source CH/UE) ».
-Prochain : Lot 2 = O7.23 et en dessous (Hygie monte depuis G2).
+Lot 2 (O7.23, O7.22, O7.21 ; 29 diagnostics, PR feat/mono-panacee-2, en attente d'audit Hérophile) : decompensation-metabolique-aigue … complements-a-haute-dose.
+Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estimation 2012) ; Elder 2013 PMID 23114748 (porphyrie) ; Br J Dermatol 2024 PMID 38848542 (nécrolyse) ; EAS 2015 PMID 25694464 (statines) ; EAACI 2021 PMID 34343358 (anaphylaxie) ; OFS ESS 2022 su-f-14.02-ESS-COMPLEM_CH (médecine complémentaire) ; CC art. 307, 314c, 443 (fedlex, état 01.07.2026).
+Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
+Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
+Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
