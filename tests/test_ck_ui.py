@@ -85,7 +85,7 @@ async def profile(b, mobile, out, errs):
     await ev("hideTip(true)")
     # Schéma : SVG chargé à la demande (ncT.js), couches, vues, tour ; repli <img> sans fichier JS.
     await tap('#t-nc'); await pg.wait_for_timeout(600)
-    ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===8")
+    ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].filter(i=>i.value!=='voies').every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===9")  # « voies » : couche du schéma clé voie motrice (patch 0013), absente du schéma d’essai
     await tap('#tip input[value=nerf]'); await pg.wait_for_timeout(100)
     out[pre + 'schema_couches'] = ok and await ev("$('#tip .ck-fig #nerf').getAttribute('display')==='none'&&$('#tip .ck-fig #trait').getAttribute('display')==='inline'")
     # Repères numérotés (contrat Dédale : g.nc-num, data-num, data-nom, data-glo) et bascule de la légende numérotée.
@@ -165,7 +165,7 @@ async def reel(b, mobile, out, errs):
     await ev("hideTip(true)")
     await tap('#r-nc'); await pg.wait_for_function("!!$('#tip .ck-fig svg')", timeout=15000); await pg.wait_for_timeout(200)
     out[pre + 'reel_schema_vues'] = await ev("(()=>{const e=window['CK_NC'].nc07,n=Object.values(e.vues).filter(Boolean).length+(e.tour?1:0);"
-                                             "return $$('#tip [data-ck=vue]').length===n&&(e.tour||[...$$('#tip [data-ck=vue]')].map(b=>b.textContent).join('/')==='Face/Profil/Trois quarts')&&$('#tip .t').textContent===e.nom+' · Face'&&!$('#tip .ck-couches').disabled})()")
+                                             "return $$('#tip [data-ck=vue]').length===n&&(e.tour||[...$$('#tip [data-ck=vue]')].map(b=>b.textContent).join('/')==='Voie motrice/Face/Profil/Trois quarts')&&$('#tip .t').textContent===e.nom+' · Face'&&!$('#tip .ck-couches').disabled})()")
     E = await ev("Object.keys(JSON.parse($('#tip .ck-fig svg').dataset.etats))")
     await tap('#tip [data-ck=etat][data-e="lesions"]'); await pg.wait_for_timeout(150)
     out[pre + 'reel_schema_etats'] = len(E) >= 2 and await ev(f"$$('#tip [data-ck=etat]').length==={len(E)}&&$('#tip [data-ck=etat][data-e=lesions]').getAttribute('aria-pressed')==='true'"

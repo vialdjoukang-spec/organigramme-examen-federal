@@ -1,0 +1,48 @@
+# Schéma clé du nerf facial (VII) : voie motrice, paralysie centrale ou périphérique · Dédale, 17.10.2026.
+# Retour de l'utilisateur : les 3 vues du crâne ne montrent pas l'essentiel pour distinguer une paralysie faciale
+# centrale d'une périphérique : les noyaux, les deux motoneurones et l'innervation cortico-nucléaire bilatérale ou
+# controlatérale. Schéma original (coupe frontale schématique, pas un rendu du modèle 3D), composé par
+# tools/dedale/voie.py ; même style (traits forts au crayon, nerf jaune), mêmes repères numérotés (contrat nc-num),
+# légende numérotée sous le dessin. Les ancres sont des points nommés de la géométrie de voie.py.
+# Orientation : vue de face, la droite du patient est à gauche de l'image (convention anatomique).
+# Sources (lues le 17.10.2026) : StatPearls « Neuroanatomy, Cranial Nerve 7 (Facial) » (NBK526119) et
+# « Neuroanatomy, Corticobulbar Tract » (NBK555891) ; Gray 1918, § 5g (R-GRAY-788).
+nerf: nc07
+fichier: voie-motrice
+titre: "Nerf facial (VII) · voie motrice"
+etat_defaut: central
+# couleurs de trait des fibres cortico-nucléaires, une par hémisphère (sobres, contrastées) ; jaune : le nerf seul
+fibres: {droite: "#555555", gauche: "#2563eb"}
+etats:
+  central:
+    nom: "Paralysie centrale"
+    couches: [territoires, trait, voies, nerf, noyaux, lesions, legendes, legende]
+    remplissages: {paralysie: "#f6cccc"}
+    etiquettes:
+      - {ancre: cortex, nom: "Cortex moteur, aire de la face (1er motoneurone)", couche: voies}
+      - {ancre: capsule_g, nom: "Voie cortico-nucléaire, capsule interne", couche: voies}
+      - {ancre: croisement, nom: "Croisement des fibres", couche: voies}
+      - {ancre: noyau_haut_g, nom: "Noyau facial haut : front, 2 hémisphères", couche: noyaux}
+      - {ancre: noyau_bas_g, nom: "Noyau facial bas : bas du visage, côté opposé", couche: noyaux}
+      - {ancre: nerf_g, nom: "Nerf facial (2e motoneurone)", couche: legendes}
+      - {ancre: lesion_centrale, nom: "Lésion centrale droite : urgence (AVC)", couche: lesions, urgence: true, glo: paralysie-faciale-centrale}
+      - {ancre: zone_centrale, nom: "Bas du visage gauche paralysé, front épargné", couche: lesions, glo: paralysie-faciale-centrale}
+    legende:
+      - "Vue de face : la droite du patient est à gauche de l'image."
+      - "Gris : fibres de l'hémisphère droit ; bleu : du gauche."
+  peripherique:
+    nom: "Paralysie périphérique"
+    couches: [territoires, trait, voies, nerf, noyaux, lesions, legendes, legende]
+    remplissages: {paralysie: "#f6cccc"}
+    etiquettes:
+      - {ancre: cortex, nom: "Cortex moteur, aire de la face (1er motoneurone)", couche: voies}
+      - {ancre: capsule_g, nom: "Voie cortico-nucléaire, capsule interne", couche: voies}
+      - {ancre: croisement, nom: "Croisement des fibres", couche: voies}
+      - {ancre: noyau_haut_g, nom: "Noyau facial haut : front, 2 hémisphères", couche: noyaux}
+      - {ancre: noyau_bas_g, nom: "Noyau facial bas : bas du visage, côté opposé", couche: noyaux}
+      - {ancre: nerf_g, nom: "Nerf facial (2e motoneurone)", couche: legendes}
+      - {ancre: lesion_peripherique, nom: "Lésion du noyau ou du nerf droit", couche: lesions, glo: paralysie-faciale-peripherique}
+      - {ancre: zone_peripherique, nom: "Hémiface droite paralysée, front compris", couche: lesions, glo: paralysie-faciale-peripherique}
+    legende:
+      - "Vue de face : la droite du patient est à gauche de l'image."
+      - "Gris : fibres de l'hémisphère droit ; bleu : du gauche."

@@ -74,6 +74,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Une image = une idée : préréglages trajet, branches, fonctions, lésions, plan (8 étiquettes au plus, contrôlés par verifier.py) | Dédale | 08.11.2026 |
 | [x] | Trois vues seulement (face, profil, 34) : crâne au crayon, nerf jaune, états trajet/branches/fonctions/lésions dans chaque SVG ; tour et plan retirés | Dédale | 08.11.2026 |
 | [x] | Repères numérotés fléchés et cliquables (g.nc-num, data-num, data-nom, data-glo), aucun texte sur le dessin, légende en 2 colonnes (feat/nc-numeros) | Dédale | 08.11.2026 |
+| [x] | Schéma clé nc07-voie-motrice (1er et 2e motoneurones, innervation bilatérale ou controlatérale, états central et peripherique), en tête de nc07.vues (feat/nc07-voie-motrice) | Dédale | 08.11.2026 |
 | [ ] | Valider le pilote VII (valide_par_vial) | Vial | 08.11.2026 |
 | [ ] | Produire les onze autres paires (3 vues chacune, sans tour) ; porter freestyle.py en mode ajout seul d’abord | Dédale | NC-2 |
 

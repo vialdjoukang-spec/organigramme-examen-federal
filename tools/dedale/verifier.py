@@ -30,7 +30,10 @@ Contrôles (ÉCHEC = code de sortie 1) :
   V14 contrat des repères : <g class="nc-num" data-num data-nom data-glo? tabindex="0" role="button"
      aria-label="n · nom">, trait de rappel et pointe de flèche ; data-nom non vide ; data-glo, s'il est
      présent, existe dans data/ck/glo.json ;
-  V15 numérotation : dans un état, un même numéro désigne la même structure dans les 3 vues.
+  V15 numérotation : dans un état, un même numéro désigne la même structure dans les 3 vues ;
+  V16 schéma clé : si nc/presets/<nerf>-voie-motrice.yml existe, assets/nc/<nerf>-voie-motrice.svg (tools/dedale/voie.py)
+     passe les mêmes contrôles (V1 à V14), avec la couche « voies » et les couleurs de fibres déclarées ; crédit de
+     schéma original (licence CC BY-SA 4.0, références lues avec leur date) ; rejeu à l'octet.
 """
 import json, os, re, subprocess, sys
 import xml.etree.ElementTree as ET
@@ -146,7 +149,8 @@ def svg_vue(nerf, p, credits, P=None, glo=None):
     """Contrôle une vue ; renvoie {état: {numéro: nom}} pour la cohérence entre vues (V15)."""
     rel = os.path.relpath(p, ROOT)
     s = open(p, encoding='utf-8').read()
-    for c in COUCHES:
+    couches_req = list(COUCHES) + sorted({c for E in ((P or {}).get('etats') or {}).values() for c in E.get('couches', [])} - set(COUCHES))
+    for c in couches_req:
         check(re.search(r'<g[^>]*\bid="%s"' % c, s), '%s : couche « %s » absente (V1)' % (rel, c))
     vb = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', s)
     if not check(vb, '%s : viewBox absente' % rel):
@@ -164,9 +168,10 @@ def svg_vue(nerf, p, credits, P=None, glo=None):
     check(ko(p) <= 120, '%s : %.0f Ko, plafond 120 (V3)' % (rel, ko(p)))
     check('<image' not in s and 'data:image' not in s, '%s : image matricielle intégrée interdite (V5)' % rel)
     pales = {c.lower() for E in ((P or {}).get('etats') or {}).values() for c in (E.get('remplissages') or {}).values()}
+    fibres = {c.lower() for c in ((P or {}).get('fibres') or {}).values()}   # traits des fibres déclarés (schéma clé)
     for col in set(re.findall(r'#[0-9a-fA-F]{3,6}\b', s)):
         c = col.lower()
-        if c in (JAUNE, CERNE, '#b91c1c') or GRIS.match(c):
+        if c in (JAUNE, CERNE, '#b91c1c') or GRIS.match(c) or c in fibres:
             continue
         check(c in pales and lum(c) >= 0.8, '%s : couleur %s non autorisée (V5)' % (rel, col))
     check(re.search(r'\.n2 path\{[^}]*stroke:%s' % JAUNE, st) and re.search(r'\.n1 path\{[^}]*stroke:%s' % CERNE, st),
@@ -183,7 +188,8 @@ def svg_vue(nerf, p, credits, P=None, glo=None):
             return False
         return all(parcours(c, dans) for c in el if not c.tag.endswith('style'))
     parcours(racine, False)
-    check('Œuvre dérivée' in s and 'CC BY-SA 4.0' in s, '%s : mention « Œuvre dérivée » ou licence absente du SVG (V4)' % rel)
+    mention = 'Schéma original' if (P or {}).get('fichier') else 'Œuvre dérivée'
+    check(mention in s and 'CC BY-SA 4.0' in s, '%s : mention « %s » ou licence absente du SVG (V4)' % (rel, mention))
     z = re.search(r'data-zone="([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+)"', s)
     if not check(z, '%s : data-zone absente (V10)' % rel):
         return {}
@@ -239,7 +245,7 @@ def svg_vue(nerf, p, credits, P=None, glo=None):
     check(etats == attendu, '%s : data-etats ≠ états de nc/presets (V1)' % rel)
     defaut = racine.get('data-etat')
     check(defaut == P.get('etat_defaut'), '%s : état par défaut %r (V1)' % (rel, defaut))
-    for c in COUCHES:
+    for c in couches_req:
         g = re.search(r'<g[^>]*\bid="%s"[^>]*>' % c, s)
         if g and defaut in etats:
             cache = 'display="none"' in g.group(0)
@@ -319,6 +325,16 @@ def credit(rel, credits):
     e = credits.get(os.path.basename(rel))
     if not check(e, '%s : aucune entrée dans assets/nc/credits.json (V4)' % rel):
         return
+    if e.get('schema_original'):
+        for c in ('fichier', 'titre', 'auteur', 'source', 'url', 'licence', 'licence_url', 'mention', 'modifications',
+                  'verifie_le', 'references'):
+            check(e.get(c), '%s : champ de crédit « %s » manquant (V16)' % (rel, c))
+        check(e.get('licence') == 'CC BY-SA 4.0' and e.get('mention') == 'Schéma original' and e.get('derive') is False,
+              '%s : schéma original : CC BY-SA 4.0, mention « Schéma original », derive faux (V16)' % rel)
+        check(e.get('genere_par_ia') is False and 'valide_par_vial' in e, '%s : genere_par_ia faux, valide_par_vial présent (V16)' % rel)
+        for r in e.get('references') or []:
+            check(all(r.get(k) for k in ('titre', 'url', 'licence', 'lu_le')), '%s : référence incomplète (titre, url, licence, lu_le) (V16)' % rel)
+        return
     for c in CHAMPS:
         check(c in e and e[c] not in ('', None), '%s : champ de crédit « %s » manquant (V4)' % (rel, c))
     check(e.get('genere_par_ia') is False, '%s : genere_par_ia doit être faux (V4)' % rel)
@@ -363,6 +379,10 @@ def main():
                       'nc/presets/%s.yml : état %s : %d repères, %d au plus (V8)' % (nerf, nom, len(E.get('etiquettes') or []), MAX_ETIQ))
             check(os.path.exists(os.path.join(NC, nerf + '-presets.json')), 'assets/nc/%s-presets.json absent (V1)' % nerf)
         attendus = {'%s-%s.svg' % (nerf, v) for v in VUES} | {nerf + '-presets.json'}
+        fv = os.path.join(ROOT, 'nc', 'presets', nerf + '-voie-motrice.yml')
+        PV = yaml.safe_load(open(fv, encoding='utf-8')) if os.path.exists(fv) else None
+        if PV:
+            attendus.add(nerf + '-voie-motrice.svg')
         for f in sorted(os.listdir(NC)):
             if f.startswith(nerf + '-') and f not in attendus:
                 check(False, 'assets/nc/%s : seules les 3 vues face, profil, 34 sont publiées (V12)' % f)
@@ -374,6 +394,16 @@ def main():
                     for n, nom in M.items():
                         prec = numeros.setdefault(e, {}).setdefault(n, (nom, v))
                         check(prec[0] == nom, '%s : état %s : repère %d « %s » (%s) ≠ « %s » (%s) (V15)' % (nerf, e, n, nom, v, prec[0], prec[1]))
+        if PV:
+            p = os.path.join(NC, nerf + '-voie-motrice.svg')
+            if check(os.path.exists(p), 'assets/nc/%s-voie-motrice.svg absent (V16)' % nerf):
+                for nom, E in PV['etats'].items():
+                    check(len(E.get('etiquettes') or []) <= MAX_ETIQ, '%s-voie-motrice.yml : état %s : plus de %d repères (V8)' % (nerf, nom, MAX_ETIQ))
+                svg_vue(nerf, p, credits, PV, glo)
+        if '--sans-rejeu' not in args and PV:
+            r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'dedale', 'voie.py'), nerf, '--verifier'],
+                               capture_output=True, text=True)
+            check(r.returncode == 0, '%s-voie-motrice : recomposition non identique à l’octet (V16) %s' % (nerf, (r.stdout + r.stderr).strip()[-300:]))
         if '--sans-rejeu' not in args:
             r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'dedale', 'annoter.py'), nerf, '--verifier'],
                                capture_output=True, text=True)

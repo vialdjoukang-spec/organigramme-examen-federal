@@ -564,7 +564,9 @@ def main():
         e['etats'] = [n for n, _, _ in toutes]
         ent.append(e)
     # tout autre fichier publié de ce nerf (anciens préréglages, plan, tour) est retiré
-    vieux = [f for f in os.listdir(OUT) if re.match(r'%s-[\w-]+\.(svg|webp|png)$' % nerf, f) and f not in fichiers]
+    # (le schéma clé « voie motrice », composé par voie.py, est gardé s'il a son préréglage)
+    garder = {'%s-voie-motrice.svg' % nerf} if os.path.exists(os.path.join(ROOT, 'nc', 'presets', nerf + '-voie-motrice.yml')) else set()
+    vieux = [f for f in os.listdir(OUT) if re.match(r'%s-[\w-]+\.(svg|webp|png)$' % nerf, f) and f not in fichiers and f not in garder]
     for f in vieux:
         os.remove(os.path.join(OUT, f)); print('retiré : assets/nc/%s' % f)
     ecrire_credits(ent, retirer=vieux)

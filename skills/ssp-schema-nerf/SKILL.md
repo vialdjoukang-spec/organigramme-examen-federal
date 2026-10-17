@@ -17,6 +17,7 @@ Tu l’appliques à toute création ou modification dans `assets/nc/`.
 5. Tu passes `svgo`, puis `python3 tools/dedale/verifier.py ncXX` : couches présentes, aucun texte sur le dessin, repères disjoints et jamais sur le nerf, `data-nom` présent, lisibilité à 360 px, poids au plus 120 Ko par vue, crédit complet dans `assets/nc/credits.json`.
 6. Le champ `valide_par_vial` reste faux tant que Vial n’a pas validé le schéma.
 7. Exactement 3 vues publiées par paire : face, profil, trois quarts ; aucune rotation à 8 vues (décision du 17.10.2026, qui remplace la précédente).
+8. Un schéma clé original peut s’ajouter quand la clinique l’exige (VII : `nc07-voie-motrice.svg`, tools/dedale/voie.py) : même style, même contrat de repères, références anatomiques lues et datées dans le crédit « Schéma original », points incertains marqués « À vérifier ».
 # Interdits
 Aucune image générée par IA, aucun calque d’une source sans licence compatible (Netter, Kenhub, Pinterest, manuels sous droits), aucune source marquée NoAI utilisée comme donnée d’entraînement.
 # Règle universelle
