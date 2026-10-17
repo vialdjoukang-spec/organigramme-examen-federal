@@ -8,6 +8,23 @@ Décision   : le chiffre est la fréquence du diagnostic parmi les patients cons
 Prochaine  : groupes de contenu, un commit poussé par groupe (Galien audite derrière) : 1 douleur thoracique (S2.5), 2 dyspnée, 3 douleur abdominale, 4 céphalée, 5 fièvre, 6 syncope ; puis les 12 SSP S8 (PR #37) quand elle est fusionnée.
 Pièges     : ne jamais éditer PRV à la main (prev_build --check échoue) ; aucun « window.CK_ » littéral dans app_v2.html (ckW('PREV')) ; un chiffre exige l'emplacement exact (tableau, page).
 Groupes poussés : (aucun pour l'instant)
+## Flux de fusion · auto-fusion après audit · 17.10.2026, Europe/Zurich
+
+Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur (médical et linguistique) audite, pousse ses corrections sur la branche de la PR, puis ajoute le label `audit-ok`. Le reste est automatique :
+
+1. Le workflow `.github/workflows/auto-fusion.yml` se déclenche sur `labeled` (et sur `synchronize` / `reopened` si le label est déjà présent).
+2. Il met la branche à jour avec `main` via l'API `update-branch` (jamais de force-push).
+3. Il active l'auto-merge en **commit de fusion** (`gh pr merge --auto --merge`).
+4. GitHub fusionne dès que les contrôles requis (`garde`, `html`, `tests`, `visuel`) sont verts et que la branche est à jour (`strict`). Aucune protection de branche n'est affaiblie.
+5. La publication Pages est assurée par `.github/workflows/pages.yml`, qui écoute aussi `pull_request` fermée et fusionnée : une fusion faite avec `GITHUB_TOKEN` ne relance pas les workflows `on:push`.
+
+Réglages dépôt : `allow_auto_merge=true`, `allow_merge_commit=true`, label `audit-ok`.
+
+## Auto-fusion · mise en place · 17.10.2026, Europe/Zurich
+État       : Workflow `auto-fusion.yml`, Pages déclenché aussi sur PR fusionnée, label `audit-ok`, auto-merge du dépôt activé. Test de bout en bout prévu juste après la fusion de cette PR (commentaire dans HANDOFF, label `audit-ok`).
+Partage    : Les rédacteurs n'appellent plus `gh pr merge`. Seul l'auditeur pose `audit-ok` après audit.
+Prochaine  : Vérifier sur une PR triviale que la fusion et Pages suivent le label.
+Pièges     : Ne pas retirer un contrôle requis ni baisser `required_approving_review_count`. Ne jamais force-push la branche d'une PR labellisée.
 
 ## Chiron · stations CS, pilote · 17.10.2026, Europe/Zurich
 État       : feat/cs-stations : format data/cs/format.json (10 règles officielles, 6 formats, ASM 75 % et KK 25 %, chacun sourcé) et data/cs/stations.json (5 stations), schémas data/cs/schema/, compilateur tools/cs_build.py (--check en CI) → assets/st/index.js (window.CS_ST_INDEX) et assets/st/<id>.js, chargés à la demande par stLoad. Patch 0019 : bouton « Station CS » sur la fiche SSP (Notions CK), panneau à sections (consigne, rôle du PS avec « seulement si demandé », résultats, grille ASM avec gestes g|… et chaînes hyp|…, KK, pièges, À vérifier, sources). Lyncée lit data/cs. tests/test_cs_stations.py 15/15 ; suite 241/241 ; G1 à G8 réussis.
@@ -159,3 +176,7 @@ Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'exis
 Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
 Pièges     : Doses : jamais de chiffre dans « pha » sans AIPS lue (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget assets/ck 2,5 Mo : ~2 280 monographies × ~2 Ko le dépasseront, prévoir un budget mono séparé (décision de Vial).
 À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS).
+
+## Panacée · monographies des différentiels, depuis la fin · 17.10.2026, Europe/Zurich
+Lot 1 (O7.26, O7.25, O7.24 ; 27 diagnostics) : intoxication-au-paracetamol … paternalisme-excessif. Doses : aucune entrée doses_ch pertinente, toutes « à vérifier (AIPS) » ; épidémiologie chiffrée « à vérifier (source CH/UE) ».
+Prochain : Lot 2 = O7.23 et en dessous (Hygie monte depuis G2).
