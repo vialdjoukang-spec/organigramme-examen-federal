@@ -109,3 +109,8 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | toxicite-directe-d-organe · pha | Chélation si plombémie élevée : selon Tox Info Suisse. | La chélation se décide avec Tox Info Suisse si la plombémie est élevée. | Linguistique : phrase nominale rendue verbale et concise |
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
+
+### Étape 12 · balises critiques
+72 débuts de texte TIP.d perdaient leur balise ouvrante. Patch 0028 rejouable : ajout de b.mono-r devant le titre critique seulement ; aucun mot clinique ni aucune dose modifié. Second passage : zéro modification. La couleur utilise la classe rouge existante. Contrôles structurels et suite d’interface consignés séparément ; ceci ne clôt pas l’audit médical transversal.
+
+Suite complète après correctif 0028 : 276/276 avec Playwright 1.63. Aucun seuil ni capture de référence adopté.
