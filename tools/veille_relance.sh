@@ -45,7 +45,7 @@ for e in json.load(open(sys.argv[1] + "/tools/etapes.json", encoding="utf-8"))["
         print(e.get("modele", "defaut"))
 PY
 }
-codex_actif() { pgrep -f "codex exec" >/dev/null 2>&1; }
+codex_actif() { pgrep -f '(^|/)codex exec( |$)' >/dev/null 2>&1; }
 
 ecrire_prochaine() { # $1 = ordre
   local f="$RACINE/PROCHAINE_ACTION.md"
@@ -62,6 +62,10 @@ ecrire_prochaine() { # $1 = ordre
     echo "Échecs de fusion récents (journal/echecs_fusion.md) :"
     echo
     tail -n 5 "$RACINE/journal/echecs_fusion.md" 2>/dev/null | grep '^- ' || echo "- aucun"
+    if [ -f "$RACINE/CATALOGUE.md" ]; then
+      printf '\n---\n\n'
+      cat "$RACINE/CATALOGUE.md"
+    fi
   } > "$f"
 }
 

@@ -2,6 +2,27 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
+État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
+Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.
+Sources    : sorties gh locales et GitHub Actions, tests/test_file_fusion.py ; aucune source clinique ni app_v2 modifiée.
+Pièges     : erreur HTTP 403 de protection renvoyée sur stdout par gh ; ne jamais la traiter comme des noms de contrôles. Une publication échouée doit être réessayée sans exiger une nouvelle fusion.
+À vérifier : fin des deux sondes, visuel et suite complète en cours ; secret non lisible (403), protection inchangée.
+
+## Codex · état réel Étape 1 · 18.10.2026 01:05 CEST
+État       : branche codex/etape-1, PR Étape 0 #71 en CI ; état complet des PR et checks enregistré dans CONTINUATION C1 ; Pages = origin/main, empreinte vérifiée.
+Prochaine  : Étape 2, corriger le parseur de protection 403 dans file_fusion et prouver fusion/Pages sur une sonde.
+Sources    : gh pr list et statusCheckRollup, origin/main 2228be7, Pages HTTP 200 lus maintenant ; bundle absent des chemins documentés.
+Pièges     : UNKNOWN n'est pas CLEAN ; gh pr edit échoue sur projectCards déprécié, utiliser l'API labels. Le CLI Codex ne se connecte pas, veille mode B.
+À vérifier : audits finaux #58/#64/#68 et relecture intégrale AIPS #59/#61/#67/#70 ; aucune validation clinique ajoutée par l'installation.
+
+## Codex · installation Étape 0 · 18.10.2026, Europe/Zurich
+État       : branche codex/etape-0, worktree /workspace/oef-codex depuis 2228be7 ; neuf actions de porte exécutées ; catalogue complété et présenté, skill ssp-construction-ck, veille B testée puis lancée ; validation porte et PR en cours.
+Prochaine  : verifier0, terminer, commiter/pousser la PR Étape 0, puis étape 1 dans l'ordre. La fusion reste soumise à la CI verte.
+Sources    : AGENTS.md, CONTINUATION.md entier, PROCHAINE_ACTION, ETAT et journaux lus ; six skills de porte et ssp-tests lus ; sorties CLI/gh du 18.10.2026.
+Pièges     : CLI installé sans authentification utilisable ; mode B ne lance pas de session distante. HTTP 403 pour lire la protection malgré droits admin du dépôt. Le serveur codex exec-server ne doit pas être pris pour codex exec.
+À vérifier : CI distante et publication ; Chromium installé après échec initial des tests, suite relancée ; sauvegardes Grok hors de cet environnement à inspecter à l'étape 1.
+
 ## Asclépios · fréquence (prévalence) des diagnostics différentiels · 17.10.2026, Europe/Zurich
 État       : feat/ddx-prevalence : data/ck/prev.json (source unique) ; tools/audit/prevalence.py (règles P1 à P7 : chaque DD une fois avec son nom exact, chiffre dans ]0 ; 100], chiffre ⇒ src de src.json + loc + date_lu, sans chiffre ⇒ « À vérifier », ordre décroissant calculé puis rang clinique, somme ≤ 100 %) ; tools/prev_build.py (--check en CI) écrit PRV dans app_v2.html ([index, %, op, population] dans l'ordre d'affichage) et assets/ck/prev.js (cadre, source, emplacement, date) ; ck_build inclut prev.js. Patch 0020 : % rouge (.pv) à côté de chaque DD, fenêtre pv|SSP|i (cadre, source, date), ligne « Fréquence » en tête de la fenêtre du DD, légende du chiffre, tri par PRV ; la clé de progression reste 'd'+index d'origine. tests/test_prevalence.py 35/35 ; prev.js et src.js se chargent à l’ouverture d’une fiche Notions (rien de plus au démarrage). Le % de la liste est un texte (aucune cible tactile de plus) ; le % de la fenêtre du diagnostic ouvre la source (pv|SSP|i).
 Décision   : le chiffre est la fréquence du diagnostic parmi les patients consultant pour la plainte du SSP, dans un cadre nommé (médecine de famille ou urgences, CH ou UE) ; une prévalence de population ne sert qu'à défaut (type « population », affichée). Le texte des 226 SSP rédigés ne change pas : seuls les champs de prev.json et l'ordre s'ajoutent.

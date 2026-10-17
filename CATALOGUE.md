@@ -82,7 +82,7 @@ Patches rejouables : 19 dans `tools/patches/` (skill ssp-patch).
 - `flock` : présent
 - `pdftotext` : présent
 - `curl` : présent
-- `codex` : absent
+- `codex` : présent
 - `crontab` : absent
 
 ## 4. Skills du dépôt (`docs/skills/`)
@@ -109,20 +109,43 @@ Patches rejouables : 19 dans `tools/patches/` (skill ssp-patch).
 
 ## 5. Serveurs MCP et connecteurs de Codex
 
-À COMPLÉTER PAR CODEX : lancer `codex mcp list` (ou lire `~/.codex/config.toml`, section `[mcp_servers]`) et lister chaque serveur avec son usage ici.
+```
+No MCP servers configured yet. Try `codex mcp add my-tool -- my-command`.
+```
 
 ## 6. Skills et outils propres à Codex
 
-À COMPLÉTER PAR CODEX : lister les skills/outils intégrés de Codex (recherche web, navigateur, exécution, images…) et dire lesquels servent à quelle étape.
+Inventaire réel de cette session (17.10.2026 UTC) :
+
+- Exécution : Bash, Python, git/gh, apply_patch, lecture d'images ; toutes étapes. Playwright Python est installé ; Chromium est en cours d'installation (tests et étape 2).
+- Serveur MCP exposé à la conversation : `codex_apps`. Aucun serveur configuré dans le CLI local (`codex mcp list`). Ces deux portées sont distinctes.
+- GitHub : 89 outils (lecture dépôt/PR/CI, branches, commits, PR, fusion, auto-merge, relance CI), étapes 0–17. Le CLI gh authentifié est le moyen retenu ; aucun jeton n'est copié.
+- Cloud environment : état et disponibilité réseau, étape 0 et diagnostics. Skill appliqué : cloud-environment-runtime.
+- Autres familles MCP disponibles : Automations (5), AXA (3), ChatGPT Spaces (40), Document Control (3), Gmail (21), Google/Drive (60), hotline (1), Pets (11), plugin management (6), safety (5), recherche (1), Sites (25). Hors périmètre clinique : aucune connexion ou écriture supplémentaire nécessaire.
+- Skills disponibles : 27 modèles OpenAI (documents, présentations, tableurs), Pages (write-page, maintain-space, organize-space, manage-schedules), Sites, Google Drive/Docs/Sheets/Slides/comments, plugin-management, Pets (create-pet, pets, update-pet), cloud-environment-runtime. Seul ce dernier sert directement ; les skills du dépôt pilotent le chantier.
+- Imagegen est disponible mais les images du projet doivent être réelles et licenciées : employer les sources autorisées et ssp-images-licence à l'étape 13.
+- Sous-agents : modèle gpt-6-luna sélectionnable pour les tâches répétitives R8 ; le CLI local a échoué à l'authentification lors du test, donc ne pas annoncer sa relance autonome comme opérationnelle. Le modèle courant traite les décisions et réparations.
+- Recherche réseau : curl/gh et connecteur de recherche ; sources CH/UE et AIPS officielles seulement pour le contenu (étapes 3–15), jamais Compendium.
+
+Automates gratuits utiles : CI existante, garde d'empreinte, tests Playwright sous flock, audit G1–G8, Lyncée, lychee hebdomadaire et liens modifiés, compilation --check, propositions de skills, veille locale toutes les 180 s, file GitHub toutes les 20 min. `act` et pre-commit ne sont pas installés : la CI et les commandes locales couvrent ces usages sans nouvelle dépendance.
 
 ## 7. Droits de fusion-publication
 
 ```
 {"admin":true,"auto_merge":true,"merge_commit":true,"push":true,"squash":false}
-{"checks":["garde","html","tests","visuel"],"enforce_admins":true,"strict":true}
+{"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/branches/branch-protection#get-branch-protection","status":"403"}
 ```
 Attendu : admin=true, auto_merge=true, merge_commit=true ; protection : garde, html, tests, visuel, strict.
 
 ## 8. Modèle des tâches répétitives
 
 Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`). Sinon : le modèle le moins cher disponible, noté dans ETAT.md.
+
+## 9. Affectation aux étapes et propositions examinées
+
+- 0–2, 17 : porte, catalogue, propose_skills, veille, file_fusion, jauge, CI/Pages, contrôle d'empreinte, tests et captures.
+- 3, 8 : prev_build + audit/prevalence ; 4–5, 9 : merge_shards + mono_build.
+- 6, 10 : doses_check sur les branches de doses, AIPS officielle ; 7, 11 : ck_build + Lyncée.
+- 12 : json_inject + patches rejouables + audit ; 13 : nc_svg_js/nc_svg_check ; 14 : cs_build ; 15–16 : outils précédents selon le diff.
+- Skill créé : ssp-construction-ck (mono_build, prev_build, doses_check). etapes.json est un fichier, pas une commande : candidat écarté. Commits d'audit déjà couverts par ssp-audit-medical ; références visuelles par ssp-qualite-visuelle.
+- Lecture de la protection via l'intégration : HTTP 403 ; conserver intégralement la protection, sans prétendre l'avoir inspectée. Les droits du dépôt sont confirmés ci-dessus.
