@@ -21,8 +21,16 @@ Les captures, prises avec les données d’essai (tests/fixtures/ck), ne sont pa
 | Contrôle | Résultat |
 |---|---|
 | tests/run_tests.py | 199/199 |
-| tests/test_ck_ui.py | 66/66, dont 12 sur les données réelles, aucune erreur de console |
+| tests/test_ck_ui.py | 66/66, dont 14 sur les données réelles, aucune erreur de console |
 | tests/test_ck.py (Janus) | 61/61 |
 | niveau1 G1 à G7, ck_build --check, nc_svg_check, nc_svg_js --check | réussis |
 | tools/dedale/verifier.py, tests/test_dedale.py | 0 échec, 20/20 |
 | Budget | app_v2.html 5 819 307 / 6 000 000 ; assets/nc 445 293 / 3 000 000 |
+
+## Suivi feat/ck-reperes-reel (17.10.2026, Europe/Zurich)
+
+| Contrôle | Résultat |
+|---|---|
+| tests/test_ck_ui.py | 74/74, dont 22 sur les données réelles (8 nouveaux : bulle des repères au survol et au toucher, fiche du glossaire avec data-glo, légende numérotée, couche réglée sur tous ses groupes) ; suite 207/207 |
+| Exécution contre le site public (APP_URL, fichiers d’essai servis localement) | 72/72 avant 0013 ; reprise après publication |
+| Correctif | le décompte « 12 » de la PR #24 était faux : 14 contrôles réels à sa fusion |

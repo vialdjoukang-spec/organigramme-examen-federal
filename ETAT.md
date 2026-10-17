@@ -31,7 +31,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, PR #15 fusionnée | Hermès | 17.10.2026 |
 | [x] | Recherche par diagnostic différentiel et notion · patch 0009, PR #18 fusionnée | Hermès | 17.10.2026 |
 | [x] | Bandes de séance sans texte coupé (ordinateur) et contrôle Iris du texte coupé · patch 0010, tests/test_calendrier.py (36) | Hermès | 17.10.2026 |
-| [x] | NC-0 interaction : lieur gloLink sur CK_GLO_INDEX, pile de fenêtres (5 niveaux, Retour, fil d’Ariane), types glo, syn, hyp, loc et nc chargés à la demande, vues, couches et états des schémas · patch 0012, tests/test_ck_ui.py (66) | Hermès | 17.10.2026 |
+| [x] | NC-0 interaction : lieur gloLink sur CK_GLO_INDEX, pile de fenêtres (5 niveaux, Retour, fil d’Ariane), types glo, syn, hyp, loc et nc chargés à la demande, vues, couches et états des schémas · patch 0012, patch 0013 (repères réels), tests/test_ck_ui.py (74) | Hermès | 17.10.2026 |
 | [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
