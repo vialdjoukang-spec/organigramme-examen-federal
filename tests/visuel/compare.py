@@ -144,7 +144,9 @@ def main():
         (fails if CFG['polices_externes'] == 'bloquer' else warns).append(msg)
     # 5. Décalage de mise en page (CLS au chargement, cliquet)
     for k, v in M['cls'].items():
-        lim = max(CFG['cls_max'], R.get('cls', {}).get(k, 0) + 0.02)
+        # Mesure ralentie (<variante>_<profil>_lent) : même plafond que la mesure normale de ce profil, jamais plus large.
+        kr = k[:-5] if k.endswith('_lent') and k not in R.get('cls', {}) else k
+        lim = max(CFG['cls_max'], R.get('cls', {}).get(kr, 0) + 0.02)
         if v > lim:
             fails.append(f'`{k}` : CLS {v} (plafond {lim:.3f})')
         elif v > CFG['cls_max']:
