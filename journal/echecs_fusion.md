@@ -10,3 +10,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 
 - 18.10.2026 · Étape 0 · Lecture de protection main via l'intégration refusée (HTTP 403). Droits de dépôt admin/push/merge_commit/auto_merge confirmés. Protection conservée ; ne pas considérer le JSON d'erreur comme une liste de checks.
 - 18.10.2026 · Étape 0 · Codex CLI installé mais test gpt-6-luna refusé pour authentification. Mode B retenu ; aucun renouvellement de connexion interactif demandé.
+
+- 18.10.2026 01:07 CEST · Étape 2 · Lecture des secrets Actions refusée (403) ; gh opérationnel, auto-fusion #71 a réussi à activer MERGE. Aucune intervention interactive ni nouveau secret. Réparation du repli 403 et du réessai Pages livrée séparément.
