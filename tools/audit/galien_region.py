@@ -126,6 +126,13 @@ def corriger(plan):
 
 
 def registre():
+    """Ajoute au registre les corrections nouvelles ; une ligne existante (même commit) n'est jamais réécrite."""
+    deja = {}
+    if os.path.exists(REG):
+        for l in open(REG, encoding='utf-8'):
+            if l.strip():
+                f = json.loads(l)
+                deja[f['commit']] = f
     out = []
     log = git('log', '--reverse', '--format=%H%x00%B%x1e')
     for bloc in log.split('\x1e'):
@@ -136,7 +143,7 @@ def registre():
             if l.startswith(MARQUE):
                 f = json.loads(l[len(MARQUE):])
                 f['commit'] = h[:12]
-                out.append(f)
+                out.append(deja.get(f['commit'], f))
     with open(REG, 'w', encoding='utf-8') as fh:
         fh.writelines(json.dumps(f, ensure_ascii=False) + '\n' for f in out)
     subprocess.run([sys.executable, os.path.join(HERE, 'rapport_fautes.py')], cwd=ROOT, check=True)
