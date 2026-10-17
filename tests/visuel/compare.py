@@ -115,6 +115,12 @@ def main():
         if d['deborde']:
             msg = f'`{k}` déborde : {d["largeur_defilement"]} px pour {d["largeur"]} px ({"; ".join(d["fautifs"][:3])})'
             (fails if '_mobile_' in k else warns).append('débordement horizontal ' + msg)
+    # 3 bis. Texte coupé sans ellipse ni texte complet (bloquant, ordinateur et mobile)
+    ncut = 0
+    for k, L in sorted(M.get('texte_coupe', {}).items()):
+        for x in L:
+            ncut += 1
+            fails.append(f'`{k}` : texte coupé ({x["sens"]}) dans {x["el"]} « {x["texte"]} »')
     # 4. Polices
     ext = set()
     for k, f in M['polices'].items():
@@ -152,6 +158,7 @@ def main():
          '| Contrôle | Résultat |', '|---|---|',
          f'| Captures comparées | {len(M["captures"])} ({len(CFG["variantes"])} variantes × {len(CFG["profils"])} profils × {len(CFG["onglets"]) + len(CFG["etats"])} vues), {nchg} changée(s) |',
          f'| Accessibilité axe-core (graves et critiques) | {sum(sum(c.values()) for c in cur_a.values())} nœuds, {len(new_a)} nouveau(x) |',
+         f'| Texte coupé sans ellipse ni texte complet | {ncut} élément(s), {len(M.get("texte_coupe", {}))} vue(s) contrôlée(s) |',
          '| Contraste WCAG AA (color-contrast, nœuds) | ' + (', '.join(f'{v} : {n}' for v, n in sorted(contrast.items())) or 'aucun écart') + ' |',
          f'| Débordement horizontal mobile | {sum(1 for k, d in M["debordement"].items() if d["deborde"] and "_mobile_" in k)} vue(s) |',
          f'| Polices | {sum(len(f["echecs"]) for f in M["polices"].values())} échec(s), {len(ext)} externe(s), rendu hors ligne {"identique" if off is not None and off <= CFG["pixel"]["ratio_max"] else "différent"} |',
