@@ -39,6 +39,8 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 01:15 Europe/Zurich · Étape 3 traitée, fusions en attente : #43 fusionnée ; #44/#45 main intégré et correctifs Galien rejoués, suites locales lancées avant push ; #58 onze chiffres relus (Limper/BASEL IX), trois nouvelles fiches contre-lues avec ESGE/HAS/ESC, cadre et indications corrigés, audit écrit, contrôles de données verts, suite 1.63/push planifiés ; #47 fusion de main, toutes sections du rapport conservées, poussé et audit-ok. La file reprend les fusions. Étape 3 reste dans ETAT.json.en_attente tant que le critère n'est pas vert.
 
+- 18.10.2026 · Étape 4 traitée, fusions/audit en attente : #50/#53/#54/#49 main intégré, shards résolus par le script sans conflit réel signalé, migration 0026 rejouée (elle était encore sur #50, contrairement à la relève), assets régénérés, suites 1.63 et pushes en file sous verrou. #64 : 25 fiches relues, sources hypothermie suisses relues ; doses non auditées et chiffres hors CH/UE remis À vérifier, cadre de cohorte corrigé ; signalement HOPE/décès potentiellement critique, label attente-vial et rapport rouge. Aucune fusion de #64 sans validation de Vial. Les labels #53/#54 attendent la fusion de la précédente.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 ---

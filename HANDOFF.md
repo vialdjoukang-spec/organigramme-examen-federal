@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · reprise Étapes 3–4 · 18.10.2026 Europe/Zurich
+État       : #43 et #71 fusionnées ; Pages #71 prouvé. #44/#45 reprises et testées, pushes en cours ; #58 audit final écrit et suite 1.63 ; #47 rapport réuni/poussé. #50/#53/#54/#49 reconstruites, suites/pushes locaux en file. #64 poussée avec attente-vial et audit partiel.
+Prochaine  : Étape 5 (#60 → #62) ; maintenir les reprises des Étapes 3/4 dans ETAT.json.en_attente. Après fusion de #50, poser audit-ok sur #53 ; après #53 sur #54, conformément à l'audit Hérophile existant.
+Sources    : Limper/BASEL IX/ESGE/HAS/ESC pour #58 ; Europe PMC XML publics PMC8744717, PMC10448201, PMC9518193 pour hypothermie #64, lus le 17.10 UTC / 18.10 Zurich.
+Pièges     : patch 0026 encore non intégré au départ, nouvelle construction dans assets/mono ; modèles cliniques AIPS lue ne prouvent pas une ligne de doses validée ; dates ISO UTC pour les gardes.
+À vérifier : signalement potentiellement critique HOPE/décès de #64 (R13), audit primaire endocrinien restant, doses AIPS Étape 6, CI et publications. Aucun succès ou accord médical inventé.
+
 ## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
 État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
 Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.

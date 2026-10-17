@@ -18,3 +18,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 
 - 18.10.2026 · Étape 3 · #44/#45/#58 : conflits dans app_v2 et prev.js ; app repris de main, correctifs audités rejoués, assets régénérés. Les fusions restent en attente des suites et de la CI, sans forçage. Poursuite Étape 4 selon R7, reprise par la file.
 - 18.10.2026 · Tests locaux initiaux : Playwright 1.62 différent du 1.63 figé dans la CI ; échecs d'interaction de fermeture/panneau calendrier constatés. Venv 1.63 et Chromium 1243 installés, aucune assertion abaissée.
+
+- 18.10.2026 · Étape 4 · Reprises des cinq PR effectuées ; fusions en attente de CI et d'ordre des labels. #64 suspendue par attente-vial (HOPE et constat de décès), pas d'audit-ok ; la file poursuit les autres chaînes.
