@@ -41,7 +41,7 @@ rep('${n.sub?`<small>', "${n.pv||''}${n.sub?`<small>")
 
 rep('<div class="nl">${R.map(n=>nRow(c,n))', '<div class="nl">${k[0]===\'2\'&&R.length?PV_LEG:\'\'}${R.map(n=>nRow(c,n))')
 
-rep("h=T.d[i];src=T.s}else if(b[0]==='f')", "h=pvLine(a,i)+T.d[i];src=T.s}else if(b[0]==='f')")
+rep("h=T.d[i];src=T.s;if(MO)return {hd:'Monographie · '+a,ti:dn,h:MO.h,", "h=pvLine(a,i)+T.d[i];src=T.s;if(MO)return {hd:'Monographie · '+a,ti:dn,h:pvLine(a,i)+MO.h,")
 
 rep('CK_DEP={glo:', "CK_DEP={pv:['prev','src'],glo:")
 
@@ -52,7 +52,8 @@ rep("if(!ckNeed(ty,a,key))return ckWait({syn:'Syndrome',hyp:'Exploration',loc:'S
     "+(e.cadre?`<p><b>Cadre</b> : ${esc(e.cadre)}.</p>`:'')+(S?`<p><b>Source</b> : ${S.url?`<a href=\"${esc(S.url)}\" target=\"_blank\" rel=\"noopener\">${esc(S.titre)}</a>`:esc(S.titre)} (${esc(S.org)})${e.loc?', '+esc(e.loc):''}, lue le ${ckDate(e.date_lu)}.</p>`:'')+(e.note?`<p>${esc(e.note)}</p>`:'')}}\n "
     "if(!ckNeed(ty,a,key))return ckWait({syn:'Syndrome',hyp:'Exploration',loc:'Synthèse locale',nc:'Schéma'}[ty]);")
 
-rep("ckLoad('glo-index').catch(()=>{})", "(ckLoad('glo-index').catch(()=>{}),ckLoad('prev').catch(()=>{}),ckLoad('src').catch(()=>{}))")
+# Chargement de prev.js et src.js à l'ouverture d'une fiche de Notions CK seulement (rien de plus au démarrage : CLS de l'accueil inchangé).
+rep("function nBlock(c,compact){const s=BY[c];if(!s)return '';", "function nBlock(c,compact){const s=BY[c];if(!s)return '';if(PRV[c]&&typeof ckLoad==='function'){ckLoad('prev').catch(()=>{});ckLoad('src').catch(()=>{})}")
 
 open(p, 'w', encoding='utf-8').write(s)
 print('0020 appliqué')
