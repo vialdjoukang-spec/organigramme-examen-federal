@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Podalire · chaîne clinique du VII (NC-1) · 17.10.2026, Europe/Zurich
+État       : feat/nc07-chaine : data/ck/syn.json (5 syndromes vii-site1 à vii-site5, module neuro-nc), hyp.json (12 hypothèses : avc-ischemique et avc-hemorragique bloquantes, tumeur-cerebrale, bell, zona-oticus, schwannome-vestibulaire, fracture-rocher, otite-moyenne-compliquee, cholesteatome, neuroborreliose, tumeur-parotide, traumatisme-facial), nc.json (nc07 : noyaux, trajet, foramens, territoires, 5 lésions, vues), 10 sources ajoutées à src.json ; G1 à G7 conformes, Lyncée 0 terme nouveau. La branche contient la PR #22 (glossaire lot 01), dont les identifiants glo sont cités.
+Prochaine  : Galien relit le diff (audit:galien), définit les termes listés dans journal/nerfs-ck.md et lit les posologies « À vérifier » ; Podalire source les points « À vérifier » ; Hermès affiche hyp, syn et nc dans tipFor.
+Sources    : HUG, Protocole PFP v1.2 du 04.04.2023 ; DGN/SNG S2k 030-013 (2022) ; DGN S3 030-071 Neuroborreliose (2024) ; ESO IVT (2021) ; ESO-ESMINT thrombectomie (2019) ; ESO-EANS hémorragie intracérébrale (2025) ; EANO schwannome vestibulaire (2020) ; EANO gliomes (2021) ; ESMO-EURACAN glandes salivaires (2022) ; lus le 17.10.2026.
+Pièges     : G1 lit « 30 mL » comme une dose : un volume d’hématome s’écrit « 30 millilitres ». Podalire n’écrit aucune posologie : une dose passe par dose_ref vers doses_ch.json, sinon la phrase « La posologie … reste À vérifier ». Les identifiants syn et hyp sont cités par nc/annot/nc07.yml : ne pas les renommer. Les sigles d’éditeurs des titres de sources sont exclus de Lyncée avec motif (qa/termes_exclus.txt).
+À vérifier : imagerie et chirurgie de la fracture du rocher, de l’otite compliquée, du cholestéatome et des plaies des rameaux ; précautions des produits de contraste ; « atteinte d’un seul rameau évoque une tumeur » (L5) ; posologies de la corticothérapie, de la thrombolyse et des antibiotiques.
+
 ## Hippocrate et Galien · NC-0 glossaire CK et audit médical · 17.10.2026, Europe/Zurich
 État       : feat/ck-glossaire-lot01 (sur feat/ck-socle) : glo.json 100 entrées (70 signes, 25 syndromes, 3 examens, 2 termes ; 6 « À vérifier »), src.json 19 sources, doses_ch.json 3 lignes AIPS ; 29 fautes corrigées par les automates régionaux (0 critique, 3 majeures, 26 mineures), qa/audit/RAPPORT_FAUTES.md ; G1 à G7 et Lyncée réussissent.
 Prochaine  : Asclépios contre-lit doses_ch.json et qa/posologies.md ; Vial coche qa/validation-vial-glo-lot01.md ; Hippocrate écrit le lot 02 (hyposmie, quadranopsie, cécité, hémiparésie, hypotonie, méningite…).

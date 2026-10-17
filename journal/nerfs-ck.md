@@ -93,3 +93,43 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 - L’image unique de 30 repères est remplacée par 5 préréglages : trajet (rocher agrandi, encart), branches (profil), fonctions (trois quarts, aplats pâles), lésions 1 à 5 (1 en rouge, dans l’encart), plan.
 - Branches en profil plutôt que de face : rendu de face essayé : les 5 branches se tassent sur une bande verticale de la joue et les repères marginal et cervical se confondent ; en profil, elles s’ouvrent en éventail (T-Z-B-M-C de haut en bas).
 - Trajet : l’étiquette « segment labyrinthique » est fondue dans « ganglion géniculé » (repères distants de 12 px même agrandis).
+
+## Podalire · chaîne clinique du VII (NC-1) · 17.10.2026, Europe/Zurich
+
+### Décisions
+- 16:45 · Branche feat/nc07-chaine créée depuis origin/main (dbf010c, PR #20), puis fusion de feat/ck-glossaire-lot01 (PR #22, verte, non encore fusionnée) : les syndromes citent ses identifiants glo (paralysie-faciale-peripherique, -centrale, signe-de-charles-bell, hyperacousie, syndrome-de-ramsay-hunt…), que G5 exige. La PR #22 doit donc entrer dans main avant ou avec celle-ci.
+- 16:50 · Un syndrome par site (vii-site1-central, vii-site2-genicule, vii-site3-tympanique, vii-site4-mastoidien, vii-site5-extracranien), module neuro-nc ; les 12 identifiants d’hypothèses reprennent ceux de nc/annot/nc07.yml (Ariane), sans renommage.
+- 16:55 · « Examen de référence » seulement quand la source le dit : IRM T1 avec gadolinium pour le schwannome vestibulaire (EANO 2020, « gold standard ») et IRM sans et avec gadolinium pour la tumeur cérébrale (EANO 2021, « diagnostic gold standard »). Toutes les autres hypothèses sont en 1re, 2e et 3e intention. L’artériographie numérisée est nommée « examen de référence » des malformations dans l’alternative de l’hémorragie (ESO-EANS 2025, « reference standard of IADSA »).
+- 17:00 · Rouge (bloquant: true) pour les deux seules urgences vitales : AVC ischémique et hémorragie intracérébrale.
+- 17:05 · Aucune posologie écrite. Le zona otique renvoie par dose_ref aux deux lignes suisses du valaciclovir lues par Galien (valaciclovir-po-adulte-zona, -ir). La corticothérapie (HUG : schéma par kg ; DGN : deux schémas en mg) ne correspond à aucune ligne de doses_ch.json : elle reste « À vérifier ».
+- 17:10 · Divergence signalée, non tranchée : la ponction lombaire est recommandée chez l’adulte par la DGN, mais réservée aux formes atypiques par les HUG ; l’antiviral dans la paralysie de Bell vise les grades V-VI (DGN) ou IV-VI (HUG). Les deux positions sont écrites, avec leur source.
+- 17:15 · Quatorze termes que Lyncée signalait ont été reformulés sans perte de sens (« moitié de la langue » pour « hémilangue », « malformation caverneuse », « ENMG », « fosse postérieure »…). Huit sigles ou mots anglais présents seulement dans les titres de sources sont exclus avec motif, selon le précédent CEEDMM/PNDS.
+- 17:20 · nc07.vues pointe vers les préréglages fusionnés (branches = profil, lésions = trois quarts, plan) ; à remplacer quand Dédale livre les 3 vues « crâne, nerf jaune ».
+
+### Sources lues (17.10.2026)
+- HUG, Service des urgences, « Paralysie faciale périphérique », protocole v1.2 du 04.04.2023, § 1 à 6, https://www.hug.ch/sites/interhug/files/2023-04/paralysie_faciale_peripherique_avril_2023_1.pdf.
+- DGN/SNG, S2k 030-013 « Therapie der idiopathischen Fazialisparese » (28.02.2022) : Was gibt es Neues, Die wichtigsten Empfehlungen, § 2.1 (Tabelle 1), 2.2, 2.3, 2.4, 2.5, 2.6, 3.1 (zona otique), 3.2 et Tabelle 4, https://register.awmf.org/assets/guidelines/030-013l_S2k_Therapie-Idiopathische-Fazialisparese-Bell%E2%80%99s-Palsy_2022-05.pdf.
+- DGN, S3 030-071 « Neuroborreliose » (30.04.2024) : § 3.10 (critères possible, probable, certaine), recommandations sur l’antibiothérapie et sa durée, § 5.2.4 et recommandation 15, https://register.awmf.org/assets/guidelines/030-071l_S3_Neuroborreliose_2024-05.pdf.
+- ESO, thrombolyse intraveineuse (2021), recommandations et déclarations de consensus (version MAGICapp), doi:10.1177/2396987321989865.
+- ESO-ESMINT, thrombectomie mécanique (2019), questions 1, 2, 8.4 et 8.5 (version MAGICapp), doi:10.1177/2396987319832140.
+- ESO-EANS, hémorragie intracérébrale (2025), PICO 1.1, 1.2.1, 1.2.2, 2, 4.1, 5.2 (PMC12098356 et présentation officielle sur eso-stroke.org), doi:10.1177/23969873251340815.
+- EANO, schwannome vestibulaire (2020), Abstract, Diagnostic Procedures (Imaging), Therapeutic Strategies, Follow-up (PMC6954440), doi:10.1093/neuonc/noz153.
+- EANO, gliomes diffus de l’adulte (2021), Preoperative diagnostics, Tissue acquisition (PMC7904519), doi:10.1038/s41571-020-00447-z.
+- ESMO-EURACAN, cancers des glandes salivaires (2022), Diagnostic work-up, Recommendations, Surgical management (PMC9808465), doi:10.1016/j.esmoop.2022.100602.
+
+### À vérifier
+- Fracture du rocher : choix de l’imagerie (scanner haute résolution) et critères chirurgicaux ; une recommandation ENT UK existe (entuk.org, hors liste blanche G3) : Argos et Janus jugent s’il faut l’admettre.
+- Otite moyenne compliquée et cholestéatome : choix scanner ou IRM, antibiothérapie, paracentèse, chirurgie.
+- Plaie des rameaux : conduite, suture ou greffe et délai.
+- Précautions des produits de contraste iodé et du gadolinium (insuffisance rénale, grossesse).
+- L5 (Ariane) : « l’atteinte d’un seul rameau évoque une tumeur » reste à sourcer ; « évolution chronique atypique, cause tumorale » est désormais sourcée (HUG § 2).
+- Posologies : corticothérapie de la paralysie de Bell et du zona otique, altéplase et ténectéplase, antihypertenseurs de l’hémorragie, antidotes des anticoagulants, antibiotiques de la neuroborréliose.
+
+### Termes pour Galien
+Déjà dans la liste d’Ariane (nc07.yml) : méat acoustique interne, angle ponto-cérébelleux, canal facial, nerf grand pétreux, corde du tympan, nerf du muscle stapédien, réflexe stapédien, lagophtalmie, otoscopie, conque, cholestéatome, neuroborréliose, zona otique, schwannome vestibulaire.
+Nouveaux (chaîne clinique) : thrombolyse intraveineuse ; thrombectomie mécanique ; altéplase ; ténectéplase ; imagerie de perfusion ; décalage diffusion-FLAIR ; angioscanner ; angio-IRM ; IRM de diffusion ; séquence FLAIR ; gadolinium ; INR ; antivitamine K ; anticoagulant oral direct ; numération plaquettaire ; circulation antérieure ; centre de l’AVC (unité neurovasculaire) ; signes précoces d’ischémie ; hémorragie intracérébrale ; hématome ; cause macrovasculaire ; malformation artérioveineuse ; anévrisme intracrânien ; fistule durale ; malformation caverneuse ; thrombose veineuse cérébrale ; artériographie numérisée ; concentré de complexe prothrombinique ; antidote spécifique ; fosse postérieure ; trouble de la déglutition ; diagnostic tissulaire ; échelle de House-Brackmann ; syncinésie ; électroneuromyographie (ENMG) ; perte axonale ; amplitude motrice ; charge palpébrale ; réanimation microchirurgicale ; greffe transfaciale ; anastomose hypoglosso-faciale ; transfert musculaire ; conduit auditif externe ; vésicules ; zona sans éruption ; virus varicelle-zona ; ponction lombaire ; méningite lymphocytaire ; barrière hémato-encéphalique ; synthèse intrathécale d’anticorps ; index d’anticorps spécifiques ; immunoblot ; test immuno-enzymatique ; érythème migrant ; radiochirurgie ; audiométrie ; monitorage du nerf facial ; réunion de concertation pluridisciplinaire ; mastoïde ; mastoïdite ; otite moyenne ; paracentèse ; cytoponction à l’aiguille fine ; système de Milan ; biopsie au trocart ; parotidectomie totale ; adénopathie ; diagnostic d’exclusion ; tumeur de la parotide ; fracture du rocher ; otalgie ; dysgueusie.
+Lyncée ne détecte pas ces termes (règles d’affixes) : G4 passe, mais la règle du glossaire imbriqué exige leur définition.
+
+### Prochaine action
+- Galien : revue de niveau 2 du diff data/ck (audit:galien), définitions ci-dessus, posologies AIPS.
+- Podalire : sourcer les points « À vérifier » (NC-1b), puis chaîne des paires suivantes après validation du pilote par Vial.
