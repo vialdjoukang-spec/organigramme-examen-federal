@@ -160,7 +160,6 @@ Ajout (17:45) : repères numérotés g.nc-num, avec bulle « n · nom » et ouve
 - Correction au passage : les épaisseurs du nerf (8,5 px, dont 6,5 px de jaune) et du cerne des noyaux (1 px) sont enfin celles de l’image : svgo applique les transformations aux chemins, la feuille de style les réduisait d’un facteur 1,3.
 - Contrat des repères pour Hermès : HANDOFF.md, section Dédale.
 
-Suivi (18:30) : patch 0013, car les couches à plusieurs groupes (g.numeros par état) n’étaient réglées que sur leur premier groupe ; contrôles réels des repères de Dédale (bulle, glossaire, légende) ; attente du schéma d’essai par condition, et non plus par délai fixe ; test_ck_ui compte 74 contrôles ; les fichiers d’essai sont servis localement quand APP_URL vise le site public.
 
 ## Podalire · chaîne justifiée du VII (G8) · 17.10.2026, Europe/Zurich
 Retour de Vial : « Tu parles de thrombolyse comme si tu avais introduit le principe… Pourquoi pas autre chose ? ».
@@ -178,3 +177,4 @@ Retour de Vial : « Tu parles de thrombolyse comme si tu avais introduit le prin
 - Mode d’action des thrombolytiques et des corticoïdes au-delà de ce que disent les lignes directrices lues ; complications propres de la thrombectomie ; « l’hémisphère opposé » pour la partie basse du noyau (le CEN écrit « unilatérales ») ; choix scanner ou IRM pour l’os du rocher.
 ### Termes pour Galien (nouveaux)
 zone récupérable (pénombre) ; expansion de l’hématome ; lésion secondaire ; stent retriever ; aspiration au contact ; reperfusion ; fibrine ; inhibiteur du facteur Xa ; idarucizumab ; andexanet alfa ; dabigatran ; bêtalactamine ; afférences pyramidales ; voie motrice ; clairance de la créatinine.
+Suivi (18:30) : patch 0013, car les couches à plusieurs groupes (g.numeros par état) n’étaient réglées que sur leur premier groupe ; contrôles réels des repères de Dédale (bulle, glossaire, légende) ; attente du schéma d’essai par condition, et non plus par délai fixe ; test_ck_ui compte 74 contrôles ; les fichiers d’essai sont servis localement quand APP_URL vise le site public.
