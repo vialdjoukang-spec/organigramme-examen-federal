@@ -39,6 +39,29 @@ return r.violations.map(v=>({id:v.id,impact:v.impact,aide:v.help,noeuds:v.nodes.
                        CFG['axe']['tags'])
 
 
+# Texte coupé : tout élément à overflow hidden ou clip dont le contenu dépasse (scrollHeight > clientHeight + 1 ou
+# scrollWidth > clientWidth + 1) échoue, sauf s'il porte une ellipse explicite (text-overflow: ellipsis ou
+# -webkit-line-clamp) ET un texte complet accessible (title, data-t de la fenêtre d'information, aria-describedby).
+CLIP_JS = r"""()=>{const out=[];const vis=el=>{const r=el.getBoundingClientRect();if(r.width<3||r.height<3)return false;const cs=getComputedStyle(el);return cs.visibility!=='hidden'&&!el.closest('[hidden]')};
+const tip=el=>!!el.closest('[title],[data-t],[aria-describedby]');
+for(const el of document.querySelectorAll('body *')){if(el.closest('svg,script,style,template'))continue;const cs=getComputedStyle(el);
+const ox=cs.overflowX,oy=cs.overflowY,cut=v=>v==='hidden'||v==='clip';if(!cut(ox)&&!cut(oy))continue;
+if(!(el.innerText||'').trim()||!vis(el))continue;
+const v=cut(oy)&&el.scrollHeight>el.clientHeight+1,h=cut(ox)&&el.scrollWidth>el.clientWidth+1;if(!v&&!h)continue;
+const clamp=parseInt(cs.webkitLineClamp||cs.getPropertyValue('-webkit-line-clamp'))>0,ell=cs.textOverflow==='ellipsis';
+const okV=!v||(clamp&&tip(el)),okH=!h||((ell||clamp)&&tip(el));if(okV&&okH)continue;
+const id=(el.tagName.toLowerCase()+(el.id?'#'+el.id:'')+(typeof el.className==='string'&&el.className.trim()?'.'+el.className.trim().split(/\s+/).join('.'):'')).slice(0,70);
+out.push({el:id,texte:(el.innerText||'').trim().replace(/\s+/g,' ').slice(0,60),sens:(v?'vertical':'')+(v&&h?'+':'')+(h?'horizontal':''),h:[el.clientHeight,el.scrollHeight],w:[el.clientWidth,el.scrollWidth]});if(out.length>=40)break}
+return out}"""
+
+# État « cal-bandes » : séances de 15 à 120 min aux chapitres les plus longs, sur la semaine figée, pour juger
+# le texte des bandes en vue Semaine et en vue Jour. Elles vivent seulement dans le stockage local de ce contexte.
+SEED_BANDES_JS = """()=>{const D=['2026-11-16','2026-11-17','2026-11-18','2026-11-19','2026-11-20','2026-11-21','2026-11-22'],U=[15,30,45,60,90,120];
+const L=SSP.slice().sort((a,b)=>b[1].length-a[1].length);const S0=JSON.parse(localStorage.getItem('orga-ef')||'{}');S0.seances={};
+D.forEach((d,i)=>{U.forEach((u,j)=>{S0.seances['clip'+i+j]={date:d,start:7*60+j*150,dur:u,ssp:L[(i*6+j)%L.length][0],act:['Cours CK','Fondamentaux F′','QCM','Révision'][(i+j)%4],done:(i+j)%3===0,score:0,qcm:null,note:'',maj:''}})});
+localStorage.setItem('orga-ef',JSON.stringify(S0));localStorage.setItem('orga-tab','cal')}"""
+
+
 def settle(pg, ms=450):
     pg.wait_for_timeout(ms)
     pg.evaluate("()=>document.fonts.ready")
@@ -110,6 +133,7 @@ def main():
                     pg.mouse.move(0, 0)
                     k = f'{key}_{t}'
                     M['debordement'][k] = pg.evaluate(OVERFLOW_JS)
+                    M.setdefault('texte_coupe', {})[k] = pg.evaluate(CLIP_JS)
                     if have_axe and t != 'not-fenetre':
                         M['axe'][k] = axe_run(pg)
                     full = pg.evaluate('()=>document.documentElement.scrollHeight')
@@ -124,6 +148,29 @@ def main():
                     if t == 'not-fenetre':
                         pg.keyboard.press('Escape')
                 M['erreurs_page'][key] = errs
+                c.close()
+        # Bandes de séance : aucun texte coupé sans ellipse ni texte complet, en vue Semaine et en vue Jour.
+        for vn in a.variantes.split(','):
+            v = CFG['variantes'][vn]
+            for pn in a.profils.split(','):
+                pr = CFG['profils'][pn]
+                if 'device' in pr:
+                    ctxa = dict(p.devices[pr['device']]); ctxa['device_scale_factor'] = pr.get('device_scale_factor', ctxa['device_scale_factor'])
+                else:
+                    ctxa = {'viewport': {'width': pr['viewport'][0], 'height': pr['viewport'][1]}}
+                ctxa.update(color_scheme=v['schema'], reduced_motion='reduce', locale='fr-CH', timezone_id='Europe/Zurich')
+                c = b.new_context(**ctxa); pg = c.new_page(); pg.clock.set_fixed_time(fixed)
+                errs = []; pg.on('pageerror', lambda e: errs.append(str(e)[:200]))
+                pg.goto('file://' + APP, wait_until='load'); pg.evaluate(SEED_BANDES_JS); pg.reload(wait_until='load'); settle(pg, 1500)
+                if v.get('gilt') is not None:
+                    pg.evaluate("g=>{const r=document.getElementById('d-gilt');r.value=g;r.dispatchEvent(new Event('input',{bubbles:true}))}", v['gilt'])
+                for mode, nom in (('w', 'semaine'), ('d', 'jour')):
+                    pg.select_option('#mode', mode); settle(pg, 300)
+                    k = f'{vn}_{pn}_cal-bandes-{nom}'
+                    r = pg.evaluate(CLIP_JS)
+                    n = pg.evaluate("()=>document.querySelectorAll('#grid .blk').length")
+                    M.setdefault('texte_coupe', {})[k] = r if n else [{'el': '#grid', 'texte': 'aucune séance rendue', 'sens': '—'}]
+                M['erreurs_page'][f'{vn}_{pn}_cal-bandes'] = errs
                 c.close()
         # Rendu sans réseau : toute dépendance externe (CDN de polices, scripts) modifie la capture.
         c = b.new_context(viewport={'width': 1440, 'height': 900}, color_scheme='light', reduced_motion='reduce',
