@@ -213,6 +213,12 @@ case('G5_syn_vue_nerf_absent_echoue', lambda f: mut(f, lambda d: d['syn'][0].upd
 case('G5_syn_vue_non_livree_avertit', lambda f: (f.data['syn'][0].update(vues=['nc|nc07|voie_motrice']), f.save(),
                                                (lambda r: r[0] == 0 and 'pas encore livrée' in r[1])(run('ck_build.py', '--racine', f.d)))[-1])
 case('G5_syn_vue_inconnue_echoue', lambda f: mut(f, lambda d: d['syn'][0].update(vues=['nc|nc07|dessus']), 'G5'))
+# Geste (A) relié à un syndrome (Podalire, 17.10.2026) : la clé doit exister dans le catalogue GES de l’application.
+_REEL = open(os.path.join(ROOT, 'app_v2.html'), encoding='utf-8').read()
+case('G5_syn_gestes_cle_connue_passe', lambda f: (f.app(_REEL), f.data['syn'][0].update(gestes=['thorax_8']), f.save(),
+                                                 run('ck_build.py', '--racine', f.d)[0] == 0)[-1])
+case('G5_syn_gestes_cle_absente_echoue', lambda f: (f.app(_REEL), f.data['syn'][0].update(gestes=['thorax_999']), f.save(),
+                                                   (lambda r: r[0] == 1 and 'absente de GES' in r[1])(run('ck_build.py', '--racine', f.d)))[-1])
 # Artefact
 case('artefact_audit_flags_ecrit', lambda f: (mut(f, lambda d: d['glo'][0].pop('src'), 'G2'),
                                              run('audit/niveau1.py', '--racine', f.d, '--sortie', os.path.join(f.d, 'qa', 'audit-flags.json')),
