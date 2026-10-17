@@ -22,12 +22,12 @@ from html.parser import HTMLParser
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ck_common import ROOT, load_all, norm, strings, strip_tags  # noqa: E402
 
-VERSION = 'lyncee-1'
+VERSION = 'lyncee-2'  # lyncee-2 : corpus étendu aux monographies (data/ck/mono)
 SUFFIXES = ('ite', 'ites', 'ose', 'oses', 'algie', 'algies', 'emie', 'emies', 'pathie', 'pathies', 'plegie',
             'plegies', 'paresie', 'ectomie', 'tomie', 'stomie', 'scopie', 'graphie', 'gramme', 'plastie',
             'urie', 'pnee', 'rragie', 'rrhee', 'cele', 'lyse', 'penie', 'cytose', 'ome', 'omes', 'oide',
             'oides', 'emique', 'pathique', 'plegique', 'algique', 'ectasie', 'trophie', 'esthesie', 'phasie',
-            'praxie', 'gnosie', 'opie', 'cardie', 'ptose', 'sclerose', 'stenose', 'itis')
+            'praxie', 'gnosie', 'megalie', 'plasie', 'opie', 'cardie', 'ptose', 'sclerose', 'stenose', 'itis')
 PREFIXES = ('hyper', 'hypo', 'dys', 'tachy', 'brady', 'hemi', 'hemat', 'hemo', 'cardio', 'neuro', 'gastro',
             'hepat', 'nephr', 'pneumo', 'osteo', 'arthr', 'myo', 'dermat', 'encephal', 'chole', 'angio',
             'thrombo', 'leuco', 'erythro', 'ophtalm', 'oto', 'rhino', 'laryng', 'pharyng', 'oesophag',
@@ -79,6 +79,7 @@ def _json_strings(v, path):
             yield from _json_strings(x, f'{path}.{k}')
 
 
+MONO_NON_TEXTE = {'src', 'lu', 'id', 'ssp'}
 CS_NON_TEXTE = {'ssp', 'format', 'ges', 'competences', 'dim', 'redige_par', 'session'}
 
 
@@ -100,6 +101,15 @@ def corpus(root):
     for name, items in load_all(root).items():
         for p, _, t in strings(items, name):
             yield p, t
+    # Monographies des différentiels (data/ck/mono) : tout le texte affiché, sauf source et date.
+    mdir = os.path.join(root, 'data', 'ck', 'mono')
+    if os.path.isdir(mdir):
+        for fn in sorted(os.listdir(mdir)):
+            if fn.endswith('.json'):
+                for k, e in json.load(open(os.path.join(mdir, fn), encoding='utf-8')).items():
+                    for champ, t in e.items():
+                        if champ not in MONO_NON_TEXTE and isinstance(t, str):
+                            yield f'mono.{k}.{champ}', strip_tags(t)
     # Stations CS (data/cs) : même texte affiché, sauf les codes propres aux stations.
     for name in ('format', 'stations'):
         f = os.path.join(root, 'data', 'cs', name + '.json')
@@ -239,6 +249,46 @@ def renvois_texte(root, data):
     return sorted(set(errs))
 
 
+def arbres_branches(root, motifs):
+    """Extrait (git archive) le texte affiché de chaque branche distante qui suit un motif ; rend [(ref, dossier)]."""
+    import fnmatch, tarfile, tempfile, io
+    refs = subprocess.run(['git', 'for-each-ref', '--format=%(refname:short)', 'refs/remotes/origin'],
+                          cwd=root, capture_output=True, text=True).stdout.split()
+    out = []
+    for r in refs:
+        nom = r.split('/', 1)[-1]
+        if nom in ('HEAD', 'main') or not any(fnmatch.fnmatch(nom, m) for m in motifs):
+            continue
+        d = tempfile.mkdtemp(prefix='lyncee-')
+        p = subprocess.run(['git', 'archive', r, 'app_v2.html', 'data/ck', 'data/cs', 'qa/termes_exclus.txt'],
+                           cwd=root, capture_output=True)
+        if p.returncode != 0:  # chemin absent dans une vieille branche : on reprend sans data/cs
+            p = subprocess.run(['git', 'archive', r, 'app_v2.html', 'data/ck'], cwd=root, capture_output=True)
+        if p.returncode == 0:
+            tarfile.open(fileobj=io.BytesIO(p.stdout)).extractall(d, filter='data')
+            out.append((nom, d))
+    return out
+
+
+def recensement(root, motifs):
+    """Termes non définis dans main ET dans les branches ouvertes, classés par fréquence décroissante.
+    Un terme défini dans une branche (glossaire en attente de fusion) est marqué « en attente »."""
+    arbres = [('main', root)] + arbres_branches(root, motifs)
+    tous, d_all, abr_all = {}, set(), set()
+    for nom, d in arbres:
+        dd, aa, _ = definis(d, load_all(d))
+        d_all |= dd; abr_all |= aa
+    d0, a0, _ = definis(root, load_all(root))
+    for nom, d in arbres:
+        for k, (f, n, where) in candidats(corpus(d)).items():
+            if est_defini(k, d0, a0):
+                continue
+            e = tous.setdefault(k, [f, 0, where, []])
+            e[1] = max(e[1], n); e[3].append(nom)
+    rows = sorted(([k] + v + [est_defini(k, d_all, abr_all)] for k, v in tous.items()), key=lambda x: (-x[2], x[0]))
+    return rows, [n for n, _ in arbres]
+
+
 def baseline_de(root, ref, path):
     """Référence lue dans la branche de base (git show), ou None."""
     rel = os.path.relpath(path, root)
@@ -254,8 +304,24 @@ def main(argv=None):
     ap.add_argument('--update', action='store_true', help='resserre la référence (jamais d’ajout)')
     ap.add_argument('--init', action='store_true', help='crée la référence si elle n’existe pas')
     ap.add_argument('--json', default=None)
+    ap.add_argument('--branches', nargs='*', default=None, metavar='MOTIF',
+                    help='recensement : main + branches origin/<motif> (défaut feat/*), classé par fréquence')
+    ap.add_argument('--top', type=int, default=60)
+    ap.add_argument('--inclure-branches', action='store_true',
+                    help='avec --init : la référence couvre aussi les termes des branches ouvertes')
     a = ap.parse_args(argv)
     root = a.racine
+    if a.branches is not None:
+        rows, noms = recensement(root, a.branches or ['feat/*'])
+        print(f'Lyncée · recensement ({len(noms)} arbres : {", ".join(noms)}) : {len(rows)} termes non définis '
+              f'dans main, dont {sum(r[5] for r in rows)} en attente dans une branche.')
+        for r in rows[:a.top]:
+            print(f'{r[2]:6d}  {r[1]}{"  (en attente)" if r[5] else ""}  [{", ".join(r[4][:3])}]')
+        if a.json:
+            os.makedirs(os.path.dirname(os.path.abspath(a.json)), exist_ok=True)
+            json.dump({'regles': REGLES, 'arbres': noms, 'non_definis': rows},
+                      open(a.json, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+        return 0
     bl_path = a.baseline or os.path.join(root, 'qa', 'termes-baseline.json')
     data = load_all(root)
     c = candidats(corpus(root))
@@ -271,6 +337,9 @@ def main(argv=None):
                   open(a.json, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
     if not os.path.exists(bl_path):
         if a.init:
+            if a.inclure_branches:
+                rows, _ = recensement(root, ['feat/*'])
+                nd = dict(nd, **{r[0]: r[1:4] for r in rows if not r[5]})
             _write(bl_path, sorted(nd))
             print(f'Référence créée : {len(nd)} termes.')
             return 0
