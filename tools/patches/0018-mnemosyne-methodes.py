@@ -21,7 +21,10 @@ rep('.opt{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240
     '.m-it h3{margin:0;padding:8px 12px;background:#eaf4ec;border-bottom:1px solid #cfe3d4;font-size:.95rem;line-height:1.35;font-weight:700;color:#000;display:flex;gap:8px;align-items:baseline}'
     '.m-it h3 .tw{color:#000}.m-n{flex:none;display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;border-radius:50%;background:#fff;border:1px solid #2f7a4a;font-size:.78rem;color:#000}'
     '.m-it p{margin:8px 12px;text-align:justify;hyphens:auto;line-height:1.45;overflow-wrap:anywhere}.m-it p b{color:#000}.m-it .st a,.m-ref a{color:var(--deep)}'
-    '.m-cons{margin:10px 0 4px;text-align:justify;line-height:1.5}.m-intro{text-align:justify}.m-ref{margin:4px 0 0;padding-left:18px}.m-ref li{margin:3px 0;text-align:justify}')
+    '.m-cons{margin:10px 0 4px;text-align:justify;line-height:1.5}.m-intro{text-align:justify}.m-ref{margin:4px 0 0;padding-left:18px}.m-ref li{margin:3px 0;text-align:justify}'
+    '@media (max-width:620px),(pointer:coarse){#v-memo .ti{width:24px;height:24px;font-size:.78rem}}'
+    '@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .m-it{background:var(--paper)}:root:not([data-theme="light"]) .m-it h3{background:color-mix(in srgb,var(--ok) 16%,var(--paper));border-color:var(--line)}'
+    ':root:not([data-theme="light"]) .m-it h3,:root:not([data-theme="light"]) .m-it h3 .tw,:root:not([data-theme="light"]) .m-it p b,:root:not([data-theme="light"]) .m-n{color:var(--ink)}:root:not([data-theme="light"]) .m-n{background:var(--paper);border-color:var(--ok)}}')
 
 # HTML : options nouvelles et libellé du rappel libre (les identifiants existants ne changent pas).
 rep('<label><input type="checkbox" id="m-rappel"><span><b>Rappel libre avant relecture</b> : noter de mémoire le plan du SSP, puis vérifier.</span></label>',
