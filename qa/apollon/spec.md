@@ -1,6 +1,6 @@
 # Apollon · spécification de la présentation premium
 
-Date : 17.10.2026 (Europe/Zurich). Portée : présentation seule. Le patch `tools/patches/0004-apollon-premium.py` ajoute `tools/patches/apollon.css` en fin du bloc de style principal. Il retire la feuille Google Fonts et ajoute `lang="fr"` sur `<html>`. Il ne change aucun texte, aucune donnée, aucun identifiant et aucun script.
+Date : 17.10.2026 (Europe/Zurich). Portée : présentation seule. Le patch `tools/patches/0005-apollon-premium.py` ajoute `tools/patches/apollon.css` en fin du bloc de style principal. Il retire la feuille Google Fonts et ajoute `lang="fr"` sur `<html>`. Il ne change aucun texte, aucune donnée, aucun identifiant et aucun script.
 
 > **Règle universelle.** Le projet cible doit avoir un résultat de HAUTE QUALITÉ. L’usage des jetons doit être raisonnable et optimisé, et tout gaspillage est formellement interdit. L’économie de jetons est autorisée si et seulement si elle ne dégrade pas la qualité du travail.
 
@@ -52,6 +52,9 @@ Les rayons valent 8, 12 et 18 px, plus une pastille. Les ombres ont trois niveau
 - **Listes de SSP et calendrier.** Les états de survol et de sélection sont doux. L’en-tête du jour est en pastille bronze.
 - **Jauges.** Le rail est en creux et le remplissage en dégradé. La largeur s’anime en 0,4 s, sauf en mouvement réduit.
 - **Fenêtre d’information.** Elle s’ouvre sur un bandeau vert pâle qui porte la partie et le titre (serif gras, encre). Viennent ensuite le texte justifié et les sources, avec l’ombre `--sh-3`.
+- **Bandeau 2027 (`.exi-bn`, Thémis).** La première phrase (« La session 2026 est terminée ») est sur la bande vert pâle, et les autres phrases sont dessous, alignées à gauche, car les dates y sont insécables. Le compte à rebours `.cd` est en rouge gras, parce que c’est une échéance capitale. Les liens sont en bronze.
+- **Badge « À vérifier » (`.exi-vb`).** C’est une pastille ivoire ambrée avec un liseré gauche ambre et une encre noire (AA dans les deux thèmes). Le rouge n’est pas utilisé : il s’agit d’un point à vérifier, pas d’une alerte.
+- **Barre collante.** `html{scroll-padding-top: safe-area + var(--nav-h)}`, avec `--nav-h` à 64 px sur ordinateur et 62 px sur mobile. Une ancre, un `scrollIntoView` ou un focus s’arrête donc sous la barre d’onglets. Iris contrôle chaque panneau (état `masquage`) : avant, 18 vues sur 18 étaient masquées en thème clair, et après, il n’y en a plus aucune. Le cas d’un changement d’onglet alors que la page est défilée loin relève du script, puisqu’il faudrait remonter au haut du panneau ; il est confié à Hermès.
 - **Bandeau de sauvegarde.** Le message est en gras sur la bande, et les actions sont dessous. L’état d’alerte se signale par un liseré ambre, et l’erreur de stockage par le rouge. Elle reste un panneau bas sur mobile, et son comportement est inchangé.
 
 ## 5. Mesures (automate Iris, poste local, 60 captures)
@@ -64,7 +67,9 @@ Les rayons valent 8, 12 et 18 px, plus une pastille. Les ombres ont trois niveau
 | Requêtes réseau de polices | 5 | 0 |
 | CLS au chargement, ordinateur | 0,156 | 0,042 |
 | Débordement horizontal sur mobile | 0 | 0 |
-| Contrôles d’interaction | 56/56 | 56/56 |
+| Contraste minimal des bandes de séance | 3,44:1 | 6,03:1 |
+| Haut de panneau masqué par la barre d’onglets (thème clair) | 18 vues | 0 |
+| Contrôles d’interaction | 69/69 | 69/69 |
 
 Restent hors périmètre (balisage, chantier d’Hermès) : `select-name` et `scrollable-region-focusable`, 4 nœuds chacun.
 

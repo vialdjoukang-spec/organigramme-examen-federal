@@ -143,6 +143,12 @@ def main():
             fails.append(f'`{k}` : CLS {v} (plafond {lim:.3f})')
         elif v > CFG['cls_max']:
             warns.append(f'`{k}` : CLS {v} au-dessus de {CFG["cls_max"]} (toléré par la référence)')
+    # 6 bis. Barre d'onglets collante : aucun début de panneau masqué après un défilement programmé.
+    nmask = 0
+    for k, m in sorted(M.get('masquage', {}).items()):
+        if m and m['masque']:
+            nmask += 1
+            fails.append(f'`{k}` : le haut du panneau ({m["haut_contenu"]} px) passe sous la barre d’onglets ({m["nav_bas"]} px)')
     # 6. Bandes de séance du calendrier : contraste AA (4,5:1) de chaque texte sur chaque teinte de jour.
     cmin = []
     for k, cs in M.get('contraste_seances', {}).items():
@@ -164,6 +170,7 @@ def main():
          '| Contraste WCAG AA (color-contrast, nœuds) | ' + (', '.join(f'{v} : {n}' for v, n in sorted(contrast.items())) or 'aucun écart') + ' |',
          f'| Débordement horizontal mobile | {sum(1 for k, d in M["debordement"].items() if d["deborde"] and "_mobile_" in k)} vue(s) |',
          f'| Polices | {sum(len(f["echecs"]) for f in M["polices"].values())} échec(s), {len(ext)} externe(s), rendu hors ligne {"identique" if off is not None and off <= CFG["pixel"]["ratio_max"] else "différent"} |',
+         f'| Haut de panneau masqué par la barre d’onglets | {nmask} vue(s) |',
          f'| Contraste des séances sur les teintes de jour (min) | {min(cmin) if cmin else "—"}:1 (minimum {CFG.get("contraste_min", 4.5)}:1) |',
          f'| CLS au chargement (max) | {max(M["cls"].values()) if M["cls"] else 0} (seuil {CFG["cls_max"]}) |', '']
     if fails:

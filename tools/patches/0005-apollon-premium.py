@@ -1,8 +1,8 @@
 import os, sys
-# Patch 0004 · Apollon · 17.10.2026 · présentation premium (jetons, typographie, composants, thèmes clair, doré et sombre).
+# Patch 0005 · Apollon · 17.10.2026 · présentation premium (jetons, typographie, composants, thèmes clair, doré et sombre).
 # Présentation seule : feuille tools/patches/apollon.css ajoutée en fin du bloc de style principal ; police Google retirée
 # (polices du système, aucun CDN) ; attribut lang="fr" sur <html> (accessibilité, aucun texte modifié).
-# Rejeu : APP_FILE=app_v2.html python3 tools/patches/0004-apollon-premium.py (jamais sur orig/app.html).
+# Rejeu : APP_FILE=app_v2.html python3 tools/patches/0005-apollon-premium.py (jamais sur orig/app.html).
 p = os.environ.get('APP_FILE') or sys.exit('Indiquez APP_FILE (copie de travail).')
 assert not p.endswith('orig/app.html'), 'Interdit I1'
 s = open(p, encoding='utf-8').read()
@@ -17,4 +17,4 @@ rep('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraun
 rep('@media (prefers-reduced-motion:reduce){*{transition:none!important}}\n</style>',
     '@media (prefers-reduced-motion:reduce){*{transition:none!important}}\n' + css + '\n</style>')
 open(p, 'w', encoding='utf-8', newline='').write(s)
-print('Patch 0004 appliqué.')
+print('Patch 0005 appliqué.')

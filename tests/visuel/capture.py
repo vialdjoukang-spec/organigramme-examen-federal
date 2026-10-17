@@ -53,6 +53,13 @@ const days=[...document.querySelectorAll('#grid>.col')].map(c=>getComputedStyle(
 return {mesures:out,min:out.length?Math.min(...out.map(x=>x.ratio)):null,teintes_jours:days}}"""
 
 
+# Barre d'onglets collante : après un défilement programmé vers le panneau actif, son premier élément visible
+# ne doit pas passer sous la barre (scroll-padding-top).
+MASK_JS = """t=>{const p=document.getElementById('v-'+t);if(!p)return null;p.scrollIntoView({block:'start'});
+const n=document.querySelector('nav.tabs').getBoundingClientRect();let f=p.firstElementChild;while(f&&f.getBoundingClientRect().height===0)f=f.nextElementSibling;
+const top=(f||p).getBoundingClientRect().top;const r={nav_bas:Math.round(n.bottom),haut_contenu:Math.round(top),masque:top<n.bottom-1};window.scrollTo(0,0);return r}"""
+
+
 def axe_run(pg):
     return pg.evaluate("""async(tags)=>{const r=await axe.run(document,{runOnly:{type:'tag',values:tags},resultTypes:['violations']});
 return r.violations.map(v=>({id:v.id,impact:v.impact,aide:v.help,noeuds:v.nodes.length,exemples:v.nodes.slice(0,3).map(n=>n.target.join(' '))}))}""",
@@ -143,6 +150,8 @@ def main():
                     M['captures'][k] = os.path.relpath(path, a.sortie)
                     if t == 'not-fenetre':
                         pg.keyboard.press('Escape')
+                    else:
+                        M.setdefault('masquage', {})[k] = pg.evaluate(MASK_JS, tab)
                 # État « cal-seances » : séances semées, rechargement, calendrier, contraste des bandes.
                 pg.evaluate(SEED_JS); pg.reload(wait_until='load'); settle(pg, 1500)
                 if v.get('gilt') is not None:

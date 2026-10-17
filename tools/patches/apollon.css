@@ -1,4 +1,4 @@
-/* ===== Apollon · présentation premium (patch tools/patches/0004-apollon-premium.py). Présentation seule : aucun texte, aucune donnée, aucun ID, aucun JS. ===== */
+/* ===== Apollon · présentation premium (patch tools/patches/0005-apollon-premium.py). Présentation seule : aucun texte, aucune donnée, aucun ID, aucun JS. ===== */
 /* 1. Jetons : polices du système (aucun CDN, rendu identique en file://), couleurs AA, espacements, rayons, ombres, mouvement. */
 :root{--fd:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",P052,Georgia,serif;
 --fb:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif;
@@ -8,16 +8,16 @@
 --r-sm:8px;--r-md:12px;--r-lg:18px;--r-pill:999px;
 --sh-1:0 1px 2px rgba(40,30,8,.06),0 1px 1px rgba(40,30,8,.04);--sh-2:0 1px 2px rgba(40,30,8,.05),0 8px 24px -12px rgba(40,30,8,.18);--sh-3:0 2px 6px rgba(20,14,2,.10),0 24px 48px -20px rgba(20,14,2,.38);
 --ring:0 0 0 2px var(--paper),0 0 0 4px var(--gold);--band:#eaf4ed;--band-line:#cbe2d3;--band-lab:#245536;
---c0:#8a6a3c;--c1:#a7772c;--c2:#878238;--c3:#4c7c55;--c4:#3d7b76;--c5:#486d91;--c6:#5a5d9a;--c7:#76598f;--c8:#8c5a76;--c9:#76674d;--ease:cubic-bezier(.2,.7,.2,1);--dur:.16s}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1a1813;--band:#1c2a21;--band-line:#2d4535;--band-lab:#a3d6b5;--ink:#f4eedf;--mut:#cbc2ac;--line:#38332a;--soft:#24211a;--gold:#e3c374;--gold2:#c9a54f;--deep:#f2dfac;--ok:#74d39b;--warn:#f2bb63;--bad:#f39087;--grid:#2c2921;--grid2:#201e18;--on-gold:#17140c;--bg:color-mix(in srgb,#1a1812 calc(var(--gilt)*100%),#0f0f0e);--sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 1px 2px rgba(0,0,0,.35),0 10px 28px -14px rgba(0,0,0,.7);--sh-3:0 2px 8px rgba(0,0,0,.5),0 28px 56px -22px rgba(0,0,0,.85)}}
-:root[data-theme="dark"]{--paper:#1a1813;--band:#1c2a21;--band-line:#2d4535;--band-lab:#a3d6b5;--ink:#f4eedf;--mut:#cbc2ac;--line:#38332a;--soft:#24211a;--gold:#e3c374;--gold2:#c9a54f;--deep:#f2dfac;--ok:#74d39b;--warn:#f2bb63;--bad:#f39087;--grid:#2c2921;--grid2:#201e18;--on-gold:#17140c;--bg:color-mix(in srgb,#1a1812 calc(var(--gilt)*100%),#0f0f0e);--sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 1px 2px rgba(0,0,0,.35),0 10px 28px -14px rgba(0,0,0,.7);--sh-3:0 2px 8px rgba(0,0,0,.5),0 28px 56px -22px rgba(0,0,0,.85)}
+--vb-bg:#fdf3e1;--vb-line:#ebcf9c;--nav-h:64px;--c0:#8a6a3c;--c1:#a7772c;--c2:#878238;--c3:#4c7c55;--c4:#3d7b76;--c5:#486d91;--c6:#5a5d9a;--c7:#76598f;--c8:#8c5a76;--c9:#76674d;--ease:cubic-bezier(.2,.7,.2,1);--dur:.16s}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1a1813;--vb-bg:#2c2312;--vb-line:#5a4720;--band:#1c2a21;--band-line:#2d4535;--band-lab:#a3d6b5;--ink:#f4eedf;--mut:#cbc2ac;--line:#38332a;--soft:#24211a;--gold:#e3c374;--gold2:#c9a54f;--deep:#f2dfac;--ok:#74d39b;--warn:#f2bb63;--bad:#f39087;--grid:#2c2921;--grid2:#201e18;--on-gold:#17140c;--bg:color-mix(in srgb,#1a1812 calc(var(--gilt)*100%),#0f0f0e);--sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 1px 2px rgba(0,0,0,.35),0 10px 28px -14px rgba(0,0,0,.7);--sh-3:0 2px 8px rgba(0,0,0,.5),0 28px 56px -22px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{--paper:#1a1813;--vb-bg:#2c2312;--vb-line:#5a4720;--band:#1c2a21;--band-line:#2d4535;--band-lab:#a3d6b5;--ink:#f4eedf;--mut:#cbc2ac;--line:#38332a;--soft:#24211a;--gold:#e3c374;--gold2:#c9a54f;--deep:#f2dfac;--ok:#74d39b;--warn:#f2bb63;--bad:#f39087;--grid:#2c2921;--grid2:#201e18;--on-gold:#17140c;--bg:color-mix(in srgb,#1a1812 calc(var(--gilt)*100%),#0f0f0e);--sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 1px 2px rgba(0,0,0,.35),0 10px 28px -14px rgba(0,0,0,.7);--sh-3:0 2px 8px rgba(0,0,0,.5),0 28px 56px -22px rgba(0,0,0,.85)}
 /* 2. Typographie : échelle 1,2 ; titres serif, corps sans empattement, chiffres tabulaires. */
 body{font:15px/1.55 var(--fb);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern","liga"}
 h1,h2,h3{color:var(--ink)}
 h1{font:700 clamp(1.85rem,4.2vw,2.75rem)/1.08 var(--fd);letter-spacing:-.012em}h1 em{font-weight:700;color:var(--ink)}
 h2{font:700 1.32rem/1.25 var(--fd);letter-spacing:-.005em}h3{font:700 1rem/1.35 var(--fb);letter-spacing:.005em}
 .eyebrow{font:650 .7rem/1.3 var(--fb);letter-spacing:.2em;color:var(--mut)}
-.st{line-height:1.55;max-width:78ch}
+.st{line-height:1.55}
 /* Texte justifié avec césure française (lang="fr") ; à gauche pour les libellés, boutons, cellules et lignes trop étroites. */
 p,.st,.gr p,.chk span,.chk small,#tip>div:not([class]),.phase,.verdict{text-align:justify;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 3 3;text-wrap:pretty}
 label.st,span.st,.row .st,.side .st,.side p,td,th,button,.tab,.kpi,.it,.it span,.nr span,#tip .s,#tip .h,#tip .t,.disp,.legend,.due .r{text-align:left;-webkit-hyphens:manual;hyphens:manual}
@@ -76,6 +76,10 @@ pre.prompt{border-radius:var(--r-md);border:1px solid var(--line)}
 .bak>.row,.bak>#bak-pv,.bak>#bak-m{padding:10px 16px}.bak>#bak-m{padding-top:0}
 .bak.warn>#bak-t{color:var(--ink);box-shadow:inset 4px 0 0 var(--warn)}
 .bak.bad{border-color:var(--bad)}.bak.bad>#bak-t{background:color-mix(in srgb,var(--bad) 12%,var(--paper));color:var(--bad);border-bottom-color:color-mix(in srgb,var(--bad) 35%,transparent)}
+.exi-bn{padding:0;overflow:hidden;border:1px solid var(--band-line);border-radius:var(--r-md);box-shadow:var(--sh-1);background:var(--paper)}
+.exi-bn>p{margin:0;padding:8px 16px;text-align:left;hyphens:manual}.exi-bn>p:first-child{padding:11px 16px;background:var(--band);border-bottom:1px solid var(--band-line);color:var(--ink);text-align:left;hyphens:manual}.exi-bn>p:last-child{padding-bottom:12px}
+.exi-bn .cd{color:var(--bad);font-weight:700}.exi-bn a,#exi small a{color:var(--gold)}
+.exi-vb{display:inline-block;margin-left:6px;padding:1px 9px;border-radius:var(--r-pill);background:var(--vb-bg);color:var(--ink);border:1px solid var(--vb-line);box-shadow:inset 3px 0 0 var(--warn);font:650 .76rem/1.5 var(--fb);white-space:nowrap}
 .now{background:var(--ink)}
 /* Calendrier (sélecteurs stables, documentés pour Hermès) : une teinte très pâle par jour, du lundi (1) au dimanche (7) ;
    les séances .blk ont leur propre teinte pâle, un filet et une encre foncée : contraste ≥ 7:1 sur chaque jour. */
@@ -104,6 +108,9 @@ pre.prompt{border-radius:var(--r-md);border:1px solid var(--line)}
 .ex-fig figcaption,.ex-fig__cap{font-size:.84rem;color:var(--ink);text-align:center}.ex-fig__credit{display:block;font-size:.72rem;color:var(--mut);text-align:center}
 .ex-xref{display:flex;flex-wrap:wrap;gap:6px}.ex-xref a,.ex-xref button,.ex-chip{display:inline-flex;align-items:center;min-height:28px;padding:3px 10px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--soft);color:var(--ink);font:600 .76rem/1.2 var(--fb);text-decoration:none;cursor:pointer}
 .ex-xref a:hover,.ex-xref button:hover,.ex-chip:hover{border-color:var(--gold)}
+/* Barre d’onglets collante : tout défilement programmé (ancre, scrollIntoView, focus) s’arrête sous elle. */
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h))}
+@media (max-width:620px){:root{--nav-h:62px}}
 /* Stabilité : la place des indicateurs est réservée avant leur rendu par le script (décalage de mise en page évité). */
 #kpis:empty{min-height:74px}.disp b{display:inline-block;min-width:3.4em;min-height:1.3em;font-variant-numeric:tabular-nums}@media (max-width:620px){#kpis:empty{min-height:213px}}
 /* 8. Mouvement réduit : aucune transition ni animation. */
