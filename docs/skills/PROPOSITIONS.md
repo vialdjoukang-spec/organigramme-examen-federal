@@ -8,10 +8,7 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 
 | Vu | Commande normalisée | Où | Skill proposé |
 |---|---|---|---|
-| 4 | `python3 tools/mono_build.py` | CONTINUATION.md, HANDOFF.md | `ssp-mono-build-py` |
 | 4 | `tools/etapes.json` | CONTINUATION.md | `ssp-etapes-json` |
-| 3 | `tools/doses_check.py` | CONTINUATION.md | `ssp-doses-check-py` |
-| 3 | `python3 tools/prev_build.py` | CONTINUATION.md | `ssp-prev-build-py` |
 
 ## Tâches répétitives (sujets de commit)
 
@@ -35,9 +32,3 @@ description: <quand l'utiliser, en une phrase>
 3. Contrôle : <tests, --check>
 4. Pièges : <liste>
 ```
-
-## Décisions Codex · 17.10.2026 UTC
-
-- mono_build, prev_build, doses_check : retenus dans ssp-construction-ck.
-- etapes.json : écarté, chemin de données et non commande.
-- audit galien : déjà couvert par ssp-audit-medical ; référence visuelle : ssp-qualite-visuelle.
