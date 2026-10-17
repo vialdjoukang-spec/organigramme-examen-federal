@@ -3,11 +3,31 @@
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
 ## Asclépios · fréquence (prévalence) des diagnostics différentiels · 17.10.2026, Europe/Zurich
-État       : feat/ddx-prevalence : data/ck/prev.json (source unique) ; tools/audit/prevalence.py (règles P1 à P7 : chaque DD une fois avec son nom exact, chiffre dans ]0 ; 100], chiffre ⇒ src de src.json + loc + date_lu, sans chiffre ⇒ « À vérifier », ordre décroissant calculé puis rang clinique, somme ≤ 100 %) ; tools/prev_build.py (--check en CI) écrit PRV dans app_v2.html ([index, %, op, population] dans l'ordre d'affichage) et assets/ck/prev.js (cadre, source, emplacement, date) ; ck_build inclut prev.js. Patch 0020 : % rouge (.pv) à côté de chaque DD, fenêtre pv|SSP|i (cadre, source, date), ligne « Fréquence » en tête de la fenêtre du DD, légende du chiffre, tri par PRV ; la clé de progression reste 'd'+index d'origine. tests/test_prevalence.py 31/31.
+État       : feat/ddx-prevalence : data/ck/prev.json (source unique) ; tools/audit/prevalence.py (règles P1 à P7 : chaque DD une fois avec son nom exact, chiffre dans ]0 ; 100], chiffre ⇒ src de src.json + loc + date_lu, sans chiffre ⇒ « À vérifier », ordre décroissant calculé puis rang clinique, somme ≤ 100 %) ; tools/prev_build.py (--check en CI) écrit PRV dans app_v2.html ([index, %, op, population] dans l'ordre d'affichage) et assets/ck/prev.js (cadre, source, emplacement, date) ; ck_build inclut prev.js. Patch 0020 : % rouge (.pv) à côté de chaque DD, fenêtre pv|SSP|i (cadre, source, date), ligne « Fréquence » en tête de la fenêtre du DD, légende du chiffre, tri par PRV ; la clé de progression reste 'd'+index d'origine. tests/test_prevalence.py 35/35 ; prev.js et src.js se chargent à l’ouverture d’une fiche Notions (rien de plus au démarrage). Le % de la liste est un texte (aucune cible tactile de plus) ; le % de la fenêtre du diagnostic ouvre la source (pv|SSP|i).
 Décision   : le chiffre est la fréquence du diagnostic parmi les patients consultant pour la plainte du SSP, dans un cadre nommé (médecine de famille ou urgences, CH ou UE) ; une prévalence de population ne sert qu'à défaut (type « population », affichée). Le texte des 226 SSP rédigés ne change pas : seuls les champs de prev.json et l'ordre s'ajoutent.
 Prochaine  : groupes de contenu, un commit poussé par groupe (Galien audite derrière) : 1 douleur thoracique (S2.5), 2 dyspnée, 3 douleur abdominale, 4 céphalée, 5 fièvre, 6 syncope ; puis les 12 SSP S8 (PR #37) quand elle est fusionnée.
 Pièges     : ne jamais éditer PRV à la main (prev_build --check échoue) ; aucun « window.CK_ » littéral dans app_v2.html (ckW('PREV')) ; un chiffre exige l'emplacement exact (tableau, page).
 Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax (PR #43). G2 dyspnée (S2.7 ; EURODEM, Eur J Emerg Med 2019, tableau 1, 2525 patients de 66 urgences européennes ; 4 chiffres, 6 « à vérifier ») · branche feat/ddx-prev-g2-dyspnee (PR #44). G3 abdomen (S3.1 ; OPTIMA, BMJ 2009, tableau 1, 1021 patients de 6 urgences néerlandaises ; 7 chiffres dont un « ≤ », 2 « à vérifier » : anévrisme rompu et grossesse extra-utérine, exclus de l’étude) · branche feat/ddx-prev-g3-abdomen. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G4 céphalée (S7.6), puis G6 fièvre, F1.19 syncope.
+
+Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G2 dyspnée (S2.7), puis S3.1, S7.6, G6, F1.19.
+Groupes poussés : (aucun pour l'instant)
+## Flux de fusion · auto-fusion après audit · 17.10.2026, Europe/Zurich
+
+Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur (médical et linguistique) audite, pousse ses corrections sur la branche de la PR, puis ajoute le label `audit-ok`. Le reste est automatique :
+
+1. Le workflow `.github/workflows/auto-fusion.yml` se déclenche sur `labeled` (et sur `synchronize` / `reopened` si le label est déjà présent).
+2. Il met la branche à jour avec `main` via l'API `update-branch` (jamais de force-push).
+3. Il active l'auto-merge en **commit de fusion** (`gh pr merge --auto --merge`).
+4. GitHub fusionne dès que les contrôles requis (`garde`, `html`, `tests`, `visuel`) sont verts et que la branche est à jour (`strict`). Aucune protection de branche n'est affaiblie.
+5. La publication Pages : `.github/workflows/pages-apres-fusion.yml` écoute `pull_request` fermée et fusionnée, puis relance `pages.yml` via `workflow_dispatch` sur `main` (exception documentée pour `GITHUB_TOKEN` ; l'environnement `github-pages` refuse un déploiement lancé depuis un événement `pull_request`).
+
+Réglages dépôt : `allow_auto_merge=true`, `allow_merge_commit=true`, label `audit-ok`.
+
+## Auto-fusion · mise en place · 17.10.2026, Europe/Zurich
+État       : Workflow `auto-fusion.yml`, Pages déclenché aussi sur PR fusionnée, label `audit-ok`, auto-merge du dépôt activé. Test de bout en bout prévu juste après la fusion de cette PR (commentaire dans HANDOFF, label `audit-ok`).
+Partage    : Les rédacteurs n'appellent plus `gh pr merge`. Seul l'auditeur pose `audit-ok` après audit.
+Prochaine  : Vérifier sur une PR triviale que la fusion et Pages suivent le label.
+Pièges     : Ne pas retirer un contrôle requis ni baisser `required_approving_review_count`. Ne jamais force-push la branche d'une PR labellisée.
 
 ## Chiron · stations CS, pilote · 17.10.2026, Europe/Zurich
 État       : feat/cs-stations : format data/cs/format.json (10 règles officielles, 6 formats, ASM 75 % et KK 25 %, chacun sourcé) et data/cs/stations.json (5 stations), schémas data/cs/schema/, compilateur tools/cs_build.py (--check en CI) → assets/st/index.js (window.CS_ST_INDEX) et assets/st/<id>.js, chargés à la demande par stLoad. Patch 0019 : bouton « Station CS » sur la fiche SSP (Notions CK), panneau à sections (consigne, rôle du PS avec « seulement si demandé », résultats, grille ASM avec gestes g|… et chaînes hyp|…, KK, pièges, À vérifier, sources). Lyncée lit data/cs. tests/test_cs_stations.py 15/15 ; suite 241/241 ; G1 à G8 réussis.
@@ -152,3 +172,18 @@ Vérifie chaque modification avec ssp-tests, et contrôle chaque texte avec ssp-
 Ne modifie jamais app.html. N’utilise que des sources suisses et européennes, et des images réelles.
 Respecte la règle universelle : le projet cible doit avoir un résultat de HAUTE QUALITÉ ; l’usage des jetons doit être raisonnable et optimisé, et tout gaspillage est formellement interdit ; l’économie de jetons est autorisée si et seulement si elle ne dégrade pas la qualité du travail.
 Avant de t’arrêter, mets à jour HANDOFF.md, ETAT.md et ton journal.
+
+## Hygie · monographies des différentiels · 17.10.2026, Europe/Zurich
+État       : Lot 1 poussé (G1, 14 diagnostics) : hyperhidrose-primaire-focale, hyperhidrose-medicamenteuse-et-toxique, thyrotoxicose, pheochromocytome-et-paragangliome, hypoglycemie, lymphome-hodgkinien-ou-non-hodgkinien, tuberculose, endocardite-infectieuse, infection-a-vih, sevrage-alcoolique-complique, syndrome-serotoninergique, menopause-et-syndrome-climaterique, trouble-anxieux-et-attaque-de-panique, syndrome-d-apnees-obstructives-du-sommeil.
+Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'existant TIP.d à reprendre ; clés déjà faites marquées « (fait) »).
+Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
+Pièges     : Doses : jamais de chiffre dans « pha » sans AIPS lue (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget assets/ck 2,5 Mo : ~2 280 monographies × ~2 Ko le dépasseront, prévoir un budget mono séparé (décision de Vial).
+À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS).
+
+## Panacée · monographies des différentiels, depuis la fin · 17.10.2026, Europe/Zurich
+Lot 1 (O7.26, O7.25, O7.24 ; 27 diagnostics) : intoxication-au-paracetamol … paternalisme-excessif. Doses : aucune entrée doses_ch pertinente, toutes « à vérifier (AIPS) » ; épidémiologie chiffrée « à vérifier (source CH/UE) ».
+Lot 2 (O7.23, O7.22, O7.21 ; 29 diagnostics, PR feat/mono-panacee-2, en attente d'audit Hérophile) : decompensation-metabolique-aigue … complements-a-haute-dose.
+Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estimation 2012) ; Elder 2013 PMID 23114748 (porphyrie) ; Br J Dermatol 2024 PMID 38848542 (nécrolyse) ; EAS 2015 PMID 25694464 (statines) ; EAACI 2021 PMID 34343358 (anaphylaxie) ; OFS ESS 2022 su-f-14.02-ESS-COMPLEM_CH (médecine complémentaire) ; CC art. 307, 314c, 443 (fedlex, état 01.07.2026).
+Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
+Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
+Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
