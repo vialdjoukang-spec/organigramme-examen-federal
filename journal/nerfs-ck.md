@@ -29,3 +29,10 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 ### Prochaine action
 - Ariane livre nc/annot/nc07.yml (foramens, ≥ 3 sites lésionnels sourcés, branches, ancres du plan) ; Dédale relance `python3 tools/dedale/annoter.py nc07`, puis verifier.py.
 - Après validation de Vial : onze autres paires (nerfs.json : objets et ancres par nerf), tours pour V et III-IV-VI.
+
+## Hermès · NC-0 interaction · 17.10.2026, Europe/Zurich
+
+Fait : patch 0011, avec le lieur gloLink, la pile de fenêtres imbriquées (5 niveaux, Retour, fil d’Ariane, sans cycle), les types glo, syn, hyp (exploration puis prise en charge), loc (synthèse locale, onglets A et B) et nc (vues, couches, tour 8 vues, repli <img>). Ajouts : tools/nc_svg_js.py, données d’essai tests/fixtures/ck, tests/test_ck_ui.py (47 contrôles, ordinateur et Pixel 7, texte coupé compris). Suite complète 168/168, gardes 5/5.
+Sources : aucune source clinique utilisée ; aucune donnée clinique n’est introduite.
+À vérifier : les entrées de glossaire pour les mots d’interface « Foramens » et « Sites lésionnels » ; le rendu final des .ck-* dans les 10 thèmes d’Apollon ; les doses (AIPS/Swissmedic) relèvent d’Hippocrate et de Janus.
+Prochaine action : après les fusions d’Atlas, d’Hippocrate et de Dédale, rebaser (ssp-fusion-patch), puis rejouer test_ck_ui et les captures sur les vraies données.
