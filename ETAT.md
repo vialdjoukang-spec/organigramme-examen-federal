@@ -143,3 +143,16 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Contre-lire le lot 2 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
 | [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
+
+## Chantier contenu CK/CS · Asclépios (plan du 17.10.2026, priorité de Vial)
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | TIP rubrique 5 : 15 champs « À compléter » écrits, 113 blocs « Autres éléments ciblés » revus (PR #33) | Asclépios | 17.10.2026 |
+| [x] | Bloc trauma S8.1–S8.12 : 60 diagnostics différentiels (42 sourcés, 18 « À vérifier ») ; rubriques 3, 4, 12, 13 réécrites ; rubrique 6 écrite (S8.8–S8.12) ou réparée (7 puces tronquées) | Asclépios | 17.10.2026 |
+| [ ] | Revue de niveau 2 du bloc S8 (audit:galien) | Galien | 24.10.2026 |
+| [ ] | Rubriques de moins de 200 caractères hors S8 : G4, S3.3, S3.4, S3.6, S3.9, S5.2, S6.2, S9.1, S9.13, F1.19 | Asclépios | 24.10.2026 |
+| [ ] | Rubrique 5 : 1 449 puces d’origine hors format (244 fragments sans libellé, 880 « libellé : constat », 325 « but · libellé ») dans 195 SSP | Asclépios | 31.10.2026 |
+| [ ] | Phrases tronquées d’origine (« … de. », « … n’exclut. ») : environ 660 dans 179 SSP | Asclépios | 31.10.2026 |
+| [ ] | Notions fondamentales propres à chaque SSP, par lot de groupe (898 / 2066 propres au 17.10.2026) | Asclépios | 30.11.2026 |
+| [ ] | Format des diagnostics différentiels d’origine décalé (libellés « Terrain », « Prise en charge » vides ou mal placés, ex. S1.12) | Asclépios | 31.10.2026 |
