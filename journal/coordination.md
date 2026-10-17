@@ -5,6 +5,8 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 - 17.10.2026 · Les dix skills de la section 10 sont rédigés dans skills/ (une page chacun, sans donnée personnelle).
 - 17.10.2026 · Le plan PDF et les notes de recherche restent hors du dépôt, car ils décrivent la situation personnelle du titulaire.
 - 17.10.2026 · La version datée de phase 0 et les tickets de phase 1 attendent l’accord du titulaire (interdit I6).
+- 17.10.2026 · Les tickets de phase 1 (#5 à #10) sont ouverts sur GitHub ; data/MEM.json est fusionné (PR #3) ; PR #4 (Argos) attend la CI après mise à jour sur main ; le chantier Atlas est prêt sur feat/sauvegarde (56/56 locaux).
+- 17.10.2026 · Les dix skills sont présents dans la bibliothèque partagée de l’assistant.
 
 ### Brouillons des tickets de phase 1 (modèle « Tâche d’agent »)
 1. **[Atlas] Export et import de la progression** · prio:P0 · agent:atlas · échéance 15.11.2026 · fiche Atlas, section 4 ; critères : export JSON complet, import avec migration, erreur de stockage visible ; test : tests/test_export.py.

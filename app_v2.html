@@ -66,6 +66,7 @@ td.n{font-family:var(--fm);text-align:right;font-variant-numeric:tabular-nums;wh
 .chk input{margin-top:3px;accent-color:var(--gold);width:18px;height:18px}.chk small{grid-column:2;color:var(--mut)}.chk a{color:var(--gold)}
 .calc out{font:600 1.1rem var(--fm)}
 .st{font-size:.8rem;color:var(--mut)}
+.bak{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 14px;border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:10px;background:var(--paper);font-size:.88rem}.bak>p{margin:0;flex:1 1 300px}.bak .row{flex:0 1 auto}.bak button.b{min-height:36px}.bak.warn{border-left-color:var(--warn)}.bak.warn>#bak-t{color:var(--warn);font-weight:600}.bak.bad{border-left-color:var(--bad)}.bak.bad>#bak-t{color:var(--bad);font-weight:600}#bak-pv,#bak-m{flex-basis:100%;margin:0}#bak-pv p{margin:0 0 8px}#bak-m.bad{color:var(--bad)}#bak-m.ok{color:var(--ok)}
 .heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,12px);gap:3px;overflow-x:auto}.heat i{width:12px;height:12px;border-radius:3px;background:var(--line)}
 
 :root{--c0:#c0392b;--c1:#d68a1c;--c2:#b8a21a;--c3:#3f9a4e;--c4:#18998b;--c5:#2f7fc1;--c6:#4f5bd5;--c7:#8a4fc7;--c8:#c2448f;--c9:#7a6a4f}
@@ -137,6 +138,7 @@ textarea.imp{width:100%;box-sizing:border-box;font:.8rem/1.4 var(--fm)}
   <div class="kpis" id="kpis"></div>
   <div class="disp"><label>Fond doré <input type="range" id="d-gilt" min="0" max="100" step="5"> <b id="d-gv"></b></label><label>Taille du texte <input type="range" id="d-fs" min="90" max="130" step="5"> <b id="d-fv"></b></label><span>0 % = feuille blanche</span></div>
 </header>
+<div class="bak" id="bak" role="region" aria-label="Sauvegarde de la progression"><p id="bak-t" role="status"></p><div class="row"><button class="b p" id="bak-x" type="button">Exporter ma progression</button><button class="b" id="bak-i" type="button">Importer une sauvegarde</button><input type="file" id="bak-f" accept="application/json,.json" hidden aria-label="Fichier de sauvegarde"></div><div id="bak-pv" hidden></div><p id="bak-m" class="st" role="alert" hidden></p></div>
 <nav class="tabs" role="tablist">
   <button class="tab" role="tab" data-v="att" aria-selected="false">Attendus · Prérequis</button>
   <button class="tab" role="tab" data-v="cal" aria-selected="true">Calendrier</button>
@@ -336,13 +338,60 @@ const JOURS=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],MOIS=['janv.','f�
 function monday(d){const x=new Date(d);const k=(x.getDay()+6)%7;x.setDate(x.getDate()-k);x.setHours(0,0,0,0);return x}
 function uid(){return (crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)).replace(/[^\w-]/g,'')}
 
+/* ---------- ATLAS : sauvegarde (export, import, erreurs de stockage) ---------- */
+/* Format v1 : {format:"organigramme-examen-federal",version:1,exporte:ISO,cles:{"orga-…":"<valeur brute>"}} ; orga-bak (date du dernier export) n’est pas exporté. */
+var BAK_V=1,BAK_F='organigramme-examen-federal',BAK_KEY='orga-bak',BAK_DAYS=7,lsBad={},bakPend=null;
+function lsSet(k,v){try{localStorage.setItem(k,v);if(lsBad[k]){delete lsBad[k];bakShow()}return true}catch(e){lsBad[k]=(e&&e.name)||'erreur';const y=document.getElementById('sync');if(y)y.textContent='Non enregistré dans ce navigateur ('+lsBad[k]+')';bakShow();return false}}
+function bakKeys(){const o={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.indexOf('orga-')===0&&k!==BAK_KEY&&k!=='orga-probe')o[k]=localStorage.getItem(k)}return o}
+function bakDate(t){const d=new Date(t);return isNaN(d)?'?':d.toLocaleDateString('fr-CH')+' à '+d.toLocaleTimeString('fr-CH',{hour:'2-digit',minute:'2-digit'})}
+function bakMsg(t,c){const m=document.getElementById('bak-m');m.textContent=t;m.className='st '+(c||'');m.hidden=!t}
+function bakShow(){const el=document.getElementById('bak');if(!el)return;const bad=Object.keys(lsBad);let t,c='';
+ if(bad.length){c='bad';t='L’enregistrement dans ce navigateur a échoué ('+lsBad[bad[0]]+'), car son stockage est plein ou bloqué : vos dernières modifications risquent de se perdre. Exportez votre progression maintenant, puis libérez de l’espace.'}
+ else{let last=null;try{last=localStorage.getItem(BAK_KEY)}catch(e){}const n=last?Math.floor((Date.now()-new Date(last))/864e5):null;
+  if(!last){c='warn';t='Votre progression vit seulement dans ce navigateur, et vous ne l’avez encore jamais exportée. Exportez-la chaque semaine, car Safari peut effacer ce stockage après sept jours sans visite.'}
+  else if(!(n<BAK_DAYS)){c='warn';t='Votre dernier export date du '+bakDate(last)+', il y a '+n+' jours. Exportez votre progression, car Safari peut effacer ce stockage après sept jours sans visite.'}
+  else t='Votre progression est enregistrée dans ce navigateur, et votre dernier export date du '+bakDate(last)+'.'}
+ el.className='bak'+(c?' '+c:'');document.getElementById('bak-t').textContent=t}
+function bakSum(k){const P=x=>{try{return JSON.parse(k[x]||'null')||{}}catch(e){return {}}},ef=P('orga-ef'),n=o=>Object.keys(o||{}).length;
+ return n(ef.seances)+' séances, '+Object.values(ef.exi||{}).filter(v=>v===true).length+' exigences cochées, '+n(P('orga-not'))+' SSP suivis en Notions CK, '+n(P('orga-ges'))+' gestes cochés et '+n(P('orga-cs'))+' simulations CS'}
+function bakExport(){local(true);let k;try{k=bakKeys()}catch(e){bakMsg('L’export a échoué, car ce navigateur refuse la lecture de son stockage.','bad');return}
+ const d=new Date(),f={format:BAK_F,version:BAK_V,exporte:d.toISOString(),cles:k},a=document.createElement('a');
+ a.href=URL.createObjectURL(new Blob([JSON.stringify(f,null,1)],{type:'application/json'}));a.download='organigramme-progression-'+iso(d)+'.json';
+ document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
+ lsSet(BAK_KEY,d.toISOString());bakShow();bakMsg('Le fichier « '+a.download+' » contient '+bakSum(k)+'. Gardez-le hors de ce navigateur, par exemple dans votre stockage en ligne.','ok')}
+function bakCheck(f){if(!f||typeof f!=='object'||f.format!==BAK_F)return 'Ce fichier ne provient pas d’un export de l’organigramme.';
+ if(typeof f.version!=='number'||f.version<1)return 'Ce fichier ne porte pas de numéro de version valide.';
+ if(f.version>BAK_V)return 'Ce fichier provient d’une version plus récente de l’application ; rechargez d’abord la page en ligne.';
+ if(!f.cles||typeof f.cles!=='object'||!Object.keys(f.cles).length)return 'Ce fichier ne contient aucune donnée de progression.';
+ for(const k in f.cles){if(k.indexOf('orga-')!==0||k===BAK_KEY)return 'La clé « '+k+' » n’appartient pas à l’organigramme.';
+  if(typeof f.cles[k]!=='string')return 'La clé « '+k+' » n’a pas le format attendu.';
+  if(k!=='orga-tab'){try{JSON.parse(f.cles[k])}catch(e){return 'La clé « '+k+' » est endommagée.'}}}return null}
+function bakMigrate(f){/* v1 : format initial ; une version future convertira ici les anciennes clés. */return f.cles}
+function bakRead(file){bakMsg('');const r=new FileReader();r.onerror=()=>bakMsg('La lecture du fichier a échoué ; votre progression reste inchangée.','bad');
+ r.onload=()=>{let f;try{f=JSON.parse(r.result)}catch(e){bakMsg('Ce fichier n’est pas un JSON valide ; votre progression reste inchangée.','bad');return}
+  const er=bakCheck(f);if(er){bakMsg(er+' Votre progression reste inchangée.','bad');return}
+  bakPend=bakMigrate(f);let cur={};try{cur=bakKeys()}catch(e){}const pv=document.getElementById('bak-pv');
+  pv.innerHTML='<p>Ce fichier date du <b>'+esc(bakDate(f.exporte))+'</b> et contient '+esc(bakSum(bakPend))+'.</p><p>Ce navigateur contient actuellement '+esc(bakSum(cur))+'. L’import remplacera toute cette progression, et vous ne pourrez pas l’annuler sans un autre export.</p><div class="row"><button class="b p" id="bak-ok" type="button">Remplacer ma progression</button><button class="b" id="bak-no" type="button">Annuler</button></div>';
+  pv.hidden=false;document.getElementById('bak-ok').focus()};r.readAsText(file)}
+function bakApply(){if(!bakPend)return;let old={};try{old=bakKeys()}catch(e){}
+ try{Object.keys(old).forEach(k=>localStorage.removeItem(k));for(const k in bakPend)localStorage.setItem(k,bakPend[k])}
+ catch(e){try{Object.keys(bakKeys()).forEach(k=>localStorage.removeItem(k));for(const k in old)localStorage.setItem(k,old[k])}catch(_){}
+  bakMsg('L’import a échoué, car le stockage de ce navigateur est plein ou bloqué ; l’état antérieur est rétabli.','bad');return}
+ lsSet(BAK_KEY,new Date().toISOString());try{sessionStorage.setItem('orga-imp','1')}catch(e){}location.reload()}
+try{localStorage.setItem('orga-probe','1');localStorage.removeItem('orga-probe')}catch(e){lsBad['orga-probe']=(e&&e.name)||'erreur'}
+document.getElementById('bak-x').onclick=bakExport;
+document.getElementById('bak-i').onclick=()=>{const f=document.getElementById('bak-f');f.value='';f.click()};
+document.getElementById('bak-f').onchange=e=>{const f=e.target.files&&e.target.files[0];if(f)bakRead(f);e.target.value=''};
+document.getElementById('bak-pv').addEventListener('click',e=>{if(e.target.id==='bak-ok')bakApply();else if(e.target.id==='bak-no'){bakPend=null;e.currentTarget.hidden=true;bakMsg('L’import est annulé ; votre progression reste inchangée.','ok')}});
+bakShow();try{if(sessionStorage.getItem('orga-imp')){sessionStorage.removeItem('orga-imp');bakMsg('La sauvegarde importée est chargée dans ce navigateur.','ok')}}catch(e){}
+
 /* ---------- MNÉMOSYNE : persistance (base partagée, repli local) ---------- */
-function local(save){try{if(save)localStorage.setItem('orga-ef',JSON.stringify(S));else{const v=JSON.parse(localStorage.getItem('orga-ef')||'null');if(v)S=Object.assign(S,v)}}catch(e){}}
+function local(save){if(save){lsSet('orga-ef',JSON.stringify(S));return}try{const v=JSON.parse(localStorage.getItem('orga-ef')||'null');if(v)S=Object.assign(S,v)}catch(e){}}
 async function put(col,id,data){local(true);if(!db)return;try{await db.doc(col+'/'+id).set(data);$('#sync').textContent='Enregistré '+new Date().toLocaleTimeString('fr-CH',{hour:'2-digit',minute:'2-digit'})}catch(e){$('#sync').textContent='Non enregistré ('+(e.code||'erreur')+')'}}
 async function del(col,id){local(true);if(!db)return;try{await db.doc(col+'/'+id).delete()}catch(e){}}
 local(false);
 (async()=>{try{db=await (window.claude&&window.claude.use?window.claude.use('db'):null)}catch(e){db=null}
- if(!db){$('#sync').textContent='Mémoire locale (ce navigateur)';return}
+ if(!db){$('#sync').textContent=Object.keys(lsBad).length?'Non enregistré dans ce navigateur ('+Object.values(lsBad)[0]+')':'Mémoire locale (ce navigateur)';return}
  $('#sync').textContent='Mémoire permanente active';
  db.collection('seances').onSnapshot(snap=>{const o={};snap.docs.forEach(d=>{o[d.id]=d.data()});S.seances=o;local(true);renderAll()},()=>{$('#sync').textContent='Lecture impossible'});
  try{const p=await db.doc('reglages/params').get();if(p.exists)S.params=Object.assign(S.params,p.data())}catch(e){}
@@ -438,7 +487,7 @@ function renderExi(){$('#exi').innerHTML=EXI.map((x,i)=>`<label class="chk"><inp
 $('#exi').addEventListener('change',e=>{const i=e.target.dataset.i;if(i==null)return;S.exi['e'+i]=e.target.checked;put('reglages','exigences',S.exi)});
 
 /* ---------- Onglets et rendu ---------- */
-$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));['att','cal','not','vit','memo','cs','ges','calc','exi'].forEach(v=>$('#v-'+v).hidden=v!==t.dataset.v);if(t.dataset.v==='not')renderNot();if(t.dataset.v==='ges')renderGes();try{localStorage.setItem('orga-tab',t.dataset.v)}catch(e){}});
+$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));['att','cal','not','vit','memo','cs','ges','calc','exi'].forEach(v=>$('#v-'+v).hidden=v!==t.dataset.v);if(t.dataset.v==='not')renderNot();if(t.dataset.v==='ges')renderGes();lsSet('orga-tab',t.dataset.v)});
 try{const v=localStorage.getItem('orga-tab');if(v)$$('.tab').find(t=>t.dataset.v===v)?.click()}catch(e){}
 /* ---------- Affichage : intensité dorée, taille du texte ---------- */
 function applyDisp(){const d=S.params.disp||{};document.documentElement.style.setProperty('--gilt',(d.gilt??50)/100);document.documentElement.style.setProperty('--fs',(d.fs??100)+'%');$('#d-gilt').value=d.gilt??50;$('#d-fs').value=d.fs??100;$('#d-gv').textContent=(d.gilt??50)+' %';$('#d-fv').textContent=(d.fs??100)+' %'}
@@ -519,7 +568,7 @@ let dlP=null;$('#cs-dl').onclick=async()=>{const t=scenario();$('#cs-out').textC
 /* ---------- Journal des simulations CS ---------- */
 let CSLOG={};
 async function csListen(){if(!db)return;try{db.collection('cs').onSnapshot(sn=>{const o={};sn.docs.forEach(d=>o[d.id]=d.data());CSLOG=o;renderCSLog()})}catch(e){}}
-$('#cr-save').onclick=()=>{if(!picks.length){$('#cs-st').textContent='Choisissez d’abord les SSP simulés.';return}const k=[1,2,3,4].map(i=>+$('#cr-k'+i).value||null);const id=uid();const x={date:$('#cr-date').value||iso(new Date()),ssp:picks.slice(),task:$('#cs-task').value,asm:$('#cr-asm').value===''?null:Math.max(0,Math.min(100,+$('#cr-asm').value)),kk:k,note:$('#cr-note').value.slice(0,1000)};CSLOG[id]=x;try{localStorage.setItem('orga-cs',JSON.stringify(CSLOG))}catch(e){}put('cs',id,x);renderCSLog()};
+$('#cr-save').onclick=()=>{if(!picks.length){$('#cs-st').textContent='Choisissez d’abord les SSP simulés.';return}const k=[1,2,3,4].map(i=>+$('#cr-k'+i).value||null);const id=uid();const x={date:$('#cr-date').value||iso(new Date()),ssp:picks.slice(),task:$('#cs-task').value,asm:$('#cr-asm').value===''?null:Math.max(0,Math.min(100,+$('#cr-asm').value)),kk:k,note:$('#cr-note').value.slice(0,1000)};CSLOG[id]=x;lsSet('orga-cs',JSON.stringify(CSLOG));put('cs',id,x);renderCSLog()};
 function renderCSLog(){const L=Object.values(CSLOG).sort((a,b)=>a.date<b.date?-1:1);const kkm=x=>{const v=(x.kk||[]).filter(Boolean);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
  $('#cr-list').innerHTML=L.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${esc((x.ssp||[]).join(', '))}</td><td>${esc(x.task)}${x.src?' <small class="st">· IA</small>':''}</td><td class="n"><b>${glob(x)??'—'}</b></td><td class="n">${x.asm??'—'}</td><td class="n">${kkm(x)?kkm(x).toFixed(1):'—'}</td><td>${esc(x.note||'')}</td></tr>`).join('')||'<tr><td colspan="7" class="st">Aucune simulation consignée.</td></tr>';
  if(L.length<2){$('#cr-chart').innerHTML='';return}const W=720,H=170,pl=36,pr=36,pt=10,pb=22,X=i=>pl+i*((W-pl-pr)/(L.length-1));let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Progression ASM et KK">`;[0,.5,1].forEach(f=>{const y=pt+(H-pt-pb)*(1-f);s+=`<line x1="${pl}" x2="${W-pr}" y1="${y}" y2="${y}" stroke="var(--grid)"/><text x="${pl-5}" y="${y+4}" text-anchor="end">${100*f}%</text><text x="${W-pr+5}" y="${y+4}">${(1+4*f).toFixed(0)}</text>`});
@@ -577,7 +626,7 @@ function notList(c){const N=NOT[c]||[[],[]],x=NS[c]||{},o=[];
  N[1].forEach((n,i)=>o.push({k:'f'+i,s:'3 · Fondamentaux F′',t:n[1],sub:n[0]}));
  (x.add||[]).forEach(n=>o.push({k:n[0],s:'4 · Mes notions',t:n[1]}));return o}
 function nStat(c){const L=notList(c),m=(NS[c]||{}).m||{},a=(NS[c]||{}).a||{};let sum=0,ok=0,ab=0;L.forEach(n=>{const v=m[n.k]||0;sum+=v;if(v>=95)ok++;if(v>0||a[n.k])ab++});return {n:L.length,sum,ok,ab,moy:L.length?sum/L.length:0}}
-function nSave(c){const x=nGet(c),st=nStat(c);x.h[iso(new Date())]=[Math.round(st.sum),st.ok,st.n];x.maj=new Date().toISOString();try{localStorage.setItem('orga-not',JSON.stringify(NS))}catch(e){}clearTimeout(nTimer[c]);nTimer[c]=setTimeout(()=>put('notions',c,x),700)}
+function nSave(c){const x=nGet(c),st=nStat(c);x.h[iso(new Date())]=[Math.round(st.sum),st.ok,st.n];x.maj=new Date().toISOString();lsSet('orga-not',JSON.stringify(NS));clearTimeout(nTimer[c]);nTimer[c]=setTimeout(()=>put('notions',c,x),700)}
 const pcol=v=>v>=95?'var(--ok)':v>=50?'var(--gold)':v>0?'var(--warn)':'var(--gold)';
 function nRow(c,n){const x=NS[c]||{},v=(x.m||{})[n.k]||0,a=v>0||!!(x.a||{})[n.k];return `<div class="nr${v>=95?' ok':''}" style="--pc:${pcol(v)}" data-c="${c}" data-k="${esc(n.k)}" data-t="n|${c}|${esc(n.k)}"><input type="checkbox" ${a?'checked':''} aria-label="Notion abordée"><span>${n.k[0]!=='u'?`<span class="tw" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="tip">${esc(n.t)}</span>`:esc(n.t)}${n.k[0]!=='u'?'<button class="ti" aria-label="L’essentiel pour 100 % des points">i</button>':''}${n.sub?`<small>${esc(n.sub)}</small>`:''}${n.k[0]==='u'?'<button class="x" data-x>retirer</button>':''}</span><input type="range" min="0" max="100" step="5" value="${v}" aria-label="Maîtrise de la notion"><b>${v} %</b></div>`}
 function nBlock(c,compact){const s=BY[c];if(!s)return '';const L=notList(c),st=nStat(c),todo=NTODO&&!compact,secs={};L.forEach(n=>(secs[n.s]=secs[n.s]||[]).push(n));
@@ -615,7 +664,7 @@ $('#n-list').addEventListener('click',e=>{const it=e.target.closest('[data-n]');
 $('#n-list').addEventListener('keydown',e=>{if(e.key==='Enter'){const it=e.target.closest('[data-n]');if(it){NSEL=it.dataset.n;renderNot()}}});
 $('#n-main').addEventListener('change',e=>{if(e.target.id==='n-todo'){NTODO=e.target.checked;renderNot()}});
 nWire($('#n-main'));nWire($('#e-not'));
-async function notListen(){if(!db)return;try{db.collection('notions').onSnapshot(sn=>{sn.docs.forEach(d=>{NS[d.id]=Object.assign({m:{},a:{},add:[],h:{}},d.data())});try{localStorage.setItem('orga-not',JSON.stringify(NS))}catch(e){}if(!$('#v-not').hidden)renderNot();else renderNotStats()})}catch(e){}}
+async function notListen(){if(!db)return;try{db.collection('notions').onSnapshot(sn=>{sn.docs.forEach(d=>{NS[d.id]=Object.assign({m:{},a:{},add:[],h:{}},d.data())});lsSet('orga-not',JSON.stringify(NS));if(!$('#v-not').hidden)renderNot();else renderNotStats()})}catch(e){}}
 
 /* ---------- Gestes d’examen physique ---------- */
 let GREG=GES[0]?.id||'',GS={};try{GS=JSON.parse(localStorage.getItem('orga-ges')||'{}')}catch(e){}
@@ -629,7 +678,7 @@ function renderGes(){const q=norm($('#g-q').value.trim()),ph=$('#g-ph').value,to
  $('#g-list').innerHTML=h||'<p class="st">Aucun geste ne correspond.</p>'}
 $('#g-reg').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(!b)return;GREG=b.dataset.r;$('#g-q').value='';renderGes()});
 ['#g-q','#g-ph','#g-todo'].forEach(s=>$(s).addEventListener('input',renderGes));
-$('#g-list').addEventListener('change',e=>{const k=e.target.dataset.g;if(!k)return;if(e.target.checked)GS[k]=1;else delete GS[k];e.target.closest('.gr').classList.toggle('ok',e.target.checked);try{localStorage.setItem('orga-ges',JSON.stringify(GS))}catch(_){}put('reglages','gestes',GS);const y=scrollY;renderGes();scrollTo(0,y)});
+$('#g-list').addEventListener('change',e=>{const k=e.target.dataset.g;if(!k)return;if(e.target.checked)GS[k]=1;else delete GS[k];e.target.closest('.gr').classList.toggle('ok',e.target.checked);lsSet('orga-ges',JSON.stringify(GS));put('reglages','gestes',GS);const y=scrollY;renderGes();scrollTo(0,y)});
 $('#g-src').innerHTML=GES_SRC;
 
 /* ---------- Import du résultat produit par l’IA ---------- */
@@ -640,7 +689,7 @@ $('#ir-go').onclick=()=>{let r;try{r=parseRes($('#ir-txt').value)}catch(e){$('#i
  const cl=v=>v==null||v===''||isNaN(+v)?null:+v;const ssp=(Array.isArray(r.ssp)?r.ssp:[r.ssp]).map(s=>String(s||'').trim()).filter(s=>BY[s]);
  const x={date:/^\d{4}-\d\d-\d\d$/.test(r.date||'')?r.date:iso(new Date()),ssp:ssp.length?ssp:picks.slice(),task:String(r.tache||$('#cs-task').value).slice(0,120),asm:cl(r.asm)==null?null:Math.max(0,Math.min(100,cl(r.asm))),kk:[0,1,2,3].map(i=>{const v=cl((r.kk||[])[i]);return v==null?null:Math.max(1,Math.min(5,v))}),ok:(r.criteres_obtenus||[]).slice(0,40).map(String),ko:(r.criteres_manques||[]).slice(0,40).map(String),err:(r.erreurs||[]).slice(0,10).map(String),note:String(r.commentaire||'').slice(0,2000),src:'IA'};
  x.glob=cl(r.note_globale)==null?glob(x):Math.max(0,Math.min(100,cl(r.note_globale)));
- const id=uid();CSLOG[id]=x;try{localStorage.setItem('orga-cs',JSON.stringify(CSLOG))}catch(e){}put('cs',id,x);renderCSLog();
+ const id=uid();CSLOG[id]=x;lsSet('orga-cs',JSON.stringify(CSLOG));put('cs',id,x);renderCSLog();
  const li=a=>a.length?'<ul>'+a.map(t=>`<li>${esc(t)}</li>`).join('')+'</ul>':'<p class="st">—</p>';
  $('#ir-st').textContent='Simulation consignée.';$('#ir-out').innerHTML=`<div class="verdict"><h3>Note de la station : ${x.glob??'—'} / 100 · ASM ${x.asm??'—'} % · KK ${x.kk.map(v=>v??'–').join(' · ')}</h3><p>${esc(x.note)}</p><b>Critères obtenus</b>${li(x.ok)}<b>Critères manqués</b>${li(x.ko)}<b>Erreurs les plus coûteuses</b>${li(x.err)}</div>`};
 
