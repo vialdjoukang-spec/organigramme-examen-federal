@@ -1,0 +1,20 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "format.schema.json",
+ "title": "Format officiel de l’épreuve CS (format.json)",
+ "description": "Règles du format de l’épreuve CS lues dans les documents de la MEBEKO et de l’OFSP, chacune avec sa source.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["id", "titre", "session", "regles", "formats", "asm", "kk", "avertissement"],
+ "properties": {
+  "id": {"type": "string"}, "titre": {"type": "string"}, "session": {"type": "string"}, "note_session": {"type": "string"},
+  "regles": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/bloc"}},
+  "formats": {"type": "array", "minItems": 1, "items": {"allOf": [{"$ref": "#/$defs/bloc"}], "required": ["id", "label"], "properties": {"id": {"enum": ["standard", "modele", "raisonnement", "presentation", "urgence", "dossier"]}, "label": {"type": "string"}, "duree_min": {"type": "integer"}}}},
+  "asm": {"allOf": [{"$ref": "#/$defs/bloc"}], "required": ["poids"], "properties": {"poids": {"type": "integer"}}},
+  "kk": {"allOf": [{"$ref": "#/$defs/bloc"}], "required": ["poids", "dimensions"], "properties": {"poids": {"type": "integer"}, "echelle": {"type": "string"}, "dimensions": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["id", "label"], "properties": {"id": {"enum": ["ecoute", "structure", "verbal", "non_verbal"]}, "label": {"type": "string"}}}}}},
+  "avertissement": {"type": "string"}
+ },
+ "$defs": {
+  "bloc": {"type": "object", "required": ["t", "src"], "properties": {"t": {"type": "string", "minLength": 20}, "src": {"$ref": "station.schema.json#/$defs/src", "minItems": 1}}}
+ }
+}

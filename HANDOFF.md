@@ -2,6 +2,12 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Chiron · stations CS, pilote · 17.10.2026, Europe/Zurich
+État       : feat/cs-stations : format data/cs/format.json (10 règles officielles, 6 formats, ASM 75 % et KK 25 %, chacun sourcé) et data/cs/stations.json (5 stations), schémas data/cs/schema/, compilateur tools/cs_build.py (--check en CI) → assets/st/index.js (window.CS_ST_INDEX) et assets/st/<id>.js, chargés à la demande par stLoad. Patch 0019 : bouton « Station CS » sur la fiche SSP (Notions CK), panneau à sections (consigne, rôle du PS avec « seulement si demandé », résultats, grille ASM avec gestes g|… et chaînes hyp|…, KK, pièges, À vérifier, sources). Lyncée lit data/cs. tests/test_cs_stations.py 15/15 ; suite 241/241 ; G1 à G8 réussis.
+Prochaine  : Vial relit les 5 stations (valide_par_vial reste false) ; Galien audite data/cs (étiquette audit:galien) ; stations suivantes par SSP à haut rendement, une par compétence manquante (dossier, modèle).
+Sources    : Exigences MED 2026 et Infotext MED 2026 (OFSP/MEBEKO), ASSM/FMH 3.2 et 3.3, DGN 030-141 (2026), EAES 2015, EHF/ESC 2017, pädiatrie schweiz 2019, Kinderspital Zürich (fièvre sans foyer), Rev Med Suisse 2016 (examen de l’abdomen) ; toutes lues le 17.10.2026.
+Pièges     : Après toute retouche de data/cs, relancez python3 tools/cs_build.py ; une source citée doit exister dans data/ck/src.json (puis ck_build). cs_build refuse toute dose chiffrée (mg, µg, UI) : écrire « À vérifier ». Les clés GES sont les clés k (comme ckGes), pas des index. Le panneau se place après le premier p.st de nBlock : renderNotSoft lit ce p.st.
+À vérifier : voir le champ a_verifier de chaque station et la note de session 2027 de format.json.
 ## Mnémosyne · onglet « Mémorisation », phase 2 · 17.10.2026, Europe/Zurich
 État       : feat/memo-evidence : patch 0018 (carte « Méthodes fondées sur les preuves », 12 méthodes ; type tipFor m|id : survol, clic épinglé, toucher, clavier ; bouton « i » sur chaque stratégie et sur « Méthode d’espacement » ; options « Rétroaction obligatoire » et « Réapprentissage successif », actives par défaut ; consigne de séance #m-cons tirée des options). Données : data/MEM.json → assets/memo/mem.js (window.MEM_DATA, 37 Ko, chargé par memLoad au clic sur l’onglet ou à l’inactivité ; +7 Ko dans app_v2.html). tests/test_memo.py 17/17.
 Prochaine  : Janus contrôle les 24 DOI de data/MEM.json (liste « references ») ; Iris adopte la nouvelle référence visuelle de l’onglet memo.

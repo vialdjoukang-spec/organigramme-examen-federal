@@ -35,6 +35,8 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | NC-0 interaction : lieur gloLink sur CK_GLO_INDEX, pile de fenêtres (5 niveaux, Retour, fil d’Ariane), types glo, syn, hyp, loc et nc chargés à la demande, vues, couches et états des schémas · patch 0012, patch 0013 (repères réels), tests/test_ck_ui.py (74) | Hermès | 17.10.2026 |
 | [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
+| [x] | Stations CS, pilote : format officiel sourcé (data/cs/format.json), 5 stations (S2.5, S7.6, S3.1, O7.10, G6), tools/cs_build.py, patch 0019 « Station CS », tests/test_cs_stations.py (15) | Chiron | 17.10.2026 |
+| [ ] | Relire les 5 stations pilotes (valide_par_vial) | Vial | 29.11.2026 |
 
 ## Phases suivantes
 
