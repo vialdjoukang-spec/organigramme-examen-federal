@@ -20,11 +20,10 @@ LEG = ('<p class="pvleg">Le pourcentage en rouge donne la fréquence du diagnost
        'la source et sa date de lecture. Les diagnostics sont classés par fréquence décroissante ; « % à vérifier » signale qu’aucune '
        'source suisse ou européenne n’a encore été lue, et ces diagnostics suivent, dans l’ordre de leur probabilité clinique.</p>')
 
-rep('.nr span{font-size:.88rem;line-height:1.3}',
-    '.nr span{font-size:.88rem;line-height:1.3}'
-    '.pv{color:var(--bad);font:700 .86rem var(--fb);margin-left:.45em;white-space:nowrap;cursor:help;border-bottom:1px dotted currentColor}'
+rep('</head>',
+    '<style>.pv{color:var(--bad);font:700 .86rem var(--fb);margin-left:.45em;white-space:nowrap;cursor:help;border-bottom:1px dotted currentColor}'
     '.pv.av{font-weight:600;font-style:italic}.pv small{color:var(--mut);font-weight:500;font-style:normal}'
-    '.pvleg{margin:4px 2px 8px;color:var(--mut);font-size:.76rem;line-height:1.4;text-align:justify}.pvl{margin:0 0 6px}')
+    '.pvleg{margin:4px 2px 8px;color:var(--mut);font-size:.76rem;line-height:1.4;text-align:justify}.pvl{margin:0 0 6px}</style></head>')
 
 rep('const NLAB=[',
     'const PRV={};\n'
