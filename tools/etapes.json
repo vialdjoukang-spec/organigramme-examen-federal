@@ -1,0 +1,196 @@
+{
+ "_doc": "Feuille de route machine (lue par tools/porte.py et tools/veille_relance.sh). Le texte complet de chaque étape est dans CONTINUATION.md. critere : null = fin déclarée par Codex (ETAT.json statut=terminee) ; sinon test automatique. boucle=true : l'étape se répète lot par lot tant que le critère n'est pas atteint. modele : 'luna' = tâche répétitive (ordre de Vial : GPT 6 Luna), 'defaut' = modèle par défaut de Codex.",
+ "etapes": [
+  {
+   "n": 0,
+   "titre": "Installation et porte (bloquante)",
+   "critere": {
+    "type": "porte0"
+   },
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 1,
+   "titre": "État réel, sauvegardes et jauges",
+   "critere": null,
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 2,
+   "titre": "Réparer la fusion-publication automatique et le contrôle visuel",
+   "critere": null,
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 3,
+   "titre": "Files des prévalences (#43 → #44 → #45 → #58) et du rapport Galien (#47)",
+   "critere": {
+    "type": "chaine",
+    "nom": [
+     "prev",
+     "rapports"
+    ]
+   },
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 4,
+   "titre": "Files des monographies Hygie (#50 → #53 → #54 → #64) et des corrections d'Hérophile (#49)",
+   "critere": {
+    "type": "chaine",
+    "nom": [
+     "herophile",
+     "hygie"
+    ]
+   },
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 5,
+   "titre": "File des monographies Panacée : #60 → #62",
+   "critere": {
+    "type": "chaine",
+    "nom": "panacee"
+   },
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 6,
+   "titre": "File des doses : #59 → #61 → #67 → #70 et doutes de doses",
+   "critere": {
+    "type": "chaine",
+    "nom": "doses"
+   },
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 7,
+   "titre": "File du glossaire : #65 → #68",
+   "critere": {
+    "type": "chaine",
+    "nom": "glossaire"
+   },
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 8,
+   "titre": "Prévalences en rouge des 248 SSP (22 SSP sans différentiel)",
+   "critere": {
+    "type": "jauge",
+    "nom": "prevalences",
+    "seuil": 100
+   },
+   "boucle": true,
+   "modele": "luna"
+  },
+  {
+   "n": 9,
+   "titre": "Monographies en 7 rubriques : G1 → et O7.26 ←",
+   "critere": {
+    "type": "jauge",
+    "nom": "monographies",
+    "seuil": 100
+   },
+   "boucle": true,
+   "modele": "luna"
+  },
+  {
+   "n": 10,
+   "titre": "Doses AIPS, lot 5 et suivants",
+   "critere": null,
+   "boucle": true,
+   "modele": "luna"
+  },
+  {
+   "n": 11,
+   "titre": "Glossaire automatique (définitions courtes au clic)",
+   "critere": null,
+   "boucle": true,
+   "modele": "luna"
+  },
+  {
+   "n": 12,
+   "titre": "Finitions P1 : « À ne pas manquer », « À vérifier », audit final",
+   "critere": null,
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 13,
+   "titre": "Nerfs crâniens (feat/nc07-voie-motrice, #39)",
+   "critere": null,
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 14,
+   "titre": "Stations CS",
+   "critere": null,
+   "boucle": true,
+   "modele": "luna"
+  },
+  {
+   "n": 15,
+   "titre": "Lots d'urgences CK (#41, lot 3)",
+   "critere": null,
+   "boucle": true,
+   "modele": "luna"
+  },
+  {
+   "n": 16,
+   "titre": "PR en pause : #32 fond pâle, #37 trauma S8, #16 présentation",
+   "critere": null,
+   "boucle": false,
+   "modele": "defaut"
+  },
+  {
+   "n": 17,
+   "titre": "Clôture : vérification, publication, rapport final à Vial",
+   "critere": null,
+   "boucle": false,
+   "modele": "defaut"
+  }
+ ],
+ "chaines": {
+  "prev": [
+   43,
+   44,
+   45,
+   58
+  ],
+  "rapports": [
+   47
+  ],
+  "herophile": [
+   49
+  ],
+  "hygie": [
+   50,
+   53,
+   54,
+   64
+  ],
+  "panacee": [
+   60,
+   62
+  ],
+  "doses": [
+   59,
+   61,
+   67,
+   70
+  ],
+  "glossaire": [
+   65,
+   68
+  ]
+ }
+}

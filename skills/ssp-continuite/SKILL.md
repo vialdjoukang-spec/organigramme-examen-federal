@@ -1,8 +1,9 @@
 ---
 name: ssp-continuite
 description: >-
-  Lis ce skill au début de chaque session, à chaque porte d’étape et dès que ton contexte approche de
-  sa limite : il garantit qu’un agent neuf reprend le travail sans perte.
+  Lis ce skill au début de chaque session, à chaque porte d’étape et dès que ton
+  contexte approche de sa limite : il garantit qu’un agent neuf reprend le
+  travail sans perte.
 ---
 # But
 Ce skill garantit la reprise du chantier sans relecture inutile.

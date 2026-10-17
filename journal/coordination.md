@@ -15,3 +15,5 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 4. **[Argos] Faisabilité Ve3 et Ve4** · prio:P1 · agent:argos · échéance 29.11.2026 · section 11, encadré « À vérifier ».
 5. **[Mnémosyne] data/MEM.json** · prio:P1 · agent:mnemosyne · échéance 29.11.2026 · section 7 ; critères : chaque méthode cite sa méta-analyse par DOI vérifié.
 6. **[Janus] tests/test_export.py** · prio:P0 · agent:janus · échéance 15.11.2026 · avec Atlas.
+
+- 18.10.2026 · Reprise #44 : main intégré ; app repris de main et correctif audité prev_g2_corr rejoué ; contrôles prev/ck/mono --check verts. Suite locale code 1 (voir relève Codex).
