@@ -1,8 +1,8 @@
 ---
 name: ssp-json-data
 description: >-
-  Lis ce skill dès que tu modifies une constante de données de app_v2.html (TIP, NOT, GES, SSP, PHT,
-  MEM, SESSION) : tu édites le JSON extrait, pas le fichier.
+  Lis ce skill dès que tu modifies une constante de données de app_v2.html (TIP,
+  NOT, GES, SSP, PHT, MEM, SESSION) : tu édites le JSON extrait, pas le fichier.
 ---
 # But
 Ce skill limite la lecture et le diff aux seules données modifiées.
