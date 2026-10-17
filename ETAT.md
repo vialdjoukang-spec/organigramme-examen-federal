@@ -48,7 +48,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 |---|---|---|---|
 | [x] | Schémas JSON data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch) | Atlas | 25.10.2026 |
 | [x] | Compilateur tools/ck_build.py → assets/ck/*.js, contrôle --check en CI (G5) | Atlas | 25.10.2026 |
-| [x] | Chargement différé : ckLoad, ckGlo, index du glossaire à l’inactivité (patch 0011) | Atlas | 25.10.2026 |
+| [x] | Chargement différé : ckLoad, ckGlo, index du glossaire après load, à l’inactivité (patch 0011) | Atlas | 25.10.2026 |
 | [x] | Budgets : assets/ck ≤ 2,5 Mo, SVG ≤ 120 Ko, assets/nc ≤ 3 Mo | Atlas | 25.10.2026 |
 | [x] | Lyncée et qa/termes-baseline.json (3 849 termes, ne peut que baisser) | Janus | 25.10.2026 |
 | [x] | Audit de niveau 1 G1 à G7, Alétheia, artefact audit-flags, étiquette audit:galien | Janus, avec Galien | 25.10.2026 |

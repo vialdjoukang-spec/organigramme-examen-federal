@@ -849,7 +849,7 @@ const PHT={"Inspection":"Annoncer le geste, exposer la région en respectant la 
 const NLAB=['Définition','Épidémiologie','Physiopathologie','Démarche diagnostique','Anamnèse et drapeaux rouges','Examen physique ciblé','Approche syndromique','Diagnostic positif et critères','Examens complémentaires','Arbre décisionnel','Prise en charge','Suivi, pronostic, prévention','Points clés','Pièges d’examen'];
 const CKP={};function ckLoad(n){const v='CK_'+n.toUpperCase().replace(/[^A-Z0-9]/g,'_');if(window[v])return Promise.resolve(window[v]);return CKP[n]||(CKP[n]=new Promise((ok,ko)=>{const e=document.createElement('script');e.src='assets/ck/'+n+'.js';e.async=true;const no=()=>{delete CKP[n];e.remove();ko(new Error('ckLoad '+n))};e.onload=()=>window[v]?ok(window[v]):no();e.onerror=no;document.head.appendChild(e)}))}
 function ckGlo(id){return ckLoad('glo-'+(/^[a-z]/.test(id)?id[0]:'0')).then(T=>T[id]||null)}
-(window.requestIdleCallback||(f=>setTimeout(f,1200)))(()=>ckLoad('glo-index').catch(()=>{}),{timeout:4000});
+addEventListener('load',()=>(window.requestIdleCallback||(f=>setTimeout(f,1200)))(()=>ckLoad('glo-index').catch(()=>{}),{timeout:4000}),{once:true});
 function tipFor(key){const [ty,a,b]=key.split('|');let h='',ti='',src='';
  if(ty==='n'){const T=TIP[a];if(!T)return null;const s=BY[a];const i=+b.slice(1);
   if(b[0]==='c'){ti=CLIN[i];h=i===5?exFmt(T.c[i]):T.c[i];src=T.s}else if(b[0]==='d'){ti='Diagnostic différentiel : '+((NOT[a]||[[]])[0][i]||'');h=T.d[i];src=T.s}else if(b[0]==='f'){const n=(NOT[a]||[[],[]])[1][i]||['',''];ti=n[0]+' · '+n[1];h=T.f[i];src=T.fs}else return null;

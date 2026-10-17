@@ -28,6 +28,8 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 - 14:45 · Fusion de main (PR #18 et #19) : Hermès a pris le numéro 0010 (bandes du calendrier) ; le patch d’Atlas devient 0011, rejoué sur l’app_v2.html de main (ssp-fusion-patch). tests/test_audit.py devient tests/test_ck.py (Janus : données, schémas, contrôles) ; Hermès garde tests/test_ck_ui.py.
 - 14:46 · Les cinq skills du chantier et ssp-images-licence amendé sont copiés dans skills/.
 
+- 15:40 · Iris signalait en CI un CLS de 0,43 sur ordinateur pour les seules branches qui contiennent le socle (local : 0,1832, identique à main). Par prudence, l’index du glossaire se charge désormais après l’événement load, puis à l’inactivité (+41 octets).
+
 ### Prochaine action
 - Hippocrate : premier lot de 50 entrées dans data/ck/glo.json ; `python3 tools/lyncee.py --json .cache/lyncee.json` donne les candidats par fréquence ; `--update` resserre la référence.
 - Hermès : brancher tipFor (glo|id, syn|id, hyp|id, nc|id|vue, loc|module|A ou B) sur ckLoad() et ckGlo(), et gloLink() sur window.CK_GLO_INDEX.
