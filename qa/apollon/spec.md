@@ -108,3 +108,8 @@ Au rechargement, l’application rouvre le dernier onglet mémorisé (`orga-tab`
 - Une règle dont le sélecteur dépend d’un attribut de `<html>` (`data-theme`, `data-fond`) va dans le style de `<head>`, car dans `@scope` (racine `<body>`) elle ne s’applique pas.
 - Les jetons vont dans le style de `<head>` (`tools/patches/apollon-jetons.css`, sélecteurs `:root:root…`). Les composants vont dans le style de `<body>`, à l’intérieur de `@scope { … }`, où le validateur Nu admet les règles.
 - Ces formes font échouer le validateur, il faut les éviter : `nth-child(N of S)` (plantage), et un pourcentage `calc(var(--x)*N%)` ou `var(--x)` dans `color-mix()`.
+
+## 12. Fond par défaut quasi neutre (priorité du titulaire, 17.10.2026 : « Le fond est toujours aussi jaune »)
+- **Surfaces.** La page est en `#fbfbf8`, les cartes et panneaux en `#ffffff`, les surfaces douces en `#f3f3f1` et les filets en `#dededb`. Le halo doré de l’en-tête est retiré, et les teintes de jour sableuses sont remplacées par un gris neutre et un gris sauge.
+- **Encre.** Le texte principal est en `#1a1a1a` (17,4:1 sur carte) et le texte secondaire en `#4a4a4a` (8,6:1 sur la page) : les deux sont AAA. En sombre, le texte `#ececec` repose sur `#1c1d1f` et la page sur `#141516`.
+- **Curseur « Fond doré ».** Il ne teinte plus les surfaces de texte, car le fond est fixé par jeton. C’est le seul effet visible de ce changement sur un réglage existant ; le relibellé ou le retrait du curseur est à décider par Hermès.
