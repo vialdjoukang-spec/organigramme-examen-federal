@@ -6,28 +6,30 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 ## Porte de l’Étape 0 (installation, bloquante)
 
 <!-- PORTE-ETAPE-0 -->
-- [ ] 0.1 J’ai lu CONTINUATION.md en entier (toutes les étapes, toutes les règles), puis AGENTS.md, HANDOFF.md (tête), ce fichier, PROCHAINE_ACTION.md
-- [ ] 0.2 J’ai lu docs/skills/README.md et les skills ssp-continuite, ssp-verite, ssp-posologie-suisse, ssp-audit-medical, ssp-fusion-patch, ssp-pilotage-codex
-- [ ] 0.3 Catalogue : `python3 tools/catalogue.py` lancé, sections « À COMPLÉTER PAR CODEX » remplies (MCP, skills de Codex), CATALOGUE.md présenté avant de commencer
-- [ ] 0.4 Proposition de skills : `python3 tools/propose_skills.py` lancé, docs/skills/PROPOSITIONS.md écrit et lu
-- [ ] 0.5 Veille de relance installée et testée (`bash tools/veille_relance.sh --une-fois --dry-run`), puis lancée (cron ou boucle) ; mode A ou B noté ci-dessous
-- [ ] 0.6 Droits de fusion vérifiés (`bash tools/file_fusion.sh --droits` : admin=true, merge_commit=true) ; file de fusion testée (`bash tools/file_fusion.sh --dry-run`)
-- [ ] 0.7 Modèle des tâches répétitives réglé : GPT 6 Luna (`gpt-6-luna`), ou modèle de secours noté ci-dessous
-- [ ] 0.8 Worktree de travail créé depuis origin/main (jamais de changement de branche dans /workspace/oef) ; tests de base OK (`python3 tests/run_tests.py` ou motif d’échec noté)
-- [ ] 0.9 Jauges lues (`python3 tools/jauge/binomes.py`) et valeur de départ notée ci-dessous
+- [x] 0.1 J’ai lu CONTINUATION.md en entier (toutes les étapes, toutes les règles), puis AGENTS.md, HANDOFF.md (tête), ce fichier, PROCHAINE_ACTION.md
+- [x] 0.2 J’ai lu docs/skills/README.md et les skills ssp-continuite, ssp-verite, ssp-posologie-suisse, ssp-audit-medical, ssp-fusion-patch, ssp-pilotage-codex
+- [x] 0.3 Catalogue : `python3 tools/catalogue.py` lancé, sections « À COMPLÉTER PAR CODEX » remplies (MCP, skills de Codex), CATALOGUE.md présenté avant de commencer
+- [x] 0.4 Proposition de skills : `python3 tools/propose_skills.py` lancé, docs/skills/PROPOSITIONS.md écrit et lu
+- [x] 0.5 Veille de relance installée et testée (`bash tools/veille_relance.sh --une-fois --dry-run`), puis lancée (cron ou boucle) ; mode A ou B noté ci-dessous
+- [x] 0.6 Droits de fusion vérifiés (`bash tools/file_fusion.sh --droits` : admin=true, merge_commit=true) ; file de fusion testée (`bash tools/file_fusion.sh --dry-run`)
+- [x] 0.7 Modèle des tâches répétitives réglé : GPT 6 Luna (`gpt-6-luna`), ou modèle de secours noté ci-dessous
+- [x] 0.8 Worktree de travail créé depuis origin/main (jamais de changement de branche dans /workspace/oef) ; tests de base OK (`python3 tests/run_tests.py` ou motif d’échec noté)
+- [x] 0.9 Jauges lues (`python3 tools/jauge/binomes.py`) et valeur de départ notée ci-dessous
 <!-- /PORTE-ETAPE-0 -->
 
 ## Réglages notés par Codex à l’Étape 0
 
-- Mode de relance (A = `codex exec`, B = PROCHAINE_ACTION.md) : _à remplir_
-- Lancement de la veille (commande exacte, cron ou boucle) : _à remplir_
-- Modèle des tâches répétitives : _à remplir_ (ordre de Vial : GPT 6 Luna)
-- Jeton de fusion (gh de Codex, ou secret AUTO_FUSION_TOKEN) : _à remplir_ (ne jamais écrire le jeton lui-même)
+- Mode de relance (A = `codex exec`, B = PROCHAINE_ACTION.md) : B (CLI présent mais authentification refusée ; aucun second agent CLI lancé)
+- Lancement de la veille (commande exacte, cron ou boucle) : `nohup bash tools/veille_relance.sh --boucle 180 --sans-codex > .etat_local/veille_stdout.log 2>&1 < /dev/null &` ; PID dans `.etat_local/veille.pid` ; boucle locale seulement pendant la durée de vie de cet environnement
+- Modèle des tâches répétitives : `gpt-6-luna` disponible dans les sous-agents de la session ; CLI testé, refusé pour authentification (HTTP 401). Les réparations restent au modèle courant. Aucun contenu massif exécuté à ce stade.
+- Jeton de fusion (gh de Codex, ou secret AUTO_FUSION_TOKEN) : gh de Codex, intégration GitHub (`admin=true`, `push=true`, `merge_commit=true`, `auto_merge=true`, `squash=false`), protection non lisible (403) (ne jamais écrire le jeton lui-même)
 - Jauges au départ : Prévalences 0 % (0/2578) · Monographies 3 % (70/2280) le 18.10.2026 00:45 (Europe/Zurich)
 
 ## Journal des étapes (une ligne par fin d’étape ou de lot : date, étape, lot, PR, résultat)
 
 - 18.10.2026 · Étape 0 préparée par Grok Bot (scripts, porte, veille, file de fusion) ; à exécuter par Codex.
+
+- 18.10.2026 01:04 Europe/Zurich · Étape 0 en cours dans `/workspace/oef-codex`, branche `codex/etape-0` depuis origin/main 2228be7. Catalogue généré, complété, présenté et recopié dans PROCHAINE_ACTION.md. Propositions lues ; skill ssp-construction-ck créé. Veille testée en dry-run puis lancée en mode B. Droits de dépôt confirmés ; lecture de protection refusée 403, aucune modification de protection. Tests initiaux : Chromium manquant, installation effectuée puis suite relancée. Jauges : 0/2578 prévalences (0 %), 70/2280 monographies (3 %).
 
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 

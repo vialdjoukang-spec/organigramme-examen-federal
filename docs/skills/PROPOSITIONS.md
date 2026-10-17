@@ -35,3 +35,9 @@ description: <quand l'utiliser, en une phrase>
 3. Contrôle : <tests, --check>
 4. Pièges : <liste>
 ```
+
+## Décisions Codex · 17.10.2026 UTC
+
+- mono_build, prev_build, doses_check : retenus dans ssp-construction-ck.
+- etapes.json : écarté, chemin de données et non commande.
+- audit galien : déjà couvert par ssp-audit-medical ; référence visuelle : ssp-qualite-visuelle.
