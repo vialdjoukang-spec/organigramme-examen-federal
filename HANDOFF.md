@@ -2,6 +2,10 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Test auto-fusion e2e · 17.10.2026, Europe/Zurich
+État       : PR triviale pour valider le label `audit-ok` → auto-merge → Pages. À retirer du fil après succès.
+Prochaine  : Aucune.
+
 ## Flux de fusion · auto-fusion après audit · 17.10.2026, Europe/Zurich
 
 Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur (médical et linguistique) audite, pousse ses corrections sur la branche de la PR, puis ajoute le label `audit-ok`. Le reste est automatique :
