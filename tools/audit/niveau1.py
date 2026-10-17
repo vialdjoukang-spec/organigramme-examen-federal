@@ -48,7 +48,7 @@ def dose_norm(t):
 def g1(root, data, F):
     table = {d['id']: d for d in data['doses_ch']}
     for d in data['doses_ch']:
-        if not d.get('url', '').startswith(('https://www.swissmedicinfo.ch/', 'https://swissmedicinfo.ch/',
+        if not d.get('url', '').startswith(('https://www.swissmedicinfo.ch/', 'https://swissmedicinfo.ch/', 'https://swissmedicinfo-pro.ch/',
                                             'https://compendium.ch/', 'https://www.compendium.ch/', 'https://www.swissmedic.ch/')):
             flag(F, 'G1', _elem('doses_ch', d), 'la ligne ne renvoie pas à l’AIPS suisse (swissmedicinfo.ch ou compendium.ch)', *_where(root, 'doses_ch', d))
 
