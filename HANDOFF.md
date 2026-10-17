@@ -2,6 +2,14 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Hippocrate et Galien · NC-0 glossaire CK et audit médical · 17.10.2026, Europe/Zurich
+État       : feat/ck-glossaire-lot01 (sur feat/ck-socle) : glo.json 100 entrées (70 signes, 25 syndromes, 3 examens, 2 termes ; 6 « À vérifier »), src.json 19 sources, doses_ch.json 3 lignes AIPS ; 29 fautes corrigées par les automates régionaux (0 critique, 3 majeures, 26 mineures), qa/audit/RAPPORT_FAUTES.md ; G1 à G7 et Lyncée réussissent.
+Prochaine  : Asclépios contre-lit doses_ch.json et qa/posologies.md ; Vial coche qa/validation-vial-glo-lot01.md ; Hippocrate écrit le lot 02 (hyposmie, quadranopsie, cécité, hémiparésie, hypotonie, méningite…).
+Sources    : CEN (chapitre 9, sémiologie analytique et topographique), HUG protocole PFP v1.2 du 04.04.2023, SFE item 244, HAS PNDS Cushing 2022, AIPS Valtrex® (12.2025) et Prednisone Streuli® (06.2026), lus le 17.10.2026.
+Pièges     : Une correction d'audit passe par galien_region.py corriger --plan <fichier.yml> (le texte « avant » figure une seule fois) ; puis galien_region.py registre écrit fautes.jsonl avec le hachage réel et ne réécrit jamais une ligne existante. Une définition du glossaire ne doit contenir ni son libellé ni ses alias (Lyncée).
+Pièges     : Les doses ne se lisent qu'à la main, une page AIPS par produit ; aucune extraction du Compendium ni de Swissmedic. Une dose hors AIPS n'entre pas dans doses_ch.json.
+À vérifier : Rebaser sur main après la fusion de la PR #20. Les ajouts swissmedicinfo-pro.ch, cen-neurologie.fr et sfendocrino.org attendent l'accord de Vial et d'Argos.
+
 ## Atlas et Janus · NC-0 socle CK et audit de niveau 1 · 17.10.2026, Europe/Zurich
 État       : feat/ck-socle : schémas data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch), données vides et conformes, tools/ck_build.py → assets/ck/*.js (742 octets), patch 0011 (ckLoad, ckGlo, index à l’inactivité ; +659 octets dans app_v2.html), budgets étendus, Lyncée et sa référence (3 849 termes), G1 à G7 (tools/audit/niveau1.py, artefact audit-flags), Alétheia, rapport_fautes.py, nc_svg_check.py ; tests : test_ck.py 61/61, test_ck_socle.py 12/12, suite 133/133, gardes 5/5.
 Prochaine  : Hermès branche tipFor et gloLink sur ckLoad/ckGlo/CK_GLO_INDEX ; Hippocrate remplit glo.json par lots et resserre la référence (--update) ; Galien remplit doses_ch.json et fautes.jsonl ; Dédale dépose assets/nc/*.svg et credits.json (couches trait, nerf, legendes ; licence_derivee CC BY-SA).
@@ -17,6 +25,11 @@ Prochaine  : Vial valide les préréglages ; Hermès bascule les couches par [da
 Sources    : Z-Anatomy License.txt (CC BY-SA 4.0) ; API Commons Gray788 (domaine public) ; nc/annot/nc07.yml (Ariane) ; lus le 17.10.2026.
 Pièges     : Blender complet (11 Go) interdit : ajouter seulement les objets utiles à un fichier vide (masques.py). Rejeu à l’octet : svgo 4.0.0 exactement, removeHiddenElems désactivé (les couches masquées doivent rester). Une étiquette sans place fait échouer annoter.py : retirer une étiquette ou resserrer le cadrage, jamais réduire la police sous 29 px.
 À vérifier : F2 (fond du méat) et repères a_verifier d’Ariane ; fragments de légendes anglaises restés sur le plan Gray788.
+État       : feat/nc-schemas : automates tools/dedale/{freestyle,trace,annoter,verifier}.py avec instructions ; pilote VII dans assets/nc (face, profil, 34, plan, tour de 8 vues en WebP de 52 Ko), crédits dans assets/nc/credits.json ; CI : tâche « schemas » (verifier.py --tous, tests/test_dedale.py 11/11).
+Prochaine  : nc07.yml livré par Ariane le 17.10.2026 (sourcé, ancres dérivées du modèle) ; Vial valide le pilote ; repères de la vue plan à poser. Blender complet interdit (OOM) : .blend réduit sous 5 Go.
+Sources    : Z-Anatomy License.txt (CC BY-SA 4.0) ; API Commons Gray788 (domaine public) ; lus le 17.10.2026.
+Pièges     : Blender charge environ 11 Go : une seule instance à la fois. Le modèle reste dans /workspace/ssp/nc_src/ (jamais dans le dépôt). Le rejeu à l’octet exige svgo 4.0.0 exactement. Les ancres sont des noms d’objets Z-Anatomy (nerfs.json) ; une ancre absente fait échouer annoter.py.
+À vérifier : annotations provisoires (seules des ancres du modèle sont placées) ; fragments de légendes anglaises restés sur le plan Gray788.
 
 ## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
 État       : PR #15 fusionnée dans main le 17.10.2026 à 13:26 (commit de fusion 3c9b878, sans écrasement) ; Pages publie la même empreinte que main ; tests/test_calendrier.py rejoué contre le site public : 32/32, aucune erreur de console. Patch 0009 (PR #18, fusionnée le 17.10.2026 à 13:55) : la recherche trouve aussi un SSP par ses diagnostics différentiels et ses notions (NOT), avec le titre trouvé sous le nom ; suite 119/119, gardes 5/5.

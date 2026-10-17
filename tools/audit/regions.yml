@@ -1,0 +1,42 @@
+# Six automates d'audit régional de Galien. Chaque entrée de data/ck porte un champ region ;
+# l'automate de la région reçoit seulement les entrées modifiées (diff) et leurs signalements G1–G7,
+# puis applique la liste de contrôle ci-dessous. Une faute donne un commit propre :
+#   audit(galien-<région>): <unité> · <faute> → <correction> [source] (critique|majeure|mineure)
+neuro:
+  nom: Neuro
+  champ: nerfs crâniens, voies longues, cervelet, moelle, nerf périphérique, méninges, fonctions cognitives
+  controle:
+    - Le côté de la lésion (homolatéral ou controlatéral) correspond-il à la source ?
+    - Un signe de gravité ou d'urgence lu dans la source figure-t-il dans l'orientation ?
+    - Un alias est-il un vrai synonyme, et non un signe voisin ou un degré différent ?
+    - La manœuvre décrite (durée, position) a-t-elle été lue telle quelle dans la source ?
+    - Le texte reste-t-il sémiologique, sans examen de première intention ni traitement (réservés à hyp.json) ?
+tetecou:
+  nom: TêteCou
+  champ: œil et pupille, oreille et vestibule, face, pharynx et larynx
+  controle:
+    - L'acuité, le champ visuel et la pupille sont-ils décrits comme dans la source ?
+    - Une dose ou un traitement apparaît-il dans une entrée sémiologique ?
+    - Un alias est-il un vrai synonyme ?
+coeurthorax:
+  nom: CœurThorax
+  champ: cœur, vaisseaux, poumon, sein
+  controle:
+    - Les seuils hémodynamiques et respiratoires viennent-ils d'une source suisse ou européenne lue et datée ?
+abdopelvis:
+  nom: AbdoPelvis
+  champ: digestif, rein, urologie, gynécologie et obstétrique
+  controle:
+    - Les seuils biologiques viennent-ils d'une source suisse ou européenne lue et datée ?
+locomoteur:
+  nom: Locomoteur
+  champ: os, articulations, muscles, rachis
+  controle:
+    - La manœuvre d'examen est-elle décrite comme dans la source ?
+peaupopulations:
+  nom: PeauPopulations
+  champ: peau, endocrinologie visible, pédiatrie, grossesse, personne âgée
+  controle:
+    - Le signe est-il spécifique ou seulement évocateur, comme le dit la source ?
+    - Une précision a-t-elle été ajoutée sans source (couleur, largeur, distinction) ?
+    - La population (adulte, enfant, grossesse) est-elle explicite pour toute dose ?
