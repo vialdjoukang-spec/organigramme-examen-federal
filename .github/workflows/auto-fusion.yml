@@ -36,7 +36,19 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Vérifier les prédecesseurs de la chaîne
+        id: ordre
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+        run: python3 tools/predecesseurs_fusion.py "$PR" >> "$GITHUB_OUTPUT"
       - name: Mettre à jour la branche avec main si elle est en retard
+        if: steps.ordre.outputs.ready == 'true'
         env:
           GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -60,6 +72,7 @@ jobs:
           fi
 
       - name: Activer l'auto-merge (commit de fusion)
+        if: steps.ordre.outputs.ready == 'true'
         env:
           GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
