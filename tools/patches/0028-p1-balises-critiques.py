@@ -9,7 +9,7 @@ s=read();a,b=span(s,'TIP');tip=json.loads(s[a:b]);count=0
 for bloc in tip.values():
  for i,text in enumerate(bloc.get('d',[])):
   if text.startswith('À ne pas manquer.</b>'):
-   bloc['d'][i]='<b class="mono-r">'+text;count+=1
+   bloc['d'][i]='<b style="color:var(--bad)">'+text;count+=1
 if count:
  write(s[:a]+json.dumps(tip,ensure_ascii=False,separators=(',',':'))+s[b:])
 print(f'{count} balises ouvrantes restaurées ; aucun texte clinique réécrit.')
