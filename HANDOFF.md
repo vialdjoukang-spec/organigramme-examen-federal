@@ -155,4 +155,5 @@ Pièges     : Doses : jamais de chiffre dans « pha » sans AIPS lue (« dose : 
 
 ## Panacée · monographies des différentiels, depuis la fin · 17.10.2026, Europe/Zurich
 Lot 1 (O7.26, O7.25, O7.24 ; 27 diagnostics) : intoxication-au-paracetamol … paternalisme-excessif. Doses : aucune entrée doses_ch pertinente, toutes « à vérifier (AIPS) » ; épidémiologie chiffrée « à vérifier (source CH/UE) ».
-Prochain : Lot 2 = O7.23 et en dessous (Hygie monte depuis G2).
+Lot 2 RÉSERVÉ (Panacée, 17.10.2026 22:45) : O7.23, O7.22, O7.21 (29 diagnostics ; syndrome-serotoninergique déjà fait).
+Prochain : Lot 3 = O7.20 et en dessous (Hygie monte depuis G2).
