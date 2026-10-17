@@ -1,8 +1,8 @@
 ---
 name: ssp-tests
 description: >-
-  Lis ce skill après chaque patch ou chaque injection de données : tu vérifies par l’exécution des 43
-  contrôles au lieu de relire le code.
+  Lis ce skill après chaque patch ou chaque injection de données : tu vérifies
+  par l’exécution des 43 contrôles au lieu de relire le code.
 ---
 # But
 Ce skill remplace la relecture par une ligne de résultat, sans réduire les contrôles.

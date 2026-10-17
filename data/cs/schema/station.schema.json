@@ -1,0 +1,76 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "station.schema.json",
+ "title": "Stations CS d’entraînement (stations.json)",
+ "description": "Une station ECOS d’entraînement par élément, rattachée à une SSP. La structure suit le format officiel de l’examen CS (data/cs/format.json) ; les grilles sont des grilles d’entraînement, pas les grilles de l’examen. tools/cs_build.py vérifie le schéma, les renvois (SSP, GES, hyp, src) et les verbes conjugués.",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "ssp", "titre", "format", "duree_min", "competences", "consigne", "ps", "resultats", "grille", "kk", "src", "a_verifier", "statut", "redige_par", "valide_par_vial"],
+  "properties": {
+   "id": {"type": "string", "pattern": "^st-[a-z0-9-]+$"},
+   "ssp": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*(\\.[0-9]+)?$", "description": "Identifiant de la SSP (const SSP de app_v2.html)."},
+   "titre": {"type": "string", "minLength": 5},
+   "format": {"enum": ["standard", "modele", "raisonnement", "presentation", "urgence", "dossier"], "description": "Clé de data/cs/format.json → formats."},
+   "duree_min": {"type": "integer", "minimum": 5, "maximum": 30},
+   "competences": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["anamnese", "examen", "management", "information", "communication", "raisonnement", "presentation", "interprofessionnel"]}},
+   "consigne": {
+    "type": "object", "additionalProperties": false, "required": ["lieu", "porte", "taches"],
+    "properties": {
+     "lieu": {"type": "string", "minLength": 5},
+     "porte": {"type": "string", "minLength": 20, "description": "Texte affiché sur la porte de la station."},
+     "taches": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 10}},
+     "parties": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["titre", "duree_min"], "properties": {"titre": {"type": "string"}, "duree_min": {"type": "integer", "minimum": 1}}}}
+    }
+   },
+   "ps": {
+    "type": "object", "additionalProperties": false, "required": ["role", "identite", "ouverture", "recit", "reponses", "emotions"],
+    "properties": {
+     "role": {"type": "string"}, "identite": {"type": "string"}, "apparence": {"type": "string"},
+     "ouverture": {"type": "string", "description": "Première phrase du patient standardisé."},
+     "recit": {"type": "string", "description": "Ce que le patient dit spontanément."},
+     "reponses": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["q", "r", "si_demande"], "properties": {"q": {"type": "string"}, "r": {"type": "string"}, "si_demande": {"type": "boolean", "description": "true : le patient ne le dit que si le candidat le demande."}}}},
+     "emotions": {"type": "string"},
+     "questions": {"type": "array", "items": {"type": "string"}, "description": "Questions que le patient pose au candidat."},
+     "jeu": {"type": "string", "description": "Consignes de jeu et signes simulés."}
+    }
+   },
+   "resultats": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["moment", "texte"], "properties": {"moment": {"type": "string"}, "texte": {"type": "string"}}}},
+   "grille": {
+    "type": "object", "additionalProperties": false, "required": ["anamnese", "management"],
+    "properties": {
+     "anamnese": {"$ref": "#/$defs/items"}, "examen": {"$ref": "#/$defs/items"},
+     "presentation": {"$ref": "#/$defs/items"}, "management": {"$ref": "#/$defs/items"}
+    }
+   },
+   "kk": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["dim", "attendu"], "properties": {"dim": {"enum": ["ecoute", "structure", "verbal", "non_verbal"]}, "attendu": {"type": "string"}}}},
+   "pieges": {"type": "array", "items": {"type": "string"}},
+   "hyp": {"type": "array", "items": {"type": "string"}, "description": "Chaînes CK (data/ck/hyp.json) liées à la station."},
+   "src": {"$ref": "#/$defs/src", "minItems": 1},
+   "a_verifier": {"type": "array", "items": {"type": "string"}},
+   "statut": {"enum": ["brouillon", "sourcé", "validé"]},
+   "redige_par": {"type": "string"},
+   "valide_par_vial": {"type": "boolean"}
+  }
+ },
+ "$defs": {
+  "src": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "loc", "lu_le"], "properties": {"id": {"type": "string"}, "loc": {"type": "string"}, "lu_le": {"type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"}}}},
+  "items": {
+   "type": "array", "minItems": 1,
+   "items": {
+    "type": "object", "additionalProperties": false, "required": ["t", "pts", "pourquoi"],
+    "properties": {
+     "t": {"type": "string", "minLength": 10, "description": "Action attendue du candidat."},
+     "pts": {"type": "integer", "minimum": 1, "maximum": 3, "description": "Points indicatifs ; aucun point négatif."},
+     "pourquoi": {"type": "string", "minLength": 20, "description": "Justification clinique (esprit G8)."},
+     "ges": {"type": "array", "items": {"type": "string", "pattern": "^[a-z-]+_[0-9]+$"}},
+     "hyp": {"type": "array", "items": {"type": "string"}},
+     "src": {"$ref": "#/$defs/src"},
+     "statut": {"const": "À vérifier"}
+    },
+    "anyOf": [{"required": ["src"]}, {"required": ["hyp"]}, {"required": ["ges"]}, {"required": ["statut"]}]
+   }
+  }
+ }
+}

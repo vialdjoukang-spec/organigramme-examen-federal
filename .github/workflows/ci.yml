@@ -32,6 +32,8 @@ jobs:
         run: python3 tools/budget.py
       - name: Tests des gardes elles-mêmes
         run: python3 tests/test_gardes.py
+      - name: File de fusion · contrôles requis, attente-vial et réessai Pages
+        run: python3 tests/test_file_fusion.py
       # Chantier Nerfs crâniens et CK (Atlas, Janus, Galien) : audit médical de niveau 1, zéro jeton.
       - uses: actions/setup-python@v7
         with: { python-version: '3.12' }
@@ -39,6 +41,12 @@ jobs:
         run: pip install --quiet jsonschema pyyaml
       - name: G5 · schémas, renvois croisés et chaîne complète ; assets/ck à jour
         run: python tools/ck_build.py --check
+      - name: Stations CS · schéma, renvois (SSP, GES, hyp, src), dates de lecture, aucune dose chiffrée ; assets/st à jour
+        run: python tools/cs_build.py --check
+      - name: Prévalence des différentiels · chiffre sourcé et daté, ≤ 100 %, ordre décroissant ; PRV et assets/ck/prev.js à jour
+        run: python tools/prev_build.py --check
+      - name: Monographies des différentiels (Hygie)
+        run: python tools/mono_build.py --check
       - name: G1 · doses contre la table suisse
         run: python tools/audit/niveau1.py --only G1
       - name: G2 · source et date de lecture
@@ -76,7 +84,7 @@ jobs:
 
   etiquette:
     name: etiquette
-    # Demande la revue clinique de niveau 2 (Galien) quand une demande de fusion touche data/ck ou assets/nc.
+    # Demande la revue clinique de niveau 2 (Galien) quand une demande de fusion touche data/ck, data/cs ou assets/nc.
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
@@ -88,7 +96,7 @@ jobs:
         with: { fetch-depth: 0 }
       - env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(data/ck/|assets/nc/)'; then
+          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(data/ck/|data/cs/|assets/nc/)'; then
             gh label create audit:galien --color 0E8A16 --description "Revue clinique de niveau 2 par Galien" 2>/dev/null || true
             gh pr edit ${{ github.event.pull_request.number }} --add-label audit:galien
           else
