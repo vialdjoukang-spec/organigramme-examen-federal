@@ -1,13 +1,16 @@
 """Dédale-3D · rendu au crayon des vues d'un nerf crânien à partir du modèle Z-Anatomy.
 
 INSTRUCTIONS (automate, zéro jeton) ------------------------------------------------
-Commande, depuis le dossier du modèle (jamais versionné, hors dépôt) :
+ATTENTION (17.10.2026) : ce script ouvre le modèle COMPLET (environ 11 Go) : il est interdit sur le box partagé.
+Ses sorties pour le VII (courbes du nerf et ancres, nc/trait/nc07-<vue>.svg/.json) sont versionnées et
+servent telles quelles ; pour une autre paire, le porter d'abord en mode « ajout seul » comme crane.py.
+Le tour de 8 vues est abandonné (trois vues seulement : face, profil, 34).
+Commande historique :
     blender -b /workspace/ssp/nc_src/Z-Anatomy/Startup.blend -P tools/dedale/freestyle.py -- nc07
-    blender -b …/Startup.blend -P tools/dedale/freestyle.py -- nc07 --tour --sortie /workspace/ssp/nc_src/render
 Entrées  : tools/dedale/nerfs.json (noms d'objets du modèle ; aucune coordonnée saisie à la main).
 Sorties  : <sortie>/<nerf>-<vue>.svg (groupes peau, crane, tronc, territoires, nerf) et
            <sortie>/<nerf>-<vue>.json (ancres projetées : centre de chaque objet nommé, en px).
-           Par défaut <sortie> = nc/trait/ du dépôt (vues face, profil, 34) ; --tour ajoute t0…t7.
+           Par défaut <sortie> = nc/trait/ du dépôt (vues face, profil, 34).
 Méthode  : 1. la peau (régions de la tête, de la face et du cou) est fusionnée en un seul maillage
               (sommets confondus à 2 mm près, normales recalculées) ; le tronc cérébral
               (deux moitiés, trois étages) est fusionné de même à 0,5 mm pour ne garder que le contour, sans les coutures des régions ;
@@ -15,7 +18,7 @@ Méthode  : 1. la peau (régions de la tête, de la face et du cou) est fusionn�
               « crâne en transparence » : aucun groupe n'en masque un autre ;
            3. le nerf (courbes de Bézier du modèle) est échantillonné et projeté par la caméra ;
            4. caméras orthographiques : face 0°, profil droit 90°, trois quarts 45° avec 15° de plongée ;
-              tour : 8 vues tous les 45° (plongée 15°) ; échelle et centre identiques pour toutes les vues ;
+              échelle et centre identiques pour toutes les vues ;
            5. post-traitement déterministe : arrondi au dixième de pixel, simplification de Douglas-Peucker
               (0,35 px), découpe au cadre ; deux exécutions donnent le même fichier à l'octet près.
 Interdits: aucun trait dessiné à la main ; aucun fichier du modèle copié dans le dépôt.
@@ -29,7 +32,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 NERF = argv[0] if argv else 'nc07'
-TOUR = '--tour' in argv
 VUES = argv[argv.index('--vues') + 1].split(',') if '--vues' in argv else None
 SORTIE = argv[argv.index('--sortie') + 1] if '--sortie' in argv else os.path.join(ROOT, 'nc', 'trait')
 CFG = json.load(open(os.path.join(HERE, 'nerfs.json'), encoding='utf-8'))
@@ -351,13 +353,8 @@ def vue(nom, az, pl):
     print('DEDALE vue', nom, len(svg), 'octets')
 
 
-if TOUR:
-    T = CFG['tour']
-    for k in range(T['n']):
-        vue('t%d' % k, k * T['pas'], T['plongee'])
-else:
-    for nom, v in CFG['vues'].items():
-        if VUES and nom not in VUES:
-            continue
-        vue(nom, v['azimut'], v['plongee'])
+for nom, v in CFG['vues'].items():
+    if VUES and nom not in VUES:
+        continue
+    vue(nom, v['azimut'], v['plongee'])
 print('DEDALE fin', NERF)

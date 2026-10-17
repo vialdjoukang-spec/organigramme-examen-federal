@@ -52,3 +52,9 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 - L’image unique de 30 repères est remplacée par 5 préréglages : trajet (rocher agrandi, encart), branches (profil), fonctions (trois quarts, aplats pâles), lésions 1 à 5 (1 en rouge, dans l’encart), plan.
 - Branches en profil plutôt que de face : rendu de face essayé : les 5 branches se tassent sur une bande verticale de la joue et les repères marginal et cervical se confondent ; en profil, elles s’ouvrent en éventail (T-Z-B-M-C de haut en bas).
 - Trajet : l’étiquette « segment labyrinthique » est fondue dans « ganglion géniculé » (repères distants de 12 px même agrandis).
+
+## 17.10.2026 · Dédale · trois vues, crâne au crayon, nerf jaune
+- Direction de l'utilisateur : moins d'images, croquis forts. Publié : nc07-face, nc07-profil, nc07-34 seulement ; tour de 8 vues, préréglages séparés et plan Gray retirés (le plan reste donnée source dans nc/trait).
+- Crâne : tools/dedale/crane.py, os seuls (48 objets, 151 227 faces décimées à 118 512), scène vide, pic mémoire 0,94 à 1,06 Go ; tissus mous absents.
+- Nerf : jaune #FFC400 (6,5 px) cerné de #5a4500 (1 px), dessiné au-dessus de tout ; noyaux pleins en jaune.
+- Fonctions : l'aplat « moteur » est retiré (il couvrait la voûte) ; la motricité est portée par le nerf lui-même.

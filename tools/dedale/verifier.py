@@ -5,22 +5,24 @@ INSTRUCTIONS -------------------------------------------------------------------
     python3 tools/dedale/verifier.py nc07      # un nerf
     python3 tools/dedale/verifier.py --tous    # tous les nerfs présents dans assets/nc/
 Contrôles (ÉCHEC = code de sortie 1) :
-  V1 couches : trait, nerf, noyaux, foramens, territoires, lesions, legendes présentes (même vides) ;
-     data-couches = couches du préréglage (nc/presets/<nerf>.yml) ; les autres couches masquées ;
+  V1 couches et états : trait, nerf, noyaux, foramens, territoires, lesions, legendes présentes (même vides) ;
+     data-etats = états de nc/presets/<nerf>.yml ; couches visibles par défaut = celles de l'état par défaut ;
   V2 lisibilité : tout texte mesure au moins 13 px une fois l'image réduite à 360 px de large ;
-  V3 poids : au plus 120 Ko par vue SVG, au plus 200 Ko pour un sprite WebP (budget de la CI) ;
+  V3 poids : au plus 120 Ko par vue SVG ;
   V4 crédits : entrée complète dans assets/nc/credits.json (TASL, licence, « Œuvre dérivée »,
      modifications, date, genere_par_ia faux, valide_par_vial présent) et métadonnées dans le SVG ;
-  V5 couleur : gris, vert du nerf (#156534) et aplats pâles déclarés dans le préréglage (luminance ≥ 0,8) ;
-     le rouge (#b91c1c) ne marque que la couche lesions ; aucune image matricielle intégrée ;
+  V5 couleur : gris, nerf en jaune intense (#ffc400) cerné de #5a4500, aplats pâles déclarés dans les états
+     (luminance ≥ 0,8) ; l'ancien vert du nerf (#156534) est refusé ; le rouge (#b91c1c) ne marque que la
+     couche lesions ; aucune image matricielle intégrée ;
   V6 annotations : chaque entrée de nc/annot/<nerf>.yml a un identifiant, un libellé et une source ;
-  V7 rejouabilité : la recomposition par annoter.py redonne chaque SVG à l'octet près
+  V7 rejouabilité : la recomposition par annoter.py redonne chaque fichier à l'octet près
      (sauf --sans-rejeu, quand svgo 4.0.0 n'est pas installé) ;
-  V8 une idée par image : au plus 8 étiquettes par préréglage ;
-  V9 aucun chevauchement : boîtes d'étiquettes recalculées depuis le texte (largeur estimée à 0,60 em par
-     caractère, au-dessus de la largeur mesurée dans Chromium), disjointes, dans l'image, hors de l'encart ;
+  V8 une idée par état : au plus 8 étiquettes par état ;
+  V9 aucun chevauchement dans un état : boîtes recalculées depuis le texte (0,60 em par caractère, au-dessus de
+     la largeur mesurée dans Chromium), disjointes et dans l'image ;
   V10 dessin : la zone de dessin (data-zone) couvre au moins 60 % de l'image ;
-  V11 légende : 4 lignes au plus sous le dessin (légende et crédit court compris), pas de colonne numérotée.
+  V11 légende : 4 lignes au plus par état (légende et crédit court compris) ;
+  V12 trois vues : exactement face, profil et 34 publiées par nerf ; ni tour de 8 vues ni autre image.
 """
 import json, os, re, subprocess, sys
 import xml.etree.ElementTree as ET
@@ -34,6 +36,8 @@ CHAMPS = ('fichier', 'titre', 'auteur', 'source', 'source_url', 'url', 'licence'
 GRIS = re.compile(r'^#([0-9a-f])\1\1$|^#([0-9a-f]{2})\2\2$', re.I)
 fails = []
 CAR, LBL_H, BASE, MAX_ETIQ, MIN_PX = 0.60, 36, 26, 8, 13
+JAUNE, CERNE = '#ffc400', '#5a4500'
+VUES = ['face', 'profil', '34']
 
 
 def ko(p):
@@ -72,7 +76,7 @@ def boites(s, fs):
     return out
 
 
-def svg_vue(nerf, p, credits, preset=None, P=None):
+def svg_vue(nerf, p, credits, P=None):
     rel = os.path.relpath(p, ROOT)
     s = open(p, encoding='utf-8').read()
     for c in COUCHES:
@@ -87,58 +91,90 @@ def svg_vue(nerf, p, credits, preset=None, P=None):
           % (rel, (min(tailles) if tailles else 0) * k, MIN_PX))
     check(ko(p) <= 120, '%s : %.0f Ko, plafond 120 (V3)' % (rel, ko(p)))
     check('<image' not in s and 'data:image' not in s, '%s : image matricielle intégrée interdite (V5)' % rel)
-    pales = {c.lower() for c in ((P or {}).get('remplissages') or {}).values()}
+    pales = {c.lower() for E in ((P or {}).get('etats') or {}).values() for c in (E.get('remplissages') or {}).values()}
     for col in set(re.findall(r'#[0-9a-fA-F]{3,6}\b', s)):
         c = col.lower()
-        if c in ('#156534', '#b91c1c') or GRIS.match(c):
+        if c in (JAUNE, CERNE, '#b91c1c') or GRIS.match(c):
             continue
         check(c in pales and lum(c) >= 0.8, '%s : couleur %s non autorisée (V5)' % (rel, col))
-    # rouge : seulement des éléments situés dans une couche lesions (classe « u » ou couleur #b91c1c en attribut)
+    st = re.search(r'<style>(.*?)</style>', s, re.S)
+    st = st.group(1).lower() if st else ''
+    check(re.search(r'\.n2 path\{[^}]*stroke:%s' % JAUNE, st) and re.search(r'\.n1 path\{[^}]*stroke:%s' % CERNE, st),
+          '%s : le nerf doit être jaune %s cerné de %s (V5)' % (rel, JAUNE, CERNE))
     try:
         racine = ET.fromstring(s)
     except ET.ParseError as e:
-        check(False, '%s : SVG illisible (%s)' % (rel, e)); racine = None
+        check(False, '%s : SVG illisible (%s)' % (rel, e)); return
     def parcours(el, dans):
         dans = dans or el.get('data-couche') == 'lesions'
-        rouge = 'u' in (el.get('class') or '').split() or any('#b91c1c' in (v or '').lower() for k, v in el.attrib.items())
+        rouge = 'u' in (el.get('class') or '').split() or any('#b91c1c' in (v or '').lower() for v in el.attrib.values())
         if rouge and not dans:
             fails.append('%s : rouge hors de la couche lesions (V5)' % rel)
             return False
         return all(parcours(c, dans) for c in el if not c.tag.endswith('style'))
-    if racine is not None:
-        parcours(racine, False)
+    parcours(racine, False)
     check('Œuvre dérivée' in s and 'CC BY-SA 4.0' in s, '%s : mention « Œuvre dérivée » ou licence absente du SVG (V4)' % rel)
-    if preset is not None:
-        m = re.search(r'data-couches="([^"]*)"', s)
-        check(m and m.group(1).split() == list(P['couches']), '%s : data-couches ≠ couches du préréglage %s (V1)' % (rel, preset))
+    if P is not None:
+        try:
+            etats = json.loads(racine.get('data-etats') or '{}')
+        except ValueError:
+            etats = {}
+        attendu = {n: list(E['couches']) for n, E in P['etats'].items()}
+        check(etats == attendu, '%s : data-etats ≠ états de nc/presets (V1)' % rel)
+        defaut = racine.get('data-etat')
+        check(defaut == P.get('etat_defaut'), '%s : état par défaut %r (V1)' % (rel, defaut))
         for c in COUCHES:
             g = re.search(r'<g[^>]*\bid="%s"[^>]*>' % c, s)
-            if g:
+            if g and defaut in etats:
                 cache = 'display="none"' in g.group(0)
-                check(cache == (c not in P['couches']), '%s : couche %s %s à tort (V1)' % (rel, c, 'masquée' if cache else 'visible'))
-        fs = re.search(r'\.lb[^{]*\{[^}]*font-size:([\d.]+)px', s) or re.search(r'\.lb,\.lg\{font-size:([\d.]+)px', s)
+                check(cache == (c not in etats[defaut]), '%s : couche %s %s à tort (V1)' % (rel, c, 'masquée' if cache else 'visible'))
+        fs = re.search(r'\.lb,\.lg\{font-size:([\d.]+)px', s)
         fs = float(fs.group(1)) if fs else 30
-        B = boites(s, fs)
-        check(len(B) <= MAX_ETIQ, '%s : %d étiquettes, %d au plus par préréglage (V8)' % (rel, len(B), MAX_ETIQ))
-        enc = re.search(r'<rect[^>]*class="enc"[^>]*>', s)
-        E = None
-        if enc:
-            g = lambda a: float(re.search(r'\b%s="([-\d.]+)"' % a, enc.group(0)).group(1))
-            E = (g('x'), g('y'), g('width'), g('height'))
-        for n, b in enumerate(B):
-            check(b[1] >= 0 and b[2] >= 0 and b[1] + b[3] <= W and b[2] + b[4] <= H, '%s : étiquette %s hors de l’image (V9)' % (rel, b[0]))
-            if E:
-                check(not inter(b[1:], E), '%s : étiquette %s sur l’encart (V9)' % (rel, b[0]))
-            for c in B[n + 1:]:
-                check(not inter(b[1:], c[1:]), '%s : étiquettes %s et %s se chevauchent (V9)' % (rel, b[0], c[0]))
+        for g in racine.iter():
+            e = g.get('data-etat')
+            if e is not None and g is not racine:
+                check((g.get('display') == 'none') == (e != defaut), '%s : groupe %s de l’état %s mal masqué (V1)'
+                      % (rel, g.get('class'), e))
+        par_etat = {}
+        for g in racine.iter():
+            if 'etiquettes' in (g.get('class') or '').split():
+                e = g.get('data-etat')
+                check(e in attendu, '%s : étiquettes d’un état inconnu %r (V1)' % (rel, e))
+                par_etat.setdefault(e, []).extend(boites(g, fs))
+        for e, B in par_etat.items():
+            check(len(B) <= MAX_ETIQ, '%s : état %s : %d étiquettes, %d au plus (V8)' % (rel, e, len(B), MAX_ETIQ))
+            for n, b in enumerate(B):
+                check(b[1] >= 0 and b[2] >= 0 and b[1] + b[3] <= W and b[2] + b[4] <= H, '%s : étiquette %s hors de l’image (V9)' % (rel, b[0]))
+                for c in B[n + 1:]:
+                    check(not inter(b[1:], c[1:]), '%s : état %s : étiquettes %s et %s se chevauchent (V9)' % (rel, e, b[0], c[0]))
         z = re.search(r'data-zone="([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+)"', s)
         if check(z, '%s : data-zone absente (V10)' % rel):
             part = float(z.group(3)) * float(z.group(4)) / (W * H)
             check(part >= 0.6, '%s : dessin %.0f %% de l’image, 60 %% au moins (V10)' % (rel, 100 * part))
-        bas = re.search(r'<g id="legende-bas">(.*?)</g>', s, re.S)
-        n_l = len(re.findall(r'<text', bas.group(1))) if bas else 0
-        check(bas and n_l <= 4, '%s : légende de %d lignes, 4 au plus (V11)' % (rel, n_l))
+        lignes = {}
+        for g in racine.iter():
+            if (g.get('class') or '') in ('legende', 'credit'):
+                lignes[g.get('data-etat')] = lignes.get(g.get('data-etat'), 0) + sum(1 for t in g.iter() if t.tag.endswith('text'))
+        for e in attendu:
+            check(lignes.get(e, 0) <= 4, '%s : état %s : légende de %d lignes, 4 au plus (V11)' % (rel, e, lignes.get(e, 0)))
     credit(rel, credits)
+
+
+def boites(g, fs):
+    out = []
+    for lb in g:
+        if 'lbl' not in (lb.get('class') or '').split():
+            continue
+        t = next((x for x in lb.iter() if x.tag.endswith('text')), None)
+        if t is None:
+            continue
+        x, y = float(t.get('x')), float(t.get('y'))
+        lignes = [ts.text or '' for ts in t if ts.tag.endswith('tspan')] or [t.text or '']
+        w = max(len(l) for l in lignes) * CAR * fs
+        ta = t.get('text-anchor')
+        x0 = x - w if ta == 'end' else (x - w / 2 if ta == 'middle' else x)
+        out.append((lb.get('data-ref'), x0, y - BASE, w, LBL_H * len(lignes)))
+    return out
 
 
 def inter(a, b):
@@ -182,27 +218,22 @@ def main():
     for nerf in nerfs:
         a = annot(nerf)
         fp = os.path.join(ROOT, 'nc', 'presets', nerf + '.yml')
-        if os.path.exists(fp):
-            presets = yaml.safe_load(open(fp, encoding='utf-8'))['presets']
+        P = yaml.safe_load(open(fp, encoding='utf-8')) if os.path.exists(fp) else None
+        check(P is not None, 'nc/presets/%s.yml absent (V1)' % nerf)
+        if P:
+            check([str(v) for v in P.get('vues', [])] == VUES, 'nc/presets/%s.yml : vues %s, exactement %s (V12)' % (nerf, P.get('vues'), VUES))
+            for nom, E in P['etats'].items():
+                check(len(E.get('etiquettes') or []) <= MAX_ETIQ,
+                      'nc/presets/%s.yml : état %s : %d étiquettes, %d au plus (V8)' % (nerf, nom, len(E.get('etiquettes') or []), MAX_ETIQ))
             check(os.path.exists(os.path.join(NC, nerf + '-presets.json')), 'assets/nc/%s-presets.json absent (V1)' % nerf)
-            for nom, P in presets.items():
-                check(len(P.get('etiquettes') or []) <= MAX_ETIQ,
-                      'nc/presets/%s.yml : %s a %d étiquettes, %d au plus (V8)' % (nerf, nom, len(P.get('etiquettes') or []), MAX_ETIQ))
-                p = os.path.join(NC, '%s-%s.svg' % (nerf, nom))
-                if check(os.path.exists(p), 'assets/nc/%s-%s.svg absent' % (nerf, nom)):
-                    svg_vue(nerf, p, credits, nom, P)
-        else:
-            for v in (a or {}).get('vues', []):
-                p = os.path.join(NC, '%s-%s.svg' % (nerf, v))
-                if check(os.path.exists(p), 'assets/nc/%s-%s.svg absent' % (nerf, v)):
-                    svg_vue(nerf, p, credits)
-        tour = os.path.join(NC, nerf + '-tour.webp')
-        if os.path.exists(tour):
-            rel = os.path.relpath(tour, ROOT)
-            check(ko(tour) <= 200, '%s : %.0f Ko, plafond 200 (V3)' % (rel, ko(tour)))
-            credit(rel, credits)
-            check(nerf in ('nc03', 'nc04', 'nc05', 'nc06', 'nc07'),
-                  '%s : tour de 8 vues réservé à V, VII et III-IV-VI (décision du 17.10.2026)' % rel)
+        attendus = {'%s-%s.svg' % (nerf, v) for v in VUES} | {nerf + '-presets.json'}
+        for f in sorted(os.listdir(NC)):
+            if f.startswith(nerf + '-') and f not in attendus:
+                check(False, 'assets/nc/%s : seules les 3 vues face, profil, 34 sont publiées (V12)' % f)
+        for v in VUES:
+            p = os.path.join(NC, '%s-%s.svg' % (nerf, v))
+            if check(os.path.exists(p), 'assets/nc/%s-%s.svg absent (V12)' % (nerf, v)):
+                svg_vue(nerf, p, credits, P)
         if '--sans-rejeu' not in args:
             r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'dedale', 'annoter.py'), nerf, '--verifier'],
                                capture_output=True, text=True)

@@ -1,32 +1,32 @@
-# Préréglages d'affichage du nerf facial (VII) · Dédale, 17.10.2026.
-# Une image = une idée, 8 étiquettes au plus, posées à côté de la structure avec un trait de rappel court.
+# États d'affichage du nerf facial (VII) · Dédale, 17.10.2026.
+# Trois images publiées seulement : vues face, profil et trois quarts (assets/nc/nc07-<vue>.svg), crâne au crayon
+# et nerf en jaune. Chaque SVG contient TOUS les états ci-dessous : un état = un jeu de couches visibles et
+# 8 étiquettes au plus ; Hermès passe d'un état à l'autre (data-etats, data-etat) sans changer d'image.
 # Chaque étiquette renvoie (« ref ») à une entrée sourcée de nc/annot/nc07.yml (Ariane) : sa position vient de
-# l'ancre de cette entrée ; « accroche: nerf » la déplace sur le point du nerf le plus proche (rameaux terminaux).
-# Les textes sont des résumés courts des libellés d'Ariane ; le texte complet reste dans les données.
-# Un préréglage = un jeu de couches visibles (data-couches) ; Hermès bascule les couches par [data-couche].
+# l'ancre de cette entrée ; « accroche: nerf » la ramène sur le point du nerf le plus proche ; « entre » prend le
+# milieu de deux repères, ramené sur le nerf. Les textes résument les libellés d'Ariane (texte complet : données).
 nerf: nc07
-presets:
+titre: "Nerf facial (VII)"
+vues: [face, profil, "34"]
+etat_defaut: trajet
+etats:
   trajet:
-    titre: "VII · Trajet : segments et foramens"
-    vue: "34"
-    cadre: {ancres: ["VII·émergence", "VII·foramen stylo-mastoïdien", "VII·premier genou", "VII·pore acoustique interne", "VII·origine de la corde du tympan"], marge: 0.3}
-    encart: {position: bd, taille: 230}
-    couches: [trait, nerf, foramens, legendes]
+    nom: "Trajet"
+    couches: [trait, nerf, noyaux, foramens, legendes]
     etiquettes:
+      - {ref: N1, texte: "Noyau moteur (pont)", couche: noyaux}
       - {ref: S1, texte: "Segment cisternal", entre: ["VII·émergence", "VII·pore acoustique interne"]}
       - {ref: F1, texte: "Pore acoustique interne", couche: foramens}
-      - {ref: L2, texte: "Ganglion géniculé | (fin du labyrinthique)", couche: legendes}
+      - {ref: L2, texte: "Ganglion géniculé", couche: legendes}
       - {ref: S4, texte: "Segment tympanique", entre: ["VII·premier genou", "VII·second genou"]}
       - {ref: S5, texte: "Segment mastoïdien"}
       - {ref: F3, texte: "Foramen stylo-mastoïdien", couche: foramens}
       - {ref: B2, texte: "Corde du tympan", ancre: "Tympanic membrane.r", accroche: nerf}
     legende:
-      - "Rocher agrandi ; encart : tête entière."
+      - "Trajet : du noyau aux foramens."
   branches:
-    titre: "VII · Les 5 branches de la face"
-    vue: profil
-    cadre: {ancres: ["Frontalis muscle.r", "Platysma.r", "Parotid gland.r", "Orbicularis oris muscle.r", "VII·foramen stylo-mastoïdien"], marge: 0.18}
-    couches: [trait, nerf, legendes]
+    nom: "Branches"
+    couches: [trait, nerf, noyaux, legendes]
     etiquettes:
       - {ref: R1, texte: "Parotide (plexus)"}
       - {ref: B3, texte: "Temporal", accroche: nerf}
@@ -35,31 +35,25 @@ presets:
       - {ref: B6, texte: "Marginal mandibulaire", accroche: nerf}
       - {ref: B7, texte: "Cervical", accroche: nerf}
     legende:
-      - "De haut en bas : T-Z-B-M-C."
+      - "Branches, de haut en bas : T-Z-B-M-C."
   fonctions:
-    titre: "VII · Fonctions et territoires"
-    vue: "34"
-    cadre: {ancres: ["Frontalis muscle.r", "Platysma.r", "Cavity of concha.r", "Lacrimal gland.r", "Tongue"], marge: 0.12}
+    nom: "Fonctions"
     couches: [trait, territoires, nerf, noyaux, legendes]
-    remplissages: {moteur: "#e3efe6", gout: "#f6d7b0", parasympathique: "#cfe3f5", sensitif: "#e3d6f2"}
+    remplissages: {gout: "#f6d7b0", parasympathique: "#cfe3f5", sensitif: "#e3d6f2"}   # moteur : le nerf lui-même (aplat retiré, il couvrait la voûte)
     etiquettes:
       - {ref: T1, ancre: "Zygomaticus major muscle.r", texte: "Motricité : mimique", couche: territoires}
-      - {ref: G4, texte: "Goût : 2/3 ant. de la langue"}
+      - {ref: G4, texte: "Goût : 2/3 ant. langue"}
       - {ref: G1, texte: "Larmes"}
       - {ref: G2, texte: "Salive"}
       - {ref: G5, ancre: "Cavity of concha.r", texte: "Sensibilité : conque"}
-      - {ref: N1, texte: "Noyaux du VII (pont)", couche: noyaux}
     legende:
-      - "Aplats : vert moteur, orange goût,"
-      - "bleu sécrétion, violet sensibilité."
+      - "Aplats : orange goût, bleu sécrétion,"
+      - "violet sensibilité ; jaune : le nerf."
   lesions:
-    titre: "VII · Sites lésionnels et déficit"
-    vue: "34"
-    cadre: {ancres: ["VII·émergence", "VII·foramen stylo-mastoïdien", "VII·premier genou", "VII·pore acoustique interne", "VII·origine de la corde du tympan"], marge: 0.3}
-    encart: {position: bd, taille: 230}
-    couches: [trait, nerf, lesions, legendes]
+    nom: "Sites lésionnels"
+    couches: [trait, nerf, noyaux, lesions, legendes]
     etiquettes:
-      - {ref: L1, texte: "1 · Central | front épargné", espace: encart}
+      - {ref: L1, texte: "1 · Central | front épargné"}
       - {ref: L2, texte: "2 · Géniculé | œil sec"}
       - {ref: L3, texte: "3 · Tympanique | hyperacousie"}
       - {ref: L4, texte: "4 · Mastoïdien | goût perdu"}
@@ -67,10 +61,7 @@ presets:
     legende:
       - "1 en rouge : urgence (AVC à exclure)."
       - "2 à 5 : périphérique, front compris."
-  plan:
-    titre: "VII · Plan du nerf (Gray 1918)"
-    vue: plan
-    couches: [trait, legendes]
-    etiquettes: []
-    legende:
-      - "Plan du VII et de l'intermédiaire (Gray)."
+# Retraits par vue (étiquettes dont la structure est cachée ou confondue dans cette vue) : complétés après essai.
+par_vue:
+  face: {retirer: {trajet: [S1]}}     # de face et de trois quarts, le segment cisternal se confond avec le pore
+  "34": {retirer: {trajet: [S1]}}
