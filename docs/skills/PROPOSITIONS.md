@@ -17,7 +17,7 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 | 12 | audit galien-neuro glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 11 | audit galien-neuro glo-lot01b | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 10 | visuel nouvelle référence | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
-| 5 | codex étape n | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 6 | codex étape n | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | audit galien-têtecou glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 
 ## Squelette d'un skill
@@ -33,8 +33,3 @@ description: <quand l'utiliser, en une phrase>
 3. Contrôle : <tests, --check>
 4. Pièges : <liste>
 ```
-
-## Décision Codex · étape 6
-- `tools/etapes.json` : fichier de configuration, faux positif de commande.
-- Audits et références visuelles : skills existants ; ne pas ajouter de doublon.
-- Nouveau contrôle AIPS : script testé `tools/aips_verbatim.py`, à utiliser avec le skill posologie-suisse existant.

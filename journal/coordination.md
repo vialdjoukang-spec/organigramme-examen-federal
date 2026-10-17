@@ -28,3 +28,6 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 
 ### Étape 6 · Codex, 17.10.2026 UTC
 98 lignes de doses relues contre 73 documents Refdata (cache hors git). Rapports individuels AIPS-RELECTURE-PR59/61/67/70 et corrections sur chaque branche. KCl : aucune conversion supposée ; aciclovir : discordance AIPS/EAN2026 affichée. #67/#70 attente-vial pour corticostéroïdes dans ICH spontanée aiguë ; aucune validation humaine inventée. Tests du comparateur : 3/3. Contrôles de branches suivis séparément ; critère de fusion pas encore atteint.
+
+### Étape 7 · Codex
+#65 et #68 reprises, main intégré. #65 hausse de référence lors de la migration des règles signalée et audit-ok retiré. #68 : 166 définitions entièrement relues ; sept corrections conceptuelles, réserves de sources conservées, G1/G2/G3/G6 et Lyncée contrôlés. Aucune validation Vial. Fusions en attente ; passage selon R7.
