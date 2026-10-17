@@ -56,9 +56,10 @@ def errors(M, names):
         for f, v in e.items():
             if isinstance(v, str) and re.search(r'<(b|strong)\b', v): err.append(f'{k}.{f} : gras réservé aux titres')
         if not re.search(r'\d{2}\.\d{2}\.\d{4}', e.get('lu', '')): err.append(f'{k} : date de lecture absente')
-        p = e.get('pha', '')
-        if re.search(r'\d\s?(mg|µg|g|mmol|UI)\b', p) and 'AIPS' not in e.get('src', '') + p:
-            err.append(f'{k} : dose sans AIPS lue (écrire « dose : à vérifier (AIPS) »)')
+        for f in ('pha', 'aut'):  # Hérophile : « à vérifier (AIPS) » n'autorise pas un chiffre ; seule une AIPS lue le permet
+            p = e.get(f, '')
+            if re.search(r'\d\s?(mg|µg|mcg|g|mmol|UI|mL|ml)\b|/kg\b', p) and 'AIPS lue' not in p:
+                err.append(f'{k}.{f} : dose chiffrée sans AIPS lue (écrire « dose : à vérifier (AIPS) » ou citer « AIPS lue le … »)')
     return err
 
 
@@ -78,8 +79,12 @@ def main():
         c = sys.argv[sys.argv.index('--draft') + 1]
         TIP = json.loads(s[slice(*_app.span(s, 'TIP'))])
         M = load()
-        for n, d in zip(NOT[c][0], TIP[c]['d']):
+        V = TIP[c].get('v') or {}
+        S = {x['id']: x for x in V.get('S', [])}
+        for i, (n, d) in enumerate(zip(NOT[c][0], TIP[c]['d'])):
             print('##', mid(n), '(fait)' if mid(n) in M else '', '|', re.sub(r'\s+', ' ', d))
+            for j in (V['d'][i][1] if i < len(V.get('d') or []) else []):
+                print('   src :', S[j]['t'], '·', S[j].get('u', ''))  # sources vérifiées du DD : à reprendre dans « src »
         return
     names = {mid(d) for v in NOT.values() for d in v[0] if d}
     M = load()
