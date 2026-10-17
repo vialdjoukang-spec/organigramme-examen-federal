@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 /* Organigramme à mémoire permanente : un poste de travail en quatre vues (Calendrier, Vitrine, Calculs, Exigences), identité dorée de l'Examen fédéral · Version SSP. */
-:root{--bg:#f6f1e4;--paper:#fffdf8;--ink:#1c1a15;--mut:#6d675b;--line:#e6dfcd;--soft:#efe8d6;--gold:#a8842f;--gold2:#d6b25a;--deep:#5f4813;--ok:#2f7a4a;--warn:#a5671a;--bad:#a3322c;--grid:#ece4d0;--grid2:#f4eedf;
+:root{--bg:#fbfbf8;--paper:#ffffff;--ink:#1a1a1a;--mut:#4a4a4a;--line:#dededb;--soft:#f3f3f1;--gold:#7a5b12;--gold2:#d9b65e;--deep:#4a380b;--ok:#1d6a3a;--warn:#8a5207;--bad:#a12a24;--grid:#e6e6e3;--grid2:#f6f6f4;
 --fd:"Fraunces",Georgia,serif;--fb:"Inter",system-ui,sans-serif;--fm:"JetBrains Mono",ui-monospace,monospace}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13120e;--paper:#1c1a15;--ink:#f1ebdc;--mut:#b2aa97;--line:#34302a;--soft:#25221c;--gold:#d6b25a;--gold2:#e9cf86;--deep:#f0dca6;--ok:#6fd096;--warn:#f0b65a;--bad:#f08a80;--grid:#2c2922;--grid2:#221f19;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#13120e;--paper:#1c1a15;--ink:#f1ebdc;--mut:#b2aa97;--line:#34302a;--soft:#25221c;--gold:#d6b25a;--gold2:#e9cf86;--deep:#f0dca6;--ok:#6fd096;--warn:#f0b65a;--bad:#f08a80;--grid:#2c2922;--grid2:#221f19;color-scheme:dark}
@@ -87,8 +87,8 @@ td.n{font-family:var(--fm);text-align:right;font-variant-numeric:tabular-nums;wh
 .side{overflow:hidden}.side input,.side select{width:100%;box-sizing:border-box;min-width:0}.side .row{display:grid;grid-template-columns:1fr 1fr;gap:6px}.side .row label{display:none}
 .it{min-width:0}.it span{overflow-wrap:anywhere}.list{overflow-x:hidden}
 .blk .t{white-space:normal;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
-:root{--gilt:.5;--ink:#100e09;--mut:#3f3a30;--fs:100%}
-:root{--bg:color-mix(in srgb,#f6f1e4 calc(var(--gilt)*100%),#ffffff)}
+:root{--gilt:0;--ink:#1a1a1a;--mut:#4a4a4a;--fs:100%}
+:root{--bg:#fbfbf8}/* Fond pâle par défaut */
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--mut:#d3cbb7;--ink:#fbf6ea;--bg:color-mix(in srgb,#1b1913 calc(var(--gilt)*100%),#101010)}}
 :root[data-theme="dark"]{--mut:#d3cbb7;--ink:#fbf6ea;--bg:color-mix(in srgb,#1b1913 calc(var(--gilt)*100%),#101010)}
 html{font-size:var(--fs)}
@@ -314,7 +314,7 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const BY=Object.fromEntries(SSP.map(s=>[s[0],s]));
 const H0=6,H1=23,PX=48;
-let S={seances:{},params:{exam:"2027-08-03",obj:120,pass:1,disp:{gilt:50,fs:100}},exi:{}};
+let S={seances:{},params:{exam:"2027-08-03",obj:120,pass:1,disp:{gilt:0,fs:100}},exi:{}};
 let db=null,cur=new Date(),sel=null,editId=null,mode=innerWidth<820?'d':'w';
 const pad=n=>String(n).padStart(2,'0'),iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 const parse=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
@@ -625,7 +625,7 @@ $('#exi').addEventListener('change',e=>{const k=e.target.dataset.x;if(!k)return;
 $$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));['att','cal','not','vit','memo','cs','ges','calc','exi'].forEach(v=>$('#v-'+v).hidden=v!==t.dataset.v);if(t.dataset.v==='not')renderNot();if(t.dataset.v==='ges')renderGes();lsSet('orga-tab',t.dataset.v)});
 try{const v=localStorage.getItem('orga-tab');if(v)$$('.tab').find(t=>t.dataset.v===v)?.click()}catch(e){}
 /* ---------- Affichage : intensité dorée, taille du texte ---------- */
-function applyDisp(){const d=S.params.disp||{};document.documentElement.style.setProperty('--gilt',(d.gilt??50)/100);document.documentElement.style.setProperty('--fs',(d.fs??100)+'%');$('#d-gilt').value=d.gilt??50;$('#d-fs').value=d.fs??100;$('#d-gv').textContent=(d.gilt??50)+' %';$('#d-fv').textContent=(d.fs??100)+' %'}
+function applyDisp(){const d=S.params.disp||{};document.documentElement.style.setProperty('--gilt',(d.gilt??0)/100);document.documentElement.style.setProperty('--fs',(d.fs??100)+'%');$('#d-gilt').value=d.gilt??0;$('#d-fs').value=d.fs??100;$('#d-gv').textContent=(d.gilt??0)+' %';$('#d-fv').textContent=(d.fs??100)+' %'}
 ['#d-gilt','#d-fs'].forEach(s=>$(s).addEventListener('input',()=>{S.params.disp={gilt:+$('#d-gilt').value,fs:+$('#d-fs').value};applyDisp()}));
 ['#d-gilt','#d-fs'].forEach(s=>$(s).addEventListener('change',()=>put('reglages','params',S.params)));
 
