@@ -231,7 +231,7 @@ Puis remplacer dans les monographies les « À vérifier (AIPS) » par `dose_ref
 
 ## Partie C · État, outils, sauvegardes
 
-### C1. État au 18.10.2026 00:45 (à revérifier à l’Étape 1)
+### C1. État au 18.10.2026 00:45 (historique ; vérification Codex ci-dessous)
 **Sur main** (9b5925c) : infrastructure monographies (patch 0026, `assets/mono/`), Hygie lot 1 (G1, 14 DD), Panacée lots 1–2 (O7.26–O7.21), **infrastructure prévalence #42** (aucun chiffre encore), **visuel CLS #66**, `progres.html`, auto-fusion v1 + `--repo` + correctif Pages.
 
 | PR | Objet | État |
@@ -255,6 +255,43 @@ Monographies  ░░░░░░░░░░    3 %  (70/2280 · audités 0)
 (≈ 115 monographies et 34 prévalences écrites sur branches, non fusionnées.)
 
 **Autres reliquats** : ~moitié des chiffres épidémiologiques des monographies encore « à vérifier » ; cartes d’approbation à chaque `git push` dans l’environnement Grok Bot (sans objet pour Codex).
+
+### Vérification Codex · 18.10.2026 01:05 CEST
+
+Main observé : `2228be7` (dépôt réel). Pages HTTP 200, SHA-256 identique à origin/main : `c750e1813c1c725508628d407ab7382c43ccb997923b3ee83e58bb5acf850f40`.
+
+| PR | Branche | Fusion | Contrôles observés |
+|---|---|---|---|
+| #16 | feat/apollon-premium | UNKNOWN | garde: SUCCESS, visuel: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #32 | feat/fond-pale | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #37 | feat/trauma-ddx | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: FAILURE, tests: SUCCESS, schemas: SUCCESS |
+| #39 | feat/galien-nc07-revue | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #41 | fix/galien-tip-revue | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #43 | feat/ddx-prev-g1-thorax | BLOCKED | garde: IN_PROGRESS, visuel: IN_PROGRESS, auto-fusion: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: IN_PROGRESS, tests: IN_PROGRESS, schemas: IN_PROGRESS |
+| #44 | feat/ddx-prev-g2-dyspnee | UNKNOWN | visuel: FAILURE, visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #45 | feat/ddx-prev-g3-abdomen | UNKNOWN | visuel: FAILURE, visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #47 | audit/galien-prev | DIRTY | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #49 | audit/herophile | DIRTY | auto-fusion: FAILURE, garde: IN_PROGRESS, visuel: IN_PROGRESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: IN_PROGRESS, schemas: IN_PROGRESS |
+| #50 | feat/mono-g2 | DIRTY | auto-fusion: SUCCESS, garde: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #53 | feat/mono-g3 | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #54 | feat/mono-g5 | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #56 | test/auto-fusion-e2e | UNKNOWN | aucun check publié |
+| #58 | feat/ddx-prev-g4-fievre-syncope | UNKNOWN | aucun check publié |
+| #59 | feat/doses-ch-1 | DIRTY | auto-fusion: FAILURE, garde: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #60 | feat/mono-panacee-3 | DIRTY | garde: FAILURE, auto-fusion: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #61 | feat/doses-ch-2 | UNKNOWN | aucun check publié |
+| #62 | feat/mono-panacee-4 | UNKNOWN | aucun check publié |
+| #63 | agent/auto-fusion-graphql | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #64 | feat/mono-g7 | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #65 | feat/lyncee-glossaire | DIRTY | auto-fusion: FAILURE, garde: SUCCESS, visuel: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #67 | feat/doses-ch-3 | DIRTY | aucun check publié |
+| #68 | feat/glo-lyncee-01 | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: FAILURE, schemas: SUCCESS |
+| #70 | feat/doses-ch-4 | CLEAN | aucun check publié |
+| #71 | codex/etape-0 | BLOCKED | garde: IN_PROGRESS, visuel: IN_PROGRESS, etiquette: IN_PROGRESS, html: IN_PROGRESS, liens: IN_PROGRESS, tests: IN_PROGRESS, schemas: IN_PROGRESS |
+
+UNKNOWN signifie que GitHub n’a pas encore calculé la fusion ; ce n’est pas une validation. Les sauvegardes bundle et patches Grok (§ C4) sont absentes des deux chemins dans cet environnement. Les branches distantes sont disponibles ; ne pas annoncer les travaux non commités comme récupérés.
+
+Jauges inchangées : prévalences 0/2578 (0 %), monographies 70/2280 (3 %). `binomes.py --check` passe. La file locale a mis #43 à jour ; sa CI est en cours. La protection main n’est pas lisible via cette intégration (403), elle reste intacte.
 
 ### C2. Commandes et fichiers
 | Chemin | Rôle |
