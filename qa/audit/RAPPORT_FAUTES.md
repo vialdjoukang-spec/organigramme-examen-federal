@@ -2,7 +2,15 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 29 faute(s) corrigée(s), dont 0 critique(s), 3 majeure(s) et 26 mineure(s).
+Bilan : 32 faute(s) corrigée(s), dont 0 critique(s), 3 majeure(s) et 29 mineure(s).
+
+## ck-urgences-lot1
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Mineure | pec.moyens_specifiques[0].texte | Le texte présentait la coronarographie dans les 24 heures du NSTE-ACS à haut risque comme systématique, alors que la ligne directrice la classe « à envisager » (classe IIa). | La phrase dit désormais que cette coronarographie s’envisage, ce qui respecte le niveau de la recommandation. | R-ESC-SCA, 2023 ESC Guidelines for the management of acute coronary syndromes, § 5, tableau des recommandations sur la stratégie invasive, lu le 2026-10-17 | Galien-CœurThorax | 6448d81 |
+| Mineure | pec.moyens_specifiques[0].limites | La limite omettait qu’après 48 heures sans symptôme persistant, l’angioplastie de routine d’une artère occluse n’est pas recommandée (classe III). | La limite des 48 heures a été ajoutée après celle des 12 heures. | R-ESC-SCA, 2023 ESC Guidelines for the management of acute coronary syndromes, § 5.3, recommandations pour le patient vu tardivement, lu le 2026-10-17 | Galien-CœurThorax | a87b6b0 |
+| Mineure | pec.moyens_specifiques[1].limites | Le texte limitait à l’Allemagne l’absence d’autorisation du lévétiracétam dans l’état de mal, alors que la ligne directrice l’écrit pour l’Europe. | Le mot « Allemagne » a été remplacé par « Europe », comme dans la remarque sur le statut d’autorisation. | R-DGN-SE, S2k-Leitlinie Status epilepticus im Erwachsenenalter, recommandation 18, remarque sur le statut d’autorisation, lu le 2026-10-17 | Galien-Neuro | af236fe |
 
 ## glo-lot01a
 

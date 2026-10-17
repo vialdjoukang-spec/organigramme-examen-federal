@@ -36,6 +36,18 @@ def schemas(root):
     return res, reg
 
 
+def ges(root):
+    """Régions de GES (liste) lues dans app_v2.html, ou None si la constante manque."""
+    app = os.path.join(root, 'app_v2.html')
+    if not os.path.exists(app):
+        return None
+    s = open(app, encoding='utf-8').read()
+    k = '\nconst GES='
+    if s.count(k) != 1:
+        return None
+    return json.JSONDecoder().raw_decode(s, s.find(k) + len(k))[0]
+
+
 def modules_ges(root):
     app = os.path.join(root, 'app_v2.html')
     if not os.path.exists(app):
@@ -125,6 +137,13 @@ def validate(root):
     for e in data['loc']:
         need('loc', e['module'], 'A', 'syn', e['A'])
         need('loc', e['module'], 'B', 'hyp', e['B'])
+    G = ges(root)
+    if G is not None:
+        cles = {i['k'] for r in G for i in r['items']}
+        for e in data['syn']:
+            for k in e.get('gestes', []):
+                if k not in cles:
+                    errs.append(('syn', e['id'], f'gestes renvoie à la clé {k}, absente de GES'))
     if mods is not None:
         for n, key in (('syn', 'module'), ('loc', 'module')):
             for e in data[n]:

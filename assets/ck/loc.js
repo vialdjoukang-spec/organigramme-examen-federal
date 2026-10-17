@@ -1,2 +1,2 @@
 /* Généré par tools/ck_build.py depuis data/ck/ : ne pas modifier à la main. */
-window.CK_LOC={};
+window.CK_LOC={"coeur-vaisseaux":{"A":["urg-douleur-thoracique"],"B":["sca","embolie-pulmonaire","dissection-aortique","pneumothorax-sous-tension"],"module":"coeur-vaisseaux"},"constantes":{"A":["urg-choc","urg-kussmaul","urg-hyperkaliemie"],"B":["sepsis","anaphylaxie","embolie-pulmonaire","pneumothorax-sous-tension","acidocetose-diabetique","hyperkaliemie"],"module":"constantes"},"meninge-gcs":{"A":["urg-fievre-meninge","urg-crise-prolongee"],"B":["meningite-bacterienne","sepsis","etat-de-mal-epileptique"],"module":"meninge-gcs"},"peau":{"A":["urg-reaction-allergique"],"B":["anaphylaxie"],"module":"peau"}};

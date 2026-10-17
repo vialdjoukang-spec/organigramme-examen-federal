@@ -1,0 +1,2 @@
+/* Généré par tools/ck_build.py depuis data/ck/ : ne pas modifier à la main. */
+window.CK_GLO_Q={"qsofa":{"def":"Ce sigle anglais désigne le score rapide de défaillance d’organe. La ligne directrice déconseille de l’utiliser seul pour dépister le sepsis, car sa sensibilité est faible.","id":"qsofa","label":"qSOFA","src":[{"id":"R-SSC-2021","loc":"Recommendation 2","lu_le":"2026-10-17"}],"statut":"sourcé","type":"abreviation","valide_par_vial":false}};
