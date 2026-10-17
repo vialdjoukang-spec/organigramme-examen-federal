@@ -2,6 +2,14 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
+État       : Patch 0004 (tools/patches/0004-*.py + 0004-calendrier.js + 0004-sauvegarde.js) sur feat/hermes-calendrier ; suite 88/88 (dont 32 de tests/test_calendrier.py), gardes 5/5.
+Prochaine  : Apollon stylise les jours par l’attribut data-wd (1 = lundi … 7 = dimanche) posé sur .hd et .col, et les séances .blk ; Mnémosyne réutilise showTip/tipToggle inchangés.
+Sources    : MDN StorageManager.persist(), IndexedDB, File System Access API ; WebKit « Full Third-Party Cookie Blocking and More » (plafond de 7 jours), lus le 17.10.2026.
+Pièges     : Tout appel à lsSet déclenche svTouch ; le miroir ne démarre qu’après le contrôle de démarrage (svReady), pour ne jamais écraser la copie de secours par un état vide. test_export simule l’effacement Safari en supprimant aussi IndexedDB.
+Pièges     : Dans les tests mobiles, la barre d’onglets collante masque le haut de l’écran ; faites défiler avec behavior:'instant' et un décalage.
+À vérifier : Le fichier automatique n’existe que sur Chromium de bureau ; ailleurs le bouton reste caché.
+
 ## Atlas · sauvegarde · 17.10.2026, Europe/Zurich
 État       : Le chantier export/import est sur feat/sauvegarde (PR #11) : patch 0003, CSS du bandeau dans le style de head, tests/test_export.py (13 contrôles) ; suite locale 56/56 et gardes 5/5.
 Prochaine  : Athéna fusionne PR #11 dès que la CI (garde, html, tests) est verte.
