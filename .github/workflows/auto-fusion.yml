@@ -29,6 +29,7 @@ jobs:
     if: >
       github.event.pull_request.merged == false &&
       github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'attente-vial') &&
       (
         (github.event.action == 'labeled' && github.event.label.name == 'audit-ok') ||
         (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'audit-ok'))
