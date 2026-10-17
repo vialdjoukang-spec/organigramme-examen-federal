@@ -28,7 +28,9 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Activer les veilles officielles Ve1 et Ve2 à partir de tools/templates/veille-squelette.yml (PR #4 fusionnée) | Argos | 15.11.2026 |
 | [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
 | [x] | Préparer data/MEM.json sans toucher au code (PR #3 fusionnée) | Mnémosyne | 29.11.2026 |
-| [~] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, tests/test_calendrier.py (32) | Hermès | 17.10.2026 |
+| [x] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, PR #15 fusionnée | Hermès | 17.10.2026 |
+| [~] | Recherche par diagnostic différentiel et notion · patch 0009, tests/test_calendrier.py (34) | Hermès | 17.10.2026 |
+| [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
 ## Phases suivantes

@@ -3,13 +3,14 @@
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
 ## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
-État       : Patch 0004 (tools/patches/0004-*.py + 0004-calendrier.js + 0004-sauvegarde.js) sur feat/hermes-calendrier ; suite 88/88 (dont 32 de tests/test_calendrier.py), gardes 5/5.
-Prochaine  : Apollon stylise les jours par l’attribut data-wd (1 = lundi … 7 = dimanche) posé sur .hd et .col, et les séances .blk ; Mnémosyne réutilise showTip/tipToggle inchangés.
+État       : PR #15 fusionnée dans main le 17.10.2026 à 13:26 (commit de fusion 3c9b878, sans écrasement) ; Pages publie la même empreinte que main ; tests/test_calendrier.py rejoué contre le site public : 32/32, aucune erreur de console. Patch 0009 (feat/hermes-recherche-notions) : la recherche trouve aussi un SSP par ses diagnostics différentiels et ses notions (NOT), avec le titre trouvé sous le nom ; suite 119/119, gardes 5/5.
+Prochaine  : Apollon (PR #16) pose les teintes de jour et les bandes de séance pâles : data-wd (1 = lundi … 7 = dimanche) existe désormais sur .hd et .col, y compris en vue « Jour » ; il remplace donc nth-child par [data-wd] et peut teinter la colonne du jour. Mnémosyne réutilise showTip/tipToggle inchangés.
 Sources    : MDN StorageManager.persist(), IndexedDB, File System Access API ; WebKit « Full Third-Party Cookie Blocking and More » (plafond de 7 jours), lus le 17.10.2026.
 Pièges     : Tout appel à lsSet déclenche svTouch ; le miroir ne démarre qu’après le contrôle de démarrage (svReady), pour ne jamais écraser la copie de secours par un état vide. test_export simule l’effacement Safari en supprimant aussi IndexedDB.
-Pièges     : Dans les tests mobiles, la barre d’onglets collante masque le haut de l’écran ; faites défiler avec behavior:'instant' et un décalage.
+Pièges     : Dans les tests mobiles, la barre d’onglets collante (≈ 200 px sur 412 px de large) masque le haut de l’écran ; faites défiler avec behavior:'instant' et un décalage.
+Pièges     : fz() renvoie un tableau portant R.why (code → titre trouvé dans NOT) ; le second niveau n’est consulté que si le nom et le code ne donnent rien pour ce SSP.
 Pièges     : Un conflit dans app_v2.html ne se résout jamais à la main : reprenez la version de main, puis rejouez votre patch (skill ssp-fusion-patch).
-À vérifier : Le fichier automatique n’existe que sur Chromium de bureau ; ailleurs le bouton reste caché.
+À vérifier : Le fichier automatique n’existe que sur Chromium de bureau ; ailleurs le bouton reste caché. Essai réel sur iOS Safari (persistance refusée, versions) par le titulaire.
 
 ## Asclépios · examen physique · 17.10.2026, Europe/Zurich
 État       : feat/asclepios-examen : GES en 3 axes (13 régions, 6 systèmes, 3 populations ; 22 entrées, 315 gestes), sous-régions, ordre strict, 7 gestes nouveaux sourcés, 12 doublons en renvois bidirectionnels, 19 croquis (assets/cs, credits.json) ; TIP champ 5 structuré pour 198 SSP, 15 marqués « À compléter », 35 laissés tels quels (contenu non clinique d’examen). Patch 0008, tests/test_examen.py (16 contrôles), Pages publie assets/.

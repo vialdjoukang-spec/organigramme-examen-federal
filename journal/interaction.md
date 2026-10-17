@@ -21,3 +21,13 @@ Sauvegarde, en cinq points :
 5. navigator.storage.persist() est demandé et son résultat affiché ; sur Chromium de bureau, un fichier choisi par l’utilisateur reçoit le JSON au format d’export après chaque modification ; « Enregistré à hh:mm » s’affiche dans le statut.
 
 Sources lues le 17.10.2026 : MDN StorageManager.persist(), IndexedDB API, File System Access API ; WebKit, plafond de sept jours du stockage écrit par script.
+
+## 17.10.2026, 13:40 · Fusion de PR #15, contrôle du site public et patch 0009
+
+Constat. PR #15 a été fusionnée à 13:26 par un commit de fusion (3c9b878) ; CI et Pages ont réussi sur main. Le site public sert un fichier identique à app_v2.html de main (même SHA-256), et tests/test_calendrier.py y réussit 32/32 sans erreur de console. Le Calendrier y porte data-wd 1 à 7 sur ses colonnes ; les teintes elles-mêmes attendent PR #16 (Apollon).
+
+Défaut trouvé sur le site public. L’exemple affiché dans la barre, « insuffisance cardiaque », ne renvoyait aucun résultat, car la recherche ne lisait que le nom et le code des SSP.
+
+Décision (patch 0009). Quand le nom et le code d’un SSP ne correspondent pas, la recherche lit les titres de ses diagnostics différentiels et de ses notions (NOT), normalisés une seule fois. Tous les mots doivent y figurer ; l’expression exacte et un diagnostic l’emportent sur une notion. Le titre trouvé s’affiche sous le nom (« Diagnostic : … ») ; sur mobile, il passe à la ligne. Le contenu complet des fiches (TIP, 4,9 millions de caractères) n’est pas fouillé : trop lourd et trop large. Test ajouté : recherche_notion, sur ordinateur et sur mobile.
+
+Sources lues : aucune source externe ; données internes NOT et SSP.

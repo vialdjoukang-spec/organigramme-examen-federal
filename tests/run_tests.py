@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TIP_EXPECT = {'aria_expanded_true': 'true', 'console_errors': []}
 EXTRA_EXPECT = {'tip_scrollable_css': 'auto'}
 # Suites ajoutées en phase 1 : (script, nombre exact de contrôles booléens).
-SUITES = [('test_export.py', 13), ('test_exigences.py', 13), ('test_examen.py', 16), ('test_calendrier.py', 32)]
+SUITES = [('test_export.py', 13), ('test_exigences.py', 13), ('test_examen.py', 16), ('test_calendrier.py', 34)]
 BASE = 43
 
 

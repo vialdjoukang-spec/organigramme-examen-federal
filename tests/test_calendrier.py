@@ -54,6 +54,10 @@ async def profile(b, mobile, out, errs):
     typo = word[:3] + ('x' if word[3] != 'x' else 'y') + word[4:]
     await pg.fill('#cq', typo); await pg.wait_for_timeout(150)
     out[pre + 'recherche_floue'] = await pg.evaluate("c=>[...$$('#cq-r .cq-i')].some(l=>l.dataset.c===c)", target)
+    # Diagnostic différentiel ou notion : l’exemple de la barre doit trouver des SSP, avec le titre trouvé (patch 0009).
+    await pg.fill('#cq', 'Insuffisance cardiaque'); await pg.wait_for_timeout(150)
+    out[pre + 'recherche_notion'] = await pg.evaluate("(()=>{const L=[...$$('#cq-r .cq-i')];return L.length>=3&&L.every(l=>{const c=l.dataset.c,t=l.querySelector('small');"
+        "return !!t&&norm(t.textContent).includes('insuffisance cardiaque')&&JSON.stringify(NOT[c]).toLowerCase().includes('insuffisance cardiaque')})})()")
     # Placer depuis la recherche, puis cliquer une plage.
     await pg.fill('#cq', code); await pg.wait_for_timeout(150)
     await pg.locator('#cq-r .cq-p').first.click()
