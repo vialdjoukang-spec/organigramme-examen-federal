@@ -2,6 +2,15 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Atlas et Janus · NC-0 socle CK et audit de niveau 1 · 17.10.2026, Europe/Zurich
+État       : feat/ck-socle : schémas data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch), données vides et conformes, tools/ck_build.py → assets/ck/*.js (742 octets), patch 0011 (ckLoad, ckGlo, index à l’inactivité ; +659 octets dans app_v2.html), budgets étendus, Lyncée et sa référence (3 849 termes), G1 à G7 (tools/audit/niveau1.py, artefact audit-flags), Alétheia, rapport_fautes.py, nc_svg_check.py ; tests : test_ck.py 61/61, test_ck_socle.py 12/12, suite 133/133, gardes 5/5.
+Prochaine  : Hermès branche tipFor et gloLink sur ckLoad/ckGlo/CK_GLO_INDEX ; Hippocrate remplit glo.json par lots et resserre la référence (--update) ; Galien remplit doses_ch.json et fautes.jsonl ; Dédale dépose assets/nc/*.svg et credits.json (couches trait, nerf, legendes ; licence_derivee CC BY-SA).
+Sources    : Plan Nerfs crâniens et CK, sections 3, 4, 8 et 9 ; propositions/audit-medical.yml et domaines.yml (17.10.2026).
+Pièges     : Après toute modification de data/ck, lancez python3 tools/ck_build.py : la CI échoue si assets/ck n’est pas à jour. Le nom de variable suit le fichier : glo-index.js → window.CK_GLO_INDEX, glo-a.js → window.CK_GLO_A.
+Pièges     : Toute demande de fusion qui ajoute un terme médical dans TIP, NOT, GES, le HTML statique ou data/ck échoue à G4 tant qu’il n’est pas défini dans glo.json ou exclu avec motif ; une dose ajoutée dans TIP/NOT/GES échoue à G1 sans « À vérifier » dans le même texte.
+Pièges     : G6 lit tools/audit/verbes_conjugues.txt.gz ; on le régénère par tools/audit/verbes_gen.py, jamais à la main.
+À vérifier : Liste G6 à régénérer depuis Lexique 3.83 (site indisponible le 17.10.2026) ; filtre MeSH pour le tri ; domaines escardio.org, has-sante.fr, escmid.org (Argos).
+
 ## Dédale · schémas des nerfs crâniens (NC-0, pilote VII) · 17.10.2026, Europe/Zurich
 État       : feat/nc-presets : une image = une idée. Préréglages nc/presets/nc07.yml → assets/nc/nc07-{trajet,branches,fonctions,lesions,plan}.svg (7 étiquettes au plus, 30 px, dessin 77 à 80 % de l’image, légende ≤ 4 lignes) et nc07-presets.json ; aplats des territoires par tools/dedale/masques.py (450 Mo) ; anciennes vues face/profil/34 retirées ; tour de 8 vues inchangé ; CI : verifier.py --tous, tests/test_dedale.py 17/17.
 Prochaine  : Vial valide les préréglages ; Hermès bascule les couches par [data-couche] (encart compris) ; repères de la vue plan à poser.

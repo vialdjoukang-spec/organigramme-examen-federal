@@ -1,0 +1,79 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "doses_ch.schema.json",
+ "title": "Table suisse des doses (doses_ch.json)",
+ "description": "Lue À LA MAIN dans l’information professionnelle suisse (AIPS) ou le Compendium, datée ; jamais de lecture automatisée.",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "substance",
+   "produit_ch",
+   "dose",
+   "voie",
+   "population",
+   "aips_rubrique",
+   "url",
+   "lu_le",
+   "lu_par"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "substance": {
+    "type": "string",
+    "minLength": 1
+   },
+   "produit_ch": {
+    "type": "string",
+    "minLength": 1
+   },
+   "dose": {
+    "type": "string",
+    "minLength": 1
+   },
+   "voie": {
+    "type": "string",
+    "minLength": 1
+   },
+   "intervalle": {
+    "type": "string",
+    "minLength": 1
+   },
+   "duree": {
+    "type": "string",
+    "minLength": 1
+   },
+   "population": {
+    "type": "string",
+    "minLength": 1
+   },
+   "aips_rubrique": {
+    "type": "string",
+    "minLength": 1
+   },
+   "url": {
+    "type": "string",
+    "pattern": "^https://(www\\.)?(swissmedicinfo\\.ch|compendium\\.ch|swissmedic\\.ch)/"
+   },
+   "lu_le": {
+    "type": "string",
+    "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+   },
+   "lu_par": {
+    "enum": [
+     "Galien",
+     "Vial"
+    ]
+   },
+   "note": {
+    "type": "string",
+    "minLength": 1
+   }
+  }
+ }
+}

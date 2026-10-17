@@ -42,6 +42,23 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | 3 · Confort et CS | 11.01–28.02.2027 | Atlas, Asclépios | Le premier affichage est deux fois plus rapide, et chaque image a sa licence vérifiée. |
 | Continu | jusqu’au CS 2027 | Argos, Thémis, Janus, Athéna | Chaque ticket de veille est traité ou classé en moins de sept jours. |
 
+## Chantier Nerfs crâniens et CK · NC-0 Socle (17–25.10.2026) · porte : socle, lieur et audit de niveau 1 sur main ; un terme non défini fait échouer la CI
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Schémas JSON data/ck/schema (src, glo, sig, syn, hyp, nc, loc, doses_ch) | Atlas | 25.10.2026 |
+| [x] | Compilateur tools/ck_build.py → assets/ck/*.js, contrôle --check en CI (G5) | Atlas | 25.10.2026 |
+| [x] | Chargement différé : ckLoad, ckGlo, index du glossaire après load, à l’inactivité (patch 0011) | Atlas | 25.10.2026 |
+| [x] | Budgets : assets/ck ≤ 2,5 Mo, SVG ≤ 120 Ko, assets/nc ≤ 3 Mo | Atlas | 25.10.2026 |
+| [x] | Lyncée et qa/termes-baseline.json (3 849 termes, ne peut que baisser) | Janus | 25.10.2026 |
+| [x] | Audit de niveau 1 G1 à G7, Alétheia, artefact audit-flags, étiquette audit:galien | Janus, avec Galien | 25.10.2026 |
+| [x] | tools/audit/rapport_fautes.py et blocage d’une faute critique sans accord de Vial | Janus, avec Galien | 25.10.2026 |
+| [x] | tests/test_ck.py (61, données, schémas et contrôles) et tests/test_ck_socle.py (12) | Janus | 25.10.2026 |
+| [ ] | Types tipFor (glo, syn, hyp, nc, loc), gloLink(), pile de 5 fenêtres | Hermès | 25.10.2026 |
+| [ ] | Premier lot de 100 signes et syndromes dans data/ck/glo.json | Hippocrate | 25.10.2026 |
+| [ ] | Table suisse des doses data/ck/doses_ch.json (lecture à la main) | Galien | 25.10.2026 |
+| [ ] | Régénérer la liste G6 depuis Lexique 3.83 ; filtre MeSH pour le tri | Janus | 25.10.2026 |
+
 ## Chantier Nerfs crâniens · Dédale (plan du 17.10.2026)
 
 | État | Tâche | Responsable | Échéance |
