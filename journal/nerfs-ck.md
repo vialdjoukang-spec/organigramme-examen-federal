@@ -133,3 +133,8 @@ Lyncée ne détecte pas ces termes (règles d’affixes) : G4 passe, mais la rè
 ### Prochaine action
 - Galien : revue de niveau 2 du diff data/ck (audit:galien), définitions ci-dessus, posologies AIPS.
 - Podalire : sourcer les points « À vérifier » (NC-1b), puis chaîne des paires suivantes après validation du pilote par Vial.
+## 17.10.2026 · Dédale · trois vues, crâne au crayon, nerf jaune
+- Direction de l'utilisateur : moins d'images, croquis forts. Publié : nc07-face, nc07-profil, nc07-34 seulement ; tour de 8 vues, préréglages séparés et plan Gray retirés (le plan reste donnée source dans nc/trait).
+- Crâne : tools/dedale/crane.py, os seuls (48 objets, 151 227 faces décimées à 118 512), scène vide, pic mémoire 0,94 à 1,06 Go ; tissus mous absents.
+- Nerf : jaune #FFC400 (6,5 px) cerné de #5a4500 (1 px), dessiné au-dessus de tout ; noyaux pleins en jaune.
+- Fonctions : l'aplat « moteur » est retiré (il couvrait la voûte) ; la motricité est portée par le nerf lui-même.

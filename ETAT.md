@@ -71,8 +71,9 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Produire le pilote VII : vues face, profil, trois quarts, plan (Gray788) et tour de 8 vues (feat/nc-schemas) | Dédale | 08.11.2026 |
 | [x] | Remplacer les annotations provisoires de nc/annot/nc07.yml par celles d’Ariane (foramens, sites lésionnels, branches) | Ariane, puis Dédale | 08.11.2026 |
 | [x] | Une image = une idée : préréglages trajet, branches, fonctions, lésions, plan (8 étiquettes au plus, contrôlés par verifier.py) | Dédale | 08.11.2026 |
+| [x] | Trois vues seulement (face, profil, 34) : crâne au crayon, nerf jaune, états trajet/branches/fonctions/lésions dans chaque SVG ; tour et plan retirés | Dédale | 08.11.2026 |
 | [ ] | Valider le pilote VII (valide_par_vial) | Vial | 08.11.2026 |
-| [ ] | Produire les onze autres paires ; tours de 8 vues pour V et III-IV-VI seulement | Dédale | NC-2 |
+| [ ] | Produire les onze autres paires (3 vues chacune, sans tour) ; porter freestyle.py en mode ajout seul d’abord | Dédale | NC-2 |
 
 ## Chantier Nerfs crâniens · Podalire (chaîne clinique, plan du 17.10.2026)
 
@@ -83,5 +84,5 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Définir les termes de la liste « Termes pour Galien » (journal/nerfs-ck.md) | Galien | 08.11.2026 |
 | [ ] | Lire à la main dans l’AIPS les posologies marquées « À vérifier » (corticothérapie, thrombolyse, antibiotiques de la neuroborréliose) | Galien | 08.11.2026 |
 | [ ] | Sourcer les points « À vérifier » (fracture du rocher, otite compliquée, cholestéatome, plaie des rameaux, produits de contraste) | Podalire | NC-1b |
-| [ ] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
+| [x] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
 

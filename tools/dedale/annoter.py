@@ -1,25 +1,23 @@
 #!/usr/bin/env python3
-"""Dédale-A · composition des schémas annotés par PRÉRÉGLAGES (une image = une idée).
+"""Dédale-A · composition des 3 vues annotées d'un nerf crânien (face, profil, trois quarts).
 
 INSTRUCTIONS (automate, zéro jeton) ------------------------------------------------
-    python3 tools/dedale/annoter.py nc07            # compose assets/nc/nc07-<préréglage>.svg et nc07-presets.json
+    python3 tools/dedale/annoter.py nc07            # compose assets/nc/nc07-{face,profil,34}.svg et nc07-presets.json
     python3 tools/dedale/annoter.py nc07 --verifier # recompose en mémoire et compare à l'octet (CI)
-    python3 tools/dedale/annoter.py nc07 --tour     # sprite WebP des 8 vues (local : Chromium requis)
-Entrées : nc/presets/<nerf>.yml (préréglages : vue de base, cadrage, encart, couches visibles, 8 étiquettes
-          au plus, légende courte), nc/annot/<nerf>.yml (annotations sourcées d'Ariane : chaque étiquette y
-          renvoie par « ref »), nc/trait/<nerf>-<vue>.svg/.json (trait et ancres de freestyle.py),
-          nc/trait/<nerf>-<vue>-masques.svg/.json (aplats de masques.py), nc/sources.yml (crédits).
-Sortie  : assets/nc/<nerf>-<préréglage>.svg : les 7 couches (trait, territoires, nerf, noyaux, foramens,
-          lesions, legendes) sont toujours présentes ; celles du préréglage sont visibles (data-couches),
-          les autres masquées (display="none") ; Hermès bascule une couche par [data-couche="…"], ce qui
-          agit aussi sur l'encart. assets/nc/<nerf>-presets.json décrit les préréglages pour l'application.
-Mise en page : titre ; zone de dessin carrée de 800 px (au moins 60 % de l'image) recadrée sur les ancres
-          du préréglage, trait d'épaisseur constante (vector-effect) ; encart de la tête entière si demandé ;
-          étiquettes de 30 px (13,5 px à 360 px de large) posées à côté de leur structure par un placement
-          glouton déterministe (aucun chevauchement, aucun trait de rappel croisé) ; légende et crédit
-          courts : 4 lignes au plus. Le crédit complet reste dans <metadata> et assets/nc/credits.json.
-Règles  : aucune position saisie à la main ; le nerf en vert foncé (#156534) ; aplats pâles seulement pour
-          les territoires ; le rouge (#b91c1c) seulement pour un site lésionnel « urgence: true ».
+Entrées : nc/presets/<nerf>.yml (états : couches visibles, 8 étiquettes au plus, légende courte ; retraits par vue),
+          nc/annot/<nerf>.yml (annotations sourcées d'Ariane, citées par « ref »),
+          nc/trait/<nerf>-<vue>-crane.svg/.json (crâne au crayon et cadre, crane.py),
+          nc/trait/<nerf>-<vue>.svg/.json (courbes du nerf et ancres, freestyle.py),
+          nc/trait/<nerf>-<vue>-masques.svg/.json (aplats des territoires, masques.py), nc/sources.yml.
+Sortie  : une image par vue. Les 7 couches (trait, territoires, nerf, noyaux, foramens, lesions, legendes) et
+          TOUS les états y figurent : data-etats (JSON état -> couches visibles), data-etat (état affiché par
+          défaut) ; chaque groupe d'étiquettes porte data-etat et data-couche. Hermès change d'état en
+          affichant [data-etat="X"] et les couches de data-etats[X], et en masquant le reste.
+Rendu   : crâne en traits pleins à graisse hiérarchisée (silhouette épaisse, contours moyens, détails légers) ;
+          nerf en jaune intense (#FFC400) cerné d'un trait sombre de 1 px (#5a4500), tout son trajet, au-dessus
+          de tout ; noyaux pleins en jaune ; rouge (#b91c1c) seulement pour le site lésionnel « urgence: true ».
+Étiquettes : 30 px (13,5 px à 360 px), posées à côté de leur structure par un placement rejouable, sans
+          chevauchement ni trait de rappel croisé à l'intérieur d'un état ; légende ≤ 4 lignes crédit compris.
 """
 import json, math, os, random, re, shutil, subprocess, sys, tempfile
 from xml.sax.saxutils import escape
@@ -28,41 +26,25 @@ import yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 HERE = os.path.join(ROOT, 'tools', 'dedale')
 OUT = os.path.join(ROOT, 'assets', 'nc')
-RENDER = os.environ.get('DEDALE_RENDER', '/workspace/ssp/nc_src/render')
 DATE = '2026-10-17'
-VERT, ROUGE = '#156534', '#b91c1c'
+JAUNE, CERNE, ROUGE = '#ffc400', '#5a4500', '#b91c1c'
 W, HEAD, FS, FT, LH = 800, 64, 30, 32, 38
 CAR = 0.60          # largeur moyenne d'un caractère en em (estimation prudente, contrôlée par verifier.py)
 LBL_H = 36          # hauteur d'une boîte d'étiquette (30 px + interligne)
 BASE = 26           # ligne de base dans la boîte
 MAX_ETIQ, MAX_LEG = 8, 4
-NOMS_VUES = {'plan': 'plan du nerf (d’après Gray 1918)', 'face': 'vue de face', 'profil': 'vue de profil droit',
-             '34': 'vue de trois quarts droite'}
+NOMS_VUES = {'face': 'vue de face', 'profil': 'vue de profil droit', '34': 'vue de trois quarts droite'}
 COUCHES = ('territoires', 'trait', 'nerf', 'noyaux', 'foramens', 'lesions', 'legendes')
 STYLE = ('text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;fill:#111}'
          '.tt{font-size:%dpx;font-weight:700}.lb,.lg{font-size:%dpx}'
          '.lb{paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}'
          '.lb.u{fill:%s;font-weight:700}'
-         'path{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}'
-         '.peau path{stroke:#2f2f2f;stroke-width:1.6}.crane path{stroke:#6b6b6b;stroke-width:.9;stroke-opacity:.55}'
-         '.tronc path{stroke:#555;stroke-width:1;stroke-opacity:.75}.terr path{stroke:#9a9a9a;stroke-width:.8}'
-         '.nerf path{stroke:%s;stroke-width:3.4}.pl{fill:#2f2f2f;stroke:none}.fl path{fill:inherit;stroke:none}'
-         '.ld{stroke:#222;stroke-width:1.6}.ld.u{stroke:%s;stroke-width:2.4}'
-         '.pt{fill:#111;stroke:#fff;stroke-width:2}.pt.u{fill:%s}'
-         '.cad{fill:none;stroke:#555;stroke-width:2}.enc{fill:#fff;stroke:#555;stroke-width:2}') % (FT, FS, ROUGE, VERT, ROUGE, ROUGE)
-STYLE_TOUR = ('text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;fill:#111}'
-         '.tt{font-size:30px;font-weight:700}.lg{font-size:%dpx}.cr{font-size:%dpx;fill:#333}.b{font-weight:700}'
-         '.nb{font-size:21px;font-weight:700;text-anchor:middle;dominant-baseline:central}'
-         'path{fill:none;stroke-linecap:round;stroke-linejoin:round}'
-         '#trait .peau path{stroke:#2f2f2f;stroke-width:1.5}'
-         '#trait .crane path{stroke:#6b6b6b;stroke-width:.8;stroke-opacity:.5}'
-         '#trait .tronc path{stroke:#555;stroke-width:.9;stroke-opacity:.75}'
-         '#territoires path{stroke:#9a9a9a;stroke-width:.7;stroke-opacity:.8}'
-         '#nerf path{stroke:%s;stroke-width:2.8}'
-         '.ld{stroke:#555;stroke-width:1}.bd{fill:#fff;stroke:#111;stroke-width:1.6}'
-         '#trait .pl{fill:#2f2f2f;stroke:none}.pt{fill:#111;stroke:#fff;stroke-width:1.5}.pr{fill:#fff;stroke:#111;stroke-width:2}') % (22, 20, VERT)
-
-
+         '.cs path{fill:#222}.cc path{fill:#2b2b2b}.cd path{fill:#8a8a8a}.ct path{fill:#6b6b6b}.fl path{fill:inherit}'
+         '.nf path{fill:none;stroke-linecap:round;stroke-linejoin:round}'
+         '.n1 path{stroke:%s;stroke-width:{N1}px}.n2 path{stroke:%s;stroke-width:{N2}px}'
+         '.nx path{fill:%s;stroke:%s;stroke-width:{NX}px}'
+         '.ld{fill:none;stroke:#222;stroke-width:1.6}.ld.u{stroke:%s;stroke-width:2.4}'
+         '.pt{fill:#111;stroke:#fff;stroke-width:2}.pt.u{fill:%s}') % (FT, FS, ROUGE, CERNE, JAUNE, JAUNE, CERNE, ROUGE, ROUGE)
 
 
 def charger(nerf):
@@ -152,7 +134,7 @@ def candidats(l, labels, zone, interdits, cx, cy, evite=()):
     w, h = max(larg(t) for t in lignes) + 6, LBL_H * len(lignes)
     out_a = math.atan2(l['sy'] - cy, l['sx'] - cx)
     res = []
-    for r in (36, 56, 80, 110, 145, 185, 230):
+    for r in (36, 56, 80, 110, 145, 185, 230, 290, 360, 440):
         for k in range(32):
             ang = k * math.pi / 16
             ex, ey = l['sx'] + r * math.cos(ang), l['sy'] + r * math.sin(ang)
@@ -175,7 +157,7 @@ def candidats(l, labels, zone, interdits, cx, cy, evite=()):
     res.sort(key=lambda t: (t[0], t[1]))
     par_dir, out = {}, []
     for t in res:               # au plus deux rayons par direction : couverture de tous les côtés
-        if par_dir.get(t[1], 0) < 2:
+        if par_dir.get(t[1], 0) < 4:
             par_dir[t[1]] = par_dir.get(t[1], 0) + 1; out.append(t)
     return out
 
@@ -187,9 +169,9 @@ def conflit(l1, c1, l2, c2):
 
 
 def placer(labels, zone, interdits, evite=()):
-    """Placement déterministe : pour chaque étiquette, candidats autour de l'ancre (rayon court d'abord, vers
-    l'extérieur du groupe) ; recherche en profondeur avec élagage du meilleur coût total, sans chevauchement de
-    boîtes ni croisement de traits de rappel. Échec explicite si aucune combinaison ne convient."""
+    """Placement rejouable : pour chaque étiquette, candidats autour de l'ancre (rayon court d'abord, vers
+    l'extérieur du groupe, en évitant de masquer le nerf) ; recherche locale à graine fixe sur une table de conflits
+    (boîtes disjointes, aucun trait de rappel croisé ni traversant une boîte). Échec explicite sinon."""
     n = len(labels)
     if not n:
         return
@@ -202,9 +184,22 @@ def placer(labels, zone, interdits, evite=()):
     # disposition valide de coût total minimal.
     rnd = random.Random(0)
     gagnant, cout_min = None, float('inf')
+    # table des conflits entre candidats, calculée une fois (préfiltre : enveloppes boîte + trait de rappel disjointes)
+    def env(l, c):
+        b, q = c[2], c[3]
+        return (min(b[0], l['sx']) - 8, min(b[1], l['sy']) - 8, max(b[0] + b[2], l['sx']) + 8, max(b[1] + b[3], l['sy']) + 8)
+    EV = [[env(labels[i], c) for c in C[i]] for i in range(n)]
+    X = {}
+    for i in range(n):
+        for j in range(i + 1, n):
+            for ci, ei in enumerate(EV[i]):
+                for cj, ej in enumerate(EV[j]):
+                    if ei[0] < ej[2] and ej[0] < ei[2] and ei[1] < ej[3] and ej[1] < ei[3] \
+                            and conflit(labels[i], C[i][ci], labels[j], C[j][cj]):
+                        X[(i, ci, j, cj)] = X[(j, cj, i, ci)] = True
     def nconf(ch, i, ci):
-        return sum(1 for j in range(n) if j != i and conflit(labels[i], C[i][ci], labels[j], C[j][ch[j]]))
-    for depart in range(40):
+        return sum(1 for j in range(n) if j != i and (i, ci, j, ch[j]) in X)
+    for depart in range(300):
         ch = [0 if depart == 0 else rnd.randrange(min(len(C[i]), 6)) for i in range(n)]
         for it in range(1500):
             conf = [i for i in range(n) if nconf(ch, i, ch[i])]
@@ -244,151 +239,139 @@ def entree(a, ref):
     sys.exit('ÉCHEC : référence %r absente de nc/annot (préréglage)' % ref)
 
 
-def composer(nerf, nom, P, a):
-    vue = P['vue']
-    tdir = os.path.join(ROOT, 'nc', 'trait')
-    G = groupes_trait(open(os.path.join(tdir, '%s-%s.svg' % (nerf, vue)), encoding='utf-8').read())
-    meta = json.load(open(os.path.join(tdir, '%s-%s.json' % (nerf, vue)), encoding='utf-8'))
-    anc = dict(meta.get('ancres', {}))
-    fm = os.path.join(tdir, '%s-%s-masques' % (nerf, vue))
-    M = {}
-    if os.path.exists(fm + '.svg'):
-        M = groupes_trait(open(fm + '.svg', encoding='utf-8').read())
-        anc.update(json.load(open(fm + '.json', encoding='utf-8'))['ancres'])
-    couches = list(P['couches'])
-    # zone de dessin et transformation (base -> écran)
-    if vue == 'plan':
-        pw, ph = meta['taille']; k = W / pw; DH = round(ph * k); x0 = y0 = 0.0
-    else:
-        DH = W
-        pts = [anc[n] for n in P['cadre']['ancres']]
-        bx0, bx1 = min(p[0] for p in pts), max(p[0] for p in pts)
-        by0, by1 = min(p[1] for p in pts), max(p[1] for p in pts)
-        S = max(bx1 - bx0, by1 - by0, 40) * (1 + 2 * P['cadre'].get('marge', 0.2))
-        S = min(S, W)
-        x0, y0 = (bx0 + bx1) / 2 - S / 2, (by0 + by1) / 2 - S / 2
-        k = W / S
-    zone = (0, HEAD, W, DH)
-    T = lambda x, y: (round((x - x0) * k, 1), round(HEAD + (y - y0) * k, 1))
-    tr_main = 'matrix(%.6f 0 0 %.6f %.2f %.2f)' % (k, k, -x0 * k, HEAD - y0 * k)
-    enc = P.get('encart')
-    E = None
-    if enc:
-        t, pos = enc['taille'], enc.get('position', 'hg')
-        ex = 12 if pos[1] == 'g' else W - 12 - t
-        ey = HEAD + 12 if pos[0] == 'h' else HEAD + DH - 12 - t
-        E = (ex, ey, t, t); ke = t / W
-        TE = lambda x, y: (round(ex + x * ke, 1), round(ey + y * ke, 1))
-    # étiquettes
-    nerf_pts = points_nerf(G.get('nerf', ''))
+def etiquettes(nerf, vue, nom_etat, E, a, anc, T, nerf_pts, retirer):
     labels = []
-    if len(P['etiquettes']) > MAX_ETIQ:
-        sys.exit('ÉCHEC : préréglage %s : %d étiquettes, 8 au plus.' % (nom, len(P['etiquettes'])))
-    for et in P['etiquettes']:
+    for et in E['etiquettes']:
+        if et['ref'] in retirer:
+            continue
         couche_src, e = entree(a, et['ref'])
         an = et.get('ancre') or e.get('ancre')
         if an not in anc:
             sys.exit('ÉCHEC : ancre %r absente des données de la vue %s' % (an, vue))
         x, y = anc[an]
-        if et.get('entre'):   # milieu d'un segment : entre deux repères, ramené sur le nerf
+        if et.get('entre'):
             (xa, ya), (xb, yb) = anc[et['entre'][0]], anc[et['entre'][1]]
             x, y = (xa + xb) / 2, (ya + yb) / 2
         if et.get('accroche') == 'nerf' or et.get('entre'):
             x, y = min(nerf_pts, key=lambda p: (p[0] - x) ** 2 + (p[1] - y) ** 2)
-        sx, sy = TE(x, y) if et.get('espace') == 'encart' else T(x, y)
+        sx, sy = T(x, y)
         couche = et.get('couche') or {'legendes': 'legendes', 'noyaux': 'noyaux', 'foramens': 'foramens', 'lesions': 'lesions',
                                        'territoires': 'territoires', 'nerf': 'legendes'}[couche_src]
         labels.append({'ref': et['ref'], 'texte': et['texte'], 'sx': sx, 'sy': sy, 'couche': couche,
-                       'encart': et.get('espace') == 'encart',
                        'urgence': bool(couche == 'lesions' and e.get('urgence')), 'source': e.get('source', '')})
-    evite = [T(x, y) for x, y in nerf_pts[::2]] if vue != 'plan' else []   # le texte évite de masquer le nerf
-    placer(labels, zone, [E] if E else [], evite)
-    # couches
-    defs = ['<clipPath id="zone"><rect x="0" y="%d" width="%d" height="%d"/></clipPath>' % (HEAD, W, DH)]
-    if vue == 'plan':
-        defs.append('<g id="d-trait">%s</g>' % G.get('peau', '').replace('<path ', '<path class="pl" '))
+    if len(labels) > MAX_ETIQ:
+        sys.exit('ÉCHEC : état %s : %d étiquettes, %d au plus.' % (nom_etat, len(labels), MAX_ETIQ))
+    return labels
+
+
+def rendu_etiquette(l):
+    b, q, u = l['box'], l['q'], ' u' if l['urgence'] else ''
+    if q[0] >= b[0] + b[2] - 0.5:
+        ta, tx = ' text-anchor="end"', b[0] + b[2] - 3
+    elif q[0] <= b[0] + 0.5:
+        ta, tx = '', b[0] + 3
     else:
-        defs.append('<g id="d-trait">%s</g>' % ''.join('<g class="%s">%s</g>' % (c, G.get(c, '')) for c in ('crane', 'tronc', 'peau')))
-        defs.append('<g id="d-terr"><g class="terr">%s</g>%s</g>' % (G.get('territoires', ''),
-                    ''.join('<g class="fl" fill="%s">%s</g>' % (col, M.get('m-' + g, ''))
-                            for g, col in (P.get('remplissages') or {}).items())))
-        defs.append('<g id="d-nerf"><g class="nerf">%s</g></g>' % G.get('nerf', ''))
-    src = {'trait': 'd-trait', 'territoires': 'd-terr', 'nerf': 'd-nerf'}
-    corps = {c: [] for c in COUCHES}
-    for c, ref in src.items():
-        if vue == 'plan' and c != 'trait':
-            continue
-        corps[c].append('<use href="#%s" transform="%s"/>' % (ref, tr_main))
-    for l in labels:
-        b, q, u = l['box'], l['q'], ' u' if l['urgence'] else ''
-        # texte calé du côté du trait de rappel : le trait touche toujours le texte, quelle que soit la police
-        if q[0] >= b[0] + b[2] - 0.5:
-            ta, tx = ' text-anchor="end"', b[0] + b[2] - 3
-        elif q[0] <= b[0] + 0.5:
-            ta, tx = '', b[0] + 3
-        else:
-            ta, tx = ' text-anchor="middle"', b[0] + b[2] / 2
-        corps[l['couche']].append(
-            '<g class="lbl" data-ref="%s"><path class="ld%s" d="M%.1f %.1fL%.1f %.1f"/><circle class="pt%s" cx="%.1f" cy="%.1f" r="%s"/>'
+        ta, tx = ' text-anchor="middle"', b[0] + b[2] / 2
+    return ('<g class="lbl" data-ref="%s"><path class="ld%s" d="M%.1f %.1fL%.1f %.1f"/><circle class="pt%s" cx="%.1f" cy="%.1f" r="%s"/>'
             '<text class="lb%s"%s x="%.1f" y="%.1f">%s</text></g>'
             % (l['ref'], u, l['sx'], l['sy'], q[0], q[1], u, l['sx'], l['sy'], '8' if l['urgence'] else '5.5',
                u, ta, tx, b[1] + BASE, ''.join('<tspan x="%.1f" dy="%d">%s</tspan>' % (tx, 0 if n == 0 else LBL_H, escape(t))
-                                                 for n, t in enumerate(l['texte'].split(' | ')))))
-    # encart (tête entière, cadre du zoom)
-    encart = ''
-    if E:
-        ex, ey, t, _ = E
-        inner = ''.join('<g data-couche="%s"%s><use href="#%s"/></g>' % (c, '' if c in couches else ' display="none"', ref)
-                        for c, ref in src.items())
-        cadre = '<rect class="cad" x="%.1f" y="%.1f" width="%.1f" height="%.1f"/>' % (x0, y0, W / k, W / k)
-        encart = ('<g class="encart"><rect class="enc" x="%.1f" y="%.1f" width="%d" height="%d"/>'
-                  '<svg x="%.1f" y="%.1f" width="%d" height="%d" viewBox="0 0 %d %d">%s%s</svg></g>'
-                  % (ex, ey, t, t, ex, ey, t, t, W, W, inner, cadre))
-    # légende + crédit (4 lignes au plus)
-    leg = [ln for t in P.get('legende', []) for ln in envelopper(t, FS, W - 48)]
-    cred = credit_lignes(vue)
-    if len(leg) + len(cred) > MAX_LEG:
-        sys.exit('ÉCHEC : préréglage %s : légende de %d lignes, %d au plus.' % (nom, len(leg) + len(cred), MAX_LEG))
-    y = HEAD + DH + 40
+                                              for n, t in enumerate(l['texte'].split(' | ')))))
+
+
+def composer(nerf, vue, p, a):
+    tdir = os.path.join(ROOT, 'nc', 'trait')
+    G = groupes_trait(open(os.path.join(tdir, '%s-%s.svg' % (nerf, vue)), encoding='utf-8').read())
+    meta = json.load(open(os.path.join(tdir, '%s-%s.json' % (nerf, vue)), encoding='utf-8'))
+    anc = dict(meta['ancres'])
+    M = groupes_trait(open(os.path.join(tdir, '%s-%s-masques.svg' % (nerf, vue)), encoding='utf-8').read())
+    anc.update(json.load(open(os.path.join(tdir, '%s-%s-masques.json' % (nerf, vue)), encoding='utf-8'))['ancres'])
+    CR = groupes_trait(open(os.path.join(tdir, '%s-%s-crane.svg' % (nerf, vue)), encoding='utf-8').read())
+    x0, y0, S, _ = json.load(open(os.path.join(tdir, '%s-%s-crane.json' % (nerf, vue)), encoding='utf-8'))['cadre']
+    k = W / S
+    T = lambda x, y: (round((x - x0) * k, 1), round(HEAD + (y - y0) * k, 1))
+    tr = 'matrix(%.6f 0 0 %.6f %.2f %.2f)' % (k, k, -x0 * k, HEAD - y0 * k)
+    zone = (0, HEAD, W, W)
+    nerf_pts = points_nerf(G.get('nerf', ''))
+    evite = [T(x, y) for x, y in nerf_pts[::2]]
+    retraits = (p.get('par_vue') or {}).get(vue, {}).get('retirer', {}) if p.get('par_vue') else {}
+    defaut = p['etat_defaut']
+    etats, groupes_lbl, legendes, toutes = {}, [], [], []
+    fills = {}
+    for nom, E in p['etats'].items():
+        labels = etiquettes(nerf, vue, nom, E, a, anc, T, nerf_pts, retraits.get(nom, []))
+        try:
+            placer(labels, zone, [], evite)
+        except SystemExit as ex:
+            sys.exit('%s (vue %s, état %s)' % (ex, vue, nom))
+        etats[nom] = list(E['couches'])
+        cache = '' if nom == defaut else ' display="none"'
+        par_couche = {}
+        for l in labels:
+            par_couche.setdefault(l['couche'], []).append(rendu_etiquette(l))
+        for c in COUCHES:
+            if c in par_couche:
+                groupes_lbl.append('<g class="etiquettes" data-etat="%s" data-couche="%s"%s>%s</g>' % (nom, c, cache, ''.join(par_couche[c])))
+        leg = [ln for t in E.get('legende', []) for ln in envelopper(t, FS, W - 48)]
+        if len(leg) + 2 > MAX_LEG:
+            sys.exit('ÉCHEC : état %s : légende de %d lignes, %d au plus.' % (nom, len(leg) + 2, MAX_LEG))
+        legendes.append((nom, leg, cache))
+        toutes.append((nom, E, labels))
+        fills.update(E.get('remplissages') or {})
+    nl = max(len(l) for _, l, _ in legendes) + 2
+    y_leg = HEAD + W + 40
+    H = y_leg + (nl - 1) * LH + 16
     bas = []
-    for ln in leg + cred:
-        bas.append('<text class="lg" x="24" y="%d">%s</text>' % (y, escape(ln))); y += LH
-    H = y - LH + 16
-    titre = P['titre']
-    desc = '%s, %s. %s' % (titre, NOMS_VUES[vue], ' '.join(l['texte'].replace(' | ', ' ') + '.' for l in labels))
+    for nom, leg, cache in legendes:
+        bas.append('<g class="legende" data-etat="%s"%s>%s</g>' % (nom, cache, ''.join(
+            '<text class="lg" x="24" y="%d">%s</text>' % (y_leg + n * LH, escape(t)) for n, t in enumerate(leg))))
+    nleg = {nom: len(leg) for nom, leg, _ in legendes}
+    # crédit court : sous la légende de l'état affiché ; une copie par état (position selon la longueur)
+    for nom, leg, cache in legendes:
+        bas.append('<g class="credit" data-etat="%s"%s>%s</g>' % (nom, cache, ''.join(
+            '<text class="lg" x="24" y="%d">%s</text>' % (y_leg + (len(leg) + n) * LH, escape(t)) for n, t in enumerate(credit_lignes(vue)))))
+    vis = lambda c: '' if c in etats[defaut] else ' display="none"'
+    couches = {
+        'territoires': '<g transform="%s">%s</g>' % (tr, ''.join('<g class="fl" fill="%s">%s</g>' % (col, M.get('m-' + g, ''))
+                                                            for g, col in fills.items())),
+        'trait': '<g transform="%s"><g class="cd">%s</g><g class="ct">%s</g><g class="cc">%s</g><g class="cs">%s</g></g>'
+                 % (tr, CR.get('c-details', ''), CR.get('c-dents', ''), CR.get('c-contours', ''), CR.get('c-silhouette', '')),
+        'nerf': '<g transform="%s" class="nf"><g class="n1">%s</g><g class="n2">%s</g></g>' % (tr, G.get('nerf', ''), G.get('nerf', '')),
+        'noyaux': '<g transform="%s" class="nx">%s</g>' % (tr, CR.get('c-noyaux', '')),
+    }
+    titre = '%s · %s' % (p['titre'], NOMS_VUES[vue])
+    desc = '%s. États : %s.' % (titre, ' ; '.join('%s (%s)' % (E['nom'], ', '.join(l['texte'].replace(' | ', ' ') for l in L))
+                                                   for _, E, L in toutes))
     meta_txt = json.dumps({'licence': 'CC BY-SA 4.0', 'licence_url': 'https://creativecommons.org/licenses/by-sa/4.0/',
                            'mention': 'Œuvre dérivée', 'credit': credit_complet(vue),
-                           'etiquettes': [{'ref': l['ref'], 'texte': l['texte'], 'source': l['source']} for l in labels],
+                           'etats': {nom: [{'ref': l['ref'], 'texte': l['texte'], 'source': l['source']} for l in L] for nom, _, L in toutes},
                            'annotations': a.get('statut'), 'valide_par_vial': bool(a.get('valide_par_vial'))},
                           ensure_ascii=False, sort_keys=True)
-    out = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" role="img" aria-labelledby="t d" data-nerf="%s" '
-           'data-preset="%s" data-vue="%s" data-couches="%s" data-zone="0 %d %d %d">' % (W, H, nerf, nom, vue, ' '.join(couches), HEAD, W, DH),
+    out = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" role="img" aria-labelledby="t d" data-nerf="%s" data-vue="%s" '
+           'data-etat="%s" data-etats="%s" data-zone="0 %d %d %d">' % (W, H, nerf, vue, defaut, escape(json.dumps(etats, separators=(',', ':')), {'"': '&quot;'}), HEAD, W, W),
            '<title id="t">%s</title><desc id="d">%s</desc><metadata>%s</metadata>' % (escape(titre), escape(desc), escape(meta_txt)),
-           '<style>%s</style><defs>%s</defs>' % (STYLE, ''.join(defs)),
+           # épaisseurs du nerf en unités du dessin : 6,5 px de jaune et 1 px de cerne sur l'image de 800 px,
+           # proportionnelles ensuite à la taille d'affichage
+           '<style>%s</style>' % STYLE.replace('{N1}', '%.2f' % (8.5 / k)).replace('{N2}', '%.2f' % (6.5 / k)).replace('{NX}', '%.2f' % (1 / k)),
            '<rect width="%d" height="%d" fill="#fff"/>' % (W, H),
-           '<text class="tt" x="24" y="44">%s</text>' % escape(titre)]
+           '<text class="tt" x="24" y="44">%s</text>' % escape(titre),
+           '<svg x="0" y="%d" width="%d" height="%d" viewBox="0 %d %d %d" overflow="hidden">' % (HEAD, W, W, HEAD, W, W)]
     for c in COUCHES:
-        if c == 'lesions' and encart:
-            pass
-        vis = '' if c in couches else ' display="none"'
-        clip = ' clip-path="url(#zone)"' if c in src else ''
-        out.append('<g id="%s" data-couche="%s"%s%s>%s</g>' % (c, c, vis, clip, ''.join(x for x in corps[c] if x.startswith('<use'))))
-    out.append(encart)
-    for c in COUCHES:   # étiquettes au-dessus de l'encart, rangées dans leur couche
-        lab = ''.join(x for x in corps[c] if not x.startswith('<use'))
-        if lab:
-            vis = '' if c in couches else ' display="none"'
-            out.append('<g class="etiquettes" data-couche="%s"%s>%s</g>' % (c, vis, lab))
+        out.append('<g id="%s" data-couche="%s"%s>%s</g>' % (c, c, vis(c), couches.get(c, '')))
+    out.append('</svg>')
+    out += groupes_lbl
     out.append('<g id="legende-bas">%s</g></svg>\n' % ''.join(bas))
-    return ''.join(out), labels
+    return ''.join(out), toutes
 
 
 def manifeste(nerf, p, res):
-    m = {'nerf': nerf, 'note': 'Un préréglage = un fichier SVG et un jeu de couches visibles ; basculer une couche : [data-couche="…"].',
-         'presets': {}}
-    for nom, P in p['presets'].items():
-        m['presets'][nom] = {'fichier': '%s-%s.svg' % (nerf, nom), 'titre': P['titre'], 'vue': P['vue'], 'couches': P['couches'],
-                             'etiquettes': [{'ref': l['ref'], 'texte': l['texte']} for l in res[nom][1]]}
+    m = {'nerf': nerf, 'note': ('Trois images (une par vue) ; chacune contient tous les états. Changer d’état : afficher '
+                                '[data-etat="X"] et les couches data-etats[X] ([data-couche]), masquer le reste.'),
+         'etat_defaut': p['etat_defaut'], 'vues': {}}
+    for vue, (t, toutes) in res.items():
+        m['vues'][vue] = {'fichier': '%s-%s.svg' % (nerf, vue),
+                          'etats': {nom: {'nom': E['nom'], 'couches': E['couches'],
+                                          'etiquettes': [{'ref': l['ref'], 'texte': l['texte']} for l in L]} for nom, E, L in toutes}}
     return json.dumps(m, ensure_ascii=False, indent=1) + '\n'
 
 
@@ -454,57 +437,17 @@ def ecrire_credits(entrees, retirer=()):
 def construire(nerf):
     a, s, p = charger(nerf)
     res = {}
-    for nom, P in p['presets'].items():
-        txt, labels = composer(nerf, nom, P, a)
-        res[nom] = (svgo(txt), labels)
+    for vue in p['vues']:
+        txt, toutes = composer(nerf, vue, p, a)
+        res[vue] = (svgo(txt), toutes)
     return a, s, p, res
-
-
-def tour(nerf):
-    """Sprite WebP des 8 vues (local seulement : Chromium de Playwright)."""
-    from playwright.sync_api import sync_playwright
-    from PIL import Image
-    a, s = charger(nerf)
-    fr, px = [], 300
-    with tempfile.TemporaryDirectory() as d, sync_playwright() as p:
-        b = p.chromium.launch(); pg = b.new_page(viewport={'width': px, 'height': px})
-        for k in range(8):
-            G = groupes_trait(open(os.path.join(RENDER, '%s-t%d.svg' % (nerf, k)), encoding='utf-8').read())
-            svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="%d" height="%d"><style>%s</style>'
-                   '<rect width="800" height="800" fill="#fff"/><g id="trait">%s</g><g id="territoires">%s</g><g id="nerf">%s</g></svg>'
-                   % (px, px, STYLE_TOUR.replace('stroke-width:2.8', 'stroke-width:4').replace('.peau path{stroke:#2f2f2f;stroke-width:1.5',
-                      '.peau path{stroke:#2f2f2f;stroke-width:2.2'),
-                      ''.join('<g class="%s">%s</g>' % (c, G.get(c, '')) for c in ('crane', 'tronc', 'peau')),
-                      G.get('territoires', ''), G.get('nerf', '')))
-            f = os.path.join(d, 'f%d.svg' % k); open(f, 'w').write(svg)
-            pg.goto('file://' + f); png = os.path.join(d, 'f%d.png' % k); pg.screenshot(path=png)
-            fr.append(Image.open(png).convert('RGB'))
-        b.close()
-    sp = Image.new('RGB', (px * 8, px), (255, 255, 255))
-    for k, im in enumerate(fr):
-        sp.paste(im, (k * px, 0))
-    dst = os.path.join(OUT, '%s-tour.webp' % nerf)
-    for q in (80, 70, 60, 50):
-        sp.save(dst, 'WEBP', quality=q, method=6)
-        if os.path.getsize(dst) <= 190 * 1024:
-            break
-    ko = round(os.path.getsize(dst) / 1024)
-    e = credit_entree(nerf, 'tour', a, s, ko, fichier='%s-tour.webp' % nerf,
-                      titre='%s · tour de 8 vues (45° chacune, plongée 15°)' % a['titre'],
-                      mods='Huit rendus Freestyle (tools/dedale/freestyle.py --tour) rastérisés à %d px et assemblés en sprite WebP '
-                           '(qualité %d) par tools/dedale/annoter.py --tour ; sans annotation.' % (px, q))
-    ecrire_credits([e])
-    print('tour : %s (%d Ko, qualité %d)' % (os.path.relpath(dst, ROOT), ko, q))
-
 
 
 def main():
     args = sys.argv[1:]
     nerf = next((x for x in args if not x.startswith('--')), 'nc07')
-    if '--tour' in args:
-        return tour(nerf)
     a, s, p, res = construire(nerf)
-    fichiers = {'%s-%s.svg' % (nerf, n): t for n, (t, _) in res.items()}
+    fichiers = {'%s-%s.svg' % (nerf, v): t for v, (t, _) in res.items()}
     fichiers['%s-presets.json' % nerf] = manifeste(nerf, p, res)
     if '--verifier' in args:
         bad = [f for f, t in fichiers.items()
@@ -514,30 +457,22 @@ def main():
         print('Recomposition à l’octet : %d/%d fichiers identiques.' % (len(fichiers) - len(bad), len(fichiers)))
         sys.exit(1 if bad else 0)
     os.makedirs(OUT, exist_ok=True)
-    ent = []
     for f, t in fichiers.items():
         open(os.path.join(OUT, f), 'w', encoding='utf-8', newline='\n').write(t)
         print('assets/nc/%s : %d octets' % (f, len(t.encode())))
-    for nom, (t, labels) in res.items():
-        P = p['presets'][nom]
+    ent = []
+    for vue, (t, toutes) in res.items():
         ko = round(len(t.encode()) / 1024)
-        if P['vue'] == 'plan':
-            g = s['gray788']
-            e = credit_entree(nerf, nom, a, s, ko, titre='%s · %s' % (a['titre'], P['titre'].split('· ', 1)[-1]),
-                              mods='Planche agrandie ×2, filtre crayon (fondu « dodge » sur flou gaussien), retrait automatique des '
-                                   'légendes anglaises, vectorisation potrace 1.16 (tools/dedale/trace.py), composition par '
-                                   'tools/dedale/annoter.py (préréglage « plan ») ; svgo 4.0.0.')
-            e.update({'auteur': g['auteur'], 'source': 'Wikimedia Commons', 'source_url': g['source_url'], 'url': g['source_url'],
-                      'licences_amont': {'gray788': g['licence']}})
-        else:
-            e = credit_entree(nerf, nom, a, s, ko, titre='%s · %s' % (a['titre'], P['titre'].split('· ', 1)[-1]),
-                              mods=('Rendu des contours par Freestyle (Blender 3.6.19, tools/dedale/freestyle.py) ; aplats des territoires par '
-                                    'tools/dedale/masques.py ; préréglage « %s » (vue %s, %d étiquettes) composé par tools/dedale/annoter.py '
-                                    'depuis nc/presets/%s.yml et nc/annot/%s.yml ; svgo 4.0.0.') % (nom, P['vue'], len(labels), nerf, nerf))
-        e['preset'] = nom
+        e = credit_entree(nerf, vue, a, s, ko, titre='%s · %s' % (a['titre'], NOMS_VUES[vue]),
+                          mods=('Crâne au crayon par Freestyle sur les os seuls, décimés (Blender 3.6.19, tools/dedale/crane.py : '
+                                'silhouette épaisse, contours moyens, détails légers ; vectorisation potrace) ; nerf projeté depuis les '
+                                'courbes du modèle (tools/dedale/freestyle.py), en jaune ; aplats des territoires (tools/dedale/masques.py) ; '
+                                'états %s composés par tools/dedale/annoter.py depuis nc/presets/%s.yml et nc/annot/%s.yml ; svgo 4.0.0.')
+                               % (', '.join(n for n, _, _ in toutes), nerf, nerf))
+        e['etats'] = [n for n, _, _ in toutes]
         ent.append(e)
-    # les anciennes vues (une vue = tout le contenu) sont remplacées par les préréglages
-    vieux = [f for f in os.listdir(OUT) if re.match(r'%s-[\w-]+\.svg$' % nerf, f) and f not in fichiers]
+    # tout autre fichier publié de ce nerf (anciens préréglages, plan, tour) est retiré
+    vieux = [f for f in os.listdir(OUT) if re.match(r'%s-[\w-]+\.(svg|webp|png)$' % nerf, f) and f not in fichiers]
     for f in vieux:
         os.remove(os.path.join(OUT, f)); print('retiré : assets/nc/%s' % f)
     ecrire_credits(ent, retirer=vieux)
