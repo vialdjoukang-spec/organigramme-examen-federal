@@ -8,10 +8,7 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 
 | Vu | Commande normalisée | Où | Skill proposé |
 |---|---|---|---|
-| 4 | `python3 tools/mono_build.py` | CONTINUATION.md, HANDOFF.md | `ssp-mono-build-py` |
 | 4 | `tools/etapes.json` | CONTINUATION.md | `ssp-etapes-json` |
-| 3 | `tools/doses_check.py` | CONTINUATION.md | `ssp-doses-check-py` |
-| 3 | `python3 tools/prev_build.py` | CONTINUATION.md | `ssp-prev-build-py` |
 
 ## Tâches répétitives (sujets de commit)
 
