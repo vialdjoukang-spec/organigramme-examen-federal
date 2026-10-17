@@ -17,10 +17,10 @@ def rep(a, b):
 A = '.blk .t{white-space:normal;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}'
 rep(A, A + '.blk .t{-webkit-line-clamp:var(--cl,3);overflow-wrap:anywhere}'
     '.blk b{display:block;padding-right:2.7em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}'
-    '.blk.mini{display:flex;align-items:baseline;gap:5px;padding-top:1px;padding-bottom:1px;line-height:1;white-space:nowrap}'
+    '.blk.mini{display:flex;align-items:center;gap:5px;padding-top:1px;padding-bottom:1px;line-height:1;white-space:nowrap}'
     '.blk.mini b{flex:0 1 auto;min-width:0;padding-right:0;line-height:1}'
     '.blk.mini .t{display:block;flex:1 1 0;min-width:0;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}'
-    '.blk.mini.done::after{position:static;flex:none;line-height:1}.blk.mini .du,.blk.nodu .du{display:none}.blk.nodu b{padding-right:0}')
+    '.blk.mini.done::after{position:static;flex:none;font-size:.66rem;line-height:1}.blk.mini .du,.blk.nodu .du{display:none}.blk.nodu b{padding-right:0}')
 
 # Le texte complet de la séance dans sa fenêtre (clé s|code|séance).
 rep('data-id="${id}" data-t="s|${x.ssp}"', 'data-id="${id}" data-t="s|${x.ssp}|${id}"')
