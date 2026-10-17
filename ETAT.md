@@ -29,7 +29,8 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
 | [x] | Préparer data/MEM.json sans toucher au code (PR #3 fusionnée) | Mnémosyne | 29.11.2026 |
 | [x] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, PR #15 fusionnée | Hermès | 17.10.2026 |
-| [~] | Recherche par diagnostic différentiel et notion · patch 0009, tests/test_calendrier.py (34) | Hermès | 17.10.2026 |
+| [x] | Recherche par diagnostic différentiel et notion · patch 0009, PR #18 fusionnée | Hermès | 17.10.2026 |
+| [x] | Bandes de séance sans texte coupé (ordinateur) et contrôle Iris du texte coupé · patch 0010, tests/test_calendrier.py (36) | Hermès | 17.10.2026 |
 | [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
@@ -60,3 +61,14 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Contre-lecture des doses | Asclépios | 25.10.2026 |
 | [ ] | Validation des signes et syndromes du lot 01 et des doses « À vérifier » | Vial | à fixer |
 | [ ] | Régénérer la liste G6 depuis Lexique 3.83 ; filtre MeSH pour le tri | Janus | 25.10.2026 |
+
+## Chantier Nerfs crâniens · Dédale (plan du 17.10.2026)
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Installer Blender 3.6.19 (sans écran), potrace 1.16 et svgo 4.0.0 sur le box ; Z-Anatomy hors dépôt (/workspace/ssp/nc_src/) | Dédale | 25.10.2026 |
+| [x] | Écrire les automates tools/dedale/freestyle.py, trace.py, annoter.py, verifier.py avec leurs instructions | Dédale | 25.10.2026 |
+| [x] | Produire le pilote VII : vues face, profil, trois quarts, plan (Gray788) et tour de 8 vues (feat/nc-schemas) | Dédale | 08.11.2026 |
+| [ ] | Remplacer les annotations provisoires de nc/annot/nc07.yml par celles d’Ariane (foramens, sites lésionnels, branches) | Ariane, puis Dédale | 08.11.2026 |
+| [ ] | Valider le pilote VII (valide_par_vial) | Vial | 08.11.2026 |
+| [ ] | Produire les onze autres paires ; tours de 8 vues pour V et III-IV-VI seulement | Dédale | NC-2 |

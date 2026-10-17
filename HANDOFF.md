@@ -19,12 +19,20 @@ Pièges     : Toute demande de fusion qui ajoute un terme médical dans TIP, NOT
 Pièges     : G6 lit tools/audit/verbes_conjugues.txt.gz ; on le régénère par tools/audit/verbes_gen.py, jamais à la main.
 À vérifier : Liste G6 à régénérer depuis Lexique 3.83 (site indisponible le 17.10.2026) ; filtre MeSH pour le tri ; domaines escardio.org, has-sante.fr, escmid.org (Argos).
 
+## Dédale · schémas des nerfs crâniens (NC-0, pilote VII) · 17.10.2026, Europe/Zurich
+État       : feat/nc-schemas : automates tools/dedale/{freestyle,trace,annoter,verifier}.py avec instructions ; pilote VII dans assets/nc (face, profil, 34, plan, tour de 8 vues en WebP de 52 Ko), crédits dans assets/nc/credits.json ; CI : tâche « schemas » (verifier.py --tous, tests/test_dedale.py 11/11).
+Prochaine  : Ariane remplace nc/annot/nc07.yml (provisoire) ; Dédale recompose par annoter.py ; Vial valide le pilote avant les 11 autres paires.
+Sources    : Z-Anatomy License.txt (CC BY-SA 4.0) ; API Commons Gray788 (domaine public) ; lus le 17.10.2026.
+Pièges     : Blender charge environ 11 Go : une seule instance à la fois. Le modèle reste dans /workspace/ssp/nc_src/ (jamais dans le dépôt). Le rejeu à l’octet exige svgo 4.0.0 exactement. Les ancres sont des noms d’objets Z-Anatomy (nerfs.json) ; une ancre absente fait échouer annoter.py.
+À vérifier : annotations provisoires (seules des ancres du modèle sont placées) ; fragments de légendes anglaises restés sur le plan Gray788.
+
 ## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
-État       : PR #15 fusionnée dans main le 17.10.2026 à 13:26 (commit de fusion 3c9b878, sans écrasement) ; Pages publie la même empreinte que main ; tests/test_calendrier.py rejoué contre le site public : 32/32, aucune erreur de console. Patch 0009 (feat/hermes-recherche-notions) : la recherche trouve aussi un SSP par ses diagnostics différentiels et ses notions (NOT), avec le titre trouvé sous le nom ; suite 119/119, gardes 5/5.
+État       : PR #15 fusionnée dans main le 17.10.2026 à 13:26 (commit de fusion 3c9b878, sans écrasement) ; Pages publie la même empreinte que main ; tests/test_calendrier.py rejoué contre le site public : 32/32, aucune erreur de console. Patch 0009 (PR #18, fusionnée le 17.10.2026 à 13:55) : la recherche trouve aussi un SSP par ses diagnostics différentiels et ses notions (NOT), avec le titre trouvé sous le nom ; suite 119/119, gardes 5/5.
 Prochaine  : Apollon (PR #16) pose les teintes de jour et les bandes de séance pâles : data-wd (1 = lundi … 7 = dimanche) existe désormais sur .hd et .col, y compris en vue « Jour » ; il remplace donc nth-child par [data-wd] et peut teinter la colonne du jour. Mnémosyne réutilise showTip/tipToggle inchangés.
 Sources    : MDN StorageManager.persist(), IndexedDB, File System Access API ; WebKit « Full Third-Party Cookie Blocking and More » (plafond de 7 jours), lus le 17.10.2026.
 Pièges     : Tout appel à lsSet déclenche svTouch ; le miroir ne démarre qu’après le contrôle de démarrage (svReady), pour ne jamais écraser la copie de secours par un état vide. test_export simule l’effacement Safari en supprimant aussi IndexedDB.
 Pièges     : Dans les tests mobiles, la barre d’onglets collante (≈ 200 px sur 412 px de large) masque le haut de l’écran ; faites défiler avec behavior:'instant' et un décalage.
+Pièges     : Patch 0010 : blkFit() mesure chaque bande après renderGrid (et au redimensionnement, aux polices chargées) ; il pose --cl (lignes qui tiennent), .mini (moins d’une ligne : une seule ligne compacte) ou .nodu (durée masquée si elle cache l’horaire). Une règle CSS nouvelle sur .blk ne doit pas fixer -webkit-line-clamp en dur. Iris échoue sur tout texte coupé sans ellipse ni texte complet (CLIP_JS, état cal-bandes-semaine et cal-bandes-jour).
 Pièges     : fz() renvoie un tableau portant R.why (code → titre trouvé dans NOT) ; le second niveau n’est consulté que si le nom et le code ne donnent rien pour ce SSP.
 Pièges     : Un conflit dans app_v2.html ne se résout jamais à la main : reprenez la version de main, puis rejouez votre patch (skill ssp-fusion-patch).
 À vérifier : Le fichier automatique n’existe que sur Chromium de bureau ; ailleurs le bouton reste caché. Essai réel sur iOS Safari (persistance refusée, versions) par le titulaire.

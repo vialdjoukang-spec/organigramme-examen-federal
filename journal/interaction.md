@@ -31,3 +31,13 @@ Défaut trouvé sur le site public. L’exemple affiché dans la barre, « insuf
 Décision (patch 0009). Quand le nom et le code d’un SSP ne correspondent pas, la recherche lit les titres de ses diagnostics différentiels et de ses notions (NOT), normalisés une seule fois. Tous les mots doivent y figurer ; l’expression exacte et un diagnostic l’emportent sur une notion. Le titre trouvé s’affiche sous le nom (« Diagnostic : … ») ; sur mobile, il passe à la ligne. Le contenu complet des fiches (TIP, 4,9 millions de caractères) n’est pas fouillé : trop lourd et trop large. Test ajouté : recherche_notion, sur ordinateur et sur mobile.
 
 Sources lues : aucune source externe ; données internes NOT et SSP.
+
+## 17.10.2026, 14:20 · Bandes de séance coupées sur ordinateur (patch 0010)
+
+Constat (capture de la titulaire). En vue Semaine sur ordinateur, une séance de 60 min (46 px) affichait l’en-tête puis trois lignes autorisées par -webkit-line-clamp:3 : la troisième ligne était coupée à mi-hauteur, sans « … ». Sur mobile (vue Jour, colonne large), le texte tenait.
+
+Décision. La hauteur des bandes reste proportionnelle à la durée (elle porte l’information de temps, et une bande plus haute chevaucherait la suivante). blkFit() compte les lignes qui tiennent réellement et les impose par --cl : le texte finit alors par « … ». Sous une ligne (15 et 30 min), la bande passe sur une seule ligne compacte. La durée se masque quand elle cacherait l’horaire ou le code. Le texte complet (activité, chapitre, jour, horaire, durée) s’affiche en tête de la fenêtre de la séance, au survol, au clic, au clavier (i) et à l’appui long ; la clé devient s|code|séance.
+
+Contrôle automatique. Iris (tests/visuel/capture.py, CLIP_JS) parcourt chaque vue, sur ordinateur et mobile et dans les trois thèmes, plus les états cal-bandes-semaine et cal-bandes-jour (séances de 15 à 120 min aux chapitres les plus longs) ; compare.py échoue sur tout élément à overflow hidden ou clip dont le contenu dépasse de plus de 1 px sans ellipse explicite et sans texte complet (title, data-t, aria-describedby). Sur main avant correctif : 30 éléments coupés détectés ; après : 0 sur 72 vues. Test ajouté : bandes_sans_coupure (ordinateur et mobile).
+
+Sources lues : aucune source externe.
