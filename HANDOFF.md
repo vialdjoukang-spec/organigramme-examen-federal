@@ -78,7 +78,7 @@ Pièges     : G1 lit « 30 mL » comme une dose : un volume d’hématome s’é
 Prochaine  : Asclépios contre-lit doses_ch.json et qa/posologies.md ; Vial coche qa/validation-vial-glo-lot01.md ; Hippocrate écrit le lot 02 (hyposmie, quadranopsie, cécité, hémiparésie, hypotonie, méningite…).
 Sources    : CEN (chapitre 9, sémiologie analytique et topographique), HUG protocole PFP v1.2 du 04.04.2023, SFE item 244, HAS PNDS Cushing 2022, AIPS Valtrex® (12.2025) et Prednisone Streuli® (06.2026), lus le 17.10.2026.
 Pièges     : Une correction d'audit passe par galien_region.py corriger --plan <fichier.yml> (le texte « avant » figure une seule fois) ; puis galien_region.py registre écrit fautes.jsonl avec le hachage réel et ne réécrit jamais une ligne existante. Une définition du glossaire ne doit contenir ni son libellé ni ses alias (Lyncée).
-Pièges     : Les doses ne se lisent qu'à la main, une page AIPS par produit ; aucune extraction du Compendium ni de Swissmedic. Une dose hors AIPS n'entre pas dans doses_ch.json.
+Pièges     : Les doses viennent du texte AIPS officiel (téléchargement Swissmedic/Refdata, export autorisé), extrait par script mot pour mot ; chaque ligne de dose est relue à la main contre l'extrait et contrôlée par tools/doses_check.py (méthode approuvée par Vial le 17.10.2026). Aucune extraction du Compendium. Une dose hors AIPS n'entre pas dans doses_ch.json.
 À vérifier : Rebaser sur main après la fusion de la PR #20. Les ajouts swissmedicinfo-pro.ch, cen-neurologie.fr et sfendocrino.org attendent l'accord de Vial et d'Argos.
 
 ## Atlas et Janus · NC-0 socle CK et audit de niveau 1 · 17.10.2026, Europe/Zurich
