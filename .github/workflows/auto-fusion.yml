@@ -63,7 +63,7 @@ jobs:
           # Attend les contrôles requis (garde, html, tests, visuel) et
           # la branche à jour (strict). Aucune protection n'est affaiblie.
           set +e
-          out=$(gh pr merge "$PR" --auto --merge 2>&1)
+          out=$(gh pr merge "$PR" --repo "${{ github.repository }}" --auto --merge 2>&1)
           rc=$?
           set -e
           echo "gh pr merge --auto rc=${rc} out=${out}"
@@ -71,7 +71,7 @@ jobs:
             echo "Auto-merge activé pour #${PR}."
             exit 0
           fi
-          state=$(gh pr view "$PR" --json state,autoMergeRequest,mergeable,mergeStateStatus \
+          state=$(gh pr view "$PR" --repo "${{ github.repository }}" --json state,autoMergeRequest,mergeable,mergeStateStatus \
             --jq '{state,autoEnabled:.autoMergeRequest.enabledAt,mergeable,mergeStateStatus}')
           echo "État après échec : ${state}"
           echo "$state" | grep -q '"state":"MERGED"' && { echo "Déjà fusionnée."; exit 0; }
