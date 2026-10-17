@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Asclépios · fréquence (prévalence) des diagnostics différentiels · 17.10.2026, Europe/Zurich
+État       : feat/ddx-prevalence : data/ck/prev.json (source unique) ; tools/audit/prevalence.py (règles P1 à P7 : chaque DD une fois avec son nom exact, chiffre dans ]0 ; 100], chiffre ⇒ src de src.json + loc + date_lu, sans chiffre ⇒ « À vérifier », ordre décroissant calculé puis rang clinique, somme ≤ 100 %) ; tools/prev_build.py (--check en CI) écrit PRV dans app_v2.html ([index, %, op, population] dans l'ordre d'affichage) et assets/ck/prev.js (cadre, source, emplacement, date) ; ck_build inclut prev.js. Patch 0020 : % rouge (.pv) à côté de chaque DD, fenêtre pv|SSP|i (cadre, source, date), ligne « Fréquence » en tête de la fenêtre du DD, légende du chiffre, tri par PRV ; la clé de progression reste 'd'+index d'origine. tests/test_prevalence.py 31/31.
+Décision   : le chiffre est la fréquence du diagnostic parmi les patients consultant pour la plainte du SSP, dans un cadre nommé (médecine de famille ou urgences, CH ou UE) ; une prévalence de population ne sert qu'à défaut (type « population », affichée). Le texte des 226 SSP rédigés ne change pas : seuls les champs de prev.json et l'ordre s'ajoutent.
+Prochaine  : groupes de contenu, un commit poussé par groupe (Galien audite derrière) : 1 douleur thoracique (S2.5), 2 dyspnée, 3 douleur abdominale, 4 céphalée, 5 fièvre, 6 syncope ; puis les 12 SSP S8 (PR #37) quand elle est fusionnée.
+Pièges     : ne jamais éditer PRV à la main (prev_build --check échoue) ; aucun « window.CK_ » littéral dans app_v2.html (ckW('PREV')) ; un chiffre exige l'emplacement exact (tableau, page).
+Groupes poussés : (aucun pour l'instant)
+
 ## Chiron · stations CS, pilote · 17.10.2026, Europe/Zurich
 État       : feat/cs-stations : format data/cs/format.json (10 règles officielles, 6 formats, ASM 75 % et KK 25 %, chacun sourcé) et data/cs/stations.json (5 stations), schémas data/cs/schema/, compilateur tools/cs_build.py (--check en CI) → assets/st/index.js (window.CS_ST_INDEX) et assets/st/<id>.js, chargés à la demande par stLoad. Patch 0019 : bouton « Station CS » sur la fiche SSP (Notions CK), panneau à sections (consigne, rôle du PS avec « seulement si demandé », résultats, grille ASM avec gestes g|… et chaînes hyp|…, KK, pièges, À vérifier, sources). Lyncée lit data/cs. tests/test_cs_stations.py 15/15 ; suite 241/241 ; G1 à G8 réussis.
 Prochaine  : Vial relit les 5 stations (valide_par_vial reste false) ; Galien audite data/cs (étiquette audit:galien) ; stations suivantes par SSP à haut rendement, une par compétence manquante (dossier, modèle).
