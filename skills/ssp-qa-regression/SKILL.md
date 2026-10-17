@@ -1,8 +1,8 @@
 ---
 name: ssp-qa-regression
 description: >-
-  Lis ce skill pour contrôler une branche avant fusion : il fixe la référence verte et refuse toute
-  régression.
+  Lis ce skill pour contrôler une branche avant fusion : il fixe la référence
+  verte et refuse toute régression.
 ---
 # But
 Ce skill fait apparaître une régression dans la CI avant toute fusion.
