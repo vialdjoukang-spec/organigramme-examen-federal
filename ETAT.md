@@ -31,6 +31,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, PR #15 fusionnée | Hermès | 17.10.2026 |
 | [x] | Recherche par diagnostic différentiel et notion · patch 0009, PR #18 fusionnée | Hermès | 17.10.2026 |
 | [x] | Bandes de séance sans texte coupé (ordinateur) et contrôle Iris du texte coupé · patch 0010, tests/test_calendrier.py (36) | Hermès | 17.10.2026 |
+| [x] | NC-0 interaction : lieur gloLink sur CK_GLO_INDEX, pile de fenêtres (5 niveaux, Retour, fil d’Ariane), types glo, syn, hyp, loc et nc chargés à la demande, vues, couches et états des schémas · patch 0012, patch 0013 (repères réels), tests/test_ck_ui.py (74) | Hermès | 17.10.2026 |
 | [ ] | Teintes des 7 jours et bandes de séance pâles à contraste AA (data-wd fourni par Hermès) | Apollon (PR #16) | 29.11.2026 |
 | [ ] | Fusionner Atlas, puis Thémis, après CI verte | Athéna | 29.11.2026 |
 
@@ -71,8 +72,10 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Produire le pilote VII : vues face, profil, trois quarts, plan (Gray788) et tour de 8 vues (feat/nc-schemas) | Dédale | 08.11.2026 |
 | [x] | Remplacer les annotations provisoires de nc/annot/nc07.yml par celles d’Ariane (foramens, sites lésionnels, branches) | Ariane, puis Dédale | 08.11.2026 |
 | [x] | Une image = une idée : préréglages trajet, branches, fonctions, lésions, plan (8 étiquettes au plus, contrôlés par verifier.py) | Dédale | 08.11.2026 |
+| [x] | Trois vues seulement (face, profil, 34) : crâne au crayon, nerf jaune, états trajet/branches/fonctions/lésions dans chaque SVG ; tour et plan retirés | Dédale | 08.11.2026 |
+| [x] | Repères numérotés fléchés et cliquables (g.nc-num, data-num, data-nom, data-glo), aucun texte sur le dessin, légende en 2 colonnes (feat/nc-numeros) | Dédale | 08.11.2026 |
 | [ ] | Valider le pilote VII (valide_par_vial) | Vial | 08.11.2026 |
-| [ ] | Produire les onze autres paires ; tours de 8 vues pour V et III-IV-VI seulement | Dédale | NC-2 |
+| [ ] | Produire les onze autres paires (3 vues chacune, sans tour) ; porter freestyle.py en mode ajout seul d’abord | Dédale | NC-2 |
 
 ## Chantier Nerfs crâniens · Podalire (chaîne clinique, plan du 17.10.2026)
 
@@ -83,5 +86,10 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Définir les termes de la liste « Termes pour Galien » (journal/nerfs-ck.md) | Galien | 08.11.2026 |
 | [ ] | Lire à la main dans l’AIPS les posologies marquées « À vérifier » (corticothérapie, thrombolyse, antibiotiques de la neuroborréliose) | Galien | 08.11.2026 |
 | [ ] | Sourcer les points « À vérifier » (fracture du rocher, otite compliquée, cholestéatome, plaie des rameaux, produits de contraste) | Podalire | NC-1b |
-| [ ] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
+| [x] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
+| [x] | Justifier chaque examen et chaque moyen du VII (mécanisme, principe, pourquoi ce choix, limites) et ajouter le contrôle G8 (feat/nc07-justification) | Podalire | 17.10.2026 |
+| [x] | Urgences CK, lot 1 : 10 hypothèses bloquantes, 7 syndromes avec gestes GES reliés, 44 entrées de glossaire, 9 sources ; patch 0017 (feat/ck-urgences-lot1) | Podalire | 17.10.2026 |
+| [ ] | Contre-lire le lot 1 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
+| [ ] | Urgences CK, lot 2 : asthme aigu, exacerbation de BPCO, hémorragie digestive (ESGE) | Podalire | NC-1b |
+| [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 

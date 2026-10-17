@@ -5,22 +5,32 @@ INSTRUCTIONS -------------------------------------------------------------------
     python3 tools/dedale/verifier.py nc07      # un nerf
     python3 tools/dedale/verifier.py --tous    # tous les nerfs présents dans assets/nc/
 Contrôles (ÉCHEC = code de sortie 1) :
-  V1 couches : trait, nerf, noyaux, foramens, territoires, lesions, legendes présentes (même vides) ;
-     data-couches = couches du préréglage (nc/presets/<nerf>.yml) ; les autres couches masquées ;
-  V2 lisibilité : tout texte mesure au moins 13 px une fois l'image réduite à 360 px de large ;
-  V3 poids : au plus 120 Ko par vue SVG, au plus 200 Ko pour un sprite WebP (budget de la CI) ;
+  V1 couches et états : trait, nerf, noyaux, foramens, territoires, lesions, legendes et legende présentes (même
+     vides) ; data-etats = états de nc/presets/<nerf>.yml ; couches visibles par défaut = celles de l'état par
+     défaut ; chaque groupe [data-etat] masqué hors de l'état par défaut ;
+  V2 lisibilité (image réduite à 360 px de large) : titre ≥ 13 px ; repère numéroté ≥ 13 px de diamètre hors
+     tout, numéro ≥ 8 px ; légende et crédit (petits caractères) ≥ 9 px ;
+  V3 poids : au plus 120 Ko par vue SVG ;
   V4 crédits : entrée complète dans assets/nc/credits.json (TASL, licence, « Œuvre dérivée »,
      modifications, date, genere_par_ia faux, valide_par_vial présent) et métadonnées dans le SVG ;
-  V5 couleur : gris, vert du nerf (#156534) et aplats pâles déclarés dans le préréglage (luminance ≥ 0,8) ;
-     le rouge (#b91c1c) ne marque que la couche lesions ; aucune image matricielle intégrée ;
+  V5 couleur : gris, nerf en jaune intense (#ffc400) cerné de #5a4500, aplats pâles déclarés dans les états
+     (luminance ≥ 0,8) ; l'ancien vert du nerf (#156534) est refusé ; le rouge (#b91c1c) ne marque que la
+     couche lesions ; aucune image matricielle intégrée ;
   V6 annotations : chaque entrée de nc/annot/<nerf>.yml a un identifiant, un libellé et une source ;
-  V7 rejouabilité : la recomposition par annoter.py redonne chaque SVG à l'octet près
+  V7 rejouabilité : la recomposition par annoter.py redonne chaque fichier à l'octet près
      (sauf --sans-rejeu, quand svgo 4.0.0 n'est pas installé) ;
-  V8 une idée par image : au plus 8 étiquettes par préréglage ;
-  V9 aucun chevauchement : boîtes d'étiquettes recalculées depuis le texte (largeur estimée à 0,60 em par
-     caractère, au-dessus de la largeur mesurée dans Chromium), disjointes, dans l'image, hors de l'encart ;
+  V8 une idée par état : au plus 8 repères par état ;
+  V9 repères aérés : dans un état, cercles disjoints, aucun repère sur le nerf ni sur un noyau (chemins du SVG
+     échantillonnés, demi-épaisseur du nerf comprise), tous dans la zone de dessin ;
   V10 dessin : la zone de dessin (data-zone) couvre au moins 60 % de l'image ;
-  V11 légende : 4 lignes au plus sous le dessin (légende et crédit court compris), pas de colonne numérotée.
+  V11 légende : dans g#legende, une entrée numérotée par repère de l'état, mêmes numéros, aucune ligne qui
+     déborde de sa colonne ; 2 lignes de note au plus ;
+  V12 trois vues : exactement face, profil et 34 publiées par nerf ; ni tour de 8 vues ni autre image ;
+  V13 aucun texte sur le dessin : dans la zone de dessin, seuls les numéros des repères ;
+  V14 contrat des repères : <g class="nc-num" data-num data-nom data-glo? tabindex="0" role="button"
+     aria-label="n · nom">, trait de rappel et pointe de flèche ; data-nom non vide ; data-glo, s'il est
+     présent, existe dans data/ck/glo.json ;
+  V15 numérotation : dans un état, un même numéro désigne la même structure dans les 3 vues.
 """
 import json, os, re, subprocess, sys
 import xml.etree.ElementTree as ET
@@ -28,12 +38,85 @@ import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 NC = os.path.join(ROOT, 'assets', 'nc')
-COUCHES = ('trait', 'nerf', 'noyaux', 'foramens', 'territoires', 'lesions', 'legendes')
+COUCHES = ('trait', 'nerf', 'noyaux', 'foramens', 'territoires', 'lesions', 'legendes', 'legende')
 CHAMPS = ('fichier', 'titre', 'auteur', 'source', 'source_url', 'url', 'licence', 'licence_url', 'licence_derivee', 'derive', 'mention',
           'modifications', 'verifie_le', 'valide_par_vial', 'genere_par_ia', 'oeuvre_derivee')
 GRIS = re.compile(r'^#([0-9a-f])\1\1$|^#([0-9a-f]{2})\2\2$', re.I)
 fails = []
-CAR, LBL_H, BASE, MAX_ETIQ, MIN_PX = 0.60, 36, 26, 8, 13
+CAR_LEG, MAX_ETIQ = 0.56, 8
+MIN_TT, MIN_NUM_D, MIN_NM, MIN_LG = 13, 13, 8, 9     # px, image réduite à 360 px
+JAUNE, CERNE = '#ffc400', '#5a4500'
+VUES = ['face', 'profil', '34']
+COL2 = 412          # abscisse de la 2e colonne de la légende
+NUM = re.compile(r'-?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?|[MmLlHhVvCcSsQqTtAaZz]')
+
+
+def echantillons(d, pas=1.5):
+    """Points d'un chemin SVG (toutes commandes ; courbes échantillonnées, arcs pris en corde)."""
+    tok = NUM.findall(d)
+    pts, i, cmd = [], 0, None
+    x = y = sx = sy = 0.0
+    lx = ly = None
+    def ligne(x0, y0, x1, y1):
+        n = max(1, int(((x1 - x0) ** 2 + (y1 - y0) ** 2) ** 0.5 / pas))
+        pts.extend((x0 + (x1 - x0) * t / n, y0 + (y1 - y0) * t / n) for t in range(1, n + 1))
+    def courbe(P):
+        for t in range(1, 13):
+            u = t / 12
+            if len(P) == 4:
+                bx = sum(c * q[0] for c, q in zip(((1 - u) ** 3, 3 * u * (1 - u) ** 2, 3 * u * u * (1 - u), u ** 3), P))
+                by = sum(c * q[1] for c, q in zip(((1 - u) ** 3, 3 * u * (1 - u) ** 2, 3 * u * u * (1 - u), u ** 3), P))
+            else:
+                bx = sum(c * q[0] for c, q in zip(((1 - u) ** 2, 2 * u * (1 - u), u * u), P))
+                by = sum(c * q[1] for c, q in zip(((1 - u) ** 2, 2 * u * (1 - u), u * u), P))
+            pts.append((bx, by))
+    n_arg = {'M': 2, 'L': 2, 'H': 1, 'V': 1, 'C': 6, 'S': 4, 'Q': 4, 'T': 2, 'A': 7, 'Z': 0}
+    while i < len(tok):
+        if tok[i].isalpha():
+            cmd = tok[i]; i += 1
+            if cmd in 'Zz':
+                ligne(x, y, sx, sy); x, y = sx, sy; lx = ly = None
+                continue
+        if cmd is None:
+            break
+        k = n_arg[cmd.upper()]
+        v = [float(t) for t in tok[i:i + k]]
+        if len(v) < k:
+            break
+        i += k
+        rel = cmd.islower()
+        ox, oy = (x, y) if rel else (0.0, 0.0)
+        C = cmd.upper()
+        if C == 'M':
+            x, y = ox + v[0], oy + v[1]; sx, sy = x, y; pts.append((x, y)); lx = ly = None
+            cmd = 'l' if rel else 'L'
+        elif C == 'L':
+            nx, ny = ox + v[0], oy + v[1]; ligne(x, y, nx, ny); x, y = nx, ny; lx = ly = None
+        elif C == 'H':
+            nx = (x + v[0]) if rel else v[0]; ligne(x, y, nx, y); x = nx; lx = ly = None
+        elif C == 'V':
+            ny = (y + v[0]) if rel else v[0]; ligne(x, y, x, ny); y = ny; lx = ly = None
+        elif C == 'C':
+            P = [(x, y), (ox + v[0], oy + v[1]), (ox + v[2], oy + v[3]), (ox + v[4], oy + v[5])]
+            courbe(P); x, y = P[3]; lx, ly = P[2]
+        elif C == 'S':
+            c1 = (2 * x - lx, 2 * y - ly) if lx is not None else (x, y)
+            P = [(x, y), c1, (ox + v[0], oy + v[1]), (ox + v[2], oy + v[3])]
+            courbe(P); x, y = P[3]; lx, ly = P[2]
+        elif C == 'Q':
+            P = [(x, y), (ox + v[0], oy + v[1]), (ox + v[2], oy + v[3])]
+            courbe(P); x, y = P[2]; lx, ly = P[1]
+        elif C == 'T':
+            c1 = (2 * x - lx, 2 * y - ly) if lx is not None else (x, y)
+            P = [(x, y), c1, (ox + v[0], oy + v[1])]
+            courbe(P); x, y = P[2]; lx, ly = c1
+        elif C == 'A':
+            nx, ny = ox + v[5], oy + v[6]; ligne(x, y, nx, ny); x, y = nx, ny; lx = ly = None
+    return pts
+
+
+def classes(el):
+    return (el.get('class') or '').split()
 
 
 def ko(p):
@@ -54,95 +137,182 @@ def lum(c):
     return 0.2126 * r + 0.7152 * g + 0.0722 * b
 
 
-def boites(s, fs):
-    """Boîtes des étiquettes, recalculées depuis le SVG : (ref, x, y, w, h)."""
-    out = []
-    for ref, corps in re.findall(r'<g class="lbl" data-ref="([^"]+)">(.*?)</g>', s, re.S):
-        t = re.search(r'<text([^>]*)>(.*?)</text>', corps, re.S)
-        if not t:
-            continue
-        att = t.group(1)
-        x = float(re.search(r'\bx="([-\d.]+)"', att).group(1)); y = float(re.search(r'\by="([-\d.]+)"', att).group(1))
-        lignes = [re.sub(r'<[^>]+>', '', l) for l in re.findall(r'<tspan[^>]*>(.*?)</tspan>', t.group(2))] or [re.sub(r'<[^>]+>', '', t.group(2))]
-        lignes = [l.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>') for l in lignes]
-        w = max(len(l) for l in lignes) * CAR * fs
-        ta = re.search(r'text-anchor="(\w+)"', att)
-        x0 = x - w if ta and ta.group(1) == 'end' else (x - w / 2 if ta and ta.group(1) == 'middle' else x)
-        out.append((ref, x0, y - BASE, w, LBL_H * len(lignes)))
-    return out
+def taille(st, cls):
+    m = re.search(r'\.%s\{[^}]*font-size:([\d.]+)px' % re.escape(cls), st)
+    return float(m.group(1)) if m else None
 
 
-def svg_vue(nerf, p, credits, preset=None, P=None):
+def svg_vue(nerf, p, credits, P=None, glo=None):
+    """Contrôle une vue ; renvoie {état: {numéro: nom}} pour la cohérence entre vues (V15)."""
     rel = os.path.relpath(p, ROOT)
     s = open(p, encoding='utf-8').read()
     for c in COUCHES:
         check(re.search(r'<g[^>]*\bid="%s"' % c, s), '%s : couche « %s » absente (V1)' % (rel, c))
     vb = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', s)
     if not check(vb, '%s : viewBox absente' % rel):
-        return
+        return {}
     W, H = float(vb.group(1)), float(vb.group(2))
     k = 360 / W
-    tailles = [float(x) for x in re.findall(r'font-size:([\d.]+)px', s) + re.findall(r'font-size="([\d.]+)', s)]
-    check(tailles and min(tailles) * k >= MIN_PX, '%s : texte de %.1f px à 360 px de large, minimum %d (V2)'
-          % (rel, (min(tailles) if tailles else 0) * k, MIN_PX))
+    st = re.search(r'<style>(.*?)</style>', s, re.S)
+    st = st.group(1).lower() if st else ''
+    # V2 : tailles par rôle
+    for cls, mini, quoi in (('tt', MIN_TT, 'titre'), ('lg', MIN_LG, 'légende'), ('nm', MIN_NM, 'numéro de repère')):
+        t = taille(st, cls)
+        check(t is not None and t * k >= mini, '%s : %s de %.1f px à 360 px de large, minimum %d (V2)' % (rel, quoi, (t or 0) * k, mini))
+    autres = [float(x) for x in re.findall(r'font-size="([\d.]+)', s)]
+    check(not autres or min(autres) * k >= MIN_LG, '%s : texte de %.1f px à 360 px de large (V2)' % (rel, min(autres or [0]) * k))
     check(ko(p) <= 120, '%s : %.0f Ko, plafond 120 (V3)' % (rel, ko(p)))
     check('<image' not in s and 'data:image' not in s, '%s : image matricielle intégrée interdite (V5)' % rel)
-    pales = {c.lower() for c in ((P or {}).get('remplissages') or {}).values()}
+    pales = {c.lower() for E in ((P or {}).get('etats') or {}).values() for c in (E.get('remplissages') or {}).values()}
     for col in set(re.findall(r'#[0-9a-fA-F]{3,6}\b', s)):
         c = col.lower()
-        if c in ('#156534', '#b91c1c') or GRIS.match(c):
+        if c in (JAUNE, CERNE, '#b91c1c') or GRIS.match(c):
             continue
         check(c in pales and lum(c) >= 0.8, '%s : couleur %s non autorisée (V5)' % (rel, col))
-    # rouge : seulement des éléments situés dans une couche lesions (classe « u » ou couleur #b91c1c en attribut)
+    check(re.search(r'\.n2 path\{[^}]*stroke:%s' % JAUNE, st) and re.search(r'\.n1 path\{[^}]*stroke:%s' % CERNE, st),
+          '%s : le nerf doit être jaune %s cerné de %s (V5)' % (rel, JAUNE, CERNE))
     try:
         racine = ET.fromstring(s)
     except ET.ParseError as e:
-        check(False, '%s : SVG illisible (%s)' % (rel, e)); racine = None
+        check(False, '%s : SVG illisible (%s)' % (rel, e)); return {}
     def parcours(el, dans):
         dans = dans or el.get('data-couche') == 'lesions'
-        rouge = 'u' in (el.get('class') or '').split() or any('#b91c1c' in (v or '').lower() for k, v in el.attrib.items())
+        rouge = 'u' in classes(el) or any('#b91c1c' in (v or '').lower() for v in el.attrib.values())
         if rouge and not dans:
             fails.append('%s : rouge hors de la couche lesions (V5)' % rel)
             return False
         return all(parcours(c, dans) for c in el if not c.tag.endswith('style'))
-    if racine is not None:
-        parcours(racine, False)
+    parcours(racine, False)
     check('Œuvre dérivée' in s and 'CC BY-SA 4.0' in s, '%s : mention « Œuvre dérivée » ou licence absente du SVG (V4)' % rel)
-    if preset is not None:
-        m = re.search(r'data-couches="([^"]*)"', s)
-        check(m and m.group(1).split() == list(P['couches']), '%s : data-couches ≠ couches du préréglage %s (V1)' % (rel, preset))
-        for c in COUCHES:
-            g = re.search(r'<g[^>]*\bid="%s"[^>]*>' % c, s)
-            if g:
-                cache = 'display="none"' in g.group(0)
-                check(cache == (c not in P['couches']), '%s : couche %s %s à tort (V1)' % (rel, c, 'masquée' if cache else 'visible'))
-        fs = re.search(r'\.lb[^{]*\{[^}]*font-size:([\d.]+)px', s) or re.search(r'\.lb,\.lg\{font-size:([\d.]+)px', s)
-        fs = float(fs.group(1)) if fs else 30
-        B = boites(s, fs)
-        check(len(B) <= MAX_ETIQ, '%s : %d étiquettes, %d au plus par préréglage (V8)' % (rel, len(B), MAX_ETIQ))
-        enc = re.search(r'<rect[^>]*class="enc"[^>]*>', s)
-        E = None
-        if enc:
-            g = lambda a: float(re.search(r'\b%s="([-\d.]+)"' % a, enc.group(0)).group(1))
-            E = (g('x'), g('y'), g('width'), g('height'))
-        for n, b in enumerate(B):
-            check(b[1] >= 0 and b[2] >= 0 and b[1] + b[3] <= W and b[2] + b[4] <= H, '%s : étiquette %s hors de l’image (V9)' % (rel, b[0]))
-            if E:
-                check(not inter(b[1:], E), '%s : étiquette %s sur l’encart (V9)' % (rel, b[0]))
-            for c in B[n + 1:]:
-                check(not inter(b[1:], c[1:]), '%s : étiquettes %s et %s se chevauchent (V9)' % (rel, b[0], c[0]))
-        z = re.search(r'data-zone="([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+)"', s)
-        if check(z, '%s : data-zone absente (V10)' % rel):
-            part = float(z.group(3)) * float(z.group(4)) / (W * H)
-            check(part >= 0.6, '%s : dessin %.0f %% de l’image, 60 %% au moins (V10)' % (rel, 100 * part))
-        bas = re.search(r'<g id="legende-bas">(.*?)</g>', s, re.S)
-        n_l = len(re.findall(r'<text', bas.group(1))) if bas else 0
-        check(bas and n_l <= 4, '%s : légende de %d lignes, 4 au plus (V11)' % (rel, n_l))
+    z = re.search(r'data-zone="([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+)"', s)
+    if not check(z, '%s : data-zone absente (V10)' % rel):
+        return {}
+    zone = [float(z.group(i)) for i in range(1, 5)]
+    check(zone[2] * zone[3] / (W * H) >= 0.6, '%s : dessin %.0f %% de l’image, 60 %% au moins (V10)' % (rel, 100 * zone[2] * zone[3] / (W * H)))
+    dans_zone = lambda x, y: zone[0] <= x <= zone[0] + zone[2] and zone[1] <= y <= zone[1] + zone[3]
+    # V13 : aucun texte sur le dessin, hors numéros des repères
+    def textes(el, num):
+        num = num or 'nc-num' in classes(el)
+        if el.tag.endswith('}text') or el.tag == 'text':
+            try:
+                x, y = float(el.get('x', '0')), float(el.get('y', '0'))
+            except ValueError:
+                x = y = 0
+            if not num and dans_zone(x, y):
+                fails.append('%s : texte « %s » sur le dessin ; seuls les repères numérotés y sont permis (V13)'
+                             % (rel, ''.join(el.itertext()).strip()[:40]))
+        for c in el:
+            textes(c, num)
+    textes(racine, False)
+    # nerf et noyaux : points échantillonnés (coordonnées de l'image : le dessin est posé à l'identique)
+    nerf_pts, demi = [], 4.25
+    for gid in ('nerf', 'noyaux'):
+        g = next((e for e in racine.iter() if e.get('id') == gid), None)
+        for pth in (g.iter() if g is not None else ()):
+            if pth.tag.endswith('path') and pth.get('d'):
+                nerf_pts += echantillons(pth.get('d'))
+    sw = re.search(r'\.n1 path\{[^}]*stroke-width:([\d.]+)', st)
+    g1 = next((e for e in racine.iter() if 'n1' in classes(e)), None)
+    p1 = next((e for e in g1.iter() if e.tag.endswith('path')), None) if g1 is not None else None
+    if sw:                                            # la feuille de style l'emporte sur l'attribut
+        demi = float(sw.group(1)) / 2
+    elif p1 is not None and p1.get('stroke-width'):
+        demi = float(re.sub(r'[^\d.]', '', p1.get('stroke-width'))) / 2
+    grille = {}
+    for x, y in nerf_pts:
+        grille.setdefault((int(x // 32), int(y // 32)), []).append((x, y))
+    def d_nerf(x, y):
+        best = float('inf')
+        for i in range(int(x // 32) - 1, int(x // 32) + 2):
+            for j in range(int(y // 32) - 1, int(y // 32) + 2):
+                for q in grille.get((i, j), ()):
+                    best = min(best, ((q[0] - x) ** 2 + (q[1] - y) ** 2) ** 0.5)
+        return best
+    vus = {}
+    if P is None:
+        credit(rel, credits); return vus
+    try:
+        etats = json.loads(racine.get('data-etats') or '{}')
+    except ValueError:
+        etats = {}
+    attendu = {n: list(E['couches']) for n, E in P['etats'].items()}
+    check(etats == attendu, '%s : data-etats ≠ états de nc/presets (V1)' % rel)
+    defaut = racine.get('data-etat')
+    check(defaut == P.get('etat_defaut'), '%s : état par défaut %r (V1)' % (rel, defaut))
+    for c in COUCHES:
+        g = re.search(r'<g[^>]*\bid="%s"[^>]*>' % c, s)
+        if g and defaut in etats:
+            cache = 'display="none"' in g.group(0)
+            check(cache == (c not in etats[defaut]), '%s : couche %s %s à tort (V1)' % (rel, c, 'masquée' if cache else 'visible'))
+    for g in racine.iter():
+        e = g.get('data-etat')
+        if e is not None and g is not racine:
+            check((g.get('display') == 'none') == (e != defaut), '%s : groupe %s de l’état %s mal masqué (V1)' % (rel, g.get('class'), e))
+    st_cr = re.search(r'\.cr\{[^}]*stroke-width:([\d.]+)', st)
+    e_cr = float(st_cr.group(1)) if st_cr else 0
+    par_etat = {}
+    for g in racine.iter():
+        if 'numeros' not in classes(g):
+            continue
+        e = g.get('data-etat')
+        check(e in attendu, '%s : repères d’un état inconnu %r (V1)' % (rel, e))
+        for m in g:
+            if 'nc-num' not in classes(m):
+                continue
+            num, nom = m.get('data-num'), (m.get('data-nom') or '').strip()
+            ok = check(num and num.isdigit(), '%s : repère sans data-num (V14)' % rel)
+            check(nom, '%s : état %s : repère %s sans data-nom (V14)' % (rel, e, num))
+            check(m.get('tabindex') == '0' and m.get('role') == 'button', '%s : repère %s sans tabindex="0" role="button" (V14)' % (rel, num))
+            check(m.get('aria-label') == '%s · %s' % (num, nom), '%s : repère %s : aria-label ≠ « n · nom » (V14)' % (rel, num))
+            if m.get('data-glo') is not None and glo is not None:
+                check(m.get('data-glo') in glo, '%s : repère %s : data-glo %r absent de data/ck/glo.json (V14)' % (rel, num, m.get('data-glo')))
+            kids = list(m)
+            check(any(c.tag.endswith('path') and 'ld' in classes(c) for c in kids) and
+                  any(c.tag.endswith('path') and 'ah' in classes(c) for c in kids), '%s : repère %s sans flèche (V14)' % (rel, num))
+            cr = next((c for c in kids if c.tag.endswith('circle')), None)
+            if not check(cr is not None, '%s : repère %s sans cercle (V14)' % (rel, num)) or not ok:
+                continue
+            try:
+                cx, cy, r = float(cr.get('cx')), float(cr.get('cy')), float(cr.get('r')) + e_cr / 2
+            except (TypeError, ValueError):
+                check(False, '%s : repère %s : cercle illisible (V14)' % (rel, num)); continue
+            par_etat.setdefault(e, []).append((int(num), nom, cx, cy, r))
+    for e, L in par_etat.items():
+        check(len(L) <= MAX_ETIQ, '%s : état %s : %d repères, %d au plus (V8)' % (rel, e, len(L), MAX_ETIQ))
+        vus[e] = {n: nom for n, nom, *_ in L}
+        check(len(vus[e]) == len(L), '%s : état %s : numéro de repère en double (V14)' % (rel, e))
+        for i, (n, nom, cx, cy, r) in enumerate(L):
+            check(2 * r * k >= MIN_NUM_D, '%s : repère %d de %.1f px à 360 px, %d au moins (V2)' % (rel, n, 2 * r * k, MIN_NUM_D))
+            check(dans_zone(cx - r, cy - r) and dans_zone(cx + r, cy + r), '%s : état %s : repère %d hors du dessin (V9)' % (rel, e, n))
+            dn = d_nerf(cx, cy)
+            check(dn >= r + demi, '%s : état %s : repère %d sur le nerf (%.1f px du tracé) (V9)' % (rel, e, n, dn))
+            for m2 in L[i + 1:]:
+                d = ((cx - m2[2]) ** 2 + (cy - m2[3]) ** 2) ** 0.5
+                check(d >= r + m2[4], '%s : état %s : repères %d et %d se chevauchent (V9)' % (rel, e, n, m2[0]))
+    # V11 : légende
+    legende = next((g for g in racine.iter() if g.get('id') == 'legende'), None)
+    if check(legende is not None and legende.get('data-couche') == 'legende', '%s : couche g#legende absente (V11)' % rel):
+        fs = taille(st, 'lg') or 22
+        for g in legende:
+            e = g.get('data-etat')
+            nums, notes = [], 0
+            for t in g:
+                if not t.tag.endswith('text'):
+                    continue
+                n = next((x for x in t if 'n' in classes(x)), None)
+                txt = ''.join(t.itertext())
+                if n is not None:
+                    nums.append(int(n.text))
+                elif float(t.get('x')) < 30:
+                    notes += 1
+                x = float(t.get('x'))
+                fin = x + len(txt) * CAR_LEG * fs
+                note = n is None and x < 30          # note pleine largeur sous les 2 colonnes
+                check(fin <= (COL2 - 4 if x < COL2 and not note else W - 4), '%s : état %s : ligne de légende « %s » déborde (V11)' % (rel, e, txt[:30]))
+            check(notes <= 2, '%s : état %s : %d lignes de note, 2 au plus (V11)' % (rel, e, notes))
+            check(sorted(nums) == sorted(vus.get(e, {})), '%s : état %s : légende %s ≠ repères %s (V11)' % (rel, e, sorted(nums), sorted(vus.get(e, {}))))
     credit(rel, credits)
-
-
-def inter(a, b):
-    return not (a[0] + a[2] <= b[0] or b[0] + b[2] <= a[0] or a[1] + a[3] <= b[1] or b[1] + b[3] <= a[1])
+    return vus
 
 
 def credit(rel, credits):
@@ -179,30 +349,31 @@ def main():
     if not isinstance(data, list):
         sys.exit('ÉCHEC assets/nc/credits.json doit être une liste d’entrées (format de tools/nc_svg_check.py)')
     credits = {e['fichier']: e for e in data}
+    gp = os.path.join(ROOT, 'data', 'ck', 'glo.json')
+    glo = {e['id'] for e in json.load(open(gp, encoding='utf-8'))} if os.path.exists(gp) else None
     for nerf in nerfs:
         a = annot(nerf)
         fp = os.path.join(ROOT, 'nc', 'presets', nerf + '.yml')
-        if os.path.exists(fp):
-            presets = yaml.safe_load(open(fp, encoding='utf-8'))['presets']
+        P = yaml.safe_load(open(fp, encoding='utf-8')) if os.path.exists(fp) else None
+        check(P is not None, 'nc/presets/%s.yml absent (V1)' % nerf)
+        if P:
+            check([str(v) for v in P.get('vues', [])] == VUES, 'nc/presets/%s.yml : vues %s, exactement %s (V12)' % (nerf, P.get('vues'), VUES))
+            for nom, E in P['etats'].items():
+                check(len(E.get('etiquettes') or []) <= MAX_ETIQ,
+                      'nc/presets/%s.yml : état %s : %d repères, %d au plus (V8)' % (nerf, nom, len(E.get('etiquettes') or []), MAX_ETIQ))
             check(os.path.exists(os.path.join(NC, nerf + '-presets.json')), 'assets/nc/%s-presets.json absent (V1)' % nerf)
-            for nom, P in presets.items():
-                check(len(P.get('etiquettes') or []) <= MAX_ETIQ,
-                      'nc/presets/%s.yml : %s a %d étiquettes, %d au plus (V8)' % (nerf, nom, len(P.get('etiquettes') or []), MAX_ETIQ))
-                p = os.path.join(NC, '%s-%s.svg' % (nerf, nom))
-                if check(os.path.exists(p), 'assets/nc/%s-%s.svg absent' % (nerf, nom)):
-                    svg_vue(nerf, p, credits, nom, P)
-        else:
-            for v in (a or {}).get('vues', []):
-                p = os.path.join(NC, '%s-%s.svg' % (nerf, v))
-                if check(os.path.exists(p), 'assets/nc/%s-%s.svg absent' % (nerf, v)):
-                    svg_vue(nerf, p, credits)
-        tour = os.path.join(NC, nerf + '-tour.webp')
-        if os.path.exists(tour):
-            rel = os.path.relpath(tour, ROOT)
-            check(ko(tour) <= 200, '%s : %.0f Ko, plafond 200 (V3)' % (rel, ko(tour)))
-            credit(rel, credits)
-            check(nerf in ('nc03', 'nc04', 'nc05', 'nc06', 'nc07'),
-                  '%s : tour de 8 vues réservé à V, VII et III-IV-VI (décision du 17.10.2026)' % rel)
+        attendus = {'%s-%s.svg' % (nerf, v) for v in VUES} | {nerf + '-presets.json'}
+        for f in sorted(os.listdir(NC)):
+            if f.startswith(nerf + '-') and f not in attendus:
+                check(False, 'assets/nc/%s : seules les 3 vues face, profil, 34 sont publiées (V12)' % f)
+        numeros = {}
+        for v in VUES:
+            p = os.path.join(NC, '%s-%s.svg' % (nerf, v))
+            if check(os.path.exists(p), 'assets/nc/%s-%s.svg absent (V12)' % (nerf, v)):
+                for e, M in svg_vue(nerf, p, credits, P, glo).items():
+                    for n, nom in M.items():
+                        prec = numeros.setdefault(e, {}).setdefault(n, (nom, v))
+                        check(prec[0] == nom, '%s : état %s : repère %d « %s » (%s) ≠ « %s » (%s) (V15)' % (nerf, e, n, nom, v, prec[0], prec[1]))
         if '--sans-rejeu' not in args:
             r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'dedale', 'annoter.py'), nerf, '--verifier'],
                                capture_output=True, text=True)

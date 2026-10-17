@@ -41,3 +41,11 @@ Décision. La hauteur des bandes reste proportionnelle à la durée (elle porte 
 Contrôle automatique. Iris (tests/visuel/capture.py, CLIP_JS) parcourt chaque vue, sur ordinateur et mobile et dans les trois thèmes, plus les états cal-bandes-semaine et cal-bandes-jour (séances de 15 à 120 min aux chapitres les plus longs) ; compare.py échoue sur tout élément à overflow hidden ou clip dont le contenu dépasse de plus de 1 px sans ellipse explicite et sans texte complet (title, data-t, aria-describedby). Sur main avant correctif : 30 éléments coupés détectés ; après : 0 sur 72 vues. Test ajouté : bandes_sans_coupure (ordinateur et mobile).
 
 Sources lues : aucune source externe.
+
+## 17.10.2026 · NC-0 · pile de fenêtres et lieur de termes (patch 0012)
+
+Fait. gloLink(root) parcourt les nœuds texte avec un TreeWalker. Une seule expression régulière compare les formes repliées (sans accents ni casse), la plus longue d’abord ; une seconde, sensible à la casse, traite les abréviations. Le lieur ne lie que la première occurrence par bloc et exclut les termes déjà ouverts. Un MutationObserver sur .w lie les pages par petits lots en temps libre. Avec 3 200 termes, l’index se construit en 8 ms et aucune tâche longue ne s’ajoute à celles du démarrage. Les fenêtres s’empilent : un terme cliqué dans une fenêtre ouvre le niveau suivant (5 au plus), le fil d’Ariane et « ← Retour » y reviennent, et Échap ferme toute la pile. Au survol dans une fenêtre, la définition courte s’affiche en title. Sur mobile, la pile reste dans le panneau bas. showTip/hideTip gardent leur contrat (le 5e argument « keep » est facultatif).
+
+Schémas. Les cases à cocher règlent les couches, les boutons choisissent la vue, et le tour en 8 vues se manie au glisser ou aux flèches. Le SVG est intégré en ligne depuis CK_SVG (assets/nc/ncXX.js, tools/nc_svg_js.py) et nettoyé par DOMParser (aucun script, aucun on*) ; il fonctionne donc en file://. Sans fichier JS, une <img> s’affiche et les couches sont désactivées.
+
+Sources lues : aucune source clinique ; les données d’essai sont factices et marquées « À vérifier ».

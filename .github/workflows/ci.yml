@@ -56,6 +56,8 @@ jobs:
         run: python tools/audit/niveau1.py --only G6
       - name: G7 · rouge réservé aux éléments bloquants
         run: python tools/audit/niveau1.py --only G7
+      - name: G8 · justification (mécanisme, principe, pourquoi ce choix, limites)
+        run: python tools/audit/niveau1.py --only G8
       - name: Rapport des fautes à jour, faute critique soumise à l'accord de Vial
         run: python tools/audit/rapport_fautes.py --check
       - name: Schémas SVG des nerfs (couches, poids, crédits)
@@ -173,3 +175,5 @@ jobs:
         run: python tools/dedale/verifier.py --tous
       - name: Tests des contrôles de Dédale (chaque règle violée fait échouer)
         run: python tests/test_dedale.py
+      - name: Schémas intégrables hors ligne (assets/nc/ncXX.js à jour, tools/nc_svg_js.py)
+        run: python tools/nc_svg_js.py --check
