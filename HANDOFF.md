@@ -14,7 +14,7 @@ Les rédacteurs ouvrent leur demande de fusion **sans** la fusionner. L'auditeur
 2. Il met la branche à jour avec `main` via l'API `update-branch` (jamais de force-push).
 3. Il active l'auto-merge en **commit de fusion** (`gh pr merge --auto --merge`).
 4. GitHub fusionne dès que les contrôles requis (`garde`, `html`, `tests`, `visuel`) sont verts et que la branche est à jour (`strict`). Aucune protection de branche n'est affaiblie.
-5. La publication Pages est assurée par `.github/workflows/pages.yml`, qui écoute aussi `pull_request` fermée et fusionnée : une fusion faite avec `GITHUB_TOKEN` ne relance pas les workflows `on:push`.
+5. La publication Pages : `.github/workflows/pages-apres-fusion.yml` écoute `pull_request` fermée et fusionnée, puis relance `pages.yml` via `workflow_dispatch` sur `main` (exception documentée pour `GITHUB_TOKEN` ; l'environnement `github-pages` refuse un déploiement lancé depuis un événement `pull_request`).
 
 Réglages dépôt : `allow_auto_merge=true`, `allow_merge_commit=true`, label `audit-ok`.
 
