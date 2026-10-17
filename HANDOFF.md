@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · état réel Étape 1 · 18.10.2026 01:05 CEST
+État       : branche codex/etape-1, PR Étape 0 #71 en CI ; état complet des PR et checks enregistré dans CONTINUATION C1 ; Pages = origin/main, empreinte vérifiée.
+Prochaine  : Étape 2, corriger le parseur de protection 403 dans file_fusion et prouver fusion/Pages sur une sonde.
+Sources    : gh pr list et statusCheckRollup, origin/main 2228be7, Pages HTTP 200 lus maintenant ; bundle absent des chemins documentés.
+Pièges     : UNKNOWN n'est pas CLEAN ; gh pr edit échoue sur projectCards déprécié, utiliser l'API labels. Le CLI Codex ne se connecte pas, veille mode B.
+À vérifier : audits finaux #58/#64/#68 et relecture intégrale AIPS #59/#61/#67/#70 ; aucune validation clinique ajoutée par l'installation.
+
 ## Codex · installation Étape 0 · 18.10.2026, Europe/Zurich
 État       : branche codex/etape-0, worktree /workspace/oef-codex depuis 2228be7 ; neuf actions de porte exécutées ; catalogue complété et présenté, skill ssp-construction-ck, veille B testée puis lancée ; validation porte et PR en cours.
 Prochaine  : verifier0, terminer, commiter/pousser la PR Étape 0, puis étape 1 dans l'ordre. La fusion reste soumise à la CI verte.
