@@ -51,12 +51,10 @@ jobs:
           echo "PR #${PR} : ${meta}"
           status=$(echo "$meta" | jq -r .status)
           if [ "$status" = "BEHIND" ]; then
-            gh pr comment "$PR" --body "$(cat <<'MD'
-          **Auto-fusion** : branche en retard sur `main`.
+            body='**Auto-fusion** : branche en retard sur `main`.
 
-          Cliquez **Update branch** (jeton utilisateur — pas le bot), laissez la CI repasser au vert. L'auto-merge est armé et fusionnera ensuite tout seul.
-          MD
-          )" || true
+          Cliquez **Update branch** (jeton utilisateur — pas le bot), laissez la CI repasser au vert. L'\''auto-merge est armé et fusionnera ensuite tout seul.'
+            gh pr comment "$PR" --body "$body" || true
           fi
           set +e
           out=$(gh pr merge "$PR" --auto --merge 2>&1)
