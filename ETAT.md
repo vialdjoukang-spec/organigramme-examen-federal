@@ -87,4 +87,6 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Lire à la main dans l’AIPS les posologies marquées « À vérifier » (corticothérapie, thrombolyse, antibiotiques de la neuroborréliose) | Galien | 08.11.2026 |
 | [ ] | Sourcer les points « À vérifier » (fracture du rocher, otite compliquée, cholestéatome, plaie des rameaux, produits de contraste) | Podalire | NC-1b |
 | [x] | Mettre à jour nc07.vues quand Dédale livre les 3 vues « crâne, nerf jaune » | Podalire, avec Dédale | NC-1b |
+| [x] | Justifier chaque examen et chaque moyen du VII (mécanisme, principe, pourquoi ce choix, limites) et ajouter le contrôle G8 (feat/nc07-justification) | Podalire | 17.10.2026 |
+| [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
