@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Lyncée · Janus · détecteur des termes médicaux non définis (contrôle G4, zéro jeton).
 
-Corpus : TIP, NOT, GES et le HTML statique d'app_v2.html, puis tout le texte de data/ck,
+Corpus : TIP, NOT, GES et le HTML statique d'app_v2.html, puis tout le texte de data/ck et de data/cs,
 y compris les définitions du glossaire (règle du glossaire imbriqué).
 Un mot devient candidat s'il porte un affixe médical, s'il suit un motif éponyme
 (« signe de Babinski ») ou s'il s'agit d'une abréviation. Il est défini s'il figure dans
@@ -79,6 +79,9 @@ def _json_strings(v, path):
             yield from _json_strings(x, f'{path}.{k}')
 
 
+CS_NON_TEXTE = {'ssp', 'format', 'ges', 'competences', 'dim', 'redige_par', 'session'}
+
+
 def corpus(root):
     """Rend (origine, texte) pour tout le texte affiché, définitions du glossaire comprises."""
     app = os.path.join(root, 'app_v2.html')
@@ -97,6 +100,13 @@ def corpus(root):
     for name, items in load_all(root).items():
         for p, _, t in strings(items, name):
             yield p, t
+    # Stations CS (data/cs) : même texte affiché, sauf les codes propres aux stations.
+    for name in ('format', 'stations'):
+        f = os.path.join(root, 'data', 'cs', name + '.json')
+        if os.path.exists(f):
+            for p, champ, t in strings(json.load(open(f, encoding='utf-8')), 'cs.' + name):
+                if champ not in CS_NON_TEXTE:
+                    yield p, t
 
 
 def _span(s, name):
