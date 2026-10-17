@@ -2,9 +2,30 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Atlas · sauvegarde · 17.10.2026, Europe/Zurich
+État       : Le chantier export/import est sur feat/sauvegarde (PR #11) : patch 0003, CSS du bandeau dans le style de head, tests/test_export.py (13 contrôles) ; suite locale 56/56 et gardes 5/5.
+Prochaine  : Athéna fusionne PR #11 dès que la CI (garde, html, tests) est verte.
+Sources    : Ticket #5 ; plan v2 fiche Atlas ; MDN Storage quotas ; WebKit 7-Day Cap (lus le 17.10.2026).
+Pièges     : Toute règle CSS nouvelle dans le style de body crée des erreurs Nu ; le bandeau #bak doit rester dans le style de head.
+À vérifier : Le rappel d’export à sept jours et le message de stockage plein sont couverts par tests/test_export.py.
+
+## Argos · veilles · 17.10.2026, Europe/Zurich
+État       : Ve1 (OFSP) et Ve2 (healthreg) sont dans main (PR #4 fusionnée) ; workflows veille-ve1.yml et veille-ve2.yml actifs.
+Prochaine  : Argos teste la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) avant le 29.11.2026.
+Sources    : robots.txt de bag.admin.ch et de healthreg-online.admin.ch lus le 17.10.2026 ; plan v2, section 11 et annexe D.
+Pièges     : main est protégée ; veille/etat.json vit donc sur la branche veille-etat, que personne ne doit fusionner ni supprimer.
+À vérifier : Janus contrôle vers le 17.11.2026 que la réactivation mensuelle (PUT …/enable) garde les veilles actives.
+
+## Mnémosyne · mémorisation · 17.10.2026, Europe/Zurich
+État       : data/MEM.json contient les douze méthodes et les références M1 à M24, reprises mot pour mot ; les 24 DOI se résolvent (PR #3).
+Prochaine  : En phase 2, après la fusion d’Hermès, Mnémosyne ajoute data-t="m|id" et les trois réglages, sur feat/memo-evidence.
+Sources    : research_memorisation.md du 17.10.2026 ; doi.org, le 17.10.2026.
+Pièges     : tools/build_mem.py régénère MEM.json ; on corrige la note source puis on relance le script, sans retoucher le JSON à la main.
+À vérifier : Janus rejoue le contrôle des DOI sur la liste references de MEM.json.
+
 ## Athéna · coordination · 17.10.2026, Europe/Zurich
-État       : La phase 0 est livrée : main est protégée, la CI (garde, html, liens, tests) réussit sur app_v2.html tel quel, et Pages publie l’application.
-Prochaine  : Athéna ouvre les tickets de la phase 1 (brouillons dans journal/coordination.md), puis lance Atlas, Thémis et Argos dans cet ordre.
+État       : La phase 0 est livrée ; les tickets de phase 1 (#5 à #10) sont ouverts ; MEM.json et les veilles Ve1/Ve2 sont dans main ; les dix skills sont dans la bibliothèque partagée.
+Prochaine  : Fusionner PR #11 (Atlas) quand la CI est verte ; la version datée de phase 0 attend encore l’accord du titulaire (I6).
 Sources    : J’ai lu le plan v2 (sections 1, 3, 4, 10, 12 et annexe E), le 17.10.2026.
 Pièges     : Une ligne d’app_v2.html dépasse 4,8 millions de caractères ; les expressions régulières y expirent, et seul str.find fonctionne (tools/_app.py).
 Pièges     : main exige une demande de fusion et les contrôles garde, html et tests, même pour l’administrateur ; aucun push direct n’aboutit.

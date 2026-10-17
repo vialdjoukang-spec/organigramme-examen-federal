@@ -4,12 +4,17 @@
 Référence verte (phase 0) : 19 contrôles par profil (ordinateur, mobile) dans
 test_tip.py et 5 contrôles dans test_extra.py, soit 43 contrôles, sans erreur
 de console. Le code de sortie vaut 1 dès qu'un contrôle échoue.
+Phase 1 : chaque chantier ajoute ses contrôles dans SUITES, avec leur nombre
+exact ; la référence verte ne peut que grandir.
 """
 import json, os, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TIP_EXPECT = {'aria_expanded_true': 'true', 'console_errors': []}
 EXTRA_EXPECT = {'tip_scrollable_css': 'auto'}
+# Suites ajoutées en phase 1 : (script, nombre exact de contrôles booléens).
+SUITES = [('test_export.py', 13)]
+BASE = 43
 
 
 def run(script, *args):
@@ -50,11 +55,23 @@ def main():
         total += 1
         if not judge(k, v, EXTRA_EXPECT):
             fails.append(f'extra.{k} = {v!r}')
+    for script, n in SUITES:
+        res = run(script)
+        errs = res.pop('errors', None)
+        if errs:
+            fails.append(f'{script}.errors = {errs!r}')
+        if len(res) != n:
+            fails.append(f'{script}: {len(res)} contrôles au lieu de {n}')
+        for k, v in res.items():
+            total += 1
+            if v is not True:
+                fails.append(f'{script}.{k} = {v!r}')
+    expected = BASE + sum(n for _, n in SUITES)
     ok = total - sum(1 for f in fails if '=' in f)
-    print(f'Contrôles réussis : {ok}/{total} (référence verte : 43/43).')
+    print(f'Contrôles réussis : {ok}/{total} (référence verte : {expected}/{expected}, dont {BASE} de la phase 0).')
     for f in fails:
         print('  ÉCHEC', f)
-    sys.exit(1 if fails or total != 43 else 0)
+    sys.exit(1 if fails or total != expected else 0)
 
 
 if __name__ == '__main__':
