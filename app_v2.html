@@ -96,7 +96,7 @@ header.top{background:radial-gradient(100% 160% at 90% 0%,color-mix(in srgb,var(
 .st,.it small,.kpi span,.g .lab,.legend,.hd small,.hl,th,.chk small{color:var(--mut)!important}
 .it span,.blk .t,td{color:var(--ink)}.kpi span,.st{font-size:.84rem}
 .disp{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:.84rem;color:var(--mut)}.disp input[type=range]{accent-color:var(--gold);width:140px}
-.opt{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.opt{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.m-ev{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));margin-top:10px}.m-it{border:1px solid var(--line);border-radius:12px;background:#fff;min-width:0;overflow:hidden}.m-it h3{margin:0;padding:8px 12px;background:#eaf4ec;border-bottom:1px solid #cfe3d4;font-size:.95rem;line-height:1.35;font-weight:700;color:#000;display:flex;gap:8px;align-items:baseline}.m-it h3 .tw{color:#000}.m-n{flex:none;display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;border-radius:50%;background:#fff;border:1px solid #2f7a4a;font-size:.78rem;color:#000}.m-it p{margin:8px 12px;text-align:justify;hyphens:auto;line-height:1.45;overflow-wrap:anywhere}.m-it p b{color:#000}.m-it .st a,.m-ref a{color:var(--deep)}.m-cons{margin:10px 0 4px;text-align:justify;line-height:1.5}.m-intro{text-align:justify}.m-ref{margin:4px 0 0;padding-left:18px}.m-ref li{margin:3px 0;text-align:justify}
 .opt fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0;display:grid;gap:6px;min-width:0}.opt legend{font-weight:700;padding:0 4px}
 .opt label{display:flex;gap:8px;align-items:flex-start;font-size:.88rem}.opt label input{margin-top:3px;accent-color:var(--gold)}
 .due{display:grid;gap:6px}.due .r{display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--soft)}
@@ -236,10 +236,10 @@ textarea.imp{width:100%;box-sizing:border-box;font:.8rem/1.4 var(--fm)}
    <input id="m-int" aria-label="Intervalles en jours" placeholder="1,3,7,21,60">
   </fieldset>
   <fieldset><legend>Stratégies actives</legend>
-   <label><input type="checkbox" id="m-rappel"><span><b>Rappel libre avant relecture</b> : noter de mémoire le plan du SSP, puis vérifier.</span></label>
+   <label><input type="checkbox" id="m-rappel"><span><b>Rappel libre avant relecture et avant les QCM</b> : noter de mémoire le plan du SSP, puis vérifier.</span></label>
    <label><input type="checkbox" id="m-test"><span><b>Effet test</b> : chaque révision commence par 10 QCM du SSP.</span></label>
    <label><input type="checkbox" id="m-inter"><span><b>Entrelacement</b> : alterner les groupes dans une même séance.</span></label>
-   <label><input type="checkbox" id="m-feyn"><span><b>Explication à voix haute</b> : exposer le SSP en 3 minutes, comme à un étudiant.</span></label>
+   <label><input type="checkbox" id="m-feyn"><span><b>Explication à voix haute</b> : exposer le SSP en 3 minutes, comme à un étudiant.</span></label><label><input type="checkbox" id="m-retro"><span><b>Rétroaction obligatoire</b> : lire la correction de chaque question, même juste.</span></label><label><input type="checkbox" id="m-reap"><span><b>Réapprentissage successif</b> : retenter chaque question ratée jusqu’à la réponse juste, à chaque séance.</span></label>
   </fieldset>
   <fieldset><legend>Seuils et objectifs</legend>
    <label>Rétention cible <input type="number" id="m-ret" min="50" max="99" style="width:70px"> %</label>
@@ -248,7 +248,8 @@ textarea.imp{width:100%;box-sizing:border-box;font:.8rem/1.4 var(--fm)}
    <button class="b p" id="m-save">Enregistrer les options</button>
   </fieldset>
  </div></div>
- <div class="card"><h2>À réviser</h2><div class="kpis" id="m-kpi"></div><div class="due" id="m-due"></div></div>
+ <div class="card" id="m-ev"><h2>Méthodes fondées sur les preuves</h2><p class="st m-intro">Ces douze méthodes s’appuient sur des méta-analyses et des essais publiés. Chaque nom s’ouvre au survol, au clic ou au toucher : la fenêtre donne le principe, l’usage pour l’examen fédéral, les preuves chez les étudiants en médecine et les références avec leur DOI. La taille d’effet g se lit ainsi : 0,2 correspond à un effet faible, 0,5 à un effet moyen et 0,8 à un effet fort.</p><div class="m-ev" id="m-evl" aria-live="polite"><p class="st">Les douze méthodes se chargent.</p></div></div>
+ <div class="card"><h2>À réviser</h2><div class="kpis" id="m-kpi"></div><p class="m-cons" id="m-cons"></p><div class="due" id="m-due"></div></div>
  <div class="card"><h2>Charge des 30 prochains jours</h2><div id="m-load"></div></div>
  <div class="card"><h2>Suivi mensuel</h2><div class="tbl"><table><thead><tr><th>Mois</th><th>Séances</th><th>Heures</th><th>Nouveaux SSP</th><th>Révisions</th><th>Maîtrise moyenne</th></tr></thead><tbody id="m-month"></tbody></table></div><p class="st">Rétention estimée : modèle d’oubli exponentiel R = e^(−t/S), S = intervalle atteint. Estimation indicative.</p></div>
 </section>
@@ -629,15 +630,40 @@ function applyDisp(){const d=S.params.disp||{};document.documentElement.style.se
 ['#d-gilt','#d-fs'].forEach(s=>$(s).addEventListener('input',()=>{S.params.disp={gilt:+$('#d-gilt').value,fs:+$('#d-fs').value};applyDisp()}));
 ['#d-gilt','#d-fs'].forEach(s=>$(s).addEventListener('change',()=>put('reglages','params',S.params)));
 
+/* ---------- Mnémosyne : méthodes fondées sur les preuves (assets/memo/mem.js, chargé à la demande) ---------- */
+let MEMP=null,memFail=false;function memLoad(){if(window.MEM_DATA)return Promise.resolve(window.MEM_DATA);return MEMP||(MEMP=new Promise((ok,ko)=>{const e=document.createElement('script');e.src='assets/memo/mem.js';e.async=true;const no=()=>{MEMP=null;memFail=true;e.remove();ko(new Error('memLoad'))};e.onload=()=>window.MEM_DATA?ok(window.MEM_DATA):no();e.onerror=no;document.head.appendChild(e)}))}
+function memMd(t){return esc(t||'').replace(/\*([^*]+)\*/g,'<i>$1</i>')}
+function memDoi(r){return `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.cite||'doi:'+r.doi)}</a>`}
+function memMed(m){const P=m.preuves_medecine;if(!P)return 'aucune donnée dans la note de recherche.';const st=P.statut||'',t=P.texte||'';return t.toLowerCase().startsWith(st.toLowerCase())?memMd(t):memMd(st.charAt(0).toUpperCase()+st.slice(1)+'. '+t)}
+function memTip(a,key){const D=window.MEM_DATA,hd='Mémorisation fondée sur les preuves';
+ if(!D){if(memFail)return {hd,ti:'Fiche indisponible',h:'<p class="st">La fiche n’a pas pu se charger ; rechargez la page.</p>'};const re=()=>{if(!TIPEL.hidden&&tipK===key)showTip({dataset:{t:key}},tipPin,tipOp||TIPEL,false,true)};memLoad().then(re,re);return {hd,ti:'…',h:'<p class="st">Chargement…</p>'}}
+ const m=D.methodes.find(x=>x.id===a);if(!m)return null;
+ return {hd:hd+' · méthode '+m.n+' sur 12',ti:m.nom,h:`<p>${memMd(m.principe)}</p><p><b>Pour l’examen fédéral</b> : ${memMd(m.examen)}</p>`
+  +(m.consequence_application?`<p><b>Conséquence pour l’application</b> : ${memMd(m.consequence_application)}</p>`:'')
+  +(m.preuves_generales?`<p><b>Preuves générales</b> : ${memMd(m.preuves_generales)}</p>`:'')
+  +`<p><b>Preuves en médecine</b> : ${memMed(m)}</p><p><b>Références</b> :</p><ul class="m-ref">${m.references.map(r=>`<li>${memMd(r.complete)} <a href="${esc(r.url)}" target="_blank" rel="noopener">doi:${esc(r.doi)}</a></li>`).join('')}</ul>`,
+  src:'note de recherche de Mnémosyne ; chaque DOI vérifié dans Crossref et lu le 17.10.2026'}}
+function memCard(m){const y=m.synthese||{},g=y.preuve_generale&&y.preuve_generale!=='—'?y.preuve_generale:'',d=y.preuve_medecine&&y.preuve_medecine!=='—'?y.preuve_medecine.replace(' : ',', '):'';
+ const niv=[g,d?'chez les étudiants ou médecins en formation : '+d.charAt(0).toLowerCase()+d.slice(1):''].filter(Boolean).join(' ; ');
+ return `<article class="m-it" id="m-it-${esc(m.id)}"><h3 data-t="m|${esc(m.id)}"><span class="m-n">${m.n}</span><span><span class="tw" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="tip">${esc(m.nom)}</span><button class="ti" type="button" aria-label="Preuves et mode d’emploi">i</button></span></h3>`
+  +`<p><b>Niveau de preuve</b> : ${esc(niv)}.</p><p><b>Pour l’examen fédéral</b> : ${memMd(m.examen)}</p><p class="st"><b>Sources</b> : ${m.references.map(memDoi).join(' · ')} · lu le 17.10.2026.</p></article>`}
+function memEv(){const L=$('#m-evl');if(!L||L.dataset.ok)return;memLoad().then(D=>{if(L.dataset.ok)return;L.dataset.ok='1';L.innerHTML=D.methodes.map(memCard).join('')},()=>{L.innerHTML='<p class="st">Les fiches des méthodes n’ont pas pu se charger ; rechargez la page.</p>'})}
+function memI(k){return `<button class="ti" type="button" data-t="m|${k}" aria-label="Preuves et mode d’emploi de la méthode" aria-haspopup="dialog" aria-expanded="false" aria-controls="tip">i</button>`}
+function memOpt(){const V=$('#v-memo');if(!V||V.dataset.mi)return;V.dataset.mi='1';[['m-rappel','rappel-libre'],['m-test','recuperation'],['m-inter','entrelacement'],['m-feyn','enseigner'],['m-retro','recuperation'],['m-reap','reapprentissage']].forEach(([i,k])=>{const c=$('#'+i),sp=c&&c.nextElementSibling;if(sp)sp.insertAdjacentHTML('beforeend',memI(k))});const lg=V.querySelector('legend');if(lg)lg.insertAdjacentHTML('beforeend',memI('pratique-espacee'))}
+function memW(k,t){return `<span class="tw" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="tip" data-t="m|${k}">${t}</span>`}
+function memCons(m){const e=$('#m-cons');if(!e)return;const P=[['rappel','rappel-libre','le rappel libre du plan, de mémoire'],['test','recuperation','les 10 QCM du SSP'],['retro','recuperation','la lecture de chaque correction, même juste'],['reap','reapprentissage','un nouvel essai de chaque question ratée jusqu’à la réponse juste'],['feyn','enseigner','l’exposé du SSP en 3 minutes sans support']].filter(x=>m[x[0]]);
+ e.innerHTML=(P.length?'Pour chaque SSP à réviser, vous enchaînez '+P.map(x=>memW(x[1],x[2])).join(', puis ')+'.':'Aucune stratégie active n’est cochée : la liste donne seulement les échéances.')+(m.inter?' Dans une même séance, vous alternez des SSP qui partagent un symptôme d’entrée ('+memW('entrelacement','entrelacement')+').':'')}
+$('.tab[data-v=memo]').addEventListener('click',memEv);
+addEventListener('load',()=>(window.requestIdleCallback||(f=>setTimeout(f,1500)))(()=>memLoad().then(()=>{if(!$('#v-memo').hidden)memEv()},()=>{}),{timeout:6000}),{once:true});
 /* ---------- MNÉMÉ : mémorisation espacée ---------- */
-const MDEF={meth:'leitner',int:'1,3,7,21,60',rappel:true,test:true,inter:true,feyn:false,ret:90,max:12,hor:12};
+const MDEF={meth:'leitner',int:'1,3,7,21,60',rappel:true,test:true,inter:true,feyn:false,retro:true,reap:true,ret:90,max:12,hor:12};
 function M(){return Object.assign({},MDEF,S.params.memo||{})}
 function ints(){return (M().int||'1,3,7,21,60').split(/[,;\s]+/).map(Number).filter(n=>n>0)}
 function memoState(){const m=M(),I=ints(),out={};const byS={};Object.values(S.seances).filter(x=>x.done).sort((a,b)=>a.date<b.date?-1:1).forEach(x=>{(byS[x.ssp]=byS[x.ssp]||[]).push(x)});
  for(const [c,L] of Object.entries(byS)){let box=0,ef=2.5,iv=0,n=0;for(const x of L){const q=x.score||0;if(m.meth==='sm2'){if(q<3){n=0;iv=1}else{n++;iv=n===1?1:n===2?6:Math.round(iv*ef)}ef=Math.max(1.3,ef+(0.1-(5-q)*(0.08+(5-q)*0.02)))}else{box=q>=3?Math.min(I.length-1,box+(L.indexOf(x)?1:0)):0;iv=m.meth==='leitner'?[1,3,7,21,60][Math.min(box,4)]:I[Math.min(box,I.length-1)]}}
   const last=L[L.length-1].date,nd=parse(last);nd.setDate(nd.getDate()+iv);const t=(new Date()-parse(last))/864e5;out[c]={last,next:iso(nd),iv,box,ef,n:L.length,R:Math.exp(-Math.max(0,t)/Math.max(1,iv*1.5))}}
  return out}
-function renderMemo(){const m=M();$$('input[name="m-meth"]').forEach(r=>r.checked=r.value===m.meth);$('#m-int').value=m.int;['rappel','test','inter','feyn'].forEach(k=>$('#m-'+k).checked=!!m[k]);$('#m-ret').value=m.ret;$('#m-max').value=m.max;$('#m-hor').value=m.hor;
+function renderMemo(){const m=M();$$('input[name="m-meth"]').forEach(r=>r.checked=r.value===m.meth);$('#m-int').value=m.int;['rappel','test','inter','feyn','retro','reap'].forEach(k=>$('#m-'+k).checked=!!m[k]);memOpt();memCons(m);if(!$('#v-memo').hidden)memEv();$('#m-ret').value=m.ret;$('#m-max').value=m.max;$('#m-hor').value=m.hor;
  const st=memoState(),t=iso(new Date());const due=Object.entries(st).filter(([,v])=>v.next<=t).sort((a,b)=>a[1].next<b[1].next?-1:1);const late=due.filter(([,v])=>v.next<t).length;
  const Rm=Object.values(st).length?Object.values(st).reduce((a,v)=>a+v.R,0)/Object.values(st).length:0;
  $('#m-kpi').innerHTML=[[due.length,'à réviser aujourd’hui'],[late,'en retard'],[Object.keys(st).length,'SSP en mémorisation'],[Math.round(Rm*100)+' %','rétention estimée (cible '+m.ret+' %)']].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
@@ -647,7 +673,7 @@ function renderMemo(){const m=M();$$('input[name="m-meth"]').forEach(r=>r.checke
  cnt.forEach((v,i)=>{const h=(H-pb-10)*v/mx;s+=`<rect x="${pl+i*bw+1}" y="${H-pb-h}" width="${bw-2}" height="${h}" rx="2" fill="${v>m.max?'var(--bad)':'var(--gold)'}"/>`;if(i%5===0){const d=new Date();d.setDate(d.getDate()+i);s+=`<text x="${pl+i*bw+bw/2}" y="${H-6}" text-anchor="middle">${d.getDate()}/${d.getMonth()+1}</text>`}});$('#m-load').innerHTML=s+'</svg>';
  const mo={};const first={};Object.values(S.seances).filter(x=>x.done).sort((a,b)=>a.date<b.date?-1:1).forEach(x=>{const k=x.date.slice(0,7);const o=mo[k]=mo[k]||{n:0,min:0,neu:0,rev:0,sc:[]};o.n++;o.min+=x.dur;if(!first[x.ssp]){first[x.ssp]=1;o.neu++}else o.rev++;if(x.score)o.sc.push(x.score)});
  const now=new Date();let rows='';for(let i=0;i<m.hor;i++){const d=new Date(now.getFullYear(),now.getMonth()-i,1);const k=d.getFullYear()+'-'+pad(d.getMonth()+1);const o=mo[k]||{n:0,min:0,neu:0,rev:0,sc:[]};rows+=`<tr><td>${MOIS[d.getMonth()]} ${d.getFullYear()}</td><td class="n">${o.n}</td><td class="n">${(o.min/60).toFixed(1)}</td><td class="n">${o.neu}</td><td class="n">${o.rev}</td><td class="n">${o.sc.length?(o.sc.reduce((a,b)=>a+b,0)/o.sc.length).toFixed(1):'—'}</td></tr>`}$('#m-month').innerHTML=rows}
-$('#m-save').onclick=()=>{S.params.memo={meth:($$('input[name="m-meth"]').find(r=>r.checked)||{}).value||'leitner',int:$('#m-int').value,rappel:$('#m-rappel').checked,test:$('#m-test').checked,inter:$('#m-inter').checked,feyn:$('#m-feyn').checked,ret:+$('#m-ret').value||90,max:+$('#m-max').value||12,hor:+$('#m-hor').value||12};put('reglages','params',S.params);renderAll()};
+$('#m-save').onclick=()=>{S.params.memo={meth:($$('input[name="m-meth"]').find(r=>r.checked)||{}).value||'leitner',int:$('#m-int').value,rappel:$('#m-rappel').checked,test:$('#m-test').checked,inter:$('#m-inter').checked,feyn:$('#m-feyn').checked,retro:$('#m-retro').checked,reap:$('#m-reap').checked,ret:+$('#m-ret').value||90,max:+$('#m-max').value||12,hor:+$('#m-hor').value||12};put('reglages','params',S.params);renderAll()};
 $('#m-due').addEventListener('click',e=>{const b=e.target.closest('[data-plan]');if(!b)return;sel=b.dataset.plan;$('#act').value='Révision';cur=new Date();$$('.tab').find(t=>t.dataset.v==='cal').click();renderList();renderGrid();$('#q').value=sel;renderList()});
 
 /* ---------- CS : plan en 6 phases ---------- */
@@ -857,6 +883,7 @@ function tipFor(key){const [ty,a,b]=key.split('|');let h='',ti='',src='';
   return {hd:'L’essentiel pour 100 % des points · '+a,ti,h,src:(src?src+' · ':'')+'GLOBALITY, cours SSP '+a+' — '+(s?s[1]:''),pend:true}}
  if(ty==='s'){const T=TIP[a],s=BY[a];if(!T)return null;const X=b&&S.seances[b];return {hd:'Fiche éclair · '+a,ti:s[1],h:(X?'<b>Séance</b> : '+esc(X.act)+' · '+esc(s[1])+', '+calLab(X)+'–'+hm(X.start+X.dur)+' ('+X.dur+'′)<br>':'')+'<b>Définition</b><br>'+T.c[0]+'<br><b>Points clés</b><br>'+T.c[12],src:(T.s?T.s+' · ':'')+'GLOBALITY'}}
  if(ty==='g'){const r=GES.find(x=>x.id===a),it=r&&r.items[+b];if(!it)return null;return {hd:'Pour marquer le point · '+it.p,ti:it.s,h:'<b>Geste</b> : '+esc(it.g)+'<br><b>À énoncer</b> : '+esc(it.n)+'<br><b>Règle du temps « '+esc(it.p)+' »</b> : '+esc(PHT[it.p]||PHT['Tests spéciaux']),src:(it.src?it.src+' · ':'')+'OFSP, Exigences MED 2026, § 5.1.4 : seuls les gestes et mesures corrects rapportent des points, sans point négatif · PROFILES 2023, EPA 2'}}
+ if(ty==='m')return memTip(a,key);
  const ck=ckTip(ty,a,b);if(ck!==undefined)return ck;
  return null}
 let tipTi='',tipT=null,tipK=null,tipPin=false,tipOp=null,tipSup=null,lpT=null,lpFired=false,lpXY=null;const TIPEL=$('#tip');
