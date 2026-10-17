@@ -109,3 +109,6 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | toxicite-directe-d-organe · pha | Chélation si plombémie élevée : selon Tox Info Suisse. | La chélation se décide avec Tox Info Suisse si la plombémie est élevée. | Linguistique : phrase nominale rendue verbale et concise |
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
+
+### Reprise #65 : réserve technique Codex
+Lyncée passe de lyncee-1 à lyncee-2 et la baseline de 3823 à 3876. Le contrôle affiche 92 termes nouveaux lors du changement de règles. Cette hausse ne satisfait pas l’ordre de Vial « baseline ne peut que baisser ». Label audit-ok retiré en attendant le traitement des nouveaux termes ; le passage automatisé actuel ne suffit pas à valider cette migration.
