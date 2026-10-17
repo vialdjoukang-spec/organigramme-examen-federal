@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
       - name: Vérifier les prédecesseurs de la chaîne
         id: ordre
