@@ -62,3 +62,26 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 ### Prochaine action
 - Ariane livre nc/annot/nc07.yml (foramens, ≥ 3 sites lésionnels sourcés, branches, ancres du plan) ; Dédale relance `python3 tools/dedale/annoter.py nc07`, puis verifier.py.
 - Après validation de Vial : onze autres paires (nerfs.json : objets et ancres par nerf), tours pour V et III-IV-VI.
+
+## Ariane · neuro-anatomie du VII (NC-1, pilote) · 17.10.2026, Europe/Zurich
+### Fait
+- nc/annot/nc07.yml réécrit : trajet en 8 segments, 3 noyaux, 3 foramens, 4 territoires (moteur, gustatif, parasympathique, sensitif), 5 sites lésionnels numérotés (plan, figure 3) avec niveau, déficit, signes, examen orientant et hypothèses, 20 légendes (segments, branches, glandes), 65 termes pour le glossaire.
+- Ancres dérivées dans freestyle.py (debut, entree, sortie, genou, avant, milieu, branche_vers, branche_depuis) : foramens, genoux, segments et origines de branches calculés sur la géométrie du modèle. Contrôle : segment mastoïdien 11,3 mm (littérature 12,8 à 13 mm), tympanique 13,3 mm (9,3 mm), corde du tympan 4,0 mm au-dessus du foramen (Gray : environ 6 mm).
+- annoter.py : badges contenus dans la hauteur du dessin ; mention « À vérifier » adaptée.
+- Blender : le modèle complet (environ 11,5 Go) déclenche l'OOM du box ; tout nouveau rendu exige un .blend réduit sous 5 Go (consigne d'Athéna, 17.10.2026 14:52).
+### Sources lues (17.10.2026)
+- Gray 1918, § 5g The Facial Nerve, fig. 788 à 790, https://www.bartleby.com/107/202.html.
+- Gupta et al. 2013, Radiol Res Pract, PMC3676972, section Anatomy.
+- PMC6171777, section Results.
+- DGN/SNG S2k 030-013 (2022), doi:10.1007/s42451-022-00489-w : Einführung, Klinische Untersuchung, Elektrophysiologische Diagnostik, Bildgebung, Laboruntersuchungen, Prognose.
+### À vérifier
+- F2 (fond du méat) : position approchée. Repères de la vue plan (Gray 788) non posés.
+- L1 : conduite en urgence à sourcer (Swiss Stroke Society ou ESO) ; repère au centre du gyrus précentral. L5 : critère tumoral à sourcer.
+- Identifiants hyp à créer dans hyp.json ; data/ck/nc.json attend la fusion de PR #20.
+### Prochaine action
+- Hippocrate et Galien : 65 termes ; Podalire : chaîne clinique des 5 sites ; puis validation de Vial.
+
+## 17.10.2026 · Dédale · préréglages (une image = une idée)
+- L’image unique de 30 repères est remplacée par 5 préréglages : trajet (rocher agrandi, encart), branches (profil), fonctions (trois quarts, aplats pâles), lésions 1 à 5 (1 en rouge, dans l’encart), plan.
+- Branches en profil plutôt que de face : rendu de face essayé : les 5 branches se tassent sur une bande verticale de la joue et les repères marginal et cervical se confondent ; en profil, elles s’ouvrent en éventail (T-Z-B-M-C de haut en bas).
+- Trajet : l’étiquette « segment labyrinthique » est fondue dans « ganglion géniculé » (repères distants de 12 px même agrandis).

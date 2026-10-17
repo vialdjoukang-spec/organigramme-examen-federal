@@ -1,61 +1,266 @@
-# Annotations du nerf facial (VII) · format d'Ariane (plan NC, section 6, fiche Ariane).
-# ÉTAT : PROVISOIRE, préparé par Dédale le 17.10.2026 en attendant la livraison d'Ariane (branche feat/nc-anatomie).
-# Règle : aucune anatomie inventée. Une entrée n'a une position que si elle désigne un objet nommé du modèle
-# Z-Anatomy (champ « ancre ») ; sa position est alors calculée par tools/dedale/freestyle.py, jamais saisie.
-# Les couches que seule Ariane peut remplir (foramens, sites lésionnels, branches nommées) restent des
-# emplacements marqués « À vérifier ». Le champ valide_par_vial reste faux tant que Vial n'a pas validé.
+# Annotations du nerf facial (VII) · format d'Ariane (plan NC, sections 4, 6 et 15).
+# Auteur : Ariane, 17.10.2026 (remplace la version provisoire de Dédale). Pilote NC-1, à valider par Vial.
+# Règle : aucune position saisie. Une entrée n'a une position que par son « ancre » : soit un objet nommé du
+# modèle Z-Anatomy, soit une ancre dérivée « VII·… » calculée par tools/dedale/freestyle.py sur la géométrie
+# du modèle (méthodes décrites dans son en-tête et dans tools/dedale/nerfs.json). Toute affirmation cite une
+# source lue et datée ; sinon elle porte « a_verifier ». Les longueurs mesurées sur le modèle sont comparées
+# à la littérature dans « controle_modele ».
 nerf: nc07
 titre: "Nerf facial (VII)"
 cote: "droit"
 statut: provisoire
-auteur_annotations: "Dédale (provisoire) ; à remplacer par Ariane"
-valide_par_ariane: false
+auteur_annotations: "Ariane (neuro-anatomie), 17.10.2026 ; trait et ancres d'objets par Dédale"
+valide_par_ariane: true
 valide_par_vial: false
 vues: [face, profil, "34", plan]
 sources_trait: [z-anatomy, bodyparts3d, dundee-cnf]
+
+sources:
+  gray1918: "Gray H. Anatomy of the Human Body, 20e éd., 1918, chap. IX, § 5g « The Facial Nerve », fig. 788 à 790 (domaine public), https://www.bartleby.com/107/202.html, lu le 17.10.2026."
+  gupta2013: "Gupta S, Mends F, Hagiwara M, Fatterpekar G, Roehm PC. Imaging the facial nerve: a contemporary review. Radiol Res Pract 2013;2013:248039, doi:10.1155/2013/248039, PMC3676972 (CC BY 3.0), sections « Anatomy », lu le 17.10.2026."
+  kumar2018: "Anatomical features of intratemporal course of facial nerve and its variations, PMC6171777 (accès libre), section « Results », lu le 17.10.2026."
+  dgn22: "Heckmann JG et al. S2k-Leitlinie Therapie der idiopathischen Fazialisparese (Bell's palsy), DGN avec SNG, ÖGN, DGHNO-KHC, AWMF 030-013, version du 28.02.2022 ; DGNeurologie 2022, doi:10.1007/s42451-022-00489-w, sections « Einführung », « Klinische Untersuchung », « Elektrophysiologische Diagnostik », « Bildgebung », « Laboruntersuchungen », lu le 17.10.2026."
+  zanatomy: "Z-Anatomy (G. Kervyn, M. Zielinski), modèle Startup.blend, CC BY-SA 4.0, objets nommés et courbe « Facial nerve (VII).r », lus le 17.10.2026."
+
 couches:
   nerf:
     - id: V1
-      libelle: "Nerf facial (VII) droit et corde du tympan, tracés d'après le modèle"
+      libelle: "Nerf facial (VII) droit, de son émergence au sillon bulbo-pontique jusqu'à ses branches terminales, et corde du tympan, tracés d'après le modèle."
       objets: ["Facial nerve (VII).r", "Chorda tympani.r"]
-      source: "Z-Anatomy, objets « Facial nerve (VII).r » et « Chorda tympani.r » (CC BY-SA 4.0), lus le 17.10.2026"
-      a_verifier: "Ariane nomme les segments et les branches terminales."
+      source: "zanatomy ; trajet décrit par gray1918 § 5g, alinéas 1 et 6"
+      trajet:
+        - segment: intra-axial
+          texte: "Les fibres motrices naissent du noyau moteur, situé profondément dans la formation réticulaire de la partie basse du pont ; elles contournent le noyau du nerf abducens (genou interne) avant d'émerger au bord inférieur du pont."
+          source: "gray1918 § 5g, alinéa 3"
+        - segment: cisternal
+          ancre: "VII·segment cisternal"
+          texte: "La racine motrice et le nerf intermédiaire émergent au bord inférieur du pont, entre l'olive et le pédoncule cérébelleux inférieur, puis se portent en dehors et en avant avec le nerf vestibulocochléaire vers le méat acoustique interne."
+          source: "gray1918 § 5g, alinéas 1 et 5 ; gupta2013, Anatomy"
+        - segment: méatal (intracanaliculaire)
+          ancre: "VII·segment méatal"
+          texte: "Dans le méat acoustique interne, la racine motrice repose dans une gouttière sur la face antéro-supérieure du nerf vestibulocochléaire, le nerf intermédiaire étant placé entre les deux."
+          source: "gray1918 § 5g, alinéa 5"
+        - segment: labyrinthique
+          ancre: "VII·segment labyrinthique"
+          texte: "Au fond du méat, le nerf entre dans le canal facial et se dirige en dehors entre la cochlée et le vestibule ; c'est le segment le plus court (3 à 5 mm) et le plus étroit (moins de 0,7 mm de diamètre)."
+          source: "gray1918 § 5g, alinéa 6 ; gupta2013, Anatomy"
+        - segment: géniculé (premier genou)
+          ancre: "VII·premier genou"
+          texte: "Le nerf s'infléchit brusquement en arrière au géniculum, qui porte le ganglion géniculé, origine des fibres sensitives et du nerf grand pétreux."
+          source: "gray1918 § 5g, alinéas 4, 6 et 9"
+        - segment: tympanique
+          ancre: "VII·segment tympanique"
+          texte: "Le segment tympanique court en arrière sur la paroi médiale de la caisse du tympan, au-dessus de la fenêtre ovale et sous le canal semi-circulaire latéral, jusqu'au second genou situé au niveau de l'éminence pyramidale."
+          source: "gupta2013, Anatomy ; kumar2018, Results"
+        - segment: mastoïdien
+          ancre: "VII·segment mastoïdien"
+          texte: "Le segment mastoïdien descend verticalement (environ 13 mm) jusqu'au foramen stylo-mastoïdien ; il donne le nerf du muscle stapédien et la corde du tympan."
+          source: "gupta2013, Anatomy ; kumar2018, Results ; gray1918 § 5g, alinéas 11 à 13"
+        - segment: extracrânien
+          ancre: "Parotid gland.r"
+          texte: "Après le foramen stylo-mastoïdien, le nerf chemine en avant dans la glande parotide, croise l'artère carotide externe et se divise derrière la branche montante de la mandibule en rameaux qui forment le plexus parotidien."
+          source: "gray1918 § 5g, alinéa 6"
   noyaux:
     - id: N1
-      libelle: "Noyau moteur du nerf facial"
+      libelle: "Noyau moteur du nerf facial (pont) : muscles de la mimique."
       ancre: "Motor nucleus of facial nerve.r"
-      source: "Z-Anatomy, objet « Motor nucleus of facial nerve.r » (CC BY-SA 4.0), lu le 17.10.2026"
-      a_verifier: "Position issue du modèle ; relecture d'Ariane."
+      source: "zanatomy (position) ; gray1918 § 5g, alinéa 3 (situation)"
     - id: N2
-      libelle: "Noyau salivaire supérieur"
+      libelle: "Noyau salivaire supérieur (pont) : fibres parasympathiques lacrymales et salivaires."
       ancre: "Superior salivatory nucleus.r"
-      source: "Z-Anatomy, objet « Superior salivatory nucleus.r » (CC BY-SA 4.0), lu le 17.10.2026"
-      a_verifier: "Position issue du modèle ; relecture d'Ariane."
-  foramens: []
+      source: "zanatomy (position) ; gupta2013, Anatomy (fonction)"
+    - id: N3
+      libelle: "Noyau du tractus solitaire (bulbe) : goût des deux tiers antérieurs de la langue."
+      ancre: "Nucleus of solitary tract.r"
+      source: "zanatomy (position) ; gray1918 § 5g, alinéa 4 ; gupta2013, Anatomy"
+  foramens:
+    - id: F1
+      libelle: "Pore du méat acoustique interne : entrée du nerf dans l'os temporal."
+      ancre: "VII·pore acoustique interne"
+      source: "gray1918 § 5g, alinéa 5 ; position : premier point du tronc du nerf à l'intérieur de « Temporal bone.r » (zanatomy)"
+    - id: F2
+      libelle: "Entrée du canal facial au fond du méat acoustique interne."
+      ancre: "VII·fond du méat"
+      source: "gray1918 § 5g, alinéa 6 ; position : 4 mm en amont du premier genou sur le tronc du modèle, longueur du segment labyrinthique selon gupta2013"
+      a_verifier: "Position approchée : le modèle ne contient pas le méat ; repère à confirmer sur coupe ou sur Gray fig. 789."
+    - id: F3
+      libelle: "Foramen stylo-mastoïdien : sortie du nerf de l'os temporal, entre processus styloïde et mastoïde."
+      ancre: "VII·foramen stylo-mastoïdien"
+      source: "gray1918 § 5g, alinéa 6 ; gupta2013, Anatomy ; position : dernier point du tronc à l'intérieur de « Temporal bone.r » (zanatomy)"
   territoires:
     - id: T1
-      libelle: "Muscles rattachés au nerf facial dans le modèle (contours gris clair)"
+      libelle: "Territoire moteur (contours gris) : muscles de la mimique, du cuir chevelu et de l'auricule, buccinateur, platysma, stapédien, stylo-hyoïdien et ventre postérieur du digastrique."
       collection: "Facial nerve (VII)"
-      source: "Z-Anatomy, collection « Facial nerve (VII) », muscles du côté droit (CC BY-SA 4.0), lue le 17.10.2026"
-      a_verifier: "Ariane confirme la liste des muscles et le territoire sensitif."
-  lesions: []
+      source: "gray1918 § 5g, alinéa 2 ; muscles du côté droit de la collection zanatomy"
+    - id: T2
+      libelle: "Territoire gustatif : deux tiers antérieurs de la langue, par la corde du tympan."
+      source: "gray1918 § 5g, alinéas 2 et 13 ; gupta2013, Anatomy"
+    - id: T3
+      libelle: "Territoire parasympathique : glande lacrymale (nerf grand pétreux), glandes submandibulaire et sublinguale (corde du tympan)."
+      source: "gupta2013, Anatomy ; gray1918 § 5g, alinéas 9 et 13"
+    - id: T4
+      libelle: "Territoire sensitif : conque postérieure et conduit auditif externe, par le nerf intermédiaire."
+      source: "gupta2013, Anatomy ; gray1918 § 5g, alinéa 2 (« région de l'oreille moyenne »)"
+  lesions:
+    - id: L1
+      site: 1
+      libelle: "Site 1 · au-dessus du noyau (supranucléaire) : front épargné."
+      ancre: "Precentral gyrus.r"
+      niveau: "Cortex moteur ou voie cortico-nucléaire, au-dessus du noyau moteur."
+      deficit: "Paralysie de la moitié inférieure du visage du côté opposé à la lésion ; le front reste mobile, car il reçoit des fibres des deux hémisphères."
+      signes: ["paralysie faciale centrale", "front épargné", "déficit des membres associé"]
+      exam_orientant: "Un déficit brutal oriente vers un accident vasculaire cérébral : imagerie cérébrale en urgence."
+      hyp: ["avc-ischemique", "avc-hemorragique", "tumeur-cerebrale"]
+      urgence: true
+      source: "dgn22, Elektrophysiologische Diagnostik, alinéa 1 (front épargné, innervation bihémisphérique)"
+      a_verifier: "Examen orientant : la conduite en urgence doit être sourcée par Podalire (Swiss Stroke Society ou ESO). Le repère est le centre du gyrus précentral, et non l'aire de la face."
+    - id: L2
+      site: 2
+      libelle: "Site 2 · ganglion géniculé ou en amont : œil sec."
+      ancre: "VII·premier genou"
+      niveau: "Segments cisternal, méatal ou labyrinthique, ou ganglion géniculé, en amont de l'origine du nerf grand pétreux."
+      deficit: "Paralysie de toute l'hémiface, front compris, avec diminution de la sécrétion lacrymale, hyperacousie et trouble du goût ; une atteinte méatale ou cisternale peut s'accompagner d'une surdité ou de vertiges par voisinage du nerf vestibulocochléaire."
+      signes: ["paralysie faciale périphérique", "signe de Charles Bell", "lagophtalmie", "diminution de la sécrétion lacrymale", "hyperacousie", "agueusie de l'hémilangue"]
+      exam_orientant: "Otoscopie, mesure de la sécrétion lacrymale et, devant une hypoacousie ou un acouphène, IRM du méat et de l'angle ponto-cérébelleux."
+      hyp: ["zona-oticus", "schwannome-vestibulaire", "fracture-rocher", "bell"]
+      urgence: false
+      source: "gray1918 § 5g, alinéa 9 (nerf grand pétreux né du ganglion géniculé) ; gupta2013, Anatomy (fonction lacrymale) ; dgn22, Klinische Untersuchung et Bildgebung"
+    - id: L3
+      site: 3
+      libelle: "Site 3 · en amont du nerf du muscle stapédien : hyperacousie."
+      ancre: "VII·second genou"
+      niveau: "Segment tympanique, en amont du second genou et de l'éminence pyramidale d'où naît le nerf du muscle stapédien."
+      deficit: "Paralysie de toute l'hémiface avec hyperacousie des sons graves et trouble du goût, sans trouble lacrymal."
+      signes: ["paralysie faciale périphérique", "hyperacousie", "abolition du réflexe stapédien", "agueusie de l'hémilangue"]
+      exam_orientant: "Otoscopie et recherche du réflexe stapédien ; un réflexe conservé est de pronostic favorable."
+      hyp: ["bell", "otite-moyenne-compliquee", "cholesteatome"]
+      urgence: false
+      source: "gray1918 § 5g, alinéa 12 (nerf du stapédien né en regard de l'éminence pyramidale) ; gupta2013, Anatomy (second genou à l'éminence pyramidale) ; dgn22, Klinische Untersuchung (hyperacousie des basses fréquences) et Prognose (réflexe stapédien)"
+    - id: L4
+      site: 4
+      libelle: "Site 4 · en amont de la corde du tympan : perte du goût."
+      ancre: "VII·origine de la corde du tympan"
+      niveau: "Segment mastoïdien, entre le nerf du stapédien et l'origine de la corde du tympan."
+      deficit: "Paralysie de toute l'hémiface avec perte du goût sur les deux tiers antérieurs de l'hémilangue et diminution de la salivation submandibulaire et sublinguale, sans hyperacousie."
+      signes: ["paralysie faciale périphérique", "agueusie de l'hémilangue", "sécheresse buccale"]
+      exam_orientant: "Test du goût sur l'hémilangue et otoscopie ; sérologie de Lyme selon le contexte."
+      hyp: ["bell", "neuroborreliose", "fracture-rocher"]
+      urgence: false
+      source: "gray1918 § 5g, alinéa 13 (corde du tympan née 6 mm au-dessus du foramen, goût et glandes) ; dgn22, Einführung (bouche sèche) et Laboruntersuchungen (sérologie de Lyme)"
+    - id: L5
+      site: 5
+      libelle: "Site 5 · foramen stylo-mastoïdien et au-delà : paralysie motrice isolée."
+      ancre: "VII·foramen stylo-mastoïdien"
+      niveau: "Foramen stylo-mastoïdien, glande parotide ou rameaux terminaux."
+      deficit: "Paralysie motrice isolée de l'hémiface, sans trouble du goût, de l'audition ni des larmes ; une atteinte d'un seul rameau ou une évolution lente évoque une tumeur."
+      signes: ["paralysie faciale périphérique", "tuméfaction parotidienne"]
+      exam_orientant: "Palpation de la parotide puis échographie des parties molles de la face et du cou."
+      hyp: ["tumeur-parotide", "traumatisme-facial"]
+      urgence: false
+      source: "gray1918 § 5g, alinéas 6 et 11 ; dgn22, Bildgebung (échographie en cas de processus parotidien)"
+      a_verifier: "« Un seul rameau ou évolution lente évoque une tumeur » : à sourcer dans une ligne directrice européenne (Podalire)."
   legendes:
-    - id: R1
-      libelle: "Glande parotide (repère)"
-      ancre: "Parotid gland.r"
-      source: "Z-Anatomy, objet « Parotid gland.r » (CC BY-SA 4.0), lu le 17.10.2026"
-attente_ariane:
-  foramens: "Méat acoustique interne, canal facial et foramen stylo-mastoïdien : positions et sources à fournir (Gray 1918 ou Z-Anatomy)."
-  lesions: "Au moins 3 sites lésionnels numérotés et sourcés, avec la corrélation clinique (plan NC, section 15)."
-  branches: "Noms des branches terminales et collatérales, rattachés aux segments du modèle."
+    - {id: S1, libelle: "Segment cisternal.", ancre: "VII·segment cisternal", source: "gray1918 § 5g, alinéa 5"}
+    - {id: S2, libelle: "Segment méatal, dans le méat acoustique interne.", ancre: "VII·segment méatal", source: "gray1918 § 5g, alinéa 5"}
+    - {id: S3, libelle: "Segment labyrinthique, entre cochlée et vestibule.", ancre: "VII·segment labyrinthique", source: "gray1918 § 5g, alinéa 6"}
+    - {id: S4, libelle: "Segment tympanique, sur la paroi médiale de la caisse.", ancre: "VII·segment tympanique", source: "gupta2013, Anatomy"}
+    - {id: S5, libelle: "Segment mastoïdien, vertical.", ancre: "VII·segment mastoïdien", source: "gupta2013, Anatomy"}
+    - {id: R1, libelle: "Glande parotide : segment extracrânien et plexus parotidien.", ancre: "Parotid gland.r", source: "gray1918 § 5g, alinéa 6"}
+    - {id: B1, libelle: "Nerf grand pétreux, né du ganglion géniculé, vers la glande lacrymale.", ancre: "VII·nerf grand pétreux", source: "gray1918 § 5g, alinéa 9 ; position : branche du modèle née au premier genou"}
+    - {id: B2, libelle: "Corde du tympan (origine) : goût et glandes submandibulaire et sublinguale.", ancre: "VII·origine de la corde du tympan", source: "gray1918 § 5g, alinéa 13 ; position : jonction de la branche du modèle qui gagne la membrane du tympan"}
+    - {id: B3, libelle: "Rameau temporal : muscle frontal.", ancre: "Frontalis muscle.r", source: "gray1918 § 5g, alinéa 17"}
+    - {id: B4, libelle: "Rameau zygomatique : muscle orbiculaire de l'œil.", ancre: "Orbital part of orbicularis oculi.r", source: "gray1918 § 5g, alinéa 18"}
+    - {id: B5, libelle: "Rameaux buccaux : buccinateur et orbiculaire de la bouche.", ancre: "Bucinator.r", source: "gray1918 § 5g, alinéa 19"}
+    - {id: B6, libelle: "Rameau marginal de la mandibule : muscles de la lèvre inférieure et du menton.", ancre: "Mentalis muscle.r", source: "gray1918 § 5g, alinéa 20"}
+    - {id: B7, libelle: "Rameau cervical : platysma.", ancre: "Platysma.r", source: "gray1918 § 5g, alinéa 21"}
+    - {id: B8, libelle: "Nerf auriculaire postérieur : muscle occipital.", ancre: "Occipitalis muscle.r", source: "gray1918 § 5g, alinéa 14"}
+    - {id: B9, libelle: "Rameaux digastrique et stylo-hyoïdien.", ancre: "Posterior belly of digastric muscle.r", source: "gray1918 § 5g, alinéas 15 et 16"}
+    - {id: G1, libelle: "Glande lacrymale.", ancre: "Lacrimal gland.r", source: "gupta2013, Anatomy"}
+    - {id: G2, libelle: "Glandes submandibulaire et sublinguale (repère sur la submandibulaire).", ancre: "Submandibular gland.r", source: "gray1918 § 5g, alinéa 13"}
+    - {id: G4, libelle: "Langue (goût des deux tiers antérieurs).", ancre: "Tongue", source: "gray1918 § 5g, alinéa 13"}
+    - {id: G5, libelle: "Région auriculaire : sensibilité de la conque et du conduit auditif externe.", ancre: "Auricular region.r", source: "gupta2013, Anatomy"}
+
+branches_sans_repere:
+  - nom: "Nerf du muscle stapédien"
+    texte: "Il naît en regard de l'éminence pyramidale, au second genou, et traverse un petit canal de l'éminence pour gagner le muscle stapédien ; le modèle ne contient pas ce nerf, son origine coïncide avec le repère du site 3."
+    source: "gray1918 § 5g, alinéa 12 ; gupta2013, Anatomy"
+
+controle_modele:
+  date: "2026-10-17"
+  methode: "Abscisses curvilignes du tronc du nerf mesurées par freestyle.py (nc/trait/nc07-face.json, champ abscisses_mm)."
+  comparaisons:
+    - {mesure: "segment tympanique (premier au second genou)", modele_mm: 13.3, litterature: "9,34 ± 1,12 mm (kumar2018)", ecart: "modèle plus long"}
+    - {mesure: "segment mastoïdien (second genou au foramen)", modele_mm: 11.3, litterature: "12,8 ± 1,8 mm (kumar2018) ; 13 mm (gupta2013)", ecart: "concordant"}
+    - {mesure: "origine de la corde du tympan au-dessus du foramen", modele_mm: 4.0, litterature: "environ 6 mm (gray1918 § 5g, alinéa 13)", ecart: "modèle plus court de 2 mm"}
+    - {mesure: "pore du méat au premier genou", modele_mm: 23.5, litterature: "À vérifier (longueur du méat non lue dans une source)", ecart: "À vérifier"}
+  conclusion: "Les repères sont utilisables pour un schéma pédagogique ; ce ne sont pas des mesures anatomiques."
+
+plan_gray788:
+  a_verifier: "Les repères sur la planche de Gray (vue plan) ne sont pas encore posés : la planche a perdu ses légendes au tracé ; ils seront relevés sur Gray fig. 788 et 789 en NC-1b."
+
 termes:
-  # Lot d'ajouts pour le glossaire (data/ck/glo.json) : termes employés dans les schémas, à définir par Galien.
   - "nerf facial"
+  - "nerf intermédiaire"
   - "corde du tympan"
   - "noyau moteur du nerf facial"
   - "noyau salivaire supérieur"
+  - "noyau du tractus solitaire"
+  - "formation réticulaire"
+  - "pont"
+  - "bulbe rachidien"
+  - "sillon bulbo-pontique"
+  - "olive bulbaire"
+  - "pédoncule cérébelleux inférieur"
   - "tronc cérébral"
-  - "glande parotide"
-  - "foramen stylo-mastoïdien"
+  - "angle ponto-cérébelleux"
+  - "nerf vestibulocochléaire"
   - "méat acoustique interne"
+  - "pore acoustique interne"
   - "canal facial"
+  - "segment labyrinthique"
+  - "géniculum"
+  - "ganglion géniculé"
+  - "segment tympanique"
+  - "caisse du tympan"
+  - "fenêtre ovale"
+  - "canal semi-circulaire latéral"
+  - "éminence pyramidale"
+  - "segment mastoïdien"
+  - "foramen stylo-mastoïdien"
+  - "processus styloïde"
+  - "processus mastoïde"
+  - "glande parotide"
+  - "plexus parotidien"
+  - "nerf grand pétreux"
+  - "nerf du muscle stapédien"
+  - "muscle stapédien"
+  - "nerf auriculaire postérieur"
+  - "rameau temporal"
+  - "rameau zygomatique"
+  - "rameaux buccaux"
+  - "rameau marginal de la mandibule"
+  - "rameau cervical"
+  - "platysma"
+  - "buccinateur"
+  - "muscle orbiculaire de l'œil"
+  - "glande lacrymale"
+  - "glande submandibulaire"
+  - "glande sublinguale"
+  - "conque"
+  - "voie cortico-nucléaire"
+  - "gyrus précentral"
+  - "supranucléaire"
+  - "paralysie faciale centrale"
+  - "paralysie faciale périphérique"
+  - "signe de Charles Bell"
+  - "lagophtalmie"
+  - "hyperacousie"
+  - "réflexe stapédien"
+  - "agueusie"
+  - "test de Schirmer"
+  - "otoscopie"
+  - "tuméfaction parotidienne"
+  - "zona otique (syndrome de Ramsay Hunt)"
+  - "schwannome vestibulaire"
+  - "neuroborréliose"
+  - "cholestéatome"

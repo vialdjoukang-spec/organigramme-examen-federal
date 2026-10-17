@@ -83,12 +83,137 @@
     "Zygomaticus major muscle.r",
     "Mentalis muscle.r",
     "Occipitalis muscle.r",
-    "Tympanic membrane.r"
+    "Tympanic membrane.r",
+    "Nucleus of solitary tract.r",
+    "Precentral gyrus.r",
+    "Lacrimal gland.r",
+    "Submandibular gland.r",
+    "Sublingual gland.r",
+    "Tongue",
+    "Platysma.r",
+    "Auricular region.r"
    ],
    "tour": true,
    "territoires_exclure": [
     "Epicranial aponeurosis"
-   ]
+   ],
+   "ancres_derivees": [
+    {
+     "nom": "VII·émergence",
+     "methode": "debut"
+    },
+    {
+     "nom": "VII·pore acoustique interne",
+     "methode": "entree",
+     "maillage": "Temporal bone.r"
+    },
+    {
+     "nom": "VII·foramen stylo-mastoïdien",
+     "methode": "sortie",
+     "maillage": "Temporal bone.r"
+    },
+    {
+     "nom": "VII·premier genou",
+     "methode": "genou",
+     "entre": [
+      "VII·pore acoustique interne",
+      "VII·foramen stylo-mastoïdien"
+     ]
+    },
+    {
+     "nom": "VII·second genou",
+     "methode": "genou",
+     "entre": [
+      "VII·premier genou",
+      "VII·foramen stylo-mastoïdien"
+     ],
+     "marge": 12
+    },
+    {
+     "nom": "VII·fond du méat",
+     "methode": "avant",
+     "repere": "VII·premier genou",
+     "mm": 4
+    },
+    {
+     "nom": "VII·origine de la corde du tympan",
+     "methode": "branche_vers",
+     "cible": "Tympanic membrane.r"
+    },
+    {
+     "nom": "VII·nerf grand pétreux",
+     "methode": "branche_depuis",
+     "repere": "VII·premier genou"
+    },
+    {
+     "nom": "VII·segment cisternal",
+     "methode": "milieu",
+     "entre": [
+      "VII·émergence",
+      "VII·pore acoustique interne"
+     ]
+    },
+    {
+     "nom": "VII·segment méatal",
+     "methode": "milieu",
+     "entre": [
+      "VII·pore acoustique interne",
+      "VII·fond du méat"
+     ]
+    },
+    {
+     "nom": "VII·segment labyrinthique",
+     "methode": "milieu",
+     "entre": [
+      "VII·fond du méat",
+      "VII·premier genou"
+     ]
+    },
+    {
+     "nom": "VII·segment tympanique",
+     "methode": "milieu",
+     "entre": [
+      "VII·premier genou",
+      "VII·second genou"
+     ]
+    },
+    {
+     "nom": "VII·segment mastoïdien",
+     "methode": "milieu",
+     "entre": [
+      "VII·second genou",
+      "VII·foramen stylo-mastoïdien"
+     ]
+    }
+   ],
+   "masques": {
+    "moteur": {
+     "collection": "Facial nerve (VII)",
+     "exclure": [
+      "Epicranial aponeurosis"
+     ]
+    },
+    "gout": {
+     "objets": [
+      "Tongue"
+     ]
+    },
+    "parasympathique": {
+     "objets": [
+      "Lacrimal gland.r",
+      "Submandibular gland.r",
+      "Sublingual gland.r"
+     ]
+    },
+    "sensitif": {
+     "objets": [
+      "Concha of auricle.r",
+      "Cavity of concha.r",
+      "Cymba conchae.r"
+     ]
+    }
+   }
   }
- }
+ },
+ "_doc_ancres_derivees": "Ancres dérivées (Ariane, 17.10.2026) : calculées par freestyle.py sur la géométrie du modèle (voir l'en-tête « ancres dérivées »), jamais saisies. Seule constante littéraire : 4 mm pour le segment labyrinthique (3 à 5 mm, Gupta et al. 2013, PMC3676972)."
 }
