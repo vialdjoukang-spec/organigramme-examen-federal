@@ -165,4 +165,4 @@ Ajout (17:45) : repères numérotés g.nc-num, avec bulle « n · nom » et ouve
 - Schéma original en coupe frontale (tools/dedale/voie.py), pas un rendu du modèle : partie haute du noyau facial innervée par les 2 hémisphères, partie basse par l’hémisphère opposé seul (StatPearls NBK526119, NBK555891).
 - États « central » (lésion capsulaire droite, urgence, repère rouge : bas du visage gauche, front épargné) et « peripherique » (nerf facial droit : hémiface droite entière).
 - nc07.vues.voie_motrice en tête ; patch 0013 dans l’application (ordre des vues, case « voies ») ; test_ck_ui ajusté (4 vues, 9 couches).
-
+- 19:20 : pause des nerfs crâniens (décision de l’utilisateur). Branche poussée sans PR ni fusion ; point de reprise exact dans HANDOFF.md (section Dédale, lignes PAUSE et Reprise).
