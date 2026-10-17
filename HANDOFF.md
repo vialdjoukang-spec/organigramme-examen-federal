@@ -2,6 +2,7 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+<<<<<<< HEAD
 ## Hermès · calendrier et sauvegarde automatique · 17.10.2026, Europe/Zurich
 État       : Patch 0004 (tools/patches/0004-*.py + 0004-calendrier.js + 0004-sauvegarde.js) sur feat/hermes-calendrier ; suite 88/88 (dont 32 de tests/test_calendrier.py), gardes 5/5.
 Prochaine  : Apollon stylise les jours par l’attribut data-wd (1 = lundi … 7 = dimanche) posé sur .hd et .col, et les séances .blk ; Mnémosyne réutilise showTip/tipToggle inchangés.
@@ -9,6 +10,14 @@ Sources    : MDN StorageManager.persist(), IndexedDB, File System Access API ; W
 Pièges     : Tout appel à lsSet déclenche svTouch ; le miroir ne démarre qu’après le contrôle de démarrage (svReady), pour ne jamais écraser la copie de secours par un état vide. test_export simule l’effacement Safari en supprimant aussi IndexedDB.
 Pièges     : Dans les tests mobiles, la barre d’onglets collante masque le haut de l’écran ; faites défiler avec behavior:'instant' et un décalage.
 À vérifier : Le fichier automatique n’existe que sur Chromium de bureau ; ailleurs le bouton reste caché.
+=======
+## Thémis · Exigences 2027 · 17.10.2026, Europe/Zurich
+État       : L’onglet « Exigences » compte 46 cases stables (data/EXI.json), un bandeau 2027 et des badges « À vérifier auprès de la MEBEKO » ; SESSION centralise les dates ; patch 0004 ; tests/test_exigences.py (13 contrôles) ; suite 69/69, gardes 5/5.
+Prochaine  : Thémis met data/SESSION.json à jour (tools/build_exi.py, puis json_inject.py inject SESSION) dès que l’OFSP publie les dates 2027.
+Sources    : research_exigences.md (S1 à S12, N1), lues le 17.10.2026.
+Pièges     : Les coches vivent sous « x:<id> » dans S.exi, à côté des clés a… (Attendus) et cp… (CS) ; on ne renumérote jamais un identifiant.
+À vérifier : A3, A4, C4, C6, C7, C8, C10, D2, D5, E2 et E3 attendent une réponse de la MEBEKO ou une publication de l’OFSP.
+>>>>>>> origin/main
 
 ## Atlas · sauvegarde · 17.10.2026, Europe/Zurich
 État       : Le chantier export/import est sur feat/sauvegarde (PR #11) : patch 0003, CSS du bandeau dans le style de head, tests/test_export.py (13 contrôles) ; suite locale 56/56 et gardes 5/5.
