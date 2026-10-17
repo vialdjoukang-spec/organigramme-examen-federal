@@ -29,3 +29,11 @@ Chaque agent ajoute ses entrées datées (Europe/Zurich) : ce qui est fait, sour
 - Hippocrate : premier lot de 50 entrées dans data/ck/glo.json ; `python3 tools/lyncee.py --json .cache/lyncee.json` donne les candidats par fréquence ; `--update` resserre la référence.
 - Hermès : brancher tipFor (glo|id, syn|id, hyp|id, nc|id|vue, loc|module|A ou B) sur ckLoad() et ckGlo(), et gloLink() sur window.CK_GLO_INDEX.
 - Galien : remplir data/ck/doses_ch.json et qa/audit/fautes.jsonl ; la revue de niveau 2 part de l’artefact audit-flags et de l’étiquette audit:galien.
+
+## 17.10.2026 — Phase NC-0, glossaire et audit médical (Hippocrate et Galien)
+- Branche feat/ck-glossaire-lot01, reconstruite sur feat/ck-socle (PR #20, Atlas) pour en suivre les schémas ; à rebaser sur main après la fusion de #20 (ssp-fusion-patch). app_v2.html, app.html et orig/ ne sont pas touchés.
+- Hippocrate : data/ck/glo.json, 100 entrées (70 signes, 25 syndromes, 3 examens, 2 termes ; 94 « sourcé », 6 « À vérifier ») en deux unités de 50 ; data/ck/src.json, 19 sources. Les définitions n’emploient plus leur propre libellé (règle de Lyncée) ; région et motif « À vérifier » vivent dans qa/audit/glo-meta.json, car le schéma glo n’a pas ces champs.
+- Galien : tools/audit/galien_region.py (travail, corriger, registre) et regions.yml ; 29 fautes corrigées (0 critique, 3 majeures, 26 mineures), un commit chacune ; qa/audit/RAPPORT_FAUTES.md.
+- Galien : data/ck/doses_ch.json, 3 lignes lues à la main dans l’AIPS ; 2 doses hors étiquette « À vérifier » dans qa/posologies.md.
+- Écarts au socle, motivés : swissmedicinfo-pro.ch (hôte réel de l’AIPS) admis par le schéma doses_ch et G1 ; cen-neurologie.fr et sfendocrino.org ajoutés à qa/domaines.yml ; sept lemmes ajoutés à la liste G6 ; quatre exclusions Lyncée ; référence Lyncée resserrée de 3 849 à 3 826 termes.
+- En attente : la contre-lecture des doses par Asclépios, la validation de Vial (qa/validation-vial-glo-lot01.md, qa/posologies.md) et l’accord de Vial et d’Argos sur les trois domaines.
