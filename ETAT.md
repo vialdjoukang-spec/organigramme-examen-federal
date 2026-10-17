@@ -28,6 +28,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Activer les veilles officielles Ve1 et Ve2 à partir de tools/templates/veille-squelette.yml (PR #4 fusionnée) | Argos | 15.11.2026 |
 | [ ] | Tester la faisabilité de Ve3 (flux Swissmedic) et de Ve4 (XML Refdata) | Argos | 29.11.2026 |
 | [x] | Préparer data/MEM.json sans toucher au code (PR #3 fusionnée) | Mnémosyne | 29.11.2026 |
+| [x] | Intégrer les 12 méthodes dans l’onglet « Mémorisation » (m|id, options rétroaction et réapprentissage, patch 0018, tests/test_memo.py 17/17) | Mnémosyne | 29.11.2026 |
 | [x] | Calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) et sauvegarde automatique fiable (IndexedDB, versions, persistance, fichier) · patch 0004, PR #15 fusionnée | Hermès | 17.10.2026 |
 | [x] | Recherche par diagnostic différentiel et notion · patch 0009, PR #18 fusionnée | Hermès | 17.10.2026 |
 | [x] | Bandes de séance sans texte coupé (ordinateur) et contrôle Iris du texte coupé · patch 0010, tests/test_calendrier.py (36) | Hermès | 17.10.2026 |
@@ -90,6 +91,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [x] | Justifier chaque examen et chaque moyen du VII (mécanisme, principe, pourquoi ce choix, limites) et ajouter le contrôle G8 (feat/nc07-justification) | Podalire | 17.10.2026 |
 | [x] | Urgences CK, lot 1 : 10 hypothèses bloquantes, 7 syndromes avec gestes GES reliés, 44 entrées de glossaire, 9 sources ; patch 0017 (feat/ck-urgences-lot1) | Podalire | 17.10.2026 |
 | [ ] | Contre-lire le lot 1 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
-| [ ] | Urgences CK, lot 2 : asthme aigu, exacerbation de BPCO, hémorragie digestive (ESGE) | Podalire | NC-1b |
+| [x] | Urgences CK, lot 2 : 10 hypothèses bloquantes (hémorragie digestive haute, asthme aigu grave, exacerbation de BPCO, insuffisance cardiaque aiguë, choc cardiogénique, hypoglycémie sévère, hyponatrémie, insuffisance rénale aiguë, corps étranger inhalé, polytraumatisme), 8 syndromes, 55 entrées de glossaire, 11 sources (feat/ck-urgences-lot2) | Podalire | 17.10.2026 |
+| [ ] | Contre-lire le lot 2 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
 | [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
