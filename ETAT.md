@@ -31,6 +31,8 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 01:04 Europe/Zurich · Étape 0 en cours dans `/workspace/oef-codex`, branche `codex/etape-0` depuis origin/main 2228be7. Catalogue généré, complété, présenté et recopié dans PROCHAINE_ACTION.md. Propositions lues ; skill ssp-construction-ck créé. Veille testée en dry-run puis lancée en mode B. Droits de dépôt confirmés ; lecture de protection refusée 403, aucune modification de protection. Tests initiaux : Chromium manquant, installation effectuée puis suite relancée. Jauges : 0/2578 prévalences (0 %), 70/2280 monographies (3 %).
 
+- 18.10.2026 01:05 CEST · Étape 1 : PR ouvertes et checks de toutes les chaînes lus ; § C1 corrigé avec l'instantané réel. Pages = main (SHA-256 ci-dessus). Sauvegardes Grok absentes, branches distantes présentes ; aucun patch privé reconstitué. Jauges inchangées 0 %/3 %, contrôle jauge OK. PR Étape 0 : #71, auto-merge demandé, CI en cours.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 ---
