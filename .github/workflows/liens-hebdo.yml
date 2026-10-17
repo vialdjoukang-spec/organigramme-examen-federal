@@ -1,0 +1,28 @@
+# Contrôle hebdomadaire de tous les liens d'app_v2.html, avec cache (Héphaïstos).
+# Il ne bloque aucune fusion : il produit un rapport, que Janus trie.
+name: Liens (hebdomadaire)
+on:
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  liens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/cache@v6
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --cache --max-cache-age 7d --max-concurrency 4 --timeout 20 --accept 200..=299,403,429 app_v2.html
+          output: qa/liens-hebdo.md
+          fail: false
+      - uses: actions/upload-artifact@v7
+        with:
+          name: rapport-liens
+          path: qa/liens-hebdo.md

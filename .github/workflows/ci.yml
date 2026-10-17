@@ -1,0 +1,95 @@
+# CI · Héphaïstos (socle) et Janus (contrôles). Chaque demande de fusion vers main
+# doit réussir les tâches garde, html et tests avant qu'Athéna ne fusionne (I7).
+name: CI
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  garde:
+    name: garde
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - name: Empreinte de orig/app.html (interdit I1)
+        run: python3 tools/check_hash.py
+      - name: Aucune modification de orig/ dans la demande de fusion
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -q '^orig/'; then
+            echo "ÉCHEC : la demande de fusion modifie orig/ (interdit I1)."; exit 1; fi
+          echo "orig/ intact."
+      - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
+        run: python3 tools/budget.py
+      - name: Tests des gardes elles-mêmes
+        run: python3 tests/test_gardes.py
+
+  html:
+    name: html
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validateur Nu (version figée tant que ci.yml ne change pas)
+        uses: actions/cache@v6
+        id: vnu
+        with:
+          path: vnu-runtime-image
+          key: vnu-linux-${{ hashFiles('.github/workflows/ci.yml') }}
+      - if: steps.vnu.outputs.cache-hit != 'true'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          gh release download latest --repo validator/validator -p vnu.linux.zip
+          unzip -q vnu.linux.zip
+      - name: Aucune erreur HTML nouvelle par rapport à qa/html-baseline.json
+        run: |
+          ./vnu-runtime-image/bin/vnu --errors-only --format json app_v2.html 2> vnu.json || true
+          python3 tools/html_check.py vnu.json
+
+  liens:
+    name: liens
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - name: URL ajoutées ou modifiées
+        id: list
+        run: |
+          python3 tools/links_changed.py "origin/${{ github.base_ref }}"
+          echo "n=$(grep -c . links.txt || true)" >> "$GITHUB_OUTPUT"
+      - name: Contrôle des liens modifiés (lychee)
+        if: steps.list.outputs.n != '0'
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-concurrency 4 --timeout 20 --accept 200..=299,403,429 links.txt
+          fail: true
+
+  tests:
+    name: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Playwright et Chromium
+        run: |
+          pip install --quiet playwright
+          python -m playwright install --with-deps chromium
+      - name: 43 contrôles d'interaction (référence verte)
+        run: python tests/run_tests.py
+      - if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: captures-tests
+          path: qa/shots/
+          retention-days: 7
