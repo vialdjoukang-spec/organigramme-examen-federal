@@ -41,6 +41,8 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 · Étape 4 traitée, fusions/audit en attente : #50/#53/#54/#49 main intégré, shards résolus par le script sans conflit réel signalé, migration 0026 rejouée (elle était encore sur #50, contrairement à la relève), assets régénérés, suites 1.63 et pushes en file sous verrou. #64 : 25 fiches relues, sources hypothermie suisses relues ; doses non auditées et chiffres hors CH/UE remis À vérifier, cadre de cohorte corrigé ; signalement HOPE/décès potentiellement critique, label attente-vial et rapport rouge. Aucune fusion de #64 sans validation de Vial. Les labels #53/#54 attendent la fusion de la précédente.
 
+- 18.10.2026 · Étape 5 traitée, fusions en attente : #60/#62 mises à jour avec main ; shards par merge_shards sans conflit réel signalé ; toutes sections d'audit conservées ; patch 0026 et assets reconstruits ; suites 1.63/pushes dans la file locale. Audits Érasistrate existants conservés, aucune nouvelle validation clinique.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 ---

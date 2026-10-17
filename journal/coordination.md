@@ -23,3 +23,5 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 - 18.10.2026 01:07 CEST · Étape 2 : défaut 403 corrigé dans file_fusion (erreur JSON exclue des noms de checks) ; publication échouée mémorisée et retentée même sans nouvelle fusion ; auto-fusion suspendue pour attente-vial. Cinq tests d'intégration simulant gh passent, ajoutés à la CI. Sondes #71 et #73, auto-merge demandé ; workflow file-fusion déclenché. Secret AUTO_FUSION_TOKEN non inspectable (403), aucune valeur créée/copée.
 
 - 18.10.2026 · Preuve Étape 2 : #71 fusionnée automatiquement et Pages publié sur 843e2c3 (succès du workflow). Premier nohup terminé par le runtime ; veille relancée dans une session persistante au premier plan, sans CLI. Environnement de tests aligné sur la CI (venv Playwright 1.63, Chromium 1243).
+
+- 18.10.2026 · Étape 5 : reprises Panacée #60/#62, rapport d'audit conservé, migrations techniques reconstruites ; attente des tests/CI/fusions, poursuite Étape 6 selon R7.
