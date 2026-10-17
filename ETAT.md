@@ -58,3 +58,14 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Premier lot de 100 signes et syndromes dans data/ck/glo.json | Hippocrate | 25.10.2026 |
 | [ ] | Table suisse des doses data/ck/doses_ch.json (lecture à la main) | Galien | 25.10.2026 |
 | [ ] | Régénérer la liste G6 depuis Lexique 3.83 ; filtre MeSH pour le tri | Janus | 25.10.2026 |
+
+## Chantier Nerfs crâniens · Dédale (plan du 17.10.2026)
+
+| État | Tâche | Responsable | Échéance |
+|---|---|---|---|
+| [x] | Installer Blender 3.6.19 (sans écran), potrace 1.16 et svgo 4.0.0 sur le box ; Z-Anatomy hors dépôt (/workspace/ssp/nc_src/) | Dédale | 25.10.2026 |
+| [x] | Écrire les automates tools/dedale/freestyle.py, trace.py, annoter.py, verifier.py avec leurs instructions | Dédale | 25.10.2026 |
+| [x] | Produire le pilote VII : vues face, profil, trois quarts, plan (Gray788) et tour de 8 vues (feat/nc-schemas) | Dédale | 08.11.2026 |
+| [ ] | Remplacer les annotations provisoires de nc/annot/nc07.yml par celles d’Ariane (foramens, sites lésionnels, branches) | Ariane, puis Dédale | 08.11.2026 |
+| [ ] | Valider le pilote VII (valide_par_vial) | Vial | 08.11.2026 |
+| [ ] | Produire les onze autres paires ; tours de 8 vues pour V et III-IV-VI seulement | Dédale | NC-2 |
