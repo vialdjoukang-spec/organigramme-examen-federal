@@ -41,7 +41,8 @@ jobs:
           cp veille/etat.json /tmp/etat.json
           git config user.name "argos-veille[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git fetch --depth=1 origin veille-etat 2>/dev/null; then git checkout -q -B veille-etat FETCH_HEAD; else git checkout -q --orphan veille-etat && git rm -rqf . ; fi
+          rm -f veille/etat.json
+          if git fetch --depth=1 origin veille-etat 2>/dev/null; then git checkout -q -f -B veille-etat FETCH_HEAD; else git checkout -q --orphan veille-etat && git rm -rqf . ; fi
           mkdir -p veille && cp /tmp/etat.json veille/etat.json
           git add veille/etat.json
           git diff --cached --quiet || git commit -qm "veille(ve2): état des empreintes"
