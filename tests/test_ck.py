@@ -45,7 +45,9 @@ NC = [{'id': 'nc07', 'nom': 'Nerf exemple', 'noyaux': ['noyau A'], 'trajet': ['s
 LOC = [{'module': 'neuro-nc', 'A': ['syn-ex'], 'B': ['hyp-ex']}]
 DOS = [{'id': 'substance-test-po', 'substance': 'substance-test', 'produit_ch': 'Produit fictif', 'dose': '10 mg/j pendant 5 jours',
         'voie': 'p.o.', 'population': 'adulte', 'aips_rubrique': 'Posologie/Mode d’emploi',
-        'url': 'https://www.swissmedicinfo.ch/exemple', 'lu_le': J, 'lu_par': 'Galien'}]
+        'url': 'https://www.swissmedicinfo.ch/exemple', 'lu_le': J, 'lu_par': 'Galien',
+        'aips_extrait': [{'rubrique': 'Posologie/Mode d’emploi', 'texte': 'Adultes: 10 mg par jour pendant 5 jours.'}],
+        'aips_version': 'Janvier 2026', 'aips_publie': '2026-01-01', 'url_texte': 'https://files.refdata.ch/exemple-fr.html'}]
 SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><g id="trait"/><g id="nerf"/><g id="legendes"/></svg>')
 CRED = [{'fichier': 'nc07-face.svg', 'source': 'Exemple', 'auteur': 'Auteur', 'licence': 'Domaine public',
          'url': 'https://commons.wikimedia.org/wiki/Exemple', 'derive': True, 'licence_derivee': 'CC BY-SA 4.0'}]
@@ -131,6 +133,17 @@ case('G1_concentration_n_est_pas_une_dose', lambda f: not mut(f, lambda d: d['gl
 case('G1_dose_nouvelle_dans_TIP_echoue', lambda f: (f.app(APP.replace('une dyspnée.', 'une dyspnée ; on donne 5 mg/kg.')), f.gate('G1') == 1)[-1])
 case('G1_dose_nouvelle_TIP_a_verifier_passe', lambda f: (f.app(APP.replace('une dyspnée.', 'une dyspnée ; 5 mg/kg (À vérifier).')), f.gate('G1') == 0)[-1])
 case('G1_ligne_hors_AIPS_echoue', lambda f: mut(f, lambda d: d['doses_ch'][0].update(url='https://www.exemple.com/x'), 'G1'))
+# Table des doses (Pharmakon) : extrait verbatim, URL et dates obligatoires ; nombres dérivés présents dans l'extrait.
+def doses(f, fn=None):
+    if fn:
+        fn(f.data)
+    f.save()
+    return run('doses_check.py', os.path.join(f.d, 'data', 'ck', 'doses_ch.json'))[0]
+case('doses_conforme_passe', lambda f: doses(f) == 0)
+case('doses_sans_extrait_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].pop('aips_extrait')) == 1)
+case('doses_sans_url_texte_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].pop('url_texte')) == 1)
+case('doses_date_future_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].update(lu_le='2099-01-01')) == 1)
+case('doses_nombre_hors_extrait_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].update(dose='20 mg/j')) == 1)
 # G2 sources
 case('G2_sans_source_echoue', lambda f: mut(f, lambda d: d['glo'][0].pop('src'), 'G2'))
 case('G2_a_verifier_passe', lambda f: not mut(f, lambda d: (d['glo'][0].pop('src'), d['glo'][0].update(statut='À vérifier')), 'G2'))
