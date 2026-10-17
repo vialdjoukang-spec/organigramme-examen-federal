@@ -45,8 +45,8 @@ async def main():
                                           and dl.suggested_filename.startswith('organigramme-progression-'))
         out['export_contient_tout'] = f.get('cles') == before and len(before) >= 5
         out['rappel_apres_export'] = await pg.evaluate("!bak.className.includes('warn')&&!!localStorage.getItem('orga-bak')")
-        # Effacement complet, comme Safari après sept jours.
-        await pg.evaluate('localStorage.clear()'); await boot(pg)
+        # Effacement complet, comme Safari après sept jours : WebKit efface aussi IndexedDB (copie de secours d’Hermès).
+        await pg.evaluate("localStorage.clear();indexedDB.deleteDatabase('orga-sauvegarde')"); await boot(pg)
         out['effacement_vide'] = await pg.evaluate("Object.keys(GS).length===0&&!localStorage.getItem('orga-bak')")
         # Refus d’un fichier étranger : rien ne change.
         bad = os.path.join(tmp, 'autre.json'); json.dump({'format': 'autre', 'version': 1, 'cles': {'x': '1'}}, open(bad, 'w'))
