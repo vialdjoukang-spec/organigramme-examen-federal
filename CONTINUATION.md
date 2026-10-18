@@ -383,3 +383,13 @@ Complément 01:16 UTC : #32 fusionnée (617878e), nouvelle référence et procé
 #68 fusionnée (f2f9c04) après #65 : 543 entrées, référence 3567. Les cibles Notions de 24 px suppriment les défauts de taille observés sur les six profils ; adoption de la référence CI examinée, puis HTML, garde, visuel et suite 278/278 verts. L’erreur HTML ajoutée pendant la préparation a été corrigée sans changer sa référence. #85 fusionnée (27c9658) : 44 DD G5 explicitement inconnus ; couverture quantitative inchangée à 1 %. À 02:23 UTC, application et quatre JS contrôlés identiques à ce main sur Pages. Inventaire de cet instantané : 751 champs marqués, 779 occurrences, 24 fichiers ; ni audit complet ni preuve d’exhaustivité. Les états suivants des PR sont à lire dans ETAT.json et la relève datée, sans conclure la fin du projet.
 
 Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
+
+### Reprise après le lot 3 · 18.10.2026 UTC
+
+#90 est fusionnée (6bbbde7). Main : 39/2587 fréquences, jauge arrondie 2 % ; 207/2287 monographies, 9 %. Une seule fréquence a été retenue après relecture (SCA, Zurich, 1/53) ; les dix-neuf autres du lot restent inconnues. Source de Berne non retenue sous la règle d’éditeur, miroir suisse inaccessible ; incohérences de l’autre tableau européen consignées. Aucun pays, chiffre ou critère inventé.
+
+#91 contient six propositions G9 (xérose, prurits rénal, ferriprive, médicamenteux, neuropathiques, psychogène), EDF 2025 et HUG relus. Elles ne comptent pas dans main. Le verrou #64→#91 est dans main ; predecesseurs_fusion.py 91 constate #64 OPEN et ready=false. Ne pas activer directement l’auto-merge de #91.
+
+Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

@@ -1,8 +1,8 @@
 {
   "etape_courante": 8,
   "statut": "en_cours",
-  "lot": 3,
-  "maj": "2026-10-18T02:48:29.299849+00:00",
+  "lot": 4,
+  "maj": "2026-10-18T02:58:34.829384+00:00",
   "en_attente": {
     "4": {
       "prs": [
@@ -18,20 +18,25 @@
       "motif": "#59/#61 fusionnées dans cet ordre ; 51 lignes de doses publiées, 33 documents. Les 98 lignes / 73 documents des quatre branches ont été relus ; #67/#70 attente-vial, pas de fusion sans accord. KCl et durée aciclovir réservés."
     },
     "8": {
-      "motif": "Lot 3 S7.6/S2.12 : vingt DD conservés, une fréquence retenue après relecture (SCA, Zurich, 1/53), dix-neuf inconnues explicites. Berne non retenue (éditeur hors G3, dépôt suisse inaccessible) ; autre étude européenne incohérente. Tests et fusion encore requis ; aucune fin de boucle.",
-      "branche": "feat/prev-cephalee-paroi",
+      "motif": "#90 fusionnée (6bbbde7), S7.6/S2.12 : vingt DD, une fréquence relue (SCA, Zurich, 1/53) et dix-neuf inconnues explicites. Main : 39/2587, jauge arrondie 2 %. Les autres SSP et les sources manquantes restent dus, sans fin de boucle.",
+      "dernier_lot": 90,
       "prochain_lot": [
-        "S7.6",
-        "S2.12"
+        "G1",
+        "G2",
+        "G3",
+        "G4"
       ],
-      "preparation": "Extraction TIP existant hors git : /workspace/oef-drafts/prev-prochain-S7.6-S2.12.json. Sourcer cadre et chiffres avant toute valeur ; S8 attend audit #37.",
-      "preuve": "audit/PREVALENCES-CEPHALEE-PAROI-20261018.json",
-      "pr": 90,
-      "validation": "CI tête 7abe19c : contrôles requis verts, 278/278. Local 276/278 (deux gestes tactiles) puis recontrôle calendrier 36/36, sans modifier le code ou les assertions. Nouvelle tête documentaire à contrôler avant fusion."
+      "attente_s8": "S8 après audit #37 ; ne pas dupliquer ou inventer ses différentiels."
     },
     "9": {
-      "motif": "Six causes ciblées de prurit G9 réservées dans #91, source EDF 2025 lue ; rédaction et audit en cours, derrière #64 dans Hygie. Autres G9/G10 et O7.14–O7.12 restent à traiter. Couverture main 207/2287 (9 %), aucune fin de boucle.",
-      "pr_g9": 91
+      "motif": "Six propositions G9 rédigées et relues dans #91, EDF 2025 et HUG ; suite locale 278/278, G1/G2/G3/G6 et Lyncée verts. Branche : 213/2287, 545 entrées, référence 3565 ; main reste 207/2287 (9 %), 544 entrées, référence 3566. PR prête, audit-ok, sans auto-merge direct, derrière #64 ouverte (ready=false). Contrôles CI exacts requis ; onze autres G9, G10 et chaîne Panacée encore dus.",
+      "pr_g9": 91,
+      "tests_g9": {
+        "head": "7af1a77",
+        "reussis": 278,
+        "total": 278,
+        "journal_local": "/tmp/oef-g9-tests.log"
+      }
     },
     "10": {
       "motif": "98 lignes / 73 documents relus sur branches ; aucune nouvelle dose non lue ajoutée. DigiFab retrouvé par recherche officielle et accès direct HTTP 200, révision 02/2026 ; document anglais converti de cinq pages à deux colonnes. Extraction structurée/audit restant, aucune formule aplatie transposée : audit/DIGIFAB-RECHERCHE-20261018.json. Pas de fin de boucle."
@@ -67,7 +72,7 @@
       ]
     },
     "17": {
-      "motif": "Clôture refusée : couvertures 1 % et 9 %, rédaction et audits restants. #64/#67/#70/#88 attente-vial ; croquis et cinq stations non validés. Ne pas arrêter la veille.",
+      "motif": "Clôture refusée : main 39/2587 prévalences (jauge arrondie 2 %) et 207/2287 monographies (9 %). Rédaction, sources et audits restants ; #64/#67/#70/#88 attente-vial, #91 derrière #64, croquis/stations non validés. Ne pas arrêter la veille.",
       "cloture_validee": false,
       "tests_main_snapshot": {
         "sha": "42a432d3e5ddb657e8b9cfba35c9340189222761",
@@ -118,15 +123,22 @@
         ]
       },
       "publication_controle": {
-        "date": "2026-10-18T02:30:46.962231+00:00",
-        "sha": "5de965f5fbeb253b1039559be07cf814feaa1001",
+        "date": "2026-10-18T02:54:35.358687+00:00",
+        "sha": "6bbbde73712209f1d118ca9d73e0c19219578258",
         "fichiers": [
+          {
+            "fichier": "index.html",
+            "http": 200,
+            "identique": true,
+            "main_sha256": "fadb5760c516e9bb35a10b7baa58dfe5a8b83b0b0549b1a563cc822dddf1bff6",
+            "public_sha256": "fadb5760c516e9bb35a10b7baa58dfe5a8b83b0b0549b1a563cc822dddf1bff6"
+          },
           {
             "fichier": "app_v2.html",
             "http": 200,
             "identique": true,
-            "main_sha256": "c3be635baf8bdfe8bd7136ef586fdb2c5ecfb4126ae6d76854199d8bf791498d",
-            "public_sha256": "c3be635baf8bdfe8bd7136ef586fdb2c5ecfb4126ae6d76854199d8bf791498d"
+            "main_sha256": "fadb5760c516e9bb35a10b7baa58dfe5a8b83b0b0549b1a563cc822dddf1bff6",
+            "public_sha256": "fadb5760c516e9bb35a10b7baa58dfe5a8b83b0b0549b1a563cc822dddf1bff6"
           },
           {
             "fichier": "assets/mono/mono-s.js",
@@ -139,22 +151,22 @@
             "fichier": "assets/ck/prev.js",
             "http": 200,
             "identique": true,
-            "main_sha256": "8e725a6cbb066b23791c3699a270f0815b1b546ba1974b3315044376e3768af3",
-            "public_sha256": "8e725a6cbb066b23791c3699a270f0815b1b546ba1974b3315044376e3768af3"
+            "main_sha256": "9900cf0476373d11f8534b7cca7e9cb636a9e097b413125637bc2904ec8b351b",
+            "public_sha256": "9900cf0476373d11f8534b7cca7e9cb636a9e097b413125637bc2904ec8b351b"
           },
           {
             "fichier": "assets/ck/glo-index.js",
             "http": 200,
             "identique": true,
-            "main_sha256": "c231f27283f6c62f0e4115b68b4277ad8949c1ff624625ecac0395947f8b1a9f",
-            "public_sha256": "c231f27283f6c62f0e4115b68b4277ad8949c1ff624625ecac0395947f8b1a9f"
+            "main_sha256": "0f3a2d27fe537290ebfe0256e05d51109e016ff3f4f67fcce63d04cbf857e220",
+            "public_sha256": "0f3a2d27fe537290ebfe0256e05d51109e016ff3f4f67fcce63d04cbf857e220"
           },
           {
             "fichier": "assets/ck/src.js",
             "http": 200,
             "identique": true,
-            "main_sha256": "ae2fabb1372b3b6abb6b4672f85628cff436d3a93700460640ecb48325d3b5e4",
-            "public_sha256": "ae2fabb1372b3b6abb6b4672f85628cff436d3a93700460640ecb48325d3b5e4"
+            "main_sha256": "c44d05b190fc85f3b7072e68e89aef548806adf8f0401a8560637729103bf35c",
+            "public_sha256": "c44d05b190fc85f3b7072e68e89aef548806adf8f0401a8560637729103bf35c"
           }
         ]
       },
