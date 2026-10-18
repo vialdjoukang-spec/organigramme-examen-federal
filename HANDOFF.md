@@ -8,6 +8,8 @@ Méthode    : téléchargement XML officiel AIPS de Refdata (download.swissmedic
 Prochaine  : Galien contre-lit les 35 nouvelles lignes ; les rédacteurs remplacent « dose : à vérifier (AIPS) » par dose_ref ; lot 2 : antituberculeux, carbimazole (Néo-Mercazole), benzodiazépines de l’agitation (midazolam, diazépam), bicarbonate, physostigmine, prednisolone, antibiotiques des monographies.
 Pièges     : Lorazepam Xilmac (IV) n’a pas l’indication « état de mal épileptique » dans son AIPS. Aspégic suisse = sachets oraux (pas d’IV dans l’AIPS). Glucose 40 % : aucune dose d’hypoglycémie dans l’AIPS. Une ligne reste non validée tant que Galien et Vial ne l’ont pas confirmée.
 À vérifier : absents de l’AIPS suisse (importation ou hors liste) : fomépizole et silibinine IV (Legalon SIL, seul Legalon oral publié) ; ils restent « À vérifier ». Carbimazole = Néo-Mercazole (21037), prévu au lot 2.
+## Codex · reprise technique #54 · 2026-10-17T23:36:57+00:00
+## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
 ## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
 ## Codex · reprise technique #60 · 2026-10-17T23:45:16+00:00
