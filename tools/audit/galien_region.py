@@ -67,13 +67,24 @@ def travail(unite, base, n):
         print(f"{conf['nom']:16} {len(lot):3} entrée(s), {len(out['signalements'])} signalement(s) → {os.path.relpath(p, ROOT)}")
 
 
+def cible(e, ch):
+    """Chemin imbriqué « pec.objectif », « lesions[3].exam_orientant » → (conteneur, clé)."""
+    parts = re.findall(r'[^.\[\]]+|\[\d+\]', ch)
+    o = e
+    for k in parts[:-1]:
+        o = o[int(k[1:-1])] if k.startswith('[') else o[k]
+    k = parts[-1]
+    return (o, int(k[1:-1])) if k.startswith('[') else (o, k)
+
+
 def appliquer(e, c):
     op, ch = c.get('op', 'remplacer'), c['champ']
     if op == 'remplacer':
-        v = e.get(ch, '')
+        o, k = cible(e, ch)
+        v = o[k] if (isinstance(o, list) or k in o) else ''
         if v.count(c['avant']) != 1:
             raise SystemExit(f"{e['id']}.{ch} : « {c['avant'][:60]} » doit figurer une seule fois ({v.count(c['avant'])}).")
-        e[ch] = v.replace(c['avant'], c['apres'])
+        o[k] = v.replace(c['avant'], c['apres'])
     elif op == 'definir':
         e[ch] = c['apres']
     elif op == 'retirer':
@@ -111,7 +122,7 @@ def corriger(plan):
         b = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'ck_build.py')], cwd=ROOT, capture_output=True, text=True)
         if b.returncode:
             raise SystemExit('ck_build refuse la correction : ' + b.stdout[-400:])
-        reg = region(n, e)
+        reg = c.get('region') or P.get('region') or region(n, e)
         f = dict(unite=P['unite'], element=f'{n}|{e["id"]}', region=reg, champ=c['champ'], faute=c['faute'],
                  correction=c['correction'], source=c['source'], lu_le=c.get('lu_le', P.get('lu_le')),
                  gravite=c['gravite'], commit='en-attente', date=datetime.date.today().isoformat())

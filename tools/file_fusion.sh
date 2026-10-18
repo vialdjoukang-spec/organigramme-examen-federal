@@ -50,11 +50,19 @@ gh auth status >/dev/null 2>&1 || { info "gh non authentifié : file de fusion s
 if [ "$DROITS" = 1 ]; then
   gh api "repos/$GH_REPO" --jq '{admin:.permissions.admin, push:.permissions.push, auto_merge:.allow_auto_merge, merge_commit:.allow_merge_commit, squash:.allow_squash_merge}' > "$LOCAL/droits.json" 2>/dev/null \
     || { info "lecture des droits impossible"; exit 0; }
-  gh api "repos/$GH_REPO/branches/main/protection" --jq '{checks:.required_status_checks.contexts, strict:.required_status_checks.strict, enforce_admins:.enforce_admins.enabled}' >> "$LOCAL/droits.json" 2>/dev/null || true
+  if protection="$(gh api "repos/$GH_REPO/branches/main/protection" --jq '{checks:.required_status_checks.contexts, strict:.required_status_checks.strict, enforce_admins:.enforce_admins.enabled}' 2>/dev/null)"; then
+    printf '%s\n' "$protection" >> "$LOCAL/droits.json"
+  else
+    info "protection non lisible avec cette intégration ; aucune protection modifiée"
+    printf '%s\n' '{"protection_lisible":false}' >> "$LOCAL/droits.json"
+  fi
   cat "$LOCAL/droits.json"; exit 0
 fi
 
-REQUIS="$(gh api "repos/$GH_REPO/branches/main/protection" --jq '.required_status_checks.contexts|join(" ")' 2>/dev/null)"
+if ! REQUIS="$(gh api "repos/$GH_REPO/branches/main/protection" --jq '.required_status_checks.contexts|join(" ")' 2>/dev/null)"; then
+  REQUIS=""
+  info "protection non lisible : contrôles garde html tests visuel exigés localement ; GitHub reste l'autorité pour la fusion"
+fi
 REQUIS="${REQUIS:-garde html tests visuel}"
 CHAINES="$(python3 - "$RACINE/tools/etapes.json" "$CHAINE" <<'PY'
 import json, sys
@@ -130,9 +138,16 @@ PY
   done
 done <<<"$CHAINES"
 
-if [ "$FUSIONNEES" -gt 0 ] && [ "$PUBLIER" = 1 ]; then
-  ecrire gh workflow run pages.yml --ref main >/dev/null 2>&1 && info "Pages relancé" \
-    || echec "pages" "publication Pages non relancée (gh workflow run pages.yml) : réessai au prochain passage"
+PAGES_EN_ATTENTE="$LOCAL/pages_a_relancer"
+if { [ "$FUSIONNEES" -gt 0 ] || [ -f "$PAGES_EN_ATTENTE" ]; } && [ "$PUBLIER" = 1 ]; then
+  if ecrire gh workflow run pages.yml --ref main >/dev/null 2>&1; then
+    info "Pages relancé"
+    [ "$DRY" = 1 ] || rm -f "$PAGES_EN_ATTENTE"
+    oublier "pages"
+  else
+    [ "$DRY" = 1 ] || touch "$PAGES_EN_ATTENTE"
+    echec "pages" "publication Pages non relancée (gh workflow run pages.yml) : réessai au prochain passage"
+  fi
 fi
 info "terminé : $FUSIONNEES fusion(s)"
 exit 0

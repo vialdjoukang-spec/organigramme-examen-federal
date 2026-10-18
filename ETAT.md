@@ -6,7 +6,7 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 ## Porte de l’Étape 0 (installation, bloquante)
 
 <!-- PORTE-ETAPE-0 -->
-- [x] 0.1 J’ai lu CONTINUATION.md en entier (toutes les étapes, toutes les règles), puis AGENTS.md, HANDOFF.md (tête), ce fichier, PROCHAINE_ACTION.md
+- [x] 0.1 J’ai lu AGENTS.md, puis CONTINUATION.md en entier (toutes les étapes, toutes les règles), puis HANDOFF.md (tête), ce fichier, PROCHAINE_ACTION.md
 - [x] 0.2 J’ai lu docs/skills/README.md et les skills ssp-continuite, ssp-verite, ssp-posologie-suisse, ssp-audit-medical, ssp-fusion-patch, ssp-pilotage-codex
 - [x] 0.3 Catalogue : `python3 tools/catalogue.py` lancé, sections « À COMPLÉTER PAR CODEX » remplies (MCP, skills de Codex), CATALOGUE.md présenté avant de commencer
 - [x] 0.4 Proposition de skills : `python3 tools/propose_skills.py` lancé, docs/skills/PROPOSITIONS.md écrit et lu
@@ -21,7 +21,7 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - Mode de relance (A = `codex exec`, B = PROCHAINE_ACTION.md) : B (CLI présent mais authentification refusée ; aucun second agent CLI lancé)
 - Lancement de la veille (commande exacte, cron ou boucle) : `nohup bash tools/veille_relance.sh --boucle 180 --sans-codex > .etat_local/veille_stdout.log 2>&1 < /dev/null &` ; PID dans `.etat_local/veille.pid` ; boucle locale seulement pendant la durée de vie de cet environnement
-- Modèle des tâches répétitives : `gpt-6-luna` disponible dans les sous-agents de la session ; CLI testé, refusé pour authentification (HTTP 401). Les réparations restent au modèle courant. Aucun contenu massif exécuté à ce stade.
+- Modèle des tâches répétitives : `gpt-6-luna` configuré pour la CLI, dont l’authentification échoue en HTTP 401. Aucun sous-agent lancé. Modèle courant pour les réparations/relectures ; scripts déterministes pour les inventaires. La rédaction de masse autonome reste indisponible, sans prétendre qu’un autre modèle CLI fonctionne.
 - Jeton de fusion (gh de Codex, ou secret AUTO_FUSION_TOKEN) : gh de Codex, intégration GitHub (`admin=true`, `push=true`, `merge_commit=true`, `auto_merge=true`, `squash=false`), protection non lisible (403) (ne jamais écrire le jeton lui-même)
 - Jauges au départ : Prévalences 0 % (0/2578) · Monographies 3 % (70/2280) le 18.10.2026 00:45 (Europe/Zurich)
 
@@ -33,7 +33,43 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 01:05 CEST · Étape 1 : PR ouvertes et checks de toutes les chaînes lus ; § C1 corrigé avec l'instantané réel. Pages = main (SHA-256 ci-dessus). Sauvegardes Grok absentes, branches distantes présentes ; aucun patch privé reconstitué. Jauges inchangées 0 %/3 %, contrôle jauge OK. PR Étape 0 : #71, auto-merge demandé, CI en cours.
 
+- 18.10.2026 01:08 CEST · Étape 2 : corrections de la file/auto-fusion préparées et testées (5/5), workflow file-fusion déclenché ; deux sondes #71/#73 avec auto-merge MERGE actif. Résultat de bout en bout encore en attente des contrôles ; ne pas annoncer fusion/publication réussies. Poursuite Étape 3 selon R7 ; la file reprend les sondes.
+
+- 18.10.2026 · Complément Étape 2 : #71 fusionnée automatiquement (843e2c3) après contrôles verts, Pages réussi sur le même SHA. Preuve de bout en bout obtenue ; #73 reste sonde supplémentaire. Le nohup initial a été terminé par l'environnement ; veille relancée au premier plan dans une session d'exécution persistante (`bash tools/veille_relance.sh --boucle 180 --sans-codex`, journal confirmé). Playwright local initial 1.62 différent de la CI : venv `/workspace/venv_ck` créé avec 1.63 et Chromium 1243.
+
+- 18.10.2026 01:15 Europe/Zurich · Étape 3 traitée, fusions en attente : #43 fusionnée ; #44/#45 main intégré et correctifs Galien rejoués, suites locales lancées avant push ; #58 onze chiffres relus (Limper/BASEL IX), trois nouvelles fiches contre-lues avec ESGE/HAS/ESC, cadre et indications corrigés, audit écrit, contrôles de données verts, suite 1.63/push planifiés ; #47 fusion de main, toutes sections du rapport conservées, poussé et audit-ok. La file reprend les fusions. Étape 3 reste dans ETAT.json.en_attente tant que le critère n'est pas vert.
+
+- 18.10.2026 · Étape 4 traitée, fusions/audit en attente : #50/#53/#54/#49 main intégré, shards résolus par le script sans conflit réel signalé, migration 0026 rejouée (elle était encore sur #50, contrairement à la relève), assets régénérés, suites 1.63 et pushes en file sous verrou. #64 : 25 fiches relues, sources hypothermie suisses relues ; doses non auditées et chiffres hors CH/UE remis À vérifier, cadre de cohorte corrigé ; signalement HOPE/décès potentiellement critique, label attente-vial et rapport rouge. Aucune fusion de #64 sans validation de Vial. Les labels #53/#54 attendent la fusion de la précédente.
+
+- 18.10.2026 · Étape 5 traitée, fusions en attente : #60/#62 mises à jour avec main ; shards par merge_shards sans conflit réel signalé ; toutes sections d'audit conservées ; patch 0026 et assets reconstruits ; suites 1.63/pushes dans la file locale. Audits Érasistrate existants conservés, aucune nouvelle validation clinique.
+
+- 18.10.2026 UTC · Étape 6 : 98 lignes/73 documents AIPS officiels relus, contrôles verbatim sans écart, quatre rapports poussés ; réserves KCl/aciclovir et attente-vial #67/#70 conservées.
+- 18.10.2026 UTC · Étape 7 : #65/#68 reprises ; 166 définitions relues, sept corrections, baseline #68 à 3567 ; #65 resserrée à 3820, mais 92 candidats nouveaux restent à examiner.
+- 18.10.2026 UTC · Étapes 8–11 INACHEVÉES : G5 #85 (44 DD sur quatre SSP, chiffres inconnus explicites) ; brouillons monographiques hors git ; inventaires de doses/glossaire. Aucun seuil de boucle ni couverture complète déclaré ; CLI de masse en 401. Passage R7 aux travaux suivants.
+- 18.10.2026 UTC · Étape 12 : #83 restaure 72 titres critiques, captures ciblées relues, contraste clair 6,77:1 ; #84 corrige la réouverture après Fermer, reproduction 4/4 corrigée et suite 276/276. Audit transversal restant.
+- 18.10.2026 UTC · Étapes 13–15 : #39/#41 reprises ; #80 prototype VII et #81 urgences lot 3 en brouillon, audits/validation Vial restants ; cinq stations pilotes restent valide_par_vial=false. Aucun accord inventé.
+- 18.10.2026 UTC · Étape 16 : #32 reprise et captures de fond pâle relues (contraste secondaire/fond 8,55:1) ; #37 retrouvée sur origin, patch rejoué (60 DD S8), audit final restant. #16 fermée avec motif, branche conservée ; #56/#63 fermées comme remplacées.
+- 18.10.2026 UTC · Incident : #62 fusionnée avant #60 le 17.10 à 23:55:43 UTC ; l’auto-fusion n’imposait pas les chaînes. #82 ajoute ce verrou, cinq tests dédiés et cinq tests de file réussis. Pas de réécriture de l’historique.
+- 18.10.2026 UTC · Étape 17 contrôlée, NON VALIDÉE : jauges main 1 % et 4 %, Pages identique au SHA-256 de main 67ae383 à 00:00:20 UTC. Relève complète dans docs/releves/RELEVE_CODEX_20261018.md. Veille conservée ; reprise de la boucle 8, pas de fin du projet.
+
+- 18.10.2026 00:52 UTC · Réconciliation des attentes : #45/#58/#60/#39/#84/#82 fusionnées. Étape 3 complète ; données des deux lots de l’étape 5 intégrées, incident #62 avant #60 conservé. Main : 38/2587 prévalences (1 %), 130/2287 monographies (6 %). Suite main 42a432d : 276/276. Pages = main 8dd0d0a (HTTP 200, SHA-256 9e4720c6ce86056e4648eaa8744fe183479d9ddbf6419f1bb13ad60d8a800969).
+- 18.10.2026 UTC · Glossaire : #65 baseline 3735 après 139 entrées de main, neuf définitions et 45 définitions de compatibilité déjà relues dans #68. #68 : 527 entrées réunies, baseline 3571, neuf exclusions cliniques supprimées. G1/G2/G3/G6, Lyncée et quatre tests de migration passent. Aucun label #68 avant fusion #65. Les 38 candidats de migration hérités restent explicitement examinés dans le rapport.
+- 18.10.2026 UTC · G5 #85 rejoué sur main après #58 ; union de prévalences et sources sans conflit réel, app repris de main et registres régénérés. Chiffres inconnus conservés. La chaîne historique prev reste #43→#44→#45→#58 ; chaîne séparée prev_g5 #58→#85 pour ne pas déplacer le critère de l’étape 3.
+
+- 18.10.2026 01:15 UTC · #50, #53, #54 et #86 fusionnées ; main contient 207/2287 monographies (9 %), prévalences 38/2587 (1 %). Pages et quatre fichiers JS (mono-s, prev, glo-index, src) identiques à main 51cb2e5, HTTP 200. Les étapes 8–11 restent incomplètes.
+- 18.10.2026 UTC · #65 : dix termes supplémentaires traités sans admission en référence, 406 entrées et baseline 3734 ; correctif 0030 des commandes calendrier, 74 contrôles CK UI et suite complète 276/276. #68 réuni : 535 entrées, baseline 3571 ; conflit hypertrophie résolu par source Larousse relue avec alias/flexions conservés. CI et fusion #65 avant #68 restent requises.
+- 18.10.2026 UTC · #32 : adoption examinée de la référence CI (8c3e800) par script habituel sur runner, après refus local des artefacts en 403. Mesures 60 captures : zéro hausse axe grave/critique, débordement, clipping, police ou erreur JS ; CLS de référence 0,1347→0,0358, aucun seuil de configuration relevé. Contrôles après adoption relancés.
+- 18.10.2026 UTC · DigiFab retrouvé dans le portail AIPS (Curatis, autorisation 59301), accès direct HTTP 200, révision 02/2026. Texte anglais à deux colonnes : extraction/audit de doses restant ; preuve audit/DIGIFAB-RECHERCHE-20261018.json. Aucune nouvelle dose publiée.
+
+- 18.10.2026 01:16 UTC · #32 fusionnée (617878e), contrôles requis verts après adoption de la référence CI. Patch fond pâle, procédé runner et référence intégrés ; #37 reste en audit.
+
+- 18.10.2026 UTC · #49/#59/#61/#65 fusionnées. #65 intègre 414 entrées, référence 3730 et correctifs de sélection/disposition : suite 278/278, référence visuelle conservée. #68 (543 entrées, référence 3567) corrige des cibles trop petites dans Notions ; captures et référence en cours de vérification.
+- 18.10.2026 UTC · Nouvelle revue en contexte : cardioverter était défini comme un appareil ; correction terminologique avec CHUV § Traitements effectivement relu, journal des fautes mis à jour. La conduite périopératoire présente une ambiguïté potentiellement critique : proposition #88 attente-vial, sources ESC 2022 §6.4 et HUG 2024 §2, aucune dose nouvelle et aucune fusion sans accord.
+- 18.10.2026 UTC · Inventaire par SHA et pointeur : 577 champs, 605 occurrences sur main 33bb1d0 ; recensement des marques explicites, pas un audit ni une validation des branches non fusionnées. Scripts et procédure ajoutés au catalogue et au skill vérité.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
+
+18.10.2026 : Luna indisponible par la CLI (401). Modèle de secours : modèle courant de cette session, seul modèle callable sans lancer un autre agent ; utilisé pour les rédactions/relectures, les inventaires étant exécutés par scripts. Le 401 bloque la relance CLI autonome, pas le travail interactif. Les contenus encore à rédiger et à auditer restent dus ; aucune indisponibilité médicale générale n’est déduite de cette erreur.
 
 ---
 
@@ -137,3 +173,22 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Contre-lire le lot 2 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
 | [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
+
+### Actualisation après les fusions #68 et #85 · 18.10.2026 UTC
+
+Étape 7 : critère vérifié, #65 puis #68 fusionnées, 543 entrées et référence 3567. #85 fusionnée, fréquences inconnues préservées ; couverture toujours 1 %/9 %. Inventaire de main 27c9658 : 751 champs explicitement À vérifier, 779 occurrences. Contrôle de publication 02:23 UTC : application et quatre JS identiques à cet instantané. ETAT.json conserve la reprise à 8 et refuse la clôture.
+
+Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
+
+### Lot 3 des prévalences · 18.10.2026
+#90 : une fréquence retenue (SCA, Zurich, 1/53), dix-neuf inconnues conservées. CI 7abe19c : 278/278 ; passage local 276/278, puis calendrier 36/36 après deux échecs tactiles intermittents. Aucune assertion changée. #91 réservé derrière #64 dans la chaîne Hygie. Projet non clos.
+
+### Reprise après le lot 3 · 18.10.2026 UTC
+
+#90 est fusionnée (6bbbde7). Main : 39/2587 fréquences, jauge arrondie 2 % ; 207/2287 monographies, 9 %. Une seule fréquence a été retenue après relecture (SCA, Zurich, 1/53) ; les dix-neuf autres du lot restent inconnues. Source de Berne non retenue sous la règle d’éditeur, miroir suisse inaccessible ; incohérences de l’autre tableau européen consignées. Aucun pays, chiffre ou critère inventé.
+
+#91 contient six propositions G9 (xérose, prurits rénal, ferriprive, médicamenteux, neuropathiques, psychogène), EDF 2025 et HUG relus. Elles ne comptent pas dans main. Le verrou #64→#91 est dans main ; predecesseurs_fusion.py 91 constate #64 OPEN et ready=false. Ne pas activer directement l’auto-merge de #91.
+
+Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
