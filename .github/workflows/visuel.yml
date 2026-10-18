@@ -13,6 +13,11 @@ on:
   schedule:
     - cron: '41 4 * * 1'
   workflow_dispatch:
+    inputs:
+      adopter_pr:
+        description: 'PR dont les écarts ont été examinés ; vide = captures seules'
+        required: false
+        type: string
 permissions:
   contents: read
   pull-requests: write
@@ -26,7 +31,37 @@ env:
   LABEL: 'visuel:nouvelle-reference'
 
 jobs:
+  adopter-reference:
+    name: Adopter une référence examinée
+    if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.adopter_pr != '' }}
+    needs: visuel
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+      actions: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR_EXAMINEE: ${{ inputs.adopter_pr }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - name: Vérifier la PR et sa tête avant toute écriture
+        run: |
+          case "$PR_EXAMINEE" in ''|*[!0-9]*) exit 1 ;; esac
+          read -r br sha base < <(gh pr view "$PR_EXAMINEE" --json headRefName,headRefOid,baseRefName -q '.headRefName+" "+.headRefOid+" "+.baseRefName')
+          [ "$base" = main ] && [ "$br" = "$GITHUB_REF_NAME" ] && [ "$sha" = "$GITHUB_SHA" ]
+          git checkout -B "$br" "$sha"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Adopter avec le script contrôlé puis pousser la branche de PR
+        run: |
+          bash tools/visuel_reference.sh "$PR_EXAMINEE"
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
   visuel:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.adopter_pr == '' }}
     name: visuel
     runs-on: ubuntu-latest
     timeout-minutes: 25
