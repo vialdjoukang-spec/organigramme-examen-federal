@@ -243,3 +243,18 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | toxicite-directe-d-organe · pha | Chélation si plombémie élevée : selon Tox Info Suisse. | La chélation se décide avec Tox Info Suisse si la plombémie est élevée. | Linguistique : phrase nominale rendue verbale et concise |
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
+
+## Galien · relecture finale prévalences G4 (#58) · 18.10.2026 Europe/Zurich
+
+Sources lues le 17.10.2026 UTC (18.10.2026 à Zurich) : Limper, Neth J Med 2011, méthodes p.125, résultats p.126 et tableau 2 p.127, https://njmonline.nl/getpdf.php?id=1033 ; BASEL IX, J Intern Med 2021, « Characteristics of patients », https://doi.org/10.1111/joim.13269 ; ESGE 2019, §4 et §8.1 ; HAS/SPILF/SFD 2019, §1.2, §1.8 et §2.3 ; ESC syncope 2018, §4.1.1 et messages clés 3–8. Les trois lignes directrices figurent désormais dans src.json.
+
+Les onze chiffres ont été relus : neuf pour G6, deux pour F1.19. Les deux bornes ≤ sont conservées : les infections urinaires fébriles ne sont pas toutes des pyélonéphrites ; les syncopes réflexes ne sont pas toutes vasovagales. Les catégories sans chiffre restent « À vérifier ». BASEL IX comprend aussi des centres hors Europe : le cadre ne doit pas être interprété comme une cohorte exclusivement suisse.
+
+Fautes et précisions corrigées :
+
+- G6, cadre : le suivi diagnostique dure un an ; trente jours correspond à la mortalité.
+- Infection cutanée ajoutée : préciser que l'IRM ne doit jamais retarder la chirurgie urgente si une fasciite est suspectée (HAS §2.3). L'imagerie n'est pas systématique dans la forme simple.
+- Nouvelle syncope structurelle : réserver la troponine à la suspicion ischémique et l'échocardiographie à la suspicion structurelle. L'imagerie exacte d'une dissection reste « À vérifier » faute de relecture de sa recommandation spécifique.
+- Reprise technique : conserver les corrections déjà écrites (intitulés de F1.19, angiocholite, infection cutanée, cause cardiaque aiguë) ; rendre prev_g4_corr idempotent pour les rangs et le cadre.
+
+Aucune dose ajoutée. Aucune faute critique identifiée dans ce diff. Contrôles prev_build, ck_build, mono_build et G3 passent ; Lyncée ne trouve aucun terme nouveau. Suite Playwright 1.63 et CI à terminer avant fusion ; audit-ok ne dispense d'aucun contrôle.
