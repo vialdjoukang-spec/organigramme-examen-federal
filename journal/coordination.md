@@ -16,6 +16,7 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 5. **[Mnémosyne] data/MEM.json** · prio:P1 · agent:mnemosyne · échéance 29.11.2026 · section 7 ; critères : chaque méthode cite sa méta-analyse par DOI vérifié.
 6. **[Janus] tests/test_export.py** · prio:P0 · agent:janus · échéance 15.11.2026 · avec Atlas.
 
+- 18.10.2026 · Reprise #44 : main intégré ; app repris de main et correctif audité prev_g2_corr rejoué ; contrôles prev/ck/mono --check verts. Suite locale code 1 (voir relève Codex).
 - 18.10.2026 · Codex, Étape 0 : lecture intégrale AGENTS/CONTINUATION et lectures de porte faites ; catalogue réel et propositions examinés ; veille locale mode B, CLI non authentifié. Aucun travail clinique avant verifier0. Sources techniques : dépôt 2228be7, sorties gh, codex --help et tests locaux.
 
 - 2026-10-17T23:28:35+00:00 · Reprise #50 : fusion de main, merge_shards sans conflit réel signalé, migration 0026 rejouée et fichiers générés reconstruits ; mono/ck/prev --check verts. Suite Playwright 1.63 : code 0. La CI reste obligatoire.
