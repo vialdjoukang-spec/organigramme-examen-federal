@@ -248,6 +248,9 @@ case('fautes_ligne_invalide_echoue', lambda f: (open(os.path.join(f.d, 'qa', 'au
 case('budget_assets_ck_depasse_echoue', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d, 'CK_MAX_BYTES': '10'})[0] == 1)
 case('budget_svg_depasse_echoue', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d, 'SVG_MAX_BYTES': '10'})[0] == 1)
 case('budget_assets_nc_depasse_echoue', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d, 'NC_MAX_BYTES': '10'})[0] == 1)
+case('budget_assets_mono_depasse_echoue', lambda f: (os.makedirs(os.path.join(f.d, 'assets', 'mono'), exist_ok=True),
+                                                    open(os.path.join(f.d, 'assets', 'mono', 'mono-a.js'), 'w').write('window.CK_MONO_A={};'),
+                                                    run('budget.py', env={'BUDGET_ROOT': f.d, 'MONO_MAX_BYTES': '10'})[0] == 1)[-1])
 case('budget_conforme_passe', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d})[0] == 0)
 case('svg_conforme_passe', lambda f: run('nc_svg_check.py', '--racine', f.d)[0] == 0)
 case('svg_couche_absente_echoue', lambda f: (open(os.path.join(f.d, 'assets', 'nc', 'nc07-face.svg'), 'w').write(SVG.replace('<g id="nerf"/>', '')),
