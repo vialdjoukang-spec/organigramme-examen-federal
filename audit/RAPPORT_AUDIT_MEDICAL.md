@@ -749,6 +749,14 @@ Accord et consigne de Vial lus sur la page publique. La monographie meningo-ence
 
 Accord Vial lu, branche réunie avec #67 corrigée. KCl : extrait AIPS inchangé, mention exacte « unité telle qu’écrite dans l’AIPS (2007) » ajoutée ; la vitesse reste À vérifier, sans conversion supposée. Lévothyroxine : [µg/jour] explicité depuis l’en-tête ; pipéracilline-tazobactam : [g] et [h] attribués aux colonnes correspondantes dans la synthèse, sans altérer les citations. Rhophylac : condition mère Rh(D) négatif/enfant Rh(D) positif explicite dans la ligne de dose, déjà présente dans l’extrait d’indication ; statut de l’enfant inconnu laissé À vérifier faute de texte primaire correspondant relu. Confrontation aux extraits conservés, aucun téléchargement Refdata ni audit clinique complet revendiqué. Fusion après #67, audit-ok final toujours dû.
 
+## Hérophile · G9, six causes ciblées du prurit · 18.10.2026
+
+Relecture séquentielle par Codex des six propositions : xérose du sujet âgé, prurits rénal, ferriprive, médicamenteux, neuropathiques et psychogène. Texte officiel de Weisshaar et al. 2025, sections 4.2.1, 4.2.3, 4.2.7–4.2.9, 4.3.2, tableaux 3–6 et sections thérapeutiques citées relus. Définition de l’hémodialyse relue aux HUG, page mise à jour le 09.03.2026. Aucun médecin ni accord Vial revendiqué.
+
+Les mécanismes rénaux ou médicamenteux restent présentés comme incomplètement connus. Le bilan rénal, la carence martiale ou une imagerie ne prouvent pas seuls la cause du prurit. Un bilan somatique normal ne suffit pas à conclure à un prurit fonctionnel ; ses critères formels restent À vérifier. La cause médicamenteuse nécessite une analyse de la chronologie et du bénéfice-risque d’un changement.
+
+La relecture a retiré une phrase de fabrication du contenu de la rubrique clinique et explicité le choix et les limites des traitements nerveux, ainsi que l’absence de garantie de réponse après correction de la carence en fer. Les fréquences/sex-ratios et les indications/posologies AIPS non lues restent explicitement À vérifier. Aucune posologie chiffrée du guide n’est transposée. Les onze autres DD G9 ne sont pas déclarés rédigés. Aucune faute critique nouvelle identifiée dans ce diff ; le lot suit #64 et ne doit pas contourner son attente.
+
 ### Reprise #64 · 18.10.2026, Europe/Zurich
 
 Accord de Vial lu sur la page publique (vial-ok), audit final toujours requis. Réunion de main avec merge_shards.py : aucune clé en conflit réel, toutes les monographies existantes conservées. La limite du critère tryptase dans la mastocytose est explicitée conformément au signalement de revue, avec ajustement encore À vérifier. Le score HOPE bas n’est plus présenté comme critère de constat de décès ; les critères de limitation restent À vérifier jusqu’à relecture primaire. Les posologies d’adrénaline restent À vérifier (AIPS). L’arrêt en avalanche conserve les trois conditions cumulatives ensevelissement prolongé, voies aériennes complètement obstruées et asystolie, telles que déjà corrigées sur la branche. Pas de lecture primaire nouvelle revendiquée : accès Europe PMC refusé par la politique réseau. Pas de nouvel audit-ok.
@@ -766,3 +774,6 @@ Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue
 
 ### Recontrôle AIPS lot 4 · 18.10.2026
 98 lignes / 73 documents officiels téléchargés, aucun écart des extraits. Les 24 lignes nouvelles sont relues, notamment les unités des en-têtes lévothyroxine et pipéracilline-tazobactam. Ferinject : cas Hb ≥14 g/dl et surveillance après administration explicités ; méropénème : limites du bolus précisées. KCl et RhD inconnu conservent leurs réserves. Aucune validation de médecin revendiquée.
+
+### Recontrôle G9 après #64 · 18.10.2026
+Six propositions comparées aux sections 4.2.1/3/7/8/9, 4.3.2, 6.4.5 et 6.6.1 du texte intégral EDF 2025 et à la définition HUG d’hémodialyse, accessibles et relus. Réserves épidémiologiques, critères fonctionnels et AIPS conservés ; aucune dose ajoutée. G1–G8 et constructions verts. Le navigateur système bloque file:// et le téléchargement Playwright est refusé ; la CI de la tête exacte reste obligatoire.
