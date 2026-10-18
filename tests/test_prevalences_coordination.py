@@ -77,6 +77,12 @@ class CoordinationTests(unittest.TestCase):
         self.assertFalse(decision({'workflow_runs':[{'status':'queued'}]},plan,now)['lancer'])
         self.assertFalse(decision({'workflow_runs':[{'status':'completed','created_at':now.isoformat()}]},plan,now)['lancer'])
         self.assertTrue(decision({'workflow_runs':[{'status':'completed','created_at':(now-timedelta(hours=5)).isoformat()}]},plan,now)['lancer'])
+    def test_bootstrap_only_overrides_cooldown_not_safety(self):
+        now=datetime.now(timezone.utc);plan={'intervalle_recherche_minutes':240,'limite_recherche':2}
+        history={'workflow_runs':[{'status':'completed','created_at':now.isoformat()}]}
+        self.assertTrue(decision(history,plan,now,amorcer=True)['lancer'])
+        self.assertFalse(decision({'workflow_runs':[{'status':'in_progress'}]},plan,now,amorcer=True)['lancer'])
+        self.assertFalse(decision(None,plan,now,amorcer=True)['lancer'])
     def test_circuit_breaker_persists_and_does_not_fabricate_success(self):
         with tempfile.TemporaryDirectory() as tmp:
             client=Client(tmp,interval=0)

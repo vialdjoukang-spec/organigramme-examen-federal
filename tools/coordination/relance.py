@@ -11,7 +11,7 @@ from tools.coordination.calculer import CONFIG
 REPO='vialdjoukang-spec/organigramme-examen-federal'
 ACTIVE={'queued','in_progress','waiting','pending','requested'}
 
-def decision(runs,plan,now=None):
+def decision(runs,plan,now=None,amorcer=False):
     now=now or datetime.now(timezone.utc)
     if plan.get('etat_recherche_fiable') is False:return {'lancer':False,'motif':'état documentaire inconnu : corriger avant recherche'}
     if not isinstance(runs,dict) or not isinstance(runs.get('workflow_runs'),list): return {'lancer':False,'motif':'état des exécutions inconnu'}
@@ -24,14 +24,14 @@ def decision(runs,plan,now=None):
             if stamp.tzinfo is None:raise ValueError('date sans fuseau')
             times.append(stamp)
         except (ValueError,KeyError,TypeError):return {'lancer':False,'motif':'horodatage inconnu'}
-    if times and (now-max(times)).total_seconds()<60*plan['intervalle_recherche_minutes']:return {'lancer':False,'motif':'temporisation de recherche'}
+    if not amorcer and times and (now-max(times)).total_seconds()<60*plan['intervalle_recherche_minutes']:return {'lancer':False,'motif':'temporisation de recherche'}
     return {'lancer':True,'motif':'recherche arrivée à échéance','limite':plan['limite_recherche']}
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--plan',type=Path,required=True);p.add_argument('--lancer',action='store_true');args=p.parse_args();plan=json.loads(args.plan.read_text())
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--plan',type=Path,required=True);p.add_argument('--lancer',action='store_true');p.add_argument('--amorcer',action='store_true',help='Activation explicite après déploiement de la configuration, sans ignorer état inconnu ou recherche active');args=p.parse_args();plan=json.loads(args.plan.read_text())
     command=['gh','api',f'repos/{REPO}/actions/workflows/prevalences-recherche.yml/runs?branch=main&per_page=20']
     try:
-        raw=subprocess.run(command,capture_output=True,text=True,check=True,timeout=30);result=decision(json.loads(raw.stdout),plan)
+        raw=subprocess.run(command,capture_output=True,text=True,check=True,timeout=30);result=decision(json.loads(raw.stdout),plan,amorcer=args.amorcer)
     except (subprocess.SubprocessError,ValueError):result={'lancer':False,'motif':'accès aux exécutions indisponible : aucune action aveugle'}
     if args.lancer and result['lancer']:
         launch=subprocess.run(['gh','workflow','run','prevalences-recherche.yml','--repo',REPO,'--ref','main','-f',f'limite={result["limite"]}'],capture_output=True,text=True,timeout=30)

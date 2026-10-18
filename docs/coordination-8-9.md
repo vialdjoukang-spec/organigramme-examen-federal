@@ -26,3 +26,5 @@ gh workflow run garde-progres.yml --ref main
 ```
 
 Pages publie `coordination.html` et `coordination.json` avec les jauges et le PDF existants. Les réserves documentaires précèdent désormais les pannes répétées dans les exemples du PDF.
+
+À l’intégration d’une configuration de coordination, la garde démarre aussi sur push et amorce une recherche unique. Cette activation peut ignorer la temporisation de4h, jamais une exécution active ou un état inconnu. Les contrôles périodiques reviennent ensuite au rythme régulé. En cas de refus d’authentificationCLI, les opérations du dépôt peuvent utiliser le MCPGitHub déjà connecté ; ne pas copier de jeton.
