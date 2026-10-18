@@ -34,3 +34,7 @@ Ticket résolu : terme abrégé thromboangéite rattaché à Buerger dans ce con
 
 ## Lot 6 · G11–G14 · 18.10.2026 Europe/Zurich
 56 DD conservés ; fréquences inconnues explicites, zéro chiffre ajouté. Recherche HUG sommeil relue sans pourcentage exact ; HypnoLaus via DOI reste refusé sur la destination Elsevier, aucun chiffre retenu. Audit séquentiel et G1–G8 réussis. Prochain lot : G15, G16, S1.1 et S1.2.
+
+## Étape 8 lot 7 · G15–S1.2 · 18.10.2026 Europe/Zurich
+54 DD conservés exactement, inconnues explicites, zéro chiffre ajouté ; prévalences 45/2587, monographies 244/2287 inchangées. Contre-lecture séquentielle, G1–G8, builders, Lyncée et gardes réussis. Suite navigateur locale arrêtée avant tout test : exécutable Chromium Playwright absent ; CI complète requise avant fusion. Pages HTTP 200, app identique à main bfa43f2 avant le lot. Prochaine : cinq G9, puis G10 ; prévalences S1.3–S1.6. Boucles ouvertes.
+Modèle : mécanique par script déterministe ; jugement et contre-lecture par le modèle courant de secours, Luna CLI signalée indisponible en 401 dans la relève, aucun sous-agent lancé.

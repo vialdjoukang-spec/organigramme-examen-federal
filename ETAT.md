@@ -211,3 +211,7 @@ Chaîne #64→#91→#67→#70 fusionnée ; audits et contrôles requis verts. #9
 - 18.10.2026 · Étape 8 lot 6 : G11–G14, 56 DD conservés, inconnues explicites ; 45/2587 inchangé. Audit et G1–G8 réussis. Pages toujours refusé dans cette session ; GitHub, EDF et HUG accessibles. CI exacte requise avant fusion.
 
 - 18.10.2026 Europe/Zurich · Étape 9, complément G9 : psoriasis et urticaire chronique rédigés et audités, six définitions ; branche 244/2287 et 569 termes, référence 3563. #101 fusionnée, 45/2587 fréquences inchangé, lot 7 G15, G16, S1.1 et S1.2. CI et fusion du complément requises.
+
+## Étape 8 lot 7 · G15–S1.2 · 18.10.2026 Europe/Zurich
+54 DD conservés exactement, inconnues explicites, zéro chiffre ajouté ; prévalences 45/2587, monographies 244/2287 inchangées. Contre-lecture séquentielle, G1–G8, builders, Lyncée et gardes réussis. Suite navigateur locale arrêtée avant tout test : exécutable Chromium Playwright absent ; CI complète requise avant fusion. Pages HTTP 200, app identique à main bfa43f2 avant le lot. Prochaine : cinq G9, puis G10 ; prévalences S1.3–S1.6. Boucles ouvertes.
+Modèle : mécanique par script déterministe ; jugement et contre-lecture par le modèle courant de secours, Luna CLI signalée indisponible en 401 dans la relève, aucun sous-agent lancé.
