@@ -8,6 +8,13 @@ Méthode    : téléchargement XML officiel AIPS de Refdata (download.swissmedic
 Prochaine  : Galien contre-lit les 35 nouvelles lignes ; les rédacteurs remplacent « dose : à vérifier (AIPS) » par dose_ref ; lot 2 : antituberculeux, carbimazole (Néo-Mercazole), benzodiazépines de l’agitation (midazolam, diazépam), bicarbonate, physostigmine, prednisolone, antibiotiques des monographies.
 Pièges     : Lorazepam Xilmac (IV) n’a pas l’indication « état de mal épileptique » dans son AIPS. Aspégic suisse = sachets oraux (pas d’IV dans l’AIPS). Glucose 40 % : aucune dose d’hypoglycémie dans l’AIPS. Une ligne reste non validée tant que Galien et Vial ne l’ont pas confirmée.
 À vérifier : absents de l’AIPS suisse (importation ou hors liste) : fomépizole et silibinine IV (Legalon SIL, seul Legalon oral publié) ; ils restent « À vérifier ». Carbimazole = Néo-Mercazole (21037), prévu au lot 2.
+## Codex · complément de relève · 18.10.2026 01:15 UTC
+État       : #50/#53/#54/#86 fusionnées ; 207/2287 monographies (9 %), prévalences 1 %. Projet non clos, étape 8 lot 2.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; file doses #59 puis #61, glossaire #65 puis #68 ; ne pas anticiper leurs labels. #32 fusionnée (617878e) après adoption de la référence CI et contrôles verts.
+Sources    : AIPS DigiFab retrouvé, révision 02/2026, preuve audit/DIGIFAB-RECHERCHE-20261018.json ; aucune nouvelle dose. Sources brutes hors git.
+Pièges     : #65 patch 0030 corrige les liens imbriqués du calendrier ; suite complète 276/276, aucune assertion abaissée. Référence #65 3734, #68 3571. Chaque fusion peut exiger une nouvelle réunion de HANDOFF.md, jamais un force-push.
+À vérifier : #64/#67/#70 attente-vial, #80 et cinq stations non validés ; audits #37/#81 et couverture massive restants. CLI Luna en 401, mode B ne rédige pas de lots.
+
 ## Codex · relève du 18.10.2026 UTC
 État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
 Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
