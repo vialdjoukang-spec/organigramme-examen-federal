@@ -53,3 +53,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 18.10.2026 · #67 : tentative de fusion refusée par la politique de base alors que visuel était encore en cours. Aucun contournement ; attendre tous les contrôles requis. #70 : changement de base ne déclenche pas le workflow CI par défaut ; CI dispatchée sur la tête exacte, sans changement des règles.
 
 - 18.10.2026 · lot 5 : Europe PMC répond par une coquille HTML et ses URL API testées 404/530 ; recherche directe du journal européen utilisée, sans prétendre avoir lu un texte Europe PMC. Source Brest enregistrée par son DOI canonique HTTP 200, sans changer la liste des domaines admis. Conflits de sources/rapport entre #99 et #100 réunis par id et sections, assets reconstruits. Contrôles non affaiblis.
+
+- 18.10.2026 · Recontrôle après modification réseau par Vial : API GitHub, texte EDF et HUG HTTP 200 ; site public github.io toujours CONNECT 403 dans cette session, dont les observations ne contiennent pas ce domaine. Aucune application de la configuration présumée. DOI HypnoLaus renvoie vers Elsevier refusé : aucun chiffre repris. Poursuite du contenu.

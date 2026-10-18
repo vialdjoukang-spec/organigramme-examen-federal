@@ -793,3 +793,6 @@ Contre-lecture pharmacologique avant livraison : l’action limitée sur les œu
 
 ## G7–G10 · 56 DD, six fréquences Brest (G9) · relu le 18.10.2026
 Tableau III et critères de Robert 2020 relus dans le texte et l’image officielle : 81/197 psychogènes, 72/197 neuropathiques, 14/197 iatrogènes, 11/197 rénaux, 8/197 ferriprives, 1/197 Vaquez. Population hospitalière sans dermatose spécifique et causes non exclusives affichées ; pas d’extrapolation générale. Les sous-diagnostics neurologiques ne sont pas sommés ; l’incohérence du détail hépatique est consignée et ce groupe écarté. Hodgkin, obstacle biliaire, pemphigoïde étendue et xérose ne sont pas assimilés à des catégories différentes. Cinquante inconnues explicites, libellés intacts, pas de conduite ni dose modifiée.
+
+## G11–G14 · 56 fréquences inconnues explicites · relu le 18.10.2026
+Les 56 libellés, indices et rangs sont conservés exactement. Les pages HUG sur les troubles du sommeil sont relues sans chiffre exploitable pour les diagnostics exacts. Aucun SAOS modéré assimilé au sévère, aucune narcolepsie globale répartie entre types, aucune mortalité générale transposée au constat médico-légal ou à la mort subite. Les fréquences restent À vérifier. Ce lot ne change pas la couverture quantitative et ne clôt pas la boucle ; verdict détaillé dans qa/audit-galien-prev-g11-g14.md.

@@ -1,3 +1,10 @@
+## Codex · lot 6 de prévalences · 18.10.2026 Europe/Zurich
+État : G11–G14, 56 fréquences explicitement inconnues ; couverture 45/2587 inchangée. G1–G8 et constructions réussis, CI exacte requise avant fusion.
+Prochaine : G15–G18 ; sept monographies G9, puis G10 et Panacée O7.14–O7.12.
+Sources : pages HUG du Centre de médecine du sommeil relues, aucune fréquence retenue ; voir audit/PREVALENCES-G11-G14-20261018.json.
+Pièges : aucun dénominateur de mortalité transposé ; aucune narcolepsie ou catégorie de SAOS élargie.
+À vérifier : les 56 fréquences ; Pages toujours refusé CONNECT 403 dans la session actuelle. Boucles ouvertes, aucune clôture.
+
 ## Codex · Brest et gales · 18.10.2026 Europe/Zurich
 État : #99 fusionnée (8548085), six fréquences retenues sur une cohorte de 197 hospitalisés à Brest ; main 45/2587. #100 réunit deux monographies de gale, cinq épidémiologies précisées et six définitions ; sa branche compte 242/2287 monographies, 563 termes et une référence 3564. CI exacte requise avant fusion de #100.
 Prochaine : boucle 8 lot 6, G11–G14 ; sept G9 encore dus, puis G10. Panacée O7.14–O7.12 en sens inverse. S8 après audit #37.
