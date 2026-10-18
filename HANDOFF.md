@@ -4,6 +4,8 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 
 ## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
+## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
 Prochaine  : vérifier CI et fusion par la file dans l'ordre ; label d'audit selon la relève clinique et la PR précédente.
 Sources    : origin/main, patch 0026 et audit Hérophile existant ; aucun nouveau texte clinique rédigé.
 Pièges     : les monographies quittent assets/ck pour assets/mono ; ne pas résoudre leurs assets à la main.
