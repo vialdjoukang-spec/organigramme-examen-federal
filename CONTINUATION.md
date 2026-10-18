@@ -5,6 +5,9 @@
 > Chaque session : lis `AGENTS.md` → `PROCHAINE_ACTION.md` → `ETAT.json` (`python3 tools/porte.py etat`) → la section de l’étape courante ci-dessous → travaille → `python3 tools/porte.py terminer`.
 > État figé le **17.10.2026 à 23:30 (Europe/Zurich)**, revu le **18.10.2026 00:45**. Si un fait contredit `gh pr list` ou `origin/main`, **le dépôt fait foi** : corrige ce fichier dans ta PR.
 
+## Ordre courant de Vial · 18.10.2026
+Étape9 prioritaire ; étape8 en parallèle par les scripts catégoriels G/S/F/O. Lot2 G10 : compression médullaire et ischémie aiguë/dissection, deux fiches et cinq définitions, 253/2287 monographies sur branche ; CI/audit/fusion/publication exacts requis. G10 5/14 après intégration ; neuf autres restent dus. Recherche parallèle39155482602 réussie techniquement sur160 diagnostics ; résultats partiels, aucune nouvelle prévalence admise. Les étapes en boucle restent ouvertes ; le protocole Gardien reste annulé.
+
 ## Feuille de route (vue d’ensemble, dans l’ordre jusqu’à la fin)
 
 | Étape | Objet | Fin quand… | Modèle | Suivante |

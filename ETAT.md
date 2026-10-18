@@ -67,6 +67,8 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 - 18.10.2026 UTC · Nouvelle revue en contexte : cardioverter était défini comme un appareil ; correction terminologique avec CHUV § Traitements effectivement relu, journal des fautes mis à jour. La conduite périopératoire présente une ambiguïté potentiellement critique : proposition #88 attente-vial, sources ESC 2022 §6.4 et HUG 2024 §2, aucune dose nouvelle et aucune fusion sans accord.
 - 18.10.2026 UTC · Inventaire par SHA et pointeur : 577 champs, 605 occurrences sur main 33bb1d0 ; recensement des marques explicites, pas un audit ni une validation des branches non fusionnées. Scripts et procédure ajoutés au catalogue et au skill vérité.
 
+- 18.10.2026 UTC · Priorité Vial9 et8 parallèle : lot2 G10, deux urgences et cinq définitions ; 253/2287 monographies,587 entrées,45/2587 fréquences inchangées. Audit indépendant, deux précisions corrigées ; contrôles locaux de données verts, Chromium local absent, CI exacte requise. Recherche39155482602 et Pages39156254859 réussis techniquement :160 diagnostics, résultats partiels,377 extraits candidats,352 en file documentaire ; aucun chiffre clinique nouveau.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 18.10.2026 : Luna indisponible par la CLI (401). Modèle de secours : modèle courant de cette session, seul modèle callable sans lancer un autre agent ; utilisé pour les rédactions/relectures, les inventaires étant exécutés par scripts. Le 401 bloque la relance CLI autonome, pas le travail interactif. Les contenus encore à rédiger et à auditer restent dus ; aucune indisponibilité médicale générale n’est déduite de cette erreur.
