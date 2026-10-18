@@ -52,7 +52,7 @@ La même liste existe pour les machines dans `tools/etapes.json` (titres, critè
 
 **Après P1** (Étapes 13–16, dans cet ordre) : nerfs crâniens (NC), stations CS (5 pilotes à relire par Vial), lots d’urgences CK, fond pâle (#32), trauma S8 (#37), revues #39/#41, présentation premium (#16), 27 signes et ~85 termes de Galien.
 
-### A3. Règles non négociables (R1–R14)
+### A3. Règles non négociables (R1–R15)
 - **R1 · Sources** suisses ou européennes uniquement, **lues et datées** (« lu le JJ.MM.AAAA ») ; sinon « À vérifier ». **Ne jamais inventer** un chiffre, une dose, une référence, une image. Ligue pulmonaire suisse acceptée ; abcd.care / JBDS britannique refusé comme source principale ; GINA/GOLD jamais en source principale. Toute source citée doit exister dans `data/ck/src.json`.
 - **R2 · Doses** : uniquement l’**AIPS suisse** (information professionnelle). Méthode approuvée par Vial le 17.10.2026 : extraction **par script, mot pour mot**, depuis le téléchargement officiel Swissmedic/Refdata, **chaque ligne relue** à la main + `tools/doses_check.py` (tout nombre absent de l’extrait officiel est refusé). **Piège des polices** : µ, ≥, ≤ en police symbole sur les pages officielles → noradrénaline lue « mg/min » au lieu de « µg/min » (facteur 1 000) ; vérifie **toujours l’unité**. **Le Compendium (compendium.ch) est exclu** (ni lecture automatisée, ni source). Pas dans l’AIPS → « À vérifier (AIPS) ». Skill `ssp-posologie-suisse`.
 - **R3 · Justifier chaque examen et chaque traitement** (G8) : mécanisme → principe → moyen → pourquoi ce choix → limites.
@@ -67,6 +67,14 @@ La même liste existe pour les machines dans `tools/etapes.json` (titres, critè
 - **R12 · Ne jamais modifier `/workspace/ssp/app.html`** (référence, empreinte contrôlée par la CI `garde`).
 - **R13 · Faute médicale critique** : la signaler en rouge en tête du rapport, poser le label `attente-vial` (la file de fusion la saute) ; sa correction attend l’accord de Vial avant fusion.
 - **R14 · Fusion** : commit de fusion (`--merge`), jamais squash, jamais force-push d’une branche de PR, jamais `--admin` pour contourner, jamais affaiblir la protection de `main`. Permission permanente de Vial : fusionner soi-même **après audit et CI verte**.
+
+- **R15 · Garde-fous (ordre de Vial, 18.10.2026)** : « Codex doit être libre, indépendant de tout PC ». La veille permanente est **GitHub Actions** (gratuit, dépôt public), plus aucun PC :
+  - `garde-progres.yml` toutes les **10 min** (`tools/garde/progres.py`) mesure le contenu réel de `main` (prévalences, monographies, lignes de doses, glossaire). **STALL** = aucun compteur monté en **30 min**, ou seulement des PR de relevé : `@codex` sur la PR brouillon **« Pilote Codex »** (≤ 1 relance / 30 min) ; après **2 stalls consécutifs (60 min)**, `@vialdjoukang-spec` (courriel, ≤ 1 / 60 min). Il recycle aussi chaque PR sans commit depuis **60 min** (`tools/garde/recyclage.py` : « reprends ou ferme avec motif », ne ferme rien).
+  - `checkpoint.yml` (`tools/garde/checkpoint.py`) sur chaque PR : section **« Automates actifs »** obligatoire dans le corps (scripts/skills/MCP existants), interdit de déclarer finie une étape en boucle (8–11, 14, 15) sans données de contenu, aucune dose sans ligne `data/ck/doses_ch.json`. En cas d’échec, l’ordre de correction t’est posté avec `@codex`.
+  - `appel-vial.yml` : étiquette `attente-vial` → une ligne à Vial sur « Pilote Codex » (courriel) **et** `@codex` : continue ailleurs, n’attends **jamais** Vial.
+  - **Début de chaque session** : affiche `python tools/garde/checkpoint.py --inventaire` (tes automates actifs) ; recopie ceux que tu utilises dans « Automates actifs » de ta PR.
+  - **Un relevé seul ne termine jamais une étape en boucle** ; seul le critère automatique (`porte.py`) la clôt.
+  - Seuils en minutes, modifiables sans code : `tools/garde/config.json`. État anti-spam : branche `garde/etat`. `veille_relance.sh` devient **facultatif**.
 
 ### A4. Organisation : deux chaînes en sens opposé, chaque rédacteur suivi de son auditeur
 Les noms sont des **rôles** ; seul, Codex les joue l’un après l’autre (rédiger un lot → l’auditer aussitôt en relecteur agressif → `audit-ok`). En parallèle (plusieurs sessions Codex), une session = un rôle, un worktree.
@@ -107,9 +115,7 @@ Format de chaque étape : **But** · **Actions** · **Fichiers** · **Commandes*
 - **0.2 Skills** : `docs/skills/README.md`, puis `ssp-pilotage-codex`, `ssp-continuite`, `ssp-verite`, `ssp-posologie-suisse`, `ssp-audit-medical`, `ssp-fusion-patch` (les autres à l’étape qui les cite).
 - **0.3 (a) Catalogue** : `python3 tools/catalogue.py` écrit `CATALOGUE.md` (scripts gratuits du dépôt, automates GitHub Actions, outils système, skills, droits). Remplace chaque « À COMPLÉTER PAR CODEX » par la liste réelle : **tes serveurs MCP** (`codex mcp list` ou `~/.codex/config.toml`), **tes skills et outils intégrés** (web, navigateur, exécution…), avec l’étape où chacun sert. **Présente ce catalogue** (copie-le dans ta réponse de session et dans `PROCHAINE_ACTION.md`) **avant de commencer**. Ajoute les automates gratuits manquants que tu jugerais utiles (ex. pre-commit, `act`, lychee) avec leur usage.
 - **0.4 (b) Proposition de skills** : `python3 tools/propose_skills.py` (détecte les commandes et tâches répétitives dans `journal/*.md`, `HANDOFF.md`, `.etat_local/*.log` et `git log`, écrit `docs/skills/PROPOSITIONS.md`). Lis le résultat ; crée tout de suite les skills évidents. À relancer à la fin de chaque étape (A5.7).
-- **0.5 (c) Veille de relance** : teste `bash tools/veille_relance.sh --une-fois --dry-run`, puis lance-la pour de bon :
-  - **Mode A (Codex CLI présent)** : `nohup bash tools/veille_relance.sh --boucle 180 >/dev/null 2>&1 &` ou cron `*/3 * * * * cd <dépôt> && bash tools/veille_relance.sh --une-fois`. Elle appelle `codex exec --full-auto -C <dépôt> [-m gpt-6-luna] "Ordre de Vial : continue avec l'étape suivante…"` quand l’étape est finie, et « reprends l’étape en cours » si rien n’a bougé depuis 20 min (`INACTIF_MIN`). Un seul Codex à la fois (verrou). Journal : `.etat_local/veille_relance.log`, `.etat_local/codex_exec.log`.
-  - **Mode B (Codex web/IDE/cloud, sans CLI)** : la veille (sur n’importe quelle machine, ou le workflow `file-fusion.yml` pour la fusion) écrit l’ordre dans `PROCHAINE_ACTION.md` ; **tu lis ce fichier au début de chaque session** (AGENTS.md l’impose). Si aucune machine ne peut tourner la veille, exécute toi-même `bash tools/veille_relance.sh --une-fois --sans-codex` au début et à la fin de chaque session.
+- **0.5 (c) Veille de relance = GitHub Actions (R15)** : rien à lancer sur un PC. `garde-progres.yml` (toutes les 10 min) te relance par `@codex` sur la PR « Pilote Codex » dès 30 min sans contenu, `file-fusion.yml` fusionne et publie. Vérifie seulement qu’ils sont verts (`gh run list -w garde-progres.yml -L 3`). `tools/veille_relance.sh` reste **facultatif** (mode A `codex exec` si une machine est disponible ; mode B `PROCHAINE_ACTION.md`), jamais requis.
   - Note le mode et la commande dans ETAT.md (« Réglages notés »).
 - **0.6 (d) Droits de fusion** : `bash tools/file_fusion.sh --droits` doit montrer `admin:true`, `merge_commit:true`, `auto_merge:true`. Moyens, dans l’ordre : ton jeton `gh` (déjà admin du dépôt sur la box Grok : `gh auth status`) ; sinon `gh auth login` avec le compte de Vial ; pour l’automate GitHub, un **secret `AUTO_FUSION_TOKEN`** (PAT fin limité à ce dépôt : Contents, Pull requests, Actions en écriture), lu par `auto-fusion.yml` et `file-fusion.yml` (`gh secret set AUTO_FUSION_TOKEN` : demande le jeton à Vial ; **n’écris jamais un jeton dans un fichier ni dans un message**). Les règles de protection restent intactes : « admin » sert à fusionner soi-même, pas à contourner la CI. Teste `bash tools/file_fusion.sh --dry-run`.
 - **0.7 Modèle** : vérifie que `gpt-6-luna` est accessible (`codex exec -m gpt-6-luna "réponds OK"` ou le sélecteur de modèle). Sinon, `export MODELE_REPETITIF=<le moins cher>` pour la veille et note-le dans ETAT.md.
@@ -225,7 +231,7 @@ Puis remplacer dans les monographies les « À vérifier (AIPS) » par `dose_ref
 **Étape suivante : 17.**
 
 ### Étape 17 · Clôture
-**Actions** : jauges à 100 % envoyées ; site public = main (empreinte) ; tests complets ; `HANDOFF.md`, `ETAT.md`, ce fichier à jour ; liste finale des « À vérifier » et des fautes critiques pour Vial ; arrêter la veille (`pkill -f veille_relance.sh`, retirer la ligne cron). **Fin du projet.**
+**Actions** : jauges à 100 % envoyées ; site public = main (empreinte) ; tests complets ; `HANDOFF.md`, `ETAT.md`, ce fichier à jour ; liste finale des « À vérifier » et des fautes critiques pour Vial ; désactiver `garde-progres.yml` (`gh workflow disable garde-progres.yml`) et, si utilisée, la veille facultative. **Fin du projet.**
 
 ---
 
@@ -298,7 +304,8 @@ Jauges inchangées : prévalences 0/2578 (0 %), monographies 70/2280 (3 %). `bin
 |---|---|
 | `tools/porte.py` | Porte des étapes : `etat`, `verifier0`, `commencer N`, `critere N`, `terminer`, `avancer`, `ordre`, `--dry-run`. |
 | `tools/etapes.json` | Feuille de route machine : étapes, critères, boucles, modèle, chaînes de PR de la file de fusion. |
-| `tools/veille_relance.sh` | Veille permanente : file de fusion, fin d’étape, relance de Codex (mode A `codex exec`, mode B `PROCHAINE_ACTION.md`). |
+| `tools/garde/` + `garde-progres.yml`, `checkpoint.yml`, `appel-vial.yml` | **Veille permanente R15** (GitHub Actions, 10 min) : STALL → `@codex`, appel de Vial, recyclage, checkpoint de PR. |
+| `tools/veille_relance.sh` | Veille facultative : file de fusion, fin d’étape, relance de Codex (mode A `codex exec`, mode B `PROCHAINE_ACTION.md`). |
 | `tools/file_fusion.sh` | File de fusion-publication : `--dry-run`, `--chaine`, `--droits`, `--ci` ; échecs → `journal/echecs_fusion.md`. |
 | `.github/workflows/file-fusion.yml` | Même file, planifiée toutes les 20 min sur GitHub (gratuit). |
 | `tools/propose_skills.py` | Propositions automatiques de skills → `docs/skills/PROPOSITIONS.md`. |

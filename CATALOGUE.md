@@ -162,3 +162,13 @@ Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`).
 - `Visuel` propose depuis #32 l’entrée manuelle `adopter_pr` pour exécuter le script habituel d’adoption sur runner quand les artefacts sont inaccessibles localement ; tête/branche/base vérifiées, CI après adoption toujours obligatoire.
 
 - #68 : `0032-cibles-notions.py` porte les liens et boutons Notions à 24 px sans nouvelle règle CSS dans le corps ; adoption de référence examinée sur runner puis CI complète verte.
+
+## Garde-fous R15 (GitHub Actions, gratuits, indépendants de tout PC)
+
+| Automate | Rôle |
+|---|---|
+| `garde-progres.yml` · `tools/garde/progres.py` | Toutes les 10 min : mesure le contenu de main ; STALL (30 min sans contenu) → `@codex` sur « Pilote Codex » ; 2 stalls → courriel à Vial. |
+| `tools/garde/recyclage.py` | PR sans commit depuis 60 min → `@codex reprends ou ferme avec motif` (ne ferme rien). |
+| `checkpoint.yml` · `tools/garde/checkpoint.py` | Chaque PR : « Automates actifs », pas de fausse fin d'étape en boucle, pas de dose sans ligne AIPS. `--inventaire` : automates actifs. |
+| `appel-vial.yml` · `tools/garde/appel.py` | Étiquette `attente-vial` → courriel à Vial + `@codex` continue ailleurs. |
+| `tools/garde/config.json` | Seuils en minutes. |
