@@ -5,6 +5,10 @@ description: >-
   renvoie à l’information professionnelle suisse en vigueur, extraite mot pour mot
   ou lue à la main, relue contre l’extrait et datée.
 ---
+
+# Priorité de CONTINUATION.md R2 (18.10.2026)
+Le Compendium est exclu : aucune lecture, extraction ou source. Les anciennes mentions ci-dessous sont obsolètes sur ce point. Utiliser exclusivement Swissmedic/Refdata et la procédure docs/skills/ssp-aips-verbatim/SKILL.md.
+
 # But
 Ce skill garantit que chaque dose renvoie à un texte suisse daté et validé par un humain.
 # Déclencheur
