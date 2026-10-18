@@ -33,7 +33,7 @@ env:
 jobs:
   adopter-reference:
     name: Adopter une référence examinée
-    if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.adopter_pr != '' }}
+    if: ${{ always() && ((github.event_name == 'workflow_dispatch' && inputs.adopter_pr != '') || (github.event_name == 'pull_request' && github.event.action == 'labeled' && startsWith(github.event.label.name, 'iris:'))) }}
     needs: visuel
     runs-on: ubuntu-latest
     permissions:
@@ -42,24 +42,33 @@ jobs:
       actions: read
     env:
       GH_TOKEN: ${{ github.token }}
-      PR_EXAMINEE: ${{ inputs.adopter_pr }}
+      PR_EXAMINEE: ${{ inputs.adopter_pr || github.event.pull_request.number }}
+      SHA_EXAMINE: ${{ github.event.label.name }}
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.event.pull_request.head.sha || github.ref_name }}
           fetch-depth: 0
       - name: Vérifier la PR et sa tête avant toute écriture
         run: |
           case "$PR_EXAMINEE" in ''|*[!0-9]*) exit 1 ;; esac
           read -r br sha base < <(gh pr view "$PR_EXAMINEE" --json headRefName,headRefOid,baseRefName -q '.headRefName+" "+.headRefOid+" "+.baseRefName')
-          [ "$base" = main ] && [ "$br" = "$GITHUB_REF_NAME" ] && [ "$sha" = "$GITHUB_SHA" ]
+          [ "$base" = main ]
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            [[ "$SHA_EXAMINE" =~ ^iris:[0-9a-f]{40}$ ]] || exit 1
+            [ "${SHA_EXAMINE#iris:}" = "$sha" ] || exit 1
+          else
+            [ "$br" = "$GITHUB_REF_NAME" ] || exit 1
+            [ "$sha" = "$GITHUB_SHA" ] || exit 1
+          fi
+          echo "BRANCHE_EXAMINEE=$br" >> "$GITHUB_ENV"
           git checkout -B "$br" "$sha"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Adopter avec le script contrôlé puis pousser la branche de PR
         run: |
           bash tools/visuel_reference.sh "$PR_EXAMINEE"
-          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          git push origin "HEAD:refs/heads/$BRANCHE_EXAMINEE"
   visuel:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.adopter_pr == '' }}
     name: visuel
@@ -126,6 +135,9 @@ jobs:
           name: visuel-reference-proposee
           path: qa/visuel/proposee/
           retention-days: 14
+      - name: Aperçus de relecture depuis le connecteur GitHub
+        if: always()
+        run: python3 tests/visuel/relecture.py
       - name: Commentaire sur la demande de fusion
         if: always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         env:

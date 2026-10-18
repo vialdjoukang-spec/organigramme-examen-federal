@@ -82,6 +82,8 @@ def main():
                    + '\nUne relance publiée ne prouve pas l’exécution de l’agent.')
         except (ValueError, KeyError, OSError):
             resume('Plan couplé indisponible : état inconnu, aucune maturité déduite.')
+    config_mission = json.load(open(os.path.join(ROOT, "tools/coordination/config.json"), encoding="utf-8"))
+    crise = config_mission.get("mission_exclusive") == "infobulles_prototype6"
     etat.update(maj=iso(t), mesure=M)
     raisons = []
     if stall:
@@ -101,6 +103,12 @@ def main():
                         + json.dumps(plan['prochain_lot9'], ensure_ascii=False)
                         + '. Cherche et reprends la PR active de ce lot avant d’en ouvrir une autre. '
                         'Lire tools/coordination et coordination.html ; aucune validation clinique automatique.') if plan else ''
+            if crise:
+                consigne = ("\n\nMISSION EXCLUSIVE : corriger les infobulles SSP et DD au clic/toucher, sans survol depuis G1, "
+                            "selon docs/PROTOCOLE-INFOBULLES-6-RUBRIQUES.md. Six rubriques, syndromes détaillés, "
+                            "référence diagnostique et premier bilan, A-But/B-Moyens, terminologie cliquable. "
+                            "Reprendre la PR active du lot ; autres tâches et recherches transversales suspendues. "
+                            + json.dumps(plan.get("prochain_lot9", []), ensure_ascii=False))
             if commenter(n, f"@codex Ordre de Vial : reprends l'étape {etape}, lot suivant. Rédige du contenu "
                          f"(prévalences/monographies), pas de relevé. Présente d'abord tes automates actifs "
                          f"(`python tools/garde/checkpoint.py --inventaire`).\n\nGarde R15 : {raison}." + consigne, tok_codex()):
@@ -122,7 +130,10 @@ def main():
         etat.pop("dernier_stall_compte", None)
     from recyclage import recycler
     try:
-        recycler(etat, poster=os.environ.get("GARDE_SEC") != "1")
+        if crise:
+            resume("Mission exclusive infobulles : recyclage des anciennes PR suspendu.")
+        else:
+            recycler(etat, poster=os.environ.get("GARDE_SEC") != "1")
     except Exception as x:  # le recyclage ne bloque jamais la garde
         resume(f"Recyclage en échec : {x}")
     resume(f"## Garde du progrès · {'STALL' if stall else 'OK'}\n"

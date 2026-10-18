@@ -12,7 +12,29 @@ concurrency:
   group: prevalences-recherche
   cancel-in-progress: false
 jobs:
+  perimetre:
+    name: Respecter la mission exclusive en cours
+    runs-on: ubuntu-latest
+    outputs:
+      autorise: ${{ steps.mission.outputs.autorise }}
+    steps:
+      - uses: actions/checkout@v7
+        with: { ref: main }
+      - id: mission
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          config = json.loads(Path('tools/coordination/config.json').read_text())
+          autorise = config.get('mission_exclusive') != 'infobulles_prototype6'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              print('autorise=' + str(autorise).lower(), file=f)
+          if not autorise:
+              print('Correction exclusive des infobulles depuis G1 : recherche transversale suspendue. Les sources du lot sont relues par les rédacteurs et auditeurs.')
+          PY
   recherche:
+    needs: perimetre
+    if: needs.perimetre.outputs.autorise == 'true'
     name: Recherche ${{ matrix.categorie }}
     runs-on: ubuntu-latest
     timeout-minutes: 18
@@ -67,8 +89,8 @@ jobs:
           if-no-files-found: error
   suivi:
     name: Jauges et agent auditeur statistique
-    needs: recherche
-    if: always()
+    needs: [perimetre, recherche]
+    if: always() && needs.perimetre.outputs.autorise == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 6
     permissions:

@@ -38,9 +38,13 @@ async def main():
         await boot(pg)
         out['douze_cartes_ordre'] = await pg.evaluate("ids=>$$('#m-evl h3[data-t]').map(h=>h.dataset.t.slice(2)).join()===ids.join()", IDS)
         out['chaque_carte_doi_et_examen'] = await pg.evaluate("$$('#m-evl .m-it').every(a=>a.querySelector('a[href^=\"https://doi.org/10.\"][target=_blank]')&&/Pour l’examen fédéral/.test(a.textContent)&&/lu le 17\\.10\\.2026/.test(a.textContent))")
-        # Survol (ordinateur) : la fenêtre s'ouvre sur la méthode 3, avec ses preuves en médecine et un DOI.
+        # Le survol ne fait rien ; le clic ouvre la fenêtre de la méthode 3 avec ses preuves et un DOI.
         await pg.hover('#m-it-pratique-espacee h3 .tw'); await pg.wait_for_timeout(500)
-        out['survol_ouvre_fenetre'] = await pg.evaluate("!$('#tip').hidden&&/Pratique espacée/.test($('#tip').textContent)&&/Preuves en médecine/.test($('#tip').textContent)&&!!$('#tip a[href^=\"https://doi.org/\"]')")
+        survol_ne_ouvre_pas = await pg.evaluate("$('#tip').hidden")
+        await pg.locator('#m-it-pratique-espacee h3 .tw').click(); await pg.wait_for_timeout(150)
+        clic_ouvre_fenetre = await pg.evaluate("!$('#tip').hidden&&/Pratique espacée/.test($('#tip').textContent)&&/Preuves en médecine/.test($('#tip').textContent)&&!!$('#tip a[href^=\"https://doi.org/\"]')")
+        out['survol_ne_ouvre_clic_ouvre_fenetre'] = survol_ne_ouvre_pas and clic_ouvre_fenetre
+        await pg.locator('#tip .h button[aria-label=Fermer]').click(); await pg.wait_for_timeout(80)
         # Clic : chaque méthode s'épingle, avec principe, usage, preuves en médecine et au moins un DOI.
         ok = True
         for i in IDS:

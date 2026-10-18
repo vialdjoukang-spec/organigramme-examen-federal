@@ -9,8 +9,9 @@ Format : { "<SSP>": { "cadre": texte, "items": [ { "i", "nom", "prev_pct", "op"?
 Règles : P1 chaque diagnostic du SSP (NOT[SSP][0]) figure une fois, avec son nom exact ; P2 un chiffre est un nombre
 dans ]0 ; 100] ; P3 un chiffre exige src (présent dans data/ck/src.json), loc (tableau, page ou paragraphe) et date_lu
 (ISO, au plus aujourd'hui) ; P4 sans chiffre, statut « À vérifier » ; P5 type ∈ {consultation, population} ;
-P6 l'ordre d'affichage est décroissant pour les chiffres, puis « à vérifier » par rang clinique (calculé, jamais saisi) ;
-P7 un cadre (celui du SSP ou celui de l'élément) accompagne chaque chiffre.
+P6 les chiffres sont décroissants ; les inconnues suivent leur ordre historique `rang`, mais ce rang n'est pas une
+fréquence ni une classification clinique prouvée. Un classement qualitatif exige une source et un cadre complets ;
+sans preuve valide, son état reste « indéterminé » ; P7 un cadre accompagne chaque chiffre.
 """
 import datetime, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -33,17 +34,90 @@ def notions(root=ROOT):
     return json.loads(s[a:b])
 
 
-def ordre(items):
-    """Chiffres en ordre décroissant (égalité : rang), puis « à vérifier » par rang clinique."""
+def _source_ids(sources):
+    if isinstance(sources, dict):
+        return set(sources)
+    return {e.get('id') for e in sources or [] if isinstance(e, dict)}
+
+
+def classification_status(section, sources, today=None):
+    """Valide le classement qualitatif documenté d'un SSP, sans déduire d'ordre clinique.
+
+    Renvoie `{'etat': 'indetermine'|'valide'|'invalide', 'raisons': [...]}`.
+    `sources` accepte la liste des entrées de src.json ou un dictionnaire indexé par identifiant.
+    """
+    c = section.get('classement')
+    if c is None:
+        return {'etat': 'indetermine', 'raisons': ['classement qualitatif non documenté']}
+    reasons = []
+    if not isinstance(c, dict):
+        return {'etat': 'invalide', 'raisons': ['classement doit être un objet']}
+    if c.get('type') != 'qualitatif_source':
+        reasons.append('type de classement doit être qualitatif_source')
+    if c.get('src') not in _source_ids(sources):
+        reasons.append(f"source {c.get('src')!r} absente de data/ck/src.json")
+    d = c.get('date_lu') or ''
+    try:
+        parsed = datetime.date.fromisoformat(d)
+        today_date = datetime.date.fromisoformat(today) if isinstance(today, str) else (today or datetime.date.today())
+        if parsed.isoformat() != d or parsed > today_date:
+            reasons.append(f'date de lecture {d!r} invalide ou future')
+    except (TypeError, ValueError):
+        reasons.append(f'date de lecture {d!r} invalide ou future')
+    if not isinstance(c.get('loc'), str) or not c.get('loc', '').strip():
+        reasons.append('emplacement (tableau, page, paragraphe) manquant')
+    if not isinstance(c.get('cadre'), str) or not c.get('cadre', '').strip():
+        reasons.append('cadre du classement manquant')
+    items = section.get('items', [])
+    expected = [e.get('i') for e in items]
+    order = c.get('ordre')
+    if (not isinstance(order, list) or any(not isinstance(i, int) or isinstance(i, bool) for i in order)
+            or len(order) != len(expected) or len(set(order)) != len(order) or set(order) != set(expected)):
+        reasons.append('ordre doit être une permutation complète et univoque des indices DD')
+    if reasons:
+        return {'etat': 'invalide', 'raisons': reasons}
+
+    # Les fréquences ne peuvent être contredites que lorsqu'elles décrivent le même type et le même cadre.
+    by_i = {e['i']: e for e in items}
+    positions = {i: pos for pos, i in enumerate(order)}
+    for a in items:
+        x = a.get('prev_pct')
+        if isinstance(x, bool) or not isinstance(x, (int, float)):
+            continue
+        frame_a = a.get('cadre') or section.get('cadre')
+        for b in items:
+            y = b.get('prev_pct')
+            if isinstance(y, bool) or not isinstance(y, (int, float)) or a['i'] == b['i']:
+                continue
+            frame_b = b.get('cadre') or section.get('cadre')
+            if a.get('type', 'consultation') != b.get('type', 'consultation') or frame_a != frame_b:
+                continue
+            if x > y and positions[a['i']] > positions[b['i']]:
+                reasons.append(f"ordre qualitatif contredit les chiffres comparables ({a['i']} avant {b['i']})")
+                return {'etat': 'invalide', 'raisons': reasons}
+    return {'etat': 'valide', 'raisons': []}
+
+
+def ordre(items, classement=None, classification=None):
+    """Ordre d'affichage ; un rang legacy ne prouve pas l'ordre clinique des inconnues."""
+    if classification and classification.get('etat') == 'valide':
+        by_i = {e['i']: e for e in items}
+        return [by_i[i] for i in classement['ordre']]
     av = [e for e in items if e.get('prev_pct') is None]
     ch = [e for e in items if e.get('prev_pct') is not None]
     return sorted(ch, key=lambda e: (-e['prev_pct'], e.get('rang', 99))) + sorted(av, key=lambda e: e.get('rang', 99))
 
 
+def _sources(root=ROOT):
+    p = os.path.join(root, 'data', 'ck', 'src.json')
+    return json.load(open(p, encoding='utf-8'))
+
+
 def controler(root=ROOT, D=None, NOT=None):
     D = charger(root) if D is None else D
     NOT = notions(root) if NOT is None else NOT
-    src = {e['id'] for e in json.load(open(os.path.join(root, 'data', 'ck', 'src.json'), encoding='utf-8'))}
+    src_entries = _sources(root)
+    src = _source_ids(src_entries)
     auj = datetime.date.today().isoformat()
     err = []
     for c, E in sorted(D.items()):
@@ -51,6 +125,9 @@ def controler(root=ROOT, D=None, NOT=None):
             err.append((c, '-', 'P1', 'SSP inconnu')); continue
         noms = NOT[c][0]
         items = E.get('items', [])
+        cl = classification_status(E, src_entries)
+        if cl['etat'] == 'invalide':
+            err.extend((c, '-', 'P6', f"classement qualitatif invalide : {r}") for r in cl['raisons'])
         vus = [e.get('i') for e in items]
         if sorted(vus) != list(range(len(noms))):
             err.append((c, '-', 'P1', f'index {sorted(vus)} ≠ 0…{len(noms) - 1}'))
@@ -85,12 +162,14 @@ def controler(root=ROOT, D=None, NOT=None):
     return err
 
 
-def prv(D):
+def prv(D, sources=None, today=None):
     """Constante PRV : {SSP: [[i, %, op, population]]} dans l'ordre d'affichage (champs vides retirés)."""
     out = {}
     for c, E in sorted(D.items()):
         L = []
-        for e in ordre(E['items']):
+        sources = _sources() if sources is None else sources
+        cl = classification_status(E, sources, today=today)
+        for e in ordre(E['items'], E.get('classement'), cl):
             r = [e['i'], e.get('prev_pct')]
             pop = e.get('type') == 'population'
             if e.get('op') or pop:
@@ -102,11 +181,17 @@ def prv(D):
     return out
 
 
-def detail(D):
-    """assets/ck/prev.js : {SSP: {i: {cadre, type, src, loc, date_lu, statut, note}}}."""
+def detail(D, sources=None, today=None):
+    """assets/ck/prev.js : métadonnées par DD, avec `classement` au niveau SSP.
+
+    Le statut `indetermine` interdit d'interpréter les rangs legacy comme preuve clinique.
+    """
+    sources = _sources() if sources is None else sources
     out = {}
     for c, E in sorted(D.items()):
         out[c] = {}
+        cl = classification_status(E, sources, today=today)
+        out[c]['classement'] = dict(E.get('classement') or {}, etat=cl['etat'], raisons=cl['raisons'])
         for e in E['items']:
             x = {k: e[k] for k in ('type', 'src', 'loc', 'date_lu', 'statut', 'note') if e.get(k)}
             x['cadre'] = e.get('cadre') or E.get('cadre', '')

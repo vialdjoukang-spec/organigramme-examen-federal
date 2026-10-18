@@ -13,10 +13,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import _app
 ROOT = _app.ROOT
 DATA, OUT = os.path.join(ROOT, 'data/ck/mono'), os.path.join(ROOT, 'assets/mono')
-CH = [('def', '1. Définition'), ('epi', '2. Épidémiologie'), ('phy', '3. Physiopathologie'),
-      ('cli', '4. Syndrome clinique'), ('exp', '5. Syndrome aux explorations'), ('dia', '6. Diagnostic')]
-PEC = [('but', 'But'), ('mes', 'Mesures générales'), ('pha', 'Pharmacologie'), ('aut', 'Autre')]
-REQ = [k for k, _ in CH] + ['but', 'mes', 'pha', 'src', 'lu', 'n']
+NEW_EXP = ('exp_ref', 'exp_premier', 'exp_bio', 'exp_morph', 'exp_fonc')
+REQ = ['def', 'epi', 'phy', 'cli', 'exp', 'dia', 'but', 'mes', 'pha', 'src', 'lu', 'n']
+SSP_DATA = os.path.join(ROOT, 'data/ck/mono_ssp.json')
+SSP_OUT = os.path.join(OUT, 'mono-ssp.js')
 
 
 def mid(name):
@@ -29,10 +29,39 @@ def tranche(k):
 
 
 def html(e):
-    L = [f'<b>{t} :</b> {e[k]}' for k, t in CH]
-    L.append('<b>7. Prise en charge :</b>')
-    L += [f'• <b>{t} :</b> {e[k]}' for k, t in PEC if e.get(k)]
-    return '<br>'.join(L)
+    """Render six protocol rubrics; legacy diagnosis text stays within rubric 5."""
+    lines = [
+        f'<b>1. Généralité &amp; Définition :</b> {e["def"]}',
+        f'<b>2. Épidémiologie et Sex Ratio :</b> {e["epi"]}',
+        f'<b>3. Physiopathologie :</b> {str(e["phy"]).replace(chr(10), "<br>")}',
+        f'<b>4. Sémiologie clinique :</b> {str(e["cli"]).replace(chr(10), "<br>")}',
+        '<b>5. Sémiologie aux explorations</b>',
+    ]
+    labels = {
+        'exp_ref': 'Examen de référence diagnostique', 'exp_premier': 'À faire en premier',
+        'exp_bio': 'Biologie', 'exp_morph': 'Morphologie', 'exp_fonc': 'Explorations fonctionnelles',
+    }
+    # New protocol fields lead rubric 5. Legacy exp and dia are always retained after them.
+    lines.extend(f'<b>{labels[k]} :</b> {e[k]}' for k in NEW_EXP if e.get(k))
+    lines.append(f'<b>Explorations :</b> {e["exp"]}')
+    lines.append(f'<b>Critères diagnostiques :</b> {e["dia"]}')
+    lines.extend([
+        '<b>6. Prise en charge</b>',
+        f'<b>A- But :</b> {e["but"]}',
+        '<b>B- Moyens</b>',
+        f'<b>Mesures générales :</b> {e["mes"]}',
+        f'<b>Pharmacologie :</b> {e["pha"]}',
+    ])
+    if e.get('aut'):
+        lines.append(f'<b>Autres :</b> {e["aut"]}')
+    return '<br>'.join(lines)
+
+
+def prototype_ready(e):
+    """True when the opt-in record has the complete six-rubric structure; not a clinical review."""
+    version = e.get('prototype_version')
+    return (isinstance(version, (int, float)) and not isinstance(version, bool) and version == 1
+            and all(isinstance(e.get(k), str) and e[k].strip() for k in REQ + list(NEW_EXP)))
 
 
 def load():
@@ -46,20 +75,59 @@ def load():
     return M
 
 
+def load_ssp(root=ROOT):
+    path = os.path.join(root, 'data/ck/mono_ssp.json')
+    return json.load(open(path, encoding='utf-8')) if os.path.exists(path) else None
+
+
+def catalogue_ssp(root=ROOT):
+    app = open(os.path.join(root, 'app_v2.html'), encoding='utf-8').read()
+    a, b = _app.span(app, 'SSP')
+    return {x[0]: x[1] for x in json.loads(app[a:b])}
+
+
+def _field_errors(k, e, require_prototype=False):
+    err = []
+    for f in REQ:
+        if not str(e.get(f, '')).strip(): err.append(f'{k} : champ {f} vide')
+    if require_prototype and 'prototype_version' not in e:
+        err.append(f'{k} : les monographies SSP doivent déclarer prototype_version: 1')
+    if 'prototype_version' in e:
+        version = e.get('prototype_version')
+        if not (isinstance(version, (int, float)) and not isinstance(version, bool) and version == 1):
+            err.append(f'{k} : prototype_version doit être le nombre 1')
+        else:
+            for f in NEW_EXP:
+                if not isinstance(e.get(f), str) or not e[f].strip():
+                    err.append(f'{k} : champ prototype {f} doit être une chaîne non vide')
+    for f, v in e.items():
+        if isinstance(v, str) and re.search(r'<(b|strong)\b', v): err.append(f'{k}.{f} : gras réservé aux titres')
+    if not re.search(r'\d{2}\.\d{2}\.\d{4}', e.get('lu', '')): err.append(f'{k} : date de lecture absente')
+    p = e.get('pha', '')
+    if re.search(r'\d\s?(mg|µg|g|mmol|UI)\b', p) and 'AIPS' not in e.get('src', '') + p:
+        err.append(f'{k} : dose sans AIPS lue (écrire « dose : à vérifier (AIPS) »)')
+    return err
+
+
 def errors(M, names):
     err = []
     for k, (t, e) in M.items():
         if mid(e.get('n', '')) != k: err.append(f'{k} : clé ≠ libellé normalisé')
         if t != tranche(k): err.append(f'{k} : mauvaise tranche {t}')
         if k not in names: err.append(f'{k} : aucun diagnostic de NOT ne porte ce libellé')
-        for f in REQ:
-            if not str(e.get(f, '')).strip(): err.append(f'{k} : champ {f} vide')
-        for f, v in e.items():
-            if isinstance(v, str) and re.search(r'<(b|strong)\b', v): err.append(f'{k}.{f} : gras réservé aux titres')
-        if not re.search(r'\d{2}\.\d{2}\.\d{4}', e.get('lu', '')): err.append(f'{k} : date de lecture absente')
-        p = e.get('pha', '')
-        if re.search(r'\d\s?(mg|µg|g|mmol|UI)\b', p) and 'AIPS' not in e.get('src', '') + p:
-            err.append(f'{k} : dose sans AIPS lue (écrire « dose : à vérifier (AIPS) »)')
+        err.extend(_field_errors(k, e))
+    return err
+
+
+def errors_ssp(M, names):
+    """Validate SSP-keyed monographies against the app catalogue; all entries are opt-in prototypes."""
+    err = []
+    for code, e in M.items():
+        if code not in names:
+            err.append(f'{code} : code SSP absent du catalogue app')
+        elif e.get('n') != names[code]:
+            err.append(f'{code} : n ≠ libellé SSP du catalogue (« {names[code]} »)')
+        err.extend(_field_errors(code, e, require_prototype=True))
     return err
 
 
@@ -70,6 +138,13 @@ def build(M):
     return {t: '/* Généré par tools/mono_build.py depuis data/ck/mono/ : ne pas modifier à la main. */\n'
             f'window.CK_MONO_{t.upper()}=' + json.dumps(dict(sorted(v.items())), ensure_ascii=False, separators=(',', ':')) + ';\n'
             for t, v in T.items()}
+
+
+def build_ssp(M):
+    """Build the dedicated SSP asset consumed by monoLoad('ssp')."""
+    V = {code: {'h': html(e), 's': e['src'] + ' · lu le ' + e['lu']} for code, e in sorted(M.items())}
+    return '/* Généré par tools/mono_build.py depuis data/ck/mono_ssp.json : ne pas modifier à la main. */\n' \
+        + 'window.CK_MONO_SSP=' + json.dumps(V, ensure_ascii=False, separators=(',', ':')) + ';\n'
 
 
 def main():
@@ -86,16 +161,25 @@ def main():
     M = load()
     err = errors(M, names)
     A = build(M)
+    SSP = load_ssp()
+    SSP_JS = None
+    if SSP is not None:
+        err.extend(errors_ssp(SSP, catalogue_ssp()))
+        SSP_JS = build_ssp(SSP)
     if '--check' in sys.argv:
         for t, js in A.items():
             p = os.path.join(OUT, f'mono-{t}.js')
             if not os.path.exists(p) or open(p, encoding='utf-8').read() != js: err.append(f'{p} pas à jour')
+        if SSP_JS is not None and (not os.path.exists(SSP_OUT) or open(SSP_OUT, encoding='utf-8').read() != SSP_JS):
+            err.append(f'{SSP_OUT} pas à jour')
         print('\n'.join(err) or f'Monographies : {len(M)}/{len(names)} diagnostics, contrôle OK')
         sys.exit(1 if err else 0)
     if err: sys.exit('\n'.join(err))
     os.makedirs(OUT, exist_ok=True)
     for t, js in A.items():
         open(os.path.join(OUT, f'mono-{t}.js'), 'w', encoding='utf-8').write(js)
+    if SSP_JS is not None:
+        open(SSP_OUT, 'w', encoding='utf-8', newline='\n').write(SSP_JS)
     print(f'Monographies : {len(M)}/{len(names)} diagnostics')
 
 
