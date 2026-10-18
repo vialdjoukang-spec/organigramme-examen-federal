@@ -1,3 +1,5 @@
+<p class="urg" style="color:red"><b>R13 · attente-vial</b> : indication de dexaméthasone dans l’hémorragie intracérébrale aiguë à corriger avant fusion (ESO/EANS 2025, PICO 5.1.6). La conformité d’une dose à l’AIPS ne valide pas cette indication clinique.</p>
+
 <p class="urg" style="color:red"><b>PR #64 · accord de Vial reçu, audit final requis</b> : la fiche d’arrêt hypothermique présente HOPE &lt; 10 % comme une exception autorisant le constat de décès avant réchauffement. Les sources relues décrivent un outil de sélection de l’ECLS, pas un critère autonome de constat de décès. Risque clinique potentiellement critique : la formulation est retirée dans la reprise après accord de Vial du 18.10.2026 ; relecture primaire et CI exactes restent requises avant fusion.</p>
 
 # Rapport d'audit médical : les fautes corrigées
@@ -610,6 +612,12 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
 
+## Galien · doses AIPS #67 · 18.10.2026 Europe/Zurich
+
+Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 74 lignes, confrontées à 51 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
+
+Chaque ligne a un verdict, son URL officielle et l’empreinte du document dans AIPS-RELECTURE-PR67.json. Aucun document source brut n’est versionné. Les versions exprimées au mois ne donnent pas un jour de publication exact ; le jour 01 anciennement saisi est désormais explicitement décrit comme convention de normalisation. Aucune validation par un médecin ou par Vial n’est déclarée.
+
 ## Hérophile/Galien · audit final partiel G7/G8 (#64) · 18.10.2026 Europe/Zurich
 
 Les 25 monographies nouvelles ont été relues. Reprise technique : main intégré, conflits de shards résolus par merge_shards sans conflit réel signalé, patch 0026 et assets régénérés. Aucun audit-ok ajouté ; attente-vial suspend cette PR.
@@ -663,6 +671,9 @@ Doutes traités : vitesse KCl laissée « À vérifier (AIPS) », sans convertir
 
 Validation : doses_check, comparaison des extraits et schémas/compilation à vérifier après application finale ; trois tests protègent le décodage µ/≥. La CI complète reste obligatoire.
 
+Ce lot reste attente-vial ; aucun audit-ok et aucune fusion avant la décision R13.
+
+Contrôles finaux : doses_check, conformité verbatim hors ligne, 3 tests du lecteur AIPS, ck_build, mono/prev --check, G1/G2/G3/G6 et Lyncée --diff réussis. Ne vaut ni suite complète d’interface ni validation Vial. Glossaire ciblé : définitions nécessaires à cette branche ; définitions et absence de circularité relues dans un second rôle Asclépios. Aucune dose numérique ajoutée par le glossaire.
 Aucune faute critique identifiée dans les lignes de ce lot ; audit-ok peut être rétabli après les contrôles techniques, sans acquérir de validation médicale humaine.
 
 Contrôles finaux : doses_check, conformité verbatim hors ligne, 3 tests du lecteur AIPS, ck_build, mono/prev --check, G1/G2/G3/G6 et Lyncée --diff réussis. Ne vaut ni suite complète d’interface ni validation Vial. Glossaire ciblé : définitions nécessaires à cette branche ; définitions et absence de circularité relues dans un second rôle Asclépios. Aucune dose numérique ajoutée par le glossaire.
@@ -724,6 +735,10 @@ Le tableau 4 de Gräni et al. (Zurich, BMJ Open 2015) donne un SCA parmi 53 doul
 La première proposition de fréquence migraine de Berne est retirée avant livraison : PLOS est un éditeur hors du périmètre G3, même si les auteurs et données sont suisses ; le dépôt institutionnel suisse est inaccessible. Son pays n’est pas artificiellement déclaré CH. L’étude européenne de Doretti et al. 2019 présente aussi des incohérences de tableau (110 migraines au total contre 59 + 61 dans les centres). Aucun chiffre choisi arbitrairement. Les regroupements de céphalées ne sont pas redistribués entre DD.
 
 Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lyncée. Preuve détaillée et URL des lectures : audit/PREVALENCES-CEPHALEE-PAROI-20261018.json. Aucune faute critique nouvelle identifiée dans ce diff.
+
+### Reprise #67 · 18.10.2026, Europe/Zurich
+
+Accord et consigne de Vial lus sur la page publique. La monographie meningo-encephalite-herpetique affiche désormais les 10 jours de l’AIPS en premier et référence aciclovir-iv-adulte ; l’ancienne affirmation européenne 14/21 jours n’est plus affichée faute de relecture primaire possible dans cette session. Les extraits AIPS conservés sont inchangés : Riamet est limité aux moins de 12 ans pour les trois bandes de faible poids ; la répétition de Praxbind exige les conditions cliniques et de coagulation de l’extrait. Les corrections sont confrontées aux extraits locaux, sans prétendre avoir téléchargé les originaux Refdata ni achevé la relecture de toutes les lignes. Politique réseau bloquante ; audit-ok et fusion restent dus.
 
 ## Hérophile · G9, six causes ciblées du prurit · 18.10.2026
 
