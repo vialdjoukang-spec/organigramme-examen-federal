@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 68 faute(s) corrigée(s), dont 0 critique(s), 11 majeure(s) et 57 mineure(s).
+Bilan : 69 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 57 mineure(s).
 
 ## ck-urgences-lot1
 
@@ -57,6 +57,12 @@ Bilan : 68 faute(s) corrigée(s), dont 0 critique(s), 11 majeure(s) et 57 mineur
 | Mineure | alias | La dysmétrie figurait comme alias de l’hypermétrie, terme que la source ne donne pas ; la dysmétrie désigne plus largement toute erreur d’amplitude du geste. | L’alias a été retiré. | R-CEN-CER, Syndrome cérébelleux, § II.2 Hypermétrie, lu le 2026-10-17 | Galien-Neuro | 39375ed |
 | Mineure | alias | L’hémiparésie figurait comme alias de l’hémiplégie, alors que la définition elle-même la distingue comme une paralysie incomplète ; la source oppose l’atteinte complète (plégie) à l’atteinte incomplète (parésie). | L’alias a été retiré ; la définition explique toujours l’hémiparésie. | R-CEN-PYR, Syndrome pyramidal, § V Formes topographiques, lu le 2026-10-17 | Galien-Neuro | 6b2946c |
 | Mineure | alias | L’paraparésie figurait comme alias de l’paraplégie, alors que la définition elle-même la distingue comme une paralysie incomplète ; la source oppose la paraplégie (atteinte complète) à la paraparésie (atteinte incomplète). | L’alias a été retiré ; la définition explique toujours l’paraparésie. | R-CEN-PYR, Syndrome pyramidal, § V.4 Moelle épinière, lu le 2026-10-17 | Galien-Neuro | f463519 |
+
+## glossaire-migration
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | def, alias, src | Un verbe employé dans la conduite à tenir était défini comme un appareil, avec une source portant sur le défibrillateur implantable. | Définir l’action de tenter de rétablir un rythme normal, retirer l’alias nominal et citer le paragraphe Traitements du CHUV effectivement relu. | R-CHUV-CARDIOVERSION-2024, § Traitements, lu le 18.10.2026, lu le 2026-10-18 | Galien-CœurThorax | e0650f7 |
 
 ## nc07-chaine
 

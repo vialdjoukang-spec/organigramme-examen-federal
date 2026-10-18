@@ -63,7 +63,13 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 01:16 UTC · #32 fusionnée (617878e), contrôles requis verts après adoption de la référence CI. Patch fond pâle, procédé runner et référence intégrés ; #37 reste en audit.
 
+- 18.10.2026 UTC · #49/#59/#61/#65 fusionnées. #65 intègre 414 entrées, référence 3730 et correctifs de sélection/disposition : suite 278/278, référence visuelle conservée. #68 (543 entrées, référence 3567) corrige des cibles trop petites dans Notions ; captures et référence en cours de vérification.
+- 18.10.2026 UTC · Nouvelle revue en contexte : cardioverter était défini comme un appareil ; correction terminologique avec CHUV § Traitements effectivement relu, journal des fautes mis à jour. La conduite périopératoire présente une ambiguïté potentiellement critique : proposition #88 attente-vial, sources ESC 2022 §6.4 et HUG 2024 §2, aucune dose nouvelle et aucune fusion sans accord.
+- 18.10.2026 UTC · Inventaire par SHA et pointeur : 577 champs, 605 occurrences sur main 33bb1d0 ; recensement des marques explicites, pas un audit ni une validation des branches non fusionnées. Scripts et procédure ajoutés au catalogue et au skill vérité.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
+
+18.10.2026 : Luna indisponible par la CLI (401). Modèle de secours : modèle courant de cette session, seul modèle callable sans lancer un autre agent ; utilisé pour les rédactions/relectures, les inventaires étant exécutés par scripts. Le 401 bloque la relance CLI autonome, pas le travail interactif. Les contenus encore à rédiger et à auditer restent dus ; aucune indisponibilité médicale générale n’est déduite de cette erreur.
 
 ---
 
@@ -167,3 +173,9 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Contre-lire le lot 2 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
 | [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
+
+### Actualisation après les fusions #68 et #85 · 18.10.2026 UTC
+
+Étape 7 : critère vérifié, #65 puis #68 fusionnées, 543 entrées et référence 3567. #85 fusionnée, fréquences inconnues préservées ; couverture toujours 1 %/9 %. Inventaire de main 27c9658 : 751 champs explicitement À vérifier, 779 occurrences. Contrôle de publication 02:23 UTC : application et quatre JS identiques à cet instantané. ETAT.json conserve la reprise à 8 et refuse la clôture.
+
+Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.

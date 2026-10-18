@@ -1,5 +1,8 @@
 # Rapport d'audit médical : les fautes corrigées
 
+<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 en attente de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. La correction de conduite reste hors main, en attente de l’accord prévu par R13. La correction terminologique du verbe dans le glossaire est distincte.</p>
+
+
 Galien, auditeur médical et linguistique, relit chaque groupe de prévalence des diagnostics différentiels ; Hérophile, auditeur suiveur, relit chaque lot de monographies d'Hygie (data/ck/mono). Chaque ligne nomme l'élément, la faute, la correction, la source relue et le type de faute. Les fautes critiques, qui touchent la sécurité du patient, figurent aussi dans la section « Fautes critiques pour Vial ».
 ## Érasistrate · Panacée lot 3 (O7.20–O7.18, PR #60) — 17.10.2026
 
@@ -694,3 +697,7 @@ Les six écarts Iris restants se concentraient dans la vitrine : l’insertion d
 Validation finale du correctif de disposition : suite complète 278/278. Six états vitrine (trois thèmes × ordinateur/mobile) : 0,0074 à 0,0152 % de pixels différents face à la référence inchangée (seuil 0,2 %), zéro débordement et zéro texte coupé. Avant correctif, les six écarts CI atteignaient 1,99 à 4,17 %. L’étiquette de nouvelle référence a été retirée : la correction conserve la référence existante. Après intégration du premier lot AIPS, 413 entrées et référence 3731 ; après le second lot, les mêmes effectifs et aucun nouveau terme non défini.
 
 Après fusion de #49, Lyncée détecte trois candidats supplémentaires : hyperstimule reçoit la définition hyperstimulation (À vérifier), tandis que périodiquement et prédispose sont des mots généraux du français, exclus avec leur motif linguistique précis. Aucun terme clinique spécialisé n’est exclu pour contourner le garde ; aucune admission en référence. Les modifications cliniques d’Hérophile sont conservées.
+
+### Galien · correction terminologique cardioverter, 18.10.2026
+
+Faute majeure de définition introduite pendant la migration #65 : « cardioverter » désignait un appareil, avec alias cardioverteur, tandis que mono.arythmie-non-controlee.mes l’emploie comme verbe. La définition décrit désormais l’action de tenter de rétablir un rythme normal par électricité ou médicament ; alias nominal retiré. Source CHUV relue, page Fibrillation et flutter, § Traitements, mise à jour du 29.07.2024. Le renvoi à la page d’implantation d’un défibrillateur ne justifiait pas ce sens et est remplacé. Aucune conduite d’urgence, dose ou indication modifiée dans cette correction de glossaire ; la formulation de la monographie fait l’objet d’une revue distincte.
