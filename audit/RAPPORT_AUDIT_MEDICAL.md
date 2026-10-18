@@ -785,3 +785,6 @@ Deux propositions : dysthyroïdies et cholestase obstructive. EDF 2025 §4.2.2/3
 
 ### Recontrôle G9 après #64 · 18.10.2026
 Six propositions comparées aux sections 4.2.1/3/7/8/9, 4.3.2, 6.4.5 et 6.6.1 du texte intégral EDF 2025 et à la définition HUG d’hémodialyse, accessibles et relus. Réserves épidémiologiques, critères fonctionnels et AIPS conservés ; aucune dose ajoutée. G1–G8 et constructions verts. Le navigateur système bloque file:// et le téléchargement Playwright est refusé ; la CI de la tête exacte reste obligatoire.
+
+## G7–G10 · 56 DD, six fréquences Brest (G9) · relu le 18.10.2026
+Tableau III et critères de Robert 2020 relus dans le texte et l’image officielle : 81/197 psychogènes, 72/197 neuropathiques, 14/197 iatrogènes, 11/197 rénaux, 8/197 ferriprives, 1/197 Vaquez. Population hospitalière sans dermatose spécifique et causes non exclusives affichées ; pas d’extrapolation générale. Les sous-diagnostics neurologiques ne sont pas sommés ; l’incohérence du détail hépatique est consignée et ce groupe écarté. Hodgkin, obstacle biliaire, pemphigoïde étendue et xérose ne sont pas assimilés à des catégories différentes. Cinquante inconnues explicites, libellés intacts, pas de conduite ni dose modifiée.
