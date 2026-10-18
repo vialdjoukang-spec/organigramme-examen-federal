@@ -19,7 +19,7 @@ class ProgressTests(unittest.TestCase):
         cls.ssps,cls.tasks=catalog();cls.task=cls.tasks[0]
     def state(self, query_list=None):
         t=self.task
-        qs=[{'provider':p,'id':i,'ok':True} for p in CONFIG['providers'] for i in (['CH:documents_hug'] if p=='hug' else ['CH:consultation','CH:population','Europe:consultation','Europe:population'])]
+        qs=[{'provider':p,'id':i,'ok':True} for p in CONFIG['providers'] for i in (['CH:documents_hug'] if p=='hug' else ['Europe:societes'] if p=='societes' else ['CH:consultation','CH:population','Europe:consultation','Europe:population'])]
         row=dict(t,queries=qs if query_list is None else query_list,statut='recherchee',candidates=[],date_recherche='2026-01-01T00:00:00+00:00')
         return {'G':{'tasks':{t['key']:row}}}
     def test_real_categories_partition_catalogue_and_counts(self):

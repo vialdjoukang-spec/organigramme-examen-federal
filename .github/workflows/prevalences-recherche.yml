@@ -91,6 +91,10 @@ jobs:
           merge-multiple: true
       - name: Réunir les recherches et préserver les relectures concurrentes
         run: python3 tools/prevalences/consolider.py --state-dir .etat_local/prevalences --artifact-dir work/recherches
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Dépendance de la synthèse PDF
+        run: python3 -m pip install --quiet -r tools/prevalences/requirements.txt
       - name: Relecture statistique de toutes les pistes
         run: python3 tools/prevalences/auditeur.py --state-dir .etat_local/prevalences --report .etat_local/prevalences/audit.json
       - name: Calculateur multi-secteur
@@ -102,7 +106,7 @@ jobs:
           cd .etat_local/prevalences
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add G.json S.json F.json O.json audit*.json agent*.json jauges.json jauges.html README.md
+          git add G.json S.json F.json O.json audit*.json agent*.json jauges.json jauges.html erreurs.json erreurs.pdf README.md
           if ! git diff --cached --quiet; then git commit -m 'Prévalences : recherches, audit statistique et jauges'; git push origin automates/prevalences; fi
       - name: Demander le contrôle documentaire à l’agent Codex
         continue-on-error: true
