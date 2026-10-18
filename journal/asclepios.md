@@ -23,3 +23,5 @@
 
 ### Relecture doses · termes à sourcer (17.10.2026 UTC)
 Ticket résolu : terme abrégé thromboangéite rattaché à Buerger dans ce contexte ; adjectif digestif contrôlé dans le rapport EMA Somakit (PDF, sites anatomiques). Aucune validation Vial.
+### G5 · 18.10.2026 UTC
+26 DD existants de S7.5, S2.6 et S5.2 conservés ; valeurs inconnues explicites. Cohorte catalane relue mais unités/catégories insuffisantes pour les libellés demandés : pas de chiffre transposé. Suite locale 275/276 (fermeture, correction technique séparée).
