@@ -5,7 +5,7 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 ## Codex · relève du 18.10.2026 UTC
 État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
 Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
-Sources    : rapports AIPS sur #59/#61/#67/#70, audits et preuves ciblées sur les branches, sources brutes hors git.
+Sources    : rapports AIPS sur #59/#61/#67/#70, audits et preuves ciblées sur les branches, sources brutes hors git. Main 42a432d testé 276/276 ; Pages = main 8dd0d0a à 00:52 UTC. #45/#58/#60/#39/#84/#82 fusionnées.
 Pièges     : CLI Luna en 401, veille mode B sans rédaction autonome ; incident #62 avant #60 consigné, verrou #82 ; ne pas transformer des brouillons en couverture achevée.
 À vérifier : #64/#67/#70 attente-vial, croquis #80 et cinq stations non validés, audits et couverture restants. Ne pas arrêter la veille ni annoncer 100 %.
 

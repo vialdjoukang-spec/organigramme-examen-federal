@@ -52,6 +52,10 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 - 18.10.2026 UTC · Incident : #62 fusionnée avant #60 le 17.10 à 23:55:43 UTC ; l’auto-fusion n’imposait pas les chaînes. #82 ajoute ce verrou, cinq tests dédiés et cinq tests de file réussis. Pas de réécriture de l’historique.
 - 18.10.2026 UTC · Étape 17 contrôlée, NON VALIDÉE : jauges main 1 % et 4 %, Pages identique au SHA-256 de main 67ae383 à 00:00:20 UTC. Relève complète dans docs/releves/RELEVE_CODEX_20261018.md. Veille conservée ; reprise de la boucle 8, pas de fin du projet.
 
+- 18.10.2026 00:52 UTC · Réconciliation des attentes : #45/#58/#60/#39/#84/#82 fusionnées. Étape 3 complète ; données des deux lots de l’étape 5 intégrées, incident #62 avant #60 conservé. Main : 38/2587 prévalences (1 %), 130/2287 monographies (6 %). Suite main 42a432d : 276/276. Pages = main 8dd0d0a (HTTP 200, SHA-256 9e4720c6ce86056e4648eaa8744fe183479d9ddbf6419f1bb13ad60d8a800969).
+- 18.10.2026 UTC · Glossaire : #65 baseline 3735 après 139 entrées de main, neuf définitions et 45 définitions de compatibilité déjà relues dans #68. #68 : 527 entrées réunies, baseline 3571, neuf exclusions cliniques supprimées. G1/G2/G3/G6, Lyncée et quatre tests de migration passent. Aucun label #68 avant fusion #65. Les 38 candidats de migration hérités restent explicitement examinés dans le rapport.
+- 18.10.2026 UTC · G5 #85 rejoué sur main après #58 ; union de prévalences et sources sans conflit réel, app repris de main et registres régénérés. Chiffres inconnus conservés. La chaîne historique prev reste #43→#44→#45→#58 ; chaîne séparée prev_g5 #58→#85 pour ne pas déplacer le critère de l’étape 3.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 ---
