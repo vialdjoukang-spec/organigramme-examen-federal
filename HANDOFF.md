@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Codex · reprise #70 · 18.10.2026, Europe/Zurich
 État : #67 corrigée intégrée à la branche ; consignes KCl et unités de tableau appliquées sans modifier les extraits ; indication postnatale anti-D conditionnée au Rh(D).
 Prochaine : originaux Refdata et CI exacte, puis fusion après #67 ; ordre complet #88→#64→#91→#67→#70.
@@ -6,8 +5,7 @@ Sources : décisions Vial et revues publiques, extraits AIPS conservés lus. Ori
 Pièges : KCl ne reçoit aucune conversion d’unité supposée ; les crochets sont ajoutés aux synthèses, jamais au texte cité.
 À vérifier : audit final des 98 lignes, cas anti-D à statut inconnu, navigateur et API GitHub. Aucun audit-ok ni fusion nouveau.
 
-=======
->>>>>>> origin/feat/doses-ch-3
+
 ## Codex · reprise #67 · 18.10.2026, Europe/Zurich
 État : main réuni ; consigne aciclovir appliquée dans la monographie, 10 jours AIPS avant toute durée européenne ; conditions Riamet/Praxbind rétablies depuis les extraits conservés.
 Prochaine : relecture Refdata de toutes les lignes et contrôles requis, fusion après #88/#64/#91 ; puis #70.
