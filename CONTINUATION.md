@@ -400,3 +400,6 @@ Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après
 Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
 
 Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
+
+### Reprise réseau et chaîne · 18.10.2026 Europe/Zurich
+#64→#91→#67→#70 fusionnées, ordre et SHA dans audit/FUSIONS-REPRISE-20261018.json. #64 était déjà fusionnée au début de la reprise ; #91, #67 et #70 ont été réunies avec main, recontrôlées puis fusionnées avec CI verte. Main après #70 : 39/2587 fréquences et 238/2287 monographies ; 98 lignes AIPS. #97 ajoute 60 fréquences inconnues G1–G4 sans aucun chiffre nouveau ; #98 propose deux G9. Boucles ouvertes, étape 8 lot 5. Sources EDF/HUG/AIPS accessibles ; Oxford, recherche Europe PMC, navigateur file:// et Pages ont les limites consignées dans les audits. Les paragraphes antérieurs sont historiques.

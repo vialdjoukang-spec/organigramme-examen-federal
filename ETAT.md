@@ -199,3 +199,6 @@ Accords Vial lus sur #88/#64/#67/#70. Corrections poussées sur les cinq PR ; G1
 
 ### Notes modèle · reprise du 18.10.2026
 Lot G1–G4 : traitement mécanique par script déterministe ; jugement et audit séquentiel par le modèle courant de secours, Luna CLI indisponible dans la relève. Aucun nouveau service de rédaction autonome déclaré.
+
+### Reprise du 18.10.2026 Europe/Zurich
+Chaîne #64→#91→#67→#70 fusionnée ; audits et contrôles requis verts. #97 G1–G4 : 60 fréquences explicitement inconnues, aucun chiffre nouveau ; #98 deux propositions G9. Sources officielles et limites réseau consignées, médecin non revendiqué. Garde-progres et file-fusion actives, cadence réelle espacée observée. Étape 8 lot 5 en cours, clôture refusée.

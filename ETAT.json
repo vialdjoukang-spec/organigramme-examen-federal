@@ -2,21 +2,8 @@
  "etape_courante": 8,
  "statut": "en_cours",
  "lot": 5,
- "maj": "2026-10-18T12:59:16+00:00",
+ "maj": "2026-10-18T13:13:49.879379+00:00",
  "en_attente": {
-  "4": {
-   "prs": [
-    64
-   ],
-   "motif": "Accord de Vial reçu pour #64 ; corrections poussées, G1–G8 locaux verts. Relecture primaire et CI de la tête exacte requises avant fusion, puis #91."
-  },
-  "6": {
-   "prs": [
-    67,
-    70
-   ],
-   "motif": "Accords de Vial reçus pour #67/#70 ; consignes aciclovir, KCl et unités appliquées et poussées ; G1–G8 locaux verts. Audits primaires et CI exactes requis ; ordre #67 puis #70 après #91."
-  },
   "8": {
    "motif": "G1–G4, 60 DD : fréquences inconnues explicites, PR #97 ouverte et contrôles requis verts. Aucun chiffre nouveau ni fin de boucle ; 39/2587 sur main avant fusion.",
    "dernier_lot": 97,
@@ -29,14 +16,15 @@
    "attente_s8": "S8 après audit #37 ; ne pas dupliquer ou inventer ses différentiels."
   },
   "9": {
-   "motif": "Six propositions G9 rédigées et relues dans #91, EDF 2025 et HUG ; suite locale 278/278, G1/G2/G3/G6 et Lyncée verts. Branche : 213/2287, 545 entrées, référence 3565 ; main reste 207/2287 (9 %), 544 entrées, référence 3566. PR prête, audit-ok, sans auto-merge direct, derrière #64 ouverte (ready=false). Contrôles CI exacts requis ; onze autres G9, G10 et chaîne Panacée encore dus.",
+   "motif": "Six propositions G9 de #91 fusionnées après #64 ; deux propositions supplémentaires dans #98 avec réserves explicites. Neuf autres G9, G10 et chaîne Panacée restent dus. Pas de fin de boucle.",
    "pr_g9": 91,
    "tests_g9": {
     "head": "7af1a77",
     "reussis": 278,
     "total": 278,
     "journal_local": "/tmp/oef-g9-tests.log"
-   }
+   },
+   "pr_complement": 98
   },
   "10": {
    "motif": "98 lignes / 73 documents relus sur branches ; aucune nouvelle dose non lue ajoutée. DigiFab retrouvé par recherche officielle et accès direct HTTP 200, révision 02/2026 ; document anglais converti de cinq pages à deux colonnes. Extraction structurée/audit restant, aucune formule aplatie transposée : audit/DIGIFAB-RECHERCHE-20261018.json. Pas de fin de boucle."
@@ -70,7 +58,7 @@
    ]
   },
   "17": {
-   "motif": "Clôture refusée : main 39/2587 prévalences (jauge arrondie 2 %) et 207/2287 monographies (9 %). Rédaction, sources et audits restants ; #64/#67/#70/#88 attente-vial, #91 derrière #64, croquis/stations non validés. Ne pas arrêter la veille.",
+   "motif": "Clôture refusée : 39/2587 fréquences et 238/2287 monographies dans main après #70 ; #97 ajoute 60 fréquences inconnues, #98 propose deux monographies. Rédaction, audit transversal, #37/#81, croquis et stations restent dus. #64/#91/#67/#70 fusionnées dans cet ordre ; ne pas arrêter la veille.",
    "cloture_validee": false,
    "tests_main_snapshot": {
     "sha": "42a432d3e5ddb657e8b9cfba35c9340189222761",
@@ -203,13 +191,28 @@
     68
    ],
    "resultat": "fusionnées dans cet ordre ; 543 entrées, référence 3567 ; cibles 24 px, adoption examinée, contrôles requis verts"
+  },
+  "4": {
+   "prs": [
+    50,
+    53,
+    54,
+    64,
+    49
+   ],
+   "resultat": "toutes fusionnées ; #64 observée à 11:59 UTC"
+  },
+  "6": {
+   "prs": [
+    59,
+    61,
+    67,
+    70
+   ],
+   "resultat": "toutes fusionnées ; accords Vial lus, audits et CI conservés. Aciclovir, KCl et RhD inconnu gardent leurs réserves explicites."
   }
  },
- "signalements_attente_vial": [
-  64,
-  67,
-  70
- ],
+ "signalements_attente_vial": [],
  "accords_vial_20261018": {
   "88": {
    "source": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/88",
@@ -220,20 +223,20 @@
   "64": {
    "source": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/64",
    "accord_recu": true,
-   "audit_final": "requis",
-   "fusion": "non réalisée dans cette session"
+   "audit_final": "fusion antérieure observée ; pas de nouvel audit primaire revendiqué dans cette reprise",
+   "fusion": "observée 427f557f1bbd0091266bdabea4b5bfde5385ab56"
   },
   "67": {
    "source": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/67",
    "accord_recu": true,
-   "audit_final": "requis",
-   "fusion": "non réalisée dans cette session"
+   "audit_final": "recontrôle consigné et CI requise verte sur la tête fusionnée",
+   "fusion": "observée a5ef3b5bebdc0e4002ca06602b2dd3ea97bc215c"
   },
   "70": {
    "source": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/70",
    "accord_recu": true,
-   "audit_final": "requis",
-   "fusion": "non réalisée dans cette session"
+   "audit_final": "recontrôle consigné et CI requise verte sur la tête fusionnée",
+   "fusion": "observée a27fb1da70d71387331c15fffdc42dee43d8ff8e"
   }
  },
  "ordre_fusion_demande": [
@@ -245,15 +248,14 @@
  ],
  "reprise_cloud_20261018": {
   "branches_poussees": {
-   "88": "fusionnée dans main aacfff7",
-   "64": "feat/mono-g7",
-   "91": "feat/mono-g9-prurit-cible",
-   "67": "feat/doses-ch-3",
-   "70": "feat/doses-ch-4"
+   "64": "fusionnée 427f557f1bbd0091266bdabea4b5bfde5385ab56",
+   "91": "fusionnée d0c0dfa02d9a348df6ecf74d084cdd28c52f1278",
+   "67": "fusionnée a5ef3b5bebdc0e4002ca06602b2dd3ea97bc215c",
+   "70": "fusionnée a27fb1da70d71387331c15fffdc42dee43d8ff8e"
   },
   "validation_locale": "G1–G8 réussis sur les cinq branches après corrections ; CK et comparateur AIPS réussis sur #67",
-  "blocage": "politique réseau active sans api.github.com ni les sources primaires nécessaires ; suite file:// bloquée par le Chromium système",
-  "configuration": "domaines ajoutés au brouillon, non appliqués au runtime observé",
-  "boucles_8_9": "aucun lot nouveau ni gain de couverture sur main revendiqué ; #88 fusionnée, #64/#91/#67/#70 encore ouvertes"
+  "blocage": "Accès GitHub/API, EDF, HUG et documents AIPS rétablis ; Oxford 403, recherche Europe PMC expirée, navigateur file:// et lecture Pages github.io bloqués.",
+  "configuration": "Accès réellement testés, voir audit/RESEAU-REPRISE-20261018.json sur #98.",
+  "boucles_8_9": "#97 : 60 fréquences inconnues explicites, aucun nouveau chiffre ; #98 : deux propositions G9. Boucles ouvertes."
  }
 }
