@@ -126,6 +126,9 @@ jobs:
           name: visuel-reference-proposee
           path: qa/visuel/proposee/
           retention-days: 14
+      - name: Aperçus de relecture depuis le connecteur GitHub
+        if: always()
+        run: python3 tests/visuel/relecture.py
       - name: Commentaire sur la demande de fusion
         if: always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         env:

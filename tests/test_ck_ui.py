@@ -78,9 +78,14 @@ async def profile(b, mobile, out, errs):
     await tap('#tip [data-lv="0"]'); await pg.wait_for_timeout(200)
     out[pre + 'fil_ariane'] = await ev(f"{K}==='glo|facies-cushingoide'&&tipStk.length===0&&!$('#tip .bk')")
     await ev("hideTip(true)")
-    # Corps d’une fenêtre historique (Fiche éclair) : rattrapage sans toucher aux données.
+    # Une fiche SSP existante est remplacée après le chargement par son prototype complet.
     await ev("showTip(document.querySelector('.it[data-c=\"G1\"]'),true)"); await pg.wait_for_timeout(150)
-    out[pre + 'rattrapage_fenetre_existante'] = await ev("!!$('#tip .ck-b .glo[data-t=\"glo|hyperhidrose\"]')&&!TIP.G1.c[0].includes('data-t')&&!!$('#tip .glo').title")
+    await pg.wait_for_function("!!window['CK_MONO_SSP']&&!!window['CK_MONO_SSP']['G1']", timeout=10000)
+    await pg.wait_for_function("!TIPEL.hidden&&tipK==='s|G1'&&[...TIPEL.querySelectorAll('.ck-b b')].filter(x=>/^[1-6]\\./.test(x.textContent)).length===6", timeout=10000)
+    await pg.wait_for_function("!!document.querySelector('#tip .ck-b .glo[data-t=\"glo|hyperhidrose\"]')", timeout=10000)
+    fiche_ssp_complete = await ev("window['CK_MONO_SSP']['G1'].h.includes('6. Prise en charge')&&!TIP.G1.c[0].includes('data-t')&&!document.querySelector('#tip .glo').title")
+    await tap('#tip .ck-b .glo[data-t="glo|hyperhidrose"]'); await pg.wait_for_timeout(200)
+    out[pre + 'rattrapage_fenetre_existante'] = fiche_ssp_complete and await ev("tipStk.length===1&&tipK==='glo|hyperhidrose'")
     await ev("hideTip(true)")
     # Terme dans un geste cochable (label[data-t]) : ouvre le terme, ne coche pas.
     await tap('#fx7 .glo'); await pg.wait_for_timeout(200)

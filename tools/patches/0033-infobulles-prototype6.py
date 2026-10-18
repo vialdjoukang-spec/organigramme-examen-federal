@@ -32,7 +32,7 @@ replace("+(e.cadre?`<p><b>Cadre</b> : ${esc(e.cadre)}.</p>`:'')+(S?",
         "+`<p>${esc(pvRankText(a))}</p>`+(e.cadre?`<p><b>Cadre</b> : ${esc(e.cadre)}.</p>`:'')+(S?")
 
 anchor = 'function tipFor(key)'
-helper = "function sspMonoGet(c,key){const M=window.CK_MONO_SSP;if(M)return M[c]||null;if(!MONO_T.ssp){MONO_T.ssp=1;monoLoad('ssp').then(()=>{if(!TIPEL.hidden&&tipK===key)showTip({dataset:{t:key}},tipPin,tipOp||TIPEL,false,true)}).catch(()=>{delete MONO_T.ssp})}return null}\n"
+helper = "function sspMonoGet(c,key){const M=window['CK_MONO_SSP'];if(M)return M[c]||null;if(!MONO_T.ssp){MONO_T.ssp=1;monoLoad('ssp').then(()=>{if(!TIPEL.hidden&&tipK===key)showTip({dataset:{t:key}},tipPin,tipOp||TIPEL,false,true)}).catch(()=>{delete MONO_T.ssp})}return null}\n"
 if helper not in s:
     replace(anchor, helper + anchor)
 replace("if(ty==='s'){const T=TIP[a],s=BY[a];if(!T)return null;const X=b&&S.seances[b];",
