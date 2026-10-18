@@ -2,6 +2,12 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
+Prochaine  : vérifier CI et fusion par la file dans l'ordre ; label d'audit selon la relève clinique et la PR précédente.
+Sources    : origin/main, patch 0026 et audit Hérophile existant ; aucun nouveau texte clinique rédigé.
+Pièges     : les monographies quittent assets/ck pour assets/mono ; ne pas résoudre leurs assets à la main.
+À vérifier : CI et publication ; un échec local ne constitue pas une validation.
 ## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
 État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
 Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.
@@ -28,6 +34,8 @@ Pièges     : CLI installé sans authentification utilisable ; mode B ne lance p
 Décision   : le chiffre est la fréquence du diagnostic parmi les patients consultant pour la plainte du SSP, dans un cadre nommé (médecine de famille ou urgences, CH ou UE) ; une prévalence de population ne sert qu'à défaut (type « population », affichée). Le texte des 226 SSP rédigés ne change pas : seuls les champs de prev.json et l'ordre s'ajoutent.
 Prochaine  : groupes de contenu, un commit poussé par groupe (Galien audite derrière) : 1 douleur thoracique (S2.5), 2 dyspnée, 3 douleur abdominale, 4 céphalée, 5 fièvre, 6 syncope ; puis les 12 SSP S8 (PR #37) quand elle est fusionnée.
 Pièges     : ne jamais éditer PRV à la main (prev_build --check échoue) ; aucun « window.CK_ » littéral dans app_v2.html (ckW('PREV')) ; un chiffre exige l'emplacement exact (tableau, page).
+Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax (PR #43). G2 dyspnée (S2.7 ; EURODEM, Eur J Emerg Med 2019, tableau 1, 2525 patients de 66 urgences européennes ; 4 chiffres, 6 « à vérifier ») · branche feat/ddx-prev-g2-dyspnee. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G3 douleur abdominale (S3.1), puis S7.6, G6, F1.19.
+
 Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G2 dyspnée (S2.7), puis S3.1, S7.6, G6, F1.19.
 Groupes poussés : (aucun pour l'instant)
 ## Flux de fusion · auto-fusion après audit · 17.10.2026, Europe/Zurich
