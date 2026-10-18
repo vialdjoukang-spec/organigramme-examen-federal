@@ -57,3 +57,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 18.10.2026 · Recontrôle après modification réseau par Vial : API GitHub, texte EDF et HUG HTTP 200 ; site public github.io toujours CONNECT 403 dans cette session, dont les observations ne contiennent pas ce domaine. Aucune application de la configuration présumée. DOI HypnoLaus renvoie vers Elsevier refusé : aucun chiffre repris. Poursuite du contenu.
 
 - 18.10.2026 Europe/Zurich · lot 7 : Chromium Playwright absent localement, suite arrêtée avant exécution. CI navigateur requise sans modifier les assertions. Les quatre URL HUG initialement supposées ont répondu 404 ; navigation depuis l’index officiel vers les documents réels. Pages désormais HTTP 200 et app identique à bfa43f2 : ancien blocage levé sur cette URL.
+
+- 18.10.2026 Europe/Zurich · dispositif catégoriel : endpoints officiels EBI Europe PMC et Crossref refusés CONNECT403 par ce runtime ; HUG accessible. Erreurs conservées, jamais traduites en absence de chiffre. Recherche sur runners GitHub à tester ; aucune règle réseau ni source contournée.
