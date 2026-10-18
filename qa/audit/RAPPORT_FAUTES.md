@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 72 faute(s) corrigée(s), dont 2 critique(s), 12 majeure(s) et 58 mineure(s).
+Bilan : 75 faute(s) corrigée(s), dont 5 critique(s), 12 majeure(s) et 58 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -10,6 +10,9 @@ Bilan : 72 faute(s) corrigée(s), dont 2 critique(s), 12 majeure(s) et 58 mineur
 |---|---|---|---|---|---|
 | g1-sevrage-securite | mono\|sevrage-alcoolique-complique | La priorité absolue « thiamine avant tout glucose » ne précise pas l’exception du traitement urgent de l’hypoglycémie. | <span class="mono-r">Thiamine (vitamine B1) précoce chez les patients à risque ; ne jamais retarder le traitement urgent d’une hypoglycémie en attendant la thiamine</span> ; benzodiazépine (oxazépam) dégressive ou guidée par le CIWA ; dose : à vérifier (AIPS). | Stauffer N, Locher P. Forum Médical Suisse2023;23(5):879–881, p.881, doi:10.4414/fms.2023.09067 ; copie indexée relue, corroborée par HUG hypoglycémie2022., lu le 2026-10-18 | 2026-10-18 |
 | g1-sevrage-securite | mono\|syndrome-de-sevrage-alcoolique | La priorité absolue « thiamine avant tout glucose » ne précise pas l’exception du traitement urgent de l’hypoglycémie. | Benzodiazépines guidées par le score ; thiamine précoce chez les patients à risque ; ne jamais retarder le traitement urgent d’une hypoglycémie en attendant la thiamine ; dose : à vérifier (AIPS). | Stauffer N, Locher P. Forum Médical Suisse2023;23(5):879–881, p.881, doi:10.4414/fms.2023.09067 ; copie indexée relue, corroborée par HUG hypoglycémie2022., lu le 2026-10-18 | 2026-10-18 |
+| g1-r13-precautions | mono\|endocardite-infectieuse | La formulation absolue des hémocultures pouvait faire attendre un traitement pourtant urgent. | Prélever rapidement, sans retarder le traitement urgent ; distinguer le patient stable. | CHUV, Guide antibiotique2022 §§5/11 ; HCL2024 diagnostic/PEC, lu le 2026-10-18 | 2026-10-18 |
+| g1-r13-precautions | mono\|infection-a-vih | La formule ne précisait ni les examens parallèles en primo-infection symptomatique ni le suivi distinct après PEP. | Test automatisé ≥4e génération avec analyse moléculaire en parallèle si suspicion symptomatique ; calendrier OFSP spécifique après PEP. | OFSP directiveVIH2025v4 §§2.4/2.6A ; OFSP/CFIST PEP07.11.2025 calendrier, lu le 2026-10-18 | 2026-10-18 |
+| g1-r13-precautions | mono\|sevrage-alcoolique-complique | Le CIWA-Ar était cité sans limite explicite chez un patient atteint de delirium. | Ne pas guider le traitement du delirium ou d’une personne non communicante par le CIWA-Ar ; jugement clinique et signes objectifs. | Worcestershire NHS WAHT-A&E-031v9,14.05.2025,p7, lu le 2026-10-18 | 2026-10-18 |
 
 ## ck-urgences-lot1
 
@@ -25,6 +28,14 @@ Bilan : 72 faute(s) corrigée(s), dont 2 critique(s), 12 majeure(s) et 58 mineur
 |---|---|---|---|---|---|---|
 | Majeure | grille.management | La grille donnait des points pour juger l’état de l’enfant d’après sa réponse au paracétamol ; la baisse de la fièvre sous antipyrétique se voit aussi dans les infections graves. | Le critère récompense la réévaluation sans fièvre (fréquence cardiaque, comportement) sans conclusion tirée de la seule baisse de la fièvre ; point À vérifier pour la source suisse. | À vérifier (merkblatt Kinderspital Zürich, rubrique Antipyretika, à relire), lu le 2026-10-17 | Galien-PeauPopulations | 09d2d4d |
 | Majeure | grille.management | La station d’infarctus inférieur n’évaluait ni les dérivations droites ni la prudence avec les dérivés nitrés en cas d’extension au ventricule droit. | Critère ajouté (1 point) avec sa justification ; renvoi à l’ESC 2023 marqué À vérifier. | R-ESC-SCA § 3.2, repris de la chaîne hyp\|sca ; texte intégral À vérifier, lu le 2026-10-17 | Galien-CœurThorax | 09d2d4d |
+
+## g1-r13-precautions
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Critique | exp | La formulation absolue des hémocultures pouvait faire attendre un traitement pourtant urgent. | Prélever rapidement, sans retarder le traitement urgent ; distinguer le patient stable. | CHUV, Guide antibiotique2022 §§5/11 ; HCL2024 diagnostic/PEC, lu le 2026-10-18 | Galien-CœurThorax | a2bb294 |
+| Critique | exp | La formule ne précisait ni les examens parallèles en primo-infection symptomatique ni le suivi distinct après PEP. | Test automatisé ≥4e génération avec analyse moléculaire en parallèle si suspicion symptomatique ; calendrier OFSP spécifique après PEP. | OFSP directiveVIH2025v4 §§2.4/2.6A ; OFSP/CFIST PEP07.11.2025 calendrier, lu le 2026-10-18 | Galien-PeauPopulations | a2bb294 |
+| Critique | exp, pha | Le CIWA-Ar était cité sans limite explicite chez un patient atteint de delirium. | Ne pas guider le traitement du delirium ou d’une personne non communicante par le CIWA-Ar ; jugement clinique et signes objectifs. | Worcestershire NHS WAHT-A&E-031v9,14.05.2025,p7, lu le 2026-10-18 | Galien-Neuro | a2bb294 |
 
 ## g1-sevrage-securite
 

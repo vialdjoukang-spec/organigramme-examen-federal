@@ -1,7 +1,7 @@
-# Audit ciblé R13 : endocardite, VIH et CIWA-Ar
+# G1 · trois précautions approuvées
 
-**Statut : accord de Vial requis avant intégration.** Les propositions visent des risques potentiels ; aucune faute certaine ni aucun dommage rapporté. La portée est strictement limitée aux champs cliniques et références précisés dans le JSON.
+Accord explicite de Vial reçu le18.10.2026 : « Pour ta question : Oui je valide. »
 
-L’endocardite précise que des hémocultures rapides ne doivent pas retarder un traitement urgent si instabilité ou gravité clinique l’impose. La fiche VIH précise le test à demander en cas de primo-infection symptomatique et distingue le suivi après PEP de la fenêtre habituelle. La fiche sevrage réserve le CIWA-Ar aux personnes capables de réponses fiables ; en delirium ou communication impossible, elle propose jugement clinique et signes objectifs selon le protocole spécialisé. La phrase thiamine/glucose déjà approuvée est conservée exactement.
+Hémocultures sans retard du traitement urgent ; primo-infection VIH et calendrier post-PEP ; CIWA-Ar non interprétable en delirium ou communication impossible. La phrase thiamine/glucose de PR118 reste acquise.
 
-Les textes avant/après et les sources avec localisations, URL et limites figurent dans les deux fichiers JSON joints. Aucune dose chiffrée n’est ajoutée. Aucun journal de faute n’est proposé avant accord.
+Les sources, leurs limites et les avant/après figurent dans les deux rapports JSON associés. Aucun dommage constaté ni validation clinique humaine revendiquée. Les corrections attendent encore audit final, CI exacte verte et fusion.
