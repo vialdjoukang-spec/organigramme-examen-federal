@@ -296,3 +296,5 @@ Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estima
 Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
 Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
 Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
