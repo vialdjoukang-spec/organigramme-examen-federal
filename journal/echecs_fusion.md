@@ -25,3 +25,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 2026-10-18 00:07 UTC · #41 · conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)
 
 - 18.10.2026 UTC · Incident #62 : fusion automatique à 23:55:43 UTC avant #60, causée par le workflow qui ignorait les prédécesseurs. Audit-ok de #61 retiré temporairement ; #82 ajoute le verrou de chaîne. #60 doit encore réunir ses données avec main ; aucune fusion annulée ni protection contournée.
+- 2026-10-18 00:29 UTC · #32 · contrôle requis visuel en échec
+- 2026-10-18 00:47 UTC · #83 · conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)
