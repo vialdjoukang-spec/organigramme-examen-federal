@@ -204,3 +204,6 @@ Lot G1–G4 : traitement mécanique par script déterministe ; jugement et audit
 Chaîne #64→#91→#67→#70 fusionnée ; audits et contrôles requis verts. #97 G1–G4 : 60 fréquences explicitement inconnues, aucun chiffre nouveau ; #98 deux propositions G9. Sources officielles et limites réseau consignées, médecin non revendiqué. Garde-progres et file-fusion actives, cadence réelle espacée observée. Étape 8 lot 5 en cours, clôture refusée.
 
 - Fin du lot de reprise : #97 fusionnée, lot 5 en cours. #98 ajoute deux propositions G9 avec réserves, pour 240/2287 sur sa branche. Prévalences 39/2587 ; aucune clôture, aucune nouvelle validation Vial ou de médecin inventée. Relève détaillée mise à jour.
+
+### 18.10.2026 Europe/Zurich · lot 5 et gales
+#99 fusionnée : six fréquences relues à Brest, cadre et biais explicites, 45/2587 sur main. #100 réunit deux gales, cinq épidémiologies précisées et six définitions ; sept autres G9 restent dus, aucun squelette Vaquez. Action limitée sur les œufs attribuée à l’ivermectine seulement ; posologies suisses À vérifier. Modèle courant de secours pour la rédaction/relecture, CLI Luna en 401 dans la relève ; mécanique par scripts déterministes. Boucle 8 lot 6, G11–G14 ; clôture refusée, veille maintenue.

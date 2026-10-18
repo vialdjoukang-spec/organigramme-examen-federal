@@ -18,3 +18,6 @@
 - Prochain : lot 6 = G9 + G10.
 
 - 18.10.2026, Europe/Zurich · #64 : accord Vial lu ; main réuni sans conflit réel de clé, sorties reconstruites ; réserve tryptase ajoutée, assertion de décès fondée sur HOPE retirée au profit d’une vérification explicite. Audit primaire bloqué par la politique réseau, aucun label audit-ok nouveau.
+
+### G9 · gales · 18.10.2026 Europe/Zurich
+Deux monographies relues contre Bernigaud 2020 et Skayem 2023. Confirmation parasitologique et limites des prélèvements, contacts et complications précisés ; prurit possible dans la forme croûteuse. Cinq épidémiologies reprises avec le cadre sélectionné de Brest. Aucune posologie non AIPS ; sept autres G9 restent à rédiger.

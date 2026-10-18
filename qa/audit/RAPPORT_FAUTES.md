@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 69 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 57 mineure(s).
+Bilan : 70 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 58 mineure(s).
 
 ## ck-urgences-lot1
 
@@ -63,6 +63,12 @@ Bilan : 69 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 57 mineur
 | Gravité | Champ | Faute | Correction | Source | Automate | Commit |
 |---|---|---|---|---|---|---|
 | Majeure | def, alias, src | Un verbe employé dans la conduite à tenir était défini comme un appareil, avec une source portant sur le défibrillateur implantable. | Définir l’action de tenter de rétablir un rythme normal, retirer l’alias nominal et citer le paragraphe Traitements du CHUV effectivement relu. | R-CHUV-CARDIOVERSION-2024, § Traitements, lu le 18.10.2026, lu le 2026-10-18 | Galien-CœurThorax | e0650f7 |
+
+## mono-g9-gales
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Mineure | pha | La phrase pouvait attribuer à la perméthrine la limite d’action sur les œufs décrite pour l’ivermectine. | La précision est attribuée expressément à l’ivermectine ; aucun calendrier de répétition n’est déduit. | R-GALE-EUROPE-2020, How can we treat scabies?, Treatment of small clusters, lu le 2026-10-18 | Galien-PeauPopulations | 0646fed |
 
 ## nc07-chaine
 

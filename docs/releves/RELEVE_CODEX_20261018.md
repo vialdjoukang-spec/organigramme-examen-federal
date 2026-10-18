@@ -1,3 +1,10 @@
+## Codex · Brest et gales · 18.10.2026 Europe/Zurich
+État : #99 fusionnée (8548085), six fréquences retenues sur une cohorte de 197 hospitalisés à Brest ; main 45/2587. #100 réunit deux monographies de gale, cinq épidémiologies précisées et six définitions ; sa branche compte 242/2287 monographies, 563 termes et une référence 3564. CI exacte requise avant fusion de #100.
+Prochaine : boucle 8 lot 6, G11–G14 ; sept G9 encore dus, puis G10. Panacée O7.14–O7.12 en sens inverse. S8 après audit #37.
+Sources : Robert 2020, tableau III et limites ; Bernigaud 2020, clinique/diagnostic/traitements ; Skayem 2023, série francilienne de 95 gales sévères. Textes et tableau officiels réellement relus, sources brutes hors dépôt.
+Pièges : causes de Brest non exclusives et recrutement spécialisé ; ne pas confondre une comorbidité ou un groupe large avec un diagnostic exact. Un prurit discret n’est pas obligatoire dans la gale croûteuse. Action limitée sur les œufs attribuée précisément à l’ivermectine ; aucune dose ni calendrier français transposé.
+À vérifier : cinquante fréquences du lot, AIPS des traitements de gale, prévalences générales et sex-ratios non établis ; projet non clos et veille conservée.
+
 ## Reprise réseau et chaîne · 18.10.2026 Europe/Zurich
 
 #64 était déjà fusionnée au début de la reprise. #91, #67 et #70 ont ensuite été réunies, auditées et fusionnées dans cet ordre, contrôles requis verts. #97 fusionnée (82bdd32) ajoute 60 fréquences inconnues explicites G1–G4. #98 réunit deux propositions G9, avec réserves, et la présente relève ; CI exacte encore requise avant fusion.
