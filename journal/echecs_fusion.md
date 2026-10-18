@@ -45,3 +45,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 18.10.2026 02:26 UTC · #41 : push non-fast-forward refusé, mises à jour automatiques de main déjà distantes. Fetch et réunion sans conflit, sans force ; builders/Lyncée repassés, push 35d25e0 réussi. CI relancée avant fusion.
 
 - 18.10.2026 UTC · Étape 8 lot 3 : miroir PDF BORIS inaccessible (HTTP 503 et refus Anubis par le lecteur web). Texte primaire PLOS accessible et lu ; aucun accès au miroir prétendu, aucun contournement tenté.
+
+- 18.10.2026, Europe/Zurich · chaîne #88→#64→#91→#67→#70 : accord de Vial lu sur les pages publiques. API api.github.com refusée par le proxy (HTTP 403 CONNECT), malgré GH_TOKEN présent et lecture Git fonctionnelle. Sources HUG/DOI également refusées. Domaines nécessaires ajoutés au brouillon des paramètres, sans prétendre leur application. Relecture et CI exactes non vérifiables ; aucune fusion hors ordre.
