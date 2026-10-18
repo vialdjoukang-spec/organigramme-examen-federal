@@ -6,6 +6,13 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 État       : feat/lyncee-glossaire : tools/lyncee.py version lyncee-2. Le corpus inclut data/ck/mono ; les suffixes -mégalie et -plasie s’ajoutent ; `--branches 'feat/*'` recense main et les branches ouvertes, classées par fréquence ; « en attente » = défini dans une branche non fusionnée. La référence est régénérée par `--init --inclure-branches` (3 876 termes) et couvre aussi les termes des PR ouvertes. Le test G4_monographie_terme_nouveau_echoue est ajouté. La liaison au rendu existe déjà : gloLink() relie la 1re occurrence par bloc, dans les pages et dans chaque infobulle, monographies comprises, avec une pile de 5 niveaux.
 Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
 Pièges     : Ne lancez pas `--update` avant la fusion des PR de monographies ouvertes : il retirerait leurs termes de la référence et ferait échouer leur G4. Toute monographie nouvelle échoue au G4 tant que ses termes ne sont pas dans glo.json ou dans qa/termes_exclus.txt (avec un motif).
+## Codex · complément de relève · 18.10.2026 01:15 UTC
+État       : #50/#53/#54/#86 fusionnées ; 207/2287 monographies (9 %), prévalences 1 %. Projet non clos, étape 8 lot 2.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; file doses #59 puis #61, glossaire #65 puis #68 ; ne pas anticiper leurs labels. #32 fusionnée (617878e) après adoption de la référence CI et contrôles verts.
+Sources    : AIPS DigiFab retrouvé, révision 02/2026, preuve audit/DIGIFAB-RECHERCHE-20261018.json ; aucune nouvelle dose. Sources brutes hors git.
+Pièges     : #65 patch 0030 corrige les liens imbriqués du calendrier ; suite complète 276/276, aucune assertion abaissée. Référence #65 3734, #68 3571. Chaque fusion peut exiger une nouvelle réunion de HANDOFF.md, jamais un force-push.
+À vérifier : #64/#67/#70 attente-vial, #80 et cinq stations non validés ; audits #37/#81 et couverture massive restants. CLI Luna en 401, mode B ne rédige pas de lots.
+
 ## Codex · relève du 18.10.2026 UTC
 État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
 Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
