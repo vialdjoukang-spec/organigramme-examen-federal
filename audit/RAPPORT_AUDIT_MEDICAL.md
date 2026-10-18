@@ -276,3 +276,20 @@ Après intégration des 139 définitions de main, 45 définitions déjà relues 
 ### Janus · réunion finale #68 après #65 et #39, 18.10.2026 UTC
 
 Union sémantique par identifiant : aucun conflit réel, toutes les définitions sourcées de main conservées. Le registre contient 527 entrées. Les 45 définitions de compatibilité déjà reprises dans #65 ne sont pas comptées deux fois. Neuf exclusions cliniques restent supprimées et remplacées par des définitions explicitement À vérifier ; aucun accord Vial ni source nouvelle inventé. Les formulations « autonome » et « périphérique » couvrent leur emploi général. Référence parente 3735 → 3571, sans ajout par --update. G1/G2/G3/G6, Lyncée et les quatre tests CLI de migration passent. La fusion reste après #65 ; aucun label audit-ok anticipé.
+### Janus · quatre termes des monographies fusionnées #50, 18.10.2026
+
+Alias hypo-esthésie ajouté à la définition sourcée existante, sans la modifier. Hypertrophie : première définition Larousse lue ; aucune reprise des indications. Syndrome de Löfgren : FMS 2024;24(12), p.160, Vintage Corner (PDF p.42), triade effectivement relue ; aucun chiffre de pronostic ni conseil de biopsie transposé. Sérite : définition provisoire explicite À vérifier. Aucune admission en baseline, aucun accord Vial fabriqué. G1/G2/G3/G6 et Lyncée à revérifier après reconstruction ; défaut de clipping calendrier en cours d’examen, CI obligatoire avant fusion.
+
+Défaut UI reproduit localement : la liste du calendrier mesure 246 px mais son contenu atteint 286 px. Le contrôle « texte coupé » reste actif et audit-ok est retiré pendant la correction. La référence Lyncée est 3734 après traitement des quatre termes ; le build et G2 passent.
+
+Contre-lecture des nouveaux termes G3 : la définition initiale d’hydroxybutyrate créait une paire circulaire avec « corps cétoniques » ; elle est reformulée pour être autonome. L’ancienne définition « corps cétoniques » qualifiait aussi l’acétone d’acide : « substances » remplace « acides » et statut À vérifier est explicite, sans prétendre avoir relu la révision JBDS citée. Correction de précision scientifique, aucune dose ni conduite thérapeutique changée. Kaliurie et hyperprotéique restent des définitions provisoires À vérifier, non exclues.
+
+### Janus · correctif des commandes du calendrier
+
+La liaison automatique du glossaire introduisait des boutons imbriqués dans les en-têtes de groupe (commande de repli) et les lignes SSP (commande de sélection). Sur le registre étendu, elle élargissait la piste de 246 à 286 px. En retirant ces seuls liens imbriqués, le contenu retombe à 246 px ; le patch 0030 empêche leur création dans `.it` et `.grp-h`. Les gestes cochables conservent leurs liens de glossaire (cas couvert par la suite existante). Les 74 contrôles CK UI passent après correction, sans changer leurs assertions. Aucun texte clinique modifié par ce patch. Suite complète en cours ; audit-ok reste retiré.
+
+Après intégration de #54, trois nouveaux termes sont définis provisoirement : PPR (le contexte cite Still, artérite à cellules géantes et lupus), hyperventiler, triade de Virchow. Statut À vérifier conservé, aucune source non lue ni validation Vial ajoutée. La référence ne reçoit aucun ajout. Suite complète sur la correction d’interface avant ces trois définitions : 276/276 ; les doses et conduites des monographies fusionnées ne sont pas réécrites.
+
+### Janus · #68 réuni avec la correction calendrier et les nouvelles monographies
+
+535 entrées, référence 3571 ; G1/G2/G3/G6 et Lyncée passent. Un conflit réel sur hypertrophie a été lu : la définition Larousse effectivement relue de #65 remplace la version provisoire de même sens ; alias « hypertrophient » et flexion « hypertrophies » sont conservés. Les nouvelles définitions de #65, leurs sources et la correction de la définition des corps cétoniques sont préservées. Les statuts À vérifier restent explicites. Aucun label avant fusion de #65.

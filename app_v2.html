@@ -986,7 +986,7 @@ function gloShort(id){const e=gloE(id);if(!e||!e.def)return '';const d=String(e.
 /* Chargement à la demande : la fenêtre s’affiche (« Chargement… »), puis se redessine sur place quand les fichiers sont là. */
 function ckNeed(ty,a,key){if(typeof ckLoad!=='function'||ckTry.get(key)===2)return true;if(ckTry.get(key)===1)return false;const L=(CK_DEP[ty]||[]).filter(n=>!ckW(n.toUpperCase().replace(/[^A-Z0-9]/g,'_'))),g=ty==='glo'&&!gloE(a);
  if(!L.length&&!g)return true;ckTry.set(key,1);Promise.allSettled([...L.map(n=>ckLoad(n)),...(g?[ckGlo(a)]:[])]).then(()=>{ckTry.set(key,2);gloI=null;if(!gloOn&&gloIndex())gloStart();if(!TIPEL.hidden&&tipK===key)showTip({dataset:{t:key}},tipPin,tipOp||TIPEL,false,true)});return false}
-const GLO_SKIP='h1,h2,h3,h4,h5,h6,a,code,pre,kbd,samp,button,input,select,textarea,option,summary,legend,script,style,svg,noscript,nav,.tw,[contenteditable],[data-noglo],.blk,#grid,.ck-ctl,.ck-fil',
+const GLO_SKIP='h1,h2,h3,h4,h5,h6,a,code,pre,kbd,samp,button,input,select,textarea,option,summary,legend,script,style,svg,noscript,nav,.tw,.it,.grp-h,[contenteditable],[data-noglo],.blk,#grid,.ck-ctl,.ck-fil',
  GLO_BLK='p,li,td,th,dd,dt,blockquote,figcaption,div,section,article,details,fieldset';
 /* gloLink(racine, exclus, dansFenetre) : pose une clé de glossaire (type glo) sur la première occurrence de chaque terme par bloc ; ignore titres, liens, code,
    commandes, éléments déjà reliés et identifiants exclus (terme courant et ancêtres de la pile). Ne modifie aucune donnée (TIP, NOT, GES). */

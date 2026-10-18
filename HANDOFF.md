@@ -7,6 +7,10 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
 Pièges     : Ne lancez pas `--update` avant la fusion des PR de monographies ouvertes : il retirerait leurs termes de la référence et ferait échouer leur G4. Toute monographie nouvelle échoue au G4 tant que ses termes ne sont pas dans glo.json ou dans qa/termes_exclus.txt (avec un motif).
 
+## Codex · reprise technique #54 · 2026-10-17T23:36:57+00:00
+## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
+## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
 ## Codex · reprise technique #60 · 2026-10-17T23:45:16+00:00
 ## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
@@ -209,6 +213,11 @@ Respecte la règle universelle : le projet cible doit avoir un résultat de HAUT
 Avant de t’arrêter, mets à jour HANDOFF.md, ETAT.md et ton journal.
 
 ## Hygie · monographies des différentiels · 17.10.2026, Europe/Zurich
+État       : Lot 1 (G1, 14) fusionné (PR #46). Lot 2 (G2, 21 diagnostics) livré, PR #50 (assets/mono + patch 0026 inclus), en attente d'audit Hérophile (label audit-ok → fusion automatique) ; total 35/2280.
+Réservé    : Lot 3 = G3 + G4 (23 nouveaux), Hygie, branche feat/mono-g3 depuis origin/main. Hygie avance de G vers la fin ; Panacée part du dernier groupe vers l'arrière : vérifier data/ck/mono et la section Panacée avant chaque lot. Flux : PR sans fusion par Hygie ; Hérophile audite, corrige sur la branche, pose audit-ok. Conflit de tranche partagée : reconstruire par mono_build.py, jamais à la main.
+Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/mono/mono-<lettre>.js (budget séparé 6 Mo, tools/budget.py) ; patches 0025 (survol/clic du DD, repli sur TIP.d) et 0026 (monoLoad, assets/mono). CI : `mono_build.py --check`.
+Pièges     : Doses : réutiliser data/ck/doses_ch.json si produit et indication concordent (3 entrées au 17.10.2026, aucune pour G2) ; sinon aucun chiffre dans « pha » (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget : assets/mono/ ≤ 6 Mo séparé (décision de Vial, PR #50), assets/ck inchangé.
+À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS) ; G2 : toxoplasmose ganglionnaire, sarcoïdose, kystes cervicaux et cutanés, tumeur des glandes salivaires sans texte de cours préalable (src « à vérifier »).
 État       : Lot 1 poussé (G1, 14 diagnostics) : hyperhidrose-primaire-focale, hyperhidrose-medicamenteuse-et-toxique, thyrotoxicose, pheochromocytome-et-paragangliome, hypoglycemie, lymphome-hodgkinien-ou-non-hodgkinien, tuberculose, endocardite-infectieuse, infection-a-vih, sevrage-alcoolique-complique, syndrome-serotoninergique, menopause-et-syndrome-climaterique, trouble-anxieux-et-attaque-de-panique, syndrome-d-apnees-obstructives-du-sommeil.
 Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'existant TIP.d à reprendre ; clés déjà faites marquées « (fait) »).
 Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
