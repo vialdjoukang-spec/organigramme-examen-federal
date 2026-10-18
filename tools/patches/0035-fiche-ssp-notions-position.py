@@ -7,7 +7,9 @@ from _app import read,write
 s=before=read()
 replacements=[
  ("if(b[0]==='c'){ti=CLIN[i];", "if(b[0]==='c'){const MO=sspMonoGet(a,key);if(MO)return {hd:'Monographie SSP · '+a,ti:s[1],h:MO.h,src:MO.s};ti=CLIN[i];"),
- ("let left=Math.min(Math.max(8,r.left+Math.min(60,r.width/4)),vw-w-8);", "top=Math.max(8,Math.min(top,vh-hh-8));let left=Math.min(Math.max(8,r.left+Math.min(60,r.width/4)),vw-w-8);")]
+ ("let left=Math.min(Math.max(8,r.left+Math.min(60,r.width/4)),vw-w-8);", "top=Math.max(8,Math.min(top,vh-hh-8));let left=Math.min(Math.max(8,r.left+Math.min(60,r.width/4)),vw-w-8);"),
+ ("TIPEL.style.top=top+'px';TIPEL.style.left=left+'px';", "if(pin&&top<r.bottom&&top+hh>r.top&&left<r.right&&left+w>r.left){if(r.right+w+16<=vw)left=r.right+8;else if(r.left-w-8>=8)left=r.left-w-8}TIPEL.style.top=top+'px';TIPEL.style.left=left+'px';"),
+ ("if(pin&&!nest&&!keep&&matchMedia('(max-width:620px)').matches)", "if(pin&&!nest&&matchMedia('(max-width:620px)').matches)")]
 for old,new in replacements:
  if s.count(old)==1:s=s.replace(old,new)
  elif new not in s:raise SystemExit('Ancrage absent ou ambigu : '+old[:60])
