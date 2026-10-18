@@ -739,3 +739,6 @@ Le patch proposé distingue les deux familles de rythmes et demande le traitemen
 ### Reprise #88 · 18.10.2026, Europe/Zurich
 
 Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.
+
+### G9 · complément endocrinien et hépatobiliaire · relu le 18.10.2026
+Deux propositions : dysthyroïdies et cholestase obstructive. EDF 2025 §4.2.2/3, tableaux 3/4 et soins généraux relus. Contre-lecture : distinguer obstacle et prurit hépatobiliaire, ne pas inverser les dénominateurs et ne pas systématiser les examens spécialisés. Critères et traitements étiologiques non lus : À vérifier ; aucune dose ajoutée. Neuf autres diagnostics G9 et Panacée restent dus.
