@@ -2,7 +2,14 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 70 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 58 mineure(s).
+Bilan : 72 faute(s) corrigée(s), dont 2 critique(s), 12 majeure(s) et 58 mineure(s).
+
+## Fautes critiques : accord de Vial requis avant fusion
+
+| Unité | Élément | Faute | Correction | Source | Accord de Vial |
+|---|---|---|---|---|---|
+| g1-sevrage-securite | mono\|sevrage-alcoolique-complique | La priorité absolue « thiamine avant tout glucose » ne précise pas l’exception du traitement urgent de l’hypoglycémie. | <span class="mono-r">Thiamine (vitamine B1) précoce chez les patients à risque ; ne jamais retarder le traitement urgent d’une hypoglycémie en attendant la thiamine</span> ; benzodiazépine (oxazépam) dégressive ou guidée par le CIWA ; dose : à vérifier (AIPS). | Stauffer N, Locher P. Forum Médical Suisse2023;23(5):879–881, p.881, doi:10.4414/fms.2023.09067 ; copie indexée relue, corroborée par HUG hypoglycémie2022., lu le 2026-10-18 | **en attente** |
+| g1-sevrage-securite | mono\|syndrome-de-sevrage-alcoolique | La priorité absolue « thiamine avant tout glucose » ne précise pas l’exception du traitement urgent de l’hypoglycémie. | Benzodiazépines guidées par le score ; thiamine précoce chez les patients à risque ; ne jamais retarder le traitement urgent d’une hypoglycémie en attendant la thiamine ; dose : à vérifier (AIPS). | Stauffer N, Locher P. Forum Médical Suisse2023;23(5):879–881, p.881, doi:10.4414/fms.2023.09067 ; copie indexée relue, corroborée par HUG hypoglycémie2022., lu le 2026-10-18 | **en attente** |
 
 ## ck-urgences-lot1
 
@@ -18,6 +25,13 @@ Bilan : 70 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 58 mineur
 |---|---|---|---|---|---|---|
 | Majeure | grille.management | La grille donnait des points pour juger l’état de l’enfant d’après sa réponse au paracétamol ; la baisse de la fièvre sous antipyrétique se voit aussi dans les infections graves. | Le critère récompense la réévaluation sans fièvre (fréquence cardiaque, comportement) sans conclusion tirée de la seule baisse de la fièvre ; point À vérifier pour la source suisse. | À vérifier (merkblatt Kinderspital Zürich, rubrique Antipyretika, à relire), lu le 2026-10-17 | Galien-PeauPopulations | 09d2d4d |
 | Majeure | grille.management | La station d’infarctus inférieur n’évaluait ni les dérivations droites ni la prudence avec les dérivés nitrés en cas d’extension au ventricule droit. | Critère ajouté (1 point) avec sa justification ; renvoi à l’ESC 2023 marqué À vérifier. | R-ESC-SCA § 3.2, repris de la chaîne hyp\|sca ; texte intégral À vérifier, lu le 2026-10-17 | Galien-CœurThorax | 09d2d4d |
+
+## g1-sevrage-securite
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Critique | pha | La priorité absolue « thiamine avant tout glucose » ne précise pas l’exception du traitement urgent de l’hypoglycémie. | <span class="mono-r">Thiamine (vitamine B1) précoce chez les patients à risque ; ne jamais retarder le traitement urgent d’une hypoglycémie en attendant la thiamine</span> ; benzodiazépine (oxazépam) dégressive ou guidée par le CIWA ; dose : à vérifier (AIPS). | Stauffer N, Locher P. Forum Médical Suisse2023;23(5):879–881, p.881, doi:10.4414/fms.2023.09067 ; copie indexée relue, corroborée par HUG hypoglycémie2022., lu le 2026-10-18 | Galien-Neuro | f928617 |
+| Critique | pha | La priorité absolue « thiamine avant tout glucose » ne précise pas l’exception du traitement urgent de l’hypoglycémie. | Benzodiazépines guidées par le score ; thiamine précoce chez les patients à risque ; ne jamais retarder le traitement urgent d’une hypoglycémie en attendant la thiamine ; dose : à vérifier (AIPS). | Stauffer N, Locher P. Forum Médical Suisse2023;23(5):879–881, p.881, doi:10.4414/fms.2023.09067 ; copie indexée relue, corroborée par HUG hypoglycémie2022., lu le 2026-10-18 | Galien-Neuro | f928617 |
 
 ## glo-lot01a
 
