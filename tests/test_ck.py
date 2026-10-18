@@ -182,6 +182,15 @@ def _baseline_grows(f):
 
 
 case('G4_reference_ne_peut_que_baisser', _baseline_grows)
+def _mono_terme_nouveau(f):
+    m = os.path.join(f.d, 'data', 'ck', 'mono')
+    os.makedirs(m, exist_ok=True)
+    json.dump({'x': {'n': 'X', 'cli': 'Le patient présente une cholangite.', 'src': 'S', 'lu': '17.10.2026'}},
+              open(os.path.join(m, 'x.json'), 'w'))
+    return run('lyncee.py', '--racine', f.d)[0] == 1
+
+
+case('G4_monographie_terme_nouveau_echoue', _mono_terme_nouveau)
 case('G4_update_resserre_sans_ajouter', lambda f: (f.data['glo'].append({'id': 'patient', 'type': 'terme', 'label': 'Patient',
                                                                          'def': 'La personne reçoit les soins.', 'src': REF}), f.save(),
                                                  run('lyncee.py', '--racine', f.d, '--update')[0] == 0)[-1])
