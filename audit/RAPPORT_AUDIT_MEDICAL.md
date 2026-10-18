@@ -711,3 +711,11 @@ Le tableau 4 de Gräni et al. (Zurich, BMJ Open 2015) donne un SCA parmi 53 doul
 La première proposition de fréquence migraine de Berne est retirée avant livraison : PLOS est un éditeur hors du périmètre G3, même si les auteurs et données sont suisses ; le dépôt institutionnel suisse est inaccessible. Son pays n’est pas artificiellement déclaré CH. L’étude européenne de Doretti et al. 2019 présente aussi des incohérences de tableau (110 migraines au total contre 59 + 61 dans les centres). Aucun chiffre choisi arbitrairement. Les regroupements de céphalées ne sont pas redistribués entre DD.
 
 Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lyncée. Preuve détaillée et URL des lectures : audit/PREVALENCES-CEPHALEE-PAROI-20261018.json. Aucune faute critique nouvelle identifiée dans ce diff.
+
+## Hérophile · G9, six causes ciblées du prurit · 18.10.2026
+
+Relecture séquentielle par Codex des six propositions : xérose du sujet âgé, prurits rénal, ferriprive, médicamenteux, neuropathiques et psychogène. Texte officiel de Weisshaar et al. 2025, sections 4.2.1, 4.2.3, 4.2.7–4.2.9, 4.3.2, tableaux 3–6 et sections thérapeutiques citées relus. Définition de l’hémodialyse relue aux HUG, page mise à jour le 09.03.2026. Aucun médecin ni accord Vial revendiqué.
+
+Les mécanismes rénaux ou médicamenteux restent présentés comme incomplètement connus. Le bilan rénal, la carence martiale ou une imagerie ne prouvent pas seuls la cause du prurit. Un bilan somatique normal ne suffit pas à conclure à un prurit fonctionnel ; ses critères formels restent À vérifier. La cause médicamenteuse nécessite une analyse de la chronologie et du bénéfice-risque d’un changement.
+
+La relecture a retiré une phrase de fabrication du contenu de la rubrique clinique et explicité le choix et les limites des traitements nerveux, ainsi que l’absence de garantie de réponse après correction de la carence en fer. Les fréquences/sex-ratios et les indications/posologies AIPS non lues restent explicitement À vérifier. Aucune posologie chiffrée du guide n’est transposée. Les onze autres DD G9 ne sont pas déclarés rédigés. Aucune faute critique nouvelle identifiée dans ce diff ; le lot suit #64 et ne doit pas contourner son attente.
