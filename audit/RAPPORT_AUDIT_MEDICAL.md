@@ -251,3 +251,19 @@ Référence #65 resserrée par --update : 3876 → 3820, sous le total 3823 de m
 
 ### Janus · migration Lyncée 2 reprise, 18.10.2026
 Après intégration de main, neuf nouveaux candidats bloquants définis : six contre sources CH/FR lues (CHUV, Confédération, Larousse pour le seul sens lexical), trois explicitement À vérifier, sans fausse source ni validation Vial. Relecture Asclépios : phrases courtes, pas de reprise du libellé ou des alias, pas de paire circulaire. La référence 3823 → 3819 baisse ; les 38 candidats supplémentaires dus au changement de règles ont été examinés (inventaire JSON). Le contrôle élargit le corpus et les affixes ; aucun terme neuf non défini dans ce lot. Les termes historiques de la référence restent à traiter à l’étape 11, pas de baseline zéro prétendue. Réserve de migration levée après cette revue et la baisse effective.
+## Galien · relecture finale prévalences G4 (#58) · 18.10.2026 Europe/Zurich
+
+Sources lues le 17.10.2026 UTC (18.10.2026 à Zurich) : Limper, Neth J Med 2011, méthodes p.125, résultats p.126 et tableau 2 p.127, https://njmonline.nl/getpdf.php?id=1033 ; BASEL IX, J Intern Med 2021, « Characteristics of patients », https://doi.org/10.1111/joim.13269 ; ESGE 2019, §4 et §8.1 ; HAS/SPILF/SFD 2019, §1.2, §1.8 et §2.3 ; ESC syncope 2018, §4.1.1 et messages clés 3–8. Les trois lignes directrices figurent désormais dans src.json.
+
+Les onze chiffres ont été relus : neuf pour G6, deux pour F1.19. Les deux bornes ≤ sont conservées : les infections urinaires fébriles ne sont pas toutes des pyélonéphrites ; les syncopes réflexes ne sont pas toutes vasovagales. Les catégories sans chiffre restent « À vérifier ». BASEL IX comprend aussi des centres hors Europe : le cadre ne doit pas être interprété comme une cohorte exclusivement suisse.
+
+Fautes et précisions corrigées :
+
+- G6, cadre : le suivi diagnostique dure un an ; trente jours correspond à la mortalité.
+- Infection cutanée ajoutée : préciser que l'IRM ne doit jamais retarder la chirurgie urgente si une fasciite est suspectée (HAS §2.3). L'imagerie n'est pas systématique dans la forme simple.
+- Nouvelle syncope structurelle : réserver la troponine à la suspicion ischémique et l'échocardiographie à la suspicion structurelle. L'imagerie exacte d'une dissection reste « À vérifier » faute de relecture de sa recommandation spécifique.
+- Reprise technique : conserver les corrections déjà écrites (intitulés de F1.19, angiocholite, infection cutanée, cause cardiaque aiguë) ; rendre prev_g4_corr idempotent pour les rangs et le cadre.
+
+Aucune dose ajoutée. Aucune faute critique identifiée dans ce diff. Contrôles prev_build, ck_build, mono_build et G3 passent ; Lyncée ne trouve aucun terme nouveau. Suite Playwright 1.63 et CI à terminer avant fusion ; audit-ok ne dispense d'aucun contrôle.
+
+Après intégration des 139 définitions de main, 45 définitions déjà relues dans #68 ont été reprises pour assurer la compatibilité ; leurs statuts À vérifier restent identiques. Référence 3753 → 3735. Aucun ajout par --update. Le nouveau garde impose la baisse du total même quand les règles changent ; quatre tests réels CLI réussis. La suite des définitions de #68 reste une PR distincte.
