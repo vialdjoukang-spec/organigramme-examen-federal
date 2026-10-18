@@ -7,6 +7,7 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
 Pièges     : Ne lancez pas `--update` avant la fusion des PR de monographies ouvertes : il retirerait leurs termes de la référence et ferait échouer leur G4. Toute monographie nouvelle échoue au G4 tant que ses termes ne sont pas dans glo.json ou dans qa/termes_exclus.txt (avec un motif).
 
+## Codex · reprise technique #54 · 2026-10-17T23:36:57+00:00
 ## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
 ## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
