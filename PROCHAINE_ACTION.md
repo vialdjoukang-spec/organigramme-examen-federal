@@ -1,3 +1,8 @@
+## Coordination8/9 · veille10min · 18.10.2026 Europe/Zurich
+État : dispositif commun implémenté, compteur par diagnostic et occurrenceSSP, registre lié aux empreintes, file de maturation et ordonnanceur régulé. Monographies253/2287 et prévalences45/2587 inchangées ; deux relectures monographiques initialisées, aucune prévalence rétrovalidée. Recherches ciblées SPILF/SFMV ajoutées, coupe-circuit300s et exemples documentaires prioritaires dans le PDF. Veille10min, notifications20min, recherches au plus4h,2DD/catégorie si file≥200 sinon8,2catégories simultanées/budget180s. Contrelecture indépendante favorable après corrections,117tests prévalences verts ; CI/fusion/activation exactes requises.
+Prochaine : après intégration et lancement réels, reprendre exactement G10 céphalée en coup de tonnerre puis douleur cancéreuse. Étape8 reste liée ; le succès d’une relance n’est pas une preuve d’exécution d’agent. Pas de clôture de boucle.
+Pièges : ne pas partager une prévalence entre SSP, ne pas confondre structure et maturité documentaire, ne pas fermer à100% arrondi. Un plan corrompu interdit le dispatch mais ne supprime pas la garde. Voir docs/coordination-8-9.md.
+
 # PROCHAINE ACTION (écrit par tools/veille_relance.sh, ne pas éditer à la main)
 
 Mis à jour : 18.10.2026 15:07 UTC

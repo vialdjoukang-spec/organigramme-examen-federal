@@ -8,6 +8,7 @@ import argparse
 from datetime import datetime, timezone
 import html
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -17,12 +18,13 @@ from tools.prevalences.moteur import ROOT, DEFAULT_STATE, CONFIG, atomic_json, c
 
 
 def valid_published(item, task, sources, today):
+    if not isinstance(item, dict): return False
     if item.get('nom') != task['diagnostic'] or type(item.get('prev_pct')) not in (int, float): return False
-    if not 0 < item['prev_pct'] <= 100 or item.get('statut') == 'À vérifier': return False
+    if not math.isfinite(item['prev_pct']) or not 0 < item['prev_pct'] <= 100 or item.get('statut') == 'À vérifier': return False
     date = item.get('date_lu', '')
     try: datetime.strptime(date, '%Y-%m-%d')
     except (ValueError, TypeError): return False
-    return date <= today and item.get('src') in sources and bool(str(item.get('loc', '')).strip())
+    return date <= today and isinstance(item.get('src'), str) and item['src'] in sources and isinstance(item.get('loc'), str) and bool(item['loc'].strip())
 
 
 def measure(root=ROOT, states=None):

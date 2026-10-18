@@ -71,6 +71,17 @@ def main():
     contenu = [a for a in act if a[1] == "contenu"]
     stall = not monte and not contenu
     etat = lire_etat()
+    plan = {}
+    coordination = os.path.join(ROOT, '.etat_local', 'coordination', 'coordination.json')
+    if os.path.exists(coordination):
+        try:
+            suivi = json.load(open(coordination, encoding='utf-8'))
+            plan = suivi['plan']
+            resume('## Étapes 8 et 9 liées\n' + json.dumps(suivi['mesure'], ensure_ascii=False)
+                   + '\nProchain lot : ' + json.dumps(plan['prochain_lot9'], ensure_ascii=False)
+                   + '\nUne relance publiée ne prouve pas l’exécution de l’agent.')
+        except (ValueError, KeyError, OSError):
+            resume('Plan couplé indisponible : état inconnu, aucune maturité déduite.')
     etat.update(maj=iso(t), mesure=M)
     raisons = []
     if stall:
@@ -86,9 +97,13 @@ def main():
         etape = json.loads(git("show", "origin/main:ETAT.json") or "{}").get("etape_courante", "?")
         if minutes_depuis(etat.get("derniere_relance")) >= CFG["relance_codex_min"]:
             n = pilote()
+            consigne = ('\n\nPriorité étape9, prévalences étape8 associées : '
+                        + json.dumps(plan['prochain_lot9'], ensure_ascii=False)
+                        + '. Cherche et reprends la PR active de ce lot avant d’en ouvrir une autre. '
+                        'Lire tools/coordination et coordination.html ; aucune validation clinique automatique.') if plan else ''
             if commenter(n, f"@codex Ordre de Vial : reprends l'étape {etape}, lot suivant. Rédige du contenu "
                          f"(prévalences/monographies), pas de relevé. Présente d'abord tes automates actifs "
-                         f"(`python tools/garde/checkpoint.py --inventaire`).\n\nGarde R15 : {raison}.", tok_codex()):
+                         f"(`python tools/garde/checkpoint.py --inventaire`).\n\nGarde R15 : {raison}." + consigne, tok_codex()):
                 etat["derniere_relance"] = iso(t)
                 raisons.append(f"relance @codex postée sur Pilote #{n}")
         else:

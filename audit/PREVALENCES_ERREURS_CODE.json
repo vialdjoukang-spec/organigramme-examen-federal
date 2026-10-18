@@ -70,5 +70,32 @@
   "apres": "Nature acces_relecture distincte avec source, date et motif ; passage PDF dédié ; aucune lecture terminée ni correction supposée",
   "corrigee": true,
   "preuve": "tests/test_prevalences_rapport.py : test_inaccessible_agent_sources_are_not_completed_reviews ; test_agent_access_refusals_are_in_pdf_outside_limited_network_examples"
+ },
+ {
+  "id": "COORD-NULL",
+  "motif": "Les champs nuls pouvaient être comptés comme rubriques remplies.",
+  "avant": "str(None) accepté",
+  "apres": "Chaîne non vide exigée",
+  "corrigee": true,
+  "gravite": "majeure",
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/feat/coordination-8-9/tests/test_prevalences_coordination.py"
+ },
+ {
+  "id": "COORD-BOOL-DATE",
+  "motif": "Un booléen et une date future pouvaient compter comme prévalence.",
+  "avant": "True et date future acceptés par la jauge globale",
+  "apres": "Nombre fini hors booléen, date valide et emplacement textuel exigés",
+  "corrigee": true,
+  "gravite": "majeure",
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/feat/coordination-8-9/tests/test_prevalences_coordination.py"
+ },
+ {
+  "id": "COORD-ARRONDI",
+  "motif": "La clôture pouvait utiliser100% arrondi malgré des données manquantes.",
+  "avant": "2575/2587 arrondi à100%",
+  "apres": "Compte exact et documentation couplée exigés",
+  "corrigee": true,
+  "gravite": "majeure",
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/feat/coordination-8-9/tests/test_prevalences_coordination.py"
  }
 ]
