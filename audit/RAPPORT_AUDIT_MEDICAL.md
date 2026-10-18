@@ -244,6 +244,11 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
 
+## Galien · doses AIPS #61 · 18.10.2026 Europe/Zurich
+
+Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 51 lignes, confrontées à 33 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
+
+Chaque ligne a un verdict, son URL officielle et l’empreinte du document dans AIPS-RELECTURE-PR61.json. Aucun document source brut n’est versionné. Les versions exprimées au mois ne donnent pas un jour de publication exact ; le jour 01 anciennement saisi est désormais explicitement décrit comme convention de normalisation. Aucune validation par un médecin ou par Vial n’est déclarée.
 ## Galien · doses AIPS #59 · 18.10.2026 Europe/Zurich
 
 Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 38 lignes, confrontées à 23 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
