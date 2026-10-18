@@ -1,3 +1,10 @@
+## Codex · reprise #88 · 18.10.2026, Europe/Zurich
+État : accord de Vial lu, main réuni, deux remarques cliniques de revue traitées dans arythmie-non-controlee.mes.
+Prochaine : relecture primaire ESC/HUG et CI de la nouvelle tête, puis #88 → #64 → #91 → #67 → #70.
+Sources : commentaire de Vial et revues de #88 lus ; accès primaire HUG/DOI refusé par la politique réseau.
+Pièges : ne pas confondre urgence du traitement électrique et cardioversion de tout rythme ; stimulation temporaire conditionnée au contexte urgent et à l’échec chronotrope ou à une tachyarythmie ventriculaire provoquée.
+À vérifier : suite file:// et API GitHub bloquées ; aucun audit-ok supplémentaire ni fusion revendiquée.
+
 # HANDOFF · passation entre sessions
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.

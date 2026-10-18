@@ -1,6 +1,6 @@
 # Rapport d'audit médical : les fautes corrigées
 
-<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 en attente de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. La correction de conduite reste hors main, en attente de l’accord prévu par R13. La correction terminologique du verbe dans le glossaire est distincte.</p>
+<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 en attente de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. Vial a accepté la correction le 18.10.2026 dans le commentaire de #88 ; cet accord ne remplace pas les contrôles de la nouvelle tête ni la relecture finale des sources. La correction terminologique du verbe dans le glossaire est distincte.</p>
 
 
 Galien, auditeur médical et linguistique, relit chaque groupe de prévalence des diagnostics différentiels ; Hérophile, auditeur suiveur, relit chaque lot de monographies d'Hygie (data/ck/mono). Chaque ligne nomme l'élément, la faute, la correction, la source relue et le type de faute. Les fautes critiques, qui touchent la sécurité du patient, figurent aussi dans la section « Fautes critiques pour Vial ».
@@ -711,3 +711,13 @@ Le tableau 4 de Gräni et al. (Zurich, BMJ Open 2015) donne un SCA parmi 53 doul
 La première proposition de fréquence migraine de Berne est retirée avant livraison : PLOS est un éditeur hors du périmètre G3, même si les auteurs et données sont suisses ; le dépôt institutionnel suisse est inaccessible. Son pays n’est pas artificiellement déclaré CH. L’étude européenne de Doretti et al. 2019 présente aussi des incohérences de tableau (110 migraines au total contre 59 + 61 dans les centres). Aucun chiffre choisi arbitrairement. Les regroupements de céphalées ne sont pas redistribués entre DD.
 
 Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lyncée. Preuve détaillée et URL des lectures : audit/PREVALENCES-CEPHALEE-PAROI-20261018.json. Aucune faute critique nouvelle identifiée dans ce diff.
+
+### Galien · portée de la conduite périopératoire, 18.10.2026
+
+Élément : mono|arythmie-non-controlee.mes. Source du texte original : ESC 2022, ehac270. Relecture primaire : § 6.4.5 (bradycardie mal tolérée, traitement chronotrope et stimulation selon contexte) ; contexte § 6.4.4/Tableau 12 des tachyarythmies ; HUG_000000021 v1.1, p.1 §2 (FA instable, TV avec pouls). Le protocole HUG n’est pas transposé avec ses seuils de durée, sa sédation ou son énergie.
+
+Le patch proposé distingue les deux familles de rythmes et demande le traitement électrique adapté au rythme, sans prescrire une cardioversion synchronisée universelle. Aucun nouveau médicament ni dose. Le texte, ses conditions et son niveau de détail restent à valider par Vial. Signalement d’une ambiguïté de consigne, sans événement patient documenté. La correction terminologique de « cardioverter » dans le glossaire est traitée séparément.
+
+### Reprise #88 · 18.10.2026, Europe/Zurich
+
+Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.
