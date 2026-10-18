@@ -256,6 +256,21 @@ Après intégration de main, neuf nouveaux candidats bloquants définis : six co
 
 ### Complément #68 · contrôle des exclusions, 18.10.2026
 Neuf exclusions de termes spécialisés retirées (anatomie, hématologie, neurosciences, topographie, périphérique, autonome, irritabilité, impulsivité, toxicité). Définitions courtes proposées, toutes À vérifier et sans fausse citation ou validation Vial. Les exclusions restantes désignent des mots généraux, des codes ou des éléments bibliographiques ; elles ne doivent pas servir à masquer de futurs termes cliniques. Glossaire 388 entrées après union des 166, des neuf termes de migration et de ce complément ; source individuelle encore requise pour les entrées non sourcées.
+## Galien · doses AIPS #59 · 18.10.2026 Europe/Zurich
+
+Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 38 lignes, confrontées à 23 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
+
+Chaque ligne a un verdict, son URL officielle et l’empreinte du document dans AIPS-RELECTURE-PR59.json. Aucun document source brut n’est versionné. Les versions exprimées au mois ne donnent pas un jour de publication exact ; le jour 01 anciennement saisi est désormais explicitement décrit comme convention de normalisation. Aucune validation par un médecin ou par Vial n’est déclarée.
+
+Corrections de contexte suivant les lignes présentes : exceptions de la naloxone ; relais AVK de l’énoxaparine ; fenêtre de six heures du schéma infarctus 90 minutes ; adaptation de l’isoniazide chez le nourrisson et pyridoxine ; indication absolue du pyrazinamide chez l’enfant et entretien rénal ; limite d’anurie de la flucloxacilline ; présentations pédiatriques de co-amoxicilline ; âge et calcium IV sous ceftriaxone ; contexte Rh(D) postnatal ; espacement du lanréotide en acromégalie stabilisée ; doses rénales détaillées du zolédronate ; dose du concentré prothrombinique à prendre dans son propre texte professionnel.
+
+Doutes traités : vitesse KCl laissée « À vérifier (AIPS) », sans convertir « mmol/l heure » ; durée HSV laissée « À vérifier » devant la différence entre AIPS et EAN/ESCMID 2026 §10 (doi:10.1111/ene.70647), relu. Les substances non présentes dans cette table n’acquièrent aucune dose par inférence.
+
+Validation : doses_check, comparaison des extraits et schémas/compilation à vérifier après application finale ; trois tests protègent le décodage µ/≥. La CI complète reste obligatoire.
+
+Aucune faute critique identifiée dans les lignes de ce lot ; audit-ok peut être rétabli après les contrôles techniques, sans acquérir de validation médicale humaine.
+
+Contrôles finaux : doses_check, conformité verbatim hors ligne, 3 tests du lecteur AIPS, ck_build, mono/prev --check, G1/G2/G3/G6 et Lyncée --diff réussis. Ne vaut ni suite complète d’interface ni validation Vial. Glossaire ciblé : définitions nécessaires à cette branche ; définitions et absence de circularité relues dans un second rôle Asclépios. Aucune dose numérique ajoutée par le glossaire.
 ## Galien · relecture finale prévalences G4 (#58) · 18.10.2026 Europe/Zurich
 
 Sources lues le 17.10.2026 UTC (18.10.2026 à Zurich) : Limper, Neth J Med 2011, méthodes p.125, résultats p.126 et tableau 2 p.127, https://njmonline.nl/getpdf.php?id=1033 ; BASEL IX, J Intern Med 2021, « Characteristics of patients », https://doi.org/10.1111/joim.13269 ; ESGE 2019, §4 et §8.1 ; HAS/SPILF/SFD 2019, §1.2, §1.8 et §2.3 ; ESC syncope 2018, §4.1.1 et messages clés 3–8. Les trois lignes directrices figurent désormais dans src.json.
