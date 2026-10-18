@@ -1,6 +1,8 @@
+<p class="urg" style="color:red"><b>PR #64 · accord de Vial reçu, audit final requis</b> : la fiche d’arrêt hypothermique présente HOPE &lt; 10 % comme une exception autorisant le constat de décès avant réchauffement. Les sources relues décrivent un outil de sélection de l’ECLS, pas un critère autonome de constat de décès. Risque clinique potentiellement critique : la formulation est retirée dans la reprise après accord de Vial du 18.10.2026 ; relecture primaire et CI exactes restent requises avant fusion.</p>
+
 # Rapport d'audit médical : les fautes corrigées
 
-<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 en attente de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. Vial a accepté la correction le 18.10.2026 dans le commentaire de #88 ; cet accord ne remplace pas les contrôles de la nouvelle tête ni la relecture finale des sources. La correction terminologique du verbe dans le glossaire est distincte.</p>
+<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 fusionnée après accord de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. Vial a accepté la correction le 18.10.2026 dans le commentaire de #88 ; cet accord ne remplace pas les contrôles de la nouvelle tête ni la relecture finale des sources. La correction terminologique du verbe dans le glossaire est distincte.</p>
 
 
 Galien, auditeur médical et linguistique, relit chaque groupe de prévalence des diagnostics différentiels ; Hérophile, auditeur suiveur, relit chaque lot de monographies d'Hygie (data/ck/mono). Chaque ligne nomme l'élément, la faute, la correction, la source relue et le type de faute. Les fautes critiques, qui touchent la sécurité du patient, figurent aussi dans la section « Fautes critiques pour Vial ».
@@ -608,6 +610,17 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
 
+## Hérophile/Galien · audit final partiel G7/G8 (#64) · 18.10.2026 Europe/Zurich
+
+Les 25 monographies nouvelles ont été relues. Reprise technique : main intégré, conflits de shards résolus par merge_shards sans conflit réel signalé, patch 0026 et assets régénérés. Aucun audit-ok ajouté ; attente-vial suspend cette PR.
+
+Sources primaires relues le 17.10.2026 UTC : Accidental Hypothermia: 2021 Update, PMC8744717 (paragraphes réchauffement/HOPE/arrêt de l’ECPR) ; étude de trois centres suisses sur les arrêts non réchauffés, Resuscitation Plus 2023, PMC10448201 (résultats/discussion) ; cohorte bernoise 2022, PMC9518193 (résultats/mortalité). Textes obtenus par l’API publique Europe PMC, conservés hors dépôt. Le nombre 38 concerne trois centres suisses ; ce n’est pas uniquement une série CHUV.
+
+Signalement suspendu : le score HOPE sélectionne l’ECLS ; son assimilation à un constat de décès doit être tranchée par Vial. Proposition : « La décision de non-réanimation ou d’arrêt relève d’une évaluation spécialisée ; HOPE estime le bénéfice de l’ECLS et ne constitue pas à lui seul un constat de décès. » Cette proposition n’est pas déclarée validée et la PR reste bloquée.
+
+Corrections déjà appliquées : cinq champs de pharmacologie annonçaient « AIPS lue » alors que les lignes correspondantes ne sont pas encore fusionnées/auditées dans la table suisse. Leurs doses deviennent « À vérifier (AIPS) », ainsi que le volume de cristalloïdes. Les chiffres du flush ALDH2 (PLoS Med), de la ménopause (SWAN, États-Unis) et du coma myxœdémateux (Cureus) ne satisfont pas la règle CH/UE : ils deviennent « À vérifier (source CH/UE) ». Aucune nouvelle valeur n’est inventée.
+
+Reste à terminer : décision de Vial sur le signalement HOPE, audit AIPS à l’Étape 6 puis références de doses réelles, relecture primaire des autres chiffres endocriniens et actualisation éventuelle vers ERC 2025. Les contrôles mécaniques ne valent pas validation de ces points. La file continue les autres chaînes.
 ### Étape 12 · balises critiques
 72 débuts de texte TIP.d perdaient leur balise ouvrante. Patch 0028 rejouable : ajout de b avec la couleur var(--bad) devant le titre critique seulement ; aucun mot clinique ni aucune dose modifié. Second passage : zéro modification. La couleur utilise la variable critique existante, adaptée aux thèmes. Contrôles structurels et suite d’interface consignés séparément ; ceci ne clôt pas l’audit médical transversal.
 
@@ -712,6 +725,11 @@ La première proposition de fréquence migraine de Berne est retirée avant livr
 
 Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lyncée. Preuve détaillée et URL des lectures : audit/PREVALENCES-CEPHALEE-PAROI-20261018.json. Aucune faute critique nouvelle identifiée dans ce diff.
 
+### Reprise #64 · 18.10.2026, Europe/Zurich
+
+Accord de Vial lu sur la page publique (vial-ok), audit final toujours requis. Réunion de main avec merge_shards.py : aucune clé en conflit réel, toutes les monographies existantes conservées. La limite du critère tryptase dans la mastocytose est explicitée conformément au signalement de revue, avec ajustement encore À vérifier. Le score HOPE bas n’est plus présenté comme critère de constat de décès ; les critères de limitation restent À vérifier jusqu’à relecture primaire. Les posologies d’adrénaline restent À vérifier (AIPS). L’arrêt en avalanche conserve les trois conditions cumulatives ensevelissement prolongé, voies aériennes complètement obstruées et asystolie, telles que déjà corrigées sur la branche. Pas de lecture primaire nouvelle revendiquée : accès Europe PMC refusé par la politique réseau. Pas de nouvel audit-ok.
+
+Le contrôle Lyncée a identifié neuf termes nouveaux du lot : CD2, CD25, WDHA, alpha-tryptasémie, extracorporel, extracutané, neurokinine, œsophagectomie et vagotomie-pyloroplastie. Ils reçoivent des définitions provisoires explicitement À vérifier, sans validation Vial ni source primaire nouvelle revendiquée. Aucune exclusion de terme clinique ni hausse de référence.
 ### Galien · portée de la conduite périopératoire, 18.10.2026
 
 Élément : mono|arythmie-non-controlee.mes. Source du texte original : ESC 2022, ehac270. Relecture primaire : § 6.4.5 (bradycardie mal tolérée, traitement chronotrope et stimulation selon contexte) ; contexte § 6.4.4/Tableau 12 des tachyarythmies ; HUG_000000021 v1.1, p.1 §2 (FA instable, TV avec pouls). Le protocole HUG n’est pas transposé avec ses seuils de durée, sa sédation ou son énergie.

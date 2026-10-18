@@ -192,3 +192,7 @@ Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après
 Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
 
 Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
+
+### Reprise cloud · 18.10.2026, Europe/Zurich
+
+Accords Vial lus sur #88/#64/#67/#70. Corrections poussées sur les cinq PR ; G1–G8 locaux verts. Fusion #88 observée dans main aacfff7 (tête d4fa7f7). #64/#91/#67/#70 restent ouvertes à la dernière observation publique ; relecture primaire et CI exactes requises. API GitHub, HUG, DOI et Refdata sont refusés par la politique réseau active ; domaines ajoutés au brouillon, non appliqués au runtime observé. Aucun nouveau lot 8/9, gain de couverture ou fin de boucle revendiqué.
