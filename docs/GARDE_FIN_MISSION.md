@@ -1,6 +1,6 @@
 # Garde local de fin de mission
 
-Depuis la racine du dépôt, lancer avant de déclarer une mission terminée :
+Outil facultatif depuis le retour au découpage original demandé par Vial. Le protocole Gardien n’est plus obligatoire. Depuis la racine du dépôt :
 
 ```bash
 python3 tools/garde/fin.py verifier

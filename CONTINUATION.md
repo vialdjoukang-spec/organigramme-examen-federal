@@ -69,7 +69,7 @@ La même liste existe pour les machines dans `tools/etapes.json` (titres, critè
 - **R14 · Fusion** : commit de fusion (`--merge`), jamais squash, jamais force-push d’une branche de PR, jamais `--admin` pour contourner, jamais affaiblir la protection de `main`. Permission permanente de Vial : fusionner soi-même **après audit et CI verte**.
 
 - **R15 · Garde-fous (ordre de Vial, 18.10.2026)** : « Codex doit être libre, indépendant de tout PC ». La veille permanente est **GitHub Actions** (gratuit, dépôt public), plus aucun PC :
-  - `garde-progres.yml` toutes les **10 min** (`tools/garde/progres.py`) mesure le contenu réel de `main` (prévalences, monographies, lignes de doses, glossaire). **STALL** = aucun compteur monté en **30 min**, ou seulement des PR de relevé : `@codex` sur la PR brouillon **« Pilote Codex »** (≤ 1 relance / 30 min) ; après **2 stalls consécutifs (60 min)**, `@vialdjoukang-spec` (courriel, ≤ 1 / 60 min). Il recycle aussi chaque PR sans commit depuis **60 min** (`tools/garde/recyclage.py` : « reprends ou ferme avec motif », ne ferme rien).
+  - `garde-progres.yml` toutes les **5 min** (`tools/garde/progres.py`) mesure le contenu réel de `main` (prévalences, monographies, lignes de doses, glossaire). **STALL** = aucun compteur monté en **15 min**, ou seulement des PR de relevé : `@codex` sur la PR brouillon **« Pilote Codex »** (≤ 1 relance / 15 min) ; après **4 stalls consécutifs (environ 60 min)**, `@vialdjoukang-spec` (courriel, ≤ 1 / 60 min). Il recycle aussi chaque PR sans commit depuis **60 min** (`tools/garde/recyclage.py` : « reprends ou ferme avec motif », ne ferme rien).
   - `checkpoint.yml` (`tools/garde/checkpoint.py`) sur chaque PR : section **« Automates actifs »** obligatoire dans le corps (scripts/skills/MCP existants), interdit de déclarer finie une étape en boucle (8–11, 14, 15) sans données de contenu, aucune dose sans ligne `data/ck/doses_ch.json`. En cas d’échec, l’ordre de correction t’est posté avec `@codex`.
   - `appel-vial.yml` : étiquette `attente-vial` → une ligne à Vial sur « Pilote Codex » (courriel) **et** `@codex` : continue ailleurs, n’attends **jamais** Vial.
   - **Début de chaque session** : affiche `python tools/garde/checkpoint.py --inventaire` (tes automates actifs) ; recopie ceux que tu utilises dans « Automates actifs » de ta PR.
@@ -304,7 +304,7 @@ Jauges inchangées : prévalences 0/2578 (0 %), monographies 70/2280 (3 %). `bin
 |---|---|
 | `tools/porte.py` | Porte des étapes : `etat`, `verifier0`, `commencer N`, `critere N`, `terminer`, `avancer`, `ordre`, `--dry-run`. |
 | `tools/etapes.json` | Feuille de route machine : étapes, critères, boucles, modèle, chaînes de PR de la file de fusion. |
-| `tools/garde/` + `garde-progres.yml`, `checkpoint.yml`, `appel-vial.yml` | **Veille permanente R15** (GitHub Actions, 10 min) : STALL → `@codex`, appel de Vial, recyclage, checkpoint de PR. |
+| `tools/garde/` + `garde-progres.yml`, `checkpoint.yml`, `appel-vial.yml` | **Veille permanente R15** (GitHub Actions, 5 min) : STALL → `@codex`, appel de Vial, recyclage, checkpoint de PR. |
 | `tools/veille_relance.sh` | Veille facultative : file de fusion, fin d’étape, relance de Codex (mode A `codex exec`, mode B `PROCHAINE_ACTION.md`). |
 | `tools/file_fusion.sh` | File de fusion-publication : `--dry-run`, `--chaine`, `--droits`, `--ci` ; échecs → `journal/echecs_fusion.md`. |
 | `.github/workflows/file-fusion.yml` | Même file, planifiée toutes les 20 min sur GitHub (gratuit). |
@@ -414,3 +414,6 @@ G11–G14 : 56 fréquences explicitement inconnues, libellés intacts, aucun chi
 
 ### Complément dermatose G9 · 18.10.2026 Europe/Zurich
 #101 fusionnée (774de74), Pages réussi ; 45/2587 fréquences. PR #102 : psoriasis et urticaire chronique, six définitions, 244/2287 monographies et 569 entrées, référence 3563. Critères formels psoriasis et AIPS gardent leurs réserves ; CI exacte requise avant fusion. Cinq G9 restent dus (Hodgkin, pemphigoïde étendue, Vaquez, dermatite atopique, lichen plan), puis G10 et Panacée O7.14–O7.12. Boucle 8 lot 7 G15, G16, S1.1 et S1.2 ; aucune clôture.
+
+### Reprise du découpage original · 18.10.2026 Europe/Zurich
+Vial annule le protocole Gardien v1.0 ; fin.py reste facultatif. Sentinelle permanente rapprochée : passage toutes les 5 min, fenêtre et rappel Codex de 15 min, quatre stalls avant appel de Vial et délai d’appel de 60 min conservé. Un sous-agent sentinelle accompagne la tranche interactive sans pouvoir réveiller une session fermée. Étape officielle8 lot8, reprise de contenu à G10 ; S1.3–S1.6 et Panacée O7.14–O7.12 restent dus.

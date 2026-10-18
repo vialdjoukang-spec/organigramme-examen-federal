@@ -1,14 +1,14 @@
-# Garde du progrès (R15) · toutes les 10 min, GitHub Actions gratuit (dépôt public), indépendant de tout PC.
+# Garde du progrès (R15) · toutes les 5 min, GitHub Actions gratuit (dépôt public), indépendant de tout PC.
 # Ordre de Vial : « Codex doit être libre, indépendant de tout PC ».
-# Mesure le contenu réel de main ; STALL si rien n'a monté en 30 min (ou seulement des relevés) :
-# « @codex » sur la PR brouillon « Pilote Codex » (≤ 1/30 min), puis @vialdjoukang-spec après 2 stalls (≤ 1/60 min).
+# Mesure le contenu réel de main ; STALL si rien n'a monté en 15 min (ou seulement des relevés) :
+# « @codex » sur la PR brouillon « Pilote Codex » (≤ 1/15 min), puis @vialdjoukang-spec après 4 stalls (≤ 1/60 min).
 # Recycle aussi les PR inactives depuis 60 min. Seuils : tools/garde/config.json. État : branche garde/etat.
 # Jetons : AUTO_FUSION_TOKEN (compte de Vial → déclenche l'intégration Codex) pour les « @codex » ;
 # GITHUB_TOKEN (github-actions[bot]) pour mentionner Vial, sinon GitHub ne lui envoie pas de courriel.
 name: Garde du progrès
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
