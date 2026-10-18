@@ -986,7 +986,7 @@ function gloShort(id){const e=gloE(id);if(!e||!e.def)return '';const d=String(e.
 /* Chargement à la demande : la fenêtre s’affiche (« Chargement… »), puis se redessine sur place quand les fichiers sont là. */
 function ckNeed(ty,a,key){if(typeof ckLoad!=='function'||ckTry.get(key)===2)return true;if(ckTry.get(key)===1)return false;const L=(CK_DEP[ty]||[]).filter(n=>!ckW(n.toUpperCase().replace(/[^A-Z0-9]/g,'_'))),g=ty==='glo'&&!gloE(a);
  if(!L.length&&!g)return true;ckTry.set(key,1);Promise.allSettled([...L.map(n=>ckLoad(n)),...(g?[ckGlo(a)]:[])]).then(()=>{ckTry.set(key,2);gloI=null;if(!gloOn&&gloIndex())gloStart();if(!TIPEL.hidden&&tipK===key)showTip({dataset:{t:key}},tipPin,tipOp||TIPEL,false,true)});return false}
-const GLO_SKIP='h1,h2,h3,h4,h5,h6,a,code,pre,kbd,samp,button,input,select,textarea,option,summary,legend,script,style,svg,noscript,nav,.tw,[contenteditable],[data-noglo],.blk,#grid,.ck-ctl,.ck-fil',
+const GLO_SKIP='h1,h2,h3,h4,h5,h6,a,code,pre,kbd,samp,button,input,select,textarea,option,summary,legend,script,style,svg,noscript,nav,.tw,.it,.grp-h,[contenteditable],[data-noglo],.blk,#grid,.ck-ctl,.ck-fil',
  GLO_BLK='p,li,td,th,dd,dt,blockquote,figcaption,div,section,article,details,fieldset';
 /* gloLink(racine, exclus, dansFenetre) : pose une clé de glossaire (type glo) sur la première occurrence de chaque terme par bloc ; ignore titres, liens, code,
    commandes, éléments déjà reliés et identifiants exclus (terme courant et ancêtres de la pile). Ne modifie aucune donnée (TIP, NOT, GES). */
@@ -1003,7 +1003,7 @@ function gloLink(root,excl,inTip){const I=gloIndex();if(!I||!root||!root.isConne
   for(const [i,len,id] of M){if(i<at||!id||excl.has(id)||used.has(id))continue;used.add(id);
    f.append(txt.slice(at,i));const s=document.createElement('span');s.className='tw glo';s.dataset.t='glo|'+id;s.tabIndex=0;s.setAttribute('role','button');s.setAttribute('aria-haspopup','dialog');
    s.setAttribute('aria-expanded','false');s.setAttribute('aria-controls','tip');if(inTip||inT){const d=gloShort(id);if(d)s.title=d}s.textContent=txt.slice(i,i+len);f.append(s);at=i+len;k++}
-  if(k){f.append(txt.slice(at));t.replaceWith(f);n+=k}}
+  if(k){f.append(txt.slice(at));if(['grid','inline-grid','flex','inline-flex'].includes(getComputedStyle(p).display)){const flow=document.createElement('span');flow.append(f);t.replaceWith(flow)}else t.replaceWith(f);n+=k}}
  return n}
 /* Pages : liaison à l’inactivité, par petits lots, sur les nœuds ajoutés au rendu ; jamais dans la fenêtre (liée à son ouverture). */
 const ckIdle=window.requestIdleCallback?f=>requestIdleCallback(f,{timeout:700}):f=>setTimeout(()=>f({timeRemaining:()=>8}),60);
