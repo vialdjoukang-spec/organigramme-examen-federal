@@ -1,5 +1,8 @@
 # Rapport d'audit médical : les fautes corrigées
 
+<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 en attente de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. La correction de conduite reste hors main, en attente de l’accord prévu par R13. La correction terminologique du verbe dans le glossaire est distincte.</p>
+
+
 Galien, auditeur médical et linguistique, relit chaque groupe de prévalence des diagnostics différentiels ; Hérophile, auditeur suiveur, relit chaque lot de monographies d'Hygie (data/ck/mono). Chaque ligne nomme l'élément, la faute, la correction, la source relue et le type de faute. Les fautes critiques, qui touchent la sécurité du patient, figurent aussi dans la section « Fautes critiques pour Vial ».
 ## Érasistrate · Panacée lot 3 (O7.20–O7.18, PR #60) — 17.10.2026
 

@@ -8,13 +8,13 @@ Le projet n’est pas terminé. La porte 0 a été validée avant l’étape 1. 
 |---|---|---|
 | 0–2 | Catalogue/MCP/skills, porte, veille mode B, droits ; #71–#74 et sondes fusionnées ; #82 verrou des prédécesseurs fusionné, tests 5/5 + 5/5 | Maintenir les réessais |
 | 3 | #43/#44/#45/#58/#47 fusionnées, critère historique satisfait | #85 G5 est un lot suivant séparé |
-| 4 | #50/#53/#54 fusionnées dans cet ordre ; main à 207 monographies, shards résolus par script | #49 reprise après main ; #64 suspendue |
+| 4 | #50/#53/#54 fusionnées dans cet ordre ; main à 207 monographies, shards résolus par script | #49 fusionnée ; #64 suspendue |
 | 5 | #60 et #62 fusionnées, données réunies en 130 monographies dans main | Incident #62 avant #60 conservé ci-dessous |
-| 6 | 98 lignes / 73 documents AIPS officiels relus ; quatre rapports `audit/AIPS-RELECTURE-PR*.json` ; comparateur sans écart et 3 tests réussis | #59 puis #61 ; #67/#70 suspendues ; références des monographies à compléter après fusion |
-| 7 | #65 : 406 entrées, dix termes supplémentaires traités, baseline 3734 ; #68 : 535 entrées réunies, neuf exclusions cliniques remplacées, baseline 3571 | Sources « À vérifier » conservées ; fusions #65 puis #68 ; quatre tests du garde passent. Patch calendrier 0030 : CK UI 74/74, suite 276/276 |
+| 6 | 98 lignes / 73 documents AIPS officiels relus ; quatre rapports `audit/AIPS-RELECTURE-PR*.json` ; comparateur sans écart et 3 tests réussis | #59 et #61 fusionnées ; #67/#70 suspendues ; références des monographies à compléter après fusion |
+| 7 | #65 fusionnée : 414 entrées, baseline 3730 ; #68 : 543 entrées réunies, neuf exclusions cliniques remplacées, baseline 3567 | Sources « À vérifier » conservées ; fusion #68 après contrôles des cibles 24 px ; quatre tests du garde. Patches 0030/0031 : suite 278/278, référence conservée |
 | 8 | #85 : 44 DD sur quatre SSP G5 conservés, fréquences inconnues explicites ; cohortes catalane et bâloise examinées | Chiffres adaptés, autres SSP et DD manquants ; aucun chiffre transposé ni gain de couverture revendiqué |
 | 9–11 | Brouillons TIP.d et inventaires hors git ; DigiFab retrouvé dans AIPS, révision 02/2026, preuve en audit/ | Rédaction de masse, audits, doses des nouvelles fiches et baseline à zéro : non réalisés |
-| 12 | #83 : 72 titres critiques restaurés, aucun mot changé ; captures bureau/mobile examinées, rouge/carte 6,77:1. #84 : fermeture corrigée, 4/4 reproductions et suite 276/276 | #84 fusionnée, suite main 42a432d 276/276 ; #83 et audit médical transversal restants ; captures ciblées seulement |
+| 12 | #83 : 72 titres critiques restaurés, aucun mot changé ; captures bureau/mobile examinées, rouge/carte 6,77:1. #84 : fermeture corrigée, 4/4 reproductions et suite 276/276 | #84 fusionnée, suite main 42a432d 276/276 ; #83 et audit médical transversal restants ; inventaire explicite disponible |
 | 13 | #39 fusionnée (17cf10a) ; #80 prototype VII en brouillon, Dédale-V zéro échec après svgo 4.0.0 | Croquis non validé, contrat/sources à confirmer, autres paires |
 | 14 | Cinq stations pilotes présentes, `valide_par_vial=false` conservé | Relecture Vial avant toute nouvelle série |
 | 15 | #41 : correctifs Galien rejoués sur main ; #81 urgences lot 3 repris en brouillon | Fusion #41 et audit clinique du lot 3 |
@@ -44,3 +44,9 @@ Complément de vérification : #65 passe la suite complète à 276/276 après co
 La référence de #32 vient de la capture CI 39085245206, adoptée par tools/visuel_reference.sh lors de l’exécution 39085519352 (8c3e800), après examen local des écarts et mesures, puis des images CI récupérées par Git. Aucun compteur axe grave/critique n’augmente, aucun seuil de configuration n’est relevé. Les contrôles après adoption restent requis avant fusion.
 
 #32 fusionnée à la suite de ces contrôles (617878e). La correction du calendrier et le registre de #65 sont réunis avec ce fond pâle ; captures de cette combinaison en cours.
+
+Complément de relecture : la définition de cardioverter introduite dans #65 décrivait un appareil alors que la monographie emploie un verbe. Cette faute majeure est corrigée séparément par une définition relue au CHUV ; le journal des fautes identifie le commit et la source. La conduite de l’arythmie elle-même présente une ambiguïté potentiellement critique (bloc de haut degré inclus, consigne générale de cardioversion) : #88 porte une proposition distincte, attente-vial, avec ESC 2022 et protocole HUG 2024 relus. Aucun nouveau médicament ni dose, aucune fusion sans accord.
+
+Après #65, le contrôle de #68 trouve deux cibles trop petites supplémentaires dans Notions. La correction à 24 px supprime les six défauts sur la reproduction bureau ; les autres thèmes/mobile et la référence restent à vérifier. Aucun compteur d’accessibilité ne doit être augmenté pour masquer ce défaut.
+
+Inventaire : audit/RESTE_A_VERIFIER_20261018.json conserve SHA et pointeur pour chaque champ explicitement marqué. À main 33bb1d0 : 577 champs et 605 occurrences. Les branches non fusionnées, la validité médicale et les erreurs sans marque sont hors de ce décompte.

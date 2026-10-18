@@ -35,3 +35,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 2026-10-18 01:23 UTC · #65 · contrôle requis visuel en échec
 - 2026-10-18 01:27 UTC · #61 · conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)
 - 2026-10-18 01:27 UTC · #85 · conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)
+- 2026-10-18 01:45 UTC · #68 · contrôle requis visuel en échec
+- 2026-10-18 01:56 UTC · #68 · contrôle requis html en échec
