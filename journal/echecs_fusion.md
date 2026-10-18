@@ -28,3 +28,7 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 2026-10-18 00:29 UTC · #32 · contrôle requis visuel en échec
 - 2026-10-18 00:47 UTC · #83 · conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)
 - 2026-10-18 00:57 UTC · #65 · contrôle requis tests en échec
+
+- 18.10.2026 UTC · #83 : push non-fast-forward refusé car le bot avait avancé la branche ; fetch, réunion des commits distants, diff --check et push sans force réussis (0b86173).
+- 18.10.2026 UTC · #32 : téléchargement local des deux artefacts refusé 403. Repli exécuté par le même script sur runner, SHA/branche/base vérifiés ; adoption et relance des contrôles sans contournement de protection.
+- 2026-10-18 01:16 UTC · #32 · gh pr merge refusé (protection, tête changée ou droits)
