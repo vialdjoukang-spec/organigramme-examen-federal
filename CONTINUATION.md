@@ -360,3 +360,16 @@ Sources    : <sources lues, datées>
 Pièges     : <ce qui a cassé et comment l’éviter>
 À vérifier : <liste>
 ```
+
+### C6. Relève Codex du 18.10.2026 UTC
+Le passage aux vérifications de clôture ne valide pas la fin du projet. État détaillé : `docs/releves/RELEVE_CODEX_20261018.md` ; étapes inachevées dans `ETAT.json.en_attente`, reprise de la boucle 8. #64/#67/#70 restent attente-vial. #80/#81 sont des brouillons, cinq stations restent non validées. Incident de fusion hors ordre #62, verrou proposé #82 ; défaut Fermer corrigé #84 avec suite 276/276. Le mode B de veille n’exécute pas de rédaction médicale autonome tant que la CLI est en 401. Aucun seuil, source, accord ou 100 % inventé.
+
+### C7. Mise à jour factuelle · 18.10.2026 00:52 UTC
+
+#45, #58, #60, #39, #84 et #82 sont fusionnées. Étape 3 complète ; les données Panacée sont réunies, avec incident d’ordre #62 avant #60 conservé. Main : prévalences 38/2587 (1 %), monographies 130/2287 (6 %). Suite main 42a432d : 276/276 ; Pages identique à main 8dd0d0a (HTTP 200, SHA-256 9e4720c6ce86056e4648eaa8744fe183479d9ddbf6419f1bb13ad60d8a800969). #65 et #68 restent en attente de fusion, références respectives 3735 et 3571 ; 527 entrées réunies sur #68. Les détails et réserves sont dans docs/releves/RELEVE_CODEX_20261018.md. Clôture toujours refusée, ETAT.json étape 8, lot 2, veille mode B conservée.
+
+### C8. Mise à jour factuelle · 18.10.2026 01:15 UTC
+
+#50→#53→#54 fusionnées ; #86 fusionnée. Main : 207/2287 monographies (9 %), 38/2587 prévalences (1 %). Pages et quatre fichiers JS cliniques contrôlés sont identiques à main 51cb2e5. #65 contient 406 entrées (référence 3734) et le patch 0030 du calendrier : suite 276/276 ; #68 contient 535 entrées (référence 3571), fusion après #65. #32 : référence CI adoptée explicitement par le script habituel sur runner, compteurs axe non augmentés et référence CLS resserrée, CI après adoption encore requise. DigiFab retrouvé dans l’AIPS officielle (révision 02/2026) ; extraction/audit de dose restant, aucune dose publiée. Réserves R13, stations/croquis non validés et limites du mode B inchangées. Voir relève détaillée, ETAT.json et preuve DigiFab.
+
+Complément 01:16 UTC : #32 fusionnée (617878e), nouvelle référence et procédé d’adoption runner intégrés après contrôles requis verts. #37 reste en audit. #65 est réuni avec ce rendu ; les captures de la combinaison restent à examiner.
