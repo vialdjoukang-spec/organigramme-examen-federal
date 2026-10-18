@@ -612,6 +612,12 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
 
+## Galien · doses AIPS #70 · 18.10.2026 Europe/Zurich
+
+Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 98 lignes, confrontées à 73 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
+
+Chaque ligne a un verdict, son URL officielle et l’empreinte du document dans AIPS-RELECTURE-PR70.json. Aucun document source brut n’est versionné. Les versions exprimées au mois ne donnent pas un jour de publication exact ; le jour 01 anciennement saisi est désormais explicitement décrit comme convention de normalisation. Aucune validation par un médecin ou par Vial n’est déclarée.
+
 ## Galien · doses AIPS #67 · 18.10.2026 Europe/Zurich
 
 Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 74 lignes, confrontées à 51 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
@@ -740,6 +746,11 @@ Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lync
 
 Accord et consigne de Vial lus sur la page publique. La monographie meningo-encephalite-herpetique affiche désormais les 10 jours de l’AIPS en premier et référence aciclovir-iv-adulte ; l’ancienne affirmation européenne 14/21 jours n’est plus affichée faute de relecture primaire possible dans cette session. Les extraits AIPS conservés sont inchangés : Riamet est limité aux moins de 12 ans pour les trois bandes de faible poids ; la répétition de Praxbind exige les conditions cliniques et de coagulation de l’extrait. Les corrections sont confrontées aux extraits locaux, sans prétendre avoir téléchargé les originaux Refdata ni achevé la relecture de toutes les lignes. Politique réseau bloquante ; audit-ok et fusion restent dus.
 
+### Reprise #70 · 18.10.2026, Europe/Zurich
+
+Accord Vial lu, branche réunie avec #67 corrigée. KCl : extrait AIPS inchangé, mention exacte « unité telle qu’écrite dans l’AIPS (2007) » ajoutée ; la vitesse reste À vérifier, sans conversion supposée. Lévothyroxine : [µg/jour] explicité depuis l’en-tête ; pipéracilline-tazobactam : [g] et [h] attribués aux colonnes correspondantes dans la synthèse, sans altérer les citations. Rhophylac : condition mère Rh(D) négatif/enfant Rh(D) positif explicite dans la ligne de dose, déjà présente dans l’extrait d’indication ; statut de l’enfant inconnu laissé À vérifier faute de texte primaire correspondant relu. Confrontation aux extraits conservés, aucun téléchargement Refdata ni audit clinique complet revendiqué. Fusion après #67, audit-ok final toujours dû.
+
+
 ## Hérophile · G9, six causes ciblées du prurit · 18.10.2026
 
 Relecture séquentielle par Codex des six propositions : xérose du sujet âgé, prurits rénal, ferriprive, médicamenteux, neuropathiques et psychogène. Texte officiel de Weisshaar et al. 2025, sections 4.2.1, 4.2.3, 4.2.7–4.2.9, 4.3.2, tableaux 3–6 et sections thérapeutiques citées relus. Définition de l’hémodialyse relue aux HUG, page mise à jour le 09.03.2026. Aucun médecin ni accord Vial revendiqué.
@@ -762,6 +773,9 @@ Le patch proposé distingue les deux familles de rythmes et demande le traitemen
 ### Reprise #88 · 18.10.2026, Europe/Zurich
 
 Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.
+
+### Recontrôle AIPS lot 4 · 18.10.2026
+98 lignes / 73 documents officiels téléchargés, aucun écart des extraits. Les 24 lignes nouvelles sont relues, notamment les unités des en-têtes lévothyroxine et pipéracilline-tazobactam. Ferinject : cas Hb ≥14 g/dl et surveillance après administration explicités ; méropénème : limites du bolus précisées. KCl et RhD inconnu conservent leurs réserves. Aucune validation de médecin revendiquée.
 
 ### Recontrôle G9 après #64 · 18.10.2026
 Six propositions comparées aux sections 4.2.1/3/7/8/9, 4.3.2, 6.4.5 et 6.6.1 du texte intégral EDF 2025 et à la définition HUG d’hémodialyse, accessibles et relus. Réserves épidémiologiques, critères fonctionnels et AIPS conservés ; aucune dose ajoutée. G1–G8 et constructions verts. Le navigateur système bloque file:// et le téléchargement Playwright est refusé ; la CI de la tête exacte reste obligatoire.
