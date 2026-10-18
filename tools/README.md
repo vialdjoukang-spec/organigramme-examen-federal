@@ -13,7 +13,7 @@ Ils utilisent `str.find`, car les expressions régulières expirent sur des lign
 | `html_check.py` | Il compare la sortie du validateur Nu à `qa/html-baseline.json` et refuse toute erreur nouvelle. | voir `.github/workflows/ci.yml` |
 | `links_changed.py` | Il liste les URL ajoutées ou modifiées depuis la branche de base, pour lychee. | `python3 tools/links_changed.py origin/main` |
 | `ck_build.py` | Il valide data/ck (schémas, renvois, chaîne G5) et compile assets/ck/*.js ; `--check` échoue si la sortie n’est pas à jour. | `python3 tools/ck_build.py` |
-| `lyncee.py` | Il détecte les termes médicaux non définis (G4) contre `qa/termes-baseline.json`, qui ne peut que baisser. | `python3 tools/lyncee.py --json .cache/lyncee.json` |
+| `lyncee.py` | Il détecte les termes médicaux non définis (G4) contre `qa/termes-baseline.json`, qui ne peut que baisser. | `python3 tools/lyncee.py --json .cache/lyncee.json` ; recensement main + branches ouvertes, par fréquence : `python3 tools/lyncee.py --branches 'feat/*' --top 150` |
 | `audit/niveau1.py` | Il exécute les huit contrôles G1 à G8 de l’audit médical et écrit l’artefact des signalements. | `python3 tools/audit/niveau1.py --sortie qa/audit-flags.json` |
 | `aletheia.py` | Il exécute G1, G2 et G3 (doses, sources, domaines). | `python3 tools/aletheia.py` |
 | `audit/rapport_fautes.py` | Il régénère « Rapport d’audit médical : les fautes corrigées » depuis `qa/audit/fautes.jsonl`. | `python3 tools/audit/rapport_fautes.py` |
