@@ -127,9 +127,12 @@ Ordre de Vial : « Codex doit être libre, indépendant de tout PC ». Seuils : 
 
 
 def commenter(n, texte, token):
-    if SEC or n is None:
+    if SEC:
         print(f"[essai] commentaire #{n} :\n{texte}\n")
         return True
+    if n is None:
+        resume("Fil « Pilote Codex » introuvable : rien posté (créer la PR brouillon « Pilote Codex », branche pilote/codex).")
+        return False
     return api(f"repos/{REPO}/issues/{n}/comments", token=token, method="POST", body={"body": texte}) is not None
 
 
