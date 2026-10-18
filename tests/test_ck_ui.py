@@ -18,6 +18,8 @@ CLIP_TIP = '()=>(' + CLIP_JS + ')().filter(x=>x.el&&document.querySelector("#tip
 PAGE = ('<section id="fx-ck" class="card"><p id="fx1">Le faciès cushingoïde se recherche à l’inspection ; un faciès cushingoïde cité deux fois reste relié une fois.</p>'
         '<p id="fx3">facies cushingoide sans accents</p><p id="fx4">Un AVC brutal ; le mot avc en minuscules.</p>'
         '<h3 id="fx5">Faciès cushingoïde</h3><p><button type="button" id="fx6">Faciès cushingoïde</button></p>'
+        '<div id="fx-flow-grid" style="display:grid;gap:4px"><i>0</i>Un AVC brutal.</div>'
+        '<div id="fx-flow-flex" style="display:inline-flex;gap:12px"><i>0</i>Un AVC brutal.</div>'
         '<p id="fx2"><span class="tw" id="t-loc" data-t="loc|neuro-nc|A" tabindex="0" role="button">Synthèse locale</span> · '
         '<span class="tw" id="t-nc" data-t="nc|ncT|face" tabindex="0" role="button">Schéma de test</span> · '
         '<span class="tw" id="t-nc99" data-t="nc|nc99|face" tabindex="0" role="button">Schéma sans fichier JS</span></p><label class="gr" id="fx7" data-t="g|thorax|0"><input type="checkbox" id="fx7c"><p>Recherche d’un purpura.</p></label></section>')
@@ -38,7 +40,9 @@ async def profile(b, mobile, out, errs):
     pg.on('pageerror', lambda e: errs.append(pre + str(e)))
     pg.on('console', lambda m: errs.append(pre + m.text) if m.type == 'error' and 'absent.js' not in m.text and 'ERR_FILE_NOT_FOUND' not in m.text and '404' not in m.text else None)
     await pg.goto(URL); await pg.wait_for_timeout(1500)
-    await pg.evaluate("h=>{document.querySelector('.w').insertAdjacentHTML('afterbegin',h);scrollTo(0,0)}", PAGE)
+    await pg.evaluate("h=>{document.querySelector('.w').insertAdjacentHTML('afterbegin',h);scrollTo(0,0);"
+                      "window.__qaFlow={grid:document.querySelector('#fx-flow-grid').getBoundingClientRect().height,"
+                      "flex:document.querySelector('#fx-flow-flex').getBoundingClientRect().width}}", PAGE)
     await pg.wait_for_timeout(900)
     tap = (lambda s: pg.locator(s).first.tap()) if mobile else (lambda s: pg.locator(s).first.click())
     ev = pg.evaluate
@@ -47,6 +51,10 @@ async def profile(b, mobile, out, errs):
     out[pre + 'lieur_sans_accent'] = await ev("!!$('#fx3 .glo[data-t=\"glo|facies-cushingoide\"]')")
     out[pre + 'lieur_abreviation_casse'] = await ev("(()=>{const L=$$('#fx4 .glo');return L.length===1&&L[0].textContent==='AVC'})()")
     out[pre + 'lieur_exclusions'] = await ev("!$('#fx5 .glo')&&!$('#fx6 .glo')&&!$('#grid .glo')&&!$('.tabs .glo')")
+    out[pre + 'lieur_preserve_grille_flex'] = await ev("(()=>{const g=$('#fx-flow-grid'),f=$('#fx-flow-flex');"
+        "return !!g.querySelector('.glo')&&!!f.querySelector('.glo')&&window.__qaFlow.grid>0&&window.__qaFlow.flex>0"
+        "&&Math.abs(g.getBoundingClientRect().height-window.__qaFlow.grid)<1"
+        "&&Math.abs(f.getBoundingClientRect().width-window.__qaFlow.flex)<1})()")
     out[pre + 'index_atlas'] = await ev("(()=>{const o=window['CK_GLO_INDEX'];window['CK_GLO_INDEX']={e:[['facies-cushingoide','signe','Faciès cushingoïde',['faciès de Cushing'],'f'],['avc','abreviation','AVC',[],'a']]};gloI=null;const I=gloIndex();"
                                          "const ok=!!I&&I.mF.get('facies de cushing')==='facies-cushingoide'&&I.mA.get('AVC')==='avc'&&gloSl('facies-cushingoide')==='f';window['CK_GLO_INDEX']=o;gloI=null;gloIndex();return ok})()")
     # Survol (ordinateur) puis clic qui épingle.

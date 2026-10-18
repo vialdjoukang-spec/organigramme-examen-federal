@@ -1003,7 +1003,7 @@ function gloLink(root,excl,inTip){const I=gloIndex();if(!I||!root||!root.isConne
   for(const [i,len,id] of M){if(i<at||!id||excl.has(id)||used.has(id))continue;used.add(id);
    f.append(txt.slice(at,i));const s=document.createElement('span');s.className='tw glo';s.dataset.t='glo|'+id;s.tabIndex=0;s.setAttribute('role','button');s.setAttribute('aria-haspopup','dialog');
    s.setAttribute('aria-expanded','false');s.setAttribute('aria-controls','tip');if(inTip||inT){const d=gloShort(id);if(d)s.title=d}s.textContent=txt.slice(i,i+len);f.append(s);at=i+len;k++}
-  if(k){f.append(txt.slice(at));t.replaceWith(f);n+=k}}
+  if(k){f.append(txt.slice(at));if(['grid','inline-grid','flex','inline-flex'].includes(getComputedStyle(p).display)){const flow=document.createElement('span');flow.append(f);t.replaceWith(flow)}else t.replaceWith(f);n+=k}}
  return n}
 /* Pages : liaison à l’inactivité, par petits lots, sur les nœuds ajoutés au rendu ; jamais dans la fenêtre (liée à son ouverture). */
 const ckIdle=window.requestIdleCallback?f=>requestIdleCallback(f,{timeout:700}):f=>setTimeout(()=>f({timeRemaining:()=>8}),60);
