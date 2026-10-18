@@ -31,3 +31,6 @@ Ticket résolu : terme abrégé thromboangéite rattaché à Buerger dans ce con
 
 ### Lot 5 · G7–G10 · 18.10.2026 Europe/Zurich
 56 libellés conservés ; six fréquences G9 relues au tableau III de Brest 2020, population sélectionnée et causes non exclusives précisées ; 50 inconnues. Absence de dermatose spécifique, biais de recrutement, sous-diagnostics neurologiques et hépatiques non sommés. Aucun chiffre d’une autre population transposé.
+
+## Lot 6 · G11–G14 · 18.10.2026 Europe/Zurich
+56 DD conservés ; fréquences inconnues explicites, zéro chiffre ajouté. Recherche HUG sommeil relue sans pourcentage exact ; HypnoLaus via DOI reste refusé sur la destination Elsevier, aucun chiffre retenu. Audit séquentiel et G1–G8 réussis. Prochain lot : G15–G18.

@@ -408,3 +408,6 @@ Complément après #97 : fusion observée 82bdd32, contrôles requis verts. #98 
 
 ### Lot 5 et gales · 18.10.2026 Europe/Zurich
 #99 fusionnée (8548085) : G7–G10, 56 libellés intacts, six fréquences G9 de Brest et cinquante inconnues. Main 45/2587 ; causes non exclusives et sélection hospitalière précisées. #100 réunit deux gales, cinq épidémiologies de prurit contextualisées et six définitions ; branche 242/2287 monographies, 563 entrées de glossaire et référence 3564. Les sept autres G9, G10 et Panacée restent dus. Reprise étape 8 lot 6, G11–G14 ; aucune clôture. Aucune dose étrangère transposée et aucune validation de médecin inventée.
+
+### Lot 6 · 18.10.2026 Europe/Zurich
+G11–G14 : 56 fréquences explicitement inconnues, libellés intacts, aucun chiffre nouveau. #100 est fusionnée (ed62ae5), main 242/2287 monographies. Prochain lot G15–G18 ; sept G9 restent dus. Recontrôle : GitHub/EDF/HUG 200, Pages encore CONNECT 403 dans cette session ; configuration nouvelle non présumée appliquée. Aucune fin de boucle.

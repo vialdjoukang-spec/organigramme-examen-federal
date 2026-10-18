@@ -43,6 +43,3 @@ description: <quand l'utiliser, en une phrase>
 3. Contrôle : <tests, --check>
 4. Pièges : <liste>
 ```
-
-## Examen du lot 5 · 18.10.2026
-`tools/etapes.json` est une configuration, pas une commande : candidat écarté. Rédaction/audit CK, posologie et continuité sont couverts par ssp-construction-ck, ssp-audit-medical, ssp-aips-verbatim et ssp-continuite ; aucun nouveau skill nécessaire.
