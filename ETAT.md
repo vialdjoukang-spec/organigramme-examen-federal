@@ -45,7 +45,7 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 UTC · Étape 6 : 98 lignes/73 documents AIPS officiels relus, contrôles verbatim sans écart, quatre rapports poussés ; réserves KCl/aciclovir et attente-vial #67/#70 conservées.
 - 18.10.2026 UTC · Étape 7 : #65/#68 reprises ; 166 définitions relues, sept corrections, baseline #68 à 3567 ; #65 resserrée à 3820, mais 92 candidats nouveaux restent à examiner.
-- 18.10.2026 UTC · Étapes 8–11 INACHEVÉES : G5 #85 (26 DD, chiffres inconnus explicites) ; brouillons monographiques hors git ; inventaires de doses/glossaire. Aucun seuil de boucle ni couverture complète déclaré ; CLI de masse en 401. Passage R7 aux travaux suivants.
+- 18.10.2026 UTC · Étapes 8–11 INACHEVÉES : G5 #85 (44 DD sur quatre SSP, chiffres inconnus explicites) ; brouillons monographiques hors git ; inventaires de doses/glossaire. Aucun seuil de boucle ni couverture complète déclaré ; CLI de masse en 401. Passage R7 aux travaux suivants.
 - 18.10.2026 UTC · Étape 12 : #83 restaure 72 titres critiques, captures ciblées relues, contraste clair 6,77:1 ; #84 corrige la réouverture après Fermer, reproduction 4/4 corrigée et suite 276/276. Audit transversal restant.
 - 18.10.2026 UTC · Étapes 13–15 : #39/#41 reprises ; #80 prototype VII et #81 urgences lot 3 en brouillon, audits/validation Vial restants ; cinq stations pilotes restent valide_par_vial=false. Aucun accord inventé.
 - 18.10.2026 UTC · Étape 16 : #32 reprise et captures de fond pâle relues (contraste secondaire/fond 8,55:1) ; #37 retrouvée sur origin, patch rejoué (60 DD S8), audit final restant. #16 fermée avec motif, branche conservée ; #56/#63 fermées comme remplacées.

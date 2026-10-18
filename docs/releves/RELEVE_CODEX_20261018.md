@@ -12,7 +12,7 @@ Le projet n’est pas terminé. La porte 0 a été validée avant l’étape 1. 
 | 5 | Deux lots Panacée repris ; #62 fusionnée | #62 a fusionné avant #60 : incident ci-dessous ; #60 reste à fusionner, données réunies en 130 monographies sur sa branche |
 | 6 | 98 lignes / 73 documents AIPS officiels relus ; quatre rapports `audit/AIPS-RELECTURE-PR*.json` ; comparateur sans écart et 3 tests réussis | #59 puis #61 ; #67/#70 suspendues ; références des monographies à compléter après fusion |
 | 7 | 166 définitions de #68 relues, sept corrigées ; baseline resserrée à 3567 | Sources « À vérifier » conservées ; #65 à 3820 mais 92 candidats nouveaux de migration à examiner |
-| 8 | #85 : 26 DD G5 conservés, fréquences inconnues explicites ; cadre de la cohorte catalane examiné | Chiffres adaptés, autres SSP et DD manquants ; aucun chiffre transposé ni gain de couverture revendiqué |
+| 8 | #85 : 44 DD sur quatre SSP G5 conservés, fréquences inconnues explicites ; cohortes catalane et bâloise examinées | Chiffres adaptés, autres SSP et DD manquants ; aucun chiffre transposé ni gain de couverture revendiqué |
 | 9–11 | Brouillons TIP.d et inventaires hors git dans `/workspace/oef-drafts` | Rédaction de masse, audits, doses des nouvelles fiches et baseline à zéro : non réalisés |
 | 12 | #83 : 72 titres critiques restaurés, aucun mot changé ; captures bureau/mobile examinées, rouge/carte 6,77:1. #84 : fermeture corrigée, 4/4 reproductions et suite 276/276 | CI/fusions et audit médical transversal ; les captures ciblées ne valent pas revue de tous les thèmes |
 | 13 | #39 reprise ; #80 prototype VII en brouillon, Dédale-V zéro échec après svgo 4.0.0 | Croquis non validé, contrat/sources à confirmer, autres paires |
@@ -36,3 +36,5 @@ Le projet n’est pas terminé. La porte 0 a été validée avant l’étape 1. 
 La CLI `codex exec -m gpt-6-luna` échoue en 401 (authentification). Le mode B écrit les ordres et la file réessaie les fusions ; il ne produit pas de nouveaux lots médicaux de façon autonome. Aucun sous-agent lancé. Les brouillons et inventaires ne sont pas des fiches complètes ; les jauges et critères ne sont pas modifiés pour les compter.
 
 La veille locale (PID vérifié 4263) reste dans une session d’exécution de cet environnement. Le workflow GitHub de file constitue le filet distant, mais un conflit réel ou un audit manquant demande une reprise. Ne pas promettre de rédaction nocturne autonome tant que la CLI reste indisponible.
+
+Contrôle complet local de main 9d9468e : 275/276, échec Fermer encore reproduit. Le correctif #84 passe séparément à 276/276 ; sa fusion/publication n’est pas déclarée tant que GitHub ne la confirme pas. Les preuves sont des instantanés, pas une affirmation que toutes les branches sont vertes.
