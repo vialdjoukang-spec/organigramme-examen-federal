@@ -1,3 +1,13 @@
+## Reprise réseau et chaîne · 18.10.2026 Europe/Zurich
+
+#64 était déjà fusionnée au début de la reprise. #91, #67 et #70 ont ensuite été réunies, auditées et fusionnées dans cet ordre, contrôles requis verts. #97 fusionnée (82bdd32) ajoute 60 fréquences inconnues explicites G1–G4. #98 réunit deux propositions G9, avec réserves, et la présente relève ; CI exacte encore requise avant fusion.
+
+Instantané de cette branche : 39/2587 fréquences, 240/2287 monographies et 98 lignes AIPS. Aucun nouveau chiffre de prévalence ; neuf G9, G10 et Panacée O7.14–O7.12 restent dus. Étape 8 lot 5 en cours, clôture refusée.
+
+GitHub/API, HUG, texte intégral EDF et 73 documents Refdata ont été accessibles. Oxford 403, recherche Europe PMC expirée, accès github.io refusé ; Chromium système bloque file:// et installation Playwright refusée. Tests complets validés sur GitHub pour les PR fusionnées ; aucune règle ou référence abaissée. Pages après #70 a réussi, sans contrôle direct d’égalité.
+
+Les réserves KCl, aciclovir et RhD inconnu sont conservées ; Ferinject et limites du bolus méropénème sont précisés. Aucune validation de médecin inventée. Workflows garde-progres et file-fusion actifs, cadence planifiée non garantie d’après les exécutions observées. Documents bruts hors dépôt.
+
 # Relève Codex · 18.10.2026 UTC
 
 Le projet n’est pas terminé. La porte 0 a été validée avant l’étape 1. Les passages suivants sont consignés dans ETAT.md et ETAT.json ; les travaux non achevés restent dans `en_attente`, sans fin de boucle inventée. L’étape 17 a été contrôlée puis refusée : couverture insuffisante, fusions/audits restants et accords Vial absents. Reprise courante : étape 8.

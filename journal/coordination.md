@@ -65,3 +65,5 @@ Lot 3 : suite locale 276/278 (gestes tactiles du calendrier), puis recontrôle c
 Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
 
 Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
+
+- 18.10.2026 Europe/Zurich : #64→#91→#67→#70 fusionnées dans cet ordre. #97 : 60 fréquences inconnues G1–G4 ; #98 : deux propositions G9. Aucun gain quantitatif de prévalences, aucune fin de boucle ; accès et limites documentés.

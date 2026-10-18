@@ -777,6 +777,9 @@ Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue
 ### G9 · complément endocrinien et hépatobiliaire · relu le 18.10.2026
 Deux propositions : dysthyroïdies et cholestase obstructive. EDF 2025 §4.2.2/3, tableaux 3/4 et soins généraux relus. Contre-lecture : distinguer obstacle et prurit hépatobiliaire, ne pas inverser les dénominateurs et ne pas systématiser les examens spécialisés. Critères et traitements étiologiques non lus : À vérifier ; aucune dose ajoutée. Neuf autres diagnostics G9 et Panacée restent dus.
 
+## G1–G4 · prévalences manquantes (G1, G2, G3, G4) · relu le 18.10.2026
+60 différentiels du catalogue : libellés conservés exactement, aucune réécriture médicale. Les fréquences sans source et dénominateur relus sont explicitement inconnues ; aucune fréquence de population ni rang numérique inventés. La recherche Europe PMC sur la fatigue a expiré : aucun chiffre retenu. Audit séquentiel : identité des libellés, exhaustivité par SSP et absence de faux chiffre contrôlées. Ce lot ne fait pas progresser la couverture quantitative et ne clôt pas la boucle.
+
 ### Recontrôle AIPS lot 4 · 18.10.2026
 98 lignes / 73 documents officiels téléchargés, aucun écart des extraits. Les 24 lignes nouvelles sont relues, notamment les unités des en-têtes lévothyroxine et pipéracilline-tazobactam. Ferinject : cas Hb ≥14 g/dl et surveillance après administration explicités ; méropénème : limites du bolus précisées. KCl et RhD inconnu conservent leurs réserves. Aucune validation de médecin revendiquée.
 

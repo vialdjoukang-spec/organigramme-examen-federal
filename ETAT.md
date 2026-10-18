@@ -196,3 +196,11 @@ Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après le
 ### Reprise cloud · 18.10.2026, Europe/Zurich
 
 Accords Vial lus sur #88/#64/#67/#70. Corrections poussées sur les cinq PR ; G1–G8 locaux verts. Fusion #88 observée dans main aacfff7 (tête d4fa7f7). #64/#91/#67/#70 restent ouvertes à la dernière observation publique ; relecture primaire et CI exactes requises. API GitHub, HUG, DOI et Refdata sont refusés par la politique réseau active ; domaines ajoutés au brouillon, non appliqués au runtime observé. Aucun nouveau lot 8/9, gain de couverture ou fin de boucle revendiqué.
+
+### Notes modèle · reprise du 18.10.2026
+Lot G1–G4 : traitement mécanique par script déterministe ; jugement et audit séquentiel par le modèle courant de secours, Luna CLI indisponible dans la relève. Aucun nouveau service de rédaction autonome déclaré.
+
+### Reprise du 18.10.2026 Europe/Zurich
+Chaîne #64→#91→#67→#70 fusionnée ; audits et contrôles requis verts. #97 G1–G4 : 60 fréquences explicitement inconnues, aucun chiffre nouveau ; #98 deux propositions G9. Sources officielles et limites réseau consignées, médecin non revendiqué. Garde-progres et file-fusion actives, cadence réelle espacée observée. Étape 8 lot 5 en cours, clôture refusée.
+
+- Fin du lot de reprise : #97 fusionnée, lot 5 en cours. #98 ajoute deux propositions G9 avec réserves, pour 240/2287 sur sa branche. Prévalences 39/2587 ; aucune clôture, aucune nouvelle validation Vial ou de médecin inventée. Relève détaillée mise à jour.
