@@ -55,3 +55,13 @@ Contrôle après #41 : main 5de965f, Pages identique pour l’application et qua
 S7.6/S2.12 : une fréquence de cohorte suisse retenue, dénominateur et sélection relus ; 19 DD encore À vérifier. La proposition de Berne est retirée avant livraison après contrôle de l’éditeur, le dépôt suisse étant inaccessible. Relecture source/médicale/linguistique immédiate, preuve audit/PREVALENCES-CEPHALEE-PAROI-20261018.json ; local puis CI requis avant fusion. Aucun pourcentage national déduit des urgences d’un centre, aucune conduite clinique changée.
 
 Lot 3 : suite locale 276/278 (gestes tactiles du calendrier), puis recontrôle ciblé 36/36 ; CI 7abe19c 278/278. Les gestes et assertions sont inchangés. #90 attend les nouveaux contrôles après ajout documentaire du verrou #64→#91.
+
+### Reprise après le lot 3 · 18.10.2026 UTC
+
+#90 est fusionnée (6bbbde7). Main : 39/2587 fréquences, jauge arrondie 2 % ; 207/2287 monographies, 9 %. Une seule fréquence a été retenue après relecture (SCA, Zurich, 1/53) ; les dix-neuf autres du lot restent inconnues. Source de Berne non retenue sous la règle d’éditeur, miroir suisse inaccessible ; incohérences de l’autre tableau européen consignées. Aucun pays, chiffre ou critère inventé.
+
+#91 contient six propositions G9 (xérose, prurits rénal, ferriprive, médicamenteux, neuropathiques, psychogène), EDF 2025 et HUG relus. Elles ne comptent pas dans main. Le verrou #64→#91 est dans main ; predecesseurs_fusion.py 91 constate #64 OPEN et ready=false. Ne pas activer directement l’auto-merge de #91.
+
+Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · prévalences publiées et G9 ciblé · 18.10.2026 UTC
+État       : #90 fusionnée, 39/2587 fréquences (jauge arrondie 2 %) ; main 207/2287 monographies (9 %). #91 contient six propositions G9, encore hors main, après #64 dans la chaîne Hygie. Projet non clos.
+Prochaine  : étape 8, lot 4, G1 à G4 dans l’ordre du catalogue ; S8 après audit #37. Terminer tests et intégration de #91 sans contourner #64. Autres G9/G10 et chaîne Panacée encore à rédiger/auditer.
+Sources    : Gräni 2015 tableau 4, recommandation EDF 2025 et définition HUG d’hémodialyse relus le 18.10.2026. Les sources écartées et les limites sont consignées, les documents bruts restent hors git.
+Pièges     : un SCA sur 53 douleurs reproductibles ne s’extrapole pas aux 121 douleurs thoraciques de l’étude ; pas de pays d’éditeur artificiellement changé. Verrou réel #91 : ready=false, #64 ouverte. Ne pas activer directement son auto-merge.
+À vérifier : 788 champs explicitement marqués sur main 6bbbde7, 817 occurrences ; cet inventaire exclut les branches et ne certifie pas le contenu. Les quatre R13, #80/#81/#37 et les stations restent en attente.
+
 ## Codex · prévalences lot 3 · 18.10.2026 UTC
 État       : S7.6/S2.12, vingt DD, une fréquence de SCA retenue dans la cohorte de Zurich (1/53), dix-neuf inconnues explicites. Audit séquentiel et registre des choix disponibles ; tests en cours. Aucune conduite ou dose modifiée.
 Prochaine  : terminer les contrôles et intégrer ce lot ; S8 reste après audit #37. Poursuivre les autres SSP du catalogue et les boucles restées dues.
@@ -289,3 +296,5 @@ Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estima
 Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
 Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
 Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

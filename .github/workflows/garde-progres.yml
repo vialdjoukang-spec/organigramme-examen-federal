@@ -1,0 +1,34 @@
+# Garde du progrès (R15) · toutes les 10 min, GitHub Actions gratuit (dépôt public), indépendant de tout PC.
+# Ordre de Vial : « Codex doit être libre, indépendant de tout PC ».
+# Mesure le contenu réel de main ; STALL si rien n'a monté en 30 min (ou seulement des relevés) :
+# « @codex » sur la PR brouillon « Pilote Codex » (≤ 1/30 min), puis @vialdjoukang-spec après 2 stalls (≤ 1/60 min).
+# Recycle aussi les PR inactives depuis 60 min. Seuils : tools/garde/config.json. État : branche garde/etat.
+# Jetons : AUTO_FUSION_TOKEN (compte de Vial → déclenche l'intégration Codex) pour les « @codex » ;
+# GITHUB_TOKEN (github-actions[bot]) pour mentionner Vial, sinon GitHub ne lui envoie pas de courriel.
+name: Garde du progrès
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency:
+  group: garde-progres
+  cancel-in-progress: false
+jobs:
+  garde-progres:
+    name: garde-progres
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - name: Mesure, STALL, relance @codex, appel de Vial, recyclage
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_BOT: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_CODEX: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python3 tools/garde/progres.py

@@ -1,0 +1,35 @@
+# Checkpoint R15 sur chaque PR : section « Automates actifs » réelle, aucune fausse fin d'étape en boucle,
+# aucune dose sans ligne AIPS (data/ck/doses_ch.json). Exemptions : étiquette infra, branche infra/garde-fous.
+# En cas d'échec, le message exact de correction est posté sur la PR avec « @codex » pour qu'il corrige seul.
+name: Checkpoint
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, edited, synchronize, reopened, labeled, unlabeled]
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: checkpoint-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  checkpoint:
+    name: checkpoint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - name: Checkpoint R15
+        id: ck
+        run: |
+          set -o pipefail
+          python3 tools/garde/checkpoint.py --base "origin/${{ github.base_ref }}" | tee /tmp/ck.txt
+      - name: Ordre de correction à Codex
+        if: failure() && steps.ck.outcome == 'failure' && contains(fromJSON('["opened","synchronize","reopened"]'), github.event.action)
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          { echo "@codex Ordre de Vial : le checkpoint R15 échoue sur cette PR. Corrige exactement ceci puis pousse :"; echo; echo '```'; cat /tmp/ck.txt; echo '```'; } > /tmp/msg.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/msg.md || true
