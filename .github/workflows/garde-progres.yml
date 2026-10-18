@@ -7,6 +7,9 @@
 # GITHUB_TOKEN (github-actions[bot]) pour mentionner Vial, sinon GitHub ne lui envoie pas de courriel.
 name: Garde du progrès
 on:
+  push:
+    branches: [main]
+    paths: [tools/coordination/config.json, .github/workflows/garde-progres.yml]
   schedule:
     - cron: '*/10 * * * *'
   workflow_dispatch:
@@ -36,7 +39,7 @@ jobs:
       - name: Recherche régulée, sans doublon ni lancement aveugle
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 tools/coordination/relance.py --plan .etat_local/coordination/priorites.json --lancer
+        run: python3 tools/coordination/relance.py --plan .etat_local/coordination/priorites.json --lancer ${{ github.event_name == 'push' && '--amorcer' || '' }}
       - uses: actions/upload-artifact@v5
         if: always()
         with:
