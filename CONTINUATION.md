@@ -11,6 +11,9 @@
 ## Coordination demandée par Vial · 18.10.2026
 Veille active toutes les10min ; contrôle distinct des étapes8/9 et plan commun par diagnostic/occurrence. Sources partagées, prévalence spécifique au SSP, registre des relectures lié aux empreintes ; aucun achèvement par arrondi. Recherches au plus toutes les4h,2 diagnostics/catégorie si file≥200 sinon8 ;2 catégories simultanées, budget180s. Notifications Codex temporisées20min, agent statistique12h ; reprise d’une PR active avant création. Après cette tâche d’outillage, reprendre exactement les deux G10 conservés : céphalée en coup de tonnerre et douleur cancéreuse. Référence : docs/coordination-8-9.md. Les anciens réglages5/15min ci-dessous sont historiques et remplacés par tools/garde/config.json.
 
+## Reprise clinique après coordination · 18.10.2026
+#112/#113 fusionnées ; garde10min réellement exécutée39159622388, recherchecoordonnée39159637648 lancée. InventairePDF livré à Vial. G10lot3 rédigé/relu : céphalée en coup de tonnerre et douleur cancéreuse, deux fiches et cinq définitions ;255/2287monographies surbranche, G10 7/14 et glossaire592. Après CI/fusion : douleurs nociceptives somatique puis viscérale. Boucles8/9 ouvertes, aucune prévalence nouvelle ni dose ajoutée.
+
 ## Feuille de route (vue d’ensemble, dans l’ordre jusqu’à la fin)
 
 | Étape | Objet | Fin quand… | Modèle | Suivante |
