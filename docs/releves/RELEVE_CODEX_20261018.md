@@ -18,7 +18,7 @@ Le projet n’est pas terminé. La porte 0 a été validée avant l’étape 1. 
 | 13 | #39 fusionnée (17cf10a) ; #80 prototype VII en brouillon, Dédale-V zéro échec après svgo 4.0.0 | Croquis non validé, contrat/sources à confirmer, autres paires |
 | 14 | Cinq stations pilotes présentes, `valide_par_vial=false` conservé | Relecture Vial avant toute nouvelle série |
 | 15 | #41 : correctifs Galien rejoués sur main ; #81 urgences lot 3 repris en brouillon | Fusion #41 et audit clinique du lot 3 |
-| 16 | #32 : 60 captures/mesures sans nouveau défaut grave, adoption de la référence CI par le script habituel sur runner, CLS 0,1347→0,0358 ; #37 : 60 DD S8 rejoués | CI/fusion #32 ; audit final et CI #37. #16 fermée avec motif, branche conservée |
+| 16 | #32 : 60 captures/mesures sans nouveau défaut grave, adoption de la référence CI par le script habituel sur runner, CLS 0,1347→0,0358 ; #37 : 60 DD S8 rejoués |  #32 fusionnée (617878e) après contrôles requis verts ; audit final et CI #37. #16 fermée avec motif, branche conservée |
 | 17 | Pages et quatre fichiers JS identiques à main 51cb2e5 à 01:15 UTC ; jauges 38/2587 (1 %) et 207/2287 (9 %), critères 8/9 non atteints | Projet non clos ; veille conservée |
 
 ## Réserves pour Vial
@@ -42,3 +42,5 @@ Contrôle complet local de main 42a432d : 276/276 après fusion du correctif #84
 Complément de vérification : #65 passe la suite complète à 276/276 après correction des liens imbriqués dans les commandes du calendrier. Les dix termes nouveaux des monographies ont été traités sans admission en baseline ; la seule paire circulaire introduite pendant la préparation est supprimée. Le conflit réel hypertrophie de #68 a été résolu par la définition Larousse relue, avec alias et flexions réunis. Les sources provisoires restent À vérifier, sans accord Vial inventé.
 
 La référence de #32 vient de la capture CI 39085245206, adoptée par tools/visuel_reference.sh lors de l’exécution 39085519352 (8c3e800), après examen local des écarts et mesures, puis des images CI récupérées par Git. Aucun compteur axe grave/critique n’augmente, aucun seuil de configuration n’est relevé. Les contrôles après adoption restent requis avant fusion.
+
+#32 fusionnée à la suite de ces contrôles (617878e). La correction du calendrier et le registre de #65 sont réunis avec ce fond pâle ; captures de cette combinaison en cours.

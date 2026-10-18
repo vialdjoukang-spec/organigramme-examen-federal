@@ -61,6 +61,8 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 - 18.10.2026 UTC · #32 : adoption examinée de la référence CI (8c3e800) par script habituel sur runner, après refus local des artefacts en 403. Mesures 60 captures : zéro hausse axe grave/critique, débordement, clipping, police ou erreur JS ; CLS de référence 0,1347→0,0358, aucun seuil de configuration relevé. Contrôles après adoption relancés.
 - 18.10.2026 UTC · DigiFab retrouvé dans le portail AIPS (Curatis, autorisation 59301), accès direct HTTP 200, révision 02/2026. Texte anglais à deux colonnes : extraction/audit de doses restant ; preuve audit/DIGIFAB-RECHERCHE-20261018.json. Aucune nouvelle dose publiée.
 
+- 18.10.2026 01:16 UTC · #32 fusionnée (617878e), contrôles requis verts après adoption de la référence CI. Patch fond pâle, procédé runner et référence intégrés ; #37 reste en audit.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 ---

@@ -371,3 +371,5 @@ Le passage aux vérifications de clôture ne valide pas la fin du projet. État 
 ### C8. Mise à jour factuelle · 18.10.2026 01:15 UTC
 
 #50→#53→#54 fusionnées ; #86 fusionnée. Main : 207/2287 monographies (9 %), 38/2587 prévalences (1 %). Pages et quatre fichiers JS cliniques contrôlés sont identiques à main 51cb2e5. #65 contient 406 entrées (référence 3734) et le patch 0030 du calendrier : suite 276/276 ; #68 contient 535 entrées (référence 3571), fusion après #65. #32 : référence CI adoptée explicitement par le script habituel sur runner, compteurs axe non augmentés et référence CLS resserrée, CI après adoption encore requise. DigiFab retrouvé dans l’AIPS officielle (révision 02/2026) ; extraction/audit de dose restant, aucune dose publiée. Réserves R13, stations/croquis non validés et limites du mode B inchangées. Voir relève détaillée, ETAT.json et preuve DigiFab.
+
+Complément 01:16 UTC : #32 fusionnée (617878e), nouvelle référence et procédé d’adoption runner intégrés après contrôles requis verts. #37 reste en audit. #65 est réuni avec ce rendu ; les captures de la combinaison restent à examiner.
