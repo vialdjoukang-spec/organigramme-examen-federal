@@ -25,6 +25,8 @@ entries=[
  ('kleihauer-betke','Test de Kleihauer-Betke',['test de Kleihauer-'], 'Cet examen mesure les globules rouges du fœtus présents dans le sang maternel.',row_source('immunoglobuline-anti-d'),'Posologie, hémorragie fœto-maternelle'),
  ('lap','LAP',[], 'Cette abréviation désigne la leucémie aiguë promyélocytaire.',row_source('tretinoine-po-lap'),'Indications'),
 ]
+for entry in src:
+ if entry['id']=='R-EMA-SOMAKIT-2016':entry['pays']='NL'
 p.write_text(json.dumps(src,ensure_ascii=False,indent=1)+'\n')
 p=pathlib.Path('data/ck/glo.json');glo=json.loads(p.read_text()); glo=[x for x in glo if x['id'] not in ['thromboangeite','gastro-entero-pancreatique','maladie-buerger','egfr']]; ids={x['id'] for x in glo};pending=[]
 for i,label,alias,definition,sid,loc in entries:
