@@ -27,7 +27,17 @@ def combine(current, incoming):
         row=copy.deepcopy(latest)
         # old = branche actuelle, peut contenir une relecture arrivée après le
         # départ du job. merge_candidates préserve ses preuves liées à la source.
-        row['candidates'],counts=merge_candidates(old.get('candidates',[]),new.get('candidates',[]),CONFIG['max_candidates_per_task'])
+        current_by_id={c['id']: c for c in old.get('candidates',[])}
+        incoming_candidates=[]
+        ignored=0
+        for c in new.get('candidates',[]):
+            prior=current_by_id.get(c['id'])
+            changed=prior and any(prior.get(k)!=c.get(k) for k in ('url','extrait','sha256','document_sha256'))
+            if changed and prior.get('date_recherche',old.get('date_recherche',''))>=c.get('date_recherche',new.get('date_recherche','')):
+                ignored+=1;continue
+            incoming_candidates.append(c)
+        row['candidates'],counts=merge_candidates(old.get('candidates',[]),incoming_candidates,CONFIG['max_candidates_per_task'])
+        row['artefacts_obsoletes_ignores']=ignored
         row.update(counts);result['tasks'][key]=row
     for key in ('maj','providers','dernier_lot','total_catalogue'):
         if incoming.get('maj','')>=current.get('maj','') and key in incoming:

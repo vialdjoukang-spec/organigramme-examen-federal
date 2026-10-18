@@ -25,6 +25,15 @@ class ConsolidationTests(unittest.TestCase):
     def test_missing_category_preserves_old_tasks_and_never_mutates_inputs(self):
         old=self.state('2026-01-01');new=self.state('2026-01-02');new['tasks']={}
         self.assertEqual(combine(old,new)['tasks'],old['tasks'])
+    def test_stale_artifact_cannot_replace_newer_source_or_agent_reading(self):
+        old=self.state('2026-01-02');new=self.state('2026-01-01')
+        c=old['tasks']['G1#0']['candidates'][0]
+        c.update(sha256='new-source',relecture_agent={'verdict':'À vérifier'})
+        result=combine(old,new)
+        candidate=result['tasks']['G1#0']['candidates'][0]
+        self.assertEqual(candidate['sha256'],'new-source')
+        self.assertIn('relecture_agent',candidate)
+        self.assertEqual(result['tasks']['G1#0']['artefacts_obsoletes_ignores'],1)
     def test_category_mismatch_refused(self):
         old=self.state('2026-01-01');new=self.state('2026-01-02');new['category']='S'
         with self.assertRaises(ValueError):combine(old,new)
