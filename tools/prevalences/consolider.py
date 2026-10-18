@@ -39,7 +39,7 @@ def combine(current, incoming):
         row['candidates'],counts=merge_candidates(old.get('candidates',[]),incoming_candidates,CONFIG['max_candidates_per_task'])
         row['artefacts_obsoletes_ignores']=ignored
         row.update(counts);result['tasks'][key]=row
-    for key in ('maj','providers','dernier_lot','total_catalogue'):
+    for key in ('maj','providers','dernier_lot','total_catalogue','transport'):
         if incoming.get('maj','')>=current.get('maj','') and key in incoming:
             result[key]=copy.deepcopy(incoming[key])
     return result

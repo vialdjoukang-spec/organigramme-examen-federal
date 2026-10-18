@@ -34,6 +34,12 @@ class ConsolidationTests(unittest.TestCase):
         self.assertEqual(candidate['sha256'],'new-source')
         self.assertIn('relecture_agent',candidate)
         self.assertEqual(result['tasks']['G1#0']['artefacts_obsoletes_ignores'],1)
+    def test_transport_metrics_follow_latest_run_and_survive_consolidation(self):
+        old=self.state('2026-01-01');new=self.state('2026-01-02')
+        old['transport']={'requetes_http':20};new['transport']={'requetes_http':3,'requetes_evitees':7,'cache_lu':8}
+        result=combine(old,new);self.assertEqual(result['transport'],new['transport'])
+        self.assertEqual(combine(new,old)['transport'],new['transport'])
+        self.assertEqual(old['transport'],{'requetes_http':20})
     def test_category_mismatch_refused(self):
         old=self.state('2026-01-01');new=self.state('2026-01-02');new['category']='S'
         with self.assertRaises(ValueError):combine(old,new)
