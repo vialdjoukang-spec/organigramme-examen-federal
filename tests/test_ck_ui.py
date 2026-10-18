@@ -57,10 +57,10 @@ async def profile(b, mobile, out, errs):
         "&&Math.abs(f.getBoundingClientRect().width-window.__qaFlow.flex)<1})()")
     out[pre + 'index_atlas'] = await ev("(()=>{const o=window['CK_GLO_INDEX'];window['CK_GLO_INDEX']={e:[['facies-cushingoide','signe','Faciès cushingoïde',['faciès de Cushing'],'f'],['avc','abreviation','AVC',[],'a']]};gloI=null;const I=gloIndex();"
                                          "const ok=!!I&&I.mF.get('facies de cushing')==='facies-cushingoide'&&I.mA.get('AVC')==='avc'&&gloSl('facies-cushingoide')==='f';window['CK_GLO_INDEX']=o;gloI=null;gloIndex();return ok})()")
-    # Survol (ordinateur) puis clic qui épingle.
+    # Le survol n’ouvre rien ; le clic explicite ouvre et épingle.
     if not mobile:
         await pg.hover('#fx1 .glo'); await pg.wait_for_timeout(450)
-        out['survol_ouvre'] = await ev(f"!$('#tip').hidden&&{K}==='glo|facies-cushingoide'&&!tipPin")
+        out['survol_ne_ouvre_pas'] = await ev("$('#tip').hidden")
     await tap('#fx1 .glo'); await pg.wait_for_timeout(250)
     out[pre + 'clic_epingle'] = await ev(f"!$('#tip').hidden&&tipPin&&{K}==='glo|facies-cushingoide'&&$('#tip').getAttribute('role')==='dialog'")
     if mobile:
@@ -102,11 +102,14 @@ async def profile(b, mobile, out, errs):
     ok = await ev("!!$('#tip .ck-fig svg')&&[...$$('#tip input[data-ck=cou]')].every(i=>!i.disabled&&i.checked)&&$$('#tip input[data-ck=cou]').length===8")
     await tap('#tip input[value=nerf]'); await pg.wait_for_timeout(100)
     out[pre + 'schema_couches'] = ok and await ev("$('#tip .ck-fig #nerf').getAttribute('display')==='none'&&$('#tip .ck-fig #trait').getAttribute('display')==='inline'")
-    # Repères numérotés (contrat Dédale : g.nc-num, data-num, data-nom, data-glo) et bascule de la légende numérotée.
+    # Repères numérotés : le survol et le focus n’ouvrent pas la minibulle ; le clic l’ouvre.
     m1, m2 = '#tip .ck-fig .nc-num[data-num="1"]', '#tip .ck-fig .nc-num[data-num="2"]'
     if not mobile:
         await pg.hover(m2); await pg.wait_for_timeout(120)
-        out['repere_survol_bulle'] = await ev("!$('#tip .ck-bulle').hidden&&$('#tip .ck-bulle').textContent.startsWith('2 · Point B')")
+        survol_ne_ouvre_pas = await ev("$('#tip .ck-bulle').hidden&&tipK==='nc|ncT|face'")
+        await pg.focus(m2); await pg.wait_for_timeout(120)
+        focus_ne_ouvre_pas = await ev("$('#tip .ck-bulle').hidden&&tipK==='nc|ncT|face'")
+        out['repere_survol_focus_ne_ouvrent_pas'] = survol_ne_ouvre_pas and focus_ne_ouvre_pas
     await tap(m2); await pg.wait_for_timeout(150)
     ok = await ev(f"{K}==='nc|ncT|face'&&!$('#tip .ck-bulle').hidden&&$('#tip .ck-bulle').textContent.startsWith('2 · Point B')&&tipStk.length===0")
     await tap(m1); await pg.wait_for_timeout(250)
@@ -188,7 +191,7 @@ async def reel(b, mobile, out, errs):
     await ev("$('#tip .ck-fig').scrollIntoView({block:'nearest'})"); await pg.wait_for_timeout(150)
     out[pre + 'reel_schema_tient'] = await ev("(()=>{const t=$('#tip'),r=$('#tip .ck-fig svg').getBoundingClientRect(),q=t.getBoundingClientRect();return r.width>=q.width*0.6&&r.left>=q.left-1&&r.right<=q.right+1&&r.height<=t.clientHeight})()")
     out[pre + 'reel_texte_coupe'] = len(await ev(CLIP_TIP)) == 0
-    # Repères numérotés réels (Dédale, PR #28) : bulle au survol et au toucher, fiche du glossaire si data-glo, légende numérotée.
+    # Repères numérotés réels : pas de bulle au survol ; clic/toucher ouvre, puis data-glo ouvre la fiche imbriquée.
     vis = "(g=>{const r=g.getBoundingClientRect();return r.width>0&&r.height>0})"
     async def mark(sel):
         return await ev(f"(()=>{{const L=[...$$('#tip .ck-fig svg .nc-num{sel}')].filter({vis});$$('[data-qa-m]').forEach(x=>x.removeAttribute('data-qa-m'));if(!L.length)return null;L[0].setAttribute('data-qa-m','1');return L[0].dataset.num+' · '+L[0].dataset.nom}})()")
@@ -197,7 +200,7 @@ async def reel(b, mobile, out, errs):
     if lab:
         if not mobile:
             await pg.hover('[data-qa-m] circle'); await pg.wait_for_timeout(150)
-            ok = await ev("!$('#tip .ck-bulle').hidden") and (await ev("$('#tip .ck-bulle b').textContent")) == lab
+            ok = await ev("$('#tip .ck-bulle').hidden")
         else:
             ok = True
         await ev("$('[data-qa-m]').scrollIntoView({block:'nearest'})")

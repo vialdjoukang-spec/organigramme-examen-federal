@@ -59,6 +59,11 @@ jobs:
         run: python tools/prev_build.py --check
       - name: Monographies des différentiels (Hygie)
         run: python tools/mono_build.py --check
+      - name: Prototype des infobulles, classements et priorité exclusive G1
+        run: |
+          python3 -m unittest discover -s tests -p test_mono_prototype.py
+          python3 -m unittest discover -s tests -p test_prevalence_classement.py
+          python3 -m unittest discover -s tests -p test_coordination_crise.py
       - name: G1 · doses contre la table suisse
         run: python tools/audit/niveau1.py --only G1
       - name: Table suisse des doses · extrait AIPS verbatim, URL, dates, nombres présents dans l'extrait (Pharmakon)
@@ -182,6 +187,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: 43 contrôles d'interaction (référence verte)
         run: python tests/run_tests.py
+      - name: 'Infobulles G1 : clic sans survol, termes imbriqués et retour'
+        run: python tests/test_infobulles_prototype_ui.py
       - if: always()
         uses: actions/upload-artifact@v7
         with:

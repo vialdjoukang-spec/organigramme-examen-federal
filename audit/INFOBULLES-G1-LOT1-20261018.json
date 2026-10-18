@@ -1,0 +1,576 @@
+{
+ "version": 1,
+ "date": "2026-10-18",
+ "agent": "auditeur_statistique",
+ "validation_clinique_humaine": false,
+ "perimetre": "G1 exclusivement : trois DD concis et SSP ; canonique et racine inchangées.",
+ "fichiers_audites": {
+  "work/propositions-g1-concis.json": "784bfe577a37b1dc0fbd00a3dcd7094c8c6b51135e84c5a6c2cd67d9a9572141",
+  "work/proposition-ssp-g1.json": "47bf8e3d6b3e96ccf8f4e904a1550757e55f3972b99b9638b94da105b1b1e1c9"
+ },
+ "verdict": "Prêt pour intégration documentaire après application de ces corrections et vérification du rendu. Aucune validation médicale humaine revendiquée.",
+ "pret_a_integrer_apres_corrections": true,
+ "pret_a_publier_sans_corrections": false,
+ "plan_obligatoire_partout": {
+  "portee": "Toutes les infobulles SSP/DD, clic et survol, avec précision et concision ; pas une simple mise en forme.",
+  "rubriques": [
+   "1 Généralité & Définition",
+   "2 Épidémiologie & Sex Ratio",
+   "3 Physiopathologie compréhensible",
+   "4 Sémiologie clinique : chaque syndrome nommé + symptômes et signes sur une ligne",
+   "5 Explorations : référence diagnostique puis premier bilan/urgence, biologie, morphologie, fonctionnel",
+   "6 PEC : A But ; B Moyens, mesures/pharmacologie/autres"
+  ],
+  "presentation": "Seuls titres/sous-titres gras ; termes spécialisés cliquables et accessibles au survol ; vérifier aussi clavier et ambiguïtés d’alias.",
+  "restitution": "La conformité réelle du rendu reste à vérifier par le parent ; le JSON seul ne prouve pas les interactions."
+ },
+ "corrections": [
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "epi",
+   "avant": "Une revue suisse estime jusqu’à 3 % de la population, sans préciser le cadre dans ce passage. Prévalence contextualisée et sex-ratio : À vérifier (source CH/UE). Le début survient souvent dans l’enfance ou l’adolescence ; l’anamnèse familiale est souvent positive.",
+   "apres": "Contexte général : l’USZ estime que l’hyperhidrose, toutes formes confondues, touche environ 2–4 % de la population suisse ; méthode, effectif et période non indiqués. Ce chiffre ne mesure ni la forme primaire focale seule ni sa fréquence parmi les consultations G1. Prévalence propre à cette forme et sex-ratio : À vérifier (source CH/UE). Début souvent dans l’enfance ou l’adolescence ; antécédents familiaux possibles.",
+   "motif": "RMS2017 renvoie pour le3 % à Strutton2004, enquête explicitement américaine. Une publication suisse ne définit pas une population suisse. USZ peut servir de contexte général limité, sans transfert à prev.json.",
+   "sources": [
+    "RMS2017",
+    "USZ2026"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-medicamenteuse-et-toxique",
+   "champ": "epi",
+   "avant": "Prévalence populationnelle et part médicamenteuse ou toxique : À vérifier (source CH/UE). Une revue estime les causes secondaires à environ 5 % des cas d’hyperhidrose, sans détailler la population source ; ce chiffre ne mesure pas la seule forme médicamenteuse ou toxique. Sex-ratio : À vérifier (source CH/UE).",
+   "apres": "Prévalence populationnelle, fréquence parmi les consultations G1 et sex-ratio : À vérifier (source CH/UE).",
+   "motif": "Le5 % décrit toutes les causes secondaires, pas la forme médicamenteuse/toxique, dans un cadre non documenté ici.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "epi",
+   "avant": "Prévalence de la thyrotoxicose et sex-ratio : À vérifier (source CH/UE). Les anciens chiffres décrivaient hyperthyroïdie ou Basedow, pas toutes les causes ; ils ne sont pas repris.",
+   "apres": "Prévalence de la thyrotoxicose, fréquence parmi les consultations G1 et sex-ratio : À vérifier (source CH/UE, population et période comparables).",
+   "motif": "Supprimer l’historique éditorial ; ne pas transformer le rapport des risques cumulés femmes/hommes de Basedow en sex-ratio de cas de thyrotoxicose.",
+   "sources": [
+    "ETA2018"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "dia",
+   "avant": "Diagnostic clinique : sueur excessive visible, focale et présente depuis six mois, avec au moins quatre éléments : sites axillaires, palmaires, plantaires ou craniofaciaux ; bilatéralité et symétrie relative ; épisodes hebdomadaires ; absence nocturne ; début avant 25 ans ; antécédent familial ; gêne quotidienne. La revue rapporte sensibilité 99 % et spécificité 82 %, sans décrire la population de validation ; ces performances ne sont pas universelles. Rechercher une cause secondaire si des signes d’alerte apparaissent.",
+   "apres": "Diagnostic clinique : sueur excessive visible, focale et présente depuis plus de six mois, avec au moins quatre éléments : sites axillaires, palmaires, plantaires ou craniofaciaux ; bilatéralité et symétrie relative ; épisodes hebdomadaires ; absence nocturne ; début avant 25 ans ; antécédent familial ; gêne quotidienne. Rechercher une cause secondaire si des signes d’alerte apparaissent.",
+   "motif": "Restituer la durée du tableau1 ; retirer99/82, inutiles sans population de validation attestée. Les critères4/7 restent.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/proposition-ssp-g1.json",
+   "diagnostic": "G1",
+   "champ": "dia",
+   "avant": "Diagnostic clinique orienté vers la cause ; aucun gold standard unique. Pour le profil focal primaire : sueur visible excessive et focale depuis au moins six mois, avec au moins quatre éléments : sites typiques, bilatéralité et symétrie, épisodes hebdomadaires, absence nocturne, début avant 25 ans, antécédent familial, gêne quotidienne. Rechercher une cause secondaire si des signes évocateurs apparaissent.",
+   "apres": "Diagnostic clinique orienté vers la cause ; aucun gold standard unique. Pour le profil focal primaire : sueur visible excessive et focale depuis plus de six mois, avec au moins quatre éléments : sites typiques, bilatéralité et symétrie, épisodes hebdomadaires, absence nocturne, début avant 25 ans, antécédent familial, gêne quotidienne. Rechercher une cause secondaire si des signes évocateurs apparaissent.",
+   "motif": "Même durée dans SSP et DD, pour le profil focal primaire seulement.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "phy",
+   "avant": "Les glandes eccrines sont normales en nombre et en taille.\nUne hyperactivation autonome et une sensibilité hypothalamique accrue augmentent leur sécrétion.\nLe mécanisme exact reste incompletement connu.",
+   "apres": "Les glandes eccrines ont un nombre et une taille normaux.\nUne commande sympathique cholinergique excessive stimule leur sécrétion ; une hypersensibilité de l’hypothalamus est évoquée.\nLe mécanisme exact reste incomplètement connu.",
+   "motif": "Expliquer la commande nerveuse ; conserver le mécanisme proposé et ses limites.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-medicamenteuse-et-toxique",
+   "champ": "phy",
+   "avant": "Plusieurs mécanismes peuvent augmenter la sudation selon la substance et la personne.\nLe symptôme peut suivre l’introduction ou la modification d’un médicament.\nUn sevrage d’alcool, de cocaïne ou d’opiacés peut aussi l’accompagner.\nLa chronologie seule ne prouve pas l’imputabilité.",
+   "apres": "Selon la substance, la commande centrale de la thermorégulation ou la transmission entre les nerfs et les glandes eccrines est modifiée.\nLe mécanisme dépend de l’agent ; un sevrage peut aussi s’accompagner de sueurs.\nLa chronologie seule ne prouve pas l’imputabilité.",
+   "motif": "La chronologie ne constitue pas seule une physiopathologie. Complément biologique lu dans le résumé Cheshire/Fealey2008, cité par RMS2017 ; aucune fréquence américaine transférée.",
+   "sources": [
+    "RMS2017",
+    "Cheshire2008"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "src",
+   "avant": "Menzinger S, Quenan S. Évaluation et prise en charge de l’hyperhidrose. Revue médicale suisse. 2017;13(556):710–714. Version publiée, dépôt Archive ouverte UNIGE : https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download. Passages : définition et épidémiologie p. 710 ; physiologie p. 711 ; critères et bilan p. 712, tableau 1 p. 712 ; évaluation pp. 712–713 ; traitements pp. 713–714. Lu le 18.10.2026.",
+   "apres": "Menzinger S, Quenan S. Évaluation et prise en charge de l’hyperhidrose. Revue médicale suisse. 2017;13(556):710–714. Version publiée, dépôt Archive ouverte UNIGE : https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download. Passages : définition et épidémiologie p. 710 ; physiologie p. 710 ; critères et bilan p. 712, tableau 1 p. 712 ; évaluation pp. 712–713 ; traitements pp. 713–714. Lu le 18.10.2026.",
+   "motif": "Pagination réelle :710,712,713,714 ; la couverture UNIGE ne doit pas décaler les pages imprimées.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-medicamenteuse-et-toxique",
+   "champ": "src",
+   "avant": "Menzinger S, Quenan S. Évaluation et prise en charge de l’hyperhidrose. Revue médicale suisse. 2017;13(556):710–714. Version publiée, dépôt Archive ouverte UNIGE : https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download. Passages : causes secondaires p. 711 ; orientation, bilan et absence de bilan de base consensuel p. 712 ; tableau 2 des causes médicamenteuses et toxiques p. 712. Lu le 18.10.2026.",
+   "apres": "Menzinger S, Quenan S. Évaluation et prise en charge de l’hyperhidrose. Revue médicale suisse. 2017;13(556):710–714. Version publiée, dépôt Archive ouverte UNIGE : https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download. Passages : causes secondaires p. 710 ; orientation, bilan et absence de bilan de base consensuel p. 712 ; tableau 2 des causes médicamenteuses et toxiques p. 712. Lu le 18.10.2026.",
+   "motif": "Pagination réelle :710,712,713,714 ; la couverture UNIGE ne doit pas décaler les pages imprimées.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/proposition-ssp-g1.json",
+   "diagnostic": "G1",
+   "champ": "src",
+   "avant": "Menzinger S, Quenan S. Évaluation et prise en charge de l’hyperhidrose. Revue médicale suisse. 2017;13(556):710–714. Version publiée, dépôt Archive ouverte UNIGE : https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download. Passages : définition, manifestations générales et limites épidémiologiques p. 710 ; physiologie et causes secondaires p. 711 ; anamnèse, examen, démarche biologique ciblée et absence de bilan consensuel p. 712 ; critères du profil primaire tableau 1 p. 712 ; options de prise en charge et limites pp. 712–714. Lu le 18.10.2026.",
+   "apres": "Menzinger S, Quenan S. Évaluation et prise en charge de l’hyperhidrose. Revue médicale suisse. 2017;13(556):710–714. Version publiée, dépôt Archive ouverte UNIGE : https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download. Passages : définition, manifestations générales et limites épidémiologiques p. 710 ; physiologie et causes secondaires p. 710 ; anamnèse, examen, démarche biologique ciblée et absence de bilan consensuel p. 712 ; critères du profil primaire tableau 1 p. 712 ; options de prise en charge et limites pp. 712–714. Lu le 18.10.2026.",
+   "motif": "Pagination réelle :710,712,713,714 ; la couverture UNIGE ne doit pas décaler les pages imprimées.",
+   "sources": [
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "pha",
+   "avant": "Dans Basedow, les antithyroïdiens réduisent la synthèse hormonale ; durée et suivi sont spécialisés. Ils ne traitent pas automatiquement thyroïdite destructrice ou apport exogène. Traitement symptomatique selon état cardiovasculaire et contre-indications. Fièvre ou angine sous antithyroïdien : arrêter et demander immédiatement une formule sanguine pour rechercher une agranulocytose ; auditeur, vérifier la source avant intégration. Posologie : À vérifier (AIPS).",
+   "apres": "Dans Basedow, les antithyroïdiens réduisent la synthèse hormonale ; durée et suivi sont spécialisés. Ils ciblent l’hyperproduction et ne corrigent pas une libération purement destructive ni un apport hormonal exogène. Traitement symptomatique selon état cardiovasculaire et contre-indications. Informer le patient : fièvre ou mal de gorge sous antithyroïdien, arrêter la prise et consulter immédiatement pour une formule sanguine urgente avec recherche d’agranulocytose. Posologie : À vérifier (AIPS).",
+   "motif": "Rétablir arrêt+consultation immédiate+formule sanguine ; supprimer la note interne. La première version longue avait affaibli une sécurité canonique ; la concise réintroduit déjà l’arrêt. Mécanisme et formes mixtes relèvent de la décision spécialisée.",
+   "sources": [
+    "AIPS21037",
+    "ETA2018-amiodarone"
+   ],
+   "gravite": "securite_avant_integration"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "src",
+   "avant": "HUG. Maladies de la thyroïde. https://www.hug.ch/endocrinologie-diabetologie-metabolisme/maladies-thyroide. Passages hyperthyroïdie, causes, symptômes et traitement ; mise à jour indiquée 06.11.2025. SSCC, Groupe de travail post-analytique, Bilan thyroïdien initial : test réflexe, version octobre 2025, approuvée par la SSED. https://www.sgedssed.ch/SgedSsed/fileadmin/7_Endokrinologie/72_Empfehlungen_SGED/recommandations_postanalytique_bilan_thyroidien_20251010.pdf, pp. 1–2. Kahaly et al. 2018 European Thyroid Association Guideline for the Management of Graves’ Hyperthyroidism. https://karger.com/etj/article-abstract/7/4/167/138186/2018-European-Thyroid-Association-Guideline-for?redirectedFrom=fulltext, résumé et critères étiologiques. Consensus ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society 2026, Management of thyroid emergencies: https://doi.org/10.1530/ETJ-26-0043, résumé consulté ; scores non validés contre un gold standard. Sources lues le 18.10.2026.",
+   "apres": "HUG. Maladies de la thyroïde. https://www.hug.ch/endocrinologie-diabetologie-metabolisme/maladies-thyroide. Passages hyperthyroïdie, causes, symptômes et traitement ; mise à jour indiquée 06.11.2025. SSCC, Groupe de travail post-analytique, Bilan thyroïdien initial : test réflexe, version octobre 2025, approuvée par la SSED. https://www.sgedssed.ch/SgedSsed/fileadmin/7_Endokrinologie/72_Empfehlungen_SGED/recommandations_postanalytique_bilan_thyroidien_20251010.pdf, pp. 1–2. Kahaly et al. 2018 European Thyroid Association Guideline for the Management of Graves’ Hyperthyroidism. https://karger.com/etj/article-abstract/7/4/167/138186/2018-European-Thyroid-Association-Guideline-for?redirectedFrom=fulltext, résumé et critères étiologiques. Consensus ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society 2026, Management of thyroid emergencies: https://doi.org/10.1530/ETJ-26-0043, résumé consulté ; diagnostic clinique aidé par des scores, sans lecture intégrale revendiquée. Sources lues le 18.10.2026. Néo-Mercazole, information professionnelle AIPS, Swissmedic21037, mise à jour août2020 ; https://www.swissmedicinfo-pro.ch/showText.aspx?authNr=21037&lang=FR&supportMultipleResults=1&textType=FI ; Toxicité hématologique et Mécanisme d’action, lus18.10.2026.",
+   "motif": "Le résumé2026 évoque des scores validés ; il ne démontre pas l’absence de validation contre une référence. Tracer aussi la source suisse de sécurité.",
+   "sources": [
+    "ETA2026",
+    "AIPS21037"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "exp_bio",
+   "avant": "TSH seule d’abord ; si supprimée, T4 libre et T3 libre ou totale. Forme manifeste : T4 libre et/ou T3 élevée. Anticorps anti-récepteur TSH positifs soutiennent Basedow. Interpréter le contexte central ou médicamenteux.",
+   "apres": "Chez l’adulte hors grossesse, bilan initial usuel : TSH d’abord ; si supprimée, T4 libre et T3 libre ou totale. Forme manifeste : T4 libre et/ou T3 élevée. Anticorps anti-récepteur TSH positifs soutiennent Basedow. Interpréter le contexte central ou médicamenteux.",
+   "motif": "Périmètre réel SSCC2025. Ne pas enfermer urgence, grossesse, suspicion forte ou contexte central dans un algorithme universel séquentiel.",
+   "sources": [
+    "SSCC2025"
+   ],
+   "gravite": "precision"
+  },
+  {
+   "fichier": "work/proposition-ssp-g1.json",
+   "diagnostic": "G1",
+   "champ": "cli",
+   "avant": "Syndrome sudoral focal : préciser sites, symétrie, début, fréquence, retentissement et sueurs nocturnes.\nSyndrome généralisé ou atypique : rechercher début récent, asymétrie, épisodes nocturnes et signes associés.\nTriage urgent : fièvre ou altération de l’état général justifie une évaluation rapide selon le contexte.",
+   "apres": "Syndrome sudoral focal : préciser sites, symétrie, début, fréquence, retentissement et sueurs nocturnes.\nSyndrome généralisé ou atypique : rechercher début récent, asymétrie, épisodes nocturnes et signes associés.\nSyndrome aigu avec sueurs froides et douleur thoracique, dyspnée ou malaise : évaluation urgente. Fièvre ou altération de l’état général : évaluation rapide selon le contexte.",
+   "motif": "Le triage de la plainte générale ne doit pas se limiter aux infections/tumeurs ; alarme cardiaque décrite par USZ.",
+   "sources": [
+    "USZ2026"
+   ],
+   "gravite": "triage_a_completer"
+  },
+  {
+   "fichier": "work/proposition-ssp-g1.json",
+   "diagnostic": "G1",
+   "champ": "exp_bio",
+   "avant": "Formule sanguine complète et CRP → recherche d’infection, néoplasie ou syndrome inflammatoire. Glycémie → recherche de diabète. TSH → recherche de dysthyroïdie. Examens guidés par les signes ; aucun bilan de base consensuel.",
+   "apres": "Selon le contexte : glycémie pendant les symptômes → rechercher d’abord une valeur basse si hypoglycémie suspectée ; TSH → valeur basse pouvant évoquer une hyperthyroïdie, à compléter par T4 libre/T3 ; formule sanguine → anomalies hématologiques ; CRP → élévation inflammatoire non spécifique. Aucun de ces résultats ne confirme seul une infection ou une néoplasie ; pas de batterie systématique.",
+   "motif": "Glycémie pour diabète seul mal centrée sur les sueurs. Résultats attendus, limites et démarche guidée par signes ; aucune nouvelle dose ni valeur seuil ajoutée.",
+   "sources": [
+    "HUG-hypoglycemie2025",
+    "SSCC2025",
+    "RMS2017"
+   ],
+   "gravite": "a_corriger"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "src",
+   "mode": "ajout_apres_autres_corrections_src",
+   "avant": "",
+   "apres": " USZ. Hyperhidrose. https://www.usz.ch/krankheit/hyperhidrose/ ; mise à jour20.05.2026 ; Häufigkeit und Alter et Schweissbildung als Alarmzeichen, lus18.10.2026.",
+   "motif": "Tracer contexte suisse et/ou alarme.",
+   "sources": [
+    "USZ2026"
+   ],
+   "gravite": "tracabilite"
+  },
+  {
+   "fichier": "work/proposition-ssp-g1.json",
+   "diagnostic": "G1",
+   "champ": "src",
+   "mode": "ajout_apres_autres_corrections_src",
+   "avant": "",
+   "apres": " USZ. Hyperhidrose. https://www.usz.ch/krankheit/hyperhidrose/ ; mise à jour20.05.2026 ; Häufigkeit und Alter et Schweissbildung als Alarmzeichen, lus18.10.2026.",
+   "motif": "Tracer contexte suisse et/ou alarme.",
+   "sources": [
+    "USZ2026"
+   ],
+   "gravite": "tracabilite"
+  },
+  {
+   "fichier": "work/proposition-ssp-g1.json",
+   "diagnostic": "G1",
+   "champ": "src",
+   "mode": "ajout_apres_autres_corrections_src",
+   "avant": "",
+   "apres": " HUG. Que faire en cas d’hypoglycémie ? https://www.hug.ch/vivre-avec-diabete/que-faire-cas-hypoglycemie ; mise à jour23.09.2025 ; sections signes/risques, lues18.10.2026.",
+   "motif": "Tracer lien sueurs/hypoglycémie, sans importer seuils ni posologie.",
+   "sources": [
+    "HUG-hypoglycemie2025"
+   ],
+   "gravite": "tracabilite"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "phy",
+   "avant": "L’excès de T3 ou T4 modifie le métabolisme.\nIl accélère les fonctions cardiovasculaire, digestive et neuromusculaire.\nDans Basedow, des auto-anticorps stimulent le récepteur TSH.\nNodules, médicaments et thyroïdites ont d’autres mécanismes.",
+   "apres": "L’excès de T3/T4 augmente le métabolisme et la production de chaleur.\nDans Basedow, des anticorps stimulent le récepteur de la TSH ; certains nodules produisent aussi trop d’hormones.\nUne thyroïdite destructrice libère les hormones stockées ; un apport hormonal exogène augmente directement leur quantité circulante.",
+   "motif": "Expliquer les mécanismes distincts ; ne pas généraliser le traitement de Basedow à toute thyrotoxicose.",
+   "sources": [
+    "ETA2018-PDF",
+    "CLINIC2025"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "cli",
+   "avant": "Syndrome d’excès hormonal : perte de poids, diarrhées, palpitations ou tachycardie, tremblement, nervosité, thermophobie et sudation.\nPrésentation atypique : signes moins typiques possibles chez la personne âgée.\nUrgence : hyperthermie, altération neurologique, arythmie ou défaillance cardiaque peuvent annoncer une crise ; évaluation urgente. Les scores ne remplacent pas le jugement clinique.",
+   "apres": "Syndrome hypermétabolique : amaigrissement, thermophobie et sueurs.\nSyndrome adrénergique : palpitations, tachycardie, tremblement et nervosité.\nSyndrome digestif : transit accéléré ou diarrhées.\nCrise thyrotoxique suspectée : hyperthermie, altération neurologique, arythmie ou défaillance cardiaque ; évaluation urgente. Présentation parfois moins typique chez la personne âgée.",
+   "motif": "Chaque ligne syndromique nomme le syndrome puis ses manifestations. Ne pas exiger simultanément toutes les manifestations ni attendre un score pour traiter l’urgence.",
+   "sources": [
+    "HUG2025",
+    "ETA2018-PDF",
+    "ETA2026"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "pha",
+   "avant": "Dans Basedow, les antithyroïdiens réduisent la synthèse hormonale ; durée et suivi sont spécialisés. Ils ciblent l’hyperproduction et ne corrigent pas une libération purement destructive ni un apport hormonal exogène. Traitement symptomatique selon état cardiovasculaire et contre-indications. Informer le patient : fièvre ou mal de gorge sous antithyroïdien, arrêter la prise et consulter immédiatement pour une formule sanguine urgente avec recherche d’agranulocytose. Posologie : À vérifier (AIPS).",
+   "apres": "En cas d’hyperproduction, notamment Basedow, les antithyroïdiens réduisent la synthèse ; choix et suivi selon l’étiologie. Ils ne corrigent pas une libération purement destructive ni un apport hormonal exogène. Un bêtabloquant peut réduire palpitations et tremblement si l’état cardiovasculaire et les contre-indications le permettent. Informer le patient : fièvre ou mal de gorge sous antithyroïdien, arrêter la prise et consulter immédiatement pour une formule sanguine urgente avec recherche d’agranulocytose. Posologie : À vérifier (AIPS).",
+   "motif": "Mécanisme et traitement symptomatique explicités sans dose. ETA2018 p.173 recommande le bêtablocage aux patients appropriés ; ne pas déduire une prescription automatique dans une décompensation.",
+   "sources": [
+    "ETA2018-PDF",
+    "CLINIC2025",
+    "AIPS21037"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "exp_ref",
+   "avant": "La biologie confirme le syndrome, pas seule l’étiologie. Anticorps anti-récepteur TSH orientent vers Basedow. La crise reste clinique.",
+   "apres": "Confirmation biologique du syndrome : T4 libre et/ou T3 augmentée avec TSH généralement supprimée ; ces résultats seuls ne déterminent pas la cause. Anticorps anti-récepteur de la TSH : argument pour Basedow. La crise reste un diagnostic clinique urgent.",
+   "motif": "Le premier sous-champ doit nommer la démarche de référence, pas seulement dire que la biologie confirme.",
+   "sources": [
+    "SSCC2025",
+    "ETA2018-PDF",
+    "ETA2026"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "exp_premier",
+   "avant": "Évaluer gravité, puis TSH ; si supprimée, T4 libre et T3. Revoir expositions, antécédents, rythme, signes oculaires et nodules ; ne pas retarder l’urgence.",
+   "apres": "Évaluer d’abord la gravité et les expositions ; ne pas retarder l’urgence. Bilan initial usuel chez l’adulte hors grossesse : TSH, puis T4 libre et T3 si supprimée ; en cas de forte suspicion, TSH et T4 libre d’emblée. Examiner rythme cardiaque, yeux et thyroïde.",
+   "motif": "Articuler test réflexe suisse et exception de forte suspicion explicite ETA2018 p.168.",
+   "sources": [
+    "SSCC2025",
+    "ETA2018-PDF"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "thyrotoxicose",
+   "champ": "exp_bio",
+   "avant": "Chez l’adulte hors grossesse, bilan initial usuel : TSH d’abord ; si supprimée, T4 libre et T3 libre ou totale. Forme manifeste : T4 libre et/ou T3 élevée. Anticorps anti-récepteur TSH positifs soutiennent Basedow. Interpréter le contexte central ou médicamenteux.",
+   "apres": "Chez l’adulte hors grossesse : TSH d’abord, puis T4 libre/T3 si supprimée ; forte suspicion : TSH et T4 libre d’emblée. Forme manifeste : T4 libre et/ou T3 augmentée ; forme fruste : hormones dans les normes. Anticorps anti-récepteur de la TSH positifs : argument pour Basedow. Interpréter selon le contexte central ou médicamenteux.",
+   "motif": "Garder anomalies attendues et exception de forte suspicion, sans seuil inventé.",
+   "sources": [
+    "SSCC2025",
+    "ETA2018-PDF"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "cli",
+   "avant": "Syndrome sudoral focal : épisodes visibles aux aisselles, paumes, plantes ou région craniofaciale.\nRetentissement : épisodes hebdomadaires qui gênent les activités.\nProfil évocateur : atteinte souvent bilatérale, symétrique, à l’éveil et de début jeune.\nAlerte : sudation généralisée, asymétrique, nocturne ou tardive ; rechercher une cause secondaire.",
+   "apres": "Syndrome sudoral focal : sueurs visibles aux aisselles, paumes, plantes ou région craniofaciale, souvent bilatérales et symétriques ; épisodes au moins hebdomadaires gênant les activités.\nProfil secondaire à rechercher : sudation généralisée ou asymétrique, nocturne ou tardive, ou autres signes associés.",
+   "motif": "Ligne syndromique complète et concise ; ne pas remplacer les critères détaillés du diagnostic.",
+   "sources": [
+    "RMS2017"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-medicamenteuse-et-toxique",
+   "champ": "cli",
+   "avant": "Syndrome sudoral secondaire : sudation généralisée, asymétrique ou nocturne, ou début tardif.\nChronologie évocatrice : apparition après introduction, modification, prise ou sevrage.\nSignes associés : rechercher fièvre, palpitations, symptômes généraux et indices d’une autre cause.",
+   "apres": "Syndrome sudoral secondaire : sueurs parfois généralisées, asymétriques ou nocturnes, avec début possible après introduction, modification ou sevrage d’un agent ; cette chronologie ne prouve pas l’imputabilité.\nSignes associés : fièvre, palpitations ou altération générale font rechercher aussi une autre cause.",
+   "motif": "Ne pas présenter le profil généralisé/nocturne comme une condition obligatoire de l’imputabilité.",
+   "sources": [
+    "RMS2017"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "exp_bio",
+   "avant": "Sans objet si le tableau est typique. Si une cause secondaire est suspectée, choisir selon les signes : formule sanguine et marqueur inflammatoire si infection ou néoplasie ; glycémie ou TSH si indiqué. Aucun bilan initial consensuel n’existe.",
+   "apres": "Sans objet si le tableau est typique. En cas de signes secondaires : glycémie → valeur basse si hypoglycémie suspectée ; TSH → valeur basse si hyperthyroïdie, à compléter par T4 libre/T3 ; formule sanguine → anomalies hématologiques ; CRP → élévation non spécifique. Aucun résultat ne confirme seul une infection ou une néoplasie ; pas de batterie systématique.",
+   "motif": "Répondre par les anomalies recherchées et limites ; ne pas assimiler FSC/CRP à un test confirmant une néoplasie.",
+   "sources": [
+    "RMS2017",
+    "HUG-hypoglycemie2025",
+    "SSCC2025"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-medicamenteuse-et-toxique",
+   "champ": "exp_bio",
+   "avant": "Aucun bilan systématique consensuel. Selon l’hypothèse : formule sanguine et marqueur inflammatoire si infection ou néoplasie suspectée ; glycémie ou TSH si indiqué.",
+   "apres": "Selon les signes et l’hypothèse : glycémie → valeur basse si hypoglycémie suspectée ; TSH → valeur basse si hyperthyroïdie, à compléter par T4 libre/T3 ; formule sanguine → anomalies hématologiques ; CRP → élévation non spécifique. Aucun résultat ne confirme seul une infection ou une néoplasie ; pas de batterie systématique.",
+   "motif": "Répondre par les anomalies recherchées et limites ; ne pas assimiler FSC/CRP à un test confirmant une néoplasie.",
+   "sources": [
+    "RMS2017",
+    "HUG-hypoglycemie2025",
+    "SSCC2025"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  },
+  {
+   "fichier": "work/propositions-g1-concis.json",
+   "diagnostic": "hyperhidrose-primaire-focale",
+   "champ": "aut",
+   "avant": "L’ionophorèse peut aider les formes palmaires ou plantaires, mais demande des séances répétées ; éviter notamment en cas de grossesse, pacemaker ou dispositif métallique. Pour une forme sévère résistante, discuter une intervention ; la sympathectomie expose à une sudation compensatrice parfois sévère. Posologie : Sans objet.",
+   "apres": "L’ionophorèse peut aider les formes palmaires ou plantaires, avec séances répétées ; vérifier ses contre-indications, notamment grossesse, pacemaker et implants selon le dispositif utilisé. Pour une forme sévère résistante, discuter une intervention ; la sympathectomie expose à une sudation compensatrice parfois sévère. Posologie : Sans objet.",
+   "motif": "Éviter l’interdiction universelle de tout dispositif métallique tirée d’une liste ancienne de contre-indications sans notice du dispositif.",
+   "sources": [
+    "RMS2017"
+   ],
+   "mode": "raffinement_apres_corrections_precedentes",
+   "gravite": "precision_contenu"
+  }
+ ],
+ "deja_corrige_dans_concis": [
+  "Radiographie sortie de exp_bio médicamenteuse",
+  "Scintigraphie déplacée en exp_fonc thyrotoxicose",
+  "Arrêt antithyroïdien réintroduit, à compléter par consultation immédiate"
+ ],
+ "sources_lues": [
+  {
+   "id": "RMS2017",
+   "url": "https://access.archive-ouverte.unige.ch/access/metadata/77585217-e0f6-4894-a991-2132b8200d4d/download",
+   "date_source": "2017-03-29",
+   "editeur": "Revue médicale suisse ; dépôt UNIGE version publiée",
+   "passages": "Définition/physiologie p.710 ; orientation/critères/tableaux1–2 p.712 ; traitements p.713 ; références p.714",
+   "lecture": "Ciblée effective, pas lecture intégrale des études citées"
+  },
+  {
+   "id": "USZ2026",
+   "url": "https://www.usz.ch/krankheit/hyperhidrose/",
+   "date_source": "2026-05-20",
+   "editeur": "Universitätsspital Zürich",
+   "passages": "Häufigkeit und Alter lignes53–55 ; tests88–93 ; alarme83–87",
+   "lecture": "Effective :2–4 % suisse toutes formes, sans N/méthode/période"
+  },
+  {
+   "id": "AIPS21037",
+   "url": "https://www.swissmedicinfo-pro.ch/showText.aspx?authNr=21037&lang=FR&supportMultipleResults=1&textType=FI",
+   "date_source": "2020-08",
+   "editeur": "Swissmedic/AIPS, Néo-Mercazole",
+   "passages": "Toxicité hématologique lignes97–100 ; mécanisme298–301 ; mise à jour379",
+   "lecture": "Effective sur AIPS ; miroir Refdata indisponible dans cet outil"
+  },
+  {
+   "id": "SSCC2025",
+   "url": "https://www.sgedssed.ch/SgedSsed/fileadmin/7_Endokrinologie/72_Empfehlungen_SGED/recommandations_postanalytique_bilan_thyroidien_20251010.pdf",
+   "date_source": "2025-10",
+   "editeur": "GT SSCC, approuvé SSED",
+   "passages": "Pages1–2 : adulte hors grossesse, test réflexe et exceptions",
+   "lecture": "Effective ciblée"
+  },
+  {
+   "id": "HUG2025",
+   "url": "https://www.hug.ch/endocrinologie-diabetologie-metabolisme/maladies-thyroide",
+   "date_source": "2025-11-06",
+   "editeur": "HUG",
+   "passages": "Hyperthyroïdie44–61 ; date152",
+   "lecture": "Effective ciblée"
+  },
+  {
+   "id": "ETA2018",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6140607/",
+   "date_source": "2018",
+   "editeur": "ETA/European Thyroid Journal",
+   "passages": "Introduction et diagnostic initial lors du premier accès ; Imaging et recommandations3–4 dans résultat indexé natif",
+   "lecture": "Partielle effective ; accès direct actuel reCAPTCHA, pas de nouvelle lecture intégrale"
+  },
+  {
+   "id": "ETA2018-amiodarone",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29594056/",
+   "date_source": "2018",
+   "editeur": "ETA/European Thyroid Journal",
+   "passages": "Résumé indexé : hyperproduction type1, destruction type2, formes mixtes",
+   "lecture": "Extrait indexé effectivement lu, pas intégralité"
+  },
+  {
+   "id": "ETA2026",
+   "url": "https://orca.cardiff.ac.uk/id/eprint/188840/",
+   "date_source": "2026",
+   "doi": "10.1530/ETJ-26-0043",
+   "editeur": "European Thyroid Journal/BioScientifica ; dépôt Cardiff",
+   "passages": "Résumé institutionnel lignes10–14",
+   "lecture": "Effective du résumé seulement ; DOI direct403"
+  },
+  {
+   "id": "HUG-hypoglycemie2025",
+   "url": "https://www.hug.ch/vivre-avec-diabete/que-faire-cas-hypoglycemie",
+   "date_source": "2025-09-23",
+   "editeur": "HUG",
+   "passages": "Signes19–31 ; urgence32–34 ; date64",
+   "lecture": "Effective ciblée, aucun seuil/traitement repris"
+  },
+  {
+   "id": "Cheshire2008",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/18217788/",
+   "date_source": "2008",
+   "editeur": "Drug Safety, Adis",
+   "passages": "Résumé indexé : action centrale ou jonction nerf-glande eccrine",
+   "lecture": "Résumé indexé effectivement lu ; page directe sans résumé exploitable. Référence citée par RMS2017 ; pas de transfert statistique US→CH"
+  },
+  {
+   "id": "ETA2018-PDF",
+   "url": "https://corporate.thermofisher.com/content/dam/diagnostics/clinical/documents/2018-ETA-Guideline-Management-Graves-Hyperthyroidism.pdf",
+   "date_source": "2018-07-25",
+   "editeur": "ETA/Karger ; copie de la version publiée hébergée ThermoFisher",
+   "passages": "Pages imprimées168–170 et172–173 ; Beta-Adrenergic Blockade p.173 lignes409–416 ; sécurité p.172 lignes326–330",
+   "lecture": "Effective ciblée dans le PDF20pages ; ne pas confondre hébergeur et éditeur, aucune lecture intégrale revendiquée"
+  },
+  {
+   "id": "CLINIC2025",
+   "url": "https://www.clinicbarcelona.org/en/assistance/diseases/thyroiditis/treatment",
+   "date_source": "2025-07-28",
+   "editeur": "Hospital Clínic Barcelona, endocrinologues nommées sur la page",
+   "passages": "Traitement lignes84–87 ; date137–138",
+   "lecture": "Effective ciblée : libération hormonale inflammatoire et absence d’usage routinier des antithyroïdiens ; aucune dose reprise"
+  }
+ ],
+ "limites": [
+  "AWMF2023 anti-bot : pas de lecture complète revendiquée",
+  "ETA2018 accès direct actuel reCAPTCHA ; première lecture et extraits indexés distingués",
+  "ETA2026 DOI403 : résumé institutionnel lu, pas texte intégral"
+ ],
+ "reserves_a_finaliser": [
+  "Vérification réelle du rendu clic/survol/clavier, titres et termes cliquables encore nécessaire ; aucune validation médicale humaine."
+ ],
+ "statistique": "Aucun N inventé ; pas de fréquence transférée à G1 ; risque F/H différent du sex-ratio ; pas de classement des14 causes établi par les sources lues ; inconnu conservé.",
+ "securite_r13": "Régression potentiellement critique signalée au parent dans la première proposition longue, déjà partiellement corrigée dans la concise. Aucune nouvelle faute critique d’une canonique ancienne établie ; aucun contenu nouveau publié.",
+ "aucune_ecriture_canonique": true,
+ "glossaire_relecture": {
+  "fichier": "work/glossaire-g1-enrichi.json",
+  "nombre_entrees": 14,
+  "corrections": [
+   {
+    "id": "glande-eccrine",
+    "champ": "src.loc",
+    "avant": "p.711",
+    "apres": "p.710"
+   },
+   {
+    "id": "hypothalamus",
+    "champ": "src.loc",
+    "avant": "p.711",
+    "apres": "p.710"
+   },
+   {
+    "id": "anticholinergique",
+    "champ": "src.loc",
+    "avant": "pp.711 et713",
+    "apres": "pp.710 et713"
+   }
+  ],
+  "reserve": "La source HUG2025 présente surtout hyperthyroïdie ; compléter la définition large de thyrotoxicose par une référence distinguant les mécanismes (ETA2018 et Clínic2025). Les alias spécialisés doivent être testés dans le rendu, sans inférer du JSON leur fonctionnement."
+ },
+ "livrables": [
+  "work/g1-apres-audit.json",
+  "work/ssp-g1-apres-audit.json"
+ ],
+ "sha256_livrables": {
+  "work/g1-apres-audit.json": "f9b467c18dd7616c090d3ede049ab55402e7b9d57d2efd7ba1d4c47779f7bfdd",
+  "work/ssp-g1-apres-audit.json": "c4c3f20a19d9870c0b7fd5a199ce89416d99b07aaf721dbee890e5a6636809f9"
+ },
+ "integration": {
+  "prototype_version": 1,
+  "changements_parent": [
+   "Version prototype numérique 1 ; thermophobie exprimée en langage courant.",
+   "Glossaire corrigé : pages710, références professionnelles et définition agranulocytose."
+  ],
+  "monographies_sha256": {
+   "hyperhidrose-primaire-focale": "4675f5524e73d530309705bf4bfa4a72e7e1998cca944b25db9a8bb80235d11c",
+   "hyperhidrose-medicamenteuse-et-toxique": "8fab6babac20fdfbaba87cbf4f20efec1f02ad0cefcbf5dfb18f01b5a5acf4a9",
+   "thyrotoxicose": "3ad7eba9b415ba7884cbbcc595c61f3afc671497ac2d82cf881d02bd3bbc4a6f"
+  },
+  "ssp_sha256": {
+   "G1": "4950b21c83657f374cf33bf46d89f6a897069e59604413a53b037006ff91361b"
+  },
+  "validation_clinique_humaine": false,
+  "relecture_finale": "audit/INFOBULLES-G1-REVUE-FINALE-20261018.json",
+  "reserve_phy_medicamenteuse": "Formulation dépendante de Cheshire retirée ; mécanisme précis À vérifier source CH/UE."
+ }
+}

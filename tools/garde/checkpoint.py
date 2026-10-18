@@ -166,7 +166,7 @@ def ctrl_doses(base, fichiers, F):
             return {f"{c}#{e.get('i')}": e for c, v in d.items() if isinstance(v, dict) for e in v.get("items", []) if isinstance(e, dict)}
         return {k: v for k, v in d.items() if not k.startswith("_")}
 
-    for path in [f for f in fichiers if re.match(r"data/ck/(mono/[^/]+\.json|prev\.json)$", f)]:
+    for path in [f for f in fichiers if re.match(r"data/ck/(mono/[^/]+\.json|mono_ssp\.json|prev\.json)$", f)]:
         B, H = entrees(base, path), entrees("HEAD", path)
         for k, v in H.items():
             if isinstance(v, dict) and v.get("statut") == STATUT_AV:

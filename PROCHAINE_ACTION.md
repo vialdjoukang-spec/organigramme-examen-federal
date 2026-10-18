@@ -1,3 +1,7 @@
+## Priorité exclusive · correction des infobulles depuis G1 · 18.10.2026
+
+Ordre de Vial : ajuster partout les infobulles au clic/toucher, sans survol, SSP et diagnostics différentiels, selon `docs/PROTOCOLE-INFOBULLES-6-RUBRIQUES.md`. Six rubriques obligatoires ; syndromes détaillés ; référence diagnostique puis premier bilan explicite ; prise en charge A-But/B-Moyens ; titres seuls en gras et terminologie cliquable. Commencer G1, par lots de trois révisions, y compris les monographies déjà présentes. Les autres tâches, l’ancien lot G10 et les recherches transversales sont suspendus. Les indications G10 et sept rubriques plus anciennes ci-dessous sont historiques. La structure affichée ne certifie ni relecture médicale ni classement démontré.
+
 ## G10 lot4 · douleurs nociceptives · 18.10.2026 22:33 Europe/Zurich
 État : reprise depuis main 4edba7f ; #114 et #115 fusionnées, publication clinique précédente vérifiée. Deux monographies (douleur-nociceptive-somatique, douleur-nociceptive-viscerale) et cinq définitions : 257/2287 sur branche, G10 9/14, glossaire 597. Prévalences 45/2587 et doses AIPS 98 lignes inchangées. Contrôles de données G1–G8, constructeurs et Lyncée verts ; CI de la tête exacte, fusion et publication de ce lot encore requises.
 Prochaine : terminer cette intégration puis radiculalgie et polyneuropathie douloureuse ; ensuite douleur neuropathique centrale, céphalée primaire et composante affective. Étape 8 associée au lot par le plan commun ; S1.3–S1.6, S8 après #37 et Panacée O7.14–O7.12 restent dus. Aucune fin de boucle.

@@ -17,7 +17,25 @@ concurrency:
   group: veille-etat
   cancel-in-progress: false
 jobs:
+  perimetre:
+    runs-on: ubuntu-latest
+    outputs:
+      autorise: ${{ steps.mission.outputs.autorise }}
+    steps:
+      - uses: actions/checkout@v7
+        with: { ref: main }
+      - id: mission
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          c=json.loads(Path("tools/coordination/config.json").read_text())
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              print("autorise="+str(c.get("mission_exclusive")!="infobulles_prototype6").lower(), file=f)
+          PY
   veille:
+    needs: perimetre
+    if: needs.perimetre.outputs.autorise == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

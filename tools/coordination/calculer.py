@@ -12,7 +12,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from tools.prevalences.moteur import ROOT, DEFAULT_STATE, atomic_json, catalog
 from tools.prevalences.jauges import valid_published
-from tools.mono_build import mid, REQ
+from tools.mono_build import mid, REQ, prototype_ready, load_ssp
 
 CONFIG = json.loads(Path(__file__).with_name('config.json').read_text())
 
@@ -42,6 +42,9 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
     config = config or CONFIG; ledger = ledger or {}; states_provided = states is not None; states = states or {}
     ssps, tasks = catalog(root)
     sources = {s['id']:s for s in json.loads((root/'data/ck/src.json').read_text())}
+    fiches_ssp = load_ssp(root) or {}
+    ssp_prototypes = [s[0] for s in ssps if prototype_ready(fiches_ssp.get(s[0], {}))]
+    ssp_revues = [c for c in ssp_prototypes if attestation(ledger.get('ssp', {}).get(c), fiches_ssp[c], root, sources)]
     prev = json.loads((root/'data/ck/prev.json').read_text()); monos = {}; duplicates = []
     for path in sorted((root/'data/ck/mono').glob('*.json')):
         for key, value in json.loads(path.read_text()).items():
@@ -65,17 +68,24 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
                      and mr.get('reserves_levees') is True and pr.get('reserves_levees') is True
                      and pr.get('applicable_au_dd_dans_ce_cadre') is True
                      and pr.get('population_cible') == task['title_ssp'])
+        prototype = isinstance(mono,dict) and structure and prototype_ready(mono)
+        prototype_read = prototype and mono_read
         row = dict(task,diagnostic_id=diagnostic,mono_structure=bool(structure),mono_relecture=bool(mono_read),mono_reserves=reserves,
+                   prototype_structure=bool(prototype),prototype_relecture=bool(prototype_read),
                    prevalence_publiee=bool(published),prevalence_relecture=bool(prev_read),couple_documente=ready)
-        occurrences.append(row); mono_metrics[diagnostic]={'structure':bool(structure),'relecture':bool(mono_read),'reserves':bool(reserves)}
+        occurrences.append(row); mono_metrics[diagnostic]={'structure':bool(structure),'relecture':bool(mono_read),'reserves':bool(reserves),
+                                                         'prototype_structure':bool(prototype),'prototype_relecture':bool(prototype_read)}
     empty=[s[0] for s in ssps if not any(t['ssp']==s[0] for t in tasks)]
     total=len(occurrences); paired=sum(t['couple_documente'] for t in occurrences)
     mono_total=len(mono_metrics)
     metrics={'occurrences':total,'diagnostics_uniques':mono_total,'monographies_structure':sum(m['structure'] for m in mono_metrics.values()),
+             'prototype_structure':sum(m['prototype_structure'] for m in mono_metrics.values()),
+             'prototype_relecture':sum(m['prototype_relecture'] for m in mono_metrics.values()),
              'monographies_relues':sum(m['relecture'] for m in mono_metrics.values()),'monographies_avec_reserves':sum(m['reserves'] for m in mono_metrics.values()),
              'prevalences_publiees':sum(t['prevalence_publiee'] for t in occurrences),'prevalences_relues':sum(t['prevalence_relecture'] for t in occurrences),
              'couples_documentes':paired,'ssp_sans_dd':empty,'doublons_monographies':duplicates,
              'maturite_documentaire_complete':bool(total and paired==total and not empty and not duplicates and len(seen)==total)}
+    metrics.update(ssp_total=len(ssps),ssp_prototype_structure=len(ssp_prototypes),ssp_prototype_relecture=len(ssp_revues))
     ordered=sorted(occurrences,key=lambda t:(t['ssp']!=config['ssp_prioritaire'],))
     next_mono=[]; selected=set()
     for t in ordered:
@@ -90,6 +100,22 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
                                'action':'compléter les réserves ou inscrire la relecture actuelle'})
             already.add(t['diagnostic_id'])
     if not next_mono:
+        next_mono=maturation[:config['taille_lot_monographies']]
+        selected={t['diagnostic_id'] for t in next_mono}
+    crisis = config.get('mission_exclusive') == 'infobulles_prototype6'
+    if crisis:
+        metrics['maturite_documentaire_complete'] = bool(metrics['maturite_documentaire_complete']
+            and metrics['prototype_relecture'] == mono_total and len(ssp_revues) == len(ssps))
+        # An existing legacy monograph is still due. Preserve catalogue order
+        # within G1 and then the remaining SSP; do not skip to missing G10 work.
+        maturation=[]; selected=set()
+        for t in ordered:
+            if t['diagnostic_id'] in selected or t['prototype_relecture']:
+                continue
+            maturation.append({'diagnostic_id':t['diagnostic_id'],'diagnostic':t['diagnostic'],'ssp':t['ssp'],
+                               'action':('relecture documentaire du prototype actuel' if t['prototype_structure']
+                                         else 'réviser selon les six rubriques, puis contrelecture indépendante')})
+            selected.add(t['diagnostic_id'])
         next_mono=maturation[:config['taille_lot_monographies']]
         selected={t['diagnostic_id'] for t in next_mono}
     priority=[t['key'] for t in ordered if t['diagnostic_id'] in selected and not t['prevalence_relecture']]
@@ -115,6 +141,10 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
           'file_relecture':queue,'etats_obsoletes':stale,'anomalies_etat':anomalies,'etat_recherche_fiable':bool(states_provided and not anomalies),
           'limite_recherche':config['lot_recherche_file_chargee'] if queue>=config['seuil_file_relecture'] else config['lot_recherche_normal'],
           'intervalle_recherche_minutes':config['intervalle_recherche_minutes']}
+    if crisis:
+        plan.update(mission_exclusive='infobulles_prototype6',recherche_automatique_suspendue=True,
+                    prochaines_fiches_ssp=[s[0] for s in sorted(ssps,key=lambda s:s[0]!=config['ssp_prioritaire']) if s[0] not in ssp_revues][:3],
+                    action_recherche='rechercher manuellement les sources nécessaires au lot courant uniquement')
     return {'version':1,'maj':datetime.now(timezone.utc).isoformat(timespec='seconds'),'mesure':metrics,'plan':plan,'occurrences':occurrences,
             'reserve':'Couverture structurelle et relecture documentaire distinctes. Registre lié aux empreintes initialisé sur le dernier lot ; les audits historiques ne sont pas tous migrés. Aucun accord clinique humain ni achèvement déduit d’un chiffre arrondi.'}
 
@@ -122,9 +152,20 @@ def page(report):
     m=report['mesure'];p=report['plan'];esc=lambda v:html.escape(str(v))
     rows=[('Monographies structurées',m['monographies_structure'],m['diagnostics_uniques']),('Relectures monographiques inscrites au registre couplé',m['monographies_relues'],m['diagnostics_uniques']),
           ('Prévalences publiées avec source',m['prevalences_publiees'],m['occurrences']),('Relectures de prévalences inscrites au registre couplé',m['prevalences_relues'],m['occurrences']),('Occurrences documentées sur les deux volets',m['couples_documentes'],m['occurrences'])]
+    if p.get('mission_exclusive') == 'infobulles_prototype6':
+        rows=[('Prototypes six rubriques structurés (hors validation clinique)',m['prototype_structure'],m['diagnostics_uniques']),
+              ('Prototypes avec relecture documentaire actuelle',m['prototype_relecture'],m['diagnostics_uniques'])]
+        rows += [('Fiches SSP structurées',m['ssp_prototype_structure'],m['ssp_total']),
+                 ('Fiches SSP avec relecture documentaire actuelle',m['ssp_prototype_relecture'],m['ssp_total'])]
     bars=''.join(f'<tr><td>{esc(label)}</td><td><progress value="{n}" max="{max(1,total)}"></progress> {n}/{total}</td></tr>' for label,n,total in rows)
     todo=''.join(f'<li>{esc(x["ssp"])} : {esc(x["diagnostic"])}</li>' for x in p['prochain_lot9'])
-    return '<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Étapes 8 et 9</title><style>body{font:18px system-ui;max-width:960px;margin:auto;padding:24px;color:#182c40;background:#f5f7fa}td{padding:12px}progress{max-width:40vw}a{color:#0057a3}</style><h1>Étapes 8 et 9 · suivi commun</h1><p>'+esc(report['maj'])+'</p><table>'+bars+'</table><p>'+esc(report['reserve'])+'</p><h2>Lot monographique prioritaire</h2><ol>'+todo+'</ol><p>File documentaire : '+str(p['file_relecture'])+' extraits. Recherche régulée : '+str(p['limite_recherche'])+' diagnostic(s) par catégorie, au plus toutes les '+str(p['intervalle_recherche_minutes'])+' minutes.</p><p>SSP sans différentiel : '+str(len(m['ssp_sans_dd']))+'. Leur absence empêche une maturité globale.</p><p><a href="prevalences.html">Prévalences</a> · <a href="prevalences-erreurs.pdf">Rapport des erreurs</a> · <a href="coordination.json">Détail vérifiable</a></p></html>'
+    if p.get('mission_exclusive') == 'infobulles_prototype6':
+        todo += '<li>Fiches SSP à reprendre : '+', '.join(esc(c) for c in p.get('prochaines_fiches_ssp',[]))+'</li>'
+    recherche=(esc(p['action_recherche'])+'. Recherches automatiques transversales suspendues.'
+               if p.get('recherche_automatique_suspendue') else
+               'File documentaire : '+str(p['file_relecture'])+' extraits. Recherche régulée : '+str(p['limite_recherche'])+' diagnostic(s) par catégorie, au plus toutes les '+str(p['intervalle_recherche_minutes'])+' minutes.')
+    titre='Infobulles · prototype six rubriques' if p.get('mission_exclusive') == 'infobulles_prototype6' else 'Étapes 8 et 9 · suivi commun'
+    return '<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>'+titre+'</title><style>body{font:18px system-ui;max-width:960px;margin:auto;padding:24px;color:#182c40;background:#f5f7fa}td{padding:12px}progress{max-width:40vw}a{color:#0057a3}</style><h1>'+titre+'</h1><p>'+esc(report['maj'])+'</p><table>'+bars+'</table><p>'+esc(report['reserve'])+'</p><h2>Lot prioritaire</h2><ol>'+todo+'</ol><p>'+recherche+'</p><p>SSP sans différentiel : '+str(len(m['ssp_sans_dd']))+'. Leur absence empêche une maturité globale.</p><p><a href="prevalences.html">Prévalences</a> · <a href="prevalences-erreurs.pdf">Rapport des erreurs</a> · <a href="coordination.json">Détail vérifiable</a></p></html>'
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--state-dir',type=Path,default=DEFAULT_STATE);p.add_argument('--output',type=Path,required=True);args=p.parse_args()

@@ -1,3 +1,7 @@
+# Priorité exclusive actualisée · Vial · 18.10.2026
+
+Corriger les INFOBULLES au clic ou au toucher, sans ouverture au survol depuis G1, selon docs/PROTOCOLE-INFOBULLES-6-RUBRIQUES.md : six rubriques, référence diagnostique et premier bilan explicités, prise en charge A-But/B-Moyens, titres seuls en gras, terminologie cliquable. L’ancien plan à sept rubriques et l’ancienne priorité G10 sont remplacés par cet ordre. Les autres chantiers restent suspendus ; le lot G10 inachevé est conservé hors de cette branche. Auditer contenu et ordre des fréquences sans inventer un rang ou traiter une inconnue comme zéro. Réutiliser les outils existants, petits lots et contrelecture indépendante. Les autres règles de sources, AIPS, tests et fusion ci-dessous restent applicables.
+
 # Lecture obligatoire : lis CONTINUATION.md en entier, puis exécute l'Étape 0 avant tout
 
 Ordre de Vial, pour Codex et tout agent IA :

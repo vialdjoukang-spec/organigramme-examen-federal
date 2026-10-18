@@ -1,3 +1,7 @@
+## Priorité exclusive · correction des infobulles depuis G1 · 18.10.2026
+
+Ordre de Vial : ajuster partout les infobulles au clic/toucher, sans survol, SSP et diagnostics différentiels, selon `docs/PROTOCOLE-INFOBULLES-6-RUBRIQUES.md`. Six rubriques obligatoires ; syndromes détaillés ; référence diagnostique puis premier bilan explicite ; prise en charge A-But/B-Moyens ; titres seuls en gras et terminologie cliquable. Commencer G1, par lots de trois révisions, y compris les monographies déjà présentes. Les autres tâches, l’ancien lot G10 et les recherches transversales sont suspendus. Les indications G10 et sept rubriques plus anciennes ci-dessous sont historiques. La structure affichée ne certifie ni relecture médicale ni classement démontré.
+
 # CONTINUATION · lecture obligatoire, en entier, avant toute action
 
 > **Pour Codex (OpenAI) et tout agent IA sans mémoire longue.** Ce fichier est ta feuille de route complète, de l’installation jusqu’à la fin du projet.
