@@ -11,7 +11,7 @@ async def check(page, touch=False):
     await page.evaluate("""() => {
       const f=document.createElement('div');f.id='prototype-test';
       f.style.cssText='position:fixed;top:10px;left:10px;z-index:99999;background:white';
-      f.innerHTML='<button class="tw" data-t="s|G1">SSP G1</button><button class="tw" data-t="n|G1|d0">Hyperhidrose</button>';
+      f.innerHTML='<button class="tw" data-t="s|G1">SSP G1</button><button class="tw" data-t="n|G1|d0">Hyperhidrose</button><button class="tw" data-t="n|G1|c0">Cours G1</button><button class="tw" data-t="n|G1|c5">Examen G1</button>';
       document.body.appendChild(f);
     }""")
     async def six():
@@ -60,6 +60,20 @@ async def check(page, touch=False):
         await ssp.focus()
         await page.keyboard.press('Enter')
         await six()
+    await page.keyboard.press('Escape')
+    course=page.locator('#prototype-test [data-t="n|G1|c0"]')
+    await course.tap() if touch else await course.click()
+    await six()
+    assert await page.locator('#tip .t').inner_text() == 'Sudation anormale'
+
+    await page.keyboard.press('Escape')
+    examination=page.locator('#prototype-test [data-t="n|G1|c5"]')
+    await examination.tap() if touch else await examination.click()
+    await six()
+    assert await page.locator('#tip .ex-region .ex-region__h').count() >= 2
+    assert await page.locator('#tip .ex-chip').count() >= 1
+    text=await page.locator('#tip .ck-b').inner_text()
+    assert text.index('Examen physique par région') < text.index('5. Sémiologie aux explorations')
 
 async def main():
     async with async_playwright() as p:

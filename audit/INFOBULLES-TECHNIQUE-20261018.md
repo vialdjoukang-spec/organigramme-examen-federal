@@ -18,3 +18,7 @@ Le chemin infobulle réessaie l’affichage après chargement de `mono-ssp.js`; 
 Corrections du parent : garde dose étendue à mono_ssp.json ; gate de recherche lit main ; file SSP affichée ; anciennes veilles transversales suspendues pendant la mission. Tests et CI restent requis.
 
 Dernier ordre de Vial : suppression du survol. Le patch0034 retire les ouvertures automatiques globales, les aperçus de repères au survol/focus, les titres natifs des termes et l’appui long des infobulles. Les activations clic/toucher/clavier et les gestes de déplacement du calendrier sont conservés. Les tests vérifient dorénavant que le survol reste silencieux.
+
+### Régression détectée par CI : examen physique
+
+Le cours c5 de G1 conserve désormais ses régions d’examen et ses boutons vers les gestes au sein de la rubrique4 de la monographie complète. Le texte source préexistant garde son attribution distincte ; le gras interne est retiré, les titres de région sont conservés. Les six rubriques et les commandes de navigation sont vérifiées ensemble. La comparaison visuelle conserve ses seuils et son adoption explicite après examen sur le SHA exact, désormais accessible aussi par étiquette liée au SHA depuis le connecteur.
