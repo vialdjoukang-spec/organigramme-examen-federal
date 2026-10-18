@@ -5,6 +5,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from tools.prevalences.rapport import centraliser, ecrire_pdf
 from tools.prevalences.jauges import measure, page
@@ -47,6 +48,89 @@ class ReportingTests(unittest.TestCase):
         self.assertEqual(updated['synthese_archives']['relecture_documentaire'],1)
         reviews=[e for e in updated['evenements'] if e['nature']=='relecture_documentaire']
         self.assertTrue(all(e['non_reobserve_dans_instantane'] for e in reviews))
+
+    def inaccessible_agent_state(self):
+        return {'O': {'tasks': {'O1.1#1': {'queries': [], 'candidates': [
+            {'id': identity, 'url': 'https://doi.org/10.1234/test', 'sha256': fingerprint * 64,
+             'audit': {'flags': [], 'corrections': []},
+             'relecture_agent': {'statut': 'source_inaccessible', 'date': '2026-01-01T12:30:00+00:00',
+                 'source': 'https://doi.org/10.1234/test', 'motifs': ['CONNECT 403 : source non relue.'],
+                 'validation_clinique': False}}
+            for identity, fingerprint in [('premier-extrait', 'a'), ('second-extrait', 'b')]]}}}}
+
+    def test_inaccessible_agent_sources_are_not_completed_reviews(self):
+        report=centraliser(self.inaccessible_agent_state())
+        self.assertEqual(report['synthese'].get('acces_relecture'),2)
+        self.assertEqual(report['synthese'].get('relecture_documentaire',0),0)
+        self.assertEqual(report['synthese'].get('acces_recherche',0),0)
+        for event in report['evenements']:
+            self.assertEqual(event['source'],'https://doi.org/10.1234/test')
+            self.assertEqual(event['date'],'2026-01-01T12:30:00+00:00')
+            self.assertEqual(len(event['empreinte_source']),64)
+            self.assertIn('CONNECT 403',event['motif'])
+            self.assertFalse(event['corrigee'])
+
+    def test_null_or_scalar_review_motifs_are_normalized_without_type_error(self):
+        for completed in (False,True):
+            for value in (None,17,'Note externe'):
+                with self.subTest(completed=completed,motifs=value):
+                    state=self.inaccessible_agent_state()
+                    state['O']['tasks']['O1.1#1']['candidates']=state['O']['tasks']['O1.1#1']['candidates'][:1]
+                    candidate=state['O']['tasks']['O1.1#1']['candidates'][0]
+                    review=candidate['relecture_agent'];review['motifs']=value
+                    if completed:
+                        review.update(statut='terminee',verdict='À vérifier',sha256=candidate['sha256'],
+                                      loc='Résumé',extrait='Source effectivement relue')
+                    result=centraliser(state)
+                    event=result['evenements'][0]
+                    self.assertIsInstance(event['motif'],str)
+                    self.assertTrue(event['motif'])
+                    if value is not None:self.assertEqual(event['motif'],str(value))
+
+    def test_same_agent_refusal_is_deduplicated_after_new_attempt_date(self):
+        state=self.inaccessible_agent_state();first=centraliser(state)
+        repeated=centraliser(state,previous=first)
+        self.assertEqual(first,repeated)
+        for candidate in state['O']['tasks']['O1.1#1']['candidates']:
+            candidate['relecture_agent']['date']='2026-01-02T12:30:00+00:00'
+        latest=centraliser(state,previous=repeated)
+        self.assertEqual(latest['synthese']['acces_relecture'],2)
+        self.assertEqual(len(latest['evenements']),2)
+        self.assertTrue(all(e['date']=='2026-01-02T12:30:00+00:00' for e in latest['evenements']))
+
+    def test_missing_agent_refusal_becomes_archive_without_assumed_fix(self):
+        first=centraliser(self.inaccessible_agent_state())
+        archived=centraliser({},previous=first)
+        self.assertEqual(archived['synthese'].get('acces_relecture',0),0)
+        self.assertEqual(archived['synthese_archives']['acces_relecture'],2)
+        self.assertTrue(all(e['non_reobserve_dans_instantane'] and not e['corrigee'] for e in archived['evenements']))
+
+    def test_changed_candidate_fingerprint_keeps_previous_refusal_as_archive(self):
+        state=self.inaccessible_agent_state();first=centraliser(state)
+        state['O']['tasks']['O1.1#1']['candidates'][0]['sha256']='c'*64
+        updated=centraliser(state,previous=first)
+        self.assertEqual(updated['synthese']['acces_relecture'],2)
+        self.assertEqual(updated['synthese_archives']['acces_relecture'],1)
+        self.assertEqual(updated['synthese'].get('relecture_documentaire',0),0)
+
+    def test_agent_access_refusals_are_in_pdf_outside_limited_network_examples(self):
+        from reportlab.platypus import Paragraph
+        state=self.inaccessible_agent_state()
+        state['O']['tasks']['O1.1#1']['queries']=[
+            {'provider':'europepmc','id':str(i),'ok':False,'erreur':'HTTP503'} for i in range(40)]
+        errors=centraliser(state);gauge=measure()
+        with tempfile.TemporaryDirectory() as directory, patch('reportlab.platypus.Paragraph', wraps=Paragraph) as paragraphs:
+            target=Path(directory)/'erreurs.pdf';ecrire_pdf(target,gauge,errors)
+            self.assertTrue(target.read_bytes().startswith(b'%PDF-'))
+            texts=[call.args[0] for call in paragraphs.call_args_list]
+        self.assertIn('Réserves d’accès de l’agent par candidat : 2',texts)
+        self.assertIn('Sources inaccessibles pendant la relecture de l’agent',texts)
+        self.assertTrue(any('premier-extrait' in t for t in texts))
+        self.assertTrue(any('second-extrait' in t for t in texts))
+        self.assertEqual(texts.count('https://doi.org/10.1234/test'),2)
+        self.assertEqual(texts.count('CONNECT 403 : source non relue.'),2)
+        self.assertEqual(texts.count('01.01.2026 à 13:30 · Europe/Zurich'),2)
+        self.assertEqual(errors['synthese']['relecture_documentaire'] if 'relecture_documentaire' in errors['synthese'] else 0,0)
 
     def test_actual_candidate_correction_preserves_before_after(self):
         state=self.state();state['G']['tasks']['G1#0']['candidates'][0]['audit']['corrections']=[{'champ':'pct','avant':12,'apres':10,'motif':'100×1/10'}]

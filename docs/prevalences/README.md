@@ -59,6 +59,8 @@ Un intervalle binomial de Wilson à 95 % est calculé seulement pour des effecti
 
 Le calculateur `jauges.py` centralise les accès en échec, réserves statistiques, sélections, relectures de l'agent et corrections avec avant/après. `--output DOSSIER` produit les jauges, `erreurs.json` et `erreurs.pdf`. La page publique donne accès au [PDF](https://vialdjoukang-spec.github.io/organigramme-examen-federal/prevalences-erreurs.pdf) et au [journal complet JSON](https://vialdjoukang-spec.github.io/organigramme-examen-federal/prevalences-erreurs.json).
 
+Les refus de source rencontrés par l’agent (`relecture_agent.statut: source_inaccessible`) forment une catégorie distincte, `acces_relecture`, avec date de tentative, source, motif et empreinte du candidat. Ils restent à relire et ne comptent jamais comme lectures terminées. Le PDF affiche leur compteur et un passage dédié, indépendant des exemples limités d’échecs des moteurs de recherche ; plusieurs extraits peuvent concerner le même article.
+
 Les événements répétés sont dédupliqués. Un problème absent du nouvel instantané devient une archive, jamais une correction supposée. Les erreurs de code réellement corrigées sont enregistrées dans `audit/PREVALENCES_ERREURS_CODE.json` ; les pistes rejetées ne sont pas présentées comme des erreurs médicales publiées. La synthèse PDF est régénérée après chaque consolidation des quatre catégories.
 
 ## Agent auditeur statistique

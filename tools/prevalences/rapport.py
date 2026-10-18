@@ -1,6 +1,6 @@
 """Centralisation des contrôles statistiques et synthèse PDF pour les jauges."""
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timezone
 from html import escape
 import hashlib
 import json
@@ -9,15 +9,25 @@ from zoneinfo import ZoneInfo
 from tools.prevalences.relance_agent import review_completed
 
 
+
+def _review_motif(review, default):
+    motifs = review.get('motifs')
+    if motifs is None: motifs = []
+    elif not isinstance(motifs, (list, tuple)): motifs = [motifs]
+    return ' ; '.join(str(value) for value in motifs if value is not None) or str(review.get('motif') or default)
+
+
 def centraliser(states, code_errors=(), previous=None):
     events = {}
-    def add(kind, category, key, candidate, code, message, source='', corrected=False, before=None, after=None, severity='information', fingerprint=''):
+    def add(kind, category, key, candidate, code, message, source='', corrected=False, before=None, after=None, severity='information', fingerprint='', observation_date=None):
         identity = json.dumps([kind, category, key, candidate, code, source, fingerprint, before if corrected else None, after if corrected else None], ensure_ascii=False)
         eid = hashlib.sha256(identity.encode()).hexdigest()[:24]
         events[eid] = {'id': eid, 'nature': kind, 'categorie': category, 'tache': key,
                        'candidat_id': candidate, 'code': code, 'motif': str(message),
                        'source': source or '', 'empreinte_source': fingerprint, 'corrigee': corrected, 'avant': before, 'apres': after,
                        'gravite': severity, 'validation_clinique': False}
+        if observation_date is not None:
+            events[eid]['date'] = observation_date
     for category, state in states.items():
         if not isinstance(state,dict) or not isinstance(state.get('tasks'),dict):
             add('etat_invalide',category,'',None,'etat_non_lisible','État invalide : ne pas interpréter les zéros comme une absence de recherche');continue
@@ -39,10 +49,13 @@ def centraliser(states, code_errors=(), previous=None):
                         c.get('url',''),True,correction.get('avant'),correction.get('apres'),'majeure',fingerprint=c.get('sha256',''))
                 review = c.get('relecture_agent',{})
                 if review_completed(c):
-                    motifs = review.get('motifs', [])
-                    if isinstance(motifs,str):motifs=[motifs]
                     add('relecture_documentaire',category,key,c.get('id'),review.get('verdict','À vérifier'),
-                        ' ; '.join(str(x) for x in motifs) or review.get('motif','Relecture source consignée'),c.get('url',''),fingerprint=c.get('sha256',''))
+                        _review_motif(review, 'Relecture source consignée'),c.get('url',''),fingerprint=c.get('sha256',''))
+                elif isinstance(review, dict) and review.get('statut') == 'source_inaccessible':
+                    add('acces_relecture', category, key, c.get('id'), 'source_inaccessible',
+                        _review_motif(review, 'Source inaccessible pendant la relecture de l’agent'),
+                        review.get('source') or c.get('url', ''), fingerprint=c.get('sha256', ''),
+                        observation_date=review.get('date'))
             for error in row.get('selection',{}).get('erreurs',[]):
                 if not isinstance(error,dict):continue
                 add('selection_a_verifier',category,key,error.get('candidat_id'),error.get('code','selection'),
@@ -105,8 +118,26 @@ def ecrire_pdf(path, gauges, errors):
               P('Vérifier la source reconnue, la définition du diagnostic, le pays réel des participants, la période, les âges et le cadre. Comparer ensuite la qualité méthodologique et le risque de biais ; à qualité comparable, privilégier le plus grand effectif effectivement analysé. Un grand échantillon biaisé ne devient pas représentatif par sa taille.'),
               P('Aucune moyenne n’est calculée entre populations incompatibles. Incidence, risque, OR/HR, intervalle de confiance et prévalence sont distingués. Les plans pondérés ou en grappes exigent une précision tenant compte du plan. Une valeur retenue reste une proposition à relire, pas une écriture clinique automatique.'),
               P('3. Décompte des contrôles et corrections','Heading1')]
-    labels={'acces_recherche':'Échecs d’accès ou de recherche','point_a_verifier':'Points candidats à vérifier','selection_a_verifier':'Réserves de sélection','correction_effectuee':'Corrections arithmétiques des candidats','correction_code':'Défauts du dispositif corrigés','relecture_documentaire':'Relectures documentaires consignées'}
+    labels={'acces_recherche':'Échecs d’accès ou de recherche','acces_relecture':'Réserves d’accès de l’agent par candidat','point_a_verifier':'Points candidats à vérifier','selection_a_verifier':'Réserves de sélection','correction_effectuee':'Corrections arithmétiques des candidats','correction_code':'Défauts du dispositif corrigés','relecture_documentaire':'Relectures documentaires consignées'}
     for key,label in labels.items():story.append(P(f"{label} : {errors['synthese'].get(key,0)}"))
+    blocked_reviews = [e for e in errors['evenements'] if e['nature'] == 'acces_relecture'
+                       and not e.get('non_reobserve_dans_instantane')]
+    if blocked_reviews:
+        story += [P('Sources inaccessibles pendant la relecture de l’agent', 'Heading2'),
+                  P('Ces candidats restent à relire. Plusieurs extraits peuvent renvoyer au même article ; un refus d’accès ne compte jamais comme une relecture terminée.')]
+        for event in blocked_reviews[:8]:
+            attempted_at = 'Date non renseignée'
+            if isinstance(event.get('date'), str):
+                try:
+                    instant = datetime.fromisoformat(event['date'].replace('Z', '+00:00'))
+                    if instant.tzinfo is None: instant = instant.replace(tzinfo=timezone.utc)
+                    attempted_at = instant.astimezone(ZoneInfo('Europe/Zurich')).strftime('%d.%m.%Y à %H:%M · Europe/Zurich')
+                except (ValueError, OverflowError):
+                    pass
+            story += [P(f"{event['categorie']} · {event['tache']} · candidat {event['candidat_id']}", 'Petit'),
+                      P(event['motif']), P(event['source'], 'Petit'), P(attempted_at, 'Petit')]
+        if len(blocked_reviews) > 8:
+            story.append(P('Autres réserves d’accès de l’agent dans le registre JSON complet.'))
     story += [P(errors['reserve']),P('4. Erreurs corrigées et contrôle de l’agent','Heading1')]
     confirmed=[e for e in errors['evenements'] if e['corrigee'] and not e.get('non_reobserve_dans_instantane')]
     if not confirmed:story.append(P('Aucune correction confirmée n’est enregistrée dans cet instantané.'))
