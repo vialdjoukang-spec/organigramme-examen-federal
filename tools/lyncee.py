@@ -360,6 +360,8 @@ def main(argv=None):
     if a.diff:
         old = baseline_de(root, a.diff, bl_path)
         if old is not None:
+            if len(base) > len(old['termes']):
+                errs.append(f'le total de la référence augmente ({len(old["termes"])} → {len(base)}) : interdit, même lors d’une migration de règles')
             grew = sorted(base - set(old['termes']))
             if grew and old.get('regles') == bl.get('regles'):
                 errs.append(f'la référence grandit de {len(grew)} termes (ex. {", ".join(grew[:5])}) : interdit')

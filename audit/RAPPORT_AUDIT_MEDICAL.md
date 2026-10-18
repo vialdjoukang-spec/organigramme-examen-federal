@@ -256,3 +256,23 @@ Après intégration de main, neuf nouveaux candidats bloquants définis : six co
 
 ### Complément #68 · contrôle des exclusions, 18.10.2026
 Neuf exclusions de termes spécialisés retirées (anatomie, hématologie, neurosciences, topographie, périphérique, autonome, irritabilité, impulsivité, toxicité). Définitions courtes proposées, toutes À vérifier et sans fausse citation ou validation Vial. Les exclusions restantes désignent des mots généraux, des codes ou des éléments bibliographiques ; elles ne doivent pas servir à masquer de futurs termes cliniques. Glossaire 388 entrées après union des 166, des neuf termes de migration et de ce complément ; source individuelle encore requise pour les entrées non sourcées.
+## Galien · relecture finale prévalences G4 (#58) · 18.10.2026 Europe/Zurich
+
+Sources lues le 17.10.2026 UTC (18.10.2026 à Zurich) : Limper, Neth J Med 2011, méthodes p.125, résultats p.126 et tableau 2 p.127, https://njmonline.nl/getpdf.php?id=1033 ; BASEL IX, J Intern Med 2021, « Characteristics of patients », https://doi.org/10.1111/joim.13269 ; ESGE 2019, §4 et §8.1 ; HAS/SPILF/SFD 2019, §1.2, §1.8 et §2.3 ; ESC syncope 2018, §4.1.1 et messages clés 3–8. Les trois lignes directrices figurent désormais dans src.json.
+
+Les onze chiffres ont été relus : neuf pour G6, deux pour F1.19. Les deux bornes ≤ sont conservées : les infections urinaires fébriles ne sont pas toutes des pyélonéphrites ; les syncopes réflexes ne sont pas toutes vasovagales. Les catégories sans chiffre restent « À vérifier ». BASEL IX comprend aussi des centres hors Europe : le cadre ne doit pas être interprété comme une cohorte exclusivement suisse.
+
+Fautes et précisions corrigées :
+
+- G6, cadre : le suivi diagnostique dure un an ; trente jours correspond à la mortalité.
+- Infection cutanée ajoutée : préciser que l'IRM ne doit jamais retarder la chirurgie urgente si une fasciite est suspectée (HAS §2.3). L'imagerie n'est pas systématique dans la forme simple.
+- Nouvelle syncope structurelle : réserver la troponine à la suspicion ischémique et l'échocardiographie à la suspicion structurelle. L'imagerie exacte d'une dissection reste « À vérifier » faute de relecture de sa recommandation spécifique.
+- Reprise technique : conserver les corrections déjà écrites (intitulés de F1.19, angiocholite, infection cutanée, cause cardiaque aiguë) ; rendre prev_g4_corr idempotent pour les rangs et le cadre.
+
+Aucune dose ajoutée. Aucune faute critique identifiée dans ce diff. Contrôles prev_build, ck_build, mono_build et G3 passent ; Lyncée ne trouve aucun terme nouveau. Suite Playwright 1.63 et CI à terminer avant fusion ; audit-ok ne dispense d'aucun contrôle.
+
+Après intégration des 139 définitions de main, 45 définitions déjà relues dans #68 ont été reprises pour assurer la compatibilité ; leurs statuts À vérifier restent identiques. Référence 3753 → 3735. Aucun ajout par --update. Le nouveau garde impose la baisse du total même quand les règles changent ; quatre tests réels CLI réussis. La suite des définitions de #68 reste une PR distincte.
+
+### Janus · réunion finale #68 après #65 et #39, 18.10.2026 UTC
+
+Union sémantique par identifiant : aucun conflit réel, toutes les définitions sourcées de main conservées. Le registre contient 527 entrées. Les 45 définitions de compatibilité déjà reprises dans #65 ne sont pas comptées deux fois. Neuf exclusions cliniques restent supprimées et remplacées par des définitions explicitement À vérifier ; aucun accord Vial ni source nouvelle inventé. Les formulations « autonome » et « périphérique » couvrent leur emploi général. Référence parente 3735 → 3571, sans ajout par --update. G1/G2/G3/G6, Lyncée et les quatre tests CLI de migration passent. La fusion reste après #65 ; aucun label audit-ok anticipé.
