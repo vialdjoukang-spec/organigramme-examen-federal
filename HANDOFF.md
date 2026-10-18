@@ -3,6 +3,13 @@
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
 ## Codex · reprise technique #49 · 2026-10-17T23:41:13+00:00
+## Codex · complément de relève · 18.10.2026 01:15 UTC
+État       : #50/#53/#54/#86 fusionnées ; 207/2287 monographies (9 %), prévalences 1 %. Projet non clos, étape 8 lot 2.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; file doses #59 puis #61, glossaire #65 puis #68 ; ne pas anticiper leurs labels. #32 fusionnée (617878e) après adoption de la référence CI et contrôles verts.
+Sources    : AIPS DigiFab retrouvé, révision 02/2026, preuve audit/DIGIFAB-RECHERCHE-20261018.json ; aucune nouvelle dose. Sources brutes hors git.
+Pièges     : #65 patch 0030 corrige les liens imbriqués du calendrier ; suite complète 276/276, aucune assertion abaissée. Référence #65 3734, #68 3571. Chaque fusion peut exiger une nouvelle réunion de HANDOFF.md, jamais un force-push.
+À vérifier : #64/#67/#70 attente-vial, #80 et cinq stations non validés ; audits #37/#81 et couverture massive restants. CLI Luna en 401, mode B ne rédige pas de lots.
+
 ## Codex · relève du 18.10.2026 UTC
 État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
 Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
