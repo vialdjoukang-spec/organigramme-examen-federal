@@ -14,6 +14,7 @@ ETAT.md (cases de l'Étape 0 entre les balises PORTE-ETAPE-0), tools/etapes.json
 Options : --dry-run (n'écrit rien), --sans-reseau (critères « chaine » non évalués).
 """
 import datetime, json, os, re, subprocess, sys
+from pathlib import Path
 
 RACINE = os.environ.get("OEF_REPO") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ETAT_JSON = os.path.join(RACINE, "ETAT.json")
@@ -131,11 +132,21 @@ def critere(n, bavard=True):
         r = subprocess.run([sys.executable, os.path.join(RACINE, "tools", "jauge", "binomes.py"), "--json"],
                            capture_output=True, text=True)
         try:
-            pct = json.loads(r.stdout)[c["nom"]]["pct"]
+            metric = json.loads(r.stdout)[c["nom"]]
+            pct = metric['pct']
         except (ValueError, KeyError):
-            pct = -1
+            return False
         if bavard:
             print(f"  jauge {c['nom']} = {pct} % (seuil {c['seuil']} %)")
+        if c['seuil'] == 100:
+            exact = type(metric.get('ok')) is int and type(metric.get('total')) is int and metric['total'] > 0 and metric['ok'] == metric['total']
+            if exact and n in (8,9):
+                sys.path.insert(0, RACINE)
+                from tools.coordination.calculer import calculer
+                root = Path(RACINE)
+                ledger = json.loads((root/'tools/coordination/relectures.json').read_text())
+                exact = calculer(root=root,ledger=ledger)['mesure']['maturite_documentaire_complete']
+            return exact
         return pct >= c["seuil"]
     return False
 

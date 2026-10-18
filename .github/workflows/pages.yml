@@ -8,7 +8,7 @@ name: Pages
 on:
   push:
     branches: [main]
-    paths: [app_v2.html, progres.html, 'assets/**', .github/workflows/pages.yml]
+    paths: [app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml]
   workflow_dispatch:
 permissions:
   contents: read
@@ -30,11 +30,15 @@ jobs:
           ref: automates/prevalences
           path: .etat_local/prevalences
           persist-credentials: false
+      - name: Suivi commun monographies et prévalences
+        run: python3 tools/coordination/calculer.py --output .etat_local/coordination
       - run: |
           mkdir _site
           cp app_v2.html _site/index.html
           cp app_v2.html _site/app_v2.html
           cp progres.html _site/progres.html
+          cp .etat_local/coordination/coordination.html _site/coordination.html
+          cp .etat_local/coordination/coordination.json _site/coordination.json
           cp .etat_local/prevalences/jauges.html _site/prevalences.html
           cp .etat_local/prevalences/jauges.json _site/prevalences.json
           if [ -f .etat_local/prevalences/erreurs.pdf ]; then cp .etat_local/prevalences/erreurs.pdf _site/prevalences-erreurs.pdf; fi

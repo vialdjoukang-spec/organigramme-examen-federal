@@ -82,6 +82,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--state-dir', default=str(DEFAULT_STATE))
     parser.add_argument('--envoyer', action='store_true')
+    parser.add_argument('--priorites', type=Path)
     parser.add_argument('--pr', type=int, default=94)
     parser.add_argument('--cooldown-hours', type=int, default=12)
     args = parser.parse_args(argv)
@@ -89,6 +90,10 @@ def main(argv=None):
         parser.error('pr et cooldown-hours doivent être positifs')
     directory = Path(args.state_dir)
     queue = build_queue(directory)
+    if args.priorites:
+        priorities = json.loads(args.priorites.read_text())['priorites8']
+        rank = {key:i for i,key in enumerate(priorities)}
+        queue.sort(key=lambda c:rank.get(c['key'],len(rank)))
     fingerprint = hashlib.sha256(json.dumps(sorted((c['categorie'], c['key'], c['candidate_id'], c['sha256']) for c in queue)).encode()).hexdigest()
     atomic_json(directory / 'agent-file.json', {'maj': now(), 'a_controler': len(queue),
                                              'statut': 'file_documentaire_non_validation_clinique', 'candidats': queue})

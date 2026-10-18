@@ -185,3 +185,15 @@ Cette session utilise exec_command (git/gh/curl/Python), apply_patch, lecture lo
 - `tools/prevalences/relance_agent.py` : file et demande de reprise au Codex du dépôt ; pas de preuve d’exécution implicite.
 - `.github/workflows/prevalences-recherche.yml` : quatre jobs de recherche et consolidation/audit, cron toutes les4 heures. État persistant dans `automates/prevalences`.
 - `docs/prevalences/README.md`, `AUDITEUR_STATISTIQUE.md` : exploitation et mandat. Scripts sans coût de modèle ; la relecture agent consomme seulement lorsqu’elle est réellement exécutée.
+
+## Coordination8/9 · inventaire actualisé18.10.2026
+| Catégorie | Outils | Fonction |
+|---|---|---|
+| Scripts nouveaux | `tools/coordination/calculer.py`, `tools/coordination/relance.py` | Plan commun, registre d’empreintes, files de maturation, lancement régulé |
+| Scripts renforcés | `tools/prevalences/moteur.py`, `tools/prevalences/relance_agent.py`, `tools/prevalences/rapport.py` | Priorités du lot9, cache/coupe-circuit, file documentaire ciblée et réserves visibles dans le PDF |
+| Calculs renforcés | `tools/jauge/binomes.py`, `tools/prevalences/jauges.py`, `tools/porte.py` | Rejet des valeurs invalides, compteurs exacts et clôture couplée |
+| Automates | `garde-progres.yml`, `prevalences-recherche.yml`, `pages.yml` | Horloge10min, recherche régulée, publication du suivi commun |
+| Accès publics ajoutés | `SPILF`, `SFMV` | Documents officiels ciblés, identité vérifiée, aucune présomption de population représentative |
+| MCP utilisés | `codex_apps` rechercheWeb, GitHub, environnementcloud, gestiondesplugins | Lire les sources, inspecter le dépôt/accès et comparer les intégrations disponibles |
+
+La découverte des plugins a repéré Scite non installé ; coût et accès non vérifiés, il n’est pas présenté comme actif. Les API publiques et les capacités déjà connectées permettent la mise en œuvre sans ajout de service payant. La CLIgh réalise les opérations du dépôt. Les scripts ne consomment pas de jetons ; les agents sont soumis aux quotas existants.

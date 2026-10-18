@@ -135,6 +135,14 @@ class Client:
         self.timeout = timeout; self.interval = interval
         self.deadline = time.monotonic() + budget_seconds
         self.lock = threading.Lock(); self.last = {}; self.denied = {}
+        self.cooldowns = {}
+        self.metrics = {'requetes_http': 0, 'cache_lu': 0, 'requetes_evitees': 0}
+        try:
+            saved = json.loads((self.cache / '.transport.json').read_text())
+            self.cooldowns = {h:v for h,v in saved.items() if isinstance(v,dict)
+                              and type(v.get('jusqua')) in (int,float) and v['jusqua'] > time.time()}
+        except (OSError, ValueError, AttributeError):
+            pass
     def fetch(self, url, ttl_days=7):
         parsed = urlparse(url)
         if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
@@ -142,7 +150,9 @@ class Client:
         key = hashlib.sha256(url.encode()).hexdigest(); p = self.cache / key
         if p.exists() and time.time() - p.stat().st_mtime < ttl_days * 86400:
             cached = p.read_bytes()
-            if len(cached) <= CONFIG['max_response_bytes']: return cached
+            if len(cached) <= CONFIG['max_response_bytes']:
+                with self.lock: self.metrics['cache_lu'] += 1
+                return cached
             p.unlink()
         host = parsed.hostname
         for attempt in range(1, 4):
@@ -150,9 +160,15 @@ class Client:
                 if time.monotonic() >= self.deadline: raise TimeoutError('Budget de recherche atteint')
                 if host in self.denied:
                     raise FetchError('Accès refusé précédemment sur cet hôte ; aucun contournement', url, self.denied[host], 0, False)
+                pause = self.cooldowns.get(host, {})
+                if pause.get('jusqua', 0) > time.time():
+                    self.metrics['requetes_evitees'] += 1
+                    raise FetchError('Fournisseur temporairement suspendu après échec ; reprise après temporisation',
+                                     url, pause.get('http_status'), 0, True)
                 delay = self.interval - (time.monotonic() - self.last.get(host, 0))
                 if delay > 0: time.sleep(min(delay, max(0, self.deadline-time.monotonic())))
                 self.last[host] = time.monotonic()
+                self.metrics['requetes_http'] += 1
             req = Request(url, headers={'User-Agent': CONFIG['user_agent'], 'Accept': 'application/json, text/html, application/pdf;q=0.9'})
             try:
                 with urlopen(req, timeout=min(self.timeout, max(.1, self.deadline-time.monotonic()))) as r:
@@ -166,6 +182,10 @@ class Client:
                 if error.code in (401, 403):
                     with self.lock: self.denied[host] = error.code
                 if not retryable or attempt == 3:
+                    if retryable:
+                        with self.lock:
+                            self.cooldowns[host] = {'jusqua': time.time() + 300, 'http_status': error.code}
+                            atomic_json(self.cache / '.transport.json', self.cooldowns)
                     raise FetchError(f'HTTP {error.code} après {attempt} tentative(s)', url, error.code, attempt, retryable) from error
                 try: delay = min(5, max(0, float(error.headers.get('Retry-After', 2**(attempt-1)))))
                 except (ValueError, TypeError, AttributeError): delay = 2**(attempt-1)
@@ -174,6 +194,9 @@ class Client:
                     with self.lock: self.denied[host] = 403
                     raise FetchError('CONNECT refusé par le proxy ; aucun contournement', url, 403, attempt, False) from error
                 if attempt == 3:
+                    with self.lock:
+                        self.cooldowns[host] = {'jusqua': time.time() + 300, 'http_status': None}
+                        atomic_json(self.cache / '.transport.json', self.cooldowns)
                     raise FetchError(str(error)[:200], url, None, attempt, True) from error
                 delay = 2**(attempt-1)
             if time.monotonic() + delay >= self.deadline:
@@ -281,6 +304,25 @@ class Societes:
                  for w in norm(value).split() if len(w) >= 3 and w not in STOP}
         for source in load_registry()['sources']:
             if source.get('verified') is not True or source['id'] == 'HUG': continue
+            for document in source.get('documents_recherche', []):
+                if not words.intersection(norm(' '.join(document.get('mots_cles',[]))).split()): continue
+                url = document['url']
+                if source_editoriale(url) != source['id']: continue
+                try:
+                    body = self.client.fetch(url)
+                    if body.startswith(b'%PDF'):
+                        result = subprocess.run(['pdftotext','-layout','-','-'],input=body,capture_output=True,timeout=25,check=True)
+                        pages = result.stdout.decode('utf-8').split('\f')
+                    else: pages = [text_html(body.decode('utf-8'))]
+                    for number,content in enumerate(pages,1):
+                        docs.append({'url':url,'title':document['titre'],'text':content,
+                                     'loc':f'Page {number}' if body.startswith(b'%PDF') else 'Texte HTML',
+                                     'provenance':'societes','source_editoriale_id':source['id'],
+                                     'index_origine':source['reference_reconnaissance'],
+                                     'document_sha256':hashlib.sha256(body).hexdigest(),'population_verifiee':False})
+                    opened += 1; self.traces.append({'source_id':source['id'],'url':url,'ok':True})
+                except Exception as e:
+                    self.traces.append({'source_id':source['id'],'url':url,'ok':False,'erreur':str(e)[:240]})
             for index in source.get('index_recherche', []):
                 try:
                     raw = self.client.fetch(index); parsed = Text(); parsed.feed(raw.decode('utf-8'))
@@ -431,6 +473,11 @@ def run_category(category, args):
     order = {t['key']: i for i, t in enumerate(tasks)}
     queued.sort(key=lambda t: (bool(state['tasks'].get(t['key'], {}).get('date_recherche')),
                               state['tasks'].get(t['key'], {}).get('date_recherche', ''), order[t['key']]))
+    priority_path = getattr(args, 'priorites', None)
+    if priority_path:
+        priorities = json.loads(Path(priority_path).read_text())['priorites8']
+        rank = {key:i for i,key in enumerate(priorities)}
+        queued.sort(key=lambda t: rank.get(t['key'], len(rank)))
     selected = queued[:args.limit] if args.limit else queued
     if args.plan:
         print(json.dumps({'category': category, 'due': len(queued), 'tasks': selected}, ensure_ascii=False, indent=1)); return state
@@ -453,7 +500,7 @@ def run_category(category, args):
                 state.update(maj=now(), providers=args.providers, total_catalogue=len(tasks))
                 atomic_json(path, state)
                 print(f"{category} · {done}/{len(selected)} · {row['key']} · {row['statut']} · {len(row['candidates'])} piste(s)", flush=True)
-    state.update(maj=now(), dernier_lot={'selectionnes': len(selected), 'traites': done, 'restants_a_rechercher': len(queued)-done})
+    state.update(maj=now(), transport=client.metrics, dernier_lot={'selectionnes': len(selected), 'traites': done, 'restants_a_rechercher': len(queued)-done})
     from tools.prevalences.auditeur import audit_state
     state, report = audit_state(state)
     from tools.prevalences.selection import selectionner
@@ -471,6 +518,7 @@ def main(category=None, argv=None):
     p.add_argument('--timeout', type=int, default=CONFIG['timeout_seconds'])
     p.add_argument('--refresh-days', type=int, default=CONFIG['refresh_days']); p.add_argument('--retry-hours', type=int, default=CONFIG['retry_hours'])
     p.add_argument('--providers', nargs='+', choices=CONFIG['providers'], default=CONFIG['providers']); p.add_argument('--plan', action='store_true')
+    p.add_argument('--priorites', type=Path, help='Plan partagé étapes 8/9 ; ne dispense pas du contrôle de provenance')
     args = p.parse_args(argv)
     if args.limit < 0 or not 1 <= args.workers <= 4 or args.budget_seconds < 1 or args.timeout < 1 or args.refresh_days < 1 or args.retry_hours < 1:
         p.error('Limites invalides : lot ≥ 0, workers 1–4, délais positifs')

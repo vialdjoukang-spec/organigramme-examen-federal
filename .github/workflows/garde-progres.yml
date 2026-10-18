@@ -1,19 +1,20 @@
-# Garde du progrès (R15) · toutes les 5 min, GitHub Actions gratuit (dépôt public), indépendant de tout PC.
+# Garde du progrès (R15) · toutes les 10 min, GitHub Actions gratuit (dépôt public), indépendant de tout PC.
 # Ordre de Vial : « Codex doit être libre, indépendant de tout PC ».
-# Mesure le contenu réel de main ; STALL si rien n'a monté en 15 min (ou seulement des relevés) :
-# « @codex » sur la PR brouillon « Pilote Codex » (≤ 1/15 min), puis @vialdjoukang-spec après 4 stalls (≤ 1/60 min).
+# Mesure le contenu réel de main ; STALL si rien n'a monté en 20 min (ou seulement des relevés) :
+# « @codex » sur la PR brouillon « Pilote Codex » (≤ 1/20 min), puis @vialdjoukang-spec après 3 stalls (≤ 1/60 min).
 # Recycle aussi les PR inactives depuis 60 min. Seuils : tools/garde/config.json. État : branche garde/etat.
 # Jetons : AUTO_FUSION_TOKEN (compte de Vial → déclenche l'intégration Codex) pour les « @codex » ;
 # GITHUB_TOKEN (github-actions[bot]) pour mentionner Vial, sinon GitHub ne lui envoie pas de courriel.
 name: Garde du progrès
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: write
 concurrency:
   group: garde-progres
   cancel-in-progress: false
@@ -25,7 +26,25 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with: { fetch-depth: 0 }
+      - uses: actions/checkout@v7
+        with:
+          ref: automates/prevalences
+          path: .etat_local/prevalences
+          persist-credentials: false
+      - name: Plan commun étapes 8 et 9
+        run: python3 tools/coordination/calculer.py --output .etat_local/coordination
+      - name: Recherche régulée, sans doublon ni lancement aveugle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/coordination/relance.py --plan .etat_local/coordination/priorites.json --lancer
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: coordination-8-9
+          path: .etat_local/coordination/
+          retention-days: 3
       - name: Mesure, STALL, relance @codex, appel de Vial, recyclage
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN_BOT: ${{ secrets.GITHUB_TOKEN }}

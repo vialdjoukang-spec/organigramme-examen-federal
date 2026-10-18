@@ -147,6 +147,8 @@ def ecrire_pdf(path, gauges, errors):
     story += [PageBreak(),P('5. Exemples de réserves encore ouvertes','Heading1'),
               P('Exemples limités pour garder une synthèse lisible. Le registre JSON conserve la liste complète ; une absence dans cette sélection ne signifie pas qu’un problème est résolu.')]
     pending=[e for e in errors['evenements'] if not e['corrigee'] and not e.get('non_reobserve_dans_instantane') and e['nature'] in ('relecture_documentaire','acces_recherche','selection_a_verifier')]
+    # Les réserves documentaires concrètes précèdent les pannes répétées d'accès.
+    pending.sort(key=lambda e: {'relecture_documentaire':0,'selection_a_verifier':1,'acces_recherche':2}[e['nature']])
     for e in pending[:35]:
         story += [P(f"{e['categorie']} · {e['tache']} · {e['code']}",'Heading2'),P(e['motif']),P(e['source'],'Petit')]
     story += [Spacer(1,12),P('Registre : prevalences-erreurs.json · Jauges : prevalences.html · Les identifiants et sources permettent de reproduire le contrôle.','Petit')]

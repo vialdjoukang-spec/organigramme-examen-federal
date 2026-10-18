@@ -8,6 +8,9 @@
 ## Ordre courant de Vial · 18.10.2026
 Étape9 prioritaire ; étape8 en parallèle par les scripts catégoriels G/S/F/O. Lot2 G10 : compression médullaire et ischémie aiguë/dissection, deux fiches et cinq définitions, 253/2287 monographies sur branche ; CI/audit/fusion/publication exacts requis. G10 5/14 après intégration ; neuf autres restent dus. Recherche parallèle39155482602 réussie techniquement sur160 diagnostics ; résultats partiels, aucune nouvelle prévalence admise. Les étapes en boucle restent ouvertes ; le protocole Gardien reste annulé.
 
+## Coordination demandée par Vial · 18.10.2026
+Veille active toutes les10min ; contrôle distinct des étapes8/9 et plan commun par diagnostic/occurrence. Sources partagées, prévalence spécifique au SSP, registre des relectures lié aux empreintes ; aucun achèvement par arrondi. Recherches au plus toutes les4h,1 diagnostic/catégorie si file≥200 sinon8 ;2 catégories simultanées, budget180s. Notifications Codex temporisées20min, agent statistique12h ; reprise d’une PR active avant création. Après cette tâche d’outillage, reprendre exactement les deux G10 conservés : céphalée en coup de tonnerre et douleur cancéreuse. Référence : docs/coordination-8-9.md. Les anciens réglages5/15min ci-dessous sont historiques et remplacés par tools/garde/config.json.
+
 ## Feuille de route (vue d’ensemble, dans l’ordre jusqu’à la fin)
 
 | Étape | Objet | Fin quand… | Modèle | Suivante |

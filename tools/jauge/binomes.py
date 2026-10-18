@@ -15,6 +15,8 @@ Usage :
   binomes.py [--ref origin/main] [--json] [--check] [--init]
 """
 import json, os, re, subprocess, sys, unicodedata
+import math
+from datetime import date
 
 def _repo():
     e = os.environ.get("OEF_REPO")
@@ -89,8 +91,14 @@ def headers_ids(md):
 
 
 def prev_ok(e):
-    return (isinstance(e.get("prev_pct"), (int, float))
-            and e.get("src") and e.get("date_lu") and (e.get("loc") or "").strip())
+    try:
+        read_date = date.fromisoformat(e.get('date_lu', ''))
+    except (ValueError, TypeError):
+        return False
+    value = e.get('prev_pct')
+    return (type(value) in (int, float) and math.isfinite(value) and 0 < value <= 100
+            and e.get('statut') != 'À vérifier' and read_date <= date.today()
+            and all(isinstance(e.get(k), str) and e[k].strip() for k in ('src', 'loc')))
 
 
 def prev_av(e):
@@ -98,7 +106,7 @@ def prev_av(e):
 
 
 def mono_ok(v):
-    return all(str(v.get(f, "")).strip() for f in MONO_REQ)
+    return all(isinstance(v.get(f), str) and v[f].strip() for f in MONO_REQ)
 
 
 def mesurer(ref="origin/main"):

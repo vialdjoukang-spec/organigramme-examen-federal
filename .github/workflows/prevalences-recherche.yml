@@ -1,12 +1,10 @@
 name: Prévalences · légion G S F O
 on:
-  schedule:
-    - cron: '23 */4 * * *'
   workflow_dispatch:
     inputs:
       limite:
         description: Diagnostics par catégorie (1–100)
-        default: '40'
+        default: '8'
         required: true
 permissions:
   contents: read
@@ -20,6 +18,7 @@ jobs:
     timeout-minutes: 18
     strategy:
       fail-fast: false
+      max-parallel: 2
       matrix:
         categorie: [g, s, f, o]
     steps:
@@ -40,7 +39,7 @@ jobs:
           restore-keys: prevalence-${{ matrix.categorie }}-
       - name: Recherche CH puis Europe, consultation et population
         env:
-          LIMITE: ${{ inputs.limite || '40' }}
+          LIMITE: ${{ inputs.limite || '8' }}
           CATEGORIE: ${{ matrix.categorie }}
         run: |
           python3 - <<'PY'
@@ -48,7 +47,8 @@ jobs:
           n=int(os.environ['LIMITE'])
           if not 1 <= n <= 100: raise SystemExit('limite doit être comprise entre 1 et 100')
           PY
-          python3 tools/prevalences/${CATEGORIE}.py --limit "$LIMITE" --budget-seconds 720 --timeout 12
+          python3 tools/coordination/calculer.py --output .etat_local/coordination
+          python3 tools/prevalences/${CATEGORIE}.py --limit "$LIMITE" --workers 2 --budget-seconds 180 --timeout 12 --priorites .etat_local/coordination/priorites.json
       - name: Audit statistique et conservation de l’état
         if: always()
         env:
@@ -100,7 +100,9 @@ jobs:
       - name: Calculateur multi-secteur
         run: python3 tools/prevalences/jauges.py --output .etat_local/prevalences >> "$GITHUB_STEP_SUMMARY"
       - name: Écrire la file de reprise de l’agent
-        run: python3 tools/prevalences/relance_agent.py
+        run: |
+          python3 tools/coordination/calculer.py --output .etat_local/coordination
+          python3 tools/prevalences/relance_agent.py --priorites .etat_local/coordination/priorites.json
       - name: Conserver les résultats hors des données cliniques de main
         run: |
           cd .etat_local/prevalences
@@ -113,7 +115,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
-          python3 tools/prevalences/relance_agent.py --envoyer
+          python3 tools/prevalences/relance_agent.py --priorites .etat_local/coordination/priorites.json --envoyer
           cd .etat_local/prevalences
           if [ -f agent-relances.json ]; then
             git add agent-relances.json
