@@ -40,6 +40,8 @@ jobs:
         run: python3 -m unittest discover -s tests -p test_aips_verbatim.py
       - name: Garde-fous R15 (classement, checkpoint)
         run: python3 tests/test_garde.py
+      - name: Garde local de clôture (preuves fraîches et refus)
+        run: python3 -m unittest discover -s tests -p test_fin_mission.py
       - name: Ordre des chaînes de fusion
         run: python3 tests/test_predecesseurs_fusion.py
       # Chantier Nerfs crâniens et CK (Atlas, Janus, Galien) : audit médical de niveau 1, zéro jeton.
