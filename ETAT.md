@@ -179,3 +179,6 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 Étape 7 : critère vérifié, #65 puis #68 fusionnées, 543 entrées et référence 3567. #85 fusionnée, fréquences inconnues préservées ; couverture toujours 1 %/9 %. Inventaire de main 27c9658 : 751 champs explicitement À vérifier, 779 occurrences. Contrôle de publication 02:23 UTC : application et quatre JS identiques à cet instantané. ETAT.json conserve la reprise à 8 et refuse la clôture.
 
 Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
+
+### Lot 3 des prévalences · 18.10.2026
+#90 : une fréquence retenue (SCA, Zurich, 1/53), dix-neuf inconnues conservées. CI 7abe19c : 278/278 ; passage local 276/278, puis calendrier 36/36 après deux échecs tactiles intermittents. Aucune assertion changée. #91 réservé derrière #64 dans la chaîne Hygie. Projet non clos.

@@ -53,3 +53,5 @@ Contrôle après #41 : main 5de965f, Pages identique pour l’application et qua
 
 ### Prévalences, lot 3 · 18.10.2026 UTC
 S7.6/S2.12 : une fréquence de cohorte suisse retenue, dénominateur et sélection relus ; 19 DD encore À vérifier. La proposition de Berne est retirée avant livraison après contrôle de l’éditeur, le dépôt suisse étant inaccessible. Relecture source/médicale/linguistique immédiate, preuve audit/PREVALENCES-CEPHALEE-PAROI-20261018.json ; local puis CI requis avant fusion. Aucun pourcentage national déduit des urgences d’un centre, aucune conduite clinique changée.
+
+Lot 3 : suite locale 276/278 (gestes tactiles du calendrier), puis recontrôle ciblé 36/36 ; CI 7abe19c 278/278. Les gestes et assertions sont inchangés. #90 attend les nouveaux contrôles après ajout documentaire du verrou #64→#91.
