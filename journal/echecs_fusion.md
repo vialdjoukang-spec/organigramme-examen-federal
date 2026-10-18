@@ -12,3 +12,9 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 18.10.2026 · Étape 0 · Codex CLI installé mais test gpt-6-luna refusé pour authentification. Mode B retenu ; aucun renouvellement de connexion interactif demandé.
 
 - 18.10.2026 01:07 CEST · Étape 2 · Lecture des secrets Actions refusée (403) ; gh opérationnel, auto-fusion #71 a réussi à activer MERGE. Aucune intervention interactive ni nouveau secret. Réparation du repli 403 et du réessai Pages livrée séparément.
+- 2026-10-17 23:11 UTC · #44 · conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)
+- 2026-10-17 23:12 UTC · #60 · contrôle requis garde en échec
+- 2026-10-17 23:15 UTC · #44 · contrôle requis visuel en échec
+
+- 18.10.2026 · Étape 3 · #44/#45/#58 : conflits dans app_v2 et prev.js ; app repris de main, correctifs audités rejoués, assets régénérés. Les fusions restent en attente des suites et de la CI, sans forçage. Poursuite Étape 4 selon R7, reprise par la file.
+- 18.10.2026 · Tests locaux initiaux : Playwright 1.62 différent du 1.63 figé dans la CI ; échecs d'interaction de fermeture/panneau calendrier constatés. Venv 1.63 et Chromium 1243 installés, aucune assertion abaissée.

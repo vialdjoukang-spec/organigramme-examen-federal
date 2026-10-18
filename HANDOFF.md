@@ -8,6 +8,12 @@ Méthode    : téléchargement XML officiel AIPS de Refdata (download.swissmedic
 Prochaine  : Galien contre-lit les 35 nouvelles lignes ; les rédacteurs remplacent « dose : à vérifier (AIPS) » par dose_ref ; lot 2 : antituberculeux, carbimazole (Néo-Mercazole), benzodiazépines de l’agitation (midazolam, diazépam), bicarbonate, physostigmine, prednisolone, antibiotiques des monographies.
 Pièges     : Lorazepam Xilmac (IV) n’a pas l’indication « état de mal épileptique » dans son AIPS. Aspégic suisse = sachets oraux (pas d’IV dans l’AIPS). Glucose 40 % : aucune dose d’hypoglycémie dans l’AIPS. Une ligne reste non validée tant que Galien et Vial ne l’ont pas confirmée.
 À vérifier : absents de l’AIPS suisse (importation ou hors liste) : fomépizole et silibinine IV (Legalon SIL, seul Legalon oral publié) ; ils restent « À vérifier ». Carbimazole = Néo-Mercazole (21037), prévu au lot 2.
+## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
+Prochaine  : vérifier CI et fusion par la file dans l'ordre ; label d'audit selon la relève clinique et la PR précédente.
+Sources    : origin/main, patch 0026 et audit Hérophile existant ; aucun nouveau texte clinique rédigé.
+Pièges     : les monographies quittent assets/ck pour assets/mono ; ne pas résoudre leurs assets à la main.
+À vérifier : CI et publication ; un échec local ne constitue pas une validation.
 ## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
 État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
 Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.
