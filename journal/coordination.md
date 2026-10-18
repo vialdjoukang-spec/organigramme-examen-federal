@@ -67,3 +67,5 @@ Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques
 Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
 
 - 18.10.2026 Europe/Zurich : #64→#91→#67→#70 fusionnées dans cet ordre. #97 : 60 fréquences inconnues G1–G4 ; #98 : deux propositions G9. Aucun gain quantitatif de prévalences, aucune fin de boucle ; accès et limites documentés.
+
+- 18.10.2026 Europe/Zurich · #99 fusionnée : six fréquences G9 sur 197 hospitalisés à Brest, population sélectionnée sans dermatose et causes non exclusives ; cinquante inconnues. #100 réunit gales commune/croûteuse, cinq épidémiologies et six définitions. Suite : G11–G14, sept G9, G10 et Panacée ; aucune fin de boucle.
