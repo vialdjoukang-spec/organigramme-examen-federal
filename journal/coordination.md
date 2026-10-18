@@ -50,3 +50,8 @@ TIP.d des prochains lots G9/G10 et O7.14–O7.12 extrait hors git par mono_build
 Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
 
 Contrôle après #41 : main 5de965f, Pages identique pour l’application et quatre JS à 02:30:46 UTC. Inventaire actualisé : 753 champs, 782 occurrences, 24 fichiers. Après réunion avec la correction terminologique : 544 entrées de glossaire, référence 3566 et 69 fautes corrigées consignées ; les quatre propositions potentiellement critiques restent hors main. Les instantanés antérieurs ci-dessus sont historiques.
+
+### Prévalences, lot 3 · 18.10.2026 UTC
+S7.6/S2.12 : une fréquence de cohorte suisse retenue, dénominateur et sélection relus ; 19 DD encore À vérifier. La proposition de Berne est retirée avant livraison après contrôle de l’éditeur, le dépôt suisse étant inaccessible. Relecture source/médicale/linguistique immédiate, preuve audit/PREVALENCES-CEPHALEE-PAROI-20261018.json ; local puis CI requis avant fusion. Aucun pourcentage national déduit des urgences d’un centre, aucune conduite clinique changée.
+
+Lot 3 : suite locale 276/278 (gestes tactiles du calendrier), puis recontrôle ciblé 36/36 ; CI 7abe19c 278/278. Les gestes et assertions sont inchangés. #90 attend les nouveaux contrôles après ajout documentaire du verrou #64→#91.
