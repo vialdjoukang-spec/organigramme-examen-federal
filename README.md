@@ -5,19 +5,19 @@ Prévalences · recherche et chiffres sourcés
 G · 16 SSP · 0 sans différentiel
   Recherche aboutie ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/238)
   Chiffres sourcés   █░░░░░░░░░░░░░░░░░░░   6.3 % (15/238)
-  Tentés : 44 · extraits : 62, relus : 10 · partiels : 44 · erreurs : 0 · propositions : 0
+  Tentés : 46 · extraits : 78, relus : 10 · partiels : 46 · erreurs : 0 · propositions : 0
 S · 113 SSP · 12 sans différentiel
   Recherche aboutie ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/1025)
   Chiffres sourcés   ░░░░░░░░░░░░░░░░░░░░   2.7 % (28/1025)
-  Tentés : 44 · extraits : 87, relus : 2 · partiels : 44 · erreurs : 0 · propositions : 0
+  Tentés : 46 · extraits : 92, relus : 2 · partiels : 46 · erreurs : 0 · propositions : 0
 F · 44 SSP · 0 sans différentiel
   Recherche aboutie ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/577)
   Chiffres sourcés   ░░░░░░░░░░░░░░░░░░░░   0.3 % (2/577)
-  Tentés : 44 · extraits : 97, relus : 14 · partiels : 44 · erreurs : 0 · propositions : 0
+  Tentés : 46 · extraits : 97, relus : 14 · partiels : 46 · erreurs : 0 · propositions : 0
 O · 75 SSP · 0 sans différentiel
   Recherche aboutie ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/747)
   Chiffres sourcés   ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/747)
-  Tentés : 44 · extraits : 131, relus : 9 · partiels : 44 · erreurs : 0 · propositions : 0
+  Tentés : 46 · extraits : 131, relus : 9 · partiels : 46 · erreurs : 0 · propositions : 0
 
 TOTAL chiffres sourcés ░░░░░░░░░░░░░░░░░░░░   1.7 % (45/2587)
 12/248 SSP sans différentiel : leur contenu reste à rédiger.
