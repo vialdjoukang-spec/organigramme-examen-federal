@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Budgets de taille (Héphaïstos, étendus par Atlas le 17.10.2026 pour le chantier Nerfs crâniens et CK) :
 app_v2.html ≤ 6 Mo ; chaque image de assets/ ≤ 200 Ko ; assets/ck/ ≤ 2,5 Mo au total ;
-chaque SVG ≤ 120 Ko ; assets/nc/ ≤ 3 Mo au total. Les plafonds se surchargent par variable
-d'environnement pour les tests des gardes (APP_MAX_BYTES, CK_MAX_BYTES, SVG_MAX_BYTES, NC_MAX_BYTES).
+chaque SVG ≤ 120 Ko ; assets/nc/ ≤ 3 Mo au total ; assets/mono/ (monographies, Hygie, chargées à la demande)
+≤ 6 Mo au total, budget séparé décidé par Vial le 17.10.2026. Les plafonds se surchargent par variable
+d'environnement pour les tests des gardes (APP_MAX_BYTES, CK_MAX_BYTES, SVG_MAX_BYTES, NC_MAX_BYTES, MONO_MAX_BYTES).
 """
 import os, sys
 from _app import ROOT, APP
@@ -10,6 +11,7 @@ APP_MAX = int(os.environ.get('APP_MAX_BYTES', 6_000_000))
 CK_MAX = int(os.environ.get('CK_MAX_BYTES', 2_500_000))
 SVG_MAX = int(os.environ.get('SVG_MAX_BYTES', 120 * 1024))
 NC_MAX = int(os.environ.get('NC_MAX_BYTES', 3_000_000))
+MONO_MAX = int(os.environ.get('MONO_MAX_BYTES', 6_000_000))
 IMG_MAX = 200 * 1024
 IMG_EXT = {'.webp', '.png', '.jpg', '.jpeg', '.gif', '.avif'}
 root = os.environ.get('BUDGET_ROOT', ROOT)
@@ -38,7 +40,7 @@ for d, _, files in os.walk(os.path.join(root, 'assets')):
             fails.append(f'{os.path.relpath(p, root)} dépasse 200 Ko')
         if ext == '.svg' and os.path.getsize(p) > SVG_MAX:
             fails.append(f'{os.path.relpath(p, root)} dépasse {fmt(SVG_MAX)} octets (SVG)')
-for d, mx in (('assets/ck', CK_MAX), ('assets/nc', NC_MAX)):
+for d, mx in (('assets/ck', CK_MAX), ('assets/nc', NC_MAX), ('assets/mono', MONO_MAX)):
     t = total(d)
     print(f'{d}/ : {fmt(t)} octets (budget {fmt(mx)}).')
     if t > mx:
