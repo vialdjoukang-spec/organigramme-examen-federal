@@ -172,3 +172,6 @@ Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`).
 | `checkpoint.yml` · `tools/garde/checkpoint.py` | Chaque PR : « Automates actifs », pas de fausse fin d'étape en boucle, pas de dose sans ligne AIPS. `--inventaire` : automates actifs. |
 | `appel-vial.yml` · `tools/garde/appel.py` | Étiquette `attente-vial` → courriel à Vial + `@codex` continue ailleurs. |
 | `tools/garde/config.json` | Seuils en minutes. |
+
+## Inventaire réel · reprise du 18.10.2026 Europe/Zurich
+Cette session utilise exec_command (git/gh/curl/Python), apply_patch, lecture locale et MCP cloud_environment.environment_status. Skill cloud-environment-runtime appliqué ; skills versionnés de continuité, audit, vérité, posologie et construction utilisés. Aucun connecteur GitHub supplémentaire requis : gh accède réellement à l’API. Les anciennes listes d’outils ci-dessus sont historiques. Automates GitHub permanents maintenus ; aucune nouvelle veille sur PC. Sources et limites réseau : audit/RESEAU-REPRISE-20261018.json.

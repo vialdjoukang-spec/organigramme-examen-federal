@@ -1,3 +1,10 @@
+## Codex · lots 8/9 et relève finale de reprise · 18.10.2026 Europe/Zurich
+État : #64→#91→#67→#70 et #97 fusionnées ; #98 réunit deux nouvelles propositions G9 et cette relève. Branche : 39/2587 fréquences, 240/2287 monographies, 98 lignes AIPS. CI exacte requise avant fusion de #98.
+Prochaine : boucle 8 lot 5, G7–G10 ; neuf autres G9, G10 et Panacée O7.14–O7.12 pour la boucle 9. S8 après audit #37.
+Sources : EDF 2025 §4.2.2/3, tableaux 3/4 et soins généraux ; HUG ; 73 documents AIPS. Audits séquentiels et limites dans audit/.
+Pièges : aucune fréquence nouvelle dans #97 ; propositions G9 avec critères et traitements non lus À vérifier. Pages workflow réussi après #70, mais accès public bloqué. Automates permanents actifs ; cadence réelle espacée observée.
+À vérifier : reste médical, critères/AIPS réservés, stations/croquis et audits #37/#81 ; projet non clos, veille conservée.
+
 ## Codex · chaîne fusionnée et lot G1–G4 · 18.10.2026 Europe/Zurich
 État : #64 → #91 → #67 → #70 fusionnées, dans cet ordre. #97 ajoute 60 fréquences explicitement inconnues ; #98 contient deux propositions G9. Main après #70 : 39/2587 fréquences, 238/2287 monographies et 98 lignes AIPS.
 Prochaine : finir les CI/intégrations #97 puis #98 ; poursuivre G7–G10 pour les prévalences et les neuf autres G9, G10 et Panacée O7.14–O7.12 pour les monographies. S8 après #37.

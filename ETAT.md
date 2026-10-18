@@ -202,3 +202,5 @@ Lot G1–G4 : traitement mécanique par script déterministe ; jugement et audit
 
 ### Reprise du 18.10.2026 Europe/Zurich
 Chaîne #64→#91→#67→#70 fusionnée ; audits et contrôles requis verts. #97 G1–G4 : 60 fréquences explicitement inconnues, aucun chiffre nouveau ; #98 deux propositions G9. Sources officielles et limites réseau consignées, médecin non revendiqué. Garde-progres et file-fusion actives, cadence réelle espacée observée. Étape 8 lot 5 en cours, clôture refusée.
+
+- Fin du lot de reprise : #97 fusionnée, lot 5 en cours. #98 ajoute deux propositions G9 avec réserves, pour 240/2287 sur sa branche. Prévalences 39/2587 ; aucune clôture, aucune nouvelle validation Vial ou de médecin inventée. Relève détaillée mise à jour.

@@ -47,3 +47,7 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 18.10.2026 UTC · Étape 8 lot 3 : miroir PDF BORIS inaccessible (HTTP 503 et refus Anubis par le lecteur web). Texte primaire PLOS accessible et lu ; aucun accès au miroir prétendu, aucun contournement tenté.
 
 - 18.10.2026, Europe/Zurich · chaîne #88→#64→#91→#67→#70 : accord de Vial lu sur les pages publiques. API api.github.com refusée par le proxy (HTTP 403 CONNECT), malgré GH_TOKEN présent et lecture Git fonctionnelle. Sources HUG/DOI également refusées. Domaines nécessaires ajoutés au brouillon des paramètres, sans prétendre leur application. Relecture et CI exactes non vérifiables ; aucune fusion hors ordre.
+
+- 18.10.2026, Europe/Zurich · Reprise : GitHub/API et sources HUG/EDF/AIPS accessibles sur les URL testées. Oxford accueil 403, recherche Europe PMC expirée ; aucun résultat inventé. Chromium file:// bloqué et installation Playwright refusée 403 ; suites GitHub requises, aucun contournement. #70 ciblait encore feat/doses-ch-3 sans CI : base corrigée vers main, fusion toujours après #67. Conflits résolus par fusion des données et reconstruction, sans force-push.
+
+- 18.10.2026 · #67 : tentative de fusion refusée par la politique de base alors que visuel était encore en cours. Aucun contournement ; attendre tous les contrôles requis. #70 : changement de base ne déclenche pas le workflow CI par défaut ; CI dispatchée sur la tête exacte, sans changement des règles.
