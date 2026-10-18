@@ -58,3 +58,9 @@ Inventaire : audit/RESTE_A_VERIFIER_20261018.json conserve SHA et pointeur pour 
 #85 est fusionnée (27c9658) : 44 DD G5, inconnues explicites conservées. Prévalences 38/2587 (1 %), monographies 207/2287 (9 %), aucun gain quantitatif inventé. Pages : application et quatre JS contrôlés identiques à cet instantané à 02:23 UTC. Inventaire : 751 champs, 779 marques explicites, 24 fichiers ; les ajouts provisoires et inconnues expliquent l’augmentation, pas un nouvel audit exhaustif.
 
 La relecture des propositions de skills confirme les procédures existantes ; inventaire ajouté à ssp-verite, adoption runner à ssp-qualite-visuelle. Étape 7 désormais validée par porte.py ; critères 8 et 9 refusés à juste titre. #83 et #41 continuent leur intégration ; état définitif à compléter ci-dessous après les contrôles.
+
+#83 fusionnée (3e796d5) à 02:25:55 UTC après tous les contrôles verts. #41 : la reprise depuis ce main vérifie 17 remplacements sur 16 fiches, TIP.d et code hors TIP inchangés ; le refus non-fast-forward a été résolu par fetch et réunion de la branche distante, sans force. Nouvelle tête 35d25e0, CI relancée. Le nombre de remplacements ne correspond pas au nombre de fiches car l’une en reçoit deux.
+
+Précision R8 : le modèle courant sert de secours dans la session interactive. Le refus 401 concerne la relance CLI autonome ; il ne rend pas impossible la rédaction interactive. Les tâches de contenu non faites restent explicitement dues. Lot G5 terminé par #85 ; reprise étape 8, lot 3, S7.6 puis S2.12, S8 après audit #37. Extraction du texte existant hors git préparée, sans ajout de fréquence ni monographie.
+
+Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.

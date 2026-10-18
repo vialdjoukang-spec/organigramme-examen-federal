@@ -381,3 +381,5 @@ Complément 01:16 UTC : #32 fusionnée (617878e), nouvelle référence et procé
 ### C10. État après les fusions du glossaire et de G5 · 18.10.2026 UTC
 
 #68 fusionnée (f2f9c04) après #65 : 543 entrées, référence 3567. Les cibles Notions de 24 px suppriment les défauts de taille observés sur les six profils ; adoption de la référence CI examinée, puis HTML, garde, visuel et suite 278/278 verts. L’erreur HTML ajoutée pendant la préparation a été corrigée sans changer sa référence. #85 fusionnée (27c9658) : 44 DD G5 explicitement inconnus ; couverture quantitative inchangée à 1 %. À 02:23 UTC, application et quatre JS contrôlés identiques à ce main sur Pages. Inventaire de cet instantané : 751 champs marqués, 779 occurrences, 24 fichiers ; ni audit complet ni preuve d’exhaustivité. Les états suivants des PR sont à lire dans ETAT.json et la relève datée, sans conclure la fin du projet.
+
+Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.

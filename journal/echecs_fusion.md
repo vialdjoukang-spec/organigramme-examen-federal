@@ -41,3 +41,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 18.10.2026 UTC · #68 : garde, tests 278 et visuel verts après adoption, contrôle HTML rouge pour deux règles nouvelles dans un style hérité du corps. Patch corrigé en portant les mêmes dimensions sur les éléments créés ; référence HTML inchangée, nouvelle CI demandée.
 
 - 18.10.2026 02:19 UTC · #83 : liens en échec par quatre délais revmed.ch, sans erreur HTTP invalide. Reprise de main après #85, contrôle relancé vert ; aucune exclusion ni règle affaiblie.
+
+- 18.10.2026 02:26 UTC · #41 : push non-fast-forward refusé, mises à jour automatiques de main déjà distantes. Fetch et réunion sans conflit, sans force ; builders/Lyncée repassés, push 35d25e0 réussi. CI relancée avant fusion.

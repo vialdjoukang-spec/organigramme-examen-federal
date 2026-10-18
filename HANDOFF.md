@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · relève de la reprise · 18.10.2026 UTC
+État       : porte 0 validée avant 1 ; files prévalences et glossaire validées. #49/#50/#53/#54, #59/#61, #65/#68, #32/#39/#41/#82/#83/#84/#85 fusionnées. 38/2587 prévalences (1 %), 207/2287 monographies (9 %). Suite CI 278/278 ; projet non clos. État détaillé : docs/releves/RELEVE_CODEX_20261018.md.
+Prochaine  : étape 8, lot 3, S7.6 puis S2.12 ; S8 après audit #37. Reprendre également les attentes ETAT.json, sans déclarer fin_boucle. Modèle courant en secours interactif, Luna CLI 401 ; veille mode B réessaie les fusions mais ne rédige pas seule.
+Sources    : AIPS/Refdata, sources de cohortes et recommandations documentées dans audit/ ; CHUV cardioversion, ESC 2022 §6.4 et HUG 2024 §2 relus le 18.10.2026. Documents bruts hors git.
+Pièges     : app_v2 = main puis patch nommé ; tableaux par id et shards reconstruits. #62 a fusionné avant #60 : incident conservé, verrou #82 intégré. Référence visuelle adoptée seulement après examen ; aucun seuil relâché.
+À vérifier : #64/#67/#70/#88 attente-vial ; #80 croquis et cinq stations sans accord ; #81 et #37 en audit. DigiFab officiel retrouvé mais dose non transposée. Inventaire explicite par SHA/pointeur, sans valeur de certification médicale.
+
 ## Lyncée · glossaire automatique (termes définis au clic) · 17.10.2026, Europe/Zurich
 État       : feat/lyncee-glossaire : tools/lyncee.py version lyncee-2. Le corpus inclut data/ck/mono ; les suffixes -mégalie et -plasie s’ajoutent ; `--branches 'feat/*'` recense main et les branches ouvertes, classées par fréquence ; « en attente » = défini dans une branche non fusionnée. La référence est régénérée par `--init --inclure-branches` (3 876 termes) et couvre aussi les termes des PR ouvertes. Le test G4_monographie_terme_nouveau_echoue est ajouté. La liaison au rendu existe déjà : gloLink() relie la 1re occurrence par bloc, dans les pages et dans chaque infobulle, monographies comprises, avec une pile de 5 niveaux.
 Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
