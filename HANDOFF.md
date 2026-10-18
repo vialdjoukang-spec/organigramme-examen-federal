@@ -1,11 +1,46 @@
+## Codex · reprise #88 · 18.10.2026, Europe/Zurich
+État : accord de Vial lu, main réuni, deux remarques cliniques de revue traitées dans arythmie-non-controlee.mes.
+Prochaine : relecture primaire ESC/HUG et CI de la nouvelle tête, puis #88 → #64 → #91 → #67 → #70.
+Sources : commentaire de Vial et revues de #88 lus ; accès primaire HUG/DOI refusé par la politique réseau.
+Pièges : ne pas confondre urgence du traitement électrique et cardioversion de tout rythme ; stimulation temporaire conditionnée au contexte urgent et à l’échec chronotrope ou à une tachyarythmie ventriculaire provoquée.
+À vérifier : suite file:// et API GitHub bloquées ; aucun audit-ok supplémentaire ni fusion revendiquée.
+
 # HANDOFF · passation entre sessions
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
+
+## Codex · prévalences publiées et G9 ciblé · 18.10.2026 UTC
+État       : #90 fusionnée, 39/2587 fréquences (jauge arrondie 2 %) ; main 207/2287 monographies (9 %). #91 contient six propositions G9, encore hors main, après #64 dans la chaîne Hygie. Projet non clos.
+Prochaine  : étape 8, lot 4, G1 à G4 dans l’ordre du catalogue ; S8 après audit #37. Terminer tests et intégration de #91 sans contourner #64. Autres G9/G10 et chaîne Panacée encore à rédiger/auditer.
+Sources    : Gräni 2015 tableau 4, recommandation EDF 2025 et définition HUG d’hémodialyse relus le 18.10.2026. Les sources écartées et les limites sont consignées, les documents bruts restent hors git.
+Pièges     : un SCA sur 53 douleurs reproductibles ne s’extrapole pas aux 121 douleurs thoraciques de l’étude ; pas de pays d’éditeur artificiellement changé. Verrou réel #91 : ready=false, #64 ouverte. Ne pas activer directement son auto-merge.
+À vérifier : 788 champs explicitement marqués sur main 6bbbde7, 817 occurrences ; cet inventaire exclut les branches et ne certifie pas le contenu. Les quatre R13, #80/#81/#37 et les stations restent en attente.
+
+## Codex · prévalences lot 3 · 18.10.2026 UTC
+État       : S7.6/S2.12, vingt DD, une fréquence de SCA retenue dans la cohorte de Zurich (1/53), dix-neuf inconnues explicites. Audit séquentiel et registre des choix disponibles ; tests en cours. Aucune conduite ou dose modifiée.
+Prochaine  : terminer les contrôles et intégrer ce lot ; S8 reste après audit #37. Poursuivre les autres SSP du catalogue et les boucles restées dues.
+Sources    : Gräni et al., BMJ Open 2015, méthodes/tableau 4 relus le 18.10.2026. Berne/PLOS non retenue sous G3, miroir suisse inaccessible ; Doretti 2019 incohérent, chiffres non transposés.
+Pièges     : 1/53 ne se confond pas avec 14/121 ; la reproduction de la douleur ne suffit pas à exclure un SCA. Aucun pays d’éditeur artificiellement codé CH.
+À vérifier : dix-neuf fréquences du lot et les réserves de ETAT.json ; projet non clos.
+
+## Codex · relève de la reprise · 18.10.2026 UTC
+État       : porte 0 validée avant 1 ; files prévalences et glossaire validées. #49/#50/#53/#54, #59/#61, #65/#68, #32/#39/#41/#82/#83/#84/#85 fusionnées. 38/2587 prévalences (1 %), 207/2287 monographies (9 %). Suite CI 278/278 ; projet non clos. État détaillé : docs/releves/RELEVE_CODEX_20261018.md.
+Prochaine  : étape 8, lot 3, S7.6 puis S2.12 ; S8 après audit #37. Reprendre également les attentes ETAT.json, sans déclarer fin_boucle. Modèle courant en secours interactif, Luna CLI 401 ; veille mode B réessaie les fusions mais ne rédige pas seule.
+Sources    : AIPS/Refdata, sources de cohortes et recommandations documentées dans audit/ ; CHUV cardioversion, ESC 2022 §6.4 et HUG 2024 §2 relus le 18.10.2026. Documents bruts hors git.
+Pièges     : app_v2 = main puis patch nommé ; tableaux par id et shards reconstruits. #62 a fusionné avant #60 : incident conservé, verrou #82 intégré. Référence visuelle adoptée seulement après examen ; aucun seuil relâché.
+À vérifier : #64/#67/#70/#88 attente-vial ; #80 croquis et cinq stations sans accord ; #81 et #37 en audit. DigiFab officiel retrouvé mais dose non transposée. Inventaire explicite par SHA/pointeur, sans valeur de certification médicale.
 
 ## Lyncée · glossaire automatique (termes définis au clic) · 17.10.2026, Europe/Zurich
 État       : feat/lyncee-glossaire : tools/lyncee.py version lyncee-2. Le corpus inclut data/ck/mono ; les suffixes -mégalie et -plasie s’ajoutent ; `--branches 'feat/*'` recense main et les branches ouvertes, classées par fréquence ; « en attente » = défini dans une branche non fusionnée. La référence est régénérée par `--init --inclure-branches` (3 876 termes) et couvre aussi les termes des PR ouvertes. Le test G4_monographie_terme_nouveau_echoue est ajouté. La liaison au rendu existe déjà : gloLink() relie la 1re occurrence par bloc, dans les pages et dans chaque infobulle, monographies comprises, avec une pile de 5 niveaux.
 Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
 Pièges     : Ne lancez pas `--update` avant la fusion des PR de monographies ouvertes : il retirerait leurs termes de la référence et ferait échouer leur G4. Toute monographie nouvelle échoue au G4 tant que ses termes ne sont pas dans glo.json ou dans qa/termes_exclus.txt (avec un motif).
+## Codex · complément du glossaire et des signalements · 18.10.2026 UTC
+État       : #49/#59/#61/#65 fusionnées ; 207 monographies, prévalences 1 %, projet non clos. #65 suite 278/278 ; #68 en contrôle de cibles 24 px.
+Prochaine  : finir la référence de #68 sans accepter de hausse d’accessibilité ; puis reprendre #83, #85 et #41 sur main, dans les files. Boucles médicales restantes, CLI Luna en 401.
+Sources    : correction du verbe cardioverter avec CHUV (29.07.2024) ; inventaire audit/RESTE_A_VERIFIER_20261018.json daté par SHA. Données brutes hors git.
+Pièges     : nouvelle proposition potentiellement critique #88 sur arythmie périopératoire ; attente-vial, pas de fusion. Les corrections de glossaire et d’accessibilité sont distinctes du traitement proposé.
+À vérifier : #64/#67/#70/#88, croquis #80, cinq stations, audits #37/#81 et rédaction massive. Ne pas clore ni arrêter la veille.
+
 ## Codex · reprise technique #49 · 2026-10-17T23:41:13+00:00
 ## Pharmakon · table suisse des doses, lots 1 et 2 · 17.10.2026, Europe/Zurich
 État       : feat/doses-ch-1 (PR #59, lot 1) puis feat/doses-ch-2 (lot 2) : data/ck/doses_ch.json passe de 3 à 51 lignes (30 substances). Chaque ligne cite mot pour mot la rubrique « Posologie/Mode d’emploi » (aips_extrait), avec le titulaire, la date « Mise à jour de l’information » (aips_version), la date de publication (aips_publie), l’URL AIPS (swissmedicinfo-pro.ch) et le texte officiel (url_texte, files.refdata.ch). Disponibles (dose_ref) : valaciclovir (valaciclovir-po-adulte-zona, valaciclovir-po-adulte-zona-ir) ; prednisone (prednisone-po-adulte-aigu) ; adrénaline (adrenaline-im-adulte-anaphylaxie, adrenaline-im-enfant-anaphylaxie, adrenaline-iv-adulte-arret-cardiaque) ; altéplase (alteplase-iv-adulte-avc, alteplase-iv-adulte-embolie-pulmonaire, alteplase-iv-adulte-infarctus-90-min) ; ténectéplase (tenecteplase-iv-adulte-infarctus, tenecteplase-iv-adulte-avc) ; noradrénaline (noradrenaline-iv-adulte-perfusion) ; ceftriaxone (ceftriaxone-iv-adulte, ceftriaxone-iv-enfant-meningite, ceftriaxone-adulte-lyme) ; lorazépam (lorazepam-iv-adulte-anxiete-aigue, lorazepam-po-adulte) ; acétylcystéine (acetylcysteine-iv-paracetamol) ; naloxone (naloxone-iv-adulte-surdosage-opioide) ; atropine (atropine-iv-adulte-bradycardie, atropine-iv-adulte-organophosphores) ; amoxicilline (amoxicilline-po-adulte, amoxicilline-po-enfant) ; acide acétylsalicylique (aspirine-po-adulte-infarctus, aspirine-po-adulte-cardiovasculaire) ; héparine non fractionnée (heparine-iv-adulte-thromboembolie, heparine-iv-adulte-sca, heparine-sc-adulte-prophylaxie) ; énoxaparine (enoxaparine-sc-adulte-tvp-ep, enoxaparine-sc-adulte-prophylaxie, enoxaparine-adulte-stemi, enoxaparine-sc-adulte-angor-instable) ; glucagon (glucagon-im-hypoglycemie-severe) ; thiamine (vitamine B1) (thiamine-iv-im-carence-severe) ; oxazépam (oxazepam-po-adulte-sevrage-alcool) ; azithromycine (azithromycine-po-adulte, azithromycine-po-enfant) ; hydroxychloroquine (hydroxychloroquine-po-adulte-lupus) ; isoniazide (isoniazide-po-adulte-tuberculose, isoniazide-po-prophylaxie-tuberculose) ; rifampicine (rifampicine-po-adulte-tuberculose, rifampicine-po-prophylaxie-meningocoque) ; pyrazinamide (pyrazinamide-po-tuberculose) ; éthambutol (ethambutol-po-tuberculose) ; carbimazole (carbimazole-po-adulte-hyperthyroidie) ; bicarbonate de sodium 8,4 % (bicarbonate-iv-adulte-acidose) ; flucloxacilline (flucloxacilline-iv-adulte) ; obidoxime (obidoxime-iv-organophosphores) ; diazépam (diazepam-iv-etat-de-mal-epileptique, diazepam-iv-sevrage-agitation) ; hydrocortisone (hydrocortisone-iv-stress-insuffisance-surrenale).
@@ -268,3 +303,5 @@ Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estima
 Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
 Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
 Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

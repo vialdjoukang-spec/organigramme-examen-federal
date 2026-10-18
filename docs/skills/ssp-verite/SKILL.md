@@ -19,3 +19,7 @@ Tu l’appliques avant de livrer un texte visible ; Janus l’applique avant cha
 Tu ne résumes, ne raccourcis ni ne reformules un texte clinique pour économiser des jetons. Un test automatique ne remplace pas la validation par un médecin.
 # Règle universelle
 Le projet cible doit avoir un résultat de HAUTE QUALITÉ. L’usage des jetons doit être raisonnable et optimisé, et tout gaspillage est formellement interdit. L’économie de jetons est autorisée si et seulement si elle ne dégrade pas la qualité du travail.
+
+## Inventaire des marques restantes
+
+`python3 tools/inventaire_a_verifier.py --ref origin/main --sortie audit/RESTE_A_VERIFIER_20261018.json` lit seulement l’instantané Git demandé. Le rapport conserve le SHA, les nombres de champs et d’occurrences, les fichiers et les pointeurs JSON. Le balisage HTML et les entités sont lus comme du texte. Il n’évalue aucune affirmation et n’inclut pas les branches non fusionnées : ne jamais transformer ce recensement en certificat médical ou en preuve de clôture. Les attentes R13 et les validations de Vial restent dans ETAT.json.

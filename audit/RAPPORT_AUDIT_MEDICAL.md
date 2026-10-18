@@ -1,6 +1,6 @@
 # Rapport d'audit médical : les fautes corrigées
 
-<p style="color:#b3261e"><strong>Signalement potentiellement critique — attente-vial, 18.10.2026.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré dans sa définition, puis dit de « cardioverter en urgence une arythmie hémodynamiquement instable ». Cette portée trop générale peut confondre les conduites de tachyarythmie et de bradyarythmie. La correction proposée ci-dessous attend l’accord de Vial ; aucune fusion autorisée par cette revue.</p>
+<p style="color:#b3261e"><strong>Signalement potentiellement critique — #88 en attente de Vial.</strong> La fiche arythmie-non-controlee inclut un bloc de haut degré puis emploie une consigne générale de cardioversion d’une arythmie instable. La proposition #88 sépare tachyarythmie et bradyarythmie, avec ESC 2022 §6.4 et HUG 2024 §2 relus. Vial a accepté la correction le 18.10.2026 dans le commentaire de #88 ; cet accord ne remplace pas les contrôles de la nouvelle tête ni la relecture finale des sources. La correction terminologique du verbe dans le glossaire est distincte.</p>
 
 
 Galien, auditeur médical et linguistique, relit chaque groupe de prévalence des diagnostics différentiels ; Hérophile, auditeur suiveur, relit chaque lot de monographies d'Hygie (data/ck/mono). Chaque ligne nomme l'élément, la faute, la correction, la source relue et le type de faute. Les fautes critiques, qui touchent la sécurité du patient, figurent aussi dans la section « Fautes critiques pour Vial ».
@@ -608,6 +608,21 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
 
+### Étape 12 · balises critiques
+72 débuts de texte TIP.d perdaient leur balise ouvrante. Patch 0028 rejouable : ajout de b avec la couleur var(--bad) devant le titre critique seulement ; aucun mot clinique ni aucune dose modifié. Second passage : zéro modification. La couleur utilise la variable critique existante, adaptée aux thèmes. Contrôles structurels et suite d’interface consignés séparément ; ceci ne clôt pas l’audit médical transversal.
+
+Suite complète après correctif 0028 : 276/276 avec Playwright 1.63. Aucun seuil ni capture de référence adopté.
+
+Preuve ciblée finale : titre restauré de G2, DD lymphome hodgkinien, vu sur bureau et Pixel 7 ; titre rouge lisible et fenêtre dans le viewport. Contraste rouge/carte 6,77:1 sur le thème clair capturé. L’ajustement de palette n’a changé aucun mot ni dimension. Les autres états/thèmes restent soumis au workflow visuel.
+## G5 · vertige, toux et lombalgie (S7.5, S2.6, S5.2) · relu le 17.10.2026 UTC
+26 DD existants conservés sans réécriture ; affichage « % à vérifier » en attente de chiffres adaptés. Étude catalane DOI 10.1186/s12875-025-03050-2 lue : 15 639 épisodes, unité = activation de code diagnostique, non patient unique ; 9,3 % tous VPPB, non spécifique du canal postérieur. Ce chiffre n’est pas transposé. La rubrique toux englobe ici l’hémoptysie : une cohorte de toux aiguë simple ne lui est pas attribuée. Contrôle Galien de prudence documentaire ; aucun nouveau chiffre validé. La jauge quantitative ne progresse pas grâce aux valeurs inconnues.
+
+Suite locale du lot G5 : 275/276, seul desktop.not_closebtn_closes échoue. La cause a été reproduite et corrigée séparément dans fix/fermeture-infobulle-codex (4/4 après correction, suite 276/276). Le lot G5 ne prétend pas que cet échec initial était un succès.
+
+### G5 · complément malaise général, 18.10.2026 UTC
+18 DD G5 ajoutés au lot, soit 44 DD sur quatre SSP. Étude suisse DOI 10.1186/1757-7241-21-15 lue : 77/633 (12,2 %) problèmes liés aux médicaments, catégorie incluant le mauvais usage et l’observance, non équivalente à une cascade médicamenteuse ou une iatrogénie stricte. Le chiffre n’est pas placé dans prev_pct ; source, emplacement et limite sont conservés. Les qualificatifs « sévère », « débutant » et les diagnostics composites demandent des cohortes adaptées, pas une réutilisation forcée d’une catégorie plus large. Aucun gain quantitatif revendiqué.
+### Codex · relecture du lot 01 Lyncée (#68), 17.10.2026 UTC
+166 définitions ajoutées relues intégralement. Corrections : QRS = dépolarisation (pas contraction), acidose ≠ acidémie obligatoire, LDL = particules de transport, cirrhose sans irréversibilité absolue, opioïdes = récepteurs, TDAH avec ou sans hyperactivité, hémoculture incluant les champignons. Les 166 statuts « À vérifier » et l’absence de validation Vial sont conservés : aucune source médicale n’a été inventée. Sources individuelles à compléter dans les lots de glossaire suivants ; ce contrôle linguistique et conceptuel ne constitue pas leur lecture documentaire.
 ### Reprise #65 : réserve technique Codex
 Lyncée passe de lyncee-1 à lyncee-2 et la baseline de 3823 à 3876. Le contrôle affiche 92 termes nouveaux lors du changement de règles. Cette hausse ne satisfait pas l’ordre de Vial « baseline ne peut que baisser ». Label audit-ok retiré en attendant le traitement des nouveaux termes ; le passage automatisé actuel ne suffit pas à valider cette migration.
 
@@ -615,6 +630,9 @@ Référence #65 resserrée par --update : 3876 → 3820, sous le total 3823 de m
 
 ### Janus · migration Lyncée 2 reprise, 18.10.2026
 Après intégration de main, neuf nouveaux candidats bloquants définis : six contre sources CH/FR lues (CHUV, Confédération, Larousse pour le seul sens lexical), trois explicitement À vérifier, sans fausse source ni validation Vial. Relecture Asclépios : phrases courtes, pas de reprise du libellé ou des alias, pas de paire circulaire. La référence 3823 → 3819 baisse ; les 38 candidats supplémentaires dus au changement de règles ont été examinés (inventaire JSON). Le contrôle élargit le corpus et les affixes ; aucun terme neuf non défini dans ce lot. Les termes historiques de la référence restent à traiter à l’étape 11, pas de baseline zéro prétendue. Réserve de migration levée après cette revue et la baisse effective.
+
+### Complément #68 · contrôle des exclusions, 18.10.2026
+Neuf exclusions de termes spécialisés retirées (anatomie, hématologie, neurosciences, topographie, périphérique, autonome, irritabilité, impulsivité, toxicité). Définitions courtes proposées, toutes À vérifier et sans fausse citation ou validation Vial. Les exclusions restantes désignent des mots généraux, des codes ou des éléments bibliographiques ; elles ne doivent pas servir à masquer de futurs termes cliniques. Glossaire 388 entrées après union des 166, des neuf termes de migration et de ce complément ; source individuelle encore requise pour les entrées non sourcées.
 ## Galien · doses AIPS #61 · 18.10.2026 Europe/Zurich
 
 Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 51 lignes, confrontées à 33 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
@@ -652,6 +670,9 @@ Aucune dose ajoutée. Aucune faute critique identifiée dans ce diff. Contrôles
 
 Après intégration des 139 définitions de main, 45 définitions déjà relues dans #68 ont été reprises pour assurer la compatibilité ; leurs statuts À vérifier restent identiques. Référence 3753 → 3735. Aucun ajout par --update. Le nouveau garde impose la baisse du total même quand les règles changent ; quatre tests réels CLI réussis. La suite des définitions de #68 reste une PR distincte.
 
+### Janus · réunion finale #68 après #65 et #39, 18.10.2026 UTC
+
+Union sémantique par identifiant : aucun conflit réel, toutes les définitions sourcées de main conservées. Le registre contient 527 entrées. Les 45 définitions de compatibilité déjà reprises dans #65 ne sont pas comptées deux fois. Neuf exclusions cliniques restent supprimées et remplacées par des définitions explicitement À vérifier ; aucun accord Vial ni source nouvelle inventé. Les formulations « autonome » et « périphérique » couvrent leur emploi général. Référence parente 3735 → 3571, sans ajout par --update. G1/G2/G3/G6, Lyncée et les quatre tests CLI de migration passent. La fusion reste après #65 ; aucun label audit-ok anticipé.
 ### Janus · quatre termes des monographies fusionnées #50, 18.10.2026
 
 Alias hypo-esthésie ajouté à la définition sourcée existante, sans la modifier. Hypertrophie : première définition Larousse lue ; aucune reprise des indications. Syndrome de Löfgren : FMS 2024;24(12), p.160, Vintage Corner (PDF p.42), triade effectivement relue ; aucun chiffre de pronostic ni conseil de biopsie transposé. Sérite : définition provisoire explicite À vérifier. Aucune admission en baseline, aucun accord Vial fabriqué. G1/G2/G3/G6 et Lyncée à revérifier après reconstruction ; défaut de clipping calendrier en cours d’examen, CI obligatoire avant fusion.
@@ -666,6 +687,9 @@ La liaison automatique du glossaire introduisait des boutons imbriqués dans les
 
 Après intégration de #54, trois nouveaux termes sont définis provisoirement : PPR (le contexte cite Still, artérite à cellules géantes et lupus), hyperventiler, triade de Virchow. Statut À vérifier conservé, aucune source non lue ni validation Vial ajoutée. La référence ne reçoit aucun ajout. Suite complète sur la correction d’interface avant ces trois définitions : 276/276 ; les doses et conduites des monographies fusionnées ne sont pas réécrites.
 
+### Janus · #68 réuni avec la correction calendrier et les nouvelles monographies
+
+535 entrées, référence 3571 ; G1/G2/G3/G6 et Lyncée passent. Un conflit réel sur hypertrophie a été lu : la définition Larousse effectivement relue de #65 remplace la version provisoire de même sens ; alias « hypertrophient » et flexion « hypertrophies » sont conservés. Les nouvelles définitions de #65, leurs sources et la correction de la définition des corps cétoniques sont préservées. Les statuts À vérifier restent explicites. Aucun label avant fusion de #65.
 ### Janus · stabilité du glossaire dans les grilles et flex
 
 Les six écarts Iris restants se concentraient dans la vitrine : l’insertion d’un bouton au milieu d’un texte enfant direct d’une grille/flex créait plusieurs éléments de disposition au lieu du bloc anonyme initial. Patch 0031 : le texte lié reste réuni dans un seul élément. Aucun style, seuil, source ni contenu clinique changé. Régression ajoutée sur ordinateur et mobile : deux échecs reproduits avant correctif, puis deux succès ; les 74 autres contrôles CK UI passent aussi. La référence de la suite passe de 276 à 278, sans suppression ni assouplissement d’assertion. Suite complète et CI requises avant fusion ; la référence visuelle n’est pas adoptée pour masquer ce déplacement.
@@ -674,8 +698,26 @@ Validation finale du correctif de disposition : suite complète 278/278. Six ét
 
 Après fusion de #49, Lyncée détecte trois candidats supplémentaires : hyperstimule reçoit la définition hyperstimulation (À vérifier), tandis que périodiquement et prédispose sont des mots généraux du français, exclus avec leur motif linguistique précis. Aucun terme clinique spécialisé n’est exclu pour contourner le garde ; aucune admission en référence. Les modifications cliniques d’Hérophile sont conservées.
 
+### Galien · correction terminologique cardioverter, 18.10.2026
+
+Faute majeure de définition introduite pendant la migration #65 : « cardioverter » désignait un appareil, avec alias cardioverteur, tandis que mono.arythmie-non-controlee.mes l’emploie comme verbe. La définition décrit désormais l’action de tenter de rétablir un rythme normal par électricité ou médicament ; alias nominal retiré. Source CHUV relue, page Fibrillation et flutter, § Traitements, mise à jour du 29.07.2024. Le renvoi à la page d’implantation d’un défibrillateur ne justifiait pas ce sens et est remplacé. Aucune conduite d’urgence, dose ou indication modifiée dans cette correction de glossaire ; la formulation de la monographie fait l’objet d’une revue distincte.
+
+## Galien · prévalences relues (S7.6, S2.12) · 18.10.2026
+
+Relecture séquentielle par Codex après rédaction, sans validation humaine revendiquée. Les vingt libellés et rangs cliniques sont conservés ; dix-neuf fréquences restent inconnues.
+
+Le tableau 4 de Gräni et al. (Zurich, BMJ Open 2015) donne un SCA parmi 53 douleurs thoraciques aiguës reproduites à la palpation, soit ≈ 1,9 %. Méthodes, définition de la douleur reproduite et sélection des patients stables relues. Les 11,6 % concernent tous les 121 patients : aucun transfert de ce chiffre au groupe de 53. La palpation ne remplace pas la démarche diagnostique.
+
+La première proposition de fréquence migraine de Berne est retirée avant livraison : PLOS est un éditeur hors du périmètre G3, même si les auteurs et données sont suisses ; le dépôt institutionnel suisse est inaccessible. Son pays n’est pas artificiellement déclaré CH. L’étude européenne de Doretti et al. 2019 présente aussi des incohérences de tableau (110 migraines au total contre 59 + 61 dans les centres). Aucun chiffre choisi arbitrairement. Les regroupements de céphalées ne sont pas redistribués entre DD.
+
+Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lyncée. Preuve détaillée et URL des lectures : audit/PREVALENCES-CEPHALEE-PAROI-20261018.json. Aucune faute critique nouvelle identifiée dans ce diff.
+
 ### Galien · portée de la conduite périopératoire, 18.10.2026
 
 Élément : mono|arythmie-non-controlee.mes. Source du texte original : ESC 2022, ehac270. Relecture primaire : § 6.4.5 (bradycardie mal tolérée, traitement chronotrope et stimulation selon contexte) ; contexte § 6.4.4/Tableau 12 des tachyarythmies ; HUG_000000021 v1.1, p.1 §2 (FA instable, TV avec pouls). Le protocole HUG n’est pas transposé avec ses seuils de durée, sa sédation ou son énergie.
 
 Le patch proposé distingue les deux familles de rythmes et demande le traitement électrique adapté au rythme, sans prescrire une cardioversion synchronisée universelle. Aucun nouveau médicament ni dose. Le texte, ses conditions et son niveau de détail restent à valider par Vial. Signalement d’une ambiguïté de consigne, sans événement patient documenté. La correction terminologique de « cardioverter » dans le glossaire est traitée séparément.
+
+### Reprise #88 · 18.10.2026, Europe/Zurich
+
+Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.

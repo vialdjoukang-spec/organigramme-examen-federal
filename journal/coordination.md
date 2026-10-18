@@ -43,3 +43,25 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 
 ### Étape 9 · préparation, inachevée
 TIP.d des prochains lots G9/G10 et O7.14–O7.12 extrait hors git par mono_build --draft. Rien n’est ajouté aux monographies complètes par simple remplissage de champs. La rédaction et son audit restent dus ; exécution CLI de masse toujours indisponible (401). Exception R7 pour poursuivre les vérifications suivantes, sans déclarer le seuil de couverture atteint.
+
+### Actualisation des files · 18.10.2026 02:27 UTC
+Étape 7 validée : #65 puis #68 fusionnées, 543 entrées, référence 3567. #85 fusionnée, chiffres inconnus explicites. #83 fusionnée (3e796d5), suite 278/278 et contrôles requis verts. #41 rejouée par tip_corr01 sur main contenant #83 : 17 remplacements sur 16 fiches, différences exclusivement dans TIP.c/TIP.v ; TIP.d et code hors TIP inchangés. Accord d’audit historique conservé, pas de nouvelle validation humaine revendiquée. CI requise de la nouvelle tête avant fusion.
+
+Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
+
+Contrôle après #41 : main 5de965f, Pages identique pour l’application et quatre JS à 02:30:46 UTC. Inventaire actualisé : 753 champs, 782 occurrences, 24 fichiers. Après réunion avec la correction terminologique : 544 entrées de glossaire, référence 3566 et 69 fautes corrigées consignées ; les quatre propositions potentiellement critiques restent hors main. Les instantanés antérieurs ci-dessus sont historiques.
+
+### Prévalences, lot 3 · 18.10.2026 UTC
+S7.6/S2.12 : une fréquence de cohorte suisse retenue, dénominateur et sélection relus ; 19 DD encore À vérifier. La proposition de Berne est retirée avant livraison après contrôle de l’éditeur, le dépôt suisse étant inaccessible. Relecture source/médicale/linguistique immédiate, preuve audit/PREVALENCES-CEPHALEE-PAROI-20261018.json ; local puis CI requis avant fusion. Aucun pourcentage national déduit des urgences d’un centre, aucune conduite clinique changée.
+
+Lot 3 : suite locale 276/278 (gestes tactiles du calendrier), puis recontrôle ciblé 36/36 ; CI 7abe19c 278/278. Les gestes et assertions sont inchangés. #90 attend les nouveaux contrôles après ajout documentaire du verrou #64→#91.
+
+### Reprise après le lot 3 · 18.10.2026 UTC
+
+#90 est fusionnée (6bbbde7). Main : 39/2587 fréquences, jauge arrondie 2 % ; 207/2287 monographies, 9 %. Une seule fréquence a été retenue après relecture (SCA, Zurich, 1/53) ; les dix-neuf autres du lot restent inconnues. Source de Berne non retenue sous la règle d’éditeur, miroir suisse inaccessible ; incohérences de l’autre tableau européen consignées. Aucun pays, chiffre ou critère inventé.
+
+#91 contient six propositions G9 (xérose, prurits rénal, ferriprive, médicamenteux, neuropathiques, psychogène), EDF 2025 et HUG relus. Elles ne comptent pas dans main. Le verrou #64→#91 est dans main ; predecesseurs_fusion.py 91 constate #64 OPEN et ready=false. Ne pas activer directement l’auto-merge de #91.
+
+Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

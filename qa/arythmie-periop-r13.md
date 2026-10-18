@@ -1,5 +1,5 @@
-# Relecture Vial requise : arythmie périopératoire
+# Arythmie périopératoire · reprise du 18.10.2026
 
-Statut : attente-vial.
+Accord de Vial reçu dans #88 et dans la session. Les deux remarques de revue sont traitées dans le texte : traitement électrique immédiat adapté au rythme ; conditions de stimulation temporaire explicites. Aucune dose ajoutée.
 
-La définition inclut FA rapide et bloc de haut degré. La consigne générale de cardioversion ne distingue pas tachyarythmie et bradyarythmie. Le diff proposé sépare ces situations ; aucune dose n’est ajoutée. Sources primaires relues et enregistrées : ESC 2022 §6.4 et protocole HUG 2024 p.1 §2. Cette proposition n’est pas une conduite validée.
+La relecture primaire finale et les contrôles de la tête courante restent requis. Les accès à l’API GitHub et aux documents HUG/ESC sont refusés par la politique réseau de cette session ; la suite locale file:// est bloquée par le navigateur système. Ne pas assimiler l’accord de correction à une preuve de CI verte ou à un audit documentaire achevé.
