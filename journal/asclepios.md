@@ -23,3 +23,6 @@
 
 ### G5 · 18.10.2026 UTC
 26 DD existants de S7.5, S2.6 et S5.2 conservés ; valeurs inconnues explicites. Cohorte catalane relue mais unités/catégories insuffisantes pour les libellés demandés : pas de chiffre transposé. Suite locale 275/276 (fermeture, correction technique séparée).
+
+### G1–G4 · 18.10.2026 Europe/Zurich
+60 DD du catalogue reçoivent leur fréquence inconnue explicite. Aucun chiffre admissible relu dans ce lot ; requête Europe PMC expirée, accès article non inféré de l’accueil. Libellés et index identiques à NOT ; pas de gain quantitatif annoncé.
