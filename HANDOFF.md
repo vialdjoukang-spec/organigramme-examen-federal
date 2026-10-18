@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · relève du 18.10.2026 UTC
+État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
+Sources    : rapports AIPS sur #59/#61/#67/#70, audits et preuves ciblées sur les branches, sources brutes hors git.
+Pièges     : CLI Luna en 401, veille mode B sans rédaction autonome ; incident #62 avant #60 consigné, verrou #82 ; ne pas transformer des brouillons en couverture achevée.
+À vérifier : #64/#67/#70 attente-vial, croquis #80 et cinq stations non validés, audits et couverture restants. Ne pas arrêter la veille ni annoncer 100 %.
+
 ## Codex · Panacée Étape 5 · 18.10.2026 Europe/Zurich
 État       : #60/#62 fusion de main, shards sans conflit réel signalé, toutes sections du rapport conservées, assets reconstruits ; suites 1.63 et pushes locaux sous flock, CI/fusions en attente.
 Prochaine  : Étape 6, relire AIPS des quatre lots avant tout audit-ok ; ne pas se fier aux labels anciens de #59/#61.

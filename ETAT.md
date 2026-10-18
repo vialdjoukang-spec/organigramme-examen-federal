@@ -21,7 +21,7 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - Mode de relance (A = `codex exec`, B = PROCHAINE_ACTION.md) : B (CLI présent mais authentification refusée ; aucun second agent CLI lancé)
 - Lancement de la veille (commande exacte, cron ou boucle) : `nohup bash tools/veille_relance.sh --boucle 180 --sans-codex > .etat_local/veille_stdout.log 2>&1 < /dev/null &` ; PID dans `.etat_local/veille.pid` ; boucle locale seulement pendant la durée de vie de cet environnement
-- Modèle des tâches répétitives : `gpt-6-luna` disponible dans les sous-agents de la session ; CLI testé, refusé pour authentification (HTTP 401). Les réparations restent au modèle courant. Aucun contenu massif exécuté à ce stade.
+- Modèle des tâches répétitives : `gpt-6-luna` configuré pour la CLI, dont l’authentification échoue en HTTP 401. Aucun sous-agent lancé. Modèle courant pour les réparations/relectures ; scripts déterministes pour les inventaires. La rédaction de masse autonome reste indisponible, sans prétendre qu’un autre modèle CLI fonctionne.
 - Jeton de fusion (gh de Codex, ou secret AUTO_FUSION_TOKEN) : gh de Codex, intégration GitHub (`admin=true`, `push=true`, `merge_commit=true`, `auto_merge=true`, `squash=false`), protection non lisible (403) (ne jamais écrire le jeton lui-même)
 - Jauges au départ : Prévalences 0 % (0/2578) · Monographies 3 % (70/2280) le 18.10.2026 00:45 (Europe/Zurich)
 
@@ -42,6 +42,15 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 - 18.10.2026 · Étape 4 traitée, fusions/audit en attente : #50/#53/#54/#49 main intégré, shards résolus par le script sans conflit réel signalé, migration 0026 rejouée (elle était encore sur #50, contrairement à la relève), assets régénérés, suites 1.63 et pushes en file sous verrou. #64 : 25 fiches relues, sources hypothermie suisses relues ; doses non auditées et chiffres hors CH/UE remis À vérifier, cadre de cohorte corrigé ; signalement HOPE/décès potentiellement critique, label attente-vial et rapport rouge. Aucune fusion de #64 sans validation de Vial. Les labels #53/#54 attendent la fusion de la précédente.
 
 - 18.10.2026 · Étape 5 traitée, fusions en attente : #60/#62 mises à jour avec main ; shards par merge_shards sans conflit réel signalé ; toutes sections d'audit conservées ; patch 0026 et assets reconstruits ; suites 1.63/pushes dans la file locale. Audits Érasistrate existants conservés, aucune nouvelle validation clinique.
+
+- 18.10.2026 UTC · Étape 6 : 98 lignes/73 documents AIPS officiels relus, contrôles verbatim sans écart, quatre rapports poussés ; réserves KCl/aciclovir et attente-vial #67/#70 conservées.
+- 18.10.2026 UTC · Étape 7 : #65/#68 reprises ; 166 définitions relues, sept corrections, baseline #68 à 3567 ; #65 resserrée à 3820, mais 92 candidats nouveaux restent à examiner.
+- 18.10.2026 UTC · Étapes 8–11 INACHEVÉES : G5 #85 (26 DD, chiffres inconnus explicites) ; brouillons monographiques hors git ; inventaires de doses/glossaire. Aucun seuil de boucle ni couverture complète déclaré ; CLI de masse en 401. Passage R7 aux travaux suivants.
+- 18.10.2026 UTC · Étape 12 : #83 restaure 72 titres critiques, captures ciblées relues, contraste clair 6,77:1 ; #84 corrige la réouverture après Fermer, reproduction 4/4 corrigée et suite 276/276. Audit transversal restant.
+- 18.10.2026 UTC · Étapes 13–15 : #39/#41 reprises ; #80 prototype VII et #81 urgences lot 3 en brouillon, audits/validation Vial restants ; cinq stations pilotes restent valide_par_vial=false. Aucun accord inventé.
+- 18.10.2026 UTC · Étape 16 : #32 reprise et captures de fond pâle relues (contraste secondaire/fond 8,55:1) ; #37 retrouvée sur origin, patch rejoué (60 DD S8), audit final restant. #16 fermée avec motif, branche conservée ; #56/#63 fermées comme remplacées.
+- 18.10.2026 UTC · Incident : #62 fusionnée avant #60 le 17.10 à 23:55:43 UTC ; l’auto-fusion n’imposait pas les chaînes. #82 ajoute ce verrou, cinq tests dédiés et cinq tests de file réussis. Pas de réécriture de l’historique.
+- 18.10.2026 UTC · Étape 17 contrôlée, NON VALIDÉE : jauges main 1 % et 4 %, Pages identique au SHA-256 de main 67ae383 à 00:00:20 UTC. Relève complète dans docs/releves/RELEVE_CODEX_20261018.md. Veille conservée ; reprise de la boucle 8, pas de fin du projet.
 
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 

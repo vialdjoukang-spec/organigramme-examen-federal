@@ -31,3 +31,6 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 
 ### Étape 7 · Codex
 #65 et #68 reprises, main intégré. #65 hausse de référence lors de la migration des règles signalée et audit-ok retiré. #68 : 166 définitions entièrement relues ; sept corrections conceptuelles, réserves de sources conservées, G1/G2/G3/G6 et Lyncée contrôlés. Aucune validation Vial. Fusions en attente ; passage selon R7.
+
+### Étape 9 · préparation, inachevée
+TIP.d des prochains lots G9/G10 et O7.14–O7.12 extrait hors git par mono_build --draft. Rien n’est ajouté aux monographies complètes par simple remplissage de champs. La rédaction et son audit restent dus ; exécution CLI de masse toujours indisponible (401). Exception R7 pour poursuivre les vérifications suivantes, sans déclarer le seuil de couverture atteint.

@@ -360,3 +360,6 @@ Sources    : <sources lues, datées>
 Pièges     : <ce qui a cassé et comment l’éviter>
 À vérifier : <liste>
 ```
+
+### C6. Relève Codex du 18.10.2026 UTC
+Le passage aux vérifications de clôture ne valide pas la fin du projet. État détaillé : `docs/releves/RELEVE_CODEX_20261018.md` ; étapes inachevées dans `ETAT.json.en_attente`, reprise de la boucle 8. #64/#67/#70 restent attente-vial. #80/#81 sont des brouillons, cinq stations restent non validées. Incident de fusion hors ordre #62, verrou proposé #82 ; défaut Fermer corrigé #84 avec suite 276/276. Le mode B de veille n’exécute pas de rédaction médicale autonome tant que la CLI est en 401. Aucun seuil, source, accord ou 100 % inventé.
