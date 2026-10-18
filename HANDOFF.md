@@ -1,7 +1,7 @@
 ## Codex · quatre G9 restants · 18.10.2026 Europe/Zurich
 État : Hodgkin, pemphigoïde bulleuse étendue, Vaquez et lichen plan rédigés en sept rubriques ; quatre définitions, huit sources CH/Europe. G9 17/17 dans ce lot, total249/2287 monographies ; prévalences45/2587 inchangées. Contre-lecture séquentielle, G1–G8, builders et Lyncée verts ; CI exacte et statut de fusion sur GitHub font foi.
 Prochaine : G10 — Douleur, tous types après intégration du lot ; prévalences S1.3–S1.6, Panacée O7.14–O7.12 et S8 après audit#37 restent dus. Les réserves médicales des fiches existantes restent à traiter ; aucune fin de boucle.
-Sources : Ligue suisse contre le cancer, CHUV, Onkopedia2023 (sociétés germano-austro-suisses), SFD2016/2020, synthèse française2020, EDF/EADV2020. Sources lues via navigateur de recherche natif ; téléchargements Python403 distingués. Aucun binaire intégral ni hash non obtenu publié.
+Sources : Ligue suisse contre le cancer, CHUV, Onkopedia2023 (sociétés germano-austro-suisses), SFD2016/2020, résumé EADV2022, EDF/EADV2020. Sources lues via navigateur de recherche natif ; téléchargements Python403 distingués. Aucun binaire intégral ni hash non obtenu publié.
 Pièges : incidence annuelle et prurit chez les malades ne sont pas une probabilité en G9. Formes étendues, cutanées et orales ne partagent pas automatiquement leur dénominateur. Aucune dose européenne ni ancienne dose de cours recopiée ; AIPS À vérifier. Biopsies conditionnelles ; pas d’affirmation universelle sur l’inutilité de la biopsie médullaire.
 Automates : workflow de recherche vérifié active, G/S/F/O toutes les quatre heures ; dernier lancement observé39143130333 réussi. #105/#107 et #106 dermatite atopique fusionnées et publiées ; jauges et PDF contrôlés HTTP200 et identiques aux fichiers générés.
 
@@ -411,3 +411,5 @@ Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/2026070
 Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
 
 Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.
+
+Référence pemphigoïde : la synthèseHAS2020 lue a été retirée des références actives après un échec de validation TLS en CI, puis remplacée par le résumé éditeur des recommandations EADV2022. Aucun contrôle TLS assoupli ni dose importée.
