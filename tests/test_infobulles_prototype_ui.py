@@ -11,7 +11,7 @@ async def check(page, touch=False):
     await page.evaluate("""() => {
       const f=document.createElement('div');f.id='prototype-test';
       f.style.cssText='position:fixed;top:10px;left:10px;z-index:99999;background:white';
-      f.innerHTML='<button class="tw" data-t="s|G1">SSP G1</button><button class="tw" data-t="n|G1|d0">Hyperhidrose</button>';
+      f.innerHTML='<button class="tw" data-t="s|G1">SSP G1</button><button class="tw" data-t="n|G1|d0">Hyperhidrose</button><button class="tw" data-t="n|G1|c0">Cours G1</button>';
       document.body.appendChild(f);
     }""")
     async def six():
@@ -60,6 +60,11 @@ async def check(page, touch=False):
         await ssp.focus()
         await page.keyboard.press('Enter')
         await six()
+    await page.keyboard.press('Escape')
+    course=page.locator('#prototype-test [data-t="n|G1|c0"]')
+    await course.tap() if touch else await course.click()
+    await six()
+    assert await page.locator('#tip .t').inner_text() == 'Sudation anormale'
 
 async def main():
     async with async_playwright() as p:

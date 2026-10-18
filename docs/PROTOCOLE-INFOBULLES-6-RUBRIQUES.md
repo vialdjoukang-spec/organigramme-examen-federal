@@ -45,3 +45,5 @@ Préciser population, lieu et période pour chaque chiffre ; garder « À vérif
 ## Priorité exclusive et lots
 
 Reprise à G1 (sueurs / hyperhidrose), puis progression dans l’ordre du catalogue par petits lots. Le lot G10 radiculalgie/polyneuropathie arrêté reste conservé localement, non publié. Aucun autre chantier clinique, station, croquis ou enrichissement hors de cette correction ne doit être relancé pendant la cellule de correction. Les vérifications, scripts et publications nécessaires à cette mission restent actifs.
+
+Les entrées du cours dans Notions CK ouvrent aussi la monographie SSP structurée lorsqu’elle est disponible ; le contenu est partagé avec la fiche SSP. Les anciens fragments restent disponibles pour les SSP non encore révisés, qui ne sont pas comptés comme corrigés.
