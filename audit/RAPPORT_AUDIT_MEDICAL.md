@@ -605,6 +605,8 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
 
+### Codex · relecture du lot 01 Lyncée (#68), 17.10.2026 UTC
+166 définitions ajoutées relues intégralement. Corrections : QRS = dépolarisation (pas contraction), acidose ≠ acidémie obligatoire, LDL = particules de transport, cirrhose sans irréversibilité absolue, opioïdes = récepteurs, TDAH avec ou sans hyperactivité, hémoculture incluant les champignons. Les 166 statuts « À vérifier » et l’absence de validation Vial sont conservés : aucune source médicale n’a été inventée. Sources individuelles à compléter dans les lots de glossaire suivants ; ce contrôle linguistique et conceptuel ne constitue pas leur lecture documentaire.
 ### Reprise #65 : réserve technique Codex
 Lyncée passe de lyncee-1 à lyncee-2 et la baseline de 3823 à 3876. Le contrôle affiche 92 termes nouveaux lors du changement de règles. Cette hausse ne satisfait pas l’ordre de Vial « baseline ne peut que baisser ». Label audit-ok retiré en attendant le traitement des nouveaux termes ; le passage automatisé actuel ne suffit pas à valider cette migration.
 
@@ -612,6 +614,9 @@ Référence #65 resserrée par --update : 3876 → 3820, sous le total 3823 de m
 
 ### Janus · migration Lyncée 2 reprise, 18.10.2026
 Après intégration de main, neuf nouveaux candidats bloquants définis : six contre sources CH/FR lues (CHUV, Confédération, Larousse pour le seul sens lexical), trois explicitement À vérifier, sans fausse source ni validation Vial. Relecture Asclépios : phrases courtes, pas de reprise du libellé ou des alias, pas de paire circulaire. La référence 3823 → 3819 baisse ; les 38 candidats supplémentaires dus au changement de règles ont été examinés (inventaire JSON). Le contrôle élargit le corpus et les affixes ; aucun terme neuf non défini dans ce lot. Les termes historiques de la référence restent à traiter à l’étape 11, pas de baseline zéro prétendue. Réserve de migration levée après cette revue et la baisse effective.
+
+### Complément #68 · contrôle des exclusions, 18.10.2026
+Neuf exclusions de termes spécialisés retirées (anatomie, hématologie, neurosciences, topographie, périphérique, autonome, irritabilité, impulsivité, toxicité). Définitions courtes proposées, toutes À vérifier et sans fausse citation ou validation Vial. Les exclusions restantes désignent des mots généraux, des codes ou des éléments bibliographiques ; elles ne doivent pas servir à masquer de futurs termes cliniques. Glossaire 388 entrées après union des 166, des neuf termes de migration et de ce complément ; source individuelle encore requise pour les entrées non sourcées.
 ## Galien · doses AIPS #61 · 18.10.2026 Europe/Zurich
 
 Contre-lecture réalisée par Codex jouant Galien, le 17.10.2026 UTC. Ce lot comporte 51 lignes, confrontées à 33 textes professionnels officiels Refdata ; revue consolidée de 98 lignes / 73 documents. Les extraits non vides sont retrouvés ligne par ligne après décodage documenté des glyphes Symbol. Les en-têtes µg/jour et g ont été relus pour lévothyroxine et pipéracilline-tazobactam ; la noradrénaline est en microgrammes. Le contrôle numérique seul ne vérifie ni unité ni indication.
@@ -649,6 +654,9 @@ Aucune dose ajoutée. Aucune faute critique identifiée dans ce diff. Contrôles
 
 Après intégration des 139 définitions de main, 45 définitions déjà relues dans #68 ont été reprises pour assurer la compatibilité ; leurs statuts À vérifier restent identiques. Référence 3753 → 3735. Aucun ajout par --update. Le nouveau garde impose la baisse du total même quand les règles changent ; quatre tests réels CLI réussis. La suite des définitions de #68 reste une PR distincte.
 
+### Janus · réunion finale #68 après #65 et #39, 18.10.2026 UTC
+
+Union sémantique par identifiant : aucun conflit réel, toutes les définitions sourcées de main conservées. Le registre contient 527 entrées. Les 45 définitions de compatibilité déjà reprises dans #65 ne sont pas comptées deux fois. Neuf exclusions cliniques restent supprimées et remplacées par des définitions explicitement À vérifier ; aucun accord Vial ni source nouvelle inventé. Les formulations « autonome » et « périphérique » couvrent leur emploi général. Référence parente 3735 → 3571, sans ajout par --update. G1/G2/G3/G6, Lyncée et les quatre tests CLI de migration passent. La fusion reste après #65 ; aucun label audit-ok anticipé.
 ### Janus · quatre termes des monographies fusionnées #50, 18.10.2026
 
 Alias hypo-esthésie ajouté à la définition sourcée existante, sans la modifier. Hypertrophie : première définition Larousse lue ; aucune reprise des indications. Syndrome de Löfgren : FMS 2024;24(12), p.160, Vintage Corner (PDF p.42), triade effectivement relue ; aucun chiffre de pronostic ni conseil de biopsie transposé. Sérite : définition provisoire explicite À vérifier. Aucune admission en baseline, aucun accord Vial fabriqué. G1/G2/G3/G6 et Lyncée à revérifier après reconstruction ; défaut de clipping calendrier en cours d’examen, CI obligatoire avant fusion.
@@ -663,6 +671,9 @@ La liaison automatique du glossaire introduisait des boutons imbriqués dans les
 
 Après intégration de #54, trois nouveaux termes sont définis provisoirement : PPR (le contexte cite Still, artérite à cellules géantes et lupus), hyperventiler, triade de Virchow. Statut À vérifier conservé, aucune source non lue ni validation Vial ajoutée. La référence ne reçoit aucun ajout. Suite complète sur la correction d’interface avant ces trois définitions : 276/276 ; les doses et conduites des monographies fusionnées ne sont pas réécrites.
 
+### Janus · #68 réuni avec la correction calendrier et les nouvelles monographies
+
+535 entrées, référence 3571 ; G1/G2/G3/G6 et Lyncée passent. Un conflit réel sur hypertrophie a été lu : la définition Larousse effectivement relue de #65 remplace la version provisoire de même sens ; alias « hypertrophient » et flexion « hypertrophies » sont conservés. Les nouvelles définitions de #65, leurs sources et la correction de la définition des corps cétoniques sont préservées. Les statuts À vérifier restent explicites. Aucun label avant fusion de #65.
 ### Janus · stabilité du glossaire dans les grilles et flex
 
 Les six écarts Iris restants se concentraient dans la vitrine : l’insertion d’un bouton au milieu d’un texte enfant direct d’une grille/flex créait plusieurs éléments de disposition au lieu du bloc anonyme initial. Patch 0031 : le texte lié reste réuni dans un seul élément. Aucun style, seuil, source ni contenu clinique changé. Régression ajoutée sur ordinateur et mobile : deux échecs reproduits avant correctif, puis deux succès ; les 74 autres contrôles CK UI passent aussi. La référence de la suite passe de 276 à 278, sans suppression ni assouplissement d’assertion. Suite complète et CI requises avant fusion ; la référence visuelle n’est pas adoptée pour masquer ce déplacement.
