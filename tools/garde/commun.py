@@ -130,7 +130,12 @@ def commenter(n, texte, token):
     if SEC or n is None:
         print(f"[essai] commentaire #{n} :\n{texte}\n")
         return True
-    return api(f"repos/{REPO}/issues/{n}/comments", token=token, method="POST", body={"body": texte}) is not None
+    if api(f"repos/{REPO}/issues/{n}/comments", token=token, method="POST", body={"body": texte}) is not None:
+        return True
+    if token != tok_bot():  # jeton de Vial sans droit : repli github-actions[bot] (visible, mais ne réveille pas Codex)
+        resume(f"Repli GITHUB_TOKEN pour #{n} : AUTO_FUSION_TOKEN refusé (403), ajouter Issues + Pull requests en écriture.")
+        return api(f"repos/{REPO}/issues/{n}/comments", token=tok_bot(), method="POST", body={"body": texte}) is not None
+    return False
 
 
 # ---------------------------------------------------------------- état (branche garde/etat)
