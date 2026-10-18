@@ -114,3 +114,5 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 72 débuts de texte TIP.d perdaient leur balise ouvrante. Patch 0028 rejouable : ajout de b avec la couleur var(--bad) devant le titre critique seulement ; aucun mot clinique ni aucune dose modifié. Second passage : zéro modification. La couleur utilise la variable critique existante, adaptée aux thèmes. Contrôles structurels et suite d’interface consignés séparément ; ceci ne clôt pas l’audit médical transversal.
 
 Suite complète après correctif 0028 : 276/276 avec Playwright 1.63. Aucun seuil ni capture de référence adopté.
+
+Preuve ciblée finale : titre restauré de G2, DD lymphome hodgkinien, vu sur bureau et Pixel 7 ; titre rouge lisible et fenêtre dans le viewport. Contraste rouge/carte 6,77:1 sur le thème clair capturé. L’ajustement de palette n’a changé aucun mot ni dimension. Les autres états/thèmes restent soumis au workflow visuel.
