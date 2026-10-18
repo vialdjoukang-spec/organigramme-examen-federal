@@ -35,6 +35,10 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 01:08 CEST · Étape 2 : corrections de la file/auto-fusion préparées et testées (5/5), workflow file-fusion déclenché ; deux sondes #71/#73 avec auto-merge MERGE actif. Résultat de bout en bout encore en attente des contrôles ; ne pas annoncer fusion/publication réussies. Poursuite Étape 3 selon R7 ; la file reprend les sondes.
 
+- 18.10.2026 · Complément Étape 2 : #71 fusionnée automatiquement (843e2c3) après contrôles verts, Pages réussi sur le même SHA. Preuve de bout en bout obtenue ; #73 reste sonde supplémentaire. Le nohup initial a été terminé par l'environnement ; veille relancée au premier plan dans une session d'exécution persistante (`bash tools/veille_relance.sh --boucle 180 --sans-codex`, journal confirmé). Playwright local initial 1.62 différent de la CI : venv `/workspace/venv_ck` créé avec 1.63 et Chromium 1243.
+
+- 18.10.2026 01:15 Europe/Zurich · Étape 3 traitée, fusions en attente : #43 fusionnée ; #44/#45 main intégré et correctifs Galien rejoués, suites locales lancées avant push ; #58 onze chiffres relus (Limper/BASEL IX), trois nouvelles fiches contre-lues avec ESGE/HAS/ESC, cadre et indications corrigés, audit écrit, contrôles de données verts, suite 1.63/push planifiés ; #47 fusion de main, toutes sections du rapport conservées, poussé et audit-ok. La file reprend les fusions. Étape 3 reste dans ETAT.json.en_attente tant que le critère n'est pas vert.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
 
 ---
