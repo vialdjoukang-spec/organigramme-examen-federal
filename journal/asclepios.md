@@ -28,3 +28,6 @@ Ticket résolu : terme abrégé thromboangéite rattaché à Buerger dans ce con
 
 ### G1–G4 · 18.10.2026 Europe/Zurich
 60 DD du catalogue reçoivent leur fréquence inconnue explicite. Aucun chiffre admissible relu dans ce lot ; requête Europe PMC expirée, accès article non inféré de l’accueil. Libellés et index identiques à NOT ; pas de gain quantitatif annoncé.
+
+### Lot 5 · G7–G10 · 18.10.2026 Europe/Zurich
+56 libellés conservés ; six fréquences G9 relues au tableau III de Brest 2020, population sélectionnée et causes non exclusives précisées ; 50 inconnues. Absence de dermatose spécifique, biais de recrutement, sous-diagnostics neurologiques et hépatiques non sommés. Aucun chiffre d’une autre population transposé.
