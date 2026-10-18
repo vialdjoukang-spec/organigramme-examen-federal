@@ -23,6 +23,7 @@ Sources    : Limper/BASEL IX/ESGE/HAS/ESC pour #58 ; Europe PMC XML publics PMC8
 Pièges     : patch 0026 encore non intégré au départ, nouvelle construction dans assets/mono ; modèles cliniques AIPS lue ne prouvent pas une ligne de doses validée ; dates ISO UTC pour les gardes.
 À vérifier : signalement potentiellement critique HOPE/décès de #64 (R13), audit primaire endocrinien restant, doses AIPS Étape 6, CI et publications. Aucun succès ou accord médical inventé.
 
+## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
 ## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
 ## Codex · reprise technique #60 · 2026-10-17T23:45:16+00:00
