@@ -1,3 +1,10 @@
+## Codex · reprise originale, sentinelle et G10 lot 1 · 18.10.2026 Europe/Zurich
+État : état des lieux présenté à Vial ; protocole Gardien annulé, fin.py facultatif. Veille proposée5min, fenêtre/rappel15min, appel Vial environ60min. Sous-agent sentinelle lancé en lecture seule. Deux fiches G10 rédigées : fibromyalgie et SDRC ; six sources effectivement lues par sections, neuf définitions. Branche251/2287 monographies et582 entrées, référence3559 ; 45/2587 fréquences inchangées. CI/fusion exactes requises.
+Prochaine : intégrer ce lot après contrelecture indépendante, puis onze G10 restants ; premier manquant : compression médullaire. Prévalences S1.3–S1.6 et Panacée O7.14–O7.12 conservées ; #37 avant S8, #81 en audit, croquis/stations attendent les validations prévues.
+Sources : Ligue suisse contre le rhumatisme2023, RCP2022 (feuille2023), résumé patient EULAR des recos2017, EFIC2019 et outils Budapest officiels ; voir audit/MONOGRAPHIES-G10-LOT1-20261018.json.
+Pièges : incidence/prévalence différentes ; WPI et généralisation4/5 sont distincts ; symptômes rapportés et signes constatés ne sont pas interchangeables. HAS2025 et EULAR intégral inaccessibles, aucune lecture revendiquée. Aucun chiffre ou dose AIPS inventé.
+À vérifier : choix/indications/posologies AIPS, prévalences/sex-ratios, ensemble des reliquats des étapes8–17. Pas de clôture du projet.
+
 ## Codex · garde local de fin de mission · 18.10.2026 Europe/Zurich
 État : PR #108 fusionnée f05adf7, G9 17/17 couverts, 249/2287 monographies ; Pages 39146651173 réussi et 14 fichiers publics comparés identiques, jauges/PDF compris. Nouvelle demande intercalaire : tools/garde/fin.py, registre local et refus de clôture sans preuves. Tests ciblés réussis ; CI exacte et fusion du garde requises.
 Prochaine : achever l’intégration du garde, puis reprendre G10 — Douleur, tous types ; prévalences S1.3–S1.6, Panacée O7.14–O7.12 et audits ouverts conservés. Le garde refuse la clôture du projet, il ne déclare aucune étape clinique terminée.
