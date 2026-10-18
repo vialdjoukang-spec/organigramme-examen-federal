@@ -6,6 +6,26 @@ Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du pl
 État       : feat/lyncee-glossaire : tools/lyncee.py version lyncee-2. Le corpus inclut data/ck/mono ; les suffixes -mégalie et -plasie s’ajoutent ; `--branches 'feat/*'` recense main et les branches ouvertes, classées par fréquence ; « en attente » = défini dans une branche non fusionnée. La référence est régénérée par `--init --inclure-branches` (3 876 termes) et couvre aussi les termes des PR ouvertes. Le test G4_monographie_terme_nouveau_echoue est ajouté. La liaison au rendu existe déjà : gloLink() relie la 1re occurrence par bloc, dans les pages et dans chaque infobulle, monographies comprises, avec une pile de 5 niveaux.
 Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
 Pièges     : Ne lancez pas `--update` avant la fusion des PR de monographies ouvertes : il retirerait leurs termes de la référence et ferait échouer leur G4. Toute monographie nouvelle échoue au G4 tant que ses termes ne sont pas dans glo.json ou dans qa/termes_exclus.txt (avec un motif).
+## Codex · relève du 18.10.2026 UTC
+État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
+Sources    : rapports AIPS sur #59/#61/#67/#70, audits et preuves ciblées sur les branches, sources brutes hors git. Main 42a432d testé 276/276 ; Pages = main 8dd0d0a à 00:52 UTC. #45/#58/#60/#39/#84/#82 fusionnées.
+Pièges     : CLI Luna en 401, veille mode B sans rédaction autonome ; incident #62 avant #60 consigné, verrou #82 ; ne pas transformer des brouillons en couverture achevée.
+À vérifier : #64/#67/#70 attente-vial, croquis #80 et cinq stations non validés, audits et couverture restants. Ne pas arrêter la veille ni annoncer 100 %.
+
+## Codex · Panacée Étape 5 · 18.10.2026 Europe/Zurich
+État       : #60/#62 fusion de main, shards sans conflit réel signalé, toutes sections du rapport conservées, assets reconstruits ; suites 1.63 et pushes locaux sous flock, CI/fusions en attente.
+Prochaine  : Étape 6, relire AIPS des quatre lots avant tout audit-ok ; ne pas se fier aux labels anciens de #59/#61.
+Sources    : main et audits Érasistrate existants ; aucune nouvelle donnée clinique.
+Pièges     : conserver les deux côtés des rapports ; appliquer 0026 aux versions anciennes avant génération des assets.
+À vérifier : fin des suites locales/CI et fusion #60 puis #62 ; #64 reste attente-vial.
+
+## Codex · reprise Étapes 3–4 · 18.10.2026 Europe/Zurich
+État       : #43 et #71 fusionnées ; Pages #71 prouvé. #44/#45 reprises et testées, pushes en cours ; #58 audit final écrit et suite 1.63 ; #47 rapport réuni/poussé. #50/#53/#54/#49 reconstruites, suites/pushes locaux en file. #64 poussée avec attente-vial et audit partiel.
+Prochaine  : Étape 5 (#60 → #62) ; maintenir les reprises des Étapes 3/4 dans ETAT.json.en_attente. Après fusion de #50, poser audit-ok sur #53 ; après #53 sur #54, conformément à l'audit Hérophile existant.
+Sources    : Limper/BASEL IX/ESGE/HAS/ESC pour #58 ; Europe PMC XML publics PMC8744717, PMC10448201, PMC9518193 pour hypothermie #64, lus le 17.10 UTC / 18.10 Zurich.
+Pièges     : patch 0026 encore non intégré au départ, nouvelle construction dans assets/mono ; modèles cliniques AIPS lue ne prouvent pas une ligne de doses validée ; dates ISO UTC pour les gardes.
+À vérifier : signalement potentiellement critique HOPE/décès de #64 (R13), audit primaire endocrinien restant, doses AIPS Étape 6, CI et publications. Aucun succès ou accord médical inventé.
 
 ## Codex · reprise technique #54 · 2026-10-17T23:36:57+00:00
 ## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
