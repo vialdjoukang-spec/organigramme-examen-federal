@@ -8,18 +8,18 @@ Le projet n’est pas terminé. La porte 0 a été validée avant l’étape 1. 
 |---|---|---|
 | 0–2 | Catalogue/MCP/skills, porte, veille mode B, droits ; #71–#74 et sondes fusionnées ; #82 verrou des prédécesseurs fusionné, tests 5/5 + 5/5 | Maintenir les réessais |
 | 3 | #43/#44/#45/#58/#47 fusionnées, critère historique satisfait | #85 G5 est un lot suivant séparé |
-| 4 | #50/#53/#54/#49 reconstruites, shards fusionnés par script ; suite #50 initiale 276/276 | Fusions ; labels #53 puis #54 après prédécesseur ; #64 suspendue |
+| 4 | #50/#53/#54 fusionnées dans cet ordre ; main à 207 monographies, shards résolus par script | #49 reprise après main ; #64 suspendue |
 | 5 | #60 et #62 fusionnées, données réunies en 130 monographies dans main | Incident #62 avant #60 conservé ci-dessous |
 | 6 | 98 lignes / 73 documents AIPS officiels relus ; quatre rapports `audit/AIPS-RELECTURE-PR*.json` ; comparateur sans écart et 3 tests réussis | #59 puis #61 ; #67/#70 suspendues ; références des monographies à compléter après fusion |
-| 7 | #65 : neuf définitions et 45 reprises de compatibilité, baseline 3735 ; #68 : 527 entrées réunies avec main, neuf exclusions cliniques remplacées, baseline 3571 | Sources « À vérifier » conservées ; fusions #65 puis #68 ; quatre tests CLI du garde passent |
+| 7 | #65 : 406 entrées, dix termes supplémentaires traités, baseline 3734 ; #68 : 535 entrées réunies, neuf exclusions cliniques remplacées, baseline 3571 | Sources « À vérifier » conservées ; fusions #65 puis #68 ; quatre tests du garde passent. Patch calendrier 0030 : CK UI 74/74, suite 276/276 |
 | 8 | #85 : 44 DD sur quatre SSP G5 conservés, fréquences inconnues explicites ; cohortes catalane et bâloise examinées | Chiffres adaptés, autres SSP et DD manquants ; aucun chiffre transposé ni gain de couverture revendiqué |
-| 9–11 | Brouillons TIP.d et inventaires hors git dans `/workspace/oef-drafts` | Rédaction de masse, audits, doses des nouvelles fiches et baseline à zéro : non réalisés |
+| 9–11 | Brouillons TIP.d et inventaires hors git ; DigiFab retrouvé dans AIPS, révision 02/2026, preuve en audit/ | Rédaction de masse, audits, doses des nouvelles fiches et baseline à zéro : non réalisés |
 | 12 | #83 : 72 titres critiques restaurés, aucun mot changé ; captures bureau/mobile examinées, rouge/carte 6,77:1. #84 : fermeture corrigée, 4/4 reproductions et suite 276/276 | #84 fusionnée, suite main 42a432d 276/276 ; #83 et audit médical transversal restants ; captures ciblées seulement |
 | 13 | #39 fusionnée (17cf10a) ; #80 prototype VII en brouillon, Dédale-V zéro échec après svgo 4.0.0 | Croquis non validé, contrat/sources à confirmer, autres paires |
 | 14 | Cinq stations pilotes présentes, `valide_par_vial=false` conservé | Relecture Vial avant toute nouvelle série |
 | 15 | #41 : correctifs Galien rejoués sur main ; #81 urgences lot 3 repris en brouillon | Fusion #41 et audit clinique du lot 3 |
-| 16 | #32 reprise et captures examinées (secondaire/fond 8,55:1) ; #37 retrouvée sur origin et rejouée : 60 DD S8 | CI/fusion #32 ; audit final et CI #37. #16 fermée avec motif, branche conservée |
-| 17 | Pages identique à main 8dd0d0a à 00:52:09 UTC ; jauges 38/2587 (1 %) et 130/2287 (6 %), critères 8/9 non atteints | Projet non clos ; veille conservée |
+| 16 | #32 : 60 captures/mesures sans nouveau défaut grave, adoption de la référence CI par le script habituel sur runner, CLS 0,1347→0,0358 ; #37 : 60 DD S8 rejoués | CI/fusion #32 ; audit final et CI #37. #16 fermée avec motif, branche conservée |
+| 17 | Pages et quatre fichiers JS identiques à main 51cb2e5 à 01:15 UTC ; jauges 38/2587 (1 %) et 207/2287 (9 %), critères 8/9 non atteints | Projet non clos ; veille conservée |
 
 ## Réserves pour Vial
 
@@ -37,4 +37,8 @@ La CLI `codex exec -m gpt-6-luna` échoue en 401 (authentification). Le mode B �
 
 La veille locale (PID vérifié 4263) reste dans une session d’exécution de cet environnement. Le workflow GitHub de file constitue le filet distant, mais un conflit réel ou un audit manquant demande une reprise. Ne pas promettre de rédaction nocturne autonome tant que la CLI reste indisponible.
 
-Contrôle complet local de main 42a432d : 276/276 après fusion du correctif #84. Pages contrôlé ensuite sur main 8dd0d0a : HTTP 200 et SHA-256 identique 9e4720c6ce86056e4648eaa8744fe183479d9ddbf6419f1bb13ad60d8a800969. Les preuves sont des instantanés ; les contrôles de chaque tête de PR restent requis.
+Contrôle complet local de main 42a432d : 276/276 après fusion du correctif #84. Pages contrôlé ensuite sur main 51cb2e5 à 01:15 UTC : HTTP 200 et SHA-256 identique 9e4720c6ce86056e4648eaa8744fe183479d9ddbf6419f1bb13ad60d8a800969. Les preuves sont des instantanés ; les contrôles de chaque tête de PR restent requis.
+
+Complément de vérification : #65 passe la suite complète à 276/276 après correction des liens imbriqués dans les commandes du calendrier. Les dix termes nouveaux des monographies ont été traités sans admission en baseline ; la seule paire circulaire introduite pendant la préparation est supprimée. Le conflit réel hypertrophie de #68 a été résolu par la définition Larousse relue, avec alias et flexions réunis. Les sources provisoires restent À vérifier, sans accord Vial inventé.
+
+La référence de #32 vient de la capture CI 39085245206, adoptée par tools/visuel_reference.sh lors de l’exécution 39085519352 (8c3e800), après examen local des écarts et mesures, puis des images CI récupérées par Git. Aucun compteur axe grave/critique n’augmente, aucun seuil de configuration n’est relevé. Les contrôles après adoption restent requis avant fusion.
