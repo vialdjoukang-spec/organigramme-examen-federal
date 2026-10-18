@@ -43,6 +43,6 @@ description: <quand l'utiliser, en une phrase>
 
 - `tools/etapes.json` est un chemin, pas une commande : faux positif, couvert par ssp-pilotage-codex.
 - Audits neuro, tête-cou, glossaire, Érasistrate et rapport : déjà couverts par ssp-audit-medical et les scripts régionaux ; ne pas automatiser le jugement clinique par simple remplacement.
-- Monographies Panacée : ssp-monographies et mono_build.py ; prévalences : procédure P1–P7 et prev_build.py.
-- Références visuelles : ssp-tests-visuels ; étapes Codex : ssp-pilotage-codex. Aucun nouveau doublon utile.
+- Monographies Panacée : ssp-construction-ck et mono_build.py ; prévalences : procédure P1–P7 et prev_build.py.
+- Références visuelles : ssp-qualite-visuelle ; étapes Codex : ssp-pilotage-codex. Aucun nouveau doublon utile.
 - Le lecteur AIPS réutilisable et ses trois tests sont décrits dans ssp-aips-verbatim.
