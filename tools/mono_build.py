@@ -41,27 +41,116 @@ def html(e):
         'exp_ref': 'Examen de référence diagnostique', 'exp_premier': 'À faire en premier',
         'exp_bio': 'Biologie', 'exp_morph': 'Morphologie', 'exp_fonc': 'Explorations fonctionnelles',
     }
-    # New protocol fields lead rubric 5. Legacy exp and dia are always retained after them.
-    lines.extend(f'<b>{labels[k]} :</b> {e[k]}' for k in NEW_EXP if e.get(k))
-    lines.append(f'<b>Explorations :</b> {e["exp"]}')
-    lines.append(f'<b>Critères diagnostiques :</b> {e["dia"]}')
+    if chronologie_ready(e):
+        lines.append(f'<b>{labels["exp_ref"]} :</b> {e["exp_ref"]}')
+        lines.append('<b>Bilan ordonné</b>')
+        bilan = e['bilan_ordre']
+        for index, step in enumerate(bilan, 1):
+            title = 'À faire en premier' if index == 1 else step['titre']
+            lines.append(f'<b>{index} — {title} :</b> {step["texte"]}')
+        # The ordered timeline replaces the old unordered exploration fields.
+        # Keep the full diagnostic criteria once, after the timeline.
+        lines.append(f'<b>Critères diagnostiques :</b> {e["dia"]}')
+    else:
+        # Prototype-free legacy records retain their existing rendering.
+        lines.extend(f'<b>{labels[k]} :</b> {e[k]}' for k in NEW_EXP if e.get(k))
+        lines.append(f'<b>Explorations :</b> {e["exp"]}')
+        lines.append(f'<b>Critères diagnostiques :</b> {e["dia"]}')
     lines.extend([
         '<b>6. Prise en charge</b>',
         f'<b>A- But :</b> {e["but"]}',
         '<b>B- Moyens</b>',
-        f'<b>Mesures générales :</b> {e["mes"]}',
-        f'<b>Pharmacologie :</b> {e["pha"]}',
     ])
-    if e.get('aut'):
-        lines.append(f'<b>Autres :</b> {e["aut"]}')
+    if chronologie_ready(e):
+        for index, phase in enumerate(e['pec_ordre'], 1):
+            lines.append(f'<b>Phase {index} — {phase["titre"]}</b>')
+            categories = (('mes', 'Mesures générales'), ('pha', 'Pharmacologie'), ('aut', 'Autres'))
+            for key, label in categories:
+                if phase.get(key):
+                    lines.append(f'<b>{label} :</b> {phase[key]}')
+    else:
+        lines.extend([f'<b>Mesures générales :</b> {e["mes"]}', f'<b>Pharmacologie :</b> {e["pha"]}'])
+        if e.get('aut'):
+            lines.append(f'<b>Autres :</b> {e["aut"]}')
     return '<br>'.join(lines)
+
+
+def chronologie_errors(e):
+    """Validate the opt-in ordered diagnostic and care timelines; legacy is allowed."""
+    fields = ('chronologie_version', 'bilan_ordre', 'pec_ordre')
+    if not any(field in e for field in fields):
+        return []
+    errors = []
+    if type(e.get('chronologie_version')) is not int or e.get('chronologie_version') != 1:
+        errors.append('chronologie_version doit être le nombre 1')
+    bilan = e.get('bilan_ordre')
+    if not isinstance(bilan, list) or not 1 <= len(bilan) <= 6:
+        errors.append('bilan_ordre doit contenir de 1 à 6 étapes')
+    else:
+        for index, step in enumerate(bilan, 1):
+            if not isinstance(step, dict) or set(step) != {'titre', 'texte'}:
+                errors.append(f'bilan_ordre[{index}] exige seulement titre et texte')
+                continue
+            if not isinstance(step.get('titre'), str) or not step['titre'].strip():
+                errors.append(f'bilan_ordre[{index}].titre doit être non vide')
+            if not isinstance(step.get('texte'), str) or not step['texte'].strip():
+                errors.append(f'bilan_ordre[{index}].texte doit être non vide')
+        if isinstance(bilan[0], dict):
+            if bilan[0].get('titre') != 'À faire en premier':
+                errors.append('bilan_ordre[0].titre doit être « À faire en premier »')
+            if not isinstance(e.get('exp_premier'), str) or bilan[0].get('texte') != e.get('exp_premier'):
+                errors.append('bilan_ordre[0].texte doit reprendre exp_premier à l’identique')
+    pec = e.get('pec_ordre')
+    if not isinstance(pec, list) or not 1 <= len(pec) <= 6:
+        errors.append('pec_ordre doit contenir de 1 à 6 phases')
+    else:
+        couvert = set()
+        for index, phase in enumerate(pec, 1):
+            if not isinstance(phase, dict) or not {'titre'} <= phase.keys() or phase.keys() - {'titre', 'mes', 'pha', 'aut'}:
+                errors.append(f'pec_ordre[{index}] exige titre et seulement mes, pha, aut facultatifs')
+                continue
+            if not isinstance(phase.get('titre'), str) or not phase['titre'].strip():
+                errors.append(f'pec_ordre[{index}].titre doit être non vide')
+            contenus = []
+            for field in ('mes', 'pha', 'aut'):
+                if field in phase:
+                    if not isinstance(phase[field], str) or not phase[field].strip():
+                        errors.append(f'pec_ordre[{index}].{field} doit être non vide si présent')
+                    else:
+                        couvert.add(field)
+                        contenus.append(phase[field])
+            if not contenus:
+                errors.append(f'pec_ordre[{index}] doit contenir au moins un moyen')
+        if not {'mes', 'pha'} <= couvert:
+            errors.append('pec_ordre doit couvrir mesures générales (mes) et pharmacologie (pha)')
+    return errors
+
+
+def chronologie_ready(e):
+    """True when both ordered timelines meet the schema and required coverage."""
+    return bool(e.get('chronologie_version') == 1 and not chronologie_errors(e)
+                and isinstance(e.get('bilan_ordre'), list) and isinstance(e.get('pec_ordre'), list))
+
+
+def text_fields(value, path=''):
+    """Yield every nested string and its JSON-like path for recursive guards."""
+    if isinstance(value, str):
+        yield path, value
+    elif isinstance(value, dict):
+        for key, item in value.items():
+            child = f'{path}.{key}' if path else str(key)
+            yield from text_fields(item, child)
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            yield from text_fields(item, f'{path}[{index}]')
 
 
 def prototype_ready(e):
     """True when the opt-in record has the complete six-rubric structure; not a clinical review."""
     version = e.get('prototype_version')
-    return (isinstance(version, (int, float)) and not isinstance(version, bool) and version == 1
-            and all(isinstance(e.get(k), str) and e[k].strip() for k in REQ + list(NEW_EXP)))
+    return (type(version) is int and version == 1
+            and all(isinstance(e.get(k), str) and e[k].strip() for k in REQ + list(NEW_EXP))
+            and chronologie_ready(e))
 
 
 def load():
@@ -94,18 +183,25 @@ def _field_errors(k, e, require_prototype=False):
         err.append(f'{k} : les monographies SSP doivent déclarer prototype_version: 1')
     if 'prototype_version' in e:
         version = e.get('prototype_version')
-        if not (isinstance(version, (int, float)) and not isinstance(version, bool) and version == 1):
+        if not (type(version) is int and version == 1):
             err.append(f'{k} : prototype_version doit être le nombre 1')
         else:
             for f in NEW_EXP:
                 if not isinstance(e.get(f), str) or not e[f].strip():
                     err.append(f'{k} : champ prototype {f} doit être une chaîne non vide')
-    for f, v in e.items():
-        if isinstance(v, str) and re.search(r'<(b|strong)\b', v): err.append(f'{k}.{f} : gras réservé aux titres')
+    for message in chronologie_errors(e):
+        err.append(f'{k} : {message}')
+    for path, value in text_fields(e):
+        if re.search(r'<(b|strong)\b', value, re.I): err.append(f'{k}.{path} : gras réservé aux titres')
     if not re.search(r'\d{2}\.\d{2}\.\d{4}', e.get('lu', '')): err.append(f'{k} : date de lecture absente')
-    p = e.get('pha', '')
-    if re.search(r'\d\s?(mg|µg|g|mmol|UI)\b', p) and 'AIPS' not in e.get('src', '') + p:
-        err.append(f'{k} : dose sans AIPS lue (écrire « dose : à vérifier (AIPS) »)')
+    pharmacology = [('pha', e.get('pha', ''))]
+    if isinstance(e.get('pec_ordre'), list):
+        pharmacology.extend((f'pec_ordre[{i}].pha', phase.get('pha', ''))
+                            for i, phase in enumerate(e['pec_ordre']) if isinstance(phase, dict))
+    for path, phrase in pharmacology:
+        if (isinstance(phrase, str) and re.search(r'\d\s?(mg|µg|g|mmol|UI)\b', phrase)
+                and 'AIPS' not in e.get('src', '') + phrase):
+            err.append(f'{k}.{path} : dose sans AIPS lue (écrire « dose : à vérifier (AIPS) »)')
     return err
 
 

@@ -9,9 +9,19 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from tools.coordination.calculer import CONFIG, calculer, empreinte, page
+from tools.coordination.calculer import CONFIG, calculer, empreinte, page, relecture_prototype
 from tools.coordination.relance import decision, main
 from tools.mono_build import NEW_EXP, REQ
+
+
+def prototype_fields():
+    return {
+        'prototype_version': 1,
+        **{k: 'Examen précisé.' for k in NEW_EXP},
+        'chronologie_version': 1,
+        'bilan_ordre': [{'titre': 'À faire en premier', 'texte': 'Examen précisé.'}],
+        'pec_ordre': [{'titre': 'Conduite initiale', 'mes': 'Mesure adaptée.', 'pha': 'Traitement indiqué.'}],
+    }
 
 
 class CrisisCoordinationTests(unittest.TestCase):
@@ -44,6 +54,18 @@ class CrisisCoordinationTests(unittest.TestCase):
                 'sha256':empreinte(mono),'sources':['SRC'],'rapport':'audit.json',
                 'rapport_sha256':hashlib.sha256((root/'audit.json').read_bytes()).hexdigest()}
 
+    def test_prototype_attestation_requires_chronology_flag_for_ssp_and_monography(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);monos,_=self.fixture(root)
+            value={**monos['maladie-0'], **prototype_fields()}
+            (root/'audit.json').write_text('Contrelecture documentaire indépendante.')
+            proof=self.proof(root,value)
+            self.assertFalse(relecture_prototype(proof,value,root,{'SRC':{'id':'SRC'}}))
+            proof['chronologie_relue']=True
+            self.assertTrue(relecture_prototype(proof,value,root,{'SRC':{'id':'SRC'}}))
+            value['dia']='Fiche modifiée après la relecture.'
+            self.assertFalse(relecture_prototype(proof,value,root,{'SRC':{'id':'SRC'}}))
+
     def test_existing_g1_comes_before_missing_g10_and_batch_is_bounded(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);_,tasks=self.fixture(root);report=self.run_report(root,tasks)
@@ -56,19 +78,23 @@ class CrisisCoordinationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);monos,tasks=self.fixture(root)
             old_proof=self.proof(root,monos['maladie-0'])
-            monos['maladie-0'].update(prototype_version=1,**{k:'Examen précisé.' for k in NEW_EXP})
+            monos['maladie-0'].update(prototype_fields())
             (root/'data/ck/mono/m.json').write_text(json.dumps(monos))
             report=self.run_report(root,tasks,{'monographies':{'maladie-0':old_proof}})
             self.assertEqual(report['mesure']['prototype_structure'],1)
             self.assertEqual(report['mesure']['prototype_relecture'],0)
             self.assertEqual(report['plan']['prochain_lot9'][0]['diagnostic_id'],'maladie-0')
 
-    def test_current_review_advances_queue_and_content_change_revokes_it(self):
+    def test_current_review_advances_queue_only_with_chronology_flag_and_current_content(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);monos,tasks=self.fixture(root)
-            for mono in monos.values():mono.update(prototype_version=1,**{k:'Examen précisé.' for k in NEW_EXP})
+            for mono in monos.values():mono.update(prototype_fields())
             (root/'data/ck/mono/m.json').write_text(json.dumps(monos))
             ledger={'monographies':{key:self.proof(root,mono) for key,mono in monos.items()}}
+            without_flag=self.run_report(root,tasks,ledger)
+            self.assertEqual(without_flag['mesure']['prototype_relecture'],0)
+            ledger={'monographies':{key:{**self.proof(root,mono), 'chronologie_relue': True}
+                                    for key,mono in monos.items()}}
             report=self.run_report(root,tasks,ledger)
             self.assertEqual(report['mesure']['prototype_relecture'],4)
             self.assertEqual(report['plan']['prochain_lot9'][0]['ssp'],'G10')

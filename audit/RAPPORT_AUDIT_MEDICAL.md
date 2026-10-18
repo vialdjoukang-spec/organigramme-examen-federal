@@ -822,3 +822,19 @@ Aucune dose ou fréquence de sous-groupe importée ;45/2587 et98lignesAIPS incha
 Deux monographies et cinq définitions, avec contrelecture indépendante favorable après deux corrections de portée : retrait des alias globaux « somatique » et « irradiation » qui auraient détourné des occurrences hors douleur. Les fiches distinguent mécanisme et cause ; aucune recommandation lombalgie n’est généralisée, ni bilan abdominal chronique étendu à toutes les douleurs viscérales. Les AINS sont bornés à une indication adaptée en douleur aiguë ; les opioïdes éventuels exigent surveillance et précautions.
 
 Trois sources HUG relues : guide Antalgie novembre2023 (pages ciblées), stratégie abdomen digestif chronique2023 pp3–6, aide-mémoire palliatif2025. Ni fréquence de sous-groupe ni dose HUG importée ; 45/2587 prévalences et98lignes AIPS inchangées. 257/2287 monographies sur branche, G10 9/14,597définitions, référence Lyncée3559 sans terme nouveau. G1–G8 réussis,82/82 tests CK ; suite navigateur locale empêchée (binaire Playwright absent puis file:// bloqué sous Chromium système). CI exacte avant fusion. Six relectures documentaires inscrites dans le registre couplé, réserves non levées ; aucune validation médicale humaine ni clôture. Preuves : audit/MONOGRAPHIES-G10-LOT4-20261018.json et qa/audit-galien-g10-nociceptives.md.
+
+
+## G1 · huit diagnostics différentiels intégrés · 18.10.2026
+
+Intégration limitée à phéochromocytome/paragangliome, hypoglycémie, lymphome hodgkinien ou non hodgkinien, syndrome sérotoninergique, ménopause/syndrome climatérique, trouble anxieux/attaque de panique, apnées obstructives du sommeil et tuberculose. Les copies auditées ont été intégrées dans les shards monographiques, avec sources au registre et assets régénérés. Les fréquences spécifiques G1 demeurent « À vérifier » ; aucune probabilité ni rang médical total n’est revendiqué.
+
+Les contrelectures documentaires IA sont conservées dans `audit/MONOGRAPHIES-G1-LOT2-LYMPHOME-20261018.json`, `audit/MONOGRAPHIES-G1-AUTRES-20261018.json` et `audit/MONOGRAPHIES-G1-INFECTIONS-20261018.json`. Elles ne constituent pas une validation clinique humaine. Seule la tuberculose du lot infectieux est intégrée ; endocardite infectieuse et infection à VIH restent hors périmètre, avec leurs réserves antérieures non modifiées. Le sevrage alcoolique compliqué reste également hors périmètre.
+
+
+## G1 · complément infectieux et sevrage alcoolique · 18.10.2026
+
+Intégrées : endocardite infectieuse, infection à VIH et sevrage alcoolique compliqué. Les trois fiches utilisent le prototype six rubriques ; les corrections de source sont traçables dans `data/ck/src.json`. Les preuves détaillées sont dans `audit/MONOGRAPHIES-G1-SUITE-INFECTIEUSE-20261018.json` et `audit/MONOGRAPHIES-G1-SEVRAGE-COMPLEMENT-20261018.json`. Le rapport infectieux ne reprend pas la tuberculose, déjà intégrée séparément.
+
+Corrections R13 pour hémocultures/stabilité, fenêtre VIH après PEP et limites d’application du CIWA-Ar : accord explicite de Vial dans PR #119 (record 5693ed4) ; les entrées standard R13 sont reprises séparément par le parent. Aucune erreur humaine ni dommage clinique n’est affirmé. Les critères détaillés ESC, les fréquences et sex-ratios G1, ainsi que les posologies suisses restent « À vérifier ». Le chapitre CEN et l’ancienne stratégie HUG sont datés ou limités comme tels ; le document ESC intégral n’a pas été lu. Aucune dose étrangère n’est transposée. Relecture documentaire indépendante, sans validation clinique humaine.
+
+Le terme « signes de Wernicke » a été précisé en « signes d’encéphalopathie de Wernicke » et l’entrée « Encéphalopathie de Wernicke » est intégrée au glossaire depuis les sources HUG 2025 et DHSC §20 relues. Voir `audit/GLOSSAIRE-G1-WERNICKE-20261018.json` ; contre-audit documentaire favorable, sans validation clinique humaine.

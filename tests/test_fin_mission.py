@@ -132,6 +132,16 @@ class FinMission(unittest.TestCase):
             with patch.object(fin, "executer", return_value=(0, json.dumps({"prevalences": data}), False)):
                 self.assertEqual(fin.verifier(mission, self.root)[0], expected)
 
+    def test_chronology_gauges_are_supported_and_require_exact_counts(self):
+        for name in ("chronologie_structures", "chronologie_relectures"):
+            mission = self.mission({"type": "jauge", "nom": name})
+            payload = {name: {"ok": 8, "total": 9, "pct": 100}}
+            with patch.object(fin, "executer", return_value=(0, json.dumps(payload), False)):
+                self.assertEqual(fin.verifier(mission, self.root)[0], 1)
+            payload[name]["ok"] = 9
+            with patch.object(fin, "executer", return_value=(0, json.dumps(payload), False)):
+                self.assertEqual(fin.verifier(mission, self.root)[0], 0)
+
     def test_missing_state_uses_project_plan_not_success(self):
         self.save("tools/garde/mission-projet.json", self.mission({"type": "a_faire", "motif": "Audit"}))
         self.assertEqual(self.cli(), 1)

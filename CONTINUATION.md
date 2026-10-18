@@ -4,6 +4,11 @@ Ordre de Vial : ajuster partout les infobulles au clic/toucher, sans survol, SSP
 
 # CONTINUATION · lecture obligatoire, en entier, avant toute action
 
+## Exigence chronologique · ordre de Vial du 18.10.2026
+Les nouveaux prototypes portent `chronologie_version: 1`, `bilan_ordre` et `pec_ordre`. Sous la rubrique 5, afficher d'abord la référence diagnostique puis un bilan numéroté de un à six temps. Le premier temps s'intitule « À faire en premier » et son texte égale `exp_premier`; il décrit un bilan initial, qui peut différer du test de référence. Sous 6-B, afficher une à six phases numérotées, puis les catégories mes/pha/aut présentes. Quand plusieurs moyens appartiennent à la même phase, expliciter leur simultanéité si elle s'applique. La timeline remplace les anciens champs d’exploration dans le rendu ; afficher `exp_ref` avant elle et `dia` une seule fois après elle.
+
+Ces champs restent optionnels pour les fiches legacy. Ne jamais déduire ni générer leur ordre à partir d'un texte ancien ; la compilation garde leur rendu antérieur. Dans un prototype, le bilan ordonné remplace les champs d'exploration précédents afin d'éviter les répétitions ; afficher `exp_ref` avant la timeline et `dia` une fois après celle-ci. `prototype_ready` exige les deux chronologies valides, mais une fiche legacy peut toujours se compiler et passer sa validation héritée. La jauge de relecture réutilise le registre central `tools/coordination/relectures.json` et exige une attestation documentaire actuelle avec `chronologie_relue: true`, SHA-256 de la fiche complète courante, rapport existant dont l’empreinte concorde, date ISO et sources présentes au catalogue ; aucun marqueur n'est fabriqué automatiquement. Les jauges de structure et relecture ne certifient ni validation médicale ni exhaustivité. Vial a précisé le 18.10.2026 : « pour la suite tu devras te fier à la science plus à moi ». Le mandat courant autorise la source CH/UE lue et datée puis le contre-audit sans redemander R13 ; ne pas présenter cela comme une validation médicale humaine. Les mesures urgentes commencent sans attendre l'examen de confirmation. La veille `tools/garde/permanence.py`, fusionnée dans #120, vérifie aussi ces quatre compteurs chronologiques et le contrat courant avant toute clôture. Elle vise120s pendant ses fenêtres ; les retards GitHub restent visibles.
+
 > **Pour Codex (OpenAI) et tout agent IA sans mémoire longue.** Ce fichier est ta feuille de route complète, de l’installation jusqu’à la fin du projet.
 > Tu ne commences **aucun** travail de contenu avant d’avoir lu ce fichier **en entier** et terminé l’**Étape 0** : `python3 tools/porte.py commencer 1` refuse tant que la porte n’est pas complète.
 > Chaque session : lis `AGENTS.md` → `PROCHAINE_ACTION.md` → `ETAT.json` (`python3 tools/porte.py etat`) → la section de l’étape courante ci-dessous → travaille → `python3 tools/porte.py terminer`.
@@ -210,11 +215,11 @@ Puis remplacer dans les monographies les « À vérifier (AIPS) » par `dose_ref
 **Fin quand** : jauge Prévalences = 100 % (`porte.py critere 8`).
 **Étape suivante : 9.**
 
-### Étape 9 · Monographies en 7 rubriques, deux chaînes opposées (boucle, GPT 6 Luna)
+### Étape 9 · Monographies et chronologies en six rubriques, deux chaînes opposées (boucle, GPT 6 Luna)
 **But** : une monographie complète (A2.2) pour chaque DD, du premier au dernier SSP.
 **Lot** : ≈ 25–30 DD. **Chaîne A (Hygie → Hérophile)** : prurit G9 + douleur G10 (≈ 30 DD), puis vers l’avant. **Chaîne B (Panacée → Érasistrate)** : O7.14 – O7.12, puis vers l’arrière. Réserver le lot dans la PR ; jamais le même DD dans les deux chaînes.
 **Actions par lot** : `python3 tools/mono_build.py --draft <SSP>` (existant TIP.d à replacer) → compléter seulement le manquant dans `data/ck/mono/<lettre>.json` → `python3 tools/mono_build.py` puis `--check` (structure, gras, doses) → tests → PR → **audit aussitôt** (médical, sources lues et datées, langue : def/phy/dia/epi en phrases verbales ; cli/exp listes admises ; but/mes/pha à l’infinitif admis) → `audit-ok`. Doses : seulement `dose_ref` vers `doses_ch.json`, sinon « À vérifier (AIPS) ».
-**Fin quand** : jauge Monographies = 100 % (`porte.py critere 9`).
+**Fin quand** : jauge Monographies = 100 % et les jauges `chronologie_structures` et `chronologie_relectures` atteignent chacune 100 % ; un arrondi ne suffit pas. Un prototype est structurellement prêt seulement si ses deux ordres sont valides ; un compteur de relecture ne remplace pas l'audit clinique ou la validation attendue.
 **Étape suivante : 10.**
 
 ### Étape 10 · Doses AIPS, lot 5 et suivants (boucle, GPT 6 Luna)

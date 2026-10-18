@@ -20,6 +20,10 @@ async def check(page, touch=False):
         text = await page.locator('#tip .ck-b').inner_text()
         assert text.index('Examen de référence diagnostique') < text.index('À faire en premier')
         assert text.index('A- But') < text.index('B- Moyens') < text.index('Mesures générales')
+        assert text.index('Bilan ordonné') < text.index('1 — À faire en premier') < text.index('2 —')
+        assert text.index('B- Moyens') < text.index('Phase 1 —') < text.index('Phase 2 —')
+        assert text.count('Examen de référence diagnostique') == 1
+        assert text.count('Critères diagnostiques') == 1
         return text
 
     dd=page.locator('#prototype-test [data-t="n|G1|d0"]')
