@@ -10,6 +10,7 @@ for bloc in tip.values():
  for i,text in enumerate(bloc.get('d',[])):
   if text.startswith('À ne pas manquer.</b>'):
    bloc['d'][i]='<b style="color:var(--bad)">'+text;count+=1
-if count:
- write(s[:a]+json.dumps(tip,ensure_ascii=False,separators=(',',':'))+s[b:])
+out=s[:a]+json.dumps(tip,ensure_ascii=False,separators=(',',':'))+s[b:] if count else s
+out=out.replace('#tip .mono-r{color:#b3261e}', '#tip .mono-r{color:var(--bad)}')
+if out!=s:write(out)
 print(f'{count} balises ouvrantes restaurées ; aucun texte clinique réécrit.')
