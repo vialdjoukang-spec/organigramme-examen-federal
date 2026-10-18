@@ -225,3 +225,8 @@ Dispositif renforcé : registre de sociétés CH/Europe vérifié, dix requêtes
 
 ## 18.10.2026 Europe/Zurich · activation renforcée et reprise dermatite atopique
 #105 fusionnée 5feb98b, CI et visuel verts ; lancement 39143130333 terminé avec succès (G/S/F/O et suivi). Jauges et PDF HTTP200, identiques aux fichiers générés lors du contrôle public. La fiche de dermatite atopique conservée pendant le STOP est reprise : quatre sources CH/SFD, estimation de population explicitement distincte du cadre G9 et sans effectif/méthode détaillés, année Dermato-INFO non inventée, AIPS et biopsie réservées. Branche 245/2287 monographies ; 45/2587 fréquences inchangé. Audit séquentiel et contrôles requis avant fusion, puis quatre G9 restants et G10. Boucles ouvertes.
+
+## 18.10.2026 Europe/Zurich · quatre G9 restants rédigés
+Hodgkin, pemphigoïde bulleuse étendue, Vaquez et lichen plan : quatre fiches, huit sources et quatre définitions. Couverture G9 17/17 dans le lot ; total249/2287, prévalences45/2587 inchangées. Aucune incidence ni proportion de prurit transposée, aucune dose non AIPS ; dates/limites des sources explicites. Lecture web native réussie distinguée des téléchargements locaux403 ; PNDS2020 complet inaccessible ; PNDS2016 et résumé EADV2022 relus. G1–G8, constructions et Lyncée verts, référence3561 ; CI exacte et fusion requises. Suite G10 — Douleur, tous types, S1.3–S1.6 et Panacée ; boucles ouvertes.
+
+Référence pemphigoïde : la synthèseHAS2020 lue a été retirée des références actives après un échec de validation TLS en CI, puis remplacée par le résumé éditeur des recommandations EADV2022. Aucun contrôle TLS assoupli ni dose importée.
