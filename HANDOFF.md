@@ -1,3 +1,10 @@
+## Codex · G15–S1.2 · 18.10.2026 Europe/Zurich
+État : 54 diagnostics G15, G16, S1.1 et S1.2 conservés ; fréquences explicitement À vérifier. G1–G8, builders, Lyncée et gardes réussis ; CI exacte requise avant fusion.
+Prochaine : cinq G9 (Hodgkin, pemphigoïde étendue, Vaquez, dermatite atopique, lichen plan), puis G10 ; prévalences S1.3–S1.6. Panacée O7.14–O7.12 reste due.
+Sources : stratégie HUG obésité 2025 pages 2–3 ; pages chirurgie oculomotrice et causes/diagnostic du décollement de rétine relues. Aucun pourcentage admissible retenu.
+Pièges : ne pas transposer les fréquences de population ou complications opératoires aux causes de consultation. Pages désormais HTTP 200 et app identique à main bfa43f2 avant ce lot ; le blocage réseau historique est levé pour cette URL.
+À vérifier : les 54 fréquences, tous les reliquats des boucles ; Chromium Playwright absent localement, suite navigateur déléguée à la CI existante. Aucune fin de boucle ni validation de médecin revendiquée.
+
 ## Codex · G9 psoriasis et urticaire · 18.10.2026 Europe/Zurich
 État : #101 fusionnée 774de74, Pages réussi. PR #102 : deux fiches en sept rubriques et six définitions, 244/2287 monographies dans le lot ; les statuts de CI et de fusion sur GitHub font foi.
 Prochaine : boucle 8 lot 7 G15, G16, S1.1 et S1.2 ; G9 Hodgkin, pemphigoïde étendue, Vaquez, dermatite atopique et lichen plan, puis G10. Panacée O7.14–O7.12.

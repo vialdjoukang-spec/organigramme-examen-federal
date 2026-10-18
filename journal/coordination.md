@@ -71,3 +71,7 @@ Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après le
 - 18.10.2026 Europe/Zurich · #99 fusionnée : six fréquences G9 sur 197 hospitalisés à Brest, population sélectionnée sans dermatose et causes non exclusives ; cinquante inconnues. #100 réunit gales commune/croûteuse, cinq épidémiologies et six définitions. Suite : G11–G14, sept G9, G10 et Panacée ; aucune fin de boucle.
 
 - 18.10.2026 Europe/Zurich · #101 fusionnée 774de74 avec CI/visuel verts et Pages réussi ; G9 psoriasis et urticaire complétés, six définitions, réserves documentées. Site public encore CONNECT 403 dans cette session.
+
+## Étape 8 lot 7 · G15–S1.2 · 18.10.2026 Europe/Zurich
+54 DD conservés exactement, inconnues explicites, zéro chiffre ajouté ; prévalences 45/2587, monographies 244/2287 inchangées. Contre-lecture séquentielle, G1–G8, builders, Lyncée et gardes réussis. Suite navigateur locale arrêtée avant tout test : exécutable Chromium Playwright absent ; CI complète requise avant fusion. Pages HTTP 200, app identique à main bfa43f2 avant le lot. Prochaine : cinq G9, puis G10 ; prévalences S1.3–S1.6. Boucles ouvertes.
+Modèle : mécanique par script déterministe ; jugement et contre-lecture par le modèle courant de secours, Luna CLI signalée indisponible en 401 dans la relève, aucun sous-agent lancé.
