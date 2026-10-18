@@ -69,7 +69,11 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 
 - 18.10.2026 UTC · Priorité Vial9 et8 parallèle : lot2 G10, deux urgences et cinq définitions ; 253/2287 monographies,587 entrées,45/2587 fréquences inchangées. Audit indépendant, deux précisions corrigées ; contrôles locaux de données verts, Chromium local absent, CI exacte requise. Recherche39155482602 et Pages39156254859 réussis techniquement :160 diagnostics, résultats partiels,377 extraits candidats,352 en file documentaire ; aucun chiffre clinique nouveau.
 
+- 18.10.2026 22:33 Europe/Zurich · Étape9 prioritaire, G10 lot4 : deux douleurs nociceptives, cinq définitions et deux sources HUG2023 enregistrées ; 257/2287 sur branche, G10 9/14 et597définitions. Deux alias ambigus retirés après contrelecture. Données contrôlées ; CI/fusion/publication exactes requises. Étape8 couplée et toutes réserves conservées. Veille10min configurée mais cadence réelle non garantie par les runs observés.
+
 ## Notes modèle (écrites par la veille si GPT 6 Luna est refusé)
+
+18.10.2026 22:33 Europe/Zurich : rédaction répétitive déléguée à gpt-6-luna via sous-agent disponible ; intégration et jugement clinique par le modèle courant, contrelecture séparée par auditeur_statistique. L’ancienne indisponibilité de la CLI ne décrit pas les sous-agents de cette session.
 
 18.10.2026 : Luna indisponible par la CLI (401). Modèle de secours : modèle courant de cette session, seul modèle callable sans lancer un autre agent ; utilisé pour les rédactions/relectures, les inventaires étant exécutés par scripts. Le 401 bloque la relance CLI autonome, pas le travail interactif. Les contenus encore à rédiger et à auditer restent dus ; aucune indisponibilité médicale générale n’est déduite de cette erreur.
 
