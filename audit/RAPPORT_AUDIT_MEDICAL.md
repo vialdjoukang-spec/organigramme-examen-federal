@@ -747,3 +747,6 @@ Le patch proposé distingue les deux familles de rythmes et demande le traitemen
 ### Reprise #88 · 18.10.2026, Europe/Zurich
 
 Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.
+
+### Recontrôle G9 après #64 · 18.10.2026
+Six propositions comparées aux sections 4.2.1/3/7/8/9, 4.3.2, 6.4.5 et 6.6.1 du texte intégral EDF 2025 et à la définition HUG d’hémodialyse, accessibles et relus. Réserves épidémiologiques, critères fonctionnels et AIPS conservés ; aucune dose ajoutée. G1–G8 et constructions verts. Le navigateur système bloque file:// et le téléchargement Playwright est refusé ; la CI de la tête exacte reste obligatoire.
