@@ -267,3 +267,9 @@ Fautes et précisions corrigées :
 Aucune dose ajoutée. Aucune faute critique identifiée dans ce diff. Contrôles prev_build, ck_build, mono_build et G3 passent ; Lyncée ne trouve aucun terme nouveau. Suite Playwright 1.63 et CI à terminer avant fusion ; audit-ok ne dispense d'aucun contrôle.
 
 Après intégration des 139 définitions de main, 45 définitions déjà relues dans #68 ont été reprises pour assurer la compatibilité ; leurs statuts À vérifier restent identiques. Référence 3753 → 3735. Aucun ajout par --update. Le nouveau garde impose la baisse du total même quand les règles changent ; quatre tests réels CLI réussis. La suite des définitions de #68 reste une PR distincte.
+
+### Janus · quatre termes des monographies fusionnées #50, 18.10.2026
+
+Alias hypo-esthésie ajouté à la définition sourcée existante, sans la modifier. Hypertrophie : première définition Larousse lue ; aucune reprise des indications. Syndrome de Löfgren : FMS 2024;24(12), p.160, Vintage Corner (PDF p.42), triade effectivement relue ; aucun chiffre de pronostic ni conseil de biopsie transposé. Sérite : définition provisoire explicite À vérifier. Aucune admission en baseline, aucun accord Vial fabriqué. G1/G2/G3/G6 et Lyncée à revérifier après reconstruction ; défaut de clipping calendrier en cours d’examen, CI obligatoire avant fusion.
+
+Défaut UI reproduit localement : la liste du calendrier mesure 246 px mais son contenu atteint 286 px. Le contrôle « texte coupé » reste actif et audit-ok est retiré pendant la correction. La référence Lyncée est 3734 après traitement des quatre termes ; le build et G2 passent.
