@@ -8,19 +8,24 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 
 | Vu | Commande normalisée | Où | Skill proposé |
 |---|---|---|---|
-| 4 | `python3 tools/mono_build.py` | CONTINUATION.md, HANDOFF.md | `ssp-mono-build-py` |
 | 4 | `tools/etapes.json` | CONTINUATION.md | `ssp-etapes-json` |
-| 3 | `tools/doses_check.py` | CONTINUATION.md | `ssp-doses-check-py` |
-| 3 | `python3 tools/prev_build.py` | CONTINUATION.md | `ssp-prev-build-py` |
 
 ## Tâches répétitives (sujets de commit)
 
 | Vu | Début de sujet | Action |
 |---|---|---|
+| 17 | audit galien-neuro nc07-chaine | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 13 | visuel nouvelle référence | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 12 | audit galien-neuro glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 11 | audit galien-neuro glo-lot01b | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
-| 10 | visuel nouvelle référence | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 7 | codex étape n | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 4 | asclépios prévalence ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | audit galien-têtecou glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | audit érasistrate panacée | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | monographies panacée lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | audit hérophile lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | hygie monographies lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | audit galien rapport | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 
 ## Squelette d'un skill
 
@@ -36,8 +41,10 @@ description: <quand l'utiliser, en une phrase>
 4. Pièges : <liste>
 ```
 
-## Décisions Codex · 17.10.2026 UTC
+## Décisions après relecture · 18.10.2026 02:25 UTC
 
-- mono_build, prev_build, doses_check : retenus dans ssp-construction-ck.
-- etapes.json : écarté, chemin de données et non commande.
-- audit galien : déjà couvert par ssp-audit-medical ; référence visuelle : ssp-qualite-visuelle.
+- `tools/etapes.json` : chemin, faux positif, couvert par ssp-pilotage-codex.
+- Audits et définitions : ssp-audit-medical, ssp-verite et scripts existants ; le jugement clinique ne se déduit pas de remplacements automatiques.
+- Prévalences et monographies : ssp-construction-ck, prev_build.py et mono_build.py.
+- Adoption des références : ssp-qualite-visuelle ; reprise des étapes : ssp-pilotage-codex.
+- Inventaire explicite : procédure ajoutée à ssp-verite, script inventaire_a_verifier.py. Aucun skill doublon utile.

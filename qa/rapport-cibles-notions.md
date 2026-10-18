@@ -1,0 +1,11 @@
+# Cibles des notions — 18.10.2026
+
+Les définitions Anatomie et Neurosciences ajoutaient deux cibles hautes de 17 px, trop proches d’autres boutons. La CI mesurait target-size 4→6 sur ordinateur et 11→13 sur mobile. Le défaut est corrigé par des cibles d’au moins 24 px pour les liens de glossaire et boutons d’information des lignes de notion ; aucun texte médical ni seuil Iris n’est modifié.
+
+Reproduction ciblée ordinateur : six cibles en défaut avant, zéro après injection du même CSS. Captures complètes, mobile et autres thèmes à vérifier avant adoption de la référence. Les pixels changent volontairement pour rendre les cibles utilisables ; aucune hausse des problèmes graves ou critiques ne doit être acceptée pour les masquer.
+
+Les 60 captures locales après correction ne présentent aucune nouvelle violation axe grave/critique, aucun débordement, texte coupé, échec de police ou erreur JavaScript. Target-size dans Notions est nul sur les trois thèmes, ordinateur/mobile ; le CLS maximal reste 0,0358. La CI ne signale plus que trois écarts de pixels pour les fenêtres ordinateur (0,82 % clair/doré, 0,73 % sombre), après agrandissement des déclencheurs. Rendus bureau clair et mobile sombre, puis comparaisons locales clair/sombre examinés. Adoption explicite de la référence CI demandée par le script habituel sur runner ; vérification des fichiers CI et contrôles après adoption encore requises.
+
+Adoption exécutée sur le runner 39088687562, référence de la capture CI 39088253572 (04718be). Fichiers CI récupérés par Git et examinés (fenêtre claire ordinateur, Notions sombre mobile) : rendu cohérent, aucune hausse de compteur axe grave/critique ; target-size Notions se resserre à zéro sur les six combinaisons. Les contrôles après adoption sont relancés par ce push, sans changer le fichier de seuils.
+
+Le contrôle HTML a refusé les deux règles supplémentaires dans le bloc de style hérité du corps. Le patch conserve exactement les mêmes dimensions en les portant sur les éléments lors de leur création (bouton de notion et lien de glossaire dans une ligne de notion). Les deux règles nouvelles sont retirées, sans augmenter la référence HTML ni changer le rendu attendu. Nouvelle CI requise après cette correction.

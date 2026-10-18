@@ -1,0 +1,42 @@
+# Appel de Vial (R15) : étiquette attente-vial sur une PR ou une issue (ou lancement manuel, ou escalade de
+# garde-progres, qui appelle le même script) → une ligne sur « Pilote Codex » avec @vialdjoukang-spec
+# (courriel GitHub), puis « @codex » : continue ailleurs, n'attends jamais Vial.
+name: Appel de Vial
+on:
+  pull_request_target:
+    types: [labeled]
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      lien: { description: 'Lien de la PR ou de l issue', required: true }
+      decision: { description: 'Décision attendue, une ligne', required: true }
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency:
+  group: appel-vial
+  cancel-in-progress: false
+jobs:
+  appel-vial:
+    name: appel-vial
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'attente-vial'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # pull_request_target : on extrait main (code de confiance), jamais la branche de la PR.
+      - uses: actions/checkout@v7
+        with: { ref: main, fetch-depth: 0 }
+      - name: Appel
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_BOT: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_CODEX: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LIEN: ${{ inputs.lien || github.event.pull_request.html_url || github.event.issue.html_url }}
+          TITRE: ${{ inputs.decision || github.event.pull_request.title || github.event.issue.title }}
+          CORPS: ${{ github.event.pull_request.body || github.event.issue.body }}
+        run: |
+          D=$(printf '%s\n' "$CORPS" | grep -m1 -iE '^\W*d[ée]cision( requise| attendue)?\s*:' | sed -E 's/^[^:]*:\s*//' || true)
+          python3 tools/garde/appel.py --lien "$LIEN" --decision "${D:-$TITRE}"

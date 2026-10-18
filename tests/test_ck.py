@@ -45,7 +45,9 @@ NC = [{'id': 'nc07', 'nom': 'Nerf exemple', 'noyaux': ['noyau A'], 'trajet': ['s
 LOC = [{'module': 'neuro-nc', 'A': ['syn-ex'], 'B': ['hyp-ex']}]
 DOS = [{'id': 'substance-test-po', 'substance': 'substance-test', 'produit_ch': 'Produit fictif', 'dose': '10 mg/j pendant 5 jours',
         'voie': 'p.o.', 'population': 'adulte', 'aips_rubrique': 'Posologie/Mode d’emploi',
-        'url': 'https://www.swissmedicinfo.ch/exemple', 'lu_le': J, 'lu_par': 'Galien'}]
+        'url': 'https://www.swissmedicinfo.ch/exemple', 'lu_le': J, 'lu_par': 'Galien',
+        'aips_extrait': [{'rubrique': 'Posologie/Mode d’emploi', 'texte': 'Adultes: 10 mg par jour pendant 5 jours.'}],
+        'aips_version': 'Janvier 2026', 'aips_publie': '2026-01-01', 'url_texte': 'https://files.refdata.ch/exemple-fr.html'}]
 SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><g id="trait"/><g id="nerf"/><g id="legendes"/></svg>')
 CRED = [{'fichier': 'nc07-face.svg', 'source': 'Exemple', 'auteur': 'Auteur', 'licence': 'Domaine public',
          'url': 'https://commons.wikimedia.org/wiki/Exemple', 'derive': True, 'licence_derivee': 'CC BY-SA 4.0'}]
@@ -131,6 +133,17 @@ case('G1_concentration_n_est_pas_une_dose', lambda f: not mut(f, lambda d: d['gl
 case('G1_dose_nouvelle_dans_TIP_echoue', lambda f: (f.app(APP.replace('une dyspnée.', 'une dyspnée ; on donne 5 mg/kg.')), f.gate('G1') == 1)[-1])
 case('G1_dose_nouvelle_TIP_a_verifier_passe', lambda f: (f.app(APP.replace('une dyspnée.', 'une dyspnée ; 5 mg/kg (À vérifier).')), f.gate('G1') == 0)[-1])
 case('G1_ligne_hors_AIPS_echoue', lambda f: mut(f, lambda d: d['doses_ch'][0].update(url='https://www.exemple.com/x'), 'G1'))
+# Table des doses (Pharmakon) : extrait verbatim, URL et dates obligatoires ; nombres dérivés présents dans l'extrait.
+def doses(f, fn=None):
+    if fn:
+        fn(f.data)
+    f.save()
+    return run('doses_check.py', os.path.join(f.d, 'data', 'ck', 'doses_ch.json'))[0]
+case('doses_conforme_passe', lambda f: doses(f) == 0)
+case('doses_sans_extrait_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].pop('aips_extrait')) == 1)
+case('doses_sans_url_texte_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].pop('url_texte')) == 1)
+case('doses_date_future_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].update(lu_le='2099-01-01')) == 1)
+case('doses_nombre_hors_extrait_echoue', lambda f: doses(f, lambda d: d['doses_ch'][0].update(dose='20 mg/j')) == 1)
 # G2 sources
 case('G2_sans_source_echoue', lambda f: mut(f, lambda d: d['glo'][0].pop('src'), 'G2'))
 case('G2_a_verifier_passe', lambda f: not mut(f, lambda d: (d['glo'][0].pop('src'), d['glo'][0].update(statut='À vérifier')), 'G2'))
@@ -169,6 +182,15 @@ def _baseline_grows(f):
 
 
 case('G4_reference_ne_peut_que_baisser', _baseline_grows)
+def _mono_terme_nouveau(f):
+    m = os.path.join(f.d, 'data', 'ck', 'mono')
+    os.makedirs(m, exist_ok=True)
+    json.dump({'x': {'n': 'X', 'cli': 'Le patient présente une cholangite.', 'src': 'S', 'lu': '17.10.2026'}},
+              open(os.path.join(m, 'x.json'), 'w'))
+    return run('lyncee.py', '--racine', f.d)[0] == 1
+
+
+case('G4_monographie_terme_nouveau_echoue', _mono_terme_nouveau)
 case('G4_update_resserre_sans_ajouter', lambda f: (f.data['glo'].append({'id': 'patient', 'type': 'terme', 'label': 'Patient',
                                                                          'def': 'La personne reçoit les soins.', 'src': REF}), f.save(),
                                                  run('lyncee.py', '--racine', f.d, '--update')[0] == 0)[-1])
@@ -248,6 +270,9 @@ case('fautes_ligne_invalide_echoue', lambda f: (open(os.path.join(f.d, 'qa', 'au
 case('budget_assets_ck_depasse_echoue', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d, 'CK_MAX_BYTES': '10'})[0] == 1)
 case('budget_svg_depasse_echoue', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d, 'SVG_MAX_BYTES': '10'})[0] == 1)
 case('budget_assets_nc_depasse_echoue', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d, 'NC_MAX_BYTES': '10'})[0] == 1)
+case('budget_assets_mono_depasse_echoue', lambda f: (os.makedirs(os.path.join(f.d, 'assets', 'mono'), exist_ok=True),
+                                                    open(os.path.join(f.d, 'assets', 'mono', 'mono-a.js'), 'w').write('window.CK_MONO_A={};'),
+                                                    run('budget.py', env={'BUDGET_ROOT': f.d, 'MONO_MAX_BYTES': '10'})[0] == 1)[-1])
 case('budget_conforme_passe', lambda f: run('budget.py', env={'BUDGET_ROOT': f.d})[0] == 0)
 case('svg_conforme_passe', lambda f: run('nc_svg_check.py', '--racine', f.d)[0] == 0)
 case('svg_couche_absente_echoue', lambda f: (open(os.path.join(f.d, 'assets', 'nc', 'nc07-face.svg'), 'w').write(SVG.replace('<g id="nerf"/>', '')),

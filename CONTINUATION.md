@@ -52,7 +52,7 @@ La même liste existe pour les machines dans `tools/etapes.json` (titres, critè
 
 **Après P1** (Étapes 13–16, dans cet ordre) : nerfs crâniens (NC), stations CS (5 pilotes à relire par Vial), lots d’urgences CK, fond pâle (#32), trauma S8 (#37), revues #39/#41, présentation premium (#16), 27 signes et ~85 termes de Galien.
 
-### A3. Règles non négociables (R1–R14)
+### A3. Règles non négociables (R1–R15)
 - **R1 · Sources** suisses ou européennes uniquement, **lues et datées** (« lu le JJ.MM.AAAA ») ; sinon « À vérifier ». **Ne jamais inventer** un chiffre, une dose, une référence, une image. Ligue pulmonaire suisse acceptée ; abcd.care / JBDS britannique refusé comme source principale ; GINA/GOLD jamais en source principale. Toute source citée doit exister dans `data/ck/src.json`.
 - **R2 · Doses** : uniquement l’**AIPS suisse** (information professionnelle). Méthode approuvée par Vial le 17.10.2026 : extraction **par script, mot pour mot**, depuis le téléchargement officiel Swissmedic/Refdata, **chaque ligne relue** à la main + `tools/doses_check.py` (tout nombre absent de l’extrait officiel est refusé). **Piège des polices** : µ, ≥, ≤ en police symbole sur les pages officielles → noradrénaline lue « mg/min » au lieu de « µg/min » (facteur 1 000) ; vérifie **toujours l’unité**. **Le Compendium (compendium.ch) est exclu** (ni lecture automatisée, ni source). Pas dans l’AIPS → « À vérifier (AIPS) ». Skill `ssp-posologie-suisse`.
 - **R3 · Justifier chaque examen et chaque traitement** (G8) : mécanisme → principe → moyen → pourquoi ce choix → limites.
@@ -67,6 +67,14 @@ La même liste existe pour les machines dans `tools/etapes.json` (titres, critè
 - **R12 · Ne jamais modifier `/workspace/ssp/app.html`** (référence, empreinte contrôlée par la CI `garde`).
 - **R13 · Faute médicale critique** : la signaler en rouge en tête du rapport, poser le label `attente-vial` (la file de fusion la saute) ; sa correction attend l’accord de Vial avant fusion.
 - **R14 · Fusion** : commit de fusion (`--merge`), jamais squash, jamais force-push d’une branche de PR, jamais `--admin` pour contourner, jamais affaiblir la protection de `main`. Permission permanente de Vial : fusionner soi-même **après audit et CI verte**.
+
+- **R15 · Garde-fous (ordre de Vial, 18.10.2026)** : « Codex doit être libre, indépendant de tout PC ». La veille permanente est **GitHub Actions** (gratuit, dépôt public), plus aucun PC :
+  - `garde-progres.yml` toutes les **10 min** (`tools/garde/progres.py`) mesure le contenu réel de `main` (prévalences, monographies, lignes de doses, glossaire). **STALL** = aucun compteur monté en **30 min**, ou seulement des PR de relevé : `@codex` sur la PR brouillon **« Pilote Codex »** (≤ 1 relance / 30 min) ; après **2 stalls consécutifs (60 min)**, `@vialdjoukang-spec` (courriel, ≤ 1 / 60 min). Il recycle aussi chaque PR sans commit depuis **60 min** (`tools/garde/recyclage.py` : « reprends ou ferme avec motif », ne ferme rien).
+  - `checkpoint.yml` (`tools/garde/checkpoint.py`) sur chaque PR : section **« Automates actifs »** obligatoire dans le corps (scripts/skills/MCP existants), interdit de déclarer finie une étape en boucle (8–11, 14, 15) sans données de contenu, aucune dose sans ligne `data/ck/doses_ch.json`. En cas d’échec, l’ordre de correction t’est posté avec `@codex`.
+  - `appel-vial.yml` : étiquette `attente-vial` → une ligne à Vial sur « Pilote Codex » (courriel) **et** `@codex` : continue ailleurs, n’attends **jamais** Vial.
+  - **Début de chaque session** : affiche `python tools/garde/checkpoint.py --inventaire` (tes automates actifs) ; recopie ceux que tu utilises dans « Automates actifs » de ta PR.
+  - **Un relevé seul ne termine jamais une étape en boucle** ; seul le critère automatique (`porte.py`) la clôt.
+  - Seuils en minutes, modifiables sans code : `tools/garde/config.json`. État anti-spam : branche `garde/etat`. `veille_relance.sh` devient **facultatif**.
 
 ### A4. Organisation : deux chaînes en sens opposé, chaque rédacteur suivi de son auditeur
 Les noms sont des **rôles** ; seul, Codex les joue l’un après l’autre (rédiger un lot → l’auditer aussitôt en relecteur agressif → `audit-ok`). En parallèle (plusieurs sessions Codex), une session = un rôle, un worktree.
@@ -107,9 +115,7 @@ Format de chaque étape : **But** · **Actions** · **Fichiers** · **Commandes*
 - **0.2 Skills** : `docs/skills/README.md`, puis `ssp-pilotage-codex`, `ssp-continuite`, `ssp-verite`, `ssp-posologie-suisse`, `ssp-audit-medical`, `ssp-fusion-patch` (les autres à l’étape qui les cite).
 - **0.3 (a) Catalogue** : `python3 tools/catalogue.py` écrit `CATALOGUE.md` (scripts gratuits du dépôt, automates GitHub Actions, outils système, skills, droits). Remplace chaque « À COMPLÉTER PAR CODEX » par la liste réelle : **tes serveurs MCP** (`codex mcp list` ou `~/.codex/config.toml`), **tes skills et outils intégrés** (web, navigateur, exécution…), avec l’étape où chacun sert. **Présente ce catalogue** (copie-le dans ta réponse de session et dans `PROCHAINE_ACTION.md`) **avant de commencer**. Ajoute les automates gratuits manquants que tu jugerais utiles (ex. pre-commit, `act`, lychee) avec leur usage.
 - **0.4 (b) Proposition de skills** : `python3 tools/propose_skills.py` (détecte les commandes et tâches répétitives dans `journal/*.md`, `HANDOFF.md`, `.etat_local/*.log` et `git log`, écrit `docs/skills/PROPOSITIONS.md`). Lis le résultat ; crée tout de suite les skills évidents. À relancer à la fin de chaque étape (A5.7).
-- **0.5 (c) Veille de relance** : teste `bash tools/veille_relance.sh --une-fois --dry-run`, puis lance-la pour de bon :
-  - **Mode A (Codex CLI présent)** : `nohup bash tools/veille_relance.sh --boucle 180 >/dev/null 2>&1 &` ou cron `*/3 * * * * cd <dépôt> && bash tools/veille_relance.sh --une-fois`. Elle appelle `codex exec --full-auto -C <dépôt> [-m gpt-6-luna] "Ordre de Vial : continue avec l'étape suivante…"` quand l’étape est finie, et « reprends l’étape en cours » si rien n’a bougé depuis 20 min (`INACTIF_MIN`). Un seul Codex à la fois (verrou). Journal : `.etat_local/veille_relance.log`, `.etat_local/codex_exec.log`.
-  - **Mode B (Codex web/IDE/cloud, sans CLI)** : la veille (sur n’importe quelle machine, ou le workflow `file-fusion.yml` pour la fusion) écrit l’ordre dans `PROCHAINE_ACTION.md` ; **tu lis ce fichier au début de chaque session** (AGENTS.md l’impose). Si aucune machine ne peut tourner la veille, exécute toi-même `bash tools/veille_relance.sh --une-fois --sans-codex` au début et à la fin de chaque session.
+- **0.5 (c) Veille de relance = GitHub Actions (R15)** : rien à lancer sur un PC. `garde-progres.yml` (toutes les 10 min) te relance par `@codex` sur la PR « Pilote Codex » dès 30 min sans contenu, `file-fusion.yml` fusionne et publie. Vérifie seulement qu’ils sont verts (`gh run list -w garde-progres.yml -L 3`). `tools/veille_relance.sh` reste **facultatif** (mode A `codex exec` si une machine est disponible ; mode B `PROCHAINE_ACTION.md`), jamais requis.
   - Note le mode et la commande dans ETAT.md (« Réglages notés »).
 - **0.6 (d) Droits de fusion** : `bash tools/file_fusion.sh --droits` doit montrer `admin:true`, `merge_commit:true`, `auto_merge:true`. Moyens, dans l’ordre : ton jeton `gh` (déjà admin du dépôt sur la box Grok : `gh auth status`) ; sinon `gh auth login` avec le compte de Vial ; pour l’automate GitHub, un **secret `AUTO_FUSION_TOKEN`** (PAT fin limité à ce dépôt : Contents, Pull requests, Actions en écriture), lu par `auto-fusion.yml` et `file-fusion.yml` (`gh secret set AUTO_FUSION_TOKEN` : demande le jeton à Vial ; **n’écris jamais un jeton dans un fichier ni dans un message**). Les règles de protection restent intactes : « admin » sert à fusionner soi-même, pas à contourner la CI. Teste `bash tools/file_fusion.sh --dry-run`.
 - **0.7 Modèle** : vérifie que `gpt-6-luna` est accessible (`codex exec -m gpt-6-luna "réponds OK"` ou le sélecteur de modèle). Sinon, `export MODELE_REPETITIF=<le moins cher>` pour la veille et note-le dans ETAT.md.
@@ -225,13 +231,13 @@ Puis remplacer dans les monographies les « À vérifier (AIPS) » par `dose_ref
 **Étape suivante : 17.**
 
 ### Étape 17 · Clôture
-**Actions** : jauges à 100 % envoyées ; site public = main (empreinte) ; tests complets ; `HANDOFF.md`, `ETAT.md`, ce fichier à jour ; liste finale des « À vérifier » et des fautes critiques pour Vial ; arrêter la veille (`pkill -f veille_relance.sh`, retirer la ligne cron). **Fin du projet.**
+**Actions** : jauges à 100 % envoyées ; site public = main (empreinte) ; tests complets ; `HANDOFF.md`, `ETAT.md`, ce fichier à jour ; liste finale des « À vérifier » et des fautes critiques pour Vial ; désactiver `garde-progres.yml` (`gh workflow disable garde-progres.yml`) et, si utilisée, la veille facultative. **Fin du projet.**
 
 ---
 
 ## Partie C · État, outils, sauvegardes
 
-### C1. État au 18.10.2026 00:45 (à revérifier à l’Étape 1)
+### C1. État au 18.10.2026 00:45 (historique ; vérification Codex ci-dessous)
 **Sur main** (9b5925c) : infrastructure monographies (patch 0026, `assets/mono/`), Hygie lot 1 (G1, 14 DD), Panacée lots 1–2 (O7.26–O7.21), **infrastructure prévalence #42** (aucun chiffre encore), **visuel CLS #66**, `progres.html`, auto-fusion v1 + `--repo` + correctif Pages.
 
 | PR | Objet | État |
@@ -256,12 +262,50 @@ Monographies  ░░░░░░░░░░    3 %  (70/2280 · audités 0)
 
 **Autres reliquats** : ~moitié des chiffres épidémiologiques des monographies encore « à vérifier » ; cartes d’approbation à chaque `git push` dans l’environnement Grok Bot (sans objet pour Codex).
 
+### Vérification Codex · 18.10.2026 01:05 CEST
+
+Main observé : `2228be7` (dépôt réel). Pages HTTP 200, SHA-256 identique à origin/main : `c750e1813c1c725508628d407ab7382c43ccb997923b3ee83e58bb5acf850f40`.
+
+| PR | Branche | Fusion | Contrôles observés |
+|---|---|---|---|
+| #16 | feat/apollon-premium | UNKNOWN | garde: SUCCESS, visuel: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #32 | feat/fond-pale | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #37 | feat/trauma-ddx | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: FAILURE, tests: SUCCESS, schemas: SUCCESS |
+| #39 | feat/galien-nc07-revue | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #41 | fix/galien-tip-revue | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #43 | feat/ddx-prev-g1-thorax | BLOCKED | garde: IN_PROGRESS, visuel: IN_PROGRESS, auto-fusion: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: IN_PROGRESS, tests: IN_PROGRESS, schemas: IN_PROGRESS |
+| #44 | feat/ddx-prev-g2-dyspnee | UNKNOWN | visuel: FAILURE, visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #45 | feat/ddx-prev-g3-abdomen | UNKNOWN | visuel: FAILURE, visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #47 | audit/galien-prev | DIRTY | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #49 | audit/herophile | DIRTY | auto-fusion: FAILURE, garde: IN_PROGRESS, visuel: IN_PROGRESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: IN_PROGRESS, schemas: IN_PROGRESS |
+| #50 | feat/mono-g2 | DIRTY | auto-fusion: SUCCESS, garde: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #53 | feat/mono-g3 | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #54 | feat/mono-g5 | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #56 | test/auto-fusion-e2e | UNKNOWN | aucun check publié |
+| #58 | feat/ddx-prev-g4-fievre-syncope | UNKNOWN | aucun check publié |
+| #59 | feat/doses-ch-1 | DIRTY | auto-fusion: FAILURE, garde: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #60 | feat/mono-panacee-3 | DIRTY | garde: FAILURE, auto-fusion: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #61 | feat/doses-ch-2 | UNKNOWN | aucun check publié |
+| #62 | feat/mono-panacee-4 | UNKNOWN | aucun check publié |
+| #63 | agent/auto-fusion-graphql | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #64 | feat/mono-g7 | UNKNOWN | visuel: FAILURE, auto-fusion: SKIPPED, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #65 | feat/lyncee-glossaire | DIRTY | auto-fusion: FAILURE, garde: SUCCESS, visuel: SUCCESS, visuel: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: SUCCESS, schemas: SUCCESS |
+| #67 | feat/doses-ch-3 | DIRTY | aucun check publié |
+| #68 | feat/glo-lyncee-01 | UNKNOWN | visuel: FAILURE, garde: SUCCESS, etiquette: SUCCESS, html: SUCCESS, liens: SUCCESS, tests: FAILURE, schemas: SUCCESS |
+| #70 | feat/doses-ch-4 | CLEAN | aucun check publié |
+| #71 | codex/etape-0 | BLOCKED | garde: IN_PROGRESS, visuel: IN_PROGRESS, etiquette: IN_PROGRESS, html: IN_PROGRESS, liens: IN_PROGRESS, tests: IN_PROGRESS, schemas: IN_PROGRESS |
+
+UNKNOWN signifie que GitHub n’a pas encore calculé la fusion ; ce n’est pas une validation. Les sauvegardes bundle et patches Grok (§ C4) sont absentes des deux chemins dans cet environnement. Les branches distantes sont disponibles ; ne pas annoncer les travaux non commités comme récupérés.
+
+Jauges inchangées : prévalences 0/2578 (0 %), monographies 70/2280 (3 %). `binomes.py --check` passe. La file locale a mis #43 à jour ; sa CI est en cours. La protection main n’est pas lisible via cette intégration (403), elle reste intacte.
+
 ### C2. Commandes et fichiers
 | Chemin | Rôle |
 |---|---|
 | `tools/porte.py` | Porte des étapes : `etat`, `verifier0`, `commencer N`, `critere N`, `terminer`, `avancer`, `ordre`, `--dry-run`. |
 | `tools/etapes.json` | Feuille de route machine : étapes, critères, boucles, modèle, chaînes de PR de la file de fusion. |
-| `tools/veille_relance.sh` | Veille permanente : file de fusion, fin d’étape, relance de Codex (mode A `codex exec`, mode B `PROCHAINE_ACTION.md`). |
+| `tools/garde/` + `garde-progres.yml`, `checkpoint.yml`, `appel-vial.yml` | **Veille permanente R15** (GitHub Actions, 10 min) : STALL → `@codex`, appel de Vial, recyclage, checkpoint de PR. |
+| `tools/veille_relance.sh` | Veille facultative : file de fusion, fin d’étape, relance de Codex (mode A `codex exec`, mode B `PROCHAINE_ACTION.md`). |
 | `tools/file_fusion.sh` | File de fusion-publication : `--dry-run`, `--chaine`, `--droits`, `--ci` ; échecs → `journal/echecs_fusion.md`. |
 | `.github/workflows/file-fusion.yml` | Même file, planifiée toutes les 20 min sur GitHub (gratuit). |
 | `tools/propose_skills.py` | Propositions automatiques de skills → `docs/skills/PROPOSITIONS.md`. |
@@ -323,3 +367,36 @@ Sources    : <sources lues, datées>
 Pièges     : <ce qui a cassé et comment l’éviter>
 À vérifier : <liste>
 ```
+
+### C6. Relève Codex du 18.10.2026 UTC
+Le passage aux vérifications de clôture ne valide pas la fin du projet. État détaillé : `docs/releves/RELEVE_CODEX_20261018.md` ; étapes inachevées dans `ETAT.json.en_attente`, reprise de la boucle 8. #64/#67/#70 restent attente-vial. #80/#81 sont des brouillons, cinq stations restent non validées. Incident de fusion hors ordre #62, verrou proposé #82 ; défaut Fermer corrigé #84 avec suite 276/276. Le mode B de veille n’exécute pas de rédaction médicale autonome tant que la CLI est en 401. Aucun seuil, source, accord ou 100 % inventé.
+
+### C7. Mise à jour factuelle · 18.10.2026 00:52 UTC
+
+#45, #58, #60, #39, #84 et #82 sont fusionnées. Étape 3 complète ; les données Panacée sont réunies, avec incident d’ordre #62 avant #60 conservé. Main : prévalences 38/2587 (1 %), monographies 130/2287 (6 %). Suite main 42a432d : 276/276 ; Pages identique à main 8dd0d0a (HTTP 200, SHA-256 9e4720c6ce86056e4648eaa8744fe183479d9ddbf6419f1bb13ad60d8a800969). #65 et #68 restent en attente de fusion, références respectives 3735 et 3571 ; 527 entrées réunies sur #68. Les détails et réserves sont dans docs/releves/RELEVE_CODEX_20261018.md. Clôture toujours refusée, ETAT.json étape 8, lot 2, veille mode B conservée.
+
+### C8. Mise à jour factuelle · 18.10.2026 01:15 UTC
+
+#50→#53→#54 fusionnées ; #86 fusionnée. Main : 207/2287 monographies (9 %), 38/2587 prévalences (1 %). Pages et quatre fichiers JS cliniques contrôlés sont identiques à main 51cb2e5. #65 contient 406 entrées (référence 3734) et le patch 0030 du calendrier : suite 276/276 ; #68 contient 535 entrées (référence 3571), fusion après #65. #32 : référence CI adoptée explicitement par le script habituel sur runner, compteurs axe non augmentés et référence CLS resserrée, CI après adoption encore requise. DigiFab retrouvé dans l’AIPS officielle (révision 02/2026) ; extraction/audit de dose restant, aucune dose publiée. Réserves R13, stations/croquis non validés et limites du mode B inchangées. Voir relève détaillée, ETAT.json et preuve DigiFab.
+
+Complément 01:16 UTC : #32 fusionnée (617878e), nouvelle référence et procédé d’adoption runner intégrés après contrôles requis verts. #37 reste en audit. #65 est réuni avec ce rendu ; les captures de la combinaison restent à examiner.
+
+### C9. Complément de relecture · 18.10.2026 UTC
+
+#49, #59, #61 et #65 sont fusionnées. #65 : 414 entrées, référence 3730 et suite 278/278, sans changer la référence visuelle pour masquer le déplacement de texte. #68 : 543 entrées, référence 3567 ; cibles des notions agrandies à 24 px, vérification/adoption de référence en cours. Nouvelle faute majeure terminologique : cardioverter employé comme verbe avait été défini comme appareil ; correction sourcée CHUV dans la relève en préparation. La conduite de la fiche arythmie-non-controlee fait l’objet de la proposition potentiellement critique #88, attente-vial. Les sources ESC 2022 et HUG 2024 ont été relues, la conduite proposée reste hors main. Inventaire des marques explicites par SHA/pointeur disponible ; il ne vaut pas audit ni clôture. Les autres attentes restent dans ETAT.json.
+
+### C10. État après les fusions du glossaire et de G5 · 18.10.2026 UTC
+
+#68 fusionnée (f2f9c04) après #65 : 543 entrées, référence 3567. Les cibles Notions de 24 px suppriment les défauts de taille observés sur les six profils ; adoption de la référence CI examinée, puis HTML, garde, visuel et suite 278/278 verts. L’erreur HTML ajoutée pendant la préparation a été corrigée sans changer sa référence. #85 fusionnée (27c9658) : 44 DD G5 explicitement inconnus ; couverture quantitative inchangée à 1 %. À 02:23 UTC, application et quatre JS contrôlés identiques à ce main sur Pages. Inventaire de cet instantané : 751 champs marqués, 779 occurrences, 24 fichiers ; ni audit complet ni preuve d’exhaustivité. Les états suivants des PR sont à lire dans ETAT.json et la relève datée, sans conclure la fin du projet.
+
+Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
+
+### Reprise après le lot 3 · 18.10.2026 UTC
+
+#90 est fusionnée (6bbbde7). Main : 39/2587 fréquences, jauge arrondie 2 % ; 207/2287 monographies, 9 %. Une seule fréquence a été retenue après relecture (SCA, Zurich, 1/53) ; les dix-neuf autres du lot restent inconnues. Source de Berne non retenue sous la règle d’éditeur, miroir suisse inaccessible ; incohérences de l’autre tableau européen consignées. Aucun pays, chiffre ou critère inventé.
+
+#91 contient six propositions G9 (xérose, prurits rénal, ferriprive, médicamenteux, neuropathiques, psychogène), EDF 2025 et HUG relus. Elles ne comptent pas dans main. Le verrou #64→#91 est dans main ; predecesseurs_fusion.py 91 constate #64 OPEN et ready=false. Ne pas activer directement l’auto-merge de #91.
+
+Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

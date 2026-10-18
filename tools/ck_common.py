@@ -12,7 +12,9 @@ FICHIERS = ('src', 'glo', 'syn', 'hyp', 'nc', 'loc', 'doses_ch')
 CHAMPS_NON_TEXTE = {'id', 'type', 'module', 'statut', 'lu_le', 'lu_par', 'url', 'src', 'rang', 'site',
                     'dose_ref', 'valide_par_vial', 'bloquant', 'vues', 'tour', 'composantes', 'voir',
                     'signes', 'orientation_hyp', 'syn', 'hyp', 'A', 'B', 'pays', 'licence', 'flexions_auto',
-                    'aips_rubrique', 'org', 'loc'}
+                    'aips_rubrique', 'org', 'loc',
+                    # Pharmakon : extraits AIPS cités mot pour mot et métadonnées de la source, jamais rédigés par nous.
+                    'aips_extrait', 'aips_version', 'aips_publie', 'url_texte', 'titulaire', 'methode'}
 # Champs rédigés en phrases complètes : G6 exige une forme verbale conjuguée par phrase.
 CHAMPS_PROSE = {'def', 'orientation', 'pourquoi', 'precautions', 'alternative', 'confirmation',
                 'objectif', 'mesures_generales', 'texte', 'deficit', 'comment',

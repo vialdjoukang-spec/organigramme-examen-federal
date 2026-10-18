@@ -1,6 +1,108 @@
+## Codex · reprise #64 · 18.10.2026, Europe/Zurich
+État : accord vial-ok lu ; main réuni par merge_shards.py, aucune clé en conflit réel ; 25 monographies du lot conservées hors main. Précautions tryptase ajoutées ; constat de décès sur seul score HOPE retiré.
+Prochaine : relecture primaire et contrôles exacts requis ; fusion après #88, avant #91.
+Sources : commentaires publics de Vial et revues lus. Europe PMC non accessible dans la politique actuelle ; pas de nouvelle lecture primaire revendiquée.
+Pièges : seuil HOPE et constat de décès ne doivent pas être confondus ; extrait AIPS et pertinence clinique se contrôlent séparément.
+À vérifier : audit final et suite navigateur complète ; aucun audit-ok nouveau ni fusion.
+
 # HANDOFF · passation entre sessions
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
+
+## Codex · prévalences publiées et G9 ciblé · 18.10.2026 UTC
+État       : #90 fusionnée, 39/2587 fréquences (jauge arrondie 2 %) ; main 207/2287 monographies (9 %). #91 contient six propositions G9, encore hors main, après #64 dans la chaîne Hygie. Projet non clos.
+Prochaine  : étape 8, lot 4, G1 à G4 dans l’ordre du catalogue ; S8 après audit #37. Terminer tests et intégration de #91 sans contourner #64. Autres G9/G10 et chaîne Panacée encore à rédiger/auditer.
+Sources    : Gräni 2015 tableau 4, recommandation EDF 2025 et définition HUG d’hémodialyse relus le 18.10.2026. Les sources écartées et les limites sont consignées, les documents bruts restent hors git.
+Pièges     : un SCA sur 53 douleurs reproductibles ne s’extrapole pas aux 121 douleurs thoraciques de l’étude ; pas de pays d’éditeur artificiellement changé. Verrou réel #91 : ready=false, #64 ouverte. Ne pas activer directement son auto-merge.
+À vérifier : 788 champs explicitement marqués sur main 6bbbde7, 817 occurrences ; cet inventaire exclut les branches et ne certifie pas le contenu. Les quatre R13, #80/#81/#37 et les stations restent en attente.
+
+## Codex · prévalences lot 3 · 18.10.2026 UTC
+État       : S7.6/S2.12, vingt DD, une fréquence de SCA retenue dans la cohorte de Zurich (1/53), dix-neuf inconnues explicites. Audit séquentiel et registre des choix disponibles ; tests en cours. Aucune conduite ou dose modifiée.
+Prochaine  : terminer les contrôles et intégrer ce lot ; S8 reste après audit #37. Poursuivre les autres SSP du catalogue et les boucles restées dues.
+Sources    : Gräni et al., BMJ Open 2015, méthodes/tableau 4 relus le 18.10.2026. Berne/PLOS non retenue sous G3, miroir suisse inaccessible ; Doretti 2019 incohérent, chiffres non transposés.
+Pièges     : 1/53 ne se confond pas avec 14/121 ; la reproduction de la douleur ne suffit pas à exclure un SCA. Aucun pays d’éditeur artificiellement codé CH.
+À vérifier : dix-neuf fréquences du lot et les réserves de ETAT.json ; projet non clos.
+
+## Codex · relève de la reprise · 18.10.2026 UTC
+État       : porte 0 validée avant 1 ; files prévalences et glossaire validées. #49/#50/#53/#54, #59/#61, #65/#68, #32/#39/#41/#82/#83/#84/#85 fusionnées. 38/2587 prévalences (1 %), 207/2287 monographies (9 %). Suite CI 278/278 ; projet non clos. État détaillé : docs/releves/RELEVE_CODEX_20261018.md.
+Prochaine  : étape 8, lot 3, S7.6 puis S2.12 ; S8 après audit #37. Reprendre également les attentes ETAT.json, sans déclarer fin_boucle. Modèle courant en secours interactif, Luna CLI 401 ; veille mode B réessaie les fusions mais ne rédige pas seule.
+Sources    : AIPS/Refdata, sources de cohortes et recommandations documentées dans audit/ ; CHUV cardioversion, ESC 2022 §6.4 et HUG 2024 §2 relus le 18.10.2026. Documents bruts hors git.
+Pièges     : app_v2 = main puis patch nommé ; tableaux par id et shards reconstruits. #62 a fusionné avant #60 : incident conservé, verrou #82 intégré. Référence visuelle adoptée seulement après examen ; aucun seuil relâché.
+À vérifier : #64/#67/#70/#88 attente-vial ; #80 croquis et cinq stations sans accord ; #81 et #37 en audit. DigiFab officiel retrouvé mais dose non transposée. Inventaire explicite par SHA/pointeur, sans valeur de certification médicale.
+
+## Lyncée · glossaire automatique (termes définis au clic) · 17.10.2026, Europe/Zurich
+État       : feat/lyncee-glossaire : tools/lyncee.py version lyncee-2. Le corpus inclut data/ck/mono ; les suffixes -mégalie et -plasie s’ajoutent ; `--branches 'feat/*'` recense main et les branches ouvertes, classées par fréquence ; « en attente » = défini dans une branche non fusionnée. La référence est régénérée par `--init --inclure-branches` (3 876 termes) et couvre aussi les termes des PR ouvertes. Le test G4_monographie_terme_nouveau_echoue est ajouté. La liaison au rendu existe déjà : gloLink() relie la 1re occurrence par bloc, dans les pages et dans chaque infobulle, monographies comprises, avec une pile de 5 niveaux.
+Prochaine  : lots de définitions d’environ 150 termes (feat/glo-lyncee-NN), des plus fréquents aux moins fréquents ; définitions courtes de 3 à 12 mots, verbales.
+Pièges     : Ne lancez pas `--update` avant la fusion des PR de monographies ouvertes : il retirerait leurs termes de la référence et ferait échouer leur G4. Toute monographie nouvelle échoue au G4 tant que ses termes ne sont pas dans glo.json ou dans qa/termes_exclus.txt (avec un motif).
+## Codex · complément du glossaire et des signalements · 18.10.2026 UTC
+État       : #49/#59/#61/#65 fusionnées ; 207 monographies, prévalences 1 %, projet non clos. #65 suite 278/278 ; #68 en contrôle de cibles 24 px.
+Prochaine  : finir la référence de #68 sans accepter de hausse d’accessibilité ; puis reprendre #83, #85 et #41 sur main, dans les files. Boucles médicales restantes, CLI Luna en 401.
+Sources    : correction du verbe cardioverter avec CHUV (29.07.2024) ; inventaire audit/RESTE_A_VERIFIER_20261018.json daté par SHA. Données brutes hors git.
+Pièges     : nouvelle proposition potentiellement critique #88 sur arythmie périopératoire ; attente-vial, pas de fusion. Les corrections de glossaire et d’accessibilité sont distinctes du traitement proposé.
+À vérifier : #64/#67/#70/#88, croquis #80, cinq stations, audits #37/#81 et rédaction massive. Ne pas clore ni arrêter la veille.
+
+## Codex · reprise technique #49 · 2026-10-17T23:41:13+00:00
+## Pharmakon · table suisse des doses, lots 1 et 2 · 17.10.2026, Europe/Zurich
+État       : feat/doses-ch-1 (PR #59, lot 1) puis feat/doses-ch-2 (lot 2) : data/ck/doses_ch.json passe de 3 à 51 lignes (30 substances). Chaque ligne cite mot pour mot la rubrique « Posologie/Mode d’emploi » (aips_extrait), avec le titulaire, la date « Mise à jour de l’information » (aips_version), la date de publication (aips_publie), l’URL AIPS (swissmedicinfo-pro.ch) et le texte officiel (url_texte, files.refdata.ch). Disponibles (dose_ref) : valaciclovir (valaciclovir-po-adulte-zona, valaciclovir-po-adulte-zona-ir) ; prednisone (prednisone-po-adulte-aigu) ; adrénaline (adrenaline-im-adulte-anaphylaxie, adrenaline-im-enfant-anaphylaxie, adrenaline-iv-adulte-arret-cardiaque) ; altéplase (alteplase-iv-adulte-avc, alteplase-iv-adulte-embolie-pulmonaire, alteplase-iv-adulte-infarctus-90-min) ; ténectéplase (tenecteplase-iv-adulte-infarctus, tenecteplase-iv-adulte-avc) ; noradrénaline (noradrenaline-iv-adulte-perfusion) ; ceftriaxone (ceftriaxone-iv-adulte, ceftriaxone-iv-enfant-meningite, ceftriaxone-adulte-lyme) ; lorazépam (lorazepam-iv-adulte-anxiete-aigue, lorazepam-po-adulte) ; acétylcystéine (acetylcysteine-iv-paracetamol) ; naloxone (naloxone-iv-adulte-surdosage-opioide) ; atropine (atropine-iv-adulte-bradycardie, atropine-iv-adulte-organophosphores) ; amoxicilline (amoxicilline-po-adulte, amoxicilline-po-enfant) ; acide acétylsalicylique (aspirine-po-adulte-infarctus, aspirine-po-adulte-cardiovasculaire) ; héparine non fractionnée (heparine-iv-adulte-thromboembolie, heparine-iv-adulte-sca, heparine-sc-adulte-prophylaxie) ; énoxaparine (enoxaparine-sc-adulte-tvp-ep, enoxaparine-sc-adulte-prophylaxie, enoxaparine-adulte-stemi, enoxaparine-sc-adulte-angor-instable) ; glucagon (glucagon-im-hypoglycemie-severe) ; thiamine (vitamine B1) (thiamine-iv-im-carence-severe) ; oxazépam (oxazepam-po-adulte-sevrage-alcool) ; azithromycine (azithromycine-po-adulte, azithromycine-po-enfant) ; hydroxychloroquine (hydroxychloroquine-po-adulte-lupus) ; isoniazide (isoniazide-po-adulte-tuberculose, isoniazide-po-prophylaxie-tuberculose) ; rifampicine (rifampicine-po-adulte-tuberculose, rifampicine-po-prophylaxie-meningocoque) ; pyrazinamide (pyrazinamide-po-tuberculose) ; éthambutol (ethambutol-po-tuberculose) ; carbimazole (carbimazole-po-adulte-hyperthyroidie) ; bicarbonate de sodium 8,4 % (bicarbonate-iv-adulte-acidose) ; flucloxacilline (flucloxacilline-iv-adulte) ; obidoxime (obidoxime-iv-organophosphores) ; diazépam (diazepam-iv-etat-de-mal-epileptique, diazepam-iv-sevrage-agitation) ; hydrocortisone (hydrocortisone-iv-stress-insuffisance-surrenale).
+## Pharmakon · table suisse des doses, lot 1 · 17.10.2026, Europe/Zurich
+État       : feat/doses-ch-1 : data/ck/doses_ch.json passe de 3 à 38 lignes (20 substances). Chaque ligne cite mot pour mot la rubrique « Posologie/Mode d’emploi » (aips_extrait), avec le titulaire, la date « Mise à jour de l’information » (aips_version), la date de publication (aips_publie), l’URL AIPS (swissmedicinfo-pro.ch) et le texte officiel (url_texte, files.refdata.ch). Disponibles (dose_ref) : valaciclovir (valaciclovir-po-adulte-zona, valaciclovir-po-adulte-zona-ir) ; prednisone (prednisone-po-adulte-aigu) ; adrénaline (adrenaline-im-adulte-anaphylaxie, adrenaline-im-enfant-anaphylaxie, adrenaline-iv-adulte-arret-cardiaque) ; altéplase (alteplase-iv-adulte-avc, alteplase-iv-adulte-embolie-pulmonaire, alteplase-iv-adulte-infarctus-90-min) ; ténectéplase (tenecteplase-iv-adulte-infarctus, tenecteplase-iv-adulte-avc) ; noradrénaline (noradrenaline-iv-adulte-perfusion) ; ceftriaxone (ceftriaxone-iv-adulte, ceftriaxone-iv-enfant-meningite, ceftriaxone-adulte-lyme) ; lorazépam (lorazepam-iv-adulte-anxiete-aigue, lorazepam-po-adulte) ; acétylcystéine (acetylcysteine-iv-paracetamol) ; naloxone (naloxone-iv-adulte-surdosage-opioide) ; atropine (atropine-iv-adulte-bradycardie, atropine-iv-adulte-organophosphores) ; amoxicilline (amoxicilline-po-adulte, amoxicilline-po-enfant) ; acide acétylsalicylique (aspirine-po-adulte-infarctus, aspirine-po-adulte-cardiovasculaire) ; héparine non fractionnée (heparine-iv-adulte-thromboembolie, heparine-iv-adulte-sca, heparine-sc-adulte-prophylaxie) ; énoxaparine (enoxaparine-sc-adulte-tvp-ep, enoxaparine-sc-adulte-prophylaxie, enoxaparine-adulte-stemi, enoxaparine-sc-adulte-angor-instable) ; glucagon (glucagon-im-hypoglycemie-severe) ; thiamine (vitamine B1) (thiamine-iv-im-carence-severe) ; oxazépam (oxazepam-po-adulte-sevrage-alcool) ; azithromycine (azithromycine-po-adulte, azithromycine-po-enfant) ; hydroxychloroquine (hydroxychloroquine-po-adulte-lupus).
+Méthode    : téléchargement XML officiel AIPS de Refdata (download.swissmedicinfo.ch ; l’export est autorisé par les conditions d’utilisation Refdata), puis le texte HTML officiel de chaque produit ; les glyphes de la police Symbol (µ, ≥, ≤) sont décodés. Aucune lecture du Compendium. Chaque ligne de dose dérive de l’extrait seul et je l’ai relue contre lui ; tools/doses_check.py (CI) exige extrait, URL, dates, et refuse tout nombre dérivé absent de l’extrait.
+Prochaine  : Galien contre-lit les 48 nouvelles lignes ; les rédacteurs remplacent « dose : à vérifier (AIPS) » par dose_ref ; lot 3 : midazolam (Dormicum), prednisolone, méthylprednisolone, clindamycine, doxazosine, halopéridol, antibiotiques et antirétroviraux des monographies.
+Pièges     : Lorazepam Xilmac (IV) n’a pas l’indication « état de mal épileptique » dans son AIPS. Aspégic suisse = sachets oraux (pas d’IV dans l’AIPS). Glucose 40 % : aucune dose d’hypoglycémie dans l’AIPS. Une ligne reste non validée tant que Galien et Vial ne l’ont pas confirmée.
+À vérifier : absents de l’AIPS suisse (importation ou hors liste) : fomépizole et silibinine IV (Legalon SIL, seul Legalon oral publié) ; ils restent « À vérifier ». Physostigmine et phénoxybenzamine : aucun texte AIPS.
+À vérifier : absents de l’AIPS suisse (importation ou hors liste) : fomépizole et silibinine IV (Legalon SIL, seul Legalon oral publié) ; ils restent « À vérifier ». Carbimazole = Néo-Mercazole (21037), prévu au lot 2.
+## Codex · complément de relève · 18.10.2026 01:15 UTC
+État       : #50/#53/#54/#86 fusionnées ; 207/2287 monographies (9 %), prévalences 1 %. Projet non clos, étape 8 lot 2.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; file doses #59 puis #61, glossaire #65 puis #68 ; ne pas anticiper leurs labels. #32 fusionnée (617878e) après adoption de la référence CI et contrôles verts.
+Sources    : AIPS DigiFab retrouvé, révision 02/2026, preuve audit/DIGIFAB-RECHERCHE-20261018.json ; aucune nouvelle dose. Sources brutes hors git.
+Pièges     : #65 patch 0030 corrige les liens imbriqués du calendrier ; suite complète 276/276, aucune assertion abaissée. Référence #65 3734, #68 3571. Chaque fusion peut exiger une nouvelle réunion de HANDOFF.md, jamais un force-push.
+À vérifier : #64/#67/#70 attente-vial, #80 et cinq stations non validés ; audits #37/#81 et couverture massive restants. CLI Luna en 401, mode B ne rédige pas de lots.
+
+## Codex · relève du 18.10.2026 UTC
+État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
+Sources    : rapports AIPS sur #59/#61/#67/#70, audits et preuves ciblées sur les branches, sources brutes hors git. Main 42a432d testé 276/276 ; Pages = main 8dd0d0a à 00:52 UTC. #45/#58/#60/#39/#84/#82 fusionnées.
+Pièges     : CLI Luna en 401, veille mode B sans rédaction autonome ; incident #62 avant #60 consigné, verrou #82 ; ne pas transformer des brouillons en couverture achevée.
+À vérifier : #64/#67/#70 attente-vial, croquis #80 et cinq stations non validés, audits et couverture restants. Ne pas arrêter la veille ni annoncer 100 %.
+
+## Codex · Panacée Étape 5 · 18.10.2026 Europe/Zurich
+État       : #60/#62 fusion de main, shards sans conflit réel signalé, toutes sections du rapport conservées, assets reconstruits ; suites 1.63 et pushes locaux sous flock, CI/fusions en attente.
+Prochaine  : Étape 6, relire AIPS des quatre lots avant tout audit-ok ; ne pas se fier aux labels anciens de #59/#61.
+Sources    : main et audits Érasistrate existants ; aucune nouvelle donnée clinique.
+Pièges     : conserver les deux côtés des rapports ; appliquer 0026 aux versions anciennes avant génération des assets.
+À vérifier : fin des suites locales/CI et fusion #60 puis #62 ; #64 reste attente-vial.
+
+## Codex · reprise Étapes 3–4 · 18.10.2026 Europe/Zurich
+État       : #43 et #71 fusionnées ; Pages #71 prouvé. #44/#45 reprises et testées, pushes en cours ; #58 audit final écrit et suite 1.63 ; #47 rapport réuni/poussé. #50/#53/#54/#49 reconstruites, suites/pushes locaux en file. #64 poussée avec attente-vial et audit partiel.
+Prochaine  : Étape 5 (#60 → #62) ; maintenir les reprises des Étapes 3/4 dans ETAT.json.en_attente. Après fusion de #50, poser audit-ok sur #53 ; après #53 sur #54, conformément à l'audit Hérophile existant.
+Sources    : Limper/BASEL IX/ESGE/HAS/ESC pour #58 ; Europe PMC XML publics PMC8744717, PMC10448201, PMC9518193 pour hypothermie #64, lus le 17.10 UTC / 18.10 Zurich.
+Pièges     : patch 0026 encore non intégré au départ, nouvelle construction dans assets/mono ; modèles cliniques AIPS lue ne prouvent pas une ligne de doses validée ; dates ISO UTC pour les gardes.
+À vérifier : signalement potentiellement critique HOPE/décès de #64 (R13), audit primaire endocrinien restant, doses AIPS Étape 6, CI et publications. Aucun succès ou accord médical inventé.
+
+## Codex · reprise technique #54 · 2026-10-17T23:36:57+00:00
+## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
+## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
+## Codex · reprise technique #60 · 2026-10-17T23:45:16+00:00
+## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
+Prochaine  : vérifier CI et fusion par la file dans l'ordre ; label d'audit selon la relève clinique et la PR précédente.
+Sources    : origin/main, patch 0026 et audit Hérophile existant ; aucun nouveau texte clinique rédigé.
+Pièges     : les monographies quittent assets/ck pour assets/mono ; ne pas résoudre leurs assets à la main.
+À vérifier : CI et publication ; un échec local ne constitue pas une validation.
+## Codex · fusion-publication Étape 2 · 18.10.2026 01:08 CEST
+État       : correctifs file_fusion (repli 403 et réessai Pages sans nouvelle fusion), suspension attente-vial dans auto-fusion et 5 tests d'intégration, tous verts ; deux sondes #71/#73 avec auto-merge MERGE actif, contrôles en cours. PR Étape 1 : #72.
+Prochaine  : Étape 3, chaîne prévalences #43 → #44 → #45 → #58 puis #47 ; ne pas confondre CI en cours et succès de publication. Intégrer les PR Codex dans l'ordre après #71.
+Sources    : sorties gh locales et GitHub Actions, tests/test_file_fusion.py ; aucune source clinique ni app_v2 modifiée.
+Pièges     : erreur HTTP 403 de protection renvoyée sur stdout par gh ; ne jamais la traiter comme des noms de contrôles. Une publication échouée doit être réessayée sans exiger une nouvelle fusion.
+À vérifier : fin des deux sondes, visuel et suite complète en cours ; secret non lisible (403), protection inchangée.
+
+## Codex · état réel Étape 1 · 18.10.2026 01:05 CEST
+État       : branche codex/etape-1, PR Étape 0 #71 en CI ; état complet des PR et checks enregistré dans CONTINUATION C1 ; Pages = origin/main, empreinte vérifiée.
+Prochaine  : Étape 2, corriger le parseur de protection 403 dans file_fusion et prouver fusion/Pages sur une sonde.
+Sources    : gh pr list et statusCheckRollup, origin/main 2228be7, Pages HTTP 200 lus maintenant ; bundle absent des chemins documentés.
+Pièges     : UNKNOWN n'est pas CLEAN ; gh pr edit échoue sur projectCards déprécié, utiliser l'API labels. Le CLI Codex ne se connecte pas, veille mode B.
+À vérifier : audits finaux #58/#64/#68 et relecture intégrale AIPS #59/#61/#67/#70 ; aucune validation clinique ajoutée par l'installation.
 
 ## Codex · installation Étape 0 · 18.10.2026, Europe/Zurich
 État       : branche codex/etape-0, worktree /workspace/oef-codex depuis 2228be7 ; neuf actions de porte exécutées ; catalogue complété et présenté, skill ssp-construction-ck, veille B testée puis lancée ; validation porte et PR en cours.
@@ -14,6 +116,10 @@ Pièges     : CLI installé sans authentification utilisable ; mode B ne lance p
 Décision   : le chiffre est la fréquence du diagnostic parmi les patients consultant pour la plainte du SSP, dans un cadre nommé (médecine de famille ou urgences, CH ou UE) ; une prévalence de population ne sert qu'à défaut (type « population », affichée). Le texte des 226 SSP rédigés ne change pas : seuls les champs de prev.json et l'ordre s'ajoutent.
 Prochaine  : groupes de contenu, un commit poussé par groupe (Galien audite derrière) : 1 douleur thoracique (S2.5), 2 dyspnée, 3 douleur abdominale, 4 céphalée, 5 fièvre, 6 syncope ; puis les 12 SSP S8 (PR #37) quand elle est fusionnée.
 Pièges     : ne jamais éditer PRV à la main (prev_build --check échoue) ; aucun « window.CK_ » littéral dans app_v2.html (ckW('PREV')) ; un chiffre exige l'emplacement exact (tableau, page).
+Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax (PR #43). G2 dyspnée (S2.7 ; EURODEM, Eur J Emerg Med 2019, tableau 1, 2525 patients de 66 urgences européennes ; 4 chiffres, 6 « à vérifier ») · branche feat/ddx-prev-g2-dyspnee (PR #44). G3 abdomen (S3.1 ; OPTIMA, BMJ 2009, tableau 1, 1021 patients de 6 urgences néerlandaises ; 7 chiffres dont un « ≤ », 2 « à vérifier » : anévrisme rompu et grossesse extra-utérine, exclus de l’étude) · branche feat/ddx-prev-g3-abdomen. G4 fièvre et syncope (G6 ; Limper 2011, Neth J Med, tableau 2 et résultats, 213 fébriles des urgences de Slotervaart, Amsterdam ; 7 chiffres dont un « ≤ », 10 « à vérifier » — F1.19 ; BASEL IX, J Intern Med 2021, résultats, 1653 syncopes adjugées, urgences à 67 % suisses ; 2 chiffres dont un « ≤ », 6 « à vérifier » : causes cardiaques non détaillées (15,2 % en bloc), épilepsie exclue ; embolie 1,4 % de Badertscher (JACC 2019) laissée « à vérifier », revue non européenne) · branche feat/ddx-prev-g4-fievre-syncope, empilée sur G3. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale ; S7.6 attend une source européenne fiable (céphalée aux urgences ou en médecine de famille). Prochain : G5 SSP fréquents (vertige, toux, lombalgie, malaise), puis S7.6, puis S8 (PR #37).
+Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax (PR #43). G2 dyspnée (S2.7 ; EURODEM, Eur J Emerg Med 2019, tableau 1, 2525 patients de 66 urgences européennes ; 4 chiffres, 6 « à vérifier ») · branche feat/ddx-prev-g2-dyspnee (PR #44). G3 abdomen (S3.1 ; OPTIMA, BMJ 2009, tableau 1, 1021 patients de 6 urgences néerlandaises ; 7 chiffres dont un « ≤ », 2 « à vérifier » : anévrisme rompu et grossesse extra-utérine, exclus de l’étude) · branche feat/ddx-prev-g3-abdomen. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G4 céphalée (S7.6), puis G6 fièvre, F1.19 syncope.
+Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax (PR #43). G2 dyspnée (S2.7 ; EURODEM, Eur J Emerg Med 2019, tableau 1, 2525 patients de 66 urgences européennes ; 4 chiffres, 6 « à vérifier ») · branche feat/ddx-prev-g2-dyspnee. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G3 douleur abdominale (S3.1), puis S7.6, G6, F1.19.
+
 Groupes poussés : G1 thorax (S2.5, S2.4 ; Verdon 2008, Swiss Med Wkly, tableau 1 ; 11 chiffres, 9 « à vérifier » : dissection, pneumothorax, tamponnade, péricardite, Boerhaave, aucun cas parmi 672) · branche feat/ddx-prev-g1-thorax. S2.12 (douleur pariétale) attend une source propre à la douleur pariétale. Prochain : G2 dyspnée (S2.7), puis S3.1, S7.6, G6, F1.19.
 Groupes poussés : (aucun pour l'instant)
 ## Flux de fusion · auto-fusion après audit · 17.10.2026, Europe/Zurich
@@ -179,6 +285,11 @@ Respecte la règle universelle : le projet cible doit avoir un résultat de HAUT
 Avant de t’arrêter, mets à jour HANDOFF.md, ETAT.md et ton journal.
 
 ## Hygie · monographies des différentiels · 17.10.2026, Europe/Zurich
+État       : Lot 1 (G1, 14) fusionné (PR #46). Lot 2 (G2, 21 diagnostics) livré, PR #50 (assets/mono + patch 0026 inclus), en attente d'audit Hérophile (label audit-ok → fusion automatique) ; total 35/2280.
+Réservé    : Lot 3 = G3 + G4 (23 nouveaux), Hygie, branche feat/mono-g3 depuis origin/main. Hygie avance de G vers la fin ; Panacée part du dernier groupe vers l'arrière : vérifier data/ck/mono et la section Panacée avant chaque lot. Flux : PR sans fusion par Hygie ; Hérophile audite, corrige sur la branche, pose audit-ok. Conflit de tranche partagée : reconstruire par mono_build.py, jamais à la main.
+Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/mono/mono-<lettre>.js (budget séparé 6 Mo, tools/budget.py) ; patches 0025 (survol/clic du DD, repli sur TIP.d) et 0026 (monoLoad, assets/mono). CI : `mono_build.py --check`.
+Pièges     : Doses : réutiliser data/ck/doses_ch.json si produit et indication concordent (3 entrées au 17.10.2026, aucune pour G2) ; sinon aucun chiffre dans « pha » (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget : assets/mono/ ≤ 6 Mo séparé (décision de Vial, PR #50), assets/ck inchangé.
+À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS) ; G2 : toxoplasmose ganglionnaire, sarcoïdose, kystes cervicaux et cutanés, tumeur des glandes salivaires sans texte de cours préalable (src « à vérifier »).
 État       : Lot 1 poussé (G1, 14 diagnostics) : hyperhidrose-primaire-focale, hyperhidrose-medicamenteuse-et-toxique, thyrotoxicose, pheochromocytome-et-paragangliome, hypoglycemie, lymphome-hodgkinien-ou-non-hodgkinien, tuberculose, endocardite-infectieuse, infection-a-vih, sevrage-alcoolique-complique, syndrome-serotoninergique, menopause-et-syndrome-climaterique, trouble-anxieux-et-attaque-de-panique, syndrome-d-apnees-obstructives-du-sommeil.
 Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'existant TIP.d à reprendre ; clés déjà faites marquées « (fait) »).
 Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
@@ -192,3 +303,5 @@ Sources lues le 17.10.2026 : OFSP/Concept national maladies rares (7,2 %, estima
 Doses : doses_ch.json (3 entrées : valaciclovir ×2, prednisone) sans correspondance → toutes « à vérifier (AIPS) ».
 Astuce : fedlex se lit par curl sur filestore (…/eli/cc/24/233_245_233/20260701/fr/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-html.html), puis extraction par id="art_N" ; Orphanet bloque les robots.
 Prochain : Lot 3 = O7.20, O7.19, O7.18 et en dessous (Hygie monte depuis G2).
+
+Complément 02:58 UTC : #91 passe la suite locale 278/278 sur 7af1a77, après les contrôles G1/G2/G3/G6 et Lyncée sans terme nouveau. PR prête et audit-ok ; aucun auto-merge directement activé. La preuve de chaîne constate #64 OPEN et ready=false. Les CI exactes restent requises ; six monographies hors main, pas de gain de couverture publié annoncé.

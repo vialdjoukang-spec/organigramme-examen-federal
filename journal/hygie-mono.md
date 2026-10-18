@@ -16,3 +16,5 @@
 - Critères formels complets : mastocytose (1 majeur + 1 mineur ou 3 mineurs), dumping (HGPO), phéochromocytome (seuil × 2), ménopause (NICE 1.3.1), HOPE ≥ 10 %.
 - Conflits attendus : shards a/c/h/m/p/r/s/v et journal (add/add avec #54) : garder les deux blocs (merge_shards.py).
 - Prochain : lot 6 = G9 + G10.
+
+- 18.10.2026, Europe/Zurich · #64 : accord Vial lu ; main réuni sans conflit réel de clé, sorties reconstruites ; réserve tryptase ajoutée, assertion de décès fondée sur HOPE retirée au profit d’une vérification explicite. Audit primaire bloqué par la politique réseau, aucun label audit-ok nouveau.
