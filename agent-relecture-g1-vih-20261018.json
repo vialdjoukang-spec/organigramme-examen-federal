@@ -1,0 +1,530 @@
+{
+ "version": 1,
+ "date": "2026-10-18T19:03:51+00:00",
+ "role": "agent auditeur statistique indépendant",
+ "perimetre": {
+  "categorie": "G",
+  "key": "G1#8",
+  "ssp": "G1",
+  "plainte": "Sudation anormale",
+  "diagnostic": "Infection à VIH",
+  "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+  "branche_etat": "automates/prevalences",
+  "commit_etat": "6b219a895c2448836a93b420207d31230ffc8eb5",
+  "g_json_sha256_avant": "e0951e992b0735fcf9a4e15c9ba9fbe125f34f2971df7b3fc66c6c2943f9a32b",
+  "question": "Fréquence de l’infection à VIH parmi les personnes consultant pour sudation anormale dans un cadre suisse ou européen attesté.",
+  "sources_limitees": [
+   "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf"
+  ],
+  "hors_perimetre_ids": [
+   "b440d893705ad3548d6163bf"
+  ]
+ },
+ "lectures_sources": [
+  {
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "statut": "lue",
+   "pages_relues": [
+    6,
+    15
+   ],
+   "methode": "PDF officiel téléchargé puis pdftotext -layout ; pages correspondantes relues.",
+   "document_sha256_revalide": "d287fbddad90ac1b145147f1ec6041c05b372eb6a3bc6f80693b31bd16fc90fa",
+   "pages_sha256_revalides": {
+    "6": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+    "15": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73"
+   },
+   "limite": "Outil web natif a échoué sur cette URL ; accès direct effectif réussi. Le lieu de l’éditeur suisse ne prouve pas le pays des populations des études citées."
+  },
+  {
+   "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+   "statut": "lue",
+   "edition": "Février 2016",
+   "pages_relues": [
+    1,
+    2
+   ],
+   "methode": "Texte du PDF officiel de six pages lu par outil web natif.",
+   "document_sha256_candidat": "7a391b33f3c1ed2d4b0ba10f2454b600407e644415cb2f1a3d5b3fca888d7265",
+   "document_sha256_revalide": null,
+   "limite": "Téléchargement Python refusé CONNECT 403 ; aucun hash binaire ni hash de page nouvellement vérifié revendiqué. La lecture native a réussi, donc ce n’est pas une source non lue."
+  }
+ ],
+ "candidates": [
+  {
+   "id": "5daf839f99e21b5953810882",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+   "valeur_reperee": "90%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Le 90 % est une sensibilité de la bandelette urinaire, pas une fréquence du VIH ni un résultat parmi des consultations pour sudation anormale.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 6",
+    "extrait": "ochées car les bactéries ont besoin de plusieurs heures dans la vessie pour produire des nitrites. 10 La bandelette (leucocyte estérase et/ou nitrites) a une sensibilité d'environ 90% mais une spécificité plus basse, de l'ordre de 65%. La bandelette urinaire est donc plus utile pour exclure une infection urinaire que pour la confirmer. 4,11 Une patiente jeune présentant une symptomatologie typique d’",
+    "sha256": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "sensibilite_diagnostique",
+    "population_denominateur": "Personnes ayant une infection urinaire selon un diagnostic de référence ; effectif et recrutement non attestés dans ce passage.",
+    "numerateur_conceptuel": "Résultats positifs de bandelette parmi les infections urinaires.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Le 90 % est une sensibilité de la bandelette urinaire, pas une fréquence du VIH ni un résultat parmi des consultations pour sudation anormale.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "037bbd4879bd3c9261d948f8",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+   "sha256": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+   "valeur_reperee": "12 %",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Les 12 % sont une proportion de stade au diagnostic parmi des infections déjà dépistées. Ce n’est pas la fréquence du VIH parmi des personnes consultant pour sudation anormale. Ne pas reconstruire un numérateur avec le total annuel arrondi.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+    "loc": "Page 2",
+    "extrait": "e. Il est donc important de savoir reconnaitre et dépister les primo-infections VIH. Epidémiologie Parmi les nouvelles infections VIH dépistées chaque année (7000 en 2013), seules 12 % le sont au stade de primo-infection. Cette proportion est plus élevée, 20 % chez les hommes ayant des rapports sexuels avec des hommes (HSH), du fait d’une plus grande fréquence du dépistage et d’une meilleure connaissa",
+    "sha256": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Texte du PDF officiel effectivement lu par outil web natif, p. 2 ; téléchargement Python local refusé CONNECT 403.",
+    "empreinte_relecture": {
+     "valeur": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": false,
+     "precision": "Empreinte du candidat conservée pour liaison ; absence de revalidation binaire locale explicitement conservée."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "proportion_stade_au_depistage",
+    "population_denominateur": "Nouvelles infections VIH dépistées chaque année ; texte mentionnant 7000 en 2013 sans cohorte ni effectifs analysés exacts documentés dans ce passage.",
+    "numerateur_conceptuel": "Infections VIH dépistées au stade de primo-infection.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Les 12 % sont une proportion de stade au diagnostic parmi des infections déjà dépistées. Ce n’est pas la fréquence du VIH parmi des personnes consultant pour sudation anormale. Ne pas reconstruire un numérateur avec le total annuel arrondi.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "ff928abe200eb2ad86c9329f",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+   "valeur_reperee": "65%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Le 65 % est une spécificité de bandelette urinaire. Le dénominateur ne porte ni sur le VIH ni sur les consultations pour sudation anormale.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 6",
+    "extrait": "ures dans la vessie pour produire des nitrites. 10 La bandelette (leucocyte estérase et/ou nitrites) a une sensibilité d'environ 90% mais une spécificité plus basse, de l'ordre de 65%. La bandelette urinaire est donc plus utile pour exclure une infection urinaire que pour la confirmer. 4,11 Une patiente jeune présentant une symptomatologie typique d’IU localisée n’a pas besoin d’une bandelette urinai",
+    "sha256": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "specificite_diagnostique",
+    "population_denominateur": "Personnes sans infection urinaire selon un diagnostic de référence ; effectif et recrutement non attestés dans ce passage.",
+    "numerateur_conceptuel": "Résultats négatifs de bandelette parmi les personnes sans infection urinaire.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Le 65 % est une spécificité de bandelette urinaire. Le dénominateur ne porte ni sur le VIH ni sur les consultations pour sudation anormale.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "aac2dfd909f3933e5b71cff8",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+   "sha256": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+   "valeur_reperee": "20 %",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Les 20 % concernent un sous-groupe de dépistage VIH, pas les HSH en général ni les consultations G1. Le total annuel 7000 n’est pas le dénominateur de ce sous-groupe.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+    "loc": "Page 2",
+    "extrait": "ons VIH. Epidémiologie Parmi les nouvelles infections VIH dépistées chaque année (7000 en 2013), seules 12 % le sont au stade de primo-infection. Cette proportion est plus élevée, 20 % chez les hommes ayant des rapports sexuels avec des hommes (HSH), du fait d’une plus grande fréquence du dépistage et d’une meilleure connaissance du risque. Deux à six semaines après la contamination par le VIH, des ma",
+    "sha256": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Texte du PDF officiel effectivement lu par outil web natif, p. 2 ; téléchargement Python local refusé CONNECT 403.",
+    "empreinte_relecture": {
+     "valeur": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": false,
+     "precision": "Empreinte du candidat conservée pour liaison ; absence de revalidation binaire locale explicitement conservée."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "proportion_stade_au_depistage_sous_groupe",
+    "population_denominateur": "Nouvelles infections VIH dépistées chez les HSH ; effectif de ce sous-groupe non donné.",
+    "numerateur_conceptuel": "Primo-infections parmi les infections VIH dépistées chez les HSH.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Les 20 % concernent un sous-groupe de dépistage VIH, pas les HSH en général ni les consultations G1. Le total annuel 7000 n’est pas le dénominateur de ce sous-groupe.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "104a4f5be977c223dfacc71c",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+   "valeur_reperee": "95%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Le 95 % décrit la sensibilité du test de leucocyturie ; aucune prévalence du VIH ne peut être déduite.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 6",
+    "extrait": "n de certains éléments pathologiques précités. 4.2.1 LEUCOCYTURIE PATHOLOGIQUE (> 10 LEUCOCYTES/CHAMP) C'est un test sensible pour la présence d’une infection des voies urinaires (95%), mais qui peut aussi être positif dans d’autres affections rénales (néphrite interstitielle, tuberculose, tumeur) et des voies excrétrices (calcul, hypertrophie de la prostate, infection non bactérienne). Le nombre de ",
+    "sha256": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "776a79c79a548731674bff23fc2c39d92ef9fe1852e01b7283c257e57e7f56e4",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "sensibilite_diagnostique",
+    "population_denominateur": "Personnes ayant une infection des voies urinaires ; effectif et recrutement non attestés dans ce passage.",
+    "numerateur_conceptuel": "Leucocyturie pathologique détectée parmi les infections urinaires.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Le 95 % décrit la sensibilité du test de leucocyturie ; aucune prévalence du VIH ne peut être déduite.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "091b2c5e74ba4e39cf104ead",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+   "sha256": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+   "valeur_reperee": "80 %",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Près de 80 % décrit des manifestations cliniques quelconques parmi les infections récentes. Les sueurs nocturnes figurent ensuite parmi les symptômes possibles mais leur fréquence propre n’est pas donnée. Ne pas inverser P(symptômes|VIH) en P(VIH|sudation).",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.sfdermato.org/upload/recommandations/primo-infection-vih-8dafd3bbea5f8ac1933dda9fbcd8628b.pdf",
+    "loc": "Page 2",
+    "extrait": "ande fréquence du dépistage et d’une meilleure connaissance du risque. Deux à six semaines après la contamination par le VIH, des manifestations cliniques surviennent chez près de 80 % des personnes. On parle de primo-infection symptomatique. Au cours de cette période, la réplication virale est intense et la charge virale plasmatique du VIH culmine très fréquemment à plus de 106 copies ARN-VIH/ml. C'e",
+    "sha256": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Texte du PDF officiel effectivement lu par outil web natif, p. 2 ; téléchargement Python local refusé CONNECT 403.",
+    "empreinte_relecture": {
+     "valeur": "f66487b6aaa79ae3a46e53b75db83a95818ce601a74960a9b2994798a770240c",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": false,
+     "precision": "Empreinte du candidat conservée pour liaison ; absence de revalidation binaire locale explicitement conservée."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "frequence_symptomes_parmi_infections",
+    "population_denominateur": "Personnes après contamination par le VIH, dans le contexte de primo-infection ; effectif, recrutement et pays des participants non attestés.",
+    "numerateur_conceptuel": "Personnes présentant des manifestations cliniques deux à six semaines après contamination.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Près de 80 % décrit des manifestations cliniques quelconques parmi les infections récentes. Les sueurs nocturnes figurent ensuite parmi les symptômes possibles mais leur fréquence propre n’est pas donnée. Ne pas inverser P(symptômes|VIH) en P(VIH|sudation).",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "0102b078c7eaf5e3310e7588",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+   "valeur_reperee": "21%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Jusqu’à 21 % est une borne de fréquence de bactériémie parmi des prostatites fébriles ; ce diagnostic et ce dénominateur sont incompatibles avec la question VIH dans G1.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 15",
+    "extrait": "inaire - Culture urinaire : avant administration d’antibiotiques pour identifier le germe et confirmer le diagnostic de PBA. - Hémocultures : en cas de PBA fébrile, il y a jusqu’à 21% de bactériémie. 37 - La valeur diagnostique du toucher rectal (TR) dans la prostatite reste mal établie, et il n'est en pratique que rarement réalisé chez l'homme consultant pour une infection urinaire. La sévérité de l",
+    "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "frequence_conditionnelle_complication",
+    "population_denominateur": "Patients ayant une prostatite bactérienne aiguë fébrile ; effectif non attesté.",
+    "numerateur_conceptuel": "Bactériémies parmi les prostatites bactériennes aiguës fébriles.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Jusqu’à 21 % est une borne de fréquence de bactériémie parmi des prostatites fébriles ; ce diagnostic et ce dénominateur sont incompatibles avec la question VIH dans G1.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "3e7ced65a628e8de5d14524b",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+   "valeur_reperee": "77%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "77 % à 90 % forme une plage de fréquence de signes prostatiques, dont le moteur a découpé les bornes. Ni la borne basse ni la plage ne mesurent le VIH parmi les consultations pour sudation.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 15",
+    "extrait": "e l'infection et l'inflammation de la totalité de la glande ne concernent qu'une minorité de patients. 1 Un toucher rectal doux révèle un œdème et une sensibilité prostatique chez 77% à 90% des hommes avec prostatite bactérienne aiguë, ce qui permet de distinguer la prostatite aiguë d'une infection urinaire sans prostatite. Cependant, cela signifie également que jusqu’à 23% des cas de prostatite aigu",
+    "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "frequence_conditionnelle_signe",
+    "population_denominateur": "Hommes ayant une prostatite bactérienne aiguë ; effectif non attesté.",
+    "numerateur_conceptuel": "Œdème et sensibilité prostatiques au toucher rectal parmi ces prostatites.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "77 % à 90 % forme une plage de fréquence de signes prostatiques, dont le moteur a découpé les bornes. Ni la borne basse ni la plage ne mesurent le VIH parmi les consultations pour sudation.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "e91223aced531fda1ff99040",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+   "valeur_reperee": "90%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Le 90 % est la borne supérieure de la même plage 77 % à 90 %, pas une estimation indépendante ni une prévalence du VIH.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 15",
+    "extrait": "fection et l'inflammation de la totalité de la glande ne concernent qu'une minorité de patients. 1 Un toucher rectal doux révèle un œdème et une sensibilité prostatique chez 77% à 90% des hommes avec prostatite bactérienne aiguë, ce qui permet de distinguer la prostatite aiguë d'une infection urinaire sans prostatite. Cependant, cela signifie également que jusqu’à 23% des cas de prostatite aiguë ne s",
+    "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "frequence_conditionnelle_signe",
+    "population_denominateur": "Hommes ayant une prostatite bactérienne aiguë ; effectif non attesté.",
+    "numerateur_conceptuel": "Œdème et sensibilité prostatiques au toucher rectal parmi ces prostatites.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Le 90 % est la borne supérieure de la même plage 77 % à 90 %, pas une estimation indépendante ni une prévalence du VIH.",
+    "selection_admissible": false
+   }
+  },
+  {
+   "id": "4529256ff390552fe3ecf05a",
+   "categorie": "G",
+   "key": "G1#8",
+   "fingerprint": "95bb8f1a81b4d3da581fb530731ceec8b8db6d959a01b54c862db915fe4d6141",
+   "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+   "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+   "valeur_reperee": "23%",
+   "relecture_agent": {
+    "role": "agent auditeur statistique indépendant",
+    "modele": "GPT-6 (modèle de la session)",
+    "statut": "terminee",
+    "date": "2026-10-18T19:03:51+00:00",
+    "verdict": "À vérifier",
+    "motifs": [
+     "Jusqu’à 23 % concerne la non-détection par examen de prostatites ; ne pas calculer ni transposer ce complément en fréquence de VIH.",
+     "Source documentaire reconnue ne suffisant pas à établir une population ou un dénominateur pertinent pour G1 ; aucune valeur proposée."
+    ],
+    "source": "https://www.hug.ch/sites/interhug/files/2026-10/strategie-infection-urinaire-finale.pdf",
+    "loc": "Page 15",
+    "extrait": " hommes avec prostatite bactérienne aiguë, ce qui permet de distinguer la prostatite aiguë d'une infection urinaire sans prostatite. Cependant, cela signifie également que jusqu’à 23% des cas de prostatite aiguë ne sont pas détectés par le TR. La distinction entre cystite et prostatite peut souvent être faite sur la base de la présentation clinique (fièvre, frissons, malaise) sans nécessiter systémat",
+    "sha256": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+    "validation_clinique": false,
+    "applicable_au_dd_dans_ce_cadre": false,
+    "mode_lecture": "Téléchargement officiel et extraction locale de la page, effectivement relue.",
+    "empreinte_relecture": {
+     "valeur": "ca7b3c8a9323fd64f47e037020dab47d0647cfbe2c8c9f77e87709c6ef3a2b73",
+     "nature": "sha256 du texte normalisé de la page source candidate",
+     "revalidee_localement": true,
+     "precision": "PDF binaire et texte normalisé de page identiques au candidat."
+    }
+   },
+   "analyse_statistique": {
+    "mesure_reelle": "proportion_non_detection_signe",
+    "population_denominateur": "Cas de prostatite aiguë ; effectif non attesté.",
+    "numerateur_conceptuel": "Prostatites aiguës non détectées par le toucher rectal.",
+    "numerateur_atteste": null,
+    "denominateur_analyse_atteste": null,
+    "pays_population_atteste": null,
+    "type_source": "recommandation ou stratégie clinique, pas cohorte originale analysée dans cet extrait",
+    "valeur_retenue": null,
+    "correction_arithmetique": false,
+    "justification": "Jusqu’à 23 % concerne la non-détection par examen de prostatites ; ne pas calculer ni transposer ce complément en fréquence de VIH.",
+    "selection_admissible": false
+   }
+  }
+ ],
+ "synthese": {
+  "candidats_examines": 10,
+  "documents_distincts": 2,
+  "pages_chiffrees_distinctes": 3,
+  "relectures_terminees": 10,
+  "sources_inaccessibles_a_la_lecture": 0,
+  "refus_technique_telechargement_local": 1,
+  "candidats_non_applicables": 10,
+  "valeurs_retenues": 0,
+  "corrections_arithmetiques": 0,
+  "validation_clinique": false,
+  "publication_automatique": false,
+  "motif": "Dix fenêtres d’extraction sur trois pages ne représentent pas dix études indépendantes. Aucun dénominateur de consultations pour sudation anormale n’est attesté. Les inconnues cliniques restent À vérifier."
+ }
+}

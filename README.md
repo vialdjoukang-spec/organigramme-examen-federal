@@ -5,7 +5,7 @@ Prévalences · recherche et chiffres sourcés
 G · 16 SSP · 0 sans différentiel
   Recherche aboutie ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/238)
   Chiffres sourcés   █░░░░░░░░░░░░░░░░░░░   6.3 % (15/238)
-  Tentés : 44 · extraits : 62, relus : 0 · partiels : 44 · erreurs : 0 · propositions : 0
+  Tentés : 44 · extraits : 62, relus : 10 · partiels : 44 · erreurs : 0 · propositions : 0
 S · 113 SSP · 12 sans différentiel
   Recherche aboutie ░░░░░░░░░░░░░░░░░░░░   0.0 % (0/1025)
   Chiffres sourcés   ░░░░░░░░░░░░░░░░░░░░   2.7 % (28/1025)
