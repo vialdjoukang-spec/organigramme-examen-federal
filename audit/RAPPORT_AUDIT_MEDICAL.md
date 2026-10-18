@@ -740,6 +740,14 @@ Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lync
 
 Accord et consigne de Vial lus sur la page publique. La monographie meningo-encephalite-herpetique affiche désormais les 10 jours de l’AIPS en premier et référence aciclovir-iv-adulte ; l’ancienne affirmation européenne 14/21 jours n’est plus affichée faute de relecture primaire possible dans cette session. Les extraits AIPS conservés sont inchangés : Riamet est limité aux moins de 12 ans pour les trois bandes de faible poids ; la répétition de Praxbind exige les conditions cliniques et de coagulation de l’extrait. Les corrections sont confrontées aux extraits locaux, sans prétendre avoir téléchargé les originaux Refdata ni achevé la relecture de toutes les lignes. Politique réseau bloquante ; audit-ok et fusion restent dus.
 
+## Hérophile · G9, six causes ciblées du prurit · 18.10.2026
+
+Relecture séquentielle par Codex des six propositions : xérose du sujet âgé, prurits rénal, ferriprive, médicamenteux, neuropathiques et psychogène. Texte officiel de Weisshaar et al. 2025, sections 4.2.1, 4.2.3, 4.2.7–4.2.9, 4.3.2, tableaux 3–6 et sections thérapeutiques citées relus. Définition de l’hémodialyse relue aux HUG, page mise à jour le 09.03.2026. Aucun médecin ni accord Vial revendiqué.
+
+Les mécanismes rénaux ou médicamenteux restent présentés comme incomplètement connus. Le bilan rénal, la carence martiale ou une imagerie ne prouvent pas seuls la cause du prurit. Un bilan somatique normal ne suffit pas à conclure à un prurit fonctionnel ; ses critères formels restent À vérifier. La cause médicamenteuse nécessite une analyse de la chronologie et du bénéfice-risque d’un changement.
+
+La relecture a retiré une phrase de fabrication du contenu de la rubrique clinique et explicité le choix et les limites des traitements nerveux, ainsi que l’absence de garantie de réponse après correction de la carence en fer. Les fréquences/sex-ratios et les indications/posologies AIPS non lues restent explicitement À vérifier. Aucune posologie chiffrée du guide n’est transposée. Les onze autres DD G9 ne sont pas déclarés rédigés. Aucune faute critique nouvelle identifiée dans ce diff ; le lot suit #64 et ne doit pas contourner son attente.
+
 ### Reprise #64 · 18.10.2026, Europe/Zurich
 
 Accord de Vial lu sur la page publique (vial-ok), audit final toujours requis. Réunion de main avec merge_shards.py : aucune clé en conflit réel, toutes les monographies existantes conservées. La limite du critère tryptase dans la mastocytose est explicitée conformément au signalement de revue, avec ajustement encore À vérifier. Le score HOPE bas n’est plus présenté comme critère de constat de décès ; les critères de limitation restent À vérifier jusqu’à relecture primaire. Les posologies d’adrénaline restent À vérifier (AIPS). L’arrêt en avalanche conserve les trois conditions cumulatives ensevelissement prolongé, voies aériennes complètement obstruées et asystolie, telles que déjà corrigées sur la branche. Pas de lecture primaire nouvelle revendiquée : accès Europe PMC refusé par la politique réseau. Pas de nouvel audit-ok.
@@ -754,3 +762,6 @@ Le patch proposé distingue les deux familles de rythmes et demande le traitemen
 ### Reprise #88 · 18.10.2026, Europe/Zurich
 
 Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.
+
+### Recontrôle G9 après #64 · 18.10.2026
+Six propositions comparées aux sections 4.2.1/3/7/8/9, 4.3.2, 6.4.5 et 6.6.1 du texte intégral EDF 2025 et à la définition HUG d’hémodialyse, accessibles et relus. Réserves épidémiologiques, critères fonctionnels et AIPS conservés ; aucune dose ajoutée. G1–G8 et constructions verts. Le navigateur système bloque file:// et le téléchargement Playwright est refusé ; la CI de la tête exacte reste obligatoire.
