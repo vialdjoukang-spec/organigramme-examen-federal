@@ -209,3 +209,5 @@ Chaîne #64→#91→#67→#70 fusionnée ; audits et contrôles requis verts. #9
 #99 fusionnée : six fréquences relues à Brest, cadre et biais explicites, 45/2587 sur main. #100 réunit deux gales, cinq épidémiologies précisées et six définitions ; sept autres G9 restent dus, aucun squelette Vaquez. Action limitée sur les œufs attribuée à l’ivermectine seulement ; posologies suisses À vérifier. Modèle courant de secours pour la rédaction/relecture, CLI Luna en 401 dans la relève ; mécanique par scripts déterministes. Boucle 8 lot 6, G11–G14 ; clôture refusée, veille maintenue.
 
 - 18.10.2026 · Étape 8 lot 6 : G11–G14, 56 DD conservés, inconnues explicites ; 45/2587 inchangé. Audit et G1–G8 réussis. Pages toujours refusé dans cette session ; GitHub, EDF et HUG accessibles. CI exacte requise avant fusion.
+
+- 18.10.2026 Europe/Zurich · Étape 9, complément G9 : psoriasis et urticaire chronique rédigés et audités, six définitions ; branche 244/2287 et 569 termes, référence 3563. #101 fusionnée, 45/2587 fréquences inchangé, lot 7 G15–G18. CI et fusion du complément requises.

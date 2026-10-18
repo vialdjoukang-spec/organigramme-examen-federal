@@ -1,3 +1,10 @@
+## Codex · G9 psoriasis et urticaire · 18.10.2026 Europe/Zurich
+État : #101 fusionnée 774de74, Pages réussi. Branche dermatose : deux fiches en sept rubriques et six définitions, 244/2287 monographies ; CI exacte requise avant fusion.
+Prochaine : boucle 8 lot 7 G15–G18 ; G9 Hodgkin, pemphigoïde étendue, Vaquez, dermatite atopique et lichen plan, puis G10. Panacée O7.14–O7.12.
+Sources : quatre pages HUG psoriasis et stratégie professionnelle urticaire 2023 relues ; audit/MONOGRAPHIES-DERMATOSES-G9-20261018.json.
+Pièges : prévalence de population distincte de la probabilité en G9 ; aucune dose importée. Ne pas citer la page de connaissances du chatbot comme stratégie professionnelle.
+À vérifier : critères formels psoriasis, biopsie et bilan avant traitements, sex-ratios et fréquences non établies, toutes les posologies AIPS ; site public encore refusé dans cette session. Boucles ouvertes.
+
 ## Codex · lot 6 de prévalences · 18.10.2026 Europe/Zurich
 État : G11–G14, 56 fréquences explicitement inconnues ; couverture 45/2587 inchangée. G1–G8 et constructions réussis, CI exacte requise avant fusion.
 Prochaine : G15–G18 ; sept monographies G9, puis G10 et Panacée O7.14–O7.12.
