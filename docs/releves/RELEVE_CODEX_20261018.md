@@ -66,3 +66,11 @@ Précision R8 : le modèle courant sert de secours dans la session interactive. 
 Actualisation 2026-10-18T02:30:26.096088+00:00 : #41 fusionnée (5de965f) après #83, contrôles requis verts et 278 tests. #81 reste en audit. Les corrections cliniques R13 #64/#67/#70/#88 restent en attente de Vial. La clôture reste refusée ; reprise à l’étape 8, lot 3.
 
 Contrôle après #41 : main 5de965f, Pages identique pour l’application et quatre JS à 02:30:46 UTC. Inventaire actualisé : 753 champs, 782 occurrences, 24 fichiers. Après réunion avec la correction terminologique : 544 entrées de glossaire, référence 3566 et 69 fautes corrigées consignées ; les quatre propositions potentiellement critiques restent hors main. Les instantanés antérieurs ci-dessus sont historiques.
+
+### Reprise après le lot 3 · 18.10.2026 UTC
+
+#90 est fusionnée (6bbbde7). Main : 39/2587 fréquences, jauge arrondie 2 % ; 207/2287 monographies, 9 %. Une seule fréquence a été retenue après relecture (SCA, Zurich, 1/53) ; les dix-neuf autres du lot restent inconnues. Source de Berne non retenue sous la règle d’éditeur, miroir suisse inaccessible ; incohérences de l’autre tableau européen consignées. Aucun pays, chiffre ou critère inventé.
+
+#91 contient six propositions G9 (xérose, prurits rénal, ferriprive, médicamenteux, neuropathiques, psychogène), EDF 2025 et HUG relus. Elles ne comptent pas dans main. Le verrou #64→#91 est dans main ; predecesseurs_fusion.py 91 constate #64 OPEN et ready=false. Ne pas activer directement l’auto-merge de #91.
+
+Pages vérifié à 02:54:35 UTC : accueil, app et quatre JS HTTP 200, identiques à main 6bbbde7. Inventaire actualisé : 788 champs, 817 marques, 24 fichiers. La clôture reste refusée ; reprise étape 8 lot 4, G1–G4, S8 après #37. Les instantanés antérieurs restent historiques.
