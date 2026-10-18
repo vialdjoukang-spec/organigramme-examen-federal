@@ -50,9 +50,16 @@ def _number(value):
     if isinstance(value, bool) or not isinstance(value, (int, float, str, Decimal)):
         return None
     try:
-        n = Decimal(str(value))
-        return n if n.is_finite() else None
-    except InvalidOperation:
+        token = str(value)
+        if len(token) > 256:
+            return None
+        n = Decimal(token)
+        # Computational bounds only, far beyond any clinical cohort. Inspect
+        # exponent before int()/format(), which could allocate millions of digits.
+        if n.is_zero():
+            return Decimal(0)
+        return n if n.is_finite() and abs(n.adjusted()) <= 100 else None
+    except (InvalidOperation, ValueError, OverflowError):
         return None
 
 
@@ -77,6 +84,30 @@ def _geography_supported(geography, proof):
     return bool(re.search(swiss if geography == 'CH' else europe, text))
 
 
+
+def _structured_errors(candidate, flags, corrections):
+    """Unknowns are points to verify; only observed corrections claim a fix."""
+    errors = []
+    for flag in flags:
+        severity = 'majeure' if flag in {
+            'effectifs_invalides', 'pourcentage_invalide', 'empreinte_extrait_incoherente',
+            'url_non_sure_ou_absente', 'date_recherche_absente_invalide_ou_future',
+            'mesure_non_prevalence_ou_ambigue'} else 'information'
+        errors.append({'code': flag, 'gravite': severity,
+                       'nature': 'point_a_verifier', 'motif': flag.replace('_', ' '),
+                       'candidat_id': candidate.get('id'), 'source': candidate.get('url'),
+                       'corrigee': False})
+    for correction in corrections:
+        if not isinstance(correction, dict):
+            continue
+        errors.append({'code': 'arithmetique_corrigee', 'gravite': 'majeure',
+                       'nature': 'correction_constatee', 'motif': correction.get('motif'),
+                       'candidat_id': candidate.get('id'), 'source': candidate.get('url'),
+                       'avant': correction.get('avant'), 'apres': correction.get('apres'),
+                       'corrigee': True})
+    return errors
+
+
 def audit_candidate(candidate):
     """Return an audited copy; never infer a percentage from free text or an OR.
 
@@ -87,7 +118,8 @@ def audit_candidate(candidate):
     if not isinstance(candidate, dict):
         return {'valeur_originale': copy.deepcopy(candidate), 'statut': 'candidat_a_relire',
                 'audit': {'statut': 'À vérifier', 'flags': ['candidat_non_objet'],
-                          'corrections': [], 'calcul_verifie': False, 'validation_clinique': False}}
+                          'corrections': [], 'calcul_verifie': False, 'validation_clinique': False,
+                          'erreurs': _structured_errors({}, ['candidat_non_objet'], [])}}
     out = copy.deepcopy(candidate)
     flags = []
     corrections = copy.deepcopy(out.get('audit', {}).get('corrections', [])) if isinstance(out.get('audit'), dict) else []
@@ -130,6 +162,13 @@ def audit_candidate(candidate):
     elif not isinstance(stat, dict):
         flag('statistique_non_objet')
     else:
+        study = out.get('meta_etude') if isinstance(out.get('meta_etude'), dict) else {}
+        weighted_fields = [(stat, 'ponderee'), (stat, 'ponderation'), (study, 'echantillon_pondere')]
+        if any(field in data and type(data[field]) is not bool for data, field in weighted_fields):
+            flag('ponderation_non_explicitement_booleenne')
+        if (any(data.get(field) is True for data, field in weighted_fields)
+                or re.search(r'\b(?:weighted|pondere\w*)\b', _normal(excerpt))):
+            flag('proportion_ponderee_non_recalculable_par_effectifs_bruts')
         n, d, pct = (_number(stat.get(k)) for k in ('numerateur', 'denominateur', 'pct'))
         if n is None or d is None or n != n.to_integral_value() or d != d.to_integral_value() or n < 0 or d <= 0 or n > d:
             flag('effectifs_invalides')
@@ -179,7 +218,8 @@ def audit_candidate(candidate):
     # Even perfect arithmetic leaves clinical/geographic transfer for explicit review.
     out['statut'] = 'candidat_a_relire'
     out['audit'] = {'statut': 'À vérifier', 'flags': flags, 'corrections': corrections,
-                    'calcul_verifie': verified, 'validation_clinique': False}
+                    'calcul_verifie': verified, 'validation_clinique': False,
+                    'erreurs': _structured_errors(out, flags, corrections)}
     return out
 
 

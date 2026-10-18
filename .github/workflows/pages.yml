@@ -37,6 +37,8 @@ jobs:
           cp progres.html _site/progres.html
           cp .etat_local/prevalences/jauges.html _site/prevalences.html
           cp .etat_local/prevalences/jauges.json _site/prevalences.json
+          if [ -f .etat_local/prevalences/erreurs.pdf ]; then cp .etat_local/prevalences/erreurs.pdf _site/prevalences-erreurs.pdf; fi
+          if [ -f .etat_local/prevalences/erreurs.json ]; then cp .etat_local/prevalences/erreurs.json _site/prevalences-erreurs.json; fi
           if [ -d assets ]; then cp -r assets _site/assets; fi
           touch _site/.nojekyll
       - uses: actions/configure-pages@v6

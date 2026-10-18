@@ -154,6 +154,31 @@ class StatisticalAuditor(unittest.TestCase):
         c = candidate(); c['statistique']['decimales'] = 0
         self.assertEqual(A.audit_candidate(c)['statistique']['pct'], 13)
 
+    def test_weighted_prevalence_not_overwritten_with_unweighted_ratio(self):
+        c = candidate(); c['statistique'].update(pct=15, ponderee=True)
+        checked = A.audit_candidate(c)
+        self.assertEqual(checked['statistique']['pct'], 15)
+        self.assertFalse(checked['audit']['calcul_verifie'])
+        self.assertIn('proportion_ponderee_non_recalculable_par_effectifs_bruts', checked['audit']['flags'])
+        c = candidate(); c['meta_etude'] = {'echantillon_pondere': True}
+        self.assertEqual(A.audit_candidate(c)['statistique']['pct'], 99)
+        c = candidate(); c['meta_etude'] = {'echantillon_pondere': 'true'}
+        self.assertEqual(A.audit_candidate(c)['statistique']['pct'], 99)
+        c = candidate(); c['extrait'] += ' Weighted prevalence estimate.'
+        c.pop('sha256_extrait')
+        self.assertEqual(A.audit_candidate(c)['statistique']['pct'], 99)
+
+    def test_errors_distinguish_unknowns_and_observed_arithmetic_correction(self):
+        checked = A.audit_candidate(candidate())
+        correction = next(e for e in checked['audit']['erreurs'] if e['corrigee'])
+        self.assertEqual(correction['source'], candidate()['url'])
+        self.assertEqual((correction['avant'], correction['apres']), (99, 12.5))
+        unknown = A.audit_candidate({'id': 'unknown', 'extrait': 'unstructured'})
+        for entry in unknown['audit']['erreurs']:
+            self.assertFalse(entry['corrigee'])
+            self.assertNotIn('avant', entry)
+            self.assertNotIn('apres', entry)
+
     def test_source_fingerprint(self):
         c = candidate(); c['extrait'] += ' CHANGED'
         checked = A.audit_candidate(c)
@@ -176,6 +201,14 @@ class StatisticalAuditor(unittest.TestCase):
         result, report = A.audit_state(state)
         self.assertEqual(report['candidats'], 1)
         self.assertIn('valeur_originale', result['tasks']['G1#0']['candidates'][0])
+
+    def test_huge_exponents_and_numeric_strings_are_rejected_before_allocation(self):
+        for value in ('1e1000000', '1e-1000000', '9' * 10000):
+            with self.subTest(value=value[:20]):
+                c = candidate(); c['statistique']['denominateur'] = value
+                checked = A.audit_candidate(c)
+                self.assertIn('effectifs_invalides', checked['audit']['flags'])
+                self.assertFalse(checked['audit']['calcul_verifie'])
 
     def test_report_cannot_overwrite_state_or_modify_other_categories(self):
         with tempfile.TemporaryDirectory() as directory:

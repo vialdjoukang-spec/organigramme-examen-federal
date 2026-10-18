@@ -22,6 +22,7 @@ import time
 import unicodedata
 from urllib.parse import urlencode, urljoin, urlparse
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = json.loads(Path(__file__).with_name('config.json').read_text())
@@ -96,16 +97,23 @@ def queries(task):
 
 class Text(HTMLParser):
     def __init__(self):
-        super().__init__(); self.parts = []; self.skip = 0; self.links = []
+        super().__init__(); self.parts = []; self.skip = 0; self.links = []; self.link_records = []; self.active_link = None
     def handle_starttag(self, tag, attrs):
         if tag in ('script', 'style'): self.skip += 1
         if tag == 'a':
             href = dict(attrs).get('href')
-            if href: self.links.append(href)
+            if href:
+                self.links.append(href)
+                self.active_link = {'href':href,'parts':[],'contexte':' '.join(self.parts[-12:])}
     def handle_endtag(self, tag):
         if tag in ('script', 'style'): self.skip = max(0, self.skip - 1)
+        if tag == 'a' and self.active_link:
+            self.link_records.append({'href':self.active_link['href'],'text':' '.join(self.active_link['parts']),'contexte':self.active_link['contexte']})
+            self.active_link = None
     def handle_data(self, data):
-        if not self.skip: self.parts.append(data)
+        if not self.skip:
+            self.parts.append(data)
+            if self.active_link is not None:self.active_link['parts'].append(data)
     @property
     def text(self): return re.sub(r'\s+', ' ', unescape(' '.join(self.parts))).strip()
 
@@ -114,36 +122,74 @@ def text_html(raw):
     p = Text(); p.feed(raw); return p.text
 
 
+class FetchError(RuntimeError):
+    def __init__(self, message, url, http_status=None, attempts=1, retryable=False):
+        super().__init__(message)
+        self.details = {'url': url, 'http_status': http_status, 'tentatives': attempts,
+                        'reessayable': retryable, 'nature': 'recherche_reseau'}
+
+
 class Client:
     def __init__(self, cache, timeout=15, interval=.4, budget_seconds=600):
         self.cache = Path(cache); self.cache.mkdir(parents=True, exist_ok=True)
         self.timeout = timeout; self.interval = interval
         self.deadline = time.monotonic() + budget_seconds
-        self.lock = threading.Lock(); self.last = {}
+        self.lock = threading.Lock(); self.last = {}; self.denied = {}
     def fetch(self, url, ttl_days=7):
-        if urlparse(url).scheme != 'https': raise ValueError('HTTPS requis')
+        parsed = urlparse(url)
+        if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
+            raise ValueError('URL HTTPS publique sans identifiants requise')
         key = hashlib.sha256(url.encode()).hexdigest(); p = self.cache / key
         if p.exists() and time.time() - p.stat().st_mtime < ttl_days * 86400:
-            return p.read_bytes()
-        with self.lock:
-            if time.monotonic() >= self.deadline: raise TimeoutError('Budget de recherche atteint')
-            host = urlparse(url).hostname
-            delay = self.interval - (time.monotonic() - self.last.get(host, 0))
-            if delay > 0: time.sleep(delay)
-            self.last[host] = time.monotonic()
-        req = Request(url, headers={'User-Agent': CONFIG['user_agent'], 'Accept': 'application/json, text/html, application/pdf;q=0.9'})
-        with urlopen(req, timeout=min(self.timeout, max(1, self.deadline-time.monotonic()))) as r:
-            raw = r.read(CONFIG['max_response_bytes'] + 1)
-        if len(raw) > CONFIG['max_response_bytes']: raise ValueError('Document trop volumineux')
-        tmp = p.with_suffix('.' + str(threading.get_ident()) + '.tmp')
-        tmp.write_bytes(raw); tmp.replace(p)
-        return raw
+            cached = p.read_bytes()
+            if len(cached) <= CONFIG['max_response_bytes']: return cached
+            p.unlink()
+        host = parsed.hostname
+        for attempt in range(1, 4):
+            with self.lock:
+                if time.monotonic() >= self.deadline: raise TimeoutError('Budget de recherche atteint')
+                if host in self.denied:
+                    raise FetchError('Accès refusé précédemment sur cet hôte ; aucun contournement', url, self.denied[host], 0, False)
+                delay = self.interval - (time.monotonic() - self.last.get(host, 0))
+                if delay > 0: time.sleep(min(delay, max(0, self.deadline-time.monotonic())))
+                self.last[host] = time.monotonic()
+            req = Request(url, headers={'User-Agent': CONFIG['user_agent'], 'Accept': 'application/json, text/html, application/pdf;q=0.9'})
+            try:
+                with urlopen(req, timeout=min(self.timeout, max(.1, self.deadline-time.monotonic()))) as r:
+                    raw = r.read(CONFIG['max_response_bytes'] + 1)
+                if len(raw) > CONFIG['max_response_bytes']: raise ValueError('Document trop volumineux')
+                tmp = p.with_suffix('.' + str(threading.get_ident()) + '.tmp')
+                tmp.write_bytes(raw); tmp.replace(p)
+                return raw
+            except HTTPError as error:
+                retryable = error.code == 429 or error.code in (500, 502, 503, 504)
+                if error.code in (401, 403):
+                    with self.lock: self.denied[host] = error.code
+                if not retryable or attempt == 3:
+                    raise FetchError(f'HTTP {error.code} après {attempt} tentative(s)', url, error.code, attempt, retryable) from error
+                try: delay = min(5, max(0, float(error.headers.get('Retry-After', 2**(attempt-1)))))
+                except (ValueError, TypeError, AttributeError): delay = 2**(attempt-1)
+            except (URLError, TimeoutError) as error:
+                if '403' in str(error):
+                    with self.lock: self.denied[host] = 403
+                    raise FetchError('CONNECT refusé par le proxy ; aucun contournement', url, 403, attempt, False) from error
+                if attempt == 3:
+                    raise FetchError(str(error)[:200], url, None, attempt, True) from error
+                delay = 2**(attempt-1)
+            if time.monotonic() + delay >= self.deadline:
+                raise FetchError('Budget atteint pendant le réessai', url, None, attempt, True)
+            time.sleep(delay)
+        raise FetchError('Recherche non aboutie', url)
     def get_json(self, url):
-        # Une coquille HTML, un captcha ou un HTTP 200 non JSON reste un échec.
         raw = self.fetch(url)
-        value = json.loads(raw)
-        if not isinstance(value, dict): raise ValueError('Réponse JSON inattendue')
-        return value
+        try:
+            value = json.loads(raw)
+            if not isinstance(value, dict): raise ValueError('Réponse JSON inattendue')
+            return value
+        except (ValueError, UnicodeError):
+            # Les coquilles HTML ne polluent pas sept jours de cache.
+            (self.cache / hashlib.sha256(url.encode()).hexdigest()).unlink(missing_ok=True)
+            raise ValueError('Réponse non JSON ou schéma invalide ; cache rejeté')
 
 
 def europepmc(client, q):
@@ -160,19 +206,19 @@ def europepmc(client, q):
         docs.append({'url': link, 'title': r.get('title', ''),
                      'text': text_html(r.get('abstractText', '')), 'provenance': 'europepmc',
                      'doi': doi, 'pmid': pmid, 'annee': r.get('pubYear'),
-                     'population_verifiee': False})
+                     'population_verifiee': False, 'revue': r.get('journalInfo', {}).get('journal', {}).get('title')})
     return url, docs
 
 
 def crossref(client, q):
     url = 'https://api.crossref.org/works?' + urlencode({'query.bibliographic': q['query'].replace('"', '').replace(' OR ', ' ').replace(' AND ', ' '),
         'rows': CONFIG['max_results_per_query'], 'filter': 'type:journal-article',
-        'select': 'DOI,title,abstract,URL,published'})
+        'select': 'DOI,title,abstract,URL,published,publisher,container-title'})
     d = client.get_json(url)
     if not isinstance(d.get('message', {}).get('items'), list): raise ValueError('Schéma Crossref inattendu')
     return url, [{'url': 'https://doi.org/' + r['DOI'], 'title': ' '.join(r.get('title', [])),
                   'text': text_html(r.get('abstract', '')), 'provenance': 'crossref',
-                  'doi': r['DOI'], 'population_verifiee': False}
+                  'doi': r['DOI'], 'editeur': r.get('publisher'), 'revue': r.get('container-title', []), 'population_verifiee': False}
                  for r in d['message']['items'] if r.get('DOI')]
 
 
@@ -206,6 +252,70 @@ class Hug:
         return self.INDEX, docs
 
 
+def load_registry():
+    return json.loads(Path(__file__).with_name('sources_reconnues.json').read_text())
+
+
+def source_editoriale(url):
+    host = (urlparse(url).hostname or '').lower().rstrip('.')
+    return next((r['id'] for r in load_registry()['sources'] if r.get('verified') is True
+                 and any(host == d or host.endswith('.' + d) for d in r['domaines'])), None)
+
+
+def expected_protocol():
+    return {(p, ident) for p in CONFIG['providers'] for ident in
+            (['CH:documents_hug'] if p == 'hug' else ['Europe:societes'] if p == 'societes'
+             else ['CH:consultation', 'CH:population', 'Europe:consultation', 'Europe:population'])}
+
+
+class Societes:
+    """Bibliothèques officielles reconnues, sans contournement d'accès.
+
+    Une identité éditoriale reconnue ne détermine ni la population d'une étude
+    ni sa qualité. Chaque échec d'index/document reste dans la trace.
+    """
+    def __init__(self, client): self.client = client; self.traces = []
+    def search(self, task):
+        self.traces = []; docs = []; opened = 0
+        words = {w for value in terms(task['diagnostic'])+terms(task['title_ssp'])
+                 for w in norm(value).split() if len(w) >= 3 and w not in STOP}
+        for source in load_registry()['sources']:
+            if source.get('verified') is not True or source['id'] == 'HUG': continue
+            for index in source.get('index_recherche', []):
+                try:
+                    raw = self.client.fetch(index); parsed = Text(); parsed.feed(raw.decode('utf-8'))
+                    opened += 1; self.traces.append({'source_id': source['id'], 'url': index, 'ok': True})
+                    allowed_publications = {'doi.org','academic.oup.com','onlinelibrary.wiley.com','publications.ersnet.org','medicaljournalssweden.se'}
+                    ranked = {}
+                    for link in parsed.link_records:
+                        url = urljoin(index,link['href']); parsed_url = urlparse(url)
+                        context = norm(parsed_url.path+' '+link['text']+' '+link['contexte'])
+                        score = sum(bool(re.search(r'(?<![a-z0-9])'+re.escape(w)+r'(?![a-z0-9])',context)) for w in words)
+                        if (parsed_url.scheme == 'https' and score and
+                            (source_editoriale(url) == source['id'] or parsed_url.hostname in allowed_publications) and
+                            not any(ext in parsed_url.path.lower() for ext in ('.jpg','.png','.svg','.zip'))):
+                            ranked[url] = max(score,ranked.get(url,0))
+                    links = sorted(ranked,key=lambda url:(-ranked[url],url))[:2]
+                    for url in links:
+                        try:
+                            body = self.client.fetch(url)
+                            if body.startswith(b'%PDF'):
+                                result = subprocess.run(['pdftotext','-layout','-','-'], input=body,capture_output=True,timeout=25,check=True)
+                                pages = result.stdout.decode('utf-8').split('\f')
+                            else: pages = [text_html(body.decode('utf-8'))]
+                            for number, content in enumerate(pages,1):
+                                docs.append({'url':url,'title':urlparse(url).path.rsplit('/',1)[-1],
+                                             'text':content,'loc':f'Page {number}' if body.startswith(b'%PDF') else 'Texte HTML',
+                                             'provenance':'societes','source_editoriale_id':source['id'],'index_origine':index,
+                                             'document_sha256':hashlib.sha256(body).hexdigest(),'population_verifiee':False})
+                        except Exception as e:
+                            self.traces.append({'source_id':source['id'],'url':url,'ok':False,'erreur':str(e)[:240]})
+                except Exception as e:
+                    self.traces.append({'source_id':source['id'],'url':index,'ok':False,'erreur':str(e)[:240]})
+        if not opened: raise ValueError('Aucun index de société reconnue accessible ; voir les erreurs d’accès')
+        return 'https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/main/tools/prevalences/sources_reconnues.json', docs
+
+
 def snippets(doc, task, query_id):
     body = re.sub(r'\s+', ' ', doc.get('text', '')).strip()
     # Correspondance lexicale = piste, jamais confirmation d'un diagnostic exact.
@@ -220,7 +330,8 @@ def snippets(doc, task, query_id):
         token = doc['url'] + '|' + doc.get('loc', '') + '|' + excerpt
         out.append({k: v for k, v in doc.items() if k != 'text'} | {
             'id': hashlib.sha256(token.encode()).hexdigest()[:24], 'extrait': excerpt,
-            'sha256': hashlib.sha256(body.encode()).hexdigest(), 'date_recherche': now(),
+            'sha256': hashlib.sha256(body.encode()).hexdigest(), 'sha256_extrait': hashlib.sha256(excerpt.encode()).hexdigest(), 'date_recherche': now(),
+            'source_editoriale_id': doc.get('source_editoriale_id') or source_editoriale(doc['url']),
             'requete': query_id, 'statut': 'candidat_a_relire', 'termes_reperes': matched,
             'valeur_reperee': m.group(0), 'type': 'À vérifier', 'geographie': 'À vérifier',
             'denominateur': 'À vérifier', 'diagnostic_exact': 'À vérifier'})
@@ -237,21 +348,26 @@ def due(task, old, refresh_days, retry_hours):
     return age >= timedelta(hours=hours)
 
 
-def search_task(task, client, hug, providers):
+def search_task(task, client, hug, providers, societes=None):
+    if 'societes' in providers and societes is None:
+        societes = Societes(client)
     row = dict(task, date_recherche=now(), queries=[], candidates=[], statut='erreur')
     for provider in providers:
-        plan = [{'id': 'CH:documents_hug'}] if provider == 'hug' else queries(task)
+        plan = [{'id': 'CH:documents_hug'}] if provider == 'hug' else [{'id':'Europe:societes'}] if provider == 'societes' else queries(task)
         for q in plan:
             if time.monotonic() >= client.deadline:
                 row['queries'].append({'provider': provider, 'id': q['id'], 'ok': False, 'erreur': 'Budget atteint, recherche à reprendre'}); continue
             try:
-                url, docs = hug.search(task) if provider == 'hug' else globals()[provider](client, q)
+                url, docs = hug.search(task) if provider == 'hug' else (societes or Societes(client)).search(task) if provider == 'societes' else globals()[provider](client, q)
                 row['queries'].append({'provider': provider, **q, 'url_recherche': url,
-                                       'ok': True, 'documents': len(docs)})
+                                       'ok': not (provider == 'societes' and societes and any(t.get('ok') is False for t in societes.traces)), 'documents': len(docs),
+                                       'erreur': 'Accès à certaines sources scientifiques non abouti' if provider == 'societes' and societes and any(t.get('ok') is False for t in societes.traces) else None,
+                                       'trace_sources': societes.traces if provider == 'societes' and societes else []})
                 for doc in docs: row['candidates'].extend(snippets(doc, task, q['id']))
             except Exception as e:
                 # Erreur tracée, non transformée en « zéro résultat ».
-                row['queries'].append({'provider': provider, **q, 'ok': False, 'erreur': str(e)[:300]})
+                row['queries'].append({'provider': provider, **q, 'ok': False, 'erreur': str(e)[:300], 'details_erreur': getattr(e, 'details', {}),
+                                       'trace_sources': societes.traces if provider == 'societes' and societes else []})
     dedup = {c['id']: c for c in row['candidates']}
     row['candidates'] = list(dedup.values())
     oks = sum(q['ok'] for q in row['queries'])
@@ -327,7 +443,7 @@ def run_category(category, args):
         for start in range(0, len(selected), args.workers):
             if time.monotonic() >= client.deadline: break
             batch = selected[start:start+args.workers]
-            for row in pool.map(lambda t: search_task(t, client, hug, args.providers), batch):
+            for row in pool.map(lambda t: search_task(t, client, hug, args.providers, Societes(client)), batch):
                 previous = state['tasks'].get(row['key'], {})
                 # Une panne temporaire ne supprime jamais des pistes antérieures.
                 previous_candidates = previous.get('candidates', []) if previous.get('fingerprint') == row['fingerprint'] else []
@@ -340,6 +456,8 @@ def run_category(category, args):
     state.update(maj=now(), dernier_lot={'selectionnes': len(selected), 'traites': done, 'restants_a_rechercher': len(queued)-done})
     from tools.prevalences.auditeur import audit_state
     state, report = audit_state(state)
+    from tools.prevalences.selection import selectionner
+    for row in state['tasks'].values(): row['selection'] = selectionner(row.get('candidates', []), load_registry())
     atomic_json(path, state); atomic_json(Path(args.state_dir) / f'audit-{category}.json', report)
     return state
 

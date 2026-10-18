@@ -1,0 +1,66 @@
+[
+ {
+  "id": "conservation-relectures",
+  "motif": "Un rafraîchissement pouvait remplacer les annotations statistiques antérieures. Les preuves liées à la même source sont désormais conservées.",
+  "avant": "Remplacement du candidat portant le même identifiant",
+  "apres": "Réunion des découvertes et des relectures liées à l’empreinte",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/104"
+ },
+ {
+  "id": "sigles-medicaux",
+  "motif": "Les diagnostics courts comme VIH ou BPCO n’étaient pas repérés. Une correspondance par mots entiers est maintenant testée.",
+  "avant": "Exclusion des tokens courts",
+  "apres": "Sigles médicaux admis avec bornes de mots",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/104"
+ },
+ {
+  "id": "bruit-prepositions",
+  "motif": "La préposition par créait des faux rapprochements, dans huit des neuf pistes de la catégorie O. Ces pistes ont été relues et non publiées.",
+  "avant": "Préposition prise pour un terme diagnostique",
+  "apres": "Mots grammaticaux exclus ; source et rejet conservés",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/automates/prevalences/agent-relecture-initiale.json"
+ },
+ {
+  "id": "decimales-intervalles",
+  "motif": "L’extraction pouvait isoler 69 % dans une écriture 4, 69 %, ou la borne 35 % dans un intervalle 10–35 %. Le texte numérique exact est désormais conservé.",
+  "avant": "Fragment numérique pris isolément",
+  "apres": "Décimale espacée, bornes et intervalles conservés verbatim ; aucune valeur ponctuelle inventée",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/104"
+ },
+ {
+  "id": "protocole-jauge",
+  "motif": "Une seule requête réussie pouvait être comptée comme une recherche aboutie. Le protocole entier sans doublons est maintenant exigé.",
+  "avant": "Test all(ok) sur une liste incomplète",
+  "apres": "Ensemble attendu des requêtes vérifié ; états partiels distincts",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/104"
+ },
+ {
+  "id": "source-concurrente",
+  "motif": "Un artefact plus ancien pouvait remplacer une source plus récente et sa relecture. La consolidation préserve la source récente.",
+  "avant": "Fusion aveugle d’artefacts différés",
+  "apres": "Dates et empreintes comparées ; artefacts obsolètes ignorés et comptés",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/104"
+ },
+ {
+  "id": "pdf-double-comptage",
+  "motif": "La relecture indépendante du PDF de travail a détecté un double comptage entre anciennes signatures et événements actifs. Défaut corrigé avant le déploiement de la synthèse.",
+  "avant": "Archives de la même erreur additionnées aux erreurs actives",
+  "apres": "Migration sémantique des signatures, déduplication et décomptes actifs/archives séparés",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/main/tests/test_prevalences_rapport.py"
+ },
+ {
+  "id": "relecture-perimee-rapport",
+  "motif": "Un statut terminé seul pouvait faire compter une relecture portant sur une ancienne empreinte. La synthèse vérifie désormais la preuve complète de relecture actuelle.",
+  "avant": "Comptage du statut terminé sans contrôle de source",
+  "apres": "review_completed exigé ; relecture périmée archivée, sans validation clinique",
+  "corrigee": true,
+  "preuve": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/main/tests/test_prevalences_rapport.py"
+ }
+]

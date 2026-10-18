@@ -30,8 +30,6 @@ jobs:
           echo "orig/ intact."
       - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
         run: python3 tools/budget.py
-      - name: Automates de prévalences et audit statistique
-        run: python3 -m unittest discover -s tests -p 'test_prevalences_*.py'
       - name: Tests des gardes elles-mêmes
         run: python3 tests/test_gardes.py
       - name: File de fusion · contrôles requis, attente-vial et réessai Pages
@@ -48,7 +46,9 @@ jobs:
       - uses: actions/setup-python@v7
         with: { python-version: '3.12' }
       - name: Dépendances de l'audit (jsonschema, pyyaml)
-        run: pip install --quiet jsonschema pyyaml
+        run: pip install --quiet jsonschema pyyaml -r tools/prevalences/requirements.txt
+      - name: Automates de prévalences et audit statistique
+        run: python3 -m unittest discover -s tests -p 'test_prevalences_*.py'
       - name: G5 · schémas, renvois croisés et chaîne complète ; assets/ck à jour
         run: python tools/ck_build.py --check
       - name: Stations CS · schéma, renvois (SSP, GES, hyp, src), dates de lecture, aucune dose chiffrée ; assets/st à jour
