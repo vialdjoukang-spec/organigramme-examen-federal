@@ -57,6 +57,8 @@ ecrire_prochaine() { # $1 = ordre
     echo
     echo "> $1"
     echo
+    printf '%s\n' 'Règle prototypes · Vial (18.10.2026) : « pour la suite tu devras te fier à la science plus à moi ». Source CH/UE lue et datée puis contre-audit, sans redemander R13 déjà autorisé ni prétendre à une validation médicale humaine. `chronologie_version: 1` exige `bilan_ordre` et `pec_ordre` : afficher la référence puis le bilan ordonné (premier texte = `exp_premier`, il remplace les anciens champs redondants), puis les phases PEC ; garder `dia` une fois après le bilan. Les urgences commencent sans attendre un examen de confirmation. Les fiches legacy sans chronologie gardent leur rendu ; ne pas leur fabriquer d’ordre.'
+    echo
     echo "État : \`$(cat "$RACINE/ETAT.json" 2>/dev/null | tr -d '\n')\`"
     echo
     echo "Échecs de fusion récents (journal/echecs_fusion.md) :"

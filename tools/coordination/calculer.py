@@ -38,13 +38,18 @@ def attestation(record, value, root, sources, fingerprint=None):
     if not target.is_relative_to(root.resolve()) or not target.is_file(): return False
     return record.get('rapport_sha256') == hashlib.sha256(target.read_bytes()).hexdigest()
 
+def relecture_prototype(record, value, root, sources):
+    return (isinstance(record, dict) and record.get('chronologie_relue') is True
+            and attestation(record, value, root, sources))
+
 def calculer(root=ROOT, states=None, ledger=None, config=None):
     config = config or CONFIG; ledger = ledger or {}; states_provided = states is not None; states = states or {}
     ssps, tasks = catalog(root)
     sources = {s['id']:s for s in json.loads((root/'data/ck/src.json').read_text())}
     fiches_ssp = load_ssp(root) or {}
     ssp_prototypes = [s[0] for s in ssps if prototype_ready(fiches_ssp.get(s[0], {}))]
-    ssp_revues = [c for c in ssp_prototypes if attestation(ledger.get('ssp', {}).get(c), fiches_ssp[c], root, sources)]
+    ssp_revues = [c for c in ssp_prototypes
+                  if relecture_prototype(ledger.get('ssp', {}).get(c), fiches_ssp[c], root, sources)]
     prev = json.loads((root/'data/ck/prev.json').read_text()); monos = {}; duplicates = []
     for path in sorted((root/'data/ck/mono').glob('*.json')):
         for key, value in json.loads(path.read_text()).items():
@@ -69,7 +74,7 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
                      and pr.get('applicable_au_dd_dans_ce_cadre') is True
                      and pr.get('population_cible') == task['title_ssp'])
         prototype = isinstance(mono,dict) and structure and prototype_ready(mono)
-        prototype_read = prototype and mono_read
+        prototype_read = prototype and relecture_prototype(mr, mono, root, sources)
         row = dict(task,diagnostic_id=diagnostic,mono_structure=bool(structure),mono_relecture=bool(mono_read),mono_reserves=reserves,
                    prototype_structure=bool(prototype),prototype_relecture=bool(prototype_read),
                    prevalence_publiee=bool(published),prevalence_relecture=bool(prev_read),couple_documente=ready)
@@ -86,6 +91,8 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
              'couples_documentes':paired,'ssp_sans_dd':empty,'doublons_monographies':duplicates,
              'maturite_documentaire_complete':bool(total and paired==total and not empty and not duplicates and len(seen)==total)}
     metrics.update(ssp_total=len(ssps),ssp_prototype_structure=len(ssp_prototypes),ssp_prototype_relecture=len(ssp_revues))
+    metrics.update(chronologie_structures=metrics['prototype_structure'],chronologie_relectures=metrics['prototype_relecture'],
+                   ssp_chronologie_structures=len(ssp_prototypes),ssp_chronologie_relectures=len(ssp_revues))
     ordered=sorted(occurrences,key=lambda t:(t['ssp']!=config['ssp_prioritaire'],))
     next_mono=[]; selected=set()
     for t in ordered:
@@ -145,7 +152,7 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
         plan.update(mission_exclusive='infobulles_prototype6',recherche_automatique_suspendue=True,
                     prochaines_fiches_ssp=[s[0] for s in sorted(ssps,key=lambda s:s[0]!=config['ssp_prioritaire']) if s[0] not in ssp_revues][:3],
                     action_recherche='rechercher manuellement les sources nécessaires au lot courant uniquement')
-    return {'version':1,'maj':datetime.now(timezone.utc).isoformat(timespec='seconds'),'mesure':metrics,'plan':plan,'occurrences':occurrences,
+    return {'version':1,'protocole':{'version':2,'rubriques':6,'chronologie_obligatoire':True},'maj':datetime.now(timezone.utc).isoformat(timespec='seconds'),'mesure':metrics,'plan':plan,'occurrences':occurrences,
             'reserve':'Couverture structurelle et relecture documentaire distinctes. Registre lié aux empreintes initialisé sur le dernier lot ; les audits historiques ne sont pas tous migrés. Aucun accord clinique humain ni achèvement déduit d’un chiffre arrondi.'}
 
 def page(report):
@@ -153,7 +160,7 @@ def page(report):
     rows=[('Monographies structurées',m['monographies_structure'],m['diagnostics_uniques']),('Relectures monographiques inscrites au registre couplé',m['monographies_relues'],m['diagnostics_uniques']),
           ('Prévalences publiées avec source',m['prevalences_publiees'],m['occurrences']),('Relectures de prévalences inscrites au registre couplé',m['prevalences_relues'],m['occurrences']),('Occurrences documentées sur les deux volets',m['couples_documentes'],m['occurrences'])]
     if p.get('mission_exclusive') == 'infobulles_prototype6':
-        rows=[('Prototypes six rubriques structurés (hors validation clinique)',m['prototype_structure'],m['diagnostics_uniques']),
+        rows=[('Prototypes six rubriques avec chronologies (hors validation clinique)',m['prototype_structure'],m['diagnostics_uniques']),
               ('Prototypes avec relecture documentaire actuelle',m['prototype_relecture'],m['diagnostics_uniques'])]
         rows += [('Fiches SSP structurées',m['ssp_prototype_structure'],m['ssp_total']),
                  ('Fiches SSP avec relecture documentaire actuelle',m['ssp_prototype_relecture'],m['ssp_total'])]

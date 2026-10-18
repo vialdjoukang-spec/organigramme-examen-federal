@@ -121,6 +121,19 @@ def json_at(ref, path):
         return None
 
 
+def nested_texts(value, path=''):
+    """Yield nested prose so guards also inspect structured prototype fields."""
+    if isinstance(value, str):
+        yield path, value
+    elif isinstance(value, dict):
+        for key, item in value.items():
+            child = f'{path}.{key}' if path else str(key)
+            yield from nested_texts(item, child)
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            yield from nested_texts(item, f'{path}[{index}]')
+
+
 def ctrl_etat(base, fichiers, F):
     if "ETAT.json" not in fichiers:
         return
@@ -150,8 +163,8 @@ def ctrl_doses(base, fichiers, F):
 
     def doses_entree(v):
         out = []
-        for k, t in (v.items() if isinstance(v, dict) else []):
-            if k in ("src", "lu", "id", "url", "dose_ref", "n") or not isinstance(t, str):
+        for path, t in nested_texts(v):
+            if path.rsplit('.', 1)[-1] in ("src", "lu", "id", "url", "dose_ref", "n"):
                 continue
             if STATUT_AV.lower() in t.lower() or "à vérifier" in t.lower():
                 continue

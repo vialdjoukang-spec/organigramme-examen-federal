@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Veille bornée 0/120/240 s ; les notifications ne prouvent aucune exécution IA."""
+"""Veille bornée : passages120s pendant une fenêtre de20min ; les notifications ne prouvent aucune exécution IA."""
 import argparse
 import base64
 from contextlib import contextmanager
@@ -32,9 +32,16 @@ def complete(report):
     """Exact, non-rounded current hash-backed documentary counts, never legacy counts."""
     if not isinstance(report, dict) or report.get('plan', {}).get('mission_exclusive') != MISSION:
         return False
+    protocol = report.get('protocole', {})
+    if (not isinstance(protocol,dict) or type(protocol.get('version')) is not int or protocol['version'] != 2
+            or type(protocol.get('rubriques')) is not int or protocol['rubriques'] != 6
+            or protocol.get('chronologie_obligatoire') is not True):
+        return False
     m = report.get('mesure', {})
     for total, structured, reviewed in [('diagnostics_uniques', 'prototype_structure', 'prototype_relecture'),
-                                         ('ssp_total', 'ssp_prototype_structure', 'ssp_prototype_relecture')]:
+                                         ('ssp_total', 'ssp_prototype_structure', 'ssp_prototype_relecture'),
+                                         ('diagnostics_uniques', 'chronologie_structures', 'chronologie_relectures'),
+                                         ('ssp_total', 'ssp_chronologie_structures', 'ssp_chronologie_relectures')]:
         vals = [m.get(k) for k in (total, structured, reviewed)]
         if any(type(v) is not int for v in vals) or vals[0] <= 0 or vals != [vals[0]] * 3:
             return False
@@ -263,7 +270,7 @@ def worker(args, clock=time.monotonic, wall=time.time, sleeper=time.sleep):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--state-dir',type=Path,default=ROOT/'.etat_local/permanence')
-    p.add_argument('--window',type=int,default=240)
+    p.add_argument('--window',type=int,default=1200)
     p.add_argument('--daemon',action='store_true')
     p.add_argument('--refresh-main',action='store_true')
     p.add_argument('--github-state',action='store_true')

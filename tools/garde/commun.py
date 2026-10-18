@@ -118,7 +118,7 @@ def pilote(creer=True):
 
 PILOTE_MD = """# Pilote Codex · fil de relance automatique (R15) — NE PAS FUSIONNER
 
-Fil unique où `garde-progres.yml` (toutes les 10 min, GitHub Actions, gratuit) écrit :
+Fil unique où `garde-progres.yml` (déclencheur5min et passages internes120s, GitHub Actions, gratuit) écrit :
 - `@codex …` : ordre de Vial de reprendre la rédaction quand le contenu ne bouge plus ;
 - `@vialdjoukang-spec …` : seulement quand Vial doit intervenir (courriel GitHub).
 

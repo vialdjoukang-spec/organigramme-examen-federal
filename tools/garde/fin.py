@@ -109,7 +109,7 @@ def valider(mission, racine):
                     raise Erreur("Délai de contrôle : entier entre 1 et 60 secondes.")
             elif kind == "jauge":
                 schema(check, ("type", "nom"))
-                if check["nom"] not in ("prevalences", "monographies"):
+                if check["nom"] not in ("prevalences", "monographies", "chronologie_structures", "chronologie_relectures"):
                     raise Erreur("Jauge inconnue.")
             elif kind == "json":
                 schema(check, ("type", "fichier", "cles", "attendu"))

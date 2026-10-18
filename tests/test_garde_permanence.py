@@ -9,9 +9,10 @@ from tools.garde.permanence import complete,policy,Store,claim,release,lock,stop
 
 
 def report():
-    return {'plan':{'mission_exclusive':'infobulles_prototype6'},'mesure':{
+    return {'protocole':{'version':2,'rubriques':6,'chronologie_obligatoire':True},'plan':{'mission_exclusive':'infobulles_prototype6'},'mesure':{
         'diagnostics_uniques':2287,'prototype_structure':3,'prototype_relecture':3,
         'ssp_total':248,'ssp_prototype_structure':1,'ssp_prototype_relecture':1,
+        'chronologie_structures':3,'chronologie_relectures':3,'ssp_chronologie_structures':1,'ssp_chronologie_relectures':1,
         'monographies_structure':257,'doublons_monographies':[]}}
 
 
@@ -19,12 +20,25 @@ class PermanenceTests(unittest.TestCase):
     def test_legacy_or_three_records_never_complete_all(self):
         r=report();self.assertFalse(complete(r))
         r['mesure'].update(prototype_structure=2287,prototype_relecture=2287,
-                          ssp_prototype_structure=248,ssp_prototype_relecture=248)
+                          ssp_prototype_structure=248,ssp_prototype_relecture=248,
+                          chronologie_structures=2287,chronologie_relectures=2287,
+                          ssp_chronologie_structures=248,ssp_chronologie_relectures=248)
         self.assertTrue(complete(r))
         r['mesure']['ssp_sans_dd']=['G1'];self.assertFalse(complete(r))
         r['mesure']['ssp_sans_dd']=[]
         r['mesure']['ssp_prototype_relecture']=247;self.assertFalse(complete(r))
         r['mesure']['ssp_prototype_relecture']=True;self.assertFalse(complete(r))
+
+    def test_old_protocol_or_missing_chronology_proof_cannot_close(self):
+        r=report();r['mesure'].update(prototype_structure=2287,prototype_relecture=2287,
+            ssp_prototype_structure=248,ssp_prototype_relecture=248,
+            chronologie_structures=2287,chronologie_relectures=2287,
+            ssp_chronologie_structures=248,ssp_chronologie_relectures=248)
+        self.assertTrue(complete(r))
+        old=copy.deepcopy(r);old.pop('protocole');self.assertFalse(complete(old))
+        old=copy.deepcopy(r);old['protocole']['chronologie_obligatoire']=1;self.assertFalse(complete(old))
+        old=copy.deepcopy(r);old['mesure']['chronologie_relectures']=2286;self.assertFalse(complete(old))
+        old=copy.deepcopy(r);old['mesure'].pop('ssp_chronologie_relectures');self.assertFalse(complete(old))
 
     def test_progress_and_regression_revoke_completion_and_expired_lease(self):
         state={};r=report();self.assertEqual(policy(state,r,0),'progression')
@@ -82,6 +96,17 @@ class PermanenceTests(unittest.TestCase):
                 worker(args,clock=lambda:clock[0],wall=lambda:clock[0],sleeper=sleep)
             self.assertEqual(ticks,[0,120,240]);self.assertLessEqual(max(waits),25)
             state=json.loads((args.state_dir/'etat.json').read_text());self.assertFalse(state['complet']);self.assertNotIn('worker',state)
+
+    def test_twenty_minute_window_provides_eleven_checks_without_extra_workers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'tools/garde').mkdir(parents=True)
+            (root/'tools/garde/config.json').write_text('{}')
+            args=SimpleNamespace(state_dir=root/'state',github_state=False,refresh_main=False,notifier=False,window=1200,daemon=False)
+            clock=[0];ticks=[]
+            def measure(*_):ticks.append(clock[0]);return report()
+            with patch('tools.garde.permanence.snapshot',return_value=root),patch('tools.garde.permanence.report_for',side_effect=measure),patch('tools.garde.permanence.log'):
+                worker(args,clock=lambda:clock[0],wall=lambda:clock[0],sleeper=lambda delay:clock.__setitem__(0,clock[0]+delay))
+            self.assertEqual(ticks,list(range(0,1201,120)))
 
     def test_report_timeout_never_claims_completion_or_sends_notification(self):
         import subprocess

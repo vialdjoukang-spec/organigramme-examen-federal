@@ -22,7 +22,7 @@ Préciser population, lieu et période pour chaque chiffre ; garder « À vérif
 
 **5- Sémiologie aux explorations**
 **Examen de référence diagnostique :** nommer l’examen ou la démarche qui établit le diagnostic, lorsque cela s’applique. Un diagnostic clinique doit être annoncé comme tel ; aucun « gold standard » universel n’est inventé.
-**À faire en premier :** préciser le bilan initial adapté à la situation. L’examen de référence n’est pas toujours l’examen initial et ne doit jamais retarder une mesure urgente.
+**Chronologie du bilan (prototypes `chronologie_version: 1`) :** placer la référence en tête, puis ordonner `bilan_ordre` de un à six temps. Le premier porte le titre « À faire en premier » et reprend mot pour mot `exp_premier`. Chaque temps indique le bilan concret et le résultat recherché. Séparer le bilan initial urgent de l’examen de référence ; aucun examen ne retarde une mesure urgente.
 **Biologie :** examen précis → anomalie ou résultat recherché.
 **Morphologie :** examen précis → signe ou lésion recherchée.
 **Explorations fonctionnelles :** examen précis → anomalie recherchée, si applicable.
@@ -34,6 +34,9 @@ Préciser population, lieu et période pour chaque chiffre ; garder « À vérif
 **Mesures générales :** mesures adaptées au contexte.
 **Pharmacologie :** traitement, indication, limites et précautions utiles ; posologie uniquement si AIPS suisse effectivement relue, sinon « À vérifier (AIPS) ».
 **Autres :** gestes, chirurgie, intervention, soutien ou suivi selon le contexte ; sous-titres supplémentaires possibles si justifiés.
+**Chronologie de la prise en charge (prototypes `chronologie_version: 1`) :** ordonner `pec_ordre` en une à six phases sous B-Moyens. Dans chaque phase, présenter seulement les catégories présentes (`mes`, `pha`, `aut`) ; au moins une phase couvre les mesures générales et une couvre la pharmacologie. Lorsque des actions d’une même phase sont simultanées, le dire explicitement ; ne pas supposer que toutes le sont. Les mesures urgentes commencent sans attendre la fin du bilan ou un examen de confirmation. Chaque phase contient au moins une action.
+
+La chronologie est déclarée par `chronologie_version: 1`, avec `bilan_ordre` (`titre`, `texte`) et `pec_ordre` (`titre`, et au moins un champ parmi `mes`, `pha`, `aut`). Dans le rendu prototype, la timeline remplace les anciens champs d’exploration pour éviter les répétitions ; garder `exp_ref` avant le bilan ordonné et afficher `dia` une fois après celui-ci. Le premier texte du bilan doit égaler `exp_premier`. Les fiches sans ces champs restent des fiches legacy : le compilateur conserve leur rendu antérieur et ne fabrique aucun ordre. Une fiche legacy n’est pas comptée comme prototype chronologique.
 
 ## Exigences de fonctionnement
 
@@ -41,6 +44,7 @@ Préciser population, lieu et période pour chaque chiffre ; garder « À vérif
 - Le même contenu corrigé doit s’afficher au clic, au toucher et au clavier ; les retours entre infobulles et les sources restent accessibles.
 - La liste des diagnostics est classée par fréquence décroissante dans un cadre comparable. Une valeur inconnue n’est ni zéro ni un chiffre à inventer. Un classement qualitatif exige une source et un contexte ; à défaut, l’incertitude du rang reste explicite et le point reste ouvert.
 - Le suivi distingue : structure affichée, contenu spécifique relu, terminologie définie, classement documenté et publication vérifiée. Aucun compteur de volume ne certifie ces critères à lui seul.
+- Les jauges `chronologie_structures` et `chronologie_relectures` suivent séparément la présence des deux chronologies valides et le registre central `tools/coordination/relectures.json`. La jauge exige l’attestation documentaire actuelle déjà liée à l’empreinte SHA-256 de la fiche, à un rapport existant dont l’empreinte correspond et à des sources présentes dans le catalogue, avec `chronologie_relue: true`. Une mention dans un rapport seule ne suffit pas. Aucun marqueur n’est ajouté automatiquement ; ces jauges ne certifient pas une validation médicale ni la qualité de la source.
 
 ## Priorité exclusive et lots
 

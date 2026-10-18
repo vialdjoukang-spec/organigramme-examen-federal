@@ -1,3 +1,7 @@
+## Actualisation chronologie · 18.10.2026
+
+Lot local G1 :14/14diagnostics et1/1SSP du lot ont une chronologie de bilan et de prise en charge, contre-lue sur les objets exacts. Totaux du catalogue :14/2287DD et1/248SSP, sans validation médicale humaine ni classement de prévalence démontré. Dix-huit définitions supplémentaires sont sourcées, dont une encéphalopathie de Wernicke distincte de l’aphasie. La fusion et le déploiement du lot restent à vérifier ; les champs inconnus et réserves AIPS ne sont pas levés. SuiteG2 après ce lot.
+
 # ETAT · pilotage Codex (lu par tools/porte.py)
 
 Étape courante : voir `ETAT.json` (`python3 tools/porte.py etat`). Feuille de route : `CONTINUATION.md` (tableau en tête) et `tools/etapes.json`.
@@ -26,6 +30,8 @@ Légende : [x] fait · [ ] à faire. **Aucune étape de contenu (1 et suivantes)
 - Jauges au départ : Prévalences 0 % (0/2578) · Monographies 3 % (70/2280) le 18.10.2026 00:45 (Europe/Zurich)
 
 ## Journal des étapes (une ligne par fin d’étape ou de lot : date, étape, lot, PR, résultat)
+
+- 18.10.2026 · Lot G1 : huit monographies DD intégrées après contrelectures documentaires indépendantes ; 20 sources lues au registre ; empreintes des huit objets et rapports conservés. Pas de validation clinique humaine ; réserves non levées. Fréquences et classement comparatif demeurent À vérifier ; aucune donnée de prévalence ajoutée. Endocardite, VIH, sevrage alcoolique hors périmètre. G1/G2/G3/G6/G8, builders CK/mono réussis ; Lyncée en audit par l’agent glossaire ; suite navigateur locale bloquée par Chromium absent, CI exacte requise.
 
 - 18.10.2026 · Étape 0 préparée par Grok Bot (scripts, porte, veille, file de fusion) ; à exécuter par Codex.
 

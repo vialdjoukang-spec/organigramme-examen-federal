@@ -36,10 +36,12 @@ def mesure(ref):
             return 0
     return {"prevalences": R["prevalences"]["ok"], "prev_total": R["prevalences"]["total"],
             "monographies": R["monographies"]["ok"], "mono_total": R["monographies"]["total"],
+            "chronologie_structures": R["chronologie_structures"]["ok"],
+            "chronologie_relectures": R["chronologie_relectures"]["ok"],
             "doses": n("data/ck/doses_ch.json"), "glossaire": n("data/ck/glo.json")}
 
 
-COMPTEURS = ("prevalences", "monographies", "doses", "glossaire")
+COMPTEURS = ("prevalences", "monographies", "chronologie_structures", "chronologie_relectures", "doses", "glossaire")
 
 
 def activite(debut):
@@ -93,7 +95,8 @@ def main():
         etat.setdefault("stall_depuis", iso(t))
         rel = [a for a in act if a[1] == "releve"]
         raison = (f"aucun progrès de contenu en {fen} min (prév. {M['prevalences']}/{M['prev_total']}, "
-                  f"mono {M['monographies']}/{M['mono_total']}, doses {M['doses']}, glossaire {M['glossaire']})"
+                  f"mono {M['monographies']}/{M['mono_total']}, chronologies {M['chronologie_structures']}, "
+                  f"relectures {M['chronologie_relectures']}, doses {M['doses']}, glossaire {M['glossaire']})"
                   + (f", seulement des relevés ({', '.join('#%d' % a[0] for a in rel)})" if rel else ""))
         raisons.append(raison)
         etape = json.loads(git("show", "origin/main:ETAT.json") or "{}").get("etape_courante", "?")
@@ -106,7 +109,7 @@ def main():
             if crise:
                 consigne = ("\n\nMISSION EXCLUSIVE : corriger les infobulles SSP et DD au clic/toucher, sans survol depuis G1, "
                             "selon docs/PROTOCOLE-INFOBULLES-6-RUBRIQUES.md. Six rubriques, syndromes détaillés, "
-                            "référence diagnostique et premier bilan, A-But/B-Moyens, terminologie cliquable. "
+                            "référence diagnostique puis bilans numérotés dans l’ordre pratique, A-But/B-Moyens en phases chronologiques, actions simultanées explicites, terminologie cliquable. "
                             "Reprendre la PR active du lot ; autres tâches et recherches transversales suspendues. "
                             + json.dumps(plan.get("prochain_lot9", []), ensure_ascii=False))
             if commenter(n, f"@codex Ordre de Vial : reprends l'étape {etape}, lot suivant. Rédige du contenu "
