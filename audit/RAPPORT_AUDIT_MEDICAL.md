@@ -788,3 +788,5 @@ Six propositions comparées aux sections 4.2.1/3/7/8/9, 4.3.2, 6.4.5 et 6.6.1 du
 
 ## G9 · gales et cinq épidémiologies contextualisées · relu le 18.10.2026
 Deux monographies : gale commune et croûteuse. Bernigaud 2020 et Skayem 2023 relus : confirmation parasitologique, limites du prélèvement, contacts, forte contagiosité et complications. Le prurit de la forme croûteuse ne doit pas être supposé absent : tous les 95 cas sévères de la série française en rapportaient. Aucune dose ou calendrier français ajouté ; les posologies suisses restent À vérifier (AIPS). Cinq épidémiologies précisées par le tableau III de Brest, avec recrutement sélectionné et causes non exclusives ; les autres rubriques de ces cinq fiches restent inchangées. Sept autres G9, G10 et Panacée restent dus.
+
+Contre-lecture pharmacologique avant livraison : l’action limitée sur les œufs est attribuée à l’ivermectine, sans l’étendre à tous les traitements locaux. Aucun calendrier ni dose n’est déduit de cette précision.
