@@ -61,6 +61,7 @@ jobs:
           bash tools/visuel_reference.sh "$PR_EXAMINEE"
           git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
   visuel:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.adopter_pr == '' }}
     name: visuel
     runs-on: ubuntu-latest
     timeout-minutes: 25
