@@ -774,6 +774,9 @@ Le patch proposé distingue les deux familles de rythmes et demande le traitemen
 
 Accord de Vial lu sur la page publique de #88 (vial-ok). Deux remarques de revue appliquées : urgence explicite du traitement électrique selon le rythme ; stimulation temporaire réservée à la chirurgie urgente avec bradyarythmie mal tolérée réfractaire aux chronotropes IV, ou provoquant une tachyarythmie ventriculaire. Aucun seuil ni dose ajouté. La séparation entre bradyarythmie et tachyarythmie est conservée. Relecture documentaire finale ESC/HUG non réalisée dans cette session : domaines refusés par le proxy. Pas de nouveau audit-ok et pas de fusion revendiquée.
 
+## G1–G4 · prévalences manquantes (G1, G2, G3, G4) · relu le 18.10.2026
+60 différentiels du catalogue : libellés conservés exactement, aucune réécriture médicale. Les fréquences sans source et dénominateur relus sont explicitement inconnues ; aucune fréquence de population ni rang numérique inventés. La recherche Europe PMC sur la fatigue a expiré : aucun chiffre retenu. Audit séquentiel : identité des libellés, exhaustivité par SSP et absence de faux chiffre contrôlées. Ce lot ne fait pas progresser la couverture quantitative et ne clôt pas la boucle.
+
 ### Recontrôle AIPS lot 4 · 18.10.2026
 98 lignes / 73 documents officiels téléchargés, aucun écart des extraits. Les 24 lignes nouvelles sont relues, notamment les unités des en-têtes lévothyroxine et pipéracilline-tazobactam. Ferinject : cas Hb ≥14 g/dl et surveillance après administration explicités ; méropénème : limites du bolus précisées. KCl et RhD inconnu conservent leurs réserves. Aucune validation de médecin revendiquée.
 

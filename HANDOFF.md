@@ -1,3 +1,10 @@
+## Codex · chaîne fusionnée et lot G1–G4 · 18.10.2026 Europe/Zurich
+État : #64 → #91 → #67 → #70 fusionnées, dans cet ordre. #97 ajoute 60 fréquences explicitement inconnues ; #98 contient deux propositions G9. Main après #70 : 39/2587 fréquences, 238/2287 monographies et 98 lignes AIPS.
+Prochaine : finir les CI/intégrations #97 puis #98 ; poursuivre G7–G10 pour les prévalences et les neuf autres G9, G10 et Panacée O7.14–O7.12 pour les monographies. S8 après #37.
+Sources : EDF 2025, HUG et 73 documents AIPS téléchargés et relus ; détails dans les audits de reprise.
+Pièges : GitHub/API accessible ; Pages github.io et navigateur file:// bloqués, pas de contrôle public d’égalité revendiqué. Workflows permanents actifs mais déclenchements espacés observés.
+À vérifier : réserves AIPS conservées, audits/stations/croquis et couverture restante ; boucle 8 lot 5 en cours, aucune clôture.
+
 ## Codex · reprise #70 · 18.10.2026, Europe/Zurich
 État : #67 corrigée intégrée à la branche ; consignes KCl et unités de tableau appliquées sans modifier les extraits ; indication postnatale anti-D conditionnée au Rh(D).
 Prochaine : originaux Refdata et CI exacte, puis fusion après #67 ; ordre complet #88→#64→#91→#67→#70.
