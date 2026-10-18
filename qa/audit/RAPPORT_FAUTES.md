@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 51 faute(s) corrigée(s), dont 0 critique(s), 6 majeure(s) et 45 mineure(s).
+Bilan : 69 faute(s) corrigée(s), dont 0 critique(s), 12 majeure(s) et 57 mineure(s).
 
 ## ck-urgences-lot1
 
@@ -11,6 +11,13 @@ Bilan : 51 faute(s) corrigée(s), dont 0 critique(s), 6 majeure(s) et 45 mineure
 | Mineure | pec.moyens_specifiques[0].texte | Le texte présentait la coronarographie dans les 24 heures du NSTE-ACS à haut risque comme systématique, alors que la ligne directrice la classe « à envisager » (classe IIa). | La phrase dit désormais que cette coronarographie s’envisage, ce qui respecte le niveau de la recommandation. | R-ESC-SCA, 2023 ESC Guidelines for the management of acute coronary syndromes, § 5, tableau des recommandations sur la stratégie invasive, lu le 2026-10-17 | Galien-CœurThorax | 6448d81 |
 | Mineure | pec.moyens_specifiques[0].limites | La limite omettait qu’après 48 heures sans symptôme persistant, l’angioplastie de routine d’une artère occluse n’est pas recommandée (classe III). | La limite des 48 heures a été ajoutée après celle des 12 heures. | R-ESC-SCA, 2023 ESC Guidelines for the management of acute coronary syndromes, § 5.3, recommandations pour le patient vu tardivement, lu le 2026-10-17 | Galien-CœurThorax | a87b6b0 |
 | Mineure | pec.moyens_specifiques[1].limites | Le texte limitait à l’Allemagne l’absence d’autorisation du lévétiracétam dans l’état de mal, alors que la ligne directrice l’écrit pour l’Europe. | Le mot « Allemagne » a été remplacé par « Europe », comme dans la remarque sur le statut d’autorisation. | R-DGN-SE, S2k-Leitlinie Status epilepticus im Erwachsenenalter, recommandation 18, remarque sur le statut d’autorisation, lu le 2026-10-17 | Galien-Neuro | af236fe |
+
+## cs-stations-pr40
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | grille.management | La grille donnait des points pour juger l’état de l’enfant d’après sa réponse au paracétamol ; la baisse de la fièvre sous antipyrétique se voit aussi dans les infections graves. | Le critère récompense la réévaluation sans fièvre (fréquence cardiaque, comportement) sans conclusion tirée de la seule baisse de la fièvre ; point À vérifier pour la source suisse. | À vérifier (merkblatt Kinderspital Zürich, rubrique Antipyretika, à relire), lu le 2026-10-17 | Galien-PeauPopulations | 09d2d4d |
+| Majeure | grille.management | La station d’infarctus inférieur n’évaluait ni les dérivations droites ni la prudence avec les dérivés nitrés en cas d’extension au ventricule droit. | Critère ajouté (1 point) avec sa justification ; renvoi à l’ESC 2023 marqué À vérifier. | R-ESC-SCA § 3.2, repris de la chaîne hyp\|sca ; texte intégral À vérifier, lu le 2026-10-17 | Galien-CœurThorax | 09d2d4d |
 
 ## glo-lot01a
 
@@ -79,3 +86,24 @@ Bilan : 51 faute(s) corrigée(s), dont 0 critique(s), 6 majeure(s) et 45 mineure
 | Mineure | trajet[7] | Lors de la levée des signalements de Lyncée, un terme précis avait été remplacé par une périphrase moins exacte. | Le terme extracrânien, défini au glossaire, est rétabli. | R-GUPTA-2013, § 2 Anatomy, lu le 17.10.2026, lu le 2026-10-17 | Galien-Neuro | cfa7f03 |
 | Mineure | comment | Lors de la levée des signalements de Lyncée, un terme précis avait été remplacé par une périphrase moins exacte. | Le terme hémilangue, défini au glossaire, est rétabli. | R-CEN-NC9, § Sémiologie du nerf facial, lu le 17.10.2026, lu le 2026-10-17 | Galien-Neuro | 9d0d05c |
 | Mineure | comment | La source cite l’hypoacousie, les acouphènes, les troubles sensitifs et la diplopie comme signes atypiques qui imposent l’IRM ; elle ne cite pas les vertiges. | Les acouphènes, cités par la source, remplacent les vertiges. | R-DGN-BELL, § 2.4 Bildgebung, lu le 17.10.2026, lu le 2026-10-17 | Galien-Neuro | d1360a6 |
+
+## tip-champ5-pr33
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | c[5] | La position penchée en avant était attribuée aussi à l’infarctus ; elle soulage la douleur de la péricardite. | Séparation infarctus (sueurs, angoisse) / péricardite (soulagement penché en avant, aggravation couché et à l’inspiration). | ESC 2025 myocardite et péricardite, § 3.3.2, lu le 2026-10-17 | Galien-CœurThorax | 3f50337 |
+| Majeure | c[5] | Seuils de dénutrition (IMC 18,5 avant 70 ans ; perte de 5 % en 1 mois) incompatibles avec GLIM, que l’application cite ailleurs, et diagnostic posé sur un seul critère phénotypique. | Seuils GLIM (IMC 20/22 ; perte >5 % en 6 mois ou >10 % au-delà) et exigence d’un critère étiologique. | GLIM 2019, Clin Nutr, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Majeure | c[5] | « antiémétique dopaminergique » : le métoclopramide est un antagoniste de la dopamine, d’où le parkinsonisme. | « antidopaminergique (métoclopramide) ». | pharmacologie, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Majeure | c[5] | La dynamique utérine ne signalait que l’hypocinésie et omettait la tachysystolie, dangereuse pour le fœtus. | Ajout : plus de 5 contractions en 10 minutes ; mention À vérifier pour les seuils. | À vérifier (ligne directrice suisse ou européenne à relire), lu le 2026-10-17 | Galien-AbdoPelvis | 3f50337 |
+| Mineure | c[5] | Les gestes de désobstruction citaient l’ERC 2021, remplacé par l’ERC 2025 (premiers secours) ; le texte omettait « jusqu’à 5 », l’alternance des séries et l’interdiction du doigt à l’aveugle. | Texte aligné sur l’ERC 2025, figure 5, avec ajout de la source. | ERC 2025 First Aid, doi 10.1016/j.resuscitation.2025.110752, fig. 5, lu le 2026-10-17 | Galien-CœurThorax | 3f50337 |
+| Mineure | c[5] | L’indication de la TDM omettait l’alternative du dosage de S100B que prévoit la même ligne directrice pour le TCC léger à faible risque. | Ajout de la recommandation 1.2 (S100B dans les 6 heures, seuil 0,10 µg/L). | Undén 2013, BMC Med 11:50, recommandations 1.1 et 1.2, lu le 2026-10-17 | Galien-Neuro | 3f50337 |
+| Mineure | c[5] | Le test du fléchisseur profond était décrit en tenant les autres doigts en extension, technique propre au fléchisseur superficiel. | Blocage de l’IPP du doigt testé pour le fléchisseur profond ; mention À vérifier faute de source détaillée. | À vérifier (technique non détaillée par la S3 Polytrauma), lu le 2026-10-17 | Galien-Locomoteur | 3f50337 |
+| Mineure | c[5] | Accord fautif « tous deux » pour deux noms féminins. | « toutes deux ». | langue, lu le 2026-10-17 | Galien-Locomoteur | 3f50337 |
+| Mineure | c[5] | La secousse palpébrale était attribuée au retour du regard depuis le haut, alors qu’elle se recherche au retour depuis le bas. | Séquence corrigée ; mention À vérifier. | À vérifier, lu le 2026-10-17 | Galien-Neuro | 3f50337 |
+| Mineure | c[5] | Le texte interdisait l’oxygène devant une respiration de Kussmaul, alors que seule la sédation freine la compensation. | « ne freine pas cette respiration par une sédation ». | raisonnement physiologique ; aucune source n’interdit l’oxygène, lu le 2026-10-17 | Galien-CœurThorax | 3f50337 |
+| Mineure | c[5] | Fonte musculaire présentée comme suffisante au diagnostic de dénutrition. | Critère phénotypique GLIM, à compléter par un critère étiologique. | GLIM 2019, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | Même faute que F2.23. | Même correction. | GLIM 2019, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | Même faute, avec un seuil de perte de poids non GLIM. | Seuil GLIM et critère étiologique. | GLIM 2019, tableau 3, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | L’hémolyse de l’échantillon était dite élever le calcium ; elle élève le potassium. | Calcium retiré. | retrait d’une affirmation fausse, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | « l’expose » sans complément. | « y expose ». | langue, lu le 2026-10-17 | Galien-PeauPopulations | 3f50337 |
+| Mineure | c[5] | Diagnostic affirmé (« a une cystite simple ») sur la seule clinique. | « oriente vers ». | prudence diagnostique, lu le 2026-10-17 | Galien-AbdoPelvis | 3f50337 |
