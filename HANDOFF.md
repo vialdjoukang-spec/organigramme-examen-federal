@@ -2,6 +2,7 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · reprise technique #60 · 2026-10-17T23:45:16+00:00
 ## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
 Prochaine  : vérifier CI et fusion par la file dans l'ordre ; label d'audit selon la relève clinique et la PR précédente.
