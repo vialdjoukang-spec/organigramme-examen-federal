@@ -1,3 +1,10 @@
+## Codex · garde local de fin de mission · 18.10.2026 Europe/Zurich
+État : PR #108 fusionnée f05adf7, G9 17/17 couverts, 249/2287 monographies ; Pages 39146651173 réussi et 14 fichiers publics comparés identiques, jauges/PDF compris. Nouvelle demande intercalaire : tools/garde/fin.py, registre local et refus de clôture sans preuves. Tests ciblés réussis ; CI exacte et fusion du garde requises.
+Prochaine : achever l’intégration du garde, puis reprendre G10 — Douleur, tous types ; prévalences S1.3–S1.6, Panacée O7.14–O7.12 et audits ouverts conservés. Le garde refuse la clôture du projet, il ne déclare aucune étape clinique terminée.
+Sources : état du dépôt, ETAT.json, contrôles locaux ; aucune donnée médicale modifiée.
+Pièges : un rapport ancien, une jauge arrondie à 100 %, une relève ou un automate planifié ne prouvent pas la fin. Le garde ne peut pas retenir la session ChatGPT ouverte ; aucun démon ni relancement autonome ajouté. Un arrêt demandé par Vial prévaut.
+À vérifier : preuves des onze obligations finales du registre ; le modèle n’a pas à inventer les accords humains ou l’audit clinique manquant.
+
 ## Codex · quatre G9 restants · 18.10.2026 Europe/Zurich
 État : Hodgkin, pemphigoïde bulleuse étendue, Vaquez et lichen plan rédigés en sept rubriques ; quatre définitions, huit sources CH/Europe. G9 17/17 dans ce lot, total249/2287 monographies ; prévalences45/2587 inchangées. Contre-lecture séquentielle, G1–G8, builders et Lyncée verts ; CI exacte et statut de fusion sur GitHub font foi.
 Prochaine : G10 — Douleur, tous types après intégration du lot ; prévalences S1.3–S1.6, Panacée O7.14–O7.12 et S8 après audit#37 restent dus. Les réserves médicales des fiches existantes restent à traiter ; aucune fin de boucle.

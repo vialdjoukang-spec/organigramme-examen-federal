@@ -58,7 +58,8 @@ def inventaire():
     print("\n## Scripts clés")
     for s in ("tools/porte.py", "tools/jauge/binomes.py", "tools/prev_build.py", "tools/mono_build.py", "tools/doses_check.py",
               "tools/aips_verbatim.py", "tools/lyncee.py", "tools/audit/niveau1.py", "tools/file_fusion.sh",
-              "tools/garde/progres.py", "tools/garde/checkpoint.py", "tools/garde/recyclage.py", "tools/garde/appel.py"):
+              "tools/garde/progres.py", "tools/garde/checkpoint.py", "tools/garde/recyclage.py", "tools/garde/appel.py",
+              "tools/garde/fin.py"):
         if os.path.exists(os.path.join(ROOT, s)):
             print(f"- `{s}`")
     print("\n## MCP : voir CATALOGUE.md § MCP (n'en citer que ceux réellement branchés dans la session).")
