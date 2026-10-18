@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "doses_ch.schema.json",
  "title": "Table suisse des doses (doses_ch.json)",
- "description": "Lue À LA MAIN dans l’information professionnelle suisse (AIPS) ou le Compendium, datée ; jamais de lecture automatisée.",
+ "description": "Table suisse des doses. Chaque ligne cite mot pour mot la rubrique de l’information professionnelle suisse (AIPS) issue du texte officiel publié par Refdata/Swissmedic (aips_extrait), datée (aips_version, aips_publie, lu_le) ; la ligne de dose dérive uniquement de cet extrait et se contrôle par tools/doses_check.py. Jamais de lecture automatisée du Compendium.",
  "type": "array",
  "items": {
   "type": "object",
@@ -17,7 +17,11 @@
    "aips_rubrique",
    "url",
    "lu_le",
-   "lu_par"
+   "lu_par",
+   "aips_extrait",
+   "aips_version",
+   "aips_publie",
+   "url_texte"
   ],
   "properties": {
    "id": {
@@ -67,12 +71,59 @@
    "lu_par": {
     "enum": [
      "Galien",
-     "Vial"
+     "Vial",
+     "Pharmakon"
     ]
    },
    "note": {
     "type": "string",
     "minLength": 1
+   },
+   "indication": {
+    "type": "string",
+    "minLength": 1
+   },
+   "titulaire": {
+    "type": "string",
+    "minLength": 1
+   },
+   "aips_version": {
+    "type": "string",
+    "minLength": 1
+   },
+   "aips_publie": {
+    "type": "string",
+    "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+   },
+   "url_texte": {
+    "type": "string",
+    "pattern": "^https://files\\.refdata\\.ch/"
+   },
+   "methode": {
+    "type": "string",
+    "minLength": 1
+   },
+   "aips_extrait": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "rubrique",
+      "texte"
+     ],
+     "properties": {
+      "rubrique": {
+       "type": "string",
+       "minLength": 1
+      },
+      "texte": {
+       "type": "string",
+       "minLength": 20
+      }
+     }
+    }
    }
   }
  }
