@@ -39,7 +39,9 @@ jobs:
       - name: AIPS · unités Symbol et extraits officiels
         run: python3 -m unittest discover -s tests -p test_aips_verbatim.py
       - name: Garde-fous R15 (classement, checkpoint)
-        run: python3 tests/test_garde.py
+        run: |
+          python3 tests/test_garde.py
+          python3 -m unittest discover -s tests -p test_garde_permanence.py
       - name: Garde local de clôture (preuves fraîches et refus)
         run: python3 -m unittest discover -s tests -p test_fin_mission.py
       - name: Ordre des chaînes de fusion
