@@ -109,3 +109,8 @@ Audit suiveur des 29 monographies du lot 2 (28 corrigées). Sources relues le 17
 | toxicite-directe-d-organe · pha | Chélation si plombémie élevée : selon Tox Info Suisse. | La chélation se décide avec Tox Info Suisse si la plombémie est élevée. | Linguistique : phrase nominale rendue verbale et concise |
 | usage-complementaire-sur · def | Médecine complémentaire utilisée en plus du traitement de référence, sans risque direct. | Le patient utilise une médecine complémentaire en plus du traitement de référence, sans risque direct. | Linguistique : phrase nominale rendue verbale et concise |
 | variation-normale-ou-familiale · def | Trait bénin partagé dans la famille, sans maladie associée. | Un trait bénin se partage dans la famille, sans maladie associée. | Linguistique : phrase nominale rendue verbale et concise |
+
+## G5 · vertige, toux et lombalgie (S7.5, S2.6, S5.2) · relu le 17.10.2026 UTC
+26 DD existants conservés sans réécriture ; affichage « % à vérifier » en attente de chiffres adaptés. Étude catalane DOI 10.1186/s12875-025-03050-2 lue : 15 639 épisodes, unité = activation de code diagnostique, non patient unique ; 9,3 % tous VPPB, non spécifique du canal postérieur. Ce chiffre n’est pas transposé. La rubrique toux englobe ici l’hémoptysie : une cohorte de toux aiguë simple ne lui est pas attribuée. Contrôle Galien de prudence documentaire ; aucun nouveau chiffre validé. La jauge quantitative ne progresse pas grâce aux valeurs inconnues.
+
+Suite locale du lot G5 : 275/276, seul desktop.not_closebtn_closes échoue. La cause a été reproduite et corrigée séparément dans fix/fermeture-infobulle-codex (4/4 après correction, suite 276/276). Le lot G5 ne prétend pas que cet échec initial était un succès.
