@@ -25,11 +25,18 @@ jobs:
       url: ${{ steps.d.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          ref: automates/prevalences
+          path: .etat_local/prevalences
+          persist-credentials: false
       - run: |
           mkdir _site
           cp app_v2.html _site/index.html
           cp app_v2.html _site/app_v2.html
           cp progres.html _site/progres.html
+          cp .etat_local/prevalences/jauges.html _site/prevalences.html
+          cp .etat_local/prevalences/jauges.json _site/prevalences.json
           if [ -d assets ]; then cp -r assets _site/assets; fi
           touch _site/.nojekyll
       - uses: actions/configure-pages@v6

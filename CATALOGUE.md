@@ -175,3 +175,13 @@ Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`).
 
 ## Inventaire réel · reprise du 18.10.2026 Europe/Zurich
 Cette session utilise exec_command (git/gh/curl/Python), apply_patch, lecture locale et MCP cloud_environment.environment_status. Skill cloud-environment-runtime appliqué ; skills versionnés de continuité, audit, vérité, posologie et construction utilisés. Aucun connecteur GitHub supplémentaire requis : gh accède réellement à l’API. Les anciennes listes d’outils ci-dessus sont historiques. Automates GitHub permanents maintenus ; aucune nouvelle veille sur PC. Sources et limites réseau : audit/RESEAU-REPRISE-20261018.json.
+
+## Recherche catégorielle des prévalences ·18.10.2026
+
+- `tools/prevalences/g.py`, `s.py`, `f.py`, `o.py` : quatre lanceurs déterministes, catégories réelles du catalogue.
+- `tools/prevalences/moteur.py` : requêtes CH/Europe et consultation/population ; Europe PMC, Crossref et PDF officiels HUG ; candidats documentés, erreurs tracées, reprise/cache/budgets.
+- `tools/prevalences/auditeur.py` : audit mécanique, corrections arithmétiques prouvées ; ne remplace pas le jugement de l’agent statistique.
+- `tools/prevalences/jauges.py` : suivi4 catégories/19 secteurs, CLI et page publique, aucun candidat compté comme chiffre publié.
+- `tools/prevalences/relance_agent.py` : file et demande de reprise au Codex du dépôt ; pas de preuve d’exécution implicite.
+- `.github/workflows/prevalences-recherche.yml` : quatre jobs de recherche et consolidation/audit, cron toutes les4 heures. État persistant dans `automates/prevalences`.
+- `docs/prevalences/README.md`, `AUDITEUR_STATISTIQUE.md` : exploitation et mandat. Scripts sans coût de modèle ; la relecture agent consomme seulement lorsqu’elle est réellement exécutée.

@@ -30,6 +30,8 @@ jobs:
           echo "orig/ intact."
       - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
         run: python3 tools/budget.py
+      - name: Automates de prévalences et audit statistique
+        run: python3 -m unittest discover -s tests -p 'test_prevalences_*.py'
       - name: Tests des gardes elles-mêmes
         run: python3 tests/test_gardes.py
       - name: File de fusion · contrôles requis, attente-vial et réessai Pages

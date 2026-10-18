@@ -1,0 +1,122 @@
+name: Prévalences · légion G S F O
+on:
+  schedule:
+    - cron: '23 */4 * * *'
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: Diagnostics par catégorie (1–100)
+        default: '40'
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: prevalences-recherche
+  cancel-in-progress: false
+jobs:
+  recherche:
+    name: Recherche ${{ matrix.categorie }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        categorie: [g, s, f, o]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          ref: automates/prevalences
+          path: .etat_local/prevalences
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Extracteur PDF officiel
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - uses: actions/cache@v5
+        with:
+          path: .etat_local/prevalences-cache
+          key: prevalence-${{ matrix.categorie }}-${{ github.run_id }}
+          restore-keys: prevalence-${{ matrix.categorie }}-
+      - name: Recherche CH puis Europe, consultation et population
+        env:
+          LIMITE: ${{ inputs.limite || '40' }}
+          CATEGORIE: ${{ matrix.categorie }}
+        run: |
+          python3 - <<'PY'
+          import os
+          n=int(os.environ['LIMITE'])
+          if not 1 <= n <= 100: raise SystemExit('limite doit être comprise entre 1 et 100')
+          PY
+          python3 tools/prevalences/${CATEGORIE}.py --limit "$LIMITE" --budget-seconds 720 --timeout 12
+      - name: Audit statistique et conservation de l’état
+        if: always()
+        env:
+          CATEGORIE: ${{ matrix.categorie }}
+        run: |
+          python3 tools/prevalences/auditeur.py --state-dir .etat_local/prevalences --report .etat_local/prevalences/audit.json
+          mkdir -p work/etat
+          upper=$(printf '%s' "$CATEGORIE" | tr '[:lower:]' '[:upper:]')
+          cp ".etat_local/prevalences/${upper}.json" work/etat/
+          if [ -f ".etat_local/prevalences/audit-${upper}.json" ]; then cp ".etat_local/prevalences/audit-${upper}.json" work/etat/; fi
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: recherche-${{ matrix.categorie }}
+          path: work/etat/
+          if-no-files-found: error
+  suivi:
+    name: Jauges et agent auditeur statistique
+    needs: recherche
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - uses: actions/checkout@v7
+        with:
+          ref: automates/prevalences
+          path: .etat_local/prevalences
+          fetch-depth: 0
+      - uses: actions/download-artifact@v6
+        with:
+          pattern: recherche-*
+          path: work/recherches
+          merge-multiple: true
+      - name: Réunir les recherches et préserver les relectures concurrentes
+        run: python3 tools/prevalences/consolider.py --state-dir .etat_local/prevalences --artifact-dir work/recherches
+      - name: Relecture statistique de toutes les pistes
+        run: python3 tools/prevalences/auditeur.py --state-dir .etat_local/prevalences --report .etat_local/prevalences/audit.json
+      - name: Calculateur multi-secteur
+        run: python3 tools/prevalences/jauges.py --output .etat_local/prevalences >> "$GITHUB_STEP_SUMMARY"
+      - name: Écrire la file de reprise de l’agent
+        run: python3 tools/prevalences/relance_agent.py
+      - name: Conserver les résultats hors des données cliniques de main
+        run: |
+          cd .etat_local/prevalences
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add G.json S.json F.json O.json audit*.json agent*.json jauges.json jauges.html README.md
+          if ! git diff --cached --quiet; then git commit -m 'Prévalences : recherches, audit statistique et jauges'; git push origin automates/prevalences; fi
+      - name: Demander le contrôle documentaire à l’agent Codex
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          python3 tools/prevalences/relance_agent.py --envoyer
+          cd .etat_local/prevalences
+          if [ -f agent-relances.json ]; then
+            git add agent-relances.json
+            if ! git diff --cached --quiet; then git commit -m 'Agent statistique : reprise demandée'; git push origin automates/prevalences; fi
+          fi
+      - name: Actualiser les jauges publiques
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --ref main

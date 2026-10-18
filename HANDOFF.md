@@ -1,3 +1,10 @@
+## Codex · automates catégoriels et agent statistique · 18.10.2026 Europe/Zurich
+État : interruption temporaire des lots demandée par Vial ; scripts G/S/F/O, moteur commun, calculateur 19 secteurs, audit statistique et relance d’agent créés. Quatre lancements locaux :20 extraits HUG candidats, aucun chiffre clinique ajouté. API EBI/Crossref refusées localement ; exécution Actions réelle et CI requises avant annonce d’activation.
+Prochaine : activer le workflow périodique, lire ses résultats/audits, puis reprendre cinq G9 (Hodgkin, pemphigoïde étendue, Vaquez, dermatite atopique, lichen plan), G10 et Panacée O7.14–O7.12. Prévalences S1.3–S1.6 restent dues.
+Sources : catalogue SSP/NOT de main1284c02 ; HUG index professionnel et PDF avec pages/empreintes. 248 SSP,2587 DD,12 SSP sans DD réellement présents (S8.1–S8.12) ; ancien22 historique non repris.
+Pièges : recherche aboutie, candidat et chiffre sourcé sont trois états distincts. Ne pas déduire le pays des patients des affiliations. Conserver corrections et relectures lors des relances. Une relance @codex ne prouve pas l’exécution d’un agent.
+À vérifier : intégration/runtime ; tous les candidats, APIs bloquées et reliquats médicaux. L’agent distinct a corrigé des défauts d’extraction/conservation ; aucune validation de médecin ou fin de boucle revendiquée.
+
 ## Codex · G15–S1.2 · 18.10.2026 Europe/Zurich
 État : 54 diagnostics G15, G16, S1.1 et S1.2 conservés ; fréquences explicitement À vérifier. G1–G8, builders, Lyncée et gardes réussis ; CI exacte requise avant fusion.
 Prochaine : cinq G9 (Hodgkin, pemphigoïde étendue, Vaquez, dermatite atopique, lichen plan), puis G10 ; prévalences S1.3–S1.6. Panacée O7.14–O7.12 reste due.
