@@ -13,6 +13,12 @@ for name in ['clair_ordinateur_not-fenetre','clair_mobile_not-fenetre','clair_or
     reference=ROOT/'qa/visuel/reference'/f'{name}.webp'
     if not actual.exists() or not reference.exists():
         continue
+    difference=ROOT/'qa/visuel/out/diff'/f'{name}.png'
+    if difference.exists():
+        picture=Image.open(difference).convert('RGB')
+        picture=picture.crop((0,0,picture.width,min(picture.height,1100)))
+        data=io.BytesIO();picture.save(data,format='PNG',optimize=True)
+        print('IRIS_ECARTS '+name+' '+base64.b64encode(data.getvalue()).decode())
     views=[]
     for path in [reference,actual]:
         picture=Image.open(path).convert('RGB')
