@@ -171,3 +171,7 @@ Légende : [x] fait · [ ] à faire · [~] en cours.
 | [ ] | Contre-lire le lot 2 des urgences (audit:galien) et lire dans l’AIPS les posologies « À vérifier » | Galien | NC-1b |
 | [ ] | Livrer la vue nc07 « voie_motrice » (cortex, faisceau, noyau double, nerf) citée par les 5 syndromes du VII | Dédale | NC-1b |
 
+
+### Actualisation après les fusions #68 et #85 · 18.10.2026 UTC
+
+Étape 7 : critère vérifié, #65 puis #68 fusionnées, 543 entrées et référence 3567. #85 fusionnée, fréquences inconnues préservées ; couverture toujours 1 %/9 %. Inventaire de main 27c9658 : 751 champs explicitement À vérifier, 779 occurrences. Contrôle de publication 02:23 UTC : application et quatre JS identiques à cet instantané. ETAT.json conserve la reprise à 8 et refuse la clôture.

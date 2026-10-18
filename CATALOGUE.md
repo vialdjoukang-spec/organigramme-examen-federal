@@ -160,3 +160,5 @@ Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`).
 - `python3 tools/inventaire_a_verifier.py --ref origin/main --sortie audit/RESTE_A_VERIFIER_20261018.json` : inventaire déterministe des champs explicitement marqués, sans modifier le contenu clinique ; conserve SHA et pointeur de chaque champ. N’est pas un audit ni un critère de clôture.
 - #65 : patches rejouables `0030-glossaire-commandes-calendrier.py` et `0031-glossaire-flux-grille-flex.py` ; commandes de sélection préservées, liens sans déplacement des grilles/flex. Deux régressions ajoutées, suite portée à 278.
 - `Visuel` propose depuis #32 l’entrée manuelle `adopter_pr` pour exécuter le script habituel d’adoption sur runner quand les artefacts sont inaccessibles localement ; tête/branche/base vérifiées, CI après adoption toujours obligatoire.
+
+- #68 : `0032-cibles-notions.py` porte les liens et boutons Notions à 24 px sans nouvelle règle CSS dans le corps ; adoption de référence examinée sur runner puis CI complète verte.

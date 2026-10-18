@@ -39,3 +39,5 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 - 2026-10-18 01:56 UTC · #68 · contrôle requis html en échec
 
 - 18.10.2026 UTC · #68 : garde, tests 278 et visuel verts après adoption, contrôle HTML rouge pour deux règles nouvelles dans un style hérité du corps. Patch corrigé en portant les mêmes dimensions sur les éléments créés ; référence HTML inchangée, nouvelle CI demandée.
+
+- 18.10.2026 02:19 UTC · #83 : liens en échec par quatre délais revmed.ch, sans erreur HTTP invalide. Reprise de main après #85, contrôle relancé vert ; aucune exclusion ni règle affaiblie.

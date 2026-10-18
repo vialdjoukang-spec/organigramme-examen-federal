@@ -50,3 +50,11 @@ Complément de relecture : la définition de cardioverter introduite dans #65 d�
 Après #65, le contrôle de #68 trouve deux cibles trop petites supplémentaires dans Notions. La correction à 24 px supprime les six défauts sur la reproduction bureau ; les autres thèmes/mobile et la référence restent à vérifier. Aucun compteur d’accessibilité ne doit être augmenté pour masquer ce défaut.
 
 Inventaire : audit/RESTE_A_VERIFIER_20261018.json conserve SHA et pointeur pour chaque champ explicitement marqué. À main 33bb1d0 : 577 champs et 605 occurrences. Les branches non fusionnées, la validité médicale et les erreurs sans marque sont hors de ce décompte.
+
+## Mise à jour après #68 et #85 · 18.10.2026 02:25 UTC
+
+#68 est fusionnée (f2f9c04), après les contrôles requis verts et 278 tests réussis. Les six combinaisons thème/profil de Notions n’ont plus de défaut de taille de cible. Les défauts d’accessibilité hérités ne sont pas déclarés résolus. Référence CI adoptée après examen (source 39088253572, adoption 39088687562) ; le refus HTML intermédiaire a été corrigé sans relâcher sa référence.
+
+#85 est fusionnée (27c9658) : 44 DD G5, inconnues explicites conservées. Prévalences 38/2587 (1 %), monographies 207/2287 (9 %), aucun gain quantitatif inventé. Pages : application et quatre JS contrôlés identiques à cet instantané à 02:23 UTC. Inventaire : 751 champs, 779 marques explicites, 24 fichiers ; les ajouts provisoires et inconnues expliquent l’augmentation, pas un nouvel audit exhaustif.
+
+La relecture des propositions de skills confirme les procédures existantes ; inventaire ajouté à ssp-verite, adoption runner à ssp-qualite-visuelle. Étape 7 désormais validée par porte.py ; critères 8 et 9 refusés à juste titre. #83 et #41 continuent leur intégration ; état définitif à compléter ci-dessous après les contrôles.
