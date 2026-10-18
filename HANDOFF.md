@@ -1,3 +1,23 @@
+## Codex · cinq PR reprises, #88 fusionnée · 18.10.2026, Europe/Zurich
+État : #88 observée fusionnée dans main aacfff7, avec d4fa7f7 ; #64/#91/#67/#70 corrigées ou réunies avec main et poussées. G1–G8 locaux verts sur les cinq versions testées.
+Prochaine : appliquer le réseau enregistré, terminer les relectures primaires et CI exactes ; fusionner #64→#91→#67→#70, puis rédiger les boucles 8 et 9. Les accords Vial sont acquis.
+Sources : commentaires publics de Vial/revue lus ; extraits AIPS conservés comparés. Originaux requis refusés par le proxy ; aucun audit final nouveau revendiqué.
+Pièges : #88 a fusionné pendant la session ; les tests et la lecture des sources restent distincts de cette observation. Git lecture/push fonctionne, API GitHub refusée ; configuration enregistrée non appliquée.
+À vérifier : audits primaires, CI, quatre fusions et nouveaux lots 8/9. Aucun nouveau gain de couverture publié, aucune fin de boucle.
+
+## Codex · reprise #64 · 18.10.2026, Europe/Zurich
+État : accord vial-ok lu ; main réuni par merge_shards.py, aucune clé en conflit réel ; 25 monographies du lot conservées hors main. Précautions tryptase ajoutées ; constat de décès sur seul score HOPE retiré.
+Prochaine : relecture primaire et contrôles exacts requis ; fusion après #88, avant #91.
+Sources : commentaires publics de Vial et revues lus. Europe PMC non accessible dans la politique actuelle ; pas de nouvelle lecture primaire revendiquée.
+Pièges : seuil HOPE et constat de décès ne doivent pas être confondus ; extrait AIPS et pertinence clinique se contrôlent séparément.
+À vérifier : audit final et suite navigateur complète ; aucun audit-ok nouveau ni fusion.
+## Codex · reprise #88 · 18.10.2026, Europe/Zurich
+État : accord de Vial lu, main réuni, deux remarques cliniques de revue traitées dans arythmie-non-controlee.mes.
+Prochaine : relecture primaire ESC/HUG et CI de la nouvelle tête, puis #88 → #64 → #91 → #67 → #70.
+Sources : commentaire de Vial et revues de #88 lus ; accès primaire HUG/DOI refusé par la politique réseau.
+Pièges : ne pas confondre urgence du traitement électrique et cardioversion de tout rythme ; stimulation temporaire conditionnée au contexte urgent et à l’échec chronotrope ou à une tachyarythmie ventriculaire provoquée.
+À vérifier : suite file:// et API GitHub bloquées ; aucun audit-ok supplémentaire ni fusion revendiquée.
+
 # HANDOFF · passation entre sessions
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
