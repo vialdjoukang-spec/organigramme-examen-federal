@@ -22,6 +22,7 @@ Chaque entrée porte une date (Europe/Zurich), une décision et les sources lues
 
 - 18.10.2026 01:05 CEST · Étape 1 : comparaison dépôt/Pages/PR réalisée, sauvegardes Grok indisponibles consignées, C1 corrigé ; poursuite Étape 2 sans question.
 
+- 2026-10-17T23:45:16+00:00 · Reprise #60 : fusion de main, merge_shards sans conflit réel signalé, migration 0026 rejouée et fichiers générés reconstruits ; mono/ck/prev --check verts. Suite Playwright 1.63 : code 1. La CI reste obligatoire.
 - 2026-10-17T23:49:59+00:00 · Reprise #62 : fusion de main, merge_shards sans conflit réel signalé, migration 0026 rejouée et fichiers générés reconstruits ; mono/ck/prev --check verts. Suite Playwright 1.63 : code 1. La CI reste obligatoire.
 - 18.10.2026 01:07 CEST · Étape 2 : défaut 403 corrigé dans file_fusion (erreur JSON exclue des noms de checks) ; publication échouée mémorisée et retentée même sans nouvelle fusion ; auto-fusion suspendue pour attente-vial. Cinq tests d'intégration simulant gh passent, ajoutés à la CI. Sondes #71 et #73, auto-merge demandé ; workflow file-fusion déclenché. Secret AUTO_FUSION_TOKEN non inspectable (403), aucune valeur créée/copée.
 
