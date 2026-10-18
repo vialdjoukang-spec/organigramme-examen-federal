@@ -1,6 +1,7 @@
 """Monographies des diagnostics différentiels (Hygie, 17.10.2026).
 
-data/ck/mono/<tranche>.json → assets/ck/mono-<tranche>.js (window.CK_MONO_<TRANCHE>).
+data/ck/mono/<tranche>.json → assets/mono/mono-<tranche>.js (window.CK_MONO_<TRANCHE>), chargé à la demande
+(patch 0026) ; budget propre assets/mono/ dans tools/budget.py (hors budget assets/ck).
 Clé = libellé du diagnostic normalisé (minuscules, sans accents, tirets) ; une monographie
 sert tous les SSP où le diagnostic apparaît.  Tranche = première lettre de la clé.
   python3 tools/mono_build.py            reconstruit les assets
@@ -11,7 +12,7 @@ import json, os, re, sys, glob, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import _app
 ROOT = _app.ROOT
-DATA, OUT = os.path.join(ROOT, 'data/ck/mono'), os.path.join(ROOT, 'assets/ck')
+DATA, OUT = os.path.join(ROOT, 'data/ck/mono'), os.path.join(ROOT, 'assets/mono')
 CH = [('def', '1. Définition'), ('epi', '2. Épidémiologie'), ('phy', '3. Physiopathologie'),
       ('cli', '4. Syndrome clinique'), ('exp', '5. Syndrome aux explorations'), ('dia', '6. Diagnostic')]
 PEC = [('but', 'But'), ('mes', 'Mesures générales'), ('pha', 'Pharmacologie'), ('aut', 'Autre')]
@@ -92,6 +93,7 @@ def main():
         print('\n'.join(err) or f'Monographies : {len(M)}/{len(names)} diagnostics, contrôle OK')
         sys.exit(1 if err else 0)
     if err: sys.exit('\n'.join(err))
+    os.makedirs(OUT, exist_ok=True)
     for t, js in A.items():
         open(os.path.join(OUT, f'mono-{t}.js'), 'w', encoding='utf-8').write(js)
     print(f'Monographies : {len(M)}/{len(names)} diagnostics')
