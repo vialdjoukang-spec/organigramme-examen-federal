@@ -2,6 +2,31 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · relève du 18.10.2026 UTC
+État       : porte 0 validée ; passages 0–17 consignés, projet NON clos. ETAT.json revient à 8, lot 2 ; en_attente conserve les étapes inachevées.
+Prochaine  : lire docs/releves/RELEVE_CODEX_20261018.md ; reprendre G5 après #85, laisser la file poursuivre les chaînes et vérifier les prédécesseurs avant les labels.
+Sources    : rapports AIPS sur #59/#61/#67/#70, audits et preuves ciblées sur les branches, sources brutes hors git. Main 42a432d testé 276/276 ; Pages = main 8dd0d0a à 00:52 UTC. #45/#58/#60/#39/#84/#82 fusionnées.
+Pièges     : CLI Luna en 401, veille mode B sans rédaction autonome ; incident #62 avant #60 consigné, verrou #82 ; ne pas transformer des brouillons en couverture achevée.
+À vérifier : #64/#67/#70 attente-vial, croquis #80 et cinq stations non validés, audits et couverture restants. Ne pas arrêter la veille ni annoncer 100 %.
+
+## Codex · Panacée Étape 5 · 18.10.2026 Europe/Zurich
+État       : #60/#62 fusion de main, shards sans conflit réel signalé, toutes sections du rapport conservées, assets reconstruits ; suites 1.63 et pushes locaux sous flock, CI/fusions en attente.
+Prochaine  : Étape 6, relire AIPS des quatre lots avant tout audit-ok ; ne pas se fier aux labels anciens de #59/#61.
+Sources    : main et audits Érasistrate existants ; aucune nouvelle donnée clinique.
+Pièges     : conserver les deux côtés des rapports ; appliquer 0026 aux versions anciennes avant génération des assets.
+À vérifier : fin des suites locales/CI et fusion #60 puis #62 ; #64 reste attente-vial.
+
+## Codex · reprise Étapes 3–4 · 18.10.2026 Europe/Zurich
+État       : #43 et #71 fusionnées ; Pages #71 prouvé. #44/#45 reprises et testées, pushes en cours ; #58 audit final écrit et suite 1.63 ; #47 rapport réuni/poussé. #50/#53/#54/#49 reconstruites, suites/pushes locaux en file. #64 poussée avec attente-vial et audit partiel.
+Prochaine  : Étape 5 (#60 → #62) ; maintenir les reprises des Étapes 3/4 dans ETAT.json.en_attente. Après fusion de #50, poser audit-ok sur #53 ; après #53 sur #54, conformément à l'audit Hérophile existant.
+Sources    : Limper/BASEL IX/ESGE/HAS/ESC pour #58 ; Europe PMC XML publics PMC8744717, PMC10448201, PMC9518193 pour hypothermie #64, lus le 17.10 UTC / 18.10 Zurich.
+Pièges     : patch 0026 encore non intégré au départ, nouvelle construction dans assets/mono ; modèles cliniques AIPS lue ne prouvent pas une ligne de doses validée ; dates ISO UTC pour les gardes.
+À vérifier : signalement potentiellement critique HOPE/décès de #64 (R13), audit primaire endocrinien restant, doses AIPS Étape 6, CI et publications. Aucun succès ou accord médical inventé.
+
+## Codex · reprise technique #54 · 2026-10-17T23:36:57+00:00
+## Codex · reprise technique #53 · 2026-10-17T23:32:40+00:00
+## Codex · reprise technique #50 · 2026-10-17T23:28:35+00:00
+État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 0, aucune assertion abaissée.
 ## Codex · reprise technique #60 · 2026-10-17T23:45:16+00:00
 ## Codex · reprise technique #62 · 2026-10-17T23:49:59+00:00
 État       : fusion de main et reconstruction des assets ; suite locale 1.63 code 1, aucune assertion abaissée.
@@ -204,6 +229,11 @@ Respecte la règle universelle : le projet cible doit avoir un résultat de HAUT
 Avant de t’arrêter, mets à jour HANDOFF.md, ETAT.md et ton journal.
 
 ## Hygie · monographies des différentiels · 17.10.2026, Europe/Zurich
+État       : Lot 1 (G1, 14) fusionné (PR #46). Lot 2 (G2, 21 diagnostics) livré, PR #50 (assets/mono + patch 0026 inclus), en attente d'audit Hérophile (label audit-ok → fusion automatique) ; total 35/2280.
+Réservé    : Lot 3 = G3 + G4 (23 nouveaux), Hygie, branche feat/mono-g3 depuis origin/main. Hygie avance de G vers la fin ; Panacée part du dernier groupe vers l'arrière : vérifier data/ck/mono et la section Panacée avant chaque lot. Flux : PR sans fusion par Hygie ; Hérophile audite, corrige sur la branche, pose audit-ok. Conflit de tranche partagée : reconstruire par mono_build.py, jamais à la main.
+Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/mono/mono-<lettre>.js (budget séparé 6 Mo, tools/budget.py) ; patches 0025 (survol/clic du DD, repli sur TIP.d) et 0026 (monoLoad, assets/mono). CI : `mono_build.py --check`.
+Pièges     : Doses : réutiliser data/ck/doses_ch.json si produit et indication concordent (3 entrées au 17.10.2026, aucune pour G2) ; sinon aucun chiffre dans « pha » (« dose : à vérifier (AIPS) ») ; gras réservé aux titres (contrôlé) ; rouge = <span class="mono-r">. Budget : assets/mono/ ≤ 6 Mo séparé (décision de Vial, PR #50), assets/ck inchangé.
+À vérifier : Hérophile : épidémiologie et sex-ratio marqués « à vérifier » à sourcer (CH/UE), toutes les doses (AIPS) ; G2 : toxoplasmose ganglionnaire, sarcoïdose, kystes cervicaux et cutanés, tumeur des glandes salivaires sans texte de cours préalable (src « à vérifier »).
 État       : Lot 1 poussé (G1, 14 diagnostics) : hyperhidrose-primaire-focale, hyperhidrose-medicamenteuse-et-toxique, thyrotoxicose, pheochromocytome-et-paragangliome, hypoglycemie, lymphome-hodgkinien-ou-non-hodgkinien, tuberculose, endocardite-infectieuse, infection-a-vih, sevrage-alcoolique-complique, syndrome-serotoninergique, menopause-et-syndrome-climaterique, trouble-anxieux-et-attaque-de-panique, syndrome-d-apnees-obstructives-du-sommeil.
 Prochaine  : Lot 2 = G2 (`python3 tools/mono_build.py --draft G2` imprime l'existant TIP.d à reprendre ; clés déjà faites marquées « (fait) »).
 Méthode    : data/ck/mono/<lettre>.json (clé = libellé normalisé, partagée entre SSP) → `python3 tools/mono_build.py` → assets/ck/mono-<lettre>.js ; patch 0025 (survol/clic du DD, repli sur TIP.d). CI : `mono_build.py --check`.
