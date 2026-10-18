@@ -701,3 +701,13 @@ Après fusion de #49, Lyncée détecte trois candidats supplémentaires : hypers
 ### Galien · correction terminologique cardioverter, 18.10.2026
 
 Faute majeure de définition introduite pendant la migration #65 : « cardioverter » désignait un appareil, avec alias cardioverteur, tandis que mono.arythmie-non-controlee.mes l’emploie comme verbe. La définition décrit désormais l’action de tenter de rétablir un rythme normal par électricité ou médicament ; alias nominal retiré. Source CHUV relue, page Fibrillation et flutter, § Traitements, mise à jour du 29.07.2024. Le renvoi à la page d’implantation d’un défibrillateur ne justifiait pas ce sens et est remplacé. Aucune conduite d’urgence, dose ou indication modifiée dans cette correction de glossaire ; la formulation de la monographie fait l’objet d’une revue distincte.
+
+## Galien · prévalences relues (S7.6, S2.12) · 18.10.2026
+
+Relecture séquentielle par Codex après rédaction, sans validation humaine revendiquée. Les vingt libellés et rangs cliniques sont conservés ; dix-neuf fréquences restent inconnues.
+
+Le tableau 4 de Gräni et al. (Zurich, BMJ Open 2015) donne un SCA parmi 53 douleurs thoraciques aiguës reproduites à la palpation, soit ≈ 1,9 %. Méthodes, définition de la douleur reproduite et sélection des patients stables relues. Les 11,6 % concernent tous les 121 patients : aucun transfert de ce chiffre au groupe de 53. La palpation ne remplace pas la démarche diagnostique.
+
+La première proposition de fréquence migraine de Berne est retirée avant livraison : PLOS est un éditeur hors du périmètre G3, même si les auteurs et données sont suisses ; le dépôt institutionnel suisse est inaccessible. Son pays n’est pas artificiellement déclaré CH. L’étude européenne de Doretti et al. 2019 présente aussi des incohérences de tableau (110 migraines au total contre 59 + 61 dans les centres). Aucun chiffre choisi arbitrairement. Les regroupements de céphalées ne sont pas redistribués entre DD.
+
+Aucune dose ni conduite clinique changée ; aucun contournement de G3 ou de Lyncée. Preuve détaillée et URL des lectures : audit/PREVALENCES-CEPHALEE-PAROI-20261018.json. Aucune faute critique nouvelle identifiée dans ce diff.

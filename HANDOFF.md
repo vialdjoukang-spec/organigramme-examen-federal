@@ -2,6 +2,13 @@
 
 Chaque agent ajoute sa section en tête, selon le modèle de l’annexe E2 du plan. Aucune donnée personnelle n’entre dans ce fichier public.
 
+## Codex · prévalences lot 3 · 18.10.2026 UTC
+État       : S7.6/S2.12, vingt DD, une fréquence de SCA retenue dans la cohorte de Zurich (1/53), dix-neuf inconnues explicites. Audit séquentiel et registre des choix disponibles ; tests en cours. Aucune conduite ou dose modifiée.
+Prochaine  : terminer les contrôles et intégrer ce lot ; S8 reste après audit #37. Poursuivre les autres SSP du catalogue et les boucles restées dues.
+Sources    : Gräni et al., BMJ Open 2015, méthodes/tableau 4 relus le 18.10.2026. Berne/PLOS non retenue sous G3, miroir suisse inaccessible ; Doretti 2019 incohérent, chiffres non transposés.
+Pièges     : 1/53 ne se confond pas avec 14/121 ; la reproduction de la douleur ne suffit pas à exclure un SCA. Aucun pays d’éditeur artificiellement codé CH.
+À vérifier : dix-neuf fréquences du lot et les réserves de ETAT.json ; projet non clos.
+
 ## Codex · relève de la reprise · 18.10.2026 UTC
 État       : porte 0 validée avant 1 ; files prévalences et glossaire validées. #49/#50/#53/#54, #59/#61, #65/#68, #32/#39/#41/#82/#83/#84/#85 fusionnées. 38/2587 prévalences (1 %), 207/2287 monographies (9 %). Suite CI 278/278 ; projet non clos. État détaillé : docs/releves/RELEVE_CODEX_20261018.md.
 Prochaine  : étape 8, lot 3, S7.6 puis S2.12 ; S8 après audit #37. Reprendre également les attentes ETAT.json, sans déclarer fin_boucle. Modèle courant en secours interactif, Luna CLI 401 ; veille mode B réessaie les fusions mais ne rédige pas seule.
