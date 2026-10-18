@@ -97,7 +97,7 @@ def main():
                   + (f", seulement des relevés ({', '.join('#%d' % a[0] for a in rel)})" if rel else ""))
         raisons.append(raison)
         etape = json.loads(git("show", "origin/main:ETAT.json") or "{}").get("etape_courante", "?")
-        if minutes_depuis(etat.get("derniere_relance")) >= CFG["relance_codex_min"]:
+        if os.environ.get("OEF_GARDE_RELANCE_PERMISE") == "1" and minutes_depuis(etat.get("derniere_relance")) >= CFG["relance_codex_min"]:
             n = pilote()
             consigne = ('\n\nPriorité étape9, prévalences étape8 associées : '
                         + json.dumps(plan['prochain_lot9'], ensure_ascii=False)
@@ -115,8 +115,8 @@ def main():
                 etat["derniere_relance"] = iso(t)
                 raisons.append(f"relance @codex postée sur Pilote #{n}")
         else:
-            raisons.append("relance @codex déjà faite il y a < %d min" % CFG["relance_codex_min"])
-        if etat["stalls"] >= CFG["stalls_avant_vial"]:
+            raisons.append("relance non autorisée par la veille (activité/bail/CI non libérés)" if os.environ.get("OEF_GARDE_RELANCE_PERMISE") != "1" else "relance @codex déjà faite il y a < %d min" % CFG["relance_codex_min"])
+        if os.environ.get("OEF_GARDE_RELANCE_PERMISE") == "1" and etat["stalls"] >= CFG["stalls_avant_vial"]:
             from appel import appeler
             if minutes_depuis(etat.get("dernier_appel_vial")) >= CFG["appel_vial_min"]:
                 lien = f"https://github.com/{REPO}/pulls"

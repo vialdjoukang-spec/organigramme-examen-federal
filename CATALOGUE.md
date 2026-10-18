@@ -167,7 +167,7 @@ Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`).
 
 | Automate | Rôle |
 |---|---|
-| `garde-progres.yml` · `tools/garde/progres.py` | Toutes les 10 min : mesure le contenu de main ; STALL (30 min sans contenu) → `@codex` sur « Pilote Codex » ; 2 stalls → courriel à Vial. |
+| `garde-progres.yml` · `tools/garde/permanence.py` · `tools/garde/progres.py` | Veille infobulles : passages internes toutes les120s (déclencheur GitHub5min, retards possibles), état et baux persistants, aucun doublon avec agent/CI active. Relance demandée, exécution IA non présumée. |
 | `tools/garde/recyclage.py` | PR sans commit depuis 60 min → `@codex reprends ou ferme avec motif` (ne ferme rien). |
 | `checkpoint.yml` · `tools/garde/checkpoint.py` | Chaque PR : « Automates actifs », pas de fausse fin d'étape en boucle, pas de dose sans ligne AIPS. `--inventaire` : automates actifs. |
 | `appel-vial.yml` · `tools/garde/appel.py` | Étiquette `attente-vial` → courriel à Vial + `@codex` continue ailleurs. |
