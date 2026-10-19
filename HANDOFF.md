@@ -1,6 +1,6 @@
 ## Annulation du sélecteur · fond bleu ciel unique · 19.10.2026
 
-Demande utilisateur : annuler les dix teintes et rétablir la couleur unique précédente. Patch0096 retire le chargeur, son emplacement et les styles du sélecteur ; asset et test propres à cette fonctionnalité retirés avec leur étape CI. HTML et deux CSS identiques à cd21898, avant le sélecteur : bleu ciel très pâle #EAF7FD derrière le texte, deux blocs du haut préservés. Les préférences enregistrées ne sont plus lues. Données de progression et cours inchangés. Tests existants, Iris et publication à vérifier ; aucune reprise clinique.
+Demande utilisateur : annuler les dix teintes et rétablir la couleur unique précédente. Patch0096 retire le chargeur, son emplacement et les styles du sélecteur ; asset et test propres à cette fonctionnalité retirés avec leur étape CI. HTML et deux CSS identiques à cd21898, avant le sélecteur : bleu ciel très pâle #EAF7FD derrière le texte, deux blocs du haut préservés. Les préférences enregistrées ne sont plus lues. Données de progression et cours inchangés. Captures ordinateur/mobile/sombre et écarts du SHAe324197 examinés : seule la ligne du sélecteur disparaît, fond bleu et deux blocs du haut préservés. Aucun nouveau nœud axe grave/critique, texte coupé, débordement ou police en échec ; CLSmax0,0383 contre0,0298 lié au retour de la disposition précédente, plafond0,1 conservé. Référence adoptée via workflow39324620020. CI stricte et publication à vérifier ; aucune reprise clinique.
 
 ## Thème de fond · dix teintes pâles ·19.10.2026
 
