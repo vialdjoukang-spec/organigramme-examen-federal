@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 138 faute(s) corrigée(s), dont 7 critique(s), 66 majeure(s) et 65 mineure(s).
+Bilan : 139 faute(s) corrigée(s), dont 7 critique(s), 66 majeure(s) et 66 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -92,6 +92,7 @@ Bilan : 138 faute(s) corrigée(s), dont 7 critique(s), 66 majeure(s) et 65 mineu
 | Majeure | TIP.G7.c[10] | Lanréotide120mg/4sem systématique poursyndrome et indicationfézolinétant tropgénérale. | PopulationsAIPS : patiente postménopauséeSVMmodérés–sévères, adulte nouvellementtraitéparanalogue pour symptômesTNE initial60mg/28j ; indicationsdistinctes ; LAR/AIPSnonrelu À vérifier. | ExtraitsAIPSofficiels2025 acquis17.10.2026,relus19.10.2026, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
 | Majeure | TIP.G7.c[11–13] | 80%altérationspouvaitêtreconfonduavechérédité ; RETdirectdevantnodule ; FSHinterditeaprès45anssanscontexte. | Germinal/somatiquedistincts, RETaprèsconfirmationmédullaire/conseilgénétique, diagnosticménopausecliniqueconditionnel. | SFEitems224/241/NICENG23, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
 | Mineure | TIP.G7.c[0–3] | Définition sans attribution et rangs issus de populations non comparables. | DéfinitionFR attribuée ; limite de recherche mondiale ; dénominateurs et données non recoupées À vérifier. | RevuePraticien2020/ENETS2022, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Mineure | TIP.G7.c[5] phase abdomen | La région abdominale ajoutée utilisait ¶1 (Inspection) pour une palpation. | ¶2 (Palpation), selon le contrat exFmt ; contenu clinique et renvois identiques ; test UI du rendu ajouté. | Contrat du rendu exFmt, app_v2.html ; mêmes sources cliniques G7., lu le 2026-10-19 | Galien-PeauPopulations | 8c48558 |
 
 ## G8-cours
 

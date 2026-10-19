@@ -58,3 +58,5 @@ Rapports : audit/FORME-FOND-COURS-G5-20261019.json et audit/FORME-FOND-COURS-G5-
 CI, fusion et publication restent à vérifier avant de compter ce lot en production ; ensuite G6 cours. Inconnues : fréquences comparables actuelles, posologies AIPS, plafonds de correction du sodium et surveillance des hypoglycémies médicamenteuses selon protocole. Les sources lues par extraits sont signalées comme telles. Diagnostics différentiels suspendus.
 
 G4 est publié : PR132 fusionnée par ac01072 ; CI39274205519, visuel39274242767 et Pages39274940985 réussis. Six fichiers publics HTTP200 identiques à main le19.10.2026 à15:06:33UTC ; SHA256 app2859a1b01e7a3db8a22be723656145948ea3b1b263710c2d8fd3494c7bfa9ed6. Les mentions antérieures de G4 en attente sont historiques.
+
+- G7 ·19.10.2026 : correction de phase anatomique, ¶1 Inspection remplacé par ¶2 Palpation sous abdomen. Aucun mot clinique ni lien changé ; test UI du rendu ajouté, contre-attestation et nouvelle CI requises.

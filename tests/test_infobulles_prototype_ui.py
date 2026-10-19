@@ -151,6 +151,14 @@ async def check_courses(page, touch=False):
     }""")
     assert result == {'codes':248,'sections':3472,'failures':[]}, result
 
+    # Régression G7 : la palpation abdominale doit porter sa vraie phase.
+    abdominal_phase = await page.evaluate("""() => {
+      const div=document.createElement('div');div.innerHTML=exFmt(TIP.G7.c[5]);
+      const section=div.querySelector('[data-reg="abdomen"]');
+      return [...section.querySelectorAll('.ex-phase')].map(x=>[x.dataset.ordre,x.textContent]);
+    }""")
+    assert abdominal_phase == [['2','Palpation']], abdominal_phase
+
     # Les deux composantes du premier titre ne peuvent être fusionnées en un bloc.
     for code in ('G1','G2','G3','G4','G5','G6','G7','G8'):
         first = await page.evaluate("""code => {
