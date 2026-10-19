@@ -6,6 +6,7 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 
 | Script | Rôle |
 |---|---|
+| `tools/patches/0093-fond-bleu-ciel-pale.py` | Fond clair bleu ciel très pâle #EAF7FD, deux ancrages uniques ; blocs et contenu conservés. |
 | `tools/patches/0090-deplacer-commentaires-techniques.py` | Archive45commentaires techniques et conserve les jetons et terminateurs de ligne. |
 | `tools/patches/0091-externaliser-css-statiques.py` | Déplace deux feuillesCSS statiques, contenu et ordre de cascade conservés. |
 | `tools/patches/0092-externaliser-donnees-interface.py` | Externalise SESSION/EXI/ATT JSON purs sans changer leurs valeurs ; ordre de chargement synchrone, budget app conservé. |
