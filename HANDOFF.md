@@ -1,6 +1,6 @@
 ## Thème de fond · dix teintes pâles ·19.10.2026
 
-Bouton sous la sauvegarde, dix teintes pâles pour les fonds derrière les caractères, mémorisation locale incluse dans la sauvegarde orga-. Les deux blocs du haut restent identiques. Un test navigateur dédié couvre les dix couleurs, la persistance, le clavier, le mobile, la lisibilité en mode sombre et la préservation des blocs. CI/Iris/Pages à vérifier.
+Bouton sous la sauvegarde, dix teintes pâles pour les fonds derrière les caractères, mémorisation locale incluse dans la sauvegarde orga-. Les deux blocs du haut restent identiques. Un test navigateur dédié couvre les dix couleurs, la persistance, le clavier, le mobile, la lisibilité en mode sombre et la préservation des blocs. Référence Iris adoptée via workflow39315046372 après examen des images/écarts du SHA2bab732. Aucun nouveau nœud axe grave/critique ni débordement ; CLS ordinateur0,0298 (baisse), mobile lent0,0006 contre0 avant (0,06 % du viewport, très sous0,1 ; ligne de contrôle réservée). Comparaison stricte et CI à relancer. Le test des fonds passe avant les parcours longs et consigne les écarts de styles après rechargement.
 
 ## Fond des zones de lecture ·19.10.2026
 

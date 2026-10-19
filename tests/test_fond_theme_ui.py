@@ -1,5 +1,5 @@
 """Choix de dix fonds pâles : zones de lecture, persistance et blocs du haut préservés."""
-import asyncio
+import asyncio,base64
 from pathlib import Path
 from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
@@ -9,10 +9,15 @@ async def check(browser,mobile=False,dark=False):
     errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
     await page.goto((ROOT/'app_v2.html').as_uri())
     await page.wait_for_selector('#fond-theme>button')
-    snapshot="""() => [...document.querySelectorAll('header.top,header.top *,#bak,#bak *')].map(el=>{const c=getComputedStyle(el);return [el.tagName,c.backgroundColor,c.color,c.font,c.borderColor]})"""
+    await page.evaluate('document.fonts.ready')
+    snapshot="""() => [...document.querySelectorAll('header.top,header.top *,#bak,#bak *')].map(el=>{const c=getComputedStyle(el);return [el.tagName,el.id,el.className,c.backgroundColor,c.color,c.font,c.borderColor]})"""
     before=await page.evaluate(snapshot)
     trigger=page.get_by_role('button',name='Thème de fond',exact=True)
     await trigger.click();await page.wait_for_selector('#fond-palette:not([hidden])')
+    if not dark:
+        out=ROOT/'qa/shots'/('fond-mobile.png' if mobile else 'fond-ordinateur.png');out.parent.mkdir(parents=True,exist_ok=True)
+        picture=await page.locator('#fond-palette').screenshot(path=str(out))
+        print('FOND_APERCU '+('mobile' if mobile else 'ordinateur')+' '+base64.b64encode(picture).decode(),flush=True)
     buttons=page.locator('.fond-choice');assert await buttons.count()==10
     names=await buttons.all_text_contents();assert len(set(names))==10
     choices=await buttons.evaluate_all("xs=>xs.map(x=>({id:x.dataset.fond,color:x.style.getPropertyValue('--swatch')}))")
@@ -27,8 +32,10 @@ async def check(browser,mobile=False,dark=False):
         assert await page.locator('[data-fond="'+choice['id']+'"]').get_attribute('aria-pressed')=='true'
     last=choices[-1]
     await page.reload();await page.wait_for_selector('#fond-theme>button')
+    await page.evaluate('document.fonts.ready')
     assert await page.evaluate('document.documentElement.dataset.readingTheme')==last['id']
-    assert await page.evaluate(snapshot)==before
+    after=await page.evaluate(snapshot)
+    assert after==before,{'profil':(mobile,dark),'avant':before,'apres':after}
     await page.get_by_role('button',name='Thème de fond',exact=True).click()
     await page.keyboard.press('Home');assert await page.locator('.fond-choice').first.evaluate('(el)=>el===document.activeElement')
     await page.keyboard.press('ArrowRight');assert await page.locator('.fond-choice').nth(1).evaluate('(el)=>el===document.activeElement')
@@ -37,6 +44,7 @@ async def check(browser,mobile=False,dark=False):
     assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'Débordement horizontal'
     await page.evaluate("localStorage.setItem('orga-theme-fond','valeur-invalide')")
     await page.reload();await page.wait_for_selector('#fond-theme>button')
+    await page.evaluate('document.fonts.ready')
     assert await page.evaluate('!document.documentElement.hasAttribute("data-reading-theme")')
     assert not errors,errors
     await context.close()
