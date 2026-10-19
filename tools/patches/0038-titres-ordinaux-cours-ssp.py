@@ -22,11 +22,15 @@ if not s[b:].startswith(suffix):
     assert s.count(anchor) == 1, 'Ancrage CLIN absent ou ambigu'
     s = s.replace(anchor, 'const CLIN=' + old + suffix + ';', 1)
 
-anchor = '.nr.ok{background:'
 rule = '.nr[data-k^="c"] .tw{font-weight:700}'
-if rule not in s:
-    assert s.count(anchor) == 1, 'Ancrage CSS absent ou ambigu'
-    s = s.replace(anchor, rule + '\n' + anchor, 1)
+if rule not in s or s.index(rule) > s.index('</head>'):
+    if rule in s:
+        # Migration de la première version du patch : la règle doit être dans head.
+        assert s.count(rule + '\n') == 1
+        s = s.replace(rule + '\n', '', 1)
+    anchor = '<style>:root{'
+    assert s.count(anchor) == 1, 'Ancrage CSS head absent ou ambigu'
+    s = s.replace(anchor, '<style>' + rule + '\n:root{', 1)
 else:
     assert s.count(rule) == 1
 

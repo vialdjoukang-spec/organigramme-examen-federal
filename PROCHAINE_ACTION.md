@@ -1,3 +1,9 @@
+## Lot G1 · forme et fond · 19.10.2026
+
+Prompt directeur enregistré dans docs/PROMPT-DIRECTEUR-ACADEMIQUE.md. Titres 1–14 appliqués aux 248 SSP sans changement des clés de mémorisation. Les 14 parties de G1 sont réorganisées et contre-relues sur leurs empreintes exactes : définition ILDS/RMS, sous-parties, précision des critères, priorités des bilans et ordre pratique de prise en charge. Chiffres contextualisés ; doses sans preuve AIPS et inconnues restent explicitement À vérifier. Rapport : audit/FORME-FOND-COURS-G1-20261019.json. Jauge documentaire : 1/248 SSP, 14/3472 parties ; elle ne certifie aucune validation médicale humaine. Prochain lot : G2, cours uniquement. Diagnostics différentiels suspendus et inchangés ; leur lot non publié reste conservé séparément.
+
+PR127 : contrôles CI et adoption visuelle en cours, publication non encore acquise. Le navigateur local file:// est refusé ; tests du rendu exécutés sur GitHub, sans contournement. La règle CSS de numérotation/gras a été déplacée dans head après le signalement Nu, sans changer la référence HTML. Les limites de sources sont dans les deux rapports ; une source bloquée n’est pas déclarée lue.
+
 ## PRIORITÉ COURANTE · forme et fond des cours SSP · 19.10.2026
 
 Appliquer `docs/PROMPT-DIRECTEUR-ACADEMIQUE.md` uniquement aux quatorze parties du cours SSP, depuis G1. Titres ordinaux 1–14, sous-parties couvrant chaque élément du titre, gras réservé aux titres, contenu concis et continuité sémantique vérifiée. Les définitions recherchent une société savante de portée mondiale ; attribuer exactement son statut et ne pas inventer de définition officielle. Cette autorisation internationale concerne les définitions ; les posologies restent soumises à l’AIPS suisse. La restauration PR126 est acquise : préserver chaque partie spécifique, l’examen régional et ses liens, les clés de progression et le clic uniquement.
