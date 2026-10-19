@@ -890,3 +890,7 @@ Les14parties de G10 douleur sont révisées et contre-auditées : définition IA
 ## G11 cours ·19.10.2026
 
 G11 sommeil :14parties révisées et contre-auditées. Plainte globale et insomnie distinguées ; phrases tronquées complétées, statistiques contextualisées, sécurité et diagnostic séparés des scores, examens ciblés et traitements adaptés. Phases et renvois régionaux conservés, DD/fondamentaux inchangés, aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G11-20261019.json.
+
+## G12 cours ·19.10.2026
+
+G12 œdèmes :14parties révisées et contre-auditées. Topographie et causes ne sont plus assimilées ; mécanismes/volémie et seuils sont contextualisés. Urgences traitées en parallèle, parcoursTVP et traitements spécifiques précisés. ESC2026 distingue probabilité ambulatoire et exclusion en décompensation. Régions, phases et renvois conservés, DD/fondamentaux et247autres cours intacts. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G12-20261019.json.

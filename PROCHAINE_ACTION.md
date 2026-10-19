@@ -1,3 +1,11 @@
+## Cours G12 · forme et fond · 19.10.2026 Europe/Zurich
+
+G12 œdèmes :14parties révisées et contre-auditées. Topographie et causes ne sont plus assimilées ; mécanismes/volémie et seuils sont contextualisés. Urgences traitées en parallèle, parcoursTVP et traitements spécifiques précisés. ESC2026 distingue probabilité ambulatoire et exclusion en décompensation. Régions, phases et renvois conservés, DD/fondamentaux et247autres cours intacts. Aucune validation médicale humaine.
+
+G1–G8 et82socleCK,40unitaires(13cours/frontières,6chronologie,14prototype,7liens),5gardes,98dosesinchangées et compilateurs à jour ; Lyncée3480→3478,0nouveau terme. UI G1–G12 et stylescalculés dans CI. Sept corrections tracées ; jauge préparée12/248cours,168/3472parties. G10fusionné, G11CIreprise après correctifs techniques DOI/CSSOM, publication dans l’ordre. G10publié :6fichiers200 identiquesmainffd8a97 à17:30UTC, preuve dans audit/PUBLICATION-COURS-G10-20261019.json.
+
+Suite autorisée : G13 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G11 · forme et fond · 19.10.2026 Europe/Zurich
 
 G11 sommeil :14parties révisées et contre-auditées. Plainte globale et insomnie distinguées ; phrases tronquées complétées, statistiques contextualisées, sécurité et diagnostic séparés des scores, examens ciblés et traitements adaptés. Phases et renvois régionaux conservés, DD/fondamentaux inchangés, aucune validation médicale humaine.

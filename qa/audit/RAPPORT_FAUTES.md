@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 160 faute(s) corrigée(s), dont 7 critique(s), 85 majeure(s) et 68 mineure(s).
+Bilan : 167 faute(s) corrigée(s), dont 7 critique(s), 92 majeure(s) et 68 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -38,6 +38,18 @@ Bilan : 160 faute(s) corrigée(s), dont 7 critique(s), 85 majeure(s) et 68 mineu
 | Majeure | TIP.G11.c[10,12–13] | Hygiène suffisante implicite, hypnotiques tous de même durée et interdiction absolue benzodiazépines chez âgé/apnéique. | TCC-I multicomposante d’abord ; choix/durée par produit et indication, risques et AIPS signalés ; aucun arrêt brutal imposé. | ESRS2023/CEN, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
 | Majeure | TIP.G11.c[9–13] | Ferritine>75 présentée comme cible universelle ; dopaminergiques sans surveillance d’augmentation ; bénéfice cardiovasculairePPC garanti. | Fer et saturation contextualisés, suivi des effets ; traitementSAOS selon symptômes/sévérité et bénéfice cardiovasculaire non garanti. | RLS2024/NICE NG202, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
 | Mineure | TIP.G11.c[0] | Nom du collège français reformulé de façon ambiguë dans la première rédaction. | Nom exact Collège des enseignants de neurologie, en France. | CEN, page du chapitre20, lu le 2026-10-19 | Galien-PeauPopulations | 854ab84 |
+
+## G12-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G12.c[0–3,6,12] | Topographie bilatéral/systémique et unilatéral/local considérées équivalentes, Starling et volémie trop univoques. | Définition reformulée sans fausse norme mondiale ; mécanismes mixtes, drainage et volémie efficace distingués, phrases tronquées complétées. | CUEN/RevPrat2024/DieDermatologie2022–2023, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+| Majeure | TIP.G12.c[1] | Prévalences de maladies et sous médicament présentées comme probabilités de cause de tous œdèmes. | Pas de classement suisse inventé ; chiffres historiques non recoupés et sex-ratio limité explicitement. | RevPrat2024/ESC2021, réserves ciblées, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+| Majeure | TIP.G12.c[4,9–10,12–13] | Algorithmes de thrombose/infection/angioœdème susceptibles de retarder soins ou confirmer sur signes isolés. | Sécurité et traitement urgent parallèles ; Wells adulte, délais britanniques attribués, anticoagulation selon contexte ; nécrosante chirurgicale distincte. | NICE NG158/HAS2019/RCUK2021, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+| Majeure | TIP.G12.c[5,7–8] | Godet/Stemmer et albumine ou peptides pouvaient devenir critères universels ; rang protéinurie et unités ambigus. | Limites des signes, protéinurie3–3,5g selon référentiel, unités rapport explicites ; séquelles/distalité thrombotique séparées ; biopsie non automatique. | RMS2022/RevPrat2024/DieDermatologie2022–2023/ESC2021, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+| Majeure | TIP.G12.c[7] | Repère unique NTproBNPambulatoire2021 non confronté à actualisationESC2026 découverte pendant recherche. | Âge et terrain2026, probabilité distincte exclusion ;300ng/L décompensation non ajusté conservé, forte suspicion→écho malgré basse valeur. | ESC2026§5.1.1/7.2, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+| Majeure | TIP.G12.c[8] | Rédaction intermédiaire généralisait contrôle6–8j après négatif/positif à toutes branches, sans arrêt de traitement transitoire. | Branche Wells≥2 explicite, arrêt transitoire par médecin sauf autre indication puis contrôle ; protocole/étendue et évolution déterminants. | NICE NG158§1.1.6, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+| Majeure | TIP.G12.c[10–11] | Cause avant symptôme et diurétiques pouvaient s’appliquer universellement ; compression en décompensation seulement prudence. | Mesures parallèles selon gravité ; diurétiques/sel selon cause et volémie, compression non initiée en décompensation avec cadre CHUV attribué, surveillance et AIPS explicites. | CUEN/CHUV2024 V4février2026/RevPrat2024, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
 
 ## G2-cours
 
