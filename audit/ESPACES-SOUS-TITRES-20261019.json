@@ -1,0 +1,46 @@
+{
+  "type": "contre_audit_technique_independant",
+  "date": "2026-10-19T12:38:12.343341+00:00",
+  "auditeur": "Codex /root/audit_forme_cours_code",
+  "base": "29b41727bba846f417ecc171590b18ec81cb751a",
+  "verdict": "favorable_technique",
+  "perimetre": "Correction CSS ciblée de l’espace sous-titre vers liste ; contenu clinique exclu. Aucun test permanent ajouté.",
+  "regle": "#tip .ck-b b+:is(ul,ol){margin-block-start:0}",
+  "empreintes_fichiers": {
+    "tools/patches/0039-espaces-sous-titres.py": "153183568acb3e6ab1aa584324b2c7f3dd493ae925a5df21ec53dd92edb9cb2d",
+    "app_v2.html": "a0abd8645063e95d343f4e6ce40f2aa030b6f1e2b92515702362a47e359ab988",
+    "work/espaces-preuve.json": "11f6af6d074ceefe40b0c2fe367d3e0a0acebd9f8f6958f8c495272ad7c49db2"
+  },
+  "controles_reussis": [
+    {
+      "controle": "Diff strictement CSS",
+      "preuve": "Retirer exactement la règle ajoutée et sa fin de ligne restitue les octets app_v2.html HEAD. Données, liens HTML, code JS et identifiants donc strictement inchangés."
+    },
+    {
+      "controle": "Ancre et placement head",
+      "preuve": "Règle unique insérée dans le premier style existant de head, avant son premier </style> et avant </head>. Aucun nouveau style body ajouté ; les préconditions échouent avant écriture si le style head est absent."
+    },
+    {
+      "controle": "APP_FILE et rejeu",
+      "preuve": "Deux copies temporaires (HEAD et courant), deux passages chacune via APP_FILE. Les quatre résultats sont identiques à l’app courante ; application réelle inchangée par audit."
+    },
+    {
+      "controle": "Périmètre des marges",
+      "preuve": "Le sélecteur ne vise que ul/ol immédiatement précédé par b dans #tip .ck-b. Seule margin-block-start passe à0 ; marge de fin, espacements entre parties, paddings et styles de titres ne sont pas modifiés."
+    },
+    {
+      "controle": "Mesures navigateur fournies",
+      "preuve": "Fichier work/espaces-preuve.json issu du prototype CSS sur HTTPS public fourni par le responsable :6listes, marge haute13.44px vers0px ; marge basse13.44px inchangée ; cinq écarts vers sous-titre suivant15.4375px identiques ; dernier écart nul/non applicable inchangé. Vérification de cohérence numérique indépendante effectuée, mesure navigateur non réexécutée par cet auditeur."
+    },
+    {
+      "controle": "Vérification dépôt",
+      "preuve": "git diff --check vert."
+    }
+  ],
+  "anomalies": [],
+  "risques_limites": [
+    "Le sélecteur couvre toutes les infobulles #tip .ck-b présentant un b immédiatement suivi de ul/ol ; il ne cible pas uniquement G1. Les autres structures de sous-titre ne sont pas modifiées.",
+    "Audit réalisé sur la préparation basée sur G1. Après reprise de l’app incluant G2, rejouer0039 puis vérifier que le diff par rapport au nouveau main reste uniquement cette règle CSS.",
+    "Nouvelle CI Nu/visuelle exacte et vérification après publication restent nécessaires. Les mesures HTTPS sont celles du prototype fournies dans le fichier de preuve."
+  ]
+}
