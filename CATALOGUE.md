@@ -6,6 +6,8 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 
 | Script | Rôle |
 |---|---|
+| `tools/patches/0090-deplacer-commentaires-techniques.py` | Archive45commentaires techniques et conserve les jetons et terminateurs de ligne. |
+| `tools/patches/0091-externaliser-css-statiques.py` | Déplace deux feuillesCSS statiques, contenu et ordre de cascade conservés. |
 | `tools/patches/0039-espaces-sous-titres.py` | Supprime le blanc entre les sous-titres des infobulles et leur liste, en gardant la séparation entre parties ; gratuit et rejouable. |
 | `tools/garde/codex_cloud_120.py` | Nouveau relais GitHub → Codex cloud : contrôles120s, baux communs, demandes régulées et détection de l’environnement manquant ; aucune exécution IA inventée. |
 | `tools/_app.py` | Fonctions communes : localisation d'une constante JS de premier niveau par str.find. |

@@ -886,3 +886,7 @@ Les14parties du prurit sont révisées et contre-auditées. DéfinitionIDEOM, cl
 ## G10 cours ·19.10.2026
 
 Les14parties de G10 douleur sont révisées et contre-auditées : définition IASP2020 internationale distincte des recommandations cliniques CH/Europe, mécanismes mixtes et catégories, urgences et antalgie en parallèle, examens ciblés et traitements selon indication. Statistiques historiques contextualisées ; tous les marqueurs et liens régionaux, DD, fondamentaux et247autres cours conservés. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G10-20261019.json.
+
+## G11 cours ·19.10.2026
+
+G11 sommeil :14parties révisées et contre-auditées. Plainte globale et insomnie distinguées ; phrases tronquées complétées, statistiques contextualisées, sécurité et diagnostic séparés des scores, examens ciblés et traitements adaptés. Phases et renvois régionaux conservés, DD/fondamentaux inchangés, aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G11-20261019.json.

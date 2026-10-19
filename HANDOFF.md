@@ -1,3 +1,11 @@
+## Cours G11 · forme et fond · 19.10.2026 Europe/Zurich
+
+G11 sommeil :14parties révisées et contre-auditées. Plainte globale et insomnie distinguées ; phrases tronquées complétées, statistiques contextualisées, sécurité et diagnostic séparés des scores, examens ciblés et traitements adaptés. Phases et renvois régionaux conservés, DD/fondamentaux inchangés, aucune validation médicale humaine.
+
+G1–G8 et82socleCK,33unitaires(13cours/frontières,6chronologie,14prototype),5gardes,98dosesinchangées et compilateurs à jour ; Lyncée3484→3480,0nouveau. UI G1–G11 et chargement des deux feuillesCSS dans CI. Base technique528b530 : CSS identiques octet pour octet et ordre préservé, reconstruction complète exacte. Jauge préparée11/248cours,154/3472parties. G8/G9 publiés vérifiés :6fichiers200 identiques àmainab50577 le19.10.2026à17:15UTC.
+
+Suite autorisée : G12 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G10 · forme et fond · 19.10.2026 Europe/Zurich
 
 Les14parties de G10 douleur sont révisées et contre-auditées : définition IASP2020 internationale distincte des recommandations cliniques CH/Europe, mécanismes mixtes et catégories, urgences et antalgie en parallèle, examens ciblés et traitements selon indication. Statistiques historiques contextualisées ; tous les marqueurs et liens régionaux, DD, fondamentaux et247autres cours conservés. Aucune validation médicale humaine.

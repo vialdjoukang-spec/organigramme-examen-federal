@@ -8,7 +8,14 @@ def changed_urls(diff):
     for line in diff.splitlines():
         if line.startswith(('+++', '---')) or not line.startswith(('+', '-')):
             continue
-        values = {u.rstrip('.,;') for u in re.findall(r'https?://[^\s"\'<>\\)\]]+', line[1:])}
+        values = set()
+        for url in re.findall(r'https?://[^\s"\'<>\\\]]+', line[1:]):
+            url = url.rstrip('.,;')
+            # Les DOI contiennent des parenthèses ; seule une fermeture de prose
+            # extérieure à l’URL est retirée (ex. « (voir https://exemple.org) »).
+            while url.endswith(')') and url.count(')') > url.count('('):
+                url = url[:-1].rstrip('.,;')
+            values.add(url)
         (added if line[0] == '+' else removed).update(values)
     return sorted(added - removed)
 
