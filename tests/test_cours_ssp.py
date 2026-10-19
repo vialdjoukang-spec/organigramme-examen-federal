@@ -96,5 +96,70 @@ class CoursSSPTests(unittest.TestCase):
         self.assertNotIn('continue avec l’étape suivante', text)
 
 
+class InternationalDefinitionTests(unittest.TestCase):
+    def fixture(self, root):
+        import yaml
+        source = {'id': 'R-IUPS', 'url': 'https://example.jp/definition.pdf',
+                  'org': 'Éditeur japonais', 'pays': 'JP', 'type': 'glossaire'}
+        policy = {'suisse': [], 'europe': [], 'anatomie': [], 'pays_admis': ['CH', 'GB'],
+                  'definitions_internationales': [{**source, 'ssp': 'G6', 'source_cours': 17}]}
+        (root / 'qa').mkdir()
+        (root / 'qa/domaines.yml').write_text(yaml.safe_dump(policy))
+        tip = {'G6': {'c': ['<b>Définition :</b> Reformulation attribuée.'] * 14,
+                      'v': {'S': [{'id': 17, 'u': source['url'], 'n': 'JP', 'o': source['org']}],
+                            'c': [['réorganisé', [17]]] + [['hérité', []]] * 13,
+                            'd': [['hérité', []]]}}}
+        data = {key: [] for key in ('src', 'glo', 'syn', 'hyp', 'nc', 'loc', 'doses_ch')}
+        data['src'] = [source]
+        return tip, data
+
+    def flags(self, root, tip, data):
+        from tools.audit.niveau1 import g3
+        (root / 'app_v2.html').write_text('\nconst TIP=' + json.dumps(tip) + ';\n')
+        flags = []
+        g3(str(root), data, flags)
+        return flags
+
+    def test_world_definition_keeps_actual_country_and_precise_scope(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); tip, data = self.fixture(root)
+            self.assertEqual(self.flags(root, tip, data), [])
+            self.assertEqual(data['src'][0]['pays'], 'JP')
+
+    def test_definition_cannot_be_reused_in_care_or_dd(self):
+        for field, index in (('c', 10), ('d', 0)):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data = self.fixture(root)
+                tip['G6']['v'][field][index] = ['ajouté', [17]]
+                self.assertTrue(self.flags(root, tip, data))
+
+    def test_definition_cannot_authorize_ck_treatment_or_dose(self):
+        for field in ('hyp', 'doses_ch'):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data = self.fixture(root)
+                data[field] = [{'id': 'exemple', 'src': [{'id': 'R-IUPS'}]}]
+                self.assertTrue(self.flags(root, tip, data))
+
+    def test_unreferenced_reuse_in_other_course_or_fundamental_is_rejected(self):
+        for target in ('care', 'fundamental', 'other_ssp'):
+            with self.subTest(target=target), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data = self.fixture(root)
+                url = data['src'][0]['url']
+                if target == 'care':
+                    tip['G6']['c'][10] += url
+                elif target == 'fundamental':
+                    tip['G6']['f'] = [url]
+                else:
+                    tip['G7'] = {'c': [url]}
+                self.assertTrue(self.flags(root, tip, data))
+
+    def test_no_global_authorization_of_country_or_host(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); tip, data = self.fixture(root)
+            data['src'].append({'id': 'R-AUTRE', 'url': 'https://example.jp/autre.pdf',
+                                'org': 'Autre éditeur', 'pays': 'JP', 'type': 'article'})
+            self.assertTrue(self.flags(root, tip, data))
+
+
 if __name__ == '__main__':
     unittest.main()

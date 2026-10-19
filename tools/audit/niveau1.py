@@ -186,11 +186,79 @@ def _match(url, liste):
     return None
 
 
+def _definition_internationale(root, data, source, policy):
+    """Exception Vial : document exact, cité par la seule définition du cours.
+
+    Aucun pays ou hôte n'est autorisé globalement. Toute réutilisation en CK,
+    DD, fondamental ou autre partie du cours révoque l'exception.
+    """
+    records = [x for x in policy.get('definitions_internationales', [])
+               if x.get('id') == source.get('id')]
+    if len(records) != 1:
+        return False
+    record = records[0]
+    if record.get('type') != 'glossaire' or any(
+            source.get(k) != record.get(k) for k in ('id', 'url', 'org', 'pays', 'type')):
+        return False
+
+    def leaves(value):
+        if isinstance(value, dict):
+            for v in value.values():
+                yield from leaves(v)
+        elif isinstance(value, list):
+            for v in value:
+                yield from leaves(v)
+        elif isinstance(value, str):
+            yield value
+
+    if any(source['id'] in text or source['url'] in text
+           for name, value in data.items() if name != 'src'
+           for text in leaves(value)):
+        return False
+    try:
+        from _app import span
+        with open(os.path.join(root, 'app_v2.html'), encoding='utf-8') as f:
+            app = f.read()
+        a, b = span(app, 'TIP')
+        tip = json.loads(app[a:b])
+        uses = []
+        for code, item in tip.items():
+            for index, part in enumerate(item.get('c', [])):
+                if (code, index) != (record['ssp'], 0) and any(
+                        token in part for token in (source['id'], source['url'])):
+                    return False
+            if any(source['id'] in text or source['url'] in text
+                   for field, value in item.items() if field not in ('c', 'v')
+                   for text in leaves(value)):
+                return False
+            visa = item.get('v', {})
+            matches = [s for s in visa.get('S', []) if s.get('u') == source['url']]
+            for s in matches:
+                if (code, s.get('id'), s.get('n'), s.get('o')) != (
+                        record['ssp'], record['source_cours'], source['pays'], source['org']):
+                    return False
+                if any(s['id'] == old.get('id') and old is not s for old in visa['S']):
+                    return False
+                for field, entries in visa.items():
+                    if field in ('S', 'k'):
+                        continue
+                    if not isinstance(entries, list):
+                        return False
+                    for index, entry in enumerate(entries):
+                        if entry and s['id'] in entry[1]:
+                            uses.append((code, field, index))
+        return uses == [(record['ssp'], 'c', 0)] and tip[record['ssp']]['c'][0].startswith('<b>Définition :')
+    except (OSError, ValueError, KeyError, TypeError, IndexError):
+        return False
+
+
 def g3(root, data, F):
     D = domaines(root)
     clin = D['suisse'] + D['europe']
     pays = set(D['pays_admis'])
     for s in data['src']:
+        if _definition_internationale(root, data, s, D):
+            continue
         anat = s.get('type') == 'anatomie'
         d = _match(s.get('url', ''), clin + (D['anatomie'] if anat else []))
         if not d:
