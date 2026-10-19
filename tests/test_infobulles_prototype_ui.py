@@ -79,6 +79,50 @@ async def check(page, touch=False):
     text=await page.locator('#tip .ck-b').inner_text()
     assert text.index('Examen physique par région') < text.index('5. Sémiologie aux explorations')
 
+async def check_g2(page, touch=False):
+    """G2 shares the SSP in the course and keeps all revised DD accessible."""
+    await page.keyboard.press('Escape')
+    await page.evaluate("""() => {
+      document.getElementById('prototype-test').innerHTML =
+        ['n|G2|d0','n|G2|d1','n|G2|d2','s|G2','n|G2|c0'].map((key,i)=>
+          `<button class="tw" id="g2-${i}" data-t="${key}">G2 ${i}</button>`).join('');
+    }""")
+    for index in range(5):
+        target = page.locator(f'#g2-{index}')
+        if not touch:
+            await target.hover()
+            await page.wait_for_timeout(650)
+            assert await page.locator('#tip').is_hidden(), f'G2 {index}: hover opened a tip'
+        await target.tap() if touch else await target.click()
+        await page.wait_for_function("""() => !TIPEL.hidden &&
+          [...TIPEL.querySelectorAll('.ck-b b')].filter(x=>/^[1-6]\\./.test(x.textContent)).length===6""")
+        text = await page.locator('#tip .ck-b').inner_text()
+        assert text.index('Examen de référence diagnostique') < text.index('1 — À faire en premier')
+        assert text.index('B- Moyens') < text.index('Phase 1 —') < text.index('Phase 2 —')
+        assert text.count('Critères diagnostiques') == 1
+        if index >= 3:
+            assert await page.locator('#tip .t').inner_text() == 'Tuméfaction, masse, adénopathies'
+            assert 'masse ganglionnaire' in text
+        if index == 2:
+            assert 'ATRA' in text and 'sans attendre la confirmation génétique' in text
+        # A specialised term must open a definition and return to the same monography.
+        await page.wait_for_function("document.querySelector('#tip .ck-b .glo')")
+        term = page.locator('#tip .ck-b .glo').first
+        await term.tap() if touch else await term.click()
+        await page.wait_for_function('tipStk.length===1 && !TIPEL.hidden')
+        await page.wait_for_function("!document.querySelector('#tip .ck-b').textContent.includes('Chargement…')")
+        assert (await page.locator('#tip .ck-b').inner_text()).strip()
+        back = page.locator('#tip .bk')
+        await back.tap() if touch else await back.click()
+        await page.wait_for_function("document.querySelector('#tip .ck-b').textContent.includes('Bilan ordonné')")
+        await page.keyboard.press('Escape')
+        if not touch:
+            await target.focus()
+            await page.keyboard.press('Enter')
+            await page.wait_for_function("!TIPEL.hidden && document.querySelector('#tip .ck-b').textContent.includes('Bilan ordonné')")
+            await page.keyboard.press('Escape')
+
+
 async def main():
     async with async_playwright() as p:
         kwargs={'args':['--no-sandbox']}
@@ -89,9 +133,10 @@ async def main():
             page=await context.new_page()
             errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
             await check(page,touch)
+            await check_g2(page,touch)
             assert not errors, errors
             await context.close()
         await browser.close()
-    print('Infobulles G1 : aucun survol, clic/toucher, clavier, six rubriques, définition imbriquée et retour : OK')
+    print('Infobulles G1 et G2 : aucun survol, clic/toucher, clavier, six rubriques, définitions imbriquées et retour : OK')
 
 if __name__=='__main__':asyncio.run(main())
