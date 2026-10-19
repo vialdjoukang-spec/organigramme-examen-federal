@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 131 faute(s) corrigée(s), dont 7 critique(s), 58 majeure(s) et 66 mineure(s).
+Bilan : 139 faute(s) corrigée(s), dont 7 critique(s), 66 majeure(s) et 66 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -93,6 +93,19 @@ Bilan : 131 faute(s) corrigée(s), dont 7 critique(s), 58 majeure(s) et 66 mineu
 | Majeure | TIP.G7.c[11–13] | 80%altérationspouvaitêtreconfonduavechérédité ; RETdirectdevantnodule ; FSHinterditeaprès45anssanscontexte. | Germinal/somatiquedistincts, RETaprèsconfirmationmédullaire/conseilgénétique, diagnosticménopausecliniqueconditionnel. | SFEitems224/241/NICENG23, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
 | Mineure | TIP.G7.c[0–3] | Définition sans attribution et rangs issus de populations non comparables. | DéfinitionFR attribuée ; limite de recherche mondiale ; dénominateurs et données non recoupées À vérifier. | RevuePraticien2020/ENETS2022, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
 | Mineure | TIP.G7.c[5] phase abdomen | La région abdominale ajoutée utilisait ¶1 (Inspection) pour une palpation. | ¶2 (Palpation), selon le contrat exFmt ; contenu clinique et renvois identiques ; test UI du rendu ajouté. | Contrat du rendu exFmt, app_v2.html ; mêmes sources cliniques G7., lu le 2026-10-19 | Galien-PeauPopulations | 8c48558 |
+
+## G8-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G8.c[0,6–8] | Mesure et stadification confondues avec un diagnostic exclusivement thermométrique. | Définition ERC attribuée, absence de définition mondiale dédiée signalée ; système suisse estimatif et limites de mesure expliqués. | ERC2025/MDPI2022, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[1,11] | Statistiques d’avalanches assimilables à une fréquence d’hypothermie ; causes de Berne semblant exclusives. | Période, population, facteurs multiples et limites de mesure contextualisés ; décès d’avalanche principalement asphyxiques distincts. | SLF2024/25/MDPIcohorteBerne2022, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[3–5,9] | Algorithme de transfert sans le nouveau critère FC<45/min. | Critère 2025 ajouté avec PAS, arythmie et température ; gestes urgents et transport en parallèle, cannulation selon instabilité. | ERC/RCUK2025, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[7–9] | HOPE<10% présenté comme contre-indication sans réserve adulte/pédiatrique. | Score d’aide adulte, décision spécialisée ; pas de transposition à l’enfant ni exclusion sur potassium ou asystolie seuls. | ERC2025/BMC2025/2026, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[8] | Sonde épitympanique proposée sans condition circulatoire ; lactate croissant présenté comme preuve d’échec. | Thermistance avec circulation spontanée et limites en instabilité/arrêt ; lactate comme alerte à interpréter. | MDPI2022/BMC2016, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[9–10,12–13] | Glucose systématique ; simplification des médicaments 2021, dont interdiction générale de l’amiodarone sous30°C. | Hypoglycémie ciblée ; attribution ERC/RCUK2025 distincte, exception adrénaline si ECLS retardée, charge amiodarone selon adaptation britannique sans dose étrangère importée. | ERC/RCUK2025, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[9,12–13] | Durée d’avalanche et obstruction utilisées comme règle isolée de futilité. | Température, voies aériennes et mécanisme intégrés ; hypothermie profonde possible avant60min ; insufflations uniquement si apnée/arrêt. | ERC2025/BMC2026, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+| Majeure | TIP.G8.c[10–13] | Horizontalité et vitesse de réchauffement présentées sans contexte ; dénominateurs neurologiques implicites. | Après arrêt, transport non retardé pour horizontalité ; vitesse ECLS spécialisée ; survie et bon devenir parmi survivants distingués, cas11.8°C pédiatrique explicite. | MDPI2022/ERC2025/BMC2026, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
 
 ## ck-urgences-lot1
 
