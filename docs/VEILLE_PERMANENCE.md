@@ -1,12 +1,31 @@
 # Veille de la cellule infobulles
 
-Exigence clarifiée par Vial le19.10.2026 : « sentinelle des120secondes » désigne un relanceur effectif du travail après inactivité, sans nouveau message de sa part. La surveillance ci-dessous ne satisfait pas seule cette exigence. Test réel du19.10 à07:55UTC : la CLI annonce une connexion au compte, mais la politique réseau appliquée refuse son accès à `chatgpt.com` (CONNECT403) ; aucune réponse IA obtenue. Le script local historique utilise aussi une option `--full-auto` refusée par la CLI installée, et ses seuils180secondes/20minutes ne sont pas120secondes. Réparation séparée du lot clinique nécessaire. Preuve : `audit/SENTINELLE-RELANCE-REELLE-20261019.json`.
+Exigence clarifiée par Vial le19.10.2026 : « sentinelle des120secondes » désigne un relanceur effectif du travail après inactivité, sans nouveau message de sa part. La surveillance ci-dessous ne satisfait pas seule cette exigence. Test réel du19.10 à07:55UTC : la CLI annonce une connexion au compte, mais la politique réseau appliquée refuse son accès à `chatgpt.com` (CONNECT403) ; aucune réponse IA obtenue. Le script local historique utilise aussi une option `--full-auto` refusée par la CLI installée, et ses seuils180secondes/20minutes ne sont pas120secondes. Constat sur la version historique ; réparation séparée du lot clinique décrite ci-dessous. Preuve : `audit/SENTINELLE-RELANCE-REELLE-20261019.json`.
 
 La veille contrôle les révisions de **tous les SSP et tous les diagnostics** au prototype six rubriques, avec une contrelecture documentaire liée à l’empreinte actuelle. Trois fiches relues ou les anciennes monographies à sept rubriques ne terminent pas cette mission. Les inconnues restent explicites ; aucun compteur n’est une validation clinique humaine.
 
 GitHub Actions ne propose pas une cadence cron de deux minutes. Le déclencheur est donc `*/5 * * * *`, avec des passages internes toutes les **120secondes pendant20minutes**. Le prochain déclenchement peut ainsi rester en attente pendant une fenêtre active : le relais dépend moins d’un lancement cron à la minute exacte. Une seule fenêtre s’exécute à la fois. Le groupe de concurrence existant `garde-progres` sérialise les fenêtres. Chaque passage extrait un instantané actualisé de `origin/main`, sans réinitialiser le checkout interactif, recalcule le plan, et n’exécute jamais de recherche transversale. Les attentes sont fractionnées à 25 secondes avec journal d’échéance.
 
 Un retard GitHub, une file de runners ou une panne peut espacer les passages : la fréquence effective doit se constater dans les journaux. Une fenêtre terminée n’est pas une mission terminée. La première fenêtre publiée dans #120 durait quatre minutes ; elle a été étendue après constat que le cron GitHub peut démarrer tardivement. L’environnement local peut être arrêté ; ce mécanisme n’est pas une garantie d’hébergement local24h/24, d’exécution d’une IA ou de réveil de ChatGPT.
+
+## Relance CLI locale corrigée, activation non prouvée
+
+`tools/veille_relance.sh` utilise maintenant un seuil d’inactivité et un passage cible de120secondes ; l’ancienne option `--full-auto` est remplacée par les arguments reconnus de la CLI installée. Sans CLI, le modeB laisse uniquement un ordre de reprise : il ne satisfait pas l’exigence de relance réelle.
+
+Dans le chemin CLI, avant toute écriture de relève ou exécution, le relanceur vérifie le responsable, la CI, la mission et l’état, puis réserve conditionnellement le lancement dans l’état GitHub partagé. Un état corrompu ou inconnu bloque la relance et reste intact. Les étapes et les autres chaînes de fusion ne sont jamais modifiées par le watcher ; l’agent reprend la mission enregistrée. Les tests incluent l’arrivée d’un responsable pendant la lecture, un lot9 terminé et la protection contre un passage à un chantier suspendu.
+
+`tools/garde/relance_bail.py` supervise le processus CLI et renouvelle sa réservation de processus de180secondes toutesles30secondes, pour empêcher un second hôte de lancer une autre CLI au bout de120secondes. Ce bail est une preuve de processus, jamais de rédaction utile ni de validation clinique. Si sa réservation est perdue ou ne peut plus être vérifiée, le groupe CLI est arrêté. Le bail de180secondes garde une marge face aux délais réseau bornés (lecture30secondes, écriture35secondes) ; la date de renouvellement est prise après lecture. Les signaux TERM, HUP et INT déclenchent aussi le nettoyage du groupe enfant. SIGKILL ou la destruction de l’environnement ne permettent pas ce nettoyage : la réservation finit par expirer, sans garantie de conservation d’un processus ou de réveil du fil. À la sortie, une temporisation partagée de120secondes est conservée ; seul le bail d’activité portant exactement le propriétaire de cette exécution peut être nettoyé. Le responsable IA déclare et renouvelle séparément son activité réelle.
+
+Les passages sont visés toutesles120secondes depuis le début du passage précédent. Ils peuvent être retardés par le réseau ou les commandes. Un seuil de120secondes et une scrutation de120secondes ne promettent pas un réveil exactement120secondes après la dernière action : la détection peut survenir entre120et240secondes, davantage si un bail valide ou une commande se prolonge. Une machine éteinte n’exécute plus cette boucle locale. Le code ne réveille pas ce fil ChatGPT.
+
+Vérifications : tests d’intégration avec exécuteur simulé explicitement identifié ; syntaxe shell et arguments réels de la CLI acceptés. Aucun appel réussi à un modèle n’est revendiqué. Le test réel reste bloqué par CONNECT403 vers `chatgpt.com` ; nouvelle lecture de la configuration appliquée, révision10 : domaine toujours absent. Aucun démon de relance CLI n’a donc été démarré. Après autorisation réseau dans la configuration de l’environnement et réponse de test réelle obtenue, le lancement prévu est :
+
+```bash
+mkdir -p .etat_local
+nohup bash tools/veille_relance.sh --boucle 120 > .etat_local/relance.log 2>&1 &
+```
+
+Le fichier `.etat_local/permanence/STOP` et `permanence_enabled:false` arrêtent les passages. Une exécution IA déjà en cours conserve sa supervision jusqu’à sa sortie ; ce contrôle d’arrêt du relanceur ne prétend pas annuler ses actions distantes.
 
 ## Commandes locales
 
