@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 113 faute(s) corrigée(s), dont 7 critique(s), 43 majeure(s) et 63 mineure(s).
+Bilan : 114 faute(s) corrigée(s), dont 7 critique(s), 44 majeure(s) et 63 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -64,6 +64,7 @@ Bilan : 113 faute(s) corrigée(s), dont 7 critique(s), 43 majeure(s) et 63 mineu
 | Majeure | TIP.G5.c[4], c[8], c[10], c[12] | ECG et troponine étaient imposés sur le seul âge ou sexe, et un sus-décalage dans deux dérivations tenait lieu de critère complet. | Fonder le bilan coronarien sur la suspicion clinique, obtenir/interpréter ECG dans10minutes si SCA suspecté et utiliser les critères adaptés sans retarder la filière indiquée. | R-COURS-G5-11, recommandationsESC2023 et extraits primaires ciblés, lu le 2026-10-19 | Galien-PeauPopulations | 654d5f7 |
 | Majeure | TIP.G5.c[4], c[8–10] | La succession prélever cortisol puis hydrocortisone pouvait retarder un traitement urgent et laisser croire la triade biologique obligatoire. | Prélever si immédiatement possible sans différer le traitement de crise surrénale suspectée ; l’absence d’hyperkaliémie n’exclut pas la crise. | R-COURS-G5-10 et ressource officielle2016 recoupée indépendamment, lu le 2026-10-19 | Galien-PeauPopulations | 654d5f7 |
 | Majeure | TIP.G5.c[7], c[10], c[13] | Correction de natrémie8–10/24h et surveillance sulfonylurée24h étaient données sans limites individuelles ni protocole précis. | Conserver les anciens repères uniquement comme explicitement À vérifier ; demander protocole adapté au risque et surveillance spécialisée. Aucune dose nonAIPS ajoutée. | R-COURS-G5-4 pour risque prolongé ; règleAIPS et réserves documentaires explicites, lu le 2026-10-19 | Galien-PeauPopulations | 654d5f7 |
+| Majeure | TIP.G5.c[1], c[11], v.S[0–1] ; data/ck/src.json ; qa/domaines.yml | Le pays éditeur CH était déduit du lieu des auteurs suisses ; une publication SAEM/Wiley américaine était autorisée à tort comme européenne. | Retirer cette publication de la liste et du lot ; revue Kemp2020 et étude Nickel2013 éditées BioMed Central Ltd GB, identité vérifiée indépendamment. Retirer les chiffres BANC2010 de fréquence et mortalité et utiliser uniquement la cohorte sélectionnée Nickel2013 avec limites. Nom propre bibliographique BioMed exclu de Lyncée avec motif, aucun terme clinique. | Revue GitHub4315787466 ; Kemp2020 doi10.1186/s13049-020-0699-y ; Nickel2013 doi10.1186/1757-7241-21-15 ; contre-audit indépendant, lu le 2026-10-19 | Galien-PeauPopulations | 6617764 |
 | Mineure | TIP.G5.c[0–13] | De nombreuses phrases et gestes étaient tronqués ; mécanisme unique et emphase en gras remplaçaient une structure explicite. | Compléter les formulations, décomposer les14titres et remplacer les affirmations universelles par mécanismes possibles attribués ; garder tous les marqueurs d’examen et renvois. | docs/PROMPT-DIRECTEUR-ACADEMIQUE.md ; sources et contrelectureG5, lu le 2026-10-19 | Galien-PeauPopulations | 654d5f7 |
 
 ## ck-urgences-lot1
