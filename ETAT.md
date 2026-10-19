@@ -1,3 +1,15 @@
+## Cours G6 · forme et fond ·19.10.2026 Europe/Zurich
+
+État : les14parties fièvre/frissons/hyperthermie sont révisées séparément, avec définitionIUPS2001 exactement attribuée et opposition clinique à l’hyperthermie non régulée. Huit corrections tracées. Le payséditeurIUPS resteJP, présent au catalogue ; l’exception internationale autorisée est limitée au document et à la définitionc[0], avec tests refusant réutilisation clinique ou posologique. Aucun seuil de contrôle affaibli.
+
+Les chiffres suisses de sepsis précis sont ceux de2023, pas la moyenne2019–23. Voyage/FUO contextualisés ; critères neutropénie rétablis, limitesqSOFA/lactate, PL/imagerie et traitementurgent explicités ; remplissage conditionnel individualisé. La régioncardiaque est rétablie sans perte de renvoi. DD, fondamentaux et247autres cours conservés.
+
+Contrôles locaux : G1–G8,82socleCK,10cours/définition,6chronologie,14prototype et5gardes verts. Lyncée3492→3487 sans terme nouveau ;98lignes de doses inchangées. Rapports audit/FORME-FOND-COURS-G6-{SOURCES-,}20261019.json et INTEGRATION associés. Aucune validation médicale humaine. CI exacte, fusion et Pages restent requises ; jauge préparée6cours/84parties, publication actuelleG4seulement.
+
+Ordre utilisateur reçu19.10.2026 : G6,puisG7…G16, un cours à la fois, sans nouvelle autorisation entre lots. Prochain : G7après audit du lotG6. G5PR133reste bloqué par statuts GitHubqueued malgréjournauxfinauxverts ; auto-fusionMERGEactive, aucune protectioncontournée. Conserver l’ordre de fusion et ne pas compter ces branches en production.
+
+Sources lues : IUPS2001p254/p267, UCL2011pp2–6, OFSP2025p7, HUGvoyage2026pp1–8, RMS2021pp738–741, SSC2026extraitsprimaires, NICE NG240extraits, AGIHO2017etmiseàjour2024publiée2025, RCUK2025,HUGtoxidromes2025,ESC2023,SPILF2016,EMHG2024. Inconnues : délais cathéter2hselonconditions, AIPS et prescriptionindividualisée, fréquences/sexratioactuels. Sourcespartielles explicitement signalées.
+
 ## Rectification des références G5 · 19.10.2026
 
 Revue GitHub P1 traitée : le pays décrit l’éditeur, jamais le lieu des auteurs. Source américaine retirée, remplacée par Kemp2020 (éditeur britannique) ; chiffres retenus uniquement de Nickel2013 (éditeur britannique), cohorte bâloise sélectionnée et limites explicites. Deux parties actualisées, contrelecture et CI exactes renouvelées avant publication. Auto-fusion suspendue le temps de cette correction.
