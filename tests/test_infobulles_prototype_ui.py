@@ -8,6 +8,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 async def check(page, touch=False):
     await page.goto((ROOT / 'app_v2.html').as_uri())
+    await page.wait_for_function("""() => {
+      const sheets=[...document.styleSheets].filter(s=>/assets\/style\/app-[12]\.css$/.test(s.href||''));
+      return sheets.length===2 && sheets.every(s=>s.cssRules.length>0);
+    }""")
     await page.evaluate("""() => {
       const f=document.createElement('div');f.id='prototype-test';
       f.style.cssText='position:fixed;top:10px;left:10px;z-index:99999;background:white';
@@ -110,7 +114,7 @@ async def check_g2(page, touch=False):
 
 
 async def check_courses(page, touch=False):
-    """All 248 SSP keep 14 course sections; exercise every G1/G2/G3/G4/G5/G6/G7/G8/G9/G10 section in UI."""
+    """All 248 SSP keep 14 course sections; exercise every G1/G2/G3/G4/G5/G6/G7/G8/G9/G10/G11 section in UI."""
     await page.keyboard.press('Escape')
     # An already loaded SSP monography must never hijack a course or flash summary.
     await page.evaluate(r"""async () => {
@@ -160,7 +164,7 @@ async def check_courses(page, touch=False):
     assert abdominal_phase == [['2','Palpation']], abdominal_phase
 
     # Les deux composantes du premier titre ne peuvent être fusionnées en un bloc.
-    for code in ('G1','G2','G3','G4','G5','G6','G7','G8','G9','G10'):
+    for code in ('G1','G2','G3','G4','G5','G6','G7','G8','G9','G10','G11'):
         first = await page.evaluate("""code => {
           const el=document.createElement('div');el.innerHTML=TIP[code].c[0];
           return [...el.querySelectorAll(':scope > ul > li > b')].map(x=>x.textContent.trim());
@@ -226,6 +230,6 @@ async def main():
             assert not errors, errors
             await context.close()
         await browser.close()
-    print('Infobulles : DD G1/G2 six rubriques et chronologies, 14 cours distincts G1/G2/G3/G4/G5/G6/G7/G8/G9/G10, 248 SSP, aucun survol, clic/toucher, clavier, définitions et retour : OK')
+    print('Infobulles : DD G1/G2 six rubriques et chronologies, 14 cours distincts G1/G2/G3/G4/G5/G6/G7/G8/G9/G10/G11, 248 SSP, aucun survol, clic/toucher, clavier, définitions et retour : OK')
 
 if __name__=='__main__':asyncio.run(main())
