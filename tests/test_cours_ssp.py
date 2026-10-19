@@ -167,6 +167,23 @@ class InternationalDefinitionTests(unittest.TestCase):
                     tip['G7'] = {'c': [url]}
                 self.assertTrue(self.flags(root, tip, data))
 
+    def test_second_world_definition_keeps_its_own_ssp_and_rejects_care(self):
+        import yaml
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); tip, data = self.fixture(root)
+            source = {'id': 'R-IASP', 'url': 'https://example.us/definition.pdf',
+                      'org': 'Association internationale, États-Unis', 'pays': 'US', 'type': 'glossaire'}
+            policy = yaml.safe_load((root / 'qa/domaines.yml').read_text())
+            policy['definitions_internationales'].append({**source, 'ssp': 'G10', 'source_cours': 20})
+            (root / 'qa/domaines.yml').write_text(yaml.safe_dump(policy))
+            data['src'].append(source)
+            tip['G10'] = {'c': ['<ul><li><b>Définition :</b> Douleur attribuée.</li></ul>'] * 14,
+                          'v': {'S': [{'id': 20, 'u': source['url'], 'n': 'US', 'o': source['org']}],
+                                'c': [['réorganisé', [20]]] + [['hérité', []]] * 13}}
+            self.assertEqual(self.flags(root, tip, data), [])
+            tip['G10']['v']['c'][10] = ['ajouté', [20]]
+            self.assertTrue(self.flags(root, tip, data))
+
     def test_no_global_authorization_of_country_or_host(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); tip, data = self.fixture(root)
