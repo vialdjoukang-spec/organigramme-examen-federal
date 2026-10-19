@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 153 faute(s) corrigée(s), dont 7 critique(s), 79 majeure(s) et 67 mineure(s).
+Bilan : 160 faute(s) corrigée(s), dont 7 critique(s), 85 majeure(s) et 68 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -26,6 +26,18 @@ Bilan : 153 faute(s) corrigée(s), dont 7 critique(s), 79 majeure(s) et 67 mineu
 | Majeure | TIP.G10.c[10,12–13] | Paliers OMS et schéma opioïde semblaient universels ; antiémétique systématique, titration vers absence de douleur. | Traitements distingués neuropathie/sciatique/chronique primaire/palliation ; NG59 déconseille gabapentinoïdes dans sciatique ; laxatif régulier et antiémétique selon contexte, fonction et tolérance réévaluées. | HUG2024/NICE CG173/NG59/NG193/CG140, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
 | Majeure | TIP.G10.c[11] | Prévention présentée comme garantie de non-chronicisation après antalgie précoce complète. | Suivi/pronostic/prévention séparés ; modèle multifactoriel et absence de garantie individuelle. | EFIC/NICE NG193, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
 | Mineure | TIP.G10.c[5–6] | Nouvelle rédaction intermédiaire avait perdu brosse/pointe pour examen sensitif et exemples thalamiques/insulaires. | Précisions héritées restaurées et contre-auditées ; stimuli normalement indolores distingués des douloureux. | Société suisse douleur2011, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
+
+## G11-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G11.c[0,2–4,6] | Définition limitée à insomnie, catégories et nombreuses phrases tronquées. | Plainte globale et portes cliniques distinguées ; mécanismes, hypothèses et tableaux complétés avec limites explicites de définition mondiale. | ESRS2023/CEN/guideRLS2024, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
+| Majeure | TIP.G11.c[1] | Fréquences de critères/populations différents réunies sans limites de transposition. | HypnoLaus lausannois40–85ans et IAH distincts du syndrome symptomatique ; autres estimations contextualisées ou À vérifier. | HypnoLaus2015/HCL2025/ESRS2023, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
+| Majeure | TIP.G11.c[4,7,13] | Désaturation et apnées confirmaient SAOS sévère ; Epworth≥16 pouvait décider de la conduite ; cataplexie et rêves joués conclusions trop absolues. | Orientation clinique/enregistrement et sécurité immédiate ; score seul insuffisant, confirmation et risque neurologique nuancés. | NICE NG202/EAN ESRS2021/HCL2025, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
+| Majeure | TIP.G11.c[5,8–9] | Examen nominatif sans verbes et explorations/séquences tronquées. | Gestes et interprétation verbalisés sans perte de marqueur ; agenda/clinique puis examens ciblés et référence distincts, absence de bilan systématique. | CEN/ESRS2023/NICE NG202, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
+| Majeure | TIP.G11.c[10,12–13] | Hygiène suffisante implicite, hypnotiques tous de même durée et interdiction absolue benzodiazépines chez âgé/apnéique. | TCC-I multicomposante d’abord ; choix/durée par produit et indication, risques et AIPS signalés ; aucun arrêt brutal imposé. | ESRS2023/CEN, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
+| Majeure | TIP.G11.c[9–13] | Ferritine>75 présentée comme cible universelle ; dopaminergiques sans surveillance d’augmentation ; bénéfice cardiovasculairePPC garanti. | Fer et saturation contextualisés, suivi des effets ; traitementSAOS selon symptômes/sévérité et bénéfice cardiovasculaire non garanti. | RLS2024/NICE NG202, lu le 2026-10-19 | Galien-PeauPopulations | d4229c7 |
+| Mineure | TIP.G11.c[0] | Nom du collège français reformulé de façon ambiguë dans la première rédaction. | Nom exact Collège des enseignants de neurologie, en France. | CEN, page du chapitre20, lu le 2026-10-19 | Galien-PeauPopulations | 854ab84 |
 
 ## G2-cours
 
