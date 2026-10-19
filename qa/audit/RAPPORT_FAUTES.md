@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 167 faute(s) corrigée(s), dont 7 critique(s), 92 majeure(s) et 68 mineure(s).
+Bilan : 173 faute(s) corrigée(s), dont 8 critique(s), 97 majeure(s) et 68 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -15,6 +15,7 @@ Bilan : 167 faute(s) corrigée(s), dont 7 critique(s), 92 majeure(s) et 68 mineu
 | g1-r13-precautions | mono\|sevrage-alcoolique-complique | Le CIWA-Ar était cité sans limite explicite chez un patient atteint de delirium. | Ne pas guider le traitement du delirium ou d’une personne non communicante par le CIWA-Ar ; jugement clinique et signes objectifs. | Worcestershire NHS WAHT-A&E-031v9,14.05.2025,p7, lu le 2026-10-18 | 2026-10-18 |
 | g1-cours-forme-fond | cours\|G1 | La précaution hémocultures/traitement urgent déjà approuvée pour le DD ne figurait pas dans le cours. | Propager la correction validée le18.10.2026 en PR119 : prélèvements avant antibiotiques si possible, sans différer un traitement urgent. | ESC endocardite2023 traduction SEC corrigée2025 §diagnostic et traitement ; accord utilisateur explicite PR119, lu le 2026-10-19 | 2026-10-18 |
 | G5-cours | TIP.G5.c[4], c[7], c[9–10] | La thiamine et des prélèvements devaient précéder le glucose, avec un seuil neurologique fixe pouvant différer le traitement. | Corriger sans délai une hypoglycémie symptomatique ; thiamine précoce et prélèvements seulement sans retarder les soins. Propager au cours la précaution déjà approuvée pour G1 le18.10.2026. | R-COURS-G5-4 et5 ; R-COURS-G5-9 ; accord18.10.2026 déjà tracé qa/audit/fautes.jsonl pour g1-sevrage-securite, lu le 2026-10-19 | 2026-10-18 |
+| G13-cours | TIP.G13.c[2–5,9–10,12–13] | Refroidissement présenté parmi signes certains permettant de renoncer à réanimation ; signes vitaux absents et raideur au froid susceptibles d’être mal interprétés. | Signes certains authentiques séparés de défaillance vitale ; pièges hypothermie/intoxication, secours prioritaires et limitation selon décisions valides/protocole. | SSML2009,Rechtsmedizin2024,ERC2025 ; mandat persistant Vial18.10.2026 consigné AGENTS.md : poursuivre CH/UE lue + contre-audit sans redemander R13. Accord_vial trace la date de délégation scientifique, aucune validation humaine spécifique de cette correction., lu le 2026-10-19 | 2026-10-18 |
 
 ## G10-cours
 
@@ -50,6 +51,17 @@ Bilan : 167 faute(s) corrigée(s), dont 7 critique(s), 92 majeure(s) et 68 mineu
 | Majeure | TIP.G12.c[7] | Repère unique NTproBNPambulatoire2021 non confronté à actualisationESC2026 découverte pendant recherche. | Âge et terrain2026, probabilité distincte exclusion ;300ng/L décompensation non ajusté conservé, forte suspicion→écho malgré basse valeur. | ESC2026§5.1.1/7.2, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
 | Majeure | TIP.G12.c[8] | Rédaction intermédiaire généralisait contrôle6–8j après négatif/positif à toutes branches, sans arrêt de traitement transitoire. | Branche Wells≥2 explicite, arrêt transitoire par médecin sauf autre indication puis contrôle ; protocole/étendue et évolution déterminants. | NICE NG158§1.1.6, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
 | Majeure | TIP.G12.c[10–11] | Cause avant symptôme et diurétiques pouvaient s’appliquer universellement ; compression en décompensation seulement prudence. | Mesures parallèles selon gravité ; diurétiques/sel selon cause et volémie, compression non initiée en décompensation avec cadre CHUV attribué, surveillance et AIPS explicites. | CUEN/CHUV2024 V4février2026/RevPrat2024, lu le 2026-10-19 | Galien-PeauPopulations | 680c0d9 |
+
+## G13-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Critique | TIP.G13.c[2–5,9–10,12–13] | Refroidissement présenté parmi signes certains permettant de renoncer à réanimation ; signes vitaux absents et raideur au froid susceptibles d’être mal interprétés. | Signes certains authentiques séparés de défaillance vitale ; pièges hypothermie/intoxication, secours prioritaires et limitation selon décisions valides/protocole. | SSML2009,Rechtsmedizin2024,ERC2025 ; mandat persistant Vial18.10.2026 consigné AGENTS.md : poursuivre CH/UE lue + contre-audit sans redemander R13. Accord_vial trace la date de délégation scientifique, aucune validation humaine spécifique de cette correction., lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
+| Majeure | TIP.G13.c[0,6,9–10,12] | Décès non naturel confondu avec décès extraordinaire ou circonstance détention/soins ; toute mort subite du jeune assimilée à autopsie/génétique automatique. | Reformulation mondiale OMS avec statut exact, cause externe distincte du doute à annoncer, décision d’investigation par autorité et compétence cantonale CPP253al4. | OMS2023§1.1.4,ASSM/FMH2026,CPP253,CURML2024, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
+| Majeure | TIP.G13.c[1] | Statistiques annuelles sans année ni population, catégories non naturelles et fréquences d’autopsie non démontrées. | OFS2025 données2023 et sex-ratios précis ; anciens chiffres non recoupés conservés À vérifier sans agrégat inventé ni miseàjour2026 prétendue. | OFS Santé — Statistique de poche2025 pp16–17, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
+| Majeure | TIP.G13.c[4–7,9,12–13] | Pétéchies et sillon concluaient asphyxie/homicide, lividités discordantes prouvaient déplacement criminel et couleurs intoxication. | Description et annonce sans conclusion isolée ; absence non excluante et présence non spécifique ; pression/redistribution distinctes et couleur non diagnostic. | SSML2012§2.4–2.7,SSML2009, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
+| Majeure | TIP.G13.c[5,7–10,13] | Datation horaire rigide, thermométrie/prélèvements avant coordination, imagerie toujours préalable et autopsie systématique suggérées. | Anciens horaires conservés À vérifier avec variations, estimation intégrée ; actes invasifs sous mandat, imagerie souvent préalable et examens décidés selon enquête. | SSML2009,CURML2024,CPP253, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
+| Majeure | TIP.G13.c[9–13] | Préservation absolue pouvait primer secours, secret réputé jamais obstacle, cause médicale jamais déterminable et coût d’annonce nul. | Sécurité/survie avant traces, droit cantonal et nécessité de divulgation, cause médicale étayée distincte responsabilité pénale, conséquences familiales et suivi explicités. | ASSM/FMH2026,CPP253,OMS2023,CURML2024, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
 
 ## G2-cours
 

@@ -1,3 +1,11 @@
+## Cours G13 · forme et fond · 19.10.2026 Europe/Zurich
+
+G13 mort non naturelle :14parties révisées et contre-auditées, signes de mort et causes/circonstances distingués. Refroidissement seul et pétéchies ne sont plus des preuves ; secours prioritaires, qualification prudente et procédure suisse cantonale précisés. Statistiques OFS2023 datées ; anciens chiffres et datation conservés avec limites. Régions/phases/renvois, diagnostics différentiels et fondamentaux préservés. Aucune validation médicale humaine.
+
+G1–G8verts,82socleCK,40unitaires,5gardes,98dosesinchangées et compilateurs à jour ; Lyncée3478inchangé,733définitions. UI G1–G13 et styles calculés dans CI. Contrelecture indépendante avec14empreintes et lot ; jauge préparée13/248cours,182/3472parties. Fusion et Pages dans l’ordre, preuves distinctes. Six corrections tracées dont une critique : le refroidissement seul ne prouve pas le décès ; mandat scientifique18.10.2026 cité, aucune validation clinique humaine.
+
+Suite autorisée : G14 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## G12 · lien documentaire et publication G11 ·19.10.2026
 
 La copie originale SFD du document conjoint HAS/SPILF/SFD2019 remplace la page HAS au certificat invalide ; aucun contrôle de certificat désactivé. Contre-audit indépendant ciblé favorable,14parties et empreintes inchangées. G11fusionné33f8f21 et publié : huit fichiers200 identiques à main, preuve audit/PUBLICATION-COURS-G11-20261019.json à17:42UTC. G12CI à reprendre puis fusion protégée ; suiteG13.
