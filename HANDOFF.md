@@ -1,3 +1,11 @@
+## Thème de fond · dix teintes pâles ·19.10.2026
+
+Bouton sous la sauvegarde, dix teintes pâles pour les fonds derrière les caractères, mémorisation locale incluse dans la sauvegarde orga-. Les deux blocs du haut restent identiques. Un test navigateur dédié couvre les dix couleurs, la persistance, le clavier, le mobile, la lisibilité en mode sombre et la préservation des blocs. Référence Iris adoptée via workflow39315046372 après examen des images/écarts du SHA2bab732. Aucun nouveau nœud axe grave/critique ni débordement ; CLS ordinateur0,0298 (baisse), mobile lent0,0006 contre0 avant (0,06 % du viewport, très sous0,1 ; ligne de contrôle réservée). Comparaison stricte et CI à relancer. Le test des fonds passe avant les parcours longs et consigne les écarts de styles après rechargement. Préférence stockée comme objet JSON {couleur:id}, conformément au validateur des sauvegardes orga- ; une chaîne brute était interprétée comme donnée endommagée au démarrage et a été corrigée avant publication.
+
+## Fond des zones de lecture ·19.10.2026
+
+Les surfaces auparavant blanches des cartes, cours et fenêtres de lecture passent en #EAF7FD, derrière les caractères. En-tête et sauvegarde restent hors du périmètre ; couleurs des caractères, données et scripts conservés. Patch0094 avec empreintes et ancrages uniques, gardes5/5 et socle conforme ; CI/Iris/Pages à contrôler. Aucune relecture clinique supplémentaire.
+
 ## Fond bleu ciel très pâle · demande utilisateur ·19.10.2026
 
 Le fond clair passe en #EAF7FD. En-tête, indicateurs et bloc de sauvegarde, données médicales, progression et scripts conservés. Deux valeurs CSS seulement, patch0093 à ancrages uniques. Gardes5/5 et empreinte orig conformes ; CI/Iris/fusion/Pages à vérifier. Cette demande de présentation n’ajoute aucune relecture clinique et ne reprend pas les DD.
