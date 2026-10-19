@@ -1,3 +1,7 @@
+## G16 · structure de la première partie ·19.10.2026
+
+PR144 bloquée par CI : test_infobulles_prototype_ui.py attend deux rubriques introductives sous UL/LI ; les titres étaient présents comme blocs directs. Correction046bef2 : enveloppes UL/LI seulement, texte et sources identiques. Test UI inchangé, aucun garde-fou réduit ; contre-audit et empreintes réactualisés avant nouveau passageCI.
+
 # Échecs de fusion-publication (tools/file_fusion.sh)
 
 Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces lignes à l’étape 2 ou dans l’étape de la chaîne.

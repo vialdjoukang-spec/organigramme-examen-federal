@@ -906,3 +906,7 @@ G14 mort subite cardiaque :14parties révisées et contre-auditées. Définition
 ## G15 cours ·19.10.2026
 
 G15 obésité :14parties révisées et contre-auditées. Définition mondiale attribuée sans fausse citation unique, données OMS2024/ESS2022 avec dénominateurs ; évaluation des complications et causes secondaires, projet sans stigmatisation, conditions SMOB suisses et distinction autorisation/remboursement. Acanthosis replacé sous peau, symptômes et tests cortisol24h restaurés. DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G15-20261019.json.
+
+## G16 cours ·19.10.2026
+
+G16 perte de poids involontaire et perte d’appétit :14parties révisées et contre-auditées. Appétit subjectif, perte pondérale, dénutrition et cachexie distingués, critères GLIM combinés et inflammation non obligatoire, probabilités séparées selon population ; NICE2026 pour perte inexpliquée dès60ans et bilan ciblé. Nutrition et recherche de cause en parallèle, renutrition surveillée, doses anciennes non recertifiées. DD/fondamentaux, anciensvisas/sources et247autresTIP intacts. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G16-20261019.json.

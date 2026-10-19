@@ -1,3 +1,11 @@
+## Cours G16 · forme et fond · 19.10.2026 Europe/Zurich
+
+G16 perte de poids involontaire et perte d’appétit :14parties révisées et contre-auditées. Appétit subjectif, perte pondérale, dénutrition et cachexie distingués, critères GLIM combinés et inflammation non obligatoire, probabilités séparées selon population ; NICE2026 pour perte inexpliquée dès60ans et bilan ciblé. Nutrition et recherche de cause en parallèle, renutrition surveillée, doses anciennes non recertifiées. DD/fondamentaux, anciensvisas/sources et247autresTIP intacts. Aucune validation médicale humaine.
+
+G1–G8verts,46unitaires,5gardes,82socleCK,98lignes de doses inchangées et compilateurs vérifiés. Lyncée3475,734définitions ; parcours UI G1–G16 enCI, budget6Mo maintenu. Jauge préparée16/248cours,224/3472parties. Mandat G6→G16 achevé après vérification des publications ; les232autres cours restent hors de cette livraison, DD toujours suspendus. G15publicationvérifiée9fichiersincluant assets/config/interface.js.
+
+Mandat G6–G16 traité dans l’ordre, un cours à la fois. Attendre CI/fusion et vérifier Pages pour attester la livraison. Au-delà de G16, reprendre seulement selon le prochain mandat. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G15 · forme et fond · 19.10.2026 Europe/Zurich
 
 G15 obésité :14parties révisées et contre-auditées. Définition mondiale attribuée sans fausse citation unique, données OMS2024/ESS2022 avec dénominateurs ; évaluation des complications et causes secondaires, projet sans stigmatisation, conditions SMOB suisses et distinction autorisation/remboursement. Acanthosis replacé sous peau, symptômes et tests cortisol24h restaurés. DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine.
