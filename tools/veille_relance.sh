@@ -1,40 +1,49 @@
 #!/usr/bin/env bash
-# Veille de relance permanente (gratuite) : détecte la fin de l'étape courante et relance Codex
+# Veille de relance locale : relance Codex sur la mission enregistrée
 # avec l'ordre de Vial « continue avec l'étape suivante ». Ne s'arrête jamais sur un obstacle.
 #
 # Deux modes de relance :
-#   A. Codex CLI présent (`codex` dans le PATH) : `codex exec --full-auto -C <dépôt> [-m modèle] "<ordre>"`
+#   A. Codex CLI présent (`codex` dans le PATH) : `codex exec -s workspace-write -C <dépôt> [-m modèle] "<ordre>"`
 #      en arrière-plan, un seul à la fois (verrou), journal dans .etat_local/codex_exec.log.
 #      Modèle des étapes répétitives : $MODELE_REPETITIF (défaut gpt-6-luna, ordre de Vial « GPT 6 Luna ») ;
 #      s'il est refusé, relance sans -m (modèle par défaut) et le note dans ETAT.md.
 #   B. Sans Codex CLI (Codex web, IDE, cloud) : l'ordre est écrit dans PROCHAINE_ACTION.md, que Codex
 #      lit au début de chaque session (AGENTS.md l'impose).
 #
-# À chaque passage : 1) file de fusion (tools/file_fusion.sh) ; 2) critère de fin automatique de l'étape
-# (tools/porte.py critere) ; 3) si l'étape est terminée → porte.py avancer + relance ; 4) si l'étape est en
-# cours mais qu'aucun Codex ne tourne et qu'ETAT.json n'a pas bougé depuis $INACTIF_MIN minutes → relance
+# À chaque passage : activité/baux, état/mission ; si le lot est terminé ou si l'étape est en
+# cours mais qu'aucun responsable/CI/Codex n'est actif et qu'ETAT.json n'a pas bougé depuis120s → relance
 # « reprends l'étape N ».
 #
+# Le relanceur ne modifie pas ETAT.json et ne fusionne aucune autre chaîne.
 # Usage : tools/veille_relance.sh [--une-fois | --boucle [SECONDES]] [--dry-run] [--sans-fusion] [--sans-codex]
-#   cron (toutes les 3 min) : */3 * * * * cd /chemin/du/depot && bash tools/veille_relance.sh --une-fois
-#   boucle                  : nohup bash tools/veille_relance.sh --boucle 180 >/dev/null 2>&1 &
+#   boucle : nohup bash tools/veille_relance.sh --boucle 120 --sans-fusion >.etat_local/relance.log 2>&1 &
+#   Requiert un accès réseau autorisé à Codex et une authentification fonctionnelle.
 set -uo pipefail
 RACINE="${OEF_REPO:-$(cd "$(dirname "$0")/.." && pwd)}"
 export OEF_REPO="$RACINE"
 LOCAL="$RACINE/.etat_local"; mkdir -p "$LOCAL"
 JOURNAL="$LOCAL/veille_relance.log"
 MODELE_REPETITIF="${MODELE_REPETITIF:-gpt-6-luna}"
-INACTIF_MIN="${INACTIF_MIN:-20}"
-MODE="une"; PAUSE=180; DRY=0; FUSION=1; CODEX=1
+if [ -z "${INACTIF_SECONDES:-}" ]; then
+  [[ "${INACTIF_MIN:-2}" =~ ^[1-9][0-9]*$ ]] || { echo "durée invalide" >&2; exit 64; }
+  INACTIF_SECONDES=$(( ${INACTIF_MIN:-2} * 60 ))
+fi
+MODE="une"; PAUSE=120; DRY=0; CODEX=1
 while [ $# -gt 0 ]; do
   case "$1" in
     --une-fois) MODE="une" ;;
     --boucle) MODE="boucle"; case "${2:-}" in ''|--*) ;; *) PAUSE="$2"; shift ;; esac ;;
-    --dry-run) DRY=1 ;; --sans-fusion) FUSION=0 ;; --sans-codex) CODEX=0 ;;
+    --dry-run) DRY=1 ;; --sans-fusion) : ;; --sans-codex) CODEX=0 ;;
     -h|--help) sed -n '2,22p' "$0"; exit 0 ;;
     *) echo "option inconnue : $1" >&2; exit 64 ;;
   esac; shift
 done
+for nombre in "$PAUSE" "$INACTIF_SECONDES"; do
+  [[ "$nombre" =~ ^[1-9][0-9]*$ ]] || { echo "durée invalide : $nombre" >&2; exit 64; }
+done
+# Un seul relanceur par checkout, y compris deux invocations --une-fois simultanées.
+exec 8>"$LOCAL/relance_worker.lock"
+flock -n 8 || exit 0
 DRYOPT=""; [ "$DRY" = 1 ] && DRYOPT="--dry-run"
 log() { local l; l="$(date '+%Y-%m-%d %H:%M:%S %Z') · $*"; echo "[veille] $l" >&2; [ "$DRY" = 1 ] || echo "$l" >> "$JOURNAL"; }
 champ() { python3 -c "import json,sys;print(json.load(open('$RACINE/ETAT.json')).get('$1',''))" 2>/dev/null; }
@@ -46,6 +55,10 @@ for e in json.load(open(sys.argv[1] + "/tools/etapes.json", encoding="utf-8"))["
 PY
 }
 codex_actif() { pgrep -f '(^|/)codex exec( |$)' >/dev/null 2>&1; }
+
+activite_partagee() {
+  python3 "$RACINE/tools/garde/relance_bail.py" observer
+}
 
 ecrire_prochaine() { # $1 = ordre
   local f="$RACINE/PROCHAINE_ACTION.md"
@@ -72,63 +85,99 @@ ecrire_prochaine() { # $1 = ordre
 }
 
 relancer() { # $1 = ordre, $2 = numéro d'étape
-  ecrire_prochaine "$1"
   if [ "$CODEX" = 0 ] || ! command -v codex >/dev/null 2>&1; then
+    ecrire_prochaine "$1"
     log "mode B (sans Codex CLI) : ordre écrit dans PROCHAINE_ACTION.md"; return
   fi
   if codex_actif; then log "Codex tourne déjà : pas de seconde session"; return; fi
   local mod; mod="$(modele_etape "$2")"
-  if [ "$DRY" = 1 ]; then log "[dry-run] codex exec --full-auto -C $RACINE ${mod/luna/-m $MODELE_REPETITIF} \"$1\""; return; fi
+  if [ "$DRY" = 1 ]; then log "[dry-run] codex exec -s workspace-write -C $RACINE (étape $2, modèle $mod)"; return; fi
   (
     exec 9>"$LOCAL/codex.lock"; flock -n 9 || exit 0
+    # Une tentative est un événement technique, jamais une activité clinique.
+    local maintenant precedent=0 code reservation tentative=''
+    maintenant="$(date +%s)"
+    if [ -f "$LOCAL/derniere_tentative" ]; then read -r precedent < "$LOCAL/derniere_tentative"; fi
+    [[ "$precedent" =~ ^[0-9]+$ ]] || precedent=0
+    if [ $((maintenant - precedent)) -lt 120 ]; then log "tentative précédente <120s : pas de doublon"; exit 0; fi
+    # Réserver avant toute écriture et avant le lancement, entre checkouts et machines.
+    reservation="$(python3 "$RACINE/tools/garde/relance_bail.py" reserver)" || { log "réservation distante refusée : pas de lancement"; exit 0; }
+    trap '[ -z "$tentative" ] || rm -f "$tentative"; python3 "$RACINE/tools/garde/relance_bail.py" --owner "$reservation" liberer >/dev/null 2>&1 || true' EXIT
+    printf '%s\n' "$maintenant" > "$LOCAL/derniere_tentative"
+    ecrire_prochaine "$1"
+    tentative="$(mktemp "$LOCAL/tentative.XXXXXX")"
+    local ordre_execution="$1 Déclare ton activité réelle avec le bail d’agent $reservation (tools/garde/permanence.py --github-state --agent $reservation --lease-seconds 180), puis rafraîchis-le pendant le travail réel. La mission exclusive infobulles reste prioritaire ; ne reprends aucun chantier suspendu."
+    log "processus Codex démarré (étape $2, modèle $mod) ; reprise utile non encore prouvée"
     if [ "$mod" = "luna" ]; then
-      codex exec --full-auto -C "$RACINE" -m "$MODELE_REPETITIF" "$1" >> "$LOCAL/codex_exec.log" 2>&1 && exit 0
-      if tail -n 30 "$LOCAL/codex_exec.log" | grep -qiE "model.*(not (found|available|supported)|unknown|invalid|does not exist)"; then
-        echo "- $(date '+%d.%m.%Y %H:%M %Z') · modèle $MODELE_REPETITIF refusé : étape $2 relancée avec le modèle le moins cher disponible (défaut de Codex)." >> "$RACINE/ETAT.md"
-        codex exec --full-auto -C "$RACINE" ${MODELE_SECOURS:+-m "$MODELE_SECOURS"} "$1" >> "$LOCAL/codex_exec.log" 2>&1
+      python3 "$RACINE/tools/garde/relance_bail.py" --owner "$reservation" executer -- codex exec -c 'approval_policy="never"' -s workspace-write -C "$RACINE" -m "$MODELE_REPETITIF" "$ordre_execution" </dev/null > "$tentative" 2>&1
+      code=$?
+      cat "$tentative" >> "$LOCAL/codex_exec.log"
+      [ "$code" = 0 ] && { log "processus Codex terminé, code0 ; résultat à contrôler"; exit 0; }
+      if grep -qiE "model.*(not (found|available|supported)|unknown|invalid|does not exist)" "$tentative"; then
+        echo "- $(date '+%d.%m.%Y %H:%M %Z') · modèle $MODELE_REPETITIF refusé : étape $2 relancée avec le modèle de secours configuré ou le défaut de Codex, coût non vérifié." >> "$RACINE/ETAT.md"
+        python3 "$RACINE/tools/garde/relance_bail.py" --owner "$reservation" executer -- codex exec -c 'approval_policy="never"' -s workspace-write -C "$RACINE" ${MODELE_SECOURS:+-m "$MODELE_SECOURS"} "$ordre_execution" </dev/null >> "$LOCAL/codex_exec.log" 2>&1
+        code=$?
       fi
     else
-      codex exec --full-auto -C "$RACINE" "$1" >> "$LOCAL/codex_exec.log" 2>&1
+      python3 "$RACINE/tools/garde/relance_bail.py" --owner "$reservation" executer -- codex exec -c 'approval_policy="never"' -s workspace-write -C "$RACINE" "$ordre_execution" </dev/null >> "$LOCAL/codex_exec.log" 2>&1
+      code=$?
     fi
+    rm -f "$tentative"
+    log "processus Codex terminé, code$code ; résultat à contrôler, aucune fin de mission déduite"
   ) &
-  log "mode A : codex exec lancé (étape $2, modèle ${mod})"
+  log "mode A : lancement demandé (étape $2, modèle ${mod})"
 }
 
 passage() {
+  [ -e "$LOCAL/permanence/STOP" ] && { log "arrêt explicite demandé"; return 77; }
+  local configuration
+  configuration="$(python3 -c 'import json,sys;v=json.load(open(sys.argv[1]));assert isinstance(v,dict);print("stop" if v.get("permanence_enabled") is False else "actif")' "$RACINE/tools/garde/config.json" 2>/dev/null)" || { log "configuration illisible : aucune relance"; return; }
+  [ "$configuration" = stop ] && { log "arrêt commun configuré"; return 77; }
+  if codex_actif; then log "Codex tourne déjà : aucune relance ni mutation de l’étape"; return; fi
+  local activite
+  activite_partagee; activite=$?
+  if [ "$activite" = 0 ]; then log "responsable ou CI actif : aucune relance"; return; fi
+  if [ "$activite" != 1 ]; then log "activité distante inconnue : aucune relance aveugle"; return; fi
+  local n statut mission etat_local
+  etat_local="$(python3 - "$RACINE/ETAT.json" <<'PY'
+import json,sys
+v=json.load(open(sys.argv[1]))
+n=v.get('etape_courante');s=v.get('statut');m=v.get('mission_exclusive',{})
+assert type(n) is int and n>=0 and s in ('en_cours','terminee') and isinstance(m,dict)
+mission=m.get('id','');assert isinstance(mission,str) and not any(c.isspace() for c in mission)
+print(n,s,mission)
+PY
+  )" 2>/dev/null || { log "ETAT.json invalide : original conservé, aucune mutation ni relance"; return; }
+  read -r n statut mission <<< "$etat_local"
+  if [ "$mission" = infobulles_prototype6 ]; then
+    [ "$n" = 9 ] || { log "mission exclusive : étape $n incohérente, aucune mutation ni relance"; return; }
+  fi
   git -C "$RACINE" fetch -q origin 2>/dev/null || log "git fetch impossible (réseau) : on continue"
-  if [ "$FUSION" = 1 ]; then bash "$RACINE/tools/file_fusion.sh" $DRYOPT >> "$LOCAL/file_fusion.log" 2>&1 || log "file_fusion a échoué : on continue"; fi
-  local n statut
-  n="$(champ etape_courante)"; statut="$(champ statut)"
-  [ -n "$n" ] || { log "ETAT.json illisible : réinitialisé à l'étape 0"; [ "$DRY" = 1 ] || echo '{"etape_courante":0,"statut":"en_cours","lot":1}' > "$RACINE/ETAT.json"; n=0; statut=en_cours; }
-  if [ "$statut" = "en_cours" ] && python3 "$RACINE/tools/porte.py" critere "$n" >/dev/null 2>&1; then
-    log "critère de fin de l'étape $n atteint"
-    python3 "$RACINE/tools/porte.py" terminer $DRYOPT >/dev/null 2>&1; statut="terminee"
-  fi
-  if [ "$statut" = "terminee" ]; then
-    local ordre
-    ordre="$(python3 "$RACINE/tools/porte.py" avancer $DRYOPT 2>/dev/null | tail -n 1)"
-    [ "$DRY" = 1 ] || n="$(champ etape_courante)"
-    if [ "$n" -ge 1 ] && ! python3 "$RACINE/tools/porte.py" verifier0 >/dev/null 2>&1; then
-      ordre="Ordre de Vial : l'Étape 0 n'est pas complète. Termine l'Étape 0 de CONTINUATION.md (python3 tools/porte.py verifier0) avant tout contenu."
-    fi
-    log "étape terminée → $ordre"; relancer "$ordre" "$n"; return
-  fi
-  # Étape en cours : relance si personne ne travaille depuis INACTIF_MIN minutes.
+  # Le bail du responsable, la CI et Codex ont été contrôlés avant toute mutation.
   local age=999999
-  [ -f "$RACINE/ETAT.json" ] && age=$(( ( $(date +%s) - $(stat -c %Y "$RACINE/ETAT.json") ) / 60 ))
-  if ! codex_actif && [ "$age" -ge "$INACTIF_MIN" ]; then
-    local o; o="$(python3 "$RACINE/tools/porte.py" ordre 2>/dev/null)"
+  [ -f "$RACINE/ETAT.json" ] && age=$(( $(date +%s) - $(stat -c %Y "$RACINE/ETAT.json") ))
+  if ! codex_actif && { [ "$statut" = terminee ] || [ "$age" -ge "$INACTIF_SECONDES" ]; }; then
+    local o; o="$(python3 "$RACINE/tools/porte.py" ordre 2>/dev/null)" || { log "ordre indisponible : aucune relance"; return; }
+    [ -n "$o" ] || { log "ordre vide : aucune relance"; return; }
     o="${o/continue avec l\'étape suivante/reprends l\'étape en cours}"
-    log "étape $n en cours, inactive depuis ${age} min → relance"; relancer "$o" "$n"
-    [ "$DRY" = 1 ] || touch "$RACINE/ETAT.json"
+    if [ "$statut" = terminee ]; then o="$o Le lot précédent est marqué terminé : vérifie sa publication et reprends la mission prioritaire ; ce statut ne clôt pas la mission exclusive."; fi
+    log "étape $n en cours, inactive depuis ${age}s → relance"; relancer "$o" "$n"
   else
-    log "étape $n en cours (dernière activité il y a ${age} min)"
+    log "étape $n en cours (dernière activité il y a ${age}s)"
   fi
 }
 
 if [ "$MODE" = "boucle" ]; then
   log "veille démarrée (boucle, ${PAUSE} s)"
-  while true; do passage; sleep "$PAUSE"; done
+  while true; do
+    echeance=$((SECONDS + PAUSE))
+    passage; [ "$?" = 77 ] && break
+    while [ "$SECONDS" -lt "$echeance" ]; do
+      [ -e "$LOCAL/permanence/STOP" ] && exit 0
+      reste=$((echeance - SECONDS)); [ "$reste" -gt 25 ] && reste=25
+      sleep "$reste"
+    done
+  done
 else
   passage
 fi
