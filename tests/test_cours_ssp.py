@@ -1,5 +1,6 @@
 """La forme automatique n’atteste jamais une relecture ; les DD restent en attente."""
 import json
+import copy
 import sys
 import tempfile
 import unittest
@@ -9,12 +10,32 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tools.cours.controler import bilan, empreinte
+from tools.cours.appliquer import appliquer_au_cours
 from tools.coordination.calculer import CONFIG, calculer, page
 from tools.garde.permanence import complete, digest
 from tools.porte import ordre
 
 
 class CoursSSPTests(unittest.TestCase):
+    def test_first_course_annotation_preserves_unreviewed_dd_and_replays(self):
+        item = {'c': ['Ancien cours'] * 14, 'd': ['DD hérité'],
+                'f': ['Fondamental'], 's': 'Source héritée'}
+        original = copy.deepcopy(item)
+        lot = {'parties': ['Cours relu'] * 14,
+               'avant_sha256': [empreinte(x) for x in item['c']],
+               'references_par_partie': [[1]] * 14,
+               'sources_ajoutees': [{'id': 1, 't': 'Source lue'}]}
+        appliquer_au_cours(item, lot)
+        self.assertEqual({k: item[k] for k in ('d', 'f', 's')},
+                         {k: original[k] for k in ('d', 'f', 's')})
+        self.assertEqual(item['v']['d'], [None])
+        applied = copy.deepcopy(item)
+        appliquer_au_cours(item, lot)
+        self.assertEqual(item, applied)
+        item['c'][0] = 'Changement postérieur non relu'
+        with self.assertRaises(AssertionError):
+            appliquer_au_cours(item, lot)
+
     def fixture(self, root):
         (root / 'tools/cours').mkdir(parents=True)
         parts = ['<b>Partie :</b><ul><li>Contenu précis.</li></ul>'] * 14

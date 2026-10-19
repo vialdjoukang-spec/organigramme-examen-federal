@@ -1,3 +1,9 @@
+## Cours G5 · forme et fond · 19.10.2026
+
+<p class="urg" style="color:red"><b>Précaution critique déjà autorisée · hypoglycémie</b> : ne jamais retarder le traitement urgent pour attendre la thiamine ou des prélèvements. La correction approuvée le18.10.2026 pour g1-sevrage-securite est propagée au cours G5 ; la règle courante AGENTS/CONTINUATION autorise les corrections sourcées avec contre-audit sans redemanderR13. Aucune nouvelle validation médicale humaine attribuée.</p>
+
+Les14parties du malaise général sont réorganisées et contre-relues indépendamment sur leurs empreintes finales (audit/FORME-FOND-COURS-G5-20261019.json). Neuf corrections tracées avec le commit clinique réel 654d5f7e0b47eda1b86d70d14cfe6470590b5f6f : urgence glycémique, orientation d’organe, causalité et statistiques, qSOFA/lactate, hyperkaliémie/ECG, suspicion coronarienne, crise surrénale, réserves de protocole et phrases tronquées. Les limites de source et les données À vérifier restent visibles ; DD et fondamentaux conservés sans attestation nouvelle.
+
 ## Cours SSP G4 · forme et fond · 19.10.2026
 
 Les14parties du cours sur la fatigue font l’objet d’une contrelecture documentaire indépendante liée aux empreintes finales : audit/FORME-FOND-COURS-G4-20261019.json. Sept corrections tracées avec le commit clinique réel 28e6cc96c1e92cafa518f228fc33ba07b448e14f : interprétation épidémiologique, critères et bilan EM/SFC, activité adaptée dès suspicion, limites des scores, causalité des signes et structure. Les lectures indexées et leur portée sont explicites ; STOP-Bang et les inconnues suisses restent À vérifier. Aucune validation médicale humaine attestée.

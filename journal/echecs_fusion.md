@@ -66,3 +66,7 @@ Tests navigateur locaux : file:// refusé ERR_BLOCKED_BY_ADMINISTRATOR, aucun co
 
 - 19.10.2026 · G4 cours : NICE NG206/202/106 et cadrage dg62 refusent l’ouverture complète403 ; seuls les extraits primaires ciblés lus sont attestés. Revue2021 refusée/captcha, extraits indexés recoupés indépendamment. Aucun contournement.
 - 19.10.2026 · G4 : navigateur local file:// déjà refusé ERR_BLOCKED_BY_ADMINISTRATOR dans cet environnement ; parcours G4 confié à la CI exacte. Tests gardes exécutés directement (script sys.exit, incompatible unittest discover) ; comparateur correct tools/doses_check.py,98lignes0manquement.
+
+- 19.10.2026 · G5 : accès complets SFE britannique/NICE refusés403, ESC redirection indisponible et SSC2026 sous abonnement ; seuls les extraits primaires ciblés réellement lus sont attestés. Aucun contournement. CO et Whipple complétés par deux primaires relues indépendamment.
+- 19.10.2026 · G5 : navigateur file:// déjà refusé par politique ; suite d’interface confiée à GitHub. Cours auparavant sans métadonnées : compilateur étendu sans visa DD ; test détectant un partage mutable du lot corrigé par copie des listes. Aucun contrôle assoupli.
+- 19.10.2026 · PR133, CI39277859737 liens : ancien PDFMSF404. Source9 remplacée par copie originale suisse FMS2023 p881, relue indépendamment ; aucune retouche des14parties. Métadonnées/audit/compilation et CI relancés ; aucun statut HTTP ignoré ajouté. Surveillance API temporairement502/401 ; lecture de contrôle reprise.
