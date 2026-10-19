@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "lu_le": "2026-10-19",
+  "base": "eaa4a92435536869396f6d8ed4392457d73d4696",
+  "relecteur_independant": "Codex · agent contre_audit_g4, distinct de l’auteur/intégrateur ; revue technique ciblée et exécutions indépendantes",
+  "verdict": "favorable_technique",
+  "anomalies_bloquantes": [],
+  "perimetre": "Externalisation des constantes JSON d’interface SESSION/EXI/ATT et routage des commandes JSON ; aucune optimisation ou relecture médicale G15 couverte.",
+  "integrite": {
+    "app_hors_trois_declarations_et_un_tag_strictement_identique": true,
+    "reconstruction_app_exacte": "La base eaa4a92, privée des trois déclarations exactes, reçoit uniquement le tag classique assets/config/interface.js juste avant le script principal. Résultat comparé strictement au fichier courant.",
+    "asset_octets_declarations_exactes": true,
+    "donnees_medicales": {
+      "TIP": {
+        "lexeme_sha256": "2c31b1a9ac80a81ab2d16e861c747e66896baa2b8f4222da78c859fc24ea0bd1",
+        "entrees": 248,
+        "octets_et_valeur_identiques": true
+      },
+      "GES": {
+        "lexeme_sha256": "de2f1eeb7bdee5a15f64130bf7f51a10aea842d610ec251b139af02429423474",
+        "entrees": 22,
+        "octets_et_valeur_identiques": true
+      },
+      "NOT": {
+        "lexeme_sha256": "9331e23903636ef5434384f055b76c1a46c12507e1eec49ffcf0723f4c60d395",
+        "entrees": 248,
+        "octets_et_valeur_identiques": true
+      },
+      "SSP": {
+        "lexeme_sha256": "724796927fc5105280b6f0d5bc4e5966329b7cc051e66996ab3b2a34d1886804",
+        "entrees": 248,
+        "octets_et_valeur_identiques": true
+      }
+    },
+    "constantes_deplacees": {
+      "SESSION": {
+        "valeur_json_sha256": "46238e121d462ee7544739a596187a774823cc7bb9d8690ee085f9b68d484080",
+        "octets_valeur": 846,
+        "lexeme_et_valeur_identiques": true,
+        "initialiseur_litteral_JSON_sans_dependance": true
+      },
+      "EXI": {
+        "valeur_json_sha256": "9bb24be63d5ee719663a0ac6c4b7d988dcb76c8a7dded883ba98927457473692",
+        "octets_valeur": 16332,
+        "lexeme_et_valeur_identiques": true,
+        "initialiseur_litteral_JSON_sans_dependance": true
+      },
+      "ATT": {
+        "valeur_json_sha256": "81914d1fb6f03a5e21d7e78024d1d01abe96b8554a27a1494df736fe744aaa46",
+        "octets_valeur": 4310,
+        "lexeme_et_valeur_identiques": true,
+        "initialiseur_litteral_JSON_sans_dependance": true
+      }
+    },
+    "SESSION_et_EXI_egales_data_JSON": true,
+    "aucune_donnee_medicale_supprimee": true,
+    "autres_changements": "CATALOGUE.md ajoute une ligne. ETAT.json ne change que l’horodatage de coordination et reste hors périmètre technique."
+  },
+  "analyse_javascript": {
+    "parseur": "Acorn interne de Node v24.19.0, lancé avec --expose-internals ; mode ECMAScript latest, sourceType script.",
+    "trois_AST_declarations_identiques": true,
+    "AST_instructions_restantes_identique": true,
+    "instructions_principales_restantes": 356,
+    "comparaison": "Suppression des seules positions start/end pour comparer les arbres ; valeurs brutes, opérateurs et instructions conservés.",
+    "purete": "Initialiseurs récursivement contrôlés : Literal, ArrayExpression et ObjectExpression ; aucun appel, accès, identifiant de valeur, calcul ou expression à effet.",
+    "portee": "Scripts classiques synchrones dans le même environnement lexical global. Les const restent accessibles au script suivant, sans créer de propriétés globalThis ; vérifié dans un contexte Node vm partagé.",
+    "ordre_chargement": "Le nouveau tag ne porte ni async, ni defer, ni type=module et précède immédiatement le script principal. Déplacer ces seules valeurs pures ne requiert aucune déclaration du script principal."
+  },
+  "outillage": {
+    "route_JSON": "tools/json_inject.py route uniquement SESSION/EXI/ATT vers assets/config/interface.js lorsque le tag exact est présent une seule fois ; TIP et les autres constantes restent en ligne. Asset absent : erreur explicite, sans écriture de secours.",
+    "CLI_reel": "Exécuté dans une copie temporaire isolée : extract SESSION/EXI égaux data/*.json, aucune mutation de l’app ; inject SESSION identique ; modification puis inject EXI ne change que sa valeur dans l’asset ; check ATT conserve le code 1 lié au format non compact.",
+    "format_ATT": "Lexème non compact conservé octet pour octet lors du déplacement ; check continue de signaler le format. Une injection volontaire continue de compacter comme avant.",
+    "patch_rejeu": "0092 rejoué sur la base dans un répertoire temporaire avec APP_FILE pointant une page renommée ; app et asset produits sont strictement identiques au résultat courant.",
+    "garde_fous_patch": "Ancrage unique, vérification JSON strict, trois SHA attendus, non-écrasement de destination ; seconde passe et valeur SESSION altérée refusées, page inchangée après erreur.",
+    "APP_FILE": "Le patch honore APP_FILE. json_inject conserve son entrée historique _app.ROOT/_app.APP ; aucune nouvelle prise en charge de APP_FILE n’est revendiquée pour cette CLI."
+  },
+  "tests": {
+    "unittests_externes": "6/6 exécutés indépendamment avec python3 -m unittest discover -s tests -p test_json_inject_externe.py.",
+    "cas": "Extraction externe ; injection isolée ; aller-retour SESSION ; maintien de TIP en ligne ; échec si asset manquant ; signalement inchangé de ATT non compact.",
+    "raccord_CI_verifie": "Invocation exacte ajoutée une fois dans .github/workflows/ci.yml après test_cours_ssp.py, examinée et exécutée.",
+    "regression_UI": "tests/test_exigences.py couvre l’interface existante, la persistance et la migration ; son passage sur le commit exact reste à la CI. Aucun navigateur file:// relancé dans cet audit.",
+    "budget": "python3 tools/budget.py exécuté indépendamment : tous les budgets respectés, limites et script inchangés."
+  },
+  "budget": {
+    "app_avant_octets": 5998741,
+    "app_apres_octets": 5977267,
+    "reduction_app_octets": 21474,
+    "limite_app_octets": 6000000,
+    "marge_app_octets": 22733,
+    "asset_octets": 21529,
+    "plafond_releve": false,
+    "interpretation": "Répartition du contenu entre fichiers, pas compression ni suppression de données ; le chargement total n’est pas présenté comme réduit."
+  },
+  "correction_obtenue": "Les six nouveaux tests de routage n’étaient pas initialement invoqués par la CI explicite. L’intégrateur a ajouté leur invocation sans modifier les attentes ni affaiblir un test.",
+  "fichiers_sha256": {
+    "app_v2.html": "22b739aa978d190fbb781b51f619f4b2ad45f4f889b984a1e5de06f05cf5cf76",
+    "assets/config/interface.js": "47a3bd7bac006463959d43d3038157c66c2b95fcb43f68f1b28bd56ba1bf6bbc",
+    "tools/json_inject.py": "7490e5ba5eb2dc7783cf23072c2a8989f9b462dba5b1d4ecaa880cba770a0beb",
+    "tools/patches/0092-externaliser-donnees-interface.py": "fc8212012b73556d5044c3f583846bc540e514a9e9db9a20868092ab99db6390",
+    "tests/test_json_inject_externe.py": "bf809480733853590d31c25fcda8ddfbbf1b9beeec09d1cb43879f6ff303d3dc",
+    ".github/workflows/ci.yml": "53c3f1e36a4e4f69eb771d99231225f4411a987bfcd22e9f71421bba4b3b90d6",
+    "CATALOGUE.md": "695a5ea56efd1e555d395e888336dd69b4c42931bb6b3baa1703d78cd6dedc08"
+  },
+  "reserves": [
+    "La CI et le navigateur sur le commit intégré restent nécessaires ; aucune validation de navigation finale n’est déduite de Acorn ou Node vm.",
+    "Le nouvel asset doit être distribué avec l’app ; une erreur de chargement du script classique empêche les consommateurs d’accéder à ces constantes.",
+    "ResourceWarning de fichiers ouverts dans json_inject observés aux tests ; appels open hérités de la base, non introduits par ce routage.",
+    "Aucune donnée médicale modifiée ni validation médicale humaine attestée ; le cours G15 demeure hors de cette modification technique."
+  ]
+}

@@ -1,3 +1,11 @@
+## Cours G15 · forme et fond · 19.10.2026 Europe/Zurich
+
+G15 obésité :14parties révisées et contre-auditées. Définition mondiale attribuée sans fausse citation unique, données OMS2024/ESS2022 avec dénominateurs ; évaluation des complications et causes secondaires, projet sans stigmatisation, conditions SMOB suisses et distinction autorisation/remboursement. Acanthosis replacé sous peau, symptômes et tests cortisol24h restaurés. DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine.
+
+G1–G8verts,46unitaires,5gardes,82socleCK,98lignes de doses inchangées et compilateurs vérifiés. Lyncée3475,734définitions, aucun terme nouveau non défini ; UI G1–G15 étendue en CI. Externalisation pure JSON SESSION/EXI/ATT, contre-audit technique indépendant et6tests spécifiques enCI, économie21474octets sans budget relevé. G13 et G14 publiés : huitfichiers200identiques chacun. Jauge préparée15/248cours,210/3472parties ; suiteG16, ordre de fusion maintenu.
+
+Suite autorisée : G16 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G14 · forme et fond · 19.10.2026 Europe/Zurich
 
 G14 mort subite cardiaque :14parties révisées et contre-auditées. Définition et arrêt réversible distingués, rythmes et causes réversibles explicites, soins post-arrêt actualisés2025 et DAI contextualisé2026. SWISSRECA2025 remplace l’ancienne proportion>80 % de FV et précise les dénominateurs de survie. Examen régional et renvois préservés ; anciensvisas/DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine.

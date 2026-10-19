@@ -6,10 +6,14 @@
   json_inject.py check   NAME   → vérifie que l'aller-retour est identique à l'octet
 
 Seules les constantes en JSON strict sont acceptées (SSP, TIP, NOT, GES, PHT).
-EXI, ATT ou CLIN utilisent des identifiants JS : on les modifie par ssp-patch.
+SESSION, EXI et ATT résident désormais dans assets/config/interface.js ; les mêmes commandes y sont routées.
+CLIN utilise des identifiants JS : on le modifie par ssp-patch.
 """
 import json, os, sys
 from _app import ROOT, read, write, span
+
+
+EXTERNES = {name: "assets/config/interface.js" for name in ("SESSION", "EXI", "ATT")}
 
 
 def compact(v):
@@ -18,6 +22,11 @@ def compact(v):
 
 def main(cmd, name):
     s = read()
+    destination = None
+    asset = EXTERNES.get(name)
+    if asset and s.count('<script src="' + asset + '"></script>') == 1:
+        destination = os.path.join(ROOT, asset)
+        s = read(destination)
     a, b = span(s, name)
     path = os.path.join(ROOT, 'data', f'{name}.json')
     if cmd in ('extract', 'check'):
@@ -36,7 +45,11 @@ def main(cmd, name):
         print(f'data/{name}.json écrit.')
     elif cmd == 'inject':
         val = json.load(open(path, encoding='utf-8'))
-        write(s[:a] + compact(val) + s[b:])
+        result = s[:a] + compact(val) + s[b:]
+        if destination:
+            write(result, destination)
+        else:
+            write(result)
         print(f'{name} réinjecté ({len(compact(val))} caractères). Lancez ensuite tests/run_tests.py.')
     else:
         sys.exit(__doc__)

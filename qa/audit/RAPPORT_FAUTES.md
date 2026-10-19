@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 179 faute(s) corrigée(s), dont 8 critique(s), 103 majeure(s) et 68 mineure(s).
+Bilan : 185 faute(s) corrigée(s), dont 8 critique(s), 109 majeure(s) et 68 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -73,6 +73,17 @@ Bilan : 179 faute(s) corrigée(s), dont 8 critique(s), 103 majeure(s) et 68 mine
 | Majeure | TIP.G14.c[4,7–8,12–13] | QTisolé et imagerie/génétique ou tests de provocation sans contexte pouvaient conclure ou exposer inutilement. | QT répété après stabilisation et exclusion causes acquises ; bilans ciblés, référentiels/limites des scores et tests réservés au centre équipé ; anciennes dosesprovocation AVAIPS. | ESC2022,RCUK2025, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
 | Majeure | TIP.G14.c[9–12] | Post-arrêt refroidissement32–36°C24h systématisé, seuil37,7°C72h et DAI simplifié à FV ouFEVG≤35 %. | Prévention fièvre≤37,5°C36–72h, pasréchauffementactif spontané32–36, pronostic multimodal≥72h sans confondants ; DAI selon cause, réversibilité, traitement optimal et surviefonctionnelle. | ERC/ESICM/RCUK2025,ESC2022/2026, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
 | Majeure | TIP.G14.c[8,10] | Doses ajmaline/flécaïnide et amiodarone reprises de sources étrangères sans recoupement AIPS démontré. | Chiffres anciens conservés À vérifier AIPS sans prétendre prescriptionvalidée ; adrénaline1mgIV/IO3–5min seule concorde avec ligne suisse existante et momentERC explicite. | AIPS Adrenalin Aguettant juin2023, registre lu17.10.2026 ; posologies anciennes AV ciblées, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
+
+## G15-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G15.c[0,2,12] | Obésité résumée à l’IMC et reprise au poids maximal présentée comme universelle. | Maladie chronique multifactorielle, limites de l’IMC et cadres internationaux exactement attribués ; adaptations biologiques favorisent reprise sans destin fixe. | WOF,OMS,EASO institutionnel2025/2026,Karger2015,CommissionLancet2025, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
+| Majeure | TIP.G15.c[1,11] | Statistiques mondiales et suisses sans années/dénominateurs ; pronostic et coût généralisés. | OMS2024 selon fiche2026 et ESS2022 séparées, anciensrepères conservésAV, pronostic individualisé et13localisationsCIRC complètes. | OMS07.10.2026,OFS ESS2022,CIRC2016, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
+| Majeure | TIP.G15.c[4–8] | Vitesse de prise et7000kcal/kg pouvaient prouver rétention ; signes isolés trop conclusifs, acanthosis sous région cardiaque. | Rechercher urgence/rétention selon ensemble clinique ; acanthosis peau sans preuve de diabète, Cushing/thyroïde/SOPK/SAOS ciblés ; symptômes hérités et cortisol24h explicites. | ESE2020,RMS2022,HUG2024,NICE NG202, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
+| Majeure | TIP.G15.c[7–9] | Seuils ethniques et métaboliques universalisés ; bilan hépatique/endocrinien peu hiérarchisé. | Attribution des seuils, confirmation hyperglycémie et hypercortisolisme, TSH selonESE ; FIB4puisélastographie selonrisque, enzymes normales non exclusives et biopsie non systématique. | NICE NG246,EASO institutionnel2025,ESE2020,EASL/EASD/EASO2024, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
+| Majeure | TIP.G15.c[9–10,13] | Prise en charge pondérale pouvait retarder traitement des comorbidités, insulinothérapie nécessaire ou considérer tout TCA comme exclusion définitive. | Soins urgents et comorbidités en parallèle du projet pondéral ; 5A RMS exactement restitués, pas de retard insuline indiquée ; soutien spécialisé des TCA et décisions individualisées. | RMS2022,HUG2024,SSED2023,SMOB2023, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
+| Majeure | TIP.G15.c[10–13] | Critères chirurgicaux européens importés comme suisses, efficacité et remboursement des médicaments trop génériques ; surveillance postopératoire insuffisamment explicite. | SMOB adulte≥35/échec adéquat cumulé≥2ans sans comorbidité obligatoiredès35 ; voie métabolique distincte ; bénéfices par produit/critère, LS actuelle à vérifier et suivi nutritionnel à vie avec vomissements urgents. | SMOB2023,EASO2026,OFSP2024historique,EASL2024 ; aucune nouvelle dose certifiée, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
 
 ## G2-cours
 
