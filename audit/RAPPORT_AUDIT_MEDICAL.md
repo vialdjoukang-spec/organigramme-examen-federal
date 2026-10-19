@@ -882,3 +882,7 @@ Les 14 parties du cours hypothermie sont révisées et contre-auditées. La déf
 ## G9 cours ·19.10.2026
 
 Les14parties du prurit sont révisées et contre-auditées. DéfinitionIDEOM, classificationIFSI, chronologie et bilans ciblés sont distincts. Populations statistiques et risque de cancer sont contextualisés ; les schémas de gale et de traitement systémique portent leurs populations, exceptions et limites AIPS. Les régions abdominale et rectale retrouvent des phases de palpation adaptées, sans perte de renvoi. Aucune validation médicale humaine. DD, fondamentaux, visas et247autres cours conservés. Contre-audit : audit/FORME-FOND-COURS-G9-20261019.json.
+
+## G10 cours ·19.10.2026
+
+Les14parties de G10 douleur sont révisées et contre-auditées : définition IASP2020 internationale distincte des recommandations cliniques CH/Europe, mécanismes mixtes et catégories, urgences et antalgie en parallèle, examens ciblés et traitements selon indication. Statistiques historiques contextualisées ; tous les marqueurs et liens régionaux, DD, fondamentaux et247autres cours conservés. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G10-20261019.json.

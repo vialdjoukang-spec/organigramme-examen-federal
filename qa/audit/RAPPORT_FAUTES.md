@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 147 faute(s) corrigée(s), dont 7 critique(s), 74 majeure(s) et 66 mineure(s).
+Bilan : 153 faute(s) corrigée(s), dont 7 critique(s), 79 majeure(s) et 67 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -15,6 +15,17 @@ Bilan : 147 faute(s) corrigée(s), dont 7 critique(s), 74 majeure(s) et 66 mineu
 | g1-r13-precautions | mono\|sevrage-alcoolique-complique | Le CIWA-Ar était cité sans limite explicite chez un patient atteint de delirium. | Ne pas guider le traitement du delirium ou d’une personne non communicante par le CIWA-Ar ; jugement clinique et signes objectifs. | Worcestershire NHS WAHT-A&E-031v9,14.05.2025,p7, lu le 2026-10-18 | 2026-10-18 |
 | g1-cours-forme-fond | cours\|G1 | La précaution hémocultures/traitement urgent déjà approuvée pour le DD ne figurait pas dans le cours. | Propager la correction validée le18.10.2026 en PR119 : prélèvements avant antibiotiques si possible, sans différer un traitement urgent. | ESC endocardite2023 traduction SEC corrigée2025 §diagnostic et traitement ; accord utilisateur explicite PR119, lu le 2026-10-19 | 2026-10-18 |
 | G5-cours | TIP.G5.c[4], c[7], c[9–10] | La thiamine et des prélèvements devaient précéder le glucose, avec un seuil neurologique fixe pouvant différer le traitement. | Corriger sans délai une hypoglycémie symptomatique ; thiamine précoce et prélèvements seulement sans retarder les soins. Propager au cours la précaution déjà approuvée pour G1 le18.10.2026. | R-COURS-G5-4 et5 ; R-COURS-G5-9 ; accord18.10.2026 déjà tracé qa/audit/fautes.jsonl pour g1-sevrage-securite, lu le 2026-10-19 | 2026-10-18 |
+
+## G10-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G10.c[0,2,6–7] | Définition ancienne et mécanismes susceptibles de confondre nociception, neuropathie, nociplastique et douleur primaire. | IASP2020 international exactement attribué pour définition seule ; mécanismes mixtes EFIC, pas de diagnostic par imagerie normale ou dépistage isolé. | IASP2020/EFICBE/NICE NG193, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
+| Majeure | TIP.G10.c[1,11] | Chiffres historiques généralisables à tout adulte ou à la Suisse actuelle ; dénominateurs absents. | Enquête2003 publiée2006, critères et répondants précisés, autres estimations non recoupées À vérifier. | Breivik2006 DOI10.1016/j.ejpain.2005.06.009, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
+| Majeure | TIP.G10.c[4,8–9,13] | Délais urgents peu contextualisés, CT/PL et bilan susceptibles de retarder les mesures. | Orientation immédiate, antalgie parallèle ; délais britanniques attribués ; CT et PL selon temps et interprétation, déficit vasculaire sans retard de traitement. | HUG2024/NICE NG234/NG228/GIRFT2026/Ohana2019, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
+| Majeure | TIP.G10.c[10,12–13] | Paliers OMS et schéma opioïde semblaient universels ; antiémétique systématique, titration vers absence de douleur. | Traitements distingués neuropathie/sciatique/chronique primaire/palliation ; NG59 déconseille gabapentinoïdes dans sciatique ; laxatif régulier et antiémétique selon contexte, fonction et tolérance réévaluées. | HUG2024/NICE CG173/NG59/NG193/CG140, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
+| Majeure | TIP.G10.c[11] | Prévention présentée comme garantie de non-chronicisation après antalgie précoce complète. | Suivi/pronostic/prévention séparés ; modèle multifactoriel et absence de garantie individuelle. | EFIC/NICE NG193, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
+| Mineure | TIP.G10.c[5–6] | Nouvelle rédaction intermédiaire avait perdu brosse/pointe pour examen sensitif et exemples thalamiques/insulaires. | Précisions héritées restaurées et contre-auditées ; stimuli normalement indolores distingués des douloureux. | Société suisse douleur2011, lu le 2026-10-19 | Galien-PeauPopulations | 72c7360 |
 
 ## G2-cours
 

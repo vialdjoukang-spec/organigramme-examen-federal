@@ -1,3 +1,11 @@
+## Cours G10 · forme et fond · 19.10.2026 Europe/Zurich
+
+Les14parties de G10 douleur sont révisées et contre-auditées : définition IASP2020 internationale distincte des recommandations cliniques CH/Europe, mécanismes mixtes et catégories, urgences et antalgie en parallèle, examens ciblés et traitements selon indication. Statistiques historiques contextualisées ; tous les marqueurs et liens régionaux, DD, fondamentaux et247autres cours conservés. Aucune validation médicale humaine.
+
+G1–G8,82socleCK,13cours/frontières,6chronologie,14prototype et5gardes réussis ;98dosesinchangées et compilateurs à jour,0nouveau terme Lyncée. G10 ajouté au parcoursUI CI. Déplacement technique45commentaires vérifié indépendamment : AST,113526jetons et terminateurs de ligne identiques. Jauge préparée10/248cours,140/3472parties ; publications vérifiées séparément.
+
+Suite autorisée : G11 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G9 · forme et fond · 19.10.2026 Europe/Zurich
 
 Les14parties du prurit sont révisées et contre-auditées. DéfinitionIDEOM, classificationIFSI, chronologie et bilans ciblés sont distincts. Populations statistiques et risque de cancer sont contextualisés ; les schémas de gale et de traitement systémique portent leurs populations, exceptions et limites AIPS. Les régions abdominale et rectale retrouvent des phases de palpation adaptées, sans perte de renvoi. Aucune validation médicale humaine. DD, fondamentaux, visas et247autres cours conservés.
