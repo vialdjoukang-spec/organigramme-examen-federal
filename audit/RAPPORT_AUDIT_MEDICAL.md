@@ -870,3 +870,7 @@ Contre-audit indépendant favorable sur empreintes exactes : `audit/INFOBULLES-G
 ## G6 cours ·19.10.2026
 
 Quatorze parties révisées : définition et populations exactes, seuilsneutropénie, urgence et PL/imagerie, fluides conditionnels, régioncardiaque restaurée. Huit corrections tracées au registre ; sources datées et contre-audit indépendantaudit/FORME-FOND-COURS-G6-20261019.json, aucune validation médicale humaine. G3conserveéditeurJP et limite sourceIUPS àc[0]. G5PR133précède cette intégration.
+
+## G7 cours ·19.10.2026
+
+14parties flush revues, huitcorrections tracées ; définitionexactementattribuée, populations et seuilscontextualisés, urgences, tryptase, préparationdesexamens et populationsAIPS. Contre-audit indépendant audit/FORME-FOND-COURS-G7-20261019.json, aucunevalidationmédicalehumaine.

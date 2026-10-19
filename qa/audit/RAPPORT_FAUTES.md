@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 122 faute(s) corrigée(s), dont 7 critique(s), 51 majeure(s) et 64 mineure(s).
+Bilan : 131 faute(s) corrigée(s), dont 7 critique(s), 58 majeure(s) et 66 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -79,6 +79,20 @@ Bilan : 122 faute(s) corrigée(s), dont 7 critique(s), 51 majeure(s) et 64 mineu
 | Majeure | TIP.G6.c[10] | Volume de30mL/kg présenté comme minimum général sans niveau de preuve ni adaptation au patient. | Repère conditionnel SSC limité àhypoperfusion/choc ; réévaluation et surcharge ; prescription/AIPS À vérifier. | SSC2026recommandation10, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
 | Majeure | TIP.G6.c[12–13] | Le refroidissement et l’algorithme des points clés étaient tronqués. | Refroidissement actif et traitement causal distincts ; malariaàrechercher etrépéter seloncontexte ; règlesdeconsulte etlimites conservées. | RCUK2025/HUG2026/EMHG2024, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
 | Mineure | TIP.G6.c[0,2] | Définition et phrases physiologiques mélangeaient mécanisme, seuil et emphase. | Distinguer définition régulée mondiale attribuée, chaleur ressentie, frissons et hyperthermie non régulée avec source européenne. | IUPS2001définition/UCL2011physiologie, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+
+## G7-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G7.c[3–4,9] | Absence de chronologie urgente pour le flush avec atteinte respiratoire/circulatoire. | Anaphylaxie clinique traitée immédiatement sans attendre la tryptase. | RCUK2021, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Majeure | TIP.G7.c[5] | Masse abdominale/hépatomégalie sous thorax¶4. | Ajout abdomen¶1/renvoi en conservant chaque ancienmarqueur et lien ; pas de provocation volontaire. | Praticien2020/SFE2022, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Majeure | TIP.G7.c[7–8] | 5HIAA sans unité par24h, seuilNTproBNP extrapolable à toutflush, métanéphrines2× présentées comme règleuniverselle. | Excrétion24h et populationCS explicitée ; seuilbiologique n’équivaut pas seul au diagnostic ou à une indication universelle. | ENETS2022/CHUVV15/SFE2022, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Majeure | TIP.G7.c[7–9] | Tryptase≥formule et biopsie/KIT apparaissaient comme critères suffisants/automatiques. | Formule>1,2basale+2 et tempsprélèvement RCUK ; critèresmineurs et limitesmastocytose ; indication spécialisée. | RCUK2021/Orphanet2025, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Majeure | TIP.G7.c[8,13] | ArrêtISRS/paracétamol implicitement exigé avant5HIAA et préparationCHUVimprécise. | Consignes du laboratoire selonméthode, aucun arrêtindépendant du prescripteur ; CHUVprélèvement15mincouchéàjeun. | ENETS2022/CHUVV15, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Majeure | TIP.G7.c[10] | Lanréotide120mg/4sem systématique poursyndrome et indicationfézolinétant tropgénérale. | PopulationsAIPS : patiente postménopauséeSVMmodérés–sévères, adulte nouvellementtraitéparanalogue pour symptômesTNE initial60mg/28j ; indicationsdistinctes ; LAR/AIPSnonrelu À vérifier. | ExtraitsAIPSofficiels2025 acquis17.10.2026,relus19.10.2026, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Majeure | TIP.G7.c[11–13] | 80%altérationspouvaitêtreconfonduavechérédité ; RETdirectdevantnodule ; FSHinterditeaprès45anssanscontexte. | Germinal/somatiquedistincts, RETaprèsconfirmationmédullaire/conseilgénétique, diagnosticménopausecliniqueconditionnel. | SFEitems224/241/NICENG23, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Mineure | TIP.G7.c[0–3] | Définition sans attribution et rangs issus de populations non comparables. | DéfinitionFR attribuée ; limite de recherche mondiale ; dénominateurs et données non recoupées À vérifier. | RevuePraticien2020/ENETS2022, lu le 2026-10-19 | Galien-PeauPopulations | b884353 |
+| Mineure | TIP.G7.c[5] phase abdomen | La région abdominale ajoutée utilisait ¶1 (Inspection) pour une palpation. | ¶2 (Palpation), selon le contrat exFmt ; contenu clinique et renvois identiques ; test UI du rendu ajouté. | Contrat du rendu exFmt, app_v2.html ; mêmes sources cliniques G7., lu le 2026-10-19 | Galien-PeauPopulations | 8c48558 |
 
 ## ck-urgences-lot1
 

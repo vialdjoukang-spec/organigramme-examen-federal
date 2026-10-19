@@ -25,6 +25,7 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 | 4 | hygie monographies lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | asclépios prévalence ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | audit galien-têtecou glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | attester le cours | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 3 | réviser les quatorze | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 3 | pharmakon table suisse | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 3 | audit érasistrate panacée | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |

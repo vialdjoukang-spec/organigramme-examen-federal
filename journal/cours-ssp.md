@@ -1,3 +1,11 @@
+## Cours G7 · forme et fond ·19.10.2026 Europe/Zurich
+
+Quatorze parties flush/boufféesvasomotrices révisées et contre-auditées, huitcorrections tracées. Définition attribuéeàlarevueFR faute de définitionmondialedédiéeidentifiée ; bilanciblé et urgences ; seuilscontextualisés, tryptasedynamique/critèremineurdistincts, préparationdesexamenssansarrêtmédicamenteuxautonome. Régionabdomenrestaurée sans perte desanciensrenvois. Dosesfézolinétant/lanréotideconfrontéesauxextraitsAIPSofficielslocaux, populationsprécisées ; accèsdistantactuelenéchec et aucunevalidationmédicalehumaine. DD/f et247autrescoursinchangés.
+
+Contrôles : G1–G8,82socleCK,12cours,6chronologie,14prototype et5gardesverts ; Lyncée3487→3486,0nouveau ;98lignesdedosesinchangées. RapportsG7SOURCES/contre-audit/INTEGRATION liésaux14empreintes. Jaugepréparée7/248cours,98/3472parties ; CIexacte/fusion/Pagesrequises. G5PR133fusionné, Pages encoreàvérifier ; G6PR134nouvelleCIaprèsrectificationbalisage ; publicationdansl’ordreseulement.
+
+Suite utilisateur : G8maintenant, puisG9…G16, unàun. Ne pas redemanderuneautorisationentrelots. Diagnosticsdifférentielssuspendus. Conserverl’ordredefusionetdistinguerbranchesdespublications.
+
 ## Cours G6 · forme et fond ·19.10.2026 Europe/Zurich
 
 État : les14parties fièvre/frissons/hyperthermie sont révisées séparément, avec définitionIUPS2001 exactement attribuée et opposition clinique à l’hyperthermie non régulée. Huit corrections tracées. Le payséditeurIUPS resteJP, présent au catalogue ; l’exception internationale autorisée est limitée au document et à la définitionc[0], avec tests refusant réutilisation clinique ou posologique. Aucun seuil de contrôle affaibli.
@@ -42,3 +50,5 @@ Rapports : audit/FORME-FOND-COURS-G5-20261019.json et audit/FORME-FOND-COURS-G5-
 CI, fusion et publication restent à vérifier avant de compter ce lot en production ; ensuite G6 cours. Inconnues : fréquences comparables actuelles, posologies AIPS, plafonds de correction du sodium et surveillance des hypoglycémies médicamenteuses selon protocole. Les sources lues par extraits sont signalées comme telles. Diagnostics différentiels suspendus.
 
 G4 est publié : PR132 fusionnée par ac01072 ; CI39274205519, visuel39274242767 et Pages39274940985 réussis. Six fichiers publics HTTP200 identiques à main le19.10.2026 à15:06:33UTC ; SHA256 app2859a1b01e7a3db8a22be723656145948ea3b1b263710c2d8fd3494c7bfa9ed6. Les mentions antérieures de G4 en attente sont historiques.
+
+- G7 ·19.10.2026 : correction de phase anatomique, ¶1 Inspection remplacé par ¶2 Palpation sous abdomen. Aucun mot clinique ni lien changé ; test UI du rendu ajouté, contre-attestation et nouvelle CI requises.
