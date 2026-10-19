@@ -1,3 +1,11 @@
+## Cours G8 · forme et fond · 19.10.2026 Europe/Zurich
+
+Les 14 parties du cours hypothermie sont révisées et contre-auditées. La définition ERC est attribuée comme européenne ; mesure centrale et système suisse révisé sont distincts. Triage et réanimation 2025, limites HOPE chez l’adulte, contexte pédiatrique et avalanche sont précisés. Les statistiques portent leur population et leurs limites. Les médicaments et doses non vérifiés dans leur AIPS restent À vérifier ; aucune validation médicale humaine. DD, fondamentaux, visas hérités et 247 autres cours sont conservés.
+
+Contrôles locaux : G1–G8, 82 tests du socle CK, 12 cours/frontières, 6 chronologie, 14 prototype et 5 gardes réussis. Lyncée3486→3484 sans terme nouveau ;98 lignes de doses inchangées. Les parcours UI G1–G8 seront exécutés dans la CI exacte, navigateur local bloqué par politique. Jauge préparée8/248 cours et112/3472 parties ; CI/fusion/Pages encore requises.
+
+Suite autorisée : G9 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G7 · forme et fond ·19.10.2026 Europe/Zurich
 
 Quatorze parties flush/boufféesvasomotrices révisées et contre-auditées, huitcorrections tracées. Définition attribuéeàlarevueFR faute de définitionmondialedédiéeidentifiée ; bilanciblé et urgences ; seuilscontextualisés, tryptasedynamique/critèremineurdistincts, préparationdesexamenssansarrêtmédicamenteuxautonome. Régionabdomenrestaurée sans perte desanciensrenvois. Dosesfézolinétant/lanréotideconfrontéesauxextraitsAIPSofficielslocaux, populationsprécisées ; accèsdistantactuelenéchec et aucunevalidationmédicalehumaine. DD/f et247autrescoursinchangés.
