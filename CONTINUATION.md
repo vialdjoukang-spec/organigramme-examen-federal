@@ -1,3 +1,9 @@
+## Mandat courant · 20.10.2026 Europe/Zurich
+
+`docs/MODIFICATIONS-1-CK-2-CS.md` définit l’ordre autorisé : **ALPHA S → F → O**, puis **BETTA G → S → F → O**, puis **GAMMA CS**. Exécuter `python3 tools/mandat/planifier.py` et reprendre les branches réservées. Au plus deux cours par agent GPT-6 élevé ; en BETTA, trois différentiels par agent et par audit. Les contre-auditeurs sont indépendants, en Astra. Chaque phase exige audit documentaire, fusion protégée et publication vérifiée avant la suivante.
+
+Les cours gardent leurs14parties ; les six rubriques concernent les DD. Vial autorise les décisions et actions nécessaires au mandat sans nouvelle demande, ainsi que la suspension temporaire de Gestes avant sa reconstruction en GAMMA. Tous les livrables restent dans ce dépôt. Les limites d’exécution, baux et preuves sont consignés dans le document du mandat. Les anciens arrêts après G16 et ordres contradictoires ci-dessous sont historiques.
+
 ## PRIORITÉ COURANTE · forme et fond des cours SSP · 19.10.2026
 
 Appliquer `docs/PROMPT-DIRECTEUR-ACADEMIQUE.md` uniquement aux quatorze parties du cours SSP, depuis G1. Titres ordinaux 1–14, sous-parties couvrant chaque élément du titre, gras réservé aux titres, contenu concis et continuité sémantique vérifiée. Les définitions recherchent une société savante de portée mondiale ; attribuer exactement son statut et ne pas inventer de définition officielle. Cette autorisation internationale concerne les définitions ; les posologies restent soumises à l’AIPS suisse. La restauration PR126 est acquise : préserver chaque partie spécifique, l’examen régional et ses liens, les clés de progression et le clic uniquement.

@@ -30,6 +30,8 @@ jobs:
           echo "orig/ intact."
       - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
         run: python3 tools/budget.py
+      - name: Fonctions externalisées · source intacte et chargement synchrone
+        run: python3 -m unittest discover -s tests -p test_fonctions_asset.py
       - name: Tests des gardes elles-mêmes
         run: python3 tests/test_gardes.py
       - name: Liens réellement ajoutés ou modifiés, y compris dans une ligne minifiée
@@ -45,6 +47,7 @@ jobs:
           python3 tests/test_garde.py
           python3 -m unittest discover -s tests -p test_garde_permanence.py
           python3 -m unittest discover -s tests -p test_codex_cloud_120.py
+          python3 -m unittest discover -s tests -p test_mandat.py
           python3 -m unittest discover -s tests -p test_veille_relance.py
           python3 -m unittest discover -s tests -p test_relance_bail.py
       - name: Garde local de clôture (preuves fraîches et refus)
