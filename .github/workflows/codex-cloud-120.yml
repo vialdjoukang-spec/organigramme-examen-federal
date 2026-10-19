@@ -1,0 +1,36 @@
+# Nouveau relais cloud : passages120s dans une fenêtre20min, cron GitHub5min ; pas de garantie temps réel.
+name: Relais Codex cloud 120s
+on:
+  push:
+    branches: [main]
+    paths: [tools/garde/codex_cloud_120.py, tools/garde/codex_cloud_120.json, .github/workflows/codex-cloud-120.yml]
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+  pull-requests: read
+  actions: read
+concurrency:
+  group: garde-progres
+  cancel-in-progress: false
+jobs:
+  relais-cloud:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - name: Relais contrôlé, sources et état actualisés
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_CODEX: ${{ secrets.AUTO_FUSION_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python3 tools/garde/codex_cloud_120.py --window 1200
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: relais-codex-cloud-120
+          path: .etat_local/cloud120/etat.json
+          retention-days: 3

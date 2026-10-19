@@ -1,0 +1,107 @@
+{
+  "type": "contre_audit_technique_independant",
+  "date": "2026-10-19T12:23:22.552356+00:00",
+  "auditeur": "Codex /root/audit_forme_cours_code",
+  "base": "29b41727bba846f417ecc171590b18ec81cb751a",
+  "perimetre": "Nouveau relais GitHub vers Codex cloud, baux/CAS partagés, cadence, arrêt, preuves et périmètre cours SSP. Aucun contenu médical relu, aucun appel réseau réel effectué par cet audit.",
+  "verdict": "favorable_technique",
+  "execution_cloud_effective": "non_prouvee",
+  "validation_clinique": false,
+  "resume": "Un défaut bloquant STOP a été reproduit puis corrigé et recontrôlé. Les réservations CAS, les contrôles de propriétaire/activité, l’anti-spam persistant, la détection de l’environnement manquant et le refus de présenter une notification comme une exécution IA sont conformes au périmètre annoncé. Ce verdict valide le relais technique ; il ne prouve pas que Codex cloud soit configuré ou lancé.",
+  "empreintes_fichiers": {
+    "tools/garde/codex_cloud_120.py": "f23d4ee6cfde840d6a054e20d9872b413adbae574f8166a59355fe5d39965933",
+    "tools/garde/codex_cloud_120.json": "b01bbc2412818e7ced02bc8f8b18e149308f1500850725389512ceabf99951c6",
+    ".github/workflows/codex-cloud-120.yml": "6275cc88780251ca5f75ede5d6fe9066d9f8c9d0ccf3b0f94899d6aa6a22605b",
+    "tests/test_codex_cloud_120.py": "85a38ca4f9b3b9eaa78c4cafe5fee9fa2a8f1308bceee8318464091c986c4c2e",
+    "tools/garde/permanence.py": "42f3981a8ffa0281aaaae3050e70d319c83c16fa7e084011b4ba25adcbd0fc19",
+    "tools/garde/config.json": "f5e24f2b1a9ea96aab450e6b6e8774691d5814dad7eb1585563d5cb31ff7e401",
+    ".github/workflows/garde-progres.yml": "40a17c2374f9cdfeb2c8970166f977716b11983affa1c51897259a8440acde99",
+    ".github/workflows/ci.yml": "4da838eb44fde440baaff35b50a90d8af1c2ff33be6ba846060b3da9bb4bb2c8"
+  },
+  "tests": {
+    "total_unitaires": 38,
+    "echecs": 0,
+    "suites": {
+      "test_codex_cloud_120.py": 13,
+      "test_garde_permanence.py": 14,
+      "test_relance_bail.py": 7,
+      "test_cours_ssp.py": 4
+    },
+    "simulation_exclusive": true,
+    "appels_GitHub_reels_audit": 0,
+    "messages_reels_envoyes_audit": 0,
+    "git_diff_check": "vert"
+  },
+  "controles_reussis": [
+    {
+      "controle": "Distinction demande, réponse et exécution IA",
+      "preuve": "Le POST et toute réponse générique du connecteur conservent execution_ia_prouvee=False. La réponse authentifiée Bot contenant create an environment for this repo marque environnement_cloud_manquant avec lien des environnements. Un faux type User pour le compte bot est ignoré."
+    },
+    {
+      "controle": "Historique durable et réconciliation",
+      "preuve": "Pagination au-delà de cent commentaires testée, plafond500 en échec fermé. Dernière demande autorisée retenue ; @codex review exclu ; anciennes réponses antérieures à la dernière demande ne l’acquittent pas. Après timeout POST, réservation persistante empêche le renvoi immédiat."
+    },
+    {
+      "controle": "Anti-spam persistant",
+      "preuve": "Configuration actuelle request_cooldown_seconds=1800, distincte de interval_seconds=120. Demande/réservation conservées dans état commun ; nouvelle sonde environnement possible après30min. Pendant le cooldown et le bail demande, pas de POST réitéré."
+    },
+    {
+      "controle": "CAS et baux partagés",
+      "preuve": "Store hérité cible garde/etat:veille/permanence.json, SHA inclus au PUT. Simulation indépendante distante : deux lecteurs au même SHA, premier write accepté, second409 rejeté ; champs tiers conservés ; claim concurrent refusé. Test CAS en échec avant réservation : aucun appel de notification."
+    },
+    {
+      "controle": "Activité, identité et privilèges",
+      "preuve": "Agent actif, CI active, progrès cours récent, mission hors cours, preuves cours invalides et lot absent empêchent une demande. Relecture de l’état après identité authentifiée empêche le POST si un agent est arrivé. Identité doit être User et requester_login attendu ; aucun secours GITHUB_TOKEN pour le POST humain."
+    },
+    {
+      "controle": "État/API inconnus",
+      "preuve": "SharedStore refuse les baux/dates/IDs corrompus testés sans réécriture du fichier initial. Lectures distantes401/403/timeout simulées n’initialisent aucun état ; seul404 explicite autorise une initialisation. Exceptions réseau n’envoient aucune notification de remplacement."
+    },
+    {
+      "controle": "STOP et fenêtre après lectures réseau",
+      "preuve": "Défaut initial reproduit : STOP posé dans appel identité, un POST partait. Après correction allowed callback : même scénario worker complet, zéro POST et bail worker libéré ; test unitaire couvre également allowed=False avant réservation et après identité. Worker vérifie STOP et deadline monotone avant envoi, window0 conserve un passage ponctuel."
+    },
+    {
+      "controle": "Cadence et bornes",
+      "preuve": "Horloge simulée : échéances0/120/240/360 ; attentes fractionnées<=25s ; échéances entièrement périmées sautées. Fenêtre CLI bornée0..1200s ; workflow timeout25min et cron5min ; concurrence groupe garde-progres avec cancel-in-progress=False."
+    },
+    {
+      "controle": "Ancien relais neutralisé",
+      "preuve": "Ancien garde-progres.yml limité à workflow_dispatch ; son réglage permanence_enabled=false fait cesser l’ancien worker. Nouveau relais utilise enabled séparé et les baux communs ; aucun ancien cron actif en parallèle dans ce diff."
+    },
+    {
+      "controle": "Périmètre du travail autorisé",
+      "preuve": "Prompt vise le prochain cours du plan, actuellement G2, exige les14parties spécifiques et suspend explicitement les DD et le lot G2 DD. Aucune conversion des cours vers le plan commun six rubriques. Priorité cours et refus de clôture passent les tests existants."
+    },
+    {
+      "controle": "Intégration CI et secrets",
+      "preuve": "Nouveau test ajouté au job garde CI ; workflow lit GITHUB_TOKEN et AUTO_FUSION_TOKEN séparément, ne journalise pas leurs valeurs ; erreurs du main ne publient pas stderr brut. Tests et diff --check verts."
+    },
+    {
+      "controle": "Permissions minimales du workflow après relecture",
+      "preuve": "pull-requests:read explicitement accordé au GITHUB_TOKEN pour GET pulls dans busy_now ; aucun droit pull-requests:write. Les autres permissions restent contents:write (état CAS), issues:write (commentaires), actions:read (activité CI). Le POST destiné au connecteur utilise toujours le jeton humain distinct et son identité est vérifiée. Recontrôle statique uniquement ; aucun appel GitHub réel."
+    }
+  ],
+  "anomalies": [],
+  "anomalies_resolues": [
+    {
+      "id": "CLOUD120-STOP-01",
+      "severite": "bloquante",
+      "constat": "STOP créé pendant lecture identité ne bloquait pas le POST suivant.",
+      "reproduction": "Worker entièrement simulé avec state_dir/STOP créé par le mock api(user) avant dispatch :1 POST avant correction.",
+      "resolution": "Callback allowed vérifié avant réservation et après identité/relecture état, prenant en compte STOP et deadline fenêtre.",
+      "contrepreuve": "Même reproduction après correction :0 POST, worker lease nettoyé ; test_stop_or_window_expiry_after_identity_prevents_post vert.",
+      "statut": "corrige_et_recontrole"
+    }
+  ],
+  "limites_et_preconditions": [
+    "Prérequis opérationnel actuellement manquant selon l’historique fourni : un environnement Codex cloud pour ce dépôt. L’audit simule la réponse du connecteur et n’a pas consulté ni créé cet environnement. Le code ne peut pas transformer ce défaut de configuration en exécution IA.",
+    "Le relais prouve l’émission d’une demande et constate une réponse du connecteur ; aucune preuve de tâche/session IA exécutée n’est disponible dans cette implémentation. execution_ia_prouvee reste False, y compris après réponse générique.",
+    "Le contrôle vise des échéances120s, pas un intervalle minimal exact entre tous les passages. Après un passage long, une échéance suivante peut être distante de moins120s ; les demandes restent limitées par le cooldown1800s. Retards de runner, cron et réseau peuvent espacer les contrôles.",
+    "Les lectures bornées cumulées peuvent dépasser le bail worker180s ; dans ce cas les vérifications avant POST refusent l’envoi. Conséquence possible : fenêtre interrompue et reprise différée, sans doublon autorisé.",
+    "Le protocole respecte l’état connu au dernier contrôle ; STOP, activité externe ou configuration modifiée après la dernière lecture et pendant le POST ne peuvent pas annuler une requête déjà remise au réseau.",
+    "Une livraison réussie suivie d’un conflit CAS conserve une demande à réconcilier ; le cooldown/réexamen des commentaires évitent un renvoi immédiat, sans garantie transactionnelle entre GitHub Comments et Contents.",
+    "L’ancien relais local facultatif et les autres automates du dépôt ne sont pas remplacés intégralement par ce correctif ; leur exécution effective et les paramètres secrets restent à constater sur GitHub.",
+    "Nouvelle CI exacte et preuve de comportement réel après fusion restent nécessaires. Aucune validation clinique ni clôture de mission déduite."
+  ]
+}
