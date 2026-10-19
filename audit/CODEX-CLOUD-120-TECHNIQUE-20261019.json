@@ -1,6 +1,6 @@
 {
   "type": "contre_audit_technique_independant",
-  "date": "2026-10-19T12:19:20.781989+00:00",
+  "date": "2026-10-19T12:23:22.552356+00:00",
   "auditeur": "Codex /root/audit_forme_cours_code",
   "base": "29b41727bba846f417ecc171590b18ec81cb751a",
   "perimetre": "Nouveau relais GitHub vers Codex cloud, baux/CAS partagés, cadence, arrêt, preuves et périmètre cours SSP. Aucun contenu médical relu, aucun appel réseau réel effectué par cet audit.",
@@ -11,7 +11,7 @@
   "empreintes_fichiers": {
     "tools/garde/codex_cloud_120.py": "f23d4ee6cfde840d6a054e20d9872b413adbae574f8166a59355fe5d39965933",
     "tools/garde/codex_cloud_120.json": "b01bbc2412818e7ced02bc8f8b18e149308f1500850725389512ceabf99951c6",
-    ".github/workflows/codex-cloud-120.yml": "1f481cd2d7997554b352079591c81c6cb591a89f01899cd6a777ee1477c40d0b",
+    ".github/workflows/codex-cloud-120.yml": "6275cc88780251ca5f75ede5d6fe9066d9f8c9d0ccf3b0f94899d6aa6a22605b",
     "tests/test_codex_cloud_120.py": "85a38ca4f9b3b9eaa78c4cafe5fee9fa2a8f1308bceee8318464091c986c4c2e",
     "tools/garde/permanence.py": "42f3981a8ffa0281aaaae3050e70d319c83c16fa7e084011b4ba25adcbd0fc19",
     "tools/garde/config.json": "f5e24f2b1a9ea96aab450e6b6e8774691d5814dad7eb1585563d5cb31ff7e401",
@@ -76,6 +76,10 @@
     {
       "controle": "Intégration CI et secrets",
       "preuve": "Nouveau test ajouté au job garde CI ; workflow lit GITHUB_TOKEN et AUTO_FUSION_TOKEN séparément, ne journalise pas leurs valeurs ; erreurs du main ne publient pas stderr brut. Tests et diff --check verts."
+    },
+    {
+      "controle": "Permissions minimales du workflow après relecture",
+      "preuve": "pull-requests:read explicitement accordé au GITHUB_TOKEN pour GET pulls dans busy_now ; aucun droit pull-requests:write. Les autres permissions restent contents:write (état CAS), issues:write (commentaires), actions:read (activité CI). Le POST destiné au connecteur utilise toujours le jeton humain distinct et son identité est vérifiée. Recontrôle statique uniquement ; aucun appel GitHub réel."
     }
   ],
   "anomalies": [],
