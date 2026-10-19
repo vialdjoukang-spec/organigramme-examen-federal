@@ -902,3 +902,7 @@ G13 mort non naturelle :14parties révisées et contre-auditées, signes de mort
 ## G14 cours ·19.10.2026
 
 G14 mort subite cardiaque :14parties révisées et contre-auditées. Définition et arrêt réversible distingués, rythmes et causes réversibles explicites, soins post-arrêt actualisés2025 et DAI contextualisé2026. SWISSRECA2025 remplace l’ancienne proportion>80 % de FV et précise les dénominateurs de survie. Examen régional et renvois préservés ; anciensvisas/DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G14-20261019.json.
+
+## G15 cours ·19.10.2026
+
+G15 obésité :14parties révisées et contre-auditées. Définition mondiale attribuée sans fausse citation unique, données OMS2024/ESS2022 avec dénominateurs ; évaluation des complications et causes secondaires, projet sans stigmatisation, conditions SMOB suisses et distinction autorisation/remboursement. Acanthosis replacé sous peau, symptômes et tests cortisol24h restaurés. DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G15-20261019.json.
