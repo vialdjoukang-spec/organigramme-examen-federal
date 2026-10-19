@@ -1,3 +1,7 @@
+## Thème de fond · dix teintes pâles ·19.10.2026
+
+Bouton sous la sauvegarde, dix teintes pâles pour les fonds derrière les caractères, mémorisation locale incluse dans la sauvegarde orga-. Les deux blocs du haut restent identiques. Un test navigateur dédié couvre les dix couleurs, la persistance, le clavier, le mobile, la lisibilité en mode sombre et la préservation des blocs. CI/Iris/Pages à vérifier.
+
 ## Fond des zones de lecture ·19.10.2026
 
 Les surfaces auparavant blanches des cartes, cours et fenêtres de lecture passent en #EAF7FD, derrière les caractères. En-tête et sauvegarde restent hors du périmètre ; couleurs des caractères, données et scripts conservés. Patch0094 avec empreintes et ancrages uniques, gardes5/5 et socle conforme ; CI/Iris/Pages à contrôler. Aucune relecture clinique supplémentaire.
