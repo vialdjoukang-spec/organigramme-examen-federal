@@ -1,3 +1,15 @@
+## Cours G2 · forme et fond · 19.10.2026
+
+Les14parties spécifiques du cours G2 sont réorganisées selon le prompt directeur et contre-relues sur leurs empreintes exactes. Définition : tuméfaction, masse et adénopathie distinguées sans norme mondiale composite ; épidémiologie contextualisée ; taille ganglionnaire, seuils hématologiques et prélèvements interprétés selon le contexte ; bilan et prise en charge ordonnés. Inconnues explicitement À vérifier. Les DD et les247autres cours sont conservés. Jauge documentaire sur branche :2/248SSP et28/3472parties ; aucune validation médicale humaine. CI exacte, fusion et publication encore requises avant de compter G2 en production. Prochain cours :G3 après vérification Pages.
+
+Rapports : audit/FORME-FOND-COURS-G2-20261019.json, audit/FORME-FOND-COURS-G2-INTEGRATION-20261019.json et audit/FORME-FOND-COURS-G2-CONTRE-AUDIT-FINAL-20261019.json. Lot canonique rejouable :tools/cours/lots/G2.json. Déterministes verts, Lyncée3494→3493, aucun terme nouveau non défini. Navigateur local file:// refusé : parcours laissés à la CI, sans contournement. Le nouveau relais cloud120s reste soumis au rattachement d’un environnement Codex pour ce dépôt ; voir docs/CODEX-CLOUD-120.md. Les diagnostics différentiels restent suspendus.
+
+## Relais cloud120s puis reprise G2 · 19.10.2026
+
+Nouveau script `tools/garde/codex_cloud_120.py`, workflow `codex-cloud-120.yml`, état partagé et protections anti-doublons ; l’ancien garde devient un secours manuel désactivé. Le connecteur GitHub répond « create an environment for this repo » : sans configuration Codex cloud du dépôt, aucune exécution IA n’est prouvée. Détails et action de configuration : docs/CODEX-CLOUD-120.md. Contrôles120s, demandes au plus toutesles30min, pas de garantie temps réel GitHub.
+
+PR127 fusionnée sur bf62caf ; Pages et14clics G1 publics vérifiés, SHA256 app9be58ae98b584823aaaf2f2c5bc0265627142cb7f76043c73e9026529b681141. G2 :14textes, sources et contre-audit documentaire favorable conservés sur feat/forme-cours-g2, commitf182ff32de935a6b4f4535d6e19f388b34dccdab, docs/preparations/cours-G2/. Repartir de main actuel, comparer les14empreintes, compiler sans modifier DD/autres cours puis tests, CI, fusion et Pages. Ne pas reprendre l’ancien lot G2 DD. Les paragraphes plus anciens ci-dessous ne remplacent pas cette priorité.
+
 ## Lot G1 · forme et fond · 19.10.2026
 
 Prompt directeur enregistré dans docs/PROMPT-DIRECTEUR-ACADEMIQUE.md. Titres 1–14 appliqués aux 248 SSP sans changement des clés de mémorisation. Les 14 parties de G1 sont réorganisées et contre-relues sur leurs empreintes exactes : définition ILDS/RMS, sous-parties, précision des critères, priorités des bilans et ordre pratique de prise en charge. Chiffres contextualisés ; doses sans preuve AIPS et inconnues restent explicitement À vérifier. Rapport : audit/FORME-FOND-COURS-G1-20261019.json. Jauge documentaire : 1/248 SSP, 14/3472 parties ; elle ne certifie aucune validation médicale humaine. Prochain lot : G2, cours uniquement. Diagnostics différentiels suspendus et inchangés ; leur lot non publié reste conservé séparément.

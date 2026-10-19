@@ -1,4 +1,4 @@
-# Garde du progrès (R15) · déclencheur 5 min, passages internes120s pendant20minutes, GitHub Actions gratuit (dépôt public), indépendant de tout PC.
+# Ancien garde en secours manuel désactivé ; relais actif : codex-cloud-120.yml.
 # Ordre de Vial : « Codex doit être libre, indépendant de tout PC ».
 # Mesure le contenu réel de main ; STALL si rien n'a monté en 2 min (ou seulement des relevés) :
 # « @codex » sur la PR brouillon « Pilote Codex » (≤ 1/2 min), puis @vialdjoukang-spec après30stalls (≤ 1/60 min).
@@ -7,11 +7,6 @@
 # GITHUB_TOKEN (github-actions[bot]) pour mentionner Vial, sinon GitHub ne lui envoie pas de courriel.
 name: Garde du progrès
 on:
-  push:
-    branches: [main]
-    paths: [tools/coordination/config.json, tools/garde/config.json, tools/garde/permanence.py, .github/workflows/garde-progres.yml]
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
