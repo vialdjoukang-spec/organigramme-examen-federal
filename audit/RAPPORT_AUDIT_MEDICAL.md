@@ -1,3 +1,7 @@
+## Cours SSP G3 · forme et fond · 19.10.2026
+
+Les14parties du seul cours G3 sont contre-relues indépendamment : verdict documentaire favorable sur leurs empreintes exactes. Sept corrections sont tracées dans qa/audit/fautes.jsonl avec le commit clinique réel bb9c5a9e6135d0ed758fb09f7f281faf9350016c ; le rapport détaillé est audit/FORME-FOND-COURS-G3-20261019.json. Polyurie, performances de copeptine, critères d’acidocétose, inférence de malignité et causalité des signes de déshydratation sont précisés. Les données héritées sans nouvelle preuveAIPS et les seuils completsHHS restent À vérifier. Aucun DD modifié ; examen régional et liens conservés ; aucune validation médicale humaine attribuée.
+
 <p class="urg" style="color:red"><b>R13 · attente-vial</b> : indication de dexaméthasone dans l’hémorragie intracérébrale aiguë à corriger avant fusion (ESO/EANS 2025, PICO 5.1.6). La conformité d’une dose à l’AIPS ne valide pas cette indication clinique.</p>
 
 <p class="urg" style="color:red"><b>PR #64 · accord de Vial reçu, audit final requis</b> : la fiche d’arrêt hypothermique présente HOPE &lt; 10 % comme une exception autorisant le constat de décès avant réchauffement. Les sources relues décrivent un outil de sélection de l’ECLS, pas un critère autonome de constat de décès. Risque clinique potentiellement critique : la formulation est retirée dans la reprise après accord de Vial du 18.10.2026 ; relecture primaire et CI exactes restent requises avant fusion.</p>
