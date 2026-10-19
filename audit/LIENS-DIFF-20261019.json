@@ -1,0 +1,66 @@
+{
+  "type": "contre_audit_technique_independant",
+  "date": "2026-10-19T12:41:59.144585+00:00",
+  "auditeur": "Codex /root/audit_forme_cours_code",
+  "base": "7ba92e9286cddc47ae08da090309189f220b2990",
+  "verdict": "favorable_technique",
+  "resume": "Le filtrage devient une différence des ensembles URL extraites des lignes ajoutées et retirées. Il conserve les cibles réellement nouvelles ou modifiées tout en excluant les mêmes URL déjà présentes dans les lignes retirées, ce qui évite de recontrôler tout TIP minifié lors d’un changement rédactionnel. Aucun statut accepté, délai réseau ni paramètre lychee modifié.",
+  "perimetre": "tools/links_changed.py, tests associés et intégration CI uniquement ; aucun contrôle HTTP réel ni contenu médical audité.",
+  "empreintes_fichiers": {
+    "tools/links_changed.py": "24a16a6e18f41271c83d144bb64b08309dd828de748a2275e9df2123c316b278",
+    "tests/test_links_changed.py": "42fc727263edc2165ac2a7475331e20ac827d250e73aab57ee59988ceb73885a",
+    ".github/workflows/ci.yml": "28c4d557b6dfa623d8ffa138288d7c443ed9392aef0d9e559731b749bda062e6"
+  },
+  "tests": {
+    "unitaires_depot": 5,
+    "scenarios_additionnels_independants": 5,
+    "cli_mocke": 1,
+    "echecs": 0,
+    "git_diff_check": "vert",
+    "appels_reseau_audit": 0
+  },
+  "controles_reussis": [
+    {
+      "controle": "Cibles nouvelles et remplacements conservés",
+      "preuve": "Tests dépôt : URL nouvelle, remplacement sur même ligne minifiée et référence sur ligne ajoutée restent contrôlés. Scénarios indépendants : changement de schéma HTTP/HTTPS, query string changée et ajout sur ligne minifiée produisent la nouvelle URL."
+    },
+    {
+      "controle": "Liens inchangés et déplacement",
+      "preuve": "Tests dépôt : changement de prose seul sur ligne minifiée, suppression seule, déplacement exact et en-têtes diff. Seules les URL apparaissant aussi dans les lignes retirées sont soustraites ; aucune liste blanche de domaines ou référence globale préexistante introduite."
+    },
+    {
+      "controle": "Périmètre Git et sortie CLI préservés",
+      "preuve": "Main exécuté avec subprocess/open mockés : git diff -U0 base explicite, app_v2.html et data/ck avec exclusion schema conservés ; check=True ; links.txt reçoit la liste triée avec fin de ligne. Aucun fichier partagé links.txt écrit par audit."
+    },
+    {
+      "controle": "Diff G2 réel local",
+      "preuve": "HEAD 7ba92e9 : 176 URL extraites des lignes ajoutées, 2 cibles nouvelles ; 174 URL strictement également présentes dans les lignes retirées exclues, dont les4liens RMS signalés.",
+      "nouvelles_urls": [
+        "https://smw.ch/index.php/smw/article/download/3549/6008?inline=1",
+        "https://www.dictionnaire-academie.fr/article/A9T2659"
+      ],
+      "rms_inchangees_exclues": [
+        "https://revmed.ch/view/488682/4052705/RMS_idPAS_D_ISBN_pu2012-38s_sa08_art08.pdf",
+        "https://www.revmed.ch/revue-medicale-suisse/2019/revue-medicale-suisse-674/arteriopathie-obliterante-des-membres-inferieurs-complications-locales-et-systemiques",
+        "https://www.revmed.ch/view/419232/3647971/RMS_635_216.pdf",
+        "https://www.revmed.ch/view/586657/4631384/RMS_idPAS_D_ISBN_pu2009-01s_sa03_art03.pdf"
+      ]
+    },
+    {
+      "controle": "Validation réseau inchangée",
+      "preuve": "Bloc job liens strictement identique à origin/main local : lycheeverse/lychee-action@v2, max-concurrency4, timeout20, accept200..299/403/429. Le correctif ne neutralise pas une erreur des nouvelles cibles."
+    },
+    {
+      "controle": "Intégration CI",
+      "preuve": "Suite test_links_changed.py ajoutée au job garde ; test_codex_cloud_120.py présent. git diff --check vert."
+    }
+  ],
+  "anomalies": [],
+  "limites": [
+    "Le contrôle est effectué par URL cible, pas par contexte de citation ou nombre d’occurrences : une URL retirée puis réutilisée ailleurs reste une cible existante. L’audit de pertinence clinique est distinct.",
+    "Les anciennes URL inchangées ne sont plus recontrôlées fortuitement par une modification de leur ligne minifiée ; leur disponibilité relève des contrôles périodiques, pas de ce diff ciblé.",
+    "L’extraction regex et sa normalisation de ponctuation sont préservées ; ce correctif ne prétend pas étendre la prise en charge de toutes les syntaxes URL.",
+    "Origin/main local pointe un ancien instantané0183dc2 ; aucun fetch audit effectué. Les statistiques G2 utilisent HEAD7ba92e9, et la CI doit relire sa vraie base de PR actualisée.",
+    "Le filtrage ne garantit pas la disponibilité des2nouvelles cibles ; la CI exacte liens demeure requise."
+  ]
+}

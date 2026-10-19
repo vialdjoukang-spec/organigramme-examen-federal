@@ -6,6 +6,7 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 
 | Script | Rôle |
 |---|---|
+| `tools/patches/0039-espaces-sous-titres.py` | Supprime le blanc entre les sous-titres des infobulles et leur liste, en gardant la séparation entre parties ; gratuit et rejouable. |
 | `tools/garde/codex_cloud_120.py` | Nouveau relais GitHub → Codex cloud : contrôles120s, baux communs, demandes régulées et détection de l’environnement manquant ; aucune exécution IA inventée. |
 | `tools/_app.py` | Fonctions communes : localisation d'une constante JS de premier niveau par str.find. |
 | `tools/aletheia.py` | Alétheia · Janus · vérité des sources : doses (G1), source et date (G2), domaines (G3). |
