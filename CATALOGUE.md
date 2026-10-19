@@ -6,6 +6,7 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 
 | Script | Rôle |
 |---|---|
+| `tools/garde/codex_cloud_120.py` | Nouveau relais GitHub → Codex cloud : contrôles120s, baux communs, demandes régulées et détection de l’environnement manquant ; aucune exécution IA inventée. |
 | `tools/_app.py` | Fonctions communes : localisation d'une constante JS de premier niveau par str.find. |
 | `tools/aletheia.py` | Alétheia · Janus · vérité des sources : doses (G1), source et date (G2), domaines (G3). |
 | `tools/asclepios/ges_v2.py` | Asclépios · restructuration de GES (3 axes, sous-régions, ordre strict, renvois, lacunes). |
@@ -167,7 +168,8 @@ Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`).
 
 | Automate | Rôle |
 |---|---|
-| `garde-progres.yml` · `tools/garde/permanence.py` · `tools/garde/progres.py` | Veille infobulles : passages internes toutes les120s (déclencheur GitHub5min, retards possibles), état et baux persistants, aucun doublon avec agent/CI active. Relance demandée, exécution IA non présumée. |
+| `.github/workflows/codex-cloud-120.yml` · `tools/garde/codex_cloud_120.py` | Relais actif : contrôle120s/fenêtre20min, cron5min, cours SSP prioritaires ; état partagé et baux, réponse Codex observée. Demandes espacées30min ; environnement Codex à configurer. |
+| `garde-progres.yml` · `tools/garde/permanence.py` · `tools/garde/progres.py` | Ancien garde conservé en secours manuel désactivé ; commande de bail réel d’agent encore utilisable. Ne pas activer en même temps que le nouveau relais. |
 | `tools/garde/recyclage.py` | PR sans commit depuis 60 min → `@codex reprends ou ferme avec motif` (ne ferme rien). |
 | `checkpoint.yml` · `tools/garde/checkpoint.py` | Chaque PR : « Automates actifs », pas de fausse fin d'étape en boucle, pas de dose sans ligne AIPS. `--inventaire` : automates actifs. |
 | `appel-vial.yml` · `tools/garde/appel.py` | Étiquette `attente-vial` → courriel à Vial + `@codex` continue ailleurs. |

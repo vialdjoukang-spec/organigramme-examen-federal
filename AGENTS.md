@@ -1,3 +1,7 @@
+## Relais cloud courant · 19.10.2026
+
+Nouveau dispositif : `.github/workflows/codex-cloud-120.yml` et `tools/garde/codex_cloud_120.py`, contrôles120s, fenêtres20min, cron5min sans garantie temps réel. Activation indépendante : `tools/garde/codex_cloud_120.json`. Ancien garde et CLI locale désactivés via `permanence_enabled:false` pour éviter les doublons. Les baux réels du responsable restent à déclarer avec permanence.py : cette commande d’agent reste disponible indépendamment de l’activation du worker. Détails, preuve de blocage et réglage Codex cloud dans `docs/CODEX-CLOUD-120.md`. Ne pas confondre commentaire @codex et démarrage IA : le connecteur demande actuellement un environnement cloud pour ce dépôt. Ne pas renouveler un bail d’agent depuis un simple watcher.
+
 ## PRIORITÉ COURANTE · forme et fond des cours SSP · 19.10.2026
 
 Appliquer `docs/PROMPT-DIRECTEUR-ACADEMIQUE.md` uniquement aux quatorze parties du cours SSP, depuis G1. Titres ordinaux 1–14, sous-parties couvrant chaque élément du titre, gras réservé aux titres, contenu concis et continuité sémantique vérifiée. Les définitions recherchent une société savante de portée mondiale ; attribuer exactement son statut et ne pas inventer de définition officielle. Cette autorisation internationale concerne les définitions ; les posologies restent soumises à l’AIPS suisse. La restauration PR126 est acquise : préserver chaque partie spécifique, l’examen régional et ses liens, les clés de progression et le clic uniquement.
