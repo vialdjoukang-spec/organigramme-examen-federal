@@ -1,3 +1,13 @@
+## Cours G5 · forme et fond · 19.10.2026
+
+Les 14 parties sur la sensation de malaise général sont réorganisées et contre-relues indépendamment sur leurs empreintes finales. Les phrases tronquées sont complétées ; les cohortes bâloises sont contextualisées ; les soins urgents et le bilan peuvent se dérouler en parallèle. Hypoglycémie corrigée sans attendre thiamine ou prélèvement ; qSOFA et lactate interprétés avec leurs limites ; hyperkaliémie sévère urgente même avec ECG normal ; suspicion coronarienne et crise surrénale précisées. Les renvois et phases de l’examen, DD, fondamentaux et 247 autres cours sont conservés. Les métadonnées ajoutées au cours ne donnent aucun visa aux 18 DD hérités.
+
+Rapports : audit/FORME-FOND-COURS-G5-20261019.json et audit/FORME-FOND-COURS-G5-INTEGRATION-20261019.json ; lot tools/cours/lots/G5.json. Verdict documentaire indépendant favorable ; aucune validation médicale humaine. Neuf corrections tracées, dont propagation de la précaution critique thiamine/glucose déjà autorisée le 18.10.2026. Jauge sur branche : 5/248 SSP, 70/3472 parties. G1–G8 et 30 vérifications unitaires/gardes réussis ; Lyncée 3493→3492 sans terme nouveau. Le compilateur gère désormais les cours sans métadonnées, avec test de préservation des DD, rejeu et refus d’un contenu modifié. Le navigateur local file:// reste refusé ; parcours G5 ajouté à la CI exacte.
+
+CI, fusion et publication restent à vérifier avant de compter ce lot en production ; ensuite G6 cours. Inconnues : fréquences comparables actuelles, posologies AIPS, plafonds de correction du sodium et surveillance des hypoglycémies médicamenteuses selon protocole. Les sources lues par extraits sont signalées comme telles. Diagnostics différentiels suspendus.
+
+G4 est publié : PR132 fusionnée par ac01072 ; CI39274205519, visuel39274242767 et Pages39274940985 réussis. Six fichiers publics HTTP200 identiques à main le19.10.2026 à15:06:33UTC ; SHA256 app2859a1b01e7a3db8a22be723656145948ea3b1b263710c2d8fd3494c7bfa9ed6. Les mentions antérieures de G4 en attente sont historiques.
+
 ## Cours G4 · forme et fond · 19.10.2026
 
 Les 14 parties du cours sur la fatigue sont réorganisées et contre-relues indépendamment sur leurs empreintes finales. Définition subjective attribuée à DEGAM ; fréquences historiques contextualisées ; critères EM/SFC et délais selon référentiel ; bilan initial et confirmation séparés ; activité adaptée dès la suspicion d’EM/SFC. Les scores orientent sans confirmer, les seuils IAH ont des bornes continues sourcées ; STOP-Bang et les inconnues suisses restent explicitement À vérifier. Examen régional et renvois conservés ; DD, fondamentaux et 247 autres cours inchangés.
