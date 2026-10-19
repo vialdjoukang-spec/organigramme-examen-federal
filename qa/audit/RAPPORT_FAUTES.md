@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 185 faute(s) corrigée(s), dont 8 critique(s), 109 majeure(s) et 68 mineure(s).
+Bilan : 191 faute(s) corrigée(s), dont 8 critique(s), 115 majeure(s) et 68 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -84,6 +84,17 @@ Bilan : 185 faute(s) corrigée(s), dont 8 critique(s), 109 majeure(s) et 68 mine
 | Majeure | TIP.G15.c[7–9] | Seuils ethniques et métaboliques universalisés ; bilan hépatique/endocrinien peu hiérarchisé. | Attribution des seuils, confirmation hyperglycémie et hypercortisolisme, TSH selonESE ; FIB4puisélastographie selonrisque, enzymes normales non exclusives et biopsie non systématique. | NICE NG246,EASO institutionnel2025,ESE2020,EASL/EASD/EASO2024, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
 | Majeure | TIP.G15.c[9–10,13] | Prise en charge pondérale pouvait retarder traitement des comorbidités, insulinothérapie nécessaire ou considérer tout TCA comme exclusion définitive. | Soins urgents et comorbidités en parallèle du projet pondéral ; 5A RMS exactement restitués, pas de retard insuline indiquée ; soutien spécialisé des TCA et décisions individualisées. | RMS2022,HUG2024,SSED2023,SMOB2023, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
 | Majeure | TIP.G15.c[10–13] | Critères chirurgicaux européens importés comme suisses, efficacité et remboursement des médicaments trop génériques ; surveillance postopératoire insuffisamment explicite. | SMOB adulte≥35/échec adéquat cumulé≥2ans sans comorbidité obligatoiredès35 ; voie métabolique distincte ; bénéfices par produit/critère, LS actuelle à vérifier et suivi nutritionnel à vie avec vomissements urgents. | SMOB2023,EASO2026,OFSP2024historique,EASL2024 ; aucune nouvelle dose certifiée, lu le 2026-10-19 | Galien-PeauPopulations | 78fa4d5 |
+
+## G16-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G16.c[0,2,7,12] | Perte pondérale pouvait être assimilée à dénutrition ; inflammation présentée comme nécessaire dans toute dénutrition liée à maladie. Le titre perte d’appétit manquait de définition. | Plainte, dénutrition et cachexie séparées ; GLIM exige phénotype et étiologie, apports/assimilation OU inflammation ; gravité musculaire explicitée après diagnostic. Appétit subjectif défini et anorexie mentale distincte. | GLIM versionClinicalNutrition2018/2019 ElsevierLtdGB, actualisation2025,ESMO2021, lu le 2026-10-19 | Galien-PeauPopulations | 98cfb04 |
+| Majeure | TIP.G16.c[1,6,11–13] | 33 %de cancer d’un centre spécialisé et HR9,70 risquaient d’être lus comme probabilité de premier recours ;5 %tardifs sans bon dénominateur. | Population adressée et sélection explicites ; risques britanniques par12maladies/âge/sexe séparés du HR ;19/375ancienchiffre cibléAV, sans généralisation ni suivi annuel suffisant. | RMS2022 pp117–120,Withrow2022 WileyLtdGB ; PLoSUSanciennonrecertifiéCH/Europe, lu le 2026-10-19 | Galien-PeauPopulations | 98cfb04 |
+| Majeure | TIP.G16.c[3–4,8–9] | Absence de recommandation énoncée sans date et triage oncologique limité aux signes de site. | IncertitudesRMS2022 datées, NICE15.04.2026§1.13.2orientationurgente dès60ans/perteinexpliquée>5 %6mois même sans site évident ; FIT négatif ne clôt pas suspicion persistante. | NICE NG12 actualisé2026 etRMS2022, lu le 2026-10-19 | Galien-PeauPopulations | 98cfb04 |
+| Majeure | TIP.G16.c[5–8,13] | Âge<50/IMC<25 pouvaient devenir critères nécessaires de diabète1 ; bilanthyroïdien/NTproBNP/spirométrie sans conditions suffisantes. | Âge/IMC non exclusifsT1 et urgencecétose ; hormones libres avantTRAb ;400ng/LNICEchezpersonnenontraitée sans exclusion absolue, spirométriePOSTbronchodilatateur aveccontexte. | NICE NG17,NG145,NG106,NG115 lus19.10.2026, lu le 2026-10-19 | Galien-PeauPopulations | 98cfb04 |
+| Majeure | TIP.G16.c[9–13] | Renutrition pouvait suivre une formule énergétique universelle ; thiamineNICE chiffrée assimilable à prescription suisse validée ;72h pouvaient clore surveillance. | Énergie contextualisée et plan expert selon risque, réalimentation prudente après apports presque nuls ; ancienne200–300mg/j10jAV AIPS, surveillance électrolytes/volume et au-delà72h. | NICE CG32,Reber etal.JClinMed2019 MDPIBâle ; aucune nouvelle posologie AIPS certifiée, lu le 2026-10-19 | Galien-PeauPopulations | 98cfb04 |
+| Majeure | TIP.G16.c[11–13] | Bénéfice de survie nutritionnelle EFFORT généralisé et suivi annuel isolé après bilan négatif. | Essai suisse hospitalierNRS≥3,≤48h etrésultats30jours23/27 %et7/10 % précisément attribués ; suivi adapté rapproché avec réévaluation dès persistance/aggravation. | EFFORTLancet2019 ElsevierLtdGB,NICECG32/NG12,RMS2022, lu le 2026-10-19 | Galien-PeauPopulations | 98cfb04 |
 
 ## G2-cours
 
