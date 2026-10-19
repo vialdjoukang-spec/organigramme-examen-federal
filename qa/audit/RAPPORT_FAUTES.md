@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 90 faute(s) corrigée(s), dont 6 critique(s), 25 majeure(s) et 59 mineure(s).
+Bilan : 97 faute(s) corrigée(s), dont 6 critique(s), 31 majeure(s) et 60 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -26,6 +26,18 @@ Bilan : 90 faute(s) corrigée(s), dont 6 critique(s), 25 majeure(s) et 59 mineur
 | Majeure | TIP.G2.c[7], c[9–10], c[12–13] | Une surveillance de trois à quatre semaines pouvait devenir un délai automatique devant une adénopathie persistante ou suspecte. | Réserver la surveillance au patient stable sans suspicion et fixer la réévaluation ; distinguer l’évaluation précoce décrite en2024. | R-SMW-ADENOPATHIES-2010, résumé et figure1 ; R-SMW-ADENOPATHIES-2024, démarche, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
 | Majeure | TIP.G2.c[7], c[13] | Le seuil de20% de blastes était présenté comme une condition universellement nécessaire de LAM. | Signaler les exceptions génétiques et la dépendance à la classification ; relier le diagnostic aux analyses spécialisées. | R-ONKOPEDIA-AML-G2, §5.2.1, version septembre2025, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
 | Majeure | TIP.G2.c[9–10], c[13] | IRM avant toute biopsie pouvait être appliquée à toute masse, avec planification spécialisée trop tardive. | Devant une suspicion de sarcome, organiser l’imagerie locale adaptée avant le prélèvement et sa planification avec le centre expert. | R-ONKOPEDIA-SARCOMES-2019, §5.2.1.1–2, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+
+## G3-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G3.c[0], c[7], c[12–13] | La polyurie était définie comme nécessairement hypotonique et le repère pondéral unique était présenté sans limite. | Distinguer volume et concentration, mesurer les24heures et contextualiser les repères adultes sans définition universelle. | R-COURS-G3-11, démarche ; R-COURS-G3-15, p1, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+| Majeure | TIP.G3.c[7–8], c[12–13] | Les93% historiques de l’arginine pouvaient être pris pour sa performance actuelle face au test salin. | Distinguer études historiques et comparaison directe plus récente ; expliciter référence saline spécialisée, conditions, limites et alternative mieux tolérée. | R-COURS-G3-10, pp327–328 et figure2, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+| Majeure | TIP.G3.c[4], c[7], c[13] | Les anciens critères d’acidocétose exigeaient une hyperglycémie et un bicarbonate<15 sans nuance. | Actualiser la triade avec diabète connu ou glycémie≥11,1, cétones et acidose selon consensus2024 ; ne pas exclure une forme euglycémique ou moins sévère. | R-COURS-G3-13, §3 et tableau2 ; R-COURS-G3-12,p6, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+| Majeure | TIP.G3.c[4] | Un seuil de calcémie de l’indication Zometa pouvait être lu comme preuve d’une cause maligne. | Distinguer repère d’indication et étiologie, avec réserveAIPS explicite dans ce contexte. | Source héritée8 non nouvellement relue : application À vérifier (AIPS suisse), lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+| Majeure | TIP.G3.c[5] | La chute tensionnelle et la perte pondérale étaient formulées comme preuve de déshydratation ; les signes étaient exclus tant que la soif était préservée. | Formuler des indices non spécifiques et une compensation possible des pertes ; conserver protocoles, régions et liens avec leurs réserves. | R-COURS-G3-15, pp1–3 ; R-COURS-G3-13, §3 clinique, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+| Majeure | TIP.G3.c[9–11] | Des doses orales de desmopressine, un bolus salin et un calendrier de surveillance apparaissaient sans nouvelle preuveAIPS liée au produit exact. | Conserver les données héritées comme explicitement À vérifier, interdire leur transposition entre formulations et séparer test diagnostique et soins urgents. | AIPS non nouvellement relue ; règleR2, R-COURS-G3-14 pour sécurité clinique, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+| Mineure | TIP.G3.c[0–13] | Les sous-parties, indications et limites étaient dispersées ; les mots importants étaient en gras dans le corps. | Ranger les informations dans les14parties spécifiques, séparer anamnèse/alertes et suivi/pronostic/prévention ; réserver le gras aux titres et sous-titres. | docs/PROMPT-DIRECTEUR-ACADEMIQUE.md ; rapport indépendant G3, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
 
 ## ck-urgences-lot1
 
