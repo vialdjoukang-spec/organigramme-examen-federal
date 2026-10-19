@@ -1,3 +1,11 @@
+## Cours G7 · forme et fond ·19.10.2026 Europe/Zurich
+
+Quatorze parties flush/boufféesvasomotrices révisées et contre-auditées, huitcorrections tracées. Définition attribuéeàlarevueFR faute de définitionmondialedédiéeidentifiée ; bilanciblé et urgences ; seuilscontextualisés, tryptasedynamique/critèremineurdistincts, préparationdesexamenssansarrêtmédicamenteuxautonome. Régionabdomenrestaurée sans perte desanciensrenvois. Dosesfézolinétant/lanréotideconfrontéesauxextraitsAIPSofficielslocaux, populationsprécisées ; accèsdistantactuelenéchec et aucunevalidationmédicalehumaine. DD/f et247autrescoursinchangés.
+
+Contrôles : G1–G8,82socleCK,12cours,6chronologie,14prototype et5gardesverts ; Lyncée3487→3486,0nouveau ;98lignesdedosesinchangées. RapportsG7SOURCES/contre-audit/INTEGRATION liésaux14empreintes. Jaugepréparée7/248cours,98/3472parties ; CIexacte/fusion/Pagesrequises. G5PR133fusionné, Pages encoreàvérifier ; G6PR134nouvelleCIaprèsrectificationbalisage ; publicationdansl’ordreseulement.
+
+Suite utilisateur : G8maintenant, puisG9…G16, unàun. Ne pas redemanderuneautorisationentrelots. Diagnosticsdifférentielssuspendus. Conserverl’ordredefusionetdistinguerbranchesdespublications.
+
 ## Rectification de balisage G6 ·19.10.2026 Europe/Zurich
 
 G5PR133 est fusionnée normalement (main43a11f96,16:20:45UTC), Pages encore à vérifier. G6 : premièreCI278/278interactions réussis, mais assertion des deux sous-parties delapremièrepartie échouée. Les seulesbalises dec[0] sont corrigées ; motscliniques14partiesidentiques. Rapport indépendant et empreintes réactualisés ; garde IUPS conserve son périmètre précis et sept testsfrontières (douze tests cours au total). NouvelleCI et Pages requises avantpublication. G7préparé séparément, contrelectureencours ; puisG8…G16unàun.

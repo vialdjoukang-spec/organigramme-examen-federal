@@ -1,3 +1,11 @@
+## Cours G7 · forme et fond ·19.10.2026 Europe/Zurich
+
+Quatorze parties flush/boufféesvasomotrices révisées et contre-auditées, huitcorrections tracées. Définition attribuéeàlarevueFR faute de définitionmondialedédiéeidentifiée ; bilanciblé et urgences ; seuilscontextualisés, tryptasedynamique/critèremineurdistincts, préparationdesexamenssansarrêtmédicamenteuxautonome. Régionabdomenrestaurée sans perte desanciensrenvois. Dosesfézolinétant/lanréotideconfrontéesauxextraitsAIPSofficielslocaux, populationsprécisées ; accèsdistantactuelenéchec et aucunevalidationmédicalehumaine. DD/f et247autrescoursinchangés.
+
+Contrôles : G1–G8,82socleCK,12cours,6chronologie,14prototype et5gardesverts ; Lyncée3487→3486,0nouveau ;98lignesdedosesinchangées. RapportsG7SOURCES/contre-audit/INTEGRATION liésaux14empreintes. Jaugepréparée7/248cours,98/3472parties ; CIexacte/fusion/Pagesrequises. G5PR133fusionné, Pages encoreàvérifier ; G6PR134nouvelleCIaprèsrectificationbalisage ; publicationdansl’ordreseulement.
+
+Suite utilisateur : G8maintenant, puisG9…G16, unàun. Ne pas redemanderuneautorisationentrelots. Diagnosticsdifférentielssuspendus. Conserverl’ordredefusionetdistinguerbranchesdespublications.
+
 ## Cours G6 · forme et fond ·19.10.2026 Europe/Zurich
 
 État : les14parties fièvre/frissons/hyperthermie sont révisées séparément, avec définitionIUPS2001 exactement attribuée et opposition clinique à l’hyperthermie non régulée. Huit corrections tracées. Le payséditeurIUPS resteJP, présent au catalogue ; l’exception internationale autorisée est limitée au document et à la définitionc[0], avec tests refusant réutilisation clinique ou posologique. Aucun seuil de contrôle affaibli.
