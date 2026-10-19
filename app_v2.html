@@ -7,7 +7,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="assets/fonts/fonts.css"><script src="assets/fonts/polices.js"></script>
 <style>
-/* Organigramme à mémoire permanente : un poste de travail en quatre vues (Calendrier, Vitrine, Calculs, Exigences), identité dorée de l'Examen fédéral · Version SSP. */
+ 
 :root{--bg:#fbfbf8;--paper:#ffffff;--ink:#1a1a1a;--mut:#4a4a4a;--line:#dededb;--soft:#f3f3f1;--gold:#7a5b12;--gold2:#d9b65e;--deep:#4a380b;--ok:#1d6a3a;--warn:#8a5207;--bad:#a12a24;--grid:#e6e6e3;--grid2:#f6f6f4;
 --fd:"Fraunces",Georgia,serif;--fb:"Inter",system-ui,sans-serif;--fm:"JetBrains Mono",ui-monospace,monospace}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13120e;--paper:#1c1a15;--ink:#f1ebdc;--mut:#b2aa97;--line:#34302a;--soft:#25221c;--gold:#d6b25a;--gold2:#e9cf86;--deep:#f0dca6;--ok:#6fd096;--warn:#f0b65a;--bad:#f08a80;--grid:#2c2922;--grid2:#221f19;color-scheme:dark}}
@@ -90,7 +90,7 @@ td.n{font-family:var(--fm);text-align:right;font-variant-numeric:tabular-nums;wh
 .it{min-width:0}.it span{overflow-wrap:anywhere}.list{overflow-x:hidden}
 .blk .t{white-space:normal;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
 :root{--gilt:0;--ink:#1a1a1a;--mut:#4a4a4a;--fs:100%}
-:root{--bg:#fbfbf8}/* Fond pâle par défaut */
+:root{--bg:#fbfbf8} 
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--mut:#d3cbb7;--ink:#fbf6ea;--bg:color-mix(in srgb,#1b1913 calc(var(--gilt)*100%),#101010)}}
 :root[data-theme="dark"]{--mut:#d3cbb7;--ink:#fbf6ea;--bg:color-mix(in srgb,#1b1913 calc(var(--gilt)*100%),#101010)}
 html{font-size:var(--fs)}
@@ -326,8 +326,8 @@ const JOURS=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],MOIS=['janv.','f�
 function monday(d){const x=new Date(d);const k=(x.getDay()+6)%7;x.setDate(x.getDate()-k);x.setHours(0,0,0,0);return x}
 function uid(){return (crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)).replace(/[^\w-]/g,'')}
 
-/* ---------- ATLAS : sauvegarde (export, import, erreurs de stockage) ---------- */
-/* Format v1 : {format:"organigramme-examen-federal",version:1,exporte:ISO,cles:{"orga-…":"<valeur brute>"}} ; orga-bak (date du dernier export) n’est pas exporté. */
+ 
+ 
 var BAK_V=1,BAK_F='organigramme-examen-federal',BAK_KEY='orga-bak',BAK_DAYS=7,lsBad={},bakPend=null;
 function lsSet(k,v){try{localStorage.setItem(k,v);if(lsBad[k]){delete lsBad[k];bakShow()}svTouch();return true}catch(e){lsBad[k]=(e&&e.name)||'erreur';const y=document.getElementById('sync');if(y)y.textContent='Non enregistré dans ce navigateur ('+lsBad[k]+')';bakShow();return false}}
 function bakKeys(){const o={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.indexOf('orga-')===0&&k!==BAK_KEY&&k!=='orga-probe')o[k]=localStorage.getItem(k)}return o}
@@ -354,7 +354,7 @@ function bakCheck(f){if(!f||typeof f!=='object'||f.format!==BAK_F)return 'Ce fic
  for(const k in f.cles){if(k.indexOf('orga-')!==0||k===BAK_KEY)return 'La clé « '+k+' » n’appartient pas à l’organigramme.';
   if(typeof f.cles[k]!=='string')return 'La clé « '+k+' » n’a pas le format attendu.';
   if(k!=='orga-tab'){try{JSON.parse(f.cles[k])}catch(e){return 'La clé « '+k+' » est endommagée.'}}}return null}
-function bakMigrate(f){/* v1 : format initial ; une version future convertira ici les anciennes clés. */return f.cles}
+function bakMigrate(f){ return f.cles}
 function bakRead(file){bakMsg('');const r=new FileReader();r.onerror=()=>bakMsg('La lecture du fichier a échoué ; votre progression reste inchangée.','bad');
  r.onload=()=>{let f;try{f=JSON.parse(r.result)}catch(e){bakMsg('Ce fichier n’est pas un JSON valide ; votre progression reste inchangée.','bad');return}
   const er=bakCheck(f);if(er){bakMsg(er+' Votre progression reste inchangée.','bad');return}
@@ -372,8 +372,8 @@ document.getElementById('bak-i').onclick=()=>{const f=document.getElementById('b
 document.getElementById('bak-f').onchange=e=>{const f=e.target.files&&e.target.files[0];if(f)bakRead(f);e.target.value=''};
 document.getElementById('bak-pv').addEventListener('click',e=>{if(e.target.id==='bak-ok')bakApply();else if(e.target.id==='bak-no'){bakPend=null;e.currentTarget.hidden=true;bakMsg('L’import est annulé ; votre progression reste inchangée.','ok')}});
 bakShow();try{if(sessionStorage.getItem('orga-imp')){sessionStorage.removeItem('orga-imp');bakMsg('La sauvegarde importée est chargée dans ce navigateur.','ok')}}catch(e){}
-/* ---------- HERMÈS : sauvegarde automatique fiable (miroir IndexedDB, versions, persistance, fichier) ---------- */
-/* Chaque écriture réussie (lsSet) programme svFlush : copie « cur » dans IndexedDB avec somme FNV-1a, version horaire au plus, 30 versions gardées. */
+ 
+ 
 var SV_DB='orga-sauvegarde',SV_MAX=30,SV_HOT=20,svT=null,svFT=null,svReady=false,svFile=null,svFileNeed=false,svIdb=null,svLast=null,svPers='',svFileTxt='',svErr='';
 const SV_BOOT=(()=>{const ok={},bad=[];let ef=null;try{ef=localStorage.getItem('orga-ef');const k=bakKeys();for(const x in k){let g=true;if(x!=='orga-tab'){try{const v=JSON.parse(k[x]);g=v!==null&&typeof v==='object'}catch(e){g=false}}if(g)ok[x]=1;else bad.push(x)}}catch(e){bad.push('stockage')}
  if(ef===null)bad.push('orga-ef');return {ok,bad}})();
@@ -434,7 +434,7 @@ document.getElementById('ver').addEventListener('click',async e=>{const t=e.targ
  const rs=sessionStorage.getItem('orga-rest');if(rs){sessionStorage.removeItem('orga-rest');bakMsg('La version du '+bakDate(rs)+' est restaurée ; l’état précédent reste disponible dans « Restaurer une version ».','ok')}}catch(e){}
  svReady=true;svFlush();svPersist();svFileInit()})();
 
-/* ---------- MNÉMOSYNE : persistance (base partagée, repli local) ---------- */
+ 
 function local(save){if(save){lsSet('orga-ef',JSON.stringify(S));return}try{const v=JSON.parse(localStorage.getItem('orga-ef')||'null');if(v)S=Object.assign(S,v)}catch(e){}}
 async function put(col,id,data){local(true);if(!db)return;try{await db.doc(col+'/'+id).set(data);$('#sync').textContent='Enregistré '+new Date().toLocaleTimeString('fr-CH',{hour:'2-digit',minute:'2-digit'})}catch(e){$('#sync').textContent='Non enregistré ('+(e.code||'erreur')+')'}}
 async function del(col,id){local(true);if(!db)return;try{await db.doc(col+'/'+id).delete()}catch(e){}}
@@ -447,7 +447,7 @@ local(false);
  try{const x=await db.doc('reglages/exigences').get();if(x.exists)S.exi=x.data()||{}}catch(e){}
  renderAll()})();
 
-/* ---------- Nomenclature et recherche ---------- */
+ 
 Object.entries(GROUPES).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=k+' · '+v;$('#grp').appendChild(o)});
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 function ckDone(code){return Object.values(S.seances).some(x=>x.ssp===code&&x.done&&x.act==='Cours CK')}
@@ -466,7 +466,7 @@ $('#list').addEventListener('dragstart',e=>{const it=e.target.closest('.it');if(
 $('#list').addEventListener('click',e=>{const gh=e.target.closest('.grp-h');if(gh){closed[gh.dataset.g]=!closed[gh.dataset.g];renderList();return}const it=e.target.closest('.it');if(!it)return;sel=sel===it.dataset.c?null:it.dataset.c;renderList()});
 $('#list').addEventListener('keydown',e=>{if(e.key==='Enter'){const it=e.target.closest('.it');if(it){sel=it.dataset.c;renderList()}}});
 
-/* ---------- CHRONOS : grille au quart d'heure ---------- */
+ 
 function days(){if(mode==='d'){const d=new Date(cur);d.setHours(0,0,0,0);return [d]}const m=monday(cur);return [...Array(7)].map((_,i)=>{const d=new Date(m);d.setDate(m.getDate()+i);return d})}
 function renderGrid(){const D=days(),g=$('#grid');g.className='grid'+(mode==='d'?' day':'');g.style.gridTemplateColumns=`56px repeat(${D.length},minmax(${mode==='d'?0:96}px,1fr))`;
  const t=iso(new Date());let h='<div class="hd"></div>'+D.map(d=>`<div class="hd${iso(d)===t?' today':''}" data-wd="${(d.getDay()+6)%7+1}"><span>${JOURS[d.getDay()]} ${d.getDate()}</span><small>${MOIS[d.getMonth()]}</small></div>`).join('');
@@ -480,7 +480,7 @@ function addAt(col,y,code){const id=uid();const x={date:col.dataset.d,start:minu
 $('#grid').addEventListener('dragover',e=>{const c=e.target.closest('.col');if(c){e.preventDefault();$$('.col.over').forEach(x=>x.classList.remove('over'));c.classList.add('over')}});
 $('#grid').addEventListener('dragleave',e=>{const c=e.target.closest('.col');if(c)c.classList.remove('over')});
 $('#grid').addEventListener('drop',e=>{const c=e.target.closest('.col');if(!c)return;e.preventDefault();c.classList.remove('over');const code=e.dataTransfer.getData('text/plain');if(BY[code])addAt(c,e.clientY,code)});
-/* ---------- HERMÈS : calendrier interactif (clic, plage, recherche floue, déplacement, durée, toucher, clavier) ---------- */
+ 
 let calP=null,calSup=false,qpCode=null;
 function calSay(t){const m=document.getElementById('cq-m');if(m)m.textContent=t}
 function calMin(col,y,f){const r=col.getBoundingClientRect(),v=(y-r.top)/PX*4,q=f==='f'?Math.floor(v):f==='c'?Math.ceil(v):Math.round(v);return Math.max(H0*60,Math.min(H1*60,H0*60+q*15))}
@@ -509,7 +509,7 @@ $('#cq-r').addEventListener('click',e=>{const b=e.target.closest('button'),li=e.
  if(b.dataset.a==='o'){cqOpen(code);return}
  if(e.detail===0){const d=days()[0];qpOpen(iso(mode==='d'?d:new Date(Math.max(d,new Date().setHours(0,0,0,0)))),8*60,+$('#dur').value,code);return}
  sel=code;renderList();cqRender();calSay('« '+s[0]+' · '+s[1]+' » est prêt : cliquez ou touchez une plage du calendrier pour le placer, ou glissez-le.')});
-/* Fenêtre de création rapide */
+ 
 [15,30,45,60,75,90,120,150,180,240].forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m<60?m+' min':Math.floor(m/60)+' h'+(m%60?' '+m%60:'');$('#qp-d').appendChild(o)});
 $('#qp-a').innerHTML=$('#act').innerHTML;
 function qpDur(d){const o=$('#qp-d');if(![...o.options].some(x=>+x.value===d)){const n=document.createElement('option');n.value=d;n.textContent=Math.floor(d/60)+' h '+pad(d%60);o.appendChild(n)}o.value=d}
@@ -528,7 +528,7 @@ $('#qp-r').addEventListener('click',e=>{const li=e.target.closest('.cq-i');if(!l
 $('#qp-ok').onclick=qpCreate;$('#qp-no').onclick=qpClose;
 $('#qp').addEventListener('keydown',e=>{if(e.key==='Escape'){qpClose();e.stopPropagation()}});
 document.addEventListener('click',e=>{if(!$('#qp').hidden&&!e.target.closest('#qp,#grid,#cq-r'))qpClose()});
-/* Clic, plage, déplacement et durée */
+ 
 function calSupp(){calSup=true;setTimeout(()=>{calSup=false},120)}
 $('#grid').addEventListener('click',e=>{if(calSup){calSup=false;return}const b=e.target.closest('.blk');if(b){openEdit(b.dataset.id);return}const c=e.target.closest('.col');if(!c)return;
  if(sel){addAt(c,e.clientY,sel);sel=null;renderList();cqRender();return}qpOpen(c.dataset.d,calMin(c,e.clientY,'f'),+$('#dur').value,null,e.clientX,e.clientY)});
@@ -553,7 +553,7 @@ addEventListener('pointerup',e=>{const P=calP;if(!P||e.pointerId!==P.pid)return;
  calSay(P.k==='mv'?'La séance « '+x.ssp+' » est déplacée au '+calLab(x)+'.':'La séance « '+x.ssp+' » dure maintenant '+x.dur+' minutes.')});
 addEventListener('pointercancel',e=>{const P=calP;if(!P||e.pointerId!==P.pid)return;clearTimeout(P.t);calP=null;if(P.on){const r=P.c&&P.c.querySelector('.rng');if(r)r.remove();renderGrid()}else if(P.b)P.b.classList.remove('grab')});
 document.addEventListener('touchmove',e=>{if(calP&&calP.ok&&calP.touch)e.preventDefault()},{passive:false});
-/* Clavier : flèches = déplacer de 15 min ou d’un jour ; Maj + flèches = durée ; Entrée = détails */
+ 
 $('#grid').addEventListener('keydown',e=>{const b=e.target.closest('.blk');if(!b||e.ctrlKey||e.metaKey||e.altKey)return;const id=b.dataset.id,x=S.seances[id];if(!x)return;
  if(e.key==='Enter'){e.preventDefault();openEdit(id);return}
  const K={ArrowUp:-15,ArrowDown:15}[e.key],D={ArrowLeft:-1,ArrowRight:1}[e.key];if(K==null&&D==null)return;e.preventDefault();
@@ -570,7 +570,7 @@ $('#e-save').onclick=()=>{const x=S.seances[editId];if(!x)return;const [h,m]=$('
 $('#e-close').onclick=()=>{$('#edit').classList.remove('on');editId=null};
 $('#e-del').onclick=()=>{if(!editId)return;delete S.seances[editId];del('seances',editId);$('#edit').classList.remove('on');editId=null;renderAll()};
 
-/* ---------- ATLAS : agrégats ---------- */
+ 
 function agg(){const per={};SSP.forEach(s=>per[s[0]]={n:0,min:0,ck:0,fp:0,q:[],score:0,last:'',plan:0});
  Object.values(S.seances).forEach(x=>{const p=per[x.ssp];if(!p)return;p.plan++;if(!x.done)return;p.n++;p.min+=x.dur;if(x.act==='Cours CK')p.ck++;if(x.act==='Fondamentaux F′')p.fp++;if(x.qcm!=null)p.q.push(x.qcm);p.score=Math.max(p.score,x.score||0);if(x.date>p.last)p.last=x.date});
  const byDay={};Object.values(S.seances).forEach(x=>{if(x.done)byDay[x.date]=(byDay[x.date]||0)+x.dur});
@@ -598,7 +598,7 @@ function renderVit(A){const fam={G:[0,0],S:[0,0],F:[0,0],O:[0,0]};SSP.forEach(s=
  const q=norm(($('#q2').value||'').trim());$('#tssp').innerHTML=SSP.filter(s=>!q||norm(s[0]+' '+s[1]).includes(q)).map(s=>{const p=A.per[s[0]],qm=p.q.length?Math.round(p.q.reduce((a,b)=>a+b,0)/p.q.length):'—';return `<tr><td><code>${s[0]}</code></td><td>${esc(s[1])}</td><td class="n">${p.n}</td><td class="n">${p.min}</td><td class="n">${p.ck}</td><td class="n">${p.fp}</td><td class="n">${qm}</td><td class="n">${p.score||'—'}</td><td>${p.last||'—'}</td></tr>`}).join('')}
 $('#q2').oninput=()=>renderVit(agg());
 
-/* ---------- LOGOS : calculs ---------- */
+ 
 let VARS={};
 function renderCalc(A){$('#p-exam').value=S.params.exam;$('#p-obj').value=S.params.obj;$('#p-pass').value=S.params.pass;
  const ex=parse(S.params.exam),today=new Date();today.setHours(0,0,0,0);const jours=Math.max(0,Math.round((ex-today)/864e5));const visees=248*S.params.pass;const faits=SSP.reduce((a,s)=>a+Math.min(S.params.pass,A.per[s[0]].ck),0);const restants=visees-faits;
@@ -611,7 +611,7 @@ $('#p-save').onclick=()=>{S.params={...S.params,exam:$('#p-exam').value||S.param
 $('#go').onclick=()=>{const e=$('#expr').value.trim();if(!/^[\w\s.+\-*/()%,]*$/.test(e)){$('#res').textContent='Expression refusée';return}const names=Object.keys(VARS);try{const f=new Function(...names,'"use strict";return ('+e.replace(/%/g,'/100')+')');const v=f(...names.map(n=>VARS[n]));$('#res').textContent=Number.isFinite(v)?(+v.toFixed(4)).toLocaleString('fr-CH'):'—'}catch(err){$('#res').textContent='Expression invalide'}};
 $('#expr').onkeydown=e=>{if(e.key==='Enter')$('#go').click()};
 
-/* ---------- Exigences ---------- */
+ 
 const fdt=d=>d.split('-').reverse().join('.');
 function exiMig(){const x=S.exi||(S.exi={});if(x._m27)return false;let any=false;EXI.items.forEach(it=>(it.m||[]).forEach(k=>{if(k in x){any=true;if(x[k]&&!('x:'+it.id in x))x['x:'+it.id]=true}}));if(any)x._m27=1;return any}
 function exiBanner(){const I=SESSION.inscription,P=SESSION.precedente,d0=new Date(I.debut+'T00:00:00'),d1=new Date(I.fin+'T23:59:59'),now=new Date(),j=t=>Math.ceil((t-now)/864e5);
@@ -624,15 +624,15 @@ function renderExi(){if(exiMig())put('reglages','exigences',S.exi);const x=S.exi
  const n=EXI.items.filter(it=>x['x:'+it.id]).length,v=EXI.items.filter(it=>it.s==='a_verifier').length;$('#exi-c').textContent=n+' points sur '+EXI.items.length+' sont cochés ; '+v+' points restent à vérifier auprès de la MEBEKO (sources lues le '+fdt(EXI.lu)+').'}
 $('#exi').addEventListener('change',e=>{const k=e.target.dataset.x;if(!k)return;S.exi._m27=1;S.exi['x:'+k]=e.target.checked;put('reglages','exigences',S.exi);renderExi();const f=document.getElementById('exi-'+k);if(f)f.focus()});
 
-/* ---------- Onglets et rendu ---------- */
+ 
 $$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));['att','cal','not','vit','memo','cs','ges','calc','exi'].forEach(v=>$('#v-'+v).hidden=v!==t.dataset.v);if(t.dataset.v==='not')renderNot();if(t.dataset.v==='ges')renderGes();lsSet('orga-tab',t.dataset.v)});
 try{const v=localStorage.getItem('orga-tab');if(v)$$('.tab').find(t=>t.dataset.v===v)?.click()}catch(e){}
-/* ---------- Affichage : intensité dorée, taille du texte ---------- */
+ 
 function applyDisp(){const d=S.params.disp||{};document.documentElement.style.setProperty('--gilt',(d.gilt??0)/100);document.documentElement.style.setProperty('--fs',(d.fs??100)+'%');$('#d-gilt').value=d.gilt??0;$('#d-fs').value=d.fs??100;$('#d-gv').textContent=(d.gilt??0)+' %';$('#d-fv').textContent=(d.fs??100)+' %'}
 ['#d-gilt','#d-fs'].forEach(s=>$(s).addEventListener('input',()=>{S.params.disp={gilt:+$('#d-gilt').value,fs:+$('#d-fs').value};applyDisp()}));
 ['#d-gilt','#d-fs'].forEach(s=>$(s).addEventListener('change',()=>put('reglages','params',S.params)));
 
-/* ---------- Mnémosyne : méthodes fondées sur les preuves (assets/memo/mem.js, chargé à la demande) ---------- */
+ 
 let MEMP=null,memFail=false;function memLoad(){if(window.MEM_DATA)return Promise.resolve(window.MEM_DATA);return MEMP||(MEMP=new Promise((ok,ko)=>{const e=document.createElement('script');e.src='assets/memo/mem.js';e.async=true;const no=()=>{MEMP=null;memFail=true;e.remove();ko(new Error('memLoad'))};e.onload=()=>window.MEM_DATA?ok(window.MEM_DATA):no();e.onerror=no;document.head.appendChild(e)}))}
 function memMd(t){return esc(t||'').replace(/\*([^*]+)\*/g,'<i>$1</i>')}
 function memDoi(r){return `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.cite||'doi:'+r.doi)}</a>`}
@@ -657,7 +657,7 @@ function memCons(m){const e=$('#m-cons');if(!e)return;const P=[['rappel','rappel
  e.innerHTML=(P.length?'Pour chaque SSP à réviser, vous enchaînez '+P.map(x=>memW(x[1],x[2])).join(', puis ')+'.':'Aucune stratégie active n’est cochée : la liste donne seulement les échéances.')+(m.inter?' Dans une même séance, vous alternez des SSP qui partagent un symptôme d’entrée ('+memW('entrelacement','entrelacement')+').':'')}
 $('.tab[data-v=memo]').addEventListener('click',memEv);
 addEventListener('load',()=>(window.requestIdleCallback||(f=>setTimeout(f,1500)))(()=>memLoad().then(()=>{if(!$('#v-memo').hidden)memEv()},()=>{}),{timeout:6000}),{once:true});
-/* ---------- MNÉMÉ : mémorisation espacée ---------- */
+ 
 const MDEF={meth:'leitner',int:'1,3,7,21,60',rappel:true,test:true,inter:true,feyn:false,retro:true,reap:true,ret:90,max:12,hor:12};
 function M(){return Object.assign({},MDEF,S.params.memo||{})}
 function ints(){return (M().int||'1,3,7,21,60').split(/[,;\s]+/).map(Number).filter(n=>n>0)}
@@ -678,12 +678,12 @@ function renderMemo(){const m=M();$$('input[name="m-meth"]').forEach(r=>r.checke
 $('#m-save').onclick=()=>{S.params.memo={meth:($$('input[name="m-meth"]').find(r=>r.checked)||{}).value||'leitner',int:$('#m-int').value,rappel:$('#m-rappel').checked,test:$('#m-test').checked,inter:$('#m-inter').checked,feyn:$('#m-feyn').checked,retro:$('#m-retro').checked,reap:$('#m-reap').checked,ret:+$('#m-ret').value||90,max:+$('#m-max').value||12,hor:+$('#m-hor').value||12};put('reglages','params',S.params);renderAll()};
 $('#m-due').addEventListener('click',e=>{const b=e.target.closest('[data-plan]');if(!b)return;sel=b.dataset.plan;$('#act').value='Révision';cur=new Date();$$('.tab').find(t=>t.dataset.v==='cal').click();renderList();renderGrid();$('#q').value=sel;renderList()});
 
-/* ---------- CS : plan en 6 phases ---------- */
+ 
 const CSPLAN=[["1 · Fondations","Lire le format officiel (§ 3.2) et la grille KK (§ 5.1.4)|Mémoriser les 4 dimensions KK et leur échelle 1–5|Construire une ouverture d’entretien type (présentation, motif, consentement)|Préparer une clôture type (résumé, plan, questions, filet de sécurité)"],["2 · Scripts par SSP","Pour chaque SSP : anamnèse ciblée en 8–12 questions discriminantes|Status ciblé : gestes, ordre, verbalisation au patient|Management : examens, traitement, suivi, critères d’alarme|Communication spécifique : annonce, éducation, décision partagée"],["3 · Simulation","Une simulation IA par SSP lu (générateur ci-dessous)|Chronométrer strictement la durée choisie|Simulations en circuit de 4 à 6 stations enchaînées|Varier émotion, âge, cadre et type d’affection"],["4 · Débriefing","Noter l’ASM obtenu (%) et les 4 dimensions KK|Lister les critères oubliés et les reformuler en règle|Reprendre la station ratée sous 48 h|Tenir le carnet d’erreurs par SSP"],["5 · Circuits blancs","Circuit complet de 11 stations, pause comprise|Au moins une station sans PS (présentation du patient)|Analyser la fatigue et la gestion du temps sur 11 stations|Deux circuits blancs complets avant l’épreuve"],["6 · Consolidation","Réviser les scripts selon la méthode d’espacement choisie|Prioriser les SSP fréquents, graves ou à décision rapide|Répéter ouverture et clôture jusqu’à automatisme|Dernière semaine : stations courtes quotidiennes, sommeil protégé"]];
 function renderCSPlan(){const x=S.exi||{};$('#cs-plan').innerHTML=CSPLAN.map((p,i)=>`<fieldset><legend>${esc(p[0])}</legend>${p[1].split('|').map((t,j)=>`<label><input type="checkbox" data-cp="cp${i}_${j}" ${x['cp'+i+'_'+j]?'checked':''}><span>${esc(t)}</span></label>`).join('')}</fieldset>`).join('')}
 $('#cs-plan').addEventListener('change',e=>{const k=e.target.dataset.cp;if(!k)return;S.exi[k]=e.target.checked;put('reglages','exigences',S.exi)});
 
-/* ---------- SCÈNE : générateur de scénarios IA ---------- */
+ 
 let picks=[];
 $('#cs-q').oninput=()=>{const q=norm($('#cs-q').value.trim());$('#cs-res').innerHTML=q?SSP.filter(s=>norm(s[0]+' '+s[1]).includes(q)).slice(0,12).map(s=>`<button data-k="${s[0]}"><b>${s[0]}</b> · ${esc(s[1])} <small class="st">${esc(GROUPES[s[2]])}</small></button>`).join(''):''};
 $('#cs-res').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;if(!picks.includes(b.dataset.k))picks.push(b.dataset.k);$('#cs-q').value='';$('#cs-res').innerHTML='';renderPicks()};
@@ -728,7 +728,7 @@ $('#cs-copy').onclick=()=>{const t=scenario();$('#cs-out').textContent=t;if(navi
 function selOut(){const r=document.createRange();r.selectNodeContents($('#cs-out'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('#cs-st').textContent='Texte sélectionné : copiez-le.'}
 let dlP=null;$('#cs-dl').onclick=async()=>{const t=scenario();$('#cs-out').textContent=t;try{if(!dlP)dlP=window.claude&&window.claude.use?window.claude.use('downloads'):Promise.resolve(null);const dl=await dlP;if(!dl){$('#cs-st').textContent='Téléchargement indisponible ici : utilisez « Copier ».';return}await dl.save({filename:'Station_CS_'+picks.join('_')+'.txt',data:t});$('#cs-st').textContent='Fichier proposé au téléchargement.'}catch(e){$('#cs-st').textContent='Téléchargement refusé : utilisez « Copier ».'}};
 
-/* ---------- Journal des simulations CS ---------- */
+ 
 let CSLOG={};
 async function csListen(){if(!db)return;try{db.collection('cs').onSnapshot(sn=>{const o={};sn.docs.forEach(d=>o[d.id]=d.data());CSLOG=o;renderCSLog()})}catch(e){}}
 $('#cr-save').onclick=()=>{if(!picks.length){$('#cs-st').textContent='Choisissez d’abord les SSP simulés.';return}const k=[1,2,3,4].map(i=>+$('#cr-k'+i).value||null);const id=uid();const x={date:$('#cr-date').value||iso(new Date()),ssp:picks.slice(),task:$('#cs-task').value,asm:$('#cr-asm').value===''?null:Math.max(0,Math.min(100,+$('#cr-asm').value)),kk:k,note:$('#cr-note').value.slice(0,1000)};CSLOG[id]=x;lsSet('orga-cs',JSON.stringify(CSLOG));put('cs',id,x);renderCSLog()};
@@ -740,7 +740,7 @@ function renderCSLog(){const L=Object.values(CSLOG).sort((a,b)=>a.date<b.date?-1
  $('#cr-chart').innerHTML=s+'</svg><div class="legend"><span><i style="background:var(--gold)"></i>ASM %</span><span><i style="background:var(--c6)"></i>KK moyen (1–5)</span></div>'}
 try{CSLOG=JSON.parse(localStorage.getItem('orga-cs')||'{}')}catch(e){}
 
-/* ---------- ATTENDUS : ce qui est noté, prérequis par épreuve ---------- */
+ 
 const ATT=[
  ["CK · ce qui est noté",[
   ["Barème","Chaque réponse juste vaut 1 point ; réponses fausses ou absentes : aucune déduction ; toutes les questions ont le même poids ; K-prime : 3 jugements justes = 0,5 point.","§ 5.1.2 c–f"],
@@ -778,7 +778,7 @@ function renderAtt(){const x=S.exi||{};$('#att').innerHTML=ATT.map((b,i)=>`<fiel
 $('#att').addEventListener('change',e=>{const k=e.target.dataset.at;if(!k)return;S.exi[k]=e.target.checked;put('reglages','exigences',S.exi)});
 
 
-/* ---------- Notions CK : maîtrise notion par notion, objectif > 95 % ---------- */
+ 
 const CLIN=["Définition et sémantique de la plainte","Épidémiologie (Suisse, Europe)","Physiopathologie : mécanismes générateurs","Démarche diagnostique : hypothèses fréquentes et graves","Anamnèse ciblée et drapeaux rouges","Examen physique ciblé, région par région","Approche syndromique","Diagnostic positif et critères","Examens complémentaires : indications et interprétation","Arbre décisionnel","Prise en charge selon les recommandations suisses","Suivi, pronostic et prévention","Points clés à retenir","Pièges et questions fréquentes à l’examen"].map((t,i)=>(i+1)+'- '+t+' :');
 let NS={},NSEL=null,nTimer={},NTODO=false;
 try{NS=JSON.parse(localStorage.getItem('orga-not')||'{}')}catch(e){}
@@ -821,7 +821,7 @@ function renderNotStats(){const T=nGlobal();
  s+=`<path d="${pts.map((p,i)=>(i?'L':'M')+X(i)+' '+YO(p[2])).join('')}" fill="none" stroke="var(--ok)" stroke-width="2" stroke-dasharray="5 4"/><path d="${pts.map((p,i)=>(i?'L':'M')+X(i)+' '+Y(p[1])).join('')}" fill="none" stroke="var(--gold)" stroke-width="2.4"/>`;pts.forEach((p,i)=>{s+=`<circle cx="${X(i)}" cy="${Y(p[1])}" r="3" fill="var(--gold)"/>`;if(i===0||i===pts.length-1||i%Math.ceil(pts.length/8)===0){const [y,m,dd]=p[0].split('-');s+=`<text x="${X(i)}" y="${H-6}" text-anchor="middle">${+dd}/${+m}</text>`}});$('#n-curve').innerHTML=s+'</svg>'}
 function renderNList(){const q=norm($('#n-q').value.trim()),only=$('#n-only').checked;const L=SSP.filter(s=>(!q||norm(s[0]+' '+s[1]).includes(q))&&(!only||nStat(s[0]).ab));
  $('#n-list').innerHTML=L.map(s=>{const t=nStat(s[0]);return `<div class="it${NSEL===s[0]?' sel':''}" style="--gc:${GCOL[s[2]]}" tabindex="0" aria-keyshortcuts="i" data-n="${s[0]}" data-t="s|${s[0]}"><code>${s[0]}</code><span>${esc(s[1])}</span><small>${t.ok}/${t.n} ≥ 95 % · ${t.moy.toFixed(0)} %</small></div>`}).join('')||'<p class="st">Aucun SSP.</p>'}
-/* ---------- Chiron : stations CS (assets/st/, chargées à la demande) ---------- */
+ 
 const STP={};let ST_OPEN=null;
 function stLoad(n){const v=n==='index'?'CS_ST_INDEX':'CS_ST_'+n.toUpperCase().replace(/[^A-Z0-9]/g,'_');if(window[v])return Promise.resolve(window[v]);return STP[n]||(STP[n]=new Promise((ok,ko)=>{const e=document.createElement('script');e.src='assets/st/'+n+'.js';e.async=true;const no=()=>{delete STP[n];e.remove();ko(new Error('stLoad '+n))};e.onload=()=>window[v]?ok(window[v]):no();e.onerror=no;document.head.appendChild(e)}))}
 function stMount(box,c){if(!box)return;stLoad('index').then(X=>{const L=(X.ssp||{})[c];if(!L||!L.length||!box.isConnected||NSEL!==c||box.querySelector('.st-cs'))return;const p=box.querySelector('p.st');if(!p)return;
@@ -860,7 +860,7 @@ $('#n-main').addEventListener('change',e=>{if(e.target.id==='n-todo'){NTODO=e.ta
 nWire($('#n-main'));nWire($('#e-not'));
 async function notListen(){if(!db)return;try{db.collection('notions').onSnapshot(sn=>{sn.docs.forEach(d=>{NS[d.id]=Object.assign({m:{},a:{},add:[],h:{}},d.data())});lsSet('orga-not',JSON.stringify(NS));if(!$('#v-not').hidden)renderNot();else renderNotStats()})}catch(e){}}
 
-/* ---------- Gestes d’examen physique ---------- */
+ 
 let GREG=GES[0]?.id||'',GS={};try{GS=JSON.parse(localStorage.getItem('orga-ges')||'{}')}catch(e){}
 [...new Set(GES.flatMap(r=>r.items.map(i=>i.p)))].forEach(p=>$('#g-ph').insertAdjacentHTML('beforeend',`<option>${esc(p)}</option>`));
 const EXAX={reg:'Régions anatomiques',sys:'Systèmes et modules transversaux',pop:'Populations'},EXPO={'Inspection':1,'Palpation':2,'Percussion':3,'Auscultation':4,'Mobilisation':5,'Tests spéciaux':6,'Mesures':'M','Neurologique':'N'};
@@ -889,7 +889,7 @@ $('#g-reg').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if
 $('#g-list').addEventListener('change',e=>{const k=e.target.dataset.g;if(!k)return;if(e.target.checked)GS[k]=1;else delete GS[k];e.target.closest('.gr').classList.toggle('ok',e.target.checked);lsSet('orga-ges',JSON.stringify(GS));put('reglages','gestes',GS);const y=scrollY;renderGes();scrollTo(0,y)});
 $('#g-src').innerHTML=GES_SRC;
 
-/* ---------- Import du résultat produit par l’IA ---------- */
+ 
 function parseRes(t){const m=t.match(/MEDORA-RESULTAT([\s\S]*?)(?:FIN-MEDORA|$)/);let b=(m?m[1]:t).replace(/```(?:json)?/gi,'');const a=b.indexOf('{'),z=b.lastIndexOf('}');if(a<0||z<a)throw new Error('bloc MEDORA-RESULTAT introuvable');b=b.slice(a,z+1);try{return JSON.parse(b)}catch(e){return JSON.parse(b.replace(/[“”]/g,'"').replace(/,\s*([}\]])/g,'$1'))}}
 const kkm2=k=>{const v=(k||[]).filter(x=>x!=null&&x!=='');return v.length?v.reduce((a,b)=>a+ +b,0)/v.length:null};
 const glob=x=>x.glob!=null?x.glob:(x.asm==null?null:Math.round(kkm2(x.kk)==null?x.asm:.75*x.asm+.25*(kkm2(x.kk)-1)/4*100));
@@ -903,7 +903,7 @@ $('#ir-go').onclick=()=>{let r;try{r=parseRes($('#ir-txt').value)}catch(e){$('#i
 
 async function gesLoad(){if(!db)return;try{const g=await db.doc('reglages/gestes').get();if(g.exists){GS=g.data()||{};if(!$('#v-ges').hidden)renderGes()}}catch(e){}}
 
-/* ---------- Infobulles : l’essentiel pour 100 % des points ---------- */
+ 
 const PHT={"Inspection":"Annoncer le geste, exposer la région en respectant la pudeur, observer à distance puis de près, comparer les deux côtés et énoncer à voix haute chaque constat, normal compris.","Palpation":"Mains désinfectées et réchauffées ; demander d’abord où siège la douleur et la palper en dernier ; regarder le visage du patient ; comparer les deux côtés ; énoncer le constat.","Percussion":"Technique digito-digitale, de haut en bas, symétriquement ; énoncer la sonorité perçue et sa limite.","Auscultation":"Stéthoscope sur peau nue, foyers dans un ordre fixe, comparaison symétrique ; énoncer bruits normaux et anormaux.","Mobilisation":"Actif, puis passif, puis contre résistance ; comparer au côté sain ; chiffrer l’amplitude en degrés et noter la douleur.","Tests spéciaux":"Nommer le test, l’expliquer au patient, l’exécuter correctement, comparer au côté sain, puis énoncer le résultat et sa signification.","Neurologique":"Consigne claire, comparaison droite-gauche et proximal-distal, cotation chiffrée (force 0 à 5, réflexes), énoncer le résultat.","Mesures":"Conditions de mesure correctes, valeur chiffrée avec unité, interprétation par rapport à la norme."};
 const PRV={"F1.19":[[0,40.2,"≤"],[1,26.6],[2,null],[3,null],[4,null],[8,null],[5,null],[6,null],[7,null]],"G1":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null]],"G10":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null]],"G11":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null]],"G12":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null]],"G13":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null],[14,null]],"G14":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null]],"G15":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null]],"G16":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null],[14,null],[15,null]],"G2":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null],[14,null],[15,null],[16,null],[17,null],[18,null],[19,null],[20,null]],"G3":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null]],"G4":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null]],"G5":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null],[13,null],[14,null],[15,null],[16,null],[17,null]],"G6":[[10,27.2],[11,21.1,"≤"],[12,7.0],[18,5.6],[14,1.4],[17,1.4],[13,0.9],[15,0.9],[4,0.5],[0,null],[1,null],[2,null],[3,null],[5,null],[6,null],[7,null],[8,null],[9,null],[16,null]],"G7":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null]],"G8":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null]],"G9":[[16,41.1],[15,36.5],[14,7.1],[11,5.6],[12,4.1],[4,0.5],[0,null],[1,null],[2,null],[3,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[13,null]],"S1.1":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null]],"S1.2":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null],[10,null],[11,null],[12,null]],"S2.12":[[0,1.9,"≈"],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null]],"S2.4":[[6,48.7],[8,11.5],[10,11.2],[7,7.0],[9,2.8],[0,1.5],[1,0.3],[5,null],[2,null],[4,null],[3,null]],"S2.5":[[9,60.1],[10,11.2],[8,8.2],[7,2.5],[0,1.5],[1,0.3],[6,null],[2,null],[5,null],[3,null],[4,null]],"S2.6":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null]],"S2.7":[[4,30.6],[0,20.1],[3,18.5],[2,7.8],[1,null],[10,null],[5,null],[8,null],[6,null],[7,null],[9,null]],"S3.1":[[6,27.8],[10,17.9],[9,11.6],[3,6.7],[7,5.1],[8,4.1,"≤"],[4,2.7],[11,2.6],[2,1.3],[1,1.2],[5,null],[0,null]],"S5.2":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null]],"S7.5":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null]],"S7.6":[[0,null],[1,null],[2,null],[3,null],[4,null],[5,null],[6,null],[7,null],[8,null],[9,null]]};
 const PV_LEG='<p class="pvleg">Le pourcentage décrit le cadre indiqué : consultation pour cette plainte ou population générale. Ces deux mesures ne sont pas interchangeables. Les chiffres comparables sont triés par fréquence décroissante ; un ordre qualitatif exige une source et un cadre. « % à vérifier » ne signifie pas zéro et ne prouve aucun rang. Ouvrez le pourcentage pour lire la source et le statut du classement.</p>';
@@ -935,7 +935,7 @@ function showTip(el,pin,op,kbd,keep){const k=el.dataset.t,x=tipFor(k);if(!x||!x.
  if(op!==TIPEL&&op.isConnected){const r=op.getBoundingClientRect(),w=TIPEL.offsetWidth,hh=TIPEL.offsetHeight,vw=innerWidth,vh=innerHeight;let top=r.bottom+6;if(top+hh>vh-8)top=Math.max(8,r.top-hh-6);top=Math.max(8,Math.min(top,vh-hh-8));top=Math.max(8,Math.min(top,vh-hh-8));let left=Math.min(Math.max(8,r.left+Math.min(60,r.width/4)),vw-w-8);if(pin&&top<r.bottom&&top+hh>r.top&&left<r.right&&left+w>r.left){if(r.right+w+16<=vw)left=r.right+8;else if(r.left-w-8>=8)left=r.left-w-8}TIPEL.style.top=top+'px';TIPEL.style.left=left+'px';if(pin&&!nest&&matchMedia('(max-width:620px)').matches){const tr=TIPEL.getBoundingClientRect();if(r.bottom>tr.top-8)scrollBy(0,r.bottom-tr.top+16)}};if(kbd){const cb=TIPEL.querySelector('.h button');if(cb)cb.focus({preventScroll:true})}}
 function hideTip(force){if(tipPin&&!force)return;const back=TIPEL.contains(document.activeElement);TIPEL.hidden=true;TIPEL.setAttribute('role','tooltip');if(tipOp){if(tipOp.hasAttribute('aria-expanded'))tipOp.setAttribute('aria-expanded','false');if(back&&tipOp.isConnected)tipOp.focus({preventScroll:true})}tipK=null;tipPin=false;tipOp=null;tipStk.length=0;tipTi=''}
 function tipToggle(el,op,kbd){clearTimeout(tipT);if(tipPin&&tipK===el.dataset.t){tipSup=el.dataset.t;hideTip(true)}else showTip(el,true,op,kbd)}
-/* Contrôles qui gardent leur propre action : un clic dessus n'épingle pas la fenêtre (le petit i et le mot souligné, eux, l'épinglent toujours). */
+ 
 const TIP_NOPIN='button,input,select,textarea,a,label,summary,.it,.blk,[data-open],[data-plan],[data-x]';
 document.addEventListener('click',e=>{
  if(tipNav(e))return;if(e.target.closest('#tip .h button')){clearTimeout(tipT);hideTip(true);const under=document.elementFromPoint(e.clientX,e.clientY);tipSup=under&&under.closest('[data-t]')?under.closest('[data-t]').dataset.t:null;return}if(e.target.closest('#tip'))return;
@@ -950,10 +950,10 @@ addEventListener('scroll',()=>{if(!tipPin)hideTip()},{passive:true});
 function blkFit1(k){const t=k.querySelector('.t'),b=k.querySelector('b');if(!t||!b)return;k.classList.remove('mini','nodu');t.style.removeProperty('--cl');const cs=getComputedStyle(k),H=k.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom),lh=parseFloat(getComputedStyle(t).lineHeight)||14,n=Math.floor((H-b.offsetHeight)/lh+0.02);if(n>=1)t.style.setProperty('--cl',n);else k.classList.add('mini');if(b.scrollWidth>b.clientWidth)k.classList.add('nodu')}
 function blkFit(r){(r||document).querySelectorAll('.blk').forEach(blkFit1)}
 {let bfT=0;addEventListener('resize',()=>{clearTimeout(bfT);bfT=setTimeout(()=>blkFit(),120)},{passive:true});if(document.fonts)document.fonts.ready.then(()=>blkFit())}
-/* ---------- HERMÈS · NC-0 : glossaire imbriqué (gloLink), pile de fenêtres, types CK (glo, syn, hyp, nc, loc), couches, vues et états des schémas ---------- */
-/* Données (Atlas, assets/ck/*.js, chargées par ckLoad et ckGlo du patch 0011) : CK_GLO_INDEX.e = [[id, type, libellé, formes, tranche], …] ;
-   définitions par tranche (CK_GLO_A…) ; CK_SYN, CK_HYP, CK_NC, CK_LOC, CK_SRC, CK_DOSES_CH (objet par identifiant ou tableau).
-   Schémas : CK_SVG[chemin du SVG] = texte SVG (assets/nc/ncXX.js, tools/nc_svg_js.py), états dans data-etats (Dédale). Aucune donnée ici. */
+ 
+
+
+ 
 const CK_MAX=5,tipStk=[],ckCou={};let gloI=null,gloOn=false,gloT=0,ckEt='';const gloQ=new Set(),ckTry=new Map();
 const NC_VUE={face:'Face',profil:'Profil',trois_quarts:'Trois quarts','34':'Trois quarts',plan:'Plan',voie_motrice:'Voie motrice',tour:'Tour à 8 vues'},NC_COU=['trait','nerf','noyaux','foramens','territoires','lesions','legendes','legende'],
  NC_COUL={trait:'Trait',nerf:'Nerf',noyaux:'Noyaux',foramens:'Foramens',territoires:'Territoires',lesions:'Sites lésionnels',legendes:'Légendes',legende:'Légende numérotée'},
@@ -966,9 +966,9 @@ function ckFold(s){let o='';for(let i=0;i<s.length;i++){const c=s[i],f=c.normali
 function ckData(n){const v=ckW(n);if(!v)return null;if(Array.isArray(v)){const m={};v.forEach(x=>{m[x.id||x.module]=x});window['CK_'+n]=m;return m}return v}
 function ckDate(d){const m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(d||'');return m?m[3]+'.'+m[2]+'.'+m[1]:String(d||'')}
 function ckRe(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
-/* Phrase : échappée, avec un point final seulement s’il manque (aucun « .. »). */
+ 
 function ckP(s){s=String(s||'').trim();return esc(s)+(/[.!?…:;]$/.test(s)?'':'.')}
-/* Index du glossaire : formes pliées (sans accents ni casse) et sigles exacts (AVC) ; la plus longue forme l’emporte. */
+ 
 function gloIndex(){const G=ckData('GLO'),X=ckW('GLO_INDEX'),E=X&&X.e||[],sig=E.length+':'+(G?Object.keys(G).length:0);if(gloI&&gloI.sig===sig)return gloI.ok?gloI:null;
  const F=[],A=[],M=new Map(),cs=(f,ty)=>ty==='abreviation'||/^[\p{Lu}\d]{2,6}$/u.test(f),add=(id,ty,fs)=>{for(const f of fs.filter(Boolean))cs(f,ty)?A.push([f,id]):F.push([ckFold(f),id])};
  for(const x of E){M.set(x[0],{ty:x[1],lab:x[2],sl:x[4]});add(x[0],x[1],[x[2],...(x[3]||[])])}
@@ -979,13 +979,13 @@ function gloSl(id){const I=gloIndex(),m=I&&I.M.get(id);return (m&&m.sl)||(/^[a-z
 function gloE(id){const G=ckData('GLO');if(G&&G[id])return G[id];const T=ckW('GLO_'+gloSl(id).toUpperCase().replace(/[^A-Z0-9]/g,'_'));return T&&T[id]||null}
 function gloMeta(id){const I=gloIndex(),m=I&&I.M.get(id),e=gloE(id);return m||e?{lab:(e&&e.label)||m.lab,ty:(e&&e.type)||m.ty}:null}
 function gloShort(id){const e=gloE(id);if(!e||!e.def)return '';const d=String(e.def),i=d.search(/[.;](\s|$)/);return (i>0&&i<160?d.slice(0,i+1):d.slice(0,157)+(d.length>157?'…':''))}
-/* Chargement à la demande : la fenêtre s’affiche (« Chargement… »), puis se redessine sur place quand les fichiers sont là. */
+ 
 function ckNeed(ty,a,key){if(typeof ckLoad!=='function'||ckTry.get(key)===2)return true;if(ckTry.get(key)===1)return false;const L=(CK_DEP[ty]||[]).filter(n=>!ckW(n.toUpperCase().replace(/[^A-Z0-9]/g,'_'))),g=ty==='glo'&&!gloE(a);
  if(!L.length&&!g)return true;ckTry.set(key,1);Promise.allSettled([...L.map(n=>ckLoad(n)),...(g?[ckGlo(a)]:[])]).then(()=>{ckTry.set(key,2);gloI=null;if(!gloOn&&gloIndex())gloStart();if(!TIPEL.hidden&&tipK===key)showTip({dataset:{t:key}},tipPin,tipOp||TIPEL,false,true)});return false}
 const GLO_SKIP='h1,h2,h3,h4,h5,h6,a,code,pre,kbd,samp,button,input,select,textarea,option,summary,legend,script,style,svg,noscript,nav,.tw,.it,.grp-h,[contenteditable],[data-noglo],.blk,#grid,.ck-ctl,.ck-fil',
  GLO_BLK='p,li,td,th,dd,dt,blockquote,figcaption,div,section,article,details,fieldset';
-/* gloLink(racine, exclus, dansFenetre) : pose une clé de glossaire (type glo) sur la première occurrence de chaque terme par bloc ; ignore titres, liens, code,
-   commandes, éléments déjà reliés et identifiants exclus (terme courant et ancêtres de la pile). Ne modifie aucune donnée (TIP, NOT, GES). */
+
+ 
 function gloLink(root,excl,inTip){const I=gloIndex();if(!I||!root||!root.isConnected)return 0;excl=excl||new Set();const inT=TIPEL.contains(root),L=[],seen=new Map();let n=0;
  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:t=>{const p=t.parentElement;if(!p||t.data.length<2||!/\p{L}/u.test(t.data))return 2;if(p.closest(GLO_SKIP))return 2;if(!inT&&p.closest('#tip'))return 2;return 1}});
  while(w.nextNode())L.push(w.currentNode);
@@ -1001,7 +1001,7 @@ function gloLink(root,excl,inTip){const I=gloIndex();if(!I||!root||!root.isConne
    s.setAttribute('aria-expanded','false');s.setAttribute('aria-controls','tip');s.textContent=txt.slice(i,i+len);f.append(s);at=i+len;k++}
   if(k){f.append(txt.slice(at));if(['grid','inline-grid','flex','inline-flex'].includes(getComputedStyle(p).display)){const flow=document.createElement('span');flow.append(f);t.replaceWith(flow)}else t.replaceWith(f);n+=k}}
  return n}
-/* Pages : liaison à l’inactivité, par petits lots, sur les nœuds ajoutés au rendu ; jamais dans la fenêtre (liée à son ouverture). */
+ 
 const ckIdle=window.requestIdleCallback?f=>requestIdleCallback(f,{timeout:700}):f=>setTimeout(()=>f({timeRemaining:()=>8}),60);
 const gloMO=new MutationObserver(R=>{for(const r of R)for(const n of r.addedNodes){const e=n.nodeType===1?n:n.parentElement;if(e&&!(e.classList&&e.classList.contains('glo'))&&!TIPEL.contains(e))gloQ.add(e)}gloSched()});
 function gloSched(){if(gloT||!gloQ.size)return;gloT=1;ckIdle(gloRun)}
@@ -1010,7 +1010,7 @@ function gloRun(dl){gloT=0;const R=[...gloQ].filter(e=>e.isConnected&&![...gloQ]
  finally{gloMO.observe(document.querySelector('.w')||document.body,{childList:true,subtree:true})}gloSched()}
 function gloStart(){gloI=null;if(!gloIndex())return;gloOn=true;const W=document.querySelector('.w')||document.body;for(const c of W.children)gloQ.add(c);gloMO.observe(W,{childList:true,subtree:true});gloSched()}
 document.addEventListener('ck:pret',gloStart);
-/* Rendus des types CK. ckL : lien explicite vers une autre fenêtre (retiré s’il est déjà dans la pile ou au niveau 5). */
+ 
 function ckL(k,t,ti){return `<span class="tw ck-l" data-t="${esc(k)}" tabindex="0" role="button" aria-haspopup="dialog">${esc(t)}</span>`}
 function ncVue(v){return NC_VUE[v]||v}
 function ckLab(n,id){if(n==='GLO'){const m=gloMeta(id);return m?m.lab:id}const e=(ckData(n)||{})[id];return e?(e.label||e.nom||id):id}
@@ -1063,24 +1063,24 @@ function ckTip(ty,a,b){
    +`<figure class="ck-fig" data-nc="${esc(a)}" data-vue="${v}"></figure>`
    +(les?`<details class="ck-det" open><summary>Sites lésionnels</summary><ul>${les}</ul></details>`:'')+(ana?`<details class="ck-det"><summary>Anatomie</summary>${ana}</details>`:'')+(e.src||e.statut?ckFoot(e):'')}}
  return undefined}
-/* Schémas : SVG en ligne depuis CK_SVG (assets/nc/ncXX.js), nettoyé ; états (data-etats) et couches réglables ; sinon image simple. */
+ 
 const ckJs={};
 function ckSvg(fig,src){const d=new DOMParser().parseFromString(src,'image/svg+xml'),s=d.documentElement;if(!s||s.nodeName!=='svg')return null;
  s.querySelectorAll('script,foreignObject').forEach(x=>x.remove());for(const el of [s,...s.querySelectorAll('*')])for(const at of [...el.attributes]){if(/^on/i.test(at.name)||(/href$/i.test(at.name)&&/^\s*javascript:/i.test(at.value)))el.removeAttribute(at.name)}
  const n=document.importNode(s,true);n.setAttribute('role','img');n.removeAttribute('width');n.removeAttribute('height');n.setAttribute('preserveAspectRatio','xMidYMid meet');return n}
 function ckEtats(s){try{return s&&s.dataset.etats?JSON.parse(s.dataset.etats):null}catch(e){return null}}
-/* État X : [data-etat] visibles seulement pour X ; couches cochées d’après data-etats[X] (l’utilisateur peut ensuite les régler). */
+ 
 function ckEtat(fig,x){const s=fig.querySelector('svg'),M=ckEtats(s);if(!M||!M[x])return;ckEt=x;s.dataset.etat=x;
  s.querySelectorAll('[data-etat]').forEach(g=>g.setAttribute('display',g.dataset.etat===x?'inline':'none'));NC_COU.forEach(c=>{ckCou[c]=M[x].includes(c)});
  TIPEL.querySelectorAll('input[data-ck=cou]').forEach(i=>{i.checked=ckCou[i.value]!==false});TIPEL.querySelectorAll('[data-ck=etat]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.e===x)));ckApply(fig)}
-/* Couche c : tous ses groupes (#c ou [data-couche=c]) ; un groupe propre à un état (data-etat) ne s’affiche que dans cet état. */
+ 
 function ckApply(fig){const s=fig.querySelector('svg'),F=TIPEL.querySelector('.ck-couches');if(!F)return;const et=s&&ckEtats(s)&&s.dataset.etat||'';
  for(const i of F.querySelectorAll('input[data-ck=cou]')){const G=s?[...s.querySelectorAll(`#${i.value},[data-couche="${i.value}"]`)]:[];i.closest('label').hidden=!G.length;i.disabled=!G.some(g=>g.childElementCount);
   G.forEach(g=>g.setAttribute('display',i.checked&&(!et||!g.dataset.etat||g.dataset.etat===et)?'inline':'none'))}}
 function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{})[id];if(!e)return;const nom=ckLab('NC',id),F=TIPEL.querySelector('.ck-couches');
  if(v==='tour'){fig.innerHTML=`<div class="ck-tour" role="slider" tabindex="0" aria-label="Tour du schéma ${esc(nom)} : glissez ou utilisez les flèches" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="0°" style="background-image:url('${esc(e.tour)}')"></div><figcaption class="st">Glissez, ou utilisez les flèches gauche et droite : 8 vues à 45°.</figcaption>`;return}
  const p=e.vues[v],SV=ckW('SVG'),src=SV&&SV[p];
- const cred=s=>{let c=(ckW('NC_CRED')||{})[p]||(e.credits||{})[v];/* le SVG de Dédale porte déjà son crédit visible */c=c?(typeof c==='string'?c:(c.tasl||c.credit||'')):'';return c?`<figcaption class="ck-cr">${esc(c)}</figcaption>`:''};
+ const cred=s=>{let c=(ckW('NC_CRED')||{})[p]||(e.credits||{})[v]; c=c?(typeof c==='string'?c:(c.tasl||c.credit||'')):'';return c?`<figcaption class="ck-cr">${esc(c)}</figcaption>`:''};
  if(src){const n=ckSvg(fig,src);if(n){n.setAttribute('aria-label','Schéma : '+nom+', vue '+ncVue(v));n.removeAttribute('aria-labelledby');fig.replaceChildren(n);fig.insertAdjacentHTML('beforeend',cred(n));ckNum(fig,n);
   const M=ckEtats(n),E=TIPEL.querySelector('.ck-etats');
   if(M&&E){const K=Object.keys(M),x=K.includes(ckEt)?ckEt:(n.dataset.etat&&M[n.dataset.etat]?n.dataset.etat:K[0]);E.innerHTML=K.map(k=>`<button type="button" class="b" data-ck="etat" data-e="${esc(k)}" aria-pressed="${k===x}">${esc(NC_ETL[k]||k)}</button>`).join('');E.hidden=false;ckEtat(fig,x)}else ckApply(fig);return}}
@@ -1089,8 +1089,8 @@ function ckFig(fig){const id=fig.dataset.nc,v=fig.dataset.vue,e=(ckData('NC')||{
   sc.onload=()=>{ckJs[js]=1;if(fig.isConnected)ckFig(fig)};sc.onerror=()=>{ckJs[js]=-1;if(fig.isConnected)ckFig(fig)};document.head.appendChild(sc);return}
  if(ckJs[js]===0)return;
  fig.innerHTML=`<img src="${esc(p)}" alt="Schéma : ${esc(nom)}, vue ${ncVue(v)}" loading="lazy">${cred(null)}<p class="st">Les couches ne sont pas disponibles pour ce schéma : le fichier ${esc(js)} manque.</p>`;if(F)F.disabled=true}
-/* Repères numérotés (Dédale : g.nc-num, data-num, data-nom, data-glo) : bulle « n · nom » après clic, toucher ou activation clavier ;
-   clic, toucher ou Entrée ouvrent la fiche du glossaire au niveau suivant (même pile), sauf au niveau 5 ou si elle est déjà ouverte. */
+
+ 
 let ckCtx={lv:1,ex:[]};
 function ckNum(fig,s){const {lv,ex}=ckCtx;
  s.querySelectorAll('.nc-num').forEach(g=>{const id=g.dataset.glo,k=id?'glo|'+id:'',ok=k&&gloMeta(id)&&lv<CK_MAX&&!ex.includes(k);g.setAttribute('tabindex','0');g.setAttribute('role','button');
@@ -1101,7 +1101,7 @@ function ckBulle(g){const fig=g&&g.closest('.ck-fig'),b=fig&&fig.querySelector('
  const r=g.getBoundingClientRect(),q=fig.getBoundingClientRect(),w=b.offsetWidth;b.style.left=Math.max(0,Math.min(q.width-w,r.left-q.left+r.width/2-w/2))+'px';b.style.top=(r.bottom-q.top+6)+'px'}
 function ckBulleX(){const b=TIPEL.querySelector('.ck-bulle');if(b)b.hidden=true}
 function ckTour(el,d){const f=((+el.getAttribute('aria-valuenow')+d)%8+8)%8;el.setAttribute('aria-valuenow',f);el.setAttribute('aria-valuetext',f*45+'°');el.style.backgroundPositionX=(f*100/7)+'%'}
-/* Pile de fenêtres : un terme ouvert depuis la fenêtre l’empile (5 niveaux au plus) ; « ← Retour » et le fil d’Ariane y reviennent. */
+ 
 function tipGo(i){if(i<0||i>=tipStk.length)return;const s=tipStk[i];tipStk.length=i;showTip({dataset:{t:s.k}},true,tipOp,true,true)}
 function tipNav(e){const t=e.target;if(!(t instanceof Element)||!TIPEL.contains(t))return false;
  if(t.closest('input,a[href]'))return true;
