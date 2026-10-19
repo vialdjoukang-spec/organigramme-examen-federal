@@ -1,3 +1,9 @@
+## URGENCE · périmètre rectifié par Vial · 19.10.2026
+
+Le plan monographique en six rubriques concerne UNIQUEMENT les diagnostics différentiels des SSP. Les SSP et leurs quatorze parties de COURS n’étaient pas concernés. Restaurer d’abord, sans réécriture clinique, le contenu spécifique antérieur de chaque partie, son titre et ses sources ; conserver le rendu régional et les liens de l’examen physique. Le titre du SSP retrouve la fiche éclair (définition et points clés). Ouverture par clic, toucher ou clavier seulement, jamais au survol.
+
+Cette consigne remplace toute instruction plus ancienne imposant une monographie commune aux SSP ou aux parties du cours. La restauration des cours doit être vérifiée et publiée avant toute reprise des diagnostics différentiels. Les monographies DD déjà publiées restent intactes. Le lot G2 non publié demeure conservé séparément. Aucun automate ne doit proposer de créer de nouvelles monographies SSP ; leurs anciennes données restent archivées sans affichage. Les contrôles de relecture, de sources, de doses et de fusion restent applicables.
+
 # Consigne opérationnelle actualisée · 18.10.2026
 
 Responsable principal seulement : signaler une activité réelle par un bail de180s sur `garde/etat:veille/permanence.json`, puis le rafraîchir avant expiration pendant le travail. Commande si gh fonctionne : `python3 tools/garde/permanence.py --github-state --agent "identifiant-unique-de-cette-session" --lease-seconds 180` ; sinon utiliser le connecteur GitHub avec lecture préalable et écriture conditionnelle conservant les autres champs. Ne pas renouveler depuis une simple boucle de surveillance : cela ne prouve pas qu’un agent travaille. La veille vise120s par passage, déclencheur GitHub5min ; horodatages effectifs et limites dans `docs/VEILLE_PERMANENCE.md`. La mission reste la révision concise et chronologique des infobulles, au clic uniquement.

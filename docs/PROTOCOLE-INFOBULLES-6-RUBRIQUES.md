@@ -1,10 +1,12 @@
-# Prototype obligatoire des infobulles · ordre de Vial du 18.10.2026
+# Prototype obligatoire des diagnostics différentiels · périmètre corrigé le 19.10.2026
 
 Interaction actualisée : ouverture uniquement après clic, toucher ou activation clavier. Le survol ne déclenche aucune infobulle, y compris pour les termes imbriqués et les repères. Aucun appui long automatique.
 
-Périmètre : contenu ouvert au clic ou au toucher, sans ouverture au survol d’un SSP ou d’un diagnostic différentiel, y compris les définitions imbriquées. Les intitulés et sous-titres seuls sont en gras ; le corps reste en texte normal. Le contenu existant est réorganisé puis enrichi avec des sources suisses ou européennes effectivement relues. Une migration de mise en page ne vaut pas une relecture clinique.
+Périmètre : les six rubriques monographiques s’appliquent uniquement aux diagnostics différentiels. Les SSP et leurs quatorze parties de cours conservent chacun leur contenu antérieur spécifique : définition, épidémiologie, physiopathologie, démarche, anamnèse, examen, etc. Le clic sur une partie du cours doit afficher cette partie seule avec son titre et sa source ; il ne doit jamais la remplacer par une monographie commune. La fiche éclair SSP conserve définition et points clés. Cette correction de périmètre prime sur les anciennes consignes qui étendaient le prototype aux SSP.
 
-**Titre du SSP ou du diagnostic différentiel**
+L’ouverture reste au clic, au toucher ou au clavier uniquement, y compris pour les termes imbriqués ; le survol n’ouvre rien. Dans les monographies DD, les intitulés et sous-titres seuls sont en gras ; le corps reste en texte normal. Le contenu existant est réorganisé puis enrichi avec des sources suisses ou européennes effectivement relues. Une migration de mise en page ne vaut pas une relecture clinique.
+
+**Titre du diagnostic différentiel**
 
 **1- Généralité & Définition**
 Une définition précise situe la maladie ou le problème.
@@ -50,4 +52,4 @@ La chronologie est déclarée par `chronologie_version: 1`, avec `bilan_ordre` (
 
 Reprise à G1 (sueurs / hyperhidrose), puis progression dans l’ordre du catalogue par petits lots. Le lot G10 radiculalgie/polyneuropathie arrêté reste conservé localement, non publié. Aucun autre chantier clinique, station, croquis ou enrichissement hors de cette correction ne doit être relancé pendant la cellule de correction. Les vérifications, scripts et publications nécessaires à cette mission restent actifs.
 
-Les entrées du cours dans Notions CK ouvrent aussi la monographie SSP structurée lorsqu’elle est disponible ; le contenu est partagé avec la fiche SSP. Les anciens fragments restent disponibles pour les SSP non encore révisés, qui ne sont pas comptés comme corrigés.
+Les entrées du cours dans Notions CK ouvrent exclusivement le contenu spécifique de leur rubrique dans TIP.c. L’index c5 (sixième rubrique : examen physique) conserve son rendu par région et ses renvois de gestes ; le titre d’un SSP conserve sa fiche éclair. Les données de monographies SSP créées par erreur restent archivées sans être affichées ni proposées comme travaux à poursuivre. Les monographies DD continuent à s’ouvrir depuis leurs seuls diagnostics différentiels.

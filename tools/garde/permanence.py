@@ -38,10 +38,16 @@ def complete(report):
             or protocol.get('chronologie_obligatoire') is not True):
         return False
     m = report.get('mesure', {})
-    for total, structured, reviewed in [('diagnostics_uniques', 'prototype_structure', 'prototype_relecture'),
-                                         ('ssp_total', 'ssp_prototype_structure', 'ssp_prototype_relecture'),
-                                         ('diagnostics_uniques', 'chronologie_structures', 'chronologie_relectures'),
-                                         ('ssp_total', 'ssp_chronologie_structures', 'ssp_chronologie_relectures')]:
+    scope = report['plan'].get('perimetre_monographies')
+    checks = [('diagnostics_uniques', 'prototype_structure', 'prototype_relecture'),
+              ('diagnostics_uniques', 'chronologie_structures', 'chronologie_relectures')]
+    if scope is None:
+        # Ancien contrat conservé pour les rapports sans périmètre explicite.
+        checks += [('ssp_total', 'ssp_prototype_structure', 'ssp_prototype_relecture'),
+                   ('ssp_total', 'ssp_chronologie_structures', 'ssp_chronologie_relectures')]
+    elif scope != 'diagnostics_differentiels':
+        return False
+    for total, structured, reviewed in checks:
         vals = [m.get(k) for k in (total, structured, reviewed)]
         if any(type(v) is not int for v in vals) or vals[0] <= 0 or vals != [vals[0]] * 3:
             return False
@@ -50,7 +56,10 @@ def complete(report):
 
 def digest(report):
     m = report['mesure']
-    return {k: m[k] for k in ['prototype_structure', 'prototype_relecture', 'ssp_prototype_structure', 'ssp_prototype_relecture']}
+    keys = ['prototype_structure', 'prototype_relecture']
+    if report.get('plan', {}).get('perimetre_monographies') != 'diagnostics_differentiels':
+        keys += ['ssp_prototype_structure', 'ssp_prototype_relecture']
+    return {k: m[k] for k in keys}
 
 
 def live(lease, now):

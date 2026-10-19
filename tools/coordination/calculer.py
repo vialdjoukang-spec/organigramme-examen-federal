@@ -112,7 +112,7 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
     crisis = config.get('mission_exclusive') == 'infobulles_prototype6'
     if crisis:
         metrics['maturite_documentaire_complete'] = bool(metrics['maturite_documentaire_complete']
-            and metrics['prototype_relecture'] == mono_total and len(ssp_revues) == len(ssps))
+            and metrics['prototype_relecture'] == mono_total)
         # An existing legacy monograph is still due. Preserve catalogue order
         # within G1 and then the remaining SSP; do not skip to missing G10 work.
         maturation=[]; selected=set()
@@ -150,7 +150,7 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
           'intervalle_recherche_minutes':config['intervalle_recherche_minutes']}
     if crisis:
         plan.update(mission_exclusive='infobulles_prototype6',recherche_automatique_suspendue=True,
-                    prochaines_fiches_ssp=[s[0] for s in sorted(ssps,key=lambda s:s[0]!=config['ssp_prioritaire']) if s[0] not in ssp_revues][:3],
+                    perimetre_monographies='diagnostics_differentiels',prochaines_fiches_ssp=[],
                     action_recherche='rechercher manuellement les sources nécessaires au lot courant uniquement')
     return {'version':1,'protocole':{'version':2,'rubriques':6,'chronologie_obligatoire':True},'maj':datetime.now(timezone.utc).isoformat(timespec='seconds'),'mesure':metrics,'plan':plan,'occurrences':occurrences,
             'reserve':'Couverture structurelle et relecture documentaire distinctes. Registre lié aux empreintes initialisé sur le dernier lot ; les audits historiques ne sont pas tous migrés. Aucun accord clinique humain ni achèvement déduit d’un chiffre arrondi.'}
@@ -162,16 +162,12 @@ def page(report):
     if p.get('mission_exclusive') == 'infobulles_prototype6':
         rows=[('Prototypes six rubriques avec chronologies (hors validation clinique)',m['prototype_structure'],m['diagnostics_uniques']),
               ('Prototypes avec relecture documentaire actuelle',m['prototype_relecture'],m['diagnostics_uniques'])]
-        rows += [('Fiches SSP structurées',m['ssp_prototype_structure'],m['ssp_total']),
-                 ('Fiches SSP avec relecture documentaire actuelle',m['ssp_prototype_relecture'],m['ssp_total'])]
     bars=''.join(f'<tr><td>{esc(label)}</td><td><progress value="{n}" max="{max(1,total)}"></progress> {n}/{total}</td></tr>' for label,n,total in rows)
     todo=''.join(f'<li>{esc(x["ssp"])} : {esc(x["diagnostic"])}</li>' for x in p['prochain_lot9'])
-    if p.get('mission_exclusive') == 'infobulles_prototype6':
-        todo += '<li>Fiches SSP à reprendre : '+', '.join(esc(c) for c in p.get('prochaines_fiches_ssp',[]))+'</li>'
     recherche=(esc(p['action_recherche'])+'. Recherches automatiques transversales suspendues.'
                if p.get('recherche_automatique_suspendue') else
                'File documentaire : '+str(p['file_relecture'])+' extraits. Recherche régulée : '+str(p['limite_recherche'])+' diagnostic(s) par catégorie, au plus toutes les '+str(p['intervalle_recherche_minutes'])+' minutes.')
-    titre='Infobulles · prototype six rubriques' if p.get('mission_exclusive') == 'infobulles_prototype6' else 'Étapes 8 et 9 · suivi commun'
+    titre='Diagnostics différentiels · prototype six rubriques' if p.get('mission_exclusive') == 'infobulles_prototype6' else 'Étapes 8 et 9 · suivi commun'
     return '<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>'+titre+'</title><style>body{font:18px system-ui;max-width:960px;margin:auto;padding:24px;color:#182c40;background:#f5f7fa}td{padding:12px}progress{max-width:40vw}a{color:#0057a3}</style><h1>'+titre+'</h1><p>'+esc(report['maj'])+'</p><table>'+bars+'</table><p>'+esc(report['reserve'])+'</p><h2>Lot prioritaire</h2><ol>'+todo+'</ol><p>'+recherche+'</p><p>SSP sans différentiel : '+str(len(m['ssp_sans_dd']))+'. Leur absence empêche une maturité globale.</p><p><a href="prevalences.html">Prévalences</a> · <a href="prevalences-erreurs.pdf">Rapport des erreurs</a> · <a href="coordination.json">Détail vérifiable</a></p></html>'
 
 def main():

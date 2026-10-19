@@ -17,6 +17,23 @@ def report():
 
 
 class PermanenceTests(unittest.TestCase):
+    def test_explicit_dd_scope_never_requires_archived_ssp_monographs(self):
+        r=report();r['plan']['perimetre_monographies']='diagnostics_differentiels'
+        r['mesure'].update(prototype_structure=2287,prototype_relecture=2287,
+                          chronologie_structures=2287,chronologie_relectures=2287)
+        self.assertTrue(complete(r))
+        r['mesure']['chronologie_relectures']=2286
+        self.assertFalse(complete(r))
+        r['mesure']['chronologie_relectures']=2287
+        r['plan']['perimetre_monographies']='perimetre_inconnu'
+        self.assertFalse(complete(r))
+
+    def test_ssp_archive_growth_is_not_progress_on_dd_scope(self):
+        r=report();r['plan']['perimetre_monographies']='diagnostics_differentiels'
+        state={};self.assertEqual(policy(state,r,0),'progression')
+        r['mesure'].update(ssp_prototype_structure=248,ssp_prototype_relecture=248)
+        self.assertEqual(policy(state,r,120),'relancer')
+
     def test_legacy_or_three_records_never_complete_all(self):
         r=report();self.assertFalse(complete(r))
         r['mesure'].update(prototype_structure=2287,prototype_relecture=2287,

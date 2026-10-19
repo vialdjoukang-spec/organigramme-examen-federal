@@ -1,4 +1,4 @@
-"""Click opens G1 and its definitions; moving across words must open nothing."""
+"""DD monographies and distinct SSP course sections open only on activation."""
 import asyncio
 import os
 from pathlib import Path
@@ -11,7 +11,7 @@ async def check(page, touch=False):
     await page.evaluate("""() => {
       const f=document.createElement('div');f.id='prototype-test';
       f.style.cssText='position:fixed;top:10px;left:10px;z-index:99999;background:white';
-      f.innerHTML='<button class="tw" data-t="s|G1">SSP G1</button><button class="tw" data-t="n|G1|d0">Hyperhidrose</button><button class="tw" data-t="n|G1|c0">Cours G1</button><button class="tw" data-t="n|G1|c5">Examen G1</button>';
+      f.innerHTML='<button class="tw" data-t="n|G1|d0">Hyperhidrose</button>';
       document.body.appendChild(f);
     }""")
     async def six():
@@ -33,7 +33,7 @@ async def check(page, touch=False):
         assert await page.locator('#tip').is_hidden(), 'Hover must not open a monography'
         await page.mouse.move(1,1)
     await dd.tap() if touch else await dd.click()
-    clicked=await six()
+    await six()
     await page.wait_for_function("document.querySelector('#tip .ck-b .glo')")
     term=page.locator('#tip .ck-b .glo').first
     if not touch:
@@ -55,39 +55,16 @@ async def check(page, touch=False):
         await page.locator('#tip .bk').click()
         await six()
     await page.keyboard.press('Escape')
-    ssp=page.locator('#prototype-test [data-t="s|G1"]')
-    await ssp.tap() if touch else await ssp.click()
-    await six()
-    assert await page.locator('#tip .t').inner_text() == 'Sudation anormale'
-    if not touch:
-        await page.keyboard.press('Escape')
-        await ssp.focus()
-        await page.keyboard.press('Enter')
-        await six()
-    await page.keyboard.press('Escape')
-    course=page.locator('#prototype-test [data-t="n|G1|c0"]')
-    await course.tap() if touch else await course.click()
-    await six()
-    assert await page.locator('#tip .t').inner_text() == 'Sudation anormale'
-
-    await page.keyboard.press('Escape')
-    examination=page.locator('#prototype-test [data-t="n|G1|c5"]')
-    await examination.tap() if touch else await examination.click()
-    await six()
-    assert await page.locator('#tip .ex-region .ex-region__h').count() >= 2
-    assert await page.locator('#tip .ex-chip').count() >= 1
-    text=await page.locator('#tip .ck-b').inner_text()
-    assert text.index('Examen physique par région') < text.index('5. Sémiologie aux explorations')
 
 async def check_g2(page, touch=False):
-    """G2 shares the SSP in the course and keeps all revised DD accessible."""
+    """Keep the nine revised G2 DD and their ordered six-rubric monographies."""
     await page.keyboard.press('Escape')
     await page.evaluate("""() => {
       document.getElementById('prototype-test').innerHTML =
-        ['n|G2|d0','n|G2|d1','n|G2|d2','n|G2|d3','n|G2|d4','n|G2|d5','n|G2|d6','n|G2|d7','n|G2|d8','s|G2','n|G2|c0'].map((key,i)=>
+        ['n|G2|d0','n|G2|d1','n|G2|d2','n|G2|d3','n|G2|d4','n|G2|d5','n|G2|d6','n|G2|d7','n|G2|d8'].map((key,i)=>
           `<button class="tw" id="g2-${i}" data-t="${key}">G2 ${i}</button>`).join('');
     }""")
-    for index in range(11):
+    for index in range(9):
         target = page.locator(f'#g2-{index}')
         if not touch:
             await target.hover()
@@ -100,9 +77,6 @@ async def check_g2(page, touch=False):
         assert text.index('Examen de référence diagnostique') < text.index('1 — À faire en premier')
         assert text.index('B- Moyens') < text.index('Phase 1 —') < text.index('Phase 2 —')
         assert text.count('Critères diagnostiques') == 1
-        if index >= 9:
-            assert await page.locator('#tip .t').inner_text() == 'Tuméfaction, masse, adénopathies'
-            assert 'masse ganglionnaire' in text
         if index == 2:
             assert 'ATRA' in text and 'sans attendre la confirmation génétique' in text
         if index == 3:
@@ -135,6 +109,92 @@ async def check_g2(page, touch=False):
             await page.keyboard.press('Escape')
 
 
+async def check_courses(page, touch=False):
+    """All 248 SSP keep 14 course sections; exercise every G1/G2 section in UI."""
+    await page.keyboard.press('Escape')
+    # An already loaded SSP monography must never hijack a course or flash summary.
+    await page.evaluate(r"""async () => {
+      await monoLoad('ssp');
+      window.courseExpected = (code, i) => {
+        const T=TIP[code], V=T.v && T.v.c && T.v.c[i];
+        const x={hd:'L’essentiel pour 100 % des points · '+code,ti:CLIN[i],
+          h:i===5?exFmt(T.c[i]):T.c[i]};
+        if(V && V[0]==='silence')return {...x,
+          h:'<i>Silence volontaire : aucune source vérifiée ne permet ici une information précise. Une information vague vaut moins qu’un silence.</i>',src:''};
+        if(V && V[1].length)return {...x,ok:V[0],
+          links:V[1].map(id=>T.v.S.find(source=>source.id===id)).filter(Boolean)};
+        return {...x,src:(T.s?T.s+' · ':'')+'GLOBALITY, cours SSP '+code+' — '+BY[code][1],pend:true};
+      };
+      window.summaryExpected = code => ({hd:'Fiche éclair · '+code,ti:BY[code][1],
+        h:'<b>Définition</b><br>'+TIP[code].c[0]+'<br><b>Points clés</b><br>'+TIP[code].c[12],
+        src:(TIP[code].s?TIP[code].s+' · ':'')+'GLOBALITY'});
+      window.tipText = html => {
+        const div=document.createElement('div');div.innerHTML=html;
+        return div.textContent.replace(/\s+/g,' ').trim();
+      };
+    }""")
+    result = await page.evaluate("""() => {
+      const codes=Object.keys(TIP),failures=[];let sections=0;
+      for(const code of codes){
+        if(TIP[code].c.length!==14)failures.push(code+': expected 14 course sections');
+        for(let i=0;i<14;i++){
+          const key='n|'+code+'|c'+i,actual=tipFor(key),expected=courseExpected(code,i);
+          sections++;
+          if(JSON.stringify(actual)!==JSON.stringify(expected))failures.push(key);
+        }
+        if(JSON.stringify(tipFor('s|'+code))!==JSON.stringify(summaryExpected(code)))
+          failures.push('s|'+code);
+      }
+      return {codes:codes.length,sections,failures};
+    }""")
+    assert result == {'codes':248,'sections':3472,'failures':[]}, result
+
+    for code in ('G1','G2'):
+        await page.evaluate("""code => {
+          document.getElementById('prototype-test').innerHTML =
+            ['s|'+code,...Array.from({length:14},(_,i)=>'n|'+code+'|c'+i)]
+              .map((key,i)=>`<button class="tw" id="course-${i}" data-t="${key}">${key}</button>`).join('');
+        }""",code)
+        for index in range(15):
+            key = f's|{code}' if index == 0 else f'n|{code}|c{index-1}'
+            target=page.locator(f'#course-{index}')
+            if not touch:
+                await target.hover()
+                await page.wait_for_timeout(650)
+                assert await page.locator('#tip').is_hidden(), f'{key}: hover opened a tip'
+                await page.mouse.move(1,1)
+            await target.tap() if touch else await target.click()
+            await page.wait_for_function('key => !TIPEL.hidden && tipK===key',arg=key)
+            async def correct_section():
+                result=await page.evaluate(r"""({code,index}) => {
+                  const x=index===0?summaryExpected(code):courseExpected(code,index-1);
+                  const body=TIPEL.querySelector('.ck-b'),source=TIPEL.querySelector('.s');
+                  const expectedSource=x.links
+                    ? '✓ Vérifié · '+(x.ok||'confirmé')+' Sources consultées : '+x.links.map(l=>
+                        l.t+' ('+[l.o,l.n,l.a].filter(Boolean).join(', ')+')').join(' · ')
+                    : (x.pend?'Contenu GLOBALITY · vérification externe en cours ':'')+'Sources : '+x.src;
+                  return {title:TIPEL.querySelector('.t').textContent===x.ti,
+                    body:tipText(body.innerHTML)===tipText(x.h),
+                    source:source.textContent.replace(/\s+/g,' ').trim()===expectedSource.replace(/\s+/g,' ').trim(),
+                    links:!x.links || JSON.stringify([...source.querySelectorAll('a')].map(a=>a.getAttribute('href')))
+                      ===JSON.stringify(x.links.filter(l=>l.u).map(l=>l.u)),
+                    examination:index!==6 || body.querySelectorAll('.ex-region .ex-region__h').length>=2};
+                }""",{'code':code,'index':index})
+                assert result == {'title':True,'body':True,'source':True,'links':True,
+                                  'examination':True}, (key,result)
+            await correct_section()
+            if index==6:
+                assert await page.locator('#tip .ex-chip').count() >= 1
+            await page.keyboard.press('Escape')
+            if not touch:
+                for activation in ('Enter',' '):
+                    await target.focus()
+                    await page.keyboard.press(activation)
+                    await page.wait_for_function('key => !TIPEL.hidden && tipK===key',arg=key)
+                    await correct_section()
+                    await page.keyboard.press('Escape')
+
+
 async def main():
     async with async_playwright() as p:
         kwargs={'args':['--no-sandbox']}
@@ -146,9 +206,10 @@ async def main():
             errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
             await check(page,touch)
             await check_g2(page,touch)
+            await check_courses(page,touch)
             assert not errors, errors
             await context.close()
         await browser.close()
-    print('Infobulles G1 et G2 : aucun survol, clic/toucher, clavier, six rubriques, définitions imbriquées et retour : OK')
+    print('Infobulles : DD G1/G2 six rubriques et chronologies, 14 cours distincts G1/G2, 248 SSP, aucun survol, clic/toucher, clavier, définitions et retour : OK')
 
 if __name__=='__main__':asyncio.run(main())
