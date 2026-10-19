@@ -1,3 +1,11 @@
+## Cours G14 · forme et fond · 19.10.2026 Europe/Zurich
+
+G14 mort subite cardiaque :14parties révisées et contre-auditées. Définition et arrêt réversible distingués, rythmes et causes réversibles explicites, soins post-arrêt actualisés2025 et DAI contextualisé2026. SWISSRECA2025 remplace l’ancienne proportion>80 % de FV et précise les dénominateurs de survie. Examen régional et renvois préservés ; anciensvisas/DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine.
+
+G1–G8verts,40unitaires,5gardes,82socleCK,98lignes de doses inchangées et compilateurs vérifiés. Lyncée3478inchangé,734définitions dont CPC sourcée ; UI G1–G14 étendue en CI, budget6Mo respecté. G12publié vérifié : huit fichiers200identiquesmain9da3be5à17:53UTC. Jauge préparée14/248cours,196/3472parties ; suiteG15 puisG16, ordre de fusion maintenu.
+
+Suite autorisée : G15 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## G13 · compatibilité examen régional ·19.10.2026
 
 La CI a détecté le format de la rubrique§autres : quatre puces rédigées restaurées, mots médicaux strictement identiques. Contre-vérification indépendante favorable ; les12assertions statiques originales de test_examen.py passent sous Node, aucun test modifié. Rapport et empreinte de partie6 actualisés ; G12publié, G13CI à reprendre.

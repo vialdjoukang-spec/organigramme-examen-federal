@@ -898,3 +898,7 @@ G12 œdèmes :14parties révisées et contre-auditées. Topographie et causes ne
 ## G13 cours ·19.10.2026
 
 G13 mort non naturelle :14parties révisées et contre-auditées, signes de mort et causes/circonstances distingués. Refroidissement seul et pétéchies ne sont plus des preuves ; secours prioritaires, qualification prudente et procédure suisse cantonale précisés. Statistiques OFS2023 datées ; anciens chiffres et datation conservés avec limites. Régions/phases/renvois, diagnostics différentiels et fondamentaux préservés. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G13-20261019.json.
+
+## G14 cours ·19.10.2026
+
+G14 mort subite cardiaque :14parties révisées et contre-auditées. Définition et arrêt réversible distingués, rythmes et causes réversibles explicites, soins post-arrêt actualisés2025 et DAI contextualisé2026. SWISSRECA2025 remplace l’ancienne proportion>80 % de FV et précise les dénominateurs de survie. Examen régional et renvois préservés ; anciensvisas/DD/fondamentaux et247autresTIP intacts. Aucune validation médicale humaine. Contre-audit : audit/FORME-FOND-COURS-G14-20261019.json.
