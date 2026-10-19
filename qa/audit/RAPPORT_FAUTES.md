@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 83 faute(s) corrigée(s), dont 6 critique(s), 18 majeure(s) et 59 mineure(s).
+Bilan : 90 faute(s) corrigée(s), dont 6 critique(s), 25 majeure(s) et 59 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -14,6 +14,18 @@ Bilan : 83 faute(s) corrigée(s), dont 6 critique(s), 18 majeure(s) et 59 mineur
 | g1-r13-precautions | mono\|infection-a-vih | La formule ne précisait ni les examens parallèles en primo-infection symptomatique ni le suivi distinct après PEP. | Test automatisé ≥4e génération avec analyse moléculaire en parallèle si suspicion symptomatique ; calendrier OFSP spécifique après PEP. | OFSP directiveVIH2025v4 §§2.4/2.6A ; OFSP/CFIST PEP07.11.2025 calendrier, lu le 2026-10-18 | 2026-10-18 |
 | g1-r13-precautions | mono\|sevrage-alcoolique-complique | Le CIWA-Ar était cité sans limite explicite chez un patient atteint de delirium. | Ne pas guider le traitement du delirium ou d’une personne non communicante par le CIWA-Ar ; jugement clinique et signes objectifs. | Worcestershire NHS WAHT-A&E-031v9,14.05.2025,p7, lu le 2026-10-18 | 2026-10-18 |
 | g1-cours-forme-fond | cours\|G1 | La précaution hémocultures/traitement urgent déjà approuvée pour le DD ne figurait pas dans le cours. | Propager la correction validée le18.10.2026 en PR119 : prélèvements avant antibiotiques si possible, sans différer un traitement urgent. | ESC endocardite2023 traduction SEC corrigée2025 §diagnostic et traitement ; accord utilisateur explicite PR119, lu le 2026-10-19 | 2026-10-18 |
+
+## G2-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G2.c[0] | La rubrique composite définissait seulement l’adénopathie. | Distinguer tuméfaction, masse et adénopathie dans deux puces, sans attribuer une norme mondiale composite. | R-ACADEMIE-FRANCAISE-TUMEFACTION ; R-ILDS-CYBERDERM-ADENOPATHIE ; R-SMW-ADENOPATHIES-2024, introduction, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+| Majeure | TIP.G2.c[1], c[12] | Des chiffres historiques de pays et recrutements différents pouvaient être lus comme une fréquence suisse actuelle. | Contextualiser pays, époque et recrutement ; conserver les données OFS non relues avec À vérifier. | R-SMW-ADENOPATHIES-2010, p98–99 et101 ; R-SMW-ADENOPATHIES-2024, épidémiologie, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+| Majeure | TIP.G2.c[2], c[8–10], c[12–13] | La biopsie-exérèse était présentée comme nécessaire ou automatique indépendamment du siège et de l’hypothèse. | Adapter le prélèvement au parcours ORL, lymphome ou autre diagnostic ; respecter le besoin d’architecture et reprendre les prélèvements non concluants. | R-SMW-ADENOPATHIES-2024, démarche et Tissue biopsy ; R-SMW-ADENOPATHIES-2010, p103, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+| Majeure | TIP.G2.c[5], c[7], c[12] | Les seuils de taille ganglionnaire étaient réemployés sans leurs exceptions et leur contexte. | Maintenir les repères avec âge, siège, contexte et absence de certitude diagnostique sur la seule taille. | R-SMW-ADENOPATHIES-2024, introduction ; R-SMW-ADENOPATHIES-2010, p99, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+| Majeure | TIP.G2.c[7], c[9–10], c[12–13] | Une surveillance de trois à quatre semaines pouvait devenir un délai automatique devant une adénopathie persistante ou suspecte. | Réserver la surveillance au patient stable sans suspicion et fixer la réévaluation ; distinguer l’évaluation précoce décrite en2024. | R-SMW-ADENOPATHIES-2010, résumé et figure1 ; R-SMW-ADENOPATHIES-2024, démarche, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+| Majeure | TIP.G2.c[7], c[13] | Le seuil de20% de blastes était présenté comme une condition universellement nécessaire de LAM. | Signaler les exceptions génétiques et la dépendance à la classification ; relier le diagnostic aux analyses spécialisées. | R-ONKOPEDIA-AML-G2, §5.2.1, version septembre2025, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
+| Majeure | TIP.G2.c[9–10], c[13] | IRM avant toute biopsie pouvait être appliquée à toute masse, avec planification spécialisée trop tardive. | Devant une suspicion de sarcome, organiser l’imagerie locale adaptée avant le prélèvement et sa planification avec le centre expert. | R-ONKOPEDIA-SARCOMES-2019, §5.2.1.1–2, lu le 2026-10-19 | Galien-PeauPopulations | 6b9cfe7 |
 
 ## ck-urgences-lot1
 
