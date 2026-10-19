@@ -8,9 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 async def check(page, touch=False):
     await page.goto((ROOT / 'app_v2.html').as_uri())
-    await page.wait_for_function("""() => {
+    await page.wait_for_function(r"""() => {
       const sheets=[...document.styleSheets].filter(s=>/assets\/style\/app-[12]\.css$/.test(s.href||''));
-      return sheets.length===2 && sheets.every(s=>s.cssRules.length>0);
+      return sheets.length===2 && sheets.every(s=>s.ownerNode.sheet)
+        && getComputedStyle(document.body).marginTop==='0px'
+        && getComputedStyle(document.documentElement).getPropertyValue('--gold').trim()!=='';
     }""")
     await page.evaluate("""() => {
       const f=document.createElement('div');f.id='prototype-test';
