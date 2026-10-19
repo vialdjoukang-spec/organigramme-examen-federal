@@ -31,6 +31,7 @@ async def check(browser,mobile=False,dark=False):
         assert await page.evaluate(snapshot)==before,'En-tête ou sauvegarde modifiés'
         assert await page.locator('[data-fond="'+choice['id']+'"]').get_attribute('aria-pressed')=='true'
     last=choices[-1]
+    assert await page.evaluate("JSON.parse(localStorage.getItem('orga-theme-fond'))")=={'couleur':last['id']}
     await page.reload();await page.wait_for_selector('#fond-theme>button')
     await page.evaluate('document.fonts.ready')
     assert await page.evaluate('document.documentElement.dataset.readingTheme')==last['id']
@@ -42,7 +43,7 @@ async def check(browser,mobile=False,dark=False):
     await page.keyboard.press('Escape');assert await page.locator('#fond-palette').is_hidden()
     assert await page.get_by_role('button',name='Thème de fond',exact=True).evaluate('(el)=>el===document.activeElement')
     assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'Débordement horizontal'
-    await page.evaluate("localStorage.setItem('orga-theme-fond','valeur-invalide')")
+    await page.evaluate("localStorage.setItem('orga-theme-fond',JSON.stringify({couleur:'valeur-invalide'}))")
     await page.reload();await page.wait_for_selector('#fond-theme>button')
     await page.evaluate('document.fonts.ready')
     assert await page.evaluate('!document.documentElement.hasAttribute("data-reading-theme")')
