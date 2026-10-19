@@ -1,3 +1,7 @@
+## Fond bleu ciel très pâle · demande utilisateur ·19.10.2026
+
+Le fond clair passe en #EAF7FD. En-tête, indicateurs et bloc de sauvegarde, données médicales, progression et scripts conservés. Deux valeurs CSS seulement, patch0093 à ancrages uniques. Gardes5/5 et empreinte orig conformes ; CI/Iris/fusion/Pages à vérifier. Cette demande de présentation n’ajoute aucune relecture clinique et ne reprend pas les DD.
+
 ## Cours G16 · forme et fond · 19.10.2026 Europe/Zurich
 
 G16 perte de poids involontaire et perte d’appétit :14parties révisées et contre-auditées. Appétit subjectif, perte pondérale, dénutrition et cachexie distingués, critères GLIM combinés et inflammation non obligatoire, probabilités séparées selon population ; NICE2026 pour perte inexpliquée dès60ans et bilan ciblé. Nutrition et recherche de cause en parallèle, renutrition surveillée, doses anciennes non recertifiées. DD/fondamentaux, anciensvisas/sources et247autresTIP intacts. Aucune validation médicale humaine.

@@ -19,8 +19,8 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 | 12 | audit galien-neuro glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 11 | audit galien-neuro glo-lot01b | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 7 | codex étape n | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 6 | audit cours- ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 5 | fix cours- ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
-| 5 | audit cours- ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | préciser le pays | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | préciser le compte | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | audit hérophile lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
