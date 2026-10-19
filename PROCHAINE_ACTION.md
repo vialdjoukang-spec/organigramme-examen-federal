@@ -1,3 +1,7 @@
+## G12 · lien documentaire et publication G11 ·19.10.2026
+
+La copie originale SFD du document conjoint HAS/SPILF/SFD2019 remplace la page HAS au certificat invalide ; aucun contrôle de certificat désactivé. Contre-audit indépendant ciblé favorable,14parties et empreintes inchangées. G11fusionné33f8f21 et publié : huit fichiers200 identiques à main, preuve audit/PUBLICATION-COURS-G11-20261019.json à17:42UTC. G12CI à reprendre puis fusion protégée ; suiteG13.
+
 ## Cours G12 · forme et fond · 19.10.2026 Europe/Zurich
 
 G12 œdèmes :14parties révisées et contre-auditées. Topographie et causes ne sont plus assimilées ; mécanismes/volémie et seuils sont contextualisés. Urgences traitées en parallèle, parcoursTVP et traitements spécifiques précisés. ESC2026 distingue probabilité ambulatoire et exclusion en décompensation. Régions, phases et renvois conservés, DD/fondamentaux et247autres cours intacts. Aucune validation médicale humaine.
