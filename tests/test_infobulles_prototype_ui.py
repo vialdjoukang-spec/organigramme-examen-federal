@@ -110,7 +110,7 @@ async def check_g2(page, touch=False):
 
 
 async def check_courses(page, touch=False):
-    """All 248 SSP keep 14 course sections; exercise every G1/G2 section in UI."""
+    """All 248 SSP keep 14 course sections; exercise every G1/G2/G3 section in UI."""
     await page.keyboard.press('Escape')
     # An already loaded SSP monography must never hijack a course or flash summary.
     await page.evaluate(r"""async () => {
@@ -152,13 +152,12 @@ async def check_courses(page, touch=False):
     assert result == {'codes':248,'sections':3472,'failures':[]}, result
 
     # Les deux composantes du premier titre ne peuvent être fusionnées en un bloc.
-    first = await page.evaluate("""() => {
-      const el=document.createElement('div');el.innerHTML=TIP.G1.c[0];
-      return [...el.querySelectorAll(':scope > ul > li > b')].map(x=>x.textContent.trim());
-    }""")
-    assert first == ['Définition :','Sémantique de la plainte :'], first
-
-    for code in ('G1','G2'):
+    for code in ('G1','G2','G3'):
+        first = await page.evaluate("""code => {
+          const el=document.createElement('div');el.innerHTML=TIP[code].c[0];
+          return [...el.querySelectorAll(':scope > ul > li > b')].map(x=>x.textContent.trim());
+        }""",code)
+        assert first == ['Définition :','Sémantique de la plainte :'], (code,first)
         await page.evaluate("""code => {
           document.getElementById('prototype-test').innerHTML =
             ['s|'+code,...Array.from({length:14},(_,i)=>'n|'+code+'|c'+i)]
@@ -219,6 +218,6 @@ async def main():
             assert not errors, errors
             await context.close()
         await browser.close()
-    print('Infobulles : DD G1/G2 six rubriques et chronologies, 14 cours distincts G1/G2, 248 SSP, aucun survol, clic/toucher, clavier, définitions et retour : OK')
+    print('Infobulles : DD G1/G2 six rubriques et chronologies, 14 cours distincts G1/G2/G3, 248 SSP, aucun survol, clic/toucher, clavier, définitions et retour : OK')
 
 if __name__=='__main__':asyncio.run(main())
