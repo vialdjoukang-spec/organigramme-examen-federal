@@ -1,3 +1,7 @@
+## Cours SSP G4 · forme et fond · 19.10.2026
+
+Les14parties du cours sur la fatigue font l’objet d’une contrelecture documentaire indépendante liée aux empreintes finales : audit/FORME-FOND-COURS-G4-20261019.json. Sept corrections tracées avec le commit clinique réel 28e6cc96c1e92cafa518f228fc33ba07b448e14f : interprétation épidémiologique, critères et bilan EM/SFC, activité adaptée dès suspicion, limites des scores, causalité des signes et structure. Les lectures indexées et leur portée sont explicites ; STOP-Bang et les inconnues suisses restent À vérifier. Aucune validation médicale humaine attestée.
+
 ## Cours SSP G3 · forme et fond · 19.10.2026
 
 Les14parties du seul cours G3 sont contre-relues indépendamment : verdict documentaire favorable sur leurs empreintes exactes. Sept corrections sont tracées dans qa/audit/fautes.jsonl avec le commit clinique réel bb9c5a9e6135d0ed758fb09f7f281faf9350016c ; le rapport détaillé est audit/FORME-FOND-COURS-G3-20261019.json. Polyurie, performances de copeptine, critères d’acidocétose, inférence de malignité et causalité des signes de déshydratation sont précisés. Les données héritées sans nouvelle preuveAIPS et les seuils completsHHS restent À vérifier. Aucun DD modifié ; examen régional et liens conservés ; aucune validation médicale humaine attribuée.

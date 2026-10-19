@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 97 faute(s) corrigée(s), dont 6 critique(s), 31 majeure(s) et 60 mineure(s).
+Bilan : 104 faute(s) corrigée(s), dont 6 critique(s), 36 majeure(s) et 62 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -38,6 +38,18 @@ Bilan : 97 faute(s) corrigée(s), dont 6 critique(s), 31 majeure(s) et 60 mineur
 | Majeure | TIP.G3.c[5] | La chute tensionnelle et la perte pondérale étaient formulées comme preuve de déshydratation ; les signes étaient exclus tant que la soif était préservée. | Formuler des indices non spécifiques et une compensation possible des pertes ; conserver protocoles, régions et liens avec leurs réserves. | R-COURS-G3-15, pp1–3 ; R-COURS-G3-13, §3 clinique, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
 | Majeure | TIP.G3.c[9–11] | Des doses orales de desmopressine, un bolus salin et un calendrier de surveillance apparaissaient sans nouvelle preuveAIPS liée au produit exact. | Conserver les données héritées comme explicitement À vérifier, interdire leur transposition entre formulations et séparer test diagnostique et soins urgents. | AIPS non nouvellement relue ; règleR2, R-COURS-G3-14 pour sécurité clinique, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
 | Mineure | TIP.G3.c[0–13] | Les sous-parties, indications et limites étaient dispersées ; les mots importants étaient en gras dans le corps. | Ranger les informations dans les14parties spécifiques, séparer anamnèse/alertes et suivi/pronostic/prévention ; réserver le gras aux titres et sous-titres. | docs/PROMPT-DIRECTEUR-ACADEMIQUE.md ; rapport indépendant G3, lu le 2026-10-19 | Galien-PeauPopulations | bb9c5a9 |
+
+## G4-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G4.c[1], c[11] | Les fréquences de diagnostics étaient attribuées à des fatigues inexpliquées et rapprochées du pronostic vital. | Replacer les résultats de2016 dans leurs études de soins primaires ; distinguer fréquence diagnostique, sous-groupes et pronostic individuel. | R-COURS-G4-17, méthodes/résultats/limites ; revue2021 extraits indexés, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
+| Majeure | TIP.G4.c[7–8] | Les délais EM/SFC étaient donnés sans âge, ensemble des symptômes ni distinction des référentiels ; le bilan orienté omettait la ferritine. | Nommer NICE, adulte six semaines et diagnostic trois mois ; distinguer DEGAM à six mois ; préciser symptômes, exclusion d’autres causes et ferritine. | R-COURS-G4-14, pp56–57 ; R-COURS-G4-18, critères et bilan, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
+| Majeure | TIP.G4.c[10], c[12–13] | Le bénéfice de l’activité était affirmé de façon générale et la précaution centrée sur un malaise post-effort déjà identifié. | Individualiser l’activité, protéger dès la suspicion d’EM/SFC et proscrire les programmes à augmentations fixes ; ne pas promettre un bénéfice universel. | R-COURS-G4-14, pp69–70 ; R-COURS-G4-18,1.11.14, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
+| Majeure | TIP.G4.c[7], c[13] | Scores et seuils étaient juxtaposés sans attribution, limites de version ou contexte chronique du NT-proBNP. | Attribuer Epworth au rapport2013, réserver STOP-Bang À vérifier, recouper les bornes continues IAH et contextualiser NT-proBNP chronique non traité. | Source locale6 p17 ; R-COURS-G4-20 et22 extraits primaires indexés, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
+| Majeure | TIP.G4.c[5] | Une formule excluait tout déficit dans la fatigue seule ; les indices de pâleur et d’adénopathie étaient formulés trop catégoriquement. | Autoriser la coexistence fatigue/déficit et garder les signes comme indices nécessitant vérification ; préserver tous les marqueurs et renvois. | R-COURS-G4-14, pp45–48 ; R-COURS-G4-15, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
+| Mineure | TIP.G4.c[6] | La liste des indices SAOS omettait les troubles cognitifs/mnésiques ; le résumé EM/SFC omettait la faible réponse au repos. | Compléter les deux listes et distinguer signes orientant l’évaluation et diagnostic. | R-COURS-G4-18 et19, extraits primaires indexés, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
+| Mineure | TIP.G4.c[0–13] | La partie mécanismes était vide ; les sous-titres et la continuité des14parties étaient insuffisamment explicites, avec gras dans le corps. | Ajouter un cadre multifactoriel attribué, séparer les composantes des titres, ordonner la démarche et réserver le gras aux titres/sous-titres. | docs/PROMPT-DIRECTEUR-ACADEMIQUE.md ; R-COURS-G4-14 et15, lu le 2026-10-19 | Galien-PeauPopulations | 28e6cc9 |
 
 ## ck-urgences-lot1
 

@@ -63,3 +63,6 @@ Une ligne par échec nouveau. Le travail continue toujours ; Codex traite ces li
 ## G3 cours · 19.10.2026
 
 Tests navigateur locaux : file:// refusé ERR_BLOCKED_BY_ADMINISTRATOR, aucun contournement. Les278contrôles et le parcoursG3 sont confiés à la CI exacte. Accès direct à plusieurs sources refusé ; seuls les passages effectivement lus viaweb sont attestés, limites dans le rapport sources. Un renouvellement de bail a échoué (état distant indisponible), puis lecture et renouvellement conditionnels ont réussi.
+
+- 19.10.2026 · G4 cours : NICE NG206/202/106 et cadrage dg62 refusent l’ouverture complète403 ; seuls les extraits primaires ciblés lus sont attestés. Revue2021 refusée/captcha, extraits indexés recoupés indépendamment. Aucun contournement.
+- 19.10.2026 · G4 : navigateur local file:// déjà refusé ERR_BLOCKED_BY_ADMINISTRATOR dans cet environnement ; parcours G4 confié à la CI exacte. Tests gardes exécutés directement (script sys.exit, incompatible unittest discover) ; comparateur correct tools/doses_check.py,98lignes0manquement.
