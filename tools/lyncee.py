@@ -289,6 +289,23 @@ def recensement(root, motifs):
     return rows, [n for n, _ in arbres]
 
 
+def rattacher_pluriels_reference(non_definis, reference):
+    """Rattache un pluriel au singulier déjà présent dans la référence.
+
+    Une forme au singulier peut disparaître du corpus quand son ancienne phrase
+    est retirée ; cela ne transforme pas le pluriel du même mot en terme neuf.
+    """
+    for key in tuple(non_definis):
+        singular = key[:-1]
+        if key not in reference and key.endswith(('s', 'x')) and singular in reference:
+            forme = non_definis.pop(key)
+            if singular in non_definis:
+                non_definis[singular][1] += forme[1]
+            else:
+                non_definis[singular] = forme
+    return non_definis
+
+
 def baseline_de(root, ref, path):
     """Référence lue dans la branche de base (git show), ou None."""
     rel = os.path.relpath(path, root)
@@ -347,6 +364,7 @@ def main(argv=None):
         return 1
     bl = json.load(open(bl_path, encoding='utf-8'))
     base = set(bl['termes'])
+    nd = rattacher_pluriels_reference(nd, base)
     nouveaux = sorted(set(nd) - base)
     resolus = sorted(base - set(nd))
     if a.update:

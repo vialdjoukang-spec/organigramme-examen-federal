@@ -11,11 +11,16 @@ PATCH = ROOT / 'tools/patches/0098-externaliser-fonctions.py'
 spec = importlib.util.spec_from_file_location('patch_0098', PATCH)
 patch = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(patch)
+REVISION = ROOT / 'tools/patches/0099-suspendre-gestes.py'
+revision_spec = importlib.util.spec_from_file_location('patch_0099', REVISION)
+revision = importlib.util.module_from_spec(revision_spec)
+revision_spec.loader.exec_module(revision)
 
 
 def check(app_path=ROOT / 'app_v2.html', asset_path=ROOT / patch.ASSET_REL):
     app = Path(app_path).read_text(encoding='utf-8')
     asset = Path(asset_path).read_text(encoding='utf-8')
+    original_asset = revision.restore_asset(asset)
     if app.count(patch.SCRIPT_INSERT + patch.SCRIPT_ANCHOR) != 1:
         raise ValueError('Asset absent, asynchrone ou mal placé avant le script principal')
     if app.count(patch.SCRIPT_INSERT) != 1:
@@ -28,14 +33,14 @@ def check(app_path=ROOT / 'app_v2.html', asset_path=ROOT / patch.ASSET_REL):
             raise ValueError(f'Ligne vide déplacée : {name}')
         restored = restored.replace(anchor, patch.marker(name) + '\n \n', 1)
     for name, width, expected in patch.MANIFEST:
-        body = asset[pos:pos + width]
-        if patch.sha(body) != expected or asset[pos + width:pos + width + 1] != '\n':
+        body = original_asset[pos:pos + width]
+        if patch.sha(body) != expected or original_asset[pos + width:pos + width + 1] != '\n':
             raise ValueError(f'Corps de fonction altéré : {name}')
         pos += width + 1
         if restored.count(patch.marker(name)) != 1:
             raise ValueError(f'Marqueur absent ou répété : {name}')
         restored = restored.replace(patch.marker(name), body, 1)
-    if pos != len(asset):
+    if pos != len(original_asset):
         raise ValueError('Contenu supplémentaire dans l’asset')
     if restored.count(patch.SCRIPT_ANCHOR) != 1:
         raise ValueError('Reconstruction du script principal incorrecte')
