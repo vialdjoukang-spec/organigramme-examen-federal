@@ -32,6 +32,8 @@ jobs:
         run: python3 tools/budget.py
       - name: Tests des gardes elles-mêmes
         run: python3 tests/test_gardes.py
+      - name: Liens réellement ajoutés ou modifiés, y compris dans une ligne minifiée
+        run: python3 -m unittest discover -s tests -p test_links_changed.py
       - name: File de fusion · contrôles requis, attente-vial et réessai Pages
         run: python3 tests/test_file_fusion.py
       - name: Lyncée · baisse obligatoire pendant une migration
