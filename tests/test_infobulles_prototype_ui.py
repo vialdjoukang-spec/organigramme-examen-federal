@@ -154,7 +154,7 @@ async def check_courses(page, touch=False):
     # Les deux composantes du premier titre ne peuvent être fusionnées en un bloc.
     first = await page.evaluate("""() => {
       const el=document.createElement('div');el.innerHTML=TIP.G1.c[0];
-      return [...el.querySelectorAll(':scope > b')].map(x=>x.textContent.trim());
+      return [...el.querySelectorAll(':scope > ul > li > b')].map(x=>x.textContent.trim());
     }""")
     assert first == ['Définition :','Sémantique de la plainte :'], first
 
