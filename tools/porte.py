@@ -153,6 +153,16 @@ def critere(n, bavard=True):
 
 def ordre(e=None):
     e = e or lire_etat()
+    if e.get('mission_exclusive', {}).get('priorite_courante', {}).get('id') == 'modifications_1_ck_2_cs':
+        return ("Ordre de Vial : poursuivre Modification_1_CK puis Modification_2_CS selon "
+                "docs/MODIFICATIONS-1-CK-2-CS.md. Exécuter python3 tools/mandat/planifier.py ; "
+                "reprendre les branches réservées avant tout nouveau lot. ALPHA : S, F, O, "
+                "au plus deux cours SSP par agent GPT-6 élevé, avec contre-audit Astra indépendant. "
+                "BETTA seulement après ALPHA publiée : G, S, F, O, trois différentiels par agent "
+                "et par audit, applicabilité vérifiée SSP par SSP. GAMMA ensuite : organisation, "
+                "couleurs, fond et forme de CS. Une phase à la fois ; aucun passage de phase sans "
+                "audit documentaire et publication vérifiée. Garder les preuves dans ce dépôt. "
+                "Les anciens arrêts après G16 sont remplacés par ce mandat.")
     if e.get('mission_exclusive', {}).get('priorite_courante', {}).get('id') == 'forme_fond_cours_ssp':
         return ("Ordre de Vial : reprends uniquement les parties du cours SSP, depuis le premier SSP non relu "
                 "dans tools/cours/registre.json. Lis docs/PROMPT-DIRECTEUR-ACADEMIQUE.md : titres ordinaux 1–14, "

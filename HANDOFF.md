@@ -1,3 +1,11 @@
+## Mandat courant · 20.10.2026 Europe/Zurich
+
+`docs/MODIFICATIONS-1-CK-2-CS.md` définit l’ordre autorisé : **ALPHA S → F → O**, puis **BETTA G → S → F → O**, puis **GAMMA CS**. Exécuter `python3 tools/mandat/planifier.py` et reprendre les branches réservées. Au plus deux cours par agent GPT-6 élevé ; en BETTA, trois différentiels par agent et par audit. Les contre-auditeurs sont indépendants, en Astra. Chaque phase exige audit documentaire, fusion protégée et publication vérifiée avant la suivante.
+
+Les cours gardent leurs14parties ; les six rubriques concernent les DD. Vial autorise les décisions et actions nécessaires au mandat sans nouvelle demande, ainsi que la suspension temporaire de Gestes avant sa reconstruction en GAMMA. Tous les livrables restent dans ce dépôt. Les limites d’exécution, baux et preuves sont consignés dans le document du mandat. Les anciens arrêts après G16 et ordres contradictoires ci-dessous sont historiques.
+
+État préparé : **20/248 cours, 280/3472 parties** ; S1.1–S1.4 audités et intégrés sur `codex/modifications-1-2-pilotage`, publication à vérifier. S1.5/S1.6 en contre-audit ; S1.7/S1.8 rédigés, contre-audit à effectuer. Aucun passage à BETTA. La connexion GitHub fonctionne ; le lancement Codex cloud reste bloqué par l’environnement manquant et une connexion ChatGPT interactive absente.
+
 ## Couleurs d’origine · clarification utilisateur · 19.10.2026
 
 Vial précise : revenir à la couleur d’origine, avant toutes les demandes de fond bleu et de palette. Patch0096 retire le sélecteur ; patch0097 annule aussi0093/0094. HTML et deux CSS identiques octet pour octet à c681d01 : fond blanc cassé #FBFBF8, cartes et fenêtres blanches ; données, cours et deux blocs du haut conservés. Les choix mémorisés ne sont plus lus. La restauration intermédiaire du bleu unique n’a pas été publiée. Référence et CI à reprendre sur ces couleurs d’origine, sans modifier les seuils. Aucune reprise clinique.

@@ -30,6 +30,20 @@ def log(event, **values):
 
 def complete(report):
     """Exact, non-rounded current hash-backed documentary counts, never legacy counts."""
+    mandate = report.get('plan', {}).get('mandat') if isinstance(report, dict) else None
+    if mandate is not None:
+        phases = mandate.get('phases', [])
+        expected = [('ALPHA', c) for c in ('S', 'F', 'O')]
+        total = mandate.get('catalogue', {}).get('total')
+        return bool(mandate.get('id') == 'modifications_1_ck_2_cs'
+                    and mandate.get('etape') == 'TERMINE' and mandate.get('complet') is True
+                    and not mandate.get('anomalies') and not mandate.get('reservations_actives')
+                    and type(total) is int and total > 0 and len(phases) == total + 6
+                    and [(p.get('etape'), p.get('phase')) for p in phases[:3]] == expected
+                    and all(p.get('etape') == 'BETTA' for p in phases[3:-3])
+                    and [(p.get('etape'), p.get('phase')) for p in phases[-3:]] ==
+                        [('GAMMA', p) for p in ('organisation', 'couleurs', 'fond_forme')]
+                    and all(p.get('audit_phase_valide') is True for p in phases))
     if not isinstance(report, dict) or report.get('plan', {}).get('mission_exclusive') != MISSION:
         return False
     protocol = report.get('protocole', {})
@@ -58,6 +72,9 @@ def complete(report):
 
 
 def digest(report):
+    mandate = report.get('plan', {}).get('mandat')
+    if mandate is not None:
+        return {k: mandate['mesure'][k] for k in ('alpha_publies', 'beta_publies', 'gamma_publies')}
     m = report['mesure']
     if report.get('plan', {}).get('priorite_cours_ssp'):
         return {k: m[k] for k in ('cours_ssp_relus','cours_parties_relues')}
@@ -165,11 +182,19 @@ def claim(store, owner, now, duration):
     return state
 
 
+def refresh_history(root=ROOT):
+    # Les preuves anciennes doivent rester vérifiables dans un checkout shallow.
+    if run(['git', 'rev-parse', '--is-shallow-repository'], cwd=root).strip() == 'true':
+        run(['git', 'fetch', '-q', '--unshallow', 'origin', 'main'], cwd=root)
+    else:
+        run(['git', 'fetch', '-q', 'origin', 'main'], cwd=root)
+
+
 def snapshot(directory, refresh):
     """Never reset the interactive checkout. Snapshot current origin/main elsewhere."""
     if not refresh:
         return ROOT
-    run(['git','fetch','-q','origin','main'])
+    refresh_history()
     target = Path(directory)/'main'
     target.mkdir(parents=True, exist_ok=True)
     # A fresh directory avoids retaining deleted canonical files from a previous main.
@@ -187,7 +212,14 @@ def snapshot(directory, refresh):
 
 def report_for(root, output):
     run([sys.executable,'tools/coordination/calculer.py','--state-dir',str(ROOT/'.etat_local/prevalences'),'--output',str(output)],cwd=root)
-    return json.loads((output/'coordination.json').read_text())
+    report = json.loads((output/'coordination.json').read_text())
+    planner = root/'tools/mandat/planifier.py'
+    if planner.is_file():
+        mandate = json.loads(run([sys.executable, str(planner), '--root', str(root),
+                                  '--coordination', str(output/'coordination.json')], cwd=root))
+        if mandate is not None:
+            report['plan']['mandat'] = mandate
+    return report
 
 
 def busy_now():

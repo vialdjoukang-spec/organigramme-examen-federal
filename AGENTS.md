@@ -1,3 +1,9 @@
+## Mandat courant · 20.10.2026 Europe/Zurich
+
+`docs/MODIFICATIONS-1-CK-2-CS.md` définit l’ordre autorisé : **ALPHA S → F → O**, puis **BETTA G → S → F → O**, puis **GAMMA CS**. Exécuter `python3 tools/mandat/planifier.py` et reprendre les branches réservées. Au plus deux cours par agent GPT-6 élevé ; en BETTA, trois différentiels par agent et par audit. Les contre-auditeurs sont indépendants, en Astra. Chaque phase exige audit documentaire, fusion protégée et publication vérifiée avant la suivante.
+
+Les cours gardent leurs14parties ; les six rubriques concernent les DD. Vial autorise les décisions et actions nécessaires au mandat sans nouvelle demande, ainsi que la suspension temporaire de Gestes avant sa reconstruction en GAMMA. Tous les livrables restent dans ce dépôt. Les limites d’exécution, baux et preuves sont consignés dans le document du mandat. Les anciens arrêts après G16 et ordres contradictoires ci-dessous sont historiques.
+
 ## Relais cloud courant · 19.10.2026
 
 Nouveau dispositif : `.github/workflows/codex-cloud-120.yml` et `tools/garde/codex_cloud_120.py`, contrôles120s, fenêtres20min, cron5min sans garantie temps réel. Activation indépendante : `tools/garde/codex_cloud_120.json`. Ancien garde et CLI locale désactivés via `permanence_enabled:false` pour éviter les doublons. Les baux réels du responsable restent à déclarer avec permanence.py : cette commande d’agent reste disponible indépendamment de l’activation du worker. Détails, preuve de blocage et réglage Codex cloud dans `docs/CODEX-CLOUD-120.md`. Ne pas confondre commentaire @codex et démarrage IA : le connecteur demande actuellement un environnement cloud pour ce dépôt. Ne pas renouveler un bail d’agent depuis un simple watcher.

@@ -111,6 +111,25 @@ def feedback(rows, cloud, cfg):
 
 def decision(state, report, now, busy, cfg):
     plan = report.get('plan', {})
+    mandate = plan.get('mandat')
+    if mandate is not None:
+        if (mandate.get('id') != 'modifications_1_ck_2_cs'
+                or mandate.get('etape') not in ('ALPHA', 'BETTA', 'GAMMA', 'TERMINE')):
+            return 'mission_modifiee_sans_relance'
+        if mandate.get('anomalies'):
+            return 'preuves_mandat_invalides_sans_relance'
+        status = guard.policy(state, report, now, busy)
+        if status == 'termine':
+            return 'mandat_termine_preuves_verifiees'
+        if status in ('occupe', 'progression'):
+            return 'occupe_ou_progression'
+        cloud = state.setdefault('codex_cloud', {})
+        last = max(cloud.get('requested_at', 0), cloud.get('reserved_at', 0))
+        if last and now - last < cfg['request_cooldown_seconds']:
+            return cloud.get('statut', 'demande_en_attente_execution_non_prouvee')
+        if not mandate.get('prochains_lots') and not mandate.get('audit_phase_requis'):
+            return 'mandat_sans_lot_reprise_a_verifier'
+        return 'demander_reprise'
     if not (plan.get('priorite_cours_ssp') is True
             and plan.get('diagnostics_differentiels_suspendus') is True
             and plan.get('mission_exclusive') == guard.MISSION):
@@ -130,6 +149,28 @@ def decision(state, report, now, busy, cfg):
 
 
 def prompt(report, reservation):
+    mandate = report['plan'].get('mandat')
+    if mandate is not None:
+        lots = '; '.join(', '.join(lot['unites']) +
+                        (' [état ' + lot['statut'] + ' : ' + lot['travail_attendu'] + ']' if lot.get('statut') else '') +
+                        (' [branche ' + lot['branche'] + ']' if lot.get('branche') else '')
+                        for lot in mandate['prochains_lots'])
+        action = 'Termine le contre-audit de phase.' if mandate['audit_phase_requis'] else 'Lots : ' + lots + '.'
+        return (f'@codex Reprends le mandat autorisé de Vial : Modification_1_CK puis Modification_2_CS. '
+                f'Étape {mandate["etape"]}, phase {mandate["phase"]}. {action} '
+                'Lis AGENTS.md et docs/MODIFICATIONS-1-CK-2-CS.md puis exécute python3 tools/mandat/planifier.py. '
+                'Reprends les branches réservées avant toute nouvelle rédaction ; compare leurs données à main. '
+                'ALPHA : S puis F puis O, 14 parties de cours, deux SSP au plus par agent. '
+                'BETTA seulement après ALPHA publiée et auditée : G puis S puis F puis O, '
+                'un SSP à la fois, trois différentiels au plus par agent, six rubriques adaptées si nécessaire. '
+                'GAMMA seulement après BETTA : organisation CS puis couleurs puis fond et forme. '
+                'Rédacteurs GPT-6 raisonnement élevé, audits indépendants Astra ; noter les modèles réellement disponibles. '
+                'Ne pas confondre lots proposés et agents lancés. Déclare le bail réel de 180 s du responsable avec '
+                'permanence.py --github-state --agent <identifiant-unique> --lease-seconds 180 ; '
+                'ne le renouvelle que pendant le travail réel. Sources CH/Europe et AIPS, '
+                'corrections puis CI exacte verte, fusion protégée, vérification Pages, registre à jour. '
+                'Aucun compteur de structure ne vaut audit ou publication. '
+                f'<!-- relais-cloud-120:{reservation} -->')
     ssp = report['plan']['prochain_lot9'][0]['ssp']
     return (f'@codex Reprends le travail autorisé de Vial sur main, cours SSP uniquement : prochain {ssp}. '
             'Lis AGENTS.md, PROCHAINE_ACTION.md et docs/PROMPT-DIRECTEUR-ACADEMIQUE.md. '
@@ -137,7 +178,7 @@ def prompt(report, reservation):
             'Préserve les14parties spécifiques, numérotation, sous-parties, concision, sources et clic sans survol. '
             'Reprends une PR de cours active avant de créer un autre lot. Le brouillon G2 est sur '
             'feat/forme-cours-g2, docs/preparations/cours-G2/ : le comparer à main actuel avant intégration. '
-            'Déclare ton bail réel180s avec permanence.py --github-state --agent <identifiant-unique> '
+            'Déclare ton bail réel de 180 s avec permanence.py --github-state --agent <identifiant-unique> '
             '--lease-seconds 180, renouvelle pendant le travail réel seulement. '
             'Contre-audit indépendant, CI exacte verte, fusion protégée, vérification Pages puis lot suivant. '
             'Un commentaire ou un compteur ne prouve aucune validation médicale. '
@@ -218,7 +259,7 @@ def worker(args):
                     cfg = json.loads((root/CONFIG).read_text())
                     if cfg.get('enabled') is not True:
                         guard.log('cloud120_arrete_configuration'); return
-                    if cfg.get('interval_seconds') != 120 or cfg.get('request_cooldown_seconds', 0) < 120:
+                    if cfg.get('interval_seconds') != 120 or cfg.get('request_cooldown_seconds', 0) < 1800:
                         raise ValueError('configuration de cadence invalide')
                     guard.claim(store, owner, time.time(), 180)
                     output = root/'.etat_local/coordination'

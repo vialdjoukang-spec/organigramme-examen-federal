@@ -1,3 +1,11 @@
+## Mandat courant · 20.10.2026 Europe/Zurich
+
+`docs/MODIFICATIONS-1-CK-2-CS.md` définit l’ordre autorisé : **ALPHA S → F → O**, puis **BETTA G → S → F → O**, puis **GAMMA CS**. Exécuter `python3 tools/mandat/planifier.py` et reprendre les branches réservées. Au plus deux cours par agent GPT-6 élevé ; en BETTA, trois différentiels par agent et par audit. Les contre-auditeurs sont indépendants, en Astra. Chaque phase exige audit documentaire, fusion protégée et publication vérifiée avant la suivante.
+
+Les cours gardent leurs14parties ; les six rubriques concernent les DD. Vial autorise les décisions et actions nécessaires au mandat sans nouvelle demande, ainsi que la suspension temporaire de Gestes avant sa reconstruction en GAMMA. Tous les livrables restent dans ce dépôt. Les limites d’exécution, baux et preuves sont consignés dans le document du mandat. Les anciens arrêts après G16 et ordres contradictoires ci-dessous sont historiques.
+
+État préparé : **20/248 cours, 280/3472 parties** ; S1.1–S1.4 audités et intégrés sur `codex/modifications-1-2-pilotage`, publication à vérifier. S1.5/S1.6 en contre-audit ; S1.7/S1.8 rédigés, contre-audit à effectuer. Aucun passage à BETTA. La connexion GitHub fonctionne ; le lancement Codex cloud reste bloqué par l’environnement manquant et une connexion ChatGPT interactive absente.
+
 ## Cours G16 · forme et fond · 19.10.2026 Europe/Zurich
 
 G16 perte de poids involontaire et perte d’appétit :14parties révisées et contre-auditées. Appétit subjectif, perte pondérale, dénutrition et cachexie distingués, critères GLIM combinés et inflammation non obligatoire, probabilités séparées selon population ; NICE2026 pour perte inexpliquée dès60ans et bilan ciblé. Nutrition et recherche de cause en parallèle, renutrition surveillée, doses anciennes non recertifiées. DD/fondamentaux, anciensvisas/sources et247autresTIP intacts. Aucune validation médicale humaine.
