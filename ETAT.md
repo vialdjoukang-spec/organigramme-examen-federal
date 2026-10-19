@@ -1,3 +1,11 @@
+## Cours G4 · forme et fond · 19.10.2026
+
+Les 14 parties du cours sur la fatigue sont réorganisées et contre-relues indépendamment sur leurs empreintes finales. Définition subjective attribuée à DEGAM ; fréquences historiques contextualisées ; critères EM/SFC et délais selon référentiel ; bilan initial et confirmation séparés ; activité adaptée dès la suspicion d’EM/SFC. Les scores orientent sans confirmer, les seuils IAH ont des bornes continues sourcées ; STOP-Bang et les inconnues suisses restent explicitement À vérifier. Examen régional et renvois conservés ; DD, fondamentaux et 247 autres cours inchangés.
+
+Rapports : audit/FORME-FOND-COURS-G4-20261019.json et audit/FORME-FOND-COURS-G4-INTEGRATION-20261019.json ; lot tools/cours/lots/G4.json. Verdict documentaire indépendant favorable, aucune validation médicale humaine. Jauge sur branche : 4/248 SSP, 56/3472 parties. G1–G8 verts, 0 terme nouveau Lyncée, 29 vérifications unitaires/gardes et compilateurs réussis. Navigateur local file:// déjà refusé par la politique ; parcours G4 ajouté à la CI. CI exacte, fusion et publication encore requises avant de compter ce lot en production. Ensuite : G5 cours. Diagnostics différentiels suspendus.
+
+G3 est publié : PR131 fusionnée par129c135 ; CI39261992178, visuel39262038996 et Pages39262585082 réussis. Six fichiers publics HTTP200 identiques à main ; SHA256 app d4a88fdd75523640123df00371162e1ac916ae16b0bd56140dc330f7a3e31d65. Les mentions antérieures de G3 en attente sont historiques.
+
 ## Cours G3 · forme et fond · 19.10.2026
 
 Les14parties du cours G3 (polydipsie/polyurie) sont réorganisées et contre-relues sur leurs empreintes exactes. Polyurie et hypotonicité distinguées ; repères adultes contextualisés ; bilan initial séparé du test spécialisé de référence ; copeptine saline/arginine actualisée avec limites et sécurité ; critères d’acidocétose complétés. Les seuils complets du syndrome hyperosmolaire, certaines précisions héritées et les posologies sans nouvelle lecture AIPS restent explicitement À vérifier. Examen régional, phases et liens intacts ; DD, fondamentaux et247autres cours inchangés. Jauge documentaire sur branche :3/248SSP,42/3472parties, aucune validation médicale humaine.
