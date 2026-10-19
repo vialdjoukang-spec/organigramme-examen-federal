@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 139 faute(s) corrigée(s), dont 7 critique(s), 66 majeure(s) et 66 mineure(s).
+Bilan : 147 faute(s) corrigée(s), dont 7 critique(s), 74 majeure(s) et 66 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -106,6 +106,19 @@ Bilan : 139 faute(s) corrigée(s), dont 7 critique(s), 66 majeure(s) et 66 mineu
 | Majeure | TIP.G8.c[9–10,12–13] | Glucose systématique ; simplification des médicaments 2021, dont interdiction générale de l’amiodarone sous30°C. | Hypoglycémie ciblée ; attribution ERC/RCUK2025 distincte, exception adrénaline si ECLS retardée, charge amiodarone selon adaptation britannique sans dose étrangère importée. | ERC/RCUK2025, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
 | Majeure | TIP.G8.c[9,12–13] | Durée d’avalanche et obstruction utilisées comme règle isolée de futilité. | Température, voies aériennes et mécanisme intégrés ; hypothermie profonde possible avant60min ; insufflations uniquement si apnée/arrêt. | ERC2025/BMC2026, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
 | Majeure | TIP.G8.c[10–13] | Horizontalité et vitesse de réchauffement présentées sans contexte ; dénominateurs neurologiques implicites. | Après arrêt, transport non retardé pour horizontalité ; vitesse ECLS spécialisée ; survie et bon devenir parmi survivants distingués, cas11.8°C pédiatrique explicite. | MDPI2022/ERC2025/BMC2026, lu le 2026-10-19 | Galien-PeauPopulations | f2d2711 |
+
+## G9-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G9.c[0,6–7] | Définition historique et classification confondues avec une voie neuronale unique et une étiologie. | Définition internationale IDEOM rapportée par EDF2025 ; IFSI clinique distincte ; peau saine et origine indéterminée séparées. | EDF2025, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[1,4] | Prévalences de populations différentes sans contexte ; risque1.63% attribuable à tout prurit chronique sans lésion. | Périodes/populations explicites ; registre danois sans distinction aigu/chronique ; anciennes données non recoupées À vérifier. | EDF2025§3/4.2.5, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[5] | Foie/rate et toucher rectal rangés sous région ganglionnaire ; xérose dite systématique. | Abdomen¶2 et tr-genital¶2 ajoutés avec phases et liens corrects ; xérose fréquente, non constante ; TR ciblé selon contexte et consentement. | EDF2025 tableau3/exFmt, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[7–9] | JAK2, seuilAMA, panel et sang occulte dès40ans pouvaient être appliqués automatiquement. | Orientation et confirmation spécialisées ; premier bilan adapté puis seconde intention et réévaluation ; seuil isolé non diagnostic. | EDF2025§5/tableaux3–4, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[9–10] | Combinaison gale présentée comme universelle et attribuée à une nouvelle version2026. | BulletinOFSP2024 et remise en ligne2026 distingués ; exceptions et horsautorisation signalés ; contacts coordonnés. | OFSPbulletin46/2024, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[10,12–13] | EscaladeantiH1 applicable à toute urticaire et inefficacité horsurticaire trop absolue. | Urticaire chronique spontanée explicitée, traitements selon mécanisme ; AIPS/doses à vérifier. | EDF2025§6.4.1, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[10,12–13] | Absence d’effet ursodésoxycholique généralisée à toute cholestase ; options dialyse sans indication précise. | Bénéfice parfois léger en cholestase gravidique et indication historiqueSwissmedic de difélikéfaline adultehémodialysé précisées ; pas de dose européenne copiée. | RCOG2026/Swissmedic2022/EDF2025, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
+| Majeure | TIP.G9.c[11–13] | Délais de régression/prognostic trop absolus et prurit fonctionnel assimilable à un bilan somatique négatif. | Suivi et incertitudes ; critères positifs nécessaires ; symptômes persistants après gale seuls non suffisants pour échec. | OFSP2024/RCOG2026/critèresfrançais2007, lu le 2026-10-19 | Galien-PeauPopulations | a309e3a |
 
 ## ck-urgences-lot1
 

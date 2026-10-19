@@ -1,3 +1,11 @@
+## Cours G9 · forme et fond · 19.10.2026 Europe/Zurich
+
+Les14parties du prurit sont révisées et contre-auditées. DéfinitionIDEOM, classificationIFSI, chronologie et bilans ciblés sont distincts. Populations statistiques et risque de cancer sont contextualisés ; les schémas de gale et de traitement systémique portent leurs populations, exceptions et limites AIPS. Les régions abdominale et rectale retrouvent des phases de palpation adaptées, sans perte de renvoi. Aucune validation médicale humaine. DD, fondamentaux, visas et247autres cours conservés.
+
+Contrôles : G1–G8,82testsCK,12cours/frontières,6chronologie,14prototype et5gardes réussis. Lyncée3484→3484 sans terme nouveau,98dosesinchangées ; compilateurs à jour. ParcoursUI G1–G9 dans CI exacte et régression de phaseG7 conservée. Jauge préparée9/248cours et126/3472parties, à distinguer de la publication. G5/G6 publiés : six fichiers200 et identiques àmain39fa2d8, preuve53UTC dans audit/PUBLICATION-COURS-G5/G6-20261019.json.
+
+Suite autorisée : G10 puis les cours suivants jusqu’à G16, un cours à la fois. Conserver l’ordre de fusion et vérifier Pages ; distinguer la jauge préparée des publications. Les diagnostics différentiels restent suspendus.
+
 ## Cours G8 · forme et fond · 19.10.2026 Europe/Zurich
 
 Les 14 parties du cours hypothermie sont révisées et contre-auditées. La définition ERC est attribuée comme européenne ; mesure centrale et système suisse révisé sont distincts. Triage et réanimation 2025, limites HOPE chez l’adulte, contexte pédiatrique et avalanche sont précisés. Les statistiques portent leur population et leurs limites. Les médicaments et doses non vérifiés dans leur AIPS restent À vérifier ; aucune validation médicale humaine. DD, fondamentaux, visas hérités et 247 autres cours sont conservés.
