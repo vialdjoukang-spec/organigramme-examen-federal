@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 114 faute(s) corrigée(s), dont 7 critique(s), 44 majeure(s) et 63 mineure(s).
+Bilan : 122 faute(s) corrigée(s), dont 7 critique(s), 51 majeure(s) et 64 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -66,6 +66,19 @@ Bilan : 114 faute(s) corrigée(s), dont 7 critique(s), 44 majeure(s) et 63 mineu
 | Majeure | TIP.G5.c[7], c[10], c[13] | Correction de natrémie8–10/24h et surveillance sulfonylurée24h étaient données sans limites individuelles ni protocole précis. | Conserver les anciens repères uniquement comme explicitement À vérifier ; demander protocole adapté au risque et surveillance spécialisée. Aucune dose nonAIPS ajoutée. | R-COURS-G5-4 pour risque prolongé ; règleAIPS et réserves documentaires explicites, lu le 2026-10-19 | Galien-PeauPopulations | 654d5f7 |
 | Majeure | TIP.G5.c[1], c[11], v.S[0–1] ; data/ck/src.json ; qa/domaines.yml | Le pays éditeur CH était déduit du lieu des auteurs suisses ; une publication SAEM/Wiley américaine était autorisée à tort comme européenne. | Retirer cette publication de la liste et du lot ; revue Kemp2020 et étude Nickel2013 éditées BioMed Central Ltd GB, identité vérifiée indépendamment. Retirer les chiffres BANC2010 de fréquence et mortalité et utiliser uniquement la cohorte sélectionnée Nickel2013 avec limites. Nom propre bibliographique BioMed exclu de Lyncée avec motif, aucun terme clinique. | Revue GitHub4315787466 ; Kemp2020 doi10.1186/s13049-020-0699-y ; Nickel2013 doi10.1186/1757-7241-21-15 ; contre-audit indépendant, lu le 2026-10-19 | Galien-PeauPopulations | 6617764 |
 | Mineure | TIP.G5.c[0–13] | De nombreuses phrases et gestes étaient tronqués ; mécanisme unique et emphase en gras remplaçaient une structure explicite. | Compléter les formulations, décomposer les14titres et remplacer les affirmations universelles par mécanismes possibles attribués ; garder tous les marqueurs d’examen et renvois. | docs/PROMPT-DIRECTEUR-ACADEMIQUE.md ; sources et contrelectureG5, lu le 2026-10-19 | Galien-PeauPopulations | 654d5f7 |
+
+## G6-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G6.c[1,11] | Les pourcentages précis du rapport suisse étaient attribués à2019–2023 sans préciser leur année2023 ; populations des voyages et FUO trop implicites. | Année2023, séjours hospitaliers codés, voyageurs fébriles et FUOexplorées explicités ; aucune probabilité individuelle déduite. | RapportOFSP2025p7/HUGvoyage2026p5/RMS2021p739, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Majeure | TIP.G6.c[4,6] | qSOFA et lactate apparaissaient comme drapeaux diagnostiques sans expliciter leurs limites. | Scores pour alerte et réévaluation ; pas de seuil permettant seul exclusion, preuve de sepsis ou hypoperfusion. | SSC2026/AGIHO2024édition2025, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Majeure | TIP.G6.c[5] | Auscultation cardiaque rangée sous régionneuro ; critères musculaires trop absolus. | Région coeur-vaisseaux et renvoi ajoutés sans perte des marqueurs ; signes toxiques orientant sans spécificité absolue. | ESC2023/HUGtoxidromes2025, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Majeure | TIP.G6.c[7] | Le seuil neutropénique était tronqué et les critèresFUO omettaient le bilan préalable. | Rétablir les critères adultesAGIHO2017 complets et bilanapproprié pour FUO classique ; urgence ne dépend pas de tous les critères. | AGIHO2017/RMS2021, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Majeure | TIP.G6.c[8–10] | Algorithme urgent tronqué ; attente possible des prélèvements ou de la PL/imagerie. | Actions parallèles et traitementurgent ; PLsi sûre et sansretard, imageriequandindiquée aprèsstabilisation/ATB ; neutropénie et encéphalite précisées. | NICE NG240/SSC2026/AGIHO2024/SPILF2016, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Majeure | TIP.G6.c[10] | Volume de30mL/kg présenté comme minimum général sans niveau de preuve ni adaptation au patient. | Repère conditionnel SSC limité àhypoperfusion/choc ; réévaluation et surcharge ; prescription/AIPS À vérifier. | SSC2026recommandation10, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Majeure | TIP.G6.c[12–13] | Le refroidissement et l’algorithme des points clés étaient tronqués. | Refroidissement actif et traitement causal distincts ; malariaàrechercher etrépéter seloncontexte ; règlesdeconsulte etlimites conservées. | RCUK2025/HUG2026/EMHG2024, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
+| Mineure | TIP.G6.c[0,2] | Définition et phrases physiologiques mélangeaient mécanisme, seuil et emphase. | Distinguer définition régulée mondiale attribuée, chaleur ressentie, frissons et hyperthermie non régulée avec source européenne. | IUPS2001définition/UCL2011physiologie, lu le 2026-10-19 | Galien-PeauPopulations | 942a316 |
 
 ## ck-urgences-lot1
 
