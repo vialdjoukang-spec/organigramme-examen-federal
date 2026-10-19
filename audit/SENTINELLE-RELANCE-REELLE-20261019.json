@@ -1,0 +1,35 @@
+{
+ "date_utc": "2026-10-19T07:55:30Z",
+ "demande": "Reprendre effectivement le travail après120secondes d’inactivité, sans nouvelle intervention de Vial.",
+ "controle_cli": {
+  "authentification": "session ChatGPT annoncée connectée, aucune donnée d’authentification copiée",
+  "test": "codex exec --ephemeral --skip-git-repo-check -C /tmp --sandbox read-only --json (réponse attendue RELANCE_OK, aucune commande ni fichier)",
+  "resultat": "aucune réponse de modèle obtenue",
+  "blocage": "HTTP CONNECT403, wss://chatgpt.com/backend-api/codex/responses, puis repli HTTPS sans connexion ; deux processus de test arrêtés explicitement"
+ },
+ "politique_reseau": {
+  "revision": 9,
+  "etat": "enforced",
+  "mode": "restricted",
+  "chatgpt_com_autorise": false,
+  "contournement": false
+ },
+ "veille_existante": {
+  "cadence_visee_secondes": 120,
+  "workflow": 39218540476,
+  "etat_observe": "in_progress",
+  "execution_ia_prouvee": false,
+  "notification_ne_vaut_pas_execution": true
+ },
+ "relanceur_local_existant": {
+  "fichier": "tools/veille_relance.sh",
+  "controle": "codex exec --full-auto --help",
+  "resultat": "unexpected argument --full-auto",
+  "seuil_inactivite_par_defaut_minutes": 20,
+  "cadence_boucle_par_defaut_secondes": 180,
+  "conforme_a_120s": false
+ },
+ "conclusion": "La sentinelle de surveillance est active ; la reprise IA autonome demandée reste non fonctionnelle. Les corrections poursuivent dans la session interactive. Réparer le relanceur séparément du lot clinique et vérifier une réponse réelle après accès réseau autorisé.",
+ "secret_publie": false,
+ "validation_clinique": false
+}

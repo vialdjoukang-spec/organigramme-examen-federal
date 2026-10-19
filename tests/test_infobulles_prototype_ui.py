@@ -84,10 +84,10 @@ async def check_g2(page, touch=False):
     await page.keyboard.press('Escape')
     await page.evaluate("""() => {
       document.getElementById('prototype-test').innerHTML =
-        ['n|G2|d0','n|G2|d1','n|G2|d2','n|G2|d3','n|G2|d4','n|G2|d5','s|G2','n|G2|c0'].map((key,i)=>
+        ['n|G2|d0','n|G2|d1','n|G2|d2','n|G2|d3','n|G2|d4','n|G2|d5','n|G2|d6','n|G2|d7','n|G2|d8','s|G2','n|G2|c0'].map((key,i)=>
           `<button class="tw" id="g2-${i}" data-t="${key}">G2 ${i}</button>`).join('');
     }""")
-    for index in range(8):
+    for index in range(11):
         target = page.locator(f'#g2-{index}')
         if not touch:
             await target.hover()
@@ -100,7 +100,7 @@ async def check_g2(page, touch=False):
         assert text.index('Examen de référence diagnostique') < text.index('1 — À faire en premier')
         assert text.index('B- Moyens') < text.index('Phase 1 —') < text.index('Phase 2 —')
         assert text.count('Critères diagnostiques') == 1
-        if index >= 6:
+        if index >= 9:
             assert await page.locator('#tip .t').inner_text() == 'Tuméfaction, masse, adénopathies'
             assert 'masse ganglionnaire' in text
         if index == 2:
@@ -111,6 +111,12 @@ async def check_g2(page, touch=False):
             assert 'primitif' in text and 'histologie' in text
         if index == 5:
             assert 'avant biopsie ou chirurgie' in text and 'ne remplace pas le tissu' in text
+        if index == 6:
+            assert 'IGRA' in text and 'prouve pas la maladie active' in text
+        if index == 7:
+            assert 'simultanément' in text and 'second prélèvement' in text
+        if index == 8:
+            assert 'sans délai' in text and 'LRINEC' in text and 'pas d’IRM préalable systématique' in text
         # A specialised term must open a definition and return to the same monography.
         await page.wait_for_function("document.querySelector('#tip .ck-b .glo')")
         term = page.locator('#tip .ck-b .glo').first
