@@ -1,3 +1,7 @@
+## Couleurs d’origine · clarification utilisateur · 19.10.2026
+
+Vial précise : revenir à la couleur d’origine, avant toutes les demandes de fond bleu et de palette. Patch0096 retire le sélecteur ; patch0097 annule aussi0093/0094. HTML et deux CSS identiques octet pour octet à c681d01 : fond blanc cassé #FBFBF8, cartes et fenêtres blanches ; données, cours et deux blocs du haut conservés. Les choix mémorisés ne sont plus lus. La restauration intermédiaire du bleu unique n’a pas été publiée. Référence et CI à reprendre sur ces couleurs d’origine, sans modifier les seuils. Aucune reprise clinique.
+
 ## Annulation du sélecteur · fond bleu ciel unique · 19.10.2026
 
 Demande utilisateur : annuler les dix teintes et rétablir la couleur unique précédente. Patch0096 retire le chargeur, son emplacement et les styles du sélecteur ; asset et test propres à cette fonctionnalité retirés avec leur étape CI. HTML et deux CSS identiques à cd21898, avant le sélecteur : bleu ciel très pâle #EAF7FD derrière le texte, deux blocs du haut préservés. Les préférences enregistrées ne sont plus lues. Données de progression et cours inchangés. Captures ordinateur/mobile/sombre et écarts du SHAe324197 examinés : seule la ligne du sélecteur disparaît, fond bleu et deux blocs du haut préservés. Aucun nouveau nœud axe grave/critique, texte coupé, débordement ou police en échec ; CLSmax0,0383 contre0,0298 lié au retour de la disposition précédente, plafond0,1 conservé. Référence adoptée via workflow39324620020. CI stricte et publication à vérifier ; aucune reprise clinique.

@@ -8,6 +8,7 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 |---|---|
 | `tools/patches/0095-selecteur-theme-fond.py` | Historique : sélecteur de dix teintes pâles annulé par0096 à la demande de Vial. |
 | `tools/patches/0096-restaurer-fond-unique.py` | Annule le sélecteur0095 à la demande de Vial ; fond bleu ciel unique précédent restauré. |
+| `tools/patches/0097-restaurer-couleurs-origine.py` | Restaure le blanc cassé et les cartes blanches d’origine ; annule les fonds0093/0094. |
 | `tools/patches/0094-fond-zones-lecture.py` | Fonds de lecture bleu ciel très pâle, périmètre hors en-tête/sauvegarde, couleurs des caractères conservées. |
 | `tools/patches/0093-fond-bleu-ciel-pale.py` | Fond clair bleu ciel très pâle #EAF7FD, deux ancrages uniques ; blocs et contenu conservés. |
 | `tools/patches/0090-deplacer-commentaires-techniques.py` | Archive45commentaires techniques et conserve les jetons et terminateurs de ligne. |
