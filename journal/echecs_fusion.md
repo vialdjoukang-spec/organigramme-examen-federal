@@ -72,3 +72,5 @@ Tests navigateur locaux : file:// refusé ERR_BLOCKED_BY_ADMINISTRATOR, aucun co
 - 19.10.2026 · PR133, CI39277859737 liens : ancien PDFMSF404. Source9 remplacée par copie originale suisse FMS2023 p881, relue indépendamment ; aucune retouche des14parties. Métadonnées/audit/compilation et CI relancés ; aucun statut HTTP ignoré ajouté. Surveillance API temporairement502/401 ; lecture de contrôle reprise.
 
 - 19.10.2026 Europe/Zurich · G5PR133 : tête30c2912, CI39281125489 journaux278/278 et parcoursG1–G5OK, visuel39281155143conforme ; fusionnormale refuséeHTTP405 «4of4requiredstatuschecksarequeued». Auto-fusionactive, aucune protectionmodifiée. Ordre utilisateur G6→G16traitésunàun ; G6préparé surG5conservé, fusion seulementdansl’ordre.
+
+- 19.10.2026 Europe/Zurich · Incident G5 levé : PR133 fusionnée normalement à16:20:45UTC, main43a11f96. G6 CI39284307072 :278/278 contrôlesinteraction réussis, mais assertionUI premièrepartieG6 échoue (sous-parties horsliste). Correction des seulesbalises, mêmes motscliniques et contrôlesconservés ; testsdeportéeIUPS complétés. NouvelleCIrequise avantpublicationG6.

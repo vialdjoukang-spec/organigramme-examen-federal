@@ -1,3 +1,7 @@
+## Rectification de balisage G6 ·19.10.2026 Europe/Zurich
+
+G5PR133 est fusionnée normalement (main43a11f96,16:20:45UTC), Pages encore à vérifier. G6 : premièreCI278/278interactions réussis, mais assertion des deux sous-parties delapremièrepartie échouée. Les seulesbalises dec[0] sont corrigées ; motscliniques14partiesidentiques. Rapport indépendant et empreintes réactualisés ; garde IUPS conserve son périmètre précis et sept testsfrontières (douze tests cours au total). NouvelleCI et Pages requises avantpublication. G7préparé séparément, contrelectureencours ; puisG8…G16unàun.
+
 ## Cours G6 · forme et fond ·19.10.2026 Europe/Zurich
 
 État : les14parties fièvre/frissons/hyperthermie sont révisées séparément, avec définitionIUPS2001 exactement attribuée et opposition clinique à l’hyperthermie non régulée. Huit corrections tracées. Le payséditeurIUPS resteJP, présent au catalogue ; l’exception internationale autorisée est limitée au document et à la définitionc[0], avec tests refusant réutilisation clinique ou posologique. Aucun seuil de contrôle affaibli.

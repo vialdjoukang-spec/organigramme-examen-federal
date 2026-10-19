@@ -126,6 +126,20 @@ class InternationalDefinitionTests(unittest.TestCase):
             self.assertEqual(self.flags(root, tip, data), [])
             self.assertEqual(data['src'][0]['pays'], 'JP')
 
+    def test_definition_list_wrapper_keeps_precise_scope(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); tip, data = self.fixture(root)
+            tip['G6']['c'][0] = '<ul><li><b>Définition :</b> Reformulation attribuée.</li></ul>'
+            self.assertEqual(self.flags(root, tip, data), [])
+            tip['G6']['v']['c'][10] = ['ajouté', [17]]
+            self.assertTrue(self.flags(root, tip, data))
+
+    def test_unrelated_list_heading_does_not_authorize_definition_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); tip, data = self.fixture(root)
+            tip['G6']['c'][0] = '<ul><li><b>Traitement :</b> Texte.</li></ul>'
+            self.assertTrue(self.flags(root, tip, data))
+
     def test_definition_cannot_be_reused_in_care_or_dd(self):
         for field, index in (('c', 10), ('d', 0)):
             with self.subTest(field=field), tempfile.TemporaryDirectory() as tmp:

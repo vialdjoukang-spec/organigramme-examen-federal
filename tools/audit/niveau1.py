@@ -247,7 +247,7 @@ def _definition_internationale(root, data, source, policy):
                     for index, entry in enumerate(entries):
                         if entry and s['id'] in entry[1]:
                             uses.append((code, field, index))
-        return uses == [(record['ssp'], 'c', 0)] and tip[record['ssp']]['c'][0].startswith('<b>Définition :')
+        return uses == [(record['ssp'], 'c', 0)] and tip[record['ssp']]['c'][0].startswith(('<b>Définition :', '<ul><li><b>Définition :'))
     except (OSError, ValueError, KeyError, TypeError, IndexError):
         return False
 
