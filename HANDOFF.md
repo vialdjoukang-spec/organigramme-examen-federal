@@ -1,3 +1,7 @@
+## Fond des zones de lecture ·19.10.2026
+
+Les surfaces auparavant blanches des cartes, cours et fenêtres de lecture passent en #EAF7FD, derrière les caractères. En-tête et sauvegarde restent hors du périmètre ; couleurs des caractères, données et scripts conservés. Patch0094 avec empreintes et ancrages uniques, gardes5/5 et socle conforme ; CI/Iris/Pages à contrôler. Aucune relecture clinique supplémentaire.
+
 ## Fond bleu ciel très pâle · demande utilisateur ·19.10.2026
 
 Le fond clair passe en #EAF7FD. En-tête, indicateurs et bloc de sauvegarde, données médicales, progression et scripts conservés. Deux valeurs CSS seulement, patch0093 à ancrages uniques. Gardes5/5 et empreinte orig conformes ; CI/Iris/fusion/Pages à vérifier. Cette demande de présentation n’ajoute aucune relecture clinique et ne reprend pas les DD.
