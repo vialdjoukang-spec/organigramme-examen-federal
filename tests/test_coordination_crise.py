@@ -131,5 +131,14 @@ class CrisisCoordinationTests(unittest.TestCase):
             self.assertNotIn('Recherche régulée :',output)
             self.assertTrue(report['plan']['recherche_automatique_suspendue'])
 
+    def test_monograph_queue_excludes_ssp_courses(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);_,tasks=self.fixture(root);report=self.run_report(root,tasks)
+            self.assertEqual(report['plan']['perimetre_monographies'],'diagnostics_differentiels')
+            self.assertEqual(report['plan']['prochaines_fiches_ssp'],[])
+            output=page(report)
+            self.assertNotIn('Fiches SSP à reprendre',output)
+            self.assertNotIn('Fiches SSP structurées',output)
+
 
 if __name__=='__main__':unittest.main()
