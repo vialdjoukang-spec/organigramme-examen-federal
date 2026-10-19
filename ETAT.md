@@ -1,3 +1,7 @@
+## G13 · compatibilité examen régional ·19.10.2026
+
+La CI a détecté le format de la rubrique§autres : quatre puces rédigées restaurées, mots médicaux strictement identiques. Contre-vérification indépendante favorable ; les12assertions statiques originales de test_examen.py passent sous Node, aucun test modifié. Rapport et empreinte de partie6 actualisés ; G12publié, G13CI à reprendre.
+
 ## Cours G13 · forme et fond · 19.10.2026 Europe/Zurich
 
 G13 mort non naturelle :14parties révisées et contre-auditées, signes de mort et causes/circonstances distingués. Refroidissement seul et pétéchies ne sont plus des preuves ; secours prioritaires, qualification prudente et procédure suisse cantonale précisés. Statistiques OFS2023 datées ; anciens chiffres et datation conservés avec limites. Régions/phases/renvois, diagnostics différentiels et fondamentaux préservés. Aucune validation médicale humaine.
