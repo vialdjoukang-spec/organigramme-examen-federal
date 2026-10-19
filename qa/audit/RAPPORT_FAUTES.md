@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 173 faute(s) corrigée(s), dont 8 critique(s), 97 majeure(s) et 68 mineure(s).
+Bilan : 179 faute(s) corrigée(s), dont 8 critique(s), 103 majeure(s) et 68 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -62,6 +62,17 @@ Bilan : 173 faute(s) corrigée(s), dont 8 critique(s), 97 majeure(s) et 68 mineu
 | Majeure | TIP.G13.c[4–7,9,12–13] | Pétéchies et sillon concluaient asphyxie/homicide, lividités discordantes prouvaient déplacement criminel et couleurs intoxication. | Description et annonce sans conclusion isolée ; absence non excluante et présence non spécifique ; pression/redistribution distinctes et couleur non diagnostic. | SSML2012§2.4–2.7,SSML2009, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
 | Majeure | TIP.G13.c[5,7–10,13] | Datation horaire rigide, thermométrie/prélèvements avant coordination, imagerie toujours préalable et autopsie systématique suggérées. | Anciens horaires conservés À vérifier avec variations, estimation intégrée ; actes invasifs sous mandat, imagerie souvent préalable et examens décidés selon enquête. | SSML2009,CURML2024,CPP253, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
 | Majeure | TIP.G13.c[9–13] | Préservation absolue pouvait primer secours, secret réputé jamais obstacle, cause médicale jamais déterminable et coût d’annonce nul. | Sécurité/survie avant traces, droit cantonal et nécessité de divulgation, cause médicale étayée distincte responsabilité pénale, conséquences familiales et suivi explicités. | ASSM/FMH2026,CPP253,OMS2023,CURML2024, lu le 2026-10-19 | Galien-PeauPopulations | 91c15ae |
+
+## G14-cours
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Majeure | TIP.G14.c[0,7,12] | Mort subite et arrêt cardiaque pouvaient être assimilés ; recommandation autopsie<50ans présentée comme toujours obligatoire. | Définitions reformulées avec statut européen et recherche internationale tracée, arrêt réversible distinct ; recommandation clinique séparée de décision judiciaire/cantonale suisse. | ESC2022,ASSM/FMH2026, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
+| Majeure | TIP.G14.c[1–2,11–12] | >80 % de FV initiale en Suisse, taux de survie/RCP sans année ou dénominateur ; risque de confusion arrêt/mort subite. | SWISSRECA2025publié2026 :7604arrêts,26 %choquables,68 %hommes ;15,2 %/38,9 %Utstein avec cantons≥80 %devenir. Anciens repères conservés À vérifier sans extrapolation. | SWISSRECA Jahresbericht2025 pp17–19,24, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
+| Majeure | TIP.G14.c[2–6,9–10,13] | Rythme ventriculaire assimilé trop largement à arrêt, TV soutenue sans mauvaise tolérance avant30s et parcours2021 à actualiser. | ChoquablesFV/TVsanspouls distincts asystolie/AESP, causes réversibles et appel immédiat en parallèle ; reconnaissance gasps et compressions/DAE sans retard. | ERC/RCUK2025 BLS/ALS et circonstances particulières, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
+| Majeure | TIP.G14.c[4,7–8,12–13] | QTisolé et imagerie/génétique ou tests de provocation sans contexte pouvaient conclure ou exposer inutilement. | QT répété après stabilisation et exclusion causes acquises ; bilans ciblés, référentiels/limites des scores et tests réservés au centre équipé ; anciennes dosesprovocation AVAIPS. | ESC2022,RCUK2025, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
+| Majeure | TIP.G14.c[9–12] | Post-arrêt refroidissement32–36°C24h systématisé, seuil37,7°C72h et DAI simplifié à FV ouFEVG≤35 %. | Prévention fièvre≤37,5°C36–72h, pasréchauffementactif spontané32–36, pronostic multimodal≥72h sans confondants ; DAI selon cause, réversibilité, traitement optimal et surviefonctionnelle. | ERC/ESICM/RCUK2025,ESC2022/2026, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
+| Majeure | TIP.G14.c[8,10] | Doses ajmaline/flécaïnide et amiodarone reprises de sources étrangères sans recoupement AIPS démontré. | Chiffres anciens conservés À vérifier AIPS sans prétendre prescriptionvalidée ; adrénaline1mgIV/IO3–5min seule concorde avec ligne suisse existante et momentERC explicite. | AIPS Adrenalin Aguettant juin2023, registre lu17.10.2026 ; posologies anciennes AV ciblées, lu le 2026-10-19 | Galien-PeauPopulations | fd7adf4 |
 
 ## G2-cours
 
