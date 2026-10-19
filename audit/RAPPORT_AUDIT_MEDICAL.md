@@ -878,3 +878,7 @@ Quatorze parties révisées : définition et populations exactes, seuilsneutrop�
 ## G8 cours ·19.10.2026
 
 Les 14 parties du cours hypothermie sont révisées et contre-auditées. La définition ERC est attribuée comme européenne ; mesure centrale et système suisse révisé sont distincts. Triage et réanimation 2025, limites HOPE chez l’adulte, contexte pédiatrique et avalanche sont précisés. Les statistiques portent leur population et leurs limites. Les médicaments et doses non vérifiés dans leur AIPS restent À vérifier ; aucune validation médicale humaine. DD, fondamentaux, visas hérités et 247 autres cours sont conservés. Contre-audit : audit/FORME-FOND-COURS-G8-20261019.json.
+
+## G9 cours ·19.10.2026
+
+Les14parties du prurit sont révisées et contre-auditées. DéfinitionIDEOM, classificationIFSI, chronologie et bilans ciblés sont distincts. Populations statistiques et risque de cancer sont contextualisés ; les schémas de gale et de traitement systémique portent leurs populations, exceptions et limites AIPS. Les régions abdominale et rectale retrouvent des phases de palpation adaptées, sans perte de renvoi. Aucune validation médicale humaine. DD, fondamentaux, visas et247autres cours conservés. Contre-audit : audit/FORME-FOND-COURS-G9-20261019.json.
