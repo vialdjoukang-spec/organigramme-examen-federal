@@ -1,0 +1,113 @@
+{
+  "type": "contre_audit_technique_independant",
+  "date": "2026-10-19T11:24:06.160497+00:00",
+  "auditeur": "Codex /root/audit_forme_cours_code",
+  "base": "793fc92b0eb05199e53365e5ee29cdb4991b8803",
+  "perimetre": "Outillage de forme cours SSP seulement ; contenu médical TIP/G1 et sources exclus de cette contrelecture.",
+  "verdict": "favorable_technique",
+  "resume": "Patch ordinal rejouable, routage cours, clés de progression, contrôle des empreintes et priorité cours vérifiés. Les deux anomalies de relance détectées ont été corrigées et recontrôlées.",
+  "empreintes_fichiers": {
+    "tools/patches/0038-titres-ordinaux-cours-ssp.py": "a0e57749eeea3e7382b40fd713bc61fddf7f59585030c2b029f6eae0862212aa",
+    "tools/cours/controler.py": "95b137807e8a335273a7637ecd7462010d579d9b684990bb88f81d08490ad0cd",
+    "tools/cours/registre.json": "9e1b538cce3eb86b1195f742bb5f67d097bcb241127bfcfafb18b64329cc27b5",
+    "tests/test_cours_ssp.py": "618416411253e039524669085e1d0d42f92e9ddf91eb4a15b42ecf16615c1bcb",
+    "tools/coordination/calculer.py": "05d292b0d25300a10657bde53a86ca3395e6388c43fed2fd55b84a09d2e01b93",
+    "tools/coordination/config.json": "2c9f49b2cf3bd20870f98d898970ecb85958c327b52a58426444b9770998ac3b",
+    "tools/garde/permanence.py": "42f3981a8ffa0281aaaae3050e70d319c83c16fa7e084011b4ba25adcbd0fc19",
+    "tools/garde/progres.py": "31f6228a04a77a60bb678694efd425889c4be7312df1abcc20ac3e62905d0d62",
+    "tools/garde/config.json": "7f0f4ffb3f91e965b084342f1f11f6770a4d5ae5f768fac1fcefc46ee7b22e2f",
+    ".github/workflows/ci.yml": "43931ad1ceb80906dab3990914c36ca484572d31186e6f122cfe02a9ce33f0ed",
+    "tools/porte.py": "9dc9ea361d7265aaa3d36a94c472242279b39fbce234ccb3e1ffe5c90adecd2a",
+    "tools/veille_relance.sh": "9fcb4452cb704eb54f38d41d505337a86befbce0e321230b7a727a191086bc88"
+  },
+  "controles_reussis": [
+    {
+      "controle": "patch 0038 APP_FILE et idempotence",
+      "preuve": "Exécution sur copie temporaire HEAD à deux reprises : octets identiques au second passage ; rejeu sur copie courante : octets identiques. TIP, NOT, SSP, GES strictement inchangés par patch."
+    },
+    {
+      "controle": "Périmètre de la modification automatique",
+      "preuve": "Annulation exacte des deux ajouts (CLIN.map et règle CSS .nr[data-k^=\"c\"] .tw) restitue app_v2.html HEAD intégralement."
+    },
+    {
+      "controle": "Clés de progression, titres et routage",
+      "preuve": "Exécution Node isolée des fonctions courantes notList et tipFor : c0–c13 inchangés ; titres liste/fenêtre identiques ; 14 contenus spécifiques ; c5 utilise exFmt ; monoGet stub échoue si appelé et ne l’est jamais."
+    },
+    {
+      "controle": "Clic, toucher, clavier",
+      "preuve": "Diff automatique de l’application limité CLIN/CSS ; gestionnaires click/keydown et absence de gestionnaires de survol inchangés. Test UI renforcé en CI ; pas de Playwright local file:// exécuté."
+    },
+    {
+      "controle": "Contrôleur et attestation",
+      "preuve": "3 unitaires cours + 6 scénarios isolés supplémentaires : rapport hash faux, partie hash faux, SSP inconnu, traversée de chemin, rapport absent, verdict défavorable tous refusés. Registre initial vide : 248 SSP, 3472 parties, zéro relecture et zéro anomalie."
+    },
+    {
+      "controle": "Coordination cours et permanence",
+      "preuve": "Plan courant commence G1 cours ; priorites8 et maturation DD vidées ; recherche automatique suspendue. policy ignore hausse DD et détecte hausse cours. complete reste False même compteurs cours et DD complets."
+    },
+    {
+      "controle": "Tests legacy",
+      "preuve": "Override priorite_cours_ssp=False explicite dans fixtures legacy ; assertions fonctionnelles préservées."
+    },
+    {
+      "controle": "Chemins et CI",
+      "preuve": "Chemins prompt/registre/code présents, imports Python valides, test cours et contrôleur ajoutés au job garde CI. git diff --check vert."
+    },
+    {
+      "controle": "Relance corrigée",
+      "preuve": "4 tests cours et 18 tests veille locale verts après corrections ; sortie porte.py ordre exclusivement cours ; bash -n veille_relance.sh et git diff --check verts."
+    }
+  ],
+  "tests": {
+    "total_unitaires": 85,
+    "echecs": 0,
+    "suites": {
+      "test_cours_ssp.py": 4,
+      "test_prevalences_coordination.py": 11,
+      "test_coordination_crise.py": 9,
+      "test_garde_permanence.py": 14,
+      "test_chronologie_jauges.py": 6,
+      "test_mono_prototype.py": 14,
+      "test_prevalence_classement.py": 7,
+      "test_garde.py": 2,
+      "test_veille_relance.py": 18
+    }
+  },
+  "risques_limites": [
+    "Les compteurs sont attestés au niveau SSP entier (14 parties), pas à la partie : une relecture partielle reste volontairement invisible dans les jauges.",
+    "Le contrôleur atteste les empreintes des parties et du rapport ; il ne prouve pas par lui-même la lecture effective des sources ou l’indépendance humaine du relecteur.",
+    "La suspension des automates historiques et la reconnaissance de mission par permanence restent liées à mission_exclusive=infobulles_prototype6 ; conserver ce marqueur tant que les gardes historiques ne traitent pas séparément le nouvel identifiant.",
+    "Aucune exécution UI locale ni validation médicale ; CI exacte et contrelecture médicale indépendantes restent nécessaires.",
+    "Le contenu G1 est en intégration parallèle ; les empreintes de ce rapport concernent uniquement les fichiers techniques listés."
+  ],
+  "anomalies_resolues": [
+    {
+      "id": "RELANCE-COURS-01",
+      "severite": "moyenne",
+      "fichiers": [
+        "tools/porte.py:154",
+        "tools/veille_relance.sh:109",
+        "tools/veille_relance.sh:152"
+      ],
+      "constat": "La commande porte.py ordre annonce toujours Étape 9 : Correction des infobulles SSP et DD : six rubriques. La veille facultative locale emploie cet ordre puis ajoute La mission exclusive infobulles reste prioritaire et peut réécrire PROCHAINE_ACTION.md avec son ancien protocole.",
+      "reproduction": "python3 tools/porte.py ordre ; lecture du chemin passage -> relancer -> ecrire_prochaine / ordre_execution dans veille_relance.sh.",
+      "impact": "La relance locale peut réintroduire des ordres DD ou de plan commun alors que les cours sont prioritaires ; les instructions récentes AGENTS permettent de résoudre la contradiction mais la machine ne garantit pas le scope.",
+      "correction_attendue": "Faire prévaloir priorite_cours_ssp dans ordre et veille locale (ou neutraliser explicitement cette relance pendant priorité cours), conserver le comportement legacy lorsque false.",
+      "statut": "corrige_et_recontrole",
+      "resolution": "porte.py ordre applique priorite_courante.id=forme_fond_cours_ssp avant tout titre historique ; veille_relance.sh préface le périmètre cours et restreint explicitement les anciennes consignes aux DD suspendus. Sortie de ordre recontrôlée et test sentinel ajouté."
+    },
+    {
+      "id": "RELANCE-COURS-02",
+      "severite": "faible",
+      "fichiers": [
+        "tools/garde/progres.py:122"
+      ],
+      "constat": "Le commentaire @codex commence par Rédige du contenu (prévalences/monographies), puis ajoute l’override cours. Le choix du prochain lot est correct mais le texte juxtapose deux périmètres.",
+      "impact": "Instruction contradictoire dans la veille GitHub ; l’override cours explicite en fin de commentaire limite le risque.",
+      "correction_attendue": "Adapter le préfixe au périmètre cours quand priorite_cours_ssp=True.",
+      "statut": "corrige_et_recontrole",
+      "resolution": "Préfixe du commentaire dynamique : parties du cours SSP lorsque priorité cours active."
+    }
+  ],
+  "anomalies": []
+}

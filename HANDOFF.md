@@ -1,3 +1,9 @@
+## PRIORITÉ COURANTE · forme et fond des cours SSP · 19.10.2026
+
+Appliquer `docs/PROMPT-DIRECTEUR-ACADEMIQUE.md` uniquement aux quatorze parties du cours SSP, depuis G1. Titres ordinaux 1–14, sous-parties couvrant chaque élément du titre, gras réservé aux titres, contenu concis et continuité sémantique vérifiée. Les définitions recherchent une société savante de portée mondiale ; attribuer exactement son statut et ne pas inventer de définition officielle. Cette autorisation internationale concerne les définitions ; les posologies restent soumises à l’AIPS suisse. La restauration PR126 est acquise : préserver chaque partie spécifique, l’examen régional et ses liens, les clés de progression et le clic uniquement.
+
+Les diagnostics différentiels sont suspendus jusqu’à l’achèvement de cette optimisation des cours. Leur plan monographique en six rubriques reste intact. Ne pas reprendre le lot G2 DD non publié ; ne jamais appliquer ce plan commun aux cours SSP. Les anciens ordres ci-dessous sont historiques lorsqu’ils contredisent cette priorité. Une numérotation automatique ne vaut pas relecture des 3 472 parties.
+
 ## URGENCE · périmètre rectifié par Vial · 19.10.2026
 
 Le plan monographique en six rubriques concerne UNIQUEMENT les diagnostics différentiels des SSP. Les SSP et leurs quatorze parties de COURS n’étaient pas concernés. Restaurer d’abord, sans réécriture clinique, le contenu spécifique antérieur de chaque partie, son titre et ses sources ; conserver le rendu régional et les liens de l’examen physique. Le titre du SSP retrouve la fiche éclair (définition et points clés). Ouverture par clic, toucher ou clavier seulement, jamais au survol.

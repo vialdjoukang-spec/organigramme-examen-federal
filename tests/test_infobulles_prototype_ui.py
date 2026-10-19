@@ -135,6 +135,8 @@ async def check_courses(page, touch=False):
     }""")
     result = await page.evaluate("""() => {
       const codes=Object.keys(TIP),failures=[];let sections=0;
+      if(CLIN.length!==14 || CLIN.some((title,i)=>!title.startsWith((i+1)+'- ') || !title.endsWith(' :')))
+        failures.push('Titres ordinaux 1–14 attendus');
       for(const code of codes){
         if(TIP[code].c.length!==14)failures.push(code+': expected 14 course sections');
         for(let i=0;i<14;i++){
@@ -148,6 +150,13 @@ async def check_courses(page, touch=False):
       return {codes:codes.length,sections,failures};
     }""")
     assert result == {'codes':248,'sections':3472,'failures':[]}, result
+
+    # Les deux composantes du premier titre ne peuvent être fusionnées en un bloc.
+    first = await page.evaluate("""() => {
+      const el=document.createElement('div');el.innerHTML=TIP.G1.c[0];
+      return [...el.querySelectorAll(':scope > b')].map(x=>x.textContent.trim());
+    }""")
+    assert first == ['Définition :','Sémantique de la plainte :'], first
 
     for code in ('G1','G2'):
         await page.evaluate("""code => {

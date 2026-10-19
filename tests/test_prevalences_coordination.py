@@ -34,32 +34,32 @@ class CoordinationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);tasks,ledger,_=self.fixture(root)
             with patch('tools.coordination.calculer.catalog',return_value=([('G1','Plainte1','G'),('G2','Plainte2','G')],tasks)):
-                m=calculer(root,ledger=ledger)['mesure'];self.assertEqual(m['monographies_structure'],1);self.assertEqual(m['couples_documentes'],1);self.assertFalse(m['maturite_documentaire_complete'])
+                m=calculer(root,config=dict(CONFIG,priorite_cours_ssp=False),ledger=ledger)['mesure'];self.assertEqual(m['monographies_structure'],1);self.assertEqual(m['couples_documentes'],1);self.assertFalse(m['maturite_documentaire_complete'])
     def test_structured_unreviewed_monograph_still_gets_maturation_work(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);tasks,ledger,_=self.fixture(root)
             with patch('tools.coordination.calculer.catalog',return_value=([('G1','Plainte1','G')],tasks[:1])):
-                result=calculer(root,ledger={});self.assertEqual(len(result['plan']['prochain_lot9']),1);self.assertFalse(result['mesure']['maturite_documentaire_complete'])
+                result=calculer(root,config=dict(CONFIG,priorite_cours_ssp=False),ledger={});self.assertEqual(len(result['plan']['prochain_lot9']),1);self.assertFalse(result['mesure']['maturite_documentaire_complete'])
     def test_corrupt_runtime_disables_dispatch_and_does_not_crash(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);tasks,ledger,_=self.fixture(root)
             for row in [None,dict(tasks[0],candidates=[None])]:
                 states={c:{'tasks':{}} for c in 'GSFO'};states['G']['tasks']['G1#0']=row
                 with patch('tools.coordination.calculer.catalog',return_value=([('G1','Plainte1','G')],tasks[:1])):
-                    result=calculer(root,states=states,ledger=ledger);self.assertTrue(result['plan']['anomalies_etat']);self.assertFalse(result['mesure']['maturite_documentaire_complete']);self.assertFalse(decision({'workflow_runs':[]},result['plan'])['lancer'])
+                    result=calculer(root,config=dict(CONFIG,priorite_cours_ssp=False),states=states,ledger=ledger);self.assertTrue(result['plan']['anomalies_etat']);self.assertFalse(result['mesure']['maturite_documentaire_complete']);self.assertFalse(decision({'workflow_runs':[]},result['plan'])['lancer'])
     def test_changed_monograph_or_report_revokes_review(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);tasks,ledger,mono=self.fixture(root);mono['def']='Une définition modifiée.';(root/'data/ck/mono/m.json').write_text(json.dumps({'maladie':mono}))
             with patch('tools.coordination.calculer.catalog',return_value=([('G1','Plainte1','G')],tasks[:1])):
-                self.assertEqual(calculer(root,ledger=ledger)['mesure']['couples_documentes'],0)
+                self.assertEqual(calculer(root,config=dict(CONFIG,priorite_cours_ssp=False),ledger=ledger)['mesure']['couples_documentes'],0)
     def test_reserve_and_ssp_without_dd_block_completion(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);tasks,ledger,_=self.fixture(root)
             with patch('tools.coordination.calculer.catalog',return_value=([('G1','Plainte1','G'),('S8.1','Trauma','S8')],tasks[:1])):
-                m=calculer(root,ledger=ledger)['mesure'];self.assertEqual(m['couples_documentes'],1);self.assertFalse(m['maturite_documentaire_complete']);self.assertEqual(m['ssp_sans_dd'],['S8.1'])
+                m=calculer(root,config=dict(CONFIG,priorite_cours_ssp=False),ledger=ledger)['mesure'];self.assertEqual(m['couples_documentes'],1);self.assertFalse(m['maturite_documentaire_complete']);self.assertEqual(m['ssp_sans_dd'],['S8.1'])
             ledger['monographies']['maladie']['reserves_levees']=False
             with patch('tools.coordination.calculer.catalog',return_value=([('G1','Plainte1','G')],tasks[:1])):
-                self.assertEqual(calculer(root,ledger=ledger)['mesure']['couples_documentes'],0)
+                self.assertEqual(calculer(root,config=dict(CONFIG,priorite_cours_ssp=False),ledger=ledger)['mesure']['couples_documentes'],0)
     def test_null_bool_nonfinite_future_and_locations_rejected(self):
         self.assertFalse(mono_ok({k:None for k in MONO_REQ}))
         task={'diagnostic':'Maladie'};base={'nom':'Maladie','prev_pct':5,'date_lu':'2026-01-01','loc':'Tableau1','src':'SRC'}
