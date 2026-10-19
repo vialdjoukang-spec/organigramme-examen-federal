@@ -3,6 +3,16 @@ from tools.links_changed import changed_urls
 
 
 class ChangedLinksTests(unittest.TestCase):
+    def test_complete_doi_with_parentheses_is_checked(self):
+        url='https://doi.org/10.1016/S2213-2600(15)00043-0'
+        self.assertEqual(changed_urls('+{"source":"'+url+'"}'),[url])
+
+    def test_only_unbalanced_prose_parentheses_are_removed(self):
+        self.assertEqual(changed_urls('+Voir (https://example.org/document).'),
+                         ['https://example.org/document'])
+        self.assertEqual(changed_urls('+Voir (https://example.org/document(1)).'),
+                         ['https://example.org/document(1)'])
+
     def test_prose_change_on_minified_line_does_not_recheck_unchanged_sources(self):
         diff='-{"cours":"ancien", "source":"https://example.org/ancien.pdf"}\n+{"cours":"nouveau", "source":"https://example.org/ancien.pdf"}'
         self.assertEqual(changed_urls(diff),[])
