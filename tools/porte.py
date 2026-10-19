@@ -153,6 +153,13 @@ def critere(n, bavard=True):
 
 def ordre(e=None):
     e = e or lire_etat()
+    if e.get('mission_exclusive', {}).get('priorite_courante', {}).get('id') == 'forme_fond_cours_ssp':
+        return ("Ordre de Vial : reprends uniquement les parties du cours SSP, depuis le premier SSP non relu "
+                "dans tools/cours/registre.json. Lis docs/PROMPT-DIRECTEUR-ACADEMIQUE.md : titres ordinaux 1–14, "
+                "sous-parties explicites et continuité logique du fond. Reprendre la PR active, vérifier les sources "
+                "et la contrelecture. Les diagnostics différentiels restent suspendus jusqu’à la fin des cours ; "
+                "ne pas leur appliquer cette réorganisation maintenant. Ne jamais remplacer les parties SSP "
+                "par une monographie commune. Conserver les liens de gestes et le clic uniquement.")
     n = e["etape_courante"]
     x = etape(n) or {"titre": "fin", "modele": "defaut"}
     mod = "GPT 6 Luna (gpt-6-luna)" if x.get("modele") == "luna" else "modèle par défaut"

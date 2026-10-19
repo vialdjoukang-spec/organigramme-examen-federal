@@ -152,6 +152,19 @@ def calculer(root=ROOT, states=None, ledger=None, config=None):
         plan.update(mission_exclusive='infobulles_prototype6',recherche_automatique_suspendue=True,
                     perimetre_monographies='diagnostics_differentiels',prochaines_fiches_ssp=[],
                     action_recherche='rechercher manuellement les sources nécessaires au lot courant uniquement')
+    if config.get('priorite_cours_ssp') is True:
+        from tools.cours.controler import bilan
+        courses = bilan(root)
+        metrics.update(cours_ssp_total=courses['ssp_total'],cours_parties_total=courses['parties_total'],
+                       cours_ssp_relus=courses['ssp_relus'],cours_parties_relues=courses['parties_relues'])
+        plan.update(priorite_cours_ssp=True,diagnostics_differentiels_suspendus=True,
+                    prompt_cours_ssp=config['prompt_cours_ssp'],
+                    prochain_lot9=[{'ssp':c,'diagnostic':'Cours SSP · forme et fond, 14 parties'}
+                                   for c in courses['ssp_restant'][:1]],
+                    priorites8=[],file_maturation9=[],file_maturation8=[],
+                    recherche_automatique_suspendue=True,
+                    action_recherche='lire les sources nécessaires aux parties du cours SSP en révision',
+                    anomalies_cours=courses['anomalies'])
     return {'version':1,'protocole':{'version':2,'rubriques':6,'chronologie_obligatoire':True},'maj':datetime.now(timezone.utc).isoformat(timespec='seconds'),'mesure':metrics,'plan':plan,'occurrences':occurrences,
             'reserve':'Couverture structurelle et relecture documentaire distinctes. Registre lié aux empreintes initialisé sur le dernier lot ; les audits historiques ne sont pas tous migrés. Aucun accord clinique humain ni achèvement déduit d’un chiffre arrondi.'}
 
@@ -162,12 +175,17 @@ def page(report):
     if p.get('mission_exclusive') == 'infobulles_prototype6':
         rows=[('Prototypes six rubriques avec chronologies (hors validation clinique)',m['prototype_structure'],m['diagnostics_uniques']),
               ('Prototypes avec relecture documentaire actuelle',m['prototype_relecture'],m['diagnostics_uniques'])]
+    if p.get('priorite_cours_ssp'):
+        rows=[('SSP dont les 14 parties ont été relues',m['cours_ssp_relus'],m['cours_ssp_total']),
+              ('Parties de cours relues (forme et fond)',m['cours_parties_relues'],m['cours_parties_total'])]
     bars=''.join(f'<tr><td>{esc(label)}</td><td><progress value="{n}" max="{max(1,total)}"></progress> {n}/{total}</td></tr>' for label,n,total in rows)
     todo=''.join(f'<li>{esc(x["ssp"])} : {esc(x["diagnostic"])}</li>' for x in p['prochain_lot9'])
     recherche=(esc(p['action_recherche'])+'. Recherches automatiques transversales suspendues.'
                if p.get('recherche_automatique_suspendue') else
                'File documentaire : '+str(p['file_relecture'])+' extraits. Recherche régulée : '+str(p['limite_recherche'])+' diagnostic(s) par catégorie, au plus toutes les '+str(p['intervalle_recherche_minutes'])+' minutes.')
     titre='Diagnostics différentiels · prototype six rubriques' if p.get('mission_exclusive') == 'infobulles_prototype6' else 'Étapes 8 et 9 · suivi commun'
+    if p.get('priorite_cours_ssp'):
+        titre='Cours SSP · forme et fond · diagnostics différentiels en attente'
     return '<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>'+titre+'</title><style>body{font:18px system-ui;max-width:960px;margin:auto;padding:24px;color:#182c40;background:#f5f7fa}td{padding:12px}progress{max-width:40vw}a{color:#0057a3}</style><h1>'+titre+'</h1><p>'+esc(report['maj'])+'</p><table>'+bars+'</table><p>'+esc(report['reserve'])+'</p><h2>Lot prioritaire</h2><ol>'+todo+'</ol><p>'+recherche+'</p><p>SSP sans différentiel : '+str(len(m['ssp_sans_dd']))+'. Leur absence empêche une maturité globale.</p><p><a href="prevalences.html">Prévalences</a> · <a href="prevalences-erreurs.pdf">Rapport des erreurs</a> · <a href="coordination.json">Détail vérifiable</a></p></html>'
 
 def main():

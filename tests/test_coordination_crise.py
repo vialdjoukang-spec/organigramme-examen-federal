@@ -43,7 +43,9 @@ class CrisisCoordinationTests(unittest.TestCase):
         return monos,tasks
 
     def config(self):
-        return dict(CONFIG,mission_exclusive='infobulles_prototype6',ssp_prioritaire='G1',taille_lot_monographies=3)
+        # Contrat de la file DD, conservé pour sa reprise après les cours.
+        return dict(CONFIG,mission_exclusive='infobulles_prototype6',priorite_cours_ssp=False,
+                    ssp_prioritaire='G1',taille_lot_monographies=3)
 
     def run_report(self,root,tasks,ledger=None,config=None):
         with patch('tools.coordination.calculer.catalog',return_value=([('G1','Sudation','G'),('G10','Douleur','G')],tasks)):

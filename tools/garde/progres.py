@@ -112,8 +112,16 @@ def main():
                             "référence diagnostique puis bilans numérotés dans l’ordre pratique, A-But/B-Moyens en phases chronologiques, actions simultanées explicites, terminologie cliquable. "
                             "Reprendre la PR active du lot ; autres tâches et recherches transversales suspendues. "
                             + json.dumps(plan.get("prochain_lot9", []), ensure_ascii=False))
+            if config_mission.get('priorite_cours_ssp') is True:
+                consigne = ("\n\nPRIORITÉ EXCLUSIVE : optimiser uniquement les parties du cours SSP depuis G1, "
+                            "selon docs/PROMPT-DIRECTEUR-ACADEMIQUE.md : titres numérotés, sous-parties explicites, "
+                            "précision et continuité sémantique. Garder chaque contenu spécifique et l’examen régional. "
+                            "Diagnostics différentiels et autres tâches suspendus ; ne pas reprendre le lot G2 DD. "
+                            "Reprendre la PR active avant une nouvelle rédaction. Prochain cours : "
+                            + json.dumps(plan.get('prochain_lot9', []), ensure_ascii=False))
+            objet = 'parties du cours SSP' if config_mission.get('priorite_cours_ssp') is True else 'prévalences/monographies'
             if commenter(n, f"@codex Ordre de Vial : reprends l'étape {etape}, lot suivant. Rédige du contenu "
-                         f"(prévalences/monographies), pas de relevé. Présente d'abord tes automates actifs "
+                         f"({objet}), pas de relevé. Présente d'abord tes automates actifs "
                          f"(`python tools/garde/checkpoint.py --inventaire`).\n\nGarde R15 : {raison}." + consigne, tok_codex()):
                 etat["derniere_relance"] = iso(t)
                 raisons.append(f"relance @codex postée sur Pilote #{n}")

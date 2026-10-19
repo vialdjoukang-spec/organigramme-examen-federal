@@ -38,6 +38,9 @@ def complete(report):
             or protocol.get('chronologie_obligatoire') is not True):
         return False
     m = report.get('mesure', {})
+    if report['plan'].get('priorite_cours_ssp'):
+        # Ce jalon n’autorise pas la clôture de la mission DD, encore suspendue.
+        return False
     scope = report['plan'].get('perimetre_monographies')
     checks = [('diagnostics_uniques', 'prototype_structure', 'prototype_relecture'),
               ('diagnostics_uniques', 'chronologie_structures', 'chronologie_relectures')]
@@ -56,6 +59,8 @@ def complete(report):
 
 def digest(report):
     m = report['mesure']
+    if report.get('plan', {}).get('priorite_cours_ssp'):
+        return {k: m[k] for k in ('cours_ssp_relus','cours_parties_relues')}
     keys = ['prototype_structure', 'prototype_relecture']
     if report.get('plan', {}).get('perimetre_monographies') != 'diagnostics_differentiels':
         keys += ['ssp_prototype_structure', 'ssp_prototype_relecture']

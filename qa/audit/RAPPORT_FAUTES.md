@@ -2,7 +2,7 @@
 
 Ce rapport est régénéré par `tools/audit/rapport_fautes.py` à partir de `qa/audit/fautes.jsonl` ; il ne se modifie pas à la main. Chaque faute a été corrigée par un commit dédié d’un automate d’audit régional de Galien.
 
-Bilan : 75 faute(s) corrigée(s), dont 5 critique(s), 12 majeure(s) et 58 mineure(s).
+Bilan : 83 faute(s) corrigée(s), dont 6 critique(s), 18 majeure(s) et 59 mineure(s).
 
 ## Fautes critiques : accord de Vial requis avant fusion
 
@@ -13,6 +13,7 @@ Bilan : 75 faute(s) corrigée(s), dont 5 critique(s), 12 majeure(s) et 58 mineur
 | g1-r13-precautions | mono\|endocardite-infectieuse | La formulation absolue des hémocultures pouvait faire attendre un traitement pourtant urgent. | Prélever rapidement, sans retarder le traitement urgent ; distinguer le patient stable. | CHUV, Guide antibiotique2022 §§5/11 ; HCL2024 diagnostic/PEC, lu le 2026-10-18 | 2026-10-18 |
 | g1-r13-precautions | mono\|infection-a-vih | La formule ne précisait ni les examens parallèles en primo-infection symptomatique ni le suivi distinct après PEP. | Test automatisé ≥4e génération avec analyse moléculaire en parallèle si suspicion symptomatique ; calendrier OFSP spécifique après PEP. | OFSP directiveVIH2025v4 §§2.4/2.6A ; OFSP/CFIST PEP07.11.2025 calendrier, lu le 2026-10-18 | 2026-10-18 |
 | g1-r13-precautions | mono\|sevrage-alcoolique-complique | Le CIWA-Ar était cité sans limite explicite chez un patient atteint de delirium. | Ne pas guider le traitement du delirium ou d’une personne non communicante par le CIWA-Ar ; jugement clinique et signes objectifs. | Worcestershire NHS WAHT-A&E-031v9,14.05.2025,p7, lu le 2026-10-18 | 2026-10-18 |
+| g1-cours-forme-fond | cours\|G1 | La précaution hémocultures/traitement urgent déjà approuvée pour le DD ne figurait pas dans le cours. | Propager la correction validée le18.10.2026 en PR119 : prélèvements avant antibiotiques si possible, sans différer un traitement urgent. | ESC endocardite2023 traduction SEC corrigée2025 §diagnostic et traitement ; accord utilisateur explicite PR119, lu le 2026-10-19 | 2026-10-18 |
 
 ## ck-urgences-lot1
 
@@ -28,6 +29,19 @@ Bilan : 75 faute(s) corrigée(s), dont 5 critique(s), 12 majeure(s) et 58 mineur
 |---|---|---|---|---|---|---|
 | Majeure | grille.management | La grille donnait des points pour juger l’état de l’enfant d’après sa réponse au paracétamol ; la baisse de la fièvre sous antipyrétique se voit aussi dans les infections graves. | Le critère récompense la réévaluation sans fièvre (fréquence cardiaque, comportement) sans conclusion tirée de la seule baisse de la fièvre ; point À vérifier pour la source suisse. | À vérifier (merkblatt Kinderspital Zürich, rubrique Antipyretika, à relire), lu le 2026-10-17 | Galien-PeauPopulations | 09d2d4d |
 | Majeure | grille.management | La station d’infarctus inférieur n’évaluait ni les dérivations droites ni la prudence avec les dérivés nitrés en cas d’extension au ventricule droit. | Critère ajouté (1 point) avec sa justification ; renvoi à l’ESC 2023 marqué À vérifier. | R-ESC-SCA § 3.2, repris de la chaîne hyp\|sca ; texte intégral À vérifier, lu le 2026-10-17 | Galien-CœurThorax | 09d2d4d |
+
+## g1-cours-forme-fond
+
+| Gravité | Champ | Faute | Correction | Source | Automate | Commit |
+|---|---|---|---|---|---|---|
+| Critique | c[8] | La précaution hémocultures/traitement urgent déjà approuvée pour le DD ne figurait pas dans le cours. | Propager la correction validée le18.10.2026 en PR119 : prélèvements avant antibiotiques si possible, sans différer un traitement urgent. | ESC endocardite2023 traduction SEC corrigée2025 §diagnostic et traitement ; accord utilisateur explicite PR119, lu le 2026-10-19 | Galien-PeauPopulations | e04dcc3 |
+| Majeure | c[1] | Une fréquence était présentée sans population d’origine, comme si elle décrivait le contexte suisse/européen. | Attribuer les chiffres à la revue2017 et à son enquête américaine2004 ; laisser les estimations CH/UE actuelles À vérifier. | RMS2017 p710 et références p714, lu le 2026-10-19 | Galien-PeauPopulations | e04dcc3 |
+| Majeure | c[7], c[12], c[13] | La synthèse rendait individuellement obligatoires deux éléments du jeu de critères4/7. | Attribuer la règle à RMS2017 ; préciser que le début avant25ans et l’absence de sueurs nocturnes ne sont pas chacun obligatoires. | RMS2017 tableau1 p712, lu le 2026-10-19 | Galien-PeauPopulations | e04dcc3 |
+| Majeure | c[10] | Des concentrations et doses étaient affichées sans preuve AIPS associée au cours. | Conserver chaque donnée antérieure avec À vérifier(AIPS suisse) individuellement ; ne pas certifier la dose. | RMS2017 p713–714 ; règle AIPS du dépôt, absence de preuve AIPS dans le lot, lu le 2026-10-19 | Galien-PeauPopulations | e04dcc3 |
+| Majeure | c[1], c[11] | Le pronostic affirmait une affection limitée à l’adolescence et au début de l’âge adulte. | Retirer cette généralisation ; indiquer que la rémission et l’évolution spontanée restent À vérifier. | Contre-audit documentaire RMS2017 ; limite de preuve CH/UE consignée dans le rapport, lu le 2026-10-19 | Galien-PeauPopulations | e04dcc3 |
+| Majeure | c[9], c[12] | La sudation aiguë et profuse isolée imposait implicitement la cascade ECG/troponine/glycémie. | Relier ces examens aux signes associés et aux suspicions de SCA ou d’hypoglycémie. | ESC SCA2023 republication §3.2 ; HUG diabète2022, lu le 2026-10-19 | Galien-PeauPopulations | e04dcc3 |
+| Majeure | c[7] | Le score de Burch-Wartofsky était donné seul sous le titre de crise thyrotoxique. | Indiquer qu’un score≥45 est compatible ; l’évaluation reste clinique. | ETA2018 §Thyroid Storm, lu le 2026-10-19 | Galien-PeauPopulations | 21c0459 |
+| Mineure | c[2] | Une hyperstimulation autonome était présentée comme mécanisme établi malgré l’incertitude. | Indiquer un mécanisme suspecté et une physiopathologie incomplètement élucidée. | RMS2017 p710–711, lu le 2026-10-19 | Galien-PeauPopulations | 21c0459 |
 
 ## g1-r13-precautions
 
