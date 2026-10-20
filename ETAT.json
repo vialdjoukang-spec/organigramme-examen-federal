@@ -488,7 +488,7 @@
     ],
     "priorite_active": "P1",
     "statut": "en_cours",
-    "observe_le": "2026-10-20T18:02:06.788808+00:00",
+    "observe_le": "2026-10-20T18:16:59.493156+00:00",
     "main_observe": "7047a8064294d1e3cd5d249d73bbf9cc1d930bd8",
     "cours_audites_documentaires": 64,
     "parties_auditees_documentaires": 896,
@@ -496,7 +496,7 @@
     "ssp_S_publications_reconnues": 46,
     "pr_ouvertes": 102,
     "rapport_file": "audit/P0-FILE-PR-20261020.json",
-    "prochaine_commande": "PR170 : publier la tête intégrée, CI finale et CI main167 vertes avant fusion normale ; vérifier ensuite Pages/HTTP/SHA256.179 et180 en correction, aucune priorité suivante engagée.",
+    "prochaine_commande": "170 : pousser le nouveau gel contre-audité sur la PR existante sans force, attendre six contrôles verts sur sa tête finale, fusionner puis vérifier CI main/Pages/HTTP.",
     "validation_medicale_humaine": false,
     "execution_autonome_hors_session_prouvee": false,
     "publication_baseline": "audit/P0-PUBLICATION-BASELINE-20261020.json",
@@ -552,10 +552,11 @@
       "preuve": "audit/P1-PUBLICATION-S3.10-S4.1-20261020.json",
       "ci_main": {
         "run": 39470922795,
-        "statut": "in_progress",
-        "conclusion": null,
+        "statut": "completed",
+        "conclusion": "success",
         "head_sha": "7047a8064294d1e3cd5d249d73bbf9cc1d930bd8",
-        "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39470922795"
+        "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39470922795",
+        "preuve": "audit/P1-CI-MAIN-S3.10-S4.1-20261020.json"
       }
     },
     "dernier_echec_ci": {
@@ -627,7 +628,7 @@
         "S4.1"
       ],
       "auteur": "1842b326d49e90cd992eb76e7d05d35def2e28da",
-      "statut": "fusionne_publication_verifiee_ci_main_en_cours",
+      "statut": "fusionne_publie_ci_main_verte",
       "rapport_revision": "audit/P1-CONTRE-AUDIT-S3.10-S4.1-REVISION-20261020.json",
       "publication_verifiee": true,
       "commit_fusion": "7047a8064294d1e3cd5d249d73bbf9cc1d930bd8"
@@ -649,7 +650,7 @@
       ],
       "auteur": "bb16d02f9074e1c88317da59d453b15dba161994",
       "gel_integration": "a091722",
-      "statut": "contre_audite_a_integrer",
+      "statut": "correctif_presentation_contre_audite_a_integrer",
       "rapport_revision": "audit/P1-CONTRE-AUDIT-S4.2-S4.3-REVISION-20261020.json",
       "publication_verifiee": false
     },
@@ -666,6 +667,20 @@
       "rapport_sha256": "547f1dafcb9825971ce64407e47fc0d6f7c9857f11aa16fdc8c8e556858eff5b",
       "verdict": "favorable_integration_documentaire",
       "corps_28_parties_170_inchanges": true
+    },
+    "ci_170": {
+      "pr": 170,
+      "head": "571e3f228226be88ecece47422d2b3a0ca46dbfa",
+      "ci": 39471435174,
+      "visuel": 39471435200,
+      "checkpoint": 39471435213,
+      "statut_observe": "failure_tests_281_sur_282",
+      "cause": "test_examen.py.tip_autres_rediges : sous-titre manquant dans S4.3.c[5]",
+      "preuve": "audit/P1-CI-ECHEC-PUCE-S4.3-20261020.json",
+      "correctif_local": "audit/P1-CORRECTIF-PUCE-S4.3-20261020.json",
+      "nouvelle_attestation_et_ci_requises": "Nouvelle attestation obtenue ; nouvelle CI requise.",
+      "correctif_contre_audite": true,
+      "rapport_correctif": "audit/P1-CONTRE-AUDIT-PUCE-S4.2-S4.3-20261020.json"
     }
   },
   "pause_utilisateur": {

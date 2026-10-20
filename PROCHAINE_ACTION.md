@@ -1,3 +1,11 @@
+## Correctif de présentation170 contre-audité · nouvelle CI requise
+
+Ajout du seul sous-titre S4.3 partie6 vérifié favorablement par contre-audit indépendant : `audit/P1-AUDIT-COURS-S4.3-PUCE-20261020.json` et `audit/P1-CONTRE-AUDIT-PUCE-S4.2-S4.3-20261020.json`. Phrase clinique, autres parties, S4.2, sources, glossaire et tests conservés.18/18assertions examen et clavier/toucher bureau/mobile réussis aussi par le contre-auditeur. Registre lié aux14empreintes finales. Nouvelle CI distante complète obligatoire avant fusion ;46SSP S/644parties de cours S déjà publiés, CI main167 verte.
+
+## CI170 bloquée par présentation · correctif ciblé à contre-auditer
+
+Tête571e3f228226be88ecece47422d2b3a0ca46dbfa :281/282contrôles, seul échec `test_examen.py.tip_autres_rediges`. Une puce de S4.3 partie6 n’avait pas de sous-titre ; ajout du seul intitulé « Interprétation clinique », phrase clinique intégralement conservée.18/18contrôles examen et parcours clavier/toucher bureau/mobile réussis ; nouveau contre-audit indépendant puis nouvelle CI exigés avant toute fusion. Les tests sont inchangés. CI main16739470922795 désormais verte ;46SSP S/644parties de cours S publiés.
+
 ## Publication167 vérifiée · 46 SSP S / 644 parties de cours S
 
 PR167 fusionnée au commit7047a8064294d1e3cd5d249d73bbf9cc1d930bd8 après tous les contrôles finaux verts surb3026f0d692027091c673cdf783ab221cc473ce4. Pages39470922803 réussi ;114fichiers publics HTTP200/SHA256 identiques. Preuves `audit/P1-CI-S3.10-S4.1-20261020.json` et `audit/P1-PUBLICATION-S3.10-S4.1-20261020.json`. CI main39470922795 encore en cours à cette observation ; son succès est requis avant fusion170.
