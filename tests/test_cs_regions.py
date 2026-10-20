@@ -9,7 +9,7 @@ const on=bs.filter(b=>b.getAttribute('aria-pressed')==='true');
 return {une_ligne:s(b=>Math.round(R(b).top))===1,largeur_egale:s(b=>Math.round(R(b).width))===1,hauteur_egale:s(b=>Math.round(R(b).height))===1,
 sans_debordement:document.documentElement.scrollWidth<=innerWidth&&getComputedStyle(g).overflowX==='auto'&&g.tabIndex===0&&!!g.getAttribute('aria-label'),
 couleurs_distinctes:s(b=>getComputedStyle(b).borderTopColor)===bs.length,
-nom_accessible:bs.every(b=>(b.getAttribute('aria-label')||'').length>2),
+nom_accessible:bs.every(b=>!b.hasAttribute('aria-label')&&b.textContent.trim().length>2),
 selection_non_chromatique:on.length===1&&on[0].dataset.r==='abdomen'&&getComputedStyle(on[0].querySelector('.cs-l'),'::before').content.includes('✓')}})()"""
 async def main():
   out={};errs=[]
