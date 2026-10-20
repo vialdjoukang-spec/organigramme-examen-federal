@@ -75,9 +75,7 @@ async def run(p, name, ctxargs):
     # click outside closes
     await tap(pg.locator('h1, header').first); await pg.wait_for_timeout(300)
     res['ges_outside_closes'] = not await vis()
-    await tap(gcb); await pg.wait_for_timeout(300)
-    res['ges_checkbox_still_toggles'] = (await pg.locator('#v-ges .gr').first.locator('input[type=checkbox]').is_checked()) != g0
-    await tap(pg.locator('#v-ges .gr').first.locator('input[type=checkbox]'))
+    res['ges_checkbox_suspended'] = await gcb.is_disabled() and (await gcb.is_checked()) == g0
     # SSP list selection still works (calendar)
     await tap(pg.locator('.tab[data-v=cal]')); await pg.wait_for_timeout(300)
     it = pg.locator('#list .it').first; c = await it.get_attribute('data-c')

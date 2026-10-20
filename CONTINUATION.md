@@ -4,6 +4,8 @@
 
 Les cours gardent leurs14parties ; les six rubriques concernent les DD. Vial autorise les décisions et actions nécessaires au mandat sans nouvelle demande, ainsi que la suspension temporaire de Gestes avant sa reconstruction en GAMMA. Tous les livrables restent dans ce dépôt. Les limites d’exécution, baux et preuves sont consignés dans le document du mandat. Les anciens arrêts après G16 et ordres contradictoires ci-dessous sont historiques.
 
+Avancement courant : voir `PROCHAINE_ACTION.md` et `tools/mandat/registre.json`. PR148 publiée et vérifiée ; S1.5–S1.10 intégrés et audités, CI et publication à effectuer.
+
 ## PRIORITÉ COURANTE · forme et fond des cours SSP · 19.10.2026
 
 Appliquer `docs/PROMPT-DIRECTEUR-ACADEMIQUE.md` uniquement aux quatorze parties du cours SSP, depuis G1. Titres ordinaux 1–14, sous-parties couvrant chaque élément du titre, gras réservé aux titres, contenu concis et continuité sémantique vérifiée. Les définitions recherchent une société savante de portée mondiale ; attribuer exactement son statut et ne pas inventer de définition officielle. Cette autorisation internationale concerne les définitions ; les posologies restent soumises à l’AIPS suisse. La restauration PR126 est acquise : préserver chaque partie spécifique, l’examen régional et ses liens, les clés de progression et le clic uniquement.

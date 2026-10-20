@@ -28,12 +28,15 @@ async def main():
         pg = await c.new_page(); pg.on('pageerror', lambda e: errs.append(str(e)))
         await boot(pg)
         out['rappel_sans_export'] = await pg.evaluate("bak.className.includes('warn')&&/jamais export/.test($('#bak-t').textContent)")
-        # Progression réelle : séance, exigence, notion, simulation CS, puis deux gestes cochés dans l’interface.
+        # Progression réelle et deux coches héritées, enregistrées avant la suspension des Gestes.
         await pg.evaluate(SEED)
+        keys = await pg.evaluate("GES[0].items.slice(0,2).map(it=>it.k)")
+        await pg.evaluate("d=>lsSet('orga-ges',JSON.stringify(d))", {key: 1 for key in keys})
+        await boot(pg)
         await pg.locator('.tab[data-v=ges]').click(); await pg.wait_for_timeout(300)
         boxes = pg.locator('#g-list input[data-g]')
         for i in range(2):
-            await boxes.nth(i).check()
+            assert await boxes.nth(i).is_checked() and await boxes.nth(i).is_disabled(), 'Coche historique absente ou modifiable pendant la suspension'
         await pg.locator('.tab[data-v=exi]').click()
         await boot(pg)
         before = await pg.evaluate(SNAP)
@@ -65,7 +68,8 @@ async def main():
         await pg.wait_for_timeout(2000)
         after = await pg.evaluate(SNAP)
         out['aller_retour_identique'] = after == before
-        out['etat_restitue_dans_l_interface'] = await pg.evaluate("Object.keys(GS).length===2&&Object.keys(S.seances).length>=1&&S.exi.essai===true&&!!$('#bak-m').textContent")
+        await pg.locator('.tab[data-v=ges]').click()
+        out['etat_restitue_dans_l_interface'] = await pg.evaluate("Object.keys(GS).length===2&&Object.keys(S.seances).length>=1&&S.exi.essai===true&&!!$('#bak-m').textContent&&[...document.querySelectorAll('#g-list input[data-g]')].filter(e=>e.checked&&e.disabled).length===2")
         # Stockage plein : l’écriture échoue et le message devient visible.
         await pg.evaluate("""(()=>{let n=0,sz=1<<20;while(sz>=1){try{localStorage.setItem('zz-'+(n++),'x'.repeat(sz))}catch(e){sz=sz>>1}}})()""")
         await pg.evaluate("S.params.essai='y'.repeat(4000);local(true)")

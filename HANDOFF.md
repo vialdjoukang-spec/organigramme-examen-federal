@@ -4,7 +4,7 @@
 
 Les cours gardent leurs14parties ; les six rubriques concernent les DD. Vial autorise les décisions et actions nécessaires au mandat sans nouvelle demande, ainsi que la suspension temporaire de Gestes avant sa reconstruction en GAMMA. Tous les livrables restent dans ce dépôt. Les limites d’exécution, baux et preuves sont consignés dans le document du mandat. Les anciens arrêts après G16 et ordres contradictoires ci-dessous sont historiques.
 
-État préparé : **20/248 cours, 280/3472 parties** ; S1.1–S1.4 audités et intégrés sur `codex/modifications-1-2-pilotage`, publication à vérifier. S1.5/S1.6 en contre-audit ; S1.7/S1.8 rédigés, contre-audit à effectuer. Aucun passage à BETTA. La connexion GitHub fonctionne ; le lancement Codex cloud reste bloqué par l’environnement manquant et une connexion ChatGPT interactive absente.
+État intégré : **26/248 cours, 364/3472 parties**. G1–G16 et S1.1–S1.4 sont publiés ; PR148 fusionnée, sept fichiers publics et les deux adresses de l’application vérifiés. S1.5–S1.10, contre-audités par Astra, attendent CI et publication sur `codex/alpha-s1-5-10-gestes`. Les 315 descriptions des Gestes sont temporairement suspendues avec conservation des clés, liens et progression ; leur rendu doit encore être vérifié en CI. S1.11–S1.12 sont audités et prêts à intégrer ; S1.13–S1.16 en contre-audit, S1.17–S1.18 en rédaction. ALPHA/S reste ouverte ; BETTA attend sa clôture. Le relais GitHub vise 120 secondes ; l’exécution IA distante reste bloquée par l’environnement Codex manquant et la connexion ChatGPT interactive absente.
 
 ## Couleurs d’origine · clarification utilisateur · 19.10.2026
 
