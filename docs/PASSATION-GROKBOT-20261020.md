@@ -26,9 +26,13 @@ Ces réservations sont clôturées avec le statut `annule`, motif de passation e
 
 ## Ordre de travail à conserver
 
-1. **ALPHA** : finir S, puis F, puis O ; deux cours au plus par lot/agent, chacun avec ses 14 parties spécifiques. Rédaction demandée GPT-6 élevé et contre-audits indépendants Astra : médecine, fond, forme, concision, précision. Noter les modèles réellement exécutés ; aucune identité de modèle inventée. Audit de catégorie et publication vérifiée avant la suivante.
+1. **ALPHA** : finir S, puis F, puis O ; deux cours au plus par lot/agent, chacun avec ses 14 parties spécifiques. La demande initiale utilise GPT-6 élevé et des contre-audits indépendants Astra : médecine, fond, forme, concision, précision. La PR153 propose l’autorisation explicite de `grok-bot` comme contre-auditeur, avec indépendance et dates conservées ; Grokbot reprend cette modification. Noter les modèles réellement exécutés, sans fabriquer de signature Astra. Audit de catégorie et publication vérifiée avant la suivante.
 2. **BETTA** : après ALPHA, G → S → F → O, un SSP à la fois ; trois différentiels au plus par lot de rédaction et par audit indépendant. Plan monographique de six rubriques, avec adaptation justifiée lorsque nécessaire. Ne jamais appliquer ce plan aux 14 parties du cours SSP.
 3. **GAMMA** : après BETTA, régions cliquables sur une ligne symétrique, hauteur uniforme, couleurs distinctes ; temps de l’examen à gauche et image pertinente à droite. La [PR150](https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/150) est un brouillon à conserver pour cette étape, pas un travail terminé. Les descriptions des 315 Gestes sont temporairement suspendues avec l’accord de Vial ; clés, liens et progression sont conservés.
+
+## Travaux Grokbot déjà ouverts
+
+Au moment de la passation, deux propositions nouvelles sont visibles sous le compte propriétaire : [PR152](https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/152), BETTA G2 avec trois différentiels, et [PR153](https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/153), acceptation documentaire du contre-auditeur `grok-bot` citant un ordre de Vial à 07:40. Elles ne sont ni modifiées ni fusionnées par ChatGPT. Grokbot reprend leur validation et vérifie leur ordre d’intégration avec les dernières instructions de Vial ; la présente passation ne prétend pas que toute la phase ALPHA est terminée.
 
 ## Supports et contrôles
 
