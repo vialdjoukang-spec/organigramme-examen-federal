@@ -1,0 +1,167 @@
+{
+  "date_utc": "2026-10-20T10:28:19.725322+00:00",
+  "signataire": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra",
+  "modele_provenance": "Modèle demandé explicitement au lancement ; pas d’introspection indépendante depuis ce sous-agent.",
+  "perimetre": "Correctifs techniques P0 uniquement ; code, tests, politique QA et workflows listés dans empreintes. Documentation ultérieure et nettoyage BETTA hors de cet avis.",
+  "statut": "FAVORABLE_TECHNIQUE_SOUS_RESERVES_EXPLICITES",
+  "constats_bloquants_restants": [],
+  "constats_corriges": [
+    {
+      "id": "P0-AUD-01",
+      "preuve": "Regex garde /24h et /kg avec espaces ; concentrations /L,/dL,/mL exclues sans retour arrière /kg."
+    },
+    {
+      "id": "P0-AUD-02",
+      "preuve": "Deux lectures complètes main+PR encadrent inventaire ; tests révocation/priorité/labels/CI même SHA refusés."
+    },
+    {
+      "id": "P0-AUD-03",
+      "preuve": "Fusion immédiate --merge --match-head-commit ; aucun --auto persistant."
+    },
+    {
+      "id": "P0-AUD-04",
+      "preuve": "pull_request_target fournit YAML depuis branche de base ; checkout main uniquement ; diff PR lu comme données API."
+    },
+    {
+      "id": "P0-AUD-05",
+      "preuve": "G3 chemins exacts, sous-arbre explicite slash ; identifiants voisins refusés ; politiques pays inchangées, main G3 vert."
+    }
+  ],
+  "tests": {
+    "total_cibles": 77,
+    "reussis": 77,
+    "apres_changement_workflow": 23,
+    "g3_main": "réussi",
+    "diff_check": "réussi",
+    "executions_independantes": [
+      {
+        "pattern": "test_predecesseurs_fusion.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 23 tests in 0.032s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "pattern": "test_file_fusion.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 13 tests in 8.824s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "pattern": "test_ci_verdict.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 8 tests in 0.001s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "pattern": "test_pr_history.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 2 tests in 0.249s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "pattern": "test_arsenal.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 9 tests in 0.160s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "pattern": "test_g3_paths.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 4 tests in 0.000s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "pattern": "test_cours_ssp.py",
+        "exit_code": 0,
+        "summary": [
+          "----------------------------------------------------------------------",
+          "Ran 18 tests in 0.271s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": "python3 tools/audit/niveau1.py --only G3",
+        "exit_code": 0,
+        "summary": "G3 : réussi\n"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "summary": ""
+      }
+    ],
+    "workflow_final": "23 tests test_predecesseurs_fusion.py réexécutés après passage pull_request_target ; succès."
+  },
+  "empreintes_sha256": {
+    ".github/workflows/auto-fusion.yml": "16eba226f68c054802b76bdd3ec9fe84683f3408f3f0844c6056def429c9d047",
+    ".github/workflows/ci.yml": "f60885584147f050e0cdc23f6b4ec72ffd9fdd1e91b3cca41c67d90503c43135",
+    "qa/domaines.yml": "c7bce6b8318d4f23ad7912026deabef371141e37198e5ed15bfdead78f9d1689",
+    "tests/test_arsenal.py": "6990f5133b55f5b4e3fa3fb9ae9494cef13aa2096fc17f35c4ce960aaa8253a8",
+    "tests/test_ci_verdict.py": "5c53650a0e4a65be3be5c49a80cec67df7ca07877313326dc2a9826a56711c5b",
+    "tests/test_file_fusion.py": "3e2738fa0f7eaa1661fd8dc311d5ed4ad45b208272a263db9b788151f7dfb2f9",
+    "tests/test_g3_paths.py": "9dd59612c18033c3b436b3ab24bfb21270d64198c46eed38f9243daf74c7e5bf",
+    "tests/test_pr_history.py": "f23c59ab6f58751cbc4a0b6ebf8e3ae32d6b192b7d48f2fea630714832458627",
+    "tests/test_predecesseurs_fusion.py": "79197e28d15bde8cd8914b7bcb87ce7cef4d4b7716ef66b7ffa0d976ab0b0cfb",
+    "tools/arsenal/_c.py": "d359914871b8c0da84bb4c64a5a45e030b1cca3db02e941b5fe6c919b3ef5adb",
+    "tools/arsenal/ci_attente.sh": "60b8a826b9e73467ffc5019c160b23d523d4273f4e238e80c5e1bb58a35c5aa0",
+    "tools/arsenal/ci_verdict.py": "6ebfbb075c8cb3fb7ab502abedf4d722832195bc00184a31ddbde586cb6d7b14",
+    "tools/arsenal/pr.sh": "32f8c0a0d67a8d845a6e706973fb25e621b0c8b24ca69a15351da7b25463f8ef",
+    "tools/audit/niveau1.py": "6a4b5093aaea3289603498ea66f33240438f21ea6c5ba5dd6188586cbec112e7",
+    "tools/file_fusion.sh": "627673342c1e7811f8a3dcf51982573d2bd08ef566c55cd0c47e065ea808bf28",
+    "tools/mandat/integration.json": "e341bc10b61f3530560b27d293f4f003bea4d278d9d2d0eca9eee9b8bf02413f",
+    "tools/predecesseurs_fusion.py": "420442ec890aec777ced2f6206c86c75f75ef94c23a7b0be7cfd890a7306cf37"
+  },
+  "reserves": [
+    "Les appels API et fusion ne sont pas atomiques : le SHA est protégé serveur mais une révocation postérieure au dernier snapshot garde une fenêtre résiduelle, explicitement documentée dans code.",
+    "Les autorisations de main sont vides ; aucune fusion clinique automatique, aucune ouverture P1+ prouvée ni autorisée.",
+    "Avis sur octets locaux uniquement ; CI finale sur SHA exact et contrôle du commit avant fusion restent nécessaires.",
+    "Aucun avis documentaire ou clinique favorable sur PR229 ; lecture sources/éditeur/pays encore requise. PR202 originale reste défavorable, seule adaptation P0 est acceptée.",
+    "Les heuristiques de doses et domaines ne remplacent pas une relecture médicale ; aucune validation médicale humaine revendiquée."
+  ],
+  "mutations_auditeur": "Fichiers work/ et refs locales audit seulement ; aucune écriture distante.",
+  "base_git_locale": "3e940e2a151aa4583d0fccae8f466ae9a681268b",
+  "ci_distante": {
+    "statut": "non_attestee_par_ce_rapport",
+    "motif": "Diff local noncommité au moment du contre-audit ; contrôles GitHub exacts requis après création du commit."
+  },
+  "preuves_git_pr_origine": [
+    {
+      "pr": 202,
+      "sha": "badd4402994892b95a7ab842baf9135af4b4ca5e",
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/202",
+      "verdict": "défavorable original : doses /24 h ignorées"
+    },
+    {
+      "pr": 229,
+      "sha": "36c38489c92cb8ec4f6d4c9ac6468e59518ded2c",
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/229",
+      "verdict": "non approuvé : ancienne portée préfixe et vérification documentaire absente"
+    }
+  ]
+}

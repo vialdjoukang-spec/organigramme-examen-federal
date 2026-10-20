@@ -24,4 +24,18 @@ class T(unittest.TestCase):
         sh = 'set -euo pipefail\ngit() { echo data/tip/S1.1.json; }\n' + l + 'echo FIN'
         p = subprocess.run(['bash', '-c', sh], capture_output=True, text=True)
         self.assertEqual(p.returncode, 0); self.assertIn('FIN', p.stdout)
+    def test_dose_hors_concentration(self):
+        sys.path.insert(0, A)
+        from _c import DOSE
+        self.assertEqual(DOSE.findall('ferritine < 30 µg/L ; 50 µg/j'), ['50 µg'])
+        for text in ('5 mg/dL', '30 mcg / mL', '5 mg/kg/L'):
+            self.assertFalse(DOSE.search(text), text)
+
+    def test_vraies_doses_journalieres_toujours_detectees(self):
+        sys.path.insert(0, A)
+        from _c import DOSE
+        for text in ('50 µg/24 h', '1 g/24h', '5 mg/kg/j', '5 mg/kg/24 h',
+                     '5 mg/kg/h', '50 UI/j', '50 µg / 24 h',
+                     '5 mg / kg / j', '5 mg/ kg/24 h'):
+            self.assertTrue(DOSE.search(text), text)
 if __name__ == '__main__': unittest.main()

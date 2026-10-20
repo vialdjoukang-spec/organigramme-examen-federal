@@ -40,6 +40,94 @@ class MandatTests(unittest.TestCase):
             self.assertEqual([x['unites'] for x in r['prochains_lots']], [['S1.1','S1.2'],['S1.3','S2.1']])
             self.assertFalse(r['complet']);self.assertEqual(r['mesure']['alpha_publies'],0)
 
+    def integration(self, root, priority='P0'):
+        path = root/'tools/mandat/integration.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({'version':1, 'actif':True, 'priorite_active':priority,
+            'fusion_clinique':'manuelle_centralisee', 'autorisations_techniques':[]}))
+        return path
+
+    def test_p0_keeps_inventory_but_never_assigns_clinical_work(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root)
+            before=self.run_plan(root,v)
+            self.integration(root)
+            result=self.run_plan(root,v)
+            self.assertEqual((result['etape'],result['phase']),('P0','stabilisation'))
+            self.assertEqual((result['etape_suspendue'],result['phase_suspendue']),('ALPHA','S'))
+            self.assertEqual(result['catalogue'],before['catalogue'])
+            self.assertEqual(result['mesure'],before['mesure'])
+            self.assertEqual(result['phases'],before['phases'])
+            self.assertEqual(result['prochains_lots'],[])
+            self.assertFalse(result['complet']); self.assertFalse(result['audit_phase_requis'])
+            self.assertIn('technique P0',result['prochaine_action'])
+
+    def test_p0_does_not_resume_reserved_lot_or_request_phase_audit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root); self.integration(root)
+            v[1]['reservations']=[dict(etape='ALPHA',phase='S',agent='a',modele='gpt-6-sol',
+                raisonnement='high',statut='en_audit',unites=['S1.1','S1.2'],branche='b')]
+            result=self.run_plan(root,v)
+            self.assertEqual(result['prochains_lots'],[])
+            self.assertEqual(result['reservations_actives'],v[1]['reservations'])
+            self.assertFalse(result['anomalies'])
+            self.assertFalse(result['audit_phase_requis'])
+            report={'plan':{'mandat':result},'mesure':{}}
+            self.assertNotEqual(relay.decision({'mesure':result['mesure'].copy(),'dernier_progres':0},
+                report,1000,False,{'request_cooldown_seconds':1800}),'demander_reprise')
+
+    def test_p0_overrides_even_historically_complete_plan(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root); self.integration(root)
+            v[3]['ssp_restant']=[]
+            for item in v[2]['occurrences']: item['prototype_relecture']=True
+            with patch.object(planner,'publie',return_value=True), patch.object(planner,'audit_phase',return_value=True):
+                result=self.run_plan(root,v)
+            self.assertEqual(result['etape'],'P0')
+            self.assertEqual(result['etape_suspendue'],'TERMINE')
+            self.assertFalse(result['complet']); self.assertFalse(result['prochains_lots'])
+
+    def test_invalid_integration_closes_clinical_proposals_with_anomaly(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root); path=self.integration(root)
+            for content in ('{', '{}', '{"version":1,"actif":false}'):
+                with self.subTest(content=content):
+                    path.write_text(content)
+                    result=self.run_plan(root,v)
+                    self.assertEqual(result['etape'],'BLOQUE')
+                    self.assertEqual(result['prochains_lots'],[])
+                    self.assertFalse(result['complet'])
+                    self.assertTrue(any('integration.json' in x for x in result['anomalies']))
+
+    def test_deleted_integration_under_remastering_p0_never_reopens_alpha(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root); path=self.integration(root)
+            v[1]['remastering']={'priorite_active':'P0','statut':'en_cours'}
+            path.unlink()
+            result=self.run_plan(root,v)
+            self.assertEqual((result['etape'],result['phase']),('BLOQUE','integration_invalide'))
+            self.assertEqual(result['etape_suspendue'],'ALPHA')
+            self.assertFalse(result['prochains_lots']); self.assertFalse(result['complet'])
+            self.assertTrue(any('integration.json' in x for x in result['anomalies']))
+
+    def test_unreadable_integration_under_remastering_p0_closes_proposals(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root); self.integration(root)
+            v[1]['remastering']={'priorite_active':'P0','statut':'en_cours'}
+            with patch.object(planner,'lire',side_effect=PermissionError('integration.json illisible')):
+                result=self.run_plan(root,v)
+            self.assertEqual(result['etape'],'BLOQUE')
+            self.assertFalse(result['prochains_lots']); self.assertFalse(result['complet'])
+            self.assertTrue(any('illisible' in x for x in result['anomalies']))
+
+    def test_p1_integration_does_not_block_alpha_resume(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); v=self.fixture(root); self.integration(root,'P1')
+            result=self.run_plan(root,v)
+            self.assertEqual((result['etape'],result['phase']),('ALPHA','S'))
+            self.assertEqual(result['priorite_active'],'P1')
+            self.assertTrue(result['prochains_lots']); self.assertFalse(result['anomalies'])
+
     def test_reservations_are_resumed_without_duplicate_dispatch(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);v=self.fixture(root)

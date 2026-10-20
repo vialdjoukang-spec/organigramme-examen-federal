@@ -1,3 +1,21 @@
+## Checkpoint P0 · PR #268 ouverte · accès CLI expiré
+
+Les correctifs et contre-audits sont sauvegardés dans `codex/p0-stabilisation-20261020`, PR https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/268. P0 reste en cours ; aucune rédaction P1 engagée.
+
+Depuis le20.10.2026 à10:43UTC, `gh` renvoie401et Git ne peut plus s’authentifier. Le connecteur GitHub fonctionne en lecture/écriture : utiliser ses outils `github_fetch`, `github_create_tree`, `github_create_commit`, `github_update_ref` avec tête attendue et `force:false`, puis `github_merge_pull_request` avec SHA attendu et méthode merge. Ne pas lancer de login ni chercher un secret.
+
+Prochaine action exacte : lire le SHA live de #268 et ses exécutions Actions, attendre CI/Visuel/Checkpoint réussis sur ce SHA, vérifier les contrôles individuels et main inchangé, fusionner sans contournement, observer Pages et comparer les114fichiers publics. Le dernier complément corrige les permissions de lecture checks/statuses, avec contre-audit `P0-CONTRE-AUDIT-PERMISSIONS-20261020.json` ; le manifeste agrège20fichiers de code audités. Les anciens SHA de CI ne suffisent pas après ce complément.
+
+## Mandat prioritaire P0 → P4 · 20.10.2026 Europe/Zurich
+
+L’instruction utilisateur courante remplace les anciennes passations et priorités contradictoires. **P0 est en cours** : stabilisation technique exclusivement ; aucune nouvelle rédaction clinique. Ordre strict P0 → P1 (S113) → P2 (F44 puis O75) → P3 (DD G/S/F/O) → P4 (Gestes). Aucune priorité suivante avant audit, CI finale, fusion et publication vérifiée de la précédente. Voir `docs/MANDAT-REMASTERING-P0-P4.md` et `audit/P0-FILE-PR-20261020.json`. Le planificateur conserve les compteurs mais expose P0/stabilisation et ne propose aucune tâche clinique.
+
+Les fusions cliniques sont centralisées manuellement : audit indépendant exact → tous les contrôles sur le SHA final → commit de fusion → run Pages réussi et octets publics vérifiés. Les automates n’acceptent que les PR techniques dont le numéro, le SHA et la priorité ont été autorisés explicitement sur main (`tools/mandat/integration.json`). Une absence d’autorisation ou une erreur ferme la barrière. Aucun force-push ni affaiblissement des tests.
+
+Inventaire main `3e940e2a151aa4583d0fccae8f466ae9a681268b` : 248SSP/3472parties ; 54cours/756parties avec attestations documentaires valides (G16 + S38), le rattrapage technique des preuves porte désormais à38les publications S reconnues (114fichiers publics HTTP200 identiques). S3.4/S3.5 ont été intégrés sans contre-audit enregistré : ne pas les compter audités ni reprendre directement #161. Les106PR ouvertes sont conservées (1techniqueP0,25ALPHA et1supportP1,74BETTA,1GAMMA,4historiques). Aucun auto-merge actif observé.
+
+Prochaine action P0 : vérifier les preuves des22nettoyages appliqués et les contre-audits, tester, ouvrir/fusionner la PR de stabilisation après CI exacte puis vérifier Pages. **P0 n’est pas clos.** Les échecs scientifiques légitimes des PR cliniques restent bloquants pour leurs futurs lots, sans modification médicale pendant P0. Aucun agent autonome permanent n’est présumé.
+
 ## Passation à Grokbot · 20.10.2026 à 07:51 Europe/Zurich
 
 **Dernier ordre de Vial : Grokbot reprend ; ChatGPT et ses agents arrêtent leur production.** Lire d’abord `docs/PASSATION-GROKBOT-20261020.md`, qui précise le mandat transféré et les limites des accès techniques.

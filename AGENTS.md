@@ -1,3 +1,13 @@
+## Mandat prioritaire P0 → P4 · 20.10.2026 Europe/Zurich
+
+L’instruction utilisateur courante remplace les anciennes passations et priorités contradictoires. **P0 est en cours** : stabilisation technique exclusivement ; aucune nouvelle rédaction clinique. Ordre strict P0 → P1 (S113) → P2 (F44 puis O75) → P3 (DD G/S/F/O) → P4 (Gestes). Aucune priorité suivante avant audit, CI finale, fusion et publication vérifiée de la précédente. Voir `docs/MANDAT-REMASTERING-P0-P4.md` et `audit/P0-FILE-PR-20261020.json`. Le planificateur conserve les compteurs mais expose P0/stabilisation et ne propose aucune tâche clinique.
+
+Les fusions cliniques sont centralisées manuellement : audit indépendant exact → tous les contrôles sur le SHA final → commit de fusion → run Pages réussi et octets publics vérifiés. Les automates n’acceptent que les PR techniques dont le numéro, le SHA et la priorité ont été autorisés explicitement sur main (`tools/mandat/integration.json`). Une absence d’autorisation ou une erreur ferme la barrière. Aucun force-push ni affaiblissement des tests.
+
+Inventaire main `3e940e2a151aa4583d0fccae8f466ae9a681268b` : 248SSP/3472parties ; 54cours/756parties avec attestations documentaires valides (G16 + S38), le rattrapage technique des preuves porte désormais à38les publications S reconnues (114fichiers publics HTTP200 identiques). S3.4/S3.5 ont été intégrés sans contre-audit enregistré : ne pas les compter audités ni reprendre directement #161. Les106PR ouvertes sont conservées (1techniqueP0,25ALPHA et1supportP1,74BETTA,1GAMMA,4historiques). Aucun auto-merge actif observé.
+
+Prochaine action P0 : vérifier les preuves des22nettoyages appliqués et les contre-audits, tester, ouvrir/fusionner la PR de stabilisation après CI exacte puis vérifier Pages. **P0 n’est pas clos.** Les échecs scientifiques légitimes des PR cliniques restent bloquants pour leurs futurs lots, sans modification médicale pendant P0. Aucun agent autonome permanent n’est présumé.
+
 **ARSENAL obligatoire (Vial, 20.10.2026) : lire `docs/ARSENAL.md` (5 commandes et interdits par secteur) avant tout travail.**
 
 ## Mandat courant · 20.10.2026 Europe/Zurich

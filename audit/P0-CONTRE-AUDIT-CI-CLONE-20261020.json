@@ -1,0 +1,90 @@
+{
+  "date_utc": "2026-10-20T10:42:07.042621+00:00",
+  "signataire": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra",
+  "modele_provenance": "Modèle explicitement demandé au lancement ; pas d’introspection indépendante.",
+  "verdict": "favorable_technique",
+  "perimetre": "Correctif limité à la résolution du SHA attendu dans ci_attente.sh, et son test de régression. Aucun changement clinique.",
+  "base_commit_locale": "a93279966fe3a70ed613cb7fd72dbe6b9ec53d48",
+  "remplace_empreintes": {
+    "rapport": "audit/P0-CONTRE-AUDIT-TECHNIQUE-20261020.json",
+    "fichiers": {
+      "tools/arsenal/ci_attente.sh": {
+        "ancienne": "60b8a826b9e73467ffc5019c160b23d523d4273f4e238e80c5e1bb58a35c5aa0",
+        "nouvelle": "7fec9a4ae3e9d4fdae92c915b51955824002254e8e2544c264bc6c630575b40b"
+      },
+      "tests/test_ci_verdict.py": {
+        "ancienne": "5c53650a0e4a65be3be5c49a80cec67df7ca07877313326dc2a9826a56711c5b",
+        "nouvelle": "6a7a496d73b0b007dd385ba3740915a9a5f2e36b7b67d8a6e20164b7ca937589"
+      }
+    },
+    "reserve": "Les autres conclusions et empreintes du rapport initial ne sont pas remplacées par cet avis."
+  },
+  "constat": "Dans un clone limité à main, origin/feature peut rester absent après push : rev-parse sans --verify imprimait le nom avant le fallback et polluait le SHA. Le correctif final résout explicitement refs/heads/<branche> en priorité, puis refs/remotes/origin/<branche> avec --verify. Il refuse un nom inconnu avant appel GitHub et ne se replie plus sur un HEAD potentiellement étranger. Une référence distante périmée ne peut ainsi certifier l’ancien SHA quand une branche locale plus récente existe.",
+  "verification_independante": {
+    "tests_existants": {
+      "commande": "python3 -m unittest discover -s tests -p test_ci_verdict.py -v",
+      "reussis": 9,
+      "echecs": 0
+    },
+    "reproduction_clone_reel": {
+      "real_single_branch_clone": true,
+      "local_bare_remote_only": true,
+      "feature_pushed": true,
+      "remote_tracking_feature_missing_after_push": true,
+      "original_rev_parse_stdout": "origin/feature",
+      "cases": [
+        {
+          "case": "exact_pushed_HEAD",
+          "returncode": 0,
+          "stdout": "VERT feature"
+        },
+        {
+          "case": "different_head",
+          "returncode": 1,
+          "stdout": "ROUGE tête de PR différente du SHA attendu feature"
+        },
+        {
+          "case": "stale_remote_must_not_certify_old_commit",
+          "returncode": 1,
+          "stdout": "ROUGE tête de PR différente du SHA attendu feature"
+        },
+        {
+          "case": "local_final_preferred_to_stale_remote",
+          "returncode": 0,
+          "stdout": "VERT feature"
+        },
+        {
+          "case": "unknown_branch_rejected",
+          "returncode": 1,
+          "stdout": "ROUGE unknown : branche Git introuvable"
+        },
+        {
+          "case": "requested_branch_independent_from_HEAD",
+          "returncode": 0,
+          "stdout": "VERT feature"
+        },
+        {
+          "case": "remote_ref_used_only_when_local_branch_missing",
+          "returncode": 0,
+          "stdout": "VERT feature"
+        }
+      ]
+    },
+    "moteur_verdict_inchange": true,
+    "git_diff_check": 0,
+    "bash_syntax_check": 0
+  },
+  "empreintes_sha256": {
+    "tools/arsenal/ci_attente.sh": "7fec9a4ae3e9d4fdae92c915b51955824002254e8e2544c264bc6c630575b40b",
+    "tests/test_ci_verdict.py": "6a7a496d73b0b007dd385ba3740915a9a5f2e36b7b67d8a6e20164b7ca937589"
+  },
+  "limites": [
+    "Contrat : nom de branche locale ou distante ; un numéro/URL de PR seul n’est pas résolu comme branche.",
+    "Le test ajouté par l’auteur utilise un dépôt Git temporaire ; la reproduction indépendante utilise un vrai clone --single-branch main et un push feature vers un dépôt nu local, puis sept scénarios de résolution/comparaison.",
+    "GitHub CLI est simulée dans ces tests ; aucun succès CI distant ni publication n’est attesté par ce rapport.",
+    "La comparaison stricte du SHA et des six contrôles requis reste intacte ; une tête GitHub différente retourne ROUGE immédiatement.",
+    "La référence distante de repli est celle connue localement ; si elle est périmée et qu’aucune branche locale n’existe, une tête GitHub différente entraîne un refus sûr.",
+    "Après le prochain commit, les contrôles GitHub doivent être relus sur son SHA final."
+  ]
+}
