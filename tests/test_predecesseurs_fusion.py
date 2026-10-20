@@ -94,6 +94,16 @@ class MandateIntegration(unittest.TestCase):
         self.assertNotIn('--auto', workflow)
         self.assertIn('--merge --match-head-commit', workflow)
 
+    def test_merge_workflows_can_read_checks_and_commit_statuses(self):
+        for name in ('auto-fusion.yml', 'file-fusion.yml'):
+            with self.subTest(workflow=name):
+                workflow = (Path(__file__).resolve().parents[1]/'.github/workflows'/name).read_text()
+                permissions = workflow.split('permissions:\n', 1)[1].split('\nconcurrency:', 1)[0]
+                self.assertIn('  checks: read', permissions.splitlines())
+                self.assertIn('  statuses: read', permissions.splitlines())
+                self.assertNotIn('  checks: write', permissions.splitlines())
+                self.assertNotIn('  statuses: write', permissions.splitlines())
+
     def test_api_failure_fails_closed_cli(self):
         from unittest.mock import patch
         with patch.object(gate, 'canonical_config', side_effect=OSError('offline')):
