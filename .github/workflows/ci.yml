@@ -30,6 +30,15 @@ jobs:
           echo "orig/ intact."
       - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
         run: python3 tools/budget.py
+      - name: Arsenal · tests des outils d'économie de jetons
+        run: python3 -m unittest discover -s tests -p test_arsenal.py
+      - name: Arsenal · verdict de ci_attente (jamais VERT sur échec)
+        run: python3 -m unittest discover -s tests -p test_ci_verdict.py
+      - name: Arsenal · conservation des commits et refus des écritures concurrentes
+        run: python3 -m unittest discover -s tests -p test_pr_history.py
+      - name: Arsenal · lot.py auto (lots et monographies modifiés, une ligne)
+        if: github.event_name == 'pull_request'
+        run: python3 tools/arsenal/lot.py auto "origin/${{ github.base_ref }}" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Fonctions externalisées · source intacte et chargement synchrone
         run: python3 -m unittest discover -s tests -p test_fonctions_asset.py
       - name: TIP externalisé · 248 sources, asset et chargement synchrone
@@ -91,7 +100,9 @@ jobs:
       - name: G2 · source et date de lecture
         run: python tools/audit/niveau1.py --only G2
       - name: G3 · domaines sur liste blanche suisse et européenne
-        run: python tools/audit/niveau1.py --only G3
+        run: |
+          python3 -m unittest discover -s tests -p test_g3_paths.py
+          python tools/audit/niveau1.py --only G3
       - name: G4 · Lyncée, aucun terme nouveau non défini (la référence ne peut que baisser)
         run: |
           if [ "${{ github.event_name }}" = pull_request ]; then
@@ -199,6 +210,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
+        with: { fetch-depth: 2 }
       - uses: actions/setup-python@v7
         with: { python-version: '3.12' }
       - name: Playwright et Chromium
@@ -207,7 +219,7 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: 43 contrôles d'interaction (référence verte)
         run: python tests/run_tests.py
-      - name: 'Infobulles G1 : clic sans survol, termes imbriqués et retour'
+      - name: 'Infobulles G1–G16 et cours S modifiés : clic, clavier, mobile et renvois'
         run: python tests/test_infobulles_prototype_ui.py
       - if: always()
         uses: actions/upload-artifact@v7

@@ -1,0 +1,44 @@
+{
+  "date_utc": "2026-10-20T10:37:04.233255+00:00",
+  "signataire": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra",
+  "modele_provenance": "Modèle explicitement demandé au lancement ; absence d’introspection indépendante.",
+  "verdict": "favorable_technique",
+  "perimetre": "Complément planificateur P0 uniquement ; rapport technique initial inchangé et toujours limité à ses empreintes.",
+  "constats_corriges": [
+    "Le planificateur proposait auparavant rediger_puis_auditer malgré P0 : aucun prochain lot clinique désormais sous configuration P0 valide.",
+    "Première correction réactivait ancien plan si integration.json disparaissait : absence désormais bloquante dès présence du mandat remastering dans registre ; erreur de lecture également bloquante."
+  ],
+  "tests": {
+    "commande": "python3 -W ignore::ResourceWarning -m unittest discover -s tests -p test_mandat.py",
+    "reussis": 29,
+    "echecs": 0,
+    "git_diff_check": 0,
+    "commande_plan_reel": "python3 tools/mandat/planifier.py",
+    "plan_reel": {
+      "etape": "P0",
+      "phase": "stabilisation",
+      "priorite_active": "P0",
+      "etape_suspendue": "ALPHA",
+      "phase_suspendue": "S",
+      "prochains_lots": [],
+      "mesure": {
+        "alpha_publies": 38,
+        "beta_publies": 0,
+        "gamma_publies": 0
+      },
+      "complet": false,
+      "anomalies": []
+    }
+  },
+  "empreintes_sha256": {
+    "tools/mandat/planifier.py": "d4ed41012c2654954707b8e20d8a8ea91e94b2d39e5af987dc65974494f98aac",
+    "tests/test_mandat.py": "50ae16c8220949962724d8206542dd3b7c2bb925e9f0ae6773010685261b6432"
+  },
+  "limites": [
+    "Avis technique P0, sans validation des contenus cliniques ni ouverture P1+.",
+    "Le fallback de compatibilité historique est conservé seulement quand configuration integration et marqueur remastering sont tous deux absents.",
+    "P1–P4 reprennent la progression ALPHA/BETTA/GAMMA historique ; leur activation et leurs critères de clôture restent à contrôler lors de chaque priorité.",
+    "CI sur commit final encore requise."
+  ]
+}

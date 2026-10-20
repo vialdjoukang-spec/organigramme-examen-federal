@@ -20,7 +20,7 @@ G8 justification  chaque examen (exam.reference, exam.lignes) porte mecanisme, p
 Le signalement (élément, contrôle, motif, fichier, ligne) s'écrit dans --sortie, même vide.
 """
 import argparse, colorsys, gzip, json, os, re, subprocess, sys
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from ck_common import ROOT, CHAMPS_PROSE, load_all, line_of, norm, strings, strip_tags, today  # noqa: E402
@@ -180,12 +180,18 @@ def domaines(root):
 
 def _match(url, liste):
     u = urlparse(url)
+    if u.scheme not in ('http', 'https') or any(
+            part in ('.', '..') for part in unquote(u.path).split('/')):
+        return None
     host = (u.hostname or '').lower()
     host = host[4:] if host.startswith('www.') else host
     for d in liste:
         dh, _, dp = d.partition('/')
         if host == dh or host.endswith('.' + dh):
-            if not dp or u.path.lstrip('/').startswith(dp):
+            path = u.path.lstrip('/')
+            # Un document n'autorise ni un identifiant voisin ni ses sous-pages.
+            # Seul le slash terminal de la règle déclare un sous-arbre.
+            if not dp or path == dp or (dp.endswith('/') and path.startswith(dp)):
                 return d
     return None
 

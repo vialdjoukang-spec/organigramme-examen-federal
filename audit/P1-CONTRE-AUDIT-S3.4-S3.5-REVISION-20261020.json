@@ -1,0 +1,264 @@
+{
+  "version": 1,
+  "date": "2026-10-20T11:52:10.133602+00:00",
+  "auditeur": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra high",
+  "provenance_modele": "Modèle demandé au lancement ; aucune introspection indépendante du runtime.",
+  "auteur_distinct": "/root/p1_s3_6_s3_7",
+  "commit_audite": "2a4237675c5f29d401c00df92a0f5058f8b05dac",
+  "rapport_initial": "audit/P1-CONTRE-AUDIT-S3.4-S3.5-20261020.json",
+  "verdict": "bloquant_corrections_residuelles",
+  "portee": "28parties relues ; les erreurs initiales d’anatomie et de hiérarchie des urgences sont corrigées. Quatre corrections résiduelles avant avis favorable documentaire. Aucune validation médicale humaine.",
+  "fichiers_sha256": {
+    "assets/config/tip.js": "8324fd518c93e63e48c39c0e9cf76a7c2a6ada9d3929323e26b88f9a14091d0e",
+    "data/tip/S3.4.json": "c0f2d405ab7c8618cdb144a25ca930e255634a6287137610fe1cb62e4dd7abc5",
+    "data/tip/S3.5.json": "218ac7fa985e85e04437f24afd3707b5e40c80f076f7a449f1cf027df6d43072",
+    "tools/cours/lots/S3.4-S3.5-domaines-delta.json": "b42b1aed68253e963bfc951df2feeb453ee3d8db4a8aa7b80c82c62c5dc28a6d",
+    "tools/cours/lots/S3.4-S3.5-journal.md": "e7664ebdde196a4f8dbe47d64b90d4266df672307bee2ebdd0f62b6bdd28a170",
+    "tools/cours/lots/S3.4-S3.5-src-delta.json": "b3a2bff4ee77bcf703e6c45545bad642183c7b22a316cd9ae7ed0e7866c3896f",
+    "tools/cours/lots/S3.4.json": "0148ce4139a1c7d2e9abb5718af425dc0118501dbcd8ee45f9fb1b1670214fa5",
+    "tools/cours/lots/S3.5.json": "133f2fd0594e40168944876596145261379110a2d2a37b6c6de2df858092b89c"
+  },
+  "constats_residuels": [
+    {
+      "id": "R01",
+      "niveau": "bloquant_documentaire",
+      "cible": "S3.4 source5 et S3.5 source8 ; notices et deltas",
+      "constat": "Le pays AT correspond au siège UEG, non au pays de l’éditeur Wiley Periodicals LLC mentionné dans la notice. qa/domaines.yml impose le pays de l’éditeur clinique. Une notice honnête distinguant les deux ne suffit pas à rendre AT conforme. Le texte de la recommandation est lu et pertinent ; son admissibilité clinique selon la règle du dépôt reste non démontrée.",
+      "correction": "Ne pas autoriser ce chemin dans europe sur cette justification. Produire une provenance éditoriale admissible vérifiable, ou limiter au document de définition internationale exact avec pays réel et exception adéquate, et remplacer les usages cliniques par sources admissibles réellement lues. Une copie chez un simple hébergeur européen ne change pas l’éditeur."
+    },
+    {
+      "id": "R02",
+      "niveau": "correction_clinique_ciblee",
+      "cible": "S3.5 partie7",
+      "constat": "« surtout si l’abcès est profond » rattache l’absence de fièvre à la profondeur sans appui dans les sections WSES lues. Elles décrivent des présentations profondes atypiques et des symptômes atténués sur certains terrains, sans cette comparaison.",
+      "correction": "Supprimer la précision ; conserver « fièvre inconstante » et l’orientation devant suspicion clinique même sans fièvre."
+    },
+    {
+      "id": "R03",
+      "niveau": "bloquant_tracabilite",
+      "cible": "S3.4 v.S id3",
+      "constat": "La notice annonce NG12 relu, recommandations1.3.1 à1.3.5 ; le journal déclare seulement des extraits indexés après HTTP403. Cette discordance doit être levée.",
+      "correction": "Nommer les extraits réellement consultés et la limite HTTP403 ; ne pas revendiquer une lecture complète des cinq recommandations sans preuve."
+    },
+    {
+      "id": "R04",
+      "niveau": "correction_documentaire",
+      "cible": "S3.5 v.c[7]",
+      "constat": "La référence9 SNFCP nouvellement lue pour Goligher n’est pas liée à la partie8 qui en donne les grades (liste actuelle4,6).",
+      "correction": "Ajouter9 à la référence de cette partie et vérifier que chaque notice s’affiche."
+    }
+  ],
+  "constats_initiaux": {
+    "F01": "corrige",
+    "F02": "corrige_sous_reserve_R02",
+    "F03": "corrige",
+    "F04": "corrige",
+    "F05": "corrige",
+    "F06": "corrige",
+    "F07": "partiellement_corrige_R01_R03_R04",
+    "F08": "corrige",
+    "F09": "corrige",
+    "F10": "corrige",
+    "F11": "corrige"
+  },
+  "cours": [
+    {
+      "ssp": "S3.4",
+      "parties": [
+        {
+          "partie": 1,
+          "sha256": "75a0333f4d65d63459e6df305c763a56cb4254306a0db0a3a83646121bb14704",
+          "observation": "Définition chronique correctement distinguée de la plainte récente ; provenance UEG à corriger R01."
+        },
+        {
+          "partie": 2,
+          "sha256": "701f1ef690204f2f21c9324ab1cfa067eadaac2ab21ac68c0ea2cd8657ae75f9",
+          "observation": "Absence de prévalence suisse inventée ; source UEG à régulariser."
+        },
+        {
+          "partie": 3,
+          "sha256": "feafded496b547428dc66d1c7bfd2f51de4dc2c2a1230f481b96cc81acd3c162",
+          "observation": "Mécanismes cohérents ; conserver un appui clinique admissible après retrait UEG."
+        },
+        {
+          "partie": 4,
+          "sha256": "5c16ce2776b522360b9d102379ac43acce83e6cc9699471b4ff1fa44ae69bf17",
+          "observation": "Urgences neurologiques ajoutées ; notice NICE à qualifier R03."
+        },
+        {
+          "partie": 5,
+          "sha256": "d58ceb10c93f3ffb3b5168f87a61fbd2c95ee3288fc6a3df2a4bd4855559d92c",
+          "observation": "Anamnèse orientée et signes neurologiques présents."
+        },
+        {
+          "partie": 6,
+          "sha256": "d4cba3b965eca7895a74a97c1c8b3547266c8f2d9ce3aefb3327fb47a6d050bb",
+          "observation": "Régions pertinentes, consentement, tolérance, phases reconnues ; source clinique UEG à remplacer."
+        },
+        {
+          "partie": 7,
+          "sha256": "efa999cc54e0cdc7d162c32d90151aed2289ff4ebbda87160fa5af598e8025af",
+          "observation": "SII différencié d’une simple alternance ; bilan initial conservé."
+        },
+        {
+          "partie": 8,
+          "sha256": "e379cee9b2f24344b046939730c9f5b59647b97927b57bf06975e88ab6526528",
+          "observation": "Calprotectine sans pouvoir d’exclusion absolu ; distinction définition pragmatique/critères formels."
+        },
+        {
+          "partie": 9,
+          "sha256": "8a222ca0950ece60d09771caedee37f6f4f4fcefeb07188e1fc00d18223fbe5b",
+          "observation": "Bilan BSG corroboré par PDF original lu ; examens anorectaux différés et ciblés."
+        },
+        {
+          "partie": 10,
+          "sha256": "efc8b2b35937b90c77d7df9bd1a39176b14da2c7ce10efce634f87b8c5a9674d",
+          "observation": "Hiérarchie urgente puis diagnostique explicite."
+        },
+        {
+          "partie": 11,
+          "sha256": "1912003282a190155e6a5258f85e0a925e3db574eadfe11a6064753e7746db54",
+          "observation": "Première ligne avant actes spécialisés, aucune dose chiffrée ; source clinique UEG à remplacer."
+        },
+        {
+          "partie": 12,
+          "sha256": "694b61b37b52f0515a1a92f488205f11da440f07d389cb457203acdc5bee9e44",
+          "observation": "Dépistage suisse asymptomatique séparé des symptômes ; source UEG à remplacer."
+        },
+        {
+          "partie": 13,
+          "sha256": "73a5a3da8f8107390dd38e2c02bfe60305d7308187b33017c4f14cc12b5ffe54",
+          "observation": "Résumé cohérent avec la conduite ; source UEG à remplacer."
+        },
+        {
+          "partie": 14,
+          "sha256": "71d3341989a5c3c0fceb5e01af570e0dd1dddde3d7c3b1598d341bfdf22b7d4e",
+          "observation": "Absolus initiaux supprimés ; provenance clinique à régulariser."
+        }
+      ]
+    },
+    {
+      "ssp": "S3.5",
+      "parties": [
+        {
+          "partie": 1,
+          "sha256": "e3f7cafcddf706d4ab1bb46ac412e16aa9f6aa0f6084db2bb90c03867f6efde8",
+          "observation": "Définition pédagogique composite explicitée ; prurit défini."
+        },
+        {
+          "partie": 2,
+          "sha256": "d3711f7c9714261f7038007f5fd56175281689660099c6eb3c7d3f20938ab930",
+          "observation": "Terrain contextualisé sans fréquence suisse inventée."
+        },
+        {
+          "partie": 3,
+          "sha256": "6636bc67c1789de32f8dbe7f621f627f4b6e5e34717a9751640459b689dc0e14",
+          "observation": "Anatomie et mécanismes corrigés ; source UEG clinique à remplacer ou retirer."
+        },
+        {
+          "partie": 4,
+          "sha256": "0d057201f96c786f3d269b99728658e8611fbb071a434bc1e0650ffa34e96759",
+          "observation": "Priorités urgentes présentes, examen adapté."
+        },
+        {
+          "partie": 5,
+          "sha256": "546a775bee04041e7289fb04361d773434264fc9b0e128401f9041ae949a5b74",
+          "observation": "Fournier et procidence compliquée identifiés."
+        },
+        {
+          "partie": 6,
+          "sha256": "d5cafc0fbfa95a1d630135575b0a24361356689fe139817967060188b0f36468",
+          "observation": "Une seule région tr-genital, deux gestes exacts, consentement/tolérance ; phases1/2 valides."
+        },
+        {
+          "partie": 7,
+          "sha256": "66011e6da289e03f6e7c29c9d563c819fbba111db818535cb5947915d323c95b",
+          "observation": "Fièvre inconstante correctement signalée mais précision profondeur non étayée R02."
+        },
+        {
+          "partie": 8,
+          "sha256": "9b414c459034f0c0e406cf20055ab3c819df9b7dcec6ec582ca65ce83cbacbcf",
+          "observation": "Grades utiles ; ajouter source SNFCP9 dans référence de la partie R04."
+        },
+        {
+          "partie": 9,
+          "sha256": "f615985989970d656e1d6da7c3e55ea46ead147215ed51dca2dc85f1a3eeffc0",
+          "observation": "Imagerie sélective, biopsie ciblée et prurit exploré selon indication."
+        },
+        {
+          "partie": 10,
+          "sha256": "c484486ecde12bc622a9f52eb52e69ecf3df00275adcdebba2ed659194919d65",
+          "observation": "Drainage sans attente d’une fièvre ; filières urgentes distinguées."
+        },
+        {
+          "partie": 11,
+          "sha256": "a6651e2c101b410dbd2f96734fb11b4dfc73e97acbd6cb93b8668f0da6341dcd",
+          "observation": "Traitements ordonnés, pas de durée arbitraire de crème ni posologie étrangère."
+        },
+        {
+          "partie": 12,
+          "sha256": "81703b039477d8e7c486be4dcd0a1c989548fe66a6f27b6d2748d5a8a58c7ed2",
+          "observation": "Suivi étiologique et dépistage distingués."
+        },
+        {
+          "partie": 13,
+          "sha256": "a739f8dd11c540d0a85ba914d1b067f81be3ab01fd99373b782a128b7ec65504",
+          "observation": "Synthèse cohérente et prurit non oublié."
+        },
+        {
+          "partie": 14,
+          "sha256": "ed3a7e9fe40e65a6c65e98673ff511c4f482218ebf7eb970ef15525a81e8c830",
+          "observation": "Pièges de réassurance et de forçage de l’examen corrigés."
+        }
+      ]
+    }
+  ],
+  "sources_nouvellement_consultees_ou_relues": [
+    {
+      "url": "https://bspghan.org.uk/wp-content/uploads/2023/01/bsg-guideline-ibs.pdf",
+      "lecture": "PDF original BMJ2021, pages1–2, diagnostic, bilan initial et traitement de première ligne ; ouverture réussie.",
+      "apport": "Corrobore le bilan BSG et sa portée ; aucune dose étrangère reprise."
+    },
+    {
+      "url": "https://larevue.snfcp.org/la-maladie-hemorroidaire/",
+      "lecture": "Page du19mars2026, sections classification/examen/traitement instrumental lues.",
+      "apport": "Source professionnelle de l’anatomie, de la classification et de la sélection thérapeutique ; ne valide pas une transposition des posologies françaises."
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/ueg2.12213",
+      "lecture": "Ouverture du texte original réussie ; définition, diagnostic et première ligne déjà lus au premier audit, introduction/méthodes et sections relues.",
+      "apport": "Recommandation collaborative européenne ; cela ne prouve pas le pays de son éditeur commercial."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1186/s13017-021-00384-x",
+      "lecture": "Texte original ouvert ; sections abcès et présentations atypiques relues ; urgences Fournier/procidence déjà examinées au premier audit.",
+      "apport": "Soutient les priorités corrigées ; ne soutient pas la précision R02."
+    },
+    {
+      "url": "https://find-and-update.company-information.service.gov.uk/company/03680030",
+      "lecture": "Fiche officielle ouverte : BioMed Central Limited, siège enregistré Londres.",
+      "apport": "Confirme la société GB déclarée ; ne transforme pas les sociétés WSES/AAST en sociétés européennes."
+    },
+    {
+      "url": "https://ueg.eu/imprint",
+      "lecture": "Page ouverte ; organisme UEG autrichien.",
+      "apport": "Siège de la société distinct de la provenance éditoriale du document."
+    },
+    {
+      "url": "https://www.snfcp.org/wp-content/uploads/2017/Recommandations/Recommandation-IA-2013.pdf",
+      "lecture": "PDF SNFCP2012 ouvert, sections hygiène/transit et rééducation/manométrie lues.",
+      "apport": "Piste admissible pour le socle conservateur ; ancienneté à expliciter, aucune extrapolation aux autres passages non couverts."
+    }
+  ],
+  "lectures_precedentes": "Les sources NHS, Ligue suisse, SNFCP prurit et sections UEG/WSES effectivement lues sont consignées dans le rapport initial ; aucune nouvelle lecture intégrale n’est simulée ici.",
+  "acces_refuse": "Nouvelle ouverture PMC9004250 renvoie reCAPTCHA ; le texte Wiley a pu être ouvert. NICE reste limité aux extraits indexés déclarés.",
+  "verification": {
+    "tests_independants": "34tests unittest (18cours_ssp+7tip_asset+9arsenal) réussis ; ResourceWarning sans échec.",
+    "lot": "2éléments,0erreur,4Àvérifier.",
+    "preservation": "Tous champs hors c/v et v.d identiques à la baseline fbc2c07 ; identifiants et progression conservés.",
+    "navigateur": "Non exécuté ; condition après intégration du lot final.",
+    "g3": "Deltas non intégrés dans ce worktree ; un test G3 du dépôt courant ne suffit pas à attester ces nouvelles sources. Validation centrale sur intégration exacte requise."
+  },
+  "actions": "Lecture et rapport seulement ; aucun cours, code, catalogue ni registre modifié."
+}

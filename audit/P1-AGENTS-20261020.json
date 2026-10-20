@@ -1,0 +1,167 @@
+{
+  "priorite": "P1",
+  "coordinateur": "Codex /root",
+  "auteurs": [
+    {
+      "agent": "/root/p1_s3_6_s3_7",
+      "modele_demande": "gpt-6-sol",
+      "raisonnement": "high",
+      "ssp": [
+        "S3.4",
+        "S3.5"
+      ],
+      "commit_local_auteur": "499039e7b139d602a2e0650f6136e33833e9c6a3",
+      "note": "Identifiant de tâche conservé après réattribution ; aucune rédaction S3.6/S3.7 par cet agent."
+    },
+    {
+      "agent": "/root/p1_reprise_s3_6_s3_7",
+      "modele_demande": "gpt-6-sol",
+      "raisonnement": "high",
+      "ssp": [
+        "S3.6",
+        "S3.7"
+      ],
+      "commit_local_auteur": "4e67baef0e9b0141e32d438620fd35ac80267469",
+      "statut": "contre_audite_documentaire_a_integrer",
+      "commit_local_revision": "2837d64b89f63befe2d7605aa620df9df6ee20d2"
+    },
+    {
+      "agent": "/root/p1_s3_8_s3_9",
+      "modele_demande": "gpt-6-sol",
+      "raisonnement": "high",
+      "ssp": [
+        "S3.8",
+        "S3.9"
+      ],
+      "commit_local_auteur": "5881878fe62da8f545b6fb898cbbee5b47f61bac",
+      "statut": "correctif_prepare_sans_audit_final",
+      "commit_local_revision": "9ddd575a9095419e658b7b6d0fb3c4d6aff50ba2"
+    },
+    {
+      "agent": "/root/p1_s3_10_s4_1",
+      "modele_demande": "gpt-6-sol",
+      "raisonnement": "high",
+      "ssp": [
+        "S3.10",
+        "S4.1"
+      ],
+      "statut": "audit_independant_en_cours",
+      "pr_existante": 167,
+      "commit_local_auteur": "274cc41871df29787e836033c7c5fdd360580706"
+    },
+    {
+      "agent": "/root/p1_s4_2_s4_3",
+      "modele_demande": "gpt-6-sol",
+      "raisonnement": "high",
+      "ssp": [
+        "S4.2",
+        "S4.3"
+      ],
+      "statut": "redaction_en_cours",
+      "pr_existante": 170
+    }
+  ],
+  "auditeur": {
+    "agent": "/root/p0_contre_audit",
+    "modele_demande": "gpt-6-astra",
+    "raisonnement": "high",
+    "independant_des_auteurs": true
+  },
+  "validation_medicale_humaine": false,
+  "execution_permanente_presumee": false,
+  "reserve": "Les SHA auteurs sont des commits locaux, pas des preuves de publication GitHub.",
+  "auditeurs_supplementaires": [
+    {
+      "agent": "/root/p1_audit_s3_10_s4_1",
+      "modele_demande": "gpt-6-astra",
+      "raisonnement": "high",
+      "ssp": [
+        "S3.10",
+        "S4.1"
+      ],
+      "independant_des_auteurs": true
+    }
+  ],
+  "reprise_environnement": {
+    "date_utc": "2026-10-20T13:11:13.286804+00:00",
+    "anciens_agents_actifs": false,
+    "preuve": "collaboration.list_agents après redémarrage : root seul ; trois nouveaux agents ensuite lancés par collaboration.spawn_agent.",
+    "agents_relances": [
+      {
+        "agent": "/root/p1_reprise_167_apres_redemarrage",
+        "role": "correcteur auteur",
+        "modele_demande": "gpt-6-sol",
+        "raisonnement": "high",
+        "ssp": [
+          "S3.10",
+          "S4.1"
+        ],
+        "reprise_de": "/root/p1_s3_10_s4_1"
+      },
+      {
+        "agent": "/root/p1_reprise_170_apres_redemarrage",
+        "role": "correcteur auteur",
+        "modele_demande": "gpt-6-sol",
+        "raisonnement": "high",
+        "ssp": [
+          "S4.2",
+          "S4.3"
+        ],
+        "reprise_de": "/root/p1_s4_2_s4_3"
+      },
+      {
+        "agent": "/root/p1_reaudit_apres_redemarrage",
+        "role": "contre-audit de reprise",
+        "modele_demande": "gpt-6-astra",
+        "raisonnement": "high",
+        "independant_des_auteurs": true
+      }
+    ],
+    "reserve_modele": "Paramètres des appels de lancement réels ; routage interne du fournisseur non introspecté."
+  },
+  "correction_technique_phases_161": {
+    "auteur": "Codex /root",
+    "relecteur": "/root/p1_reaudit_apres_redemarrage",
+    "perimetre": "Permutation de deux blocs de constantes, sans nouvelle rédaction médicale ; anciens audits médicaux conservés."
+  },
+  "reprise_apres_pause": {
+    "date_utc": "2026-10-20T17:00:53.105026+00:00",
+    "instruction_utilisateur": "Tu continues en mode 6.1 Sol Élevé",
+    "agents": [
+      {
+        "agent": "/root/p1_sol61_reprise_167",
+        "role": "auteur correcteur",
+        "modele_demande": "gpt-6.1-sol",
+        "raisonnement": "high",
+        "ssp": [
+          "S3.10",
+          "S4.1"
+        ],
+        "branche": "codex/p1-reprise-s3.10-s4.1"
+      },
+      {
+        "agent": "/root/p1_sol61_reprise_170",
+        "role": "auteur",
+        "modele_demande": "gpt-6.1-sol",
+        "raisonnement": "high",
+        "ssp": [
+          "S4.2",
+          "S4.3"
+        ],
+        "branche": "codex/p1-reprise-s4.2-s4.3"
+      },
+      {
+        "agent": "/root/p1_audit_reprise_164",
+        "role": "contre-auditeur indépendant",
+        "modele_demande": "gpt-6-astra",
+        "raisonnement": "high",
+        "ssp": [
+          "S3.8",
+          "S3.9"
+        ]
+      }
+    ],
+    "preuve": "Trois appels collaboration.spawn_agent acceptés ; modèles demandés explicitement, runtime interne non introspecté.",
+    "execution_permanente_presumee": false
+  }
+}
