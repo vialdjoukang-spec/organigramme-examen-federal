@@ -1,4 +1,4 @@
-import importlib.util, unittest, json
+import importlib.util, unittest, json, os, subprocess, tempfile
 from pathlib import Path
 s = importlib.util.spec_from_file_location('v', Path(__file__).resolve().parents[1] / 'tools/arsenal/ci_verdict.py')
 v = importlib.util.module_from_spec(s); s.loader.exec_module(v)
@@ -46,5 +46,48 @@ class Verdict(unittest.TestCase):
         self.assertEqual(v.snapshot_verdict(json.dumps(snapshot), 'sha-final')[1], 2)
         snapshot['statusCheckRollup'][-1].update(status='COMPLETED', conclusion='SKIPPED')
         self.assertEqual(v.snapshot_verdict(json.dumps(snapshot), 'sha-final')[1], 0)
+
+    def test_script_clone_sans_reference_distante_et_sha_different(self):
+        # Un clone limité à main n'a pas origin/<branche>, même après le push.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            env = {**os.environ, 'GIT_AUTHOR_NAME': 'Test', 'GIT_AUTHOR_EMAIL': 'test@example.invalid',
+                   'GIT_COMMITTER_NAME': 'Test', 'GIT_COMMITTER_EMAIL': 'test@example.invalid'}
+            def git(*args):
+                return subprocess.run(['git', *args], cwd=root, env=env, check=True,
+                                      capture_output=True, text=True).stdout.strip()
+            git('init')
+            git('checkout', '-b', 'feature')
+            git('commit', '--allow-empty', '-m', 'base')
+            sha = git('rev-parse', 'HEAD')
+            (root/'gh').write_text('#!/bin/sh\ncat "$TEST_SNAPSHOT_PATH"\n')
+            (root/'gh').chmod(0o755)
+            env.update(PATH=str(root)+os.pathsep+env['PATH'], TEST_SNAPSHOT_PATH=str(root/'snapshot.json'))
+            script = Path(__file__).resolve().parents[1]/'tools/arsenal/ci_attente.sh'
+            for actual_sha, expected_code in ((sha, 0), ('0'*40, 1)):
+                snapshot = self.snapshot(headRefOid=actual_sha)
+                (root/'snapshot.json').write_text(json.dumps(snapshot))
+                result = subprocess.run(['bash', str(script), 'feature'], cwd=root, env=env,
+                                        capture_output=True, text=True, timeout=10)
+                self.assertEqual(result.returncode, expected_code, result.stdout+result.stderr)
+            # Une référence distante périmée ne doit pas certifier l'ancien SHA.
+            git('update-ref', 'refs/remotes/origin/feature', sha)
+            git('commit', '--allow-empty', '-m', 'final local commit')
+            final_sha = git('rev-parse', 'HEAD')
+            for actual_sha, expected_code in ((sha, 1), (final_sha, 0)):
+                (root/'snapshot.json').write_text(json.dumps(self.snapshot(headRefOid=actual_sha)))
+                result = subprocess.run(['bash', str(script), 'feature'], cwd=root, env=env,
+                                        capture_output=True, text=True, timeout=10)
+                self.assertEqual(result.returncode, expected_code, result.stdout+result.stderr)
+            result = subprocess.run(['bash', str(script), 'unknown'], cwd=root, env=env,
+                                    capture_output=True, text=True, timeout=10)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('introuvable', result.stdout)
+            git('checkout', '-b', 'other')
+            git('commit', '--allow-empty', '-m', 'unrelated HEAD')
+            (root/'snapshot.json').write_text(json.dumps(self.snapshot(headRefOid=final_sha)))
+            result = subprocess.run(['bash', str(script), 'feature'], cwd=root, env=env,
+                                    capture_output=True, text=True, timeout=10)
+            self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
 
 if __name__ == '__main__': unittest.main()
