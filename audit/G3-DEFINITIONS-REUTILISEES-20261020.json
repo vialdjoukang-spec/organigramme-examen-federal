@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "objet": "G3 : réutilisation explicitement autorisée du même document international dans plusieurs définitions de cours",
+  "statut": "correctif_propose_revue_independante_requise",
+  "auteur": "root/audit_s2_8_9",
+  "modele": "gpt-6-astra",
+  "audit_utc": "2026-10-20T00:24:16.547979+00:00",
+  "base": "e8a52e5129bb32a8b42a82ff89e7725dbd7682f5",
+  "perimetre": [
+    "tools/audit/niveau1.py::_definition_internationale",
+    "tests/test_cours_ssp.py::InternationalDefinitionTests"
+  ],
+  "constat": {
+    "nature": "faux_positif",
+    "cause": "La boucle ancienne examinait chaque notice TIP de la même URL, mais comparait chaque notice au seul SSP/source_cours du record SRC en cours ; deux exceptions exactes ne pouvaient donc pas coexister.",
+    "reproduction": "Chargement réel des TIP externalisés de e8a52e5, application en mémoire du lot S2.9 du commit f4e0ead, ajout temporaire de ses SRC et exception WGO ; aucune modification de texte pour le contrôle.",
+    "document": "https://www.worldgastroenterology.org/guidelines/dysphagia",
+    "sources": [
+      {
+        "id": "R-COURS-S17-01",
+        "titre": "Définition de la dysphagie, recommandation mondiale 2014",
+        "org": "World Gastroenterology Organisation",
+        "pays": "US",
+        "type": "glossaire",
+        "url": "https://www.worldgastroenterology.org/guidelines/dysphagia",
+        "note": "§1.1 définition seule, lu le 19.10.2026 UTC ; document mondial attribué à une fédération mondiale."
+      },
+      {
+        "id": "R-COURS-S2-9-7",
+        "titre": "Recommandation mondiale sur la dysphagie (2014 ; titre traduit)",
+        "org": "World Gastroenterology Organisation, fédération mondiale de sociétés ; secrétariat aux États-Unis",
+        "pays": "US",
+        "type": "glossaire",
+        "url": "https://www.worldgastroenterology.org/guidelines/dysphagia",
+        "note": "Section Definition lue le 19.10.2026 ; utilisée uniquement pour la définition de la plainte en partie 1. Contrelecture indépendante du 20.10.2026 UTC : Page ou PDF primaire réouvert."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "R-COURS-S17-01",
+        "url": "https://www.worldgastroenterology.org/guidelines/dysphagia",
+        "org": "World Gastroenterology Organisation",
+        "pays": "US",
+        "type": "glossaire",
+        "ssp": "S1.7",
+        "source_cours": 1
+      },
+      {
+        "id": "R-COURS-S2-9-7",
+        "url": "https://www.worldgastroenterology.org/guidelines/dysphagia",
+        "org": "World Gastroenterology Organisation, fédération mondiale de sociétés ; secrétariat aux États-Unis",
+        "pays": "US",
+        "type": "glossaire",
+        "ssp": "S2.9",
+        "source_cours": 7
+      }
+    ],
+    "signalements_avant": [
+      {
+        "controle": "G3",
+        "element": "src|R-COURS-S17-01",
+        "motif": "domaine hors liste blanche : https://www.worldgastroenterology.org/guidelines/dysphagia",
+        "fichier": "data/ck/src.json",
+        "ligne": 0
+      },
+      {
+        "controle": "G3",
+        "element": "src|R-COURS-S17-01",
+        "motif": "éditeur hors Suisse et Europe (pays US, World Gastroenterology Organisation)",
+        "fichier": "data/ck/src.json",
+        "ligne": 0
+      },
+      {
+        "controle": "G3",
+        "element": "src|R-COURS-S2-9-7",
+        "motif": "domaine hors liste blanche : https://www.worldgastroenterology.org/guidelines/dysphagia",
+        "fichier": "data/ck/src.json",
+        "ligne": 0
+      },
+      {
+        "controle": "G3",
+        "element": "src|R-COURS-S2-9-7",
+        "motif": "éditeur hors Suisse et Europe (pays US, World Gastroenterology Organisation, fédération mondiale de sociétés ; secrétariat aux États-Unis)",
+        "fichier": "data/ck/src.json",
+        "ligne": 0
+      }
+    ],
+    "signalements_apres": []
+  },
+  "solution": [
+    "Regrouper les exceptions d’une URL exacte puis vérifier séparément chaque identité id/URL/org/pays/type contre un unique objet SRC.",
+    "Exiger une exception unique par identifiant, SSP et cible locale ; refuser tout SRC supplémentaire de cette URL sans exception.",
+    "Vérifier chaque notice TIP et chacune de ses références : une seule utilisation c[0] avec intitulé Définition, aucune autre utilisation dans cours, DD, fondamentaux ou CK.",
+    "Exiger que toutes les autorisations aient une utilisation effective ; refuser doublons de notices/références, collisions et données ambiguës (notamment booléens assimilables aux entiers).",
+    "Conserver pays et domaines existants : aucun hôte, pays ou document voisin autorisé implicitement. Les attributions institutionnelles peuvent différer en précision entre deux SSP, mais chacune doit correspondre exactement à son propre SRC et son exception."
+  ],
+  "tests": {
+    "commande": "python3 -W ignore::ResourceWarning -m unittest tests.test_cours_ssp tests.test_mandat -q",
+    "resultat": "40tests réussis",
+    "nouveaux_tests": 5,
+    "scenarios_negatifs_parametres": 34,
+    "G3_base": "G3 réussi sur dépôt de base, zéro signalement.",
+    "reproduction_reelle": "Quatre erreurs avant ; zéro après.",
+    "scope": "Aucun fichier clinique, registre SRC, glossaire ou liste de domaines modifié.",
+    "diff_check": "réussi"
+  },
+  "limites": [
+    "Ce rapport documente l’auteur du correctif ; la revue indépendante du code par le responsable reste requise.",
+    "L’autorisation reste déclarative et syntaxique ; G3 ne prouve ni lecture de la source ni justesse de la définition.",
+    "La reproduction emploie des données réelles externalisées en lecture puis un conteneur TIP temporaire inline pour isoler G3. Les tests existants du chargeur restent distincts.",
+    "Les contrôles préexistants utilisent la présence littérale des identifiants et URL dans les contenus ; aucune analyse sémantique des citations implicites n’est ajoutée."
+  ],
+  "empreintes_code": {
+    "tools/audit/niveau1.py": "8db7960e02eab834e60bdc945b4659026f1fbcd8524156c50ffabfe1f02aa8c7",
+    "tests/test_cours_ssp.py": "4142796e97f9e4e279fede0cc6726399f4bf017dbd4d5c72f6b49e7c8152eeac"
+  }
+}

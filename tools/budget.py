@@ -12,6 +12,7 @@ CK_MAX = int(os.environ.get('CK_MAX_BYTES', 2_500_000))
 SVG_MAX = int(os.environ.get('SVG_MAX_BYTES', 120 * 1024))
 NC_MAX = int(os.environ.get('NC_MAX_BYTES', 3_000_000))
 MONO_MAX = int(os.environ.get('MONO_MAX_BYTES', 6_000_000))
+TIP_MAX = 12 * 1024 * 1024
 IMG_MAX = 200 * 1024
 IMG_EXT = {'.webp', '.png', '.jpg', '.jpeg', '.gif', '.avif'}
 root = os.environ.get('BUDGET_ROOT', ROOT)
@@ -32,6 +33,12 @@ size = os.path.getsize(app)
 print(f'app_v2.html : {fmt(size)} octets (budget {fmt(APP_MAX)}).')
 if size > APP_MAX:
     fails.append('app_v2.html dépasse le budget')
+tip_asset = os.path.join(root, 'assets/config/tip.js')
+if os.path.isfile(tip_asset):
+    tip_size = os.path.getsize(tip_asset)
+    print(f'assets/config/tip.js : {fmt(tip_size)} octets (budget {fmt(TIP_MAX)}).')
+    if tip_size > TIP_MAX:
+        fails.append('assets/config/tip.js dépasse le budget')
 for d, _, files in os.walk(os.path.join(root, 'assets')):
     for n in files:
         p = os.path.join(d, n)

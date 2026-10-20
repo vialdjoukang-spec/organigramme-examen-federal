@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 from _app import read, span
+from tip_data import load as load_tip
 
 
 def empreinte(text):
@@ -18,8 +19,7 @@ def empreinte(text):
 def bilan(root=ROOT, today=None):
     today = today or date.today()
     app = (root / 'app_v2.html').read_text()
-    a, b = span(app, 'TIP')
-    tip = json.loads(app[a:b])
+    tip = load_tip(root, app)
     registry = json.loads((root / 'tools/cours/registre.json').read_text())
     reviews = registry.get('relectures', {})
     errors, reviewed, pending = [], [], []

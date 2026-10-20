@@ -24,6 +24,7 @@ from urllib.parse import urlparse
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from ck_common import ROOT, CHAMPS_PROSE, load_all, line_of, norm, strings, strip_tags, today  # noqa: E402
+from tip_data import load as load_tip
 
 DOSE = re.compile(r'(?<![\w.,])(\d+(?:[.,]\d+)?(?:\s?(?:-|–|à)\s?\d+(?:[.,]\d+)?)?)\s?(mg|µg|mcg|g|UI|U|mmol|mL|ml)'
                   r'(?:\s?/\s?(kg|j|jour|h|m2|m²|dose|prise))?(?![\w/])(?!\s?/\s?(?:l|L|dL|dl|24|min|mol))')
@@ -102,11 +103,14 @@ def doses_heritees(root):
     s = open(app, encoding='utf-8').read()
     out = {}
     for name in ('TIP', 'NOT', 'GES'):
-        k = '\nconst ' + name + '='
-        if s.count(k) != 1:
-            continue
-        a = s.find(k) + len(k)
-        v = json.JSONDecoder().raw_decode(s, a)[0]
+        if name == 'TIP':
+            v = load_tip(root, s)
+        else:
+            k = '\nconst ' + name + '='
+            if s.count(k) != 1:
+                continue
+            a = s.find(k) + len(k)
+            v = json.JSONDecoder().raw_decode(s, a)[0]
         items = v.items() if isinstance(v, dict) else ((x.get('id', str(i)), x) for i, x in enumerate(v))
         for key, val in items:
             for t in _all_str(val):
@@ -187,20 +191,11 @@ def _match(url, liste):
 
 
 def _definition_internationale(root, data, source, policy):
-    """Exception Vial : document exact, cité par la seule définition du cours.
+    """Document exact : chaque définition autorisée a sa propre exception.
 
-    Aucun pays ou hôte n'est autorisé globalement. Toute réutilisation en CK,
-    DD, fondamental ou autre partie du cours révoque l'exception.
+    Les usages d'une même URL sont vérifiés ensemble, sans autoriser le pays
+    ou l'hôte. Toute identité ambiguë ou utilisation hors c[0] révoque le groupe.
     """
-    records = [x for x in policy.get('definitions_internationales', [])
-               if x.get('id') == source.get('id')]
-    if len(records) != 1:
-        return False
-    record = records[0]
-    if record.get('type') != 'glossaire' or any(
-            source.get(k) != record.get(k) for k in ('id', 'url', 'org', 'pays', 'type')):
-        return False
-
     def leaves(value):
         if isinstance(value, dict):
             for v in value.values():
@@ -211,44 +206,92 @@ def _definition_internationale(root, data, source, policy):
         elif isinstance(value, str):
             yield value
 
-    if any(source['id'] in text or source['url'] in text
-           for name, value in data.items() if name != 'src'
-           for text in leaves(value)):
-        return False
     try:
-        from _app import span
+        keys = ('id', 'url', 'org', 'pays', 'type')
+        exceptions = policy.get('definitions_internationales', [])
+        records = [x for x in exceptions if x.get('url') == source.get('url')]
+        if not records or source.get('id') not in [x.get('id') for x in records]:
+            return False
+        allowed, identities = {}, {}
+        for record in records:
+            if (any(not isinstance(record.get(k), str) or not record[k].strip()
+                    for k in (*keys, 'ssp'))
+                    or record['type'] != 'glossaire'
+                    or type(record.get('source_cours')) is not int
+                    or record['source_cours'] < 1):
+                return False
+            ident = record['id']
+            target = (record['ssp'], record['source_cours'])
+            if (ident in identities or target in allowed
+                    or any(rec['ssp'] == record['ssp'] for rec in identities.values())
+                    or sum(x.get('id') == ident for x in exceptions) != 1):
+                return False
+            sources = [x for x in data['src'] if x.get('id') == ident]
+            if len(sources) != 1 or any(sources[0].get(k) != record[k] for k in keys):
+                return False
+            identities[ident] = record
+            allowed[target] = record
+        # Une source supplémentaire de la même URL ne reçoit pas l'exception.
+        if any(x.get('id') not in identities for x in data['src']
+               if x.get('url') == source['url']):
+            return False
+        if any(source.get(k) != identities[source['id']][k] for k in keys):
+            return False
+        tokens = [source['url'], *identities]
+        if any(token in text for name, value in data.items() if name != 'src'
+               for text in leaves(value) for token in tokens):
+            return False
         with open(os.path.join(root, 'app_v2.html'), encoding='utf-8') as f:
-            app = f.read()
-        a, b = span(app, 'TIP')
-        tip = json.loads(app[a:b])
-        uses = []
+            tip = load_tip(root, f.read())
+        seen = set()
         for code, item in tip.items():
             for index, part in enumerate(item.get('c', [])):
-                if (code, index) != (record['ssp'], 0) and any(
-                        token in part for token in (source['id'], source['url'])):
-                    return False
-            if any(source['id'] in text or source['url'] in text
-                   for field, value in item.items() if field not in ('c', 'v')
-                   for text in leaves(value)):
+                for token in tokens:
+                    if token in part and (index != 0 or not any(
+                            rec['ssp'] == code and (token == source['url'] or token == ident)
+                            for ident, rec in identities.items())):
+                        return False
+            if any(token in text for field, value in item.items() if field not in ('c', 'v')
+                   for text in leaves(value) for token in tokens):
                 return False
             visa = item.get('v', {})
-            matches = [s for s in visa.get('S', []) if s.get('u') == source['url']]
-            for s in matches:
-                if (code, s.get('id'), s.get('n'), s.get('o')) != (
-                        record['ssp'], record['source_cours'], source['pays'], source['org']):
+            for s in visa.get('S', []):
+                if s.get('u') != source['url']:
+                    continue
+                target = (code, s.get('id'))
+                record = allowed.get(target)
+                if (record is None or target in seen or type(s.get('id')) is not int
+                        or (s.get('n'), s.get('o')) != (record['pays'], record['org'])
+                        or sum(old.get('id') == s['id'] for old in visa['S']) != 1):
                     return False
-                if any(s['id'] == old.get('id') and old is not s for old in visa['S']):
-                    return False
+                uses = []
                 for field, entries in visa.items():
-                    if field in ('S', 'k'):
+                    if field == 'S':
+                        continue
+                    if field == 'k':
+                        if type(entries) is not int:
+                            return False
                         continue
                     if not isinstance(entries, list):
                         return False
                     for index, entry in enumerate(entries):
-                        if entry and s['id'] in entry[1]:
-                            uses.append((code, field, index))
-        return uses == [(record['ssp'], 'c', 0)] and tip[record['ssp']]['c'][0].startswith(('<b>Définition :', '<ul><li><b>Définition :'))
-    except (OSError, ValueError, KeyError, TypeError, IndexError):
+                        if not entry:
+                            continue
+                        if (not isinstance(entry, list) or len(entry) != 2
+                                or not isinstance(entry[1], list)
+                                or any(type(ref) is not int for ref in entry[1])):
+                            return False
+                        count = entry[1].count(s['id'])
+                        if count:
+                            if count != 1:
+                                return False
+                            uses.append((field, index))
+                if (uses != [('c', 0)] or not item['c'][0].startswith(
+                        ('<b>Définition :', '<ul><li><b>Définition :'))):
+                    return False
+                seen.add(target)
+        return seen == set(allowed)
+    except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
         return False
 
 
