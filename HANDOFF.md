@@ -1,6 +1,34 @@
-## Correctif documentaire source17 contre-audité · nouvelle CI167 requise
+## Phases170 contre-auditées · troisième CI requise
 
-L’échecTLS de la tête679f2c0de64df5aa0c5dc9b403523c82ff7a6564 est conservé dans `audit/P1-CI-ECHEC-TLS-S3.10-20261020.json`. La publication primaireRCEM février2024 remplace la ficheNHS, source17 seulement ; les28parties et leurs références numériques sont identiques. Nouveau contre-audit indépendant `audit/P1-AUDIT-COURS-S3.10-SOURCE17-20261020.json` et complément source17 ; anciennes preuves intactes. G1–G8 verts après substitution, mais aucun succèsTLSrunner présumé. Actualiser PR167 par fast-forward normal avec ce gel, attendre nouvelleCIcomplète avant fusion puis vérifier main/Pages/HTTP.44SSP S/616parties publiques restent le dernier bilan confirmé.
+Deux lignes¶0 retirées uniquement de S4.3 partie6 ; HTML, texte clinique, sous-titre et19renvois conservés. Nouveau contre-audit indépendant favorable : `audit/P1-AUDIT-COURS-S4.3-PHASES-20261020.json` et `audit/P1-CONTRE-AUDIT-PHASES-S4.2-S4.3-20261020.json`. G1–G8 et examen18/18 indépendants verts ; parcours original18cours×14 bureau/mobile réussi par auteur, attribution de preuve distincte. Registre actualisé aux14empreintes finales ; nouvelle CI complète sur la tête finale avant fusion.46SSP S/644parties de cours S publiés ; aucune monographie DD comptée.
+
+## Correctif de présentation170 contre-audité · nouvelle CI requise
+
+Ajout du seul sous-titre S4.3 partie6 vérifié favorablement par contre-audit indépendant : `audit/P1-AUDIT-COURS-S4.3-PUCE-20261020.json` et `audit/P1-CONTRE-AUDIT-PUCE-S4.2-S4.3-20261020.json`. Phrase clinique, autres parties, S4.2, sources, glossaire et tests conservés.18/18assertions examen et clavier/toucher bureau/mobile réussis aussi par le contre-auditeur. Registre lié aux14empreintes finales. Nouvelle CI distante complète obligatoire avant fusion ;46SSP S/644parties de cours S déjà publiés, CI main167 verte.
+
+## CI170 bloquée par présentation · correctif ciblé à contre-auditer
+
+Tête571e3f228226be88ecece47422d2b3a0ca46dbfa :281/282contrôles, seul échec `test_examen.py.tip_autres_rediges`. Une puce de S4.3 partie6 n’avait pas de sous-titre ; ajout du seul intitulé « Interprétation clinique », phrase clinique intégralement conservée.18/18contrôles examen et parcours clavier/toucher bureau/mobile réussis ; nouveau contre-audit indépendant puis nouvelle CI exigés avant toute fusion. Les tests sont inchangés. CI main16739470922795 désormais verte ;46SSP S/644parties de cours S publiés.
+
+## Publication167 vérifiée · 46 SSP S / 644 parties de cours S
+
+PR167 fusionnée au commit7047a8064294d1e3cd5d249d73bbf9cc1d930bd8 après tous les contrôles finaux verts surb3026f0d692027091c673cdf783ab221cc473ce4. Pages39470922803 réussi ;114fichiers publics HTTP200/SHA256 identiques. Preuves `audit/P1-CI-S3.10-S4.1-20261020.json` et `audit/P1-PUBLICATION-S3.10-S4.1-20261020.json`. CI main39470922795 encore en cours à cette observation ; son succès est requis avant fusion170.
+
+170 :28parties contre-auditées, complément indépendant après correction source17 conservé ; préparer la PR existante puis attendre tous ses contrôles.179 :4constats médicaux corrigés,43signalements G4/G6 en correction, aucun avis final favorable présumé.180 :2corrections et restauration de l’urgence masculine en rédaction GPT‑6.1 Sol élevé. P1 seule priorité active ; ces compteurs concernent les parties des cours, aucune monographie DD.
+
+## Nouvelle CI167 après contre-audit RCEM
+
+PR167 têteb3026f0d692027091c673cdf783ab221cc473ce4 : source17 remplacée parRCEM,28parties et références numériques inchangées, nouveau contre-audit indépendant favorable. L’échec TLS sur679f2c0 reste archivé. Les nouveaux contrôles doivent tous être verts avant fusion, puis CI main/Pages/HTTP à vérifier.44SSP S/616parties de cours S sont le dernier bilan public confirmé.170 :28parties et glossaire contre-audités, complément indépendant après source17 conservé ; intégration attend publication167.179 correctif9fc53c9 à contre-auditer ;180 en préparation.
+
+## Checkpoint167 bloqué par lien TLS ·170 contre-audité
+
+44SSP S/616parties de cours S publiés avec CI main164 verte. PR167 tête679f2c0de64df5aa0c5dc9b403523c82ff7a6564 ne doit pas être fusionnée : CI39466300712, jobliens118778485326 refuse le certificat de la source17 NHS. L’auteur reprend cette référence avec source primaire réellement lue ; aucune exclusion ni désactivationTLS. Les anciens audits restent historiques ; nouveau contre-audit ciblé et nouvelle CI exigés après correction.
+
+170 : B1–B3 clos sur auteurbb16d02 et gela091722, rapports individuels et révision indépendants favorables,28parties et23GLO testés sur navigateur par l’auditeur.64cours/896parties contre-audités au total,48SSP S ; les quatre cours167/170 ne sont pas encore publiés. Les whole-file hashes de l’intégration170 devront tenir compte du remplacement source17, sans réattribuer les anciennes lectures. Auteurs179/180 poursuivent deuxcours chacun ; intégrations/fusions restent ordonnées167→170→179→180.
+
+## CI main164 verte · 44SSP S/616parties de cours S publiques
+
+CI39465467556 réussie sur fa994452c735a8f7a55a8ec5bc644abf97221d53 ; Pages et114fichiers publics SHA256 déjà vérifiés. Preuve `audit/P1-CI-MAIN-S3.8-S3.9-20261020.json`. PR167 attend CI39466300712, Visuel39466300704 et Checkpoint39466300768 sur679f2c0de64df5aa0c5dc9b403523c82ff7a6564 ; ne pas fusionner avant touscontrôles verts.170 correctifbb16d02 en contre-audit final ;179/180 auteurs GPT-6.1 Sol élevé sur deuxcours chacun, fusions suivantes strictement ordonnées.
 
 ## Publication164 et gel167 contre-audité · 20.10.2026 Europe/Zurich
 
