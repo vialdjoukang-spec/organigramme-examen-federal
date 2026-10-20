@@ -12,7 +12,7 @@ python3 tools/ck_build.py >/dev/null 2>&1 || python3 tools/ck_build.py
 git add -A assets data && { git diff --cached --quiet || git commit -qm "Régénération (arsenal/pr.sh)"; }
 python3 tools/arsenal/lot.py auto
 git push -q --force-with-lease -u origin "$b" 2>/dev/null
-auto=$(git diff --name-only origin/main...HEAD | grep -E '^tools/.*\.(py|sh)$' | sed 's/.*/- `&`/')
+auto=$(git diff --name-only origin/main...HEAD | { grep -E '^tools/.*\.(py|sh)$' || true; } | sed 's/.*/- `&`/')
 auto=$(printf '%s\n- `tools/arsenal/lot.py`\n- `tools/arsenal/ci_attente.sh`' "$auto")
 u=$(gh pr view "$b" --json url -q .url 2>/dev/null || true)
 [ -n "$u" ] || u=$(gh pr create -B main -H "$b" -t "$t" -b "$(printf '## Automates actifs\n%s\n\n## Objet\nAudit : `python3 tools/arsenal/audit_diff.py`' "$auto")")
