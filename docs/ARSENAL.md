@@ -13,7 +13,7 @@ Obligatoire pour tout agent. Outils gratuits, locaux, dans `tools/arsenal/`. Sor
 2. rédiger `tools/cours/lots/<SSP>.json` (14 parties, références, `lu_le`)
 3. `tools/arsenal/lot.py cours <SSP> …`
 4. `tools/arsenal/pr.sh "Alpha <SSP>" <SSP> …`
-5. `tools/arsenal/ci_attente.sh`
+5. `tools/arsenal/ci_attente.sh` (tous les contrôles de la PR)
 Interdit : toucher aux DD, aux monographies, à `data/TIP.json` publié.
 
 ## Beta · monographies DD en 6 rubriques
@@ -21,7 +21,7 @@ Interdit : toucher aux DD, aux monographies, à `data/TIP.json` publié.
 2. `python3 tools/mono_build.py --draft <SSP>` (aide, existant seulement)
 3. `tools/arsenal/lot.py mono <clé> …`
 4. `tools/arsenal/pr.sh "Beta <groupe-lot>"`
-5. `tools/arsenal/ci_attente.sh`
+5. `tools/arsenal/ci_attente.sh` (tous les contrôles de la PR)
 Interdit : appliquer les 6 rubriques aux cours SSP ; dose sans extrait AIPS.
 
 ## Gamma · régions CS
@@ -29,7 +29,7 @@ Interdit : appliquer les 6 rubriques aux cours SSP ; dose sans extrait AIPS.
 2. `python3 tools/cs_build.py --check`
 3. `python3 -m unittest discover -s tests`  (uniquement les tests touchés : `-p 'test_<x>*.py'`)
 4. `tools/arsenal/pr.sh "Gamma <phase>"`
-5. `tools/arsenal/ci_attente.sh`
+5. `tools/arsenal/ci_attente.sh` (tous les contrôles de la PR)
 Interdit : réécrire les textes des gestes (secteur Delta).
 
 ## Delta · gestes et pages région CS
@@ -37,14 +37,14 @@ Interdit : réécrire les textes des gestes (secteur Delta).
 2. images : sourcées et licenciées (skill `docs/skills/ssp-images-licence`), jamais générées
 3. `tools/arsenal/lot.py auto`
 4. `tools/arsenal/pr.sh "Delta <région>"`
-5. `tools/arsenal/ci_attente.sh`
+5. `tools/arsenal/ci_attente.sh` (tous les contrôles de la PR)
 Interdit : modifier la présentation des régions (secteur Gamma) ; signe sans source propre.
 
 ## Auditeur · audit grok-bot
 1. `gh pr checkout <n>`
 2. `tools/arsenal/audit_diff.py [--max 400]` (valeurs modifiées + sources seulement)
 3. `tools/arsenal/lot.py auto -v`
-4. `tools/arsenal/ci_attente.sh`
+4. `tools/arsenal/ci_attente.sh` (tous les contrôles, y compris checkpoint)
 5. `gh pr merge <n> --merge` après CI verte et audit signé
 Interdit : auditer un texte qu'on a rédigé ; fusionner une CI non verte.
 
