@@ -19,4 +19,9 @@ class T(unittest.TestCase):
     def test_budget_lignes(self):
         p = subprocess.run([sys.executable, 'tools/budget.py', '--lignes', '50', 'app_v2.html'], cwd=R, capture_output=True, text=True)
         self.assertEqual(p.returncode, 1); self.assertIn('TROP LONGUE', p.stdout)
+    def test_pr_sh_sans_outil_modifie(self):
+        l = next(x for x in open(os.path.join(R, 'tools/arsenal/pr.sh'), encoding='utf-8') if x.startswith('auto=$(git diff'))
+        sh = 'set -euo pipefail\ngit() { echo data/tip/S1.1.json; }\n' + l + 'echo FIN'
+        p = subprocess.run(['bash', '-c', sh], capture_output=True, text=True)
+        self.assertEqual(p.returncode, 0); self.assertIn('FIN', p.stdout)
 if __name__ == '__main__': unittest.main()
