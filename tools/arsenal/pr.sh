@@ -15,5 +15,5 @@ git push -q --force-with-lease -u origin "$b" 2>/dev/null
 auto=$(git diff --name-only origin/main...HEAD | grep -E '^tools/.*\.(py|sh)$' | sed 's/.*/- `&`/')
 auto=$(printf '%s\n- `tools/arsenal/lot.py`\n- `tools/arsenal/ci_attente.sh`' "$auto")
 u=$(gh pr view "$b" --json url -q .url 2>/dev/null || true)
-[ -n "$u" ] || u=$(gh pr create -B main -H "$b" -t "$t" -b "$(printf '%s\n\n## Automates actifs\n%s\n\nAudit : `python3 tools/arsenal/audit_diff.py`' "$t" "$auto")")
+[ -n "$u" ] || u=$(gh pr create -B main -H "$b" -t "$t" -b "$(printf '## Automates actifs\n%s\n\n## Objet\nAudit : `python3 tools/arsenal/audit_diff.py`' "$auto")")
 echo "$u"
