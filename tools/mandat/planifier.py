@@ -101,6 +101,9 @@ def date_audit(report):
 
 # Ordre de Vial du 20.10.2026 à 07:40 : « grok-bot » est un contre-auditeur accepté (signature réelle).
 AUDITEURS = ('gpt-6-astra', 'grok-bot')
+# Instruction utilisateur du 20.10.2026 : reprise en GPT-6.1 Sol élevé.
+# Les réservations historiques conservent leur modèle réellement utilisé.
+REDACTEURS = ('gpt-6-sol', 'gpt-6.1-sol')
 
 
 def astra(report):
@@ -258,7 +261,7 @@ def valider_reservations(registry, stage, phase, units, limit):
             errors.append('Branche absente ou partagée par plusieurs réservations : ' + str(branch))
         if reservation['statut'] in OCCUPE:
             branches.add(str(branch))
-        if reservation.get('modele') != 'gpt-6-sol' or reservation.get('raisonnement') != 'high':
+        if reservation.get('modele') not in REDACTEURS or reservation.get('raisonnement') != 'high':
             errors.append('Modèle/raisonnement de rédaction non conforme : ' + str(agent))
         selected = reservation.get('unites', [])
         if reservation.get('etape') != stage or reservation.get('phase') != phase:
@@ -285,7 +288,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
             or contract.get('cours_parties') != 14 or contract.get('dd_rubriques') != 6
             or contract.get('redaction', {}).get('ssp_max_par_agent') != 2
             or contract.get('redaction', {}).get('dd_max_par_agent') != 3
-            or contract.get('redaction', {}).get('modele') != 'gpt-6-sol'
+            or contract.get('redaction', {}).get('modele') not in REDACTEURS
             or contract.get('audit', {}).get('modele') != 'gpt-6-astra'
             or not set(contract.get('audit', {}).get('modeles_acceptes', ['gpt-6-astra'])) <= set(AUDITEURS)
             or contract.get('audit', {}).get('independant') is not True

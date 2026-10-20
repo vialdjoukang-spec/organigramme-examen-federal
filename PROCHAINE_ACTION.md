@@ -1,10 +1,22 @@
-## Checkpoint P1 · S3.4/S3.5 contre-audités, CI/fusion/publication à vérifier
+## Reprise autorisée après pause · 20.10.2026 Europe/Zurich
 
-Branche `codex/p1-audit-s3.4-s3.5`. Les deux attestations finales Astra sont `audit/P1-AUDIT-COURS-S3.4-20261020.json` et `...S3.5...`. G1–G8 sans signalement et tests ciblés verts. Le contrôle navigateur local couvre ces deux cours sur ordinateur/mobile, y compris les14parties, le clavier, les sources et les renvois anatomiques ; la CI finale doit encore exécuter G1–G16 plus les deux S modifiés sur la tête exacte.
+Vial demande de continuer les **parties des cours S** avec rédaction **GPT-6.1 Sol, raisonnement élevé**. Les cours gardent leurs14parties spécifiques ; les DD en six rubriques restent dans leur chantier distinct. Point courant : PR161 S3.6/S3.7, correction des phases contre-auditée ; nouvelle CI complète, fusion puis publication à vérifier. Deux auteurs réellement lancés reprennent167(S3.10/S4.1) et170(S4.2/S4.3), deux cours chacun. Contre-audit indépendant Astra, intégrations centralisées. La pause précédente est levée par cette instruction ; sauvegarde historique sur `checkpoint/pause-20261020-1314`, aucun historique supprimé.
 
-Prochaine action exacte : ouvrir/retrouver la PR de cette branche, attendre garde/html/tests/visuel/checkpoint/schemas réussis sur son SHA final et aucun autre échec, fusionner normalement puis observer Pages sur le SHA intégré et comparer les fichiers publics. Enregistrer alors les publications ALPHA:S3.4/S3.5 et passer à #161(S3.6/S3.7), avant #164(S3.8/S3.9). Ces deux lots suivants sont préparés localement mais restent sans contre-audit favorable, CI finale, fusion ni publication ; ne pas les compter achevés.
+## Checkpoint P1 · S3.6/S3.7 : correction des phases contre-auditée, nouvelle CI requise
 
-CLIgh/gitdistants401 ; connecteur GitHub fonctionnel. La création d’arbre doit être égale au `git write-tree` local avant commit/ref ; update_ref avec tête attendue/force:false ; merge avec SHA attendu. Aucun login ni recherche de secret. Aucune continuation IA hors session prouvée.
+P1 seule priorité active. Le planificateur reconnaît 40/113 S publiés ; 42 S sont désormais contre-audités (58 cours au total, 812 parties), sans attribuer de publication à S3.6/S3.7.
+
+Dernier lot publié : PR271, commit `d6a25c78383415e412fb6297a1ba53ff7d2f4f21`. CI tête finale et main réussies, Pages39423711446 réussi sur ce SHA, 114 fichiers publics HTTP200/SHA256 identiques. Preuves `audit/P1-CI-S3.4-S3.5-20261020.json` et `audit/P1-PUBLICATION-S3.4-S3.5-20261020.json`.
+
+Lot courant : S3.6/S3.7, révision auteur locale `2837d64b89f63befe2d7605aa620df9df6ee20d2`, attestations finales Astra `audit/P1-AUDIT-COURS-S3.6-20261020.json` et `...S3.7...`. Les sept constats bloquants sont résolus ; source HUG réservée à la définition technique du glossaire TIPS. Gardes G1–G8 sans signalement ; contrôle navigateur final des 28 parties sur ordinateur/mobile réussi. Aucune validation médicale humaine ni vérification de posologie AIPS présumée.
+
+CI161 sur `604da0aee0d7b0089e9c1eba0fec0a546b62f6d5` a échoué au seul contrôle d’ordre des phases (281/282). Root a permuté Mesures/Inspection dans les deux blocs de constantes, sans réécrire ni supprimer de texte. Nouvelles attestations indépendantes : `audit/P1-AUDIT-COURS-S3.6-PHASES-20261020.json` et S3.7 ; test_examen18/18 et navigateur ciblé des deux parties6 réussis. Les anciennes attestations et preuves de test restent historiques. Les agents précédents se sont arrêtés lors du redémarrage ; les trois reprises réelles sont consignées dans les registres, sans continuation IA présumée.
+
+Prochaine action exacte : actualiser PR161 (`alpha/s3-6`, tête à remplacer `604da0aee0d7b0089e9c1eba0fec0a546b62f6d5`, ancienne tête préservée `824f3eb112d9b36dff729b12e5ef8fa986db9470`) avec un commit de fusion normal préservant cette tête et intégrant main ; l’arbre distant doit égaler le `git write-tree` local de `codex/p1-integration-s3.6-s3.7`. Attendre les six contrôles requis sur son SHA final, sans autre échec/attente ; fusionner avec tête attendue, puis vérifier CI main, Pages et fichiers publics. Enregistrer alors S3.6/S3.7 publiés avant fusion164.
+
+Suite exacte : #164 S3.8/S3.9, révision auteur `9ddd575a9095419e658b7b6d0fb3c4d6aff50ba2`, doit encore être intégrée et revalidée indépendamment ; #167 S3.10/S4.1, auteur `274cc41871df29787e836033c7c5fdd360580706`, intégration et audit indépendant isolés en cours ; #170 S4.2/S4.3, rédaction indépendante en cours. Les réservations et agents réels sont consignés dans les registres. P2–P4 restent bloquées.
+
+Git/gh distants401 ; connecteur GitHub fonctionne. `force:false`, têtes attendues, aucune auto-fusion clinique. Aucun processus IA autonome permanent présumé ; les serveurs HTTP locaux servent les tests uniquement. Tous les travaux/commits locaux et historiques des PR restent conservés.
 
 ## Mandat prioritaire P0 → P4 · P1 active · 20.10.2026
 

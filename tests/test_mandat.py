@@ -399,6 +399,25 @@ class MandatTests(unittest.TestCase):
             root=Path(tmp);v=self.fixture(root);v[0]['redaction']['ssp_max_par_agent']=3
             with self.assertRaises(ValueError):self.run_plan(root,v)
 
+    def test_sol61_authorization_preserves_model_and_effort_guards(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);v=self.fixture(root)
+            for model in ('gpt-6-sol','gpt-6.1-sol'):
+                with self.subTest(model=model):
+                    v[0]['redaction']['modele']=model
+                    v[1]['reservations']=[dict(etape='ALPHA',phase='S',agent='a',branche='b',
+                        modele=model,raisonnement='high',statut='en_redaction',unites=['S1.1','S1.2'])]
+                    self.assertFalse(self.run_plan(root,v)['anomalies'])
+            for field,value in [('modele','gpt-6-luna'),('raisonnement','low')]:
+                with self.subTest(field=field):
+                    v[0]['redaction'][field]=value
+                    with self.assertRaises(ValueError):self.run_plan(root,v)
+                    v[0]['redaction'].update(modele='gpt-6.1-sol',raisonnement='high')
+                    v[1]['reservations'][0][field]=value
+                    result=self.run_plan(root,v)
+                    self.assertTrue(result['anomalies']);self.assertFalse(result['prochains_lots'])
+                    v[1]['reservations'][0].update(modele='gpt-6.1-sol',raisonnement='high')
+
     def test_relay_uses_mandate_and_preserves_old_contract(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);v=self.fixture(root);m=self.run_plan(root,v)

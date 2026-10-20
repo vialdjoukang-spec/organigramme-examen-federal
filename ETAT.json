@@ -488,22 +488,22 @@
     ],
     "priorite_active": "P1",
     "statut": "en_cours",
-    "observe_le": "2026-10-20T12:20:35.367096+00:00",
-    "main_observe": "c33709b66a8a4d54323fbe14e32dc0e41bcbb4f8",
-    "cours_audites_documentaires": 56,
-    "parties_auditees_documentaires": 784,
-    "ssp_S_audites": 40,
-    "ssp_S_publications_reconnues": 38,
+    "observe_le": "2026-10-20T13:11:13.285682+00:00",
+    "main_observe": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21",
+    "cours_audites_documentaires": 58,
+    "parties_auditees_documentaires": 812,
+    "ssp_S_audites": 42,
+    "ssp_S_publications_reconnues": 40,
     "pr_ouvertes": 105,
     "rapport_file": "audit/P0-FILE-PR-20261020.json",
-    "prochaine_commande": "CI exacte de codex/p1-audit-s3.4-s3.5 puis fusion normale, Pages et HTTP/SHA256 ; enregistrer S3.4/S3.5 publiés avant PR161.",
+    "prochaine_commande": "Réutiliser PR161 avec le gel contre-audité, CI exacte puis fusion normale ; vérifier Pages et HTTP/SHA256 avant publication de164.",
     "validation_medicale_humaine": false,
     "execution_autonome_hors_session_prouvee": false,
     "publication_baseline": "audit/P0-PUBLICATION-BASELINE-20261020.json",
     "nettoyage_branches_appliquees": 22,
     "sources_orphelines_archivees": 131,
     "preuve_nettoyage": "audit/P0-NETTOYAGE-APPLIQUE-20261020.json",
-    "branche": "codex/p1-audit-s3.4-s3.5",
+    "branche": "codex/p1-integration-s3.6-s3.7",
     "acces_cli": "HTTP401 depuis 2026-10-20T10:43:06Z",
     "relais_outils": "Connecteur GitHub réel, lecture et écriture vérifiées",
     "pr_ouvertes_historiques": 105,
@@ -522,10 +522,10 @@
     "priorites_suivantes_bloquees": true,
     "lot_courant": {
       "ssp": [
-        "S3.4",
-        "S3.5"
+        "S3.6",
+        "S3.7"
       ],
-      "statut": "contre_audite_a_integrer",
+      "statut": "contre_audite_phases_a_integrer",
       "publication_verifiee": false
     },
     "transition_P1": {
@@ -534,6 +534,89 @@
       "ci_main": 39418029624,
       "pages": 39418041303,
       "publication": "audit/P1-PUBLICATION-TRANSITION-20261020.json"
+    },
+    "fusion_clinique": "manuelle_centralisee",
+    "nettoyage_technique": {
+      "rapport": "audit/P0-NETTOYAGE-APPLIQUE-20261020.json",
+      "branches": 22,
+      "sources_archivees": 131
+    },
+    "dernier_lot_publie": {
+      "ssp": [
+        "S3.4",
+        "S3.5"
+      ],
+      "pr": 271,
+      "commit": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21",
+      "pages": 39423711446,
+      "preuve": "audit/P1-PUBLICATION-S3.4-S3.5-20261020.json",
+      "ci_main": {
+        "run": 39423699023,
+        "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39423699023",
+        "statut": "completed",
+        "conclusion": "success",
+        "head_sha": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21"
+      }
+    },
+    "dernier_echec_ci": {
+      "pr": 161,
+      "head": "604da0aee0d7b0089e9c1eba0fec0a546b62f6d5",
+      "run": 39426553207,
+      "cause": "Ordre Inspection/Mesures dans deux blocs de constantes",
+      "correction": "Permutation exacte des blocs ; tests canoniques inchangés ; nouveau contre-audit et tests locaux réussis, nouvelle CI attendue."
+    },
+    "reprise_environnement": {
+      "date_utc": "2026-10-20T13:11:13.285696+00:00",
+      "anciens_agents_actifs": false,
+      "agents_relances": [
+        "/root/p1_reaudit_apres_redemarrage",
+        "/root/p1_reprise_167_apres_redemarrage",
+        "/root/p1_reprise_170_apres_redemarrage"
+      ]
+    },
+    "reprise_apres_pause": {
+      "date_utc": "2026-10-20T17:00:53.105026+00:00",
+      "agents_reellement_lances": [
+        {
+          "agent": "/root/p1_sol61_reprise_167",
+          "role": "auteur correcteur",
+          "modele_demande": "gpt-6.1-sol",
+          "raisonnement": "high",
+          "ssp": [
+            "S3.10",
+            "S4.1"
+          ],
+          "branche": "codex/p1-reprise-s3.10-s4.1"
+        },
+        {
+          "agent": "/root/p1_sol61_reprise_170",
+          "role": "auteur",
+          "modele_demande": "gpt-6.1-sol",
+          "raisonnement": "high",
+          "ssp": [
+            "S4.2",
+            "S4.3"
+          ],
+          "branche": "codex/p1-reprise-s4.2-s4.3"
+        },
+        {
+          "agent": "/root/p1_audit_reprise_164",
+          "role": "contre-auditeur indépendant",
+          "modele_demande": "gpt-6-astra",
+          "raisonnement": "high",
+          "ssp": [
+            "S3.8",
+            "S3.9"
+          ]
+        }
+      ],
+      "perimetre": "Parties des cours SSP S (14 parties), distinctes des monographies DD (6 rubriques)."
     }
+  },
+  "pause_utilisateur": {
+    "active": false,
+    "reprise_utc": "2026-10-20T17:00:53.105026+00:00",
+    "instruction": "Continuer les parties des cours S ; rédaction GPT-6.1 Sol élevé.",
+    "autres_priorites_bloquees": true
   }
 }
