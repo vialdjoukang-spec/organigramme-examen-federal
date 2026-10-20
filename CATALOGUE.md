@@ -6,18 +6,16 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 
 | Script | Rôle |
 |---|---|
-| `tools/patches/0095-selecteur-theme-fond.py` | Historique : sélecteur de dix teintes pâles annulé par0096 à la demande de Vial. |
-| `tools/patches/0096-restaurer-fond-unique.py` | Annule le sélecteur0095 à la demande de Vial ; fond bleu ciel unique précédent restauré. |
-| `tools/patches/0097-restaurer-couleurs-origine.py` | Restaure le blanc cassé et les cartes blanches d’origine ; annule les fonds0093/0094. |
-| `tools/patches/0094-fond-zones-lecture.py` | Fonds de lecture bleu ciel très pâle, périmètre hors en-tête/sauvegarde, couleurs des caractères conservées. |
-| `tools/patches/0093-fond-bleu-ciel-pale.py` | Fond clair bleu ciel très pâle #EAF7FD, deux ancrages uniques ; blocs et contenu conservés. |
-| `tools/patches/0090-deplacer-commentaires-techniques.py` | Archive45commentaires techniques et conserve les jetons et terminateurs de ligne. |
-| `tools/patches/0091-externaliser-css-statiques.py` | Déplace deux feuillesCSS statiques, contenu et ordre de cascade conservés. |
-| `tools/patches/0092-externaliser-donnees-interface.py` | Externalise SESSION/EXI/ATT JSON purs sans changer leurs valeurs ; ordre de chargement synchrone, budget app conservé. |
-| `tools/patches/0039-espaces-sous-titres.py` | Supprime le blanc entre les sous-titres des infobulles et leur liste, en gardant la séparation entre parties ; gratuit et rejouable. |
-| `tools/garde/codex_cloud_120.py` | Nouveau relais GitHub → Codex cloud : contrôles120s, baux communs, demandes régulées et détection de l’environnement manquant ; aucune exécution IA inventée. |
 | `tools/_app.py` | Fonctions communes : localisation d'une constante JS de premier niveau par str.find. |
+| `tools/aips_verbatim.py` | Compare les extraits aux textes officiels Refdata ; ne valide aucune dose clinique. |
 | `tools/aletheia.py` | Alétheia · Janus · vérité des sources : doses (G1), source et date (G2), domaines (G3). |
+| `tools/arsenal/_c.py` | Commun arsenal : racine, chargement, sortie JSON compacte.""" |
+| `tools/arsenal/audit_diff.py` | Pour l'auditeur : seules les valeurs modifiées (base...HEAD) avec leurs sources, en JSON lignes. |
+| `tools/arsenal/ci_attente.sh` | Attend TOUS les contrôles de la PR de la branche courante (ou $1) sur le commit HEAD poussé. |
+| `tools/arsenal/ci_verdict.py` | stdin : JSON de `gh pr checks --json name,bucket`. Sortie : VERT (0), ROUGE <échecs> (1), ATTENTE (2).""" |
+| `tools/arsenal/extrait.py` | Sort UNIQUEMENT le bloc à traiter, en JSON compact (jamais app_v2.html entier). |
+| `tools/arsenal/lot.py` | Vérifie un lot en une commande ; une ligne par défaut, -v pour le détail. Code 1 si erreur. |
+| `tools/arsenal/pr.sh` | pr.sh "<titre>" [SSP …] : rebase origin/main, régénère (mono_build, cours/appliquer <SSP>, ck_build), |
 | `tools/asclepios/ges_v2.py` | Asclépios · restructuration de GES (3 axes, sous-régions, ordre strict, renvois, lacunes). |
 | `tools/asclepios/tip_autres_a.py` | Asclépios · revue des blocs « Autres éléments ciblés » (lot A : G, S1, S2, S3), 17.10.2026. |
 | `tools/asclepios/tip_autres_b.py` | Asclépios · revue des blocs « Autres éléments ciblés » (lot B : S4 à S9), 17.10.2026.""" |
@@ -38,9 +36,14 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 | `tools/build_exi.py` | Thémis · 17.10.2026 · écrit data/EXI.json et data/SESSION.json (source : research_exigences.md, pages lues le 17.10.2026). |
 | `tools/build_mem.py` | Mnémosyne · construit data/MEM.json mot pour mot à partir de research_memorisation.md. |
 | `tools/catalogue.py` | Génère CATALOGUE.md : scripts et automates gratuits, workflows, skills du dépôt, MCP et droits. |
+| `tools/check_fonctions_asset.py` | Vérifie l'extraction des fonctions et reconstruit le script principal.""" |
 | `tools/check_hash.py` | Garde I1 : l'empreinte SHA-256 de orig/app.html ne doit jamais changer.""" |
 | `tools/ck_build.py` | Atlas · compilateur des données CK : data/ck/*.json → assets/ck/*.js (contrôle G5). |
 | `tools/ck_common.py` | Atlas et Janus · fonctions communes aux outils CK (compilateur, Lyncée, audit de niveau 1). |
+| `tools/coordination/calculer.py` | Suivi couplé 8/9, sans écriture clinique ni validation automatique.""" |
+| `tools/coordination/relance.py` | Ordonnanceur léger : observe les exécutions, évite doublons et respecte le budget.""" |
+| `tools/cours/appliquer.py` | Appliquer un lot relu aux seules parties TIP.c ; préserver DD et fondamentaux.""" |
+| `tools/cours/controler.py` | Suivi des cours SSP : relecture liée au contenu, jamais déduite du numéro.""" |
 | `tools/cs_build.py` | Chiron · compilateur des stations CS : data/cs/*.json → assets/st/*.js. |
 | `tools/dedale/annoter.py` | Dédale-A · composition des 3 vues annotées d'un nerf crânien (face, profil, trois quarts). |
 | `tools/dedale/crane.py` | Dédale-C · crâne 3D au crayon (traits pleins à graisse hiérarchisée) pour les 3 vues d'un nerf crânien. |
@@ -48,35 +51,105 @@ Généré par `python3 tools/catalogue.py`, puis complété par Codex. À prése
 | `tools/dedale/masques.py` | Dédale-M · silhouettes pleines des territoires (masques) à partir du modèle Z-Anatomy, en mémoire réduite. |
 | `tools/dedale/trace.py` | Dédale-T · plan du nerf au crayon à partir d'une planche de Gray (domaine public), par automate. |
 | `tools/dedale/verifier.py` | Dédale-V · contrôle des schémas de nerfs crâniens (CI, zéro jeton). |
+| `tools/doses_check.py` | Pharmakon · contrôle de la table suisse des doses (data/ck/doses_ch.json), zéro jeton. |
 | `tools/file_fusion.sh` | File de fusion-publication automatique (gratuit : gh + git + python3). Lancé par tools/veille_relance.sh |
+| `tools/galien/aips_relecture_20261017.py` | Corrections après relecture des 98 lignes contre 73 textes AIPS Refdata officiels. |
+| `tools/galien/cs_corr01.py` | Galien · corrections de niveau 2 des 5 stations CS pilotes (PR #40), 17.10.2026. Rejouable sur data/cs/stations.json.""" |
+| `tools/galien/doses_glossaire_20261017.py` |  |
+| `tools/galien/glo_migration_20261018.py` | Année de publication/mise à jour établie, sinon champ omis. |
+| `tools/galien/glo_mono_g2_20261018.py` | Quatre nouveaux termes des monographies main, sans admission en baseline.""" |
+| `tools/galien/glo_mono_g3_20261018.py` | Trois termes des nouvelles monographies, définitions provisoires explicites.""" |
+| `tools/galien/glo_mono_g5_20261018.py` | Trois termes des monographies G5, sans source ni validation inventée.""" |
+| `tools/galien/mono_g7_final.py` | Audit partiel G7/G8 : exclure les chiffres non CH/UE et les doses non encore auditées. |
+| `tools/galien/prev_g1_corr.py` | Galien · audit G1 prévalence (S2.4, S2.5), 17.10.2026. Rejouable : extract NOT/TIP, ce script, inject NOT/TIP, prev_build. |
+| `tools/galien/prev_g2_corr.py` | Galien · audit G2 prévalence (S2.7 dyspnée), 17.10.2026. Rejouable : extract NOT/TIP, ce script, inject NOT/TIP, prev_build. |
+| `tools/galien/prev_g3_corr.py` | Galien · audit G3 prévalence (S3.1 douleur abdominale aiguë), 17.10.2026. Rejouable : extract NOT/TIP, ce script, inject, prev_build. |
+| `tools/galien/prev_g4_corr.py` | Galien · audit G4 prévalence (G6 fièvre, F1.19 syncope), 17.10.2026. Rejouable : extract NOT/TIP, ce script, inject, prev_build. |
+| `tools/galien/prev_g4_final.py` | Relecture G4 du 18.10.2026 : Limper, BASEL IX, HAS 2019, ESGE 2019, ESC 2018. |
+| `tools/galien/prev_g5_inconnus.py` | Initialise le lot G5 sans inventer de chiffre ; ne remplace aucun lot existant.""" |
+| `tools/galien/tip_corr01.py` | Galien · corrections de niveau 2 du champ 5 de TIP (PR #33, d253d06), 17.10.2026. |
+| `tools/garde/appel.py` | Appel de Vial (R15) : une ligne sur « Pilote Codex » avec @vialdjoukang-spec (courriel GitHub), |
+| `tools/garde/checkpoint.py` | Point de contrôle de chaque PR (R15) · .github/workflows/checkpoint.yml. |
+| `tools/garde/codex_cloud_120.py` | Relais GitHub → Codex cloud : contrôle120s, baux communs, réponse vérifiée, sans faux démarrage.""" |
+| `tools/garde/commun.py` | Garde-fous R15 · fonctions communes (zéro jeton, gratuit : GitHub Actions + gh CLI). |
+| `tools/garde/fin.py` | Garde local de clôture : 0 = preuves réunies, 1 = reste à faire, 2 = erreur. |
+| `tools/garde/permanence.py` | Veille bornée : passages120s pendant une fenêtre de20min ; les notifications ne prouvent aucune exécution IA.""" |
+| `tools/garde/progres.py` | Garde du progrès (R15) · lancé toutes les CFG.cron_min minutes par .github/workflows/garde-progres.yml. |
+| `tools/garde/recyclage.py` | Recyclage (R15) : PR ouvertes et branches sans commit depuis CFG.recyclage_inactif_min minutes. |
+| `tools/garde/relance_bail.py` | Réservation CAS d'un lancement CLI, distincte d'une preuve de travail IA.""" |
+| `tools/gestes/_squelette.py` | Génère gestes/<region>.html : squelette vide (2 colonnes, bandes, image, fenêtres), sans texte clinique.""" |
+| `tools/gestes/squelette_abdomen.py` |  |
+| `tools/gestes/squelette_cheville_pied.py` |  |
+| `tools/gestes/squelette_coeur_vaisseaux.py` |  |
+| `tools/gestes/squelette_constantes.py` |  |
+| `tools/gestes/squelette_coude_main.py` |  |
+| `tools/gestes/squelette_epaule.py` |  |
+| `tools/gestes/squelette_ganglions.py` |  |
+| `tools/gestes/squelette_genou.py` |  |
+| `tools/gestes/squelette_geriatrie.py` |  |
+| `tools/gestes/squelette_hanche.py` |  |
+| `tools/gestes/squelette_meninge_gcs.py` |  |
+| `tools/gestes/squelette_neuro_moteur.py` |  |
+| `tools/gestes/squelette_neuro_nc.py` |  |
+| `tools/gestes/squelette_peau.py` |  |
+| `tools/gestes/squelette_pediatrie.py` |  |
+| `tools/gestes/squelette_psychiatrie.py` |  |
+| `tools/gestes/squelette_rachis.py` |  |
+| `tools/gestes/squelette_seins.py` |  |
+| `tools/gestes/squelette_tete_cou.py` |  |
+| `tools/gestes/squelette_thorax.py` |  |
+| `tools/gestes/squelette_tr_genital.py` |  |
+| `tools/gestes/squelette_vasc.py` |  |
 | `tools/html_check.py` | Validation HTML par cliquet : le validateur Nu ne doit signaler aucune erreur nouvelle. |
+| `tools/inventaire_a_verifier.py` | Inventorie les champs À vérifier d'un instantané Git, sans modifier le contenu clinique.""" |
 | `tools/jauge/binomes.py` | Deux jauges des binômes (prévalences, monographies), zéro jeton, déterministe. |
 | `tools/json_inject.py` | Extrait ou réinjecte une constante JSON de app_v2.html (skill ssp-json-data). |
-| `tools/links_changed.py` | Écrit dans links.txt les URL ajoutées ou modifiées dans app_v2.html et data/ck/ (sources CK) depuis <base>.""" |
+| `tools/links_changed.py` | Écrit les URL réellement nouvelles/modifiées ; une ligne minifiée ne rend pas nouveaux ses liens inchangés.""" |
 | `tools/lyncee.py` | Lyncée · Janus · détecteur des termes médicaux non définis (contrôle G4, zéro jeton). |
+| `tools/mandat/betta_controle.py` | BETTA : contrôle structurel des monographies DD d'un SSP (protocole 6 rubriques). |
+| `tools/mandat/planifier.py` | File ALPHA → BETTA → GAMMA : propose du travail, ne rédige ni n'atteste un audit.""" |
 | `tools/merge_shards.py` | Résout les conflits de data/ck/mono/*.json par fusion à 3 voies clé par clé (base, ours=HEAD, theirs=MERGE_HEAD).""" |
 | `tools/mono_build.py` | Monographies des diagnostics différentiels (Hygie, 17.10.2026). |
 | `tools/nc_svg_check.py` | Janus · contrôle des schémas de nerfs crâniens (assets/nc/*.svg) pour Dédale. |
 | `tools/nc_svg_js.py` | Hermès · compile chaque schéma de nerf en chaîne JS insérable, pour que les couches fonctionnent aussi en file://. |
 | `tools/porte.py` | Porte des étapes et état de pilotage (Codex). Gratuit, déterministe, sans dépendance. |
+| `tools/predecesseurs_fusion.py` | Verrou des chaînes pour l'auto-fusion : le filet et le workflow suivent le même ordre.""" |
 | `tools/prev_build.py` | Compile data/ck/prev.json : constante PRV de app_v2.html (ordre et chiffres) et assets/ck/prev.js (cadre, source). |
+| `tools/prevalences/__init__.py` | Recherche documentaire des prévalences ; aucun chiffre clinique auto-publié.""" |
+| `tools/prevalences/auditeur.py` | Auditeur statistique déterministe des candidats, sans validation clinique. |
+| `tools/prevalences/consolider.py` | Réunit les résultats catégoriels sans perdre les relectures concurrentes.""" |
+| `tools/prevalences/f.py` | Automate de recherche catégorie F ; --help pour les options.""" |
+| `tools/prevalences/g.py` | Automate de recherche catégorie G ; --help pour les options.""" |
+| `tools/prevalences/jauges.py` | Calculateur multi-secteur : python3 tools/prevalences/jauges.py [--distant]. |
+| `tools/prevalences/moteur.py` | Moteur partagé des quatre automates, sans dépendance Python externe. |
+| `tools/prevalences/o.py` | Automate de recherche catégorie O ; --help pour les options.""" |
+| `tools/prevalences/rapport.py` | Centralisation des contrôles statistiques et synthèse PDF pour les jauges.""" |
+| `tools/prevalences/relance_agent.py` | File de contrôle pour l'agent statistique via l'intégration Codex du dépôt. |
+| `tools/prevalences/s.py` | Automate de recherche catégorie S ; --help pour les options.""" |
+| `tools/prevalences/selection.py` | Sélection documentaire prudente entre estimations comparables. |
 | `tools/propose_skills.py` | Proposition automatique de skills (gratuit, déterministe). |
 | `tools/slim.py` | Vue de code sans données (skill ssp-extrait-cible). |
-| `tools/veille_relance.sh` | Veille de relance permanente (gratuite) : détecte la fin de l'étape courante et relance Codex |
+| `tools/tip_data.py` | Source TIP par SSP et asset classique synchrone, avec contrôle strict de dérive. |
+| `tools/veille_relance.sh` | Veille de relance locale : relance Codex sur la mission enregistrée |
 | `tools/visuel_reference.sh` | Automate Iris · adopte la référence visuelle proposée par la CI pour une demande de fusion (skill ssp-qualite-visuelle). |
 
-Patches rejouables : 19 dans `tools/patches/` (skill ssp-patch).
+Patches rejouables : 45 dans `tools/patches/` (skill ssp-patch).
 
 ## 2. Automates GitHub Actions (gratuits, dépôt public)
 
 | Workflow | Rôle |
 |---|---|
+| `.github/workflows/appel-vial.yml` | Appel de Vial (R15) : étiquette attente-vial sur une PR ou une issue (ou lancement manuel, ou escalade de |
 | `.github/workflows/auto-fusion.yml` | Auto-fusion après audit (label audit-ok). |
+| `.github/workflows/checkpoint.yml` | Checkpoint R15 sur chaque PR : section « Automates actifs » réelle, aucune fausse fin d'étape en boucle, |
 | `.github/workflows/ci.yml` | CI · Héphaïstos (socle) et Janus (contrôles). Chaque demande de fusion vers main |
+| `.github/workflows/codex-cloud-120.yml` | Nouveau relais cloud : passages120s dans une fenêtre20min, cron GitHub5min ; pas de garantie temps réel. |
 | `.github/workflows/file-fusion.yml` | File de fusion-publication planifiée (gratuite) : relance tools/file_fusion.sh toutes les 20 minutes. |
-| `.github/workflows/liens-hebdo.yml` | Contrôle hebdomadaire de tous les liens d'app_v2.html, avec cache (Héphaïstos). |
+| `.github/workflows/garde-progres.yml` | Ancien garde en secours manuel désactivé ; relais actif : codex-cloud-120.yml. |
+| `.github/workflows/liens-hebdo.yml` | Contrôle hebdomadaire des liens de l'app et de TIP externalisé, avec cache (Héphaïstos). |
 | `.github/workflows/pages-apres-fusion.yml` | Relance Pages après chaque fusion vers main. |
 | `.github/workflows/pages.yml` | Publication GitHub Pages (Héphaïstos) : l'application et ses croquis (assets/) sont publiés. |
+| `.github/workflows/prevalences-recherche.yml` |  |
 | `.github/workflows/veille-ve1.yml` | Veille ve1 (Argos, phase 1), tirée de tools/templates/veille-squelette.yml. |
 | `.github/workflows/veille-ve2.yml` | Veille ve2 (Argos, phase 1), tirée de tools/templates/veille-squelette.yml. |
 | `.github/workflows/visuel.yml` | Automate Iris · qualité visuelle (Janus, chantier Frontend Premium). |
@@ -92,13 +165,15 @@ Patches rejouables : 19 dans `tools/patches/` (skill ssp-patch).
 - `flock` : présent
 - `pdftotext` : présent
 - `curl` : présent
-- `codex` : présent
+- `codex` : absent
 - `crontab` : absent
 
 ## 4. Skills du dépôt (`docs/skills/`)
 
+- `ssp-aips-verbatim` : Vérifier des extraits de doses contre les téléchargements officiels Refdata, sans confondre conformité documentaire et validation clinique.
 - `ssp-audit-medical` : Lis ce skill avant toute fusion qui touche un contenu clinique : l’audit
 - `ssp-chaine-clinique` : Lis ce skill avant d’écrire un contenu de la partie CK : geste, sémiologie,
+- `ssp-construction-ck` : Reconstruire les monographies, prévalences et doses après un lot ou une fusion, sans modifier les fichiers générés à la main.
 - `ssp-continuite` : Lis ce skill au début de chaque session, à chaque porte d’étape et dès que ton
 - `ssp-extrait-cible` : Lis ce skill avant toute lecture du fichier de travail app_v2.html : il
 - `ssp-fusion-patch` : Lis ce skill quand main a avancé pendant ton chantier : il intègre main dans ta branche sans jamais
@@ -107,6 +182,7 @@ Patches rejouables : 19 dans `tools/patches/` (skill ssp-patch).
 - `ssp-patch` : Lis ce skill avant toute modification du code de app_v2.html : chaque
 - `ssp-pilotage-codex` : Lis ce skill au début de chaque session Codex : porte des étapes, veille de relance, file de fusion, modèle des tâches répétitives.
 - `ssp-posologie-suisse` : Lis ce skill dès qu’un texte mentionne un médicament ou une dose : chaque dose
+- `ssp-prevalences-automates` : Rechercher les fréquences CH/Europe par catégorie SSP, afficher les jauges ou reprendre la file de l’agent statistique.
 - `ssp-qa-regression` : Lis ce skill pour contrôler une branche avant fusion : il fixe la référence
 - `ssp-qualite-visuelle` : Lis ce skill avant de toucher à la présentation de app_v2.html (CSS, thèmes, typographie) et avant
 - `ssp-revue-diff` : Lis ce skill pour relire une demande de fusion ou ton propre travail : la
@@ -119,92 +195,20 @@ Patches rejouables : 19 dans `tools/patches/` (skill ssp-patch).
 
 ## 5. Serveurs MCP et connecteurs de Codex
 
-```
-No MCP servers configured yet. Try `codex mcp add my-tool -- my-command`.
-```
+À COMPLÉTER PAR CODEX : lancer `codex mcp list` (ou lire `~/.codex/config.toml`, section `[mcp_servers]`) et lister chaque serveur avec son usage ici.
 
 ## 6. Skills et outils propres à Codex
 
-Inventaire réel de cette session (17.10.2026 UTC) :
-
-- Exécution : Bash, Python, git/gh, apply_patch, lecture d'images ; toutes étapes. Playwright Python est installé ; Chromium est en cours d'installation (tests et étape 2).
-- Serveur MCP exposé à la conversation : `codex_apps`. Aucun serveur configuré dans le CLI local (`codex mcp list`). Ces deux portées sont distinctes.
-- GitHub : 89 outils (lecture dépôt/PR/CI, branches, commits, PR, fusion, auto-merge, relance CI), étapes 0–17. Le CLI gh authentifié est le moyen retenu ; aucun jeton n'est copié.
-- Cloud environment : état et disponibilité réseau, étape 0 et diagnostics. Skill appliqué : cloud-environment-runtime.
-- Autres familles MCP disponibles : Automations (5), AXA (3), ChatGPT Spaces (40), Document Control (3), Gmail (21), Google/Drive (60), hotline (1), Pets (11), plugin management (6), safety (5), recherche (1), Sites (25). Hors périmètre clinique : aucune connexion ou écriture supplémentaire nécessaire.
-- Skills disponibles : 27 modèles OpenAI (documents, présentations, tableurs), Pages (write-page, maintain-space, organize-space, manage-schedules), Sites, Google Drive/Docs/Sheets/Slides/comments, plugin-management, Pets (create-pet, pets, update-pet), cloud-environment-runtime. Seul ce dernier sert directement ; les skills du dépôt pilotent le chantier.
-- Imagegen est disponible mais les images du projet doivent être réelles et licenciées : employer les sources autorisées et ssp-images-licence à l'étape 13.
-- Sous-agents : modèle gpt-6-luna sélectionnable pour les tâches répétitives R8 ; le CLI local a échoué à l'authentification lors du test, donc ne pas annoncer sa relance autonome comme opérationnelle. Le modèle courant traite les décisions et réparations.
-- Recherche réseau : curl/gh et connecteur de recherche ; sources CH/UE et AIPS officielles seulement pour le contenu (étapes 3–15), jamais Compendium.
-
-Automates gratuits utiles : CI existante, garde d'empreinte, tests Playwright sous flock, audit G1–G8, Lyncée, lychee hebdomadaire et liens modifiés, compilation --check, propositions de skills, veille locale toutes les 180 s, file GitHub toutes les 20 min. `act` et pre-commit ne sont pas installés : la CI et les commandes locales couvrent ces usages sans nouvelle dépendance.
+À COMPLÉTER PAR CODEX : lister les skills/outils intégrés de Codex (recherche web, navigateur, exécution, images…) et dire lesquels servent à quelle étape.
 
 ## 7. Droits de fusion-publication
 
 ```
 {"admin":true,"auto_merge":true,"merge_commit":true,"push":true,"squash":false}
-{"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/branches/branch-protection#get-branch-protection","status":"403"}
+{"checks":["garde","html","tests","visuel"],"enforce_admins":true,"strict":true}
 ```
 Attendu : admin=true, auto_merge=true, merge_commit=true ; protection : garde, html, tests, visuel, strict.
 
 ## 8. Modèle des tâches répétitives
 
 Ordre de Vial : toute tâche répétitive utilise **GPT 6 Luna** (`gpt-6-luna`). Sinon : le modèle le moins cher disponible, noté dans ETAT.md.
-
-## 9. Affectation aux étapes et propositions examinées
-
-- 0–2, 17 : porte, catalogue, propose_skills, veille, file_fusion, jauge, CI/Pages, contrôle d'empreinte, tests et captures.
-- 3, 8 : prev_build + audit/prevalence ; 4–5, 9 : merge_shards + mono_build.
-- 6, 10 : doses_check sur les branches de doses, AIPS officielle ; 7, 11 : ck_build + Lyncée.
-- 12 : json_inject + patches rejouables + audit ; 13 : nc_svg_js/nc_svg_check ; 14 : cs_build ; 15–16 : outils précédents selon le diff.
-- Skill créé : ssp-construction-ck (mono_build, prev_build, doses_check). etapes.json est un fichier, pas une commande : candidat écarté. Commits d'audit déjà couverts par ssp-audit-medical ; références visuelles par ssp-qualite-visuelle.
-- Lecture de la protection via l'intégration : HTTP 403 ; conserver intégralement la protection, sans prétendre l'avoir inspectée. Les droits du dépôt sont confirmés ci-dessus.
-
-## Ajouts de la session (18.10.2026 UTC)
-- `tools/aips_verbatim.py` et ses 3 tests : conformité documentaire aux textes Refdata ; aucune validation clinique implicite.
-- Skill local `docs/skills/ssp-aips-verbatim/SKILL.md` : unités Symbol, cache et limites de la comparaison.
-- #82 : contrôle testé des prédécesseurs de fusion ; #84 : fermeture d’infobulle reproduite et corrigée.
-
-## Ajouts de la reprise du 18.10.2026
-
-- `python3 tools/inventaire_a_verifier.py --ref origin/main --sortie audit/RESTE_A_VERIFIER_20261018.json` : inventaire déterministe des champs explicitement marqués, sans modifier le contenu clinique ; conserve SHA et pointeur de chaque champ. N’est pas un audit ni un critère de clôture.
-- #65 : patches rejouables `0030-glossaire-commandes-calendrier.py` et `0031-glossaire-flux-grille-flex.py` ; commandes de sélection préservées, liens sans déplacement des grilles/flex. Deux régressions ajoutées, suite portée à 278.
-- `Visuel` propose depuis #32 l’entrée manuelle `adopter_pr` pour exécuter le script habituel d’adoption sur runner quand les artefacts sont inaccessibles localement ; tête/branche/base vérifiées, CI après adoption toujours obligatoire.
-
-- #68 : `0032-cibles-notions.py` porte les liens et boutons Notions à 24 px sans nouvelle règle CSS dans le corps ; adoption de référence examinée sur runner puis CI complète verte.
-
-## Garde-fous R15 (GitHub Actions, gratuits, indépendants de tout PC)
-
-| Automate | Rôle |
-|---|---|
-| `.github/workflows/codex-cloud-120.yml` · `tools/garde/codex_cloud_120.py` | Relais actif : contrôle120s/fenêtre20min, cron5min, cours SSP prioritaires ; état partagé et baux, réponse Codex observée. Demandes espacées30min ; environnement Codex à configurer. |
-| `garde-progres.yml` · `tools/garde/permanence.py` · `tools/garde/progres.py` | Ancien garde conservé en secours manuel désactivé ; commande de bail réel d’agent encore utilisable. Ne pas activer en même temps que le nouveau relais. |
-| `tools/garde/recyclage.py` | PR sans commit depuis 60 min → `@codex reprends ou ferme avec motif` (ne ferme rien). |
-| `checkpoint.yml` · `tools/garde/checkpoint.py` | Chaque PR : « Automates actifs », pas de fausse fin d'étape en boucle, pas de dose sans ligne AIPS. `--inventaire` : automates actifs. |
-| `appel-vial.yml` · `tools/garde/appel.py` | Étiquette `attente-vial` → courriel à Vial + `@codex` continue ailleurs. |
-| `tools/garde/config.json` | Seuils en minutes. |
-
-## Inventaire réel · reprise du 18.10.2026 Europe/Zurich
-Cette session utilise exec_command (git/gh/curl/Python), apply_patch, lecture locale et MCP cloud_environment.environment_status. Skill cloud-environment-runtime appliqué ; skills versionnés de continuité, audit, vérité, posologie et construction utilisés. Aucun connecteur GitHub supplémentaire requis : gh accède réellement à l’API. Les anciennes listes d’outils ci-dessus sont historiques. Automates GitHub permanents maintenus ; aucune nouvelle veille sur PC. Sources et limites réseau : audit/RESEAU-REPRISE-20261018.json.
-
-## Recherche catégorielle des prévalences ·18.10.2026
-
-- `tools/prevalences/g.py`, `s.py`, `f.py`, `o.py` : quatre lanceurs déterministes, catégories réelles du catalogue.
-- `tools/prevalences/moteur.py` : requêtes CH/Europe et consultation/population ; Europe PMC, Crossref et PDF officiels HUG ; candidats documentés, erreurs tracées, reprise/cache/budgets.
-- `tools/prevalences/auditeur.py` : audit mécanique, corrections arithmétiques prouvées ; ne remplace pas le jugement de l’agent statistique.
-- `tools/prevalences/jauges.py` : suivi4 catégories/19 secteurs, CLI et page publique, aucun candidat compté comme chiffre publié.
-- `tools/prevalences/relance_agent.py` : file et demande de reprise au Codex du dépôt ; pas de preuve d’exécution implicite.
-- `.github/workflows/prevalences-recherche.yml` : quatre jobs de recherche et consolidation/audit, cron toutes les4 heures. État persistant dans `automates/prevalences`.
-- `docs/prevalences/README.md`, `AUDITEUR_STATISTIQUE.md` : exploitation et mandat. Scripts sans coût de modèle ; la relecture agent consomme seulement lorsqu’elle est réellement exécutée.
-
-## Coordination8/9 · inventaire actualisé18.10.2026
-| Catégorie | Outils | Fonction |
-|---|---|---|
-| Scripts nouveaux | `tools/coordination/calculer.py`, `tools/coordination/relance.py` | Plan commun, registre d’empreintes, files de maturation, lancement régulé |
-| Scripts renforcés | `tools/prevalences/moteur.py`, `tools/prevalences/relance_agent.py`, `tools/prevalences/rapport.py` | Priorités du lot9, cache/coupe-circuit, file documentaire ciblée et réserves visibles dans le PDF |
-| Calculs renforcés | `tools/jauge/binomes.py`, `tools/prevalences/jauges.py`, `tools/porte.py` | Rejet des valeurs invalides, compteurs exacts et clôture couplée |
-| Automates | `garde-progres.yml`, `prevalences-recherche.yml`, `pages.yml` | Horloge10min, recherche régulée, publication du suivi commun |
-| Accès publics ajoutés | `SPILF`, `SFMV` | Documents officiels ciblés, identité vérifiée, aucune présomption de population représentative |
-| MCP utilisés | `codex_apps` rechercheWeb, GitHub, environnementcloud, gestiondesplugins | Lire les sources, inspecter le dépôt/accès et comparer les intégrations disponibles |
-
-La découverte des plugins a repéré Scite non installé ; coût et accès non vérifiés, il n’est pas présenté comme actif. Les API publiques et les capacités déjà connectées permettent la mise en œuvre sans ajout de service payant. La CLIgh réalise les opérations du dépôt. Les scripts ne consomment pas de jetons ; les agents sont soumis aux quotas existants.
