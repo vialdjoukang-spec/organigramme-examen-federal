@@ -1,3 +1,15 @@
+## Mandat prioritaire P0 → P4 · P1 active · 20.10.2026
+
+L’instruction utilisateur courante remplace les passations historiques contradictoires conservées ci-dessous. **PRIORITÉ P0 TERMINÉE** : PR268/269 fusionnées, CI et Pages réussis au commit `fbc2c07dd917ea07e15ff3a5ba70423c259c4e15`,114 fichiers publics identiques. La transition P1 (#270, `c33709b66a8a4d54323fbe14e32dc0e41bcbb4f8`) est elle aussi fusionnée et publiée. Preuves dans `audit/P0-CLOTURE-FINALE-20261020.json` et `audit/P1-PUBLICATION-TRANSITION-20261020.json`.
+
+**P1 seule priorité active : S113.** Consulter `ETAT.json`, `PROCHAINE_ACTION.md` et `tools/mandat/registre.json` pour les compteurs et lots courants. Les cours préparés ou contre-audités ne sont pas déclarés achevés avant CI exacte, fusion et publication vérifiée. Première unité reprise : S3.4/S3.5 déjà présents dans main, désormais corrigés et contre-audités ; leur statut d’intégration/publication est tenu dans ces registres. Réutiliser ensuite #161 puis #164 dans l’ordre exact du catalogue. Aucun passage P2 avant113/113S publiés et audit transversal indépendant.
+
+Deux cours maximum par auteur, lots disjoints et contre-audit indépendant Astra ; modèles et agents réellement exécutés consignés dans `audit/P1-AGENTS-20261020.json`. Root intègre les catalogues partagés et régénère les assets officiels, centralise les conflits et les fusions normales. Aucun force-push ni automatisme clinique ; liste d’autorisations techniques vide. Les contrôles ne sont jamais affaiblis pour obtenir une fusion.
+
+Quatorze parties propres aux cours, distinctes des six rubriques DD. Sources réellement consultées et attribuées ; les accès partiels/refusés sont déclarés. Posologies AIPS vérifiées ou réserve claire, aucune dose inventée. Conserver liens, identifiants et progression. Toute correction substantielle entraîne une nouvelle validation ciblée. Les sources internationales admises uniquement pour une définition restent limitées à cet usage par la politique G3 ; aucun pays d’éditeur n’est maquillé.
+
+P2(F puis O), P3(DD G/S/F/O), P4(Gestes) restent bloquées. Les125branches historiques et travaux cliniques sont conservés ; PR150 Gestes en brouillon. Les conflits et refus scientifiques légitimes des futurs lots restent bloquants pour ces lots. Aucun agent autonome permanent présumé.
+
 ## Passation à Grokbot · 20.10.2026 à 07:51 Europe/Zurich
 
 **Dernier ordre de Vial : Grokbot reprend ; ChatGPT et ses agents arrêtent leur production.** Lire d’abord `docs/PASSATION-GROKBOT-20261020.md`, qui précise le mandat transféré et les limites des accès techniques.

@@ -1,3 +1,29 @@
+## Checkpoint P1 · S3.6/S3.7 contre-audités, PR161 à actualiser
+
+P1 seule priorité active. Le planificateur reconnaît 40/113 S publiés ; 42 S sont désormais contre-audités (58 cours au total, 812 parties), sans attribuer de publication à S3.6/S3.7.
+
+Dernier lot publié : PR271, commit `d6a25c78383415e412fb6297a1ba53ff7d2f4f21`. CI tête finale et main réussies, Pages39423711446 réussi sur ce SHA, 114 fichiers publics HTTP200/SHA256 identiques. Preuves `audit/P1-CI-S3.4-S3.5-20261020.json` et `audit/P1-PUBLICATION-S3.4-S3.5-20261020.json`.
+
+Lot courant : S3.6/S3.7, révision auteur locale `2837d64b89f63befe2d7605aa620df9df6ee20d2`, attestations finales Astra `audit/P1-AUDIT-COURS-S3.6-20261020.json` et `...S3.7...`. Les sept constats bloquants sont résolus ; source HUG réservée à la définition technique du glossaire TIPS. Gardes G1–G8 sans signalement ; contrôle navigateur final des 28 parties sur ordinateur/mobile réussi. Aucune validation médicale humaine ni vérification de posologie AIPS présumée.
+
+Prochaine action exacte : actualiser PR161 (`alpha/s3-6`, ancienne tête `824f3eb112d9b36dff729b12e5ef8fa986db9470`) avec un commit de fusion normal préservant cette tête et intégrant main ; l’arbre distant doit égaler le `git write-tree` local de `codex/p1-integration-s3.6-s3.7`. Attendre les six contrôles requis sur son SHA final, sans autre échec/attente ; fusionner avec tête attendue, puis vérifier CI main, Pages et fichiers publics. Enregistrer alors S3.6/S3.7 publiés avant fusion164.
+
+Suite exacte : #164 S3.8/S3.9, révision auteur `9ddd575a9095419e658b7b6d0fb3c4d6aff50ba2`, doit encore être intégrée et revalidée indépendamment ; #167 S3.10/S4.1, auteur `274cc41871df29787e836033c7c5fdd360580706`, intégration et audit indépendant isolés en cours ; #170 S4.2/S4.3, rédaction indépendante en cours. Les réservations et agents réels sont consignés dans les registres. P2–P4 restent bloquées.
+
+Git/gh distants401 ; connecteur GitHub fonctionne. `force:false`, têtes attendues, aucune auto-fusion clinique. Aucun processus IA autonome permanent présumé ; les serveurs HTTP locaux servent les tests uniquement. Tous les travaux/commits locaux et historiques des PR restent conservés.
+
+## Mandat prioritaire P0 → P4 · P1 active · 20.10.2026
+
+L’instruction utilisateur courante remplace les passations historiques contradictoires conservées ci-dessous. **PRIORITÉ P0 TERMINÉE** : PR268/269 fusionnées, CI et Pages réussis au commit `fbc2c07dd917ea07e15ff3a5ba70423c259c4e15`,114 fichiers publics identiques. La transition P1 (#270, `c33709b66a8a4d54323fbe14e32dc0e41bcbb4f8`) est elle aussi fusionnée et publiée. Preuves dans `audit/P0-CLOTURE-FINALE-20261020.json` et `audit/P1-PUBLICATION-TRANSITION-20261020.json`.
+
+**P1 seule priorité active : S113.** Consulter `ETAT.json`, `PROCHAINE_ACTION.md` et `tools/mandat/registre.json` pour les compteurs et lots courants. Les cours préparés ou contre-audités ne sont pas déclarés achevés avant CI exacte, fusion et publication vérifiée. Première unité reprise : S3.4/S3.5 déjà présents dans main, désormais corrigés et contre-audités ; leur statut d’intégration/publication est tenu dans ces registres. Réutiliser ensuite #161 puis #164 dans l’ordre exact du catalogue. Aucun passage P2 avant113/113S publiés et audit transversal indépendant.
+
+Deux cours maximum par auteur, lots disjoints et contre-audit indépendant Astra ; modèles et agents réellement exécutés consignés dans `audit/P1-AGENTS-20261020.json`. Root intègre les catalogues partagés et régénère les assets officiels, centralise les conflits et les fusions normales. Aucun force-push ni automatisme clinique ; liste d’autorisations techniques vide. Les contrôles ne sont jamais affaiblis pour obtenir une fusion.
+
+Quatorze parties propres aux cours, distinctes des six rubriques DD. Sources réellement consultées et attribuées ; les accès partiels/refusés sont déclarés. Posologies AIPS vérifiées ou réserve claire, aucune dose inventée. Conserver liens, identifiants et progression. Toute correction substantielle entraîne une nouvelle validation ciblée. Les sources internationales admises uniquement pour une définition restent limitées à cet usage par la politique G3 ; aucun pays d’éditeur n’est maquillé.
+
+P2(F puis O), P3(DD G/S/F/O), P4(Gestes) restent bloquées. Les125branches historiques et travaux cliniques sont conservés ; PR150 Gestes en brouillon. Les conflits et refus scientifiques légitimes des futurs lots restent bloquants pour ces lots. Aucun agent autonome permanent présumé.
+
 ## Passation à Grokbot · 20.10.2026 à 07:51 Europe/Zurich
 
 **Dernier ordre de Vial : Grokbot reprend ; ChatGPT et ses agents arrêtent leur production.** Lire d’abord `docs/PASSATION-GROKBOT-20261020.md`, qui précise le mandat transféré et les limites des accès techniques.

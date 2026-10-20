@@ -1,0 +1,58 @@
+{
+  "date_utc": "2026-10-20T10:46:04.272242+00:00",
+  "signataire": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra",
+  "modele_provenance": "Modèle explicitement demandé au lancement ; absence d’introspection indépendante.",
+  "verdict": "favorable_technique",
+  "perimetre": "Addendum lecture des checks et statuts dans les deux workflows de fusion ; aucun changement clinique.",
+  "base_commit_locale": "80a4ab38e90d5b79a8b45e7e1bc0855f9a6f2b43",
+  "constats": [
+    {
+      "fichier": ".github/workflows/auto-fusion.yml",
+      "permissions_ajoutees": {
+        "checks": "read",
+        "statuses": "read"
+      },
+      "autres_permissions_et_corps_workflow_inchanges": true
+    },
+    {
+      "fichier": ".github/workflows/file-fusion.yml",
+      "permissions_ajoutees": {
+        "statuses": "read"
+      },
+      "autres_permissions_et_corps_workflow_inchanges": true
+    }
+  ],
+  "tests": {
+    "commande": "python3 -m unittest discover -s tests -p test_predecesseurs_fusion.py -v",
+    "reussis": 24,
+    "echecs": 0,
+    "git_diff_check": 0,
+    "comparaison_yaml_semantique": "Seules les clés de lecture checks/statuses changent ; aucune permission de job ne les remplace et aucun autre élément du workflow ne change."
+  },
+  "empreintes_sha256": {
+    ".github/workflows/auto-fusion.yml": "8c6bce5958d8e2718737cbc115828ad743443a103c214ce3a66b6cdfb7b9c6aa",
+    ".github/workflows/file-fusion.yml": "26e6b8fe263f958eabf777df924760f4e28cbebd861b154f4ddaf4b5f7c62a67",
+    "tests/test_predecesseurs_fusion.py": "a3e3b31e791a4e1e57ed6e1a884e534ae0fd090ff45e611601391d9e09028e63"
+  },
+  "remplace_empreintes_rapport_initial": {
+    "rapport": "audit/P0-CONTRE-AUDIT-TECHNIQUE-20261020.json",
+    "fichiers": {
+      ".github/workflows/auto-fusion.yml": {
+        "ancienne": "16eba226f68c054802b76bdd3ec9fe84683f3408f3f0844c6056def429c9d047",
+        "nouvelle": "8c6bce5958d8e2718737cbc115828ad743443a103c214ce3a66b6cdfb7b9c6aa"
+      },
+      "tests/test_predecesseurs_fusion.py": {
+        "ancienne": "79197e28d15bde8cd8914b7bcb87ce7cef4d4b7716ef66b7ffa0d976ab0b0cfb",
+        "nouvelle": "a3e3b31e791a4e1e57ed6e1a884e534ae0fd090ff45e611601391d9e09028e63"
+      }
+    },
+    "nouveau_fichier_audite": ".github/workflows/file-fusion.yml"
+  },
+  "limites": [
+    "Les droits ajoutés concernent GITHUB_TOKEN déclaré par les workflows ; les capacités éventuelles du secret AUTO_FUSION_TOKEN ne sont pas inspectées ni modifiées.",
+    "Aucune lecture de secret, aucun login et aucun appel distant de mutation effectué par cet auditeur.",
+    "Les vingt-quatre tests locaux et la comparaison YAML ne constituent pas une exécution réelle GitHub Actions ; CI sur SHA final encore requise."
+  ],
+  "constats_bloquants_restants": []
+}
