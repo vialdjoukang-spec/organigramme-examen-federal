@@ -1,3 +1,7 @@
+## PAUSE GÉNÉRALE DEMANDÉE PAR L’UTILISATEUR — 20.10.2026
+
+Aucun agent de rédaction ou d’audit ne poursuit le mandat. Point exact, sauvegardes et prochaine action dans `audit/pauses/20261020/CHECKPOINT.json`. Aucune nouvelle fusion ni publication clinique pendant la pause. Les états précédents ci-dessous sont historiques et ne doivent pas réactiver une tâche automatiquement.
+
 ## Mandat prioritaire P0 → P4 · P1 active · 20.10.2026
 
 L’instruction utilisateur courante remplace les passations historiques contradictoires conservées ci-dessous. **PRIORITÉ P0 TERMINÉE** : PR268/269 fusionnées, CI et Pages réussis au commit `fbc2c07dd917ea07e15ff3a5ba70423c259c4e15`,114 fichiers publics identiques. La transition P1 (#270, `c33709b66a8a4d54323fbe14e32dc0e41bcbb4f8`) est elle aussi fusionnée et publiée. Preuves dans `audit/P0-CLOTURE-FINALE-20261020.json` et `audit/P1-PUBLICATION-TRANSITION-20261020.json`.
