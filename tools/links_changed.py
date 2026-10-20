@@ -22,7 +22,7 @@ def changed_urls(diff):
 
 def main():
     base = sys.argv[1] if len(sys.argv) > 1 else 'origin/main'
-    diff = subprocess.run(['git', 'diff', '-U0', base, '--', 'app_v2.html', 'data/ck', ':(exclude)data/ck/schema'],
+    diff = subprocess.run(['git', 'diff', '-U0', base, '--', 'app_v2.html', 'data/tip', 'data/ck', ':(exclude)data/ck/schema'],
                           capture_output=True, text=True, check=True).stdout
     urls = changed_urls(diff)
     with open('links.txt', 'w') as output:

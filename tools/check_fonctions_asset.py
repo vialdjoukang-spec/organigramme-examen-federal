@@ -21,7 +21,8 @@ def check(app_path=ROOT / 'app_v2.html', asset_path=ROOT / patch.ASSET_REL):
     app = Path(app_path).read_text(encoding='utf-8')
     asset = Path(asset_path).read_text(encoding='utf-8')
     original_asset = revision.restore_asset(asset)
-    if app.count(patch.SCRIPT_INSERT + patch.SCRIPT_ANCHOR) != 1:
+    tip_tag = '<script src="assets/config/tip.js"></script>\n' if '<script src="assets/config/tip.js"></script>' in app else ''
+    if app.count(patch.SCRIPT_INSERT + tip_tag + patch.SCRIPT_ANCHOR) != 1:
         raise ValueError('Asset absent, asynchrone ou mal placé avant le script principal')
     if app.count(patch.SCRIPT_INSERT) != 1:
         raise ValueError('Chargement de l’asset répété')

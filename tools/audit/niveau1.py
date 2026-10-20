@@ -24,6 +24,7 @@ from urllib.parse import urlparse
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from ck_common import ROOT, CHAMPS_PROSE, load_all, line_of, norm, strings, strip_tags, today  # noqa: E402
+from tip_data import load as load_tip
 
 DOSE = re.compile(r'(?<![\w.,])(\d+(?:[.,]\d+)?(?:\s?(?:-|–|à)\s?\d+(?:[.,]\d+)?)?)\s?(mg|µg|mcg|g|UI|U|mmol|mL|ml)'
                   r'(?:\s?/\s?(kg|j|jour|h|m2|m²|dose|prise))?(?![\w/])(?!\s?/\s?(?:l|L|dL|dl|24|min|mol))')
@@ -102,11 +103,14 @@ def doses_heritees(root):
     s = open(app, encoding='utf-8').read()
     out = {}
     for name in ('TIP', 'NOT', 'GES'):
-        k = '\nconst ' + name + '='
-        if s.count(k) != 1:
-            continue
-        a = s.find(k) + len(k)
-        v = json.JSONDecoder().raw_decode(s, a)[0]
+        if name == 'TIP':
+            v = load_tip(root, s)
+        else:
+            k = '\nconst ' + name + '='
+            if s.count(k) != 1:
+                continue
+            a = s.find(k) + len(k)
+            v = json.JSONDecoder().raw_decode(s, a)[0]
         items = v.items() if isinstance(v, dict) else ((x.get('id', str(i)), x) for i, x in enumerate(v))
         for key, val in items:
             for t in _all_str(val):
@@ -219,8 +223,7 @@ def _definition_internationale(root, data, source, policy):
         from _app import span
         with open(os.path.join(root, 'app_v2.html'), encoding='utf-8') as f:
             app = f.read()
-        a, b = span(app, 'TIP')
-        tip = json.loads(app[a:b])
+        tip = load_tip(root, app)
         uses = []
         for code, item in tip.items():
             for index, part in enumerate(item.get('c', [])):

@@ -92,6 +92,66 @@ class MandatTests(unittest.TestCase):
             report['commit']=git('rev-parse','HEAD')
             self.assertFalse(planner.publie(root,write(),key,digest))
 
+    def test_external_tip_publication_requires_verified_asset_and_matching_shard(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); self.fixture(root)
+            app = (root/'app_v2.html').read_text()
+            a,b = planner.span(app,'TIP'); tip=json.loads(app[a:b])
+            (root/'data/tip').mkdir(parents=True)
+            for code,item in tip.items():
+                (root/'data/tip'/f'{code}.json').write_text(json.dumps(item))
+            (root/'assets/config').mkdir(parents=True)
+            from tools.tip_data import TAG, render
+            asset=root/'assets/config/tip.js';asset.write_text(render(tip))
+            (root/'app_v2.html').write_text(TAG+'\n<script>'+app[:a-len('\nconst TIP=')]+app[b+1:]+'</script>')
+            def git(*args):return planner.git(root,*args).decode().strip()
+            git('init','-q');git('config','user.email','audit@example.invalid');git('config','user.name','audit')
+            git('add','.');git('commit','-qm','asset TIP');commit=git('rev-parse','HEAD')
+            git('update-ref','refs/remotes/origin/main',commit)
+            key='ALPHA:S1.1';digest=planner.empreinte(tip['S1.1']['c'])
+            def file(path):
+                sha=hashlib.sha256((root/path).read_bytes()).hexdigest()
+                return dict(path=path,url=planner.PAGES+path,http=200,sha256_attendu=sha,sha256_public=sha)
+            report=dict(statut='publication_verifiee',commit=commit,unites={key:digest},
+                        verifie_le='2026-01-01T00:00:00Z',
+                        workflow_pages='https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/123',
+                        fichiers=[file('app_v2.html')])
+            proof=root/'proof.json'
+            def record():
+                proof.write_text(json.dumps(report))
+                return dict(rapport='proof.json',rapport_sha256=hashlib.sha256(proof.read_bytes()).hexdigest())
+            self.assertFalse(planner.publie(root,record(),key,digest))
+            report['fichiers'].append(file('assets/config/tip.js'))
+            self.assertTrue(planner.publie(root,record(),key,digest))
+            report['fichiers'][-1]['sha256_public']='0'*64
+            self.assertFalse(planner.publie(root,record(),key,digest))
+            # Des empreintes publiques exactes ne rendent pas exécutable un HTML cassé.
+            good_app = (root/'app_v2.html').read_text()
+            original_shard = (root/'data/tip/S1.1.json').read_text()
+            for mutation in ('late', 'duplicate', 'comment', 'async', 'shard', 'asset'):
+                with self.subTest(mutation=mutation):
+                    (root/'app_v2.html').write_text(good_app)
+                    (root/'data/tip/S1.1.json').write_text(original_shard)
+                    asset.write_text(render(tip))
+                    if mutation == 'late':
+                        (root/'app_v2.html').write_text(good_app.replace(TAG, '') + TAG)
+                    if mutation == 'duplicate':
+                        (root/'app_v2.html').write_text(good_app + '<script>let TIP = {};</script>')
+                    if mutation == 'comment':
+                        (root/'app_v2.html').write_text(good_app.replace(TAG, '<!--'+TAG+'-->'))
+                    if mutation == 'async':
+                        (root/'app_v2.html').write_text(good_app.replace('<script src=', '<script async src='))
+                    if mutation == 'shard':
+                        value=json.loads(original_shard);value['c'][0]='Divergence'
+                        (root/'data/tip/S1.1.json').write_text(json.dumps(value))
+                    if mutation == 'asset':
+                        asset.write_text('const invalid = {};')
+                    git('add','.');git('commit','-qm',mutation)
+                    report['commit']=git('rev-parse','HEAD')
+                    git('update-ref','refs/remotes/origin/main',report['commit'])
+                    report['fichiers']=[file('app_v2.html'),file('assets/config/tip.js')]
+                    self.assertFalse(planner.publie(root,record(),key,digest))
+
     def test_review_publication_and_phase_audit_are_distinct_gates(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);v=self.fixture(root)

@@ -8,7 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
-from _app import read, write, span
+from _app import span
+from tip_data import TAG, SHARDS, compact, render, load, MAX_ASSET_BYTES, ASSET
 
 
 def appliquer_au_cours(item, lot):
@@ -30,12 +31,23 @@ def appliquer_au_cours(item, lot):
     item['v']['c'] = [['réorganisé', list(refs)] for refs in lot['references_par_partie']]
 
 
-def appliquer(code):
-    lot = json.loads((Path(__file__).with_name('lots') / (code + '.json')).read_text())
+def appliquer(code, root=ROOT):
+    root = Path(root)
+    lot = json.loads((root / 'tools/cours/lots' / (code + '.json')).read_text())
     assert lot['version'] == 1 and lot['ssp'] == code
-    s = read(); a, b = span(s, 'TIP'); tip = json.loads(s[a:b])
+    app_path = root / 'app_v2.html'
+    s = app_path.read_text(encoding='utf-8'); tip = load(root, s)
     appliquer_au_cours(tip[code], lot)
-    write(s[:a] + json.dumps(tip,ensure_ascii=False,separators=(',', ':')) + s[b:])
+    if TAG in s:
+        asset = render(tip)
+        if len(asset.encode()) > MAX_ASSET_BYTES:
+            raise ValueError('Asset TIP au-delà de 12 Mio')
+        (root / SHARDS / (code + '.json')).write_text(json.dumps(tip[code], ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+        (root / ASSET).write_text(asset, encoding='utf-8', newline='')
+        load(root, s)
+    else:
+        a, b = span(s, 'TIP')
+        app_path.write_text(s[:a] + compact(tip) + s[b:], encoding='utf-8')
     print(code + ' : 14 parties du cours appliquées ; diagnostics différentiels conservés.')
 
 

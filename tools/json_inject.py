@@ -9,8 +9,10 @@ Seules les constantes en JSON strict sont acceptées (SSP, TIP, NOT, GES, PHT).
 SESSION, EXI et ATT résident désormais dans assets/config/interface.js ; les mêmes commandes y sont routées.
 CLIN utilise des identifiants JS : on le modifie par ssp-patch.
 """
-import json, os, sys
+import hashlib, json, os, sys
+from pathlib import Path
 from _app import ROOT, read, write, span
+from tip_data import TAG as TIP_TAG, ASSET as TIP_ASSET, SHARDS, load as load_tip, render as render_tip, compact as tip_compact, MAX_ASSET_BYTES
 
 
 EXTERNES = {name: "assets/config/interface.js" for name in ("SESSION", "EXI", "ATT")}
@@ -22,6 +24,50 @@ def compact(v):
 
 def main(cmd, name):
     s = read()
+    if name == 'TIP' and TIP_TAG in s:
+        path = os.path.join(ROOT, 'data', 'TIP.json')
+        baseline = os.path.join(ROOT, 'data', 'TIP.base.json')
+        current = load_tip(ROOT, s)
+        hashes = {k: hashlib.sha256(tip_compact(v).encode()).hexdigest() for k, v in current.items()}
+        if cmd == 'check':
+            print('TIP : 248 sources JSON et asset identiques.')
+            return
+        if cmd == 'extract':
+            with open(path, 'w', encoding='utf-8') as f:
+                json.dump(current, f, ensure_ascii=False, indent=1)
+            with open(baseline, 'w', encoding='utf-8') as f:
+                json.dump(hashes, f, indent=1)
+            print('data/TIP.json extrait ; empreintes de base enregistrées.')
+            return
+        if cmd == 'inject':
+            proposed = json.loads(Path(path).read_text(encoding='utf-8'))
+            base = json.loads(Path(baseline).read_text(encoding='utf-8'))
+            if list(proposed) != list(current) or set(base) != set(current):
+                raise ValueError('TIP : codes ajoutés, supprimés ou réordonnés')
+            changed = []
+            for code, value in proposed.items():
+                if (not isinstance(value, dict) or not isinstance(value.get('c'), list)
+                        or len(value['c']) != 14 or not all(isinstance(part, str) for part in value['c'])):
+                    raise ValueError(code + ' : 14 parties attendues')
+                digest = hashlib.sha256(tip_compact(value).encode()).hexdigest()
+                if digest != base[code]:
+                    if hashes[code] not in (base[code], digest):
+                        raise ValueError('TIP : conflit de modification sur ' + code)
+                    changed.append(code)
+                    current[code] = value
+            asset = render_tip(current)
+            if len(asset.encode()) > MAX_ASSET_BYTES:
+                raise ValueError('Asset TIP au-delà de 12 Mio')
+            for code in changed:
+                with open(os.path.join(ROOT, SHARDS, code + '.json'), 'w', encoding='utf-8') as f:
+                    json.dump(current[code], f, ensure_ascii=False, indent=1)
+                    f.write('\n')
+            with open(os.path.join(ROOT, TIP_ASSET), 'w', encoding='utf-8', newline='') as f:
+                f.write(asset)
+            load_tip(ROOT, s)
+            print(f'TIP : {len(changed)} SSP réinjectés sans conflit.')
+            return
+        sys.exit(__doc__)
     destination = None
     asset = EXTERNES.get(name)
     if asset and s.count('<script src="' + asset + '"></script>') == 1:

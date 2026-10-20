@@ -1,5 +1,11 @@
-import json,re,collections,difflib,unicodedata
-g=json.load(open('data/GES.json'));t=json.load(open('data/TIP.json'))
+import json,re,collections,difflib,unicodedata,sys
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools'))
+from _app import span
+from tip_data import load
+app = (ROOT / 'app_v2.html').read_text(encoding='utf-8')
+a, b = span(app, 'GES'); g=json.loads(app[a:b]); t=load(ROOT, app)
 def nz(s):return unicodedata.normalize('NFD',s.lower()).encode('ascii','ignore').decode()
 ORD={'Inspection':1,'Palpation':2,'Percussion':3,'Auscultation':4,'Mobilisation':5,'Tests spéciaux':6}
 ABD={'Inspection':1,'Auscultation':2,'Percussion':3,'Palpation':4,'Tests spéciaux':6}
@@ -53,7 +59,9 @@ for k,v in t.items():
     if 'abdo' in b[:200] and ns[:2]==[1,4]:continue
     if ns!=sorted(ns):tipviol.append(k)
 tipviol=sorted(set(tipviol))
-json.dump(dict(rows=[(a,b,c,dict(d)) for a,b,c,d in rows],mat={k:dict(v) for k,v in mat.items()},viol=viol,red=red,empty=empty,nohead=nohead,tipviol=tipviol,nheads=len(heads),heads=heads.most_common(30)),open('/workspace/ssp/audit_examen/stats.json','w'),ensure_ascii=False,indent=0)
+output = ROOT / '.cache/audit_examen/stats.json'
+output.parent.mkdir(parents=True, exist_ok=True)
+json.dump(dict(rows=[(a,b,c,dict(d)) for a,b,c,d in rows],mat={k:dict(v) for k,v in mat.items()},viol=viol,red=red,empty=empty,nohead=nohead,tipviol=tipviol,nheads=len(heads),heads=heads.most_common(30)),output.open('w', encoding='utf-8'),ensure_ascii=False,indent=0)
 print(len(viol),len(red),len(empty),len(nohead),len(tipviol),len(heads))
 for v in viol:print(v)
 for a,b in red:print(a,'<>',b)

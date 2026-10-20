@@ -6,7 +6,8 @@ Ils utilisent `str.find`, car les expressions régulières expirent sur des lign
 | Script | Rôle | Commande |
 |---|---|---|
 | `slim.py` | Il écrit une vue de code sans données (TIP, NOT, GES remplacés par un repère) dans `.cache/app_v2.slim.html`, soit environ 2,2 % du fichier. | `python3 tools/slim.py` |
-| `json_inject.py` | Il extrait une constante JSON stricte dans `data/<NOM>.json`, puis la réinjecte compactée ; `check` vérifie l’aller-retour à l’octet. | `python3 tools/json_inject.py extract TIP` |
+| `json_inject.py` | Il extrait une constante JSON stricte dans `data/<NOM>.json`, puis la réinjecte ; TIP est réparti par SSP dans `data/tip/` et sa réinjection refuse les conflits. | `python3 tools/json_inject.py extract TIP` |
+| `tip_data.py` | Valide les 248 sources lisibles, l’identité de l’asset TIP et son chargement synchrone. | `python3 tools/tip_data.py` |
 | `patches/` | Chaque modification de code s’écrit comme un patch à ancrage unique, rejouable. `0001` et `0002` reproduisent exactement `app_v2.html` à partir de `orig/app.html`. | `APP_FILE=/tmp/copie.html python3 tools/patches/0001-….py` |
 | `check_hash.py` | Il vérifie que l’empreinte SHA-256 de `orig/app.html` reste `1e067c6ecb82190d…` (interdit I1). | `python3 tools/check_hash.py` |
 | `budget.py` | Il refuse un `app_v2.html` de plus de 6 Mo et une image de plus de 200 Ko. | `python3 tools/budget.py` |

@@ -248,7 +248,8 @@ def main():
     NOT = json.loads(s[slice(*_app.span(s, 'NOT'))])
     if '--draft' in sys.argv:
         c = sys.argv[sys.argv.index('--draft') + 1]
-        TIP = json.loads(s[slice(*_app.span(s, 'TIP'))])
+        from tip_data import load as load_tip
+        TIP = load_tip(ROOT, s)
         M = load()
         for n, d in zip(NOT[c][0], TIP[c]['d']):
             print('##', mid(n), '(fait)' if mid(n) in M else '', '|', re.sub(r'\s+', ' ', d))

@@ -32,6 +32,10 @@ jobs:
         run: python3 tools/budget.py
       - name: Fonctions externalisées · source intacte et chargement synchrone
         run: python3 -m unittest discover -s tests -p test_fonctions_asset.py
+      - name: TIP externalisé · 248 sources, asset et chargement synchrone
+        run: |
+          python3 tools/tip_data.py
+          python3 -m unittest discover -s tests -p test_tip_asset.py
       - name: Suspension réversible des gestes · clés et progression
         run: python3 -m unittest discover -s tests -p test_ges_suspension_state.py
       - name: Tests des gardes elles-mêmes

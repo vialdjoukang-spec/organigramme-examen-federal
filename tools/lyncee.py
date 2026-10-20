@@ -21,6 +21,7 @@ import argparse, collections, hashlib, json, os, re, subprocess, sys
 from html.parser import HTMLParser
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ck_common import ROOT, load_all, norm, strings, strip_tags  # noqa: E402
+from tip_data import load as load_tip
 
 VERSION = 'lyncee-2'  # lyncee-2 : corpus étendu aux monographies (data/ck/mono)
 SUFFIXES = ('ite', 'ites', 'ose', 'oses', 'algie', 'algies', 'emie', 'emies', 'pathie', 'pathies', 'plegie',
@@ -90,10 +91,15 @@ def corpus(root):
         sys.path.insert(0, os.path.join(root, 'tools'))
         s = open(app, encoding='utf-8').read()
         for name in ('TIP', 'NOT', 'GES'):
-            a, b = _span(s, name)
-            if a is not None:
-                for p, t in _json_strings(json.loads(s[a:b]), name):
-                    yield p, strip_tags(t)
+            if name == 'TIP':
+                value = load_tip(root, s)
+            else:
+                a, b = _span(s, name)
+                if a is None:
+                    continue
+                value = json.loads(s[a:b])
+            for p, t in _json_strings(value, name):
+                yield p, strip_tags(t)
         p = _Texte()
         p.feed(s)
         for i, t in enumerate(p.out):
@@ -241,6 +247,8 @@ def renvois_texte(root, data):
     errs = []
     app = os.path.join(root, 'app_v2.html')
     blobs = [open(app, encoding='utf-8').read()] if os.path.exists(app) else []
+    if blobs:
+        blobs.append(json.dumps(load_tip(root, blobs[0]), ensure_ascii=False))
     blobs += [json.dumps(v, ensure_ascii=False) for v in data.values()]
     for b in blobs:
         for m in re.finditer(r'glo\|([a-z0-9][a-z0-9-]*)', b):
@@ -260,10 +268,12 @@ def arbres_branches(root, motifs):
         if nom in ('HEAD', 'main') or not any(fnmatch.fnmatch(nom, m) for m in motifs):
             continue
         d = tempfile.mkdtemp(prefix='lyncee-')
-        p = subprocess.run(['git', 'archive', r, 'app_v2.html', 'data/ck', 'data/cs', 'qa/termes_exclus.txt'],
-                           cwd=root, capture_output=True)
-        if p.returncode != 0:  # chemin absent dans une vieille branche : on reprend sans data/cs
-            p = subprocess.run(['git', 'archive', r, 'app_v2.html', 'data/ck'], cwd=root, capture_output=True)
+        available = subprocess.run(['git', 'ls-tree', '-r', '--name-only', r], cwd=root,
+                                   capture_output=True, text=True).stdout.splitlines()
+        wanted = ('app_v2.html', 'assets/config/tip.js', 'data/tip/', 'data/ck/',
+                  'data/cs/', 'qa/termes_exclus.txt')
+        paths = [path for path in available if any(path == item or path.startswith(item) for item in wanted)]
+        p = subprocess.run(['git', 'archive', r, *paths], cwd=root, capture_output=True)
         if p.returncode == 0:
             tarfile.open(fileobj=io.BytesIO(p.stdout)).extractall(d, filter='data')
             out.append((nom, d))
