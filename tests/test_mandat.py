@@ -239,6 +239,7 @@ class MandatTests(unittest.TestCase):
             self.assertTrue(planner.audit_phase(root,record(),scope))
             for field,value in [('modele','gpt-6-sol'),('lu_le','2999-01-01'),('relecteur_independant','auteur')]:
                 old=r[field];r[field]=value;self.assertFalse(planner.audit_phase(root,record(),scope));r[field]=old
+            r['modele']='grok-bot';self.assertTrue(planner.audit_phase(root,record(),scope));r['modele']='gpt-6-astra'
             self.assertFalse(planner.audit_phase(root,record(),{'ALPHA:S1.2':'a'*64}))
             self.assertFalse(planner.audit_phase(root,record(),{}))
 
