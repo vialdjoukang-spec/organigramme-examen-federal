@@ -8,7 +8,7 @@ b=$(git rev-parse --abbrev-ref HEAD)
 git fetch -q origin main && git rebase -q origin/main
 python3 tools/mono_build.py >/dev/null
 for s in "$@"; do python3 tools/cours/appliquer.py "$s" >/dev/null; done
-python3 tools/ck_build.py >/dev/null
+python3 tools/ck_build.py >/dev/null 2>&1 || python3 tools/ck_build.py
 git add -A assets data && { git diff --cached --quiet || git commit -qm "Régénération (arsenal/pr.sh)"; }
 python3 tools/arsenal/lot.py auto
 git push -q --force-with-lease -u origin "$b" 2>/dev/null
