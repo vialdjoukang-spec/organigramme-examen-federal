@@ -75,6 +75,10 @@ def date_audit(report):
         return False
 
 
+# Ordre de Vial du 20.10.2026 à 07:40 : « grok-bot » est un contre-auditeur accepté (signature réelle).
+AUDITEURS = ('gpt-6-astra', 'grok-bot')
+
+
 def astra(report):
     """Une attestation déclarative est vérifiable en cohérence, pas une identité signée."""
     if not isinstance(report, dict):
@@ -83,7 +87,7 @@ def astra(report):
     return bool(report.get('verdict') == 'favorable_documentaire'
                 and isinstance(reviewer, str) and reviewer.strip()
                 and reviewer != report.get('auteur')
-                and report.get('modele') == 'gpt-6-astra'
+                and report.get('modele') in AUDITEURS
                 and date_audit(report))
 
 
@@ -259,6 +263,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
             or contract.get('redaction', {}).get('dd_max_par_agent') != 3
             or contract.get('redaction', {}).get('modele') != 'gpt-6-sol'
             or contract.get('audit', {}).get('modele') != 'gpt-6-astra'
+            or not set(contract.get('audit', {}).get('modeles_acceptes', ['gpt-6-astra'])) <= set(AUDITEURS)
             or contract.get('audit', {}).get('independant') is not True
             or contract.get('redaction', {}).get('raisonnement') != 'high'
             or type(contract.get('agents_redacteurs_simultanes_max')) is not int
