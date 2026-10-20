@@ -1,0 +1,62 @@
+{
+  "projection": "/tmp/p1-s43-phases-m1s8rk8d",
+  "compilation": "tools.tip_data.build puis tools/cours/appliquer.py S4.3 sur copie temporaire uniquement",
+  "tip_data": {
+    "ssp": 248,
+    "parties": 3472,
+    "asset_octets": 5735825,
+    "asset_identique_aux_sources": true
+  },
+  "lot": {
+    "commande": "python3 tools/arsenal/lot.py cours S4.3",
+    "elements": 1,
+    "erreurs": 0,
+    "reserves_a_verifier": 3
+  },
+  "unittest": {
+    "commande": "python3 -m unittest tests.test_cours_ssp tests.test_tip_asset tests.test_arsenal",
+    "tests": 34,
+    "resultat": "OK"
+  },
+  "gardes": {
+    "commande": "python3 tools/audit/niveau1.py --diff 6f4324d917240bc863ce669f0e88353a47e10244 --sortie <audit>/gardes-flags.json",
+    "G1": "réussi",
+    "G2": "réussi",
+    "G3": "réussi",
+    "G4": "réussi",
+    "G5": "réussi",
+    "G6": "réussi",
+    "G7": "réussi",
+    "G8": "réussi",
+    "signalements": 0,
+    "avertissements_preexistants": "5 renvois NC07 voie_motrice non livrés"
+  },
+  "registre": {
+    "commande": "tools.cours.controler.bilan() sur projection",
+    "ssp_relus": 63,
+    "anomalies": [
+      "S4.3 : attestation absente, périmée ou incohérente"
+    ],
+    "raison": "Attestation antérieure révoquée par le changement de c[5] ; aucun registre édité, nouvelle contrelecture indépendante centralisée requise."
+  },
+  "browser": {
+    "commande": "PHASES_PROJECTION=/tmp/p1-s43-phases-m1s8rk8d python3 audit/p1-s4.3-phases-20261020/browser-http.py",
+    "exit_code": 0,
+    "programme_existant": "tests/test_infobulles_prototype_ui.py main() complet, aucune assertion modifiée",
+    "cours": "18 : G1–G16, S4.2, S4.3 ; 14 parties + fiche éclair chacun",
+    "interaction": "bureau/mobile, clic/toucher, clavier, aucun survol, définitions et retour",
+    "check_courses_S42_S43": "toutes assertions existantes, phases autorisées et phases rendues=phases déclarées : OK",
+    "programme_examen_existant": "tests/test_examen.py complet : 18 booléens vrais et errors=[]",
+    "assertion_resultats_examen": "Tous les booléens et errors=[] contrôlés après exécution.",
+    "transport": "Page.goto réécrit uniquement file://<projection>/ en http://127.0.0.1:<port>/ ; refus administrateur file:// reproduit."
+  },
+  "ci_complete": "Non exécutée par cet auteur ; relance centrale requise.",
+  "contre_audit_independant": "Non exécuté par cet auteur ; contre-auditeur Astra distinct requis après gel.",
+  "tests_existants_sha256": {
+    "tests/test_infobulles_prototype_ui.py": "c314444607abf8054e038264d1ce6eac6ff209cc980931994612fabc14c5afb2",
+    "tests/test_examen.py": "a1a840c2afd570e4f0fe5d29354241eaf69ea61278bac5c8c059be23e8cfee5a"
+  },
+  "tests_copie_identique_au_depot": true,
+  "sonde_complementaire": "Premier comptage local attendu 20 erroné, corrigé à 19 boutons réellement énumérés dans les cinq lignes @ ; HTML avant/après strictement identique.",
+  "browser_log_sha256": "53593bee79658a2c453755ccc4b885d0529039a61a4924115ad893febb50c021"
+}

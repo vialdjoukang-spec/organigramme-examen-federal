@@ -8,25 +8,27 @@ Seuil : 3 occurrences. Corpus : journal/*.md, HANDOFF.md, CONTINUATION.md, .etat
 
 | Vu | Commande normalisée | Où | Skill proposé |
 |---|---|---|---|
-| 4 | `tools/etapes.json` | CONTINUATION.md | `ssp-etapes-json` |
+| 4 | `tools/etapes.json` | CONTINUATION.md | Non retenu : ancien ordre historique, remplacé par le mandat P0–P4 ; aucune nouvelle procédure nécessaire. |
 
 ## Tâches répétitives (sujets de commit)
 
 | Vu | Début de sujet | Action |
 |---|---|---|
-| 17 | visuel nouvelle référence | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 17 | audit galien-neuro nc07-chaine | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
-| 12 | audit galien-neuro glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 13 | visuel nouvelle référence | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 11 | audit galien-neuro glo-lot01b | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 7 | codex étape n | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 6 | audit grok-bot contre-audit | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 6 | audit cours- ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 6 | audit galien-neuro glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 5 | betta ssp lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 5 | fix cours- ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | préciser le pays | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | préciser le compte | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | audit hérophile lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | hygie monographies lot | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 4 | asclépios prévalence ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
-| 4 | audit galien-têtecou glo-lot01a | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
+| 3 | audit grok-bot ssp | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 3 | attester le cours | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 3 | réviser les quatorze | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |
 | 3 | pharmakon table suisse | automatiser par script ou skill ; modèle GPT 6 Luna (ordre de Vial) |

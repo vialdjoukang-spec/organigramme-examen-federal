@@ -1,0 +1,44 @@
+{
+  "priorite": "P1",
+  "date_utc": "2026-10-20T17:01:59.165040+00:00",
+  "perimetre": "Reprise des parties des cours S ; correction technique ordre phases S3.6/S3.7 et modèle rédaction demandé GPT-6.1 Sol élevé",
+  "controles": [
+    {
+      "commande": "python3 -m unittest tests.test_mandat -q",
+      "resultat": "30 tests réussis"
+    },
+    {
+      "commande": "python3 tools/arsenal/lot.py cours S3.6 S3.7",
+      "resultat": "2 éléments,0 erreur,3 réserves explicites À vérifier"
+    },
+    {
+      "commande": "python3 tools/audit/niveau1.py --sortie <scratch>",
+      "resultat": "G1–G8 réussis,0 signalement"
+    },
+    {
+      "commande": "python3 tools/ck_build.py --check",
+      "resultat": "1749 entrées valides,assets à jour"
+    },
+    {
+      "commande": "python3 tools/tip_data.py",
+      "resultat": "248 SSP/3472 parties,asset exact"
+    },
+    {
+      "commande": "python3 tools/cours/controler.py",
+      "resultat": "58 cours/812 parties contre-audités,0 anomalie"
+    },
+    {
+      "commande": "python3 tools/mandat/planifier.py",
+      "resultat": "ALPHA/S,P1,40 cours S publiés,0 anomalie"
+    },
+    {
+      "commande": "python3 tools/garde/checkpoint.py --base origin/main --corps <PR161-body>",
+      "resultat": "R15 vert"
+    }
+  ],
+  "limites": [
+    "Ces vérifications locales ne valent ni CI finale distante ni publication.",
+    "Les réserves AIPS ne sont pas transformées en validation de doses.",
+    "Les parcours navigateur de la correction des phases sont documentés séparément dans P1-TESTS-PHASES-S3.6-S3.7-20261020.json et ne sont pas revendiqués à nouveau ici."
+  ]
+}

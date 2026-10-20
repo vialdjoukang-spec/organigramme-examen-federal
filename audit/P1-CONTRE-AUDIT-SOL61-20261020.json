@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "date_utc": "2026-10-20T17:02:09.393942+00:00",
+  "priorite": "P1",
+  "nature": "contre_audit_technique_independant",
+  "relecteur_independant": "/root/p1_audit_reprise_164",
+  "auteur_modifications": "Codex /root",
+  "modele_demande": "gpt-6-astra",
+  "effort_demande": "high",
+  "provenance_modele": "Modèle et effort demandés au lancement selon le responsable ; aucune introspection indépendante du runtime.",
+  "verdict": "favorable_technique",
+  "validation_medicale_humaine": false,
+  "commit_base": "a536af914e62f87ddd89e3ad9f10ebcd0a5bfe2f",
+  "etat_audite": "Modifications non commitées ; les empreintes des fichiers font foi.",
+  "perimetre": "Autorisation explicite de GPT-6.1 Sol high comme rédacteur, conservation du modèle historique GPT-6 Sol high et métadonnées de reprise. Aucun texte clinique rédigé ou validé par ce rapport.",
+  "fichiers_sha256": {
+    "tools/mandat/planifier.py": "5d39af46a57fff097d1722e8d150a51cea549f91298876d593160e12719bd596",
+    "tools/mandat/contrat.json": "85702fd1a4e5fac0c4502221b1467eec5cbba9150ccbb625c9e5b8ba6f8360ab",
+    "tests/test_mandat.py": "881a12653636240ab6327c25ccac0cbd1769949cdf47fbbd1839b32e42935df3"
+  },
+  "metadata_sha256": {
+    "AGENTS.md": "a97ec9b61fef92fd4c35fc67bfa25a739e75c4f9c56b6d9a3e445eedf07849fc",
+    "ETAT.json": "f4ec28a429cc121955af2d69b697e8a55c49a5204eec1228ea23ebc0a6ba318d",
+    "HANDOFF.md": "e66e03114ecc64f54640cad4e8fade5e023dc3263ac2602c6dc3cffa1716d00c",
+    "PROCHAINE_ACTION.md": "36af575029fa0f01f4875cd10f3378deea2d2a0088d0daa91e90bc264e906d88",
+    "audit/P1-AGENTS-20261020.json": "816f1655f8afdd6816e78960f3e878f09fd95bca9136c5ae804adb2b978ea613",
+    "docs/MODIFICATIONS-1-CK-2-CS.md": "cc7fb220cc161440bfdeb6435c5e16006c75beacb8e7383f1458df627222d5dc",
+    "tools/mandat/registre.json": "730f43877c967705d90d8af4fcd6a5c002689585f3b706b2d1e394097bf2c41c"
+  },
+  "constats": [
+    {
+      "id": "T01",
+      "verdict": "conforme",
+      "observation": "REDACTEURS contient exclusivement gpt-6-sol et gpt-6.1-sol ; les deux validations auparavant limitées à gpt-6-sol utilisent désormais cette liste. Aucune autre condition du planificateur ne change."
+    },
+    {
+      "id": "T02",
+      "verdict": "conforme",
+      "observation": "Le contrat sélectionne gpt-6.1-sol ; raisonnement high, maximum deux cours par auteur et trois DD, maximum trois auteurs simultanés, 14 parties cours et six rubriques DD sont conservés."
+    },
+    {
+      "id": "T03",
+      "verdict": "conforme",
+      "observation": "Contrôles indépendance, auditeurs autorisés, ordre des phases, sources/empreintes et preuves de publication inchangés par le diff examiné. La liste historique des auditeurs Astra/grok-bot préexistait."
+    },
+    {
+      "id": "T04",
+      "verdict": "conforme",
+      "observation": "Le nouveau test accepte séparément gpt-6-sol et gpt-6.1-sol ; il refuse Luna et low dans le contrat ainsi que dans une réservation active, et vérifie alors absence de prochain lot."
+    },
+    {
+      "id": "T05",
+      "verdict": "conforme",
+      "observation": "Deux anciennes réservations sont annulées avec motif de pause et travail conservé ; deux nouvelles réservations distinctes de deux cours portent les nouveaux agents, leur modèle demandé et high. Les modèles historiques ne sont pas réétiquetés."
+    },
+    {
+      "id": "T06",
+      "verdict": "conforme",
+      "observation": "Les entêtes canoniques distinguent explicitement les 14 parties des cours S des six rubriques DD et maintiennent les autres priorités bloquées. Les métadonnées ne revendiquent ni publication des lots en cours ni introspection du runtime."
+    }
+  ],
+  "controles_reellement_executes": [
+    {
+      "commande": "python3 -m unittest discover -s tests -p 'test_mandat.py'",
+      "exit_code": 0,
+      "resultat": "30 tests réussis en 0.381 s."
+    },
+    {
+      "commande": "python3 tools/mandat/planifier.py",
+      "exit_code": 0,
+      "resultat": "Aucune anomalie ; alpha_publies=40, beta_publies=0, gamma_publies=0 ; nouvelles réservations S3.10/S4.1 et S4.2/S4.3 reconnues en rédaction ; S3.6/S3.7 à intégrer et S3.8/S3.9 à auditer restent distincts des publications."
+    }
+  ],
+  "limites": [
+    "Avis technique lié aux empreintes ci-dessus ; aucun audit clinique supplémentaire et aucune lecture primaire médicale dans cette intervention.",
+    "Le lancement effectif et les paramètres demandés des autres agents sont consignés par root ; le présent auditeur ne les transforme pas en preuve du runtime interne.",
+    "CI distante, fusion et publication non exécutées ni attestées par cet auditeur.",
+    "Toute modification des trois fichiers techniques après cet avis exige comparaison ciblée et revalidation adaptée."
+  ],
+  "actions_auditeur": "Lecture ciblée des diff et contexte, exécution des contrôles, création de ce seul rapport ; aucun autre fichier de la worktree161 modifié, aucun GitHub write, aucun bail renouvelé."
+}
