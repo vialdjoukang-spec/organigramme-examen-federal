@@ -1,3 +1,7 @@
+## Phases170 contre-auditées · troisième CI requise
+
+Deux lignes¶0 retirées uniquement de S4.3 partie6 ; HTML, texte clinique, sous-titre et19renvois conservés. Nouveau contre-audit indépendant favorable : `audit/P1-AUDIT-COURS-S4.3-PHASES-20261020.json` et `audit/P1-CONTRE-AUDIT-PHASES-S4.2-S4.3-20261020.json`. G1–G8 et examen18/18 indépendants verts ; parcours original18cours×14 bureau/mobile réussi par auteur, attribution de preuve distincte. Registre actualisé aux14empreintes finales ; nouvelle CI complète sur la tête finale avant fusion.46SSP S/644parties de cours S publiés ; aucune monographie DD comptée.
+
 ## Correctif de présentation170 contre-audité · nouvelle CI requise
 
 Ajout du seul sous-titre S4.3 partie6 vérifié favorablement par contre-audit indépendant : `audit/P1-AUDIT-COURS-S4.3-PUCE-20261020.json` et `audit/P1-CONTRE-AUDIT-PUCE-S4.2-S4.3-20261020.json`. Phrase clinique, autres parties, S4.2, sources, glossaire et tests conservés.18/18assertions examen et clavier/toucher bureau/mobile réussis aussi par le contre-auditeur. Registre lié aux14empreintes finales. Nouvelle CI distante complète obligatoire avant fusion ;46SSP S/644parties de cours S déjà publiés, CI main167 verte.
