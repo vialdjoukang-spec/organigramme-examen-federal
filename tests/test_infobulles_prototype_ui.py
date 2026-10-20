@@ -1,10 +1,28 @@
 """DD monographies and distinct SSP course sections open only on activation."""
 import asyncio
 import os
+import re
+import subprocess
 from pathlib import Path
 from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+COURS_TESTES = []
+
+
+def cours_s_modifies():
+    """En CI, comparer le commit testé à son premier parent (PR ou fusion main)."""
+    explicit = os.environ.get('COURS_UI_SSP')
+    if explicit and os.environ.get('GITHUB_ACTIONS') != 'true':
+        codes = explicit.split()
+        if any(not re.fullmatch(r'S\d+\.\d+', code) for code in codes):
+            raise ValueError('COURS_UI_SSP : identifiant S invalide')
+        return tuple(dict.fromkeys(codes))
+    paths = subprocess.check_output(
+        ['git', 'diff', '--name-only', 'HEAD^', 'HEAD', '--', 'data/tip'],
+        cwd=ROOT, text=True).splitlines()
+    return tuple(sorted({Path(path).stem for path in paths
+                         if re.fullmatch(r'data/tip/S\d+\.\d+\.json', path)}))
 
 async def check(page, touch=False):
     await page.goto((ROOT / 'app_v2.html').as_uri())
@@ -166,10 +184,13 @@ async def check_courses(page, touch=False):
     assert abdominal_phase == [['2','Palpation']], abdominal_phase
 
     # Les deux composantes du premier titre ne peuvent être fusionnées en un bloc.
-    for code in ('G1','G2','G3','G4','G5','G6','G7','G8','G9','G10','G11','G12','G13','G14','G15','G16'):
+    for code in ('G1','G2','G3','G4','G5','G6','G7','G8','G9','G10','G11','G12','G13','G14','G15','G16', *cours_s_modifies()):
+        if code not in COURS_TESTES:
+            COURS_TESTES.append(code)
         first = await page.evaluate("""code => {
           const el=document.createElement('div');el.innerHTML=TIP[code].c[0];
-          return [...el.querySelectorAll(':scope > ul > li > b')].map(x=>x.textContent.trim());
+          const headings=code.startsWith('S')?':scope > b, :scope > ul > li > b':':scope > ul > li > b';
+          return [...el.querySelectorAll(headings)].map(x=>x.textContent.trim());
         }""",code)
         assert first == ['Définition :','Sémantique de la plainte :'], (code,first)
         await page.evaluate("""code => {
@@ -200,13 +221,29 @@ async def check_courses(page, touch=False):
                     source:source.textContent.replace(/\s+/g,' ').trim()===expectedSource.replace(/\s+/g,' ').trim(),
                     links:!x.links || JSON.stringify([...source.querySelectorAll('a')].map(a=>a.getAttribute('href')))
                       ===JSON.stringify(x.links.filter(l=>l.u).map(l=>l.u)),
-                    examination:index!==6 || body.querySelectorAll('.ex-region .ex-region__h').length>=2};
+                    examination:index!==6 || body.querySelectorAll('.ex-region .ex-region__h').length
+                      >= (code.startsWith('S')?1:2)};
                 }""",{'code':code,'index':index})
                 assert result == {'title':True,'body':True,'source':True,'links':True,
                                   'examination':True}, (key,result)
             await correct_section()
             if index==6:
                 assert await page.locator('#tip .ex-chip').count() >= 1
+                if code.startswith('S'):
+                    phases = await page.evaluate(
+                        "code => TIP[code].c[5].split('\\n').filter(l=>l.startsWith('¶')).map(l=>l.slice(1).trim())", code)
+                    assert all(phase in {'1','2','3','4','5','6','M','N'} for phase in phases), (code, phases)
+                    assert await page.locator('#tip .ex-phase').count() == len(phases), (code, phases)
+                if code == 'S3.5':
+                    # Régression clinique : aucune observation proctologique sous tête/cou ou cœur.
+                    regions = await page.locator('#tip .ex-region').evaluate_all(
+                        '(els) => els.map(el => el.dataset.reg)')
+                    assert regions == ['tr-genital'], (code, regions)
+                    targets = await page.locator('#tip .ex-chip').evaluate_all(
+                        '(els) => els.map(el => el.dataset.gx)')
+                    assert all(target and target.split('|')[0] == 'tr-genital'
+                               for target in targets), (code, targets)
+                    assert {'tr-genital|tr-genital_1', 'tr-genital|tr-genital_2'} <= set(targets), targets
             await page.keyboard.press('Escape')
             if not touch:
                 for activation in ('Enter',' '):
@@ -232,6 +269,7 @@ async def main():
             assert not errors, errors
             await context.close()
         await browser.close()
-    print('Infobulles : DD G1/G2 six rubriques et chronologies, 14 cours distincts G1/G2/G3/G4/G5/G6/G7/G8/G9/G10/G11/G12/G13/G14/G15/G16, 248 SSP, aucun survol, clic/toucher, clavier, définitions et retour : OK')
+    print(f'Infobulles : DD G1/G2, {len(COURS_TESTES)} cours × 14 parties ({", ".join(COURS_TESTES)}), '
+          'bureau/mobile, clic/toucher, clavier, aucun survol, définitions et retour : OK')
 
 if __name__=='__main__':asyncio.run(main())

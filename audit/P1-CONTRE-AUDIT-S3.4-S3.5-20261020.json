@@ -1,0 +1,688 @@
+{
+  "version": 1,
+  "date": "2026-10-20T11:38:04.536744+00:00",
+  "priorite": "P1",
+  "auditeur": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra high",
+  "provenance_modele": "Modèle demandé au lancement ; aucune introspection du runtime.",
+  "relecteur_independant": true,
+  "auteur_cours": "Auteur initial distinct ; cet auditeur n’a rédigé ni modifié les cours.",
+  "verdict": "bloquant_corrections_requises",
+  "validation_medicale_humaine": false,
+  "base": "fbc2c07dd917ea07e15ff3a5ba70423c259c4e15",
+  "perimetre": "28parties existantes c[0..13] de S3.4 et S3.5 et leurs lots/références. DD, fondamentaux, interface générale et registres exclus des modifications.",
+  "constats": [
+    {
+      "id": "F01",
+      "gravite": "majeure",
+      "ssp": "S3.5",
+      "parties": [
+        6
+      ],
+      "titre": "Localisation anatomique erronée",
+      "constat": "Tumeur/polype sous tete-cou ; fissure sous coeur-vaisseaux ; thrombose externe sous vasc. Les @r reproduisent ces erreurs.",
+      "correction_attendue": "Réaffecter ces observations au pelvis/proctologie, conserver les identifiants utiles, contrôler phases et cibles dans le rendu. Corriger aussi Procédence en procidence.",
+      "sources": [
+        "constat_local"
+      ]
+    },
+    {
+      "id": "F02",
+      "gravite": "majeure_securite",
+      "ssp": "S3.5",
+      "parties": [
+        5,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14
+      ],
+      "titre": "Tri infectieux et séquence d’examens",
+      "constat": "La séparation douleur fébrile/afèbrile et la FAQ font croire que fièvre/pus sont nécessaires ; le bilan amalgame abcès et fistule.",
+      "correction_attendue": "Un abcès peut être peu symptomatique. Prévoir évaluation chirurgicale selon suspicion, imagerie sélective et drainage sans délai indu. Ajouter le risque de Fournier ; distinguer urgence septique et petit abcès stable. Ne pas imposer anuscopie puis imagerie à tous.",
+      "sources": [
+        "WSES"
+      ]
+    },
+    {
+      "id": "F03",
+      "gravite": "majeure_securite",
+      "ssp": "S3.5",
+      "parties": [
+        5,
+        10,
+        11,
+        13
+      ],
+      "titre": "Procidence compliquée absente du tri",
+      "constat": "La procidence est réduite à un classement étiologique et une biopsie en cas de doute.",
+      "correction_attendue": "Ajouter la procidence irréductible douloureuse ou ischémique : avis chirurgical urgent ; instabilité/gangrène/perforation imposent traitement immédiat.",
+      "sources": [
+        "WSES"
+      ]
+    },
+    {
+      "id": "F04",
+      "gravite": "majeure_securite",
+      "ssp": "S3.4",
+      "parties": [
+        4,
+        5,
+        10,
+        11,
+        13
+      ],
+      "titre": "Incontinence aiguë et urgence neurologique",
+      "constat": "Le tri donne priorité au cancer/MICI ; aucun lien opérationnel entre apparition récente, symptômes urinaires, anesthésie périnéale ou lomboradiculalgie.",
+      "correction_attendue": "Ajouter un embranchement de recours immédiat devant ce tableau neurologique compatible avec une compression de la queue de cheval ; ne pas attendre la filière digestive habituelle.",
+      "sources": [
+        "NHS-SPINE"
+      ]
+    },
+    {
+      "id": "F05",
+      "gravite": "majeure",
+      "ssp": "S3.4",
+      "parties": [
+        7,
+        8,
+        9,
+        10,
+        13
+      ],
+      "titre": "Calprotectine et diagnostic fonctionnel trop simplifiés",
+      "constat": "Séparer organique et fonctionnel par calprotectine est trop général ; critères RomeIV non relus mais utilisés pour conclure et rassurer.",
+      "correction_attendue": "Limiter le rôle de la calprotectine à l’orientation inflammatoire dans un contexte adapté, jamais à l’exclusion de tout cancer. Vérifier le bilan initial avant diagnostic positif de SII, dont sérologie cœliaque, et expliciter les critères réellement utilisés.",
+      "sources": [
+        "BSG-IBS-PARTIEL",
+        "BSG-IBD-PARTIEL"
+      ]
+    },
+    {
+      "id": "F06",
+      "gravite": "majeure",
+      "ssp": "S3.4",
+      "parties": [
+        4,
+        9,
+        10,
+        13,
+        14
+      ],
+      "titre": "Cancer, dépistage et bilan symptomatique confondus",
+      "constat": "Âge seul puis tous signes d’alarme déclenchent une coloscopie ; cancer jusqu’à preuve du contraire transforme une suspicion en diagnostic.",
+      "correction_attendue": "Distinguer urgence vitale, suspicion nécessitant filière rapide et dépistage asymptomatique. Contextualiser le FIT NICE comme parcours britannique ; attribuer chaque recommandation à sa source exacte.",
+      "sources": [
+        "LIGUE-FIT",
+        "NG12-PARTIEL"
+      ]
+    },
+    {
+      "id": "F07",
+      "gravite": "majeure_documentaire",
+      "ssp": "les_deux",
+      "parties": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+      ],
+      "titre": "Couverture des références insuffisante",
+      "constat": "Les références par partie sont réelles mais plusieurs ne couvrent pas les affirmations : physiologie détaillée et manométrie sous NHS-FI ; anatomie/hypertonie sous NHS-FISTULA ; grades, plis et diagnostics sous simples pages patient.",
+      "correction_attendue": "Compléter des références professionnelles lues, avec correspondance affirmation/source. Préserver la réserve sur les définitions composites ; une recommandation européenne ne devient pas société mondiale. Réviser ou réserver les assertions non étayées.",
+      "sources": [
+        "NHS-FI",
+        "NHS-FISTULA",
+        "UEG-FI",
+        "WSES"
+      ]
+    },
+    {
+      "id": "F08",
+      "gravite": "majeure",
+      "ssp": "S3.5",
+      "parties": [
+        1,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "titre": "Prurit et traitement insuffisamment développés",
+      "constat": "La définition ne définit pas le prurit ; les causes dermatologiques sont sous-représentées ; prélèvements présentés en batterie ; traitement causal centré sur autres maladies.",
+      "correction_attendue": "Définir le prurit, rechercher irritation/dermatose et lésions atypiques, orienter tests selon examen, détailler hygiène douce et traitement de cause ; prurit essentiel après exclusion.",
+      "sources": [
+        "SNFCP-PRURIT"
+      ]
+    },
+    {
+      "id": "F09",
+      "gravite": "majeure_editoriale",
+      "ssp": "les_deux",
+      "parties": [
+        3,
+        4,
+        6,
+        8,
+        13,
+        14
+      ],
+      "titre": "Absolus, redondances et termes peu explicités",
+      "constat": "Autant que les muscles, à elle seule, toujours et jusqu’à preuve du contraire dépassent les sources. S3.4 partie6 répète plusieurs observations.",
+      "correction_attendue": "Employer des formulations probabilistes, supprimer les doublons, expliciter compliance, calprotectine, biofeedback, séton et anuscopie ou vérifier leurs définitions interactives. Les titres/identifiants1–14 doivent rester stables.",
+      "sources": [
+        "constat_local"
+      ]
+    },
+    {
+      "id": "F10",
+      "gravite": "majeure_documentaire",
+      "ssp": "S3.5",
+      "parties": [
+        11
+      ],
+      "titre": "Durée d’un traitement non identifié",
+      "constat": "Crème cicatrisante jusqu’à huit semaines reproduit une page patient sans nom de substance ni preuve suisse.",
+      "correction_attendue": "Identifier la classe et ses limites ; si durée/schéma conservés, vérifier la spécialité suisse/AIPS correspondante, sinon retirer le schéma chiffré de la proposition. Ne pas fabriquer de dose.",
+      "sources": [
+        "NHS-FISSURE"
+      ]
+    },
+    {
+      "id": "F11",
+      "gravite": "mineure",
+      "ssp": "les_deux",
+      "parties": [
+        6,
+        13
+      ],
+      "titre": "Examen intime et douleur",
+      "constat": "Les résumés impératifs omettent explication, consentement et adaptation à la douleur ; S3.5 partie9 et14 contiennent pourtant une réserve utile.",
+      "correction_attendue": "Rendre ces précautions cohérentes entre examen, algorithme et résumé ; préserver les renvois corrects vers les gestes.",
+      "sources": [
+        "SNFCP-PRURIT",
+        "NHS-FISSURE"
+      ]
+    }
+  ],
+  "parties": {
+    "S3.4": [
+      {
+        "partie": 1,
+        "pointeur": "/c/0",
+        "sha256": "cab376de1f258557132f48ba732209a273cd36a89fe516cf57fd8fb3e91056a4",
+        "verdict": "a_corriger",
+        "observation": "Distinguer incontinence anale/fécale et gaz ; définition pédagogique du transit acceptable comme telle, mais durable exclut implicitement les formes aiguës.",
+        "constats": [
+          "F07"
+        ]
+      },
+      {
+        "partie": 2,
+        "pointeur": "/c/1",
+        "sha256": "b04b5245359af9fa2fa25cbcf94866f16aff69ba1ab1e9fbd116c6d6ff80db0c",
+        "verdict": "a_corriger",
+        "observation": "Fréquence suisse honnêtement réservée ; rang de cause fonctionnelle non démontré et dépistage rangé sous terrain.",
+        "constats": [
+          "F07",
+          "F06"
+        ]
+      },
+      {
+        "partie": 3,
+        "pointeur": "/c/2",
+        "sha256": "3ba203900690a945ad5315d589d331d485f66fa1f0b49091e96d9922ed0017ad",
+        "verdict": "a_corriger",
+        "observation": "Physiologie plausible, référence NHS insuffisante ; comparaison quantitative implicite autant que injustifiée.",
+        "constats": [
+          "F07",
+          "F09"
+        ]
+      },
+      {
+        "partie": 4,
+        "pointeur": "/c/3",
+        "sha256": "5c677614cdf671fd97dcce4f9072a7ba0585c0a6f0b0f8add681ecd7c4821f1d",
+        "verdict": "a_corriger",
+        "observation": "Triage à réordonner et urgence neurologique à ajouter.",
+        "constats": [
+          "F04",
+          "F06"
+        ]
+      },
+      {
+        "partie": 5,
+        "pointeur": "/c/4",
+        "sha256": "763a2a444142c04186e0a29bc159e8c75fc633fc1dc811d9d9895eecc7f904f5",
+        "verdict": "a_corriger",
+        "observation": "Caractérisation utile ; compléter symptômes urinaires et neurologiques nouveaux.",
+        "constats": [
+          "F04"
+        ]
+      },
+      {
+        "partie": 6,
+        "pointeur": "/c/5",
+        "sha256": "dcdde6dd8127aafc3d7135a257091420354d38f54e7cc36f44b92eaa267f6405",
+        "verdict": "a_corriger",
+        "observation": "Régions abdomen/pelvis pertinentes ; dédoublonner, expliciter conditions d’examen ; sourcer les tests neurologiques.",
+        "constats": [
+          "F07",
+          "F09",
+          "F11"
+        ]
+      },
+      {
+        "partie": 7,
+        "pointeur": "/c/6",
+        "sha256": "575bb17deeb097fa72230520101706920f1f7bd9de5b00399a1435b2f8159ef7",
+        "verdict": "a_corriger",
+        "observation": "Différentiels utiles ; alternance non nécessaire au SII et bilan positif incomplet.",
+        "constats": [
+          "F05",
+          "F07"
+        ]
+      },
+      {
+        "partie": 8,
+        "pointeur": "/c/7",
+        "sha256": "29768efba4b71fc15e247afda4818f60e2f9dfea24b7deb884cdc035f61bcae8",
+        "verdict": "a_corriger",
+        "observation": "Réserve RomeIV visible mais non compatible avec son emploi affirmatif partie10 ; masse rectale et biopsie à sourcer exactement.",
+        "constats": [
+          "F05",
+          "F07"
+        ]
+      },
+      {
+        "partie": 9,
+        "pointeur": "/c/8",
+        "sha256": "93505227d46b73542ef42021cbed7064f20841f7da0af1b531a8501450d78c39",
+        "verdict": "a_corriger",
+        "observation": "Séparer bilan symptomatique, FIT de tri britannique, recherche d’inflammation et tests spécialisés de continence.",
+        "constats": [
+          "F05",
+          "F06",
+          "F07"
+        ]
+      },
+      {
+        "partie": 10,
+        "pointeur": "/c/9",
+        "sha256": "279f91172942b97e4e3083e934af18ce4396ba24972aa7e7b2654887e081a217",
+        "verdict": "a_corriger",
+        "observation": "Algorithme incomplet et prématurément conclusif.",
+        "constats": [
+          "F04",
+          "F05",
+          "F06"
+        ]
+      },
+      {
+        "partie": 11,
+        "pointeur": "/c/10",
+        "sha256": "ff0676ce6b2e334052adaf0433f9a39cce3a9ba1c854910bbb6de56646fa08c4",
+        "verdict": "a_corriger",
+        "observation": "Mesures générales recevables ; tri urgent à compléter et séquence spécialisée à individualiser.",
+        "constats": [
+          "F04",
+          "F07"
+        ]
+      },
+      {
+        "partie": 12,
+        "pointeur": "/c/11",
+        "sha256": "ef73f876b773568691d02cee54c88ad0421a741837b401aa7692b9dc7c3e3473",
+        "verdict": "acceptable_documentaire_limite",
+        "observation": "Suivi, retentissement et dépistage suisse corroborés ; rappeler absence de symptômes pour dépistage.",
+        "constats": [
+          "F06"
+        ]
+      },
+      {
+        "partie": 13,
+        "pointeur": "/c/12",
+        "sha256": "726b18d78787c3426c0517633529569efd5cbf44e2468994a9475372d562f70e",
+        "verdict": "a_corriger",
+        "observation": "Résumé concentre les généralisations du bilan et omet le tri neurologique.",
+        "constats": [
+          "F04",
+          "F05",
+          "F06",
+          "F11"
+        ]
+      },
+      {
+        "partie": 14,
+        "pointeur": "/c/13",
+        "sha256": "1bf2ab764380acc324151e5f3f8e6bd232936afd7fa01017876b0299079a371f",
+        "verdict": "a_corriger",
+        "observation": "Transformer certitude cancéreuse en suspicion ; ne pas réduire toute fuite de gaz à une lésion sphinctérienne.",
+        "constats": [
+          "F06",
+          "F07",
+          "F09"
+        ]
+      }
+    ],
+    "S3.5": [
+      {
+        "partie": 1,
+        "pointeur": "/c/0",
+        "sha256": "f34546282eb112eca98c9ce5ac59062a219dd58da8b05a49b78cbb056faa3a22",
+        "verdict": "a_corriger",
+        "observation": "Composite identifié sans fausse attribution mondiale ; prurit à définir et plis à rattacher à une source adéquate.",
+        "constats": [
+          "F07",
+          "F08"
+        ]
+      },
+      {
+        "partie": 2,
+        "pointeur": "/c/1",
+        "sha256": "4beb27e701f96b8a4d8ffad21aadf5eb7a12c8b049a17014cd090a3c4b239638",
+        "verdict": "acceptable_sous_reserves",
+        "observation": "Chiffres non relus marqués À vérifier ; éviter leur accumulation dans le rappel. Terrain NHS corroboré ; facteur HPV reste à sourcer.",
+        "constats": [
+          "F07"
+        ]
+      },
+      {
+        "partie": 3,
+        "pointeur": "/c/2",
+        "sha256": "73930bf42e270d1addf4f21b63595629c8f61dcf67431e4f9e1d07b192565413",
+        "verdict": "a_corriger",
+        "observation": "Anatomie et hypertonie non couvertes par la seule page fistule ; indolore ne doit pas devenir absolu.",
+        "constats": [
+          "F07",
+          "F09"
+        ]
+      },
+      {
+        "partie": 4,
+        "pointeur": "/c/3",
+        "sha256": "3a84bd3114732586d7fa999e1f3a5e1260ce3939159d52c6eb6588568b2f3fea",
+        "verdict": "a_corriger",
+        "observation": "La chronologie oriente sans suffire ; poser tri urgent avant démarche proctologique.",
+        "constats": [
+          "F02",
+          "F09"
+        ]
+      },
+      {
+        "partie": 5,
+        "pointeur": "/c/4",
+        "sha256": "fb867364c53942dac6afcf9832f855555ae27730fe75f8c4ced45e6d041ca3e3",
+        "verdict": "a_corriger",
+        "observation": "Hémorragie importante correctement urgente ; absence de fièvre n’exclut pas abcès, procidence compliquée à ajouter.",
+        "constats": [
+          "F02",
+          "F03"
+        ]
+      },
+      {
+        "partie": 6,
+        "pointeur": "/c/5",
+        "sha256": "8bb69f9787b0d272eb374447e31bb413787cc7d687dac96c1795411d0035f1be",
+        "verdict": "a_corriger",
+        "observation": "Réaffectation anatomique et renvois obligatoires avant validation interactive.",
+        "constats": [
+          "F01",
+          "F11"
+        ]
+      },
+      {
+        "partie": 7,
+        "pointeur": "/c/6",
+        "sha256": "78934c539a6898214ac5dc821be1d9b5dcfc1ef80c14ae4c7e5daebf95eeb51a",
+        "verdict": "a_corriger",
+        "observation": "Sémiologie des fissures/fistules utile ; compléter prurit et réserves infectieuses.",
+        "constats": [
+          "F02",
+          "F07",
+          "F08"
+        ]
+      },
+      {
+        "partie": 8,
+        "pointeur": "/c/7",
+        "sha256": "1268209235c8c8be5b59121566220f7474fea86ae56f451babff13364ff4f7b0",
+        "verdict": "a_corriger",
+        "observation": "Grades I–IV annoncés sans description ; chronologie non suffisante et source insuffisante.",
+        "constats": [
+          "F07",
+          "F09"
+        ]
+      },
+      {
+        "partie": 9,
+        "pointeur": "/c/8",
+        "sha256": "032dd40ead207042a7463750cf4b78027cbace5ff92ed967b332c3c8fab9203f",
+        "verdict": "a_corriger",
+        "observation": "Précaution douleur présente et à conserver ; supprimer séquence indifférenciée abcès/fistule ; tests du prurit orientés.",
+        "constats": [
+          "F02",
+          "F08"
+        ]
+      },
+      {
+        "partie": 10,
+        "pointeur": "/c/9",
+        "sha256": "7b89602f186607ed138fc2d901a24c54dd94f7e29dd930cc6e296a86eade4556",
+        "verdict": "a_corriger",
+        "observation": "Pas de branche afébrile automatiquement rassurante ; intégrer procidence compliquée ; excision encore réservée.",
+        "constats": [
+          "F02",
+          "F03",
+          "F08"
+        ]
+      },
+      {
+        "partie": 11,
+        "pointeur": "/c/10",
+        "sha256": "8f874a22fcfa66aa9a11f5307f71a56db6d955ea0c3d7d7a7f6593450e058b98",
+        "verdict": "a_corriger",
+        "observation": "Drainage à sourcer et contextualiser ; compléter prurit/prolapsus ; traitement de fissure trop vague et durée non AIPS.",
+        "constats": [
+          "F02",
+          "F03",
+          "F08",
+          "F10"
+        ]
+      },
+      {
+        "partie": 12,
+        "pointeur": "/c/11",
+        "sha256": "bc774243f0930610fff562b2e36cd9a693511d219bb58842ac27939d11516481",
+        "verdict": "a_corriger",
+        "observation": "Délai de consultation fissure corroboré ; ajouter critères de réévaluation prurit/procidence sans généraliser bénignité.",
+        "constats": [
+          "F08"
+        ]
+      },
+      {
+        "partie": 13,
+        "pointeur": "/c/12",
+        "sha256": "6e766f550ae26c0c268e947e8f2cff34ad62646373d8b14678e0a82aed61a522",
+        "verdict": "a_corriger",
+        "observation": "Résumé urgent et examen doivent reprendre les limites du cours.",
+        "constats": [
+          "F02",
+          "F03",
+          "F11"
+        ]
+      },
+      {
+        "partie": 14,
+        "pointeur": "/c/13",
+        "sha256": "186c7547f8b2034c562d689bcefaae9cd6361bc09e29200776f81cc95e7d243b",
+        "verdict": "a_corriger",
+        "observation": "Différence abcès/thrombose trop absolue ; interdiction de forcer examen utile ; dépistage suisse exact.",
+        "constats": [
+          "F02",
+          "F07",
+          "F09"
+        ]
+      }
+    ]
+  },
+  "sources_lues": [
+    {
+      "id": "NHS-FI",
+      "url": "https://www.nhs.uk/conditions/bowel-incontinence/",
+      "organisme": "NHS, Royaume-Uni",
+      "lecture": "Page lue : définition, symptômes, examen et traitements ; source grand public, ne couvre pas tous les mécanismes ni examens spécialisés.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "NHS-PAIN",
+      "url": "https://www.nhs.uk/symptoms/anal-pain/",
+      "organisme": "NHS, Royaume-Uni",
+      "lecture": "Page lue après redirection depuis /conditions/anal-pain/ : symptômes et conseils de recours urgent.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "NHS-FISSURE",
+      "url": "https://www.nhs.uk/conditions/anal-fissure/",
+      "organisme": "NHS, Royaume-Uni",
+      "lecture": "Page lue : symptômes, examen douloureux, traitements et réévaluation ; pas une preuve AIPS.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "NHS-FISTULA",
+      "url": "https://www.nhs.uk/conditions/anal-fistula/",
+      "organisme": "NHS, Royaume-Uni",
+      "lecture": "Page lue : examen de fistule et traitements ; révision21.02.2023, échéance21.02.2026 dépassée signalée.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "NHS-PILES",
+      "url": "https://www.nhs.uk/conditions/piles-haemorrhoids/",
+      "organisme": "NHS, Royaume-Uni",
+      "lecture": "Page lue : symptômes, mesures simples et traitements hospitaliers ; révision01.04.2026.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "LIGUE-FIT",
+      "url": "https://www.liguecancer.ch/a-propos-du-cancer/depistage/cancer-du-colon/",
+      "organisme": "Ligue suisse contre le cancer, Suisse",
+      "lecture": "Page lue : dépistage asymptomatique, FIT ou coloscopie ; distinction avec exploration des symptômes.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "LIGUE-PROG",
+      "url": "https://www.liguecancer.ch/a-propos-du-cancer/depistage/cancer-du-colon/programme-de-depistage-du-cancer-du-colon/",
+      "organisme": "Ligue suisse contre le cancer, Suisse",
+      "lecture": "Page lue : assurance50–74ans depuis01.07.2025, FIT2ans/coloscopie10ans, franchise selon programme.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "UEG-FI",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9004250/",
+      "organisme": "UEG/ESCP/ESNM/ESPCG, recommandation européenne2022 ; dépôt PMC distinct de l’éditeur",
+      "lecture": "Sections définition, diagnostic/anamnèse/examen et première ligne lues ; définition RomeIV de l’incontinence fécale distincte des gaz. Notice : Wiley Periodicals LLC on behalf of UEG ; pays éditeur à documenter avant admission G3, non déduit des affiliations.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "WSES",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8447593/",
+      "organisme": "WSES-AAST2021, consensus international ; dépôt PMC",
+      "lecture": "Sections1A–C, recommandations Fournier et prolapsus compliqué consultées ; niveau de preuve souvent faible. Document primaire, éditeur/pays et URL admissible à établir avant ajout au catalogue.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "SNFCP-PRURIT",
+      "url": "https://www.snfcp.org/fiches-pratiques/fiches-techniques/maladies-sexuellement-transmissibles-et-dermatologie/prurit-anal-chronique-la-premiere-consultation/",
+      "organisme": "Société nationale française de colo-proctologie, France",
+      "lecture": "Page lue : définition de prurit chronique, dermatoses et irritation, examen, lésions atypiques, mesures locales. Aucun schéma médicamenteux français transposé.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    },
+    {
+      "id": "NHS-SPINE",
+      "url": "https://www.nhs.uk/conditions/slipped-disc/",
+      "organisme": "NHS, Royaume-Uni",
+      "lecture": "Section recours immédiat lue : lombalgie associée à anesthésie périnéale, rétention urinaire ou perte de contrôle sphinctérien.",
+      "lu_le": "2026-10-20",
+      "mode": "page ou sections explicitement indiquées via search_service_web_run"
+    }
+  ],
+  "lectures_partielles_ou_refusees": [
+    {
+      "id": "NG12-PARTIEL",
+      "url": "https://www.nice.org.uk/guidance/ng12/chapter/recommendations-organised-by-site-of-cancer",
+      "resultat": "Ouverture HTTP403. Extrait moteur indexé seulement consulté : masse rectale/anale et ulcération inexpliquée ne nécessitent pas FIT avant orientation. Aucun visa de lecture intégrale NG12."
+    },
+    {
+      "id": "CG49-PARTIEL",
+      "url": "https://www.nice.org.uk/guidance/CG49/chapter/Recommendations",
+      "resultat": "Ouverture HTTP403 ; extrait moteur listant urgences lésion sphinctérienne/queue de cheval consulté seulement."
+    },
+    {
+      "id": "CG61-REFUSE",
+      "url": "https://www.nice.org.uk/guidance/CG61/chapter/recommendations",
+      "resultat": "Ouverture HTTP403, aucune lecture complète."
+    },
+    {
+      "id": "NG127-PARTIEL",
+      "url": "https://www.nice.org.uk/guidance/ng127/chapter/Recommendations-for-adults-aged-over-16",
+      "resultat": "Ouverture HTTP403 ; recommandation de recours immédiat queue de cheval visible dans extrait indexé ; corroboration grand public NHS-SPINE lue."
+    },
+    {
+      "id": "BSG-IBS-PARTIEL",
+      "url": "https://gut.bmj.com/content/early/2021/04/27/gutjnl-2021-324598",
+      "resultat": "Extraits indexés de recommandations initiales lus, dont hémogramme/CRP ou VS/sérologie cœliaque et calprotectine selon contexte. Ouverture HTML/PDF et miroir Nottingham refusée403 ; relecture intégrale requise avant validation du texte corrigé."
+    },
+    {
+      "id": "BSG-IBD-PARTIEL",
+      "url": "https://gut.bmj.com/content/68/Suppl_3/s1",
+      "resultat": "Extrait indexé sur limites de calprotectine et filière cancer lu ; ouverture403. Alternative BSG diarrhée PMC6204957 renvoie captcha, non lue."
+    },
+    {
+      "id": "SNFCP-ABCES-REFUSE",
+      "url": "https://www.snfcp.org/informations-maladies/fistules-anales/abces-et-fistules-anales/",
+      "resultat": "Internal Error à l’ouverture ; non utilisée comme preuve."
+    }
+  ],
+  "controles": {
+    "porte0": "complète",
+    "lot_arsenal": "2éléments,0erreur,14mentions À vérifier",
+    "niveau1": "G1–G8 réussis,0signalement ; avertissements préexistants nc07 hors lot",
+    "lot_et_canonique": "28parties identiques",
+    "posologies": "Aucune dose chiffrée détectée ni validée AIPS. F10 réserve la durée de traitement non identifié ; aucune lecture Compendium.",
+    "liens_progression": "Aucune modification par cet audit. Analyse statique des marqueurs régionaux et @r ; aucun parcours navigateur attesté. F01 reste bloquant.",
+    "limites_gardes": "Un résultat mécanique vert ne valide ni attribution scientifique ni anatomie ni tri clinique."
+  },
+  "fichiers_sha256": {
+    "data/tip/S3.4.json": "6eafcc25620634be6f1c16854f8ba4542141249fd345e3e18edeeebf486ebb31",
+    "tools/cours/lots/S3.4.json": "1f1eed8ff36b9dac3ae26e098ae6425ce7235c5e57500bc8a52461539e8151ad",
+    "data/tip/S3.5.json": "938fb631110532d7bedb481eed9f1b40476bb5656d8f97151f8c9a8a5a45d15b",
+    "tools/cours/lots/S3.5.json": "8af8e3cd40c0dceb69f47494fe7ad21255c63a1dfe6918f2fcb097b7f8e4bf97"
+  },
+  "conditions_reaudit": [
+    "Auteur distinct corrige les constats dans le lot et les cours, en conservant14parties et données hors c/v concernées.",
+    "Références nouvelles : document/pays éditeur réellement vérifiés et G3 sans élargissement de domaine implicite ; un dépôt PMC ne vaut pas éditeur européen.",
+    "Transmettre nouvelles empreintes et mapping sources par partie ; contre-audit ciblé puis validations techniques/interaction avant intégration.",
+    "Ne pas enregistrer ce rapport comme favorable_documentaire ni compter ces28parties comme achevées."
+  ],
+  "limites": "Audit médical documentaire par IA, sans validation humaine ; références partielles/refusées explicitement séparées. Aucun cours, source canonique, registre partagé ou fichier de code modifié."
+}

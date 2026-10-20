@@ -6,6 +6,13 @@ chaque SVG ≤ 120 Ko ; assets/nc/ ≤ 3 Mo au total ; assets/mono/ (monographie
 d'environnement pour les tests des gardes (APP_MAX_BYTES, CK_MAX_BYTES, SVG_MAX_BYTES, NC_MAX_BYTES, MONO_MAX_BYTES).
 """
 import os, sys
+if len(sys.argv) > 1 and sys.argv[1] == '--lignes':  # Arsenal : signale une lecture de plus de N lignes.
+    n = int(sys.argv[2]); trop = []
+    for f in sys.argv[3:]:
+        t = open(f, encoding='utf-8', errors='replace').read(); k = max(t.count('\n'), len(t) // 120)  # lignes équivalentes
+        if k > n: trop.append(f'{f} ({k} l.)')
+    print(('LECTURE TROP LONGUE > %d l. : ' % n + ', '.join(trop) + ' → tools/arsenal/extrait.py ou tools/slim.py') if trop else 'OK lecture')
+    sys.exit(1 if trop else 0)
 from _app import ROOT, APP
 APP_MAX = int(os.environ.get('APP_MAX_BYTES', 6_000_000))
 CK_MAX = int(os.environ.get('CK_MAX_BYTES', 2_500_000))
