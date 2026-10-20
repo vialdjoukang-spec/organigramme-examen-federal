@@ -1,6 +1,6 @@
 # P0 · stabilisation et assainissement · 20.10.2026
 
-**Correctifs P0 audités, fusionnés et publiés ; clôture documentaire à fusionner et publier avant démarrage P1.** Aucune modification de contenu clinique ni de présentation. Le mandat courant est `docs/MANDAT-REMASTERING-P0-P4.md`.
+**PRIORITÉ P0 TERMINÉE.** Correctifs et clôture documentaire audités, fusionnés et publiés ; CI finale main verte. Voir `P0-CLOTURE-FINALE-20261020.json`. Aucune modification de contenu clinique ni de présentation. Le mandat courant est `docs/MANDAT-REMASTERING-P0-P4.md`.
 
 ## État vérifié et périmètre
 
@@ -34,23 +34,25 @@ Les refus G3 restant sur des sources réellement utilisées relèvent de leurs l
 
 PR [268](https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/268), tête finale `a60232967dab20a4b5e924a90768a249da4bd4c6` ; CI39410475983, Visuel39410476041 et Checkpoint39410475984 réussis sur cette tête. Les six contrôles requis sont verts (`P0-CI-TETE-20261020.json`). Fusion normale, sans contournement : `b22c1b41f88bc132b94e021bb9eb6f459e8dfa13`, arbre identique à la tête auditée. CI main39411571707 réussie. Pages39411579782 réussi sur ce même commit ;114 réponses HTTP200 avec SHA-256 identiques (`P0-PUBLICATION-CORRECTIFS-20261020.json`). Le test visuel final constate60comparaisons sans différence, aucune nouvelle violation axe sérieuse/critique ni débordement mobile ; il ne certifie pas la future charte P4 sur l’interface historique.
 
-Six rapports d’un même contre-auditeur indépendant Astra couvrent le code technique, les sources, la documentation, le planificateur, les clones Git et les permissions. `P0-AUDIT-MANIFESTE-20261020.json` lie les20fichiers de code à leur dernière empreinte auditée. Le contre-audit documentaire de clôture est ajouté séparément ; aucune attestation humaine médicale.
+Six rapports d’un même contre-auditeur indépendant Astra couvrent le code technique, les sources, la documentation, le planificateur, les clones Git et les permissions. `P0-AUDIT-MANIFESTE-20261020.json` lie les20fichiers de code à leur dernière empreinte auditée. Le septième rapport, contre-audit documentaire de clôture favorable, est ajouté séparément ; aucune attestation humaine médicale.
 
 | Indicateur | Résultat |
 |---|---|
 | Priorité | P0 |
-| Tâches prévues / achevées | 9 groupes techniques / 9 correctifs livrés ; clôture documentaire dans cette proposition |
+| Tâches prévues / achevées | 9 groupes techniques / 9 correctifs livrés ; clôture documentaire livrée par #269 |
 | Anomalies / corrections | 9 groupes / 9 ;22branches,131occurrences inutilisées archivées |
-| Audits indépendants | 1contre-auditeur Astra,6rapports techniques/documentaires ; clôture relue séparément |
+| Audits indépendants | 1contre-auditeur Astra,7rapports favorables, clôture incluse |
 | Tests / CI | Six contrôles de tête verts ; CI main réussie ; tests ciblés, navigateur et visuel réussis |
-| PR fusionnées | #268 ; #202 close comme remplacée, branche conservée |
-| Commit des correctifs | `b22c1b41f88bc132b94e021bb9eb6f459e8dfa13` |
-| Publication | Pages39411579782 réussi,114fichiers200identiques |
-| Reliquat P0 | Fusion/CI/publication de cette clôture documentaire ; aucun correctif de code bloquant restant identifié |
+| PR fusionnées | #268 et #269 ; #202 close comme remplacée, branche conservée |
+| Commit final | `fbc2c07dd917ea07e15ff3a5ba70423c259c4e15` |
+| Publication finale | Pages39414896430 réussi,114fichiers200identiques ; CI main39414887187 réussie |
+| Reliquat P0 | Aucun |
 | Priorité suivante | P1 : audit S3.4/S3.5, puis reprise des PR ALPHA dans l’ordre du catalogue |
 
 ## Limites et reprise exacte
 
 L’inventaire actualisé compte105PR historiques ouvertes après fermeture202 ;150est en brouillon, pour P4. Les états de conflit post-fusion étaient inconnus lors du dernier relevé et ne sont pas assimilés à une absence de conflits. Les71DIRTY/35BEHIND historiques ne sont pas des valeurs actuelles. Chaque lot futur exige réconciliation, audit et CI sur sa tête finale. Aucun doublon clinique n’a été supprimé, aucune branche effacée. Les22refus G3 projetés sur des sources utilisées restent bloquants pour les futurs lots concernés ; ce n’est pas un dysfonctionnement technique.
 
-Attendre le contre-audit et la CI de la clôture documentaire sur sa tête exacte, fusionner et vérifier sa publication, puis confirmer P0 et exécuter P1. La configuration reste à P0 pour empêcher matériellement toute attribution anticipée ; activer P1 dans une transition distincte après ces preuves. Un watcher ou un commentaire ne prouve pas une IA autonome ; aucun dispositif permanent de production n’est revendiqué.
+Clôture #269 sur tête `85839129b1d3f955cb745aa35658dca854e9f371`, CI39413900135/Visuel39413900324/Checkpoint39413900145 réussis, fusion normale `fbc2c07dd917ea07e15ff3a5ba70423c259c4e15` avec arbre audité identique. CI main39414887187 et Pages39414896430 réussis,114fichiers publics200identiques. L’écart de transition prématurée et le format initial incomplet de description PR ont été corrigés avant la tête finale ; aucun contrôle ignoré. Inventaire final :105PR/125branches, aucun auto-merge actif,125branches historiques et105têtes restantes préservées.
+
+P1 commence après ces preuves, par correction et contre-audit S3.4/S3.5. Aucune nouvelle rédaction clinique n’a été engagée pendant P0. Un watcher ou commentaire ne prouve pas une IA autonome ; aucun dispositif permanent de production n’est revendiqué.

@@ -369,6 +369,34 @@
       "statut_avant_passation": "en_redaction",
       "motif_annulation": "Passation à Grokbot : aucun agent actif ; objets locaux non poussés, non récupérés après nettoyage temporaire. Reprendre depuis main sans compter le travail comme acquis.",
       "annule_le": "2026-10-20T05:55:19.750807+00:00"
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_s3_6_s3_7",
+      "modele": "gpt-6-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S3.4",
+        "S3.5"
+      ],
+      "branche": "codex/p1-s3.4-s3.5",
+      "statut": "en_redaction",
+      "observe_le": "2026-10-20T11:33:00Z"
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_s3_8_s3_9",
+      "modele": "gpt-6-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S3.8",
+        "S3.9"
+      ],
+      "branche": "codex/p1-s3.8-s3.9",
+      "statut": "en_redaction",
+      "observe_le": "2026-10-20T11:33:00Z"
     }
   ],
   "publications": {
@@ -545,9 +573,9 @@
       "P3",
       "P4"
     ],
-    "priorite_active": "P0",
-    "statut": "cloture_documentaire_en_cours",
-    "observe_le": "2026-10-20T11:07:03Z",
+    "priorite_active": "P1",
+    "statut": "en_cours",
+    "observe_le": "2026-10-20T11:33:00Z",
     "rapport_file": "audit/P0-FILE-PR-20261020.json",
     "fusion_clinique": "manuelle_centralisee",
     "priorites_suivantes_bloquees": true,
@@ -556,20 +584,21 @@
       "branches": 22,
       "sources_archivees": 131
     },
-    "main_observe": "b22c1b41f88bc132b94e021bb9eb6f459e8dfa13",
+    "main_observe": "fbc2c07dd917ea07e15ff3a5ba70423c259c4e15",
     "pr_ouvertes_historiques": 105,
     "pr_correctifs": 268,
-    "branche": "codex/p0-cloture-20261020",
+    "branche": "codex/p1-transition-20261020",
     "p0": {
-      "statut": "correctifs_audites_fusionnes_publies",
-      "commit": "b22c1b41f88bc132b94e021bb9eb6f459e8dfa13",
-      "ci_main": 39411571707,
-      "pages": 39411579782,
-      "preuve_publication": "audit/P0-PUBLICATION-CORRECTIFS-20261020.json",
-      "cloture_documentaire": "fusion_et_publication_encore_requises_dans_cette_proposition"
+      "statut": "terminee",
+      "commit": "fbc2c07dd917ea07e15ff3a5ba70423c259c4e15",
+      "pr_fusionnees": [
+        268,
+        269
+      ],
+      "ci_main": 39414887187,
+      "pages": 39414896430,
+      "preuve": "audit/P0-CLOTURE-FINALE-20261020.json"
     },
-    "condition_demarrage_P1": "cloture documentaire fusionnée et publication observée sur son SHA",
-    "prochaine_commande": "Vérifier la CI exacte de la PR de codex/p0-cloture-20261020, fusionner, vérifier Pages ; puis auditer S3.4/S3.5 existants avant PR161",
-    "priorite_suivante": "P1"
+    "prochaine_commande": "Reprendre audit/P1-CONTRE-AUDIT-S3.4-S3.5-20261020.json puis corrections de ces2cours ; nouveau contre-audit indépendant avant intégration, CI et publication. Ensuite reprendre PR161 avant164."
   }
 }
