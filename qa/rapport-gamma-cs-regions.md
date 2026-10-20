@@ -7,8 +7,9 @@
 
 ## Automates actifs
 - `tools/patches/0120-gamma-cs-regions.py`
-- `tests/test_cs_regions.py`
-- `tests/run_tests.py`
 - `ssp-patch` (skill)
 - `ssp-fusion-patch` (skill)
 - `ssp-tests` (skill)
+
+## Audit de forme phases 1-2 (grok-bot)
+Ligne unique, symétrie, défilement mobile sans débordement, 22 teintes, contraste ≥ 5,7:1, sélection ✓ + aria-pressed : conforme. axe : 0 nouveau problème. Écarts pixels limités à la vue Gestes, voulus.
