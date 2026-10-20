@@ -1,4 +1,4 @@
-"""Contrat temporaire du catalogue Gestes pendant la reconstruction."""
+"""Contrat du catalogue Gestes : réécriture sourcée et datée, non traités vides."""
 import importlib.util
 from pathlib import Path
 import unittest
@@ -10,18 +10,23 @@ spec.loader.exec_module(patch)
 
 
 class GestesSuspendus(unittest.TestCase):
-    def test_cle_et_ordre_conserves(self):
+    def test_gestes_reecrits_sources_et_dates(self):
+        """Réécriture ordonnée par Vial (20.10.2026) : tout geste réécrit porte une source lue et datée ;
+        tout geste non traité reste vide (g == n == '')."""
+        import re
         app = (ROOT / 'app_v2.html').read_text()
-        start, end, regions = patch.ges_span(app)
-        self.assertEqual(patch.sha(app[start:end]), patch.GES_NEW_SHA)
+        _, _, regions = patch.ges_span(app)
         self.assertEqual(len(regions), 22)
         items = [item for region in regions for item in region['items']]
         self.assertEqual(len(items), 315)
         keys = [item['k'] for item in items]
         self.assertEqual(len(keys), len(set(keys)))
-        self.assertTrue(all(isinstance(item['s'], str) and item['s'] and item['g'] == item['n'] == '' for item in items))
-        self.assertTrue(all('p' in item for item in items))
-        self.assertEqual(patch.transform(app, (ROOT / 'assets/config/fonctions.js').read_text())[0], app)
+        self.assertTrue(all(isinstance(i['s'], str) and i['s'] and 'p' in i for i in items))
+        lu = re.compile(r'lu le \d{2}\.\d{2}\.\d{4}')
+        for i in items:
+            if i['g'] or i['n']:
+                self.assertTrue(i['g'] and i['n'], i['k'])
+                self.assertRegex(i.get('src', ''), lu, i['k'])
 
     def test_renvois_et_identifiants_resolus(self):
         _, _, regions = patch.ges_span((ROOT / 'app_v2.html').read_text())
