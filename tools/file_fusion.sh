@@ -9,7 +9,7 @@
 #
 # Usage : tools/file_fusion.sh [--dry-run] [--chaine NOM] [--sans-publier] [--ci] [--droits]
 #   --dry-run      n'écrit rien (ni API en écriture, ni journal) : imprime ce qui serait fait
-#   --chaine NOM   une seule chaîne de tools/etapes.json (prev, hygie, panacee, doses, glossaire…)
+#   --chaine NOM   seule valeur active : technique ; anciennes chaînes suspendues
 #   --ci           exécution GitHub Actions (journal dans le résumé du job, pas dans le dépôt)
 #   --droits       contrôle les droits de fusion (admin, auto-merge, commit de fusion, protection) puis sort
 set -uo pipefail
@@ -64,14 +64,15 @@ if ! REQUIS="$(gh api "repos/$GH_REPO/branches/main/protection" --jq '.required_
   info "protection non lisible : contrôles garde html tests visuel exigés localement ; GitHub reste l'autorité pour la fusion"
 fi
 REQUIS="${REQUIS:-garde html tests visuel}"
-CHAINES="$(python3 - "$RACINE/tools/etapes.json" "$CHAINE" <<'PY'
-import json, sys
-c = json.load(open(sys.argv[1], encoding="utf-8"))["chaines"]
-for k, v in c.items():
-    if not sys.argv[2] or k == sys.argv[2]:
-        print(k, *v)
-PY
-)"
+# Aucune ancienne chaîne n'autorise une fusion. Main fournit la seule liste technique.
+if ! AUTORISEES="$(python3 "$RACINE/tools/predecesseurs_fusion.py" --list)"; then
+  info "configuration canonique inaccessible : aucune mutation de fusion"; exit 0
+fi
+if [ -n "$CHAINE" ] && [ "$CHAINE" != "technique" ]; then
+  info "chaînes historiques suspendues ; fusion clinique manuelle centralisée"; exit 0
+fi
+CHAINES="technique $AUTORISEES"
+CHAINES="$(printf '%s' "$CHAINES" | tr '\n' ' ')"
 FUSIONNEES=0
 while read -r nom prs; do
   [ -n "${nom:-}" ] || continue
@@ -96,7 +97,7 @@ for r in req:
     s = res.get(r, "ABSENT")
     if s in ("FAILURE", "ERROR", "CANCELLED", "TIMED_OUT", "ACTION_REQUIRED", "STARTUP_FAILURE"):
         v = "rouge:" + r; break
-    if s not in ("SUCCESS", "NEUTRAL", "SKIPPED"):
+    if s != "SUCCESS":
         v = "attente:" + r
 print(d["state"], int("audit-ok" in lab), int("attente-vial" in lab), int(d.get("isDraft", False)),
       d.get("mergeStateStatus", "UNKNOWN"), d.get("headRefOid", "-"), v)
@@ -105,30 +106,22 @@ PY
     case "$etat" in MERGED|CLOSED) info "#$n $etat"; oublier "$n"; continue ;; esac
     if [ "$vial" = 1 ]; then info "#$n attend l'accord de Vial (faute critique) : chaîne suspendue"; break; fi
     if [ "$draft" = 1 ] || [ "$audit" = 0 ]; then info "#$n attend son audit (pas de label audit-ok)"; break; fi
-    # Exécutions « action_required » (commits du bot) : approuver ou relancer.
-    for id in $(gh run list --commit "$sha" --status action_required --json databaseId --jq '.[].databaseId' 2>/dev/null); do
-      ecrire gh api -X POST "repos/$GH_REPO/actions/runs/$id/approve" >/dev/null 2>&1 \
-        || ecrire gh run rerun "$id" >/dev/null 2>&1 \
-        || echec "$n" "CI action_required (run $id) : pousser un commit vide sur la branche (git commit --allow-empty) ou approuver dans Actions"
-    done
-    case "$fusion" in
-      BEHIND)
-        if ecrire gh api -X PUT "repos/$GH_REPO/pulls/$n/update-branch" -f expected_head_sha="$sha" >/dev/null 2>&1; then
-          info "#$n mise à jour avec main (CI relancée)"
-        else
-          echec "$n" "update-branch refusé : fusionner origin/main en local puis rebuild (skill ssp-fusion-patch)"
-        fi
-        break ;;
-      DIRTY)
-        echec "$n" "conflit avec main : git merge origin/main + merge_shards.py + mono_build.py/prev_build.py (jamais à la main)"
-        break ;;
-    esac
+    # Garde partagé avant toute mutation : configuration de main, SHA exact, audit et CI.
+    if ! python3 "$RACINE/tools/predecesseurs_fusion.py" "$n" --head "$sha" --check; then
+      info "#$n hors autorisation technique courante ou contrôles incomplets : aucune mutation"; continue
+    fi
+    # Les branches en retard, conflits et CI action_required demandent une nouvelle
+    # intervention du coordinateur ; aucun automate ne modifie leur SHA autorisé.
     case "$verdict" in
       rouge:*) echec "$n" "contrôle requis ${verdict#rouge:} en échec"; break ;;
       attente:*) info "#$n CI en cours (${verdict#attente:})"; break ;;
     esac
     if [ "$fusion" != "CLEAN" ] && [ "$fusion" != "HAS_HOOKS" ] && [ "$fusion" != "UNSTABLE" ]; then
       info "#$n état $fusion : on attend"; break
+    fi
+    # Nouvelle lecture canonique juste avant fusion, notamment après toute attente réseau.
+    if ! python3 "$RACINE/tools/predecesseurs_fusion.py" "$n" --head "$sha" --check; then
+      info "#$n autorisation périmée : aucune fusion"; continue
     fi
     if ecrire gh pr merge "$n" --merge --match-head-commit "$sha"; then
       info "#$n FUSIONNÉE (commit de fusion)"; oublier "$n"; FUSIONNEES=$((FUSIONNEES+1))

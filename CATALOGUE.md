@@ -195,11 +195,11 @@ Patches rejouables : 45 dans `tools/patches/` (skill ssp-patch).
 
 ## 5. Serveurs MCP et connecteurs de Codex
 
-À COMPLÉTER PAR CODEX : lancer `codex mcp list` (ou lire `~/.codex/config.toml`, section `[mcp_servers]`) et lister chaque serveur avec son usage ici.
+Observé le 20.10.2026 : connecteur GitHub disponible (lecture/écriture du dépôt, PR et Actions) ; CLI `gh` effectivement utilisée pour P0. Connecteur cloud-environment : état du réseau et des accès. Recherche web disponible pour les lectures documentaires ultérieures. Aucun MCP médical ni navigateur MCP présumé. Les connecteurs Pages et Drive ne servent pas ce mandat.
 
 ## 6. Skills et outils propres à Codex
 
-À COMPLÉTER PAR CODEX : lister les skills/outils intégrés de Codex (recherche web, navigateur, exécution, images…) et dire lesquels servent à quelle étape.
+Outils réellement accessibles : exécution shell/Python/JavaScript, édition de fichiers, Git, `gh`, agents spécialisés et skills du dépôt. P0 utilise shell, scripts déterministes et deux agents indépendants pour les audits techniques. Le skill `cloud-environment-runtime` a été lu pour le réseau. Les outils web serviront aux lectures scientifiques P1–P4 ; Playwright est vérifié par la CI. Aucun outil image utilisé. Les modèles de chaque agent sont consignés selon leur exécution réelle, sans attestation fabriquée.
 
 ## 7. Droits de fusion-publication
 
@@ -207,7 +207,7 @@ Patches rejouables : 45 dans `tools/patches/` (skill ssp-patch).
 {"admin":true,"auto_merge":true,"merge_commit":true,"push":true,"squash":false}
 {"checks":["garde","html","tests","visuel"],"enforce_admins":true,"strict":true}
 ```
-Attendu : admin=true, auto_merge=true, merge_commit=true ; protection : garde, html, tests, visuel, strict.
+Référence historique ci-dessus, pas une observation courante des protections. Le 20.10.2026, API dépôt : admin/maintain/push=true et auto_merge=true. La lecture de la protection retourne HTTP 403 « Resource not accessible by integration » ; aucune règle modifiée. CI exacte et contrôles minimaux sont exigés indépendamment de cette limite.
 
 ## 8. Modèle des tâches répétitives
 

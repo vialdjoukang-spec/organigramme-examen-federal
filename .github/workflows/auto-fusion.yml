@@ -1,17 +1,18 @@
 # Auto-fusion après audit (label audit-ok).
 # Les rédacteurs ouvrent leur PR sans fusionner. L'auditeur pousse ses
 # corrections sur la branche et ajoute le label audit-ok. Ce workflow
-# met la branche à jour avec main si besoin, puis active l'auto-merge
-# (commit de fusion). GitHub fusionne dès que les contrôles requis sont
-# verts. La publication Pages est déclenchée par pages.yml (y compris
+# applique une autorisation technique de main puis fusionne immédiatement
+# par commit de fusion, seulement lorsque tous les contrôles sont déjà verts.
+# Aucune autorisation différée d'auto-merge ne subsiste après ce passage. La publication Pages est déclenchée par pages.yml (y compris
 # sur pull_request fermée et fusionnée), car une fusion faite avec
 # GITHUB_TOKEN ne relance pas les workflows push.
 # GH_REPO est fixé (aucun dépôt local : « not a git repository » sinon). Si le secret
-# AUTO_FUSION_TOKEN (PAT fin) existe, il remplace GITHUB_TOKEN : les commits de mise à jour
-# déclenchent alors la CI normalement (fin des exécutions « action_required »).
+# AUTO_FUSION_TOKEN (PAT fin) existe, il remplace GITHUB_TOKEN. Aucune mise à jour
+# automatique de branche ne remplace le SHA explicitement autorisé sur main.
 name: Auto-fusion
 on:
-  pull_request:
+  # Le YAML est lui aussi fourni par la branche de base de confiance.
+  pull_request_target:
     types: [labeled, synchronize, reopened]
     branches: [main]
 
@@ -36,18 +37,20 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
+      # Le code de décision vient exclusivement de main, jamais de la PR.
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: main
           persist-credentials: false
-      - name: Vérifier les prédecesseurs de la chaîne
+      - name: Vérifier le mandat, l'autorisation technique et la CI du SHA exact
         id: ordre
         env:
           GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number }}
-        run: python3 tools/predecesseurs_fusion.py "$PR" >> "$GITHUB_OUTPUT"
-      - name: Mettre à jour la branche avec main si elle est en retard
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 tools/predecesseurs_fusion.py "$PR" --head "$HEAD_SHA" >> "$GITHUB_OUTPUT"
+      - name: Fusionner immédiatement le SHA technique explicitement autorisé
         if: steps.ordre.outputs.ready == 'true'
         env:
           GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
@@ -56,43 +59,7 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
-          echo "PR #${PR} head=${HEAD_SHA}"
-          # PUT update-branch : 202 = mise à jour lancée, 422 = déjà à jour
-          # ou conflit. Jamais de force-push.
-          set +e
-          out=$(gh api -X PUT "repos/${{ github.repository }}/pulls/${PR}/update-branch" \
-            -f expected_head_sha="${HEAD_SHA}" 2>&1)
-          rc=$?
-          set -e
-          echo "update-branch rc=${rc} out=${out}"
-          if [ "$rc" -eq 0 ]; then
-            echo "Branche mise à jour avec main."
-          else
-            echo "Pas de mise à jour (déjà à jour, conflit, ou non applicable) — suite."
-          fi
-
-      - name: Activer l'auto-merge (commit de fusion)
-        if: steps.ordre.outputs.ready == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          PR: ${{ github.event.pull_request.number }}
-        run: |
-          set -euo pipefail
-          # Attend les contrôles requis (garde, html, tests, visuel) et
-          # la branche à jour (strict). Aucune protection n'est affaiblie.
-          set +e
-          out=$(gh pr merge "$PR" --repo "${{ github.repository }}" --auto --merge 2>&1)
-          rc=$?
-          set -e
-          echo "gh pr merge --auto rc=${rc} out=${out}"
-          if [ "$rc" -eq 0 ]; then
-            echo "Auto-merge activé pour #${PR}."
-            exit 0
-          fi
-          state=$(gh pr view "$PR" --repo "${{ github.repository }}" --json state,autoMergeRequest,mergeable,mergeStateStatus \
-            --jq '{state,autoEnabled:.autoMergeRequest.enabledAt,mergeable,mergeStateStatus}')
-          echo "État après échec : ${state}"
-          echo "$state" | grep -q '"state":"MERGED"' && { echo "Déjà fusionnée."; exit 0; }
-          echo "$state" | grep -q '"autoEnabled":"' && { echo "Auto-merge déjà actif."; exit 0; }
-          exit 1
+          # Relire main et la tête juste avant mutation ; aucune mise à jour automatique
+          # ne peut remplacer le SHA qui porte l'audit et l'autorisation.
+          python3 tools/predecesseurs_fusion.py "$PR" --head "$HEAD_SHA" --check
+          gh pr merge "$PR" --repo "$GH_REPO" --merge --match-head-commit "$HEAD_SHA"
