@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "date": "2026-10-20T11:11:01.238580+00:00",
+  "auditeur": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra",
+  "provenance_modele": "Modèle explicitement demandé lors du lancement de cet agent ; aucune introspection indépendante du runtime.",
+  "verdict": "favorable_technique",
+  "objet": "Clôture documentaire P0 avant son commit, sa CI finale, sa fusion et sa publication ; aucune activation P1 dans cet état.",
+  "branche": "codex/p0-cloture-20261020",
+  "base_locale": "b22c1b41f88bc132b94e021bb9eb6f459e8dfa13",
+  "constats": [
+    {
+      "id": "CLOTURE-01",
+      "statut": "corrige_verifie",
+      "constat_initial": "La proposition initiale positionnait integration, ETAT et registre à P1 avec une condition purement documentaire. Le CLI réel proposait déjà trois lots ALPHA/S, dont S3.4/S3.5 rediger_puis_auditer, avant publication de clôture.",
+      "correction_verifiee": "Configuration conservée à P0 ; ETAT/registre à P0 et priorité_suivante P1 documentaire. Les trois en-têtes imposent une transition distincte après publication. Le CLI réel retourne P0/stabilisation, prochains_lots=[], anomalies=[], complet=false."
+    },
+    {
+      "id": "CLOTURE-02",
+      "statut": "verifie",
+      "constat": "PR268 réellement fusionnée au commit b22c1b41f88bc132b94e021bb9eb6f459e8dfa13 ; deux parents 3e940e2a151aa4583d0fccae8f466ae9a681268b et a60232967dab20a4b5e924a90768a249da4bd4c6, arbre bef7e8557e931cea04ff15982b7248420e167e17 identique à la tête auditée. Six contrôles garde/html/tests/visuel/checkpoint/schemas success sur la tête exacte. CI main et Pages completed/success sur le commit de fusion."
+    },
+    {
+      "id": "CLOTURE-03",
+      "statut": "verifie",
+      "constat": "114 fichiers publics relus indépendamment pendant ce contre-audit : tous HTTP200 et SHA256 identiques aux blobs Git du commit b22c1 et à la preuve de publication proposée. Les 20 empreintes de code du manifeste correspondent au commit publié et à cet état local."
+    },
+    {
+      "id": "CLOTURE-04",
+      "statut": "verifie",
+      "constat": "105 PR ouvertes relues en deux pages : numéros et têtes concordent exactement avec le relevé post-fusion et le relevé initial moins202. Aucun auto_merge actif. PR150 ouverte en brouillon ; PR202 fermée et refs/heads/alpha/g4-dose conservée sur badd4402994892b95a7ab842baf9135af4b4ca5e. Les états unknown post-fusion ne sont pas assimilés à absence de conflits ; les71DIRTY/35BEHIND sont explicitement historiques."
+    },
+    {
+      "id": "CLOTURE-05",
+      "statut": "verifie",
+      "constat": "Ordre P0→P1→P2→P3→P4 cohérent. Aucun achèvement des cours S3.4/S3.5 ni visa médical déclaré. ETAT et registre changent exclusivement leur section remastering : compteurs et attestations cliniques existantes intacts. Les six rapports précédents restent six rapports du même contre-auditeur ; le manifeste code agrège seulement les quatre rapports concernés par le code."
+    }
+  ],
+  "preuves_github": [
+    {
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/268",
+      "id": 4934537656,
+      "number": 268,
+      "head_sha": "a60232967dab20a4b5e924a90768a249da4bd4c6",
+      "merged": true,
+      "merge_commit_sha": "b22c1b41f88bc132b94e021bb9eb6f459e8dfa13"
+    },
+    {
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39411571707",
+      "id": 39411571707,
+      "head_sha": "b22c1b41f88bc132b94e021bb9eb6f459e8dfa13",
+      "status": "completed",
+      "conclusion": "success",
+      "tree": "bef7e8557e931cea04ff15982b7248420e167e17"
+    },
+    {
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39411579782",
+      "id": 39411579782,
+      "head_sha": "b22c1b41f88bc132b94e021bb9eb6f459e8dfa13",
+      "status": "completed",
+      "conclusion": "success",
+      "tree": "bef7e8557e931cea04ff15982b7248420e167e17"
+    },
+    {
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39410475983",
+      "id": 39410475983,
+      "head_sha": "a60232967dab20a4b5e924a90768a249da4bd4c6",
+      "status": "completed",
+      "conclusion": "success",
+      "tree": "bef7e8557e931cea04ff15982b7248420e167e17"
+    },
+    {
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39410476041",
+      "id": 39410476041,
+      "head_sha": "a60232967dab20a4b5e924a90768a249da4bd4c6",
+      "status": "completed",
+      "conclusion": "success",
+      "tree": "bef7e8557e931cea04ff15982b7248420e167e17"
+    },
+    {
+      "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39410475984",
+      "id": 39410475984,
+      "head_sha": "a60232967dab20a4b5e924a90768a249da4bd4c6",
+      "status": "completed",
+      "conclusion": "success",
+      "tree": "bef7e8557e931cea04ff15982b7248420e167e17"
+    }
+  ],
+  "preuves_supplementaires": [
+    "https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/commits/a60232967dab20a4b5e924a90768a249da4bd4c6/check-runs",
+    "https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/branches/main",
+    "https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/git/commits/b22c1b41f88bc132b94e021bb9eb6f459e8dfa13",
+    "https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/git/ref/heads/alpha/g4-dose",
+    "https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/pulls/202",
+    "https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/pulls/150"
+  ],
+  "verifications_locales": {
+    "commande_tests": "python3 -m unittest tests.test_mandat tests.test_cours_ssp",
+    "tests": 47,
+    "resultat": "OK ; ResourceWarning de fichiers non fermés observés, sans échec",
+    "diff_check": "OK",
+    "planificateur": {
+      "etape": "P0",
+      "phase": "stabilisation",
+      "priorite_active": "P0",
+      "prochains_lots": [],
+      "complet": false,
+      "anomalies": []
+    },
+    "publications_relues": 114,
+    "empreintes_code_concordantes": 20
+  },
+  "limites": [
+    "Ce verdict approuve le contenu documentaire actuel ; il ne déclare pas la PR de clôture fusionnée ni sa CI/publication accomplies. Ces contrôles doivent porter sur le SHA final intégrant ce rapport.",
+    "La priorité opérationnelle demeure P0. P1 exige une transition distincte après preuve de publication de clôture ; aucun lot clinique exécuté par cet audit.",
+    "Le relevé exhaustif historique des conflits est examiné comme preuve horodatée ; ce contre-audit ne recalcule pas les conflits de105PR. Les superpositions ciblées ne constituent pas un audit clinique exhaustif.",
+    "Le succès distant du workflow visuel est corroboré. Ce contre-audit ne refait pas les60comparaisons ni une inspection humaine du navigateur ; il ne certifie pas la future interface P4.",
+    "La lecture /branches/main confirme protection active et quatre contextes requis. Elle ne constitue pas une inspection administrative exhaustive des règles et exceptions.",
+    "Les preuves HTTP correspondent à cet instant ; aucune affirmation de surveillance permanente ni de validation médicale humaine."
+  ],
+  "fichiers_audites": {
+    "AGENTS.md": {
+      "sha256": "d29c876e4daca83f3b0643fe77f343d8d62a1237c69fbbb7d00f0f1e7d4bf18a"
+    },
+    "HANDOFF.md": {
+      "sha256": "cd2c4748f355323ec0fcd5a185b37ea7194c29179852fb9b3e37166c72e6f2e2"
+    },
+    "PROCHAINE_ACTION.md": {
+      "sha256": "a927f0b8a1e48ae0b0cd56e672690f51def496fd31a854820ad750dc7e41660f"
+    },
+    "ETAT.json": {
+      "sha256": "a2355057f2010a260e1605b5ae421f6364c4659920eaf10fbd6c18442f6cd560"
+    },
+    "tools/mandat/registre.json": {
+      "sha256": "24ec3645ce6c98ad20c0c2a217da914e0d67f5e2eae03a38504632b176e50fc2"
+    },
+    "tools/mandat/integration.json": {
+      "sha256": "e341bc10b61f3530560b27d293f4f003bea4d278d9d2d0eca9eee9b8bf02413f"
+    },
+    "docs/MANDAT-REMASTERING-P0-P4.md": {
+      "sha256": "ceff70c81ed41b445e7edc64eb406d195cbbf32f8cc04a67b5007f0c4e9d451b"
+    },
+    "audit/P0-AUDIT-STABILISATION-20261020.md": {
+      "sha256": "de06967391e80625128f2094c7dc284f8815b212192f9679249c0b4b12932eb7"
+    },
+    "audit/P0-FILE-PR-20261020.json": {
+      "sha256": "e407cd9950cbdb84fa5b5ba7074f39f8cbbf10e5f061768364524fd2b2181989"
+    },
+    "audit/P0-AUDIT-MANIFESTE-20261020.json": {
+      "sha256": "b08b3d3091f28e5a93cefcb3547056517bc949ed1194c3b79b25ee6a373009c8"
+    },
+    "audit/P0-CI-MAIN-20261020.json": {
+      "sha256": "29f7ecec52443abfb7404fad8285f87ac60b5a00766e196c43de2985c3d50f23"
+    },
+    "audit/P0-CI-TETE-20261020.json": {
+      "sha256": "2a8a3b7fd909e49f5da3e1f3f39aa517a595d2e71b69df834fd681e4829fa439"
+    },
+    "audit/P0-CONFLITS-AVANT-FUSION-20261020.json": {
+      "sha256": "eb26d44008d980795a2e6163d120c63b08df3a1d9db33b68ffd6867e70355f6d"
+    },
+    "audit/P0-CONFLITS-PR-20261020.json": {
+      "sha256": "7bb74a486e7c463eb7125702f728c281bdeec9e770fdd9e76874bb7f9cef54b7"
+    },
+    "audit/P0-PUBLICATION-CORRECTIFS-20261020.json": {
+      "sha256": "99ce09b683a0aa291b1f980ee3628b1227f869ec6852b5bcd8b23885a3fc0e84"
+    },
+    "audit/P0-RECONCILIATION-PR-20261020.md": {
+      "sha256": "03944ad8ac3cf1399ad1c60caaf58933b4df1484948dab58cbb7861b867c2719"
+    }
+  },
+  "actions_auditeur": "Lecture GitHub MCP, lectures publiques HTTP, tests locaux et rapport uniquement ; aucune mutation GitHub, aucun code ou document du coordinateur modifié."
+}
