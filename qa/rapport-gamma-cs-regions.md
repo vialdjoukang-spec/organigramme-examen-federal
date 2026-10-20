@@ -13,3 +13,4 @@
 
 ## Audit de forme phases 1-2 (grok-bot)
 Ligne unique, symétrie, défilement mobile sans débordement, 22 teintes, contraste ≥ 5,7:1, sélection ✓ + aria-pressed : conforme. axe : 0 nouveau problème. Écarts pixels limités à la vue Gestes, voulus.
+- Correctif : boutons mobiles plus bas (9,5 rem), défilement non animé, pour des captures stables.
