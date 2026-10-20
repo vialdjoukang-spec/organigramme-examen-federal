@@ -210,6 +210,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
+        with: { fetch-depth: 2 }
       - uses: actions/setup-python@v7
         with: { python-version: '3.12' }
       - name: Playwright et Chromium
@@ -218,7 +219,7 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: 43 contrôles d'interaction (référence verte)
         run: python tests/run_tests.py
-      - name: 'Infobulles G1 : clic sans survol, termes imbriqués et retour'
+      - name: 'Infobulles G1–G16 et cours S modifiés : clic, clavier, mobile et renvois'
         run: python tests/test_infobulles_prototype_ui.py
       - if: always()
         uses: actions/upload-artifact@v7
