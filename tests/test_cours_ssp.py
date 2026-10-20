@@ -192,5 +192,133 @@ class InternationalDefinitionTests(unittest.TestCase):
             self.assertTrue(self.flags(root, tip, data))
 
 
+    def reused_wgo_fixture(self, root):
+        """Identités réelles S1.7/S2.9 ; URL commune, deux visas explicites."""
+        import yaml
+        url = 'https://www.worldgastroenterology.org/guidelines/dysphagia'
+        sources = [
+            {'id': 'R-COURS-S17-01', 'url': url, 'org': 'World Gastroenterology Organisation',
+             'pays': 'US', 'type': 'glossaire'},
+            {'id': 'R-COURS-S2-9-7', 'url': url,
+             'org': 'World Gastroenterology Organisation, fédération mondiale de sociétés ; secrétariat aux États-Unis',
+             'pays': 'US', 'type': 'glossaire'}]
+        records = [{**s, 'ssp': code, 'source_cours': number}
+                   for s, code, number in zip(sources, ('S1.7', 'S2.9'), (1, 7))]
+        policy = {'suisse': [], 'europe': [], 'anatomie': [], 'pays_admis': ['CH', 'GB'],
+                  'definitions_internationales': records}
+        (root / 'qa').mkdir()
+        (root / 'qa/domaines.yml').write_text(yaml.safe_dump(policy))
+        tip = {rec['ssp']: {'c': ['<b>Définition :</b> Reformulation attribuée.'] * 14,
+                           'v': {'S': [{'id': rec['source_cours'], 'u': url,
+                                        'n': rec['pays'], 'o': rec['org']}],
+                                 'c': [['réorganisé', [rec['source_cours']]]] + [['hérité', []]] * 13,
+                                 'd': [['hérité', []]], 'k': 1}}
+               for rec in records}
+        data = {key: [] for key in ('src', 'glo', 'syn', 'hyp', 'nc', 'loc', 'doses_ch')}
+        data['src'] = sources
+        return tip, data, policy
+
+    def test_same_wgo_document_in_two_explicit_definitions_is_accepted(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); tip, data, _ = self.reused_wgo_fixture(root)
+            self.assertEqual(self.flags(root, tip, data), [])
+            # Références littérales acceptées seulement dans leurs définitions.
+            for item, source in zip(tip.values(), data['src']):
+                item['c'][0] += source['url'] + source['id']
+            self.assertEqual(self.flags(root, tip, data), [])
+            self.assertEqual({s['pays'] for s in data['src']}, {'US'})
+
+    def test_shared_definition_requires_each_exact_exception_and_source(self):
+        import yaml
+        for change in ('no_exception', 'no_source', 'id', 'url', 'org', 'pays', 'type',
+                       'ssp', 'source_cours', 'unapproved_source'):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data, policy = self.reused_wgo_fixture(root)
+                records = policy['definitions_internationales']
+                if change == 'no_exception':
+                    records.pop()
+                elif change == 'no_source':
+                    data['src'].pop()
+                elif change == 'unapproved_source':
+                    data['src'].append({**data['src'][1], 'id': 'R-NON-AUTORISE'})
+                else:
+                    records[1][change] = 8 if change == 'source_cours' else 'incorrect'
+                (root / 'qa/domaines.yml').write_text(yaml.safe_dump(policy))
+                self.assertEqual({f['element'] for f in self.flags(root, tip, data)},
+                                 {'src|' + source['id'] for source in data['src']})
+
+    def test_shared_definition_rejects_duplicates_and_ambiguous_visas(self):
+        import copy
+        import yaml
+        for change in ('exception', 'source', 'visa', 'collision_id', 'reference',
+                       'same_ssp', 'boolean_id', 'boolean_reference', 'bad_entry', 'bad_k'):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data, policy = self.reused_wgo_fixture(root)
+                visa = tip['S1.7']['v']
+                if change == 'exception':
+                    policy['definitions_internationales'].append(copy.deepcopy(policy['definitions_internationales'][0]))
+                elif change == 'source':
+                    data['src'].append(copy.deepcopy(data['src'][0]))
+                elif change == 'visa':
+                    visa['S'].append(copy.deepcopy(visa['S'][0]))
+                elif change == 'collision_id':
+                    visa['S'].append({**visa['S'][0], 'u': 'https://example.us/autre'})
+                elif change == 'reference':
+                    visa['c'][0][1].append(1)
+                elif change == 'same_ssp':
+                    policy['definitions_internationales'][1]['ssp'] = 'S1.7'
+                elif change == 'boolean_id':
+                    visa['S'][0]['id'] = True
+                elif change == 'boolean_reference':
+                    visa['c'][0][1] = [True]
+                elif change == 'bad_entry':
+                    visa['c'][0] = ['réorganisé', 1]
+                else:
+                    visa['k'] = data['src'][0]['url']
+                (root / 'qa/domaines.yml').write_text(yaml.safe_dump(policy))
+                self.assertEqual({f['element'] for f in self.flags(root, tip, data)},
+                                 {'src|' + source['id'] for source in data['src']})
+
+    def test_shared_definition_never_authorizes_care_dd_fundamental_or_third_ssp(self):
+        import copy
+        for change in ('c1', 'care', 'dd', 'fundamental_visa', 'fundamental_url',
+                       'care_url', 'dd_id', 'wrong_definition_id', 'third_ssp', 'ck', 'dose'):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data, _ = self.reused_wgo_fixture(root)
+                item = tip['S2.9']; source = data['src'][1]
+                if change in ('c1', 'care'):
+                    item['v']['c'][1 if change == 'c1' else 10] = ['ajouté', [7]]
+                elif change in ('dd', 'fundamental_visa'):
+                    item['v']['d' if change == 'dd' else 'f'] = [['ajouté', [7]]]
+                elif change == 'fundamental_url':
+                    item['f'] = [source['url']]
+                elif change == 'care_url':
+                    item['c'][10] += source['url']
+                elif change == 'dd_id':
+                    item['d'] = [source['id']]
+                elif change == 'wrong_definition_id':
+                    tip['S1.7']['c'][0] += source['id']
+                elif change == 'third_ssp':
+                    tip['S3.1'] = copy.deepcopy(item)
+                else:
+                    data['hyp' if change == 'ck' else 'doses_ch'].append(
+                        {'id': 'exemple', 'src': [{'id': source['id']}]})
+                self.assertEqual({f['element'] for f in self.flags(root, tip, data)},
+                                 {'src|' + source['id'] for source in data['src']})
+
+    def test_shared_definition_requires_actual_definition_for_every_authorization(self):
+        for change in ('unused', 'wrong_heading', 'missing_course'):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp); tip, data, _ = self.reused_wgo_fixture(root)
+                if change == 'unused':
+                    tip['S2.9']['v']['c'][0] = ['hérité', []]
+                elif change == 'wrong_heading':
+                    tip['S2.9']['c'][0] = '<b>Traitement :</b> Texte.'
+                else:
+                    del tip['S2.9']
+                self.assertEqual({f['element'] for f in self.flags(root, tip, data)},
+                                 {'src|' + source['id'] for source in data['src']})
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,4 @@
-# Contrôle hebdomadaire de tous les liens d'app_v2.html, avec cache (Héphaïstos).
+# Contrôle hebdomadaire des liens de l'app et de TIP externalisé, avec cache (Héphaïstos).
 # Il ne bloque aucune fusion : il produit un rapport, que Janus trie.
 name: Liens (hebdomadaire)
 on:
@@ -17,9 +17,20 @@ jobs:
           path: .lycheecache
           key: lychee-${{ github.run_id }}
           restore-keys: lychee-
+      - name: Inventaire des URL de l'application et de TIP
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from tools.links_changed import changed_urls
+          content = (Path('app_v2.html').read_text() + '\n' +
+                     Path('assets/config/tip.js').read_text())
+          urls = changed_urls('+' + content.replace('\n', '\n+'))
+          Path('links.txt').write_text('\n'.join(urls) + '\n')
+          print(f'{len(urls)} URL à contrôler')
+          PY
       - uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --cache --max-cache-age 7d --max-concurrency 4 --timeout 20 --accept 200..=299,403,429 app_v2.html
+          args: --no-progress --cache --max-cache-age 7d --max-concurrency 4 --timeout 20 --accept 200..=299,403,429 links.txt
           output: qa/liens-hebdo.md
           fail: false
       - uses: actions/upload-artifact@v7

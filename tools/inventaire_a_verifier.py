@@ -64,12 +64,18 @@ def inventory(ref):
             entries.append({'fichier': path, **row})
     app = git('show', sha + ':app_v2.html')
     for name in ('TIP', 'NOT', 'GES'):
-        marker = '\nconst ' + name + '='
-        if app.count(marker) != 1:
-            raise ValueError('Ancre clinique absente ou ambiguë : ' + name)
-        data = json.JSONDecoder().raw_decode(app.split(marker, 1)[1])[0]
+        if name == 'TIP' and '<script src="assets/config/tip.js"></script>' in app:
+            from tip_data import from_js
+            data = from_js(git('show', sha + ':assets/config/tip.js'))
+            fichier = 'assets/config/tip.js'
+        else:
+            marker = '\nconst ' + name + '='
+            if app.count(marker) != 1:
+                raise ValueError('Ancre clinique absente ou ambiguë : ' + name)
+            data = json.JSONDecoder().raw_decode(app.split(marker, 1)[1])[0]
+            fichier = 'app_v2.html'
         for row in walk(data, '/' + name):
-            entries.append({'fichier': 'app_v2.html', **row})
+            entries.append({'fichier': fichier, **row})
     counts = collections.Counter(row['fichier'] for row in entries)
     return {
         'date_generation': datetime.datetime.now(datetime.timezone.utc).isoformat(),

@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from tools._app import span
+from tools.tip_data import TAG as TIP_TAG, ASSET as TIP_ASSET, from_js as tip_from_js, load as load_tip, check_loading as check_tip_loading
 from tools.cours.controler import bilan
 from tools.mono_build import mid
 
@@ -74,6 +75,10 @@ def date_audit(report):
         return False
 
 
+# Ordre de Vial du 20.10.2026 à 07:40 : « grok-bot » est un contre-auditeur accepté (signature réelle).
+AUDITEURS = ('gpt-6-astra', 'grok-bot')
+
+
 def astra(report):
     """Une attestation déclarative est vérifiable en cohérence, pas une identité signée."""
     if not isinstance(report, dict):
@@ -82,7 +87,7 @@ def astra(report):
     return bool(report.get('verdict') == 'favorable_documentaire'
                 and isinstance(reviewer, str) and reviewer.strip()
                 and reviewer != report.get('auteur')
-                and report.get('modele') == 'gpt-6-astra'
+                and report.get('modele') in AUDITEURS
                 and date_audit(report))
 
 
@@ -152,8 +157,17 @@ def publie(root, record, key, digest):
         if key.startswith('ALPHA:'):
             code = key.split(':', 1)[1]
             app = blob(str(root), commit, 'app_v2.html').decode()
-            a, b = span(app, 'TIP')
-            return 'app_v2.html' in verified and empreinte(json.loads(app[a:b])[code]['c']) == digest
+            if TIP_ASSET in app:
+                if TIP_ASSET not in verified:
+                    return False
+                check_tip_loading(app)
+                tip = tip_from_js(blob(str(root), commit, TIP_ASSET).decode())
+                if json.loads(blob(str(root), commit, f'data/tip/{code}.json')) != tip[code]:
+                    return False
+            else:  # publications antérieures à la migration, dont PR148/149
+                a, b = span(app, 'TIP')
+                tip = json.loads(app[a:b])
+            return 'app_v2.html' in verified and empreinte(tip[code]['c']) == digest
         if key.startswith('BETTA:'):
             diagnostic = key.split(':', 1)[1]
             matches = []
@@ -176,7 +190,7 @@ def publie(root, record, key, digest):
                 hashlib.sha256(blob(str(root), commit, path)).hexdigest() == sha
                 and (path.startswith('data/') or path in verified)
                 for path, sha in scope.items()))
-    except (OSError, ValueError, TypeError, KeyError, subprocess.SubprocessError):
+    except (OSError, ValueError, TypeError, KeyError, SystemExit, subprocess.SubprocessError):
         return False
     return False
 
@@ -249,6 +263,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
             or contract.get('redaction', {}).get('dd_max_par_agent') != 3
             or contract.get('redaction', {}).get('modele') != 'gpt-6-sol'
             or contract.get('audit', {}).get('modele') != 'gpt-6-astra'
+            or not set(contract.get('audit', {}).get('modeles_acceptes', ['gpt-6-astra'])) <= set(AUDITEURS)
             or contract.get('audit', {}).get('independant') is not True
             or contract.get('redaction', {}).get('raisonnement') != 'high'
             or type(contract.get('agents_redacteurs_simultanes_max')) is not int
@@ -260,7 +275,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
         raise ValueError('Registre du mandat invalide')
     app = (root / 'app_v2.html').read_text()
     a, b = span(app, 'SSP'); ssps = json.loads(app[a:b])
-    a, b = span(app, 'TIP'); tip = json.loads(app[a:b])
+    tip = load_tip(root, app)
     categories = list(dict.fromkeys(row[0][0] for row in ssps))
     if (categories != contract['ordre_categories'] or len(ssps) != len(tip)
             or set(tip) != {row[0] for row in ssps}):

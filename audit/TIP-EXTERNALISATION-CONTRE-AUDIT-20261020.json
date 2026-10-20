@@ -1,0 +1,98 @@
+{
+  "verdict": "favorable_documentaire_technique_apres_correctifs",
+  "auteur": "/root/budget_script",
+  "modele_auteur": "GPT-6 high (mandat de délégation)",
+  "relecteur_independant": "/root/audit_tip_asset",
+  "modele": "gpt-6-astra",
+  "lu_le": "2026-10-19",
+  "perimetre": "Externalisation technique TIP ; aucune validation clinique ou publication déduite",
+  "base": "8aa1296",
+  "commit_audite": "fd5845ac1485209f1719851d6410239792c26f02",
+  "preuves": {
+    "base": "8aa1296",
+    "tip_sha256": "8e64b5443a5ae36b0a8a6a9f284e0803928020a0b60ba49d6e640f5d09613e0a",
+    "app_base_sha256": "04571ffd9924b732a37d18b649794dcc18972b84222dcfa27e407a5ce0953490",
+    "app_nouveau_sha256": "275534daacf6f968160589fdb417a5d3e0cf61f5a2e9629e0ae687678833b4c7",
+    "asset_sha256": "285bdc4a3f22f71425c4dae3f862adb2c1e701f9054730351fc15ec335362edf",
+    "ssp": 248,
+    "parties": 3472,
+    "ordre_identique": true,
+    "tout_tip_identique": true,
+    "html_reconstruction_exacte": true,
+    "migration_rejouee": true,
+    "doses_heritees_identiques": 289,
+    "chaines_corpus_lyncee_identiques": 18484,
+    "liens_identiques": 404,
+    "inventaire_elements_identiques": 1443
+  },
+  "corrections": [
+    {
+      "id": "TIP-A1",
+      "niveau": "bloquant_avant_correction",
+      "description": "Preuve ALPHA pouvait être acceptée malgré chargement TIP tardif/commenté ou double déclaration. Validation HTML partagée ; async/defer et erreurs de parsing refusés sans interrompre le planificateur."
+    },
+    {
+      "id": "TIP-A2",
+      "niveau": "majeur_corrige",
+      "description": "Une chaîne de longueur 14 était acceptée comme cours. Liste de 14 textes exigée avant toute écriture de draft et lors de la lecture des shards."
+    },
+    {
+      "id": "TIP-A3",
+      "niveau": "majeur_corrige",
+      "description": "Petit lecteur audit_examen/analyse.py lisait les brouillons data/TIP.json et data/GES.json et écrivait hors dépôt. Lecture canonique TIP/GES et sortie .cache/audit_examen/stats.json."
+    }
+  ],
+  "tests": {
+    "unitaires_tip": 7,
+    "unitaires_mandat": 22,
+    "unitaires_fonctions": 4,
+    "unitaires_cours": 13,
+    "unitaires_json_inject": 6,
+    "gardes": 5,
+    "liens": 7,
+    "lyncee_migration": 4,
+    "socle_ck_et_audit": 82,
+    "total": 150,
+    "autres": [
+      "G1 réussi",
+      "G3 réussi",
+      "Lyncée zéro terme nouveau ; baseline inchangée",
+      "mono_build --check réussi",
+      "budget.py réussi : app440518/6000000 ; TIP5467526/12582912 octets",
+      "check_hash.py réussi",
+      "controler.py : 26 SSP /364 parties relus, zéro anomalie",
+      "planifier.py exécuté avec succès",
+      "Node24 : compilation de tous les scripts classiques sans collision et accès lexical TIP248/3472",
+      "audit_examen/analyse.py exécuté :22 régions,0 partie examen vide"
+    ],
+    "scenarios_negatifs": [
+      "asset divergent",
+      "shard manquant",
+      "cours de longueur14 non-liste refusé avant écriture",
+      "conflit de draft sur un même SSP rejeté",
+      "deux SSP distincts fusionnés sans perte",
+      "chargement tardif/commenté/async/defer et double déclaration rejetés",
+      "asset de publication illisible ou hash public incorrect rejeté",
+      "shard publié divergent rejeté malgré preuve HTTP/hash correcte",
+      "commit non intégré et preuve périmée refusés dans suite mandat"
+    ],
+    "reprise_lots_inline": "Même lot avec ses14 empreintes appliqué aux fixtures inline et externalisée : objets TIP finaux égaux, DD et fondamentaux conservés."
+  },
+  "empreintes_correctifs": {
+    "tools/tip_data.py": "179b56150f04e85f0a119152bb3354ceeeecedf218647934bc1e2f9fcf3a73b1",
+    "tools/json_inject.py": "d1bf21d6eaf6377b97fe5896c32063f0e0759a91382a964f28c168c8f9d4ba9b",
+    "tools/mandat/planifier.py": "850cfdeac8a4b89d8de6d54f207fc4e95379fa822e62696626217b84f19386bd",
+    "tools/audit_examen/analyse.py": "c1b079762bc1370c8b8ffb97a53af979221d73f090fbed41bee3bf6f4875d971",
+    "tests/test_tip_asset.py": "84214c258abc52c728793e2222f7a1f73d9a1089ffb6cc178a9d9407501f14f1",
+    "tests/test_mandat.py": "991e1792a65905c4a2cff40a711adb1f31d92607a1afa5113921e6f81c26653f"
+  },
+  "limites": [
+    "Aucun navigateur Chromium local exécuté ; tests UI file://, mobile/bureau et visuel à exécuter en CI sur la tête exacte.",
+    "Aucune fusion, aucun push ni contrôle HTTP de publication effectué par cet auditeur.",
+    "Les empreintes originales attestent la migration initiale ; elles ne figent pas les futures révisions cliniques.",
+    "Le conflit par SSP protège les brouillons extraits anciens ; ce mécanisme n’est pas un verrou transactionnel entre deux processus écrivant simultanément le même worktree. Les worktrees séparés et intégrations séquentielles restent requis.",
+    "Aucune médecine, réservation ou donnée hors périmètre modifiée."
+  ],
+  "automates_actifs": "Inventaire checkpoint --inventaire consulté ; CI garde/html/tests et visuel restent requis. Aucun automate créé, modifié ou désactivé par le contre-auditeur.",
+  "publication_pages": "Workflow pages.yml : assets/** déclenche Pages et cp -r assets _site/assets inclut tip.js. La preuve exige HTTP/hash pour app_v2.html et assets/config/tip.js ; le shard data/tip/<SSP>.json est contrôlé depuis Git au commit intégré, sans URL publique exigée."
+}
