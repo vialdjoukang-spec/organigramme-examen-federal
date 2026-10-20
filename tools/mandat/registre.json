@@ -395,8 +395,18 @@
         "S3.9"
       ],
       "branche": "codex/p1-s3.8-s3.9",
-      "statut": "a_auditer",
-      "observe_le": "2026-10-20T11:33:00Z"
+      "statut": "a_integrer",
+      "observe_le": "2026-10-20T11:33:00Z",
+      "commit_local_prepare": "9ddd575a9095419e658b7b6d0fb3c4d6aff50ba2",
+      "complement_integration": {
+        "rapport": "audit/P1-CONTRE-AUDIT-INTEGRATION-S3.8-S3.9-20261020.json",
+        "rapport_sha256": "fbd31aa0b14c2c9be0ea81a63f97250859c912f8d1a24196d0655b0fad2e843f",
+        "ssp": [
+          "S3.8",
+          "S3.9"
+        ],
+        "publication_verifiee": false
+      }
     },
     {
       "etape": "ALPHA",
@@ -409,7 +419,7 @@
         "S3.7"
       ],
       "branche": "codex/p1-reprise-s3.6-s3.7",
-      "statut": "a_integrer",
+      "statut": "publie",
       "commit_local_prepare": "2837d64b89f63befe2d7605aa620df9df6ee20d2"
     },
     {
@@ -669,6 +679,14 @@
     "ALPHA:S3.5": {
       "rapport": "audit/P1-PUBLICATION-S3.4-S3.5-20261020.json",
       "rapport_sha256": "d8339f6ba37f5e780de3c5b1b4b965a357446e64075acc416b3836f1417d6f5b"
+    },
+    "ALPHA:S3.6": {
+      "rapport": "audit/P1-PUBLICATION-S3.6-S3.7-20261020.json",
+      "rapport_sha256": "b722752426cb62814fd5581fd9c647b00eeb6751b8414984b6bcb9a9b9a60588"
+    },
+    "ALPHA:S3.7": {
+      "rapport": "audit/P1-PUBLICATION-S3.6-S3.7-20261020.json",
+      "rapport_sha256": "b722752426cb62814fd5581fd9c647b00eeb6751b8414984b6bcb9a9b9a60588"
     }
   },
   "audits_phases": {},
@@ -693,7 +711,7 @@
     ],
     "priorite_active": "P1",
     "statut": "en_cours",
-    "observe_le": "2026-10-20T13:11:13.285682+00:00",
+    "observe_le": "2026-10-20T17:08:23.153788+00:00",
     "rapport_file": "audit/P0-FILE-PR-20261020.json",
     "fusion_clinique": "manuelle_centralisee",
     "priorites_suivantes_bloquees": true,
@@ -702,7 +720,7 @@
       "branches": 22,
       "sources_archivees": 131
     },
-    "main_observe": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21",
+    "main_observe": "80f704ecd6af34d2b0b713f8821c32b6665bb5c1",
     "pr_ouvertes_historiques": 105,
     "pr_correctifs": 268,
     "branche": "codex/p1-integration-s3.6-s3.7",
@@ -717,17 +735,17 @@
       "pages": 39414896430,
       "preuve": "audit/P0-CLOTURE-FINALE-20261020.json"
     },
-    "prochaine_commande": "Réutiliser PR161 avec le gel contre-audité, CI exacte puis fusion normale ; vérifier Pages et HTTP/SHA256 avant publication de164.",
-    "cours_audites_documentaires": 58,
-    "parties_auditees_documentaires": 812,
-    "ssp_S_audites": 42,
-    "ssp_S_publications_reconnues": 40,
+    "prochaine_commande": "PR164 : CI finale, attendre aussi CI main161 verte, fusion normale puis vérifier Pages/HTTP/SHA256 ; suite167 puis170.",
+    "cours_audites_documentaires": 60,
+    "parties_auditees_documentaires": 840,
+    "ssp_S_audites": 44,
+    "ssp_S_publications_reconnues": 42,
     "lot_courant": {
       "ssp": [
-        "S3.6",
-        "S3.7"
+        "S3.8",
+        "S3.9"
       ],
-      "statut": "contre_audite_phases_a_integrer",
+      "statut": "contre_audite_a_integrer",
       "publication_verifiee": false
     },
     "transition_P1": {
@@ -739,19 +757,20 @@
     },
     "dernier_lot_publie": {
       "ssp": [
-        "S3.4",
-        "S3.5"
+        "S3.6",
+        "S3.7"
       ],
-      "pr": 271,
-      "commit": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21",
-      "pages": 39423711446,
-      "preuve": "audit/P1-PUBLICATION-S3.4-S3.5-20261020.json",
+      "pr": 161,
+      "commit": "80f704ecd6af34d2b0b713f8821c32b6665bb5c1",
+      "pages": 39463777819,
+      "preuve": "audit/P1-PUBLICATION-S3.6-S3.7-20261020.json",
       "ci_main": {
-        "run": 39423699023,
-        "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39423699023",
-        "statut": "completed",
-        "conclusion": "success",
-        "head_sha": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21"
+        "run": 39463757928,
+        "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39463757928",
+        "statut": "in_progress",
+        "conclusion": null,
+        "head_sha": "80f704ecd6af34d2b0b713f8821c32b6665bb5c1",
+        "observe_le": "2026-10-20T17:13:39.147167+00:00"
       }
     },
     "dernier_echec_ci": {
@@ -807,6 +826,15 @@
         }
       ],
       "perimetre": "Parties des cours SSP S (14 parties), distinctes des monographies DD (6 rubriques)."
+    },
+    "integration_S3_8_S3_9": {
+      "rapport": "audit/P1-CONTRE-AUDIT-INTEGRATION-S3.8-S3.9-20261020.json",
+      "rapport_sha256": "fbd31aa0b14c2c9be0ea81a63f97250859c912f8d1a24196d0655b0fad2e843f",
+      "ssp": [
+        "S3.8",
+        "S3.9"
+      ],
+      "publication_verifiee": false
     }
   },
   "pause_utilisateur": {

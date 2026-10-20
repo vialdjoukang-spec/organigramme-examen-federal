@@ -1,3 +1,11 @@
+## Publication161 observée · 20.10.2026 Europe/Zurich
+
+PR161 fusionnée dans `80f704ecd6af34d2b0b713f8821c32b6665bb5c1` après CI finale, Visuel et Checkpoint verts sur `cbcefe980d707503e21c72f2bc9f1fa4a6b70ba3`.282/282contrôles et18cours×14parties navigateur réussis. Pages39463777819 réussi ;114fichiers publics HTTP200 etSHA256 identiques. Les14parties de S3.6 et S3.7 sont donc effectivement publiques : **42SSP S/588parties de cours S**. La CI main39463757928 doit également être verte avant fusion164 ; son dernier état observé est consigné dans `audit/P1-CI-S3.6-S3.7-20261020.json`, sans résultat futur présumé.
+
+## Lot préparé S3.8/S3.9 · contre-audit final d’intégration
+
+Les28parties de S3.8/S3.9 correspondent exactement aux textes médicalement contre-audités ; le complément indépendant `audit/P1-CONTRE-AUDIT-INTEGRATION-S3.8-S3.9-20261020.json` vérifie leur intégration avec161 et les catalogues partagés. Les lectures restent attribuées aux agents qui les ont réellement faites.60cours/840parties contre-audités au total, dont44SSP S ; **40SSP S publiés (560parties de cours S)**, compteur de publication inchangé tant que161 n’est pas vérifiée. Ce compteur ne concerne aucune monographie DD. PR164 ne peut être fusionnée avant publication de161 ; sa propre CI finale et publication restent requises.
+
 ## Reprise autorisée après pause · 20.10.2026 Europe/Zurich
 
 Vial demande de continuer les **parties des cours S** avec rédaction **GPT-6.1 Sol, raisonnement élevé**. Les cours gardent leurs14parties spécifiques ; les DD en six rubriques restent dans leur chantier distinct. Point courant : PR161 S3.6/S3.7, correction des phases contre-auditée ; nouvelle CI complète, fusion puis publication à vérifier. Deux auteurs réellement lancés reprennent167(S3.10/S4.1) et170(S4.2/S4.3), deux cours chacun. Contre-audit indépendant Astra, intégrations centralisées. La pause précédente est levée par cette instruction ; sauvegarde historique sur `checkpoint/pause-20261020-1314`, aucun historique supprimé.
