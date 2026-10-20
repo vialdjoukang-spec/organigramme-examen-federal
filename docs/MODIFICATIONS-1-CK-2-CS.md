@@ -61,7 +61,7 @@ Conserver le relais existant `codex-cloud-120.yml`, raccordé au planificateur. 
 
 Le responsable réellement actif déclare un bail de 180 secondes sur `garde/etat:veille/permanence.json`. Les baux de l'agent, du worker et de la demande restent séparés ; les écritures conservent les autres champs et vérifient le SHA courant.
 
-Dernière preuve initiale : run GitHub `39305516260`, contrôles réellement espacés de deux minutes ; demande `6274856333`, réponse officielle `6274859740` : environnement Codex cloud manquant. `execution_ia_prouvee:false`. Réactiver le workflow ne résout pas cette configuration. Une notification ou une réaction ne prouve jamais le démarrage d'une IA. La production active de cette session reste distincte du relais.
+Preuve initiale historique : run GitHub `39305516260`, contrôles réellement espacés de deux minutes ; réponse `6274859740` signalant un environnement Codex cloud manquant. État réexaminé le 20.10.2026 : la demande `6280094052` reçoit la réponse officielle `6280096230` à 00:05:15 UTC, qui signale un quota Codex épuisé. `execution_ia_prouvee:false`. Réactiver le workflow ne rétablit pas ce quota. La production et les audits actifs de cette session sont distincts du relais. Une notification, une réaction ou un bail ne prouve jamais le démarrage d’une IA distante.
 
 ## Validation et publication
 
