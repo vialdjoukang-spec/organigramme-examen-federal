@@ -6,7 +6,7 @@ Les fusions cliniques sont centralisées manuellement : audit indépendant exact
 
 Inventaire main `3e940e2a151aa4583d0fccae8f466ae9a681268b` : 248SSP/3472parties ; 54cours/756parties avec attestations documentaires valides (G16 + S38), le rattrapage technique des preuves porte désormais à38les publications S reconnues (114fichiers publics HTTP200 identiques). S3.4/S3.5 ont été intégrés sans contre-audit enregistré : ne pas les compter audités ni reprendre directement #161. Les106PR ouvertes sont conservées (1techniqueP0,25ALPHA et1supportP1,74BETTA,1GAMMA,4historiques). Aucun auto-merge actif observé.
 
-Prochaine action P0 : terminer contre-audit technique, appliquer uniquement les retraits de sources orphelines prouvés et archivés, tester, ouvrir/fusionner la PR de stabilisation après CI exacte puis vérifier Pages. **P0 n’est pas clos.** Les échecs scientifiques légitimes des PR cliniques restent bloquants pour leurs futurs lots, sans modification médicale pendant P0. Aucun agent autonome permanent n’est présumé.
+Prochaine action P0 : vérifier les preuves des22nettoyages appliqués et les contre-audits, tester, ouvrir/fusionner la PR de stabilisation après CI exacte puis vérifier Pages. **P0 n’est pas clos.** Les échecs scientifiques légitimes des PR cliniques restent bloquants pour leurs futurs lots, sans modification médicale pendant P0. Aucun agent autonome permanent n’est présumé.
 
 **ARSENAL obligatoire (Vial, 20.10.2026) : lire `docs/ARSENAL.md` (5 commandes et interdits par secteur) avant tout travail.**
 
