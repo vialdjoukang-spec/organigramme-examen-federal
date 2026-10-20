@@ -19,4 +19,7 @@ class T(unittest.TestCase):
     def test_budget_lignes(self):
         p = subprocess.run([sys.executable, 'tools/budget.py', '--lignes', '50', 'app_v2.html'], cwd=R, capture_output=True, text=True)
         self.assertEqual(p.returncode, 1); self.assertIn('TROP LONGUE', p.stdout)
+    def test_dose_hors_concentration(self):
+        sys.path.insert(0, os.path.join(R, 'tools/arsenal')); from _c import DOSE
+        self.assertEqual(DOSE.findall('ferritine < 30 µg/L ; 50 µg/j'), ['50 µg'])
 if __name__ == '__main__': unittest.main()
