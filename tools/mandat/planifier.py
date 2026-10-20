@@ -19,6 +19,7 @@ from tools._app import span
 from tools.tip_data import TAG as TIP_TAG, ASSET as TIP_ASSET, from_js as tip_from_js, load as load_tip, check_loading as check_tip_loading
 from tools.cours.controler import bilan
 from tools.mono_build import mid
+from tools.predecesseurs_fusion import validate_config as valider_integration
 
 ID = 'modifications_1_ck_2_cs'
 LIVE = {'en_redaction', 'a_auditer', 'en_audit', 'a_corriger', 'a_integrer', 'a_publier'}
@@ -35,6 +36,29 @@ def lire(root, path):
     if not target.is_relative_to(root.resolve()):
         raise ValueError('chemin de preuve hors dépôt')
     return json.loads(target.read_text())
+
+
+def appliquer_priorite_integration(root, result, registry):
+    """P0 conserve l'inventaire mais n'attribue ni ne reprend aucun lot clinique."""
+    path = root / 'tools/mandat/integration.json'
+    try:
+        if not path.exists() and not path.is_symlink() and 'remastering' not in registry:
+            return result  # Instantanés historiques, avant le mandat P0 → P4 uniquement.
+        config = valider_integration(lire(root, 'tools/mandat/integration.json'))
+    except (OSError, ValueError, TypeError) as exc:
+        result['anomalies'].append('Configuration integration.json invalide : ' + str(exc))
+        result.update(etape_suspendue=result.get('etape'), phase_suspendue=result.get('phase'),
+                      etape='BLOQUE', phase='integration_invalide', complet=False,
+                      prochains_lots=[], audit_phase_requis=False,
+                      prochaine_action='Corriger la configuration technique integration.json ; aucun lot clinique autorisé.')
+        return result
+    result['priorite_active'] = config['priorite_active']
+    if config['priorite_active'] == 'P0':
+        result.update(etape_suspendue=result.get('etape'), phase_suspendue=result.get('phase'),
+                      etape='P0', phase='stabilisation', complet=False,
+                      prochains_lots=[], audit_phase_requis=False,
+                      prochaine_action='Achever la stabilisation technique P0, son audit, sa CI, sa fusion et sa publication avant toute reprise clinique.')
+    return result
 
 
 def preuve(root, record):
@@ -77,6 +101,9 @@ def date_audit(report):
 
 # Ordre de Vial du 20.10.2026 à 07:40 : « grok-bot » est un contre-auditeur accepté (signature réelle).
 AUDITEURS = ('gpt-6-astra', 'grok-bot')
+# Instruction utilisateur du 20.10.2026 : reprise en GPT-6.1 Sol élevé.
+# Les réservations historiques conservent leur modèle réellement utilisé.
+REDACTEURS = ('gpt-6-sol', 'gpt-6.1-sol')
 
 
 def astra(report):
@@ -234,7 +261,7 @@ def valider_reservations(registry, stage, phase, units, limit):
             errors.append('Branche absente ou partagée par plusieurs réservations : ' + str(branch))
         if reservation['statut'] in OCCUPE:
             branches.add(str(branch))
-        if reservation.get('modele') != 'gpt-6-sol' or reservation.get('raisonnement') != 'high':
+        if reservation.get('modele') not in REDACTEURS or reservation.get('raisonnement') != 'high':
             errors.append('Modèle/raisonnement de rédaction non conforme : ' + str(agent))
         selected = reservation.get('unites', [])
         if reservation.get('etape') != stage or reservation.get('phase') != phase:
@@ -261,7 +288,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
             or contract.get('cours_parties') != 14 or contract.get('dd_rubriques') != 6
             or contract.get('redaction', {}).get('ssp_max_par_agent') != 2
             or contract.get('redaction', {}).get('dd_max_par_agent') != 3
-            or contract.get('redaction', {}).get('modele') != 'gpt-6-sol'
+            or contract.get('redaction', {}).get('modele') not in REDACTEURS
             or contract.get('audit', {}).get('modele') != 'gpt-6-astra'
             or not set(contract.get('audit', {}).get('modeles_acceptes', ['gpt-6-astra'])) <= set(AUDITEURS)
             or contract.get('audit', {}).get('independant') is not True
@@ -377,7 +404,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
         errors, active = valider_reservations(registry, 'TERMINE', None, set(), 0)
         result['anomalies'].extend(errors)
         result.update(etape='TERMINE', phase=None, complet=not result['anomalies'])
-        return result
+        return appliquer_priorite_integration(root, result, registry)
     stage, phase, rows, scope, limit = current
     result.update(etape=stage, phase=phase, perimetre_sha256=empreinte(scope),
                   audit_phase_requis=not rows, restant_phase=len(rows))
@@ -390,7 +417,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
         result['anomalies'].append('Trop de réservations actives pour les capacités de cette équipe')
     result['reservations_actives'] = active
     if result['anomalies']:
-        return result
+        return appliquer_priorite_integration(root, result, registry)
     if active:
         result['prochains_lots'] = [{'agent': x['agent'], 'branche': x.get('branche'),
             'action': 'reprendre_lot_reserve', 'statut': x['statut'],
@@ -402,7 +429,7 @@ def construire(root=ROOT, coordination=None, contract=None, registry=None):
         result['prochains_lots'] = [{'action': 'attribuer', 'unites': [r['unite'] for r in chunk],
                                     'elements': chunk}
                                    for chunk in lotir(rows, limit)[:contract['agents_redacteurs_simultanes_max']]]
-    return result
+    return appliquer_priorite_integration(root, result, registry)
 
 
 def main():

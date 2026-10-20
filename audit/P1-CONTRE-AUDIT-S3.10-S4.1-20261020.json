@@ -1,0 +1,541 @@
+{
+  "version": 1,
+  "priorite": "P1",
+  "date": "2026-10-20T13:00:03.391897+00:00",
+  "audit_utc": "2026-10-20T13:00:03.391897+00:00",
+  "lu_le": "2026-10-20",
+  "fuseau_date_lecture": "Etc/UTC",
+  "modele": "gpt-6-astra",
+  "effort_demande": "high",
+  "provenance_modele": "Modèle demandé pour le contre-audit par le mandat ; aucune introspection indépendante du runtime.",
+  "auteur": "/root/p1_s3_10_s4_1",
+  "relecteur_independant": "/root/p1_audit_s3_10_s4_1",
+  "commit_auteur": "274cc41871df29787e836033c7c5fdd360580706",
+  "commit_integration_au_controle": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21",
+  "etat_audite": "Fichiers non commités, identifiés par SHA256",
+  "verdict": "a_corriger",
+  "validation_medicale_humaine": false,
+  "portee": "28partiescours, sources,4GLO/4SRC et politique documentaire ; aucun DD réécrit ni validation humaine.",
+  "constats": [
+    {
+      "id": "F01",
+      "ssp": "S3.10",
+      "parties": [
+        1
+      ],
+      "niveau": "bloquant_documentaire",
+      "constat": "La seule référence v.c[0] est NHS Feeling sick. Cette page ne documente ni la définition mécanique du vomissement ni les distinctions régurgitation/rumination/haut-le-cœur présentées dans le cours. La réserve définition mondiale ne couvre pas cette lacune de source clinique.",
+      "correction_attendue": "Lire et citer une source primaire CH/Europe qui couvre ces distinctions, ou rendre explicite la limite documentaire précise sans perdre la sémantique utile."
+    },
+    {
+      "id": "F02",
+      "ssp": "S3.10",
+      "parties": [
+        7,
+        8,
+        9,
+        10,
+        13
+      ],
+      "niveau": "bloquant_documentaire",
+      "constat": "Les références locales NHS Feeling sick, RCOG grossesse, WSES occlusion et BSG dyspepsie ne soutiennent pas les propositions spécifiques acidocétose (polyurie/polydipsie, cétones et gaz du sang), ni le profil hypochlorémie/hypokaliémie/alcalose du point clé13. Le bilan urgent est plausible, mais sa traçabilité revendiquée est insuffisante.",
+      "correction_attendue": "Ajouter une source primaire CH/Europe effectivement lue sur acidocétose et retentissement métabolique des vomissements ; rattacher les passages concernés à leurs sources v.c. Ne pas supprimer les alertes urgentes pour obtenir une conformité formelle."
+    },
+    {
+      "id": "F03",
+      "ssp": "S3.10",
+      "parties": [
+        11
+      ],
+      "niveau": "bloquant_documentaire",
+      "constat": "Le cours impose thiamine avant perfusion glucosée mais v.c11 cite seulement6/7/4. La fiche patient RCOG mentionne thiamine, sans cet ordre ; les passages LHCH déclarés lus ne le couvrent pas.",
+      "correction_attendue": "Conserver cette précaution et documenter sa source exacte. L’audit a trouvé l’extrait indexé de la recommandation2024 DOI10.1111/1471-0528.17739 qui précise cet ordre ; faire lire/attribuer le passage, déclarer accès partiel et vérifier admissibilité éditoriale si cette URL devient source clinique. Le PDF RCOG2016 est aussi disponible mais doit rester explicitement daté."
+    },
+    {
+      "id": "F04",
+      "ssp": "S3.10",
+      "parties": [
+        6
+      ],
+      "niveau": "bloquant_coherence_examen",
+      "constat": "Le texte neurologique mélange sous ¶N vigilance, déficit et recherche de méningisme ; meninge-gcs_1 est un geste de Tests spéciaux. Le seul renvoi régional neuro-moteur ne couvre pas la vigilance. Le renvoi geriatrie_5 correspond à l’hypotension orthostatique, non explicitée dans le texte des mesures. Les liens sont techniquement résolus, mais leur contexte clinique et leur temps doivent être précisés.",
+      "correction_attendue": "Séparer neurologique et tests méningés (¶N/¶6), rattacher la vigilance au groupe meninge-gcs ou gestes Glasgow appropriés, conserver neuro-moteur pour déficit. Contextualiser le renvoi orthostatique si examen indiqué et patient stable, avec source ; préserver les identifiants utiles."
+    },
+    {
+      "id": "F05",
+      "ssp": "S4.1",
+      "parties": [
+        6
+      ],
+      "niveau": "bloquant_coherence_examen",
+      "constat": "Dans §pediatrie ¶M, le renvoi pediatrie_14 ouvre Palpation/Abdomen et organes génitaux, alors que le texte du bloc porte sur mesures et stades pubertaires. Les stades pubertaires relèvent d’une observation clinique, pas uniquement des mesures de croissance.",
+      "correction_attendue": "Rattacher pediatrie_14 à la palpation génitale décrite ; conserver pediatrie_2 auprès de la croissance et présenter l’observation pubertaire au temps approprié avec consentement. Ne pas créer ni réécrire les gestes eux-mêmes."
+    },
+    {
+      "id": "F06",
+      "ssp": "S4.1",
+      "parties": [
+        12
+      ],
+      "niveau": "bloquant_documentaire",
+      "constat": "La surveillance rénale et de l’audition Turner est attribuée à la notice-résumé Endo-ERN2024 ; celle-ci énumère des domaines généraux mais ne détaille ni rein ni audition. L’auteur déclare le texte intégral non lu.",
+      "correction_attendue": "Lire les sections pertinentes du texte primaire2024 ou une source primaire équivalente et mettre à jour le périmètre de lecture/références. Le suivi cardiovasculaire, croissance et transition est bien présent dans le résumé."
+    },
+    {
+      "id": "F07",
+      "ssp": "S3.10/S4.1",
+      "parties": [],
+      "niveau": "bloquant_glossaire",
+      "constat": "La définition GLO hyperemesis attribue le mot isolé à la seule hyperémèse gravidique et ajoute anglais et latin médical ; la page RCOG définit le terme composé hyperemesis gravidarum, sans soutenir cette affirmation linguistique. La localisation DSD section2 terminologie est inexacte : respect des termes préférés est discuté en section4 Communication.",
+      "correction_attendue": "Contextualiser hyperemesis au titre RCOG et au terme composé hyperemesis gravidarum, sans étymologie non sourcée ; corriger loc DSD vers titre/introduction et section4. Conserver chaque proposition réellement soutenue."
+    },
+    {
+      "id": "F08",
+      "ssp": "S4.1",
+      "parties": [
+        2,
+        8
+      ],
+      "niveau": "bloquant_forme",
+      "constat": "Deux fautes de genre : du catégorie en partie2 ; un catégorie en partie8.",
+      "correction_attendue": "Remplacer par de la catégorie et une catégorie ; actualiser les empreintes après application."
+    }
+  ],
+  "parties": {
+    "S3.10": [
+      {
+        "partie": 1,
+        "sha256": "419de4b6161c425008d447e93026eb93aad3042d49be1ef41d8052d29e43fc8f",
+        "observation": "Définition et sémantique lues ; couverture documentaire à compléter F01.",
+        "constats": [
+          "F01"
+        ]
+      },
+      {
+        "partie": 2,
+        "sha256": "880930694a13284ed4e77805f90665acee8ff1b18b9d75266e6e57cc3dc869a5",
+        "observation": "Taux RCOG contextualisés et absence de taux suisse inventé.",
+        "constats": []
+      },
+      {
+        "partie": 3,
+        "sha256": "cb9bf38c851d6d6bfab862b8573931a8fc97f4e69943bef0977a466105690a20",
+        "observation": "Circuits et périmètre soins avancés explicités ; pas de protocole palliative transposé.",
+        "constats": []
+      },
+      {
+        "partie": 4,
+        "sha256": "22fb0f43dc1b741925090235dbf165330ba9943a8881889c70a7a66ad4c761a8",
+        "observation": "Anamnèse et gravité prioritaires ; contenu concis.",
+        "constats": []
+      },
+      {
+        "partie": 5,
+        "sha256": "a18796340da71a13028b9aaa6eb0eb0e225064e74a8c5bbe31f44d6346241d49",
+        "observation": "Alarmes digestives et neurologiques présentes ; signes isolés non surinterprétés.",
+        "constats": []
+      },
+      {
+        "partie": 6,
+        "sha256": "368e1c889d37a11c43869816831978cfa03995ec4eecb5280e37feb675c13821",
+        "observation": "Phases et liens examinés réellement : corrections F04.",
+        "constats": [
+          "F04"
+        ]
+      },
+      {
+        "partie": 7,
+        "sha256": "28d8aa4560cc7ae29ffa23be2b8376c60711dba9d24f4a3cb24fd096df234988",
+        "observation": "Occlusion et dyspepsie étayées ; acidocétose à sourcer F02.",
+        "constats": [
+          "F02"
+        ]
+      },
+      {
+        "partie": 8,
+        "sha256": "15a922a8d4dd82b151c69cc10698b40bf20ee857783d27a7476fbea769e23808",
+        "observation": "Pas de probabilité individuelle dérivée des fréquences ; bilan cétose à sourcer F02.",
+        "constats": [
+          "F02"
+        ]
+      },
+      {
+        "partie": 9,
+        "sha256": "7eb5d09e44903d2eefa2a50cc6626363cc291327cb53d2f7fb263699e09ec152",
+        "observation": "Examens orientés, pas de radiographie obligatoire ; source métabolique F02.",
+        "constats": [
+          "F02"
+        ]
+      },
+      {
+        "partie": 10,
+        "sha256": "051462028687d7d9ef48bbaac40b3da4310fae3aad0fb57a465a160a0a22f60d",
+        "observation": "Stabilisation avant confirmation claire ; couverture spécifique métabolique F02.",
+        "constats": [
+          "F02"
+        ]
+      },
+      {
+        "partie": 11,
+        "sha256": "b474ae71e1919f720fb9a82098452ff4fc025fb652a9f6b16be0cb771efbb21f",
+        "observation": "Pas de dose chiffrée ; ordre thiamine-glucose à attribuer F03.",
+        "constats": [
+          "F03"
+        ]
+      },
+      {
+        "partie": 12,
+        "sha256": "85a5b0d032ff69f080d096f90661db5d090745098d45d346d1e0daa1fa7b9e53",
+        "observation": "Pronostic et prévention gravidique cohérents avec NHS/RCOG effectivement lus.",
+        "constats": []
+      },
+      {
+        "partie": 13,
+        "sha256": "c35fa29e655aeffcbedd82893839d27d5858dbc18c1bc789c98b309e3d558a53",
+        "observation": "Synthèse utile, profil acido-basique à sourcer F02.",
+        "constats": [
+          "F02"
+        ]
+      },
+      {
+        "partie": 14,
+        "sha256": "5fd843b87958a7d138d349c8d7b9571fd3c8fc728c21006f0e2bc3aa9918ab7e",
+        "observation": "Pièges non spécifiques corrigés ; terme matinal contesté par RCOG.",
+        "constats": []
+      }
+    ],
+    "S4.1": [
+      {
+        "partie": 1,
+        "sha256": "12e8bcd68fd37f9e2d7156a931b4ebcadfe2e8901d9d98607337018934c4492e",
+        "observation": "VDS ensemble hétérogène, reformulation attribuée et non pathologisation systématique.",
+        "constats": []
+      },
+      {
+        "partie": 2,
+        "sha256": "8360a16e97c36a8e6bf5f5ce1e20c8230b216f80728dd3595deb97c90deb9fa1",
+        "observation": "Population Turner et dépistageCH délimités ; grammaire F08.",
+        "constats": [
+          "F08"
+        ]
+      },
+      {
+        "partie": 3,
+        "sha256": "687741a0dfdf23952511db50bd8a779e9f2840e84d415cd8485aa175ef93034d",
+        "observation": "Développement chromosomique-gonadique-hormonal sans déterminisme anatomique abusif.",
+        "constats": []
+      },
+      {
+        "partie": 4,
+        "sha256": "3d31b5d01e28f12a990b53cf89627e48c4173110a34f88959ff18e4d0d5d37ea",
+        "observation": "Anamnèse, intimité, consentement et palpation douce conservés.",
+        "constats": []
+      },
+      {
+        "partie": 5,
+        "sha256": "1b322e993a893670e00a3a2f79053cc9692e7761d027ed2a97f51c5ee22bd0e2",
+        "observation": "Crise surrénalienne vraie urgence ; dépistage en attente ne retarde pas les soins.",
+        "constats": []
+      },
+      {
+        "partie": 6,
+        "sha256": "08ac38262affe4e1e419d03e817600bc64994ce14eda8802e4cc87e6f2f339e9",
+        "observation": "Phases et renvois examinés : correction F05.",
+        "constats": [
+          "F05"
+        ]
+      },
+      {
+        "partie": 7,
+        "sha256": "772e47ecf8282077d3611560db99a2a8799829c12e581963b1cb1294560105a6",
+        "observation": "HCS possible avec anatomie masculine habituelle ; diagnostic non déduit de l’aspect.",
+        "constats": []
+      },
+      {
+        "partie": 8,
+        "sha256": "656bd06e2d21b7f8f3b75d87e625d15e4b65dada42e8c1f2c78adf3f3c5e51c6",
+        "observation": "17OHP précoce et contexte néonatal correctement nuancés ; grammaire F08.",
+        "constats": [
+          "F08"
+        ]
+      },
+      {
+        "partie": 9,
+        "sha256": "ebab784e9f9e7551f9e46ea4eacc80693aaca556f521d866561d7dd28dfa6936",
+        "observation": "Première ligne puis examens spécialisés ; parallélisme pertinent.",
+        "constats": []
+      },
+      {
+        "partie": 10,
+        "sha256": "42e4a2c4c75df00e4fa79f7876883eba8c1b0c1e7212298b2392587a78588abd",
+        "observation": "Soins avant confirmation ; bilans néonatal et adolescent distincts.",
+        "constats": []
+      },
+      {
+        "partie": 11,
+        "sha256": "74cd190230f1751aab592f48ece6950d10e23301c65a1236cf68336759e0e378",
+        "observation": "Crise traitée, actes non urgents différés et consentement cohérents CNE/Endo-ERN ; aucune dose inventée.",
+        "constats": []
+      },
+      {
+        "partie": 12,
+        "sha256": "df8f6ea5232d22d574ad17378280572179fb79c9e00bbef5359fe3d34aa0d151",
+        "observation": "Suivi spécialisé adapté ; détail rein/audition hors résumé lu, F06.",
+        "constats": [
+          "F06"
+        ]
+      },
+      {
+        "partie": 13,
+        "sha256": "7375f0d8f07582be02fe16be70f7919e999ce92ba733bc06c854ebaae85e2e3b",
+        "observation": "Identité non déduite de l’anatomie ; synthèse sans urgence artificielle.",
+        "constats": []
+      },
+      {
+        "partie": 14,
+        "sha256": "9484c7cd3f77c141b07e350c4dbf8cb3b3f90e0e3feb348be3b9026379495f09",
+        "observation": "Pièges dépistage, imagerie et chirurgie précisés ; VDS non assimilée à maladie unique.",
+        "constats": []
+      }
+    ]
+  },
+  "sources_lues": [
+    {
+      "ssp": "S3.10",
+      "id": 1,
+      "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/",
+      "organisme": "National Health Service, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Page complète courte : mesures, causes, urgence thoracique ; ne couvre pas la sémantique détaillée.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 2,
+      "url": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/",
+      "organisme": "National Health Service, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Page complète courte : hyperémèse, suivi/pronostic et grossesse ultérieure ; révision2023 et échéance2026 dépassée.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 3,
+      "url": "https://www.nhs.uk/conditions/diarrhoea-and-vomiting/",
+      "organisme": "National Health Service, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Rubriques déshydratation et urgences lues ; redirection vers /symptoms/diarrhoea-and-vomiting/.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 4,
+      "url": "https://www.lhch.nhs.uk/resources/download/lhch-64ba45be0f7b98.36744905",
+      "organisme": "Liverpool Heart and Chest Hospital NHS Foundation Trust, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "PDF50pages ; pages1–4 et11–12 lues pour périmètre et circuits ; passages réhydratation examinés.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 5,
+      "url": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/",
+      "organisme": "Royal College of Obstetricians and Gynaecologists, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Page officielle : résumé, fréquences et historique de version.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 6,
+      "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/pregnancy-sickness-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum/",
+      "organisme": "Royal College of Obstetricians and Gynaecologists, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Fiche patient : bilan, hospitalisation, réhydratation, thiamine et prévention thrombotique.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 7,
+      "url": "https://link.springer.com/article/10.1186/s13017-018-0185-2",
+      "organisme": "World Society of Emergency Surgery, groupe sur l’occlusion ; revue publiée par BioMed Central Ltd, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Sections diagnostic, laboratoire et imagerie (lignes210–240) lues ; source2018 datée.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S3.10",
+      "id": 8,
+      "url": "https://gut.bmj.com/content/early/2022/07/07/gutjnl-2022-327737",
+      "organisme": "British Society of Gastroenterology ; revue Gut, BMJ Publishing Group Ltd, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Extraits indexés primaire Gut2022 : symptômes/vidange ; ouverture directe InternalError, pas de lecture intégrale revendiquée.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 1,
+      "url": "https://www.nhs.uk/conditions/differences-in-sex-development/",
+      "organisme": "National Health Service, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Introduction, terminologie et formes46XX/46XY lues ; pas de lecture intégrale revendiquée.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 2,
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/cen.14528",
+      "organisme": "Society for Endocrinology ; Clinical Endocrinology publié par John Wiley & Sons Ltd, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Article intégral accessible ; sections1–9,11–13 lues ciblées (communication, examen, première ligne, limites17OHP, adolescent, imagerie/dosages).",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 3,
+      "url": "https://academic.oup.com/ejendo/article/194/2/217/8427406",
+      "organisme": "Endo-ERN ; European Journal of Endocrinology publié par Oxford University Press, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "OUP direct InternalError ; PDF éditeur trouvé dans dépôtUGent, première page/résumé/significance et copyright lus.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 4,
+      "url": "https://www.nek-cne.admin.ch/inhalte/Themen/Stellungnahmen/fr/NEK_Intersexualitaet_Fr.pdf",
+      "organisme": "Commission nationale d’éthique dans le domaine de la médecine humaine, Suisse",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "PDF28pages ; recommandations6, pages19–20 du PDF et contexte antérieur lus. Texte éthique2012, pas droit2026 déduit.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 5,
+      "url": "https://endo-ern.eu/publication/clinical-practice-guidelines-for-the-care-of-girls-and-women-with-turner-syndrome/",
+      "organisme": "International Turner Syndrome Consensus Group ; notice diffusée par Endo-ERN, centre de coordination Amsterdam, Pays-Bas",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Notice primaire et résumé (147–163) lus, texte clinique intégral non lu.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 6,
+      "url": "https://catalogue.chuv.ch/analyses-examens/laboratoires/fiche/DLA_INV_01_00074/depistage-neonatal-test-de-guthrie",
+      "organisme": "Centre hospitalier universitaire vaudois, Suisse",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Page complète courte lue, sang/carte et panelHCS17OHP ; aucune sensibilité déduite.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    },
+    {
+      "ssp": "S4.1",
+      "id": 7,
+      "url": "https://www.bsped.org.uk/adrenal-insufficiency",
+      "organisme": "British Society for Paediatric Endocrinology and Diabetes, Royaume-Uni",
+      "lu_le": "2026-10-20",
+      "mode": "navigation search_service_web_run, ouverture ou extraits indexés explicités",
+      "lecture": "Section urgence avec signes et traitement immédiat lue ; doses britanniques observées mais non validéesAIPS ni transposées.",
+      "http": "Code HTTP non fourni par outil ; ne pas déduire200 de la lecture ni403 d’InternalError."
+    }
+  ],
+  "lectures_complementaires": [
+    {
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10128793/",
+      "lecture": "Notice primaireUCL : copyright éditeur John Wiley & Sons Ltd, localisation England.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://find-and-update.company-information.service.gov.uk/company/00641132",
+      "lecture": "Registre officiel : John Wiley & Sons Ltd, siègeAngleterre ; pas assimilation à IncUS.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://archives.oup.com/contact/",
+      "lecture": "Adresse officielle OUP Oxford Royaume-Uni.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://backoffice.biblio.ugent.be/download/01KJQKV2YFFT93KMEXZMQ1NZKG/01KJQKYN4MRZ9JF7N28FTAG6QE",
+      "lecture": "PDF éditeur8pages, première page : publication16janvier2026, OUP pour ESE ; résumé/significance lus.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://doi.org/10.1111/1471-0528.17739",
+      "lecture": "Extrait indexé2024 uniquement : précaution thiamine avant dextrose retrouvée ; aucune lecture intégrale ni admissibilité supplémentaire déclarée.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.endocrinology.org/clinical-practice/clinical-guidance/society-for-endocrinology-guidance/",
+      "lecture": "Veille indexée actuelle : UKDSD2021 reste listé ; aucune exhaustivité des recommandations2026 revendiquée.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.bsg.org.uk/clinical-resource/bsg-guidelines-on-the-management-of-functional-dys/",
+      "lecture": "Veille indexée primaire : recommandation dyspepsie retrouvée ; pas preuve absolue d’absence de mise à jour.",
+      "lu_le": "2026-10-20"
+    }
+  ],
+  "fichiers_sha256": {
+    "data/tip/S3.10.json": "f633252c6403b16b98ca3155dee71bde89928e007a4a6b4315dfdc09b772e5a5",
+    "data/tip/S4.1.json": "8dfd8d55cb8b88c9452d16fbd86ae2c22102e8c8a5241ebbf426a3423fbd7956",
+    "tools/cours/lots/S3.10.json": "a4d80af186a7af064c41ca5b5df2e9681fbe535e51e8386843980c12ea4f3d7f",
+    "tools/cours/lots/S4.1.json": "4ed669983ff2d427705b3f9b8ab66fbe1c8c77f884cb58172ad6c1431a339c8a",
+    "data/ck/src.json": "2ef5e66150bf34747d9d3e94b3c8a1a48f4fdf03875e5d0c6284879f232f6278",
+    "data/ck/glo.json": "c9ed762c1acaab78db025c8baac804f359df5741143a364d5f01c1f5c4f91777",
+    "qa/domaines.yml": "be27d160b76094a2e039c9b7b30a811d912d1d7e26ecbb3824716c86c1ec5639",
+    "assets/config/tip.js": "b5b1cc58100261ee2e78674d64d55d00dfe750905c005474d26ee059804cc46f",
+    "assets/config/fonctions.js": "8401fd64eddb4808b7c16131cee9330ac47ce0767a7a8a11b9fec62f65ef0caa",
+    "assets/ck/src.js": "b33bd5128a4136ddf5373c5fd6ed7571d3a42413af7d0c0639abeb83bb95e385",
+    "tools/cours/lots/S3.10-S4.1-domaines-delta.json": "2e4ea8d4b90179404a710a1e114265705932171369896ef9fc85ecb55e7e6c9b",
+    "tools/cours/lots/S3.10-S4.1-src-delta.json": "d21672bd357d4572e20f873496c8d3107331d5cb16055e18622e6869cae8e602",
+    "tools/cours/lots/S3.10-S4.1-glo-delta.json": "341a25eae26f38b2774c63ee98cd23ca54d8480ae612f957e3e2503afe2ba42e",
+    "tools/cours/lots/S3.10-S4.1-journal.md": "9d420bb8d85423d46eb5854cbd51bb84f05fb9b3d4d518d1ddbb04e068a6741f"
+  },
+  "preservation": {
+    "S3.10": {
+      "d_f_s_fs": true,
+      "v_d": "v absent de HEAD ; dix valeurs null ajoutées, aucune attestation DD",
+      "identique_commit_auteur": true
+    },
+    "S4.1": {
+      "d_f_s_fs": true,
+      "v_d": "v absent de HEAD ; dix valeurs null ajoutées, aucune attestation DD",
+      "identique_commit_auteur": true
+    }
+  },
+  "controles_independants": {
+    "G1_G8": "Exécutés avec --diff HEAD :0signalement, cinq avertissements nc07|voie_motrice hérités.",
+    "cours": "18tests test_cours_ssp réussis.",
+    "arsenal": "9tests test_arsenal réussis.",
+    "lot": "lot.py cours S3.10 S4.1 -v réussi :0erreur,7À vérifier.",
+    "tip": "tip_data.py réussi :248SSP/3472parties,5686808octets identiques.",
+    "registre": "bilan() : aucune anomalie ;56SSP relus existants, aucune nouvelle relecture déduite.",
+    "rendu": "Fonction exFmt extraite dans assets/config/fonctions.js ; résolution @r et gestes indépendante vérifiée par lecture. Aucun parcours navigateur exécuté.",
+    "limite_tests": "ResourceWarning de fichiers non fermés observés ; aucun échec de tests."
+  },
+  "observations_non_bloquantes": [
+    "Les notices sources distinguent correctement accès partiel et texte intégral ; le refus403 auteur n’a pas été réobservé comme403 par cet audit (outil InternalError).",
+    "Le cheminRCOG terminé par / est un sous-arbre selon G3 ; ne pas le décrire comme chemin strictement exact dans journal/delta.",
+    "La sourceUEG/WileyUS est absente du cours et des deltas ; aucune admissionUS fictive proposée.",
+    "Les champs v.c citent des identifiants locaux valides ; cela ne prouve pas le soutien de chaque proposition. Les4nouvelles notices globales correspondent aux4GLO, pas à toutes les15sources locales."
+  ],
+  "limites": [
+    "Aucune posologie chiffrée du cours et aucune validationAIPS revendiquée.",
+    "La veille2026 est ciblée, pas exhaustive.",
+    "Pas de CI/fusion/publication effectuée ; compteursP1 non modifiés.",
+    "Seul ce rapport a été rédigé ; aucune attestation favorable tant que F01–F08 non corrigés et relus."
+  ]
+}

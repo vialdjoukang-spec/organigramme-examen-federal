@@ -1,3 +1,7 @@
+## Reprise autorisée après pause · 20.10.2026 Europe/Zurich
+
+Vial demande de continuer les **parties des cours S** avec rédaction **GPT-6.1 Sol, raisonnement élevé**. Les cours gardent leurs14parties spécifiques ; les DD en six rubriques restent dans leur chantier distinct. Point courant : PR161 S3.6/S3.7, correction des phases contre-auditée ; nouvelle CI complète, fusion puis publication à vérifier. Deux auteurs réellement lancés reprennent167(S3.10/S4.1) et170(S4.2/S4.3), deux cours chacun. Contre-audit indépendant Astra, intégrations centralisées. La pause précédente est levée par cette instruction ; sauvegarde historique sur `checkpoint/pause-20261020-1314`, aucun historique supprimé.
+
 # Mandat courant : Modification_1_CK puis Modification_2_CS
 
 Ordre de Vial du 20.10.2026, Europe/Zurich. Ce document remplace les anciens arrêts à G16, les deux chaînes opposées et les anciens modèles de production. Les références et protections existantes restent applicables. Autorisation réitérée : prendre les décisions nécessaires, résoudre les blocages, poursuivre les tâches non bloquées ; aucune nouvelle demande d'avis entre les lots.

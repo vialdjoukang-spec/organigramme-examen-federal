@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "date": "2026-10-20T11:46:18.415589+00:00",
+  "auditeur": "/root/p0_contre_audit",
+  "modele_demande": "gpt-6-astra high",
+  "provenance_modele": "Modèle demandé au lancement ; aucune introspection indépendante du runtime.",
+  "verdict": "favorable_technique",
+  "perimetre": "Deux fichiers noncommités du futur correctif de cours, hors PR270 ; aucune validation navigateur ni médicale par ce rapport.",
+  "base": "7ff2e600e3b8389cbd3059022a6059ea33259114",
+  "fichiers_sha256": {
+    "tests/test_infobulles_prototype_ui.py": "ab1deb334116eac5d39606cc1912ab4b0f0b37de9b0a191947debbfc4fe3cb80",
+    ".github/workflows/ci.yml": "60b6a6e180aafd070a595e2f2f1b0335ab7b7acd2215ed7b99af61473cd3c273"
+  },
+  "constats": [
+    {
+      "id": "UI01",
+      "statut": "verifie",
+      "texte": "Comparaison HEAD^→HEAD au premier parent adéquate pour le commit synthétique de PR testé par checkout par défaut et pour le commit de fusion normale vers main. Une feature comprenant plusieurs commits est entièrement couverte par cette comparaison au parent de base."
+    },
+    {
+      "id": "UI02",
+      "statut": "verifie",
+      "texte": "fetch-depth2 est limité au job tests. Une vraie fusion à deux parents clonée à profondeur2 fournit le parent nécessaire. Parent manquant produit un échec, jamais une sélection silencieusement vide."
+    },
+    {
+      "id": "UI03",
+      "statut": "verifie",
+      "texte": "COURS_UI_SSP ignoré lorsque GITHUB_ACTIONS=true ; validation locale complète du format S<num>.<num> et dédoublonnage. En CI, seuls chemins canoniques data/tip/S<num>.<num>.json modifiés sont ajoutés."
+    },
+    {
+      "id": "UI04",
+      "statut": "verifie",
+      "texte": "Les16G conservent le parcours complet, le minimum2régions, les14parties, titre/corps/sources, clic/toucher/clavier et refus de survol. Le minimum1région s’applique aux S ajoutés. Les248SSP/3472parties gardent leur contrôle global de correspondance."
+    },
+    {
+      "id": "UI05",
+      "statut": "verifie_statiquement",
+      "texte": "S3.5 sélectionné exige exactement la région tr-genital, aucune puce d’une autre région et présence des deux cibles tr-genital|tr-genital_1 et tr-genital|tr-genital_2. Cette assertion rejette la baseline anatomiquement erronée. Le parcours vérifie les cibles ; il ne clique pas chacune des puces de geste."
+    },
+    {
+      "id": "UI06",
+      "statut": "verifie",
+      "texte": "Diff du workflow limité à profondeur du checkout et libellé de l’étape ; permissions et autres jobs inchangés. Aucun seuil G existant abaissé."
+    }
+  ],
+  "sondes_git_independantes": [
+    {
+      "case": "merge_two_feature_commits_and_advanced_main_CI_override_ignored",
+      "selected": [
+        "S3.4",
+        "S3.5"
+      ]
+    },
+    {
+      "case": "merge_depth2",
+      "selected": [
+        "S3.4",
+        "S3.5"
+      ],
+      "shallow": "true"
+    },
+    {
+      "case": "documentation_commit",
+      "selected": []
+    },
+    {
+      "case": "local_override_dedup",
+      "selected": [
+        "S3.5",
+        "S3.4"
+      ]
+    },
+    {
+      "case": "invalid_override",
+      "result": "ValueError"
+    },
+    {
+      "case": "missing_parent",
+      "result": "fail_closed"
+    }
+  ],
+  "verification_syntaxique": "Analyse AST Python et YAML réussies ; git diff --check réussi.",
+  "limites_et_conditions": [
+    "Aucun lancement Playwright complet effectué dans ce contre-audit. Le futur lot doit réussir le navigateur sur ses fichiers corrigés et son SHA final avant intégration.",
+    "Un push direct de plusieurs commits sur main ou workflow_dispatch sur une tête ordinaire ne sélectionne que les changements du dernier commit. Le contrat évalué exige une fusion normale de PR ; une extension à ces autres usages nécessiterait une autre base de comparaison.",
+    "Un changement limité à app/assets/outils, sans changement data/tip/S*.json, ne sélectionne pas de cours S supplémentaire. Les contrôles globaux existants demeurent, mais cette extension est une couverture des données S modifiées.",
+    "Le format de la première partie ul/li/b est exigé pour les nouveaux S comme pour les G ; les corrections de cours doivent respecter ce contrat existant.",
+    "Le contrôle S3.5 ne devient pas permanent sur tous les commits : il s’exécute lorsque S3.5 est sélectionné. Les suppressions/identifiants inconnus ne sont pas ignorés par le parcours et échoueront.",
+    "Les liens de sources sont comparés au catalogue, sans requête HTTP ni garantie de leur contenu. Les assertions anatomiques ne remplacent pas le contre-audit clinique."
+  ],
+  "actions_auditeur": "Lecture, six sondes dans dépôts temporaires sous work, rapport. Aucun fichier de code, cours ou registre modifié."
+}
