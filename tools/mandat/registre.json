@@ -423,10 +423,11 @@
         "S4.1"
       ],
       "branche": "codex/p1-reprise-s3.10-s4.1",
-      "statut": "en_audit",
+      "statut": "annule",
       "pr_existante": 167,
       "head_pr_observe": "aab42d40e5765e826d8c5709b86d69fd60de6452",
-      "commit_local_prepare": "274cc41871df29787e836033c7c5fdd360580706"
+      "commit_local_prepare": "274cc41871df29787e836033c7c5fdd360580706",
+      "motif_cloture_reservation": "Agent arrêté lors du redémarrage ; travaux conservés et réservation reprise par /root/p1_reprise_167_apres_redemarrage"
     },
     {
       "etape": "ALPHA",
@@ -439,9 +440,73 @@
         "S4.3"
       ],
       "branche": "codex/p1-reprise-s4.2-s4.3",
-      "statut": "en_redaction",
+      "statut": "annule",
       "pr_existante": 170,
-      "head_pr_observe": "b4b8c747a6233b1d61cf7bc2cb79109f90df7ca3"
+      "head_pr_observe": "b4b8c747a6233b1d61cf7bc2cb79109f90df7ca3",
+      "motif_cloture_reservation": "Agent arrêté lors du redémarrage ; travaux conservés et réservation reprise par /root/p1_reprise_170_apres_redemarrage"
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_reprise_167_apres_redemarrage",
+      "modele": "gpt-6-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S3.10",
+        "S4.1"
+      ],
+      "branche": "codex/p1-reprise-s3.10-s4.1",
+      "statut": "annule",
+      "pr_existante": 167,
+      "head_pr_observe": "aab42d40e5765e826d8c5709b86d69fd60de6452",
+      "commit_local_prepare": "274cc41871df29787e836033c7c5fdd360580706",
+      "reprise_de": "/root/p1_s3_10_s4_1",
+      "motif_cloture_reservation": "Pause utilisateur ; reprise effective par un nouvel agent GPT-6.1 Sol élevé, travail conservé."
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_reprise_170_apres_redemarrage",
+      "modele": "gpt-6-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S4.2",
+        "S4.3"
+      ],
+      "branche": "codex/p1-reprise-s4.2-s4.3",
+      "statut": "annule",
+      "pr_existante": 170,
+      "head_pr_observe": "b4b8c747a6233b1d61cf7bc2cb79109f90df7ca3",
+      "reprise_de": "/root/p1_s4_2_s4_3",
+      "motif_cloture_reservation": "Pause utilisateur ; reprise effective par un nouvel agent GPT-6.1 Sol élevé, travail conservé."
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_sol61_reprise_167",
+      "modele": "gpt-6.1-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S3.10",
+        "S4.1"
+      ],
+      "branche": "codex/p1-reprise-s3.10-s4.1",
+      "statut": "en_redaction",
+      "observe_le": "2026-10-20T17:00:53.105026+00:00"
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_sol61_reprise_170",
+      "modele": "gpt-6.1-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S4.2",
+        "S4.3"
+      ],
+      "branche": "codex/p1-reprise-s4.2-s4.3",
+      "statut": "en_redaction",
+      "observe_le": "2026-10-20T17:00:53.105026+00:00"
     }
   ],
   "publications": {
@@ -628,7 +693,7 @@
     ],
     "priorite_active": "P1",
     "statut": "en_cours",
-    "observe_le": "2026-10-20T12:54:52.258514+00:00",
+    "observe_le": "2026-10-20T13:11:13.285682+00:00",
     "rapport_file": "audit/P0-FILE-PR-20261020.json",
     "fusion_clinique": "manuelle_centralisee",
     "priorites_suivantes_bloquees": true,
@@ -662,7 +727,7 @@
         "S3.6",
         "S3.7"
       ],
-      "statut": "contre_audite_a_integrer",
+      "statut": "contre_audite_phases_a_integrer",
       "publication_verifiee": false
     },
     "transition_P1": {
@@ -688,6 +753,66 @@
         "conclusion": "success",
         "head_sha": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21"
       }
+    },
+    "dernier_echec_ci": {
+      "pr": 161,
+      "head": "604da0aee0d7b0089e9c1eba0fec0a546b62f6d5",
+      "run": 39426553207,
+      "cause": "Ordre Inspection/Mesures dans deux blocs de constantes",
+      "correction": "Permutation exacte des blocs ; tests canoniques inchangés ; nouveau contre-audit et tests locaux réussis, nouvelle CI attendue."
+    },
+    "reprise_environnement": {
+      "date_utc": "2026-10-20T13:11:13.285696+00:00",
+      "anciens_agents_actifs": false,
+      "agents_relances": [
+        "/root/p1_reaudit_apres_redemarrage",
+        "/root/p1_reprise_167_apres_redemarrage",
+        "/root/p1_reprise_170_apres_redemarrage"
+      ]
+    },
+    "reprise_apres_pause": {
+      "date_utc": "2026-10-20T17:00:53.105026+00:00",
+      "agents_reellement_lances": [
+        {
+          "agent": "/root/p1_sol61_reprise_167",
+          "role": "auteur correcteur",
+          "modele_demande": "gpt-6.1-sol",
+          "raisonnement": "high",
+          "ssp": [
+            "S3.10",
+            "S4.1"
+          ],
+          "branche": "codex/p1-reprise-s3.10-s4.1"
+        },
+        {
+          "agent": "/root/p1_sol61_reprise_170",
+          "role": "auteur",
+          "modele_demande": "gpt-6.1-sol",
+          "raisonnement": "high",
+          "ssp": [
+            "S4.2",
+            "S4.3"
+          ],
+          "branche": "codex/p1-reprise-s4.2-s4.3"
+        },
+        {
+          "agent": "/root/p1_audit_reprise_164",
+          "role": "contre-auditeur indépendant",
+          "modele_demande": "gpt-6-astra",
+          "raisonnement": "high",
+          "ssp": [
+            "S3.8",
+            "S3.9"
+          ]
+        }
+      ],
+      "perimetre": "Parties des cours SSP S (14 parties), distinctes des monographies DD (6 rubriques)."
     }
+  },
+  "pause_utilisateur": {
+    "active": false,
+    "reprise_utc": "2026-10-20T17:00:53.105026+00:00",
+    "instruction": "Continuer les parties des cours S ; rédaction GPT-6.1 Sol élevé.",
+    "autres_priorites_bloquees": true
   }
 }

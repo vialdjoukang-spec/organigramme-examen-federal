@@ -488,7 +488,7 @@
     ],
     "priorite_active": "P1",
     "statut": "en_cours",
-    "observe_le": "2026-10-20T12:54:52.258514+00:00",
+    "observe_le": "2026-10-20T13:11:13.285682+00:00",
     "main_observe": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21",
     "cours_audites_documentaires": 58,
     "parties_auditees_documentaires": 812,
@@ -525,7 +525,7 @@
         "S3.6",
         "S3.7"
       ],
-      "statut": "contre_audite_a_integrer",
+      "statut": "contre_audite_phases_a_integrer",
       "publication_verifiee": false
     },
     "transition_P1": {
@@ -557,6 +557,66 @@
         "conclusion": "success",
         "head_sha": "d6a25c78383415e412fb6297a1ba53ff7d2f4f21"
       }
+    },
+    "dernier_echec_ci": {
+      "pr": 161,
+      "head": "604da0aee0d7b0089e9c1eba0fec0a546b62f6d5",
+      "run": 39426553207,
+      "cause": "Ordre Inspection/Mesures dans deux blocs de constantes",
+      "correction": "Permutation exacte des blocs ; tests canoniques inchangés ; nouveau contre-audit et tests locaux réussis, nouvelle CI attendue."
+    },
+    "reprise_environnement": {
+      "date_utc": "2026-10-20T13:11:13.285696+00:00",
+      "anciens_agents_actifs": false,
+      "agents_relances": [
+        "/root/p1_reaudit_apres_redemarrage",
+        "/root/p1_reprise_167_apres_redemarrage",
+        "/root/p1_reprise_170_apres_redemarrage"
+      ]
+    },
+    "reprise_apres_pause": {
+      "date_utc": "2026-10-20T17:00:53.105026+00:00",
+      "agents_reellement_lances": [
+        {
+          "agent": "/root/p1_sol61_reprise_167",
+          "role": "auteur correcteur",
+          "modele_demande": "gpt-6.1-sol",
+          "raisonnement": "high",
+          "ssp": [
+            "S3.10",
+            "S4.1"
+          ],
+          "branche": "codex/p1-reprise-s3.10-s4.1"
+        },
+        {
+          "agent": "/root/p1_sol61_reprise_170",
+          "role": "auteur",
+          "modele_demande": "gpt-6.1-sol",
+          "raisonnement": "high",
+          "ssp": [
+            "S4.2",
+            "S4.3"
+          ],
+          "branche": "codex/p1-reprise-s4.2-s4.3"
+        },
+        {
+          "agent": "/root/p1_audit_reprise_164",
+          "role": "contre-auditeur indépendant",
+          "modele_demande": "gpt-6-astra",
+          "raisonnement": "high",
+          "ssp": [
+            "S3.8",
+            "S3.9"
+          ]
+        }
+      ],
+      "perimetre": "Parties des cours SSP S (14 parties), distinctes des monographies DD (6 rubriques)."
     }
+  },
+  "pause_utilisateur": {
+    "active": false,
+    "reprise_utc": "2026-10-20T17:00:53.105026+00:00",
+    "instruction": "Continuer les parties des cours S ; rédaction GPT-6.1 Sol élevé.",
+    "autres_priorites_bloquees": true
   }
 }
