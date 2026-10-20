@@ -30,6 +30,11 @@ jobs:
           echo "orig/ intact."
       - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
         run: python3 tools/budget.py
+      - name: Arsenal · tests des outils d'économie de jetons
+        run: python3 -m unittest discover -s tests -p test_arsenal.py
+      - name: Arsenal · lot.py auto (lots et monographies modifiés, une ligne)
+        if: github.event_name == 'pull_request'
+        run: python3 tools/arsenal/lot.py auto "origin/${{ github.base_ref }}" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Fonctions externalisées · source intacte et chargement synchrone
         run: python3 -m unittest discover -s tests -p test_fonctions_asset.py
       - name: TIP externalisé · 248 sources, asset et chargement synchrone

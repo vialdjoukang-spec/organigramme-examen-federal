@@ -1,3 +1,5 @@
+**ARSENAL obligatoire (Vial, 20.10.2026) : lire `docs/ARSENAL.md` (5 commandes et interdits par secteur) avant tout travail.**
+
 ## Mandat courant · 20.10.2026 Europe/Zurich
 
 **Cours SSP après externalisation de TIP.** Éditer uniquement `data/tip/<SSP>.json` via `tools/cours/appliquer.py <SSP>` pour un lot relu ; l’outil régénère `assets/config/tip.js`. Après toute autre correction autorisée, régénérer l’asset avec `python3 -c "from tools.tip_data import build; build('.')"`, puis vérifier `python3 tools/tip_data.py` et `python3 tools/cours/controler.py`. Pour l’ancien flux `json_inject.py extract TIP` → modification de `data/TIP.json` → `inject TIP`, l’injection refuse les conflits par SSP et met à jour les fichiers canoniques. `data/TIP.json` est un brouillon local, jamais la source publiée. Conserver l’asset et les JSON du cours ensemble dans la branche ; les anciennes branches avec TIP inline restent lisibles.
