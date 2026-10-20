@@ -1,3 +1,11 @@
+## Passation à Grokbot · 20.10.2026 à 07:51 Europe/Zurich
+
+**Dernier ordre de Vial : Grokbot reprend ; ChatGPT et ses agents arrêtent leur production.** Lire d’abord `docs/PASSATION-GROKBOT-20261020.md`, qui précise le mandat transféré et les limites des accès techniques.
+
+État public vérifié : **52/248 cours, 728/3472 parties**, jusqu’à **S3.1**, commit `83ab692a171000775e45dfa43a4a72d289eeeb3f` ; 15 fichiers publics identiques, preuve `audit/PUBLICATION-ALPHA-S1.11-S3.1-20261020.json`. Reprise sûre : **S3.2**. Les anciennes annonces de lots S3.2–S4.7 préparés concernent des objets locaux non poussés et non récupérés après nettoyage temporaire ; ils ne sont pas acquis. Leurs réservations sont libérées et leur historique conservé.
+
+Ordre maintenu : ALPHA S → F → O, puis BETTA G → S → F → O, puis GAMMA. Le relais Codex est désactivé par cette passation pour éviter la concurrence ; aucun relais Grokbot ni permission GitHub nouvelle n’est présumé. Les notes ci-dessous constituent l’historique.
+
 ## Mandat courant · 20.10.2026 Europe/Zurich
 
 `docs/MODIFICATIONS-1-CK-2-CS.md` définit l’ordre autorisé : **ALPHA S → F → O**, puis **BETTA G → S → F → O**, puis **GAMMA CS**. Exécuter `python3 tools/mandat/planifier.py` et reprendre les branches réservées. Au plus deux cours par agent GPT-6 élevé ; en BETTA, trois différentiels par agent et par audit. Les contre-auditeurs sont indépendants, en Astra. Chaque phase exige audit documentaire, fusion protégée et publication vérifiée avant la suivante.
