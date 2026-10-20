@@ -32,6 +32,8 @@ jobs:
         run: python3 tools/budget.py
       - name: Arsenal · tests des outils d'économie de jetons
         run: python3 -m unittest discover -s tests -p test_arsenal.py
+      - name: Arsenal · verdict de ci_attente (jamais VERT sur échec)
+        run: python3 -m unittest discover -s tests -p test_ci_verdict.py
       - name: Arsenal · lot.py auto (lots et monographies modifiés, une ligne)
         if: github.event_name == 'pull_request'
         run: python3 tools/arsenal/lot.py auto "origin/${{ github.base_ref }}" | tee -a "$GITHUB_STEP_SUMMARY"
