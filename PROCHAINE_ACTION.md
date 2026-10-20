@@ -1,3 +1,17 @@
+## Correctif documentaire source17 contre-audité · nouvelle CI167 requise
+
+L’échecTLS de la tête679f2c0de64df5aa0c5dc9b403523c82ff7a6564 est conservé dans `audit/P1-CI-ECHEC-TLS-S3.10-20261020.json`. La publication primaireRCEM février2024 remplace la ficheNHS, source17 seulement ; les28parties et leurs références numériques sont identiques. Nouveau contre-audit indépendant `audit/P1-AUDIT-COURS-S3.10-SOURCE17-20261020.json` et complément source17 ; anciennes preuves intactes. G1–G8 verts après substitution, mais aucun succèsTLSrunner présumé. Actualiser PR167 par fast-forward normal avec ce gel, attendre nouvelleCIcomplète avant fusion puis vérifier main/Pages/HTTP.44SSP S/616parties publiques restent le dernier bilan confirmé.
+
+## Publication164 et gel167 contre-audité · 20.10.2026 Europe/Zurich
+
+PR164 fusionnée dans `fa994452c735a8f7a55a8ec5bc644abf97221d53` après CI, Visuel et Checkpoint verts sur `4968af34eb063bda46c7c8fe0bddb0889ef059fd`.282/282contrôles et18cours×14parties navigateur réussis. Pages39465484064 réussi ;114fichiers publics HTTP200/SHA256 identiques. **44SSP S/616parties de cours S publiques**, sans lien avec un compteur de monographies DD. CI main39465467556 à contrôler avant fusion167 ; son état observé est consigné sans résultat futur présumé.
+
+S3.10/S4.1 : huit constats résolus, deux contre-audits individuels favorables et révision indépendante ;62cours/868parties audités au total,46SSP S. Réutiliser PR167 avec CI finale, fusion normale et publication vérifiée ; suite170 après résolutionB1–B3, puis179/180 selon le catalogue.
+
+## CI main161 verte · publication des parties confirmée
+
+CI39463757928 réussie au commit80f704ecd6af34d2b0b713f8821c32b6665bb5c1 ; publication114fichiers déjà vérifiée.42SSP S/588parties de cours S publiés, distincts des monographies DD. Preuve complémentaire `audit/P1-CI-MAIN-S3.6-S3.7-20261020.json`.164 peut être fusionnée seulement après ses propres contrôles finaux verts ;167 en contre-audit final ;170 en correction des constats indépendantsB1–B3.
+
 ## Publication161 observée · 20.10.2026 Europe/Zurich
 
 PR161 fusionnée dans `80f704ecd6af34d2b0b713f8821c32b6665bb5c1` après CI finale, Visuel et Checkpoint verts sur `cbcefe980d707503e21c72f2bc9f1fa4a6b70ba3`.282/282contrôles et18cours×14parties navigateur réussis. Pages39463777819 réussi ;114fichiers publics HTTP200 etSHA256 identiques. Les14parties de S3.6 et S3.7 sont donc effectivement publiques : **42SSP S/588parties de cours S**. La CI main39463757928 doit également être verte avant fusion164 ; son dernier état observé est consigné dans `audit/P1-CI-S3.6-S3.7-20261020.json`, sans résultat futur présumé.
