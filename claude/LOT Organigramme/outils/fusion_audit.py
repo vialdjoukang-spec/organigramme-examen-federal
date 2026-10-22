@@ -12,15 +12,20 @@ LOTDIR = os.path.dirname(HERE)
 ORDER = {"Critique": 0, "Grave": 1, "Moyen": 2, "Léger": 3}
 
 
-def norm(s):
+def norm(s, inline_gap=" "):
+    s = re.sub(r"</?(span|a|b|i|em|strong|sup|sub|u|code)\b[^>]*>", inline_gap, s)
     s = html.unescape(re.sub(r"<[^>]+>", " ", s))
+    for a, b in (("\u2019", "'"), ("\u2018", "'"), ("®", ""), ("\u2011", "-"), ("\u2013", "-"), ("\u2014", "-")):
+        s = s.replace(a, b)
     return re.sub(r"\s+", " ", s.replace(" ", " ").replace(" ", " ")).strip().lower()
 
 
 texts = {}
 for f in os.listdir(LOTDIR):
     if f.startswith(f"LOT_{N}_") and f.endswith(".html"):
-        texts[f] = norm(open(os.path.join(LOTDIR, f), encoding="utf-8", errors="replace").read())
+        raw = open(os.path.join(LOTDIR, f), encoding="utf-8", errors="replace").read()
+        t1, t2 = norm(raw), norm(raw, "")
+        texts[f] = (t1, t2, t1.replace(" ", ""))
 
 man = json.load(open(os.path.join(LOTDIR, f"LOT_{N}_MANIFESTE_CLONE.json"), encoding="utf-8"))
 fichiers = [{"nom": m["localName"], "drive_id": m["fileId"], "taille": m["localSize"],
@@ -34,7 +39,7 @@ for code, target in (("MEDICAL", rm), ("LINGUISTIQUE", rl)):
     for c in d["constats"]:
         f = c.get("fichier", "")
         ex = norm(c.get("extrait", ""))
-        if ex and f in texts and ex not in texts[f]:
+        if ex and not ex.startswith("(") and f in texts and not (ex in texts[f][0] or ex in texts[f][1] or ex.replace(" ", "") in texts[f][2]):
             introuvables.append(c["id"])
             c["emplacement"] += " (extrait à rechercher par mots-clés : citation non littérale)"
         constats.append(c)
