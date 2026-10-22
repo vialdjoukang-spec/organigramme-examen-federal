@@ -16,3 +16,11 @@
 4. Dépôt des fichiers modifiés : GitHub + Drive `LOTS_Finaux avec statut` (nouvelle version, taille vérifiée ; ancienne copie en CORBEILLE_DOUBLONS_OBSOLETES).
 5. Réponses des lots 1 à 8 : fichier « réponses vérifiées » dans chaque `LOT_x_A_produire` (base pour la réécriture par GPT 6 Astra).
 6. Lire les DHPC Konakion® 2026 et Clexane® 2014 avant injection de D-023/D-024.
+
+## État au soir du 22.10.2026 (fin des agents)
+- 12/12 lots injectés : 228, 229, 231, 233, 234, 235, 237, 238, 241, 242, 243, 244 (journaux dans `injections/`, fichiers dans `lots_injectes/`). Aucun n'est audité.
+- VERIF_1 terminé (A-007…A-031) ; alertes A-029 (calcitonine, pamidronate) et A-031 (amiloride–lithium).
+- Fichiers > 200 Ko : 233 P2 (dépassement causé par l'injection), 241 A, 242 P4, 243 P2, 244 A (déjà au-dessus avant).
+- Dates « consulté le 23.10.2026 » à ramener au 22.10.2026 (au moins 242, 243).
+- Volets 235/236 de C-018 et C-032 non injectés.
+- Doublons de sources LOT_231 : S611 = S40, S600 ≈ S311.
