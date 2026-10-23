@@ -8,6 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def verify(bundle, report, policy, commit):
     login=policy.get('tunder_github_login')
+    for rel in report.get('files',{}):
+        assert not Path(rel).is_absolute() and '..' not in Path(rel).parts, 'Chemin hors périmètre' 
     assert login, 'Identifiant GitHub de Tunder non configuré'
     assert commit.get('author',{}).get('login')==login, 'Auteur du commit non relié à Tunder par GitHub'
     assert commit.get('commit',{}).get('verification',{}).get('verified') is True, 'Signature du commit non vérifiée par GitHub'
