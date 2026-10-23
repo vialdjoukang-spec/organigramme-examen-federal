@@ -1,0 +1,27 @@
+# Installation facultative : .github/workflows/phase-lot-heartbeat.yml sur main via PR contrôlée.
+# Test cron 30 minutes. Après deux passages observés, remplacer par '17 * * * *'.
+# Ce workflow ne peut pas réveiller une IA ; l'automatisation ChatGPT horaire porte la reprise.
+name: Phase LOT - sonde uniquement
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17,47 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: phase-lot-heartbeat
+  cancel-in-progress: false
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Lire la file GitHub sans appeler d'IA
+        run: |
+          python3 - <<'PY'
+          import datetime, json, urllib.request
+          url='https://api.github.com/repos/vialdjoukang-spec/organigramme-examen-federal/contents/phase_lot/config/file.json?ref=Organigramme'
+          req=urllib.request.Request(url,headers={'Accept':'application/vnd.github.raw+json','User-Agent':'PhaseLOT-Heartbeat'})
+          with urllib.request.urlopen(req,timeout=20) as response: q=json.load(response)
+          print(json.dumps({'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'active':[r['lot'] for r in q['lots'] if r['production_status']=='ACTIF'],'ai_started':False}))
+          PY
