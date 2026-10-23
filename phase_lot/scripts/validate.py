@@ -10,10 +10,16 @@ class Structure(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.stack, self.errors, self.monographs, self.current = [], [], {}, None
+        self.ids, self.targets, self.viewport = set(), [], False
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag in {'script','iframe','img','link'}:
+        if tag in {'script','iframe','img','link','object','embed','audio','video'}:
             self.errors.append(f'élément interdit ou externe : {tag}')
+        if attrs.get('id'):
+            if attrs['id'] in self.ids: self.errors.append(f'identifiant dupliqué : {attrs["id"]}')
+            self.ids.add(attrs['id'])
+        if attrs.get('href','').startswith('#'): self.targets.append(attrs['href'][1:])
+        if tag=='meta' and attrs.get('name','').casefold()=='viewport': self.viewport=True
         if 'title' in attrs:
             self.errors.append('attribut title interdit')
         if tag == 'table' and not any(t == 'div' and 'overflow-x' in a.get('style','') for t,a in self.stack):
@@ -45,6 +51,9 @@ def check(path, rubric):
     p = Structure(); p.feed(text); p.close()
     errors = list(p.errors)
     if p.stack: errors.append('balises non fermées')
+    if not p.viewport: errors.append('meta viewport absent')
+    if any(t not in p.ids for t in p.targets): errors.append('ancre interne absente')
+    if re.search(r'@import\b|url\s*\(',text,re.I): errors.append('ressource CSS externe ou image incorporée interdite')
     if not re.match(r'\s*<!doctype html>', text, re.I): errors.append('DOCTYPE absent')
     if not re.search(r'</html>\s*<!-- FIN_FICHIER [^>]+-->\s*$',text): errors.append('fin HTML ou FIN_FICHIER absent/invalide')
     if not 90000 <= len(b) <= 200000: errors.append(f'taille hors 90–200 Ko : {len(b)} octets')
