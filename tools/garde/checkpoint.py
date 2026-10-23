@@ -36,7 +36,8 @@ def connus():
         r = os.path.relpath(p, ROOT)
         noms |= {r, os.path.basename(r), os.path.splitext(os.path.basename(r))[0]}
     cat = open(os.path.join(ROOT, "CATALOGUE.md"), encoding="utf-8").read() if os.path.exists(os.path.join(ROOT, "CATALOGUE.md")) else ""
-    noms |= set(re.findall(r"`([^`\s]+)`", cat))
+    # Nom entier entre accents graves, espaces compris (ex. « agent cloud Cursor »).
+    noms |= {n.strip() for n in re.findall(r"`([^`\n]+)`", cat) if n.strip()}
     return {n.lower() for n in noms}, cat
 
 
