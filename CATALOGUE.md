@@ -201,6 +201,8 @@ Observé le 20.10.2026 : connecteur GitHub disponible (lecture/écriture du dép
 
 Outils réellement accessibles : exécution shell/Python/JavaScript, édition de fichiers, Git, `gh`, agents spécialisés et skills du dépôt. P0 utilise shell, scripts déterministes et deux agents indépendants pour les audits techniques. Le skill `cloud-environment-runtime` a été lu pour le réseau. Les outils web serviront aux lectures scientifiques P1–P4 ; Playwright est vérifié par la CI. Aucun outil image utilisé. Les modèles de chaque agent sont consignés selon leur exécution réelle, sans attestation fabriquée.
 
+- `agent cloud Cursor` : agent de codage cloud Cursor (ouverture des pull requests de ce dépôt).
+
 ## 7. Droits de fusion-publication
 
 ```
