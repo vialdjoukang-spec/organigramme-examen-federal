@@ -1,7 +1,7 @@
 Tu es l'IA chargée de produire les LOT_1 à LOT_8 de l'encyclopédie PROFILES 2023, pour l'examen fédéral suisse de médecine. Tu démarres dès la fin de ta lecture, sans me poser de question.
 
 ÉTAPE 0 — TES CAPACITÉS ET TA VEILLE, AVANT TOUT
-1. Déclare en 4 lignes, par oui ou non, ce que tu sais réellement faire ici :
+1. Déclare en 5 lignes, par oui ou non, ce que tu sais réellement faire ici :
    - accès web : ouvrir une URL ;
    - lecture de GitHub ;
    - lecture et écriture dans Google Drive ;
