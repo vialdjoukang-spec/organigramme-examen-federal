@@ -38,11 +38,15 @@ class Controls(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'non configuré'):
             verify(Path('.'),{}, {'tunder_github_login':None},{})
     def test_self_declared_identity_does_not_prove_auditor(self):
-        with self.assertRaisesRegex(AssertionError,'non relié'):
+        with self.assertRaisesRegex(AssertionError,'Validation humaine'):
             verify(Path('.'),{'auditor_login':'tunder'}, {'tunder_github_login':'tunder'}, {'author':{'login':'author'}})
-    def test_unsigned_commit_blocks_publication(self):
-        with self.assertRaisesRegex(AssertionError,'Signature'):
-            verify(Path('.'),{}, {'tunder_github_login':'tunder'}, {'author':{'login':'tunder'},'commit':{'verification':{'verified':False}}})
+    def test_signed_commit_does_not_replace_human_approval(self):
+        with self.assertRaisesRegex(AssertionError,'Validation humaine'):
+            verify(Path('.'),{}, {'tunder_github_login':'tunder'}, {'author':{'login':'tunder'},'commit':{'verification':{'verified':True}}})
+    def test_human_approval_does_not_apply_to_other_candidate(self):
+        policy={'tunder_github_login':'tunder','human_approval':{'accepted':True,'reference':'human-review','candidate_commit':'first','files':{}}}
+        with self.assertRaisesRegex(AssertionError,'périmée'):
+            verify(Path('.'),{'candidate_commit':'second'},policy,{})
     def test_rubric_has_each_v7_question(self):
         rubric=json.loads((ROOT/'config/rubric.json').read_text())
         self.assertEqual(list(range(1,15)),[p['point'] for p in rubric['points']])

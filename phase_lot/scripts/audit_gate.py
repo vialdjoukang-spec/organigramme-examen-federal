@@ -11,8 +11,13 @@ def verify(bundle, report, policy, commit):
     for rel in report.get('files',{}):
         assert not Path(rel).is_absolute() and '..' not in Path(rel).parts, 'Chemin hors périmètre' 
     assert login, 'Identifiant GitHub de Tunder non configuré'
-    assert (commit.get('author') or {}).get('login')==login, 'Auteur du commit non relié à Tunder par GitHub'
-    assert commit.get('commit',{}).get('verification',{}).get('verified') is True, 'Signature du commit non vérifiée par GitHub'
+    approval=policy.get('human_approval')
+    assert approval and approval.get('accepted') is True and approval.get('reference'), 'Validation humaine explicite absente'
+    assert approval.get('candidate_commit')==report.get('candidate_commit'), 'Validation humaine périmée'
+    assert approval.get('files')=={k:v['sha256'] for k,v in report.get('files',{}).items()}, 'Empreintes non validées par l’humain'
+    # Le compte GitHub est partagé avec les outils : ni auteur ni signature ne prouvent
+    # que la décision vient d'un humain. La référence de validation doit être réellement
+    # constatée par le coordinateur ; aucun agent ne peut fabriquer ce consentement.
     assert report['auditor_login']==login and report['decision']=='ACCEPTE'
     assert report['medical_review'] is True and report['linguistic_review'] is True
     assert type(report['critical_errors']) is int and report['critical_errors']==0

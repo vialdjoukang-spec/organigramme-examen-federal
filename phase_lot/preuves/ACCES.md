@@ -5,5 +5,5 @@
 - Google Drive MCP : recherche réussie, prompt V7 lu, prompt de démarrage lu, LOT 1 Appel A V7 de 121668 octets retrouvé et lu. Des Parties B V7 scindées existent aussi ; elles restent des candidats à revérifier.
 - Parallel Search MCP : recherche primaire AWMF/HUG réussie ; les agents ouvrent leurs sources et consignent les passages.
 - Script cloud de liens : 40 URL sondées, toutes ont reçu un refus de tunnel HTTP 403 dans cet exécuteur. Cela ne démontre pas une panne des sites. Aucun lien n'est déclaré fonctionnel à partir de ce test. La lecture documentaire continue par les MCP disponibles, avec sa propre trace.
-- Compte GitHub de Tunder : non identifié à ce stade. Aucune invitation envoyée ni égalité de droits prétendue.
+- Mise à jour : Thunder est l’utilisateur humain, compte vialdjoukang-spec ; permission admin vérifiée via MCP. Aucune invitation externe à créer.
 - Les sous-agents sont disponibles ; Agent A demandé et lancé en gpt-6.1-sol/high. Les B attendent la fin de A.

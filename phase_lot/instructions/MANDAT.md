@@ -1,3 +1,5 @@
+> **Consigne humaine prioritaire, mise à jour le 24.10.2026 :** Thunder est l’utilisateur humain (compte GitHub vialdjoukang-spec), et non une IA Grok. ChatGPT rédige A et B. Rien n’est transmis, déposé ou publié sans sa validation humaine explicite du livrable concerné. Les rédactions restent locales jusque-là. LOT_Tunder, sur main, sert à la réception pour relecture après fusion effective de la PR272 et autorisation de transmission. LOT_Finaux_Audités reste réservé aux cours acceptés. Aucun agent ne fabrique une approbation humaine ni ne l’infère d’un commit sur le compte partagé. Les anciennes mentions d’un compte externe/IA ou d’une publication automatique ci-dessous sont remplacées par cette consigne.
+
 # Organisation pratique
 
 ## Dépôt et isolation
@@ -31,9 +33,11 @@ Chaque monographie utilise `<article data-monograph="G1">` ou `DX.1`, et chaque 
 
 ## Audit Tunder et passage au final
 
-Configurer le vrai login de Tunder dans config/policy.json après vérification des droits. Ne pas accorder l'accès à un compte supposé. Le rapport suit config/audit.schema.example.json : identité de l'auditeur, commit candidat, empreintes, scores à chaque question pour chaque monographie, justification des sans objet, contrôle médical et linguistique, zéro critique, verdict accepté. Les scores proviennent de Tunder, jamais du script ou de l'auteur. Le seuil opérationnel retenu est 100% des questions applicables, conformément au prompt de démarrage ; le V7 seul fixe 90% comme minimum de dépôt.
+Thunder est l’utilisateur humain, identifié par sa réponse dans le chat et le compte GitHub `vialdjoukang-spec` (droits admin vérifiés). Il vérifie les informations médicales, les 14 parties et la langue : français soutenu, clair, compréhensible, avec connecteurs logiques. ChatGPT ne réalise pas ni ne signe cet audit à sa place.
 
-`audit_gate.py` vérifie le rapport et l'attribution du commit d'audit via GitHub (login relié par GitHub et signature vérifiée), puis prépare une copie finale dans une destination vide. Il ne pousse rien. Le coordinateur recontrôle rapport et CI avant dépôt dans `LOT_Finaux_Audités/LOT_001_G1/` sur Organigramme. Si Tunder utilise le même compte GitHub que le coordinateur, l'identité distincte de l'IA n'est pas prouvée : conserver un journal externe vérifiable, ne pas annoncer l'indépendance sur la seule identité du compte.
+Une validation humaine explicite doit désigner le livrable exact et ses empreintes. Le coordinateur la consigne avec sa référence réelle ; une branche verte, un commit du compte partagé ou un champ JSON ne prouvent pas à eux seuls une intervention humaine. Le script audit_gate.py refuse tout passage si human_approval est absent ou ne correspond pas au candidat et aux fichiers. Aucun automate ne remplit cette approbation.
+
+Le dossier de réception est `main:LOT_Tunder/`, créé par la PR272. Ne rien y déposer avant fusion constatée et autorisation humaine de transmission. La source finale `LOT_Finaux_Audités` reste réservée aux cours ensuite acceptés par Thunder. Le rapport V7 peut être conservé dans le dépôt, mais son attribution au compte partagé ne démontre pas à elle seule l'identité humaine : la validation explicite reste nécessaire.
 
 ## Reprise et cadence
 
