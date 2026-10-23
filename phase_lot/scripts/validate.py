@@ -65,7 +65,7 @@ def main():
     a=argparse.ArgumentParser(); a.add_argument('html',type=Path); a.add_argument('--report',type=Path,required=True)
     a.add_argument('--watch',action='store_true'); args=a.parse_args()
     rubric=json.loads((Path(__file__).resolve().parents[1]/'config/rubric.json').read_text())
-    old=None
+    old=None; last_error=None
     while True:
         try:
             digest=hashlib.sha256(args.html.read_bytes()).hexdigest()
@@ -77,7 +77,8 @@ def main():
             if not args.watch: return 0 if r['structural_pass'] else 1
         except (OSError,UnicodeError) as e:
             if not args.watch: raise
-            print(json.dumps({'pending':str(e)}),flush=True)
+            if last_error!=str(e): print(json.dumps({'pending':str(e)}),flush=True)
+            last_error=str(e)
         time.sleep(2)
 
 if __name__=='__main__': raise SystemExit(main())

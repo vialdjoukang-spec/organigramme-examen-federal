@@ -3,8 +3,18 @@ from pathlib import Path
 from audit_gate import verify, ROOT
 from progression import validate
 from validate import check
+from check_ownership import validate as ownership
+from publish_evidence import compact
 
 class Controls(unittest.TestCase):
+    def test_author_cannot_touch_coordinator_or_neighbor(self):
+        for path in ['phase_lot/config/file.json','LOT_Candidats/LOT_001/B2/Cours.html','LOT_Candidats/LOT_001/B1/../A/Appel_A.html']:
+            with self.assertRaises(AssertionError): ownership([path],1,'B1')
+    def test_public_excerpt_budget_shared_across_duplicate_source(self):
+        raw={'sources':[{'url':'https://example.test','excerpts':['mot '*200]},{'url':'https://example.test','excerpts':['autre '*200]}]}
+        out=compact(raw)
+        self.assertEqual(out['sources'][1]['bounded_excerpt'],' […]')
+        self.assertEqual(len(raw['sources'][0]['excerpts'][0].split()),200)
     def test_queue_refuses_two_active_lots(self):
         q=json.loads((ROOT/'config/file.json').read_text()); q['lots'][1]['production_status']='ACTIF'
         with self.assertRaises(AssertionError): validate(q)

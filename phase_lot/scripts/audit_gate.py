@@ -21,16 +21,24 @@ def verify(bundle, report, policy, commit):
     questions={q['id'] for p in rubric['points'] for q in p['questions']}
     files=sorted(bundle.rglob('*.html')); expected={str(p.relative_to(bundle)) for p in files}
     assert files and expected==set(report['files']), 'Périmètre du rapport différent des HTML candidats'
+    selection=json.loads((bundle/'A/selection.json').read_text())
+    assert selection['complete'] is True
+    assert [d['id'] for d in selection['diagnostics']]==[f'DX.{i}' for i in range(1,11)]
+    all_monographs=[]
     for p in files:
         rel=str(p.relative_to(bundle)); entry=report['files'][rel]
         assert hashlib.sha256(p.read_bytes()).hexdigest()==entry['sha256'],f'Empreinte périmée {rel}'
         structure=check(p,rubric); assert structure['structural_pass'],f'Structure non conforme {rel}'
+        assert entry.get('final_question_6_2')=='OUI' and entry.get('section_16_complete') is True, 'Contrôle final V7 incomplet'
         assert set(entry['monographs'])==set(structure['monographs']),f'Monographies manquantes {rel}'
+        all_monographs.extend(structure['monographs'])
         for mono, answers in entry['monographs'].items():
             assert set(answers)==questions, f'Questions manquantes {rel}/{mono}'
             for key,value in answers.items():
                 assert value.get('evidence'), f'Preuve absente {key}'
                 assert value['score']==2 or (value['score']=='NA' and value.get('justification')),f'Question non satisfaite {key}'
+    required={f'G{int(report["lot"])}'} | {f'DX.{i}' for i in range(1,11)}
+    assert len(all_monographs)==11 and set(all_monographs)==required, 'SSP ou diagnostics manquants/dupliqués'
     return files
 
 def main():
