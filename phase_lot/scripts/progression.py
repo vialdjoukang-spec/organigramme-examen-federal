@@ -2,6 +2,7 @@
 """Coordinateur unique, sans transition implicite ni auto-validation médicale."""
 import argparse, hashlib, json
 from pathlib import Path
+from validate import Structure
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -27,10 +28,21 @@ def main():
         n=a.complete; row=q['lots'][n-1]; assert row['production_status']=='ACTIF'
         selection=json.loads((a.bundle/'A/selection.json').read_text())
         assert selection['complete'] is True and len(selection['diagnostics'])==10
+        assert [d['id'] for d in selection['diagnostics']]==[f'DX.{i}' for i in range(1,11)]
+        assert len({d['name'].casefold() for d in selection['diagnostics']})==10, 'diagnostics dupliqués'
         for role in ['A','B1','B2','B3','B4','B5']:
             cp=json.loads((a.bundle/role/'checkpoint.json').read_text())
             assert cp['production_complete'] is True and cp['role']==role
             assert list((a.bundle/role).glob('*.html')), f'HTML absent {role}'
+            found=[]
+            for html in (a.bundle/role).glob('*.html'):
+                parsed=Structure(); parsed.feed(html.read_text()); parsed.close()
+                assert not parsed.errors and not parsed.stack,f'HTML incomplet {html}'
+                for ident,mono in parsed.monographs.items():
+                    assert mono['points']==list(map(str,range(1,15))),f'14 points incomplets {ident}'
+                    found.append(ident)
+            wanted=[f'G{n}'] if role=='A' else [f'DX.{2*int(role[1])-1}',f'DX.{2*int(role[1])}']
+            assert sorted(found)==sorted(wanted),f'Diagnostics hors réservation ou manquants {role}'
         row.update(production_status='PRODUIT',audit_status='EN_ATTENTE_TUNDER',files=manifest(a.bundle))
         if n<10: q['lots'][n]['production_status']='ACTIF'
         validate(q)
