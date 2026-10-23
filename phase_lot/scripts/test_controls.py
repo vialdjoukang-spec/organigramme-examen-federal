@@ -1,12 +1,20 @@
 import copy, json, tempfile, unittest
+import datetime
 from pathlib import Path
 from audit_gate import verify, ROOT
 from progression import validate
 from validate import check
 from check_ownership import validate as ownership
 from publish_evidence import compact
+from lease import allowed
 
 class Controls(unittest.TestCase):
+    def test_second_coordinator_blocked_until_lease_expires(self):
+        now=datetime.datetime.now(datetime.timezone.utc)
+        lease={'owner':'first','expires_at':(now+datetime.timedelta(minutes=5)).isoformat()}
+        self.assertFalse(allowed(lease,'second',now))
+        self.assertTrue(allowed(lease,'first',now))
+        self.assertTrue(allowed(lease,'second',now+datetime.timedelta(minutes=6)))
     def test_author_cannot_touch_coordinator_or_neighbor(self):
         for path in ['phase_lot/config/file.json','LOT_Candidats/LOT_001/B2/Cours.html','LOT_Candidats/LOT_001/B1/../A/Appel_A.html']:
             with self.assertRaises(AssertionError): ownership([path],1,'B1')
