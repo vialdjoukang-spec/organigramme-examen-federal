@@ -27,3 +27,7 @@ Ce fichier appartient **exclusivement à l'Agent 1**. L'Agent 2 n'y écrit jamai
 | LOT_235 | ☐ |  |  |  | Non |
 | LOT_236 | ☐ |  |  |  | Non |
 | LOT_237 | ☐ |  |  |  | Non |
+
+## Note — réorganisation du 2026-10-24 (8 agents, 2 équipes)
+
+À partir du **LOT_229** (Agent 1) et du **LOT_240** (Agent 2), les lignes de ce fichier couvrent **uniquement l'Appel A et la Partie 1 (DX.1–DX.2)** du LOT ; la case « Terminé » est cochée quand ces deux fichiers sont déposés sur Drive. Les Parties 2, 3 et 4 sont suivies dans les fichiers `SUIVI_AGENT_N_EQUIPE_k.md` des Agents 3, 5, 7 (équipe 1) et 4, 6, 8 (équipe 2) ; voir `ORGANISATION_EQUIPES.md`. Les lignes LOT_227–228 (Agent 1) et LOT_238–239 (Agent 2) restent celles de LOT rédigés en entier (les cinq fichiers V7) ; LOT_239 est coché quand l'Agent 2 l'a déposé complet et signalé à Tunder (« LOT_239 terminé : <lien> »). Depuis la réorganisation, ce fichier est tenu par Tunder ; l'issue de fin de série s'intitule `[FIN DE SÉRIE] Agent N — LOT_a–b · Appel A + Partie 1`.
