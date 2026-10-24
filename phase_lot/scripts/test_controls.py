@@ -27,6 +27,18 @@ class Controls(unittest.TestCase):
         out=compact(raw)
         self.assertEqual(out['sources'][1]['bounded_excerpt'],' […]')
         self.assertEqual(len(raw['sources'][0]['excerpts'][0].split()),200)
+        shared={}
+        compact(raw,budget=shared)
+        self.assertEqual(compact(raw,budget=shared)['sources'][0]['bounded_excerpt'],' […]')
+    def test_public_index_does_not_copy_unknown_raw_fields(self):
+        raw={'readings':{'response':'texte intégral'},'sources':[{'url':'https://example.test','raw_packet':'texte intégral','new_raw_field':{'content':'texte intégral'},'excerpts':['court extrait']}]}
+        out=compact(raw)
+        self.assertNotIn('readings',out)
+        self.assertNotIn('raw_packet',out['sources'][0])
+        self.assertNotIn('new_raw_field',out['sources'][0])
+    def test_public_index_accepts_structured_excerpt_without_raw_packet(self):
+        out=compact({'sources':[{'url':'https://example.test','excerpts':[{'locator':'p. 4','passage':'court extrait','raw_packet':'secret'}]}]})
+        self.assertEqual(out['sources'][0]['bounded_excerpt'],'court extrait')
     def test_queue_refuses_two_active_lots(self):
         q=json.loads((ROOT/'config/file.json').read_text()); q['lots'][1]['production_status']='ACTIF'
         with self.assertRaises(AssertionError): validate(q)

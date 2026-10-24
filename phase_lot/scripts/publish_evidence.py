@@ -3,13 +3,28 @@
 import argparse, json, re
 from pathlib import Path
 
-def compact(data):
-    result={k:v for k,v in data.items() if k!='sources'}
-    result['sources']=[]; budget={}
+def excerpt_text(value):
+    if isinstance(value,str): return value
+    if isinstance(value,list): return ' '.join(excerpt_text(item) for item in value)
+    if isinstance(value,dict):
+        return ' '.join(excerpt_text(value[key]) for key in ['excerpt','text','quote','passage'] if key in value)
+    return ''
+
+def compact(data,budget=None):
+    # Les formats de recherche diffèrent selon l'auteur. Une liste autorisée
+    # empêche qu'un champ nouveau emporte un paquet brut ou un texte intégral.
+    metadata={'lot','ssp','role','phase','consulted_at','clinical_validation',
+              'human_auditor','publication_authorized'}
+    source_metadata={'id','key','url','title','organisation','version',
+                     'publication_date','publication_date_reported',
+                     'version_or_document_date','consulted_at','scope','access'}
+    result={k:v for k,v in data.items() if k in metadata}
+    result['sources']=[]
+    if budget is None: budget={}
     for source in data['sources']:
-        row={k:v for k,v in source.items() if k not in {'excerpts','content','raw','text'}}
+        row={k:v for k,v in source.items() if k in source_metadata}
         url=source.get('url',''); remaining=max(0,75-budget.get(url,0))
-        excerpt=' '.join(source.get('excerpts',[])); words=excerpt.split()
+        excerpt=excerpt_text(source.get('excerpts',[])); words=excerpt.split()
         selected=words[:remaining]; budget[url]=budget.get(url,0)+len(selected)
         row['bounded_excerpt']=' '.join(selected)+(' […]' if len(words)>len(selected) else '')
         row['excerpt_is_partial']=len(words)>len(selected)

@@ -3,6 +3,7 @@
 import argparse, datetime, hashlib, json, shutil
 from pathlib import Path
 from validate import check_input
+from publish_evidence import compact
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -18,6 +19,8 @@ def main():
         folder=a.work/f'lot{a.lot:03d}-{role.casefold()}'
         checkpoint=json.loads((folder/'checkpoint.json').read_text())
         assert checkpoint['role']==role and checkpoint['production_complete'] is True,f'Rédaction encore incomplète : {role}'
+        for name in ['HELP.json','selfcheck.json','handoff_redaction.md','evidence.json']:
+            assert (folder/name).is_file(),f'Pièce de relecture absente : {role}/{name}'
         report=check_input(folder,rubric)
         assert report['structural_pass'],f'Écarts structurels : {role} : {report["errors"]}'
         sources[role]=folder
@@ -46,10 +49,13 @@ def main():
     for entry in entries:
         dest=a.output/entry['path'];dest.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(entry['source'],dest);assert digest(dest)==entry['sha256']
+    excerpt_budget={}
     for role,folder in sources.items():
         for name in ['HELP.json','selfcheck.json','checkpoint.json','handoff_redaction.md']:
             source=folder/name
             if source.exists():shutil.copyfile(source,a.output/role/name)
+        index=compact(json.loads((folder/'evidence.json').read_text()),budget=excerpt_budget)
+        (a.output/role/'sources_index.json').write_text(json.dumps(index,ensure_ascii=False,indent=2)+'\n')
     shutil.copyfile(sources['A']/'selection.json',a.output/'A/selection.json')
     (a.output/'MANIFESTE_RELECTURE.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     (a.output/'README.md').write_text('# LOT candidat pour relecture humaine\n\nCe paquet local contient le SSP et dix diagnostics. Les contrôles automatiques portent sur la structure ; ils ne valent pas audit médical ou linguistique. Les questions HELP et les réserves de chaque rédacteur restent à examiner par Thunder. Aucune autorisation de transmission ni acceptation clinique n’est présumée.\n')
