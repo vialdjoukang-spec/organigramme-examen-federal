@@ -7,7 +7,7 @@ from pathlib import Path
 class ViolationLectureSeule(Exception):
     """Levée dès qu'une opération risque de modifier un LOT."""
 
-RE_LOT = re.compile(r"LOT_(\d{3})")
+RE_LOT = re.compile(r"LOT_0*(\d{1,3})(?!\d)")   # LOT_1 ≡ LOT_001 (avec ou sans zéros de tête)
 
 def numero_lot(chemin):
     m = RE_LOT.search(Path(chemin).name) or RE_LOT.search(str(Path(chemin).parent))

@@ -68,7 +68,7 @@ def calculer(cfg):
     cout_msg = jetons_type + s["cout_relecture_contexte_par_message"]
     reels = len(envoyes); jetons_reels = sum(int(l["jetons_estimes"]) for l in envoyes)
     economie = max(0, base_msgs - reels) * cout_msg
-    return {"agent": cfg["agent"], "serie": f"LOT_{cfg['lot_min']}–{cfg['lot_max']}", "csv": str(p),
+    return {"agent": cfg["agent"], "serie": cfgmod.plages(cfgmod.lots_autorises(cfg)), "csv": str(p),
             "mesure": {"messages_envoyes": reels, "par_cas": {c: sum(1 for l in envoyes if l["cas"] == c) for c in "123"},
                        "jetons_messages_envoyes_estimes": jetons_reels, "informations_routees_vers_tunder": len(tunder), "lots_termines": len(lots_finis)},
             "estimation": {"nature": s["_nature"], "messages_par_lot_sans_regle": par_lot, "detail_par_lot": s["messages_par_lot"],

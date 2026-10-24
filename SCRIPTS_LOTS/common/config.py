@@ -22,7 +22,8 @@ TYPES = {"int": int, "str": str, "bool": bool, "dict": dict, "list": list}
 PARTIES = ("A", "P1", "P2", "P3", "P4")
 RE_PARTIE_A = re.compile(r"_Appel_A_", re.I)
 RE_PARTIE_B = re.compile(r"_Appel_B_.*?Partie_([1-4])", re.I)
-RE_NUM = re.compile(r"LOT_(\d{3})")
+# Numéro de LOT avec ou sans zéros de tête (LOT_1 ≡ LOT_01 ≡ LOT_001) ; 1 à 3 chiffres significatifs, jamais un 4e chiffre.
+RE_NUM = re.compile(r"LOT_0*(\d{1,3})(?!\d)")
 
 class ConfigErreur(Exception):
     pass
@@ -83,8 +84,8 @@ def _valider_perimetre(cfg):
             raise ConfigErreur(f"parties_autorisees : listes non vides de {', '.join(PARTIES)} attendues")
     if isinstance(pa, dict):
         for k in pa:
-            if k != "*" and not re.fullmatch(r"(LOT_)?\d{3}", k):
-                raise ConfigErreur(f"parties_autorisees : clé invalide {k!r} (attendu « 227 », « LOT_227 » ou « * »)")
+            if k != "*" and not re.fullmatch(r"(LOT_)?\d{1,3}", k):
+                raise ConfigErreur(f"parties_autorisees : clé invalide {k!r} (attendu « 227 », « LOT_227 », « 1 », « 001 » ou « * »)")
     if "dossier_travail" in cfg:
         d = cfg["dossier_travail"]; d = [d] if isinstance(d, str) else d
         if not d or not all(isinstance(x, str) and x for x in d):
@@ -110,6 +111,17 @@ def _valider_independance(cfg):
 def lots_autorises(cfg):
     return list(cfg["lots"]) if cfg.get("lots") else list(range(cfg["lot_min"], cfg["lot_max"] + 1))
 
+def plages(lots):
+    """« LOT_218–110, LOT_227–229 » : plages contiguës (pas de ±1) dans l'ordre de la liste."""
+    res, i = [], 0
+    while i < len(lots):
+        j = i
+        pas = lots[i + 1] - lots[i] if i + 1 < len(lots) and abs(lots[i + 1] - lots[i]) == 1 else 0
+        while pas and j + 1 < len(lots) and lots[j + 1] - lots[j] == pas:
+            j += 1
+        res.append(f"LOT_{lots[i]}" if i == j else f"LOT_{lots[i]}–{lots[j]}"); i = j + 1
+    return ", ".join(res)
+
 def lot_autorise(cfg, numero):
     n = int(numero)
     if not cfg["lot_min"] <= n <= cfg["lot_max"]:
@@ -131,7 +143,7 @@ def parties_pour(cfg, numero):
     if isinstance(pa, list):
         return list(pa)
     n = int(numero)
-    for k in (str(n), f"LOT_{n}"):
+    for k in (str(n), f"{n:03d}", f"LOT_{n}", f"LOT_{n:03d}"):
         if k in pa:
             return list(pa[k])
     return list(pa.get("*", []))
@@ -148,7 +160,7 @@ def fichier_autorise(cfg, chemin, numero=None):
     qui = f"l'agent {cfg['agent']}" + (f" (équipe {cfg['equipe']}, {cfg['chapitre']})" if cfg.get("equipe") and cfg.get("chapitre") else "")
     if numero is None or not lot_autorise(cfg, numero):
         lots = lots_autorises(cfg)
-        return False, f"{Path(chemin).name} : LOT hors de la série de {qui} (LOT_{lots[0]}–{lots[-1]})"
+        return False, f"{Path(chemin).name} : LOT hors de la série de {qui} ({plages(lots)})"
     if cfg.get("parties_autorisees") is not None:
         p = partie_de(chemin); ok = parties_pour(cfg, numero)
         if p is None:

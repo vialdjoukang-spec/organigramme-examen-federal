@@ -1,4 +1,4 @@
-"""v1.4 — Loi d'indépendance absolue (8 agents, 2 équipes) : chemins disjoints, périmètre LOT/Partie, partage des débits."""
+"""v1.5 (réorganisation du 2026-10-24 : LOT_218 → LOT_1, décroissant) — Loi d'indépendance absolue (8 agents, 2 équipes) : chemins disjoints, périmètre LOT/Partie, partage des débits."""
 import io, itertools, json, os, tempfile, unittest
 from contextlib import redirect_stderr
 from pathlib import Path
@@ -9,6 +9,7 @@ from lot_readonly import ViolationLectureSeule
 RACINE = Path(__file__).resolve().parents[2]
 AGENTS = range(1, 9)
 EQUIPE = {1: 1, 3: 1, 5: 1, 7: 1, 2: 2, 4: 2, 6: 2, 8: 2}
+HISTORIQUE = {1: [227, 228, 229], 2: [238, 239]}
 CHAP = {1: ["A", "P1"], 2: ["A", "P1"], 3: ["P2"], 4: ["P2"], 5: ["P3"], 6: ["P3"], 7: ["P4"], 8: ["P4"]}
 NOMS = {"A": "Appel_A_V7_Plan_et_Liste", "P1": "Appel_B_V7_Partie_1_DX.1_a_DX.2", "P2": "Appel_B_V7_Partie_2_DX.3_a_DX.5",
         "P3": "Appel_B_V7_Partie_3_DX.6_a_DX.7", "P4": "Appel_B_V7_Partie_4_DX.8_a_DX.10"}
@@ -25,25 +26,57 @@ class TestIndependance(unittest.TestCase):
         for n in AGENTS:
             c = charger(n)
             self.assertEqual((c["agent"], c["equipe"]), (n, EQUIPE[n]))
-            self.assertEqual(c["lots"], list(range(c["lot_min"], c["lot_max"] + 1)))
-            lots = (227, 237) if n == 1 else (238, 248) if n == 2 else (229, 237) if EQUIPE[n] == 1 else (240, 248)
-            self.assertEqual((c["lot_min"], c["lot_max"]), lots)
-            self.assertEqual(cfgmod.parties_pour(c, 233 if EQUIPE[n] == 1 else 243), CHAP[n])
+            serie = list(range(218, 109, -1)) if EQUIPE[n] == 1 else list(range(109, 0, -1))
+            self.assertEqual(c["lots"][:109], serie)                                  # ordre décroissant, 109 LOT
+            self.assertEqual(c["lots"][109:], HISTORIQUE.get(n, []))
+            self.assertEqual((c["lot_min"], c["lot_max"]), (min(c["lots"]), max(c["lots"])))
+            self.assertEqual(cfgmod.parties_pour(c, 150 if EQUIPE[n] == 1 else 50), CHAP[n])
             for ch in cfgmod.chemins_inscriptibles(c).values():
                 self.assertIn(f"agent_{n}", Path(ch).parts); self.assertNotIn("partage", Path(ch).parts)
             self.assertTrue(c["shared_state_dir"].endswith(f"agent_{n}/etat"))
             self.assertEqual(c["pubmed"]["mcp_url"], "")       # aucun serveur local commun
 
-    def test_agent_2_lot_238_239_entiers_puis_appel_a_partie_1(self):
+    def test_agent_2_lot_239_entier_puis_appel_a_partie_1(self):
         c = charger(2)
         for lot in (238, 239):
             self.assertEqual(cfgmod.parties_pour(c, lot), ["A", "P1", "P2", "P3", "P4"])
-        for lot in range(240, 249):
+        for lot in range(1, 110):
             self.assertEqual(cfgmod.parties_pour(c, lot), ["A", "P1"])
+        for lot in list(range(110, 238)) + list(range(240, 249)):
+            self.assertFalse(cfgmod.lot_autorise(c, lot), lot)
         for n in (4, 6, 8):
             cn = charger(n)
-            self.assertEqual(cn["lots"], list(range(240, 249)))
-            self.assertFalse(cfgmod.lot_autorise(cn, 239))
+            self.assertEqual(cn["lots"], list(range(109, 0, -1)))
+            self.assertFalse(cfgmod.lot_autorise(cn, 239)); self.assertFalse(cfgmod.lot_autorise(cn, 110))
+
+    def test_agent_1_historique_sans_nouveau_travail(self):
+        c = charger(1)
+        for lot in (227, 228):
+            self.assertEqual(cfgmod.parties_pour(c, lot), ["A", "P1", "P2", "P3", "P4"])
+        self.assertEqual(cfgmod.parties_pour(c, 229), ["A", "P1"])
+        for lot in list(range(1, 110)) + list(range(219, 227)) + list(range(230, 249)):
+            self.assertFalse(cfgmod.lot_autorise(c, lot), lot)
+
+    def test_lot_219_a_248_hors_perimetre_sauf_historique(self):
+        cfgs = {n: charger(n) for n in AGENTS}
+        for lot in range(219, 249):
+            prop = [n for n in AGENTS if cfgmod.lot_autorise(cfgs[n], lot)]
+            attendu = [1] if lot in (227, 228, 229) else [2] if lot in (238, 239) else []
+            self.assertEqual(prop, attendu, lot)
+
+    def test_numero_avec_ou_sans_zeros(self):
+        c4 = dict(charger(4), dossier_travail=None)
+        for f in ("/x/LOT_1/LOT_1_Appel_B_V7_Partie_2_DX.3_a_DX.5.html", "/x/LOT_001/LOT_001_Appel_B_V7_Partie_2_DX.3_a_DX.5.html",
+                  "/x/LOT_01/LOT_01_Appel_B_V7_Partie_2_DX.3_a_DX.5.html", "/x/LOT_099/LOT_99_Appel_B_V7_Partie_2_DX.3_a_DX.5.html",
+                  "/x/LOT_001 — O1 — x/LOT_1_Appel_B_V7_Partie_2_DX.3_a_DX.5.html"):
+            self.assertTrue(cfgmod.fichier_autorise(c4, f)[0], f)
+        self.assertFalse(cfgmod.fichier_autorise(c4, "/x/LOT_1000/LOT_1000_Appel_B_V7_Partie_2_DX.3_a_DX.5.html")[0])
+        self.assertFalse(cfgmod.fichier_autorise(c4, "/x/LOT_218/LOT_218_Appel_B_V7_Partie_2_DX.3_a_DX.5.html")[0])
+        import lot_readonly
+        self.assertEqual({lot_readonly.numero_lot(f"/x/LOT_{k}_Appel_A_V7_Plan_et_Liste.html") for k in ("1", "01", "001")}, {1})
+        with tempfile.TemporaryDirectory() as d:     # clés de parties_autorisees à 1–3 chiffres, avec ou sans zéros
+            c = cfgmod.charger(config_temp(d, agent=2, lot_min=1, lot_max=9, parties_autorisees={"001": ["P3"], "*": ["A"]}))
+            self.assertEqual(cfgmod.parties_pour(c, 1), ["P3"]); self.assertEqual(cfgmod.parties_pour(c, 2), ["A"])
 
     def test_aucun_chemin_partage_entre_deux_agents(self):
         cfgs = {n: charger(n) for n in AGENTS}
@@ -57,11 +90,13 @@ class TestIndependance(unittest.TestCase):
 
     def test_chaque_fichier_v7_a_exactement_un_proprietaire(self):
         cfgs = {n: dict(charger(n), dossier_travail=None) for n in AGENTS}
-        for lot in range(227, 249):
+        for lot in list(range(1, 219)) + [227, 228, 229, 238, 239]:
             for p, nom in NOMS.items():
-                f = f"/x/LOT_{lot}/LOT_{lot}_{nom}.html"
-                prop = [n for n in AGENTS if cfgmod.fichier_autorise(cfgs[n], f)[0]]
-                self.assertEqual(len(prop), 1, f"{f} : {prop}")
+                if lot == 229 and p not in ("A", "P1"):
+                    continue                                   # LOT_229 P2–P4 : hors périmètre (aucun nouveau travail)
+                for f in {f"/x/LOT_{lot}/LOT_{lot}_{nom}.html", f"/x/LOT_{lot:03d}/LOT_{lot:03d}_{nom}.html"}:
+                    prop = [n for n in AGENTS if cfgmod.fichier_autorise(cfgs[n], f)[0]]
+                    self.assertEqual(len(prop), 1, f"{f} : {prop}")
 
     def test_config_independante_refuse_dossier_partage(self):
         with tempfile.TemporaryDirectory() as d:

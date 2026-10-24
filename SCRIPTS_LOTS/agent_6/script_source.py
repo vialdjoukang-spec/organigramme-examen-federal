@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Agent 6 — équipe 2, Partie 3 (DX.6–DX.7), LOT_240–248 — point d'entrée mince vers common/source_engine.py avec la configuration de CET agent uniquement."""
+"""Agent 6 — équipe 2, Partie 3 (DX.6–DX.7), LOT_109→LOT_1 (décroissant) — point d'entrée mince vers common/source_engine.py avec la configuration de CET agent uniquement."""
 import sys
 from pathlib import Path
 ICI = Path(__file__).resolve().parent
