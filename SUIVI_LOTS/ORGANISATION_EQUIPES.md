@@ -48,3 +48,5 @@ Depuis la réorganisation du 2026-10-24, **quatre agents rédigent chaque LOT**,
 | 8 | `[FIN DE SÉRIE] Agent 8 — LOT_240–248 · Partie 4` |
 
 Un LOT est complet quand ses cinq fichiers V7 sont cochés : Appel A + Partie 1 (suivi de l'Agent 1 ou 2) et Parties 2, 3, 4 (suivis des trois autres agents de l'équipe).
+
+Nouvelle répartition du 24.10.2026 (11:00, Zurich) — remplace ORGANISATION_EQUIPES.md pour l'ordre de travail. LOT_219–248 hors plage.
