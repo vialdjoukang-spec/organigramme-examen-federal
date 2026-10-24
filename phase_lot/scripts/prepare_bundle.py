@@ -4,6 +4,7 @@ import argparse, datetime, hashlib, json, shutil
 from pathlib import Path
 from validate import check_input
 from publish_evidence import compact
+from check_selfcheck import check_selfcheck
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -14,13 +15,14 @@ def main():
     p.add_argument('--work',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     assert not a.output.exists(),'Destination existante : préserver le candidat précédent'
     rubric=json.loads((ROOT/'config/rubric.json').read_text())
-    entries=[];all_monographs=[];sources={}
+    entries=[];all_monographs=[];sources={};question_count=0
     for role in ['A','B1','B2','B3','B4','B5']:
         folder=a.work/f'lot{a.lot:03d}-{role.casefold()}'
         checkpoint=json.loads((folder/'checkpoint.json').read_text())
         assert checkpoint['role']==role and checkpoint['production_complete'] is True,f'Rédaction encore incomplète : {role}'
         for name in ['HELP.json','selfcheck.json','handoff_redaction.md','evidence.json']:
             assert (folder/name).is_file(),f'Pièce de relecture absente : {role}/{name}'
+        question_count+=check_selfcheck(folder,role,a.lot,rubric)['questions']
         report=check_input(folder,rubric)
         assert report['structural_pass'],f'Écarts structurels : {role} : {report["errors"]}'
         sources[role]=folder
@@ -42,6 +44,7 @@ def main():
               'created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'human_auditor':'Thunder — utilisateur humain','transmission_authorized':False,
               'medical_validation':False,'linguistic_acceptance':False,'structural_checks_passed':True,
+              'rubric_questions_traced':question_count,
               'monographs':len(all_monographs),'files':[{k:v for k,v in x.items() if k!='source'} for x in entries]}
     canonical=json.dumps(manifest['files'],sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()
     manifest['html_manifest_sha256']=hashlib.sha256(canonical).hexdigest()

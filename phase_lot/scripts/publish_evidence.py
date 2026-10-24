@@ -7,6 +7,7 @@ def excerpt_text(value):
     if isinstance(value,str): return value
     if isinstance(value,list): return ' '.join(excerpt_text(item) for item in value)
     if isinstance(value,dict):
+        if value.get('found') is False or value.get('read') is False:return ''
         return ' '.join(excerpt_text(value[key]) for key in ['excerpt','text','quote','passage'] if key in value)
     return ''
 
@@ -21,10 +22,18 @@ def compact(data,budget=None):
     result={k:v for k,v in data.items() if k in metadata}
     result['sources']=[]
     if budget is None: budget={}
-    for source in data['sources']:
+    for source in data['sources']+data.get('inherited_sources',[]):
         row={k:v for k,v in source.items() if k in source_metadata}
         url=source.get('url',''); remaining=max(0,75-budget.get(url,0))
-        excerpt=excerpt_text(source.get('excerpts',[])); words=excerpt.split()
+        passages=source.get('excerpts',source.get('passages_read',[]))
+        locators=[]
+        if isinstance(passages,list):
+            for item in passages:
+                if isinstance(item,dict):
+                    locator=next((item[k] for k in ['locator','anchor','label'] if isinstance(item.get(k),str)),None)
+                    if locator and locator not in locators:locators.append(locator)
+        row['passage_locators']=locators
+        excerpt=excerpt_text(passages); words=excerpt.split()
         selected=words[:remaining]; budget[url]=budget.get(url,0)+len(selected)
         row['bounded_excerpt']=' '.join(selected)+(' […]' if len(words)>len(selected) else '')
         row['excerpt_is_partial']=len(words)>len(selected)

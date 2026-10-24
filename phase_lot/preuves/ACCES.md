@@ -7,3 +7,5 @@
 - Script cloud de liens : 40 URL sondées, toutes ont reçu un refus de tunnel HTTP 403 dans cet exécuteur. Cela ne démontre pas une panne des sites. Aucun lien n'est déclaré fonctionnel à partir de ce test. La lecture documentaire continue par les MCP disponibles, avec sa propre trace.
 - Mise à jour : Thunder est l’utilisateur humain, compte vialdjoukang-spec ; permission admin vérifiée via MCP. Aucune invitation externe à créer.
 - Les sous-agents sont disponibles ; Agent A demandé et lancé en gpt-6.1-sol/high. Les B attendent la fin de A.
+
+- Observation ultérieure 24.10.2026 vers00:29 UTC : Git/gh refuse HTTP401 ; lectures et renouvellements CAS du bail réussissent via MCP GitHub. La PR272 a été relue fusionnée au commit5fceb61bf4a0cb2e2e6cb7f8476df18d51686274. Les contrôles d’accès initiaux ne garantissent pas la durée de validité d’un jeton CLI.
