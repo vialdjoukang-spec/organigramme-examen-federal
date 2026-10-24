@@ -22,7 +22,7 @@ Ce fichier appartient **exclusivement à l'Équipe 1** (Agents 1, 3, 5 et 7). L'
 | LOT_217 | ☑ | 2026-10-24 13:21 | LOT_217 resynchronisé en V7 | lot/LOT_217 947becec710b01f2e403364cb3051e6f3abbe6c0 https://drive.google.com/drive/folders/1bEeJLCZmQEHyqiEnSQvT-z62jmkio_Mi | Non |
 | LOT_216 | ☑ | 2026-10-24 15:09 | LOT_216 resynchronisé en V7 | lot/LOT_216 7dec07cb86e75582c3fec72011165d6ea1a266f0 | Non |
 | LOT_215 | ☑ | 2026-10-24 16:05 | LOT_215 resynchronisé en V7 (5 fichiers, sha256 vérifié) | lot/LOT_215 7254e40ee357027cc5d549f6ce65d4959f237099 | Non |
-| LOT_214 | ☐ |  |  |  | Non |
+| LOT_214 | ☑ | 2026-10-24 17:04 | Resynchronisé depuis Drive le 2026-10-24 ~17 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_214 | lot/LOT_214 117b940c1db1dddf4104db109defab7b380f8a26 | Non |
 | LOT_213 | ☐ |  |  |  | Non |
 | LOT_212 | ☐ |  |  |  | Non |
 | LOT_211 | ☐ |  |  |  | Non |
