@@ -120,7 +120,7 @@ Ce fichier appartient **exclusivement à l'Équipe 2** (Agents 2, 4, 6 et 8). L'
 | LOT_10 | ☑ | 2026-10-24 16:05 | LOT_010 resynchronisé en V7 (5 fichiers, sha256 vérifié) | lot/LOT_010 639a79bff00ce740f9bad51e5569c149675a16d2 | Non |
 | LOT_9 | ☑ | 2026-10-24 16:05 | LOT_009 resynchronisé en V7 (5 fichiers, sha256 vérifié) | lot/LOT_009 a91579a8535f8ee7b1ee4a2fc336b2d47f1fe104 | Non |
 | LOT_8 | ☑ | 2026-10-24 17:04 | Resynchronisé depuis Drive le 2026-10-24 ~17 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_008 | lot/LOT_008 fe12ba2ba2c18be3d5160965c56ae8292fdab4cf | Non |
-| LOT_7 | ☐ |  |  |  | Non |
+| LOT_7 | ☑ | 2026-10-24 18:13 | Resynchronisé depuis Drive le 2026-10-24 ~18 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_007 | lot/LOT_007 c05fa22d6f89632edcfb3e29eb1410176a798b09 | Non |
 | LOT_6 | ☐ |  |  |  | Non |
 | LOT_5 | ☐ |  |  |  | Non |
 | LOT_4 | ☐ |  |  |  | Non |
