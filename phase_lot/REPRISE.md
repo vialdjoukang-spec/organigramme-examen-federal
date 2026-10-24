@@ -13,7 +13,7 @@ Les branches auteurs et candidates cliniques sont LOCALES et non autorisées à 
 
 ## LOT3 : complément suisse terminé, Appel A toujours incomplet
 
-Le paquet initial /workspace/work/lot003-a reste intact : research_complete=false, selection_complete=false et production_complete=false. Ses 41 fichiers, checkpoint compris, ont été revérifiés après le complément. Les dix pistes ne constituent pas une sélection gelée ; aucun medium ni B n’a été lancé et LOTS4–10 restent en attente.
+Le paquet initial /workspace/work/lot003-a reste intact : research_complete=false, selection_complete=false et production_complete=false. Ses 41 fichiers, checkpoint compris, ont été revérifiés après le complément. Les dix pistes ne constituent pas une sélection gelée ; aucun medium ni B n’a été lancé et LOTS 4–10 restent en attente.
 
 Un complément GPT-6.1 Sol high a effectivement été exécuté par /root/lot003_complement_ch_recherche dans /workspace/work/lot003-a-supplement-20261024T1835Z. Le coordinateur a trouvé deux nouveaux corps médicaux via le catalogue public HUG ; l’agent a lu ces deux corps, deux index et six autres corps médicaux distincts. Tous ont été obtenus HTTP200 sans relancer une page refusée. Le paquet contient 20 passages, une passation, HELP_delta.json et un checkpoint final : 55 empreintes ont été vérifiées. La preuve technique est preuves/LOT003_complement_CH_20261024T1835Z.json ; les corps et extraits cliniques demeurent privés.
 
@@ -22,6 +22,16 @@ Le complément éclaire partiellement 5 des 14 questions HELP initiales ; aucune
 La passation affirme supplement_research_complete=true mais research_complete_for_Appel_A=false, selection_frozen=false, production_complete=false et writing_medium_ready=false. Les preuves des critères diagnostiques modernes et de dix diagnostics distincts restent insuffisantes. Ne pas lancer medium/B ni LOT 4 pour contourner cette porte ; aucun score ou audit humain n’existe.
 
 Pour poursuivre, reprendre une découverte BORNÉE de documents CH puis UE distincts, par URL réellement trouvée et accès autorisé, ou lire de nouveaux corps primaires fournis. Les nouveaux corps réellement obtenus peuvent alimenter un autre complément high isolé avec preuve et passation. Ne pas retélécharger le corpus déjà conservé ; le relire localement si utile. Le service Parallel a atteint son quota ; ne pas répéter ses appels ni les URL OUP/Europe PMC refusées en HTTP 403 sans changement d’accès établi. Aucun changement de clé, identité, proxy ou TLS, aucune route alternative d’un document refusé. Un nouvel HTTP200 ne prouve ni lecture médicale ni actualité. Si aucune preuve nouvelle n’est obtenue, conserver l’état bloqué ; ne pas geler la sélection de mémoire.
+
+## Second complément suisse : qualification terminée, mêmes portes de blocage
+
+Le complément2 high /root/lot003_complement2_ch_recherche est terminé dans /workspace/work/lot003-a-supplement2-20261024T1934Z. Lire supplement_handoff.md, HELP_delta.json, evidence_supplement.json et supplement_checkpoint.json après les deux paquets précédents. La preuve technique est preuves/LOT003_complement2_CH_20261024T1934Z.json. Les 32 empreintes du nouveau checkpoint ont été vérifiées ; les 41 fichiers initiaux et les 56 fichiers du complément1, checkpoint compris, restent inchangés.
+
+Cinq documents sont qualifiés : un index et quatre documents à contenu médical. L’un est hors du périmètre recherché et une page avec son PDF reprend le même contenu ; ne pas compter cette paire comme deux preuves indépendantes. Neuf passages exacts sont sauvegardés. Le nouveau matériel n’apporte aucune clôture ni nouvelle question partiellement éclaircie : le cumul reste 5 des 14 questions initiales partiellement éclaircies, 0 fermée et 9 inchangées ; les deux questions documentaires du complément1 restent ouvertes. Aucun cours, medium ou B n’a été produit, aucune sélection gelée, aucun audit ou score attribué.
+
+La source suisse déjà repérée https://www.fmh.ch/files/pdf30/saez-bms-2024-25-fr.pdf n’a pas été obtenue ni évaluée médicalement dans ce travail ; son hôte est absent de la politique réseau actuelle. Le lien vient des métadonnées historiques G3, pas d’une nouvelle lecture du corps. Il faut un accès autorisé ou le corps fourni localement, puis une lecture high avec vérification de date et de portée. Les outils cloud exposés ici sont en lecture seule ; aucune modification réseau n’a été effectuée. Ne pas changer proxy, identité, clé ou TLS et ne pas utiliser une autre route d’un document refusé.
+
+Ne pas recommencer les parcours de découverte HUG déjà conservés ni extrapoler leurs documents de soins à des critères diagnostiques. La suite demande des sources primaires adaptées aux lacunes persistantes ; la disponibilité d’un PDF ne suffit pas à rendre A prêt. Conserver research_complete_for_Appel_A=false, selection_frozen=false et writing_medium_ready=false tant que les preuves ne suffisent pas ; LOTS 4–10 restent en attente.
 
 ## Cadence et véracité
 
