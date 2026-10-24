@@ -130,3 +130,4 @@ Ce fichier appartient **exclusivement à l'Équipe 2** (Agents 2, 4, 6 et 8). L'
 - 2026-10-24 : LOT_005 audité (12 fichiers, 32.4 → 98.8 %) → branche audit/LOT_005 386cc0e741a58df2a00daef2b8ec412e7a4e1566
 - 2026-10-24 : LOT_003 audité (13 fichiers, 34.7 → 98.8 %) → branche audit/LOT_003 79b6cb308292b47aa9d00865f9a8974e7d11e335
 - LOT_004 : AUDITÉ (12 fichiers, 32,7 → 98,8 %), branche audit/LOT_004, commit 166994f26f6a3b06df5e39eda4729c94d9ae001d — 24.10.2026
+- LOT_004 : révision 1 (vérification utilisateur), audit/LOT_004 commit cdb07f65f4f28828cfa737fdf3f992600fc27337 — 24.10.2026
