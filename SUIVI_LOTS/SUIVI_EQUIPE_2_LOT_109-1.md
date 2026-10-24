@@ -126,4 +126,4 @@ Ce fichier appartient **exclusivement à l'Équipe 2** (Agents 2, 4, 6 et 8). L'
 | LOT_4 | ☐ |  |  |  | Non |
 | LOT_3 | ☐ |  |  |  | Non |
 | LOT_2 | ☐ |  | AUDITÉ — branche audit/LOT_002, 093782d84d23ded56bf37bcc3ad035d6b5a37f73, 2026-10-24 (Europe/Zurich) |  | Non |
-| LOT_1 | ☐ |  |  |  | Non |
+| LOT_1 | ☐ |  | AUDITÉ — branche audit/LOT_001, b853865a6a9fd12756fd99d9e8d69188fff548fb, 2026-10-24 (Europe/Zurich) |  | Non |
