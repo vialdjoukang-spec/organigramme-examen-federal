@@ -3,12 +3,16 @@ import datetime
 from pathlib import Path
 from audit_gate import verify, ROOT
 from progression import validate
-from validate import check
+from validate import check,check_input
 from check_ownership import validate as ownership
 from publish_evidence import compact
 from lease import allowed
 
 class Controls(unittest.TestCase):
+    def test_empty_author_folder_never_counts_as_complete(self):
+        with tempfile.TemporaryDirectory() as d:
+            r=check_input(Path(d),json.loads((ROOT/'config/rubric.json').read_text()))
+            self.assertFalse(r['structural_pass']);self.assertFalse(r['semantic_validation'])
     def test_second_coordinator_blocked_until_lease_expires(self):
         now=datetime.datetime.now(datetime.timezone.utc)
         lease={'owner':'first','expires_at':(now+datetime.timedelta(minutes=5)).isoformat()}

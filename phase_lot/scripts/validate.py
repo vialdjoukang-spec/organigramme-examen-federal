@@ -70,6 +70,15 @@ def check(path, rubric):
             'monographs':p.monographs,'questions_for_agent':rubric['points'],
             'notice':'Les questions doivent être évaluées sur les preuves ; aucun score clinique automatique.'}
 
+def check_input(path, rubric):
+    if not path.is_dir(): return check(path,rubric)
+    files=[check(p,rubric) for p in sorted(path.glob('*.html'))]
+    errors=[f'{r["file"]}: {e}' for r in files for e in r['errors']]
+    if not files: errors.append('aucun cours HTML complet présent dans le dossier')
+    digest=hashlib.sha256(json.dumps([(r['file'],r['sha256']) for r in files]).encode()).hexdigest()
+    return {'file':str(path),'sha256':digest,'structural_pass':not errors,'semantic_validation':False,
+            'errors':errors,'files':files,'notice':'Contrôle du dossier de rédaction, sans audit médical.'}
+
 def main():
     a=argparse.ArgumentParser(); a.add_argument('html',type=Path); a.add_argument('--report',type=Path,required=True)
     a.add_argument('--watch',action='store_true'); args=a.parse_args()
@@ -77,9 +86,11 @@ def main():
     old=None; last_error=None
     while True:
         try:
-            digest=hashlib.sha256(args.html.read_bytes()).hexdigest()
+            if args.html.is_dir():
+                digest=hashlib.sha256(b''.join(p.name.encode()+p.read_bytes() for p in sorted(args.html.glob('*.html')))).hexdigest()
+            else: digest=hashlib.sha256(args.html.read_bytes()).hexdigest()
             if digest!=old:
-                r=check(args.html,rubric); args.report.parent.mkdir(parents=True,exist_ok=True)
+                r=check_input(args.html,rubric); args.report.parent.mkdir(parents=True,exist_ok=True)
                 tmp=args.report.with_suffix('.tmp'); tmp.write_text(json.dumps(r,ensure_ascii=False,indent=2)); tmp.replace(args.report)
                 print(json.dumps({'file':args.html.name,'structural_pass':r['structural_pass'],'errors':len(r['errors']),'sha256':digest}),flush=True)
                 old=digest
