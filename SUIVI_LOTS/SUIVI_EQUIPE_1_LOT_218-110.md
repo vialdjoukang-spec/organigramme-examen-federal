@@ -24,8 +24,8 @@ Ce fichier appartient **exclusivement à l'Équipe 1** (Agents 1, 3, 5 et 7). L'
 | LOT_215 | ☑ | 2026-10-24 16:05 | LOT_215 resynchronisé en V7 (5 fichiers, sha256 vérifié) | lot/LOT_215 7254e40ee357027cc5d549f6ce65d4959f237099 | Non |
 | LOT_214 | ☑ | 2026-10-24 17:04 | Resynchronisé depuis Drive le 2026-10-24 ~17 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_214 | lot/LOT_214 117b940c1db1dddf4104db109defab7b380f8a26 | Non |
 | LOT_213 | ☑ | 2026-10-24 18:13 | Resynchronisé depuis Drive le 2026-10-24 ~18 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_213 | lot/LOT_213 fbe84e4e5097fb57ef26f5a947b568e42c108e53 | Non |
-| LOT_212 | ☐ |  |  |  | Non |
-| LOT_211 | ☐ |  |  |  | Non |
+| LOT_212 | ☑ | 2026-10-24 22:12 | Resynchronisé depuis Drive le 2026-10-24 ~22 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_212 | lot/LOT_212 9925548ffa51e071488ab952db6dd952a4ba9249 | Non |
+| LOT_211 | ☑ | 2026-10-24 22:12 | Resynchronisé depuis Drive le 2026-10-24 ~22 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_211 | lot/LOT_211 2d8087dd1a9cc5aed13a49022fbd485cb96ed6da | Non |
 | LOT_210 | ☐ |  |  |  | Non |
 | LOT_209 | ☐ |  |  |  | Non |
 | LOT_208 | ☐ |  |  |  | Non |
@@ -123,7 +123,7 @@ Ce fichier appartient **exclusivement à l'Équipe 1** (Agents 1, 3, 5 et 7). L'
 | LOT_116 | ☐ |  |  |  | Non |
 | LOT_115 | ☐ |  |  |  | Non |
 | LOT_114 | ☐ |  |  |  | Non |
-| LOT_113 | ☐ |  |  |  | Non |
+| LOT_113 | ☑ | 2026-10-24 22:12 | Resynchronisé depuis Drive le 2026-10-24 ~22 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_113 | lot/LOT_113 2f16856d119198fb8a61e625dc034c1bab1f0163 | Non |
 | LOT_112 | ☐ |  |  |  | Non |
 | LOT_111 | ☐ |  |  |  | Non |
 | LOT_110 | ☐ |  |  |  | Non |
