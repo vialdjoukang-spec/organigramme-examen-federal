@@ -17,7 +17,7 @@ Ce fichier appartient **exclusivement à l'Agent 1**. L'Agent 2 n'y écrit jamai
 | LOT | Terminé | Date/heure (Europe/Zurich) | Ce qui a été fait | Où chercher | Signal GitHub |
 |---|---|---|---|---|---|
 | LOT_227 | ☑ | 2026-10-24 06:58 | LOT_227 resynchronisé | lot/LOT_227 https://drive.google.com/drive/folders/1FL3BSP7UlCsiD_ujY_gpghjhkTJ7ij2W | Non |
-| LOT_228 | ☐ |  |  |  | Non |
+| LOT_228 | ☑ | 2026-10-24 09:53 | LOT_228 resynchronisé | lot/LOT_228 https://drive.google.com/drive/folders/1oHdO-R_gsSRDBFRd98-AQyaq-Z87AFGQ | Non |
 | LOT_229 | ☐ |  |  |  | Non |
 | LOT_230 | ☐ |  |  |  | Non |
 | LOT_231 | ☐ |  |  |  | Non |
