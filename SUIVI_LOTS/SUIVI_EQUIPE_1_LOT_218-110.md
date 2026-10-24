@@ -18,7 +18,7 @@ Ce fichier appartient **exclusivement à l'Équipe 1** (Agents 1, 3, 5 et 7). L'
 
 | LOT | Terminé | Date/heure (Europe/Zurich) | Ce qui a été fait | Où chercher | Signal GitHub |
 |---|---|---|---|---|---|
-| LOT_218 | ☐ |  |  |  | Non |
+| LOT_218 | ☑ | 2026-10-24 12:22 | LOT_218 resynchronisé en V7 | lot/LOT_218 2aa12352880ee75bc8ec37404411816e1f193fcf https://drive.google.com/drive/folders/1kHPHThhhV_qDbxiBftCOuwQcfPp3mSxo | Non |
 | LOT_217 | ☐ |  |  |  | Non |
 | LOT_216 | ☐ |  |  |  | Non |
 | LOT_215 | ☐ |  |  |  | Non |
