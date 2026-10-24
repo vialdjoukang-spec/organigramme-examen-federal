@@ -3,7 +3,7 @@
 **Encyclopédie interactive pour l'examen fédéral suisse de médecine humaine et pour la compétence clinique.**
 Version V7 du 22 octobre 2026. Elle remplace la V6 ; tout ce que la V6 exigeait reste exigé, sauf mention contraire.
 
-> **Version V7-Tunder dérivée du V7 du 22.10.2026 — seule la distribution des agents est modifiée ; les audits sont différés (24.10.2026).** Cette version reprend intégralement le V7 ; en revanche, chaque LOT est désormais confié à un agent de rédaction unique, et deux agents travaillent en parallèle sur deux séries distinctes de LOT. De plus, les audits médical et linguistique sont retirés du travail de rédaction et confiés à une phase d'audit ultérieure. Par conséquent, seule la section 5 diffère du V7 ; toutes les autres règles, tous les critères et tous les seuils restent inchangés.
+> **Version V7-Tunder dérivée du V7 du 22.10.2026 — seule la distribution des agents est modifiée ; les audits sont différés (24.10.2026).** Cette version reprend intégralement le V7 ; en revanche, chaque LOT est désormais confié à un agent de rédaction unique, et deux agents travaillent en parallèle sur deux séries distinctes de LOT. De plus, les audits médical et linguistique sont retirés du travail de rédaction et confiés à une phase d'audit ultérieure. Par conséquent, seule la section 5 diffère du V7 sur le fond ; les sections 2.4, 11.3, 13, 14, 15.1 et 16 sont seulement ajustées en conséquence (dépôt GitHub, audits différés) ; toutes les autres règles, tous les critères et tous les seuils restent inchangés.
 
 > **LIS CE PROMPT EN ENTIER AVANT D'ÉCRIRE UNE SEULE LIGNE. CHAQUE RÈGLE EST UNE INJONCTION, PAS UNE SUGGESTION. UNE RÈGLE NON RESPECTÉE INVALIDE LE FICHIER.**
 
@@ -35,7 +35,7 @@ Version V7 du 22 octobre 2026. Elle remplace la V6 ; tout ce que la V6 exigeait 
 1. Tu livres **exclusivement des fichiers .html** : HTML5 complet, de `<!DOCTYPE html>` à `</html>`. Chaque fichier se termine par `<!-- FIN_FICHIER LOT_X_<PARTIE> -->`.
 2. Toute autre sortie est invalide : texte brut, Markdown, Google Docs, PDF, Word, HTML partiel, HTML converti, contenu rendu dans le chat.
 3. Taille : **90 à 200 Ko par fichier**. Plus court signale une omission ; plus long signale du remplissage ou impose un découpage. Si un contenu juste et nécessaire dépasse 200 Ko, tu découpes le fichier en `…_a.html` et `…_b.html` ; **tu ne supprimes jamais un contenu utile pour tenir la limite.**
-4. Dans Google Drive, tu déposes en `text/html`, extension `.html`, **sans conversion en Google Docs**, car la conversion détruit les fenêtres. Tu vérifies ensuite que la taille dans Drive est identique à la taille locale, octet pour octet. Une différence signifie un fichier corrompu : tu le régénères.
+4. Dans le dépôt GitHub (branche `lot/LOT_X`, dossier `LOTS/LOT_X/`), tu déposes le fichier `.html` tel quel, **sans conversion ni reformatage**, car toute conversion détruit les fenêtres. Tu vérifies ensuite que la taille du fichier déposé est identique à la taille locale, octet pour octet. En plan B seulement (GitHub indisponible), tu déposes dans Google Drive en `text/html`, **sans conversion en Google Docs** (section 13.5). Une différence signifie un fichier corrompu : tu le régénères.
 
 ---
 
@@ -102,8 +102,8 @@ Version V7 du 22 octobre 2026. Elle remplace la V6 ; tout ce que la V6 exigeait 
 2. **Appel A rédigé en entier AVANT toute Partie**, car il fixe la liste des 10 DX ; son audit par les deux auditeurs intervient lors de la phase d'audit différée (section 5.2, point 5).
 3. Chaque correction d'audit de l'Appel A est reportée dans les consignes du lot (« CORRECTION D'AUDIT »), pour que les Parties en héritent.
 4. L'agent rédige ensuite les Parties 1, 2, 3 et 4 de l'Appel B l'une après l'autre, dans cet ordre, une monographie complète à la fois.
-5. **Chaque Partie est auditée par les deux auditeurs** avant tout dépôt. Les auditeurs sont toujours des agents distincts des rédacteurs.
-6. **Seuil de dépôt :** un fichier n'est déposé que si son score d'application du prompt (section 6.3) atteint **au moins 90 %** et s'il ne reste **aucune erreur critique**.
+5. **Chaque Partie est auditée par les deux auditeurs** lors de la phase d'audit différée (Tunder). Le dépôt des brouillons dans `lot/LOT_X` (dossier `LOTS/LOT_X/`) est autorisé sans audit préalable. Les auditeurs sont toujours des agents distincts des rédacteurs.
+6. **Seuil de dépôt :** un fichier n'est déposé que si son score d'application du prompt (section 6.3) atteint **au moins 90 %** et s'il ne reste **aucune erreur critique**. Ce seuil s'applique lors de l'audit différé Tunder, avant le dépôt final dans `LOT_Finaux_Audités` ; il ne s'applique pas au dépôt des brouillons.
 7. Pour chaque agent, le lot suivant de sa série ne commence qu'après la rédaction complète du lot en cours.
 
 ---
@@ -277,7 +277,7 @@ Le score figure dans le rapport d'audit.
 
 1. Tu rédiges **une monographie complète à la fois**, puis la suivante.
 2. Si ta réponse approche de sa limite, tu t'arrêtes à la fin d'un point complet et tu écris `<!-- SUITE: point N -->` ; tu reprends exactement au point N.
-3. Un fichier sans FIN_FICHIER, ou dont la taille dans Drive diffère de la taille locale, est réputé tronqué : tu le régénères.
+3. Un fichier sans FIN_FICHIER, ou dont la taille déposée (GitHub ou, en plan B, Drive) diffère de la taille locale, est réputé tronqué : tu le régénères.
 
 ---
 
@@ -301,13 +301,13 @@ Le score figure dans le rapport d'audit.
 
 ---
 
-## 13. GOOGLE DRIVE — ORGANISATION ET HYGIÈNE
+## 13. DÉPÔT — GITHUB (PRINCIPAL), GOOGLE DRIVE (PLAN B) — ORGANISATION ET HYGIÈNE
 
-1. Dossier de travail : **`Mon Drive / LOTS_Finaux avec statut /`**, un sous-dossier `LOT_X_<Titre>` par lot.
-2. Avant de créer un lot, tu vérifies qu'aucune autre IA ne l'a déjà créé.
-3. **Aucun doublon.** Pour remplacer un fichier : tu déposes la nouvelle version, tu vérifies sa taille, puis seulement tu déplaces l'ancienne dans `CORBEILLE_DOUBLONS_OBSOLETES` avec le suffixe `_OBSOLETE_`.
-4. **Tu ne mets jamais un fichier à la corbeille.**
-5. Si tu ne peux pas écrire dans Drive, tu le dis et tu livres le fichier autrement (téléchargement, dépôt GitHub) — jamais d'annonce de dépôt fictif.
+1. Dépôt de travail : **dépôt GitHub du projet, branche `lot/LOT_X`, dossier `LOTS/LOT_X/`**, une branche et un dossier par lot ; jamais sur `main`. Le dépôt final, après audit Tunder, se fait dans `LOT_Finaux_Audités`.
+2. Avant de créer un lot, tu vérifies qu'aucune autre IA ne l'a déjà créé (branche ou dossier existant).
+3. **Aucun doublon.** Pour remplacer un fichier : tu déposes la nouvelle version sous le même nom par un nouveau commit, tu vérifies sa taille ; l'historique Git conserve l'ancienne. En plan B (Drive), tu déplaces l'ancienne dans `CORBEILLE_DOUBLONS_OBSOLETES` avec le suffixe `_OBSOLETE_`.
+4. **Tu ne mets jamais un fichier à la corbeille** ; tu ne supprimes jamais un fichier ni une branche, et tu n'utilises jamais `--force`.
+5. Si tu ne peux pas écrire dans GitHub, tu déposes en plan B dans **`Mon Drive / LOTS_Finaux avec statut /`** (sous-dossier `LOT_X_<Titre>`), tu le notes dans ton fichier de suivi, et le fichier est resynchronisé vers GitHub dès que possible — jamais d'annonce de dépôt fictif.
 6. Dans le chat, tu donnes seulement l'avancement et les liens, en phrases verbales concises.
 
 ---
@@ -324,7 +324,7 @@ Le score figure dans le rapport d'audit.
 - Produire une sortie autre que `.html`, ou convertir en Google Docs.
 - Supprimer un contenu utile pour tenir une limite de taille.
 - Plaquer une physiopathologie ou un calcul sur un SSP transversal.
-- Déposer un fichier non audité ou sous 90 %.
+- Déposer dans `LOT_Finaux_Audités` un fichier non audité ou sous 90 % (les brouillons non audités vont dans `lot/LOT_X`).
 - Annoncer une action non faite ; contourner un filtre de sécurité.
 - Être complaisant.
 
@@ -332,7 +332,7 @@ Le score figure dans le rapport d'audit.
 
 ## 15. HELP — QUESTIONS SANS RÉPONSE CERTAINE
 
-1. Les lacunes restantes **après audit** vont dans `LOTS_Finaux avec statut / HELP_QUESTIONNAIRE /`.
+1. Les lacunes restantes **après audit** vont dans `LOTS/HELP_QUESTIONNAIRE/` du dépôt GitHub (plan B : `LOTS_Finaux avec statut / HELP_QUESTIONNAIRE /`).
 2. Format de chaque question : identifiant (LOT, fichier, DX, point) ; contexte (ce que dit le cours et la version citée) ; question précise ; déjà cherché ; emplacement cible exact.
 3. Chaque question demande : la recommandation suisse en vigueur (société ou autorité, titre, année, URL) ; la version la plus récente comparée à celle du cours ; les informations, doses et posologies AIPS avec le numéro Swissmedic ; à défaut, la source européenne la plus récente ; un extrait mot pour mot et sa date.
 4. Les réponses sont déposées dans le sous-dossier `Pxx_Answer` du paquet. **Toute réponse est une affirmation à vérifier sur sa source primaire avant réinjection** dans un cours.
@@ -356,8 +356,8 @@ Le score figure dans le rapport d'audit.
 ☐ Calculs recalculés ; calculs dérivés étiquetés
 ☐ DX discriminants, ordre annoncé, badges sourcés ou rang ; cohérence Appel A ↔ Parties
 ☐ Tableaux enveloppés, aucun `title=`, affichage 390 px vérifié
-☐ Audit médical ET audit linguistique réalisés ; score ≥ 90 % ; zéro erreur critique
-☐ Dépôt `text/html` sans conversion ; taille vérifiée octet pour octet
+☐ Audit médical ET audit linguistique réalisés ; score ≥ 90 % ; zéro erreur critique (audit différé Tunder, avant le dépôt final dans `LOT_Finaux_Audités` ; non exigé pour le dépôt d'un brouillon)
+☐ Dépôt `.html` sans conversion (GitHub `lot/LOT_X`, `LOTS/LOT_X/` ; plan B Drive en `text/html`) ; taille vérifiée octet pour octet
 ☐ Lacunes restantes envoyées dans HELP
 
 ---
