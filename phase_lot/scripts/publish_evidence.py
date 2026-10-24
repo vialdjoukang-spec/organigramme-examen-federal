@@ -16,10 +16,10 @@ def compact(data,budget=None):
     # empêche qu'un champ nouveau emporte un paquet brut ou un texte intégral.
     metadata={'lot','ssp','role','phase','consulted_at','consultation_date','clinical_validation',
               'human_auditor','publication_authorized'}
-    source_metadata={'id','key','url','title','organisation','organism','version',
+    source_metadata={'id','key','url','title','organisation','organism','version','version_read','version_read_in_body',
                      'publication_date','publication_date_reported',
                      'version_or_document_date','consulted_at','consulted_on','scope','access',
-                     'document_body_date','source_type','read_mode','scope_and_limits','opened'}
+                     'document_body_date','source_type','read_mode','reading_status','scope_and_limits','opened'}
     result={k:v for k,v in data.items() if k in metadata}
     result['sources']=[]
     if budget is None: budget={}

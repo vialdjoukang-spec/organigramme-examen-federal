@@ -6,6 +6,18 @@ from validate import Structure
 
 ROOT=Path(__file__).resolve().parents[1]
 
+def selected_diagnostics(selection):
+    assert selection.get('complete') is True,'Sélection incomplète'
+    if 'diagnostics' in selection and 'diagnoses' in selection:
+        assert selection['diagnostics']==selection['diagnoses'],'Listes diagnostiques contradictoires'
+    rows=selection.get('diagnostics',selection.get('diagnoses'))
+    assert isinstance(rows,list) and len(rows)==10 and all(isinstance(x,dict) for x in rows),'Dix diagnostics requis'
+    assert [x.get('id') for x in rows]==[f'DX.{i}' for i in range(1,11)],'Identifiants ou ordre incohérents'
+    names=[x.get('name',x.get('name_exact')) for x in rows]
+    assert all(isinstance(x,str) and x.strip() for x in names),'Nom diagnostique absent'
+    assert len({x.casefold() for x in names})==10,'Diagnostics dupliqués'
+    return rows
+
 def validate(q):
     assert [r['lot'] for r in q['lots']]==list(range(1,11)), 'file 1..10 requise'
     active=[r for r in q['lots'] if r['production_status']=='ACTIF']
@@ -27,9 +39,7 @@ def main():
         assert a.bundle and a.bundle.is_dir(),'bundle requis'
         n=a.complete; row=q['lots'][n-1]; assert row['production_status']=='ACTIF'
         selection=json.loads((a.bundle/'A/selection.json').read_text())
-        assert selection['complete'] is True and len(selection['diagnostics'])==10
-        assert [d['id'] for d in selection['diagnostics']]==[f'DX.{i}' for i in range(1,11)]
-        assert len({d['name'].casefold() for d in selection['diagnostics']})==10, 'diagnostics dupliqués'
+        selected_diagnostics(selection)
         for role in ['A','B1','B2','B3','B4','B5']:
             cp=json.loads((a.bundle/role/'checkpoint.json').read_text())
             assert cp['production_complete'] is True and cp['role']==role

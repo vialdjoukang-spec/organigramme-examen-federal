@@ -11,8 +11,10 @@ class Structure(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.stack, self.errors, self.monographs, self.current = [], [], {}, None
         self.ids, self.targets, self.viewport = set(), [], False
+        self.in_title,self.title_count,self.title_text=False,0,[]
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag=='title':self.in_title=True;self.title_count+=1
         if tag in {'script','iframe','img','link','object','embed','audio','video'}:
             self.errors.append(f'élément interdit ou externe : {tag}')
         if attrs.get('id'):
@@ -43,7 +45,10 @@ class Structure(HTMLParser):
             self.errors.append(f'fermeture déséquilibrée : {tag}')
             return
         _, attrs = self.stack.pop()
+        if tag=='title':self.in_title=False
         if 'data-monograph' in attrs: self.current = None
+    def handle_data(self,data):
+        if self.in_title:self.title_text.append(data)
 
 def check(path, rubric):
     b = path.read_bytes()
@@ -52,6 +57,7 @@ def check(path, rubric):
     errors = list(p.errors)
     if p.stack: errors.append('balises non fermées')
     if not p.viewport: errors.append('meta viewport absent')
+    if p.title_count!=1 or not ''.join(p.title_text).strip(): errors.append('titre de page absent, vide ou dupliqué')
     if any(t not in p.ids for t in p.targets): errors.append('ancre interne absente')
     if re.search(r'@import\b|url\s*\(',text,re.I): errors.append('ressource CSS externe ou image incorporée interdite')
     if not re.match(r'\s*<!doctype html>', text, re.I): errors.append('DOCTYPE absent')
@@ -67,7 +73,7 @@ def check(path, rubric):
     if not re.search(r'\[S\d+\]',text): errors.append('références numérotées absentes')
     return {'file':str(path),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b),
             'structural_pass':not errors,'semantic_validation':False,'errors':errors,
-            'monographs':p.monographs,'questions_for_agent':rubric['points'],
+            'monographs':p.monographs,'document_title':''.join(p.title_text).strip(),'questions_for_agent':rubric['points'],
             'notice':'Les questions doivent être évaluées sur les preuves ; aucun score clinique automatique.'}
 
 def check_input(path, rubric):

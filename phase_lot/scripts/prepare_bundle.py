@@ -5,6 +5,7 @@ from pathlib import Path
 from validate import check_input
 from publish_evidence import compact
 from check_selfcheck import check_selfcheck
+from progression import selected_diagnostics
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -44,8 +45,7 @@ def main():
     required={f'G{a.lot}'}|{f'DX.{i}' for i in range(1,11)}
     assert len(all_monographs)==11 and set(all_monographs)==required,'Monographies absentes ou dupliquées'
     selection=json.loads((sources['A']/'selection.json').read_text())
-    assert selection['complete'] is True
-    assert [d['id'] for d in selection['diagnostics']]==[f'DX.{i}' for i in range(1,11)]
+    selected_diagnostics(selection)
     manifest={'lot':a.lot,'ssp':f'G{a.lot}','status':'CANDIDAT_LOCAL_NON_AUDITE',
               'created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'human_auditor':'Thunder — utilisateur humain','transmission_authorized':False,
@@ -60,7 +60,7 @@ def main():
         shutil.copyfile(entry['source'],dest);assert digest(dest)==entry['sha256']
     excerpt_budget={}
     for role,folder in sources.items():
-        for name in ['HELP.json','selfcheck.json','checkpoint.json','handoff_redaction.md']:
+        for name in ['HELP.json','selfcheck.json','checkpoint.json','handoff_redaction.md','technical_metadata_patch.json']:
             source=folder/name
             if source.exists():shutil.copyfile(source,a.output/role/name)
         index=compact(json.loads((folder/'evidence.json').read_text()),budget=excerpt_budget)

@@ -3,6 +3,7 @@
 import argparse, hashlib, json, shutil, subprocess
 from pathlib import Path
 from validate import check
+from progression import selected_diagnostics
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -27,8 +28,7 @@ def verify(bundle, report, policy, commit):
     files=sorted(bundle.rglob('*.html')); expected={str(p.relative_to(bundle)) for p in files}
     assert files and expected==set(report['files']), 'Périmètre du rapport différent des HTML candidats'
     selection=json.loads((bundle/'A/selection.json').read_text())
-    assert selection['complete'] is True
-    assert [d['id'] for d in selection['diagnostics']]==[f'DX.{i}' for i in range(1,11)]
+    selected_diagnostics(selection)
     all_monographs=[]
     for p in files:
         rel=str(p.relative_to(bundle)); entry=report['files'][rel]
