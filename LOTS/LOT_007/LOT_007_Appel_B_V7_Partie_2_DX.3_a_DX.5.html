@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<style>
+body{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif;color:#1c2833;line-height:1.5}
+.page{max-width:980px;margin:auto}
+h2,h3{color:#154360}
+details.f{display:inline}
+details.f>summary{display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted}
+details.f>span{display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:.93em}
+details.o{display:block}
+details.o>summary{display:inline-block;cursor:pointer;font-weight:bold;color:#1a5276;background:#eaf2f8;border:1px solid #aeb6bf;border-radius:4px 4px 0 0;padding:1px 8px;margin-top:3px}
+details.o>span{display:block;padding:6px 8px;background:#fff;border:1px solid #d5d8dc}
+details.o>span>span{display:block;margin:2px 0}
+table{border-collapse:collapse;width:100%;font-size:.92em;margin:8px 0}
+caption{text-align:left;font-weight:bold;color:#1a5276;margin-bottom:4px}
+th{border:1px solid #aeb6bf;background:#eaf2f8;padding:4px;text-align:left}
+td{border:1px solid #d5d8dc;padding:4px;vertical-align:top}
+details.u{margin:8px 0;border-left:4px solid #c0392b;background:#fdedec;padding:6px 10px;border-radius:4px}
+details.u>summary{cursor:pointer;font-weight:bold;color:#922b21}
+details.u ol{margin:6px 0 4px 18px}
+details.m{margin-bottom:22px;border:1px solid #aeb6bf;border-radius:6px;padding:12px}
+details.m>summary{font-size:1.15em;font-weight:bold;cursor:pointer;color:#1a5276}
+.badge{font-weight:normal;font-size:.8em;color:#566573;margin-left:8px}
+details.g{margin-bottom:14px;border:1px solid #d5d8dc;border-radius:6px;padding:8px}
+details.g>summary{cursor:pointer;font-weight:bold;color:#1a5276}
+ol.nl{list-style:none;padding-left:8px}
+.src{font-size:.9em}
+.nv{font-size:.9em;color:#566573}
+.proba{color:#C8102E;font-weight:700}
+details.ex{display:inline}details.ex>summary{display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted}
+.exw{display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:.93em}
+.onglets>label{display:inline-block;cursor:pointer;font-weight:bold;color:#1a5276;background:#eaf2f8;border:1px solid #aeb6bf;border-radius:4px 4px 0 0;padding:1px 8px;margin-right:3px}
+.onglets>input:checked+label{background:#fff;border-bottom-color:#fff}
+.onglets>input{position:absolute;opacity:0;width:1px;height:1px}.onglets>.op,.onglets>.oi{display:none;padding:6px 8px;background:#fff;border:1px solid #d5d8dc}.onglets>input:nth-of-type(1):checked~.op{display:block}.onglets>input:nth-of-type(2):checked~.oi{display:block}
+.onglets .oi>span{display:block;margin:2px 0}
+</style>
+<title>LOT_007 — Appel B V7 — Partie 2 (DX.3 à DX.5)</title>
+</head>
+<body>
+<div class='page'>
+<h2>LOT_007 — Appel B, format V7 (version 7 du prompt de production) — Partie 2 : DX.3 à DX.5</h2>
+<details class='g'><summary>Glossaire des abréviations</summary>
+<p>Abréviations utilisées : Arzneimittel-Informations-Publikationssystem (AIPS), soit les informations professionnelles suisses publiées par Swissmedic ; aldéhyde déshydrogénase de type 2 (ALDH2) ; alcool déshydrogénase (ADH) ; Commission fédérale pour les questions liées aux addictions et à la prévention des maladies non transmissibles (CFANT) ; cytochrome P450 (P450), dont le cytochrome P450 2C19 (CYP2C19) et le cytochrome P450 3A4 (CYP3A4) ; débit de filtration glomérulaire (DFG) ; Manuel diagnostique et statistique des troubles mentaux (DSM), cinquième édition (DSM-5) ; électrocardiogramme (ECG) ; formule sanguine simple (FSS) ; guanosine monophosphate cyclique (GMPc) ; récepteur couplé aux protéines G 109A (GPR109A) ; échelle hospitalière d'anxiété et de dépression (HAD) ; Hôpitaux universitaires de Genève (HUG) ; récepteur de l'histamine de type 1 (H1) ; immunoglobuline E (IgE) ; inhibiteur de la monoamine oxydase (IMAO) ; inhibiteur de la recapture de la sérotonine et de la noradrénaline (IRSN) ; inhibiteur sélectif de la recapture de la sérotonine (ISRS) ; récepteur couplé aux protéines G apparenté à Mas X2 (MRGPRX2) ; monoxyde d'azote (NO) ; Office fédéral de la santé publique (OFSP) ; phosphodiestérase de type 5 (PDE5) ; prostaglandine D2 (PGD2) et prostaglandine E2 (PGE2) ; récepteur de la prostaglandine D2 de type 1 (DP1) ; récepteur de la prostaglandine E2 de type 2 (EP2) ; récepteur de la prostaglandine E2 de type 4 (EP4) ; pharmacocinétique (PK) et pharmacodynamie (PD) ; phéochromocytome et paragangliome (PPGL) ; intervalle entre le début de l'onde Q et la fin de l'onde T de l'électrocardiogramme (QT) ; intervalle QT corrigé selon la fréquence cardiaque (QTc) ; Société suisse de psychiatrie et psychothérapie (SSPP) ; symptômes vasomoteurs (SVM) ; trouble anxieux généralisé (TAG) ; questionnaire du trouble anxieux généralisé en sept questions (TAG-7) ; thérapie cognitivo-comportementale (TCC) ; tumeurs neuroendocrines (TNE) ; thyréostimuline (TSH) ; tumeur sécrétant le peptide vasoactif intestinal (VIPome).</p></details>
+<p>Cette partie détaille trois des dix diagnostics différentiels retenus dans l'Appel A du LOT_007, consacré au flush cutané (bouffées de rougeur du visage). Chaque monographie suit les 14 points du format V7, et les mots soulignés en pointillé ouvrent une fenêtre d'explication ; les examens ouvrent une fenêtre à deux onglets, Principe et Interprétation.</p>
+<p>Le nombre rouge en exposant reprend la probabilité donnée par l'Appel A pour chaque diagnostic, avec sa population de référence [S27] [S9] [S13]. La mention « donnée non trouvée » signale qu'aucune source consultée ne fournit l'information ; les doses viennent uniquement de l'AIPS [S27] [S35] [S40].</p>
+<p>Liste des différentiels de l'Appel A :</p>
+<ol class='nl'>
+<li>DX.1 — Bouffées vasomotrices de la ménopause (SVM)</li>
+<li>DX.2 — Rosacée (forme érythémato-télangiectasique)</li>
+<li>DX.3 — Flush médicamenteux (sildénafil, nifédipine, vancomycine, niacine)</li>
+<li>DX.4 — Flush à l'alcool (déficit en ALDH2) et intoxication scombroïde</li>
+<li>DX.5 — Flush émotionnel et anxiété (rougissement)</li>
+<li>DX.6 — Anaphylaxie</li>
+<li>DX.7 — Syndrome carcinoïde</li>
+<li>DX.8 — Mastocytose systémique et activation mastocytaire</li>
+<li>DX.9 — Phéochromocytome et paragangliome (PPGL)</li>
+<li>DX.10 — Causes endocriniennes rares : carcinome médullaire de la thyroïde, TNE pancréatiques (VIPome), syndrome de Cushing</li>
+</ol>
+
+<details class='m' open><summary>DX.3 — Flush médicamenteux (sildénafil, nifédipine, vancomycine, niacine) <sup class="proba">≈ 1 à 10 %</sup><span class='badge'>patients traités par sildénafil : bouffées « fréquentes » selon l'AIPS, soit 1 à 10 sur 100 [S27]</span></summary>
+<p><strong>1. Définition et sémantique.</strong><br>Le flush médicamenteux est une rougeur transitoire de la peau, provoquée par un médicament qui modifie le débit sanguin cutané [S2] [S3]. Il appartient aux flushs épisodiques, qui dépendent de médiateurs vasoactifs ou de médicaments [S3]. L'Appel A retient quatre exemples : le sildénafil, la nifédipine, la vancomycine et la niacine [S27] [S28] [S35] [S44].</p>
+<p>
+<details class='f'><summary>Bouffées congestives</summary><span> L'information professionnelle suisse (AIPS) du sildénafil emploie ce terme pour la rougeur et la chaleur du visage [S27].</span></details> — 
+<details class='f'><summary>Syndrome de l'homme rouge</summary><span> L'AIPS de la vancomycine nomme ainsi l'éruption rouge du cou et du haut du corps qui suit une perfusion trop rapide ; on parle aussi de red neck syndrome [S35].</span></details> — 
+<details class='f'><summary>Flush épisodique ou persistant</summary><span> Le flush épisodique vient de médiateurs ou de médicaments ; le flush persistant laisse un érythème fixe avec des télangiectasies [S3].</span></details></p>
+
+<p><strong>2. Épidémiologie (Suisse, puis Europe).</strong><br>En Suisse, l'AIPS classe les bouffées congestives du sildénafil parmi les effets fréquents, soit chez 1 à 10 patients traités sur 100 [S27]. Elle classe aussi la vasodilatation parmi les effets fréquents de la nifédipine [S28]. Pour l'Europe, aucune source consultée ne chiffre le flush médicamenteux ; la donnée n'a pas été trouvée [S2] [S24]. Enfin, la réaction liée à la perfusion est la réaction la plus fréquente à la vancomycine [S45].</p>
+<p>
+<details class='f'><summary>Probabilité affichée</summary><span> La valeur <sup class="proba">≈ 1 à 10 %</sup> reprend la fréquence « fréquent » de l'AIPS du sildénafil, base retenue par l'Appel A [S27].</span></details> — 
+<details class='f'><summary>Effets les plus décrits du sildénafil</summary><span> Les céphalées, les bouffées congestives, la dyspepsie, la congestion nasale et les vertiges sont les effets indésirables les plus fréquents [S27].</span></details></p>
+
+<p><strong>3. Physiopathologie.</strong><br>Anatomie et physiologie : la peau du visage rougit quand ses vaisseaux se dilatent et que le débit sanguin cutané augmente [S2] [S3]. Physiopathologie : le sildénafil inhibe la phosphodiestérase de type 5 (PDE5) et dilate ainsi les vaisseaux [S27]. Ensuite, la nifédipine bloque les canaux calciques des artères [S28]. Enfin, la vancomycine dégranule les mastocytes, et la niacine libère des prostaglandines [S45] [S44].</p>
+<div style='overflow-x:auto;'><table><caption>Tableau de corrélation physiopathologique — flush médicamenteux [S27] [S28] [S35] [S44] [S45]</caption>
+<tr><th>Médicament</th><th>Mécanisme</th><th>Traduction clinique</th></tr>
+<tr><td>Sildénafil [S27]</td><td>La PDE5 est inhibée ; la voie NO et GMPc est renforcée</td><td>Bouffées congestives, céphalées, congestion nasale ; légère baisse de pression [S27]</td></tr>
+<tr><td>Nifédipine [S28]</td><td>Elle bloque les canaux calciques lents des artères</td><td>Vasodilatation, œdèmes ; tachycardie réflexe possible au début [S28]</td></tr>
+<tr><td>Vancomycine [S45] [S35]</td><td>Elle dégranule directement les mastocytes selon le débit, par le récepteur MRGPRX2</td><td>Rougeur du cou et du tronc, prurit ; parfois hypotension, angio-œdème, bronchospasme [S35] [S45]</td></tr>
+<tr><td>Niacine [S44]</td><td>Le récepteur GPR109A des cellules de Langerhans libère PGD2 et PGE2</td><td>Flush cutané pendant l'augmentation de dose ; tolérance rapide [S44]</td></tr>
+</table></div>
+<p>
+<details class='f'><summary>Cascade causale</summary><span> Médicament → vasodilatation cutanée ou libération d'histamine → augmentation du débit sanguin de la peau → flush visible [S27] [S45] [S3].</span></details> — 
+<details class='f'><summary>Voie du monoxyde d'azote</summary><span> Le sildénafil renforce la voie du monoxyde d'azote (NO) et de la guanosine monophosphate cyclique (GMPc) en bloquant la PDE5 ; c'est aussi pourquoi il potentialise l'effet hypotenseur des dérivés nitrés [S27].</span></details> — 
+<details class='f'><summary>Prostaglandines de la niacine</summary><span> La niacine active le récepteur GPR109A des cellules de Langerhans, qui libèrent les prostaglandines D2 (PGD2) et E2 (PGE2) ; celles-ci activent les récepteurs DP1, EP2 et EP4 des capillaires [S44].</span></details> — 
+<details class='f'><summary>Pourquoi la vitesse de perfusion compte-t-elle ?</summary><span> La réaction à la vancomycine dépend du débit : une perfusion lente sur au moins 60 minutes la réduit [S45] [S35].</span></details></p>
+
+<p><strong>4. Démarche diagnostique.</strong><br>Devant un flush épisodique, vous cherchez d'abord un médicament pris ou perfusé peu avant [S3] [S24]. Ensuite, vous vérifiez la chronologie : apparition après la prise, disparition à l'arrêt ou au ralentissement de la perfusion [S35] [S45]. Enfin, si le flush est atypique ou sans lien clair avec un médicament, vous cherchez les causes graves (DX.6 à DX.9) [S2] [S24].</p>
+<p>
+<details class='f'><summary>Niveaux d'orientation</summary><span> Izikson et coll. distinguent les causes bénignes fréquentes, les causes graves à exclure par le laboratoire, puis les causes rares [S2].</span></details></p>
+
+<p><strong>5. Anamnèse ciblée et drapeaux rouges.</strong><br>Vous listez tous les médicaments, avec la dose, l'heure de la prise et, pour une perfusion, sa durée [S35] [S3]. Ensuite, vous demandez la prise de dérivés nitrés, de molsidomine ou de « poppers » avant tout sildénafil [S27]. Enfin, vous cherchez un anesthésique associé à la vancomycine, car il augmente les réactions liées à la perfusion [S35].</p>
+<p>
+<details class='f'><summary>Drapeaux rouges</summary><span> Une hypotension, un bronchospasme ou un angio-œdème font craindre une réaction grave, qui ressemble à une hypersensibilité immédiate [S45] [S35]. Sous vancomycine, une chute rapide de la pression, un choc et rarement un arrêt cardiaque sont possibles après un bolus [S35].</span></details> — 
+<details class='f'><summary>Vancomycine et anesthésiques</summary><span> L'AIPS signale que l'association de vancomycine et d'anesthésiques augmente la fréquence des réactions liées à la perfusion [S35].</span></details> — 
+<details class='f'><summary>Inhibiteurs du cytochrome P450 3A4 (CYP3A4)</summary><span> L'itraconazole, le voriconazole, la clarithromycine ou l'érythromycine imposent une dose initiale de sildénafil de 25 mg [S27].</span></details></p>
+
+<div style='overflow-x:auto;'><table><caption>Questions de l'anamnèse médicamenteuse devant un flush [S3] [S27] [S28] [S35] [S44]</caption>
+<tr><th>Question</th><th>Pourquoi la poser</th></tr>
+<tr><td>Quels médicaments, depuis quand, à quelle dose ? [S3]</td><td>Le flush épisodique est souvent médicamenteux</td></tr>
+<tr><td>Une perfusion de vancomycine a-t-elle été donnée, et en combien de temps ? [S35]</td><td>Une perfusion de moins de 60 minutes favorise la réaction</td></tr>
+<tr><td>Un inhibiteur de la PDE5 a-t-il été pris ? [S27]</td><td>Les bouffées congestives sont fréquentes ; les dérivés nitrés sont interdits</td></tr>
+<tr><td>Un inhibiteur calcique a-t-il été débuté ou augmenté ? [S28]</td><td>La vasodilatation et les œdèmes sont fréquents</td></tr>
+<tr><td>La niacine a-t-elle été augmentée récemment ? [S44]</td><td>Le flush survient surtout pendant l'augmentation de dose</td></tr>
+</table></div>
+<p><strong>6. Examen physique ciblé.</strong><br>Entre deux épisodes, l'examen est normal : la peau ne garde ni érythème fixe ni télangiectasies [S3]. Ensuite, vous mesurez la 
+<details class='ex'><summary>pression artérielle et fréquence cardiaque</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-1' id='ex-1p' checked><label for='ex-1p'>Principe</label><input type='radio' name='ex-1' id='ex-1i'><label for='ex-1i'>Interprétation</label><div class='op'>La pression artérielle et la fréquence cardiaque se mesurent au repos, puis debout si le patient a pris un vasodilatateur [S27]. Après 100 mg de sildénafil, la pression systolique debout baisse en moyenne de 8,3 mmHg et la diastolique de 5,3 mmHg, selon l'information professionnelle suisse (AIPS) [S27].</div><div class='oi'><span>Pression inférieure à 90/50 mmHg → sildénafil non recommandé, selon l'AIPS [S27].</span><span>Chute de pression pendant une perfusion de vancomycine → réaction liée à la perfusion ; on arrête ou on ralentit [S35].</span><span>Fréquence cardiaque élevée avec flush après l'alcool → accumulation d'acétaldéhyde possible [S9].</span></div></div></div></details>, car le sildénafil, la nifédipine et la vancomycine peuvent la faire baisser [S27] [S28] [S35]. Puis vous décrivez la rougeur, son extension au cou et au tronc, et un éventuel prurit [S35]. Enfin, vous cherchez des œdèmes sous nifédipine et un bronchospasme ou un angio-œdème [S28] [S45].</p>
+<div style='overflow-x:auto;'><table><caption>Signes et conduite [S27] [S28] [S35] [S45]</caption>
+<tr><th>Signe</th><th>Signification</th><th>Conduite</th></tr>
+<tr><td>Rougeur du cou et du tronc pendant une perfusion de vancomycine [S35]</td><td>Réaction liée à la perfusion</td><td>Arrêter ou ralentir, puis reprendre sur au moins 60 minutes [S35]</td></tr>
+<tr><td>Hypotension, bronchospasme, angio-œdème [S45] [S35]</td><td>Réaction grave</td><td>Arrêter le médicament et lancer les mesures d'urgence [S35]</td></tr>
+<tr><td>Flush avec céphalées et nez bouché après sildénafil [S27]</td><td>Effet indésirable fréquent</td><td>Réduire la dose à 25 mg si besoin [S27]</td></tr>
+<tr><td>Œdèmes des chevilles sous nifédipine [S28]</td><td>Effet vasodilatateur fréquent</td><td>Réévaluer la dose ou le traitement [S28]</td></tr>
+</table></div>
+
+<p><strong>7. Approche syndromique.</strong><br>7.1 Signes fonctionnels de céphalées et de nez bouché, signe physique de flush du visage, peu après du sildénafil : flush médicamenteux <sup class="proba">≈ 1 à 10 %</sup> [S27]. 7.2 Ensuite, signe fonctionnel de prurit, signe physique de rougeur du cou et du tronc pendant une perfusion rapide de vancomycine : syndrome de l'homme rouge [S35] [S45]. 7.3 Enfin, signe fonctionnel de gêne respiratoire, signes physiques d'hypotension et de sifflement : réaction grave, avec anaphylaxie (DX.6) à exclure d'abord [S45] [S2].</p>
+<p>
+<details class='f'><summary>Différentiel au sein du LOT</summary><span> Un flush après l'alcool oriente vers le déficit en ALDH2 (DX.4) [S9]. Une rougeur lors d'une émotion oriente vers le flush émotionnel (DX.5) [S6]. Un flush avec diarrhée ou des crises répétées sans médicament fait chercher les causes graves (DX.7 à DX.9) [S2] [S3].</span></details></p>
+
+<p><strong>8. Diagnostic positif et critères.</strong><br>Le diagnostic repose sur un lien chronologique net entre le médicament et le flush [S3] [S24]. Ensuite, le flush cède à l'arrêt du médicament ou au ralentissement de la perfusion [S35] [S45]. Enfin, selon Zhu et coll. (2022), aucun test cutané validé ne confirme une réaction à la vancomycine [S45].</p>
+<p>
+<details class='f'><summary>Imputabilité</summary><span> On parle d'imputabilité quand la chronologie, l'effet de l'arrêt et l'effet de la reprise rattachent le flush au médicament [S3] [S45].</span></details></p>
+<div style='overflow-x:auto;'><table><caption>Critères d'imputabilité pratiques [S27] [S35] [S44] [S45]</caption>
+<tr><th>Médicament</th><th>Indice clinique</th><th>Argument de confirmation</th></tr>
+<tr><td>Vancomycine [S35] [S45]</td><td>Rougeur pendant ou juste après une perfusion rapide</td><td>Une perfusion plus lente est bien tolérée [S45]</td></tr>
+<tr><td>Sildénafil [S27]</td><td>Bouffées avec céphalées, congestion nasale</td><td>L'AIPS décrit cet effet comme fréquent [S27]</td></tr>
+<tr><td>Nifédipine [S28]</td><td>Rougeur et œdèmes sous traitement</td><td>L'AIPS décrit une vasodilatation fréquente [S28]</td></tr>
+<tr><td>Niacine [S44]</td><td>Flush pendant l'augmentation de dose</td><td>Le flush diminue avec la libération prolongée ou l'aspirine [S44]</td></tr>
+</table></div>
+
+<p><strong>9. Examens complémentaires.</strong><br>9.a Aucun examen de référence (gold standard) n'est validé ; la 
+<details class='ex'><summary>réintroduction contrôlée</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-2' id='ex-2p' checked><label for='ex-2p'>Principe</label><input type='radio' name='ex-2' id='ex-2i'><label for='ex-2i'>Interprétation</label><div class='op'>La réintroduction contrôlée redonne le médicament suspect sous surveillance, avec un débit de perfusion plus lent ou une prémédication antihistaminique [S45]. Pour la vancomycine, elle est préférée aux tests cutanés quand les symptômes étaient légers à modérés [S45].</div><div class='oi'><span>Réintroduction lente bien tolérée → réaction liée au débit, et non allergie de type immédiat [S45].</span><span>Réaction sévère antérieure → désensibilisation à discuter avec un allergologue [S45].</span></div></div></div></details> à débit plus lent s'en approche le plus [S45]. 9.b Première intention : la pression artérielle et la fréquence cardiaque, répétées pendant la perfusion [S35] [S27]. 9.c Ensuite, les 
+<details class='ex'><summary>tests cutanés à la vancomycine</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-3' id='ex-3p' checked><label for='ex-3p'>Principe</label><input type='radio' name='ex-3' id='ex-3i'><label for='ex-3i'>Interprétation</label><div class='op'>Les tests cutanés à la vancomycine injectent ou déposent l'antibiotique dans la peau pour chercher une réaction immédiate [S45]. Ils donnent beaucoup de faux positifs, car la vancomycine dégranule directement les mastocytes [S45].</div><div class='oi'><span>Test positif → peu fiable, car les faux positifs sont fréquents [S45].</span><span>Réaction de type IgE (immunoglobuline E) à la vancomycine → rare [S45].</span></div></div></div></details> apportent peu, car les faux positifs sont fréquents [S45]. 9.d Enfin, si le flush reste atypique, vous demandez les examens des causes graves décrits dans l'Appel A [S2].</p>
+<p>
+<details class='f'><summary>Pas d'examen systématique</summary><span> Le flush médicamenteux typique se diagnostique par l'anamnèse et l'examen ; les examens de laboratoire servent surtout à exclure les causes graves [S2].</span></details></p>
+
+<p><strong>10. Arbre décisionnel.</strong><br>La gravité décide d'abord de la conduite [S35] [S45]. Ensuite, le médicament en cause oriente vers la mesure adaptée [S27] [S28] [S35] [S44]. Enfin, un flush sans lien médicamenteux sort de cet arbre [S2].</p>
+<p>
+<details class='f'><summary>Désensibilisation</summary><span> La désensibilisation réintroduit le médicament par doses croissantes ; Zhu et coll. la réservent aux réactions sévères à la vancomycine [S45].</span></details></p>
+<div style='overflow-x:auto;'><table><caption>Arbre décisionnel — flush sous médicament [S2] [S27] [S35] [S44] [S45]</caption>
+<tr><th>Étape</th><th>Constat</th><th>Décision</th></tr>
+<tr><td>1 [S35] [S45]</td><td>Hypotension, bronchospasme ou angio-œdème</td><td>Arrêter immédiatement le médicament et lancer les mesures d'urgence</td></tr>
+<tr><td>2 [S35]</td><td>Rougeur pendant une perfusion de vancomycine, état stable</td><td>Suspendre la perfusion, puis la reprendre sur au moins 60 minutes, au plus 10 mg/min</td></tr>
+<tr><td>3 [S27]</td><td>Bouffées gênantes sous sildénafil</td><td>Réduire à 25 mg et ne jamais associer de dérivés nitrés</td></tr>
+<tr><td>4 [S28]</td><td>Vasodilatation gênante sous nifédipine</td><td>Réévaluer la dose ou le traitement avec le prescripteur</td></tr>
+<tr><td>5 [S44]</td><td>Flush sous niacine</td><td>Passer à la libération prolongée, augmenter progressivement, donner l'aspirine 30 minutes avant</td></tr>
+<tr><td>6 [S2]</td><td>Pas de lien avec un médicament</td><td>Chercher les autres causes de flush</td></tr>
+</table></div>
+
+<p><strong>11. Prise en charge (recommandations suisses).</strong><br>11.A But : vous supprimez le flush et vous évitez l'hypotension [S35] [S27]. Ensuite, vous gardez le traitement utile, mais vous reprenez la vancomycine en perfusion lente [S35]. Enfin, vous reconnaissez sans délai une réaction grave [S35] [S45].</p>
+
+<p>11.B Moyens : la vancomycine (Vancocin®, glycopeptide) se perfuse sur au moins 60 minutes, à 10 mg/min au plus [S35]. Elle doit être diluée à 10 mg/ml au plus ; un antihistaminique peut précéder sa réintroduction [S35] [S45]. Le sildénafil (Viagra®, inhibiteur de la PDE5) se donne à 50 mg, une fois par jour au plus [S27]. Enfin, pour la niacine, la libération prolongée et l'aspirine prise 30 minutes avant réduisent le flush [S44].</p>
+<div style='overflow-x:auto;'><table><caption>Médicaments en cause et mesures — données de l'AIPS [S27] [S28] [S35] [S41] [S44]</caption>
+<tr><th>Molécule (nom ®), classe</th><th>Pharmacocinétique et pharmacodynamie</th><th>Posologie (AIPS)</th><th>Effets indésirables</th><th>Contre-indications</th><th>Grossesse, âgé, enfant, foie, rein</th></tr>
+<tr><td>Vancomycine (Vancocin®), glycopeptide [S35]</td><td>Perfusion intermittente ; élimination rénale ; dose guidée par les concentrations</td><td>Dose initiale adulte 15 à 20 mg/kg ; perfusion d'au moins 60 minutes, au plus 10 mg/min ; au moins 100 ml pour 500 mg</td><td>Réaction liée à la perfusion, hypotension, thrombophlébite, atteinte rénale et auditive</td><td>Hypersensibilité connue</td><td>Grossesse : innocuité non établie ; allaitement : nécessité absolue seulement ; âgé : contrôler l'audition ; insuffisance rénale : intervalle allongé selon les creux [S35]</td></tr>
+<tr><td>Sildénafil (Viagra®), inhibiteur de la PDE5 [S27]</td><td>Vasodilatation par la voie NO et GMPc ; clairance réduite chez l'âgé et l'insuffisant hépatique</td><td>50 mg environ 1 heure avant le rapport ; 25 à 100 mg ; au plus une fois par jour</td><td>Céphalées, bouffées congestives, dyspepsie, congestion nasale, vertiges</td><td>Dérivés nitrés, molsidomine, « poppers »</td><td>Non indiqué chez la femme ni avant 18 ans ; âgé, insuffisance hépatique : 25 mg au départ ; clairance inférieure à 30 ml/min : dose initiale réduite [S27]</td></tr>
+<tr><td>Nifédipine (Nifedipin-Mepha 20 retard®), inhibiteur calcique [S28]</td><td>Blocage des canaux calciques lents ; effet d'environ 12 heures</td><td>2 × 20 mg par jour, jusqu'à 2 × 40 mg ; intervalle de 12 heures</td><td>Œdèmes, vasodilatation</td><td>20 premières semaines de grossesse, allaitement, choc cardio-vasculaire, angor instable, rifampicine</td><td>Âgé : dose d'entretien à ajuster ; enfant : non étudié ; insuffisance hépatique : surveillance étroite [S28]</td></tr>
+<tr><td>Cétirizine (Zyrtec®), antihistaminique anti-H1 [S41] [S45]</td><td>Bloque les récepteurs de l'histamine de type 1 ; élimination surtout rénale</td><td>10 mg une fois par jour dès 12 ans ; l'AIPS ne prévoit pas l'indication du flush</td><td>Somnolence possible</td><td>Insuffisance rénale terminale (DFG inférieur à 15 ml/min)</td><td>Allaitement : à éviter ; âgé : adapter selon le rein ; DFG de 30 à 60 : demi-dose [S41]</td></tr>
+</table></div>
+<p>11.C Surveillance : pendant une perfusion de vancomycine, vous surveillez la pression, la peau et la respiration ; les concentrations résiduelles guident la dose [S35]. Ensuite, sous sildénafil, vous vérifiez l'absence de dérivés nitrés et la tolérance tensionnelle [S27]. 11.D Pronostic : le flush à la niacine diminue vite, car une tolérance se développe [S44]. Enfin, sous sildénafil, la chute de pression est passagère et n'a que des conséquences minimes chez la plupart des patients [S27].</p>
+<p>
+<details class='f'><summary>Critères de sortie</summary><span> Le patient sort quand la pression et la respiration sont normales, que la rougeur a disparu et que le médicament en cause est noté au dossier, avec la vitesse de perfusion tolérée [S35] [S45].</span></details> — 
+<details class='f'><summary>Niacine et AIPS</summary><span> Aucune information professionnelle suisse de la niacine n'a été trouvée. Sa posologie, ses contre-indications et ses précautions restent donc des données non trouvées. Seule la revue de Kamanna et coll. décrit les mesures contre le flush [S44].</span></details> — 
+<details class='f'><summary>Vancomycine chez le grand malade</summary><span> Chez le patient gravement malade, l'AIPS permet une dose de charge de 25 à 30 mg/kg, non réduite même en insuffisance rénale ; la perfusion reste lente [S35].</span></details> — 
+<details class='f'><summary>Vancomycine chez le nouveau-né</summary><span> L'AIPS propose, après avis d'un spécialiste, 15 mg/kg toutes les 8 heures, chaque dose perfusée sur 60 minutes [S35].</span></details> — 
+<details class='f'><summary>Nifédipine et pamplemousse</summary><span> Le jus de pamplemousse inhibe la dégradation de la nifédipine et peut en élever les taux ; l'AIPS demande de l'éviter [S28].</span></details> — 
+<details class='f'><summary>Groupes où le sildénafil n'est pas recommandé</summary><span> L'AIPS cite l'insuffisance hépatique sévère, une pression inférieure à 90/50 mmHg, une hypertension non contrôlée au-dessus de 170/110 mmHg, un accident vasculaire cérébral ou un infarctus récents et une maladie cardiovasculaire sévère [S27].</span></details> — 
+<details class='f'><summary>Anesthésie et vancomycine</summary><span> L'AIPS conseille de perfuser la vancomycine sur 60 minutes avant l'induction de l'anesthésie, car les anesthésiques augmentent les réactions [S35].</span></details></p>
+
+<details class='u'><summary>🚨 Urgence — réaction grave pendant une perfusion de vancomycine (conduite chronologique)</summary>
+<ol>
+<li>Vous arrêtez immédiatement la perfusion de vancomycine [S35].</li>
+<li>Vous lancez les mesures d'urgence appropriées, comme le prévoit l'AIPS [S35].</li>
+<li>Vous mesurez la 
+<details class='ex'><summary>pression artérielle</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-4' id='ex-4p' checked><label for='ex-4p'>Principe</label><input type='radio' name='ex-4' id='ex-4i'><label for='ex-4i'>Interprétation</label><div class='op'>La pression artérielle et la fréquence cardiaque se mesurent au repos, puis debout si le patient a pris un vasodilatateur [S27]. Après 100 mg de sildénafil, la pression systolique debout baisse en moyenne de 8,3 mmHg et la diastolique de 5,3 mmHg, selon l'information professionnelle suisse (AIPS) [S27].</div><div class='oi'><span>Pression inférieure à 90/50 mmHg → sildénafil non recommandé, selon l'AIPS [S27].</span><span>Chute de pression pendant une perfusion de vancomycine → réaction liée à la perfusion ; on arrête ou on ralentit [S35].</span><span>Fréquence cardiaque élevée avec flush après l'alcool → accumulation d'acétaldéhyde possible [S9].</span></div></div></div></details> et cherchez un bronchospasme ou un angio-œdème [S45] [S35].</li>
+<li>Si les signes évoquent une anaphylaxie, vous la traitez comme telle (DX.6) [S45] [S2].</li>
+<li>Après une réaction légère à modérée, la reprise se fait plus lentement, avec ou sans antihistaminique [S45].</li>
+<li>Après une réaction sévère, la désensibilisation se discute avec un allergologue [S45].</li>
+</ol></details>
+<p>
+<details class='f'><summary>Sildénafil et douleur thoracique</summary><span> Le sildénafil potentialise l'effet hypotenseur des dérivés nitrés ; l'AIPS ne précise pas quand un dérivé nitré peut être donné sans risque après la prise [S27].</span></details></p>
+<p><strong>12. Prévention.</strong><br>Prévention primaire : vous perfusez toujours la vancomycine lentement et bien diluée [S35]. Prévention secondaire : vous notez au dossier la réaction et le débit toléré, pour la prochaine perfusion [S45]. Ensuite, vous augmentez la niacine progressivement, de préférence en libération prolongée, avec l'aspirine 30 minutes avant [S44]. Prévention tertiaire : vous informez le patient sous sildénafil qu'il ne doit jamais prendre de dérivés nitrés ni de « poppers » [S27].</p>
+<p>
+<details class='f'><summary>Prévention de la thrombophlébite</summary><span> L'administration lente d'une solution diluée réduit aussi la fréquence et la gravité de la thrombophlébite [S35].</span></details></p>
+
+<p><strong>13. Points clés.</strong><br>Le flush médicamenteux se reconnaît par l'anamnèse et la chronologie [S3] [S24]. Ensuite, la réaction à la vancomycine dépend du débit et se prévient par une perfusion d'au moins 60 minutes [S35] [S45]. Enfin, une hypotension ou un bronchospasme imposent l'arrêt immédiat du médicament [S35].</p>
+<p>
+<details class='f'><summary>Aide-mémoire</summary><span> Sildénafil : PDE5 et NO ; nifédipine : calcium ; vancomycine : mastocytes ; niacine : prostaglandines [S27] [S28] [S45] [S44].</span></details></p>
+
+<p><strong>14. Pièges et questions de l'examen fédéral.</strong><br>Le premier piège est d'oublier l'anamnèse médicamenteuse devant un flush [S3]. Ensuite, conclure à une allergie après un syndrome de l'homme rouge prive le patient d'un antibiotique utile [S45]. Enfin, traiter une douleur thoracique par un dérivé nitré chez un patient sous sildénafil expose à une hypotension grave [S27].</p>
+<p>
+<details class='f'><summary>Question type</summary><span> Pourquoi la vancomycine peut-elle être reprise après un syndrome de l'homme rouge ? Parce que la réaction dépend du débit et non d'une allergie de type IgE ; on la reprend plus lentement [S45] [S35].</span></details></p>
+
+</details>
+
+<details class='m' open><summary>DX.4 — Flush à l'alcool (déficit en ALDH2) et intoxication scombroïde <sup class="proba">≈ 8 %</sup><span class='badge'>population mondiale déficitaire en ALDH2 ; 36 % des Asiatiques de l'Est [S9]</span></summary>
+<p><strong>1. Définition et sémantique.</strong><br>Le flush à l'alcool est une rougeur du visage, avec nausées et tachycardie, qui apparaît juste après un verre d'alcool chez une personne déficitaire en aldéhyde déshydrogénase de type 2 (ALDH2) [S9]. L'intoxication scombroïde, ou scombroïdose, est une intoxication alimentaire par l'histamine d'un poisson mal conservé, qui imite une réaction allergique [S37] [S36]. L'Appel A réunit ces deux tableaux, car tous deux donnent un flush peu après une ingestion [S9] [S37].</p>
+<p>
+<details class='f'><summary>Flush asiatique</summary><span> On appelle aussi le flush à l'alcool « Asian flush » ou « Asian glow », car il touche surtout les populations d'Asie de l'Est [S9].</span></details> — 
+<details class='f'><summary>Scombridés</summary><span> La famille des Scombridae comprend le thon, le maquereau et la bonite, mais d'autres poissons peuvent être en cause [S37].</span></details></p>
+
+<p><strong>2. Épidémiologie (Suisse, puis Europe).</strong><br>En Suisse, Tox Info Suisse reçoit environ 10 demandes par an liées au syndrome scombroïde [S36]. Ensuite, entre 1966 et 1991, ce centre a reçu 76 annonces après du thon, dont 18 répondaient aux critères ; l'intoxication reste donc rare en Suisse [S30]. Pour l'Europe, la fréquence du déficit en ALDH2 n'a pas été trouvée dans les sources consultées ; dans le monde, environ 540 millions de personnes, soit environ 8 %, sont déficitaires [S9]. Enfin, environ 36 % des Japonais, Chinois et Coréens présentent ce flush [S9].</p>
+<p>
+<details class='f'><summary>Probabilité affichée</summary><span> La valeur <sup class="proba">≈ 8 %</sup> reprend la part mondiale de personnes déficitaires en ALDH2, base retenue par l'Appel A [S9].</span></details> — 
+<details class='f'><summary>Alcool en Suisse</summary><span> En 2022, 14,7 % de la population a eu une consommation ponctuelle à risque au moins une fois par mois, selon l'Office fédéral de la santé publique (OFSP) [S43].</span></details></p>
+
+<p><strong>3. Physiopathologie.</strong><br>Physiologie : l'alcool déshydrogénase (ADH) transforme l'éthanol en acétaldéhyde, que l'ALDH2 transforme ensuite en acétate [S9]. Physiopathologie : l'allèle Lys487 (ALDH2*2) donne une enzyme inactive ; l'hétérozygote garde moins d'un centième de l'activité, et l'acétaldéhyde s'accumule [S9]. Ensuite, l'acétaldéhyde dilate les vaisseaux et libère de l'histamine, d'où le flush, les nausées et la tachycardie [S9]. Enfin, dans le poisson mal réfrigéré, des bactéries convertissent l'histidine en histamine par l'histidine décarboxylase [S37].</p>
+<div style='overflow-x:auto;'><table><caption>Tableau de corrélation physiopathologique — flush à l'alcool et scombroïdose [S9] [S36] [S37]</caption>
+<tr><th>Étape</th><th>Mécanisme</th><th>Traduction clinique</th></tr>
+<tr><td>Alcool, déficit en ALDH2 [S9]</td><td>Accumulation d'acétaldéhyde, libération d'histamine</td><td>Flush du visage, nausées, tachycardie juste après l'alcool</td></tr>
+<tr><td>Homozygote Lys/Lys [S9]</td><td>Aucune activité ALDH2</td><td>Réaction intense : la personne ne peut pas boire beaucoup, donc elle est protégée du cancer</td></tr>
+<tr><td>Hétérozygote Lys/Glu [S9]</td><td>Activité résiduelle faible ; tolérance possible</td><td>Buveur habituel possible ; risque élevé de cancer de l'œsophage</td></tr>
+<tr><td>Poisson mal réfrigéré [S37] [S36]</td><td>Histidine → histamine par des bactéries ; résiste à la cuisson</td><td>Rougeur, prurit, céphalées, troubles digestifs, goût poivré ou métallique</td></tr>
+</table></div>
+<p>
+<details class='f'><summary>Paradoxe de l'hétérozygote</summary><span> L'hétérozygote garde une faible activité enzymatique : son flush est moins intense, il peut s'y habituer et devenir gros buveur ; c'est donc lui qui porte le risque de cancer le plus élevé [S9].</span></details> — 
+<details class='f'><summary>Part du risque attribuable</summary><span> Dans les études japonaises et taïwanaises, 58 à 69 % de l'excès de risque de cancer de l'œsophage revient aux hétérozygotes qui boivent [S9].</span></details> — 
+<details class='f'><summary>Pourquoi le flush protège-t-il l'homozygote ?</summary><span> La réaction est si désagréable que l'homozygote boit peu ; il échappe ainsi au risque de cancer de l'œsophage lié à l'alcool [S9].</span></details></p>
+
+<p><strong>4. Démarche diagnostique.</strong><br>D'abord, vous excluez une anaphylaxie (DX.6), hypothèse grave qui imite la scombroïdose [S2] [S37]. Ensuite, vous précisez ce qui a été bu et mangé, et dans quel délai [S9] [S37]. Puis vous posez le 
+<details class='ex'><summary>questionnaire de flush</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-5' id='ex-5p' checked><label for='ex-5p'>Principe</label><input type='radio' name='ex-5' id='ex-5i'><label for='ex-5i'>Interprétation</label><div class='op'>Le questionnaire de flush pose deux questions : (A) avez-vous tendance à rougir du visage juste après un verre de bière d'environ 180 ml ? (B) aviez-vous cette tendance pendant les une ou deux premières années où vous buviez ? [S9]. La question B compte, car certaines personnes s'habituent au flush avec le temps [S9].</div><div class='oi'><span>Oui à la question A ou B → déficit en ALDH2 probable [S9].</span><span>Chez l'homme japonais : sensibilité 90 %, spécificité 88 % ; chez la femme japonaise : 88 % et 92 % [S9].</span><span>Réponse positive chez un buveur → conseil de réduire l'alcool [S9].</span></div></div></div></details> à toute personne qui boit, surtout d'origine est-asiatique [S9]. Enfin, si plusieurs convives ont mangé le même poisson, vous évoquez la scombroïdose et la déclarez au médecin cantonal [S37].</p>
+<p>
+<details class='f'><summary>Diagnostic d'anamnèse</summary><span> Pour la scombroïdose, c'est la consommation de poisson dans les minutes précédentes qui permet de poser le diagnostic [S37].</span></details></p>
+
+<p><strong>5. Anamnèse ciblée et drapeaux rouges.</strong><br>Vous demandez la quantité d'alcool, la fréquence et le tabac, car l'acétaldéhyde vient aussi de la fumée [S9] [S43]. Ensuite, vous demandez si le patient prend des antihistaminiques pour masquer son flush avant de boire [S9]. Enfin, pour la scombroïdose, vous précisez l'espèce de poisson, sa conservation et le délai d'apparition [S36] [S37].</p>
+<p>
+<details class='f'><summary>Étudiants à risque</summary><span> Brooks et coll. citent les étudiants déficitaires en ALDH2, exposés à la pression du groupe et aux beuveries, comme un groupe particulièrement concerné [S9].</span></details> — 
+<details class='f'><summary>Drapeaux rouges</summary><span> Une baisse de la pression artérielle, un pouls rapide ou des troubles respiratoires imposent un contrôle médical, selon Tox Info Suisse [S36]. Une dysphagie chez un buveur qui rougit fait chercher un cancer de l'œsophage [S9].</span></details></p>
+
+<p><strong>6. Examen physique ciblé.</strong><br>En dehors d'un épisode, l'examen est normal ; la rougeur de la scombroïdose disparaît en 8 heures en moyenne [S30]. Ensuite, vous mesurez la 
+<details class='ex'><summary>pression artérielle et fréquence cardiaque</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-6' id='ex-6p' checked><label for='ex-6p'>Principe</label><input type='radio' name='ex-6' id='ex-6i'><label for='ex-6i'>Interprétation</label><div class='op'>La pression artérielle et la fréquence cardiaque se mesurent au repos, puis debout si le patient a pris un vasodilatateur [S27]. Après 100 mg de sildénafil, la pression systolique debout baisse en moyenne de 8,3 mmHg et la diastolique de 5,3 mmHg, selon l'information professionnelle suisse (AIPS) [S27].</div><div class='oi'><span>Pression inférieure à 90/50 mmHg → sildénafil non recommandé, selon l'AIPS [S27].</span><span>Chute de pression pendant une perfusion de vancomycine → réaction liée à la perfusion ; on arrête ou on ralentit [S35].</span><span>Fréquence cardiaque élevée avec flush après l'alcool → accumulation d'acétaldéhyde possible [S9].</span></div></div></div></details>, car la scombroïdose peut l'abaisser et accélérer le pouls [S36]. Puis vous décrivez la rougeur, le prurit, l'œdème éventuel et l'état respiratoire [S36] [S37]. Enfin, chez le buveur, vous cherchez les signes de consommation chronique à risque [S43].</p>
+<div style='overflow-x:auto;'><table><caption>Signes et conduite [S9] [S36] [S37]</caption>
+<tr><th>Signe</th><th>Signification</th><th>Conduite</th></tr>
+<tr><td>Flush du visage, tachycardie juste après l'alcool [S9]</td><td>Déficit en ALDH2 probable</td><td>Questionnaire et conseil de réduire l'alcool</td></tr>
+<tr><td>Rash, goût poivré, céphalées après du poisson [S36] [S37]</td><td>Scombroïdose</td><td>Antihistaminique si besoin, déclaration</td></tr>
+<tr><td>Hypotension, troubles respiratoires [S36]</td><td>Forme non légère</td><td>Contrôle médical et surveillance</td></tr>
+</table></div>
+
+<p><strong>7. Approche syndromique.</strong><br>7.1 Signe fonctionnel de nausées, signes physiques de flush du visage et de tachycardie peu après un petit verre : flush à l'alcool par déficit en ALDH2 <sup class="proba">≈ 8 %</sup> [S9]. 7.2 Ensuite, signes fonctionnels de prurit, de céphalées et de diarrhée, signe physique de rougeur, 10 à 30 minutes après du thon : scombroïdose [S37] [S36]. 7.3 Enfin, signe fonctionnel de gêne respiratoire, signes physiques d'hypotension et de rougeur sans poisson suspect : anaphylaxie (DX.6) à exclure [S2].</p>
+<p>
+<details class='f'><summary>Différentiel au sein du LOT</summary><span> Un flush après un médicament oriente vers le DX.3 [S3]. Un flush avec diarrhée chronique fait chercher un syndrome carcinoïde (DX.7) [S2] [S3].</span></details></p>
+
+<p><strong>8. Diagnostic positif et critères.</strong><br>Selon Brooks et coll. (2009), le déficit en ALDH2 est probable si le patient répond oui à la question A ou à la question B du questionnaire [S9]. Ensuite, le 
+<details class='ex'><summary>test cutané à l'éthanol</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-7' id='ex-7p' checked><label for='ex-7p'>Principe</label><input type='radio' name='ex-7' id='ex-7i'><label for='ex-7i'>Interprétation</label><div class='op'>Le test cutané à l'éthanol dépose 0,1 ml d'éthanol à 70 % sur une compresse de 15 mm sur 15 mm, collée 7 minutes à la face interne du bras [S9]. On lit la peau 10 à 15 minutes après le retrait : la peau transforme l'éthanol en acétaldéhyde, qui dilate les vaisseaux s'il n'est pas dégradé [S9].</div><div class='oi'><span>Érythème sous la compresse → test positif, déficit en ALDH2 probable [S9].</span><span>Chez le jeune Japonais : sensibilité, spécificité et valeur prédictive positive supérieures à 90 % [S9].</span><span>Utile chez le jeune qui a peu bu, quand le questionnaire est peu informatif [S9].</span></div></div></div></details> confirme le déficit chez le jeune peu exposé à l'alcool [S9]. Enfin, la scombroïdose se diagnostique par la consommation récente de poisson et la réponse aux antihistaminiques [S37].</p>
+<div style='overflow-x:auto;'><table><caption>Critères pratiques [S9] [S30] [S37]</caption>
+<tr><th>Tableau</th><th>Critère</th><th>Performance ou évolution</th></tr>
+<tr><td>Déficit en ALDH2 [S9]</td><td>Oui à la question A ou B</td><td>Sensibilité 90 %, spécificité 88 % chez l'homme japonais</td></tr>
+<tr><td>Déficit en ALDH2 [S9]</td><td>Test cutané à l'éthanol positif</td><td>Sensibilité, spécificité, valeur prédictive positive supérieures à 90 % chez le jeune</td></tr>
+<tr><td>Scombroïdose [S37] [S30]</td><td>Poisson dans les minutes précédentes, rash, troubles digestifs</td><td>Érythème chez 87 % ; disparition en 8 heures en moyenne</td></tr>
+</table></div>
+
+<p><strong>9. Examens complémentaires.</strong><br>9.a Aucun examen de référence (gold standard) n'est exigé en pratique : le questionnaire et le test cutané suffisent [S9]. 9.b Première intention : le questionnaire de flush, puis le test cutané à l'éthanol au besoin [S9]. 9.c Ensuite, l'
+<details class='ex'><summary>endoscopie digestive haute</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-8' id='ex-8p' checked><label for='ex-8p'>Principe</label><input type='radio' name='ex-8' id='ex-8i'><label for='ex-8i'>Interprétation</label><div class='op'>L'endoscopie digestive haute examine directement la muqueuse de l'œsophage, pour détecter tôt un carcinome épidermoïde [S9]. Elle se discute chez le buveur déficitaire en aldéhyde déshydrogénase de type 2 (ALDH2) jugé à haut risque [S9].</div><div class='oi'><span>Cancer limité à la muqueuse → mucosectomie endoscopique possible [S9].</span><span>Cancer qui atteint la sous-muqueuse → risque nettement accru de métastases ganglionnaires [S9].</span></div></div></div></details> se discute chez le buveur déficitaire à haut risque [S9]. 9.d Enfin, pour la scombroïdose, l'
+<details class='ex'><summary>analyse du poisson incriminé</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-9' id='ex-9p' checked><label for='ex-9p'>Principe</label><input type='radio' name='ex-9' id='ex-9i'><label for='ex-9i'>Interprétation</label><div class='op'>L'analyse du poisson incriminé se fait dans le cadre d'une enquête alimentaire, que le chimiste cantonal conduit après la déclaration du cas au médecin cantonal [S37]. L'histamine du poisson résiste aux températures de cuisson habituelles [S37].</div><div class='oi'><span>Résultat absent ou tardif → le diagnostic reste clinique, fondé sur la consommation récente de poisson [S37].</span><span>Syndrome scombroïde retenu → aucune recherche d'allergie au poisson n'est nécessaire, selon Tox Info Suisse [S36].</span></div></div></div></details> sert l'enquête alimentaire et ne remplace pas le diagnostic clinique [S37].</p>
+<p>
+<details class='f'><summary>Pas de recherche d'allergie</summary><span> Après un syndrome scombroïde, une recherche d'allergie au poisson n'est pas nécessaire [S36].</span></details></p>
+
+<div style='overflow-x:auto;'><table><caption>Les deux tableaux comparés [S9] [S30] [S36] [S37]</caption>
+<tr><th>Élément</th><th>Flush à l'alcool (déficit en ALDH2)</th><th>Scombroïdose</th></tr>
+<tr><td>Déclencheur [S9] [S37]</td><td>Un petit verre d'alcool</td><td>Un poisson mal réfrigéré, souvent un thon ou un maquereau</td></tr>
+<tr><td>Délai [S9] [S37]</td><td>Juste après le verre</td><td>10 à 30 minutes après le repas</td></tr>
+<tr><td>Médiateur [S9] [S37]</td><td>Acétaldéhyde, libération d'histamine</td><td>Histamine formée dans le poisson</td></tr>
+<tr><td>Signes associés [S9] [S36]</td><td>Nausées, tachycardie</td><td>Prurit, céphalées, diarrhée, goût poivré ou métallique</td></tr>
+<tr><td>Évolution [S30] [S9]</td><td>Récidive à chaque prise d'alcool</td><td>Bénigne, disparition en 8 heures en moyenne</td></tr>
+<tr><td>Enjeu principal [S9] [S37]</td><td>Cancer de l'œsophage chez le buveur</td><td>Sécurité alimentaire et déclaration</td></tr>
+</table></div>
+<p><strong>10. Arbre décisionnel.</strong><br>La gravité décide d'abord du lieu de prise en charge [S36]. Ensuite, l'aliment ou la boisson en cause oriente la suite [S9] [S37]. Enfin, le déficit en ALDH2 mène à un conseil de prévention du cancer [S9].</p>
+<p>
+<details class='f'><summary>Chimiste cantonal</summary><span> Le chimiste cantonal reçoit les cas transmis par l'Office du médecin cantonal et conduit l'enquête alimentaire [S37].</span></details></p>
+<div style='overflow-x:auto;'><table><caption>Arbre décisionnel — flush après ingestion [S9] [S36] [S37]</caption>
+<tr><th>Étape</th><th>Constat</th><th>Décision</th></tr>
+<tr><td>1 [S36]</td><td>Hypotension, troubles respiratoires</td><td>Organiser un contrôle médical urgent</td></tr>
+<tr><td>2 [S37]</td><td>Poisson dans les 30 minutes, rash, troubles digestifs</td><td>Donner un antihistaminique si besoin et déclarer la scombroïdose au médecin cantonal</td></tr>
+<tr><td>3 [S9]</td><td>Flush juste après un petit verre d'alcool</td><td>Poser le questionnaire de flush et faire le test cutané au besoin</td></tr>
+<tr><td>4 [S9]</td><td>Déficit en ALDH2 et consommation importante, ou tabac</td><td>Conseiller de réduire l'alcool et discuter l'endoscopie si le risque est élevé</td></tr>
+</table></div>
+
+<p><strong>11. Prise en charge (recommandations suisses).</strong><br>11.A But : vous soulagez la réaction aiguë et vous prévenez le cancer de l'œsophage chez le buveur déficitaire [S36] [S9]. Ensuite, pour l'alcool, la Commission fédérale pour les questions liées aux addictions et à la prévention des maladies non transmissibles (CFANT) conseille « moins c'est mieux » [S42]. Enfin, vous signalez chaque scombroïdose, qui révèle une faille de la sécurité alimentaire [S37].</p>
+
+<p>11.B Moyens : la réduction de l'alcool est la mesure principale chez le déficitaire en ALDH2 [S9] [S42]. Ensuite, un verre standard par jour augmente déjà le risque de cancers, notamment de l'œsophage [S42]. Pour la scombroïdose, les antihistaminiques soulagent la réaction, qui est rarement grave [S37] [S36]. Enfin, la cétirizine n'a pas cette indication dans l'AIPS ; son emploi est donc hors indication [S41].</p>
+<div style='overflow-x:auto;'><table><caption>Moyens thérapeutiques — données de l'AIPS et des sources suisses [S9] [S36] [S37] [S41] [S42]</caption>
+<tr><th>Molécule ou mesure (nom ®), classe</th><th>Pharmacocinétique et pharmacodynamie</th><th>Posologie (AIPS)</th><th>Effets indésirables</th><th>Contre-indications</th><th>Grossesse, âgé, enfant, foie, rein</th></tr>
+<tr><td>Cétirizine (Zyrtec®), antihistaminique anti-H1 [S41]</td><td>Bloque les récepteurs de l'histamine de type 1, pénètre peu le cerveau ; élimination surtout rénale</td><td>10 mg une fois par jour dès 12 ans ; 6 à 12 ans : 10 mg ; 2 à 6 ans : 5 mg en deux prises ; scombroïdose hors indication</td><td>Somnolence accrue possible</td><td>Hypersensibilité ; DFG inférieur à 15 ml/min</td><td>Grossesse : pas de signal sur 300 à 1000 grossesses ; allaitement : à éviter ; âgé : adapter au rein ; insuffisance hépatique isolée : pas d'adaptation ; insuffisance rénale avec DFG de 30 à 60 : demi-dose [S41]</td></tr>
+<tr><td>Réduction de l'alcool [S9] [S42]</td><td>Moins d'acétaldéhyde dans le corps</td><td>« Moins c'est mieux » ; pas de dose sûre fixée</td><td>Aucun</td><td>Aucune</td><td>Valable à tout âge [S42]</td></tr>
+<tr><td>Antihistaminique pour masquer le flush avant de boire [S9]</td><td>Supprime le signal d'alarme sans réduire l'acétaldéhyde</td><td>À déconseiller</td><td>Augmente le risque de cancer de l'œsophage</td><td>Pratique à proscrire</td><td>Concerne surtout le jeune buveur [S9]</td></tr>
+</table></div>
+<p>11.C Surveillance : après une scombroïdose plus que légère, vous surveillez la pression, le pouls et la respiration [S36]. Ensuite, chez le buveur déficitaire, vous suivez la consommation et le tabac [S9]. 11.D Pronostic : la scombroïdose est bénigne, et ses symptômes disparaissent en 8 heures en moyenne [S30]. Enfin, chez l'hétérozygote buveur, le risque de cancer épidermoïde de l'œsophage est multiplié par 3,7 à 18,1 [S9].</p>
+<p>
+<details class='f'><summary>Critères de sortie</summary><span> Le patient atteint de scombroïdose sort quand la pression, le pouls et la respiration sont normaux et que la rougeur régresse [S36].</span></details> — 
+<details class='f'><summary>Déclaration</summary><span> Dans le canton du Valais, l'Office du médecin cantonal demande de déclarer chaque cas par téléphone ou par courriel ; le chimiste cantonal mène ensuite l'enquête [S37].</span></details></p>
+
+<details class='u'><summary>🚨 Urgence — scombroïdose avec signes de gravité (conduite chronologique)</summary>
+<ol>
+<li>Vous évaluez la 
+<details class='ex'><summary>pression artérielle</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-10' id='ex-10p' checked><label for='ex-10p'>Principe</label><input type='radio' name='ex-10' id='ex-10i'><label for='ex-10i'>Interprétation</label><div class='op'>La pression artérielle et la fréquence cardiaque se mesurent au repos, puis debout si le patient a pris un vasodilatateur [S27]. Après 100 mg de sildénafil, la pression systolique debout baisse en moyenne de 8,3 mmHg et la diastolique de 5,3 mmHg, selon l'information professionnelle suisse (AIPS) [S27].</div><div class='oi'><span>Pression inférieure à 90/50 mmHg → sildénafil non recommandé, selon l'AIPS [S27].</span><span>Chute de pression pendant une perfusion de vancomycine → réaction liée à la perfusion ; on arrête ou on ralentit [S35].</span><span>Fréquence cardiaque élevée avec flush après l'alcool → accumulation d'acétaldéhyde possible [S9].</span></div></div></div></details>, le pouls et la respiration [S36].</li>
+<li>Vous traitez une anaphylaxie possible comme telle si l'anamnèse est douteuse (DX.6) [S2].</li>
+<li>Vous donnez un antihistaminique, car la réaction y répond [S37].</li>
+<li>Vous surveillez jusqu'à la régression, avec un contrôle médical si les symptômes ne sont pas légers ; la durée moyenne est de 8 heures [S36] [S30].</li>
+<li>Vous déclarez le cas à l'Office du médecin cantonal [S37].</li>
+</ol></details>
+<p><strong>12. Prévention.</strong><br>Prévention primaire : le poisson doit être refroidi correctement dès la capture, car l'histamine résiste ensuite à la cuisson [S36] [S37]. Prévention secondaire : vous conseillez au déficitaire en ALDH2 de réduire l'alcool et de ne pas masquer le flush par un antihistaminique [S9]. Prévention tertiaire : chez le buveur déficitaire à haut risque, l'endoscopie détecte tôt un cancer encore traitable par mucosectomie [S9]. Enfin, l'arrêt du tabac réduit aussi l'exposition à l'acétaldéhyde [S9].</p>
+<p>
+<details class='f'><summary>Consommation à risque en Suisse</summary><span> L'OFSP parle de consommation ponctuelle à risque dès 4 verres pour une femme et 5 pour un homme en quelques heures, au moins une fois par mois ; la consommation chronique à risque commence à 2 verres standard par jour en moyenne pour une femme et à 4 pour un homme [S43].</span></details> — 
+<details class='f'><summary>Cancers liés à l'alcool</summary><span> La CFANT rappelle qu'un verre standard par jour augmente déjà le risque de cancers de la bouche, du pharynx, du larynx, de l'œsophage, du sein, du foie et du côlon [S42].</span></details></p>
+
+<p><strong>13. Points clés.</strong><br>Le flush à l'alcool signale un déficit en ALDH2 et un risque accru de cancer de l'œsophage si la personne boit [S9]. Ensuite, deux questions simples repèrent ce déficit [S9]. Enfin, la scombroïdose imite une allergie, se diagnostique par l'anamnèse et se déclare [S37].</p>
+<p>
+<details class='f'><summary>Aide-mémoire</summary><span> Alcool : acétaldéhyde ; poisson : histamine ; les deux : rougeur rapide après l'ingestion [S9] [S37].</span></details></p>
+
+<p><strong>14. Pièges et questions de l'examen fédéral.</strong><br>Le premier piège est de prendre une scombroïdose pour une allergie au poisson et d'interdire le poisson à vie [S36]. Ensuite, rassurer un jeune qui rougit en buvant fait manquer un conseil de prévention du cancer [S9]. Enfin, conseiller un antihistaminique pour cacher le flush augmente le risque [S9].</p>
+<p>
+<details class='f'><summary>Question type</summary><span> Quel patient a le plus haut risque de cancer de l'œsophage lié à l'alcool ? L'hétérozygote Lys/Glu qui boit beaucoup, car l'homozygote ne peut pas boire [S9].</span></details></p>
+
+</details>
+
+<details class='m' open><summary>DX.5 — Flush émotionnel et anxiété (rougissement) <sup class="proba">≈ 14 %</sup><span class='badge'>troubles anxieux sur 12 mois, Union européenne, Suisse, Islande et Norvège [S13]</span></summary>
+<p><strong>1. Définition et sémantique.</strong><br>Le flush émotionnel, ou rougissement, est une rougeur du visage déclenchée par une émotion, surtout en situation sociale [S6]. Ensuite, il devient un problème quand la peur de rougir s'installe et s'associe à une anxiété sociale [S6]. Enfin, la phobie sociale, appelée anxiété sociale dans le Manuel diagnostique et statistique des troubles mentaux, cinquième édition (DSM-5), est la peur d'être observé ou jugé négativement par autrui [S38] [S39].</p>
+<p>
+<details class='f'><summary>Peur de rougir</summary><span> Drummond et coll. relient la peur de rougir à l'anxiété sociale, à l'attention centrée sur soi et à des croyances exagérées sur le coût social du rougissement [S6].</span></details> — 
+<details class='f'><summary>Timidité ou phobie sociale ?</summary><span> La timidité est un trait de caractère fréquent : la gêne diminue avec les contacts répétés. Dans la phobie sociale, la répétition ne rassure pas et la crainte de l'échec domine [S39].</span></details></p>
+<div style='overflow-x:auto;'><table><caption>Timidité et phobie sociale, d'après les HUG [S39]</caption>
+<tr><th>Trait</th><th>Timidité</th><th>Phobie sociale</th></tr>
+<tr><td>Peur [S39]</td><td>Peur d'être ignoré</td><td>Peur d'être humilié ou agressé</td></tr>
+<tr><td>Désir [S39]</td><td>Désir d'être accepté</td><td>Désir d'être oublié</td></tr>
+<tr><td>Contacts répétés [S39]</td><td>La gêne diminue au fil des contacts</td><td>La répétition ne met pas plus à l'aise</td></tr>
+<tr><td>Vécu [S39]</td><td>Gêne en situation sociale</td><td>Panique en situation sociale</td></tr>
+<tr><td>Balance [S39]</td><td>Le désir de contact l'emporte sur la crainte de l'échec</td><td>La crainte de l'échec l'emporte sur le désir de contact</td></tr>
+<tr><td>Conduite [S39]</td><td>Inhibition, observation des autres</td><td>Dissimulation du malaise, observation de soi</td></tr>
+</table></div>
+
+<p><strong>2. Épidémiologie (Suisse, puis Europe).</strong><br>En Suisse, la prévalence annuelle des troubles anxieux atteint 14 %, et la prévalence sur la vie 15 à 30 %, selon les Hôpitaux universitaires de Genève (HUG) [S39]. Ensuite, les femmes sont deux fois plus touchées, et les troubles débutent le plus souvent entre 10 et 30 ans [S39]. En Europe, la prévalence sur 12 mois des troubles anxieux atteint 14,0 % [S13]. Enfin, la fréquence du rougissement isolé n'a pas été trouvée [S6].</p>
+<p>
+<details class='f'><summary>Étude européenne</summary><span> Wittchen et coll. ont estimé cette prévalence dans l'Union européenne, en Suisse, en Islande et en Norvège [S13].</span></details> — 
+<details class='f'><summary>Probabilité affichée</summary><span> La valeur <sup class="proba">≈ 14 %</sup> reprend la prévalence sur 12 mois des troubles anxieux, base retenue par l'Appel A [S13].</span></details></p>
+
+<p><strong>3. Physiopathologie.</strong><br>Anatomie et physiologie : le flush résulte d'une variation du débit sanguin cutané, bien visible au visage et au cou [S2] [S3]. Ensuite, le rougissement dépend surtout d'une décharge sympathique adrénomédullaire et de nerfs vasodilatateurs, peut-être avec une inflammation neurovasculaire secondaire [S6]. Physiopathologie : l'anxiété sociale, l'attention centrée sur soi et la surestimation du coût social du rougissement entretiennent la peur de rougir [S6]. Enfin, un système sympathique très réactif interagit avec ces facteurs psychologiques et intensifie la peur [S6].</p>
+<div style='overflow-x:auto;'><table><caption>Tableau de corrélation physiopathologique — rougissement et anxiété [S6] [S38] [S39]</caption>
+<tr><th>Étape</th><th>Mécanisme</th><th>Traduction clinique</th></tr>
+<tr><td>Émotion sociale [S6]</td><td>Le système sympathique et les nerfs vasodilatateurs se déchargent</td><td>Rougeur rapide du visage et du cou</td></tr>
+<tr><td>Attention centrée sur soi [S6]</td><td>Le patient surveille ses propres signes</td><td>Rougeur perçue comme plus visible et plus grave</td></tr>
+<tr><td>Anxiété sociale [S38] [S39]</td><td>La peur du jugement entraîne l'évitement</td><td>Détresse, isolement, gêne au travail</td></tr>
+<tr><td>Symptômes autonomes [S38]</td><td>Le cœur s'accélère et les mains tremblent</td><td>Cible possible des bêtabloquants, sans effet sur l'anxiété elle-même</td></tr>
+</table></div>
+<p>
+<details class='f'><summary>Cascade causale</summary><span> Émotion sociale → décharge sympathique → vasodilatation du visage → rougeur perçue → peur de rougir → nouvelle décharge [S6].</span></details> — 
+<details class='f'><summary>Pourquoi parle-t-on de cercle vicieux ?</summary><span> Craindre de rougir augmente l'attention portée à soi, ce qui renforce la rougeur ressentie et la peur suivante [S6].</span></details></p>
+
+<p><strong>4. Démarche diagnostique.</strong><br>D'abord, vous excluez les hypothèses graves : phéochromocytome, syndrome carcinoïde, mastocytose et anaphylaxie, surtout si le flush est atypique [S2] [S39]. Ensuite, vous vérifiez que la rougeur survient seulement en situation sociale ou émotionnelle [S6]. Enfin, vous cherchez une anxiété sociale avec les 
+<details class='ex'><summary>échelles HAD et TAG-7</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-11' id='ex-11p' checked><label for='ex-11p'>Principe</label><input type='radio' name='ex-11' id='ex-11i'><label for='ex-11i'>Interprétation</label><div class='op'>Les échelles HAD (Hospital Anxiety and Depression scale, échelle hospitalière d'anxiété et de dépression) et TAG-7 (questionnaire en sept questions sur le trouble anxieux généralisé) servent au dépistage des troubles anxieux [S39]. Le patient peut les remplir en dehors de la consultation ; un spécialiste peut ensuite faire une psychométrie complète [S39].</div><div class='oi'><span>Score évocateur → entretien diagnostique, et psychométrie par un spécialiste au besoin [S39].</span><span>Symptômes physiques que l'examen n'explique pas → penser aussi à un trouble anxieux [S39].</span></div></div></div></details> puis l'
+<details class='ex'><summary>échelle de Liebowitz</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-12' id='ex-12p' checked><label for='ex-12p'>Principe</label><input type='radio' name='ex-12' id='ex-12i'><label for='ex-12i'>Interprétation</label><div class='op'>L'échelle d'anxiété sociale de Liebowitz est un questionnaire validé qui aide à confirmer une phobie sociale [S39]. Elle complète l'entretien clinique, qui reste la base du diagnostic selon le DSM-5 (Manuel diagnostique et statistique des troubles mentaux, 5e édition) [S39].</div><div class='oi'><span>Score évocateur → chercher les critères du DSM-5 : peur durable d'au moins 6 mois, évitement, détresse ou gêne fonctionnelle [S39].</span><span>Peur limitée à la prise de parole ou à la performance → phobie sociale de type « performance » [S39].</span></div></div></div></details> [S39].</p>
+<p>
+<details class='f'><summary>Questions de débrouillage</summary><span> En consultation courte, les HUG proposent de demander si l'angoisse paraît disproportionnée, si elle entrave les activités et si le patient consomme une substance pour se calmer ; ces questions ne sont pas validées [S39].</span></details></p>
+
+<div style='overflow-x:auto;'><table><caption>Diagnostic différentiel d'un trouble anxieux, d'après les HUG [S39]</caption>
+<tr><th>Groupe</th><th>Exemples</th></tr>
+<tr><td>Psychiatrique [S39]</td><td>Dépression, trouble de l'attention avec hyperactivité, trouble de la personnalité, trouble du spectre autistique, trouble psychotique, stress post-traumatique</td></tr>
+<tr><td>Neurologique [S39]</td><td>Tumeur, épilepsie, maladie de Parkinson</td></tr>
+<tr><td>Métabolique [S39]</td><td>Dysthyroïdie, phéochromocytome</td></tr>
+<tr><td>Cardiovasculaire et respiratoire [S39]</td><td>Angor, hypertension, troubles du rythme, asthme, insuffisance respiratoire</td></tr>
+<tr><td>Cause externe [S39]</td><td>Abus de substance, sevrage d'alcool, de benzodiazépines ou d'opiacés, psychostimulants</td></tr>
+</table></div>
+<p><strong>5. Anamnèse ciblée et drapeaux rouges.</strong><br>Vous demandez les situations déclenchantes, l'évitement, la durée des troubles et la gêne au travail ou dans la vie sociale [S39]. Ensuite, vous cherchez une dépression, un autre trouble anxieux et un abus de substances, fréquemment associés [S39]. Enfin, vous demandez les médicaments et l'alcool, car un flush médicamenteux ou alcoolique peut imiter le rougissement [S3] [S9].</p>
+<p>
+<details class='f'><summary>Drapeaux rouges</summary><span> Un flush sans déclencheur émotionnel, avec diarrhée, sueurs, céphalées ou palpitations en crises, fait chercher une cause grave (DX.7 à DX.9) [S2] [S3]. Une dépression ou un autre trouble anxieux associés sont fréquents et doivent être recherchés et traités [S39].</span></details></p>
+
+<p><strong>6. Examen physique ciblé.</strong><br>En dehors de l'émotion, la peau est normale, sans érythème fixe ni télangiectasies [S3] [S6]. Ensuite, vous mesurez la 
+<details class='ex'><summary>pression artérielle et fréquence cardiaque</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-13' id='ex-13p' checked><label for='ex-13p'>Principe</label><input type='radio' name='ex-13' id='ex-13i'><label for='ex-13i'>Interprétation</label><div class='op'>La pression artérielle et la fréquence cardiaque se mesurent au repos, puis debout si le patient a pris un vasodilatateur [S27]. Après 100 mg de sildénafil, la pression systolique debout baisse en moyenne de 8,3 mmHg et la diastolique de 5,3 mmHg, selon l'information professionnelle suisse (AIPS) [S27].</div><div class='oi'><span>Pression inférieure à 90/50 mmHg → sildénafil non recommandé, selon l'AIPS [S27].</span><span>Chute de pression pendant une perfusion de vancomycine → réaction liée à la perfusion ; on arrête ou on ralentit [S35].</span><span>Fréquence cardiaque élevée avec flush après l'alcool → accumulation d'acétaldéhyde possible [S9].</span></div></div></div></details>, car les HUG citent le phéochromocytome et les troubles du rythme parmi les causes somatiques d'anxiété [S39]. Enfin, vous cherchez les signes d'une autre affection somatique citée par les HUG, comme une dysthyroïdie ou un asthme [S39].</p>
+<div style='overflow-x:auto;'><table><caption>Signes et orientation [S2] [S3] [S6] [S39]</caption>
+<tr><th>Signe</th><th>Orientation</th><th>Conduite</th></tr>
+<tr><td>Rougeur pendant l'entretien, sans autre signe [S6]</td><td>Rougissement émotionnel</td><td>Évaluer l'anxiété sociale</td></tr>
+<tr><td>Érythème fixe, télangiectasies [S3] [S2]</td><td>Flush persistant, rosacée possible (DX.2)</td><td>Prise en charge dermatologique</td></tr>
+<tr><td>Hypertension en crises, sueurs, palpitations [S39] [S2]</td><td>Phéochromocytome à exclure (DX.9)</td><td>Examens ciblés</td></tr>
+<tr><td>Signes évoquant une dysthyroïdie [S39]</td><td>Cause somatique d'anxiété</td><td>Doser la TSH</td></tr>
+</table></div>
+
+<p><strong>7. Approche syndromique.</strong><br>7.1 Signes fonctionnels de peur d'être jugé et d'évitement depuis plus de 6 mois, signe physique de rougeur du visage en situation sociale : flush émotionnel et anxiété <sup class="proba">≈ 14 %</sup> [S13] [S39]. 7.2 Ensuite, signe fonctionnel de peur limitée à la prise de parole, signe physique de rougeur pendant l'exposé : phobie sociale de type « performance » [S39]. 7.3 Enfin, signes fonctionnels de palpitations en crises, signes physiques de sueurs et d'hypertension hors contexte social : cause somatique à exclure (DX.9) [S39] [S2].</p>
+<p>
+<details class='f'><summary>Différentiel au sein du LOT</summary><span> Un flush après l'alcool oriente vers le DX.4, et un flush après un médicament vers le DX.3 [S9] [S3]. Des bouffées de chaleur de la ménopause orientent vers le DX.1 [S2].</span></details></p>
+
+<p><strong>8. Diagnostic positif et critères.</strong><br>Selon les HUG (2023), le diagnostic de phobie sociale suit les critères du DSM-5 : peur nette d'une ou plusieurs situations sociales où la personne peut être observée [S39]. Ensuite, les situations provoquent presque toujours une peur, sont évitées ou subies avec angoisse, et la peur est disproportionnée [S39]. Enfin, les troubles durent au moins 6 mois, causent une détresse ou une gêne nette, et ne s'expliquent ni par une substance ni par une autre maladie [S39].</p>
+<p>
+<details class='f'><summary>Phobie de performance</summary><span> Le DSM-5 précise ce type quand la peur se limite aux situations de performance ou de prise de parole en public [S39].</span></details></p>
+<div style='overflow-x:auto;'><table><caption>Critères diagnostiques du DSM-5 — phobie sociale, d'après les HUG [S39]</caption>
+<tr><th>Critère</th><th>Contenu</th></tr>
+<tr><td>Peur [S39]</td><td>Peur ou anxiété nettes dans les situations où l'on peut être observé par autrui</td></tr>
+<tr><td>Crainte centrale [S39]</td><td>Agir ou montrer des signes d'anxiété qui seront jugés négativement</td></tr>
+<tr><td>Évitement [S39]</td><td>Situations évitées ou subies avec une peur intense</td></tr>
+<tr><td>Proportion [S39]</td><td>Peur disproportionnée par rapport à la menace réelle</td></tr>
+<tr><td>Durée [S39]</td><td>Au moins 6 mois</td></tr>
+<tr><td>Retentissement [S39]</td><td>Détresse ou altération nette du fonctionnement</td></tr>
+<tr><td>Exclusion [S39]</td><td>Ni substance, ni autre affection médicale, ni autre trouble mental</td></tr>
+</table></div>
+
+<p><strong>9. Examens complémentaires.</strong><br>9.a Aucun examen de référence (gold standard) n'existe : le diagnostic reste clinique, selon le DSM-5, appuyé par l'échelle de Liebowitz [S39]. 9.b Première intention : les 
+<details class='ex'><summary>examens sanguins de base</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-14' id='ex-14p' checked><label for='ex-14p'>Principe</label><input type='radio' name='ex-14' id='ex-14i'><label for='ex-14i'>Interprétation</label><div class='op'>Les examens sanguins de base comprennent la formule sanguine simple (FSS), la thyréostimuline (TSH), la créatinine, les électrolytes et les tests hépatiques [S39]. Ils servent au diagnostic différentiel du trouble anxieux et précèdent l'introduction d'un antidépresseur [S39].</div><div class='oi'><span>TSH anormale → dysthyroïdie, cause somatique d'anxiété à traiter [S39].</span><span>Tests hépatiques ou créatinine anormaux → adapter le choix et la dose de l'antidépresseur [S39] [S40].</span></div></div></div></details>, avec la TSH [S39]. 9.c Ensuite, l'
+<details class='ex'><summary>ECG</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-15' id='ex-15p' checked><label for='ex-15p'>Principe</label><input type='radio' name='ex-15' id='ex-15i'><label for='ex-15i'>Interprétation</label><div class='op'>L'électrocardiogramme (ECG) enregistre l'activité électrique du cœur et mesure l'intervalle QT corrigé (QTc) [S39]. Il est nécessaire avant un antidépresseur et indiqué en cas de douleurs thoraciques, de palpitations ou de syncope [S39].</div><div class='oi'><span>QT allongé connu ou syndrome du QT long congénital → escitalopram contre-indiqué [S40].</span><span>QTc normal → l'ISRS (inhibiteur sélectif de la recapture de la sérotonine) peut être introduit [S39] [S40].</span></div></div></div></details> avant tout antidépresseur, avec recherche d'un QTc allongé [S39]. 9.d Enfin, si le flush est atypique, vous demandez les examens des causes graves décrits dans l'Appel A [S2] [S24].</p>
+<p>
+<details class='f'><summary>Pas d'examen pour le rougissement lui-même</summary><span> Aucun examen ne mesure la peur de rougir ; les examens servent au diagnostic différentiel et à la sécurité du traitement [S39].</span></details></p>
+
+<p><strong>10. Arbre décisionnel.</strong><br>Le contexte de la rougeur oriente d'abord le diagnostic [S6] [S3]. Ensuite, l'intensité de l'anxiété décide du traitement [S38] [S39]. Enfin, l'absence de réponse mène vers le spécialiste [S38].</p>
+<p>
+<details class='f'><summary>Moclobémide</summary><span> Le moclobémide, inhibiteur réversible de la monoamine oxydase A, est une option si les ISRS ou IRSN échouent ; il peut causer agitation, troubles du sommeil et céphalées [S38].</span></details></p>
+<div style='overflow-x:auto;'><table><caption>Arbre décisionnel — rougeur émotionnelle [S2] [S6] [S38] [S39]</caption>
+<tr><th>Étape</th><th>Constat</th><th>Décision</th></tr>
+<tr><td>1 [S2] [S3]</td><td>Flush hors contexte émotionnel ou signes systémiques</td><td>Chercher les autres causes de flush</td></tr>
+<tr><td>2 [S6]</td><td>Rougissement sans anxiété invalidante</td><td>Informer, rassurer et proposer des techniques psychologiques</td></tr>
+<tr><td>3 [S39]</td><td>Peur limitée à la prise de parole</td><td>Proposer une TCC ; un bêtabloquant en dose unique reste possible</td></tr>
+<tr><td>4 [S38] [S39]</td><td>Phobie sociale selon le DSM-5</td><td>Proposer une TCC, puis un ISRS ou un IRSN si nécessaire</td></tr>
+<tr><td>5 [S38]</td><td>Pas de réponse à un ISRS ou à un IRSN</td><td>Changer de molécule ou passer au moclobémide, avec un avis spécialisé</td></tr>
+</table></div>
+
+<p><strong>11. Prise en charge (recommandations suisses).</strong><br>11.A But : vous réduisez la peur de rougir et l'évitement par une thérapie cognitivo-comportementale (TCC) [S6] [S39]. Ensuite, la Société suisse de psychiatrie et psychothérapie (SSPP) recommande d'abord la TCC [S38]. Enfin, aucun médicament n'est établi pour la peur de rougir elle-même, mais les antidépresseurs traitent l'anxiété sociale associée [S6].</p>
+
+<p>11.B Moyens : la TCC, avec exposition, entraînement à la concentration sur la tâche et thérapie cognitive, traite la peur de rougir [S6] [S38]. Ensuite, les ISRS ou les IRSN sont les médicaments de premier choix, efficaces après 2 à 6 semaines [S38] [S39]. L'escitalopram (Cipralex®) a l'indication de la phobie sociale dans l'AIPS [S40]. Enfin, un bêtabloquant réduit les palpitations et les tremblements, sans agir sur l'anxiété elle-même [S38] [S39].</p>
+<div style='overflow-x:auto;'><table><caption>Moyens thérapeutiques — données de l'AIPS et des recommandations suisses [S38] [S39] [S40]</caption>
+<tr><th>Molécule ou mesure (nom ®), classe</th><th>Pharmacocinétique et pharmacodynamie</th><th>Posologie (AIPS)</th><th>Effets indésirables</th><th>Contre-indications</th><th>Grossesse, âgé, enfant, foie, rein</th></tr>
+<tr><td>Escitalopram (Cipralex®), ISRS [S40]</td><td>Inhibe la recapture de la sérotonine ; métabolisé surtout par le cytochrome P450 2C19 (CYP2C19) ; demi-vie d'environ 30 heures</td><td>10 mg par jour, puis jusqu'à 20 mg après 4 semaines ; réévaluer si aucune réponse à 12 semaines</td><td>Nausées (15 %), insomnie, somnolence, vertiges, hyponatrémie, saignements, dysfonction sexuelle</td><td>IMAO irréversibles, moclobémide, linézolide, pimozide, QT long, médicaments allongeant le QT</td><td>Grossesse : seulement si nécessaire, surveiller le nouveau-né ; allaitement : passage probable dans le lait, aucune étude contrôlée ; âgé de plus de 65 ans : 5 mg au départ ; avant 18 ans : non recommandé ; insuffisance hépatique : 5 mg pendant 2 semaines ; insuffisance rénale avec clairance inférieure à 30 ml/min : prudence [S40]</td></tr>
+<tr><td>TCC [S38] [S6]</td><td>Exposition, restructuration cognitive, concentration sur la tâche</td><td>Psychothérapie, éventuellement complétée par des programmes en ligne</td><td>Aucun effet indésirable médicamenteux</td><td>Aucune</td><td>Adaptée à tout âge [S38]</td></tr>
+<tr><td>Bêtabloquant [S38] [S39]</td><td>Bloque les récepteurs bêta-adrénergiques ; agit sur les symptômes périphériques</td><td>Dose unique avant une situation de performance ; posologie à prendre dans l'AIPS du produit choisi, non reprise ici</td><td>Bradycardie, extrémités froides, syndrome de Raynaud, fatigue, cauchemars</td><td>Hypotension et dérèglement orthostatique aggravés</td><td>Donnée non trouvée dans les sources consultées [S38]</td></tr>
+</table></div>
+<p>11.C Surveillance : sous escitalopram, vous surveillez l'effet après 2 à 6 semaines, la natrémie chez la femme âgée et le QT si besoin [S39] [S40]. Ensuite, vous ne l'arrêtez jamais brutalement, mais sur au moins une à deux semaines [S40]. 11.D Pronostic : l'efficacité de l'escitalopram dans la phobie sociale est démontrée jusqu'à 36 semaines [S40]. Enfin, les HUG recommandent un traitement médicamenteux d'environ 12 mois pour la phobie sociale [S39].</p>
+<p>
+<details class='f'><summary>Critères de sortie</summary><span> Après une consultation aux urgences pour une crise, le patient sort quand une cause somatique grave est exclue et qu'un suivi par le médecin de premier recours est organisé [S2] [S39].</span></details> — 
+<details class='f'><summary>Métaboliseurs lents du CYP2C19</summary><span> L'AIPS recommande 5 mg par jour d'escitalopram pendant les deux premières semaines chez ces patients [S40].</span></details> — 
+<details class='f'><summary>Hyponatrémie et saignements</summary><span> Sous ISRS, une hyponatrémie peut survenir, surtout chez la femme âgée, et le temps de saignement peut s'allonger [S40].</span></details> — 
+<details class='f'><summary>Hydroxyzine</summary><span> Les HUG citent l'hydroxyzine, antihistaminique de première génération, pour le traitement à court terme de l'anxiété [S39].</span></details> — 
+<details class='f'><summary>Exposition progressive</summary><span> En pratique, la TCC remplace l'évitement par des exercices d'exposition progressifs et donne des outils pour affronter les situations anxiogènes [S39].</span></details> — 
+<details class='f'><summary>Avis spécialisé</summary><span> Une dépendance aux benzodiazépines justifie l'avis d'un spécialiste, selon les HUG [S39].</span></details> — 
+<details class='f'><summary>Benzodiazépines</summary><span> Les benzodiazépines agissent vite, mais exposent à la tolérance et à la dépendance en usage prolongé [S38].</span></details></p>
+
+<details class='u'><summary>🚨 Urgence — crise d'angoisse aiguë avec rougeur (conduite chronologique)</summary>
+<ol>
+<li>Vous excluez d'abord une cause somatique grave : vous mesurez la 
+<details class='ex'><summary>pression artérielle</summary><div class='exw'><div class='onglets'><input type='radio' name='ex-16' id='ex-16p' checked><label for='ex-16p'>Principe</label><input type='radio' name='ex-16' id='ex-16i'><label for='ex-16i'>Interprétation</label><div class='op'>La pression artérielle et la fréquence cardiaque se mesurent au repos, puis debout si le patient a pris un vasodilatateur [S27]. Après 100 mg de sildénafil, la pression systolique debout baisse en moyenne de 8,3 mmHg et la diastolique de 5,3 mmHg, selon l'information professionnelle suisse (AIPS) [S27].</div><div class='oi'><span>Pression inférieure à 90/50 mmHg → sildénafil non recommandé, selon l'AIPS [S27].</span><span>Chute de pression pendant une perfusion de vancomycine → réaction liée à la perfusion ; on arrête ou on ralentit [S35].</span><span>Fréquence cardiaque élevée avec flush après l'alcool → accumulation d'acétaldéhyde possible [S9].</span></div></div></div></details> et cherchez des signes d'anaphylaxie [S2] [S39].</li>
+<li>Vous rassurez le patient et expliquez le mécanisme sympathique du rougissement [S6].</li>
+<li>Vous cherchez une dépression ou un autre trouble anxieux associés [S39].</li>
+<li>Vous planifiez une TCC et, si nécessaire, un ISRS [S38] [S39].</li>
+<li>Vous évitez de prescrire une benzodiazépine au long cours [S38].</li>
+</ol></details>
+<p><strong>12. Prévention.</strong><br>Prévention primaire : aucune mesure validée n'a été trouvée dans les sources consultées [S38] [S39]. Prévention secondaire : vous reconnaissez tôt l'anxiété sociale grâce aux questionnaires de dépistage [S39]. Prévention tertiaire : la TCC par Internet peut compléter une psychothérapie, selon la SSPP [S38]. Enfin, vous recherchez et traitez la dépression et l'abus de substances associés [S39].</p>
+<p>
+<details class='f'><summary>Pleine conscience</summary><span> Des approches nouvelles, comme la pleine conscience, l'auto-compassion, le retour vidéo et la réécriture en imagination, sont à l'étude [S6].</span></details></p>
+
+<p><strong>13. Points clés.</strong><br>Le rougissement est normal ; il devient pathologique quand la peur de rougir entraîne évitement et détresse [S6] [S39]. Ensuite, la TCC est le premier traitement, et les ISRS ou IRSN traitent l'anxiété sociale associée [S38]. Enfin, un flush sans déclencheur émotionnel doit faire chercher une autre cause [S2].</p>
+<p>
+<details class='f'><summary>Aide-mémoire</summary><span> Émotion, sympathique, attention centrée sur soi : cercle vicieux à rompre par la TCC [S6].</span></details></p>
+
+<p><strong>14. Pièges et questions de l'examen fédéral.</strong><br>Le premier piège est de confondre timidité et phobie sociale [S39]. Ensuite, un bêtabloquant prescrit seul ne traite pas un trouble anxieux, car il n'agit pas sur le système nerveux central [S38]. Enfin, l'escitalopram est contre-indiqué en cas de QT long ; l'ECG précède donc le traitement [S40] [S39].</p>
+<p>
+<details class='f'><summary>Question type</summary><span> Quelle est la première mesure chez une étudiante qui rougit et évite les exposés depuis un an ? Une TCC, avec un ISRS si nécessaire, après avoir exclu une cause somatique [S38] [S39].</span></details></p>
+
+</details>
+<h3>Sources</h3>
+<ol class='nl src'>
+<li>[S2] Izikson L, English JC 3rd, Zirwas MJ. The flushing patient: differential diagnosis, workup, and treatment. J Am Acad Dermatol 2006;55(2):193-208 (PMID 16844500). <a href='https://pubmed.ncbi.nlm.nih.gov/16844500/'>https://pubmed.ncbi.nlm.nih.gov/16844500/</a> — consulté le 2026-10-24.</li>
+<li>[S3] Hannah-Shmouni F, Stratakis CA, Koch CA. Flushing in (neuro)endocrinology. Rev Endocr Metab Disord 2016;17(3):373-380 (PMID 27873108). <a href='https://pubmed.ncbi.nlm.nih.gov/27873108/'>https://pubmed.ncbi.nlm.nih.gov/27873108/</a> — consulté le 2026-10-24.</li>
+<li>[S6] Drummond PD, Shapiro GB, Nikolić M, Bögels SM. Treatment Options for Fear of Blushing. Curr Psychiatry Rep 2020;22(6):28 (PMID 32377882). <a href='https://pubmed.ncbi.nlm.nih.gov/32377882/'>https://pubmed.ncbi.nlm.nih.gov/32377882/</a> — consulté le 2026-10-24.</li>
+<li>[S9] Brooks PJ, Enoch MA, Goldman D, Li TK, Yokoyama A. The alcohol flushing response: an unrecognized risk factor for esophageal cancer from alcohol consumption. PLoS Med 2009;6(3):e50 (PMID 19320537), texte intégral lu sur PMC2659709. <a href='https://pubmed.ncbi.nlm.nih.gov/19320537/'>https://pubmed.ncbi.nlm.nih.gov/19320537/</a> — consulté le 2026-10-24.</li>
+<li>[S13] Wittchen HU, Jacobi F, Rehm J et al. The size and burden of mental disorders and other disorders of the brain in Europe 2010. Eur Neuropsychopharmacol 2011;21(9):655-679 (PMID 21896369). <a href='https://pubmed.ncbi.nlm.nih.gov/21896369/'>https://pubmed.ncbi.nlm.nih.gov/21896369/</a> — consulté le 2026-10-24.</li>
+<li>[S24] Sadeghian A, Rouhana H, Oswald-Stumpf B, Boh E. Etiologies and management of cutaneous flushing: Nonmalignant causes. J Am Acad Dermatol 2017;77(3):391-402 (PMID 28807107). <a href='https://pubmed.ncbi.nlm.nih.gov/28807107/'>https://pubmed.ncbi.nlm.nih.gov/28807107/</a> — consulté le 2026-10-24.</li>
+<li>[S27] Swissmedic, AIPS. Information professionnelle Viagra®, sildénafil (autorisation 54642) (N1). <a href='https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=54642'>https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=54642</a> — consulté le 2026-10-24.</li>
+<li>[S28] Swissmedic, AIPS. Information professionnelle Nifedipin-Mepha 20 retard®, nifédipine (autorisation 52896) (N1). <a href='https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=52896'>https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=52896</a> — consulté le 2026-10-24.</li>
+<li>[S30] Maire R, Dreiding K, Wyss PA. Incidence and clinical aspects of scombroid fish poisoning [article en allemand]. Schweiz Med Wochenschr 1992;122(50):1933-1935 (PMID 1465598). <a href='https://pubmed.ncbi.nlm.nih.gov/1465598/'>https://pubmed.ncbi.nlm.nih.gov/1465598/</a> — consulté le 2026-10-24.</li>
+<li>[S35] Swissmedic, AIPS. Information professionnelle Vancocin®, vancomycine (autorisation 24936) (N1). <a href='https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=24936'>https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=24936</a> — consulté le 2026-10-24.</li>
+<li>[S36] Tox Info Suisse. Syndrome scombroïde : intoxication particulière au poisson (N1) ; texte relevé par un moteur de recherche, la page renvoyant une erreur 404 au téléchargement direct. <a href='https://www.toxinfo.ch/680'>https://www.toxinfo.ch/680</a> — consulté le 2026-10-24.</li>
+<li>[S37] Canton du Valais, Office du médecin cantonal. Déclaration des réactions scombroïdes, courrier aux médecins du 2 novembre 2015 (N1). <a href='https://www.vs.ch/documents/3166113/0/Courrier+aux+m%C3%A9decins+scombro%C3%AFdose+2015/c4fe55d7-5555-449d-ae8c-7589679a4cf1'>https://www.vs.ch/documents/3166113/0/Courrier+aux+m%C3%A9decins+scombro%C3%AFdose+2015/c4fe55d7-5555-449d-ae8c-7589679a4cf1</a> — consulté le 2026-10-24.</li>
+<li>[S38] Seifritz E et al. Le traitement des troubles anxieux, recommandations de la Société suisse de psychiatrie et psychothérapie (SSPP), 2024 (N2). <a href='https://www.psychiatrie.ch/fileadmin/SGPP/user_upload/Fachleute/Empfehlungen/2024_SAD_FLY_240328_Behandlungsempfehlungen_A4_FR_v5.pdf'>https://www.psychiatrie.ch/fileadmin/SGPP/user_upload/Fachleute/Empfehlungen/2024_SAD_FLY_240328_Behandlungsempfehlungen_A4_FR_v5.pdf</a> — consulté le 2026-10-24.</li>
+<li>[S39] HUG, Service de médecine de premier recours. Stratégie : les troubles anxieux, 2023 (N2). <a href='https://www.hug.ch/sites/interhug/files/2023-11/strategie_troubles_anxieux_2023_1.pdf'>https://www.hug.ch/sites/interhug/files/2023-11/strategie_troubles_anxieux_2023_1.pdf</a> — consulté le 2026-10-24.</li>
+<li>[S40] Swissmedic, AIPS. Information professionnelle Cipralex®, escitalopram (autorisation 55961) (N1). <a href='https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=55961'>https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=55961</a> — consulté le 2026-10-24.</li>
+<li>[S41] Swissmedic, AIPS. Information professionnelle Zyrtec®, cétirizine (autorisation 48143) (N1). <a href='https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=48143'>https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&lang=FR&authNr=48143</a> — consulté le 2026-10-24.</li>
+<li>[S42] Commission fédérale pour les questions liées aux addictions et à la prévention des maladies non transmissibles (CFANT). Consommation d'alcool : « moins c'est mieux », information du 2 mars 2026 (N1). <a href='https://www.bag.admin.ch/dam/fr/sd-web/pNRHwErnzKKR/CFANT_2026_Information_consommation_d%27alcool.pdf'>https://www.bag.admin.ch/dam/fr/sd-web/pNRHwErnzKKR/CFANT_2026_Information_consommation_d%27alcool.pdf</a> — consulté le 2026-10-24.</li>
+<li>[S43] Office fédéral de la santé publique (OFSP). Consommation problématique d'alcool, page thématique (N1). <a href='https://www.bag.admin.ch/fr/consommation-problematique-dalcool'>https://www.bag.admin.ch/fr/consommation-problematique-dalcool</a> — consulté le 2026-10-24.</li>
+<li>[S44] Kamanna VS, Ganji SH, Kashyap ML. The mechanism and mitigation of niacin-induced flushing. Int J Clin Pract 2009;63(9):1369-1377 (PMID 19691622). <a href='https://pubmed.ncbi.nlm.nih.gov/19691622/'>https://pubmed.ncbi.nlm.nih.gov/19691622/</a> — consulté le 2026-10-24.</li>
+<li>[S45] Zhu LJ, Liu AY, Wong PH, Arroyo AC. Road Less Traveled: Drug Hypersensitivity to Fluoroquinolones, Vancomycin, Tetracyclines, and Macrolides. Clin Rev Allergy Immunol 2022;62(3):505-518 (PMID 35092578). <a href='https://pubmed.ncbi.nlm.nih.gov/35092578/'>https://pubmed.ncbi.nlm.nih.gov/35092578/</a> — consulté le 2026-10-24.</li>
+</ol>
+<p class='nv'><em>Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin.</em></p>
+</div>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_007_Appel_B_V7_Partie_2_DX.3_a_DX.5 -->
