@@ -1,5 +1,7 @@
-"""Chargement et validation de la configuration d'un agent (JSON, bibliothèque standard)."""
-import json, os
+"""Chargement et validation de la configuration d'un agent (JSON, bibliothèque standard).
+v1.4 (organisation à 8 agents, 2 équipes) : champs facultatifs `equipe`, `chapitre`, `lots`, `parties_autorisees`,
+`dossier_travail`. Une configuration sans ces champs se comporte exactement comme en v1.3 (rétrocompatible)."""
+import json, os, re
 from pathlib import Path
 
 ICI = Path(__file__).resolve().parent
@@ -16,7 +18,11 @@ DEFAUTS = {
              "ttl_s": {"1": 604800, "2": 86400, "3": 86400, "4": 86400, "5": 604800}},
     "compteur": {},
 }
-TYPES = {"int": int, "str": str, "bool": bool, "dict": dict}
+TYPES = {"int": int, "str": str, "bool": bool, "dict": dict, "list": list}
+PARTIES = ("A", "P1", "P2", "P3", "P4")
+RE_PARTIE_A = re.compile(r"_Appel_A_", re.I)
+RE_PARTIE_B = re.compile(r"_Appel_B_.*?Partie_([1-4])", re.I)
+RE_NUM = re.compile(r"LOT_(\d{3})")
 
 class ConfigErreur(Exception):
     pass
@@ -54,8 +60,103 @@ def charger(chemin):
             cfg[k] = str(Path(os.path.expanduser(os.path.expandvars(cfg[k]))).resolve())
     if len({cfg["cache_dir"], cfg["output_dir"], cfg["shared_state_dir"]}) != 3:
         raise ConfigErreur("cache_dir, output_dir et shared_state_dir doivent être distincts")
+    if cfg.get("compteur", {}).get("csv"):
+        cfg["compteur"]["csv"] = str(Path(os.path.expanduser(os.path.expandvars(cfg["compteur"]["csv"]))).resolve())
+    _valider_perimetre(cfg)
+    if "equipe" in cfg:
+        _valider_independance(cfg)
     cfg["_chemin"] = str(Path(chemin).resolve())
     return cfg
 
+def _valider_perimetre(cfg):
+    if "lots" in cfg:
+        if not cfg["lots"] or not all(isinstance(x, int) and not isinstance(x, bool) for x in cfg["lots"]):
+            raise ConfigErreur("lots : liste non vide d'entiers attendue")
+        if any(not cfg["lot_min"] <= x <= cfg["lot_max"] for x in cfg["lots"]):
+            raise ConfigErreur("lots : chaque LOT doit être compris entre lot_min et lot_max")
+    pa = cfg.get("parties_autorisees")
+    if pa is None:
+        return
+    listes = [pa] if isinstance(pa, list) else list(pa.values())
+    for l in listes:
+        if not isinstance(l, list) or not l or any(x not in PARTIES for x in l):
+            raise ConfigErreur(f"parties_autorisees : listes non vides de {', '.join(PARTIES)} attendues")
+    if isinstance(pa, dict):
+        for k in pa:
+            if k != "*" and not re.fullmatch(r"(LOT_)?\d{3}", k):
+                raise ConfigErreur(f"parties_autorisees : clé invalide {k!r} (attendu « 227 », « LOT_227 » ou « * »)")
+    if "dossier_travail" in cfg:
+        d = cfg["dossier_travail"]; d = [d] if isinstance(d, str) else d
+        if not d or not all(isinstance(x, str) and x for x in d):
+            raise ConfigErreur("dossier_travail : chemin ou liste de chemins attendu")
+
+def chemins_inscriptibles(cfg):
+    """Tous les chemins où les scripts de cet agent écrivent (état, cache, sorties, compteur)."""
+    ch = {"cache_dir": cfg["cache_dir"], "output_dir": cfg["output_dir"], "shared_state_dir": cfg["shared_state_dir"]}
+    if cfg.get("compteur", {}).get("csv"):
+        ch["compteur.csv"] = cfg["compteur"]["csv"]
+    return ch
+
+def _valider_independance(cfg):
+    """Loi d'indépendance absolue : aucun chemin inscriptible commun, aucun dossier « partage »."""
+    marque = f"agent_{cfg['agent']}"
+    for nom, ch in chemins_inscriptibles(cfg).items():
+        parts = Path(ch).parts
+        if marque not in parts:
+            raise ConfigErreur(f"indépendance : {nom} ({ch}) doit être sous un dossier {marque}/ propre à l'agent")
+        if "partage" in parts:
+            raise ConfigErreur(f"indépendance : {nom} ({ch}) ne doit pas utiliser un dossier partagé")
+
+def lots_autorises(cfg):
+    return list(cfg["lots"]) if cfg.get("lots") else list(range(cfg["lot_min"], cfg["lot_max"] + 1))
+
 def lot_autorise(cfg, numero):
-    return cfg["lot_min"] <= int(numero) <= cfg["lot_max"]
+    n = int(numero)
+    if not cfg["lot_min"] <= n <= cfg["lot_max"]:
+        return False
+    return n in cfg["lots"] if cfg.get("lots") else True
+
+def partie_de(chemin):
+    """« A » (Appel A), « P1 »…« P4 » (Appel B, Partie N) ou None si le nom n'est pas reconnu."""
+    nom = Path(chemin).name
+    if RE_PARTIE_A.search(nom):
+        return "A"
+    m = RE_PARTIE_B.search(nom)
+    return f"P{m.group(1)}" if m else None
+
+def parties_pour(cfg, numero):
+    pa = cfg.get("parties_autorisees")
+    if pa is None:
+        return list(PARTIES)
+    if isinstance(pa, list):
+        return list(pa)
+    n = int(numero)
+    for k in (str(n), f"LOT_{n}"):
+        if k in pa:
+            return list(pa[k])
+    return list(pa.get("*", []))
+
+def _dans(chemin, dossier):
+    a, b = os.path.realpath(chemin), os.path.realpath(os.path.expanduser(dossier))
+    return os.path.commonpath([a, b]) == b
+
+def fichier_autorise(cfg, chemin, numero=None):
+    """(True, "") si le fichier est dans le périmètre de l'agent (LOT, Partie, dossier de travail), sinon (False, raison)."""
+    if numero is None:
+        m = RE_NUM.search(Path(chemin).name) or RE_NUM.search(str(Path(chemin).parent))
+        numero = int(m.group(1)) if m else None
+    qui = f"l'agent {cfg['agent']}" + (f" (équipe {cfg['equipe']}, {cfg['chapitre']})" if cfg.get("equipe") and cfg.get("chapitre") else "")
+    if numero is None or not lot_autorise(cfg, numero):
+        lots = lots_autorises(cfg)
+        return False, f"{Path(chemin).name} : LOT hors de la série de {qui} (LOT_{lots[0]}–{lots[-1]})"
+    if cfg.get("parties_autorisees") is not None:
+        p = partie_de(chemin); ok = parties_pour(cfg, numero)
+        if p is None:
+            return False, f"{Path(chemin).name} : nom de fichier non reconnu (Appel A ou Appel B Partie 1–4 attendu) pour {qui}"
+        if p not in ok:
+            return False, f"{Path(chemin).name} : {p} de LOT_{numero} hors du chapitre de {qui} (autorisé : {', '.join(ok) or 'aucun'})"
+    if cfg.get("dossier_travail"):
+        d = cfg["dossier_travail"]; d = [d] if isinstance(d, str) else d
+        if not any(_dans(chemin, x) for x in d):
+            return False, f"{Path(chemin).name} : hors du dossier de travail de {qui} ({', '.join(d)})"
+    return True, ""

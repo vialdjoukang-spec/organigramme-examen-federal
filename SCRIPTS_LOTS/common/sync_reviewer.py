@@ -236,8 +236,9 @@ class Relecteur:
 
     def _garde(self, fichier):
         n = lot_readonly.numero_lot(fichier)
-        if n is None or not cfgmod.lot_autorise(self.cfg, n):
-            raise ViolationLectureSeule(f"{fichier} hors de la série LOT_{self.cfg['lot_min']}–{self.cfg['lot_max']} de l'agent {self.cfg['agent']}")
+        ok, raison = cfgmod.fichier_autorise(self.cfg, fichier, n)
+        if not ok:
+            raise ViolationLectureSeule(f"périmètre — {raison}")
         dossier_lot = str(Path(fichier).resolve().parent)
         dossiers = [dossier_lot] + ([self.cfg["lots_root"]] if self.cfg.get("lots_root") else [])
         for cle in ("output_dir", "cache_dir", "shared_state_dir"):
@@ -246,9 +247,20 @@ class Relecteur:
             lot_readonly.verifier_droits_os(dossier_lot)
         return n, dossier_lot, dossiers
 
+    def _garde_appel_a(self, appel_a, n):
+        """Seule lecture permise hors chapitre : l'Appel A V7 du MÊME LOT (liste des DX), en lecture seule."""
+        if cfgmod.partie_de(appel_a) != "A" or lot_readonly.numero_lot(appel_a) != n:
+            raise ViolationLectureSeule(f"--appel-a {Path(appel_a).name} : seul l'Appel A du LOT_{n} est lisible")
+        if self.cfg.get("dossier_travail"):
+            ok, raison = cfgmod.fichier_autorise(dict(self.cfg, parties_autorisees=None), appel_a, n)
+            if not ok:
+                raise ViolationLectureSeule(f"--appel-a : {raison} (téléchargez l'Appel A déposé sur Drive dans votre dossier de travail)")
+
     def passage(self, fichier, appel_a=None, etiquette=None, avec_lt=True):
         t0 = time.perf_counter()
         n, dossier_lot, dossiers = self._garde(fichier)          # refus AVANT toute création de dossier ou lecture
+        if appel_a:
+            self._garde_appel_a(appel_a, n)
         Path(self.cfg["cache_dir"]).mkdir(parents=True, exist_ok=True)
         avant = lot_readonly.empreintes(dossier_lot)
         raw = lot_readonly.lire_octets(fichier); html = raw.decode("utf-8", "replace")
@@ -318,6 +330,8 @@ def surveiller(rel, dossier, intervalle=5):
     print(f"Surveillance de {dossier} (lecture seule ; pause de rédaction {debounce} s)", file=sys.stderr)
     while True:
         for f in sorted(Path(dossier).glob("LOT_*.html")):
+            if not cfgmod.fichier_autorise(rel.cfg, f)[0]:
+                continue        # fichier d'un autre chapitre (ex. Appel A de l'équipe) : jamais relu par cet agent
             mt = f.stat().st_mtime
             etat = vus.setdefault(str(f), {"mt": None, "fait": None})
             if mt != etat["mt"]:

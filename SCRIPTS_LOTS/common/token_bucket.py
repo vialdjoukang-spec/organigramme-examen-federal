@@ -1,5 +1,6 @@
-"""Seau à jetons partagé entre processus (et entre les deux agents) par verrou de fichier fcntl.
-Sert au budget LanguageTool commun (10 req/min) et aux limites NCBI ou par domaine."""
+"""Seau à jetons entre processus d'UN MÊME agent, par verrou de fichier fcntl.
+v1.4 : chaque agent a son propre dossier d'état (~/.scripts_lots/agent_N/etat) ; aucun seau n'est commun à deux agents.
+Sert au budget LanguageTool de l'agent et à ses limites NCBI ou par domaine."""
 import fcntl, json, os, time
 from pathlib import Path
 

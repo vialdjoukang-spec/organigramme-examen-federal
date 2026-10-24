@@ -19,7 +19,7 @@ class TestStatique(unittest.TestCase):
 
     def test_aucune_dependance_ia(self):
         motif = re.compile(r"\b(openai|anthropic|chatgpt|gpt-[0-9]|llm|langchain|transformers|huggingface|x\.ai|grok)\b", re.I)
-        for p in list(C.glob("*.py")) + list((C.parent / "agent_1").glob("*.py")) + list((C.parent / "agent_2").glob("*.py")):
+        for p in list(C.glob("*.py")) + list(C.parent.glob("agent_*/*.py")) + list(C.parent.glob("*.py")):
             for i, l in enumerate(p.read_text().splitlines(), 1):
                 if l.lstrip().startswith(("import", "from")) or "http" in l:
                     self.assertIsNone(motif.search(l), f"{p.name}:{i}")

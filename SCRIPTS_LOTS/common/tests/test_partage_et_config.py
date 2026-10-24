@@ -23,10 +23,9 @@ class TestPartage(unittest.TestCase):
     def test_configs_agents_disjointes(self):
         c1 = cfgmod.charger(RACINE / "agent_1" / "config.json"); c2 = cfgmod.charger(RACINE / "agent_2" / "config.json")
         self.assertEqual((c1["lot_min"], c1["lot_max"], c2["lot_min"], c2["lot_max"]), (227, 237, 238, 248))
-        for k in ("cache_dir", "output_dir"): self.assertNotEqual(c1[k], c2[k])
-        self.assertEqual(c1["shared_state_dir"], c2["shared_state_dir"])
+        for k in ("cache_dir", "output_dir", "shared_state_dir"): self.assertNotEqual(c1[k], c2[k])   # v1.4 : plus aucun état commun
         self.assertNotEqual(c1["compteur"]["csv"], c2["compteur"]["csv"])
-        self.assertEqual(c1["languagetool"]["budget_req_per_min"], 10)
+        self.assertEqual(c1["languagetool"]["budget_req_per_min"], 1)
 
     def test_config_invalide(self):
         with tempfile.TemporaryDirectory() as d:

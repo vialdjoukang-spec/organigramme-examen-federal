@@ -235,7 +235,9 @@ class Moteur:
         return res
 
     def _pubmed_mcp(self, requete, maxi):
-        url = self.cfg["pubmed"]["mcp_url"]
+        url = self.cfg["pubmed"].get("mcp_url")
+        if not url:      # indépendance : aucun serveur MCP local partagé entre agents → E-utilities directement
+            raise RuntimeError("MCP local désactivé par la configuration")
         corps = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call",
                             "params": {"name": "pubmed_search_articles", "arguments": {"query": requete, "maxResults": maxi, "summaryCount": maxi}}}).encode()
         import urllib.request
@@ -254,7 +256,7 @@ class Moteur:
     def _pubmed_eutils(self, requete, maxi):
         cle = os.environ.get("NCBI_API_KEY")
         debit = self.cfg["pubmed"]["rate_per_s_with_key" if cle else "rate_per_s_without_key"]
-        seau = SeauPartage(Path(self.cfg["shared_state_dir"]) / "ncbi", "eutils", debit, debit)
+        seau = SeauPartage(Path(self.cfg["shared_state_dir"]) / "ncbi", "eutils", debit, max(1.0, float(debit)))   # capacité ≥ 1 jeton (débit fractionnaire par agent)
         base = self.cfg["pubmed"]["eutils_base"]; sec = f"api_key={quote(cle)}" if cle else None
         def appel(u):
             if not seau.prendre(attente_max=20):
@@ -362,8 +364,9 @@ def _url(t):
 
 def check(cfg, fichier, fmt="md"):
     n = lot_readonly.numero_lot(fichier)
-    if n is None or not cfgmod.lot_autorise(cfg, n):
-        print(f"REFUS : {fichier} n'appartient pas à la série LOT_{cfg['lot_min']}–{cfg['lot_max']} de l'agent {cfg['agent']}.", file=sys.stderr)
+    ok, raison = cfgmod.fichier_autorise(cfg, fichier, n)
+    if not ok:
+        print(f"REFUS (périmètre) : {raison}. Ce fichier n'est pas le vôtre : aucun contrôle effectué.", file=sys.stderr)
         return 2
     html = lot_readonly.lire_octets(fichier).decode("utf-8", "replace")
     pb, st = verifier_sources(html)

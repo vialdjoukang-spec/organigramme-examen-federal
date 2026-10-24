@@ -1,7 +1,8 @@
 """Client LanguageTool ÉCONOME pour l'API publique (https://api.languagetool.org/v2/check).
 Contraintes publiques : ~20 req/min/IP (pointe), 75 Ko/min, 20 Ko/requête, POST seulement ; les CGU déconseillent
-l'automatisation. Conception : regroupement par section, cache par empreinte, budget partagé par les deux agents
-(10 req/min, 60 Ko/min) via un seau à verrou de fichier, recul sur 429, jamais bloquant (« NON VÉRIFIÉ »)."""
+l'automatisation. Conception : regroupement par section, cache par empreinte, budget PROPRE à chaque agent
+(v1.4 : 10 req/min et 60 Ko/min au total divisés par 8 → 1 req/min et 7 500 o/min par agent, seau dans l'état
+de l'agent), recul sur 429, jamais bloquant (« NON VÉRIFIÉ »)."""
 import hashlib, re, json, sqlite3, time, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 from token_bucket import SeauPartage
@@ -52,7 +53,7 @@ class LanguageTool:
             if self.appels >= self.c["max_requests_per_pass"]:
                 raison = "budget du passage atteint (reporté au passage suivant)"; break
             if not self.seau.prendre(octets=len(bloc.encode()), attente_max=2):
-                raison = "budget partagé de 10 req/min épuisé ou recul en cours"; break
+                raison = f"budget LanguageTool de l'agent ({self.c['budget_req_per_min']} req/min) épuisé ou recul en cours"; break
             try:
                 self.appels += 1
                 data = urllib.parse.urlencode({"text": bloc, "language": self.c["language"], "level": "default"}).encode()
