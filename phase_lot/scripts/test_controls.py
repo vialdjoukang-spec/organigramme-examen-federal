@@ -40,10 +40,14 @@ class Controls(unittest.TestCase):
         out=compact({'sources':[{'url':'https://example.test','excerpts':[{'locator':'p. 4','passage':'court extrait','raw_packet':'secret'}]}]})
         self.assertEqual(out['sources'][0]['bounded_excerpt'],'court extrait')
     def test_queue_refuses_two_active_lots(self):
-        q=json.loads((ROOT/'config/file.json').read_text()); q['lots'][1]['production_status']='ACTIF'
+        q=json.loads((ROOT/'config/file.json').read_text())
+        for row in q['lots']:row['production_status']='EN_ATTENTE'
+        q['lots'][0]['production_status']='ACTIF';q['lots'][1]['production_status']='ACTIF'
         with self.assertRaises(AssertionError): validate(q)
     def test_queue_refuses_skipping_predecessor(self):
-        q=json.loads((ROOT/'config/file.json').read_text()); q['lots'][0]['production_status']='EN_ATTENTE'; q['lots'][1]['production_status']='ACTIF'
+        q=json.loads((ROOT/'config/file.json').read_text())
+        for row in q['lots']:row['production_status']='EN_ATTENTE'
+        q['lots'][1]['production_status']='ACTIF'
         with self.assertRaises(AssertionError): validate(q)
     def test_empty_file_cannot_pass_structure(self):
         with tempfile.TemporaryDirectory() as d:

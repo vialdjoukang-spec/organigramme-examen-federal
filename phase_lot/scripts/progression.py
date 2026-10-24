@@ -43,7 +43,9 @@ def main():
                     found.append(ident)
             wanted=[f'G{n}'] if role=='A' else [f'DX.{2*int(role[1])-1}',f'DX.{2*int(role[1])}']
             assert sorted(found)==sorted(wanted),f'Diagnostics hors réservation ou manquants {role}'
-        row.update(production_status='PRODUIT',audit_status='EN_ATTENTE_TUNDER',files=manifest(a.bundle))
+        row.update(production_status='PRODUIT',audit_status='NON_SOUMIS',files=manifest(a.bundle),
+                   stage='CANDIDAT_LOCAL_ATTENTE_AUTORISATION_TRANSMISSION',
+                   production_complete_locally=True,clinical_transmission_authorized=False)
         if n<10: q['lots'][n]['production_status']='ACTIF'
         validate(q)
         assert a.file.read_bytes()==raw, 'file modifiée depuis la lecture'

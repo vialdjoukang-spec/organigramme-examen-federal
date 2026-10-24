@@ -8,24 +8,25 @@ def excerpt_text(value):
     if isinstance(value,list): return ' '.join(excerpt_text(item) for item in value)
     if isinstance(value,dict):
         if value.get('found') is False or value.get('read') is False:return ''
-        return ' '.join(excerpt_text(value[key]) for key in ['excerpt','text','quote','passage'] if key in value)
+        return ' '.join(excerpt_text(value[key]) for key in ['excerpt','exact_excerpt','text','quote','passage'] if key in value)
     return ''
 
 def compact(data,budget=None):
     # Les formats de recherche diffèrent selon l'auteur. Une liste autorisée
     # empêche qu'un champ nouveau emporte un paquet brut ou un texte intégral.
-    metadata={'lot','ssp','role','phase','consulted_at','clinical_validation',
+    metadata={'lot','ssp','role','phase','consulted_at','consultation_date','clinical_validation',
               'human_auditor','publication_authorized'}
-    source_metadata={'id','key','url','title','organisation','version',
+    source_metadata={'id','key','url','title','organisation','organism','version',
                      'publication_date','publication_date_reported',
-                     'version_or_document_date','consulted_at','scope','access'}
+                     'version_or_document_date','consulted_at','consulted_on','scope','access',
+                     'document_body_date','source_type','read_mode','scope_and_limits','opened'}
     result={k:v for k,v in data.items() if k in metadata}
     result['sources']=[]
     if budget is None: budget={}
     for source in data['sources']+data.get('inherited_sources',[]):
         row={k:v for k,v in source.items() if k in source_metadata}
         url=source.get('url',''); remaining=max(0,75-budget.get(url,0))
-        passages=source.get('excerpts',source.get('passages_read',[]))
+        passages=source.get('excerpts',source.get('passages_read',source.get('passages',[])))
         locators=[]
         if isinstance(passages,list):
             for item in passages:

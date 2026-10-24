@@ -12,14 +12,20 @@ def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--lot',type=int,required=True)
-    p.add_argument('--work',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+    p.add_argument('--work',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--role-folder',action='append',default=[],metavar='ROLE=CHEMIN',help='Dossier actif d’une reprise isolée, sans écraser le travail précédent')
+    a=p.parse_args();overrides={}
+    for value in a.role_folder:
+        role,folder=value.split('=',1)
+        assert role in {'A','B1','B2','B3','B4','B5'} and role not in overrides,'Rôle inconnu ou dossier déclaré deux fois'
+        overrides[role]=Path(folder)
     assert not a.output.exists(),'Destination existante : préserver le candidat précédent'
     rubric=json.loads((ROOT/'config/rubric.json').read_text())
     entries=[];all_monographs=[];sources={};question_count=0
     for role in ['A','B1','B2','B3','B4','B5']:
-        folder=a.work/f'lot{a.lot:03d}-{role.casefold()}'
+        folder=overrides.get(role,a.work/f'lot{a.lot:03d}-{role.casefold()}')
         checkpoint=json.loads((folder/'checkpoint.json').read_text())
-        assert checkpoint['role']==role and checkpoint['production_complete'] is True,f'Rédaction encore incomplète : {role}'
+        assert checkpoint['lot']==a.lot and checkpoint['role']==role and checkpoint['production_complete'] is True,f'Lot, rôle ou fin rédactionnelle incorrects : {role}'
         for name in ['HELP.json','selfcheck.json','handoff_redaction.md','evidence.json']:
             assert (folder/name).is_file(),f'Pièce de relecture absente : {role}/{name}'
         question_count+=check_selfcheck(folder,role,a.lot,rubric)['questions']

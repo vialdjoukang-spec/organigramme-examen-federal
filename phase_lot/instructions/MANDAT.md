@@ -41,6 +41,13 @@ Le dossier de réception est `main:LOT_Tunder/`, créé par la PR272. Ne rien y 
 
 ## Reprise et cadence
 
-Le checkpoint persiste sur GitHub après chaque fichier. Une relance lit config/file.json, n'active qu'une seule production et reprend le dernier point complet. Production finie : marquer PRODUIT_EN_ATTENTE_AUDIT et activer le suivant ; cours audité et déposé : FINAL_AUDITE. Une interruption laisse le travail ACTIF, jamais terminé implicitement.
+Le checkpoint persiste sur GitHub après chaque fichier. Une relance lit config/file.json, n'active qu'une seule production et reprend le dernier point complet. Production finie : marquer PRODUIT et activer le suivant ; l’audit reste NON_SOUMIS tant que le candidat local n’a pas été transmis avec autorisation humaine. Un cours accepté et déposé devient FINAL_AUDITE. Une interruption laisse le travail ACTIF, jamais terminé implicitement.
 
 Une automatisation ChatGPT horaire peut reprendre ce mandat après lecture de GitHub. Son enregistrement ne prouve pas encore un premier réveil ; conserver l'heure de prochaine exécution. La fréquence minimale est une heure. Le workflow GitHub de sonde à 30 minutes est fourni séparément et doit exister sur main pour être planifié ; une exécution de sonde ne démarre pas une IA. Aucun endpoint public de réveil de ce chat ni identité xAI n'est actuellement configuré. Ne pas injecter de secret dans le dépôt ni dans le chat.
+
+
+## Consignes des LOTS suivants et reprises isolées
+
+Les fichiers B1.md à B5.md historiques décrivent les attributions du LOT1. Pour un nouveau LOT, lire sa sélection A terminée et reprendre exactement ses noms et identifiants : B1 reçoit DX.1–2, B2 DX.3–4, B3 DX.5–6, B4 DX.7–8 et B5 DX.9–10. Ne jamais recycler les noms ou le contenu médical du LOT précédent.
+
+Un dossier de reprise isolé conserve le travail antérieur. Le coordinateur indique le dossier actif dans config/file.json ; prepare_bundle.py accepte --role-folder ROLE=CHEMIN pour l’assembler sans déplacer ni écraser l’original. L’assemblage exige aussi le numéro de LOT exact du checkpoint, en plus du rôle et de la fin rédactionnelle.
