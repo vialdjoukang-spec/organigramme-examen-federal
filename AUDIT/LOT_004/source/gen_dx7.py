@@ -166,10 +166,10 @@ ADD(11, 'Prise en charge',
  FICHE([
   ['Sartan : irbésartan (Aprovel®) ; ou IEC : lisinopril (Zestril®)', 'Bloque l’angiotensine II ; baisse la pression dans le glomérule', 'Demi-vie ≈ 11–15 h (irbésartan)', '150–300 mg/j, dose maximale tolérée', 'Hyperkaliémie, hausse de créatinine', 'Grossesse, sténose bilatérale des artères rénales', 'AINS, ARM, potassium'],
   ['Gliflozine : dapagliflozine (Forxiga®)', 'Bloque le cotransporteur SGLT2 ; réduit l’hyperfiltration', 'Demi-vie ≈ 13 h', '10 mg/j ; début si DFGe ≥ 20, poursuivi jusqu’à la dialyse', 'Infection génitale, déshydratation', 'Diabète de type 1, dialyse', 'Diurétiques'],
-  ['Antagoniste non stéroïdien du récepteur minéralocorticoïde : finérénone (Kerendia®)', 'Bloque l’aldostérone, effet anti-fibrose', 'Métabolisme hépatique (CYP3A4)', '10 mg/j si DFGe 25–59, 20 mg/j si ≥ 60 ; début si K⁺ ≤ 4,8', 'Hyperkaliémie', 'DFGe < 25, inhibiteurs puissants du CYP3A4', 'Kétoconazole, clarithromycine'],
+  ['Antagoniste non stéroïdien du récepteur minéralocorticoïde : finérénone (Kerendia®)', 'Bloque l’aldostérone, effet anti-fibrose', 'Métabolisme hépatique (CYP3A4)', 'Départ 10 mg/j si DFGe 25–59, 20 mg/j si ≥ 60, quand K⁺ ≤ 4,8 ; cible 20 mg/j ; dans l’insuffisance cardiaque à fraction d’éjection ≥ 40 % (indication 2026), cible 40 mg/j si DFGe ≥ 60', 'Hyperkaliémie', 'DFGe < 25, inhibiteurs puissants du CYP3A4', 'Kétoconazole, clarithromycine'],
   ['Agent stimulant l’érythropoïèse : darbépoétine alfa (Aranesp®)', 'Remplace l’érythropoïétine', 'Sous-cutanée, demi-vie ≈ 70 h', 'Selon le poids, toutes les 1–4 semaines', 'Hypertension, thrombose, AVC si Hb trop haute', 'Hypertension non contrôlée', 'Aucune majeure'],
   ['Bicarbonate de sodium (Nephrotrans®)', 'Apporte une base', 'Absorption orale', '500 mg 2–6 capsules/j', 'Ballonnements, charge en sodium', 'Œdèmes sévères', 'Absorption de certains médicaments'],
- ], 27, 64, 65, 66) +
+ ], 27, 64, 65, 66, 80) +
  P('Corriger d’abord la carence en fer, puis débuter l’agent stimulant si l’hémoglobine reste < 100 g/L.', 64) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [

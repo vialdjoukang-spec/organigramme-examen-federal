@@ -30,3 +30,10 @@ Scores AVANT (work/LOT_004/score.json) : SSP 30,0 · DX1 30,0 · DX2 28,8 · DX3
 ## Chiffres à vérifier
 Voir la liste complète dans RAPPORT_AUDIT.md, section « Chiffres et doses à vérifier ».
 Pour DX.1 à DX.5, la liste a été reconstituée en fin d’audit à partir des corrections ; à relire en priorité.
+## Révision 1 — vérification utilisateur 24.10.2026
+Notes de vérification (PMID + web) : source/r1_verif_notes.md (faites).
+- [x] Vérification PMID (14) et sources web (AD109, Spravato, Plenadren, Gutron, Procoralan, Ferinject, Mounjaro, Kerendia, CPAP)
+- [x] src_lot4.py : sources 73–86 ajoutées ; PMID ajoutés à 11, 13, 19, 20, 22, 23, 25, 39, 43, 49
+- [x] SSP  - [x] DX1  - [x] DX2  - [x] DX3  - [x] DX4  - [x] DX5
+- [x] DX6  - [x] DX7  - [x] DX8  - [x] DX9  - [x] DX10
+- [x] eval.sh (98,8 % ×12, verif OK) + contraste (0) ; MANIFEST ; RAPPORT section « Révision 1 » ; tarball r1 (voir ci-dessous)

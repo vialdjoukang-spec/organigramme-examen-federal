@@ -4,7 +4,7 @@ from lot4_commun import *
 POINT = mkPOINT('dx3')
 M = META('dx3', 'DX.3', 'Apnées du sommeil', 'Syndrome d’apnées obstructives du sommeil (SAOS)',
          'LOT_004_DX3_SAOS_AUDITÉ.html',
-         'Corrections majeures : le critère « ≥ 4 h sur 70 % des nuits » est une règle de l’assurance publique américaine, pas de la LAMal ; unité de pression ajoutée (cmH₂O) ; la stimulation du nerf hypoglosse est autorisée depuis 2014 et n’est pas une « recherche 2026 » ; le sémaglutide n’a pas d’essai dédié au SAOS ; seuil d’Epworth « ≥ 16 » pour la conduite retiré (non sourcé).')
+         'Corrections majeures : le critère « ≥ 4 h sur 70 % des nuits » est une définition classique et une règle de l’assurance publique américaine, non retrouvée dans la LiMA ni les recommandations suisses 2020 ; unité de pression ajoutée (cmH₂O) ; la stimulation du nerf hypoglosse est autorisée depuis 2014 et n’est pas une « recherche 2026 » ; le sémaglutide n’a pas d’essai dédié au SAOS ; seuil d’Epworth « ≥ 16 » pour la conduite retiré (non sourcé).')
 MEV = T('micro-éveil', 'Un micro-éveil est un éveil cortical de 3 à 15 secondes, visible à l’électroencéphalogramme, dont le patient ne se souvient pas ; répétés, ils fragmentent le sommeil.')
 GEN = T('muscle génioglosse', 'Le génioglosse est le muscle qui tire la langue vers l’avant ; c’est le principal dilatateur du pharynx pendant l’inspiration.')
 PTS = []
@@ -157,15 +157,17 @@ ADD(10, 'Arbre décisionnel',
 ADD(11, 'Prise en charge',
  H4('11.A Buts : d’abord l’urgence (sécurité routière, hypercapnie), car la somnolence peut tuer au volant') +
  P('Le traitement garde le pharynx ouvert, supprime la somnolence et réduit le risque cardiovasculaire.', 15) +
- TAB(['But', 'Cible chiffrée'], [['IAH résiduel', '< 5–10/h sous traitement'], ['Somnolence', 'Epworth ≤ 10'], ['Observance', 'Usage nocturne régulier, idéalement ≥ 4 h par nuit']]) +
+ TAB(['But', 'Cible chiffrée'], [['IAH résiduel', '< 5–10/h sous traitement'], ['Somnolence', 'Epworth ≤ 10'], ['Observance', '≥ 4 h par nuit sur ≥ 70 % des nuits (définition classique), lue sur l’appareil']]) +
  H4('11.B Moyens et méthodes : forme compliquée en urgence, puis forme non compliquée en ambulatoire') +
  P('La forme compliquée (hypercapnie, insuffisance respiratoire, somnolence grave chez un chauffeur) relève de l’urgence : gaz du sang et ventilation non invasive dans les heures qui suivent, à l’hôpital. '
    'La forme non compliquée se traite en ambulatoire, avec des mesures générales : perte de poids, pas d’alcool le soir, éviter le dos, et une éducation du patient à la PPC.', 15, 16) +
  P('Moyens non médicamenteux : PPC autopilotée (pression habituellement 4–20 cmH₂O), orthèse d’avancée mandibulaire si SAOS léger à modéré ou refus, chirurgie ORL ou maxillo-faciale chez des patients choisis.', 17) +
  FICHE([
-  ['Agoniste double GIP/GLP-1 : tirzépatide (Mounjaro®)', 'Agoniste des récepteurs GIP et GLP-1 : satiété, perte de poids', 'Demi-vie ≈ 5 jours ; injection hebdomadaire', '2,5 mg/semaine, puis paliers de 2,5 mg toutes les 4 semaines jusqu’à 10–15 mg', 'Nausées, diarrhée, pancréatite rare', 'Antécédent de cancer médullaire de la thyroïde, grossesse', 'Retarde la vidange gastrique (contraceptifs oraux)'],
- ], 49) +
- P('Dans l’essai SURMOUNT-OSA, le tirzépatide a réduit l’IAH d’environ 50–60 % chez des patients obèses ; l’indication SAOS et le remboursement en Suisse sont à vérifier. Le sémaglutide n’a pas d’essai dédié au SAOS.', 49, 40) +
+  ['Agoniste double GIP/GLP-1 : tirzépatide (Mounjaro®)', 'Agoniste des récepteurs GIP et GLP-1 : satiété, perte de poids', 'Demi-vie ≈ 5 jours ; injection hebdomadaire', '2,5 mg/semaine pendant 4 semaines, puis 5 mg ; paliers de 2,5 mg espacés d’au moins 4 semaines ; max 15 mg', 'Nausées, diarrhée, pancréatite rare', 'Antécédent de cancer médullaire de la thyroïde, grossesse', 'Retarde la vidange gastrique (contraceptifs oraux)'],
+ ], 49, 78) +
+ P('Dans l’essai SURMOUNT-OSA, le tirzépatide a réduit l’IAH d’environ 50–60 % chez des patients obèses ; le sémaglutide n’a pas d’essai dédié au SAOS. '
+   'En Suisse, Mounjaro® est autorisé pour le contrôle du poids si IMC ≥ 30, ou ≥ 27 avec une comorbidité ; le SAOS figure parmi ces comorbidités. '
+   'Il n’a pas d’indication pour le SAOS sans surpoids ; le remboursement n’a pas été revérifié.', 49, 78) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [
     ['Grossesse', 'Le SAOS s’aggrave ; PPC sans danger ; pas de tirzépatide'],
@@ -177,7 +179,7 @@ ADD(11, 'Prise en charge',
    ]), 17, 25) +
  SOCIAL('Un arrêt de travail se discute pour les métiers de sécurité jusqu’au traitement efficace.',
         'L’OAC exige l’absence de maladie entraînant une somnolence diurne accrue ; une PPC efficace et suivie rétablit l’aptitude. Pour le groupe 2 (camion, car, taxi), un test de maintien de l’éveil est recommandé.') +
- P('La location de la PPC est remboursée par l’assurance de base (liste des moyens et appareils) ; en Suisse romande, la Ligue pulmonaire fournit souvent l’appareil et le suivi. L’original citait « 4 h sur 70 % des nuits » comme règle LAMal : c’est une règle américaine.', 16, 15) +
+ P('La location de la PPC est remboursée par l’assurance de base (liste des moyens et appareils) ; en Suisse romande, la Ligue pulmonaire fournit souvent l’appareil et le suivi. L’original citait « 4 h sur 70 % des nuits » comme règle LAMal. La LiMA (position 14.11) renvoie aux recommandations suisses de 2020 : contrôle à 3 mois puis annuel, sans seuil chiffré retrouvé.', 16, 15, 85) +
  H4('11.C Surveillance et critères de sortie') +
  TAB(['Quand', 'Quoi'], [
   ['Après 1 mois', 'Observance, fuites, IAH résiduel lus sur l’appareil'],
@@ -188,7 +190,8 @@ ADD(11, 'Prise en charge',
  ]) + P('Le rythme de suivi suit les pratiques des centres suisses ; il n’est pas fixé par la loi.', 15) +
  H4('11.D Pronostic et recherche 2026') +
  P('Le SAOS est une maladie chronique, contrôlée par la PPC tant qu’elle est utilisée ; une rémission est possible après chirurgie bariatrique ou maxillo-faciale.', 17) +
- P('La stimulation du nerf hypoglosse est autorisée depuis 2014 pour les patients choisis qui ne tolèrent pas la PPC. L’association atomoxétine-oxybutynine est en essai de phase III, sans autorisation en 2026.', 17, 40))
+ P('La stimulation du nerf hypoglosse est autorisée depuis 2014 pour les patients choisis qui ne tolèrent pas la PPC. L’association aroxybutynine-atomoxétine (AD109) a terminé sa phase III ; l’agence américaine du médicament (FDA) a accepté la demande d’autorisation en juillet 2026. '
+   'La décision américaine est attendue le 28.02.2027 ; le produit n’est autorisé ni en Suisse ni dans l’Union européenne.', 17, 77))
 ADD(12, 'Prévention',
  P('La prévention repose sur la lutte contre l’obésité, l’éviction des sédatifs et de l’alcool le soir, et le repérage du SAOS chez les conducteurs somnolents.', 14, 15) +
  F('Prévention primaire, secondaire et tertiaire',
@@ -206,7 +209,7 @@ ADD(14, 'Pièges d’examen',
  TAB(['Piège', 'Ce qu’il faut répondre'], [
   ['Prescrire une benzodiazépine pour des réveils nocturnes', 'Non : elle relâche le pharynx et allonge les apnées'],
   ['Exclure un SAOS sur une polygraphie normale', 'Non : faire une polysomnographie si la suspicion reste forte'],
-  ['Croire que la LAMal exige 4 h sur 70 % des nuits', 'Non : c’est une règle de l’assurance publique américaine'],
+  ['Croire que la LAMal exige 4 h sur 70 % des nuits', 'Seuil classique et américain ; non retrouvé dans la LiMA ni les recommandations suisses 2020 (à vérifier)'],
   ['Oublier la conduite', 'Il faut informer le patient et documenter l’information'],
   ['Mettre une PPC à un patient insuffisant cardiaque avec apnées centrales', 'Il faut d’abord caractériser les apnées par polysomnographie'],
   ['Oublier l’unité de la pression', 'La PPC se règle en cmH₂O'],

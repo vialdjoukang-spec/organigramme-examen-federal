@@ -247,11 +247,11 @@ ADD(11, 'Prise en charge',
  P('Moyens non médicamenteux : hygiène du sommeil, activité physique adaptée, psychothérapie (thérapie cognitivo-comportementale) si dépression ou insomnie. '
    'Dans l’encéphalomyélite myalgique, le pacing reste sous le seuil qui déclenche le malaise post-effort ; l’activité physique graduée est déconseillée par le NICE.', 33, 44) +
  FICHE([
-  ['Fer IV : carboxymaltose ferrique (Ferinject®)', 'Livre le fer aux macrophages', 'Fer libéré en quelques jours', '20 mg/kg, max 1000 mg par semaine', 'Hypophosphatémie, réaction de perfusion', 'Infection aiguë, 1er trimestre de grossesse', 'Aucune alimentaire'],
-  ['Fer oral : sulfate ferreux (Tardyferon®)', 'Fer absorbé par le duodénum', 'Absorption 10–20 %, freinée par l’hepcidine ≈ 24 h', '100–150 mg un jour sur deux', 'Nausées, constipation', 'Hémochromatose', 'Calcium, inhibiteurs de la pompe à protons, lévothyroxine : espacer'],
-  ['Hormone thyroïdienne : lévothyroxine (Euthyrox®)', 'Remplace la thyroxine (T4)', 'Demi-vie ≈ 7 jours', '1,6 µg/kg/j ; âgé : 12,5–25 µg/j', 'Palpitations, fibrillation atriale si surdosage', 'Insuffisance surrénale non traitée', 'Fer, calcium : espacer de 4 h'],
-  ['Antidépresseur de classe ISRS (inhibiteur sélectif de la recapture de la sérotonine) : sertraline (Zoloft®)', 'Bloque la recapture de la sérotonine', 'Demi-vie ≈ 1 jour', '50 mg/j (max 200)', 'Nausées, hyponatrémie', 'Inhibiteurs de la monoamine oxydase', 'Anticoagulants, tramadol'],
- ], 9, 20, 44) +
+  ['Fer IV : carboxymaltose ferrique (Ferinject®)', 'Livre le fer aux macrophages', 'Fer libéré en quelques jours', 'Besoin total 500–2000 mg selon hémoglobine et poids ; par perfusion ≤ 20 mg/kg et ≤ 1000 mg, max 1000 mg par semaine ; surveillance 30 min', 'Hypophosphatémie, réaction de perfusion', 'Infection aiguë, 1er trimestre de grossesse', 'Aucune alimentaire'],
+  ['Fer oral : sulfate ferreux (Tardyferon®)', 'Fer absorbé par le duodénum', 'Absorption 10–20 %, freinée par l’hepcidine ≈ 24 h', '60–100 mg de fer élément un jour sur deux (ou 80–100 mg par jour)', 'Nausées, constipation', 'Hémochromatose', 'Calcium, inhibiteurs de la pompe à protons, lévothyroxine : espacer'],
+  ['Hormone thyroïdienne : lévothyroxine (Euthyrox®)', 'Remplace la thyroxine (T4)', 'Demi-vie ≈ 7 jours', '1,6 µg/kg/j à jeun, poids idéal si obésité ; âgé ou coronarien : 12,5–25 µg/j, paliers toutes les 4–6 semaines', 'Palpitations, fibrillation atriale si surdosage', 'Insuffisance surrénale non traitée', 'Fer, calcium : espacer de 4 h'],
+  ['Antidépresseur de classe ISRS (inhibiteur sélectif de la recapture de la sérotonine) : sertraline (Zoloft®)', 'Bloque la recapture de la sérotonine', 'Demi-vie ≈ 1 jour', '50 mg/j ; paliers de 50 mg espacés d’au moins 1 semaine ; max 200 mg/j', 'Nausées, hyponatrémie', 'Inhibiteurs de la monoamine oxydase', 'Anticoagulants, tramadol'],
+ ], 9, 75, 11, 20, 44) +
  P('Aucun stimulant n’est validé contre la fatigue sans cause ; le méthylphénidate n’a pas fait mieux qu’un placebo dans la fatigue du cancer.', 68) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [

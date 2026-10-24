@@ -134,7 +134,7 @@ ADD(9, 'Examens complémentaires',
  H4('9.c Prescription et formules') +
  P('Indication : fatigue, symptômes évocateurs, terrain à risque. Moment : le matin, à distance d’une maladie aiguë ; contrôle 6–8 semaines après tout changement de dose. '
    'Préparation : arrêt de la biotine 2 jours avant ; prise de lévothyroxine après la prise de sang le jour du contrôle.', 20) +
- TAB(['Grandeur', 'Formule', 'Repère'], [['Dose complète', '1,6 µg/kg/j', 'Adulte jeune'], ['Dose de départ', '12,5–25 µg/j', 'Âgé ou coronarien'], ['Paliers', '+12,5–25 µg toutes les 4–6 semaines', 'Selon la TSH']]) +
+ TAB(['Grandeur', 'Formule', 'Repère'], [['Dose complète', '1,6 µg/kg/j (1,5–1,8), poids idéal si obésité', 'Adulte jeune sans cardiopathie : départ possible à 50–100 µg/j'], ['Dose de départ', '12,5–25 µg/j', 'Âgé ou coronarien'], ['Paliers', '+12,5–25 µg toutes les 4–6 semaines', 'Selon la TSH']]) +
  H4('9.d Interprétation : positif, négatif, limite, discordant') +
  TAB(['Situation', 'Interprétation', 'Conduite'], [
   ['Positif : TSH > 10 mUI/L', 'Hypothyroïdie probable', 'T4 libre, traiter'],
@@ -152,13 +152,14 @@ ADD(10, 'Arbre décisionnel',
        'TSH élevée, T4 libre basse : hypothyroïdie avérée → lévothyroxine.',
        'TSH 4–10 mUI/L, T4 libre normale : recontrôle à 2–3 mois avec anti-TPO.',
        'TSH ≥ 10 mUI/L confirmée : traiter (ETA).',
-       'TSH 4–10 mUI/L, patient < 70 ans symptomatique : essai de 3 mois de lévothyroxine, arrêt si pas d’effet.',
+       'TSH 4–10 mUI/L, patient < 65–70 ans symptomatique : essai de 3–6 mois de lévothyroxine, arrêt si pas d’effet.',
+       'Patient ≥ 70 ans, TSH < 10 mUI/L : surveillance sans traitement ; l’essai de lévothyroxine chez le sujet âgé (TRUST) n’a montré aucun bénéfice après 65 ans.',
        'Grossesse ou désir de grossesse : traiter plus tôt, selon les normes du trimestre.',
-       'T4 libre basse avec TSH inadaptée : cortisol et bilan hypophysaire avant la lévothyroxine.']), 19, 61))
+       'T4 libre basse avec TSH inadaptée : cortisol et bilan hypophysaire avant la lévothyroxine.']), 19, 61, 79))
 ADD(11, 'Prise en charge',
  H4('11.A Buts : d’abord l’urgence (coma myxœdémateux), car la mortalité est élevée') +
- P('Le traitement rétablit l’euthyroïdie, normalise la TSH et supprime les symptômes, sans surdosage.', 20) +
- TAB(['But', 'Cible chiffrée'], [['TSH (adulte)', '≈ 0,4–4,0 mUI/L'], ['TSH (personne très âgée)', 'Cible plus haute tolérée, jusqu’à ≈ 6 mUI/L'], ['Grossesse', 'TSH < 2,5 mUI/L souvent visée']]) +
+ P('Le traitement rétablit l’euthyroïdie, normalise la TSH et supprime les symptômes, sans surdosage.', 20, 19) +
+ TAB(['But', 'Cible chiffrée'], [['TSH (adulte < 70 ans)', '≈ 0,4–2,5 mUI/L (ETA 2013)'], ['TSH (adulte > 70 ans)', '≈ 1–5 mUI/L (ETA 2013)'], ['Grossesse', 'TSH < 2,5 mUI/L souvent visée']]) +
  H4('11.B Moyens et méthodes : forme compliquée en urgence, puis forme non compliquée en ambulatoire') +
  P('La forme compliquée (coma myxœdémateux) se traite en urgence aux soins intensifs : hydrocortisone d’abord, puis lévothyroxine IV, réchauffement et ventilation dans les premières heures. '
    'La forme non compliquée se traite en ambulatoire, avec des mesures générales et une éducation du patient sur la prise à jeun.', 20) +

@@ -24,16 +24,17 @@ ADD(1, 'Définition et sémantique',
 ADD(2, 'Épidémiologie (Suisse, puis Europe)',
  P('Plus de 90 % des adultes dans le monde sont porteurs de l’EBV. '
    'En Suisse, aucune donnée nationale publiée ne chiffre la fatigue post-infectieuse. '
-   'Dans la cohorte internationale de Dubbo (253 patients), 12 % gardaient une fatigue invalidante à 6 mois après EBV, fièvre Q ou virus de Ross River.', 24, 22) +
+   'Dans la cohorte australienne de Dubbo (253 patients), 12 % gardaient une fatigue invalidante à 6 mois après EBV, fièvre Q ou virus de Ross River.', 24, 22) +
  F('Chiffres, terrain et histoire naturelle',
    TAB(['Donnée', 'Valeur', 'Portée'], [
     ['Adultes séropositifs pour l’EBV', '> 90 %', 'Données internationales'],
-    ['Fatigue invalidante à 6 mois après infection', '12 %', 'Cohorte de Dubbo (Australie)'],
-    ['Syndrome de fatigue chronique à 6 mois', '11 %', 'Même cohorte'],
-    ['Éruption sous amoxicilline, enfants avec mononucléose', '29,5 %', 'Chovel-Sella (2013) ; l’original disait 90 %'],
+    ['Fatigue invalidante à 6 mois après infection', '12 % (29/253)', 'Cohorte de Dubbo (Australie), même taux quel que soit le microbe'],
+    ['Syndrome de fatigue chronique à 6 mois', '11 % (28/253)', 'Même cohorte, critères internationaux'],
+    ['Syndrome de fatigue post-infectieux provisoire', '27 % à 3 mois, 9 % à 12 mois', 'Même cohorte ; définition plus large que le syndrome de fatigue chronique'],
+    ['Éruption sous amoxicilline, enfants avec mononucléose', '29,5 % (IC 95 % 18,5–42,6)', 'Chovel-Sella (2013) : 23 % sans antibiotique ; l’original disait 90 %'],
     ['Données suisses de fatigue post-infectieuse', 'Non publiées', 'Les chiffres « OFSP / RMS » de l’original n’ont pas été retrouvés'],
    ]) + P('Le terrain typique de la mononucléose est l’adolescent et l’adulte jeune de 15 à 25 ans. '
-          'Le pronostic est bon : la plupart guérissent en 1 à 3 mois ; la gravité de l’infection initiale prédit la fatigue prolongée ; la mortalité est très faible.', 24, 22)))
+          'Le pronostic est bon : la plupart guérissent en 1 à 3 mois ; la gravité de l’infection initiale prédit la fatigue prolongée ; la mortalité est très faible.', 24, 22, 23)))
 ADD(3, 'Physiopathologie',
  P('L’EBV infecte la gorge, puis les lymphocytes B. '
    'Des ' + LYA + ' se multiplient pour les détruire et libèrent des cytokines (interféron-γ, TNF-α, interleukines). '

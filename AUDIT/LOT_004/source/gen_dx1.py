@@ -142,10 +142,11 @@ ADD(9, 'Examens complémentaires',
  P('Indication : fatigue, anémie microcytaire, terrain à risque ou contrôle d’un traitement. Moment : le matin, à distance d’une infection aiguë. '
    'Préparation : aucun jeûne nécessaire ; arrêt du fer oral 1 semaine avant un contrôle de ferritine, sinon le résultat est surestimé.', 9) +
  TAB(['Grandeur', 'Formule', 'Repère'], [
-  ['Déficit en fer (Ganzoni)', 'Poids (kg) × (Hb cible − Hb actuelle) (g/dL) × 2,4 + 500 mg de réserves', 'Réserves de 500 mg si poids > 35 kg'],
+  ['Déficit en fer (Ganzoni)', 'Poids (kg) × (Hb cible 15 − Hb actuelle) (g/dL) × 2,4 + 500 mg de réserves', 'Réserves de 500 mg si poids > 35 kg ; poids idéal (indice de masse corporelle de 25) si obésité'],
+  ['Schéma simplifié (Swissmedic)', 'Hb < 10 g/dL : 1500 mg (35–70 kg) ou 2000 mg (≥ 70 kg) ; Hb 10–14 : 1000 ou 1500 mg ; Hb ≥ 14 : 500 mg', 'Information professionnelle de Ferinject®'],
   ['Règle simple (mediX)', 'Ferritine < 10 µg/L : 1000 mg ; 10–15 µg/L : 500 mg', 'Dose cumulée sans anémie marquée'],
   ['Saturation de la transferrine', 'Fer sérique / capacité totale de fixation × 100', 'Normale 20–45 %'],
- ]) + P('Exemple : femme de 60 kg, Hb 9 g/dL, cible 15 g/dL : 60 × 6 × 2,4 + 500 = 1364 mg, soit environ 1,4 g de fer IV en 2 perfusions.', 13, 9) +
+ ]) + P('Exemple : femme de 60 kg, Hb 9 g/dL, cible 15 g/dL : 60 × 6 × 2,4 + 500 = 1364 mg, arrondi à 1300 mg selon l’information professionnelle, en 2 perfusions espacées d’au moins 7 jours.', 13, 75, 9) +
  H4('9.d Interprétation : positif, négatif, limite, discordant') +
  TAB(['Situation', 'Interprétation', 'Conduite'], [
   ['Positif : ferritine < 15 µg/L', 'Carence certaine', 'Traiter et chercher la cause'],
@@ -178,10 +179,10 @@ ADD(11, 'Prise en charge',
    'La forme non compliquée se traite en ambulatoire par le fer oral, avec des mesures générales d’alimentation et l’éducation du patient.', 9) +
  P('Moyens non médicamenteux : alimentation riche en fer héminique (viande rouge), légumineuses, thé et café à distance des repas. La vitamine C n’a pas d’effet notable démontré sur l’absorption.', 9) +
  FICHE([
-  ['Fer ferreux oral (Fe²⁺) : sulfate ferreux (Tardyferon®), Ferrum Hausmann®', 'Apporte du fer absorbé par le duodénum', 'Absorption 10–20 %, freinée par l’hepcidine pendant ≈ 24 h', '100–150 mg de fer élément un jour sur deux, 30 min avant le repas ; 3 mois après normalisation de l’Hb', 'Nausées, constipation, selles noires', 'Hémochromatose, anémie sans carence', 'Antiacides, IPP, calcium, lévothyroxine, quinolones, tétracyclines (espacer de 2 h)'],
+  ['Fer ferreux oral (Fe²⁺) : sulfate ferreux (Tardyferon®), Ferrum Hausmann®', 'Apporte du fer absorbé par le duodénum', 'Absorption 10–20 %, freinée par l’hepcidine pendant ≈ 24 h', '60–100 mg de fer élément un jour sur deux (ou 80–100 mg par jour), 30 min avant le repas ; 3 mois après normalisation de l’Hb', 'Nausées, constipation, selles noires', 'Hémochromatose, anémie sans carence', 'Antiacides, IPP, calcium, lévothyroxine, quinolones, tétracyclines (espacer de 2 h)'],
   ['Fer ferrique oral (Fe³⁺) : polymaltose (Maltofer®)', 'Complexe ferrique absorbé plus lentement', 'Absorption un peu plus faible que le Fe²⁺', 'Même logique de dose', 'Un peu mieux toléré', 'Idem', 'Moins d’interactions alimentaires'],
-  ['Fer IV : carboxymaltose ferrique (Ferinject®), dérisomaltose (Monofer®)', 'Livre le fer directement aux macrophages', 'Le fer est libéré en quelques jours ; la ferritine monte vite', 'Ferinject® 20 mg/kg, max 1000 mg par semaine ; 1re perfusion ≤ 500 mg selon mediX', 'Hypophosphatémie (plus fréquente sous Ferinject®), réactions de perfusion, anaphylaxie très rare', 'Infection aiguë, 1er trimestre de grossesse, surcharge en fer', 'Aucune interaction alimentaire'],
- ], 9, 11) +
+  ['Fer IV : carboxymaltose ferrique (Ferinject®), dérisomaltose (Monofer®)', 'Livre le fer directement aux macrophages', 'Le fer est libéré en quelques jours ; la ferritine monte vite', 'Ferinject® ≤ 20 mg/kg et ≤ 1000 mg par perfusion, max 1000 mg par semaine (Swissmedic) ; 1re perfusion ≤ 500 mg selon mediX, surtout sans anémie ou si petit poids', 'Hypophosphatémie liée au facteur de croissance des fibroblastes 23 (FGF-23) (plus fréquente sous Ferinject®), réactions de perfusion, anaphylaxie très rare', 'Infection aiguë, 1er trimestre de grossesse, surcharge en fer', 'Aucune interaction alimentaire'],
+ ], 9, 75, 11, 74, 73) +
  P('Correction de l’original : Maltofer® est du fer ferrique (polymaltose), pas du sulfate ferreux. La dose de 80 mg par jour de l’essai de Vaucher est une alternative.', 9, 12) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [

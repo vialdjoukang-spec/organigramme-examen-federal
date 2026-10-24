@@ -25,7 +25,9 @@ ADD(2, 'Épidémiologie (Suisse, puis Europe)',
    TAB(['Donnée', 'Valeur', 'Portée'], [
     ['Prévalence', '≈ 100–140 / million', 'Europe, revues'],
     ['Cause auto-immune', '≈ 80–90 %', 'Pays industrialisés'],
-    ['Crises surrénaliennes chez des patients éduqués', '8,3 pour 100 patients-années', 'Étude de Hahner 2015'],
+    ['Crises surrénaliennes chez des patients éduqués', '8,3 pour 100 patients-années (64 crises en 767,5 patients-années)', 'Étude prospective de Hahner 2015'],
+    ['Décès liés à une crise', '0,5 pour 100 patients-années', 'Même étude'],
+    ['Déclencheurs des crises', 'Gastro-entérite, fièvre, stress émotionnel : ≈ 20 % chacun', 'Même étude'],
     ['Insuffisance corticotrope après corticoïdes', 'Beaucoup plus fréquente que l’Addison', 'Endocrine Society'],
    ]) + P('Le terrain est celui des maladies auto-immunes (thyroïde, diabète de type 1, vitiligo). '
           'Le pronostic est bon sous traitement, mais les crises restent fréquentes et parfois mortelles.', 57, 39, 37)))
@@ -161,9 +163,12 @@ ADD(11, 'Prise en charge',
  P('Règles de stress : doubler la dose orale si fièvre > 38 °C, la tripler si > 39 °C, jusqu’à la guérison ; passer à l’injection en cas de vomissements.', 37) +
  FICHE([
   ['Glucocorticoïde : hydrocortisone (Hydrocortison Galepharm® ; Alkindi® chez l’enfant)', 'Remplace le cortisol', 'Demi-vie ≈ 1,5 h', '15–25 mg/j en 2–3 prises (ex. 10–5–5 mg à 7 h, 12 h, 16 h), à vie', 'Surdosage : prise de poids, hypertension, ostéoporose', 'Aucune en substitution', 'Inducteurs du CYP3A4 (rifampicine) : augmenter'],
-  ['Hydrocortisone à libération modifiée (Plenadren®)', 'Profil plus proche du rythme naturel', '1 prise le matin', '20 mg le matin', 'Comme ci-dessus', 'Aucune en substitution', 'Inducteurs du CYP3A4'],
+  ['Hydrocortisone à libération modifiée (Plenadren®)', 'Profil plus proche du rythme naturel', '1 prise le matin ; absorption non linéaire', '20–30 mg le matin à jeun ; maladie intercurrente : même dose répétée 2–3×/j, toutes les 8 h environ', 'Comme ci-dessus', 'Aucune en substitution', 'Inducteurs du CYP3A4'],
   ['Minéralocorticoïde : fludrocortisone (Florinef®)', 'Remplace l’aldostérone', 'Demi-vie ≈ 3,5 h', '50–100 µg le matin ; jusqu’à 200 µg si besoin', 'Œdèmes, hypertension, hypokaliémie', 'Aucune en substitution', 'Diurétiques'],
- ], 37, 40) +
+ ], 37, 40, 86) +
+ P('Plenadren® est remboursé depuis le 1er juin 2025 sous limitation, après accord du médecin-conseil, dans l’insuffisance surrénalienne primaire seulement. '
+   'Il faut une fatigue ou une qualité de vie insuffisante après au moins 6 mois d’hydrocortisone classique bien conduite. '
+   'Seul un endocrinologue d’un centre hospitalier formateur le prescrit ; on l’arrête s’il n’apporte aucune amélioration en 6 mois.', 84, 86) +
  P('Au-delà de 50 mg/j d’hydrocortisone, la fludrocortisone est inutile, car l’hydrocortisone active alors le récepteur du sel.', 37) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [

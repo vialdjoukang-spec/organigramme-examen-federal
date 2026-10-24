@@ -74,3 +74,100 @@ Les occurrences non cliquables restantes se trouvent dans le glossaire des sigle
 - **DX.9** : CIM-10 G93.3 ; doses d’ivabradine, de propranolol, de midodrine et de naltrexone à faible dose ; « rémission plus fréquente chez l’enfant » ; source 41 utilisée pour le plan de vaccination (faible).
 - **DX.10** : cause auto-immune 80–90 % ; crises 8,3/100 patients-années ; grossesse +20–40 % ; œstrogènes arrêtés 6 semaines avant le test ; remboursement LAMal du kit d’urgence ; Plenadren® en Suisse ; taux de positivité des anti-21-hydroxylase.
 - Général : toutes les sources marquées « non relu » dans src_lot4.py, et toutes les posologies à contrôler dans l’AIPS (Swissmedic).
+
+## Révision 1 — vérification utilisateur 24.10.2026
+
+Source : `verif_utilisateur/LOT_004_synthese_utilisateur.md`. Chaque point a été recoupé de façon indépendante : PubMed E-utilities (auteurs, année, revue, sujet), informations professionnelles suisses (swissmedicinfo / ODDB), OFSP (Liste des spécialités), LiMA et communiqués du fabricant. Le détail se trouve dans `source/r1_verif_notes.md` ; le journal des modifications par cours, dans `source/r1_changes.md`. Toutes les modifications passent par les générateurs de `source/`.
+
+### Vérification des PMID
+| PMID | Référence | Résultat |
+|---|---|---|
+| 5413918 | Ganzoni, Schweiz Med Wochenschr 1970 (fer-dextran IV) | Confirmé (src 13) |
+| 24783053 | Pearce, ETA, Eur Thyroid J 2013 | Confirmé (src 19) |
+| 25266247 | Jonklaas, ATA, Thyroid 2014 | Confirmé (src 20) |
+| 34447992 | McDonagh, ESC IC, Eur Heart J 2021 | Confirmé (src 25) |
+| 25419882 | Hahner, JCEM 2015 (64 crises / 767,5 PA = 8,3/100 PA) | Confirmé (src 39) |
+| 11556941 | Kroenke, PHQ-9, J Gen Intern Med 2001 (Se/Sp 88 % au seuil 10) | Confirmé (src 43) |
+| 38912654 | Malhotra, SURMOUNT-OSA, NEJM 2024 | Confirmé (src 49) |
+| 29032957 | Stoffel, Lancet Haematol 2017 (fer un jour sur deux) | Confirmé (src 11) |
+| 16950834 | Hickie, Dubbo, BMJ 2006 | Confirmé (src 22) |
+| 23589810 | Chovel-Sella, Pediatrics 2013 | Confirmé (src 23) |
+| 32016310 | Wolf, JAMA 2020 (hypophosphatémie Ferinject vs Monofer) | Confirmé (src 74) |
+| 28402245 | Stott, TRUST, NEJM 2017 | Confirmé (src 79) |
+| 31269224 | Indiqué pour Nowak 2019 (Delphi suisse fer) | **Faux** : Heinisch 2019, correction tardive de la tétralogie de Fallot. Le bon PMID est **31269223** (src 73) |
+| 24526250 | Younger, Clin Rheumatol 2014 (LDN) | PMID exact, mais **portée limitée** : revue de la douleur chronique (fibromyalgie, Crohn, SEP, SDRC), sans essai EM/SFC. Cité seulement pour le mécanisme et les doses, avec cette réserve (src 83) |
+
+### Les 7 points demandés
+1. **AD109, NDA et date PDUFA** : confirmé. Le communiqué Apnimed du 14.07.2026 indique que la FDA a accepté la NDA. La date PDUFA est le 28.02.2027 ; le nom proposé est Oxnimbi. Aucune autorisation n'a été trouvée en Suisse ni dans l'UE. Correction du cours : « atomoxétine-oxybutynine en phase III, sans autorisation » devient « aroxybutynine-atomoxétine, NDA acceptée, décision le 28.02.2027, non autorisée en Suisse et dans l'UE » (src 77).
+2. **Spravato®, SL au 1.10.2025, 52 centres** : confirmé. L'OFSP indique une admission dans la SL au 1.10.2025, limitée dans le temps jusqu'au 30.09.2028. La liste OFSP compte 52 centres (valable dès le 01.10.2025).
+   - Limitation : 18–74 ans, CGI-S ≥ 5, échec de ≥ 2 antidépresseurs et d'une augmentation, ECT non indiquée, refusée ou inaccessible, association à un antidépresseur oral.
+   - Prescription par un psychiatre, avec garantie du médecin-conseil, pour 10 mois au plus.
+   - Nuance : la SL affiche une première admission au 01.10.2022.
+   - L'indication Swissmedic comprend aussi l'urgence psychiatrique, alors que la SL ne rembourse que la dépression résistante.
+   - La catégorie « A » n'a pas été vérifiée.
+3. **Limitation SL de Plenadren®** : confirmée. Plenadren® est dans la SL depuis le 1.6.2025, avec garantie de prise en charge par le médecin-conseil.
+   - Indication : insuffisance surrénalienne primaire seulement, avec fatigue ou qualité de vie insuffisante après ≥ 6 mois d'hydrocortisone classique optimale.
+   - Prescription par un endocrinologue d'un centre hospitalier formateur FMH (catégorie A/B) ; arrêt sans amélioration à 6 mois.
+   - Posologie : 20–30 mg le matin. En cas de maladie intercurrente, la même dose est répétée 2–3×/j (toutes les 8 ± 2 h). Cette posologie a été lue dans un résumé de recherche de l'IP ODDB ; elle est à relire.
+   - La catégorie de remise « B » n'a pas été vérifiée.
+4. **Younger 2014, PMID 24526250** : le PMID est exact, mais il ne prouve rien dans l'EM/SFC. Voir le tableau.
+5. **Ganzoni, PMID 5413918** : confirmé. La formule de l'IP suisse de Ferinject® (juin 2025) a aussi été vérifiée : Hb cible 15 g/dL, × 2,4, + 500 mg de réserves si > 35 kg, poids idéal (IMC 25) si obésité.
+6. **Midodrine, max ≈ 30 mg/j** : confirmé par l'IP suisse de Gutron® (plus de 30 mg/j en 3 prises : non recommandé). Les doses de départ sont de 2,5 mg 2–3×/j ; la dernière prise a lieu ≥ 4 h avant le coucher.
+7. **Ivabradine 2,5 mg dans le POTS** : **désaccord sur l'attribution**.
+   - L'IP suisse de Procoralan® ne mentionne pas le POTS. Elle prévoit 5 mg 2×/j, 2,5 mg 2×/j si ≥ 75 ans, et un maximum de 7,5 mg 2×/j.
+   - Dans l'insuffisance cardiaque, la fenêtre 50–60 /min sert à la titration de l'IP (pas la cible de l'ESC).
+   - La dose de 2,5 mg dans le POTS relève de la littérature et de la pratique (HRS), hors indication. Le cours l'affiche ainsi.
+
+### Autres points : confirmé / corrigé / désaccord
+- **SSP (fiche)** — corrigé :
+  - Ferinject® : « 20 mg/kg, max 1000 mg/sem » devient « besoin 500–2000 mg ; ≤ 20 mg/kg et ≤ 1000 mg par perfusion ; 1000 mg/sem ; surveillance 30 min » (IP CH).
+  - Fer oral : « 100–150 mg un jour sur deux » devient « 60–100 mg un jour sur deux (ou 80–100 mg/j) ».
+  - Lévothyroxine et sertraline : paliers précisés.
+- **DX.1** — corrigé :
+  - Ajout de l'Hb cible 15 et du schéma simplifié Swissmedic.
+  - Exemple : « ≈ 1,4 g » devient « 1300 mg après arrondi de l'IP ».
+  - Fer oral : 100–150 devient 60–100 mg un jour sur deux.
+  - Ferinject® : la limite Swissmedic de 1000 mg par perfusion est distinguée du plafond clinique mediX de ≤ 500 mg en 1re perfusion. Ajout de l'hypophosphatémie liée au FGF-23 (Wolf 2020).
+  - Nowak 2019 est cité avec le PMID corrigé 31269223.
+- **DX.2** :
+  - Corrigé : doses des ISRS et IRSN (escitalopram et citalopram plafonnés après 65 ans ; venlafaxine max 375 mg). Ces valeurs sont fournies par l'utilisateur et non revérifiées dans chaque IP.
+  - Confirmé : les bandes PHQ-9.
+  - Corrigé : Spravato®, voir le point 2.
+- **DX.3** :
+  - **Désaccord partiel** sur la règle « OPAS/LiMA 14.05 : ≥ 4 h sur ≥ 70 % des nuits ». La position LiMA des appareils de PPC est la 14.11, pas la 14.05. Elle renvoie aux recommandations SSSSC du 15.12.2020, qui exigent un contrôle d'efficacité et d'observance à 3 mois puis chaque année, sans seuil chiffré retrouvé. Le seuil 4 h / 70 % est la définition classique de l'observance et la règle des CMS (assurance publique américaine). Le cours affiche désormais cette cible d'observance, en précisant qu'elle n'est pas écrite dans la LiMA (à vérifier auprès des assureurs).
+  - Corrigé : tirzépatide. Indication suisse (IMC ≥ 30, ou ≥ 27 avec une comorbidité, dont le SAOS) et posologie jusqu'à 15 mg. Le remboursement n'est pas revérifié.
+  - AD109 : voir le point 1.
+- **DX.4** — corrigé :
+  - Cibles : « 0,4–4,0 ; très âgé ≈ 6 » devient « 0,4–2,5 (< 70 ans) ; 1–5 (> 70 ans) ».
+  - Essai thérapeutique : « 3 mois, < 70 ans » devient « 3–6 mois, < 65–70 ans ».
+  - Ajout : abstention si ≥ 70 ans et TSH < 10 (TRUST).
+  - Nuance ETA : le résumé ne formule le « wait-and-see » que pour > 80–85 ans avec TSH ≤ 10. Entre 60 et 70 ans, l'ETA demande une évaluation individuelle du risque cardiovasculaire.
+- **DX.5** :
+  - Confirmé et précisé : Chovel-Sella (IC 18,5–42,6 ; 23 % sans antibiotique) ; Dubbo 12 % / 11 % à 6 mois.
+  - Corrigé : « cohorte internationale » devient « australienne ».
+  - **Désaccord partiel** : les taux de 27 % à 3 mois et de 9 % à 12 mois concernent le syndrome post-infectieux *provisoire*, pas les critères EM/SFC. Le cours les présente ainsi.
+- **DX.6** — confirmé et complété : seuils 125 et 300 ng/L, VPN 94–98 %. Ajout des seuils d'inclusion selon l'âge 450 / 900 / 1800 ng/L, fournis par l'utilisateur (consensus ICON/HFA ; non relus dans le texte ESC 2021).
+- **DX.7** — confirmé et complété : finérénone selon l'IP Kerendia®. Nouvelle indication suisse dans l'insuffisance cardiaque à FEVG ≥ 40 % (9.1.2026), avec une cible de 40 mg si DFGe ≥ 60. Nuance : dans l'insuffisance cardiaque, le traitement peut débuter jusqu'à K⁺ ≤ 5,0.
+- **DX.8** — confirmé : pembrolizumab 200 mg toutes les 3 semaines ou 400 mg toutes les 6 semaines. La durée de perfusion de 30 min est fournie par l'utilisateur ; l'IP de Keytruda® n'a pas été relue.
+- **DX.9** — corrigé : ivabradine (point 7), midodrine (point 6), LDN (départ 0,5–1,5 mg, mécanisme TLR4, réserve sur Younger 2014).
+- **DX.10** — confirmé et complété :
+  - Hahner : 64 crises en 767,5 PA ; décès 0,5/100 PA ; déclencheurs à ≈ 20 % chacun.
+  - Plenadren® : voir le point 3.
+
+### Reste à vérifier (Révision 1)
+- Points fournis par l'utilisateur et non revérifiés :
+  - doses maximales de chaque ISRS et de la venlafaxine ;
+  - lévothyroxine 50–100 µg/j au départ chez l'adulte jeune ;
+  - seuils NT-proBNP d'inclusion selon l'âge ;
+  - durée de perfusion du pembrolizumab ;
+  - titration de la LDN ;
+  - fer oral 80–100 mg/j.
+- Posologie de Plenadren® en maladie intercurrente : à relire dans l'IP complète.
+- Catégories de remise de Spravato® (A) et de Plenadren® (B).
+- Remboursement de la tirzépatide.
+- Existence éventuelle d'un seuil chiffré d'observance de la PPC chez les assureurs suisses.
+
+### Contrôles après Révision 1
+- eval.sh : 98,8 % pour les 12 fichiers (seul 13.b, noté par un humain, reste ouvert). verif_v7 OK pour les 12 fichiers. contraste.py : 0 écart. Sigles non développés : 0 ; phrases > 30 mots : 0.
+- Tailles : de 118 304 à 182 443 octets (toutes entre 90 et 200 Ko).
+- MANIFEST.sha256 régénéré (12 fichiers, `sha256sum -c` OK). Le json orphelin du SSP non scindé, recréé par gen_ssp.py, a été supprimé.

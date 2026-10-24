@@ -122,7 +122,7 @@ ADD(8, 'Critères diagnostiques',
     ['Léger', '2 principaux + 2 associés'],
     ['Moyen', '2 principaux + 3–4 associés'],
     ['Sévère', '3 principaux + ≥ 4 associés'],
-   ]) + P('Critère de dépistage (recommandation SSAD 2016) : au seuil de 10, le PHQ-9 a une sensibilité et une spécificité de 88 %. '
+   ]) + P('Critère de dépistage (recommandation SSAD 2016, d’après la validation de Kroenke 2001) : au seuil de 10, le PHQ-9 a une sensibilité et une spécificité de 88 %. '
    'L’original exigeait « au moins 2 symptômes cardinaux » sans préciser le nombre de symptômes associés : la sévérité dépend du total.', 44, 43)) +
  F('Critères CIM-11 du burn-out (QD85)', UL(['Sentiment d’épuisement ou de manque d’énergie', 'Distance mentale accrue, négativisme ou cynisme envers le travail', 'Efficacité professionnelle réduite', 'Uniquement dans le contexte du travail']), 45))
 ADD(9, 'Examens complémentaires',
@@ -173,10 +173,10 @@ ADD(11, 'Prise en charge',
    'La forme non compliquée se traite en ambulatoire, avec des mesures générales : sommeil régulier, activité physique, réduction de l’alcool, et une éducation du patient sur le délai d’action.', 44, 46) +
  P('La psychothérapie (TCC, thérapie interpersonnelle) est efficace dans les formes légères à modérées. Pour le burn-out, on adapte la charge de travail et on prépare un retour progressif.', 44, 46) +
  FICHE([
-  ['ISRS : sertraline (Zoloft®), escitalopram (Cipralex®)', 'Bloque la recapture de la sérotonine', 'Demi-vie ≈ 1 jour ; état d’équilibre en 1 semaine', 'Sertraline 50 mg/j (max 200) ; escitalopram 10 mg/j (max 20)', 'Nausées, troubles sexuels, hyponatrémie, saignements', 'IMAO, allongement du QT (escitalopram)', 'Anticoagulants, AINS, tramadol, triptans (syndrome sérotoninergique)'],
-  ['IRSN : venlafaxine (Efexor®), duloxétine (Cymbalta®)', 'Bloque la recapture de la sérotonine et de la noradrénaline', 'Métabolisme hépatique', 'Venlafaxine 75 mg/j ; duloxétine 60 mg/j', 'Hausse de la pression, sueurs, syndrome d’arrêt', 'Hypertension non contrôlée, insuffisance hépatique (duloxétine)', 'IMAO, autres sérotoninergiques'],
+  ['ISRS : sertraline (Zoloft®), escitalopram (Cipralex®), citalopram (Seropram®)', 'Bloque la recapture de la sérotonine', 'Demi-vie ≈ 1 jour ; état d’équilibre en 1 semaine', 'Sertraline 50 mg/j, entretien 50–150, max 200 ; escitalopram 10 mg/j, max 20 (10 après 65 ans) ; citalopram 20 mg/j, max 40 (20 après 65 ans)', 'Nausées, troubles sexuels, hyponatrémie, saignements', 'IMAO, allongement du QT (escitalopram)', 'Anticoagulants, AINS, tramadol, triptans (syndrome sérotoninergique)'],
+  ['IRSN : venlafaxine (Efexor®), duloxétine (Cymbalta®)', 'Bloque la recapture de la sérotonine et de la noradrénaline', 'Métabolisme hépatique', 'Venlafaxine 75 mg/j, entretien 75–225, max 375 (effet noradrénergique dès ≈ 150 mg) ; duloxétine 60 mg/j', 'Hausse de la pression, sueurs, syndrome d’arrêt', 'Hypertension non contrôlée, insuffisance hépatique (duloxétine)', 'IMAO, autres sérotoninergiques'],
   ['Antidépresseur noradrénergique et sérotoninergique : mirtazapine (Remeron®)', 'Bloque les récepteurs α2 et H1', 'Sédatif à faible dose', '15–45 mg le soir', 'Somnolence, prise de poids', 'Prudence si conduite', 'Alcool, sédatifs'],
- ], 44) +
+ ], 44, 40) +
  P('Le choix tient compte des effets indésirables, des comorbidités et des préférences ; l’original déclarait les antidépresseurs « obligatoires » dans la forme sévère, alors qu’ils y sont recommandés.', 44, 46) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [
@@ -200,7 +200,8 @@ ADD(11, 'Prise en charge',
  ]) + P('Chez la personne âgée, la natrémie se contrôle après le début d’un ISRS, car l’hyponatrémie par sécrétion inappropriée d’hormone antidiurétique est plus fréquente.', 44, 40) +
  H4('11.D Pronostic et recherche 2026') +
  P('Environ la moitié des patients rechutent après un premier épisode ; le risque augmente avec le nombre d’épisodes. Le burn-out a un pronostic favorable si la situation de travail change.', 44) +
- P('L’eskétamine intranasale (Spravato®) est autorisée par Swissmedic pour la dépression résistante, sous surveillance. La psilocybine à forte dose reste en recherche ; le micro-dosage, cité par l’original, n’a pas montré d’efficacité.', 72, 44))
+ P('L’eskétamine en spray nasal (Spravato®) est autorisée par Swissmedic pour la dépression résistante et l’urgence psychiatrique dépressive, toujours sous surveillance médicale. ''Depuis le 1er octobre 2025, l’assurance de base la rembourse sous limitation, de 18 à 74 ans, si le score CGI-S (impression clinique globale de sévérité) est ≥ 5. ''Il faut l’échec de 2 antidépresseurs et d’une augmentation, et une électroconvulsivothérapie non indiquée, refusée ou inaccessible. ''Un psychiatre la prescrit dans l’un des 52 centres désignés par l’OFSP, après accord du médecin-conseil, pour 10 mois au plus.', 72, 76) +
+ P('La psilocybine à forte dose reste en recherche ; le micro-dosage, cité par l’original, n’a pas montré d’efficacité.', 44))
 ADD(12, 'Prévention',
  P('La prévention combine la réduction du stress au travail, le repérage précoce et l’éducation du patient et de ses proches aux signes de rechute.', 8, 44) +
  F('Prévention primaire, secondaire et tertiaire',

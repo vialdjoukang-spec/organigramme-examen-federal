@@ -168,7 +168,7 @@ ADD(11, 'Prise en charge',
    'La forme non compliquée se traite en ambulatoire, avec des mesures générales : colloque multidisciplinaire, chirurgie, radiothérapie ou traitement médical.', 30) +
  P('Pour la fatigue liée au cancer, l’ESMO recommande d’abord l’exercice physique aérobie et de renforcement, avec un soutien nutritionnel et psychologique.', 30) +
  FICHE([
-  ['Anti-PD-1 : pembrolizumab (Keytruda®)', 'Lève le frein des lymphocytes T contre la tumeur', 'Intraveineux, demi-vie ≈ 26 j', '200 mg toutes les 3 semaines ou 400 mg toutes les 6 semaines', 'Thyroïdite, colite, hépatite, hypophysite', 'Selon l’indication', 'Corticoïdes au long cours'],
+  ['Anti-PD-1 : pembrolizumab (Keytruda®)', 'Lève le frein des lymphocytes T contre la tumeur', 'Intraveineux, demi-vie ≈ 26 j', '200 mg toutes les 3 semaines ou 400 mg toutes les 6 semaines, en perfusion de 30 min', 'Thyroïdite, colite, hépatite, hypophysite', 'Selon l’indication', 'Corticoïdes au long cours'],
   ['Anti-CD20 : rituximab (MabThera®)', 'Détruit les lymphocytes B', 'Intraveineux', 'Selon le protocole du lymphome', 'Réaction à la perfusion, réactivation de l’hépatite B', 'Infection active grave', 'Vaccins vivants'],
   ['Corticoïde : dexaméthasone (Fortecortin®)', 'Anti-inflammatoire', 'Demi-vie biologique 36–54 h', '4 mg 2×/j pendant 14 jours (essai, cancer avancé)', 'Hyperglycémie, myopathie, insomnie', 'Infection non contrôlée', 'Antidiabétiques, AINS'],
   ['Psychostimulant : méthylphénidate (Ritaline®)', 'Augmente la dopamine', 'Demi-vie ≈ 2–3 h', '5–10 mg le matin et à midi (hors indication)', 'Insomnie, tachycardie', 'Arythmie, hypertension non contrôlée', 'IMAO'],

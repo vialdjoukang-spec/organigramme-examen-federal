@@ -170,12 +170,13 @@ ADD(11, 'Prise en charge',
  P('Le pacing consiste à fractionner les activités physiques et mentales pour rester sous son seuil. Le cardiofréquencemètre peut aider ; le seuil de « 60 % de la fréquence maximale » de l’original n’est pas sourcé.', 33) +
  P('POTS : eau 2–3 L/j, sel 10–12 g/j et bas de contention jusqu’à la taille.', 36) +
  FICHE([
-  ['Inhibiteur du courant If : ivabradine (Procoralan®)', 'Ralentit le nœud sinusal sans baisser la pression', 'Demi-vie ≈ 2 h ; CYP3A4', '2,5–5 mg 2×/j (hors indication)', 'Phosphènes, bradycardie', 'Grossesse, bradycardie', 'Inhibiteurs du CYP3A4'],
+  ['Inhibiteur du courant If : ivabradine (Procoralan®)', 'Ralentit le nœud sinusal sans baisser la pression', 'Demi-vie ≈ 2 h ; CYP3A4', '2,5 mg 2×/j, puis 5 mg 2×/j selon le pouls (hors indication) ; l’information suisse ne prévoit pas le POTS ; max 7,5 mg 2×/j', 'Phosphènes, bradycardie', 'Grossesse, bradycardie', 'Inhibiteurs du CYP3A4'],
   ['Bêtabloquant : propranolol (Inderal®)', 'Bloque les récepteurs β', 'Demi-vie ≈ 3–6 h', '10–20 mg jusqu’à 4×/j (hors indication)', 'Fatigue, hypotension', 'Asthme', 'Vérapamil'],
-  ['Agoniste α1 : midodrine (Gutron®)', 'Resserre les vaisseaux', 'Demi-vie du métabolite ≈ 3 h', '2,5–10 mg 3×/j, pas le soir', 'Hypertension couchée, chair de poule', 'Hypertension sévère', 'Autres vasoconstricteurs'],
-  ['Naltrexone à faible dose (préparation magistrale)', 'Hypothèse : modulation de la microglie', 'Demi-vie courte', '0,5 mg le soir, titration lente jusqu’à 3–4,5 mg/j (hors indication)', 'Rêves vifs, céphalées', 'Opioïdes', 'Opioïdes'],
- ], 36, 33) +
- P('Aucun médicament n’est autorisé pour l’EM/SFC. La naltrexone à faible dose n’a pas de preuve solide ; elle n’impose pas de surveillance hépatique à ces doses.', 33, 40) +
+  ['Agoniste α1 : midodrine (Gutron®)', 'Resserre les vaisseaux', 'Demi-vie du métabolite ≈ 3 h', 'Départ 2,5 mg 2–3×/j ; entretien 5–10 mg 3×/j ; max 30 mg/j ; dernière prise ≥ 4 h avant le coucher', 'Hypertension couchée, chair de poule', 'Hypertension sévère', 'Autres vasoconstricteurs'],
+  ['Naltrexone à faible dose (préparation magistrale)', 'Hypothèse : modulation de la microglie via le récepteur de type Toll 4 (TLR4), rebond des endorphines', 'Demi-vie courte', '0,5–1,5 mg le soir, titration lente jusqu’à 3–4,5 mg/j (hors indication)', 'Rêves vifs, céphalées', 'Opioïdes', 'Opioïdes'],
+ ], 36, 33, 81, 82, 83) +
+ P('Aucun médicament n’est autorisé pour l’EM/SFC. La naltrexone à faible dose n’a pas de preuve solide ; elle n’impose pas de surveillance hépatique à ces doses. '
+   'La revue de Younger (2014) porte sur la douleur chronique, pas sur l’EM/SFC : elle documente le mécanisme et les doses usuelles, pas l’efficacité.', 33, 40, 83) +
  F('Situations particulières',
    TAB(['Situation', 'Particularité'], [
     ['Grossesse', 'Éviter ivabradine ; eau, sel et contention'],
