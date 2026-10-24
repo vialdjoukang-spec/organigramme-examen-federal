@@ -22,7 +22,7 @@ Ce fichier appartient **exclusivement à l'Équipe 2** (Agents 2, 4, 6 et 8). L'
 | LOT_108 | ☑ | 2026-10-24 12:38 | LOT_108 resynchronisé en V7 | lot/LOT_108 f8afa3a09b01b21e48b11451cf908a37cdf55768 https://drive.google.com/drive/folders/1XzKWyB0l7DzLnnWEuovbZvV9an1IltZ- | Non |
 | LOT_107 | ☑ | 2026-10-24 13:08 | LOT_107 fait — resynchronisé le 24.10.2026 sur lot/LOT_107 | lot/LOT_107 3c21d8948721945f14dbca046b9503fc8fde71d5 https://drive.google.com/drive/folders/1FTPKTupMpz2iTu-ds_KuJW5IlznjSHSz | Non |
 | LOT_106 | ☑ | 2026-10-24 14:06 | LOT_106 resynchronisé en V7 | lot/LOT_106 0f2675d609ad388f020bbe94a8f870ec0ce4f71e | Non |
-| LOT_105 | ☐ |  |  |  | Non |
+| LOT_105 | ☑ | 2026-10-24 15:09 | LOT_105 resynchronisé en V7 (Partie 1 scindée a/b) | lot/LOT_105 7b290c4d3711c689e587f04f3e0511321c8a30c3 | Non |
 | LOT_104 | ☐ |  |  |  | Non |
 | LOT_103 | ☐ |  |  |  | Non |
 | LOT_102 | ☐ |  |  |  | Non |
