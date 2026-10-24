@@ -1,3 +1,9 @@
+## Publication170 vérifiée · 48 SSP S / 672 parties de cours S
+
+PR170 fusionnée au commita02bc1cd18437a2d78db99b235b6496b1d196288 après tous contrôles finaux verts surd1212383d778a19c418aa409c7a77bf5c45a8299 :282/282 etparcours18cours×14bureau/mobile réussi. Pages39477748076 et114fichiers publics HTTP200/SHA256 identiques. Preuves `audit/P1-CI-S4.2-S4.3-20261020.json` et `audit/P1-PUBLICATION-S4.2-S4.3-20261020.json`. CI main39477737794 encore en cours à cette observation ; son succès est requis avant fusion179.
+
+179 : sept constats clos, deuxindividuels etrévision indépendants favorables au geld21673f ;66cours/924parties audités au total,50SSP S, dont48publiés. Préparer CI179, puis fusion dans l’ordre.180 : attribution commune corrigée, contre-audit final en cours.185 : deuxconstats corrigés, nouvelle relecture requise.188 : corrections ciblées après auditinitial. P1 seule priorité active ; compteurs des parties des cours, aucune monographie DD.
+
 ## Phases170 contre-auditées · troisième CI requise
 
 Deux lignes¶0 retirées uniquement de S4.3 partie6 ; HTML, texte clinique, sous-titre et19renvois conservés. Nouveau contre-audit indépendant favorable : `audit/P1-AUDIT-COURS-S4.3-PHASES-20261020.json` et `audit/P1-CONTRE-AUDIT-PHASES-S4.2-S4.3-20261020.json`. G1–G8 et examen18/18 indépendants verts ; parcours original18cours×14 bureau/mobile réussi par auteur, attribution de preuve distincte. Registre actualisé aux14empreintes finales ; nouvelle CI complète sur la tête finale avant fusion.46SSP S/644parties de cours S publiés ; aucune monographie DD comptée.
@@ -9,6 +15,9 @@ Ajout du seul sous-titre S4.3 partie6 vérifié favorablement par contre-audit i
 ## CI170 bloquée par présentation · correctif ciblé à contre-auditer
 
 Tête571e3f228226be88ecece47422d2b3a0ca46dbfa :281/282contrôles, seul échec `test_examen.py.tip_autres_rediges`. Une puce de S4.3 partie6 n’avait pas de sous-titre ; ajout du seul intitulé « Interprétation clinique », phrase clinique intégralement conservée.18/18contrôles examen et parcours clavier/toucher bureau/mobile réussis ; nouveau contre-audit indépendant puis nouvelle CI exigés avant toute fusion. Les tests sont inchangés. CI main16739470922795 désormais verte ;46SSP S/644parties de cours S publiés.
+## CI main167 verte · publication des parties confirmée
+
+CI39470922795 réussie sur7047a8064294d1e3cd5d249d73bbf9cc1d930bd8 ; Pages et114fichiers publics HTTP200/SHA256 vérifiés.46SSP S/644parties de cours S publiés. Preuve `audit/P1-CI-MAIN-S3.10-S4.1-20261020.json`.170 peut être fusionnée seulement après ses propres contrôles finaux verts sur571e3f228226be88ecece47422d2b3a0ca46dbfa ;179/180/185 restent dans leur étape réelle de correction, contre-audit ou rédaction.
 
 ## Publication167 vérifiée · 46 SSP S / 644 parties de cours S
 

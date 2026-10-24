@@ -1,0 +1,416 @@
+{
+  "version": 1,
+  "priorite": "P1",
+  "date": "2026-10-20T18:01:03.687846+00:00",
+  "lu_le": "2026-10-20",
+  "modele": "gpt-6-astra",
+  "effort_demande": "high",
+  "provenance_modele": "Root déclare avoir demandé gpt-6-astra/high avec fork_turns=none et obtenu acceptation du routage pour /root/p1_audit_179_sol61. Déclaration de configuration d’orchestration, sans introspection du moteur ni identité certifiée.",
+  "auteur": "/root/p1_sol61_s4_4_s4_5",
+  "relecteur_independant": "/root/p1_audit_179_sol61",
+  "commit_auteur": "a19ade11e6f0da275acde1551b06fae723c400db",
+  "commit_integration_au_controle": "2a3d2dc22e6a35b5f633bf9cbadc676947419af0",
+  "tree_integration_au_controle": "3bacfc822d6f11812b6f2c7c00543b51e240d1c5",
+  "verdict": "a_corriger",
+  "validation_medicale_humaine": false,
+  "nature": "Contre-audit documentaire par agent IA indépendant de la rédaction ; aucune validation médicale humaine.",
+  "portee": "28 parties de cours SSP S4.4/S4.5, deux lots, comparaison publiée et PR179, sources et deltas. Aucun DD modifié.",
+  "constats": [
+    {
+      "id": "F01",
+      "ssp": "S4.4",
+      "parties": [
+        9,
+        14
+      ],
+      "niveau": "bloquant_preservation_documentaire",
+      "constat": "Le garde-fou contre le test post-coïtal, présent dans les parties 9 et 14 de PR179, a disparu du cours repris. La recommandation ESHRE 2023 consultée en XML primaire le déconseille explicitement dans le bilan de l’infertilité inexpliquée. Cette précision utile ne doit pas être perdue pour raccourcir le texte.",
+      "correction_attendue": "Restaurer ce garde-fou avec son attribution et sa portée. Ne pas réintroduire sans nuance l’ancienne interdiction de sérologie Chlamydia : ESHRE et CNGOF ne donnent pas la même place à ce test.",
+      "preuve": "PR179 data/tip/S4.4.json c[8]/c[13] ; PMC10546081, rubrique Cervical factor, recommandation post-coital test."
+    },
+    {
+      "id": "F02",
+      "ssp": "S4.5",
+      "parties": [
+        5
+      ],
+      "niveau": "bloquant_preservation_documentaire",
+      "constat": "La recherche de maladie chronique, dont maladie cœliaque, présente dans PR179 partie 5, ne figure plus dans l’anamnèse reprise. Le journal affirme pourtant que la maladie chronique est conservée. La section II.B.1 du référentiel SFE effectivement ouverte par cet audit soutient cette recherche.",
+      "correction_attendue": "Restaurer la recherche ciblée avec source ou documenter une justification clinique précise de sa suppression ; rectifier la déclaration de maintien dans le journal.",
+      "preuve": "PR179 data/tip/S4.5.json c[4] ; https://www.sfendocrino.org/item-42-amenorrhee/ section II.B.1 Interrogatoire."
+    },
+    {
+      "id": "F03",
+      "ssp": "S4.5",
+      "parties": [
+        2
+      ],
+      "niveau": "bloquant_precision_epidemiologique",
+      "constat": "Le taux de 3,5 % est présenté comme estimation globale de l’IOP sans la restriction non iatrogène. Le passage épidémiologique du guide 2024 relu dans le XML primaire qualifie explicitement la population non iatrogène et mentionne la variabilité selon les populations.",
+      "correction_attendue": "Préciser IOP non iatrogène et conserver la portée populationnelle ; ne pas transformer ce taux en fréquence suisse ou probabilité devant la plainte.",
+      "preuve": "PMC11631070, recommandation sur la prévalence de non-iatrogenic POI."
+    },
+    {
+      "id": "F04",
+      "ssp": "S4.4",
+      "parties": [
+        9
+      ],
+      "niveau": "bloquant_ambiguite_clinique",
+      "constat": "La formulation « CFTR si anomalie des déférents et selon partenaire » ne permet pas de savoir qui doit être testé. L’EAU recommande une exploration de l’homme concerné et de sa partenaire dans les situations précisées, avec conseil génétique en vue de la reproduction.",
+      "correction_attendue": "Expliciter la cible masculine, le bilan de la partenaire et le contexte du conseil génétique, sans faire dépendre ambiguëment le test masculin de la partenaire.",
+      "preuve": "https://uroweb.org/guidelines/sexual-and-reproductive-health/chapter/male-infertility sections 11.3.5.b et recommandations 11.3.7."
+    }
+  ],
+  "parties": {
+    "S4.4": [
+      {
+        "partie": 1,
+        "sha256": "7b3d9e0b37e66dbb583e887b73805f134f00882bf0ff8de3d68c4a6c594a1703",
+        "observation": "Définition internationale reformulée avec statut ICMART correctement limité ; distinction infertilité/stérilité/stérilisation.",
+        "constats": []
+      },
+      {
+        "partie": 2,
+        "sha256": "48da0fc8ac048c703f3a14bab0d099d9d5908b14c1925a8ed57f69ecfdb9c77b",
+        "observation": "Chiffres OFSP attribués et dénominateurs distincts du pronostic individuel.",
+        "constats": []
+      },
+      {
+        "partie": 3,
+        "sha256": "d6ebc8d64632ee2653940473a3e98e400b7670a1ada8fbfbe89933e1a5ce5cb5",
+        "observation": "Fonctions de conception et mécanisme contraceptif séparés ; absence de verdict fondé sur AMH.",
+        "constats": []
+      },
+      {
+        "partie": 4,
+        "sha256": "38f9a83c1ec3e6ce8f915f7bce21330eca9539eff73fecf2b04078613f89244a",
+        "observation": "Hypothèses courantes et alarmes distinguées ; bilan des partenaires parallèle.",
+        "constats": []
+      },
+      {
+        "partie": 5,
+        "sha256": "b4fab2af4fe082080144d057ddcab0e1376170f60810cd08485bd24fc0a1bb31",
+        "observation": "Anamnèse des partenaires et demande autonome de stérilisation conservées ; délais adaptés aux risques.",
+        "constats": []
+      },
+      {
+        "partie": 6,
+        "sha256": "e1ddbaf578a71a6655ec3ca43d349ac4021c1c8f0ba62a7d9d97c039de65aeb0",
+        "observation": "Examen régional, consentement et phases M/1/2/6 examinés ; renvois résolus.",
+        "constats": []
+      },
+      {
+        "partie": 7,
+        "sha256": "341c75e6271c696780afab712bd8804d3715a4fa93801539aaf2e951ec2b8707",
+        "observation": "Phénotypes endocriniens, masculins et tubaires reliés au bilan sans certitude excessive.",
+        "constats": []
+      },
+      {
+        "partie": 8,
+        "sha256": "cab4b5f787511dbff56fae6237779bf6ee6703e3dcc958003f57212a4a9e171c",
+        "observation": "Seuils spermatiques présentés comme limites statistiques ; contrôle et orientation rapide distingués.",
+        "constats": []
+      },
+      {
+        "partie": 9,
+        "sha256": "e5831a4e419e531fcf4c32c9cc91cd1635a9507721486ac1c67e1ac25da44daf",
+        "observation": "Première ligne et examens ciblés cohérents ; garde-fou perdu et ambiguïté CFTR à corriger F01/F04.",
+        "constats": [
+          "F01",
+          "F04"
+        ]
+      },
+      {
+        "partie": 10,
+        "sha256": "e70381af367e69b94e35328dc92f154b81b9a96f489a98e292da8f3b28fce391",
+        "observation": "Arbre simultané puis causal, infertilité inexpliquée et stérilisation présentes.",
+        "constats": []
+      },
+      {
+        "partie": 11,
+        "sha256": "c0c6eedfa472353870c4977745b84c8953f9f0937dc9be3d86639566aa6262ba",
+        "observation": "Traitement causal et cadre suisse distingués ; réserve Fedlex visible et aucune dose AIPS prétendue.",
+        "constats": []
+      },
+      {
+        "partie": 12,
+        "sha256": "b6715e7f5a4b5eb9b36916ea6308dad17e12f107d55b960433b236060f28cddb",
+        "observation": "Suivi, pronostic et prévention explicités ; contrôle vasectomie attribué et protocole local conservé.",
+        "constats": []
+      },
+      {
+        "partie": 13,
+        "sha256": "b92be42b566ddb62036c05248e606977e0f090e726af4524520e13a623cf348b",
+        "observation": "Synthèse cohérente avec distinction définition/délai de consultation.",
+        "constats": []
+      },
+      {
+        "partie": 14,
+        "sha256": "7d4cd6c9c7e62a173b8b711c32e143c163abe98ed0c26eea28d922dbd3dc037e",
+        "observation": "Questions avec réponses présentes ; garde-fou post-coïtal perdu à restaurer F01.",
+        "constats": [
+          "F01"
+        ]
+      }
+    ],
+    "S4.5": [
+      {
+        "partie": 1,
+        "sha256": "28a70e68e907e1d281b942171a35a89f97a7a3c823b2565476ae6c0573240f72",
+        "observation": "Plainte multiple et terminologie FIGO ; absence de définition mondiale unique non dissimulée.",
+        "constats": []
+      },
+      {
+        "partie": 2,
+        "sha256": "9b6f1da16df4ef9955426421a84af950524253584c491b0ba825cf40c05ae85a",
+        "observation": "Estimations contextualisées ; population non iatrogène du taux IOP à préciser F03.",
+        "constats": [
+          "F03"
+        ]
+      },
+      {
+        "partie": 3,
+        "sha256": "3baa358f23f88231b165f46742b5bf18bc9e3725be28f45552780c1f537567ef",
+        "observation": "Profils centraux/ovariens, mécanismes hémorragiques et cycliques distingués.",
+        "constats": []
+      },
+      {
+        "partie": 4,
+        "sha256": "05a4951bfc16b556159395a8696571f26e3a03605a5cb14271023ffc5c1336d3",
+        "observation": "Grossesse/instabilité prioritaires ; causes fréquentes et graves distinctes.",
+        "constats": []
+      },
+      {
+        "partie": 5,
+        "sha256": "8f7e609f5bdb618b19ff1945f477c053723214de351d4e6348d0eef2f5b696eb",
+        "observation": "Anamnèse menstruelle et cataméniale détaillée ; maladie chronique omise malgré journal F02.",
+        "constats": [
+          "F02"
+        ]
+      },
+      {
+        "partie": 6,
+        "sha256": "e873f8e06065f20629aeaec62b07698d0fea75002668a6e82809a299432fddcf",
+        "observation": "Six régions conservées ; gestes génitaux replacés, phases sans ¶0 et consentement présent.",
+        "constats": []
+      },
+      {
+        "partie": 7,
+        "sha256": "24ba7d619574a8fe38f46a0a5e8d059bea8b3edc5a0849f93f3fdc090641c8e7",
+        "observation": "Syndromes aménorrhéique, hémorragique, douloureux et prémenstruel présents.",
+        "constats": []
+      },
+      {
+        "partie": 8,
+        "sha256": "a3e0b6340709cb5b00b452d066626cc00c34cf738ba81679f1678524f90cebe5",
+        "observation": "FIGO, SOPK selon âge et IOP2024 distingués ; imagerie négative non excluante pour endométriose.",
+        "constats": []
+      },
+      {
+        "partie": 9,
+        "sha256": "7fdec767a236a73c366481f1bb6125c8016bf573d13e68c4a8e55ca21f288742",
+        "observation": "Grossesse/urgence en premier, retentissement puis profils et imagerie ciblés ; test progestatif limité.",
+        "constats": []
+      },
+      {
+        "partie": 10,
+        "sha256": "db26b6670a174a5f08ab8006429ea65158f1ea44a4ea3e3c62bb2a5020ea03fe",
+        "observation": "Chronologie de triage, choix de branche, traitement et réévaluation explicite.",
+        "constats": []
+      },
+      {
+        "partie": 11,
+        "sha256": "d6d7c8875d831a00f52b45fb47446eb33a8ad9fc2a224210bfa56919144dc7b8",
+        "observation": "Moyens adaptés aux causes ; réserve AIPS et absence de contraception du progestatif HUG explicites.",
+        "constats": []
+      },
+      {
+        "partie": 12,
+        "sha256": "4a8ed06776084e5cf68829344a6c3e2b4dfdb117bd3a0cb97bd74569a1296d23",
+        "observation": "Suivi, pronostic et prévention distincts, sans taux universel de récidive.",
+        "constats": []
+      },
+      {
+        "partie": 13,
+        "sha256": "3d47ee72966ede56bd9fb02f06181ffd1e8bc040a21a4dea3a3fd0b130373acd",
+        "observation": "Synthèse des critères et des limites diagnostiques cohérente.",
+        "constats": []
+      },
+      {
+        "partie": 14,
+        "sha256": "bf3a454b0fb28cf1318df762dda5b3dde26663b745492a25952127cb7c73ef5e",
+        "observation": "Pièges et réponses d’examen explicites, sans plan DD commun.",
+        "constats": []
+      }
+    ]
+  },
+  "sources_lues": [
+    {
+      "url": "https://europepmc.org/article/PMC/13230500",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC13230500.xml",
+      "cache_sha256": "db32e1f14d61b4545ecb60ef75cdfff81d669e217254a32774700438a9d2fa4e",
+      "lecture": "Table du glossaire : Infertility, Sterility, formes primaires/secondaires ; résumé et attribution.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/10546081",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC10546081.xml",
+      "cache_sha256": "2e051849ab98d0729e89c2b3404c795d898211eecda8cbfdc48407d70335b797",
+      "lecture": "Cycles réguliers, ovulation/réserve, test post-coïtal, place du test Chlamydia ; recommandations ciblées.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/10477934",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC10477934.xml",
+      "cache_sha256": "bef8fc74e35e57f9d88ffa696e8c13e79466a52b7f9482d32d94c69ccb409522",
+      "lecture": "Critères selon âge, fréquence, bilan glycémique et létrozole ; recommandations ciblées.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/11631070",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC11631070.xml",
+      "cache_sha256": "86d972535886e08590363cd3d467a8b5b2f4972a767c914322ac94e3f34f1801",
+      "lecture": "Prévalence non iatrogène, critères diagnostiques et répétition FSH ; sections ciblées.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/11303009",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC11303009.xml",
+      "cache_sha256": "9288121d3565a71865090b97b78635d27b377af5d9dea31152f8515f7a2c5b02",
+      "lecture": "Conseil de stérilisation, permanence, contrôle vasectomie dès huit semaines ; extraits ciblés.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/10952771",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC10952771.xml",
+      "cache_sha256": "8a2fef9b29fe9264ef6f3dd185d26c0c3781c6723bdc8a487fc25b290037080b",
+      "lecture": "Systèmes FIGO 1/2, fréquence/durée, mécanismes, retentissement fer/anémie et causes ; sections ciblées.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/8951218",
+      "mode": "XML primaire dans le cache local de l’auteur, relu indépendamment par cet agent ; aucun téléchargement propre revendiqué",
+      "cache": "/tmp/p1-s4.4-s4.5-lectures-cache/PMC8951218.xml",
+      "cache_sha256": "c06962cd25dc370ce1ad49ea11c332ef280f3c1a4d4bf6661c3af324a0955d44",
+      "lecture": "Symptômes, imagerie négative, laparoscopie, traitement de douleur et infertilité ; sections ciblées.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/managing-premenstrual-syndrome-pms/",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Ouverture primaire : définition, sévérité, calendrier, traitements et distinction PMDD ; détails diagnostiques PMDD exclus par la fiche.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://uroweb.org/guidelines/sexual-and-reproductive-health/chapter/male-infertility",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Ouverture primaire : épidémiologie, examen, recommandations génétiques et CFTR, partenaires et limites FSH/volume testiculaire.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.sfendocrino.org/item-42-amenorrhee/",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Ouverture primaire ciblée : anamnèse II.B.1, maladie chronique/cœliaque, examen, profils hormonaux et test progestatif ; anciens seuils non substitués aux guides récents.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.bag.admin.ch/dam/fr/sd-web/Md2u17tGY9oX/Fiche%20d'information%20Loi%20f%C3%A9d%C3%A9rale%20sur%20la%20procr%C3%A9ation%20m%C3%A9dicalement%20assist%C3%A9e_actualisee.pdf",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "PDF primaire daté 30 janvier 2025 : passages des pages 1–4 sur accès/dons/origines, statistiques, projet de révision et AOS.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.nice.org.uk/guidance/ng88/chapter/Recommendations",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Ouverture directe refusée 403 ; lecture partielle d’extraits primaires indexés des recommandations 1.3 et 1.5 sur hystéroscopie/biopsie et LNG-IUS/alternatives. Aucune lecture intégrale.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.nice.org.uk/guidance/ng88/chapter/rationale-and-impact",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Extraits primaires indexés uniquement : biopsie avec hystéroscopie chez femmes à risque, limites de l’échographie.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://www.fedlex.admin.ch/eli/cc/2005/425/fr?version=20130101",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Ouverture indépendante donnant le shell JavaScript ; aucun texte légal primaire lisible.",
+      "lu_le": "2026-10-20"
+    },
+    {
+      "url": "https://ch.odat.ch/fr/cc/211.111.1-20130101-fr.html",
+      "mode": "search_service_web_run exécuté par cet agent",
+      "lecture": "Miroir non officiel : lecture des articles 2–8, état affiché 1 janvier 2013. Ne démontre pas l’actualité primaire.",
+      "lu_le": "2026-10-20"
+    }
+  ],
+  "fichiers_sha256": {
+    "data/tip/S4.4.json": "52f82ea5e9488f8ed5eb2dea65714685be2978766af7b342554d38d468357d29",
+    "data/tip/S4.5.json": "7e74ff4746fd255550c9f414a2005c5d2ef6783c430a0b0e87ea756192dfd87b",
+    "tools/cours/lots/S4.4.json": "35d6947bc104c14c98e3c2de1e4537221a32bec04132e6b3ae73e2fffc9500ad",
+    "tools/cours/lots/S4.5.json": "6ca7755f4ad580b78baf00b842a694c7151c30e43e244ba443752c0ee7d0bcf1",
+    "tools/cours/lots/S4.4-S4.5-journal.md": "e653e6e8e8cd98809a52958dcdeec2dcd4f5ced7b7d36c94996444afbd633863",
+    "tools/cours/lots/S4.4-S4.5-src-delta.json": "c8cdb70588bd2058e955e44f0fb5ce272030a38b07ecb947a2bcf9d9c71fae58",
+    "tools/cours/lots/S4.4-S4.5-glo-delta.json": "5f4709b09e972a307fc5894f277208588a4052d6801ca43c4d8e6b921ba16c4d",
+    "tools/cours/lots/S4.4-S4.5-domaines-delta.json": "276a7df938d1277abf900765f7c9f20e8ad34ce6f5de487fc55a54eca10c4fac",
+    "data/ck/src.json": "6cdb5bcbea0192e40de8e2cdfc23f65d5e4ec033c78da448c077fba9d2e14d10",
+    "data/ck/glo.json": "5a18e0531ab1bba714579d8a91b9dadd711b9d4843dee68d80ca3e149f03f327",
+    "qa/domaines.yml": "8e56c494d31b253a535bd2c309c0d728698fc776cb159e7d93e149598b6687cd",
+    "assets/config/tip.js": "9edc9f56f24e6becd6e5b9f3445bacf0668a5de98571d02af56d289ca9dc153f",
+    "assets/ck/src.js": "8811004e2c8bcb37c07f08446d23996a99def4d1d8feaaeb1bdf6e9f79216a20",
+    "audit/P1-GARDES-INITIAL-S4.4-S4.5-20261020.json": "4262f24b2b9be686a8acb8d77923967a486df67bdbef74b7c9725f837750bba8"
+  },
+  "controles_independants": {
+    "auteur_initial": {
+      "S4.4": {
+        "identique_auteur_initial": true,
+        "lot_identique": true,
+        "empreintes_lot_identiques": true,
+        "references_locales_lot_identiques": true
+      },
+      "S4.5": {
+        "identique_auteur_initial": true,
+        "lot_identique": true,
+        "empreintes_lot_identiques": true,
+        "references_locales_lot_identiques": true
+      }
+    },
+    "lot": "Exécuté sur a19ade11 : python3 tools/arsenal/lot.py cours S4.4 S4.5, code 0, 0 erreur et 5 À vérifier.",
+    "tip": "Exécuté sur a19ade11 : python3 tools/tip_data.py, code 0, 248 SSP/3472 parties, asset identique.",
+    "preservation": "Comparaison des 28 parties avec la base publiée 723e6b62 et les copies PR179 effectuée par cet agent IA ; champs d/f/s/fs identiques à cette base.",
+    "titres": "Constante CLIN lue : 14 titres ordinaux inchangés ; composants contrôlés partie par partie.",
+    "ges": "18 identifiants uniques extraits par outil officiel et lus ; phases M/1/2/6 cohérentes avec les gestes observés, sans ¶0 ; aucune réécriture GES.",
+    "src_integres": true,
+    "glo_ajouts_integres": true,
+    "glo_isrs_integre": true,
+    "domaines": "Cinq règles proposées lues : documents précis, sauf chemin RCOG explicitement décrit comme sous-arbre limité ; pas de pays attribué à EuropePMC.",
+    "navigateur": "Preuve navigateur de l’auteur lue ; aucun navigateur exécuté par cet auditeur."
+  },
+  "signalements_gardes_coordinateur": {
+    "provenance": "Contrôle exécuté par le coordinateur, archive lue et comptée par cet agent ; pas présenté comme exécution indépendante de cet agent.",
+    "rapport": "audit/P1-GARDES-INITIAL-S4.4-S4.5-20261020.json",
+    "sha256": "4262f24b2b9be686a8acb8d77923967a486df67bdbef74b7c9725f837750bba8",
+    "total": 43,
+    "par_controle": {
+      "G4": 42,
+      "G6": 1
+    },
+    "statut": "bloquant_technique_a_resoudre",
+    "interpretation": "Signalements automatiques G4/G6, distincts des quatre constats documentaires. Certains acronymes se développent correctement sur le fond et la paire galactorrhée/hyperprolactinémie comporte des définitions propres ; le signalement automatique ne démontre pas à lui seul une circularité médicale. La conformité des gardes reste à rétablir sans les affaiblir."
+  },
+  "limites": [
+    "Lecture ciblée des sources, non lecture intégrale de toutes les notices de l’auteur. Les documents cache sont attribués comme relecture de copies primaires locales.",
+    "NICE NG88 partiel. Une recherche NG126 de cet agent a retourné un brouillon 2018 ; ce résultat n’est pas utilisé comme validation du document final NG126 cité par l’auteur.",
+    "Fedlex ne fournit ici que son shell ; odat est un miroir historique non officiel. La réserve juridique dans le cours doit rester visible.",
+    "AIPS non consultée par cet audit ; aucune posologie chiffrée validée.",
+    "Pas de CI, fusion, publication ni mise à jour des registres. Rapport initial défavorable ; un nouveau gel corrigé exige une nouvelle vérification des 28 empreintes.",
+    "Une expression antérieure « comparaison humaine » dans un message était erronée : toute comparaison décrite ici a été réalisée par un agent IA, sans relecture humaine attestée."
+  ]
+}
