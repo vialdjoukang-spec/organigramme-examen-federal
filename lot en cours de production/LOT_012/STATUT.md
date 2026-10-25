@@ -11,6 +11,8 @@
 - `data/ck/prev.json` G12 : 13 entités, toutes sans pourcentage. **Non modifié.**
 - Reprise : les fichiers annoncés par le relais précédent étaient absents du dépôt. Ils ont été réécrits après lecture des sources, sans reprendre un score.
 
+- 2026-10-25 15:05 Europe/Zurich : la liste R15 « Automates actifs » ne cite plus de chemin hors tools/, workflows, skills ou CATALOGUE. Le commit relance le checkpoint.
+
 ## Rangs
 
 DX.1 veineux et DX.2 cardiaque ont un ancrage chiffré lu le 25.10.2026. Les rangs 3 à 10 sont des rangs de travail (« À vérifier »). Aucune probabilité conditionnelle devant la plainte n’est affirmée.
