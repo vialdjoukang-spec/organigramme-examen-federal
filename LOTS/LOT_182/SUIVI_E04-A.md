@@ -17,3 +17,5 @@ Dose autorisée citée pour l'interruption médicamenteuse jusqu'à 49 jours d'a
 Non ouverts : AIPS du méthotrexate, de l'anti-D, de MisoOne, de Cytotec, du lévonorgestrel et de la progestérone micronisée. Aucune de ces doses n'est inventée.
 
 Relecture de langue du 25.10.2026 : les cinq syndromes du point 7 ont chacun leur mécanisme, les seuils britanniques ne sont plus récités comme s'ils étaient suisses, et l'examen de référence remplace l'anglicisme. Les doses et les chiffres n'ont pas changé.
+
+Enrichissement du 25.10.2026 : chaque HTML du rôle A est porté dans la fenêtre 153 600–204 800 octets (visée 165–185 Ko). Charte : Atkinson Hyperlegible, fond bleu ciel pâle, probabilités en #C8102E sans halo, `FIN_FICHIER` après `</html>`. Aucune dose nouvelle. DX.5 à DX.10 non rédigés. Pas d'audit, pas de pull request.
