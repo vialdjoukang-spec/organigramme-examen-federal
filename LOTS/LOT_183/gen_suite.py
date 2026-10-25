@@ -718,11 +718,33 @@ def main():
         "drive_resultat": "404 File not found",
         "aips_ouvertes": False,
         "consulte_le": "2026-10-24",
+        "relu_le": "2026-10-25",
+        "pages_relues": [
+            "https://www.paediatrieschweiz.ch/fr/news/nouvelles-courbes-de-croissance/",
+            "https://www.pezz.ch/fr/fuer-familien/wachstum/",
+            "https://www.eurospe.org/wp-content/uploads/2022/12/constitutional-delay-of-growth-and-puberty-average-read.pdf",
+            "https://www.pedlaus.ch/detail/fiche/hypothyroidie-acquise",
+            "https://www.cochrane.org/evidence/CD009471_do-inhaled-corticosteroids-reduce-growth-children-persistent-asthma",
+            "https://www.cochrane.org/evidence/CD010126_different-inhaled-corticosteroids-and-delivery-devices-affect-growth-children-persistent-asthma",
+            "https://www.seep.es/images/site/publicaciones/oficialesSEEP/consenso/cap08.pdf",
+            "https://doi.org/10.1097/mpg.0000000000002497",
+        ],
+        "non_rouvert": ["Galazzi DOI 10.23736/S0391-1977.20.03228-9", "Eiholzer 2025 J Clin Med in extenso", "Paediatrica PDF"],
         "sources": SOURCES_DX5 + SOURCES_P3 + SOURCES_P4,
     }
     with open(os.path.join(HERE, "evidence_DX5-DX10.json"), "w", encoding="utf-8") as f:
         json.dump(evid, f, ensure_ascii=False, indent=1)
     print("evidence ok")
+    bornes = (150000, 200000)
+    for name in (
+        "LOT_183_Appel_B_V7_DX.5.html",
+        "LOT_183_Appel_B_V7_Partie_3_DX.6_a_DX.7.html",
+        "LOT_183_Appel_B_V7_Partie_4_DX.8_a_DX.10.html",
+    ):
+        path = os.path.join(HERE, name)
+        n = os.path.getsize(path)
+        if not (bornes[0] <= n <= bornes[1]):
+            raise SystemExit(f"HORS BORNE {name}: {n} octets (attendu {bornes[0]}–{bornes[1]})")
 
 
 if __name__ == "__main__":

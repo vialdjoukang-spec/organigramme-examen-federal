@@ -319,6 +319,12 @@ def extra(key):
     parts = [gl.gloss(key)]
     for title, lines, source in PACKS[key]:
         parts.append(block(title, lines, source))
+    import importlib.util as _ilu
+    _path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "approfondir_lot183.py")
+    _spec = _ilu.spec_from_file_location("ap183", _path)
+    _ap = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_ap)
+    parts.append(_ap.plus(key))
     parts.append(
         "<div style='margin:12px 0;'><strong>Question finale</strong><br>"
         + p("Un lecteur peut répondre aux seuils, à la cible parentale, à l'algorithme qui concerne ce DX et aux pièges d'examen avec les sources citées. Il ne peut pas signer une dose : aucune AIPS n'a été ouverte. Il ne peut pas citer une prévalence suisse qui n'a pas été lue. Avec ces limites écrites, la prise en charge immédiate reste sûre, parce qu'elle consiste à mesurer, à exclure la maladie grave et à ne pas inventer un médicament.")

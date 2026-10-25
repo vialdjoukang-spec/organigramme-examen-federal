@@ -82,6 +82,7 @@ def page(title, h2, intro, monos, sources, fin_tag):
 </ol>
 <p>Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin.</p>
 <p>Lacunes assumées de cette rédaction : l'Appel A et la partie 1 n'ont pas été lus (dossier Drive inaccessible, aucune branche GitHub LOT_183). Les noms et l'ordre DX.5 à DX.10 sont ceux de la liste déjà publiée du SSP O2.1. Aucune information professionnelle AIPS n'a été ouverte : aucune dose chiffrée n'est donc prescrite ici.</p>
+<p>Relecture du 25.10.2026 des pages alors ouvertes : communiqué de pédiatrie suisse sur les courbes, page familles du PEZZ, dépliant ESPE révisé en novembre 2019, fiche Pedlaus, synthèses Cochrane CD009471 et CD010126, chapitre 8 de la société espagnole, guideline ESPGHAN 2020 dans JPGN. L'article de Galazzi et l'article Eiholzer 2025 in extenso n'ont pas été rouverts : les faits qui en viennent restent ceux déjà écrits au 24.10.2026. Le texte intégral de Paediatrica n'a pas été retéléchargé ce jour.</p>
 </div>
 </body>
 </html>
