@@ -14,4 +14,6 @@ DX.5 à DX.10 ne sont pas rédigés. Les noms de la liste dans `LOT_182_evidence
 
 Dose autorisée citée pour l'interruption médicamenteuse jusqu'à 49 jours d'aménorrhée : Mifegyne 600 mg, puis 400 µg de misoprostol oral 36 à 48 heures plus tard (AIPS lue, numéro 55205). L'avis SGGG n° 65 décrit en outre une pratique à 200 mg et demande de respecter la posologie du fabricant. Les seuils de 7,0 mm, de 25,0 mm, de 63 %, de 50 % et de 1 500 UI/L viennent du NICE NG126 et sont étiquetés comme britanniques. Le seuil de 1 500 UI/L n'y pose pas le diagnostic d'extra-utérine.
 
-Non ouverts : AIPS du méthotrexate, de l'anti-D, de MisoOne, de Cytotec, du lévonorgestrel et du progestérone micronisé. Aucune de ces doses n'est inventée.
+Non ouverts : AIPS du méthotrexate, de l'anti-D, de MisoOne, de Cytotec, du lévonorgestrel et de la progestérone micronisée. Aucune de ces doses n'est inventée.
+
+Relecture de langue du 25.10.2026 : les cinq syndromes du point 7 ont chacun leur mécanisme, les seuils britanniques ne sont plus récités comme s'ils étaient suisses, et l'examen de référence remplace l'anglicisme. Les doses et les chiffres n'ont pas changé.
