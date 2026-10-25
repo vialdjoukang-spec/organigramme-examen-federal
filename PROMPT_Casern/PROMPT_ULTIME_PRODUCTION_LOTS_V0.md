@@ -217,7 +217,7 @@ Critères de proposition, dans cet ordre :
 2. **Disparités à finir** : un lot entamé passe avant un lot neuf, sauf ordre contraire de Vial.
 3. **Nombre d'agents disponibles** : idéalement un rédacteur par fichier Phase B en parallèle, plus au moins un auditeur distinct.
 4. **Densité clinique des DD** : un DD lourd (urgence vitale, pharmacologie dense, nombreuses situations spéciales) vaut souvent un fichier à 2 DD ; des DD plus légers se groupent par 3.
-5. **Taille cible **150–200 Ko** par fichier** ([§14](#sec-14)).
+5. **Taille cible **150–200 Ko par entité** (SSP ou DD), pas par fichier** ([§14](#sec-14)).
 6. **Limites d'usage des outils** du jour (quota, troncature) : plus de fichiers plus petits si les sessions sont courtes.
 
 ### 7.3 Rôles — définis le jour J, mais trois principes ne bougent jamais
@@ -331,7 +331,7 @@ Le découpage n'est **pas** un dogme. Il est décidé avec Vial séance tenante 
 | **4 fichiers** | 2-3-2-3 | 2 à 4 rédacteurs ; DD de densité moyenne ; historique éprouvé |
 | **5 fichiers** | 2-2-2-2-2 | 5 rédacteurs disponibles ; DD lourds (urgences, pharmacologie dense) ; sessions courtes |
 | **3 fichiers** | 3-4-3 | Peu d'agents ; DD légers ou SSP transversal ; vérifier la taille (découpage a/b probable) |
-| **Autre** | ex. 1-2-2-2-3, ou 10 × 1 | DD exceptionnellement dense (1 DD ≥ 150 Ko) ou reprise ciblée de DD manquants |
+| **Autre** | ex. 1-2-2-2-3, ou 10 × 1 | DD exceptionnellement dense (une entité > 200 Ko → fenêtres / a-b de cette entité) ou reprise ciblée de DD manquants |
 
 > **Obsession : nommer le découpage dans le nom de fichier.** Motif : `LOT_XXX_Phase_B_V0_Partie_<k>_DX.<i>_a_DX.<j>.html` (ex. `LOT_226_Phase_B_V0_Partie_3_DX.5_a_DX.6.html`). Les plages couvrent DX.1 à DX.10 **sans trou ni chevauchement**.
 
@@ -523,13 +523,13 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 
 ## 14. Format technique — HTML5, fenêtres, style, tailles
 
-> **Critère owner 2026-10-25 :** poids cible des fichiers HTML = **150–200 Ko** (remplace l’ancien 90–200 Ko).
+> **Critère owner 2026-10-25 (révisé) :** **150–200 Ko par entité monographique** — c’est-à-dire **par SSP** (Phase A, monographie) **et par chaque diagnostic différentiel** (chaque DX.1…DX.10). Ce n’est **pas** un plafond par fichier HTML : un fichier peut regrouper plusieurs entités si le découpage du jour le veut, **à condition que chaque entité**, isolée, pèse **150–200 Ko** de contenu utile (texte + fenêtres de cette monographie). Ancien critère 90–200 Ko *par fichier* : **aboli**.
 
 ### 14.1 Sortie
 
 > **Obsession : du `.html` et rien d'autre.** HTML5 complet, de `<!DOCTYPE html>` à `</html>`, terminé par `<!-- FIN_FICHIER LOT_XXX_<PARTIE> -->`. Texte brut, Markdown, Google Docs, PDF, Word, HTML partiel ou contenu rendu dans le chat = sortie invalide.
 
-> **Obsession : 150–200 Ko par fichier.** Moins de **150 Ko** signale une omission ; plus de **200 Ko** impose un découpage en `…_a.html` et `…_b.html` (chaque pièce complète : sources, mention IA, FIN_FICHIER, localisation des points). **Tu ne supprimes jamais un contenu utile pour tenir la limite.**
+> **Obsession : 150–200 Ko par entité (SSP ou DD), jamais « par HTML ».** Une monographie SSP et chaque monographie DX doivent chacune atteindre **150–200 Ko** de contenu propre. Moins de 150 Ko sur une entité = omission. Plus de 200 Ko sur une entité = densifier/découper *cette* monographie (fenêtres), pas fusionner des DD pour « faire du poids fichier ». Un fichier HTML multi-DX reste autorisé **seulement** si chaque DX y incluse respecte seule la bande 150–200 Ko. **Tu ne supprimes jamais un contenu utile pour tenir une limite.** Découpage `…_a.html` / `…_b.html` : uniquement pour gérer la taille *de fichier* technique, sans jamais diluer une entité sous 150 Ko.
 
 ### 14.2 Gabarit et règles techniques
 
@@ -638,7 +638,7 @@ Les rôles d'audit sont attribués le jour J ([§7](#sec-07)). Leur **contenu** 
 1. Phrases courtes, toutes verbales, y compris fenêtres et tableaux ; aucune phrase coupée par une fenêtre.
 2. Abréviations développées ; zéro répétition, zéro remplissage.
 3. Les 14 points présents **et correctement affectés** ; 11.A–D complets ; fenêtres riches ; tableaux d'interprétation ; tableau de corrélation du point 3 ; sous-titres 7.x et 9.a–d.
-4. Technique HTML : balises équilibrées, FIN_FICHIER, tableaux enveloppés, aucun `title=`, 390 px, taille **150–200 Ko**, nom de fichier V0 conforme au découpage du jour.
+4. Technique HTML : balises équilibrées, FIN_FICHIER, tableaux enveloppés, aucun `title=`, 390 px, taille **150–200 Ko par entité (SSP/DD)**, nom de fichier V0 conforme au découpage du jour.
 5. Questions des points 1, 5, 6, 7, 10, 13, 14 ; question finale.
 
 **Rapport d'audit** (un par fichier, dans `LOT_XXX/audits/`) : version auditée (nom, taille, SHA-256) ; score 14 points ([§12.2](#sec-12)) ; réponse à la question finale ; corrections classées **Critique / Grave / Moyen / Léger**, chacune avec emplacement exact, extrait mot pour mot, correction et source ; lacunes envoyées dans HELP.
@@ -648,6 +648,8 @@ Les rôles d'audit sont attribués le jour J ([§7](#sec-07)). Leur **contenu** 
 <a id="sec-18"></a>
 
 ## 18. Interdits — liste non négociable
+
+> **Interdit : HTML « unique » consolidé** regroupant SSP + 10 DD en un seul document pour le chat owner. L’audit livre un **rapport** ; chaque entité reste un livrable monographique à 150–200 Ko.
 
 > **Interdit : inventer.** Une donnée, une source, une spécialité, un numéro Swissmedic, un essai, une citation, une PREUVE de harnais.
 
@@ -716,7 +718,7 @@ Les rôles d'audit sont attribués le jour J ([§7](#sec-07)). Leur **contenu** 
 
 - [ ] Phrases courtes et verbales, intactes ; abréviations développées ; fenêtres riches
 - [ ] Calculs recalculés ; calculs dérivés étiquetés ; badges sourcés ou rang
-- [ ] `.html` strict, FIN_FICHIER, **150–200 Ko** (sinon a/b), tableaux enveloppés, aucun `title=`, 390 px
+- [ ] `.html` strict, FIN_FICHIER, **150–200 Ko par SSP et par chaque DD** (découpage a/b technique seulement), tableaux enveloppés, aucun `title=`, 390 px
 - [ ] Taille et SHA-256 consignés au gel
 
 **Audit et dépôt**
