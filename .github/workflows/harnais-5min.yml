@@ -9,6 +9,8 @@ on:
       - '.github/workflows/harnais-5min.yml'
       - 'harnais/surveillance/**'
       - 'tests/harnais_surveillance/**'
+      - 'harnais/pilotage_lots/**'
+      - 'tests/pilotage_lots/**'
 permissions:
   contents: read
 concurrency:
@@ -34,6 +36,8 @@ jobs:
           cache-dependency-path: harnais/surveillance/runtime-requirements.txt
       - name: Tester les faux positifs et les preuves périmées
         run: python -m unittest discover -s tests/harnais_surveillance -p 'test_*.py' -v
+      - name: Tester les portes V8 et les collisions de reprise
+        run: python -m unittest discover -s tests/pilotage_lots -p 'test_*.py' -v
       - uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
         with:
           path: ~/.cache/huggingface/hub
@@ -61,3 +65,8 @@ jobs:
               out.write('\n## Test réel sur le runner GitHub\n\n```json\n'+json.dumps(r,ensure_ascii=False,indent=2)+'\n```\n')
               out.write('\nLe runner ne renouvelle aucun signal d’activité des agents et ne modifie aucun lot.\n')
           PY
+      - name: Lire le registre inverse et proposer la prochaine action sans écrire
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python harnais/pilotage_lots/cli.py --output /tmp/lots-pilotage.json
