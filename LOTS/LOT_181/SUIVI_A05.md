@@ -13,3 +13,5 @@ Périmètre écrit par A :
 DX.5 à DX.10 ne sont pas rédigés. Les noms de la liste dans `LOT_181_evidence.json` sont ceux que la suite doit reprendre.
 
 La dose autorisée écrite est celle des informations professionnelles lues : 600 mg de mifépristone puis 400 µg de misoprostol oral jusqu'au 49e jour. L'avis SSGO n° 78 est cité à part et n'est pas fusionné avec l'AIPS. La dose d'anti-D n'est pas donnée.
+
+Passe du 25.10.2026 : le français des trois HTML a été repris. Les boucles de dates identiques ont cédé la place à la consultation, à la nuit et au retour. Les faits, les doses, les sources et le périmètre DX.1 à DX.4 sont inchangés. Pas d'audit.
