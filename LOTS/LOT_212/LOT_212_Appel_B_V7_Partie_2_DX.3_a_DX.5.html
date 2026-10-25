@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>LOT_212 — chapitre O5 (code de chapitre du projet Organigramme_Examen_Fédéral), sujet O5.4 — Prise en charge des symptômes réfractaires (douleur, nausées) — Appel B, Partie 2 (DX.3 à DX.5)</title>
+<style>
+/*FENETRES_EXAMENS*/
+details.ex,details.terme{display:inline-block;max-width:100%}
+details.ex[open],details.terme[open]{display:block}
+details.ex:not([open])::details-content,details.terme:not([open])::details-content{display:none}
+details.ex>summary{display:inline;cursor:pointer;font-weight:normal;color:#0b5a7a;border-bottom:1px dotted #0b5a7a;list-style:none}
+details.ex>summary::-webkit-details-marker{display:none}
+details.ex>summary::after{content:" ▸";font-size:.75em}
+details.ex[open]>summary::after{content:" ▾"}
+details.ex[open]>summary{font-weight:bold}
+.exw{display:block;margin:.5rem 0 .8rem;border:1px solid #8cc3d6;border-left:4px solid #0b5a7a;background:#f3f9fc;border-radius:8px;padding:.5rem .8rem;font-weight:normal}
+.onglets>input{position:absolute;opacity:0;width:1px;height:1px}
+.onglets>label{display:inline-block;padding:.3rem .8rem;margin:0 .3rem .4rem 0;border:1px solid #8cc3d6;border-radius:6px 6px 0 0;cursor:pointer;background:#e3f1f7;font-weight:bold}
+.onglets>input:checked+label{background:#0b5a7a;color:#fff}
+.onglets>input:focus-visible+label{outline:2px solid #972d34}
+.onglets>.op,.onglets>.oi{display:none;border-top:2px solid #0b5a7a;padding-top:.4rem}
+.onglets>input:nth-of-type(1):checked~.op{display:block}
+.onglets>input:nth-of-type(2):checked~.oi{display:block}
+.oi .ctx{border-left:3px solid #972d34;background:#fff5f0;padding:.3rem .6rem;margin:.4rem 0}
+
+.ext{font-weight:bold;color:#0b5a7a;margin-bottom:.3rem}
+.exn{font-size:.9em;margin-top:.4rem}
+.exw table{font-size:.9em}
+
+details.terme>summary{display:inline;cursor:pointer;font-weight:normal;color:#145f4a;border-bottom:1px dashed #145f4a;list-style:none}
+details.terme>summary::-webkit-details-marker{display:none}
+details.terme[open]>summary{font-weight:bold}
+details.terme>.exw{border-color:#a8cbe2;border-left-color:#40997b;background:#f1f8fd}
+.p{margin:.8rem 0}
+
+
+body{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif;max-width:980px;margin:auto;padding:16px;line-height:1.55;color:#1c2833;}
+h1{color:#1f618d;font-size:1.6em;}h2{color:#1f618d;border-bottom:2px solid #1f618d;}h3{color:#154360;}h4{color:#1a5276;margin-bottom:4px;}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:0.92em;}td,th{border:1px solid #aab7b8;padding:5px;vertical-align:top;}th{background:#d6eaf8;}
+caption{font-weight:bold;text-align:left;padding:4px 0;}ul.txt{list-style:none;padding-left:0;margin:6px 0;}
+.proba{color:#C8102E;font-weight:700}.s{font-size:0.85em;color:#1a5276;}
+body{background:#f3f9fd;}pre.arbre{background:#e8f3fb;padding:8px;white-space:pre-wrap;}
+/*mobile*/@media (max-width:640px){table.empile,table.empile>tbody,table.empile>tbody>tr,table.empile>tbody>tr>td,table.empile>tr,table.empile>tr>td{display:block;width:auto;max-width:100%;min-width:0;box-sizing:border-box}table.empile{border-collapse:separate;border-spacing:0;width:100%}table.empile>thead{display:none}table.empile>tbody>tr,table.empile>tr{border:1px solid #b2c7d6;border-radius:6px;margin:0 0 .7rem;background:#fff}table.empile>tbody>tr>td,table.empile>tr>td{border:0;border-bottom:1px solid #e2ebf2}table.empile td[class*=l]::before{display:block;font:bold .8em Arial,sans-serif;color:#14664f;margin-bottom:.15rem}div:has(>table.empile){overflow-x:visible!important}.exw{max-width:100%;overflow-wrap:anywhere}.exw .t,.exw div[style*='overflow-x']{max-width:100%}}@media (max-width:640px){table.empile .l0::before{content:"Anomalie"}table.empile .l1::before{content:"Signification"}table.empile .l2::before{content:"Conduite"}}/*fin-mobile*//*charte_v7plus*/body,button,input,select,textarea,table,summary,label{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif}table.empile td[class*=l]::before{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif!important}.proba{color:#C8102E;font-weight:700;white-space:nowrap;margin-left:.15em}.proba+.s{font-size:.7em;vertical-align:super}/*fin-charte*/</style>
+</head>
+<body><details class="fenetre sigles" id="sigles-auto"><summary>Sigles et abréviations de ce fichier</summary><ul class="s"><li><strong>AIPS</strong> (information professionnelle suisse des médicaments (Swissmedic))</li><li><strong>ASSM</strong> (Académie suisse des sciences médicales)</li><li><strong>AVC</strong> (accident vasculaire cérébral)</li><li><strong>ECG</strong> (électrocardiogramme)</li><li><strong>HUG</strong> (Hôpitaux universitaires de Genève)</li><li><strong>IRM</strong> (imagerie par résonance magnétique)</li><li><strong>ISRS</strong> (inhibiteur sélectif de la recapture de la sérotonine)</li><li><strong>OFS</strong> (Office fédéral de la statistique)</li><li><strong>OFSP</strong> (Office fédéral de la santé publique)</li><li><strong>ONEC</strong> (Organe national d’enregistrement du cancer)</li><li><strong>PAL</strong> (phosphatases alcalines)</li><li><strong>QT</strong> (intervalle QT de l’ECG)</li><li><strong>QTc</strong> (intervalle QT corrigé)</li><li><strong>SC</strong> (sous-cutané)</li><li><strong>SpO2</strong> (saturation pulsée en oxygène)</li><li><strong>TDM</strong> (tomodensitométrie)</li><li><strong>TSH</strong> (thyréostimuline)</li></ul></details>
+<h1>LOT_212 — chapitre O5 (code de chapitre du projet Organigramme_Examen_Fédéral), sujet O5.4 — Prise en charge des symptômes réfractaires (douleur, nausées) — Appel B, Partie 2 (DX.3 à DX.5)</h1>
+<h2>LOT_212 — Partie 2 : monographies des diagnostics différentiels DX.3 à DX.5</h2>
+<ul class="txt"><li>Cette Partie 2 de l’Appel B reprend à l’identique la liste des 10 diagnostics différentiels fixée par l’Appel A et rédige les monographies DX.3 à DX.5 selon les 14 points du plan clinique ; chaque précision, y compris l’interprétation de chaque examen complémentaire, s’ouvre d’un clic.</li></ul>
+<h3>Liste des 10 diagnostics différentiels (reprise de l’Appel A)</h3>
+<ul class="txt">
+<li>DX.1 — Douleur cancéreuse nociceptive insuffisamment contrôlée et exacerbations douloureuses <sup class="proba">≈ 40–80 %</sup> <span class="s">douleur chez 60 à 80 % des patients en maladie avancée ; exacerbations chez 40 à 80 % [S5], [S17]</span></li>
+<li>DX.2 — Nausées et vomissements chroniques d’origine médicamenteuse, toxique ou métabolique <sup class="proba">≈ 40–70 %</sup> <span class="s">40 à 70 % de la population palliative générale [S6] ; 40 à 70 % en cancer avancé [S18]</span></li>
+<li>DX.3 — Constipation induite par les opioïdes et fécalome <sup class="proba">≈ 50 %</sup> <span class="s">environ 50 % des patients en soins palliatifs ; 85 à 90 % sous opioïdes sans prophylaxie [S7], [S19]</span> (rédigé dans cette Partie 2)</li>
+<li>DX.4 — Délirium avec agitation de la phase avancée et terminale <sup class="proba">≈ 28–88 %</sup> <span class="s">28 à 88 % dans les derniers jours de vie [S10]</span> (rédigé dans cette Partie 2)</li>
+<li>DX.5 — Occlusion intestinale maligne <sup class="proba">≈ 4–42 %</sup> <span class="s">5 à 42 % en cancer ovarien avancé, 4 à 24 % en cancer colorectal avancé [S8]</span> (rédigé dans cette Partie 2)</li>
+<li>DX.6 — Douleur neuropathique ou mixte d’origine cancéreuse <sup class="proba">≈ 19–39 %</sup> <span class="s">douleur mixte chez 19 à 39 % des patients oncologiques [S5]</span></li>
+<li>DX.7 — Compression médullaire métastatique <sup class="proba">≈ 3–10 %</sup> <span class="s">3 à 10 % des patients en situation oncologique avancée, 20 % en cas de métastases vertébrales [S11]</span></li>
+<li>DX.8 — Hypercalcémie tumorale <sup class="proba">≈ 0,2–9 %</sup> <span class="s">prévalence de 0,2 à 9 % [S12]</span></li>
+<li>DX.9 — Neurotoxicité des opioïdes, surdosage et intoxication <sup class="proba">n. d.</sup> <span class="s">donnée non trouvée dans les sources consultées [S5], [S13]</span></li>
+<li>DX.10 — Souffrance réfractaire globale (« douleur totale ») et indication de sédation palliative <sup class="proba">≈ 4,7–17,5 % des décès</sup> <span class="s">sédation profonde continue chez 4,7 % (2001) à 17,5 % (2013) des décès en Suisse [S22]</span></li>
+</ul>
+<details open="">
+<summary><strong>DX.3 — Constipation induite par les opioïdes et fécalome</strong> <sup class="proba">≈ 50 %</sup> <span class="s">[S7]</span></summary>
+<h3>DX.3 — Constipation induite par les opioïdes et fécalome <sup class="proba">≈ 50 %</sup> <span class="s">[S7]</span></h3>
+<ul class="txt"><li>Diagnostic de l’objectif SSP O5.4 (PROFILES) : prise en charge des symptômes réfractaires, ici la constipation qui entretient douleur et nausées [S1]. Probabilité dans la population cible : environ 50 % des patients en soins palliatifs [S7].</li></ul>
+<section class="point" id="dx3-p1">
+<h4><strong>1. Définition et sémantique</strong></h4>
+<ul class="txt">
+<li><em>1.1 — Constipation</em> : La constipation associe moins de 3 selles par semaine, selon les habitudes antérieures, et des difficultés d’exonération : selles dures, passage difficile, vidange incomplète [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi tenir compte des habitudes</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La fréquence normale varie d’une personne à l’autre ; c’est le changement par rapport à l’habitude du patient qui compte [S7], [S19].</span></details></li>
+<li><em>1.2 — Constipation induite par les opioïdes (CIO)</em> : La CIO est une constipation nouvelle ou aggravée lors du début, du changement ou de l’augmentation d’un opioïde [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Critères de Rome IV</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Il faut au moins 2 éléments sur au moins un quart des défécations : effort excessif, exonération incomplète, selles dures (Bristol 1 ou 2), manœuvres digitales ; ou moins de 3 selles spontanées par semaine [S7].</span></details></li>
+<li><em>1.3 — Fécalome</em> : Le fécalome est une masse de selles dures bloquée dans le rectum ou le côlon, palpable au toucher rectal [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Diarrhée paradoxale</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un fécalome peut se manifester par une diarrhée, car seules des selles liquides passent autour de l’obstacle ; d’où le toucher rectal même en cas de diarrhée [S19].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx3-p2">
+<h4><strong>2. Épidémiologie (Suisse d’abord, puis Europe)</strong></h4>
+<ul class="txt">
+<li><em>2.1 — Soins palliatifs</em> : La constipation touche environ 50 % des patients en soins palliatifs ; c’est le troisième symptôme après la douleur et l’anorexie [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Un symptôme caché</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les patients n’en parlent souvent pas d’eux-mêmes ; il faut la rechercher activement [S7].</span></details></li>
+<li><em>2.2 — Sous opioïdes</em> : Environ 90 % des patients sous opioïdes sont constipés selon les HUG (Hôpitaux universitaires de Genève) [S7]. La recommandation suisse Bigorio 2007 donne 85 à 90 % sans prévention et plus de 90 % en phase terminale [S19].</li>
+<li><em>2.3 — Prévalences comparables du LOT</em> : En soins palliatifs, la constipation touche environ 50 % des patients [S7] et les nausées 40 à 70 % [S6]. Le délirium touche 28 à 88 % des patients dans les derniers jours de vie [S10]. L’occlusion maligne touche 5 à 42 % des cancers ovariens avancés et 4 à 24 % des cancers colorectaux avancés [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Limite de la comparaison</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les populations et les définitions diffèrent d’une source à l’autre ; ces chiffres donnent un ordre de grandeur et ne s’additionnent pas [S6], [S7], [S8], [S10].</span></details></li>
+<li><em>2.4 — Europe</em> : Donnée non trouvée dans les sources consultées pour un chiffre européen distinct et comparable ; les chiffres ci-dessus proviennent de références suisses [S7], [S19].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p3">
+<h4><strong>3. Physiopathologie</strong></h4>
+<ul class="txt">
+<li><em>3.1 — Anatomie et physiologie</em> : La morphine agit sur les récepteurs opioïdes µ et ralentit le transit intestinal [S23]. Ces récepteurs de l’intestin sont périphériques : un antagoniste µ périphérique lève la constipation sans réduire l’analgésie centrale [S19]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi la constipation persiste</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La constipation est l’effet indésirable le plus constant des opioïdes et n’entraîne pas de tolérance ; le laxatif est donc prescrit d’emblée et pour toute la durée du traitement [S5].</span></details></li>
+<li><em>3.2 — Facteurs qui s’additionnent</em> : L’immobilité, la baisse des apports alimentaires et liquidiens, le manque d’intimité, la dépression et l’âge favorisent la constipation [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Autres médicaments en cause</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Anticholinergiques, antidépresseurs ISRS (inhibiteurs sélectifs de la recapture de la sérotonine), antagonistes 5-HT3 (sétrons), antiépileptiques, certaines chimiothérapies, fer oral et diurétiques s’ajoutent aux opioïdes [S7].</span></details></li>
+<li><em>3.3 — Causes à ne pas manquer</em> : Une hypercalcémie, une hypothyroïdie ou une hypokaliémie sont des causes métaboliques [S7]. Une compression médullaire ou une tumeur colique sont des causes neurologiques ou anatomiques [S7].</li>
+<li><em>3.4 — Conséquences</em> : La constipation entretient des nausées et un fécalome peut précipiter un délirium [S10], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Chaîne logique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Opioïde → ralentissement du transit → selles dures → fécalome → douleur, nausée, agitation ; c’est pourquoi on corrige la constipation avant de traiter la nausée par un antiémétique [S10], [S18].</span></details></li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Cause → mécanisme → conduite [S7], [S8], [S12]</caption>
+<tr><th>Cause</th><th>Mécanisme</th><th>Conduite</th></tr>
+<tr><td>Opioïde</td><td>Stimulation des récepteurs µ intestinaux [S19], [S23]</td><td>Laxatif d’emblée, puis antagoniste µ périphérique [S7]</td></tr>
+<tr><td>Hypercalcémie</td><td>Cause métabolique de constipation [S7], [S12]</td><td>Hydratation, bisphosphonate (DX.8) [S12]</td></tr>
+<tr><td>Hypokaliémie</td><td>Cause métabolique de constipation et d’iléus [S7], [S8]</td><td>Corriger le potassium [S8]</td></tr>
+<tr><td>Compression médullaire</td><td>Atteinte neurologique [S7], [S11]</td><td>IRM, dexaméthasone (DX.7) [S11]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx3-p4">
+<h4><strong>4. Démarche diagnostique</strong></h4>
+<ul class="txt">
+<li><em>4.1 — Chercher activement</em> : Le médecin interroge chaque jour sur le transit, car le patient n’en parle souvent pas [S7].</li>
+<li><em>4.2 — Écarter le grave</em> : Il exclut d’abord un fécalome, une occlusion mécanique ou paralytique complète et une atteinte neurologique comme le syndrome de la queue de cheval [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Une occlusion complète change tout le traitement : les laxatifs stimulants et les prokinétiques deviennent alors contre-indiqués [S8], [S24].</span></details></li>
+<li><em>4.3 — Examiner</em> : Après 4 jours sans selles malgré les laxatifs, il examine l’anus et fait un toucher rectal [S7].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p5">
+<h4><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h4>
+<ul class="txt">
+<li><em>5.1 — Anamnèse</em> : Le médecin précise la date des dernières selles, leur consistance, l’effort de poussée et les laxatifs réellement pris [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Liste des médicaments</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Il relit l’ordonnance à la recherche d’opioïdes, d’anticholinergiques, de sétrons, de fer et de diurétiques [S7].</span></details></li>
+<li><em>5.2 — Drapeau rouge digestif</em> : Des douleurs abdominales, des nausées et des vomissements avec arrêt du transit font évoquer un iléus (DX.5) [S7], [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Conduite</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Le médecin fait un toucher rectal et demande une radiographie de l’abdomen à la recherche de niveaux hydroaériques [S7].</span></details></li>
+<li><em>5.3 — Drapeau rouge neurologique</em> : Des troubles sphinctériens, un déficit des jambes ou une douleur rachidienne font suspecter une compression médullaire (DX.7) [S7], [S11].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p6">
+<h4><strong>6. Examen physique ciblé, région par région</strong></h4>
+<ul class="txt">
+<li><em>6.1 — Abdomen</em> : Le médecin recherche une distension et écoute les bruits intestinaux ; des bruits absents ou métalliques orientent vers une occlusion [S8].</li>
+<li><em>6.2 — Toucher rectal</em> : Le toucher rectal est indispensable, même en cas de diarrhée, pour exclure un fécalome [S19]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Ce qu’il distingue</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Des selles pâteuses ou molles dans l’ampoule, des masses fécales dures ou une ampoule vide orientent vers des traitements différents [S7].</span></details></li>
+<li><em>6.3 — Neurologie</em> : Il teste la sensibilité du périnée, la force des jambes et le tonus anal à la recherche d’une atteinte de la moelle ou de la queue de cheval [S7], [S11].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p7">
+<h4><strong>7. Approche syndromique</strong></h4>
+<ul class="txt">
+<li><em>7.1 — Constipation simple</em> : Selles rares et dures, abdomen souple, toucher rectal avec selles dans l’ampoule [S7].</li>
+<li><em>7.2 — Fécalome</em> : Masse fécale dure au toucher rectal, parfois avec diarrhée paradoxale, douleur ou agitation [S7], [S10], [S19].</li>
+<li><em>7.3 — Iléus ou occlusion</em> : Distension, vomissements, bruits absents ou métalliques ; ce tableau relève du DX.5 [S8].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p8">
+<h4><strong>8. Diagnostic positif et critères</strong></h4>
+<ul class="txt">
+<li><em>8.1 — CIO</em> : Selon les critères de Rome IV repris par les HUG, la CIO exige au moins 2 éléments apparus ou aggravés avec l’opioïde [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Les éléments</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Effort excessif, exonération incomplète, selles Bristol 1 ou 2, manœuvres digitales, chacun dans au moins un quart des défécations, ou moins de 3 selles spontanées par semaine [S7].</span></details></li>
+<li><em>8.2 — Fécalome</em> : Le diagnostic est clinique : masses fécales dures au toucher rectal ou palpables dans le côlon [S7].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p9">
+<h4><strong>9. Examens complémentaires</strong></h4>
+<ul class="txt">
+<li><em>9.a — Biologie</em> : La <details class="ex"><summary>calcémie corrigée</summary><div class="exw"><div class="ext">Calcémie corrigée et calcium ionisé</div>
+<div class="onglets"><input checked="" id="om212e1p" name="om212e1" type="radio"/><label for="om212e1p">Principe</label><input id="om212e1i" name="om212e1" type="radio"/><label for="om212e1i">Interprétation</label>
+<div class="op">Le calcium total est corrigé selon l’albumine ; le calcium ionisé mesure directement la fraction active [S12].</div>
+<div class="oi"><div class="ctx">Chez le patient oncologique, une hypercalcémie explique nausées, constipation ou confusion et se traite [S7], [S12], [S18].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Calcémie corrigée &gt; 2,6 mmol/l ou calcium ionisé &gt; 1,35 mmol/l</td><td class="l1">Hypercalcémie [S12]</td><td class="l2">Rechercher la cause, contrôler la clinique [S12]</td></tr>
+<tr><td class="l0">Calcémie corrigée &gt; 3 mmol/l</td><td class="l1">Seuil de traitement, à moduler selon la clinique [S12]</td><td class="l2">Hydratation isotonique 2 à 3 l, puis bisphosphonate (DX.8) [S12]</td></tr>
+</tbody></table></div></div></div></div></details> recherche une hypercalcémie [S7], [S12]. La <details class="ex"><summary>kaliémie</summary><div class="exw"><div class="ext">Kaliémie (potassium sanguin)</div>
+<div class="onglets"><input checked="" id="om212e2p" name="om212e2" type="radio"/><label for="om212e2p">Principe</label><input id="om212e2i" name="om212e2" type="radio"/><label for="om212e2i">Interprétation</label>
+<div class="op">La kaliémie mesure le potassium du sang ; une hypokaliémie ralentit la motricité de l’intestin [S7], [S8].</div>
+<div class="oi"><div class="ctx">Une constipation rebelle ou un iléus paralytique en soins palliatifs fait doser le potassium [S7], [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Hypokaliémie</td><td class="l1">Cause métabolique de constipation et d’iléus paralytique [S7], [S8]</td><td class="l2">Corriger le potassium, revoir diurétiques et laxatifs [S7], [S8]</td></tr>
+<tr><td class="l0">Hypokaliémie non corrigée</td><td class="l1">Contre-indication à l’halopéridol [S25]</td><td class="l2">Corriger avant de donner l’halopéridol [S25]</td></tr>
+</tbody></table></div></div></div></div></details> et la <details class="ex"><summary>TSH</summary><div class="exw"><div class="ext">TSH (thyréostimuline)</div>
+<div class="onglets"><input checked="" id="om212e3p" name="om212e3" type="radio"/><label for="om212e3p">Principe</label><input id="om212e3i" name="om212e3" type="radio"/><label for="om212e3i">Interprétation</label>
+<div class="op">La TSH (thyréostimuline) dépiste une hypothyroïdie, cause métabolique de constipation [S7].</div>
+<div class="oi"><div class="ctx">Une constipation sans cause médicamenteuse évidente fait rechercher une hypothyroïdie, cause métabolique reconnue [S7].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">TSH élevée</td><td class="l1">Hypothyroïdie possible, cause de constipation [S7]</td><td class="l2">Examen de confirmation : donnée non trouvée dans les sources consultées</td></tr>
+<tr><td class="l0">TSH normale</td><td class="l1">Hypothyroïdie peu probable [S7]</td><td class="l2">Chercher une autre cause (médicaments, calcium, potassium) [S7]</td></tr>
+</tbody></table></div></div></div></div></details> recherchent une cause métabolique [S7].</li>
+<li><em>9.b — Imagerie</em> : La <details class="ex"><summary>radiographie de l’abdomen</summary><div class="exw"><div class="ext">Radiographie de l’abdomen sans préparation (ASP)</div>
+<div class="onglets"><input checked="" id="om212e4p" name="om212e4" type="radio"/><label for="om212e4p">Principe</label><input id="om212e4i" name="om212e4" type="radio"/><label for="om212e4i">Interprétation</label>
+<div class="op">Le cliché couché montre la répartition des selles, le cliché debout les niveaux hydroaériques ; sa sensibilité pour l’iléus est de 66 % [S8], [S18].</div>
+<div class="oi"><div class="ctx">Chez un patient sous opioïdes, il distingue une stase fécale d’un iléus [S7], [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Anses distendues (&gt; 3 cm grêle, &gt; 6 cm côlon, &gt; 9 cm cæcum)</td><td class="l1">Occlusion, règle 3-6-9 [S8]</td><td class="l2">Mise à jeun, avis chirurgical (DX.5) [S8]</td></tr>
+<tr><td class="l0">Au moins 2 niveaux hydroaériques</td><td class="l1">Iléus [S8]</td><td class="l2">Arrêter les prokinétiques si occlusion complète [S8]</td></tr>
+<tr><td class="l0">Stase fécale abondante</td><td class="l1">Constipation ou fécalome [S7], [S18]</td><td class="l2">Laxatifs, lavement (DX.3) [S7]</td></tr>
+</tbody></table></div></div></div></div></details> distingue une stase fécale d’un iléus [S7], [S8]. Le <details class="ex"><summary>scanner abdominal</summary><div class="exw"><div class="ext">TDM (tomodensitométrie, scanner) abdominale</div>
+<div class="onglets"><input checked="" id="om212e5p" name="om212e5" type="radio"/><label for="om212e5p">Principe</label><input id="om212e5i" name="om212e5" type="radio"/><label for="om212e5i">Interprétation</label>
+<div class="op">Le scanner montre le niveau, le nombre et la cause des obstacles ; il est demandé surtout si une chirurgie est envisageable [S8].</div>
+<div class="oi"><div class="ctx">Dans l’occlusion maligne, il sert à décider entre chirurgie, prothèse endoscopique et traitement symptomatique [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Obstacle unique et localisé</td><td class="l1">Situation la plus favorable à la chirurgie [S8]</td><td class="l2">Avis chirurgical si le pronostic est favorable [S8]</td></tr>
+<tr><td class="l0">Niveaux multiples, carcinose étendue, ascite récidivante</td><td class="l1">Contre-indications à la chirurgie [S8]</td><td class="l2">Traitement médicamenteux symptomatique [S8]</td></tr>
+<tr><td class="l0">Cæcum &gt; 10 cm sans signe de souffrance (pseudo-obstruction d’Ogilvie)</td><td class="l1">Distension colique extrême sans obstacle [S8]</td><td class="l2">Exsufflation endoscopique à discuter [S8]</td></tr>
+</tbody></table></div></div></div></div></details> n’est demandé que si une occlusion est suspectée [S8].</li>
+<li><em>9.c — Ce qui suffit souvent</em> : L’anamnèse et l’examen ne sont pas toujours assez sensibles ; le toucher rectal reste l’examen clé [S19].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p10">
+<h4><strong>10. Arbre décisionnel</strong></h4>
+<ul class="txt">
+<li><em>10.1 — Étape 1</em> : Signes d’occlusion ou déficit neurologique : orienter vers le DX.5 ou le DX.7 [S7], [S8], [S11].</li>
+<li><em>10.2 — Étape 2</em> : Sinon, majorer les laxatifs oraux ; après 2 à 3 jours sans effet, donner un suppositoire ou un petit lavement [S7].</li>
+<li><em>10.3 — Étape 3</em> : Après 4 jours, faire un toucher rectal et choisir le lavement selon le contenu de l’ampoule [S7].</li>
+<li><em>10.4 — Étape 4</em> : Si la CIO persiste malgré ces mesures, ajouter un antagoniste µ périphérique [S7].</li>
+</ul>
+<details class="t"><summary>Arbre décisionnel résumé</summary><pre class="arbre">Constipation sous opioïde
+ ├─ occlusion ou déficit neurologique ? → DX.5 / DX.7 [S8], [S11]
+ └─ non → laxatifs oraux majorés [S7]
+      ├─ 2–3 j sans effet → suppositoire, petit lavement [S7]
+      ├─ 4 j → toucher rectal [S7]
+      │    ├─ selles molles → lavement phosphate [S7]
+      │    └─ fécalome → lavement glycérine, extraction [S7]
+      └─ CIO persistante → méthylnaltrexone ou naloxegol [S7]</pre></details>
+</section>
+<section class="point" id="dx3-p11">
+<h4><strong>11. Prise en charge selon les recommandations suisses</strong></h4>
+<ul class="txt">
+<li><em>11.A — Prévenir dès la première dose</em> : L’AIPS de Sevredol® (morphine) cite la constipation comme effet très fréquent (34 %) et recommande des laxatifs dès le début du traitement [S23]. On prescrit donc le laxatif le même jour que l’opioïde [S7]. On débute par un laxatif osmotique (macrogol, lactitol) ou stimulant (picosulfate de sodium) [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi pas de fibres</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les laxatifs de lest gonflent avec l’eau ; chez un patient qui boit peu et sous opioïde, ils sont à éviter [S7].</span></details></li>
+<li><em>11.B — Majorer</em> : Si la constipation persiste, on associe un laxatif de contact (picosulfate) et un osmotique (lactitol ou macrogol), avec suppositoire et lavement en réserve [S7]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Le macrogol</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La recommandation Bigorio 2007 juge le macrogol en monothérapie probablement plus efficace grâce à son index thérapeutique large [S19].</span></details></li>
+<li><em>11.C — Lavement selon le toucher rectal</em> : Des selles molles dans l’ampoule font donner un lavement au phosphate de sodium 22 % (120 ml) [S7]. Un fécalome fait donner un lavement à la glycérine de 1000 ml, puis une extraction manuelle si nécessaire [S7].</li>
+<li><em>11.D — CIO résistante</em> : Quand la CIO persiste après correction des facteurs favorisants, on donne un antagoniste µ périphérique, méthylnaltrexone SC (sous-cutanée) ou naloxegol oral [S7], [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">La dose</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La posologie de chaque antagoniste µ se lit dans l’information professionnelle Swissmedic de la spécialité, que nos sources ne reproduisent pas ; nous ne donnons donc pas de chiffre.</span></details> <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Risque</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Ces médicaments exposent à une perforation digestive ; une occlusion mécanique doit être exclue avant [S7].</span></details></li>
+<li><em>11.E — Situations spéciales</em> : Chaque situation spéciale s’ouvre d’un clic.
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Sujet âgé</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS de Sevredol® demande la prudence chez la personne âgée ou affaiblie [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance hépatique ou rénale</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une adaptation des laxatifs et des antagonistes µ n’est pas précisée dans nos sources : donnée non trouvée ; la posologie se vérifie dans l’AIPS de chaque spécialité.</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Constipation neurogène</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un suppositoire se donne de façon régulière [S7].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Indication autorisée</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">En Suisse, la méthylnaltrexone est reconnue pour la CIO en soins palliatifs, le naloxegol pour la CIO de la douleur non cancéreuse [S7].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Usage hors étiquette</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Plusieurs médicaments palliatifs sont utilisés hors indication autorisée, ce qui impose information et documentation [S21].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Enfant, grossesse, allaitement</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Nos sources ne traitent pas ce contexte palliatif : donnée non trouvée.</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Mesures non médicamenteuses</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Hydratation, mobilisation, alimentation adaptée sans surcharge en fibres et massage du cadre colique complètent le traitement [S7].</span></details></li>
+<li><em>11.F — Surveillance</em> : On note chaque jour le transit pour dépister la constipation avant le fécalome, et l’on fait un toucher rectal au 4e jour sans selles [S7].</li>
+<li><em>11.G — Critères de sortie et retour à domicile</em> : Le retour à domicile se prépare avec le réseau de soins et une ordonnance qui associe l’opioïde et le laxatif [S7], [S30].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p12">
+<h4><strong>12. Prévention</strong></h4>
+<ul class="txt">
+<li><em>12.1 — Primaire</em> : Le laxatif prescrit avec chaque opioïde prévient la CIO [S7].</li>
+<li><em>12.2 — Secondaire</em> : La question quotidienne sur le transit dépiste la constipation avant le fécalome [S7].</li>
+<li><em>12.3 — Tertiaire</em> : Le toucher rectal au 4e jour sans selles évite un fécalome compliqué [S7].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p13">
+<h4><strong>13. Points clés</strong></h4>
+<ul class="txt">
+<li><em>13.1</em> : Environ 90 % des patients sous opioïdes sont constipés [S7].</li>
+<li><em>13.2</em> : Tout opioïde se prescrit avec un laxatif [S7].</li>
+<li><em>13.3</em> : Le toucher rectal s’impose même en cas de diarrhée [S19].</li>
+<li><em>13.4</em> : Un antagoniste µ périphérique traite la CIO résistante, après exclusion d’une occlusion [S7].</li>
+</ul>
+</section>
+<section class="point" id="dx3-p14">
+<h4><strong>14. Pièges et questions fréquentes à l’examen fédéral suisse</strong></h4>
+<ul class="txt">
+<li><em>14.1 — Piège examen fédéral : les fibres</em> : Prescrire des laxatifs de lest sous opioïde est faux, car ils sont à éviter en situation palliative [S7].</li>
+<li><em>14.2 — Piège examen fédéral : la diarrhée</em> : Une diarrhée chez un patient sous opioïde peut cacher un fécalome ; le toucher rectal tranche [S19].</li>
+<li><em>14.3 — Piège examen fédéral : le prokinétique</em> : Donner du métoclopramide dans une occlusion complète est faux, car il peut aggraver les coliques et le risque de perforation [S8], [S24].</li>
+<li><em>14.4 — Question fréquente</em> : Une constipation inexpliquée fait doser la calcémie corrigée [S7], [S12].</li>
+</ul>
+</section>
+</details>
+<details open="">
+<summary><strong>DX.4 — Délirium avec agitation de la phase avancée et terminale</strong> <sup class="proba">≈ 28–88 %</sup> <span class="s">[S10]</span></summary>
+<h3>DX.4 — Délirium avec agitation de la phase avancée et terminale <sup class="proba">≈ 28–88 %</sup> <span class="s">[S10]</span></h3>
+<ul class="txt"><li>Diagnostic de l’objectif SSP O5.4 (PROFILES) : prise en charge des symptômes réfractaires, ici le délirium agité de la phase avancée [S1]. Probabilité dans la population cible : 28 à 88 % des patients dans les derniers jours de vie [S10].</li></ul>
+<section class="point" id="dx4-p1">
+<h4><strong>1. Définition et sémantique</strong></h4>
+<ul class="txt">
+<li><em>1.1 — Délirium</em> : Le délirium est un syndrome organique cérébral aigu : troubles de l’attention et des fonctions cognitives, souvent avec troubles psychomoteurs et du cycle veille-sommeil, parfois hallucinations [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Synonyme</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">En français clinique, on parle aussi d’état confusionnel aigu ; le terme « délire » de l’information professionnelle de l’halopéridol désigne ici ce même syndrome [S10], [S25].</span></details></li>
+<li><em>1.2 — Trois sous-types</em> : Le délirium est hypoactif, hyperactif ou mixte ; la forme hypoactive est la plus fréquente et la plus souvent manquée [S10].</li>
+<li><em>1.3 — Agitation</em> : L’agitation se cote avec l’échelle RASS-PAL (Richmond Agitation-Sedation Scale adaptée aux soins palliatifs) ; un score ≥ 2 justifie l’halopéridol [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Agitation sévère</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un score RASS-PAL de +3 ou +4 réfractaire peut justifier une sédation palliative en urgence [S14].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx4-p2">
+<h4><strong>2. Épidémiologie (Suisse d’abord, puis Europe)</strong></h4>
+<ul class="txt">
+<li><em>2.1 — Fin de vie</em> : Le délirium touche 28 à 88 % des patients dans les derniers jours de vie selon les HUG [S10].</li>
+<li><em>2.2 — Sédation palliative</em> : Le délirium agité est la première indication de sédation palliative, avec 41 à 83 % des indications selon les recommandations suisses révisées [S22].</li>
+<li><em>2.3 — Prévalences comparables du LOT</em> : En soins palliatifs, la constipation touche environ 50 % des patients [S7] et les nausées 40 à 70 % [S6]. Le délirium touche 28 à 88 % des patients dans les derniers jours de vie [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Limite de la comparaison</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La fourchette du délirium vaut pour les derniers jours de vie, pas pour toute la période palliative ; les chiffres ne s’additionnent pas [S6], [S7], [S10].</span></details></li>
+<li><em>2.4 — Europe</em> : Donnée non trouvée dans les sources consultées pour un chiffre européen distinct et comparable [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p3">
+<h4><strong>3. Physiopathologie</strong></h4>
+<ul class="txt">
+<li><em>3.1 — Terrain</em> : L’âge, l’abus d’alcool, des troubles cognitifs préexistants et la sévérité de la maladie fragilisent le cerveau [S10].</li>
+<li><em>3.2 — Facteurs précipitants</em> : Médicaments (psychotropes, opioïdes, antibiotiques), infections, troubles métaboliques, hypoxémie, globe urinaire, fécalome, tumeur cérébrale, AVC (accident vasculaire cérébral), sevrage et douleur déclenchent le délirium sur ce terrain [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Chaîne logique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Cerveau fragile → agression aiguë (médicament, infection, calcium, rétention) → défaillance de l’attention → délirium ; c’est pourquoi on traite d’abord la cause [S10].</span></details></li>
+<li><em>3.3 — Facteurs aggravants</em> : Le changement de milieu, la privation sensorielle, les symptômes non contrôlés et le stress existentiel entretiennent le délirium [S10].</li>
+<li><em>3.4 — Conséquences</em> : Le délirium augmente les complications, le déclin fonctionnel et cognitif, la mortalité et le coût des soins [S10].</li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Facteur précipitant → recherche → conduite [S5], [S7], [S10], [S12]</caption>
+<tr><th>Facteur</th><th>Recherche</th><th>Conduite</th></tr>
+<tr><td>Opioïde (neurotoxicité)</td><td>Myoclonies, hallucinations [S5]</td><td>Réduire ou changer d’opioïde (DX.9) [S5]</td></tr>
+<tr><td>Hypercalcémie</td><td>Calcémie corrigée [S10], [S12]</td><td>Hydratation, bisphosphonate (DX.8) [S12]</td></tr>
+<tr><td>Globe urinaire, fécalome</td><td>Palpation sus-pubienne, toucher rectal [S7], [S10]</td><td>Sondage, lavement (DX.3) [S7]</td></tr>
+<tr><td>Infection pulmonaire ou urinaire</td><td>Clinique [S10]</td><td>Traiter selon les objectifs de soins [S10]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx4-p4">
+<h4><strong>4. Démarche diagnostique</strong></h4>
+<ul class="txt">
+<li><em>4.1 — Reconnaître</em> : Le médecin pose le diagnostic avec la CAM (Confusion Assessment Method) et cote l’agitation par la RASS-PAL [S10].</li>
+<li><em>4.2 — Chercher la cause</em> : Il recherche les facteurs précipitants en premier, selon les possibilités et les objectifs de soins [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Ce qui répond au traitement</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une infection non respiratoire ou un médicament autre que l’opioïde se corrigent souvent ; une déshydratation, une hypoxémie, une hyponatrémie ou une atteinte cérébrale répondent de façon incertaine [S10].</span></details></li>
+<li><em>4.3 — Décider avec l’équipe</em> : La décision tient compte du stade de la maladie et des souhaits du patient, et soulève parfois des questions éthiques [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p5">
+<h4><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h4>
+<ul class="txt">
+<li><em>5.1 — Auprès des proches</em> : Le médecin demande le début, la fluctuation dans la journée et l’état cognitif antérieur [S10].</li>
+<li><em>5.2 — Médicaments et sevrage</em> : Il relit l’ordonnance (opioïdes, psychotropes, antibiotiques) et recherche un sevrage d’alcool ou de médicament [S10].</li>
+<li><em>5.3 — Drapeaux rouges</em> : Une hypoglycémie, une hypoxémie, une crise d’épilepsie ou un AVC demandent une action immédiate si elle sert le patient [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Agitation dangereuse</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Une agitation RASS-PAL +3 ou +4 réfractaire peut imposer une sédation palliative en urgence par midazolam [S14].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx4-p6">
+<h4><strong>6. Examen physique ciblé, région par région</strong></h4>
+<ul class="txt">
+<li><em>6.1 — Vigilance</em> : Le médecin cote la vigilance et l’agitation par la RASS-PAL [S10], [S14].</li>
+<li><em>6.2 — Abdomen et vessie</em> : Il palpe la vessie et fait un toucher rectal, car un globe ou un fécalome suffisent à déclencher un délirium [S10].</li>
+<li><em>6.3 — Neurologie</em> : Des myoclonies sous opioïde orientent vers une neurotoxicité (DX.9) [S5]. Un déficit focal oriente vers une cause cérébrale [S10].</li>
+<li><em>6.4 — Sens</em> : Il vérifie lunettes et appareil auditif, et fait une otoscopie si une baisse d’audition est nouvelle [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p7">
+<h4><strong>7. Approche syndromique</strong></h4>
+<ul class="txt">
+<li><em>7.1 — Hyperactif</em> : Agitation, hallucinations, inversion du rythme veille-sommeil [S10].</li>
+<li><em>7.2 — Hypoactif</em> : Patient calme, somnolent et inattentif ; c’est la forme la plus fréquente [S10].</li>
+<li><em>7.3 — Mixte</em> : Alternance des deux formes au cours de la journée [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p8">
+<h4><strong>8. Diagnostic positif et critères</strong></h4>
+<ul class="txt">
+<li><em>8.1 — CAM</em> : Selon les HUG, la <details class="ex"><summary>CAM</summary><div class="exw"><div class="ext">CAM (Confusion Assessment Method)</div>
+<div class="onglets"><input checked="" id="om212e6p" name="om212e6" type="radio"/><label for="om212e6p">Principe</label><input id="om212e6i" name="om212e6" type="radio"/><label for="om212e6i">Interprétation</label>
+<div class="op">Le soignant cote quatre critères : début brusque avec fluctuation, inattention, pensée désorganisée, altération de la conscience [S10].</div>
+<div class="oi"><div class="ctx">Les critères 1 et 2, associés au critère 3 ou 4, posent le diagnostic de délirium avec certitude [S10].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Critères 1 + 2 + (3 ou 4)</td><td class="l1">Délirium certain [S10]</td><td class="l2">Rechercher les facteurs précipitants [S10]</td></tr>
+<tr><td class="l0">Patient calme mais inattentif et somnolent</td><td class="l1">Forme hypoactive, la plus fréquente et sous-diagnostiquée [S10]</td><td class="l2">Ne pas conclure à une simple fatigue [S10]</td></tr>
+</tbody></table></div></div></div></div></details> pose le diagnostic quand les critères 1 et 2 s’associent au critère 3 ou 4 [S10].</li>
+<li><em>8.2 — Seuil de traitement</em> : Un score RASS-PAL ≥ 2 définit l’agitation qui justifie l’halopéridol [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p9">
+<h4><strong>9. Examens complémentaires</strong></h4>
+<ul class="txt">
+<li><em>9.a — Biologie</em> : Le <details class="ex"><summary>bilan sanguin (sodium, potassium, calcium, fonction rénale et hépatique)</summary><div class="exw"><div class="ext">Bilan métabolique du délirium</div>
+<div class="onglets"><input checked="" id="om212e7p" name="om212e7" type="radio"/><label for="om212e7p">Principe</label><input id="om212e7i" name="om212e7" type="radio"/><label for="om212e7i">Interprétation</label>
+<div class="op">Ce bilan mesure le sodium, le potassium, le calcium, la fonction rénale et la fonction hépatique, troubles qui précipitent un délirium [S10].</div>
+<div class="oi"><div class="ctx">Il se demande si la correction de la cause reste compatible avec les objectifs de soins [S10].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Hyponatrémie</td><td class="l1">Facteur précipitant ; amélioration incertaine même après correction [S10]</td><td class="l2">Corriger si cela sert le confort [S10]</td></tr>
+<tr><td class="l0">Hypercalcémie</td><td class="l1">Facteur précipitant traitable [S10], [S12]</td><td class="l2">Hydratation puis bisphosphonate (DX.8) [S12]</td></tr>
+<tr><td class="l0">Insuffisance rénale ou hépatique</td><td class="l1">Accumulation des médicaments, dont la morphine [S5], [S10]</td><td class="l2">Réduire les doses, rotation d’opioïde (DX.9) [S5]</td></tr>
+</tbody></table></div></div></div></div></details> recherche un trouble métabolique [S10]. La <details class="ex"><summary>glycémie</summary><div class="exw"><div class="ext">Glycémie capillaire</div>
+<div class="onglets"><input checked="" id="om212e8p" name="om212e8" type="radio"/><label for="om212e8p">Principe</label><input id="om212e8i" name="om212e8" type="radio"/><label for="om212e8i">Interprétation</label>
+<div class="op">La glycémie capillaire mesure le sucre du sang au lit du patient ; une hypoglycémie précipite un délirium [S10].</div>
+<div class="oi"><div class="ctx">Une hypoglycémie est un facteur précipitant du délirium, rapide à corriger [S10].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Hypoglycémie</td><td class="l1">Cause réversible de délirium [S10]</td><td class="l2">Corriger immédiatement [S10]</td></tr>
+</tbody></table></div></div></div></div></details> exclut une hypoglycémie [S10].</li>
+<li><em>9.b — Fonctionnel</em> : La <details class="ex"><summary>saturation en oxygène</summary><div class="exw"><div class="ext">Saturation en oxygène (oxymétrie de pouls)</div>
+<div class="onglets"><input checked="" id="om212e9p" name="om212e9" type="radio"/><label for="om212e9p">Principe</label><input id="om212e9i" name="om212e9" type="radio"/><label for="om212e9i">Interprétation</label>
+<div class="op">Le capteur au doigt estime l’oxygène du sang ; une hypoxémie précipite un délirium [S10].</div>
+<div class="oi"><div class="ctx">Sous opioïde, une saturation basse avec respiration lente fait aussi penser à une intoxication [S13].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Hypoxémie</td><td class="l1">Facteur précipitant, amélioration incertaine malgré traitement [S10]</td><td class="l2">Oxygène selon les objectifs de soins [S10]</td></tr>
+<tr><td class="l0">SpO2 &lt; 90 % avec fréquence respiratoire ≤ 8 à 10 par minute</td><td class="l1">Intoxication aux opioïdes [S13]</td><td class="l2">Naloxone titrée (DX.9) [S13]</td></tr>
+</tbody></table></div></div></div></div></details> recherche une hypoxémie [S10]. L’<details class="ex"><summary>ECG</summary><div class="exw"><div class="ext">ECG (électrocardiogramme)</div>
+<div class="onglets"><input checked="" id="om212e10p" name="om212e10" type="radio"/><label for="om212e10p">Principe</label><input id="om212e10i" name="om212e10" type="radio"/><label for="om212e10i">Interprétation</label>
+<div class="op">L’ECG enregistre l’activité électrique du cœur et mesure l’intervalle QT corrigé (QTc) [S25].</div>
+<div class="oi"><div class="ctx">Avant l’halopéridol, l’ECG recherche un QTc allongé, qui est une contre-indication [S25].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">QTc allongé</td><td class="l1">Risque d’arythmie ventriculaire [S25]</td><td class="l2">Ne pas donner d’halopéridol, corriger la kaliémie [S25]</td></tr>
+<tr><td class="l0">Infarctus récent ou arythmie ventriculaire</td><td class="l1">Contre-indication à l’halopéridol [S25]</td><td class="l2">Choisir un autre antiémétique [S6], [S25]</td></tr>
+</tbody></table></div></div></div></div></details> mesure le QTc avant l’halopéridol [S25].</li>
+<li><em>9.c — Limite</em> : Les examens ne se font que s’ils peuvent changer la prise en charge et servent les objectifs de soins [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p10">
+<h4><strong>10. Arbre décisionnel</strong></h4>
+<ul class="txt">
+<li><em>10.1 — Étape 1</em> : CAM positive : rechercher et traiter les causes réversibles [S10].</li>
+<li><em>10.2 — Étape 2</em> : Patient non agité : abstention médicamenteuse autant que possible et mesures non médicamenteuses [S10].</li>
+<li><em>10.3 — Étape 3</em> : Agitation RASS-PAL ≥ 2 : halopéridol titré, puis lorazépam si l’agitation persiste [S10].</li>
+<li><em>10.4 — Étape 4</em> : Agitation réfractaire : discuter une sédation palliative en équipe (DX.10) [S10], [S14].</li>
+</ul>
+<details class="t"><summary>Arbre décisionnel résumé</summary><pre class="arbre">CAM positive [S10]
+ ├─ causes réversibles → traiter selon objectifs [S10]
+ ├─ non agité → abstention, mesures non médicamenteuses [S10]
+ └─ RASS-PAL ≥ 2 → halopéridol titré, au plus 10 mg par jour selon l’AIPS [S10], [S25]
+      ├─ persiste → lorazépam [S10]
+      └─ réfractaire → sédation palliative, midazolam (DX.10) [S14]</pre></details>
+</section>
+<section class="point" id="dx4-p11">
+<h4><strong>11. Prise en charge selon les recommandations suisses</strong></h4>
+<ul class="txt">
+<li><em>11.A — Cause et environnement</em> : Le traitement commence par la cause et par les mesures non médicamenteuses : réorientation, horloge, présence des proches, lunettes et appareils auditifs [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Contentions</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les contentions physiques sont à éviter autant que possible [S10].</span></details></li>
+<li><em>11.B — Halopéridol</em> : Chez le patient agité, les HUG titrent l’halopéridol (Haldol®) puis réduisent de moitié la dose efficace pour l’entretien [S10]. L’AIPS (information professionnelle Swissmedic) prévoit 1 à 10 mg par jour, ajustés toutes les 2 à 4 heures, sans dépasser 10 mg par jour [S25]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Ce qu’il fait et ne fait pas</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’halopéridol est indiqué dans le traitement aigu du délire après échec des mesures non médicamenteuses ; il calme l’agitation sans traiter la cause, d’où la recherche étiologique d’abord [S10], [S25].</span></details></li>
+<li><em>11.C — Deuxième ligne</em> : Si l’agitation persiste sous halopéridol bien conduit, les HUG ajoutent du lorazépam par voie IV (intraveineuse) ou SC [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Alternatives</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les HUG citent la quétiapine, l’olanzapine, la rispéridone, ou la lévomépromazine si une sédation est souhaitée [S10]. La posologie se lit dans l’AIPS de chaque spécialité ; nos sources ne la reproduisent pas, donc nous ne donnons pas de chiffre.</span></details></li>
+<li><em>11.D — Sédation palliative</em> : Si l’état confusionnel hyperactif reste insupportable malgré un traitement bien conduit, une sédation palliative se discute en équipe [S10], [S14].</li>
+<li><em>11.E — Situations spéciales</em> : Chaque situation spéciale s’ouvre d’un clic.
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Sujet âgé</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La dose initiale est la moitié de la plus faible dose adulte, et la dose maximale la moitié de la dose adulte [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Démence</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les antipsychotiques augmentent la mortalité chez le dément âgé (4,5 % contre 2,6 % sous placebo) [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance hépatique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’halopéridol est surtout métabolisé par le foie ; l’AIPS recommande de réduire de moitié la dose initiale [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance rénale</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS ne recommande pas d’ajustement de dose, mais conseille la prudence [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Enfant</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le délirium palliatif de l’enfant n’est pas traité dans nos sources : donnée non trouvée.</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Contre-indications</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS contre-indique l’halopéridol en cas de syndrome parkinsonien, de démence à corps de Lewy, de QTc allongé, d’infarctus récent ou d’hypokaliémie non corrigée [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Grossesse</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Au 3e trimestre, l’halopéridol expose le nouveau-né à des symptômes extrapyramidaux [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Allaitement</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’halopéridol passe dans le lait ; le bénéfice doit être pesé contre le risque [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Usage hors étiquette</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Plusieurs médicaments palliatifs sont utilisés hors indication autorisée, ce qui impose information et documentation [S21].</span></details></li>
+<li><em>11.F — Surveillance</em> : On répète la CAM (Confusion Assessment Method) et le score RASS-PAL (Richmond Agitation-Sedation Scale, version palliative) pour juger l’effet du traitement [S10].</li>
+<li><em>11.G — Critères de sortie et retour à domicile</em> : Le retour se prépare avec des proches formés aux réserves et, pour une fin de vie à domicile, avec une équipe infirmière joignable jour et nuit [S30].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p12">
+<h4><strong>12. Prévention</strong></h4>
+<ul class="txt">
+<li><em>12.1 — Primaire</em> : Les interventions à composantes multiples réduisent la survenue du délirium de 43 à 53 % et commencent dans les 24 heures après l’admission [S10]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi pas de médicament préventif</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Il n’existe pas de données probantes pour une prévention médicamenteuse [S10].</span></details></li>
+<li><em>12.2 — Secondaire</em> : On répète la CAM, qui dépiste les formes hypoactives [S10].</li>
+<li><em>12.3 — Tertiaire</em> : On limite la polymédication et les cathéters, et on gère le transit et la douleur [S10].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p13">
+<h4><strong>13. Points clés</strong></h4>
+<ul class="txt">
+<li><em>13.1</em> : Le délirium touche 28 à 88 % des patients en fin de vie [S10].</li>
+<li><em>13.2</em> : La CAM pose le diagnostic : critères 1 + 2 + (3 ou 4) [S10].</li>
+<li><em>13.3</em> : On cherche d’abord une cause réversible, dont le fécalome et le globe [S10].</li>
+<li><em>13.4</em> : L’halopéridol se titre si RASS-PAL ≥ 2, sans dépasser 10 mg par jour selon l’AIPS [S10], [S25].</li>
+</ul>
+</section>
+<section class="point" id="dx4-p14">
+<h4><strong>14. Pièges et questions fréquentes à l’examen fédéral suisse</strong></h4>
+<ul class="txt">
+<li><em>14.1 — Piège examen fédéral : la forme calme</em> : Prendre un délirium hypoactif pour une dépression ou une fatigue est une erreur fréquente [S10].</li>
+<li><em>14.2 — Piège examen fédéral : Parkinson</em> : Donner de l’halopéridol dans un syndrome parkinsonien ou une démence à corps de Lewy est faux, car il est contre-indiqué [S25].</li>
+<li><em>14.3 — Piège examen fédéral : traiter sans agitation</em> : Un patient confus mais calme ne reçoit pas de neuroleptique d’emblée ; l’abstention est la règle [S10].</li>
+<li><em>14.4 — Question fréquente</em> : La benzodiazépine vient en second, quand l’agitation persiste sous halopéridol bien conduit [S10].</li>
+</ul>
+</section>
+</details>
+<details open="">
+<summary><strong>DX.5 — Occlusion intestinale maligne</strong> <sup class="proba">≈ 4–42 %</sup> <span class="s">[S8]</span></summary>
+<h3>DX.5 — Occlusion intestinale maligne <sup class="proba">≈ 4–42 %</sup> <span class="s">[S8]</span></h3>
+<ul class="txt"><li>Diagnostic de l’objectif SSP O5.4 (PROFILES) : prise en charge des symptômes réfractaires, ici l’occlusion intestinale maligne, cause de nausées, de vomissements et de douleurs [S1]. Probabilité dans la population cible : 5 à 42 % en cancer ovarien avancé, 4 à 24 % en cancer colorectal avancé [S8].</li></ul>
+<section class="point" id="dx5-p1">
+<h4><strong>1. Définition et sémantique</strong></h4>
+<ul class="txt">
+<li><em>1.1 — Occlusion intestinale maligne</em> : L’occlusion maligne est un arrêt de la progression du contenu digestif chez un patient atteint de cancer avancé [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Mécanique ou fonctionnelle</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Elle est mécanique quand un obstacle bouche l’intestin (tumeur, carcinose péritonéale, adhérences) et fonctionnelle quand l’intestin ne se contracte plus (infiltration des nerfs, médicaments, hypokaliémie) ; en soins palliatifs, elle est le plus souvent mixte [S8].</span></details></li>
+<li><em>1.2 — Pseudo-obstruction</em> : Une occlusion fonctionnelle chronique ou récidivante s’appelle pseudo-obstruction intestinale [S8].</li>
+<li><em>1.3 — Subocclusion</em> : La subocclusion est une obstruction partielle ; les prokinétiques y restent possibles [S8].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p2">
+<h4><strong>2. Épidémiologie (Suisse d’abord, puis Europe)</strong></h4>
+<ul class="txt">
+<li><em>2.1 — Selon la tumeur</em> : Selon les HUG, l’occlusion touche 5 à 42 % des cancers ovariens avancés et 4 à 24 % des cancers colorectaux avancés [S8].</li>
+<li><em>2.2 — Adhérences</em> : Les adhérences causent 50 à 80 % des obstructions du grêle [S8].</li>
+<li><em>2.3 — Prévalences comparables du LOT</em> : En soins palliatifs, la constipation touche environ 50 % des patients [S7] et le délirium 28 à 88 % dans les derniers jours de vie [S10]. L’occlusion, plus rare, se concentre sur les cancers ovariens et colorectaux avancés [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Limite de la comparaison</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les chiffres de l’occlusion valent par type de tumeur, pas pour toute la population palliative ; ils ne se comparent qu’en ordre de grandeur [S7], [S8], [S10].</span></details></li>
+<li><em>2.4 — Europe</em> : Donnée non trouvée dans les sources consultées pour un chiffre européen distinct et comparable [S8].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p3">
+<h4><strong>3. Physiopathologie</strong></h4>
+<ul class="txt">
+<li><em>3.1 — Le cercle vicieux</em> : L’obstacle distend l’intestin ; la distension provoque une inflammation et des sécrétions, qui augmentent le péristaltisme, la pression et la distension [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi cela compte</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Ce cercle explique le choix des traitements : un antisécrétoire (octréotide, butylscopolamine) et un anti-inflammatoire (dexaméthasone) cassent la boucle [S8].</span></details></li>
+<li><em>3.2 — Niveau de l’obstacle</em> : L’obstruction est gastroduodénale dans 80 % des cas, avec vomissements précoces, et intestinale ou colique dans 20 %, avec crampes et vomissements tardifs [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Règle</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Plus l’obstacle est bas, plus la distension abdominale peut être importante [S8].</span></details></li>
+<li><em>3.3 — Causes fonctionnelles</em> : Infiltration tumorale du mésentère et des nerfs, neuropathie paranéoplasique, foyer infectieux abdominal, opioïdes, anticholinergiques et hypokaliémie paralysent l’intestin [S8].</li>
+<li><em>3.4 — Complications</em> : L’ischémie intestinale, l’infarctus mésentérique, la perforation et la péritonite font la gravité [S8].</li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Mécanisme → exemple → orientation [S8]</caption>
+<tr><th>Mécanisme</th><th>Exemple</th><th>Orientation</th></tr>
+<tr><td>Mécanique intrinsèque</td><td>Tumeur intraluminale, linite plastique [S8]</td><td>Scanner, avis chirurgical ou prothèse [S8]</td></tr>
+<tr><td>Mécanique extrinsèque</td><td>Carcinose, masse mésentérique, adhérences [S8]</td><td>Souvent traitement symptomatique [S8]</td></tr>
+<tr><td>Fonctionnelle</td><td>Opioïdes, hypokaliémie, neuropathie [S8]</td><td>Corriger la cause, antagoniste µ périphérique si opioïde [S8]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx5-p4">
+<h4><strong>4. Démarche diagnostique</strong></h4>
+<ul class="txt">
+<li><em>4.1 — Reconnaître</em> : Le médecin évoque l’occlusion devant des vomissements, des crampes et un arrêt du transit chez un patient atteint de cancer abdominal ou pelvien [S8].</li>
+<li><em>4.2 — Exclure le fécalome</em> : Il fait un toucher rectal, car un fécalome peut simuler une occlusion [S19].</li>
+<li><em>4.3 — Préciser le niveau et la cause</em> : La radiographie et le scanner précisent le niveau et le nombre d’obstacles [S8].</li>
+<li><em>4.4 — Fixer l’objectif</em> : Il détermine si la chirurgie est envisageable selon le pronostic, les contre-indications et les souhaits du patient [S19].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p5">
+<h4><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h4>
+<ul class="txt">
+<li><em>5.1 — Anamnèse</em> : Le médecin précise le moment des vomissements, les crampes, la dernière émission de selles et de gaz, et les médicaments ralentissant le transit [S8].</li>
+<li><em>5.2 — Drapeaux rouges</em> : Des signes de péritonisme font craindre une ischémie, une perforation ou une péritonite [S8], [S19]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Conduite</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Ces signes imposent une réévaluation immédiate avec l’équipe et, selon les objectifs de soins, un avis chirurgical [S8].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx5-p6">
+<h4><strong>6. Examen physique ciblé, région par région</strong></h4>
+<ul class="txt">
+<li><em>6.1 — Inspection et palpation</em> : Le médecin recherche une distension et des signes de péritonisme [S8], [S19].</li>
+<li><em>6.2 — Auscultation</em> : Des bruits absents ou métalliques, parfois alternés, orientent vers une obstruction intestinale ou colique [S8].</li>
+<li><em>6.3 — Toucher rectal</em> : Le toucher rectal exclut un fécalome [S19].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p7">
+<h4><strong>7. Approche syndromique</strong></h4>
+<ul class="txt">
+<li><em>7.1 — Obstruction haute</em> : Nausées, vomissements précoces, peu de coliques, bruits parfois normaux [S8].</li>
+<li><em>7.2 — Obstruction basse</em> : Crampes, bruits absents ou métalliques, distension marquée, vomissements tardifs [S8].</li>
+<li><em>7.3 — Iléus paralytique</em> : Abdomen distendu et silencieux, sans coliques, souvent sous opioïdes [S8], [S19].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p8">
+<h4><strong>8. Diagnostic positif et critères</strong></h4>
+<ul class="txt">
+<li><em>8.1 — Critères radiologiques</em> : Selon les HUG, la règle 3-6-9 qualifie la dilatation : plus de 3 cm pour le grêle, 6 cm pour le côlon, 9 cm pour le cæcum [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Niveaux hydroaériques</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Au moins 2 niveaux et l’aspect en collier de perles orientent plutôt vers une obstruction mécanique [S8].</span></details></li>
+<li><em>8.2 — Limite</em> : La radiographie a une sensibilité de 66 % ; un cliché normal n’exclut pas l’occlusion [S8].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p9">
+<h4><strong>9. Examens complémentaires</strong></h4>
+<ul class="txt">
+<li><em>9.a — Imagerie</em> : La <details class="ex"><summary>radiographie de l’abdomen</summary><div class="exw"><div class="ext">Radiographie de l’abdomen sans préparation (ASP)</div>
+<div class="onglets"><input checked="" id="om212e11p" name="om212e11" type="radio"/><label for="om212e11p">Principe</label><input id="om212e11i" name="om212e11" type="radio"/><label for="om212e11i">Interprétation</label>
+<div class="op">Le cliché couché montre la répartition des selles, le cliché debout les niveaux hydroaériques ; sa sensibilité pour l’iléus est de 66 % [S8], [S18].</div>
+<div class="oi"><div class="ctx">Chez un patient sous opioïdes, il distingue une stase fécale d’un iléus [S7], [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Anses distendues (&gt; 3 cm grêle, &gt; 6 cm côlon, &gt; 9 cm cæcum)</td><td class="l1">Occlusion, règle 3-6-9 [S8]</td><td class="l2">Mise à jeun, avis chirurgical (DX.5) [S8]</td></tr>
+<tr><td class="l0">Au moins 2 niveaux hydroaériques</td><td class="l1">Iléus [S8]</td><td class="l2">Arrêter les prokinétiques si occlusion complète [S8]</td></tr>
+<tr><td class="l0">Stase fécale abondante</td><td class="l1">Constipation ou fécalome [S7], [S18]</td><td class="l2">Laxatifs, lavement (DX.3) [S7]</td></tr>
+</tbody></table></div></div></div></div></details> montre la dilatation et les niveaux hydroaériques [S8]. Le <details class="ex"><summary>scanner abdominal</summary><div class="exw"><div class="ext">TDM (tomodensitométrie, scanner) abdominale</div>
+<div class="onglets"><input checked="" id="om212e12p" name="om212e12" type="radio"/><label for="om212e12p">Principe</label><input id="om212e12i" name="om212e12" type="radio"/><label for="om212e12i">Interprétation</label>
+<div class="op">Le scanner montre le niveau, le nombre et la cause des obstacles ; il est demandé surtout si une chirurgie est envisageable [S8].</div>
+<div class="oi"><div class="ctx">Dans l’occlusion maligne, il sert à décider entre chirurgie, prothèse endoscopique et traitement symptomatique [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Obstacle unique et localisé</td><td class="l1">Situation la plus favorable à la chirurgie [S8]</td><td class="l2">Avis chirurgical si le pronostic est favorable [S8]</td></tr>
+<tr><td class="l0">Niveaux multiples, carcinose étendue, ascite récidivante</td><td class="l1">Contre-indications à la chirurgie [S8]</td><td class="l2">Traitement médicamenteux symptomatique [S8]</td></tr>
+<tr><td class="l0">Cæcum &gt; 10 cm sans signe de souffrance (pseudo-obstruction d’Ogilvie)</td><td class="l1">Distension colique extrême sans obstacle [S8]</td><td class="l2">Exsufflation endoscopique à discuter [S8]</td></tr>
+</tbody></table></div></div></div></div></details> s’impose surtout si une chirurgie est envisageable [S8].</li>
+<li><em>9.b — Biologie</em> : La <details class="ex"><summary>kaliémie</summary><div class="exw"><div class="ext">Kaliémie (potassium sanguin)</div>
+<div class="onglets"><input checked="" id="om212e13p" name="om212e13" type="radio"/><label for="om212e13p">Principe</label><input id="om212e13i" name="om212e13" type="radio"/><label for="om212e13i">Interprétation</label>
+<div class="op">La kaliémie mesure le potassium du sang ; une hypokaliémie ralentit la motricité de l’intestin [S7], [S8].</div>
+<div class="oi"><div class="ctx">Une constipation rebelle ou un iléus paralytique en soins palliatifs fait doser le potassium [S7], [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Hypokaliémie</td><td class="l1">Cause métabolique de constipation et d’iléus paralytique [S7], [S8]</td><td class="l2">Corriger le potassium, revoir diurétiques et laxatifs [S7], [S8]</td></tr>
+<tr><td class="l0">Hypokaliémie non corrigée</td><td class="l1">Contre-indication à l’halopéridol [S25]</td><td class="l2">Corriger avant de donner l’halopéridol [S25]</td></tr>
+</tbody></table></div></div></div></div></details> recherche une cause fonctionnelle [S8]. La <details class="ex"><summary>créatinine</summary><div class="exw"><div class="ext">Créatinine et fonction rénale</div>
+<div class="onglets"><input checked="" id="om212e14p" name="om212e14" type="radio"/><label for="om212e14p">Principe</label><input id="om212e14i" name="om212e14" type="radio"/><label for="om212e14i">Interprétation</label>
+<div class="op">La créatinine sérique reflète la filtration rénale ; elle sert à adapter les médicaments éliminés par le rein, dont la morphine et le métoclopramide [S23], [S24].</div>
+<div class="oi"><div class="ctx">En soins palliatifs, la créatinine guide le choix de l’opioïde et la dose de l’antiémétique [S5], [S24].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Insuffisance rénale</td><td class="l1">Accumulation des métabolites de la morphine [S5], [S23]</td><td class="l2">Réduire la dose, préférer buprénorphine ou fentanyl [S5]</td></tr>
+<tr><td class="l0">Clairance entre 15 et 60 ml/min</td><td class="l1">Élimination ralentie du métoclopramide [S24]</td><td class="l2">Réduire la dose de moitié [S24]</td></tr>
+<tr><td class="l0">Clairance ≤ 15 ml/min</td><td class="l1">Insuffisance rénale terminale [S24]</td><td class="l2">Réduire la dose de métoclopramide de 75 % [S24]</td></tr>
+</tbody></table></div></div></div></div></details> guide les doses des médicaments éliminés par le rein [S5], [S24].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p10">
+<h4><strong>10. Arbre décisionnel</strong></h4>
+<ul class="txt">
+<li><em>10.1 — Étape 1</em> : Suspicion d’occlusion : toucher rectal, radiographie, puis scanner si une chirurgie est envisageable [S8], [S19].</li>
+<li><em>10.2 — Étape 2</em> : Obstacle unique chez un patient au pronostic favorable : avis chirurgical ou prothèse endoscopique [S8].</li>
+<li><em>10.3 — Étape 3</em> : Sinon, traitement symptomatique : à jeun, voie parentérale, arrêt des laxatifs stimulants [S8].</li>
+<li><em>10.4 — Étape 4</em> : Vomissements persistants : sonde nasogastrique de confort si le patient l’accepte [S8].</li>
+</ul>
+<details class="t"><summary>Arbre décisionnel résumé</summary><pre class="arbre">Suspicion d’occlusion
+ ├─ toucher rectal → fécalome ? → DX.3 [S19]
+ └─ radiographie (règle 3-6-9) → scanner [S8]
+      ├─ obstacle unique, bon pronostic → chirurgie ou prothèse [S8]
+      └─ multiple, carcinose → traitement symptomatique [S8]
+           ├─ butylscopolamine, opioïde SC/IV [S8]
+           ├─ halopéridol, puis ondansétron [S8]
+           ├─ octréotide, dexaméthasone [S8]
+           └─ sonde nasogastrique de confort [S8]</pre></details>
+</section>
+<section class="point" id="dx5-p11">
+<h4><strong>11. Prise en charge selon les recommandations suisses</strong></h4>
+<ul class="txt">
+<li><em>11.A — Mesures de base</em> : Le patient est mis à jeun et tous les traitements passent par voie SC ou IV [S8]. Les laxatifs stimulants (bisacodyl, picosulfate) sont arrêtés [S8]. L’hydratation SC ou IV se donne à 1000 à 1500 ml par 24 heures [S8].</li>
+<li><em>11.B — Douleur et coliques</em> : Les HUG associent un opioïde SC ou IV et la butylscopolamine [S8]. L’AIPS de Sevredol® impose l’arrêt immédiat de la morphine orale en cas d’iléus paralytique [S23]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi la butylscopolamine</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Cet anticholinergique relâche le muscle intestinal et réduit aussi les sécrétions, ce qui casse le cercle de la distension [S8].</span></details></li>
+<li><em>11.C — Nausées et sécrétions</em> : L’halopéridol (Haldol®) SC est le premier antiémétique, et l’ondansétron vient en second [S8]. L’AIPS de Haldol® demande de commencer à faible dose puis d’ajuster jusqu’à la dose minimale efficace [S25]. L’octréotide réduit les sécrétions et la dexaméthasone réduit l’inflammation pendant 3 à 10 jours [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Les doses</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Nos sources HUG donnent des doses hors information professionnelle ; une dose ne se cite que d’après l’AIPS de la spécialité, que nos sources ne reproduisent pas pour l’ondansétron, l’octréotide et la dexaméthasone.</span></details> <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Prokinétiques</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le métoclopramide et la dompéridone sont contre-indiqués dans l’occlusion complète, car ils aggravent les coliques et le risque de perforation [S8], [S24].</span></details></li>
+<li><em>11.D — Interventions</em> : Un avis chirurgical se discute surtout pour un obstacle unique chez un patient au pronostic favorable [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Prothèse</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une prothèse duodénale endoscopique peut remplacer la chirurgie [S8].</span></details> <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Contre-indications à la chirurgie</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Niveaux multiples, infiltration gastrique proximale, carcinose étendue, nodules multiples, ascite récidivante et cachexie [S8].</span></details></li>
+<li><em>11.E — Situations spéciales</em> : Chaque situation spéciale s’ouvre d’un clic.
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Iléus induit par les opioïdes</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les HUG proposent le naloxegol par voie orale ou la méthylnaltrexone SC [S8].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Subocclusion</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le métoclopramide (Paspertin®) reste possible dans la subocclusion [S8]. L’AIPS limite l’injection à 10 mg jusqu’à 3 fois par jour, 30 mg par jour au plus, pendant 5 jours au plus [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Sujet âgé</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS de Haldol® réduit de moitié les doses initiales chez le patient âgé [S25].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance hépatique ou rénale</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS de Paspertin® demande d’ajuster la dose, car l’excrétion est retardée [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Syndrome d’Ogilvie</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une exsufflation endoscopique se discute si le cæcum dépasse 10 cm sans signe de souffrance au scanner [S8].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Sonde nasogastrique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Elle vide l’estomac pour le confort, si le patient l’accepte, et son utilité se réévalue régulièrement [S8].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Forme récidivante</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’octréotide à libération prolongée se discute ; l’ambulatoire exige une demande à l’assurance [S8].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Usage hors étiquette</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Octréotide et butylscopolamine sont utilisés hors indication autorisée dans l’occlusion, ce qui impose information et documentation [S21].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Enfant, grossesse, allaitement</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Nos sources ne traitent pas ce contexte palliatif : donnée non trouvée.</span></details></li>
+<li><em>11.F — Surveillance</em> : On réévalue régulièrement les vomissements, la douleur et l’utilité de la sonde, pour adapter le confort [S8].</li>
+<li><em>11.G — Critères de sortie et retour à domicile</em> : Les traitements parentéraux s’obtiennent souvent après plusieurs jours en pharmacie de quartier ; ils s’anticipent avant la sortie [S30].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p12">
+<h4><strong>12. Prévention</strong></h4>
+<ul class="txt">
+<li><em>12.1 — Primaire</em> : La prévention de la constipation sous opioïde limite l’iléus fonctionnel [S7], [S8].</li>
+<li><em>12.2 — Secondaire</em> : La discussion précoce du projet chirurgical permet d’agir avant la complication [S8].</li>
+<li><em>12.3 — Tertiaire</em> : L’octréotide à libération prolongée se discute dans le syndrome subocclusif récidivant [S8].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p13">
+<h4><strong>13. Points clés</strong></h4>
+<ul class="txt">
+<li><em>13.1</em> : L’obstruction est haute dans 80 % des cas, avec vomissements précoces [S8].</li>
+<li><em>13.2</em> : La radiographie n’a que 66 % de sensibilité ; le scanner décide de la chirurgie [S8].</li>
+<li><em>13.3</em> : On ne donne pas de prokinétique dans l’occlusion complète [S8], [S24].</li>
+<li><em>13.4</em> : L’halopéridol vient en premier, puis la butylscopolamine, l’octréotide et la dexaméthasone [S8].</li>
+</ul>
+</section>
+<section class="point" id="dx5-p14">
+<h4><strong>14. Pièges et questions fréquentes à l’examen fédéral suisse</strong></h4>
+<ul class="txt">
+<li><em>14.1 — Piège examen fédéral : le métoclopramide</em> : Le donner dans une occlusion complète est faux, car il peut aggraver les coliques et provoquer une perforation [S8], [S24].</li>
+<li><em>14.2 — Piège examen fédéral : le laxatif stimulant</em> : Continuer bisacodyl ou picosulfate dans une occlusion est faux ; ils s’arrêtent [S8].</li>
+<li><em>14.3 — Piège examen fédéral : la sonde systématique</em> : La sonde nasogastrique n’est pas obligatoire ; c’est une mesure de confort acceptée par le patient [S8].</li>
+<li><em>14.4 — Question fréquente</em> : L’ondansétron constipe ; il vient en seconde ligne après l’halopéridol [S8].</li>
+</ul>
+</section>
+</details>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>[S1] PROFILES 2023 — Situations as Starting Points (SSP), SSP O5.4 « management of refractory symptoms (pain, nausea) ». Swiss Medical Interfaculty Commission (SMIFK-CIMS), 2023. <a href="https://smifk-cims.ch/profiles-2023/ssps">https://smifk-cims.ch/profiles-2023/ssps</a> (consulté le 24.10.2026)</li>
+<li>[S2] Attitude face à la fin de vie et à la mort — directives médico-éthiques (chapitre 6.1.3 « Sédation » et glossaire). Académie Suisse des Sciences Médicales (ASSM), 2018, version 2022. <a href="https://www.samw.ch/dam/jcr:eb32e1ba-8c35-404c-b704-61275262b183/directives_assm_fin_de_vie_et_mort.pdf">https://www.samw.ch/dam/jcr:eb32e1ba-8c35-404c-b704-61275262b183/directives_assm_fin_de_vie_et_mort.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S3] Soins palliatifs — directives médico-éthiques et recommandations. ASSM, 2006, adaptées en 2013. <a href="https://www.samw.ch/dam/jcr:72848dc4-22e9-47b6-ad25-7a39a6f2a9d1/directives_assm_soins_palliatifs.pdf">https://www.samw.ch/dam/jcr:72848dc4-22e9-47b6-ad25-7a39a6f2a9d1/directives_assm_soins_palliatifs.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S4] Directives nationales concernant les soins palliatifs. Office fédéral de la santé publique (OFSP) et Conférence des directrices et directeurs cantonaux de la santé (CDS), 2010. <a href="https://www.bag.admin.ch/fr/directives-nationales-concernant-les-soins-palliatifs">https://www.bag.admin.ch/fr/directives-nationales-concernant-les-soins-palliatifs</a> (consulté le 24.10.2026)</li>
+<li>[S5] Douleur. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleur">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleur</a> (consulté le 24.10.2026)</li>
+<li>[S6] Nausées et vomissements. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/nausees-vomissements">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/nausees-vomissements</a> (consulté le 24.10.2026)</li>
+<li>[S7] Constipation. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/constipation">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/constipation</a> (consulté le 24.10.2026)</li>
+<li>[S8] Iléus. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/ileus">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/ileus</a> (consulté le 24.10.2026)</li>
+<li>[S9] Douleurs neuropathiques. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleurs-neuropathiques">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleurs-neuropathiques</a> (consulté le 24.10.2026)</li>
+<li>[S10] Délirium. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/delirium">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/delirium</a> (consulté le 24.10.2026)</li>
+<li>[S11] Urgences : compression médullaire. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-compression-medullaire">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-compression-medullaire</a> (consulté le 24.10.2026)</li>
+<li>[S12] Urgences : hypercalcémie tumorale. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-hypercalcemie-tumorale">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-hypercalcemie-tumorale</a> (consulté le 24.10.2026)</li>
+<li>[S13] Intoxication aux opiacés. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/intoxication-aux-opiaces">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/intoxication-aux-opiaces</a> (consulté le 24.10.2026)</li>
+<li>[S14] Sédation palliative. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/sedation-palliative">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/sedation-palliative</a> (consulté le 24.10.2026)</li>
+<li>[S15] Échelle d’évaluation des symptômes (ESAS). Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/echelle-evaluation-symptomes">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/echelle-evaluation-symptomes</a> (consulté le 24.10.2026)</li>
+<li>[S16] Avis général sur la sédation palliative. HUG, Conseil d’éthique clinique, 2024. <a href="https://www.hug.ch/sites/interhug/files/structures/gr-ethique/documents/sedation_palliative_cec_2024.pdf">https://www.hug.ch/sites/interhug/files/structures/gr-ethique/documents/sedation_palliative_cec_2024.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S17] Recommandations sur l’exacerbation douloureuse. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2006. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2006_-_Recommandations_sur_l_exacerbation_douloureuse.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2006_-_Recommandations_sur_l_exacerbation_douloureuse.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S18] Recommandations sur les nausées. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2003. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2003_-_Recommandations_sur_les_nausees.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2003_-_Recommandations_sur_les_nausees.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S19] Recommandations sur la constipation, l’obstruction intestinale et l’iléus paralytique. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2007. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2007_-_Recommandations_sur_la_constipation__l_obstruction_intestinale_et_l_ileus_paralytique.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2007_-_Recommandations_sur_la_constipation__l_obstruction_intestinale_et_l_ileus_paralytique.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S20] Recommandations « Sédation palliative ». palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2005. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2005_-_Recommandations_Sedation_palliative.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2005_-_Recommandations_Sedation_palliative.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S21] Particularités de la pharmacothérapie en soins palliatifs — indications off label. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2012. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2012_-_Particularites_de_la_pharmacotherapie_en_soins_palliatifs_.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2012_-_Particularites_de_la_pharmacotherapie_en_soins_palliatifs_.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S22] Beauverd M, Mazzoli M, Pralong J, Tomczyk M, Eychmüller S, Gaertner J. Palliative sedation – revised recommendations. Swiss Med Wkly 2024;154:3590. Swiss Medical Weekly (recommandations suisses révisées), 2024. <a href="https://doi.org/10.57187/s.3590">https://doi.org/10.57187/s.3590</a> (consulté le 24.10.2026)</li>
+<li>[S23] Information professionnelle Sevredol® (morphine), mise à jour mai 2024. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Mundipharma Medical Company, 2024. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=52076">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=52076</a> (consulté le 24.10.2026)</li>
+<li>[S24] Information professionnelle Paspertin® (métoclopramide), mise à jour janvier 2020. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Viatris Pharma GmbH, 2020. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=32733">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=32733</a> (consulté le 24.10.2026)</li>
+<li>[S25] Information professionnelle Haldol® (halopéridol), mise à jour novembre 2024. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Essential Pharma Switzerland, 2024. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=26891">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=26891</a> (consulté le 24.10.2026)</li>
+<li>[S26] Information professionnelle Zoledronat Accord onco® (acide zolédronique), mise à jour mars 2026. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Accord Healthcare AG, 2026. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=67071">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=67071</a> (consulté le 24.10.2026)</li>
+<li>[S27] Le cancer en Suisse, rapport 2021. Office fédéral de la statistique (OFS), Organe national d’enregistrement du cancer (ONEC) et Registre du cancer de l’enfant, 2021. <a href="https://dam-api.bfs.admin.ch/hub/api/dam/assets/19305697/master">https://dam-api.bfs.admin.ch/hub/api/dam/assets/19305697/master</a> (consulté le 24.10.2026)</li>
+<li>[S28] Miller AD, Leslie RA. The area postrema and vomiting. Front Neuroendocrinol 1994 ; 15 : 301-20 (repli non suisse signalé). PubMed, 1994. <a href="https://pubmed.ncbi.nlm.nih.gov/7895890/">https://pubmed.ncbi.nlm.nih.gov/7895890/</a> (consulté le 24.10.2026)</li>
+<li>[S29] Zajączkowska R et al. Bone pain in cancer patients: mechanisms and current treatment. Int J Mol Sci 2019 ; 20 : 6047 (repli non suisse signalé). PubMed, 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31801267/">https://pubmed.ncbi.nlm.nih.gov/31801267/</a> (consulté le 24.10.2026)</li>
+<li>[S30] Organisation du retour à domicile d’un patient en soins palliatifs. Hôpitaux universitaires de Genève (HUG), aide-mémoire de soins palliatifs, 2026. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/organisation-du-retour-domicile-dun-patient">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/organisation-du-retour-domicile-dun-patient</a> (consulté le 24.10.2026)</li>
+</ul>
+<ul class="txt"><li>Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin.</li></ul>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_212_Partie_2 -->
