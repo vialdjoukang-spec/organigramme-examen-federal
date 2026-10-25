@@ -1,3 +1,13 @@
+
+## Étape zéro (BLOQUANT) — avant toute activité
+
+1. **Création / installation** du harnais sur l’agent (`harnais/` + bracelet)
+2. **Test** : `python3 harnais/bracelet/bracelet_suggest.py "…"`
+3. **Confirmation de fonctionnement** : PREUVE_EMBOITEMENT verte (Chonkie 1.6 · LLMLingua 1.3 · GPTCache 1.3)
+4. **GO** (owner ou Grok Bot) — seulement ensuite : production
+
+Sans étape zéro complète → stop.
+
 # HARNAIS OBLIGATOIRE — embotté (Vial, 2026-10-25 Europe/Zurich)
 
 BLOQUANT : confirmation obligatoire que le harnais **fonctionne** (PREUVE verte) **avant toute activité** ; sans cela, tu ne produis pas.

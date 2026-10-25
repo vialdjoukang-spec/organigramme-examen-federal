@@ -41,7 +41,7 @@ Sans **PREUVE**, pas de production :
 ### R15 Automates
 Les puces « Automates actifs » d’une PR ne listent **jamais** les chemins `harnais/*` : seulement workflows / outils CI réellement touchés.
 
-**Confirmation obligatoire avant toute activité** : PREUVE_EMBOITEMENT verte (bracelet_suggest + Chonkie 1.6 / LLMLingua 1.3 / GPTCache 1.3) — sinon stop.
+**Étape zéro** : installation harnais → test → confirmation PREUVE → GO. **Confirmation obligatoire avant toute activité** : PREUVE_EMBOITEMENT verte (bracelet_suggest + Chonkie 1.6 / LLMLingua 1.3 / GPTCache 1.3) — sinon stop.
 
 Voir aussi : `PROMPT_HARNAIS_V8.md` (compréhension, mise en place, contrôle, vérification fonctionnelle régulière).
 

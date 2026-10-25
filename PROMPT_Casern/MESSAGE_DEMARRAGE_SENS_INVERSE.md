@@ -9,6 +9,8 @@
 Tu produis le lot Organigramme Examen fédéral en SENS INVERSE : 248 → 001.
 LOT DE DÉPART assigné : LOT_226 — SSP O7.4 « Aspects environnementaux et psychosociaux des maladies chroniques ».
 
+Avant toute rédaction — **Étape zéro** : (1) install harnais (2) test bracelet (3) PREUVE verte (4) GO.
+
 Avant toute rédaction :
 1) Ouvre Drive « LOTS_Finaux avec statut » → dossier PROMPT_Casern
    (miroir GitHub : PROMPT_Casern/ à la racine du dépôt organigramme-examen-federal).
