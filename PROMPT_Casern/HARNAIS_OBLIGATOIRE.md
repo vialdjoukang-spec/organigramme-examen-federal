@@ -21,7 +21,7 @@ BLOQUANT : confirmation obligatoire que le harnais **fonctionne** (PREUVE verte)
 1. Lire `harnais/ARSENAL.md`.
 2. `python3 harnais/bracelet/bracelet_suggest.py "<tâche>"`.
 3. `tools/arsenal/extrait.py` / `lot.py` / `pr.sh` / `ci_attente.sh`.
-4. Monographie V8 14 pts SSP + DD ; silence owner ; pas Drive Finaux avant validation.
+4. Monographie **PROMPT ULTIME V0** 14 pts (Phase A SSP + Phase B DD) ; silence owner ; pas Drive Finaux avant validation.
 5. Écrire `harnais/PREUVE_EMBOITEMENT.txt` (date + sortie bracelet + ARSENAL lu).
 
 ---
