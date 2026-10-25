@@ -9,17 +9,19 @@
 ## Google Drive (livraison finale seulement)
 - Dossier : **LOTS_Finaux avec statut**
 - Id : `1DaFAd0uamsJQY2NH0ocuy2bhpfcVk9Vu`
-- Règle : copier un lot ici **uniquement** quand Appel A **et** Appel B sont complets et validés (≥ 90 %, zéro critique)
+- Règle : copier un lot ici **uniquement** quand Phase A **et** Phase B sont complets et validés (≥ 90 %, zéro critique)
 
 ## Anti-collision & parallélisme absolu (outil d’onsession)
 - Plusieurs agents **en parallèle** si lots et branches **disjoints**.
 - Un agent = un seul `LOT_XXX` ; écriture uniquement sous `lot en cours de production/LOT_XXX/`.
 - Fichier : `ANTI_COLLISION_PARALLELISME_ABSOLU.md`
+- Nombre d’agents / découpage Phase B : **décidés séance tenante avec Vial** (PROMPT ULTIME V0 §7).
 
 ## PROMPT_Casern (ce dossier)
-- Rôle : caserne des prompts en vigueur pour les agents (V8 + harnais + message de démarrage)
+- Rôle : caserne des prompts en vigueur pour les agents (**PROMPT ULTIME V0** + harnais + message de démarrage)
 - Miroir : GitHub `PROMPT_Casern/` **et** Drive Finaux `/PROMPT_Casern/`
-- L’agent demande au démarrage si V8 est le prompt à utiliser
+- L’agent demande au démarrage si **V0** est le prompt à utiliser
+- Fichiers production actifs : `PROMPT_ULTIME_PRODUCTION_LOTS_V0.md|.pdf` (V8 retiré)
 
 ## Cumul (état 248 SSP)
 - Base locale de référence : `BASE_LOTS_CUMUL_2026-10-25` — 73/248 achevés au 2026-10-25
