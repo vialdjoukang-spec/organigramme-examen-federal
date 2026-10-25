@@ -12,6 +12,8 @@ Périmètre écrit par le rôle A :
 
 DX.5 à DX.10 sont listés dans l'Appel A et ne sont pas rédigés. Les noms de `LOT_209_evidence.json` sont ceux que la suite doit reprendre.
 
-Contrôle de structure HTML seulement (balises, taille, FIN_FICHIER, phrase de non-validation). Aucune relecture clinique ni linguistique.
+Contrôle de structure HTML seulement (balises, taille, FIN_FICHIER, phrase de non-validation). Aucune relecture clinique. Pas d'étiquette.
+
+Reprise de langue sur la même branche : les cas et les questions d'oral quittent le moule « on observe ceci / le geste qui suit ». Les faits, les sources et la liste DX.1 à DX.10 ne changent pas.
 
 Dossier patient Drive non ouvert.
