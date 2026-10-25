@@ -101,3 +101,20 @@ constat=preuve verte, aucune redaction clinique ce tour
 lot=LOT_012
 phase=Appel B
 ssp=G12
+
+2026-10-25T21:07 CET Europe/Zurich
+tâche: audit agressif V0 LOT_012 G12, rapport seul, pas de fusion
+bracelet_sortie:
+python3 harnais/bracelet/bracelet_suggest.py "audit agressif LOT_012 G12 oedeme diffus V0 rapport scores 14 points AIPS Medina"
+1. [filtrage_nettoyage] Chonkie (feynic/chonkie) — découper longs documents  score=0.2
+2. [filtrage_nettoyage] Crawl4AI (unclecode/crawl4ai) — pages web → Markdown propre  score=0.2
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.2
+python3 harnais/bracelet/bracelet_suggest.py "audit agressif LOT_012 monographies HTML longues G12 oedeme decouper documents compresser cache reponses grille V0 AIPS"
+1. [filtrage_nettoyage] LLMLingua (microsoft/LLMLingua) — compresser entrées longues  score=1.6
+2. [filtrage_nettoyage] Chonkie (feynic/chonkie) — découper longs documents  score=1.3
+3. [filtrage_nettoyage] RTK (rtk-ai/rtk) — compresser sorties de commandes  score=1.3
+ARSENAL_lu: oui
+HARNAIS_lu: oui
+producteur: auditeur V0 LOT_012, rapport seul
+ecart: trio Chonkie + LLMLingua + GPTCache non obtenu ; GPTCache absent ; découpage h2/h3 local ; scores V7 non réutilisés ; Drive non modifié
+exit=0
