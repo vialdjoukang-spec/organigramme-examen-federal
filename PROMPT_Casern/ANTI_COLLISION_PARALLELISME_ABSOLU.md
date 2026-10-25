@@ -40,6 +40,11 @@ Si doute → **stop** → Grok Bot.
 
 **Interdit :** deux agents sur le même LOT_XXX ; commit hors de son dossier ; merge qui écrase autrui ; lot incomplet dans Drive Finaux.
 
+
+## 4 bis. Scripts régénératifs (exemple LOT_012 / PR #436)
+
+Ne lance **pas** `tools/arsenal/pr.sh` (ni tout script qui régénère monographies / JSON cours) tant que le lot est en rédaction active (`tools/cours/lots/<SSP>.json` ou HTML Appel A/B en cours). C’est une **mesure anti-collision volontaire**, pas un oubli — à documenter dans la PR comme sur #436.
+
 ## 5. Phrase d’ancrage
 
 « Je suis seul sur mon LOT ; les autres avancent en parallèle sur les leurs ; je ne croise jamais leurs chemins. »
