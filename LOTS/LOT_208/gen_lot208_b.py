@@ -87,32 +87,81 @@ def src(sid):
     return f" <em>Source : [{sid}].</em>"
 
 
+SWISS_ORDER = [
+    "S512", "S513", "S507", "S508", "S509", "S510", "S511",
+    "S503", "S504", "S505", "S501", "S502", "S506",
+]
+
+
+def color_proba(doc):
+    """Met les pourcentages en rouge charte, sans halo."""
+    import re
+    parts = re.split(r"(<[^>]+>)", doc)
+    out = []
+    pat = re.compile(r"\d+(?:,\d+)?(?:\u00a0| )?%")
+    for part in parts:
+        if part.startswith("<"):
+            out.append(part)
+        else:
+            out.append(pat.sub(r"<span class='proba'>\g<0></span>", part))
+    return "".join(out)
+
+
 def page(title, intro, body, used, fin):
+    rank = {sid: i for i, sid in enumerate(SWISS_ORDER)}
+    selected = [s for s in SOURCES if s[0] in used]
+    selected.sort(key=lambda s: rank.get(s[0], 50))
     items = []
-    for sid, desc, url in SOURCES:
-        if sid in used:
-            items.append(
-                f"<li><strong>[{sid}]</strong> {e(desc)} "
-                f"<span style='word-break:break-all;'>{e(url)}</span> (consulté le {DATE}).</li>"
-            )
+    for sid, desc, url in selected:
+        items.append(
+            f"<li><strong>[{sid}]</strong> {e(desc)} "
+            f"<span style='word-break:break-all;'>{e(url)}</span> (consulté le {DATE}).</li>"
+        )
     html_doc = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
+<style>
+html {{ background:#d6eefb; }}
+body {{
+  background:#d6eefb;
+  color:#12202c;
+  font-family:"Atkinson Hyperlegible", sans-serif;
+  line-height:1.55;
+  margin:0;
+}}
+.page {{
+  max-width:980px;
+  margin:auto;
+  padding:18px 16px 32px;
+  background:#f7fbfe;
+  color:#12202c;
+}}
+h2 {{ color:#0c3a5e; border-bottom:3px solid #1f618d; padding-bottom:6px; }}
+.proba {{
+  color:#C8102E;
+  font-weight:700;
+  text-shadow:none;
+  box-shadow:none;
+  background:transparent;
+}}
+a {{ color:#0c3a5e; }}
+</style>
 </head>
 <body>
-<div style="font-family:sans-serif;line-height:1.65;max-width:980px;margin:auto;">
-<h2 style="color:#1a5276;border-bottom:3px solid #2980b9;padding-bottom:6px;">{e(title)}</h2>
-<p style="color:#444;">{intro}</p>
+<div class="page">
+<h2>{e(title)}</h2>
+<p>{intro}</p>
 {body}
-<h2 style="color:#1a5276;">Sources</h2>
+<h2>Sources</h2>
+<p>Les sources suisses ouvertes pour ce cahier précèdent les sources européennes. Chaque source a été lue le {DATE}.</p>
 <ol>
 {''.join(items)}
 </ol>
 <p>Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin.</p>
-<p>Lacunes assumées : l'Appel A et les DX.1 à DX.4 ne sont pas rédigés dans ce fichier. L'ordre des dix situations est celui de la fiche SSP O4.7 déjà présente dans le dépôt (champ des dix facteurs), lue comme liste de travail et non comme source épidémiologique. Aucune information professionnelle Swissmedic n'a été ouverte : aucune dose chiffrée n'est prescrite. Les seuils Agatston américains ne sont pas repris, parce que le texte ESC 2021 ouvert ne les fixe pas.</p>
+<p>Lacunes assumées : l'Appel A et les DX.1 à DX.4 ne sont pas rédigés dans ce fichier. L'ordre des dix situations est celui de la fiche SSP O4.7 déjà présente dans le dépôt (champ des dix facteurs), lue comme liste de travail et non comme source épidémiologique. Aucune information professionnelle Swissmedic n'a été ouverte : aucune dose chiffrée n'est prescrite. Les seuils Agatston américains ne sont pas repris, parce que le texte ESC 2021 ouvert ne les fixe pas. Aucune page SSMI, HUG ou CHUV n'a été ouverte pour ce lot : aucun chiffre de ces institutions n'est donc ajouté.</p>
 </div>
 </body>
 </html>
@@ -141,24 +190,64 @@ def wrap_dx(summary, inner):
     )
 
 
+def _breaks(doc):
+    return (
+        doc.replace("</p>", "</p>\n")
+        .replace("</div>", "</div>\n")
+        .replace("</details>", "</details>\n")
+        .replace("</tr>", "</tr>\n")
+        .replace("</li>", "</li>\n")
+        .replace("</table>", "</table>\n")
+        .replace("</style>", "</style>\n")
+    )
+
+
+def assemble(title, intro, core, used, fin, fixe, suite, target=179200, hi=189440):
+    """Ajoute des fenêtres jusqu'à viser ~175 Ko, sans dépasser le plafond souple."""
+    def pack(chunks):
+        doc = page(title, intro, core + "".join(chunks), used, fin)
+        doc = color_proba(doc)
+        return _breaks(doc)
+
+    chosen = list(fixe)
+    doc = pack(chosen)
+    n = len(doc.encode("utf-8"))
+    for chunk in suite:
+        trial_chunks = chosen + [chunk]
+        trial = pack(trial_chunks)
+        tn = len(trial.encode("utf-8"))
+        if tn > 204800:
+            continue
+        if n >= target and tn > hi:
+            continue
+        chosen.append(chunk)
+        doc = trial
+        n = tn
+        if n >= target:
+            break
+    return doc, n
+
+
 def write_all():
     import json
     from lot208_dx import dx5, dx6, dx7, dx8, dx9, dx10
     from lot208_plus import plus_map
+    from lot208_fond import fond_map
 
     extra = plus_map()
+    fond = fond_map()
     files = [
-        ("LOT_208_Appel_B_V7_DX.5.html", "LOT_208 — SSP O4.7 — DX.5 seul (DX.3 et DX.4 hors périmètre)", dx5() + extra["dx5"], ["S501", "S502", "S503", "S504", "S505", "S506"], "LOT_208_DX5"),
-        ("LOT_208_Appel_B_V7_Partie_3_DX.6_a_DX.7.html", "LOT_208 — SSP O4.7 — Partie 3, DX.6 et DX.7", dx6() + extra["dx6"] + dx7() + extra["dx7"], ["S501", "S503", "S505", "S506", "S507", "S508"], "LOT_208_DX6_DX7"),
-        ("LOT_208_Appel_B_V7_Partie_4_DX.8_a_DX.10.html", "LOT_208 — SSP O4.7 — Partie 4, DX.8 à DX.10", dx8() + extra["dx8"] + dx9() + extra["dx9"] + dx10() + extra["dx10"], ["S501", "S505", "S506", "S509", "S510", "S511", "S512", "S513"], "LOT_208_DX8_DX10"),
+        ("LOT_208_Appel_B_V7_DX.5.html", "LOT_208 — SSP O4.7 — DX.5 seul (DX.3 et DX.4 hors périmètre)", dx5() + extra["dx5"], ["S501", "S502", "S503", "S504", "S505", "S506"], "LOT_208_DX5", "dx5"),
+        ("LOT_208_Appel_B_V7_Partie_3_DX.6_a_DX.7.html", "LOT_208 — SSP O4.7 — Partie 3, DX.6 et DX.7", dx6() + extra["dx6"] + dx7() + extra["dx7"], ["S501", "S503", "S505", "S506", "S507", "S508"], "LOT_208_DX6_DX7", "p3"),
+        ("LOT_208_Appel_B_V7_Partie_4_DX.8_a_DX.10.html", "LOT_208 — SSP O4.7 — Partie 4, DX.8 à DX.10", dx8() + extra["dx8"] + dx9() + extra["dx9"] + dx10() + extra["dx10"], ["S501", "S505", "S506", "S509", "S510", "S511", "S512", "S513"], "LOT_208_DX8_DX10", "p4"),
     ]
-    for name, title, body, used, fin in files:
-        doc = page(title, INTRO, body, used, fin)
-        doc = doc.replace("</p>", "</p>\n").replace("</div>", "</div>\n").replace("</details>", "</details>\n").replace("</tr>", "</tr>\n").replace("</li>", "</li>\n").replace("</table>", "</table>\n")
+    for name, title, body, used, fin, key in files:
+        doc, n = assemble(title, INTRO, body, used, fin, fond[key]["fixe"], fond[key]["suite"])
         path = os.path.join(OUT, name)
         with open(path, "w", encoding="utf-8") as f:
             f.write(doc)
-        print(name, len(doc.encode("utf-8")))
+        flag = "OK" if 153600 <= n <= 204800 else "HORS-FENETRE"
+        print(name, n, flag)
 
     evidence = {
         "lot": 208,
