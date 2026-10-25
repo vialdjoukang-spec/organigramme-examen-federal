@@ -54,3 +54,9 @@ Vial demande un premier dossier exhaustif, sans plafond intermédiaire, pouvant 
 Vial signale le corpus AIPS dans `vialdjoukang-spec/Medina` et une copie annoncée dans le Drive `PROMPT_Casern`. Le chef vérifie sa structure, sa provenance, sa date et sa couverture avant d'utiliser des données médicamenteuses. La disponibilité d'un fichier ne prouve pas que chaque information professionnelle a été lue ou qu'une dose a été vérifiée.
 
 La préférence de cadence GitHub 5 min / GPT 1 h est retenue pour étude d'intégration. Le workflow existant reste inchangé ; aucune tâche horaire n'est activée dans cette séance de préparation.
+
+## Reprise autorisée — 25 octobre 2026
+
+Instruction actuelle de Vial : « continue le Travail de Codex sur Organigramme ». La présente reprise conserve LOT_226, sa branche, son chef de production, son découpage et les exclusions déjà décidées. Elle reprend la PR453 ; elle n’attribue aucun autre lot et ne crée aucun rôle d’audit indépendant.
+
+Le test canonique individuel a réussi dans le nouvel environnement avec les versions du watcher existant. La collecte de sources et la rédaction manuelle de Phase A peuvent donc reprendre. Le moteur reste arrêté jusqu’au contre-audit indépendant et aux autres portes documentées. Les corrections techniques de cette reprise n’activent aucun workflow.

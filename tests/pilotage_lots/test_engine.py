@@ -8,6 +8,7 @@ from harnais.pilotage_lots.engine import (
     advance, attestation, digest, evaluate_lot, layout, technical, validate_state,
 )
 from harnais.pilotage_lots.cli import collect
+from harnais.surveillance.watchdog import EXPECTED_VERSIONS, MODEL, REVISION
 
 
 NOW = datetime(2026, 10, 25, 20, tzinfo=timezone.utc)
@@ -34,7 +35,7 @@ class Memory:
         return self.files[path]
 
 
-def html(entities, names, a=False, small=False):
+def html(entities, names, a=False, small=False, filename="LOT_226_Phase_A_V0_SSP_et_10DD.html"):
     parts = ["<!DOCTYPE html>\n<html><head><meta charset='utf-8'></head><body>"]
     if a:
         parts.extend(f'<strong data-dx="DX.{i}" data-name="{name}">DX.{i} — {name}</strong>\n' for i, name in enumerate(names, 1))
@@ -48,7 +49,7 @@ def html(entities, names, a=False, small=False):
                 parts.append(f"Le controle synthetique {prefix} de la section {point:02d}, ligne {i:04d}, teste un fichier sans contenu medical.")
             parts.append("</p></section>")
         parts.append("</details>")
-    parts.append("</body></html>\n<!-- FIN_FICHIER LOT_226_TEST -->\n")
+    parts.append("</body></html>\n<!-- FIN_FICHIER " + filename.removesuffix(".html") + " -->\n")
     return "\n".join(parts).encode()
 
 
@@ -67,12 +68,16 @@ class Fixture:
                                              "entities": [{"code": f"DX.{i}", "id": f"dx{i}"} for i in range(a, b + 1)]})
         self.reader.files[self.job["decision_path"]] = b"Decision exclusivement synthetique.\n"
         self.sync_session()
-        proof = {"agent": "auteur", "complete": True, "tested_at": (NOW - timedelta(minutes=5)).isoformat(),
-                 "medical_source_compressed": False, "tests": {x: {"ok": True} for x in ("chonkie", "gptcache", "llmlingua")}}
+        proof = {"schema_version": 1, "agent": "auteur", "complete": True, "run_id": "fixture-synthetique",
+                 "versions": dict(EXPECTED_VERSIONS), "tested_at": (NOW - timedelta(minutes=5)).isoformat(),
+                 "medical_source_compressed": False, "tests": {
+                     "chonkie": {"ok": True, "chunks": 3, "exact_reconstruction": True},
+                     "gptcache": {"ok": True, "mode": "exact-match", "write_read": True, "distinct_key_miss": True},
+                     "llmlingua": {"ok": True, "model": MODEL, "revision": REVISION, "origin_tokens": 100, "compressed_tokens": 60}}}
         self.set_runtime(proof)
         self.package = {"schema_version": 1, "files": {}}
         for key, spec in layout(self.session):
-            raw = html(spec["entities"], self.names, a=key == "A")
+            raw = html(spec["entities"], self.names, a=key == "A", filename=spec["name"])
             self.reader.files[ROOT + spec["name"]] = raw
             entry = {"production_started_at": (NOW - timedelta(minutes=28)).isoformat()}
             for role in ("medical", "linguistique", "visual", "delivery"):
@@ -146,7 +151,7 @@ class Gates(unittest.TestCase):
     def test_each_entity_must_reach_minimum(self):
         f = Fixture()
         spec = f.session["phase_b"][0]
-        errors, sizes, _ = technical(html(spec["entities"], f.names, small=True), spec)
+        errors, sizes, _ = technical(html(spec["entities"], f.names, small=True, filename=spec["name"]), spec)
         self.assertTrue(all(x < 150_000 for x in sizes.values()))
         self.assertTrue(errors)
 
@@ -322,6 +327,79 @@ class Gates(unittest.TestCase):
         result = collect(f.reader, f.state(), NOW)
         self.assertFalse(result["may_execute"])
         self.assertFalse(result["automatic_assignment"])
+
+    def test_active_registry_cannot_override_failed_harness_or_decision(self):
+        for failure in ("runtime", "decision"):
+            f = Fixture()
+            state = f.state()
+            state.update(status="active", stop_requested=False, deployment_enabled=True)
+            if failure == "runtime":
+                f.set_runtime({"agent": "auteur", "complete": False, "error": "403"})
+            else:
+                del f.reader.files[f.job["decision_path"]]
+            with self.subTest(failure=failure):
+                result = collect(f.reader, state, NOW)
+                self.assertFalse(result["may_execute"])
+                self.assertFalse(result["jobs"][0]["harness_ready"])
+
+    def test_empty_active_registry_does_not_grant_execution(self):
+        f = Fixture()
+        state = f.state()
+        state.update(status="active", stop_requested=False, deployment_enabled=True, jobs=[])
+        self.assertFalse(collect(f.reader, state, NOW)["may_execute"])
+
+    def test_valid_prerequisites_allow_recommendation_without_clinical_validation(self):
+        f = Fixture()
+        state = f.state()
+        state.update(status="active", stop_requested=False, deployment_enabled=True)
+        del f.reader.files[ROOT + f.session["phase_a"]["name"]]
+        result = collect(f.reader, state, NOW)
+        self.assertTrue(result["may_execute"])
+        self.assertEqual(result["jobs"][0]["next_action"]["action"], "write_phase_a")
+        self.assertFalse(result["clinical_validation"])
+
+    def test_runtime_ok_flags_do_not_replace_measured_results(self):
+        for case in ("versions", "run_id", "chunks", "cache", "compression", "model", "schema"):
+            f = Fixture()
+            proof = json.loads(f.reader.files[f.job["runtime_path"]])
+            if case == "versions": proof["versions"]["torch"] = "autre"
+            elif case == "run_id": proof["run_id"] = ""
+            elif case == "chunks": proof["tests"]["chonkie"]["chunks"] = True
+            elif case == "cache": proof["tests"]["gptcache"]["distinct_key_miss"] = False
+            elif case == "compression": proof["tests"]["llmlingua"]["compressed_tokens"] = 100
+            elif case == "model": proof["tests"]["llmlingua"]["revision"] = "autre"
+            else: proof["schema_version"] = True
+            f.set_runtime(proof)
+            with self.subTest(case=case):
+                self.assertEqual(f.run()["next_action"]["action"], "restore_individual_harness")
+
+    def test_active_html_is_rejected_even_without_script_tag(self):
+        f = Fixture()
+        spec = f.session["phase_a"]
+        raw = f.reader.files[ROOT + spec["name"]]
+        for fragment in (b'<body onload="alert(1)">', b'<body><a href="jav&#x61;script:alert(1)">Lien</a>',
+                         b'<body><a href="java&#10;script:alert(1)">Lien</a>', b'<body><svg></svg>',
+                         b'<body style="background:url(https://example.test/x)">',
+                         b'<body><style>@import "https://example.test/x";</style>'):
+            with self.subTest(fragment=fragment):
+                errors, _, _ = technical(raw.replace(b"<body>", fragment), spec)
+                self.assertTrue(errors)
+
+    def test_end_marker_must_identify_exact_file(self):
+        f = Fixture()
+        spec = f.session["phase_a"]
+        raw = f.reader.files[ROOT + spec["name"]]
+        for marker in ("LOT_225_Phase_A_V0_SSP_et_10DD", "LOT_226_Phase_B_V0_Partie_1_DX.1_a_DX.1"):
+            changed = raw.replace(("FIN_FICHIER " + spec["name"].removesuffix(".html")).encode(), ("FIN_FICHIER " + marker).encode())
+            with self.subTest(marker=marker):
+                self.assertIn("HTML5 incomplet ou marque de fin absente", technical(changed, spec)[0])
+
+    def test_foreign_entity_cannot_be_counted_inside_ssp(self):
+        f = Fixture()
+        spec = f.session["phase_a"]
+        raw = f.reader.files[ROOT + spec["name"]]
+        changed = raw.replace(b'<section id="ssp-p1">', b'<details open id="dx1"><summary>Autre entite</summary></details><section id="ssp-p1">')
+        self.assertIn("Entités monographiques étrangères ou désordonnées", technical(changed, spec)[0])
 
     def test_non_finite_score_and_boolean_score_are_rejected(self):
         f = Fixture()

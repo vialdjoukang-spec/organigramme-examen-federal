@@ -7,6 +7,8 @@ import json
 import math
 import re
 
+from harnais.surveillance.watchdog import EXPECTED_VERSIONS, MODEL, REVISION, TOOLS
+
 
 ROLES = ("medical", "linguistique", "visual")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
@@ -49,6 +51,8 @@ def validate_state(state):
         raise ValueError("Affectations absentes")
     lots, workers = set(), set()
     for job in jobs:
+        if not isinstance(job, dict):
+            raise ValueError("Affectation non structurée")
         lot, worker = job.get("lot"), job.get("worker")
         own_path(lot or "", "lot en cours de production/" + (lot or "") + "/DECISION_SEANCE.md")
         if lot in lots or not isinstance(worker, str) or not worker or worker in workers:
@@ -95,6 +99,8 @@ def read_session(reader, head, job):
     if digest(md) != job["decision_sha256"] or digest(raw) != job["session_sha256"]:
         raise ValueError("Décision de séance modifiée ou non liée à cette version")
     session = json.loads(raw)
+    if not isinstance(session, dict):
+        raise ValueError("Décision non structurée")
     if session.get("schema_version") != 1 or session.get("prompt") != "V0" or session.get("lot") != lot:
         raise ValueError("Décision V0 d'un autre lot ou schéma invalide")
     if session.get("worker") != job["worker"] or session.get("branch") != job["branch"] or session.get("writers") != job["writers"]:
@@ -113,14 +119,29 @@ def verify_harness(reader, head, job, now):
     if digest(raw) != job["runtime_sha256"]:
         raise ValueError("Preuve runtime modifiée")
     proof = json.loads(raw)
-    if proof.get("agent") != job["worker"] or proof.get("complete") is not True:
+    if not isinstance(proof, dict) or type(proof.get("schema_version")) is not int or proof["schema_version"] != 1 or proof.get("agent") != job["worker"] or proof.get("complete") is not True:
         raise ValueError("Harnais individuel non vert")
     age = (now - instant(proof.get("tested_at"))).total_seconds()
     if not -120 <= age <= 3600:
         raise ValueError("Test runtime périmé ou futur")
     tests = proof.get("tests", {})
-    if any(tests.get(tool, {}).get("ok") is not True for tool in ("chonkie", "gptcache", "llmlingua")):
+    if not isinstance(tests, dict) or any(not isinstance(tests.get(tool), dict) or tests[tool].get("ok") is not True for tool in TOOLS):
         raise ValueError("Trois tests fonctionnels non démontrés")
+    versions = proof.get("versions")
+    if not isinstance(versions, dict) or any(versions.get(k) != v for k, v in EXPECTED_VERSIONS.items()):
+        raise ValueError("Versions runtime non canoniques ou absentes")
+    if not isinstance(proof.get("run_id"), str) or not proof["run_id"].strip():
+        raise ValueError("Identifiant du test runtime absent")
+    chunks = tests["chonkie"].get("chunks")
+    if type(chunks) is not int or chunks < 2 or tests["chonkie"].get("exact_reconstruction") is not True:
+        raise ValueError("Découpage réel et reconstruction Chonkie non démontrés")
+    cached = tests["gptcache"]
+    if cached.get("mode") != "exact-match" or cached.get("write_read") is not True or cached.get("distinct_key_miss") is not True:
+        raise ValueError("Cache exact non démontré")
+    compressed = tests["llmlingua"]
+    before, after = compressed.get("origin_tokens"), compressed.get("compressed_tokens")
+    if compressed.get("model") != MODEL or compressed.get("revision") != REVISION or type(before) is not int or type(after) is not int or not 0 < after < before:
+        raise ValueError("Compression réelle canonique non démontrée")
     if proof.get("medical_source_compressed") is not False:
         raise ValueError("Absence de compression médicale non attestée")
 
@@ -142,8 +163,15 @@ class Shape(HTMLParser):
         self.nodes.append(node)
         if "id" in attrs:
             self.ids.append(attrs["id"])
-        if tag in {"script", "img", "link", "iframe", "object", "embed"} or "title" in attrs:
+        if tag in {"script", "img", "link", "iframe", "object", "embed", "svg", "image"} or "title" in attrs:
             self.errors.append("Élément ou attribut interdit")
+        for name, value in attrs.items():
+            if name.startswith("on") or name == "srcdoc":
+                self.errors.append("Code actif dans un attribut HTML")
+            if name in {"href", "src", "action", "formaction", "xlink:href"} and re.match(r"(?:javascript|vbscript|data):", re.sub(r"[\x00-\x20]", "", value or ""), re.I):
+                self.errors.append("URL active ou incorporée interdite")
+            if name == "style" and re.search(r"@import|url\s*\(|expression\s*\(", value or "", re.I):
+                self.errors.append("Ressource ou code CSS interdit")
         if tag == "table" and not (parent and parent["tag"] == "div" and "overflow-x:auto" in parent["attrs"].get("style", "").replace(" ", "")):
             self.errors.append("Tableau non enveloppé")
         if tag not in VOID:
@@ -155,6 +183,8 @@ class Shape(HTMLParser):
             self.handle_endtag(tag)
 
     def handle_data(self, text):
+        if any(n["tag"] == "style" for n in self.stack) and re.search(r"@import|url\s*\(|expression\s*\(", text, re.I):
+            self.errors.append("Ressource ou code CSS interdit")
         if any(n["tag"] in {"style", "script"} for n in self.stack):
             return
         for node in self.stack:
@@ -189,13 +219,17 @@ def technical(raw, spec):
     parser = Shape()
     parser.feed(text)
     errors = list(parser.errors)
-    if parser.stack or not parser.declaration or not parser.html_closed or not re.search(r"</html>\s*<!-- FIN_FICHIER [^>]+ -->\s*$", text):
+    marker = re.escape(spec["name"].removesuffix(".html"))
+    if parser.stack or not parser.declaration or not parser.html_closed or not re.search(r"</html>\s*<!-- FIN_FICHIER " + marker + r" -->\s*$", text):
         errors.append("HTML5 incomplet ou marque de fin absente")
     if len(parser.ids) != len(set(parser.ids)):
         errors.append("Identifiant dupliqué")
     if max(map(len, text.splitlines()), default=0) > 3000:
         errors.append("Ligne supérieure à 3000 caractères")
     measurements = {}
+    entity_ids = [n["attrs"].get("id") for n in parser.nodes if re.fullmatch(r"ssp|dx\d+", n["attrs"].get("id") or "")]
+    if entity_ids != [entity["id"] for entity in spec["entities"]]:
+        errors.append("Entités monographiques étrangères ou désordonnées")
     for entity in spec["entities"]:
         roots = [n for n in parser.nodes if n["attrs"].get("id") == entity["id"]]
         if len(roots) != 1 or roots[0]["tag"] != "details" or "open" not in roots[0]["attrs"]:
@@ -275,6 +309,7 @@ def evaluate_lot(reader, job, now):
     head = reader.head(job["branch"])
     result = {"lot": job["lot"], "branch": job["branch"], "head": head,
               "validated": False, "delivered": False, "clinical_validation": False,
+              "decision_ready": False, "harness_ready": False,
               "files": {}, "next_action": None}
 
     def blocked(action, reason, file=None):
@@ -285,10 +320,12 @@ def evaluate_lot(reader, job, now):
 
     try:
         session = read_session(reader, head, job)
+        result["decision_ready"] = True
     except (ValueError, KeyError, TypeError, FileNotFoundError) as exc:
         return blocked("repair_session_decision", exc)
     try:
         verify_harness(reader, head, job, now)
+        result["harness_ready"] = True
     except (ValueError, KeyError, TypeError, FileNotFoundError) as exc:
         return blocked("restore_individual_harness", exc)
     root = "lot en cours de production/" + job["lot"] + "/"

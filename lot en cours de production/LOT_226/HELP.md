@@ -8,6 +8,10 @@ Les versions épinglées du runtime ont été installées dans `/tmp/harnais-cod
 
 La preuve réelle est `PREUVE_RUNTIME_HARNAIS_CODEX_V0.json`, avec `complete:false`. Aucun téléchargement alternatif, changement de proxy ou test modifié pour obtenir un faux vert n'est tenté. La configuration réseau doit être corrigée par le mécanisme autorisé de l'environnement, puis le probe doit être relancé sans altération. Aucun GO clinique n'est acquis entre-temps.
 
+### Reprise du 25 octobre 2026 — H01 résolu localement
+
+Le probe canonique inchangé a été relancé dans un environnement isolé. Les trois tests réussissent avec les versions attendues, dont torch 2.14.1+cpu. Le téléchargement auparavant refusé aboutit dans cet environnement ; aucun changement de proxy ni URL alternative ne sont utilisés. La preuve actuelle porte le run_id `834132f5-ca4f-4caf-b447-401e259cea1e` ; le refus antérieur est conservé dans `PREUVE_RUNTIME_HARNAIS_CODEX_V0_ECHEC_HISTORIQUE.json`. Ce succès ouvre la collecte et la rédaction manuelle de Phase A. Il ne vaut ni audit indépendant du moteur, ni validation médicale, ni autorisation de déploiement.
+
 ## H02 — Phase A, liste des dix scénarios et fréquences
 
 Le registre historique `evidence/registre_sources.json` du commit `502f8ff2284dc0417ddb3c6245f73a901596c36d` déclare que les fréquences comparables des dix scénarios parmi les malades chroniques suisses n'ont pas été trouvées. Leur ordre pédagogique n'est pas un classement statistique démontré.

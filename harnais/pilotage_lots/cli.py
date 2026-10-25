@@ -31,7 +31,7 @@ def collect(reader, state, now):
     jobs = [evaluate_lot(reader, job, now) for job in state["jobs"]]
     return {"checked_at": now.isoformat(), "prompt": "V0", "status": state["status"],
             "stop_requested": state["stop_requested"], "deployment_enabled": state.get("deployment_enabled") is True,
-            "may_execute": state["status"] == "active" and not state["stop_requested"] and state.get("deployment_enabled") is True,
+            "may_execute": state["status"] == "active" and not state["stop_requested"] and state.get("deployment_enabled") is True and bool(jobs) and all(job["decision_ready"] and job["harness_ready"] for job in jobs),
             "clinical_validation": False, "automatic_assignment": False, "jobs": jobs,
             "scope": "Contrôle de preuves publiées ; aucune observation des processus GPT ni audit clinique automatique."}
 

@@ -39,7 +39,7 @@ python3 -m unittest discover -s tests/pilotage_lots -p 'test_*.py' -v
 python3 harnais/pilotage_lots/cli.py --registry-ref HEAD
 ```
 
-Le CLI lit uniquement des objets Git locaux déjà présents. Il n'effectue aucun appel réseau, renouvellement de bail, lancement GPT ou écriture GitHub. Son résultat conserve `clinical_validation:false` : des portes documentaires réussies ne sont pas une certification par un médecin. Le runtime individuel du responsable est actuellement non vert ; son échec réel et les autres lacunes sont décrits dans `LOT_226/HELP.md`.
+Le CLI lit uniquement des objets Git locaux déjà présents. Il n'effectue aucun appel réseau, renouvellement de bail, lancement GPT ou écriture GitHub. Son résultat conserve `clinical_validation:false` : des portes documentaires réussies ne sont pas une certification par un médecin. La reprise du 25 octobre a obtenu une preuve individuelle canonique verte ; le refus antérieur est conservé séparément. Le contrôle refuse les preuves de plus d’une heure. Les autres lacunes restent décrites dans `LOT_226/HELP.md`.
 
 Avant tout déploiement restent nécessaires : contre-audit indépendant du moteur et de ses transitions, harnais individuel vert, vérification des connecteurs requis, réconciliation de la décision du jour et preuves de fonctionnement de la cadence retenue. Une limite de forfait ou un refus réseau n'est jamais contourné.
 
@@ -53,3 +53,11 @@ python3 harnais/pilotage_lots/aips_index.py /chemin/AipsDownload_20261008.zip --
 ```
 
 Le ZIP réel est conservé hors dépôt dans `/tmp/aips-medina/` ; sa source GitHub et ses empreintes sont consignées dans le lot. Les liens du 8 octobre doivent être vérifiés au moment de la rédaction. La copie Drive annoncée n'a pas été confirmée par le connecteur : la liste visible de `PROMPT_Casern` ne contenait que ses treize documents de prompts ; les archives ZIP ne figurent pas parmi les formats documentaires exposés par ce connecteur. Cette limite ne prouve pas l'absence du ZIP dans Drive.
+
+## Corrections de la reprise du 25 octobre
+
+`decision_ready` et `harness_ready` exposent séparément les prérequis vérifiés sur l’instantané. `may_execute` exige désormais un registre actif, le déploiement demandé, l’absence d’arrêt et ces deux prérequis pour tous les lots affectés. Un registre vide ne donne aucun feu vert. Ce champ décrit les prérequis techniques ; il ne franchit pas les portes d’audit du fichier, ne valide pas un lot et ne lance aucune action. Le registre livré reste arrêté.
+
+La preuve runtime doit contenir les versions canoniques du watcher existant, un identifiant d’exécution et les résultats mesurés de découpage, cache et compression. Trois simples booléens `ok` ne suffisent plus. Les tests synthétiques restent distincts d’une preuve runtime réelle.
+
+Le contrôle HTML vérifie la marque de fin portant le nom exact du fichier, refuse les identifiants de monographies étrangères, les attributs événementiels, les URL actives et les ressources CSS incorporées ou externes détectées. Il s’agit d’un contrôle de conformité complémentaire, pas d’un assainisseur HTML général ni d’un substitut à la QA390 et aux lectures indépendantes.
