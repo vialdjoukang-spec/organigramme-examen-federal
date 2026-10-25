@@ -16,4 +16,6 @@ Contrôle de structure HTML seulement (balises, taille, FIN_FICHIER, phrase de n
 
 Reprise de langue sur la même branche : les cas et les questions d'oral quittent le moule « on observe ceci / le geste qui suit ». Les faits, les sources et la liste DX.1 à DX.10 ne changent pas.
 
+Enrichissement 1/2 : chaîne fonctionnelle, vignettes, différentiels argumentés, questions 6.1 et 6.2 avec corrigés, pièges d'examen. Police Atkinson Hyperlegible, fond bleu ciel pâle, probabilités en rouge. Aucune dose. Tailles contrôlées par wc -c dans la fourchette 153 600–204 800 octets. Pas d'audit.
+
 Dossier patient Drive non ouvert.
