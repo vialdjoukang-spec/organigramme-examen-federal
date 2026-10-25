@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "description": "Injections déclaratives pour PROMPT ULTIME V0 — carburant à V0. Aucune mention d’IA.",
+  "injections": [
+    {
+      "id": "filtre-qualite-pas-plafond-ambition",
+      "active": true,
+      "section": "§14",
+      "mode": "insert_after_block",
+      "anchor_contains": "Obsession : densifier exhaustif → dépasser 200 Ko → raboter → checklist V0 ligne à ligne",
+      "skip_if_contains": "filtre de qualité, pas un plafond d’ambition",
+      "text": "> **Obsession : le plafond 150–200 Ko est un filtre de qualité, pas un plafond d’ambition.** Plus d’informations distinctes et utiles → on atteint 200 Ko **sans padding**. Le poids vient de la nature et du type d’informations utiles, jamais du remplissage.\n"
+    },
+    {
+      "id": "meta-date-filtre-qualite",
+      "active": true,
+      "section": "métadonnées",
+      "mode": "replace_line_matching",
+      "anchor_regex": "^\\| Date \\| .* \\|$",
+      "skip_if_contains": "filtre de qualité",
+      "text": "| Date | 25 octobre 2026 (Europe/Zurich) — révision densification + AIPS Medina + filtre de qualité |\n"
+    }
+  ]
+}

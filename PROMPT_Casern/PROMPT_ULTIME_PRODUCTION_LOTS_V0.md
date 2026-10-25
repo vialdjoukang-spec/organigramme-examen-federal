@@ -7,7 +7,7 @@
 | Métadonnée | Valeur |
 |---|---|
 | Nom officiel | **PROMPT ULTIME V0** (`PROMPT_ULTIME_PRODUCTION_LOTS_V0`) |
-| Date | 25 octobre 2026 (Europe/Zurich) — révision densification + AIPS Medina |
+| Date | 25 octobre 2026 (Europe/Zurich) — révision densification + AIPS Medina + filtre de qualité |
 | Statut | **En vigueur.** Base saine. Remplace V8 (et V7) pour toute la suite. |
 | Projet | Organigramme Examen fédéral — dépôt `vialdjoukang-spec/organigramme-examen-federal` |
 | Référentiel | PROFILES 2023 — 248 SSP (LOT_001 = G1 … LOT_248 = O7.26) |
@@ -531,6 +531,9 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 
 > **Obsession : densifier exhaustif → dépasser 200 Ko → raboter → checklist V0 ligne à ligne.** Posture **agressive** : **aucune information diagnostique ne doit manquer** (définition, épidémiologie CH, physiopathologie utile, clinique, red flags, explorations, diagnostics différentiels, scores, traitements avec AIPS, urgences chronologiques, situations spéciales, surveillance, critères de sortie, pièges d’examen). Sur cette base, le **premier jet dépasse largement 200 Ko** par entité. Ensuite tu **rabotes et reformules** (phrases verbales courtes, richesse dans les fenêtres, zéro remplissage) jusqu’à la bande **150–200 Ko**. **À la fin**, tu te rassures que **chaque ligne de ce Prompt V0 s’applique** (checklist [§20](#sec-20) + lecture §1→§22). Raboter **n’autorise jamais** à supprimer un contenu cliniquement utile ni une dose AIPS lue.
 
+
+
+> **Obsession : le plafond 150–200 Ko est un filtre de qualité, pas un plafond d’ambition.** Plus d’informations distinctes et utiles → on atteint 200 Ko **sans padding**. Le poids vient de la nature et du type d’informations utiles, jamais du remplissage.
 ### 14.1 Sortie
 
 > **Obsession : du `.html` et rien d'autre.** HTML5 complet, de `<!DOCTYPE html>` à `</html>`, terminé par `<!-- FIN_FICHIER LOT_XXX_<PARTIE> -->`. Texte brut, Markdown, Google Docs, PDF, Word, HTML partiel ou contenu rendu dans le chat = sortie invalide.
