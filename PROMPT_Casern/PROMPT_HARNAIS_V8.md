@@ -5,6 +5,11 @@
 
 ---
 
+
+## 0. Confirmation obligatoire avant toute activité
+
+**BLOQUANT (owner 2026-10-25).** Avant **toute** activité d’agent : exécuter `python3 harnais/bracelet/bracelet_suggest.py "…"`, écrire/rafraîchir `harnais/PREUVE_EMBOITEMENT.txt`, vérifier top-3 Chonkie 1.6 · LLMLingua 1.3 · GPTCache 1.3. **Sans preuve verte → zéro production.**
+
 ## 1. Compréhension — qu’est-ce que le harnais ?
 
 Le **harnais** (harness) est l’ensemble des outils **autour** de l’agent, pas l’agent lui-même. Il force la précision, coupe le gaspillage de jetons et empêche la production sans preuve.

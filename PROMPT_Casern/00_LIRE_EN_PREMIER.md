@@ -17,6 +17,8 @@ Encyclopédie interactive PROFILES 2023 (248 SSP) pour l’examen fédéral suis
 8. Si vague inverse : `MESSAGE_DEMARRAGE_SENS_INVERSE.md`
 
 ## En vigueur
+- **Confirmation harnais obligatoire avant toute activité** (PREUVE verte)
+
 - Prompt de production : **V8** (remplace V7 du 22.10.2026)
 - Harnais : `harnais/` sur `main` (PR #436)
 - Vague inverse départ documenté : **LOT_226** O7.4

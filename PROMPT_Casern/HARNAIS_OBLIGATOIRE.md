@@ -1,6 +1,6 @@
 # HARNAIS OBLIGATOIRE — embotté (Vial, 2026-10-25 Europe/Zurich)
 
-BLOQUANT : sans exécuter ce harnais, tu ne produis pas.
+BLOQUANT : confirmation obligatoire que le harnais **fonctionne** (PREUVE verte) **avant toute activité** ; sans cela, tu ne produis pas.
 
 ## Contenu embotté
 - `harnais/ARSENAL.md`
