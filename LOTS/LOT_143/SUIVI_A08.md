@@ -15,3 +15,5 @@ DX.5 à DX.10 ne sont pas rédigés. Les noms figés sont dans `LOT_143_evidence
 Aucune dose AIPS n'est écrite : l'information professionnelle n'a pas été ouverte. Les numéros Swissmedic 60142 et 59324 viennent de la liste lue dans le dépôt et ne valent pas une indication.
 
 Les dossiers chiffrés sont des exemples d'enseignement, pas des patients. Le dossier Drive des patients n'a pas été ouvert.
+
+Reprise du 25.10.2026 : la phrase a été reprise pour être plus vive et plus précise, sans nouveau chiffre, sans dose, et sans monographie au-delà de DX.4.
