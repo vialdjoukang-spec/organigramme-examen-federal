@@ -1,0 +1,44 @@
+{
+  "auditeur": "LOT_225, agent distinct de l’auteur LOT_226",
+  "date": "2026-10-25",
+  "perimetre": "Lecture intégrale des huit fichiers surveillance, workflow et tests dans harness-monitor-work; aucune modification de ces fichiers.",
+  "tests_reexecutes": "18 tests unittest réussis",
+  "resultats_independants": [
+    {
+      "niveau": "important",
+      "preuve": "versions={'unrelated':'1'} : assess_agent ok=true",
+      "correction": "Valider les cinq versions et leur type, éventuellement leurs valeurs attendues."
+    },
+    {
+      "niveau": "important",
+      "preuve": "LLMLingua model=wrong et revision=wrong : ok=true",
+      "correction": "Valider modèle et révision attendus, pas seulement réduction des tokens."
+    },
+    {
+      "niveau": "important",
+      "preuve": "Chonkie chunks=1 : ok=true",
+      "correction": "Exiger entier de segments>=2; vérifier mode GPTCache et absence de compression médicale."
+    },
+    {
+      "niveau": "robustesse",
+      "preuve": "tests=null ou tests.llmlingua=[] : AttributeError non interceptée",
+      "correction": "Valider dictionnaires et transformer toute preuve malformée en erreur propre à l’agent pour conserver le bilan des autres."
+    }
+  ],
+  "points_verifies": [
+    "Jeton lecture seule",
+    "Aucun code des branches surveillées exécuté",
+    "SHA distant fixé avant lecture",
+    "Chemins et empreintes limités",
+    "Actions et révision modèle épinglées",
+    "Pas de renouvellement automatique du signal d’activité"
+  ],
+  "limites": "Ce contrôle vérifie la cohérence et la fraîcheur de déclarations publiées; il ne prouve pas directement le processus distant. Le run GitHub complet n’a pas été exécuté par cet auditeur. Les corrections doivent être vérifiées avant conclusion technique finale.",
+  "decision": "Corrections demandées avant activation; aucune validation globale ou médicale.",
+  "contre_audit_corrections": {
+    "date_utc": "2026-10-25T17:07:09.233212+00:00",
+    "tests": 27,
+    "resultat": "Cinq injections indépendantes précédemment acceptées ou levant AttributeError refusées proprement; références harnais du runner comparées.",
+    "avis": "Favorable à fusion technique sous CI exacte verte; aucune validation médicale, garantie de temps réel ou accès aux processus distants."
+  }
+}
