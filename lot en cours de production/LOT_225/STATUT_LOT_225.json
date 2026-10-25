@@ -1,8 +1,8 @@
 {
   "lot": "LOT_225",
   "ssp": "O7.3 — Conseil diététique pour une alimentation saine et durable",
-  "date": "2026-10-25T15:58:38.450019+00:00",
-  "statut": "BROUILLON NON VALIDE — Appel A seulement",
+  "date": "2026-10-25T17:50:30.020229+00:00",
+  "statut": "BROUILLON NON VALIDÉ — Appel A et quatre parties B produits",
   "Appel_A": {
     "fichier": "LOT_225_Appel_A_V8_Plan_et_Liste.html",
     "octets": 131419,
@@ -12,14 +12,92 @@
     "audit_corrections": "Audit indépendant agent LOT226 : 78/88 = 88,64 % sur le gel 131419 octets / SHA2563c4cf88b117c9b9b9dab92749818c46f89266b4f59fdbe9d08f9ba61d607f12e. Seuil documentaire90 % NON ATTEINT. Aucun auto-score de validation.",
     "reserves_documentaires": "Restent partiels : p4q2 ; p6q1–2 ; p7q3–4 ; p11q3, q7, q9, q10, q11. Le rapport indépendant précise le périmètre et les corrections à reprendre sur sources."
   },
-  "Appel_B": "NON PRODUIT : A reste sous le seuil documentaire et le contrôle visuel390 est bloqué. Aucun GO B.",
+  "Appel_B": {
+    "autorisation": "Instruction explicite de Vial : « Écoute avancé à l’Appel B chacun. On verra quoi faire ». Cette instruction autorise la production malgré A sous90 et QA390 non vérifiée.",
+    "parties_produites": 4,
+    "cadence": [
+      2,
+      3,
+      2,
+      3
+    ],
+    "fichiers": [
+      {
+        "file": "LOT_225_Appel_B_V8_Partie_1_DX.1_a_DX.2.html",
+        "bytes": 153885,
+        "sha256": "9468d9e72205b52ddfb7022b1818d9ea74edc4d42e3acc788c526df4e2fff40f",
+        "monographies": [
+          1,
+          2
+        ],
+        "sections": 28,
+        "tables_enveloppees": 24,
+        "details": 57,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "file": "LOT_225_Appel_B_V8_Partie_2_DX.3_a_DX.5.html",
+        "bytes": 158733,
+        "sha256": "5823021a4a97cf4377cf5a18436ed2a8915ba9c47d4d658035feaa26bd5b8301",
+        "monographies": [
+          3,
+          4,
+          5
+        ],
+        "sections": 42,
+        "tables_enveloppees": 36,
+        "details": 58,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "file": "LOT_225_Appel_B_V8_Partie_3_DX.6_a_DX.7.html",
+        "bytes": 108389,
+        "sha256": "d007c4b8a7df0f42943ada73d25f010cec60fac66dcd40973e814e12f9b6fd22",
+        "monographies": [
+          6,
+          7
+        ],
+        "sections": 28,
+        "tables_enveloppees": 24,
+        "details": 43,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "file": "LOT_225_Appel_B_V8_Partie_4_DX.8_a_DX.10.html",
+        "bytes": 166133,
+        "sha256": "a09d3fbfcc0992e6ef042268bcd5edd9a05b548ed914d29c2c4fd38d0692a0ef",
+        "monographies": [
+          8,
+          9,
+          10
+        ],
+        "sections": 42,
+        "tables_enveloppees": 39,
+        "details": 62,
+        "forbidden": [],
+        "errors": []
+      }
+    ],
+    "audits_independants": {
+      "B1": "Version initiale auditée86,41%; corrections de glossaire et notice non re-notées.",
+      "B2": "Version auditée82,61%; notice actualisée, lacunes conservées.",
+      "B3": "Version auditée79,89%; corrections ciblées OU sur contractions et céphalées/troubles visuels, sans rehaussement de note.",
+      "B4": "Audit indépendant en attente; aucune note attribuée."
+    },
+    "validation": false
+  },
   "blocage_QA390": "Selon constat direct de root : rendu file:// refusé par navigateur cloud avec interdiction explicite de contournement ; Chromium indisponible. Aucun contournement tenté. Aucun contrôle visuel à 390 px revendiqué.",
-  "action_attendue": "Corriger sur sources les réserves documentaires restantes puis refaire un audit indépendant ; obtenir un rendu visuel390 dans un environnement/opérateur autorisé sans contourner le refus actuel. Aucune validation globale avant les deux levées.",
-  "sources": "26 sources consignées dans evidence.json ; les chiffres absents, accès incomplets et AIPS non lus restent explicitement HELP.",
+  "action_attendue": "Étape de production B accomplie. Audits indépendants complets et corrections restent nécessaires avant validation; QA390 demeure bloquée sans contournement. B226 attend son audit indépendant, non commencé pour cette étape.",
+  "sources": "50 entrées dans evidence_B_sources.json, dont certaines utilisées seulement pour contexte ou divergence; sources réellement ouvertes datées. AIPS non lu : aucune posologie inventée.",
   "destination": "Branche/PR brouillon uniquement. Aucun dépôt Drive Finaux. Aucun message à un tiers.",
-  "reproduction": "python3 construire.py depuis ce dossier; aucun paquet externe requis.",
+  "reproduction": "python3 construire.py pour A; python3 construire_b.py pour B depuis ce dossier. Aucun paquet externe requis pour HTML.",
   "publication": {
     "PR": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/441",
-    "draft": true
-  }
+    "draft": true,
+    "head_avant_checkpoint": "583d9d2ceb33b526434837557fd3c9fbaa38b51c"
+  },
+  "etat_travail": "Pause au checkpoint demandé après publication des quatre B; aucune activité future simulée."
 }
