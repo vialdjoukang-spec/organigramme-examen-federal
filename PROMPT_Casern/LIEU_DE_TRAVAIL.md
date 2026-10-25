@@ -11,6 +11,11 @@
 - Id : `1DaFAd0uamsJQY2NH0ocuy2bhpfcVk9Vu`
 - Règle : copier un lot ici **uniquement** quand Appel A **et** Appel B sont complets et validés (≥ 90 %, zéro critique)
 
+## Anti-collision & parallélisme absolu (outil d’onsession)
+- Plusieurs agents **en parallèle** si lots et branches **disjoints**.
+- Un agent = un seul `LOT_XXX` ; écriture uniquement sous `lot en cours de production/LOT_XXX/`.
+- Fichier : `ANTI_COLLISION_PARALLELISME_ABSOLU.md`
+
 ## PROMPT_Casern (ce dossier)
 - Rôle : caserne des prompts en vigueur pour les agents (V8 + harnais + message de démarrage)
 - Miroir : GitHub `PROMPT_Casern/` **et** Drive Finaux `/PROMPT_Casern/`

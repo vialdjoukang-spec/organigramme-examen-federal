@@ -8,6 +8,7 @@ Encyclopédie interactive PROFILES 2023 (248 SSP) pour l’examen fédéral suis
 ## Ordre de lecture obligatoire
 1. Ce fichier (`00_LIRE_EN_PREMIER.md`)
 2. `LIEU_DE_TRAVAIL.md`
+2bis. `ANTI_COLLISION_PARALLELISME_ABSOLU.md` — **outil d’onsession** : parallélisme absolu + zéro collision
 3. **Demander :** « Est-ce bien **PROMPT V8** (PROMPT_Casern) que je dois utiliser ? » — **attendre le oui**
 4. `PROMPT_ULTIME_PRODUCTION_LOTS_V8.md` (et son PDF identique)
 5. `PROMPT_HARNAIS_V8.md` (et son PDF identique)

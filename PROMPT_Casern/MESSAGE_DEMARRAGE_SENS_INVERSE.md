@@ -31,6 +31,8 @@ Drive Finaux seulement quand A+B complets et validés.
 Sources CH→EU datées ; pas de doses inventées (AIPS ou « À vérifier »).
 Silence owner sauf blocker critique via Grok Bot.
 
+Parallélisme absolu (outil d’onsession) : d’autres agents avancent en même temps sur d’autres lots — tu n’écris que LOT_226 (voir ANTI_COLLISION_PARALLELISME_ABSOLU.md).
+
 Commence par Appel A de LOT_226 sous PROMPT V8 + harnais.
 ```
 

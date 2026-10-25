@@ -16,6 +16,12 @@
 - Prompt ultime production lots (14 pts, sources CH→EU, AIPS, HTML 90–200 Ko, audits, HELP).
 
 
+
+## 2026-10-25 (màj) — Anti-collision & parallélisme absolu
+- Ajout `ANTI_COLLISION_PARALLELISME_ABSOLU.md` (**outil d’onsession**)
+- V8 §0 quater ; §5.3 corrigé
+- Signé Grok Bot
+
 ---
 
 *Signé : Grok Bot — 2026-10-25 Europe/Zurich — PROMPT_Casern / organigramme-examen-federal*

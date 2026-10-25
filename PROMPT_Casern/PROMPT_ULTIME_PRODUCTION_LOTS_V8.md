@@ -54,6 +54,16 @@ Voir aussi : `PROMPT_HARNAIS_V8.md` (compréhension, mise en place, contrôle, v
 5. **Vague inverse** : la production peut courir **248 → 001**. Départ assigné courant si vague inverse : **LOT_226** — O7.4 « Aspects environnementaux et psychosociaux des maladies chroniques » (A 0/11 · B 0/11). Prompt en vigueur : dossier `PROMPT_Casern` (V8).
 
 
+
+## 0 quater. ANTI-COLLISION & PARALLÉLISME ABSOLU — OUTIL D'ONSESSION (BLOQUANT)
+
+1. **Parallélisme absolu d'action** : plusieurs agents travaillent **simultanément** sans s'attendre, **si** lots et chemins sont **disjoints**.
+2. **Un agent = un seul LOT assigné**. Écriture seule dans `lot en cours de production/LOT_XXX/`. Branche `cursor/lot-XXX-…`. Une PR = un lot.
+3. **Interdit** : autre `LOT_*`, branche partagée, lot incomplet dans Drive Finaux, modifier `PROMPT_Casern/` / `HANDOFF.md` / `ETAT.md` sans mandat Grok Bot.
+4. Vague basse (LOT_011–012) et vague inverse (départ LOT_226) **coexistent**. Même numéro réclamé deux fois → stop → Grok Bot.
+5. Avant chaque écriture : « Suis-je seul sur ce LOT et ce chemin ? »
+6. Fichier opérationnel (outil de session) : `ANTI_COLLISION_PARALLELISME_ABSOLU.md`.
+
 ## 1. HONNÊTETÉ SUR TES ACTES — RÈGLE BLOQUANTE
 
 1. Tu n'affirmes **jamais** avoir fait une chose que tu n'as pas faite : déposer un fichier, ouvrir une source, lancer un audit, vérifier une taille.
@@ -134,7 +144,7 @@ Voir aussi : `PROMPT_HARNAIS_V8.md` (compréhension, mise en place, contrôle, v
 4. Les Parties 1 et 2 (Rédacteur 1) et 3 et 4 (Rédacteur 2) sont rédigées en parallèle.
 5. **Chaque Partie est auditée par les deux auditeurs** avant tout dépôt. Les auditeurs sont toujours des agents distincts des rédacteurs.
 6. **Seuil de dépôt :** un fichier n'est déposé que si son score d'application du prompt (section 6.3) atteint **au moins 90 %** et s'il ne reste **aucune erreur critique**.
-7. Le lot suivant ne commence qu'après la livraison complète du lot en cours.
+7. **Parallélisme absolu** : un autre agent peut démarrer un **autre** LOT en même temps (chemins/branches disjoints). Toi, tu ne démarres un second LOT qu'après livraison du tien — ou sur assignation explicite.
 
 ---
 
