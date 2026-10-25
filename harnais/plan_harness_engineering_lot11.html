@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan Harness Engineering — LOT_011 G11 Troubles du sommeil</title>
+<style>
+@font-face{font-family:'Atkinson Hyperlegible';src:url('plan_harness_assets/AtkinsonHyperlegible-Regular.ttf') format('truetype');font-weight:400;font-style:normal}
+@font-face{font-family:'Atkinson Hyperlegible';src:url('plan_harness_assets/AtkinsonHyperlegible-Bold.ttf') format('truetype');font-weight:700;font-style:normal}
+@font-face{font-family:'Atkinson Hyperlegible';src:url('plan_harness_assets/AtkinsonHyperlegible-Italic.ttf') format('truetype');font-weight:400;font-style:italic}
+@font-face{font-family:'Atkinson Hyperlegible';src:url('plan_harness_assets/AtkinsonHyperlegible-BoldItalic.ttf') format('truetype');font-weight:700;font-style:italic}
+:root{
+  --ink:#0b1220; --paper:#f7f4ea; --muted:#3a4558;
+  --c1:#0b3d91; --c2:#0f6a4a; --c3:#8a4b08; --c4:#6b1d8a; --c5:#8b1538; --c6:#1a5f7a;
+  --line:#1c2434; --card:#ffffff; --hi:#ffe08a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Atkinson Hyperlegible',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.45;font-size:15.5px}
+a{color:var(--c1);font-weight:700}
+a:hover{background:var(--hi)}
+header.hero{background:linear-gradient(135deg,#0b3d91 0%,#1a5f7a 55%,#0f6a4a 100%);color:#fff;padding:28px 22px 22px;border-bottom:6px solid #000}
+header.hero h1{margin:0 0 8px;font-size:1.55rem;letter-spacing:.2px}
+header.hero p{margin:4px 0;max-width:920px}
+.badge{display:inline-block;background:#ffe08a;color:#111;padding:2px 8px;border-radius:4px;font-weight:700;margin-right:6px}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 48px}
+nav.toc{background:#fff;border:3px solid #000;border-radius:10px;padding:14px 16px;margin:18px 0}
+nav.toc h2{margin:0 0 8px;font-size:1.15rem}
+nav.toc ol{margin:0;padding-left:22px}
+nav.toc li{margin:4px 0}
+h2{font-size:1.25rem;border-left:8px solid var(--c1);padding-left:10px;margin-top:28px}
+h3{font-size:1.05rem;margin-top:18px;color:var(--c1)}
+.card{background:var(--card);border:2px solid #000;border-radius:10px;padding:12px 14px;margin:12px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.pill{display:inline-block;border:2px solid #000;border-radius:999px;padding:1px 10px;font-weight:700;font-size:.85rem;margin:2px}
+.p1{background:#d6e4ff}.p2{background:#d8f5e7}.p3{background:#ffe6c7}.p4{background:#f0d9ff}.p5{background:#ffd6e0}.p6{background:#d4eef7}
+details{border:2px solid #000;border-radius:8px;padding:8px 10px;margin:8px 0;background:#fff}
+details>summary{cursor:pointer;font-weight:700;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--c5)}
+details[open]>summary::before{content:"▾ "}
+details .box{margin-top:8px;padding:8px;background:#f3f6fb;border-left:5px solid var(--c1)}
+.io{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.io .in{background:#e8f7ee;border:2px solid #0f6a4a;border-radius:8px;padding:8px}
+.io .out{background:#ffe9ef;border:2px solid #8b1538;border-radius:8px;padding:8px}
+.io h4{margin:0 0 4px;font-size:.95rem}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.92rem}
+th,td{border:1.5px solid #000;padding:6px 7px;vertical-align:top;text-align:left}
+th{background:#0b3d91;color:#fff}
+tr:nth-child(even) td{background:#f0f4fa}
+.step{scroll-margin-top:12px;border:3px solid #000;border-radius:12px;padding:12px;margin:16px 0;background:#fff}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#000;color:#fff;font-weight:700;margin-right:8px}
+.s1{border-color:#0b3d91}.s2{border-color:#0f6a4a}.s3{border-color:#8a4b08}.s4{border-color:#6b1d8a}.s5{border-color:#8b1538}.s6{border-color:#1a5f7a}.s7{border-color:#0b3d91}
+.legend span{display:inline-block;margin:3px 6px 3px 0;padding:2px 8px;border:2px solid #000;border-radius:6px;font-weight:700;font-size:.82rem}
+svg.flow{width:100%;height:auto;background:#fff;border:3px solid #000;border-radius:12px;margin:10px 0}
+.foot{font-size:.88rem;color:var(--muted);border-top:2px solid #000;margin-top:28px;padding-top:12px}
+.k{font-weight:700}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem;background:#eef2f8;padding:1px 4px;border-radius:3px}
+.arrow{text-align:center;font-size:1.4rem;font-weight:700;color:#000;margin:4px 0}
+.callout{background:#fff8d6;border:3px dashed #8a4b08;border-radius:10px;padding:10px 12px;margin:12px 0}
+ul.tight li{margin:3px 0}
+.small{font-size:.88rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Plan Harness Engineering — agent de lot</h1>
+  <p><span class="badge">Cas test</span> <strong>LOT_011 = G11</strong> — Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies) · PROFILES 2023 · statut <strong>à rédiger / EN ATTENTE</strong> · plan monographique <strong>applicable</strong> entité par entité.</p>
+  <p>Document pour un lecteur qui ne connaît <em>rien</em> au harness (harnais logiciel qui entoure l’agent pour le rendre précis, puissant et économe en jetons). Police : Atkinson Hyperlegible. Date de lecture des sources : <strong>25 octobre 2026, Europe/Zurich</strong>.</p>
+</header>
+<div class="wrap">
+
+<nav class="toc" id="sommaire">
+  <h2>Sommaire cliquable</h2>
+  <ol>
+    <li><a href="#e0">E0 — Qu’est-ce qu’un harness ? (définition zéro jargon)</a></li>
+    <li><a href="#e1">E1 — Les 4 pièces déjà disponibles chez Vial</a></li>
+    <li><a href="#e2">E2 — Schéma mécanique LOT_011 (nœuds cliquables)</a></li>
+    <li><a href="#e3">E3 — Étape 1 Entrée du chapitre</a></li>
+    <li><a href="#e4">E4 — Étape 2 Sites / sources</a></li>
+    <li><a href="#e5">E5 — Étape 3 MCP mobilisés</a></li>
+    <li><a href="#e6">E6 — Étape 4 Automates</a></li>
+    <li><a href="#e7">E7 — Étape 5 Bracelet</a></li>
+    <li><a href="#e8">E8 — Étape 6 Maximum du plan monographique V7 (14 points)</a></li>
+    <li><a href="#e9">E9 — Contrats entrée/sortie des scripts</a></li>
+    <li><a href="#e10">E10 — Fallback si un MCP tombe</a></li>
+    <li><a href="#e11">E11 — Budget jetons du bracelet</a></li>
+    <li><a href="#e12">E12 — Runbook solo d’un lot</a></li>
+    <li><a href="#sources">Sources</a></li>
+    <li><a href="#top5-ia-video">Top 5 IA vidéo</a></li>
+    <li><a href="#prompt-video">Prompt vidéo fonctionnelle du harnais</a></li>
+  </ol>
+</nav>
+
+<!-- ========== E0 ========== -->
+<section class="step s1" id="e0">
+  <h2><span class="n">0</span> Qu’est-ce qu’un harness ?</h2>
+  <p>Un <strong>harness</strong> (harnais) est l’ensemble des outils <em>autour</em> de l’agent (le bot qui rédige), pas l’agent lui-même. Sans harness, l’agent relit trop, invente, oublie, gaspille des jetons (unités de calcul du modèle) et s’épuise. Avec harness, chaque étape a un <strong>contrat</strong> (règle écrite : ce qui entre, ce qui sort, ce qui est interdit).</p>
+  <div class="callout">
+    <p><strong>Image simple.</strong> L’agent est le chirurgien. Le harness est la salle : check-lists, instruments stériles, chronomètre, alarme si un appareil tombe. Le chirurgien décide ; la salle empêche les erreurs répétables.</p>
+  </div>
+  <details>
+    <summary>Pourquoi « engineering » (ingénierie) ?</summary>
+    <div class="box">Parce que chaque pièce a une <strong>entrée</strong> (INPUT), une <strong>sortie</strong> (OUTPUT), un échec prévu et un chemin de secours. Ce n’est pas une liste d’outils posés au hasard : c’est un circuit.</div>
+  </details>
+  <details>
+    <summary>Objectif chiffré pour un lot</summary>
+    <div class="box">Un agent + son harness gère <strong>seul un lot</strong> (SSP + 10 DX) : recherche → Appel A → Parties B → audits → dépôt HTML 90–200 Ko, sans s’épuiser et sans inventer de dose.</div>
+  </details>
+</section>
+
+<!-- ========== E1 ========== -->
+<section class="step s2" id="e1">
+  <h2><span class="n">1</span> Les 4 pièces déjà disponibles chez Vial</h2>
+  <p>Le harness installé ici réutilise le matériel déjà en place (Thunder → Bitender → Grok Bot), sans inventer une stack nouvelle.</p>
+  <div class="grid2">
+    <div class="card">
+      <span class="pill p1">Script 1</span>
+      <p><strong>Script 1</strong> (outil déterministe d’extraction / budget) : lit un morceau ciblé d’un gros fichier, jamais le fichier entier. Chez Vial : <span class="mono">tools/arsenal/extrait.py</span> + <span class="mono">tools/budget.py</span>.</p>
+      <details open>
+        <summary>Contrat Script 1</summary>
+        <div class="io">
+          <div class="in"><h4>ENTRÉE (INPUT)</h4>Identifiant SSP/DX ou chemin ; option partie N ; plafond de lignes.</div>
+          <div class="out"><h4>SORTIE (OUTPUT)</h4>Extrait compact (texte/JSON) + métadonnées ; code retour 0/≠0.</div>
+        </div>
+        <p class="small">Interdit : renvoyer <span class="mono">app_v2.html</span> entier (~440 Ko).</p>
+      </details>
+    </div>
+    <div class="card">
+      <span class="pill p2">Script 2</span>
+      <p><strong>Script 2</strong> (outil déterministe d’assemblage / PR / CI) : injecte le lot, ouvre la PR, attend la CI. Chez Vial : <span class="mono">tools/arsenal/lot.py</span>, <span class="mono">pr.sh</span>, <span class="mono">ci_attente.sh</span>, <span class="mono">audit_diff.py</span>.</p>
+      <details open>
+        <summary>Contrat Script 2</summary>
+        <div class="io">
+          <div class="in"><h4>ENTRÉE</h4>Artefacts validés (JSON/HTML lot) + message PR + branche.</div>
+          <div class="out"><h4>SORTIE</h4>URL PR ; statut CI une ligne ; diff d’audit borné (--max).</div>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="pill p3">MCP</span>
+      <p><strong>MCP</strong> (Model Context Protocol = serveurs d’outils connectés que l’agent appelle sans quitter le chat) : Drive, GitHub/Origin, Calendar, etc. Ils apportent fichiers et actions externes.</p>
+      <details>
+        <summary>Contrat d’un appel MCP</summary>
+        <div class="io">
+          <div class="in"><h4>ENTRÉE</h4>Nom d’outil + arguments typés (fileId, query…).</div>
+          <div class="out"><h4>SORTIE</h4>JSON/texte utile OU erreur explicite → bascule fallback (§E10).</div>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="pill p4">Automates</span>
+      <p><strong>Automate</strong> (script déterministe sans LLM) : contrôles mécaniques (doses vs liste AIPS, sources datées, infobulles, chaîne lésion→PEC). Galien (revue clinique) ne lit que le diff + signalements.</p>
+      <details>
+        <summary>Contrat automate</summary>
+        <div class="io">
+          <div class="in"><h4>ENTRÉE</h4>Fichier HTML/JSON du lot + liste de règles.</div>
+          <div class="out"><h4>SORTIE</h4>Rapport pass/fail + liste d’anomalies ; zéro prose libre.</div>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="card">
+    <span class="pill p5">Bracelet</span>
+    <p><strong>Bracelet</strong> (couche permanente d’optimisation jetons/outils, greffée à chaque session) : catalogue + script <span class="mono">bracelet_suggest.py</span> qui suggère l’outil avant crawl, gros volume, cache, mémoire, budget. Source : <span class="mono">/home/box/agent-data/bracelet/BRACELET_OPTIMISATION.md</span>.</p>
+    <details>
+      <summary>Que contient le bracelet ? (5 familles)</summary>
+      <div class="box">
+        <ul class="tight">
+          <li><strong>Filtrage</strong> : Crawl4AI, Firecrawl, Chonkie, FlagEmbedding, LLMLingua, RTK</li>
+          <li><strong>Mémoire</strong> : Mem0, Graphiti</li>
+          <li><strong>Cache</strong> : GPTCache, Portkey, Prefect, requests-cache, Hishel</li>
+          <li><strong>Orchestration</strong> : APScheduler, Celery</li>
+          <li><strong>Protection / route / observe</strong> : PyBreaker, LiteLLM, RouteLLM, Semantic Router, Phoenix</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <p class="small">Référence ARSENAL (20.10.2026) : <span class="mono">docs/ARSENAL.md</span> — interdits communs + pipelines Alpha/Beta/Gamma/Delta/Auditeur.</p>
+</section>
+
+<!-- ========== E2 SCHEMA ========== -->
+<section class="step s3" id="e2">
+  <h2><span class="n">2</span> Schéma mécanique — parcours d’un chapitre LOT_011</h2>
+  <p class="legend">
+    <span class="p1">1 Entrée</span>
+    <span class="p2">2 Sites</span>
+    <span class="p3">3 MCP</span>
+    <span class="p4">4 Automate</span>
+    <span class="p5">5 Bracelet</span>
+    <span class="p6">6 Plan V7 max</span>
+  </p>
+  <p>Chaque rectangle du schéma est aussi une ancre cliquable ci-dessous. Survolez / ouvrez les <span class="k">▸ détails</span> sous le schéma pour l’explication sans surcharger le dessin.</p>
+
+  <svg class="flow" viewBox="0 0 920 520" role="img" aria-label="Schéma harness LOT_011">
+    <defs>
+      <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#000"/></marker>
+    </defs>
+    <!-- boxes -->
+    <a href="#e3"><rect x="30" y="30" width="200" height="70" rx="10" fill="#d6e4ff" stroke="#0b3d91" stroke-width="3"/><text x="130" y="58" text-anchor="middle" font-family="Atkinson Hyperlegible,Arial" font-size="15" font-weight="700" fill="#000">1 · ENTRÉE</text><text x="130" y="78" text-anchor="middle" font-size="12" fill="#000">LOT_011 / G11 chapitre</text></a>
+    <a href="#e4"><rect x="360" y="30" width="200" height="70" rx="10" fill="#d8f5e7" stroke="#0f6a4a" stroke-width="3"/><text x="460" y="58" text-anchor="middle" font-size="15" font-weight="700">2 · SITES</text><text x="460" y="78" text-anchor="middle" font-size="12">AIPS · OFSP · Soc. sommeil</text></a>
+    <a href="#e5"><rect x="690" y="30" width="200" height="70" rx="10" fill="#ffe6c7" stroke="#8a4b08" stroke-width="3"/><text x="790" y="58" text-anchor="middle" font-size="15" font-weight="700">3 · MCP</text><text x="790" y="78" text-anchor="middle" font-size="12">Drive · GitHub · Web</text></a>
+
+    <a href="#e7"><rect x="30" y="200" width="200" height="70" rx="10" fill="#ffd6e0" stroke="#8b1538" stroke-width="3"/><text x="130" y="228" text-anchor="middle" font-size="15" font-weight="700">5 · BRACELET</text><text x="130" y="248" text-anchor="middle" font-size="12">suggest · cache · budget</text></a>
+    <a href="#e6"><rect x="360" y="200" width="200" height="70" rx="10" fill="#f0d9ff" stroke="#6b1d8a" stroke-width="3"/><text x="460" y="228" text-anchor="middle" font-size="15" font-weight="700">4 · AUTOMATES</text><text x="460" y="248" text-anchor="middle" font-size="12">QA · AIPS · score ≥90%</text></a>
+    <a href="#e8"><rect x="690" y="200" width="200" height="90" rx="10" fill="#d4eef7" stroke="#1a5f7a" stroke-width="4"/><text x="790" y="235" text-anchor="middle" font-size="15" font-weight="700">6 · V7 MAX</text><text x="790" y="255" text-anchor="middle" font-size="12">14 points / entité DX</text><text x="790" y="273" text-anchor="middle" font-size="11">HTML 90–200 Ko</text></a>
+
+    <a href="#e12"><rect x="200" y="380" width="520" height="70" rx="10" fill="#fff8d6" stroke="#000" stroke-width="3"/><text x="460" y="410" text-anchor="middle" font-size="15" font-weight="700">DÉPÔT · GitHub « lot en cours de production/LOT_011 »</text><text x="460" y="430" text-anchor="middle" font-size="12">puis Drive LOTS_Finaux seulement si achevé (A+B)</text></a>
+
+    <!-- arrows -->
+    <line x1="230" y1="65" x2="360" y2="65" stroke="#000" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="560" y1="65" x2="690" y2="65" stroke="#000" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="790" y1="100" x2="790" y2="200" stroke="#000" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="690" y1="235" x2="560" y2="235" stroke="#000" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="360" y1="235" x2="230" y2="235" stroke="#000" stroke-width="3" marker-end="url(#arr)"/>
+    <line x1="130" y1="100" x2="130" y2="200" stroke="#8b1538" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+    <line x1="460" y1="270" x2="460" y2="380" stroke="#000" stroke-width="3" marker-end="url(#arr)"/>
+    <text x="150" y="160" font-size="11" fill="#8b1538" font-weight="700">bracelet agit en continu</text>
+    <text x="600" y="160" font-size="11" fill="#000">preuve → rédaction</text>
+  </svg>
+
+  <details>
+    <summary>Lire le schéma en une phrase</summary>
+    <div class="box">Le chapitre LOT_011 entre → le bracelet filtre et budgète → les sites suisses/europeens fournissent les preuves via MCP → les automates vérifient → le plan V7 à 14 points produit le HTML → dépôt GitHub tant que non achevé.</div>
+  </details>
+</section>
+
+<!-- ========== E3 ========== -->
+<section class="step s1" id="e3">
+  <h2><span class="n">3</span> Étape 1 — Entrée du chapitre (INPUT du circuit)</h2>
+  <p><strong>Entrée</strong> = ce que l’agent reçoit avant d’écrire. Pour LOT_011 :</p>
+  <ul>
+    <li>Code PROFILES <strong>G11</strong> · titre officiel troubles du sommeil · n° lot <strong>011</strong>.</li>
+    <li>Statut : <strong>0/5 fichiers</strong>, A 0/11, B 0/11 → dossier GitHub <span class="mono">lot en cours de production/LOT_011/</span>.</li>
+    <li>Prompt absolu : <strong>PROMPT_ULTIME V7</strong> (22 oct. 2026) — lit avant toute ligne.</li>
+    <li>Décision plan : monographie <strong>applicable</strong> à chaque entité (SSP + chaque DX). Si un DX transversal forçait un plaquage absurde → signaler plan alternatif (V7 §6.4).</li>
+  </ul>
+  <details open>
+    <summary>Contrat d’entrée lot</summary>
+    <div class="io">
+      <div class="in"><h4>ENTRÉE</h4>LOT_id, code SSP, titre, liste DX.1–10 (après Appel A), chemin evidence/, branche GitHub.</div>
+      <div class="out"><h4>SORTIE de cette étape</h4>Brief agent + fichier evidence vide prêt + confirmation « plan monographique OUI/SIGNALER ».</div>
+    </div>
+  </details>
+  <p><a href="#e2">↑ schéma</a> · <a href="#e4">→ sites</a></p>
+</section>
+
+<!-- ========== E4 ========== -->
+<section class="step s2" id="e4">
+  <h2><span class="n">4</span> Étape 2 — Sites / sources qui interviennent</h2>
+  <p>Hiérarchie V7 (aucune donnée de mémoire) :</p>
+  <table>
+    <thead><tr><th>Rang</th><th>Site / organisme</th><th>Rôle pour G11 sommeil</th><th>Outil bracelet typique</th></tr></thead>
+    <tbody>
+      <tr><td>1 CH</td><td>swissmedicinfo.ch (AIPS)</td><td>Doses hypnotiques / mélatonine / stimulants autorisés CH</td><td>Crawl4AI → Markdown propre</td></tr>
+      <tr><td>1 CH</td><td>OFSP / OFS / Obsan</td><td>Épidémiologie suisse sommeil / santé publique</td><td>Firecrawl champs ciblés</td></tr>
+      <tr><td>1 CH</td><td>Sociétés suisses (SSMIG…)</td><td>Recommandations cliniques CH si existantes</td><td>requests-cache + Hishel</td></tr>
+      <tr><td>1 CH</td><td>Tox Info Suisse / Fedlex</td><td>Surdosage hypnotiques ; cadre légal conduite</td><td>Crawl4AI</td></tr>
+      <tr><td>2 EU</td><td>ESR / guidelines européennes sommeil</td><td>Critères diagnostiques (si reconnus CH)</td><td>Chonkie + FlagEmbedding</td></tr>
+      <tr><td>3 INT</td><td>Seulement si reconnu en Suisse</td><td>Jamais AASM/FDA seule comme référence</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <details>
+    <summary>Contrat « preuve » (evidence file)</summary>
+    <div class="io">
+      <div class="in"><h4>ENTRÉE</h4>URL + date consultation Europe/Zurich + extrait lu dans UN seul document.</div>
+      <div class="out"><h4>SORTIE</h4>Ligne [S n] prête pour la section Sources du HTML ; dose uniquement si AIPS ouvert.</div>
+    </div>
+  </details>
+  <p><a href="#e5">→ MCP</a></p>
+</section>
+
+<!-- ========== E5 ========== -->
+<section class="step s3" id="e5">
+  <h2><span class="n">5</span> Étape 3 — MCP mobilisés (serveurs d’outils connectés)</h2>
+  <table>
+    <thead><tr><th>MCP</th><th>Quand</th><th>ENTRÉE</th><th>SORTIE</th><th>Si panne →</th></tr></thead>
+    <tbody>
+      <tr><td>user-Google-drive</td><td>Lire V7, déposer HTML achevé</td><td>fileId / folder</td><td>contenu ou lien</td><td>copie locale /workspace + dire l’échec</td></tr>
+      <tr><td>cursor-github / cursor-origin</td><td>Branche lot, PR</td><td>path, message</td><td>commit/PR URL</td><td>diff local + patch fichier</td></tr>
+      <tr><td>WebSearch / WebFetch (ou navigateur box)</td><td>Ouvrir AIPS / guidelines</td><td>URL / query</td><td>texte page</td><td>Crawl4AI local / curl box</td></tr>
+      <tr><td>cursor.RecallMemory</td><td>Rappel profil harness</td><td>query</td><td>faits profil</td><td>relire BRACELET.md + ARSENAL.md</td></tr>
+    </tbody>
+  </table>
+  <details>
+    <summary>Pourquoi des MCP « contextuels » ?</summary>
+    <div class="box">On n’active que les serveurs utiles à la tâche (Drive pour dépôt, GitHub pour branche). Moins de bruit = moins de jetons = plus de précision.</div>
+  </details>
+  <p><a href="#e6">→ automates</a></p>
+</section>
+
+<!-- ========== E6 ========== -->
+<section class="step s4" id="e6">
+  <h2><span class="n">6</span> Étape 4 — Automates qui se déclenchent</h2>
+  <p>Sans LLM. Exemples alignés ARSENAL + audit médical 2 tiers :</p>
+  <ol>
+    <li><span class="mono">extrait.py</span> / budget — empêche la lecture totale.</li>
+    <li>Contrôles déterministes posologie suisse (AIPS) — doses vs extrait.</li>
+    <li>Sources datées + présence des 14 points + balise <span class="mono">FIN_FICHIER</span>.</li>
+    <li>Taille fichier 90–200 Ko ; sinon découpe a/b.</li>
+    <li><span class="mono">audit_diff.py</span> — l’auditeur ne relit que le diff.</li>
+    <li>Score V7 §6.3 ≥ 90 % et zéro critique avant dépôt.</li>
+  </ol>
+  <details open>
+    <summary>Contrat automate « gate dépôt »</summary>
+    <div class="io">
+      <div class="in"><h4>ENTRÉE</h4>HTML candidat + rapport questions 6.1.</div>
+      <div class="out"><h4>SORTIE</h4><span class="mono">ALLOW_DEPOSIT=yes|no</span> + liste FAIL. Si no → retour rédacteur, pas Drive Finaux.</div>
+    </div>
+  </details>
+  <p><a href="#e7">→ bracelet</a></p>
+</section>
+
+<!-- ========== E7 ========== -->
+<section class="step s5" id="e7">
+  <h2><span class="n">7</span> Étape 5 — Où le bracelet agit</h2>
+  <p>Le bracelet est <strong>permanent</strong> : consulté <em>avant</em> chaque optimisation, appel externe, volume, répétition.</p>
+  <table>
+    <thead><tr><th>Moment LOT_011</th><th>Suggestion bracelet</th><th>Effet</th></tr></thead>
+    <tbody>
+      <tr><td>Avant d’ouvrir AIPS</td><td>Crawl4AI / Firecrawl</td><td>Markdown propre, menus retirés</td></tr>
+      <tr><td>Guideline longue</td><td>Chonkie + FlagEmbedding + LLMLingua</td><td>Chunks + rerank + compression</td></tr>
+      <tr><td>Reprise session</td><td>Mem0 / Graphiti</td><td>Faits lot sans rejouer l’historique</td></tr>
+      <tr><td>Même URL déjà vue</td><td>GPTCache / Hishel / requests-cache</td><td>Zéro re-téléchargement</td></tr>
+      <tr><td>Tâche simple (renommer, lister)</td><td>RouteLLM / Semantic Router</td><td>Modèle cheap</td></tr>
+      <tr><td>API qui échoue en boucle</td><td>PyBreaker</td><td>Pause + fallback</td></tr>
+      <tr><td>Suivi coût</td><td>LiteLLM + Phoenix</td><td>Budget + traces</td></tr>
+    </tbody>
+  </table>
+  <p>Commande : <span class="mono">python3 /home/box/agent-data/bracelet/bracelet_suggest.py "…tâche…"</span></p>
+  <details>
+    <summary>Contrat bracelet_suggest</summary>
+    <div class="io">
+      <div class="in"><h4>ENTRÉE</h4>Phrase de tâche (texte libre).</div>
+      <div class="out"><h4>SORTIE</h4>Top N outils {category, name, repo, use, score}.</div>
+    </div>
+  </details>
+  <p><a href="#e8">→ plan V7 max</a> · <a href="#e11">budget jetons</a></p>
+</section>
+
+<!-- ========== E8 ========== -->
+<section class="step s6" id="e8">
+  <h2><span class="n">8</span> Étape 6 — Maximum du plan monographique V7 (14 points)</h2>
+  <p>C’est le <strong>point de maximisation</strong> : ici le harness sert la qualité clinique, pas seulement l’économie. Chaque monographie (SSP G11 <em>et</em> chaque DX) porte les 14 points. Aucun point manquant.</p>
+  <table>
+    <thead><tr><th>#</th><th>Point V7</th><th>Composant harness qui maximise</th><th>Check LOT_011 (sommeil)</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Définition et sémantique</td><td>Evidence MCP + fenêtres &lt;details&gt;</td><td>Insomnie vs hypersomnie vs parasomnie distinguées</td></tr>
+      <tr><td>2</td><td>Épidémiologie CH→EU</td><td>OFSP/OFS via Crawl+cache</td><td>Chiffres sourcés datés seulement</td></tr>
+      <tr><td>3</td><td>Physiopathologie + tableau lésion→expl→ttt</td><td>Automate présence tableau</td><td>Mécanismes éveil/sommeil NREM-REM</td></tr>
+      <tr><td>4</td><td>Démarche diagnostique</td><td>Appel A liste DX</td><td>Graves d’abord (narcolepsie, SAOS…)</td></tr>
+      <tr><td>5</td><td>Anamnèse + drapeaux rouges</td><td>Checklist automate</td><td>Stop respiratoire, cataplexie, etc.</td></tr>
+      <tr><td>6</td><td>Examen physique</td><td>Fenêtres technique</td><td>Normal avant pathologique</td></tr>
+      <tr><td>7</td><td>Approche syndromique</td><td>Automate signes définis</td><td>Syndromes éclatés SF/SP</td></tr>
+      <tr><td>8</td><td>Diagnostic positif</td><td>Source société+année</td><td>Critères nommés ; ce qui ne suffit pas</td></tr>
+      <tr><td>9</td><td>Examens (gold / 1re / 2e)</td><td>Tableaux interprétation</td><td>PSG, MLST, oxymétrie…</td></tr>
+      <tr><td>10</td><td>Arbre décisionnel</td><td>Cohérence A↔B</td><td>Embranchements signés</td></tr>
+      <tr><td>11</td><td>PEC A-B-C-D + situations spéciales</td><td>AIPS only + audit médical</td><td>Grossesse, sujet âgé, IH/IR</td></tr>
+      <tr><td>12</td><td>Prévention 3 niveaux</td><td>Sources CH</td><td>Hygiène sommeil, dépistage SAOS</td></tr>
+      <tr><td>13</td><td>Points clés 3–6 phrases</td><td>Style verbal V7 §7</td><td>Zéro liste télégraphique</td></tr>
+      <tr><td>14</td><td>Pièges examen fédéral</td><td>Auditeur linguistique</td><td>Confusions classiques + bonne réponse</td></tr>
+    </tbody>
+  </table>
+  <details>
+    <summary>Cadence fichiers V7 (rappel)</summary>
+    <div class="box">5 HTML : Appel A (SSP+liste DX) ; B P1 DX1–2 ; P2 DX3–5 ; P3 DX6–7 ; P4 DX8–10. 4 agents : 2 rédacteurs + auditeur médical + auditeur linguistique. Score ≥90 %.</div>
+  </details>
+  <div class="callout"><strong>Si le plan monographique ne s’applique pas</strong> à une entité : l’agent le signale en une phrase et propose un plan exhaustif alternatif (V7 §6.4 classe <span class="mono">plan-academique</span>) — règle owner 25.10.2026.</div>
+  <p><a href="#e9">→ contrats scripts</a></p>
+</section>
+
+<!-- ========== E9 ========== -->
+<section class="step s1" id="e9">
+  <h2><span class="n">9</span> Critique 1 — Contrats d’entrée/sortie documentés (scripts)</h2>
+  <table>
+    <thead><tr><th>Script</th><th>ENTRÉE</th><th>SORTIE</th><th>Échec</th><th>Interdit</th></tr></thead>
+    <tbody>
+      <tr><td>Script 1 <span class="mono">extrait.py</span></td><td><span class="mono">ssp|mono|region</span> + id + options</td><td>extrait borné</td><td>code ≠0 + message</td><td>fichier entier</td></tr>
+      <tr><td>Script 1b <span class="mono">budget.py</span></td><td>fichier + --lignes</td><td>OK/DEPASSÉ</td><td>DEPASSÉ</td><td>ignorer le plafond</td></tr>
+      <tr><td>Script 2 <span class="mono">lot.py</span></td><td>type + clé + payload</td><td>artefact prêt PR</td><td>validation schema fail</td><td>dose sans AIPS</td></tr>
+      <tr><td>Script 2b <span class="mono">pr.sh</span> + <span class="mono">ci_attente.sh</span></td><td>titre + paths</td><td>URL PR + CI résumé 1 ligne</td><td>CI rouge → stop merge</td><td>merge sans CI</td></tr>
+      <tr><td>Script 2c <span class="mono">audit_diff.py</span></td><td>PR + --max</td><td>valeurs modifiées + sources</td><td>diff trop large</td><td>auditer sa propre prose</td></tr>
+      <tr><td>Bracelet <span class="mono">bracelet_suggest.py</span></td><td>tâche texte</td><td>top outils JSON/texte</td><td>catalogue manquant</td><td>sauter la suggestion sur gros fetch</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== E10 ========== -->
+<section class="step s3" id="e10">
+  <h2><span class="n">10</span> Critique 2 — Fallback si un MCP tombe</h2>
+  <table>
+    <thead><tr><th>Panne</th><th>Symptôme</th><th>Fallback immédiat</th><th>Ce qu’on dit à Vial</th></tr></thead>
+    <tbody>
+      <tr><td>Drive MCP</td><td>timeout / 403</td><td>Fichier dans <span class="mono">/workspace/</span> + lien GitHub</td><td>« Drive inaccessible ; livré localement »</td></tr>
+      <tr><td>GitHub MCP</td><td>auth / rate limit</td><td>git CLI local si dispo, sinon patch fichiers</td><td>état exact, pas de faux dépôt</td></tr>
+      <tr><td>WebFetch bloqué</td><td>403 provider</td><td>navigateur box ou curl (public) ; Crawl4AI</td><td>source quand même ouverte</td></tr>
+      <tr><td>AIPS down</td><td>page vide</td><td>marquer « À vérifier (AIPS) » + HELP ; ne jamais inventer</td><td>question HELP formatée</td></tr>
+      <tr><td>MCP boucle d’erreur</td><td>retries</td><td>PyBreaker open → stop retries</td><td>une seule alerte claire</td></tr>
+    </tbody>
+  </table>
+  <p>Règle V7 §1 : ne jamais affirmer un dépôt non fait ; ne jamais contourner un filtre de sécurité.</p>
+</section>
+
+<!-- ========== E11 ========== -->
+<section class="step s5" id="e11">
+  <h2><span class="n">11</span> Critique 3 — Budget jetons propre au bracelet</h2>
+  <p>Le bracelet a son <strong>enveloppe</strong> séparée du budget rédaction, pour ne pas manger la monographie.</p>
+  <table>
+    <thead><tr><th>Poste bracelet</th><th>Plafond indicatif / lot</th><th>Compteur</th><th>Action si dépassement</th></tr></thead>
+    <tbody>
+      <tr><td>Suggestions + routage</td><td>≤ 2 % jetons lot</td><td>LiteLLM tag <span class="mono">bracelet.route</span></td><td>figer top-3 outils du catalogue</td></tr>
+      <tr><td>Compression / rerank</td><td>≤ 8 %</td><td><span class="mono">bracelet.compress</span></td><td>Chonkie seul, skip LLMLingua</td></tr>
+      <tr><td>Mémoire retrieve</td><td>≤ 3 %</td><td><span class="mono">bracelet.mem</span></td><td>Mem0 top-k=3 max</td></tr>
+      <tr><td>Cache miss HTTP</td><td>hors LLM (réseau)</td><td>Hishel hit-ratio</td><td>cible hit ≥ 60 % après 1er passage</td></tr>
+      <tr><td>Traces Phoenix</td><td>≤ 1 %</td><td>échantillon</td><td>échantillonner 1/10 appels</td></tr>
+      <tr><td><strong>Total bracelet</strong></td><td><strong>≤ 15 % du lot</strong></td><td>dashboard</td><td>mode survie : Script1+cache+AIPS only</td></tr>
+    </tbody>
+  </table>
+  <details>
+    <summary>Mode survie (anti-épuisement)</summary>
+    <div class="box">Si budget bracelet &gt; 15 % ou agent fatigué : (1) stop RouteLLM expérimental, (2) une source CH à la fois, (3) une monographie à la fois (V7 §11), (4) automates only avant nouvel appel LLM.</div>
+  </details>
+</section>
+
+<!-- ========== E12 ========== -->
+<section class="step s2" id="e12">
+  <h2><span class="n">12</span> Runbook solo — agent gère LOT_011 seul</h2>
+  <ol>
+    <li>Lire V7 entier + ARSENAL + bracelet_suggest « LOT_011 sommeil evidence ».</li>
+    <li>Créer <span class="mono">lot en cours de production/LOT_011/</span> + <span class="mono">evidence/</span>.</li>
+    <li>Collecter preuves CH→EU (MCP/Web + Crawl4AI) ; zéro rédaction.</li>
+    <li>Rédiger Appel A (14 points SSP + 10 DX) → double audit → score ≥90 %.</li>
+    <li>Parallèle : P1–P2 et P3–P4 (cadence 2-3-2-3) ; chaque fichier audité.</li>
+    <li>Automates gate → HTML 90–200 Ko + FIN_FICHIER.</li>
+    <li>Tant que B &lt; 11/11 : reste sur GitHub. Si A+B complets : Drive <strong>LOTS_Finaux avec statut</strong> (text/html sans conversion) + retirer de « lot en cours ».</li>
+    <li>Chat : une phrase verbale + liens (règle synthèse owner).</li>
+  </ol>
+  <div class="card">
+    <p><strong>Organisation fichiers LOT_011 (cible)</strong></p>
+    <p class="mono" style="white-space:pre;display:block">lot en cours de production/LOT_011/
+  evidence/S01_….md
+  LOT_011_Appel_A_V7_Plan_et_Liste.html
+  LOT_011_Appel_B_V7_Partie_1_DX.1_a_DX.2.html
+  LOT_011_Appel_B_V7_Partie_2_DX.3_a_DX.5.html
+  LOT_011_Appel_B_V7_Partie_3_DX.6_a_DX.7.html
+  LOT_011_Appel_B_V7_Partie_4_DX.8_a_DX.10.html
+  AUDIT_*.md</p>
+  </div>
+</section>
+
+<!-- mapping compact remaining V7 sections 0-14 exigence -->
+<section class="step s4" id="e13">
+  <h2>Carte V7 (exigences §0–§14) → pièce du harness</h2>
+  <table>
+    <thead><tr><th>§ V7</th><th>Exigence</th><th>Pièce</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>Posture clinicien / non-complaisance</td><td>Prompt système + audit</td></tr>
+      <tr><td>1</td><td>Honnêteté des actes</td><td>Fallback MCP + bilans exacts</td></tr>
+      <tr><td>2</td><td>Sortie HTML5 90–200 Ko</td><td>Automate taille + Script2 dépôt</td></tr>
+      <tr><td>3</td><td>Référentiel PROFILES 248</td><td>Entrée lot (E3)</td></tr>
+      <tr><td>4</td><td>Sources CH→EU, AIPS</td><td>Sites + bracelet crawl/cache</td></tr>
+      <tr><td>5</td><td>5 fichiers, 4 agents</td><td>Runbook + CI</td></tr>
+      <tr><td>6</td><td>14 points + score 6.3</td><td>Maximisation E8 + automates</td></tr>
+      <tr><td>7</td><td>Style verbal concis</td><td>Auditeur linguistique</td></tr>
+      <tr><td>8</td><td>Fenêtres &lt;details&gt;</td><td>Gabarit HTML</td></tr>
+      <tr><td>9</td><td>10 DX ordonnés</td><td>Appel A + cohérence</td></tr>
+      <tr><td>10</td><td>Gabarit technique</td><td>Automate HTML</td></tr>
+      <tr><td>11</td><td>Anti-troncature</td><td>Une mono à la fois</td></tr>
+      <tr><td>12</td><td>Double audit</td><td>Agents distincts + audit_diff</td></tr>
+      <tr><td>13</td><td>Drive hygiène</td><td>MCP Drive + Finaux si achevé</td></tr>
+      <tr><td>14</td><td>Interdits</td><td>Gates automates</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="step s6" id="glossaire">
+  <h2>Glossaire express (toujours répétable)</h2>
+  <ul class="tight">
+    <li><strong>Agent</strong> : bot qui rédige/audite.</li>
+    <li><strong>Harness</strong> : harnais d’outils autour de l’agent.</li>
+    <li><strong>Jeton</strong> : unité de coût du modèle.</li>
+    <li><strong>Script 1 / 2</strong> : programmes locaux déterministes (extrait vs assemblage/PR).</li>
+    <li><strong>MCP</strong> : serveurs d’outils connectés.</li>
+    <li><strong>Automate</strong> : script sans LLM.</li>
+    <li><strong>Bracelet</strong> : couche permanente d’optimisation.</li>
+    <li><strong>Contrat</strong> : ENTRÉE / SORTIE / échec / interdit écrits.</li>
+    <li><strong>SSP</strong> : situation de départ PROFILES.</li>
+    <li><strong>DX</strong> : diagnostic différentiel monographie.</li>
+    <li><strong>AIPS</strong> : information professionnelle suisse (swissmedicinfo.ch).</li>
+  </ul>
+</section>
+
+<section id="sources" class="foot">
+  <h2>Sources (lues 25.10.2026 Europe/Zurich)</h2>
+  <ol>
+    <li>[S1] PROMPT_ULTIME_PRODUCTION_LOTS_V7.md — Drive id <span class="mono">1t2zj4EWw3N7vmT1AQ9BB5pIfgA80J0-i</span> — V7 22.10.2026 — <a href="https://drive.google.com/file/d/1t2zj4EWw3N7vmT1AQ9BB5pIfgA80J0-i/view">lien</a></li>
+    <li>[S2] PROMPT_ULTIME_PRODUCTION_LOTS_V7.pdf — Drive id <span class="mono">1IVUuKsyMm19zXJJV_DAEdPINlvHFqIRn</span></li>
+    <li>[S3] BRACELET_OPTIMISATION.md — <span class="mono">/home/box/agent-data/bracelet/BRACELET_OPTIMISATION.md</span> + catalog.json + bracelet_suggest.py</li>
+    <li>[S4] ARSENAL.md — <span class="mono">/workspace/oe-arsenal/docs/ARSENAL.md</span> (et copies org-exam) — 20.10.2026</li>
+    <li>[S5] Statut LOT_011 — <span class="mono">/workspace/STATUT_LOTS_001_248.csv</span> + cumul BASE_LOTS — G11 à rédiger 0/5</li>
+    <li>[S6] Structure owner 25.10.2026 — GitHub <span class="mono">lot en cours de production/</span> ; Drive LOTS_Finaux = achevés seulement</li>
+    <li>[S7] Atkinson Hyperlegible — Google Fonts OFL — fichiers dans <span class="mono">/workspace/plan_harness_assets/</span></li>
+    <li>[S8] PROFILES 2023 SSP — smifk-cims.ch/profiles-2023/ssps (référentiel V7 §3)</li>
+  </ol>
+  <p>Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin. Ceci est un <strong>plan d’ingénierie</strong>, pas un cours médical G11.</p>
+  <p><a href="#sommaire">↑ Sommaire</a></p>
+</section>
+
+</div>
+<section class="step s1" id="checklist61"><h2>Annexe — Checklist questions V7 §6.1 appliquée à G11</h2>
+<p>Chaque question doit recevoir 2 / 1 / 0 / sans objet avant dépôt. Automate d’audit linguistique/médical s’en sert.</p>
+<details><summary>Point 1 Définition</summary><div class="box"><ul>
+<li>Définition précise société savante ? — <em>preuve / automate / fenêtre</em></li>
+<li>1–4 phrases + richesse fenêtres ? — <em>preuve / automate / fenêtre</em></li>
+<li>Insomnie/hypersomnie/parasomnie distinguées ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 2 Épidémiologie</summary><div class="box"><ul>
+<li>Distribution population CH ? — <em>preuve / automate / fenêtre</em></li>
+<li>Histoire naturelle individu ? — <em>preuve / automate / fenêtre</em></li>
+<li>Enjeux coût/gravité ? — <em>preuve / automate / fenêtre</em></li>
+<li>Chiffres utiles sourcés seulement ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 3 Physio</summary><div class="box"><ul>
+<li>Amorce→maintien compréhensible ? — <em>preuve / automate / fenêtre</em></li>
+<li>Mécanismes→complications ? — <em>preuve / automate / fenêtre</em></li>
+<li>Cibles thérapeutiques nommées ? — <em>preuve / automate / fenêtre</em></li>
+<li>Tableau lésion→expl→ttt ? — <em>preuve / automate / fenêtre</em></li>
+<li>Concis ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 4 Démarche</summary><div class="box"><ul>
+<li>Graves avant fréquents ? — <em>preuve / automate / fenêtre</em></li>
+<li>Chaque DD dangereux a signe qui tranche + piège ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 5 Anamnèse</summary><div class="box"><ul>
+<li>Chaque question a raison physio ? — <em>preuve / automate / fenêtre</em></li>
+<li>Drapeaux rouges actionnables ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 6 Examen</summary><div class="box"><ul>
+<li>Normal avant pathologique ? — <em>preuve / automate / fenêtre</em></li>
+<li>Technique + valeur diag par signe ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 7 Syndromique</summary><div class="box"><ul>
+<li>Syndromes énumérés ? — <em>preuve / automate / fenêtre</em></li>
+<li>SF vs SP éclatés ? — <em>preuve / automate / fenêtre</em></li>
+<li>Chaque signe défini ? — <em>preuve / automate / fenêtre</em></li>
+<li>Comment rechercher ? — <em>preuve / automate / fenêtre</em></li>
+<li>Relié au mécanisme ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 8 Diag positif</summary><div class="box"><ul>
+<li>Critères société+année clairs ? — <em>preuve / automate / fenêtre</em></li>
+<li>Ce qui ne suffit pas dit ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 9 Explorations</summary><div class="box"><ul>
+<li>Gold standard oui/non ? — <em>preuve / automate / fenêtre</em></li>
+<li>1re/2e intention + critère passage ? — <em>preuve / automate / fenêtre</em></li>
+<li>Prescription comme la société ? — <em>preuve / automate / fenêtre</em></li>
+<li>Tableau interprétation ? — <em>preuve / automate / fenêtre</em></li>
+<li>Cas de figure résultats ? — <em>preuve / automate / fenêtre</em></li>
+<li>Alternatives grossesse/enfant/DFGe/allergie/pacemaker ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 10 Arbre</summary><div class="box"><ul>
+<li>Chaque branche signe→décision ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 11 PEC</summary><div class="box"><ul>
+<li>But chiffré ? — <em>preuve / automate / fenêtre</em></li>
+<li>Ordre et pourquoi ? — <em>preuve / automate / fenêtre</em></li>
+<li>Urgences chronologiques ? — <em>preuve / automate / fenêtre</em></li>
+<li>Mesures générales ? — <em>preuve / automate / fenêtre</em></li>
+<li>Pharma complète AIPS ? — <em>preuve / automate / fenêtre</em></li>
+<li>Non médicamenteux ? — <em>preuve / automate / fenêtre</em></li>
+<li>Social/pro ? — <em>preuve / automate / fenêtre</em></li>
+<li>Situations spéciales ? — <em>preuve / automate / fenêtre</em></li>
+<li>Surveillance ? — <em>preuve / automate / fenêtre</em></li>
+<li>Critères sortie ? — <em>preuve / automate / fenêtre</em></li>
+<li>Pronostic 2026 ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 12 Prévention</summary><div class="box"><ul>
+<li>3 niveaux avec reco CH ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 13 Points clés</summary><div class="box"><ul>
+<li>3–6 phrases suffisent ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<details><summary>Point 14 Pièges</summary><div class="box"><ul>
+<li>Pièges EF + bonne réponse ? — <em>preuve / automate / fenêtre</em></li>
+<li><strong>Application G11 :</strong> vérifier que la réponse reste verbale, sourcée CH→EU, et que le bracelet a compressé les guidelines avant lecture agent.</li>
+<li><strong>Contrat point :</strong> ENTRÉE = extrait evidence [Sn] ; SORTIE = bloc HTML du point + fenêtres ; ÉCHEC = question §6.1 à 0.</li>
+</ul></div></details>
+<h3>Matrice I/O complète des briques</h3><table><thead><tr><th>Brique</th><th>ENTRÉE</th><th>SORTIE</th><th>SLA</th><th>Observabilité</th></tr></thead><tbody>
+<tr><td>Crawl4AI</td><td>URL + sélecteur</td><td>Markdown propre</td><td><30s</td><td>Phoenix span crawl</td></tr>
+<tr><td>Firecrawl</td><td>URL + fields</td><td>JSON/MD champs</td><td><45s</td><td>cache Hishel</td></tr>
+<tr><td>Chonkie</td><td>texte long</td><td>chunks</td><td>local CPU</td><td>n_chunks</td></tr>
+<tr><td>FlagEmbedding</td><td>chunks + query</td><td>top-k rerank</td><td>local</td><td>k, scores</td></tr>
+<tr><td>LLMLingua</td><td>prompt long</td><td>prompt compressé</td><td>budget compress</td><td>ratio tokens</td></tr>
+<tr><td>RTK</td><td>stdout commande</td><td>stdout compressé</td><td>local</td><td>bytes saved</td></tr>
+<tr><td>Mem0</td><td>fait + user/lot</td><td>retrieve faits</td><td><1s</td><td>hit/miss</td></tr>
+<tr><td>Graphiti</td><td>événement</td><td>graphe MAJ</td><td>async</td><td>nodes added</td></tr>
+<tr><td>GPTCache</td><td>requête</td><td>réponse cache</td><td><50ms</td><td>similarity</td></tr>
+<tr><td>Portkey</td><td>requête gateway</td><td>réponse</td><td>SLA API</td><td>cache header</td></tr>
+<tr><td>Prefect</td><td>task + inputs</td><td>result cache</td><td>workflow</td><td>skip count</td></tr>
+<tr><td>requests-cache</td><td>HTTP GET</td><td>body + expiry</td><td>local</td><td>expiry</td></tr>
+<tr><td>Hishel</td><td>HTTP</td><td>revalidé</td><td>local</td><td>304 ratio</td></tr>
+<tr><td>APScheduler</td><td>cron</td><td>job id</td><td>process</td><td>last_run</td></tr>
+<tr><td>Celery</td><td>queue payload</td><td>task id</td><td>broker</td><td>retries</td></tr>
+<tr><td>PyBreaker</td><td>appel externe</td><td>ok ou reject</td><td>fail-fast</td><td>state open/closed</td></tr>
+<tr><td>LiteLLM</td><td>model+messages</td><td>completion + cost</td><td>budget</td><td>$/tag</td></tr>
+<tr><td>RouteLLM</td><td>prompt</td><td>model id</td><td>local router</td><td>%cheap</td></tr>
+<tr><td>Semantic Router</td><td>utterance</td><td>route name</td><td>local emb</td><td>confidence</td></tr>
+<tr><td>Phoenix</td><td>traces</td><td>UI/metrics</td><td>side</td><td>export</td></tr>
+<tr><td>extrait.py</td><td>ssp/mono id</td><td>extrait</td><td>local</td><td>lines</td></tr>
+<tr><td>lot.py</td><td>payload</td><td>artefact</td><td>local</td><td>schema</td></tr>
+<tr><td>pr.sh</td><td>paths</td><td>PR URL</td><td>gh</td><td>number</td></tr>
+<tr><td>ci_attente.sh</td><td>PR</td><td>pass/fail 1 ligne</td><td>CI</td><td>elapsed</td></tr>
+<tr><td>audit_diff.py</td><td>PR</td><td>diff borné</td><td>local</td><td>n_hunks</td></tr>
+<tr><td>bracelet_suggest.py</td><td>tâche</td><td>top outils</td><td>local</td><td>scores</td></tr>
+</tbody></table>
+<h3>Récit guidé — un chapitre DX de LOT_011 dans le harness</h3>
+<ol><li>L’agent ouvre le brief LOT_011 et confirme : plan monographique applicable.</li><li>Il lance bracelet_suggest : Crawl4AI + GPTCache + LiteLLM remontent.</li><li>Il crée evidence/ et note l’horloge Europe/Zurich.</li><li>MCP WebFetch vers swissmedicinfo échoue 403 provider → fallback curl box + Crawl4AI.</li><li>Il extrait la posologie d’un hypnotique autorisé CH ; numéro Swissmedic lu à 5 chiffres sur la page, jamais depuis l’URL.</li><li>Mem0 stocke : « LOT_011 / molécule X / AIPS lu le 2026-10-25 ».</li><li>Il rédige le point 11 du DX dans un HTML Partie ; phrases verbales ; fenêtres détails.</li><li>Automate poseologie signale OK ; automate 14-points signale point 7 incomplet → réécriture.</li><li>Auditeur médical distinct vérifie AIPS ; auditeur linguistique vérifie style.</li><li>Score 6.3 = 92 % → ALLOW_DEPOSIT ; fichier reste sur GitHub car lot non achevé.</li><li>Chat owner : une phrase + lien fichier.</li></ol>
+<h3>Responsabilités par fichier V7 pour LOT_011</h3>
+<table><thead><tr><th>Fichier</th><th>Contenu</th><th>Règle</th></tr></thead><tbody>
+<tr><td>Appel A</td><td>Monographie SSP G11 14 points + liste DX1–10 + tableau comparatif + algo</td><td>Fixe la loi du lot ; aucune Partie avant double audit A</td></tr>
+<tr><td>B Partie 1</td><td>DX.1 et DX.2 monographies complètes</td><td>Rédacteur 1</td></tr>
+<tr><td>B Partie 2</td><td>DX.3 à DX.5</td><td>Rédacteur 1</td></tr>
+<tr><td>B Partie 3</td><td>DX.6 et DX.7</td><td>Rédacteur 2 parallèle</td></tr>
+<tr><td>B Partie 4</td><td>DX.8 à DX.10</td><td>Rédacteur 2</td></tr>
+</tbody></table>
+<h3>Anti-patterns (ce que le harness empêche)</h3><table><thead><tr><th>Anti-pattern</th><th>Sans harness</th><th>Avec harness</th></tr></thead><tbody>
+<tr><td>Lire app_v2 entier</td><td>440 Ko dans le contexte</td><td>extrait.py + budget.py</td></tr>
+<tr><td>Dose de mémoire</td><td>erreur patient</td><td>AIPS only + automate</td></tr>
+<tr><td>MCP en boucle</td><td>jetons brûlés</td><td>PyBreaker + message unique</td></tr>
+<tr><td>Dépôt non audité</td><td>dette clinique</td><td>gate score ≥90 %</td></tr>
+<tr><td>Drive = brouillon non fini</td><td>Finaux pollués</td><td>GitHub en cours only</td></tr>
+<tr><td>Phrase nominale</td><td>style V7 cassé</td><td>auditeur linguistique</td></tr>
+<tr><td>Guideline US seule</td><td>non conforme V7</td><td>filtre sources CH→EU</td></tr>
+<tr><td>Relire PR entière</td><td>épuisement auditeur</td><td>audit_diff --max</td></tr>
+</tbody></table>
+<h3>Installation du harness sur le matériel déjà là</h3><ol>
+<li>Vérifier <span class='mono'>/home/box/agent-data/bracelet/</span> (MD + suggest.py + catalog.json).</li>
+<li>Vérifier <span class='mono'>docs/ARSENAL.md</span> et <span class='mono'>tools/arsenal/</span> dans le clone organigramme.</li>
+<li>Exporter variable <span class='mono'>HARNESS_BRACELET_BUDGET_PCT=15</span>.</li>
+<li>Avant chaque grosse tâche : <span class='mono'>bracelet_suggest.py</span> → noter top 3 dans le journal du lot.</li>
+<li>Brancher PyBreaker autour des appels MCP Web/Drive.</li>
+<li>Activer requests-cache/Hishel pour AIPS et guidelines.</li>
+<li>Pipeline CI : test_arsenal + lot.py auto + contrôles taille HTML.</li>
+<li>Documenter les contrats I/O dans <span class='mono'>docs/HARNESS_CONTRACTS.md</span> (ce plan en est la source).</li>
+</ol>
+<h3>Exemples d’entités DX (illustratif — à valider evidence)</h3>
+<p class="small">Liste non définitive : l’Appel A sourcé fixera les 10 DX. Le harness impose le même plan 14 points à chacune.</p><ul>
+<li><details><summary>Insomnie chronique — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Syndrome d’apnées obstructives du sommeil (SAOS) — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Narcolepsie — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Syndrome des jambes sans repos — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Parasomnie NREM (terreurs/éveils confusionnels) — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Parasomnie REM (trouble comportemental) — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Hypersomnie idiopathique — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Trouble du rythme circadien — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Insomnie secondaire médicamenteuse/toxique — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+<li><details><summary>Hypersomnolence liée à privation/hygiène — maximisation V7</summary><div class="box">ENTRÉE evidence spécifique → 14 points → automates AIPS/signes → SORTIE HTML mono dans la Partie adéquate. Bracelet : compresser reco sommeil avant rédaction point 9–11.</div></details></li>
+</ul></section>
+<section class="step s2" id="faq"><h2>FAQ harness (cliquable)</h2>
+<details><summary>Le harness remplace-t-il l’agent ?</summary><div class="box"><p><strong>Réponse courte :</strong> Non. Il contraint et outille l’agent.</p><p>Le harness ne diagnostique pas et n’écrit pas la physiopathologie à la place du clinicien-agent. Il garantit que chaque phrase clinique reste attachée à une source ouverte, que les fichiers respectent 90–200 Ko, et que les outils coûteux ne tournent pas en boucle. L’agent reste responsable du fond ; le harness est responsable du circuit.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Puis-je sauter le bracelet ?</summary><div class="box"><p><strong>Réponse courte :</strong> Non sur fetch volumineux ; oui sur rename trivial.</p><p>Sur une tâche triviale (renommer un dossier, lire un CSV de 20 lignes), oui. Dès qu’il y a crawl, PDF long, guideline, ou répétition, non : lancez bracelet_suggest et appliquez au moins un outil de filtrage ou de cache. C’est la règle « permanent » du MD bracelet.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Où vivent les lots non finis ?</summary><div class="box"><p><strong>Réponse courte :</strong> GitHub « lot en cours de production/ ».</p><p>Décision owner 25.10.2026 : racine GitHub visible « lot en cours de production/LOT_xxx/ ». Pas de lots-acheves sur GitHub. Cela évite les chemins profonds flash/vague1/…</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Où vivent les lots finis ?</summary><div class="box"><p><strong>Réponse courte :</strong> Drive LOTS_Finaux avec statut uniquement.</p><p>Uniquement Drive « LOTS_Finaux avec statut ». Audité ou non, dès que A+B sont complets (11+11 chapitres), le lot quitte GitHub en-cours pour Finaux.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Que faire si V7 et ARSENAL divergent ?</summary><div class="box"><p><strong>Réponse courte :</strong> V7 prime sur le contenu lot ; ARSENAL prime sur l’économie de jetons outils.</p><p>Pour le contenu médical et le format HTML, V7 gagne. Pour la manière d’ouvrir les fichiers du repo app et d’économiser les jetons d’ingénierie, ARSENAL gagne. Le bracelet s’applique aux deux.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Comment savoir qu’un contrat est respecté ?</summary><div class="box"><p><strong>Réponse courte :</strong> Sortie machine-lisible + code retour + log une ligne.</p><p>Chaque script doit pouvoir être appelé en CI. Si la SORTIE n’est pas parsable ou si le code retour est non nul, le gate dépôt reste fermé. Les contrats de ce plan sont la spécification.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Qu’est-ce qu’un jeton ?</summary><div class="box"><p><strong>Réponse courte :</strong> Unité de coût d’entrée/sortie du modèle.</p><p>Quand l’agent lit ou écrit du texte, le fournisseur de modèle compte des jetons. Moins on recolle de bruit (menus web, logs, fichiers entiers), plus on garde du budget pour la monographie utile.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<details><summary>Pourquoi Atkinson Hyperlegible ?</summary><div class="box"><p><strong>Réponse courte :</strong> Police haute lisibilité (Braille Institute / OFL), contraste et dyslexie-friendly.</p><p>Demandée par l’owner pour la clarté visuelle du plan. Les TTF OFL sont dans plan_harness_assets/ et chargées en @font-face.</p><p><strong>ENTRÉE de la question :</strong> doute opérateur. <strong>SORTIE :</strong> règle opératoire une phrase + lien interne.</p></div></details>
+<h3>Micro-contrats des flèches du schéma</h3><ul>
+<li><details><summary>Flèche 1→2</summary><div class="box">ENTRÉE : Brief lot → liste d’URL à ouvrir. SORTIE : checklist evidence. Échec : stop et message owner une phrase.</div></details></li>
+<li><details><summary>Flèche 2→3</summary><div class="box">ENTRÉE : URL validées → appels MCP/fetch. SORTIE : documents bruts. Échec : stop et message owner une phrase.</div></details></li>
+<li><details><summary>Flèche 3→4</summary><div class="box">ENTRÉE : Documents → automates de conformité. SORTIE : rapport pass/fail. Échec : stop et message owner une phrase.</div></details></li>
+<li><details><summary>Flèche 5∥1..6</summary><div class="box">ENTRÉE : Bracelet observe chaque flèche. SORTIE : suggestion outil + budget. Échec : stop et message owner une phrase.</div></details></li>
+<li><details><summary>Flèche 4→6</summary><div class="box">ENTRÉE : Pass automates → rédaction 14 points. SORTIE : HTML mono. Échec : stop et message owner une phrase.</div></details></li>
+<li><details><summary>Flèche 6→dépôt</summary><div class="box">ENTRÉE : HTML scorés → GitHub en cours. SORTIE : chemins fichiers. Échec : stop et message owner une phrase.</div></details></li>
+</ul></section>
+<!-- FIN_FICHIER PLAN_HARNESS_LOT_011 -->
+
+
+<section class="step s5" id="top5-ia-video" style="margin-top:28px">
+  <h2>Top 5 IA vidéo moins chères, haute qualité (octobre 2026)</h2>
+  <p>Sources vérifiées le 25.10.2026 (Europe/Zurich) : pages tarifaires / docs agrégées (llms.blog 19.10.2026, Kling membership, Google AI plans, Pika, Hailuo, xAI docs, X Subscription). Prix en USD hors taxes ; confirmer sur le site avant paiement. <strong>Sora</strong> : produit arrêté (avril 2026). Luma Plus démarre à 30&nbsp;$/mois — hors top 5 « moins cher ».</p>
+  <details open><summary>Recommandation owner (usage occasionnel, budget serré)</summary>
+  <div class="box">
+    <p><strong>Choix n°1 :</strong> <em>Google AI Plus</em> à <strong>4,99&nbsp;$/mois</strong> — entrée la moins chère vers Veo / Omni Flash (qualité très haute pour le prix). Idéal pour tester le prompt harness en quelques clips.</p>
+    <p><strong>Choix n°2 (qualité motion / 1080p commercial) :</strong> <em>Kling Standard</em> — <strong>6,99&nbsp;$ le 1<sup>er</sup> mois</strong>, puis <strong>8,80&nbsp;$/mois</strong> (660 crédits). Prendre le 1<sup>er</sup> mois puis annuler si un seul film.</p>
+    <p><strong>Sans abonnement (payer à la seconde) :</strong> <em>Grok Imagine Video 1.5 Lite</em> (API xAI) — <strong>0,03&nbsp;$/s en 720p</strong> (~4,50&nbsp;$ pour 150&nbsp;s). Ou Imagine via <em>X Subscription Premium</em> à 30&nbsp;$/mois si tu veux aussi Grok/Cursor/X.</p>
+  </div></details>
+  <table>
+    <thead><tr><th>#</th><th>Outil</th><th>Abonnement le plus bas</th><th>Inclus (durée / résolution / volume)</th><th>Score qualité</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Google AI Plus</strong> (Veo 3.1 / Gemini Omni Flash via Flow)</td>
+        <td><strong>4,99&nbsp;$/mois</strong> (US)</td>
+        <td>200 crédits Flow / mois + 50 crédits/jour ; Omni Flash ~720p (ex. 8&nbsp;s ≈ 12 crédits) ; Veo 3.1 Fast ≈ 20 crédits / clip 8&nbsp;s ; Veo Quality ≈ 100 crédits / 8&nbsp;s — soit ~10 clips Fast ou 2 Quality avec les crédits mensuels seuls</td>
+        <td><strong>9/10</strong> (modèle Veo top-tier ; volume limité)</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Kling AI Standard</strong> (Kling 3.0 / 4.0)</td>
+        <td><strong>6,99&nbsp;$</strong> (1<sup>er</sup> mois) puis <strong>8,80&nbsp;$/mois</strong> ; annuel ≈ 6,60&nbsp;$/mois</td>
+        <td>660 crédits / mois ; 1080p/4K listés ; sans filigrane ; usage commercial listé sur les plans payants — ordre de grandeur ~40–50&nbsp;s utiles selon modèle/audio</td>
+        <td><strong>9/10</strong> (motion / personnages souvent excellents)</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Pika Starter</strong></td>
+        <td><strong>10&nbsp;$/mois</strong> (8&nbsp;$/mois en annuel)</td>
+        <td>900 crédits / mois ; sans filigrane ; <em>pas</em> de licence commerciale (Creator à 35&nbsp;$) ; ~7 clips Seedance 2.5 5&nbsp;s 720p selon estimation Pika</td>
+        <td><strong>7,5/10</strong> (bon créatif social ; commercial = plan supérieur)</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Hailuo / MiniMax Standard</strong></td>
+        <td><strong>~10,50&nbsp;$/mois</strong> (≈ 8,40&nbsp;$/mois annuel ; listé parfois « from 9,99&nbsp;$ »)</td>
+        <td>~1&nbsp;000 crédits / mois ; ~140&nbsp;s MiniMax H3 768p ou ~80&nbsp;s en 2K ; accès aussi à d’autres modèles selon page</td>
+        <td><strong>8/10</strong> (bon rapport volume / prix ; 2K possible)</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Grok Imagine</strong> (xAI) — abonnement <em>ou</em> API</td>
+        <td><strong>X Subscription Premium 30&nbsp;$/mois</strong> (vidéo Imagine dans le pool) ; sinon API sans abo : Lite <strong>0,02–0,03&nbsp;$/s</strong> (480p/720p), 1.5 natif 1080p <strong>0,25&nbsp;$/s</strong></td>
+        <td>Clips 1–15&nbsp;s ; 480p/720p/1080p ; audio + lip-sync ; Premium = pool d’usage partagé Grok/Cursor (renouvellement hebdo). Plus (8&nbsp;$) = images Imagine, pas la vidéo</td>
+        <td><strong>8,5/10</strong> (très bon pour schéma/voix ; Lite = meilleur $/s API)</td>
+      </tr>
+    </tbody>
+  </table>
+  <details><summary>Hors top 5 mais utiles (référence)</summary>
+  <div class="box">
+    <ul>
+      <li><strong>Runway Standard</strong> — 15&nbsp;$/mois, 625 crédits ≈ 52&nbsp;s Gen-4.5 — score qualité <strong>9,5/10</strong> mais cher à la seconde (~0,29&nbsp;$/s).</li>
+      <li><strong>Google AI Pro</strong> — 19,99&nbsp;$/mois, 1&nbsp;000 crédits Flow — meilleur volume Veo/Omni pour un usage hebdo (score valeur <strong>9/10</strong>).</li>
+      <li><strong>Luma Plus</strong> — 30&nbsp;$/mois, 10&nbsp;000 crédits — commercial explicite ; trop cher pour « moins cher ».</li>
+      <li><strong>Sora</strong> — discontinué (2026) : ne pas choisir.</li>
+    </ul>
+  </div></details>
+  <p class="small"><a href="#sommaire">↑ Sommaire</a> · <a href="#prompt-video">↓ Prompt vidéo</a> · ancre <span class="mono">#top5-ia-video</span></p>
+</section>
+
+<section class="step s6" id="prompt-video" style="margin-top:28px">
+  <h2>Prompt pour création d’une vidéo fonctionnelle du harnais</h2>
+  <p>Bloc prêt à coller dans une IA vidéo spécialisée. Il décrit de façon métacognitive un agent qui travaille <strong>avec</strong> son harness autour de lui, sur le parcours concret <strong>LOT_011 / G11 — Troubles du sommeil</strong>.</p>
+  <p class="small"><a href="#sommaire">↑ Sommaire</a> · ancre <span class="mono">#prompt-video</span></p>
+  <label for="prompt-video-box" class="k">Prompt (sélectionner tout → copier) :</label>
+  <textarea id="prompt-video-box" readonly rows="28" style="width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.4;padding:12px;border:3px solid #000;border-radius:10px;background:#0b1220;color:#f7f4ea;margin-top:8px">Crée une vidéo fonctionnelle, claire et pédagogique (2 à 4 minutes), style schéma animé haute lisibilité (contraste élevé, police type Atkinson Hyperlegible, flèches numérotées, zéro jargon non expliqué).
+
+SUJET
+Montre un AGENT (bot rédacteur médical) qui travaille AVEC son HARNESS (harnais logiciel autour de lui : ce n’est pas l’agent lui-même, c’est la salle d’outils qui l’empêche de s’épuiser et d’inventer).
+
+ENVIRONNEMENT VISUEL
+- Au centre : l’agent (silhouette simple + bulle « je rédige »).
+- Autour de lui, quatre pièces du harness, toujours visibles comme une couronne :
+  1) Script 1 (outil déterministe d’extraction / budget — il découpe, il ne « réfléchit » pas).
+  2) Script 2 (outil déterministe d’assemblage / PR / CI — il emballe et dépose).
+  3) MCP (Model Context Protocol = serveurs d’outils connectés : Drive, GitHub, Web).
+  4) Automates (scripts déterministes sans LLM : contrôles qualité mécaniques).
+- Un BRACELET lumineux permanent autour du poignet de l’agent (couche d’optimisation jetons/outils : Crawl4AI, cache, Mem0, RouteLLM, PyBreaker, etc.) qui s’allume AVANT chaque geste coûteux.
+
+CAS TEST À SUIVRE (ne pas changer)
+LOT_011 = G11 — Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies), SSP n°11 PROFILES examen fédéral suisse 2023, statut « à rédiger / EN ATTENTE ». Le plan monographique à 14 points s’applique entité par entité (SSP + chaque DX).
+
+PARCOURS NUMÉROTÉ (une scène = une étape ; chaque nœud s’ouvre brièvement avec ENTRÉE → SORTIE)
+E1 ENTRÉE — Le chapitre LOT_011 entre : code G11, dossier GitHub « lot en cours de production/LOT_011/ », prompt absolu PROMPT_ULTIME V7. ENTRÉE : brief lot. SORTIE : confirmation « plan monographique applicable ».
+E2 SITES / SOURCES — Suisse d’abord (AIPS swissmedicinfo.ch, OFSP/OFS, sociétés suisses, Tox Info, Fedlex), Europe ensuite ; jamais une reco US seule. ENTRÉE : URL. SORTIE : preuve datée [Sn] dans evidence/.
+E3 MCP MOBILISÉS — Drive (lire V7 / déposer si achevé), GitHub (branche lot), WebFetch/navigateur (ouvrir AIPS). Si un MCP tombe : porte de secours (fichier local, curl, Crawl4AI) + message honnête. ENTRÉE : appel typé. SORTIE : document ou erreur explicite.
+E4 AUTOMATES — extrait/budget, contrôle 14 points, taille HTML 90–200 Ko, doses AIPS, score ≥ 90 %. ENTRÉE : HTML candidat. SORTIE : ALLOW_DEPOSIT yes/no.
+E5 BRACELET — Avant crawl/volume/répétition : suggestion d’outil (filtrage, cache, mémoire, budget ≤ 15 % des jetons du lot). ENTRÉE : phrase de tâche. SORTIE : top outils + respect du budget.
+E6 MAXIMUM DU PLAN MONOGRAPHIQUE V7 — L’agent rédige les 14 points (définition → … → pièges d’examen) pour le SSP puis pour chaque DX sommeil. C’est le moment où la qualité clinique est maximale : le harness ne remplace pas le plan, il force sa complétude. ENTRÉE : preuves. SORTIE : fichiers HTML Appel A + Parties B.
+
+MÉTACOGNITION À NARRER (voix off calme, phrases courtes)
+- Sans harness, l’agent relit trop, invente des doses, brûle des jetons, s’épuise.
+- Avec harness, chaque machine a un CONTRAT (ENTRÉE / SORTIE / ÉCHEC / INTERDIT).
+- L’agent décide du fond médical ; le harness garantit le circuit, la preuve, et l’économie.
+- Tant que le lot n’est pas achevé (A+B), tout reste sur GitHub « lot en cours » ; Drive LOTS_Finaux ne reçoit que les lots terminés.
+
+CONTRAINTES DE FORME VIDÉO
+- Multicolore sobre, contraste élevé, étapes 1→6 avec flèches.
+- Chaque terme technique est dit une fois avec sa parenthèse explicative.
+- Pas de sang, pas de patients réels, pas de marques UI copyrightées inutiles.
+- Fin : écran « Agent + harness = un lot géré seul, sans épuisement » + rappel LOT_011/G11.
+
+Livrable attendu : vidéo mp4 16:9, sous-titres FR optionnels, rythme lent assez pour lire les contrats ENTRÉE/SORTIE à l’écran.</textarea>
+  <pre class="small" style="white-space:pre-wrap;margin-top:10px;display:none">fallback copie</pre>
+</section>
+
+</body>
+</html>
