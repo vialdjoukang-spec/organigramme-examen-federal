@@ -1,0 +1,129 @@
+# Suivi — Équipe 1 — LOT_218 à LOT_110
+
+Équipe 1 : Agents 1, 3, 5, 7 ; plage LOT_218 → LOT_110, ordre décroissant ; créé le 24.10.2026.
+
+Ce fichier appartient **exclusivement à l'Équipe 1** (Agents 1, 3, 5 et 7). L'Équipe 2 n'y écrit jamais ; l'Équipe 1 n'écrit jamais dans le fichier de l'Équipe 2.
+
+## Règles obligatoires
+
+1. Après **chaque** LOT réellement terminé selon le V7, vous remplacez ☐ par ☑ dans la colonne « Terminé ». Vous ne cochez jamais un LOT inachevé ; une étape non vérifiée est notée « NON VÉRIFIÉ » et la case reste ☐.
+2. Vous inscrivez la date et l'heure de fin en heure de Zurich, au format `AAAA-MM-JJ HH:MM`.
+3. Vous notez brièvement et précisément ce qui a été fait, par exemple « LOT_200 fait ». Vous n'ajoutez pas de détail superflu.
+4. Vous indiquez où chercher : branche, PR, issue ou dossier, avec le lien exact.
+5. Vous écrivez uniquement dans ce fichier et uniquement sur vos lignes ; vous ne supprimez aucune ligne.
+6. À la fin de la série, vous ouvrez une issue intitulée exactement `[FIN DE SÉRIE] Équipe 1 — LOT_218–110`, avec l'étiquette `fin-de-serie`. Vous n'utilisez **jamais** l'étiquette `audit-ok`, qui déclenche la fusion automatique vers `main`. Vous inscrivez ensuite « Oui + lien de l'issue » dans la colonne « Signal GitHub ».
+7. Le chat sert uniquement aux urgences ; il ne remplace ni la coche ni le signal GitHub.
+
+## Tableau de suivi
+
+| LOT | Terminé | Date/heure (Europe/Zurich) | Ce qui a été fait | Où chercher | Signal GitHub |
+|---|---|---|---|---|---|
+| LOT_218 | ☑ | 2026-10-24 12:22 | LOT_218 resynchronisé en V7 | lot/LOT_218 2aa12352880ee75bc8ec37404411816e1f193fcf https://drive.google.com/drive/folders/1kHPHThhhV_qDbxiBftCOuwQcfPp3mSxo | Non |
+| LOT_217 | ☑ | 2026-10-24 13:21 | LOT_217 resynchronisé en V7 | lot/LOT_217 947becec710b01f2e403364cb3051e6f3abbe6c0 https://drive.google.com/drive/folders/1bEeJLCZmQEHyqiEnSQvT-z62jmkio_Mi | Non |
+| LOT_216 | ☑ | 2026-10-24 15:09 | LOT_216 resynchronisé en V7 | lot/LOT_216 7dec07cb86e75582c3fec72011165d6ea1a266f0 | Non |
+| LOT_215 | ☑ | 2026-10-24 16:05 | LOT_215 resynchronisé en V7 (5 fichiers, sha256 vérifié) | lot/LOT_215 7254e40ee357027cc5d549f6ce65d4959f237099 | Non |
+| LOT_214 | ☑ | 2026-10-24 17:04 | Resynchronisé depuis Drive le 2026-10-24 ~17 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_214 | lot/LOT_214 117b940c1db1dddf4104db109defab7b380f8a26 | Non |
+| LOT_213 | ☑ | 2026-10-24 18:13 | Resynchronisé depuis Drive le 2026-10-24 ~18 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_213 | lot/LOT_213 fbe84e4e5097fb57ef26f5a947b568e42c108e53 | Non |
+| LOT_212 | ☑ | 2026-10-24 22:12 | Resynchronisé depuis Drive le 2026-10-24 ~22 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_212 | lot/LOT_212 9925548ffa51e071488ab952db6dd952a4ba9249 | Non |
+| LOT_211 | ☑ | 2026-10-24 22:12 | Resynchronisé depuis Drive le 2026-10-24 ~22 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_211 | lot/LOT_211 2d8087dd1a9cc5aed13a49022fbd485cb96ed6da | Non |
+| LOT_210 | ☐ |  |  |  | Non |
+| LOT_209 | ☐ |  |  |  | Non |
+| LOT_208 | ☐ |  |  |  | Non |
+| LOT_207 | ☐ |  |  |  | Non |
+| LOT_206 | ☐ |  |  |  | Non |
+| LOT_205 | ☐ |  |  |  | Non |
+| LOT_204 | ☐ |  |  |  | Non |
+| LOT_203 | ☐ |  |  |  | Non |
+| LOT_202 | ☐ |  |  |  | Non |
+| LOT_201 | ☐ |  |  |  | Non |
+| LOT_200 | ☐ |  |  |  | Non |
+| LOT_199 | ☐ |  |  |  | Non |
+| LOT_198 | ☐ |  |  |  | Non |
+| LOT_197 | ☐ |  |  |  | Non |
+| LOT_196 | ☐ |  |  |  | Non |
+| LOT_195 | ☐ |  |  |  | Non |
+| LOT_194 | ☐ |  |  |  | Non |
+| LOT_193 | ☐ |  |  |  | Non |
+| LOT_192 | ☐ |  |  |  | Non |
+| LOT_191 | ☐ |  |  |  | Non |
+| LOT_190 | ☐ |  |  |  | Non |
+| LOT_189 | ☐ |  |  |  | Non |
+| LOT_188 | ☐ |  |  |  | Non |
+| LOT_187 | ☐ |  |  |  | Non |
+| LOT_186 | ☐ |  |  |  | Non |
+| LOT_185 | ☐ |  |  |  | Non |
+| LOT_184 | ☐ |  |  |  | Non |
+| LOT_183 | ☐ |  |  |  | Non |
+| LOT_182 | ☐ |  |  |  | Non |
+| LOT_181 | ☐ |  |  |  | Non |
+| LOT_180 | ☐ |  |  |  | Non |
+| LOT_179 | ☐ |  |  |  | Non |
+| LOT_178 | ☐ |  |  |  | Non |
+| LOT_177 | ☐ |  |  |  | Non |
+| LOT_176 | ☐ |  |  |  | Non |
+| LOT_175 | ☐ |  |  |  | Non |
+| LOT_174 | ☐ |  |  |  | Non |
+| LOT_173 | ☐ |  |  |  | Non |
+| LOT_172 | ☐ |  |  |  | Non |
+| LOT_171 | ☐ |  |  |  | Non |
+| LOT_170 | ☐ |  |  |  | Non |
+| LOT_169 | ☐ |  |  |  | Non |
+| LOT_168 | ☐ |  |  |  | Non |
+| LOT_167 | ☐ |  |  |  | Non |
+| LOT_166 | ☐ |  |  |  | Non |
+| LOT_165 | ☐ |  |  |  | Non |
+| LOT_164 | ☐ |  |  |  | Non |
+| LOT_163 | ☐ |  |  |  | Non |
+| LOT_162 | ☐ |  |  |  | Non |
+| LOT_161 | ☐ |  |  |  | Non |
+| LOT_160 | ☐ |  |  |  | Non |
+| LOT_159 | ☐ |  |  |  | Non |
+| LOT_158 | ☐ |  |  |  | Non |
+| LOT_157 | ☐ |  |  |  | Non |
+| LOT_156 | ☐ |  |  |  | Non |
+| LOT_155 | ☐ |  |  |  | Non |
+| LOT_154 | ☐ |  |  |  | Non |
+| LOT_153 | ☐ |  |  |  | Non |
+| LOT_152 | ☐ |  |  |  | Non |
+| LOT_151 | ☐ |  |  |  | Non |
+| LOT_150 | ☐ |  |  |  | Non |
+| LOT_149 | ☐ |  |  |  | Non |
+| LOT_148 | ☐ |  |  |  | Non |
+| LOT_147 | ☐ |  |  |  | Non |
+| LOT_146 | ☐ |  |  |  | Non |
+| LOT_145 | ☐ |  |  |  | Non |
+| LOT_144 | ☐ |  |  |  | Non |
+| LOT_143 | ☐ |  |  |  | Non |
+| LOT_142 | ☐ |  |  |  | Non |
+| LOT_141 | ☐ |  |  |  | Non |
+| LOT_140 | ☐ |  |  |  | Non |
+| LOT_139 | ☐ |  |  |  | Non |
+| LOT_138 | ☐ |  |  |  | Non |
+| LOT_137 | ☐ |  |  |  | Non |
+| LOT_136 | ☐ |  |  |  | Non |
+| LOT_135 | ☐ |  |  |  | Non |
+| LOT_134 | ☐ |  |  |  | Non |
+| LOT_133 | ☐ |  |  |  | Non |
+| LOT_132 | ☐ |  |  |  | Non |
+| LOT_131 | ☐ |  |  |  | Non |
+| LOT_130 | ☐ |  |  |  | Non |
+| LOT_129 | ☐ |  |  |  | Non |
+| LOT_128 | ☐ |  |  |  | Non |
+| LOT_127 | ☐ |  |  |  | Non |
+| LOT_126 | ☐ |  |  |  | Non |
+| LOT_125 | ☐ |  |  |  | Non |
+| LOT_124 | ☐ |  |  |  | Non |
+| LOT_123 | ☐ |  |  |  | Non |
+| LOT_122 | ☐ |  |  |  | Non |
+| LOT_121 | ☐ |  |  |  | Non |
+| LOT_120 | ☐ |  |  |  | Non |
+| LOT_119 | ☐ |  |  |  | Non |
+| LOT_118 | ☐ |  |  |  | Non |
+| LOT_117 | ☐ |  |  |  | Non |
+| LOT_116 | ☐ |  |  |  | Non |
+| LOT_115 | ☐ |  |  |  | Non |
+| LOT_114 | ☐ |  |  |  | Non |
+| LOT_113 | ☑ | 2026-10-24 22:12 | Resynchronisé depuis Drive le 2026-10-24 ~22 h (Europe/Zurich), 5 fichiers V7, branche lot/LOT_113 | lot/LOT_113 2f16856d119198fb8a61e625dc034c1bab1f0163 | Non |
+| LOT_112 | ☐ |  |  |  | Non |
+| LOT_111 | ☐ |  |  |  | Non |
+| LOT_110 | ☐ |  |  |  | Non |
