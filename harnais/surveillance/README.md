@@ -26,7 +26,7 @@ Les résultats apparaissent dans le résumé du job et les journaux Actions. Un 
 
 ## Vérifications et limites
 
-La suite cible les faux positifs: preuve absente, périmée, future ou sans fuseau; confusion d'agent; modification d'artefact ou de harnais; échec du cache; compression fictive; tentative de sortie du lot. Les tests sont déterministes et n'appellent pas le réseau.
+La suite cible les faux positifs: preuve absente, périmée, future ou sans fuseau; confusion d'agent; modification d'artefact ou de harnais; échec du cache; compression fictive; tentative de sortie du lot. Les 27 tests ciblés sont déterministes et n'appellent pas le réseau.
 
 Le sélecteur `bracelet_suggest` est testé séparément. Les scores1,6/1,3/1,3 ne sont pas les versions des bibliothèques. Un sélecteur vert n'est pas une preuve d'exécution de celles-ci.
 

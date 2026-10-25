@@ -19,10 +19,10 @@ class API:
     def file(self,path,ref):self.refs.append(ref);return self.files[path]
 class MonitorTests(unittest.TestCase):
     def fixture(self):
-        runtime={'schema_version':1,'agent':'LOT_226','run_id':'test-real-run','versions':{'tool':'1'},'complete':True,
-          'tested_at':NOW.isoformat(),'tests':{'chonkie':{'ok':True,'exact_reconstruction':True},
-          'gptcache':{'ok':True,'write_read':True,'distinct_key_miss':True},
-          'llmlingua':{'ok':True,'origin_tokens':97,'compressed_tokens':54}}}
+        runtime={'schema_version':1,'agent':'LOT_226','run_id':'test-real-run','versions':dict(w.EXPECTED_VERSIONS),'medical_source_compressed':False,'complete':True,
+          'tested_at':NOW.isoformat(),'tests':{'chonkie':{'ok':True,'chunks':7,'exact_reconstruction':True},
+          'gptcache':{'ok':True,'mode':'exact-match','write_read':True,'distinct_key_miss':True},
+          'llmlingua':{'ok':True,'model':w.MODEL,'revision':w.REVISION,'origin_tokens':97,'compressed_tokens':54}}}
         files={DIR+'/PREUVE_RUNTIME_HARNAIS.json':encoded(runtime),DIR+'/real.html':b'actual artifact'}
         harness={n:b'actual trusted file '+n.encode() for n in ('harnais/bracelet/bracelet_suggest.py','harnais/bracelet/catalog.json','harnais/ARSENAL.md')}
         files.update(harness)
@@ -65,4 +65,19 @@ class MonitorTests(unittest.TestCase):
         self.assertFalse(self.run_case(change_runtime=lambda r:r['tests']['llmlingua'].update(compressed_tokens=True))['ok'])
     def test_no_timezone_fails(self):self.assertFalse(self.run_case(lambda p:p.update(recorded_at='2026-10-25T18:00:00'))['ok'])
     def test_failed_cache_test_fails(self):self.assertFalse(self.run_case(change_runtime=lambda r:r['tests']['gptcache'].update(write_read=False))['ok'])
+    def test_unrelated_versions_fail(self):self.assertFalse(self.run_case(change_runtime=lambda r:r.update(versions={'unrelated':'1'}))['ok'])
+    def test_wrong_model_fails(self):self.assertFalse(self.run_case(change_runtime=lambda r:r['tests']['llmlingua'].update(model='wrong'))['ok'])
+    def test_wrong_revision_fails(self):self.assertFalse(self.run_case(change_runtime=lambda r:r['tests']['llmlingua'].update(revision='wrong'))['ok'])
+    def test_single_chunk_fails(self):self.assertFalse(self.run_case(change_runtime=lambda r:r['tests']['chonkie'].update(chunks=1))['ok'])
+    def test_null_tests_fail_without_crash(self):self.assertFalse(self.run_case(change_runtime=lambda r:r.update(tests=None))['ok'])
+    def test_list_test_fails_without_crash(self):self.assertFalse(self.run_case(change_runtime=lambda r:r['tests'].update(llmlingua=[]))['ok'])
+    def test_medical_compression_fails(self):self.assertFalse(self.run_case(change_runtime=lambda r:r.update(medical_source_compressed=True))['ok'])
+    def test_null_hashes_fail_without_crash(self):self.assertFalse(self.run_case(lambda p:p.update(harness_sha256=None))['ok'])
+    def test_branch_cannot_redefine_trusted_harness(self):
+        files,proof,runtime=self.fixture()
+        trusted=dict(proof['harness_sha256'])
+        files['harnais/ARSENAL.md']=b'modified'
+        proof['harness_sha256']['harnais/ARSENAL.md']=w.sha(b'modified')
+        files[DIR+'/HARNAIS_ACTIVITE.json']=encoded(proof)
+        self.assertFalse(w.assess_agent(CONFIG,AGENT,API(files),NOW,trusted_hashes=trusted)['ok'])
 if __name__=='__main__':unittest.main()

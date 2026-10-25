@@ -15,6 +15,9 @@ import urllib.parse
 import urllib.request
 
 TOOLS=('chonkie','llmlingua','gptcache')
+EXPECTED_VERSIONS={'chonkie':'1.7.0','llmlingua':'0.2.2','gptcache':'0.1.44','torch':'2.14.1+cpu','transformers':'5.20.2'}
+MODEL='microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank'
+REVISION='5f0c82792b7ea14c6484e015b6a072009496b7f2'
 MAX_JSON=200_000
 class GitHub:
     def __init__(self, repository, token=None):
@@ -36,6 +39,7 @@ class GitHub:
 
 def sha(data):return hashlib.sha256(data).hexdigest()
 def age(iso,now):
+    if not isinstance(iso,str):raise ValueError('Horodatage non textuel')
     parsed=datetime.fromisoformat(iso.replace('Z','+00:00'))
     if parsed.tzinfo is None:raise ValueError('Horodatage sans fuseau')
     return (now-parsed).total_seconds()
@@ -45,13 +49,13 @@ def json_object(data):
     if not isinstance(obj,dict):raise ValueError('Un objet JSON est requis')
     return obj
 
-def assess_agent(config, agent, api, now):
+def assess_agent(config, agent, api, now, trusted_hashes=None):
     result={'agent':agent['id'],'branch':agent['branch'],'ok':False,'activity':'unknown','errors':[]}
     try:
         head=api.head(agent['branch']);result['head']=head
         directory=PurePosixPath(agent['directory'])
         proof=json_object(api.file(str(directory/'HARNAIS_ACTIVITE.json'),head))
-        if proof.get('schema_version')!=1 or proof.get('agent')!=agent['id']:raise ValueError('Identité ou schéma de preuve incorrect')
+        if type(proof.get('schema_version')) is not int or proof.get('schema_version')!=1 or proof.get('agent')!=agent['id']:raise ValueError('Identité ou schéma de preuve incorrect')
         if proof.get('state') not in ('working','paused','blocked','finished'):raise ValueError('État non reconnu')
         seconds=age(proof['recorded_at'],now);result['age_seconds']=round(seconds)
         if seconds < -config['clock_skew_seconds']:raise ValueError('Preuve située dans le futur')
@@ -63,26 +67,38 @@ def assess_agent(config, agent, api, now):
         raw=api.file(allowed,head)
         if sha(raw)!=proof.get('runtime_sha256'):raise ValueError('Empreinte de preuve runtime différente')
         runtime=json_object(raw)
-        if runtime.get('agent')!=agent['id'] or runtime.get('schema_version')!=1 or runtime.get('complete') is not True:
+        if runtime.get('agent')!=agent['id'] or type(runtime.get('schema_version')) is not int or runtime.get('schema_version')!=1 or runtime.get('complete') is not True:
             raise ValueError('Test fonctionnel complet propre à cet agent absent')
+        tests=runtime.get('tests')
+        if not isinstance(tests,dict):raise ValueError('Tests runtime non structurés')
         for name in TOOLS:
-            if runtime.get('tests',{}).get(name,{}).get('ok') is not True:raise ValueError('Test réel absent ou échoué: '+name)
-        if runtime['tests']['chonkie'].get('exact_reconstruction') is not True:raise ValueError('Reconstruction Chonkie non démontrée')
-        if runtime['tests']['gptcache'].get('write_read') is not True or runtime['tests']['gptcache'].get('distinct_key_miss') is not True:raise ValueError('Cache exact non démontré')
-        if not runtime.get('run_id') or not runtime.get('versions'):raise ValueError('Provenance runtime absente')
-        compression=runtime['tests']['llmlingua']
+            if not isinstance(tests.get(name),dict) or tests[name].get('ok') is not True:raise ValueError('Test réel absent ou échoué: '+name)
+        versions=runtime.get('versions')
+        if not isinstance(versions,dict) or any(versions.get(k)!=v for k,v in EXPECTED_VERSIONS.items()):raise ValueError('Versions runtime non attestées ou différentes des versions testées')
+        if not isinstance(runtime.get('run_id'),str) or not runtime['run_id']:raise ValueError('Identifiant du test runtime absent')
+        if runtime.get('medical_source_compressed') is not False:raise ValueError('Le périmètre synthétique du test doit être attesté')
+        chunks=tests['chonkie'].get('chunks')
+        if type(chunks) is not int or chunks<2 or tests['chonkie'].get('exact_reconstruction') is not True:raise ValueError('Découpage réel et reconstruction Chonkie non démontrés')
+        cached=tests['gptcache']
+        if cached.get('mode')!='exact-match' or cached.get('write_read') is not True or cached.get('distinct_key_miss') is not True:raise ValueError('Cache exact non démontré')
+        compression=tests['llmlingua']
+        if compression.get('model')!=MODEL or compression.get('revision')!=REVISION:raise ValueError('Modèle de compression non canonique')
         before,after=compression.get('origin_tokens'),compression.get('compressed_tokens')
         if type(before) is not int or type(after) is not int or not 0<after<before:raise ValueError('Compression réelle non démontrée')
         tested_age=age(runtime['tested_at'],now);result['runtime_age_seconds']=round(tested_age)
         if tested_age < -config['clock_skew_seconds']:raise ValueError('Test runtime situé dans le futur')
         if state=='working' and tested_age>config['runtime_max_age_seconds']:result['errors'].append('Test runtime trop ancien pour attester le travail courant.')
         required=('harnais/bracelet/bracelet_suggest.py','harnais/bracelet/catalog.json','harnais/ARSENAL.md')
+        hashes=proof.get('harness_sha256')
+        if not isinstance(hashes,dict):raise ValueError('Empreintes du harnais absentes')
         for path in required:
-            expected=proof.get('harness_sha256',{}).get(path)
+            expected=hashes.get(path)
+            if trusted_hashes is not None and expected!=trusted_hashes.get(path):raise ValueError('Harnais différent de la référence exécutée sur le runner: '+path)
             if not expected or sha(api.file(path,head))!=expected:raise ValueError('Empreinte du harnais différente: '+path)
         artifacts=proof.get('artifacts')
         if not isinstance(artifacts,list) or not 1<=len(artifacts)<=8:raise ValueError('Un à huit artefacts réels sont requis')
         for item in artifacts:
+            if not isinstance(item,dict):raise ValueError('Artefact non structuré')
             path=PurePosixPath(item['path'])
             if path.is_absolute() or '..' in path.parts or not path.is_relative_to(directory):raise ValueError('Artefact hors du lot')
             # Le contenu est lu uniquement pour son empreinte, jamais exécuté.
@@ -108,7 +124,7 @@ def main():
     config=json.loads(a.config.read_text());repo=Path.cwd();now=datetime.now(timezone.utc)
     api=GitHub(config['repository'],os.environ.get('GH_TOKEN'))
     result={'checked_at':now.isoformat(),'selector':selector(repo),
-            'agents':[assess_agent(config,agent,api,now) for agent in config['agents']],
+            'agents':[assess_agent(config,agent,api,now, trusted_hashes={name:sha((repo/name).read_bytes()) for name in ('harnais/bracelet/bracelet_suggest.py','harnais/bracelet/catalog.json','harnais/ARSENAL.md')}) for agent in config['agents']],
             'limitation':'GitHub vérifie des preuves publiées et les outils sur son runner; il ne voit pas directement les processus des sessions ChatGPT.'}
     result['ok']=result['selector']['ok'] and all(x['ok'] for x in result['agents'])
     a.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
