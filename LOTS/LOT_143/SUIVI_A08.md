@@ -17,3 +17,5 @@ Aucune dose AIPS n'est écrite : l'information professionnelle n'a pas été ouv
 Les dossiers chiffrés sont des exemples d'enseignement, pas des patients. Le dossier Drive des patients n'a pas été ouvert.
 
 Reprise du 25.10.2026 : la phrase a été reprise pour être plus vive et plus précise, sans nouveau chiffre, sans dose, et sans monographie au-delà de DX.4.
+
+Enrichissement du 25.10.2026 : les trois HTML du rôle A sont allongés par la chaîne anatomie–traitement, des vignettes, des tableaux, des pièges et les questions §6.1 et §6.2. Police Atkinson Hyperlegible embarquée, fond bleu ciel pâle, probabilités en rouge sans halo, balise FIN_FICHIER après `</html>`. Sources ajoutées : HUG diabète 2022 (renvoi ADA 2021 laissé visible) et HUG syndrome des loges 2023. Aucune dose AIPS. DX.5 à DX.10 restent des noms. Pas d'audit, pas de pull request.
