@@ -43,7 +43,7 @@ def inline(term, *paras):
         + "</summary><div style='display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;"
         "border-left:3px solid #1f618d;font-size:0.93em;'>"
         + inner
-        + "<p style='margin:4px 0 6px;'><em>La fenêtre se ferme au clic.</em></p></div></details>"
+        + "</div></details>"
     )
 
 
@@ -122,13 +122,14 @@ def page(title, intro, body, used, fin):
 
 
 INTRO = (
-    "Examen fédéral suisse, PROFILES 2023, SSP O4.7 « Évaluation partagée des facteurs de risque "
-    "et de protection des maladies fréquentes engageant le pronostic vital ». Agent B, équipe E03, "
-    "vague 2. Périmètre DX.5 à DX.10 seulement. L'Appel A n'est pas écrit ici. Les fenêtres s'ouvrent "
-    "au clic. Sources lues le 24.10.2026. Aucune dose AIPS n'est prescrite. "
-    "Ordre annoncé : fréquence suisse lorsque le chiffre existe, sinon rang de la fiche O4.7, "
-    "avec un poids pour la gravité (le sujet jeune n'est pas rassuré par un risque à dix ans bas ; "
-    "le radon et l'alcool tuent ; le conseil génétique protège un droit)."
+    "Ce cahier sert l'examen fédéral suisse et la consultation réelle. Il traite le SSP O4.7 de PROFILES 2023, "
+    "l'évaluation partagée des facteurs de risque et de protection des maladies qui engagent le pronostic vital. "
+    "L'agent B de l'équipe E03, vague 2, n'écrit ici que les situations DX.5 à DX.10. L'Appel A et les quatre premières "
+    "situations appartiennent à un autre auteur. Les fenêtres s'ouvrent au clic. Les sources ont été lues le 24 octobre 2026. "
+    "Aucune information professionnelle Swissmedic n'a été ouverte : aucune dose n'est donc prescrite. "
+    "L'ordre suit la fiche O4.7 du dépôt lorsque la Suisse n'a pas livré de pourcentage : d'abord le risque que l'âge jeune dissimule, "
+    "puis le calcium coronaire qui reclasse, l'alcool qui tue encore, le stress que le score ignore, le radon derrière le tabac, "
+    "et enfin l'histoire familiale, qui ouvre un droit autant qu'une artère."
 )
 
 

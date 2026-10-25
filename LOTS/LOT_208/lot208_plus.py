@@ -17,7 +17,7 @@ def plus_dx5():
         ("moins de 50 ans", "moins de 2,5 %", "faible à modéré", "Le médicament n'est pas la règle, sauf modificateur ou bénéfice vie entière substantiel."),
         ("moins de 50 ans", "2,5 % à moins de 7,5 %", "élevé", "Le traitement des facteurs s'envisage avec les modificateurs, le bénéfice et la préférence."),
         ("moins de 50 ans", "au moins 7,5 %", "très élevé", "L'ESC recommande le traitement des facteurs, parce que ce chiffre annonce un risque vie entière haut."),
-        ("50 à 69 ans", "moins de 5 %", "faible à modéré", "Le médecin ne réutilise pas le seuil de 2,5 % de la tranche précédente."),
+        ("50 à 69 ans", "moins de 5 %", "faible à modéré", "Le seuil de 2,5 % appartient à la tranche précédente. Il ne voyage pas avec l'âge."),
         ("50 à 69 ans", "5 % à moins de 10 %", "élevé", "La décision se prend près du seuil, avec les modificateurs."),
         ("50 à 69 ans", "au moins 10 %", "très élevé", "Le traitement des facteurs est recommandé dans cette catégorie."),
         ("70 ans et plus", "moins de 7,5 %", "faible à modéré", "SCORE2-OP remplace SCORE2, et AGLA le dit explicitement."),
@@ -30,20 +30,20 @@ def plus_dx5():
             f"L'outil valide pour la Suisse, pays à faible risque, rend un risque à dix ans {band}.",
             f"La page AGLA et le texte ESC placent alors la catégorie « {cat} ».",
             cond,
-            "Le médecin écrit la tranche d'âge à côté du pourcentage, sinon il se trompe de seuil.",
-            "Il ne calcule pas ce pourcentage de tête lorsque les lipides ne sont pas sous ses yeux.",
+            "La tranche d'âge s'écrit à côté du pourcentage. Sans elle, le seuil est celui d'une autre vie.",
+            "Ce pourcentage ne se calcule pas de tête lorsque les lipides ne sont pas sous les yeux.",
         ])
     outils = [
         ("AGLA, personnes saines", "L'âge va de 20 à 69 ans, et le diabète est absent.", "Le résultat est un événement coronarien fatal ou un infarctus non fatal à dix ans.", "Les champs lus sont la pression systolique, le LDL, le HDL et les triglycérides.", "À partir de 70 ans, la page renvoie vers SCORE2-OP."),
         ("SCORE2", "L'âge va de 40 à 69 ans chez une personne apparemment saine et non diabétique.", "Le résultat ajoute l'accident vasculaire cérébral et les événements non fatals.", "La Suisse se lit sur l'abaque à faible risque, avec la liste des pays que l'ESC publie.", "Un modèle d'une région à haut risque surestimerait le même profil."),
         ("SCORE2-OP", "Il commence à 70 ans.", "Il tient compte de la mortalité concurrente, ce que le score des adultes d'âge moyen ne fait pas.", "Les seuils montent : 7,5 % et 15 %.", "Le bénéfice en années sans événement se raccourcit."),
-        ("SCORE2-Diabète", "Il concerne le diabète de type 2 de 40 à 69 ans, sans maladie athéromateuse établie ni atteinte d'organe qui classerait déjà.", "Le calculateur des personnes saines est alors une erreur.", "La page AGLA décrit l'atteinte sévère par le DFGe, l'albuminurie et l'atteinte microvasculaire multiple.", "Le médecin lit cette définition avant de rassurer."),
+        ("SCORE2-Diabète", "Il concerne le diabète de type 2 de 40 à 69 ans, sans maladie athéromateuse établie ni atteinte d'organe qui classerait déjà.", "Le calculateur des personnes saines est alors une erreur.", "La page AGLA décrit l'atteinte sévère par le DFGe, l'albuminurie et l'atteinte microvasculaire multiple.", "Cette définition se lit avant toute reassurance."),
     ]
     for nom, a, b, c, d in outils:
         items.append([
             f"L'outil discuté est {nom}.",
             a, b, c, d,
-            "Le médecin nomme l'outil dans la phrase où il cite le pourcentage.",
+            "Le nom de l'outil voyage avec le pourcentage, dans la même phrase.",
         ])
     pieges = [
         "Le candidat récite un risque relatif et oublie la base. La bonne copie dit que l'ESC refuse de traduire un risque relatif directement en décision.",
@@ -70,15 +70,15 @@ def plus_dx5():
 def plus_dx6():
     items = []
     scenes = [
-        ("Le risque calculé est déjà très élevé.", "Le scanner ne change pas la décision de traiter les facteurs.", "Le médecin explique ce refus, et il ne cède pas à l'image."),
-        ("Le risque calculé est clairement bas, sans modificateur.", "Un calcium inattendu pourrait théoriquement monter le risque, mais l'ESC concentre l'examen autour des seuils, pour des raisons de faisabilité.", "Le médecin ne dépiste pas toute la patientèle."),
-        ("Le risque est au seuil et la personne ne veut pas de rayons.", "Le médecin accepte le refus et il décide avec les données cliniques.", "Il peut envisager la plaque carotidienne si elle change encore quelque chose."),
+        ("Le risque calculé est déjà très élevé.", "Le scanner ne change pas la décision de traiter les facteurs.", "Ce refus s'explique. On ne cède pas à l'image."),
+        ("Le risque calculé est clairement bas, sans modificateur.", "Un calcium inattendu pourrait théoriquement monter le risque, mais l'ESC concentre l'examen autour des seuils, pour des raisons de faisabilité.", "On ne dépiste pas toute la patientèle."),
+        ("Le risque est au seuil et la personne ne veut pas de rayons.", "Le refus s'accepte, et la décision se prend avec les données cliniques.", "La plaque carotidienne peut s'envisager si elle change encore quelque chose."),
         ("Le score revient plus haut que l'attendu pour l'âge.", "Le risque calculé augmente.", "La discussion du traitement des facteurs reprend, sans dose inventée."),
-        ("Le score revient nul chez un fumeur de 52 ans.", "L'ESC rappelle qu'une plaque molle peut exister malgré ce zéro.", "Le médecin ne délivre pas un certificat de cœur sain."),
+        ("Le score revient nul chez un fumeur de 52 ans.", "L'ESC rappelle qu'une plaque molle peut exister malgré ce zéro.", "Aucun certificat de cœur sain ne sort de ce zéro."),
         ("La personne décrit une oppression à la marche.", "Ce n'est plus un examen de prévention.", "La filière de la douleur s'ouvre le jour même."),
-        ("La personne a un diabète de type 2.", "La page AGLA dit que la preuve est insuffisante pour utiliser le score calcique afin de classer ce diabète.", "Le médecin ne s'appuie pas dessus."),
-        ("La personne est enceinte.", "Le médecin diffère tout scanner.", "Le risque vie entière se commente sans image."),
-        ("Le radiologue rend seulement un nombre d'Agatston.", "Le médecin redemande la comparaison à l'âge et au sexe, parce que l'ESC lit le résultat ainsi.", "Il ne plaque pas le seuil américain de 100."),
+        ("La personne a un diabète de type 2.", "La page AGLA dit que la preuve est insuffisante pour utiliser le score calcique afin de classer ce diabète.", "On ne s'appuie pas dessus."),
+        ("La personne est enceinte.", "Tout scanner se diffère.", "Le risque vie entière se commente sans image."),
+        ("Le radiologue rend seulement un nombre d'Agatston.", "On redemande la comparaison à l'âge et au sexe, parce que l'ESC lit le résultat ainsi.", "Le seuil américain de 100 ne se plaque pas."),
         ("La page EAS affiche une classe IIa.", "Le guide de prévention 2021, ouvert en texte, dit IIb.", "Le cours ne fait pas passer la page web pour une abrogation du guide tant qu'une mise à jour complète n'a pas été lue."),
     ]
     for a, b, c in scenes:
@@ -92,11 +92,11 @@ def plus_dx7():
         ("Une femme boit 3 verres standard chaque jour.", "3 fois 10 g font 30 g.", "30 g se situent dans la bande 20 à 40 g, donc dans le risque chronique moyen d'Obsan.", "Ce n'est pas une quantité que l'OFSP présente comme protectrice."),
         ("Une femme boit 5 verres standard chaque jour.", "5 fois 10 g font 50 g.", "50 g dépassent 40 g, donc le risque chronique est élevé.", "L'intervention ne se limite pas à un conseil vague."),
         ("Un homme boit 5 verres standard chaque jour.", "5 fois 10 g font 50 g.", "50 g se situent dans la bande 40 à 60 g, donc dans le risque chronique moyen masculin.", "La même quantité chez une femme serait déjà un risque élevé."),
-        ("Un homme boit 7 verres standard chaque jour.", "7 fois 10 g font 70 g.", "70 g dépassent 60 g, donc le risque chronique masculin est élevé.", "Le médecin cherche aussi les signes de dépendance."),
+        ("Un homme boit 7 verres standard chaque jour.", "7 fois 10 g font 70 g.", "70 g dépassent 60 g, donc le risque chronique masculin est élevé.", "Les signes de dépendance se cherchent dans la même consultation."),
         ("Un homme de 22 ans boit 6 verres un samedi et rien en semaine.", "Six verres dépassent le seuil épisodique masculin de 5 verres.", "L'OFSP demande au moins une fois par mois pour qualifier l'épisode à risque.", "S'il le fait chaque samedi, le critère est rempli, et 35 % des hommes de 20 à 24 ans sont dans cette zone."),
         ("Une femme boit 4 verres lors d'un dîner mensuel.", "Quatre verres atteignent le seuil épisodique féminin.", "Le risque chronique peut rester bas si les autres jours sont à zéro.", "Les deux risques se documentent séparément."),
-        ("Une personne de 70 ans boit un verre chaque soir et dit que c'est bon pour le cœur.", "21,4 % des plus de 65 ans boivent chaque jour.", "L'OFSP ne retient pas le bénéfice cardiovasculaire des études anciennes.", "Le médecin cherche les chutes et les médicaments sédatifs."),
-        ("Une femme enceinte a bu deux verres avant de savoir.", "L'OFSP place la grossesse parmi les situations inappropriées.", "Le médecin n'accuse pas, il ouvre l'accompagnement et l'arrêt.", "Il n'invente pas un seuil résiduel sans danger."),
+        ("Une personne de 70 ans boit un verre chaque soir et dit que c'est bon pour le cœur.", "21,4 % des plus de 65 ans boivent chaque jour.", "L'OFSP ne retient pas le bénéfice cardiovasculaire des études anciennes.", "Les chutes et les médicaments sédatifs se cherchent avant le discours."),
+        ("Une femme enceinte a bu deux verres avant de savoir.", "L'OFSP place la grossesse parmi les situations inappropriées.", "On n'accuse pas. On ouvre l'accompagnement et l'arrêt.", "Aucun seuil résiduel « sans danger » ne s'invente."),
     ]
     items = []
     for a, b, c, d in cas:
@@ -105,7 +105,7 @@ def plus_dx7():
             b + " Ce produit est un calcul dérivé de l'équivalence Obsan, 20 g pour 2 verres.",
             c,
             d,
-            "Le calcul se refait si le verre réel n'est pas un verre standard. Le médecin fait alors estimer le volume.",
+            "Le calcul se refait si le verre réel n'est pas un verre standard. On fait alors estimer le volume.",
         ])
     items.append([
         "Repère de mortalité à ne pas moderniser sans source.",
@@ -128,16 +128,16 @@ def plus_dx8():
     items = [
         [
             "La question d'entretien se pose avec des verbes, pas avec une liste morte.",
-            "Le médecin demande si le travail, l'argent, la famille, la solitude ou un événement récent pèsent.",
-            "Il demande ensuite si l'humeur a baissé et si des idées de mort sont présentes.",
-            "Il demande enfin si les médicaments vasculaires sont encore pris, parce que le stress casse l'observance.",
+            "On demande si le travail, l'argent, la famille, la solitude ou un événement récent pèsent.",
+            "On demande ensuite si l'humeur a baissé et si des idées de mort sont présentes.",
+            "On demande enfin si les médicaments vasculaires sont encore pris, parce que le stress casse l'observance.",
             "Source de la question : [S501].",
         ],
         [
             "Le risque relatif ne se transforme pas en destin.",
             "Un risque relatif entre 1,2 et 2,0 décrit des groupes, dans les travaux que l'ESC résume.",
             "Le bas revenu est associé à la mortalité cardiovasculaire avec un risque relatif de 1,76, intervalle 1,45 à 2,14.",
-            "Le médecin dit « association », et il ne dit pas « vous avez 76 % de risque en plus » comme si c'était son SCORE2.",
+            "On dit « association ». On ne dit pas « vous avez 76 % de risque en plus » comme si c'était son SCORE2.",
             "Près d'un seuil seulement, il en tient compte dans la décision partagée.",
         ],
         [
@@ -145,7 +145,7 @@ def plus_dx8():
             "L'ESC dit que, parmi les marqueurs psychosociaux, seul l'épuisement vital a amélioré la reclassification.",
             "Une contrariété ponctuelle ne reçoit donc pas le même statut mathématique.",
             "Elle peut quand même justifier une aide, parce que le soin ne se limite pas à la reclassification.",
-            "Le médecin sépare les deux phrases.",
+            "Les deux phrases restent séparées : l'aide d'un côté, la reclassification de l'autre.",
         ],
         [
             "Oppression thoracique : les deux hypothèses restent ouvertes.",
@@ -168,7 +168,7 @@ def plus_dx8():
 def plus_dx9():
     items = [
         [
-            "Le médecin traduit 300 Bq/m³ en décision, pas en slogan.",
+            "Le niveau de 300 Bq/m³ se traduit en décision, pas en slogan.",
             "Le niveau s'applique au local où l'on séjourne au moins quinze heures par semaine.",
             "Une buanderie traversée dix minutes par jour ne déclenche pas le même devoir qu'une chambre.",
             "Si cette buanderie devient une chambre, les délais du séjour prolongé s'appliquent.",
@@ -182,7 +182,7 @@ def plus_dx9():
             "Si une transformation majeure survient avant l'échéance, l'assainissement radon se fait en même temps.",
         ],
         [
-            "Le médecin refuse de réciter les autres cellules.",
+            "Les autres cellules ne se récitent pas.",
             "Le PDF lu mélange, dans l'extraction, les délais au-dessus de 600 Bq/m³.",
             "Plutôt que d'inventer « un an » ou « trois ans » pour une cellule douteuse, il ouvre le tableau 4 officiel.",
             "Cette honnêteté est elle-même une réponse d'examen.",
@@ -198,7 +198,7 @@ def plus_dx9():
         [
             "Cancer du poumon et radon se disent dans le même entretien que le tabac.",
             "L'OFSP compte environ 3 200 décès par cancer du poumon, source OFS 2023, dont 200 à 300 imputés au radon par Menzler, 2005.",
-            "Le médecin ne présente pas 200 à 300 comme une statistique de l'année 2026.",
+            "200 à 300 ne se présentent pas comme une statistique de l'année 2026.",
             "Il dit la latence : des années ou des décennies.",
             "Il n'existe pas, dans les pages lues, de comprimé qui lave le radon.",
         ],
@@ -206,7 +206,7 @@ def plus_dx9():
             "Mesure ancienne.",
             "Une mesure d'avant 2018 peut rester dans la base et dépasser 300 Bq/m³.",
             "Si le séjour atteint quinze heures, les lignes directrices recommandent vivement une nouvelle mesure, ou un assainissement décidé par le propriétaire.",
-            "Le médecin ne dit pas que l'ancienne limite de 1 000 Bq/m³ protège encore un logement.",
+            "On ne dit pas que l'ancienne limite de 1 000 Bq/m³ protège encore un logement.",
             "Source : [S510] et [S511].",
         ],
     ]
@@ -224,7 +224,7 @@ def plus_dx10():
         ],
         [
             "Article 6, information minimale.",
-            "Le médecin explique le but, le type et la pertinence de l'analyse.",
+            "Le but, le type et la pertinence de l'analyse s'expliquent avant le reste.",
             "Il explique les risques physiques et psychiques, le sort des échantillons et des données, et la possibilité d'informations excédentaires.",
             "Il dit dans quels cas ces informations ne peuvent pas être communiquées.",
             "Il dit l'importance possible pour la famille, le droit familial de ne pas savoir, et les droits de consentir, de savoir et de refuser.",
@@ -283,14 +283,50 @@ def plus_dx10():
 
 
 def oraux(title, pairs):
+    facons = [
+        "Au milieu de la consultation, presque en passant, quelqu'un glisse : « {q} ».",
+        "L'examinateur pose cela comme une évidence, et c'est là que la phrase dérape : « {q} ».",
+        "Le patient arrive avec son chiffre déjà fait, convaincu d'avoir compris : « {q} ».",
+        "Entre deux portes, là où les raccourcis font le plus de mal, on entend : « {q} ».",
+        "La question a l'air pratique. Elle économise une minute. La voici : « {q} ».",
+    ]
+    clotures = [
+        (
+            "On répond avec le texte lu le 24 octobre 2026, et la phrase s'arrête net où la page s'arrête.",
+            "Une dose, un seuil venu d'ailleurs ou un pourcentage deviné ne viennent pas combler le blanc.",
+            "Si la personne souffre, saigne, tient encore un volant ou parle de mourir, cette conversation cède aussitôt la place.",
+        ),
+        (
+            "La réponse tient dans ce qui a été ouvert ce jour-là. Au-delà, on dit simplement qu'on ne sait pas.",
+            "On ne bouche pas l'incertitude avec un chiffre appris dans un autre pays ou dans une autre année.",
+            "La douleur, le sang, la route ou l'idée de mort interrompent la leçon avant qu'elle ne devienne un retard.",
+        ),
+        (
+            "On rend la phrase au document, pas à la mémoire flatteuse.",
+            "Rien ne s'invente pour faire joli : ni milligramme, ni coefficient importé, ni part de population absente de la source.",
+            "Dès qu'un signe d'alarme apparaît, le commentaire se tait et les gestes de protection commencent.",
+        ),
+        (
+            "Ce qui n'a pas été lu ne se récite pas. Le silence, ici, est une réponse juste.",
+            "Le candidat qui complète le trou par une dose ou par un seuil célèbre perd la question, même si le début était bon.",
+            "Une personne instable ne reste pas dans cet exercice : on la met en sécurité d'abord.",
+        ),
+        (
+            "La copie s'arrête sur la dernière ligne réellement ouverte le 24 octobre 2026.",
+            "Elle ne déguise pas une ignorance en précision, et elle ne transforme pas un risque de groupe en destin individuel.",
+            "Souffrance actuelle, saignement, conduite imminente ou parole de mort : la consultation change de registre sans discuter.",
+        ),
+    ]
     items = []
-    for question, answer in pairs:
+    for i, (question, answer) in enumerate(pairs):
+        phrase = answer if answer.endswith(".") else answer + "."
+        a, b, c = clotures[i % len(clotures)]
         items.append([
-            f"Le patient ou l'examinateur dit : « {question} ».",
-            f"Le médecin répond : {answer}",
-            "Il nomme la source lue le 24.10.2026, et il sépare ce chiffre de ce qu'il n'a pas ouvert.",
-            "Il ne complète pas la réponse par une dose, un seuil américain ou un pourcentage calculé de mémoire.",
-            "Si la personne est instable, cette réponse orale cède la place à la sécurisation immédiate.",
+            facons[i % len(facons)].format(q=question),
+            phrase,
+            a,
+            b,
+            c,
         ])
     return windows(title, items)
 

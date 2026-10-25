@@ -21,8 +21,8 @@ def corr_table():
         ["Lésion ou perturbation", "Exploration qui la montre", "Conduite qui la corrige"],
         [
             [td("Le LDL et la pression restent élevés pendant des décennies, et le risque cumulé dépasse le risque à dix ans."),
-             td("Le médecin calcule SCORE2 ou le score AGLA, puis il demande le bénéfice vie entière sur un outil qui l'affiche."),
-             td("Il agit d'abord sur le tabac et le mode de vie. Il ne donne pas de dose ici, parce que l'information professionnelle n'a pas été ouverte.")],
+             td("On calcule SCORE2 ou le score AGLA, puis l'on demande le bénéfice vie entière à un outil qui l'affiche vraiment."),
+             td("On agit d'abord sur le tabac et le mode de vie. Aucune dose n'est écrite ici : l'information professionnelle n'a pas été ouverte.")],
             [td("Le calcium coronaire dépasse ce qui est attendu pour l'âge et le sexe."),
              td("Le score calcique sans injection, réservé au voisinage d'un seuil de décision."),
              td("Il reclasse le risque. Il ne traite pas le calcium lui-même.")],
@@ -34,7 +34,7 @@ def corr_table():
              td("Il traite la détresse et les obstacles d'observance. Il ne multiplie pas le score par un coefficient britannique.")],
             [td("Les descendants solides du radon irradient le poumon."),
              td("La mesure agréée du logement, en becquerels par mètre cube."),
-             td("Le propriétaire assainit selon l'ORaP. Le médecin ajoute l'arrêt du tabac.")],
+             td("Le propriétaire assainit selon l'ORaP. On ajoute l'arrêt du tabac, dans la même phrase.")],
             [td("Une maladie monogénique ou un agrégat familial change la catégorie avant tout calcul."),
              td("L'arbre familial, puis une analyse seulement après conseil LAGH."),
              td("Il oriente. Il ne prescrit pas un test présymptomatique sans conseil ni délai de réflexion.")],
@@ -53,10 +53,10 @@ def dx5():
     )
     inner = []
     inner.append(point("1", "Définition et sémantique", "".join([
-        p(f"Le {t} n'est pas une maladie, et il ne remplace pas le risque à dix ans."),
-        p("SCORE2 estime, chez une personne apparemment en bonne santé de 40 à 69 ans, le risque à dix ans d'infarctus ou d'accident vasculaire cérébral, fatal ou non."),
-        p("Le calculateur AGLA, lui, estime un événement coronarien fatal ou un infarctus non fatal, de 20 à 69 ans, sans diabète."),
-        p("Ces deux outils ne mesurent donc pas le même événement. Le médecin nomme l'outil avant de citer un pourcentage."),
+        p(f"Le {t} n'est pas une maladie que l'on inscrit sur un certificat. Il ne remplace pas non plus le risque des dix années qui viennent, ce chiffre court que l'on brandit trop vite pour rassurer."),
+        p("SCORE2, chez une personne apparemment en bonne santé et âgée de 40 à 69 ans, estime le risque d'infarctus ou d'accident vasculaire cérébral, que l'événement tue ou qu'il laisse vivant."),
+        p("Le calculateur AGLA regarde ailleurs : un événement coronarien fatal ou un infarctus non fatal, entre 20 et 69 ans, et seulement en l'absence de diabète."),
+        p("Les deux pourcentages ne racontent donc pas la même histoire. Avant d'en citer un, on dit le nom de l'outil, comme on dit le nom d'un médicament avant d'en vanter l'effet."),
         block("Fenêtre 1.1 — Trois horizons que l'étudiant mélange", "".join([
             p("L'horizon de dix ans répond à la question : quel événement peut survenir pendant la décennie qui vient ?"),
             p("L'horizon vie entière répond à une autre question : à quel âge le risque cumulé atteint-il une chance sur deux ?"),
@@ -66,10 +66,10 @@ def dx5():
         ])),
     ])))
     inner.append(point("2", "Épidémiologie (Suisse, puis Europe)", "".join([
-        p("L'ESC place la Suisse dans la liste des pays à faible risque des abaques SCORE2, avec la Belgique, le Danemark, la France, Israël, le Luxembourg, la Norvège, l'Espagne, les Pays-Bas et le Royaume-Uni."),
-        p("Les femmes de moins de 50 ans et les hommes de moins de 40 ans ont presque toujours un risque à dix ans bas, même lorsque les facteurs modifiables sont défavorables."),
-        p("Leur risque sur la vie entière peut néanmoins être très élevé. C'est le fait qui justifie ce DX."),
-        p("La fréquence suisse des adultes jeunes ainsi reclassés n'a pas été trouvée dans les sources ouvertes aujourd'hui. Le badge reste donc un rang, et non un pourcentage."),
+        p("Sur les abaques SCORE2, la Suisse siège parmi les pays à faible risque, avec la Belgique, le Danemark, la France, Israël, le Luxembourg, la Norvège, l'Espagne, les Pays-Bas et le Royaume-Uni. Cette place adoucit le bénéfice absolu. Elle n'efface pas la plaque."),
+        p("Les femmes de moins de 50 ans et les hommes de moins de 40 ans portent presque toujours un risque à dix ans bas, même quand le tabac, la pression ou le LDL crient déjà."),
+        p("Leur risque sur toute la vie peut, lui, être très élevé. C'est cette discordance, et non une mode pédagogique, qui justifie la présente situation."),
+        p("Aucune source suisse ouverte ce jour ne dit quelle part de ces adultes jeunes se trouve ainsi prise en défaut. Le badge reste un rang. Un pourcentage inventé serait une faute, pas une élégance."),
         p("SCORE2 a été construit pour l'Europe de 40 à 69 ans, sans antécédent cardiovasculaire ni diabète. Le risque absolu d'un même profil varie fortement d'une région à l'autre."),
         block("Fenêtre 2.1 — Pourquoi un pourcentage suisse manque", "".join([
             p("Aucune page OFS ou Obsan lue aujourd'hui ne donne la part des moins de 50 ans dont le risque à dix ans est bas et le risque vie entière élevé."),
@@ -79,9 +79,9 @@ def dx5():
         ])),
     ])))
     inner.append(point("3", "Physiopathologie", "".join([
-        p("L'âge domine le risque à dix ans, parce que l'athérome a eu le temps de se constituer."),
-        p("Chez le sujet jeune, le même LDL et la même pression agissent plus longtemps. L'ESC rappelle que de petites différences de LDL ou de pression systolique, maintenues toute la vie, changent fortement le risque, d'après les études de randomisation mendélienne qu'elle cite."),
-        p("Le traitement corrige donc une exposition, et non un score. Le tabac, le LDL et la pression sont les trois leviers nommés pour le bénéfice vie entière dans les calculateurs que l'ESC indique."),
+        p("L'âge domine le risque à dix ans pour une raison simple : l'athérome a eu le temps de mûrir. Le calendrier, ici, vaut une exposition."),
+        p("Chez l'adulte jeune, le même LDL et la même pression disposent de beaucoup plus d'années. L'ESC le rappelle par les études de randomisation mendélienne : de petits écarts, tenus toute une vie, pèsent lourd sur les événements."),
+        p("On ne soigne donc pas un score. On raccourcit une exposition. Le tabac, le LDL et la pression sont les trois leviers dont les calculateurs de l'ESC affichent le bénéfice en années gagnées."),
         corr_table(),
         p("Le tableau relie la perturbation, l'exploration et la conduite. Il ne donne aucune dose."),
         block("Fenêtre 3.1 — De l'exposition au signe, sans sauter d'étape", "".join([
@@ -93,7 +93,7 @@ def dx5():
         ])),
     ])))
     inner.append(point("4", "Démarche diagnostique", "".join([
-        p("Le médecin exclut d'abord les situations où l'on ne calcule pas un score de personne apparemment saine."),
+        p("Avant tout chiffre, on écarte les situations où un score de personne apparemment saine n'a plus le droit d'entrer."),
         p("La maladie athéromateuse déjà établie, le diabète avec atteinte d'organe sévère, l'insuffisance rénale sévère et l'hypercholestérolémie familiale avec un facteur majeur classent d'emblée en risque très élevé sur la page AGLA."),
         p("Viennent ensuite les hypothèses fréquentes : risque à dix ans vraiment bas, risque intermédiaire que les modificateurs font bouger, et risque vie entière élevé chez un fumeur jeune."),
         table(
@@ -107,10 +107,10 @@ def dx5():
         ),
     ])))
     inner.append(point("5", "Anamnèse ciblée et drapeaux rouges", "".join([
-        p("Chaque question cherche une variable du score ou un modificateur que le score ignore."),
-        p("Le médecin demande le tabac, parce que l'arrêt est le levier dont l'ESC affiche le bénéfice vie entière, et parce qu'un fumeur de moins de 40 ans peut avoir un risque à dix ans bas."),
-        p("Il demande les événements coronariens ou vasculaires précoces au premier degré, parce que cette information déclenche une évaluation complète même si elle n'améliore que marginalement la prédiction."),
-        p("Il demande la prééclampsie, la ménopause précoce et les maladies inflammatoires, parce que l'ESC les compte parmi les modificateurs, surtout près d'un seuil."),
+        p("Chaque question cherche soit une variable du score, soit un modificateur que le score laisse à la porte."),
+        p("Le tabac vient en premier. L'arrêt est le levier dont l'ESC affiche le bénéfice vie entière, et un fumeur de moins de 40 ans peut encore afficher un risque à dix ans faussement bas."),
+        p("Les événements coronariens ou vasculaires précoces au premier degré viennent ensuite. Cette histoire déclenche une évaluation complète, même si elle n'améliore la prédiction que de peu."),
+        p("La prééclampsie, la ménopause précoce et les maladies inflammatoires se demandent aussi. L'ESC les compte parmi les modificateurs, surtout lorsque le chiffre frôle un seuil."),
         block("Fenêtre 5.1 — Drapeaux qui interdisent la reassurance", "".join([
             p("Une douleur thoracique d'effort, un déficit neurologique transitoire ou une claudication font sortir de la prévention primaire."),
             p("Un xanthome tendineux ou un arc cornéen précoce oriente vers une hypercholestérolémie familiale, et non vers un simple conseil de mode de vie."),
@@ -119,17 +119,17 @@ def dx5():
         ])),
     ])))
     inner.append(point("6", "Examen physique ciblé, région par région", "".join([
-        p("Le médecin décrit d'abord le normal. Une pression répétée et concordante, des pouls présents, l'absence de souffle et l'absence de xanthome ne prouvent pas que le risque vie entière est bas."),
-        p("Il mesure la pression au bras, après repos, aux deux bras si les chiffres divergent, parce que la pression systolique entre dans AGLA et dans SCORE2."),
-        p("Il palpe les pouls et il ausculte les trajets artériels, parce qu'un souffle ou un pouls aboli signe une maladie déjà constituée."),
-        p("Il cherche les xanthomes tendineux et l'arc cornéen avant 45 ans, parce que ces signes orientent vers une maladie monogénique du LDL."),
+        p("On décrit d'abord le normal, pour ne pas le confondre avec un quitus. Une pression répétée et concordante, des pouls présents, l'absence de souffle et l'absence de xanthome ne prouvent pas que le risque sur toute la vie est bas."),
+        p("La pression se mesure au bras, après repos, aux deux bras si les chiffres divergent : la systolique entre dans AGLA et dans SCORE2."),
+        p("Les pouls se palpent, les trajets artériels s'auscultent. Un souffle ou un pouls aboli signe une maladie déjà constituée."),
+        p("Les xanthomes tendineux et l'arc cornéen avant 45 ans orientent vers une maladie monogénique du LDL."),
         p("La technique et la valeur de chaque signe sont reprises dans la fenêtre."),
         block("Fenêtre 6.1 — Technique et valeur", table(
             ["Signe", "Comment on le cherche", "Ce qu'il vaut"],
             [
                 [td("Pression systolique."), td("Le patient est assis, le bras est à hauteur du cœur, et la mesure est répétée."), td("Elle alimente le score. Une seule mesure de cabinet ne pose pas l'étiquette.")],
                 [td("Souffle carotidien ou fémoral."), td("L'auscultation précède la décision d'imagerie."), td("Il suggère une plaque. Il ne quantifie pas le risque vie entière.")],
-                [td("Xanthome."), td("Le médecin palpe le tendon d'Achille et les extenseurs des doigts."), td("Il oriente vers l'hypercholestérolémie familiale. Son absence ne l'exclut pas.")],
+                [td("Xanthome."), td("On palpe le tendon d'Achille et les extenseurs des doigts."), td("Il oriente vers l'hypercholestérolémie familiale. Son absence ne l'exclut pas.")],
                 [td("Poids et tour de taille."), td("La mesure est faite, puis elle est interprétée avec le contexte."), td("L'obésité est un modificateur clinique sur la page EAS. Elle ne remplace pas le score.")],
             ],
         ) + p("Source : [S501], [S505], [S506].")),
@@ -137,22 +137,16 @@ def dx5():
     inner.append(point("7", "Approche syndromique", "".join([
         p("Trois situations reviennent en consultation de prévention."),
         block("7.1 Adulte jeune dont le chiffre à dix ans rassure", "".join([
-            p("Signes fonctionnels : il ne se plaint de rien, ou il dit qu'un précédent calcul l'a rassuré."),
-            p("Signes physiques : la pression peut déjà être élevée, et le reste de l'examen peut être normal."),
-            p("Mécanisme : l'âge abaisse le risque à dix ans alors que l'exposition continue."),
-            p("Le médecin explique l'âge vasculaire ou les années gagnées, sans inventer le pourcentage."),
+            p("Il entre sans plainte, ou avec le souvenir d'un calcul qui l'avait déjà rassuré. La pression, elle, peut déjà être haute, et le reste de l'examen parfaitement calme."),
+            p("L'âge a comprimé le risque de la décennie, pendant que le LDL et la cigarette continuent leur travail. On parle d'âge vasculaire ou d'années gagnées, sans inventer le pourcentage que seul le calculateur possède."),
         ])),
         block("7.2 Femme après une prééclampsie", "".join([
-            p("Signes fonctionnels : la grossesse est terminée, et la patiente se croit revenue au risque de base."),
-            p("Signes physiques : la pression peut être normale ce jour-là."),
-            p("Mécanisme : l'ESC compte les désordres hypertensifs de la grossesse parmi les modificateurs."),
-            p("Le médecin les écrit dans le dossier et il recalcule plus tard, parce que le score seul les ignore."),
+            p("La grossesse est derrière elle, et elle se croit revenue au risque d'avant. Ce jour-là, la pression peut même être normale."),
+            p("L'ESC compte pourtant les désordres hypertensifs de la grossesse parmi les modificateurs. On les écrit dans le dossier, et l'on recalcule plus tard : le score, seul, les ignore."),
         ])),
         block("7.3 Personne déjà malade que l'on score à tort", "".join([
-            p("Signes fonctionnels : angor, claudication ou déficit déjà résolu."),
-            p("Signes physiques : souffle, pouls aboli ou cicatrice de sternotomie."),
-            p("Mécanisme : la plaque est déjà là. Le score de personne saine ne s'applique plus."),
-            p("Conduite : prévention secondaire, sans nouveau calcul de SCORE2 primaire."),
+            p("L'angor, la claudication ou un déficit déjà résolu racontent une plaque qui est déjà là. Le souffle, le pouls aboli ou la cicatrice de sternotomie le confirment sous les doigts."),
+            p("Le score des personnes saines n'a plus cours. La prévention devient secondaire, et un nouveau SCORE2 primaire serait une erreur de catégorie."),
         ])),
     ])))
     inner.append(point("8", "Diagnostic positif et critères", "".join([
@@ -164,14 +158,14 @@ def dx5():
         p("En dessous de 40 ans, les prédictions deviennent imprécises. L'ESC n'envisage en général ni hypolipémiant ni antihypertenseur, sauf hypercholestérolémie familiale ou trouble tensionnel spécifique. Le mode de vie maintenu toute la vie prime."),
         p("La page AGLA reprend les mêmes seuils d'âge pour son propre score et pour SCORE2. Elle ne republie pas les anciennes bandes uniques de 10 % et 20 %."),
         block("Fenêtre 8.1 — Ce qui ne suffit pas", "".join([
-            p("Un LDL isolé ne suffit pas. Un parent malade sans âge de survenue ne suffit pas. Une application téléphonique dont la région n'est pas la Suisse ne suffit pas."),
-            p("Le médecin écrit le nom de l'outil, l'âge, le statut diabétique et la région de risque."),
+            p("Un LDL isolé ne suffit pas. Un parent malade sans âge de survenue ne suffit pas. Une application dont la région n'est pas la Suisse ne suffit pas."),
+            p("Dans le dossier, quatre mots voyagent ensemble : le nom de l'outil, l'âge, le statut diabétique et la région de risque."),
             p("Source : [S501], [S505]."),
         ])),
     ])))
     inner.append(point("9", "Examens complémentaires", "".join([
         p("Le gold standard du risque vie entière n'est pas une imagerie. C'est une estimation, et l'ESC dit qu'elle peut être approchée par l'expérience clinique ou par un score de vie entière."),
-        p("En première intention, le médecin utilise AGLA entre 20 et 69 ans sans diabète, ou SCORE2 entre 40 et 69 ans sans diabète. À partir de 70 ans, AGLA renvoie à SCORE2-OP."),
+        p("En première intention, on utilise AGLA entre 20 et 69 ans sans diabète, ou SCORE2 entre 40 et 69 ans sans diabète. À partir de 70 ans, AGLA renvoie à SCORE2-OP."),
         p("Le passage au bénéfice vie entière se fait lorsque le risque à dix ans est bas ou proche d'un seuil, surtout avant 50 ans. L'ESC cite des calculateurs en ligne, dont son application et U-Prevent, pour les années gagnées par l'arrêt du tabac, la baisse du LDL ou la baisse de la pression."),
         p("Le score calcique n'est pas l'examen du risque vie entière. Il est traité au DX.6, et seulement près d'un seuil."),
         table(
@@ -188,24 +182,24 @@ def dx5():
         p("DFGe inférieur à 30 mL/min/1,73 m² : la page AGLA classe déjà en risque très élevé, sans score de personne saine."),
         p("Allergie à l'iode et pacemaker : ils ne concernent pas le calculateur. Ils concernent le DX.6 si un scanner était envisagé."),
         block("Fenêtre 9.1 — Comment prescrire le calcul", "".join([
-            p("Le médecin recueille l'âge, le sexe, le tabac, la pression systolique, le cholestérol total et le HDL pour SCORE2."),
+            p("Pour SCORE2, on recueille l'âge, le sexe, le tabac, la pression systolique, le cholestérol total et le HDL."),
             p("Pour AGLA, la page demande l'âge, la pression, le LDL, le HDL et les triglycérides, dans les fourchettes que le calculateur accepte."),
-            p("Il note que les deux outils ne prédisent pas le même événement."),
+            p("Les deux outils ne prédisent pas le même événement : cette différence s'écrit à côté du pourcentage."),
             p("Source : [S503], [S504], [S501]."),
         ])),
     ])))
     inner.append(point("10", "Arbre décisionnel", "".join([
         p("Chaque branche nomme le signe ou le résultat qui fait choisir."),
-        p("Si un événement athéromateux, une plaque prouvée, une maladie rénale sévère ou une hypercholestérolémie familiale avec facteur majeur est présent, le médecin ne calcule pas le score des personnes saines et il entre en risque très élevé."),
-        p("Si la personne a un diabète de type 2, il utilise la voie diabète de la page AGLA."),
-        p("Si la personne est apparemment saine et a moins de 40 ans, il priorise le mode de vie et il cherche l'exception familiale ou tensionnelle."),
-        p("Si elle a de 40 à 69 ans, il calcule SCORE2 en région à faible risque pour la Suisse, puis il lit le seuil selon l'âge."),
-        p("Si le résultat est proche d'un seuil ou si la personne a moins de 50 ans avec des facteurs lourds, il ajoute les modificateurs et le bénéfice vie entière."),
-        p("Si le résultat est très bas et qu'aucun modificateur n'est présent, il explique, il fixe un délai de recalcul, et il n'ouvre pas un médicament pour « faire un chiffre »."),
+        p("Un événement athéromateux, une plaque prouvée, une maladie rénale sévère ou une hypercholestérolémie familiale avec facteur majeur ferment le score des personnes saines. On entre alors en risque très élevé."),
+        p("Un diabète de type 2 ouvre la voie diabète de la page AGLA, pas le calculateur des personnes saines."),
+        p("Avant 40 ans, chez une personne apparemment saine, le mode de vie passe devant, et l'on cherche l'exception familiale ou tensionnelle."),
+        p("De 40 à 69 ans, on calcule SCORE2 en région à faible risque pour la Suisse, puis l'on lit le seuil de la tranche d'âge, pas celui d'une autre vie."),
+        p("Près d'un seuil, ou avant 50 ans avec des facteurs lourds, les modificateurs et le bénéfice vie entière entrent dans la conversation."),
+        p("Un résultat très bas, sans modificateur, s'explique. On fixe un délai de recalcul. On n'ouvre pas un médicament pour « faire un chiffre »."),
     ])))
     inner.append(point("11", "Prise en charge selon les recommandations suisses", "".join([
         p("Le but n'est pas un pourcentage décoratif. Le but est d'éviter un événement cliniquement important, en commençant par les leviers dont le bénéfice absolu est le plus clair."),
-        p("L'ordre est le suivant. Le médecin écarte d'abord la maladie déjà constituée. Il calcule ensuite l'outil valide. Il corrige par les modificateurs. Il traduit en années ou en fréquences naturelles. Il décide avec la personne. Il ne commence pas par une ordonnance."),
+        p("L'ordre a une politesse clinique. On écarte d'abord la maladie déjà constituée. On calcule ensuite l'outil valide. On corrige par les modificateurs. On traduit en années ou en fréquences naturelles. On décide avec la personne. L'ordonnance, si elle vient, vient en dernier."),
         block("Fenêtre 11.A — But", "".join([
             p("Avant 50 ans, un risque à dix ans d'au moins 7,5 % justifie le traitement des facteurs, parce que l'ESC le relie à un risque vie entière haut."),
             p("En dessous, le but est de ne pas médicaliser une exposition que le mode de vie peut réduire, tout en n'effaçant pas l'exposition cumulée."),
@@ -214,23 +208,23 @@ def dx5():
         block("Fenêtre 11.B — Moyens", "".join([
             p("Mesures générales : arrêt du tabac, activité, alimentation, poids, et pression confirmée hors du cabinet. Elles viennent en premier parce qu'elles agissent sur plusieurs maladies qui engagent le pronostic, pas seulement sur le cœur."),
             p("Médicaments : les classes possibles sont un hypolipémiant, un antihypertenseur, et un aide à l'arrêt du tabac. La classe se choisit selon la catégorie de risque et les comorbidités. Aucune spécialité, aucune dose, aucun schéma n'est écrit ici, parce qu'aucune information professionnelle suisse n'a été ouverte."),
-            p("Le médecin dit au patient les effets qui comptent pour lui : douleurs musculaires sous statine, toux sous inhibiteur de l'enzyme de conversion, hypotension. Il vérifie ces effets dans l'information professionnelle au moment de la prescription réelle."),
+            p("On nomme les effets qui comptent dans une vie : douleurs musculaires sous statine, toux sous inhibiteur de l'enzyme de conversion, hypotension. Ces effets se vérifient dans l'information professionnelle, le jour de la prescription réelle."),
             p("Volet social : le travail de nuit, le revenu et la solitude changent l'observance. L'ESC donne un risque relatif d'environ 1,76 pour le bas revenu et la mortalité cardiovasculaire, avec un intervalle de 1,45 à 2,14. Ce chiffre ne se transforme pas en pourcentage individuel."),
             p("Aptitude : un traitement préventif n'interdit pas la conduite. L'alcool et la somnolence, traités aux autres DX, le peuvent."),
             p("Source : [S501], [S505]."),
         ])),
         block("Fenêtre 11.C — Forme compliquée, minute par minute", "".join([
             p("La complication de ce DX n'est pas le risque vie entière lui-même. C'est la découverte, pendant la consultation, d'une urgence que le score ne doit pas retarder."),
-            p("Minute 0 : douleur thoracique actuelle, déficit neurologique ou pression très élevée avec souffrance d'organe. Le médecin arrête le calcul et il traite l'urgence."),
+            p("Minute 0 : douleur thoracique actuelle, déficit neurologique ou pression très élevée avec souffrance d'organe. Le calcul s'arrête. L'urgence passe devant."),
             p("Heure 1 : si le symptôme a cédé et que l'examen est rassurant, il documente, il organise le bilan de la maladie suspectée, et il ne renvoie pas la personne avec un seul conseil de mode de vie."),
             p("Le lendemain : il reprend la prévention seulement lorsque l'urgence est écartée."),
         ])),
         block("Fenêtre 11.D — Situations spéciales, surveillance, sortie, pronostic", "".join([
-            p("Grossesse et allaitement : le médecin ne commence pas un hypolipémiant « parce que le risque vie entière est haut ». Il reporte la décision médicamenteuse et il agit sur le tabac et la pression selon les filières obstétricales. Les doses ne sont pas ici."),
+            p("Grossesse et allaitement : on ne commence pas un hypolipémiant « parce que le risque vie entière est haut ». La décision médicamenteuse se reporte. Le tabac et la pression se prennent en charge dans la filière obstétricale. Les doses ne sont pas ici."),
             p("Sujet âgé : l'horizon vie entière se raccourcit, et SCORE2-OP à partir de 70 ans intègre la mortalité concurrente. Un bénéfice qui demande de nombreuses années ne justifie pas d'ajouter un médicament à une personne fragile."),
             p("Enfant : ce DX ne se calcule pas avec SCORE2. Une histoire familiale lourde ou un LDL très élevé ouvre la voie du DX.10, pas un score d'adulte."),
             p("Foie et rein : une maladie hépatique active change le choix de l'hypolipémiant. Un DFGe inférieur à 30 mL/min/1,73 m² classe en risque très élevé sur la page AGLA, et les doses, non écrites ici, se réduisent selon l'information professionnelle."),
-            p("Surveillance : le médecin recalcule lorsque l'âge, le tabac ou le traitement change. Il ne répète pas un scanner pour « suivre » le risque vie entière."),
+            p("On recalcule lorsque l'âge, le tabac ou le traitement change. On ne répète pas un scanner pour « suivre » le risque vie entière."),
             p("Fin de consultation : la personne peut partir lorsqu'elle a compris l'outil, le chiffre ou son absence, les modificateurs, la décision, et le délai de revue. Un symptôme d'alerte non exploré retient la sortie."),
             p("Pronostic : il n'y a pas de guérison d'un risque. Il y a une exposition qui baisse. Aucun essai de 2026 n'a été ouvert aujourd'hui sur un nouveau seuil suisse."),
             p("Source : [S501], [S504], [S505]."),
@@ -243,11 +237,11 @@ def dx5():
         p("Le vaccin, le dépistage des cancers et le radon ne se déduisent pas du SCORE2. Ils appartiennent aux autres facteurs de ce SSP, notamment le DX.9."),
     ])))
     inner.append(point("13", "Points clés", "".join([
-        p("Le médecin nomme l'outil, parce qu'AGLA et SCORE2 ne prédisent pas le même événement."),
-        p("Il refuse de rassurer un adulte jeune sur le seul risque à dix ans."),
-        p("Il connaît les seuils avant 50 ans : moins de 2,5 %, de 2,5 % à moins de 7,5 %, et au moins 7,5 %."),
-        p("Il n'ouvre en général pas un hypolipémiant ni un antihypertenseur avant 40 ans, hors exception familiale ou tensionnelle."),
-        p("Il parle en risque absolu et en années gagnées, et il n'invente ni dose ni pourcentage non calculé."),
+        p("On nomme l'outil dans la même phrase que le pourcentage : AGLA et SCORE2 ne racontent pas le même événement."),
+        p("On refuse de rassurer un adulte jeune sur le seul risque à dix ans."),
+        p("Avant 50 ans, les seuils se récitent avec l'âge : moins de 2,5 %, de 2,5 % à moins de 7,5 %, au moins 7,5 %."),
+        p("Avant 40 ans, hypolipémiant et antihypertenseur restent l'exception, familiale ou tensionnelle. Le mode de vie occupe le reste."),
+        p("On parle en risque absolu et en années gagnées. Ni dose inventée, ni pourcentage deviné."),
     ])))
     inner.append(point("14", "Pièges et questions fréquentes à l'examen fédéral suisse", "".join([
         p("Piège : appliquer les anciennes bandes AGLA de 10 % et 20 % à tout âge. La page lue le 24.10.2026 stratifie par âge. Bonne réponse : utiliser les seuils de la tranche d'âge."),
@@ -257,31 +251,37 @@ def dx5():
         p("Question : une femme de 36 ans fume et sa pression est haute. Son risque à dix ans est bas. Que fait-on ? Réponse : mode de vie en priorité, recherche d'une exception, et pas de médicament par réflexe."),
     ])))
     inner.append(atelier())
-    inner.append(p("<strong>Question finale.</strong> Ces fenêtres permettent de choisir l'outil, de lire les seuils suisses et européens, et de ne pas médicaliser ni rassurer à tort. Elles ne remplacent pas le calcul réel ni l'information professionnelle au moment d'une ordonnance."))
+    inner.append(p("<strong>Question finale.</strong> Avec ces pages, on choisit l'outil juste, on lit le seuil de la bonne tranche d'âge, et l'on refuse aussi bien la médicalisation hâtive que la reassurance paresseuse. Le pourcentage individuel se saisit dans le calculateur. La dose, le jour venu, se lit dans l'information professionnelle, qui n'est pas ici."))
     summary = "DX.5 — Risque cardiovasculaire vie entière du sujet jeune" + badge(RANG5)
     return wrap_dx(summary, "".join(inner))
 
 
 def atelier():
     cases = [
-        ("Un homme de 38 ans fume encore.", "Sa pression de repos est élevée, et il n'a pas de diabète.", "SCORE2 ne couvre pas cet âge avec la même validité que la tranche 40 à 69 ans.", "L'ESC juge les prédictions imprécises avant 40 ans et il place le mode de vie au premier plan.", "Le médecin cherche une hypercholestérolémie familiale avant de conclure que tout va bien."),
+        ("Un homme de 38 ans fume encore.", "Sa pression de repos est élevée, et il n'a pas de diabète.", "SCORE2 ne couvre pas cet âge avec la même validité que la tranche 40 à 69 ans.", "L'ESC juge les prédictions imprécises avant 40 ans et il place le mode de vie au premier plan.", "Avant de conclure que tout va bien, on cherche une hypercholestérolémie familiale."),
         ("Une femme de 44 ans ne fume plus depuis un an.", "Le calcul SCORE2, saisi dans l'outil et non de mémoire, tombe sous 2,5 %.", "Avant 50 ans, ce résultat est faible à modéré.", "Un médicament n'est pas la suite automatique.", "Le bénéfice vie entière n'est discuté que s'il paraît substantiel."),
-        ("Un homme de 48 ans a un SCORE2 à 8 % en région suisse.", "Avant 50 ans, 7,5 % ou plus est un risque très élevé dans le texte ESC.", "Le traitement des facteurs est alors recommandé.", "Le médecin ne dit pas que le pourcentage est « seulement » un risque intermédiaire des anciennes bandes.", "Il vérifie qu'aucun symptôme ne fait sortir de la prévention primaire."),
-        ("Une femme de 52 ans a un SCORE2 à 6 %.", "Entre 50 et 69 ans, la page AGLA place le risque élevé entre 5 % et moins de 10 %.", "Le seuil n'est donc pas celui des moins de 50 ans.", "Le médecin cite la tranche d'âge en même temps que le chiffre.", "Il ajoute les modificateurs seulement parce que le résultat est près d'une décision."),
+        ("Un homme de 48 ans a un SCORE2 à 8 % en région suisse.", "Avant 50 ans, 7,5 % ou plus est un risque très élevé dans le texte ESC.", "Le traitement des facteurs est alors recommandé.", "On ne dit pas que ce pourcentage n'est « que » le risque intermédiaire des anciennes bandes.", "On vérifie qu'aucun symptôme ne fait sortir de la prévention primaire."),
+        ("Une femme de 52 ans a un SCORE2 à 6 %.", "Entre 50 et 69 ans, la page AGLA place le risque élevé entre 5 % et moins de 10 %.", "Le seuil n'est donc pas celui des moins de 50 ans.", "La tranche d'âge se cite dans la même phrase que le chiffre.", "Les modificateurs n'entrent que parce que le résultat est près d'une décision."),
         ("Un homme de 72 ans demande le même calcul que son fils.", "AGLA renvoie, à partir de 70 ans, vers SCORE2-OP.", "Le risque très élevé commence alors à 15 %, et le risque élevé à 7,5 %.", "Le bénéfice en années gagnées est plus court.", "La fragilité et les médicaments déjà pris entrent dans la décision."),
-        ("Une femme de 61 ans a un diabète de type 2 sans atteinte d'organe connue.", "Le calculateur des personnes saines ne s'applique pas.", "La page AGLA ouvre SCORE2-Diabète entre 40 et 69 ans.", "Si une atteinte sévère existe déjà, la catégorie très élevée est posée sans ce calcul.", "Le médecin lit la définition d'atteinte d'organe sur la page avant de rassurer."),
-        ("Un homme de 46 ans a un DFGe à 28 mL/min/1,73 m².", "La page AGLA classe la maladie rénale sévère en risque très élevé.", "Aucun SCORE2 de personne saine n'est nécessaire pour « adoucir » ce classement.", "Le médecin adapte les médicaments au rein au moment de la prescription, avec l'information professionnelle.", "Il n'invente pas la dose dans ce cours."),
+        ("Une femme de 61 ans a un diabète de type 2 sans atteinte d'organe connue.", "Le calculateur des personnes saines ne s'applique pas.", "La page AGLA ouvre SCORE2-Diabète entre 40 et 69 ans.", "Si une atteinte sévère existe déjà, la catégorie très élevée est posée sans ce calcul.", "La définition d'atteinte d'organe se lit sur la page avant toute reassurance."),
+        ("Un homme de 46 ans a un DFGe à 28 mL/min/1,73 m².", "La page AGLA classe la maladie rénale sévère en risque très élevé.", "Aucun SCORE2 de personne saine n'est nécessaire pour « adoucir » ce classement.", "Le jour de la prescription, les médicaments s'adaptent au rein, dans l'information professionnelle.", "Ce cours n'invente pas la dose."),
         ("Une femme de 33 ans a un LDL très élevé et un père infarctus à 48 ans.", "Le risque à dix ans sera mécaniquement bas.", "Cette constellation oriente vers l'hypercholestérolémie familiale, pas vers la reassurance.", "L'exception avant 40 ans existe précisément pour cette maladie et pour certains troubles tensionnels.", "Le DX.10 reprend le conseil génétique si un test est envisagé."),
         ("Un homme de 57 ans a déjà une artériopathie.", "Le score primaire ne se calcule plus.", "La prévention devient secondaire.", "Intensifier les facteurs se discute avec la préférence et la fragilité, selon l'ESC.", "Un chiffre de personne saine serait une erreur de catégorie."),
         ("Une femme enceinte de 30 ans demande un « bilan de risque complet avec scanner ».", "Le risque vie entière ne se règle pas par un scanner.", "L'irradiation et les médicaments se reportent.", "Le tabac et la pression se prennent en charge dans la filière de grossesse.", "Aucune dose n'est écrite ici."),
-        ("Un homme de 49 ans apporte un risque calculé avec un modèle américain.", "L'ESC et l'AGLA fournissent les outils valables pour cette consultation suisse.", "Le médecin refait le calcul avec SCORE2 en région à faible risque ou avec AGLA.", "Il n'additionne pas les deux pourcentages.", "Il explique la différence d'événement prédit."),
-        ("Une femme de 66 ans a un risque SCORE2 juste sous le seuil de sa tranche.", "Les modificateurs peuvent encore changer la décision, parce que le résultat est proche du seuil.", "Un modificateur favorable doit pouvoir abaisser le risque, et pas seulement l'élever.", "L'ESC insiste sur cette symétrie.", "Le médecin ne collectionne pas les modificateurs si le risque est déjà très haut ou très bas."),
+        ("Un homme de 49 ans apporte un risque calculé avec un modèle américain.", "L'ESC et l'AGLA fournissent les outils valables pour cette consultation suisse.", "On refait le calcul avec SCORE2 en région à faible risque, ou avec AGLA.", "Les deux pourcentages ne s'additionnent pas.", "On explique la différence d'événement prédit."),
+        ("Une femme de 66 ans a un risque SCORE2 juste sous le seuil de sa tranche.", "Les modificateurs peuvent encore changer la décision, parce que le résultat est proche du seuil.", "Un modificateur favorable doit pouvoir abaisser le risque, et pas seulement l'élever.", "L'ESC insiste sur cette symétrie.", "Loin de tout seuil, très haut ou très bas, on ne collectionne pas les modificateurs."),
+    ]
+    chutes = [
+        "Lorsque les lipides ne sont pas sous les yeux, le pourcentage individuel se saisit dans l'outil. Il ne se devine pas.",
+        "Un chiffre manquant ne se reconstitue pas de mémoire. Le calculateur, ouvert, reste le seul endroit où il naît.",
+        "Ce cas enseigne une catégorie. Il n'autorise pas à inventer le pourcentage d'une personne dont le bilan n'est pas là.",
+        "On s'arrête sur ce que les pages donnent. Le reste attend la saisie réelle, pas l'élégance d'une copie.",
     ]
     blocks = []
     for i, (a, b, c, d, f) in enumerate(cases, 1):
         blocks.append(block(
-            f"Atelier {i} — cas chiffré sans pourcentage inventé",
-            "".join([p(a), p(b), p(c), p(d), p(f), p("Le pourcentage individuel, lorsqu'il dépend de lipides non donnés ici, se saisit dans l'outil. Il ne se devine pas.")]),
+            f"Consultation {i}",
+            "".join([p(a), p(b), p(c), p(d), p(f), p(chutes[(i - 1) % len(chutes)])]),
         ))
     return "<div style='margin:16px 0 10px;'><strong>Atelier — douze consultations</strong><br>" + "".join(blocks) + "</div>"
 
@@ -297,8 +297,8 @@ def dx6():
     )
     parts = []
     parts.append(point("1", "Définition et sémantique", "".join([
-        p(f"Le {term} n'est pas un diagnostic d'angor, et il n'est pas un dépistage de masse."),
-        p("Il quantifie le calcium des artères coronaires sur un scanner sans injection. Le nombre d'Agatston est l'unité historique de cette mesure. L'ESC 2021 ouvert aujourd'hui ne fixe pas un seuil unique, du type 100, pour reclasser."),
+        p(f"Le {term} ne diagnostique pas un angor, et il ne se propose pas comme une revue de troupe de tous les cinquantenaires."),
+        p("Il compte le calcium des artères coronaires sur un scanner sans injection. L'unité historique s'appelle l'Agatston. Le texte ESC 2021 ouvert ce jour ne grave aucun seuil unique, du genre 100, pour faire monter ou descendre quelqu'un de catégorie."),
         p("La page de l'EAS, lue le même jour, affiche une ligne de classe IIa pour l'athérome infraclinique ou un score calcique augmenté, comme modificateur."),
         p("Les deux textes ne sont pas copiés l'un sur l'autre. Le cours suit la classe IIb du guide de prévention 2021, et il signale l'écart de la page EAS sans le transformer en nouvelle règle."),
     ])))
@@ -322,8 +322,8 @@ def dx6():
         ),
     ])))
     parts.append(point("4", "Démarche diagnostique", "".join([
-        p("Avant le scanner, le médecin classe le risque par AGLA ou SCORE2 et il vérifie que la décision hésite vraiment."),
-        p("Il exclut d'abord la maladie déjà symptomatique, le risque déjà très élevé et le risque déjà très bas sans modificateur, parce que le résultat ne changerait pas la conduite."),
+        p("Avant le scanner, le risque se classe par AGLA ou SCORE2. On vérifie que la décision hésite vraiment : sinon l'image ne sert à rien."),
+        p("La maladie déjà symptomatique, le risque déjà très élevé et le risque déjà très bas sans modificateur sortent du champ. Le résultat n'y changerait pas la conduite."),
         table(
             ["Situation", "Examen qui tranche", "Piège"],
             [
@@ -335,31 +335,28 @@ def dx6():
         ),
     ])))
     parts.append(point("5", "Anamnèse ciblée et drapeaux rouges", "".join([
-        p("Le médecin demande les symptômes, parce qu'un score de personne asymptomatique ne s'applique pas à une douleur."),
-        p("Il demande le tabac, le diabète et l'histoire familiale, parce que le zéro calcique est moins rassurant lorsque ces facteurs existent. L'ESC ne donne pas la liste d'exclusion américaine. Il dit seulement que le zéro peut manquer une plaque molle."),
-        p("Il demande si la personne peut rester allongée et si elle est enceinte, parce que le scanner irradie."),
-        p("Drapeau rouge : douleur actuelle, dyspnée d'effort nouvelle, ou syncope. Le calculateur s'arrête."),
+        p("Les symptômes se demandent d'abord. Un score de personne asymptomatique ne s'applique pas à une douleur."),
+        p("Le tabac, le diabète et l'histoire familiale viennent ensuite. Le zéro calcique rassure moins lorsque ces facteurs existent. L'ESC ne donne pas la liste d'exclusion américaine. Il dit seulement que le zéro peut manquer une plaque molle."),
+        p("On demande si la personne peut rester allongée, et si elle est enceinte : le scanner irradie."),
+        p("Douleur actuelle, dyspnée d'effort nouvelle ou syncope : le calculateur s'arrête."),
     ])))
     parts.append(point("6", "Examen physique ciblé, région par région", "".join([
         p("L'examen normal précède le scanner. Une auscultation sans souffle et des pouls présents n'excluent pas le calcium coronaire."),
-        p("Le médecin prend la pression et il cherche les signes d'artériopathie, parce qu'ils peuvent classer la personne sans imagerie."),
-        p("Il n'y a pas de manœuvre au lit qui mesure le score d'Agatston. Promettre le contraire est une erreur."),
+        p("La pression se mesure, les signes d'artériopathie se cherchent : ils peuvent classer la personne sans aucune image."),
+        p("Aucune manœuvre au lit ne mesure le score d'Agatston. Le promettre serait une erreur."),
     ])))
     parts.append(point("7", "Approche syndromique", "".join([
         block("7.1 Zone grise asymptomatique", "".join([
-            p("Signes fonctionnels : aucun symptôme ischémique."),
-            p("Signes physiques : examen sans signe d'artériopathie constituée."),
-            p("Mécanisme : les facteurs placent le risque près d'un seuil, et le calcium peut départager."),
+            p("Rien ne serre la poitrine, rien ne claudique, et l'examen ne trouve pas d'artère déjà malade. Les facteurs, pourtant, posent le risque juste à côté d'un seuil."),
+            p("C'est là, et seulement là, que le calcium peut départager. Ailleurs, l'image ne change pas la main."),
         ])),
         block("7.2 Zéro faussement blanc", "".join([
-            p("Signes fonctionnels : le patient dit qu'on lui a promis un cœur normal."),
-            p("Signes physiques : il peut fumer ou avoir un LDL haut."),
-            p("Mécanisme : la plaque molle n'est pas calcaire. Le zéro ne la voit pas."),
+            p("On lui a promis un cœur normal parce que le compteur affichait zéro. Il fume encore, ou son LDL reste haut."),
+            p("La plaque jeune, grasse et non calcaire, échappe à ce compteur. Le zéro n'est pas un acquittement."),
         ])),
         block("7.3 Douleur que l'on déguise en prévention", "".join([
-            p("Signes fonctionnels : oppression à l'effort."),
-            p("Signes physiques : parfois aucun, au repos."),
-            p("Mécanisme : la sténose et l'ischémie ne se lisent pas sur le calcium. La filière diagnostique de la douleur s'ouvre."),
+            p("L'oppression vient à la marche. Au repos, le thorax peut être muet. Le calcium ne voit ni la sténose ni l'ischémie."),
+            p("Cette consultation quitte la prévention et entre, le jour même, dans la filière de la douleur."),
         ])),
     ])))
     parts.append(point("8", "Diagnostic positif et critères", "".join([
@@ -386,23 +383,23 @@ def dx6():
         p("Allergie à l'iode : elle concerne le scanner injecté, pas le score sans injection. Un pacemaker n'interdit pas, à lui seul, un scanner non injecté du calcium. La page lue ne détaille pas les incompatibilités d'appareil."),
     ])))
     parts.append(point("10", "Arbre décisionnel", "".join([
-        p("Si la personne a une douleur d'effort, le médecin ouvre la filière clinique et il ne coche pas un score de prévention."),
-        p("Si la catégorie est déjà très élevée ou déjà basse et stable, il n'ajoute pas le scanner."),
-        p("Si la catégorie est au seuil, chez une personne asymptomatique, il peut envisager le score, classe IIb, après avoir dit l'irradiation et l'incertitude sur la plaque molle."),
-        p("Si le score est impossible, il peut envisager la plaque carotidienne, et il ne mesure pas l'intima-média pour décider."),
-        p("Si le résultat est plus haut ou plus bas que l'attendu, il monte ou il baisse le risque calculé, puis il rediscute. Il ne livre pas le nombre d'Agatston seul."),
+        p("Une douleur d'effort ouvre la filière clinique. Elle ne se coche pas comme un score de prévention."),
+        p("Une catégorie déjà très élevée, ou déjà basse et stable, n'a pas besoin du scanner."),
+        p("Au seuil, chez une personne asymptomatique, le score peut s'envisager, classe IIb, après que l'irradiation et l'incertitude sur la plaque molle ont été dites."),
+        p("Si le score est impossible, la plaque carotidienne peut s'envisager. L'intima-média isolée ne décide pas."),
+        p("Un calcium plus haut ou plus bas que l'attendu monte ou baisse le risque calculé, puis la discussion reprend. Le nombre d'Agatston ne se livre pas seul."),
     ])))
     parts.append(point("11", "Prise en charge selon les recommandations suisses", "".join([
         p("Le but du score est une meilleure décision, pas une image. Si l'image ne peut pas changer l'ordonnance ou le mode de vie, elle ne se demande pas."),
         p("L'ordre est clinique, puis calculateur, puis seulement ensuite le scanner."),
         block("Urgence chronologique", "".join([
-            p("Minute 0 : douleur persistante, malaise ou signe neurologique. Le médecin n'envoie pas au score calcique."),
+            p("Minute 0 : douleur persistante, malaise ou signe neurologique. Personne ne part vers un score calcique."),
             p("Heure 1 : il sécurise la filière d'urgence habituelle."),
             p("Plus tard : le score de prévention ne se rattrape qu'une fois la personne asymptomatique et la décision vraiment indécise."),
         ])),
         p("Moyens non médicamenteux : expliquer le zéro, le tabac, l'activité. Moyens médicamenteux : ceux de la catégorie de risque enfin reclassée. Aucune dose n'est écrite."),
         p("Grossesse : pas de scanner. Sujet âgé : le calcium est fréquent, et la comparaison à l'âge devient indispensable pour ne pas tout classer en maladie. Enfant : examen hors sujet. Foie et rein : le produit iodé n'est pas nécessaire pour le score sans injection. La fonction rénale compte si l'on glisse vers un scanner injecté."),
-        p("Surveillance : l'ESC lu aujourd'hui ne fixe pas un délai suisse de répétition. Le médecin ne reprend pas l'examen chaque année par habitude."),
+        p("L'ESC lu aujourd'hui ne fixe pas un délai suisse de répétition. L'examen ne se reprend pas chaque année par habitude."),
         p("Sortie : la personne part avec une phrase claire. Soit l'examen n'est pas indiqué. Soit il est indiqué, avec son but. Soit le résultat a changé la catégorie, et la suite est nommée."),
         p("Pronostic : un zéro associé à un risque bas prédit moins d'événements que le calcul seul, dans le texte ESC, sans que ce cours recopie un pourcentage d'étude américaine."),
     ])))
@@ -410,11 +407,11 @@ def dx6():
         p("Primaire : le score n'est pas un dépistage organisé. Secondaire : la maladie établie n'a pas besoin de lui pour être crue. Tertiaire : après un infarctus, la réadaptation ne passe pas par un score de calcium de routine."),
     ])))
     parts.append(point("13", "Points clés", "".join([
-        p("Le médecin réserve le score au voisinage d'un seuil, chez une personne asymptomatique."),
-        p("Il compare le résultat à l'âge et au sexe, et il ne récite pas un seuil américain de 100."),
-        p("Il se souvient que zéro n'exclut pas une plaque molle."),
-        p("Il connaît la classe IIb de l'ESC 2021, et il sait que la page EAS affiche une classe IIa qu'il ne substitue pas sans texte complet."),
-        p("Il n'utilise pas l'intima-média isolée, et il n'utilise pas le score pour classer un diabète de type 2 selon la page AGLA."),
+        p("Le score reste au voisinage d'un seuil, chez une personne qui ne se plaint de rien."),
+        p("Le résultat se compare à l'âge et au sexe. Le seuil américain de 100 ne se récite pas."),
+        p("Zéro n'exclut pas une plaque molle."),
+        p("Dans le guide de prévention 2021, la classe est IIb. La page EAS affiche un IIa : on le signale, on ne le substitue pas sans texte complet."),
+        p("L'intima-média isolée ne décide pas. Le score ne classe pas un diabète de type 2 : la page AGLA le dit."),
     ])))
     parts.append(point("14", "Pièges et questions fréquentes à l'examen fédéral suisse", "".join([
         p("Piège : scanner de tout homme de 50 ans. Bonne réponse : seulement si la décision hésite."),
@@ -423,7 +420,7 @@ def dx6():
         p("Piège : mesurer l'intima-média pour reclasser. Bonne réponse : plaque carotidienne définie, ou score calcique."),
         p("Question : quelle classe dans le guide de prévention 2021 ? Réponse : IIb, niveau B."),
     ])))
-    parts.append(p("<strong>Question finale.</strong> Le candidat sait quand ne pas demander l'examen, comment lire un résultat sans seuil américain, et comment ne pas manquer une douleur. Il prescrit encore la dose réelle dans l'information professionnelle, hors de ce texte."))
+    parts.append(p("<strong>Question finale.</strong> On sait désormais refuser le scanner inutile, lire un calcium sans le seuil américain de 100, et ne pas laisser une douleur d'effort se déguiser en prévention. La dose d'un médicament, si la catégorie l'exige ensuite, reste dans l'information professionnelle."))
     return wrap_dx("DX.6 — Score calcique coronaire comme modificateur de risque" + badge(RANG6), "".join(parts))
 
 
@@ -438,7 +435,7 @@ def dx7():
     )
     parts = []
     parts.append(point("1", "Définition et sémantique", "".join([
-        p(f"La {term} n'est pas synonyme d'alcoolodépendance."),
+        p(f"La {term} n'est pas l'alcoolodépendance. L'une se compte en verres et en grammes. L'autre se reconnaît à la liberté perdue."),
         p("Le risque chronique moyen va, par jour, de 20 à 40 g d'alcool pur chez la femme, soit 2 à 4 verres standard, et de 40 à 60 g chez l'homme, soit 4 à 6 verres."),
         p("Le risque chronique élevé dépasse 40 g chez la femme, soit plus de 4 verres, et 60 g chez l'homme, soit plus de 6 verres."),
         p("La lecture du texte Obsan donne 10 g par verre standard, puisque 20 g correspondent à 2 verres. Ce n'est pas une nouvelle norme inventée."),
@@ -470,8 +467,8 @@ def dx7():
         ),
     ])))
     parts.append(point("4", "Démarche diagnostique", "".join([
-        p("Le médecin cherche d'abord le danger immédiat : trauma, agitation, idée suicidaire, grossesse exposée, conduite imminente."),
-        p("Il distingue ensuite l'épisode, le risque chronique et la dépendance, parce que les conduites diffèrent."),
+        p("Le danger immédiat passe devant toute pédagogie : trauma, agitation, idée suicidaire, grossesse exposée, conduite imminente."),
+        p("Ensuite seulement, on sépare l'épisode, le risque chronique et la dépendance. Les conduites ne sont pas les mêmes."),
         table(
             ["Hypothèse", "Ce qui tranche", "Piège"],
             [
@@ -483,16 +480,16 @@ def dx7():
         ),
     ])))
     parts.append(point("5", "Anamnèse ciblée et drapeaux rouges", "".join([
-        p("Le médecin demande la quantité sur une semaine ordinaire et la quantité sur une occasion, parce que les deux seuils suisses ne se recouvrent pas."),
-        p("Il demande la grossesse, l'allaitement, la conduite, le travail à risque et les médicaments sédatifs, parce que l'OFSP compte ces situations comme inappropriées même à plus faible dose."),
-        p("Il demande le sevrage : tremblement matinal, sueurs, crise comitiale. Ces signes imposent une filière de sevrage, et non un conseil différé."),
-        p("Drapeaux : idée suicidaire, violence, vomissements sanglants, jaunisse, confusion."),
+        p("Deux quantités se demandent, parce que les deux seuils suisses ne se recouvrent pas : celle d'une semaine ordinaire, et celle d'une seule occasion."),
+        p("Grossesse, allaitement, conduite, travail à risque, médicaments sédatifs : l'OFSP compte ces situations comme inappropriées, même à plus faible dose."),
+        p("Le sevrage se cherche sans détour : tremblement matinal, sueurs, crise comitiale. Ces signes ouvrent une filière, pas un conseil différé."),
+        p("Idée suicidaire, violence, vomissements sanglants, jaunisse, confusion : la conversation pédagogique s'interrompt."),
     ])))
     parts.append(point("6", "Examen physique ciblé, région par région", "".join([
-        p("Le normal existe : une personne peut boire au-dessus du seuil et n'avoir encore aucun signe. L'absence de signe ne innocente pas la quantité."),
-        p("Le médecin cherche l'haleine, la coordination, les tremblements et les stigmates hépatiques, après avoir regardé l'état général."),
-        p("Il palpe l'abdomen et il cherche une ascite ou une hépatomégalie, parce que ces signes déplacent la personne vers la maladie constituée."),
-        p("Il inspecte les traumatismes, parce que l'épisode massif tue d'abord par la blessure."),
+        p("Le normal existe, et il trompe. Une personne peut boire au-dessus du seuil et n'avoir encore aucun signe. L'absence de signe n'innocente pas la quantité."),
+        p("Après l'état général, on cherche l'haleine, la coordination, les tremblements et les stigmates hépatiques."),
+        p("L'abdomen se palpe. Une ascite ou une hépatomégalie déplace la personne vers la maladie constituée."),
+        p("Les traumatismes s'inspectent. L'épisode massif tue d'abord par la blessure."),
         block("Technique", "".join([
             p("Le tremblement de sevrage se cherche mains tendues, au repos, le matin ou à distance du dernier verre."),
             p("L'astérixis se cherche poignets en extension, et il oriente vers l'encéphalopathie, pas vers une simple ivresse."),
@@ -501,19 +498,16 @@ def dx7():
     ])))
     parts.append(point("7", "Approche syndromique", "".join([
         block("7.1 Épisode du week-end", "".join([
-            p("Signes fonctionnels : quantité brève, amnésie, regret."),
-            p("Signes physiques : souvent aucun le lundi."),
-            p("Mécanisme : toxicité aiguë et trauma, plus que cirrhose."),
+            p("La quantité a été brève, la mémoire a des trous, le regret est là le lundi. Le corps, lui, peut ne plus rien montrer."),
+            p("Ce qui a menacé, c'est la toxicité aiguë et le trauma, bien avant la cirrhose. L'absence de signe le lendemain ne blanchit pas le samedi."),
         ])),
         block("7.2 Usage quotidien du sujet âgé", "".join([
-            p("Signes fonctionnels : verre quotidien, chutes, sommeil fractionné."),
-            p("Signes physiques : tremblement fin, hygiène qui se dégrade."),
-            p("Mécanisme : le cerveau âgé et les médicaments abaissent la tolérance. 21,4 % des plus de 65 ans boivent chaque jour."),
+            p("Un verre chaque soir, des chutes, un sommeil en morceaux. Le tremblement est fin, l'hygiène se défait sans bruit."),
+            p("Le cerveau âgé et les médicaments abaissent la tolérance. En Suisse, 21,4 % des plus de 65 ans boivent chaque jour : la scène est banale, et c'est précisément pour cela qu'elle se rate."),
         ])),
         block("7.3 Maladie hépatique", "".join([
-            p("Signes fonctionnels : fatigue, ventre qui gonfle."),
-            p("Signes physiques : ictère, angiomes, ascite."),
-            p("Mécanisme : fibrose puis hypertension portale. L'arrêt reste utile, et la filière hépatologique s'ouvre."),
+            p("La fatigue s'installe, le ventre gonfle. L'ictère, les angiomes et l'ascite disent que la fibrose a déjà ouvert la voie à l'hypertension portale."),
+            p("L'arrêt reste utile. La filière hépatologique s'ouvre, et un conseil de modération ne suffit plus."),
         ])),
     ])))
     parts.append(point("8", "Diagnostic positif et critères", "".join([
@@ -524,7 +518,7 @@ def dx7():
     ])))
     parts.append(point("9", "Examens complémentaires", "".join([
         p("Il n'existe pas de gold standard biologique de la consommation déclarée. L'entretien structuré reste premier."),
-        p("En première intention, si la clinique hépatique ou le dépassement chronique est là, le médecin demande les enzymes, la bilirubine et la numération, pour voir le retentissement et non pour « prouver » les verres."),
+        p("En première intention, si la clinique hépatique ou le dépassement chronique est là, on demande les enzymes, la bilirubine et la numération, pour voir le retentissement et non pour « prouver » les verres."),
         p("Un résultat normal n'innocente pas. Un gamma-GT élevé n'est pas spécifique."),
         table(
             ["Résultat", "Lecture", "Conduite"],
@@ -538,11 +532,11 @@ def dx7():
         p("Le scanner et la biopsie ne sont pas des examens de première intention d'un repérage. Ils viennent avec une maladie d'organe."),
     ])))
     parts.append(point("10", "Arbre décisionnel", "".join([
-        p("Si la personne est instable, blessée, suicidaire ou sur le point de conduire, le médecin sécurise avant de conseiller."),
-        p("Si elle est stable et au-dessus du seuil sans dépendance, il fait l'intervention brève, il fixe un objectif de verres, et il revoit."),
-        p("Si la dépendance ou le sevrage est présent, il oriente vers une filière compétente et il ne se contente pas d'un dépliant."),
-        p("Si une grossesse est en cours, il annonce l'arrêt comme objectif et il accompagne."),
-        p("S'il est tenté de dire qu'un verre protège le cœur, il s'arrête. La page OFSP ne retient pas ce bénéfice."),
+        p("Instable, blessée, suicidaire ou sur le point de conduire : on sécurise avant de conseiller."),
+        p("Stable, au-dessus du seuil, sans dépendance : l'intervention brève, un objectif de verres, une date de revue."),
+        p("Dépendance ou sevrage : une filière compétente. Un dépliant ne suffit pas."),
+        p("Grossesse en cours : l'arrêt devient l'objectif, et l'accompagnement vient avec."),
+        p("La tentation de dire qu'un verre protège le cœur s'arrête là. La page OFSP ne retient pas ce bénéfice."),
     ])))
     parts.append(point("11", "Prise en charge selon les recommandations suisses", "".join([
         p("Le but est de faire descendre la consommation sous les seuils de risque, et de viser l'arrêt lorsqu'il y a dépendance, grossesse, ou maladie d'organe."),
@@ -550,7 +544,7 @@ def dx7():
         block("Urgence", "".join([
             p("Minute 0 : conscience, glycémie, protection des voies aériennes, trauma."),
             p("Heure 1 : le sevrage sévère, la crise ou le délirium ne se renvoient pas au lendemain avec une brochure."),
-            p("Le médecin ne donne pas ici de schéma de benzodiazépine, faute d'information professionnelle ouverte."),
+            p("Aucun schéma de benzodiazépine n'est écrit ici : l'information professionnelle n'a pas été ouverte."),
         ])),
         p("Moyens non médicamenteux : intervention brève, journal de verres, entourage, groupes, arrêt de la conduite tant que l'alcoolémie n'est pas compatible avec la route. Le seuil légal suisse de l'air expiré n'a pas été relu sur Fedlex aujourd'hui : il n'est pas inventé."),
         p("Classes possibles, sans dose : accompagnement du sevrage en milieu adapté, et médicaments de maintien de l'abstinence ou de la réduction autorisés en Suisse. Le nom commercial et la dose attendent l'information professionnelle."),
@@ -566,11 +560,11 @@ def dx7():
         p("Tertiaire : après une cirrhose, un cancer ou un accident, l'arrêt prévient la récidive et le deuxième trauma."),
     ])))
     parts.append(point("13", "Points clés", "".join([
-        p("Le médecin connaît 16,4 % en 2022, les seuils en grammes, et les 4 et 5 verres de l'épisode."),
-        p("Il sépare l'épisode, le risque chronique et la dépendance."),
-        p("Il ne vend pas le verre cardioprotecteur."),
-        p("Il cite 1 553 décès en 2017 entre 15 et 74 ans, sans les transformer en incidence actuelle inventée."),
-        p("Il ne prescrit aucune dose tant que l'information professionnelle n'est pas ouverte."),
+        p("16,4 % en 2022, les seuils en grammes, et les 4 et 5 verres de l'épisode : ces trois repères tiennent dans la même mémoire."),
+        p("L'épisode, le risque chronique et la dépendance ne se confondent pas."),
+        p("Le verre « bon pour le cœur » ne se vend pas."),
+        p("1 553 décès en 2017, entre 15 et 74 ans : le chiffre reste daté. Il ne devient pas une incidence de cette année."),
+        p("Aucune dose ne s'écrit tant que l'information professionnelle n'est pas ouverte."),
     ])))
     parts.append(point("14", "Pièges et questions fréquentes à l'examen fédéral suisse", "".join([
         p("Piège : un verre de vin protège le cœur. Bonne réponse : l'OFSP ne retient pas ce bénéfice."),
@@ -579,7 +573,7 @@ def dx7():
         p("Piège : donner une dose de naltrexone ou d'acamprosate de mémoire. Bonne réponse : information professionnelle suisse, non ouverte ici."),
         p("Question : que répond-on à un homme de 22 ans qui boit 6 verres chaque samedi ? Réponse : c'est un épisode à risque, fréquent dans sa tranche d'âge, et l'intervention brève commence maintenant."),
     ])))
-    parts.append(p("<strong>Question finale.</strong> Le candidat dépiste, quantifie en verres suisses, sécurise l'urgence et n'invente ni bénéfice cardiovasculaire ni dose."))
+    parts.append(p("<strong>Question finale.</strong> On dépiste sans attendre qu'on nous le demande, on compte en verres suisses et en grammes, on sécurise d'abord l'ivresse, la route et l'idée de mort, et l'on ne vend ni un verre cardioprotecteur ni une dose apprise par cœur."))
     return wrap_dx("DX.7 — Alcool : risque, épisode et dépendance" + badge(BADGE7), "".join(parts))
 
 
@@ -594,7 +588,7 @@ def dx8():
     )
     parts = []
     parts.append(point("1", "Définition et sémantique", "".join([
-        p(f"Le {term} n'est pas un score, et il n'est pas une faiblesse morale."),
+        p(f"Le {term} n'est ni une case de SCORE2 ni une faiblesse de caractère. C'est une charge, biologique et sociale, que le calculateur laisse à la porte."),
         p("L'ESC distingue le symptôme psychique, le stresseur, et le statut socio-économique. Le revenu bas porte l'association la plus forte avec la mortalité cardiovasculaire, avec un risque relatif de 1,76 et un intervalle de 1,45 à 2,14."),
         p("Le strain professionnel est la combinaison d'exigences hautes et de contrôle bas, à laquelle s'ajoute le déséquilibre effort-récompense."),
         p("Ces éléments ne sont pas des variables de SCORE2. Les ignorer parce qu'ils ne sont pas dans le calculateur est le piège de ce DX."),
@@ -619,8 +613,8 @@ def dx8():
         ),
     ])))
     parts.append(point("4", "Démarche diagnostique", "".join([
-        p("Le médecin exclut d'abord l'urgence psychiatrique et l'urgence coronaire, parce que les deux peuvent se présenter comme une oppression thoracique."),
-        p("Il cherche ensuite un trouble psychique constitué, puis un stresseur sans trouble, puis un simple modificateur vasculaire."),
+        p("L'urgence psychiatrique et l'urgence coronaire s'écartent d'abord. Les deux peuvent se présenter comme une oppression thoracique, et les confondre coûte une vie."),
+        p("Vient ensuite un trouble psychique constitué, puis un stresseur sans trouble, puis un simple modificateur vasculaire. L'ordre empêche de sauter à la dernière case."),
         table(
             ["Hypothèse grave", "Ce qui tranche", "Piège"],
             [
@@ -634,37 +628,34 @@ def dx8():
     parts.append(point("5", "Anamnèse ciblée et drapeaux rouges", "".join([
         p("L'ESC propose une question simple : la personne est-elle gênée par le stress au travail, les problèmes d'argent, les difficultés familiales, la solitude ou un événement ?"),
         p("Cette question a une raison : ces stresseurs portent un risque relatif du même ordre que plusieurs facteurs biologiques, et ils expliquent l'échec d'un plan trop technique."),
-        p("Le médecin demande ensuite l'humeur et l'idée de mort, parce que le modificateur vasculaire ne doit pas cacher une crise."),
+        p("L'humeur et l'idée de mort se demandent ensuite, à voix claire. Le modificateur vasculaire ne doit pas cacher une crise."),
         p("Drapeaux : idée suicidaire, violence subie, douleur thoracique actuelle, sevrage ou alcool massif associé au DX.7."),
     ])))
     parts.append(point("6", "Examen physique ciblé, région par région", "".join([
         p("L'examen normal d'une personne anxieuse est un thorax souple, une pression parfois haute, et un cœur rapide qui ralentit au repos."),
         p("Le pathologique vasculaire se cherche quand même : pression aux deux bras, pouls, souffle, œdème. Le stress ne donne pas un permis de sauter l'examen."),
-        p("Le médecin observe le contact, le ralentissement et l'agitation, parce que ces signes orientent vers un trouble de l'humeur plutôt que vers un simple modificateur."),
+        p("Le contact, le ralentissement et l'agitation s'observent. Ils orientent vers un trouble de l'humeur, pas vers un simple modificateur de score."),
         p("Il n'existe pas de signe physique qui mesure le risque relatif de 1,2 à 2,0."),
     ])))
     parts.append(point("7", "Approche syndromique", "".join([
         block("7.1 Oppression et anxiété", "".join([
-            p("Signes fonctionnels : serrement, soupirs, peur de mourir."),
-            p("Signes physiques : tachycardie, thorax normal, électrocardiogramme à discuter si le doute ischémique existe."),
-            p("Mécanisme : le symptôme corporel est fréquent dans le trouble psychique, et il peut coexister avec une plaque."),
+            p("Le thorax se serre, les soupirs se succèdent, la peur de mourir est dite. Le cœur est rapide, le thorax souple, et l'électrocardiogramme se discute dès que le doute ischémique existe."),
+            p("Le symptôme corporel est fréquent dans le trouble psychique. Il peut coexister avec une plaque. Choisir un seul des deux diagnostics, c'est déjà se tromper."),
         ])),
         block("7.2 Épuisement au travail", "".join([
-            p("Signes fonctionnels : exigences hautes, contrôle bas, sommeil cassé."),
-            p("Signes physiques : souvent pauvres."),
-            p("Mécanisme : le strain est un stresseur vasculaire dans le texte ESC, distinct du burnout comme maladie administrative."),
+            p("Les exigences sont hautes, le contrôle est bas, le sommeil est cassé. Le corps, souvent, ne montre presque rien."),
+            p("Dans le texte ESC, ce strain est un stresseur vasculaire. Il ne se confond pas avec le burnout entendu comme une étiquette administrative."),
         ])),
         block("7.3 Isolement du sujet âgé", "".join([
-            p("Signes fonctionnels : repas seul, ordonnance non prise."),
-            p("Signes physiques : hygiène, poids, pression non suivie."),
-            p("Mécanisme : la solitude est un stresseur, et elle casse l'observance."),
+            p("Les repas se prennent seul, l'ordonnance reste dans la boîte. L'hygiène se défait, le poids bouge, la pression n'est plus suivie."),
+            p("La solitude est un stresseur, et elle casse l'observance. La traiter comme un détail de caractère rate les deux maladies à la fois."),
         ])),
     ])))
     parts.append(point("8", "Diagnostic positif et critères", "".join([
         p("Il n'y a pas de score suisse obligatoire qui « positive » ce modificateur."),
         p("L'ESC recommande des instruments de repérage de la dépression, de l'anxiété et de l'insomnie, et il cite en exemple le Patient Health Questionnaire. Le seuil chiffré de ce questionnaire n'a pas été relu dans sa notice aujourd'hui : il n'est pas inventé."),
         p("Un stresseur nommé par la personne suffit pour adapter le plan. Il ne suffit pas pour multiplier le SCORE2 par un coefficient."),
-        p("Seul l'épuisement vital est présenté par l'ESC comme ayant amélioré la reclassification. Le médecin ne prétend pas la même performance pour chaque contrariété."),
+        p("Seul l'épuisement vital est présenté par l'ESC comme ayant amélioré la reclassification. Chaque contrariété ne reçoit pas la même performance mathématique."),
     ])))
     parts.append(point("9", "Examens complémentaires", "".join([
         p("Le gold standard est clinique. Aucune prise de sang ne mesure le stress utilement pour reclasser."),
@@ -682,17 +673,17 @@ def dx8():
         ),
     ])))
     parts.append(point("10", "Arbre décisionnel", "".join([
-        p("Si une idée suicidaire ou une douleur ischémique est présente, cette urgence passe avant le modificateur."),
-        p("Si un trouble psychique est probable, le médecin le fait soigner et il maintient la prévention vasculaire."),
-        p("Si seul un stresseur est présent et que le risque vasculaire est près d'un seuil, il en tient compte dans la décision partagée, sans coefficient magique."),
-        p("Si le risque est déjà très haut ou très bas, il ne collectionne pas le stress pour changer un chiffre, mais il le traite quand même s'il fait souffrir."),
+        p("Une idée suicidaire ou une douleur ischémique passe avant le modificateur. Le chiffre attend."),
+        p("Un trouble psychique probable se soigne, et la prévention vasculaire ne se met pas en pause pendant ce soin."),
+        p("Un stresseur seul, près d'un seuil vasculaire, entre dans la décision partagée. Il n'apporte aucun coefficient magique."),
+        p("Très haut ou très bas, le stress ne se collectionne pas pour changer un chiffre. S'il fait souffrir, il se traite quand même."),
     ])))
     parts.append(point("11", "Prise en charge selon les recommandations suisses", "".join([
         p("Le but est double : réduire la souffrance psychique, et ne pas laisser les facteurs vasculaires dériver pendant cette souffrance."),
         p("L'ordre est la sécurité, l'écoute, le plan vasculaire simplifié, puis le suivi. Un plan de vingt mesures échoue lorsque la personne est épuisée."),
         block("Urgence", "".join([
             p("Minute 0 : question sur l'idée de mort, et question sur la douleur thoracique actuelle."),
-            p("Si le danger est immédiat, le médecin ne renvoie pas à un calculateur."),
+            p("Si le danger est immédiat, personne ne repart vers un calculateur."),
             p("Il organise la protection et la filière d'urgence. Les numéros et les gardes locales se vérifient au moment du soin, et ils ne sont pas inventés ici."),
         ])),
         p("Moyens non médicamenteux : entretien, psychothérapie, adaptation du travail, aide sociale si le revenu bloque les soins. Moyens médicamenteux : un antidépresseur peut être indiqué. Sa classe, sa spécialité suisse et sa dose se lisent dans l'information professionnelle, non ouverte aujourd'hui."),
@@ -708,11 +699,11 @@ def dx8():
         p("Tertiaire : après l'événement, la réadaptation inclut le psychique, sinon l'observance s'effondre."),
     ])))
     parts.append(point("13", "Points clés", "".join([
-        p("Le médecin pose la question du travail, de l'argent, de la famille et de la solitude."),
-        p("Il retient un risque relatif d'environ 1,2 à 2,0, et 1,76 pour le bas revenu, sans en faire un pourcentage personnel."),
-        p("Il ne multiplie pas SCORE2 par un coefficient psychosocial."),
-        p("Il cherche l'idée suicidaire et la douleur ischémique avant de parler de modificateur."),
-        p("Il ne donne aucune dose d'antidépresseur dans ce fichier."),
+        p("La question utile tient en cinq mots de vie : travail, argent, famille, solitude, événement."),
+        p("Le risque relatif va d'environ 1,2 à 2,0, et le bas revenu porte 1,76, intervalle 1,45 à 2,14. Ce n'est pas un pourcentage personnel."),
+        p("SCORE2 ne se multiplie pas par un coefficient psychosocial."),
+        p("L'idée suicidaire et la douleur ischémique se cherchent avant que le mot « modificateur » ne soit prononcé."),
+        p("Aucune dose d'antidépresseur n'est écrite dans ce fichier."),
     ])))
     parts.append(point("14", "Pièges et questions fréquentes à l'examen fédéral suisse", "".join([
         p("Piège : « c'est le stress » devant une oppression d'effort. Bonne réponse : écarter l'ischémie."),
@@ -720,7 +711,7 @@ def dx8():
         p("Piège : croire que tout stresseur reclassifie aussi bien que l'épuisement vital. Bonne réponse : l'ESC limite cette preuve à l'épuisement vital."),
         p("Question : citez la question d'entretien. Réponse : travail, argent, famille, solitude, événement stressant."),
     ])))
-    parts.append(p("<strong>Question finale.</strong> Le candidat tient ensemble le cœur et le psychisme, sans coefficient inventé et sans dose inventée."))
+    parts.append(p("<strong>Question finale.</strong> Le cœur et le psychisme restent dans la même consultation. On ne multiplie pas SCORE2 par un chagrin, et l'on n'invente pas la dose de l'antidépresseur qui viendra peut-être plus tard."))
     return wrap_dx("DX.8 — Stress psychosocial et position sociale" + badge(RANG8), "".join(parts))
 
 
@@ -735,11 +726,11 @@ def dx9():
     )
     parts = []
     parts.append(point("1", "Définition et sémantique", "".join([
-        p(f"Le {term} n'est pas une « pollution chimique » ordinaire, et il n'est pas visible ni odorant."),
+        p(f"Le {term} n'a ni couleur ni odeur. Le traiter comme une pollution que l'on sentirait en entrant dans la cave, c'est déjà se tromper de sens."),
         p("Le niveau de référence suisse est 300 Bq/m³ en moyenne annuelle, pour les locaux où l'on séjourne régulièrement plusieurs heures par jour."),
         p("Les lignes directrices du 2 février 2023 précisent ce séjour : au moins quinze heures par semaine. En dessous, des mesures de protection ne sont pas exigées pour ce local."),
         p("Depuis le 1.1.2018, ce niveau de référence a remplacé l'ancienne valeur limite de 1 000 Bq/m³. Une valeur seuil de 1 000 Bq/m³ demeure pour la concentration annuelle moyenne aux postes de travail exposés."),
-        p("Le médecin ne confond pas le becquerel par mètre cube de l'air avec une dose en millisievert. Les lignes directrices visent à éviter, après un dépassement, une dose efficace cumulée d'environ 100 mSv, en accord avec la CIPR qu'elles citent."),
+        p("Le becquerel par mètre cube de l'air n'est pas une dose en millisievert. Les lignes directrices visent à éviter, après un dépassement, une dose efficace cumulée d'environ 100 mSv, en accord avec la CIPR qu'elles citent."),
     ])))
     parts.append(point("2", "Épidémiologie (Suisse, puis Europe)", "".join([
         p("Deux cents à trois cents décès par an ne sont pas une prévalence. Le badge reste un rang. Le poids de gravité est néanmoins haut, parce que la maladie est un cancer du poumon."),
@@ -751,7 +742,7 @@ def dx9():
     parts.append(point("3", "Physiopathologie", "".join([
         p("L'uranium du sol produit le radon, gaz radioactif. Le gaz entre par la cave, les fissures et les passages de gaines. Il se dilue mal lorsque le bâtiment est fermé."),
         p("Les descendants solides, une fois inhalés, se déposent dans le poumon et émettent un rayonnement qui casse l'ADN des cellules bronchiques."),
-        p("Le tabac multiplie ce risque. L'OFSP place le radon juste derrière le tabac. Le médecin ne sépare donc pas les deux messages."),
+        p("Le tabac multiplie ce risque. L'OFSP place le radon juste derrière lui. Les deux messages se disent dans la même phrase, sinon l'un des deux se perd."),
         p("Il n'y a pas de médicament qui « détoxique » le radon. La correction est le bâtiment, puis l'arrêt du tabac."),
         table(
             ["Lésion", "Exploration", "Correction"],
@@ -763,8 +754,8 @@ def dx9():
         ),
     ])))
     parts.append(point("4", "Démarche diagnostique", "".join([
-        p("Devant un cancer du poumon, le médecin cherche le tabac et le radon, y compris chez une personne qui n'a jamais fumé."),
-        p("Devant une demande de prévention, il ne promet pas un risque individuel précis. Il propose la mesure du logement si le séjour atteint quinze heures par semaine."),
+        p("Devant un cancer du poumon, le tabac et le radon se cherchent ensemble, y compris chez une personne qui n'a jamais fumé."),
+        p("Devant une demande de prévention, aucun risque individuel précis n'est promis. La mesure du logement se propose si le séjour atteint quinze heures par semaine."),
         table(
             ["Hypothèse", "Ce qui tranche", "Piège"],
             [
@@ -776,32 +767,29 @@ def dx9():
         ),
     ])))
     parts.append(point("5", "Anamnèse ciblée et drapeaux rouges", "".join([
-        p("Le médecin demande l'étage, la cave en terre, les fissures et le temps passé dans chaque pièce, parce que le radon vient du sol et que le séjour de quinze heures décide de l'exigence."),
-        p("Il demande le tabac, parce que la synergie change le message."),
-        p("Il demande si des enfants ou une école occupent le local. Pour les écoles et les jardins d'enfants, la durée de séjour additionne tous les occupants, et les délais longs sont recommandés même si l'usage réel est plus court."),
+        p("L'étage, la cave en terre, les fissures et le temps passé dans chaque pièce se demandent. Le radon vient du sol, et le séjour de quinze heures décide de l'exigence."),
+        p("Le tabac se demande dans la même minute : la synergie change le message."),
+        p("Enfants ou école dans le local : la question change de règle. Pour les écoles et les jardins d'enfants, la durée de séjour additionne tous les occupants, et les délais longs sont recommandés même si l'usage réel est plus court."),
         p("Drapeaux cliniques : hémoptysie, amaigrissement, toux persistante. Ils ouvrent la filière du cancer, pas seulement un dosimètre."),
     ])))
     parts.append(point("6", "Examen physique ciblé, région par région", "".join([
         p("L'examen normal est la règle chez une personne exposée qui n'a pas encore de cancer. Un thorax clair n'exclut pas une concentration haute à la maison."),
-        p("Le médecin ausculte les poumons, cherche un hippocratisme et une masse sus-claviculaire seulement lorsqu'un symptôme de cancer existe."),
-        p("Il ne « sent » pas le radon. L'absence d'odeur ne rassure pas."),
+        p("Les poumons s'auscultent. L'hippocratisme et une masse sus-claviculaire ne se cherchent que lorsqu'un symptôme de cancer existe."),
+        p("Personne ne « sent » le radon. L'absence d'odeur ne rassure pas."),
         p("La technique utile est administrative autant que clinique : identifier le local à séjour prolongé, au-delà de trente heures par semaine, le local court entre quinze et trente heures, et le local sans séjour durable en dessous de quinze heures."),
     ])))
     parts.append(point("7", "Approche syndromique", "".join([
         block("7.1 Maison fermée en hiver", "".join([
-            p("Signes fonctionnels : aucun."),
-            p("Signes physiques : aucun."),
-            p("Mécanisme : le gaz s'accumule lorsque l'aération baisse et que la dépression du bâtiment aspire le sol."),
+            p("Personne ne tousse, personne ne se plaint. Le thorax est clair, et c'est précisément ce silence qui trompe."),
+            p("Le gaz s'accumule lorsque l'aération baisse et que la dépression du bâtiment aspire le sol. La maison la plus propre peut être la plus close."),
         ])),
         block("7.2 Non-fumeur avec cancer du poumon", "".join([
-            p("Signes fonctionnels : toux, essoufflement, parfois hémoptysie."),
-            p("Signes physiques : ceux de la tumeur, ou aucun au début."),
-            p("Mécanisme : l'irradiation ancienne. Le médecin pose la question du logement."),
+            p("La toux, l'essoufflement, parfois l'hémoptysie ouvrent la scène. Les signes de la tumeur peuvent encore manquer au début."),
+            p("L'irradiation est ancienne. La question du logement se pose le jour du diagnostic, y compris lorsque la personne n'a jamais fumé."),
         ])),
         block("7.3 École ou jardin d'enfants", "".join([
-            p("Signes fonctionnels : aucun chez l'enfant."),
-            p("Signes physiques : aucun."),
-            p("Mécanisme : la durée s'additionne pour toute la classe. Le délai d'assainissement recommandé est celui du séjour prolongé."),
+            p("L'enfant ne se plaint de rien, et l'examen ne montre rien. Le danger n'est pas dans le souffle du jour."),
+            p("La durée s'additionne pour toute la classe. Le délai d'assainissement recommandé est celui du séjour prolongé, même si chaque enfant, pris seul, resterait en dessous."),
         ])),
     ])))
     parts.append(point("8", "Diagnostic positif et critères", "".join([
@@ -820,18 +808,18 @@ def dx9():
                 [td("300 à 600 Bq/m³, séjour prolongé."), td("Délai maximal d'assainissement de 10 ans."), td("Le propriétaire planifie. Le canton peut ordonner s'il reste inactif.")],
                 [td("300 à 600 Bq/m³, séjour court."), td("Délai maximal de 30 ans."), td("Si une transformation majeure a lieu avant, l'assainissement radon se fait en même temps.")],
                 [td("Moins de 15 heures par semaine."), td("Pas de mesure exigée pour ce local."), td("Réévaluer si la pièce devient une chambre.")],
-                [td("Au-dessus de 600 Bq/m³."), td("Le tableau 4 existe, mais son extraction était ambiguë."), td("Le médecin lit le tableau officiel plutôt que de réciter une cellule douteuse.")],
+                [td("Au-dessus de 600 Bq/m³."), td("Le tableau 4 existe, mais son extraction était ambiguë."), td("On ouvre le tableau officiel plutôt que de réciter une cellule douteuse.")],
                 [td("Poste de travail au-dessus de 1 000 Bq/m³."), td("Poste exposé, article 167."), td("Droit de la radioprotection au travail, pas seulement un conseil d'aération.")],
             ],
         ),
         p("Grossesse : la mesure du logement est d'autant plus utile que le séjour est long. Elle n'irradie pas la personne. Enfant : même logique, avec la règle de l'école. Rein et foie : sans objet pour la mesure de l'air."),
     ])))
     parts.append(point("10", "Arbre décisionnel", "".join([
-        p("Si un symptôme de cancer existe, le médecin ouvre cette filière le jour même et il ajoute la question du radon, sans la substituer au diagnostic."),
-        p("Si la personne séjourne au moins quinze heures dans un local en contact avec le sol, il propose la mesure agréée."),
-        p("Si le résultat dépasse 300 Bq/m³, il explique que le propriétaire assume l'assainissement, article 166, et il donne le délai de la ligne qu'il a lue, ou il renvoie au tableau 4."),
-        p("S'il y a du tabac, il place l'arrêt au même rang d'urgence que les travaux, parce que les deux risques se multiplient."),
-        p("Si le local est un poste de travail au-dessus de 1 000 Bq/m³, il ne s'arrête pas au conseil domestique."),
+        p("Un symptôme de cancer ouvre cette filière le jour même. La question du radon s'ajoute. Elle ne remplace pas le diagnostic."),
+        p("Quinze heures ou plus dans un local en contact avec le sol : la mesure agréée se propose."),
+        p("Au-dessus de 300 Bq/m³, le propriétaire assume l'assainissement, article 166. On donne le délai de la ligne lue sans ambiguïté, ou l'on renvoie au tableau 4."),
+        p("S'il y a du tabac, l'arrêt se place au même rang d'urgence que les travaux. Les deux risques se multiplient."),
+        p("Un poste de travail au-dessus de 1 000 Bq/m³ ne se règle pas par un conseil domestique."),
     ])))
     parts.append(point("11", "Prise en charge selon les recommandations suisses", "".join([
         p("Le but est une concentration sous 300 Bq/m³ dans les locaux occupés, et l'arrêt du tabac chez la personne exposée."),
@@ -841,7 +829,7 @@ def dx9():
             p("Minute 0 de cette détresse : oxygène et filière d'urgence habituelle, pas un dosimètre."),
             p("Les jours suivants : la question du logement vient après la stabilité clinique."),
         ])),
-        p("Moyens : étanchéité du sol, ventilation du vide sanitaire, aspiration sous dalle, aération. Ce sont des moyens du bâtiment, décrits comme l'état de la technique dans les lignes directrices, avec les normes SIA. Le médecin n'improvise pas le chantier."),
+        p("Moyens : étanchéité du sol, ventilation du vide sanitaire, aspiration sous dalle, aération. Ce sont des moyens du bâtiment, décrits comme l'état de la technique dans les lignes directrices, avec les normes SIA. Le chantier ne s'improvise pas au cabinet."),
         p("Médicament : aucun n'abaisse le radon. Les traitements du cancer du poumon ont leurs informations professionnelles, non ouvertes ici."),
         p("Droit : le propriétaire ou le maître d'ouvrage veille aux mesures préventives dans le neuf et le transformé, article 163. Le canton exécute en général, article 158 cité par les lignes directrices. Le propriétaire paie l'assainissement nécessaire, article 166, et le canton peut l'ordonner."),
         p("Grossesse, enfant, sujet âgé : la physique du gaz est la même. Le séjour de l'enfant à l'école s'additionne. Le sujet âgé qui reste toute la journée dans une cave aménagée cumule l'exposition. Foie et rein : sans effet sur la décision de mesurer."),
@@ -855,11 +843,11 @@ def dx9():
         p("Tertiaire : après un cancer du poumon, réduire l'exposition restante et le tabac, sans accuser la personne."),
     ])))
     parts.append(point("13", "Points clés", "".join([
-        p("Le médecin retient 200 à 300 décès par an et la deuxième place derrière le tabac."),
-        p("Il retient 300 Bq/m³ et quinze heures par semaine."),
-        p("Il retient 1 000 Bq/m³ comme seuil du poste de travail exposé."),
-        p("Il connaît le délai de 10 ans et de 30 ans pour la bande 300 à 600 Bq/m³, et il ouvre le tableau 4 pour le reste."),
-        p("Il associe toujours le tabac, et il n'invente pas de médicament anti-radon."),
+        p("200 à 300 décès par an, et la deuxième place derrière le tabac : le poids est là, ce n'est pas une prévalence."),
+        p("300 Bq/m³ et quinze heures par semaine décident ensemble. L'un sans l'autre ne suffit pas."),
+        p("1 000 Bq/m³ reste le seuil du poste de travail exposé, pas celui de la chambre."),
+        p("Pour la bande 300 à 600 Bq/m³, dix ans si le séjour est prolongé, trente ans s'il est court. Au-dessus, le tableau 4 s'ouvre."),
+        p("Le tabac voyage avec le radon. Aucun médicament ne lave le gaz."),
     ])))
     parts.append(point("14", "Pièges et questions fréquentes à l'examen fédéral suisse", "".join([
         p("Piège : le non-fumeur ne peut pas avoir un cancer du poumon lié au radon. Bonne réponse : le radon est la cause suivante après le tabac, et il touche aussi les non-fumeurs."),
@@ -868,7 +856,7 @@ def dx9():
         p("Piège : réciter tous les délais du tableau 4 de mémoire si l'on n'a pas la cellule sous les yeux. Bonne réponse : citer la ligne sûre et ouvrir le document."),
         p("Question : qui paie l'assainissement ? Réponse : en principe le propriétaire, article 166 de l'ordonnance, et le canton peut ordonner."),
     ])))
-    parts.append(p("<strong>Question finale.</strong> Le candidat relie le gaz, la loi suisse et le tabac, et il n'envoie pas un dyspnéique aigu chercher un dosimètre à la place des urgences."))
+    parts.append(p("<strong>Question finale.</strong> Le gaz, la loi suisse et le tabac se disent dans la même phrase. Un dyspnéique aigu part vers les urgences, pas vers un dosimètre de cave."))
     return wrap_dx("DX.9 — Radon domiciliaire et cancer du poumon" + badge(RANG9), "".join(parts))
 
 
@@ -883,10 +871,10 @@ def dx10():
     )
     parts = []
     parts.append(point("1", "Définition et sémantique", "".join([
-        p(f"L'{term} n'est pas un test, et il n'est pas une condamnation."),
+        p(f"L'{term} n'est pas un test, et ce n'est pas une condamnation héréditaire. C'est une alerte simple, qui mêle le sang et la maison."),
         p("L'ESC distingue cette histoire clinique du score polygénique. Il juge le gain prédictif des scores polygéniques encore modeste, et son tableau classe en III la collecte routinière des scores de risque génétique."),
         p("L'hypercholestérolémie familiale est une autre entité : elle peut classer d'emblée en risque haut ou très haut sur la page AGLA, avant tout calcul de personne saine."),
-        p("Le conseil génétique suisse est défini par la LAGH, pas par une habitude de service. Le médecin qui prescrit veille à un conseil non directif, par une personne qualifiée, consigné, limité à la situation individuelle et familiale."),
+        p("Le conseil génétique suisse est défini par la LAGH, pas par une habitude de service. Qui prescrit veille à un conseil non directif, par une personne qualifiée, consigné, limité à la situation individuelle et familiale."),
     ])))
     parts.append(point("2", "Épidémiologie (Suisse, puis Europe)", "".join([
         p("La prévalence suisse des antécédents familiaux précoces en consultation de premier recours n'a pas été trouvée aujourd'hui. Le badge reste un rang."),
@@ -909,8 +897,8 @@ def dx10():
         ),
     ])))
     parts.append(point("4", "Démarche diagnostique", "".join([
-        p("Le médecin dessine d'abord l'arbre. Il ne prescrit pas un kit."),
-        p("Il exclut l'urgence familiale réelle : un apparenté jeune symptomatique maintenant, qui a besoin de soins, pas d'un cours de droit."),
+        p("L'arbre se dessine d'abord. Le kit ne se prescrit pas."),
+        p("L'urgence familiale réelle s'écarte : un apparenté jeune symptomatique maintenant a besoin de soins, pas d'un cours de droit."),
         table(
             ["Hypothèse", "Ce qui tranche", "Piège"],
             [
@@ -922,32 +910,29 @@ def dx10():
         ),
     ])))
     parts.append(point("5", "Anamnèse ciblée et drapeaux rouges", "".join([
-        p("Le médecin demande qui a été malade, à quel âge, et de quoi, parce que la précocité se juge sur l'âge et le degré de parenté."),
-        p("Il demande les xanthomes familiaux et les LDL déjà mesurés, parce qu'ils orientent vers l'hypercholestérolémie familiale plutôt que vers un score polygénique."),
-        p("Il demande ce que la personne veut savoir, et ce qu'elle ne veut pas savoir, parce que l'article 8 de la LAGH protège le refus de tout ou partie de l'information."),
+        p("Qui a été malade, à quel âge, et de quoi : la précocité se juge sur l'âge et le degré de parenté, pas sur l'émotion du récit."),
+        p("Les xanthomes familiaux et les LDL déjà mesurés orientent vers l'hypercholestérolémie familiale, pas vers un score polygénique."),
+        p("Ce que la personne veut savoir, et ce qu'elle ne veut pas savoir, se demande avant le tube. L'article 8 de la LAGH protège le refus de tout ou partie de l'information."),
         p("Drapeaux : symptôme actuel chez le consultant, LDL extrême, ou demande de tester un tiers sans son consentement."),
     ])))
     parts.append(point("6", "Examen physique ciblé, région par région", "".join([
         p("L'examen normal n'exclut pas un risque familial. Beaucoup de porteurs n'ont aucun signe cutané."),
-        p("Le médecin cherche quand même les xanthomes tendineux, l'arc cornéen précoce et les dépôts, parce que leur présence renforce l'hypothèse monogénique."),
-        p("Il mesure la pression et les pouls, parce que l'histoire familiale ne dispense pas de l'examen vasculaire."),
+        p("Les xanthomes tendineux, l'arc cornéen précoce et les dépôts se cherchent quand même. Leur présence renforce l'hypothèse monogénique. Leur absence ne la ferme pas."),
+        p("La pression et les pouls se mesurent. L'histoire familiale ne dispense pas de l'examen vasculaire."),
         p("La technique du xanthome est la palpation du tendon d'Achille et des extenseurs. Un tendon épais et nodulaire est pathologique. Un tendon fin ne blanchit pas le LDL."),
     ])))
     parts.append(point("7", "Approche syndromique", "".join([
         block("7.1 Parent précoce, lipides inconnus", "".join([
-            p("Signes fonctionnels : inquiétude, aucun symptôme."),
-            p("Signes physiques : souvent aucun."),
-            p("Mécanisme : milieu partagé et possible variant. Le premier examen est le bilan lipidique, pas le génome entier."),
+            p("L'inquiétude est là, le symptôme non. L'examen, souvent, ne montre rien."),
+            p("Le milieu partagé et un variant possible se tiennent encore côte à côte. Le premier examen est le bilan lipidique, pas le génome entier."),
         ])),
         block("7.2 Hypercholestérolémie familiale probable", "".join([
-            p("Signes fonctionnels : parfois aucun jusqu'à l'événement."),
-            p("Signes physiques : xanthome possible, souvent absent."),
-            p("Mécanisme : LDL haut depuis l'enfance. La page AGLA sort du score de personne saine."),
+            p("Parfois, rien ne se plaint jusqu'à l'événement. Le xanthome peut être là. Il est souvent absent, et son absence ne rassure pas."),
+            p("Le LDL est haut depuis l'enfance. La page AGLA sort du score de personne saine : un pourcentage bas ne vient pas adoucir cette catégorie."),
         ])),
         block("7.3 Demande de savoir pour les enfants", "".join([
-            p("Signes fonctionnels : la demande vient du parent."),
-            p("Signes physiques : l'enfant peut être asymptomatique."),
-            p("Mécanisme juridique : consentement, information, et intérêt de la personne concernée. Le test n'est pas un outil de curiosité."),
+            p("La demande vient du parent. L'enfant, lui, peut ne rien sentir et ne rien montrer."),
+            p("Le droit regarde le consentement, l'information et l'intérêt de la personne concernée. Un test n'est pas un outil de curiosité familiale."),
         ])),
     ])))
     parts.append(point("8", "Diagnostic positif et critères", "".join([
@@ -961,7 +946,7 @@ def dx10():
         p("Le gold standard de l'histoire familiale est l'arbre bien daté, pas une puce. Le gold standard de l'hypercholestérolémie familiale moléculaire est l'analyse ciblée après conseil, lorsque le clinicien a une question précise."),
         p("Première intention : profil lipidique du consultant, pression, et calcul du risque seulement si la page AGLA ne l'a pas déjà classé."),
         p("Deuxième intention : avis lipidologique ou génétique si l'hypothèse monogénique tient."),
-        p("Le médecin prescrit l'analyse seulement s'il est habilité, article 20 : titre postgrade fédéral du domaine ou qualification particulière en génétique humaine."),
+        p("L'analyse ne se prescrit que si l'on est habilité, article 20 : titre postgrade fédéral du domaine, ou qualification particulière en génétique humaine."),
         table(
             ["Situation", "Examen juste", "Conduite"],
             [
@@ -974,12 +959,12 @@ def dx10():
         ),
     ])))
     parts.append(point("10", "Arbre décisionnel", "".join([
-        p("Si un symptôme vasculaire est actuel, le médecin soigne la personne et il remet l'arbre à plus tard dans la journée, pas à l'année suivante."),
-        p("Si l'arbre montre une maladie précoce au premier degré, il mesure les lipides et la pression et il cherche l'hypercholestérolémie familiale."),
-        p("Si cette maladie est probable, il classe selon AGLA et il adresse. Il n'utilise pas le calculateur des personnes saines pour minimiser."),
-        p("Si un test génétique est vraiment utile, il organise le conseil, le délai et le consentement. Il ne prélève pas avant."),
-        p("Si la personne refuse d'être informée, il respecte le refus et il informe quand même des conséquences médicales de ne pas savoir, dans le conseil, sans forcer le résultat."),
-        p("S'il s'agit d'un parent, d'un assureur ou d'un employeur qui demande le résultat, il ne communique rien sans le consentement de la personne, article 7."),
+        p("Un symptôme vasculaire actuel se soigne. L'arbre attend plus tard dans la journée, pas l'année suivante."),
+        p("Une maladie précoce au premier degré ouvre les lipides, la pression, et la recherche d'une hypercholestérolémie familiale."),
+        p("Si cette maladie est probable, on classe selon AGLA et l'on adresse. Le calculateur des personnes saines ne sert pas à minimiser."),
+        p("Un test génétique vraiment utile s'entoure du conseil, du délai et du consentement. On ne prélève pas avant."),
+        p("Un refus d'être informé se respecte. Le conseil dit quand même les conséquences médicales de ne pas savoir, sans forcer le résultat."),
+        p("Un parent, un assureur ou un employeur qui demande le résultat n'obtient rien sans le consentement de la personne, article 7."),
     ])))
     parts.append(point("11", "Prise en charge selon les recommandations suisses", "".join([
         p("Le but est de protéger la personne et ses apparentés d'un risque actionnable, sans violer l'autodétermination."),
@@ -993,7 +978,7 @@ def dx10():
         ])),
         p("Moyens cliniques : traitement des facteurs selon la catégorie, suivi des apparentés qui le demandent, et pas de pression sur ceux qui invoquent leur droit de ne pas savoir. Le PDF de l'OFSP de février 2025 rappelle que ce droit vaut aussi pour les membres de la famille."),
         p("Médicaments : ceux de l'hypercholestérolémie ou du risque élevé. Aucune dose ni aucun nom commercial n'est écrit, faute d'information professionnelle ouverte."),
-        p("Assurances : le conseil doit expliquer dans quelles conditions un assureur peut demander des données. Le médecin ne transmet pas un résultat « pour aider le dossier »."),
+        p("Assurances : le conseil explique dans quelles conditions un assureur peut demander des données. Un résultat ne se transmet pas « pour aider le dossier »."),
         p("Grossesse : article 22, information sur l'autodétermination, et avertissement si aucun traitement n'est possible après le test. Le partenaire est associé si c'est possible. La note Fedlex indique une modification de cet alinéa en vigueur depuis le 1er août 2025."),
         p("Enfant incapable de discernement : le représentant consent, et l'enfant est associé autant que possible, article 5. Le test d'un enfant sain pour rassurer un parent n'est pas une indication."),
         p("Sujet âgé : un test présymptomatique n'a de sens que s'il change encore une décision. Foie et rein : ils influencent le médicament ultérieur, pas le droit au conseil."),
@@ -1007,11 +992,11 @@ def dx10():
         p("Tertiaire : après un infarctus précoce, l'arbre protège les enfants mieux qu'un discours général."),
     ])))
     parts.append(point("13", "Points clés", "".join([
-        p("Le médecin retient avant 55 ans chez l'homme et avant 60 ans chez la femme, au premier degré, comme seuil de la page EAS."),
-        p("Il sait que cette histoire déclenche l'évaluation et qu'elle prédit peu au-delà des facteurs classiques."),
-        p("Il classe l'hypercholestérolémie familiale avec AGLA, sans SCORE2 de complaisance."),
-        p("Il n'ordonne pas un test présymptomatique sans conseil, sans délai et sans consentement."),
-        p("Il respecte le droit de ne pas savoir, y compris pour la famille."),
+        p("Avant 55 ans chez l'homme, avant 60 ans chez la femme, au premier degré : c'est le seuil de précocité de la page EAS."),
+        p("Cette histoire déclenche l'évaluation. Elle prédit peu au-delà des facteurs classiques. Les deux phrases sont vraies ensemble."),
+        p("L'hypercholestérolémie familiale se classe avec AGLA. Un SCORE2 de complaisance ne l'adoucit pas."),
+        p("Pas de test présymptomatique sans conseil, sans délai et sans consentement."),
+        p("Le droit de ne pas savoir se respecte, y compris lorsque c'est la famille qui voudrait savoir à la place."),
     ])))
     parts.append(point("14", "Pièges et questions fréquentes à l'examen fédéral suisse", "".join([
         p("Piège : prélever le jour de la demande de test présymptomatique. Bonne réponse : conseil, puis délai, article 21."),
@@ -1020,7 +1005,7 @@ def dx10():
         p("Piège : un père mort à 78 ans « compte comme précoce ». Bonne réponse : non, selon le seuil de 55 et 60 ans de la page EAS."),
         p("Question : que contient au minimum le conseil de l'article 21 alinéa 3 ? Réponse : fréquence et nature, conséquences du test et du refus, coûts, importance et mesures, soutien, et demandes possibles des assurances."),
     ])))
-    parts.append(p("<strong>Question finale.</strong> Le candidat protège à la fois l'artère et le droit. Il n'invente ni une puce utile à tous ni une dose de statine."))
+    parts.append(p("<strong>Question finale.</strong> L'artère et le droit se protègent ensemble. Aucune puce commerciale ne remplace le conseil de la LAGH, et aucune dose de statine ne s'écrit tant que l'information professionnelle n'est pas ouverte."))
     return wrap_dx("DX.10 — Histoire familiale précoce et conseil génétique" + badge(RANG10), "".join(parts))
 
 
