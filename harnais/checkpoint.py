@@ -38,6 +38,7 @@ idx = "A" if "Phase_A" in f.name else re.search(r"DX\.(\d+)", f.name).group(1); 
 if prop in ("1", "2", "3") and not SORTIE:   # étape rédaction : le fichier entre dans son territoire, en attente de l'audit-correctif Opus
     ent = LOTDIR / f"B{prop}" / "entree"; ent.mkdir(parents=True, exist_ok=True); shutil.copy2(f, ent / f.name); (ent / f.name).with_suffix(".src").write_text(str(f))
     print(f"CHECKPOINT OK (étape rédaction) — {f.name} → territoire B{prop}/entree, en attente de l'audit Opus"); sys.exit(0)
+if "--sans-commit" in sys.argv: print("CHECKPOINT OK (portes passées ; commit réservé à l'auditeur du territoire)", f.name, f"médical {m['score']} % · langue {l['score']} %"); sys.exit(0)
 if not WT.exists(): print("CHECKPOINT OK (pas de worktree de LOT : fichier non commité)"); sys.exit(0)
 dest = WT / f"LOT_Claude_Finaux/LOT_{lot}"; (dest / "audits").mkdir(parents=True, exist_ok=True)
 shutil.copy2(cf, dest / f.name); [shutil.copy2(p, dest / "audits" / p.name) for p in (med, lan)]

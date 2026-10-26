@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harnais en 3D</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Concept : un plateau 3D. Le sol porte les outils du harnais, les cubes sont les agents, les plateformes colorées sont les territoires B1 à B5. Les documents voyagent du texte écrit jusqu'à la fusion. */
+:root{--bg:#0d1420;--ink:#e8eef6;--mut:#93a3b8;--line:#2a3a52;--a:#f59e0b;--sn:#4f8ff7;--b1:#fdba74;--b2:#7dd3fc;--b3:#86efac;--b4:#c4b5fd;--b5:#f9a8d4;--ok:#34d399;--ko:#f87171;--font:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 700px at 50% -10%,#1c2c4a,var(--bg));color:var(--ink);font:15px/1.45 var(--font);min-height:100vh;overflow-x:hidden;padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+h1{margin:16px 0 2px;font-size:1.35rem;letter-spacing:.08em}
+.sub{color:var(--mut);margin:0 0 8px;max-width:110ch}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+button{font:inherit;font-weight:700;border:1px solid var(--line);background:#16233a;color:var(--ink);border-radius:10px;padding:6px 14px;cursor:pointer}
+button:hover{border-color:var(--sn)}button:focus-visible,input:focus-visible{outline:3px solid var(--sn);outline-offset:2px}
+label{color:var(--mut);font-size:.85rem}input[type=range]{accent-color:var(--sn)}
+.kpi{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}.kpi span{background:#111d31;border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.88rem}.kpi b{color:var(--ok)}
+.stage{position:relative;height:min(86vh,820px);perspective:1900px;perspective-origin:50% 22%;margin:0 auto;max-width:1500px}
+.world{position:absolute;left:50%;top:52%;width:1440px;height:900px;margin:-450px 0 0 -720px;transform-style:preserve-3d;transform:rotateX(var(--rx,58deg)) rotateZ(var(--rz,-14deg)) scale(var(--sc,.72))}
+.sol{position:absolute;inset:0;border:2px solid var(--line);border-radius:30px;background:linear-gradient(#0e1a2b,#0a1424);box-shadow:0 0 0 1px #000 inset;transform-style:preserve-3d}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:.35;border-radius:30px}
+.zone{position:absolute;border-radius:20px;border:3px dashed currentColor;transform:translateZ(2px);transform-style:preserve-3d}
+.zone>.zl{position:absolute;left:14px;top:8px;font-weight:700;font-size:20px;color:currentColor;transform:translateZ(1px)}
+.zone .zs{position:absolute;left:14px;bottom:8px;font-size:15px;color:var(--mut)}
+.ent{position:absolute;transform-style:preserve-3d;cursor:pointer}
+.ent:hover .f{filter:brightness(1.35)}
+.cube{width:90px;height:90px}
+.cube .f{position:absolute;width:90px;height:90px;display:grid;place-items:center;font-weight:700;color:#06101e;border:2px solid #0006;font-size:22px}
+.cube .top{transform:translateZ(60px);background:var(--c)}
+.cube .fr{transform:rotateX(-90deg) translateZ(45px) translateY(-15px);height:60px;background:color-mix(in srgb,var(--c) 70%,#000)}
+.cube .rt{transform:rotateY(90deg) translateZ(75px) translateX(-15px);height:90px;background:color-mix(in srgb,var(--c) 52%,#000);width:60px;left:30px}
+.cube{transform:translateZ(0)}
+.cube.pulse .top{animation:pl .9s}
+@keyframes pl{40%{filter:brightness(1.9);transform:translateZ(80px)}}
+.pil{width:34px;height:34px}.pil .f{position:absolute;width:34px;height:34px;background:#e2e8f0;border:2px solid #0006;display:grid;place-items:center;font-size:11px;color:#0b1322;font-weight:700}
+.pil .top{transform:translateZ(46px)}.pil .fr{transform:rotateX(-90deg) translateZ(17px) translateY(-6px);height:46px;background:#94a3b8}.pil .rt{transform:rotateY(90deg) translateZ(17px) translateX(-6px);height:46px;width:46px;background:#64748b;left:-6px}
+.plate{width:74px;height:52px;border-radius:8px;border:2px solid #0008;background:var(--c);color:#06101e;font-weight:700;display:grid;place-items:center;font-size:16px;transform:translateZ(6px)}
+.plate.ok::after{content:"✓";position:absolute;right:6px;top:2px;font-size:20px}
+.tile{width:112px;height:56px;border-radius:10px;border:2px solid var(--line);background:#12213a;color:var(--ink);display:grid;place-items:center;font-size:12px;text-align:center;line-height:1.15;transform:translateZ(3px);transition:.4s}
+.tile.on{background:#1d4a3d;border-color:var(--ok);box-shadow:0 0 22px var(--ok);transform:translateZ(14px)}
+.gate{height:16px;background:repeating-linear-gradient(90deg,#f59e0b 0 24px,#0000 24px 36px);transform:translateZ(30px);opacity:.8;border-radius:6px}
+.gate.flash{background:var(--ok);box-shadow:0 0 30px var(--ok)}.gate.bad{background:var(--ko);box-shadow:0 0 30px var(--ko)}
+.doc{position:absolute;width:44px;height:30px;border-radius:5px;background:#fff;color:#0b1322;font-size:11px;font-weight:700;display:grid;place-items:center;transform:translateZ(46px);box-shadow:0 0 14px #fff8;border:2px solid var(--c,#fff);pointer-events:none;z-index:5}
+.dep{width:140px;height:54px}
+.tip{position:fixed;z-index:50;pointer-events:none;max-width:340px;background:#0b1424ee;border:1px solid var(--sn);border-radius:12px;padding:10px 14px;box-shadow:0 8px 28px #000a;font-size:.9rem;display:none}
+.tip b{display:block;font-size:1rem;margin-bottom:2px}.tip i{color:var(--mut);font-style:normal;display:block;margin-bottom:4px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--mut);margin:4px 0 14px}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.log{max-width:1500px;margin:0 auto 40px;font-size:.95rem;min-height:3.2em;padding:8px 14px;border-left:4px solid var(--ok);background:#0f1a2e;border-radius:8px}
+@media (max-width:760px){.stage{height:60vh}.world{--sc:.36}}
+@media (prefers-reduced-motion:reduce){.cube.pulse .top{animation:none}.tile{transition:none}}
+</style></head><body>
+<h1>HARNAIS · PLATEAU 3D</h1>
+<p class="sub">Un plateau, une équipe : 1 rédacteur de Phase A, 8 rédacteurs de Phase B (2 DD au plus chacun), 5 auditeurs-correcteurs Opus, chacun lié à un script « Grille des 14 points » en lecture seule. Survolez une entité pour son rôle. Simulation d'un LOT de 15 diagnostics.</p>
+<div class="bar"><button id="pl">⏸ Pause</button><button id="rs">↺ Recommencer</button><label>vitesse <input id="sp" type="range" min=".4" max="3" step=".1" value="1"></label><label>rotation <input id="rz" type="range" min="-60" max="60" value="-14"></label><label>inclinaison <input id="rx" type="range" min="25" max="75" value="58"></label>
+<div class="kpi"><span>fichiers déposés <b id="k1">0</b>/16</span><span>refus des scripts <b id="k2">0</b></span><span>agents <b>14</b></span></div></div>
+<div class="legend"><span><i style="background:var(--a)"></i>Phase A · Sonnet 5.5</span><span><i style="background:var(--sn)"></i>Phase B · Sonnet 5.5</span><span><i style="background:var(--b1)"></i>B1 · orange pâle</span><span><i style="background:var(--b2)"></i>B2</span><span><i style="background:var(--b3)"></i>B3</span><span><i style="background:var(--b4)"></i>B4</span><span><i style="background:var(--b5)"></i>B5</span><span><i style="background:#e2e8f0"></i>script de grille (lecture seule)</span><span><i style="background:#1d4a3d;border:1px solid var(--ok)"></i>outil en service</span></div>
+<div class="stage"><div class="world" id="w"><div class="sol"><div class="grid"></div></div></div></div>
+<div class="log" id="lg">…</div>
+<div class="tip" id="tip"></div>
+<script>
+const W=document.getElementById("w"),tip=document.getElementById("tip"),$=i=>document.getElementById(i);
+const CO={A:"#f59e0b",R:"#4f8ff7",B1:"#fdba74",B2:"#7dd3fc",B3:"#86efac",B4:"#c4b5fd",B5:"#f9a8d4"};
+const E={}; // entités {x,y,el}
+function mk(cls,x,y,html,c,info){const d=document.createElement("div");d.className="ent "+cls;d.style.left=x+"px";d.style.top=y+"px";if(c)d.style.setProperty("--c",c);d.innerHTML=html;W.appendChild(d);if(info){d.addEventListener("mousemove",e=>{tip.style.display="block";tip.innerHTML="<b>"+info[0]+"</b><i>"+info[1]+"</i>"+info[2];const r=tip.getBoundingClientRect();tip.style.left=Math.min(e.clientX+16,innerWidth-r.width-8)+"px";tip.style.top=Math.min(e.clientY+16,innerHeight-r.height-8)+"px"});d.addEventListener("mouseleave",()=>tip.style.display="none")}return d}
+const cube=(id,x,y,t,c,info)=>{const d=mk("cube",x,y,'<div class="f top">'+t+'</div><div class="f fr"></div><div class="f rt"></div>',c,info);E[id]={x:x+45,y:y+45,el:d};return d};
+const pil=(id,x,y,info)=>{const d=mk("pil",x,y,'<div class="f top">14</div><div class="f fr"></div><div class="f rt"></div>',null,info);E[id]={x:x+17,y:y+17,el:d}};
+const zone=(x,y,w,h,c,l,s)=>{const d=document.createElement("div");d.className="zone";d.style.cssText=`left:${x}px;top:${y}px;width:${w}px;height:${h}px;color:${c};background:${c}18`;d.innerHTML='<div class="zl">'+l+'</div><div class="zs">'+s+'</div>';W.appendChild(d)};
+// zones
+zone(250,30,420,230,CO.B1,"B1 · TERRITOIRE ORANGE PÂLE","Phase A d'abord, puis DX.1–2 · Opus 5.5 moyen");
+[["B2",20,"DX.3–6","4 DD"],["B3",370,"DX.7–9","3 DD"],["B4",720,"DX.10–12","3 DD"],["B5",1070,"DX.13–15","3 DD"]].forEach(([b,x,r,n])=>zone(x,520,330,230,CO[b],b+" · "+r,n+" · Opus 5.5 moyen"));
+zone(1010,30,400,230,"#34d399","DÉPÔT · PR · FUSION","commit du LOT · pr.sh · ci_attente.sh");
+// agents
+const infoA=["Agent A · Phase A","Sonnet 5.5, effort moyen","Écrit la monographie du SSP, la liste des DD classée, le tableau comparatif et l'algorithme. Script lié : A.py (grille des 14 points, lecture seule)."];
+cube("A",70,90,"A",CO.A,infoA);pil("pA",30,200,["Script A.py","lecture seule, empreinte vérifiée","Donne à l'agent A sa part de la grille, ses règles et ses leçons ; liste ses écarts en fin de tâche."]);
+const dd=[[1,2],[3,4],[5,6],[7,8],[9,10],[11,12],[13,14],[15]];
+dd.forEach((l,k)=>{const x=40+k*172,y=360;cube("R"+(k+1),x,y,"R"+(k+1),CO.R,["Rédacteur R"+(k+1)+" · Phase B","Sonnet 5.5, effort moyen","Écrit "+l.map(i=>"DX."+i).join(" et ")+" (2 DD au plus). N'écrit que du texte : les scripts font le reste. Script lié : R"+(k+1)+".py."]);pil("pR"+(k+1),x+100,y+10,["Script R"+(k+1)+".py","lecture seule","Mémoire permanente de R"+(k+1)+" : grille, règles, leçons. Il lui indique les écarts du fichier, point par point, avant de le laisser avancer."])});
+// territoires : plateformes B1..B5
+const terr={B1:[300,100],B2:[60,570],B3:[410,570],B4:[760,570],B5:[1110,570]};
+Object.entries(terr).forEach(([b,[x,y]])=>{cube(b,x,y,b,CO[b],[b+" · auditeur-correcteur","Opus 5.5, effort moyen",(b=="B1"?"Audite d'abord la Phase A (la liste des DD part vite aux rédacteurs), puis DX.1–2. ":"Audite et corrige son territoire (1 à 4 DD). ")+"V1 : exactitude du fond. V2 : conformité au Prompt ULTIME et à la grille. Script lié : "+b+".py."]);pil("p"+b,x+105,y+10,["Script "+b+".py","lecture seule","Mémoire permanente de "+b+" : grille, territoire, scores V1 et V2 à saisir. Refuse tout fichier hors territoire."])});
+// plates DD
+const aud={1:"B1",2:"B1",3:"B2",4:"B2",5:"B2",6:"B2",7:"B3",8:"B3",9:"B3",10:"B4",11:"B4",12:"B4",13:"B5",14:"B5",15:"B5"};
+const slot={};const cnt={B1:0,B2:0,B3:0,B4:0,B5:0};
+const pA=mk("plate",470,100,"Phase A",CO.B1,["Fichier Phase A","audité par B1 en premier","Liste des 15 DD, tableau comparatif, algorithme."]);
+for(let i=1;i<=15;i++){const b=aud[i],[bx,by]=terr[b],k=cnt[b]++;const x=b=="B1"?470+(k%2)*110:bx+150+(k%2)*110,y=b=="B1"?170:by+(Math.floor(k/2))*72+20+ (b=="B1"?0:0);slot[i]=mk("plate",b=="B1"?390+k*110:bx+135+(k%2)*84,b=="B1"?170:by+20+Math.floor(k/2)*68,"DX."+i,CO[b],["Fichier DX."+i,"territoire "+b,"Un fichier = un agent. Passe les scripts, puis l'audit V1/V2 de "+b+"."])}
+// porte checkpoint
+const g=mk("gate",20,470,"",null,["CHECKPOINT · scripts gratuits","véracité, langue, forme, taille","Refuse sans payer un Opus : doses AIPS, PMID, chiffres, phrases ≤ 20 mots, classification, médicaments cliquables, aucune mention de conception, bande de taille."]);g.style.width="1400px";
+// dépôt
+const dep=[["commit","Commit sur la branche du LOT, manifeste, SHA-256."],["PR","Une PR par LOT (pr.sh)."],["CI","ci_attente.sh : tous les contrôles."],["fusion","Commit de fusion après CI verte."]];
+dep.forEach(([n,t],i)=>{const d=mk("plate dep",1040+(i%2)*190,100+Math.floor(i/2)*80,n,"#34d399",["Dépôt · "+n,"chef de production (aucun agent)",t]);E["d"+i]={x:1040+(i%2)*190+48,y:100+Math.floor(i/2)*80+30,el:d}});
+// outils (sol, devant)
+const OUT=[["Bracelet","bracelet_suggest : 1 à 3 outils par tâche ; preuve réelle écrite"],["Lecture ciblée","controle_lot extraire ; Chonkie : passage utile"],["AIPS","aips_texte : doses mot pour mot"],["PubMed","pubmed.py + requests-cache + PyBreaker"],["Verrous","verrou, tableau de tâches, territoires"],["Checkpoint","controle médical, langue, forme, taille"],["Mémoire","14 scripts de grille + leçons"],["Arsenal","lot.py, pr.sh, ci_attente, audit_diff"],["PREUVE","PREUVE_EMBOITEMENT : sortie réelle"],["Veille","veille, sentinelle, tableau de bord"]];
+const tiles=OUT.map(([n,t],i)=>{const d=mk("tile",20+i*140,800,n,null,["Outil · "+n,"harnais de base, en service",t]);return d});
+const on=(i,ms=1400)=>{tiles[i].classList.add("on");setTimeout(()=>tiles[i].classList.remove("on"),ms/ (+$("sp").value))};
+// documents
+function doc(txt,from,to,ms,c,cb){const d=document.createElement("div");d.className="doc";d.textContent=txt;if(c)d.style.setProperty("--c",c);W.appendChild(d);const t0=performance.now();const f=()=>{if(!play){requestAnimationFrame(f);d._t0=(d._t0||0);return}let k=Math.min(1,(now()-t0)/(ms/+$("sp").value));k=k*k*(3-2*k);d.style.left=(from.x+(to.x-from.x)*k-22)+"px";d.style.top=(from.y+(to.y-from.y)*k-15)+"px";d.style.transform="translateZ("+(46+Math.sin(k*Math.PI)*60)+"px)";if(k<1)requestAnimationFrame(f);else{d.remove();cb&&cb()}};requestAnimationFrame(f)}
+let play=true,virt=0,last=performance.now();const now=()=>{const t=performance.now();if(play)virt+=(t-last);last=t;return virt+performance.now()*0};
+setInterval(()=>{const t=performance.now();if(play)virt+=0;last=t},1000);
+const sleep=ms=>new Promise(r=>setTimeout(r,ms/+$("sp").value));
+const say=t=>$("lg").textContent=t;
+const pulse=id=>{const e=E[id].el;e.classList.add("pulse");setTimeout(()=>e.classList.remove("pulse"),900)};
+let done=0,refus=0;
+async function wait(ms){let t=0;while(t<ms/+$("sp").value){await new Promise(r=>setTimeout(r,60));if(play)t+=60}}
+async function scenario(){
+ done=0;refus=0;$("k1").textContent=0;$("k2").textContent=0;document.querySelectorAll(".plate.ok").forEach(p=>p.classList.remove("ok"));
+ say("1 · Départ : chaque agent se rafraîchit la mémoire auprès de son script (grille des 14 points), le bracelet choisit les outils.");on(0);on(6);["A","R1","R2","R3","R4","R5","R6","R7","R8"].forEach(a=>{pulse(a);const p="p"+a;doc("14",E[p],E[a],900,"#e2e8f0")});await wait(2200);
+ say("2 · L'agent A écrit la Phase A (outils : AIPS, PubMed, lecture ciblée).");on(2);on(3);on(1);pulse("A");await wait(1500);
+ say("3 · Phase A → B1 : audit en premier (V1 fond, V2 grille). La liste des DD est gelée sans délai.");on(5);await new Promise(r=>doc("Phase A",E.A,{x:520,y:130},1600,CO.A,r));pA.classList.add("ok");pulse("B1");await wait(900);
+ say("4 · La liste des 15 DD part aux rédacteurs : 8 agents, 2 DD au plus chacun.");[1,2,3,4,5,6,7,8].forEach(k=>doc("DD",E.B1,E["R"+k],1200,"#4f8ff7"));await wait(1500);
+ for(let round=0;round<2;round++){
+  say(round?"5b · Deuxième DD de chaque rédacteur : même circuit.":"5 · Chaque rédacteur écrit son premier DD : scripts de grille, AIPS, PubMed en service.");on(2);on(3);on(4);
+  const batch=[];dd.forEach((l,k)=>{if(l[round]!==undefined)batch.push([k+1,l[round]])});
+  batch.forEach(([k,i])=>pulse("R"+k));await wait(1800);
+  say("6 · Porte CHECKPOINT : véracité, langue, forme, taille. Un refus renvoie au rédacteur, sans coûter un Opus.");on(5);
+  const gate=g;await Promise.all(batch.map(([k,i],j)=>new Promise(async r=>{await wait(j*130);const bad=(i%5===3);doc("DX."+i,E["R"+k],{x:E["R"+k].x,y:480},900,CO.R,async()=>{if(bad){refus++;$("k2").textContent=refus;gate.classList.add("bad");setTimeout(()=>gate.classList.remove("bad"),700);doc("refus",{x:E["R"+k].x,y:480},E["R"+k],700,"#f87171",()=>{pulse("R"+k);r()})}else{gate.classList.add("flash");setTimeout(()=>gate.classList.remove("flash"),500);r()}})}))).then(()=>{});
+  await wait(2600);
+  say("7 · Chaque DD entre dans son territoire. L'auditeur Opus note V1 (fond) et V2 (grille), puis corrige.");
+  batch.forEach(([k,i],j)=>{const b=aud[i];setTimeout(()=>doc("DX."+i,{x:E["R"+k].x,y:480},{x:slot[i].offsetLeft+48,y:slot[i].offsetTop+30},1400,CO[b],()=>{pulse(b)}),j*120/+$("sp").value)});
+  await wait(3000);
+  say("8 · Les DD audités partent au dépôt : commit, PR, CI verte, fusion.");on(7);on(9);
+  for(const [k,i] of batch){slot[i].classList.add("ok");doc("DX."+i,{x:slot[i].offsetLeft+48,y:slot[i].offsetTop+30},E.d0,900,"#34d399",()=>{done++;$("k1").textContent=done+1});await wait(250)}
+  await wait(1200)}
+ say("9 · LOT complet : une PR, CI verte, commit de fusion. Cinq leçons au plus par rôle, puis le LOT suivant.");on(7,2400);["d0","d1","d2","d3"].forEach((d,i)=>setTimeout(()=>doc("✓",E[d],E[d==="d3"?"d3":"d"+(i+1)],500,"#34d399"),i*300));$("k1").textContent=16;await wait(4500)}
+async function boucle(){while(true){await scenario()}}
+$("pl").onclick=()=>{play=!play;$("pl").textContent=play?"⏸ Pause":"▶ Lecture"};
+$("rs").onclick=()=>location.reload();
+const rot=()=>{W.style.setProperty("--rz",$("rz").value+"deg");W.style.setProperty("--rx",$("rx").value+"deg")};$("rz").oninput=rot;$("rx").oninput=rot;
+boucle();
+</script></body></html>
