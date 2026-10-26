@@ -131,3 +131,19 @@ outil_applique=découpage ciblé (controle_lot.py extraire) des sources longues 
 lot=LOT_001
 phase=A
 producteur=Claude Opus (redacteur-phase-a, sous-agent)
+
+2026-10-26 Europe/Zurich
+boucle=etape-zero-correction-LOT_001-Phase_A_V0-cycle2
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "corriger Phase A LOT_001 selon audits C1, AIPS, sources"
+1. [filtrage_nettoyage] Chonkie (feynic/chonkie) — découper longs documents  score=0.2
+2. [filtrage_nettoyage] Crawl4AI (unclecode/crawl4ai) — pages web → Markdown propre  score=0.2
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.2
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+py_compile=harnais/controle_lot.py harnais/scinder_1_10.py exit=0
+outil_applique=extraction ciblée (controle_lot.py extraire, aips_texte.py --section)
+lot=LOT_001
+phase=A
+producteur=Claude Opus (redacteur-phase-a, sous-agent, cycle 2)
