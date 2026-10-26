@@ -32,9 +32,8 @@ Valeur de vérité 1 de l'audit médical. Éditée par Vial le 26.10.2026 à par
 
 **Questions :**
 - Q2.1 Le candidat peut-il décrire la distribution dans la population (prévalence, incidence, âge, sexe, groupes à risque, géographie suisse) ?
-- Q2.2 Peut-il décrire l'évolution chez l'individu (histoire naturelle, âge de début, évolution, mortalité) ?
-- Q2.3 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?
-- Q2.4 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?
+- Q2.2 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?
+- Q2.3 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?
 
 **Amendement (Vial).** Les sources sont en fin de page ; un numéro entre crochets en exposant affiche la source sur une petite bande de fond bleu ciel.
 
@@ -90,6 +89,7 @@ Valeur de vérité 1 de l'audit médical. Éditée par Vial le 26.10.2026 à par
 
 **Questions :**
 - Q8.1 Le lecteur sait-il quels critères posent le diagnostic avec certitude (majeurs, mineurs, seuils) ?
+- Q8.2 Sait-il ce qui ne suffit pas à poser le diagnostic ?
 
 ### 9. Examens complémentaires
 
@@ -172,11 +172,11 @@ Valeur de vérité 1 de l'audit médical. Éditée par Vial le 26.10.2026 à par
 | 90 à 94 %, zéro critique, question finale « oui » | Validé ; les questions à 1 sont listées pour amélioration |
 | < 90 %, ou ≥ 1 critique, ou question finale « non » | Refusé : retour au rédacteur avec la liste des questions à 0 ou 1 |
 
-## Points à confirmer par Vial
+## Décisions et points en attente
 
-- Point 10 (arbre décisionnel) : le texte saisi est incomplet (« Devant le SSP : symptôme, etc. »). Le texte du Prompt V0 est conservé en attendant votre version.
-- Point 2 : l'« histoire naturelle chez l'individu » a disparu de l'exigence, mais la question Q2.2 la demande encore. À harmoniser : garder les deux, ou retirer Q2.2.
-- Point 8 : la question Q8.2 (« sait-il ce qui ne suffit pas ? ») est supprimée, alors que l'exigence garde « ce qui ne suffit pas ». À harmoniser.
-- Point 11 : le numéro Swissmedic n'est plus exigé (voie et dose AIPS restent). Confirmer que ce retrait est voulu.
-- Taille des fichiers FLASH : le Prompt impose 100 à 200 Ko. Aucune bande FLASH n'est encore fixée ; à décider.
-- Audit V1 : qui note la grille (Opus par territoire, ou Sonnet indépendant du rédacteur) ? Proposition : Opus par territoire, sur le texte final.
+- Point 11 : le numéro Swissmedic n'est plus exigé (parfois introuvable). Retrait voulu par Vial. Un numéro n'est écrit que s'il est lu dans l'AIPS, jamais déduit.
+- Point 2 : « histoire naturelle » retirée de l'exigence ; Q2.2 d'origine supprimée et questions renumérotées (Q2.1 à Q2.3). Décision validée.
+- Point 8 : Q8.2 (« sait-il ce qui ne suffit pas ? ») rétablie, car l'exigence garde « ce qui ne suffit pas ». Décision validée.
+- Point 10 (arbre décisionnel) : texte du Prompt V0 conservé jusqu'à ce que Vial fournisse sa version complète. Décision validée.
+- Audit V1 (note de la grille) : un auditeur Opus par territoire, sur le texte final. Décision validée.
+- Taille des fichiers FLASH : bande 100–200 Ko du Prompt en vigueur tant que Vial n'en fixe pas une autre. Décision en attente.

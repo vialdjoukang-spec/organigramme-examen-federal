@@ -24,7 +24,7 @@ POINTS = [
   "Situer l'entité du général au particulier, avec entre parenthèses la classification d'origine (CIM-11, DSM-5, ATC…)."),
  ("2", "Épidémiologie (Suisse, puis Europe)",
   "Prévalence et/ou incidence selon ce qui est disponible. Source prioritaire : Suisse (OFS, OFSP, registres, Obsan) ; Europe si le chiffre suisse manque. Âge, sexe, groupes à risque, géographie, mortalité. Enjeux de santé publique (coût, dépistage, gravité). Badge de fréquence uniquement s'il est sourcé.",
-  ["Q2.1 Le candidat peut-il décrire la distribution dans la population (prévalence, incidence, âge, sexe, groupes à risque, géographie suisse) ?", "Q2.2 Peut-il décrire l'évolution chez l'individu (histoire naturelle, âge de début, évolution, mortalité) ?", "Q2.3 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?", "Q2.4 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?"],
+  ["Q2.1 Le candidat peut-il décrire la distribution dans la population (prévalence, incidence, âge, sexe, groupes à risque, géographie suisse) ?", "Q2.2 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?", "Q2.3 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?"],
   "Les sources sont en fin de page ; un numéro entre crochets en exposant affiche la source sur une petite bande de fond bleu ciel."),
  ("3", "Physiopathologie",
   "Cascade moléculaire → cellulaire → tissulaire → clinique, de la cause au signe, étape par étape (amorce, développement, installation, maintien). Lien explicite entre chaque lésion ou perte fonctionnelle et la classe médicamenteuse ou la stratégie qui la corrige. Tableau de corrélation obligatoire : lésion / perturbation → exploration qui la montre → thérapeutique qui la corrige (mécanisme).",
@@ -48,7 +48,7 @@ POINTS = [
   ""),
  ("8", "Diagnostic positif et critères",
   "Critères de la société savante avec année : majeurs / mineurs, seuils chiffrés, durée minimale, exclusions. Ce qui suffit au diagnostic et ce qui ne suffit pas (piège d'examen). Scores ou classifications (stades, grades) avec leur usage clinique immédiat.",
-  ["Q8.1 Le lecteur sait-il quels critères posent le diagnostic avec certitude (majeurs, mineurs, seuils) ?"],
+  ["Q8.1 Le lecteur sait-il quels critères posent le diagnostic avec certitude (majeurs, mineurs, seuils) ?", "Q8.2 Sait-il ce qui ne suffit pas à poser le diagnostic ?"],
   ""),
  ("9", "Examens complémentaires",
   "Structure obligatoire : 9.a gold standard (si existant) ; 9.b 1re intention ; 9.c alternatives ; 9.d 2e intention. Pour chaque examen : indication, ce qu'on prescrit exactement, tableau d'interprétation (résultat → signification → conduite). Contre-indications et limites utiles au candidat.",
@@ -89,12 +89,12 @@ AUDIT = [
  ("Décision", "Un audit médical est fait lorsque les informations sont vraies (V2) ET que le contenu de chaque point respecte la grille (V1). Validé : score ≥ 90 %, zéro critique, question finale « oui ». Cible 95 à 100 %. Un seul fichier sous le seuil bloque le LOT."),
 ]
 A_CONFIRMER = [
- "Point 10 (arbre décisionnel) : le texte saisi est incomplet (« Devant le SSP : symptôme, etc. »). Le texte du Prompt V0 est conservé en attendant votre version.",
- "Point 2 : l'« histoire naturelle chez l'individu » a disparu de l'exigence, mais la question Q2.2 la demande encore. À harmoniser : garder les deux, ou retirer Q2.2.",
- "Point 8 : la question Q8.2 (« sait-il ce qui ne suffit pas ? ») est supprimée, alors que l'exigence garde « ce qui ne suffit pas ». À harmoniser.",
- "Point 11 : le numéro Swissmedic n'est plus exigé (voie et dose AIPS restent). Confirmer que ce retrait est voulu.",
- "Taille des fichiers FLASH : le Prompt impose 100 à 200 Ko. Aucune bande FLASH n'est encore fixée ; à décider.",
- "Audit V1 : qui note la grille (Opus par territoire, ou Sonnet indépendant du rédacteur) ? Proposition : Opus par territoire, sur le texte final.",
+ "Point 11 : le numéro Swissmedic n'est plus exigé (parfois introuvable). Retrait voulu par Vial. Un numéro n'est écrit que s'il est lu dans l'AIPS, jamais déduit.",
+ "Point 2 : « histoire naturelle » retirée de l'exigence ; Q2.2 d'origine supprimée et questions renumérotées (Q2.1 à Q2.3). Décision validée.",
+ "Point 8 : Q8.2 (« sait-il ce qui ne suffit pas ? ») rétablie, car l'exigence garde « ce qui ne suffit pas ». Décision validée.",
+ "Point 10 (arbre décisionnel) : texte du Prompt V0 conservé jusqu'à ce que Vial fournisse sa version complète. Décision validée.",
+ "Audit V1 (note de la grille) : un auditeur Opus par territoire, sur le texte final. Décision validée.",
+ "Taille des fichiers FLASH : bande 100–200 Ko du Prompt en vigueur tant que Vial n'en fixe pas une autre. Décision en attente.",
 ]
 
 def md():
@@ -108,7 +108,7 @@ def md():
     o += ["## Style des cours", ""] + [f"- **{t}** : {x}" for t, x in STYLE]
     o += ["", "## Audit médical : deux valeurs de vérité", ""] + [f"- **{t}** : {x}" for t, x in AUDIT]
     o += ["", "## Notation (Prompt §12.2)", "", "| Résultat | Décision |", "|---|---|", "| ≥ 95 %, zéro critique, question finale « oui » | Cible atteinte : validé |", "| 90 à 94 %, zéro critique, question finale « oui » | Validé ; les questions à 1 sont listées pour amélioration |", "| < 90 %, ou ≥ 1 critique, ou question finale « non » | Refusé : retour au rédacteur avec la liste des questions à 0 ou 1 |", ""]
-    o += ["## Points à confirmer par Vial", ""] + [f"- {x}" for x in A_CONFIRMER] + [""]
+    o += ["## Décisions et points en attente", ""] + [f"- {x}" for x in A_CONFIRMER] + [""]
     return "\n".join(o)
 
 def htm():
@@ -126,7 +126,7 @@ td.n{font-weight:700;width:14%}td.n b{color:#0f766e;font-size:16px}.am{backgroun
     o.append("</table><h2>Style des cours</h2><ul>" + "".join(f"<li><b>{e(t)}</b> : {e(x)}</li>" for t, x in STYLE) + "</ul>")
     o.append("<h2>Audit médical : deux valeurs de vérité</h2><ul>" + "".join(f"<li><b>{e(t)}</b> : {e(x)}</li>" for t, x in AUDIT) + "</ul>")
     o.append("<h2>Notation</h2><table><tr><th>Résultat</th><th>Décision</th></tr><tr><td>≥ 95 %, zéro critique, question finale « oui »</td><td>Cible atteinte : validé</td></tr><tr><td>90 à 94 %, zéro critique, question finale « oui »</td><td>Validé ; les questions à 1 sont listées pour amélioration</td></tr><tr><td>&lt; 90 %, ou ≥ 1 critique, ou question finale « non »</td><td>Refusé : retour au rédacteur avec la liste des questions à 0 ou 1</td></tr></table>")
-    o.append("<h2>Points à confirmer par Vial</h2><ul>" + "".join(f"<li>{e(x)}</li>" for x in A_CONFIRMER) + "</ul>")
+    o.append("<h2>Décisions et points en attente</h2><ul>" + "".join(f"<li>{e(x)}</li>" for x in A_CONFIRMER) + "</ul>")
     return "\n".join(o)
 
 if __name__ == "__main__":

@@ -396,9 +396,8 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 **Point 2 — Épidémiologie (Suisse, puis Europe)**
 
 - Q2.1 Le candidat peut-il décrire la distribution dans la population (prévalence, incidence, âge, sexe, groupes à risque, géographie suisse) ?
-- Q2.2 Peut-il décrire l'évolution chez l'individu (histoire naturelle, âge de début, évolution, mortalité) ?
-- Q2.3 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?
-- Q2.4 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?
+- Q2.2 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?
+- Q2.3 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?
 
 **Point 3 — Physiopathologie**
 
@@ -434,6 +433,7 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 **Point 8 — Diagnostic positif et critères**
 
 - Q8.1 Le lecteur sait-il quels critères posent le diagnostic avec certitude (majeurs, mineurs, seuils) ?
+- Q8.2 Sait-il ce qui ne suffit pas à poser le diagnostic ?
 
 **Point 9 — Examens complémentaires**
 
@@ -515,7 +515,7 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 
 > **Obsession : corpus AIPS local d'abord.** Le fichier de travail est `/workspace/PROMPT_Casern/AIPS/AipsDownload_20261008.xml` (zip d'origine : `AipsDownload_20261008.zip`). **Priorité** : tu lis la monographie dans **ce corpus** avant toute autre source, sans jamais ouvrir le XML en entier (extraction ciblée, [§23](#sec-23)). Contrôle croisé sur **swissmedicinfo.ch** seulement si la molécule est absente du corpus, si l'entrée est illisible, ou pour confirmer une mise à jour postérieure au 8 octobre 2026. **Si le corpus local est absent de l'environnement**, tu ne le recrées pas, tu ne clones aucun autre dépôt de toi-même : tu le signales dans `ARRET.md` et tu ne dépose aucun lot dont une dose n'a pas été relue dans une source AIPS datée.
 
-- Le **numéro d'autorisation Swissmedic** est le numéro à 5 chiffres lu dans le corpus AIPS local (ou sur swissmedicinfo.ch / liste officielle Swissmedic). **Tu ne le déduis jamais d'une URL.**
+- Le **numéro d'autorisation Swissmedic** est le numéro à 5 chiffres lu dans le corpus AIPS local (ou sur swissmedicinfo.ch / liste officielle Swissmedic). **Tu ne le déduis jamais d'une URL.** **Le numéro n'est plus exigé (Vial, 26.10.2026) : il est parfois introuvable ; tu l'écris seulement s'il est lu dans l'AIPS, sinon tu l'omets sans le remplacer par une valeur supposée.**
 - Un produit non autorisé en Suisse est signalé comme tel (importation selon l'OAMéd, dépôt d'antidotes).
 - **Interdit de laisser « À vérifier (AIPS) »** si la molécule **est présente dans le corpus AIPS local** et que tu ne l'as **pas** relue : tu ouvres le zip/XML, tu lis l'extrait, tu cites dose et numéro. « À vérifier (AIPS) » + question HELP ([§18](#sec-18)) **uniquement** si la molécule est **absente** du corpus **et** introuvable sur swissmedicinfo.ch après recherche datée.
 
