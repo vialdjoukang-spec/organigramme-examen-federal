@@ -17,6 +17,12 @@ spec = importlib.util.spec_from_file_location("cl", R / "harnais/controle_lot.py
 forme = cl.analyse_fichier(f); m, l = res(med), res(lan)
 if lot in ("001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016"):
     run("python3", "harnais/rappel_memoire.py", "inject", str(f))   # onglet Rappel mémoire (catégorie G), idempotent
+mx = re.search(r"DX\.(\d+)", f.name)
+if mx and (LOTDIR / "LISTE_DX_CANONIQUE.md").exists():   # le titre h2 doit porter « DX.n — nom » (cohérence A↔B)
+    n_ = mx.group(1); tx = f.read_text(encoding="utf-8", errors="replace")
+    if not re.search(rf"<h2[^>]*>\s*DX\.{n_}\s*[—–-]", tx):
+        ml = re.search(rf"DX\.{n_}\s*[—–-]\s*([^\n|«»]+)", (LOTDIR / "LISTE_DX_CANONIQUE.md").read_text(encoding="utf-8"))
+        if ml: f.write_text(re.sub(r"<h2[^>]*>.*?</h2>", f"<h2>DX.{n_} — {ml.group(1).strip()}</h2>", tx, count=1, flags=re.S), encoding="utf-8")
 sys.path.insert(0, str(R / "harnais")); import forme_interactive as FI
 conv = FI.convert(f.read_text(encoding="utf-8", errors="replace")); crit_i, moy_i, st_i = FI.controle(conv)
 cf = R / ".cache/conv" / f.name; cf.parent.mkdir(parents=True, exist_ok=True); cf.write_text(conv, encoding="utf-8"); forme = cl.analyse_fichier(cf)
@@ -24,6 +30,7 @@ bad = []
 if not m or m["score"] < 90 or m["crit"]: bad.append(f"médical {m} → {med}")
 if not l or l["score"] < 90 or l["crit"]: bad.append(f"langue {l} → {lan}")
 if crit_i: bad.append("forme interactive : " + " ; ".join(crit_i))
+if not 100_000 <= cf.stat().st_size <= 200_000: bad.append(f"taille finale {cf.stat().st_size} o hors bande 100–200 Ko : allège la forme (pas le fond)")
 if forme["critiques"]: bad.append(f"forme {forme['critiques']} (bande 100–200 Ko APRÈS l'onglet ≈ +7 Ko : vise ≤ 190 Ko)")
 if bad: print("CHECKPOINT REFUSÉ —", " | ".join(bad)); sys.exit(1)
 tb = json.loads((LOTDIR / "taches.json").read_text()) if (LOTDIR / "taches.json").exists() else {}
