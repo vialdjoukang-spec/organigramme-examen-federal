@@ -7,7 +7,7 @@ import html as H, re, sys
 from pathlib import Path
 MARQ = "<!-- FORME_INTERACTIVE -->"
 CSS = """<style>.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
-details.refs{margin:18px 0;border:1px solid #cfd4dc;border-radius:12px;padding:6px 14px;background:#f8fafc}details.refs>summary{cursor:pointer;font-weight:700;color:#334155}details.refs li{font-size:.86em;margin:.35em 0}details.refs li:target{background:#fef9c3}
+details.refs{margin:18px 0;border:1px solid #cfd4dc;border-radius:12px;padding:6px 14px;background:#f8fafc}details.refs>summary{cursor:pointer;font-weight:700;color:#334155}details.refs ol{list-style:none;padding-left:0}details.refs .n{font-weight:700;color:#475569}details.refs li{font-size:.86em;margin:.35em 0}details.refs li:target{background:#fef9c3}
 .tm{border-bottom:1px dotted #7c3aed;color:#4c1d95;cursor:help;position:relative;display:inline}.tm .df{display:none;position:absolute;left:0;top:1.5em;z-index:20;width:min(320px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:8px 10px;font-size:.85em;font-weight:400;box-shadow:0 6px 20px #0006}.tm:hover .df,.tm:focus .df,.tm:focus-within .df{display:block}
 details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
 @media(prefers-color-scheme:dark){details.refs{background:#1b2033;border-color:#3a4256}details.refs>summary{color:#cbd5e1}.r a{color:#93c5fd}details.arbre{background:#241d3f}details.arbre>summary,.tm{color:#ddd0ff}}</style>"""
@@ -17,8 +17,8 @@ def convert(t):
     m = re.search(r"(<h[23][^>]*>[^<]*(?:[Ss]ources|[Rr]éférences)[^<]*</h[23]>\s*)?<ol[^>]*>\s*(<li[^>]*>\s*\[S\d+\].*?)</ol>", t, re.S)
     if m:
         lis = re.findall(r"<li[^>]*>\s*\[S(\d+)\]\s*(.*?)</li>", m.group(2), re.S)
-        ol = "".join(f'<li id="src-{n}" value="{n}">{x.strip()}</li>' for n, x in lis)
-        t = t[:m.start()] + f'<details class="refs" id="refs"><summary>Sources bibliographiques</summary><ol>{ol}</ol></details>' + t[m.end():]
+        ol = "\n".join(f'<li id="src-{n}" value="{n}"><span class="n">[S{n}]</span> {x.strip()}</li>' for n, x in lis)
+        t = t[:m.start()] + f'<details class="refs" id="refs"><summary>Sources bibliographiques</summary><ol>\n{ol}\n</ol></details>' + t[m.end():]
     # 2. marqueurs en exposants (grappes), doublons de grappe proches supprimés
     last = {}
     def grappe(mm):
