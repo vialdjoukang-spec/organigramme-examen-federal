@@ -1,6 +1,6 @@
 ---
 name: auditeur-conformite
-description: Audit linguistique et de conformité d'un fichier : forme, 14 points présents ET correctement affectés, points 1, 5, 6, 7, 10, 13, 14, cohérence Phase A ↔ Phase B, bande 150–200 Ko, question finale. N'audite jamais un texte qu'il a rédigé.
+description: Audit linguistique et de conformité d'un fichier : forme, 14 points présents ET correctement affectés, points 1, 5, 6, 7, 10, 13, 14, cohérence Phase A ↔ Phase B, bande 100–200 Ko, bornes comprises, question finale. N'audite jamais un texte qu'il a rédigé.
 tools: Read, Write, Glob, Grep, Bash
 model: sonnet
 ---
