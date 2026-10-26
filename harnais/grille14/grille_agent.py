@@ -2,7 +2,8 @@
 """Moteur des scripts « Grille des 14 points » (lecture seule). Un script par agent : harnais/agents/<id>.py.
   <id>.py memoire                       départ de tâche : identité, périmètre, grille, règles, leçons ; preuve du bracelet
   <id>.py controle <fichier> [--points 1,4]   écarts du fichier à la grille, point par point ; verrou posé
-  <id>.py fin <fichier> [--v1 N --v2 N --crit N]   dernier contrôle + checkpoint ; verrou levé ; verdict
+  <id>.py fin <fichier> [--v1 N --v2 N --crit N]   dernier contrôle + checkpoint ; verrou levé ; verdict. 3 essais au plus ; mêmes écarts deux fois = fichier BLOQUÉ (l'agent s'arrête)
+  controle et fin réparent d'abord, gratuitement : balise de fin, lignes trop longues, title=, renvois dupliqués
   <id>.py lecon "<texte>"               ajoute une leçon à la mémoire permanente (5 au plus)
   <id>.py attendre <fichier>            auditeur : bloque jusqu'à 9 min tant que le rédacteur n'a pas terminé le fichier
   <id>.py etat                          mémoire et périmètre
@@ -132,9 +133,79 @@ def ecarts_points(html, pts):
         if nl: add(0, "CRITIQUE", f"{nl} ligne(s) de plus de 3 000 caractères : coupe-les (un saut de ligne entre deux blocs)")
         tc = len(conv.encode("utf-8"))
         if not 100_000 <= tc <= 195_000: add(0, "CRITIQUE", f"taille finale {tc // 1000} Ko hors bande 100–195 Ko (ce que le checkpoint mesure après conversion et onglet) : {'allège la forme, pas le fond' if tc > 195_000 else 'densifie sans remplissage'}")
+    pl = phrases_longues(conv)
+    if any("phrases trop longues" in c for c in crit) and pl:
+        add(0, "DETAIL", "phrases à couper en premier : " + " | ".join(f"{n} mots : « {x[:70]}… »" for n, x in pl))
+    if any("taille finale" in c for c in [m for _, _, m in E]):
+        add(0, "DETAIL", "points les plus lourds : " + ", ".join(f"point {p} = {b // 1000} Ko" for b, p in poids_points(conv)) + " : allège-les d'abord (tableaux, fenêtres, doublons)")
     for c in crit: add(0, "CRITIQUE", "forme : " + c)
     for c in moy: add(0, "MOYEN", "forme : " + c)
     return E, st
+
+
+TEST = bool(__import__("os").environ.get("G14_TEST"))
+CAP = 3          # essais de `fin` au plus par agent et par fichier
+def reparer(html, lot, nom):
+    """Réparations mécaniques gratuites : l'agent ne dépense aucun jeton dessus."""
+    rep = []
+    n0 = len(html)
+    h = re.sub(r"(\[S\d+\])(?:\s*\1)+", r"\1", html)
+    if h != html: rep.append("renvois [Sn] dupliqués fusionnés")
+    html = h
+    h = re.sub(r"(<(?!title)[a-zA-Z][^>]*?)\s+title=(\"[^\"]*\"|'[^']*')", r"\1", html)
+    if h != html: rep.append("attributs title= retirés")
+    html = h
+    out, n = [], 0
+    for l in html.split("\n"):
+        k = 0
+        while len(l) > 3000 and k < 400:
+            cut = -1
+            for m in re.finditer(r"</(?:p|li|tr|td|th|div|details|summary|table|ul|ol|h[1-6]|section|span)>", l):
+                if m.end() > 2800: break
+                cut = m.end()
+            if cut < 600:
+                cut = l.rfind(">", 600, 2900) + 1
+                if cut <= 0: cut = l.rfind(" ", 600, 2900) + 1
+                if cut <= 0: cut = 2900
+            out.append(l[:cut]); l = l[cut:]; k += 1; n += 1
+        out.append(l)
+    if n: rep.append(f"{n} saut(s) de ligne ajouté(s) dans les lignes de plus de 3 000 caractères")
+    html = "\n".join(out)
+    part = nom.replace(f"LOT_{lot}_", "").replace(".html", "").upper()
+    if "FIN_FICHIER" not in html[-400:]:
+        html = re.sub(r"\s*<!--\s*FIN_FICHIER[^>]*-->", "", html).rstrip() + f"\n<!-- FIN_FICHIER LOT_{lot}_{part} -->\n"; rep.append("balise FIN_FICHIER remise en fin de fichier")
+    h = re.sub(r"[ \t]+\n", "\n", html)
+    html = h
+    return html, rep
+
+def essais_f(lot): return MEM / f"essais_{lot}{'_test' if TEST else ''}.json"
+def charge_essais(lot): f = essais_f(lot); return json.loads(f.read_text()) if f.exists() else {}
+def bloque_f(wk, nom): return wk / "bloque" / (nom + ".md")
+
+def refus(ag, lot, wk, nom, sig, detail):
+    """Compte un échec. Bloque le fichier au 3e essai, ou à la 2e fois que les mêmes écarts reviennent."""
+    d = charge_essais(lot); k = f"{ag}:{nom}"; e = d.get(k, {"n": 0, "sig": None, "stag": 0})
+    e["n"] += 1; h = hashlib.sha256(sig.encode()).hexdigest()[:12]
+    e["stag"] = e["stag"] + 1 if e["sig"] == h else 0; e["sig"] = h; d[k] = e; essais_f(lot).write_text(json.dumps(d, indent=1))
+    if e["n"] >= CAP or e["stag"] >= 1:
+        raison = "mêmes écarts qu'à l'essai précédent (aucun progrès)" if e["stag"] >= 1 else f"{CAP} essais utilisés"
+        b = bloque_f(wk, nom); b.parent.mkdir(exist_ok=True)
+        b.write_text(f"# BLOQUÉ · {nom}\nagent : {ag}\nraison : {raison}\nessais : {e['n']}\n\n## Derniers écarts\n{detail}\n", encoding="utf-8")
+        return f"BLOQUÉ ({raison}). Arrête-toi : ne relance ni controle ni fin sur ce fichier, ne tente rien d'autre ; réponds « BLOQUÉ {nom} ». Le chef de production reprend la main."
+    return f"Essai {e['n']}/{CAP}." + (" ATTENTION : si les mêmes écarts reviennent au prochain essai, le fichier sera bloqué : change de méthode." if e["n"] >= 1 else "")
+
+def reussite(ag, lot, nom):
+    d = charge_essais(lot); d.pop(f"{ag}:{nom}", None); essais_f(lot).write_text(json.dumps(d, indent=1))
+
+def phrases_longues(html, n=3):
+    t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>|<table.*?</table>|<details class=\"refs\".*?</details>", " ", html)
+    t = re.sub(r"(?s)<span class=\"(?:df|dxc)\">.*?</span></span>", " ", t)
+    t = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", t))
+    ph = [(len(x.split()), x.strip()) for x in re.split(r"(?<=[.!?;])\s+", t) if len(x.split()) > 24]
+    return sorted(ph, reverse=True)[:n]
+
+def poids_points(conv):
+    S = sections(conv); return sorted(((len(v.encode()), p) for p, v in S.items()), reverse=True)[:3]
 
 def verrou(ag, f, action):
     a = ["python3", str(R / "harnais/verrou.py"), action, str(f)] + [ag]
@@ -148,6 +219,7 @@ def main():
         if x == "--lot": lot = a[i + 1]
     ro = charge_roster(lot); per = perimetre(ag, ro); nom, mod, mission = role(ag); m = memoire_perm(ag)
     wk = R / ".cache/travail" / f"LOT_{lot}"
+    if TEST: wk = R / ".cache/test_g14"; wk.mkdir(parents=True, exist_ok=True)
     if cmd == "memoire":
         print(f"# {ag} · {nom} · {mod}\n{mission}\nPérimètre (rien d'autre) : " + ", ".join(per))
         if ag == "B1": print("B1 audite d'abord la Phase A (liste des DD) : sans délai, car les rédacteurs en dépendent ; puis ses 2 DD.")
@@ -182,33 +254,47 @@ def main():
             time.sleep(10)
         print(f"ATTENTE : {nom_f} n'est pas encore prêt. Relance `attendre` (sans rien faire d'autre)."); return 4
     if cmd == "controle":
+        if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est bloqué (voir {bloque_f(wk, nom_f).name}). Arrête-toi, réponds « BLOQUÉ {nom_f} »."); return 5
         v = verrou(ag, chemin, "claim")
         if v.returncode == 3: print("VERROU PRIS PAR UN AUTRE AGENT. STOP."); return 3
-        h = chemin.read_text(encoding="utf-8", errors="replace"); sha = hashlib.sha256(h.encode()).hexdigest()[:16]
+        h0 = chemin.read_text(encoding="utf-8", errors="replace"); h, rep = reparer(h0, lot, nom_f)
+        if rep:
+            bak = R / ".cache/bak"; bak.mkdir(exist_ok=True); (bak / f"{ag}_{nom_f}").write_text(h0, encoding="utf-8"); chemin.write_text(h, encoding="utf-8")
+            print("RÉPARÉ AUTOMATIQUEMENT (gratuit) : " + " ; ".join(rep))
+        sha = hashlib.sha256(h.encode()).hexdigest()[:16]
         E, st = ecarts_points(h, pts)
-        for p, g, msg in sorted(E, key=lambda x: ({"CRITIQUE": 0, "GRAVE": 1, "MOYEN": 2}[x[1]], x[0])): print(f"[{'forme' if p == 0 else 'point %d' % p}] {g} : {msg}")
+        ordre = {"CRITIQUE": 0, "GRAVE": 1, "MOYEN": 2, "DETAIL": 3}
+        for p, g, msg in sorted(E, key=lambda x: (ordre[x[1]], x[0])): print(f"[{'forme' if p == 0 else 'point %d' % p}] {g} : {msg}")
         n = {g: sum(1 for e in E if e[1] == g) for g in ("CRITIQUE", "GRAVE", "MOYEN")}
         print(f"ÉCARTS critiques={n['CRITIQUE']} graves={n['GRAVE']} moyens={n['MOYEN']} · mots={st['mots']} termes={st['termes']} fenêtres={st['fenetres']} · empreinte {sha}")
         return 0 if not n["CRITIQUE"] else 1
     if cmd == "fin":
-        h = chemin.read_text(encoding="utf-8", errors="replace")
-        E, st = ecarts_points(h, pts); crit = sum(1 for e in E if e[1] == "CRITIQUE")
-        if crit: print(f"REFUSÉ : {crit} écart(s) critique(s) à la grille. Lance `controle`, corrige, relance."); return 1
+        if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est déjà bloqué. Arrête-toi, réponds « BLOQUÉ {nom_f} »."); return 5
+        h0 = chemin.read_text(encoding="utf-8", errors="replace"); h, rep = reparer(h0, lot, nom_f)
+        if rep: chemin.write_text(h, encoding="utf-8"); print("RÉPARÉ AUTOMATIQUEMENT (gratuit) : " + " ; ".join(rep))
+        E, st = ecarts_points(h, pts); crit = [e for e in E if e[1] == "CRITIQUE"]
         auditeur = ag.startswith("B")
+        def echec(msg, sig, detail):
+            print(msg); print(refus(ag, lot, wk, nom_f, sig, detail)); verrou(ag, chemin, "release")
+            return 5 if bloque_f(wk, nom_f).exists() else 1
+        if crit:
+            lst = "\n".join(f"- [point {p}] {m}" for p, _, m in crit)
+            return echec(f"REFUSÉ : {len(crit)} écart(s) critique(s) à la grille. Lance `controle`, corrige, relance.", "|".join(sorted(m for _, _, m in crit)), lst)
         if auditeur:
             v1 = int(a[a.index("--v1") + 1]) if "--v1" in a else None; v2 = int(a[a.index("--v2") + 1]) if "--v2" in a else None
             c = int(a[a.index("--crit") + 1]) if "--crit" in a else 0
-            if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]."); return 1
-            if v1 < 90 or v2 < 90 or c: print(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige, puis relance."); return 1
+            if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]. (Pas un essai perdu.)"); return 1
+            if v1 < 90 or v2 < 90 or c:
+                return echec(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige les points qui pèsent, puis relance.", f"v1<90={v1 < 90} v2<90={v2 < 90} c={c}", f"V1={v1} V2={v2} critiques={c}")
             aud = wk / "audits"; aud.mkdir(exist_ok=True)
             (aud / f"AUD_{ag}_{nom_f}.md").write_text(f"# Audit {ag} · {nom_f}\nV1 (fond) = {v1} %\nV2 (conformité grille et Prompt) = {v2} %\ncritiques = {c}\nagent = {nom}, {mod}\n", encoding="utf-8")
         cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if auditeur else ["--sans-commit"])
-        r = subprocess.run(cmdc, capture_output=True, text=True, cwd=R); print(r.stdout.strip()[-600:])
-        verrou(ag, chemin, "release")
-        if r.returncode == 0:
-            m["taches"] += 1; sauve_mem(ag, m)
-            if not auditeur: (wk / "pret").mkdir(exist_ok=True); (wk / "pret" / nom_f).write_text(time.strftime("%H:%M:%S"))
-        return r.returncode
+        r = subprocess.run(cmdc, capture_output=True, text=True, cwd=R); out = r.stdout.strip()[-700:]
+        if r.returncode != 0: return echec(out, re.sub(r"\d+(\.\d+)?", "#", out), out)
+        print(out); verrou(ag, chemin, "release"); reussite(ag, lot, nom_f)
+        m["taches"] += 1; sauve_mem(ag, m)
+        if not auditeur: (wk / "pret").mkdir(exist_ok=True); (wk / "pret" / nom_f).write_text(time.strftime("%H:%M:%S"))
+        return 0
     print(__doc__); return 2
 
 if __name__ == "__main__":
