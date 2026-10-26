@@ -126,6 +126,12 @@ def ecarts_points(html, pts):
         elif p == 14:
             if t.count("?") < 3 or len(re.findall(r"réponse", tl)) < 3: add(14, "GRAVE", "Q14.1 : chaque piège = question d'examen + bonne réponse immédiate")
     crit, moy, st = FI.controle(conv)
+    if 0 in pts or len(pts) == 14:
+        if "FIN_FICHIER" not in html[-400:]: add(0, "CRITIQUE", "balise <!-- FIN_FICHIER LOT_XXX_<PARTIE> --> absente en fin de fichier (troncature présumée)")
+        nl = sum(1 for l in html.splitlines() if len(l) > 3000)
+        if nl: add(0, "CRITIQUE", f"{nl} ligne(s) de plus de 3 000 caractères : coupe-les (un saut de ligne entre deux blocs)")
+        tc = len(conv.encode("utf-8"))
+        if not 100_000 <= tc <= 195_000: add(0, "CRITIQUE", f"taille finale {tc // 1000} Ko hors bande 100–195 Ko (ce que le checkpoint mesure après conversion et onglet) : {'allège la forme, pas le fond' if tc > 195_000 else 'densifie sans remplissage'}")
     for c in crit: add(0, "CRITIQUE", "forme : " + c)
     for c in moy: add(0, "MOYEN", "forme : " + c)
     return E, st
