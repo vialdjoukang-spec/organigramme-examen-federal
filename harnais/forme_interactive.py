@@ -26,7 +26,7 @@ def convert(t):
     if m:
         lis = re.findall(r"<li[^>]*>\s*\[S(\d+)\]\s*(.*?)</li>", m.group(2), re.S)
         ol = "\n".join(f'<li id="src-{n}" value="{n}"><span class="n">[S{n}]</span> {x.strip()}</li>' for n, x in lis)
-        bandes = "".join(f'<div class="sb" id="sb-{n}"><b>[{n}]</b> {re.sub(r"<[^>]+>", "", x).strip()} <a href="#">fermer</a></div>' for n, x in lis)
+        bandes = "".join(f'<div class="sb" id="sb-{n}"><b>[{n}]</b> {re.sub(r"<[^>]+>", "", x).strip()} <a href="#">fermer</a></div>\n' for n, x in lis)
         t = t[:m.start()] + f'<details class="refs" id="refs"><summary>Sources bibliographiques</summary><ol>\n{ol}\n</ol></details>' + bandes + t[m.end():]
     # 1 bis. déroulés en ligne : <details class="dx"> → case à cocher CSS (la phrase continue, le contenu se déroule)
     cnt = [0]
@@ -103,11 +103,20 @@ def convert(t):
     head, sep, tail = t.partition('<details class="refs"')
     head = re.sub(r"(?:\s*\[S\d+\])+", grappe, head); t = head + sep + tail
     t = re.sub(r"(<sup class=\"r\">.*?</sup>)(\s*\1)+", r"\1", t)
-    t = re.sub(r"<!--(?!\s*FORME_INTERACTIVE).*?-->", "", t, flags=re.S)   # allègement : commentaires, indentations
+    t = re.sub(r"<!--(?!\s*(?:FORME_INTERACTIVE|FIN_FICHIER)).*?-->", "", t, flags=re.S)   # allègement : commentaires, indentations
     t = re.sub(r"(?m)^[ \t]+", "", t); t = re.sub(r"[ \t]{2,}", " ", t); t = re.sub(r"\n{2,}", "\n", t)
     css = FONTE.join(("<style>", "")) + re.sub(r"\s*\n\s*", "", CSS)[len("<style>"):] if False else re.sub(r"\s*\n\s*", "", CSS).replace("<style>", "<style>" + FONTE, 1)
     t = t.replace("</head>", css + "</head>", 1) if "</head>" in t else css + t
-    return t.replace("</body>", MARQ + "</body>", 1) if "</body>" in t else t + MARQ
+    t = t.replace("</body>", MARQ + "</body>", 1) if "</body>" in t else t + MARQ
+    return coupe_lignes(t)
+def coupe_lignes(t, max_l=2900):
+    out = []
+    for l in t.split("\n"):
+        while len(l) > 3000:
+            c = l.rfind(">", 600, max_l) + 1 or l.rfind(" ", 600, max_l) + 1 or max_l
+            out.append(l[:c]); l = l[c:]
+        out.append(l)
+    return "\n".join(out)
 def stats(t):
     txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", t)); mots = len(txt.split())
     gr = len(re.findall(r'<sup class="r">', t)) or len(re.findall(r"(?:\[S\d+\])+", t))
