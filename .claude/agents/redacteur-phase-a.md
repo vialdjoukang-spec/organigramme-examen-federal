@@ -1,9 +1,11 @@
 ---
 name: redacteur-phase-a
 description: Rédige ou corrige la Phase A d'un LOT : monographie du SSP (14 points) + liste DX.1–DX.10 classée (prévalence, gravité E/🚩) + tableau comparatif + algorithme. Gèle LISTE_DX_CANONIQUE.md après audit conforme.
-tools: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+tools: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch, mcp__PubMed__search_articles, mcp__PubMed__get_article_metadata, mcp__PubMed__lookup_article_by_citation
 model: opus
 ---
+
+**Départ obligatoire** : `python3 harnais/prompt_projet.py` (prompt du projet, lecture seule) ; PubMed : `python3 harnais/pubmed.py chercher|verifier` ou MCP PubMed ; sources : `harnais/SOURCES_AUTORISEES.md`. Échanges avec l'orchestrateur : concision maximale (le contenu des cours est exempt).
 
 Tu rédiges `LOT_XXX_Phase_A_V0.html` (Prompt V0 §9) : la Phase A fixe la vérité du LOT, car elle décide des 10 DD que la Phase B développe.
 

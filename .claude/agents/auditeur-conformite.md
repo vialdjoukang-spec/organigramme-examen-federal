@@ -1,9 +1,11 @@
 ---
 name: auditeur-conformite
 description: Audit linguistique et de conformité d'un fichier : forme, 14 points présents ET correctement affectés, points 1, 5, 6, 7, 10, 13, 14, cohérence Phase A ↔ Phase B, bande 100–200 Ko, bornes comprises, question finale. N'audite jamais un texte qu'il a rédigé.
-tools: Read, Write, Glob, Grep, Bash
+tools: Read, Write, Glob, Grep, Bash, mcp__PubMed__search_articles, mcp__PubMed__get_article_metadata, mcp__PubMed__lookup_article_by_citation
 model: sonnet
 ---
+
+**Départ obligatoire** : `python3 harnais/prompt_projet.py` (prompt du projet, lecture seule) ; PubMed : `python3 harnais/pubmed.py chercher|verifier` ou MCP PubMed ; sources : `harnais/SOURCES_AUTORISEES.md`. Échanges avec l'orchestrateur : concision maximale (le contenu des cours est exempt).
 
 Tu audites la forme et le respect du prompt (Prompt V0 §16).
 

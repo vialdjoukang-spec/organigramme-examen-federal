@@ -111,7 +111,7 @@ def lire_liste(d: Path) -> dict[int, str]:
             out = {}
             for l in cand.read_text(encoding="utf-8").splitlines():
                 m = RE_LISTE.search(l)
-                if m and 1 <= int(m.group(1)) <= 10 and int(m.group(1)) not in out:
+                if m and 1 <= int(m.group(1)) <= 15 and int(m.group(1)) not in out:
                     out[int(m.group(1))] = norm(m.group(2))
             return out
     return {}
@@ -152,10 +152,12 @@ def verifier(d: Path, sans_nom: bool) -> dict:
     C = rapport["critiques_lot"]
     if len(A) != 1:
         C.append(f"Phase A : {len(A)} fichier(s) au lieu de 1")
-    if sorted(B) != list(range(1, 11)):
-        C.append(f"Phase B : DX présents {sorted(B)} ; attendus 1 à 10, un fichier chacun")
+    liste = lire_liste(d)
+    N = len(liste) if 10 <= len(liste) <= 15 else 10  # 10 DD, jusqu'à 15 si lignes vertes retenues
+    if sorted(B) != list(range(1, N + 1)):
+        C.append(f"Phase B : DX présents {sorted(B)} ; attendus 1 à {N}, un fichier chacun")
     if autres:
-        C.append(f"HTML hors nommage 1 + 10 : {autres}")
+        C.append(f"HTML hors nommage 1 + N : {autres}")
     for r in rapport["fichiers"]:
         ml = RE_A.match(r["fichier"]) or RE_B.match(r["fichier"])
         if ml and lot and ml.group(1) != lot:
@@ -170,11 +172,10 @@ def verifier(d: Path, sans_nom: bool) -> dict:
             C.append(f"Phase A : {r['octets']} octets < 100 Ko")
         elif r["octets"] > BANDE_MAX:
             C.append(f"Phase A : {r['octets']} octets > 200 Ko (plafond absolu)")
-    liste = lire_liste(d)
     if not liste:
         C.append("LISTE_DX_CANONIQUE.md absente ou illisible (contrôle A↔B impossible)")
     else:
-        if sorted(liste) != list(range(1, 11)):
+        if sorted(liste) != list(range(1, N + 1)):
             C.append(f"liste canonique incomplète : {sorted(liste)}")
         for i, r in B.items():
             titres = r.get("dx_titres") or []
