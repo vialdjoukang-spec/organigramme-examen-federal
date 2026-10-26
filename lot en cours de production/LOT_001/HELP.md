@@ -1,20 +1,21 @@
-# HELP — LOT_001 (G1 Transpiration anormale) — Phase A V0 — 26.10.2026
+# HELP — LOT_001 (G1 Transpiration anormale) — Phase A V0 — mise à jour cycle 2, 26.10.2026
 
-## Q1 — LOT_001 · Phase A V0 · point 11 (situations spéciales) et DX.4
-- Contexte : V9 écrivait « Axhidrox peut être envisagé si nécessaire » pendant la grossesse ; l'audit V0 (25.10.2026) juge ce texte adouci (CORRECTIONS_AUDIT n° 3).
-- Question : quel est le texte AIPS mot pour mot de la rubrique « Grossesse, allaitement » d'Axhidrox® crème (n° 69243, IP du 01.02.2024) ?
-- Déjà cherché : corpus `.cache/aips/AipsDownload_20261008.xml` (métadonnées et URL seulement) ; URL https://files.refdata.ch/simis-public-prod/MedicinalDocuments/8b471836624c4402a592ec8fe64c736f-fr.html refusée par le proxy le 26.10.2026 (CONNECT 403) ; WebFetch swissmedicinfo.ch : échec DNS ; WebSearch : aucun extrait.
-- Emplacement cible : Phase A V0, point 11, fenêtre « Situations spéciales » ; Phase B DX.4, point 11.
-- Demande : extrait mot pour mot et date de l'IP.
+## Q1 — fermée (cycle 2)
+AIPS 69243 (Axhidrox®), rubrique Grossesse, lue le 26.10.2026 via `harnais/aips_texte.py` : « Si nécessaire, l'application d'Axhidrox peut être envisagée pendant la grossesse. »
 
-## Q2 — LOT_001 · Phase A V0 · point 2 et Bloc 2 (DX.1)
-- Question : nombre annuel d'hospitalisations pour infarctus aigu (CIM-10 I21–I22) en Suisse, OFS statistique médicale des hôpitaux ou Obsan, année la plus récente.
-- Déjà cherché : WebSearch 26.10.2026 (aucune série récente).
+## Q2 — fermée (cycle 2)
+OFS, page « Maladies cardiovasculaires » (lue le 26.10.2026) : infarctus aigu du myocarde 2024 = 13 004 hommes + 6 847 femmes = 19 851 cas.
 
-## Q3 — LOT_001 · Phase A V0 · point 11 (urgence hypoglycémie)
-- Question : quel schéma suisse (HUG, SSED ou AIPS) chiffre le bolus de glucose IV après échec du glucagon chez l'adulte, hors contexte Humalog ?
-- Déjà cherché : IP GlucaGen 31489 et Glucosum 32920 (lecture V9 du 23.10.2026) : aucun bolus chiffré.
+## Q3 — fermée (cycle 2)
+HUG_000000812 §3 (relu le 26.10.2026) : 32 g de glucose IV (8 ampoules de G40 %) en 3–5 min ; glycémie à 10 min ; G10 % 100 mL/h sur prescription.
 
-## Q4 — LOT_001 · Phase A V0 · Bloc 2
+## Q4 — ouverte · Phase A V0 · Bloc 2
 - Question : existe-t-il une étude suisse ou européenne de la répartition étiologique des patients consultant pour sudation anormale (soins primaires) ?
-- Déjà cherché : V9 (23.10.2026) et WebSearch (26.10.2026) : aucune.
+- Déjà cherché : V9 (23.10.2026), WebSearch (26.10.2026) : aucune.
+
+## Q5 — ouverte · Phase A V0 · point 9.b
+- Question : quels 99es percentiles propres au sexe s'appliquent à la troponine T hs Roche Elecsys dans un laboratoire suisse ?
+- Déjà cherché : Inselspital Cobas PRO v21.0 (25.06.2026) §5.1.3 : seuil unique 14 ng/L.
+
+## Q6 — décision · Bloc 2 (critère d'ordre)
+- Question : faut-il appliquer le §9.1 strict (ordre de fréquence pur) et renuméroter DX.1–DX.6, au prix d'un réalignement des fichiers Phase B déjà écrits ? Voir `CORRECTIONS_AUDIT.md`, C1-G3.
