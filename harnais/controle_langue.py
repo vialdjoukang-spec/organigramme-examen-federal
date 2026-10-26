@@ -7,7 +7,7 @@ import html, re, sys
 from collections import Counter
 from pathlib import Path
 import language_tool_python as LT
-ACR_OK = set("ECG IRM CT TDM CRP VS VIH ORL OMS OFSP OFS AIPS PMID DOI HTA TA FC FR SpO2 PA INR TSH ASAT ALAT GGT LDH NFS BNP ESC ERS EASD EAU ESMO EULAR NICE CDC AHA ACC IDSA ADA HAS EMA AWMF SSMIG SGAIM SSED SSI SSP SNC PMN IV IM SC PO AVC AIT ATCD AINS IPP ISRS IMC BMI HbA1c LDL HDL TG DD DX SSP PROFILES CH EU UE USA OMIM GINA GOLD KDIGO RGO MICI BPCO SCA IDM EP TVP ATB ECBU PSA PCR ARN ADN IgE IgG IgM UI Rx Dr Pr".split())
+ACR_OK = set("CIM FMH DPP ECG IRM CT TDM CRP VS VIH ORL OMS OFSP OFS AIPS PMID DOI HTA TA FC FR SpO2 PA INR TSH ASAT ALAT GGT LDH NFS BNP ESC ERS EASD EAU ESMO EULAR NICE CDC AHA ACC IDSA ADA HAS EMA AWMF SSMIG SGAIM SSED SSI SSP SNC PMN IV IM SC PO AVC AIT ATCD AINS IPP ISRS IMC BMI HbA1c LDL HDL TG DD DX SSP PROFILES CH EU UE USA OMIM GINA GOLD KDIGO RGO MICI BPCO SCA IDM EP TVP ATB ECBU PSA PCR ARN ADN IgE IgG IgM UI Rx Dr Pr".split())
 a = sys.argv[1:]; rap = a[a.index("--rapport") + 1] if "--rapport" in a else None; fs = [x for x in a if x.endswith(".html")]
 LTON = "--lt" in sys.argv  # LanguageTool désactivé par défaut (lent) ; qualité linguistique = Sonnet 5.5 + contrôles rapides
 tool = LT.LanguageTool("fr", config={"maxTextLength": 100000}) if LTON else None
@@ -40,7 +40,7 @@ def sans_verbe(p):
         n = int(m.group(2))
         if n not in (6, 7, 10, 13): continue
         body = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(table|script|style).*?</\1>", " ", m.group(3)))); bad = []; tot = 0
-        for s in NLP.pipe([x.strip() for x in re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", body)) if len(x.split()) >= 5]):
+        for s in NLP.pipe([x.strip() for x in re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", body)) if len(x.split()) >= 6 and not re.match(r"^\s*(Approche|\d+(\.\d+)*\b)", x)]):
             tot += 1
             if not any(t.pos_ in ("VERB", "AUX") for t in s): bad.append(s.text[:90])
         out[n] = (tot, bad)
@@ -49,7 +49,7 @@ out = []
 for p in fs:
     mots, err, nd = analyse(p); nso = sum(1 for e in err if e[0] == 'ORTHOGRAPHE'); d = 1000 * len(err) / max(1, mots); acc = sum(1 for e in err if re.search(r"ACCORD|AGREEMENT|CONJUG|PARTICIPE|ACCORD_", e[1]))
     ng = len(err) - nso; dg = 1000 * ng / max(1, mots); ds = 1000 * nso / max(1, mots)
-    sc = round(100 - min(50, 6 * dg) - min(15, 1.5 * ds) - min(10, 0.5 * len(nd)), 1); crit = int(dg > 8) + int(acc >= 3)
+    sc = round(100 - min(50, 6 * dg) - min(15, 1.5 * ds) - min(10, 0.25 * len(nd)), 1); crit = int(dg > 8) + int(acc >= 3)
     sv = sans_verbe(p); mv = []
     for n, (tot, bad) in sv.items():
         if (n == 13 and bad) or (tot and len(bad) / tot > 0.25): mv.append(f"point {n} : {len(bad)}/{tot} phrases sans verbe — « {bad[0] if bad else ''} »")

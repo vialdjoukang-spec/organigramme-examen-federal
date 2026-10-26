@@ -27,9 +27,9 @@ with open(D / ".taches.lock", "w") as lk:
                     t["etat"] = "pris"; ecrire(d); print(f"TACHE {i} {D}/{fn(i)} {c}" + (f" CORR={t['corr']}" if t["corr"] else "")); break
             else: print("FINI")
         else:
-            k = role.split("-")[1]
+            k = role.split("-")[1]; W = a[4] if len(a) > 4 else None   # territoire (1, 2, 3) de l'agent Opus
             for i in d["ecrire"]:
-                if d["ecrire"][i]["etat"] == "fait" and d[k][i] == "a_faire":
+                if d["ecrire"][i]["etat"] == "fait" and d[k][i] == "a_faire" and (W is None or d["ecrire"][i].get("prop") == W):
                     d[k][i] = "pris"; ecrire(d); print(f"TACHE {i} {D}/{fn(i)} {c} RAPPORT={D}/{rapport(k, i, c)}"); break
             else:
                 print("ATTENDRE" if any(t["etat"] != "fait" for t in d["ecrire"].values()) or any(v == "a_faire" for v in d[k].values()) else "FINI")
