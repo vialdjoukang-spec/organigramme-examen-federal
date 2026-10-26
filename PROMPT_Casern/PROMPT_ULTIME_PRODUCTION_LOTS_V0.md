@@ -129,7 +129,7 @@ Le **harnais** est l'outillage **autour** du producteur, installé sur `main` vi
 | `harnais/ARSENAL.md` | Économie de volume : `tools/arsenal/extrait.py`, `lot.py`, `pr.sh`, `ci_attente.sh` |
 | `harnais/HARNAIS_OBLIGATOIRE.md` | Protocole bloquant |
 | `harnais/PREUVE_EMBOITEMENT.txt` | Preuve datée que le harnais a réellement tourné |
-| `harnais/controle_lot.py` | Contrôle mécanique d'un LOT (zéro jeton) : 11 fichiers, 14 points, FIN_FICHIER, bande 150–200 Ko, balises, cohérence A↔B, SHA-256 ; extraction ciblée de points |
+| `harnais/controle_lot.py` | Contrôle mécanique d'un LOT (zéro jeton) : 11 fichiers, 14 points, FIN_FICHIER, bande 100–200 Ko, bornes comprises, balises, cohérence A↔B, SHA-256 ; extraction ciblée de points |
 | `harnais/scinder_1_10.py` | Découpe mécanique d'un HTML multi-DD en 1 HTML par DD (rien n'est réécrit) |
 | `harnais/ROUTAGE_MODELES.md` · `.claude/agents/` | Quel modèle pour quelle tâche, avec les agents prêts à l'emploi ([§22](#sec-22)) |
 
@@ -177,7 +177,7 @@ producteur: <nom / rôle du jour>
 
 **Interdit :** créer un dossier `lots-acheves` (ou équivalent) sur GitHub ; travailler depuis une branche dont la base n'est pas `main` (les PR se chevauchent alors sur des centaines de fichiers).
 
-**Sources d'entrée des LOTS déjà FAIT (lecture seule).** Les pièces d'un LOT FAIT se trouvent, dans cet ordre : (1) `lot en cours de production/LOT_XXX/` ; (2) à défaut, l'archive d'export `LOTS_Finaux avec statut-*.zip` déposée par Vial **à la racine du dépôt** (`main` ; toutes ses parties `-001`, `-002`…), **jamais modifiée**, dont tu extrais **un LOT à la fois** dans `.cache/sources/LOT_XXX/` (dossier gitignoré ; nom attendu du dossier dans `LOT_Claude_Finaux/CATALOGUE_248.csv`) ; (3) à défaut, verdict `SOURCE_ABSENTE`. Tu ne clones jamais les 248 dossiers d'un bloc.
+**Sources d'entrée (lecture seule).** Pour chaque LOT, tu détermines d'abord s'il est **VIDE** ou **NON VIDE** par ses pièces sources, jamais par la colonne `statut` du catalogue. Les pièces se cherchent dans cet ordre : (1) `lot en cours de production/LOT_XXX/` ; (2) l'archive d'export `LOTS_Finaux avec statut-*.zip` déposée par Vial **à la racine du dépôt** (`main` ; toutes ses parties `-001`, `-002`…), **jamais modifiée**, dont tu extrais **un LOT à la fois** dans `.cache/sources/LOT_XXX/` (dossier gitignoré ; nom attendu du dossier dans `LOT_Claude_Finaux/CATALOGUE_248.csv`) ; (3) le dossier Drive d'archives de Vial, **en lecture seule** (`https://drive.google.com/drive/folders/1DaFAd0uamsJQY2NH0ocuy2bhpfcVk9Vu`, sous-dossier « ARCHIVES — Contenu des LOTS 001 à 020 — avant reprise du LOT 011 » : pièces des LOTS 002 à 006 ; les dossiers `LOT_002`…`LOT_006` du niveau supérieur sont vides) ; (4) **aucune pièce trouvée = LOT VIDE → fabrication complète** ([§7.3](#sec-07)). Si l'accès au Drive est impossible, tu ne fabriques **pas** les LOTS 002 à 006 : verdict `BLOQUE` (cause `ARCHIVES_INACCESSIBLE`), consigné et mergé, LOT suivant. Tu ne clones jamais les 248 dossiers d'un bloc. **Aucun dépôt** sur le Drive.
 
 **Hygiène du dépôt final (`LOT_Claude_Finaux/`) :**
 
@@ -224,7 +224,7 @@ Critères de proposition, dans cet ordre :
 2. **Disparités à finir** : un lot entamé passe avant un lot neuf, sauf ordre contraire de Vial.
 3. **Nombre de producteurs disponibles** : idéalement un rédacteur par fichier Phase B en parallèle, plus au moins un auditeur distinct.
 4. **Densité clinique des DD** : un DD lourd (urgence vitale, pharmacologie dense, nombreuses situations spéciales) se rédige avec un agent de niveau supérieur ([§22](#sec-22)) ; le fichier reste **un seul DD**.
-5. **Taille finale 150–200 Ko par entité** (SSP ou DD) **après** densification exhaustive puis rabotage ([§14](#sec-14)) ; le premier jet dépasse volontairement 200 Ko.
+5. **Taille finale 100–200 Ko par entité** (SSP ou DD), **bornes comprises : aucune non-conformité dans cet intervalle ; au-dessus de 200 Ko, jamais** ; l'objectif est la **densité d'information**, pas la longueur : l'intervalle est large pour qu'aucune notion ne soit omise ([§14](#sec-14)).
 6. **Limites d'usage des ressources** du jour (quota, troncature) : plus de fichiers plus petits si les sessions sont courtes.
 
 ### 7.3 Rôles — définis le jour J, mais trois principes ne bougent jamais
@@ -234,6 +234,15 @@ Critères de proposition, dans cet ordre :
 | **Un fichier n'est jamais audité par celui qui l'a rédigé.** | L'auto-audit est complaisant par construction. |
 | **Chaque fichier reçoit un audit médical ET un audit linguistique/conformité** (deux personnes, ou une personne qui tient les deux grilles séparément si elle n'a rédigé aucun des deux contenus). | Le fond et la forme sont deux risques distincts. |
 | **Un producteur = un lot assigné ce jour-là.** | Anti-collision ([§15](#sec-15)). |
+
+**Équipe par LOT (fixe pour la mission Claude Code).**
+
+| État du LOT | Travail | Agents |
+|---|---|---|
+| **VIDE** (aucune pièce) | **Fabrication** : Harness, bracelet et paramètres P1–P14 appliqués fermement | **3** : rédacteur 1 (Phase A, puis DX.1 à DX.5), rédacteur 2 (DX.6 à DX.10 après gel de `LISTE_DX_CANONIQUE.md`), **1 auditeur médico-linguistique** indépendant |
+| **NON VIDE** (pièces présentes) | **Audit médico-linguistique uniquement** ; aucune réécriture d'un LOT qui passe l'audit | **2** : 1 auditeur médico-linguistique ; 1 rédacteur, activé **seulement** si l'audit échoue (corrections, 2 cycles au plus) |
+
+> **Obsession : l'audit est costaud.** L'auditeur unique tient les deux grilles séparément (médicale, puis conformité/langue), s'en tient au présent Prompt (§11, §12, §16, §19) et ne rédige jamais le contenu qu'il audite.
 
 ### 7.4 Consignation — `DECISION_SEANCE.md` (obligatoire, avant toute rédaction)
 
@@ -331,7 +340,7 @@ Dix monographies **complètes**, une par DD de la liste canonique, chacune en **
 
 ### 10.2 Un fichier par DD — format fixe
 
-La Phase B livre **10 fichiers HTML**, un par diagnostic différentiel : `LOT_XXX_Phase_B_V0_DX.<i>.html` avec `<i>` de 1 à 10. Chaque fichier contient **une seule monographie** de 14 points, son `<h2>` porte le titre `DX.<i> — <nom exact de la liste canonique>`, et il pèse **150–200 Ko** ([§14](#sec-14)). Avec la Phase A, un LOT = **11 HTML**. Aucun regroupement de plusieurs DD, aucun HTML consolidé.
+La Phase B livre **10 fichiers HTML**, un par diagnostic différentiel : `LOT_XXX_Phase_B_V0_DX.<i>.html` avec `<i>` de 1 à 10. Chaque fichier contient **une seule monographie** de 14 points, son `<h2>` porte le titre `DX.<i> — <nom exact de la liste canonique>`, et il pèse **100–200 Ko** (200 Ko jamais dépassé) ([§14](#sec-14)). Avec la Phase A, un LOT = **11 HTML**. Aucun regroupement de plusieurs DD, aucun HTML consolidé.
 
 Les brouillons déjà produits en fichiers multi-DD sont découpés par `harnais/scinder_1_10.py` (copie mot pour mot, aucune réécriture) ; les sections partagées (lecture croisée, entraînement, mémento) sont redistribuées par le rédacteur dans les DD concernés.
 
@@ -525,17 +534,17 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 
 ## 14. Format technique — HTML5, fenêtres, style, tailles
 
-> **Critère owner 2026-10-25 (révisé, densification) :** **bande finale 150–200 Ko par entité monographique** — c’est-à-dire **par SSP** (Phase A, monographie) **et par chaque diagnostic différentiel** (chaque DX.1…DX.10) **après** densification exhaustive puis rabotage. Chaque entité, isolée, doit peser **150–200 Ko** de contenu utile (texte + fenêtres de cette monographie). Ancien critère 90–200 Ko *par fichier* : **aboli**.
+> **Critère owner 2026-10-26 (révisé, densité) :** **bande finale 100–200 Ko par entité monographique** — c’est-à-dire **par SSP** (Phase A, monographie) **et par chaque diagnostic différentiel** (chaque DX.1…DX.10). **Bornes comprises : 100 000 et 200 000 octets sont conformes ; aucune non-conformité de taille dans l'intervalle. Au-dessus de 200 Ko : jamais** (ni dans un dépôt, ni dans un brouillon poussé comme final). **Le but n’est pas la longueur : c’est la densité d’information** ; l’intervalle est large pour qu’**aucune notion ne soit omise**. Hors intervalle, moins de 100 Ko = omission présumée : tu densifies encore. Ancien critère 150–200 Ko : **aboli**.
 
-> **Obsession : densifier exhaustif → dépasser 200 Ko → raboter → checklist V0 ligne à ligne.** Posture **agressive** : **aucune information diagnostique ne doit manquer** (définition, épidémiologie CH, physiopathologie utile, clinique, red flags, explorations, diagnostics différentiels, scores, traitements avec AIPS, urgences chronologiques, situations spéciales, surveillance, critères de sortie, pièges d’examen). Sur cette base, le **premier jet dépasse largement 200 Ko** par entité. Ensuite tu **rabotes et reformules** (phrases verbales courtes, richesse dans les fenêtres, zéro remplissage) jusqu’à la bande **150–200 Ko**. **À la fin**, tu te rassures que **chaque ligne de ce Prompt V0 s’applique** (checklist [§19](#sec-19) + lecture §1→§21). Raboter **n’autorise jamais** à supprimer un contenu cliniquement utile ni une dose AIPS lue.
+> **Obsession : densifier exhaustif, puis compresser la forme, jamais le fond.** Posture **agressive** : **aucune information diagnostique ne doit manquer** (définition, épidémiologie CH, physiopathologie utile, clinique, red flags, explorations, diagnostics différentiels, scores, traitements avec AIPS, urgences chronologiques, situations spéciales, surveillance, critères de sortie, pièges d’examen). Tu rédiges dense dès le départ (phrases verbales courtes, tableaux, richesse dans les fenêtres, zéro remplissage) et tu tiens **≤ 200 Ko** en comprimant la **forme**. **À la fin**, tu te rassures que **chaque ligne de ce Prompt V0 s’applique** (checklist [§19](#sec-19) + lecture §1→§21). Comprimer **n’autorise jamais** à supprimer un contenu cliniquement utile ni une dose AIPS lue.
 
-> **Obsession : le plafond 150–200 Ko est un filtre de qualité, pas un plafond d’ambition.** Plus d’informations distinctes et utiles → on atteint 200 Ko **sans padding**. Le poids vient de la nature et du type d’informations utiles, jamais du remplissage.
+> **Obsession : le plafond de 200 Ko est un filtre de qualité, le plancher de 100 Ko un détecteur d’omission.** Plus d’informations distinctes et utiles → on remplit la bande **sans padding**. Le poids vient de la nature et du type d’informations utiles, jamais du remplissage.
 
 ### 14.1 Sortie
 
 > **Obsession : du `.html` et rien d'autre.** HTML5 complet, de `<!DOCTYPE html>` à `</html>`, terminé par `<!-- FIN_FICHIER LOT_XXX_<PARTIE> -->`. Texte brut, Markdown, Google Docs, PDF, Word, HTML partiel ou contenu rendu dans le chat = sortie invalide.
 
-> **Obsession : bande finale 150–200 Ko par entité (SSP ou DD) = par fichier.** Depuis le format 1 + 10, **un fichier = une entité** : la Phase A (SSP + liste + tableau + algorithme) et chaque fichier DX pèsent chacun **150–200 Ko** après densification puis rabotage. Moins de 150 Ko = **omission** (tu densifies encore). Un premier jet **> 200 Ko** est **attendu** ; tu rabotes ensuite. Rester > 200 Ko **après** rabotage honnête = tu déplaces le surplus dans des fenêtres internes, **jamais** dans un second fichier ni dans un fichier voisin. **Tu ne supprimes jamais un contenu utile pour tenir une limite.** Ko = 1 000 octets ; `controle_lot.py` applique la bande.
+> **Obsession : bande finale 100–200 Ko par entité (SSP ou DD) = par fichier.** Depuis le format 1 + 10, **un fichier = une entité** : la Phase A (SSP + liste + tableau + algorithme) et chaque fichier DX pèsent chacun **100–200 Ko**. Moins de 100 Ko = **omission présumée** (tu densifies encore). **Plus de 200 Ko = non conforme** : tu comprimes la forme et tu déplaces le contenu dans des fenêtres internes, **jamais** dans un second fichier ni dans un fichier voisin. **Tu ne supprimes jamais un contenu utile pour tenir une limite.** Ko = 1 000 octets ; `controle_lot.py` applique la bande.
 
 ### 14.2 Gabarit et règles techniques
 
@@ -616,7 +625,7 @@ Même numéro réclamé deux fois : **stop**, le chef de production arbitre, jam
 
 Les rôles d'audit sont attribués le jour J ([§7](#sec-07)). Leur **contenu** ne change jamais.
 
-> **Obsession : auditer pour trouver, pas pour valider.** L'auditeur cherche activement l'erreur. Un audit qui ne trouve rien sur un fichier de 150 Ko est suspect. Un audit antérieur complaisant n'est **jamais** repris : tu réaudites.
+> **Obsession : auditer pour trouver, pas pour valider.** L'auditeur cherche activement l'erreur. Un audit qui ne trouve rien sur un fichier de 100 Ko est suspect. Un audit antérieur complaisant n'est **jamais** repris : tu réaudites.
 
 > **Obsession : la cohérence Phase A ↔ Phase B est un contrôle critique.** Les deux auditeurs comparent la liste canonique (noms exacts, ordre, numéros) avec les titres de chaque monographie de Phase B. Une seule divergence = **erreur critique** = dépôt interdit pour tout le lot.
 
@@ -634,7 +643,7 @@ Les rôles d'audit sont attribués le jour J ([§7](#sec-07)). Leur **contenu** 
 1. Phrases courtes, toutes verbales, y compris fenêtres et tableaux ; aucune phrase coupée par une fenêtre.
 2. Abréviations développées ; zéro répétition, zéro remplissage.
 3. Les 14 points présents **et correctement affectés** ; 11.A–D complets ; fenêtres riches ; tableaux d'interprétation ; tableau de corrélation du point 3 ; sous-titres 7.x et 9.a–d.
-4. Technique HTML : balises équilibrées, FIN_FICHIER, tableaux enveloppés, aucun `title=`, 390 px, taille **finale 150–200 Ko par entité (SSP/DD) après densification puis rabotage**, nom de fichier V0 conforme au format 1 + 10 ; preuve que le premier jet avait dépassé 200 Ko ou justification documentée si l’entité est intrinsèquement courte après exhaustivité réelle.
+4. Technique HTML : balises équilibrées, FIN_FICHIER, tableaux enveloppés, aucun `title=`, 390 px, taille **finale 100–200 Ko par entité (SSP/DD), 200 Ko jamais dépassé**, nom de fichier V0 conforme au format 1 + 10 ; densité vérifiée (aucune notion du plan en 14 points omise).
 5. Questions des points 1, 5, 6, 7, 10, 13, 14 ; question finale.
 
 **Rapport d'audit** (un par fichier, dans `LOT_XXX/audits/`) : version auditée (nom, taille, SHA-256) ; score 14 points ([§12.2](#sec-12)) ; réponse à la question finale ; corrections classées **Critique / Grave / Moyen / Léger**, chacune avec emplacement exact, extrait mot pour mot, correction et source ; lacunes envoyées dans HELP.
@@ -714,7 +723,7 @@ Les rôles d'audit sont attribués le jour J ([§7](#sec-07)). Leur **contenu** 
 
 - [ ] Phrases courtes et verbales, intactes ; abréviations développées ; fenêtres riches
 - [ ] Calculs recalculés ; calculs dérivés étiquetés ; badges sourcés ou rang
-- [ ] `.html` strict, FIN_FICHIER ; **densification exhaustive puis rabotage** ; **bande finale 150–200 Ko par fichier (1 fichier = 1 entité)** ; chaque ligne du Prompt V0 relue et appliquée ; tableaux enveloppés, aucun `title=`, 390 px
+- [ ] `.html` strict, FIN_FICHIER ; **densité exhaustive** ; **bande finale 100–200 Ko par fichier (1 fichier = 1 entité), jamais > 200 Ko** ; chaque ligne du Prompt V0 relue et appliquée ; tableaux enveloppés, aucun `title=`, 390 px
 - [ ] `python3 harnais/controle_lot.py verifier LOT_Claude_Finaux/LOT_XXX` = **CONFORME** ; `MANIFESTE.json` écrit au gel
 
 **Audit et dépôt**
@@ -863,7 +872,7 @@ flowchart TD
 | Phrase porteuse coupée par une fenêtre inline (« Une mydriase … récente doit être examinée ») | [§14.3](#sec-14) |
 | Grossesse : texte AIPS adouci (« peut être envisagé… ») | [§13.2](#sec-13) |
 | « À vérifier (AIPS) » alors que la molécule est dans `AipsDownload_20261008.xml` et n'a pas été relue | [§13.2](#sec-13) |
-| Premier jet maigre (< 150 Ko) ou dépôt > 200 Ko sans rabotage / sans checklist V0 ligne à ligne | [§14](#sec-14) |
+| Premier jet maigre (< 100 Ko) ou dépôt > 200 Ko / sans checklist V0 ligne à ligne | [§14](#sec-14) |
 | Rubriques mal affectées (contenu du point 4 dans le point 8) alors que les 14 numéros étaient présents | [§11](#sec-11) |
 | Score d'une version reporté sur une autre sans réaudit ; rédacteur qui se note lui-même | [§4.2](#sec-04) |
 | Tailles du fichier déposé ≠ tailles du gel, SHA-256 non recalculés | [§6](#sec-06), [§14.5](#sec-14) |
@@ -913,8 +922,10 @@ Le détail opérationnel vit dans deux fichiers, qui font foi avec ce paragraphe
 
 ### 22.4 File d'attente, verdicts et arrêt
 
-- **File stricte** : les LOTS FAIT sont traités **un seul à la fois, dans l'ordre croissant des numéros FAIT**. « n−1 » désigne le LOT FAIT précédent dans cette liste, jamais le numéro arithmétique précédent.
-- **LOT terminé = verdict consigné** dans `LOT_Claude_Finaux/ETAT_FILE.json` : `ACCEPTE` (déposé), `REFUSE` (audit non conforme après deux cycles), `SOURCE_ABSENTE` (aucune pièce trouvée, [§6](#sec-06)) ou `BLOQUE`. Un lot refusé **ne bloque pas** la file.
+- **Périmètre et sens** : les 248 LOTS, dans l'ordre croissant **LOT_001 → LOT_248**. Une exécution traite une **file active de 10 LOTS** (par exemple 001→010), puis s'arrête proprement et met à jour `LOT_Claude_Finaux/PROGRESSION.html`.
+- **File stricte** : **un seul LOT à la fois.** Le LOT d'ordre n+1 ne démarre (ni transformation ni fabrication) que si le LOT d'ordre n est **ACHEVÉ**.
+- **LOT ACHEVÉ** = soit `ACCEPTE` (11 HTML audités déposés dans `LOT_Claude_Finaux/LOT_XXX/`, poussés et **mergés** selon [§6](#sec-06)), soit `REFUSE` (audit non conforme après deux cycles) ou `BLOQUE`, verdict consigné dans `LOT_Claude_Finaux/ETAT_FILE.json` et **mergé**. Un lot refusé **ne bloque pas** la file.
+- **Équipe** : voir [§7.3](#sec-07) (LOT vide = 3 agents ; LOT non vide = 2 agents).
 - **STOP** (écriture de `ARRET.md` à la racine de `LOT_Claude_Finaux/` : cause exacte, dernier état, prochaine action, puis arrêt complet) **uniquement** si un blocage ne peut être levé légitimement : corpus AIPS local absent, droit d'écriture refusé, filtre de sécurité, harnais absent ou PREUVE impossible. **Tu ne contournes jamais** : pas de bracelet parallèle, pas de dépôt ailleurs, pas de maquillage d'une écriture refusée ([§4.2](#sec-04)).
 
 ---

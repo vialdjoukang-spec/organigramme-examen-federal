@@ -21,7 +21,7 @@ import argparse, hashlib, html, json, re, sys
 from pathlib import Path
 
 VERSION = "1.0"
-BANDE_MIN, BANDE_MAX = 150_000, 200_000
+BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bornes comprises
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
@@ -162,15 +162,14 @@ def verifier(d: Path, sans_nom: bool) -> dict:
             C.append(f"{r['fichier']} : numéro de LOT ≠ dossier {d.name}")
     for i, r in B.items():
         if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            C.append(f"DX.{i} : {r['octets']} octets hors bande 150–200 Ko")
+            C.append(f"DX.{i} : {r['octets']} octets hors bande 100–200 Ko")
         if len(r["monographies"]) != 1:
             C.append(f"DX.{i} : {len(r['monographies'])} monographie(s) dans le fichier au lieu de 1")
     for r in A:
         if r["octets"] < BANDE_MIN:
-            C.append(f"Phase A : {r['octets']} octets < 150 Ko")
+            C.append(f"Phase A : {r['octets']} octets < 100 Ko")
         elif r["octets"] > BANDE_MAX:
-            rapport["avertissements_lot"].append(
-                f"Phase A : {r['octets']} octets > 200 Ko — l'auditeur vérifie que l'excédent vient du Bloc 2 (liste, tableau, algorithme)")
+            C.append(f"Phase A : {r['octets']} octets > 200 Ko (plafond absolu)")
     liste = lire_liste(d)
     if not liste:
         C.append("LISTE_DX_CANONIQUE.md absente ou illisible (contrôle A↔B impossible)")
