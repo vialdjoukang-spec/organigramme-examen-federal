@@ -6,10 +6,10 @@
 import html as H, re, sys
 from pathlib import Path
 MARQ = "<!-- FORME_INTERACTIVE -->"
-CSS = """<style>.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
+CSS = """<style>@font-face{font-family:"Atkinson";src:local("Atkinson Hyperlegible"),local("Atkinson Hyperlegible Next"),local("AtkinsonHyperlegible-Regular");font-weight:400}@font-face{font-family:"Atkinson";src:local("Atkinson Hyperlegible Bold"),local("AtkinsonHyperlegible-Bold");font-weight:700}html,body,table,td,th,summary,button,.tm .df{font-family:"Atkinson","Atkinson Hyperlegible","Atkinson Hyperlegible Next",Verdana,system-ui,sans-serif}body{font-size:16px;line-height:1.6}.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
 details.refs{margin:18px 0;border:1px solid #cfd4dc;border-radius:12px;padding:6px 14px;background:#f8fafc}details.refs>summary{cursor:pointer;font-weight:700;color:#334155}details.refs ol{list-style:none;padding-left:0}details.refs .n{font-weight:700;color:#475569}details.refs li{font-size:.86em;margin:.35em 0}details.refs li:target{background:#fef9c3}
 .tm{border-bottom:1px dotted #7c3aed;color:#4c1d95;cursor:help;position:relative;display:inline}.tm .df{display:none;position:absolute;left:0;top:1.5em;z-index:20;width:min(320px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:8px 10px;font-size:.85em;font-weight:400;box-shadow:0 6px 20px #0006}.tm:hover .df,.tm:focus .df,.tm:focus-within .df{display:block}
-p.fil{border-left:4px solid #7c3aed;padding:6px 12px;background:#f5f3ff;border-radius:0 8px 8px 0;margin:10px 0}details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
+div.arb{margin:12px 0}.arbt{font-weight:700;color:#4c1d95;margin-bottom:6px}.niv{border:1px solid #c4b5fd;background:#f5f3ff;border-radius:10px;padding:7px 12px;margin-bottom:6px;position:relative}.niv::before{content:"└";position:absolute;left:-16px;top:6px;color:#7c3aed}.niv b{color:#3b0764}.niv .dfn{display:block;font-size:.88em;color:#475569;margin-top:2px}.niv.cible{background:#6d28d9;border-color:#4c1d95}.niv.cible b,.niv.cible .dfn{color:#fff}.liste{margin:2px 0 6px;font-size:.92em;color:#334155}.chip{display:inline-block;background:#ede9fe;border:1px solid #c4b5fd;border-radius:999px;padding:1px 9px;margin:2px 3px 2px 0;font-size:.92em}.voisin .chip{background:#f1f5f9;border-color:#cbd5e1}@media(prefers-color-scheme:dark){.niv{background:#241d3f}.niv b{color:#e9d5ff}.niv .dfn,.liste{color:#cbd5e1}.chip{background:#2e2557}}p.fil{border-left:4px solid #7c3aed;padding:6px 12px;background:#f5f3ff;border-radius:0 8px 8px 0;margin:10px 0}details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
 @media(prefers-color-scheme:dark){details.refs{background:#1b2033;border-color:#3a4256}details.refs>summary{color:#cbd5e1}.r a{color:#93c5fd}details.arbre{background:#241d3f}details.arbre>summary,.tm{color:#ddd0ff}}
 table:not(#rm table){border-collapse:separate;border-spacing:0;width:100%;margin:12px 0;border:1px solid #c7d2fe;border-radius:12px;overflow:hidden;font-size:.93em}table:not(#rm table) th{background:linear-gradient(#4f46e5,#4338ca);color:#fff;font-weight:700;padding:8px 10px;text-align:left;border:0}table:not(#rm table) td{padding:7px 10px;border-top:1px solid #e0e7ff;vertical-align:top}table:not(#rm table) tr:nth-child(even) td{background:#f5f7ff}table:not(#rm table) tr:hover td{background:#e8edff}table:not(#rm table) td:first-child{font-weight:600;color:#312e81;background:#eef2ff}table:not(#rm table) caption{caption-side:top;text-align:left;font-weight:700;color:#4338ca;padding:4px 2px}
 td.ok,tr.ok td{background:#dcfce7!important}td.mo,tr.mo td{background:#fef3c7!important}td.ko,tr.ko td{background:#fee2e2!important}
@@ -47,20 +47,47 @@ def convert(t):
             ab = re.search(r"Abréviations\s*:(.*?)(?:</p>|</div>|$)", "".join(blocs), re.S)   # le reste (date, méthode, sources lues) n'est pas du cours : supprimé
             notes = '<details class="refs"><summary>Abréviations</summary><p>' + re.sub(r"<[^>]+>", "", ab.group(1)).strip() + "</p></details>" if ab else ""
             t = t.replace("</body>", notes + "</body>", 1) if "</body>" in t else t + notes
-    def fil(mm):
-        corps = mm.group(1); chemin, pile, sujet = [], [], None
-        for tok in re.finditer(r"<li[^>]*>|</li>|<ul[^>]*>|</ul>|([^<]+|<(?!/?(?:li|ul)\b)[^>]*>)", corps):
+    def arbre(mm):
+        corps = mm.group(1); racine = []; pile = [racine]; cur = None
+        for tok in re.finditer(r"<ul[^>]*>|</ul>|<li[^>]*>|</li>|[^<]+|<[^>]+>", corps):
             x = tok.group(0)
-            if x.startswith("<li"): pile.append("")
+            if x.startswith("<ul"): pass
+            elif x.startswith("</ul"): pass
+            elif x.startswith("<li"):
+                n = dict(h="", k=[]); pile[-1].append(n); pile.append(n["k"]); cur = n; n["_p"] = pile[:-1]; n["_s"] = [n]
             elif x.startswith("</li"):
-                if pile and sujet is None and "<b>" in pile[-1]: sujet = list(pile)
-                pile and pile.pop()
-            elif x.startswith(("<ul", "</ul")): pass
-            elif pile: pile[-1] += x
-        if not sujet: return mm.group(0)
-        fil_ = " › ".join(re.sub(r"</?b>", "", x) if i < len(sujet) - 1 else x for i, x in enumerate(sujet))
-        return f'<p class="fil"><b>Où se situe le problème :</b> {fil_}</p><details class="arbre"><summary>Arborescence complète</summary>{corps}</details>'
-    t = re.sub(r'<details class="arbre"[^>]*>(?:<summary[^>]*>.*?</summary>)?(.*?)</details>', fil, t, count=1, flags=re.S)
+                if len(pile) > 1: pile.pop()
+                cur = None
+            else:
+                if len(pile) > 1:
+                    # texte propre : attribué au dernier noeud ouvert de ce niveau
+                    par = pile[-2] if len(pile) > 1 else racine
+                    owner = par[-1] if par else None
+                    if owner is not None: owner["h"] += x
+        def chemin(niv, anc):
+            for n in niv:
+                if "<b>" in n["h"]: return anc + [n], n, niv
+                r = chemin(n["k"], anc + [n])
+                if r: return r
+        r = chemin(racine, [])
+        if not r: return mm.group(0)
+        anc, cible, freres = r
+        def nom_def(h):
+            m_ = re.search(r'class="tm"[^>]*>(.*?)<span class="df">(.*?)</span></span>', h, re.S)
+            if m_: return re.sub(r"<[^>]+>", "", m_.group(1)).strip(), re.sub(r"<[^>]+>", "", m_.group(2)).strip()
+            return re.sub(r"<[^>]+>", "", h).strip(), ""
+        out = ['<div class="arb"><div class="arbt">Où se situe le problème ? Du général au particulier</div>']
+        for i, n in enumerate(anc):
+            nm, df = nom_def(n["h"]); cible_ = n is cible
+            out.append(f'<div class="niv{" cible" if cible_ else ""}" style="margin-left:{i*20}px"><b>{nm}</b>' + (f'<span class="dfn">{df}</span>' if df else "") + "</div>")
+        fr = [nom_def(n["h"])[0] for n in freres if n is not cible]
+        if cible["k"]:
+            ch = "".join(f'<span class="chip">{nom_def(n["h"])[0]}</span>' for n in cible["k"])
+            out.append(f'<div class="liste" style="margin-left:{len(anc)*20}px">Comprend : {ch}</div>')
+        if fr:
+            out.append(f'<div class="liste voisin" style="margin-left:{(len(anc)-1)*20}px">Voisins, même niveau : ' + "".join(f'<span class="chip">{x}</span>' for x in fr) + "</div>")
+        return "".join(out) + "</div>"
+    t = re.sub(r'<details class="arbre"[^>]*>(?:<summary[^>]*>.*?</summary>)?(.*?)</details>', arbre, t, count=1, flags=re.S)
     # 2. marqueurs en exposants (grappes), doublons de grappe proches supprimés
     last = {}
     def grappe(mm):
