@@ -15,8 +15,8 @@ def contenu(lot):
     ph = d["phrase"].replace(",", " ,").replace(";", " ;").split(); lab = d["labels"].split(); w = [x for x in ph if x not in ",;"]
     mn = " ".join(f"<b>{e(x[0])}</b>{e(x[1:])}" if x not in ",;." else x for x in ph) if False else e(d["phrase"])
     corr = "".join(f"<tr><td class='let'>{e(w[i])}</td><td>{i+1}</td><td>{e(lab[i].replace('-', ' '))}</td></tr>" for i in range(len(lab)))
+    by = {}
     if "cl" in d:
-        by = {}
         for n, c in d["cl"].items(): by.setdefault(c, []).append(n)
         tb = "".join(f"<tr><td class='let'>{c}</td><td>{e(G.TEMPO[c])}</td><td>{'; '.join(f'<b>{n}</b> {e(short(rows[n]))}' for n in sorted(by[c]))}</td></tr>" for c in "TEMPOINX" if c in by)
         log = f"Grille étiologique commune <b>TEMPO-IN</b> (mécanisme de la cause). {e(G.TEMPO_MNEMO)}"
@@ -24,11 +24,12 @@ def contenu(lot):
         tb = "".join(f"<tr><td class='let'>{i+1}</td><td>{e(g)}</td><td>{'; '.join(f'<b>{n}</b> {e(short(rows[n]))}' for n in v)}</td></tr>" for i, (g, v) in enumerate(d["groupes"].items()))
         log = f"Logique propre à ce symptôme : <b>{e(d['logique'].lower())}</b>."
     sp = "".join(f"<tr class='{'cur' if i+1 == int(lot) else ''}'><td class='let'>{w2.split()[0] if False else ''}</td><td>{i+1}</td><td>{e(G.G16[i])}</td></tr>" for i, w2 in enumerate(G.G16))
-    g16 = "".join(f"<tr class='{'cur' if G.G_MAP[k] == int(lot) else ''}'><td class='let'>{e(k)}</td><td>G{G.G_MAP[k]}</td><td>{e(G.G16[G.G_MAP[k]-1])}</td></tr>" for k in G.G_MAP)
+    g16 = "".join(f"<tr class='{'cur' if G.G_MAP[k] == int(lot) else ''}'><td class='let'>{e(k.split('#')[0])}</td><td>G{G.G_MAP[k]}</td><td>{e(G.G16[G.G_MAP[k]-1])}</td></tr>" for k in G.G_MAP)
+    raison = G.RAISONS.get(lot) or (G.RAISON_TEMPO + " " + (lambda c, n: f"Dans ce LOT, {max(c.values())} diagnostics sur {n} relèvent de « {G.TEMPO[max(c, key=c.get)].split(' (')[0].lower()} » (famille dominante)" + (f" ; aucune cause {', '.join(G.TEMPO[x].split(' (')[0].lower() for x in 'TEMPOIN' if x not in c)} n'apparaît, ce qui est lui-même informatif." if any(x not in c for x in 'TEMPOIN') else "."))({k: len(v) for k, v in by.items() if k != 'X'}, len(rows)))
     return f"""<div id="rm"><h2>① Plan, du général au particulier</h2><div class="plan"><ul><li><b>Général</b> : catégorie G — 16 symptômes généraux, sans lien logique entre eux (mnémotechnique ci-dessous)<ul><li><b>Ce LOT</b> : G{int(lot)} · {e(TAB[lot]['nom'][:80])}<ul><li><b>Logique de classement des diagnostics</b> : {log}<ul><li><b>Particulier</b> : {len(rows)} diagnostics différentiels, par prévalence décroissante, regroupés ci-dessous</li></ul></li></ul></li></ul></li></ul></div>
-<h2>② Les 16 SSP de la catégorie G (mnémotechnique, ordre libre)</h2><p class="m">{e(G.G_MNEMO)}</p><table><tr><th>Mot</th><th>SSP</th><th>Nom</th></tr>{g16}</table>
-<h2>③ Classer les diagnostics différentiels de ce LOT</h2><table><tr><th>Clé</th><th>Groupe</th><th>Diagnostics (rang de prévalence)</th></tr>{tb}</table>
-<h2>④ Mnémotechnique des diagnostics (initiales = ordre de prévalence décroissante)</h2><p class="m">{e(d['phrase'])}</p><table><tr><th>Mot</th><th>Rang</th><th>Diagnostic</th></tr>{corr}</table>
+<h2>② Les 16 SSP de la catégorie G (mnémotechnique dans l'ordre G1 → G16)</h2><p class="m">{e(G.G_MNEMO)}</p><table><tr><th>Mot</th><th>SSP</th><th>Nom</th></tr>{g16}</table>
+<h2>③ Pourquoi cette classification (fondement de la rétention)</h2><p class="m" style="font-size:.95rem">{e(raison)}</p><h2>④ Classer les diagnostics différentiels de ce LOT</h2><table><tr><th>Clé</th><th>Groupe</th><th>Diagnostics (rang de prévalence)</th></tr>{tb}</table>
+<h2>⑤ Mnémotechnique des diagnostics (initiales = ordre de prévalence décroissante)</h2><p class="m">{e(d['phrase'])}</p><table><tr><th>Mot</th><th>Rang</th><th>Diagnostic</th></tr>{corr}</table>
 <p style="font-size:12px;opacity:.7">Aide-mémoire de classement ; la prévalence et les sources figurent dans les tableaux du cours.</p></div>"""
 JS = "<script>(function(){var b=document.body,c=document.createElement('div');c.id='__cours';while(b.firstChild)c.appendChild(b.firstChild);var r=document.createElement('div');r.id='__rappel';r.style.display='none';r.innerHTML=document.getElementById('__rm_tpl')?'':'';var t=c.querySelector('#__rm_tpl');r.appendChild(t.content.cloneNode(true));t.remove();var bar=document.createElement('div');bar.id='__tabs';bar.innerHTML='<button class=on>Cours</button><button>Rappel mémoire</button>';b.appendChild(bar);b.appendChild(c);b.appendChild(r);var bs=bar.children;function s(i){bs[0].className=i?'':'on';bs[1].className=i?'on':'';c.style.display=i?'none':'';r.style.display=i?'':'none';scrollTo(0,0)}bs[0].onclick=function(){s(0)};bs[1].onclick=function(){s(1)}})();</script>"
 def injecter(f):

@@ -2,9 +2,9 @@
 G16 = ["Transpiration anormale", "Tuméfaction, tumeur, adénopathie", "Soif excessive", "Fatigue, lassitude", "Sensation de maladie", "Fièvre, frissons, hyperthermie",
        "Bouffées vasomotrices (flush)", "Hypothermie", "Prurit", "Douleurs de tous types", "Troubles du sommeil", "Œdème diffus ou localisé",
        "Décès non naturel", "Décès inattendu, mort subite", "Prise de poids, obésité", "Perte de poids, perte d'appétit"]
-G_MNEMO = "Toubib, Tu Tiens Sûrement Ses Fiches : Fébrile, Bouillant, Hagard, Pâle, Perdu, Pesant, Dolent, Désespéré, Défunt, Œdématié."
+G_MNEMO = "Tom Trouve Sa Fatigue Sans Fièvre : Bouffée, Hypothermie, Prurit, Douleurs, Troubles, Œdème, Décès, Décès, Poids, Poids."
 # mot du mnémotechnique → numéro de SSP (ordre libre ; les 16 doivent être présents une fois)
-G_MAP = {"Toubib": 11, "Tu": 1, "Tiens": 2, "Sûrement": 3, "Ses": 5, "Fiches": 4, "Fébrile": 6, "Bouillant": 7, "Hagard": 8, "Pâle": 9, "Perdu": 16, "Pesant": 15, "Dolent": 10, "Désespéré": 13, "Défunt": 14, "Œdématié": 12}
+G_MAP = {"Tom": 1, "Trouve": 2, "Sa": 3, "Fatigue": 4, "Sans": 5, "Fièvre": 6, "Bouffée": 7, "Hypothermie": 8, "Prurit": 9, "Douleurs": 10, "Troubles": 11, "Œdème": 12, "Décès#13": 13, "Décès#14": 14, "Poids#15": 15, "Poids#16": 16}
 # TEMPO-IN : grille étiologique commune (mécanisme)
 TEMPO = {"T": "Traumatique · environnemental", "E": "Endocrino-métabolique (et grossesse)", "M": "Médicamenteux · toxique", "P": "Psycho-comportemental · social", "O": "Organe (cœur, rein, foie, neuro, peau, locomoteur…)", "I": "Infectieux · inflammatoire · immun", "N": "Néoplasique", "X": "Non classable (catégorie générale)"}
 TEMPO_MNEMO = "TEMPO-IN = Traumatique, Endocrinien, Médicament, Psychique, Organe, Infection, Néoplasie. Question-réflexe devant tout symptôme général : « sur quel rythme (TEMPO) se joue le IN ? » → passer les 7 lettres."
@@ -26,4 +26,15 @@ LOTS = {
 "014": dict(logique="MÉCANISME DE LA MORT SUBITE", groupes={"Cardiaque (ischémie, muscle, rythme, valve, myocarde)": [1, 2, 7, 8, 9, 14], "Vasculaire (embolie, aorte)": [5, 6], "Neurologique": [4, 13], "Respiratoire · asphyxie": [12, 15], "Toxique": [11], "Nourrisson": [10], "Inexpliquée (autopsie négative)": [3]}, labels="Ischémique Cardiomyopathies Inexpliquée AVC Embolie Dissection Arythmie Myocardite Valvulopathie Nourrisson", phrase="Isabelle Cuisine Ici Avec Ernest ; Désormais Ami, Mange Volontiers Nougat."),
 "015": dict(logique="TEMPO", cl=T("1:P 2:M 3:M 4:E 5:P 6:P 7:E 8:E 9:O 10:O 11:E 12:E 13:O"), labels="Surpoids Médicaments Tabac Grossesse Dépression Hyperphagie Hypothyroïdie SOPK Rétention-cardiaque Néphrotique", phrase="Sam Mange Tout, Gaiement ; Dîner Hâtif, Hier Soir, Rassasié, Nourri."),
 "016": dict(logique="TEMPO", cl=T("1:X 2:N 3:O 4:N 5:P 6:X 7:P 8:P 9:M 10:E 11:P 12:I 13:O 14:O 15:I"), labels="Organique Cancer Digestive Cancer-digestif Psychiatrique Inexpliquée Dépression Social Médicamenteuse Endocrinopathie", phrase="On Cherche Des Cailloux Pour Imiter Des Sculptures Magnifiques, Étonnantes."),
+}
+
+RAISON_TEMPO = ("Fondement : tout symptôme général sans lien d'organe unique se raisonne par la CAUSE, pas par la région. Sept causes couvrent presque tout : "
+                "traumatique ou environnementale, endocrino-métabolique, médicamenteuse ou toxique, psycho-comportementale, d'organe, infectieuse-inflammatoire, néoplasique. "
+                "Les ranger ainsi retient mieux qu'une liste, parce que chaque lettre ouvre une famille de diagnostics et rappelle l'examen qui la tranche (TSH, glycémie, revue des médicaments, anamnèse, bilan d'organe, CRP/cultures, imagerie).")
+RAISONS = {
+"003": "Fondement physiologique : la soif est commandée par l'osmolarité plasmatique (hypothalamus) et l'ADH, l'eau est conservée ou perdue par le rein. Toute polydipsie vient donc de : un excès d'osmoles (glucose), un défaut d'ADH ou de sa réponse, un rein qui ne concentre plus, un excès de calcium qui rend le rein insensible à l'ADH, ou des pertes/sécheresse. La chaîne osmolarité → ADH → rein explique les 13 diagnostics.",
+"010": "Fondement anatomique : la douleur s'interprète d'abord par sa topographie, parce que la région douloureuse oriente vers les structures sous-jacentes (rachis, tête, thorax, abdomen, appareil locomoteur). Les urgences vitales (SCA, dissection, HSA, abdomen aigu, abcès épidural) se cachent derrière des localisations banales : on classe par région, on cherche le grave dans chaque région.",
+"012": "Fondement physiopathologique : loi de Starling. L'œdème naît d'un déséquilibre des forces qui retiennent l'eau dans les capillaires : pression hydrostatique trop haute (veine, cœur, volume), pression oncotique trop basse (albumine), capillaires trop perméables (inflammation, allergie), drainage lymphatique insuffisant, ou interstitium modifié (myxœdème). Chaque diagnostic correspond à une de ces cinq lignes.",
+"013": "Fondement médico-légal : en Suisse, un décès non naturel se classe par le mode de décès — suicide, accident, intoxication, violence envers autrui — car c'est ce mode qui déclenche la déclaration à l'autorité et oriente l'enquête. Le classement par mode est un classement juridique et probatoire, pas un classement de maladies.",
+"014": "Fondement physiopathologique : une mort subite est, dans la grande majorité des cas, un arrêt de la circulation. On classe donc par le maillon qui lâche : cœur (ischémie, muscle, rythme, valve), vaisseau (embolie, aorte), cerveau, respiration, toxique, nourrisson, ou cause restée inexpliquée à l'autopsie.",
 }

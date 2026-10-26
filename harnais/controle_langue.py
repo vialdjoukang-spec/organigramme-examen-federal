@@ -33,9 +33,10 @@ def analyse(p):
     return mots, err, nd
 out = []
 for p in fs:
-    mots, err, nd = analyse(p); d = 1000 * len(err) / max(1, mots); acc = sum(1 for e in err if re.search(r"ACCORD|AGREEMENT|CONJUG|PARTICIPE|ACCORD_", e[1]))
-    sc = round(100 - min(60, 4 * d) - min(20, 2 * len(nd)), 1); crit = int(d > 15) + int(acc >= 3)
-    r = f"RESULTAT score={sc} critiques={crit} question={'oui' if sc >= 90 and not crit else 'non'}\n\n# Contrôle de langue — {Path(p).name}\n\n{mots} mots · {len(err)} fautes ({d:.1f}/1000) · {len(nd)} abréviation(s) non définie(s) : {', '.join(nd[:15])}\n\n## CORRECTIONS (≤ 20)\n" + "\n".join(f"- [{c}] {rid} : « {ctx} » → {rep or '?'}" for c, rid, ctx, rep in err[:20]) + "\n"
+    mots, err, nd = analyse(p); nso = sum(1 for e in err if e[0] == 'ORTHOGRAPHE'); d = 1000 * len(err) / max(1, mots); acc = sum(1 for e in err if re.search(r"ACCORD|AGREEMENT|CONJUG|PARTICIPE|ACCORD_", e[1]))
+    ng = len(err) - nso; dg = 1000 * ng / max(1, mots); ds = 1000 * nso / max(1, mots)
+    sc = round(100 - min(50, 6 * dg) - min(15, 1.5 * ds) - min(10, 0.5 * len(nd)), 1); crit = int(dg > 8) + int(acc >= 3)
+    r = f"RESULTAT score={sc} critiques={crit} question={'oui' if sc >= 90 and not crit else 'non'}\n\n# Contrôle de langue — {Path(p).name}\n\n{mots} mots · {len(err)-nso} fautes de grammaire ({dg:.1f}/1000) · {nso} signalements d'orthographe ({ds:.1f}/1000) · {len(nd)} abréviation(s) non définie(s) : {', '.join(nd[:15])}\n\n## CORRECTIONS (≤ 20)\n" + "\n".join(f"- [{c}] {rid} : « {ctx} » → {rep or '?'}" for c, rid, ctx, rep in err[:20]) + "\n"
     out.append(r)
     if rap and len(fs) == 1: Path(rap).write_text(r, encoding="utf-8")
 print("\n".join(o.splitlines()[0] + " " + o.splitlines()[2] for o in out)); tool.close()

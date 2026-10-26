@@ -17,12 +17,13 @@ with open(D / ".taches.lock", "w") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)
     if a[0] == "init":
         N = int(a[2]); deja = {str(x) for x in a[3:]}; ids = ["A"] + [str(i) for i in range(1, N + 1)]
-        ecrire(dict(lot=lot, N=N, cycle=1, ecrire={i: {"etat": "fait" if i in deja else "a_faire", "corr": ""} for i in ids}, med={i: "a_faire" for i in ids}, conf={i: "a_faire" for i in ids})); print("init", len(ids), "tâches")
+        ch = -(-N // 3); ecrire(dict(lot=lot, N=N, cycle=1, ecrire={i: {"etat": "fait" if i in deja else "a_faire", "corr": "", "prop": "A" if i == "A" else str(1 + (int(i) - 1) // ch)} for i in ids}, med={i: "a_faire" for i in ids}, conf={i: "a_faire" for i in ids})); print("init", len(ids), "tâches")
     elif a[0] == "prendre":
         d = lire(); role = a[1]; c = d["cycle"]
         if role == "ecrire":
+            W = a[4] if len(a) > 4 else None
             for i, t in d["ecrire"].items():
-                if t["etat"] == "a_faire":
+                if t["etat"] == "a_faire" and (W is None or t.get("prop") == W):
                     t["etat"] = "pris"; ecrire(d); print(f"TACHE {i} {D}/{fn(i)} {c}" + (f" CORR={t['corr']}" if t["corr"] else "")); break
             else: print("FINI")
         else:
@@ -54,7 +55,7 @@ with open(D / ".taches.lock", "w") as lk:
         else:
             ko = [i for i, v in res.items() if not v["ok"]]; d["cycle"] = c + 1
             for i in ko:
-                d["ecrire"][i] = {"etat": "a_faire", "corr": f"{D}/{rapport('med', i, c)} {D}/{rapport('conf', i, c)}"}; d["med"][i] = d["conf"][i] = "a_faire"
+                d["ecrire"][i] = {"etat": "a_faire", "prop": d["ecrire"][i].get("prop"), "corr": f"{D}/{rapport('med', i, c)} {D}/{rapport('conf', i, c)}"}; d["med"][i] = d["conf"][i] = "a_faire"
             for i in d["ecrire"]:
                 if i not in ko: d["med"][i] = d["conf"][i] = "fait"
             ecrire(d); print("cycle", c + 1, "pour", ko)

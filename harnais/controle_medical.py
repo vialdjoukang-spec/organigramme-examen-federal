@@ -29,19 +29,27 @@ for n in sm:
     na = norm(a); desc = next((re.findall(r"<Description>([^<]+)", b)[:1] for _, b in AT.trouve(n)), [""])[0]; marque = re.split(r"[®,]", desc)[0].strip()
     if len(marque) < 3: continue
     for mm in re.finditer(re.escape(marque), txt, re.I):
-        ph = re.split(r"(?<=[.;])\s|\b[A-Z][a-zé]+®", txt[mm.start():mm.start() + 170])[0] if False else txt[mm.start():mm.start() + 150]
-        ph = re.split(r"(?<=[a-zé\)\d\]])\.\s|\]\s(?=[A-Z])", ph)[0]
-        for d in re.findall(r"\d{1,3}(?:[ \u202f\u00a0]\d{3})*(?:[.,]\d+)?\s?(?:mg|µg|μg|g|UI|ml|mL)(?:/\w+)?", ph):
+        ph = txt[mm.start():mm.start() + 160]
+        ph = re.split(r"(?<=[a-zé\)\d\]])\.\s|\]\s(?=[A-Z])|;|®\s*\(?n°|\(n° ?\d{5}\)|\b[A-ZÉ][A-Za-zéèï]{3,}®", ph[len(marque):])[0]
+        for dm in re.finditer(r"\d{1,3}(?:[ \u202f\u00a0]\d{3})*(?:[.,]\d+)?\s?(?:mg|µg|μg|g|UI|ml|mL)(?:/\w+)?", ph):
+            d = dm.group(0)
+            if re.search(r"[=×x]\s*$", ph[max(0, dm.start() - 8):dm.start()]) or re.search(r"^\s*[=×]", ph[dm.end():dm.end() + 4]): continue  # valeur calculée
             nd += 1
             if norm(d.split("/")[0]) not in na: ecarts.append(f"{marque} ({n}) : « {d.strip()} » absent du texte AIPS — « {ph[:90]}… »")
-        if re.search(r"grossesse|enceinte", ph, re.I) and re.search(r"contre-indiqu", ph, re.I) and not re.search(r"contre-indiqu[^.]{0,120}(grossesse|enceinte)|(grossesse|enceinte)[^.]{0,200}contre-indiqu", a, re.I):
+        if re.search(r"grossesse|enceinte", ph, re.I) and re.search(r"contre-indiqu", ph, re.I) and not re.search(r"(pas|non|sans)\s+(de\s+)?contre-indic|n'est pas contre", ph, re.I) and not re.search(r"contre-indiqu[^.]{0,120}(grossesse|enceinte)|(grossesse|enceinte)[^.]{0,200}contre-indiqu", a, re.I):
             ecarts.append(f"{marque} ({n}) : grossesse « contre-indiqué » non retrouvé dans l'AIPS")
 if ecarts: crit += ecarts[:6]; moy += ecarts[6:12]
 ok.append(f"{nd} dose(s) de spécialités suisses vérifiée(s) vs AIPS ; {len(ecarts)} écart(s)")
 # 2. PubMed : existence + chiffre dans le résumé
 pm = sorted(set(re.findall(r"PMID\D{0,3}(\d{6,9})", txt))); introuv = []; nonret = 0
 if pm:
-    d = json.load(urllib.request.urlopen(urllib.request.Request("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=" + ",".join(pm), headers={"User-Agent": "Mozilla/5.0"}), timeout=30))["result"]
+    import time as _t
+    for _k in range(6):
+        try: d = json.load(urllib.request.urlopen(urllib.request.Request("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=" + ",".join(pm), headers={"User-Agent": "Mozilla/5.0"}), timeout=30))["result"]; break
+        except urllib.error.HTTPError as _e:
+            if _e.code != 429: raise
+            _t.sleep(2 + 3 * _k)
+    else: d = {}
     introuv = [p for p in pm if p not in d or "error" in d.get(p, {})]
     for p in introuv: crit.append(f"PMID {p} inexistant")
     ok.append(f"{len(pm)-len(introuv)}/{len(pm)} PMID existent")
