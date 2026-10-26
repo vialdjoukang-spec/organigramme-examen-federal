@@ -9,14 +9,14 @@ MARQ = "<!-- FORME_INTERACTIVE -->"
 CSS = """<style>.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
 details.refs{margin:18px 0;border:1px solid #cfd4dc;border-radius:12px;padding:6px 14px;background:#f8fafc}details.refs>summary{cursor:pointer;font-weight:700;color:#334155}details.refs ol{list-style:none;padding-left:0}details.refs .n{font-weight:700;color:#475569}details.refs li{font-size:.86em;margin:.35em 0}details.refs li:target{background:#fef9c3}
 .tm{border-bottom:1px dotted #7c3aed;color:#4c1d95;cursor:help;position:relative;display:inline}.tm .df{display:none;position:absolute;left:0;top:1.5em;z-index:20;width:min(320px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:8px 10px;font-size:.85em;font-weight:400;box-shadow:0 6px 20px #0006}.tm:hover .df,.tm:focus .df,.tm:focus-within .df{display:block}
-details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
+p.fil{border-left:4px solid #7c3aed;padding:6px 12px;background:#f5f3ff;border-radius:0 8px 8px 0;margin:10px 0}details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
 @media(prefers-color-scheme:dark){details.refs{background:#1b2033;border-color:#3a4256}details.refs>summary{color:#cbd5e1}.r a{color:#93c5fd}details.arbre{background:#241d3f}details.arbre>summary,.tm{color:#ddd0ff}}
 table:not(#rm table){border-collapse:separate;border-spacing:0;width:100%;margin:12px 0;border:1px solid #c7d2fe;border-radius:12px;overflow:hidden;font-size:.93em}table:not(#rm table) th{background:linear-gradient(#4f46e5,#4338ca);color:#fff;font-weight:700;padding:8px 10px;text-align:left;border:0}table:not(#rm table) td{padding:7px 10px;border-top:1px solid #e0e7ff;vertical-align:top}table:not(#rm table) tr:nth-child(even) td{background:#f5f7ff}table:not(#rm table) tr:hover td{background:#e8edff}table:not(#rm table) td:first-child{font-weight:600;color:#312e81;background:#eef2ff}table:not(#rm table) caption{caption-side:top;text-align:left;font-weight:700;color:#4338ca;padding:4px 2px}
 td.ok,tr.ok td{background:#dcfce7!important}td.mo,tr.mo td{background:#fef3c7!important}td.ko,tr.ko td{background:#fee2e2!important}
 h2:not(#rm h2){border-left:6px solid #6366f1;background:linear-gradient(90deg,#eef2ff,transparent);padding:6px 12px;border-radius:0 8px 8px 0}h2:not(#rm h2):nth-of-type(3n+2){border-color:#0ea5e9;background:linear-gradient(90deg,#e0f2fe,transparent)}h2:not(#rm h2):nth-of-type(3n){border-color:#10b981;background:linear-gradient(90deg,#d1fae5,transparent)}
 .tm.med{border-bottom:2px solid #0891b2;color:#155e75;background:#ecfeff;border-radius:4px;padding:0 3px}.tm.med .df{background:#164e63}
-details.dx{display:inline}details.dx>summary{display:inline;cursor:pointer;border-bottom:1px dotted #7c3aed;color:#4c1d95;list-style:none}details.dx>summary::after{content:" ▾";font-size:.8em;color:#7c3aed}details.dx[open]>summary::after{content:" ▴"}details.dx>.dxc{display:block;margin:6px 0 8px;padding:8px 12px;background:#f5f3ff;border-left:4px solid #a78bfa;border-radius:6px;font-size:.95em}
-@media(prefers-color-scheme:dark){table:not(#rm table) tr:nth-child(even) td{background:#1c2236}table:not(#rm table) td:first-child{background:#23294a;color:#c7d2fe}table:not(#rm table) td{border-color:#2f3656}table:not(#rm table) tr:hover td{background:#2a3358}details.dx>.dxc{background:#241d3f}.tm.med{background:#0c3a47;color:#a5f3fc}}</style>"""
+.dx>input{position:absolute;opacity:0;width:0;height:0}.dx>.dxt{cursor:pointer;border-bottom:1px dotted #7c3aed;color:#4c1d95}.dx>.dxt::after{content:" ▾";font-size:.8em;color:#7c3aed}.dx>input:checked+.dxt::after{content:" ▴"}.dx>input:focus-visible+.dxt{outline:2px solid #7c3aed}.dx>.dxc{display:none;margin:6px 0 8px;padding:8px 12px;background:#f5f3ff;border-left:4px solid #a78bfa;border-radius:6px;font-size:.95em}.dx>input:checked~.dxc{display:block}
+@media(prefers-color-scheme:dark){table:not(#rm table) tr:nth-child(even) td{background:#1c2236}table:not(#rm table) td:first-child{background:#23294a;color:#c7d2fe}table:not(#rm table) td{border-color:#2f3656}table:not(#rm table) tr:hover td{background:#2a3358}  .dx>.dxc{background:#241d3f}.dx>.dxt{color:#ddd0ff}.tm.med{background:#0c3a47;color:#a5f3fc}}</style>"""
 def convert(t):
     if MARQ in t: return t
     # 1. liste des sources → un seul bloc repliable
@@ -25,6 +25,41 @@ def convert(t):
         lis = re.findall(r"<li[^>]*>\s*\[S(\d+)\]\s*(.*?)</li>", m.group(2), re.S)
         ol = "\n".join(f'<li id="src-{n}" value="{n}"><span class="n">[S{n}]</span> {x.strip()}</li>' for n, x in lis)
         t = t[:m.start()] + f'<details class="refs" id="refs"><summary>Sources bibliographiques</summary><ol>\n{ol}\n</ol></details>' + t[m.end():]
+    # 1 bis. déroulés en ligne : <details class="dx"> → case à cocher CSS (la phrase continue, le contenu se déroule)
+    cnt = [0]
+    def dx(mm):
+        titre, corps = mm.group(1).strip(), mm.group(2).strip()
+        if corps.startswith('<div class="dxc">') and corps.endswith("</div>"): corps = corps[17:-6]
+        if len(re.sub(r"<[^>]+>", "", corps)) <= 420 and 'class="tm' not in corps:   # définition brève → fenêtre flottante
+            corps = re.sub(r"</?(?:span|div|p)[^>]*>", "", corps)
+            return f'<span class="tm" tabindex="0">{titre}<span class="df">{corps}</span></span>'
+        cnt[0] += 1; i = f"dx{cnt[0]}"   # contenu long → se déroule dans la phrase
+        return f'<span class="dx"><input type="checkbox" id="{i}"><label class="dxt" for="{i}">{titre}</label><span class="dxc">{corps}</span></span>'
+    t = re.sub(r"<details(?:\s+class=[\"']?(?:dx|i|in|f)[\"']?[^>]*|\s+style=[\"'][^\"']*display:\s*inline[^\"']*[\"'][^>]*)>\s*<summary[^>]*>(.*?)</summary>\s*(.*?)\s*</details>", dx, t, flags=re.S)
+    # 1 ter. préambule (méthode, abréviations) → en fin de page ; fil d'Ariane sobre pour la classification
+    s = re.search(r'<section class="monograph"|<main[ >]', t)
+    if s:
+        seg = t[:s.start()]; blocs = []
+        def prend(mm): blocs.append(mm.group(0)); return ""
+        seg2 = re.sub(r'<p[^>]*>.*?</p>|<div class="p">.*?</div>', prend, seg, flags=re.S)
+        if blocs:
+            t = seg2 + t[s.start():]
+            ab = re.search(r"Abréviations\s*:(.*?)(?:</p>|</div>|$)", "".join(blocs), re.S)   # le reste (date, méthode, sources lues) n'est pas du cours : supprimé
+            notes = '<details class="refs"><summary>Abréviations</summary><p>' + re.sub(r"<[^>]+>", "", ab.group(1)).strip() + "</p></details>" if ab else ""
+            t = t.replace("</body>", notes + "</body>", 1) if "</body>" in t else t + notes
+    def fil(mm):
+        corps = mm.group(1); chemin, pile, sujet = [], [], None
+        for tok in re.finditer(r"<li[^>]*>|</li>|<ul[^>]*>|</ul>|([^<]+|<(?!/?(?:li|ul)\b)[^>]*>)", corps):
+            x = tok.group(0)
+            if x.startswith("<li"): pile.append("")
+            elif x.startswith("</li"): pile and pile.pop()
+            elif x.startswith(("<ul", "</ul")): pass
+            elif pile: pile[-1] += x
+            if pile and "<b>" in pile[-1] and sujet is None: sujet = list(pile)
+        if not sujet: return mm.group(0)
+        fil_ = " › ".join(re.sub(r"</?b>", "", x) if i < len(sujet) - 1 else x for i, x in enumerate(sujet))
+        return f'<p class="fil"><b>Où se situe le problème :</b> {fil_}</p><details class="arbre"><summary>Arborescence complète</summary>{corps}</details>'
+    t = re.sub(r'<details class="arbre"[^>]*>(?:<summary[^>]*>.*?</summary>)?(.*?)</details>', fil, t, count=1, flags=re.S)
     # 2. marqueurs en exposants (grappes), doublons de grappe proches supprimés
     last = {}
     def grappe(mm):
@@ -41,11 +76,14 @@ def stats(t):
     txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", t)); mots = len(txt.split())
     gr = len(re.findall(r'<sup class="r">', t)) or len(re.findall(r"(?:\[S\d+\])+", t))
     arbre = re.search(r'<details[^>]*class="[^"]*arbre[^"]*"[^>]*>(.*?)</details>', t, re.S)
-    return dict(mots=mots, grappes=gr, densite=round(1000 * gr / max(1, mots), 1), termes=len(re.findall(r'class="tm"', t)), fenetres=len(re.findall(r"<details", t)), arbre=bool(arbre), arbre_noeuds=len(re.findall(r"<li", arbre.group(1))) if arbre else 0, refs=bool(re.search(r'<details class="refs"', t)), brut=len(re.findall(r"\[S\d+\]", re.sub(r'<details class="refs".*?</details>', "", t, flags=re.S))))
+    return dict(mots=mots, grappes=gr, densite=round(1000 * gr / max(1, mots), 1), termes=len(re.findall(r'class="tm"', t)), fenetres=len(re.findall(r"<details", t)) + len(re.findall(r'class="dx"', t)) + len(re.findall(r'class="tm"', t)), arbre=bool(arbre), arbre_noeuds=len(re.findall(r"<li", arbre.group(1))) if arbre else 0, refs=bool(re.search(r'<details class="refs"', t)), brut=len(re.findall(r"\[S\d+\]", re.sub(r'<details class="refs".*?</details>', "", t, flags=re.S))))
 def controle(t):
     s = stats(t); crit, moy = [], []
+    corps = re.sub(r"(?is)<details class=\"refs\".*?</details>|<style.*?</style>|<script.*?</script>", "", t); corps = re.sub(r"<[^>]+>", " ", corps)
+    meta = re.findall(r"LOT_\d+|Phase [AB]\b|\bV0\b|autre IA|\bcycles? \d|checkpoint|harnais|\baudits?\b|brouillon|tableau d.entrée|evidence/|[Pp]rompt|(?:ce|le|du|ton|votre) fichier|référentiel PROFILES de ce|dose AIPS prime|\[S\d+", corps)
+    if meta: crit.append("mention de conception dans le cours (interdit : le texte s'adresse à des médecins résidents, sans date de rédaction, sans « fichier », « Phase », « LOT », « V0 », « cycle », « autre IA », « audit », sans [Sn] brut) : " + ", ".join(sorted(set(meta))[:10]) + f" ({len(meta)})")
     if re.search(r"<h[1-6][^>]*>(?:(?!</h[1-6]>).)*class=\"tm", t, re.S): crit.append("terme cliquable dans un titre du plan : interdit (enlève .tm des <h1>–<h6>)")
-    marques = set(re.findall(r"\b([A-Z][A-Za-zÀ-ÿ\-]{2,})®", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", "", t)))
+    marques = set(re.findall(r"\b([A-Z][A-Za-zÀ-ÿ\-]{2,})®", re.sub(r"(?is)<details class=\"refs\".*?</details>", "", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", "", t))))
     cliq = set(re.findall(r'class="tm med"[^>]*>([A-Za-zÀ-ÿ\-]+)', t))
     manque = sorted(m for m in marques if m not in cliq)
     if manque: crit.append("médicaments non cliquables (première occurrence : <span class=\"tm med\" tabindex=\"0\">Nom®<span class=\"df\">classe ATC · famille · alternatives de la même classe</span></span>) : " + ", ".join(manque[:12]))
