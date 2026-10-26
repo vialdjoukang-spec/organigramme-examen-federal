@@ -9,7 +9,8 @@ from pathlib import Path
 import language_tool_python as LT
 ACR_OK = set("ECG IRM CT TDM CRP VS VIH ORL OMS OFSP OFS AIPS PMID DOI HTA TA FC FR SpO2 PA INR TSH ASAT ALAT GGT LDH NFS BNP ESC ERS EASD EAU ESMO EULAR NICE CDC AHA ACC IDSA ADA HAS EMA AWMF SSMIG SGAIM SSED SSI SSP SNC PMN IV IM SC PO AVC AIT ATCD AINS IPP ISRS IMC BMI HbA1c LDL HDL TG DD DX SSP PROFILES CH EU UE USA OMIM GINA GOLD KDIGO RGO MICI BPCO SCA IDM EP TVP ATB ECBU PSA PCR ARN ADN IgE IgG IgM UI Rx Dr Pr".split())
 a = sys.argv[1:]; rap = a[a.index("--rapport") + 1] if "--rapport" in a else None; fs = [x for x in a if x.endswith(".html")]
-tool = LT.LanguageTool("fr", config={"maxTextLength": 100000})
+LTON = "--lt" in sys.argv  # LanguageTool désactivé par défaut (lent) ; qualité linguistique = Sonnet 5.5 + contrôles rapides
+tool = LT.LanguageTool("fr", config={"maxTextLength": 100000}) if LTON else None
 def texte(p):
     t = Path(p).read_text(encoding="utf-8", errors="replace"); t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", t)
     t = re.sub(r"</?(p|div|li|tr|h\d|br|details|summary|section|table|td|th)[^>]*>", "\n", t); t = html.unescape(re.sub(r"<[^>]+>", " ", t))
@@ -19,7 +20,7 @@ def analyse(p):
     err = []; i = 0
     while i < len(L):
         bloc = "\n".join(L[i:i + 25]); i += 25
-        for m in tool.check(bloc):
+        for m in (tool.check(bloc) if tool else []):
             rid = m.rule_id; ctx = (m.context or "")[:110]; mot = bloc[m.offset:m.offset + m.error_length]
             if rid.startswith(("MORFOLOGIK", "HUNSPELL", "FR_SPELLING")):
                 if freq.get(mot, 0) >= 3 or re.search(r"[0-9A-Z\-/öüßäñ]", mot) or len(mot) < 4: continue
@@ -56,4 +57,4 @@ for p in fs:
     r = f"RESULTAT score={sc} critiques={crit} question={'oui' if sc >= 90 and not crit else 'non'}\n\n# Contrôle de langue — {Path(p).name}\n\n{mots} mots · {len(err)-nso} fautes de grammaire ({dg:.1f}/1000) · {nso} signalements d'orthographe ({ds:.1f}/1000) · {len(nd)} abréviation(s) non définie(s) : {', '.join(nd[:15])}\n\n## CORRECTIONS (≤ 20)\n" + "".join(f"- [PHRASES] {x}\n" for x in mv) + "\n".join(f"- [{c}] {rid} : « {ctx} » → {rep or '?'}" for c, rid, ctx, rep in err[:20]) + "\n"
     out.append(r)
     if rap and len(fs) == 1: Path(rap).write_text(r, encoding="utf-8")
-print("\n".join(o.splitlines()[0] + " " + o.splitlines()[2] for o in out)); tool.close()
+print("\n".join(o.splitlines()[0] + " " + o.splitlines()[2] for o in out)); tool and tool.close()

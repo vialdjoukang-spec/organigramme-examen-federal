@@ -35,8 +35,8 @@ while True:
     al = []
     if tk:
         reste = tk["a_faire"] + tk["pris"]
-        if reste >= 1 and tk["total"] > 10 and red < min(3, max(1, tk["a_faire"] + tk["pris"])): al.append(f"RÉDACTEURS {red}/3 (reste {reste} cours) → RELANCER ecrire.js")
-        if red > 3: al.append(f"RÉDACTEURS {red} > 3")
+        if reste >= 1 and tk["total"] > 10 and red < min(8, reste): al.append(f"RÉDACTEURS {red}/8 (reste {reste} fichiers) → RELANCER ecrire.js")
+        if red > 8: al.append(f"RÉDACTEURS {red} > 8")
     e = dict(t=time.strftime("%H:%M:%S"), redacteurs=red, auditeurs=au, taches=tk, alertes=al)
     (R / ".cache/harnais/sentinelle.json").write_text(json.dumps(e, ensure_ascii=False))
     s = json.dumps([red, au, al]) 

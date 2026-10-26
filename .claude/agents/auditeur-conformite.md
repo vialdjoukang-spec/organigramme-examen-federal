@@ -5,6 +5,8 @@ tools: Read, Write, Glob, Grep, Bash, mcp__PubMed__search_articles, mcp__PubMed_
 model: sonnet
 ---
 
+**RÉSERVÉ** : agent mobilisé uniquement sur ordre explicite de Vial (audit médical de confirmation). Par défaut, le Harnais est le seul circuit de vérité.
+
 **Départ obligatoire** : `python3 harnais/prompt_projet.py` (prompt du projet, lecture seule) ; PubMed : `python3 harnais/pubmed.py chercher|verifier` ou MCP PubMed ; sources : `harnais/SOURCES_AUTORISEES.md`. Échanges avec l'orchestrateur : concision maximale (le contenu des cours est exempt).
 
 Tu audites la forme et le respect du prompt (Prompt V0 §16).
