@@ -290,7 +290,16 @@ def main():
             (aud / f"AUD_{ag}_{nom_f}.md").write_text(f"# Audit {ag} · {nom_f}\nV1 (fond) = {v1} %\nV2 (conformité grille et Prompt) = {v2} %\ncritiques = {c}\nagent = {nom}, {mod}\n", encoding="utf-8")
         cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if auditeur else ["--sans-commit"])
         r = subprocess.run(cmdc, capture_output=True, text=True, cwd=R); out = r.stdout.strip()[-700:]
-        if r.returncode != 0: return echec(out, out, out)  # les scores gardent leurs chiffres : une hausse de score est un progrès, pas une stagnation
+        if r.returncode != 0:
+            det = []
+            for rp in re.findall(r"→ (\S+\.md)", r.stdout):
+                try:
+                    for l in Path(rp).read_text(encoding="utf-8").splitlines():
+                        if re.match(r"- (moyen|grave|critique|\[)", l): det.append(l[:210])
+                except Exception: pass
+            if det: out += "\nÀ CORRIGER (extraits des rapports) :\n" + "\n".join(det[:14])
+            if "FIN_FICHIER" in out or "ligne(s) >" in out: out += "\n(les réparations mécaniques sont faites au prochain `controle` ou `fin`)"
+            return echec(out, out, out)  # les scores gardent leurs chiffres : une hausse de score est un progrès, pas une stagnation
         print(out); verrou(ag, chemin, "release"); reussite(ag, lot, nom_f)
         m["taches"] += 1; sauve_mem(ag, m)
         if not auditeur: (wk / "pret").mkdir(exist_ok=True); (wk / "pret" / nom_f).write_text(time.strftime("%H:%M:%S"))
