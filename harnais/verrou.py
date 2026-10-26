@@ -20,10 +20,14 @@ elif a[:1] == ["release"]:
     except FileNotFoundError: print("aucun verrou")
 elif a[:1] == ["liste"]:
     for p in V.glob("*.lock"):
-        d = json.loads(p.read_text()); print(d["agent"], d["fichier"], int(time.time() - d["t"]), "s")
+        try: d = json.loads(p.read_text())
+        except Exception: continue
+        print(d["agent"], d["fichier"], int(time.time() - d["t"]), "s")
 elif a[:1] == ["nettoyer-lot"]:
     n = 0
     for p in V.glob("*.lock"):
-        if a[1] in json.loads(p.read_text())["fichier"]: p.unlink(); n += 1
+        try:
+            if a[1] in json.loads(p.read_text())["fichier"]: p.unlink(); n += 1
+        except Exception: pass
     print(n, "verrou(s) supprimé(s)")
 else: print(__doc__)
