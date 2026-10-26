@@ -1,4 +1,4 @@
-RESULTAT score=98.0 critiques=0 question=oui
+RESULTAT score=99.0 critiques=0 question=oui
 
 # Contrôle de langue — LOT_001_Phase_B_V0_DX.9.html
 
