@@ -6,7 +6,7 @@ import hashlib, json, os, py_compile, stat, subprocess, sys, time, urllib.reques
 from pathlib import Path
 R = Path(__file__).resolve().parents[2]; C = R / ".cache" / "harnais"; C.mkdir(parents=True, exist_ok=True)
 FICHIERS = ["harnais/prompt_projet.py", "harnais/controle_lot.py", "harnais/aips_texte.py", "harnais/pubmed.py", "harnais/scinder_1_10.py",
-            "harnais/HARNAIS_OBLIGATOIRE.md", "harnais/SOURCES_AUTORISEES.md", "harnais/ROUTAGE_MODELES.md", "harnais/dispositif/prompt.sha256",
+            "harnais/HARNAIS_OBLIGATOIRE.md", "harnais/SOURCES_AUTORISEES.md", "harnais/ROUTAGE_MODELES.md", "harnais/dispositif/prompt.sha256", "harnais/verrou.py",
             ".claude/agents/redacteur.md", ".claude/agents/redacteur-phase-a.md", ".claude/agents/auditeur-medical.md",
             ".claude/agents/auditeur-conformite.md", ".claude/agents/mecanique.md", ".cache/aips/AipsDownload_20261008.xml", ".cache/g_in/g_tables.json"]
 SCRIPTS = ["harnais/prompt_projet.py", "harnais/controle_lot.py", "harnais/aips_texte.py", "harnais/pubmed.py", "harnais/dispositif/veille.py"]
@@ -30,6 +30,8 @@ def local():
             except Exception: _cc[k] = False
         ok &= _cc[k]
     c["scripts_compilent"] = ok
+    import re
+    c["lecons_max5"] = all(len(re.findall(r"^\s*(?:\d+\.|-)\s+\*\*", (R / "harnais/LECONS" / f).read_text(), re.M)) <= 5 for f in os.listdir(R / "harnais/LECONS")) if (R / "harnais/LECONS").exists() else False
     c["agents_modeles"] = all("model:" in (R / f".claude/agents/{a}.md").read_text() for a in ("redacteur", "redacteur-phase-a", "auditeur-medical", "auditeur-conformite", "mecanique"))
     return c
 def reseau():

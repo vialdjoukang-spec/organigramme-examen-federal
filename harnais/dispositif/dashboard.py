@@ -8,6 +8,64 @@ from pathlib import Path
 R = Path(__file__).resolve().parents[2]
 WF = Path.home() / ".claude/projects/-home-user-organigramme-examen-federal"
 FONC = {"redacteur-phase-a": "Rédacteur Phase A", "redacteur": "Rédacteur DD", "auditeur-medical": "Auditeur médical", "auditeur-conformite": "Auditeur conformité", "mecanique": "Mécanique", "general-purpose": "Dépôt / PR"}
+_pos = {}; _ev = []
+SESS = WF / "939dd4bc-a7c0-53f6-b753-cf529d7def3a.jsonl"
+def _ts(s):
+    import calendar
+    return calendar.timegm(time.strptime(s[:19], "%Y-%m-%dT%H:%M:%S")) + float("0" + s[19:23] if s[19:20] == "." else 0)
+def tokens():
+    fs = [(SESS, "principal")]
+    for jf in glob.glob(str(WF / "*/subagents/workflows/wf_*/agent-*.jsonl")) + glob.glob(str(WF / "*/subagents/agent-*.jsonl")):
+        m = jf[:-6] + ".meta.json"
+        try: r = json.load(open(m)).get("agentType", "agent")
+        except Exception: r = "agent"
+        fs.append((Path(jf), r))
+    for f, role in fs:
+        if not f.exists(): continue
+        p0 = _pos.get(str(f), 0); sz = f.stat().st_size
+        if sz <= p0: continue
+        with open(f, "rb") as h:
+            h.seek(p0); data = h.read()
+        nl = data.rfind(b"\n")
+        if nl < 0: continue
+        _pos[str(f)] = p0 + nl + 1
+        for l in data[:nl].splitlines():
+            try:
+                e = json.loads(l); u = e["message"]["usage"]; _ev.append((_ts(e["timestamp"]), role, u.get("output_tokens", 0), u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0), u.get("cache_read_input_tokens", 0)))
+            except Exception: pass
+    ev = sorted(_ev); now = time.time(); tot = {}; ser = []; co = ci = cr = 0
+    for t, role, o, i, c in ev:
+        co += o; ci += i; cr += c; x = tot.setdefault(role, [0, 0, 0]); x[0] += o; x[1] += i; x[2] += c
+        if not ser or t - ser[-1][0] >= 20: ser.append([int(t), co, ci, cr])
+        else: ser[-1] = [int(t), co, ci, cr]
+    if ev and (not ser or ser[-1][1] != co): ser.append([int(ev[-1][0]), co, ci, cr])
+    if len(ser) > 240: ser = ser[:: len(ser) // 240 + 1] + [ser[-1]]
+    r5 = [e for e in ev if e[0] > now - 300]
+    return dict(serie=ser, total=dict(sortie=co, entree=ci, cache=cr), par_role=tot, debit_min=round(sum(e[2] + e[3] for e in r5) / 5), debit_sortie_min=round(sum(e[2] for e in r5) / 5))
+def divers(ag, lot):
+    import shutil, subprocess
+    out = {}
+    try: out["verrous"] = [json.load(open(p)) for p in glob.glob(str(R / ".cache/verrous/*.lock"))]
+    except Exception: out["verrous"] = []
+    out["lecons"] = {}
+    for p in glob.glob(str(R / "harnais/LECONS/*.md")):
+        out["lecons"][Path(p).stem] = len(re.findall(r"^\s*\d+\.\s+\*\*", open(p, encoding="utf-8").read(), re.M))
+    try:
+        L = json.load(open(R / "LOT_Claude_Finaux/ETAT_FILE.json"))["lots"][:16]
+        out["file_g"] = [dict(lot=l["lot"], code=l["code"], verdict=l.get("verdict"), merge=l.get("merge")) for l in L]
+    except Exception: out["file_g"] = []
+    try:
+        g = lambda *a: subprocess.run(["git", *a], cwd=R, capture_output=True, text=True).stdout.strip()
+        out["git"] = dict(branche=g("rev-parse", "--abbrev-ref", "HEAD"), dernier=g("log", "-1", "--format=%h %s")[:70], modifies=len(g("status", "--short").splitlines()))
+    except Exception: out["git"] = None
+    out["disque_libre_go"] = round(shutil.disk_usage(R).free / 1e9, 1)
+    act = [a for a in ag if a["actif"]]
+    red = sum(a["type"] in ("redacteur", "redacteur-phase-a") for a in act); au = sum(a["type"] in ("auditeur-medical", "auditeur-conformite") for a in act)
+    out["equipe"] = dict(redacteurs=red, auditeurs=au, ok_redacteurs=2 <= red <= 3, ok_auditeurs=1 <= au <= 2)
+    labs = [a["label"] for a in act]; out["collision"] = len(labs) != len(set(labs)) or len({v["fichier"] for v in out["verrous"]}) != len(out["verrous"])
+    if lot:
+        ecr = [f for f in lot["fichiers"] if f["ecrit"]]; out["ko_ecrits"] = sum(f["ko"] for f in ecr)
+    return out
 def etat():
     now = time.time(); ag = []
     wfs = sorted(glob.glob(str(WF / "*/subagents/workflows/wf_*/journal.jsonl")), key=os.path.getmtime)
@@ -41,7 +99,7 @@ def etat():
         lot = dict(lot=P["lot"], code=P["code"], nom=P["nom"], N=N, fichiers=fich, ecrits=sum(x["ecrit"] for x in fich), audites=sum(x["audite"] for x in fich), depose=dep, pct=round(100 * (pts + dep) / tot))
     try: h = json.load(open(R / ".cache/harnais/etat.json"))
     except Exception: h = None
-    return dict(t=time.strftime("%H:%M:%S"), agents=ag, actifs=sum(a["actif"] for a in ag), termines=sum(not a["actif"] for a in ag), lot=lot, harnais=h)
+    return dict(t=time.strftime("%H:%M:%S"), agents=ag, actifs=sum(a["actif"] for a in ag), termines=sum(not a["actif"] for a in ag), lot=lot, harnais=h, tokens=tokens(), divers=divers(ag, lot))
 PAGE = r'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HARNAIS · DIRECT</title><style>
 :root{--bg:#0b1020;--card:#141b34;--ln:#26305a;--fg:#e8ecff;--mut:#8b96c9;--g:#22d38a;--r:#ff5d73;--o:#ffa94d;--b:#5aa9ff;--v:#b388ff;--y:#ffd43b}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#1b2557,transparent),var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;padding:20px clamp(12px,3vw,40px) 50px}
@@ -55,6 +113,10 @@ table{width:100%;border-collapse:collapse}th,td{padding:8px 10px;border-bottom:1
 <h1><span class="live" id="lv"></span>HARNAIS · FILE G · EN DIRECT</h1><div class="sub" id="sub">connexion…</div>
 <div class="k"><div class="c"><b id="ka" style="color:var(--g)">–</b><span>agents actifs</span></div><div class="c"><b id="kt">–</b><span>agents terminés (ce LOT)</span></div><div class="c"><b id="kl" style="color:var(--y)">–</b><span>LOT actif</span></div><div class="c"><b id="kp" style="color:var(--b)">–</b><span>progression du LOT</span></div></div>
 <div class="c big"><div id="lt"></div><div class="bar"><div class="fill" id="fl" style="width:0">0 %</div></div><div id="lm" class="sub"></div><div class="grid" id="gr"></div></div>
+<h2>Consommation de tokens (calculée depuis les journaux, en direct)</h2><div class="c"><div id="tk" class="hv" style="margin-bottom:8px"></div><svg id="ch" viewBox="0 0 1000 230" width="100%"></svg><svg id="ch2" viewBox="0 0 1000 90" width="100%"></svg><div id="tr" class="sub"></div></div>
+<h2>Équipe et règles</h2><div class="c"><div class="hv" id="eq"></div><div class="hv" id="vr" style="margin-top:8px"></div></div>
+<h2>File G · 16 LOTS</h2><div class="c"><div class="grid" id="fg"></div></div>
+<h2>Travail en cours</h2><div class="c"><div class="hv" id="dv"></div></div>
 <h2>Agents</h2><div class="c"><table><thead><tr><th>Fonction</th><th>Tâche</th><th>LOT</th><th>Phase</th><th>État</th><th>Durée</th><th>Dernière activité</th></tr></thead><tbody id="tb"></tbody></table></div>
 <h2>Harnais (veille 1 s)</h2><div class="hv" id="hv"></div>
 <script>
@@ -62,6 +124,17 @@ const $=i=>document.getElementById(i),mm=s=>s==null?'–':s<60?s+' s':Math.floor
 function draw(d){const L=d.lot;$('ka').textContent=d.actifs;$('kt').textContent=d.termines;$('kl').textContent=L?'LOT_'+L.lot:'–';$('kp').textContent=L?L.pct+' %':'–';$('sub').textContent='mis à jour '+d.t+(window.SNAP?' · instantané (non live)':'');
 if(L){$('lt').innerHTML='<b>LOT_'+L.lot+' · '+L.code+'</b> — '+L.nom;$('fl').style.width=Math.max(L.pct,4)+'%';$('fl').textContent=L.pct+' %';$('lm').textContent=L.ecrits+'/'+(L.N+1)+' fichiers écrits · '+L.audites+'/'+(L.N+1)+' audités (médical + conformité) · dépôt '+(L.depose?'fait':'à faire');
 $('gr').innerHTML=L.fichiers.map(f=>'<div class="f '+(f.audite?'a':f.ecrit?'e':'w')+'"><b>'+(f.i=='A'?'Phase A':'DX.'+f.i)+'</b>'+(f.ecrit?f.ko+' Ko':'—')+(f.audite?' · ✔ audité':f.ecrit?' · écrit':'')+'</div>').join('')}
+const T=d.tokens,DV=d.divers,k=n=>n>=1e6?(n/1e6).toFixed(2)+' M':n>=1e3?Math.round(n/1e3)+' k':n;
+$('tk').innerHTML=['<span class="ok">sortie '+k(T.total.sortie)+'</span>','<span style="color:var(--b);border-color:var(--b)">entrée+écriture cache '+k(T.total.entree)+'</span>','<span>lecture cache '+k(T.total.cache)+'</span>','<span style="color:var(--o);border-color:var(--o)">débit '+k(T.debit_min)+'/min (sortie '+k(T.debit_sortie_min)+'/min)</span>'].join('');
+(function(){const s=T.serie;if(s.length<2){$('ch').innerHTML='';return}const W=1000,H=230,m={l:54,r:12,t:12,b:22},t0=s[0][0],t1=s[s.length-1][0],mx=Math.max(...s.map(p=>Math.max(p[1],p[2])))*1.08||1,X=t=>m.l+(W-m.l-m.r)*(t-t0)/Math.max(1,t1-t0),Y=v=>m.t+(H-m.t-m.b)*(1-v/mx);
+let g='';for(let i=0;i<=4;i++){const y=m.t+(H-m.t-m.b)*i/4;g+='<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y+'" y2="'+y+'" stroke="#26305a"/><text x="'+(m.l-6)+'" y="'+(y+4)+'" text-anchor="end" fill="#8b96c9" font-size="10">'+k(mx*(1-i/4))+'</text>'}
+const P=c=>s.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[c])).join('');g+='<path d="'+P(2)+'" stroke="#5aa9ff" stroke-width="2.5" fill="none"/><path d="'+P(1)+'" stroke="#22d38a" stroke-width="2.5" fill="none"/><text x="'+(m.l+6)+'" y="'+(m.t+12)+'" fill="#22d38a" font-size="11">● sortie cumulée</text><text x="'+(m.l+120)+'" y="'+(m.t+12)+'" fill="#5aa9ff" font-size="11">● entrée cumulée</text><text x="'+(W-m.r)+'" y="'+(H-6)+'" text-anchor="end" fill="#8b96c9" font-size="10">'+new Date(t1*1000).toLocaleTimeString()+'</text><text x="'+m.l+'" y="'+(H-6)+'" fill="#8b96c9" font-size="10">'+new Date(t0*1000).toLocaleTimeString()+'</text>';$('ch').innerHTML=g;
+const r=s.slice(1).map((p,i)=>[p[0],(p[1]-s[i][1])/Math.max(1,p[0]-s[i][0])*60]),rm=Math.max(...r.map(x=>x[1]),1);$('ch2').innerHTML='<text x="4" y="12" fill="#ffa94d" font-size="11">● débit de sortie (tokens/min)</text>'+r.map(x=>'<rect x="'+X(x[0])+'" y="'+(86-70*x[1]/rm)+'" width="3" height="'+(70*x[1]/rm)+'" fill="#ffa94d" opacity=".8"/>').join('')})();
+$('tr').textContent='Par rôle (sortie / entrée) : '+Object.entries(T.par_role).map(([r,v])=>r+' '+k(v[0])+' / '+k(v[1])).join(' · ');
+const E=DV.equipe;$('eq').innerHTML=['<span class="'+(E.ok_redacteurs?'ok':'ko')+'">rédacteurs actifs '+E.redacteurs+' (cible 2–3)</span>','<span class="'+(E.ok_auditeurs?'ok':'ko')+'">auditeurs actifs '+E.auditeurs+' (cible 1–2)</span>','<span class="'+(DV.collision?'ko':'ok')+'">'+(DV.collision?'✘ COLLISION détectée':'✔ non-collision')+'</span>'].join('');
+$('vr').innerHTML=(DV.verrous.length?DV.verrous.map(v=>'<span>🔒 '+v.agent+' · '+v.fichier.split('/').pop()+'</span>').join(''):'<span>aucun verrou actif</span>')+Object.entries(DV.lecons).map(([r,n])=>'<span class="'+(n<=5?'ok':'ko')+'">leçons '+r+' '+n+'/5</span>').join('');
+$('fg').innerHTML=DV.file_g.map(l=>'<div class="f '+(l.verdict=='ACCEPTE'?'a':l.verdict?'ko':(d.lot&&l.lot==d.lot.lot)?'e':'w')+'"><b>LOT_'+l.lot+' · '+l.code+'</b>'+(l.verdict||((d.lot&&l.lot==d.lot.lot)?'ACTIF':'en attente'))+'</div>').join('');
+$('dv').innerHTML=['<span>branche '+(DV.git?DV.git.branche:'–')+'</span>','<span>dernier commit '+(DV.git?DV.git.dernier:'–')+'</span>','<span>fichiers modifiés (non commités) '+(DV.git?DV.git.modifies:'–')+'</span>','<span>disque libre '+DV.disque_libre_go+' Go</span>','<span>volume écrit LOT '+(DV.ko_ecrits||0)+' Ko</span>','<span>veille tick '+(d.harnais?d.harnais.tick:'–')+'</span>'].join('');
 const lot=L?'LOT_'+L.lot:'–';$('tb').innerHTML=d.agents.slice().sort((a,b)=>b.actif-a.actif).map(a=>'<tr><td><span class="t t-'+a.type+'">'+a.fonction+'</span></td><td>'+a.label+'</td><td>'+lot+'</td><td>'+a.phase+'</td><td class="st '+(a.actif?'on':'off')+'">'+(a.actif?'● actif':'terminé')+'</td><td>'+mm(a.depuis_s)+'</td><td>'+(a.actif?mm(a.derniere_activite_s):'')+'</td></tr>').join('');
 $('hv').innerHTML=d.harnais?Object.entries(d.harnais.controles).map(([k,v])=>'<span class="'+(v?'ok':'ko')+'">'+(v?'✔ ':'✘ ')+k+'</span>').join(''):'<span class="ko">veille absente</span>'}
 async function tick(){try{draw(await (await fetch('etat.json',{cache:'no-store'})).json())}catch(e){if(window.SNAP)draw(window.SNAP);else $('sub').textContent='serveur injoignable'}}
