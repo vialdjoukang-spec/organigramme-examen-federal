@@ -302,7 +302,7 @@ def main():
             for rp in re.findall(r"→ (\S+\.md)", r.stdout):
                 try:
                     for l in Path(rp).read_text(encoding="utf-8").splitlines():
-                        if re.match(r"- (moyen|grave|critique|\[)", l): det.append(l[:210])
+                        if re.match(r"- (moyen|grave|critique|\[)", l): det.append(l[:520])
                 except Exception: pass
             if det: out += "\nÀ CORRIGER (extraits des rapports) :\n" + "\n".join(det[:14])
             if "FIN_FICHIER" in out or "ligne(s) >" in out: out += "\n(les réparations mécaniques sont faites au prochain `controle` ou `fin`)"

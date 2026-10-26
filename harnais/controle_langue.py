@@ -52,7 +52,7 @@ for p in fs:
     sc = round(100 - min(50, 6 * dg) - min(15, 1.5 * ds) - min(10, 0.25 * len(nd)), 1); crit = int(dg > 8) + int(acc >= 3)
     sv = sans_verbe(p); mv = []
     for n, (tot, bad) in sv.items():
-        if (n == 13 and bad) or (tot and len(bad) / tot > 0.25): mv.append(f"point {n} : {len(bad)}/{tot} phrases sans verbe — « {bad[0] if bad else ''} »")
+        if (n == 13 and bad) or (tot and len(bad) / tot > 0.25): mv.append(f"point {n} : {len(bad)}/{tot} phrases sans verbe — {' · '.join('« ' + b + ' »' for b in bad[:5])}")
     sc = round(max(0, sc - min(12, 3 * len(mv))), 1)
     r = f"RESULTAT score={sc} critiques={crit} question={'oui' if sc >= 90 and not crit else 'non'}\n\n# Contrôle de langue — {Path(p).name}\n\n{mots} mots · {len(err)-nso} fautes de grammaire ({dg:.1f}/1000) · {nso} signalements d'orthographe ({ds:.1f}/1000) · {len(nd)} abréviation(s) non définie(s) : {', '.join(nd[:15])}\n\n## CORRECTIONS (≤ 20)\n" + "".join(f"- [PHRASES] {x}\n" for x in mv) + "\n".join(f"- [{c}] {rid} : « {ctx} » → {rep or '?'}" for c, rid, ctx, rep in err[:20]) + "\n"
     out.append(r)
