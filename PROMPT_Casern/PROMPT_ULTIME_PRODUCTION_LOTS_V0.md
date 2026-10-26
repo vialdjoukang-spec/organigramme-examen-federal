@@ -354,24 +354,26 @@ Les brouillons déjà produits en fichiers multi-DD sont découpés par `harnais
 
 ## 11. Plan monographique en 14 points
 
+> **Principe de chaque point (Vial, 26.10.2026) : CONCIS + DENSE + EXHAUSTIF : concision absolue, densité maximale, aucune information utile perdue, aucun bavardage.** La grille éditée est aussi publiée seule : `harnais/GRILLE_14_POINTS.md` et `.pdf` (valeur de vérité 1 de l'audit médical).
+
 Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exactement** ce plan. Titre de chaque point en gras (`<strong>`) ; sous-titres (7.1, 9.a, 11.B…) en italique. **Aucun point ne manque. Aucun point n'est mal affecté.**
 
 | N° | Point | Contenu exigé |
 |---|---|---|
-| 1 | **Définition et sémantique** | Définition **exacte** selon la société savante de référence **nommée et datée** (année de la version citée). Terminologie officielle, synonymes acceptés et termes à éviter. Distinction nette avec les notions voisines (ce qui est l’entité, ce qui ne l’est pas, ce qui s’y apparente). Une à quatre phrases porteuses ; la richesse sémantique et les nuances vont dans les fenêtres. |
-| 2 | **Épidémiologie (Suisse, puis Europe)** | Prévalence et incidence **chiffrées, sourcées, datées**, d’abord en Suisse (OFS, OFSP, registres, Obsan), puis Europe si le chiffre suisse manque. Âge, sexe, groupes à risque, géographie et mortalité. Histoire naturelle chez l’individu (début, évolution, complications). Enjeux de santé publique (coût, dépistage, gravité). Badge de fréquence uniquement s’il est sourcé. |
-| 3 | **Physiopathologie** | Cascade **moléculaire → cellulaire → tissulaire → clinique**, de la cause au signe, étape par étape (amorce, développement, installation, maintien). Lien explicite entre chaque lésion ou perte fonctionnelle et la **classe médicamenteuse ou stratégie** qui la corrige. **Tableau de corrélation obligatoire** : Lésion / perturbation → Exploration qui la montre → Thérapeutique qui la corrige (mécanisme). |
-| 4 | **Démarche diagnostique** | Ordre clinique : **graves à exclure d’abord** (E1, E2… avec 🚩), puis entités fréquentes. Trois à quatre diagnostics différentiels vraiment discriminants, chacun avec le signe ou l’examen qui tranche, le piège classique et la conduite immédiate si positif. Introduction en une phrase du critère d’ordre (prévalence / gravité). |
-| 5 | **Anamnèse ciblée et drapeaux rouges** | Questions clés, chacune justifiée par sa **raison physiopathologique** (pourquoi cette question change la décision). Chronologie, facteurs déclenchants, comorbidités, médicaments, contexte suisse pertinent. **Drapeaux rouges actionnables** : ce qu’ils imposent tout de suite (urgence, imagerie, avis spécialisé), pas une liste décorative. |
-| 6 | **Examen physique ciblé, région par région** | Pour chaque région : d’abord le **normal attendu**, puis le pathologique. Technique précise du geste (comment faire, où poser les mains, quel seuil). Valeur diagnostique du signe (sensibilité / spécificité qualitatives si connues) et piège d’interprétation. Rien de générique « examen complet » sans ciblage. |
-| 7 | **Approche syndromique** (7.1, 7.2…) | Syndromes numérotés (7.1, 7.2…). Chaque syndrome est **éclaté** en signes fonctionnels et signes physiques, chacun défini. Pour chaque signe : **geste de recherche** concret et **mécanisme** physiopathologique. Pas de syndrome nommé sans contenu exploitable au lit du malade. |
-| 8 | **Diagnostic positif et critères** | Critères de la société savante **avec année** : majeurs / mineurs, seuils chiffrés, durée minimale, exclusions. Ce qui **suffit** au diagnostic et ce qui **ne suffit pas** (piège d’examen). Scores ou classifications (stades, grades) avec leur usage clinique immédiat. |
-| 9 | **Examens complémentaires** | Structure obligatoire : *9.a* **gold standard** ; *9.b* **1<sup>re</sup> intention** ; *9.c* **alternatives** ; *9.d* **2<sup>e</sup> intention**. Pour chaque examen : indication, ce qu’on prescrit exactement, **tableau d’interprétation** (résultat → signification → conduite). Contre-indications et limites utiles au candidat. |
-| 10 | **Arbre décisionnel** | Embranchements explicites du type **« si X → Y »**, lisibles en une lecture. Commence par l’exclusion des graves, puis discrimine les fréquents. Chaque nœud renvoie à un signe, un examen ou une action concrète (pas un nuage conceptuel). |
-| 11 | **Prise en charge selon les recommandations suisses** | *11.A* **But** thérapeutique (ce qu’on vise, horizons de temps). *11.B* **Moyens** : urgences **chronologiques** (minutes / heures), ordre du traitement, pharmacologie complète avec **AIPS suisse** (spécialité ®, dose, voie, numéro Swissmedic), non pharmacologique, situations spéciales (grossesse, insuffisances, âges extrêmes). *11.C* **Surveillance** (quoi, à quelle fréquence, quels seuils d’alerte). *11.D* **Pronostic**, critères de guérison / sortie, pistes de recherche 2026 si pertinentes et sourcées. |
-| 12 | **Prévention** | Primaire, secondaire et tertiaire, chacune avec **recommandation suisse** (organisme, année) quand elle existe. Gestes concrets (vaccination, dépistage, éducation, réadaptation), populations cibles et seuils d’intervention. Lien clair avec le risque épidémiologique du point 2. |
-| 13 | **Points clés** | Trois à six **phrases courtes, verbales, intactes** — mémorisables la veille de l’examen. Chaque phrase porte une décision clinique ou un fait critique (pas de slogan vague). Aucune fenêtre qui coupe la phrase porteuse. |
-| 14 | **Pièges et questions fréquentes à l'examen fédéral suisse** | Chaque piège est formulé comme une **question d’examen**, suivi immédiatement de la **bonne réponse** et, si utile, de la raison courte. Couvrir les confusions de doses, de critères, de gravité et de conduite. Rien d’inventé : calé sur le fond des points 1–13. |
+| 1 | **Définition et sémantique** | Définition claire et exacte, tirée d'une source fiable (selon la source disponible : société savante médicale ou outil de classification : CIM, etc.). Niveau sémantique : information à contextualiser. **Amendement Vial (26.10.2026)** : Situer l'entité du général au particulier, avec entre parenthèses la classification d'origine (CIM-11, DSM-5, ATC…). |
+| 2 | **Épidémiologie (Suisse, puis Europe)** | Prévalence et/ou incidence selon ce qui est disponible. Source prioritaire : Suisse (OFS, OFSP, registres, Obsan) ; Europe si le chiffre suisse manque. Âge, sexe, groupes à risque, géographie, mortalité. Enjeux de santé publique (coût, dépistage, gravité). Badge de fréquence uniquement s'il est sourcé. **Amendement Vial (26.10.2026)** : Les sources sont en fin de page ; un numéro entre crochets en exposant affiche la source sur une petite bande de fond bleu ciel. |
+| 3 | **Physiopathologie** | Cascade moléculaire → cellulaire → tissulaire → clinique, de la cause au signe, étape par étape (amorce, développement, installation, maintien). Lien explicite entre chaque lésion ou perte fonctionnelle et la classe médicamenteuse ou la stratégie qui la corrige. Tableau de corrélation obligatoire : lésion / perturbation → exploration qui la montre → thérapeutique qui la corrige (mécanisme). |
+| 4 | **Démarche diagnostique** | Se référer toujours au titre : donner les étapes à suivre, graduellement, jusqu'au diagnostic. (1) S'assurer de l'absence de drapeaux rouges : les citer. Chaque drapeau rouge existant est cliquable ; sa fenêtre explique, de façon directe, concise et précise, pourquoi c'est un drapeau rouge. (2) En l'absence d'urgence ou de drapeau rouge : préciser, étape par étape, les grandes étapes qui mènent au diagnostic. Les détails viennent dans les points suivants. |
+| 5 | **Anamnèse ciblée et drapeaux rouges** | Questions clés, chacune justifiée par sa raison physiopathologique (pourquoi cette question change la décision). Principe du mot interactif cliquable, qui ouvre la fenêtre explicative. Chronologie, facteurs déclenchants, comorbidités, médicaments, contexte suisse pertinent. Drapeaux rouges actionnables : ce qu'ils imposent tout de suite (urgence, imagerie, avis spécialisé), pas une liste décorative. |
+| 6 | **Examen physique ciblé, région par région** | Donner les étapes d'un examen physique ciblé, en progression topographique, systémique ou topo-systémique. Exemple : Région 1 → signe 1, signe 2… ; Région 2 → signe 1, signe 2… signe n. Chaque signe est cliquable et sa fenêtre explique de façon concise : la technique précise du geste (comment faire, où poser les mains, quel seuil), la valeur diagnostique (sensibilité / spécificité qualitatives si connues) et le piège d'interprétation. |
+| 7 | **Approche syndromique (7.1, 7.2…)** | Syndromes numérotés : 7.1, 7.2, 7.3… 7.n. Chaque syndrome est éclaté en signes fonctionnels et signes physiques, chacun défini. Pour chaque signe : geste de recherche concret et mécanisme physiopathologique. Pas de syndrome nommé sans contenu exploitable au lit du malade. |
+| 8 | **Diagnostic positif et critères** | Critères de la société savante avec année : majeurs / mineurs, seuils chiffrés, durée minimale, exclusions. Ce qui suffit au diagnostic et ce qui ne suffit pas (piège d'examen). Scores ou classifications (stades, grades) avec leur usage clinique immédiat. |
+| 9 | **Examens complémentaires** | Structure obligatoire : 9.a gold standard (si existant) ; 9.b 1re intention ; 9.c alternatives ; 9.d 2e intention. Pour chaque examen : indication, ce qu'on prescrit exactement, tableau d'interprétation (résultat → signification → conduite). Contre-indications et limites utiles au candidat. |
+| 10 | **Arbre décisionnel** | [À COMPLÉTER PAR VIAL : le texte saisi est « Devant le SSP : symptôme, etc. ». Texte du Prompt V0 conservé en attendant : embranchements explicites « si X → Y », lisibles en une lecture ; commence par l'exclusion des graves, puis discrimine les fréquents ; chaque nœud renvoie à un signe, un examen ou une action concrète.] |
+| 11 | **Prise en charge selon les recommandations suisses** | 11.A But thérapeutique (ce qu'on vise, horizons de temps). 11.B Moyens, de façon chronologique : d'abord la situation d'urgence, avec précision chronologique (1, 2, 3…) ; puis, hors urgence, le traitement dans l'ordre : 1 mesures générales, 2 pharmacologique, 3 non pharmacologique… n. Ordre du traitement ; pharmacologie complète avec AIPS suisse (spécialité ®, dose, voie) ; non pharmacologique ; situations spéciales (grossesse, insuffisances, âges extrêmes). 11.C Surveillance (quoi, fréquence, seuils d'alerte). 11.D Pronostic, critères de guérison / sortie, pistes de recherche 2026 si pertinentes et sourcées. **Amendement Vial (26.10.2026)** : Fenêtre du médicament : DCI + marque, classe (ATC), groupe pharmacologique avec ses chefs de file, indications et posologies lues dans l'AIPS. |
+| 12 | **Prévention** | Primaire, secondaire et tertiaire, chacune avec recommandation suisse (organisme, année) quand elle existe. Gestes concrets (vaccination, dépistage, éducation, réadaptation), populations cibles et seuils d'intervention. Lien clair avec le risque épidémiologique du point 2. |
+| 13 | **Points clés** | Trois à six phrases courtes, verbales, intactes, mémorisables la veille de l'examen. Chaque phrase porte une décision clinique ou un fait critique (pas de slogan vague). Aucune fenêtre qui coupe la phrase porteuse. |
+| 14 | **Pièges et questions fréquentes à l'examen fédéral suisse** | Chaque piège est formulé comme une question d'examen, suivi immédiatement de la bonne réponse et, si utile, de la raison courte. Couvrir les confusions de doses, de critères, de gravité et de conduite. Rien d'inventé : calé sur le fond des points 1 à 13. |
 
 > **Obsession : la présence ne vaut pas la conformité.** Quatorze numéros présents ne prouvent rien. Chaque point doit contenir **son** contenu (pas celui d'un autre point) et réussir **ses** questions d'obsession.
 
@@ -383,63 +385,62 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 
 > **Obsession : se poser les questions APRÈS chaque point rédigé.** Tu relis le point et tu réponds honnêtement. **Une seule réponse « non » impose de réécrire le point avant de passer au suivant.**
 
-### 12.1 Les questions, point par point
+### 12.1 Les questions, point par point (grille éditée par Vial, 26.10.2026)
 
-**Point 1 — Définition**
+**Point 1 — Définition et sémantique**
 
-- Q1.1 La définition est-elle **précise** (mot juste, critère exact, **société savante nommée et datée**) ?
-- Q1.2 Est-elle détaillée sur l'essentiel tout en restant concise (1–4 phrases ; la richesse dans les fenêtres) ?
+- Q1.1 La définition est-elle précise ?
+- Q1.2 Est-elle détaillée sur l'essentiel tout en restant concise (1 à 4 phrases ; la richesse dans les fenêtres) ?
 - Q1.3 Le lecteur distingue-t-il clairement l'entité de ses notions voisines ?
 
-**Point 2 — Épidémiologie**
+**Point 2 — Épidémiologie (Suisse, puis Europe)**
 
-- Q2.1 Le candidat peut-il décrire la **distribution** dans la population (prévalence, incidence, âge, sexe, groupes à risque, géographie suisse) ?
-- Q2.2 Peut-il décrire l'**évolution chez l'individu** (histoire naturelle, âge de début, évolution, mortalité) ?
-- Q2.3 Les **enjeux** (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?
-- Q2.4 Les chiffres utiles — et seulement eux — sont-ils sourcés et datés ?
+- Q2.1 Le candidat peut-il décrire la distribution dans la population (prévalence, incidence, âge, sexe, groupes à risque, géographie suisse) ?
+- Q2.2 Peut-il décrire l'évolution chez l'individu (histoire naturelle, âge de début, évolution, mortalité) ?
+- Q2.3 Les enjeux (santé publique, coût, gravité, dépistage) sont-ils donnés et compris ?
+- Q2.4 Les chiffres utiles, et seulement eux, sont-ils sourcés et datés ?
 
 **Point 3 — Physiopathologie**
 
-- Q3.1 L'**amorce**, le **développement**, l'**installation** et le **maintien** sont-ils compréhensibles étape par étape ?
+- Q3.1 L'amorce, le développement, l'installation et le maintien sont-ils compréhensibles étape par étape ?
 - Q3.2 Les mécanismes expliquent-ils les complications et le pronostic ?
-- Q3.3 Chaque lésion ou perte fonctionnelle est-elle reliée à la **classe médicamenteuse ou stratégie qui la corrige**, avec son mécanisme ?
-- Q3.4 Un **tableau de corrélation** « Lésion / perturbation → Exploration qui la montre → Thérapeutique qui la corrige (mécanisme) » rend-il ce lien évident ?
+- Q3.3 Chaque lésion ou perte fonctionnelle est-elle reliée à la classe médicamenteuse ou stratégie qui la corrige, avec son mécanisme ?
+- Q3.4 Un tableau de corrélation rend-il ce lien évident ?
 - Q3.5 Tout cela reste-t-il concis ?
 
 **Point 4 — Démarche diagnostique**
 
-- Q4.1 Les hypothèses graves à exclure sont-elles nommées **avant** les fréquentes ?
-- Q4.2 Chaque DD dangereux a-t-il son **signe ou examen qui tranche** et son **piège** ?
+- Q4.1 Les drapeaux rouges sont-ils cités, expliqués et associés aux diagnostics ?
+- Q4.2 Chaque DD dangereux a-t-il son signe ou examen qui tranche et son piège ?
 
-**Point 5 — Anamnèse et drapeaux rouges**
+**Point 5 — Anamnèse ciblée et drapeaux rouges**
 
 - Q5.1 Chaque question clé porte-t-elle sa raison physiopathologique ?
 - Q5.2 Les drapeaux rouges imposant l'urgence sont-ils complets et actionnables ?
 
-**Point 6 — Examen physique**
+**Point 6 — Examen physique ciblé, région par région**
 
 - Q6.1 Le normal est-il présenté avant le pathologique ?
-- Q6.2 Chaque signe a-t-il sa **technique de recherche** et sa **valeur diagnostique** ?
+- Q6.2 Chaque signe a-t-il sa technique de recherche et sa valeur diagnostique ?
 
-**Point 7 — Approche syndromique**
+**Point 7 — Approche syndromique (7.1, 7.2…)**
 
 - Q7.1 Les syndromes sont-ils énumérés (7.1, 7.2…) ?
-- Q7.2 Chaque syndrome est-il éclaté en **signes fonctionnels** d'un côté et **signes physiques** de l'autre ?
-- Q7.3 Chaque signe est-il **défini** (fenêtre) ?
-- Q7.4 Est-il dit **comment rechercher** chaque signe physique (geste, position, manœuvre, résultat normal et pathologique) ?
-- Q7.5 Chaque signe est-il relié à son **mécanisme** ?
+- Q7.2 Chaque syndrome est-il éclaté en signes fonctionnels d'un côté et signes physiques de l'autre ?
+- Q7.3 Chaque signe est-il défini (fenêtre) ?
+- Q7.4 Est-il dit comment rechercher chaque signe physique (geste, position, manœuvre, résultat normal et pathologique) ?
+- Q7.5 Chaque signe est-il relié à son mécanisme ?
 
-**Point 8 — Diagnostic positif**
+**Point 8 — Diagnostic positif et critères**
 
-- Q8.1 Le lecteur sait-il **quels critères, de quelle société savante et de quelle année**, posent le diagnostic avec certitude (majeurs, mineurs, seuils, durée) ?
-- Q8.2 Sait-il ce qui **ne suffit pas** à poser le diagnostic ?
+- Q8.1 Le lecteur sait-il quels critères posent le diagnostic avec certitude (majeurs, mineurs, seuils) ?
 
-**Point 9 — Explorations**
+**Point 9 — Examens complémentaires**
 
-- Q9.1 Est-il dit **si un gold standard existe** ? S'il existe : nommé en premier, avec sensibilité, spécificité, seuil ; s'il est clinique, c'est écrit.
-- Q9.2 Sinon, les examens de 1<sup>re</sup> et 2<sup>e</sup> intention sont-ils donnés, avec le critère de passage ?
-- Q9.3 Le lecteur peut-il **prescrire** chaque examen comme le demande la société savante (indication, moment, préparation) ?
-- Q9.4 Peut-il l'**interpréter** grâce au tableau normal (SI suisses) | seuil | signification | conduite ?
+- Q9.1 Est-il dit si un gold standard existe ? Nommé en premier avec sensibilité, spécificité, seuil ; s'il est clinique, c'est écrit.
+- Q9.2 Sinon, les examens de 1re et 2e intention sont-ils donnés, avec le critère de passage ?
+- Q9.3 Le lecteur peut-il prescrire chaque examen comme le demande la société savante (indication, moment, préparation) ?
+- Q9.4 Peut-il l'interpréter grâce au tableau normal (SI suisses) | seuil | signification | conduite ?
 - Q9.5 Les cas de figure (positif, négatif, limite, discordant) sont-ils traités ?
 - Q9.6 Les alternatives (grossesse, enfant, DFGe < 30 mL/min, allergie aux produits iodés, dispositif non compatible IRM) sont-elles données ?
 
@@ -447,29 +448,29 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 
 - Q10.1 Chaque embranchement indique-t-il quel signe ou résultat mène à quelle décision ?
 
-**Point 11 — Prise en charge**
+**Point 11 — Prise en charge selon les recommandations suisses**
 
-- Q11.1 Le **but** du traitement est-il chiffré ?
-- Q11.2 Le lecteur sait-il **dans quel ordre procéder et pourquoi** ?
-- Q11.3 **Formes compliquées** : pour chaque complication, conduite d'urgence et prise en charge chronologique (fenêtre « Urgence — conduite chronologique », minute par minute ou heure par heure si nécessaire) ?
-- Q11.4 **Formes non compliquées** : mesures générales initiales et pourquoi ; puis ordre des étapes et pourquoi ?
-- Q11.5 **Médicaments** : pour chaque molécule — classe, autres principes actifs de la classe, pharmacocinétique et pharmacodynamie utiles, effets indésirables dont informer le patient, spécialité suisse ®, dose AIPS, durée, contre-indications, interactions majeures ?
-- Q11.6 **Non médicamenteux** : mesures physiques, nutrition, rééducation, psychothérapie, chirurgie, dispositifs ?
-- Q11.7 **Social et professionnel** : arrêt de travail, assurances (LAMal, LAA, LAI), aptitude à la conduite, soutien, réinsertion — quand ils s'appliquent ?
-- Q11.8 **Situations spéciales** : femme enceinte et allaitante (que prescrire, quels risques, quelle alternative — texte AIPS non adouci) ; sujet âgé ; enfant ; insuffisant hépatique ; insuffisant rénal (paliers de DFGe) ?
-- Q11.9 **Surveillance** : quoi, quand, pourquoi, avec seuils d'arrêt pour toxicité ?
-- Q11.10 **Sortie d'hospitalisation** : les critères de retour à domicile sont-ils donnés **un par un** ?
-- Q11.11 **Pronostic et guérison** : critères de guérison ou état de la recherche 2026 ?
+- Q11.1 Le but du traitement est-il chiffré ?
+- Q11.2 Le lecteur sait-il dans quel ordre procéder et pourquoi ?
+- Q11.3 Formes compliquées : conduite d'urgence et prise en charge chronologique pour chaque complication ?
+- Q11.4 Formes non compliquées : mesures générales initiales et pourquoi ; puis ordre des étapes et pourquoi ?
+- Q11.5 Médicaments : pour chaque molécule, classe, autres principes actifs de la classe, pharmacocinétique et pharmacodynamie utiles, effets indésirables dont informer le patient, spécialité suisse ®, dose AIPS, durée, contre-indications, interactions majeures ?
+- Q11.6 Non médicamenteux : mesures physiques, nutrition, rééducation, psychothérapie, chirurgie, dispositifs ?
+- Q11.7 Social et professionnel : arrêt de travail, assurances (LAMal, LAA, LAI), conduite, soutien, réinsertion ?
+- Q11.8 Situations spéciales : femme enceinte et allaitante (texte AIPS non adouci), sujet âgé, enfant, insuffisant hépatique, insuffisant rénal (paliers de DFGe) ?
+- Q11.9 Surveillance : quoi, quand, pourquoi, seuils d'arrêt pour toxicité ?
+- Q11.10 Sortie d'hospitalisation : critères de retour à domicile un par un ?
+- Q11.11 Pronostic et guérison : critères de guérison ou état de la recherche 2026 ?
 
 **Point 12 — Prévention**
 
-- Q12.1 Les trois niveaux sont-ils traités avec les recommandations suisses (vaccinations, dépistages, mesures) — avec substance, pas seulement des titres ?
+- Q12.1 Les trois niveaux sont-ils traités avec les recommandations suisses (vaccinations, dépistages, mesures), avec substance et pas seulement des titres ?
 
 **Point 13 — Points clés**
 
 - Q13.1 Les 3 à 6 phrases suffisent-elles à résumer ce qu'un médecin ne doit jamais oublier, et chaque phrase est-elle intacte (non coupée par une fenêtre) ?
 
-**Point 14 — Pièges d'examen**
+**Point 14 — Pièges et questions fréquentes à l'examen fédéral suisse**
 
 - Q14.1 Les pièges réels de l'examen fédéral (confusions classiques, seuils, contre-indications) sont-ils donnés, chacun avec sa bonne réponse ?
 
@@ -583,6 +584,16 @@ Chaque monographie (le SSP en Phase A, chacun des 10 DD en Phase B) suit **exact
 2. Si ta réponse approche de sa limite, tu t'arrêtes à la fin d'un point complet et tu écris `<!-- SUITE: point N -->` ; tu reprends exactement au point N.
 3. Un fichier sans FIN_FICHIER, ou dont le SHA-256 diffère du `MANIFESTE.json`, est réputé tronqué ou altéré : tu le régénères ou tu le réaudites.
 4. Au gel d'une version, tu consignes taille en octets et **SHA-256** ; toute taille différente ensuite impose une recomparaison avant dépôt.
+
+### 14.5 bis Format FLASH — amendement Vial du 26.10.2026
+
+> **Obsession : le texte est le cours.** Il s'adresse à des médecins résidents en spécialisation. Il ne contient aucune mention de la conception ni de la production : ni date de rédaction, ni « Phase », « LOT », « fichier », ni genèse des sources (HUG, S3, etc.). Le cours commence par le titre, puis le point 1.
+
+1. **Sources** : liste unique en dernière page, sous un mot cliquable « Sources bibliographiques ». Dans le texte, un numéro entre crochets en exposant affiche la source sur une petite bande de fond bleu ciel.
+2. **Mots cliquables** : fenêtre (définition brève) ou déroulé (contenu plus long) ; jamais dans les titres du plan ; médicament = fenêtre complète (DCI + marque, classe ATC, groupe pharmacologique avec chefs de file, indications et posologies AIPS).
+3. **Classification** (point 1) : du général au particulier, avec entre parenthèses la classification d'origine (CIM-11, DSM-5, ATC…).
+4. **Style** : concis, dense, exhaustif ; phrases simples et courtes, une idée chacune, aucune nuance qui complique ; français clair et soutenu ; police Atkinson Hyperlegible ; gros tableaux colorés et aérés.
+5. **Bande de taille** : *[À FIXER PAR VIAL : la bande 100–200 Ko du §14.1 a été conçue pour des cours extensifs ; les cours FLASH sont plus courts, les cours extensifs vont dans Médina. Tant que la décision manque, la bande actuelle reste en vigueur.]*
 
 ### 14.6 Livrable final — 11 fichiers HTML séparés
 
