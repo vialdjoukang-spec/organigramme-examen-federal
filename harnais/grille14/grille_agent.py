@@ -182,9 +182,9 @@ def essais_f(lot): return MEM / f"essais_{lot}{'_test' if TEST else ''}.json"
 def charge_essais(lot): f = essais_f(lot); return json.loads(f.read_text()) if f.exists() else {}
 def bloque_f(wk, nom): return wk / "bloque" / (nom + ".md")
 
-def refus(ag, lot, wk, nom, sig, detail):
+def refus(ag, lot, wk, nom, sig, detail, sha=None):
     """Compte un échec. Bloque le fichier au 3e essai, ou à la 2e fois que les mêmes écarts reviennent."""
-    d = charge_essais(lot); k = f"{ag}:{nom}"; e = d.get(k, {"n": 0, "sig": None, "stag": 0})
+    d = charge_essais(lot); k = f"{ag}:{nom}"; e = d.get(k, {"n": 0, "sig": None, "stag": 0}); e["sha"] = sha
     e["n"] += 1; h = hashlib.sha256(sig.encode()).hexdigest()[:12]
     e["stag"] = e["stag"] + 1 if e["sig"] == h else 0; e["sig"] = h; d[k] = e; essais_f(lot).write_text(json.dumps(d, indent=1))
     if e["n"] >= CAP or e["stag"] >= 1:
@@ -272,10 +272,17 @@ def main():
         if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est déjà bloqué. Arrête-toi, réponds « BLOQUÉ {nom_f} »."); return 5
         h0 = chemin.read_text(encoding="utf-8", errors="replace"); h, rep = reparer(h0, lot, nom_f)
         if rep: chemin.write_text(h, encoding="utf-8"); print("RÉPARÉ AUTOMATIQUEMENT (gratuit) : " + " ; ".join(rep))
+        sha_f = hashlib.sha256(h.encode()).hexdigest()[:16]; ed = charge_essais(lot).get(f"{ag}:{nom_f}")
+        if ed and ed.get("sha") == sha_f:
+            d = charge_essais(lot); d[f"{ag}:{nom_f}"]["noop"] = ed.get("noop", 0) + 1; essais_f(lot).write_text(json.dumps(d, indent=1))
+            if ed.get("noop", 0) + 1 >= 2:
+                b = bloque_f(wk, nom_f); b.parent.mkdir(exist_ok=True); b.write_text(f"# BLOQUÉ · {nom_f}\nagent : {ag}\nraison : `fin` relancé 2 fois sans aucune modification du fichier\n", encoding="utf-8")
+                print(f"BLOQUÉ (fin relancé sans modification). Arrête-toi : réponds « BLOQUÉ {nom_f} »."); verrou(ag, chemin, "release"); return 5
+            print("INCHANGÉ : le fichier est identique à celui du dernier refus. Relancer `fin` ne sert à rien. Lis la section « À CORRIGER » du refus précédent, MODIFIE le fichier (Edit), puis relance. (Prochain essai sans modification : fichier bloqué.)"); return 1
         E, st = ecarts_points(h, pts); crit = [e for e in E if e[1] == "CRITIQUE"]
         auditeur = ag.startswith("B")
         def echec(msg, sig, detail):
-            print(msg); print(refus(ag, lot, wk, nom_f, sig, detail)); verrou(ag, chemin, "release")
+            print(msg); print(refus(ag, lot, wk, nom_f, sig, detail, sha_f)); verrou(ag, chemin, "release")
             return 5 if bloque_f(wk, nom_f).exists() else 1
         if crit:
             lst = "\n".join(f"- [point {p}] {m}" for p, _, m in crit)
