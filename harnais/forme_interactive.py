@@ -3,13 +3,15 @@
   python3 harnais/forme_interactive.py stats <fichier>      → densité de références, termes, fenêtres, arborescence
   (module) convert(html) -> html : [Sn] → <sup><a href="#src-n">n</a></sup>, liste des sources → un seul <details>, CSS injectée (idempotent)
   (module) controle(html) -> (critiques, moyens, stats)"""
-import html as H, re, sys
+import html as H, re, sys, json
 from pathlib import Path
 MARQ = "<!-- FORME_INTERACTIVE -->"
-CSS = """<style>@font-face{font-family:"Atkinson";src:local("Atkinson Hyperlegible"),local("Atkinson Hyperlegible Next"),local("AtkinsonHyperlegible-Regular");font-weight:400}@font-face{font-family:"Atkinson";src:local("Atkinson Hyperlegible Bold"),local("AtkinsonHyperlegible-Bold");font-weight:700}html,body,table,td,th,summary,button,.tm .df{font-family:"Atkinson","Atkinson Hyperlegible","Atkinson Hyperlegible Next",Verdana,system-ui,sans-serif}body{font-size:16px;line-height:1.6}.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
+_F = json.loads((Path(__file__).parent / "atkinson.b64.json").read_text())
+FONTE = "".join(f'@font-face{{font-family:"Atkinson Hyperlegible";font-weight:{w};font-display:swap;src:url(data:font/woff2;base64,{_F[w]}) format("woff2")}}' for w in ("400", "700"))
+CSS = """<style>html,body,table,td,th,summary,button,.tm .df{font-family:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}body{font-size:16px;line-height:1.6}.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
 details.refs{margin:18px 0;border:1px solid #cfd4dc;border-radius:12px;padding:6px 14px;background:#f8fafc}details.refs>summary{cursor:pointer;font-weight:700;color:#334155}details.refs ol{list-style:none;padding-left:0}details.refs .n{font-weight:700;color:#475569}details.refs li{font-size:.86em;margin:.35em 0}details.refs li:target{background:#fef9c3}
 .tm{border-bottom:1px dotted #7c3aed;color:#4c1d95;cursor:help;position:relative;display:inline}.tm .df{display:none;position:absolute;left:0;top:1.5em;z-index:20;width:min(320px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:8px 10px;font-size:.85em;font-weight:400;box-shadow:0 6px 20px #0006}.tm:hover .df,.tm:focus .df,.tm:focus-within .df{display:block}
-div.arb{margin:12px 0}.arbt{font-weight:700;color:#4c1d95;margin-bottom:6px}.niv{border:1px solid #c4b5fd;background:#f5f3ff;border-radius:10px;padding:7px 12px;margin-bottom:6px;position:relative}.niv::before{content:"└";position:absolute;left:-16px;top:6px;color:#7c3aed}.niv b{color:#3b0764}.niv .dfn{display:block;font-size:.88em;color:#475569;margin-top:2px}.niv.cible{background:#6d28d9;border-color:#4c1d95}.niv.cible b,.niv.cible .dfn{color:#fff}.liste{margin:2px 0 6px;font-size:.92em;color:#334155}.chip{display:inline-block;background:#ede9fe;border:1px solid #c4b5fd;border-radius:999px;padding:1px 9px;margin:2px 3px 2px 0;font-size:.92em}.voisin .chip{background:#f1f5f9;border-color:#cbd5e1}@media(prefers-color-scheme:dark){.niv{background:#241d3f}.niv b{color:#e9d5ff}.niv .dfn,.liste{color:#cbd5e1}.chip{background:#2e2557}}p.fil{border-left:4px solid #7c3aed;padding:6px 12px;background:#f5f3ff;border-radius:0 8px 8px 0;margin:10px 0}details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
+div.arb{margin:12px 0}.arbt{font-weight:700;color:#4c1d95;margin-bottom:6px}.niv{border:1px solid #c4b5fd;background:#f5f3ff;border-radius:10px;padding:7px 12px;margin-bottom:6px;position:relative}.niv::before{content:"└";position:absolute;left:-16px;top:6px;color:#7c3aed}.niv b{color:#3b0764}.niv .org{float:right;font-size:.8em;background:#fff;color:#4c1d95;border:1px solid #c4b5fd;border-radius:6px;padding:0 6px;margin-left:8px}.niv.cible .org{background:#ede9fe}.niv .dfn{display:block;font-size:.88em;color:#475569;margin-top:2px}.niv.cible{background:#6d28d9;border-color:#4c1d95}.niv.cible b,.niv.cible .dfn{color:#fff}.liste{margin:2px 0 6px;font-size:.92em;color:#334155}.chip{display:inline-block;background:#ede9fe;border:1px solid #c4b5fd;border-radius:999px;padding:1px 9px;margin:2px 3px 2px 0;font-size:.92em}.voisin .chip{background:#f1f5f9;border-color:#cbd5e1}@media(prefers-color-scheme:dark){.niv{background:#241d3f}.niv b{color:#e9d5ff}.niv .dfn,.liste{color:#cbd5e1}.chip{background:#2e2557}}p.fil{border-left:4px solid #7c3aed;padding:6px 12px;background:#f5f3ff;border-radius:0 8px 8px 0;margin:10px 0}details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
 @media(prefers-color-scheme:dark){details.refs{background:#1b2033;border-color:#3a4256}details.refs>summary{color:#cbd5e1}.r a{color:#93c5fd}details.arbre{background:#241d3f}details.arbre>summary,.tm{color:#ddd0ff}}
 table:not(#rm table){border-collapse:separate;border-spacing:0;width:100%;margin:12px 0;border:1px solid #c7d2fe;border-radius:12px;overflow:hidden;font-size:.93em}table:not(#rm table) th{background:linear-gradient(#4f46e5,#4338ca);color:#fff;font-weight:700;padding:8px 10px;text-align:left;border:0}table:not(#rm table) td{padding:7px 10px;border-top:1px solid #e0e7ff;vertical-align:top}table:not(#rm table) tr:nth-child(even) td{background:#f5f7ff}table:not(#rm table) tr:hover td{background:#e8edff}table:not(#rm table) td:first-child{font-weight:600;color:#312e81;background:#eef2ff}table:not(#rm table) caption{caption-side:top;text-align:left;font-weight:700;color:#4338ca;padding:4px 2px}
 td.ok,tr.ok td{background:#dcfce7!important}td.mo,tr.mo td{background:#fef3c7!important}td.ko,tr.ko td{background:#fee2e2!important}
@@ -79,7 +81,9 @@ def convert(t):
         out = ['<div class="arb"><div class="arbt">Où se situe le problème ? Du général au particulier</div>']
         for i, n in enumerate(anc):
             nm, df = nom_def(n["h"]); cible_ = n is cible
-            out.append(f'<div class="niv{" cible" if cible_ else ""}" style="margin-left:{i*20}px"><b>{nm}</b>' + (f'<span class="dfn">{df}</span>' if df else "") + "</div>")
+            mo = re.match(r"^(.*?)\s*\(([^()]{2,60})\)\s*$", nm); org = ""
+            if mo: nm, org = mo.group(1), f'<span class="org">{mo.group(2)}</span>'
+            out.append(f'<div class="niv{" cible" if cible_ else ""}" style="margin-left:{i*20}px"><b>{nm}</b>{org}' + (f'<span class="dfn">{df}</span>' if df else "") + "</div>")
         fr = [nom_def(n["h"])[0] for n in freres if n is not cible]
         if cible["k"]:
             ch = "".join(f'<span class="chip">{nom_def(n["h"])[0]}</span>' for n in cible["k"])
@@ -100,7 +104,7 @@ def convert(t):
     t = re.sub(r"(<sup class=\"r\">.*?</sup>)(\s*\1)+", r"\1", t)
     t = re.sub(r"<!--(?!\s*FORME_INTERACTIVE).*?-->", "", t, flags=re.S)   # allègement : commentaires, indentations
     t = re.sub(r"(?m)^[ \t]+", "", t); t = re.sub(r"[ \t]{2,}", " ", t); t = re.sub(r"\n{2,}", "\n", t)
-    css = re.sub(r"\s*\n\s*", "", CSS)
+    css = FONTE.join(("<style>", "")) + re.sub(r"\s*\n\s*", "", CSS)[len("<style>"):] if False else re.sub(r"\s*\n\s*", "", CSS).replace("<style>", "<style>" + FONTE, 1)
     t = t.replace("</head>", css + "</head>", 1) if "</head>" in t else css + t
     return t.replace("</body>", MARQ + "</body>", 1) if "</body>" in t else t + MARQ
 def stats(t):
@@ -113,6 +117,12 @@ def controle(t):
     corps = re.sub(r"(?is)<details class=\"refs\".*?</details>|<style.*?</style>|<script.*?</script>", "", t); corps = re.sub(r"<[^>]+>", " ", corps)
     meta = re.findall(r"LOT_\d+|Phase [AB]\b|\bV0\b|autre IA|\bcycles? \d|checkpoint|harnais|\baudits?\b|brouillon|tableau d.entrée|evidence/|[Pp]rompt|(?:ce|le|du|ton|votre) fichier|référentiel PROFILES de ce|dose AIPS prime|\[S\d+", corps)
     if meta: crit.append("mention de conception dans le cours (interdit : le texte s'adresse à des médecins résidents, sans date de rédaction, sans « fichier », « Phase », « LOT », « V0 », « cycle », « autre IA », « audit », sans [Sn] brut) : " + ", ".join(sorted(set(meta))[:10]) + f" ({len(meta)})")
+    arbs_ = re.findall(r'<div class="niv[^"]*"[^>]*><b>.*?</div>', t, re.S)
+    if arbs_ and sum(1 for a_ in arbs_ if 'class="org"' in a_) < max(2, len(arbs_) - 1): crit.append("classification : indique entre parenthèses, après chaque niveau, la classification d'où il vient : « Troubles anxieux (CIM-11) », « (DSM-5) », « (ATC) », « (PROFILES 2023) »")
+    p1_ = re.search(r"1\. Définition et sémantique(.*?)<h[23][^>]*>\s*(?:<strong>)?\s*2\.", t, re.S)
+    if p1_:
+        corps1 = re.sub(r"(?is)<div class=\"arb\">.*?</div>(?=\s*<(?:p|div|table|h))", " ", p1_.group(1), count=1); corps1 = re.sub(r"(?s)<span class=\"(?:df|dxc)\">.*?</span></span>", " ", corps1); w1_ = len(re.sub(r"<[^>]+>", " ", corps1).split())
+        if w1_ > 140: crit.append(f"point 1 trop long : {w1_} mots après la classification (≤ 140) : définis en peu de mots, densité maximale, aucune information perdue (déplace le détail dans un mot cliquable)")
     for m_ in re.finditer(r'class="tm med"[^>]*>([^<]+)<span class="df">(.*?)</span></span>', t, re.S):
         d_ = m_.group(2)
         if not (re.search(r"DCI\s*:", d_) and re.search(r"Classe\s*:", d_) and re.search(r"Groupe\s*:", d_) and re.search(r"[Cc]hefs? de file", d_)):
@@ -128,7 +138,8 @@ def controle(t):
     manque = sorted(m for m in marques if m not in cliq)
     if manque: crit.append("médicaments non cliquables (première occurrence : <span class=\"tm med\" tabindex=\"0\">Nom®<span class=\"df\">classe ATC · famille · alternatives de la même classe</span></span>) : " + ", ".join(manque[:12]))
     if t.count('class="tm med"') < 6: crit.append("médicaments cliquables insuffisants : %d < 6 (marques ® ET dénominations communes)" % t.count('class="tm med"'))
-    if not s["arbre"] or s["arbre_noeuds"] < 6: crit.append("point 1 : classification en arborescence absente ou trop courte (<details class=\"arbre\", ≥ 6 nœuds, du général au particulier)")
+    if not s["arbre"] and 'class="arb"' not in t: crit.append("point 1 : classification absente : <details class=\"arbre\"> (liste ul/li imbriquée, du général au particulier, l'entité du chapitre en <b>)")
+    elif 'class="arb"' in t and t.count('class="niv') < 3: crit.append("classification trop courte : au moins 3 niveaux, du général au particulier")
     if s["termes"] < 20: crit.append(f"termes cliquables insuffisants : {s['termes']} < 20 (<span class=\"tm\" tabindex=\"0\">terme<span class=\"df\">définition brève</span></span>)")
     if s["fenetres"] < 10: crit.append(f"fenêtres repliables insuffisantes : {s['fenetres']} < 10")
     if s["densite"] > 14: crit.append(f"références saturantes : {s['densite']} grappes / 1000 mots > 14 (cible ≤ 10 : une grappe par bloc d'affirmations)")
