@@ -58,6 +58,8 @@ def divers(ag, lot):
         g = lambda *a: subprocess.run(["git", *a], cwd=R, capture_output=True, text=True).stdout.strip()
         out["git"] = dict(branche=g("rev-parse", "--abbrev-ref", "HEAD"), dernier=g("log", "-1", "--format=%h %s")[:70], modifies=len(g("status", "--short").splitlines()))
     except Exception: out["git"] = None
+    try: out["sentinelle"] = json.load(open(R / ".cache/harnais/sentinelle.json"))
+    except Exception: out["sentinelle"] = None
     out["disque_libre_go"] = round(shutil.disk_usage(R).free / 1e9, 1)
     act = [a for a in ag if a["actif"]]
     red = sum(a["type"] in ("redacteur", "redacteur-phase-a") for a in act); au = sum(a["type"] in ("auditeur-medical", "auditeur-conformite") for a in act)
@@ -68,21 +70,22 @@ def divers(ag, lot):
     return out
 def etat():
     now = time.time(); ag = []
-    wfs = sorted(glob.glob(str(WF / "*/subagents/workflows/wf_*/journal.jsonl")), key=os.path.getmtime)
-    for jf in wfs[-1:]:
+    for jf in glob.glob(str(WF / "*/subagents/workflows/wf_*/journal.jsonl")):
+        if now - os.path.getmtime(jf) > 3 * 3600: continue
         d = Path(jf).parent; st = {}
         for l in open(jf):
             try: e = json.loads(l)
             except Exception: continue
-            if e.get("type") == "started": st[e["agentId"]] = dict(id=e["agentId"], label=e["label"], phase=e["phase"], actif=True)
+            if e.get("type") == "started": st[e["agentId"]] = dict(id=e["agentId"], label=e["label"], phase=e["phase"], actif=True, wf=d.name)
             elif e.get("type") == "result" and e["agentId"] in st: st[e["agentId"]]["actif"] = False
         for i, a in st.items():
             m = d / f"agent-{i}.meta.json"; j = d / f"agent-{i}.jsonl"
-            try: t = json.loads(m.read_text()).get("agentType", "")
-            except Exception: t = ""
-            a["fonction"] = FONC.get(t, t); a["type"] = t
+            try: tp = json.loads(m.read_text()).get("agentType", "")
+            except Exception: tp = ""
+            a["fonction"] = FONC.get(tp, tp); a["type"] = tp
             a["depuis_s"] = int(now - m.stat().st_mtime) if m.exists() else 0
             a["derniere_activite_s"] = int(now - j.stat().st_mtime) if j.exists() else None
+            if a["actif"] and (a["derniere_activite_s"] is None or a["derniere_activite_s"] > 180): a["actif"] = False; a["orphelin"] = True
             ag.append(a)
     plans = sorted(glob.glob(str(R / ".cache/travail/LOT_*/PLAN.json")), key=os.path.getmtime)
     lot = None
@@ -131,7 +134,7 @@ let g='';for(let i=0;i<=4;i++){const y=m.t+(H-m.t-m.b)*i/4;g+='<line x1="'+m.l+'
 const P=c=>s.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[c])).join('');g+='<path d="'+P(2)+'" stroke="#5aa9ff" stroke-width="2.5" fill="none"/><path d="'+P(1)+'" stroke="#22d38a" stroke-width="2.5" fill="none"/><text x="'+(m.l+6)+'" y="'+(m.t+12)+'" fill="#22d38a" font-size="11">● sortie cumulée</text><text x="'+(m.l+120)+'" y="'+(m.t+12)+'" fill="#5aa9ff" font-size="11">● entrée cumulée</text><text x="'+(W-m.r)+'" y="'+(H-6)+'" text-anchor="end" fill="#8b96c9" font-size="10">'+new Date(t1*1000).toLocaleTimeString()+'</text><text x="'+m.l+'" y="'+(H-6)+'" fill="#8b96c9" font-size="10">'+new Date(t0*1000).toLocaleTimeString()+'</text>';$('ch').innerHTML=g;
 const r=s.slice(1).map((p,i)=>[p[0],(p[1]-s[i][1])/Math.max(1,p[0]-s[i][0])*60]),rm=Math.max(...r.map(x=>x[1]),1);$('ch2').innerHTML='<text x="4" y="12" fill="#ffa94d" font-size="11">● débit de sortie (tokens/min)</text>'+r.map(x=>'<rect x="'+X(x[0])+'" y="'+(86-70*x[1]/rm)+'" width="3" height="'+(70*x[1]/rm)+'" fill="#ffa94d" opacity=".8"/>').join('')})();
 $('tr').textContent='Par rôle (sortie / entrée) : '+Object.entries(T.par_role).map(([r,v])=>r+' '+k(v[0])+' / '+k(v[1])).join(' · ');
-const E=DV.equipe;$('eq').innerHTML=['<span class="'+(E.ok_redacteurs?'ok':'ko')+'">rédacteurs actifs '+E.redacteurs+' (cible 2–3)</span>','<span class="'+(E.ok_auditeurs?'ok':'ko')+'">auditeurs actifs '+E.auditeurs+' (cible 1–2)</span>','<span class="'+(DV.collision?'ko':'ok')+'">'+(DV.collision?'✘ COLLISION détectée':'✔ non-collision')+'</span>'].join('');
+const E=DV.equipe;$('eq').innerHTML=(DV.sentinelle?'<span class="'+(DV.sentinelle.alertes.length?'ko':'ok')+'">sentinelle : '+(DV.sentinelle.alertes.length?DV.sentinelle.alertes.join(' | '):'effectifs conformes')+'</span>':'')+['<span class="'+(E.ok_redacteurs?'ok':'ko')+'">rédacteurs actifs '+E.redacteurs+' (cible 2–3)</span>','<span class="'+(E.ok_auditeurs?'ok':'ko')+'">auditeurs actifs '+E.auditeurs+' (cible 1–2)</span>','<span class="'+(DV.collision?'ko':'ok')+'">'+(DV.collision?'✘ COLLISION détectée':'✔ non-collision')+'</span>'].join('');
 $('vr').innerHTML=(DV.verrous.length?DV.verrous.map(v=>'<span>🔒 '+v.agent+' · '+v.fichier.split('/').pop()+'</span>').join(''):'<span>aucun verrou actif</span>')+Object.entries(DV.lecons).map(([r,n])=>'<span class="'+(n<=5?'ok':'ko')+'">leçons '+r+' '+n+'/5</span>').join('');
 $('fg').innerHTML=DV.file_g.map(l=>'<div class="f '+(l.verdict=='ACCEPTE'?'a':l.verdict?'ko':(d.lot&&l.lot==d.lot.lot)?'e':'w')+'"><b>LOT_'+l.lot+' · '+l.code+'</b>'+(l.verdict||((d.lot&&l.lot==d.lot.lot)?'ACTIF':'en attente'))+'</div>').join('');
 $('dv').innerHTML=['<span>branche '+(DV.git?DV.git.branche:'–')+'</span>','<span>dernier commit '+(DV.git?DV.git.dernier:'–')+'</span>','<span>fichiers modifiés (non commités) '+(DV.git?DV.git.modifies:'–')+'</span>','<span>disque libre '+DV.disque_libre_go+' Go</span>','<span>volume écrit LOT '+(DV.ko_ecrits||0)+' Ko</span>','<span>veille tick '+(d.harnais?d.harnais.tick:'–')+'</span>'].join('');

@@ -5,7 +5,7 @@
 import hashlib, json, os, sys, time
 from pathlib import Path
 V = Path(__file__).resolve().parent.parent / ".cache" / "verrous"; V.mkdir(parents=True, exist_ok=True)
-def f(p): return V / (hashlib.sha256(os.path.normpath(p).encode()).hexdigest()[:20] + ".lock")
+def f(p): return V / (hashlib.sha256(os.path.abspath(p).encode()).hexdigest()[:20] + ".lock")
 a = sys.argv[1:]
 if a[:1] == ["claim"]:
     try:
