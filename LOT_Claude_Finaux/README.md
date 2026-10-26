@@ -6,7 +6,7 @@ Un LOT n'entre ici qu'après audit conforme au PROMPT ULTIME V0 (≥ 90 %, zéro
 LOT_Claude_Finaux/
 ├── README.md                 ce fichier
 ├── CATALOGUE_248.csv         248 SSP PROFILES 2023 (FR | EN), statut FAIT / NON_FAIT
-├── ETAT_FILE.json            file des 75 LOTS FAIT, cycles, scores, verdicts
+├── ETAT_FILE.json            file des 248 LOTS (001→248), cycles, scores, verdicts
 ├── PROGRESSION.html          vue de progression (créée à la première étape)
 ├── ARRET.md                  présent seulement si la mission s'est arrêtée (cause, état, suite)
 ├── HELP_QUESTIONNAIRE/       lacunes reportées après validation d'un LOT
@@ -18,4 +18,4 @@ LOT_Claude_Finaux/
     └── audits/               rapports médical et linguistique par fichier
 ```
 
-Ko = 1 000 octets. Chaque HTML pèse 150–200 Ko. Aucun HTML consolidé.
+Ko = 1 000 octets. Chaque HTML pèse 100–200 Ko (bornes comprises ; but = densité). Aucun HTML consolidé.

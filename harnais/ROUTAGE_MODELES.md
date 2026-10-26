@@ -14,6 +14,13 @@ Ordre de décision unique : **Qualité → Exhaustivité du fond → Économie �
 | Audit médical : doses, seuils, AIPS, grossesse, ordre et gravité des DD | Agent `auditeur-medical` — **Opus** | Une erreur de dose est un risque vital ; l'économie ne passe pas avant ce critère. |
 | Orchestration (agent principal, « chef de production ») | Session **Sonnet** | Elle délègue, consigne, pousse ; elle n'écrit pas de contenu clinique. |
 
+## Équipe par LOT
+
+| LOT | Agents |
+|---|---|
+| **VIDE** (fabrication) | 3 : `redacteur-phase-a` puis `redacteur` (DX.1–5) ; `redacteur` (DX.6–10) ; 1 auditeur médico-linguistique (`auditeur-medical` Opus, puis `auditeur-conformite` Sonnet) |
+| **NON VIDE** (audit) | 2 : 1 auditeur médico-linguistique ; 1 `redacteur`, activé seulement si l'audit échoue |
+
 ## Règles qui tiennent la bascule
 
 1. **Indépendance.** Le rédacteur d'un fichier n'est jamais son auditeur : agent distinct, contexte vierge. Le fond médical est audité par un modèle de niveau supérieur ou égal à celui du rédacteur.
@@ -30,7 +37,7 @@ Ordre de décision unique : **Qualité → Exhaustivité du fond → Économie �
 
 ## Où va la plus grosse économie
 
-Dans un LOT, la dépense dominante est la **lecture** : 11 fichiers de 150–200 Ko. Les leviers, par ordre d'efficacité :
+Dans un LOT, la dépense dominante est la **lecture** : 11 fichiers de 100–200 Ko. Les leviers, par ordre d'efficacité :
 1. `controle_lot.py` filtre tout ce qui est mécanique avant qu'un auditeur ne lise une ligne.
 2. `controle_lot.py extraire --points …` : chaque auditeur ne lit que ses points ([§16](../PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md)).
 3. Extraits AIPS mis en cache par numéro Swissmedic (`.cache/aips/`), réutilisés par les 10 DD.

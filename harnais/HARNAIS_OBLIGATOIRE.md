@@ -36,12 +36,13 @@ Relancer le bracelet : au démarrage, au début de chaque LOT, avant chaque PR, 
 | P6 | Pas de relecture | SHA-256 identique au dernier verdict → verdict réutilisé |
 | P7 | Entrées des agents | chemins et numéros de points, jamais du contenu collé |
 | P8 | Sorties des agents | 15 lignes au plus + chemin du rapport ; rapports d'audit en tableaux, extraits ≤ 200 caractères |
-| P9 | Parallélisme | jusqu'à 5 rédacteurs DD en parallèle **après** gel de la liste canonique ; auditeurs un LOT à la fois |
+| P9 | Parallélisme | LOT vide : 2 rédacteurs en parallèle (DX.1–5 et DX.6–10) **après** gel de la liste canonique ; 1 auditeur ; un seul LOT à la fois |
 | P10 | AIPS | XML jamais ouvert en entier ; extraction ciblée par numéro ou DCI, puis cache |
 | P11 | Escalade de modèle | sur échec constaté uniquement ([ROUTAGE_MODELES.md](ROUTAGE_MODELES.md)) |
 | P12 | Sauvegarde du travail | commit + push après chaque fichier validé ; une session arrêtée sans push a produit zéro |
 | P13 | Mémoire de file | `LOT_Claude_Finaux/ETAT_FILE.json` : file, cycles, scores, verdicts. On le lit, on ne relit pas l'historique |
 | P14 | Jamais | lire `app_v2.html` en entier ; relire une PR entière ; suivre la CI à la main (`tools/arsenal/ci_attente.sh`) |
+| P15 | Taille | bande **100–200 Ko** par fichier ; **bornes comprises**, jamais au-dessus de 200 Ko ; but = densité d'information, pas longueur |
 
 ## 4. Décider sans hésiter
 
@@ -52,7 +53,9 @@ Relancer le bracelet : au démarrage, au début de chaque LOT, avant chaque PR, 
 | Score < 90 %, un critique, ou question finale « non » | Retour au rédacteur (cycle +1). Aucun dépôt. |
 | Molécule présente dans le corpus AIPS, dose non relue | Tu la lis dans le corpus. « À vérifier (AIPS) » est interdit. |
 | Molécule absente du corpus et de swissmedicinfo.ch | « À vérifier (AIPS) » + question dans `HELP.md` ; le LOT reste déposable seulement si aucune dose n'est affirmée. |
-| Aucune pièce source pour un LOT | Verdict `SOURCE_ABSENTE`, LOT suivant. |
+| Aucune pièce source pour un LOT (dépôt, archive zip, Drive en lecture seule) | LOT **VIDE** : fabrication complète (3 agents). |
+| Pièces présentes | LOT **NON VIDE** : audit médico-linguistique seul (2 agents) ; réécriture seulement si l'audit échoue. |
+| Fichier > 200 Ko | Non conforme : tu comprimes la forme, jamais le fond. Fichier < 100 Ko : omission présumée, tu densifies. |
 | CI rouge pour une raison propre au nouveau dossier | Tu corriges ta PR ; si la cause est la CI elle-même, tu l'écris dans `journal/echecs_fusion.md` et tu ne la modifies pas. |
 
 ## 5. STOP — et seulement dans ces cas
