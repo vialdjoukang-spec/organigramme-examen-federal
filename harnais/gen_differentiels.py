@@ -19,7 +19,7 @@ NOMS = {"G": "G · Généralités", "S": "S · Symptômes", "F": "F · Signes et
 def titre(r): return f"LOT_{r['lot']}_{r['code'].replace('.', '.')}_{r['ssp_profiles_2023_fr_en'].split('|')[0].strip()}"
 def table(r):
     h = ("<table class='dd' id='t-%s'><thead><tr><th>Diagnostic différentiel<small>ordre décroissant de prévalence</small></th>"
-         "<th>Prévalence (%%)<small>Suisse ou Europe, comparable d’un diagnostic à l’autre</small></th>"
+         "<th>Prévalence (%%)<small>Suisse ou Europe · préciser la nature, la population et l’année</small></th>"
          "<th>Source(s)<small>liens cliquables</small></th></tr></thead><tbody>" % r["lot"])
     for i in range(1, 16):
         cls = "top" if i <= 10 else "plus"
@@ -83,7 +83,7 @@ table.dd{{width:100%;border-collapse:collapse;border:3px solid var(--red);table-
 <li><b>Remplir uniquement les cellules vides.</b> Ne modifier ni les titres, ni les numéros de LOT, ni la structure, ni l’ordre des SSP. Rendre le fichier complet (248 LOTS).</li>
 <li><b>Colonne 1 — Diagnostic différentiel</b> : les 10 diagnostics les plus fréquents pour ce SSP, par <b>prévalence décroissante</b> (lignes 1 à 10). Noms exacts, en français.</li>
 <li><b>Lignes 11 à 15 (vert)</b> : <b>seulement</b> les diagnostics à connaître absolument pour l’examen fédéral qui ne figurent <b>pas</b> dans les dix premiers. Aucun doublon ; laisser vide si rien à ajouter.</li>
-<li><b>Colonne 2 — Prévalence (%)</b> : chiffre sourcé, <b>Suisse</b> en priorité, sinon <b>Europe</b>. Indiquer entre parenthèses : CH ou EU, année, population (ex. « 12 % (CH, 2022, médecine de premier recours) »). Les dix valeurs d’un même SSP doivent être <b>comparables</b> (même population, même définition). Pas de chiffre comparable disponible : « non quantifiée », jamais une estimation.</li>
+<li><b>Colonne 2 — Prévalence (%)</b> : chiffre sourcé, <b>Suisse</b> en priorité, sinon <b>Europe</b>. Les chiffres de diagnostics différents ne sont pas comparables entre eux : ne jamais les harmoniser ni les convertir. Pour chaque valeur, préciser : <b>(1) la nature</b> (prévalence, incidence ou part des cas parmi les patients avec ce symptôme), <b>(2) la population et le cadre</b> (population générale, soins primaires, urgences, hospitalier), <b>(3) le pays</b> (CH ou EU) et <b>(4) l’année</b>. Ex. « 12 % — part des cas, soins primaires, CH, 2022 ». Aucun chiffre sourcé : « non quantifiée », jamais une estimation.</li>
 <li><b>Colonne 3 — Source(s)</b> : un ou plusieurs liens <b>cliquables</b> (<code>&lt;a href="…"&gt;titre, année&lt;/a&gt;</code>) vers la page ou le document <b>réellement lu</b>, avec la date de lecture (jj.mm.aaaa). Ordre de priorité : Suisse (OFSP, OFS, Obsan, sociétés suisses, HUG, Unisanté), puis Europe, puis international. Sources autorisées : <code>harnais/SOURCES_AUTORISEES.md</code>.</li>
 <li>Source introuvable ou illisible pour une ligne : écrire « À vérifier » dans la cellule concernée ; ne rien compléter d’autre.</li>
 <li>Une ligne = un diagnostic = un chiffre = au moins une source qui contient ce chiffre.</li></ol></div></details></section>
