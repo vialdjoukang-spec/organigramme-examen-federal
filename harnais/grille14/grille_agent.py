@@ -4,6 +4,7 @@
   <id>.py controle <fichier> [--points 1,4]   écarts du fichier à la grille, point par point ; verrou posé
   <id>.py fin <fichier> [--v1 N --v2 N --crit N]   dernier contrôle + checkpoint ; verrou levé ; verdict
   <id>.py lecon "<texte>"               ajoute une leçon à la mémoire permanente (5 au plus)
+  <id>.py attendre <fichier>            auditeur : bloque jusqu'à 9 min tant que le rédacteur n'a pas terminé le fichier
   <id>.py etat                          mémoire et périmètre
 Rédacteur (A, R1..R8) : fin = grille + checkpoint, sans commit. Auditeur (B1..B5) : fin = V1 (fond) et V2 (conformité) saisies, puis checkpoint avec commit.
 V1 = exactitude du fond ; V2 = conformité au Prompt ULTIME et à la grille des points."""
@@ -168,6 +169,12 @@ def main():
     chemin = wk / nom_f if not f.is_absolute() and not f.exists() else f.resolve()
     pts = set(range(1, 15))
     if "--points" in a: pts = {int(x) for x in a[a.index("--points") + 1].split(",")}
+    if cmd == "attendre":
+        pr = wk / "pret" / nom_f; fin = time.time() + 540
+        while time.time() < fin:
+            if pr.exists(): print(f"PRÊT : {nom_f} a passé les scripts du rédacteur ; tu peux l'auditer."); return 0
+            time.sleep(10)
+        print(f"ATTENTE : {nom_f} n'est pas encore prêt. Relance `attendre` (sans rien faire d'autre)."); return 4
     if cmd == "controle":
         v = verrou(ag, chemin, "claim")
         if v.returncode == 3: print("VERROU PRIS PAR UN AUTRE AGENT. STOP."); return 3
@@ -192,7 +199,9 @@ def main():
         cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if auditeur else ["--sans-commit"])
         r = subprocess.run(cmdc, capture_output=True, text=True, cwd=R); print(r.stdout.strip()[-600:])
         verrou(ag, chemin, "release")
-        if r.returncode == 0: m["taches"] += 1; sauve_mem(ag, m)
+        if r.returncode == 0:
+            m["taches"] += 1; sauve_mem(ag, m)
+            if not auditeur: (wk / "pret").mkdir(exist_ok=True); (wk / "pret" / nom_f).write_text(time.strftime("%H:%M:%S"))
         return r.returncode
     print(__doc__); return 2
 
