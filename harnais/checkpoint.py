@@ -16,10 +16,14 @@ run("python3", "harnais/controle_medical.py", str(f), "--rapport", str(med)); ru
 spec = importlib.util.spec_from_file_location("cl", R / "harnais/controle_lot.py"); cl = importlib.util.module_from_spec(spec); sys.argv_bak, sys.argv = sys.argv, ["x"]; spec.loader.exec_module(cl); sys.argv = sys.argv_bak
 forme = cl.analyse_fichier(f); m, l = res(med), res(lan)
 if lot in ("001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016"):
-    run("python3", "harnais/rappel_memoire.py", "inject", str(f)); forme = cl.analyse_fichier(f)   # onglet Rappel mémoire (catégorie G), idempotent
+    run("python3", "harnais/rappel_memoire.py", "inject", str(f))   # onglet Rappel mémoire (catégorie G), idempotent
+sys.path.insert(0, str(R / "harnais")); import forme_interactive as FI
+conv = FI.convert(f.read_text(encoding="utf-8", errors="replace")); crit_i, moy_i, st_i = FI.controle(conv)
+cf = R / ".cache/conv" / f.name; cf.parent.mkdir(parents=True, exist_ok=True); cf.write_text(conv, encoding="utf-8"); forme = cl.analyse_fichier(cf)
 bad = []
 if not m or m["score"] < 90 or m["crit"]: bad.append(f"médical {m} → {med}")
 if not l or l["score"] < 90 or l["crit"]: bad.append(f"langue {l} → {lan}")
+if crit_i: bad.append("forme interactive : " + " ; ".join(crit_i))
 if forme["critiques"]: bad.append(f"forme {forme['critiques']} (bande 100–200 Ko APRÈS l'onglet ≈ +7 Ko : vise ≤ 190 Ko)")
 if bad: print("CHECKPOINT REFUSÉ —", " | ".join(bad)); sys.exit(1)
 tb = json.loads((LOTDIR / "taches.json").read_text()) if (LOTDIR / "taches.json").exists() else {}
@@ -29,7 +33,7 @@ if prop in ("1", "2", "3") and not SORTIE:   # étape rédaction : le fichier en
     print(f"CHECKPOINT OK (étape rédaction) — {f.name} → territoire B{prop}/entree, en attente de l'audit Opus"); sys.exit(0)
 if not WT.exists(): print("CHECKPOINT OK (pas de worktree de LOT : fichier non commité)"); sys.exit(0)
 dest = WT / f"LOT_Claude_Finaux/LOT_{lot}"; (dest / "audits").mkdir(parents=True, exist_ok=True)
-shutil.copy2(f, dest / f.name); [shutil.copy2(p, dest / "audits" / p.name) for p in (med, lan)]
+shutil.copy2(cf, dest / f.name); [shutil.copy2(p, dest / "audits" / p.name) for p in (med, lan)]
 if (LOTDIR / "LISTE_DX_CANONIQUE.md").exists(): shutil.copy2(LOTDIR / "LISTE_DX_CANONIQUE.md", dest / "LISTE_DX_CANONIQUE.md")
 with open(R / ".cache/verrous/git.lock", "w") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)
