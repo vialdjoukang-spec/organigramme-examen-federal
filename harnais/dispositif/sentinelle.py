@@ -37,8 +37,6 @@ while True:
         reste = tk["a_faire"] + tk["pris"]
         if reste >= 1 and tk["total"] > 10 and red < min(3, max(1, tk["a_faire"] + tk["pris"])): al.append(f"RÉDACTEURS {red}/3 (reste {reste} cours) → RELANCER ecrire.js")
         if red > 3: al.append(f"RÉDACTEURS {red} > 3")
-        if au > 4: al.append(f"AUDITEURS {au} > 4 (renfort autorisé jusqu à 4)")
-        if tk["a_auditer"] and au == 0: al.append("AUDITEURS 0 alors que des fichiers attendent → RELANCER audit.js")
     e = dict(t=time.strftime("%H:%M:%S"), redacteurs=red, auditeurs=au, taches=tk, alertes=al)
     (R / ".cache/harnais/sentinelle.json").write_text(json.dumps(e, ensure_ascii=False))
     s = json.dumps([red, au, al]) 

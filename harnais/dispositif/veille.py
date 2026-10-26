@@ -6,7 +6,7 @@ import hashlib, json, os, py_compile, stat, subprocess, sys, time, urllib.reques
 from pathlib import Path
 R = Path(__file__).resolve().parents[2]; C = R / ".cache" / "harnais"; C.mkdir(parents=True, exist_ok=True)
 FICHIERS = ["harnais/prompt_projet.py", "harnais/controle_lot.py", "harnais/aips_texte.py", "harnais/pubmed.py", "harnais/scinder_1_10.py",
-            "harnais/HARNAIS_OBLIGATOIRE.md", "harnais/SOURCES_AUTORISEES.md", "harnais/ROUTAGE_MODELES.md", "harnais/dispositif/prompt.sha256", "harnais/verrou.py",
+            "harnais/HARNAIS_OBLIGATOIRE.md", "harnais/SOURCES_AUTORISEES.md", "harnais/ROUTAGE_MODELES.md", "harnais/dispositif/prompt.sha256", "harnais/verrou.py", "harnais/controle_medical.py", "harnais/controle_langue.py", "harnais/audit_lot.py", "harnais/audit_sortie.py",
             ".claude/agents/redacteur.md", ".claude/agents/redacteur-phase-a.md", ".claude/agents/auditeur-medical.md",
             ".claude/agents/auditeur-conformite.md", ".claude/agents/mecanique.md", ".cache/aips/AipsDownload_20261008.xml", ".cache/g_in/g_tables.json"]
 SCRIPTS = ["harnais/prompt_projet.py", "harnais/controle_lot.py", "harnais/aips_texte.py", "harnais/pubmed.py", "harnais/dispositif/veille.py"]
