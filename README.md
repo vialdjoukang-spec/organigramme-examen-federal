@@ -1,21 +1,32 @@
-# LOT_Claude_Finaux — dépôt final des LOTS audités
+# Organigramme · Examen fédéral
 
-Un LOT n'entre ici qu'après audit conforme au PROMPT ULTIME V0 (≥ 90 %, zéro critique, question finale « oui », LOT COMPLET, `controle_lot.py verifier` = CONFORME).
+Cette application sert à préparer l’examen fédéral de médecine humaine : calendrier, 248 SSP avec leurs notions CK, fenêtres d’information au survol et au clic, catalogue des gestes d’examen (CS), mémorisation, calculs et exigences.
 
-```text
-LOT_Claude_Finaux/
-├── README.md                 ce fichier
-├── CATALOGUE_248.csv         248 SSP PROFILES 2023 (FR | EN), statut FAIT / NON_FAIT
-├── ETAT_FILE.json            file des 75 LOTS FAIT, cycles, scores, verdicts
-├── PROGRESSION.html          vue de progression (créée à la première étape)
-├── ARRET.md                  présent seulement si la mission s'est arrêtée (cause, état, suite)
-├── HELP_QUESTIONNAIRE/       lacunes reportées après validation d'un LOT
-├── _OBSOLETES/               versions remplacées (suffixe _OBSOLETE_), jamais supprimées
-└── LOT_XXX/
-    ├── LOT_XXX_Phase_A_V0.html
-    ├── LOT_XXX_Phase_B_V0_DX.1.html … LOT_XXX_Phase_B_V0_DX.10.html
-    ├── MANIFESTE.json        nom, octets, SHA-256 de chacun des 11 fichiers
-    └── audits/               rapports médical et linguistique par fichier
-```
+- **Application en ligne :** https://vialdjoukang-spec.github.io/organigramme-examen-federal/
+- **Fichier de travail :** `app_v2.html` (un seul fichier, utilisable aussi hors ligne).
+- **Référence en lecture seule :** `orig/app.html`, dont la CI contrôle l’empreinte.
 
-Ko = 1 000 octets. Chaque HTML pèse 150–200 Ko. Aucun HTML consolidé.
+La progression (coches, séances, réglages) reste enregistrée dans le navigateur de chaque utilisateur ; elle n’est jamais envoyée dans ce dépôt.
+
+## Organisation
+
+| Chemin | Contenu | Agent |
+|---|---|---|
+| `app_v2.html` | fichier de travail publié par Pages | tous, par patch ciblé |
+| `orig/app.html` | copie de référence | personne |
+| `data/` | constantes extraites (EXI, SESSION, MEM, TIP) | agent du chantier |
+| `tools/` | scripts de patch, d’extraction et de garde | Héphaïstos |
+| `tests/`, `qa/` | contrôles Playwright, gardes, rapports | Janus |
+| `assets/cs/` | images cliniques réelles et `credits.json` | Asclépios |
+| `veille/` | sources surveillées et empreintes | Argos |
+| `journal/`, `HANDOFF.md`, `ETAT.md` | décisions, état, passation | Athéna |
+| `skills/` | copie versionnée des procédures des agents | Athéna |
+| `.github/` | CI, Pages, modèles de tickets | Héphaïstos |
+
+## Règle universelle
+
+Le projet cible doit avoir un résultat de HAUTE QUALITÉ. L’usage des jetons doit être raisonnable et optimisé, et tout gaspillage est formellement interdit. L’économie de jetons est autorisée si et seulement si elle ne dégrade pas la qualité du travail.
+
+## Avertissement
+
+Les agents produisent et testent ; aucun contenu clinique ni aucune posologie n’est validé sans relecture humaine. Les posologies se vérifient dans l’information professionnelle suisse en vigueur.
