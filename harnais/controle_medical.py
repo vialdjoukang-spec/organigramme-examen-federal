@@ -53,6 +53,21 @@ if pm:
     introuv = [p for p in pm if p not in d or "error" in d.get(p, {})]
     for p in introuv: crit.append(f"PMID {p} inexistant")
     ok.append(f"{len(pm)-len(introuv)}/{len(pm)} PMID existent")
+# 2 bis. chiffres suivis de [Sn] retrouvés dans le texte réel de la source
+import controle_sources as CS
+try:
+    o, k, manq = CS.ancrage(txt)
+    if o + k: ok.append(f"{o}/{o+k} chiffres retrouvés dans leur source (résumé PubMed / page / PDF)")
+    if k >= 5 and o / (o + k) < 0.5: crit.append(f"chiffres non retrouvés dans leurs sources : {k}/{o+k} — {', '.join(manq[:6])}")
+    elif k: moy += [f"chiffre non retrouvé dans sa source : {x}" for x in manq[:6]]
+except Exception as ex: moy.append(f"ancrage des sources non exécuté : {ex}")
+# 2 ter. spécialités citées avec ® existent dans l'AIPS
+_n = lambda s: re.sub(r"[\s\-]+", "", s.lower())
+noms = {_n(x) for x in re.findall(r"<Description>\s*([^<,®]{3,50}?)\s*[®,<]", xml)} | {_n(x.split()[0]) for x in re.findall(r"<Description>\s*([^<,®]{3,50}?)\s*[®,<]", xml)}
+noms |= {_n(x.split()[0]) for x in re.findall(r"<Name>([^<]{3,60})</Name>", xml)}
+inc = sorted({m for m in re.findall(r"\b([A-ZÉ][A-Za-zéèï\-]{3,})®", txt) if _n(m) not in noms and not any(n.startswith(_n(m)[:7]) for n in noms if len(_n(m)) >= 7)})
+if inc: (crit if len(inc) > 5 else moy).append(f"spécialité(s) ® absente(s) de l'index AIPS (vaccin, générique renommé ou erreur) : {', '.join(inc[:8])}")
+else: ok.append("toutes les spécialités ® citées existent dans l'index AIPS")
 # 3. points §11 présents et substantiels
 pts = {int(m.group(2)): m.start() for m in re.finditer(r"<h3[^>]*id=[\"']([\w-]+?)-p(\d{1,2})[\"']", raw)}
 manq = [i for i in range(1, 15) if i not in pts]
