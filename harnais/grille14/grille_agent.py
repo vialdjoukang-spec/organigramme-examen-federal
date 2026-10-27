@@ -14,7 +14,8 @@ from pathlib import Path
 R = Path(__file__).resolve().parent.parent.parent
 G = Path(__file__).resolve().parent
 sys.path.insert(0, str(R / "harnais")); sys.path.insert(0, str(G))
-MEM = R / ".cache/memoire"; MEM.mkdir(parents=True, exist_ok=True)
+TEST = bool(__import__("os").environ.get("G14_TEST"))
+MEM = R / (".cache/test_g14/memoire" if TEST else ".cache/memoire"); MEM.mkdir(parents=True, exist_ok=True)
 
 def verifier_integrite():
     sums = {}
@@ -158,7 +159,6 @@ def ecarts_points(html, pts):
     return E, st
 
 
-TEST = bool(__import__("os").environ.get("G14_TEST"))
 CAP = 3          # essais de `fin` au plus par agent et par fichier
 def reparer(html, lot, nom):
     """Réparations mécaniques gratuites : l'agent ne dépense aucun jeton dessus."""
@@ -197,11 +197,16 @@ def essais_f(lot): return MEM / f"essais_{lot}{'_test' if TEST else ''}.json"
 def charge_essais(lot): f = essais_f(lot); return json.loads(f.read_text()) if f.exists() else {}
 def bloque_f(wk, nom): return wk / "bloque" / (nom + ".md")
 
+def _verrou_essais():
+    import fcntl
+    fh = open(MEM / ".essais.lock", "w"); fcntl.flock(fh, fcntl.LOCK_EX); return fh
+
 def refus(ag, lot, wk, nom, sig, detail, sha=None):
     """Compte un échec. Bloque le fichier au 3e essai, ou à la 2e fois que les mêmes écarts reviennent."""
-    d = charge_essais(lot); k = f"{ag}:{nom}"; e = d.get(k, {"n": 0, "sig": None, "stag": 0}); e["sha"] = sha
-    e["n"] += 1; h = hashlib.sha256(sig.encode()).hexdigest()[:12]
-    e["stag"] = e["stag"] + 1 if e["sig"] == h else 0; e["sig"] = h; d[k] = e; essais_f(lot).write_text(json.dumps(d, indent=1))
+    with _verrou_essais():
+        d = charge_essais(lot); k = f"{ag}:{nom}"; e = d.get(k, {"n": 0, "sig": None, "stag": 0}); e["sha"] = sha
+        e["n"] += 1; h = hashlib.sha256(sig.encode()).hexdigest()[:12]
+        e["stag"] = e["stag"] + 1 if e["sig"] == h else 0; e["sig"] = h; d[k] = e; essais_f(lot).write_text(json.dumps(d, indent=1))
     if e["n"] >= CAP or e["stag"] >= 1:
         raison = "mêmes écarts qu'à l'essai précédent (aucun progrès)" if e["stag"] >= 1 else f"{CAP} essais utilisés"
         b = bloque_f(wk, nom); b.parent.mkdir(exist_ok=True)
@@ -210,7 +215,8 @@ def refus(ag, lot, wk, nom, sig, detail, sha=None):
     return f"Essai {e['n']}/{CAP}." + (" ATTENTION : si les mêmes écarts reviennent au prochain essai, le fichier sera bloqué : change de méthode." if e["n"] >= 1 else "")
 
 def reussite(ag, lot, nom):
-    d = charge_essais(lot); d.pop(f"{ag}:{nom}", None); essais_f(lot).write_text(json.dumps(d, indent=1))
+    with _verrou_essais():
+        d = charge_essais(lot); d.pop(f"{ag}:{nom}", None); essais_f(lot).write_text(json.dumps(d, indent=1))
 
 def phrases_longues(html, n=3):
     t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>|<table.*?</table>|<details class=\"refs\".*?</details>", " ", html)
@@ -250,7 +256,7 @@ def _main():
         print("\n## Tes outils (tous gratuits)\n- `python3 harnais/agents/%s.py controle <fichier>` : écarts à la grille, point par point ; ouvre ton verrou\n- `python3 harnais/agents/%s.py fin <fichier>` : dernier contrôle + checkpoint ; lève le verrou\n- lecture ciblée : `python3 harnais/controle_lot.py extraire <fichier> --points N,N` ; AIPS : `python3 harnais/aips_texte.py <n°|--nom X> --section <mot>` ; PubMed : `python3 harnais/pubmed.py chercher|verifier` ou MCP\n- passage utile d'une longue source : `python3 harnais/grille14/passage.py <fichier_ou_url_en_cache> \"<mots>\"`" % (ag, ag))
         tache = f"{nom} {ag} LOT_{lot} " + ", ".join(per)
         r = subprocess.run(["python3", str(R / "harnais/bracelet/bracelet_suggest.py"), tache], capture_output=True, text=True, cwd=R)
-        pr = R / "harnais/PREUVE_EMBOITEMENT.txt"
+        pr = R / (".cache/test_g14/PREUVE_EMBOITEMENT_test.txt" if TEST else "harnais/PREUVE_EMBOITEMENT.txt")
         with open(pr, "a", encoding="utf-8") as fh:
             fh.write(f"\n{time.strftime('%Y-%m-%d %H:%M')} Europe/Zurich\nboucle=memoire-{ag}-LOT_{lot}\nok={r.returncode == 0}\ncommande=python3 harnais/bracelet/bracelet_suggest.py \"{tache}\"\n{r.stdout.strip()}\nexit={r.returncode}\nARSENAL_lu=harnais/ARSENAL.md\nHARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md\nproducteur={ag} ({mod})\n")
         print("\n## Bracelet pour ta tâche (preuve écrite)\n" + r.stdout.strip())
@@ -273,6 +279,7 @@ def _main():
         import os
         pr = wk / "pret" / nom_f; fin = time.time() + (float(os.environ.get("G14_ATTENTE", 540)) if TEST else 540)
         while time.time() < fin:
+            if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est bloqué ; n'attends pas. Réponds « BLOQUÉ {nom_f} »."); return 5
             if pr.exists(): print(f"PRÊT : {nom_f} a passé les scripts du rédacteur ; tu peux l'auditer."); return 0
             time.sleep(min(10, max(0.2, fin - time.time())))
         print(f"ATTENTE : {nom_f} n'est pas encore prêt. Relance `attendre` (sans rien faire d'autre)."); return 4
@@ -294,6 +301,9 @@ def _main():
         return 0 if not n["CRITIQUE"] else 1
     if cmd == "fin":
         if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est déjà bloqué. Arrête-toi, réponds « BLOQUÉ {nom_f} »."); return 5
+        v = verrou(ag, chemin, "claim")
+        if v.returncode == 3:
+            qui = re.search(r"détenu par (\S+)", v.stdout); print(f"VERROU PRIS PAR {qui.group(1) if qui else 'UN AUTRE AGENT'}. STOP (aucun essai compté)."); return 3
         h0 = chemin.read_text(encoding="utf-8", errors="replace"); h, rep = reparer(h0, lot, nom_f)
         if rep: chemin.write_text(h, encoding="utf-8"); print("RÉPARÉ AUTOMATIQUEMENT (gratuit) : " + " ; ".join(rep))
         sha_f = hashlib.sha256(h.encode()).hexdigest()[:16]; ed = charge_essais(lot).get(f"{ag}:{nom_f}")
@@ -314,20 +324,23 @@ def _main():
         if auditeur:
             visa = wk / "contracte" / f"{nom_f}.visa.json"
             try: vok = json.loads(visa.read_text()).get("sha") == hashlib.sha256(h.encode()).hexdigest()[:16]
-            except Exception: vok = False
+            except Exception: vok = None
             if not vok:
-                print(f"REFUSÉ : le CONTRACTEUR (dernier secteur) n'a pas visé ce fichier, ou il a été modifié depuis. Lance : python3 harnais/agents/K{ag}.py contracter <fichier> ; contracte ; python3 harnais/agents/K{ag}.py verifier <fichier> ; puis relance fin sans rien modifier. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
+                print(f"REFUSÉ : {'aucun visa du CONTRACTEUR (dernier secteur)' if vok is None else 'fichier modifié après le visa du CONTRACTEUR (le visa est lié à son empreinte)'}. Lance : python3 harnais/agents/K{ag}.py contracter <fichier> ; contracte ; python3 harnais/agents/K{ag}.py verifier <fichier> ; puis relance fin sans rien modifier. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
             try:
                 v1 = int(a[a.index("--v1") + 1]) if "--v1" in a else None; v2 = int(a[a.index("--v2") + 1]) if "--v2" in a else None
                 c = int(a[a.index("--crit") + 1]) if "--crit" in a else 0
             except (ValueError, IndexError): print("REFUSÉ : --v1, --v2 et --crit attendent des nombres entiers. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
-            if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]. (Pas un essai perdu.)"); return 1
+            if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
             if v1 < 90 or v2 < 90 or c:
                 return echec(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige les points qui pèsent, puis relance.", f"v1<90={v1 < 90} v2<90={v2 < 90} c={c}", f"V1={v1} V2={v2} critiques={c}")
             aud = wk / "audits"; aud.mkdir(exist_ok=True)
             (aud / f"AUD_{ag}_{nom_f}.md").write_text(f"# Audit {ag} · {nom_f}\nV1 (fond) = {v1} %\nV2 (conformité grille et Prompt) = {v2} %\ncritiques = {c}\nagent = {nom}, {mod}\n", encoding="utf-8")
         cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if (auditeur and not TEST) else ["--sans-commit"])
         r = subprocess.run(cmdc, capture_output=True, text=True, cwd=R); out = r.stdout.strip()[-700:]
+        if r.returncode not in (0, 1) or "Traceback" in r.stderr:   # panne d'outil : l'agent n'y est pour rien
+            inc = wk / "incidents"; inc.mkdir(exist_ok=True); (inc / f"{nom_f}.md").write_text(f"# Panne d'outil · {nom_f}\nagent : {ag}\ncode : {r.returncode}\n\n{(r.stderr or r.stdout)[-1500:]}\n", encoding="utf-8")
+            print(f"PANNE D'OUTIL (checkpoint, code {r.returncode}) : consignée pour le chef de production ; aucun essai compté. Arrête-toi sur ce fichier."); verrou(ag, chemin, "release"); return 6
         if r.returncode != 0:
             det = []
             for rp in re.findall(r"→ (\S+\.md)", r.stdout):

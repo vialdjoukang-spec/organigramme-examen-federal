@@ -70,7 +70,7 @@ def corps(html):
     return t[:m.start()] if m else t
 
 def texte(html):
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", corps(html))).strip()
+    return re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", corps(html)))).strip()
 
 _NLP = None
 def nlp():
@@ -88,9 +88,17 @@ def analyse(phrases):
         cont = {(x.lemma_ or x.text).lower() for x in d if (x.pos_ in ("NOUN", "PROPN", "ADJ", "NUM") or (x.pos_ == "VERB" and x.lemma_.lower() not in VERBES_VIDES))
                 and (len(x.text) > 2 or x.text.isdigit())}
         noms = {x.lemma_.lower() for x in d if x.pos_ in ("NOUN", "PROPN") and len(x.lemma_) > 2 and x.lemma_.isalpha()}
-        verb = any(x.pos_ in ("VERB", "AUX") or "VerbForm=Fin" in str(x.morph) for x in d) or "→" in p or "?" in p
-        _CACHE[p] = (frozenset(cont), frozenset(noms), verb)
+        _CACHE[p] = (frozenset(cont), frozenset(noms), verbale(d, p))
     return [_CACHE[p] for p in phrases]
+
+ARTICLES = {"le", "la", "les", "un", "une", "des", "l'", "l’", "du", "au", "aux", "son", "sa", "ses", "leur", "leurs", "ce", "cette", "ces"}
+def verbale(d, p):
+    """Phrase verbale ? spaCy (VERB, AUX, forme finie), flèche ou question ; sinon un verbe conjugué mal étiqueté par le petit modèle :
+    mot en minuscules entre un sujet (nom, pronom, adjectif) et un déterminant ou un nombre (« la périménopause dure 2 ans »)."""
+    if "→" in p or "?" in p or any(x.pos_ in ("VERB", "AUX") or "VerbForm=Fin" in str(x.morph) for x in d): return True
+    T = list(d)
+    return any(T[i].pos_ in ("NOUN", "ADJ", "PROPN") and T[i].text.isalpha() and T[i].text.islower() and T[i - 1].pos_ in ("NOUN", "PROPN", "PRON", "ADJ")
+               and (T[i + 1].pos_ in ("DET", "NUM") or T[i + 1].text.lower() in ARTICLES) for i in range(1, len(T) - 1))
 
 def decoupe(html):
     """Phrases du cours : (texte, nature) ; nature = corps, fen (contenu d'une fenêtre) ou tab (cellule de tableau)."""
@@ -130,13 +138,16 @@ def inventaire(html):
     sigles = set(re.findall(r"\b[A-Z][A-Z0-9]{1,6}\b", sans))
     tabl = [len(re.findall(r"<tr", x)) for x in re.findall(r"(?is)<table.*?</table>", c)]
     points = sorted({int(x) for x in re.findall(r"<h3[^>]*>\s*(?:<strong>)?\s*(\d{1,2})\.\s", c)})
+    m = FIN_COURS.search(html); sources = sorted(set(re.findall(r"\[S(\d+)\]", html[m.start():])) if m else set(), key=int)
+    import forme_interactive as FI
+    abrev = sorted(k for k, v in FI.definitions(html).items() if FI.DEFAUTS.get(k) != v)
     ph = decoupe(contraction_mecanique(html)[0]); an = analyse([p for p, _ in ph]); lem = set(); phrases = []
     for (p, nat), (cont, noms, verb) in zip(ph, an):
         lem |= noms
         if len(p.split()) < 4 or len(cont) < 2: continue
         phrases.append(dict(t=p, n=nat, l=sorted(cont), e=bool(EXPL.search(p)), m=marqueurs(p), v=verb, w=len(p.split())))
     return dict(mots=len(t.split()), nombres=sorted(nombres), renvois=sorted(renvois, key=int), meds=sorted(meds), termes=sorted(termes), sigles=sorted(sigles),
-                tableaux=tabl, points=points, lemmes=sorted(lem), unites=sorted(unites(sans)), phrases=phrases, longues=part_longues(html))
+                tableaux=tabl, points=points, lemmes=sorted(lem), unites=sorted(unites(sans)), phrases=phrases, longues=part_longues(html), sources=sources, abreviations=abrev)
 
 def ident(p): return hashlib.sha1(p.encode()).hexdigest()[:6]
 
@@ -185,7 +196,7 @@ def comparer(av, ap, exc):
     """Problèmes de conservation (liste de messages) et lignes de bilan."""
     pb, L = [], []
     for cle, seuil, nm in (("nombres", 1.0, "nombres"), ("meds", 1.0, "médicaments"), ("unites", 1.0, "valeurs avec unité ou seuil (comparateur + valeur + unité)"),
-                           ("termes", .95, "termes cliquables"), ("renvois", .95, "renvois [Sn]"), ("lemmes", .95, "notions (noms)")):
+                           ("sources", 1.0, "sources de la liste"), ("abreviations", 1.0, "abréviations définies"), ("termes", .95, "termes cliquables"), ("renvois", .95, "renvois [Sn]"), ("lemmes", .95, "notions (noms)")):
         a, b = set(av.get(cle, [])), set(ap.get(cle, []))
         manq = sorted(x for x in a - b if x.lower() not in exc and str(x).lower() not in exc)
         r = 1 - len(manq) / len(a) if a else 1.0
@@ -240,7 +251,7 @@ CREUX = [  # (motif, remplacement) ; appliqués au texte seulement, jamais dans 
     (r"\bEn effet, ", ""), (r"\bPar ailleurs, ", ""), (r"\bDe plus, ", ""), (r"\bDe surcroît, ", ""), (r"\bEn outre, ", ""), (r"\bÉgalement, ", ""),
     (r"\bEn pratique, ", ""), (r"\bEn règle générale, ", ""), (r"\bDe manière générale, ", ""),
     (r"\bà l'heure actuelle\b", "actuellement"), (r"\bde nos jours\b", "aujourd'hui"), (r"\ben raison du fait que\b", "car"), (r"\bétant donné que\b", "puisque"),
-    (r"\bdans le cas où\b", "si"), (r"\bau cas où\b", "si"), (r"\bun grand nombre de\b", "beaucoup de"), (r"\best en mesure de\b", "peut"), (r"\bsont en mesure de\b", "peuvent"),
+    (r"\bdans le cas où\b", "si"), (r"\bau cas où\b", "si"), (r"\bun grand nombre de\b", "beaucoup de"), (r"(?<![nN]['’])\best en mesure de\b", "peut"), (r"(?<![nN]['’])\bsont en mesure de\b", "peuvent"),
     (r"\bà l'aide de\b", "avec"), (r"\bpar le biais de\b", "par"), (r"\bil s'agit d'un\b", "c'est un"), (r"\bil s'agit d'une\b", "c'est une"),
     (r"\bcomme (?:nous l'avons vu|indiqué plus haut|cela a été dit)\b[, ]*", ""),
 ]   # « Ainsi, », « afin de », « de ce fait » et « dans la mesure où » sont des connecteurs d'explication : jamais retirés
@@ -323,6 +334,11 @@ def main(ag, cmd, args):
     wk, snapf, visaf = chemins(lot, nom)
     chemin = f.resolve() if f.exists() else wk / nom
     if not chemin.exists(): print(f"FICHIER INTROUVABLE : {nom}."); return 2
+    vf = R / ".cache/verrous" / (hashlib.sha256(os.path.abspath(chemin).encode()).hexdigest()[:20] + ".lock")
+    if cmd != "etat" and vf.exists():
+        try: qui = json.loads(vf.read_text()).get("agent")
+        except (OSError, ValueError): qui = None
+        if qui and qui not in (aud, ag): print(f"VERROU PRIS PAR {qui}. STOP : le fichier n'est pas à toi en ce moment."); return 3
     from grille_agent import reparer
     h0 = chemin.read_text(encoding="utf-8", errors="replace")
     if cmd == "etat":
