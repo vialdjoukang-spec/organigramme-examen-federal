@@ -88,5 +88,7 @@ def _m_denom(t, r):
     return t[:q] + f" Elle touche {r.randint(2, 40)} % des malades hospitalisés<sup class=\"r\"><a href=\"#sb-1\">1</a></sup>." + t[q:]
 MUTANTS = [("épidémiologie hors budget", _m_long, "B1"), ("chiffre sans source", _m_source, "B2"), ("pourcentage sans dénominateur", _m_denom, "B3")]
 
+ECRIT = []
+
 if __name__ == "__main__":
     sys.exit(bus.cli(sys.modules[__name__]))

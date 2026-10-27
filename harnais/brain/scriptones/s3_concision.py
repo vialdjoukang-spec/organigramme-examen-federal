@@ -116,5 +116,7 @@ def _m_juxta(t, r):
     return t[:q] + " La fièvre monte. Le pouls accélère. La tension baisse." + t[q:]
 MUTANTS = [("formule creuse", _m_creux, "C1"), ("redite", _m_redite, "C2"), ("métadiscours", _m_meta, "C3"), ("juxtaposition", _m_juxta, "C4")]
 
+ECRIT = ["TEXTE:tête de phrase"]
+
 if __name__ == "__main__":
     sys.exit(bus.cli(sys.modules[__name__]))

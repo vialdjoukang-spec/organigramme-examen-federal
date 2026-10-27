@@ -132,5 +132,7 @@ def _m_sans_th(t, r):
     tb = _tb_epi(t); seg = re.sub(r"(?is)<(/?)th\b", r"<\1td", t[tb["debut"]:tb["fin"]]); return t[:tb["debut"]] + seg + t[tb["fin"]:]
 MUTANTS = [("en-tête générique", _m_generique, "T2"), ("portée ambiguë", _m_portee, "T4"), ("légende absente", _m_legende, "T6"), ("sans en-têtes", _m_sans_th, "T1")]
 
+ECRIT = ["TABLE:unité des en-têtes"]
+
 if __name__ == "__main__":
     sys.exit(bus.cli(sys.modules[__name__]))

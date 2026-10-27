@@ -211,5 +211,7 @@ def _m_cible(t, r):
     return t[:m.start()] + f'data-modele="{H.escape(json.dumps(mod, ensure_ascii=False), quote=True)}"' + t[m.end():]
 MUTANTS = [("parent sans homologues", _m_hom, "A3"), ("homologue non explicité", _m_expl, "A4"), ("arbre statique", _m_statique, "A2"), ("notion non marquée", _m_cible, "A5")]
 
+ECRIT = ["P1:arbre", "CSS:brain-arbre"]
+
 if __name__ == "__main__":
     sys.exit(bus.cli(sys.modules[__name__]))

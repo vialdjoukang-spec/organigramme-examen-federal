@@ -139,5 +139,7 @@ def _m_casse(t, r):
 def _m_graisse(t, r): return re.sub(r'(?is)@font-face\s*\{[^}]*font-weight:700[^}]*\}', "", t)
 MUTANTS = [("police non embarquée", _m_fonte, "P1"), ("règle concurrente", _m_regle, "P4"), ("police externe", _m_externe, "P2"), ("graisse 700 absente", _m_graisse, "P3"), ("police cassée par un saut de ligne", _m_casse, "P7")]
 
+ECRIT = ["CSS:brain-fonte", "CSS:brain-police", "CSS:@font-face"]
+
 if __name__ == "__main__":
     sys.exit(bus.cli(sys.modules[__name__]))

@@ -95,5 +95,7 @@ def _m_detache(t, r):
 def _m_interligne(t, r): return t.replace(BLOC, "").replace("</head>", f"<style>body{{line-height:{r.choice(['1.2', '1.3', '1.4', '1'])}}}</style></head>", 1)
 MUTANTS = [("blanc inutile", _m_vide, "L2"), ("paragraphe détaché", _m_detache, "L3"), ("interligne serré", _m_interligne, "L1")]
 
+ECRIT = ["CSS:brain-rythme", "BLANCS:éléments vides"]
+
 if __name__ == "__main__":
     sys.exit(bus.cli(sys.modules[__name__]))
