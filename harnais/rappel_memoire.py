@@ -12,17 +12,17 @@ CSS = "#rm{font:15px/1.5 system-ui,sans-serif;max-width:980px;margin:0 auto;padd
 CSS2 = "#__tabs a{border-radius:8px;padding:7px 16px;font:600 14px system-ui;background:#3a4256;color:#fff;text-decoration:none}#__tabs a.on{background:#7c3aed}#rappel{display:none;position:fixed;inset:0;z-index:100;overflow:auto;background:#fff}#rappel:target{display:block}@media(prefers-color-scheme:dark){#rappel{background:#14171c}}"
 def ranks(lot): return [r for r in TAB[lot]["rows"] if r["dd"]]
 def contenu(lot):
-    d = G.LOTS[lot]; rows = {r["n"]: r["dd"] for r in ranks(lot)}; short = lambda s: re.sub(r"\s*\(.*", "", s)[:60]
+    d = G.LOTS[lot]; rows = {r["n"]: r["dd"] for r in ranks(lot)}; nmap = {r["n"]: i for i, r in enumerate(ranks(lot), 1)}; short = lambda s: re.sub(r"\s*\(.*", "", s)[:60]
     ph = d["phrase"].replace(",", " ,").replace(";", " ;").split(); lab = d["labels"].split(); w = [x for x in ph if x not in ",;"]
     mn = " ".join(f"<b>{e(x[0])}</b>{e(x[1:])}" if x not in ",;." else x for x in ph) if False else e(d["phrase"])
     corr = "".join(f"<tr><td class='let'>{e(w[i])}</td><td>{i+1}</td><td>{e(lab[i].replace('-', ' '))}</td></tr>" for i in range(len(lab)))
     by = {}
     if "cl" in d:
         for n, c in d["cl"].items(): by.setdefault(c, []).append(n)
-        tb = "".join(f"<tr><td class='let'>{c}</td><td>{e(G.TEMPO[c])}</td><td>{'; '.join(f'<b>{n}</b> {e(short(rows[n]))}' for n in sorted(by[c]))}</td></tr>" for c in "TEMPOINX" if c in by)
+        tb = "".join(f"<tr><td class='let'>{c}</td><td>{e(G.TEMPO[c])}</td><td>{'; '.join(f'<b>{nmap[n]}</b> {e(short(rows[n]))}' for n in sorted(by[c]))}</td></tr>" for c in "TEMPOINX" if c in by)
         log = f"Grille étiologique commune <b>TEMPO-IN</b> (mécanisme de la cause). {e(G.TEMPO_MNEMO)}"
     else:
-        tb = "".join(f"<tr><td class='let'>{i+1}</td><td>{e(g)}</td><td>{'; '.join(f'<b>{n}</b> {e(short(rows[n]))}' for n in v)}</td></tr>" for i, (g, v) in enumerate(d["groupes"].items()))
+        tb = "".join(f"<tr><td class='let'>{i+1}</td><td>{e(g)}</td><td>{'; '.join(f'<b>{nmap[n]}</b> {e(short(rows[n]))}' for n in v)}</td></tr>" for i, (g, v) in enumerate(d["groupes"].items()))
         log = f"Logique propre à ce symptôme : <b>{e(d['logique'].lower())}</b>."
     sp = "".join(f"<tr class='{'cur' if i+1 == int(lot) else ''}'><td class='let'>{w2.split()[0] if False else ''}</td><td>{i+1}</td><td>{e(G.G16[i])}</td></tr>" for i, w2 in enumerate(G.G16))
     g16 = "".join(f"<tr class='{'cur' if G.G_MAP[k] == int(lot) else ''}'><td class='let'>{e(k.split('#')[0])}</td><td>G{G.G_MAP[k]}</td><td>{e(G.G16[G.G_MAP[k]-1])}</td></tr>" for k in G.G_MAP)
