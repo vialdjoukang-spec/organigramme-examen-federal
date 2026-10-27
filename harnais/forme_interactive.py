@@ -10,7 +10,7 @@ _F = json.loads((Path(__file__).parent / "atkinson.b64.json").read_text())
 FONTE = "".join(f'@font-face{{font-family:"Atkinson Hyperlegible";font-weight:{w};font-display:swap;src:url(data:font/woff2;base64,{_F[w]}) format("woff2")}}' for w in ("400", "700"))
 CSS = """<style>html,body,table,td,th,summary,button,.tm .df{font-family:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}body{font-size:16px;line-height:1.6}.r{font-size:.72em;line-height:0;vertical-align:super;margin:0 .05em}.r a{text-decoration:none;color:#2563eb;padding:0 1px}.r a:hover{background:#dbeafe;border-radius:3px}
 details.refs{margin:18px 0;border:1px solid #cfd4dc;border-radius:12px;padding:6px 14px;background:#f8fafc}details.refs>summary{cursor:pointer;font-weight:700;color:#334155}details.refs ol{list-style:none;padding-left:0}details.refs .n{font-weight:700;color:#475569}details.refs li{font-size:.86em;margin:.35em 0}details.refs li:target{background:#fef9c3}
-.tm{border-bottom:1px dotted #7c3aed;color:#4c1d95;cursor:help;position:relative;display:inline}.tm .df{display:none;position:absolute;left:0;top:1.5em;z-index:20;width:min(320px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:8px 10px;font-size:.85em;font-weight:400;box-shadow:0 6px 20px #0006}.tm:hover .df,.tm:focus .df,.tm:focus-within .df{display:block}
+.tm{border-bottom:1px dotted #7c3aed;color:#4c1d95;cursor:help;position:relative;display:inline}.tm .df{display:none;position:absolute;left:0;top:1.5em;z-index:20;width:min(320px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:8px 10px;font-size:.85em;font-weight:400;box-shadow:0 6px 20px #0006}.tm:hover>.df,.tm:focus>.df,.tm:focus-within>.df{display:block}.df .tm{color:inherit;border-bottom-color:#c4b5fd}.df .tm>.df{top:1.3em;left:.5em;background:#312e81;width:min(280px,70vw)}a.tm{text-decoration:none}.mb{display:none}.mb:target{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;max-height:60vh;overflow:auto;background:#164e63;color:#fff;padding:10px 16px;font-size:.9em;line-height:1.4;box-shadow:0 -4px 14px #0005}.mb b{color:#a5f3fc}.mb ul{margin:4px 0 0 16px;padding:0}.mb a.fe{color:#a5f3fc;font-weight:700;margin-left:10px}
 div.arb{margin:12px 0}.arbt{font-weight:700;color:#4c1d95;margin-bottom:6px}.niv{border:1px solid #c4b5fd;background:#f5f3ff;border-radius:10px;padding:7px 12px;margin-bottom:6px;position:relative}.niv::before{content:"└";position:absolute;left:-16px;top:6px;color:#7c3aed}.niv b{color:#3b0764}.niv .org{float:right;font-size:.8em;background:#fff;color:#4c1d95;border:1px solid #c4b5fd;border-radius:6px;padding:0 6px;margin-left:8px}.niv.cible .org{background:#ede9fe}.niv .dfn{display:block;font-size:.88em;color:#475569;margin-top:2px}.niv.cible{background:#6d28d9;border-color:#4c1d95}.niv.cible b,.niv.cible .dfn{color:#fff}.liste{margin:2px 0 6px;font-size:.92em;color:#334155}.chip{display:inline-block;background:#ede9fe;border:1px solid #c4b5fd;border-radius:999px;padding:1px 9px;margin:2px 3px 2px 0;font-size:.92em}.voisin .chip{background:#f1f5f9;border-color:#cbd5e1}@media(prefers-color-scheme:dark){.niv{background:#241d3f}.niv b{color:#e9d5ff}.niv .dfn,.liste{color:#cbd5e1}.chip{background:#2e2557}}.sb{display:none}.sb:target{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#bae6fd;color:#0c4a6e;padding:8px 16px;font-size:.88em;box-shadow:0 -4px 14px #0003}.sb a{margin-left:10px;color:#075985;font-weight:700}p.fil{border-left:4px solid #7c3aed;padding:6px 12px;background:#f5f3ff;border-radius:0 8px 8px 0;margin:10px 0}details.arbre{border-left:4px solid #7c3aed;background:#f5f3ff;border-radius:8px;padding:6px 14px;margin:10px 0}details.arbre>summary{cursor:pointer;font-weight:700;color:#4c1d95}details.arbre ul{margin:.2em 0 .2em 1.1em;padding-left:.8em;border-left:1px dashed #a78bfa}
 @media(prefers-color-scheme:dark){details.refs{background:#1b2033;border-color:#3a4256}details.refs>summary{color:#cbd5e1}.r a{color:#93c5fd}details.arbre{background:#241d3f}details.arbre>summary,.tm{color:#ddd0ff}}
 table:not(#rm table){border-collapse:separate;border-spacing:0;width:100%;margin:12px 0;border:1px solid #c7d2fe;border-radius:12px;overflow:hidden;font-size:.93em}table:not(#rm table) th{background:linear-gradient(#4f46e5,#4338ca);color:#fff;font-weight:700;padding:8px 10px;text-align:left;border:0}table:not(#rm table) td{padding:7px 10px;border-top:1px solid #e0e7ff;vertical-align:top}table:not(#rm table) tr:nth-child(even) td{background:#f5f7ff}table:not(#rm table) tr:hover td{background:#e8edff}table:not(#rm table) td:first-child{font-weight:600;color:#312e81;background:#eef2ff}table:not(#rm table) caption{caption-side:top;text-align:left;font-weight:700;color:#4338ca;padding:4px 2px}
@@ -20,7 +20,11 @@ h2:not(#rm h2){border-left:6px solid #6366f1;background:linear-gradient(90deg,#e
 .dx>input{position:absolute;opacity:0;width:0;height:0}.dx>.dxt{cursor:pointer;border-bottom:1px dotted #7c3aed;color:#4c1d95}.dx>.dxt::after{content:" ▾";font-size:.8em;color:#7c3aed}.dx>input:checked+.dxt::after{content:" ▴"}.dx>input:focus-visible+.dxt{outline:2px solid #7c3aed}.dx>.dxc{display:none;margin:6px 0 8px;padding:8px 12px;background:#f5f3ff;border-left:4px solid #a78bfa;border-radius:6px;font-size:.95em}.dx>input:checked~.dxc{display:block}
 @media(prefers-color-scheme:dark){table:not(#rm table) tr:nth-child(even) td{background:#1c2236}table:not(#rm table) td:first-child{background:#23294a;color:#c7d2fe}table:not(#rm table) td{border-color:#2f3656}table:not(#rm table) tr:hover td{background:#2a3358}  .dx>.dxc{background:#241d3f}.dx>.dxt{color:#ddd0ff}.tm.med{background:#0c3a47;color:#a5f3fc}}</style>"""
 def convert(t):
-    if MARQ in t: return t
+    if MARQ in t:
+        if "a.tm{text-decoration:none}" not in t:
+            css = re.sub(r"\s*\n\s*", "", CSS); css = css[css.index(".tm{"):css.index("div.arb")]
+            t = re.sub(r"\.tm\{border-bottom:1px dotted.*?(?=div\.arb)", lambda m: css, t, count=1, flags=re.S)
+        return coupe_lignes(habille(t))
     ABR = {}
     # 1. liste des sources → un seul bloc repliable
     m = re.search(r"(<h[23][^>]*>[^<]*(?:[Ss]ources|[Rr]éférences)[^<]*</h[23]>\s*)?<ol[^>]*>\s*(<li[^>]*>\s*\[S\d+\].*?)</ol>", t, re.S)
@@ -109,7 +113,7 @@ def convert(t):
     t = re.sub(r"(?m)^[ \t]+", "", t); t = re.sub(r"[ \t]{2,}", " ", t); t = re.sub(r"\n{2,}", "\n", t)
     css = FONTE.join(("<style>", "")) + re.sub(r"\s*\n\s*", "", CSS)[len("<style>"):] if False else re.sub(r"\s*\n\s*", "", CSS).replace("<style>", "<style>" + FONTE, 1)
     t = t.replace("</head>", css + "</head>", 1) if "</head>" in t else css + t
-    t = habille_sigles(t, ABR)
+    t = habille(t, ABR)
     t = t.replace("</body>", MARQ + "</body>", 1) if "</body>" in t else t + MARQ
     return coupe_lignes(t)
 
@@ -121,30 +125,194 @@ def parse_sigles(s):
         if m and sum(c.isupper() or c.isdigit() for c in m.group(1)) >= 2: d[m.group(1)] = m.group(2).strip()   # un sigle, pas un mot
     return d
 
-def habille_sigles(t, abr):
-    """1re occurrence de chaque sigle, dans chaque point : survolable ou cliquable avec sa définition. Ni dans un titre, ni dans une fenêtre, ni dans un lien."""
-    if not abr: return t
-    rx = re.compile(r"(?<![\w\-/])(" + "|".join(sorted((re.escape(k) for k in abr), key=len, reverse=True)) + r")(?![\w\-/])")
-    out, seen, sk, sp, stack = [], set(), 0, 0, []
-    for p in re.split(r"(<[^>]+>)", t):
+# ---- ABRÉVIATIONS et MÉDICAMENTS : chaque occurrence habillée (Vial, 27.10.2026) ----------------------------------
+# « Aucune abréviation nulle part sans être survolable avec sa définition. » « Aucun médicament mentionné sans être cliquable
+# avec sa classification (DCI, classe ATC, groupe et chefs de file, indications, posologies AIPS). »
+# Habillage : CHAQUE occurrence, hors titres (h1–h6, summary, caption), hors balises, hors bibliographie ; les copies portent
+# data-auto="1" (ignorées par les comptes de termes et par la règle « aucune fenêtre au point 13 »).
+# Contrôle (`manques_forme`) : sigle sans définition nulle part, médicament sans fenêtre → CRITIQUE (signalé à l'agent).
+DEFAUTS = {"DCI": "dénomination commune internationale", "ATC": "classification anatomique, thérapeutique et chimique des médicaments (OMS)",
+           "AIPS": "information professionnelle suisse sur les médicaments (Swissmedic)", "OMS": "Organisation mondiale de la santé",
+           "CIM-11": "Classification internationale des maladies, 11e révision (OMS)", "CIM-10": "Classification internationale des maladies, 10e révision (OMS)",
+           "DSM-5": "Manuel diagnostique et statistique des troubles mentaux, 5e édition (APA)", "OFSP": "Office fédéral de la santé publique",
+           "OFS": "Office fédéral de la statistique", "DX": "diagnostic différentiel numéroté de la situation clinique de départ"}
+# jamais des sigles : formules chimiques usuelles
+EXC_SIGLES = {"O2", "CO2", "H2O", "H2", "N2", "NaCl", "KCl", "CaCl2", "NaHCO3"}
+# « mous » : habillés s'ils sont définis, jamais signalés (codes ATC/CIM, stades TNM, lettre + chiffres, chiffres romains)
+SOFT = re.compile(r"^(?:[A-Z]\d{1,3}(?:\.\d+)?|[A-Z]\d\d[A-Z]{1,2}\d{0,2}|[A-Z]{1,2}\d{1,3}\.\d+|[IVX]{2,5}|[A-Z]{2}\d{2})$")
+EXC_MEDS = {"cocaïne", "spécialité", "cholestérol", "ldl-cholestérol", "hdl-cholestérol", "somatostatine", "statine", "anthracycline", "azole", "imidazole", "triazole",
+            "thiazole", "benzimidazole", "pénicilline g", "auristatine", "monométhyl-auristatine", "créatinine", "mycine", "cycline"}
+SUFFIXES = re.compile(r"(?<![\wÀ-ÿ-])((?:[a-zà-ÿ]+-)*[a-zà-ÿ]{2,}(?:pril|sartan|azole|mab|tinib|statine|olol|oxacine|cilline|dipine|parine|triptan|setron|gliptine|gliflozine|"
+                      r"cycline|mycine|[aeiou]vir|coxib|afil|lukast|dronate|sémide|thiazide|zépam|zolam|oxétine|tropium|caïne|profène|tégravir))(?![\wÀ-ÿ-])", re.I)
+RX_JETON = re.compile(r"(?<![\wÀ-ÿ/])([A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)(?![\wÀ-ÿ/])")
+_RX_TAG = re.compile(r"(<!--.*?-->|</?[a-zA-Z][^>]*>)", re.S)   # « glycémie < 3 » n'est pas une balise
+_SUIVIS = ("div", "details", "span", "a", "abbr", "h1", "h2", "h3", "h4", "h5", "h6", "summary", "caption", "title", "script", "style")
+
+def est_sigle(tok):
+    """≥ 2 majuscules ou chiffres consécutifs dont une majuscule (TSH, HbA1c, CIM-11, qSOFA) ; pas un mot capitalisé (Child-Pugh, PubMed)."""
+    return tok not in EXC_SIGLES and any(re.search(r"[A-Z][A-Z0-9]|[0-9][A-Z]", x) for x in tok.split("-"))
+
+def _nature(tag):
+    m = re.match(r"<\s*([a-zA-Z0-9]+)", tag); n = m.group(1).lower() if m else ""
+    cl = re.search(r'class="([^"]*)"', tag); cl = cl.group(1).split() if cl else []
+    if n in ("h1", "h2", "h3", "h4", "h5", "h6", "summary", "caption", "title"): k = "titre"
+    elif n in ("script", "style"): k = "code"
+    elif (n == "details" and "refs" in cl) or (n == "div" and "sb" in cl): k = "biblio"
+    elif n == "div" and re.search(r'id="rappel"', tag): k = "rappel"
+    elif (n in ("span", "a") and "data-auto" in tag) or (n == "abbr" and "data-k" in tag): k = "auto"
+    elif n == "div" and "mb" in cl: k = "df"
+    elif n == "span" and "tm" in cl: k = "tm"
+    elif n == "span" and "df" in cl: k = "df"
+    elif n == "span" and "dxc" in cl: k = "dxc"
+    else: k = None
+    return n, k
+
+def segments(t):
+    """Découpe le HTML en (morceau, est_balise, contexte). Contexte du texte : titre, code, biblio, auto, rappel, terme (mot déjà
+    survolable), fenetre (contenu d'une fenêtre .df) ou libre."""
+    pile = []
+    for p in _RX_TAG.split(t):
+        if not p: continue
         if p.startswith("<"):
-            low = p.lower()
-            if re.match(r"<h3\b", low): seen = set()
-            if re.match(r"<(h[1-6]|summary|title|caption|a|script|style|button|label|option)\b", low): sk += 1
-            elif re.match(r"</(h[1-6]|summary|title|caption|a|script|style|button|label|option)>", low): sk = max(0, sk - 1)
-            if low.startswith("<span"):
-                if sp or re.search(r'class="(?:tm|tm med|df|dxc|dxt|org|dfn|chip)"', low): sp += 1
-            elif low.startswith("</span") and sp: sp -= 1
-            out.append(p); continue
-        if sk or sp or len(p) < 2: out.append(p); continue
-        def sub(m):
-            k = m.group(1)
-            if k in seen: return k
-            seen.add(k)
-            d = abr[k].replace("&", "&amp;").replace("<", "&lt;")
-            return f'<span class="tm" tabindex="0">{k}<span class="df"><b>{k}</b> : {d}</span></span>'
-        out.append(rx.sub(sub, p))
-    return "".join(out)
+            if p.startswith("<!--"): yield p, True, None; continue
+            if p.startswith("</"):
+                n = p[2:].strip(" >").lower()
+                if n in _SUIVIS and any(x[0] == n for x in pile):
+                    while pile and pile.pop()[0] != n: pass
+            else:
+                n, k = _nature(p)
+                if n in _SUIVIS and not p.endswith("/>"): pile.append((n, k))
+            yield p, True, None; continue
+        ks = [k for _, k in pile if k]
+        if any(k in ("titre", "code", "biblio", "auto") for k in ks): c = next(k for k in ("code", "titre", "biblio", "auto") if k in ks)
+        else:
+            c = "libre"
+            for k in reversed(ks):
+                if k in ("tm", "df", "dxc"): c = {"tm": "terme", "df": "fenetre", "dxc": "libre"}[k]; break
+            if c != "terme" and "rappel" in ks: c = "rappel"
+        yield p, False, c
+
+def _txt(h): return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h)).strip()
+
+def _txt_def(h): return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"</?abbr[^>]*>", "", h))).strip()
+
+def definitions(t, abr=None):
+    """Sigle → définition. Priorité croissante : valeurs par défaut du harnais, fenêtres .tm dont le terme est un sigle,
+    lignes « Abréviations : », définitions déjà posées par une conversion antérieure, liste du préambule."""
+    d = dict(DEFAUTS)
+    for m in re.finditer(r'<span class="tm"[^>]*>([^<]{2,16})<span class="df">(.*?)</span></span>', t, re.S):
+        k = m.group(1).strip(" :"); v = _txt_def(m.group(2))
+        if est_sigle(k) and " " not in k and v: d[k] = re.sub(r"^" + re.escape(k) + r"\s*:\s*", "", v)
+    for ab in re.findall(r"Abréviations\s*:(.*?)(?:</p>|</div>|</li>)", t, re.S): d.update(parse_sigles(re.sub(r"<[^>]+>", " ", ab)))
+    for k, v in re.findall(r'abbr\[data-k="([^"]+)"\]::after\{content:"((?:[^"\\]|\\.)*)"\}', t):
+        v = re.sub(r"\\3c ", "<", re.sub(r"\\3e ", ">", v)).replace('\\"', '"').replace("\\\\", "\\"); d[k] = re.sub(r"^" + re.escape(k) + r" : ", "", v)
+    d.update(abr or {})
+    return d
+
+def _noms_med(nom, df):
+    """Noms d'un médicament : terme de la fenêtre, DCI, marques citées sur la ligne DCI."""
+    n = {re.sub(r"[®™\s]+$", "", _txt(nom)).strip(" :.,")}
+    l = re.search(r"DCI\s*:?\s*(?:</b>)?\s*(.*?)(?:<br|<ul|\. |$)", df, re.S)
+    if l:
+        ligne = _txt(l.group(1))
+        for x in re.split(r"\s*(?:,|;|\bet\b|\+|/|\(|\))\s*", ligne): n.add(x.strip(" .:®™"))
+    return {x for x in n if len(x) >= 4 and not re.match(r"^\d", x) and x.lower() not in EXC_MEDS}
+
+def fenetres_med(t):
+    """Fenêtres canoniques (non auto) : nom → (terme, html de la fenêtre)."""
+    out = {}
+    for m in re.finditer(r'<span class="tm med"(?![^>]*data-auto)[^>]*>(.*?)<span class="df">(.*?)</span></span>', t, re.S):
+        for x in _noms_med(m.group(1), m.group(2)): out.setdefault(x.lower(), m.group(2))
+    return out
+
+def _rx_noms(noms):
+    if not noms: return None
+    return re.compile(r"(?<![\wÀ-ÿ-])(" + "|".join(sorted((re.escape(k) for k in noms), key=len, reverse=True)) + r")([®™])?(?![\wÀ-ÿ-])", re.I)
+
+def _id_med(df): return "med-" + __import__("hashlib").sha1(df.encode()).hexdigest()[:8]
+
+def habille(t, abr=None):
+    """CHAQUE occurrence de médicament (hors fenêtres) devient un lien vers la bande de sa fenêtre (une bande par médicament, en bas
+    de page, comme les sources) ; CHAQUE sigle défini (y compris dans les fenêtres) devient survolable. Idempotent."""
+    meds = fenetres_med(t); rxm = _rx_noms(meds); defs = definitions(t, abr); vus = {}
+    out = []
+    for p, bal, c in segments(t):
+        if bal or c in ("titre", "code", "biblio", "auto", "terme") or not p.strip(): out.append(p); continue
+        if not (rxm and c in ("libre", "rappel")): out.append(_sigles_dans(p, defs)); continue
+        k = 0
+        for m in rxm.finditer(p):
+            df = meds[m.group(1).lower()]; i = _id_med(df); vus.setdefault(i, (m.group(1), df))
+            out.append(_sigles_dans(p[k:m.start()], defs)); out.append(f'<a class="tm med" data-auto="1" href="#{i}">{m.group(0)}</a>'); k = m.end()
+        out.append(_sigles_dans(p[k:], defs))
+    t = "".join(out)
+    bandes = "".join(f'<div class="mb" id="{i}"><b>{H.escape(nom)}</b> · ' + "".join(x if x.startswith("<") else _sigles_dans(x, defs) for x in _RX_TAG.split(df))
+                     + ' <a class="fe" href="#">fermer</a></div>\n' for i, (nom, df) in vus.items() if f'id="{i}"' not in t)
+    if bandes: t = t.replace("</body>", bandes + "</body>", 1) if "</body>" in t else t + bandes
+    return style_sigles(t, defs)
+
+def _sigles_dans(q, defs):
+    """Habille les sigles définis d'un morceau de texte sans balise."""
+    def sub(m):
+        tok = m.group(1)
+        if re.match(r"[®™]", m.string[m.end():m.end() + 1]): return tok
+        if tok in defs: return _tm(tok, defs[tok])
+        if "-" in tok and any(x in defs for x in tok.split("-")): return "-".join(_tm(x, defs[x]) if x in defs and est_sigle(x) else x for x in tok.split("-"))
+        return tok
+    return RX_JETON.sub(sub, q)
+
+def _tm(k, d):
+    """Sigle survolable : <abbr class="ab" data-k="TSH">TSH</abbr> ; la définition est écrite UNE fois, dans <style id="sigles">."""
+    return f'<abbr class="ab" data-k="{k}" tabindex="0">{k}</abbr>'
+
+def _css_chaine(s):
+    s = re.sub(r"\s+", " ", re.sub(r"</?[a-zA-Z][^>]*>", "", H.unescape(s))).strip()
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"').replace("<", "\\3c ").replace(">", "\\3e ") + '"'
+
+def style_sigles(t, defs):
+    """Une règle par sigle employé : abbr[data-k="TSH"]::after{content:"TSH : …"} ; survol et focus l'affichent."""
+    ks = sorted(set(re.findall(r'<abbr class="ab" data-k="([^"]+)"', t)))
+    if not ks: return t
+    css = ('<style id="sigles">abbr.ab{border-bottom:1px dotted #7c3aed;text-decoration:none;cursor:help;position:relative}abbr.ab::after{display:none;position:absolute;left:0;top:1.5em;z-index:30;'
+           'width:max-content;max-width:min(300px,80vw);background:#1e1b4b;color:#fff;border-radius:8px;padding:6px 9px;font-size:.85rem;font-weight:400;line-height:1.35;white-space:normal;box-shadow:0 6px 20px #0006}'
+           'abbr.ab:hover::after,abbr.ab:focus::after{display:block}'
+           + "".join(f'\nabbr[data-k="{k}"]::after{{content:{_css_chaine(k + " : " + defs[k])}}}' for k in ks if k in defs) + "\n</style>")   # une règle par ligne : jamais coupée dans une chaîne
+    t = re.sub(r'<style id="sigles">.*?</style>', "", t, flags=re.S)
+    return t.replace("</head>", css + "</head>", 1) if "</head>" in t else css + t
+
+def texte_libre(t):
+    """Texte que le lecteur voit sans fenêtre survolable : contextes libre et fenetre (sans rappel, titres, bibliographie)."""
+    return " ".join(p for p, bal, c in segments(t) if not bal and c in ("libre", "fenetre"))
+
+def manques_forme(t):
+    """Après conversion : (sigles sans définition survolable, médicaments sans fenêtre), avec leurs occurrences."""
+    from collections import Counter
+    meds = fenetres_med(t); rxm = _rx_noms(meds); sig, med = Counter(), Counter()
+    for p, bal, c in segments(t):
+        if bal or c not in ("libre", "fenetre"): continue
+        for m in RX_JETON.finditer(p):
+            tok = m.group(1); suiv = p[m.end():m.end() + 1]
+            if suiv in "®™" and suiv: continue
+            if est_sigle(tok) and not SOFT.match(tok) and not (rxm and rxm.fullmatch(tok)):
+                if not re.match(r"^(?:[IVX]+)$", tok): sig[tok] += 1
+        if c != "libre": continue
+        for m in re.finditer(r"(?<![\wÀ-ÿ-])([A-ZÀ-Ý][\wÀ-ÿ-]{2,}(?: [A-ZÀ-Ý][\wÀ-ÿ-]+){0,2})\s?[®™]", p):
+            nm = re.sub(r"^(?:[A-Z]{3,} )+", "", m.group(1))
+            if nm.lower() not in EXC_MEDS: med[nm] += 1
+        for m in SUFFIXES.finditer(p):
+            if m.group(1).lower() not in EXC_MEDS and not re.search(r"s$", m.group(1)): med[m.group(1).lower()] += 1
+        if rxm:
+            for m in rxm.finditer(p): med[m.group(1)] += 1
+    return sig, med
+
+def fenetres_incompletes(t):
+    """Chaque fenêtre de médicament (canonique) : DCI, classe ATC, groupe et chefs de file, indications, posologie AIPS."""
+    EL = (("DCI", r"DCI\s*:"), ("classe ATC", r"(?s)[Cc]lasse.*?(?:ATC|\b[A-Z]\d\d[A-Z]{0,2})"), ("groupe et chefs de file", r"(?s)Groupe.*[Cc]hefs? de file"),
+          ("indications", r"[Ii]ndication"), ("posologie AIPS", r"(?s)(?:[Pp]osologie|[Dd]ose).*AIPS|AIPS.*(?:[Pp]osologie|[Dd]ose)"))
+    out = {}
+    for m in re.finditer(r'<span class="tm med"(?![^>]*data-auto)[^>]*>(.*?)<span class="df">(.*?)</span></span>', t, re.S):
+        df = _txt_def(m.group(2)); manque = [n for n, rx in EL if not re.search(rx, df)]
+        if manque: out.setdefault(_txt(m.group(1)), manque)
+    return out
 
 def coupe_lignes(t, max_l=2900):
     out = []
@@ -170,10 +338,11 @@ def controle(t):
     if p1_:
         corps1 = re.sub(r"(?is)<div class=\"arb\">.*?</div>(?=\s*<(?:p|div|table|h))", " ", p1_.group(1), count=1); corps1 = re.sub(r"(?s)<span class=\"(?:df|dxc)\">.*?</span></span>", " ", corps1); w1_ = len(re.sub(r"<[^>]+>", " ", corps1).split())
         if w1_ > 140: crit.append(f"point 1 trop long : {w1_} mots après la classification (≤ 140) : définis en peu de mots, densité maximale, aucune information perdue (déplace le détail dans un mot cliquable)")
-    for m_ in re.finditer(r'class="tm med"[^>]*>([^<]+)<span class="df">(.*?)</span></span>', t, re.S):
-        d_ = m_.group(2)
-        if not (re.search(r"DCI\s*:", d_) and re.search(r"Classe\s*:", d_) and re.search(r"Groupe\s*:", d_) and re.search(r"[Cc]hefs? de file", d_)):
-            crit.append(f"fenêtre du médicament « {m_.group(1).strip()} » incomplète : il faut DCI : …, Classe : …, Groupe : … puis les chefs de file du groupe avec indication et posologie AIPS"); break
+    inc = fenetres_incompletes(t)
+    if inc: crit.append("fenêtres de médicament incomplètes (chaque fenêtre : DCI, classe ATC, groupe et chefs de file, indications, posologie AIPS) : " + " ; ".join(f"{k} (manque : {', '.join(v)})" for k, v in list(inc.items())[:12]) + (" …" if len(inc) > 12 else ""))
+    sig_, med_ = manques_forme(t)
+    if sig_: crit.append(f"sigles sans définition survolable ({len(sig_)} sigles, {sum(sig_.values())} occurrences ; définis nulle part) : " + ", ".join(f"{k} ×{n}" for k, n in sig_.most_common(25)) + (" …" if len(sig_) > 25 else "") + " → écris une fois « SIGLE = définition » dans la ligne « Abréviations : » du préambule (ou une fenêtre .tm) : chaque occurrence devient survolable")
+    if med_: crit.append(f"médicaments mentionnés sans fenêtre ({len(med_)}) : " + ", ".join(f"{k} ×{n}" for k, n in med_.most_common(20)) + (" …" if len(med_) > 20 else "") + " → crée UNE fenêtre <span class=\"tm med\" tabindex=\"0\">Nom<span class=\"df\">DCI : … Classe : … (ATC …). Groupe : … Chefs de file : … Indications : … Posologie AIPS : …</span></span> : chaque occurrence devient cliquable")
     txt_ = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>|<table.*?</table>|<details class=\"refs\".*?</details>", " ", t))
     ph_ = [len(x.split()) for x in re.split(r"(?<=[.!?;])\s+", txt_) if len(x.split()) > 3]
     if ph_:
@@ -184,7 +353,8 @@ def controle(t):
     cliq = set(re.findall(r'class="tm med"[^>]*>([A-Za-zÀ-ÿ\-]+)', t))
     manque = sorted(m for m in marques if m not in cliq)
     if manque: crit.append("médicaments non cliquables (première occurrence : <span class=\"tm med\" tabindex=\"0\">Nom®<span class=\"df\">classe ATC · famille · alternatives de la même classe</span></span>) : " + ", ".join(manque[:12]))
-    if t.count('class="tm med"') < 6: crit.append("médicaments cliquables insuffisants : %d < 6 (marques ® ET dénominations communes)" % t.count('class="tm med"'))
+    n_med = len(re.findall(r'class="tm med"(?![^>]*data-auto)', t))
+    if n_med < 6: crit.append("médicaments cliquables insuffisants : %d < 6 (marques ® ET dénominations communes)" % n_med)
     if not s["arbre"] and 'class="arb"' not in t: crit.append("point 1 : classification absente : <details class=\"arbre\"> (liste ul/li imbriquée, du général au particulier, l'entité du chapitre en <b>)")
     elif 'class="arb"' in t and t.count('class="niv') < 3: crit.append("classification trop courte : au moins 3 niveaux, du général au particulier")
     if s["termes"] < 20: crit.append(f"termes cliquables insuffisants : {s['termes']} < 20 (<span class=\"tm\" tabindex=\"0\">terme<span class=\"df\">définition brève</span></span>)")
