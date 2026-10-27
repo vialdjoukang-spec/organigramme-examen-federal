@@ -1,0 +1,18 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "brain.evenement/1",
+ "title": "Événement du journal de circulation du BRAIN-HARNESS (une ligne JSONL ; lu par BRAIN_3D.html et vérifié par s14_journal)",
+ "type": "object",
+ "required": ["v", "ts", "run", "seq", "type", "de", "vers"],
+ "properties": {
+  "v": {"const": 1},
+  "ts": {"type": "string", "description": "horodatage ISO 8601 local"},
+  "run": {"type": "string", "description": "identifiant du passage (fichier + empreinte courte)"},
+  "seq": {"type": "integer", "minimum": 0, "description": "rang strictement croissant dans le passage"},
+  "type": {"enum": ["medical", "langue", "forme", "memoire", "doleance", "jetons"], "description": "type de signal : couleur dans la vue 3D"},
+  "de": {"type": "string", "description": "nœud émetteur (EXT, α1…α14, β1…β14, S1…S5, O1…O5, MEM, BUS, GARD, SORTIE, ou id de scriptone)"},
+  "vers": {"type": "string", "description": "nœud récepteur"},
+  "fichier": {"type": "string"}, "point": {"type": ["integer", "null"]}, "code": {"type": "string"},
+  "severite": {"enum": ["CRITIQUE", "GRAVE", "MOYEN", "DETAIL", null]}, "jetons": {"type": "integer"}, "msg": {"type": "string"}
+ }
+}

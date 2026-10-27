@@ -24,7 +24,16 @@ prélever préparer prescrire présenter préserver presser prévenir procéder 
 recommander rechercher récupérer réduire refléter régler relever remplacer renforcer repérer reposer représenter résister respecter rester
 restaurer résulter retarder retirer révéler risquer séparer signaler signer simuler situer soigner souligner stabiliser suggérer supprimer
 surveiller suspecter tarder témoigner tenter tester toucher traiter transférer transmettre trancher transporter trouver utiliser valider
-varier vérifier viser""".split()
+varier vérifier viser donner appeler répéter soulager monitorer infiltrer obstruer persister rompre irriguer oxygéner perfuser
+ventiler intuber réchauffer refroidir frissonner stimuler inhiber bloquer libérer sécréter fixer lier coder exprimer muter
+déposer rétrécir dilater contracter relâcher comprimer drainer filtrer excréter éliminer absorber distribuer métaboliser cumuler
+saigner coaguler thromboser emboliser infecter coloniser envahir disséminer métastaser récidiver chroniciser compenser décompenser
+hydrater réhydrater nourrir alimenter doubler tripler chuter grimper monter descendre baisser élever abaisser normaliser corriger
+prolonger raccourcir accélérer ralentir freiner stopper arrêter reprendre relancer adresser référer hospitaliser opérer amputer
+greffer suturer ponctionner biopsier radiographier scanner échographier auscultater palper percuter inspecter interroger dépister
+vacciner immuniser traiter calmer apaiser sédater anesthésier endormir réveiller ranimer réanimer choquer défibriller masser
+insuffler aspirer intuber extuber sevrer stopper éduquer conseiller expliquer rassurer orienter accompagner pallier combiner
+alterner associer substituer remplacer titrer adapter majorer minorer espacer fractionner répartir prendre""".split()
 IRR = """est sont a ont était étaient sera seront serait seraient fut furent avait avaient aura auront aurait auraient peut peuvent pouvait
 pourra pourrait doit doivent devait devra devrait faut fallait faudra faudrait fait font faisait fera feront ferait va vont allait ira iront
 vient viennent venait tient tiennent maintient maintiennent obtient obtiennent contient contiennent devient deviennent survient surviennent
@@ -45,7 +54,7 @@ s'agit s'accompagne s'explique s'installe s'observe s'aggrave s'améliore""".spl
 
 # homographes nom/verbe à la 3e personne du singulier : retirés (une phrase nominale « La mesure de la pression. » ne doit pas passer pour verbale)
 HOMOGRAPHES = set("""mesure cause marque forme porte place note garde contrôle change pose dose signe risque aide manque compte demande fixe règle
-poste base charge sonde ligne face file perte trace masque passe reste_n""".split())
+poste base charge sonde ligne face file perte trace masque""".split())
 
 
 def conj(inf):

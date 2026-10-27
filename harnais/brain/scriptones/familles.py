@@ -65,6 +65,7 @@ def dans(spans, p):
 
 
 def details(t): return _spans(t, r"(?i)<details\b[^>]*>")
+def arbres(t): return _spans(t, r'(?i)<details\b[^>]*class="arbre"[^>]*>|<div\b[^>]*class="arb"[^>]*>')
 def tableaux(t): return _spans(t, r"(?i)<table\b[^>]*>")
 
 
@@ -72,7 +73,8 @@ def blocs(t, n, tags=("p", "li"), hors_details=False):
     """Blocs de texte du point n (hors fenêtres .df/.dxc et bandes) ; hors_details : seulement le texte affiché sans clic."""
     z = zone(t, n)
     if not z: return []
-    B = [b for b in bus.blocs(t, z[0], z[1], tags) if not re.search(r"(?i)<(?:p|li)\b", b[2])]
+    Ar = arbres(t)
+    B = [b for b in bus.blocs(t, z[0], z[1], tags) if not re.search(r"(?i)<(?:p|li)\b", b[2]) and not dans(Ar, b[0])]
     if hors_details:
         Dt = details(t); B = [b for b in B if not dans(Dt, b[0])]
     return B
@@ -377,29 +379,44 @@ def m_R(n):
 
 # ── α·H phrases verbales et longueur ──
 SUJETS = re.compile(r"(?i)\b(?:qui|il|elle|ils|elles|on|cela|ceci|ce|ne|n['’]|se|s['’]|y)\s+([a-zà-ÿ]+)")
+DET = r"(?:le|la|les|l['’]|un|une|des|ce|cet|cette|ces|son|sa|ses|leur|leurs|chaque|tout|toute|tous|toutes|aucun|aucune)"
+SUITE = r"(?:le|la|les|l['’]|un|une|des|du|de|d['’]|à|au|aux|en|par|pour|sur|dans|avec|sans|vers|chez|sous|entre|que|qu['’]|si|pas|plus|moins|très|\d|[a-zà-ÿ]+ment\b|[,.;:]|$)"
+RX_SV = re.compile(r"(?i)\b%s\s+(?:[\w’'()-]+\s+){0,4}?([a-zà-ÿ]{3,}(?:e|ent|it|ait|aient|ont|ra|ront|ut|ue))\s*%s" % (DET, SUITE))
+NON_VERBE = re.compile(r"(?:ique|ale|elle|ive|euse|aire|ée|ible|able|ienne|ème|ure|ance|ence|ie|té|ose|ite|ome|ine|ole|isme|ide|ate|gie|thie|émie|ase|ège|ane|one|ule|ève|ade|age|ette|ire|èle|ette|ude|ure|tre|bre|cle|gue|que)$")
+
+
+def _infinitif(w, V):
+    if w.endswith("er"): s = w[:-2]; return any(s + x in V for x in ("e", "ent", "ait", "era", "ent"))
+    if w.endswith("ir"): return w[:-1] + "t" in V or w[:-2] + "issent" in V or w[:-2] + "it" in V
+    if w.endswith("re"): return w[:-2] + "t" in V or w[:-1] + "nt" in V or w[:-3] + "t" in V
+    return False
 
 
 def verbale(ph):
+    """Phrase verbale ? (stdlib) : forme finie du lexique (verbes.json, tiré de spaCy sur 177 cours) ; « sujet + mot à désinence verbale + suite » ;
+    pronom sujet + verbe ; consigne à l'infinitif (« Poser une voie veineuse. ») ; flèche ou question."""
     if "→" in ph or "?" in ph or "⇒" in ph: return True
     V = verbes(); mots = re.findall(r"[a-zà-ÿœ]+(?:['’][a-zà-ÿ]+)?", ph.lower())
     if any(w in V or w.split("'")[-1].split("’")[-1] in V for w in mots): return True
+    if mots and _infinitif(mots[0], V): return True
+    if any(not NON_VERBE.search(m.group(1).lower()) for m in RX_SV.finditer(ph)): return True
     return any(m.group(1) not in bus.VIDES and len(m.group(1)) > 2 for m in SUJETS.finditer(ph))
 
 
 def a_H(me, n, t, nom, opt):
-    D = []; nom_ = longs = 0; L = phrases(t, n)
+    D = []; nom_ = longs = 0; L = phrases(t, n); cap = 10 ** 6 if opt.get("sans_plafond") else 12
     for pa, ph in L:
         nm = len(ph.split())
-        if nm >= 4 and not verbale(ph):
+        if nm >= 4 and not verbale(ph) and not re.match(r"[a-zà-ÿ]", ph):       # « critère a ; » : suite d'une phrase introduite par « : »
             nom_ += 1
-            if nom_ <= 12:
+            if nom_ <= cap:
                 D.append(bus.doleance(me, "AH1", nom, bus.ancre(t, pa, ph), "MOYEN", f"phrase nominale au point {n} (aucun verbe conjugué)",
                                       "réécrire en phrase verbale (sujet + verbe conjugué), sans retrancher aucune notion ni aucun chiffre", "agent", ph[:200]))
         if nm > 35:
             longs += 1
             D.append(bus.doleance(me, "AH2", nom, bus.ancre(t, pa, ph), "MOYEN", f"phrase de {nm} mots au point {n} (cible 8 à 20 mots)",
                                   "scinder en deux ou trois phrases verbales reliées par un connecteur (car, donc, alors que) ; tout reste", "agent", ph[:200]))
-    if nom_ > 12:
+    if nom_ > cap:
         D.append(bus.doleance(me, "AH1", nom, bus.ancre(t, zone(t, n)[0], f"{n}."), "MOYEN", f"{nom_ - 12} autres phrases nominales au point {n}",
                               "réécrire chaque phrase nominale du point en phrase verbale", "agent", f"{nom_} au total"))
     mots = [len(ph.split()) for _, ph in L]
@@ -407,7 +424,7 @@ def a_H(me, n, t, nom, opt):
 
 
 NOMINALES = ["Surveillance clinique rapprochée et bilan biologique complet.", "Prise en charge multidisciplinaire précoce du patient.",
-             "Recherche systématique des complications cardiaques et rénales.", "Évaluation initiale de la gravité selon le stade clinique."]
+             "Évaluation initiale de la gravité selon le stade clinique.", "Bilan biologique complet et imagerie thoracique de contrôle."]
 LONGUE = ("Le médecin évalue la température centrale, la conscience, le rythme cardiaque, la ventilation, la glycémie, la natrémie, la kaliémie, "
           "les lactates, la fonction rénale et la coagulation avant de décider du lieu de transfert du patient vers un centre adapté à sa gravité et à son âge.")
 
@@ -593,10 +610,11 @@ def b_C(me, n, t, nom, opt):
     D = []; z = zone(t, n); M = {}
     if not z: return D, M
     h = titre(t, n); seg = t[h[1]:z[1]]; brut = _texte_brut(seg); k = 0
+    noeuds = [x for x in re.split(r"<[^>]*>", bus.masque(seg, bus.RX_STYLE)) if x.strip()]
     for code, rx, rep, msg, scr in RX_BC:
-        for m in list(rx.finditer(brut))[:4]:
+        for m in [m for x in noeuds for m in rx.finditer(x)][:4]:
             k += 1
-            D.append(bus.doleance(me, code, nom, bus.ancre(t, h[1], brut[max(0, m.start() - 30):m.end() + 20]), "MOYEN", f"{msg} (point {n})",
+            D.append(bus.doleance(me, code, nom, bus.ancre(t, h[1], m.string[max(0, m.start() - 30):m.end() + 20]), "MOYEN", f"{msg} (point {n})",
                                   f"corriger la typographie du nombre : b{n:02d}_C --appliquer (valeur inchangée)", "script", m.group(0)))
     for m in list(NON_SI.finditer(brut))[:4]:
         D.append(bus.doleance(me, "BC4", nom, bus.ancre(t, h[1], m.group(0)), "MOYEN", f"unité non SI « {m.group(1)} » au point {n}",
@@ -605,7 +623,7 @@ def b_C(me, n, t, nom, opt):
         S = bus.sections(t); corps = set()
         for p in range(1, 13):
             if p in S: corps |= nombres(bus.texte(bus.masque(t[S[p][0]:S[p][1]], bus.RX_STYLE)))
-        ici = nombres(texte_point(t, n)); hors = sorted(ici - corps - nombres(P[n]["titre"]))
+        ici = nombres(bus.texte(bus.masque(t[h[1]:z[1]], bus.RX_STYLE))); hors = sorted(ici - corps)
         M["chiffres_hors_corps"] = hors
         for x in hors[:5]:
             D.append(bus.doleance(me, "BC3", nom, bus.ancre(t, h[1], x), "GRAVE", f"le chiffre {x} du point {n} n'apparaît dans aucun des points 1 à 12",
@@ -635,7 +653,7 @@ def m_C(n):
 # ── β·S sources du point ──
 FIG = re.compile(r"\d+(?:[,.]\d+)?\s?(?:%|‰)|pour 1[  ]?000\b|pour 100[  ]?000|/\s?100[  ]?000|\bn\s?=\s?\d|\b(?:OR|RR|HR|IC)\s?(?:95\s?%)?\s?[=:]?\s?\d")
 MARQ = re.compile(r'<sup class="r">|\[S\d+\]|href="#sb-\d+"|\((?:[^()]*\b(?:OFS|OFSP|Obsan|OMS|WHO|ESC|ERC|EAACI|KDIGO|SSMIG)\b[^()]*|[^()]*\b(?:19|20)\d\d\b[^()]*)\)')
-DOSE_V = re.compile(r"(?<![\w,.])\d+(?:[,.]\d+)?\s?(?:mg|µg|mcg|g|UI|mmol|mL)(?:\s?/\s?(?:kg|j|jour|h|m²|dose))*(?![\w])")
+DOSE_V = re.compile(r"(?<![\w,.])\d+(?:[,.]\d+)?\s?(?:mg|µg|mcg|g|UI|mmol|mL)(?:\s?/\s?(?:kg|j|jour|h|m²|dose))*(?![\w])(?!\s?/\s?(?:L|l|dL|dl|mL)\b)")
 
 
 def b_S(me, n, t, nom, opt):
@@ -647,7 +665,7 @@ def b_S(me, n, t, nom, opt):
         vis = bus.texte_visible(inner)
         if FIG.search(vis) and not MARQ.search(inner):
             k1 += 1
-            D.append(bus.doleance(me, "BS1", nom, bus.ancre(t, pa, vis), "GRAVE", f"bloc chiffré sans source au point {n}",
+            D.append(bus.doleance(me, "BS1", nom, bus.ancre(t, pa, vis), "GRAVE" if n in (2, 8, 9, 11) else "MOYEN", f"bloc chiffré sans source au point {n}",
                                   "ajouter le renvoi [Sn] de la source lue qui porte ce chiffre ; sinon retirer le chiffre (jamais inventé)", "agent", vis[:200]))
         if P[n].get("doses") and DOSE_V.search(vis) and not MARQ.search(inner):
             k3 += 1
@@ -688,12 +706,13 @@ def b_M(me, n, t, nom, opt):
         except Exception:
             M["non_applicables"] += 1; continue
         an = (lambda *a: ([], {})) if av == f else FAM["A"][f]["analyser"]
-        i = ident("A", f, n); c0 = sum(d["code"] == code for d in an(i, n, t, nom, {})[0]); c1 = sum(d["code"] == code for d in an(i, n, x, nom, {})[0])
+        i = ident("A", f, n); sig = lambda y: {(d["code"], d["constat"], d["preuve"]) for d in an(i, n, y, nom, {"sans_plafond": 1})[0] if d["code"][:2] == code[:2]}
+        s0 = sig(t); s1 = sig(x); c0, c1 = len(s0), len(s1 - s0)
         M["testees"] += 1
-        if c1 <= c0:
+        if not (s1 - s0):
             M["aveugles"].append(f)
             D.append(bus.doleance(me, "BM1", nom, bus.ancre(t, zone(t, n)[0], f"{n}."), "GRAVE", f"la synapse α{n}·{f} ne voit pas « {lab} » injecté dans ce fichier : elle est aveugle ici",
-                                  f"relire à la main le point {n} pour « {SYN['familles_alpha'][f]['nom']} » ; escalade au nœud Opus du domaine ; signaler au gardien", "agent", f"{code} : {c0} → {c1}"))
+                                  f"relire à la main le point {n} pour « {SYN['familles_alpha'][f]['nom']} » ; escalade au nœud Opus du domaine ; signaler au gardien", "agent", f"{code} : {c0} signalées avant, aucune nouvelle après injection"))
     return D, M
 
 
@@ -726,10 +745,10 @@ def b_L(me, n, t, nom, opt):
     for m in list(RX_ANGL.finditer(txt))[:4]:
         D.append(bus.doleance(me, "BL2", nom, bus.ancre(t, h[1], m.group(0)), "MOYEN", f"anglicisme « {m.group(0)} » (point {n})",
                               f"écrire « {ANGL[m.group(0).lower()]} »", "agent", txt[max(0, m.start() - 30):m.end() + 30]))
-    brut = _texte_brut(t[h[1]:z[1]])
+    noeuds = [x for x in re.split(r"<[^>]*>", bus.masque(t[h[1]:z[1]], bus.RX_STYLE)) if x.strip()]
     for code, rx, rep, msg in RX_BL:
-        for m in list(rx.finditer(brut))[:3]:
-            D.append(bus.doleance(me, code, nom, bus.ancre(t, h[1], brut[max(0, m.start() - 20):m.end() + 20]), "DETAIL", f"{msg} (point {n})",
+        for m in [m for x in noeuds for m in rx.finditer(x)][:3]:
+            D.append(bus.doleance(me, code, nom, bus.ancre(t, h[1], m.string[max(0, m.start() - 20):m.end() + 20]), "DETAIL", f"{msg} (point {n})",
                                   f"corriger la typographie : b{n:02d}_L --appliquer (aucun mot changé)", "script", m.group(0)))
     return D, dict(vagues=v)
 
