@@ -41,6 +41,7 @@ def construire_bac():
             except OSError: pass
         shutil.rmtree(BAC)
     shutil.copytree(R / "harnais", BAC / "harnais", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    la = BAC / "harnais/grille14/LOT_ACTIF"; la.chmod(0o644) if la.exists() else None; la.write_text(LOT + "\n")   # le bac teste LOT_001, quel que soit le LOT actif réel
     (BAC / ".cache").mkdir(parents=True)
     if (R / ".cache/g_in").exists(): (BAC / ".cache/g_in").symlink_to(R / ".cache/g_in")
     WK.mkdir(parents=True)
@@ -609,7 +610,7 @@ def _():
 @test("contracteur : `etat` du clone réel KB3 sur une copie (lecture seule) et B3 etat répondent")
 def _():
     d = T / "copies"; d.mkdir(exist_ok=True); shutil.copy2(R / f".cache/travail/LOT_{LOT}" / nomf(7), d / nomf(7))
-    r = subprocess.run([sys.executable, str(R / "harnais/agents/KB3.py"), "etat", str(d / nomf(7))], capture_output=True, text=True, cwd=R, env=ENV, timeout=60)
+    r = subprocess.run([sys.executable, str(R / "harnais/agents/KB3.py"), "etat", str(d / nomf(7)), "--lot", LOT], capture_output=True, text=True, cwd=R, env=ENV, timeout=60)
     r2 = subprocess.run([sys.executable, str(R / "harnais/agents/B3.py"), "etat"], capture_output=True, text=True, cwd=R, env=ENV, timeout=60)
     return r.returncode == 0 and '"mots_actuels"' in r.stdout and r2.returncode == 0, f"codes {r.returncode},{r2.returncode}"
 
@@ -757,6 +758,13 @@ def _():
     intacts = all(hashlib.sha256(f.read_bytes()).hexdigest() == h0[f.name] for f in fs)
     res = " ; ".join(f"{k[8:].replace('Phase_B_V0_', '').replace('.html', '')} {v['sigles']}s/{v['meds']}m" for k, v in rap.items())
     return len(fs) == 16 and not regress and intacts, (f"RÉGRESSIONS {regress}" if regress else "0 régression") + f" · intacts {intacts} · sigles/médicaments non habillés : {res}"
+
+@test("BRAIN-HARNESS : tests des scriptones (contrat, dry-run, idempotence, empreintes, mutation) verts ; `cerveau` du moteur répond sans bloquer")
+def _():
+    r = subprocess.run([sys.executable, str(R / "harnais/brain/scriptones/test_scriptones.py")], capture_output=True, text=True, timeout=300, env=dict(ENV, BRAIN_SANS_NAVIGATEUR="1"))
+    nom = nomf(3); remettre(nom, conforme(3)); rc, out = agent("R2", "cerveau", nom)
+    ok = r.returncode == 0 and rc == 0 and "CERVEAU" in out and "Traceback" not in out
+    return ok, (r.stderr.strip().splitlines() or ["?"])[-1][:60] + f" · cerveau code {rc} · " + (out.strip().splitlines() or ["?"])[-1][:70]
 
 @test("SANTE.py : une ligne par rubrique, sans trace")
 def _():

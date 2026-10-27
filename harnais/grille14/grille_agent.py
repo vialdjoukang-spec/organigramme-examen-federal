@@ -7,6 +7,7 @@
   <id>.py lecon "<texte>"               ajoute une leçon à la mémoire permanente (5 au plus)
   <id>.py attendre <fichier>            auditeur : bloque jusqu'à 9 min tant que le rédacteur n'a pas terminé le fichier
   <id>.py etat                          mémoire et périmètre
+  <id>.py cerveau <fichier>             BRAIN-HARNESS : doléances typées (police, rythme, concision, budgets, arbre, tableaux) ; conseil, non bloquant
 Rédacteur (A, R1..R8) : fin = grille + checkpoint, sans commit. Auditeur (B1..B5) : fin = V1 (fond) et V2 (conformité) saisies, puis checkpoint avec commit.
 V1 = exactitude du fond ; V2 = conformité au Prompt ULTIME et à la grille des points."""
 import hashlib, json, re, subprocess, sys, time
@@ -159,6 +160,20 @@ def ecarts_points(html, pts):
     return E, st
 
 
+def cerveau(html, nom):
+    """Doléances du BRAIN-HARNESS (harnais/brain) ; None si le cerveau est absent : jamais bloquant, jamais une panne du moteur."""
+    try:
+        sys.path.insert(0, str(R / "harnais/brain")); import cerveau as CV
+    except ImportError:
+        return None
+    try:
+        return CV.analyser(html, nom, ecrire=not TEST)[0]
+    except BaseException as e:   # panne du cerveau : consignée et annoncée, jamais silencieuse, jamais bloquante
+        with open(MEM / "erreurs_moteur.log", "a", encoding="utf-8") as fh: fh.write(time.strftime("%F %T ") + f"cerveau : {type(e).__name__} : {str(e)[:300]}\n")
+        print(f"CERVEAU EN PANNE ({type(e).__name__}) : consignée pour le chef de production ; le contrôle de la grille reste valable.")
+        return []
+
+
 CAP = 3          # essais de `fin` au plus par agent et par fichier
 def reparer(html, lot, nom):
     """Réparations mécaniques gratuites : l'agent ne dépense aucun jeton dessus."""
@@ -253,7 +268,7 @@ def _main():
         print("## Règles du cours (extrait du gabarit)\n- Le texte est le cours, pour des médecins résidents : aucune mention de la conception, aucune date de rédaction, aucune genèse des sources.\n- Phrases de 8 à 20 mots, une idée, aucune nuance qui complique. Concis, dense, exhaustif.\n- Sources : [Sn] collés en exposant, rares ; liste unique « Sources » en fin de fichier.\n- Médicaments : fenêtre complète (DCI, classe, groupe avec chefs de file, indications, posologies AIPS).\n- Mots cliquables sobres, jamais dans un titre. Tableaux colorés ok/mo/ko.\n- Titre <h2>DX.n — nom exact de la liste.</h2>\n")
         print("## Ta mémoire permanente")
         print("\n".join(f"- {l}" for l in m["lecons"]) or "(vide)")
-        print("\n## Tes outils (tous gratuits)\n- `python3 harnais/agents/%s.py controle <fichier>` : écarts à la grille, point par point ; ouvre ton verrou\n- `python3 harnais/agents/%s.py fin <fichier>` : dernier contrôle + checkpoint ; lève le verrou\n- lecture ciblée : `python3 harnais/controle_lot.py extraire <fichier> --points N,N` ; AIPS : `python3 harnais/aips_texte.py <n°|--nom X> --section <mot>` ; PubMed : `python3 harnais/pubmed.py chercher|verifier` ou MCP\n- passage utile d'une longue source : `python3 harnais/grille14/passage.py <fichier_ou_url_en_cache> \"<mots>\"`" % (ag, ag))
+        print("\n## Tes outils (tous gratuits)\n- `python3 harnais/agents/%s.py controle <fichier>` : écarts à la grille, point par point ; ouvre ton verrou\n- `python3 harnais/agents/%s.py fin <fichier>` : dernier contrôle + checkpoint ; lève le verrou\n- lecture ciblée : `python3 harnais/controle_lot.py extraire <fichier> --points N,N` ; AIPS : `python3 harnais/aips_texte.py <n°|--nom X> --section <mot>` ; PubMed : `python3 harnais/pubmed.py chercher|verifier` ou MCP\n- passage utile d'une longue source : `python3 harnais/grille14/passage.py <fichier_ou_url_en_cache> \"<mots>\"`\n- `python3 harnais/agents/%s.py cerveau <fichier>` : doléances typées du BRAIN-HARNESS (conseil) ; applique la correction prescrite sans réinterpréter" % (ag, ag, ag))
         tache = f"{nom} {ag} LOT_{lot} " + ", ".join(per)
         r = subprocess.run(["python3", str(R / "harnais/bracelet/bracelet_suggest.py"), tache], capture_output=True, text=True, cwd=R)
         pr = R / (".cache/test_g14/PREUVE_EMBOITEMENT_test.txt" if TEST else "harnais/PREUVE_EMBOITEMENT.txt")
@@ -270,7 +285,7 @@ def _main():
     nom_f = f.name
     if nom_f not in per: print(f"HORS PÉRIMÈTRE : {nom_f} n'est pas à {ag}. STOP."); return 3
     chemin = wk / nom_f if not f.is_absolute() and not f.exists() else f.resolve()
-    if cmd in ("controle", "fin") and not chemin.exists(): print(f"FICHIER INTROUVABLE : {nom_f} (ni {f}, ni {chemin}). Rien n'est fait."); return 2
+    if cmd in ("controle", "fin", "cerveau") and not chemin.exists(): print(f"FICHIER INTROUVABLE : {nom_f} (ni {f}, ni {chemin}). Rien n'est fait."); return 2
     pts = set(range(1, 15))
     if "--points" in a:
         try: pts = {int(x) for x in a[a.index("--points") + 1].split(",")}
@@ -298,7 +313,17 @@ def _main():
         for p, g, msg in sorted(E, key=lambda x: (ordre[x[1]], x[0])): print(f"[{'forme' if p == 0 else 'point %d' % p}] {g} : {msg}")
         n = {g: sum(1 for e in E if e[1] == g) for g in ("CRITIQUE", "GRAVE", "MOYEN")}
         print(f"ÉCARTS critiques={n['CRITIQUE']} graves={n['GRAVE']} moyens={n['MOYEN']} · mots={st['mots']} termes={st['termes']} fenêtres={st['fenetres']} · empreinte {sha}")
+        dl = cerveau(h, nom_f)
+        if dl: print(f"CERVEAU (conseil, non bloquant) : {len(dl)} doléance(s), dont {sum(d['executant'] == 'agent' for d in dl)} pour toi · détail : python3 harnais/agents/{ag}.py cerveau {nom_f}")
         return 0 if not n["CRITIQUE"] else 1
+    if cmd == "cerveau":
+        dl = cerveau(chemin.read_text(encoding="utf-8", errors="replace"), nom_f)
+        if dl is None: print("CERVEAU indisponible (harnais/brain absent) : rien à faire."); return 0
+        o = {k: i for i, k in enumerate(("CRITIQUE", "GRAVE", "MOYEN", "DETAIL"))}; dl.sort(key=lambda d: (d["executant"] != "agent", o[d["severite"]], d["code"]))
+        for d in dl[:20]: print(f"- [{d['executant']}] {d['severite']} {d['code']} {d['ancre']} : {d['constat']} → {d['correction_prescrite']}")
+        if len(dl) > 20: print(f"- … {len(dl) - 20} de plus : python3 harnais/brain/cerveau.py analyser {chemin} --json")
+        print(f"CERVEAU : {len(dl)} doléance(s) · [script] = python3 harnais/brain/cerveau.py corriger <fichier> --appliquer · [agent] = applique la correction prescrite telle quelle, sans retrancher aucune notion")
+        return 0
     if cmd == "fin":
         if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est déjà bloqué. Arrête-toi, réponds « BLOQUÉ {nom_f} »."); return 5
         v = verrou(ag, chemin, "claim")

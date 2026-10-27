@@ -113,7 +113,7 @@ Le fichier brut reste lisible par les contrôles ; le dépôt reçoit la version
 ## 8. Santé et tests
 
 - `python3 harnais/grille14/SANTE.py` : verrous orphelins, fichiers BLOQUÉS, fichiers prêts non audités, essais, commits en avance, empreintes.
-- `python3 harnais/grille14/autotest.py` : 108 tests de bout en bout en moins d'une minute (mode `G14_TEST=1`, bac à sable, jamais de commit réel) ; il prouve aussi que les 16 fichiers réels de LOT_001 ne subissent aucune régression imprévue (lecture seule) et écrit les écarts nouveaux dans `.cache/test_g14/ecarts_LOT_001.json`.
+- `python3 harnais/grille14/autotest.py` : 109 tests de bout en bout en un peu plus d'une minute (mode `G14_TEST=1`, bac à sable figé sur LOT_001 quel que soit `LOT_ACTIF`, jamais de commit réel ; dont les tests du BRAIN-HARNESS) ; il prouve aussi que les 16 fichiers réels de LOT_001 ne subissent aucune régression imprévue (lecture seule) et écrit les écarts nouveaux dans `.cache/test_g14/ecarts_LOT_001.json`.
 - LOT par défaut des scripts : `harnais/grille14/LOT_ACTIF` (une ligne « 001 »), sinon la variable `G14_LOT`, sinon 001 ; `--lot NNN` prime.
 - Notes d'ingénierie : `harnais/grille14/NOTES_INGENIERIE.md`.
 
@@ -148,3 +148,14 @@ Les rédacteurs sont le gros poste : environ 400 000 à 570 000 jetons par paire
 - **PR d'un LOT** : corps limité à « Automates actifs » (`tools/arsenal/lot.py`, `tools/arsenal/ci_attente.sh`) ; harnais non modifié dans la PR ; fusion par commit de fusion après CI verte et branche à jour ; test `test_calendrier` instable : relancer une fois.
 - **Revue Codex** : toute remarque scientifique valide et prouvable est appliquée (sinon marquée « À vérifier » si la source est inaccessible) ; l'ouverture des définitions au survol est maintenue (consigne de Vial du 27.10, `AGENTS.md` ligne 39).
 - **Jetons** : réponses d'une ligne ; aucune relecture inutile ; agents Opus moyen seulement pour les corrections ciblées.
+
+## 13. BRAIN-HARNESS (cerveau secondaire, 27.10.2026)
+
+Plan : `harnais/brain/brain_spec.json` (v2), vue 3D `python3 harnais/brain/dessinateur.py`. Mesures : `harnais/brain/MESURES.md`.
+
+- **Scriptones** (`harnais/brain/scriptones/`, stdlib seule) : S1 police (P1–P7), S2 rythme (L1–L6), S3 concision (C1–C4), S4 budgets par point (B1–B4 ; épidémiologie 3–4 lignes, `budgets.json`), S5 arbre déroulant (A1–A6), S8 tableaux d'épidémiologie (T1–T7) ; S7 captures pleine longueur par chapitre, en rotation (`harnais/bilan/captures.js`, V1–V5).
+- **Contrat** `brain.scriptone/1` (`contrat.schema.json`) ; doléance `{id, region, scriptone, code, fichier, ancre, severite, constat, correction_prescrite, executant, preuve}` ; `executant` = `script` (corrigé par `--appliquer`) ou `agent` (appliqué tel quel, sans retrancher aucune notion). Dry-run par défaut ; idempotence testée ; `SHA256SUMS` (altération → refus, code 3).
+- **Orchestrateur** : `python3 harnais/brain/cerveau.py analyser|corriger|mesurer|empreintes <fichier>` ; bus `.cache/brain/`.
+- **Circuit** : `<id>.py cerveau <fichier>` ; `controle` ajoute une ligne « CERVEAU (conseil, non bloquant) » ; `controle_lot.py verifier <LOT> --cerveau` (avertissements ; sauté si `harnais/brain` est absent). Rien ne bloque encore : la correction de masse attend l'ordre de Vial.
+- **Preuves** : `scriptones/test_scriptones.py` (contrat, dry-run, idempotence, empreintes, navigateur), `scriptones/mutation.py --n N` (jeu doré `dore/`, 23 mutants, variations neutres) ; l'autotest les lance.
+- **Constat majeur** : `coupe_lignes` coupait l'URL `data:` de la police : **Atkinson ne se chargeait dans aucun cours** (162/162 fichiers de main). `forme_interactive.py` émet désormais une URL citée à continuation CSS ; S1 (`--appliquer`) répare les fichiers déjà convertis.

@@ -191,6 +191,21 @@ def verifier(d: Path, sans_nom: bool) -> dict:
     return rapport
 
 
+def cerveau_lot(d: Path, rapport: dict) -> None:
+    """BRAIN-HARNESS en avertissements de lot (conseil) : sans effet si harnais/brain n'existe pas (ex. main)."""
+    b = Path(__file__).resolve().parent / "brain"
+    if not (b / "cerveau.py").exists():
+        rapport["avertissements_lot"].append("cerveau : harnais/brain absent, contrôle sauté"); return
+    sys.path.insert(0, str(b))
+    try:
+        import cerveau as CV
+        for p in sorted(d.glob("*.html")):
+            dl, _ = CV.analyser(p.read_text(encoding="utf-8", errors="replace"), p.name, ecrire=False)
+            if dl: rapport["avertissements_lot"].append(f"cerveau {p.name} : {len(dl)} doléance(s) {CV.compte(dl)}")
+    except BaseException as e:
+        rapport["avertissements_lot"].append(f"cerveau en panne : {type(e).__name__} {str(e)[:120]}")
+
+
 def extraire(p: Path, points: list[int], brut_html: bool) -> str:
     t = p.read_text(encoding="utf-8", errors="replace")
     heads = [(m.start(), int(m.group(2))) for m in RE_H3.finditer(t)]
@@ -221,11 +236,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     sp = ap.add_subparsers(dest="cmd", required=True)
     v = sp.add_parser("verifier"); v.add_argument("dossier"); v.add_argument("--json", action="store_true"); v.add_argument("--sans-nom", action="store_true")
+    v.add_argument("--cerveau", action="store_true", help="ajoute les doléances du BRAIN-HARNESS en avertissements (jamais bloquant ; ignoré si harnais/brain est absent)")
     e = sp.add_parser("extraire"); e.add_argument("fichier"); e.add_argument("--points", required=True); e.add_argument("--html", action="store_true")
     m = sp.add_parser("manifeste"); m.add_argument("dossier")
     a = ap.parse_args()
     if a.cmd == "verifier":
         r = verifier(Path(a.dossier), a.sans_nom)
+        if a.cerveau: cerveau_lot(Path(a.dossier), r)
         nc = len(r["critiques_lot"]) + sum(len(f["critiques"]) for f in r["fichiers"])
         na = len(r["avertissements_lot"]) + sum(len(f["avertissements"]) for f in r["fichiers"])
         if a.json:
