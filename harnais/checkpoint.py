@@ -37,7 +37,8 @@ bad = []
 if not m or m["score"] < 90 or m["crit"]: bad.append(f"médical {m} → {med}")
 if not l or l["score"] < 90 or l["crit"]: bad.append(f"langue {l} → {lan}")
 if crit_i: bad.append("forme interactive : " + " ; ".join(crit_i))
-if not 100_000 <= cf.stat().st_size <= 200_000: bad.append(f"taille finale {cf.stat().st_size} o hors bande 100–200 Ko : allège la forme (pas le fond)")
+_B = json.loads((R / "harnais/BANDE.json").read_text())
+if not _B["min_ko"] * 1000 <= cf.stat().st_size <= _B["max_ko"] * 1000: bad.append(f"taille finale {cf.stat().st_size} o hors bande {_B['min_ko']}–{_B['max_ko']} Ko : allège la forme (pas le fond)")
 if forme["critiques"]: bad.append(f"forme {forme['critiques']} (bande 100–200 Ko APRÈS l'onglet ≈ +7 Ko : vise ≤ 190 Ko)")
 if bad: print("CHECKPOINT REFUSÉ —", " | ".join(bad)); sys.exit(1)
 tb = json.loads((LOTDIR / "taches.json").read_text()) if (LOTDIR / "taches.json").exists() else {}

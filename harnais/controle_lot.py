@@ -21,7 +21,9 @@ import argparse, hashlib, html, json, re, sys
 from pathlib import Path
 
 VERSION = "1.0"
-BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bornes comprises
+import json as _j
+_B = _j.loads((Path(__file__).resolve().parent / "BANDE.json").read_text())
+BANDE_MIN, BANDE_MAX = _B["min_ko"] * 1000, _B["max_ko"] * 1000  # Ko = 1 000 octets ; bornes comprises
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
@@ -164,7 +166,7 @@ def verifier(d: Path, sans_nom: bool) -> dict:
             C.append(f"{r['fichier']} : numéro de LOT ≠ dossier {d.name}")
     for i, r in B.items():
         if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            C.append(f"DX.{i} : {r['octets']} octets hors bande 100–200 Ko")
+            C.append(f"DX.{i} : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko")
         if len(r["monographies"]) != 1:
             C.append(f"DX.{i} : {len(r['monographies'])} monographie(s) dans le fichier au lieu de 1")
     for r in A:

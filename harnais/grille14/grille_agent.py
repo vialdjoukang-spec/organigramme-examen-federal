@@ -22,7 +22,7 @@ def verifier_integrite():
     if f.exists():
         for l in f.read_text().splitlines():
             h, n = l.split(None, 1); sums[n.strip()] = h
-    for n in ("harnais/grille14/grille_agent.py", "harnais/grille14/gen.py"):
+    for n in ("harnais/grille14/grille_agent.py", "harnais/grille14/gen.py", "harnais/contracteur/contracteur.py"):
         p = R / n
         if n in sums and hashlib.sha256(p.read_bytes()).hexdigest() != sums[n]:
             print(f"ALTÉRATION DÉTECTÉE : {n} ne correspond plus à son empreinte. STOP."); sys.exit(3)
@@ -132,7 +132,8 @@ def ecarts_points(html, pts):
         nl = sum(1 for l in html.splitlines() if len(l) > 3000)
         if nl: add(0, "CRITIQUE", f"{nl} ligne(s) de plus de 3 000 caractères : coupe-les (un saut de ligne entre deux blocs)")
         tc = len(conv.encode("utf-8"))
-        if not 100_000 <= tc <= 195_000: add(0, "CRITIQUE", f"taille finale {tc // 1000} Ko hors bande 100–195 Ko (ce que le checkpoint mesure après conversion et onglet) : {'allège la forme, pas le fond' if tc > 195_000 else 'densifie sans remplissage'}")
+        _B = json.loads((R / "harnais/BANDE.json").read_text())
+        if not _B["min_ko"] * 1000 <= tc <= 195_000: add(0, "CRITIQUE", f"taille finale {tc // 1000} Ko hors bande {_B['min_ko']}–195 Ko (ce que le checkpoint mesure après conversion et onglet) : {'allège la forme, pas le fond' if tc > 195_000 else 'ne coupe pas la médecine'}")
     pl = phrases_longues(conv)
     if any("phrases trop longues" in c for c in crit) and pl:
         add(0, "DETAIL", "phrases à couper en premier : " + " | ".join(f"{n} mots : « {x[:70]}… »" for n, x in pl))
@@ -288,6 +289,11 @@ def main():
             lst = "\n".join(f"- [point {p}] {m}" for p, _, m in crit)
             return echec(f"REFUSÉ : {len(crit)} écart(s) critique(s) à la grille. Lance `controle`, corrige, relance.", "|".join(sorted(m for _, _, m in crit)), lst)
         if auditeur:
+            visa = wk / "contracte" / f"{nom_f}.visa.json"
+            try: vok = json.loads(visa.read_text()).get("sha") == hashlib.sha256(h.encode()).hexdigest()[:16]
+            except Exception: vok = False
+            if not vok:
+                print(f"REFUSÉ : le CONTRACTEUR (dernier secteur) n'a pas visé ce fichier, ou il a été modifié depuis. Lance : python3 harnais/agents/K{ag}.py contracter <fichier> ; contracte ; python3 harnais/agents/K{ag}.py verifier <fichier> ; puis relance fin sans rien modifier. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
             v1 = int(a[a.index("--v1") + 1]) if "--v1" in a else None; v2 = int(a[a.index("--v2") + 1]) if "--v2" in a else None
             c = int(a[a.index("--crit") + 1]) if "--crit" in a else 0
             if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]. (Pas un essai perdu.)"); return 1
@@ -295,7 +301,7 @@ def main():
                 return echec(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige les points qui pèsent, puis relance.", f"v1<90={v1 < 90} v2<90={v2 < 90} c={c}", f"V1={v1} V2={v2} critiques={c}")
             aud = wk / "audits"; aud.mkdir(exist_ok=True)
             (aud / f"AUD_{ag}_{nom_f}.md").write_text(f"# Audit {ag} · {nom_f}\nV1 (fond) = {v1} %\nV2 (conformité grille et Prompt) = {v2} %\ncritiques = {c}\nagent = {nom}, {mod}\n", encoding="utf-8")
-        cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if auditeur else ["--sans-commit"])
+        cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if (auditeur and not TEST) else ["--sans-commit"])
         r = subprocess.run(cmdc, capture_output=True, text=True, cwd=R); out = r.stdout.strip()[-700:]
         if r.returncode != 0:
             det = []
