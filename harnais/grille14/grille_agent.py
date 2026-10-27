@@ -27,8 +27,21 @@ def verifier_integrite():
         if n in sums and hashlib.sha256(p.read_bytes()).hexdigest() != sums[n]:
             print(f"ALTÉRATION DÉTECTÉE : {n} ne correspond plus à son empreinte. STOP."); sys.exit(3)
 
+def lot_actif():
+    """LOT par défaut : harnais/grille14/LOT_ACTIF (une ligne « NNN »), sinon variable G14_LOT, sinon 001. `--lot NNN` prime."""
+    import os
+    try:
+        v = (G / "LOT_ACTIF").read_text().strip()
+        if re.fullmatch(r"\d{3}", v): return v
+    except OSError: pass
+    v = os.environ.get("G14_LOT", "").strip()
+    return v if re.fullmatch(r"\d{3}", v) else "001"
+
 def charge_roster(lot):
-    return json.loads((G / f"roster_{lot}.json").read_text())
+    f = G / f"roster_{lot}.json"
+    if not f.exists():
+        print(f"LOT inconnu : {lot} (aucun {f.name} ; LOT actif = {lot_actif()}, fichier harnais/grille14/LOT_ACTIF). STOP."); sys.exit(2)
+    return json.loads(f.read_text())
 
 def perimetre(ag, ro):
     if ag == "A": return [ro["A"]]
@@ -123,7 +136,7 @@ def ecarts_points(html, pts):
         elif p == 13:
             ph = [x for x in re.split(r"(?<=[.!?])\s+", re.sub(r"^\d+\.\s*[^.]*?(?=[A-ZÉÈ])", "", t)) if len(x.split()) > 2]
             if not 3 <= len(ph) <= 6: add(13, "GRAVE", f"Q13.1 : 3 à 6 phrases courtes et verbales (trouvé {len(ph)})")
-            if re.search(r'class="(tm|dx)', s): add(13, "GRAVE", "Q13.1 : aucune fenêtre dans les points clés (la phrase reste intacte)")
+            if re.search(r'class="(?:tm|dx)[^"]*"(?![^>]*data-auto)', s): add(13, "GRAVE", "Q13.1 : aucune fenêtre dans les points clés (la phrase reste intacte)")
         elif p == 14:
             if t.count("?") < 3 or len(re.findall(r"réponse", tl)) < 3: add(14, "GRAVE", "Q14.1 : chaque piège = question d'examen + bonne réponse immédiate")
     crit, moy, st = FI.controle(conv)
@@ -133,7 +146,8 @@ def ecarts_points(html, pts):
         if nl: add(0, "CRITIQUE", f"{nl} ligne(s) de plus de 3 000 caractères : coupe-les (un saut de ligne entre deux blocs)")
         tc = len(conv.encode("utf-8"))
         _B = json.loads((R / "harnais/BANDE.json").read_text())
-        if not _B["min_ko"] * 1000 <= tc <= 195_000: add(0, "CRITIQUE", f"taille finale {tc // 1000} Ko hors bande {_B['min_ko']}–195 Ko (ce que le checkpoint mesure après conversion et onglet) : {'allège la forme, pas le fond' if tc > 195_000 else 'ne coupe pas la médecine'}")
+        if not _B["min_ko"] * 1000 <= tc <= _B["max_ko"] * 1000:   # Vial 27.10.2026 : la taille ne bloque jamais (MOYEN, simple avertissement)
+            add(0, "MOYEN", f"taille finale {tc // 1000} Ko hors bande {_B['min_ko']}–{_B['max_ko']} Ko (indicative, non bloquante) : {'allège la forme, jamais le fond ni les notions' if tc > _B['max_ko'] * 1000 else 'ne coupe pas la médecine'}")
     pl = phrases_longues(conv)
     if any("phrases trop longues" in c for c in crit) and pl:
         add(0, "DETAIL", "phrases à couper en premier : " + " | ".join(f"{n} mots : « {x[:70]}… »" for n, x in pl))
@@ -212,17 +226,21 @@ def verrou(ag, f, action):
     a = ["python3", str(R / "harnais/verrou.py"), action, str(f)] + [ag]
     return subprocess.run(a, capture_output=True, text=True, cwd=R)
 
-def main():
+def _main():
     verifier_integrite()
     ag = sys.argv[1]; cmd = sys.argv[2] if len(sys.argv) > 2 else "memoire"; a = sys.argv[3:]
-    lot = "001"
+    lot = lot_actif()
     for i, x in enumerate(a):
-        if x == "--lot": lot = a[i + 1]
+        if x == "--lot":
+            if i + 1 >= len(a) or not re.fullmatch(r"\d{3}", a[i + 1]): print("ARGUMENT : --lot attend un numéro à 3 chiffres (ex. --lot 002)."); return 2
+            lot = a[i + 1]
     ro = charge_roster(lot); per = perimetre(ag, ro); nom, mod, mission = role(ag); m = memoire_perm(ag)
     wk = R / ".cache/travail" / f"LOT_{lot}"
     if TEST: wk = R / ".cache/test_g14"; wk.mkdir(parents=True, exist_ok=True)
     if cmd == "memoire":
         print(f"# {ag} · {nom} · {mod}\n{mission}\nPérimètre (rien d'autre) : " + ", ".join(per))
+        if ag.startswith("B"):
+            sys.path.insert(0, str(R / "harnais/contracteur")); from contracteur import REGLE_ABSOLUE; print(REGLE_ABSOLUE)
         if ag == "B1": print("B1 audite d'abord la Phase A (liste des DD) : sans délai, car les rédacteurs en dépendent ; puis ses 2 DD.")
         print("\nV1 = exactitude du fond (doses AIPS, chiffres retrouvés, références existantes, rien d'inventé).\nV2 = conformité au Prompt ULTIME et à la grille des 14 points (chaque question notée 2/1/0, seuil 90 %).\nUn fichier est validé à V1 ≥ 90, V2 ≥ 90 et zéro critique.\n")
         print((R / "harnais/GRILLE_14_POINTS.md").read_text(encoding="utf-8").split("## Style des cours")[0])
@@ -246,18 +264,23 @@ def main():
     nom_f = f.name
     if nom_f not in per: print(f"HORS PÉRIMÈTRE : {nom_f} n'est pas à {ag}. STOP."); return 3
     chemin = wk / nom_f if not f.is_absolute() and not f.exists() else f.resolve()
+    if cmd in ("controle", "fin") and not chemin.exists(): print(f"FICHIER INTROUVABLE : {nom_f} (ni {f}, ni {chemin}). Rien n'est fait."); return 2
     pts = set(range(1, 15))
-    if "--points" in a: pts = {int(x) for x in a[a.index("--points") + 1].split(",")}
+    if "--points" in a:
+        try: pts = {int(x) for x in a[a.index("--points") + 1].split(",")}
+        except (ValueError, IndexError): print("ARGUMENT : --points attend une liste de numéros (ex. --points 1,4)."); return 2
     if cmd == "attendre":
-        pr = wk / "pret" / nom_f; fin = time.time() + 540
+        import os
+        pr = wk / "pret" / nom_f; fin = time.time() + (float(os.environ.get("G14_ATTENTE", 540)) if TEST else 540)
         while time.time() < fin:
             if pr.exists(): print(f"PRÊT : {nom_f} a passé les scripts du rédacteur ; tu peux l'auditer."); return 0
-            time.sleep(10)
+            time.sleep(min(10, max(0.2, fin - time.time())))
         print(f"ATTENTE : {nom_f} n'est pas encore prêt. Relance `attendre` (sans rien faire d'autre)."); return 4
     if cmd == "controle":
         if bloque_f(wk, nom_f).exists(): print(f"BLOQUÉ : {nom_f} est bloqué (voir {bloque_f(wk, nom_f).name}). Arrête-toi, réponds « BLOQUÉ {nom_f} »."); return 5
         v = verrou(ag, chemin, "claim")
-        if v.returncode == 3: print("VERROU PRIS PAR UN AUTRE AGENT. STOP."); return 3
+        if v.returncode == 3:
+            qui = re.search(r"détenu par (\S+)", v.stdout); print(f"VERROU PRIS PAR {qui.group(1) if qui else 'UN AUTRE AGENT'}. STOP."); return 3
         h0 = chemin.read_text(encoding="utf-8", errors="replace"); h, rep = reparer(h0, lot, nom_f)
         if rep:
             bak = R / ".cache/bak"; bak.mkdir(exist_ok=True); (bak / f"{ag}_{nom_f}").write_text(h0, encoding="utf-8"); chemin.write_text(h, encoding="utf-8")
@@ -294,8 +317,10 @@ def main():
             except Exception: vok = False
             if not vok:
                 print(f"REFUSÉ : le CONTRACTEUR (dernier secteur) n'a pas visé ce fichier, ou il a été modifié depuis. Lance : python3 harnais/agents/K{ag}.py contracter <fichier> ; contracte ; python3 harnais/agents/K{ag}.py verifier <fichier> ; puis relance fin sans rien modifier. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
-            v1 = int(a[a.index("--v1") + 1]) if "--v1" in a else None; v2 = int(a[a.index("--v2") + 1]) if "--v2" in a else None
-            c = int(a[a.index("--crit") + 1]) if "--crit" in a else 0
+            try:
+                v1 = int(a[a.index("--v1") + 1]) if "--v1" in a else None; v2 = int(a[a.index("--v2") + 1]) if "--v2" in a else None
+                c = int(a[a.index("--crit") + 1]) if "--crit" in a else 0
+            except (ValueError, IndexError): print("REFUSÉ : --v1, --v2 et --crit attendent des nombres entiers. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
             if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]. (Pas un essai perdu.)"); return 1
             if v1 < 90 or v2 < 90 or c:
                 return echec(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige les points qui pèsent, puis relance.", f"v1<90={v1 < 90} v2<90={v2 < 90} c={c}", f"V1={v1} V2={v2} critiques={c}")
@@ -318,6 +343,17 @@ def main():
         if not auditeur: (wk / "pret").mkdir(exist_ok=True); (wk / "pret" / nom_f).write_text(time.strftime("%H:%M:%S"))
         return 0
     print(__doc__); return 2
+
+def main():
+    """Point d'entrée : arguments faux ou fichier absent → message clair, jamais de trace brute (consignée pour le chef de production)."""
+    try: return _main()
+    except SystemExit: raise
+    except (FileNotFoundError, ValueError, IndexError, UnicodeDecodeError) as e:
+        print(f"ERREUR D'ARGUMENT OU DE FICHIER : {type(e).__name__} : {str(e)[:200]}. Vérifie la commande (voir l'aide : <id>.py sans argument)."); return 2
+    except Exception as e:
+        import traceback
+        with open(MEM / "erreurs_moteur.log", "a", encoding="utf-8") as fh: fh.write(time.strftime("%F %T ") + traceback.format_exc() + "\n")
+        print(f"ERREUR INTERNE DU MOTEUR ({type(e).__name__}) consignée pour le chef de production. Arrête-toi sur ce fichier."); return 6
 
 if __name__ == "__main__":
     sys.exit(main())
