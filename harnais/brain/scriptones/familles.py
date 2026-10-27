@@ -70,14 +70,25 @@ def tableaux(t): return _spans(t, r"(?i)<table\b[^>]*>")
 
 
 def blocs(t, n, tags=("p", "li"), hors_details=False):
-    """Blocs de texte du point n (hors fenêtres .df/.dxc et bandes) ; hors_details : seulement le texte affiché sans clic."""
+    """Blocs de texte du point n (hors fenêtres .df/.dxc, bandes et arbre) ; <div class="p"> compte comme un paragraphe (Phase A) ;
+    hors_details : seulement le texte affiché sans clic."""
     z = zone(t, n)
     if not z: return []
-    Ar = arbres(t)
+    Ar = arbres(t); Zf = bus.zones_fenetres(t)
     B = [b for b in bus.blocs(t, z[0], z[1], tags) if not re.search(r"(?i)<(?:p|li)\b", b[2]) and not dans(Ar, b[0])]
+    if "p" in tags:
+        seg = bus.masque(t[z[0]:z[1]], bus.RX_STYLE)
+        B += [(z[0] + m.start(), z[0] + m.end(), t[z[0] + m.start(1):z[0] + m.end(1)]) for m in re.finditer(r'(?is)<div class="p"[^>]*>((?:(?!<div\b).)*?)</div>', seg)
+              if not dans(Ar, z[0] + m.start()) and not any(a <= z[0] + m.start() < b for a, b in Zf)]
+        B.sort()
     if hors_details:
         Dt = details(t); B = [b for b in B if not dans(Dt, b[0])]
     return B
+
+
+def fin_bloc(t, pa, pf):
+    """Position de la balise fermante d'un bloc (</p>, </li> ou </div>)."""
+    return t.rindex("</", pa, pf)
 
 
 ETIQ = re.compile(r"(?is)^\s*<(b|strong)>[^<]{0,80}?[.:]\s*</\1>\s*")
@@ -181,7 +192,9 @@ def inserer(t, n, html_phrase, r, nouveau=False):
     """Ajoute une phrase à la fin d'un <p> du point n (ou un nouveau <p> après le titre)."""
     B = _p_haut(t, n)
     if B and not nouveau:
-        pa, pf, inner = r.choice(B); q = t.rindex("</p>", pa, pf); return t[:q] + " " + html_phrase + t[q:]
+        pa, pf, inner = r.choice(B); q = fin_bloc(t, pa, pf)
+        if re.search(r"[.!?»)]\s*$", bus.texte_visible(inner)): return t[:q] + " " + html_phrase + t[q:]
+        return t[:pf] + "<p>" + html_phrase + "</p>" + t[pf:]
     h = titre(t, n); return t[:h[1]] + "<p>" + html_phrase + "</p>" + t[h[1]:]
 
 
@@ -279,7 +292,7 @@ def m_S(n):
 NEG = re.compile(r"(?i)\b(?:"
                  r"(?:n['’](?:a|ont|est|sont)|ne (?:sont|est)) pas (?:encore |non plus |été |encore été |non plus été )*(?:lue?s?|relue?s?|vérifiée?s?|retrouvée?s?|trouvée?s?|chiffrée?s?|quantifiée?s?|publiée?s?|documentée?s?|disponibles?|connue?s?|sourcée?s?|établie?s?)"
                  r"|non (?:encore )?(?:lue?s?|relue?s?|chiffrée?s?|quantifiée?s?|sourcée?s?|retrouvée?s?|vérifiée?s?|trouvée?s?|documentée?s?)"
-                 r"|(?:à|a) vérifier|reste(?:nt)? à (?:vérifier|confirmer|préciser|chiffrer|documenter|lire)"
+                 r"|(?:à|a) vérifier(?!\s+(?:l['’]|la|le|les|si|que|qu['’]|un|une|des|du|en|sa|son|ses|leur|chaque|tout|toute|cette|ce|cet|ces|qu))|reste(?:nt)? à (?:vérifier|confirmer|préciser|chiffrer|documenter|lire)"
                  r"|aucun(?:e|s|es)? (?:chiffres?|sources?|statistiques?|estimations?|registres?)\b"
                  r"|aucune? données? (?:suisses?|européennes?|spécifiques?|chiffrées?|publiées?|fiables?|épidémiologiques?|disponibles?|nationales?|locales?|lues?|n['’])"
                  r"|(?:pas|peu) de (?:chiffres?|données?) (?:suisses?|européennes?|spécifiques?|chiffrées?|publiées?|fiables?|disponibles?|nationales?)"
@@ -288,6 +301,7 @@ NEG = re.compile(r"(?i)\b(?:"
 DONNEE = re.compile(r"(?i)\b(?:chiffres?|données?|incidences?|prévalences?|fréquences?|mortalités?|létalités?|taux|statistiques?|registres?|sources?|estimations?|valeurs?|proportions?|pourcentages?|épidémiolog\w*|nombres?)\b")
 FAIBLE = re.compile(r"(?i)(?:n['’](?:a|est|ont|sont)|ne (?:sont|est)) pas (?:encore |non plus |été )*(?:connue?s?|disponibles?|établie?s?|documentée?s?)")
 DOSE = re.compile(r"(?i)posolog|\bdoses?\b|\bmg\b|µg|\bUI\b|AIPS|swissmedic|®")
+DOSE_STRICTE = re.compile(r"(?i)posolog|\bdoses?\b|\d\s?(?:mg|µg|UI|g)\b")
 GENERIQUE = set("suisse suisses europe europé nation nation canton annuel ofs ofsp obsan oms who regist plus encore non aussi lue lues relue relues lu lus vérifi chiffr "
                 "quantif publié publiée disponi trouvé trouvée retrou docume connue connu sourcé établi spécif fiable consul source donnée donnée chiffre incide préval "
                 "fréque mortal létali taux statis estima valeur propor pource épidém nombre reste confir préci aucun aucune faute dans".split())
@@ -318,8 +332,8 @@ def candidats_R(t, n):
         for hs, he, ph in phrases_html(inner):
             if not negatif(ph): continue
             apres = inner[he:he + 80]
-            ok = tag == "p" and not dans(Tb, pa) and re.search(r"[.!?]$", ph) and pure(ph) and equilibre(inner[hs:he]) and 'class="r"' not in re.split(r"[A-Za-zÀ-ÿ]", apres, 1)[0]
-            typ = "pure" if ok else ("dose" if DOSE.search(ph) and n == 11 or DOSE.search(ph) and "AIPS" in ph else "mixte")
+            ok = tag in ("p", "div") and not dans(Tb, pa) and re.search(r"[.!?]$", ph) and pure(ph) and equilibre(inner[hs:he]) and 'class="r"' not in re.split(r"[A-Za-zÀ-ÿ]", apres, 1)[0]
+            typ = "pure" if ok else ("dose" if DOSE_STRICTE.search(ph) and (n == 11 or P[n].get("doses")) else "mixte")
             out.append((off + hs, off + he, ph, typ, pa))
     # fenêtres du point (contenu caché) : jamais supprimé par script
     seg = t[z[0]:z[1]]
@@ -353,13 +367,13 @@ def c_R(n, t, opt):
     """Supprime les phrases d'absence pures (dans les <p> du point n), de la fin vers le début ; un <p> vidé disparaît avec elles."""
     for a, b, ph, typ, pa in sorted(candidats_R(t, n), key=lambda x: -x[0]):
         if typ != "pure": continue
-        if re.match(r"\s*</p>", t[b:]):           # dernière phrase du bloc : retirer l'espace qui précède
+        if re.match(r"\s*</(?:p|div)>", t[b:]):           # dernière phrase du bloc : retirer l'espace qui précède
             k = a
             while k > pa and t[k - 1] in " \t\n": k -= 1
             t = t[:k] + t[b:]
         else: t = t[:a] + t[b + len(re.match(r"\s*", t[b:]).group(0)):]
-        m = re.compile(r"(?is)<p\b[^>]*>((?:(?!</?p\b).)*)</p>").match(t, pa)
-        if m and not bus.texte(m.group(1)).strip(): t = t[:pa] + t[m.end():]
+        m = re.compile(r"(?is)<p\b[^>]*>((?:(?!</?p\b).)*)</p>|<div class=\"p\"[^>]*>((?:(?!</?div\b).)*)</div>").match(t, pa)
+        if m and not bus.texte(m.group(1) or m.group(2) or "").strip(): t = t[:pa] + t[m.end():]
     return t
 
 
@@ -475,7 +489,7 @@ def a_Q(me, n, t, nom, opt):
             D.append(bus.doleance(me, "AQ3", nom, bus.ancre(t, zone(t, n)[0], f"{n}."), "MOYEN", f"point {n} : {k} phrases (attendu {lo} à {hi})",
                                   f"{'regrouper' if k > hi else 'compléter'} pour obtenir {lo} à {hi} phrases courtes, verbales, mémorisables, chacune portant une décision ou un fait critique", "agent"))
     if c.get("hache"):
-        B = _p_bloc2(t, n); serie = []; hache = 0
+        B = [b for b in _p_haut(t, n) if not re.match(r"^\s*(?:\d{1,2}[.)]|\d{1,2}\.[\dA-Za-z]|[^\w\s«(])", bus.texte_visible(b[2]))]; serie = []; hache = 0
         for i, b in enumerate(B + [None]):
             court = b is not None and len(bus.phrases(bus.texte_visible(b[2]))) <= 1 and len(bus.texte_visible(b[2]).split()) <= 14 \
                 and (not serie or re.fullmatch(r"\s*", bus.masque(t[serie[-1][1]:b[0]], bus.RX_STYLE)))
@@ -498,7 +512,7 @@ def c_Q(n, t, opt):
     for pa, pf, inner in sorted(B[1:], key=lambda b: -b[0]):
         e = pf + len(re.match(r"\s*", t[pf:]).group(0)); t = t[:pa] + t[e:]
     pa, pf, inner = B[0]; ouv = t[pa:t.index(">", pa) + 1]
-    return t[:pa] + ouv + corps + "</p>" + t[pf:]
+    return t[:pa] + ouv + corps + ("</div>" if ouv.startswith("<div") else "</p>") + t[pf:]
 
 
 def m_Q(n):
@@ -523,7 +537,7 @@ def m_Q(n):
 
 
 # ── α·D termes dédiés, zéro méta-conception ──
-CONCEPTION = re.compile(r"(?i)\bLOT[_ ]?\d|\bPhase [AB]\b|\bDX\.\d+|\bcheckpoint\b|\brédacteur|\bauditeur|\bautre IA\b|\bune IA\b|intelligence artificielle|"
+CONCEPTION = re.compile(r"(?i)(?-i:\bLOT[_ ]?\d)|\bPhase [AB]\b|\bcheckpoint\b|\brédacteur|\bauditeur|\bautre IA\b|\bune IA\b|intelligence artificielle|"
                         r"\bcycle \d\b|\bbrouillon\b|\bevidence\b|\bce fichier\b|\ble fichier\b|date de rédaction|sources lues et datées|dose AIPS prime|\bgabarit\b|\bprompt\b")
 
 
@@ -531,7 +545,7 @@ def a_D(me, n, t, nom, opt):
     D = []; z = zone(t, n); M = {}
     if not z: return D, M
     h = titre(t, n); seg = bus.masque(t[h[1]:z[1]], bus.RX_STYLE); txt = bus.texte(seg)
-    for m in list(CONCEPTION.finditer(txt))[:5]:
+    for m in list(CONCEPTION.finditer(txt))[:None if opt.get("sans_plafond") else 5]:
         e = txt[max(0, m.start() - 40):m.end() + 40]
         D.append(bus.doleance(me, "AD1", nom, bus.ancre(t, h[1], e), "GRAVE", f"mention de conception « {m.group(0)} » au point {n} : le texte est le cours, pas sa fabrication",
                               "réécrire la phrase en langage de cours, sans parler du fichier, du LOT, de l'audit ni de l'IA ; garder la notion médicale", "agent", e))
@@ -602,8 +616,9 @@ def _texte_brut(seg):
     return re.sub(r"<[^>]+>", " ", bus.masque(seg, bus.RX_STYLE))
 
 
-def nombres(txt):
-    return {m.group(1).replace(".", ",") for m in NOMBRE.finditer(txt) if not re.fullmatch(r"(?:19|20)\d\d", m.group(1)) and m.group(1) not in {"0", "1"}}
+def nombres(txt, unite=False):
+    return {re.sub(r",0+$", "", m.group(1).replace(".", ",")) for m in NOMBRE.finditer(txt)
+            if not re.fullmatch(r"(?:19|20)\d\d", m.group(1)) and m.group(1) not in {"0", "1"} and (m.group(2) or not unite)}
 
 
 def b_C(me, n, t, nom, opt):
@@ -621,12 +636,12 @@ def b_C(me, n, t, nom, opt):
                               "convertir en unité SI suisse (mmol/L, °C, kg, cm) avec la valeur recalculée par un outil ; garder la source", "agent", m.group(0)))
     if P[n].get("points_cles"):
         S = bus.sections(t); corps = set()
-        for p in range(1, 13):
+        for p in range(1, n):
             if p in S: corps |= nombres(bus.texte(bus.masque(t[S[p][0]:S[p][1]], bus.RX_STYLE)))
-        ici = nombres(bus.texte(bus.masque(t[h[1]:z[1]], bus.RX_STYLE))); hors = sorted(ici - corps)
+        ici = nombres(bus.texte(bus.masque(t[h[1]:z[1]], bus.RX_STYLE)), unite=True); hors = sorted(ici - corps)
         M["chiffres_hors_corps"] = hors
         for x in hors[:5]:
-            D.append(bus.doleance(me, "BC3", nom, bus.ancre(t, h[1], x), "GRAVE", f"le chiffre {x} du point {n} n'apparaît dans aucun des points 1 à 12",
+            D.append(bus.doleance(me, "BC3", nom, bus.ancre(t, h[1], x), "MOYEN", f"le chiffre {x} du point {n} n'apparaît dans aucun des points 1 à {n - 1}",
                                   f"aligner {x} sur la valeur sourcée du corps du cours, ou le retirer du point {n} (un point clé ne crée aucun chiffre)", "agent", x))
     M["typo_chiffres"] = k
     return D, M
@@ -646,7 +661,7 @@ def m_C(n):
          ("comparateur ASCII", lambda t, r: inserer(t, n, f"Le seuil reste &gt;= {r.randint(3, 9)} points.", r), "BC5"),
          ("pourcentage collé", lambda t, r: inserer(t, n, f"Elle touche {r.randint(11, 89)}% des cas.", r), "BC6")]
     if P[n].get("points_cles"):
-        L.append(("chiffre hors du corps", lambda t, r: inserer(t, n, f"Le risque atteint {r.randint(400, 899)} pour mille.", r), "BC3"))
+        L.append(("chiffre hors du corps", lambda t, r: inserer(t, n, f"Le risque atteint {r.randint(41, 97)} % chez l'adulte.", r), "BC3"))
     return L
 
 

@@ -20,9 +20,11 @@ PERIMES = [(re.compile(r"(?i)\bEACS\b[^<]{0,40}\b12(?:\.\d)?\b"), "EACS 12 rempl
 
 def entrees(t):
     """Entrées de la liste des sources : <li> de la section Sources (brute ou convertie) et bandes .sb."""
-    a, f = bus.bornes_cours(t); zone = t[f:]
-    L = [(f + m.start(), m.group(1)) for m in re.finditer(r"(?is)<li\b[^>]*>(.*?)</li>", zone)]
-    if not L: L = [(f + m.start(), m.group(1)) for m in re.finditer(r'(?is)<div class="sb"[^>]*>(.*?)</div>', zone)]
+    a, f = bus.bornes_cours(t)
+    m = re.search(r'(?is)<details class="refs"[^>]*>.*?</details>|<h2[^>]*>\s*(?:<strong>)?\s*Sources.*?(?:</ol>|</ul>)', t[f:])
+    zone, off = (m.group(0), f + m.start()) if m else ("", f)
+    L = [(off + x.start(), x.group(1)) for x in re.finditer(r"(?is)<li\b[^>]*>(.*?)</li>", zone)]
+    if not L: L = [(f + x.start(), x.group(1)) for x in re.finditer(r'(?is)<div class="sb"[^>]*>(.*?)</div>', t[f:])]
     return [(p, bus.texte(x)) for p, x in L if re.search(r"\w{4}", bus.texte(x))]
 
 

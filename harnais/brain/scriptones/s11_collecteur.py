@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bus
 
 ID, REGION, VERSION = "s11_collecteur", "ENT", "1.0.0"
-BAL = ("p", "li", "ul", "ol", "table", "tr", "details", "section", "main", "summary")
+BAL = ("ul", "ol", "table", "details", "section", "main", "summary", "div")      # balises dont la fin est obligatoire (p, li, tr, td : fin implicite permise)
 
 
 def paquets(t):
@@ -32,7 +32,6 @@ def analyser(t, nom, opt=None):
     corps = bus.masque(t, bus.RX_STYLE); dese = []
     for b in BAL:
         o = len(re.findall(r"(?i)<%s\b" % b, corps)); c = len(re.findall(r"(?i)</%s>" % b, corps))
-        if b == "p": o -= len(re.findall(r"(?i)<p\b[^>]*/>", corps))
         if o != c: dese.append(f"{b} {o}/{c}")
     if dese:
         D.append(bus.doleance(me, "K2", nom, "#haut · l.1", "GRAVE", f"balises déséquilibrées : {', '.join(dese[:5])}",
