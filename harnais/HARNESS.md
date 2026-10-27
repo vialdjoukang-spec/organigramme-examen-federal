@@ -53,10 +53,12 @@ Territoires d'audit : **B1** (orange pâle) audite d'abord la Phase A, puis DX.1
 
 ## 4. Le contracteur de texte · conservateur de notions
 
+> **RÈGLE ABSOLUE DE VIAL : la contraction ne doit pas du tout toucher les notions, ni compromettre le sens, ni l'explication de quoi que ce soit. On n'a pas besoin de beaucoup de mots pour transmettre des notions expliquées. Contracter n'est pas résumer : on retire seulement l'excès de mots (redites, tournures longues, remplissage). En cas de doute, on garde la phrase.**
+
 `harnais/contracteur/contracteur.py` (lecture seule) ; clones `harnais/agents/KB1.py` … `KB5.py`, chacun limité au territoire de son auditeur.
 
 - `contracter <fichier>` : inventaire des notions **à l'entrée** (nombres, renvois `[Sn]`, médicaments, termes cliquables, sigles, tableaux, 14 points, noms de notions), contraction mécanique sûre (formules creuses, doublons exacts), puis **cibles de contraction sémantique** : points les plus lourds, phrases longues, redites, phrases nominales à réécrire.
-- `verifier <fichier>` : nombres et médicaments à 100 % ; termes cliquables, renvois et noms de notions à 95 % au moins ; tableaux et 14 points intacts ; volume réduit de 15 % ou sous 14 000 mots (provisoire, `CIBLE.json`) ; aucune phrase nominale en plus. Si tout est bon, **visa** lié à l'empreinte du fichier : toute modification ultérieure l'annule.
+- `verifier <fichier>` : nombres et médicaments à 100 % ; termes cliquables, renvois et noms de notions à 95 % au moins ; tableaux et 14 points intacts ; explications conservées (couverture des phrases d'explication ≥ 85 %), couples valeur + unité + comparateur à 100 %, négations et conditions non diminuées ; **aucun quota de volume** (le gain est seulement affiché ; seul l'excès objectif est exigé : redites restantes, phrases trop longues) ; aucune phrase nominale en plus. Si tout est bon, **visa** lié à l'empreinte du fichier : toute modification ultérieure l'annule.
 - La commande `fin` d'un auditeur **refuse sans visa valide** : le contracteur est le dernier secteur avant le commit.
 - `--exceptions "mot,mot"` (10 au plus) : notion conservée sous un synonyme.
 
@@ -111,6 +113,6 @@ Les rédacteurs sont le gros poste : environ 400 000 à 570 000 jetons par paire
 
 ## 11. Décisions en attente de Vial
 
-- Cibles de contraction (15 % ou 14 000 mots) : provisoires.
+- Calibrage des seuils de conservation des explications et du sens : à confirmer à l'usage.
 - Point 10 de la grille (arbre décisionnel) : texte de Vial à compléter.
 - Bande 80–200 Ko : à confirmer.
