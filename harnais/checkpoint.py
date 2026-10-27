@@ -38,8 +38,9 @@ if not m or m["score"] < 90 or m["crit"]: bad.append(f"médical {m} → {med}")
 if not l or l["score"] < 90 or l["crit"]: bad.append(f"langue {l} → {lan}")
 if crit_i: bad.append("forme interactive : " + " ; ".join(crit_i))
 _B = json.loads((R / "harnais/BANDE.json").read_text())
-if not _B["min_ko"] * 1000 <= cf.stat().st_size <= _B["max_ko"] * 1000: bad.append(f"taille finale {cf.stat().st_size} o hors bande {_B['min_ko']}–{_B['max_ko']} Ko : allège la forme (pas le fond)")
-if forme["critiques"]: bad.append(f"forme {forme['critiques']} (bande 100–200 Ko APRÈS l'onglet ≈ +7 Ko : vise ≤ 190 Ko)")
+if not _B["min_ko"] * 1000 <= cf.stat().st_size <= _B["max_ko"] * 1000:   # Vial 27.10.2026 : la taille ne bloque jamais
+    print(f"AVERTISSEMENT (non bloquant) — taille finale {cf.stat().st_size // 1000} Ko hors bande {_B['min_ko']}–{_B['max_ko']} Ko (indicative) : allège la forme si possible, jamais le fond ni les notions")
+if forme["critiques"]: bad.append(f"forme {forme['critiques']}")
 if bad: print("CHECKPOINT REFUSÉ —", " | ".join(bad)); sys.exit(1)
 tb = json.loads((LOTDIR / "taches.json").read_text()) if (LOTDIR / "taches.json").exists() else {}
 idx = "A" if "Phase_A" in f.name else re.search(r"DX\.(\d+)", f.name).group(1); prop = (tb.get("ecrire", {}).get(idx, {}) or {}).get("prop")

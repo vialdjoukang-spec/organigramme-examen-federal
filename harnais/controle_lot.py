@@ -23,7 +23,7 @@ from pathlib import Path
 VERSION = "1.0"
 import json as _j
 _B = _j.loads((Path(__file__).resolve().parent / "BANDE.json").read_text())
-BANDE_MIN, BANDE_MAX = _B["min_ko"] * 1000, _B["max_ko"] * 1000  # Ko = 1 000 octets ; bornes comprises
+BANDE_MIN, BANDE_MAX = _B["min_ko"] * 1000, _B["max_ko"] * 1000  # Ko = 1 000 octets ; bande indicative : avertissement, jamais critique
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
@@ -164,16 +164,15 @@ def verifier(d: Path, sans_nom: bool) -> dict:
         ml = RE_A.match(r["fichier"]) or RE_B.match(r["fichier"])
         if ml and lot and ml.group(1) != lot:
             C.append(f"{r['fichier']} : numéro de LOT ≠ dossier {d.name}")
+    AV = rapport["avertissements_lot"]   # taille : indicative, jamais bloquante (Vial 27.10.2026)
     for i, r in B.items():
         if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            C.append(f"DX.{i} : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko")
+            AV.append(f"DX.{i} : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko (indicative, non bloquante)")
         if len(r["monographies"]) != 1:
             C.append(f"DX.{i} : {len(r['monographies'])} monographie(s) dans le fichier au lieu de 1")
     for r in A:
-        if r["octets"] < BANDE_MIN:
-            C.append(f"Phase A : {r['octets']} octets < 100 Ko")
-        elif r["octets"] > BANDE_MAX:
-            C.append(f"Phase A : {r['octets']} octets > 200 Ko (plafond absolu)")
+        if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
+            AV.append(f"Phase A : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko (indicative, non bloquante)")
     if not liste:
         C.append("LISTE_DX_CANONIQUE.md absente ou illisible (contrôle A↔B impossible)")
     else:

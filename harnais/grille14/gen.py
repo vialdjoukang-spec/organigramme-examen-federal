@@ -94,7 +94,7 @@ A_CONFIRMER = [
  "Point 8 : Q8.2 (« sait-il ce qui ne suffit pas ? ») rétablie, car l'exigence garde « ce qui ne suffit pas ». Décision validée.",
  "Point 10 (arbre décisionnel) : texte du Prompt V0 conservé jusqu'à ce que Vial fournisse sa version complète. Décision validée.",
  "Audit V1 (note de la grille) : un auditeur Opus par territoire, sur le texte final. Décision validée.",
- "Taille des fichiers FLASH : bande 100–200 Ko du Prompt en vigueur tant que Vial n'en fixe pas une autre. Décision en attente.",
+ "Taille des fichiers FLASH : bande indicative 80–200 Ko (Vial, 27.10.2026), jamais bloquante : simple avertissement.",
 ]
 
 def md():
