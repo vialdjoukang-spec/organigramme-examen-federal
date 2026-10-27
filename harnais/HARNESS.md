@@ -136,3 +136,15 @@ Les rédacteurs sont le gros poste : environ 400 000 à 570 000 jetons par paire
 - LOT_001 : les sigles non définis et les médicaments sans fenêtre (mesurés dans `NOTES_INGENIERIE.md`) refusent désormais le checkpoint ; reprise à décider.
 - Point 10 de la grille (arbre décisionnel) : texte de Vial à compléter.
 - Bande 80–200 Ko indicative : appliquée (non bloquante).
+
+## 12. Règles ajoutées le 27.10.2026 (conduite de production)
+
+- **LOT cible** : `--lot NNN` prime sur le fichier `grille14/LOT_ACTIF`, lui-même prioritaire sur la variable `G14_LOT`.
+- **Auditeur d'un DD** : toujours celui de `roster_NNN.json` (`dd_auditeur`) ; un autre refuse (« n'est pas à Bx. STOP »).
+- **Un fichier devient « prêt »** seulement après le `fin` de son rédacteur (checkpoint accepté) ; un fichier réparé à la main reste invisible aux auditeurs (leur `attendre` boucle sans fin). Après réparation, relancer `Rk.py fin`.
+- **Fichier bloqué** : effacer `bloque/<fichier>.md` et l'entrée de `.cache/memoire/essais_NNN.json`, corriger le fond (doses AIPS, chiffres sourcés), puis relancer le checkpoint.
+- **Rappel mémoire** : numérotation DX par ordre canonique ; aucun rang de fréquence sans source comparable.
+- **Contraction** : jamais sur les notions ni les explications ; reformulation plus concise permise ; abréviations toutes survolables ; médicaments tous cliquables.
+- **PR d'un LOT** : corps limité à « Automates actifs » (`tools/arsenal/lot.py`, `tools/arsenal/ci_attente.sh`) ; harnais non modifié dans la PR ; fusion par commit de fusion après CI verte et branche à jour ; test `test_calendrier` instable : relancer une fois.
+- **Revue Codex** : toute remarque scientifique valide et prouvable est appliquée (sinon marquée « À vérifier » si la source est inaccessible) ; l'ouverture des définitions au survol est maintenue (consigne de Vial du 27.10, `AGENTS.md` ligne 39).
+- **Jetons** : réponses d'une ligne ; aucune relecture inutile ; agents Opus moyen seulement pour les corrections ciblées.
