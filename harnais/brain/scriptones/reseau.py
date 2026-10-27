@@ -6,7 +6,7 @@
   corriger_tout(t)      applique tous les écrivains jusqu'au point fixe (4 tours au plus) : corrections confluentes et idempotentes
   analyser(ids, t, nom) exécute des scriptones sous contrat, avec disjoncteur (exception, contrat rompu, lenteur) et ré-routage vers le jumeau
 Règle anti-conflit : chaque zone d'un fichier a UN écrivain ; tous les autres scriptones émettent des doléances sur le bus."""
-import functools, importlib.util, json, sys, time
+import functools, importlib, importlib.util, json, sys, time
 from pathlib import Path
 D = Path(__file__).resolve().parent
 if str(D) not in sys.path: sys.path.insert(0, str(D))
@@ -31,7 +31,11 @@ def module(i):
     e = entree(i)
     if e is None or e.get("langage", "python") != "python": raise KeyError(f"scriptone inconnu ou non Python : {i}")
     p = D / e["fichier"]
-    spec = importlib.util.spec_from_file_location(f"brain_{i}", p); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    if p.parent == D: return importlib.import_module(p.stem)          # transversal : module partagé avec les autres imports
+    if i in sys.modules: return sys.modules[i]
+    spec = importlib.util.spec_from_file_location(i, p); m = importlib.util.module_from_spec(spec); sys.modules[i] = m
+    try: spec.loader.exec_module(m)
+    except BaseException: sys.modules.pop(i, None); raise
     return m
 
 

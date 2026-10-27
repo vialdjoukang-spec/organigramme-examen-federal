@@ -5,11 +5,11 @@ import hashlib, importlib, json, os, random, shutil, subprocess, sys, tempfile, 
 from pathlib import Path
 D = Path(__file__).resolve().parent
 sys.path.insert(0, str(D))
-import bus, mutation
+import bus, mutation, reseau
 
-NOMS = mutation.NOMS
+NOMS = ["s1_police", "s2_rythme", "s3_concision", "s4_budget", "s5_arbre", "s8_tableaux"]     # scriptones historiques (v2) ; les 160 : test_synapses.py
 DORE = (D.parent / "dore/cours_dore.html").read_text(encoding="utf-8")
-M = {n: importlib.import_module(n) for n in NOMS}
+M = {n: reseau.module(n) for n in NOMS}
 
 
 class Contrat(unittest.TestCase):
@@ -66,7 +66,7 @@ class Pipeline(unittest.TestCase):
 
 class Mutation(unittest.TestCase):
     def test_mutation_verte(self):
-        r = mutation.lancer(8); self.assertTrue(r["vert"], (r["faux_positifs"], r["evasions"][:3], r["idempotence_ko"])); self.assertEqual(r["detectes"], r["total"])
+        r = mutation.lancer(8, NOMS); self.assertTrue(r["vert"], (r["faux_positifs"], r["evasions"][:3], r["idempotence_ko"])); self.assertEqual(r["detectes"], r["total"])
 
 
 class Unitaires(unittest.TestCase):

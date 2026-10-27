@@ -61,7 +61,7 @@ def _m_perime(t, r): return _ajout(t, r, r.choice(["Source fictive de test : ERC
 def _m_date(t, r): return _ajout(t, r, "Source fictive de test : revue générale. https://example.invalid/revue.")
 def _m_ident(t, r): return _ajout(t, r, "Source fictive de test : revue générale sans identifiant, consulté le 27.10.2026.")
 def _m_us(t, r):
-    t2 = re.sub(r"(?is)<li\b[^>]*>\s*\[S\d+\].*?</li>", "", t)
+    a, f = bus.bornes_cours(t); t2 = t[:f] + re.sub(r"(?is)<li\b[^>]*>.*?</li>", "", t[f:])
     t2 = re.sub(r'(?is)<div class="sb"[^>]*>.*?</div>', "", t2)
     return _ajout(t2, r, "Source fictive de test : American Diabetes Association (ADA), standards. https://example.invalid/ada, consulté le 27.10.2026.")
 MUTANTS = [("Compendium cité", _m_comp, "I1"), ("version périmée", _m_perime, "I3"), ("sans date", _m_date, "I4"), ("sans identifiant", _m_ident, "I5"),

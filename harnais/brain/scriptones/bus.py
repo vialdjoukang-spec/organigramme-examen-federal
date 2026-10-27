@@ -22,7 +22,7 @@ TYPES = ("medical", "langue", "forme", "memoire", "doleance", "jetons")      # t
 CHAMPS = ("id", "region", "scriptone", "code", "fichier", "ancre", "severite", "constat", "correction_prescrite", "executant", "preuve")
 RX_CODE = re.compile(r"^[A-Z]{1,2}[0-9]$")
 CPL = 110            # caractères par ligne affichée (Atkinson 16 px, colonne de 980 px) ; calibré par captures.js (mesure réelle)
-DONNEES = ("budgets.json", "contrat.schema.json", "synapses.json", "verbes.json", "memoire_fautes.json", "evenements.schema.json")
+DONNEES = ("budgets.json", "contrat.schema.json", "synapses.json", "verbes.json", "memoire_fautes.json", "evenements.schema.json", "registre.json")
 
 
 def sha(t):

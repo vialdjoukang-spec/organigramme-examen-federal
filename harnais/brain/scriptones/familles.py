@@ -564,13 +564,13 @@ def m_D(n):
 def b_X(me, n, t, nom, opt):
     D = []; z = zone(t, n)
     if not z: return D, dict(mots=0)
-    txt = texte_point(t, n); mots = len(txt.split()) - len(P[n]["titre"].split()) - 1
+    h = titre(t, n); txt = bus.texte(bus.masque(t[h[1]:z[1]], bus.RX_STYLE)); mots = len(txt.split())        # le titre ne compte pas
     if mots < P[n]["plancher"]:
         D.append(bus.doleance(me, "BX1", nom, bus.ancre(t, z[0], f"{n}."), "GRAVE", f"point {n} réduit à {mots} mots (plancher {P[n]['plancher']}) : omission ou contraction excessive",
                               f"compléter le point {n} selon la grille ({P[n]['titre']}) ; une notion contractée doit être rétablie (règle absolue de la contraction)", "agent", f"{mots} mots"))
     absentes = []
     for lab, rx in P[n].get("notions", []):
-        if not re.search(rx, txt) and not re.search(rx, bus.masque(t[z[0]:z[1]], bus.RX_STYLE)):
+        if not re.search(rx, txt):
             absentes.append(lab)
             D.append(bus.doleance(me, "BX2", nom, bus.ancre(t, z[0], f"{n}."), "MOYEN", f"point {n} : {lab} absent",
                                   f"traiter au point {n} : {lab} (contenu sourcé, jamais inventé)", "agent", rx[:120]))
@@ -768,7 +768,7 @@ def m_L(n):
 
 
 # ═════════════════════════ registre des familles ═════════════════════════
-ident_ = lambda t, n, o: t
+ident_ = lambda n, t, o: t
 FAM = {"A": {"S": dict(analyser=a_S, corriger=c_S, mutants=m_S, zones=lambda n: [f"P{n}:titre"]),
              "R": dict(analyser=a_R, corriger=c_R, mutants=m_R, zones=lambda n: [f"P{n}:absence"]),
              "H": dict(analyser=a_H, corriger=ident_, mutants=m_H, zones=lambda n: []),

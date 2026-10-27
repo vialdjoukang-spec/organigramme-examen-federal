@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
-"""BRAIN-HARNESS · cerveau : orchestre les scriptones, publie les doléances sur le bus, mesure (gratuit, hors ligne).
+"""BRAIN-HARNESS · cerveau : orchestre les 160 scriptones (registre), publie les doléances sur le bus, mesure (gratuit, hors ligne).
   python3 harnais/brain/cerveau.py analyser <fichier|dossier> [--json] [--max N]   doléances typées (lecture seule)
   python3 harnais/brain/cerveau.py corriger <fichier> [--appliquer]                 corrections mécaniques sûres (dry-run par défaut)
   python3 harnais/brain/cerveau.py mesurer <fichier> [...]                           avant/après : détection, lignes, jetons
   python3 harnais/brain/cerveau.py empreintes [--ecrire]                             SHA256SUMS des scriptones
 Bus : .cache/brain/doleances/<fichier>.json (dernier état) ; journal append-only .cache/brain/journal.jsonl.
-Vue : S1 et S2 jugent le rendu (fichier converti par forme_interactive.py s'il ne l'est pas) ; S3, S4, S5, S8 jugent le texte du fichier."""
+Vue : S1, S2, S6, S20 jugent le rendu (fichier converti par forme_interactive.py s'il ne l'est pas) ; les autres scriptones de cours et les
+140 synapses α/β jugent le texte du fichier. Circuit complet (collecte → α → nœuds Sonnet → β → vote → nœuds Opus, journal 3D) : orchestre.py."""
 import importlib, json, re, sys, time
 from pathlib import Path
 D = Path(__file__).resolve().parent
 R = D.parents[1]
 sys.path[:0] = [str(D / "scriptones"), str(R / "harnais")]
-import bus
+import bus, reseau
 
-RENDU = ["s1_police", "s2_rythme"]
-TEXTE = ["s3_concision", "s4_budget", "s5_arbre", "s8_tableaux"]
-ORDRE_CORR = ["s5_arbre", "s8_tableaux", "s3_concision", "s2_rythme", "s1_police"]   # l'arbre avant la conversion ; la police en dernier
-MODS = {n: importlib.import_module(n) for n in RENDU + TEXTE}
+RENDU = ["s1_police", "s2_rythme", "s6_barre14", "s20_ancres"]
+TEXTE = ["s11_collecteur", "s3_concision", "s4_budget", "s5_arbre", "s8_tableaux", "s9_sources", "s10_memoire", "s18_vote"] + \
+        [e["id"] for e in reseau.registre()["scriptones"] if e["zone"] in ("alpha", "beta")]
+
+
+class _Mods(dict):
+    def __missing__(self, k): v = reseau.module(k); self[k] = v; return v
+MODS = _Mods()
 MARQ = "<!-- FORME_INTERACTIVE -->"
 
 
@@ -46,11 +51,8 @@ def analyser(t, nom, ecrire=True):
 
 
 def corriger(t, convertir=False):
-    """Corrections mécaniques sûres, dans l'ordre ; convertir=True insère la conversion forme_interactive après l'arbre."""
-    for n in ORDRE_CORR:
-        t = MODS[n].corriger(t, {})
-        if n == "s5_arbre" and convertir: t = vue(t)
-    return t
+    """Corrections mécaniques sûres de tous les écrivains (un par zone), jusqu'au point fixe ; convertir=True insère la conversion après l'arbre."""
+    return reseau.corriger_tout(t, convertir=vue if convertir else None)[0]
 
 
 def compte(D_):

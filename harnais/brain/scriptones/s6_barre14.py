@@ -113,7 +113,9 @@ def _m_sans(t, r): return re.sub(r'(?is)<nav id="brain-barre14".*?</nav>', "", t
 def _m_mort(t, r):
     b = barre(t); L = re.findall(r'href="#([^"]+)"', b[2]); h = r.choice(L)
     return t[:b[0]] + b[2].replace(f'href="#{h}"', f'href="#{h}-x{r.randint(1, 99)}"', 1) + t[b[1]:]
-def _m_non_fixe(t, r): return re.sub(r"position:fixed", r.choice(["position:static", "position:relative"]), t, count=1)
+def _m_non_fixe(t, r):
+    i = t.index('<style id="brain-barre">'); j = t.index("</style>", i)
+    return t[:i] + t[i:j].replace("position:fixed", r.choice(["position:static", "position:relative"]), 1) + t[j:]
 def _m_sans_id(t, r):
     P = points(t); n, a, e, i = r.choice(P); return t[:a] + t[a:e].replace(f' id="{i}"', "", 1) + t[e:]
 def _m_incomplete(t, r):
