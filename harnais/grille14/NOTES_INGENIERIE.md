@@ -73,7 +73,7 @@ Sigles les plus fréquents sans définition : VIH, HUG, TSH, CRP, IRM, TDM, TEP,
 
 ## 8. Limites connues et points restants
 
-- Lettre + chiffres (T3, T4, B12, CD4 n'en fait pas partie) : habillés s'ils sont définis, jamais signalés (codes, stades, vitamines indiscernables).
+- Lettre + chiffres (T3, T4, B12 ; CD4 n'en fait pas partie) : habillés s'ils sont définis, jamais signalés (codes, stades, vitamines indiscernables).
 - Majuscules sans ® d'une marque inconnue (VEOZA) : signalées comme sigles tant qu'aucune fenêtre ne les nomme.
 - Seuils de couverture (85 / 80 / 80 %) et détecteur de phrases nominales : à calibrer à l'usage (décision de Vial).
 - `prompt_projet.py` mentionne encore « 100–200 Ko, > 200 Ko jamais » : à aligner si Vial confirme la bande indicative.
