@@ -44,7 +44,7 @@ def analyser(t, nom, opt=None):
 def _inj(e):
     def fn(t, r):
         S = bus.sections(t); n = r.choice(sorted(S)); B = [b for b in bus.blocs(t, *S[n], ("p",))]
-        pa, pf, inner = r.choice(B); q = t.rindex("</p>", pa, pf); return t[:q] + " " + e["mutant"] + t[q:]
+        pa, pf, inner = r.choice(B); return t[:pf] + "<p>" + e["mutant"] + "</p>" + t[pf:]
     return fn
 MUTANTS = [(f"récidive {e['code']}", _inj(e), e["code"]) for e in F]
 ECRIT = []

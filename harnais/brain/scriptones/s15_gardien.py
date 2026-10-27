@@ -21,8 +21,8 @@ def analyser(t, nom, opt=None):
         if not m:
             if l.strip(): D.append(bus.doleance(me, "G1", nom, f"#SHA256SUMS · l.{k}", "CRITIQUE", "ligne d'empreinte illisible", "régénérer : python3 harnais/brain/cerveau.py empreintes --ecrire (après revue)", "agent", l[:120]))
             continue
-        h, n = m.group(1), m.group(2).strip(); listes[n] = h; p = D_ / n
-        if not p.exists():
+        h, n = m.group(1), m.group(2).strip(); listes[n] = h; p = (D_ / n).resolve()
+        if D_.resolve() not in p.parents or not p.is_file():      # introuvable, dossier, ou chemin hors du dossier (../) : jamais lu
             D.append(bus.doleance(me, "G2", nom, f"#SHA256SUMS · l.{k}", "CRITIQUE", f"fichier listé introuvable : {n}", "restaurer le fichier ou le retirer de la liste après revue", "agent", n))
         elif bus.sha(p.read_bytes()) != h:
             D.append(bus.doleance(me, "G1", nom, f"#SHA256SUMS · l.{k}", "CRITIQUE", f"altération : {n} ne correspond plus à son empreinte",

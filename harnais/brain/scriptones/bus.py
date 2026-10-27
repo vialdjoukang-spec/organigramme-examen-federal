@@ -100,9 +100,9 @@ def verifier_empreintes(nom=None):
         if not l.strip(): continue
         try: h, n = l.split(None, 1)
         except ValueError: alt.append(f"ligne illisible : {l[:40]}"); continue
-        n = n.strip(); p = D / n
+        n = n.strip(); p = (D / n).resolve()
         if nom and n != nom: continue
-        if not p.exists() or sha(p.read_bytes()) != h: alt.append(n)
+        if D not in p.parents or not p.is_file() or sha(p.read_bytes()) != h: alt.append(n)
     return alt
 
 

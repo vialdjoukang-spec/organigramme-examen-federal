@@ -332,7 +332,7 @@ def candidats_R(t, n):
         for hs, he, ph in phrases_html(inner):
             if not negatif(ph): continue
             apres = inner[he:he + 80]
-            ok = tag in ("p", "div") and not dans(Tb, pa) and re.search(r"[.!?]$", ph) and pure(ph) and equilibre(inner[hs:he]) and 'class="r"' not in re.split(r"[A-Za-zÀ-ÿ]", apres, 1)[0]
+            ok = tag in ("p", "div") and not dans(Tb, pa) and re.search(r"[.!?]$", ph) and pure(ph) and equilibre(inner[hs:he]) and 'class="r"' not in re.split(r"[A-Za-zÀ-ÿ]", apres, maxsplit=1)[0]
             typ = "pure" if ok else ("dose" if DOSE_STRICTE.search(ph) and (n == 11 or P[n].get("doses")) else "mixte")
             out.append((off + hs, off + he, ph, typ, pa))
     # fenêtres du point (contenu caché) : jamais supprimé par script

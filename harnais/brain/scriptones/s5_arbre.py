@@ -104,7 +104,10 @@ def trouver(t):
     """(début, fin, type, modèle) du premier arbre du point 1 (sinon du cours)."""
     S = bus.sections(t); a, f = S.get(1, bus.bornes_cours(t))
     m = re.search(r'(?is)<div class="arb" data-brain="arbre" data-modele="([^"]*)">', t[a:f])
-    if m: return a + m.start(), fin_div(t, a + m.start()), "brain", json.loads(H.unescape(m.group(1)))
+    if m:
+        try: mod = json.loads(H.unescape(m.group(1)))
+        except ValueError: mod = []          # modèle abîmé (fichier tronqué, édition à la main) : arbre signalé, jamais une panne
+        return a + m.start(), fin_div(t, a + m.start()), "brain", mod if isinstance(mod, list) else []
     m = re.search(r'(?is)<details class="arbre"[^>]*>.*?</details>', t[a:f])
     if m: return a + m.start(), a + m.end(), "brut", lire_brut(m.group(0))
     m = re.search(r'(?is)<div class="arb">', t[a:f])
