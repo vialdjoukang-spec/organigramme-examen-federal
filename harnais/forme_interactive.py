@@ -283,10 +283,30 @@ def texte_libre(t):
     """Texte que le lecteur voit sans fenêtre survolable : contextes libre et fenetre (sans rappel, titres, bibliographie)."""
     return " ".join(p for p, bal, c in segments(t) if not bal and c in ("libre", "fenetre"))
 
+RX_ENTETE_MED = re.compile(r"^\s*(?:Molécules?|Médicaments?|Spécialités?|Substances?|DCI)\b", re.I)
+def noms_tableaux(t):
+    """Médicaments nommés dans les tableaux : 1er nom de chaque cellule d'une colonne « Molécule / Médicament / Spécialité / Substance / DCI »."""
+    out = set()
+    for tb in re.findall(r"(?is)<table.*?</table>", t):
+        th = [_txt(x) for x in re.findall(r"(?is)<th[^>]*>(.*?)</th>", tb)]
+        cols = [i for i, h in enumerate(th) if RX_ENTETE_MED.match(h)]
+        if not cols: continue
+        for tr in re.findall(r"(?is)<tr[^>]*>(.*?)</tr>", tb):
+            td = re.findall(r"(?is)<td[^>]*>(.*?)</td>", tr)
+            for i in cols:
+                if i >= len(td): continue
+                x = re.split(r"\s*[(\[,;:—–/]|\s\d|\s+(?:et|ou|puis)\s", re.sub(r"(?s)<span class=\"df\">.*?</span>", " ", td[i]).replace("\n", " "))[0]
+                x = re.sub(r"[®™*]", "", _txt(x)).strip(" .")
+                if not x.split(): continue
+                classe = x.split()[0].lower().endswith(("s", "x")) or x.split()[0].lower() in ("voir", "aucun", "aucune", "pas")   # classes au pluriel, renvois : pas un médicament
+                if 4 <= len(x) <= 40 and len(x.split()) <= 3 and re.fullmatch(r"[A-Za-zÀ-ÿ' -]+", x) and not x.isupper() and not classe and x.lower() not in EXC_MEDS: out.add(x)
+    return out
+
 def manques_forme(t):
     """Après conversion : (sigles sans définition survolable, médicaments sans fenêtre), avec leurs occurrences."""
     from collections import Counter
     meds = fenetres_med(t); rxm = _rx_noms(meds); sig, med = Counter(), Counter()
+    rxt = _rx_noms({x for x in noms_tableaux(t) if x.lower() not in meds})
     for p, bal, c in segments(t):
         if bal or c not in ("libre", "fenetre"): continue
         for m in RX_JETON.finditer(p):
@@ -302,6 +322,8 @@ def manques_forme(t):
             if m.group(1).lower() not in EXC_MEDS and not re.search(r"s$", m.group(1)): med[m.group(1).lower()] += 1
         if rxm:
             for m in rxm.finditer(p): med[m.group(1)] += 1
+        if rxt:
+            for m in rxt.finditer(p): med[m.group(1)] += 1
     return sig, med
 
 def fenetres_incompletes(t):
