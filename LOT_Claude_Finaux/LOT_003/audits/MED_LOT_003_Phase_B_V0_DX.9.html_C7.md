@@ -4,7 +4,7 @@ RESULTAT score=92 critiques=0 question=oui
 
 ## Vérifié
 - 0 dose(s) de spécialités suisses vérifiée(s) vs AIPS ; 0 écart(s)
-- 5/5 PMID existent
+- 6/6 PMID existent
 - 21/22 chiffres retrouvés dans leur source (résumé PubMed / page / PDF)
 - toutes les spécialités ® citées existent dans l'index AIPS
 
