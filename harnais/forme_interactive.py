@@ -21,6 +21,7 @@ h2:not(#rm h2){border-left:6px solid #6366f1;background:linear-gradient(90deg,#e
 @media(prefers-color-scheme:dark){table:not(#rm table) tr:nth-child(even) td{background:#1c2236}table:not(#rm table) td:first-child{background:#23294a;color:#c7d2fe}table:not(#rm table) td{border-color:#2f3656}table:not(#rm table) tr:hover td{background:#2a3358}  .dx>.dxc{background:#241d3f}.dx>.dxt{color:#ddd0ff}.tm.med{background:#0c3a47;color:#a5f3fc}}</style>"""
 def convert(t):
     if MARQ in t: return t
+    ABR = {}
     # 1. liste des sources → un seul bloc repliable
     m = re.search(r"(<h[23][^>]*>[^<]*(?:[Ss]ources|[Rr]éférences)[^<]*</h[23]>\s*)?<ol[^>]*>\s*(<li[^>]*>\s*\[S\d+\].*?)</ol>", t, re.S)
     if m:
@@ -40,7 +41,7 @@ def convert(t):
         return f'<span class="dx"><input type="checkbox" id="{i}"><label class="dxt" for="{i}">{titre}</label><span class="dxc">{corps}</span></span>'
     t = re.sub(r"<details(?:\s+class=[\"']?(?:dx|i|in|f)[\"']?[^>]*|\s+style=[\"'][^\"']*display:\s*inline[^\"']*[\"'][^>]*)>\s*<summary[^>]*>(.*?)</summary>\s*(.*?)\s*</details>", dx, t, flags=re.S)
     # 1 ter. préambule (méthode, abréviations) → en fin de page ; fil d'Ariane sobre pour la classification
-    s = re.search(r'<section class="monograph"|<main[ >]', t)
+    s = re.search(r'<section class="monograph"', t) or re.search(r'<main[ >]', t)
     if s:
         seg = t[:s.start()]; blocs = []
         def prend(mm): blocs.append(mm.group(0)); return ""
@@ -48,7 +49,8 @@ def convert(t):
         if blocs:
             t = seg2 + t[s.start():]
             ab = re.search(r"Abréviations\s*:(.*?)(?:</p>|</div>|$)", "".join(blocs), re.S)   # le reste (date, méthode, sources lues) n'est pas du cours : supprimé
-            notes = '<details class="refs"><summary>Abréviations</summary><p>' + re.sub(r"<[^>]+>", "", ab.group(1)).strip() + "</p></details>" if ab else ""
+            ABR.update(parse_sigles(re.sub(r"<[^>]+>", " ", ab.group(1)))) if ab else None   # la liste est DÉTRUITE à l'affichage ; chaque sigle devient survolable
+            notes = ""
             t = t.replace("</body>", notes + "</body>", 1) if "</body>" in t else t + notes
     def arbre(mm):
         corps = mm.group(1); racine = []; pile = [racine]; cur = None
@@ -107,8 +109,43 @@ def convert(t):
     t = re.sub(r"(?m)^[ \t]+", "", t); t = re.sub(r"[ \t]{2,}", " ", t); t = re.sub(r"\n{2,}", "\n", t)
     css = FONTE.join(("<style>", "")) + re.sub(r"\s*\n\s*", "", CSS)[len("<style>"):] if False else re.sub(r"\s*\n\s*", "", CSS).replace("<style>", "<style>" + FONTE, 1)
     t = t.replace("</head>", css + "</head>", 1) if "</head>" in t else css + t
+    t = habille_sigles(t, ABR)
     t = t.replace("</body>", MARQ + "</body>", 1) if "</body>" in t else t + MARQ
     return coupe_lignes(t)
+
+def parse_sigles(s):
+    """« A = définition ; B = définition » → {A: définition}"""
+    d = {}
+    for x in re.split(r"\s*;\s*", re.sub(r"\s+", " ", s).strip()):
+        m = re.match(r"^([^\s=:]{2,14})\s*=\s*(.{3,260})$", x.strip().rstrip("."))
+        if m and sum(c.isupper() or c.isdigit() for c in m.group(1)) >= 2: d[m.group(1)] = m.group(2).strip()   # un sigle, pas un mot
+    return d
+
+def habille_sigles(t, abr):
+    """1re occurrence de chaque sigle, dans chaque point : survolable ou cliquable avec sa définition. Ni dans un titre, ni dans une fenêtre, ni dans un lien."""
+    if not abr: return t
+    rx = re.compile(r"(?<![\w\-/])(" + "|".join(sorted((re.escape(k) for k in abr), key=len, reverse=True)) + r")(?![\w\-/])")
+    out, seen, sk, sp, stack = [], set(), 0, 0, []
+    for p in re.split(r"(<[^>]+>)", t):
+        if p.startswith("<"):
+            low = p.lower()
+            if re.match(r"<h3\b", low): seen = set()
+            if re.match(r"<(h[1-6]|summary|title|caption|a|script|style|button|label|option)\b", low): sk += 1
+            elif re.match(r"</(h[1-6]|summary|title|caption|a|script|style|button|label|option)>", low): sk = max(0, sk - 1)
+            if low.startswith("<span"):
+                if sp or re.search(r'class="(?:tm|tm med|df|dxc|dxt|org|dfn|chip)"', low): sp += 1
+            elif low.startswith("</span") and sp: sp -= 1
+            out.append(p); continue
+        if sk or sp or len(p) < 2: out.append(p); continue
+        def sub(m):
+            k = m.group(1)
+            if k in seen: return k
+            seen.add(k)
+            d = abr[k].replace("&", "&amp;").replace("<", "&lt;")
+            return f'<span class="tm" tabindex="0">{k}<span class="df"><b>{k}</b> : {d}</span></span>'
+        out.append(rx.sub(sub, p))
+    return "".join(out)
+
 def coupe_lignes(t, max_l=2900):
     out = []
     for l in t.split("\n"):
