@@ -21,9 +21,7 @@ import argparse, hashlib, html, json, re, sys
 from pathlib import Path
 
 VERSION = "1.0"
-import json as _j
-_B = _j.loads((Path(__file__).resolve().parent / "BANDE.json").read_text())
-BANDE_MIN, BANDE_MAX = _B["min_ko"] * 1000, _B["max_ko"] * 1000  # Ko = 1 000 octets ; bande indicative : avertissement, jamais critique
+BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bornes comprises
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
@@ -113,7 +111,7 @@ def lire_liste(d: Path) -> dict[int, str]:
             out = {}
             for l in cand.read_text(encoding="utf-8").splitlines():
                 m = RE_LISTE.search(l)
-                if m and 1 <= int(m.group(1)) <= 15 and int(m.group(1)) not in out:
+                if m and 1 <= int(m.group(1)) <= 10 and int(m.group(1)) not in out:
                     out[int(m.group(1))] = norm(m.group(2))
             return out
     return {}
@@ -154,34 +152,34 @@ def verifier(d: Path, sans_nom: bool) -> dict:
     C = rapport["critiques_lot"]
     if len(A) != 1:
         C.append(f"Phase A : {len(A)} fichier(s) au lieu de 1")
-    liste = lire_liste(d)
-    N = len(liste) if 10 <= len(liste) <= 15 else 10  # 10 DD, jusqu'à 15 si lignes vertes retenues
-    if sorted(B) != list(range(1, N + 1)):
-        C.append(f"Phase B : DX présents {sorted(B)} ; attendus 1 à {N}, un fichier chacun")
+    if sorted(B) != list(range(1, 11)):
+        C.append(f"Phase B : DX présents {sorted(B)} ; attendus 1 à 10, un fichier chacun")
     if autres:
-        C.append(f"HTML hors nommage 1 + N : {autres}")
+        C.append(f"HTML hors nommage 1 + 10 : {autres}")
     for r in rapport["fichiers"]:
         ml = RE_A.match(r["fichier"]) or RE_B.match(r["fichier"])
         if ml and lot and ml.group(1) != lot:
             C.append(f"{r['fichier']} : numéro de LOT ≠ dossier {d.name}")
-    AV = rapport["avertissements_lot"]   # taille : indicative, jamais bloquante (Vial 27.10.2026)
     for i, r in B.items():
         if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            AV.append(f"DX.{i} : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko (indicative, non bloquante)")
+            C.append(f"DX.{i} : {r['octets']} octets hors bande 100–200 Ko")
         if len(r["monographies"]) != 1:
             C.append(f"DX.{i} : {len(r['monographies'])} monographie(s) dans le fichier au lieu de 1")
     for r in A:
-        if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            AV.append(f"Phase A : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko (indicative, non bloquante)")
+        if r["octets"] < BANDE_MIN:
+            C.append(f"Phase A : {r['octets']} octets < 100 Ko")
+        elif r["octets"] > BANDE_MAX:
+            C.append(f"Phase A : {r['octets']} octets > 200 Ko (plafond absolu)")
+    liste = lire_liste(d)
     if not liste:
         C.append("LISTE_DX_CANONIQUE.md absente ou illisible (contrôle A↔B impossible)")
     else:
-        if sorted(liste) != list(range(1, N + 1)):
+        if sorted(liste) != list(range(1, 11)):
             C.append(f"liste canonique incomplète : {sorted(liste)}")
         for i, r in B.items():
             titres = r.get("dx_titres") or []
             attendu = f"DX.{i} — {liste.get(i, '?')}"
-            if not titres or norm(titres[0].replace("–", "—").replace(" - ", " — ").replace("’", "'")) != norm(attendu.replace("–", "—").replace(" - ", " — ").replace("’", "'")):
+            if not titres or norm(titres[0].replace("–", "—").replace(" - ", " — ")) != norm(attendu):
                 C.append(f"DX.{i} : titre {titres[:1]} ≠ liste canonique « {attendu} » (CRITIQUE A↔B)")
         if A:
             ta = norm(Path(d / A[0]["fichier"]).read_text(encoding="utf-8", errors="replace"))
