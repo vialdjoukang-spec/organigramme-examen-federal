@@ -181,7 +181,7 @@ def verifier(d: Path, sans_nom: bool) -> dict:
         for i, r in B.items():
             titres = r.get("dx_titres") or []
             attendu = f"DX.{i} — {liste.get(i, '?')}"
-            if not titres or norm(titres[0].replace("–", "—").replace(" - ", " — ")) != norm(attendu):
+            if not titres or norm(titres[0].replace("–", "—").replace(" - ", " — ")) != norm(attendu.replace("–", "—").replace(" - ", " — ")):
                 C.append(f"DX.{i} : titre {titres[:1]} ≠ liste canonique « {attendu} » (CRITIQUE A↔B)")
         if A:
             ta = norm(Path(d / A[0]["fichier"]).read_text(encoding="utf-8", errors="replace"))
