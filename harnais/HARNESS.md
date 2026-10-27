@@ -50,33 +50,50 @@ Territoires d'audit : **B1** (orange pâle) audite d'abord la Phase A, puis DX.1
 4. `fin` répond « INCHANGÉ » (sans compter d'essai) si le fichier est identique à celui du dernier refus ; un second essai sans modification bloque le fichier.
 5. Un refus du checkpoint affiche « À CORRIGER » : les lignes exactes des rapports (chiffres sans source, ® absents de l'AIPS, phrases sans verbe).
 6. Un fichier BLOQUÉ revient au chef de production, qui ne relance pas d'agent en boucle dessus.
+7. Panne d'outil (checkpoint qui plante) : incident écrit dans `incidents/`, aucun essai compté, code 6. Arguments faux : message clair, jamais de trace brute.
 
 ## 4. Le contracteur de texte · conservateur de notions
 
-> **RÈGLE ABSOLUE DE VIAL : la contraction ne doit pas du tout toucher les notions, ni compromettre le sens, ni l'explication de quoi que ce soit. On n'a pas besoin de beaucoup de mots pour transmettre des notions expliquées. Contracter n'est pas résumer : on retire seulement l'excès de mots (redites, tournures longues, remplissage). En cas de doute, on garde la phrase.**
+```
+╔══ RÈGLE ABSOLUE DE VIAL ═════════════════════════════════════════════════════════════════════╗
+║ LA CONTRACTION NE DOIT PAS DU TOUT TOUCHER LES NOTIONS, NI COMPROMETTRE LE SENS, NI           ║
+║ L'EXPLICATION DE QUOI QUE CE SOIT. On n'a pas besoin de beaucoup de mots pour transmettre      ║
+║ des notions expliquées.                                                                        ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+```
 
-`harnais/contracteur/contracteur.py` (lecture seule) ; clones `harnais/agents/KB1.py` … `KB5.py`, chacun limité au territoire de son auditeur.
+La règle est une constante (`REGLE_ABSOLUE`) du moteur : imprimée en tête de **chaque** sortie de `contracter`, `verifier` et `etat`, écrite dans le docstring, injectée dans la `memoire` de chaque auditeur B1…B5. Contracter **peut reformuler plus concis** (pas seulement supprimer) ; jamais résumer.
 
-- `contracter <fichier>` : inventaire des notions **à l'entrée** (nombres, renvois `[Sn]`, médicaments, termes cliquables, sigles, tableaux, 14 points, noms de notions), contraction mécanique sûre (formules creuses, doublons exacts), puis **cibles de contraction sémantique** : points les plus lourds, phrases longues, redites, phrases nominales à réécrire.
-- `verifier <fichier>` : nombres et médicaments à 100 % ; termes cliquables, renvois et noms de notions à 95 % au moins ; tableaux et 14 points intacts ; explications conservées (couverture des phrases d'explication ≥ 85 %), couples valeur + unité + comparateur à 100 %, négations et conditions non diminuées ; **aucun quota de volume** (le gain est seulement affiché ; seul l'excès objectif est exigé : redites restantes, phrases trop longues) ; aucune phrase nominale en plus. Si tout est bon, **visa** lié à l'empreinte du fichier : toute modification ultérieure l'annule.
-- La commande `fin` d'un auditeur **refuse sans visa valide** : le contracteur est le dernier secteur avant le commit.
-- `--exceptions "mot,mot"` (10 au plus) : notion conservée sous un synonyme.
+`harnais/contracteur/contracteur.py` (lecture seule) ; clones `harnais/agents/KB1.py` … `KB5.py`, chacun limité au territoire de son auditeur (refus si le verrou est tenu par un autre agent).
+
+- `contracter <fichier>` : inventaire **à l'entrée** (nombres, renvois `[Sn]`, sources de la liste, médicaments et DCI, termes cliquables, abréviations définies, couples comparateur + valeur + unité, tableaux, 14 points, lemmes, phrases avec explications et marqueurs), contraction mécanique sûre (formules creuses en début de phrase, doublons exacts ; jamais « Ainsi », « afin de », « dans la mesure où »), puis **cibles** : redites, phrases longues, phrases nominales, points lourds. Le gain est affiché, jamais exigé.
+- `verifier <fichier> [--exceptions "mot,mot"]` (10 au plus) :
+  - 100 % : nombres, médicaments (marques et DCI), sources de la liste, abréviations définies, couples comparateur + valeur + unité (aussi **dans leur phrase**) ; tableaux (lignes) et 14 points intacts ;
+  - ≥ 95 % : termes cliquables, renvois `[Sn]`, notions (noms) ;
+  - **explications** : chaque phrase portant car, parce que, donc, ainsi, provoque, entraîne, explique, permet, mécanisme, afin de, pour que, → est couverte à ≥ 85 % par les lemmes de la meilleure phrase du texte contracté (ou de deux phrases voisines : scinder est permis) ;
+  - **autres phrases** : couvertes à ≥ 80 % ; sinon admises seulement si elles sont la redite d'une phrase conservée ;
+  - **négations et conditions** (ne… pas, jamais, sans, aucun, contre-indiqué, interdit, éviter, seulement, uniquement, si, sauf) : présentes dans la phrase qui couvre, et jamais diminuées au total ;
+  - **excès objectif** seulement : redites quasi identiques ≤ 3, phrases de plus de 30 mots ≤ 6 %, aucune phrase nominale en plus. **Aucun quota de volume** (l'ancien 15 % / 14 000 mots est supprimé ; `CIBLE.json` n'est plus lu pour décider).
+  - Visa lié à l'empreinte du fichier : toute modification ultérieure l'annule.
+- La contraction mécanique est appliquée aux deux côtés de la comparaison : elle est invisible au verdict.
+- La commande `fin` d'un auditeur **refuse sans visa valide** (« aucun visa » ou « modifié après le visa »).
 
 ## 5. Forme des cours (convertisseur `harnais/forme_interactive.py`)
 
-Le fichier brut reste lisible par les contrôles ; le dépôt reçoit la version convertie.
+Le fichier brut reste lisible par les contrôles ; le dépôt reçoit la version convertie. Un fichier déjà converti est ré-habillé (idempotent).
 
 - Point 1 : classification du général au particulier, **avec la classification d'origine** entre parenthèses (CIM-11, DSM-5, ATC…), en cartes descendantes ; 140 mots au plus de texte.
-- Termes et médicaments cliquables. Fenêtre du médicament : **DCI, classe (ATC), groupe pharmacologique avec ses chefs de file, indications et posologies AIPS**.
-- **Abréviations : la liste est détruite à l'affichage** ; chaque sigle est survolable et cliquable (définition en fenêtre, première occurrence de chaque point). La ligne de données « Abréviations : A = …; B = … » reste dans le brut.
+- **Abréviations : aucune nulle part sans être survolable avec sa définition.** La liste « Abréviations : A = …; B = … » du préambule est détruite à l'affichage (elle reste dans le brut). **Chaque occurrence** de chaque sigle (≥ 2 majuscules ou chiffres consécutifs : TSH, HbA1c, CIM-11, qSOFA), hors titres et bibliographie, y compris dans les fenêtres, devient `<abbr class="ab" data-k="TSH">` ; la définition est écrite **une seule fois** dans `<style id="sigles">` (survol et focus). Définitions : liste du préambule, fenêtres `.tm` dont le terme est un sigle, valeurs par défaut du harnais (DCI, ATC, AIPS, OMS, CIM-10/11, DSM-5, OFSP, OFS, DX).
+- **Médicaments : aucun mentionné sans être cliquable avec sa classification.** Chaque fenêtre `.tm med` contient DCI, classe (ATC), groupe avec ses chefs de file, indications et posologies AIPS. **Chaque occurrence** (terme, DCI, marques de la ligne DCI, avec ou sans ®), hors titres et hors fenêtres, devient un lien vers une **bande** unique par médicament (comme les sources).
+- **Contrôles d'échec (CRITIQUE, nommés à l'agent)** : sigle sans définition nulle part ; médicament mentionné sans fenêtre (marque ® ou ™, nom d'une colonne Molécule / Médicament / Spécialité d'un tableau, ou suffixe -pril, -sartan, -azole, -mab, -tinib, -statine, -olol, -oxacine, -cilline, -dipine, -parine, -mycine, -cycline, -vir…) ; fenêtre incomplète (élément manquant nommé). Faux positifs écartés : noms propres composés (Child-Pugh), mots capitalisés (PubMed), codes ATC/CIM, lettre + chiffres (T4, B12), chiffres romains, formules chimiques, classes au pluriel, cholestérol, somatostatine, cocaïne… (listes `EXC_SIGLES`, `SOFT`, `EXC_MEDS`).
+- L'habillage automatique porte `data-auto` ou `<abbr>` : il ne compte ni comme terme cliquable de l'agent, ni comme fenêtre au point 13 ; les comptes de mots et de phrases se font sans lui.
 - Sources : exposants discrets ; clic = source sur une petite bande bleu ciel ; liste unique en dernière page sous « Sources bibliographiques ».
-- Aucun terme cliquable dans un titre. Tableaux colorés. Police **Atkinson Hyperlegible** embarquée.
+- Aucun terme cliquable écrit par l'agent dans un titre. Tableaux colorés. Police **Atkinson Hyperlegible** embarquée.
 - Aucune mention de conception, phrases de 8 à 20 mots (moyenne ≤ 20, pas plus de 6 % au-dessus de 30).
-- Le convertisseur conserve `FIN_FICHIER` et coupe les lignes trop longues.
 
 ## 6. Taille
 
-`harnais/BANDE.json` : **80–200 Ko**, **indicative : la taille ne bloque aucun fichier** (simple avertissement). Décision de Vial, 27.10.2026.
+`harnais/BANDE.json` : **80–200 Ko**, **indicative : la taille ne bloque aucun fichier** (Vial, 27.10.2026). Grille : écart **MOYEN** (jamais CRITIQUE) ; `checkpoint.py` : « AVERTISSEMENT (non bloquant) » ; `controle_lot.py verifier` : avertissement de lot. L'habillage des sigles et des médicaments ajoute environ 25 à 50 Ko par fichier.
 
 ## 7. Outils du harnais d'origine, tous dans le circuit
 
@@ -96,7 +113,9 @@ Le fichier brut reste lisible par les contrôles ; le dépôt reçoit la version
 ## 8. Santé et tests
 
 - `python3 harnais/grille14/SANTE.py` : verrous orphelins, fichiers BLOQUÉS, fichiers prêts non audités, essais, commits en avance, empreintes.
-- `python3 harnais/grille14/autotest.py` : batterie de tests de bout en bout (mode `G14_TEST=1`, isolé, jamais de commit réel).
+- `python3 harnais/grille14/autotest.py` : 108 tests de bout en bout en moins d'une minute (mode `G14_TEST=1`, bac à sable, jamais de commit réel) ; il prouve aussi que les 16 fichiers réels de LOT_001 ne subissent aucune régression imprévue (lecture seule) et écrit les écarts nouveaux dans `.cache/test_g14/ecarts_LOT_001.json`.
+- LOT par défaut des scripts : `harnais/grille14/LOT_ACTIF` (une ligne « 001 »), sinon la variable `G14_LOT`, sinon 001 ; `--lot NNN` prime.
+- Notes d'ingénierie : `harnais/grille14/NOTES_INGENIERIE.md`.
 
 ## 9. Conduite d'un LOT (chef de production)
 
@@ -113,6 +132,7 @@ Les rédacteurs sont le gros poste : environ 400 000 à 570 000 jetons par paire
 
 ## 11. Décisions en attente de Vial
 
-- Calibrage des seuils de conservation des explications et du sens : à confirmer à l'usage.
+- Calibrage des seuils de conservation (85 % explications, 80 % autres phrases, redite à 80 %) : à confirmer à l'usage.
+- LOT_001 : les sigles non définis et les médicaments sans fenêtre (mesurés dans `NOTES_INGENIERIE.md`) refusent désormais le checkpoint ; reprise à décider.
 - Point 10 de la grille (arbre décisionnel) : texte de Vial à compléter.
-- Bande 80–200 Ko : à confirmer.
+- Bande 80–200 Ko indicative : appliquée (non bloquante).
