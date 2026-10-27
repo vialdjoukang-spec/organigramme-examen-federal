@@ -3,16 +3,23 @@
   python3 harnais/checkpoint.py <LOT> <fichier.html> [--cycle N]
 Sortie : « CHECKPOINT OK » (fichier commité) ou « CHECKPOINT REFUSÉ » + chemins des rapports à corriger (rien n'est commité).
 Un fichier = un checkpoint : autant de chapitres, autant de contrôles médicaux. La PR du LOT est ouverte une fois tous les fichiers commités."""
-import fcntl, importlib.util, json, re, shutil, subprocess, sys
+import fcntl, importlib.util, json, os, re, shutil, subprocess, sys
 from pathlib import Path
 R = Path(__file__).resolve().parent.parent; lot = sys.argv[1]; f = Path(sys.argv[2]).resolve(); SORTIE = "--sortie" in sys.argv; TER = f.parent.name if f.parent.name in ("entree", "sortie") else None
-LOTDIR = R / ".cache/travail" / f"LOT_{lot}"
+TEST = bool(os.environ.get("G14_TEST"))   # autotest : tout reste dans .cache/test_g14 (aucun rapport ni commit réels)
+LOTDIR = (R / ".cache/test_g14" if TEST else R / ".cache/travail") / f"LOT_{lot}"
+if not f.exists(): print(f"CHECKPOINT ERREUR (outil) — fichier introuvable : {f}"); sys.exit(2)
 c = sys.argv[sys.argv.index("--cycle") + 1] if "--cycle" in sys.argv else str(json.loads((LOTDIR / "taches.json").read_text()).get("cycle", 1)) if (LOTDIR / "taches.json").exists() else "1"
-A = LOTDIR / "audits"; A.mkdir(exist_ok=True); WT = R.parent / f"wt-{lot}"
-def run(*a, **k): return subprocess.run(a, capture_output=True, text=True, cwd=k.get("cwd", R))
+A = LOTDIR / "audits"; A.mkdir(parents=True, exist_ok=True); WT = (R / ".cache/test_g14" if TEST else R.parent) / f"wt-{lot}"
+def run(*a, **k):
+    try: return subprocess.run(a, capture_output=True, text=True, cwd=k.get("cwd", R), timeout=k.get("timeout", 900))
+    except subprocess.TimeoutExpired: return subprocess.CompletedProcess(a, 124, "", f"délai dépassé (900 s)")
 res = lambda p: (lambda m: dict(score=float(m.group(1)), crit=int(m.group(2))) if m else None)(re.search(r"RESULTAT score=([\d.]+) critiques=(\d+)", p.read_text())) if p.exists() else None
 med, lan = A / f"MED_{f.name}_C{c}.md", A / f"CONF_{f.name}_C{c}.md"
-run("python3", "harnais/controle_medical.py", str(f), "--rapport", str(med)); run("python3", "harnais/controle_langue.py", str(f), "--rapport", str(lan))
+for p_ in (med, lan): p_.unlink(missing_ok=True)   # jamais de rapport périmé : un contrôle qui plante ne doit pas relire l'ancien
+rm_, rl_ = run("python3", "harnais/controle_medical.py", str(f), "--rapport", str(med)), run("python3", "harnais/controle_langue.py", str(f), "--rapport", str(lan))
+for nom_, r_, p_ in (("médical", rm_, med), ("langue", rl_, lan)):   # panne d'outil ≠ refus : l'agent n'y est pour rien
+    if res(p_) is None: print(f"CHECKPOINT ERREUR (outil) — contrôle {nom_} sans rapport (code {r_.returncode}) : {(r_.stderr or r_.stdout).strip()[-300:]}"); sys.exit(2)
 spec = importlib.util.spec_from_file_location("cl", R / "harnais/controle_lot.py"); cl = importlib.util.module_from_spec(spec); sys.argv_bak, sys.argv = sys.argv, ["x"]; spec.loader.exec_module(cl); sys.argv = sys.argv_bak
 forme = cl.analyse_fichier(f); m, l = res(med), res(lan)
 if lot in ("001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016"):
