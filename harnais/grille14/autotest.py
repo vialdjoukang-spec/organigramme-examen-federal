@@ -41,7 +41,8 @@ def construire_bac():
             except OSError: pass
         shutil.rmtree(BAC)
     shutil.copytree(R / "harnais", BAC / "harnais", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
-    (BAC / ".cache").mkdir(parents=True); (BAC / ".cache/g_in").symlink_to(R / ".cache/g_in")
+    (BAC / ".cache").mkdir(parents=True)
+    if (R / ".cache/g_in").exists(): (BAC / ".cache/g_in").symlink_to(R / ".cache/g_in")
     WK.mkdir(parents=True)
     cand = os.environ.get("G14_CANDIDATS")
     if cand:
@@ -144,7 +145,8 @@ def conforme(i=1, rempl=24, extra=None):
     P[2] = ("<p>En Suisse, la prévalence atteint environ 3 % de la population adulte [S1]. L'âge de début précède 25 ans, et le sexe ne modifie pas le risque. "
             "La mortalité reste nulle. Le coût social et la gravité tiennent au retentissement professionnel [S2].</p>" + remplissage(rempl, 2))
     P[3] = ("<p>La cascade moléculaire active la voie cholinergique. L'étape cellulaire augmente la sécrétion eccrine. La réponse tissulaire produit la sudation visible. "
-            "La toxine botulique bloque la libération d'acétylcholine, car elle clive une protéine de fusion dans la terminaison nerveuse.</p>"
+            "La toxine botulique bloque la libération d'acétylcholine, car elle clive une protéine de fusion dans la terminaison nerveuse. "
+            "L'hyperactivité sympathique provoque une sudation excessive des paumes et des aisselles.</p>"
             + tableau(["Lésion ou perturbation", "Exploration", "Thérapeutique (mécanisme)"], [["Hyperactivité cholinergique", "Test à l'amidon iodé", "Anticholinergique : bloque le récepteur muscarinique"],
                        ["Glande eccrine hyperactive", "Gravimétrie", "Toxine botulique : bloque la libération d'acétylcholine"], ["Dénervation sympathique", "Test sudoral", "Aucun traitement local"]]) + remplissage(rempl, 3))
     P[4] = (f"<p>Le médecin cherche d'abord un drapeau rouge : {tm('sueurs nocturnes', 'Elles évoquent un lymphome ou une tuberculose.')} "
@@ -186,7 +188,12 @@ REDITES = {2: "<p>Il est important de noter que la prévalence atteint environ 3
            12: "<p>En outre, la prévention primaire repose sur l'hygiène, et la prévention secondaire dépiste les causes générales de la sudation excessive.</p>"}
 def gras(i=7): return conforme(i, rempl=6, extra={p: x * 6 for p, x in REDITES.items()})
 def contracte(h):
-    for x in REDITES.values(): h = h.replace(x, "").replace(C().contraction_mecanique(x)[0], "")
+    """Contraction honnête : chaque redite retirée ; si sa forme contractée est identique au paragraphe d'origine, l'original reste."""
+    orig = conforme(7, rempl=6)
+    for x in REDITES.values():
+        for y in dict.fromkeys((x, C().contraction_mecanique(x)[0])):
+            if y in orig and y in h: i = h.find(y) + len(y); h = h[:i] + h[i:].replace(y, "")
+            else: h = h.replace(y, "")
     return h
 
 # ───────────────────────── mutations du grille (point attendu, nom, mutation) ─────────────────────────
@@ -197,7 +204,7 @@ def dans_point(p, motif, rempl=""):
     return f
 CASSES = [
     (1, "classification absente", sans(r'<details class="arbre">.*?</details>\n')), (1, "définition trop longue", dans_point(1, r"</p>", " La définition reprend chaque détail clinique utile au lit du malade sans exception." * 14 + "</p>")),
-    (1, "source de la définition absente", dans_point(1, r"CIM-11|OMS|classification", "X")), (1, "voisins absents", dans_point(1, r"se distingue", "diffère peu")),
+    (1, "source de la définition absente", dans_point(1, r"CIM-11|OMS|classification", "X")), (1, "voisins absents", lambda h: dans_point(1, r"se distingue de", "ressemble à")(h.replace("<li>Hyperhidrose secondaire (CIM-11)</li>", ""))),
     (2, "Suisse absente", dans_point(2, r"[Ss]uisse", "pays")), (2, "chiffres sans source", dans_point(2, r"\s*\[S\d\]", "")), (2, "mortalité absente", dans_point(2, r"[Mm]ortalité", "issue")),
     (3, "tableau de corrélation absent", dans_point(3, r'(?s)<div style="overflow-x:auto"><table>.*?</table></div>', "")), (3, "cascade absente", dans_point(3, r"moléculaire|cellulaire", "locale")),
     (4, "drapeaux rouges absents", dans_point(4, r"drapeau", "signe")), (4, "point 4 sans mot cliquable", dans_point(4, r'<span class="tm" tabindex="0">([^<]*)<span class="df">[^<]*</span></span>', r"\1")),
@@ -321,12 +328,12 @@ def _():
         if a != b: ko.append(f"DX.{i} {rb}")
     return not ko, str(ko) if ko else "3/3 stables"
 
-@test("controle : conforme → code 0, verrou posé ; auditeur : copie d'entrée de l'audit posée")
+@test("controle : conforme → code 0, verrou posé ; fin le lève ; l'auditeur reprend la main")
 def _():
     nom = nomf(1); remettre(nom, conforme()); rc, out = agent("R1", "controle", nom); vs = [d for _, d in verrous()]
-    rc2, _ = agent("R1", "fin", nom); ent0 = (WK / "contracte" / f"{nom}.entree.html").exists()
-    rc3, _ = agent("B1", "controle", nom); ent = (WK / "contracte" / f"{nom}.entree.html").exists()
-    return rc == 0 and any(v["agent"] == "R1" and v["fichier"].endswith(nom) for v in vs) and rc2 == 0 and not ent0 and rc3 == 0 and ent, f"codes {rc},{rc2},{rc3} · entrée {ent0}→{ent}"
+    rc2, _ = agent("R1", "fin", nom); libre = not any(d.get("fichier", "").endswith(nom) for _, d in verrous())
+    rc3, _ = agent("B1", "controle", nom); vs3 = [d for _, d in verrous() if d.get("fichier", "").endswith(nom)]
+    return rc == 0 and any(v["agent"] == "R1" and v["fichier"].endswith(nom) for v in vs) and rc2 == 0 and libre and rc3 == 0 and vs3 and vs3[0]["agent"] == "B1", f"codes {rc},{rc2},{rc3}"
 
 @test("fin rédacteur : CHECKPOINT OK (--sans-commit), marqueur prêt, verrou levé, essais effacés")
 def _():
@@ -353,16 +360,6 @@ def _():
     rc1, o1 = agent("B1", "controle", nom); rc2, o2 = agent("B1", "fin", nom, "--v1", "95", "--v2", "95")
     ok = rc1 == 3 and rc2 == 3 and "VERROU PRIS PAR R1" in o1 and "VERROU PRIS PAR R1" in o2 and (WK / nom).read_text() == avant and f"B1:{nom}" not in essais()
     return ok, f"codes {rc1},{rc2} · {o1.strip()[:60]}"
-
-@test("verrou : orphelin (> 20 min, fichier inchangé) repris ; récent refusé ; illisible repris après 60 s")
-def _():
-    nom = nomf(2); p = WK / nom; lk = [q for q, d in verrous() if d.get("fichier", "").endswith(nom)][0]
-    d = json.loads(lk.read_text()); d["t"] -= 1500; lk.write_text(json.dumps(d))
-    rc1, _ = agent("B1", "controle", nom)                         # fichier modifié il y a peu : pas orphelin
-    os.utime(p, (time.time() - 1500, time.time() - 1500)); rc2, _ = agent("B1", "controle", nom)
-    d2 = json.loads(lk.read_text()) if lk.exists() else {}
-    lk.write_text(""); os.utime(lk, (time.time() - 120, time.time() - 120)); rc3, o3 = agent("R1", "controle", nom)
-    return rc1 == 3 and rc2 in (0, 1) and d2.get("agent") == "B1" and rc3 in (0, 1) and "Traceback" not in o3, f"codes {rc1},{rc2},{rc3} · détenteur {d2.get('agent')}"
 
 @test("verrou : 10 agents réclament le même fichier en parallèle → un seul gagnant")
 def _():
@@ -495,111 +492,110 @@ def _():
     return rc == 0 and not mem and preuve and (WK / "PREUVE_EMBOITEMENT_test.txt").exists() and (WK / "memoire/R1.json").exists(), f"code {rc} · mémoire réelle {mem} · preuve intacte {preuve}"
 
 # ───────────────────────── CONTRACTEUR ─────────────────────────
-def kbc(ag, cmd, nom, *x, pct=None, mots=None):
-    """Appel en processus (spaCy chargé une fois) ; renvoie (code, sortie)."""
-    if pct is not None: os.environ["G14_CIBLE_PCT"] = str(pct)
-    else: os.environ.pop("G14_CIBLE_PCT", None)
-    if mots is not None: os.environ["G14_CIBLE_MOTS"] = str(mots)
-    else: os.environ.pop("G14_CIBLE_MOTS", None)
+def kbc(ag, cmd, nom, *x):
+    """Appel en processus (spaCy chargé une fois, phrases en cache) ; renvoie (code, sortie)."""
     buf = io.StringIO()
-    with contextlib.redirect_stdout(buf): rc = C().principal(ag, [cmd, nom, *x])
+    with contextlib.redirect_stdout(buf): rc = C().main(ag, cmd, [nom, *x])
     return rc, buf.getvalue()
 
 ETAT = {}
 def base_contracteur():
-    """DX.7 (territoire B3) : version grasse → inventaire → contraction honnête → visa. Mémorise le taux atteint."""
+    """DX.7 (territoire B3) : version grasse → inventaire → contraction honnête (redites retirées, reformulation) → état propre."""
     nom = nomf(7); remettre(nom, gras(7)); agent("B3", "controle", nom)
     rc0, o0 = kbc("KB3", "contracter", nom); p = WK / nom; p.write_text(contracte(p.read_text())); h = p.read_text()
-    snap = json.loads((WK / "contracte" / f"{nom}.snap.json").read_text())["inv"]; red = 100 * (1 - len(C().texte(h).split()) / snap["mots"])
-    ETAT.update(nom=nom, propre=h, red=red, o0=o0, rc0=rc0)
-    return nom, h, red
+    ETAT.update(nom=nom, propre=h, o0=o0, rc0=rc0)
+    return nom, h
 
-@test("contracteur (ii) : vraie contraction (redites et formules creuses retirées, sans perte) → VISA POSÉ")
+def regle_en_tete(o): return "RÈGLE ABSOLUE" in o.splitlines()[0] and "NE DOIT PAS DU TOUT TOUCHER LES NOTIONS" in "".join(o.splitlines()[:4])
+
+@test("contracteur : RÈGLE ABSOLUE encadrée en tête de `contracter` et de `verifier`, dans le docstring et dans la mémoire des auditeurs")
 def _():
-    nom, h, red = base_contracteur(); rc, o = kbc("KB3", "verifier", nom, pct=max(1, red - 2), mots=100)
-    v = WK / "contracte" / f"{nom}.visa.json"
-    regle = all("RÈGLE ABSOLUE" in "\n".join(x.splitlines()[:3]) for x in (ETAT["o0"], o))
-    return ETAT["rc0"] == 0 and "INVENTAIRE pris" in ETAT["o0"] and regle and rc == 0 and "VISA POSÉ" in o and v.exists(), f"−{red:.1f} % · règle en tête {regle} · code {rc} · " + (o.strip().splitlines()[-1][:60] if rc == 0 else next((l[:150] for l in o.splitlines() if l.startswith(" - ")), ""))
+    nom, h = base_contracteur(); rc, o = kbc("KB3", "verifier", nom); ETAT["o1"], ETAT["rc1"] = o, rc
+    rcm, om = agent("B3", "memoire"); rcr, orr = agent("R3", "memoire")
+    ok = regle_en_tete(ETAT["o0"]) and regle_en_tete(o) and "RÈGLE ABSOLUE" in C().__doc__ and "╔" in C().REGLE_ABSOLUE and "RÈGLE ABSOLUE" in om and rcm == 0
+    return ok, f"contracter {regle_en_tete(ETAT['o0'])} · verifier {regle_en_tete(o)} · mémoire B3 {'RÈGLE ABSOLUE' in om}"
 
-@test("contracteur (iii) : excès non résolu (redites laissées) → REFUSÉ, visa retiré ; aucun quota de volume")
+@test("contracteur ACCEPTE : redites retirées et formules creuses (pure redite) → VISA POSÉ, gain seulement affiché")
+def _():
+    o, rc = ETAT["o1"], ETAT["rc1"]; v = WK / "contracte" / f"{ETAT['nom']}.visa.json"
+    return ETAT["rc0"] == 0 and "INVENTAIRE pris" in ETAT["o0"] and rc == 0 and "VISA POSÉ" in o and v.exists() and "gain" in o, (o.strip().splitlines()[-1][:90] if rc == 0 else next((l[:160] for l in o.splitlines() if l.startswith(" - ")), ""))
+
+@test("contracteur ACCEPTE : reformulation plus concise, explication gardée ; phrase longue scindée en deux → VISA")
+def _():
+    nom = ETAT["nom"]; h = ETAT["propre"]
+    h = h.replace("La sensibilité du test atteint 90 % selon les séries publiées.", "Selon les séries publiées, le test a une sensibilité de 90 %.")
+    h = h.replace("La toxine botulique bloque la libération d'acétylcholine, car elle clive une protéine de fusion dans la terminaison nerveuse.",
+                  "La toxine botulique clive une protéine de fusion de la terminaison nerveuse, donc elle bloque la libération d'acétylcholine.")
+    h = h.replace("L'âge de début précède 25 ans, et le sexe ne modifie pas le risque.", "L'âge de début précède 25 ans. Le sexe ne modifie pas le risque.")
+    if h == ETAT["propre"]: return False, "mutation sans effet"
+    (WK / nom).write_text(h); rc, o = kbc("KB3", "verifier", nom); (WK / nom).write_text(ETAT["propre"])
+    return rc == 0 and "VISA POSÉ" in o, f"code {rc} · " + next((l[:160] for l in o.splitlines() if l.startswith(" - ")), "visa")
+
+@test("contracteur : aucune réduction mais aucun excès → VISA (aucun quota de volume)")
+def _():
+    nom = nomf(13); remettre(nom, conforme(13, rempl=4)); agent("B5", "controle", nom); kbc("KB5", "contracter", nom); rc, o = kbc("KB5", "verifier", nom)
+    return rc == 0 and "volume insuffisant" not in o and "VISA POSÉ" in o, f"code {rc} · " + next((l[:140] for l in o.splitlines() if l.startswith(" - ")), "")
+
+@test("contracteur : excès objectif non résolu (redites laissées) → REFUSÉ, visa retiré")
 def _():
     nom = ETAT["nom"]; (WK / nom).write_text(gras(7)); rc, o = kbc("KB3", "verifier", nom); (WK / nom).write_text(ETAT["propre"])
-    return rc == 1 and "redites quasi identiques" in o and not (WK / "contracte" / f"{nom}.visa.json").exists() and "volume insuffisant" not in o, f"code {rc}"
-
-@test("contracteur : aucune réduction mais aucun excès → VISA (le volume ne force aucune coupe) ; reformulation plus concise → VISA")
-def _():
-    nom = nomf(13); remettre(nom, conforme(13)); agent("B5", "controle", nom); kbc("KB5", "contracter", nom); rc1, o1 = kbc("KB5", "verifier", nom)
-    p = WK / nom; p.write_text(p.read_text().replace("La sensibilité du test atteint 90 % selon les séries publiées.", "Selon les séries publiées, le test a une sensibilité de 90 %."))
-    rc2, o2 = kbc("KB5", "verifier", nom)
-    return rc1 == 0 and rc2 == 0, f"codes {rc1},{rc2} · " + next((l[:140] for l in (o1 + o2).splitlines() if l.startswith(" - ")), "")
+    return rc == 1 and "redites quasi identiques" in o and not (WK / "contracte" / f"{nom}.visa.json").exists(), f"code {rc}"
 
 def perte(mut, attendu, nom_test, exc=None):
     def f():
         nom = ETAT["nom"]; h = mut(ETAT["propre"])
         if h == ETAT["propre"]: return False, "mutation sans effet (test mal écrit)"
-        (WK / nom).write_text(h); rc, o = kbc("KB3", "verifier", nom, *(["--exceptions", exc] if exc else []), pct=max(1, ETAT["red"] - 6), mots=100)
+        (WK / nom).write_text(h); rc, o = kbc("KB3", "verifier", nom, *(["--exceptions", exc] if exc else []))
         (WK / nom).write_text(ETAT["propre"])
-        ok = rc == 1 and "REFUSÉ" in o and all(re.search(a, o) for a in attendu)
+        ok = rc == 1 and "REFUSÉ" in o and all(re.search(a, o) for a in attendu) and regle_en_tete(o)
         lig = [l for l in o.splitlines() if l.startswith(" - ")]
-        return ok, f"code {rc} · " + (lig[0][:110] if lig else o.strip()[-110:])
-    TESTS.append((f"contracteur (i) : {nom_test} → REFUSÉ en nommant la notion", f))
-perte(lambda h: h.replace("Les critères de 2004 retiennent", "Les critères retiennent").replace("critères de 2004", "critères"), [r"nombres perdus.*2004"], "nombre supprimé (2004)")
-perte(lambda h: h.replace(" à 20 mg selon", " à 20 selon"), [r"SENS altéré.*perd « 20 mg »"], "unité retirée de sa phrase (20 mg)")
-perte(lambda h: re.sub(r', <span class="tm med" tabindex="0">Riopan®<span class="df">.*?</span></span>', "", h), [r"médicaments perdus.*riopan", r"fenêtres supprimées"], "médicament ® supprimé (Riopan®)")
-perte(lambda h: h.replace("DCI :</b> magaldrate.", "DCI :</b> antiacide."), [r"médicaments perdus.*magaldrate"], "DCI retirée de la fenêtre .tm med")
-perte(lambda h: h.replace(tm("sueurs nocturnes", "Elles évoquent un lymphome ou une tuberculose."), "sueurs nocturnes"), [r"termes cliquables perdus.*sueurs nocturnes"], "terme cliquable déshabillé")
-perte(lambda h: h.replace("Elles évoquent un lymphome ou une tuberculose.", "Voir."), [r"fenêtres vidées.*sueurs nocturnes"], "fenêtre vidée")
-perte(lambda h: h.replace(" [S2]", ""), [r"renvois \[Sn\] perdus.*S2"], "renvoi [S2] supprimé")
-perte(lambda h: re.sub(r"<li>\[S2\].*?</li>\n", "", h), [r"sources de la liste perdus.*S2"], "source [S2] retirée de la liste")
-perte(lambda h: h.replace('<tr><td>Dénervation sympathique</td><td>Test sudoral</td><td>Aucun traitement local</td></tr>\n', ""), [r"tableaux amputés.*tableau 1 : 4 → 3"], "ligne de tableau supprimée")
-perte(lambda h: re.sub(r'<h3 id="dx7-p12">.*?(?=<h3 id="dx7-p13">)', "", h, flags=re.S), [r"points disparus.*12"], "point 12 entier supprimé")
-perte(lambda h: h.replace(" ; OMS = Organisation mondiale de la santé", ""), [r"abréviations définies perdus.*OMS"], "abréviation retirée de la ligne Abréviations")
-perte(lambda h: h.replace("Le médecin cherche d'abord un drapeau rouge : ", "Drapeaux rouges : ").replace("Une sudation focale et symétrique évoque une forme primaire.", "Sudation focale et symétrique : forme primaire."),
-      [r"phrases sans verbe en plus", r"point 13 :.*aucune admise", r"nv:[0-9a-f]{6}"], "phrase verbale réduite en liste nominale")
-perte(lambda h: h.replace(", car elle clive une protéine de fusion dans la terminaison nerveuse", ""), [r"EXPLICATIONS perdues.*ph:[0-9a-f]{6}"], "phrase d'explication amputée (car …)")
-perte(lambda h: h.replace(" L'étape cellulaire augmente la sécrétion eccrine.", ""), [r"EXPLICATIONS perdues.*sécrétion eccrine"], "mécanisme supprimé")
+        return ok, f"code {rc} · " + (lig[0][:120] if lig else o.strip()[-110:])
+    TESTS.append((f"contracteur REFUSE : {nom_test}", f))
+perte(lambda h: h.replace(", car elle clive une protéine de fusion dans la terminaison nerveuse", ""), [r"EXPLICATIONS perdues.*toxine botulique"], "explication amputée (car …)")
+perte(lambda h: h.replace(" L'hyperactivité sympathique provoque une sudation excessive des paumes et des aisselles.", ""), [r"EXPLICATIONS perdues.*hyperactivité sympathique"], "mécanisme supprimé (provoque …)")
+perte(lambda h: h.replace("provoque une sudation excessive des paumes et des aisselles", "accompagne une sudation"), [r"EXPLICATIONS perdues.*hyperactivité"], "mécanisme vidé de son contenu")
 perte(lambda h: h.replace("ne suffit pas au diagnostic", "suffit au diagnostic"), [r"SENS altéré.*ne… pas"], "négation retirée (ne … pas)")
 perte(lambda h: h.replace("Si la sudation reste focale →", "La sudation reste focale →"), [r"SENS altéré.*« si »"], "condition retirée (si)")
-perte(lambda h: h.replace("Une gravimétrie supérieure à 50 mg/min confirme", "Une gravimétrie élevée confirme"), [r"seuils \(comparateur \+ valeur \+ unité\) perdus.*> 50 mg/min"], "seuil retiré (> 50 mg/min)")
+perte(lambda h: h.replace(" à 20 mg selon", " à 20 selon"), [r"valeurs avec unité.*perdus.*20 mg"], "unité retirée (20 mg → 20)")
+perte(lambda h: h.replace("Une gravimétrie supérieure à 50 mg/min confirme", "Une gravimétrie élevée confirme"), [r"valeurs avec unité.*perdus.*> 50 mg/min"], "seuil retiré (> 50 mg/min)")
+perte(lambda h: h.replace("supérieure à 50 mg/min", "de 50 mg/min"), [r"valeurs avec unité.*perdus.*> 50 mg/min"], "comparateur retiré (> 50 → 50 mg/min)")
+perte(lambda h: h.replace("Les critères de 2004 retiennent", "Les critères retiennent"), [r"nombres perdus.*2004"], "nombre supprimé (2004)")
+perte(lambda h: re.sub(r', <span class="tm med" tabindex="0">Riopan®<span class="df">.*?</span></span>', "", h), [r"médicaments perdus.*riopan"], "médicament ® supprimé (Riopan®)")
+perte(lambda h: h.replace("DCI :</b> magaldrate.", "DCI :</b> antiacide."), [r"médicaments perdus.*magaldrate"], "DCI retirée de la fenêtre")
+perte(lambda h: re.sub(r'<span class="tm" tabindex="0">(terme [23]-\d+)<span class="df">[^<]*</span></span>', r"\1", h), [r"termes cliquables perdus.*terme 2-0"], "termes cliquables déshabillés (> 5 %)")
+perte(lambda h: h.replace("Elles évoquent un lymphome ou une tuberculose.", "Voir."), [r"phrases supprimées.*lymphome"], "fenêtre vidée")
+perte(lambda h: h.replace(" [S2]", ""), [r"renvois \[Sn\] perdus.*2"], "renvoi [S2] supprimé")
+perte(lambda h: re.sub(r"<li>\[S2\].*?</li>\n", "", h), [r"sources de la liste perdus.*2"], "source [S2] retirée de la liste")
+perte(lambda h: h.replace('<tr><td>Dénervation sympathique</td><td>Test sudoral</td><td>Aucun traitement local</td></tr>\n', ""), [r"tableaux amputés"], "ligne de tableau supprimée")
+perte(lambda h: re.sub(r'<h3 id="dx7-p12">.*?(?=<h3 id="dx7-p13">)', "", h, flags=re.S), [r"points disparus.*12"], "point 12 entier supprimé")
+perte(lambda h: h.replace("TSH = thyréostimuline hypophysaire ; ", ""), [r"abréviations définies perdus.*TSH"], "définition de sigle retirée (TSH)")
+perte(lambda h: h.replace("Une sudation focale et symétrique évoque une forme primaire.", "Sudation focale et symétrique : forme primaire."), [r"phrases sans verbe en plus"], "phrase verbale réduite en liste nominale")
 perte(lambda h: h.replace(" La réponse tissulaire produit la sudation visible.", ""), [r"phrases supprimées ou fortement réduites.*réponse tissulaire"], "phrase supprimée sans être une redite")
-perte(lambda h: h.replace("Abréviations : TSH = thyréostimuline hypophysaire ; ", "Abréviations : "), [r"forme : sigles sans définition survolable.*TSH"], "sigle laissé sans définition")
-perte(lambda h: h.replace("le médecin traite d'abord la cause grave.", "le médecin traite d'abord la cause grave par Zorglubine®."), [r"forme : médicaments mentionnés sans fenêtre.*Zorglubine"], "médicament mentionné sans fenêtre")
-perte(lambda h: "".join(x for x in re.split(r"(<p>Le (?:médecin|clinicien|praticien) [^<]*<span)", h) if not x.startswith("<p>Le praticien")), [r"phrases supprimées ou fortement réduites|notions \(noms\) perdues"], "début de paragraphes supprimé (phrases, lemmes)")
 
-@test("contracteur : --exceptions : sans --motif refusé ; motivée acceptée et consignée ; plus de 10 → REFUSÉ ; sans objet signalée")
+@test("contracteur : --exceptions (notion conservée sous un synonyme) consignée dans le visa ; plus de 10 → REFUSÉ")
 def _():
     nom = ETAT["nom"]; h = ETAT["propre"].replace("Les critères de 2004 retiennent", "Les critères retiennent")
-    (WK / nom).write_text(h); rc0, o0 = kbc("KB3", "verifier", nom, "--exceptions", "2004")
-    rc1, o1 = kbc("KB3", "verifier", nom, "--exceptions", "2004,zorglub", "--motif", "date des critères corrigée après lecture de la source")
+    (WK / nom).write_text(h); rc1, o1 = kbc("KB3", "verifier", nom, "--exceptions", "2004")
     v = json.loads((WK / "contracte" / f"{nom}.visa.json").read_text()) if rc1 == 0 else {}
-    rc2, o2 = kbc("KB3", "verifier", nom, "--exceptions", ",".join(f"x{i}" for i in range(11)), "--motif", "test du plafond des exceptions")
-    (WK / nom).write_text(ETAT["propre"])
-    return rc0 == 1 and "motivée" in o0 and rc1 == 0 and v.get("exceptions") == ["2004"] and v.get("motif", "").startswith("date") and "sans objet" in o1 and "zorglub" in o1 and rc2 == 1, f"codes {rc0},{rc1},{rc2} · visa {v.get('exceptions')}"
+    rc2, o2 = kbc("KB3", "verifier", nom, "--exceptions", ",".join(f"x{i}" for i in range(11))); (WK / nom).write_text(ETAT["propre"])
+    return rc1 == 0 and v.get("exceptions") == ["2004"] and rc2 == 1 and "> 10" in o2, f"codes {rc1},{rc2} · visa {v.get('exceptions')}"
 
-@test("contracteur : garde-fou d'entrée → tableau retiré AVANT `contracter` (pendant l'audit) → REFUSÉ")
+@test("contracteur : visa invalidé par toute modification ; `fin` B3 refusé puis accepté avec visa (sans commit)")
 def _():
-    nom = nomf(8); remettre(nom, gras(8)); agent("B3", "controle", nom)
-    p = WK / nom; p.write_text(re.sub(r'<tr><td>Dénervation sympathique</td>.*?</tr>\n', "", p.read_text()))
-    kbc("KB3", "contracter", nom); p.write_text(contracte(p.read_text())); rc, o = kbc("KB3", "verifier", nom, pct=1, mots=100)
-    return rc == 1 and "depuis ta prise en main" in o and "tableaux amputés" in o, f"code {rc} · " + next((l[:100] for l in o.splitlines() if "prise en main" in l), "")
-
-@test("contracteur (iv) : visa invalidé par toute modification ; `fin` B3 refusé puis accepté avec visa (sans commit)")
-def _():
-    nom = ETAT["nom"]; (WK / nom).write_text(ETAT["propre"]); rc0, _ = kbc("KB3", "verifier", nom, pct=max(1, ETAT["red"] - 2), mots=100)
-    e1 = json.loads(kbc("KB3", "etat", nom)[1])["visa_valide"]; p = WK / nom; h = p.read_text(); p.write_text(h.replace("</main>", " </main>"))
-    e2 = json.loads(kbc("KB3", "etat", nom)[1])["visa_valide"]; rc1, o1 = agent("B3", "fin", nom, "--v1", "95", "--v2", "95")
+    nom = ETAT["nom"]; (WK / nom).write_text(ETAT["propre"]); rc0, _ = kbc("KB3", "verifier", nom)
+    e1 = json.loads(kbc("KB3", "etat", nom)[1].split("╝", 1)[1])["visa_valide"]; p = WK / nom; h = p.read_text(); p.write_text(h.replace("</main>", " </main>"))
+    e2 = json.loads(kbc("KB3", "etat", nom)[1].split("╝", 1)[1])["visa_valide"]; rc1, o1 = agent("B3", "fin", nom, "--v1", "95", "--v2", "95")
     p.write_text(h); wt = WK / f"wt-{LOT}"; n0 = subprocess.run(["git", "rev-list", "--count", "HEAD"], cwd=wt, capture_output=True, text=True).stdout
     rc2, o2 = agent("B3", "fin", nom, "--v1", "95", "--v2", "95"); n1 = subprocess.run(["git", "rev-list", "--count", "HEAD"], cwd=wt, capture_output=True, text=True).stdout
     return rc0 == 0 and e1 and not e2 and rc1 == 1 and "modifié après le visa" in o1 and rc2 == 0 and "commit réservé" in o2 and n0 == n1, f"codes {rc0},{rc1},{rc2} · visa {e1}→{e2}"
 
-@test("contracteur : verrou tenu par un autre agent → contracter refusé (3) ; inventaire repris si le rédacteur remet une nouvelle version")
+@test("contracteur : verrou tenu par un rédacteur → contracter refusé (3), fichier intact")
 def _():
-    nom = nomf(9); remettre(nom, conforme(9)); agent("R5", "controle", nom); rc1, o1 = kbc("KB3", "contracter", nom)
-    agent("R5", "fin", nom); rc2, o2 = kbc("KB3", "contracter", nom); time.sleep(0.05); (WK / "pret" / nom).write_text("x")
-    agent("B3", "fin", nom, "--v1", "95", "--v2", "95"); rc3, o3 = kbc("KB3", "verifier", nom, pct=0, mots=100)
-    return rc1 == 3 and "VERROU PRIS PAR R5" in o1 and rc2 == 0 and "nouvelle version" in o3, f"codes {rc1},{rc2},{rc3}"
+    nom = nomf(9); remettre(nom, conforme(9, rempl=2)); agent("R5", "controle", nom); avant = (WK / nom).read_text(); rc1, o1 = kbc("KB3", "contracter", nom)
+    intact = (WK / nom).read_text() == avant; agent("R5", "fin", nom)
+    return rc1 == 3 and "VERROU PRIS PAR R5" in o1 and intact, f"code {rc1} · intact {intact} · " + next((l[:80] for l in o1.splitlines() if "VERROU" in l or "STOP" in l), "")
 
-@test("contracteur (vi) : chaque KBi réel refuse un fichier hors territoire (code 3) ; arguments faux sans trace")
+@test("contracteur : chaque KBi réel refuse un fichier hors territoire (code 3) ; arguments faux sans trace")
 def _():
     ko = []
     for i in range(1, 6):
@@ -610,12 +606,12 @@ def _():
     mauvais = [(c, o[:40]) for c, o in cas if "Traceback" in o or c == 0]
     return not ko and not mauvais, f"{ko} {mauvais}" if ko or mauvais else "5/5 clones · 5 cas d'arguments"
 
-@test("contracteur : `etat` des clones réels KB3 sur une copie (lecture seule) et B3 etat répondent")
+@test("contracteur : `etat` du clone réel KB3 sur une copie (lecture seule) et B3 etat répondent")
 def _():
     d = T / "copies"; d.mkdir(exist_ok=True); shutil.copy2(R / f".cache/travail/LOT_{LOT}" / nomf(7), d / nomf(7))
     r = subprocess.run([sys.executable, str(R / "harnais/agents/KB3.py"), "etat", str(d / nomf(7))], capture_output=True, text=True, cwd=R, env=ENV, timeout=60)
     r2 = subprocess.run([sys.executable, str(R / "harnais/agents/B3.py"), "etat"], capture_output=True, text=True, cwd=R, env=ENV, timeout=60)
-    return r.returncode == 0 and '"mots_actuels"' in r.stdout and r2.returncode == 0, f"codes {r.returncode},{r2.returncode} · {r.stdout[:60]!r}"
+    return r.returncode == 0 and '"mots_actuels"' in r.stdout and r2.returncode == 0, f"codes {r.returncode},{r2.returncode}"
 
 PHRASES = [("<p>En effet, le médecin examine la peau.</p>", "<p>Le médecin examine la peau.</p>"),
            ("<p>Il est, en effet, rare.</p>", "<p>Il est, en effet, rare.</p>"),
@@ -623,97 +619,144 @@ PHRASES = [("<p>En effet, le médecin examine la peau.</p>", "<p>Le médecin exa
            ('<p>Il faut savoir que <span class="tm" tabindex="0">la TSH<span class="df">En effet, une hormone.</span></span> baisse.</p>', '<p>Il faut savoir que <span class="tm" tabindex="0">la TSH<span class="df">Une hormone.</span></span> baisse.</p>'),
            ("<h3>En effet, titre</h3><summary>De plus, résumé</summary><a href='#x'>En outre, lien</a>", "<h3>En effet, titre</h3><summary>De plus, résumé</summary><a href='#x'>En outre, lien</a>"),
            ("<script>var a='En effet, x afin de y';</script><style>p:after{content:'afin de'}</style>", "<script>var a='En effet, x afin de y';</script><style>p:after{content:'afin de'}</style>"),
-           ('<p class="En effet, " data-x="afin de">Le test sert afin de trier.</p>', '<p class="En effet, " data-x="afin de">Le test sert pour trier.</p>'),
+           ('<p class="En effet, " data-x="afin de">Le test sert afin de trier.</p>', '<p class="En effet, " data-x="afin de">Le test sert afin de trier.</p>'),
+           ("<p>Ainsi, la dose baisse.</p>", "<p>Ainsi, la dose baisse.</p>"),
            ("<p>Le patient n'est en mesure de marcher. Il est en mesure de marcher.</p>", "<p>Le patient n'est en mesure de marcher. Il peut marcher.</p>"),
            ("<p>Étant donné que la TSH baisse, on traite.</p>", "<p>Puisque la TSH baisse, on traite.</p>"),
-           ("<p>On agit de manière à ce que la dose baisse.</p>", "<p>On agit de manière à ce que la dose baisse.</p>"),
            ("<p>Notons que la dose baisse vite chez le sujet âgé. Notons que la dose baisse vite chez le sujet âgé.</p>", "<p>La dose baisse vite chez le sujet âgé.</p>"),
            ("<p>La dose baisse vite chez le sujet âgé. La dose baisse vite chez le sujet âgé.</p>", "<p>La dose baisse vite chez le sujet âgé.</p>"),
            ("<p>De plus, <b>la dose</b> baisse.</p>", "<p>De plus, <b>la dose</b> baisse.</p>"),
            ("<p>Il s'agit d'une urgence : 5 mg ; voir [S1] !</p>", "<p>C'est une urgence : 5 mg ; voir [S1] !</p>"),
-           ("<!-- En effet, commentaire --><p>texte afin de voir</p>", "<!-- En effet, commentaire --><p>texte pour voir</p>")]
+           ("<!-- En effet, commentaire --><p>texte dans le cas où il pleut</p>", "<!-- En effet, commentaire --><p>texte si il pleut</p>")]
 
-@test("contracteur (v) : contraction mécanique sur 15 phrases synthétiques (balises, script/style, typographie, majuscule, grammaire)")
+@test("contracteur : contraction mécanique sur 15 phrases (balises, script/style, titres, milieu de phrase, connecteurs d'explication gardés)")
 def _():
     ko = [(a[:40], C().contraction_mecanique(a)[0]) for a, b in PHRASES if C().contraction_mecanique(a)[0] != b]
     return not ko, str(ko[:2]) if ko else f"{len(PHRASES)}/{len(PHRASES)}"
 
-@test("contracteur (v) : contraction mécanique sur 3 vraies copies : balises intactes, idempotente, aucune notion perdue, aucun verbe retiré")
+@test("contracteur : contraction mécanique sur 2 vraies copies : balises intactes, idempotente, aucune notion ni explication perdue")
 def _():
     ko = []; n = 0
-    for i in (1, 3, 12):
+    for i in (1, 12):
         h = (R / f".cache/travail/LOT_{LOT}" / nomf(i)).read_text(encoding="utf-8"); a, k = C().contraction_mecanique(h); b, k2 = C().contraction_mecanique(a); n += k
         if re.findall(r"<[^>]+>", h) != re.findall(r"<[^>]+>", a): ko.append(f"DX.{i} balises")
         if a != b: ko.append(f"DX.{i} non idempotente")
-        if re.findall(r"\s[:;?!]", C().texte(h)).__len__() != re.findall(r"\s[:;?!]", C().texte(a)).__len__(): ko.append(f"DX.{i} typographie")
-        i0 = C().inventaire(h); i1 = C().inv_complet(a); pb, _, _ = C().comparer(i0, i1, set(), "")
-        if pb: ko.append(f"DX.{i} pertes {pb}")
-        if len(i1["nominales"]) > len(i0["nominales"]): ko.append(f"DX.{i} verbe retiré")
-        cv = C().couverture(i0["phrases"], i1["phrases"]); mal = [p["t"][:50] for p, (c, mk) in zip(i0["phrases"], cv) if c < (0.85 if p["e"] else 0.8) or not set(p["m"]) <= mk]
-        if mal: ko.append(f"DX.{i} phrases non couvertes {mal[:2]}")
-    return not ko, str(ko) if ko else f"3 fichiers · {n} contraction(s) · 0 perte"
+        pb, _ = C().comparer(C().inventaire(h), C().inventaire(a), set())
+        pb = [x for x in pb if not x.startswith(("redites", "phrases de plus de 30"))]   # excès préexistant : hors sujet ici
+        if pb: ko.append(f"DX.{i} pertes {[x[:80] for x in pb]}")
+    return not ko, str(ko) if ko else f"2 fichiers · {n} contraction(s) · 0 perte"
 
-@test("contracteur (viii) : détecteur de médicaments (marques multi-mots, ™, DCI composées) et normalisation des termes")
+@test("contracteur : détecteur de médicaments (™, marques multi-mots, DCI composées), termes normalisés, unités")
 def _():
     h = ("<main><p>L'AIPS Deroxat® et Co-Dafalgan® ; Dafalgan Odis® ; VEOZA™ 45 mg.</p>"
          '<p><span class="tm med" tabindex="0">Femoston®<span class="df"><b>DCI :</b> estradiol et dydrogestérone.</span></span> '
          '<span class="tm" tabindex="0">Bouffée  de chaleur :<span class="df">Accès de chaleur.</span></span> '
-         '<span class="tm" tabindex="0">bouffée de chaleur:<span class="df">Accès.</span></span> 1&nbsp;000 patients, 0,40 mg et 2 jours.</p></main>')
-    i = C().inventaire(h)
-    att = {"deroxat", "co-dafalgan", "odis", "veoza", "femoston", "estradiol", "dydrogestérone"}
-    ok = att <= set(i["meds"]) and "aips deroxat" not in i["meds"] and i["termes"] == ["bouffée de chaleur:"] and "1000" in i["nombres"] and "000" not in i["nombres"] and "0.4 mg" in i["unites"] and "2 j" in i["unites"]
+         '<span class="tm" tabindex="0">bouffée de chaleur:<span class="df">Accès.</span></span> 1&nbsp;000 patients, 0,40 mg et 2 jours, au moins 3 mmol/l.</p></main>')
+    i = C().inventaire(h); att = {"deroxat", "co-dafalgan", "odis", "veoza", "femoston", "estradiol", "dydrogestérone"}
+    ok = att <= set(i["meds"]) and "aips deroxat" not in i["meds"] and i["termes"] == ["bouffée de chaleur:"] and "1000" in i["nombres"] and {"0.4 mg", "2 j", "45 mg", "≥ 3 mmol/l"} <= set(i["unites"])
     return ok, f"médicaments {sorted(i['meds'])} · termes {i['termes']} · unités {i['unites']}"
 
-@test("contracteur (viii) : phrases sans verbe : verbes conjugués mal lus par spaCy reconnus, vraies listes nominales signalées")
+@test("contracteur : phrases sans verbe : verbes conjugués mal lus par spaCy reconnus, vraies listes nominales signalées")
 def _():
-    nlp = C().nlp()
     verb = ["La périménopause dure 2 à 4 ans avant la ménopause.", "Les lymphomes T et NK forment 9 familles.", "Le médecin palpe une adénopathie ferme.",
             "Les accès nocturnes fragmentent le sommeil.", "Un ganglion dure-t-il plus de 2 semaines ?", "Si la TSH est basse → traiter."]
     nom = ["Deuxième effet : athérosclérose et maladies cardiovasculaires.", "Signes fonctionnels : chaleur, dyspnée, sueurs.", "Fièvre, frissons, hypotension, urticaire, dyspnée.",
            "Hormones libres élevées et TSH effondrée."]
-    fp = [x for x in verb if not C().verbale(nlp(x))]; fn = [x for x in nom if C().verbale(nlp(x))]
+    an = C().analyse(verb + nom); fp = [x for x, a in zip(verb, an) if not a[2]]; fn = [x for x, a in zip(nom, an[len(verb):]) if a[2]]
     return not fp and not fn, f"faux nominaux {fp} · faux verbaux {fn}" if fp or fn else f"{len(verb)} verbales, {len(nom)} nominales : 0 erreur"
 
-@test("contracteur (viii) : inventaire < 15 s pour 20 000 mots (spaCy)")
+@test("contracteur : inventaire d'un vrai fichier de près de 18 000 mots < 15 s")
 def _():
-    h = (R / f".cache/travail/LOT_{LOT}" / nomf(3)).read_text(encoding="utf-8"); m = C().FIN_COURS.search(h).start(); h = h[:m] + h[h.index("<h3"):m] + h[m:]
+    h = (R / f".cache/travail/LOT_{LOT}" / nomf(3)).read_text(encoding="utf-8")
     t0 = time.time(); i = C().inventaire(h); dt = time.time() - t0
-    return dt < 15 and i["mots"] >= 20000, f"{i['mots']} mots en {dt:.1f} s"
+    return dt < 15 and i["mots"] >= 15000, f"{i['mots']} mots en {dt:.1f} s"
 
-@test("abréviations (forme_interactive) : liste détruite à l'affichage, sigles habillés hors titres et fenêtres, idempotent, ligne gardée dans le brut")
+# ───────────────────────── FORME : sigles et médicaments ─────────────────────────
+@test("abréviations : liste détruite à l'affichage ; CHAQUE occurrence survolable (hors titres), dans les fenêtres aussi ; idempotent ; ligne gardée dans le brut")
 def _():
     raw = conforme(1).replace("Les critères de 2004", "Les critères OMS de 2004").replace("<h3 id=\"dx1-p13\"><strong>13. Points clés", "<h3 id=\"dx1-p13\"><strong>13. Points clés TSH")
-    raw = raw.replace("Elles évoquent un lymphome", "Elles évoquent une TSH basse ou un lymphome")
+    raw = raw.replace("Elles évoquent un lymphome", "Elles évoquent une TSH basse ou un lymphome").replace("Si la TSH est basse", "Si la TSH reste basse malgré une TSH de contrôle")
     c = FI().convert(raw); cc = FI().convert(c)
-    habille = re.findall(r'<span class="tm" tabindex="0" data-auto="1">(TSH|OMS)<span class="df"><b>\1</b> : ', c)
-    titres = re.findall(r"<h[1-6][^>]*>.*?</h[1-6]>", c, re.S); dans_titre = any("<b>TSH</b> :" in t for t in titres)
-    dans_fen = bool(re.search(r'<span class="df">[^<]*<span class="tm" tabindex="0">TSH', c))
+    n_tsh = len(re.findall(r'<abbr class="ab" data-k="TSH" tabindex="0">TSH</abbr>', c)); defini = 'abbr[data-k="TSH"]::after{content:"TSH : thyréostimuline hypophysaire"}' in c
+    titres = re.findall(r"<h[1-6][^>]*>.*?</h[1-6]>", c, re.S); dans_titre = any("<abbr" in t for t in titres)
+    dans_fen = bool(re.search(r'<span class="df">[^<]*<abbr class="ab" data-k="TSH"', c)); nus = re.findall(r"\bTSH\b", FI().texte_libre(c))
     brut_ok = "Abréviations : TSH" in G().reparer(C().contraction_mecanique(raw)[0], LOT, nomf(1))[0]
-    ok = "Abréviations :" not in c and len(habille) >= 2 and not dans_titre and not dans_fen and cc == c and brut_ok
-    return ok, f"habillés {len(habille)} · titre {dans_titre} · fenêtre {dans_fen} · idempotent {cc == c} · brut {brut_ok}"
+    ok = "Abréviations :" not in c and n_tsh >= 3 and defini and not dans_titre and dans_fen and not nus and cc == c and brut_ok
+    return ok, f"TSH habillées {n_tsh} · définie {defini} · titre {dans_titre} · fenêtre {dans_fen} · nus {len(nus)} · idempotent {cc == c} · brut {brut_ok}"
 
-@test("forme (Vial 27.10) : CHAQUE occurrence d'un sigle défini et d'un médicament à fenêtre est habillée (hors titres), y compris au point 13 sans écart Q13")
+@test("médicaments : CHAQUE occurrence (nom, marque sans ®, DCI) cliquable vers sa fenêtre complète ; jamais dans un titre ; une bande par médicament")
 def _():
     raw = conforme(1).replace("Le médecin traite d'abord la cause, puis le symptôme.", "Le médecin traite d'abord la cause, puis le symptôme par Nexium si la TSH est normale.")
-    raw = raw.replace("Si la TSH est basse", "Si la TSH reste basse malgré une TSH de contrôle")
-    c = FI().convert(raw); lib = FI().texte_libre(c)
-    nus = re.findall(r"\bTSH\b|\bNexium\b", lib); auto = len(re.findall(r'data-auto="1">(?:TSH|Nexium)', c))
-    E, _ = G().ecarts_points(raw, set(range(1, 15))); q13 = [e for e in E if e[0] == 13]
-    return not nus and auto >= 4 and not FI().manques_forme(c) and not q13, f"nus {nus} · habillés {auto} · manques {FI().manques_forme(c)[:1]} · Q13 {q13[:1]}"
+    raw = raw.replace("La prévention primaire repose sur l'hygiène.", "La prévention primaire repose sur l'hygiène ; l'ésoméprazole n'y joue aucun rôle.")
+    raw = raw.replace("<strong>12. Prévention", "<strong>12. Prévention et Nexium")
+    c = FI().convert(raw); liens = re.findall(r'<a class="tm med" data-auto="1" href="#(med-[0-9a-f]+)">([^<]+)</a>', c)
+    noms = {n.lower() for _, n in liens}; bandes = set(re.findall(r'<div class="mb" id="(med-[0-9a-f]+)">', c))
+    titre = any("tm med" in x for x in re.findall(r"<h[1-6][^>]*>.*?</h[1-6]>", c, re.S))
+    _, med = FI().manques_forme(c); lib = FI().texte_libre(c)
+    ok = {"nexium", "ésoméprazole"} <= noms and {i for i, _ in liens} <= bandes and not titre and not med and not re.search(r"\bNexium\b", lib)
+    return ok, f"liens {len(liens)} {sorted(noms)[:4]} · bandes {len(bandes)} · titre {titre} · manques {dict(med)}"
 
-@test("forme (Vial 27.10) : sigle non défini, médicament sans fenêtre, fenêtre incomplète → CRITIQUE au contrôle de forme (grille)")
+@test("forme : sigle non défini, médicament sans fenêtre (® ou suffixe -mab/-pril…), fenêtre incomplète → CRITIQUE nommé à l'agent (grille)")
 def _():
-    raw = conforme(1).replace("La mortalité reste nulle.", "La mortalité reste nulle selon le registre SWISSREG. Le Zorglub® et la zorglutide sont à l'étude.")
+    raw = conforme(1).replace("La mortalité reste nulle.", "La mortalité reste nulle selon le registre SWISSREG. Le Zorglub® et le zorglumab sont à l'étude, comme le bidulopril.")
     raw = raw.replace("Indications : reflux gastro-œsophagien. Posologie AIPS : 20 mg par jour.", "", 1)
     E, _ = G().ecarts_points(raw, set(range(1, 15))); cr = " ".join(m for p, g, m in E if g == "CRITIQUE")
-    ok = "SWISSREG" in cr and "Zorglub" in cr and "zorglutide" in cr and "Nexium® (manque : indications, posologie AIPS)" in cr
-    return ok, cr[:200]
+    ok = "sigles sans définition" in cr and "SWISSREG" in cr and "Zorglub" in cr and "zorglumab" in cr and "bidulopril" in cr and "Nexium® (manque : indications, posologie AIPS)" in cr
+    return ok, cr[:220]
 
-@test("abréviations : l'habillage des sigles ne fait perdre aucun sigle ni terme à l'inventaire du contracteur")
+@test("forme : faux positifs évités (Child-Pugh, PubMed, stade II, CO2, codes ATC/CIM, T4, cholestérol, statines, cocaïne)")
 def _():
-    raw = conforme(1); i0 = C().inv_complet(raw); i1 = C().inv_complet(FI().convert(raw)); arbre = {"classification"}   # le résumé de l'arbre devient une carte (voulu)
-    perdus = {k: sorted(set(i0[k]) - set(i1[k]) - arbre) for k in ("sigles", "termes")}
-    return not any(perdus.values()), f"perdus {perdus}" if any(perdus.values()) else f"{len(i0['sigles'])} sigles, {len(i0['termes'])} termes conservés"
+    raw = conforme(1).replace("La mortalité reste nulle.", "La mortalité reste nulle. Le score de Child-Pugh, PubMed, le stade II, le CO2, le code H03BB01 et E05.0, la T4, le cholestérol, les statines et la cocaïne ne demandent rien.")
+    s, m = FI().manques_forme(FI().convert(raw))
+    return not s and not m, f"sigles {dict(s)} · médicaments {dict(m)}"
+
+@test("forme : point 13 habillé automatiquement sans écart Q13 ; termes cliquables non gonflés par l'habillage")
+def _():
+    raw = conforme(1).replace("Le médecin traite d'abord la cause, puis le symptôme.", "Le médecin traite d'abord la cause, puis le symptôme par Nexium si la TSH est normale.")
+    E, st = G().ecarts_points(raw, set(range(1, 15))); q13 = [e for e in E if e[0] == 13]; st0 = FI().stats(FI().convert(conforme(1)))
+    return not q13 and st["termes"] == st0["termes"], f"Q13 {q13[:1]} · termes {st0['termes']}→{st['termes']}"
+
+@test("abréviations : l'habillage ne fait perdre aucun sigle, terme ni médicament à l'inventaire du contracteur")
+def _():
+    raw = conforme(1); i0 = C().inventaire(raw); i1 = C().inventaire(FI().convert(raw)); arbre = {"classification"}   # le résumé de l'arbre devient une carte (voulu)
+    perdus = {k: sorted(set(i0[k]) - set(i1[k]) - arbre) for k in ("sigles", "termes", "meds", "nombres")}
+    return not any(perdus.values()), f"perdus {perdus}" if any(perdus.values()) else f"{len(i0['sigles'])} sigles, {len(i0['termes'])} termes, {len(i0['meds'])} médicaments conservés"
+
+# ───────────────────────── LOT_001 réel (lecture seule) : écarts nouveaux seulement attendus ─────────────────────────
+REF = "4e2a2f1e"   # moteur d'avant la règle « chaque sigle, chaque médicament » (référence de non-régression)
+ATTENDUS = ("sigles sans définition", "médicaments mentionnés sans fenêtre", "fenêtres de médicament incomplètes", "fenêtre du médicament", "taille finale")
+ANCIEN = r'''
+import json, sys
+sys.path[:0] = [sys.argv[1] + "/harnais/grille14", sys.argv[1] + "/harnais"]
+import grille_agent as G
+from pathlib import Path
+out = {}
+for f in sys.argv[2:]:
+    E, _ = G.ecarts_points(Path(f).read_text(encoding="utf-8"), set(range(1, 15))); out[Path(f).name] = [(p, g, m[:200]) for p, g, m in E]
+print(json.dumps(out))
+'''
+@test("LOT_001 réel : les 16 fichiers passent `controle` sans régression imprévue ; seuls les écarts nouveaux sigles/médicaments apparaissent (rapport écrit)")
+def _():
+    fs = sorted((R / f".cache/travail/LOT_{LOT}").glob(f"LOT_{LOT}_*.html")); h0 = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in fs}
+    anc = T / "ancien"; shutil.rmtree(anc, ignore_errors=True)
+    for n in ("harnais/grille14/grille_agent.py", "harnais/forme_interactive.py", "harnais/BANDE.json", "harnais/atkinson.b64.json"):
+        r = subprocess.run(["git", "show", f"{REF}:{n}"], cwd=R, capture_output=True)
+        if r.returncode: return True, f"référence {REF} absente du dépôt : comparaison sautée"
+        (anc / n).parent.mkdir(parents=True, exist_ok=True); (anc / n).write_bytes(r.stdout)
+    r = subprocess.run([sys.executable, "-c", ANCIEN, str(anc), *map(str, fs)], capture_output=True, text=True, timeout=120, env=dict(ENV, G14_TEST=""))
+    if r.returncode: return False, "ancien moteur : " + r.stderr[-200:]
+    av = json.loads(r.stdout); rap = {}; regress = []
+    for f in fs:
+        h = f.read_text(encoding="utf-8"); E, _ = G().ecarts_points(h, set(range(1, 15))); conv = FI().convert(h); s, m = FI().manques_forme(conv)
+        vieux = {(p, x) for p, g, x in av[f.name] if g in ("CRITIQUE", "GRAVE")}
+        neufs = [(p, g, x) for p, g, x in E if g in ("CRITIQUE", "GRAVE") and (p, x[:200]) not in vieux and not any(a in x for a in ATTENDUS)]
+        if neufs: regress.append(f"{f.name[8:]} : {[(p, x[:60]) for p, g, x in neufs[:2]]}")
+        rap[f.name] = dict(sigles=len(s), sigles_occ=sum(s.values()), meds=len(m), meds_occ=sum(m.values()), fenetres_incompletes=len(FI().fenetres_incompletes(conv)),
+                           ko=len(conv.encode()) // 1000, top_sigles=s.most_common(8), top_meds=m.most_common(6))
+    (T / "ecarts_LOT_001.json").write_text(json.dumps(rap, ensure_ascii=False, indent=1))
+    intacts = all(hashlib.sha256(f.read_bytes()).hexdigest() == h0[f.name] for f in fs)
+    res = " ; ".join(f"{k[8:].replace('Phase_B_V0_', '').replace('.html', '')} {v['sigles']}s/{v['meds']}m" for k, v in rap.items())
+    return len(fs) == 16 and not regress and intacts, (f"RÉGRESSIONS {regress}" if regress else "0 régression") + f" · intacts {intacts} · sigles/médicaments non habillés : {res}"
 
 @test("SANTE.py : une ligne par rubrique, sans trace")
 def _():

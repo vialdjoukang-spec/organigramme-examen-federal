@@ -75,7 +75,7 @@ def txt(h, sans_fenetres=True):
 
 def ecarts_points(html, pts):
     import forme_interactive as FI
-    conv = FI.convert(html); S = sections(conv); E = []
+    conv = FI.convert(html); S = sections(FI.sans_habillage(conv)); E = []   # mesures sur le texte de l'agent, sans l'habillage automatique
     add = lambda p, g, m: E.append((p, g, m))
     for p in range(1, 15):
         if p not in pts: continue
@@ -149,7 +149,7 @@ def ecarts_points(html, pts):
         _B = json.loads((R / "harnais/BANDE.json").read_text())
         if not _B["min_ko"] * 1000 <= tc <= _B["max_ko"] * 1000:   # Vial 27.10.2026 : la taille ne bloque jamais (MOYEN, simple avertissement)
             add(0, "MOYEN", f"taille finale {tc // 1000} Ko hors bande {_B['min_ko']}–{_B['max_ko']} Ko (indicative, non bloquante) : {'allège la forme, jamais le fond ni les notions' if tc > _B['max_ko'] * 1000 else 'ne coupe pas la médecine'}")
-    pl = phrases_longues(conv)
+    pl = phrases_longues(FI.sans_habillage(conv))
     if any("phrases trop longues" in c for c in crit) and pl:
         add(0, "DETAIL", "phrases à couper en premier : " + " | ".join(f"{n} mots : « {x[:70]}… »" for n, x in pl))
     if any("taille finale" in c for c in [m for _, _, m in E]):
@@ -333,7 +333,7 @@ def _main():
             except (ValueError, IndexError): print("REFUSÉ : --v1, --v2 et --crit attendent des nombres entiers. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
             if v1 is None or v2 is None: print("REFUSÉ : saisis tes scores : --v1 <exactitude du fond %> --v2 <conformité grille et Prompt %> [--crit N]. (Pas un essai perdu.)"); verrou(ag, chemin, "release"); return 1
             if v1 < 90 or v2 < 90 or c:
-                return echec(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige les points qui pèsent, puis relance.", f"v1<90={v1 < 90} v2<90={v2 < 90} c={c}", f"V1={v1} V2={v2} critiques={c}")
+                return echec(f"REFUSÉ : V1={v1} V2={v2} critiques={c} (seuil 90 %, zéro critique). Corrige les points qui pèsent, puis relance.", f"V1={v1} V2={v2} c={c}", f"V1={v1} V2={v2} critiques={c}")
             aud = wk / "audits"; aud.mkdir(exist_ok=True)
             (aud / f"AUD_{ag}_{nom_f}.md").write_text(f"# Audit {ag} · {nom_f}\nV1 (fond) = {v1} %\nV2 (conformité grille et Prompt) = {v2} %\ncritiques = {c}\nagent = {nom}, {mod}\n", encoding="utf-8")
         cmdc = ["python3", str(R / "harnais/checkpoint.py"), lot, str(chemin), "--cycle", "7"] + ([] if (auditeur and not TEST) else ["--sans-commit"])

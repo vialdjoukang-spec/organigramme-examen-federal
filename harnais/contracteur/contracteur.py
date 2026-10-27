@@ -66,8 +66,9 @@ def corps(html):
     """Texte à contracter : tout sauf script/style, onglet Rappel mémoire, liste des sources."""
     t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", html)
     t = re.sub(r"(?is)<div id=\"?rappel\"?.*?</div>\s*</div>", " ", t)
-    m = FIN_COURS.search(t)
-    return t[:m.start()] if m else t
+    m = FIN_COURS.search(t); t = t[:m.start()] if m else t
+    t = re.sub(r'<a class="tm med" data-auto="1" href="#med-[0-9a-f]+">(.*?)</a>', r"\1", t)
+    return re.sub(r"</?abbr\b[^>]*>", "", t)
 
 def texte(html):
     return re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", corps(html)))).strip()
@@ -145,7 +146,8 @@ def inventaire(html):
     for (p, nat), (cont, noms, verb) in zip(ph, an):
         lem |= noms
         if len(p.split()) < 4 or len(cont) < 2: continue
-        phrases.append(dict(t=p, n=nat, l=sorted(cont), e=bool(EXPL.search(p)), m=marqueurs(p), v=verb, w=len(p.split())))
+        mk = marqueurs(p); mk.update({"u:" + u: 1 for u in unites(p)})
+        phrases.append(dict(t=p, n=nat, l=sorted(cont), e=bool(EXPL.search(p)), m=mk, v=verb, w=len(p.split())))
     return dict(mots=len(t.split()), nombres=sorted(nombres), renvois=sorted(renvois, key=int), meds=sorted(meds), termes=sorted(termes), sigles=sorted(sigles),
                 tableaux=tabl, points=points, lemmes=sorted(lem), unites=sorted(unites(sans)), phrases=phrases, longues=part_longues(html), sources=sources, abreviations=abrev)
 
@@ -212,11 +214,13 @@ def comparer(av, ap, exc):
     for i, s in enumerate(Ls):
         if garde[i]:
             for w in s: idx[w].append(i)
-    expl, autres, sens = [], [], []
+    expl, autres, sens, vals = [], [], [], []
     for i, x in enumerate(A):
         if garde[i]:
             perdu = [k for k in x["m"] if cv[i][1].get(k, 0) < 1]
-            if perdu: sens.append(f"« {x['t'][:90]} » perd « {', '.join(perdu)} »")
+            pm, pu = [k for k in perdu if not k.startswith("u:")], [k[2:] for k in perdu if k.startswith("u:")]
+            if pm: sens.append(f"« {x['t'][:90]} » perd « {', '.join(pm)} »")
+            if pu: vals.append(f"« {x['t'][:90]} » perd « {', '.join(pu)} »")
             continue
         cnt = Counter(j for w in Ls[i] for j in idx.get(w, ()) if j != i)
         redite = any(n / len(Ls[i]) >= max(SEUIL_REDITE, seuil[i]) and set(x["m"]) <= set(A[j]["m"]) for j, n in cnt.items())
@@ -225,11 +229,13 @@ def comparer(av, ap, exc):
     if expl: pb.append(f"EXPLICATIONS perdues ou amputées ({len(expl)} ; seuil {100 * SEUIL_EXPL:.0f} %) : " + " | ".join(expl[:8]))
     if autres: pb.append(f"phrases supprimées ou fortement réduites (< {100 * SEUIL_PHRASE:.0f} %), sans être la redite d'une phrase conservée ({len(autres)}) : " + " | ".join(autres[:8]))
     if sens: pb.append(f"SENS altéré : négation ou condition perdue ({len(sens)}) : " + " | ".join(sens[:8]))
-    ga, gb = Counter(), Counter()
-    for i, x in enumerate(A):
-        if garde[i]: ga.update(x["m"])
-    for x in B: gb.update(x["m"])
-    dim = [f"« {k} » {ga[k]} → {gb[k]}" for k in ga if gb[k] < ga[k]]
+    if vals: pb.append(f"valeurs avec unité ou seuil perdus dans leur phrase ({len(vals)}) : " + " | ".join(vals[:8]))
+    def total(phr):   # une redite retirée ne compte pas : marqueurs comptés une fois par phrase distincte (mêmes lemmes)
+        tot = Counter()
+        for x in {frozenset(x["l"]): x for x in phr}.values(): tot.update(x["m"])
+        return tot
+    ga, gb = total([x for i, x in enumerate(A) if garde[i]]), total(B)
+    dim = [f"« {k} » {ga[k]} → {gb[k]}" for k in ga if gb[k] < ga[k] and not k.startswith("u:")]
     if dim and not sens: pb.append("SENS altéré : négations ou conditions diminuées : " + ", ".join(dim))
     L.append(f"phrases : {sum(garde)}/{len(A)} conservées ; explications {sum(1 for i, x in enumerate(A) if x['e'] and garde[i])}/{sum(1 for x in A if x['e'])}")
     # excès objectif encore présent
@@ -244,10 +250,10 @@ def comparer(av, ap, exc):
 
 # ---- contraction mécanique sûre -------------------------------------------------------------------------------
 CREUX = [  # (motif, remplacement) ; appliqués au texte seulement, jamais dans les balises
-    (r"\bIl (?:est|convient d'être) (?:important|essentiel|utile|nécessaire) de (?:noter|souligner|rappeler|signaler|préciser) que ", ""),
-    (r"\bIl convient de (?:noter|souligner|rappeler|signaler|préciser) que ", ""),
-    (r"\bIl faut (?:noter|souligner|rappeler|signaler|préciser|savoir) que ", ""),
-    (r"\b(?:Notons|Rappelons|Soulignons|Précisons|Signalons) que ", ""),
+    (r"\bIl (?:est|convient d'être) (?:important|essentiel|utile|nécessaire) de (?:noter|souligner|rappeler|signaler|préciser) qu(?:e |['’])", ""),
+    (r"\bIl convient de (?:noter|souligner|rappeler|signaler|préciser) qu(?:e |['’])", ""),
+    (r"\bIl faut (?:noter|souligner|rappeler|signaler|préciser|savoir) qu(?:e |['’])", ""),
+    (r"\b(?:Notons|Rappelons|Soulignons|Précisons|Signalons) qu(?:e |['’])", ""),
     (r"\bEn effet, ", ""), (r"\bPar ailleurs, ", ""), (r"\bDe plus, ", ""), (r"\bDe surcroît, ", ""), (r"\bEn outre, ", ""), (r"\bÉgalement, ", ""),
     (r"\bEn pratique, ", ""), (r"\bEn règle générale, ", ""), (r"\bDe manière générale, ", ""),
     (r"\bà l'heure actuelle\b", "actuellement"), (r"\bde nos jours\b", "aujourd'hui"), (r"\ben raison du fait que\b", "car"), (r"\bétant donné que\b", "puisque"),

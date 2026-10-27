@@ -327,7 +327,15 @@ def stats(t):
     gr = len(re.findall(r'<sup class="r">', t)) or len(re.findall(r"(?:\[S\d+\])+", t))
     arbre = re.search(r'<details[^>]*class="[^"]*arbre[^"]*"[^>]*>(.*?)</details>', t, re.S)
     return dict(mots=mots, grappes=gr, densite=round(1000 * gr / max(1, mots), 1), termes=len(re.findall(r'class="tm"', t)), fenetres=len(re.findall(r"<details", t)) + len(re.findall(r'class="dx"', t)) + len(re.findall(r'class="tm"', t)), arbre=bool(arbre), arbre_noeuds=len(re.findall(r"<li", arbre.group(1))) if arbre else 0, refs=bool(re.search(r'<details class="refs"', t)), brut=len(re.findall(r"\[S\d+\]", re.sub(r'<details class="refs".*?</details>', "", t, flags=re.S))))
+def sans_habillage(t):
+    """Vue de mesure : retire l'habillage automatique (sigles <abbr>, liens et bandes de médicaments, style des sigles) sans couper les mots,
+    pour que les comptes de mots et de phrases restent ceux du texte écrit par l'agent."""
+    t = re.sub(r'<style id="sigles">.*?</style>|<div class="mb" id="med-[0-9a-f]+">.*?</div>\n?', "", t, flags=re.S)
+    t = re.sub(r'<a class="tm med" data-auto="1" href="#med-[0-9a-f]+">(.*?)</a>', r"\1", t)
+    return re.sub(r"</?abbr\b[^>]*>", "", t)
+
 def controle(t):
+    brut_ = t; t = sans_habillage(t)
     s = stats(t); crit, moy = [], []
     corps = re.sub(r"(?is)<details class=\"refs\".*?</details>|<style.*?</style>|<script.*?</script>", "", t); corps = re.sub(r"<[^>]+>", " ", corps)
     meta = re.findall(r"LOT_\d+|Phase [AB]\b|\bV0\b|autre IA|\bcycles? \d|checkpoint|harnais|\baudits?\b|brouillon|tableau d.entrée|evidence/|[Pp]rompt|(?:ce|le|du|ton|votre) fichier|référentiel PROFILES de ce|dose AIPS prime|\[S\d+", corps)
@@ -338,9 +346,9 @@ def controle(t):
     if p1_:
         corps1 = re.sub(r"(?is)<div class=\"arb\">.*?</div>(?=\s*<(?:p|div|table|h))", " ", p1_.group(1), count=1); corps1 = re.sub(r"(?s)<span class=\"(?:df|dxc)\">.*?</span></span>", " ", corps1); w1_ = len(re.sub(r"<[^>]+>", " ", corps1).split())
         if w1_ > 140: crit.append(f"point 1 trop long : {w1_} mots après la classification (≤ 140) : définis en peu de mots, densité maximale, aucune information perdue (déplace le détail dans un mot cliquable)")
-    inc = fenetres_incompletes(t)
+    inc = fenetres_incompletes(brut_)
     if inc: crit.append("fenêtres de médicament incomplètes (chaque fenêtre : DCI, classe ATC, groupe et chefs de file, indications, posologie AIPS) : " + " ; ".join(f"{k} (manque : {', '.join(v)})" for k, v in list(inc.items())[:12]) + (" …" if len(inc) > 12 else ""))
-    sig_, med_ = manques_forme(t)
+    sig_, med_ = manques_forme(brut_)
     if sig_: crit.append(f"sigles sans définition survolable ({len(sig_)} sigles, {sum(sig_.values())} occurrences ; définis nulle part) : " + ", ".join(f"{k} ×{n}" for k, n in sig_.most_common(25)) + (" …" if len(sig_) > 25 else "") + " → écris une fois « SIGLE = définition » dans la ligne « Abréviations : » du préambule (ou une fenêtre .tm) : chaque occurrence devient survolable")
     if med_: crit.append(f"médicaments mentionnés sans fenêtre ({len(med_)}) : " + ", ".join(f"{k} ×{n}" for k, n in med_.most_common(20)) + (" …" if len(med_) > 20 else "") + " → crée UNE fenêtre <span class=\"tm med\" tabindex=\"0\">Nom<span class=\"df\">DCI : … Classe : … (ATC …). Groupe : … Chefs de file : … Indications : … Posologie AIPS : …</span></span> : chaque occurrence devient cliquable")
     txt_ = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>|<table.*?</table>|<details class=\"refs\".*?</details>", " ", t))
@@ -350,7 +358,7 @@ def controle(t):
         if moy_l > 20 or long_ > 0.06: crit.append(f"phrases trop longues : moyenne {moy_l:.0f} mots (≤ 20), {100*long_:.0f} % de phrases > 30 mots (≤ 6 %) : une idée par phrase, pas de nuance qui complique")
     if re.search(r"<h[1-6][^>]*>(?:(?!</h[1-6]>).)*class=\"tm", t, re.S): crit.append("terme cliquable dans un titre du plan : interdit (enlève .tm des <h1>–<h6>)")
     marques = set(re.findall(r"\b([A-Z][A-Za-zÀ-ÿ\-]{2,})®", re.sub(r"(?is)<details class=\"refs\".*?</details>", "", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", "", t))))
-    cliq = set(re.findall(r'class="tm med"[^>]*>([A-Za-zÀ-ÿ\-]+)', t))
+    cliq = set(re.findall(r'class="tm med"[^>]*>([A-Za-zÀ-ÿ\-]+)', brut_))
     manque = sorted(m for m in marques if m not in cliq)
     if manque: crit.append("médicaments non cliquables (première occurrence : <span class=\"tm med\" tabindex=\"0\">Nom®<span class=\"df\">classe ATC · famille · alternatives de la même classe</span></span>) : " + ", ".join(manque[:12]))
     n_med = len(re.findall(r'class="tm med"(?![^>]*data-auto)', t))
