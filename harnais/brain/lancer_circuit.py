@@ -21,8 +21,11 @@ OUTILS = ["Read", "Edit", "Grep", "Glob", "Bash(python3 harnais/*)", "Bash(grep 
           "mcp__PubMed__search_articles", "mcp__PubMed__get_article_metadata", "mcp__PubMed__lookup_article_by_citation"]
 INTERDITS = ["Write", "NotebookEdit"] + [f"Edit(/{R}/{x})" for x in ("harnais/**", "tools/**", ".claude/**", ".github/**", "CLAUDE.md", "CONTINUATION.md")] \
             + ["Edit(//workspace/ssp/app.html)"]
-ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None),
-         "professeur": dict(agent="professeur-emerite", model="opus", effort="medium")}
+ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None, limite_s=1500),          # ordre de Vial : le duo va vite (25 min max)
+         "professeur": dict(agent="professeur-emerite", model="opus", effort="medium", limite_s=1800)}
+
+
+VITESSE = ("VITESSE (ordre de Vial) : va vite, droit au but, aucune exploration ni relecture inutile ; modifie par blocs ciblés, une porte `point` par point, limite de temps stricte. ")
 
 
 PARETO = ("FICHE DE LECTURE, loi de Pareto : ne garde dans le corps que les 20 % d'information qui donnent 80 % de la compréhension, retire le bruit ; "
@@ -31,7 +34,7 @@ PARETO = ("FICHE DE LECTURE, loi de Pareto : ne garde dans le corps que les 20 %
 
 
 BRIEF_FLASH = {
-    "duo": (PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 298 Ko "
+    "duo": (VITESSE + PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 298 Ko "
             "(visé 100–200 ; > 298 Ko refusé) ; le corps ne garde que l'essentiel en phrases complètes ; le détail et le diagnostic différentiel utile "
             "passent dans des fenêtres modales (aucun bloc « Notions voisines » dans le corps) ; îlots : points 1–4 dans un <section class=\"ilot\">, "
             "5–6 dans un autre, chaque point 7–14 dans <details class=\"ilot\"> replié ; symptômes et signes d'examen cliquables (comment rechercher, manœuvre) ; "
@@ -68,9 +71,12 @@ def appel(role, f, prompt, places, journal, passe, essai=False):
     if essai: return dict(role=role, passe=passe, cmd=cmd[:3] + ["…"] + cmd[4:])
     with places:
         t0 = time.time()
-        p = subprocess.run(cmd, capture_output=True, text=True, cwd=R, timeout=4 * 3600)
-    try: d = json.loads(p.stdout)
-    except ValueError: d = {"result": (p.stdout + p.stderr)[-800:], "is_error": True}
+        try:
+            p = subprocess.run(cmd, capture_output=True, text=True, cwd=R, timeout=r["limite_s"])
+            try: d = json.loads(p.stdout)
+            except ValueError: d = {"result": (p.stdout + p.stderr)[-800:], "is_error": True}
+        except subprocess.TimeoutExpired:                      # temps imparti dépassé : la porte juge l'état du fichier, refus notifié + correction
+            d = {"result": f"temps imparti dépassé ({r['limite_s']} s)", "is_error": True}
     ev = dict(role=role, passe=passe, duree_s=round(time.time() - t0), cout_usd=d.get("total_cost_usd"), tours=d.get("num_turns"),
               modeles=list((d.get("modelUsage") or {}).keys()), refus_outils=len(d.get("permission_denials") or []),
               reponse=str(d.get("result", ""))[-600:], erreur=bool(d.get("is_error")))
