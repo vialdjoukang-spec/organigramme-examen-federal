@@ -118,5 +118,17 @@ class PorteUnique(unittest.TestCase):
             p = run("fin", str(f), "--role", "duo"); self.assertNotIn("chiffres disparus", p.stdout); self.assertIn("RETRAITS DÉCLARÉS", p.stdout)
 
 
+class Registre(unittest.TestCase):
+    def test_registre_tableau_et_marquage(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "LOT_999_Phase_B_V0_DX.1.html"; f.write_text(cours(p8="<div><p>On voit ça.</p>"), encoding="utf-8")
+            run = lambda *a: subprocess.run([sys.executable, str(R / "harnais/brain/circuit_vial.py"), *a], cwd=R, capture_output=True, text=True, timeout=900)
+            run("registre", str(f), "--json", f"{d}/r.json", "--md", f"{d}/r.md", "--marquer", f"{d}/c.html")
+            reg = json.loads(Path(f"{d}/r.json").read_text())["fautes"]
+            self.assertTrue(any(r["code"] == "H1" and r["severite"] == "GRAVE" and r["ligne"] > 0 for r in reg))
+            self.assertIn("| fichier | ligne | ancre | sévérité | code | constat | correction attendue | contexte |", Path(f"{d}/r.md").read_text())
+            self.assertIn("brain-faute", Path(f"{d}/c.html").read_text())
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

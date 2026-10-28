@@ -6,6 +6,9 @@
   python3 harnais/brain/circuit_vial.py algo <fichier> [--appliquer]          rend l'algorithme du point 10 (modèle JSON → cases et traits orthogonaux) + CSS
   python3 harnais/brain/circuit_vial.py point <fichier> N                     contrôle d'UN point après sa rédaction (balises, lignes, forme S21, phrases sans verbe)
   python3 harnais/brain/circuit_vial.py retirer <fichier> "<chiffre>" "<motif>" retrait déclaré d'un chiffre faux ou introuvable (consigné, relu par Vial)
+  python3 harnais/brain/circuit_vial.py registre <fichier> [--json r.json] [--md r.md] [--marquer controle.html] [--audit rapport.md …]
+                                                                               registre portable des fautes (bon de travail unique du professeur ; tableau à
+                                                                               transmettre à Vial s'il reste des fautes après l'unique correction)
   python3 harnais/brain/circuit_vial.py reparer <fichier>                     réparations mécaniques sûres : algorithme rendu, balises de bloc, lignes > 10 000
   python3 harnais/brain/circuit_vial.py mesurer <fichier> [--json]            relevé chiffré (octets, lignes longues, balises, doléances, scores langue et médical)
   python3 harnais/brain/circuit_vial.py fin <fichier> [--role duo|professeur] PORTE UNIQUE : répare d'abord (reparer), puis refuse si rien n'a changé (R15), si une
@@ -19,7 +22,7 @@
                                                                                liste des non conformes et de leurs motifs (à renvoyer au duo)
   python3 harnais/brain/circuit_vial.py reprise <fichier>                     départ d'un duo renvoyé par la sortie : instantané + motifs + rapports MED_/CONF_
 Ne lit jamais un fichier de cours entier dans le contexte de l'agent : le scanner rend le texte visible point par point."""
-import hashlib, json, re, subprocess, sys
+import hashlib, html as H_, json, re, subprocess, sys
 from pathlib import Path
 D = Path(__file__).resolve().parent; R = D.parents[1]
 sys.path[:0] = [str(D / "scriptones"), str(D)]
@@ -270,6 +273,51 @@ def retirer(f, chiffre, motif):
     print(f"RETRAIT CONSIGNÉ : {chiffre} — {motif}"); return 0
 
 
+def registre(f, sortie_json=None, sortie_md=None, marquer=None, audits=()):
+    """Registre portable des fautes (bon de travail unique) : CRITIQUE, GRAVE, MOYEN du cerveau et des portes d'audit, avec fichier, ligne,
+    ancre, extrait, code, sévérité, constat, correction attendue ; option : HTML de contrôle marqué (repères visibles, hors production)."""
+    t = lire(f); nom = Path(f).name; L = t.split("\n"); R_ = []
+    for d in cerveau(f):
+        if d["severite"] not in ("CRITIQUE", "GRAVE", "MOYEN"): continue
+        m = re.search(r"#([^ ]+) · l\.(\d+)(?: · « (.*?) »)?", d["ancre"]); ln = int(m.group(2)) if m else 0
+        R_.append(dict(fichier=nom, ligne=ln, ancre=(m.group(1) if m else ""), extrait=(d.get("preuve") or (m.group(3) if m and m.group(3) else "") or
+                       re.sub(r"<[^>]+>", " ", L[ln - 1] if 0 < ln <= len(L) else "")[:120]).strip()[:140],
+                       code=d["code"], severite=d["severite"], constat=d["constat"], correction=d["correction_prescrite"][:240], origine="script"))
+    P = portes(f)
+    for k in ("langue", "medical"):
+        for c in P[k]["corrections"]:
+            if c.lower().startswith(("moyen", "critique", "[phrases]", "[grammaire]")):
+                R_.append(dict(fichier=nom, ligne=0, ancre="", extrait="", code=k.upper(), severite="CRITIQUE" if c.lower().startswith("critique") else "MOYEN",
+                               constat=c[:240], correction="voir le rapport " + Path(P[k]["rapport"]).name, origine="audit_lot"))
+    for a in audits:                                          # constats d'auditeurs indépendants (rapports Markdown en tableau)
+        for l in lire(a).splitlines():
+            m = re.match(r"\|\s*\**\s*(Critique|Grave|Moyen)\w*\s*([A-Z]?-?\d+)?\**\s*\|(.*)", l, re.I) or \
+                re.match(r"\|\s*\**\s*([CGM])-?(\d+)\**\s*\|(.*)", l)
+            if not m: continue
+            sev = {"c": "CRITIQUE", "g": "GRAVE", "m": "MOYEN"}[m.group(1)[0].lower()]
+            cel = [x.strip() for x in m.group(3).split("|")]
+            ln_ = next((int(x) for x in re.findall(r"l\.\s?(\d+)", m.group(3))), 0)
+            R_.append(dict(fichier=nom, ligne=ln_, ancre=next(iter(re.findall(r"#([\w-]+)", m.group(3))), ""), extrait=(cel[1] if len(cel) > 1 else "")[:140],
+                           code=f"AUDIT-{(m.group(2) or '').strip()}", severite=sev, constat=(cel[0] if cel else "")[:200],
+                           correction=(cel[2] if len(cel) > 2 else "")[:240], origine=Path(a).name))
+    R_.sort(key=lambda r: (["CRITIQUE", "GRAVE", "MOYEN"].index(r["severite"]), r["ligne"]))
+    if sortie_json: Path(sortie_json).write_text(json.dumps(dict(fichier=str(Path(f).resolve()), fautes=R_), ensure_ascii=False, indent=1), encoding="utf-8")
+    if sortie_md:
+        esc = lambda s: str(s).replace("|", "\\|").replace("\n", " ")
+        Path(sortie_md).write_text(f"# Fautes restantes — {nom}\n\n{len(R_)} faute(s) : " + ", ".join(f"{s} {sum(r['severite'] == s for r in R_)}" for s in ("CRITIQUE", "GRAVE", "MOYEN"))
+            + "\n\n| fichier | ligne | ancre | sévérité | code | constat | correction attendue | contexte |\n|---|---|---|---|---|---|---|---|\n"
+            + "".join(f"| {esc(r['fichier'])} | {r['ligne'] or ''} | {esc(r['ancre'])} | {r['severite']} | {esc(r['code'])} | {esc(r['constat'])} | {esc(r['correction'])} | {esc(r['extrait'])} |\n" for r in R_), encoding="utf-8")
+    if marquer:                                               # HTML de contrôle (jamais en production) : repère visible en tête de chaque ligne fautive
+        L2 = list(L); coul = {"CRITIQUE": "#b91c1c", "GRAVE": "#c2410c", "MOYEN": "#a16207"}
+        for r in R_:
+            i = r["ligne"] - 1
+            if 0 <= i < len(L2) and re.match(r"\s*<(p|li|tr|td|h3|div|ul)\b", L2[i]) and "data:" not in L2[i][:200]:
+                j = L2[i].find(">") + 1
+                L2[i] = L2[i][:j] + f'<mark class="brain-faute" style="background:{coul[r["severite"]]};color:#fff;font:700 11px sans-serif;padding:1px 4px;border-radius:3px">⚑ {r["severite"]} {H_.escape(r["code"])}</mark> ' + L2[i][j:]
+        Path(marquer).write_text("\n".join(L2), encoding="utf-8")
+    return R_
+
+
 def traite(f):
     """Déjà traité = professeur ACCEPTÉ sur l'état actuel du fichier."""
     tr = CACHE / "traites.json"; T = json.loads(tr.read_text()) if tr.exists() else {}
@@ -347,6 +395,10 @@ def main(a):
     if c == "reprise": reprise(a[1]); return 0
     if c == "point": return point(a[1], int(a[2]))
     if c == "retirer": return retirer(a[1], a[2], a[3] if len(a) > 3 else "")
+    if c == "registre":
+        g = lambda k: a[a.index(k) + 1] if k in a else None
+        R_ = registre(a[1], g("--json"), g("--md"), g("--marquer"), [a[i + 1] for i, x in enumerate(a) if x == "--audit"])
+        print(f"{Path(a[1]).name} : {len(R_)} faute(s) consignée(s) · " + " · ".join(f"{s} {sum(r['severite'] == s for r in R_)}" for s in ("CRITIQUE", "GRAVE", "MOYEN"))); return 0
     if c == "reparer":
         t = lire(a[1]); t2, J = S21.reparer(t)
         if t2 != t: bus.ecrire_atomique(a[1], t2)

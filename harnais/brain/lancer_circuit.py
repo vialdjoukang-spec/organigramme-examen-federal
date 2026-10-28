@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Lanceur du circuit duo → professeur par sous-agents RÉELS `claude -p --agent …`, hors moteur Workflow (plafonné à 2 agents sur 4 CPU).
-  python3 harnais/brain/lancer_circuit.py <leçon.html …> [--sonnet 16] [--opus 12] [--boucles 2] [--etapes duo,professeur]
+  python3 harnais/brain/lancer_circuit.py <leçon.html …> [--sonnet 16] [--opus 12] [--boucles 0] [--etapes duo,professeur]
                                           [--journal DIR] [--consigne constats.md] [--dry-run]
 Par leçon : duo (Sonnet, une leçon) → `circuit_vial.py fin --role duo` exécuté PAR LE LANCEUR (jamais sur la parole de l'agent) →
-reprise bornée avec les motifs du refus (instantané conservé) → professeur (Opus, effort moyen) → `fin --role professeur` → reprise bornée →
-mesure avant/après. Capacités : 16 places Sonnet et 12 places Opus (sémaphores) ; une leçon n'occupe jamais deux places.
+UNE seule tentative par défaut (--boucles 0, principe de Vial) → registre portable des fautes = bon de travail du professeur (Opus, effort
+moyen) → `fin --role professeur` → mesure avant/après → fautes restantes en tableau Markdown (+ JSON, + HTML de contrôle marqué) pour Vial. Capacités : 16 places Sonnet et 12 places Opus (sémaphores) ; une leçon n'occupe jamais deux places.
 Garde-fous : outil Write retiré (aucune réécriture du fichier entier) ; Edit interdit sur le dispositif (harnais/, tools/, .claude/, .github/,
 CLAUDE.md, CONTINUATION.md, /workspace/ssp/app.html) ; Bash limité à python3 harnais/*, grep, sed -n, wc ; aucun commit.
 Journal : <journal>/<leçon>.jsonl (une ligne par appel : rôle, passe, durée, coût, modèle, réponse, verdict de la porte) et bilan.json."""
@@ -80,10 +80,18 @@ def lecon(f, P, a):
     res = dict(lecon=f, avant=None if essai else mesure(f), etapes={})
     for role in opt(a, "--etapes", "duo,professeur").split(","):
         cs = Path(opt(a, "--consigne", "")).read_text(encoding="utf-8")[:16000] if "--consigne" in a else ""
-        ok, motif, evs = etape(role, f, P[ROLES[role]["model"]], journal, opt(a, "--boucles", 2), essai, cs)
+        if role == "professeur" and not essai:                  # bon de travail unique du professeur : le registre portable des fautes
+            rj, rm = jd / (Path(f).stem + ".registre.json"), jd / (Path(f).stem + ".registre.md")
+            subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm)], capture_output=True, cwd=R, timeout=1800)
+            cs = (cs + "\n" if cs else "") + f"BON DE TRAVAIL (registre portable des fautes, à traiter ligne par ligne) : {rm}"
+        ok, motif, evs = etape(role, f, P[ROLES[role]["model"]], journal, opt(a, "--boucles", 0), essai, cs)
         res["etapes"][role] = dict(accepte=ok, appels=evs, motif=motif[-800:])
         if not ok and not essai: break                       # leçon refusée : jamais de professeur sur un duo non accepté
     res["apres"] = None if essai else mesure(f)
+    if not essai:                                             # UNE seule correction : les fautes restantes partent en tableau à Vial (autres moyens)
+        rj, rm, hc = jd / (Path(f).stem + ".restantes.json"), jd / (Path(f).stem + ".restantes.md"), jd / (Path(f).stem + ".controle.html")
+        subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm), "--marquer", str(hc)], capture_output=True, cwd=R, timeout=1800)
+        res["restantes"] = dict(tableau=str(rm), registre=str(rj), controle=str(hc))
     return res
 
 
