@@ -13,6 +13,7 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
   Point 7 · syndromes
     Q1 intitulé non numéroté « 7.n Syndrome … »    Q2 « Symptômes fonctionnels » absent    Q3 « Signes physiques » absent
     Q4 signes physiques sans sous-cellules cliquables (span.sc.dx)   Q5 sous-cellule dont la fenêtre ne dit pas comment rechercher le signe
+    Q6 intitulé de syndrome non documenté (« intitulé de travail »)
   Q0 point 7 sans aucun syndrome numéroté « 7.n » (titres en gras, en h4 ou en cellule de tableau)
   R1 identifiant de case à cocher dupliqué (fenêtre qui ne s'ouvre pas)
   Intégrité (mêmes seuils que controle_lot, localisés) : H1 balises de bloc déséquilibrées (point fautif) · H2 ligne > 10 000 caractères
@@ -351,6 +352,8 @@ def analyser(t, nom, opt=None):
                 tete = bus.texte(seg[ot:seg.find("</tr>", ot) if "</tr>" in seg[ot:] else ot + 2000]).lower()
                 fin_t = seg.find("</table>", m.start()); ch = ch[:fin_t - m.start()] if fin_t > 0 else ch
                 ch = ("symptômes fonctionnels " if "symptômes fonctionnels" in tete else "") + ("signes physiques " if "signes physiques" in tete else "") + ch
+            if re.search(r"(?i)intitulé de travail|à vérifier", m.group(2)):
+                dol("Q6", pos, "GRAVE", f"intitulé « {titre.strip()[:60]} » non documenté", "intitulé tel que documenté dans les références internationales (source lue), sans mention « intitulé de travail »", preuve=titre)
             if not re.match(r"\s*Syndrome\b", m.group(2), re.I):
                 dol("Q1", pos, "MOYEN", f"intitulé « {titre.strip()[:60]} » sans « Syndrome »", "« 7.n Syndrome de … » selon l'intitulé international documenté", preuve=titre)
             if "symptômes fonctionnels" not in ch.lower():
@@ -397,6 +400,9 @@ def analyser(t, nom, opt=None):
                 pos = a0 + mt.start() + mr.start(1) + mr.group(1).find(c[:40])
                 if bus.dans_fenetre(t, pos): continue
                 hors_liste = re.sub(r"(?is)<ul\b.*?</ul>|<ol\b.*?</ol>", " ", re.sub(r"(?is)</td>.*", "", c))
+                qs = [x for x in bus.phrases(bus.texte_visible(hors_liste)) if x.rstrip().endswith("?")]
+                if len(qs) >= 2:
+                    dol("L5", pos, "GRAVE", f"{len(qs)} questions juxtaposées dans une cellule", "une puce <li> par question dans la cellule", preuve=" ".join(qs)[:160]); continue
                 for ph in bus.phrases(bus.texte_visible(hors_liste)):
                     mots = re.findall(r"[\wÀ-ÿœŒ'’-]+", ph); nC += 1
                     if len(mots) < 6 or re.match(r"(?i)\s*(symptômes fonctionnels|signes physiques)\b", ph): continue
