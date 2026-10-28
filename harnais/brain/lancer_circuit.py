@@ -21,7 +21,7 @@ OUTILS = ["Read", "Edit", "Grep", "Glob", "Bash(python3 harnais/*)", "Bash(grep 
           "mcp__PubMed__search_articles", "mcp__PubMed__get_article_metadata", "mcp__PubMed__lookup_article_by_citation"]
 INTERDITS = ["Write", "NotebookEdit"] + [f"Edit(/{R}/{x})" for x in ("harnais/**", "tools/**", ".claude/**", ".github/**", "CLAUDE.md", "CONTINUATION.md")] \
             + ["Edit(//workspace/ssp/app.html)"]
-ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None, limite_s=1500),          # ordre de Vial : le duo va vite (25 min max)
+ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None, limite_s=600),           # ordre de Vial : le duo va vite (10 min max)
          "professeur": dict(agent="professeur-emerite", model="opus", effort="medium", limite_s=1800)}
 
 
