@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Lanceur du circuit duo → professeur par sous-agents RÉELS `claude -p --agent …`, hors moteur Workflow (plafonné à 2 agents sur 4 CPU).
-  python3 harnais/brain/lancer_circuit.py <leçon.html …> [--sonnet 16] [--opus 12] [--boucles 0] [--etapes duo,professeur]
+  python3 harnais/brain/lancer_circuit.py <leçon.html …> [--sonnet 16] [--opus 12] [--boucles 1 (duo) / 0 (professeur)] [--etapes duo,professeur]
                                           [--journal DIR] [--consigne constats.md] [--dry-run] [--classique]
 COURS FLASH par défaut (harnais/etat/COURS_FLASH.md ; gabarit harnais/brain/gabarit_flash.html) : memoire, porte, mesure et registre en
 `--flash` (volume > 298 Ko refusé, îlots, fenêtres modales) ; `--classique` rend le circuit d'avant (forme Vial seule).
@@ -98,6 +98,13 @@ def etape(role, f, places, journal, boucles, essai, consigne=""):
     return ok, motif, evs
 
 
+def notifier(jd, f, role, motif):
+    """Refus notifié (console + notifications.md du journal) ; la leçon continue vers l'étape suivante, jamais d'arrêt sec."""
+    msg = f"REFUS notifié · {Path(f).name} · {role} : correction à l'étape suivante, le fichier progresse.\n{motif[-600:]}"
+    print(msg, file=sys.stderr)
+    with open(jd / "notifications.md", "a", encoding="utf-8") as n: n.write(f"- {time.strftime('%H:%M:%S')} {msg}\n")
+
+
 def lecon(f, P, a):
     jd = Path(opt(a, "--journal", str(R / ".cache/brain/circuit/lancer"))); jd.mkdir(parents=True, exist_ok=True)
     journal = jd / (Path(f).name + ".jsonl"); essai = "--dry-run" in a
@@ -108,9 +115,10 @@ def lecon(f, P, a):
             rj, rm = jd / (Path(f).stem + ".registre.json"), jd / (Path(f).stem + ".registre.md")
             subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm), *FLASH], capture_output=True, cwd=R, timeout=1800)
             cs = (cs + "\n" if cs else "") + f"BON DE TRAVAIL (registre portable des fautes, à traiter ligne par ligne) : {rm}"
-        ok, motif, evs = etape(role, f, P[ROLES[role]["model"]], journal, opt(a, "--boucles", 0), essai, cs)
+        ok, motif, evs = etape(role, f, P[ROLES[role]["model"]], journal, opt(a, "--boucles", 1 if role == "duo" else 0), essai, cs)
         res["etapes"][role] = dict(accepte=ok, appels=evs, motif=motif[-800:])
-        if not ok and not essai: break                       # leçon refusée : jamais de professeur sur un duo non accepté
+        if not ok and not essai:                              # ordre de Vial : jamais de refus sec = refus NOTIFIÉ + correction, le fichier progresse
+            notifier(jd, f, role, motif)
     res["apres"] = None if essai else mesure(f)
     if not essai:                                             # UNE seule correction : les fautes restantes partent en tableau à Vial (autres moyens)
         rj, rm, hc = jd / (Path(f).stem + ".restantes.json"), jd / (Path(f).stem + ".restantes.md"), jd / (Path(f).stem + ".controle.html")
