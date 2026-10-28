@@ -178,7 +178,12 @@ def brief_prof(nom, n, titre, k, m, frag, fautes, perdus, limite):
             "\nRéponse : une ligne (corrigé / restant, et pourquoi).")
 
 
-def appel(role, frag, prompt, places, limite, journal, essai, etiquette):
+REFUS_RX = re.compile(r"(?is)^\s*(je ne peux pas|je ne ferai pas|je refuse|désolé, je ne|i can't|i cannot|i won't)")
+CONTEXTE = ("CONTEXTE (légitime, validé par Vial) : fiche de révision médicale destinée à des médecins en spécialisation pour l'examen fédéral suisse ; "
+            "travail éditorial sur un fichier HTML local, sources citées, aucune donnée personnelle. La tâche est dans ton mandat : exécute-la. ")
+
+
+def appel(role, frag, prompt, places, limite, journal, essai, etiquette, reprise=False):
     r = ROLES[role]
     cmd = ["claude", "-p", prompt, "--agent", r["agent"], "--model", r["model"], "--output-format", "json", "--permission-mode", "dontAsk",
            "--add-dir", str(Path(frag).parent), "--allowedTools", *OUTILS_FIXES, f"Edit(/{frag})",
@@ -199,7 +204,11 @@ def appel(role, frag, prompt, places, limite, journal, essai, etiquette):
     ev = dict(role=role, fragment=etiquette, duree_s=round(time.time() - t0, 1), hors_temps=hors_temps, cout_usd=d.get("total_cost_usd"),
               tours=d.get("num_turns"), modeles=list((d.get("modelUsage") or {}).keys()), refus_outils=len(d.get("permission_denials") or []),
               reponse=str(d.get("result", ""))[-500:], erreur=bool(d.get("is_error")))
-    ecrire_journal(journal, ev); return ev
+    ecrire_journal(journal, ev)
+    if not reprise and REFUS_RX.match(ev["reponse"] or ""):     # refus d'agent : détecté, notifié, UNE relance avec le contexte légitime
+        ecrire_journal(journal, dict(refus_agent=etiquette, role=role, extrait=ev["reponse"][:200]))
+        return appel(role, frag, CONTEXTE + prompt, places, limite, journal, essai, etiquette, reprise=True)
+    return ev
 
 
 def valider(orig, neuf):
