@@ -163,8 +163,23 @@ def texte(h):
     return re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", h))).strip()
 
 
+def sans_modales(h):
+    """Retire les fenêtres modales du Cours Flash (<div class="fx" …>…</div>, divs imbriqués compris) ; texte sans fenêtre modale : inchangé."""
+    if 'class="fx"' not in h: return h
+    out, i = [], 0
+    for m in re.finditer(r'(?is)<div\b[^>]*\bclass="fx"[^>]*>', h):
+        if m.start() < i: continue
+        out.append(h[i:m.start()]); n, j = 1, m.end()
+        for x in re.finditer(r"(?is)<(/?)div\b[^>]*>", h[m.end():]):
+            n += -1 if x.group(1) else 1; j = m.end() + x.end()
+            if n == 0: break
+        out.append(" "); i = j if n == 0 else len(h)
+    return "".join(out) + h[i:]
+
+
 def texte_visible(h):
-    """Texte affiché sans clic : fenêtres (.df, .dxc) et exposants de source retirés, sigles déshabillés."""
+    """Texte affiché sans clic : fenêtres (.df, .dxc, div.fx modale) et exposants de source retirés, sigles déshabillés."""
+    h = sans_modales(h)
     h = re.sub(r'(?is)<sup class="r">.*?</sup>|<template\b.*?</template>', "", h)
     h = re.sub(r'(?s)<span class="(?:df|dxc)">(?:(?!<span class="(?:df|dxc)">).)*?</span>', " ", h)
     h = re.sub(r'(?s)<span class="(?:df|dxc)">.*?</span></span>', " ", h)
@@ -202,11 +217,11 @@ def _sections(t):
 
 @functools.lru_cache(maxsize=32)
 def zones_fenetres(t):
-    """Intervalles des fenêtres et bandes (.df, .dxc, div.mb, div.sb) : contenu caché, jamais lu comme texte du cours."""
+    """Intervalles des fenêtres et bandes (.df, .dxc, div.mb, div.sb, div.fx modale du Cours Flash) : contenu caché, jamais lu comme texte du cours."""
     out = []; pile = []
     for m in re.finditer(r"(?is)<(/?)(span|div)\b([^>]*)>", t):
         if not m.group(1):
-            ouvre = bool(re.search(r'class="(?:df|dxc|mb|sb)"', m.group(3)))
+            ouvre = bool(re.search(r'class="(?:df|dxc|mb|sb|fx)"', m.group(3)))
             pile.append((m.group(2).lower(), m.start() if ouvre else None))
         else:
             while pile:

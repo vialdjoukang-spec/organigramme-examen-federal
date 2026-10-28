@@ -28,13 +28,27 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
     L3 phrase nominale sans verbe dans un paragraphe (≥ 12 mots)    L4 phrase répétée à l'identique (GRAVE) ; mot plein répété 3 fois dans une phrase (MOYEN)
 Correction (--appliquer) : rend chaque <template class="algo-modele"> (ou div.algo[data-modele]) en algorithme
 en cases (rectangles, losanges), traits strictement horizontaux et verticaux, cases cliquables à fenêtre ; pose la CSS brain-vial.
-Le script ne crée jamais de contenu médical : il dessine le modèle écrit par l'agent."""
+Le script ne crée jamais de contenu médical : il dessine le modèle écrit par l'agent.
+COURS FLASH (harnais/etat/COURS_FLASH.md, 28.10.2026) : contrôles AJOUTÉS, actifs seulement en mode Flash (analyser(..., {"flash": True}),
+  flash(t, nom), `circuit_vial.py … --flash` ou instantané pris en mode Flash). Gabarit de référence : harnais/brain/gabarit_flash.html.
+  Ko = 1 000 octets, fichier entier (notions, CSS et fenêtres comprises).
+    V1 volume > 250 Ko (GRAVE, bloquant)   V2 volume > 200 Ko (MOYEN : visé 100–200)   V3 volume < 100 Ko (MOYEN : fond peut-être insuffisant)
+    N1 bloc « Notions voisines » ou « Diagnostic(s) différentiel(s) » (liste ou tableau) dans le corps, hors fenêtre (GRAVE ; replié en <details> : MOYEN)
+    I1 aucun îlot (GRAVE)   I2 points 1–4 hors d'un même îlot (GRAVE si un point est hors îlot, sinon MOYEN)   I3 points 5–6 hors d'un même îlot
+       (même règle)   I4 point 7–14 non replié (<details class="ilot"> sans « open ») (MOYEN)   I5 CSS brain-flash (bords, justification, fenêtres
+       modales) non posée (MOYEN, script)   I6 style en ligne qui casse la largeur ou la justification d'un îlot (MOYEN)   I7 îlot saturé (MOYEN)
+    W1 aucune fenêtre modale cliquable (GRAVE)   W3 symptômes non cliquables (GRAVE si aucun aux points 5 et 7 ; sinon MOYEN par syndrome)
+    W4 signes d'examen du point 6 non cliquables (GRAVE si aucun ; fenêtre sans manœuvre : MOYEN)   W5 syndrome sans fenêtre à tableau
+       « symptôme | signes physiques » (GRAVE si aucun syndrome n'en a ; sinon MOYEN par syndrome)   W6 tableau de syndrome ≠ 2 colonnes (MOYEN)
+    W7 algorithme du point 11 sans détails cliquables (MOYEN)   W8 précision longue en survol (> 40 mots : fenêtre cliquable attendue) (MOYEN)
+    D2/D3 traits non orthogonaux ou cercles aussi dans l'algorithme du point 11.
+  Souplesse : un défaut sans conséquence d'apprentissage reste MOYEN (avertissement, non bloquant)."""
 import html as H, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bus
 
-ID, REGION, VERSION = "s21_forme_vial", "AUF", "1.1.0"
+ID, REGION, VERSION = "s21_forme_vial", "AUF", "1.2.0"
 COL, ROW, CW, CH, LW, LH, M = 250, 125, 184, 66, 196, 96, 20
 CSS = ('<style id="brain-vial">div.algo{margin:14px 0}div.algo>input{position:absolute;opacity:0;width:0;height:0}.algo-t{font-weight:700;color:#4c1d95;margin-bottom:6px}'
        '.algo-sc{overflow-x:auto;padding-bottom:4px}.algo-can{position:relative}.algo-can svg{position:absolute;left:0;top:0}.algo-can svg .tr{stroke:#6d28d9;stroke-width:2;fill:none}'
@@ -48,6 +62,35 @@ CSS = ('<style id="brain-vial">div.algo{margin:14px 0}div.algo>input{position:ab
        'h3[id$="-p11"]{background:linear-gradient(90deg,#ede9fe,transparent);border-left:6px solid #7c3aed;text-decoration:underline;padding:4px 10px}'
        '@media(prefers-color-scheme:dark){.algo-can svg .ca{fill:#241d3f}.algo-can svg .lo{fill:#3b2a10}.algo-can svg .fi{fill:#12301f}.algo-n{color:#ede9fe}'
        '.algo-can svg text{fill:#ddd0ff}.algo-d{background:#241d3f}span.sc.dx{background:#241d3f;border-color:#5b21b6}h3[id$="-p11"]{background:linear-gradient(90deg,#2e1065,transparent)}}</style>')
+# Cours Flash : îlots à bords visibles, texte justifié, même largeur ; fenêtres modales sans script (case à cocher + label, contrôle_lot interdit <script>).
+# span.dx / span.sc.dx (fenêtre courte, en ligne) et div.fxw > div.fx (fenêtre riche : tableau de syndrome, méthode) ; détails des cases d'algorithme en modale.
+CSS_FLASH = ('<style id="brain-flash">'
+             '.ilot{display:block;box-sizing:border-box;width:100%;max-width:100%;margin:16px 0;padding:10px 18px 12px;border:1.5px solid #a78bfa;border-radius:8px;background:#fff}'
+             '.ilot p,.ilot li{text-align:justify;hyphens:auto}.ilot td,.ilot th{text-align:left}'
+             'details.ilot>summary{cursor:pointer;list-style:none;padding:2px 0}details.ilot>summary::-webkit-details-marker{display:none}'
+             'details.ilot>summary::before{content:"▸ ";color:#7c3aed;font-weight:700}details.ilot[open]>summary::before{content:"▾ "}'
+             'details.ilot>summary>h3{display:inline-block;margin:6px 0}'
+             'span.dx>input{position:absolute;opacity:0;width:0;height:0}span.dx>.dxt{cursor:pointer;border-bottom:1px dotted #7c3aed;color:#4c1d95}'
+             'span.dx>input:focus-visible+.dxt{outline:2px solid #7c3aed}span.dx>span.dxc{display:none}'
+             'span.dx>input:checked~span.dxc{display:block;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(680px,92vw);max-height:82vh;'
+             'overflow:auto;z-index:95;margin:0;padding:14px 18px;background:#fff;color:#111;border:2px solid #7c3aed;border-radius:10px;'
+             'box-shadow:0 0 0 100vmax rgba(15,23,42,.55);text-align:justify;font-size:.95em}'
+             '.fxw{display:block;margin:4px 0}.fxw>input{position:absolute;opacity:0;width:0;height:0}'
+             '.fxw>.fx-o{cursor:pointer;border-bottom:1px dotted #7c3aed;color:#4c1d95}.fxw>.fx-o::after{content:" ⧉";font-size:.8em;color:#7c3aed}'
+             '.fxw>input:focus-visible+.fx-o{outline:2px solid #7c3aed}'
+             '.fx{display:none}.fxw>input:checked~.fx{display:flex;position:fixed;inset:0;z-index:90;align-items:center;justify-content:center;background:rgba(15,23,42,.55)}'
+             '.fx>.fx-f{position:absolute;inset:0;cursor:pointer}'
+             '.fx>.fx-b{position:relative;box-sizing:border-box;width:min(760px,94vw);max-height:84vh;overflow:auto;background:#fff;color:#111;'
+             'border:2px solid #7c3aed;border-radius:10px;padding:14px 18px;text-align:justify}'
+             '.fx-x{float:right;cursor:pointer;font-weight:700;font-size:1.25em;line-height:1;color:#6d28d9;padding:0 4px}'
+             '.fx table{border-collapse:collapse;width:100%}.fx th,.fx td{border:1px solid #c4b5fd;padding:4px 8px;vertical-align:top;text-align:left}'
+             '.algo-det>.algo-d{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(640px,92vw);max-height:80vh;overflow:auto;z-index:95;'
+             'margin:0;background:#fff;border:2px solid #7c3aed;box-shadow:0 0 0 100vmax rgba(15,23,42,.55);text-align:justify}'
+             '@media(prefers-color-scheme:dark){.ilot{background:#14112a;border-color:#5b21b6}span.dx>input:checked~span.dxc,.fx>.fx-b,.algo-det>.algo-d'
+             '{background:#1e1b4b;color:#ede9fe}.fxw>.fx-o{color:#ddd0ff}}</style>')
+KO = 1000                                        # Ko = 1 000 octets ; bande Flash 100–250 Ko (visé 100–200), fichier entier
+FLASH_MAX, FLASH_VISE, FLASH_MIN = 250 * KO, 200 * KO, 100 * KO
+ILOT_SATURE = 12000                              # caractères visibles (hors fenêtres) au-delà desquels un îlot est saturé
 RX_FAIBLE = re.compile(r"(?i)(?<![\wÀ-ÿ-])(?:tu|toi|ton|ta|tes|te|t'|il y a|on|ça|ca va|un peu|pas mal|en gros|truc|trucs|chose|choses|vraiment|super|carrément|quelque chose|voici|voilà)(?![\wÀ-ÿ'])"
                        r"|^(?:Vérifie|Procède|Revois|Organise|Propose|Sois|Prescris|Exclus|Traite|Cherche|Demande|Évite|Pense|Adapte|Décide|Confirme|Fais|Mets|(?:Contrôle|Note|Garde|Demande|Recherche) (?=une?\b|les?\b|la\b|l'|des\b)|Mesure (?=l'|les?\b|la\b))\b")
 # Groupe nominal + forme en -e/-ent + mot-outil : verbe conjugué absent du lexique (« l'insuffisance veineuse cause souvent… »)
@@ -145,7 +188,7 @@ def rendre(mod, pre):
         cid = f"{pre}-{j + 1}"; cl = "lo" if typ == "losange" else "ca"
         if n.get("detail"):
             lab.append(f'<label class="algo-n {cl} cl" for="{cid}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px"><span>{n["texte"]}</span></label>')
-            det.append(f'<div class="algo-d" id="{cid}-d"><b class="algo-dt">{n["texte"]}</b> · {n["detail"]}</div>')
+            det.append(f'<div class="algo-d" id="{cid}-d"><label class="fx-x" for="{cid}" aria-label="Fermer">×</label><b class="algo-dt">{n["texte"]}</b> · {n["detail"]}</div>')
             css.append(f"#{cid}:checked~.algo-det #{cid}-d{{display:block}}")
         else:
             lab.append(f'<div class="algo-n {cl}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px"><span>{n["texte"]}</span></div>')
@@ -184,6 +227,8 @@ def corriger(t, opt=None):
     t2 = re.sub("\x00ALGO(\\d+)\x00", lambda m: blocs[int(m.group(1))], t2)
     if 'class="algo"' in t2 or 'class="sc dx"' in t2 or "-p11" in t2:
         t2 = bus.pose_style(t2, "brain-vial", CSS)
+    if (opt or {}).get("flash") or RX_ILOT.search(t2) or 'class="fxw"' in t2 or 'id="brain-flash"' in t2:
+        t2 = bus.pose_style(t2, "brain-flash", CSS_FLASH)       # après brain-vial (dernier bloc du <head>) : îlots et fenêtres modales
     return t2
 
 
@@ -203,15 +248,42 @@ def _bornes_points(t):
     S = bus.sections(t); return sorted(((n, a, f) for n, (a, f) in S.items()), key=lambda x: x[1])
 
 
+RX_ILOT = re.compile(r'(?is)<(section|details|div)\b([^>]*\bclass="(?:[^"]*\s)?ilot(?:\s[^"]*)?"[^>]*)>')
+
+
+def _fermeture(t, pos, g):
+    """Fin (position après la fermante) de l'élément <g> ouvert à pos, par comptage d'imbrication ; None si jamais refermé."""
+    n = 0
+    for x in re.finditer(rf"(?is)<(/?){g}\b[^>]*>", t[pos:]):
+        n += -1 if x.group(1) else 1
+        if n == 0: return pos + x.end()
+    return None
+
+
+def ilots(t, m=None):
+    """[(début, fin, balise, attributs)] des îlots du Cours Flash (section/details/div de classe « ilot ») ; fin None si non refermé."""
+    m = _inerte(t) if m is None else m
+    return [(x.start(), _fermeture(m, x.start(), x.group(1).lower()), x.group(1).lower(), x.group(2)) for x in RX_ILOT.finditer(m)]
+
+
+def _sans_ilots(m):
+    """Masque les ouvrantes et fermantes d'îlots appariées : un îlot enjambe plusieurs points sans fausser la localisation par point."""
+    for a, b, g, _ in ilots(None, m):
+        if b is None: continue
+        o = m.find(">", a) + 1; c = m.rfind("<", a, b)
+        m = m[:a] + " " * (o - a) + m[o:c] + " " * (b - c) + m[b:]
+    return m
+
+
 def desequilibres(t):
-    """[(balise, ouvertes, fermées, point)] : déséquilibres globaux (point 0) et par point (localisation)."""
-    m = _inerte(t); out = []
+    """[(balise, ouvertes, fermées, point)] : déséquilibres globaux (point 0) et par point (localisation ; îlots appariés ignorés)."""
+    m = _inerte(t); out = []; mp = None
     for g in BALISES:
         o, f = len(re.findall(rf"(?i)<{g}[\s>]", m)), len(re.findall(rf"(?i)</{g}\s*>", m))
         if o != f:
-            out.append((g, o, f, 0))
+            out.append((g, o, f, 0)); mp = _sans_ilots(m) if mp is None else mp
             for n, a, b in _bornes_points(t):
-                s = m[a:b]; o2, f2 = len(re.findall(rf"(?i)<{g}[\s>]", s)), len(re.findall(rf"(?i)</{g}\s*>", s))
+                s = mp[a:b]; o2, f2 = len(re.findall(rf"(?i)<{g}[\s>]", s)), len(re.findall(rf"(?i)</{g}\s*>", s))
                 if o2 != f2: out.append((g, o2, f2, n))
     return out
 
@@ -229,16 +301,18 @@ def equilibrer(t):
         ev.append((x.start(), 1, "ferme" if x.group(1) else "ouvre", x))
     ev.sort(key=lambda e: (e[0], e[1]))
     pile, ins, sup, sec, J = [], [], [], -1, []
+    # Un îlot du Cours Flash (class="ilot") enjambe plusieurs points : il est traité comme un enveloppant (jamais fermé à une limite de point),
+    # et sa fermante referme d'abord les blocs restés ouverts à l'intérieur.
     for pos, _, k, x in ev:
         if k == "limite":
             while pile and pile[-1][2] >= 0:
                 g, p0, s0 = pile.pop(); ins.append((pos, f"</{g}>")); J.append(f"<{g}> ouvert l.{bus.ligne(t, p0)} fermé avant le point suivant")
             sec = bornes.index(pos); continue
         g = x.group(2).lower()
-        if k == "ouvre": pile.append((g, x.start(), sec)); continue
+        if k == "ouvre": pile.append((g, x.start(), -2 if RX_ILOT.match(m, x.start()) else sec)); continue
         if pile and pile[-1][0] == g: pile.pop(); continue
         cible = next((q for q in reversed(pile) if q[0] == g), None)
-        if cible and (cible[2] >= 0 or sec == len(P) - 1):     # un enveloppant (ouvert avant le point 1) ne se ferme qu'au dernier point ou après
+        if cible and (cible[2] >= 0 or cible[2] == -2 or sec == len(P) - 1):     # un enveloppant (ouvert avant le point 1) ne se ferme qu'au dernier point ou après
             while pile[-1][0] != g:
                 g2, p0, _ = pile.pop(); ins.append((x.start(), f"</{g2}>")); J.append(f"<{g2}> ouvert l.{bus.ligne(t, p0)} fermé avant </{g}>")
             pile.pop(); continue
@@ -270,10 +344,11 @@ def couper_lignes(t, limite=10000):
     return out, J
 
 
-def reparer(t):
-    """Réparations mécaniques sûres de fin de duo : rendu des algorithmes (une ligne par élément), CSS brain-vial, balises de bloc, lignes longues."""
-    J = []; t2 = corriger(t)
-    if t2 != t: J.append("algorithme(s) du point 10 rendu(s) et CSS brain-vial posée")
+def reparer(t, flash=False):
+    """Réparations mécaniques sûres de fin de duo : rendu des algorithmes (une ligne par élément), CSS brain-vial (et brain-flash en mode Flash),
+    balises de bloc, lignes longues."""
+    J = []; t2 = corriger(t, {"flash": flash})
+    if t2 != t: J.append("algorithme(s) rendu(s) et CSS brain-vial" + (" / brain-flash" if 'id="brain-flash"' in t2 else "") + " posée(s)")
     t2, j = equilibrer(t2); J += j
     t2, j = couper_lignes(t2); J += j
     return t2, J
@@ -306,6 +381,166 @@ def cellule_verbale(ph):
 
 
 # ───────────────────────── analyse ─────────────────────────
+def _orthogonalite(seg, a, ha, dol):
+    """D2/D3 : un algorithme n'a que des cases et losanges reliés par des traits horizontaux et verticaux."""
+    for m in re.finditer(r"(?is)<circle\b|<ellipse\b|border-radius\s*:\s*50%", seg):
+        dol("D2", a + m.start(), "GRAVE", "cercle ou ellipse dans l'arbre décisionnel", "remplacer par une case rectangulaire ou un losange")
+    for m in re.finditer(r'(?is)<line\b[^>]*>', seg):
+        g = {k: float(v) for k, v in re.findall(r'\b(x1|y1|x2|y2)="(-?[\d.]+)"', m.group(0))}
+        if len(g) == 4 and g["x1"] != g["x2"] and g["y1"] != g["y2"]:
+            dol("D3", a + m.start(), "GRAVE", "segment oblique", "tracer des traits horizontaux et verticaux uniquement (coude à angle droit)")
+    for m in re.finditer(r'(?is)<path\b[^>]*\bd="([^"]*)"', seg):
+        if re.search(r"[^MmHhVvZz\d\s.,-]", m.group(1)):
+            dol("D3", a + m.start(), "GRAVE", "chemin non orthogonal (courbe ou diagonale)", "chemin en M/H/V seulement")
+    if re.search(r"(?i)rotate\(\s*-?(?!0|90|180|270)\d", seg) and "algo" in seg:
+        dol("D3", ha, "MOYEN", "élément pivoté à un angle non droit", "aucun trait pivoté")
+
+
+RX_CLIC = re.compile(r'class="(?:sc dx|dx|fxw)"')            # déclencheurs de fenêtre cliquable (span.dx, span.sc.dx, div.fxw)
+RX_VOISINES = re.compile(r"(?is)<(h4|h5|h6|b|strong|summary|th|p|li)\b[^>]*>\s*(?:<(?:b|strong|em)>\s*)?"
+                         r"(notions?\s+voisines?|diagnostics?\s+différentiels?|diagnostic\s+différentiel)")
+
+
+def _fenetres_modales(seg):
+    """Contenus des fenêtres (span.dxc et div.fx) d'un segment."""
+    out = [x for x in re.findall(r'(?is)<span class="dxc">(.*?)</span></span>', seg)]
+    for x in re.finditer(r'(?is)<div\b[^>]*\bclass="fx"[^>]*>', seg):
+        b = _fermeture(seg, x.start(), "div"); out.append(seg[x.end():b] if b else seg[x.end():])
+    return out
+
+
+def flash(t, nom):
+    """Contrôles du COURS FLASH (harnais/etat/COURS_FLASH.md) : volume, îlots, fenêtres modales, tableau de syndrome, algorithme du point 11.
+    Retour (doléances, mesures). Un défaut sans conséquence d'apprentissage reste MOYEN (avertissement)."""
+    me = sys.modules[__name__]; D = []; S = bus.sections(t); M = {}
+    h = lambda a: t.find(">", a) + 1
+    dol = lambda code, pos, sev, constat, corr, ex="agent", preuve="": D.append(bus.doleance(me, code, nom, bus.ancre(t, pos, preuve), sev, constat, corr, ex, preuve))
+    a0, f0 = bus.bornes_cours(t)
+    # ── volume (fichier entier)
+    o = len(t.encode()); M["octets"] = o; M["ko"] = round(o / KO, 1)
+    if o > FLASH_MAX:
+        dol("V1", 0, "GRAVE", f"volume {o / KO:.0f} Ko > 250 Ko (bande Flash 100–250, visé 100–200)",
+            "contracter : le détail secondaire descend dans une fenêtre, l'inutile est retiré (retrait déclaré) ; aucune redite ; sigles et CSS non dupliqués")
+    elif o > FLASH_VISE:
+        dol("V2", 0, "MOYEN", f"volume {o / KO:.0f} Ko > 200 Ko (visé 100–200 Ko)", "alléger le corps : détails en fenêtres, redites retirées")
+    elif o < FLASH_MIN:
+        dol("V3", 0, "MOYEN", f"volume {o / KO:.0f} Ko < 100 Ko : fond des 14 points peut-être insuffisant", "vérifier l'exigence de la grille point par point")
+    # ── notions voisines / diagnostic différentiel en bloc dans le corps
+    for m in RX_VOISINES.finditer(t, a0, f0):
+        if bus.dans_fenetre(t, m.start()): continue
+        suite = t[m.end():m.end() + 2500]; coupe = re.search(r"(?i)<h3\b|<h4\b", suite); suite = suite[:coupe.start()] if coupe else suite
+        bloc = next((x for x in re.finditer(r"(?i)<(?:ul|ol|table)\b", suite) if not bus.dans_fenetre(t, m.end() + x.start())), None)
+        if not bloc: continue
+        replie = m.group(1).lower() == "summary"
+        dol("N1", m.start(), "MOYEN" if replie else "GRAVE", f"bloc « {m.group(2)} » dans le corps du cours" + (" (replié)" if replie else ""),
+            "ranger le diagnostic différentiel utile dans une fenêtre cliquable (div.fxw > div.fx ou span.dx) ; retirer le reste", preuve=m.group(2))
+    # ── îlots
+    I = ilots(t); M["ilots"] = len(I)
+    def ilot_de(n):
+        if n not in S: return None
+        p = S[n][0]; cs = [x for x in I if x[0] < p and (x[1] or len(t)) > p]
+        return max(cs, key=lambda x: x[0]) if cs else None
+    if not I:
+        dol("I1", a0, "GRAVE", "aucun îlot (parties 1–4, 5–6 et reste replié attendus)",
+            "envelopper : <section class=\"ilot\" data-ilot=\"1-4\">points 1 à 4</section>, <section class=\"ilot\" data-ilot=\"5-6\">points 5 et 6</section>, "
+            "puis chaque point 7 à 14 dans <details class=\"ilot\"><summary><h3 …>N. …</h3></summary>…</details> (gabarit : harnais/brain/gabarit_flash.html)")
+    else:
+        for code, grp in (("I2", (1, 2, 3, 4)), ("I3", (5, 6))):
+            ils = {n: ilot_de(n) for n in grp if n in S}
+            hors = [n for n, x in ils.items() if x is None]
+            if hors:
+                dol(code, h(S[hors[0]][0]), "GRAVE", f"point(s) {hors} hors îlot (parties {grp[0]}–{grp[-1]} attendues dans un même îlot)",
+                    f"envelopper les points {grp[0]} à {grp[-1]} dans un même <section class=\"ilot\">")
+            elif len({x[0] for x in ils.values()}) > 1 or (code == "I3" and ilot_de(1) and ils and ilot_de(1)[0] == next(iter(ils.values()))[0]):
+                dol(code, h(S[grp[0]][0]) if grp[0] in S else a0, "MOYEN", f"parties {grp[0]}–{grp[-1]} non regroupées dans un îlot propre",
+                    f"un îlot pour les points {grp[0]} à {grp[-1]}, distinct des autres groupes")
+        for n in range(7, 15):
+            x = ilot_de(n)
+            if n not in S: continue
+            if x is None or x[2] != "details":
+                dol("I4", h(S[n][0]), "MOYEN", f"point {n} non replié", "le point dans <details class=\"ilot\"><summary><h3 …>…</h3></summary>…</details>")
+            elif re.search(r"(?i)(?:^|\s)open(?:\s|=|$)", x[3]):
+                dol("I4", h(S[n][0]), "MOYEN", f"point {n} déplié par défaut (attribut open)", "retirer l'attribut open : le reste est contracté")
+        for a, b, g, at in I:
+            st = " ".join(re.findall(r'(?is)style="([^"]*)"', at))
+            if b is None:
+                dol("I6", a, "GRAVE", f"îlot <{g}> jamais refermé", "refermer l'îlot (</" + g + ">) avant l'îlot suivant"); continue
+            if re.search(r"(?i)(?:^|;)\s*(?:width|max-width|margin(?:-left|-right)?|padding(?:-left|-right)?|float)\s*:|text-align\s*:\s*(?!justify)", st):
+                dol("I6", a, "MOYEN", "style en ligne sur l'îlot (largeur, marge ou alignement)", "retirer le style en ligne : la CSS brain-flash fixe largeur et justification", preuve=st[:80])
+            for y in re.finditer(r'(?is)<p\b[^>]*style="[^"]*text-align\s*:\s*(?!justify)[^"]*"', t[a:b]):
+                dol("I6", a + y.start(), "MOYEN", "paragraphe d'îlot non justifié (style en ligne)", "retirer text-align du paragraphe"); break
+            vis = len(bus.texte_visible(nu_(t[a:b])))
+            if vis > ILOT_SATURE:
+                dol("I7", h(a), "MOYEN", f"îlot saturé : {vis} caractères visibles (> {ILOT_SATURE})", "rabattre listes, méthodes et détails dans des fenêtres ; aucune redite")
+        if not re.search(r'(?is)<style id="brain-flash">.*?\.ilot\{[^}]*border[^}]*\}.*?text-align:justify', t):
+            dol("I5", a0, "MOYEN", "CSS brain-flash (bords d'îlot, justification, fenêtres modales) non posée",
+                "lancer : python3 harnais/brain/circuit_vial.py reparer <fichier> --flash", "script")
+    # ── fenêtres modales
+    nclic = len(RX_CLIC.findall(t[a0:f0])); M["fenetres"] = nclic + t[a0:f0].count('class="algo-d"')
+    if not M["fenetres"]:
+        dol("W1", a0, "GRAVE", "aucune fenêtre cliquable : le détail reste dans le corps",
+            "détails, listes, méthodes : fenêtres cliquables (span.dx en ligne, div.fxw > div.fx pour un tableau ou une méthode)")
+    sympt_ok = 0
+    if 5 in S:
+        sympt_ok += len(RX_CLIC.findall(t[S[5][0]:S[5][1]]))
+    syn = []
+    if 7 in S:
+        a, f = S[7]; seg = t[a:f]
+        ts = [m for m in re.finditer(r"(?is)<(?:b|strong|h4|td|th)[^>]*>\s*(?:<(?:b|strong|em)>\s*)?(7\.\d+)\.?\s*(?:</(?:b|strong|em)>)?\s*([^<]*)", seg)
+              if not bus.dans_fenetre(t, a + m.start())]
+        for k, m in enumerate(ts):
+            ch = seg[m.start():ts[k + 1].start() if k + 1 < len(ts) else len(seg)]; pos = a + m.start(); titre = (m.group(1) + " " + m.group(2)).strip()
+            tabs = [x for w in _fenetres_modales(ch) for x in re.findall(r"(?is)<table\b.*?</table>", w)]
+            bon = None
+            for tb in tabs:
+                tete = re.search(r"(?is)<tr\b[^>]*>(.*?)</tr>", tb); cols = re.findall(r"(?is)<t[hd]\b[^>]*>(.*?)</t[hd]>", tete.group(1)) if tete else []
+                cols = [bus.texte(c).lower() for c in cols]
+                if len(cols) == 2 and "sympt" in cols[0] and "signe" in cols[1]: bon = tb; break
+                if any("sympt" in c for c in cols) and any("signe" in c for c in cols):
+                    dol("W6", pos, "MOYEN", f"tableau du syndrome « {titre[:50]} » à {len(cols)} colonnes", "deux colonnes exactement : Symptômes fonctionnels | Signes physiques", preuve=titre); bon = tb; break
+            syn.append(bool(bon))
+            if not bon:
+                dol("W5", pos, "MOYEN", f"syndrome « {titre[:50]} » sans fenêtre à tableau « symptôme | signes physiques »",
+                    "intitulé cliquable (div.fxw) ouvrant une fenêtre : tableau à 2 colonnes Symptômes fonctionnels | Signes physiques (sous-cellules span.sc.dx)", preuve=titre)
+                continue
+            lignes = re.findall(r"(?is)<tr\b[^>]*>(.*?)</tr>", bon)[1:]
+            cl1 = sum(1 for l in lignes if RX_CLIC.search((re.findall(r"(?is)<td\b[^>]*>(.*?)</td>", l) or [""])[0]))
+            sympt_ok += cl1
+            if lignes and not cl1:
+                dol("W3", pos, "MOYEN", f"symptômes du syndrome « {titre[:50]} » non cliquables", "chaque symptôme : span.dx avec sa fenêtre (caractère, durée, valeur d'orientation)", preuve=titre)
+        M["syndromes_tableau"] = sum(syn)
+        if syn and not any(syn):
+            dol("W5", h(a), "GRAVE", "aucun syndrome n'ouvre de fenêtre à tableau « symptôme | signes physiques »",
+                "chaque « 7.n Syndrome de … » : div.fxw > div.fx contenant le tableau à 2 colonnes (gabarit : harnais/brain/gabarit_flash.html)")
+    if (5 in S or 7 in S) and not sympt_ok:
+        dol("W3", h(S[5][0] if 5 in S else S[7][0]), "GRAVE", "aucun symptôme cliquable (points 5 et 7)",
+            "lister les symptômes simplement, chacun cliquable (span.dx) avec l'information utile dans sa fenêtre")
+    if 6 in S:
+        a, f = S[6]; seg = t[a:f]; nc = len(RX_CLIC.findall(seg)); M["signes_cliquables"] = nc
+        if not nc:
+            dol("W4", h(a), "GRAVE", "examen clinique sans signe cliquable", "énumérer les signes ; chacun cliquable : fenêtre « comment le rechercher, manœuvre »")
+        else:
+            sans = [w for w in _fenetres_modales(seg) if not RX_TECH.search(bus.texte(w))]
+            if sans: dol("W4", h(a), "MOYEN", f"{len(sans)} fenêtre(s) de signe sans technique de recherche", "dire comment rechercher le signe (position, geste, manœuvre)",
+                         preuve=bus.texte(sans[0])[:80])
+    if 11 in S:
+        a, f = S[11]; seg = t[a:f]
+        _orthogonalite(seg, a, h(a), dol)
+        nc = len(re.findall(r'class="algo-n ', seg)); nd = len(re.findall(r'class="algo-d"', seg))
+        if nc and nd < nc / 2:
+            dol("W7", h(a), "MOYEN", f"algorithme d'urgence : {nd} case(s) cliquable(s) sur {nc}", "donner un « detail » (fenêtre) aux cases d'action et de décision")
+    for m in re.finditer(r'(?is)<span class="df">(.*?)</span>', t[a0:f0]):
+        n = len(re.findall(r"[\wÀ-ÿœ'’-]+", bus.texte(m.group(1))))
+        if n > 40:
+            dol("W8", a0 + m.start(), "MOYEN", f"précision de survol de {n} mots (> 40)", "survol réservé aux précisions courtes : passer en fenêtre cliquable (span.dx)",
+                preuve=bus.texte(m.group(1))[:80]); break
+    return D, M
+
+
+def nu_(h):
+    return re.sub(r"(?is)<(script|style|template)\b.*?</\1>", " ", h)
+
+
 def analyser(t, nom, opt=None):
     me = sys.modules[__name__]; D = []; S = bus.sections(t); M = {}
     h = lambda a: t.find(">", a) + 1                     # ancre dans le point (après l'ouverture du <h3 id="…-pN">)
@@ -326,17 +561,7 @@ def analyser(t, nom, opt=None):
                 dol("D4", h(a), "MOYEN", f"algorithme pauvre : {nc} case(s), {nl} losange(s)", "au moins 3 cases et un losange de décision par question discriminante")
             if nd < nc / 2:
                 dol("D5", h(a), "MOYEN", f"{nd} case(s) cliquable(s) sur {nc}", "donner un « detail » (fenêtre) aux cases d'action et de décision")
-        for m in re.finditer(r"(?is)<circle\b|<ellipse\b|border-radius\s*:\s*50%", seg):
-            dol("D2", a + m.start(), "GRAVE", "cercle ou ellipse dans l'arbre décisionnel", "remplacer par une case rectangulaire ou un losange")
-        for m in re.finditer(r'(?is)<line\b[^>]*>', seg):
-            g = {k: float(v) for k, v in re.findall(r'\b(x1|y1|x2|y2)="(-?[\d.]+)"', m.group(0))}
-            if len(g) == 4 and g["x1"] != g["x2"] and g["y1"] != g["y2"]:
-                dol("D3", a + m.start(), "GRAVE", "segment oblique", "tracer des traits horizontaux et verticaux uniquement (coude à angle droit)")
-        for m in re.finditer(r'(?is)<path\b[^>]*\bd="([^"]*)"', seg):
-            if re.search(r"[^MmHhVvZz\d\s.,-]", m.group(1)):
-                dol("D3", a + m.start(), "GRAVE", "chemin non orthogonal (courbe ou diagonale)", "chemin en M/H/V seulement")
-        if re.search(r"(?i)rotate\(\s*-?(?!0|90|180|270)\d", seg) and "algo" in seg:
-            dol("D3", h(a), "MOYEN", "élément pivoté à un angle non droit", "aucun trait pivoté")
+        _orthogonalite(seg, a, h(a), dol)
     # ── point 11
     if 11 in S:
         a, f = S[11]; seg = t[a:f]; tx = bus.texte(seg); low = tx.lower()
@@ -478,6 +703,8 @@ def analyser(t, nom, opt=None):
     for i in ids:
         if i in vus: dol("R1", t.find(f'id="{i}"'), "GRAVE", f"identifiant dupliqué « {i} »", "rendre l'identifiant unique (préfixe du point)", preuve=i)
         vus.add(i)
+    if (opt or {}).get("flash"):                             # Cours Flash : contrôles ajoutés (volume, îlots, fenêtres), jamais retirés
+        D2, M2 = flash(t, nom); D += D2; M["flash"] = M2
     return D, M
 
 

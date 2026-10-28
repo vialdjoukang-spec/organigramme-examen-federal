@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Lanceur du circuit duo → professeur par sous-agents RÉELS `claude -p --agent …`, hors moteur Workflow (plafonné à 2 agents sur 4 CPU).
   python3 harnais/brain/lancer_circuit.py <leçon.html …> [--sonnet 16] [--opus 12] [--boucles 0] [--etapes duo,professeur]
-                                          [--journal DIR] [--consigne constats.md] [--dry-run]
+                                          [--journal DIR] [--consigne constats.md] [--dry-run] [--classique]
+COURS FLASH par défaut (harnais/etat/COURS_FLASH.md ; gabarit harnais/brain/gabarit_flash.html) : memoire, porte, mesure et registre en
+`--flash` (volume > 250 Ko refusé, îlots, fenêtres modales) ; `--classique` rend le circuit d'avant (forme Vial seule).
+LOT_001 (Vial, 28.10.2026) : 16 leçons → 16 duos Sonnet, 12 professeurs Opus (une leçon par appel ; les leçons 13 à 16 attendent la
+première place Opus libre). La capacité est réglable (--sonnet, --opus) sans changer le circuit.
 Par leçon : duo (Sonnet, une leçon) → `circuit_vial.py fin --role duo` exécuté PAR LE LANCEUR (jamais sur la parole de l'agent) →
 UNE seule tentative par défaut (--boucles 0, principe de Vial) → registre portable des fautes = bon de travail du professeur (Opus, effort
 moyen) → `fin --role professeur` → mesure avant/après → fautes restantes en tableau Markdown (+ JSON, + HTML de contrôle marqué) pour Vial. Capacités : 16 places Sonnet et 12 places Opus (sémaphores) ; une leçon n'occupe jamais deux places.
@@ -21,17 +25,32 @@ ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None),
          "professeur": dict(agent="professeur-emerite", model="opus", effort="medium")}
 
 
+BRIEF_FLASH = {
+    "duo": ("COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 250 Ko "
+            "(visé 100–200 ; > 250 Ko refusé) ; le corps ne garde que l'essentiel en phrases complètes ; le détail et le diagnostic différentiel utile "
+            "passent dans des fenêtres modales (aucun bloc « Notions voisines » dans le corps) ; îlots : points 1–4 dans un <section class=\"ilot\">, "
+            "5–6 dans un autre, chaque point 7–14 dans <details class=\"ilot\"> replié ; symptômes et signes d'examen cliquables (comment rechercher, manœuvre) ; "
+            "syndrome cliquable ouvrant un tableau à 2 colonnes Symptômes fonctionnels | Signes physiques ; cases d'algorithme à détail ; point 11 : But, "
+            "Moyens et méthodes A urgences (non-spécialiste puis service spécialisé) et B hors urgences, algorithme en cases à traits orthogonaux. "),
+    "professeur": ("COURS FLASH (harnais/etat/COURS_FLASH.md) : vérifie le fond DANS LES FENÊTRES comme dans le corps ; ne regonfle pas le volume "
+                   "(> 250 Ko refusé) ; garde îlots et fenêtres du gabarit harnais/brain/gabarit_flash.html ; UNE seule tentative : le reste part "
+                   "au registre (tableau .md à Vial). ")}
+
+
 def opt(a, k, d):
     return type(d)(a[a.index(k) + 1]) if k in a else d
 
 
+FLASH = ["--flash"]                                       # mode Cours Flash (défaut) ; vidé par --classique dans main()
+
+
 def porte(f, role):
-    p = subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "fin", f, "--role", role], capture_output=True, text=True, cwd=R, timeout=1800)
+    p = subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "fin", f, "--role", role, *FLASH], capture_output=True, text=True, cwd=R, timeout=1800)
     return p.returncode == 0, (p.stdout + p.stderr).strip()
 
 
 def mesure(f):
-    p = subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "mesurer", f, "--json"], capture_output=True, text=True, cwd=R, timeout=1800)
+    p = subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "mesurer", f, "--json", *FLASH], capture_output=True, text=True, cwd=R, timeout=1800)
     try: return json.loads(p.stdout)
     except ValueError: return {"erreur": (p.stdout + p.stderr)[-400:]}
 
@@ -58,12 +77,12 @@ def etape(role, f, places, journal, boucles, essai, consigne=""):
     ok, motif, evs = False, "", []
     for k in range(boucles + 1):
         if k == 0:
-            pr = (f"Leçon : {f}. Départ : {C} memoire {role} {f}. " + (f"Consignes de l'orchestrateur (constats d'audit à corriger en priorité) :\n{consigne}\n" if consigne else "") +
+            pr = (f"Leçon : {f}. Départ : {C} memoire {role} {f}{' --flash' if FLASH else ''}. " + (BRIEF_FLASH[role] if FLASH else "") + (f"Consignes de l'orchestrateur (constats d'audit à corriger en priorité) :\n{consigne}\n" if consigne else "") +
                   ("Stylise tout le cours selon la directive et gère le fond des 14 parties, POINT PAR POINT, avec `" + C + f" point {f} N` après chaque point ; "
                    f"point 10 : modèle JSON puis {C} algo {f} --appliquer ; " if role == "duo" else
                    f"{C} scanner {f} ; revue critique du fond, point par point, et corrections ; ") + f"fin : {C} fin {f} --role {role} jusqu'à ACCEPTÉ. Une ligne de réponse.")
         else:
-            pr = (f"REPRISE {k}/{boucles} de la leçon {f} (instantané conservé : {C} memoire {role} {f} --garder). La porte unique a REFUSÉ :\n{motif[-2500:]}\n"
+            pr = (f"REPRISE {k}/{boucles} de la leçon {f} (instantané conservé : {C} memoire {role} {f} --garder{' --flash' if FLASH else ''}). La porte unique a REFUSÉ :\n{motif[-2500:]}\n"
                   f"Corrige chaque motif point par point (`{C} point {f} N` après chaque point), sans rien retrancher de sourcé ; "
                   f"fin : {C} fin {f} --role {role} jusqu'à ACCEPTÉ. Une ligne de réponse.")
         evs.append(appel(role, f, pr, places, journal, k, essai))
@@ -82,7 +101,7 @@ def lecon(f, P, a):
         cs = Path(opt(a, "--consigne", "")).read_text(encoding="utf-8")[:16000] if "--consigne" in a else ""
         if role == "professeur" and not essai:                  # bon de travail unique du professeur : le registre portable des fautes
             rj, rm = jd / (Path(f).stem + ".registre.json"), jd / (Path(f).stem + ".registre.md")
-            subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm)], capture_output=True, cwd=R, timeout=1800)
+            subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm), *FLASH], capture_output=True, cwd=R, timeout=1800)
             cs = (cs + "\n" if cs else "") + f"BON DE TRAVAIL (registre portable des fautes, à traiter ligne par ligne) : {rm}"
         ok, motif, evs = etape(role, f, P[ROLES[role]["model"]], journal, opt(a, "--boucles", 0), essai, cs)
         res["etapes"][role] = dict(accepte=ok, appels=evs, motif=motif[-800:])
@@ -90,7 +109,7 @@ def lecon(f, P, a):
     res["apres"] = None if essai else mesure(f)
     if not essai:                                             # UNE seule correction : les fautes restantes partent en tableau à Vial (autres moyens)
         rj, rm, hc = jd / (Path(f).stem + ".restantes.json"), jd / (Path(f).stem + ".restantes.md"), jd / (Path(f).stem + ".controle.html")
-        subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm), "--marquer", str(hc)], capture_output=True, cwd=R, timeout=1800)
+        subprocess.run([sys.executable, "harnais/brain/circuit_vial.py", "registre", f, "--json", str(rj), "--md", str(rm), "--marquer", str(hc), *FLASH], capture_output=True, cwd=R, timeout=1800)
         res["restantes"] = dict(tableau=str(rm), registre=str(rj), controle=str(hc))
     return res
 
@@ -98,6 +117,7 @@ def lecon(f, P, a):
 def main(a):
     fs = [str(Path(x).resolve()) for x in a if x.endswith(".html")]
     if not fs or "-h" in a or "--help" in a: print(__doc__); return 0
+    if "--classique" in a: FLASH.clear()
     if len(fs) > 16: print(f"# {len(fs) - 16} leçon(s) au-delà de 16 : vague suivante", file=sys.stderr); fs = fs[:16]
     P = {"sonnet": threading.BoundedSemaphore(opt(a, "--sonnet", 16)), "opus": threading.BoundedSemaphore(opt(a, "--opus", 12))}
     with ThreadPoolExecutor(len(fs)) as ex: res = list(ex.map(lambda f: lecon(f, P, a), fs))

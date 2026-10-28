@@ -21,6 +21,10 @@
   python3 harnais/brain/circuit_vial.py sortie <dossier> [--json]             porte de fin de vague = audit_sortie (hook pre-commit) ; rapports périmés écartés ;
                                                                                liste des non conformes et de leurs motifs (à renvoyer au duo)
   python3 harnais/brain/circuit_vial.py reprise <fichier>                     départ d'un duo renvoyé par la sortie : instantané + motifs + rapports MED_/CONF_
+COURS FLASH (harnais/etat/COURS_FLASH.md) : `--flash` sur memoire, point, fin, registre, reparer, mesurer, scanner. Le mode est mémorisé dans
+  l'instantané (memoire … --flash) : les appels suivants du même fichier le reprennent sans drapeau. Ajoute les contrôles S21 Flash (volume
+  > 250 Ko bloquant, > 200 Ko avertissement ; îlots 1–4, 5–6, reste replié, bords, justification ; fenêtres modales, symptômes et signes
+  cliquables, tableau de syndrome à 2 colonnes, détails d'algorithme) ; gabarit de référence : harnais/brain/gabarit_flash.html.
 Ne lit jamais un fichier de cours entier dans le contexte de l'agent : le scanner rend le texte visible point par point."""
 import hashlib, html as H_, json, re, subprocess, sys
 from pathlib import Path
@@ -62,6 +66,32 @@ GABARITS = r"""## Gabarits HTML (le script vérifie exactement ces formes)
   <p><b>B- Hors urgences :</b></p>
   <ul><li><b>Mesures générales :</b> …</li><li><b>Mesures spécifiques</b>, par priorité décroissante : pharmacologiques (médicament cliquable, dose AIPS), puis non pharmacologiques (social, professionnel, ergothérapie…).</li></ul>
   Les sous-parties existantes (surveillance, pronostic, situations spéciales) restent après B."""
+GABARIT_FLASH = r"""## COURS FLASH : gabarit (référence complète : harnais/brain/gabarit_flash.html ; contrôle : S21 Flash, codes V, N, I, W)
+- Volume : 100 à 250 Ko pour le fichier entier (visé 100–200). > 250 Ko : `fin` REFUSE (V1) ; > 200 Ko : avertissement (V2).
+  Le corps ne porte que l'essentiel ; le secondaire descend dans une fenêtre (ses chiffres restent comptés) ; l'inutile est retiré (chiffre :
+  `retirer <fichier> "<chiffre>" "Flash : secondaire, … (source lue)"`, relu par Vial). Aucune redite ; aucun bloc « Notions voisines » ni
+  « Diagnostic différentiel » en liste ou tableau dans le corps (N1) : le différentiel utile s'ouvre dans une fenêtre.
+- Îlots (bords visibles, texte justifié, même largeur ; CSS brain-flash posée par le script, aucun style en ligne sur l'îlot) :
+  <section class="ilot" data-ilot="1-4"> points 1, 2, 3, 4 </section>
+  <section class="ilot" data-ilot="5-6"> points 5, 6 </section>
+  puis CHAQUE point 7 à 14 replié, sans attribut open :
+  <details class="ilot" data-ilot="7"><summary><h3 id="…-p7"><strong>7. …</strong></h3></summary> … </details>
+  Un îlot ne dépasse pas 12 000 caractères visibles (I7) : listes, méthodes et détails passent en fenêtres.
+- Fenêtres modales (vraies fenêtres, sans script ; survol .tm/.df réservé aux précisions de moins de 40 mots, W8) :
+  · courte, en ligne : <span class="dx"><input type="checkbox" id="pN-x"><label class="dxt" for="pN-x">terme</label><span class="dxc"><label class="fx-x" for="pN-x" aria-label="Fermer">×</label>phrases complètes</span></span>
+  · riche (tableau, méthode, différentiel), en bloc (jamais dans un <p>) :
+    <div class="fxw"><input type="checkbox" id="pN-y"><label class="fx-o" for="pN-y">intitulé</label>
+    <div class="fx" role="dialog" aria-modal="true" aria-label="intitulé"><label class="fx-f" for="pN-y" aria-label="Fermer"></label><div class="fx-b"><label class="fx-x" for="pN-y" aria-label="Fermer">×</label> … </div></div></div>
+  · Symptômes (points 5 et 7) : listés simplement, chacun cliquable (W3). Examen clinique (point 6) : signes énumérés, chacun cliquable
+    (span.sc.dx) ; la fenêtre dit comment rechercher le signe et la manœuvre (W4).
+  · Syndrome (point 7) : l'intitulé « 7.n Syndrome de … » est le label d'un div.fxw ; sa fenêtre contient un tableau à 2 colonnes
+    <tr><th>Symptômes fonctionnels</th><th>Signes physiques</th></tr>, symptômes en span.dx, signes en span.sc.dx (W5, W6) ; le numéro
+    « 7.n » n'est jamais répété dans la fenêtre ; tableau enveloppé de <div style="overflow-x:auto">.
+  · Algorithmes (points 10 et 11 A-) : modèle <template class="algo-modele"> ; chaque case porte un « detail » (fenêtre modale du rendu) ;
+    traits horizontaux et verticaux seulement (D2, D3), cases cliquables (D5, W7).
+- Prise en charge (îlot du point 11) : 1- But ; 2- Moyens et méthodes ; A- En urgences (algorithme en cases, non-spécialiste puis service
+  spécialisé, actes cliquables) ; B- Hors urgences (mesures générales puis spécifiques par priorité).
+- Souplesse : un défaut sans conséquence d'apprentissage est MOYEN (avertissement, non bloquant) ; GRAVE et CRITIQUE bloquent `fin`."""
 REGLES = """## Règles absolues
 - Rien n'est retranché : notions, chiffres sourcés, références et fenêtres existantes sont conservés (reformuler plus dense, déplacer en puces ou en fenêtre).
 - Phrases complètes (sujet, verbe, complément), concises, style universitaire soutenu, termes dédiés ; énumérations en puces, y compris dans les cellules :
@@ -103,13 +133,27 @@ def instantane(f):
     return CACHE / f"{Path(f).name}.{hashlib.sha1(str(Path(f).resolve()).encode()).hexdigest()[:8]}.json"
 
 
-def snap(f):
+def snap(f, flash=False):
     t = lire(f); CACHE.mkdir(parents=True, exist_ok=True)
-    instantane(f).write_text(json.dumps(dict(sha=bus.sha(t), octets=len(t.encode()), chiffres=chiffres(t), sources=t.count('<sup class="r">'))))
+    instantane(f).write_text(json.dumps(dict(sha=bus.sha(t), octets=len(t.encode()), chiffres=chiffres(t), sources=t.count('<sup class="r">'), flash=bool(flash))))
+
+
+def est_flash(f, a=()):
+    """Mode Cours Flash : drapeau --flash, ou instantané d'entrée pris en mode Flash (memoire … --flash)."""
+    if "--flash" in a: return True
+    s = instantane(f)
+    try: return bool(s.exists() and json.loads(s.read_text()).get("flash"))
+    except ValueError: return False
 
 
 def s21(t, nom):
     return S21.analyser(t, nom)[0]
+
+
+def flash_dol(t, nom):
+    """Doléances du Cours Flash (S21) : (bloquantes GRAVE/CRITIQUE, avertissements MOYEN)."""
+    D_ = S21.flash(t, nom)[0]
+    return [d for d in D_ if d["severite"] in ("GRAVE", "CRITIQUE")], [d for d in D_ if d["severite"] == "MOYEN"]
 
 
 def cerveau(f):
@@ -117,12 +161,21 @@ def cerveau(f):
     return C.analyser(lire(f), Path(f).name)[0]
 
 
-def memoire(role, f, garder=False):
+def memoire(role, f, garder=False, flash=False):
     if not (garder and instantane(f).exists()):                  # --garder : reprise dans la même passe, l'instantané d'entrée reste la référence
-        snap(f); couverture(f, raz=True)
-    print(f"# CIRCUIT VIAL · rôle {role} · {Path(f).name}\n")
+        snap(f, flash); couverture(f, raz=True)
+    elif flash and not est_flash(f):                              # reprise passée en Flash : le drapeau rejoint l'instantané conservé
+        e = json.loads(instantane(f).read_text()); e["flash"] = True; instantane(f).write_text(json.dumps(e, ensure_ascii=False))
+    flash = flash or est_flash(f)
+    print(f"# CIRCUIT VIAL · rôle {role} · {Path(f).name}" + (" · COURS FLASH" if flash else "") + "\n")
     print(lire(R / "harnais/etat/DIRECTIVE_VIAL_REFONTE.md"))
+    if flash: print(lire(R / "harnais/etat/COURS_FLASH.md"))
     print(GABARITS + "\n\n" + REGLES + "\n")
+    if flash:
+        print(GABARIT_FLASH + "\n")
+        G, A = flash_dol(lire(f), Path(f).name)
+        print(f"## Doléances Flash à l'entrée : {len(G)} bloquante(s), {len(A)} avertissement(s)\n" +
+              "\n".join(f"- {d['severite']} {d['code']} {d['ancre']} : {d['constat']}" for d in G + A[:20]) + "\n")
     g = json.loads(lire(R / "harnais/grille14/grille.json"))
     print("## Grille des 14 points (fond à garantir)\nPrincipe : " + g["principe"])
     for p in g["points"]: print(f"- {p[0]}. {p[1]} : {re.sub(chr(10), ' ', p[2])[:420 if role == 'duo' else 2000]}")
@@ -140,9 +193,10 @@ def memoire(role, f, garder=False):
           "3. `fin <fichier> --role professeur` (porte unique) jusqu'à ACCEPTÉ."))
 
 
-def scanner(f, points):
+def scanner(f, points, flash=False):
     t = lire(f); nom = Path(f).name; S = bus.sections(t); g = {int(p[0]): p for p in json.loads(lire(R / "harnais/grille14/grille.json"))["points"]}
-    D_ = cerveau(f); o = {k: i for i, k in enumerate(bus.SEVERITES)}
+    D_ = cerveau(f) + (flash_dol(t, nom)[0] if flash else []); o = {k: i for i, k in enumerate(bus.SEVERITES)}
+    if flash: print(f"# COURS FLASH · {len(t.encode()) / S21.KO:.0f} Ko (bande 100–250, visé 100–200) · gabarit harnais/brain/gabarit_flash.html")
     print(f"# SCANNER PROFESSEUR · {nom} · {len(D_)} doléances du cerveau\nRappel du Prompt universel : concis, dense, exhaustif ; Suisse puis Europe ; rien d'inventé ; doses AIPS.\n")
     for n in points:
         if n not in S: print(f"## {n}. ABSENT du fichier → à rédiger\n"); continue
@@ -155,12 +209,12 @@ def scanner(f, points):
         print("Texte : " + tx[:6000] + "\n")
 
 
-def fin(f, role):
+def fin(f, role, flash=False):
     t = lire(f); nom = Path(f).name; s = instantane(f)
     if not s.exists(): print("REFUSÉ : aucun instantané d'entrée (lance d'abord memoire)"); return 2
-    e = json.loads(s.read_text()); ko = []
+    e = json.loads(s.read_text()); ko = []; flash = flash or bool(e.get("flash"))
     if bus.sha(t) == e["sha"]: ko.append("R15 : fichier inchangé (un relevé seul ne termine rien)")
-    t2, J = S21.reparer(t)                                   # réparation automatique AVANT la porte (balises, lignes, rendu de l'algorithme)
+    t2, J = S21.reparer(t, flash)                            # réparation automatique AVANT la porte (balises, lignes, rendu de l'algorithme, CSS Flash)
     if t2 != t: bus.ecrire_atomique(f, t2); t = t2; print("RÉPARÉ : " + " ; ".join(J[:8]))
     elif J: print("À RÉPARER À LA MAIN : " + " ; ".join(J[:4]))
     D_ = cerveau(f); F = [d for d in D_ if d["scriptone"] == S21.ID and d["severite"] in ("GRAVE", "CRITIQUE")]
@@ -171,6 +225,10 @@ def fin(f, role):
     perdus = [c for c in e["chiffres"] if c not in set(chiffres(t)) and c not in retraits]
     if retraits: print("RETRAITS DÉCLARÉS (relus par l'auditeur et par Vial) : " + " ; ".join(f"{r['chiffre']} ({r['motif']})" for r in e["retraits"]))
     if F: ko.append(f"{len(F)} GRAVE de forme (S21) : " + "; ".join(f"{d['code']} {d['ancre']}" for d in F[:8]))
+    if flash:                                                 # Cours Flash : volume > 250 Ko, îlots, fenêtres (GRAVE bloque ; MOYEN avertit)
+        FG, FA = flash_dol(t, nom)
+        if FG: ko.append(f"{len(FG)} GRAVE Flash : " + "; ".join(f"{d['code']} {d['ancre']} ({d['constat'][:70]})" for d in FG[:8]))
+        if FA: print(f"AVERTISSEMENTS FLASH ({len(FA)}, non bloquants) : " + " ; ".join(f"{d['code']} {d['ancre']} {d['constat'][:60]}" for d in FA[:10]))
     if C: ko.append(f"{len(C)} CRITIQUE : " + "; ".join(f"{d['code']} {d['ancre']}" for d in C[:8]))
     if perdus: ko.append(f"chiffres disparus du texte visible ({len(perdus)}) : {', '.join(perdus[:20])} → restituer, ou déclarer un chiffre faux ou introuvable : "
                          f"circuit_vial.py retirer <fichier> \"<chiffre>\" \"<motif et source lue>\"")
@@ -188,7 +246,7 @@ def fin(f, role):
         if x["score"] < SEUIL or x["critiques"]: ko.append(f"{k} {x['score']} / {x['critiques']} critique(s) (seuil {SEUIL}, 0) : " + " | ".join(x["corrections"][:6]))
     c = {}
     for d in D_: c[d["severite"]] = c.get(d["severite"], 0) + 1
-    print(f"{nom} · rôle {role} · {e['octets']} → {len(t.encode())} octets · doléances {c} · S21 GRAVES {len(F)} · langue {P['langue']['score']} · médical {P['medical']['score']}")
+    print(f"{nom} · rôle {role}" + (" · FLASH" if flash else "") + f" · {e['octets']} → {len(t.encode())} octets · doléances {c} · S21 GRAVES {len(F)} · langue {P['langue']['score']} · médical {P['medical']['score']}")
     if ko: print("REFUSÉ :\n- " + "\n- ".join(ko)); return 1
     tr = CACHE / "traites.json"; T = json.loads(tr.read_text()) if tr.exists() else {}
     T.setdefault(str(Path(f).resolve()), {})[role] = bus.sha(t); tr.write_text(json.dumps(T, ensure_ascii=False, indent=0))
@@ -211,11 +269,16 @@ def portes(f):
     return dict(controle_lot=cl["critiques"], langue=_rapport("harnais/controle_langue.py", f), medical=_rapport("harnais/controle_medical.py", f))
 
 
-def mesurer(f):
+def mesurer(f, flash=False):
     t = lire(f); D_ = cerveau(f); c = {}
     for d in D_: c[d["severite"]] = c.get(d["severite"], 0) + 1
-    P = portes(f)
-    return dict(fichier=Path(f).name, octets=len(t.encode()), lignes=t.count("\n") + 1,
+    P = portes(f); fx = {}
+    if flash:
+        FG, FA = flash_dol(t, Path(f).name)
+        fx = dict(flash_graves=len(FG), flash_avertissements=len(FA), flash_codes=sorted({d["code"] for d in FG + FA}),
+                  bande_flash="> 250 Ko (refus)" if len(t.encode()) > S21.FLASH_MAX else "> 200 Ko (avertissement)" if len(t.encode()) > S21.FLASH_VISE
+                  else "< 100 Ko (avertissement)" if len(t.encode()) < S21.FLASH_MIN else "100–200 Ko (visé)")
+    return dict(fichier=Path(f).name, octets=len(t.encode()), ko=round(len(t.encode()) / S21.KO, 1), lignes=t.count("\n") + 1, **fx,
                 lignes_longues=sum(1 for l in t.split("\n") if len(l) > 10000 and not S21.RX_LIGNE_OK.search(l)),
                 balises=[f"<{g}> {o}/{f_}" + (f" (point {n})" if n else "") for g, o, f_, n in S21.desequilibres(t)],
                 doleances=c, graves_s21=sum(1 for d in D_ if d["scriptone"] == S21.ID and d["severite"] in ("GRAVE", "CRITIQUE")),
@@ -237,9 +300,10 @@ def couverture(f, n=None, sig=None, raz=False):
     return d
 
 
-def point(f, n):
-    """Contrôle d'UN point juste après sa rédaction : la boucle courte qui évite les grosses plaques fautives."""
-    t = lire(f); S = bus.sections(t)
+def point(f, n, flash=False):
+    """Contrôle d'UN point juste après sa rédaction : la boucle courte qui évite les grosses plaques fautives.
+    Mode Flash : les GRAVE Flash localisées dans le point bloquent ; les MOYEN Flash sont affichées en avertissement (non bloquantes)."""
+    t = lire(f); S = bus.sections(t); flash = flash or est_flash(f); avert = []
     if n not in S: print(f"POINT {n} ABSENT (titre <h3 id=\"…-p{n}\"><strong>{n}. …</strong></h3> introuvable)"); return 1
     a, b = S[n]; la, lb = bus.ligne(t, a), bus.ligne(t, b); ko = []
     for g, o, f_, k in S21.desequilibres(t):
@@ -253,11 +317,16 @@ def point(f, n):
     for d in cerveau(f):                                      # sources : chiffre ou dose sans renvoi [Sn] (bloquant à `fin`)
         if la <= ln(d) < lb and d["severite"] in ("GRAVE", "CRITIQUE") and d["code"].startswith("BS"):
             ko.append(f"{d['severite']} {d['code']} {d['ancre']} : {d['constat']} → {d['correction_prescrite'][:160]}")
+    if flash:
+        FG, FA = flash_dol(t, Path(f).name)
+        ko += [f"{d['severite']} {d['code']} {d['ancre']} : {d['constat']} → {d['correction_prescrite'][:160]}" for d in FG if la <= ln(d) < lb]
+        avert = [f"{d['code']} {d['ancre']} : {d['constat']}" for d in FA if la <= ln(d) < lb]
     if n in (6, 7, 10, 13):
         L = _rapport("harnais/controle_langue.py", f)
         ko += [x for x in L["corrections"] if x.startswith(f"[PHRASES] point {n} ")]
     if not ko: couverture(f, n=n, sig=signature(t, n))
-    print(f"POINT {n} · lignes {la}–{lb - 1} · " + ("VERT" if not ko else f"{len(ko)} écart(s) :\n- " + "\n- ".join(ko)))
+    print(f"POINT {n} · lignes {la}–{lb - 1} · " + ("VERT" if not ko else f"{len(ko)} écart(s) :\n- " + "\n- ".join(ko))
+          + (f"\nAVERTISSEMENTS FLASH (non bloquants) :\n- " + "\n- ".join(avert) if avert else ""))
     return 0 if not ko else 1
 
 
@@ -273,11 +342,12 @@ def retirer(f, chiffre, motif):
     print(f"RETRAIT CONSIGNÉ : {chiffre} — {motif}"); return 0
 
 
-def registre(f, sortie_json=None, sortie_md=None, marquer=None, audits=()):
+def registre(f, sortie_json=None, sortie_md=None, marquer=None, audits=(), flash=False):
     """Registre portable des fautes (bon de travail unique) : CRITIQUE, GRAVE, MOYEN du cerveau et des portes d'audit, avec fichier, ligne,
-    ancre, extrait, code, sévérité, constat, correction attendue ; option : HTML de contrôle marqué (repères visibles, hors production)."""
-    t = lire(f); nom = Path(f).name; L = t.split("\n"); R_ = []
-    for d in cerveau(f):
+    ancre, extrait, code, sévérité, constat, correction attendue ; option : HTML de contrôle marqué (repères visibles, hors production).
+    Mode Flash : les doléances Flash (volume, îlots, fenêtres) y sont consignées avec leur localisation."""
+    t = lire(f); nom = Path(f).name; L = t.split("\n"); R_ = []; flash = flash or est_flash(f)
+    for d in cerveau(f) + (S21.flash(t, nom)[0] if flash else []):
         if d["severite"] not in ("CRITIQUE", "GRAVE", "MOYEN"): continue
         m = re.search(r"#([^ ]+) · l\.(\d+)(?: · « (.*?) »)?", d["ancre"]); ln = int(m.group(2)) if m else 0
         R_.append(dict(fichier=nom, ligne=ln, ancre=(m.group(1) if m else ""), extrait=(d.get("preuve") or (m.group(3) if m and m.group(3) else "") or
@@ -301,7 +371,7 @@ def registre(f, sortie_json=None, sortie_md=None, marquer=None, audits=()):
                            code=f"AUDIT-{(m.group(2) or '').strip()}", severite=sev, constat=(cel[0] if cel else "")[:200],
                            correction=(cel[2] if len(cel) > 2 else "")[:240], origine=Path(a).name))
     R_.sort(key=lambda r: (["CRITIQUE", "GRAVE", "MOYEN"].index(r["severite"]), r["ligne"]))
-    if sortie_json: Path(sortie_json).write_text(json.dumps(dict(fichier=str(Path(f).resolve()), fautes=R_), ensure_ascii=False, indent=1), encoding="utf-8")
+    if sortie_json: Path(sortie_json).write_text(json.dumps(dict(fichier=str(Path(f).resolve()), flash=flash, fautes=R_), ensure_ascii=False, indent=1), encoding="utf-8")
     if sortie_md:
         esc = lambda s: str(s).replace("|", "\\|").replace("\n", " ")
         Path(sortie_md).write_text(f"# Fautes restantes — {nom}\n\n{len(R_)} faute(s) : " + ", ".join(f"{s} {sum(r['severite'] == s for r in R_)}" for s in ("CRITIQUE", "GRAVE", "MOYEN"))
@@ -378,9 +448,9 @@ def repartir(fs):
 def main(a):
     if len(a) < 2 or a[0] in ("-h", "--help"): print(__doc__); return 0
     c = a[0]
-    if c == "memoire": memoire(a[1], a[2], "--garder" in a); return 0
+    if c == "memoire": memoire(a[1], a[2], "--garder" in a, "--flash" in a); return 0
     if c == "scanner":
-        pts = [int(x) for x in a[a.index("--points") + 1].split(",")] if "--points" in a else list(range(1, 15)); scanner(a[1], pts); return 0
+        pts = [int(x) for x in a[a.index("--points") + 1].split(",")] if "--points" in a else list(range(1, 15)); scanner(a[1], pts, est_flash(a[1], a)); return 0
     if c == "algo":
         t = lire(a[1]); t2 = S21.corriger(t)
         print(f"{Path(a[1]).name} : {'aucun changement' if t2 == t else f'{len(t2.encode()) - len(t.encode()):+d} octets'}{'' if '--appliquer' in a else ' (dry-run)'}")
@@ -393,19 +463,19 @@ def main(a):
         else: print(r["resume"] + "".join(f"\n- {x['fichier']} : {x['motifs']}" for x in r["non_conformes"]))
         return 0 if r["conforme"] else 1
     if c == "reprise": reprise(a[1]); return 0
-    if c == "point": return point(a[1], int(a[2]))
+    if c == "point": return point(a[1], int(a[2]), "--flash" in a)
     if c == "retirer": return retirer(a[1], a[2], a[3] if len(a) > 3 else "")
     if c == "registre":
         g = lambda k: a[a.index(k) + 1] if k in a else None
-        R_ = registre(a[1], g("--json"), g("--md"), g("--marquer"), [a[i + 1] for i, x in enumerate(a) if x == "--audit"])
+        R_ = registre(a[1], g("--json"), g("--md"), g("--marquer"), [a[i + 1] for i, x in enumerate(a) if x == "--audit"], "--flash" in a)
         print(f"{Path(a[1]).name} : {len(R_)} faute(s) consignée(s) · " + " · ".join(f"{s} {sum(r['severite'] == s for r in R_)}" for s in ("CRITIQUE", "GRAVE", "MOYEN"))); return 0
     if c == "reparer":
-        t = lire(a[1]); t2, J = S21.reparer(t)
+        t = lire(a[1]); t2, J = S21.reparer(t, est_flash(a[1], a))
         if t2 != t: bus.ecrire_atomique(a[1], t2)
         print(f"{Path(a[1]).name} : " + ("; ".join(J) if J else "rien à réparer")); return 0
     if c == "mesurer":
-        r = mesurer(a[1]); print(json.dumps(r, ensure_ascii=False) if "--json" in a else "\n".join(f"{k} : {v}" for k, v in r.items())); return 0
-    if c == "fin": return fin(a[1], a[a.index("--role") + 1] if "--role" in a else "duo")
+        r = mesurer(a[1], est_flash(a[1], a)); print(json.dumps(r, ensure_ascii=False) if "--json" in a else "\n".join(f"{k} : {v}" for k, v in r.items())); return 0
+    if c == "fin": return fin(a[1], a[a.index("--role") + 1] if "--role" in a else "duo", "--flash" in a)
     if c == "repartir":
         xs = [x for i, x in enumerate(a[1:], 1) if not x.startswith("--") and a[i - 1] != "--liste"]
         if "--liste" in a: xs += [l.strip() for l in lire(a[a.index("--liste") + 1]).splitlines() if l.strip() and not l.startswith("#")]
