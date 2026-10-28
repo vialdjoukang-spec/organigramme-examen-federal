@@ -107,10 +107,10 @@ Les scripts suppriment 12 à 25 doléances par cours sans retirer de texte : le 
 
 ## T3 · Nombre de connexions sans conflit possible
 
-- **Preuve statique.** Les 160 scriptones écrivent dans 70 zones, avec une seule écrivaine par zone, et `conflits_statiques = {}`. Les 96 autres scriptones ne font que lire. Le registre compte 601 connexions : 160 entrées, 160 sorties vers le bus, 71 écritures, 26 relais en zigzag, 146 liens vers un jumeau et 38 liens vers les auditeurs. Le nombre de connexions d'écriture ne peut pas dépasser le nombre de zones. Les connexions de lecture ne sont pas limitées, car une lectrice produit seulement des doléances.
+- **Preuve statique.** Les 160 scriptones comptent 64 écrivains pour 71 zones : 70 zones du cours et la quarantaine du journal (s14). Chaque zone a une seule écrivaine, et `conflits_statiques = {}`. Les 96 autres scriptones ne font que lire. Le registre compte 601 connexions : 160 entrées, 160 sorties vers le bus, 71 écritures, 26 relais en zigzag, 146 liens vers un jumeau et 38 liens vers les auditeurs. Le nombre de connexions d'écriture ne peut pas dépasser le nombre de zones. Les connexions de lecture ne sont pas limitées, car une lectrice produit seulement des doléances.
 - **Confluence dynamique.** Le test compare 8 ordres aléatoires des écrivains, chacun mené jusqu'au point fixe, sur chacun des 4 cours. **Défaut trouvé :** les 4 cours donnaient un texte différent selon l'ordre (O2). La cause était l'emplacement des blocs `<style>` posés par s1, s2, s5 et s6. **Correctif :** `bus.pose_style` insère désormais chaque bloc à son rang canonique. Après correctif : 0 divergence et 0 paire d'écrivains non commutative.
 - **Conflits injectés, tous détectés :** deux écrivains sur une zone (O1), duel (O2, O4), écrivain non idempotent (O3, O4), intrus (O3, O4).
-- **Couverture selon le nombre de familles par synapse.** Le test injecte les 770 mutants des 140 synapses, au point de chaque mutant. La couverture vaut 54,3 % avec α seule, 56,8 % avec β seule et 100 % avec α et β. En choisissant à chaque fois le meilleur ensemble, elle vaut 21 % avec 1 famille, 78 % avec 5, 96 % avec 8, 100 % avec 9 et 100 % avec 10. **L'optimum mesuré est de 9 familles.** βM (contre-épreuve) ne détecte en propre aucun mutant de cette batterie. 83 % des mutants ne sont vus que par une seule famille (redondance moyenne : 1,2). Le jumeau et l'escalade vers l'auditeur restent donc nécessaires.
+- **Couverture selon le nombre de familles par synapse.** Le test injecte les 770 mutants des 140 synapses, au point de chaque mutant. La couverture vaut 54,3 % avec α seule, 56,8 % avec β seule et 100 % avec α et β. En choisissant à chaque fois le meilleur ensemble, elle vaut 21 % avec 1 famille, 78 % avec 5, 96 % avec 8, 100 % avec 9 et 100 % avec 10. **L'optimum mesuré est de 9 familles.** βM n'ajoute aucune couverture à cette batterie. Son rôle est autre : elle mute le fichier réel pour vérifier qu'α y reste sensible (BM1). Elle reste donc requise. 83 % des mutants ne sont vus que par une seule famille (redondance moyenne : 1,2). Le jumeau et l'escalade vers l'auditeur restent donc nécessaires.
 - **16 cours simultanés.** Le test fait passer 4 cours × 4 copies avec écriture réelle sur les copies. Chaque copie est identique à la correction séquentielle, sans panne. Durées : 101 s pour 1 processus, 27 s pour 4 et 27 s pour 16. La machine n'a que 4 cœurs : au-delà, le gain plafonne.
 
 ## T4 · Auto-adaptation sur pannes injectées
@@ -126,6 +126,18 @@ Les scripts suppriment 12 à 25 doléances par cours sans retirer de texte : le 
 | Stagnation | 2ᵉ passage avec les mêmes doléances : « bloqué (stagnation) » ; Z3 signalé |
 
 **Défaut trouvé et corrigé :** l'orchestre comptait la panne sans jumeau (Z2) dans le journal, mais pas dans le verdict. Un cours pouvait donc sortir « audité » avec une exigence non couverte. Désormais, cette panne retient le cours.
+
+## Mutation des 160 scriptones (v3)
+
+Commande : `mutation.py --n 64`. Elle couvre 159 scriptones Python ; s7, écrit en JavaScript, est testé au navigateur par `test_scriptones`.
+
+- 33 314 mutants détectés sur 33 314 injectés (32 877 distincts), en 230 s.
+- Borne d'évasion à 95 % : 0,0091 %, soit au moins 99,99 % de détection des erreurs connues.
+- Aucun faux positif et aucun défaut d'idempotence.
+
+Relevé brut : `mutation_v3.json`. Les autres suites sont vertes (`tests_v3.json`) : `test_scriptones` 14/14, `test_synapses` 13/13, `test_robustesse` 9/9 et `autotest` 109/109.
+
+Livrables : `BRAIN_3D.html`, construit par `outils/construire_3d.py`, et `CHANTIER_BRAIN_HARNESS.pdf`, construit par `outils/construire_pdf.py`.
 
 ## Limites de la v3
 

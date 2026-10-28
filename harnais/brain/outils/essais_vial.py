@@ -44,7 +44,7 @@ def t1_t2(cours):
                         corrigees_par_script=sum(r["doleances_alpha_avant"].values()) - sum(r["doleances_alpha_apres"].values()), tours_point_fixe=tours,
                         idempotent=t2 == t1, main_intact=bus.sha(lire_main(p)) == sha0, texte_visible_conserve_pct=round(100 * vis1 / max(1, vis0), 2),
                         jetons=dict(relecture_10_noeuds=10 * base, texte_10_noeuds=10 * texte, briefs_sonnet=sum(J["briefs_sonnet"].values()),
-                                    briefs_opus=sum(J["briefs_opus"].values()), briefs_total=J["total_briefs"],
+                                    briefs_opus=sum(J["briefs_opus"].values()), briefs_total=J["total_briefs"], par_noeud={**J["briefs_sonnet"], **J["briefs_opus"]},
                                     reduction_vs_relecture_pct=round(100 * (1 - J["total_briefs"] / max(1, 10 * base)), 2),
                                     reduction_vs_texte_pct=round(100 * (1 - J["total_briefs"] / max(1, 10 * texte)), 2)),
                         codes_alpha_apres=r["doleances_alpha_apres"], codes_beta=r["doleances_beta"]))
