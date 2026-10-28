@@ -1,0 +1,138 @@
+
+<p>L'algorithme se lit de haut en bas ; chaque case ouvre sa fenêtre de détails.</p>
+<div class="algo" data-brain="algo" data-id="algo1"><template class="algo-modele">{
+"titre": "Devant des sueurs nocturnes",
+"noeuds": [
+{
+"id": "q1",
+"type": "losange",
+"texte": "Douleur thoracique ou dyspnée ?",
+"detail": "Ces signes imposent l'appel du 144 et un ECG."
+},
+{
+"id": "u",
+"type": "case",
+"texte": "Urgence coronarienne",
+"detail": "Le médecin appelle le 144 et oriente le patient vers la filière coronarienne."
+},
+{
+"id": "q2",
+"type": "losange",
+"texte": "Fièvre, amaigrissement, adénopathie ?",
+"detail": "Ces signes orientent vers le bilan du point 9 et un avis infectiologique ou hématologique."
+},
+{
+"id": "q3",
+"type": "losange",
+"texte": "Autre cause (TSH, glycémie, médicament) ?",
+"detail": "Le médecin recherche une hyperthyroïdie, une hypoglycémie ou un médicament inducteur, puis une grossesse."
+},
+{
+"id": "q4",
+"type": "losange",
+"texte": "Âge inférieur à 45 ans ?",
+"detail": "Avant 45 ans ou en cas d'aménorrhée avant 40 ans, la FSH, l'œstradiol et un avis spécialisé s'imposent."
+},
+{
+"id": "f1",
+"type": "fin",
+"texte": "SVM : THM ou traitement non hormonal",
+"detail": "À 45 ans ou plus, les bouffées humides confirment le SVM ; la conduite suit le point 11."
+},
+{
+"id": "f2",
+"type": "fin",
+"texte": "Avis spécialisé",
+"detail": "Une insuffisance ovarienne prématurée relève d'un avis spécialisé."
+}
+],
+"liens": [
+{
+"de": "q1",
+"a": "u",
+"etiquette": "Oui"
+},
+{
+"de": "q1",
+"a": "q2",
+"etiquette": "Non"
+},
+{
+"de": "q2",
+"a": "q3",
+"etiquette": "Non"
+},
+{
+"de": "q3",
+"a": "q4",
+"etiquette": "Non"
+},
+{
+"de": "q4",
+"a": "f2",
+"etiquette": "Oui"
+},
+{
+"de": "q4",
+"a": "f1",
+"etiquette": "Non"
+}
+]
+}</template>
+<style>#algo1-1:checked~.algo-det #algo1-1-d{display:block}
+#algo1-2:checked~.algo-det #algo1-2-d{display:block}
+#algo1-3:checked~.algo-det #algo1-3-d{display:block}
+#algo1-4:checked~.algo-det #algo1-4-d{display:block}
+#algo1-5:checked~.algo-det #algo1-5-d{display:block}
+#algo1-6:checked~.algo-det #algo1-6-d{display:block}
+#algo1-7:checked~.algo-det #algo1-7-d{display:block}</style>
+<input type="checkbox" id="algo1-1">
+<input type="checkbox" id="algo1-2">
+<input type="checkbox" id="algo1-3">
+<input type="checkbox" id="algo1-4">
+<input type="checkbox" id="algo1-5">
+<input type="checkbox" id="algo1-6">
+<input type="checkbox" id="algo1-7">
+<div class="algo-t">Devant des sueurs nocturnes</div>
+<div class="algo-sc"><div class="algo-can" style="width:540px;height:636px">
+<svg width="540" height="636" viewBox="0 0 540 636" aria-hidden="true">
+<path class="tr" d="M243 68 H296"/><polygon class="fl" points="295,63 295,73 303,68"/>
+<text x="249" y="62">Oui</text>
+<path class="tr" d="M145 116 V138"/><polygon class="fl" points="140,137 150,137 145,145"/>
+<text x="151" y="126">Non</text>
+<path class="tr" d="M145 241 V263"/><polygon class="fl" points="140,262 150,262 145,270"/>
+<text x="151" y="252">Non</text>
+<path class="tr" d="M145 366 V388"/><polygon class="fl" points="140,387 150,387 145,395"/>
+<text x="151" y="376">Non</text>
+<path class="tr" d="M243 443 H296"/><polygon class="fl" points="295,438 295,448 303,443"/>
+<text x="249" y="437">Oui</text>
+<path class="tr" d="M145 491 V528"/><polygon class="fl" points="140,527 150,527 145,535"/>
+<text x="151" y="509">Non</text>
+<polygon class="lo" points="145,20 243,68 145,116 47,68"/>
+<rect class="ca" x="303" y="35" width="184" height="66"/>
+<polygon class="lo" points="145,145 243,193 145,241 47,193"/>
+<polygon class="lo" points="145,270 243,318 145,366 47,318"/>
+<polygon class="lo" points="145,395 243,443 145,491 47,443"/>
+<rect class="fi" x="53" y="535" width="184" height="66"/>
+<rect class="fi" x="303" y="410" width="184" height="66"/>
+</svg>
+<label class="algo-n lo cl" for="algo1-1" style="left:47px;top:20px;width:196px;height:96px"><span>Douleur thoracique ou dyspnée ?</span></label>
+<label class="algo-n ca cl" for="algo1-2" style="left:303px;top:35px;width:184px;height:66px"><span>Urgence coronarienne</span></label>
+<label class="algo-n lo cl" for="algo1-3" style="left:47px;top:145px;width:196px;height:96px"><span>Fièvre, amaigrissement, adénopathie ?</span></label>
+<label class="algo-n lo cl" for="algo1-4" style="left:47px;top:270px;width:196px;height:96px"><span>Autre cause (TSH, glycémie, médicament) ?</span></label>
+<label class="algo-n lo cl" for="algo1-5" style="left:47px;top:395px;width:196px;height:96px"><span>Âge inférieur à 45 ans ?</span></label>
+<label class="algo-n ca cl" for="algo1-6" style="left:53px;top:535px;width:184px;height:66px"><span>SVM : THM ou traitement non hormonal</span></label>
+<label class="algo-n ca cl" for="algo1-7" style="left:303px;top:410px;width:184px;height:66px"><span>Avis spécialisé</span></label>
+</div></div>
+<div class="algo-det">
+<div class="algo-d" id="algo1-1-d"><label class="fx-x" for="algo1-1" aria-label="Fermer">×</label><b class="algo-dt">Douleur thoracique ou dyspnée ?</b> · Ces signes imposent l'appel du 144 et un ECG.</div>
+<div class="algo-d" id="algo1-2-d"><label class="fx-x" for="algo1-2" aria-label="Fermer">×</label><b class="algo-dt">Urgence coronarienne</b> · Le médecin appelle le 144 et oriente le patient vers la filière coronarienne.</div>
+<div class="algo-d" id="algo1-3-d"><label class="fx-x" for="algo1-3" aria-label="Fermer">×</label><b class="algo-dt">Fièvre, amaigrissement, adénopathie ?</b> · Ces signes orientent vers le bilan du point 9 et un avis infectiologique ou hématologique.</div>
+<div class="algo-d" id="algo1-4-d"><label class="fx-x" for="algo1-4" aria-label="Fermer">×</label><b class="algo-dt">Autre cause (TSH, glycémie, médicament) ?</b> · Le médecin recherche une hyperthyroïdie, une hypoglycémie ou un médicament inducteur, puis une grossesse.</div>
+<div class="algo-d" id="algo1-5-d"><label class="fx-x" for="algo1-5" aria-label="Fermer">×</label><b class="algo-dt">Âge inférieur à 45 ans ?</b> · Avant 45 ans ou en cas d'aménorrhée avant 40 ans, la FSH, l'œstradiol et un avis spécialisé s'imposent.</div>
+<div class="algo-d" id="algo1-6-d"><label class="fx-x" for="algo1-6" aria-label="Fermer">×</label><b class="algo-dt">SVM : THM ou traitement non hormonal</b> · À 45 ans ou plus, les bouffées humides confirment le SVM ; la conduite suit le point 11.</div>
+<div class="algo-d" id="algo1-7-d"><label class="fx-x" for="algo1-7" aria-label="Fermer">×</label><b class="algo-dt">Avis spécialisé</b> · Une insuffisance ovarienne prématurée relève d'un avis spécialisé.</div>
+</div></div><!--/algo-->
+<p id="p10-prof-branches">Si une douleur thoracique ou une dyspnée accompagne les sueurs → le médecin appelle le 144 et enregistre un ECG. Si une fièvre, un amaigrissement ou une adénopathie s'y associent → le bilan du point 9 et un avis infectiologique ou hématologique priment. Si la TSH, la glycémie ou un médicament expliquent les sueurs → le médecin traite cette cause. Si la patiente a moins de 45 ans → la FSH, l'œstradiol et un avis spécialisé s'imposent. Si elle a 45 ans ou plus avec des bouffées typiques → le diagnostic de SVM est retenu et la conduite suit le point 11.</p>
+<p>Le <abbr class="ab" data-k="THM" tabindex="0">THM</abbr> est contre-indiqué en cas de cancer du sein, de thrombose ou de maladie coronarienne ; le traitement non hormonal comprend alors le fézolinétant (<a class="tm med" data-auto="1" href="#med-67a6ce9c">VEOZA™</a>) ou l'élinzanétant (<a class="tm med" data-auto="1" href="#med-baf9e3f9">LYNKUET®</a>), selon l'<abbr class="ab" data-k="AIPS" tabindex="0">AIPS</abbr><sup class="r"><a href="#sb-1">1</a>,<a href="#sb-2">2</a>,<a href="#sb-3">3</a></sup>.</p>
+

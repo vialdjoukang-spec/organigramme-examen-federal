@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harnais en 3D</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Concept : un plateau 3D. Le sol porte les outils du harnais, les cubes sont les agents, les plateformes colorées sont les territoires B1 à B5. Les documents voyagent du texte écrit jusqu'à la fusion. */
+:root{--bg:#0d1420;--ink:#e8eef6;--mut:#93a3b8;--line:#2a3a52;--a:#f59e0b;--sn:#4f8ff7;--b1:#fdba74;--b2:#7dd3fc;--b3:#86efac;--b4:#c4b5fd;--b5:#f9a8d4;--ok:#34d399;--ko:#f87171;--font:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 700px at 50% -10%,#1c2c4a,var(--bg));color:var(--ink);font:15px/1.45 var(--font);min-height:100vh;overflow-x:hidden;padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+h1{margin:16px 0 2px;font-size:1.35rem;letter-spacing:.08em}
+.sub{color:var(--mut);margin:0 0 8px;max-width:110ch}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+button{font:inherit;font-weight:700;border:1px solid var(--line);background:#16233a;color:var(--ink);border-radius:10px;padding:6px 14px;cursor:pointer}
+button:hover{border-color:var(--sn)}button:focus-visible,input:focus-visible{outline:3px solid var(--sn);outline-offset:2px}
+label{color:var(--mut);font-size:.85rem}input[type=range]{accent-color:var(--sn)}
+.kpi{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}.kpi span{background:#111d31;border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.88rem}.kpi b{color:var(--ok)}
+.stage{position:relative;height:min(80vh,780px);perspective:1900px;perspective-origin:50% 22%;margin:0 auto;max-width:1500px}
+.world{position:absolute;left:50%;top:52%;width:1440px;height:900px;margin:-450px 0 0 -720px;transform-style:preserve-3d;transform:rotateX(var(--rx,58deg)) rotateZ(var(--rz,-14deg)) scale(var(--sc,.72))}
+.sol{position:absolute;inset:0;border:2px solid var(--line);border-radius:30px;background:linear-gradient(#0e1a2b,#0a1424);box-shadow:0 0 0 1px #000 inset;transform-style:preserve-3d}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:.35;border-radius:30px}
+.zone{position:absolute;border-radius:20px;border:3px dashed currentColor;transform:translateZ(2px);transform-style:preserve-3d}
+.zone>.zl{position:absolute;left:14px;top:8px;font-weight:700;font-size:20px;color:currentColor;transform:translateZ(1px)}
+.zone .zs{position:absolute;left:14px;bottom:8px;font-size:15px;color:var(--mut)}
+.ent{position:absolute;transform-style:preserve-3d;cursor:pointer}
+.ent:hover .f{filter:brightness(1.35)}
+.cube{width:90px;height:90px}
+.cube .f{position:absolute;width:90px;height:90px;display:grid;place-items:center;font-weight:700;color:#06101e;border:2px solid #0006;font-size:22px}
+.cube .top{transform:translateZ(60px);background:var(--c)}
+.cube .fr{transform:rotateX(-90deg) translateZ(45px) translateY(-15px);height:60px;background:color-mix(in srgb,var(--c) 70%,#000)}
+.cube .rt{transform:rotateY(90deg) translateZ(75px) translateX(-15px);height:90px;background:color-mix(in srgb,var(--c) 52%,#000);width:60px;left:30px}
+.cube{transform:translateZ(0)}
+.cube.pulse .top{animation:pl .9s}
+@keyframes pl{40%{filter:brightness(1.9);transform:translateZ(80px)}}
+.pil{width:34px;height:34px}.pil .f{position:absolute;width:34px;height:34px;background:#e2e8f0;border:2px solid #0006;display:grid;place-items:center;font-size:11px;color:#0b1322;font-weight:700}
+.pil .top{transform:translateZ(46px)}.pil .fr{transform:rotateX(-90deg) translateZ(17px) translateY(-6px);height:46px;background:#94a3b8}.pil .rt{transform:rotateY(90deg) translateZ(17px) translateX(-6px);height:46px;width:46px;background:#64748b;left:-6px}
+.plate{width:74px;height:52px;border-radius:8px;border:2px solid #0008;background:var(--c);color:#06101e;font-weight:700;display:grid;place-items:center;font-size:16px;transform:translateZ(6px)}
+.plate.ok::after{content:"✓";position:absolute;right:6px;top:2px;font-size:20px}
+.tile{width:112px;height:56px;border-radius:10px;border:2px solid var(--line);background:#12213a;color:var(--ink);display:grid;place-items:center;font-size:12px;text-align:center;line-height:1.15;transform:translateZ(3px);transition:.4s}
+.tile.on{background:#1d4a3d;border-color:var(--ok);box-shadow:0 0 22px var(--ok);transform:translateZ(14px)}
+.gate{width:26px;height:790px;background:repeating-linear-gradient(0deg,#f59e0b 0 24px,#0000 24px 36px);transform:translateZ(30px);opacity:.8;border-radius:6px}
+.gate.flash{background:var(--ok);box-shadow:0 0 30px var(--ok)}.gate.bad{background:var(--ko);box-shadow:0 0 30px var(--ko)}
+.doc{position:absolute;width:44px;height:30px;border-radius:5px;background:#fff;color:#0b1322;font-size:11px;font-weight:700;display:grid;place-items:center;transform:translateZ(46px);box-shadow:0 0 14px #fff8;border:2px solid var(--c,#fff);pointer-events:none;z-index:5}
+.dep{width:140px;height:54px}
+.tip{position:fixed;z-index:50;pointer-events:none;max-width:340px;background:#0b1424ee;border:1px solid var(--sn);border-radius:12px;padding:10px 14px;box-shadow:0 8px 28px #000a;font-size:.9rem;display:none}
+.tip b{display:block;font-size:1rem;margin-bottom:2px}.tip i{color:var(--mut);font-style:normal;display:block;margin-bottom:4px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--mut);margin:4px 0 14px}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.log{max-width:1500px;margin:0 auto 40px;font-size:.95rem;min-height:3.2em;padding:8px 14px;border-left:4px solid var(--ok);background:#0f1a2e;border-radius:8px}
+.flux{position:absolute;left:0;top:0;width:1440px;height:900px;transform:translateZ(5px);pointer-events:none;overflow:visible}
+.flux path{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:14 10;animation:fl 1.1s linear infinite}
+.flux .w{stroke:#e8eef6}.flux .ok{stroke:#34d399}.flux .ko{stroke:#f87171;stroke-dasharray:6 8}.flux .m{stroke:#94a3b8;stroke-width:2;stroke-dasharray:3 6}
+.flux text{font:700 22px "Atkinson Hyperlegible",Verdana,sans-serif;fill:#fbbf24;paint-order:stroke;stroke:#0a1424;stroke-width:5px}
+.flux text.ko{fill:#f87171;stroke:#0a1424;stroke-dasharray:none;animation:none}
+@keyframes fl{to{stroke-dashoffset:-48}}
+@media (prefers-reduced-motion:reduce){.flux path{animation:none}}
+.secteurs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;max-width:1500px;margin:0 auto 12px}
+.sec{background:#0f1a2e;border:2px solid var(--line);border-radius:12px;padding:10px 14px;transition:.35s}
+.sec h3{margin:0 0 4px;font-size:1rem;color:#fbbf24}.sec p{margin:0 0 6px;color:var(--mut);font-size:.88rem}.sec .live{font-size:.9rem;min-height:2.6em;color:var(--ink)}
+.sec.act{border-color:var(--ok);box-shadow:0 0 22px #34d39944;background:#10281f}
+@media (max-width:760px){.stage{height:60vh}.world{--sc:.36}}
+@media (prefers-reduced-motion:reduce){.cube.pulse .top{animation:none}.tile{transition:none}}
+.colh{position:absolute;font-weight:700;font-size:26px;color:#fbbf24;letter-spacing:.04em;transform:translateZ(3px);white-space:nowrap}.colh small{display:block;font-size:15px;color:var(--mut);letter-spacing:0;font-weight:400}
+</style></head><body>
+<h1>HARNAIS · PLATEAU 3D</h1>
+<p class="sub">Un plateau, une équipe : 1 rédacteur de Phase A, 8 rédacteurs de Phase B (2 DD au plus chacun), 5 auditeurs-correcteurs Opus, chacun lié à un script « Grille des 14 points » en lecture seule. Survolez une entité pour son rôle. Simulation d'un LOT de 15 diagnostics.</p>
+<div class="bar"><button id="pl">⏸ Pause</button><button id="rs">↺ Recommencer</button><label>vitesse <input id="sp" type="range" min=".4" max="3" step=".1" value="1"></label><label>rotation <input id="rz" type="range" min="-60" max="60" value="-14"></label><label>inclinaison <input id="rx" type="range" min="25" max="75" value="58"></label>
+<div class="kpi"><span>fichiers déposés <b id="k1">0</b>/16</span><span>refus des scripts <b id="k2">0</b></span><span>agents <b>14</b></span></div></div>
+<div class="legend"><span><i style="background:var(--a)"></i>Phase A · Sonnet 5.5</span><span><i style="background:var(--sn)"></i>Phase B · Sonnet 5.5</span><span><i style="background:var(--b1)"></i>B1 · orange pâle</span><span><i style="background:var(--b2)"></i>B2</span><span><i style="background:var(--b3)"></i>B3</span><span><i style="background:var(--b4)"></i>B4</span><span><i style="background:var(--b5)"></i>B5</span><span><i style="background:#e2e8f0"></i>script de grille (lecture seule)</span><span><i style="background:#1d4a3d;border:1px solid var(--ok)"></i>outil en service</span><span><i style="background:#e8eef6"></i>flèche blanche : texte en cours</span><span><i style="background:var(--ok)"></i>flèche verte : texte validé</span><span><i style="background:var(--ko)"></i>flèche rouge : refus, retour au rédacteur</span></div>
+<div class="secteurs" id="secs">
+<div class="sec"><h3>① RÉDACTION</h3><p>Sonnet 5.5 moyen. A écrit la Phase A ; R1 à R8 écrivent 2 DD au plus chacun. Chaque agent : mémoire (son script) → sources (AIPS, PubMed) → écriture → contrôle de grille → fin.</p><div class="live">en attente</div></div>
+<div class="sec"><h3>② PORTE</h3><p>Scripts gratuits : véracité (AIPS, PMID, chiffres), langue, forme, taille. Un refus renvoie le DD à son rédacteur, sans coûter un Opus.</p><div class="live">en attente</div></div>
+<div class="sec"><h3>③ AUDIT PAR TERRITOIRE</h3><p>Opus 5.5 moyen, 5 territoires. B1 : Phase A d'abord, puis DX.1–2 ; B2 à B5 : 1 à 4 DD. V1 fond, V2 conformité à la grille ; corrige directement.</p><div class="live">en attente</div></div>
+<div class="sec"><h3>④ DÉPÔT</h3><p>Chef de production, sans agent : commit → PR → CI → fusion. Cinq leçons au plus par rôle avant le LOT suivant.</p><div class="live">en attente</div></div></div>
+<div class="stage"><div class="world" id="w"><div class="sol"><div class="grid"></div></div></div></div>
+<div class="log" id="lg">…</div>
+<div class="tip" id="tip"></div>
+<script>
+const W=document.getElementById("w"),tip=document.getElementById("tip"),$=i=>document.getElementById(i);
+const CO={A:"#f59e0b",R:"#4f8ff7",B1:"#fdba74",B2:"#7dd3fc",B3:"#86efac",B4:"#c4b5fd",B5:"#f9a8d4"};
+const E={};
+function mk(cls,x,y,html,c,info){const d=document.createElement("div");d.className="ent "+cls;d.style.left=x+"px";d.style.top=y+"px";if(c)d.style.setProperty("--c",c);d.innerHTML=html;W.appendChild(d);if(info){d.addEventListener("mousemove",e=>{tip.style.display="block";tip.innerHTML="<b>"+info[0]+"</b><i>"+info[1]+"</i>"+info[2];const r=tip.getBoundingClientRect();tip.style.left=Math.min(e.clientX+16,innerWidth-r.width-8)+"px";tip.style.top=Math.min(e.clientY+16,innerHeight-r.height-8)+"px"});d.addEventListener("mouseleave",()=>tip.style.display="none")}return d}
+const cube=(id,x,y,t,c,info)=>{const d=mk("cube",x,y,'<div class="f top">'+t+'</div><div class="f fr"></div><div class="f rt"></div>',c,info);E[id]={x:x+45,y:y+45,el:d};return d};
+const pil=(id,x,y,info)=>{const d=mk("pil",x,y,'<div class="f top">14</div><div class="f fr"></div><div class="f rt"></div>',null,info);E[id]={x:x+17,y:y+17,el:d}};
+const zone=(x,y,w,h,c,l,s)=>{const d=document.createElement("div");d.className="zone";d.style.cssText=`left:${x}px;top:${y}px;width:${w}px;height:${h}px;color:${c};background:${c}18`;d.innerHTML=(l?'<div class="zl">'+l+'</div>':'')+(s?'<div class="zs">'+s+'</div>':'');W.appendChild(d)};
+const head=(x,y,t,s)=>{const d=document.createElement("div");d.className="colh";d.style.left=x+"px";d.style.top=y+"px";d.innerHTML=t+"<small>"+s+"</small>";W.appendChild(d)};
+// en-têtes de colonnes : le texte avance de gauche à droite
+const badge=(x,y,n)=>{const d=document.createElement("div");d.className="colh";d.style.left=x+"px";d.style.top=y+"px";d.style.fontSize="44px";d.textContent=n;W.appendChild(d)};badge(560,50,"①");badge(642,0,"②");badge(1150,50,"③");badge(1380,50,"④");
+// zones
+zone(20,52,610,740,"#4f8ff7","","");
+[["B1",52,"B1 · ORANGE PÂLE · Phase A d'abord"],["B2",212,"B2 · DX.3–6"],["B3",372,"B3 · DX.7–9"],["B4",532,"B4 · DX.10–12"],["B5",692,"B5 · DX.13–15"]].forEach(([b,y,l])=>zone(730,y,470,144,CO[b],l,""));
+zone(1215,52,210,740,"#34d399","","");
+// A
+cube("A",60,90,"A",CO.A,["Agent A · Phase A","Sonnet 5.5, effort moyen","Écrit la monographie du SSP, la liste des DD classée, le tableau comparatif et l'algorithme. Script lié : A.py (grille des 14 points, lecture seule)."]);pil("pA",160,100,["Script A.py","lecture seule, empreinte vérifiée","Donne à A sa part de la grille, ses règles et ses leçons ; liste ses écarts en fin de tâche."]);
+// rédacteurs : 2 colonnes × 4 rangées
+const dd=[[1,2],[3,4],[5,6],[7,8],[9,10],[11,12],[13,14],[15]];
+dd.forEach((l,k)=>{const col=k%2,row=Math.floor(k/2),x=50+col*295,y=225+row*140;cube("R"+(k+1),x,y,"R"+(k+1),CO.R,["Rédacteur R"+(k+1)+" · Phase B","Sonnet 5.5, effort moyen","Écrit "+l.map(i=>"DX."+i).join(" et ")+" (2 DD au plus). N'écrit que du texte : les scripts font le reste. Script lié : R"+(k+1)+".py."]);pil("pR"+(k+1),x+100,y+8,["Script R"+(k+1)+".py","lecture seule","Mémoire permanente de R"+(k+1)+" : grille, règles, leçons. Il indique les écarts du fichier, point par point, avant de le laisser avancer."])});
+// auditeurs
+const terr={B1:[750,80],B2:[750,240],B3:[750,400],B4:[750,560],B5:[750,720-12]};
+Object.entries(terr).forEach(([b,[x,y]])=>{cube(b,x,y,b,CO[b],[b+" · auditeur-correcteur","Opus 5.5, effort moyen",(b=="B1"?"Audite d'abord la Phase A (la liste des DD part vite aux rédacteurs), puis DX.1–2. ":"Audite et corrige son territoire (1 à 4 DD). ")+"V1 : exactitude du fond. V2 : conformité au Prompt ULTIME et à la grille. Script lié : "+b+".py."]);pil("p"+b,x+100,y+8,["Script "+b+".py","lecture seule","Mémoire permanente de "+b+" : grille, territoire, scores V1 et V2 à saisir. Refuse tout fichier hors territoire."])});
+const aud={1:"B1",2:"B1",3:"B2",4:"B2",5:"B2",6:"B2",7:"B3",8:"B3",9:"B3",10:"B4",11:"B4",12:"B4",13:"B5",14:"B5",15:"B5"};
+const slot={},cnt={B1:0,B2:0,B3:0,B4:0,B5:0};
+const pA=mk("plate",890,100,"Phase A",CO.B1,["Fichier Phase A","audité par B1 en premier","Liste des 15 DD, tableau comparatif, algorithme."]);cnt.B1=1;
+for(let i=1;i<=15;i++){const b=aud[i],k=cnt[b]++,by=terr[b][1];slot[i]=mk("plate",890+k*88,b=="B1"?100:by+10,"DX."+i,CO[b],["Fichier DX."+i,"territoire "+b,"Un fichier = un agent. Passe les scripts, puis l'audit V1 et V2 de "+b+"."]);if(b=="B1"&&k>0)slot[i].style.top="100px"}
+for(let i=1;i<=2;i++)slot[i].style.top="100px";
+// porte
+const g=mk("gate",650,52,"",null,["PORTE · scripts gratuits","véracité, langue, forme, taille","Refuse sans payer un Opus : doses AIPS, PMID, chiffres, phrases ≤ 20 mots, classification, médicaments cliquables, aucune mention de conception, bande de taille."]);
+// dépôt
+const dep=[["commit","Commit sur la branche du LOT, manifeste, SHA-256."],["PR","Une PR par LOT (pr.sh)."],["CI","ci_attente.sh : tous les contrôles."],["fusion","Commit de fusion après CI verte."]];
+dep.forEach(([n,t],i)=>{const x=1250,y=150+i*150;const d=mk("plate dep",x,y,n,"#34d399",["Dépôt · "+n,"chef de production (aucun agent)",t]);d.style.width="150px";E["d"+i]={x:x+75,y:y+26,el:d}});
+// outils (sol)
+const OUT=[["Bracelet","bracelet_suggest : 1 à 3 outils par tâche ; preuve réelle écrite"],["Lecture ciblée","controle_lot extraire ; Chonkie : passage utile"],["AIPS","aips_texte : doses mot pour mot"],["PubMed","pubmed.py + requests-cache + PyBreaker"],["Verrous","verrou, tableau de tâches, territoires"],["Checkpoint","controle médical, langue, forme, taille"],["Mémoire","14 scripts de grille + leçons"],["Arsenal","lot.py, pr.sh, ci_attente, audit_diff"],["PREUVE","PREUVE_EMBOITEMENT : sortie réelle"],["Veille","veille, sentinelle, tableau de bord"]];
+const tiles=OUT.map(([n,t],i)=>mk("tile",20+i*140,820,n,null,["Outil · "+n,"harnais de base, en service",t]));
+const on=(i,ms=1400)=>{tiles[i].classList.add("on");setTimeout(()=>tiles[i].classList.remove("on"),ms/(+$("sp").value))};
+// flèches : sens de circulation du travail (gauche → droite)
+(function(){const ns="http://www.w3.org/2000/svg",s=document.createElementNS(ns,"svg");s.setAttribute("class","flux");s.setAttribute("viewBox","0 0 1440 900");
+s.innerHTML='<defs>'+[["aw","#e8eef6"],["ao","#34d399"],["ak","#f87171"],["ab","#60a5fa"]].map(([i,c])=>'<marker id="'+i+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="'+c+'" style="animation:none;stroke:none;stroke-dasharray:none"/></marker>').join("")+'</defs>';
+const P=(d,c,m)=>{const p=document.createElementNS(ns,"path");p.setAttribute("d",d);p.setAttribute("class",c);p.setAttribute("marker-end","url(#"+m+")");s.appendChild(p)};
+const T=(x,y,tx,c)=>{const e=document.createElementNS(ns,"text");e.setAttribute("x",x);e.setAttribute("y",y);if(c)e.setAttribute("class",c);e.textContent=tx;s.appendChild(e)};
+// Phase A → B1
+P("M200,125 L640,125","w","aw");P("M680,125 L740,125","w","aw");T(300,112,"Phase A → B1 d'abord");
+// liste des DD : B1 → rédacteurs
+P("M740,200 L690,200","w","ab");P("M640,200 L560,200","w","ab");T(480,190,"liste des DD → rédacteurs");
+// rédacteurs → porte (une flèche par rangée)
+for(let r=0;r<4;r++){const y=265+r*140;P("M420,"+y+" L644,"+y,"w","aw");P("M640,"+(y+34)+" L430,"+(y+34),"ko","ak")}
+T(430,255,"DD écrits →");T(430,527,"← refus : retour au rédacteur","ko");
+// porte → territoires
+[["B2",240],["B3",400],["B4",560],["B5",720]].forEach(([b,y])=>P("M680,"+(y+50)+" L742,"+(y+50),"ok","ao"));
+// territoires → dépôt
+[132,292,452,612,772].forEach(y=>{P("M1200,"+y+" L1208,"+y,"ok","ao")});P("M1208,132 L1208,772","ok","ao");P("M1208,176 L1244,176","ok","ao");
+for(let i=0;i<3;i++)P("M1325,"+(176+i*150)+" L1325,"+(280+i*150),"ok","ao");
+T(960,40,"audité (V1 · V2) → dépôt");
+W.insertBefore(s,W.children[1]);})();
+// documents
+let play=true;
+function doc(txt,from,to,ms,c,cb){const d=document.createElement("div");d.className="doc";d.textContent=txt;if(c)d.style.setProperty("--c",c);W.appendChild(d);let el=0,l=performance.now();const f=()=>{const n=performance.now();if(play)el+=(n-l)*(+$("sp").value);l=n;let k=Math.min(1,el/ms);k=k*k*(3-2*k);d.style.left=(from.x+(to.x-from.x)*k-22)+"px";d.style.top=(from.y+(to.y-from.y)*k-15)+"px";d.style.transform="translateZ("+(46+Math.sin(k*Math.PI)*60)+"px)";if(k<1)requestAnimationFrame(f);else{d.remove();cb&&cb()}};requestAnimationFrame(f)}
+const SECT={1:[0],2:[0],3:[2,0],4:[2,0],5:[0],6:[1],7:[2],8:[3],9:[3]};
+const say=t=>{$("lg").textContent=t;const n=parseInt(t),cs=document.querySelectorAll(".sec");cs.forEach(c=>c.classList.remove("act"));(SECT[n]||[]).forEach((s,i)=>{cs[s].classList.add("act");cs[s].querySelector(".live").textContent=t})};
+const pulse=id=>{const e=E[id].el;e.classList.add("pulse");setTimeout(()=>e.classList.remove("pulse"),900)};
+let done=0,refus=0;
+async function wait(ms){let t=0;while(t<ms){await new Promise(r=>setTimeout(r,60));if(play)t+=60*(+$("sp").value)}}
+const slotPos=i=>({x:slot[i].offsetLeft+37,y:slot[i].offsetTop+26});
+async function scenario(){
+ done=0;refus=0;$("k1").textContent=0;$("k2").textContent=0;document.querySelectorAll(".plate.ok").forEach(p=>p.classList.remove("ok"));
+ say("1 · Départ : chaque agent se rafraîchit la mémoire auprès de son script (grille des 14 points) ; le bracelet choisit les outils.");on(0);on(6);["A","R1","R2","R3","R4","R5","R6","R7","R8","B1","B2","B3","B4","B5"].forEach(a=>{pulse(a);doc("14",E["p"+a],E[a],900,"#e2e8f0")});await wait(2200);
+ say("2 · L'agent A écrit la Phase A (outils : AIPS, PubMed, lecture ciblée).");on(2);on(3);on(1);pulse("A");await wait(1500);
+ say("3 · Phase A → porte → B1 : audit en premier (V1 fond, V2 grille).");on(5);await new Promise(r=>doc("Phase A",E.A,{x:927,y:126},2200,CO.A,r));pA.classList.add("ok");pulse("B1");await wait(700);
+ say("4 · La liste des DD gelée repart de B1 vers les 8 rédacteurs.");[1,2,3,4,5,6,7,8].forEach(k=>doc("DD",E.B1,E["R"+k],1400,"#60a5fa"));await wait(1800);
+ for(let round=0;round<2;round++){
+  say(round?"5b · Deuxième DD de chaque rédacteur : même circuit.":"5 · Chaque rédacteur écrit son premier DD (AIPS, PubMed, scripts de grille en service).");on(2);on(3);on(4);
+  const batch=[];dd.forEach((l,k)=>{if(l[round]!==undefined)batch.push([k+1,l[round]])});
+  batch.forEach(([k])=>pulse("R"+k));await wait(1800);
+  say("6 · DD écrit → PORTE (véracité, langue, forme, taille). Un refus renvoie au rédacteur, sans coûter un Opus.");on(5);
+  await Promise.all(batch.map(([k,i],j)=>new Promise(async r=>{await wait(j*140);const bad=(i%5===3&&round===0);const gp={x:663,y:E["R"+k].y};doc("DX."+i,E["R"+k],gp,1500,CO.R,()=>{if(bad){refus++;$("k2").textContent=refus;g.classList.add("bad");setTimeout(()=>g.classList.remove("bad"),700);doc("refus",gp,E["R"+k],1100,"#f87171",()=>{pulse("R"+k);r()})}else{g.classList.add("flash");setTimeout(()=>g.classList.remove("flash"),500);r()}})})));
+  await wait(1200);
+  say("7 · Chaque DD entre dans son territoire ; l'auditeur Opus note V1 (fond) et V2 (grille), puis corrige.");
+  batch.forEach(([k,i],j)=>setTimeout(()=>doc("DX."+i,{x:663,y:E["R"+k].y},slotPos(i),1700,CO[aud[i]],()=>pulse(aud[i])),j*140));
+  await wait(3600);
+  say("8 · Les DD audités partent vers le dépôt : commit, PR, CI verte, fusion.");on(7);on(9);
+  for(const [k,i] of batch){slot[i].classList.add("ok");doc("DX."+i,slotPos(i),E.d0,1500,"#34d399",()=>{done++;$("k1").textContent=Math.min(done+1,16)});await wait(300)}
+  await wait(1600)}
+ say("9 · LOT complet : une PR, CI verte, commit de fusion. Cinq leçons au plus par rôle, puis le LOT suivant.");on(7,2400);[0,1,2].forEach(i=>setTimeout(()=>doc("✓",E["d"+i],E["d"+(i+1)],900,"#34d399"),i*600));$("k1").textContent=16;await wait(5000)}
+(async()=>{while(true){await scenario()}})();
+$("pl").onclick=()=>{play=!play;$("pl").textContent=play?"⏸ Pause":"▶ Lecture"};
+$("rs").onclick=()=>location.reload();
+const rot=()=>{W.style.setProperty("--rz",$("rz").value+"deg");W.style.setProperty("--rx",$("rx").value+"deg")};$("rz").oninput=rot;$("rx").oninput=rot;
+</script></body></html>

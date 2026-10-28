@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Audit avant sortie : tout commit qui touche LOT_Claude_Finaux/LOT_XXX/*.html passe par harnais/audit_sortie.py
+lots=$(git diff --cached --name-only | grep -oE '^LOT_Claude_Finaux/LOT_[0-9]{3}/LOT_[0-9]{3}_Phase_.*\.html$' | cut -d/ -f2 | sort -u)
+for l in $lots; do
+  python3 harnais/audit_sortie.py "$l" --dossier "LOT_Claude_Finaux/$l" || { echo "pre-commit : audit avant sortie REFUSÉ pour $l"; exit 1; }
+done
