@@ -14,6 +14,10 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
     Q1 intitulé non numéroté « 7.n Syndrome … »    Q2 « Symptômes fonctionnels » absent    Q3 « Signes physiques » absent
     Q4 signes physiques sans sous-cellules cliquables (span.sc.dx)   Q5 sous-cellule dont la fenêtre ne dit pas comment rechercher le signe
     Q6 intitulé de syndrome non documenté (« intitulé de travail »)
+  Origine des sources (précision de Vial) : O1 donnée locale (recommandation, filière, remboursement, vaccination aux points 11, 12 ;
+    point 2 en avertissement) appuyée sur une source seulement
+    internationale sans étiquette « hors AIPS / à valider » ; O2 dose appuyée sur une source non suisse sans étiquette. L'universel accepte
+    une source sérieuse non suisse, datée. Souplesse : contrôles purement formels en MOYEN (non bloquant), p. ex. « voici », questions juxtaposées.
   Q0 point 7 sans aucun syndrome numéroté « 7.n » (titres en gras, en h4 ou en cellule de tableau)
   R1 identifiant de case à cocher dupliqué (fenêtre qui ne s'ouvre pas)
   Intégrité (mêmes seuils que controle_lot, localisés) : H1 balises de bloc déséquilibrées (point fautif) · H2 ligne > 10 000 caractères
@@ -271,6 +275,22 @@ def reparer(t):
     return t2, J
 
 
+RX_CH = re.compile(r"(?i)\bAIPS\b|swissmedic|\.ch\b|\bSGGG\b|\bSSGO\b|\bHUG\b|\bCHUV\b|insel|\bUSZ\b|kantonsspital|\bOFSP\b|\bBAG\b|suisse|swiss|schweiz"
+                   r"|\bSSED\b|\bSSCC\b|\bSVGO\b|\bSSMIG\b|\bSGAIM\b|plan de vaccination|Unisanté")
+RX_EU = re.compile(r"(?i)\bESC\b|ESHRE|\bEMAS\b|\bESE\b|\bERS\b|\bESRS\b|\bNICE\b|AWMF|\bHAS\b|\bNVOG\b|europ|\bENETS\b|\bEAU\b|\bEASD\b|\bESO\b"
+                   r"|\bEMA\b|\bDGGG\b|onkopedia|\bBMJ\b|\.eu\b|\.de\b|\.fr\b|\.uk\b|\.nl\b|\.it\b|\.at\b|royaume-uni|france|deutsch|nederland|ital|\bESMO\b|\bEULAR\b|\bERA\b")
+RX_ETIQ = re.compile(r"(?i)hors AIPS|à valider")
+# Donnée LOCALE : recommandation de prise en charge, organisation, filière, remboursement, vaccination (les résultats d'essais restent universels)
+RX_RECO = re.compile(r"(?i)recommand|préconis|en première intention|en 1re intention|en deuxième intention|en première ligne|rembours|\bLiMA\b|liste des spécialités"
+                     r"|filière|transf[eé]r|vaccin|dépistage organisé|plan de")
+
+
+def origine(ref):
+    """Origine d'une entrée de bibliographie : CH (suisse), EU (européenne) ou INT (autre, internationale)."""
+    ref = ref.split(" — ")[0]                                  # notice seule : la note de lecture (« pas comme référence suisse ») ne compte pas
+    return "CH" if RX_CH.search(ref) else "EU" if RX_EU.search(ref) else "INT"
+
+
 def cellule_verbale(ph):
     """Phrase de cellule verbale au sens de la directive : forme finie (une consigne à l'infinitif sans sujet ne suffit pas)."""
     import familles as FA
@@ -388,7 +408,7 @@ def analyser(t, nom, opt=None):
             mots = re.findall(r"[\wÀ-ÿœŒ'’-]+", ph); n = len(mots); nL += 1
             if n < 3: continue
             m = RX_FAIBLE.search(ph)
-            if m: dol("L1", pa, "GRAVE", f"tournure faible ou familière « {m.group(0).strip()} »", "registre universitaire soutenu : tournure impersonnelle ou passive, terme dédié, sans tutoiement", preuve=ph[:160])
+            if m: dol("L1", pa, "MOYEN" if m.group(0).strip().lower() in ("voici", "voilà") else "GRAVE", f"tournure faible ou familière « {m.group(0).strip()} »", "registre universitaire soutenu : tournure impersonnelle ou passive, terme dédié, sans tutoiement", preuve=ph[:160])
             if n > 40: dol("L2", pa, "GRAVE", f"phrase de {n} mots (> 40)", "scinder en phrases complètes et claires, ou passer l'énumération en puces", preuve=ph[:160])
             if tag == "p " or tag.startswith("p>") or tag == "p\t":
                 if n >= 12 and not m and not FA.verbale(ph) and not RX_SV2.search(ph): dol("L3", pa, "GRAVE", "phrase nominale sans verbe", "phrase complète : sujet, verbe, complément", preuve=ph[:160])
@@ -411,7 +431,7 @@ def analyser(t, nom, opt=None):
                 hors_liste = re.sub(r"(?is)<ul\b.*?</ul>|<ol\b.*?</ol>", " ", re.sub(r"(?is)</td>.*", "", c))
                 qs = [x for x in bus.phrases(bus.texte_visible(hors_liste)) if x.rstrip().endswith("?")]
                 if len(qs) >= 2:
-                    dol("L5", pos, "GRAVE", f"{len(qs)} questions juxtaposées dans une cellule", "une puce <li> par question dans la cellule", preuve=" ".join(qs)[:160]); continue
+                    dol("L5", pos, "MOYEN", f"{len(qs)} questions juxtaposées dans une cellule", "une puce <li> par question dans la cellule", preuve=" ".join(qs)[:160]); continue
                 for ph in bus.phrases(bus.texte_visible(hors_liste)):
                     mots = re.findall(r"[\wÀ-ÿœŒ'’-]+", ph); nC += 1
                     if len(mots) < 6 or re.match(r"(?i)\s*(symptômes fonctionnels|signes physiques)\b", ph): continue
@@ -427,6 +447,28 @@ def analyser(t, nom, opt=None):
         if len(l) > 10000 and not RX_LIGNE_OK.search(l):
             dol("H2", sum(len(x) + 1 for x in t.split("\n")[:i]), "GRAVE", f"ligne {i + 1} de {len(l)} caractères (> 10 000)",
                 "lancer : python3 harnais/brain/circuit_vial.py reparer <fichier> (coupe aux fins de blocs)", "script")
+    # ── origine des sources (précision de Vial du 28.10.2026) : l'universel (définitions, sémiologie, physiopathologie, critères
+    #    internationaux, dénominations des syndromes) accepte une source sérieuse non suisse, datée ; le LOCAL (prise en charge, doses,
+    #    organisation des soins, prévention et vaccination, remboursements, filières) exige la Suisse d'abord, sinon l'Europe, sinon une source
+    #    internationale étiquetée « hors AIPS » ou « à valider ».
+    REF = {k: bus.texte(v) for k, v in re.findall(r'(?is)id="sb-(\d+)"[^>]*>(.*?)(?:<a href="#">fermer|</li>|</div>)', t)}
+    for n, sev in ((11, "GRAVE"), (12, "GRAVE"), (2, "MOYEN")):
+        if n not in S: continue
+        for pa, pf, inner in bus.blocs(t, S[n][0], S[n][1]):
+            for ph in re.split(r"(?<=[.!?])\s+(?=[A-ZÀ-Ý])", inner):
+                ns = re.findall(r'#sb-(\d+)"', ph)
+                if not ns or not RX_RECO.search(bus.texte_visible(ph)) or RX_ETIQ.search(bus.texte(ph)): continue
+                if all(origine(REF.get(k, "")) == "INT" for k in ns):
+                    dol("O1", pa, sev, f"donnée locale (point {n}) appuyée sur une source seulement internationale ({', '.join('S' + k for k in ns)})",
+                        "source suisse (AIPS, société suisse) d'abord, sinon européenne ; à défaut, étiqueter « hors AIPS » ou « à valider » dans la phrase",
+                        preuve=bus.texte_visible(ph)[:160])
+    for pa, pf, inner in bus.blocs(t):                        # dose appuyée sur une source non suisse sans étiquette, où qu'elle soit
+        for ph in re.split(r"(?<=[.!?])\s+(?=[A-ZÀ-Ý])", inner):
+            ns = re.findall(r'#sb-(\d+)"', ph)
+            if ns and re.search(r"\d\s?(?:mg|µg|microgrammes?|g/j)\b", bus.texte_visible(ph)) and not RX_ETIQ.search(bus.texte(ph)) \
+                    and all(origine(REF.get(k, "")) != "CH" for k in ns):
+                dol("O2", pa, "GRAVE", "dose appuyée sur une source non suisse sans étiquette « hors AIPS »",
+                    "dose lue dans l'AIPS suisse (renvoi [Sn] AIPS) ; sinon « hors AIPS, recommandation X ; à valider avec un spécialiste avant prescription »", preuve=bus.texte_visible(ph)[:160])
     # ── ids
     ids = re.findall(r'<input type="checkbox" id="([^"]+)"', t); vus = set()
     for i in ids:

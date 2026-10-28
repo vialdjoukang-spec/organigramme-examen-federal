@@ -67,6 +67,10 @@ REGLES = """## Règles absolues
 - Point 11 A- : algorithme d'urgence en cases (modèle <template class="algo-modele">, contrôle E8), puis non-spécialiste → service spécialisé.
 - Langue = universitaire, donc soutenue, clarté garantie : ni tutoiement ni impératif familier (tournure impersonnelle ou passive), ni « il y a », « on », « ça » ; aucune phrase nominale
   ni de plus de 40 mots ; aucune répétition. `fin` bloque (GRAVE L1–L4). Relecture de clarté de chaque point avant `fin`.
+- Sources (précision de Vial) : l'UNIVERSEL (définitions, sémiologie, physiopathologie, critères internationaux, dénominations des syndromes retenues
+  par les sociétés savantes) accepte une source sérieuse non suisse, citée et datée, faute de source suisse ; le LOCAL (recommandations de prise en
+  charge, doses, organisation des soins, filières, remboursements, vaccination) exige la Suisse d'abord, sinon l'Europe, sinon une source
+  internationale étiquetée « hors AIPS / à valider » (contrôles S21 O1, O2). Souplesse : un contrôle purement formel sans impact pédagogique avertit, il ne bloque pas.
 - Doses : AIPS suisse seulement (python3 harnais/aips_texte.py) ; sinon « hors AIPS, recommandation X ; à valider avec un spécialiste avant prescription ». Jamais le Compendium.
 - Tout contenu ajouté vient d'une source lue (fichier, liste des sources, PubMed, AIPS) ; sinon « À vérifier ». Rien de mémoire non vérifiée.
 - Lecture : jamais le fichier entier ni les lignes data: ; grep -n sur les ancres id="…-pN" puis Read offset/limit ; Edit exact. Pas de commit.
