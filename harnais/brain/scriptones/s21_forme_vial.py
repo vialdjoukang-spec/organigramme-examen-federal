@@ -105,7 +105,8 @@ def rendre(mod, pre):
         fleche = f'<polygon class="fl" points="{x2 - 5:.0f},{y2 - 8:.0f} {x2 + 5:.0f},{y2 - 8:.0f} {x2:.0f},{y2:.0f}"/>'
         if par.get(b) == a:                                     # lien de l'arbre : rangée suivante, coude dans le couloir entre les rangées
             ym = y1 + (y2 - y1) / 2
-            svg.append(f'<path class="tr" d="M{x1:.0f} {y1:.0f} V{ym:.0f} H{x2:.0f} V{y2 - 7:.0f}"/>' + fleche)
+            d_ = f"M{x1:.0f} {y1:.0f} V{y2 - 7:.0f}" if round(x1) == round(x2) else f"M{x1:.0f} {y1:.0f} V{ym:.0f} H{x2:.0f} V{y2 - 7:.0f}"
+            svg.append(f'<path class="tr" d="{d_}"/>' + fleche)
             if l.get("etiquette"): svg.append(f'<text x="{x2 + 6:.0f}" y="{ym - 4:.0f}">{H.escape(l["etiquette"])}</text>')
             continue
         # Lien de retour ou de jonction (cible déjà rattachée) : sortie par un côté libre de la source, couloir vertical entre les colonnes
