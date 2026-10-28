@@ -17,3 +17,7 @@ COURS FLASH (défaut du lanceur ; prompt « memoire … --flash » ; directive h
 - Point 11 en îlot : But ; Moyens et méthodes A urgences (algorithme en cases à traits horizontaux et verticaux, non-spécialiste puis service spécialisé, actes cliquables), B hors urgences (mesures générales puis spécifiques par priorité).
 - `point <fichier> N` affiche les avertissements Flash (MOYEN, non bloquants) ; les GRAVE Flash bloquent.
 Fin : `python3 harnais/brain/circuit_vial.py fin <fichier> --role duo` jusqu'à ACCEPTÉ. C'est la PORTE UNIQUE : elle répare d'abord les balises et les lignes longues, puis exige forme S21 sans GRAVE, controle_lot sans critique, langue ≥ 90 et médical ≥ 90 (même verdict que la porte de sortie du lot). Un refus R15 = tu n'as rien rédigé. Réponse : une ligne (ACCEPTÉ ou motif du refus, octets avant → après).
+
+
+## Principe de fiche (Vial, 28.10.2026) — Pareto
+Le cours Flash est une FICHE DE LECTURE : seuls les 20 % d'information qui donnent 80 % de la compréhension restent dans le corps ; le reste est du bruit et est RETIRÉ (pas déplacé dans une fenêtre, sauf si utile à un clic). Une idée par phrase complète ; chaque sous-titre dit seulement l'essentiel de ce qu'il annonce. Progression du petit au clinique : mécanisme (physiopathologie) → symptômes et signes → prise en charge, qui découle et se justifie par le mécanisme. Page aérée : marges, titre net, séparations discrètes, jamais d'îlot saturé.

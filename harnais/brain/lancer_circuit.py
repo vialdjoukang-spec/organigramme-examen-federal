@@ -25,14 +25,18 @@ ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None),
          "professeur": dict(agent="professeur-emerite", model="opus", effort="medium")}
 
 
+PARETO = ("FICHE DE LECTURE, loi de Pareto : ne garde dans le corps que les 20 % d'information qui donnent 80 % de la compréhension, retire le bruit ; "
+          "une idée par phrase complète ; du mécanisme à la clinique puis au traitement qui s'en déduit ; page aérée. ")
+
+
 BRIEF_FLASH = {
-    "duo": ("COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 250 Ko "
+    "duo": (PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 250 Ko "
             "(visé 100–200 ; > 250 Ko refusé) ; le corps ne garde que l'essentiel en phrases complètes ; le détail et le diagnostic différentiel utile "
             "passent dans des fenêtres modales (aucun bloc « Notions voisines » dans le corps) ; îlots : points 1–4 dans un <section class=\"ilot\">, "
             "5–6 dans un autre, chaque point 7–14 dans <details class=\"ilot\"> replié ; symptômes et signes d'examen cliquables (comment rechercher, manœuvre) ; "
             "syndrome cliquable ouvrant un tableau à 2 colonnes Symptômes fonctionnels | Signes physiques ; cases d'algorithme à détail ; point 11 : But, "
             "Moyens et méthodes A urgences (non-spécialiste puis service spécialisé) et B hors urgences, algorithme en cases à traits orthogonaux. "),
-    "professeur": ("COURS FLASH (harnais/etat/COURS_FLASH.md) : vérifie le fond DANS LES FENÊTRES comme dans le corps ; ne regonfle pas le volume "
+    "professeur": (PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md) : vérifie le fond DANS LES FENÊTRES comme dans le corps ; ne regonfle pas le volume "
                    "(> 250 Ko refusé) ; garde îlots et fenêtres du gabarit harnais/brain/gabarit_flash.html ; UNE seule tentative : le reste part "
                    "au registre (tableau .md à Vial). ")}
 

@@ -35,3 +35,7 @@ Fautes critiques, graves, moyennes : marquées et consignées avec localisation 
 
 ## Circuit
 Rédacteurs (duo médico-linguiste Sonnet 5.5, un par leçon) produisent le cours Flash ; professeur émérite Opus 5.5 moyen vérifie le fond ; porte unique ; 16 Sonnet + 12 Opus. Lancement : LOT_001 complet (16 fichiers).
+
+
+## Principe de fiche (Vial, 28.10.2026) — Pareto
+Le cours Flash est une FICHE DE LECTURE : seuls les 20 % d'information qui donnent 80 % de la compréhension restent dans le corps ; le reste est du bruit et est RETIRÉ (pas déplacé dans une fenêtre, sauf si utile à un clic). Une idée par phrase complète ; chaque sous-titre dit seulement l'essentiel de ce qu'il annonce. Progression du petit au clinique : mécanisme (physiopathologie) → symptômes et signes → prise en charge, qui découle et se justifie par le mécanisme. Page aérée : marges, titre net, séparations discrètes, jamais d'îlot saturé.
