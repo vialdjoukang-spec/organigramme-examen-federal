@@ -116,11 +116,11 @@ def passer(chemin=None, html=None, nom=None, journal=JOURNAL, appliquer=False, p
     # vote α/β puis 5 nœuds Opus
     vote = bus.executer(reseau.module("s18_vote"), nom, html=t1, ecrire=False); route = vote["mesures"].get("routage", {})
     for n, o in route.items(): J.ev("doleance", "VOTE", o[:2], point=int(n), msg=f"désaccord α/β au point {n}")
-    ag_b = [d for d in DB if d["executant"] == "agent"]; opus = {}
+    ag_b = [d for d in DB if d["executant"] == "agent"]; opus = {}; nopus = {}
     for k in ("O1", "O2", "O3", "O4", "O5"):
         sous = [d for d in ag_b if (OPUS_POINT.get(point_de(d) or 0) or OPUS.get(signal_de(d), "O5")) == k]
         b = S17.compiler(t1, nom, sous); opus[k] = bus.estime_jetons(b) + sum(P.get(str(n), P.get(n, {})).get("jetons", 0) for n in {point_de(d) for d in sous} if n)
-        J.ev("jetons", "BUS", k, jetons=opus[k], msg=f"{len(sous)} doléances [agent]")
+        J.ev("jetons", "BUS", k, jetons=opus[k], msg=f"{len(sous)} doléances [agent]"); nopus[k] = len(sous)
     # mémoire : historique des passages (stagnation)
     ids = sorted({d["id"] for d in DA1 + DB if d["executant"] == "agent"}); hist = list(historique or [])
     memf = R / ".cache/brain/memoire" / (re.sub(r"[^\w.-]", "_", nom) + ".json")
@@ -137,6 +137,7 @@ def passer(chemin=None, html=None, nom=None, journal=JOURNAL, appliquer=False, p
     base = bus.estime_jetons(html)
     graves = [d for d in DA1 + DB if d["severite"] in ("CRITIQUE", "GRAVE")]
     verdict = "bloqué (stagnation)" if stagne else ("sortie : audité" if not graves else f"retour aux nœuds : {len(graves)} faute(s) grave(s) ouverte(s)")
+    for k, x in nopus.items(): J.ev("medical", k, "SORTIE", msg=f"avis de domaine : {x} doléance(s) [agent] à trancher" if x else "avis de domaine : rien à trancher")
     J.ev("jetons", "ECO", "SORTIE", jetons=sum(briefs.values()) + sum(opus.values()), msg=f"relecture intégrale {base} jetons par nœud")
     J.ev("doleance", "BUS", "SORTIE", msg=verdict)
     compte = lambda L: dict(sorted({c: sum(d["code"] == c for d in L) for c in {d["code"] for d in L}}.items()))

@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cerveau BRAIN-HARNESS</title>
+<meta name="description" content="Vue 3D animée du BRAIN-HARNESS : harnais de collecte, zones α et β, 10 auditeurs, bus, mémoire, gardiens, alimentée par le journal d'événements brain.evenement/1.">
+<style>
+/*@FONTES@*/
+:root{
+  --bg:#f3f5fa; --bg2:#e7ebf4; --encre:#111827; --doux:#4b5563; --pale:#6b7280; --carte:rgba(255,255,255,.88); --bord:rgba(15,23,42,.14);
+  --cortex:30,41,59; --treillis:71,85,105; --alpha:79,70,229; --beta:219,39,119; --neutre:51,65,85;
+  --s-medical:#dc2626; --s-langue:#2563eb; --s-forme:#16a34a; --s-memoire:#9333ea; --s-doleance:#d97706; --s-jetons:#0891b2;
+  --accent:#4f46e5; --ombre:0 6px 24px rgba(15,23,42,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#070b16; --bg2:#0e1527; --encre:#e5e7eb; --doux:#aab3c5; --pale:#8791a5; --carte:rgba(12,18,34,.86); --bord:rgba(148,163,184,.22);
+    --cortex:148,163,184; --treillis:148,163,184; --alpha:129,140,248; --beta:244,114,182; --neutre:203,213,225;
+    --s-medical:#f87171; --s-langue:#60a5fa; --s-forme:#4ade80; --s-memoire:#c084fc; --s-doleance:#fbbf24; --s-jetons:#22d3ee;
+    --accent:#818cf8; --ombre:0 8px 30px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070b16; --bg2:#0e1527; --encre:#e5e7eb; --doux:#aab3c5; --pale:#8791a5; --carte:rgba(12,18,34,.86); --bord:rgba(148,163,184,.22);
+  --cortex:148,163,184; --treillis:148,163,184; --alpha:129,140,248; --beta:244,114,182; --neutre:203,213,225;
+  --s-medical:#f87171; --s-langue:#60a5fa; --s-forme:#4ade80; --s-memoire:#c084fc; --s-doleance:#fbbf24; --s-jetons:#22d3ee;
+  --accent:#818cf8; --ombre:0 8px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--encre);font:14px/1.45 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+canvas#scene{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+canvas#scene.tire{cursor:grabbing}
+.carte{position:fixed;background:var(--carte);border:1px solid var(--bord);border-radius:12px;box-shadow:var(--ombre);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+header.barre{top:12px;left:12px;right:12px;display:flex;align-items:center;gap:12px;padding:8px 12px;flex-wrap:wrap}
+header h1{font-size:16px;margin:0;letter-spacing:.2px;white-space:nowrap}
+header .sous{color:var(--doux);font-size:12.5px;flex:1 1 260px;min-width:0}
+header .cmd{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+button,select,label.bouton{font:inherit;font-size:13px;color:var(--encre);background:var(--bg2);border:1px solid var(--bord);border-radius:8px;padding:5px 9px;cursor:pointer;min-height:32px}
+button:hover,select:hover,label.bouton:hover{border-color:var(--accent)}
+button:focus-visible,select:focus-visible,label.bouton:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+label.bouton input{position:absolute;opacity:0;width:1px;height:1px}
+#legende{top:78px;left:12px;width:262px;padding:10px 12px;max-height:calc(100% - 200px);overflow:auto}
+#legende h2,#fil h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--pale);margin:8px 0 6px}
+#legende h2:first-child{margin-top:2px}
+.sig{display:flex;align-items:center;gap:8px;padding:3px 4px;border-radius:6px;cursor:pointer;user-select:none}
+.sig:hover{background:var(--bg2)}
+.sig input{margin:0;accent-color:var(--accent)}
+.pastille{width:11px;height:11px;border-radius:50%;flex:none;box-shadow:0 0 0 2px rgba(127,127,127,.15)}
+.sig .n{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--doux);font-size:12.5px}
+.resume{font-size:12.5px;color:var(--doux)}
+.resume b{color:var(--encre);font-weight:700}
+.resume table{width:100%;border-collapse:collapse;margin-top:4px}
+.resume td{padding:2px 0;vertical-align:top}
+.resume td+td{text-align:right;font-variant-numeric:tabular-nums;color:var(--encre)}
+.ligne{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+select{max-width:100%}
+#fil{right:12px;bottom:12px;width:min(470px,calc(100% - 24px));padding:8px 12px 10px}
+#fil ol{list-style:none;margin:0;padding:0;font-size:12.5px;min-height:118px}
+#fil li{display:grid;grid-template-columns:38px 108px 1fr;gap:6px;padding:2px 0;border-top:1px solid var(--bord);align-items:baseline}
+#fil li:first-child{border-top:0}
+#fil li .q{color:var(--pale);font-variant-numeric:tabular-nums}
+#fil li .r{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#fil li .m{color:var(--doux);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#temps{width:100%;accent-color:var(--accent);margin:6px 0 0}
+.etat{display:flex;justify-content:space-between;font-size:12px;color:var(--pale);font-variant-numeric:tabular-nums}
+#bulle{position:fixed;z-index:5;pointer-events:none;max-width:min(380px,calc(100vw - 24px));padding:10px 12px;font-size:12.8px;opacity:0;transition:opacity .12s;left:0;top:0}
+#bulle.vu{opacity:1}
+#bulle h3{margin:0 0 2px;font-size:14.5px}
+#bulle .ana{color:var(--accent);font-size:12px;margin-bottom:6px}
+#bulle p{margin:4px 0;color:var(--encre)}
+#bulle dl{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;margin:6px 0 0}
+#bulle dt{color:var(--pale);font-size:12px}
+#bulle dd{margin:0}
+#bulle .codes{font-size:11.8px;color:var(--doux)}
+#aide{left:12px;bottom:12px;padding:6px 10px;font-size:12px;color:var(--doux);max-width:calc(100% - 520px)}
+#depot{position:fixed;inset:0;display:none;place-items:center;background:rgba(79,70,229,.18);border:3px dashed var(--accent);z-index:9;font-size:20px;font-weight:700}
+#depot.vu{display:grid}
+details#replier>summary{display:none}
+@media (max-width:760px){
+  header.barre{top:8px;left:8px;right:8px;padding:6px 8px;gap:6px}
+  header .sous{display:none}
+  header h1{font-size:14px}
+  #legende{top:auto;bottom:8px;left:8px;right:8px;width:auto;max-height:46vh;padding:6px 10px}
+  details#replier>summary{display:list-item;cursor:pointer;font-weight:700;font-size:13px;padding:2px 0}
+  #fil{display:none}
+  #aide{display:none}
+}
+@media (max-width:760px) and (min-height:0){ #legende .cache-mobile{display:none} }
+@media (max-width:760px){ header .cmd button,header .cmd select{padding:4px 7px;font-size:12px;min-height:30px} }
+@media (prefers-reduced-motion: reduce){ #bulle{transition:none} }
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="Cerveau du BRAIN-HARNESS en 3D : glisser pour tourner, survoler pour lire chaque structure"></canvas>
+
+<header class="carte barre">
+  <h1>Cerveau BRAIN-HARNESS</h1>
+  <div class="sous">160 scriptones · zones α et β en grillages losangiques · 5 + 5 auditeurs · rejoue le journal d'événements réel</div>
+  <div class="cmd">
+    <button id="jouer" type="button" aria-pressed="true" title="Lecture ou pause (espace)">Pause</button>
+    <select id="vitesse" aria-label="Vitesse"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+    <button id="vue" type="button" title="Vue initiale (double-clic)">Recentrer</button>
+    <button id="etiq" type="button" aria-pressed="true" title="Afficher ou masquer les étiquettes">Étiquettes</button>
+    <button id="theme" type="button" title="Thème clair ou sombre">Thème</button>
+  </div>
+</header>
+
+<aside id="legende" class="carte">
+ <details id="replier" open>
+  <summary>Signaux, passage et journal</summary>
+  <h2>Signaux en circulation</h2>
+  <div id="signaux"></div>
+  <h2>Passage rejoué</h2>
+  <div class="ligne"><select id="passage" aria-label="Passage du journal"></select></div>
+  <div class="resume" id="resume"></div>
+  <h2 class="cache-mobile">Examiner une structure</h2>
+  <div class="ligne cache-mobile"><select id="examiner" aria-label="Structure à examiner"></select></div>
+  <h2>Journal</h2>
+  <div class="ligne">
+    <label class="bouton">Charger un journal…<input id="fichier" type="file" accept=".jsonl,.json,.txt,application/json"></label>
+  </div>
+  <div class="resume" id="source" style="margin-top:4px"></div>
+ </details>
+</aside>
+
+<section id="fil" class="carte" aria-live="off">
+  <h2>Fil des événements</h2>
+  <ol id="liste"></ol>
+  <input id="temps" type="range" min="0" max="1" step="1" value="0" aria-label="Position dans le journal">
+  <div class="etat"><span id="pos">—</span><span id="horloge">—</span></div>
+</section>
+
+<div id="aide" class="carte">Glisser : tourner · molette ou pincer : zoomer · survoler ou toucher : lire · double-clic : recentrer · espace : pause</div>
+<div id="bulle" class="carte" role="tooltip"></div>
+<div id="depot">Déposer le journal JSONL</div>
+
+<script>
+"use strict";
+const DATA = /*@DONNEES@*/null;
+/* ═══════════════════════ Format du journal (brain.evenement/1) ═══════════════════════
+   Une ligne JSON par événement : {"v":1,"ts":"2026-10-28T09:12:03","run":"<fichier>#<sha8>","seq":0,"type":"medical|langue|forme|memoire|doleance|jetons",
+   "de":"<nœud>","vers":"<nœud>","fichier":"…","point":1..14,"code":"AS1","severite":"CRITIQUE|GRAVE|MOYEN|DETAIL","jetons":123,"msg":"…"}
+   Nœuds : EXT (harnais externe), GARD (gardiens), GLIE (scriptones transversaux, résolus par la lettre du code), α1…α14, β1…β14, S1…S5, O1…O5,
+   BUS, PRO (écrivains), VOTE, MEM, ECO, SORTIE, ou l'identifiant d'un scriptone (a03_S, b11_C, s10_memoire…). Champs inconnus ignorés. */
+
+const TYPES = [
+  ["medical", "Médical", "fond, paquets du cours, avis de domaine"],
+  ["langue", "Langue", "phrases verbales, récit négatif, termes"],
+  ["forme", "Forme", "structure, mise en page, relais en zigzag"],
+  ["memoire", "Mémoire", "fautes déjà corrigées, historique"],
+  ["doleance", "Doléance", "verdicts, vote, gardiens, pannes"],
+  ["jetons", "Jetons", "briefs des auditeurs, économie"]
+];
+const SONNET = {1:"S1",2:"S1",3:"S1",4:"S2",5:"S2",6:"S2",7:"S3",8:"S3",9:"S3",10:"S4",11:"S4",12:"S5",13:"S5",14:"S5"};
+const SCRIPT = {}; (DATA.scriptones||[]).forEach(s => SCRIPT[s.id] = s);
+const PTS = DATA.points || {};
+const pt = n => (PTS[n] && PTS[n].titre) || ("point " + n);
+const court = n => (PTS[n] && PTS[n].court) || ("point " + n);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fr = n => Number(n).toLocaleString("fr-CH");
+
+/* ═══════════════════════ Géométrie (unités arbitraires ; −z = avant, +y = haut, −x = gauche) ═══════════════════════ */
+const N = {};            // nœuds : id → {id, p, r, kind, col, label, info}
+const ORDRE = [];
+function noeud(id, p, o){ const n = Object.assign({id, p, r:7, kind:"noeud", pulse:0, pcol:null}, o); N[id] = n; ORDRE.push(n); return n; }
+
+// hémisphères : demi-ellipsoïdes aplatis côté médian, circonvolutions par perturbation
+function surf(side, th, ph){ // th ∈ [0,π] (haut→bas), ph ∈ [0,2π)
+  const sx = Math.sin(th)*Math.cos(ph), sy = Math.cos(th), sz = Math.sin(th)*Math.sin(ph);
+  const lat = sx*side > 0;                       // côté latéral
+  const a = lat ? 128 : 104, b = sy > 0 ? 168 : 118, c = 268 - (sy < 0 ? 18 : 0);
+  const g = 1 + 0.035*Math.sin(9*th + 3*ph) * Math.sin(6*ph + 1.3*side) + 0.02*Math.sin(17*ph);
+  let x = side*112 + a*sx*g, y = b*sy*g, z = c*sz*g;
+  if (side*x < 9) x = side*9;                    // scissure interhémisphérique
+  if (y < -70 && z > 120) y = -70 + (y + 70)*0.35; // face inférieure postérieure (place du cervelet)
+  return [x, y, z];
+}
+const CORTEX = [];       // polylignes
+const COQUE = {g:[], d:[]};
+(function(){
+  for (const side of [-1, 1]) {
+    for (let i = 1; i < 14; i++) { const th = i*Math.PI/14, L = []; for (let k = 0; k <= 72; k++) L.push(surf(side, th, k*2*Math.PI/72)); CORTEX.push(L); }
+    for (let k = 0; k < 18; k++) { const ph = k*2*Math.PI/18, L = []; for (let i = 0; i <= 36; i++) L.push(surf(side, i*Math.PI/36, ph)); CORTEX.push(L); }
+    const C = side < 0 ? COQUE.g : COQUE.d;
+    for (let i = 0; i <= 24; i++) for (let k = 0; k < 36; k++) C.push(surf(side, i*Math.PI/24, k*2*Math.PI/36));
+  }
+})();
+// cervelet, tronc cérébral, corps calleux, hippocampes, bande motrice
+const CERVELET = [], CERV_COQUE = [];
+(function(){
+  const c = [0, -112, 196];
+  for (let i = 1; i < 12; i++) { const th = i*Math.PI/12, L = []; for (let k = 0; k <= 48; k++) { const ph = k*2*Math.PI/48; L.push([c[0] + 150*Math.sin(th)*Math.cos(ph), c[1] + 58*Math.cos(th), c[2] + 74*Math.sin(th)*Math.sin(ph)]); } CERVELET.push(L); }
+  for (let i = 0; i <= 12; i++) for (let k = 0; k < 24; k++) { const th = i*Math.PI/12, ph = k*2*Math.PI/24; CERV_COQUE.push([c[0] + 150*Math.sin(th)*Math.cos(ph), c[1] + 58*Math.cos(th), c[2] + 74*Math.sin(th)*Math.sin(ph)]); }
+})();
+const TRONC = []; (function(){ for (let k = 0; k < 10; k++) { const a = k*2*Math.PI/10, L = []; for (let i = 0; i <= 10; i++) { const t = i/10, r = 34 - 8*t; L.push([r*Math.cos(a), -70 - 190*t, 62 + 34*t + r*Math.sin(a)]); } TRONC.push(L); } })();
+const CALLEUX = []; for (let i = 0; i <= 30; i++) { const t = i/30, z = -120 + 260*t; CALLEUX.push([0, 58 + 42*Math.sin(Math.PI*t) - (t > .85 ? 30*(t - .85)/.15 : 0), z]); }
+const HIPPO = [-1, 1].map(s => { const L = []; for (let i = 0; i <= 24; i++) { const t = i/24; L.push([s*(46 + 12*t), -108 + 50*t*t, -10 + 150*t]); } return L; });
+const MOTEUR = []; for (let i = 0; i <= 40; i++) { const t = i/40, x = -230 + 460*t; MOTEUR.push([x, 120 + 46*Math.cos(Math.PI*(t - .5)) - (Math.abs(x) < 14 ? 26 : 0), -40 + 10*Math.sin(6*t)]); }
+
+// harnais externe : anneau sous le cerveau, 14 perles (une par point)
+const RX = 318, RZ = 372, RY = -196;
+const ANNEAU = []; for (let k = 0; k <= 96; k++) { const a = k*2*Math.PI/96; ANNEAU.push([RX*Math.sin(a), RY, -RZ*Math.cos(a)]); }
+noeud("EXT", [0, RY, -RZ], {r:10, kind:"pivot", col:"neutre", label:"Harnais externe de collecte"});
+for (let n = 1; n <= 14; n++) { const a = -(0.90 - (n - 1)/13*0.80)*Math.PI; noeud("EXT" + n, [RX*Math.sin(a), RY, -RZ*Math.cos(a)], {r:5, kind:"perle", col:"neutre", point:n, num:n}); }
+
+// grillages losangiques α (x = −150) et β (x = +150)
+const PAS_Z = -28, Z0 = 182, LIG = [-24, 28, 80, 132];
+const TREILLIS = {alpha:[], beta:[]};
+function grille(zone, x){
+  const V = {}; for (let r = 0; r < 4; r++) for (let k = -1; k <= 14; k++) if ((((k + r) % 2) + 2) % 2 === 0) V[k + "," + r] = [x, LIG[r], Z0 + PAS_Z*k];
+  for (const key in V) { const [k, r] = key.split(",").map(Number); for (const d of [1, -1]) { const w = V[(k + 1) + "," + (r + d)]; if (w) TREILLIS[zone].push([V[key], w]); } }
+  TREILLIS[zone + "_v"] = Object.values(V);
+}
+grille("alpha", -152); grille("beta", 152);
+const FAMA = Object.keys(DATA.fam_a || {S:1,R:1,H:1,Q:1,D:1}), FAMB = Object.keys(DATA.fam_b || {X:1,C:1,S:1,M:1,L:1});
+for (const [zone, x, g, fam, pre] of [["alpha", -152, "α", FAMA, "a"], ["beta", 152, "β", FAMB, "b"]]) {
+  for (let n = 1; n <= 14; n++) {
+    const p = [x, n % 2 ? LIG[2] : LIG[1], Z0 + PAS_Z*(n - 1)];
+    noeud(g + n, p, {r:8.5, kind:"synapse", zone, col:zone, point:n, num:n});
+    fam.forEach((f, i) => { const a = -Math.PI/2 + i*2*Math.PI/fam.length, id = pre + String(n).padStart(2, "0") + "_" + f;
+      noeud(id, [x + (zone === "alpha" ? -1 : 1)*3, p[1] + 15*Math.cos(a), p[2] + 15*Math.sin(a)], {r:2.6, kind:"scriptone", zone, col:zone, point:n, fam:f, parent:g + n}); });
+  }
+}
+// auditeurs, bus et structures profondes
+const COL_S = ["#38bdf8", "#0ea5e9", "#6366f1", "#8b5cf6", "#14b8a6"], COL_O = ["#f43f5e", "#f97316", "#e11d48", "#a855f7", "#ec4899"];
+const ZS = [154, 70, -14, -84, -154];
+for (let i = 1; i <= 5; i++) noeud("S" + i, [-48, 24, ZS[i - 1]], {r:11, kind:"auditeur", hex:COL_S[i - 1], num:"S" + i});
+for (let i = 1; i <= 5; i++) noeud("O" + i, [60, -66, 150 - 75*(i - 1)], {r:12, kind:"auditeur", hex:COL_O[i - 1], num:"O" + i});
+noeud("BUS", [0, -6, 10], {r:14, kind:"pivot", col:"neutre", label:"Bus de doléances · thalamus"});
+noeud("VOTE", [0, 100, 18], {r:10, kind:"pivot", col:"neutre", label:"Vote α/β · corps calleux"});
+noeud("PRO", [0, 136, -42], {r:11, kind:"pivot", col:"neutre", label:"Écrivains · cortex moteur"});
+noeud("MEM", [0, -104, 112], {r:11, kind:"pivot", col:"neutre", label:"Mémoire · hippocampe"});
+noeud("ECO", [0, -60, -124], {r:9, kind:"pivot", col:"neutre", label:"Économie · hypothalamus"});
+noeud("GARD", [0, -104, 222], {r:10, kind:"pivot", col:"neutre", label:"Gardiens · cervelet"});
+noeud("SORTIE", [0, -262, 96], {r:12, kind:"pivot", col:"neutre", label:"Sortie · tronc cérébral"});
+// 20 scriptones transversaux (cellules gliales), placés près de la structure qu'ils servent
+const GLIE = {
+  s1_police:[-118, 128, 40], s2_rythme:[-70, 150, 70], s5_arbre:[70, 150, 70], s6_barre14:[118, 128, 40], s8_tableaux:[-40, 158, 112], s20_ancres:[40, 158, 112],
+  s3_concision:[-206, -18, -70], s4_budget:[-196, -34, -10], s9_sources:[-44, 56, -236], s7_captures:[0, 52, 252],
+  s10_memoire:[-34, -112, 150], s19_couverture:[34, -112, 150], s11_collecteur:[-60, RY, -RZ + 18], s17_brief:[-26, -26, -16],
+  s12_ordonnanceur:[24, 10, -24], s14_journal:[28, -24, 34], s18_vote:[22, 104, 44], s13_disjoncteur:[-52, -110, 224], s15_gardien:[52, -110, 224], s16_economie:[24, -70, -146]
+};
+for (const id in GLIE) noeud(id, GLIE[id], {r:4.2, kind:"glie", col:"neutre"});
+const LETTRE = {P:"s1_police",L:"s2_rythme",C:"s3_concision",B:"s4_budget",A:"s5_arbre",N:"s6_barre14",V:"s7_captures",T:"s8_tableaux",I:"s9_sources",M:"s10_memoire",
+  K:"s11_collecteur",O:"s12_ordonnanceur",Z:"s13_disjoncteur",J:"s14_journal",G:"s15_gardien",W:"s16_economie",F:"s17_brief",X:"s18_vote",U:"s19_couverture",Y:"s20_ancres"};
+// faisceaux du circuit (statique) : montrent le trajet même sans événement
+const FAISCEAUX = [];
+const F = (a, b, k) => FAISCEAUX.push([a, b, k || "neutre"]);
+F("EXT", "EXT1"); for (let n = 1; n <= 14; n++) F("EXT" + n, "α" + n, "alpha");
+for (let n = 1; n < 14; n++) { F("α" + n, "α" + (n + 1), "zigzag-a"); F("β" + n, "β" + (n + 1), "zigzag-b"); }
+for (let n = 1; n <= 14; n++) { F("α" + n, SONNET[n], "alpha"); F(SONNET[n], "β" + n, "beta"); }
+["S1","S2","S3","S4","S5","O1","O2","O3","O4","O5","PRO","VOTE","MEM","ECO","GARD"].forEach(x => F("BUS", x));
+for (let i = 1; i <= 5; i++) { F("VOTE", "O" + i, "beta"); F("O" + i, "SORTIE", "beta"); }
+F("ECO", "SORTIE"); F("BUS", "SORTIE"); F("EXT", "GARD");
+
+/* ═══════════════════════ Annotations (nom, rôle, entrées, sorties) ═══════════════════════ */
+const OPUS_DOM = {O1:"fond médical (points 3, 8, 11 ; désaccords médicaux)", O2:"épidémiologie, prévention, doléances et mémoire (points 2, 12)", O3:"démarche clinique (points 4 à 7, 9, 10)", O4:"langue (phrases verbales, termes, récit)", O5:"forme et jetons (mise en page, tableaux, budget)"};
+const SON_PTS = {S1:"1 à 3", S2:"4 à 6", S3:"7 à 9", S4:"10 et 11", S5:"12 à 14"};
+const FIXE = {
+  EXT:{t:"Harnais externe de collecte", a:"nerfs afférents (s11 · gratuit)", r:"Lit le fichier brut sans le modifier, refuse une entrée cassée (K1–K5), découpe le cours en 14 paquets et les transmet de nœud en nœud, point par point.", e:"fichier HTML du cours", s:"14 paquets (jetons comptés) vers α1…α14 ; refus à l'entrée si faute critique"},
+  BUS:{t:"Bus de doléances", a:"thalamus : relais central", r:"Valide chaque contrat brain.scriptone/1, déduplique par identifiant, ordonne les écrivains (un par zone, s12), compile les briefs (s17) et journalise (s14).", e:"doléances typées des 160 scriptones", s:"briefs vers S1–S5 et O1–O5, journal, verdict"},
+  VOTE:{t:"Nœud de vote α/β", a:"corps calleux : confronte les deux hémisphères", r:"Compare α et β point par point (s18) ; un désaccord part vers l'auditeur Opus du domaine.", e:"doléances α et β du même point", s:"table de routage vers O1–O5"},
+  PRO:{t:"Écrivains", a:"cortex moteur : seul à agir sur le texte", r:"Appliquent les corrections mécaniques dans l'ordre canonique jusqu'au point fixe (4 tours au plus) ; une zone, un écrivain.", e:"doléances [script]", s:"texte corrigé, relu par α puis β"},
+  MEM:{t:"Mémoire", a:"hippocampe", r:"Rappelle les fautes déjà corrigées (s10), mesure la couverture du cumul (s19) et garde 5 passages : mêmes doléances deux fois de suite, fichier bloqué.", e:"doléances ouvertes, memoire_fautes.json", s:"doléances M1–M8, verdict de stagnation"},
+  ECO:{t:"Économie de jetons", a:"hypothalamus : homéostasie du budget", r:"Compte les jetons par étage (s16) : relecture intégrale contre briefs ; plafonds de 6 000 par paquet et 60 000 par fichier.", e:"paquets, briefs", s:"mesure de la réduction, alertes W1–W3"},
+  GARD:{t:"Gardiens et disjoncteurs", a:"cervelet : contrôle d'erreur", r:"Vérifient les empreintes SHA-256 des scriptones (s15) ; ouvrent le disjoncteur d'une synapse en panne et ré-routent vers son jumeau, sinon escaladent (s13).", e:"SHA256SUMS, registre, pannes", s:"arrêt si altération ; Z1–Z4 vers le bus"},
+  SORTIE:{t:"Sortie", a:"tronc cérébral : efférences", r:"Seul un cours sans faute grave ouverte sort audité ; sinon retour aux nœuds, ou blocage en cas de stagnation.", e:"verdict du bus, avis de domaine O1–O5", s:"cours audité ou retour"},
+  CORTEX_G:{t:"Cortex transparent · hémisphère gauche", a:"enveloppe", r:"Laisse voir tout le circuit. L'hémisphère gauche porte la zone α : concision, forme et langue, écrivaine des corrections sûres.", e:"—", s:"—"},
+  CORTEX_D:{t:"Cortex transparent · hémisphère droit", a:"enveloppe", r:"L'hémisphère droit porte la zone β, indépendante d'α : exhaustivité, cohérence chiffrée, sources, contre-épreuve et langue adverse.", e:"—", s:"—"},
+  CERVELET:{t:"Cervelet", a:"contrôle d'erreur", r:"Abrite les gardiens (s15) et les disjoncteurs (s13) : auto-adaptation en cas de panne.", e:"pannes, empreintes", s:"ré-routage, escalade"}
+};
+function fiche(n){
+  const id = n.id;
+  if (FIXE[id]) return Object.assign({}, FIXE[id]);
+  if (/^EXT\d+$/.test(id)) return {t:"Paquet " + n.point + " · " + pt(n.point), a:"perle du harnais externe", r:"Extrait le texte du point " + n.point + " et le transmet à α" + n.point + ", sans rien modifier.", e:"fichier brut", s:"paquet du point " + n.point + " vers α" + n.point};
+  if (n.kind === "synapse") {
+    const A = n.zone === "alpha", g = A ? "α" : "β", fam = A ? DATA.fam_a : DATA.fam_b, pre = A ? "a" : "b";
+    const ids = Object.keys(fam).map(f => pre + String(n.point).padStart(2, "0") + "_" + f);
+    const ecr = ids.flatMap(i => (SCRIPT[i] && SCRIPT[i].ecrit) || []);
+    return {t:"Synapse " + g + n.point + " · " + pt(n.point), a:A ? "zone α · grillage losangique gauche" : "zone β · second grillage, indépendant d'α",
+      r:(A ? "Contrôle obsessionnel du point " + n.point + " en concision et en forme ; " : "Relecture adverse du point " + n.point + " (autre méthode, texte corrigé) ; ") + "5 scriptones : " + Object.entries(fam).map(([f, v]) => f + " " + v.nom).join(" · ") + ".",
+      e:(A ? "paquet du point " + n.point + " (harnais externe)" : "paquet relu par " + SONNET[n.point]) + (n.point > 1 ? " ; relais de " + g + (n.point - 1) : ""),
+      s:"doléances typées vers le bus" + (n.point < 14 ? " ; relais vers " + g + (n.point + 1) : "") + (A ? " ; vers " + SONNET[n.point] : " ; vers le vote"),
+      z:ecr.length ? ecr.join(", ") : "aucune (lectrice)", j:(A ? "β" : "α") + n.point};
+  }
+  if (n.kind === "auditeur") {
+    const S = id[0] === "S";
+    return S ? {t:"Auditeur " + id + " · Sonnet 5.5 (moyen)", a:"nœud coloré de la zone β", r:"Applique les doléances [agent] des points " + SON_PTS[id] + " telles quelles, sans relire tout le fichier.", e:"brief compilé (s17) : doléances [agent] et paquets des points touchés", s:"corrections ; paquet relu vers β"}
+             : {t:"Auditeur " + id + " · Opus 5.5", a:"dernier nœud coloré, spécialisé", r:"Domaine : " + OPUS_DOM[id] + ". Juge ce qu'un script ne juge pas (clinique, recommandations, sources).", e:"brief β et désaccords du vote", s:"avis de domaine vers la sortie"};
+  }
+  const s = SCRIPT[id];
+  if (s) return {t:s.id + " · " + s.nom, a:(s.zone === "transversal" ? "scriptone transversal (cellule gliale) · région " + s.region : "scriptone de la synapse " + s.synapse + " · famille " + s.famille), r:s.fonction,
+    e:s.entree, s:s.sortie, z:(s.ecrit && s.ecrit.length) ? s.ecrit.join(", ") : "aucune (lecteur)", j:s.jumeau || "—", c:(s.mutants || []).join(" "), h:s.sha256, etat:s.etat};
+  return {t:id, a:"", r:"", e:"", s:""};
+}
+
+/* ═══════════════════════ Journal ═══════════════════════ */
+let EV = [], RUNS = [], RUN = "*", SEL = [];
+function chargerTexte(txt, nom){
+  const out = [];
+  String(txt).split(/\r?\n/).forEach(l => { l = l.trim(); if (!l) return; try { const e = JSON.parse(l); if (e && e.type && e.de && e.vers) out.push(e); } catch (_) {} });
+  if (!out.length) { try { const a = JSON.parse(txt); if (Array.isArray(a)) a.forEach(e => e && e.type && out.push(e)); } catch (_) {} }
+  if (!out.length) { document.getElementById("source").textContent = "Aucun événement lisible dans " + nom + "."; return false; }
+  EV = out; RUNS = [...new Set(EV.map(e => e.run || "—"))];
+  document.getElementById("source").innerHTML = "<b>" + esc(nom) + "</b> · " + fr(EV.length) + " événements · " + RUNS.length + " passage(s)";
+  const sel = document.getElementById("passage");
+  sel.innerHTML = '<option value="*">Tous les passages (' + RUNS.length + ")</option>" + RUNS.map(r => '<option value="' + esc(r) + '">' + esc(r.replace(/#.*/, "").replace(/_Phase_B_V0_/, " ").replace(/\.html$/, "")) + "</option>").join("");
+  RUN = RUNS.length > 1 ? RUNS[1] : "*"; sel.value = RUN; choisir();
+  return true;
+}
+function choisir(){
+  SEL = EV.filter(e => RUN === "*" || (e.run || "—") === RUN);
+  const T = document.getElementById("temps"); T.max = Math.max(0, SEL.length - 1); recommencer(0); resume(); STATS = null;
+}
+function resume(){
+  const L = SEL, f = x => fr(x);
+  const runs = RUN === "*" ? RUNS : [RUN], lignes = [];
+  let briefs = 0, base = 0;
+  for (const r of runs) {
+    const E = EV.filter(e => (e.run || "—") === r);
+    const eco = E.filter(e => e.de === "ECO" && e.vers === "SORTIE").pop(), m = eco && /(\d+)\s*jetons/.exec(eco.msg || "");
+    if (eco) { briefs += eco.jetons || 0; base += m ? 10*Number(m[1]) : 0; }
+  }
+  const verdict = RUN === "*" ? null : (L.filter(e => e.de === "BUS" && e.vers === "SORTIE").pop() || {}).msg;
+  const sev = {CRITIQUE:0, GRAVE:0, MOYEN:0, DETAIL:0}; L.forEach(e => { if (e.severite in sev) sev[e.severite]++; });
+  let h = "";
+  if (verdict) h += "<div style='margin:4px 0'><b>" + esc(verdict) + "</b></div>";
+  h += "<table>";
+  h += "<tr><td>Événements</td><td>" + f(L.length) + "</td></tr>";
+  h += "<tr><td>Doléances critiques · graves</td><td>" + f(sev.CRITIQUE) + " · " + f(sev.GRAVE) + "</td></tr>";
+  h += "<tr><td>Doléances moyennes · détails</td><td>" + f(sev.MOYEN) + " · " + f(sev.DETAIL) + "</td></tr>";
+  if (base) {
+    h += "<tr><td>Relecture intégrale, 10 nœuds</td><td>" + f(base) + " j.</td></tr>";
+    h += "<tr><td>Briefs des 10 auditeurs</td><td>" + f(briefs) + " j.</td></tr>";
+    h += "<tr><td><b>Réduction mesurée</b></td><td><b>" + (100*(1 - briefs/base)).toFixed(1).replace(".", ",") + " %</b></td></tr>";
+  }
+  document.getElementById("resume").innerHTML = h + "</table>";
+}
+let STATS = null;
+function stats(){
+  if (STATS) return STATS;
+  const S = {}; const g = id => S[id] || (S[id] = {in:0, out:0, sev:{}, jet:0, codes:{}, types:{}});
+  for (const e of SEL) {
+    const a = resoudre(e.de, e), b = resoudre(e.vers, e);
+    const A = g(a.id), B = g(b.id); A.out++; B.in++;
+    if (e.jetons) B.jet += e.jetons;
+    const tgt = (b.id === "BUS" || b.id === "SORTIE") ? A : B;
+    if (e.severite) tgt.sev[e.severite] = (tgt.sev[e.severite] || 0) + 1;
+    if (e.code) tgt.codes[e.code] = (tgt.codes[e.code] || 0) + 1;
+    A.types[e.type] = (A.types[e.type] || 0) + 1;
+    if (a.kind === "synapse" && e.code && /^[AB][A-Z]\d/.test(e.code)) { const sid = (a.zone === "alpha" ? "a" : "b") + String(a.point).padStart(2, "0") + "_" + e.code[1];
+      if (N[sid]) { const X = g(sid); X.out++; X.codes[e.code] = (X.codes[e.code] || 0) + 1; if (e.severite) X.sev[e.severite] = (X.sev[e.severite] || 0) + 1; } }
+    if (a.parent) { const P = g(a.parent); P.out++; if (e.code) P.codes[e.code] = (P.codes[e.code] || 0) + 1; if (e.severite) P.sev[e.severite] = (P.sev[e.severite] || 0) + 1; }
+  }
+  return STATS = S;
+}
+function resoudre(nom, e){
+  if (N[nom]) {
+    if (nom === "EXT" && e && e.point && e.vers !== "EXT" && e.de === "EXT" && N["EXT" + e.point]) return N["EXT" + e.point];
+    return N[nom];
+  }
+  if (nom === "GLIE" && e && e.code) { const s = LETTRE[e.code[0]]; if (s && N[s]) return N[s]; }
+  const m = /^([ab])(\d\d)_([A-Z])$/.exec(nom || ""); if (m && N[nom]) return N[nom];
+  if (/^s\d+_/.test(nom) && N[nom]) return N[nom];
+  return N.BUS;
+}
+
+/* ═══════════════════════ Projection et caméra ═══════════════════════ */
+const cv = document.getElementById("scene"), ctx = cv.getContext("2d");
+let W = 0, H = 0, DPR = 1, rotY = -0.95, rotX = 0.45, zoom = 1, auto = true, dernierGeste = 0;
+const VUE0 = {rotY:-0.95, rotX:0.45, zoom:1};
+let ech = 1, cx0 = 0, cy0 = 0;
+function taille(){
+  DPR = Math.min(2, window.devicePixelRatio || 1); W = innerWidth; H = innerHeight;
+  cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  const mob = W < 760; PETIT = mob;
+  ech = Math.min(W/(mob ? 600 : 900), (H - (mob ? 170 : 90))/(mob ? 700 : 680));
+  cx0 = mob ? W/2 : (W > 1100 ? W/2 + 60 : W/2 + 40); cy0 = mob ? H*0.44 : H/2 + 18;
+}
+let cY, sY, cX, sX;
+function camera(){ cY = Math.cos(rotY); sY = Math.sin(rotY); cX = Math.cos(rotX); sX = Math.sin(rotX); }
+function P(p){
+  const x1 = p[0]*cY + p[2]*sY, z1 = -p[0]*sY + p[2]*cY;
+  const y1 = p[1]*cX - z1*sX, z2 = p[1]*sX + z1*cX;
+  const f = 1150/(1150 + z2)*ech*zoom;
+  return {x:cx0 + x1*f, y:cy0 - (y1 + 40)*f, z:z2, f};
+}
+const prof = z => Math.max(0.18, Math.min(1, 0.62 - z/700));
+
+/* ═══════════════════════ Palette (tokens CSS) ═══════════════════════ */
+let PAL = {};
+function palette(){
+  const s = getComputedStyle(document.documentElement), v = k => s.getPropertyValue(k).trim();
+  PAL = {bg:v("--bg"), bg2:v("--bg2"), encre:v("--encre"), doux:v("--doux"), cortex:v("--cortex"), treillis:v("--treillis"), alpha:v("--alpha"), beta:v("--beta"), neutre:v("--neutre"), accent:v("--accent"), sombre:luminance(v("--bg")) < 0.3};
+  TYPES.forEach(([k]) => PAL[k] = v("--s-" + k));
+}
+function luminance(h){ const m = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})/i.exec(h); if (!m) return 1; return (0.2126*parseInt(m[1], 16) + 0.7152*parseInt(m[2], 16) + 0.0722*parseInt(m[3], 16))/255; }
+const rgba = (rgb, a) => "rgba(" + rgb + "," + a.toFixed(3) + ")";
+function hexA(h, a){ const m = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})/i.exec(h); return m ? "rgba(" + parseInt(m[1], 16) + "," + parseInt(m[2], 16) + "," + parseInt(m[3], 16) + "," + a.toFixed(3) + ")" : h; }
+function couleurNoeud(n){ if (n.hex) return n.hex; const rgb = PAL[n.col] || PAL.neutre; return "rgb(" + rgb + ")"; }
+
+/* ═══════════════════════ Animation des événements ═══════════════════════ */
+let jouer = true, vitesse = 1, tSim = 0, idx = 0, PART = [], RECENTS = [], COMPTE = {}, ACTIF = {}, pauseFin = 0;
+TYPES.forEach(([k]) => ACTIF[k] = true);
+const PAS = 0.11;   // secondes entre deux événements à 1×
+function recommencer(i){ idx = i || 0; tSim = idx*PAS; PART = []; RECENTS = []; COMPTE = {}; TYPES.forEach(([k]) => COMPTE[k] = 0); for (let j = 0; j < idx; j++) COMPTE[SEL[j].type] = (COMPTE[SEL[j].type] || 0) + 1; majSignaux(); majFil(); }
+function emettre(e){
+  COMPTE[e.type] = (COMPTE[e.type] || 0) + 1;
+  RECENTS.unshift(e); if (RECENTS.length > 7) RECENTS.pop();
+  if (!ACTIF[e.type]) return;
+  const a = resoudre(e.de, e), b = resoudre(e.vers, e);
+  const dur = (a === b ? 0.7 : 1.35)/Math.sqrt(vitesse);
+  const sev = e.severite === "CRITIQUE" ? 2.1 : e.severite === "GRAVE" ? 1.6 : 1.15;
+  PART.push({e, a, b, t:0, dur, sev, col:e.type});
+  if (PART.length > 420) PART.splice(0, PART.length - 420);
+}
+function pointCourbe(A, B, u, droit){
+  if (droit) return [A[0] + (B[0] - A[0])*u, A[1] + (B[1] - A[1])*u, A[2] + (B[2] - A[2])*u];
+  const C = [(A[0] + B[0])*0.30, (A[1] + B[1])*0.5 + 34, (A[2] + B[2])*0.30];
+  const v = 1 - u; return [v*v*A[0] + 2*v*u*C[0] + u*u*B[0], v*v*A[1] + 2*v*u*C[1] + u*u*B[1], v*v*A[2] + 2*v*u*C[2] + u*u*B[2]];
+}
+function avancer(dt){
+  if (jouer && SEL.length) {
+    if (idx >= SEL.length) { pauseFin += dt; if (pauseFin > 2.5) { pauseFin = 0; recommencer(0); } }
+    else { tSim += dt*vitesse; let k = 0; while (idx < SEL.length && idx*PAS <= tSim && k < 40) { emettre(SEL[idx]); idx++; k++; } if (k) { majSignaux(); majFil(); } }
+  }
+  for (const p of PART) { p.t += dt/p.dur; if (p.t >= 1 && !p.fini) { p.fini = true; p.b.pulse = 1; p.b.pcol = PAL[p.col]; } }
+  PART = PART.filter(p => p.t < 1.25);
+  for (const n of ORDRE) if (n.pulse > 0) n.pulse = Math.max(0, n.pulse - dt*1.6);
+}
+
+/* ═══════════════════════ Dessin ═══════════════════════ */
+let SURVOL = null, CIBLES = [];
+function polyligne(L, style, w, alphaFn){
+  // segments regroupés en 4 tranches de profondeur
+  const T = [[], [], [], []];
+  let pr = P(L[0]);
+  for (let i = 1; i < L.length; i++) { const q = P(L[i]); const a = alphaFn((pr.z + q.z)/2); T[Math.min(3, Math.floor(a*4))].push(pr, q); pr = q; }
+  T.forEach((S, k) => { if (!S.length) return; ctx.beginPath(); for (let i = 0; i < S.length; i += 2) { ctx.moveTo(S[i].x, S[i].y); ctx.lineTo(S[i + 1].x, S[i + 1].y); } ctx.strokeStyle = style((k + 0.5)/4); ctx.lineWidth = w; ctx.stroke(); });
+}
+function coque(pts){
+  const Q = pts.map(P).map(q => [q.x, q.y]).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cr = (o, a, b) => (a[0] - o[0])*(b[1] - o[1]) - (a[1] - o[1])*(b[0] - o[0]);
+  const lo = [], hi = [];
+  for (const p of Q) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop(); lo.push(p); }
+  for (let i = Q.length - 1; i >= 0; i--) { const p = Q[i]; while (hi.length >= 2 && cr(hi[hi.length - 2], hi[hi.length - 1], p) <= 0) hi.pop(); hi.push(p); }
+  hi.pop(); lo.pop(); return lo.concat(hi);
+}
+function dansPoly(x, y, poly){ let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > y) !== (yj > y) && x < (xj - xi)*(y - yi)/(yj - yi) + xi) c = !c; } return c; }
+let HULLS = {};
+function dessiner(){
+  camera();
+  ctx.fillStyle = PAL.bg; ctx.fillRect(0, 0, W, H);
+  const g = ctx.createRadialGradient(cx0, cy0, 10, cx0, cy0, Math.max(W, H)*0.6);
+  g.addColorStop(0, PAL.sombre ? "rgba(79,70,229,0.10)" : "rgba(79,70,229,0.06)"); g.addColorStop(1, "rgba(0,0,0,0)"); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const k = PAL.sombre ? 1 : 1.25;
+  // coques (cortex transparent, cervelet)
+  HULLS.g = coque(COQUE.g); HULLS.d = coque(COQUE.d); HULLS.c = coque(CERV_COQUE);
+  for (const [h, rgb, a] of [[HULLS.c, PAL.cortex, .05], [HULLS.g, PAL.alpha, .055], [HULLS.d, PAL.beta, .055]]) {
+    ctx.beginPath(); h.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
+    ctx.fillStyle = rgba(rgb, a*k); ctx.fill(); ctx.strokeStyle = rgba(PAL.cortex, .28*k); ctx.lineWidth = 1.1; ctx.stroke();
+  }
+  // anneau du harnais externe (derrière / devant selon la profondeur)
+  ctx.setLineDash([5, 6]); polyligne(ANNEAU, a => rgba(PAL.neutre, (.15 + .5*a)*k), 1.4, prof); ctx.setLineDash([]);
+  // circonvolutions
+  for (const L of CORTEX) polyligne(L, a => rgba(PAL.cortex, (.03 + .16*a)*k), .8, prof);
+  for (const L of CERVELET) polyligne(L, a => rgba(PAL.cortex, (.04 + .16*a)*k), .8, prof);
+  for (const L of TRONC) polyligne(L, a => rgba(PAL.cortex, (.06 + .2*a)*k), .9, prof);
+  // structures profondes
+  polyligne(CALLEUX, a => rgba(PAL.neutre, (.25 + .5*a)*k), 5, prof);
+  HIPPO.forEach(L => polyligne(L, a => hexA(PAL.memoire, .25 + .5*a), 5, prof));
+  polyligne(MOTEUR, a => rgba(PAL.neutre, (.10 + .3*a)*k), 3, prof);
+  // grillages losangiques
+  for (const [z, rgb] of [["alpha", PAL.alpha], ["beta", PAL.beta]]) {
+    const T = [[], []]; for (const [A, B] of TREILLIS[z]) { const a = P(A), b = P(B); T[prof((a.z + b.z)/2) > .5 ? 1 : 0].push(a, b); }
+    T.forEach((S, i) => { ctx.beginPath(); for (let j = 0; j < S.length; j += 2) { ctx.moveTo(S[j].x, S[j].y); ctx.lineTo(S[j + 1].x, S[j + 1].y); } ctx.strokeStyle = rgba(rgb, (i ? .55 : .28)*k); ctx.lineWidth = 1.1; ctx.stroke(); });
+    for (const v of TREILLIS[z + "_v"]) { const q = P(v); ctx.fillStyle = rgba(rgb, .55*prof(q.z)); ctx.fillRect(q.x - 1.5, q.y - 1.5, 3, 3); }
+  }
+  // faisceaux du circuit
+  for (const [a, b, kind] of FAISCEAUX) {
+    const A = N[a].p, B = N[b].p, zig = kind.startsWith("zigzag"), L = []; for (let i = 0; i <= (zig ? 1 : 14); i++) L.push(pointCourbe(A, B, i/(zig ? 1 : 14), zig));
+    const rgb = kind === "alpha" || kind === "zigzag-a" ? PAL.alpha : kind === "beta" || kind === "zigzag-b" ? PAL.beta : PAL.neutre;
+    polyligne(L, x => rgba(rgb, (zig ? .5 + .45*x : .06 + .16*x)*k), zig ? 2.4 : 1, prof);
+  }
+  // nœuds et particules, triés par profondeur
+  const D = []; CIBLES = [];
+  for (const n of ORDRE) { const q = P(n.p); n.q = q; D.push({z:q.z, f:() => dessinerNoeud(n, q)}); CIBLES.push({n, x:q.x, y:q.y, r:Math.max(6, n.r*q.f*1.1), z:q.z}); }
+  for (const p of PART) { const u = Math.min(1, p.t); const pos = pointCourbe(p.a.p, p.b.p, u, p.a === p.b || /zigzag|relais/.test(p.e.msg || "")); const q = P(pos); D.push({z:q.z - 1, f:() => dessinerParticule(p, q, u)}); }
+  D.sort((a, b) => b.z - a.z).forEach(d => d.f());
+  etiquettes();
+}
+function dessinerNoeud(n, q){
+  const a = prof(q.z), r = n.r*q.f, col = couleurNoeud(n), surv = SURVOL && (SURVOL === n || SURVOL.parent === n.id);
+  if (n.pulse > 0 && n.pcol) { ctx.beginPath(); ctx.arc(q.x, q.y, r*(1.6 + 1.4*(1 - n.pulse)), 0, 7); ctx.strokeStyle = hexA(n.pcol, .75*n.pulse); ctx.lineWidth = 2.2; ctx.stroke(); }
+  if (n.kind === "scriptone") { ctx.beginPath(); ctx.arc(q.x, q.y, Math.max(1.6, r), 0, 7); ctx.fillStyle = surv ? PAL.accent : rgba(n.zone === "alpha" ? PAL.alpha : PAL.beta, .35 + .55*a); ctx.fill(); return; }
+  if (n.kind === "glie") { star(q.x, q.y, Math.max(3, r*1.3), surv ? PAL.accent : rgba(PAL.neutre, .35 + .6*a)); return; }
+  if (n.kind === "perle") { ctx.beginPath(); ctx.arc(q.x, q.y, Math.max(3, r), 0, 7); ctx.fillStyle = rgba(PAL.neutre, .3 + .6*a); ctx.fill();
+    if (a > .35) { ctx.fillStyle = rgba(PAL.neutre, .5 + .5*a); ctx.font = "700 " + Math.max(9, 10*q.f) + "px 'Atkinson Hyperlegible',system-ui"; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(n.num, q.x, q.y + r + 2); } return; }
+  // synapses, auditeurs, pivots : disque plein, anneau, numéro
+  const g = ctx.createRadialGradient(q.x - r*.35, q.y - r*.35, r*.1, q.x, q.y, r*1.05);
+  const base = n.kind === "synapse" ? rgba(n.zone === "alpha" ? PAL.alpha : PAL.beta, 1) : col;
+  g.addColorStop(0, PAL.sombre ? "rgba(255,255,255,.85)" : "rgba(255,255,255,.95)"); g.addColorStop(.45, base); g.addColorStop(1, base);
+  ctx.globalAlpha = .45 + .55*a; ctx.beginPath(); ctx.arc(q.x, q.y, r, 0, 7); ctx.fillStyle = g; ctx.fill();
+  ctx.lineWidth = surv ? 3 : 1.3; ctx.strokeStyle = surv ? PAL.accent : (PAL.sombre ? "rgba(255,255,255,.55)" : "rgba(15,23,42,.45)"); ctx.stroke(); ctx.globalAlpha = 1;
+  if (n.num != null) { ctx.fillStyle = PAL.sombre ? "#0b1020" : "#ffffff"; ctx.font = "700 " + Math.max(8, r*1.05) + "px 'Atkinson Hyperlegible',system-ui"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(n.kind === "synapse" ? n.num : n.num, q.x, q.y + .5); }
+}
+function star(x, y, r, c){ ctx.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI/2 + i*Math.PI/5, rr = i % 2 ? r*.45 : r; ctx.lineTo(x + rr*Math.cos(a), y + rr*Math.sin(a)); } ctx.closePath(); ctx.fillStyle = c; ctx.fill(); }
+function dessinerParticule(p, q, u){
+  const c = PAL[p.col], a = prof(q.z), droit = p.a === p.b;
+  if (droit) { const r = (6 + 18*u)*q.f*ech; ctx.beginPath(); ctx.arc(q.x, q.y, r, 0, 7); ctx.strokeStyle = hexA(c, (1 - u)*.8); ctx.lineWidth = 2; ctx.stroke(); return; }
+  for (let i = 5; i >= 1; i--) { const v = u - i*0.035; if (v <= 0) continue; const t = P(pointCourbe(p.a.p, p.b.p, v, /zigzag|relais/.test(p.e.msg || ""))); ctx.beginPath(); ctx.arc(t.x, t.y, 2.2*p.sev*(1 - i/7), 0, 7); ctx.fillStyle = hexA(c, .12 + .06*(5 - i)); ctx.fill(); }
+  ctx.beginPath(); ctx.arc(q.x, q.y, 8*p.sev*.8, 0, 7); ctx.fillStyle = hexA(c, .18*(.5 + a)); ctx.fill();
+  ctx.beginPath(); ctx.arc(q.x, q.y, 3.1*p.sev, 0, 7); ctx.fillStyle = hexA(c, .65 + .35*a); ctx.fill();
+  if (p.e.severite === "CRITIQUE") { ctx.beginPath(); ctx.arc(q.x, q.y, 5.5*p.sev, 0, 7); ctx.strokeStyle = hexA(c, .9); ctx.lineWidth = 1.2; ctx.stroke(); }
+}
+const ETIQ = [["EXT", 0, 22], ["BUS", 0, -24], ["VOTE", 0, -20], ["PRO", 0, -20], ["MEM", 0, 22], ["ECO", 0, 20], ["GARD", 0, 22], ["SORTIE", 0, 24]];
+const ZONES = [["Zone α · grillage losangique", [-152, 175, 0], "alpha"], ["Zone β · second grillage", [152, 175, 0], "beta"], ["Sonnet S1–S5", [-48, 26, -218], "neutre"], ["Opus O1–O5", [60, -66, -222], "neutre"]];
+let PILLS = [], ETIQUETTES = true, PETIT = false;
+function etiquettes(){
+  PILLS = [];
+  if (!ETIQUETTES) return;
+  ctx.font = (PETIT ? "700 10px" : "700 11.5px") + " 'Atkinson Hyperlegible',system-ui"; ctx.textBaseline = "middle"; ctx.textAlign = "center";
+  const h = PETIT ? 16 : 19;
+  const PANNEAUX = ["legende", "fil", "aide"].map(i => document.getElementById(i)).filter(e => e && getComputedStyle(e).display !== "none").map(e => e.getBoundingClientRect());
+  const OBST = ORDRE.filter(n => n.q && (n.kind === "synapse" || n.kind === "auditeur" || n.kind === "pivot")).map(n => ({x:n.q.x, y:n.q.y, w:2*n.r*n.q.f + 4, h:2*n.r*n.q.f + 4}));
+  const cout = (x, y, w) => 4*PILLS.filter(b => Math.abs(b.x - x) < (b.w + w)/2 + 3 && Math.abs(b.y - y) < (b.h + h)/2 + 2).length
+                          + OBST.filter(b => Math.abs(b.x - x) < (b.w + w)/2 && Math.abs(b.y - y) < (b.h + h)/2).length
+                          + ((x - w/2 < 4 || x + w/2 > W - 4 || y < 70 || y > H - 8) ? 6 : 0)
+                          + 5*PANNEAUX.filter(r => x + w/2 > r.left && x - w/2 < r.right && y + h/2 > r.top && y - h/2 < r.bottom).length;
+  const pose = (txt, cands, rgb, id) => {
+    const w = ctx.measureText(txt).width + 12;
+    let [x, y] = cands[0];
+    const essais = []; cands.forEach(c => essais.push(c)); cands.forEach(c => { for (let k = 1; k <= 4; k++) { essais.push([c[0], c[1] + k*(h + 3), c[2]]); essais.push([c[0], c[1] - k*(h + 3), c[2]]); } });
+    let best = null, bc = 1e9;
+    for (const c of essais) { const cx = c[0] + (c[2] || 0)*w/2, k = cout(cx, c[1], w) + 0.01*Math.abs(c[1] - cands[0][1])/h; if (k < bc) { bc = k; best = [cx, c[1]]; } if (k < 0.5) break; }
+    [x, y] = best;
+    ctx.fillStyle = PAL.sombre ? "rgba(10,15,30,.74)" : "rgba(255,255,255,.84)"; rond(x - w/2, y - h/2, w, h, h/2); ctx.fill();
+    ctx.strokeStyle = rgba(rgb, .55); ctx.lineWidth = 1; ctx.stroke(); ctx.fillStyle = PAL.encre; ctx.fillText(txt, x, y + .5);
+    PILLS.push({x, y, w, h, id});
+  };
+  for (const [z, pos, c] of ZONES) { const q = P(pos); pose(z, [[q.x, q.y]], PAL[c] || PAL.neutre, z.startsWith("Zone α") ? "α7" : z.startsWith("Zone β") ? "β7" : z.startsWith("Sonnet") ? "S3" : "O3"); }
+  for (const [id] of ETIQ) {
+    if (PETIT && !/EXT|SORTIE|MEM|BUS/.test(id)) continue;
+    const n = N[id], q = n.q, r = n.r*q.f + 6;
+    pose(n.label, [[q.x + r, q.y, 1], [q.x - r, q.y, -1], [q.x, q.y - r - h/2], [q.x, q.y + r + h/2]], PAL.neutre, id);
+  }
+}
+function rond(x, y, w, h, r){ ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+
+/* ═══════════════════════ Survol, bulle, examen ═══════════════════════ */
+const bulle = document.getElementById("bulle");
+function choisirCible(x, y){
+  let best = null, bd = 1e9;
+  for (const c of CIBLES) { const d = Math.hypot(c.x - x, c.y - y); const lim = c.r + (c.n.kind === "scriptone" ? 3 : 6); if (d <= lim) { const s = d - lim*.3 + c.z*0.002 + (c.n.kind === "scriptone" ? 2 : 0); if (s < bd) { bd = s; best = c.n; } } }
+  if (best) return best;
+  for (const p of PILLS) if (Math.abs(p.x - x) < p.w/2 && Math.abs(p.y - y) < p.h/2) return N[p.id];
+  if (HULLS.c && dansPoly(x, y, HULLS.c) && !dansPoly(x, y, HULLS.g) && !dansPoly(x, y, HULLS.d)) return {id:"CERVELET", kind:"zone"};
+  const g = HULLS.g && dansPoly(x, y, HULLS.g), d = HULLS.d && dansPoly(x, y, HULLS.d);
+  if (g || d) { const qg = P([-112, 0, 0]), qd = P([112, 0, 0]); const G = g && (!d || Math.hypot(x - qg.x, y - qg.y) < Math.hypot(x - qd.x, y - qd.y)); return {id:G ? "CORTEX_G" : "CORTEX_D", kind:"zone"}; }
+  return null;
+}
+function mesures(n){
+  const S = stats()[n.id]; if (!S) return "aucun événement dans ce passage";
+  const sev = Object.entries(S.sev).map(([k, v]) => v + " " + k.toLowerCase()).join(", ");
+  const codes = Object.entries(S.codes).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([c, v]) => c + "×" + v).join(" ");
+  const pl = (k, s) => fr(k) + " " + s + (k > 1 ? "s" : "");
+  return pl(S.in, "reçu") + " · " + pl(S.out, "émis").replace("émiss", "émis") + (S.jet ? " · " + fr(S.jet) + " jetons reçus" : "") + (sev ? " · doléances : " + sev : "") + (codes ? "<br><span class='codes'>codes : " + esc(codes) + "</span>" : "");
+}
+function montrer(n, x, y){
+  if (!n) { bulle.classList.remove("vu"); SURVOL = null; return; }
+  SURVOL = n; const f = fiche(n);
+  let h = "<h3>" + esc(f.t) + "</h3>" + (f.a ? "<div class='ana'>" + esc(f.a) + "</div>" : "") + (f.r ? "<p>" + esc(f.r) + "</p>" : "") + "<dl>";
+  if (f.e && f.e !== "—") h += "<dt>Entrées</dt><dd>" + esc(f.e) + "</dd>";
+  if (f.s && f.s !== "—") h += "<dt>Sorties</dt><dd>" + esc(f.s) + "</dd>";
+  if (f.z) h += "<dt>Écrit</dt><dd>" + esc(f.z) + "</dd>";
+  if (f.j) h += "<dt>Jumeau</dt><dd>" + esc(f.j) + "</dd>";
+  if (f.c) h += "<dt>Mutants</dt><dd class='codes'>" + esc(f.c) + "</dd>";
+  if (f.h) h += "<dt>SHA-256</dt><dd class='codes'>" + esc(f.h) + "… · " + esc(f.etat || "") + "</dd>";
+  if (n.kind !== "zone") h += "<dt>Mesures</dt><dd>" + mesures(n) + "</dd>";
+  bulle.innerHTML = h + "</dl>"; bulle.classList.add("vu");
+  const bw = bulle.offsetWidth, bh = bulle.offsetHeight;
+  let L = x + 16, T = y + 16; if (L + bw > W - 8) L = Math.max(8, x - bw - 16); if (T + bh > H - 8) T = Math.max(8, H - bh - 8);
+  bulle.style.left = L + "px"; bulle.style.top = T + "px";
+}
+
+/* ═══════════════════════ Gestes : souris, tactile, clavier ═══════════════════════ */
+const ptrs = new Map(); let glisse = false, x0 = 0, y0 = 0, pinch0 = 0, zoom0 = 1, bouge = 0;
+cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); glisse = true; bouge = 0; x0 = e.clientX; y0 = e.clientY; auto = false; dernierGeste = performance.now();
+  if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch0 = Math.hypot(a[0] - b[0], a[1] - b[1]); zoom0 = zoom; } cv.classList.add("tire"); });
+cv.addEventListener("pointermove", e => {
+  if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+  if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]); zoom = Math.max(.5, Math.min(3, zoom0*d/Math.max(1, pinch0))); bouge += 10; return; }
+  if (glisse && ptrs.size === 1) { const dx = e.clientX - x0, dy = e.clientY - y0; bouge += Math.abs(dx) + Math.abs(dy); rotY += dx*0.0085; rotX = Math.max(-1.35, Math.min(1.35, rotX + dy*0.0085)); x0 = e.clientX; y0 = e.clientY; dernierGeste = performance.now(); if (bouge > 6) montrer(null); return; }
+  if (e.pointerType === "mouse") montrer(choisirCible(e.clientX, e.clientY), e.clientX, e.clientY);
+});
+const lacher = e => { ptrs.delete(e.pointerId); if (!ptrs.size) { glisse = false; cv.classList.remove("tire"); if (bouge < 6 && e.pointerType !== "mouse") montrer(choisirCible(e.clientX, e.clientY), e.clientX, e.clientY); } };
+cv.addEventListener("pointerup", lacher); cv.addEventListener("pointercancel", lacher);
+cv.addEventListener("pointerleave", e => { if (e.pointerType === "mouse" && !glisse) montrer(null); });
+cv.addEventListener("wheel", e => { e.preventDefault(); zoom = Math.max(.5, Math.min(3, zoom*Math.exp(-e.deltaY*0.0012))); auto = false; dernierGeste = performance.now(); }, {passive:false});
+cv.addEventListener("dblclick", () => recentrer());
+function recentrer(){ rotY = VUE0.rotY; rotX = VUE0.rotX; zoom = VUE0.zoom; auto = true; }
+document.getElementById("vue").onclick = recentrer;
+document.getElementById("etiq").onclick = e => { ETIQUETTES = !ETIQUETTES; e.target.setAttribute("aria-pressed", String(ETIQUETTES)); };
+if (innerWidth < 760) document.getElementById("replier").open = false;
+const bJ = document.getElementById("jouer");
+function basculer(){ jouer = !jouer; bJ.textContent = jouer ? "Pause" : "Lecture"; bJ.setAttribute("aria-pressed", String(jouer)); }
+bJ.onclick = basculer;
+addEventListener("keydown", e => { if (e.code === "Space" && !/INPUT|SELECT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)) { e.preventDefault(); basculer(); } });
+document.getElementById("vitesse").onchange = e => { vitesse = Number(e.target.value) || 1; };
+document.getElementById("passage").onchange = e => { RUN = e.target.value; choisir(); };
+document.getElementById("temps").oninput = e => { recommencer(Number(e.target.value)); };
+document.getElementById("theme").onclick = () => { const r = document.documentElement, s = r.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); r.dataset.theme = s === "dark" ? "light" : "dark"; try { localStorage.setItem("brain3d-theme", r.dataset.theme); } catch (_) {} palette(); };
+try { const t = localStorage.getItem("brain3d-theme"); if (t) document.documentElement.dataset.theme = t; } catch (_) {}
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", palette);
+document.getElementById("fichier").onchange = e => { const f = e.target.files && e.target.files[0]; if (f) f.text().then(t => chargerTexte(t, f.name)); };
+const depot = document.getElementById("depot");
+addEventListener("dragover", e => { e.preventDefault(); depot.classList.add("vu"); });
+addEventListener("dragleave", e => { if (e.target === depot) depot.classList.remove("vu"); });
+addEventListener("drop", e => { e.preventDefault(); depot.classList.remove("vu"); const f = e.dataTransfer.files && e.dataTransfer.files[0]; if (f) f.text().then(t => chargerTexte(t, f.name)); });
+// liste d'examen (clavier, lecteurs d'écran)
+(function(){
+  const sel = document.getElementById("examiner"), opt = [["", "— choisir —"], ["EXT", "Harnais externe de collecte"], ["GARD", "Gardiens · cervelet"], ["BUS", "Bus de doléances"], ["PRO", "Écrivains"], ["VOTE", "Vote α/β"], ["MEM", "Mémoire"], ["ECO", "Économie de jetons"], ["SORTIE", "Sortie"]];
+  for (let n = 1; n <= 14; n++) opt.push(["α" + n, "α" + n + " · " + court(n)]);
+  for (let n = 1; n <= 14; n++) opt.push(["β" + n, "β" + n + " · " + court(n)]);
+  ["S1","S2","S3","S4","S5","O1","O2","O3","O4","O5"].forEach(x => opt.push([x, "Auditeur " + x]));
+  Object.keys(GLIE).forEach(x => opt.push([x, x]));
+  sel.innerHTML = opt.map(([v, t]) => '<option value="' + esc(v) + '">' + esc(t) + "</option>").join("");
+  sel.onchange = () => { const n = N[sel.value]; if (!n) return montrer(null); const q = n.q || P(n.p); montrer(n, Math.min(q.x, W - 40), Math.min(q.y, H - 40)); };
+})();
+function majSignaux(){
+  const box = document.getElementById("signaux");
+  if (!box.children.length) box.innerHTML = TYPES.map(([k, nom, d]) => '<label class="sig" title="' + esc(d) + '"><input type="checkbox" data-k="' + k + '" checked><span class="pastille" style="background:var(--s-' + k + ')"></span>' + nom + '<span class="n" id="n-' + k + '">0</span></label>').join("");
+  box.querySelectorAll("input").forEach(i => i.onchange = () => { ACTIF[i.dataset.k] = i.checked; });
+  TYPES.forEach(([k]) => { const s = document.getElementById("n-" + k); if (s) s.textContent = fr(COMPTE[k] || 0); });
+}
+const NOMS_T = Object.fromEntries(TYPES.map(([k, n]) => [k, n]));
+function majFil(){
+  document.getElementById("liste").innerHTML = RECENTS.map(e => '<li><span class="q">' + (e.seq != null ? e.seq : "") + '</span><span class="r" style="color:var(--s-' + esc(e.type) + ')">' + esc(e.de) + " → " + esc(e.vers) + '</span><span class="m" title="' + esc(e.msg) + '">' + (e.code ? "<b>" + esc(e.code) + "</b> " : "") + esc(e.msg || NOMS_T[e.type]) + "</span></li>").join("");
+  const T = document.getElementById("temps"); T.value = Math.min(idx, SEL.length - 1);
+  const cur = SEL[Math.max(0, idx - 1)] || {};
+  document.getElementById("pos").textContent = fr(idx) + " / " + fr(SEL.length) + " événements";
+  document.getElementById("horloge").textContent = (cur.fichier ? cur.fichier.replace(/\.html$/, "") + " · " : "") + (cur.ts ? cur.ts.replace("T", " ") : "");
+}
+
+/* ═══════════════════════ Boucle ═══════════════════════ */
+let t0 = performance.now();
+function image(t){
+  const dt = Math.min(0.06, (t - t0)/1000); t0 = t;
+  if (!auto && performance.now() - dernierGeste > 9000) auto = true;
+  if (auto && !glisse && !matchMedia("(prefers-reduced-motion: reduce)").matches) rotY += dt*0.07;
+  avancer(dt); dessiner(); requestAnimationFrame(image);
+}
+addEventListener("resize", taille);
+taille(); palette(); majSignaux();
+window.BRAIN = {charger:chargerTexte, noeuds:N, examiner:id => { const n = N[id] || (FIXE[id] && {id, kind:"zone"}); const q = n.q || (n.p ? P(n.p) : {x:W/2, y:H/2}); montrer(n, q.x, q.y); }, vue:(ry, rx, z) => { rotY = ry; rotX = rx; if (z) zoom = z; auto = false; dernierGeste = 1e12; }, pause:() => { if (jouer) basculer(); }, avancer:k => { for (let i = 0; i < k && idx < SEL.length; i++) { emettre(SEL[idx]); idx++; } majSignaux(); majFil(); }};
+(function(){
+  const q = new URLSearchParams(location.search).get("journal");
+  if (q) { fetch(q).then(r => r.text()).then(t => chargerTexte(t, q)).catch(() => chargerTexte(DATA.journal.map(e => JSON.stringify(e)).join("\n"), DATA.journal_nom)); }
+  else chargerTexte((DATA.journal || []).map(e => JSON.stringify(e)).join("\n"), DATA.journal_nom || "journal intégré");
+})();
+requestAnimationFrame(image);
+</script>
+</body>
+</html>

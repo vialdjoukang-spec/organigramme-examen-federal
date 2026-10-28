@@ -21,9 +21,11 @@ import argparse, hashlib, html, json, re, sys
 from pathlib import Path
 
 VERSION = "1.0"
-import json as _j
-_B = _j.loads((Path(__file__).resolve().parent / "BANDE.json").read_text())
-BANDE_MIN, BANDE_MAX = _B["min_ko"] * 1000, _B["max_ko"] * 1000  # Ko = 1 000 octets ; bande indicative : avertissement, jamais critique
+try:  # BANDE.json est absent de main : repli sur 100–200 Ko, jamais d'échec à l'import
+    _B = json.loads((Path(__file__).resolve().parent / "BANDE.json").read_text(encoding="utf-8"))
+    BANDE_MIN, BANDE_MAX = int(_B["min_ko"]) * 1000, int(_B["max_ko"]) * 1000
+except (OSError, ValueError, KeyError, TypeError):
+    BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bande indicative : avertissement, jamais critique
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
