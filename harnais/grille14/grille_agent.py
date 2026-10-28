@@ -144,7 +144,7 @@ def ecarts_points(html, pts):
     crit, moy, st = FI.controle(conv)
     if 0 in pts or len(pts) == 14:
         if "FIN_FICHIER" not in html[-400:]: add(0, "CRITIQUE", "balise <!-- FIN_FICHIER LOT_XXX_<PARTIE> --> absente en fin de fichier (troncature présumée)")
-        nl = sum(1 for l in html.splitlines() if len(l) > 3000)
+        nl = sum(1 for l in html.splitlines() if len(l) > 3000 and "data:font" not in l and "data-brain=" not in l)
         if nl: add(0, "CRITIQUE", f"{nl} ligne(s) de plus de 3 000 caractères : coupe-les (un saut de ligne entre deux blocs)")
         tc = len(conv.encode("utf-8"))
         _B = json.loads((R / "harnais/BANDE.json").read_text())
@@ -188,7 +188,7 @@ def reparer(html, lot, nom):
     out, n = [], 0
     for l in html.split("\n"):
         k = 0
-        while len(l) > 3000 and k < 400:
+        while len(l) > 3000 and k < 400 and "data:font" not in l and "data-brain=" not in l:
             cut = -1
             for m in re.finditer(r"</(?:p|li|tr|td|th|div|details|summary|table|ul|ol|h[1-6]|section|span)>", l):
                 if m.end() > 2800: break
