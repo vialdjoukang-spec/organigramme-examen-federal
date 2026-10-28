@@ -142,7 +142,7 @@ def valider(sortie):
 
 
 # ───────────────────────── lecture du HTML (commun) ─────────────────────────
-RX_STYLE = re.compile(r"(?is)<(script|style)\b[^>]*>.*?</\1>")
+RX_STYLE = re.compile(r"(?is)<(script|style|template)\b[^>]*>.*?</\1>")      # <template> : modèle JSON d'algorithme (S21), jamais affiché
 RX_FENETRE = re.compile(r'(?s)<span class="(?:df|dxc)">.*?</span></span>|<abbr[^>]*>|</abbr>')
 
 
@@ -165,7 +165,7 @@ def texte(h):
 
 def texte_visible(h):
     """Texte affiché sans clic : fenêtres (.df, .dxc) et exposants de source retirés, sigles déshabillés."""
-    h = re.sub(r'(?is)<sup class="r">.*?</sup>', "", h)
+    h = re.sub(r'(?is)<sup class="r">.*?</sup>|<template\b.*?</template>', "", h)
     h = re.sub(r'(?s)<span class="(?:df|dxc)">(?:(?!<span class="(?:df|dxc)">).)*?</span>', " ", h)
     h = re.sub(r'(?s)<span class="(?:df|dxc)">.*?</span></span>', " ", h)
     return texte(h)

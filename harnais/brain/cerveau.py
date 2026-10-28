@@ -17,10 +17,12 @@ import bus, reseau
 RENDU = ["s1_police", "s2_rythme", "s6_barre14", "s20_ancres"]
 TEXTE = ["s11_collecteur", "s3_concision", "s4_budget", "s5_arbre", "s8_tableaux", "s9_sources", "s10_memoire", "s18_vote"] + \
         [e["id"] for e in reseau.registre()["scriptones"] if e["zone"] in ("alpha", "beta")]
+VIAL = ["s21_forme_vial"]       # directive de Vial du 28.10.2026 (arbre en cases, But/Moyens A/B, sous-cellules de signes) : hors registre, ajouté sans rien retirer
+TEXTE += VIAL
 
 
 class _Mods(dict):
-    def __missing__(self, k): v = reseau.module(k); self[k] = v; return v
+    def __missing__(self, k): v = importlib.import_module(k) if k in VIAL else reseau.module(k); self[k] = v; return v
 MODS = _Mods()
 MARQ = "<!-- FORME_INTERACTIVE -->"
 
