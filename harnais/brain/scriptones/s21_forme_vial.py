@@ -96,7 +96,7 @@ def rendre(mod, pre):
     def taille(i): return (LW, LH) if N[i].get("type") == "losange" else (CW, CH)
     top = lambda i: M + prof[i] * ROW + (LH - taille(i)[1]) / 2
     bas = lambda i: top(i) + taille(i)[1]
-    svg, lab, det, css = [], [], [], []
+    svg, lab, det, css, sorties = [], [], [], [], {}
     for l in mod.get("liens", []):
         a, b = l["de"], l["a"]
         if a not in N or b not in N: continue
@@ -118,12 +118,16 @@ def rendre(mod, pre):
         droite_prise = any(prof.get(c) == prof[a] and x[c] > x[a] for c in N if par.get(c) == a)      # branche latérale sortante
         gauche_prise = a in par and prof[par[a]] == prof[a]                                             # branche latérale entrante
         cotes = (["g", "d"] if x[b] <= x[a] else ["d", "g"])
-        cote = next((c for c in cotes if not (gauche_prise if c == "g" else droite_prise)), "b")
+        pris = sorties.setdefault(a, set())                     # un côté ne porte qu'une sortie de retour
+        cote = next((c for c in cotes if c not in pris and not (gauche_prise if c == "g" else droite_prise)), "b")
+        if cote == "b" and (any(par.get(c) == a and prof.get(c) != prof[a] for c in N) or "b" in pris):
+            cote = next((c for c in ("d", "g") if c not in pris and not (gauche_prise if c == "g" else droite_prise)), "b")
+        pris.add(cote)
         wa, ha = taille(a); ya = top(a) + ha / 2
         yb = M + prof[b] * ROW - 12
         if cote == "b":                                         # deux côtés pris : sortie par le bas, couloir sous la rangée, puis couloir de colonne
-            xc = M + (x[a] + 1) * COL - 6; yc = M + prof[a] * ROW + LH + 8
-            d_ = f"M{x1 + 8:.0f} {y1 - (LH - ha) / 2 + (LH - ha) / 2:.0f} V{yc:.0f} H{xc:.0f} V{yb:.0f} H{x2:.0f} V{y2 - 7:.0f}"; xs = x1 + 8
+            xc = M + (x[a] + 1) * COL - 20; yc = M + prof[a] * ROW + LH + 8      # couloir décalé : jamais confondu avec une sortie latérale
+            d_ = f"M{x1:.0f} {y1:.0f} V{yc:.0f} H{xc:.0f} V{yb + 6:.0f} H{x2:.0f} V{y2 - 7:.0f}"; xs = x1 - 34; ya = y1 + 22
         else:
             xs = cx(a) - wa / 2 if cote == "g" else cx(a) + wa / 2
             xc = M + x[a] * COL + 6 if cote == "g" else M + (x[a] + 1) * COL - 6
