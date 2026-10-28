@@ -1,0 +1,249 @@
+
+<p><b>1- But :</b> le traitement vise à sauver le patient de l'urgence causale, à traiter la cause dans les semaines suivantes, puis à réévaluer la sueur après 4 à 8 semaines de traitement étiologique et à soulager la sueur résiduelle. <span class="dx"><input type="checkbox" id="dx10-p11a-b1"><label class="dxt" for="dx10-p11a-b1">(buts chiffrés)</label><span class="dxc"><label class="fx-x" for="dx10-p11a-b1" aria-label="Fermer">×</label><span class='wb'>Urgence : glycémie corrigée et réponse dans les 10 minutes après le <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a>. Traitement étiologique : essai de 4 à 8 semaines (Bryce 2020, niveau C). Hyperthyroïdie : euthyroïdie, traitement de 6 à 18 mois. Acromégalie : <abbr class="ab" data-k="GH" tabindex="0">GH</abbr> &lt; 1 ng/mL (GH aléatoire ou nadir après charge en glucose), <abbr class="ab" data-k="IGF" tabindex="0">IGF</abbr>-1 normal. Sueur résiduelle : gain d'au moins 1 point <abbr class="ab" data-k="HDSS" tabindex="0">HDSS</abbr> (environ 50 % de sueur en moins), idéalement 2 points (80 %). Schollhammer 2015 : 60 % des patients sous <a class="tm med" data-auto="1" href="#med-ad040088">oxybutynine</a> gagnent 1 point, contre 27 % sous placebo.<sup class="r"><a href="#sb-4">4</a>,<a href="#sb-6">6</a>,<a href="#sb-13">13</a>,<a href="#sb-22">22</a>,<a href="#sb-24">24</a>,<a href="#sb-27">27</a></sup></span></span></span> Une hyperhidrose secondaire ne se traite jamais par un traitement symptomatique seul, tant que la cause n'est pas cherchée. <span class="dx"><input type="checkbox" id="dx10-p11a-b2"><label class="dxt" for="dx10-p11a-b2">(avertissement de l'<abbr class="ab" data-k="AIPS" tabindex="0">AIPS</abbr>)</label><span class="dxc"><label class="fx-x" for="dx10-p11a-b2" aria-label="Fermer">×</label><span class='wb'>Information professionnelle de BOTOX® (toxine botulique de type A, n° 52433 ; effet maximal 5 à 6 semaines ; 50 unités par aisselle), rubrique « Mises en garde » pour l'hyperhidrose axillaire primaire : « Il convient de rechercher les causes éventuelles d'une hyperhidrose secondaire (p.ex. hyperthyroïdie, phéochromocytome), afin d'éviter le traitement symptomatique d'une hyperhidrose, sans diagnostic et/ou traitement de la pathologie sous-jacente. »<sup class="r"><a href="#sb-18">18</a></sup></span></span></span></p>
+<p><b>2- Moyens et méthodes :</b></p>
+<p><b>A- En urgences :</b> la prise en charge suit l'algorithme d'urgence, puis les premiers gestes aux urgences par le non-spécialiste avant le transfert, puis les actes chronologiques dans le service spécialisé.</p>
+<div class="algo" data-brain="algo" data-id="algo2"><template class="algo-modele">{
+"titre": "Urgence : sueur avec signes de gravité",
+"noeuds": [
+{
+"id": "e1",
+"type": "losange",
+"texte": "Instabilité ?",
+"detail": "Les critères d'instabilité sont une altération de la conscience, une hypotension, une tachycardie ou une fièvre avec signes de sepsis."
+},
+{
+"id": "e2",
+"type": "case",
+"texte": "Gestes immédiats",
+"detail": "Le médecin mesure les signes vitaux, la glycémie capillaire et l'ECG, puis pose une voie veineuse."
+},
+{
+"id": "e3",
+"type": "losange",
+"texte": "Glycémie basse ?",
+"detail": "Une glycémie inférieure à 4 mmol/L chez un diabétique traité impose le resucrage immédiat."
+},
+{
+"id": "e4",
+"type": "case",
+"texte": "Glucose ou glucagon",
+"detail": "Le médecin donne du glucose par voie orale ou intraveineuse, ou du glucagon sans accès veineux, sauf si un phéochromocytome est suspecté."
+},
+{
+"id": "e5",
+"type": "losange",
+"texte": "Fièvre et gravité ?",
+"detail": "Une fièvre avec souffle, hypotension ou confusion évoque un sepsis ou une endocardite."
+},
+{
+"id": "e6",
+"type": "case",
+"texte": "Hémocultures puis antibiotique",
+"detail": "Le médecin prélève les hémocultures avant l'antibiotique et applique la prise en charge du sepsis."
+},
+{
+"id": "e7",
+"type": "losange",
+"texte": "Crise catécholaminergique ?",
+"detail": "Sueurs, céphalées et palpitations avec hypertension évoquent un phéochromocytome."
+},
+{
+"id": "e8",
+"type": "case",
+"texte": "Alpha-bloquant avant bêta-bloquant",
+"detail": "Le médecin demande un avis urgent d'endocrinologie et ne donne ni glucagon ni bêta-bloquant seul."
+},
+{
+"id": "e9",
+"type": "case",
+"texte": "Sevrage : surveillance",
+"detail": "Le médecin surveille en continu, protège le patient et traite le sevrage selon le chapitre dédié."
+},
+{
+"id": "e10",
+"type": "fin",
+"texte": "Service spécialisé",
+"detail": "La prise en charge se poursuit dans le service spécialisé, puis hors urgences (B)."
+},
+{
+"id": "e11",
+"type": "fin",
+"texte": "Prise en charge ambulatoire",
+"detail": "La suite se déroule hors urgences (B)."
+}
+],
+"liens": [
+{
+"de": "e1",
+"a": "e2",
+"etiquette": "Oui"
+},
+{
+"de": "e1",
+"a": "e11",
+"etiquette": "Non"
+},
+{
+"de": "e2",
+"a": "e3"
+},
+{
+"de": "e3",
+"a": "e4",
+"etiquette": "Oui"
+},
+{
+"de": "e3",
+"a": "e5",
+"etiquette": "Non"
+},
+{
+"de": "e5",
+"a": "e6",
+"etiquette": "Oui"
+},
+{
+"de": "e5",
+"a": "e7",
+"etiquette": "Non"
+},
+{
+"de": "e7",
+"a": "e8",
+"etiquette": "Oui"
+},
+{
+"de": "e7",
+"a": "e9",
+"etiquette": "Non"
+},
+{
+"de": "e4",
+"a": "e10"
+},
+{
+"de": "e6",
+"a": "e10"
+},
+{
+"de": "e8",
+"a": "e10"
+},
+{
+"de": "e9",
+"a": "e10"
+}
+]
+}</template>
+<style>#algo2-1:checked~.algo-det #algo2-1-d{display:block}
+#algo2-2:checked~.algo-det #algo2-2-d{display:block}
+#algo2-3:checked~.algo-det #algo2-3-d{display:block}
+#algo2-4:checked~.algo-det #algo2-4-d{display:block}
+#algo2-5:checked~.algo-det #algo2-5-d{display:block}
+#algo2-6:checked~.algo-det #algo2-6-d{display:block}
+#algo2-7:checked~.algo-det #algo2-7-d{display:block}
+#algo2-8:checked~.algo-det #algo2-8-d{display:block}
+#algo2-9:checked~.algo-det #algo2-9-d{display:block}
+#algo2-10:checked~.algo-det #algo2-10-d{display:block}
+#algo2-11:checked~.algo-det #algo2-11-d{display:block}</style>
+<input type="checkbox" id="algo2-1">
+<input type="checkbox" id="algo2-2">
+<input type="checkbox" id="algo2-3">
+<input type="checkbox" id="algo2-4">
+<input type="checkbox" id="algo2-5">
+<input type="checkbox" id="algo2-6">
+<input type="checkbox" id="algo2-7">
+<input type="checkbox" id="algo2-8">
+<input type="checkbox" id="algo2-9">
+<input type="checkbox" id="algo2-10">
+<input type="checkbox" id="algo2-11">
+<div class="algo-t">Urgence : sueur avec signes de gravité</div>
+<div class="algo-sc"><div class="algo-can" style="width:790px;height:636px">
+<svg width="790" height="636" viewBox="0 0 790 636" aria-hidden="true">
+<path class="tr" d="M243 68 H296"/><polygon class="fl" points="295,63 295,73 303,68"/>
+<text x="249" y="62">Oui</text>
+<path class="tr" d="M145 116 V153"/><polygon class="fl" points="140,152 150,152 145,160"/>
+<text x="151" y="134">Non</text>
+<path class="tr" d="M395 101 V138"/><polygon class="fl" points="390,137 400,137 395,145"/>
+<path class="tr" d="M493 193 H546"/><polygon class="fl" points="545,188 545,198 553,193"/>
+<text x="499" y="187">Oui</text>
+<path class="tr" d="M395 241 V263"/><polygon class="fl" points="390,262 400,262 395,270"/>
+<text x="401" y="252">Non</text>
+<path class="tr" d="M493 318 H546"/><polygon class="fl" points="545,313 545,323 553,318"/>
+<text x="499" y="312">Oui</text>
+<path class="tr" d="M395 366 V388"/><polygon class="fl" points="390,387 400,387 395,395"/>
+<text x="401" y="376">Non</text>
+<path class="tr" d="M493 443 H546"/><polygon class="fl" points="545,438 545,448 553,443"/>
+<text x="499" y="437">Oui</text>
+<path class="tr" d="M395 491 V528"/><polygon class="fl" points="390,527 400,527 395,535"/>
+<text x="401" y="509">Non</text>
+<path class="tr" d="M645 226 V278"/><polygon class="fl" points="640,277 650,277 645,285"/>
+<path class="tr" d="M737 318 H764 V258 H645 V278"/><polygon class="fl" points="640,277 650,277 645,285"/>
+<path class="tr" d="M737 443 H764 V258 H645 V278"/><polygon class="fl" points="640,277 650,277 645,285"/>
+<path class="tr" d="M487 568 H514 V258 H645 V278"/><polygon class="fl" points="640,277 650,277 645,285"/>
+<polygon class="lo" points="145,20 243,68 145,116 47,68"/>
+<rect class="ca" x="303" y="35" width="184" height="66"/>
+<polygon class="lo" points="395,145 493,193 395,241 297,193"/>
+<rect class="ca" x="553" y="160" width="184" height="66"/>
+<polygon class="lo" points="395,270 493,318 395,366 297,318"/>
+<rect class="ca" x="553" y="285" width="184" height="66"/>
+<polygon class="lo" points="395,395 493,443 395,491 297,443"/>
+<rect class="ca" x="553" y="410" width="184" height="66"/>
+<rect class="ca" x="303" y="535" width="184" height="66"/>
+<rect class="fi" x="553" y="285" width="184" height="66"/>
+<rect class="fi" x="53" y="160" width="184" height="66"/>
+</svg>
+<label class="algo-n lo cl" for="algo2-1" style="left:47px;top:20px;width:196px;height:96px"><span>Instabilité ?</span></label>
+<label class="algo-n ca cl" for="algo2-2" style="left:303px;top:35px;width:184px;height:66px"><span>Gestes immédiats</span></label>
+<label class="algo-n lo cl" for="algo2-3" style="left:297px;top:145px;width:196px;height:96px"><span>Glycémie basse ?</span></label>
+<label class="algo-n ca cl" for="algo2-4" style="left:553px;top:160px;width:184px;height:66px"><span>Glucose ou glucagon</span></label>
+<label class="algo-n lo cl" for="algo2-5" style="left:297px;top:270px;width:196px;height:96px"><span>Fièvre et gravité ?</span></label>
+<label class="algo-n ca cl" for="algo2-6" style="left:553px;top:285px;width:184px;height:66px"><span>Hémocultures puis antibiotique</span></label>
+<label class="algo-n lo cl" for="algo2-7" style="left:297px;top:395px;width:196px;height:96px"><span>Crise catécholaminergique ?</span></label>
+<label class="algo-n ca cl" for="algo2-8" style="left:553px;top:410px;width:184px;height:66px"><span>Alpha-bloquant avant bêta-bloquant</span></label>
+<label class="algo-n ca cl" for="algo2-9" style="left:303px;top:535px;width:184px;height:66px"><span>Sevrage : surveillance</span></label>
+<label class="algo-n ca cl" for="algo2-10" style="left:553px;top:285px;width:184px;height:66px"><span>Service spécialisé</span></label>
+<label class="algo-n ca cl" for="algo2-11" style="left:53px;top:160px;width:184px;height:66px"><span>Prise en charge ambulatoire</span></label>
+</div></div>
+<div class="algo-det">
+<div class="algo-d" id="algo2-1-d"><label class="fx-x" for="algo2-1" aria-label="Fermer">×</label><b class="algo-dt">Instabilité ?</b> · Les critères d'instabilité sont une altération de la conscience, une hypotension, une tachycardie ou une fièvre avec signes de sepsis.</div>
+<div class="algo-d" id="algo2-2-d"><label class="fx-x" for="algo2-2" aria-label="Fermer">×</label><b class="algo-dt">Gestes immédiats</b> · Le médecin mesure les signes vitaux, la glycémie capillaire et l'ECG, puis pose une voie veineuse.</div>
+<div class="algo-d" id="algo2-3-d"><label class="fx-x" for="algo2-3" aria-label="Fermer">×</label><b class="algo-dt">Glycémie basse ?</b> · Une glycémie inférieure à 4 mmol/L chez un diabétique traité impose le resucrage immédiat.</div>
+<div class="algo-d" id="algo2-4-d"><label class="fx-x" for="algo2-4" aria-label="Fermer">×</label><b class="algo-dt">Glucose ou glucagon</b> · Le médecin donne du glucose par voie orale ou intraveineuse, ou du glucagon sans accès veineux, sauf si un phéochromocytome est suspecté.</div>
+<div class="algo-d" id="algo2-5-d"><label class="fx-x" for="algo2-5" aria-label="Fermer">×</label><b class="algo-dt">Fièvre et gravité ?</b> · Une fièvre avec souffle, hypotension ou confusion évoque un sepsis ou une endocardite.</div>
+<div class="algo-d" id="algo2-6-d"><label class="fx-x" for="algo2-6" aria-label="Fermer">×</label><b class="algo-dt">Hémocultures puis antibiotique</b> · Le médecin prélève les hémocultures avant l'antibiotique et applique la prise en charge du sepsis.</div>
+<div class="algo-d" id="algo2-7-d"><label class="fx-x" for="algo2-7" aria-label="Fermer">×</label><b class="algo-dt">Crise catécholaminergique ?</b> · Sueurs, céphalées et palpitations avec hypertension évoquent un phéochromocytome.</div>
+<div class="algo-d" id="algo2-8-d"><label class="fx-x" for="algo2-8" aria-label="Fermer">×</label><b class="algo-dt">Alpha-bloquant avant bêta-bloquant</b> · Le médecin demande un avis urgent d'endocrinologie et ne donne ni glucagon ni bêta-bloquant seul.</div>
+<div class="algo-d" id="algo2-9-d"><label class="fx-x" for="algo2-9" aria-label="Fermer">×</label><b class="algo-dt">Sevrage : surveillance</b> · Le médecin surveille en continu, protège le patient et traite le sevrage selon le chapitre dédié.</div>
+<div class="algo-d" id="algo2-10-d"><label class="fx-x" for="algo2-10" aria-label="Fermer">×</label><b class="algo-dt">Service spécialisé</b> · La prise en charge se poursuit dans le service spécialisé, puis hors urgences (B).</div>
+<div class="algo-d" id="algo2-11-d"><label class="fx-x" for="algo2-11" aria-label="Fermer">×</label><b class="algo-dt">Prise en charge ambulatoire</b> · La suite se déroule hors urgences (B).</div>
+</div></div><!--/algo-->
+<ul>
+<li><b>Aux urgences par le non-spécialiste</b> (interne senior des urgences) : le médecin évalue les signes vitaux, la glycémie et l'ECG, pose une voie veineuse et débute le traitement de l'urgence reconnue avant le transfert.</li>
+<li><b>Dans le service spécialisé :</b> les actes se pratiquent selon la cause, chacun cliquable :
+<span class="dx"><input type="checkbox" id="dx10-p11a-a1"><label class="dxt" for="dx10-p11a-a1">hypoglycémie sévère</label><span class="dxc"><label class="fx-x" for="dx10-p11a-a1" aria-label="Fermer">×</label><span class='wb'>T0 : constater la glycémie capillaire ; le patient transpire, est confus ou inconscient. Si la mesure est impossible, le protocole des <abbr class="ab" data-k="HUG" tabindex="0">HUG</abbr> demande de traiter sans attendre le résultat.<br>
+T0 à 2 min : si le patient est conscient et peut avaler, resucrer par voie orale. Donner 15 g de glucides si la glycémie est inférieure à 4 mmol/L (4 morceaux de sucre ou 1,5 dl de boisson sucrée), 30 g si elle est inférieure à 2,5 mmol/L. Refaire la glycémie 20 à 30 minutes plus tard. Redonner 15 à 30 g de glucides si elle reste inférieure à 4 mmol/L. Si le patient ne peut pas avaler ou perd connaissance, ne rien donner par la bouche.<br>
+T0 à 5 min : appeler le médecin. Si la conscience est altérée ou si le patient est à jeun strict, le protocole des <abbr class="ab" data-k="HUG" tabindex="0">HUG</abbr> prévoit 32 g de glucose (8 ampoules de glucose à 40 %, 4 g/10 mL). L'injection est intraveineuse lente, de 3 à 5 minutes, sans diluer malgré l'inscription portée sur les ampoules. Sans accès veineux, le médecin donne du <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a>, sauf si un phéochromocytome est suspecté. <a class="tm med" data-auto="1" href="#med-ba7f8fc5">GlucaGen®</a> (n° Swissmedic 31489) : adulte 1 mg par voie sous-cutanée ou intramusculaire. Enfant : 1 mg (plus de 25 kg ou plus de 6 à 8 ans) ou 0,5 mg (moins de 25 kg ou moins de 6 à 8 ans). Alternative : <a class="tm med" data-auto="1" href="#med-7a583114">Baqsimi®</a> (<a class="tm med" data-auto="1" href="#med-7a583114">n° 67465</a>), dose unique de 3 mg par voie intranasale chez l'adulte, l'adolescent et l'enfant de 1 an et plus.<br>
+Contre-indication : le <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a> est contre-indiqué en cas de phéochromocytome, car il peut libérer une grande quantité de catécholamines et provoquer une réaction hypertensive aiguë.<br>
+<abbr class="ab" data-k="T10" tabindex="0">T10</abbr> min : le patient réagit normalement dans les 10 minutes qui suivent l'injection de <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a>. Sinon, injecter du glucose par voie intraveineuse. Après le bolus de glucose, le protocole des <abbr class="ab" data-k="HUG" tabindex="0">HUG</abbr> fait répéter la glycémie 10 minutes plus tard. Il fait corriger de nouveau si elle reste inférieure à 4 mmol/L. Il fait introduire du glucose à 10 % (100 cc/heure) sur prescription médicale. Le bolus de glucose suit ainsi le protocole hospitalier des <abbr class="ab" data-k="HUG" tabindex="0">HUG</abbr>, et la solution employée est Glucosum « Bichsel » (n° 32920).<br>
+Après la réponse : administrer des hydrates de carbone par voie orale pour reconstituer le glycogène hépatique et prévenir la récidive.<br>
+Limite : le <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a> n'agit pas ou peu en cas de réserves de glycogène épuisées (jeûne prolongé, insuffisance surrénalienne, hypoglycémie chronique).<br>
+Ensuite : rechercher la cause (dose d'insuline, repas sauté, effort, alcool, bêta-bloquant qui masque les signes) ; ne pas conduire de véhicule après un épisode.<sup class="r"><a href="#sb-4">4</a>,<a href="#sb-23">23</a>,<a href="#sb-24">24</a>,<a href="#sb-25">25</a>,<a href="#sb-26">26</a>,<a href="#sb-37">37</a></sup></span></span></span>,
+<span class="dx"><input type="checkbox" id="dx10-p11a-a2"><label class="dxt" for="dx10-p11a-a2">sepsis, endocardite ou tuberculose</label><span class="dxc"><label class="fx-x" for="dx10-p11a-a2" aria-label="Fermer">×</label><span class='wb'>T0 : signes vitaux complets, température, pression, fréquences cardiaque et respiratoire, saturation, état de conscience.<br>T0 à 15 min : voie veineuse, hémocultures (y compris germes du groupe <abbr class="ab" data-k="HACEK" tabindex="0">HACEK</abbr> en cas de souffle ou de stigmates) avant l'antibiotique. Lactate et bilan de base (hémogramme, <abbr class="ab" data-k="CRP" tabindex="0">CRP</abbr>, créatinine).<br>T &lt; 1 heure : antibiothérapie et prise en charge du sepsis selon le chapitre « Infections fébriles » (spécialités et doses détaillées dans ce chapitre) ; échocardiographie si souffle nouveau.<br>Toux, sueurs nocturnes, amaigrissement ou exposition : masque, isolement respiratoire, radiographie du thorax, expectorations, déclaration selon les règles de l'<abbr class="ab" data-k="OFSP" tabindex="0">OFSP</abbr> (voir le chapitre « Tuberculose »).<br>Hospitaliser tout patient hémodynamiquement instable.<sup class="r"><a href="#sb-4">4</a>,<a href="#sb-17">17</a></sup></span></span></span>,
+<span class="dx"><input type="checkbox" id="dx10-p11a-a3"><label class="dxt" for="dx10-p11a-a3">crise catécholaminergique</label><span class="dxc"><label class="fx-x" for="dx10-p11a-a3" aria-label="Fermer">×</label><span class='wb'>T0 : mesurer la tension, l'<abbr class="ab" data-k="ECG" tabindex="0">ECG</abbr>, la glycémie ; patient avec sueurs, céphalées, palpitations.<br>T0 à 30 min : avis urgent d'endocrinologie et de cardiologie ; ne donner ni bêta-bloquant seul ni <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a> (contre-indiqué en cas de phéochromocytome) : « <a class="tm med" data-auto="1" href="#med-471cf7f2">Propranolol</a> doit seulement être utilisé après l'administration d'un α-bloquant ».<br>T &lt; 1 heure : le blocage alpha se décide avec l'endocrinologue. La <a class="tm med" data-auto="1" href="#med-5c7dc27d">doxazosine</a> (<span class="tm med" tabindex="0">Cardura CR<span class="df">Alpha-1-bloquant (Cardura CR®, n° 54617) : 4 mg une fois par jour, jusqu'à 8 mg au maximum.</span></span>®, <a class="tm med" data-auto="1" href="#med-5c7dc27d">n° 54617</a> ; Doxazosin retard <a class="tm med" data-auto="1" href="#med-471cf7f2">Zentiva</a>, n° 59194) est indiquée dans l'hypertension artérielle essentielle légère à modérée. Le guide de l'Endocrine Society recommande un blocage préopératoire chez tous les patients porteurs d'un phéochromocytome fonctionnel. Le <a class="tm med" data-auto="1" href="#med-471cf7f2">propranolol</a> s'ajoute seulement ensuite : 60 mg/jour en préopératoire pendant 3 jours ; dose d'entretien 30 mg/jour en cas de tumeur inopérable.<br>Doser les métanéphrines plasmatiques libres (première intention selon le <abbr class="ab" data-k="CHUV" tabindex="0">CHUV</abbr>), puis imager.<br>Chirurgie après préparation (voir le chapitre « Phéochromocytome »).<sup class="r"><a href="#sb-4">4</a>,<a href="#sb-23">23</a>,<a href="#sb-24">24</a>,<a href="#sb-25">25</a>,<a href="#sb-39">39</a>,<a href="#sb-41">41</a>,<a href="#sb-42">42</a>,<a href="#sb-43">43</a></sup></span></span></span>,
+<span class="dx"><input type="checkbox" id="dx10-p11a-a4"><label class="dxt" for="dx10-p11a-a4">sevrage d'alcool ou d'opioïdes</label><span class="dxc"><label class="fx-x" for="dx10-p11a-a4" aria-label="Fermer">×</label><span class='wb'>T0 : signes vitaux, glycémie, ionogramme ; dater la dernière prise ; rechercher agitation, tremblement, confusion, convulsions.<br>T0 à 1 heure : surveillance continue et traitement du sevrage selon le chapitre « Alcoolisme et sevrage », qui détaille les spécialités et les doses.<br>Éviter les médicaments qui abaissent le seuil convulsif ; protéger le patient ; hospitaliser en cas de signes de gravité.<br>Rechercher une hypoglycémie (alcool) et une infection associée.</span></span></span>.</li>
+</ul>
+<p><b>B- Hors urgences :</b></p>
+<ul>
+<li><b>Mesures générales :</b> le médecin traite d'abord la cause, puis réévalue la sueur après 4 à 8 semaines de traitement étiologique, avant tout traitement symptomatique.</li>
+<li><b>Mesures spécifiques</b>, par priorité décroissante : pharmacologiques (dose lue dans l'<abbr class="ab" data-k="AIPS" tabindex="0">AIPS</abbr>), puis non pharmacologiques (ionophorèse, chirurgie minimalement invasive).</li>
+</ul>
+<p><b>Traitement étiologique :</b> les spécialités suisses ci-dessous ont leurs doses lues dans l'<abbr class="ab" data-k="AIPS" tabindex="0">AIPS</abbr>.</p><div style='overflow-x:auto;'><table><thead><tr><th>Cause</th><th>Spécialité (n° Swissmedic)</th><th>Dose, voie, durée</th><th>Remarques de sécurité</th></tr>
+</thead><tbody><tr><td>Hyperthyroïdie (chapitre « Hyperthyroïdie »)</td><td><a class="tm med" data-auto="1" href="#med-7daee49e">Néo-Mercazole®</a> (<a class="tm med" data-auto="1" href="#med-7daee49e">carbimazole</a>), se présente en comprimés à 5 mg (<a class="tm med" data-auto="1" href="#med-7daee49e">n° 21037</a>).</td><td>La dose initiale est de 20 à 60 mg/jour en 2 à 3 prises pendant 15 à 30 jours, titrée vers l'euthyroïdie. L'entretien est de 5 à 20 mg/jour, après une réduction par paliers de 5 à 15 mg/jour tous les 10 jours. La durée habituelle est de 6 à 18 mois.</td><td>Hémogramme avant le traitement ; surveillance hebdomadaire des 6 premières semaines chez les patients de plus de 40 ans (en particulier à plus de 40 mg/jour) ; arrêt immédiat et consultation en cas de fièvre, maux de gorge, aphtes, hématomes ; contre-indications : cancer thyroïdien <abbr class="ab" data-k="TSH" tabindex="0">TSH</abbr>-dépendant, signes de compression trachéale, goitre simple, affection hématologique sévère (granulopénie), insuffisance hépatique sévère, pancréatite aiguë antérieure sous <a class="tm med" data-auto="1" href="#med-7daee49e">carbimazole</a> ou <span class="tm med" tabindex="0">thiamazole<span class="df">Thyréostatique (méthimazole), métabolite actif du carbimazole, que le médecin prescrit en Suisse.</span></span></td></tr>
+<tr><td>Hyperthyroïdie ou thyréotoxicose (symptômes adrénergiques)</td><td><a class="tm med" data-auto="1" href="#med-471cf7f2">Propranolol Zentiva®</a> (<a class="tm med" data-auto="1" href="#med-471cf7f2">n° 47025</a>) est la spécialité employée.</td><td>La dose individualisée est de 10 à 40 mg 3 à 4 fois par jour dans l'hyperthyroïdie et les crises thyréotoxiques.</td><td>Contre-indiqué en cas d'asthme ou de bronchospasme, de bradycardie, d'hypotension, d'insuffisance cardiaque décompensée, de bloc auriculo-ventriculaire (<abbr class="ab" data-k="AV" tabindex="0">AV</abbr>) du 2e ou du 3e degré, de choc cardiogénique, d'angor de Prinzmetal, de troubles circulatoires périphériques graves, de maladie du sinus, de phéochromocytome non traité, d'acidose métabolique et de jeûne prolongé ; à éviter chez les patients enclins aux hypoglycémies ; peut masquer une thyréotoxicose</td></tr>
+<tr><td>Hypoglycémie sévère (chapitre « Diabète sucré »)</td><td><a class="tm med" data-auto="1" href="#med-ba7f8fc5">GlucaGen®</a> (<a class="tm med" data-auto="1" href="#med-ba7f8fc5">n° 31489</a>), <a class="tm med" data-auto="1" href="#med-7a583114">Baqsimi®</a> (<a class="tm med" data-auto="1" href="#med-7a583114">n° 67465</a>) et Glucosum « Bichsel » (n° 32920) sont les spécialités employées.</td><td>Les doses et les voies sont détaillées dans l'acte d'urgence ci-dessus.</td><td>Le <a class="tm med" data-auto="1" href="#med-ba7f8fc5">glucagon</a> reste sans effet si le glycogène est épuisé et il est contre-indiqué en cas de phéochromocytome.</td></tr>
+<tr><td>Syndrome carcinoïde, acromégalie (chapitre « Tumeur carcinoïde »)</td><td><a class="tm med" data-auto="1" href="#med-c6340ae5">Sandostatine®</a> (<a class="tm med" data-auto="1" href="#med-c6340ae5">octréotide</a>, <a class="tm med" data-auto="1" href="#med-c6340ae5">n° 49137</a>)</td><td>Syndrome carcinoïde : 0,05 mg sous-cutané 1 à 2 fois/jour, jusqu'à 0,2 mg 3 fois/jour ; acromégalie : 0,05 à 0,1 mg toutes les 8 heures, dose journalière optimale 0,2 à 0,3 mg, maximum 1,5 mg/jour</td><td>Le traitement s'interrompt après une semaine en cas d'échec dans la tumeur <abbr class="ab" data-k="GEP" tabindex="0">GEP</abbr>, et la vitamine <abbr class="ab" data-k="B12" tabindex="0">B12</abbr> se surveille en cas de carence.</td></tr>
+<tr><td>Phéochromocytome (chapitre « Phéochromocytome »)</td><td><a class="tm med" data-auto="1" href="#med-471cf7f2">Propranolol Zentiva®</a> (<a class="tm med" data-auto="1" href="#med-471cf7f2">n° 47025</a>) se donne seulement après un alpha-bloquant.</td><td>La dose est de 60 mg/jour pendant 3 jours en préopératoire et de 30 mg/jour si la tumeur est inopérable.</td><td>Jamais en monothérapie bêta-bloquante ; le blocage alpha précède toujours le bêta-bloquant (voir 11.B.1)</td></tr>
+<tr><td>Infections (endocardite, tuberculose, <abbr class="ab" data-k="VIH" tabindex="0">VIH</abbr>)</td><td>Les spécialités figurent dans les chapitres « Infections fébriles », « Tuberculose » et « Endocardite et <abbr class="ab" data-k="VIH" tabindex="0">VIH</abbr> ».</td><td>Les doses sont détaillées dans ces chapitres.</td><td>La tuberculose impose l'isolement respiratoire.</td></tr>
+<tr><td>Lymphome, leucémie (chapitre « Lymphome »)</td><td>Voir le chapitre « Lymphome »</td>
+<td>Traitement oncologique spécialisé</td><td>—</td></tr><tr><td>Ménopause (chapitre « Symptômes vasomoteurs de la ménopause ») ; sevrage (chapitre « Alcoolisme et sevrage ») ; anxiété (chapitre « Troubles anxieux ») ; apnée (chapitre « Obésité »)</td><td>Voir ces chapitres</td><td>—</td><td>—</td></tr><tr><td>Médicament sudorifique (chapitre « Hyperhidrose médicamenteuse »)</td><td>—</td><td>Le médecin réduit, substitue ou arrête le médicament, et il ajoute un agent anti-sudoral si le médicament reste indispensable.</td><td>Ne jamais arrêter brutalement un bêta-bloquant chez un coronarien : l'arrêt se fait progressivement sur 1 à 2 semaines</td></tr></tbody></table><sup class="r"><a href="#sb-4">4</a>,<a href="#sb-8">8</a>,<a href="#sb-17">17</a>,<a href="#sb-22">22</a>,<a href="#sb-23">23</a>,<a href="#sb-24">24</a>,<a href="#sb-25">25</a>,<a href="#sb-26">26</a>,<a href="#sb-27">27</a>,<a href="#sb-42">42</a>,<a href="#sb-43">43</a></sup></div>
