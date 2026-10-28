@@ -8,3 +8,6 @@
 - Relancer : `bash harnais/brain/relance_tout.sh` (idempotent) ; état : `python3 harnais/brain/radar.py` ; suivi : `python3 harnais/brain/suivi_html.py`.
 - À faire ensuite : captures + tableau des fautes restantes du LOT_001 pour Vial ; promotion vers `LOT_Claude_Finaux` uniquement si porte et pré-commit passent.
 - Le conteneur redémarre souvent : les leçons finies sont enregistrées (`journal/*.fait.json`), rien n'est perdu.
+
+## Fichier à garder jalousement
+`harnais/etat/LOTS_248_DD.md` : les 248 LOT (SSP du catalogue PROFILES 2023), statut FAIT/NON FAIT et listes de DD (LOT 001–022). Reçu de Vial le 28.10.2026. Prompt universel court : `PROMPT_Casern/PROMPT_FLASH_UNIVERSEL.md`.
