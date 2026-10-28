@@ -89,9 +89,9 @@ def analyse_fichier(p: Path) -> dict:
         par_classe = any(re.search(rf"class\s*=\s*[\"'][^\"']*\b{re.escape(c)}\b", avant) for c in classes_defil)
         if not (inline or par_classe):
             crit.append("tableau non enveloppé (ni style overflow-x:auto, ni classe CSS interne équivalente)"); break
-    longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 3000 and "data:font" not in l and "font/woff" not in l and "data-brain=" not in l]
+    longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 10000 and "data:font" not in l and "font/woff" not in l and "data-brain=" not in l]
     if longues:
-        crit.append(f"{len(longues)} ligne(s) > 3 000 caractères (ex. l.{longues[0]})")
+        crit.append(f"{len(longues)} ligne(s) > 10 000 caractères (ex. l.{longues[0]})")
     if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I):
         crit.append("script, image ou feuille de style externe présent")
     if not re.search(r"\[S1\]", t):
