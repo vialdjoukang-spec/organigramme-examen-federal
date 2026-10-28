@@ -309,6 +309,8 @@ def lignes_point(t):
 def lecon(f, P, a, pool):
     T0 = time.time(); nom = Path(f).name; essai = "--dry-run" in a
     jd = Path(opt(a, "--journal", str(R / ".cache/brain/circuit/parallele"))).resolve(); jd.mkdir(parents=True, exist_ok=True)
+    fait = jd / (Path(f).stem + ".fait.json")                  # reprise après redémarrage du conteneur : une leçon terminée n'est jamais refaite
+    if "--reprendre" in a and fait.exists(): return json.loads(fait.read_text(encoding="utf-8"))
     journal = jd / (nom + ".jsonl"); dossier = jd / (Path(f).stem + ".fragments"); taille = opt(a, "--taille", 25000)
     ld, lp = opt(a, "--limite-duo", 180), opt(a, "--limite-prof", 300); temps = {}
     res = dict(lecon=f, ko_avant=round(Path(f).stat().st_size / MK.KO, 1))
@@ -394,6 +396,7 @@ def lecon(f, P, a, pool):
     res.update(porte_finale=dict(role=role_final, verdict=evf["verdict"], ko=evf["ko"], bande=evf["bande"], motif=outf[-900:]),
                restantes=dict(tableau=evf["registre"], fautes=len(fautes_f), controle=str(jd / f"{Path(f).stem}.controle.html")), temps=temps)
     ecrire_journal(journal, dict(fin=time.strftime("%Y-%m-%d %H:%M:%S"), temps=temps))
+    if not essai: fait.write_text(json.dumps(res, ensure_ascii=False), encoding="utf-8")
     return res
 
 
