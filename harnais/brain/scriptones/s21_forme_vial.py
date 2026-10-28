@@ -32,7 +32,7 @@ Le script ne crée jamais de contenu médical : il dessine le modèle écrit par
 COURS FLASH (harnais/etat/COURS_FLASH.md, 28.10.2026) : contrôles AJOUTÉS, actifs seulement en mode Flash (analyser(..., {"flash": True}),
   flash(t, nom), `circuit_vial.py … --flash` ou instantané pris en mode Flash). Gabarit de référence : harnais/brain/gabarit_flash.html.
   Ko = 1 000 octets, fichier entier (notions, CSS et fenêtres comprises).
-    V1 volume > 250 Ko (GRAVE, bloquant)   V2 volume > 200 Ko (MOYEN : visé 100–200)   V3 volume < 100 Ko (MOYEN : fond peut-être insuffisant)
+    V1 volume > 280 Ko (GRAVE, bloquant ; tolérance de Vial)   V2 volume > 200 Ko (MOYEN : visé 100–200)   V3 volume < 100 Ko (MOYEN : fond peut-être insuffisant)
     N1 bloc « Notions voisines » ou « Diagnostic(s) différentiel(s) » (liste ou tableau) dans le corps, hors fenêtre (GRAVE ; replié en <details> : MOYEN)
     I1 aucun îlot (GRAVE)   I2 points 1–4 hors d'un même îlot (GRAVE si un point est hors îlot, sinon MOYEN)   I3 points 5–6 hors d'un même îlot
        (même règle)   I4 point 7–14 non replié (<details class="ilot"> sans « open ») (MOYEN)   I5 CSS brain-flash (bords, justification, fenêtres
@@ -88,8 +88,8 @@ CSS_FLASH = ('<style id="brain-flash">'
              'margin:0;background:#fff;border:2px solid #7c3aed;box-shadow:0 0 0 100vmax rgba(15,23,42,.55);text-align:justify}'
              '@media(prefers-color-scheme:dark){.ilot{background:#14112a;border-color:#5b21b6}span.dx>input:checked~span.dxc,.fx>.fx-b,.algo-det>.algo-d'
              '{background:#1e1b4b;color:#ede9fe}.fxw>.fx-o{color:#ddd0ff}}</style>')
-KO = 1000                                        # Ko = 1 000 octets ; bande Flash 100–250 Ko (visé 100–200), fichier entier
-FLASH_MAX, FLASH_VISE, FLASH_MIN = 250 * KO, 200 * KO, 100 * KO
+KO = 1000                                        # Ko = 1 000 octets ; bande Flash 100–280 Ko (tolérée ; visé 100–200), fichier entier
+FLASH_MAX, FLASH_VISE, FLASH_MIN = 280 * KO, 200 * KO, 100 * KO
 ILOT_SATURE = 12000                              # caractères visibles (hors fenêtres) au-delà desquels un îlot est saturé
 RX_FAIBLE = re.compile(r"(?i)(?<![\wÀ-ÿ-])(?:tu|toi|ton|ta|tes|te|t'|il y a|on|ça|ca va|un peu|pas mal|en gros|truc|trucs|chose|choses|vraiment|super|carrément|quelque chose|voici|voilà)(?![\wÀ-ÿ'])"
                        r"|^(?:Vérifie|Procède|Revois|Organise|Propose|Sois|Prescris|Exclus|Traite|Cherche|Demande|Évite|Pense|Adapte|Décide|Confirme|Fais|Mets|(?:Contrôle|Note|Garde|Demande|Recherche) (?=une?\b|les?\b|la\b|l'|des\b)|Mesure (?=l'|les?\b|la\b))\b")
@@ -419,7 +419,7 @@ def flash(t, nom):
     # ── volume (fichier entier)
     o = len(t.encode()); M["octets"] = o; M["ko"] = round(o / KO, 1)
     if o > FLASH_MAX:
-        dol("V1", 0, "GRAVE", f"volume {o / KO:.0f} Ko > 250 Ko (bande Flash 100–250, visé 100–200)",
+        dol("V1", 0, "GRAVE", f"volume {o / KO:.0f} Ko > 280 Ko (bande Flash 100–280, visé 100–200)",
             "contracter : le détail secondaire descend dans une fenêtre, l'inutile est retiré (retrait déclaré) ; aucune redite ; sigles et CSS non dupliqués")
     elif o > FLASH_VISE:
         dol("V2", 0, "MOYEN", f"volume {o / KO:.0f} Ko > 200 Ko (visé 100–200 Ko)", "alléger le corps : détails en fenêtres, redites retirées")

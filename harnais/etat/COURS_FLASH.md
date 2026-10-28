@@ -3,7 +3,7 @@
 Remplace le prototype volumineux (410 Ko). Le plan des 14 points reste le même ; le fond devient flash, le détail passe dans des fenêtres.
 
 ## Volume
-- Bande : **100 à 250 Ko** par leçon (visé : 100–200). Notions comprises. Un prototype à 410 Ko est refusé.
+- Bande : **100 à 280 Ko** par leçon (visé : 100–200 ; 250 → 280 toléré, décision de Vial). Notions comprises. Un prototype à 410 Ko est refusé.
 - Plus de « notions voisines » en bloc dans le texte : un diagnostic différentiel utile se range dans une fenêtre cliquable.
 - Rien de sourcé d'essentiel n'est perdu : ce qui est secondaire descend dans une fenêtre, ce qui est inutile est retiré.
 
