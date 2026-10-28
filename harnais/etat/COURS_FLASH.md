@@ -3,7 +3,7 @@
 Remplace le prototype volumineux (410 Ko). Le plan des 14 points reste le même ; le fond devient flash, le détail passe dans des fenêtres.
 
 ## Volume
-- Bande : **100 à 280 Ko** par leçon (visé : 100–200 ; 250 → 280 toléré, décision de Vial). Notions comprises. Un prototype à 410 Ko est refusé.
+- Bande : **100 à 298 Ko** par leçon (visé : 100–200 ; 250 → 298 toléré, décision de Vial). Notions comprises. Un prototype à 410 Ko est refusé.
 - Plus de « notions voisines » en bloc dans le texte : un diagnostic différentiel utile se range dans une fenêtre cliquable.
 - Rien de sourcé d'essentiel n'est perdu : ce qui est secondaire descend dans une fenêtre, ce qui est inutile est retiré.
 
@@ -39,3 +39,6 @@ Rédacteurs (duo médico-linguiste Sonnet 5.5, un par leçon) produisent le cour
 
 ## Principe de fiche (Vial, 28.10.2026) — Pareto
 Le cours Flash est une FICHE DE LECTURE : seuls les 20 % d'information qui donnent 80 % de la compréhension restent dans le corps ; le reste est du bruit et est RETIRÉ (pas déplacé dans une fenêtre, sauf si utile à un clic). Une idée par phrase complète ; chaque sous-titre dit seulement l'essentiel de ce qu'il annonce. Progression du petit au clinique : mécanisme (physiopathologie) → symptômes et signes → prise en charge, qui découle et se justifie par le mécanisme. Page aérée : marges, titre net, séparations discrètes, jamais d'îlot saturé.
+
+## Rappel de Vial : ce qui rend la feuille vivante
+Fenêtres et mots interactifs en nombre (termes dédiés, symptômes, signes, actes, cases d'algorithme) ; îlots à bordure avec texte justifié (mise en page). Le volume se mesure automatiquement : `python3 harnais/brain/mesure_ko.py <fichier|dossier>` (bande 100–298 Ko, jamais 299 ; > 298 bloquant). Toujours vérifier que le fond reste exact après toute coupe.

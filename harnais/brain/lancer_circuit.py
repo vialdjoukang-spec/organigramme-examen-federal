@@ -3,7 +3,7 @@
   python3 harnais/brain/lancer_circuit.py <leçon.html …> [--sonnet 16] [--opus 12] [--boucles 0] [--etapes duo,professeur]
                                           [--journal DIR] [--consigne constats.md] [--dry-run] [--classique]
 COURS FLASH par défaut (harnais/etat/COURS_FLASH.md ; gabarit harnais/brain/gabarit_flash.html) : memoire, porte, mesure et registre en
-`--flash` (volume > 280 Ko refusé, îlots, fenêtres modales) ; `--classique` rend le circuit d'avant (forme Vial seule).
+`--flash` (volume > 298 Ko refusé, îlots, fenêtres modales) ; `--classique` rend le circuit d'avant (forme Vial seule).
 LOT_001 (Vial, 28.10.2026) : 16 leçons → 16 duos Sonnet, 12 professeurs Opus (une leçon par appel ; les leçons 13 à 16 attendent la
 première place Opus libre). La capacité est réglable (--sonnet, --opus) sans changer le circuit.
 Par leçon : duo (Sonnet, une leçon) → `circuit_vial.py fin --role duo` exécuté PAR LE LANCEUR (jamais sur la parole de l'agent) →
@@ -26,18 +26,19 @@ ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None),
 
 
 PARETO = ("FICHE DE LECTURE, loi de Pareto : ne garde dans le corps que les 20 % d'information qui donnent 80 % de la compréhension, retire le bruit ; "
+          "beaucoup de mots interactifs et de fenêtres, îlots bordurés au texte justifié ; mesure le volume avec harnais/brain/mesure_ko.py (100–298 Ko) et vérifie que le fond reste exact ; "
           "une idée par phrase complète ; du mécanisme à la clinique puis au traitement qui s'en déduit ; page aérée. ")
 
 
 BRIEF_FLASH = {
-    "duo": (PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 280 Ko "
-            "(visé 100–200 ; > 280 Ko refusé) ; le corps ne garde que l'essentiel en phrases complètes ; le détail et le diagnostic différentiel utile "
+    "duo": (PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md ; gabarit exact : harnais/brain/gabarit_flash.html, lu par Read) : fichier entier de 100 à 298 Ko "
+            "(visé 100–200 ; > 298 Ko refusé) ; le corps ne garde que l'essentiel en phrases complètes ; le détail et le diagnostic différentiel utile "
             "passent dans des fenêtres modales (aucun bloc « Notions voisines » dans le corps) ; îlots : points 1–4 dans un <section class=\"ilot\">, "
             "5–6 dans un autre, chaque point 7–14 dans <details class=\"ilot\"> replié ; symptômes et signes d'examen cliquables (comment rechercher, manœuvre) ; "
             "syndrome cliquable ouvrant un tableau à 2 colonnes Symptômes fonctionnels | Signes physiques ; cases d'algorithme à détail ; point 11 : But, "
             "Moyens et méthodes A urgences (non-spécialiste puis service spécialisé) et B hors urgences, algorithme en cases à traits orthogonaux. "),
     "professeur": (PARETO + "COURS FLASH (harnais/etat/COURS_FLASH.md) : vérifie le fond DANS LES FENÊTRES comme dans le corps ; ne regonfle pas le volume "
-                   "(> 280 Ko refusé) ; garde îlots et fenêtres du gabarit harnais/brain/gabarit_flash.html ; UNE seule tentative : le reste part "
+                   "(> 298 Ko refusé) ; garde îlots et fenêtres du gabarit harnais/brain/gabarit_flash.html ; UNE seule tentative : le reste part "
                    "au registre (tableau .md à Vial). ")}
 
 
