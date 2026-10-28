@@ -126,11 +126,11 @@ def rendre(mod, pre):
             svg.append(f'<rect class="{"fi" if typ == "fin" else "ca"}" x="{X:.0f}" y="{Y:.0f}" width="{w}" height="{h}" rx="6"/>')
         cid = f"{pre}-{j + 1}"; cl = "lo" if typ == "losange" else "ca"
         if n.get("detail"):
-            lab.append(f'<label class="algo-n {cl} cl" for="{cid}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px">{n["texte"]}</label>')
+            lab.append(f'<label class="algo-n {cl} cl" for="{cid}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px"><span>{n["texte"]}</span></label>')
             det.append(f'<div class="algo-d" id="{cid}-d"><b class="algo-dt">{n["texte"]}</b> · {n["detail"]}</div>')
             css.append(f"#{cid}:checked~.algo-det #{cid}-d{{display:block}}")
         else:
-            lab.append(f'<div class="algo-n {cl}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px">{n["texte"]}</div>')
+            lab.append(f'<div class="algo-n {cl}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px"><span>{n["texte"]}</span></div>')
     entrees = [f'<input type="checkbox" id="{pre}-{j + 1}">' for j, i in enumerate(ordre) if N[i].get("detail")]
     modele = json.dumps(mod, ensure_ascii=False, indent=0).replace("</template", "<\\/template")
     # Une ligne par élément (trait, case, étiquette, fenêtre) : aucune ligne > 10 000 caractères (controle_lot), quelle que soit la taille de l'arbre.

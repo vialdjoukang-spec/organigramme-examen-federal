@@ -8,7 +8,8 @@
   python3 harnais/brain/circuit_vial.py reparer <fichier>                     réparations mécaniques sûres : algorithme rendu, balises de bloc, lignes > 10 000
   python3 harnais/brain/circuit_vial.py mesurer <fichier> [--json]            relevé chiffré (octets, lignes longues, balises, doléances, scores langue et médical)
   python3 harnais/brain/circuit_vial.py fin <fichier> [--role duo|professeur] PORTE UNIQUE : répare d'abord (reparer), puis refuse si rien n'a changé (R15), si une
-                                                                               GRAVE de forme (S21 : D/E/Q/L/H) ou une CRITIQUE reste, si un chiffre sourcé ou un appel
+                                                                               GRAVE de forme (S21 : D/E/Q/L/H), une GRAVE de source (BS : chiffre
+                                                                               ou dose sans renvoi) ou une CRITIQUE reste, si un chiffre sourcé ou un appel
                                                                                de source a disparu, si controle_lot relève une critique, ou si la langue ou le
                                                                                médical d'audit_lot est < 90 ou critique (même verdict que la porte de sortie du lot)
   python3 harnais/brain/circuit_vial.py repartir <dossier|fichiers…> [--phase-b|--phase-a] [--liste f.txt] [--exclure-traites] [--json]
@@ -156,6 +157,8 @@ def fin(f, role):
     elif J: print("À RÉPARER À LA MAIN : " + " ; ".join(J[:4]))
     D_ = cerveau(f); F = [d for d in D_ if d["scriptone"] == S21.ID and d["severite"] in ("GRAVE", "CRITIQUE")]
     C = [d for d in D_ if d["severite"] == "CRITIQUE"]
+    BS = [d for d in D_ if d["severite"] == "GRAVE" and d["code"].startswith("BS")]      # chiffre ou dose sans source : vérité médicale (Vial)
+    if BS: ko.append(f"{len(BS)} GRAVE de source (chiffre ou dose sans renvoi [Sn] lu) : " + "; ".join(f"{d['code']} {d['ancre']}" for d in BS[:8]))
     perdus = [c for c in e["chiffres"] if c not in set(chiffres(t))]
     if F: ko.append(f"{len(F)} GRAVE de forme (S21) : " + "; ".join(f"{d['code']} {d['ancre']}" for d in F[:8]))
     if C: ko.append(f"{len(C)} CRITIQUE : " + "; ".join(f"{d['code']} {d['ancre']}" for d in C[:8]))
@@ -235,6 +238,9 @@ def point(f, n):
     ln = lambda d: int((re.search(r"l\.(\d+)", d["ancre"]) or [0, 0])[1])
     for d in S21.analyser(t, Path(f).name)[0]:
         if la <= ln(d) < lb and d["severite"] in ("GRAVE", "CRITIQUE", "MOYEN") and d["code"][0] != "H":
+            ko.append(f"{d['severite']} {d['code']} {d['ancre']} : {d['constat']} → {d['correction_prescrite'][:160]}")
+    for d in cerveau(f):                                      # sources : chiffre ou dose sans renvoi [Sn] (bloquant à `fin`)
+        if la <= ln(d) < lb and d["severite"] in ("GRAVE", "CRITIQUE") and d["code"].startswith("BS"):
             ko.append(f"{d['severite']} {d['code']} {d['ancre']} : {d['constat']} → {d['correction_prescrite'][:160]}")
     if n in (6, 7, 10, 13):
         L = _rapport("harnais/controle_langue.py", f)
