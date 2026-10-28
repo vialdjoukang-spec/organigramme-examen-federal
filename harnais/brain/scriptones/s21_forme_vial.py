@@ -8,7 +8,7 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
   Point 11 · prise en charge
     E1 « But » absent      E2 « Moyens et méthodes » absent      E3 A urgences : non-spécialiste puis service spécialisé absents
     E4 B hors urgences : mesures générales puis spécifiques absentes      E5 actes du service spécialisé non cliquables
-    E6 ordre B non respecté (générales avant spécifiques ; pharmacologique avant non pharmacologique)
+    E6 ordre B non respecté (générales avant spécifiques ; pharmacologique avant non pharmacologique)   E8 A- urgences sans algorithme en cases
     E7 titre « Prise en charge » sans bande colorée soulignée (h3 id …-p11 absent ou CSS brain-vial non posée → script : corriger)
   Point 7 · syndromes
     Q1 intitulé non numéroté « 7.n Syndrome … »    Q2 « Symptômes fonctionnels » absent    Q3 « Signes physiques » absent
@@ -19,6 +19,7 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
   Réparation sûre (reparer) : rendu des algorithmes, balises fermées en fin de point ou fermante orpheline retirée, lignes coupées aux fins de blocs
   Registre universitaire et clarté (texte courant <p> et <li>, hors fenêtres ; directive « Langue = Universitaire ») :
     L1 tournure faible ou familière (tutoiement, impératif familier, « il y a », « on », « ça », « un peu »…)   L2 phrase trop longue (> 40 mots)
+    L5 cellule de tableau nominale (≥ 6 mots sans verbe conjugué, hors puces ; 1re colonne exemptée)
     L3 phrase nominale sans verbe dans un paragraphe (≥ 12 mots)    L4 phrase répétée à l'identique (GRAVE) ; mot plein répété 3 fois dans une phrase (MOYEN)
 Correction (--appliquer) : rend chaque <template class="algo-modele"> (ou div.algo[data-modele]) en algorithme
 en cases (rectangles, losanges), traits strictement horizontaux et verticaux, cases cliquables à fenêtre ; pose la CSS brain-vial.
@@ -42,7 +43,7 @@ CSS = ('<style id="brain-vial">div.algo{margin:14px 0}div.algo>input{position:ab
        'h3[id$="-p11"]{background:linear-gradient(90deg,#ede9fe,transparent);border-left:6px solid #7c3aed;text-decoration:underline;padding:4px 10px}'
        '@media(prefers-color-scheme:dark){.algo-can svg .ca{fill:#241d3f}.algo-can svg .lo{fill:#3b2a10}.algo-can svg .fi{fill:#12301f}.algo-n{color:#ede9fe}'
        '.algo-can svg text{fill:#ddd0ff}.algo-d{background:#241d3f}span.sc.dx{background:#241d3f;border-color:#5b21b6}h3[id$="-p11"]{background:linear-gradient(90deg,#2e1065,transparent)}}</style>')
-RX_FAIBLE = re.compile(r"(?i)(?<![\wÀ-ÿ-])(?:tu|toi|ton|ta|tes|te|t'|il y a|on|ça|ca va|un peu|pas mal|en gros|truc|trucs|chose|choses|vraiment|super|carrément|quelque chose)(?![\wÀ-ÿ'])"
+RX_FAIBLE = re.compile(r"(?i)(?<![\wÀ-ÿ-])(?:tu|toi|ton|ta|tes|te|t'|il y a|on|ça|ca va|un peu|pas mal|en gros|truc|trucs|chose|choses|vraiment|super|carrément|quelque chose|voici|voilà)(?![\wÀ-ÿ'])"
                        r"|^(?:Vérifie|Procède|Revois|Organise|Propose|Sois|Prescris|Exclus|Traite|Cherche|Demande|Évite|Pense|Adapte|Décide|Confirme|Fais|Mets|(?:Contrôle|Note|Garde|Demande|Recherche) (?=une?\b|les?\b|la\b|l'|des\b)|Mesure (?=l'|les?\b|la\b))\b")
 # Groupe nominal + forme en -e/-ent + mot-outil : verbe conjugué absent du lexique (« l'insuffisance veineuse cause souvent… »)
 RX_SV2 = re.compile(r"(?i)(?:^|\s)(?:l'|le |la |les |un |une |ce |cet |cette |ces |il |elle |ils |elles |qui |on )[\wÀ-ÿœ'-]+(?: [\wÀ-ÿœ-]+)? [\wÀ-ÿœ]{2,}(?:e|ent|it|ait) "
@@ -100,11 +101,23 @@ def rendre(mod, pre):
             if l.get("etiquette"): svg.append(f'<text x="{xa + 6:.0f}" y="{y - 6:.0f}">{H.escape(l["etiquette"])}</text>')
             continue
         x1, y1, x2, y2 = cx(a), bas(a), cx(b), top(b)
-        ym = y1 + (y2 - y1) / 2 if par.get(b) == a else y2 - 18
-        svg.append(f'<path class="tr" d="M{x1:.0f} {y1:.0f} V{ym:.0f} H{x2:.0f} V{y2 - 7:.0f}"/>'
-                   f'<polygon class="fl" points="{x2 - 5:.0f},{y2 - 8:.0f} {x2 + 5:.0f},{y2 - 8:.0f} {x2:.0f},{y2:.0f}"/>')
+        fleche = f'<polygon class="fl" points="{x2 - 5:.0f},{y2 - 8:.0f} {x2 + 5:.0f},{y2 - 8:.0f} {x2:.0f},{y2:.0f}"/>'
+        if par.get(b) == a:                                     # lien de l'arbre : rangée suivante, coude dans le couloir entre les rangées
+            ym = y1 + (y2 - y1) / 2
+            svg.append(f'<path class="tr" d="M{x1:.0f} {y1:.0f} V{ym:.0f} H{x2:.0f} V{y2 - 7:.0f}"/>' + fleche)
+            if l.get("etiquette"): svg.append(f'<text x="{x2 + 6:.0f}" y="{ym - 4:.0f}">{H.escape(l["etiquette"])}</text>')
+            continue
+        # Lien de retour ou de jonction (cible déjà rattachée) : sortie par un côté libre de la source, couloir vertical entre les colonnes
+        # (aucune case n'y passe), couloir horizontal au-dessus de la rangée cible, entrée par le haut de la cible. Jamais à travers une case.
+        lat = any(prof.get(c) == prof[a] and x[c] > x[a] for c in N if par.get(c) == a)
+        gauche = x[b] <= x[a] or lat
+        wa, ha = taille(a); ya = top(a) + ha / 2
+        xs = cx(a) - wa / 2 if gauche else cx(a) + wa / 2
+        xc = M + x[a] * COL + 6 if gauche else M + (x[a] + 1) * COL - 6
+        yb = M + prof[b] * ROW - 12
+        svg.append(f'<path class="tr" d="M{xs:.0f} {ya:.0f} H{xc:.0f} V{yb:.0f} H{x2:.0f} V{y2 - 7:.0f}"/>' + fleche)
         if l.get("etiquette"):
-            svg.append(f'<text x="{x2 + 6:.0f}" y="{ym - 4:.0f}">{H.escape(l["etiquette"])}</text>')
+            svg.append(f'<text x="{(xc + 3) if not gauche else (xc + 3):.0f}" y="{ya - 6:.0f}">{H.escape(l["etiquette"])}</text>')
     for j, i in enumerate(ordre):
         n = N[i]; w, h = taille(i); X, Y = cx(i) - w / 2, top(i); typ = n.get("type", "case")
         if typ == "losange":
@@ -248,6 +261,16 @@ def reparer(t):
     return t2, J
 
 
+def cellule_verbale(ph):
+    """Phrase de cellule verbale au sens de la directive : forme finie (une consigne à l'infinitif sans sujet ne suffit pas)."""
+    import familles as FA
+    mots = re.findall(r"[a-zà-ÿœ]+(?:['’][a-zà-ÿ]+)?", ph.lower())
+    if mots and "→" not in ph and FA._infinitif(mots[0], FA.verbes()):
+        reste = ph.split(None, 1)[1] if " " in ph.strip() else ""
+        return bool(reste) and FA.verbale(reste) and not FA._infinitif((re.findall(r"[a-zà-ÿœ]+", reste.lower()) or [""])[0], FA.verbes())
+    return FA.verbale(ph)
+
+
 # ───────────────────────── analyse ─────────────────────────
 def analyser(t, nom, opt=None):
     me = sys.modules[__name__]; D = []; S = bus.sections(t); M = {}
@@ -287,7 +310,7 @@ def analyser(t, nom, opt=None):
             dol("E1", h(a), "GRAVE", "« But » absent de la prise en charge", "1- But (gras) : une phrase claire")
         if not re.search(r"(?is)<(?:b|strong)>[^<]{0,12}Moyens et méthodes", seg):
             dol("E2", h(a), "GRAVE", "« Moyens et méthodes » absent", "2- Moyens et méthodes (gras), puis A- En urgences, B- Hors urgences")
-        sans_urg = re.search(r"(?i)sans objet|aucune urgence|pas de situation d'urgence", low)
+        sans_urg = re.search(r"(?i)\ba\s*[-–—]\s*sans objet|aucune urgence propre|pas de situation d'urgence", low)
         iu = low.find("urgence"); ins = low.find("non-spécialiste") if "non-spécialiste" in low else low.find("non spécialiste"); iss = low.find("service spécialisé")
         if not sans_urg and (iu < 0 or ins < 0 or iss < 0 or not iu <= ins < iss):
             dol("E3", h(a), "GRAVE", "A- En urgences incomplet (urgence, puis « aux urgences par le non-spécialiste », puis « dans le service spécialisé »)",
@@ -305,6 +328,9 @@ def analyser(t, nom, opt=None):
             zone = seg[m.end():m.end() + fin.start()] if m and fin else ""
             if m and zone.count('class="dx') + zone.count('class="tm') < 2:
                 dol("E5", a + m.start(), "MOYEN", "actes du service spécialisé non cliquables", "chaque acte ou geste : <span class=\"dx\"> cliquable avec sa fenêtre de détails")
+        if not sans_urg and 'data-brain="algo"' not in seg and not RX_MODELE.search(seg):
+            dol("E8", h(a), "GRAVE", "A- En urgences sans algorithme de prise en charge d'urgence en cases",
+                "écrire au début de A- un modèle <template class=\"algo-modele\"> (cases et losanges, détails en phrases) puis lancer circuit_vial.py algo <fichier> --appliquer")
         h3 = re.match(r'(?is)<h3\b([^>]*)>', t[a:a + 300])
         if not (h3 and re.search(r'id="[^"]*-p11"', h3.group(1))):
             dol("E7", h(a), "MOYEN", "titre du point 11 sans identifiant …-p11 : la bande colorée ne s'applique pas", "donner au <h3> l'identifiant <monographie>-p11")
@@ -361,6 +387,23 @@ def analyser(t, nom, opt=None):
             rep = sorted({w for w in pleins if pleins.count(w) >= 3})
             if rep: dol("L4", pa, "MOYEN", f"mot répété dans la phrase : {', '.join(rep)}", "varier par un terme dédié ou un pronom", preuve=ph[:160])
     M["phrases_registre"] = nL
+    # ── cellules de tableau (directive : phrases complètes et puces « y compris dans les cellules ») ; 1re colonne et en-têtes exemptés
+    a0, f0 = bus.bornes_cours(t); nC = 0
+    for mt in re.finditer(r"(?is)<table\b.*?</table>", t[a0:f0]):
+        for mr in re.finditer(r"(?is)<tr\b[^>]*>(.*?)(?=<tr\b|</table>)", mt.group(0)):
+            cel = re.split(r"(?i)<td\b[^>]*>", mr.group(1))[1:]
+            for k, c in enumerate(cel):
+                if k == 0: continue
+                pos = a0 + mt.start() + mr.start(1) + mr.group(1).find(c[:40])
+                if bus.dans_fenetre(t, pos): continue
+                hors_liste = re.sub(r"(?is)<ul\b.*?</ul>|<ol\b.*?</ol>", " ", re.sub(r"(?is)</td>.*", "", c))
+                for ph in bus.phrases(bus.texte_visible(hors_liste)):
+                    mots = re.findall(r"[\wÀ-ÿœŒ'’-]+", ph); nC += 1
+                    if len(mots) < 6 or re.match(r"(?i)\s*(symptômes fonctionnels|signes physiques)\b", ph): continue
+                    if not cellule_verbale(ph):
+                        dol("L5", pos, "GRAVE", "cellule nominale (fragment ou énumération sans verbe)",
+                            "phrase complète (sujet, verbe, complément) ou énumération en puces <ul><li> dans la cellule", preuve=ph[:160]); break
+    M["phrases_cellules"] = nC
     # ── intégrité HTML (même mesure que controle_lot, localisée au point fautif) et lignes longues
     for tag, o, f_, n_ in desequilibres(t):
         dol("H1", S[n_][0] if n_ in S else 0, "GRAVE", f"balises <{tag}> déséquilibrées {'au point ' + str(n_) if n_ else 'dans le fichier'} ({o} ouvertes / {f_} fermées)",

@@ -79,7 +79,7 @@ def lecon(f, P, a):
     journal = jd / (Path(f).name + ".jsonl"); essai = "--dry-run" in a
     res = dict(lecon=f, avant=None if essai else mesure(f), etapes={})
     for role in opt(a, "--etapes", "duo,professeur").split(","):
-        cs = Path(opt(a, "--consigne", "")).read_text(encoding="utf-8")[:6000] if "--consigne" in a else ""
+        cs = Path(opt(a, "--consigne", "")).read_text(encoding="utf-8")[:16000] if "--consigne" in a else ""
         ok, motif, evs = etape(role, f, P[ROLES[role]["model"]], journal, opt(a, "--boucles", 2), essai, cs)
         res["etapes"][role] = dict(accepte=ok, appels=evs, motif=motif[-800:])
         if not ok and not essai: break                       # leçon refusée : jamais de professeur sur un duo non accepté

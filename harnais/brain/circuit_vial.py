@@ -59,7 +59,10 @@ GABARITS = r"""## Gabarits HTML (le script vérifie exactement ces formes)
   Les sous-parties existantes (surveillance, pronostic, situations spéciales) restent après B."""
 REGLES = """## Règles absolues
 - Rien n'est retranché : notions, chiffres sourcés, références et fenêtres existantes sont conservés (reformuler plus dense, déplacer en puces ou en fenêtre).
-- Phrases complètes (sujet, verbe, complément), concises, style universitaire soutenu, termes dédiés ; énumérations en puces, y compris dans les cellules.
+- Phrases complètes (sujet, verbe, complément), concises, style universitaire soutenu, termes dédiés ; énumérations en puces, y compris dans les cellules :
+  une cellule (hors 1re colonne) contient soit des puces <ul><li>, soit des phrases à verbe conjugué (contrôle L5 ; une consigne à l'infinitif ne suffit pas).
+- Une notion à un seul endroit : aucune redite d'un point à l'autre (renvoyer au point qui la porte) ; aucun intertitre « Voici… ».
+- Point 11 A- : algorithme d'urgence en cases (modèle <template class="algo-modele">, contrôle E8), puis non-spécialiste → service spécialisé.
 - Langue = universitaire, donc soutenue, clarté garantie : ni tutoiement ni impératif familier (tournure impersonnelle ou passive), ni « il y a », « on », « ça » ; aucune phrase nominale
   ni de plus de 40 mots ; aucune répétition. `fin` bloque (GRAVE L1–L4). Relecture de clarté de chaque point avant `fin`.
 - Doses : AIPS suisse seulement (python3 harnais/aips_texte.py) ; sinon « hors AIPS, recommandation X ; à valider avec un spécialiste avant prescription ». Jamais le Compendium.
