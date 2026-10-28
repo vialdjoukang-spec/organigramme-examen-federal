@@ -1,0 +1,3 @@
+- 20:17:37 REFUS notifié · DX1.html · porte duo : REFUSÉ : points signalés au professeur. -s11 · l.202 · « Appeler le 144 et enregistrer un ECG . » - appels de source passés de 75 à 74 - couverture : point(s) [3, 5, 7, 8, 9, 11, 13] non contrôlé(s) par `point <fichier> N` sur leur texte actuel (styliser ENTIÈREMENT le cours, point par point) - medical 0.0 / 99 critique(s) (seuil 90, 0) :
+- 20:18:54 REFUS notifié · DX1.html · point 8 : chiffre ou appel de source perdu : dernière version sans perte restaurée.
+- 20:19:06 REFUS notifié · DX1.html · porte professeur : REFUSÉ : fautes restantes en tableau pour Vial (/home/user/organigramme-examen-federal/essai_parallele/journal/DX1.restantes.md).
