@@ -253,10 +253,18 @@ def estime_jetons(t):
     return round(len(t) / 4)
 
 
+RANG_STYLES = ["brain-arbre", "brain-rythme", "brain-barre", "brain-fonte", "brain-police"]   # ordre canonique (reseau.ORDRE) des blocs de style
+
+
 def pose_style(t, ident, bloc):
-    """Pose <style id="ident"> : remplacé sur place s'il existe (ordre stable, idempotent), sinon inséré avant </head>."""
+    """Pose <style id="ident"> : remplacé sur place s'il existe (idempotent), sinon inséré à son RANG canonique parmi les blocs brain-*
+    déjà posés (avant le premier de rang supérieur), à défaut avant </head>. Le résultat ne dépend donc pas de l'ordre des écrivains (confluence)."""
     rx = re.compile(r'(?is)<style id="%s">.*?</style>' % re.escape(ident))
     if rx.search(t): return rx.sub(lambda m: bloc, t, count=1)
+    rang = RANG_STYLES.index(ident) if ident in RANG_STYLES else len(RANG_STYLES)
+    for m in re.finditer(r'(?i)<style id="(brain-[\w-]+)">', t):
+        k = RANG_STYLES.index(m.group(1)) if m.group(1) in RANG_STYLES else len(RANG_STYLES)
+        if k > rang: return t[:m.start()] + bloc + t[m.start():]
     return t.replace("</head>", bloc + "</head>", 1) if "</head>" in t else bloc + t
 
 

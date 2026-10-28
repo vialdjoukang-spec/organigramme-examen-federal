@@ -58,9 +58,13 @@ def passer(chemin=None, html=None, nom=None, journal=JOURNAL, appliquer=False, p
     if html is None: html, enc = bus.lire(chemin)
     nom = nom or (Path(chemin).name if chemin else "<entrée>")
     run = f"{nom}#{bus.sha(html)[:8]}"; J = Journal(journal, run, nom); dj = reseau.Disjoncteur(); rap = dict(fichier=nom, run=run, etapes={})
+    ESC = []    # pannes sans jumeau valide : exigence non couverte → le cours ne sort pas (auto-adaptation, s13 Z2)
     def lancer(i, t, etape):
         s, eff, nature = reseau.executer_protege(i, t, nom, dj, pannes)
         if nature: J.ev("doleance", i, "GARD", code="Z1" if eff else "Z2", severite="GRAVE" if eff else "CRITIQUE", msg=f"panne {nature} → {eff or 'escalade'}")
+        if nature and not eff and nature != "lenteur" and not any(d["ancre"].endswith(i) for d in ESC):
+            ESC.append(bus.doleance(reseau.module("s13_disjoncteur"), "Z2", nom, f"#haut · {i}", "CRITIQUE", f"panne de {i} ({nature}) sans jumeau valide : exigence non couverte ({etape})",
+                                    f"escalade : le nœud Opus du domaine relit la zone de {i} ; le fichier ne sort pas avant", "agent", nature))
         return s["doleances"] if s else []
     # 0 · harnais externe de collecte
     s = bus.executer(reseau.module("s11_collecteur"), nom, html=html, ecrire=False); P = s["mesures"].get("paquets", {})
@@ -135,7 +139,7 @@ def passer(chemin=None, html=None, nom=None, journal=JOURNAL, appliquer=False, p
         except OSError: pass
     # économie et sortie
     base = bus.estime_jetons(html)
-    graves = [d for d in DA1 + DB if d["severite"] in ("CRITIQUE", "GRAVE")]
+    graves = [d for d in DA1 + DB + ESC if d["severite"] in ("CRITIQUE", "GRAVE")]
     verdict = "bloqué (stagnation)" if stagne else ("sortie : audité" if not graves else f"retour aux nœuds : {len(graves)} faute(s) grave(s) ouverte(s)")
     for k, x in nopus.items(): J.ev("medical", k, "SORTIE", msg=f"avis de domaine : {x} doléance(s) [agent] à trancher" if x else "avis de domaine : rien à trancher")
     J.ev("jetons", "ECO", "SORTIE", jetons=sum(briefs.values()) + sum(opus.values()), msg=f"relecture intégrale {base} jetons par nœud")
@@ -145,7 +149,7 @@ def passer(chemin=None, html=None, nom=None, journal=JOURNAL, appliquer=False, p
                doleances_alpha_avant=compte(DA), doleances_alpha_apres=compte(DA1), doleances_beta=compte(DB), routage_vote=route,
                jetons=dict(relecture_integrale_par_noeud=base, base_10_noeuds=10 * base, briefs_sonnet=briefs, briefs_opus=opus,
                            total_briefs=sum(briefs.values()) + sum(opus.values())),
-               pannes=dj.journal, evenements=J.n, duree_s=round(time.perf_counter() - t0, 2))
+               pannes=dj.journal, escalades=[d["constat"] for d in ESC], ouvertes=ids, evenements=J.n, duree_s=round(time.perf_counter() - t0, 2))
     rap["jetons"]["reduction_pct"] = round(100 * (1 - rap["jetons"]["total_briefs"] / max(1, rap["jetons"]["base_10_noeuds"])), 2)
     return rap
 

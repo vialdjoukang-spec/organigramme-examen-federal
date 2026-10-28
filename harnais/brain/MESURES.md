@@ -71,3 +71,65 @@ A2 162 · A3 162 · P4 162 · L5 162 · P7 158 · L4 150 · B1 142 · C4 125 · 
 - Les fins orphelines estimées par S2 restent approximatives ; la mesure au pixel fait foi (V2).
 - `text-wrap:pretty` ne corrige pas toutes les orphelines (B : 3 → 3). Le reste demande une reformulation.
 - Les homologues (A3) et les en-têtes réécrits (T2, T5) demandent du contenu sourcé. Ils restent à l'agent.
+
+---
+
+# Essais v3 demandés par Vial · 28.10.2026
+
+Commande : `python3 harnais/brain/outils/essais_vial.py`, en lecture seule sur `origin/main`, gratuite, en 276 s. Résultats bruts : `harnais/brain/essais_vial.json`.
+Cours : `LOT_001 DX.2`, `LOT_005 DX.3`, `LOT_010 DX.4` et `LOT_012 DX.5`, lus par `git show`. Les fichiers de `main` ne sont jamais modifiés ; les corrections se font en mémoire ou sur copie temporaire.
+
+## T1 · Réduction des dépenses (jetons, 4 caractères par jeton)
+
+La première référence correspond à 10 auditeurs qui relisent chacun tout le HTML. La seconde correspond à 10 auditeurs qui relisent chacun le texte visible. Avec le circuit, chaque auditeur reçoit seulement un brief compilé : ses doléances [agent] et les paquets des points touchés.
+
+| Cours | Relecture HTML ×10 | Texte visible ×10 | Briefs Sonnet | Briefs Opus | Total des briefs | Réduction contre HTML | Réduction contre texte |
+|---|---|---|---|---|---|---|---|
+| LOT_001 DX.2 | 597 900 | 200 640 | 29 634 | 14 171 | 43 805 | 92,67 % | 78,17 % |
+| LOT_005 DX.3 | 243 500 | 43 440 | 7 884 | 2 969 | 10 853 | 95,54 % | 75,02 % |
+| LOT_010 DX.4 | 266 890 | 59 140 | 8 462 | 6 451 | 14 913 | 94,41 % | 74,78 % |
+| LOT_012 DX.5 | 278 440 | 59 860 | 9 117 | 844 | 9 961 | 96,42 % | 83,36 % |
+| **4 cours** | 1 386 730 | 363 080 | | | 79 532 | **94,26 %** | **78,10 %** |
+| Doré (cours sans faute) | 127 060 | | | | 1 040 | 99,18 % | |
+
+**La cible de 99,99 % n'est pas atteinte.** Pour l'atteindre sur ces 4 cours, le total des briefs devrait rester sous 139 jetons ; il atteint 79 532 jetons, soit 573 fois plus. Le plancher vient du contenu même des briefs : un auditeur doit lire le paquet du point qu'il corrige. Seul un cours sans doléance [agent] s'en approche (doré : 99,18 %). Les jetons de rédaction (Phase A et Phase B) ne sont pas comptés ici.
+
+## T2 · Application à 4 cours réels de LOT différents
+
+| Cours | α avant | α après les scripts | β | Tours jusqu'au point fixe | Idempotent | `main` intact | Texte visible conservé | Verdict | Durée |
+|---|---|---|---|---|---|---|---|---|---|
+| LOT_001 DX.2 | 158 | 133 | 20 | 2 | oui | oui | 102,7 % | retour : 28 fautes graves | 9,1 s |
+| LOT_005 DX.3 | 62 | 50 | 2 | 2 | oui | oui | 106,2 % | retour : 12 fautes graves | 5,5 s |
+| LOT_010 DX.4 | 39 | 25 | 5 | 2 | oui | oui | 106,2 % | retour : 8 fautes graves | 5,8 s |
+| LOT_012 DX.5 | 44 | 30 | 1 | 2 | oui | oui | 105,7 % | retour : 13 fautes graves | 5,6 s |
+
+Les scripts suppriment 12 à 25 doléances par cours sans retirer de texte : le texte visible augmente, car la barre des 14 points s'ajoute. Aucun des 4 cours ne sort audité. Les fautes graves restantes reviennent aux auditeurs.
+
+## T3 · Nombre de connexions sans conflit possible
+
+- **Preuve statique.** Les 160 scriptones écrivent dans 70 zones, avec une seule écrivaine par zone, et `conflits_statiques = {}`. Les 96 autres scriptones ne font que lire. Le registre compte 601 connexions : 160 entrées, 160 sorties vers le bus, 71 écritures, 26 relais en zigzag, 146 liens vers un jumeau et 38 liens vers les auditeurs. Le nombre de connexions d'écriture ne peut pas dépasser le nombre de zones. Les connexions de lecture ne sont pas limitées, car une lectrice produit seulement des doléances.
+- **Confluence dynamique.** Le test compare 8 ordres aléatoires des écrivains, chacun mené jusqu'au point fixe, sur chacun des 4 cours. **Défaut trouvé :** les 4 cours donnaient un texte différent selon l'ordre (O2). La cause était l'emplacement des blocs `<style>` posés par s1, s2, s5 et s6. **Correctif :** `bus.pose_style` insère désormais chaque bloc à son rang canonique. Après correctif : 0 divergence et 0 paire d'écrivains non commutative.
+- **Conflits injectés, tous détectés :** deux écrivains sur une zone (O1), duel (O2, O4), écrivain non idempotent (O3, O4), intrus (O3, O4).
+- **Couverture selon le nombre de familles par synapse.** Le test injecte les 770 mutants des 140 synapses, au point de chaque mutant. La couverture vaut 54,3 % avec α seule, 56,8 % avec β seule et 100 % avec α et β. En choisissant à chaque fois le meilleur ensemble, elle vaut 21 % avec 1 famille, 78 % avec 5, 96 % avec 8, 100 % avec 9 et 100 % avec 10. **L'optimum mesuré est de 9 familles.** βM (contre-épreuve) ne détecte en propre aucun mutant de cette batterie. 83 % des mutants ne sont vus que par une seule famille (redondance moyenne : 1,2). Le jumeau et l'escalade vers l'auditeur restent donc nécessaires.
+- **16 cours simultanés.** Le test fait passer 4 cours × 4 copies avec écriture réelle sur les copies. Chaque copie est identique à la correction séquentielle, sans panne. Durées : 101 s pour 1 processus, 27 s pour 4 et 27 s pour 16. La machine n'a que 4 cœurs : au-delà, le gain plafonne.
+
+## T4 · Auto-adaptation sur pannes injectées
+
+| Panne | Résultat |
+|---|---|
+| Exception dans chacune des 140 synapses | 140 sur 140 signalées (Z1), 140 sur 140 ré-routées vers le jumeau |
+| Contrat rompu dans chacune des 140 | 140 sur 140 signalées, 140 sur 140 ré-routées |
+| Lenteur dans chacune des 140 | 140 sur 140 signalées (Z4) ; résultat conservé, disjoncteur ouvert pour la suite |
+| Synapse et jumeau en panne (×140) | 140 sur 140 escaladées (Z2, critique) |
+| 14 pannes simultanées, une par point | 0 des 126 autres synapses modifiée (aucune influence) ; 14 sur 14 couvertes par le jumeau ; 6 doléances propres rendues à l'auditeur |
+| Orchestre sur le doré | sans panne : sorti audité ; une panne couverte : sorti audité ; double panne : retour (2 escalades) ; 10 pannes aléatoires : retour (3 escalades) |
+| Stagnation | 2ᵉ passage avec les mêmes doléances : « bloqué (stagnation) » ; Z3 signalé |
+
+**Défaut trouvé et corrigé :** l'orchestre comptait la panne sans jumeau (Z2) dans le journal, mais pas dans le verdict. Un cours pouvait donc sortir « audité » avec une exigence non couverte. Désormais, cette panne retient le cours.
+
+## Limites de la v3
+
+- La réduction de 94 % est une estimation à 4 caractères par jeton ; elle ne remplace pas une facturation. Les jetons de sortie des auditeurs ne sont pas mesurés, car aucun agent n'est appelé.
+- La couverture porte sur les mutants connus, conçus par famille ; elle ne mesure pas le jugement clinique (métrique M5, phase P4).
+- Le passage de 5 à 16 auditeurs par étage n'est pas tranché : il faut mesurer le gain de détection d'agents réels.
+- `controle_lot.py` ne dépend plus de `BANDE.json`, absent de `main` : à défaut, il se replie sur 100–200 Ko.
