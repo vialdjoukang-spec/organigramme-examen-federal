@@ -110,15 +110,23 @@ def rendre(mod, pre):
             continue
         # Lien de retour ou de jonction (cible déjà rattachée) : sortie par un côté libre de la source, couloir vertical entre les colonnes
         # (aucune case n'y passe), couloir horizontal au-dessus de la rangée cible, entrée par le haut de la cible. Jamais à travers une case.
-        lat = any(prof.get(c) == prof[a] and x[c] > x[a] for c in N if par.get(c) == a)
-        gauche = x[b] <= x[a] or lat
+        droite_prise = any(prof.get(c) == prof[a] and x[c] > x[a] for c in N if par.get(c) == a)      # branche latérale sortante
+        gauche_prise = a in par and prof[par[a]] == prof[a]                                             # branche latérale entrante
+        cotes = (["g", "d"] if x[b] <= x[a] else ["d", "g"])
+        cote = next((c for c in cotes if not (gauche_prise if c == "g" else droite_prise)), "b")
         wa, ha = taille(a); ya = top(a) + ha / 2
-        xs = cx(a) - wa / 2 if gauche else cx(a) + wa / 2
-        xc = M + x[a] * COL + 6 if gauche else M + (x[a] + 1) * COL - 6
         yb = M + prof[b] * ROW - 12
-        svg.append(f'<path class="tr" d="M{xs:.0f} {ya:.0f} H{xc:.0f} V{yb:.0f} H{x2:.0f} V{y2 - 7:.0f}"/>' + fleche)
+        if cote == "b":                                         # deux côtés pris : sortie par le bas, couloir sous la rangée, puis couloir de colonne
+            xc = M + (x[a] + 1) * COL - 6; yc = M + prof[a] * ROW + LH + 8
+            d_ = f"M{x1 + 8:.0f} {y1 - (LH - ha) / 2 + (LH - ha) / 2:.0f} V{yc:.0f} H{xc:.0f} V{yb:.0f} H{x2:.0f} V{y2 - 7:.0f}"; xs = x1 + 8
+        else:
+            xs = cx(a) - wa / 2 if cote == "g" else cx(a) + wa / 2
+            xc = M + x[a] * COL + 6 if cote == "g" else M + (x[a] + 1) * COL - 6
+            d_ = f"M{xs:.0f} {ya:.0f} H{xc:.0f} V{yb:.0f} H{x2:.0f} V{y2 - 7:.0f}"
+        gauche = cote == "g"
+        svg.append(f'<path class="tr" d="{d_}"/>' + fleche)
         if l.get("etiquette"):
-            svg.append(f'<text x="{(xc + 3) if not gauche else (xc + 3):.0f}" y="{ya - 6:.0f}">{H.escape(l["etiquette"])}</text>')
+            svg.append(f'<text x="{(xc + 3) if gauche else (xs + 4):.0f}" y="{ya - 6:.0f}">{H.escape(l["etiquette"])}</text>')
     for j, i in enumerate(ordre):
         n = N[i]; w, h = taille(i); X, Y = cx(i) - w / 2, top(i); typ = n.get("type", "case")
         if typ == "losange":
