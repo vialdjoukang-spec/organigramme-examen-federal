@@ -42,3 +42,6 @@ Le cours Flash est une FICHE DE LECTURE : seuls les 20 % d'information qui donne
 
 ## Rappel de Vial : ce qui rend la feuille vivante
 Fenêtres et mots interactifs en nombre (termes dédiés, symptômes, signes, actes, cases d'algorithme) ; îlots à bordure avec texte justifié (mise en page). Le volume se mesure automatiquement : `python3 harnais/brain/mesure_ko.py <fichier|dossier>` (bande 100–298 Ko, jamais 299 ; > 298 bloquant). Toujours vérifier que le fond reste exact après toute coupe.
+
+## Ordre de Vial (28.10.2026, soir) — production d'abord
+Fiches rapides de 100 à 200 Ko (cible 150). Auditeurs/professeurs Opus SUSPENDUS : la production des cours prime ; les audits se font après le 248e LOT (248 SSP = 248 LOT, catalogue suisse Profiles 2023). Sous-agents Sonnet 5.5 fragmentés, sérieux exigé. Reprise des audits : supprimer `.cache/brain/sans_professeur`.

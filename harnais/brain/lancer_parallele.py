@@ -183,6 +183,11 @@ CONTEXTE = ("CONTEXTE (légitime, validé par Vial) : fiche de révision médica
             "travail éditorial sur un fichier HTML local, sources citées, aucune donnée personnelle. La tâche est dans ton mandat : exécute-la. ")
 
 
+def SANS_PROF(a):
+    """Opus suspendus (ordre de Vial : production d'abord, audits après le LOT 248) : drapeau --sans-professeur OU fichier .cache/brain/sans_professeur."""
+    return "--sans-professeur" in a or (R / ".cache/brain/sans_professeur").exists()
+
+
 def appel(role, frag, prompt, places, limite, journal, essai, etiquette, reprise=False):
     r = ROLES[role]
     cmd = ["claude", "-p", prompt, "--agent", r["agent"], "--model", r["model"], "--output-format", "json", "--permission-mode", "dontAsk",
@@ -333,7 +338,7 @@ def lecon(f, P, a, pool):
     orig_point = {n: corps for n, (_, corps) in pts.items()}
     sq = recomposer(tete, pts, queue, jobs, origine); (dossier / "squelette.html").write_text(sq, encoding="utf-8")
     fixe = len(sq.encode()) - sum(len(x.encode()) for x in origine.values())       # tête, CSS, sources, fenêtres de médicaments : hors fragments
-    ratio = min(0.85, max(0.4, (MK.VISE * MK.KO - fixe) / max(1, sum(len(x.encode()) for x in origine.values()))))
+    ratio = min(0.85, max(0.4, (150 * MK.KO - fixe) / max(1, sum(len(x.encode()) for x in origine.values()))))
     res["ratio_cible"] = round(ratio, 2)
     pref = Path(f).stem.split("_")[-1].lower().replace(".", "")[:6] or "l"
     for j in jobs:
@@ -374,7 +379,7 @@ def lecon(f, P, a, pool):
         if perdus or sources(corps) < src_orig.get(n, 0):
             signal_.setdefault(n, []).append(f"perte : chiffres {sorted(perdus)} ; appels de source {src_orig.get(n, 0)} → {sources(corps)}")
     res["points_signales"] = sorted(signal_)
-    if signal_ and "--sans-professeur" not in a:
+    if signal_ and not SANS_PROF(a):
         t3 = time.time(); jp = [j for j in jobs2 if j["n"] in signal_]
         for j in jp:
             j["prompt"] = brief_prof(nom, j["n"], j["titre"], j["k"], j["m"], j["chemin"], list(dict.fromkeys(signal_[j["n"]])),
@@ -397,7 +402,7 @@ def lecon(f, P, a, pool):
         notifier(jd, nom, f"point {n}", "chiffre ou appel de source perdu : dernière version sans perte restaurée.")
     t = S21.corriger(assembler(tete, pts, {n: [c] for n, (_, c) in pts.items()}) + queue, {"flash": True})
     bus.ecrire_atomique(f, t); res["retours_sans_perte"] = retours
-    role_final = "professeur" if signal_ and "--sans-professeur" not in a else "duo"
+    role_final = "professeur" if signal_ and not SANS_PROF(a) else "duo"
     if role_final == "duo" and retours: controle_points(f, journal)
     okf, outf, fautes_f, evf = porte_et_registre(f, role_final, jd, journal, "restantes", jd / f"{Path(f).stem}.controle.html")
     temps["porte_finale_s"] = round(time.time() - t4, 1); temps["total_s"] = round(time.time() - T0, 1)
