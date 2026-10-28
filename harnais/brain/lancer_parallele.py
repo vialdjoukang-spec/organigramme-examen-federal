@@ -10,7 +10,7 @@ Complète harnais/brain/lancer_circuit.py (séquentiel, une leçon par agent, in
    Edit permis sur SON fragment seulement, Write interdit, Bash limité aux scripts AIPS/PubMed), limite stricte --limite-duo s. Fragment non
    rendu à temps, en erreur ou cassé (balises, <h3>, îlot, <script>) : l'original reste, refus notifié (notifications.md), la leçon progresse.
 3. Réassemblage par script, réparation (S21.reparer --flash), `point N` des 14 points (copies parallèles ; couverture inscrite pour les
-   points VERTS), porte `circuit_vial.py fin … --role duo --flash`, registre des fautes, mesure_ko (bande 100–298 Ko).
+   points VERTS), porte `circuit_vial.py fin … --role duo --flash`, registre des fautes, mesure_ko (bande 80–150 Ko).
 4. Professeur émérite Opus (effort moyen), UNE tentative, seulement sur les fragments des points signalés (point non VERT, GRAVE/CRITIQUE au
    registre, chiffre ou appel de source perdu), limite --limite-prof s ; garde « sans perte » : un point qui a perdu un chiffre sourcé ou un
    appel de source revient à sa dernière version sans perte (notifié) ; porte `fin --role professeur` ; fautes restantes en tableau .md à Vial.
@@ -146,7 +146,7 @@ def brief_duo(nom, n, titre, k, m, frag, prefixe, chf, limite, cible):
             f"de {frag} ; pas de Write. Temps : {limite} s au plus (arrêt forcé ; un fragment non rendu reste l'original) : utilise-les pour "
             f"restyliser TOUT le fragment, jamais un travail partiel, sans compte rendu.\n"
             f"VOLUME : le fragment fait {cible[0]} octets ; CIBLE ≤ {cible[1]} octets (Pareto : le corps maigrit ; fenêtres comprises), contrôle par "
-            f"`wc -c {frag}`. Le cours entier doit tenir dans 100–298 Ko (visé 200).\n"
+            f"`wc -c {frag}`. Le cours entier doit tenir dans 80–150 Ko (au-delà : refusé, élaguer davantage).\n"
             f"Méthode : Read {frag} une seule fois, puis 2 à 5 Edit de blocs entiers, du début à la fin du fichier (chaque balise ouverte refermée dans "
             f"le même Edit ; une ligne par paragraphe, puce ou rangée) ; réponse finale : une seule ligne « FAIT : octets avant → après ».\n"
             + LC.PARETO +
@@ -339,7 +339,7 @@ def lecon(f, P, a, pool):
     orig_point = {n: corps for n, (_, corps) in pts.items()}
     sq = recomposer(tete, pts, queue, jobs, origine); (dossier / "squelette.html").write_text(sq, encoding="utf-8")
     fixe = len(sq.encode()) - sum(len(x.encode()) for x in origine.values())       # tête, CSS, sources, fenêtres de médicaments : hors fragments
-    ratio = min(0.85, max(0.4, (150 * MK.KO - fixe) / max(1, sum(len(x.encode()) for x in origine.values()))))
+    ratio = min(0.85, max(0.25, (100 * MK.KO - fixe) / max(1, sum(len(x.encode()) for x in origine.values()))))
     res["ratio_cible"] = round(ratio, 2)
     pref = Path(f).stem.split("_")[-1].lower().replace(".", "")[:6] or "l"
     for j in jobs:
@@ -359,14 +359,21 @@ def lecon(f, P, a, pool):
     res["duo"] = [dict(id=j["id"], accepte=j["accepte"], motif=j["motif"], duree_s=j["ev"]["duree_s"], cout=j["ev"]["cout_usd"]) for j in jobs]
     # 3. réassemblage + portes
     t2 = time.time(); bus.ecrire_atomique(f, recomposer(tete, pts, queue, jobs, txt_duo))
-    if "--sans-assembleur" not in a:                          # ordre de Vial : la mise en forme finale est faite à l'assemblage par un agent Sonnet 5.5
-        avant, ta = lire(f), time.time()
-        brief = (f"Leçon assemblée : {f}. Tu es l'assembleur-metteur en forme (lis ton agent). Départ : Read du fichier par blocs ; modifie par Edit ciblés ; "
-                 f"limite stricte {opt(a, '--limite-assembleur', 240)} s ; volume 100–200 Ko ; aucun chiffre ni appel de source retranché. Une ligne de réponse.")
-        appel("assembleur", f, brief, P["sonnet"], opt(a, "--limite-assembleur", 240), journal, False, "assemblage")
-        apres = lire(f)
-        motif = valider(avant, apres) or ("chiffre ou appel de source perdu" if (chiffres(avant) - chiffres(apres)) or sources(apres) < sources(avant) else None)
-        if motif: bus.ecrire_atomique(f, avant); notifier(jd, nom, "assemblage", f"mise en forme rejetée ({motif}) : version recollée conservée.")
+    if "--sans-assembleur" not in a:                          # ordre de Vial : mise en forme à l'assemblage (Sonnet 5.5), puis dégraissage tant que > 150 Ko (2 passes au plus)
+        ta = time.time()
+        for passe in range(3):
+            avant = lire(f); ko = len(avant.encode()) / MK.KO
+            if passe and ko <= MK.MAX: break
+            tache = (f"Tu es l'assembleur-metteur en forme (lis ton agent). Départ : Read du fichier par blocs ; modifie par Edit ciblés ; "
+                     f"limite stricte {opt(a, '--limite-assembleur', 240)} s ; volume 80–150 Ko ; aucun chiffre ni appel de source retranché. Une ligne de réponse."
+                     if not passe else
+                     f"DÉGRAISSAGE (ordre de Vial) : le fichier fait {ko:.0f} Ko ; au-delà de {MK.MAX} Ko le cours ne passe pas. Retire encore ≈ {ko - MK.MAX + 10:.0f} Ko de superflu : "
+                     f"redites, détails secondaires, listes de notions voisines, phrases d'appui non essentielles, par Edit ciblés ; ne retire ni chiffre sourcé ni appel de source "
+                     f"ni point ni îlot ni fenêtre essentielle. Limite stricte {opt(a, '--limite-assembleur', 240)} s. Une ligne de réponse.")
+            appel("assembleur", f, f"Leçon assemblée : {f}. " + tache, P["sonnet"], opt(a, "--limite-assembleur", 240), journal, False, "assemblage" if not passe else f"degraissage{passe}")
+            apres = lire(f)
+            motif = valider(avant, apres) or ("chiffre ou appel de source perdu" if (chiffres(avant) - chiffres(apres)) or sources(apres) < sources(avant) else None)
+            if motif: bus.ecrire_atomique(f, avant); notifier(jd, nom, "assemblage" if not passe else f"dégraissage {passe}", f"passe rejetée ({motif}) : version précédente conservée.")
         temps["assemblage_s"] = round(time.time() - ta, 1)
     PTS = controle_points(f, journal)
     ok, out, fautes, ev = porte_et_registre(f, "duo", jd, journal, "registre_duo")

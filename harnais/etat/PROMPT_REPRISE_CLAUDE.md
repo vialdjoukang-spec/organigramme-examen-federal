@@ -6,7 +6,8 @@ Produire, pour Vial (médecin en spécialisation), les fiches de révision Flash
 ## 2. Ordres de Vial (non négociables)
 - La production des cours prime ; les audits viennent après le 248e LOT. Professeurs, auditeurs et agents Opus sont **suspendus** (`.cache/brain/sans_professeur`).
 - Aucun agent ne doit refuser un travail légitime : un refus est détecté, consigné, puis relancé une fois avec le contexte. Jamais de refus sec : refus notifié + correction, et le fichier progresse.
-- Souplesse : un défaut sans conséquence pour l'apprentissage est un avertissement. Un fichier de 100 à 298 Ko passe.
+- Souplesse : un défaut sans conséquence pour l'apprentissage est un avertissement.
+- **Volume (ordre du 28.10, nuit) : 80 à 150 Ko pour les cours en cours et futurs ; au-delà de 150 Ko, le cours ne passe pas : détruire davantage de superflu. Les cours déjà faits ne sont pas retouchés.** Vial relira bientôt des cours partie par partie pour juger de leur allure.
 - Agir vite : on retouche l'existant plutôt que de repartir de zéro.
 
 ## 3. Fiche Flash (le produit)
@@ -18,7 +19,7 @@ Produire, pour Vial (médecin en spécialisation), les fiches de révision Flash
 - Références : `harnais/etat/COURS_FLASH.md`, gabarit `harnais/brain/gabarit_flash.html`.
 
 ## 4. Volume
-100 à 200 Ko, cible 150 ; jamais plus de 298 Ko (bloquant). Mesure : `python3 harnais/brain/mesure_ko.py`. Toujours vérifier que le fond reste exact après toute coupe.
+**80 à 150 Ko** par cours (en cours et futurs) ; **> 150 Ko : refusé** (V1 bloquant), il faut élaguer encore (redites, détails secondaires, notions voisines). Cible de rédaction ≈ 100 Ko. Mesure : `python3 harnais/brain/mesure_ko.py`. Le lanceur parallèle fait jusqu'à 2 passes de dégraissage par Sonnet si le cours dépasse 150 Ko. Toujours vérifier que le fond reste exact après toute coupe. Les cours déjà rédigés (LOT_001 : 16, LOT_002 : 9) gardent leur version actuelle.
 
 ## 5. Vérité médicale
 Doses : AIPS suisse seulement (jamais le Compendium) ; jamais de chiffre ni de dose inventés ; source suisse d'abord pour le local (recommandations, filières), non suisse admise pour l'universel ; source lue et datée, sinon « À vérifier ». Grille des 14 points + Prompt universel (annexe).

@@ -16,7 +16,7 @@ def lots():
         ko = [round(f.stat().st_size / 1000) for f in html]
         out.append(dict(lot=d.name, lecons=len(html), finies=len(fait), bilan=(j / "bilan.json").exists(),
                         refus=len(notif.read_text().splitlines()) if notif.exists() else 0,
-                        ko_min=min(ko, default=0), ko_max=max(ko, default=0), hors_bande=sum(1 for k in ko if k > 298 or k < 100)))
+                        ko_min=min(ko, default=0), ko_max=max(ko, default=0), hors_bande=sum(1 for k in ko if k > 150 or k < 80)))
     return out
 def main(a):
     vivants = [l for l in sh("ps -eo args").splitlines() if "lancer_parallele" in l or "lancer_circuit" in l]

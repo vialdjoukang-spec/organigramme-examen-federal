@@ -23,7 +23,7 @@
   python3 harnais/brain/circuit_vial.py reprise <fichier>                     départ d'un duo renvoyé par la sortie : instantané + motifs + rapports MED_/CONF_
 COURS FLASH (harnais/etat/COURS_FLASH.md) : `--flash` sur memoire, point, fin, registre, reparer, mesurer, scanner. Le mode est mémorisé dans
   l'instantané (memoire … --flash) : les appels suivants du même fichier le reprennent sans drapeau. Ajoute les contrôles S21 Flash (volume
-  > 298 Ko bloquant, > 200 Ko avertissement ; îlots 1–4, 5–6, reste replié, bords, justification ; fenêtres modales, symptômes et signes
+  > 150 Ko bloquant (bande 80–150) ; îlots 1–4, 5–6, reste replié, bords, justification ; fenêtres modales, symptômes et signes
   cliquables, tableau de syndrome à 2 colonnes, détails d'algorithme) ; gabarit de référence : harnais/brain/gabarit_flash.html.
 Ne lit jamais un fichier de cours entier dans le contexte de l'agent : le scanner rend le texte visible point par point."""
 import hashlib, html as H_, json, re, subprocess, sys
@@ -67,7 +67,7 @@ GABARITS = r"""## Gabarits HTML (le script vérifie exactement ces formes)
   <ul><li><b>Mesures générales :</b> …</li><li><b>Mesures spécifiques</b>, par priorité décroissante : pharmacologiques (médicament cliquable, dose AIPS), puis non pharmacologiques (social, professionnel, ergothérapie…).</li></ul>
   Les sous-parties existantes (surveillance, pronostic, situations spéciales) restent après B."""
 GABARIT_FLASH = r"""## COURS FLASH : gabarit (référence complète : harnais/brain/gabarit_flash.html ; contrôle : S21 Flash, codes V, N, I, W)
-- Volume : 100 à 298 Ko (tolérance de Vial) pour le fichier entier (visé 100–200). > 298 Ko : `fin` REFUSE (V1) ; > 200 Ko : avertissement (V2).
+- Volume : 80 à 150 Ko pour le fichier entier (ordre de Vial). > 150 Ko : `fin` REFUSE (V1) : élaguer davantage de superflu.
   Le corps ne porte que l'essentiel ; le secondaire descend dans une fenêtre (ses chiffres restent comptés) ; l'inutile est retiré (chiffre :
   `retirer <fichier> "<chiffre>" "Flash : secondaire, … (source lue)"`, relu par Vial). Aucune redite ; aucun bloc « Notions voisines » ni
   « Diagnostic différentiel » en liste ou tableau dans le corps (N1) : le différentiel utile s'ouvre dans une fenêtre.
@@ -196,7 +196,7 @@ def memoire(role, f, garder=False, flash=False):
 def scanner(f, points, flash=False):
     t = lire(f); nom = Path(f).name; S = bus.sections(t); g = {int(p[0]): p for p in json.loads(lire(R / "harnais/grille14/grille.json"))["points"]}
     D_ = cerveau(f) + (flash_dol(t, nom)[0] if flash else []); o = {k: i for i, k in enumerate(bus.SEVERITES)}
-    if flash: print(f"# COURS FLASH · {len(t.encode()) / S21.KO:.0f} Ko (bande 100–298, visé 100–200) · gabarit harnais/brain/gabarit_flash.html")
+    if flash: print(f"# COURS FLASH · {len(t.encode()) / S21.KO:.0f} Ko (bande 80–150) · gabarit harnais/brain/gabarit_flash.html")
     print(f"# SCANNER PROFESSEUR · {nom} · {len(D_)} doléances du cerveau\nRappel du Prompt universel : concis, dense, exhaustif ; Suisse puis Europe ; rien d'inventé ; doses AIPS.\n")
     for n in points:
         if n not in S: print(f"## {n}. ABSENT du fichier → à rédiger\n"); continue
@@ -225,7 +225,7 @@ def fin(f, role, flash=False):
     perdus = [c for c in e["chiffres"] if c not in set(chiffres(t)) and c not in retraits]
     if retraits: print("RETRAITS DÉCLARÉS (relus par l'auditeur et par Vial) : " + " ; ".join(f"{r['chiffre']} ({r['motif']})" for r in e["retraits"]))
     if F: ko.append(f"{len(F)} GRAVE de forme (S21) : " + "; ".join(f"{d['code']} {d['ancre']}" for d in F[:8]))
-    if flash:                                                 # Cours Flash : volume > 298 Ko, îlots, fenêtres (GRAVE bloque ; MOYEN avertit)
+    if flash:                                                 # Cours Flash : volume > 150 Ko, îlots, fenêtres (GRAVE bloque ; MOYEN avertit)
         FG, FA = flash_dol(t, nom)
         if FG: ko.append(f"{len(FG)} GRAVE Flash : " + "; ".join(f"{d['code']} {d['ancre']} ({d['constat'][:70]})" for d in FG[:8]))
         if FA: print(f"AVERTISSEMENTS FLASH ({len(FA)}, non bloquants) : " + " ; ".join(f"{d['code']} {d['ancre']} {d['constat'][:60]}" for d in FA[:10]))
@@ -276,8 +276,8 @@ def mesurer(f, flash=False):
     if flash:
         FG, FA = flash_dol(t, Path(f).name)
         fx = dict(flash_graves=len(FG), flash_avertissements=len(FA), flash_codes=sorted({d["code"] for d in FG + FA}),
-                  bande_flash="> 298 Ko (refus)" if len(t.encode()) > S21.FLASH_MAX else "> 200 Ko (avertissement)" if len(t.encode()) > S21.FLASH_VISE
-                  else "< 100 Ko (avertissement)" if len(t.encode()) < S21.FLASH_MIN else "100–200 Ko (visé)")
+                  bande_flash="> 150 Ko (refus)" if len(t.encode()) > S21.FLASH_MAX else "> 150 Ko (avertissement)" if len(t.encode()) > S21.FLASH_VISE
+                  else "< 80 Ko (avertissement)" if len(t.encode()) < S21.FLASH_MIN else "80–150 Ko")
     return dict(fichier=Path(f).name, octets=len(t.encode()), ko=round(len(t.encode()) / S21.KO, 1), lignes=t.count("\n") + 1, **fx,
                 lignes_longues=sum(1 for l in t.split("\n") if len(l) > 10000 and not S21.RX_LIGNE_OK.search(l)),
                 balises=[f"<{g}> {o}/{f_}" + (f" (point {n})" if n else "") for g, o, f_, n in S21.desequilibres(t)],

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Détective de nouveaux fichiers (Vial, 28.10.2026) : veille des dossiers utiles, purge des brouillons.
   python3 harnais/brain/detective.py              un passage : nouveaux / modifiés / disparus depuis le dernier passage
-  python3 harnais/brain/detective.py --veille [s] boucle (défaut 20 s) ; chaque nouveau HTML de LOT est mesuré en Ko (bande 100–298)
+  python3 harnais/brain/detective.py --veille [s] boucle (défaut 20 s) ; chaque nouveau HTML de LOT est mesuré en Ko (bande 80–150)
   python3 harnais/brain/detective.py --purger     détruit sans délai les brouillons NON SUIVIS par git (jamais un fichier versionné)
 Dossiers utiles surveillés : DOSSIERS ci-dessous. Brouillons : __pycache__, *.pyc, *.tmp, *~, *.bak, *.orig, *.whl, .DS_Store, brouillon*/draft*.
 Instantané : .cache/brain/detective.json."""

@@ -166,11 +166,10 @@ class Flash(unittest.TestCase):
 
     def test_bande_de_volume(self):
         t, _ = S.reparer(gabarit(), True)
-        self.assertIn("V1", flash_codes(gonfler(t, 299 * S.KO), "GRAVE"))              # > 280 Ko : bloquant
-        c = flash_codes(gonfler(t, 210 * S.KO)); self.assertIn("V2", c); self.assertNotIn("V1", c)
-        self.assertNotIn("V2", flash_codes(gonfler(t, 210 * S.KO), "GRAVE"))           # > 200 Ko : avertissement seulement
-        self.assertFalse(flash_codes(gonfler(t, 150 * S.KO)) & {"V1", "V2", "V3"})
-        self.assertIn("V3", flash_codes(t, "MOYEN"))
+        self.assertIn("V1", flash_codes(gonfler(t, 151 * S.KO), "GRAVE"))              # > 150 Ko : bloquant (ordre de Vial, bande 80–150)
+        self.assertNotIn("V1", flash_codes(gonfler(t, 149 * S.KO), "GRAVE"))
+        self.assertFalse(flash_codes(gonfler(t, 120 * S.KO)) & {"V1", "V2", "V3"})
+        self.assertIn("V3", flash_codes(t, "MOYEN"))                                    # < 80 Ko : avertissement
 
     def test_ilots(self):
         t, _ = S.reparer(gabarit(), True)
@@ -232,7 +231,7 @@ class FlashCircuit(unittest.TestCase):
             self.assertNotEqual(p.returncode, 0); self.assertIn("W5", p.stdout)
             f.write_text(g.replace('data-ilot="8">', 'data-ilot="8" open>'), encoding="utf-8")
             p = self.cv("point", str(f), "8"); self.assertIn("AVERTISSEMENTS FLASH", p.stdout); self.assertIn("I4", p.stdout)
-            f.write_text(gonfler(g, 305 * S.KO), encoding="utf-8")
+            f.write_text(gonfler(g, 160 * S.KO), encoding="utf-8")
             fin_ = self.cv("fin", str(f), "--role", "duo")
             self.assertNotEqual(fin_.returncode, 0); self.assertIn("GRAVE Flash", fin_.stdout); self.assertIn("V1", fin_.stdout)
             self.cv("registre", str(f), "--json", f"{d}/r.json", "--md", f"{d}/r.md")

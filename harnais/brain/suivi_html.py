@@ -9,7 +9,7 @@ R = Path(__file__).resolve().parents[2]
 POINTS = [("Découpe", 5, "Le script prend l'instantané d'entrée, découpe la leçon en ses 14 points et pose le squelette Flash (îlots, fenêtres)."),
           ("Rédaction", 45, "Un agent Sonnet par fragment, en parallèle : condenser (Pareto), phrases complètes, fenêtres, mots interactifs."),
           ("Mise en forme", 10, "Réassemblage par script, puis un agent Sonnet assembleur harmonise la mise en forme (redites, jonctions, îlots, fenêtres) sans rien perdre du fond ; contrôle de chaque point."),
-          ("Porte duo", 10, "Porte unique : volume 100–298 Ko, îlots, fenêtres, langue, médical (AIPS)."),
+          ("Porte duo", 10, "Porte unique : volume 80–150 Ko, îlots, fenêtres, langue, médical (AIPS)."),
           ("Professeur", 20, "Opus (une tentative) corrige les points signalés ; un chiffre perdu ramène le point à sa version sans perte."),
           ("Porte finale", 5, "Contrôle final ; les fautes restantes partent en tableau .md pour Vial."),
           ("Terminé", 5, "Leçon enregistrée.")]

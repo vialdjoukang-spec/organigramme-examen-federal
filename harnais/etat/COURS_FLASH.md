@@ -3,7 +3,7 @@
 Remplace le prototype volumineux (410 Ko). Le plan des 14 points reste le même ; le fond devient flash, le détail passe dans des fenêtres.
 
 ## Volume
-- Bande : **100 à 298 Ko** par leçon (visé : 100–200 ; 250 → 298 toléré, décision de Vial). Notions comprises. Un prototype à 410 Ko est refusé.
+- Bande : **80 à 150 Ko** par leçon (ordre de Vial du 28.10 soir, cours en cours et futurs ; les cours déjà faits ne sont pas retouchés). Au-delà de 150 Ko : refusé, élaguer davantage de superflu. Notions comprises.
 - Plus de « notions voisines » en bloc dans le texte : un diagnostic différentiel utile se range dans une fenêtre cliquable.
 - Rien de sourcé d'essentiel n'est perdu : ce qui est secondaire descend dans une fenêtre, ce qui est inutile est retiré.
 
@@ -45,3 +45,6 @@ Fenêtres et mots interactifs en nombre (termes dédiés, symptômes, signes, ac
 
 ## Ordre de Vial (28.10.2026, soir) — production d'abord
 Fiches rapides de 100 à 200 Ko (cible 150). Auditeurs/professeurs Opus SUSPENDUS : la production des cours prime ; les audits se font après le 248e LOT (248 SSP = 248 LOT, catalogue suisse Profiles 2023). Sous-agents Sonnet 5.5 fragmentés, sérieux exigé. Reprise des audits : supprimer `.cache/brain/sans_professeur`.
+
+## Ordre de Vial (28.10.2026, nuit) — volume 80–150 Ko
+Les cours suivants (en cours et futurs) tiennent dans **80 à 150 Ko** ; au-delà, le cours ne passe pas : il faut détruire davantage de superflu. Les cours déjà rédigés ne sont pas retouchés. Vial relira bientôt des cours partie par partie pour juger de leur allure.
