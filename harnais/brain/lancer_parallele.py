@@ -428,7 +428,9 @@ def main(a):
     fs = [str(Path(x).resolve()) for x in a if x.endswith(".html")]
     if not fs or "-h" in a or "--help" in a: print(__doc__); return 0
     if any(Path(x) == Path("/workspace/ssp/app.html") for x in fs): print("REFUSÉ : /workspace/ssp/app.html ne se modifie jamais"); return 2
-    P = {"sonnet": threading.BoundedSemaphore(opt(a, "--sonnet", 16)), "opus": threading.BoundedSemaphore(opt(a, "--opus", 12))}
+    PLAFOND = R / ".cache/brain/sonnet_max"                       # ordre de Vial : capacité Sonnet réglable à chaud (fichier lu à chaque lancement de groupe)
+    cap = int(PLAFOND.read_text().strip()) if PLAFOND.exists() else 16
+    P = {"sonnet": threading.BoundedSemaphore(max(opt(a, "--sonnet", 0), cap)), "opus": threading.BoundedSemaphore(opt(a, "--opus", 12))}
     jd = Path(opt(a, "--journal", str(R / ".cache/brain/circuit/parallele"))).resolve(); jd.mkdir(parents=True, exist_ok=True)
     T0 = time.time()
     with ThreadPoolExecutor(64) as pool, ThreadPoolExecutor(len(fs)) as ex:
