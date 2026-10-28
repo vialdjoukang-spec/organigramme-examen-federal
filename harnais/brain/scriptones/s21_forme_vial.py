@@ -123,7 +123,7 @@ def rendre(mod, pre):
         if typ == "losange":
             svg.append(f'<polygon class="lo" points="{cx(i):.0f},{Y:.0f} {X + w:.0f},{Y + h / 2:.0f} {cx(i):.0f},{Y + h:.0f} {X:.0f},{Y + h / 2:.0f}"/>')
         else:
-            svg.append(f'<rect class="{"fi" if typ == "fin" else "ca"}" x="{X:.0f}" y="{Y:.0f}" width="{w}" height="{h}" rx="6"/>')
+            svg.append(f'<rect class="{"fi" if typ == "fin" else "ca"}" x="{X:.0f}" y="{Y:.0f}" width="{w}" height="{h}"/>')
         cid = f"{pre}-{j + 1}"; cl = "lo" if typ == "losange" else "ca"
         if n.get("detail"):
             lab.append(f'<label class="algo-n {cl} cl" for="{cid}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px"><span>{n["texte"]}</span></label>')

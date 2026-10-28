@@ -5,6 +5,7 @@
   python3 harnais/brain/circuit_vial.py scanner <fichier> [--points 7,10,11]  professeur : par point, rappel de la grille + doléances GRAVES/CRITIQUES + texte visible
   python3 harnais/brain/circuit_vial.py algo <fichier> [--appliquer]          rend l'algorithme du point 10 (modèle JSON → cases et traits orthogonaux) + CSS
   python3 harnais/brain/circuit_vial.py point <fichier> N                     contrôle d'UN point après sa rédaction (balises, lignes, forme S21, phrases sans verbe)
+  python3 harnais/brain/circuit_vial.py retirer <fichier> "<chiffre>" "<motif>" retrait déclaré d'un chiffre faux ou introuvable (consigné, relu par Vial)
   python3 harnais/brain/circuit_vial.py reparer <fichier>                     réparations mécaniques sûres : algorithme rendu, balises de bloc, lignes > 10 000
   python3 harnais/brain/circuit_vial.py mesurer <fichier> [--json]            relevé chiffré (octets, lignes longues, balises, doléances, scores langue et médical)
   python3 harnais/brain/circuit_vial.py fin <fichier> [--role duo|professeur] PORTE UNIQUE : répare d'abord (reparer), puis refuse si rien n'a changé (R15), si une
@@ -159,10 +160,13 @@ def fin(f, role):
     C = [d for d in D_ if d["severite"] == "CRITIQUE"]
     BS = [d for d in D_ if d["severite"] == "GRAVE" and d["code"].startswith("BS")]      # chiffre ou dose sans source : vérité médicale (Vial)
     if BS: ko.append(f"{len(BS)} GRAVE de source (chiffre ou dose sans renvoi [Sn] lu) : " + "; ".join(f"{d['code']} {d['ancre']}" for d in BS[:8]))
-    perdus = [c for c in e["chiffres"] if c not in set(chiffres(t))]
+    retraits = {r["chiffre"] for r in e.get("retraits", [])}
+    perdus = [c for c in e["chiffres"] if c not in set(chiffres(t)) and c not in retraits]
+    if retraits: print("RETRAITS DÉCLARÉS (relus par l'auditeur et par Vial) : " + " ; ".join(f"{r['chiffre']} ({r['motif']})" for r in e["retraits"]))
     if F: ko.append(f"{len(F)} GRAVE de forme (S21) : " + "; ".join(f"{d['code']} {d['ancre']}" for d in F[:8]))
     if C: ko.append(f"{len(C)} CRITIQUE : " + "; ".join(f"{d['code']} {d['ancre']}" for d in C[:8]))
-    if perdus: ko.append(f"chiffres disparus du texte visible ({len(perdus)}) : {', '.join(perdus[:20])} → restituer ou justifier (chiffre faux retiré : le dire dans la réponse)")
+    if perdus: ko.append(f"chiffres disparus du texte visible ({len(perdus)}) : {', '.join(perdus[:20])} → restituer, ou déclarer un chiffre faux ou introuvable : "
+                         f"circuit_vial.py retirer <fichier> \"<chiffre>\" \"<motif et source lue>\"")
     if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I): ko.append("<script>, <img> ou feuille externe : interdit par controle_lot (modèle d'algorithme : <template>)")
     src = t.count('<sup class="r">')
     if src < e["sources"]: ko.append(f"appels de source passés de {e['sources']} à {src}")
@@ -250,6 +254,18 @@ def point(f, n):
     return 0 if not ko else 1
 
 
+def retirer(f, chiffre, motif):
+    """Retrait déclaré d'un chiffre faux ou introuvable dans sa source : consigné dans l'instantané et au journal (jamais silencieux)."""
+    s = instantane(f)
+    if not s.exists(): print("REFUSÉ : aucun instantané (memoire d'abord)"); return 2
+    e = json.loads(s.read_text())
+    if chiffre not in e["chiffres"]: print(f"REFUSÉ : « {chiffre} » n'est pas un chiffre de l'instantané ({', '.join(e['chiffres'][:12])}…)"); return 1
+    if len(motif.split()) < 6: print("REFUSÉ : motif trop court (dire la source lue qui contredit ou ne contient pas le chiffre)"); return 1
+    e.setdefault("retraits", []).append(dict(chiffre=chiffre, motif=motif)); s.write_text(json.dumps(e, ensure_ascii=False))
+    bus.journal(dict(type="retrait_chiffre", fichier=Path(f).name, chiffre=chiffre, motif=motif))
+    print(f"RETRAIT CONSIGNÉ : {chiffre} — {motif}"); return 0
+
+
 def traite(f):
     """Déjà traité = professeur ACCEPTÉ sur l'état actuel du fichier."""
     tr = CACHE / "traites.json"; T = json.loads(tr.read_text()) if tr.exists() else {}
@@ -326,6 +342,7 @@ def main(a):
         return 0 if r["conforme"] else 1
     if c == "reprise": reprise(a[1]); return 0
     if c == "point": return point(a[1], int(a[2]))
+    if c == "retirer": return retirer(a[1], a[2], a[3] if len(a) > 3 else "")
     if c == "reparer":
         t = lire(a[1]); t2, J = S21.reparer(t)
         if t2 != t: bus.ecrire_atomique(a[1], t2)

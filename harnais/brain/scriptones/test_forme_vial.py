@@ -107,6 +107,16 @@ class PorteUnique(unittest.TestCase):
             self.assertEqual(S.desequilibres(f.read_text(encoding="utf-8")), [])
             self.assertIn("langue", p.stdout)                                                               # la porte mesure la langue d'audit_lot
 
+    def test_retrait_declare(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "LOT_999_Phase_B_V0_DX.1.html"; f.write_text(cours(p8="<p>Le seuil retenu est de 12 % chez les patientes.</p>"), encoding="utf-8")
+            run = lambda *a: subprocess.run([sys.executable, str(R / "harnais/brain/circuit_vial.py"), *a], cwd=R, capture_output=True, text=True, timeout=900)
+            run("memoire", "duo", str(f)); f.write_text(cours(), encoding="utf-8")
+            self.assertIn("chiffres disparus", run("fin", str(f), "--role", "duo").stdout)
+            self.assertNotEqual(run("retirer", str(f), "12 %", "faux").returncode, 0)                     # motif trop court : refusé
+            self.assertEqual(run("retirer", str(f), "12 %", "introuvable dans le résumé PubMed de la source citée").returncode, 0)
+            p = run("fin", str(f), "--role", "duo"); self.assertNotIn("chiffres disparus", p.stdout); self.assertIn("RETRAITS DÉCLARÉS", p.stdout)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)
