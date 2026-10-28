@@ -10,4 +10,4 @@
 - Le conteneur redémarre souvent : les leçons finies sont enregistrées (`journal/*.fait.json`), rien n'est perdu.
 
 ## Fichier à garder jalousement
-`harnais/etat/LOTS_248_DD.md` : les 248 LOT (SSP du catalogue PROFILES 2023), statut FAIT/NON FAIT et listes de DD (LOT 001–022). Reçu de Vial le 28.10.2026. Prompt universel court : `PROMPT_Casern/PROMPT_FLASH_UNIVERSEL.md`.
+`harnais/etat/LOTS_248_DD.md` : les 248 LOT (SSP du catalogue PROFILES 2023), statut FAIT/NON FAIT et listes de DD (LOT 001–022). Reçu de Vial le 28.10.2026.
