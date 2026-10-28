@@ -1,6 +1,8 @@
 export const meta = { name: 'circuit-duo-professeur', description: 'Directive de Vial 28.10.2026 : 16 leçons → 16 duos médico-linguistes Sonnet 5.5 → 12 professeurs émérites Opus 5.5 moyen (1 leçon par appel, tourniquet) → porte de sortie du lot (boucle bornée)', phases: [{ title: 'Duo', detail: 'un agent Sonnet par leçon' }, { title: 'Professeur', detail: '12 Opus, une leçon chacun ; les 4 dernières au tourniquet', model: 'opus' }, { title: 'Sortie', detail: 'audit_sortie du lot ; non conformes renvoyés au duo (boucle bornée)' }] }
 // Lancement : Workflow({scriptPath: 'harnais/brain/circuit_duo_professeur.js', args: {lecons: [<≤16 chemins absolus>], dossier?: '<dossier du LOT>', boucles?: 2, paquet?: N, tranche?: [debut, fin]}})
 // Liste prête : python3 harnais/brain/circuit_vial.py repartir <dossier> --phase-b --exclure-traites --json  (champ duos[].lecon)
+// NÉO-CONCEPTION 28.10.2026 : préférer `python3 harnais/brain/lancer_circuit.py <leçons…>` (sous-agents réels claude -p, 16 Sonnet / 12 Opus, porte
+// unique rejouée par le script, reprise bornée). Ce workflow reste utilisable ; ses agents suivent la même méthode point par point (définitions .claude/agents).
 // Concurrence : le moteur plafonne chaque Workflow à min(16, CPU-2) agents simultanés (2 sur une machine à 4 CPU) ; les appels en trop
 // attendent en file. Pour plus de parallélisme : lancer plusieurs Workflow avec `tranche` (ex. [0,4], [4,8], [8,12], [12,16]) — chaque run a son
 // propre plafond ; les numéros de leçon et les prompts des duos restent identiques (reprise en cache valide). `paquet` limite les duos simultanés.

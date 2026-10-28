@@ -73,7 +73,7 @@ pts = {int(m.group(2)): m.start() for m in re.finditer(r"<h3[^>]*id=[\"']([\w-]+
 manq = [i for i in range(1, 15) if i not in pts]
 if manq and not re.search(r"<h3", raw): moy.append("balises h3 des points absentes (contrôle de structure partiel)")
 elif manq: crit.append(f"points §11 manquants : {manq}")
-need = {"gold standard": r"gold standard|référence", "sensibilité/spécificité chiffrées": r"sensibilit\w+[^.]{0,80}\d|\d[^.]{0,40}sensibilit", "11.A–11.D": r"11\.A.*11\.B.*11\.C.*11\.D", "drapeaux/graves": r"🚩|drapeau", "grossesse/allaitement": r"grossesse", "situations spéciales (âge/rénal)": r"âgé|pédiatr|enfant|rénal|insuffisance"}
+need = {"gold standard": r"gold standard|référence", "sensibilité/spécificité chiffrées": r"sensibilit\w+[^.]{0,80}\d|\d[^.]{0,40}sensibilit", "11.A–11.D (ou forme de la directive de Vial du 28.10.2026 : But, Moyens et méthodes, urgences, hors urgences, surveillance, pronostic)": r"11\.A.*11\.B.*11\.C.*11\.D|\bBut\b.*Moyens et méthodes.*urgences?.*Hors urgences?.*surveillance.*pronostic", "drapeaux/graves": r"🚩|drapeau", "grossesse/allaitement": r"grossesse", "situations spéciales (âge/rénal)": r"âgé|pédiatr|enfant|rénal|insuffisance"}
 for k, rx in need.items():
     if not re.search(rx, txt, re.I | re.S): moy.append(f"contenu attendu absent : {k}")
 if phaseA:

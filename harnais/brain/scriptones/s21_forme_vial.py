@@ -13,7 +13,10 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
   Point 7 · syndromes
     Q1 intitulé non numéroté « 7.n Syndrome … »    Q2 « Symptômes fonctionnels » absent    Q3 « Signes physiques » absent
     Q4 signes physiques sans sous-cellules cliquables (span.sc.dx)   Q5 sous-cellule dont la fenêtre ne dit pas comment rechercher le signe
+  Q0 point 7 sans aucun syndrome numéroté « 7.n » (titres en gras, en h4 ou en cellule de tableau)
   R1 identifiant de case à cocher dupliqué (fenêtre qui ne s'ouvre pas)
+  Intégrité (mêmes seuils que controle_lot, localisés) : H1 balises de bloc déséquilibrées (point fautif) · H2 ligne > 10 000 caractères
+  Réparation sûre (reparer) : rendu des algorithmes, balises fermées en fin de point ou fermante orpheline retirée, lignes coupées aux fins de blocs
   Registre universitaire et clarté (texte courant <p> et <li>, hors fenêtres ; directive « Langue = Universitaire ») :
     L1 tournure faible ou familière (tutoiement, impératif familier, « il y a », « on », « ça », « un peu »…)   L2 phrase trop longue (> 40 mots)
     L3 phrase nominale sans verbe dans un paragraphe (≥ 12 mots)    L4 phrase répétée à l'identique (GRAVE) ; mot plein répété 3 fois dans une phrase (MOYEN)
@@ -25,7 +28,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bus
 
-ID, REGION, VERSION = "s21_forme_vial", "AUF", "1.0.0"
+ID, REGION, VERSION = "s21_forme_vial", "AUF", "1.1.0"
 COL, ROW, CW, CH, LW, LH, M = 250, 125, 184, 66, 196, 96, 20
 CSS = ('<style id="brain-vial">div.algo{margin:14px 0}div.algo>input{position:absolute;opacity:0;width:0;height:0}.algo-t{font-weight:700;color:#4c1d95;margin-bottom:6px}'
        '.algo-sc{overflow-x:auto;padding-bottom:4px}.algo-can{position:relative}.algo-can svg{position:absolute;left:0;top:0}.algo-can svg .tr{stroke:#6d28d9;stroke-width:2;fill:none}'
@@ -111,16 +114,18 @@ def rendre(mod, pre):
         cid = f"{pre}-{j + 1}"; cl = "lo" if typ == "losange" else "ca"
         if n.get("detail"):
             lab.append(f'<label class="algo-n {cl} cl" for="{cid}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px">{n["texte"]}</label>')
-            det.append(f'<div class="algo-d" id="{cid}-d"><b>{n["texte"]}</b> · {n["detail"]}</div>')
+            det.append(f'<div class="algo-d" id="{cid}-d"><b class="algo-dt">{n["texte"]}</b> · {n["detail"]}</div>')
             css.append(f"#{cid}:checked~.algo-det #{cid}-d{{display:block}}")
         else:
             lab.append(f'<div class="algo-n {cl}" style="left:{X:.0f}px;top:{Y:.0f}px;width:{w}px;height:{h}px">{n["texte"]}</div>')
-    entrees = "".join(f'<input type="checkbox" id="{pre}-{j + 1}">' for j, i in enumerate(ordre) if N[i].get("detail"))
+    entrees = [f'<input type="checkbox" id="{pre}-{j + 1}">' for j, i in enumerate(ordre) if N[i].get("detail")]
     modele = json.dumps(mod, ensure_ascii=False, indent=0).replace("</template", "<\\/template")
-    return (f'<div class="algo" data-brain="algo" data-id="{pre}"><template class="algo-modele">{modele}</template><style>{"".join(css)}</style>{entrees}'
-            f'<div class="algo-t">{mod.get("titre", "Algorithme de décision")}</div><div class="algo-sc"><div class="algo-can" style="width:{larg}px;height:{haut}px">'
-            f'<svg width="{larg}" height="{haut}" viewBox="0 0 {larg} {haut}" aria-hidden="true">{"".join(svg)}</svg>{"".join(lab)}</div></div>'
-            f'<div class="algo-det">{"".join(det)}</div></div><!--/algo-->')
+    # Une ligne par élément (trait, case, étiquette, fenêtre) : aucune ligne > 10 000 caractères (controle_lot), quelle que soit la taille de l'arbre.
+    nl = "\n"
+    return (f'<div class="algo" data-brain="algo" data-id="{pre}"><template class="algo-modele">{modele}</template>\n<style>{nl.join(css)}</style>\n{nl.join(entrees)}\n'
+            f'<div class="algo-t">{mod.get("titre", "Algorithme de décision")}</div>\n<div class="algo-sc"><div class="algo-can" style="width:{larg}px;height:{haut}px">\n'
+            f'<svg width="{larg}" height="{haut}" viewBox="0 0 {larg} {haut}" aria-hidden="true">\n{nl.join(svg)}\n</svg>\n{nl.join(lab)}\n</div></div>\n'
+            f'<div class="algo-det">\n{nl.join(det)}\n</div></div><!--/algo-->')
 
 
 RX_MODELE = re.compile(r'(?is)<(template|script)(?: type="application/json")? class="algo-modele"[^>]*>(.*?)</\1>')     # <template> : aucun <script> dans un cours (controle_lot)
@@ -149,6 +154,98 @@ def corriger(t, opt=None):
     if 'class="algo"' in t2 or 'class="sc dx"' in t2 or "-p11" in t2:
         t2 = bus.pose_style(t2, "brain-vial", CSS)
     return t2
+
+
+# ───────────────────────── intégrité : mesure et réparation sûre (aucun contenu créé ni retranché) ─────────────────────────
+BALISES = ("div", "table", "details", "ul", "ol", "section")
+RX_LIGNE_OK = re.compile(r"data:font|font/woff|data:[\w/+.-]+;base64")
+RX_INERTE = re.compile(r"(?is)<(style|template|script)\b.*?</\1>|<!--.*?-->")
+
+
+def _inerte(t):
+    """Masque CSS, modèles JSON, scripts et commentaires (positions conservées)."""
+    return RX_INERTE.sub(lambda m: " " * len(m.group(0)), t)
+
+
+def _bornes_points(t):
+    """[(n, début, fin)] des points du cours, la fin du dernier point étant le début des sources."""
+    S = bus.sections(t); return sorted(((n, a, f) for n, (a, f) in S.items()), key=lambda x: x[1])
+
+
+def desequilibres(t):
+    """[(balise, ouvertes, fermées, point)] : déséquilibres globaux (point 0) et par point (localisation)."""
+    m = _inerte(t); out = []
+    for g in BALISES:
+        o, f = len(re.findall(rf"(?i)<{g}[\s>]", m)), len(re.findall(rf"(?i)</{g}\s*>", m))
+        if o != f:
+            out.append((g, o, f, 0))
+            for n, a, b in _bornes_points(t):
+                s = m[a:b]; o2, f2 = len(re.findall(rf"(?i)<{g}[\s>]", s)), len(re.findall(rf"(?i)</{g}\s*>", s))
+                if o2 != f2: out.append((g, o2, f2, n))
+    return out
+
+
+def equilibrer(t):
+    """Réparation sûre des balises de bloc déséquilibrées : un bloc ouvert dans un point est fermé avant le titre du point suivant ;
+    une fermante sans ouvrante est retirée. N'agit que si le fichier est globalement déséquilibré ; renvoie le texte d'origine si le
+    résultat n'est pas équilibré. Retour : (texte, journal)."""
+    if not any(n == 0 for *_, n in desequilibres(t)): return t, []
+    m = _inerte(t); P = _bornes_points(t)
+    if not P: return t, []
+    bornes = [a for _, a, _ in P]                          # débuts des points : seule frontière sûre (la fin du point 14 ne l'est pas)
+    ev = [(b, 0, "limite", None) for b in bornes]
+    for x in re.finditer(r"(?i)<(/?)(%s)\b[^>]*>" % "|".join(BALISES), m):
+        ev.append((x.start(), 1, "ferme" if x.group(1) else "ouvre", x))
+    ev.sort(key=lambda e: (e[0], e[1]))
+    pile, ins, sup, sec, J = [], [], [], -1, []
+    for pos, _, k, x in ev:
+        if k == "limite":
+            while pile and pile[-1][2] >= 0:
+                g, p0, s0 = pile.pop(); ins.append((pos, f"</{g}>")); J.append(f"<{g}> ouvert l.{bus.ligne(t, p0)} fermé avant le point suivant")
+            sec = bornes.index(pos); continue
+        g = x.group(2).lower()
+        if k == "ouvre": pile.append((g, x.start(), sec)); continue
+        if pile and pile[-1][0] == g: pile.pop(); continue
+        cible = next((q for q in reversed(pile) if q[0] == g), None)
+        if cible and (cible[2] >= 0 or sec == len(P) - 1):     # un enveloppant (ouvert avant le point 1) ne se ferme qu'au dernier point ou après
+            while pile[-1][0] != g:
+                g2, p0, _ = pile.pop(); ins.append((x.start(), f"</{g2}>")); J.append(f"<{g2}> ouvert l.{bus.ligne(t, p0)} fermé avant </{g}>")
+            pile.pop(); continue
+        sup.append((x.start(), x.end())); J.append(f"</{g}> orpheline retirée l.{bus.ligne(t, x.start())}")
+    if not J: return t, []
+    grp = {}
+    for p_, s in ins: grp[p_] = grp.get(p_, "") + s           # fermantes groupées dans l'ordre de dépilement (</table></div>)
+    ops = [(p_, p_, s) for p_, s in grp.items()] + [(a, b, "") for a, b in sup]
+    out = t
+    for a, b, s in sorted(ops, key=lambda o: (o[0], o[1]), reverse=True): out = out[:a] + s + out[b:]
+    if any(n == 0 for *_, n in desequilibres(out)): return t, ["réparation des balises impossible sans ambiguïté : correction à la main"]
+    return out, J
+
+
+def couper_lignes(t, limite=10000):
+    """Coupe les lignes > limite aux fins de blocs (</p>, </li>, </tr>, </div>…) hors CSS, modèles et scripts : rendu inchangé."""
+    if all(len(l) <= limite or RX_LIGNE_OK.search(l) for l in t.split("\n")): return t, []
+    m = _inerte(t); coupes = []; J = []; debut = 0
+    for l in t.split("\n"):
+        fin = debut + len(l)
+        if len(l) > limite and not RX_LIGNE_OK.search(l):
+            n0 = len(coupes)
+            coupes += [x.end() for x in re.finditer(r"(?i)</(?:p|li|tr|div|ul|ol|table|h[1-6]|details|summary|section)>|<!--/algo-->", m[debut:fin]) if x.end() < len(l)]
+            coupes[n0:] = [debut + c for c in coupes[n0:]]
+            J.append(f"ligne {bus.ligne(t, debut)} ({len(l)} caractères) coupée en {len(coupes) - n0 + 1}")
+        debut = fin + 1
+    out = t
+    for c in sorted(set(coupes), reverse=True): out = out[:c] + "\n" + out[c:]
+    return out, J
+
+
+def reparer(t):
+    """Réparations mécaniques sûres de fin de duo : rendu des algorithmes (une ligne par élément), CSS brain-vial, balises de bloc, lignes longues."""
+    J = []; t2 = corriger(t)
+    if t2 != t: J.append("algorithme(s) du point 10 rendu(s) et CSS brain-vial posée")
+    t2, j = equilibrer(t2); J += j
+    t2, j = couper_lignes(t2); J += j
+    return t2, J
 
 
 # ───────────────────────── analyse ─────────────────────────
@@ -216,9 +313,18 @@ def analyser(t, nom, opt=None):
     # ── point 7
     if 7 in S:
         a, f = S[7]; seg = t[a:f]
-        ts = list(re.finditer(r"(?is)<(?:b|strong|h4)[^>]*>\s*(7\.\d+)\b([^<]*)", seg)); M["syndromes"] = len(ts)
+        # Intitulés « 7.n » en gras, en titre h4 ou en cellule de tableau (la directive vaut « y compris dans le tableau »).
+        ts = list(re.finditer(r"(?is)<(?:b|strong|h4|td|th)[^>]*>\s*(?:<(?:b|strong|em)>\s*)?(7\.\d+)\.?\s*(?:</(?:b|strong|em)>)?\s*([^<]*)", seg)); M["syndromes"] = len(ts)
+        if not ts:
+            dol("Q0", h(a), "GRAVE", "aucun syndrome numéroté « 7.n Syndrome de … » au point 7",
+                "structurer le point 7 en syndromes « 7.1 Syndrome de … », chacun avec « Symptômes fonctionnels » et « Signes physiques » en sous-cellules cliquables")
         for k, m in enumerate(ts):
-            ch = seg[m.start():ts[k + 1].start() if k + 1 < len(ts) else len(seg)]; pos = a + m.start(); titre = m.group(1) + m.group(2)
+            ch = seg[m.start():ts[k + 1].start() if k + 1 < len(ts) else len(seg)]; pos = a + m.start(); titre = m.group(1) + " " + m.group(2)
+            ot = seg.rfind("<table", 0, m.start())
+            if ot >= 0 and seg.rfind("</table>", 0, m.start()) < ot:          # syndrome en ligne de tableau : les en-têtes de colonnes valent intitulés
+                tete = bus.texte(seg[ot:seg.find("</tr>", ot) if "</tr>" in seg[ot:] else ot + 2000]).lower()
+                fin_t = seg.find("</table>", m.start()); ch = ch[:fin_t - m.start()] if fin_t > 0 else ch
+                ch = ("symptômes fonctionnels " if "symptômes fonctionnels" in tete else "") + ("signes physiques " if "signes physiques" in tete else "") + ch
             if not re.match(r"\s*Syndrome\b", m.group(2), re.I):
                 dol("Q1", pos, "MOYEN", f"intitulé « {titre.strip()[:60]} » sans « Syndrome »", "« 7.n Syndrome de … » selon l'intitulé international documenté", preuve=titre)
             if "symptômes fonctionnels" not in ch.lower():
@@ -255,6 +361,14 @@ def analyser(t, nom, opt=None):
             rep = sorted({w for w in pleins if pleins.count(w) >= 3})
             if rep: dol("L4", pa, "MOYEN", f"mot répété dans la phrase : {', '.join(rep)}", "varier par un terme dédié ou un pronom", preuve=ph[:160])
     M["phrases_registre"] = nL
+    # ── intégrité HTML (même mesure que controle_lot, localisée au point fautif) et lignes longues
+    for tag, o, f_, n_ in desequilibres(t):
+        dol("H1", S[n_][0] if n_ in S else 0, "GRAVE", f"balises <{tag}> déséquilibrées {'au point ' + str(n_) if n_ else 'dans le fichier'} ({o} ouvertes / {f_} fermées)",
+            "lancer : python3 harnais/brain/circuit_vial.py reparer <fichier> (fermeture en fin de point, fermante orpheline retirée), puis relire le point", "script")
+    for i, l in enumerate(t.split("\n")):
+        if len(l) > 10000 and not RX_LIGNE_OK.search(l):
+            dol("H2", sum(len(x) + 1 for x in t.split("\n")[:i]), "GRAVE", f"ligne {i + 1} de {len(l)} caractères (> 10 000)",
+                "lancer : python3 harnais/brain/circuit_vial.py reparer <fichier> (coupe aux fins de blocs)", "script")
     # ── ids
     ids = re.findall(r'<input type="checkbox" id="([^"]+)"', t); vus = set()
     for i in ids:

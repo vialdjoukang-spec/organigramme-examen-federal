@@ -29,8 +29,12 @@ def analyse(p):
             elif m.category in ("TYPOGRAPHY", "STYLE", "REDUNDANCY", "PUNCTUATION", "CASING") or rid in ("DATE", "PLACE_DE_LA_VIRGULE", "VIRGULE_VERBE") or rid.startswith(("FRENCH_WHITESPACE", "ESPACE", "APOS", "VIRG", "TIRET", "MAJUSCULE", "UPPERCASE")): continue
             else: cat = "GRAMMAIRE"
             err.append((cat, rid, ctx, "; ".join(m.replacements[:2])))
-    txt = " ".join(L); acr = sorted({x for x in re.findall(r"\b[A-Z][A-Za-z]?[A-Z0-9]{1,5}\b", txt) if x not in ACR_OK and len(x) >= 3})
-    nd = [x for x in acr if not re.search(rf"\({x}\)|{x} ?\(|{x} ?:|{x} ?=|{x}, ", txt)]
+    # Sigles : hors liste des sources (abréviations de revues selon la NLM, jamais à développer) ; un sigle défini par le glossaire CSS du
+    # fichier (abbr[data-k="X"]::after{content:"X : …"}, affiché au clic) est défini.
+    raw = Path(p).read_text(encoding="utf-8", errors="replace"); gl = set(re.findall(r'data-k="([^"]+)"\]::after\{content:"', raw))
+    i_src = next((k for k, l in enumerate(L) if re.match(r"(?i)^(sources bibliographiques|sources)\b", l)), len(L))
+    txt = " ".join(L[:i_src]); acr = sorted({x for x in re.findall(r"\b[A-Z][A-Za-z]?[A-Z0-9]{1,5}\b", txt) if x not in ACR_OK and len(x) >= 3})
+    nd = [x for x in acr if x not in gl and not re.search(rf"\({x}\)|{x} ?\(|{x} ?:|{x} ?=|{x}, ", txt)]
     return mots, err, nd
 import spacy
 NLP = spacy.load("fr_core_news_sm", disable=["ner", "lemmatizer"])
@@ -39,7 +43,10 @@ def sans_verbe(p):
     for m in re.finditer(r"<h3[^>]*id=[\"']([\w-]+?)-p(\d{1,2})[\"'][^>]*>(.*?)(?=<h3[^>]*id=[\"'][\w-]+?-p\d|$)", raw, re.S):
         n = int(m.group(2))
         if n not in (6, 7, 10, 13): continue
-        body = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(table|script|style).*?</\1>", " ", m.group(3)))); bad = []; tot = 0
+        # Hors prose : titre du point, tableaux, modèle JSON de l'algorithme (<template>), dessin de l'arbre (SVG et étiquettes de cases ≤ 60 caractères, rappelées en titre de fenêtre).
+        # Les fenêtres (.df, .dxc, .algo-d) restent lues : elles doivent être rédigées en phrases complètes.
+        h = re.sub(r"(?is)<(table|script|style|template|svg).*?</\1>|<(label|div) class=\"algo-n[^\"]*\"[^>]*>.*?</\2>|<div class=\"algo-t\">.*?</div>|<b class=\"algo-dt\">.*?</b>", " ", re.sub(r"(?is)^.*?</h3>", " ", m.group(3), count=1))
+        body = html.unescape(re.sub(r"<[^>]+>", " ", h)); bad = []; tot = 0
         for s in NLP.pipe([x.strip() for x in re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", body)) if len(x.split()) >= 6 and not re.match(r"^\s*(Approche|\d+(\.\d+)*\b)", x)]):
             tot += 1
             if not any(t.pos_ in ("VERB", "AUX") for t in s): bad.append(s.text[:90])

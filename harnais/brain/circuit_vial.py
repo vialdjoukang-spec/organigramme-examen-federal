@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """Circuit duo → professeur (directive de Vial du 28.10.2026, harnais/etat/DIRECTIVE_VIAL_REFONTE.md). Gratuit, hors ligne.
-  python3 harnais/brain/circuit_vial.py memoire <duo|professeur> <fichier>   départ obligatoire : directive, gabarits, grille, Prompt ULTIME (professeur), instantané d'entrée
+  python3 harnais/brain/circuit_vial.py memoire <duo|professeur> <fichier> [--garder]  départ obligatoire : directive, gabarits, grille, Prompt ULTIME (professeur),
+                                                                               instantané d'entrée (--garder : reprise, instantané conservé)
   python3 harnais/brain/circuit_vial.py scanner <fichier> [--points 7,10,11]  professeur : par point, rappel de la grille + doléances GRAVES/CRITIQUES + texte visible
   python3 harnais/brain/circuit_vial.py algo <fichier> [--appliquer]          rend l'algorithme du point 10 (modèle JSON → cases et traits orthogonaux) + CSS
-  python3 harnais/brain/circuit_vial.py fin <fichier> [--role duo|professeur] porte de sortie (R15) : refuse si rien n'a changé, si une GRAVE de forme (S21) ou
-                                                                               une CRITIQUE reste, ou si un chiffre sourcé a disparu
+  python3 harnais/brain/circuit_vial.py point <fichier> N                     contrôle d'UN point après sa rédaction (balises, lignes, forme S21, phrases sans verbe)
+  python3 harnais/brain/circuit_vial.py reparer <fichier>                     réparations mécaniques sûres : algorithme rendu, balises de bloc, lignes > 10 000
+  python3 harnais/brain/circuit_vial.py mesurer <fichier> [--json]            relevé chiffré (octets, lignes longues, balises, doléances, scores langue et médical)
+  python3 harnais/brain/circuit_vial.py fin <fichier> [--role duo|professeur] PORTE UNIQUE : répare d'abord (reparer), puis refuse si rien n'a changé (R15), si une
+                                                                               GRAVE de forme (S21 : D/E/Q/L/H) ou une CRITIQUE reste, si un chiffre sourcé ou un appel
+                                                                               de source a disparu, si controle_lot relève une critique, ou si la langue ou le
+                                                                               médical d'audit_lot est < 90 ou critique (même verdict que la porte de sortie du lot)
   python3 harnais/brain/circuit_vial.py repartir <dossier|fichiers…> [--phase-b|--phase-a] [--liste f.txt] [--exclure-traites] [--json]
                                                                                vague : 16 leçons → 16 duos Sonnet → 12 professeurs Opus (1 leçon chacun, 4 au tourniquet)
   python3 harnais/brain/circuit_vial.py sortie <dossier> [--json]             porte de fin de vague = audit_sortie (hook pre-commit) ; rapports périmés écartés ;
@@ -19,6 +25,7 @@ import bus
 import s21_forme_vial as S21
 
 CACHE = R / ".cache/brain/circuit"
+SEUIL = 90                                    # audit_lot / audit_sortie : langue et médical ≥ 90, 0 critique
 OPUS, LECONS_PAR_OPUS, VAGUE = 12, 1, 16      # directive de Vial : 12 professeurs, une leçon par appel
 GABARITS = r"""## Gabarits HTML (le script vérifie exactement ces formes)
 - Terme survolable (précision simple) : <span class="tm" tabindex="0">terme<span class="df">précision en une phrase</span></span>
@@ -29,7 +36,9 @@ GABARITS = r"""## Gabarits HTML (le script vérifie exactement ces formes)
   <ul><li><b>Symptômes fonctionnels :</b> x, y, z (termes survolables)</li>
       <li><b>Signes physiques :</b> région / région :
         <span class="sc dx"><input type="checkbox" id="p7-1-godet"><label class="dxt" for="p7-1-godet">Signe du godet</label>
-        <span class="dxc"><b>Recherche :</b> position, geste, manœuvre (texte exact). <b>Valeur :</b> ce que le signe établit.</span></span> …</li></ul>
+        <span class="dxc"><b>Recherche :</b> La patiente est placée en décubitus dorsal ; l'examinateur presse … pendant … secondes. <b>Valeur :</b> Un godet persistant établit …</span></span> …</li></ul>
+  Toute fenêtre (.df, .dxc, détail d'une case d'algorithme) est rédigée en PHRASES COMPLÈTES (sujet, verbe, complément) : le contrôle de langue les lit.
+  Une fiche de médicament s'écrit ainsi : « L'Oestrogel® (estradiol) appartient aux œstrogènes seuls (ATC G03CA03). L'AIPS fixe la dose à … »
   Dans un tableau, la cellule « Signes physiques » contient ces mêmes sous-cellules span.sc.dx.
 - Point 10, algorithme en cases : écrire le modèle, puis lancer `algo <fichier> --appliquer` (le script dessine rectangles, losanges et traits
   strictement horizontaux et verticaux ; aucun cercle, aucun oblique) :
@@ -55,7 +64,10 @@ REGLES = """## Règles absolues
   ni de plus de 40 mots ; aucune répétition. `fin` bloque (GRAVE L1–L4). Relecture de clarté de chaque point avant `fin`.
 - Doses : AIPS suisse seulement (python3 harnais/aips_texte.py) ; sinon « hors AIPS, recommandation X ; à valider avec un spécialiste avant prescription ». Jamais le Compendium.
 - Tout contenu ajouté vient d'une source lue (fichier, liste des sources, PubMed, AIPS) ; sinon « À vérifier ». Rien de mémoire non vérifiée.
-- Lecture : jamais le fichier entier ni les lignes data: ; grep -n sur les ancres id="…-pN" puis Read offset/limit ; Edit exact. Pas de commit."""
+- Lecture : jamais le fichier entier ni les lignes data: ; grep -n sur les ancres id="…-pN" puis Read offset/limit ; Edit exact. Pas de commit.
+- RÉÉCRITURE POINT PAR POINT (cause des refus de la vague 1 : grosses plaques réécrites, balises perdues, lignes géantes) : un point à la fois ;
+  dans un point de plus de 8 000 caractères, une sous-partie par Edit ; jamais un Edit qui chevauche deux points ; jamais Write sur le cours ;
+  chaque balise ouverte dans l'Edit y est refermée ; une ligne par paragraphe, puce ou rangée. Après CHAQUE point : `point <fichier> N` jusqu'à VERT."""
 
 
 def sh(*c):
@@ -74,9 +86,14 @@ def chiffres(t):
     return sorted(set(re.findall(r"\d+(?:[,.]\d+)?\s?%|\d+(?:[,.]\d+)?\s?(?:mg|µg|g|ml|mmHg|ans|cm|mmol/l|heures|semaines|jours)\b", tx)))
 
 
+def instantane(f):
+    """Instantané propre au chemin (deux copies d'un même nom ne se mélangent pas)."""
+    return CACHE / f"{Path(f).name}.{hashlib.sha1(str(Path(f).resolve()).encode()).hexdigest()[:8]}.json"
+
+
 def snap(f):
     t = lire(f); CACHE.mkdir(parents=True, exist_ok=True)
-    (CACHE / (Path(f).name + ".json")).write_text(json.dumps(dict(sha=bus.sha(t), octets=len(t.encode()), chiffres=chiffres(t), sources=t.count('<sup class="r">'))))
+    instantane(f).write_text(json.dumps(dict(sha=bus.sha(t), octets=len(t.encode()), chiffres=chiffres(t), sources=t.count('<sup class="r">'))))
 
 
 def s21(t, nom):
@@ -88,8 +105,9 @@ def cerveau(f):
     return C.analyser(lire(f), Path(f).name)[0]
 
 
-def memoire(role, f):
-    snap(f)
+def memoire(role, f, garder=False):
+    if not (garder and instantane(f).exists()):                  # --garder : reprise dans la même passe, l'instantané d'entrée reste la référence
+        snap(f); couverture(f, raz=True)
     print(f"# CIRCUIT VIAL · rôle {role} · {Path(f).name}\n")
     print(lire(R / "harnais/etat/DIRECTIVE_VIAL_REFONTE.md"))
     print(GABARITS + "\n\n" + REGLES + "\n")
@@ -100,11 +118,14 @@ def memoire(role, f):
         print("\n## Prompt ULTIME (Prompt universel) : exigences\n" + sh("harnais/prompt_expert.py", "redacteur"))
     D_ = s21(lire(f), Path(f).name)
     print(f"\n## Doléances de forme (S21) à l'entrée : {len(D_)}\n" + "\n".join(f"- {d['severite']} {d['code']} {d['ancre']} : {d['constat']}" for d in D_))
-    print("\n## Boucle\n" + ("1. Lis le cours point par point (grep -n 'id=\"[^\"]*-pN\"'). 2. Stylise chaque point selon la directive et gère le fond des 14 parties "
-          "(exigence de la grille manquante → complète depuis une source lue). 3. Point 10 : modèle JSON (<template class=\"algo-modele\">, jamais <script>) puis `algo <fichier> --appliquer`. "
-          "4. `fin <fichier> --role duo` jusqu'à ACCEPTÉ." if role == "duo" else
+    print("\n## Boucle (point par point, porte courte après chaque point)\n" + ("Pour N = 1 … 14 : a) lis le point N seul (grep -n 'id=\"[^\"]*-pN\"', Read offset/limit) ; "
+          "b) stylise-le selon la directive et complète le fond exigé par la grille (source lue, sinon « À vérifier ») par Edit limités à ce point "
+          "(une sous-partie par Edit si le point dépasse 8 000 caractères) ; c) `point <fichier> N` jusqu'à VERT. Point 10 : modèle JSON (<template class=\"algo-modele\">, "
+          "jamais <script>) puis `algo <fichier> --appliquer`, puis `point <fichier> 10`. Enfin `fin <fichier> --role duo` (porte unique : réparation automatique, "
+          "forme, langue ≥ 90, médical ≥ 90) jusqu'à ACCEPTÉ." if role == "duo" else
           "1. `scanner <fichier>` (texte visible par point + rappel de la grille). 2. Vérifie critiquement le fond (doses AIPS, chiffres retrouvés dans leur source, "
-          "références existantes, exactitude clinique, ordre de priorité de la prise en charge) et corrige par Edit exact. 3. `fin <fichier> --role professeur`."))
+          "références existantes, exactitude clinique, ordre de priorité de la prise en charge) et corrige par Edit exact, point par point, avec `point <fichier> N` après chaque point touché. "
+          "3. `fin <fichier> --role professeur` (porte unique) jusqu'à ACCEPTÉ."))
 
 
 def scanner(f, points):
@@ -123,10 +144,13 @@ def scanner(f, points):
 
 
 def fin(f, role):
-    t = lire(f); nom = Path(f).name; s = CACHE / (nom + ".json")
+    t = lire(f); nom = Path(f).name; s = instantane(f)
     if not s.exists(): print("REFUSÉ : aucun instantané d'entrée (lance d'abord memoire)"); return 2
     e = json.loads(s.read_text()); ko = []
     if bus.sha(t) == e["sha"]: ko.append("R15 : fichier inchangé (un relevé seul ne termine rien)")
+    t2, J = S21.reparer(t)                                   # réparation automatique AVANT la porte (balises, lignes, rendu de l'algorithme)
+    if t2 != t: bus.ecrire_atomique(f, t2); t = t2; print("RÉPARÉ : " + " ; ".join(J[:8]))
+    elif J: print("À RÉPARER À LA MAIN : " + " ; ".join(J[:4]))
     D_ = cerveau(f); F = [d for d in D_ if d["scriptone"] == S21.ID and d["severite"] in ("GRAVE", "CRITIQUE")]
     C = [d for d in D_ if d["severite"] == "CRITIQUE"]
     perdus = [c for c in e["chiffres"] if c not in set(chiffres(t))]
@@ -136,13 +160,85 @@ def fin(f, role):
     if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I): ko.append("<script>, <img> ou feuille externe : interdit par controle_lot (modèle d'algorithme : <template>)")
     src = t.count('<sup class="r">')
     if src < e["sources"]: ko.append(f"appels de source passés de {e['sources']} à {src}")
+    if role == "duo":                                         # parcours complet : chaque point passé au VERT par `point`, sur son texte actuel
+        cv = couverture(f); S_ = bus.sections(t)
+        manque = [n for n in range(1, 15) if n in S_ and cv.get(str(n)) != signature(t, n)]
+        if manque: ko.append(f"couverture : point(s) {manque} non contrôlé(s) par `point <fichier> N` sur leur texte actuel (styliser ENTIÈREMENT le cours, point par point)")
+    P = portes(f)                                             # porte unique : mêmes mesures que la porte de sortie du lot
+    if P["controle_lot"]: ko.append("controle_lot : " + " ; ".join(P["controle_lot"]))
+    for k in ("langue", "medical"):
+        x = P[k]
+        if x["score"] < SEUIL or x["critiques"]: ko.append(f"{k} {x['score']} / {x['critiques']} critique(s) (seuil {SEUIL}, 0) : " + " | ".join(x["corrections"][:6]))
     c = {}
     for d in D_: c[d["severite"]] = c.get(d["severite"], 0) + 1
-    print(f"{nom} · rôle {role} · {e['octets']} → {len(t.encode())} octets · doléances {c} · S21 GRAVES {len(F)}")
+    print(f"{nom} · rôle {role} · {e['octets']} → {len(t.encode())} octets · doléances {c} · S21 GRAVES {len(F)} · langue {P['langue']['score']} · médical {P['medical']['score']}")
     if ko: print("REFUSÉ :\n- " + "\n- ".join(ko)); return 1
     tr = CACHE / "traites.json"; T = json.loads(tr.read_text()) if tr.exists() else {}
     T.setdefault(str(Path(f).resolve()), {})[role] = bus.sha(t); tr.write_text(json.dumps(T, ensure_ascii=False, indent=0))
     print("ACCEPTÉ"); return 0
+
+
+def _rapport(script, f):
+    """Lance un contrôle d'audit_lot (controle_langue / controle_medical) sur f ; renvoie score, critiques et corrections."""
+    CACHE.mkdir(parents=True, exist_ok=True); r = CACHE / f"{Path(script).stem}.{Path(instantane(f)).stem}.md"
+    subprocess.run([sys.executable, script, str(f), "--rapport", str(r)], capture_output=True, text=True, cwd=R, timeout=900)
+    x = lire(r) if r.exists() else ""; m = re.search(r"RESULTAT score=([\d.]+) critiques=(\d+)", x)
+    return dict(score=float(m.group(1)) if m else 0.0, critiques=int(m.group(2)) if m else 99,
+                corrections=[l[2:].strip() for l in x.splitlines() if l.startswith("- ")], rapport=str(r))
+
+
+def portes(f):
+    """Mesures de la porte de sortie, pour UN fichier : controle_lot (forme mécanique), langue et médical d'audit_lot."""
+    sys.path.insert(0, str(R / "harnais")); import controle_lot as CL
+    cl = CL.analyse_fichier(Path(f))
+    return dict(controle_lot=cl["critiques"], langue=_rapport("harnais/controle_langue.py", f), medical=_rapport("harnais/controle_medical.py", f))
+
+
+def mesurer(f):
+    t = lire(f); D_ = cerveau(f); c = {}
+    for d in D_: c[d["severite"]] = c.get(d["severite"], 0) + 1
+    P = portes(f)
+    return dict(fichier=Path(f).name, octets=len(t.encode()), lignes=t.count("\n") + 1,
+                lignes_longues=sum(1 for l in t.split("\n") if len(l) > 10000 and not S21.RX_LIGNE_OK.search(l)),
+                balises=[f"<{g}> {o}/{f_}" + (f" (point {n})" if n else "") for g, o, f_, n in S21.desequilibres(t)],
+                doleances=c, graves_s21=sum(1 for d in D_ if d["scriptone"] == S21.ID and d["severite"] in ("GRAVE", "CRITIQUE")),
+                codes_graves=sorted({d["code"] for d in D_ if d["severite"] in ("GRAVE", "CRITIQUE")}),
+                langue=P["langue"]["score"], langue_crit=P["langue"]["critiques"], medical=P["medical"]["score"], medical_crit=P["medical"]["critiques"],
+                controle_lot=P["controle_lot"], chiffres=len(chiffres(t)), sources=t.count('<sup class="r">'))
+
+
+def signature(t, n):
+    """Empreinte du texte d'un point (balises ignorées : une réparation mécanique ne l'invalide pas)."""
+    a, b = bus.sections(t)[n]; return bus.sha(bus.texte(t[a:b]))[:16]
+
+
+def couverture(f, n=None, sig=None, raz=False):
+    """Registre des points passés au VERT par `point` depuis l'instantané : preuve que le duo a parcouru les 14 points."""
+    c = instantane(f).with_suffix(".couverture.json"); d = {} if raz or not c.exists() else json.loads(c.read_text())
+    if n is not None: d[str(n)] = sig
+    if raz or n is not None: CACHE.mkdir(parents=True, exist_ok=True); c.write_text(json.dumps(d))
+    return d
+
+
+def point(f, n):
+    """Contrôle d'UN point juste après sa rédaction : la boucle courte qui évite les grosses plaques fautives."""
+    t = lire(f); S = bus.sections(t)
+    if n not in S: print(f"POINT {n} ABSENT (titre <h3 id=\"…-p{n}\"><strong>{n}. …</strong></h3> introuvable)"); return 1
+    a, b = S[n]; la, lb = bus.ligne(t, a), bus.ligne(t, b); ko = []
+    for g, o, f_, k in S21.desequilibres(t):
+        if k == n: ko.append(f"H1 balises <{g}> {o} ouvertes / {f_} fermées dans ce point → refermer dans le même point (ou `reparer`)")
+    for i, l in enumerate(t.split("\n")[la - 1:lb - 1], la):
+        if len(l) > 10000 and not S21.RX_LIGNE_OK.search(l): ko.append(f"H2 ligne {i} de {len(l)} caractères → une ligne par paragraphe, puce ou rangée")
+    ln = lambda d: int((re.search(r"l\.(\d+)", d["ancre"]) or [0, 0])[1])
+    for d in S21.analyser(t, Path(f).name)[0]:
+        if la <= ln(d) < lb and d["severite"] in ("GRAVE", "CRITIQUE", "MOYEN") and d["code"][0] != "H":
+            ko.append(f"{d['severite']} {d['code']} {d['ancre']} : {d['constat']} → {d['correction_prescrite'][:160]}")
+    if n in (6, 7, 10, 13):
+        L = _rapport("harnais/controle_langue.py", f)
+        ko += [x for x in L["corrections"] if x.startswith(f"[PHRASES] point {n} ")]
+    if not ko: couverture(f, n=n, sig=signature(t, n))
+    print(f"POINT {n} · lignes {la}–{lb - 1} · " + ("VERT" if not ko else f"{len(ko)} écart(s) :\n- " + "\n- ".join(ko)))
+    return 0 if not ko else 1
 
 
 def traite(f):
@@ -205,7 +301,7 @@ def repartir(fs):
 def main(a):
     if len(a) < 2 or a[0] in ("-h", "--help"): print(__doc__); return 0
     c = a[0]
-    if c == "memoire": memoire(a[1], a[2]); return 0
+    if c == "memoire": memoire(a[1], a[2], "--garder" in a); return 0
     if c == "scanner":
         pts = [int(x) for x in a[a.index("--points") + 1].split(",")] if "--points" in a else list(range(1, 15)); scanner(a[1], pts); return 0
     if c == "algo":
@@ -220,6 +316,13 @@ def main(a):
         else: print(r["resume"] + "".join(f"\n- {x['fichier']} : {x['motifs']}" for x in r["non_conformes"]))
         return 0 if r["conforme"] else 1
     if c == "reprise": reprise(a[1]); return 0
+    if c == "point": return point(a[1], int(a[2]))
+    if c == "reparer":
+        t = lire(a[1]); t2, J = S21.reparer(t)
+        if t2 != t: bus.ecrire_atomique(a[1], t2)
+        print(f"{Path(a[1]).name} : " + ("; ".join(J) if J else "rien à réparer")); return 0
+    if c == "mesurer":
+        r = mesurer(a[1]); print(json.dumps(r, ensure_ascii=False) if "--json" in a else "\n".join(f"{k} : {v}" for k, v in r.items())); return 0
     if c == "fin": return fin(a[1], a[a.index("--role") + 1] if "--role" in a else "duo")
     if c == "repartir":
         xs = [x for i, x in enumerate(a[1:], 1) if not x.startswith("--") and a[i - 1] != "--liste"]
