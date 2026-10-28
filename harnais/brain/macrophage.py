@@ -14,7 +14,7 @@ SIG, OFF = R / ".cache/brain/macrophage_signal.json", R / ".cache/brain/macropha
 # ZONES UTILES (circonscrites par l'orchestrateur) : rien dedans, rien qui les contienne, ne se détruit jamais.
 ZONES_UTILES = ["LOT_Claude_Finaux", "harnais", "tools", "data", "audit", "docs", "tests", "assets", "skills", "qa", "gestes", "journal",
                 "PROMPT_Casern", "veille", "nc", "orig", "lot en cours de production", ".github", ".claude", ".cursor",
-                "essai_flash", "essai_parallele", "essai_lot001", "essai_lot002", "essai_lot003", ".cache/aips"]
+                "essai_flash", "essai_parallele", "essai_lot001", "essai_lot002", "essai_lot003", "essai_lot004", ".cache/aips"]
 RACINE_UTILE = {"AGENTS.md", "CATALOGUE.md", "CLAUDE.md", "CONTINUATION.md", "ETAT.json", "ETAT.md", "HANDOFF.md", "MESSAGE_CHAT_CLAUDE_CODE.md",
                 "NETTOYAGE.md", "PROCHAINE_ACTION.md", "README.md", "app_v2.html", "progres.html"}
 # CRITÈRES D'INUTILITÉ : (nom, test sur le chemin relatif)
