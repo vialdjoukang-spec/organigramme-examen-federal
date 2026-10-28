@@ -30,6 +30,7 @@ import mesure_ko as MK
 
 CVP = "harnais/brain/circuit_vial.py"
 ROLES = {"duo": dict(agent="duo-medico-linguiste", model="sonnet", effort=None),
+         "assembleur": dict(agent="assembleur-mise-en-forme", model="sonnet", effort=None),
          "professeur": dict(agent="professeur-emerite", model="opus", effort="medium")}
 OUTILS_FIXES = ["Read", "Grep", "Glob", "Bash(python3 harnais/aips_texte.py *)", "Bash(python3 harnais/pubmed.py *)", "Bash(grep *)", "Bash(wc *)",
                 "mcp__PubMed__search_articles", "mcp__PubMed__get_article_metadata", "mcp__PubMed__lookup_article_by_citation"]
@@ -358,6 +359,15 @@ def lecon(f, P, a, pool):
     res["duo"] = [dict(id=j["id"], accepte=j["accepte"], motif=j["motif"], duree_s=j["ev"]["duree_s"], cout=j["ev"]["cout_usd"]) for j in jobs]
     # 3. réassemblage + portes
     t2 = time.time(); bus.ecrire_atomique(f, recomposer(tete, pts, queue, jobs, txt_duo))
+    if "--sans-assembleur" not in a:                          # ordre de Vial : la mise en forme finale est faite à l'assemblage par un agent Sonnet 5.5
+        avant, ta = lire(f), time.time()
+        brief = (f"Leçon assemblée : {f}. Tu es l'assembleur-metteur en forme (lis ton agent). Départ : Read du fichier par blocs ; modifie par Edit ciblés ; "
+                 f"limite stricte {opt(a, '--limite-assembleur', 240)} s ; volume 100–200 Ko ; aucun chiffre ni appel de source retranché. Une ligne de réponse.")
+        appel("assembleur", f, brief, P["sonnet"], opt(a, "--limite-assembleur", 240), journal, False, "assemblage")
+        apres = lire(f)
+        motif = valider(avant, apres) or ("chiffre ou appel de source perdu" if (chiffres(avant) - chiffres(apres)) or sources(apres) < sources(avant) else None)
+        if motif: bus.ecrire_atomique(f, avant); notifier(jd, nom, "assemblage", f"mise en forme rejetée ({motif}) : version recollée conservée.")
+        temps["assemblage_s"] = round(time.time() - ta, 1)
     PTS = controle_points(f, journal)
     ok, out, fautes, ev = porte_et_registre(f, "duo", jd, journal, "registre_duo")
     temps["porte_duo_s"] = round(time.time() - t2, 1)
