@@ -9,10 +9,14 @@ Hors registre des 160 (chargé directement par cerveau.py) : il AJOUTE des contr
     E1 « But » absent      E2 « Moyens et méthodes » absent      E3 A urgences : non-spécialiste puis service spécialisé absents
     E4 B hors urgences : mesures générales puis spécifiques absentes      E5 actes du service spécialisé non cliquables
     E6 ordre B non respecté (générales avant spécifiques ; pharmacologique avant non pharmacologique)
+    E7 titre « Prise en charge » sans bande colorée soulignée (h3 id …-p11 absent ou CSS brain-vial non posée → script : corriger)
   Point 7 · syndromes
     Q1 intitulé non numéroté « 7.n Syndrome … »    Q2 « Symptômes fonctionnels » absent    Q3 « Signes physiques » absent
     Q4 signes physiques sans sous-cellules cliquables (span.sc.dx)   Q5 sous-cellule dont la fenêtre ne dit pas comment rechercher le signe
   R1 identifiant de case à cocher dupliqué (fenêtre qui ne s'ouvre pas)
+  Registre universitaire et clarté (texte courant <p> et <li>, hors fenêtres ; directive « Langue = Universitaire ») :
+    L1 tournure faible ou familière (tutoiement, impératif familier, « il y a », « on », « ça », « un peu »…)   L2 phrase trop longue (> 40 mots)
+    L3 phrase nominale sans verbe dans un paragraphe (≥ 12 mots)    L4 phrase répétée à l'identique (GRAVE) ; mot plein répété 3 fois dans une phrase (MOYEN)
 Correction (--appliquer) : rend chaque <template class="algo-modele"> (ou div.algo[data-modele]) en algorithme
 en cases (rectangles, losanges), traits strictement horizontaux et verticaux, cases cliquables à fenêtre ; pose la CSS brain-vial.
 Le script ne crée jamais de contenu médical : il dessine le modèle écrit par l'agent."""
@@ -35,6 +39,11 @@ CSS = ('<style id="brain-vial">div.algo{margin:14px 0}div.algo>input{position:ab
        'h3[id$="-p11"]{background:linear-gradient(90deg,#ede9fe,transparent);border-left:6px solid #7c3aed;text-decoration:underline;padding:4px 10px}'
        '@media(prefers-color-scheme:dark){.algo-can svg .ca{fill:#241d3f}.algo-can svg .lo{fill:#3b2a10}.algo-can svg .fi{fill:#12301f}.algo-n{color:#ede9fe}'
        '.algo-can svg text{fill:#ddd0ff}.algo-d{background:#241d3f}span.sc.dx{background:#241d3f;border-color:#5b21b6}h3[id$="-p11"]{background:linear-gradient(90deg,#2e1065,transparent)}}</style>')
+RX_FAIBLE = re.compile(r"(?i)(?<![\wÀ-ÿ-])(?:tu|toi|ton|ta|tes|te|t'|il y a|on|ça|ca va|un peu|pas mal|en gros|truc|trucs|chose|choses|vraiment|super|carrément|quelque chose)(?![\wÀ-ÿ'])"
+                       r"|^(?:Vérifie|Procède|Revois|Organise|Propose|Sois|Prescris|Exclus|Traite|Cherche|Demande|Évite|Pense|Adapte|Décide|Confirme|Fais|Mets|(?:Contrôle|Note|Garde|Demande|Recherche) (?=une?\b|les?\b|la\b|l'|des\b)|Mesure (?=l'|les?\b|la\b))\b")
+# Groupe nominal + forme en -e/-ent + mot-outil : verbe conjugué absent du lexique (« l'insuffisance veineuse cause souvent… »)
+RX_SV2 = re.compile(r"(?i)(?:^|\s)(?:l'|le |la |les |un |une |ce |cet |cette |ces |il |elle |ils |elles |qui |on )[\wÀ-ÿœ'-]+(?: [\wÀ-ÿœ-]+)? [\wÀ-ÿœ]{2,}(?:e|ent|it|ait) "
+                    r"(?:souvent|toujours|parfois|rarement|d'abord|ensuite|alors|aussi|également|surtout|le|la|les|un|une|des|l'|à|au|aux|en|par|sur|chez|dans|que|de|du|d')\b")
 RX_TECH = re.compile(r"(?i)recherch|technique|manœuvre|manoeuvre|palp|inspect|percu|auscult|press|mesur|demander|faire|patient (?:debout|couché|assis)|décubitus|comparer|observer|tester|chercher")
 
 
@@ -199,6 +208,11 @@ def analyser(t, nom, opt=None):
             zone = seg[m.end():m.end() + fin.start()] if m and fin else ""
             if m and zone.count('class="dx') + zone.count('class="tm') < 2:
                 dol("E5", a + m.start(), "MOYEN", "actes du service spécialisé non cliquables", "chaque acte ou geste : <span class=\"dx\"> cliquable avec sa fenêtre de détails")
+        h3 = re.match(r'(?is)<h3\b([^>]*)>', t[a:a + 300])
+        if not (h3 and re.search(r'id="[^"]*-p11"', h3.group(1))):
+            dol("E7", h(a), "MOYEN", "titre du point 11 sans identifiant …-p11 : la bande colorée ne s'applique pas", "donner au <h3> l'identifiant <monographie>-p11")
+        elif not re.search(r'(?is)<style id="brain-vial">.*?h3\[id\$="-p11"\]\{[^}]*background[^}]*underline', t):
+            dol("E7", h(a), "MOYEN", "bande colorée du titre « Prise en charge » non posée", "lancer : python3 harnais/brain/circuit_vial.py algo <fichier> --appliquer (pose la CSS brain-vial)", "script")
     # ── point 7
     if 7 in S:
         a, f = S[7]; seg = t[a:f]
@@ -220,6 +234,27 @@ def analyser(t, nom, opt=None):
             for x in sc:
                 if not RX_TECH.search(bus.texte(x)):
                     dol("Q5", pos, "MOYEN", "fenêtre de signe sans technique de recherche", "dire textuellement comment rechercher le signe (position, geste, manœuvre)", preuve=bus.texte(x)[:80])
+    # ── registre universitaire et clarté
+    import familles as FA
+    vues = {}; nL = 0
+    for pa, pf, inner in bus.blocs(t, None, None, ("p", "li")):
+        if re.search(r"(?i)<(?:p|li|ul|ol)\b", inner) or bus.dans_fenetre(t, pa): continue
+        tag = t[pa + 1:pa + 3].lower()
+        for ph in bus.phrases(bus.texte_visible(re.sub(r"(?is)<template\b.*?</template>", " ", inner))):
+            mots = re.findall(r"[\wÀ-ÿœŒ'’-]+", ph); n = len(mots); nL += 1
+            if n < 3: continue
+            m = RX_FAIBLE.search(ph)
+            if m: dol("L1", pa, "GRAVE", f"tournure faible ou familière « {m.group(0).strip()} »", "registre universitaire soutenu : tournure impersonnelle ou passive, terme dédié, sans tutoiement", preuve=ph[:160])
+            if n > 40: dol("L2", pa, "GRAVE", f"phrase de {n} mots (> 40)", "scinder en phrases complètes et claires, ou passer l'énumération en puces", preuve=ph[:160])
+            if tag == "p " or tag.startswith("p>") or tag == "p\t":
+                if n >= 12 and not m and not FA.verbale(ph) and not RX_SV2.search(ph): dol("L3", pa, "GRAVE", "phrase nominale sans verbe", "phrase complète : sujet, verbe, complément", preuve=ph[:160])
+            k = re.sub(r"\W+", " ", ph.lower()).strip()
+            if n >= 6 and k in vues: dol("L4", pa, "GRAVE", "phrase répétée à l'identique", "supprimer la redite (la notion reste une fois)", preuve=ph[:160])
+            vues[k] = 1
+            pleins = [w.lower() for w in mots if len(w) >= 7]
+            rep = sorted({w for w in pleins if pleins.count(w) >= 3})
+            if rep: dol("L4", pa, "MOYEN", f"mot répété dans la phrase : {', '.join(rep)}", "varier par un terme dédié ou un pronom", preuve=ph[:160])
+    M["phrases_registre"] = nL
     # ── ids
     ids = re.findall(r'<input type="checkbox" id="([^"]+)"', t); vus = set()
     for i in ids:
