@@ -61,3 +61,22 @@ Questions ouvertes par le rédacteur Phase B DX.8 le 30.10.2026. Format : identi
 - Question : un centre suisse publie-t-il des critères de sortie ?
 - Déjà cherché : PNDS 2021, AIPS 23533 et 57970, 30.10.2026.
 - Emplacement : DX.8, point 11.D (fenêtre « critères de sortie »).
+
+## Suivi d'audit médical — 30.10.2026 (auditeur-medical, opus, xhigh)
+
+Fichier audité : `LOT_015_Phase_B_V0_DX.8.html` (127 552 → 134 303 octets ; SHA-256 après audit `f78b6bc042aae4de545932c361e859c1dd24a3378cc8c8a6d25013f901a6f05d`). Journal : `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl` (19 lignes DX.8).
+
+| ID | État | Ce que l'audit a trouvé à la source |
+|---|---|---|
+| H15-DX8-01 | Ouverte en partie | Myalepta absent de la liste Swissmedic des conditionnements autorisés et de la liste orphelins (état 30.09.2026, https://www.swissmedic.ch/swissmedic/fr/home/services/listen_neu.html) et de l'API LS (« Myalepta », « metreleptin » : total 0). EMA : indication limitée à la lipodystrophie (EPAR mis à jour le 06.10.2026) ; la condition de l'art. 71c, al. 1, let. c, OAMal manque donc pour le déficit congénital en leptine. Reste ouvert : voie d'importation pratiquée en Suisse. |
+| H15-DX8-02 | Ouverte en partie | Liste Swissmedic (état 30.09.2026) : aucun calcium injectable indiqué dans l'hypocalcémie ; seuls Calrecia (68896) et Icalziss (70586), chlorure de calcium pour l'épuration extrarénale. API LS « Calcium » : aucune forme injectable. Reste ouvert : produit et dose utilisés par les hôpitaux suisses. |
+| H15-DX8-03 | Ouverte | Orphanet non interrogé (blocage anti-robot ; aucun contournement). Tahani 2020 confirme « at least 263 cases » et une incidence estimée de 1/1 000 000 naissances vivantes. |
+| H15-DX8-04 | Ouverte | Liste des médicaments en matière d'infirmités congénitales non lue. Fait nouveau : Imcivree a le statut de médicament orphelin chez Swissmedic (art. 71d, al. 5, OAMal applicable). |
+| H15-DX8-05 | Ouverte | SPARQL Fedlex du 30.10.2026 : consolidation OIC-DFI du 01.01.2027 toujours sans texte HTML. |
+| H15-DX8-06 | Comblée | OAC, RS 741.51, annexe 1, état 1.1.2026 (1er groupe : acuité 0,5/0,2 ; champ binoculaire ≥ 120°, central normal jusqu'à 20° ; vision crépusculaire) ; LAI art. 8, al. 3, et art. 15 à 18 (état 1.1.2026). Dispositifs propres aux syndromes : non trouvés. |
+| H15-DX8-07 | Comblée | LAGH, RS 810.12, art. 17 et 21 ; LPMA, RS 810.11, art. 5a, al. 2 (état 1.8.2025), lus sur Fedlex. |
+| H15-DX8-08 | Ouverte | Non traitée. |
+| H15-DX8-09 | Ouverte en partie | EMA (EPAR du 27.05.2026) : dès 2 ans dans les mêmes indications et dès 4 ans dans l'obésité hypothalamique acquise ; Swissmedic : statut orphelin pour cette indication le 19.05.2026, sans indication suisse. Résultats d'essais 2025–2026 : non recherchés. |
+| H15-DX8-10 | Ouverte | Non traitée. |
+
+Vérifié sans correction : Imcivree 69694 (indication, âges, schémas par âge et par poids, foie, grossesse, allaitement), Genotropin 50823/61421 (dose SPW, contre-indications, grossesse ; 61421 = notice « stylo prérempli GoQuick » dans le XML), Rocaltrol 41728, Wegovy 68798, limitations LS (Genotropin, Wegovy), OAMal art. 71a–71d, OIC-DFI ch. 422/462/464, critères SBB 2024 (tableau 1 relu en image), PHP 2018, Alström 2020, PNDS 2021 (seuils lipidiques, calendriers, Synacthène 180 ng/mL = 496,6 nmol/L recalculé). Les facteurs de risque de la GH dans le SPW (adipose sévère, troubles respiratoires) sont des mises en garde de l'AIPS, non des contre-indications.
