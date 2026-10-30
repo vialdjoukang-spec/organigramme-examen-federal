@@ -1,22 +1,7 @@
-# État courant — LOT_018 terminé en production
+# Reprise prioritaire — contrat LOT_019 à LOT_133 actif
 
-Les onze leçons ont été produites et relues en session principale après l’accord de Vial ; 275 contrôles statiques V8 réussis. Voir [validation](LOT_018/VALIDATION.md), [accord](LOT_018/ACCORD_POURSUITE.md) et [points de suivi](LOT_018/HELP.md). Aucun audit indépendant, score clinique ou essai navigateur réussi n’est revendiqué.
+Lire CONTRAT_CONTINUITE.md et ETAT_CONTINUITE.json. LOT_018 terminé en production au commit 950a4cd1, sans audit indépendant ni test navigateur revendiqués. LOT_019 est en recherche : lire LOT_019/BRIEF_REPRISE.md et evidence/INDEX.md ; aucun HTML de ce nouveau lot n’est encore produit.
 
-Le relevé automatique ci-dessous reste exact sur l’absence d’audit indépendant. Il ne connaît pas l’accord de poursuite ni les rôles internes, et son action « audit médical » ne signifie pas que la rédaction de Phase B manque. La liste canonique existe et les onze fichiers sont terminés. Une copie brute est conservée dans `LOT_018/audits/reprise_harnais.md`.
+Reprise horaire dédiée activée ; veille locale du contrat et du routage pendant la disponibilité de cet environnement. Ne pas confondre surveillance, exécution d’un modèle et production clinique. Acquérir le verrou local avant toute reprise ; en cas de runtime différent, établir l’absence d’un producteur concurrent avant de démarrer. Exécuter le contrôle du contrat, puis lire/signer le registre du jour et obtenir pret/verifier.
 
-# REPRISE CODEX — 30.10.2026 23:25
-
-## LOT_018
-- Phase_A : rédigé · T = 13.1 (+ 41.3) Ko · postes : redacteur-phase-a, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.1 : rédigé · T = 5.2 (+ 11.4) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.2 : rédigé · T = 5.1 (+ 10.4) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.3 : rédigé · T = 5.1 (+ 16.5) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.4 : rédigé · T = 4.9 (+ 13.9) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.5 : rédigé · T = 5.0 (+ 16.8) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.6 : rédigé · T = 5.2 (+ 15.6) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.7 : rédigé · T = 5.2 (+ 10.3) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.8 : rédigé · T = 5.5 (+ 16.4) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.9 : rédigé · T = 5.0 (+ 10.0) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-- DX.10 : rédigé · T = 5.6 (+ 22.1) Ko · postes : redacteur, relecture-interne, controle-v8, transversale-interne → audit médical (passe distincte)
-
-Veille arrêtée le 2026-10-30T23:26:59+01:00 à la fin de cette production. Avant une prochaine séance : relancer `python3 codex-LOTS-html/routage_codex.py veille`, puis vérifier `pret codex`. Aucun audit externe ni travail autonome en arrière-plan n’est lancé.
+Rédiger et contrôler les onze fichiers du LOT_019, puis LOT_020 et suivants jusqu’à LOT_133. Les rôles internes restent désignés comme internes. Ne pas réutiliser sans adaptation le contrôleur V8 du LOT_018, dont les noms sont encore spécifiques. Respecter tout STOP/PAUSE ultérieur.
