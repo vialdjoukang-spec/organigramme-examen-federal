@@ -8,4 +8,4 @@
 - 2026-10-30 — Disopyramide : absent du corpus AIPS du 08.10.2026 et de la liste Swissmedic des médicaments autorisés (état au 30.09.2026) → « À vérifier (AIPS) », aucune dose.
 - 2026-10-30 — Calculs dérivés recalculés (python) : séries suisses 37/349 = 10,6 % (CMH), 23/349 = 6,6 % (CAVD), 23/349 = 6,6 % (CMD), 13/349 = 3,7 % (CMH possible) ; 96/12 = 8 cas autopsiés par an ; clairance (140 − 70) × 70 ÷ (72 × 1,5) = 45,4 mL/min.
 - 2026-10-30 — Liste de critères de sortie : compilée à partir des recommandations citées et signalée comme telle dans le HTML (aucune liste publiée trouvée).
-- 2026-10-30 — Fichier écrit : 125 953 octets ; contrôle mécanique (--sans-nom) : 0 critique, 0 avertissement ; 36 fenêtres popover ; 1 mention « À vérifier (AIPS) » (disopyramide).
+- 2026-10-30 — Fichier écrit : 126 367 octets (SHA-256 50f1ac9b…69d4) ; contrôle mécanique (--sans-nom) : 0 critique, 0 avertissement ; 36 fenêtres popover ; 1 mention « À vérifier (AIPS) » (disopyramide).
