@@ -1,4 +1,4 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T21:34:42+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T21:34:53+00:00, branche production-v2)
 
 **PAUSE ACTIVE** — 2026-10-30T16:50:29+00:00 ; motif : STOP d'urgence demandé par Vial
 Règle : pendant la pause, aucun agent n'est lancé ; les agents en cours finissent leur fichier (pause douce, aucun jeton perdu) ; arrêt dur seulement sur ordre explicite de Vial. Sortie : `python3 harnais/pons_oblongata.py reprise`.
