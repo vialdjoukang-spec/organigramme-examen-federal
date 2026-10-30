@@ -1,4 +1,4 @@
-# PREUVES DE ROUTAGE — relevé du 2026-10-30T23:41:34+01:00 (branches distantes, indépendant des IA)
+# PREUVES DE ROUTAGE — relevé du 2026-10-30T23:49:28+01:00 (branches distantes, indépendant des IA)
 
 ## CODEX — branches : origin/codex/lots
 - ✅ table de routage : valide ; rédacteur gpt-6-astra / auditeur médical gpt-6-astra (audit croisé externe)
