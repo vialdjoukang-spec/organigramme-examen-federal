@@ -46,6 +46,6 @@
 
 ## H15-DX7-07 — Rituximab et inhibiteurs de la calcineurine hors AIPS : remboursement
 - Contexte : MabThera (54378) n'a pas d'indication SN/GEM ; l'usage KDIGO est hors information professionnelle. Prograf (53152) et CellCept n'ont pas été vérifiés pour le SN.
-- Question : la liste des spécialités prévoit-elle une limitation pour ces usages, ou faut-il une garantie de prise en charge (art. 71a–d OAMal) ?
+- Question : la liste des spécialités prévoit-elle une limitation pour ces usages, ou faut-il une garantie préalable de prise en charge par l'assureur ? (base légale à lire sur Fedlex)
 - Déjà cherché : AIPS MabThera, 30.10.2026.
 - Emplacement : DX.7 point 11.B (fenêtre « immunosuppresseurs »).
