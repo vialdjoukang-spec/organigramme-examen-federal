@@ -66,3 +66,10 @@ Fichier audité : `LOT_015_Phase_B_V0_DX.3.html`, 131 781 → 135 030 octets ; 2
 | H15-DX3-07 | Ouverte | AIPS 56689 relue : surveillance jusqu'à 2 semaines après l'hCG, aucun critère de sortie. |
 
 Passe transversale T8 : l'EASL–EASD–EASO 2024 (Obes Facts 2024;17:374–444, PMC11299976) et l'avis SSGO n° 81 donnent les mêmes seuils (glycémie à jeun 5,6–6,9 / ≥ 7,0 mmol/L ; HGPO 2 h 7,8–11 / ≥ 11,1 mmol/L). L'HbA1c hors grossesse vient désormais de l'EASL–EASD–EASO 2024 ([S24], avec mmol/mol). Nouvelles sources du HTML sans fichier dans `evidence/` (hors du périmètre d'écriture de l'audit) : [S24] à [S27] ; [S25] = Pituitary Society 2021, déjà lue en `evidence/S16_PituitarySociety2021_Cushing_consensus.txt` (lignes 181–186 et 238–240).
+
+## H15-DX3-08 — Nom français de la SMOB (audit de conformité)
+- Identifiant : LOT_015, Phase B DX.3, point 11.B (chirurgie bariatrique).
+- Contexte : l'abréviation SMOB a été développée dans le fichier par « Société suisse pour l'étude de l'obésité morbide et des maladies métaboliques ». Cette traduction ne figure pas dans les sources lues.
+- Question : quelle est la dénomination française officielle de la SMOB ?
+- Déjà cherché : sources [S6] et CORRECTIONS_AUDIT.md (abréviation seule), 30.10.2026.
+- Emplacement : DX.3, 11.B, fenêtre « Mesures non médicamenteuses », chirurgie bariatrique.
