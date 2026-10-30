@@ -24,3 +24,12 @@ Titres de parties `<h2>` numérotés, sous-titres `<h3>`. Mise en page de livre 
 - V1 « sans redondance » : tout le spécifique de la source, débarrassé du commun avec la Phase A, réécrit en prose correcte avec fenêtres ; moins de 100 000 octets.
 - V2 « cours court + notions courtes » : texte principal le plus bref possible (viser 25–45 Ko au total), chaque notion en une à trois phrases, l'approfondissement en fenêtres ; le seuil est la taille minimale pour un score d'au moins 90/100 à l'examen et 90/100 en prise en charge quotidienne.
 - V3 « choix de l'expert » : la version que l'auteur juge la meilleure pour l'étudiant (examen fédéral et pratique quotidienne), en respectant toutes les règles ci-dessus ; taille libre sous 100 000 octets, justifiée.
+
+## Règles complémentaires de Vial (30.10.2026, à appliquer aux quatre versions dans le respect de leur contrat)
+- **Taille affichée** : en tête de fiche, un élément `<p class="taille" id="taille"></p>` ; la session principale y inscrit « T = x Ko (+ y Ko) » par `python3 harnais/taille_xy.py <fichier> --inscrire`. x = texte de la fiche lue d'un trait ; y = texte de toutes les fenêtres et de tous les dépliants. Mesure-toi avec ce script pendant le travail.
+- **Fiche (x)** : concise, mais toujours grammaticalement correcte et agréable à lire ; phrases liées par des connecteurs logiques ; aucune liste télégraphique.
+- **Prise en charge** : complète et concise dans la fiche (quoi, quand, combien en résumé) ; le détail opposable (doses par âge, voies, durées, contre-indications, citations AIPS mot pour mot) en fenêtre.
+- **Approfondir = cliquer** : toute notion que le lecteur peut vouloir approfondir (principe et interprétation d'un examen avec tableau et diagnostics à connaître, critères, causes, rappels d'anatomie et de physiologie, pièges) a un mot cliquable qui ouvre une fenêtre ou se déplie.
+- **On déplace, on ne compresse pas** : un résumé ne doit jamais changer le sens ; en cas de doute, la phrase exacte de la source va en fenêtre.
+- **Corriger les erreurs relevées** pour ta version dans `prototypes_format/NOTATION.md`.
+- Objectif commun : couverture de 95 à 100 % des notions à connaître, comprendre et mémoriser sur ce diagnostic.
