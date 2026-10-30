@@ -50,3 +50,8 @@ Lacunes du fichier `LOT_016_Phase_B_V0_DX.2.html` (30.10.2026). Format Prompt V0
 
 ## Réponse proposée pour H16-09 (HELP.md, à reporter par la session principale)
 - Valeur 2022 lue dans l'API JSON de l'indicateur Obsan _065 (https://ind.obsan.admin.ch/api/_065/kg/json, mise à jour du 17.01.2025, lue le 30.10.2026) : PHQ-9 ≥ 10 chez 9,8 % (IC 95 % 9,2–10,4 ; n = 18 447) ; femmes 11,7 %, hommes 7,9 % ; 15–34 ans 15,6 % ; 65 ans et plus 4,0 % ; 2017 : 8,6 % ; 2012 : 6,5 %. Extrait : `evidence/DX2_Obsan_OFS_depression_suicide_Suisse.txt`.
+
+## Audit médical (auditeur-medical, 30.10.2026) — état des lacunes
+- H16-DX2-03 : réponse partielle écrite dans le fichier (point 9.a, [S37]). Levis B, Benedetti A, Thombs BD, DEPRESSD. BMJ 2019;365:l1476 (résumé Europe PMC, PMID 30967483, lu le 30.10.2026) : « Combined sensitivity and specificity was maximized at a cut-off score of 10 or above among studies using a semistructured interview (29 studies, 6725 participants; sensitivity 0.88, 95% confidence interval 0.83 to 0.92; specificity 0.85, 0.82 to 0.88). » Reste ouvert : PHQ-2 et deux questions NICE (source européenne ou suisse).
+- H16-DX2-01 : recherche du 30.10.2026 (moteur web, guidelines.fmh.ch) : aucune version 2025 librement lisible ; la fiche FMH de la version 2016 indique « Valable jusqu'en: 2024 ». Reste ouverte.
+- H16-DX2-06 : reste ouverte. Le fichier présente le choix comme un raisonnement ; l'audit a ajouté que les AIPS de la sertraline (52251), de l'escitalopram (55961) et de la venlafaxine (54168) classent toutes la diminution de l'appétit parmi les effets fréquents : l'appétit ne départage pas ces molécules.
