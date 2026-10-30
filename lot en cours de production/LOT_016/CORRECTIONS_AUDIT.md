@@ -62,3 +62,6 @@ T8. Insuffisance surrénalienne : DX.4, DX.10 et DX.2 citent le piège de la TSH
 T9. Phase A : si la passe transversale ajoute des extraits `evidence/`, vérifier que la taille de la Phase A reste ≤ 150 000 octets (139 746 octets après cet audit).
 
 T2. DX.10 : ajouter dans `evidence/` les extraits datés de NICE NG243 (2024) [S32] et d'Ospina 2016 [S33] (passages cités par l'audit médical).
+
+T3. DX.1 : créer `.cache/aips/56257.txt` (Zometa®) et les extraits `evidence/DX1_S43…S47` (HUG 2025 hypercalcémie, Lamy 2004, Strang 2022, EWGSOP2, OFSP PICT 2015) ; téléchargements de l'audit dans `scratchpad/audit_DX1/`.
+T4. Phase A et tous les DX : test VIH → directive OFSP PICT 2015 (OPAS art. 12d) au lieu de NICE QS157 ; LiMA 1.1.2027 → directives SSNC de janvier 2013 ; hypercalcémie tumorale cohérente avec DX.1.
