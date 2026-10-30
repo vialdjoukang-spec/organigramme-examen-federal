@@ -36,3 +36,7 @@ Chaque rédacteur de Phase B applique les corrections ci-dessous dans son fichie
 | H13-05 | Ouverte | Code FMH : fmh.ch, r4.fmh.ch, js.fmh.ch et contens30.fmh.ch renvoient HTTP 403 (défi Cloudflare) le 30.10.2026 ; non contourné |
 | H13-02 | Ouverte | HAS 2007 reste la version HAS la plus récente trouvée ; aucune recommandation suisse trouvée (recherche du 30.10.2026) |
 | H13-03, H13-06 | Ouvertes | Aucune donnée nouvelle |
+
+## Correction transversale ajoutée pendant les audits de Phase B
+
+11. **CORRECTION D'AUDIT — date d'état du GesG ZH (LS 810.1).** L'audit médical de DX.7 (30.10.2026) a établi que la version « en vigueur dès le 01.07.2023 » est abrogée depuis le 01.01.2026 ; la version en vigueur porte le n° 131 (PDF officiel zh.ch relu). Le texte du § 15 est identique mot pour mot. Chaque fichier qui cite l'ancienne date doit citer la version en vigueur (n° 131, dès le 01.01.2026). Application : passe transversale par un auditeur médical après la fin des audits de Phase B, consignée dans `corrections.jsonl`.
