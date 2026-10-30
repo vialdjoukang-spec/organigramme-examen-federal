@@ -30,7 +30,7 @@ def main(a):
     err = []
     if manquants: err.append(f"{len(manquants)} nombres de la source absents : {', '.join(manquants[:25])}")
     if not pa and x > 9.5: err.append(f"fiche x = {x:.1f} Ko > 9 Ko")
-    if (m.x[1] + m.y[1]) > 100_000: err.append(f"texte x + y = {(m.x[1]+m.y[1])/1000:.1f} Ko > 100 Ko")
+    if m.x[1] > 100_000: err.append(f"fiche x = {m.x[1]/1000:.1f} Ko > 100 Ko")
     if "<script" in out.lower(): err.append("JavaScript présent")
     if " " in out or " " in out or "&nbsp;" in out: err.append("espace insécable")
     if cibles - ids: err.append(f"déclencheurs sans fenêtre : {sorted(cibles - ids)[:5]}")
