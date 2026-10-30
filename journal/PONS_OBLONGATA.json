@@ -1,5 +1,5 @@
 {
- "horodatage": "2026-10-30T14:42:32+00:00",
+ "horodatage": "2026-10-30T14:50:07+00:00",
  "branche": "production-v2",
  "pause": null,
  "lots_deposes_dans_travail": [
@@ -11,22 +11,24 @@
   "016"
  ],
  "dernier_routage": {
-  "horodatage": "2026-10-30T15:24:02+01:00",
+  "horodatage": "2026-10-30T15:50:03+01:00",
   "lot": "LOT_017",
-  "fichier": "Phase_A",
-  "agent": "auditeur-medical",
+  "fichier": "DX.5",
+  "agent": "redacteur",
   "modele": "opus",
   "effort": "xhigh",
-  "raison": "premier audit ; gèle LISTE_DX_CANONIQUE"
+  "raison": "rédaction Phase B, vague 1 (5 opus max)"
  },
  "lots": [
   {
    "lot": "LOT_017",
    "depose": false,
    "statut": "EN_COURS",
-   "liste_canonique_gelee": false,
-   "t_total": 0,
-   "t_non_faits": [],
+   "liste_canonique_gelee": true,
+   "t_total": 1,
+   "t_non_faits": [
+    "T1 Verser dans `evidence/` les extraits des sources S44–S52 de la Phase A (textes dans `scrat"
+   ],
    "help_ouvertes": [],
    "agents_non_revenus": [
     {
@@ -35,7 +37,54 @@
      "lance": "2026-10-30T14:44:41+01:00",
      "modele": "opus",
      "effort": "xhigh",
-     "fichier_modifie_il_y_a_min": 2
+     "fichier_modifie_il_y_a_min": 3
+    },
+    {
+     "fichier": "Phase_A",
+     "agent": "auditeur-conformite",
+     "lance": "2026-10-30T15:50:03+01:00",
+     "modele": "sonnet",
+     "effort": "high"
+    },
+    {
+     "fichier": "DX.1",
+     "agent": "redacteur",
+     "lance": "2026-10-30T15:50:03+01:00",
+     "modele": "opus",
+     "effort": "xhigh",
+     "fichier_modifie_il_y_a_min": null
+    },
+    {
+     "fichier": "DX.2",
+     "agent": "redacteur",
+     "lance": "2026-10-30T15:50:03+01:00",
+     "modele": "opus",
+     "effort": "xhigh",
+     "fichier_modifie_il_y_a_min": null
+    },
+    {
+     "fichier": "DX.3",
+     "agent": "redacteur",
+     "lance": "2026-10-30T15:50:03+01:00",
+     "modele": "opus",
+     "effort": "xhigh",
+     "fichier_modifie_il_y_a_min": null
+    },
+    {
+     "fichier": "DX.4",
+     "agent": "redacteur",
+     "lance": "2026-10-30T15:50:03+01:00",
+     "modele": "opus",
+     "effort": "xhigh",
+     "fichier_modifie_il_y_a_min": null
+    },
+    {
+     "fichier": "DX.5",
+     "agent": "redacteur",
+     "lance": "2026-10-30T15:50:03+01:00",
+     "modele": "opus",
+     "effort": "xhigh",
+     "fichier_modifie_il_y_a_min": null
     }
    ],
    "fichiers": {
@@ -43,13 +92,13 @@
      "fichier": "LOT_017_Phase_A_V0.html",
      "etape": "audit médical fait",
      "etape_n": 3,
-     "octets": 130081,
-     "sha256": "c1480c4c9026f46281d138e4e854d313fe4d1b5e87448f2a21559a4794d5cb59",
+     "octets": 135753,
+     "sha256": "5aa1018cc18f0a88a4f38dbad0b78b8e2188aebc6132ffe01f143c80cf5dc1a2",
      "points_h3": 14,
      "fin_fichier": true,
-     "age_min": 2,
+     "age_min": 3,
      "corrections": {
-      "n": 44,
+      "n": 46,
       "graves": 6,
       "critiques": 0
      },
@@ -64,15 +113,22 @@
        "lance": "2026-10-30T14:44:41+01:00",
        "modele": "opus",
        "effort": "xhigh",
-       "fichier_modifie_il_y_a_min": 2
+       "fichier_modifie_il_y_a_min": 3
+      },
+      {
+       "fichier": "Phase_A",
+       "agent": "auditeur-conformite",
+       "lance": "2026-10-30T15:50:03+01:00",
+       "modele": "sonnet",
+       "effort": "high"
       }
      ],
      "action": "agent redacteur-phase-a lancé 14:44 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort"
     },
     "DX.1": {
      "fichier": "LOT_017_Phase_B_V0_DX.1.html",
-     "etape": "aucun fichier",
-     "etape_n": 0,
+     "etape": "rédaction en cours",
+     "etape_n": 1,
      "octets": null,
      "sha256": null,
      "points_h3": null,
@@ -87,13 +143,22 @@
       "medical": false,
       "conformite": false
      },
-     "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "non_revenus": [
+      {
+       "fichier": "DX.1",
+       "agent": "redacteur",
+       "lance": "2026-10-30T15:50:03+01:00",
+       "modele": "opus",
+       "effort": "xhigh",
+       "fichier_modifie_il_y_a_min": null
+      }
+     ],
+     "action": "agent redacteur lancé 15:50 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort"
     },
     "DX.2": {
      "fichier": "LOT_017_Phase_B_V0_DX.2.html",
-     "etape": "aucun fichier",
-     "etape_n": 0,
+     "etape": "rédaction en cours",
+     "etape_n": 1,
      "octets": null,
      "sha256": null,
      "points_h3": null,
@@ -108,13 +173,22 @@
       "medical": false,
       "conformite": false
      },
-     "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "non_revenus": [
+      {
+       "fichier": "DX.2",
+       "agent": "redacteur",
+       "lance": "2026-10-30T15:50:03+01:00",
+       "modele": "opus",
+       "effort": "xhigh",
+       "fichier_modifie_il_y_a_min": null
+      }
+     ],
+     "action": "agent redacteur lancé 15:50 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort"
     },
     "DX.3": {
      "fichier": "LOT_017_Phase_B_V0_DX.3.html",
-     "etape": "aucun fichier",
-     "etape_n": 0,
+     "etape": "rédaction en cours",
+     "etape_n": 1,
      "octets": null,
      "sha256": null,
      "points_h3": null,
@@ -129,13 +203,22 @@
       "medical": false,
       "conformite": false
      },
-     "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "non_revenus": [
+      {
+       "fichier": "DX.3",
+       "agent": "redacteur",
+       "lance": "2026-10-30T15:50:03+01:00",
+       "modele": "opus",
+       "effort": "xhigh",
+       "fichier_modifie_il_y_a_min": null
+      }
+     ],
+     "action": "agent redacteur lancé 15:50 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort"
     },
     "DX.4": {
      "fichier": "LOT_017_Phase_B_V0_DX.4.html",
-     "etape": "aucun fichier",
-     "etape_n": 0,
+     "etape": "rédaction en cours",
+     "etape_n": 1,
      "octets": null,
      "sha256": null,
      "points_h3": null,
@@ -150,13 +233,22 @@
       "medical": false,
       "conformite": false
      },
-     "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "non_revenus": [
+      {
+       "fichier": "DX.4",
+       "agent": "redacteur",
+       "lance": "2026-10-30T15:50:03+01:00",
+       "modele": "opus",
+       "effort": "xhigh",
+       "fichier_modifie_il_y_a_min": null
+      }
+     ],
+     "action": "agent redacteur lancé 15:50 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort"
     },
     "DX.5": {
      "fichier": "LOT_017_Phase_B_V0_DX.5.html",
-     "etape": "aucun fichier",
-     "etape_n": 0,
+     "etape": "rédaction en cours",
+     "etape_n": 1,
      "octets": null,
      "sha256": null,
      "points_h3": null,
@@ -171,8 +263,17 @@
       "medical": false,
       "conformite": false
      },
-     "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "non_revenus": [
+      {
+       "fichier": "DX.5",
+       "agent": "redacteur",
+       "lance": "2026-10-30T15:50:03+01:00",
+       "modele": "opus",
+       "effort": "xhigh",
+       "fichier_modifie_il_y_a_min": null
+      }
+     ],
+     "action": "agent redacteur lancé 15:50 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort"
     },
     "DX.6": {
      "fichier": "LOT_017_Phase_B_V0_DX.6.html",
@@ -193,7 +294,7 @@
       "conformite": false
      },
      "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "action": "lancer redacteur (opus, xhigh) DX.6 avec 'lot en cours de production/LOT_017/BRIEF_PHASE_B.md'"
     },
     "DX.7": {
      "fichier": "LOT_017_Phase_B_V0_DX.7.html",
@@ -214,7 +315,7 @@
       "conformite": false
      },
      "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "action": "lancer redacteur (opus, xhigh) DX.7 avec 'lot en cours de production/LOT_017/BRIEF_PHASE_B.md'"
     },
     "DX.8": {
      "fichier": "LOT_017_Phase_B_V0_DX.8.html",
@@ -235,7 +336,7 @@
       "conformite": false
      },
      "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "action": "lancer redacteur (opus, xhigh) DX.8 avec 'lot en cours de production/LOT_017/BRIEF_PHASE_B.md'"
     },
     "DX.9": {
      "fichier": "LOT_017_Phase_B_V0_DX.9.html",
@@ -256,7 +357,7 @@
       "conformite": false
      },
      "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "action": "lancer redacteur (opus, xhigh) DX.9 avec 'lot en cours de production/LOT_017/BRIEF_PHASE_B.md'"
     },
     "DX.10": {
      "fichier": "LOT_017_Phase_B_V0_DX.10.html",
@@ -277,7 +378,7 @@
       "conformite": false
      },
      "non_revenus": [],
-     "action": "attendre le gel de LISTE_DX_CANONIQUE.md (audit médical de la Phase A)"
+     "action": "lancer redacteur (opus, xhigh) DX.10 avec 'lot en cours de production/LOT_017/BRIEF_PHASE_B.md'"
     }
    }
   }
