@@ -140,3 +140,41 @@ Lecture seule des quatre versions révisées ; seule cette section est ajoutée.
 **Version recommandée : V3** (98, 98, 92 ; couverture 97 %). Elle a le meilleur plan, la meilleure lisibilité, la prise en charge la plus complète dans la fiche et des citations AIPS exactes. Il reste à remettre le « ; » de l'ORIGINAL sur l'arrêt de la substitution, à rétablir « le patient ou un proche » et l'accord « vue », à ajouter le sevrage, les 40 à 60 % et le schéma ESE, et à sortir la phrase du dépliant CYP3A4.
 
 **Meilleur compromis taille/couverture.** Pour l'objectif de Vial (95 à 100 % des notions, au moins 95/95), V3 est le meilleur compromis, car c'est la plus petite version qui l'atteint (76,5 Ko de texte, contre 80,2 Ko pour V1). Pour un seuil de 90/90, V4 donne le meilleur rendement : 34,3 Ko de texte pour 93/95 et 91 % de couverture. Le plancher de 60 Ko proposé plus haut ne tient donc plus. Le seuil de 90/90 s'atteint vers 35 Ko de texte (49 Ko de fichier), alors que 95/95 et 95 % de couverture exigent environ 75 Ko de texte.
+
+## Notation V5 et V6 (évaluation indépendante du 30.10.2026, même barème, mêmes contrôles a, b, c)
+
+Lecture seule de V5 et de V6 ; seule cette section est ajoutée. La méthode est celle de la notation après révision. T est lu dans `id="taille"`, et `harnais/taille_xy.py` redonne les mêmes valeurs. La couverture vient du même script, sur les mêmes 145 notions. Ce script redonne à l'identique V1 98 %, V2 90 %, V3 97 % et V4 91 %, et `audit_langue.py` redonne leurs comptes de phrases.
+
+| Version | T = x (+ y) | Fichier (octets) | Examen /100 | PEC /100 | Lisibilité /100 | Couverture des notions |
+|---|---|---:|---:|---:|---:|---:|
+| V5 `DX10_Addison_V5_norme.html` | 18,3 Ko (+ 57,7 Ko) | 99 177 | 99 | 99 | 94 | 99 % |
+| V6 `DX10_Addison_V6_fiche_V2_fenetres_V3.html` | 14,1 Ko (+ 53,1 Ko) | 94 521 | 96 | 96 | 87 | 94 % |
+
+**Contrôles communs.** (a) Le script ne trouve aucun nombre absent de l'ORIGINAL. Il ne relève que la ligne de taille, les numéros de sous-parties de V5 et, dans V6, des exposants accolés. (b) Toutes les citations AIPS entre « » sont conformes aux sept textes du corpus, une fois les espaces normalisées. Les citations de l'OIC-DFI et de la liste des spécialités reprennent l'ORIGINAL. V5 donne les sept numéros Swissmedic, V6 six (54949 manque). (c) Les 7-grammes communs avec la Phase A valent 1,7 % (V5) et 1,1 % (V6) ; le même calcul redonne 4,9 % pour l'ORIGINAL. `audit_langue.py` compte 11 et 24 phrases de plus de 35 mots, puis 73 et 100 phrases à point-virgule. Aucun fichier ne contient de JavaScript, de `title=` ni d'espace insécable. Chaque fenêtre a son déclencheur, et seule leur barre de titre reste collante. Les deux lacunes héritées demeurent (zonation du cortex, hypoglycémie chiffrée de l'adulte). `audit_langue.py` classe toujours les deux fichiers non conformes au format de production (FIN_FICHIER, h2, h3).
+
+**V5 « norme ».**
+- Forces : toutes les erreurs relevées pour V2 et V3 sont corrigées. Le « car » sur l'arrêt devient « et », la tautologie de la dose inadaptée et l'accord « vue » disparaissent, et le dépliant CYP3A4 sort de la phrase. Le sevrage, les 40 à 60 % de métastases et le schéma ESE de chirurgie sont rétablis. La fiche donne toute la conduite chiffrée : urgence de l'adulte et de l'enfant par âge, glucose, relais à 40 mg/j, traitement de fond, règles de stress et grossesse.
+- Erreurs restantes (mineures) : « Le patient ou un proche note souvent » ajoute « souvent » à l'ORIGINAL. « Centre de catégorie A ou B » perd « de formation ». En 11.1, le paragraphe « Il prélève… » suit le paragraphe Enfant sans antécédent clair. [S25] figure dans la liste sans appel dans le texte.
+- Manques : la règle AIPS du test chez l'allergique (« jamais reçu » d'ACTH), les effets indésirables de l'hydrocortisone, les prix, le remboursement de Synacthen® et les pompes. La fenêtre Solu-CORTEF® recopie encore la durée de 48 à 72 h, déjà dans la Phase A et dans la fenêtre d'urgence. Enfin, y (57,7 Ko) dépasse de 2,7 Ko la cible de 45 à 55 Ko de la norme.
+
+**V6 « fiche V2 + fenêtres V3 ».**
+- Forces : la fiche est la plus courte des versions complètes (14,1 Ko, 13 minutes). Les fenêtres sont réécrites en prose liée et sourcées, les 28 sources sont cliquables, et Solu-CORTEF® se réduit à la vitesse et au schéma chirurgical.
+- Erreurs restantes : trois erreurs déjà relevées reviennent par la fusion. Ce sont « Aucune source consultée ne prévoit l'arrêt […], car… », « c'est la mère qui l'a vu » et « une dose inadaptée se traduit par un sous-dosage ou un surdosage ». « Le scanner a montré un lymphome » omet la biopsie. L'arbre conclut à une forme secondaire « si l'ACTH est basse ou normale », sans le cortisol bas. Le dépliant « contre-indique » (Euthyrox®) coupe encore une phrase. Enfin, 10 exposants sont accolés à un nombre (« 2,5⁴ʼ¹⁶ʼ²² » se lit 2,5⁴), et ACTH, ESE, NICE, BSPED, LC-MS/MS, HbA1c et TSH ne sont jamais développés.
+- Manques : le sevrage, les 4,4 crises pour 100 années-patients en Suisse, les 7 % de crises sans cause, le schéma ESE de chirurgie, le sel non restreint, la citation AIPS de Synacthen® sur l'asthme et le n° 54949. La fiche ne donne ni les doses d'urgence de l'enfant par âge (un seul exemple, à 4 ans), ni la glycémie, ni le relais oral, ni la grossesse.
+
+**Règles complémentaires de Vial.** Les deux fiches affichent leur taille, mais le script écrit « 18.3 » avec un point. V5 respecte toutes les règles : fiche grammaticale et liée, prise en charge complète dans la fiche, approfondissement par clic (31 fenêtres, 19 dépliants), aucun résumé qui change le sens, erreurs relevées corrigées et couverture de 99 %. V6 ne respecte pleinement que la taille et l'approfondissement par clic (31 fenêtres, 15 dépliants). Sa partie 7 reste une liste, et sa fiche renvoie en fenêtre l'enfant, la glycémie, le relais et la grossesse. Elle compresse trois énoncés : la biopsie, l'arbre, puis « l'endocrinologue pédiatre » pour la pédiatrie bernoise. Ses erreurs relevées restent, et sa couverture (94 %) reste sous 95 %.
+
+**Classement final des six versions.** L'ordre suit l'objectif de Vial : d'abord la couverture et les notes d'examen et de PEC, ensuite la lisibilité.
+
+| Rang | Version | Examen | PEC | Lisibilité | Couverture | Texte x + y |
+|---:|---|---:|---:|---:|---:|---:|
+| 1 | V5 « norme » | 99 | 99 | 94 | 99 % | 76,0 Ko |
+| 2 | V3 « expert » | 98 | 98 | 92 | 97 % | 76,5 Ko |
+| 3 | V1 « sans redondance » | 98 | 98 | 89 | 98 % | 80,2 Ko |
+| 4 | V6 « fiche V2 + fenêtres V3 » | 96 | 96 | 87 | 94 % | 67,2 Ko |
+| 5 | V2 « court » | 94 | 96 | 90 | 90 % | 40,4 Ko |
+| 6 | V4 « léger » | 93 | 95 | 86 | 91 % | 34,3 Ko |
+
+V6 passe devant V2, car elle tient 95/95, ce que V2 ne fait pas, malgré une lisibilité plus basse.
+
+**Version recommandée comme modèle : V5.** Elle obtient les meilleures notes des six versions et la couverture de l'ORIGINAL (99 %), avec moins de texte que V3 et V1. Sa fiche est aussi la plus complète en prise en charge, et elle ne contient aucune erreur de dose, de seuil ni de conduite. Elle tient la norme du compte rendu (x ≤ 20 Ko, au moins 95/95, lisibilité ≥ 85), sauf y, qui dépasse de 2,7 Ko. Avant de la généraliser, il faut retirer « souvent », rétablir « de formation » et donner un sujet au paragraphe « Il prélève… ». Il faut aussi citer ou retirer [S25] et réduire la fenêtre Solu-CORTEF® à la vitesse et au schéma chirurgical. Enfin, la règle AIPS du test chez l'allergique et les effets indésirables de l'hydrocortisone doivent être ajoutés. V6 montre qu'une fusion par script réimporte les erreurs déjà corrigées : la production doit partir de V5.
