@@ -15,3 +15,4 @@ Source (ne pas modifier) : `LOT_Claude_Finaux/<LOT>/<fichier source>.html`. Sort
 - Arbres décisionnels : en phrases liées (« Si …, alors … parce que … »), jamais en chaînes « → ».
 - Tableaux d'origine : garder toutes les colonnes (dont « Conduite ») ; un piège sans sa conduite se lit comme une consigne.
 - Le contrôle des nombres ne voit pas la perte de texte : comparer section par section avec la source avant de rendre.
+- Retrait pour redondance : seulement si la Phase A V8 contient le passage mot pour mot (doses, citations AIPS, conduites comprises) ; sinon garder en fenêtre.
