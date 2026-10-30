@@ -50,3 +50,19 @@ Questions ouvertes par le rédacteur DX.3 le 30.10.2026. Format : identifiant ; 
 - Question : quelle recommandation suisse ou européenne (SSGO, ESHRE) liste les critères de sortie après SHO sévère ?
 - Déjà cherché : AIPS 56689 ; Hum Reprod 2023, 30.10.2026.
 - Emplacement : DX.3, 11.D.
+
+## Suivi d'audit médical — 30.10.2026 (auditeur-medical, opus, xhigh)
+
+Fichier audité : `LOT_015_Phase_B_V0_DX.3.html`, 131 781 → 135 030 octets ; 23 corrections (1 grave, 10 moyennes, 12 légères) dans `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`.
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H15-DX3-01 | Comblée en partie | Liste Swissmedic des médicaments à usage humain autorisés, état au 30.09.2026 (https://www.swissmedic.ch/dam/swissmedic/fr/dokumente/internetlisten/zugelassene_arzneimittel_ham_ind.xlsx.download.xlsx/Zugelassene_Arzneimittel_HAM.xlsx) : aucune entrée « clomi » (Femara et génériques du létrozole présents). Importation d'un médicament non autorisé : art. 49 OAMéd, RS 812.212.1, état le 15.3.2025 (fedlex). Une dépêche de presse professionnelle allemande (apotheke adhoc, 15.12.2016) signale le retrait de Serophene du marché suisse fin 2016 ; source non officielle, non citée dans le HTML. « À vérifier (AIPS) » et l'absence de dose sont gardés. Écrit en [S26] et [S27]. |
+| H15-DX3-02 | Ouverte | Texte intégral Hum Reprod 2023 relu (algorithme 2 : « increasing dose as required ») ; aucune dose européenne trouvée (recherche web du 30.10.2026). |
+| H15-DX3-03 | Ouverte | Non traitée. |
+| H15-DX3-04 | Ouverte | Aucune dose SSGO ou OSAV propre à l'IMC > 30 trouvée (recherche web du 30.10.2026). |
+| H15-DX3-05 | Ouverte | Non traitée. |
+| H15-DX3-06 | Ouverte | Non traitée. |
+| H15-DX3-07 | Ouverte | AIPS 56689 relue : surveillance jusqu'à 2 semaines après l'hCG, aucun critère de sortie. |
+
+Passe transversale T8 : l'EASL–EASD–EASO 2024 (Obes Facts 2024;17:374–444, PMC11299976) et l'avis SSGO n° 81 donnent les mêmes seuils (glycémie à jeun 5,6–6,9 / ≥ 7,0 mmol/L ; HGPO 2 h 7,8–11 / ≥ 11,1 mmol/L). L'HbA1c hors grossesse vient désormais de l'EASL–EASD–EASO 2024 ([S24], avec mmol/mol). Nouvelles sources du HTML sans fichier dans `evidence/` (hors du périmètre d'écriture de l'audit) : [S24] à [S27] ; [S25] = Pituitary Society 2021, déjà lue en `evidence/S16_PituitarySociety2021_Cushing_consensus.txt` (lignes 181–186 et 238–240).
