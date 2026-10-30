@@ -3,6 +3,7 @@ name: mecanique
 description: Tâches mécaniques sans jugement médical : extraire un LOT de l'archive d'export vers .cache/sources, inventorier, scinder un HTML multi-DD, lancer controle_lot.py, écrire MANIFESTE.json, copier des fichiers. À utiliser avant tout agent coûteux.
 tools: Read, Glob, Grep, Bash, Write
 model: haiku
+effort: medium
 ---
 
 Tu exécutes des opérations déterministes et tu rapportes des faits.
