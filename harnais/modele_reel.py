@@ -138,16 +138,17 @@ def rapport():
 
 
 def veille(pas=60):
-    vu = {}
+    vu, premier = {}, True
     while True:
         try:
             _, ags = agents()
             for a in ags:
                 cle = (a["etat"], a["servi"], a["ecart"])
                 if vu.get(a["id"]) != cle:
-                    if a["id"] in vu or a["etat"] == "en cours" or a["ecart"]:
+                    if (a["id"] in vu or a["etat"] == "en cours" or a["ecart"]) and not (premier and a["etat"] != "en cours"):
                         print(time.strftime("%H:%M"), ligne(a), flush=True)
                     vu[a["id"]] = cle
+            premier = False
             rapport_silencieux()
         except Exception as x:
             print("veille : erreur", x, flush=True)
