@@ -11,3 +11,4 @@ Source (ne pas modifier) : `LOT_Claude_Finaux/<LOT>/<fichier source>.html`. Sort
 7. Aucun commit ; téléchargements interdits (pas besoin de sources nouvelles). Réponse ≤ 4 lignes : T, fenêtres, verdict de verif_refonte.
 8. Dernière ligne : `<!-- FIN_FICHIER <LOT>_<fichier>_V8 -->`.
 - Les fenêtres doivent elles aussi être en phrases complètes et liées : ne pas déplacer tel quel l'ancien texte télégraphique dans une fenêtre « texte complet ».
+- Le titre du diagnostic est un `<h2>DX.N — nom exact de LISTE_DX_CANONIQUE.md</h2>` (jamais `<h1>`), comme dans le modèle.
