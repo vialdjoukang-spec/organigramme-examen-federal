@@ -1,4 +1,4 @@
-# PREUVES DE ROUTAGE — relevé du 2026-10-30T21:41:10+01:00 (branches distantes, indépendant des IA)
+# PREUVES DE ROUTAGE — relevé du 2026-10-30T21:42:38+01:00 (branches distantes, indépendant des IA)
 
 ## CODEX — branches : aucune
 - Aucune branche poussée : rien à prouver encore.
