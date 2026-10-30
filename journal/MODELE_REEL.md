@@ -1,16 +1,17 @@
 # Modèle et effort réellement servis — vérité lue dans les transcriptions (Article 4)
 
-Relevé 30.10.2026 21:54 · session principale : **claude-opus-5-5 · high** · 232 agents · **51 en écart au contrat**.
+Relevé 30.10.2026 21:54 · session principale : **claude-opus-5-5 · high** · 233 agents · **51 en écart au contrat**.
 
 | État | Agent | Demandé | Servi (dernier tour) | Tours par modèle · effort | Contrat |
 |---|---|---|---|---|---|
+| en cours | Refonte V8 LOT_012 DX.6 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 3 | conforme |
 | terminé | Refonte V8 LOT_012 DX.3 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 78 | conforme |
 | en cours | Refonte V8 LOT_012 DX.5 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 41 | conforme |
 | terminé | Refonte V8 LOT_012 DX.2 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 95 | conforme |
 | en cours | Refonte V8 LOT_012 DX.4 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 58 | conforme |
 | terminé | Refonte V8 LOT_012 DX.1 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 81 | conforme |
-| en cours | Refonte V8 LOT_012 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 133 | conforme |
-| en cours | Audit croisé V8 LOT_013 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 188 | conforme |
+| en cours | Refonte V8 LOT_012 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 135 | conforme |
+| en cours | Audit croisé V8 LOT_013 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 190 | conforme |
 | arrêté | Audit croisé V8 de LOT_013 | opus · non passé | claude-opus-5-5 · medium | claude-opus-5-5 · medium : 33 | ⚠ effort medium ≠ xhigh |
 | terminé | Refonte V8 LOT_013 DX.9 | opus · non passé | claude-opus-5-5 · medium | claude-opus-5-5 · medium : 51 | ⚠ effort medium ≠ xhigh |
 | arrêté | Refonte V8 LOT_012 DX.3 | opus · non passé | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 50 | conforme |
