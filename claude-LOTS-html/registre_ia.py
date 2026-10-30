@@ -11,6 +11,7 @@ Commandes (depuis la racine du dépôt) :
   python3 <dossier>/registre_ia.py verifier <ia> <LOT_XXX> autorisé à écrire ce LOT ? (code 0 oui, 1 non)
   python3 <dossier>/registre_ia.py garde <ia>              contrôle des fichiers indexés (hook pre-commit) ; bloque si interdit
   python3 <dossier>/registre_ia.py installer <ia>          installe le hook git pre-commit bloquant pour cette IA
+  python3 <dossier>/registre_ia.py pret <ia>               couple harnais identique + routage créé et surveillé ? (bloquant)
 <ia> ∈ claude, codex, grok.
 """
 import datetime, hashlib, json, os, re, shutil, subprocess, sys
@@ -31,6 +32,7 @@ L2. Tu n'écris QUE dans ton dossier `<ia>-LOTS-html/` et sur ta propre branche 
 L3. Interdiction absolue de rédiger ou de modifier un LOT ou un chapitre déjà amorcé (un seul fichier suffit) par une autre IA ou par toi-même sans validation de Vial. Une entrée dans `IA_AUTORISATIONS.json`, écrite par Vial seul, est la seule exception.
 L4. Tu ne rédiges que les LOTS de ta plage dans `IA_RESERVATIONS.json`, non encore amorcés, dans l'ordre croissant. Priorité : les LOTS jamais explorés.
 L5. Ce qu'une autre IA a écrit est en lecture seule pour toi ; seul Vial peut lever ce verrou.
+L5bis. Aucune production sans le couple [harnais + routage] : harnais identique au manifeste, ROUTAGE_<IA>.json et routage_<ia>.py créés par toi, autotest vert, veille du routage active (`pret <ia>`).
 L6. Avant d'écrire dans un LOT : `verifier <ia> <LOT_XXX>` doit répondre AUTORISÉ. Le hook pre-commit (`installer`) bloque tout commit interdit.
 L7. Tu ne modifies jamais ce script, ses clones, IA_RESERVATIONS.json ni IA_AUTORISATIONS.json.
 L8. Règles de fond : sources suisses puis européennes lues et datées, sinon « À vérifier » ; doses tirées de l'AIPS suisse seulement, jamais du Compendium ; aucune donnée personnelle ; jamais sur main ; n'affirmer que ce qui est fait."""
@@ -145,6 +147,72 @@ def ecrire_clones(sortie):
         (d / "REGISTRE.md").write_text("\n".join(md) + "\n", encoding="utf-8")
 
 
+
+# ---------- couple obligatoire : harnais identique + routage créé et surveillé ----------
+POSTES = ("redacteur-phase-a", "redacteur", "auditeur-medical", "auditeur-conformite", "transversale", "mecanique")
+HARNAIS_FICHIERS = ("harnais/taille_xy.py", "harnais/verif_refonte.py", "harnais/controle_lot.py", "harnais/audit_langue.py",
+                    "harnais/registre_ia.py", "ressources_ia/outils/aips.py", "ressources_ia/outils/suivi_ia.py",
+                    "harnais/modele_lecon/MODELE_DD_V8.html", "harnais/modele_lecon/style_lecon.css")
+MANIFESTE = R / "harnais" / "HARNAIS_MANIFESTE.json"
+
+
+def sha(p):
+    return hashlib.sha256((R / p).read_bytes()).hexdigest() if (R / p).exists() else None
+
+
+def ecrire_manifeste():
+    MANIFESTE.write_text(json.dumps({"genere_le": maintenant(), "fichiers": {f: sha(f) for f in HARNAIS_FICHIERS}},
+                                    ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def harnais_identique():
+    m = charger(MANIFESTE, {}).get("fichiers", {})
+    if not m:
+        return False, "manifeste du harnais absent (harnais/HARNAIS_MANIFESTE.json)"
+    diff = [f for f, s in m.items() if sha(f) != s]
+    return (not diff), ("harnais identique" if not diff else f"harnais modifié ou absent : {', '.join(diff)}")
+
+
+def routage_pret(ia):
+    """Routage créé par l'IA : configuration valide, script autotesté, veille vivante (moins de 30 min)."""
+    if ia == "claude":
+        return True, "routage Claude (.claude/agents, journal/routage.jsonl)"
+    d = R / DOSSIER[ia]; IA = ia.upper()
+    conf = charger(d / f"ROUTAGE_{IA}.json", None)
+    if not conf:
+        return False, f"{DOSSIER[ia]}/ROUTAGE_{IA}.json absent (table poste → modèle à créer)"
+    postes = conf.get("postes", {})
+    manque = [p for p in POSTES if not (isinstance(postes.get(p), dict) and postes[p].get("modele"))]
+    if manque:
+        return False, f"ROUTAGE_{IA}.json : postes sans modèle : {', '.join(manque)}"
+    if postes["redacteur"].get("modele") == postes["auditeur-medical"].get("modele") and not conf.get("audit_croise_externe"):
+        return False, "ROUTAGE : l'auditeur médical doit être un autre modèle que le rédacteur (ou déclarer audit_croise_externe)"
+    script = d / f"routage_{ia}.py"
+    if not script.exists():
+        return False, f"{DOSSIER[ia]}/routage_{ia}.py absent (script de routage à créer)"
+    try:
+        r = subprocess.run([sys.executable, str(script), "autotest"], capture_output=True, text=True, timeout=60, cwd=str(R))
+        if r.returncode != 0:
+            return False, f"routage_{ia}.py autotest en échec : {(r.stdout + r.stderr).strip()[:200]}"
+    except Exception as e:
+        return False, f"routage_{ia}.py autotest impossible : {e}"
+    pouls = d / ".veille_routage"
+    try:
+        age = (datetime.datetime.now(ZURICH) - datetime.datetime.fromisoformat(pouls.read_text().strip())).total_seconds()
+    except Exception:
+        return False, f"veille du routage inactive ({DOSSIER[ia]}/.veille_routage absent : lancer routage_{ia}.py veille)"
+    if age > 1800:
+        return False, f"veille du routage arrêtée depuis {int(age // 60)} min (relancer routage_{ia}.py veille)"
+    return True, "routage prêt et surveillé"
+
+
+def pret(ia):
+    for ok, msg in (harnais_identique(), routage_pret(ia)):
+        if not ok:
+            return False, "BLOQUÉ : " + msg
+    return True, "couple harnais + routage prêt"
+
+
 # ---------- lecture, signature, verrou ----------
 def jeton(ia):
     jour = datetime.date.today().isoformat()
@@ -164,6 +232,9 @@ def verifier(ia, lot, sortie=None):
         return False, f"IA inconnue : {ia}"
     if not signe(ia):
         return False, "BLOQUÉ : registre non lu ou non signé aujourd'hui (lire puis signer)"
+    ok, msg = pret(ia)
+    if not ok:
+        return False, msg
     if autorise_par_vial(ia, lot):
         return True, "AUTORISÉ par Vial (IA_AUTORISATIONS.json)"
     sortie = sortie or etat_lots(releve())
@@ -189,6 +260,17 @@ def garde(ia):
     indexes = [l for l in git("diff", "--cached", "--name-only").splitlines() if l]
     if not signe(ia):
         print("BLOQUÉ : registre non lu ou non signé aujourd'hui."); return 1
+    ok, msg = pret(ia)
+    if not ok:
+        print(msg); return 1
+    journal = R / DOSSIER[ia] / f"ROUTAGE_{ia.upper()}.jsonl"
+    passes = set()
+    if journal.exists():
+        for x in journal.read_text(encoding="utf-8").splitlines():
+            try:
+                o = json.loads(x); passes.add((o.get("lot"), o.get("fichier")))
+            except Exception:
+                pass
     sortie = etat_lots(releve())
     erreurs = []
     for f in indexes:
@@ -197,6 +279,9 @@ def garde(ia):
         if f.endswith("registre_ia.py"):
             erreurs.append(f"fichier du registre (lecture seule) : {f}"); continue
         m = re.search(r"/(LOT_\d{3})/", f)
+        h = re.search(r"(LOT_\d{3})_Phase_(A|B)_V0(?:_(DX\.\d+))?\.html$", f)
+        if h and (h.group(1), "Phase_A" if h.group(2) == "A" else h.group(3)) not in passes:
+            erreurs.append(f"{f} : aucune passe consignée par le routage (routage_{ia}.py consigner …)")
         if m:
             ok, msg = verifier(ia, m.group(1), sortie)
             if not ok:
@@ -237,6 +322,10 @@ def main(a):
         ok, msg = verifier(a[1], a[2]); print(msg); return 0 if ok else 1
     elif cmd == "garde" and len(a) > 1:
         return garde(a[1])
+    elif cmd == "pret" and len(a) > 1:
+        ok, msg = pret(a[1]); print(msg); return 0 if ok else 1
+    elif cmd == "manifeste":
+        ecrire_manifeste(); print("manifeste du harnais écrit")
     elif cmd == "installer" and len(a) > 1:
         installer(a[1])
     else:
