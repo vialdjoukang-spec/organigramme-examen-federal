@@ -32,3 +32,5 @@ Chaque rédacteur de Phase B applique les corrections ci-dessous dans son fichie
 - Restent ouvertes : H17-01, H17-02, H17-03, H17-04, H17-06, H17-09, H17-11, H17-12, H17-13, H17-14, H17-15, H17-17, H17-19, H17-20. `HELP.md` n'a pas été modifié (hors périmètre d'écriture de l'audit).
 
 T1. Verser dans `evidence/` les extraits des sources S44–S52 de la Phase A (textes dans `scratchpad/LOT_017_PhaseA_medical/`) ; rectifier l'en-tête de `.cache/aips/19943.txt` (19943 = Mestinon dragées 60 mg, 19945 = comprimés 10 mg selon la liste Swissmedic au 30.09.2026).
+
+T2. Phase A et tous les DX : vérifier tout chiffre repris d'Alexandrou 2025 (S50) qui renvoie à Hörner 2022 ; le « 83,5 % » est absent du texte intégral de Hörner 2022 (H17-DX2-09).
