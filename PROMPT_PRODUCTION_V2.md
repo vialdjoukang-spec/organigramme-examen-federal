@@ -37,7 +37,7 @@ Par fichier : rédacteur → auditeur-médical → auditeur-conformité → (une
 | Inventaires, tris, manifestes | `mecanique` | haiku · medium |
 | Contrôles déterministes | scripts | aucun |
 
-Règles : un auditeur n'audite jamais ce qu'il a rédigé ; escalade seulement sur échec constaté ; chaque lancement d'agent s'écrit en une ligne dans `journal/routage.jsonl` (horodatage, lot, fichier, agent, modèle, effort, raison). Détail : `harnais/ROUTAGE_MODELES.md`. Briefs types (appels d'une ligne : « Lis le brief ; LOT ; N ») : `harnais/briefs/AUDIT_MEDICAL.md`, `harnais/briefs/CONFORMITE.md`, et `lot en cours de production/LOT_XXX/BRIEF_PHASE_B.md` (rédacteur ; à écrire pour chaque LOT en copiant celui du LOT précédent). Les agents ne committent pas : la session principale (chef de production) commite et pousse.
+Règles : tout lancement d'agent passe le paramètre d'effort égal au routage (sinon l'effort consigné est faux) ; un auditeur n'audite jamais ce qu'il a rédigé ; escalade seulement sur échec constaté ; chaque lancement d'agent s'écrit en une ligne dans `journal/routage.jsonl` (horodatage, lot, fichier, agent, modèle, effort, raison). Détail : `harnais/ROUTAGE_MODELES.md`. Briefs types (appels d'une ligne : « Lis le brief ; LOT ; N ») : `harnais/briefs/AUDIT_MEDICAL.md`, `harnais/briefs/CONFORMITE.md`, et `lot en cours de production/LOT_XXX/BRIEF_PHASE_B.md` (rédacteur ; à écrire pour chaque LOT en copiant celui du LOT précédent). Les agents ne committent pas : la session principale (chef de production) commite et pousse.
 
 ## 5. Parallélisme et économie de jetons
 - Au plus 5 agents opus en parallèle, après le gel de la liste canonique ; chemins disjoints (un fichier par agent).
