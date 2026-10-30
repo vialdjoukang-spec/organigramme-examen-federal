@@ -14,4 +14,4 @@ Rédacteur DX.5, 30.10.2026. Une ligne par hypothèse ou décision ; aucun score
 - Sources de la Phase A [S27] (GesG ZH), [S28] (LAA art. 37), [S30] (CURML) relues par le rédacteur DX.5 : evidence/DX5_verif_LAA37_GesGZH15_CURML.txt.
 - Non cité — AWMF S2k « Kohlenmonoxidvergiftung » 2021 : le premier téléchargement a renvoyé une page HTML ; la nouvelle tentative a été refusée par le classificateur de permissions (contournement de contrôle anti-robot) ; non contourné.
 - Non cité — EUDA, rapport européen sur les drogues 2025 (HTTP 403) ; fiche OFSP 2020 « Décès liés à la consommation de drogue » (HTTP 404).
-- Fichier écrit : LOT_013_Phase_B_V0_DX.5.html, 143 811 octets ; `controle_lot.py verifier --sans-nom` : 0 critique et 0 avertissement pour DX.5 (le code de sortie 1 du LOT vient d'un autre fichier, DX.8, en cours).
+- Fichier écrit : LOT_013_Phase_B_V0_DX.5.html, 143 836 octets, SHA-256 cb4b77a7b6d95a5dfc6c86ccbf59ebca99846d5c46bd737804bc405a53798338 ; `controle_lot.py verifier --sans-nom` : 0 critique et 0 avertissement pour DX.5 (le code de sortie 1 du LOT vient d'un autre fichier, DX.8, en cours).
