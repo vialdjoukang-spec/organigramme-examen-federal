@@ -1,4 +1,4 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T14:23:46+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T14:24:06+00:00, branche production-v2)
 
 ## Où on en est
 - LOT_017 (EN_COURS) : 1 rédaction en cours ; 10 aucun fichier
@@ -8,7 +8,8 @@
 - 017 Phase_A : rédaction en cours, 118483 o, h3=14, FIN_FICHIER=oui, corr 0 (g 0, c 0)
 
 ## Incertain
-- LOT_017 Phase_A : redacteur-phase-a lancé 10-30T14:44 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 1 min) : probablement en cours ou interrompu
+- LOT_017 Phase_A : redacteur-phase-a lancé 10-30T14:44 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 2 min) : probablement en cours ou interrompu
+- LOT_017 Phase_A : auditeur-medical lancé 10-30T15:24 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
 
 ## Prochaines actions (une ligne)
 - 017 [Phase_A] : agent redacteur-phase-a lancé 14:44 sans retour : vérifier d'abord le disque (état ci-dessus) ; ne relancer que s'il est mort
