@@ -135,10 +135,11 @@ def ecrire_clones(sortie):
         if l["statut"] == "LIBRE" and not l["reserve_a"]:
             continue
         md.append(f"| {l['lot']} | {l['code']} | {l['statut']} | {', '.join(l['ia']) or '—'} | {l['reserve_a'] or '—'} | {len(l['fichiers'])}/11 |")
-    for ia in IAS:
-        d = R / DOSSIER[ia]
+    source = SOURCE.exists() and Path(__file__).resolve() == SOURCE.resolve()
+    # Lancé depuis harnais/ (Claude) : met à jour les trois clones. Lancé depuis un clone : seulement son dossier.
+    for d in ([R / DOSSIER[ia] for ia in IAS] if source else [Path(__file__).resolve().parent]):
         d.mkdir(exist_ok=True)
-        if SOURCE.exists() and Path(__file__).resolve() == SOURCE.resolve():
+        if source:
             shutil.copy2(SOURCE, d / "registre_ia.py")
         (d / "REGISTRE.json").write_text(json.dumps(resume, ensure_ascii=False, indent=1), encoding="utf-8")
         (d / "REGISTRE.md").write_text("\n".join(md) + "\n", encoding="utf-8")
@@ -193,7 +194,7 @@ def garde(ia):
     for f in indexes:
         if not f.startswith(DOSSIER[ia] + "/"):
             erreurs.append(f"hors de ton dossier : {f}"); continue
-        if f.endswith(("registre_ia.py", "REGISTRE.json", "REGISTRE.md")):
+        if f.endswith("registre_ia.py"):
             erreurs.append(f"fichier du registre (lecture seule) : {f}"); continue
         m = re.search(r"/(LOT_\d{3})/", f)
         if m:
