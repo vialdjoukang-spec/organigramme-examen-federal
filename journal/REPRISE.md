@@ -1,4 +1,4 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T16:22:54+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T16:36:59+00:00, branche production-v2)
 
 ## Où on en est
 - LOT_017 (EN_COURS) : 1 conformité faite ; 6 rédigé ; 4 rédaction en cours
@@ -18,10 +18,10 @@
 - LOT_017 : liste canonique gelée
 
 ## Incertain
-- LOT_017 DX.6 : redacteur lancé 10-30T16:20 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 35 min) : probablement en cours ou interrompu
+- LOT_017 DX.6 : redacteur lancé 10-30T16:20 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 49 min) : probablement en cours ou interrompu
 - LOT_017 DX.8 : redacteur lancé 10-30T16:26 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
-- LOT_017 DX.9 : redacteur lancé 10-30T16:29 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 34 min) : probablement en cours ou interrompu
-- LOT_017 DX.10 : redacteur lancé 10-30T16:30 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 33 min) : probablement en cours ou interrompu
+- LOT_017 DX.9 : redacteur lancé 10-30T16:29 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 48 min) : probablement en cours ou interrompu
+- LOT_017 DX.10 : redacteur lancé 10-30T16:30 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 47 min) : probablement en cours ou interrompu
 - LOT_017 items T non faits : T1 Verser dans `evidence/` les extraits des sources S44–S52  | T2 Phase A et tous les DX : vérifier tout chiffre repris d'A
 
 ## Prochaines actions (une ligne)

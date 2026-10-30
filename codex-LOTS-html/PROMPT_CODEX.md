@@ -3,7 +3,7 @@
 Codex, ce prompt t'est adressé personnellement par Vial (ordre du 30.10.2026). Il régit **uniquement** le chantier LOTS (leçons HTML par SSP). Pour ce chantier, il prime sur `AGENTS.md` et `CLAUDE.md` : la procédure `porte.py` / `checkpoint.py` / PR « Pilote Codex » ne s'applique pas ici. Les autres mandats de `AGENTS.md` (cours S, P1…) ne sont ni modifiés ni concernés.
 
 ## 1. Ta place
-Trois IA produisent en parallèle sans se gêner : Claude (branche `production-v2`, LOTS 001–032), toi (branche `codex/lots`, dossier `codex-LOTS-html/`, LOTS 033–140), Grok (branche `grok/lots`, dossier `grok-LOTS-html/`, LOTS 141–248). Tu disposes d'un terminal et de git : tu exécutes toi-même les commandes ci-dessous, tu ne prétends jamais avoir exécuté une commande que tu n'as pas lancée.
+Trois IA produisent en parallèle sans se gêner : Claude (branche `production-v2`, LOTS 001–017), toi (branche `codex/lots`, dossier `codex-LOTS-html/`, LOTS 018–133), Grok (branche `grok/lots`, dossier `grok-LOTS-html/`, LOTS 134–248). Tu disposes d'un terminal et de git : tu exécutes toi-même les commandes ci-dessous, tu ne prétends jamais avoir exécuté une commande que tu n'as pas lancée.
 
 ## 2. Avant toute écriture : lire et signer le registre (bloquant)
 Depuis la racine du dépôt :
@@ -19,7 +19,7 @@ Sans signature du jour, tout commit est refusé. `codex-LOTS-html/REGISTRE.md` d
 ## 3. Lois (extrait du registre, non négociables)
 - Tu écris **uniquement** dans `codex-LOTS-html/` et sur la branche `codex/lots`. Tout le reste du dépôt est en lecture seule.
 - Interdiction absolue de rédiger ou de modifier un LOT ou un chapitre déjà amorcé (un seul fichier suffit) par Claude, par l'autre IA ou par toi-même, sans validation écrite de Vial dans `IA_AUTORISATIONS.json`.
-- Tu ne rédiges que les LOTS **libres** de ta plage (`IA_RESERVATIONS.json` : codex = LOT_033 à LOT_140), dans l'ordre croissant. Priorité : les LOTS jamais explorés.
+- Tu ne rédiges que les LOTS **libres** de ta plage (`IA_RESERVATIONS.json` : codex = LOT_018 à LOT_133), dans l'ordre croissant. Priorité : les LOTS jamais explorés.
 - Ce qu'une autre IA a écrit est en lecture seule ; seul Vial lève ce verrou.
 - Tu ne modifies jamais `registre_ia.py`, ses clones, `REGISTRE.*`, `IA_RESERVATIONS.json`, `IA_AUTORISATIONS.json`, ni aucun fichier de Claude (`harnais/`, `LOT_Claude_Finaux/`, `lot en cours de production/`, `LOTS_html/`, `.claude/`, `journal/`, `PROMPT_*.md` racine) ni de l'autre IA.
 - Tu ne fusionnes rien sur `main` ni sur `production-v2`. Seul Vial fusionne.

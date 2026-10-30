@@ -1,4 +1,4 @@
-# REGISTRE IA — état au 2026-10-30T17:36:11+01:00
+# REGISTRE IA — état au 2026-10-30T17:36:56+01:00
 
 LOIS DU REGISTRE (ordre de Vial, 30.10.2026) — lecture et signature obligatoires, sinon toute écriture est bloquée.
 L1. Lis ce registre et signe-le (`signer`) au début de chaque session, avant d'écrire quoi que ce soit.
@@ -29,21 +29,21 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_015 | G15 | DÉPOSÉ | claude | claude | 11/11 |
 | LOT_016 | G16 | DÉPOSÉ | claude | claude | 11/11 |
 | LOT_017 | S1.1 | AMORCÉ | claude | claude | 10/11 |
-| LOT_018 | S1.2 | LIBRE | — | claude | 0/11 |
-| LOT_019 | S1.3 | LIBRE | — | claude | 0/11 |
-| LOT_020 | S1.4 | LIBRE | — | claude | 0/11 |
-| LOT_021 | S1.5 | LIBRE | — | claude | 0/11 |
-| LOT_022 | S1.6 | LIBRE | — | claude | 0/11 |
-| LOT_023 | S1.7 | LIBRE | — | claude | 0/11 |
-| LOT_024 | S1.8 | LIBRE | — | claude | 0/11 |
-| LOT_025 | S1.9 | LIBRE | — | claude | 0/11 |
-| LOT_026 | S1.10 | LIBRE | — | claude | 0/11 |
-| LOT_027 | S1.11 | LIBRE | — | claude | 0/11 |
-| LOT_028 | S1.12 | LIBRE | — | claude | 0/11 |
-| LOT_029 | S1.13 | LIBRE | — | claude | 0/11 |
-| LOT_030 | S1.14 | LIBRE | — | claude | 0/11 |
-| LOT_031 | S1.15 | LIBRE | — | claude | 0/11 |
-| LOT_032 | S1.16 | LIBRE | — | claude | 0/11 |
+| LOT_018 | S1.2 | LIBRE | — | codex | 0/11 |
+| LOT_019 | S1.3 | LIBRE | — | codex | 0/11 |
+| LOT_020 | S1.4 | LIBRE | — | codex | 0/11 |
+| LOT_021 | S1.5 | LIBRE | — | codex | 0/11 |
+| LOT_022 | S1.6 | LIBRE | — | codex | 0/11 |
+| LOT_023 | S1.7 | LIBRE | — | codex | 0/11 |
+| LOT_024 | S1.8 | LIBRE | — | codex | 0/11 |
+| LOT_025 | S1.9 | LIBRE | — | codex | 0/11 |
+| LOT_026 | S1.10 | LIBRE | — | codex | 0/11 |
+| LOT_027 | S1.11 | LIBRE | — | codex | 0/11 |
+| LOT_028 | S1.12 | LIBRE | — | codex | 0/11 |
+| LOT_029 | S1.13 | LIBRE | — | codex | 0/11 |
+| LOT_030 | S1.14 | LIBRE | — | codex | 0/11 |
+| LOT_031 | S1.15 | LIBRE | — | codex | 0/11 |
+| LOT_032 | S1.16 | LIBRE | — | codex | 0/11 |
 | LOT_033 | S1.17 | LIBRE | — | codex | 0/11 |
 | LOT_034 | S1.18 | LIBRE | — | codex | 0/11 |
 | LOT_035 | S1.19 | LIBRE | — | codex | 0/11 |
@@ -145,13 +145,13 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_131 | F1.2 | LIBRE | — | codex | 0/11 |
 | LOT_132 | F1.3 | LIBRE | — | codex | 0/11 |
 | LOT_133 | F1.4 | LIBRE | — | codex | 0/11 |
-| LOT_134 | F1.5 | LIBRE | — | codex | 0/11 |
-| LOT_135 | F1.6 | LIBRE | — | codex | 0/11 |
-| LOT_136 | F1.7 | LIBRE | — | codex | 0/11 |
-| LOT_137 | F1.8 | LIBRE | — | codex | 0/11 |
-| LOT_138 | F1.9 | LIBRE | — | codex | 0/11 |
-| LOT_139 | F1.10 | LIBRE | — | codex | 0/11 |
-| LOT_140 | F1.11 | LIBRE | — | codex | 0/11 |
+| LOT_134 | F1.5 | LIBRE | — | grok | 0/11 |
+| LOT_135 | F1.6 | LIBRE | — | grok | 0/11 |
+| LOT_136 | F1.7 | LIBRE | — | grok | 0/11 |
+| LOT_137 | F1.8 | LIBRE | — | grok | 0/11 |
+| LOT_138 | F1.9 | LIBRE | — | grok | 0/11 |
+| LOT_139 | F1.10 | LIBRE | — | grok | 0/11 |
+| LOT_140 | F1.11 | LIBRE | — | grok | 0/11 |
 | LOT_141 | F1.12 | LIBRE | — | grok | 0/11 |
 | LOT_142 | F1.13 | LIBRE | — | grok | 0/11 |
 | LOT_143 | F1.14 | LIBRE | — | grok | 0/11 |

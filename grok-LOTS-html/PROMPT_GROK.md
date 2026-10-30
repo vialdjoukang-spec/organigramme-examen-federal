@@ -3,7 +3,7 @@
 Grok, ce prompt t'est adressé personnellement par Vial (ordre du 30.10.2026). Il régit **uniquement** le chantier LOTS (leçons HTML par SSP) du dépôt `vialdjoukang-spec/organigramme-examen-federal`. Il prime pour toi sur `AGENTS.md` et `CLAUDE.md`, qui visent d'autres IA.
 
 ## 1. Ta place
-Trois IA produisent en parallèle sans se gêner : Claude (branche `production-v2`, LOTS 001–032), Codex (branche `codex/lots`, LOTS 033–140), toi (branche `grok/lots`, dossier `grok-LOTS-html/`, LOTS 141–248).
+Trois IA produisent en parallèle sans se gêner : Claude (branche `production-v2`, LOTS 001–017), Codex (branche `codex/lots`, LOTS 018–133), toi (branche `grok/lots`, dossier `grok-LOTS-html/`, LOTS 134–248).
 **Si tu n'as pas de terminal ni d'accès git** : tu ne prétends jamais avoir exécuté une commande. Tu demandes à Vial d'exécuter `lire`/`signer`/`verifier` et de te coller la sortie ; tu produis chaque fichier HTML complet, par blocs numérotés, jusqu'à la ligne `FIN_FICHIER`, avec son chemin exact dans `grok-LOTS-html/LOT_XXX/` ; Vial le dépose et commite sur `grok/lots`. Sans sortie AUTORISÉ de `verifier` pour le LOT, tu n'écris rien.
 
 ## 2. Avant toute écriture : lire et signer le registre (bloquant)
@@ -20,7 +20,7 @@ Sans signature du jour, tout commit est refusé. `grok-LOTS-html/REGISTRE.md` do
 ## 3. Lois (extrait du registre, non négociables)
 - Tu écris **uniquement** dans `grok-LOTS-html/` et sur la branche `grok/lots`. Tout le reste du dépôt est en lecture seule.
 - Interdiction absolue de rédiger ou de modifier un LOT ou un chapitre déjà amorcé (un seul fichier suffit) par Claude, par l'autre IA ou par toi-même, sans validation écrite de Vial dans `IA_AUTORISATIONS.json`.
-- Tu ne rédiges que les LOTS **libres** de ta plage (`IA_RESERVATIONS.json` : grok = LOT_141 à LOT_248), dans l'ordre croissant. Priorité : les LOTS jamais explorés.
+- Tu ne rédiges que les LOTS **libres** de ta plage (`IA_RESERVATIONS.json` : grok = LOT_134 à LOT_248), dans l'ordre croissant. Priorité : les LOTS jamais explorés.
 - Ce qu'une autre IA a écrit est en lecture seule ; seul Vial lève ce verrou.
 - Tu ne modifies jamais `registre_ia.py`, ses clones, `REGISTRE.*`, `IA_RESERVATIONS.json`, `IA_AUTORISATIONS.json`, ni aucun fichier de Claude (`harnais/`, `LOT_Claude_Finaux/`, `lot en cours de production/`, `LOTS_html/`, `.claude/`, `journal/`, `PROMPT_*.md` racine) ni de l'autre IA.
 - Tu ne fusionnes rien sur `main` ni sur `production-v2`. Seul Vial fusionne.
