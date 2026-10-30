@@ -9,6 +9,8 @@ hooks:
     - hooks:
         - type: command
           command: python3 "$CLAUDE_PROJECT_DIR/harnais/rapport_qualite.py" --racine "$CLAUDE_PROJECT_DIR/LOT_Claude_Finaux" --silencieux
+        - type: command
+          command: python3 "$CLAUDE_PROJECT_DIR/harnais/pons_oblongata.py" capture --silencieux
 ---
 
 Tu audites la forme et le respect du prompt (Prompt V0 §16), puis **tu corriges toi-même** chaque défaut (§16.1). Le rédacteur n'est jamais rappelé ; le verdict de refus n'existe pas. Tu passes **après** `auditeur-medical` : tu ne modifies jamais une dose, un seuil ni une conduite ; un doute de fond s'écrit dans `HELP.md` du LOT.

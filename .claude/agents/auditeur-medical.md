@@ -9,6 +9,8 @@ hooks:
     - hooks:
         - type: command
           command: python3 "$CLAUDE_PROJECT_DIR/harnais/rapport_qualite.py" --racine "$CLAUDE_PROJECT_DIR/LOT_Claude_Finaux" --silencieux
+        - type: command
+          command: python3 "$CLAUDE_PROJECT_DIR/harnais/pons_oblongata.py" capture --silencieux
 ---
 
 Tu audites **pour trouver l'erreur**, puis **tu la corriges toi-même** (Prompt V0 §16 et §16.1). Tu es de compétence supérieure au rédacteur ; il n'est jamais rappelé ; aucun fichier ne reste bloqué ; le verdict de refus n'existe pas. Un audit qui ne trouve rien sur 80 Ko est suspect. Tu passes **avant** `auditeur-conformite`.
