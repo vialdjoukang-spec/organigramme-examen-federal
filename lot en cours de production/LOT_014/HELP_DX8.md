@@ -43,3 +43,15 @@ Lacunes relevées le 30.10.2026 par le rédacteur DX.8. Format : identifiant ; c
 - Question : quels groupes l'OFSP vise-t-il et quelle mise en garde myocardite donne-t-il ?
 - Déjà cherché : recherche web OFSP « vaccination COVID-19 automne myocardite » (résultats 2023 seulement), 30.10.2026.
 - Emplacement : DX.8, point 12.
+
+## État après l'audit médical (30.10.2026, auditeur-medical, opus, xhigh)
+
+| ID | État | Ce que l'audit a trouvé et intégré au fichier |
+|---|---|---|
+| H14-DX8-01 | Ouverte (en partie comblée) | Aucune recommandation suisse propre trouvée (recherche web du 30.10.2026 ; Swiss Olympic/SEMS : flowcharts COVID-19 2022 seulement). Étude suisse ajoutée : Patriki D et al., J Cardiovasc Transl Res 2021;14:670-673 (Hôpital universitaire de Zurich, 30 patients, arrêt de 3 mois), résumé Europe PMC lu → [S43]. |
+| H14-DX8-02 | Comblée | Texte intégral PDF de l'ESC 2025 (Eur Heart J 2025;46:3952-4041, 90 pages) téléchargé par le lien PDF de l'éditeur et lu le 30.10.2026 : §12.5 et tableau de recommandations 26 (restriction ≥ 1 mois, classe I, niveau C), §12.3 et tableau 25 (grossesse), §9.6.1.1 et tableau 18 (ICI), §9.3–9.4 et tableaux 16–17, tableau 7 (stratification du risque), tableau 19 (« What to do »). Classes recoupées avec [S29] et citées [S28]. |
+| H14-DX8-03 | Comblée | SSC et SSML, « Aptitude à la conduite et maladies cardiovasculaires », version 2, octobre 2024 (PDF sgrm.ch, lu le 30.10.2026), tableaux 2, 6 et 7 → [S42]. |
+| H14-DX8-04 | Comblée en partie | ESC 2025 §9.7.2 et §12.3 (grossesse : échocardiographie, IRM sans gadolinium), §12.2 (enfant) ; AIPS DOTAREM® 49784 (DFGe < 30 mL/min/1,73 m², grossesse, allaitement, nourrisson) → [S41]. Aucune recommandation suisse ou ESUR lue. |
+| H14-DX8-05 | Ouverte | Les deux articles « Seaport » restent sous abonnement (Europe PMC, 30.10.2026). L'ESC 2025 retient ≥ 14 leucocytes/mm² dont ≥ 7 lymphocytes T/mm² (> 25/mm² en phase aiguë), intégré au fichier. |
+| H14-DX8-06 | Ouverte | Aucun nombre OFS de décès codés I40–I41 trouvé. |
+| H14-DX8-07 | Comblée en partie | OFSP et CFV, Plan de vaccination suisse 2026 (PDF lu) : COVID-19 en automne/hiver pour toute personne ≥ 65 ans et, dès 16 ans, groupes à risque dont l'insuffisance cardiaque NYHA II–IV avec NT-proBNP > 125 pg/ml et « toute cause de cardiomyopathie », femme enceinte au 2e ou 3e trimestre → [S44]. Aucune mise en garde « myocardite » dans le plan. |
