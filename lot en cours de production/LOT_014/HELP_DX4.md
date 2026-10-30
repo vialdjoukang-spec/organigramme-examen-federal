@@ -43,3 +43,14 @@ Questions ouvertes par le rédacteur DX.4 le 30.10.2026. Format : identifiant ; 
 - Question : quelle position de la liste des analyses (LA) ou de l'OPAS couvre le test génétique d'un apparenté d'une victime de dissection ?
 - Déjà cherché : OPAS art. 12 (état 01.08.2026) ; sources S9 (30.10.2026).
 - Emplacement : DX.4, point 11.B (fenêtre sociale).
+
+## État après audit médical (30.10.2026, auditeur-medical)
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H14-DX4-01 | Ouverte | Une recherche web du 30.10.2026 n'a trouvé aucun tableau OFS des décès codés I71. |
+| H14-DX4-02 | Close | Aucune forme intraveineuse de vérapamil ou de diltiazem n'est autorisée en Suisse : liste Swissmedic « Conditionnements autorisés à usage humain », état au 30.09.2026 (seuls comprimés Isoptin®, Dilzem®, Tarka et crème rectale Anotop). Le HTML cite l'art. 49 al. 1 OAMéd (RS 812.212.1, état au 15.03.2025) pour l'importation et rappelle l'indication suisse de la nicardipine (67680). |
+| H14-DX4-03 | Ouverte | Pas de nouvelle recherche pendant l'audit. |
+| H14-DX4-04 | Close en partie | Grossesse : ESC 2025 lue dans la version de poche DGK 2025 (https://herzmedizin.de/asset/26076, chapitre 6, p. 30–35) ; reprise au HTML (césarienne IIa C, accouchement avant chirurgie IIa C, mode d'accouchement selon le diamètre). Péricarde : la version de poche DGK 2025 « Myokarditis und Perikarditis » (https://herzmedizin.de/asset/24840) range la dissection parmi les causes rares de tamponnade, sans recommandation propre ; le texte intégral ESC 2025 reste non lu. |
+| H14-DX4-05 | Ouverte | Pas de nouvelle recherche pendant l'audit. |
+| H14-DX4-06 | Ouverte | Pas de nouvelle recherche pendant l'audit. |
