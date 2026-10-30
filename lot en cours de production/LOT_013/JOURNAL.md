@@ -9,4 +9,4 @@
 - 2026-10-30 — Phase A : hypothèse — rangs de gravité E1 Homicide, E2 enfant, E3 intoxication (danger CO pour les vivants), E4 acte médical, E5 indéterminé.
 - 2026-10-30 — Phase A : hypothèse — HAS 2007 (France) utilisée comme repli européen pour la mort inattendue du nourrisson ; droit français signalé non applicable.
 - 2026-10-30 — Phase A : hypothèse — aucune dose dans la Phase A (défunt) ; pentobarbital absent du corpus AIPS local ; doses ERC non reprises.
-- 2026-10-30 — Phase A : fichier écrit, 113 504 octets, controle_lot --sans-nom : 0 critique ; aucun score attribué par le rédacteur.
+- 2026-10-30 — Phase A : fichier écrit, 114 229 octets, SHA-256 2c3fed5dc36f5b3d877478017b69ec7d7604d03a5ef23d87f4c01011b5a99b15, controle_lot --sans-nom : CONFORME, 0 critique ; aucun score attribué par le rédacteur.
