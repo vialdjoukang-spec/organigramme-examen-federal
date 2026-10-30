@@ -25,3 +25,11 @@ Questions ouvertes par le rédacteur de la Phase A le 30.10.2026. Toute réponse
 | H13-06 | Ouverte : version consolidée du RDSPF VD non confirmée. |
 | H13-07 | Partiellement comblée. |
 | H13-08 | Résolue : ASSM 2021 §6.2.1 cité en version française officielle. |
+
+## Question ajoutée par l'auditeur de conformité (2026-10-30, sonnet high)
+
+| ID | Fichier / point | Contexte (ce que dit le cours) | Question précise | Déjà cherché | Emplacement cible |
+|---|---|---|---|---|---|
+| H13-09 | Phase A, point 2, premier paragraphe | « Solde de 188 autres décès externes (calcul dérivé) » : 4 300 − 3 116 − 996 = 188, chiffre identique aux 188 décès liés à la drogue de [S13] | Cette égalité est-elle une coïncidence arithmétique ou un double comptage entre le groupe CIM-10 V00–Y98 et les décès liés à la drogue ? Relire les tableaux OFS T 14.03.04.01.x | Aucune relecture faite par la conformité (hors périmètre : fond) | Point 2, paragraphe d'ouverture |
+
+Note du chef de production (2026-10-30) sur H13-09 : le solde de 188 est un calcul dérivé sur le groupe OFS V00–Y98 [S10, l. 176] ; les 188 décès liés à la drogue de l'OFSP–Obsan [S13] sont codés F11–F19, hors de ce groupe (CORRECTION D'AUDIT n° 9). Les deux chiffres viennent de classifications disjointes : l'égalité paraît fortuite. Le texte ne les additionne pas. Question maintenue ouverte jusqu'à la lecture du détail OFS du solde (homicides, intention indéterminée, complications de soins Y40–Y84).
