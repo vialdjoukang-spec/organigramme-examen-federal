@@ -1,4 +1,4 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T14:23:08+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T14:23:46+00:00, branche production-v2)
 
 ## Où on en est
 - LOT_017 (EN_COURS) : 1 rédaction en cours ; 10 aucun fichier
