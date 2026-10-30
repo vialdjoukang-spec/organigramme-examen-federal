@@ -55,3 +55,11 @@ Lacunes relevées le 30.10.2026 par le rédacteur DX.8. Format : identifiant ; c
 | H14-DX8-05 | Ouverte | Les deux articles « Seaport » restent sous abonnement (Europe PMC, 30.10.2026). L'ESC 2025 retient ≥ 14 leucocytes/mm² dont ≥ 7 lymphocytes T/mm² (> 25/mm² en phase aiguë), intégré au fichier. |
 | H14-DX8-06 | Ouverte | Aucun nombre OFS de décès codés I40–I41 trouvé. |
 | H14-DX8-07 | Comblée en partie | OFSP et CFV, Plan de vaccination suisse 2026 (PDF lu) : COVID-19 en automne/hiver pour toute personne ≥ 65 ans et, dès 16 ans, groupes à risque dont l'insuffisance cardiaque NYHA II–IV avec NT-proBNP > 125 pg/ml et « toute cause de cardiomyopathie », femme enceinte au 2e ou 3e trimestre → [S44]. Aucune mise en garde « myocardite » dans le plan. |
+
+## Audit de conformité (30.10.2026, auditeur-conformite, sonnet, high)
+
+Forme corrigée en place (32 corrections, journal `corrections.jsonl`) ; aucune donnée de fond modifiée. Points laissés au fond :
+
+- Le point 14 interrogeait « l'autopsie » pour la fibrose chez 95 % des patients morts subitement ; l'ESC 2025 ne parle pas d'autopsie (fibrose chez 95 % des patients avec MSC contre 41 % sans). La question est reformulée sans « autopsie ». Vérifier à la source si ces chiffres reposent sur l'IRM ou l'histologie.
+- Les cellules « nominales » des doses AIPS (colonne « Dose AIPS » du tableau pharmacologique) sont conservées telles quelles pour rester fidèles à l'AIPS.
+- Les critères « Seaport » 2025 : le nom (lieu de la conférence) n'est pas développé, faute de lecture de l'article complet (H14-DX8-05).

@@ -43,3 +43,11 @@ Questions ouvertes par le rédacteur Phase B le 30.10.2026. Format : identifiant
 - Question : quelle spécialité de protamine est autorisée et disponible en Suisse en 2026 (numéro Swissmedic, information professionnelle à jour) ?
 - Déjà cherché : corpus local du 08.10.2026 (seule la protamine LEO 69842 trouvée), 30.10.2026.
 - Emplacement : DX.3, fenêtre « Énoxaparine — Clexane® et protamine ».
+
+## Suivi de l'audit médical (30.10.2026)
+- H14-DX3-01 — Ouverte. Recherche web du 30.10.2026 (Société suisse d'angiologie, consensus suisse EP/PERT) : aucune recommandation suisse trouvée ; seule l'organisation régionale tessinoise (Guarnieri 2024) existe.
+- H14-DX3-02 — Ouverte. Non traitée par l'audit médical (point 6, périmètre de l'audit de conformité).
+- H14-DX3-03 — Comblée en partie. LAA (RS 832.20) art. 6 al. 1 et 3, état au 01.01.2026, et OAC (RS 741.51) annexe 1 ch. 7, état au 01.01.2026, lus sur Fedlex et cités [S45][S46]. Reste ouverte : durée d'arrêt de travail ou d'interdiction de conduire propre à l'EP.
+- H14-DX3-04 — Ouverte. Le résumé précise que les taux sont standardisés selon l'âge (ajouté au fichier) ; texte intégral toujours non lu.
+- H14-DX3-05 — Comblée en partie. ESC 2025 § 11.4.2 lu (texte, WebFetch) : lyse et traitement interventionnel « not recommended in the peripartum period », envisagés seulement en EP à haut risque après avis multidisciplinaire ; HNF possible en phase initiale ; HBPM ajustée au poids du début de grossesse ; anticoagulation ≥ 6 semaines après l'accouchement ; HBPM ou AVK pendant l'allaitement. Fichier mis à jour. Classes du tableau de recommandations 11 toujours non lues.
+- H14-DX3-06 — Comblée. Le corpus AIPS du 08.10.2026 ne contient qu'une protamine : Sulfate de protamine LEO Pharma (69842), autorisée sur la base de la préparation allemande (« n'ont été que sommairement contrôlées par Swissmedic »). L'Héparine «Bichsel»® parle de « chlorhydrate de protamine », absent du corpus. Le fichier le dit dans la fiche Clexane® et protamine.

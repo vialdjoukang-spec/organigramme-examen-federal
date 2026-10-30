@@ -54,3 +54,7 @@ Questions ouvertes par le rédacteur DX.4 le 30.10.2026. Format : identifiant ; 
 | H14-DX4-04 | Close en partie | Grossesse : ESC 2025 lue dans la version de poche DGK 2025 (https://herzmedizin.de/asset/26076, chapitre 6, p. 30–35) ; reprise au HTML (césarienne IIa C, accouchement avant chirurgie IIa C, mode d'accouchement selon le diamètre). Péricarde : la version de poche DGK 2025 « Myokarditis und Perikarditis » (https://herzmedizin.de/asset/24840) range la dissection parmi les causes rares de tamponnade, sans recommandation propre ; le texte intégral ESC 2025 reste non lu. |
 | H14-DX4-05 | Ouverte | Pas de nouvelle recherche pendant l'audit. |
 | H14-DX4-06 | Ouverte | Pas de nouvelle recherche pendant l'audit. |
+
+## État après audit de conformité (30.10.2026, auditeur-conformite)
+
+Aucune question nouvelle. Les six questions H14-DX4-01 à 06 gardent l'état fixé par l'audit médical. Les développements ajoutés par l'audit de forme (DISSECT, TGF-β, IMPROVE-AD) viennent de la liste des abréviations des recommandations ESC 2024 (copie ORBi relue le 30.10.2026) ; MAO et DFG viennent du texte AIPS de Trandate® (n° 41529). Aucune dose, aucun seuil ni aucune classe n'a été modifié.
