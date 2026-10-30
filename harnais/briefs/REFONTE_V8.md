@@ -17,3 +17,4 @@ Source (ne pas modifier) : `LOT_Claude_Finaux/<LOT>/<fichier source>.html`. Sort
 - Le contrôle des nombres ne voit pas la perte de texte : comparer section par section avec la source avant de rendre.
 - Retrait pour redondance : seulement si la Phase A V8 contient le passage mot pour mot (doses, citations AIPS, conduites comprises) ; sinon garder en fenêtre.
 - Élision : « l' », « d' », « qu' » font partie du lien ou du mot qui suit (jamais seuls en fin de ligne). Étiquettes de courbe : aucune ne chevauche une ligne ou un point.
+- Connecteurs de cause (« donc », « car », « parce que », « c'est pourquoi », « si bien que », « d'où », « puisque », « en effet ») : seulement si la source donne elle-même la cause ; sinon connecteurs neutres (« et », « puis », « en outre », « par ailleurs »).
