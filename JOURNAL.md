@@ -1,0 +1,16 @@
+# JOURNAL — chantier de production `production-v2`
+
+Décisions prises sans Vial (il dort), chacune avec l'option la plus prudente pour le patient. Heure Europe/Zurich.
+
+| Heure | Décision | Raison |
+|---|---|---|
+| 2026-10-30 01:52 | Branche `production-v2` créée depuis `main` (f255d71) ; aucun commit sur `main` ; aucune fusion. | Ordre explicite de Vial (« jamais sur main ») ; il prime sur la branche de session technique. |
+| 2026-10-30 01:52 | Procédure Codex (porte.py, checkpoint, Étape 0 Codex) non appliquée. | Ordre de Vial pour ce chantier. |
+| 2026-10-30 02:05 | **Ordre tronqué** : le message s'arrête au point 1 d), à « API HTML `popover` : un bouton `popovertarget`, un `… ». Les points 1 d) (suite), 1 e) et suivants, et les consignes de production ne me sont pas parvenus. | Je n'invente pas la partie manquante. J'applique ce qui est lisible, puis le Prompt V0 tel quel pour la production. |
+| 2026-10-30 02:05 | Lecture retenue de 1 d) : bouton `popovertarget` dans la phrase + `<div id popover>` placé **après** le `</p>`, bouton « Fermer » `popovertargetaction="hide"`, CSS large (min(96vw, 60rem), 88vh, défilement). `<details>` reste accepté (fenêtres courtes, fichiers déjà déposés). | Interprétation la plus proche du texte reçu ; phrase porteuse intacte (§14.3.5) ; aucun JavaScript ; repli lisible sur navigateur ancien (contenu affiché). |
+| 2026-10-30 02:05 | Bande 80–150 Ko appliquée aux **nouveaux** fichiers. Les LOT_001–012 déjà déposés ne sont ni comprimés ni modifiés. | Comprimer un fichier audité sans réaudit risquerait d'amputer une dose ou une conduite. |
+| 2026-10-30 02:10 | `ETAT_FILE.json` : verdict `REFUSE` retiré des valeurs admises (aucun LOT ne le portait). | Cohérence avec la règle « aucun refus ». |
+| 2026-10-30 02:20 | Rapport qualité : leçon achevée = scorée par les deux auditeurs ; avant = première ligne de scores, après = dernière ; vague = 10 LOTS consécutifs (file active §22.4) ; lecture = mots visibles ÷ 180 mots/min. | « Vague » et « lecture estimée » non définies dans l'ordre ; conventions écrites dans le rapport lui-même. |
+| 2026-10-30 02:20 | Hook `Stop` déclaré dans le frontmatter des deux auditeurs ; la session principale relance aussi `rapport_qualite.py` après chaque fichier. | Double déclenchement : le rapport ne dépend pas du support des hooks d'agent. |
+| 2026-10-30 02:25 | Production : file stricte V0 §22.4, un LOT à la fois, en commençant par **LOT_013 (G13 Décès non naturel)**, LOT VIDE (archive : dossier vide). Phase B : un rédacteur par fichier, en parallèle, après gel de la liste canonique. | Seule lecture sûre en l'absence des consignes de production tronquées ; la Phase A gelée avant la Phase B évite toute incohérence A↔B. |
+| 2026-10-30 02:25 | Dépôt final sur `production-v2` seulement (PR brouillon, non fusionnée). | « Jamais sur main » prime sur la fusion après CI verte du Prompt V0 §6. |
