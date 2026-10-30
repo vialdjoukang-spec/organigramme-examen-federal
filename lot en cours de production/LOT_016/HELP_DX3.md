@@ -43,3 +43,9 @@ Format Prompt V0 §18. Chaque question demande : recommandation suisse en vigueu
 - Question : quelles spécialités suisses (numéro Swissmedic) et quelles posologies AIPS s'appliquent à la prévention de la carence en vitamine D et au traitement de la carence en B12 chez le sujet âgé ?
 - Déjà cherché : COFA 2018 ; corpus AIPS non interrogé pour ces molécules (hors du cœur de DX.3), 30.10.2026.
 - Emplacement : fenêtres `dx3-p9-interp` et `dx3-p12-prim`.
+
+## État après l'audit médical (30.10.2026, auditeur-medical, opus, xhigh)
+
+- H16-DX3-05 : comblée en partie. Antibiothérapie de la pneumonie d'aspiration écrite d'après la SPILF 2025 (Infect Dis Now 2025;55:105081, points forts lus sur em-consulte ; texte intégral non accessible) et l'AIPS d'Augmentin comprimés filmés (45674, 53692, septembre 2026). Reste ouvert : recommandation suisse (Société suisse d'infectiologie : site ssi.guidelines.ch non lisible sans JavaScript) et critères suisses de sortie.
+- H16-DX3-06 : comblée en partie. Dose recommandée de vitamine D écrite d'après la COFA 2018 (« une supplémentation de 800 UI/ jour est recommandée ») ; spécialité suisse et posologie AIPS toujours non lues (aucune monopréparation de cholécalciférol trouvée par nom dans le corpus le 30.10.2026).
+- Nouvelles sources lues par l'audit (copies dans le scratchpad de l'auditeur, non versées dans `evidence/`, hors périmètre d'écriture) : fiche ESPEN GLIM 2024 (critère inflammation) ; OPAS art. 7, 8, 8a (Fedlex, état le 1.8.2026) ; CC art. 453 (Fedlex, état le 1.7.2026) ; AIPS Marcoumar® 19395 et Augmentin 45674/53692. À verser dans `evidence/DX3_*` par la session principale.
