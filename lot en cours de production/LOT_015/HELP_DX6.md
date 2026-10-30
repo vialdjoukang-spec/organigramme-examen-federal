@@ -55,3 +55,19 @@ Questions ouvertes par le rédacteur DX.6 le 30.10.2026. Format : identifiant ; 
 - Question : quel est le score HFA-PEFF complet (points, seuils, ajustement à l'obésité) ?
 - Déjà cherché : Europe PMC (PMID 31504452, pas de texte libre), 30.10.2026.
 - Emplacement : DX.6 point 8, fenêtre « Critères selon la FEVG ».
+
+## Suivi d'audit médical (auditeur-medical, opus, xhigh) — 30.10.2026
+
+Fichier après correction : `LOT_015_Phase_B_V0_DX.6.html`, 141 980 octets. Nouvelles sources : [S43] diaporama officiel ESC 2026 (https://dam-assets.escardio.org/download/b2e587389baa11f185de06bdfb3e4be9, lien de la page ESC « Heart Failure Guidelines », 105 diapositives, lu le 30.10.2026) ; [S44] AIPS Noradrenalin Sintetica 60955 ; [S45] liste Swissmedic des médicaments autorisés (état au 30.09.2026).
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H15-DX6-01 | Comblée en partie | Le diaporama officiel ESC 2026 (figures 2 et 4) donne FEVG < 50 % (ICFER) et ≥ 50 % (ICFEP) ; NT-proBNP hors aigu élevé si ≥ 125 (< 50 ans), ≥ 250 (50–74 ans), ≥ 500 pg/mL (≥ 75 ans), ou BNP ≥ 35 ; décompensation : NT-proBNP ≥ 300 pg/mL (figure 11, appel de note non lu) ; stades A–D définis ; critères échographiques simplifiés de l'ICFEP identiques à ceux de la SSC (OG > 34 mL/m² en rythme sinusal) ; acétazolamide i.v. ou HCTZ en IIa B1. Texte intégral (academic.oup.com) toujours en HTTP 403 ; seuils propres à l'obèse non lus. Correction d'audit n° 14 et T3 : les seuils ESC 2026 sont désormais attribués au diaporama [S43], pas au texte intégral. |
+| H15-DX6-02 | Comblée | ESC 2026 [S43] : oxygène si SpO2 < 90 % ou PaO2 < 60 mmHg (I C) ; ventilation non invasive si fréquence respiratoire > 25/min et SpO2 < 90 % (IIa B2) ; intubation si insuffisance respiratoire persistante (I C). Aucune source suisse (HUG, CHUV) lue. |
+| H15-DX6-03 | Comblée | Aucune digoxine ni digitoxine dans la liste Swissmedic « Médicaments autorisés à usage humain » (état 30.09.2026) ni dans le XML AIPS du 08.10.2026 (recherche par nom de spécialité : Digoxin, Digitoxin, Lanoxin, Digimerck, Digacin…) ; seule DigiFab (59301, antidote). « À vérifier (AIPS) » gardé, sans dose. ESC 2026 : glucoside cardiaque IIa B1 si FEVG ≤ 40 % malgré traitement optimal. Voie d'importation (OAMéd) non lue sur Fedlex. |
+| H15-DX6-04 | Ouverte | Non traitée. |
+| H15-DX6-05 | Ouverte | Non traitée. |
+| H15-DX6-06 | Ouverte | Non traitée. |
+| H15-DX6-07 | Ouverte | Non traitée (mediX : connexion requise). |
+| H15-DX6-08 | Ouverte | Non traitée ; valeurs Se/Sp du tableau 1 HFA 2019 confirmées sur le PDF intégral. |
+| H15-DX6-09 | Ouverte en partie | L'ESC 2026 garde les critères simplifiés (pas de score HFA-PEFF dans le diaporama). |
