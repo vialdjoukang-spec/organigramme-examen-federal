@@ -11,4 +11,4 @@
 - Hypothèse — directive genevoise C.13 (§15) relue indépendamment après repérage dans l'evidence du rédacteur DX.10.
 - Hypothèse — Vaud : texte de l'art. 27d LSP non lu ; conditions tirées des directives d'application 2018 et de la page vd.ch.
 - Hypothèse — personne encore vivante après la prise : aucune règle suisse trouvée ; le fichier renvoie au CC art. 372, 377–379 et ouvre une question HELP.
-- Fichier écrit : LOT_013_Phase_B_V0_DX.1.html, 122922 octets, SHA-256 938003733bd593869faa6973265b0fe958a19ffa575e65e02a4ed3dd1993e14c ; controle_lot --sans-nom : voir dernière ligne. Aucun score attribué par le rédacteur.
+- Fichier écrit : LOT_013_Phase_B_V0_DX.1.html, 122922 octets, SHA-256 938003733bd593869faa6973265b0fe958a19ffa575e65e02a4ed3dd1993e14c ; controle_lot --sans-nom : 0 critique et 0 avertissement pour ce fichier (les critiques du LOT portent sur d'autres fichiers en cours). Aucun score attribué par le rédacteur.
