@@ -10,3 +10,4 @@ Source (ne pas modifier) : `LOT_Claude_Finaux/<LOT>/<fichier source>.html`. Sort
 6. Contrôles : `python3 harnais/verif_refonte.py <source> <sortie> --ref LOT_Claude_Finaux/<LOT>/<LOT>_Phase_A_V0.html` (sans --ref et avec --phase-a pour une Phase A) doit être VERT ; si des nombres manquent, réintègre-les en fenêtre (nombres conservés, taille, fenêtres, aucun script) ; `python3 harnais/taille_xy.py <sortie> --inscrire`.
 7. Aucun commit ; téléchargements interdits (pas besoin de sources nouvelles). Réponse ≤ 4 lignes : T, fenêtres, verdict de verif_refonte.
 8. Dernière ligne : `<!-- FIN_FICHIER <LOT>_<fichier>_V8 -->`.
+- Les fenêtres doivent elles aussi être en phrases complètes et liées : ne pas déplacer tel quel l'ancien texte télégraphique dans une fenêtre « texte complet ».

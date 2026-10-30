@@ -1,4 +1,4 @@
-# REGISTRE IA — état au 2026-10-30T21:17:55+01:00
+# REGISTRE IA — état au 2026-10-30T21:18:18+01:00
 
 LOIS DU REGISTRE (ordre de Vial, 30.10.2026) — lecture et signature obligatoires, sinon toute écriture est bloquée.
 L1. Lis ce registre et signe-le (`signer`) au début de chaque session, avant d'écrire quoi que ce soit.
