@@ -1,15 +1,15 @@
 # Modèle et effort réellement servis — vérité lue dans les transcriptions (Article 4)
 
-Relevé 30.10.2026 23:45 · session principale : **claude-opus-5-5 · medium** · 260 agents · **51 en écart au contrat**.
+Relevé 30.10.2026 23:48 · session principale : **claude-opus-5-5 · medium** · 260 agents · **51 en écart au contrat**.
 
 | État | Agent | Demandé | Servi (dernier tour) | Tours par modèle · effort | Contrat |
 |---|---|---|---|---|---|
-| en cours | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 15 | conforme |
-| en cours | Refonte V8 LOT_011 DX.8 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 16 | conforme |
-| en cours | Refonte V8 LOT_010 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 17 | conforme |
-| en cours | Refonte V8 LOT_011 DX.6 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 14 | conforme |
-| en cours | Refonte V8 LOT_011 DX.7 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 17 | conforme |
-| en cours | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 61 | conforme |
+| en cours | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 57 | conforme |
+| en cours | Refonte V8 LOT_011 DX.8 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 66 | conforme |
+| en cours | Refonte V8 LOT_010 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 67 | conforme |
+| en cours | Refonte V8 LOT_011 DX.6 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 59 | conforme |
+| en cours | Refonte V8 LOT_011 DX.7 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 63 | conforme |
+| arrêté | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 61 | conforme |
 | en cours | Refonte V8 LOT_011 DX.8 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 90 | conforme |
 | terminé | Refonte V8 LOT_011 DX.5 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 155 | conforme |
 | terminé | Refonte V8 LOT_011 DX.4 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 132 | conforme |

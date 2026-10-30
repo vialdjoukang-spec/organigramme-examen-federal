@@ -1,0 +1,46 @@
+# Garde temps réel de Codex depuis GitHub (ordre de Vial, 31.10.2026) : couple [Harnais + Routage] de la branche codex/lots.
+# Toutes les 5 min (minimum GitHub) : exécute codex-LOTS-html/outils/garde_temps_reel.py sur codex/lots, sans rien modifier.
+# Couple ROUGE → « @codex » sur la PR « Pilote Codex » avec le rapport et la correction exacte (au plus 1 fois / 30 min).
+# Couple VERT → rien (le rapport reste dans le résumé du job). Jeton : AUTO_FUSION_TOKEN (déclenche Codex), sinon GITHUB_TOKEN.
+name: Garde Codex temps réel
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+concurrency:
+  group: garde-codex-temps-reel
+  cancel-in-progress: true
+jobs:
+  garde:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: codex/lots, fetch-depth: 0 }
+      - name: Garde (version de production-v2 si Codex ne l'a pas encore copiée)
+        id: g
+        run: |
+          git fetch -q origin production-v2
+          mkdir -p codex-LOTS-html/outils
+          git show origin/production-v2:codex-LOTS-html/outils/garde_temps_reel.py > codex-LOTS-html/outils/garde_temps_reel.py
+          set +e
+          python3 codex-LOTS-html/outils/garde_temps_reel.py controle --sans-correction | tee rapport.txt
+          echo "rc=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          cat rapport.txt >> "$GITHUB_STEP_SUMMARY"
+      - name: Couple rompu → @codex sur « Pilote Codex »
+        if: steps.g.outputs.rc != '0'
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          pr=$(gh pr list --state open --search "Pilote Codex in:title" --json number -q '.[0].number')
+          [ -z "$pr" ] && { echo "PR « Pilote Codex » introuvable"; exit 0; }
+          last=$(gh api "repos/$GH_REPO/issues/$pr/comments?per_page=100" -q '[.[] | select(.body | startswith("@codex GARDE TEMPS RÉEL"))] | last | .created_at // ""')
+          if [ -n "$last" ] && [ $(( $(date +%s) - $(date -d "$last" +%s) )) -lt 1800 ]; then echo "rappel déjà envoyé il y a moins de 30 min"; exit 0; fi
+          { echo "@codex GARDE TEMPS RÉEL — couple [Harnais + Routage] ROUGE sur codex/lots. Production bloquée jusqu'au retour au VERT."; echo; echo '```'; cat rapport.txt; echo '```'; echo;
+            echo "Corrige maintenant : \`python3 codex-LOTS-html/outils/garde_temps_reel.py controle\` (corrige seul le harnais et la veille), applique les lignes ✗ restantes, consigne, pousse codex/lots ; puis relance \`garde_temps_reel.py boucle\`."; } > corps.md
+          gh pr comment "$pr" --body-file corps.md
