@@ -41,3 +41,8 @@ Chaque rédacteur de Phase B applique les corrections ci-dessous dans son fichie
 | H14-03 | Ouverte | ESC 2022 : les tableaux de recommandations 6 et 7 (§ 5.2.4–5.2.5) restent des images (WebFetch du 30.10.2026) ; classes et niveaux non lus. Seul le texte du § 5.1.4 (gènes douteux, réévaluation des variants) a été lu. |
 | H14-04 | Ouverte | Prise en charge LAMal de l'autopsie clinique et des tests des apparentés : seules des sources secondaires anciennes (2008–2018) trouvées ; non retenues. |
 | H14-05 | Ouverte | Recommandation suisse ou ESC 2024 sur l'HSA et la dissection aortique non lue ; séries suisses conservées. |
+
+## À vérifier en passe transversale finale (auditeur médical)
+
+T1. L'audit de conformité de la Phase A a ajouté du contenu hors de son périmètre de forme : un tableau d'interprétation de l'autopsie (9.a), une ligne « signes physiques » (7.2) et une « sixième condition » de la mort naturelle (point 1, pour s'accorder avec « six conditions » du 11.C). Vérifier chaque ajout contre sa source [Sn] ; corriger ou retirer.
+T2. HELP H14-06 et H14-07 : développement de CPC (« Cerebral Performance Category ») et de SWISSRECA, à lire à la source.

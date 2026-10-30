@@ -40,3 +40,8 @@ Questions ouvertes par le rédacteur Phase A le 30.10.2026. Format : identifiant
 ## Statut après audit médical de la Phase A (2026-10-30)
 - H14-01 : partiellement comblée (Epi-Suisse / Ligue suisse contre l'épilepsie : 70 à 100 décès SUDEP par an, estimation).
 - H14-02 à H14-05 : ouvertes (classes et niveaux ESC 2022 publiés en images seulement).
+
+## Statut après audit de conformité de la Phase A (2026-10-30)
+- H14-06 — 7.2 : les sources consultées ne décrivent aucun signe physique propre aux prodromes arythmiques ; la ligne « Signes physiques » le dit. Question : un texte suisse ou européen décrit-il un signe physique de recherche ? Emplacement : Phase A, point 7.2.
+- H14-07 — Développement de « CPC » (Cerebral Performance Category) et de « SWISSRECA » : la source ASSM écrit « CPC 1-2 » sans développer ; SWISSRECA n'est développé dans aucune source lue. Question : nom officiel complet de SWISSRECA. Emplacement : Phase A, points 2 et 11.A.
+- Taille finale : 146 113 octets (bande 80–150 Ko respectée).
