@@ -46,3 +46,4 @@ Chaque rédacteur de Phase B applique les corrections ci-dessous dans son fichie
 
 T1. L'audit de conformité de la Phase A a ajouté du contenu hors de son périmètre de forme : un tableau d'interprétation de l'autopsie (9.a), une ligne « signes physiques » (7.2) et une « sixième condition » de la mort naturelle (point 1, pour s'accorder avec « six conditions » du 11.C). Vérifier chaque ajout contre sa source [Sn] ; corriger ou retirer.
 T2. HELP H14-06 et H14-07 : développement de CPC (« Cerebral Performance Category ») et de SWISSRECA, à lire à la source.
+T3. Noradrénaline : l'audit de DX.8 a corrigé une dose de départ de 8–12 µg/min dans le choc cardiogénique (AIPS 60955 : 2–4 µg/min, puis hausse progressive). DX.3 cite aussi « 8–12 µg/min » ; l'auditeur de DX.3 est alerté. Passe transversale : vérifier toute dose de noradrénaline des 11 fichiers contre l'AIPS citée (spécialité et indication).
