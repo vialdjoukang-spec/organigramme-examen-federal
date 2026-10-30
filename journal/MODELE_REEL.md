@@ -1,20 +1,20 @@
 # Modèle et effort réellement servis — vérité lue dans les transcriptions (Article 4)
 
-Relevé 30.10.2026 23:02 · session principale : **claude-opus-5-5 · high** · 248 agents · **51 en écart au contrat**.
+Relevé 30.10.2026 23:04 · session principale : **claude-opus-5-5 · high** · 248 agents · **51 en écart au contrat**.
 
 | État | Agent | Demandé | Servi (dernier tour) | Tours par modèle · effort | Contrat |
 |---|---|---|---|---|---|
-| en cours | Refonte V8 LOT_011 DX.3 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 5 | conforme |
+| terminé | Audit croisé V8 LOT_014 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 339 | conforme |
+| en cours | Refonte V8 LOT_011 DX.3 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 34 | conforme |
 | terminé | Refonte V8 LOT_011 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 160 | conforme |
-| en cours | Refonte V8 LOT_011 DX.2 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 39 | conforme |
+| en cours | Refonte V8 LOT_011 DX.2 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 43 | conforme |
 | terminé | Refonte V8 LOT_011 DX.1 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 131 | conforme |
-| en cours | Audit croisé V8 LOT_012 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 97 | conforme |
+| en cours | Audit croisé V8 LOT_012 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 116 | conforme |
 | terminé | Refonte V8 LOT_012 DX.13 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 118 | conforme |
 | terminé | Refonte V8 LOT_012 DX.12 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 107 | conforme |
 | terminé | Audit croisé V8 LOT_016 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 265 | conforme |
-| en cours | Audit croisé V8 LOT_014 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 327 | conforme |
 | terminé | Refonte V8 LOT_012 DX.11 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 80 | conforme |
-| en cours | Audit croisé V8 LOT_015 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 285 | conforme |
+| en cours | Audit croisé V8 LOT_015 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 308 | conforme |
 | terminé | Refonte V8 LOT_012 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 88 | conforme |
 | terminé | Refonte V8 LOT_012 DX.10 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 92 | conforme |
 | terminé | Refonte V8 LOT_012 DX.8 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 83 | conforme |
