@@ -1,4 +1,4 @@
-# REGISTRE IA — état au 2026-10-31T00:57:01+01:00
+# REGISTRE IA — état au 2026-10-31T00:57:50+01:00
 
 LOIS DU REGISTRE (ordre de Vial, 30.10.2026) — lecture et signature obligatoires, sinon toute écriture est bloquée.
 L1. Lis ce registre et signe-le (`signer`) au début de chaque session, avant d'écrire quoi que ce soit.
@@ -31,7 +31,7 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_016 | G16 | DÉPOSÉ | claude | claude | 11/11 |
 | LOT_017 | S1.1 | AMORCÉ | claude | claude | 10/11 |
 | LOT_018 | S1.2 | AMORCÉ | codex | codex | 11/11 |
-| LOT_019 | S1.3 | LIBRE | — | codex | 0/11 |
+| LOT_019 | S1.3 | AMORCÉ | codex | codex | 11/11 |
 | LOT_020 | S1.4 | LIBRE | — | codex | 0/11 |
 | LOT_021 | S1.5 | LIBRE | — | codex | 0/11 |
 | LOT_022 | S1.6 | LIBRE | — | codex | 0/11 |

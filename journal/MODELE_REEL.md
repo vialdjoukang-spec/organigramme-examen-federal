@@ -1,13 +1,14 @@
 # Modèle et effort réellement servis — vérité lue dans les transcriptions (Article 4)
 
-Relevé 30.10.2026 23:57 · session principale : **claude-opus-5-5 · medium** · 260 agents · **51 en écart au contrat**.
+Relevé 30.10.2026 23:58 · session principale : **claude-opus-5-5 · medium** · 261 agents · **51 en écart au contrat**.
 
 | État | Agent | Demandé | Servi (dernier tour) | Tours par modèle · effort | Contrat |
 |---|---|---|---|---|---|
+| terminé | Refonte V8 LOT_011 DX.10 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 4 | conforme |
+| terminé | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 81 | conforme |
 | terminé | Refonte V8 LOT_011 DX.6 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 138 | conforme |
-| en cours | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 79 | conforme |
 | en cours | Refonte V8 LOT_011 DX.8 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 79 | conforme |
-| en cours | Refonte V8 LOT_010 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 136 | conforme |
+| terminé | Refonte V8 LOT_010 Phase A (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 142 | conforme |
 | en cours | Refonte V8 LOT_011 DX.7 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 78 | conforme |
 | arrêté | Refonte V8 LOT_011 DX.9 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 61 | conforme |
 | arrêté | Refonte V8 LOT_011 DX.8 (xhigh) | opus · xhigh | claude-opus-5-5 · xhigh | claude-opus-5-5 · xhigh : 90 | conforme |
