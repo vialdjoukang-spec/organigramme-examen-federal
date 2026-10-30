@@ -12,3 +12,11 @@ Lacunes ouvertes par le rédacteur DX.3 le 30.10.2026. Toute réponse se vérifi
 | H13-DX3-06 | DX.3, points 9 et 11 | Autopsie du fœtus documentée seulement à Genève (directive C.13 §8) ; lien avec H13-07 | Pratique des autres cantons (VD, ZH, BE) en cas de suicide d'une femme enceinte | Directive C.13 GE lue ; autres cantons non trouvés, 30.10.2026 | Fenêtres `dx3-p9-tox`, `dx3-p11-speciales` |
 | H13-DX3-07 | DX.3, point 9 | Genève ordonne l'autopsie en cas de suicide ; Zurich trie par CT | Part des suicides autopsiés en Suisse ou par canton, source datée | IRM-UZH 2019, GE C.13, CURML 2014 lus, 30.10.2026 | Fenêtre `dx3-p9-autopsie` |
 | H13-DX3-08 | DX.3, point 1 | Code de déontologie FMH non lu (même cause que H13-05) | Texte de l'article du Code FMH sur les certificats | fmh.ch → HTTP 403 (H13-05), non retenté | Fenêtre `dx3-p1-deonto` |
+
+## État après audit médical (auditeur-medical, opus, xhigh — 30.10.2026)
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H13-DX3-02 | Résolue | Directive 7.9 « Suicide » lue sur https://presserat.ch/fr/journalistenkodex/richtlinien/ (directives révisées le 03.07.2024, en vigueur dès le 01.01.2025) ; texte réinjecté dans la fenêtre `dx3-p12-medias`, source [S34] |
+| H13-DX3-03 | Ouverte | Recherche web du 30.10.2026 : aucun guide suisse de postvention postérieur à 2016 destiné aux médecins ; seule la brochure OFSP 2021 vise les proches de personnes suicidaires vivantes |
+| H13-DX3-01, -04 à -08 | Ouvertes | Pas de nouvelle recherche pendant l'audit ; le fichier écrit déjà « donnée non trouvée dans les sources consultées » à chaque emplacement ; H13-DX3-08 dépend toujours de H13-05 (fmh.ch, HTTP 403) |
