@@ -22,7 +22,8 @@ JOURNAL = D / f"ROUTAGE_{IA.upper()}.jsonl"
 POULS = D / ".veille_routage"
 ALERTES = D / f"VEILLE_{IA.upper()}.log"
 POSTES = ("redacteur-phase-a", "redacteur", "auditeur-medical", "auditeur-conformite", "transversale", "mecanique")
-ORDRE = {"redacteur-phase-a": 0, "redacteur": 0, "auditeur-medical": 1, "auditeur-conformite": 2, "transversale": 3}
+ORDRE = {"redacteur-phase-a": 0, "redacteur": 0, "auditeur-medical": 1, "auditeur-conformite": 2, "transversale": 3,
+         "relecture-interne": 1, "controle-v8": 2, "transversale-interne": 3}
 ZH = datetime.timezone(datetime.timedelta(hours=1))
 
 
@@ -70,6 +71,8 @@ def consigner(lot, fichier, poste, raison):
     x = poste_actif(poste)
     l = {"horodatage": maintenant(), "lot": lot, "fichier": fichier, "poste": poste,
          "modele": x["modele"], "effort": x["effort"], "raison": raison}
+    if "independant" in x:
+        l["independant"] = x["independant"]
     with JOURNAL.open("a", encoding="utf-8") as f:
         f.write(json.dumps(l, ensure_ascii=False) + "\n")
     print("consigné :", lot, fichier, poste, x["modele"])

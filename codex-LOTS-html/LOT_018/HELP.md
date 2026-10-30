@@ -1,44 +1,25 @@
-# Points ouverts — LOT_018
+# Points de suivi — LOT_018
 
-État au 30.10.2026 : première rédaction de la Phase A terminée ; LOT non clôturé.
-Fichier : `LOT_018_Phase_A_V0.html`. Aucun score médical attribué.
+État du 30.10.2026 : onze leçons produites, relecture interne terminée et contrôles statiques V8 réussis. Voir `VALIDATION.md` et `ACCORD_POURSUITE.md`. La production ne reste plus en attente du gel de la liste.
 
-## H1 — Classement des dix diagnostics
+## H1 — Ordre des diagnostics : décision éditoriale documentée
 
-Les dix diagnostics et le tableau comparatif sont présents, mais leur ordre est provisoire. Les sources lues ne permettent pas de classer leur prévalence dans une population unique correspondant à ce symptôme composite. Les 6,2 % Obsan concernent une difficulté visuelle déclarée dans l’ESS 2012/2017, et non une distribution étiologique des consultations.
+La liste est stabilisée dans `LISTE_DX_CANONIQUE.md`, identique aux dix titres et à la Phase A. Les sources ne démontrent pas une hiérarchie de fréquence commune aux urgences et aux consultations lentes. Les numéros sont donc explicitement pédagogiques ; les priorités d’urgence restent distinctes. Aucun rang de prévalence n’a été inventé.
 
-À résoudre pendant l’audit : préciser le contexte de classement, documenter les rangs par des données comparables et décider de la sélection. `LISTE_DX_CANONIQUE_PROVISOIRE.md` n’est pas une liste gelée. Aucun fichier de Phase B n’a été créé.
+## H2 — Indépendance de la relecture : limite déclarée
 
-## H2 — Audit indépendant avant Phase B
+Vial demande un travail seul et a autorisé la poursuite après le signalement du point d’arrêt. Les onze leçons ont été produites, relues et contrôlées dans la session principale. Les rôles `relecture-interne`, `controle-v8` et `transversale-interne` portent `independant: false`. Les rôles d’auditeur externe restent différés et non exécutés ; ils ne sont pas utilisés pour simuler un audit. Aucun score médical indépendant n’est attribué.
 
-`PROMPT_CODEX.md`, §6.3 : « Audit médical de la Phase A (poste auditeur, passe distincte — nouvelle tâche Codex ou nouvelle session, jamais dans la même passe que la rédaction) » ; cette passe gèle la liste.
+## H3 — Contrôleur historique et V8 : divergence expliquée
 
-§9.2 : « L’auditeur médical n’est pas le même modèle que le rédacteur » ; avec un seul modèle fort, le prompt prévoit `audit_croise_externe: true`.
+Les rapports officiels négatifs sont conservés. Leurs critères historiques (`title`, `[S1]`, `h3`, bande d’octets) diffèrent du format V8 demandé dans la section 12 du prompt maître. Le rapport complémentaire `audits/validation_v8.json` vérifie les critères statiques V8 sans modifier le harnais. Le détail des écarts et des avertissements est dans `VALIDATION.md`. Cela ne vaut pas correction du harnais commun.
 
-Vial demande un travail seul. La production a donc été réalisée dans la session principale, avec GPT-6 Astra · ultra confirmé par Vial. L’audit externe est déclaré comme différé ; aucun auditeur n’a été contacté ni lancé pour cette production. Le script de routage refuse de consigner un poste différé. Les contrôles Python et la relecture du rédacteur ne satisfont pas l’exigence d’indépendance.
+## H4 — Rendu visuel : non vérifié
 
-Prochaine étape : audit médical dans le cadre distinct exigé par le prompt, vérification des doses et sources, puis gel documenté de la liste. Les rôles différés ne doivent être activés qu’avec leur modèle réellement utilisé et leur passe effectivement réalisée.
+Le téléchargement du navigateur Playwright a reçu HTTP 403 (« Domain forbidden »). Chromium présent sur la machine a refusé l’ouverture locale avec `net::ERR_BLOCKED_BY_ADMINISTRATOR`. Aucune restriction n’a été contournée. Lecture mobile, clavier, contraste, défilement et maintien de la fenêtre parente après fermeture d’une sous-fenêtre restent à constater dans un navigateur autorisé. Aucune capture ni validation mobile n’est revendiquée.
 
-## H3 — Contrôleurs historiques et norme V8
+## H5 — Glucocorticoïdes dans l’ACG : distinction précisée
 
-Les scripts officiels sont inchangés et leurs rapports bruts sont conservés :
+DX.10 et la Phase A distinguent désormais l’indication ACG de Prednisone Streuli (29349), sa plage AIPS générale, la dose d’induction EULAR 40–60 mg/j et les bolus sélectionnés de méthylprednisolone proposés par EULAR. Le bénéfice visuel de ces derniers est indiqué comme incertain. Ils ne sont pas attribués à une posologie ACG explicite de Solu-MEDROL (35112). Les citations d’administration, de contre-indications et de grossesse/allaitement sont conservées mot pour mot ; un usage hors information professionnelle doit être identifié par l’équipe qui prescrit.
 
-- `audits/controle_officiel.json` : deux critiques (`title` et absence de références littérales `[S1]`).
-- `audits/langue.json` : critique `title`, plus avertissements de langue et de typographie à examiner.
-- `audits/controle_gabarit_officiel.json` : le contrôleur produit quatre critiques sur le modèle V8 officiel lui-même.
-
-La section 12 de `PROMPT_PRODUCTION_V2.md` exige pourtant `<abbr title>` et des références en exposant, « jamais [S16] ». Les définitions d’abréviations sont conservées. La section Sources comporte huit entrées identifiées, reliées aux exposants. La critique des lignes trop longues a été corrigée dans le fichier produit ; les polices sont embarquées pour éviter une dépendance distante.
-
-`audits/structure_v8.json` vérifie seulement les identifiants, liens, fenêtres, citations AIPS, polices et tailles. Son résultat positif ne remplace ni le contrôle officiel, qui reste négatif, ni un audit médical ou de conformité. Le fichier `MANIFESTE.json` est une empreinte du brouillon, pas une clôture de LOT. L’autorité qui maintient le harnais doit résoudre son désaccord avec la norme avant acceptation finale.
-
-## H4 — Rendu visuel non vérifié
-
-Le navigateur Playwright fourni n’était pas installé. Son téléchargement a reçu HTTP 403 (« Domain forbidden »). Chromium présent sur la machine a ensuite refusé l’ouverture locale avec `net::ERR_BLOCKED_BY_ADMINISTRATOR`. Ces restrictions n’ont pas été contournées.
-
-Il reste à vérifier dans un environnement autorisé : lecture sur téléphone, contraste clair/sombre, clavier, défilement des tableaux, ouverture des sous-fenêtres et maintien de leur fenêtre parente après fermeture. Une règle locale limite le décalage horizontal des sous-fenêtres sur écran étroit ; son rendu n’a pas été mesuré. Aucune capture d’écran ni validation mobile n’est revendiquée.
-
-## H5 — Glucocorticoïdes et statut d’emploi dans l’ACG
-
-La stratégie d’urgence repose sur les recommandations EULAR lues. Les chiffres d’un protocole EULAR ne sont pas repris comme posologie AIPS. La fenêtre thérapeutique conserve les citations suisses relatives à la vitesse d’administration, aux contre-indications et à la grossesse, tout en signalant le protocole propre à l’ACG comme à vérifier.
-
-Avant validation : déterminer la spécialité, la dose, la voie et le statut exact dans son information professionnelle ; expliciter tout usage hors information professionnelle. Ne pas interpréter les durées minimales d’injection citées comme un protocole complet d’ACG ou de névrite.
+Les traitements de fond non détaillés et les données suisses introuvables restent signalés comme tels dans les leçons. La clôture de rédaction ne signifie pas couverture de toutes les spécialités possibles ni validation clinique par un médecin.

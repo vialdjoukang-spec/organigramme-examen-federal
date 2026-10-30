@@ -1,4 +1,4 @@
-# Sources consultées — LOT_018, Phase A
+# Sources consultées — LOT_018
 
 Lecture : 30.10.2026. Les extraits courts ci-dessous et les notes de lecture ne constituent pas une reproduction intégrale des publications. Les pages consultées ne valent pas vérification indépendante de la future leçon.
 
@@ -34,3 +34,7 @@ Notes : il s'agit d'une déclaration dans l'ESS 2012/2017, chez les ≥15 ans en
 
 S6, recommandation 2 : « In patients with a strong clinical suspicion of GCA, treatment with glucocorticoids (GCs) should be commenced without delay, while waiting for the results of confirmatory investigations. »
 Notes : consultation spécialisée sous 24 h pour toute suspicion ; urgence immédiate quand l'ischémie visuelle menace. Imagerie ou biopsie pour confirmer ; les critères de classification ne sont pas des critères diagnostiques. Les bolus de méthylprednisolone dans une perte visuelle sélectionnée sont une proposition de recommandation, avec bénéfice incertain, à distinguer de l'information professionnelle.
+
+## Extension à la Phase B
+
+Voir [PHASE_B_NOTES.md](PHASE_B_NOTES.md) pour S9–S29, leurs URLs, extraits datés, portées et limites de lecture. Les trois extraits AIPS complémentaires sont conservés en JSON ; les formes sont consignées dans `SWISSMEDIC_PHASE_B.txt`. S1–S8 restent communs aux leçons qui les citent.

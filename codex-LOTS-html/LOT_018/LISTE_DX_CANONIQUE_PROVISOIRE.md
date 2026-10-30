@@ -1,6 +1,6 @@
 # Liste provisoire — LOT_018, S1.2
 
-Non gelée : audit médical indépendant non effectué. Les numéros sont des repères et ne prouvent pas un rang de prévalence. Voir HELP H1.
+État historique de la première rédaction, remplacé par `LISTE_DX_CANONIQUE.md` après accord de Vial. Aucun audit médical indépendant effectué. Les numéros sont des repères et ne prouvent pas un rang de prévalence. Voir HELP H1.
 
 DX.1 — Amétropie non corrigée
 DX.2 — Cataracte
