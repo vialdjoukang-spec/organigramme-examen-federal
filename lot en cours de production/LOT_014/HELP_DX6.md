@@ -37,3 +37,9 @@ Questions ouvertes par le rédacteur DX.6 le 30.10.2026. Format : identifiant ; 
 - H14-DX6-01 — **Comblée en partie.** Aucun phénobarbital injectable n'est autorisé : liste Swissmedic des emballages autorisés (état au 30.09.2026) = Aphénylbarbite® 15/50/100 mg comprimés seulement (n° 12175 ; l'information professionnelle existe en français, mise à jour novembre 2023, et non en allemand seulement). Import possible selon l'art. 49 OAMéd (RS 812.212.1, état au 15.03.2025). Ajouté : Thiopental Inresa® (n° 62451), indication « contrôle des convulsions … d'origines diverses », dose AIPS seulement en cours de narcose (75–125 mg). Reste ouvert : protocole suisse de dose i.v. de phénobarbital importé (aucune source suisse lue).
 - Nouvelle constatation (comblée) : Valium® solution injectable (n° 30433) porte l'indication « état de mal épileptique » (0,15–0,25 mg/kg i.v., répétable après 10–15 min, max. 3 mg/kg/24 h) ; ajoutée au point 11.
 - H14-DX6-02 à H14-DX6-05 — Ouvertes ; aucune source nouvelle trouvée pendant l'audit.
+
+## État après audit de conformité (30.10.2026, auditeur-conformite, sonnet, high)
+
+- Aucune donnée de fond modifiée ni ajoutée ; 25 corrections de forme consignées dans `LOT_Claude_Finaux/LOT_014/audits/corrections.jsonl`.
+- Question ouverte nouvelle : l'acronyme MORTEMUS (étude de 2013) n'est pas développé dans le fichier, car la source lue (titre PubMed S39) ne le développe pas. Le nom complet de l'acronyme reste à lire dans le texte intégral de Ryvlin et al. 2013 avant tout ajout.
+- H14-DX6-02 à H14-DX6-05 : toujours ouvertes.
