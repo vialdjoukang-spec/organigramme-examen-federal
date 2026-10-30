@@ -71,3 +71,8 @@ Questions ouvertes par le rédacteur de `LOT_016_Phase_B_V0_DX.9.html` le 30.10.
 - Question : quel coût direct ou indirect est publié pour la Suisse ?
 - Déjà cherché : OFSP, rapports 2012 et 2022 (30.10.2026).
 - Emplacement : fenêtre `dx9-p2-evolution`, dernier paragraphe.
+
+## Notes de l'audit médical (30.10.2026, auditeur-medical, opus, xhigh)
+- H16-DX9-03 : reste ouverte. Recherche web du 30.10.2026 (« Anorexia nervosa Refeeding Empfehlungen Schweiz ») : aucun protocole suisse propre à l'anorexie mentale trouvé. Le fichier tranche désormais : la grille MEED [S11], propre à l'anorexie mentale, fixe le départ calorique ; le consensus suisse [S14] (troubles alimentaires exclus) fournit l'alerte biologique précoce, la restriction sodée et le schéma de correction i.v. (tableau 4).
+- H16-DX9-06 : reste ouverte. Europe PMC (PMID 37350265) : texte intégral non disponible en accès libre (isOpenAccess = N, aucun PMCID), 30.10.2026.
+- H16-DX9-07 : reste ouverte. Le corpus local contient des spécialités calciques non relues ici (Carbonate de calcium Salmon Pharma 500 mg, n° 50383 ; Decalcit, n° 12337/19035 ; Calcium D3 Sandoz, n° 53628/55760) : à lire pour la spécialité calcique du mineur.
