@@ -1,0 +1,46 @@
+SOURCE=(1) Observatoire suisse de la santé (Obsan), indicateur « Symptômes de dépression » (_065), données OFS – Enquête suisse sur la santé (ESS), API JSON de l'indicateur (champ last_updated_at = 2025-01-17, version 20250116) ; (2) Office fédéral de la statistique (OFS), Statistique des causes de décès (CoD), tableaux T 14.03.04.01.01 (hommes, 2024), T 14.03.04.01.02 (femmes, 2024), T 14.03.04.01.12 (méthodes de suicide 1995–2024), état des données 22.12.2025 ; (3) Obsan, indicateur « Suicide et suicide assisté » (page) ; (4) OFSP, page « Plan d'action pour la prévention du suicide »
+URL=https://ind.obsan.admin.ch/api/_065/kg/json ; https://ind.obsan.admin.ch/api/_065/ag/json ; https://dam-api.bfs.admin.ch/hub/api/dam/assets/36262331/master ; https://dam-api.bfs.admin.ch/hub/api/dam/assets/36262339/master ; https://dam-api.bfs.admin.ch/hub/api/dam/assets/36262353/master ; https://ind.obsan.admin.ch/fr/indicator/obsan/suicide-et-suicide-assiste ; https://www.bag.admin.ch/fr/plan-daction-pour-la-prevention-du-suicide
+CONSULTÉ=2026-10-30 (curl ; JSON lu par script ; xlsx lus avec openpyxl, cellules recopiées ; valeurs arrondies à une décimale par script, signalées « arrondi »)
+EXTRAITS :
+(1) Obsan _065, titre JSON : « Fréquence de symptômes de dépression modérés à graves, par canton » ; description : « Proportion de la population vivant en ménage privé en % »
+  Suisse (kanton_nr 0), 2012, total : value=6.49075214004 (arrondi 6.5 %), IC 95 % 6.0–7.0, n=17025
+  Suisse (kanton_nr 0), 2012, hommes : value=5.81641348535 (arrondi 5.8 %), IC 95 % 5.0–6.6, n=8167
+  Suisse (kanton_nr 0), 2012, femmes : value=7.17455631571 (arrondi 7.2 %), IC 95 % 6.5–7.9, n=8858
+  Suisse (kanton_nr 0), 2017, total : value=8.62587323405 (arrondi 8.6 %), IC 95 % 8.1–9.1, n=18230
+  Suisse (kanton_nr 0), 2017, hommes : value=7.79370005812 (arrondi 7.8 %), IC 95 % 7.1–8.5, n=8613
+  Suisse (kanton_nr 0), 2017, femmes : value=9.45215437618 (arrondi 9.5 %), IC 95 % 8.7–10.2, n=9617
+  Suisse (kanton_nr 0), 2022, total : value=9.78945258226 (arrondi 9.8 %), IC 95 % 9.2–10.4, n=18447
+  Suisse (kanton_nr 0), 2022, hommes : value=7.90697251151 (arrondi 7.9 %), IC 95 % 7.1–8.7, n=8547
+  Suisse (kanton_nr 0), 2022, femmes : value=11.6639948571 (arrondi 11.7 %), IC 95 % 10.8–12.5, n=9900
+  Âge 15–34 ans, 2022, total : value=15.5587330496 (arrondi 15.6 %), IC 95 % 14.1–17.0, n=3615
+  Âge 15–34 ans, 2022, hommes : value=11.5889779732 (arrondi 11.6 %), IC 95 % 9.7–13.5, n=1705
+  Âge 15–34 ans, 2022, femmes : value=19.9725258598 (arrondi 20.0 %), IC 95 % 17.7–22.2, n=1910
+  Âge 35–49 ans, 2022, total : value=9.33852623606 (arrondi 9.3 %), IC 95 % 8.2–10.5, n=4256
+  Âge 35–49 ans, 2022, hommes : value=7.91435996255 (arrondi 7.9 %), IC 95 % 6.4–9.4, n=1920
+  Âge 35–49 ans, 2022, femmes : value=10.6887103889 (arrondi 10.7 %), IC 95 % 9.0–12.4, n=2336
+  Âge 50–64 ans, 2022, total : value=8.87471698728 (arrondi 8.9 %), IC 95 % 7.9–9.9, n=5453
+  Âge 50–64 ans, 2022, hommes : value=7.81297888325 (arrondi 7.8 %), IC 95 % 6.4–9.2, n=2538
+  Âge 50–64 ans, 2022, femmes : value=9.93534958077 (arrondi 9.9 %), IC 95 % 8.5–11.4, n=2915
+  Âge 65+ ans, 2022, total : value=3.96750140278 (arrondi 4.0 %), IC 95 % 3.3–4.6, n=5123
+  Âge 65+ ans, 2022, hommes : value=2.75660543491 (arrondi 2.8 %), IC 95 % 2.0–3.5, n=2384
+  Âge 65+ ans, 2022, femmes : value=5.07214276957 (arrondi 5.1 %), IC 95 % 4.0–6.1, n=2739
+(2) OFS T 14.03.04.01.01 « Nombre de décès et taux de mortalité selon les principales causes de décès et selon l'âge, hommes », En 2024 ; colonnes : 0  1) | 1-14 | 15-44 | 45-64 | 65-84 | 85+ | Total
+  Suicides (hommes) : 0 | 4 | 219 | 242 | 198 | 56 | 719
+  Suicides (hommes) : - | 0.6 | 12.5 | 19.5 | 28.2 | 61.9 | 13.2
+  (première ligne = nombre de décès ; seconde ligne = « Taux de mortalité standardisé (pour 100 000 habitants), méthode directe, population standard de l'Europe (OMS, 1976) »)
+(2) OFS T 14.03.04.01.02 « Nombre de décès et taux de mortalité selon les principales causes de décès et selon l'âge, femmes », En 2024 ; colonnes : 0  1) | 1-14 | 15-44 | 45-64 | 65-84 | 85+ | Total
+  Suicides (femmes) : 0 | 0 | 78 | 108 | 72 | 19 | 277
+  Suicides (femmes) : - | - | 4.6 | 8.7 | 9.0 | 11.9 | 5.1
+  (première ligne = nombre de décès ; seconde ligne = « Taux de mortalité standardisé (pour 100 000 habitants), méthode directe, population standard de l'Europe (OMS, 1976) »)
+  T 14.03.04.01.12 « Nombre total de suicides » 2020–2024 : 2020: 972 | 2021: 1005 | 2022: 958 | 2023: 995 | 2024: 996
+  Note du tableau : « 1) Dès 2009 sans les suicides assistés. »
+(3) « En Suisse, deux à trois personnes décèdent chaque jour d’un suicide (sans les cas de suicide assisté). »
+(3) « Les suicides sont généralement associés à des maladies mentales (par exemple : la dépression ou l'alcoolisme). »
+(3) « Téléphone (24 heures sur 24): 147 »
+(3) « Adultes: La Main Tendue »
+(3) « Téléphone (24 heures sur 24): 143 »
+(4) « La Confédération, en collaboration avec d’autres acteurs, a élaboré le plan d’action pour la prévention du suicide adopté en 2016. »
+(4) « Concrètement, le nombre de suicides non assistés pour 100 000 habitants devrait baisser d’environ 25 % d’ici 2030 (par rapport à 2013). »
+(4) « repérer à temps la suicidalité et intervenir précocement ; »
+(4) « diminuer les actes suicidaires en rendant difficile l’accès aux moyens létaux ; »
+(4) « proposer une aide rapidement et facilement accessible ; »
