@@ -32,7 +32,7 @@ L2. Tu n'écris QUE dans ton dossier `<ia>-LOTS-html/` et sur ta propre branche 
 L3. Interdiction absolue de rédiger ou de modifier un LOT ou un chapitre déjà amorcé (un seul fichier suffit) par une autre IA ou par toi-même sans validation de Vial. Une entrée dans `IA_AUTORISATIONS.json`, écrite par Vial seul, est la seule exception.
 L4. Tu ne rédiges que les LOTS de ta plage dans `IA_RESERVATIONS.json`, non encore amorcés, dans l'ordre croissant. Priorité : les LOTS jamais explorés.
 L5. Ce qu'une autre IA a écrit est en lecture seule pour toi ; seul Vial peut lever ce verrou.
-L5bis. Aucune production sans le couple [harnais + routage] : harnais identique au manifeste, ROUTAGE_<IA>.json et routage_<ia>.py créés par toi, autotest vert, veille du routage active (`pret <ia>`).
+L5bis. Pour toute opération du projet, Claude compris, aucune production sans le couple [harnais + routage] : harnais identique au manifeste, ROUTAGE_<IA>.json et routage_<ia>.py créés par toi, autotest vert, veille du routage active (`pret <ia>`).
 L6. Avant d'écrire dans un LOT : `verifier <ia> <LOT_XXX>` doit répondre AUTORISÉ. Le hook pre-commit (`installer`) bloque tout commit interdit.
 L7. Tu ne modifies jamais ce script, ses clones, IA_RESERVATIONS.json ni IA_AUTORISATIONS.json.
 L8. Règles de fond : sources suisses puis européennes lues et datées, sinon « À vérifier » ; doses tirées de l'AIPS suisse seulement, jamais du Compendium ; aucune donnée personnelle ; jamais sur main ; n'affirmer que ce qui est fait."""
@@ -176,6 +176,12 @@ def harnais_identique():
 def routage_pret(ia):
     """Routage créé par l'IA : configuration valide, script autotesté, veille vivante (moins de 30 min)."""
     if ia == "claude":
+        agents = [R / ".claude" / "agents" / f"{a}.md" for a in ("redacteur", "redacteur-phase-a", "auditeur-medical", "auditeur-conformite", "mecanique")]
+        if not all(a.exists() for a in agents):
+            return False, "routage Claude incomplet : définitions .claude/agents/*.md manquantes"
+        j = R / "journal" / "routage.jsonl"
+        if not j.exists():
+            return False, "journal/routage.jsonl absent"
         return True, "routage Claude (.claude/agents, journal/routage.jsonl)"
     d = R / DOSSIER[ia]; IA = ia.upper()
     conf = charger(d / f"ROUTAGE_{IA}.json", None)
@@ -253,10 +259,35 @@ def verifier(ia, lot, sortie=None):
     return True, f"AUTORISÉ : {lot} libre et réservé à {ia}"
 
 
+def garde_claude():
+    """Hook pre-commit de Claude : harnais identique, routage en place, et toute leçon commitée a une passe dans journal/routage.jsonl."""
+    ok, msg = pret("claude")
+    if not ok:
+        print(msg); return 1
+    passes = set()
+    for x in (R / "journal" / "routage.jsonl").read_text(encoding="utf-8").splitlines():
+        try:
+            o = json.loads(x); passes.add((o.get("lot"), str(o.get("fichier", "")).split(" ")[0]))
+        except Exception:
+            pass
+    err = []
+    for f in [l for l in git("diff", "--cached", "--name-only", "--diff-filter=AM").splitlines() if l]:
+        if not f.startswith(("LOTS_V8/", "lot en cours de production/", "LOT_Claude_Finaux/")):
+            continue
+        h = re.search(r"(LOT_\d{3})_Phase_(A|B)_V0(?:_(DX\.\d+))?\.html$", f)
+        if h and (h.group(1), "Phase_A" if h.group(2) == "A" else h.group(3)) not in passes \
+           and (h.group(1), "Phase_A" if h.group(2) == "A" else h.group(3)) not in {(l, x.replace("Phase_A", "Phase_A")) for l, x in passes}:
+            if not any(l == h.group(1) and (x.startswith("Phase_A") if h.group(2) == "A" else x.startswith("DX.") and (h.group(3) in x or x == "DX.1–10")) for l, x in passes):
+                err.append(f"{f} : aucune passe consignée dans journal/routage.jsonl")
+    for e in err:
+        print("BLOQUÉ :", e)
+    return 1 if err else 0
+
+
 def garde(ia):
     """Hook pre-commit : bloque les fichiers hors du dossier de l'IA et les LOTS interdits."""
     if ia == "claude":
-        return 0
+        return garde_claude()
     indexes = [l for l in git("diff", "--cached", "--name-only").splitlines() if l]
     if not signe(ia):
         print("BLOQUÉ : registre non lu ou non signé aujourd'hui."); return 1

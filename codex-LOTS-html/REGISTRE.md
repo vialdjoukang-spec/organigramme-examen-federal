@@ -1,4 +1,4 @@
-# REGISTRE IA — état au 2026-10-30T21:32:22+01:00
+# REGISTRE IA — état au 2026-10-30T21:33:12+01:00
 
 LOIS DU REGISTRE (ordre de Vial, 30.10.2026) — lecture et signature obligatoires, sinon toute écriture est bloquée.
 L1. Lis ce registre et signe-le (`signer`) au début de chaque session, avant d'écrire quoi que ce soit.
@@ -6,7 +6,7 @@ L2. Tu n'écris QUE dans ton dossier `<ia>-LOTS-html/` et sur ta propre branche 
 L3. Interdiction absolue de rédiger ou de modifier un LOT ou un chapitre déjà amorcé (un seul fichier suffit) par une autre IA ou par toi-même sans validation de Vial. Une entrée dans `IA_AUTORISATIONS.json`, écrite par Vial seul, est la seule exception.
 L4. Tu ne rédiges que les LOTS de ta plage dans `IA_RESERVATIONS.json`, non encore amorcés, dans l'ordre croissant. Priorité : les LOTS jamais explorés.
 L5. Ce qu'une autre IA a écrit est en lecture seule pour toi ; seul Vial peut lever ce verrou.
-L5bis. Aucune production sans le couple [harnais + routage] : harnais identique au manifeste, ROUTAGE_<IA>.json et routage_<ia>.py créés par toi, autotest vert, veille du routage active (`pret <ia>`).
+L5bis. Pour toute opération du projet, Claude compris, aucune production sans le couple [harnais + routage] : harnais identique au manifeste, ROUTAGE_<IA>.json et routage_<ia>.py créés par toi, autotest vert, veille du routage active (`pret <ia>`).
 L6. Avant d'écrire dans un LOT : `verifier <ia> <LOT_XXX>` doit répondre AUTORISÉ. Le hook pre-commit (`installer`) bloque tout commit interdit.
 L7. Tu ne modifies jamais ce script, ses clones, IA_RESERVATIONS.json ni IA_AUTORISATIONS.json.
 L8. Règles de fond : sources suisses puis européennes lues et datées, sinon « À vérifier » ; doses tirées de l'AIPS suisse seulement, jamais du Compendium ; aucune donnée personnelle ; jamais sur main ; n'affirmer que ce qui est fait.
