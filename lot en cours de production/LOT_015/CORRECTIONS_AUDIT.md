@@ -53,3 +53,5 @@ T3. DX.6 : seuils des peptides attribués à la bonne version (ESC 2016 via RMS 
 T4. DX.4 : aucune spécialité présentée comme indiquée dans l'hyperphagie boulimique (Elvanse 63023 = TDAH seulement).
 T5. DX.7 et DX.9 : le piège du cortisol faussement bas dans le syndrome néphrotique figure dans l'un des deux fichiers, avec renvoi dans l'autre.
 T6. DX.8 : formes syndromiques rares (Alström, PHP1a) traitées ; setmélanotide limité aux déficits bialléliques et au Bardet-Biedl.
+T7. Phase A [S21] : le rédacteur de DX.3 signale que l'URL attribuée à Depakine 34734 ne correspond pas à Depakine (URL relue dans le XML du 08.10.2026). Vérifier et corriger l'URL dans la Phase A et dans tout fichier qui la reprend.
+T8. Seuils glycémiques : DX.3 cite l'avis d'experts SSGO n° 81 (2023, avec la SSED) et non l'EASL–EASD–EASO 2024 (correction n° 13). Vérifier que les deux sources donnent les mêmes seuils ; sinon écrire la divergence.
