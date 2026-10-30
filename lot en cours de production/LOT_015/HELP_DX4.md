@@ -60,3 +60,11 @@ Questions ouvertes par le rédacteur de `LOT_015_Phase_B_V0_DX.4.html`, 30.10.20
 | H-DX4-04 à H-DX4-08 | Ouvertes | Non traitées par cet audit. |
 
 Autres constats : l'extrait `evidence/DX4_Wyssen2019_…` coupe le paragraphe BES ; relu sur rosenfluh.ch (deux tiers d'épisode unique avec rémission en un an ; rémission jusqu'à 80 %) : conforme. Chiffres de Giel 2022 absents de l'extrait (prévalence postopératoire de 4 %, MC4R, 67–83 %, 3–6 mois) relus dans le texte intégral (efetch NCBI) : conformes. NICE NG69 : dernière mise à jour le 16.12.2020, toujours en vigueur. Journal : `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl` (28 lignes DX.4).
+
+## Suivi d'audit de conformité — 30.10.2026 (auditeur-conformite, sonnet, high)
+
+### H-DX4-09 — Développement des sigles de questionnaires
+- Contexte : le HTML développe STOP-Bang, NoSAS, DEPS-R et m-SCOFF (sigles usuels), mais aucune source lue ne donne leur développement ; le sigle m-EDI reste non développé.
+- Question : quel est le développement officiel de m-EDI (HAS 2019, fiche outil) ? Les développements de STOP-Bang, NoSAS et DEPS-R doivent-ils être relus dans leur publication d'origine ?
+- Déjà cherché : `evidence/DX4_HAS2019_recommandations_boulimie_HB.txt` (sigles cités sans développement) ; guidance suisse de l'obésité (STOP-Bang, NoSAS cités sans développement), 30.10.2026.
+- Emplacement : point 6 (tableau de la mesure du tour de cou), point 9.c (diabète de type 1).
