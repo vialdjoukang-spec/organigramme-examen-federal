@@ -12,4 +12,4 @@ Hypothèses et décisions de rédaction (une ligne chacune). Sources : `evidence
 - 2026-10-30 — Corticoïdes adjuvants (méningite, péricardite) : aucune dose écrite, faute d'AIPS lue qui la fixe ; la dose NICE NG33 n'est pas reprise (règle « doses AIPS seulement »).
 - 2026-10-30 — Thiamine de renutrition : seule la prophylaxie AIPS de Benerva est citée ; toute dose plus forte est déclarée hors information professionnelle (correction d'audit 5).
 - 2026-10-30 — Rang E5 et ordre de l'algorithme repris de la liste gelée ; le test VIH suit la correction d'audit 11 (tuberculose = affection potentiellement définissant le sida).
-- 2026-10-30 — Taille : premier jet complet à environ 147 Ko avec sources ; compression de la forme (légendes, redites entre points 4, 5, 9, 11, lignes de remboursement regroupées, syndrome surrénalien 7.8 renvoyé au point 3 et à DX.10) jusqu'à 134 975 octets.
+- 2026-10-30 — Taille : premier jet complet à environ 147 Ko avec sources ; compression de la forme (légendes, redites entre points 4, 5, 9, 11, lignes de remboursement regroupées, syndrome surrénalien 7.8 renvoyé au point 3 et à DX.10) jusqu'à 134 786 octets.
