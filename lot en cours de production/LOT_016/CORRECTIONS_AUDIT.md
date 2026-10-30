@@ -60,3 +60,5 @@ T6. Nutrition artificielle : tout fichier qui cite le remboursement des SNO écr
 T7. DX.3 : le titre `<h2>` porte le nom gelé ; le fichier traite la cause (anorexie du vieillissement, bouche, déglutition, isolement), pas la dénutrition en général ; DX.2 et DX.6 y sont des diagnostics à exclure d'abord.
 T8. Insuffisance surrénalienne : DX.4, DX.10 et DX.2 citent le piège de la TSH élevée (correction 12) sans le contredire.
 T9. Phase A : si la passe transversale ajoute des extraits `evidence/`, vérifier que la taille de la Phase A reste ≤ 150 000 octets (139 746 octets après cet audit).
+
+T2. DX.10 : ajouter dans `evidence/` les extraits datés de NICE NG243 (2024) [S32] et d'Ospina 2016 [S33] (passages cités par l'audit médical).
