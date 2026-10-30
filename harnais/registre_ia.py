@@ -11,6 +11,7 @@ Commandes (depuis la racine du dépôt) :
   python3 <dossier>/registre_ia.py verifier <ia> <LOT_XXX> autorisé à écrire ce LOT ? (code 0 oui, 1 non)
   python3 <dossier>/registre_ia.py garde <ia>              contrôle des fichiers indexés (hook pre-commit) ; bloque si interdit
   python3 <dossier>/registre_ia.py installer <ia>          installe le hook git pre-commit bloquant pour cette IA
+  python3 <dossier>/registre_ia.py preuves                 vérifie depuis GitHub que le routage de Codex et Grok existe et fonctionne
   python3 <dossier>/registre_ia.py pret <ia>               couple harnais identique + routage créé et surveillé ? (bloquant)
 <ia> ∈ claude, codex, grok.
 """
@@ -329,6 +330,56 @@ def installer(ia):
     print(f"Hook pre-commit bloquant installé pour {ia}.")
 
 
+# ---------- preuves indépendantes, lues sur les branches distantes ----------
+def preuves():
+    """Lit sur GitHub (branches distantes) les traces du routage de chaque IA et juge s'il est prouvé et fonctionnel."""
+    git("fetch", "--quiet", "--all")
+    refs = [l.strip() for l in git("branch", "-r", "--format=%(refname:short)").splitlines() if l.strip()]
+    lignes = [f"# PREUVES DE ROUTAGE — relevé du {maintenant()} (branches distantes, indépendant des IA)", ""]
+    for ia in ("codex", "grok"):
+        IA = ia.upper(); d = DOSSIER[ia]
+        br = [r for r in refs if r.split("/", 1)[-1] == f"{ia}/lots"]
+        lignes.append(f"## {IA} — branches : {', '.join(br) or 'aucune'}")
+        if not br:
+            lignes += ["- Aucune branche poussée : rien à prouver encore.", ""]; continue
+        ref = br[0]
+        def lire(chemin):
+            return git("show", f"{ref}:{chemin}")
+        verdicts = []
+        conf = lire(f"{d}/ROUTAGE_{IA}.json")
+        try:
+            c = json.loads(conf); postes = c.get("postes", {})
+            ok = all(isinstance(postes.get(p), dict) and postes[p].get("modele") for p in POSTES)
+            distinct = postes.get("redacteur", {}).get("modele") != postes.get("auditeur-medical", {}).get("modele") or c.get("audit_croise_externe")
+            verdicts.append((ok and distinct, f"table de routage : {'valide' if ok else 'incomplète'} ; rédacteur {postes.get('redacteur',{}).get('modele')} / auditeur médical {postes.get('auditeur-medical',{}).get('modele')}{' (audit croisé externe)' if c.get('audit_croise_externe') else ''}"))
+        except Exception:
+            verdicts.append((False, "table de routage absente ou illisible"))
+        script = lire(f"{d}/routage_{ia}.py")
+        verdicts.append((bool(script.strip()), "script de routage présent" if script.strip() else "script de routage absent"))
+        jl = [json.loads(x) for x in lire(f"{d}/ROUTAGE_{IA}.jsonl").splitlines() if x.strip().startswith("{")]
+        verdicts.append((bool(jl), f"journal de routage : {len(jl)} passes consignées"))
+        pouls = lire(f"{d}/.veille_routage").strip()
+        verdicts.append((bool(pouls), f"pouls de veille commité : {pouls or 'absent'}"))
+        vlog = [x for x in lire(f"{d}/VEILLE_{IA}.log").splitlines() if x.strip()]
+        lecons = [l for l in git("ls-tree", "-r", "--name-only", ref, f"{d}/").splitlines() if MOTIF_HTML.search(l)]
+        sans = []
+        for l in lecons:
+            h = re.search(r"(LOT_\d{3})_Phase_(A|B)_V0(?:_(DX\.\d+))?\.html$", l)
+            if h and not any(o.get("lot") == h.group(1) and o.get("fichier") == ("Phase_A" if h.group(2) == "A" else h.group(3)) for o in jl):
+                sans.append(l.rsplit("/", 1)[-1])
+        verdicts.append((not sans, f"leçons poussées : {len(lecons)} ; sans passe consignée : {', '.join(sans) or 'aucune'}"))
+        meme = [f"{o['lot']} {o['fichier']}" for o in jl if o.get("poste") == "auditeur-medical"
+                and any(r.get("lot") == o["lot"] and r.get("fichier") == o["fichier"] and str(r.get("poste","")).startswith("redacteur") and r.get("modele") == o.get("modele") for r in jl)]
+        verdicts.append((not meme, f"audit médical par le modèle rédacteur : {', '.join(meme) or 'jamais'}"))
+        verdicts.append((True, f"alertes de veille commitées : {len(vlog)}"))
+        tout = all(v for v, _ in verdicts)
+        lignes += [f"- {'✅' if v else '❌'} {m}" for v, m in verdicts] + [f"- **Verdict : {'ROUTAGE PROUVÉ ET FONCTIONNEL' if tout else 'NON PROUVÉ'}**", ""]
+    texte = "\n".join(lignes) + "\n"
+    for ia in IAS:
+        (R / DOSSIER[ia] / "PREUVES_ROUTAGE.md").write_text(texte, encoding="utf-8")
+    print(texte)
+
+
 def main(a):
     cmd = a[0] if a else "etat"
     if cmd == "etat":
@@ -355,6 +406,8 @@ def main(a):
         return garde(a[1])
     elif cmd == "pret" and len(a) > 1:
         ok, msg = pret(a[1]); print(msg); return 0 if ok else 1
+    elif cmd == "preuves":
+        preuves()
     elif cmd == "manifeste":
         ecrire_manifeste(); print("manifeste du harnais écrit")
     elif cmd == "installer" and len(a) > 1:

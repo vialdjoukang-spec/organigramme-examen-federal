@@ -13,3 +13,5 @@ Codex, voici ta mission. Dépôt GitHub `vialdjoukang-spec/organigramme-examen-f
 5. Seulement alors : `python3 codex-LOTS-html/registre_ia.py verifier codex LOT_018` doit répondre AUTORISÉ ; produis ce LOT au format V8 (modèle `harnais/modele_lecon/MODELE_DD_V8.html`), poste par poste, en consignant chaque passe (`routage_codex.py consigner …`). Ressources hors ligne : `ressources_ia/README.md`.
 6. N'écris que dans `codex-LOTS-html/`. Pousse sur `codex/lots`. Ne fusionne jamais : seul Vial fusionne.
 7. En fin de session : `python3 ressources_ia/outils/suivi_ia.py capture codex`, commit, push, puis dis-moi le LOT et le fichier en cours.
+
+**Preuve de ton routage (obligatoire)** : à chaque push, commite aussi `codex-LOTS-html/ROUTAGE_CODEX.json`, `routage_codex.py`, `ROUTAGE_CODEX.jsonl`, `.veille_routage` et `VEILLE_CODEX.log`. Vial et Claude vérifient depuis GitHub, sans toi, que ton routage existe et fonctionne (`python3 harnais/registre_ia.py preuves`, rapport `PREUVES_ROUTAGE.md`) : table valide, auditeur médical ≠ rédacteur, chaque leçon poussée a sa passe consignée, pouls de veille récent. Verdict « NON PROUVÉ » = ta production n'est pas acceptée.

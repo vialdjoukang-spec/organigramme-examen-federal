@@ -15,3 +15,5 @@ Grok (Grokbot dans Cursor, avec ordinateur virtuel), voici ta mission. Dépôt G
 7. En fin de session : `python3 ressources_ia/outils/suivi_ia.py capture grok`, commit, push, puis dis-moi le LOT et le fichier en cours.
 
 Tu travailles dans Cursor avec ton ordinateur virtuel : exécute toi-même chaque commande dans ton terminal (git, Python 3), garde la veille du routage en arrière-plan toute la session, et pousse sur `grok/lots`. Si le push est refusé faute d'identifiants GitHub dans ton ordinateur virtuel, dis-le-moi au lieu de contourner.
+
+**Preuve de ton routage (obligatoire)** : à chaque push, commite aussi `grok-LOTS-html/ROUTAGE_GROK.json`, `routage_grok.py`, `ROUTAGE_GROK.jsonl`, `.veille_routage` et `VEILLE_GROK.log`. Vial et Claude vérifient depuis GitHub, sans toi, que ton routage existe et fonctionne (`python3 harnais/registre_ia.py preuves`, rapport `PREUVES_ROUTAGE.md`) : table valide, auditeur médical ≠ rédacteur, chaque leçon poussée a sa passe consignée, pouls de veille récent. Verdict « NON PROUVÉ » = ta production n'est pas acceptée.

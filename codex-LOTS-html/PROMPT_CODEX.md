@@ -83,3 +83,5 @@ Aucune production ne commence, et aucun commit de leçon n'est accepté, tant qu
 6. Chaque poste se fait dans une passe distincte (tâche Codex séparée), avec le modèle que la table désigne ; jamais d'audit de son propre texte dans la même passe.
 
 **9.3 Mémoire de reprise.** En fin de session : `python3 ressources_ia/outils/suivi_ia.py capture codex` écrit `codex-LOTS-html/REPRISE_CODEX.md`. En début de session, lis ce fichier seul et reprends à la prochaine action. Sur PAUSE ou STOP : termine le fichier en cours, consigne la passe, `capture`, commite, pousse.
+
+**Preuve de ton routage (obligatoire)** : à chaque push, commite aussi `codex-LOTS-html/ROUTAGE_CODEX.json`, `routage_codex.py`, `ROUTAGE_CODEX.jsonl`, `.veille_routage` et `VEILLE_CODEX.log`. Vial et Claude vérifient depuis GitHub, sans toi, que ton routage existe et fonctionne (`python3 harnais/registre_ia.py preuves`, rapport `PREUVES_ROUTAGE.md`) : table valide, auditeur médical ≠ rédacteur, chaque leçon poussée a sa passe consignée, pouls de veille récent. Verdict « NON PROUVÉ » = ta production n'est pas acceptée.
