@@ -43,6 +43,7 @@ Lacunes ouvertes par le rédacteur de DX.4 le 30.10.2026. Format Prompt V0 §18.
 - Question : quelles préparations magistrales ou importations (OAMéd) les hôpitaux suisses utilisent-ils pour l'iodure de la crise thyrotoxique et le perchlorate des thyrotoxicoses à l'amiodarone de type 1 ?
 - Déjà cherché : corpus AIPS local, liste Swissmedic (30.10.2026).
 - Emplacement : DX.4, point 11.B.
+- Audit médical (30.10.2026) : seconde spécialité d'iodure trouvée, Iodure de potassium axapharm (n° 67017), elle aussi limitée à l'accident nucléaire et contre-indiquée en cas d'hyperthyroïdie [S35]. La question des préparations magistrales reste ouverte.
 
 ## H16-DX4-07 — Textes intégraux ETA 2018 (Basedow, amiodarone) et ETA 2015
 - Identifiant : LOT_016, DX.4, points 1, 2, 8, 11.
@@ -55,6 +56,7 @@ Lacunes ouvertes par le rédacteur de DX.4 le 30.10.2026. Format Prompt V0 §18.
 - Contexte : le HTML écrit que ces règles sont une donnée non trouvée dans les sources consultées.
 - Question : existe-t-il une règle suisse (SSMT, OFROU, OAC) pour la conduite en cas de thyrotoxicose non contrôlée ou de FA thyréotoxique ?
 - Emplacement : DX.4, point 11.B.
+- Audit médical (30.10.2026) : comblée en partie. OAC, RS 741.51, annexe 1, ch. 7 et 8, état au 01.01.2026, lue sur Fedlex et citée [S38]. Reste ouverte : arrêt de travail, et règle de conduite propre à la thyrotoxicose.
 
 ## H16-DX4-09 — Alternatives d'imagerie (DFGe < 30 mL/min, IRM impossible)
 - Identifiant : LOT_016, DX.4, point 9.c.
