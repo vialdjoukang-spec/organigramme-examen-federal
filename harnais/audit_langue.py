@@ -355,8 +355,11 @@ def audit(f: Path, liste: str | None = None, sigles_ok: str | None = None, max_m
     for l in (crit, avert):
         for x in l:
             x["exemples"] = [re.sub(r"\s+", " ", e) for e in x["exemples"]]
+    details = {"phrase_longue": [x["texte"] for x in longues], "chaine_pv": [x["texte"] for x in chaines],
+               "phrase_double": [x["texte"] for x in doubles],
+               "sigle": [corps[d["bloc"]]["texte"] for _, d in non_dev], "abreviation": [x for x in ab]}
     return {"fichier": str(f), "octets": len(brut), "critiques": crit, "avertissements": avert, "stats": stats,
-            "conforme": not crit}
+            "conforme": not crit, "details": details}
 
 
 # ---------------------------------------------------------------- corrections sûres
@@ -445,6 +448,7 @@ def main() -> int:
         r["copie"] = str(dest)
     else:
         r = audit(f, a.liste, a.sigles_ok, a.max_mots)
+    r.pop("details", None)
     if a.json:
         print(json.dumps(r, ensure_ascii=False, indent=1))
     else:
