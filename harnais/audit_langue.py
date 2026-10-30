@@ -123,29 +123,6 @@ def nb_mots(phrase: str) -> int:
     return len(RE_MOT.findall(RE_REF.sub(" ", RE_CITATION.sub(" ", phrase))))
 
 
-VERBES = set("""est sont était étaient sera seront serait soit soient a ont avait avaient aura auront aurait ait peut peuvent
-doit doivent faut fait font va vont reste restent suit suivent met mettent prend prennent donne donnent devient deviennent
-permet permettent reste indique indiquent impose imposent pose posent exige exigent justifie justifient réserve réservent
-convient contre-indique contre-indiquent concerne concernent constitue constituent comprend comprennent présente présentent
-atteint atteignent apparaît apparaissent survient surviennent entraîne entraînent provoque provoquent augmente augmentent
-diminue diminuent réduit réduisent limite limitent voit voient sait savent sert servent vaut valent""".split())
-RE_VERBE_FIN = re.compile(r"(?:ent|ons|ez|ait|aient|era|eront|erait|ît|ut|issent|ssent|ie|ient|oit|oient)$")
-RE_PARTICIPE = re.compile(r"(?:é|ée|és|ées|i|ie|is|ies|u|ue|us|ues)$")
-
-
-def sans_verbe(phrase: str) -> bool:
-    """Heuristique prudente : aucune forme verbale conjuguée reconnue dans une phrase de 6 mots ou plus."""
-    p = RE_REF.sub(" ", RE_CITATION.sub(" ", phrase))
-    mots = [m.lower() for m in RE_MOT.findall(p)]
-    if len(mots) < 6:
-        return False
-    for w in mots:
-        w2 = w.split("'")[-1].split("’")[-1]
-        if w2 in VERBES or (len(w2) > 4 and RE_VERBE_FIN.search(w2) and not w2.endswith(("ement", "ment", "tion", "sion"))):
-            return False
-    return True
-
-
 def norm_cle(s: str) -> str:
     return re.sub(r"[^a-z0-9àâäçéèêëîïôöùûüœ]+", " ", s.lower()).strip()
 
@@ -288,14 +265,12 @@ def audit(f: Path, liste: str | None = None, sigles_ok: str | None = None, max_m
     stats["blocs"] = len(blocs)
     stats["mots"] = sum(len(RE_MOT.findall(b["texte"])) for b in corps)
 
-    longues, chaines, vus, doubles, pvs, nominales = [], [], {}, [], [], []
+    longues, chaines, vus, doubles, pvs = [], [], {}, [], []
     for b in corps:
         for ph in phrases(b["texte"]):
             n = nb_mots(ph)
             if ";" in ph:
                 pvs.append({"point": b["point"], "texte": ph[:220]})
-            if sans_verbe(ph):
-                nominales.append({"point": b["point"], "texte": ph[:220]})
             if n > max_mots:
                 longues.append({"mots": n, "point": b["point"], "texte": ph[:220]})
             if ph.count(";") >= 2 and n > 20:
@@ -315,9 +290,6 @@ def audit(f: Path, liste: str | None = None, sigles_ok: str | None = None, max_m
     if pvs:
         A("pv_simple", f"{len(pvs)} phrases contenant un point-virgule (scission possible ; indicatif)", len(pvs),
           [f"[{x['point']}] {x['texte']}" for x in pvs])
-    if nominales:
-        A("sans_verbe", f"{len(nominales)} phrases ≥ 6 mots sans forme verbale reconnue (phrase nominale probable ; heuristique)", len(nominales),
-          [f"[{x['point']}] {x['texte']}" for x in nominales])
     if doubles:
         A("phrase_double", f"{len(doubles)} phrases (≥ 8 mots) répétées à l'identique", len(doubles),
           [f"[{x['point']}] {x['texte']}" for x in doubles])
@@ -390,7 +362,6 @@ def audit(f: Path, liste: str | None = None, sigles_ok: str | None = None, max_m
             x["exemples"] = [re.sub(r"\s+", " ", e) for e in x["exemples"]]
     details = {"phrase_longue": [x["texte"] for x in longues], "chaine_pv": [x["texte"] for x in chaines],
                "phrase_double": [x["texte"] for x in doubles], "pv_simple": [x["texte"] for x in pvs],
-               "sans_verbe": [x["texte"] for x in nominales],
                "sigle": [corps[d["bloc"]]["texte"] for _, d in non_dev], "abreviation": [x for x in ab]}
     return {"fichier": str(f), "octets": len(brut), "critiques": crit, "avertissements": avert, "stats": stats,
             "conforme": not crit, "details": details}

@@ -160,7 +160,7 @@ def main() -> int:
             final_src = git("cat-file", "blob", hist[-1][1]).decode("utf8", "replace")
             rf = AL.audit(RACINE / ch, str(liste), src=final_src, nom=nom)
             rf.pop("details")
-            flagged = {k: [norm(x) for x in v] for k, v in det.items() if k in ("phrase_longue", "chaine_pv", "phrase_double", "sigle", "pv_simple", "sans_verbe")}
+            flagged = {k: [norm(x) for x in v] for k, v in det.items() if k in ("phrase_longue", "chaine_pv", "phrase_double", "sigle", "pv_simple")}
             flagged["phrase_longue"] = [x for x in flagged["phrase_longue"]]
             lignes = []
             for c in cs:
