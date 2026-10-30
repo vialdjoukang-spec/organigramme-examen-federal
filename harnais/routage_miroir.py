@@ -103,7 +103,7 @@ def svg_lignes(series: dict[str, list[tuple[float, float]]], x0: float, x1: floa
             py = yv
         d.append(f"L{sx(x1):.1f},{sy(py):.1f}")
         c = (couleurs or {}).get(nom, "c1")
-        o.append(f'<path class="ligne {c}" d="{"".join(d)}"><title>{esc(nom)} : {int(py)}</title></path>')
+        o.append(f'<path class="ligne {c}" d="{"".join(d)}"/>')
     o.append(f'<text class="ax" x="{ml}" y="10" >{esc(ylab)}</text></svg>')
     return "".join(o)
 
@@ -153,7 +153,7 @@ def construire(data: dict) -> str:
     ev, corr, scores = data["ev"], data["corr"], data["scores"]
     if not ev:
         return "<p>Aucune décision.</p>"
-    t0, t1 = ev[0]["t"], max(ev[-1]["t"], datetime.now(timezone.utc)) if False else ev[-1]["t"]
+    t0, t1 = ev[0]["t"], ev[-1]["t"]
     x0, x1 = t0.timestamp(), t1.timestamp()
     # axe temps : repères toutes les 2 h (heure locale ZURICH)
     h = 3600
@@ -183,13 +183,13 @@ def construire(data: dict) -> str:
     dur = []
     for lot in lots:
         es = [e for e in ev if e["lot"] == lot]
-        seq = "".join(f'<span class="pt {COUL.get(e["agent"], "c7")}" title=""></span>' for e in es)
+        seq = "".join(f'<span class="pt {COUL.get(e["agent"], "c7")}"></span>' for e in es)
         a, b = es[0]["t"], es[-1]["t"]
         d = (b - a).total_seconds() / 3600
         dur.append((lot, d, "c2"))
         c = Counter(e["agent"] for e in es)
         nc = len(corr.get(lot, []))
-        lignes.append(f"<tr><td>{lot}</td><td>{hhmm(a.replace(tzinfo=timezone.utc)) if False else (a.hour + ZURICH) % 24:02d}:{a.minute:02d}</td>"
+        lignes.append(f"<tr><td>{lot}</td><td>{(a.hour + ZURICH) % 24:02d}:{a.minute:02d}</td>"
                       f"<td class='n'>{d:.1f} h</td><td class='n'>{len(es)}</td><td class='n'>{c['redacteur'] + c['redacteur-phase-a']}</td>"
                       f"<td class='n'>{c['auditeur-medical']}</td><td class='n'>{c['auditeur-conformite']}</td><td class='n'>{nc}</td>"
                       f"<td>{seq}</td></tr>")
