@@ -1,7 +1,7 @@
-# Reprise prioritaire — contrat LOT_019 à LOT_133 actif
+# Reprise — LOT_020 est le suivant
 
-Lire CONTRAT_CONTINUITE.md et ETAT_CONTINUITE.json. LOT_018 terminé en production au commit 950a4cd1, sans audit indépendant ni test navigateur revendiqués. LOT_019 est en recherche : lire LOT_019/BRIEF_REPRISE.md et evidence/INDEX.md ; aucun HTML de ce nouveau lot n’est encore produit.
+Contrat actif jusqu’au LOT_133 inclus, borne relue dans IA_RESERVATIONS.json. LOT_018 terminé au commit 950a4cd1 ; LOT_019 terminé en production avec onze HTML, 275 contrôles statiques V8 réussis, 154 questions et cinq citations AIPS exactes. Voir LOT_019/VALIDATION.md pour les échecs des contrôleurs historiques et les limites. Aucun audit indépendant ni rendu navigateur revendiqué.
 
-Reprise horaire dédiée activée ; veille locale du contrat et du routage pendant la disponibilité de cet environnement. Ne pas confondre surveillance, exécution d’un modèle et production clinique. Acquérir le verrou local avant toute reprise ; en cas de runtime différent, établir l’absence d’un producteur concurrent avant de démarrer. Exécuter le contrôle du contrat, puis lire/signer le registre du jour et obtenir pret/verifier.
+Prochaine action : autorisation du registre pour LOT_020, S1.4 « Asymétrie ou déformation du visage », recherche suisse puis européenne, Phase A puis dix fiches. Ne pas recommencer les lots terminés. Lire LOT_019/LECONS_LOT_019.md et utiliser le contrôleur générique V8.
 
-Rédiger et contrôler les onze fichiers du LOT_019, puis LOT_020 et suivants jusqu’à LOT_133. Les rôles internes restent désignés comme internes. Ne pas réutiliser sans adaptation le contrôleur V8 du LOT_018, dont les noms sont encore spécifiques. Respecter tout STOP/PAUSE ultérieur.
+La session principale détient le verrou pendant le travail ; une reprise concurrente doit seulement contrôler. Verrou à libérer au point de sortie. Reprise horaire dédiée, veille locale minute : ce sont des mécanismes distincts, aucun ne prouve seul une rédaction. STOP/PAUSE prioritaire. Modèle confirmé par Vial GPT-6 Astra · ultra, recommandation high sans modification effective revendiquée.

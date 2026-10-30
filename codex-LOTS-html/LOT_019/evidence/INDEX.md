@@ -1,6 +1,6 @@
 # LOT_019 — sources consultées le 30.10.2026
 
-Recherche en cours. Aucun HTML clinique ni score n’est encore produit. Les pages ci-dessous ont été consultées en extraits ciblés via outil web ; leur date éditoriale n’est pas indiquée. Ne pas leur attribuer une lecture intégrale.
+Recherche utilisée pour les onze HTML produits. Aucun score médical n’est attribué. Les pages ci-dessous ont été consultées en extraits ciblés via outil web ; leur date éditoriale n’est pas indiquée. Ne pas leur attribuer une lecture intégrale.
 
 1. HUG, Troubles de la voix : https://www.hug.ch/orl-chirurgie-cervico-faciale/troubles-voix
 Extrait : « une altération de la dimension acoustique de la parole ».
@@ -24,4 +24,22 @@ Note : voix parfois seul symptôme initial ; tabac/alcool, progression respirato
 
 Complément repéré et résumé consulté : Stachler et al., AAO-HNSF, 2018, https://pubmed.ncbi.nlm.nih.gov/29494316/ ; recommandations contre l’imagerie systématique avant visualisation laryngée, les corticoïdes empiriques et l’antireflux pour une dysphonie isolée attribuée aux seuls symptômes. Source américaine complémentaire, pas fondement exclusif ; poursuivre avec un référentiel européen. Les anciens résumés 2009/2017 ne doivent pas dicter un délai d’attente de trois mois.
 
-Recherches restant à faire : référentiel européen détaillé d’anatomie/diagnostic ; urgence stridor et supraglottite ; épidémiologie suisse contextualisée ; information AIPS des traitements effectivement retenus. Aucune incidence ou hiérarchie de prévalence inventée.
+Les compléments effectivement lus sont détaillés ci-dessous. La supraglottite est un diagnostic urgent à distinguer, sans protocole médicamenteux non vérifié dans cette leçon. Aucune incidence ou hiérarchie de prévalence inventée.
+
+## Complément européen consulté le 30.10.2026
+
+6. Collège français ORL, Item 86, document diffusé en 2017 : https://campusorl.fr/wp-content/uploads/2017/12/Item-86-Trouble-aigu-de-la-parole-Dysphonie.pdf
+Extraits : « En cas de dysphonie, garder à l’esprit les fonctions vitales du larynx (respiration et déglutition) qui sont sous-jacentes. » ; « la stroboscopie n’apporte aucun élément au diagnostic positif de paralysie ou d’immobilité laryngée unilatérale. »
+Lecture ciblée : tri, examen, lésions suspectes, immobilité versus paralysie, exploration du trajet nerveux. Le repère 8–15 jours de ce document est distingué du repère de trois semaines HUG ; aucun délai ne permet d’attendre devant un signe d’alarme.
+
+7. Collège des enseignants de neurologie, Trouble aigu de la parole, dysphonie : https://www.cen-neurologie.fr/second-cycle/trouble-aigu-de-la-parole-dysphonie
+Extrait : « Entre le ligament et cette muqueuse, il existe un espace de glissement, ou espace de Reinke. »
+Lecture ciblée : anatomie, sémiologie, examen, explorations et causes. Recoupement avec le Collège ORL pour l’innervation récurrentielle. Certaines formulations de cette page sont trop générales : une dysplasie n’est pas un résultat permettant de rassurer sans suivi ; l’imagerie est adaptée au siège et n’impose pas une IRM systématique.
+
+8. Le résumé AAO-HNSF 2018 ci-dessus conserve ce numéro comme complément. Les entrées et URLs sont dans sources.json. Pas de reproduction intégrale des publications.
+
+## Compléments pour les monographies
+
+S9 : AIPS BOTOX 52433, mai 2025. Indications, contre-indications, interactions et grossesse/allaitement effectivement lus, ainsi que mises en garde neuromusculaires ciblées. Pas de schéma laryngé trouvé ; ne pas transposer les unités ou doses des autres indications. Empreinte de la source locale dans AIPS_52433.json.
+
+S10 : Ligue suisse contre le cancer, page cancer du larynx. Environ 260 nouveaux cas par an annoncés, période statistique non précisée : chiffre descriptif de la page, pas une incidence 2026 mesurée. Diagnostic endoscopique/histologique, chirurgie selon étendue, radiothérapie et médicaments, prothèse vocale. La page nomme trachéotomie la dérivation après ablation totale : préciser trachéostome définitif et séparation anatomique, sans généraliser aux trachéotomies temporaires.
