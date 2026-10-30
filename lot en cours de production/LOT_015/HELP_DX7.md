@@ -49,3 +49,18 @@
 - Question : la liste des spécialités prévoit-elle une limitation pour ces usages, ou faut-il une garantie préalable de prise en charge par l'assureur ? (base légale à lire sur Fedlex)
 - Déjà cherché : AIPS MabThera, 30.10.2026.
 - Emplacement : DX.7 point 11.B (fenêtre « immunosuppresseurs »).
+
+## Suivi d'audit médical (auditeur-medical, opus, xhigh — 30.10.2026)
+
+| ID | État après audit | Ce que l'audit a lu et écrit |
+|---|---|---|
+| H15-02 | Close pour DX.7 | Figure 4 de KDIGO 2021 relue (texte PDF) : protéinurie ≥ 3,5 g/24 h seul critère « essentiel » ; hypoalbuminémie à seuil propre au laboratoire ; < 30 g/L dans le chapitre HSF. Point 8 corrigé en ce sens. |
+| H15-DX7-01 | Ouverte | Aucune source pédiatrique suisse cherchée par l'audit. |
+| H15-DX7-02 | Ouverte | Non traitée par l'audit. |
+| H15-DX7-03 | Comblée | Le XML du 08.10.2026 contient Comilorid-Mepha/-mite (amiloride + hydrochlorothiazide), n° 50477, AIPS d'août 2022 : https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a950b68259c84bdd91bdc1307e0be19b-fr.html. La recherche « amilo » échouait, car le nom commence par « Comilorid ». Indications : hypertension, œdèmes cardiaques, cirrhose avec ascite (SN hors AIPS). Contre-indiqué en grossesse, allaitement, insuffisance rénale aiguë et avec un autre antikaliurétique (spironolactone). Écrit au point 11.B, fenêtre diurétiques [S29]. |
+| H15-DX7-04 | Ouverte | Critères de sortie toujours déduits et étiquetés comme tels. |
+| H15-DX7-05 | Comblée en partie | IPNA 2023 (texte intégral Europe PMC) : « We recommend treating peritonitis with IV antibiotics targeting Streptococcus pneumoniae » ; « such as cephalosporins or high doses of amoxicillin ». Molécule précise et dose : non données. Écrit dans la fenêtre « péritonite ou sepsis ». |
+| H15-DX7-06 | Ouverte | Aucune règle suisse propre au SN (travail, AI, conduite) trouvée. |
+| H15-DX7-07 | Comblée en partie | Liste des spécialités (API OFSP, 30.10.2026) : la limitation MabThera 17079.02 « Maladies auto-immunes » (dès le 1.5.2023) vise polyarthrite rhumatoïde et vascularites à ANCA, pas le SN. OAMal art. 71a et 71d (état 22.10.2026) : remboursement hors limitation sur garantie spéciale après avis du médecin-conseil. Écrit au point 11.B [S31][S32]. Prograf et CellCept non vérifiés. |
+
+Note de cache : les extraits AIPS 50477 (Comilorid-Mepha), 51795 (Aspirine Cardio) et 52476 (Albumin CSL 5 %) ont été lus par l'audit mais non écrits dans `.cache/aips/` (fichiers hors du périmètre d'écriture de l'audit) ; la session principale peut les y ajouter.
