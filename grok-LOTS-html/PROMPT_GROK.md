@@ -38,7 +38,9 @@ Pour adapter un outil, copie-le dans `grok-LOTS-html/outils/` et modifie la copi
 | Leçons accumulées | `lot en cours de production/LOT_017/LECONS_LOT_016.md`, `lot en cours de production/LOT_016/LECONS_LOT_015.md` | obligatoires |
 | Exemple de LOT achevé | `LOT_Claude_Finaux/LOT_016/` (11 HTML, `LISTE_DX_CANONIQUE.md`, `audits/`) | modèle de structure, jamais à copier comme contenu |
 | Catalogue des 248 SSP | `LOT_Claude_Finaux/CATALOGUE_248.csv` | intitulé exact du SSP de chaque LOT |
-| AIPS suisse | swissmedicinfo.ch (en ligne) ; ou le fichier XML Swissmedic téléchargé dans `grok-LOTS-html/_cache/` (non commité) | seule source des doses ; jamais le Compendium |
+| AIPS suisse (hors ligne, complète) | `ressources_ia/aips/` : index XML, 4 646 informations professionnelles françaises en texte intégral, extraits déjà lus | `python3 ressources_ia/outils/aips.py chercher <nom>` puis `lire <numéro> [motif]` ; jamais le Compendium |
+| Listes Swissmedic et OFSP | `ressources_ia/swissmedic/` (conditionnements autorisés, médicaments humains), `ressources_ia/liste_specialites/` (liste des spécialités, limitations) | numéro par forme galénique ; remboursement ; voir `ressources_ia/README.md` |
+| Démarrage pas à pas | `grok-LOTS-html/DEMARRAGE.md` | 8 étapes |
 
 ## 5. Structure de ton dossier
 ```
@@ -50,6 +52,7 @@ grok-LOTS-html/
     LISTE_DX_CANONIQUE.md
     _travail/  HELP.md  JOURNAL.md  CORRECTIONS_AUDIT.md  evidence/ (extraits datés + INDEX.md)  audits/corrections.jsonl  audits/scores.jsonl
   outils/   (copies d'outils adaptées)   _cache/ (non commité)
+ressources_ia/   (commun, lecture seule : AIPS, Swissmedic, liste des spécialités)
 ```
 
 ## 6. Production d'un LOT (même exigence que Claude)
