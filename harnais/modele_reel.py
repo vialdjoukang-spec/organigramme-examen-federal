@@ -149,7 +149,7 @@ def veille(pas=60):
                         print(time.strftime("%H:%M"), ligne(a), flush=True)
                     vu[a["id"]] = cle
             premier = False
-            rapport_silencieux()
+            pass  # le rapport s'écrit au commit (c.sh), pas en veille : arbre propre
         except Exception as x:
             print("veille : erreur", x, flush=True)
         time.sleep(pas)
