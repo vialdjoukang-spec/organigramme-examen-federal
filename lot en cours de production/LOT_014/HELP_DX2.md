@@ -46,3 +46,10 @@ Questions ouvertes par le rédacteur Phase B le 30.10.2026. Format : identifiant
 | H14-DX2-03 | Ouverte | Aucune position de la liste des analyses (OFSP) trouvée par recherche web du 30.10.2026. |
 | H14-DX2-04 | Comblée | ESC 2023 §6.7.3.1 (PDF lu) : IRM envisageable avec appareils conditionnels et presque tous les non conditionnels sous protocole adapté (examens ininterprétables ramenés à un sur cinq) ; gadolinium sûr si DFGe > 30 mL/min/1,73 m² ; insuffisance rénale sévère : cartographies sans contraste ; gadolinium déconseillé pendant la grossesse ; CT surtout pour exclure une coronaropathie (§6.7.4). Intégré au point 9.c. |
 | H14-DX2-05 | Comblée en partie | ESC 2025 grossesse (De Backer J et al., Eur Heart J 2025;46:4462-4568) lue en partie par WebFetch (PDF bloqué par un contrôle Cloudflare) : bêtabloquant poursuivi (sauf aténolol), vérapamil oral sûr, disopyramide non recommandé (contractions utérines), mavacamten arrêté ≥ 6 mois avant une grossesse planifiée, inhibiteurs du SGLT2 arrêtés avant la grossesse et pendant l'allaitement, IEC/sartans/ARNI et spironolactone contre-indiqués, amiodarone contre-indiquée sauf dose unique d'urgence ; mWHO 2.0 classe IV = risque extrêmement élevé. Non lus : attribution des lignes cardiomyopathie aux classes III ou IV de la mWHO 2.0 ; classes et niveaux des tableaux de recommandations 5 et 15 (images). |
+
+## État après audit de conformité (30.10.2026, auditeur-conformite)
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H14-DX2-06 | Ouverte (forme, faible gravité) | Les symboles de gènes (TTN, LMNA, FLNC, RBM20, PLN, DSP, PKP2, DSG2, DSC2, JUP, DES, TMEM43, PRKAG2) restent sans nom développé : le nom officiel doit être lu à la source (HGNC ou ESC 2023), pas écrit de mémoire. Aucune donnée de fond modifiée. |
+| H14-DX2-07 | Ouverte (forme) | Le sigle « ATP » (stimulation antitachycardique) suit l'ESC ; le sigle français usuel n'a pas été confirmé à une source lue. |
