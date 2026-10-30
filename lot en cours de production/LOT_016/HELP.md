@@ -11,6 +11,8 @@ Emplacements : point du Bloc 1 et identifiant de la fenêtre `popover` de `LOT_0
 - Emplacement : Phase A, point 2, premier paragraphe ; fenêtre `ssp-p2-distrib`.
 
 ## H16-02 — Sensibilité et spécificité des critères GLIM
+
+**Statut : CLOSE le 30.10.2026 par l\'audit médical de la Phase A** — méta-analyse GLIM [S34] : sensibilité 0,72, spécificité 0,82.
 - Identifiant : LOT_016, Phase A, point 9.a.
 - Contexte : le HTML écrit « La sensibilité et la spécificité des critères GLIM sont une donnée non trouvée dans les sources consultées. » Le GLIM 2019 (S3) prévoit une validation ultérieure.
 - Question : quelles études de validation (méta-analyse européenne, ESPEN, après 2019) chiffrent la sensibilité et la spécificité des critères GLIM, et contre quelle référence ?
@@ -32,6 +34,8 @@ Emplacements : point du Bloc 1 et identifiant de la fenêtre `popover` de `LOT_0
 - Emplacement : Phase A, point 9.c, fenêtre `ssp-p9-alternatives`, dernière ligne.
 
 ## H16-05 — Acétate de mégestrol : information professionnelle suisse
+
+**Statut : CLOSE le 30.10.2026 par l\'audit médical de la Phase A** — mégestrol non autorisé en Suisse (Swissmedic, conditionnements autorisés au 30.09.2026) [S36].
 - Identifiant : LOT_016, Phase A, point 11.B ; Phase B DX.1.
 - Contexte : l'ESMO 2021 (S11) cite l'acétate de mégestrol comme progestatif orexigène ; le HTML écrit « À vérifier (AIPS), sans dose ».
 - Question : une spécialité suisse à base d'acétate de mégestrol est-elle autorisée par Swissmedic (nom, numéro, indication, posologie dans la cachexie) ? Sinon, le HTML doit-il écrire qu'elle n'est pas autorisée en Suisse ?
@@ -39,6 +43,8 @@ Emplacements : point du Bloc 1 et identifiant de la fenêtre `popover` de `LOT_0
 - Emplacement : Phase A, point 11.B, fenêtre `ssp-p11-farlutal`, paragraphe « Classe » ; Phase B DX.1, point 11.
 
 ## H16-06 — Remboursement de Farlutal® dans la cachexie cancéreuse
+
+**Statut : CLOSE le 30.10.2026 par l\'audit médical de la Phase A** — Farlutal® sur la liste des spécialités depuis le 15.03.1984, sans limitation [S37].
 - Identifiant : LOT_016, Phase A, point 11.B ; Phase B DX.1.
 - Contexte : le HTML écrit « Le remboursement par la liste des spécialités dans cette indication est une donnée non trouvée dans les sources consultées. »
 - Question : Farlutal® 500 mg (n° 44307) figure-t-il sur la liste des spécialités de l'OFSP au 30.10.2026, avec quelle limitation et quelle date de validité ?
@@ -88,6 +94,8 @@ Emplacements : point du Bloc 1 et identifiant de la fenêtre `popover` de `LOT_0
 - Emplacement : Phase A, point 9.d, fenêtre `ssp-p9-cibles` ; point 11.B, fenêtre `ssp-p11-urgence` ; Phase B DX.8.
 
 ## H16-13 — Directives SSNC 2013 « Home care, nutrition artificielle à domicile »
+
+**Statut : CLOSE le 30.10.2026 par l\'audit médical de la Phase A** — directives SSNC 2013 et 2026 lues [S40].
 - Identifiant : LOT_016, Phase A, point 11.B (assurance).
 - Contexte : l'annexe 1 de l'OPAS (S28) renvoie à ces directives pour la nutrition entérale à domicile sans sonde.
 - Question : quels critères d'indication ces directives fixent-elles, et une version plus récente existe-t-elle ?
@@ -123,6 +131,8 @@ Emplacements : point du Bloc 1 et identifiant de la fenêtre `popover` de `LOT_0
 - Emplacement : Phase A, point 2, fenêtre `ssp-p2-distrib`.
 
 ## H16-18 — Dose d'hydrocortisone de la crise surrénalienne chez l'enfant
+
+**Statut : CLOSE le 30.10.2026 par l\'audit médical de la Phase A** — BSPED 2023 : 25/50/100 mg selon l'âge [S35].
 - Identifiant : LOT_016, Phase A, point 11.B (urgence, situations spéciales) ; Phase B DX.10.
 - Contexte : relevée à la relecture (le HTML ne l'écrit pas comme lacune) : le HTML donne la dose adulte de l'ESE/Endocrine Society 2024 et la phrase AIPS de Solu-CORTEF® (« Ne pas administrer des doses inférieures à 25 mg par jour ») ; aucune dose de crise pédiatrique n'est écrite (leçon 2 de LOT_015 : BSPED 2023).
 - Question : quelle dose d'hydrocortisone de crise par âge fixe la source pédiatrique en vigueur (SGPE/SSPE suisse, à défaut BSPED 2023 ou ESPE) ?
