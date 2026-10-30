@@ -68,3 +68,5 @@ T4. Phase A et tous les DX : test VIH → directive OFSP PICT 2015 (OPAS art. 12
 
 T5. DX.7 : mettre en cache les AIPS 29550 et 32920 (URL et citations dans HELP_DX7.md).
 T6. Tous fichiers citant le potassium i.v. : diurèse contrôlée avant tout potassium (AIPS 29552), cohérence avec DX.7 (critique corrigée) et DX.9.
+
+T7. DX.3 : verser dans `evidence/` les extraits datés GLIM 2024, OPAS 7/8/8a, CC 453, Marcoumar 19395, Augmentin 45674/53692, SPILF 2025 (points forts) depuis `scratchpad/dx3_audit/dl_*` ; ACG « plus de 50 ans » cohérent dans tous les fichiers.
