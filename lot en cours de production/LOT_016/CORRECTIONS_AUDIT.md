@@ -65,3 +65,6 @@ T2. DX.10 : ajouter dans `evidence/` les extraits datés de NICE NG243 (2024) [S
 
 T3. DX.1 : créer `.cache/aips/56257.txt` (Zometa®) et les extraits `evidence/DX1_S43…S47` (HUG 2025 hypercalcémie, Lamy 2004, Strang 2022, EWGSOP2, OFSP PICT 2015) ; téléchargements de l'audit dans `scratchpad/audit_DX1/`.
 T4. Phase A et tous les DX : test VIH → directive OFSP PICT 2015 (OPAS art. 12d) au lieu de NICE QS157 ; LiMA 1.1.2027 → directives SSNC de janvier 2013 ; hypercalcémie tumorale cohérente avec DX.1.
+
+T5. DX.7 : mettre en cache les AIPS 29550 et 32920 (URL et citations dans HELP_DX7.md).
+T6. Tous fichiers citant le potassium i.v. : diurèse contrôlée avant tout potassium (AIPS 29552), cohérence avec DX.7 (critique corrigée) et DX.9.
