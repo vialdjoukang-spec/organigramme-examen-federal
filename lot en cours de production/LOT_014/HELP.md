@@ -36,3 +36,7 @@ Questions ouvertes par le rédacteur Phase A le 30.10.2026. Format : identifiant
 - Question : quelle recommandation suisse ou européenne récente (ESO, ESC 2024 section 9.3) donne l'incidence, la mortalité préhospitalière et la conduite initiale ?
 - Déjà cherché : ESC 2024 (WebFetch : section 9.3 non restituée), revue CHUV 2017 (Springer bloqué), Revue Médicale Suisse (aucun résultat).
 - Emplacement : Phase A, justification DX.4 et DX.5 ; Phase B DX.4, DX.5.
+
+## Statut après audit médical de la Phase A (2026-10-30)
+- H14-01 : partiellement comblée (Epi-Suisse / Ligue suisse contre l'épilepsie : 70 à 100 décès SUDEP par an, estimation).
+- H14-02 à H14-05 : ouvertes (classes et niveaux ESC 2022 publiés en images seulement).
