@@ -56,3 +56,6 @@ Questions ouvertes par le rédacteur Phase B DX.9 le 30.10.2026. Format : identi
 - H14-DX9-05 : ouverte. Page RCUK de l'ERC 2025 ALS relue : aucun bolus de magnésium pour la torsade ; l'AIPS de Cordarone écrit « du magnésium i.v. peut être administré » sans dose.
 - H14-DX9-06 : ouverte.
 - Signalement hors périmètre : la liste Swissmedic attribue 45710 à Tambocor solution injectable et 45711 aux comprimés ; LOT_014_Phase_B_V0_DX.2.html cite « Tambocor 45710 » pour la forme orale (à vérifier par l'auditeur de DX.2). L'extrait `.cache/aips/45710.txt` ne précise pas cette répartition.
+
+## Audit de conformité du 30.10.2026 (auditeur-conformite, sonnet, high)
+- H14-DX9-07 : la phrase « Environ deux tiers des MSC révèlent la cardiopathie [S4] » (fenêtre « histoire naturelle », point 2) n'a pas été retrouvée dans l'extrait Frigerio 2026 (evidence/DX9_Frigerio2026_IJLM_MSC_jeunes_Suisse.txt). Question : quelle source et quel passage la portent ? Phrase laissée en place, aucune donnée de fond modifiée.
