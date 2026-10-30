@@ -43,6 +43,7 @@ Format Prompt V0 §18. Chaque question demande : la recommandation suisse en vig
 - Identifiant : LOT_016, DX.5, point 11.B (fenêtre `dx5-p11-autres`), point 14.
 - Contexte : aucune spécialité autorisée (Swissmedic 30.09.2026 ; AIPS 08.10.2026).
 - Question : par quelle voie (importation selon l'OAMéd, article exact) le dermatologue obtient-il la dapsone pour une dermatite herpétiforme, et quelle source suisse ou européenne fixe la dose ?
+- Réponse partielle (audit médical, 30.10.2026) : voie comblée par l'art. 49 OAMéd, RS 812.212.1, état le 15.3.2025 (Fedlex, lu ; source [S32] du fichier). La dose reste ouverte : aucune source suisse ou européenne lue ne la fixe.
 
 ## H16-DX5-08 — Critères de sortie après une crise cœliaque
 - Identifiant : LOT_016, DX.5, point 11.D (fenêtre `dx5-p11d`).
