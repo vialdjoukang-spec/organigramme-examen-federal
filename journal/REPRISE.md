@@ -1,16 +1,15 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T14:50:07+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T14:52:22+00:00, branche production-v2)
 
 ## Où on en est
-- LOT_017 (EN_COURS) : 1 audit médical fait ; 5 rédaction en cours ; 5 aucun fichier
+- LOT_017 (EN_COURS) : 1 conformité faite ; 5 rédaction en cours ; 5 aucun fichier
 - Déposés (dossier de travail conservé) : 011, 012, 013, 014, 015, 016
 
 ## Sûr (lu sur disque)
-- 017 Phase_A : audit médical fait, 135753 o, h3=14, FIN_FICHIER=oui, corr 46 (g 6, c 0)
+- 017 Phase_A : conformité faite, 136080 o, h3=14, FIN_FICHIER=oui, corr 51 (g 6, c 0)
 - LOT_017 : liste canonique gelée
 
 ## Incertain
-- LOT_017 Phase_A : redacteur-phase-a lancé 10-30T14:44 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 3 min) : probablement en cours ou interrompu
-- LOT_017 Phase_A : auditeur-conformite lancé 10-30T15:50 (sonnet/high), aucun retour final sur disque : probablement en cours ou interrompu
+- LOT_017 Phase_A : redacteur-phase-a lancé 10-30T14:44 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 0 min) : probablement en cours ou interrompu
 - LOT_017 DX.1 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
 - LOT_017 DX.2 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
 - LOT_017 DX.3 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
