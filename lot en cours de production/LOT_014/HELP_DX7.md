@@ -51,3 +51,7 @@ Questions ouvertes le 30.10.2026 par le rédacteur DX.7. Format : identifiant ; 
 - H14-DX7-06 (autopsie) : comblée en partie. Levy 2015 (Breathe, ERS) : prélever la tryptase mastocytaire si une anaphylaxie a pu contribuer au décès. Histologie de l'asthme fatal : toujours non trouvée.
 - H14-DX7-08 (nouvelle) — Corticoïde i.v. ou oral dans l'état de mal : l'AIPS de Prednisone Streuli® (29349) et de Spiricort® (38840) exige un corticostéroïde soluble i.v. au début de l'état de mal menaçant le pronostic vital ; GINA 2026 et HUG 2026 jugent la voie orale équivalente. Question : position suisse officielle ? Emplacement : DX.7, points 11.B et 14.
 - H14-DX7-09 (nouvelle) — Ketalar® (35073) : l'AIPS demande de suspendre « toute médication adrénergique » avant l'anesthésie ; aucune source consultée ne traite cette consigne chez l'asthmatique en crise. Emplacement : DX.7, point 11.B (fenêtre « autres molécules »).
+
+## Audit de conformité du 30.10.2026 (auditeur-conformite, sonnet, high)
+- Aucune donnée de fond modifiée ; aucune nouvelle question ouverte. Les lacunes H14-DX7-01 à 09 restent ouvertes telles que décrites ci-dessus.
+- Point à confirmer par l'auditeur médical : la phrase du point 1 attribuait à la BTS/SIGN « la menace vitale » entre 33 et 50 % du DEP ; elle dit désormais « asthme aigu sévère », conformément au tableau du point 8 (menace vitale : DEP sous 33 %).
