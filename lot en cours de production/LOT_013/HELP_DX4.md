@@ -12,3 +12,14 @@ Questions ouvertes le 30.10.2026 par le rédacteur de DX.4. Toute réponse se v�
 | H13-DX4-06 | DX.4, point 11 | Reprend H13-07 | Accord du MP avant un prélèvement d'organes chez une victime de la route en mort cérébrale : texte suisse applicable | LTx art. 9 ; ASSM 2017 §2.9 (30.10.2026) | Fenêtre `dx4-p11-spec` |
 | H13-DX4-07 | DX.4, points 3 et 9 | Skriptum Berne/Lucerne 2013 utilisé pour l'alcoolémie post mortem et la biomécanique | Directive SGRM/SSML (section médecine du trafic) plus récente sur le prélèvement post mortem, le rétrocalcul et les formulaires OFROU (annexes 2 et 3 OOCCR-OFROU) | sgrm.ch (30.10.2026) | Fenêtres `dx4-p3-alcool`, `dx4-p9-vivant` |
 | H13-DX4-08 | DX.4, point 1 | Reprend H13-05 | Article du Code de déontologie FMH sur les certificats | FMH en 403 le 30.10.2026 | Fenêtre `dx4-p1-deonto` |
+
+## État après audit médical (30.10.2026, auditeur-medical, opus, xhigh)
+
+| ID | État | Ce que l'audit a trouvé et réinjecté |
+|---|---|---|
+| H13-DX4-01 | Ouverte | Aucune note méthodologique OFS trouvée ; l'écart de 29 décès (250 − 221) reste non décomposé |
+| H13-DX4-02 | Partielle | Tableau OFS « Accidents avec victimes et victimes de la circulation routière, par canton, 1975–2025 » (je-f-11.06.01.01.01, https://www.bfs.admin.ch/bfs/fr/home/statistiques/mobilite-transports.assetdetail.36499574.html) : tués 2025 BE 35, VD 32, ZH 30, LU 14, TI 14, SG 13, FR 12 ; total 214. Réinjecté [S39]. Taux par habitant non calculés (population cantonale non lue) |
+| H13-DX4-03 | Partielle | Manuscrit intégral ERC 2025 Special Circumstances (Minerva, https://minerva.usc.gal/bitstreams/dd824d63-af81-45de-897a-ab3fa325b107/download) : rôle des vasopresseurs « unclear », pont temporaire, causes réversibles d'abord ; abstention si aucun signe de vie depuis 15 min ou traumatisme massif ; arrêt suggéré 20 min après correction des causes réversibles. Réinjecté [S40]. Recommandation suisse (ASSM, SGNOR) : non trouvée |
+| H13-DX4-04 | Partielle | Huit SmPC françaises relues (70009 ajoutée) : aucune indication traumatisme. ERC 2025 : acide tranexamique cité pendant le transfert d'une hémorragie non compressible, sans dose traumatisme. Aucune dose réinjectée (AIPS seule) |
+| H13-DX4-05 | Partielle | Conduite médico-légale du fœtus : non trouvée. ERC 2025 (femme enceinte vivante en arrêt) : déplacement utérin manuel vers la gauche, hystérotomie de réanimation au-delà de 20 semaines, dose d'adrénaline inchangée. Réinjecté [S40] |
+| H13-DX4-06, -07, -08 | Ouvertes | Aucune donnée nouvelle |
