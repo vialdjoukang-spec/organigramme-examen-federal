@@ -101,3 +101,42 @@ Le harnais (`controle_lot.py`, `audit_langue.py`) doit être adapté au nouveau 
 - **Défauts mineurs.** « Ne pas administrer des doses inférieures à 25 mg par jour » est sorti du paragraphe pédiatrique de l'AIPS. La rénine de 20 à 60 mUI/L perd « une étude française », comme dans la V2. La TSH « chez 52 % » perd « sans hypothyroïdie connue ». « Au rang E1, car le médecin l'exclut en premier » inverse la cause. Quatre dépliables coupent une phrase, et « Selon NICE ▸ » cache les seuils du texte principal.
 
 **Non : la V4 (77/82) ne tient pas 90/90.** Elle reste sous la V2 (85/93), ce qui confirme le plancher de 60 Ko. Elle ajoute aussi quatre inexactitudes de compression, dont les deux phrases reformulées (Prévention, grossesse).
+
+## Notation après révision (évaluation indépendante du 30.10.2026, même barème, mêmes contrôles a, b, c)
+
+Lecture seule des quatre versions révisées ; seule cette section est ajoutée. T = x (+ y) est lu dans l'élément `id="taille"` ; `harnais/taille_xy.py` redonne les mêmes valeurs. La couverture est mesurée par un script sur 145 notions tirées de l'ORIGINAL (69 d'examen, 76 de prise en charge) : l'ORIGINAL obtient 99 %, et les versions d'avant révision obtenaient V1 99 %, V2 81 %, V3 95 %, V4 54 %.
+
+| Version | T = x (+ y) | Fichier (octets) | Examen /100 | PEC /100 | Lisibilité /100 | Couverture des notions |
+|---|---|---:|---:|---:|---:|---:|
+| V1 `DX10_Addison_V1_sans_redondance.html` | 17,6 Ko (+ 62,6 Ko) | 99 917 | 98 | 98 | 89 | 98 % |
+| V2 `DX10_Addison_V2_court.html` | 13,5 Ko (+ 26,9 Ko) | 58 157 | 94 | 96 | 90 | 90 % |
+| V3 `DX10_Addison_V3_expert.html` | 19,9 Ko (+ 56,6 Ko) | 97 729 | 98 | 98 | 92 | 97 % |
+| V4 `DX10_Addison_V4_leger.html` | 9,6 Ko (+ 24,7 Ko) | 48 696 | 93 | 95 | 86 | 91 % |
+
+**Contrôles communs.** (a) Le script ne trouve, dans aucune version, de nombre absent de l'ORIGINAL. (b) Toutes les citations AIPS entre « » sont conformes aux sept textes du corpus (23533, 31095, 31723, 54949, 57970, 62068, 68226) ; V3 porte de nouveau « corticosurrénale ». (c) Les 7-grammes communs avec la Phase A tombent à 0,7 % (V1), 1,9 % (V2), 1,6 % (V3) et 1,3 % (V4). `audit_langue.py` compte 29, 9, 21 et 6 phrases de plus de 35 mots, et 129, 63, 98 et 60 phrases à point-virgule. Aucun fichier ne contient de JavaScript, de `title=` ni d'espace insécable, et chaque fenêtre a son déclencheur. Les deux lacunes héritées demeurent, faute de source dans l'ORIGINAL : la zonation du cortex et la conduite chiffrée de l'hypoglycémie de l'adulte.
+
+**V1.**
+- Corrigé : la mère du cas 1 et le lymphome biopsié suivent l'ORIGINAL ; les 14 pièges se déplient en question-réponse ; le schéma chirurgical AIPS de Solu-CORTEF® figure dans les règles de stress.
+- Erreurs restantes (mineures) : trois liens de cause inventés. « l'hydrocortisone parentérale, car ses soignants sont formés », « Aucune source ne prévoit l'arrêt […], car une interruption soudaine… » (l'ORIGINAL juxtapose et précise « consultée ») et « si bien que la prudence s'impose » (la prudence de l'AIPS de Plenadren® vise la dose).
+- Manques : la fiche reste la plus dense (29 phrases de plus de 35 mots). La vitesse d'injection et la dose minimale de Solu-CORTEF® sont renvoyées à la Phase A, qui les contient. Les AIPS n'ont pas d'URL.
+
+**V2.**
+- Corrigé : les cinq erreurs relevées, la définition, les exposants ambigus et les liens (28 sources cliquables). Les 14 pièges, la lymphocytose, Waterhouse-Friderichsen, l'APS1, l'anti-TPO, la densité osseuse, le sujet âgé, le diabète et les vaccins sont rétablis.
+- Erreurs restantes : le même lien inventé « Aucune source ne prévoit l'arrêt […], car… » ; « une dose inadaptée se traduit par un sous-dosage ou un surdosage » est une tautologie.
+- Manques : données suisses de crise (4,4 pour 100 années-patients, carte 94,6 %, réserve 57,1 %) et 6 % de crises mortelles ; seuil bernois de 140 nmol/L ; alternatives au Synacthène ; réserve de Synacthen® dans l'asthme ; coloscopie ; numéros 31723 et 54949 ; sevrage ; DAX1 et MC2R.
+
+**V3.**
+- Corrigé : les points 1 à 4 de la recommandation (« corticosurrénale », contre-indications d'Alkindi® et de Plenadren® et dose d'Alkindi® en HCS mot pour mot, phrase non sourcée et deux liens inventés supprimés, Solu-CORTEF® réduit avec renvoi vérifié). Le point 5 l'est en partie, et le point 6 ne l'est pas, faute de source dans l'ORIGINAL.
+- Erreurs restantes (mineures) : « Aucune source consultée ne prévoit l'arrêt […], car… » est un lien inventé. « Le syndrome mélanodermique commence souvent par un bronzage persistant que remarque un proche » généralise un signe fonctionnel (« le patient ou un proche »). « C'est la mère qui l'a vu » doit s'accorder en « vue ».
+- Manques : le syndrome de sevrage, les métastases chez 40 à 60 % des cancers disséminés et le schéma ESE « 100 mg à l'induction, puis 200 mg/24 h ». Le dépliant « inducteurs du CYP3A4 » insère encore une phrase entière au milieu d'une phrase.
+
+**V4.**
+- Corrigé : les cinq erreurs de compression et les défauts mineurs. La définition reprend mot pour mot l'« usage des mots » de l'ORIGINAL, qui contient aussi la nuance d'Endo-ERN. Le reproche sur « Ne pas administrer des doses inférieures à 25 mg par jour » ne tient pas, car l'AIPS 23533 le place dans le paragraphe « Enfants et adolescents ».
+- Erreurs restantes : « Maladie cœliaque, tuberculose : elles coexistent souvent avec l'ISP » est inexact pour la tuberculose, qui est une cause. Le « Sinon » de la partie 9 rend la phrase illogique. La liste des sources promet des liens que les articles n'ont pas, et deux exposants restent collés (« B12¹⁷ », « APS1¹⁶ »).
+- Manques : anti-TPO, anti-transglutaminase tous les 3 ans, ferritine, densité osseuse, plage AIPS de Florinef®, règle des 16–18 ans, 140 nmol/L, alternatives au Synacthène, Kearns-Sayre. La fiche omet aussi la règle « doubler la dose en cas de fièvre », qui ne figure qu'en fenêtre et en piège.
+
+**Règles complémentaires de Vial.** Les quatre fiches sont grammaticales et liées par des connecteurs, mais V1 reste lourde par la longueur des phrases. La prise en charge est complète dans la fiche pour V1, V2 et V3 ; V4 y omet la règle de fièvre. Tout approfondissement s'ouvre par un clic dans les quatre versions. Aucun résumé ne change plus une dose ni une conduite, mais chaque version garde un à trois liens de cause ou approximations.
+
+**Version recommandée : V3** (98, 98, 92 ; couverture 97 %). Elle a le meilleur plan, la meilleure lisibilité, la prise en charge la plus complète dans la fiche et des citations AIPS exactes. Il reste à remettre le « ; » de l'ORIGINAL sur l'arrêt de la substitution, à rétablir « le patient ou un proche » et l'accord « vue », à ajouter le sevrage, les 40 à 60 % et le schéma ESE, et à sortir la phrase du dépliant CYP3A4.
+
+**Meilleur compromis taille/couverture.** Pour l'objectif de Vial (95 à 100 % des notions, au moins 95/95), V3 est le meilleur compromis, car c'est la plus petite version qui l'atteint (76,5 Ko de texte, contre 80,2 Ko pour V1). Pour un seuil de 90/90, V4 donne le meilleur rendement : 34,3 Ko de texte pour 93/95 et 91 % de couverture. Le plancher de 60 Ko proposé plus haut ne tient donc plus. Le seuil de 90/90 s'atteint vers 35 Ko de texte (49 Ko de fichier), alors que 95/95 et 95 % de couverture exigent environ 75 Ko de texte.
