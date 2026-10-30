@@ -37,3 +37,11 @@ Format Prompt V0 §18. Chaque question demande : recommandation suisse en vigueu
 - Contexte : aucune source lue ne chiffre la sensibilité ou la spécificité des signes cliniques, ni la proportion de patients tuberculeux suisses qui maigrissent.
 - Question : quelle étude suisse ou européenne chiffre ces données ?
 - Déjà cherché : guide OFSP–LPS, Bulletin OFSP 2026, Bosch 2017, Ockenga 2023 ; 30.10.2026.
+
+## État après l'audit médical (30.10.2026, auditeur-medical, opus, xhigh)
+- H16-DX8-01 : ouverte. Le guide V1.2024 (texte intégral, 63 p., relu) ne traite pas l'imagerie de la femme enceinte.
+- H16-DX8-02 : comblée en partie. L'AIPS de Solu-CORTEF® 23533 cite la « Méningite tuberculeuse associée à un blocage sous-arachnoïdien existant ou imminent… » et la « tuberculose pulmonaire fulminante ou miliaire… » parmi ses indications, sans dose propre. Le guide (chap. 7.3, enfants) donne les corticoïdes « habituellement pendant 6 à 8 semaines ». Aucune dose AIPS suisse trouvée.
+- H16-DX8-03 : comblée en partie. Voie d'importation : art. 49, al. 1 et 3 OAMéd (RS 812.212.1, état le 15.3.2025, version la plus récente selon le point SPARQL de Fedlex). Remboursement : non trouvé.
+- H16-DX8-04 : ouverte pour l'IGRA (liste des analyses non lue) ; tuberculine : 0 ligne Swissmedic et 0 occurrence dans le XML AIPS du 08.10.2026.
+- H16-DX8-05 : aucune version postérieure à V1.2024 trouvée (page OFSP, recherche web du 30.10.2026).
+- H16-DX8-06 : ouverte.

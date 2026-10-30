@@ -44,7 +44,7 @@ ABREV_INTERDITES = [
     (r"\benv\.", "env."), (r"\bqqch\b", "qqch"), (r"\bpdt\b", "pdt"), (r"\bs/p\b", "s/p"), (r"\bc/o\b", "c/o"),
     (r"\bnb\.", "nb."),
 ]
-UNITES = r"(?:mg|g|kg|µg|mcg|ng|mL|ml|L|dL|mmol|µmol|nmol|mol|UI|mm|cm|mmHg|kPa|°C|%|bpm|mEq)"
+UNITES = r"(?:mg|g|kg|µg|mcg|ng|mL|ml|L|dL|mmol|µmol|nmol|mol|UI|mm|cm|mmHg|kPa|°C|bpm|mEq)"
 RE_NBSP_UNITE = re.compile(rf"(\d) (?={UNITES}(?![\wÀ-ÿ]))")
 RE_NBSP_PONCT = re.compile(r" (?=[:;?!»%])")
 RE_NBSP_GUIL = re.compile(r"(«) ")
@@ -313,7 +313,8 @@ def audit(f: Path, liste: str | None = None, sigles_ok: str | None = None, max_m
             continue
         t, p = corps[d["bloc"]]["texte"], d["pos"]
         reste = t[p + len(s):]
-        dev = (t[:p].rstrip().endswith("(") and re.match(r"\s*[),;]", reste)) \
+        dans_parenthese = t[:p].rfind("(") > t[:p].rfind(")") and p - t[:p].rfind("(") < 90
+        dev = (dans_parenthese and re.match(r"\s*[),;]", reste)) \
             or re.match(r"\s*\(\s*[a-zà-ÿ]", reste) or re.match(r"\s*:\s*[a-zà-ÿ]{3,}", reste)
         if not dev:
             non_dev.append((s, d))
