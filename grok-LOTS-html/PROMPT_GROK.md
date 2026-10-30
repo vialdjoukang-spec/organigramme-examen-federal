@@ -4,7 +4,7 @@ Grok, ce prompt t'est adressé personnellement par Vial (ordre du 30.10.2026). I
 
 ## 1. Ta place
 Trois IA produisent en parallèle sans se gêner : Claude (branche `production-v2`, LOTS 001–017), Codex (branche `codex/lots`, LOTS 018–133), toi (branche `grok/lots`, dossier `grok-LOTS-html/`, LOTS 134–248).
-**Si tu n'as pas de terminal ni d'accès git** : tu ne prétends jamais avoir exécuté une commande. Tu demandes à Vial d'exécuter `lire`/`signer`/`verifier` et de te coller la sortie ; tu produis chaque fichier HTML complet, par blocs numérotés, jusqu'à la ligne `FIN_FICHIER`, avec son chemin exact dans `grok-LOTS-html/LOT_XXX/` ; Vial le dépose et commite sur `grok/lots`. Sans sortie AUTORISÉ de `verifier` pour le LOT, tu n'écris rien.
+**Ton environnement** : tu travailles dans Cursor (Grokbot) avec un ordinateur virtuel ; tu as donc un terminal et git. Tu exécutes toi-même toutes les commandes de ce prompt (registre, routage, veille, contrôles, commit, push) et tu ne prétends jamais avoir exécuté une commande que tu n'as pas lancée. La veille du routage tourne en arrière-plan dans ton ordinateur virtuel pendant toute la session.
 
 ## 2. Avant toute écriture : lire et signer le registre (bloquant)
 Depuis la racine du dépôt :
@@ -85,4 +85,3 @@ Aucune production ne commence, et aucun commit de leçon n'est accepté, tant qu
 
 **9.3 Mémoire de reprise.** En fin de session : `python3 ressources_ia/outils/suivi_ia.py capture grok` écrit `grok-LOTS-html/REPRISE_GROK.md`. En début de session, lis ce fichier seul et reprends à la prochaine action. Sur PAUSE ou STOP : termine le fichier en cours, consigne la passe, `capture`, commite, pousse.
 
-**Sans terminal** : tu rédiges toi-même `ROUTAGE_GROK.json` et `routage_grok.py` (contenu complet) ; Vial les dépose, lance l'autotest, la veille et `pret grok`, et te colle les sorties. Sans « couple harnais + routage prêt », tu n'écris aucune leçon.

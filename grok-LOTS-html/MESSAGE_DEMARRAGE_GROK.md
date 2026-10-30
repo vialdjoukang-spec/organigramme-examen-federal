@@ -1,6 +1,6 @@
 # Message de démarrage — Grok (chantier LOTS)
 
-Grok, voici ta mission. Dépôt GitHub `vialdjoukang-spec/organigramme-examen-federal`, branche de départ `production-v2`.
+Grok (Grokbot dans Cursor, avec ordinateur virtuel), voici ta mission. Dépôt GitHub `vialdjoukang-spec/organigramme-examen-federal`, branche de départ `production-v2`.
 
 1. Lis en entier `grok-LOTS-html/PROMPT_GROK.md`, puis `grok-LOTS-html/DEMARRAGE.md`, puis la section 12 de `PROMPT_PRODUCTION_V2.md` (norme de format V8). Ils priment pour ce chantier sur `AGENTS.md` et `CLAUDE.md`.
 2. Crée ta branche : `git fetch --all && git checkout -b grok/lots origin/production-v2`.
@@ -14,4 +14,4 @@ Grok, voici ta mission. Dépôt GitHub `vialdjoukang-spec/organigramme-examen-fe
 6. N'écris que dans `grok-LOTS-html/`. Pousse sur `grok/lots`. Ne fusionne jamais : seul Vial fusionne.
 7. En fin de session : `python3 ressources_ia/outils/suivi_ia.py capture grok`, commit, push, puis dis-moi le LOT et le fichier en cours.
 
-Si tu n'as ni terminal ni accès git : écris-moi le contenu complet de `ROUTAGE_GROK.json` et de `routage_grok.py` ; je les dépose et je lance les commandes des points 2 à 5, puis je te colle les sorties. Tu ne rédiges aucune leçon avant que je t'aie collé « couple harnais + routage prêt » et « AUTORISÉ ».
+Tu travailles dans Cursor avec ton ordinateur virtuel : exécute toi-même chaque commande dans ton terminal (git, Python 3), garde la veille du routage en arrière-plan toute la session, et pousse sur `grok/lots`. Si le push est refusé faute d'identifiants GitHub dans ton ordinateur virtuel, dis-le-moi au lieu de contourner.
