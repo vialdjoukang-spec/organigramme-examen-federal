@@ -18,3 +18,4 @@ Source (ne pas modifier) : `LOT_Claude_Finaux/<LOT>/<fichier source>.html`. Sort
 - Retrait pour redondance : seulement si la Phase A V8 contient le passage mot pour mot (doses, citations AIPS, conduites comprises) ; sinon garder en fenêtre.
 - Élision : « l' », « d' », « qu' » font partie du lien ou du mot qui suit (jamais seuls en fin de ligne). Étiquettes de courbe : aucune ne chevauche une ligne ou un point.
 - Connecteurs de cause (« donc », « car », « parce que », « c'est pourquoi », « si bien que », « d'où », « puisque », « en effet ») : seulement si la source donne elle-même la cause ; sinon connecteurs neutres (« et », « puis », « en outre », « par ailleurs »).
+- Fichiers de travail : uniquement dans un sous-dossier propre du scratchpad nommé <LOT>_<fichier> (ex. L012_DX4_V8/) ; jamais de build.py partagé.
