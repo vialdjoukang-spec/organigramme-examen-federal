@@ -64,3 +64,11 @@ Questions ouvertes par le rédacteur DX.1 le 30.10.2026. Format : identifiant ; 
 | H15-DX1-03 | Ouverte | API publique LS relue le 30.10.2026 : seule la limitation adulte 21548.01 (1.10.2026–28.2.2027) est publiée ; aucune limitation postérieure. |
 
 Corrections : 24 (0 critique, 0 grave, 10 moyennes, 14 légères) dans `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`. Nouveaux faits sourcés : code LS 21548.01 ; Orlistat Spirig HC limité aux patients déjà traités depuis le 1.4.2026.
+
+## Suivi de conformité (auditeur-conformite, sonnet, high — 30.10.2026)
+
+| ID | État | Remarque |
+|---|---|---|
+| H15-DX1-04 | Ouverte | Deux noms anglais désignent la SMOB dans les sources : « Swiss Multidisciplinary Obesity Society » (guidance 2026, S1) et « Swiss Society for the Study of Morbid Obesity and Metabolic Disorders » (directives 2023, S10). Question : lequel est le nom officiel actuel ? Le fichier garde les deux, chacun avec sa source. Emplacement : DX.1, point 1 (fenêtre guidance) et liste des sources. |
+
+Aucune donnée de fond modifiée ; corrections de forme seules dans `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`.

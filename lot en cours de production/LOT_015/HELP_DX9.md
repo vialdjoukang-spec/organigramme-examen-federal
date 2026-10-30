@@ -49,3 +49,13 @@ Questions ouvertes le 30.10.2026 par le rédacteur DX.9. Format : identifiant ; 
 - Question : quelle imagerie une source européenne recommande-t-elle dans ce cas ?
 - Déjà cherché : Pituitary Society 2021, 30.10.2026.
 - Emplacement : DX.9, point 9.c (fenêtre `dx9-p9-alt`).
+
+## Suivi d'audit médical — 30.10.2026 (auditeur-medical, opus, xhigh)
+- H15-DX9-01 — Ouverte. Nouvelle recherche web (30.10.2026) : aucune incidence suisse ; seules des données européennes (ERCUSYN, Suède).
+- H15-DX9-02 — Comblée en partie. XML AIPS du 08.10.2026 interrogé par nom de spécialité : Nizoral 46100 et 49379, Terzolin 53698 (composition « Kétoconazole » lue), Ketozol-Mepha 55586, Keto-med 57500 = formes cutanées ; aucune entrée Recorlev. Ketoconazole HRA : autorisation de l'UE (EMA, dès 12 ans selon Endocr Rev 2026), aucune autorisation suisse trouvée. Voie de remboursement d'un médicament importé : art. 71c OAMal, lu dans la version du 22.10.2026 (ajouté au point 11.B, aspects sociaux). « À vérifier (AIPS) » maintenu : aucune dose AIPS possible. Formulaire swissmedicinfo.ch non interrogé.
+- H15-DX9-03 — Ouverte. Europe PMC REST PMC2386281 (Endocrine Society 2008) renvoie une erreur 500 ; SFE/SFEDP 2022 toujours en résumé.
+- H15-DX9-04 — Ouverte. Pituitary Society 2021, ESE-ENSAT 2023 et Endocr Rev 2026 relus en texte intégral : aucun seuil d'ACTH en pg/mL ou pmol/L.
+- H15-DX9-05 et H15-DX9-06 — Ouvertes ; non traitées par cet audit.
+- H15-DX9-07 — Comblée. Plan de vaccination suisse 2026 (état février 2026, PDF OFSP lu) : l'hypercortisolisme endogène n'est pas nommé ; groupe à risque « Immunosuppression médicamenteuse (y compris corticothérapie systémique au long cours et radiothérapie) ». Écrit au point 11.B ; source ajoutée à [S14].
+- H15-DX9-08 — Comblée en partie. Pituitary Society 2021 : la TEP (18F-FDG, 11C-méthionine) a été explorée seule ou avec l'IRM ; elle n'est ni disponible ni autorisée dans la plupart des pays. Conduite propre au dispositif incompatible : non trouvée.
+- Corrections : 29 (0 critique, 4 graves, 15 moyennes, 10 légères) ; journal `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`. Graves : schéma de la crise surrénalienne (ESE/Endocrine Society 2024, [S30]) ; indication AIPS restreinte de Clexane (prophylaxie ambulatoire hors AIPS) ; contre-indications de Dostinex (dont enfant et adolescent) ; texte grossesse de Dostinex en divergence avec la revue 2026.

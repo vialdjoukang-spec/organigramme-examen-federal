@@ -80,3 +80,8 @@ Fichier audité : `LOT_015_Phase_B_V0_DX.8.html` (127 552 → 134 303 octets ; S
 | H15-DX8-10 | Ouverte | Non traitée. |
 
 Vérifié sans correction : Imcivree 69694 (indication, âges, schémas par âge et par poids, foie, grossesse, allaitement), Genotropin 50823/61421 (dose SPW, contre-indications, grossesse ; 61421 = notice « stylo prérempli GoQuick » dans le XML), Rocaltrol 41728, Wegovy 68798, limitations LS (Genotropin, Wegovy), OAMal art. 71a–71d, OIC-DFI ch. 422/462/464, critères SBB 2024 (tableau 1 relu en image), PHP 2018, Alström 2020, PNDS 2021 (seuils lipidiques, calendriers, Synacthène 180 ng/mL = 496,6 nmol/L recalculé). Les facteurs de risque de la GH dans le SPW (adipose sévère, troubles respiratoires) sont des mises en garde de l'AIPS, non des contre-indications.
+
+## Suivi de conformité — 30.10.2026 (auditeur-conformite, sonnet, high)
+
+- Aucun doute de fond nouveau. Les guillemets d'« oscillent », de « boulimie » et d'« obésité génétique » (termes cités sans source) sont retirés ; le texte et les chiffres sont inchangés.
+- `evidence/DX8_RMS2023_Ruiz_obesite_infantile_CHUV-HUG.txt` est un extrait incomplet : la maxime « pas de doute, pas d'espoir, pas de déception » et les cinq messages aux parents ne s'y trouvent pas. Le texte intégral (PDF de l'archive ouverte de l'Université de Genève, https://archive-ouverte.unige.ch/unige:180177, lu le 30.10.2026) les contient mot pour mot.
