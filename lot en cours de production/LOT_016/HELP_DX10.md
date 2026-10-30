@@ -57,3 +57,10 @@ Lacunes ouvertes par le rédacteur de `LOT_016_Phase_B_V0_DX.10.html` le 30.10.2
 - Question : à partir de quelle dose d'hydrocortisone ou de quel jour la fludrocortisone est-elle reprise chez l'adulte (ESE, Endocrine Society, Endo-ERN) ?
 - Déjà cherché : ESE/ES 2024, Endo-ERN 2021, Flück 2023 (30.10.2026).
 - Emplacement : point 11, fenêtre `dx10-p11-urgence`, ligne « Heures 24–72 ».
+
+## Réponses de l'audit médical (auditeur-medical, opus, xhigh ; 30.10.2026)
+- H16-DX10-03 — Comblée en partie : NICE NG243 « Adrenal insufficiency: identification and management » (28.8.2024, https://www.nice.org.uk/guidance/ng243/chapter/Recommendations, lu le 30.10.2026) est plus récente que l'Endocrine Society 2016 ; ajoutée en [S32] (crise adulte 1.7.1–1.7.7, entretien tableau 2, grossesse 1.4.16–1.4.19, surveillance 1.8.9–1.8.12). Texte intégral de l'Endocrine Society 2016 toujours non lu.
+- H16-DX10-04 — Comblée en partie : Ospina NS et al., J Clin Endocrinol Metab 2016;101(2):427–434, PMID 26649617 (résumé Europe PMC lu le 30.10.2026) : ISP, test 250 µg, 5 études, 100 patients, sensibilité 92 % (IC 95 % 81–97 %), spécificité non estimable ; ajoutée en [S33]. Valeur des signes physiques : toujours non trouvée.
+- H16-DX10-05 — Comblée en partie : NICE NG243 1.4.16 envisage une hausse du glucocorticoïde et de la fludrocortisone au 3e trimestre selon symptômes, natrémie et pression posturale, sans chiffre. Seuils diagnostiques propres à la grossesse : toujours non trouvés.
+- H16-DX10-08 — Ouverte en partie : NICE NG243 1.7.5–1.7.7 poursuit l'hydrocortisone parentérale jusqu'à la stabilité et la reprise orale, puis ≥ 40 mg/j par voie orale ; aucun seuil de reprise de la fludrocortisone chez l'adulte.
+- Extrait NICE et résumé d'Ospina non copiés dans `evidence/` (hors du périmètre d'écriture de l'audit) : à ajouter par la session principale.
