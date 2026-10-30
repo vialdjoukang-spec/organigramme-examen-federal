@@ -7,6 +7,6 @@
 - Thiamine : dose de renutrition écrite comme hors information professionnelle (correction d'audit 5) ; numéros par forme vérifiés dans la liste Swissmedic au 30.09.2026 (Benerva cpr 25636, ampoules 10989).
 - Citations CIM-11 : texte anglais officiel cité entre guillemets ; traductions françaises écrites sans guillemets.
 - Cache AIPS ajouté : `.cache/aips/54168.txt` (Efexor ER, texte intégral). Cipralex 55961 relu en texte intégral (l'extrait en cache est partiel) ; passages cités dans `evidence/DX2_AIPS_antidepresseurs_extraits.txt`.
-- Contrôle des citations : 115 segments entre guillemets comparés par script aux textes sources téléchargés ; tous retrouvés.
+- Contrôle des citations : 114 segments entre guillemets comparés par script aux textes sources téléchargés ; tous retrouvés.
 - Incident : le dossier scratchpad est partagé entre rédacteurs parallèles ; un outil de recherche AIPS y a été remplacé pendant la session. Travail poursuivi dans un sous-dossier propre ; les extraits `evidence/` ont été générés depuis les fichiers téléchargés par ce rédacteur.
-- Nouveaux extraits : `evidence/DX2_*.txt` (14 fichiers).
+- Nouveaux extraits : `evidence/DX2_*.txt` (13 fichiers).
