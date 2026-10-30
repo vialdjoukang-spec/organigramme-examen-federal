@@ -24,3 +24,9 @@ Lacunes ouvertes par le rédacteur DX.8 le 30.10.2026. Toute réponse se vérifi
 | H13-02 | Ouverte | HAS 2007 reste la dernière version publiée ; un résultat de recherche (compte rendu du Sénat français du 19.03.2024, page non ouverte) mentionne une cellule HAS d'actualisation créée en 2023 ; la HAS a publié le 05.03.2020 une recommandation « Prévention des déformations crâniennes positionnelles et mort inattendue du nourrisson » (non lue). Aucun protocole suisse postérieur à 2013 trouvé. |
 | H13-DX8-03 | Ouverte | La version AWMF 063-002 de 2018 est marquée « abgelaufen » ; la version 2022 n'a pas été lue. |
 | H13-DX8-S31 | Ouverte | « Jusqu'à 40 % des cas familiaux » (non-compaction, [S31]) : l'article Springer renvoie un défi anti-robot le 30.10.2026 ; chiffre non relu par l'audit, laissé tel quel. |
+
+## Audit de conformité du 30.10.2026 (auditeur-conformite, sonnet, high)
+
+| ID | État | Remarque |
+|---|---|---|
+| H13-DX8-C1 | Ouverte (fond, non modifiée) | Fenêtre `dx8-p2-ofs`, calcul « 2 + 5 + 3 = 10 décès inexpliqués entre 28 et 364 jours en 2024 » : le tableau de la même fenêtre donne R95 = 2 et R96–R99 = 8 dans cette tranche (2 + 8 = 10) ; la décomposition « 5 + 3 » et les valeurs « 8, 8 et 3 » de 2021–2023 ne se lisent pas dans le tableau affiché. Vérifier sur OFS T 14.03.04.01.09 puis aligner l'écriture du calcul. |
