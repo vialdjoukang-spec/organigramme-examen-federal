@@ -23,3 +23,7 @@ Questions ouvertes le 30.10.2026 par le rédacteur de DX.4. Toute réponse se v�
 | H13-DX4-04 | Partielle | Huit SmPC françaises relues (70009 ajoutée) : aucune indication traumatisme. ERC 2025 : acide tranexamique cité pendant le transfert d'une hémorragie non compressible, sans dose traumatisme. Aucune dose réinjectée (AIPS seule) |
 | H13-DX4-05 | Partielle | Conduite médico-légale du fœtus : non trouvée. ERC 2025 (femme enceinte vivante en arrêt) : déplacement utérin manuel vers la gauche, hystérotomie de réanimation au-delà de 20 semaines, dose d'adrénaline inchangée. Réinjecté [S40] |
 | H13-DX4-06, -07, -08 | Ouvertes | Aucune donnée nouvelle |
+
+## État après audit de conformité (30.10.2026, auditeur-conformite, sonnet, high)
+
+Aucune question nouvelle. Les renvois « HELP » ont été retirés du texte du cours (méta-commentaire, Prompt V0 §16) ; les huit questions restent ouvertes dans ce fichier et la mention « donnée non trouvée dans les sources consultées » demeure dans la fenêtre concernée.
