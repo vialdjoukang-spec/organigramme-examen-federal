@@ -8,3 +8,4 @@
 - 2026-10-30 — Phase A — hypothèse : ERC 2025 (texte intégral bloqué HTTP 403) est lu via les pages du Resuscitation Council UK et le manuscrit accepté ; les doses viennent de l'AIPS seulement.
 - 2026-10-30 — Phase A — hypothèse : termes français officiels lus aux HUG (canalopathies) et à l'Inserm (SUDEP) ; aucune abréviation française non lue n'est créée.
 - 2026-10-30 — Phase A — hypothèse : divergence ASSM 2021 (20 min sans ROSC) et ERC 2025 (asystolie ≥ 45 min) présentée dans une fenêtre, sans trancher à la place de l'équipe.
+- 2026-10-30 — Phase A — hypothèse : taille finale 132 107 octets (cible indicative 100–125 Ko dépassée de 7 Ko) ; le fond est gardé, la marge sous le plafond de 150 000 octets reste de 17,9 Ko pour les audits.
