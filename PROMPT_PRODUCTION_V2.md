@@ -51,7 +51,7 @@ Règles : un auditeur n'audite jamais ce qu'il a rédigé ; escalade seulement s
 
 ## 6. Pause et reprise : PONS-OBLONGATA
 Mémoire de reprise sans modèle : `python3 harnais/pons_oblongata.py <commande>`.
-- `capture` (défaut) : lit le disque et écrit `journal/PONS_OBLONGATA.json` (machine), `journal/REPRISE.md` (≤ 80 lignes : où on en est, sûr, incertain, prochaines actions) et `journal/pons/AAAAMMJJ-HHMM.json` (50 derniers). Automatique après chaque commit (`harnais/hooks/post-commit`, installé par `sh harnais/installer_hooks.sh`) et à la fin de chaque audit (hook Stop des deux auditeurs).
+- `capture` (défaut) : lit le disque et écrit `journal/PONS_OBLONGATA.json` (machine), `journal/REPRISE.md` (≤ 80 lignes : où on en est, sûr, incertain, prochaines actions) et `journal/pons/AAAAMMJJ-HHMM.json` (50 derniers). Lancée par le script de commit de la session principale, avant chaque commit (la capture entre dans le commit), et à la fin de chaque audit (hook Stop des deux auditeurs). Pas de hook post-commit : il laissait l'arbre modifié après chaque commit.
 - `pause "motif"` : capture + `journal/PAUSE`. Pendant la pause aucun agent n'est lancé ; les agents en cours finissent leur fichier (pause douce, aucun jeton perdu) ; arrêt dur seulement sur ordre explicite de Vial.
 - `reprise` : affiche REPRISE.md et lève la pause. `etat` : une ligne par fichier. `veille [--intervalle 20]` : surveille le disque et recapture ; PID dans `journal/pons.pid` ; arrêt par SIGTERM.
 - Étapes déduites : aucun fichier / rédaction en cours / rédigé / audit médical fait / conformité faite / transversale faite / déposé. Un agent lancé (routage.jsonl) sans retour postérieur sur disque est « probablement en cours ou interrompu » : vérifier le disque avant de relancer.
@@ -97,3 +97,9 @@ Vérification de syntaxe : `python3 -m py_compile harnais/*.py`. Si un script ma
 - Version la plus récente et officielle (diaporamas ESC, registre de l'Union) avant d'écrire « non lu » ; extrait `evidence/` contenant réellement le passage cité.
 - Taille : 110–125 Ko au premier jet. Format : `popovertargetaction="hide"` sur chaque Fermer, balises `</td>`, `</tr>`, `</th>` conservées.
 - Un agent interrompu laisse un fichier cohérent (corrections atomiques et journalisées) : relancer l'audit en entier plutôt que de reconstituer.
+
+## 11. Plusieurs IA sur le dépôt : registre et verrous (ordre de Vial du 30.10.2026)
+- Claude, Codex et Grok produisent en parallèle, chacun sur sa branche et dans son dossier : `claude` → `production-v2` (dépôt dans `LOT_Claude_Finaux/`, miroir `LOTS_html/`) ; `codex` → branche `codex/lots`, dossier `codex-LOTS-html/` ; `grok` → branche `grok/lots`, dossier `grok-LOTS-html/`.
+- Registre : `harnais/registre_ia.py` (source) et ses clones identiques `claude-LOTS-html/`, `codex-LOTS-html/`, `grok-LOTS-html/registre_ia.py`. `etat` relève toutes les branches distantes et écrit `REGISTRE.md/.json` dans les trois dossiers ; `lire` + `signer` obligatoires avant toute écriture ; `verifier <ia> <LOT>` ; hook pre-commit bloquant (`installer <ia>`).
+- Plages : `IA_RESERVATIONS.json` ; exceptions : `IA_AUTORISATIONS.json`. Ces deux fichiers sont modifiables par Vial seul. Un LOT amorcé par une IA est en lecture seule pour les autres.
+- Prompts adressés : `codex-LOTS-html/PROMPT_CODEX.md`, `grok-LOTS-html/PROMPT_GROK.md`.
