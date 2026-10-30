@@ -20,7 +20,7 @@ PROD = R / "lot en cours de production"
 V8 = R / "LOTS_V8"
 
 REGLES = ("AIPS = information professionnelle suisse du médicament (Swissmedic), jamais « Compendium ». Pièges : garde ceux de la source, n'ajoute aucun fait. "
-          "N'ajoute aucun lien que tu n'as pas lu (doi/PMID de la source → doi.org / pubmed). Doses AIPS suisse seulement ; une dose « hors AIPS » se signale sans valeur de consigne. "
+          "N'ajoute aucun lien que tu n'as pas lu (doi/PMID de la source → doi.org / pubmed). Doses AIPS suisse seulement ; une dose « hors AIPS » se signale sans valeur de consigne ; toute dose attribuée à l'AIPS se vérifie dans l'AIPS locale (`.cache/aips`, `ressources_ia/aips/fi_fr`). "
           "N'attribue jamais une source à un fait que la source n'y rattache pas. Si la source contient une erreur médicale manifeste, ne la recopie pas comme vraie : signale-la et marque-la « À vérifier ». "
           "Tableaux lisibles sur téléphone (390 px). Contrôle du rendu avec Playwright. Fichiers de travail dans un sous-dossier propre du scratchpad. Aucun commit ; rapport bref.")
 
