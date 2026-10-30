@@ -79,8 +79,6 @@ def classer(c: dict, det: dict, nbefore_txt: str, flagged_norms: dict[str, list[
             if any(sn in x or (len(x) > 14 and x[:34] in norm(A)) for x in lst):
                 fires.append(code)
     # typographie directement sur le texte « avant »
-    if AL.RE_NBSP_PONCT.search(A) and False:
-        pass
     if re.search(r" [;:?!»%]|« |\d (?:mg|g|kg|µg|mL|ml|mmol|UI|mmHg)\b", A) and re.search(r"[  ]", B):
         fires.append("insecable")
     if re.search(r" [.,](?:\s|$)", A):
@@ -118,6 +116,9 @@ def main() -> int:
     a = ap.parse_args()
     res = {"fichiers": [], "lots": {}, "agreg": {}}
     cat_tot, cat_det, det_par_code = Counter(), Counter(), Counter()
+    cat_det_ext = Counter()
+    n_det_ext = 0
+    STRICT = {"phrase_longue", "phrase_double", "sigle", "abreviation", "insecable", "espace_avant_point"}
     med_tot = Counter()
     n_corr = n_det = 0
     for lot in a.lots.split(","):
@@ -159,7 +160,7 @@ def main() -> int:
             final_src = git("cat-file", "blob", hist[-1][1]).decode("utf8", "replace")
             rf = AL.audit(RACINE / ch, str(liste), src=final_src, nom=nom)
             rf.pop("details")
-            flagged = {k: [norm(x) for x in v] for k, v in det.items() if k in ("phrase_longue", "chaine_pv", "phrase_double", "sigle")}
+            flagged = {k: [norm(x) for x in v] for k, v in det.items() if k in ("phrase_longue", "chaine_pv", "phrase_double", "sigle", "pv_simple", "sans_verbe")}
             flagged["phrase_longue"] = [x for x in flagged["phrase_longue"]]
             lignes = []
             for c in cs:
@@ -169,15 +170,19 @@ def main() -> int:
             for c, k in zip(cs, lignes):
                 cat_tot[k["categorie"]] += 1
                 n_corr += 1
-                if k["detecte"]:
+                if set(k["detecte"]) & STRICT:
                     cat_det[k["categorie"]] += 1
                     n_det += 1
+                if k["detecte"]:
+                    cat_det_ext[k["categorie"]] += 1
+                    n_det_ext += 1
                     for code in k["detecte"]:
                         det_par_code[code] += 1
             confiance = bestscore / max(1, len(utiles))
             res["fichiers"].append({
                 "lot": L, "dx": dx, "version": b[:10], "confiance_version": round(confiance, 2), "n_corr": len(cs),
-                "n_detectees": sum(1 for k in lignes if k["detecte"]),
+                "n_detectees": sum(1 for k in lignes if set(k["detecte"]) & STRICT),
+                "n_detectees_etendu": sum(1 for k in lignes if k["detecte"]),
                 "flags_avant": {x["code"]: x["n"] for x in r["avertissements"] + r["critiques"]},
                 "flags_final": {x["code"]: x["n"] for x in rf["avertissements"] + rf["critiques"]},
                 "critiques_avant": [x["code"] for x in r["critiques"]],
@@ -194,9 +199,10 @@ def main() -> int:
     style = cat_tot["reformulation"] + cat_tot["scission_phrase"]
     res["agreg"] = {
         "fichiers_rejoues": len(ok), "fichiers_ignores": len(res["fichiers"]) - len(ok),
-        "corrections_conformite": n_corr, "detectees_par_script": n_det,
+        "corrections_conformite": n_corr, "detectees_par_script": n_det, "detectees_etendu": n_det_ext,
+        "rappel_etendu": round(n_det_ext / n_corr, 3) if n_corr else None,
         "rappel_strict": round(n_det / n_corr, 3) if n_corr else None,
-        "par_categorie": {k: {"n": cat_tot[k], "detectees": cat_det[k]} for k in cat_tot},
+        "par_categorie": {k: {"n": cat_tot[k], "detectees": cat_det[k], "detectees_etendu": cat_det_ext[k]} for k in cat_tot},
         "detection_par_controle": dict(det_par_code),
         "part_jugement": round(jug / n_corr, 3) if n_corr else None,
         "part_style_reformulation": round(style / n_corr, 3) if n_corr else None,
@@ -208,7 +214,7 @@ def main() -> int:
     Path(a.sortie).write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf8")
     g = res["agreg"]
     print(f"fichiers rejoués {g['fichiers_rejoues']} (ignorés {g['fichiers_ignores']}) ; corrections conformité {n_corr} ; "
-          f"détectées par le script {n_det} = {g['rappel_strict']:.1%} ; jugement {g['part_jugement']:.1%} ; "
+          f"détectées par le script {n_det} = {g['rappel_strict']:.1%} (étendu {g['rappel_etendu']:.1%}) ; jugement {g['part_jugement']:.1%} ; "
           f"reformulation/scission {g['part_style_reformulation']:.1%} ; confiance version {g['confiance_version_moyenne']}")
     print("par catégorie :", g["par_categorie"])
     print("médical langue+format :", g["medical_langue_format"], "/", g["medical_total"], f"= {g['part_medical_langue_format']:.1%}")
