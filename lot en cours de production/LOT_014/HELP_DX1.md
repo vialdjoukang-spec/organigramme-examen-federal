@@ -58,3 +58,27 @@ Questions ouvertes par le rédacteur Phase B DX.1 le 30.10.2026. Format : identi
 | H14-DX1-05 | Comblée en partie | AIPS Ultravist® (46969, août 2024) : DFGe < 30 mL/min/1,73 m² = risque accru de lésion rénale post-contraste après injection coronaire ; dose minimale, hydratation, fonction rénale ≥ 3 jours ; prémédication glucocorticoïde à envisager après réaction modérée à sévère. Source [S62], point 9.c. Dispositif non compatible IRM : toujours ouvert. ESUR 10.0 non téléchargeable (connexion réinitialisée). |
 | H14-DX1-06 | Comblée | OFSP/CFV, Plan de vaccination suisse 2026 : grippe recommandée aux personnes ayant de façon chronique une affection cardiaque ; dose élevée préférée dès 75 ans ou dès 65 ans avec facteur de risque supplémentaire ; de préférence entre mi-octobre et début de la vague. Source [S61], point 12. |
 | Note H14-03 du LOT | Vérifiée | Pocket-Leitlinie DGK 2022 relue (PDF) : figure 5 (autopsie, toxicologie, génétique, apparentés = classe I), figure 8 (orage rythmique), figures 11–12 (STEMI, cardiopathie ischémique chronique). La mention « bêtabloquant de préférence non sélectif » dans l'orage rythmique n'y figure pas : retirée du fichier. |
+
+## État après audit de conformité (30.10.2026, auditeur-conformite)
+
+Corrections de forme seulement (aucune dose, aucun seuil, aucune conduite modifiés). Trois points de fond ou de source restent ouverts.
+
+## H14-DX1-07 — Développement de SWISSRECA et du sigle « LS »
+- Identifiant : LOT_014, Phase B, DX.1, points 2 et 11 (fenêtre légale).
+- Contexte : le fichier écrit « registre SWISSRECA » et « LS 810.1 » sans développer ces sigles ; aucune source lue ne donne leur nom complet. La page zh.ch ne nomme que la « Zürcher Gesetzessammlung ».
+- Question : nom officiel complet de SWISSRECA (registre suisse de l'arrêt cardiaque) et signification officielle de « LS » dans la numérotation zurichoise.
+- Déjà cherché : evidence S03 (diaporama SRC, sigle seul) ; page zh.ch du GesG.
+- Emplacement : point 2, fenêtre « Distribution chiffrée en Suisse » ; point 11, fenêtre « Cadre légal du constat ».
+
+## H14-DX1-08 — Deux chiffres de survie à l'arrêt extrahospitalier en Suisse
+- Identifiant : LOT_014, Phase B, DX.1, points 2 et 11.D.
+- Contexte : le point 2 donne une survie globale de 3 à 5 % (Vaud 2022, [S24]) ; la fenêtre du même point et le point 11.D donnent « un peu moins d'une personne sur huit » (FSC 2023, [S25]). Le fichier ne commente pas l'écart (définition de la survie, année, population).
+- Question : quel chiffre le candidat doit-il retenir, et pour quelle définition de la survie ?
+- Déjà cherché : relecture des deux phrases dans le fichier uniquement.
+- Emplacement : point 2, texte principal et fenêtre ; point 11.D.
+
+## H14-DX1-09 — Glose du « N20 » et de l'enzyme CYP2C19
+- Identifiant : LOT_014, Phase B, DX.1, points 3 et 9.d.
+- Contexte : « potentiels évoqués corticaux somesthésiques N20 » vient de l'evidence ERC-ESICM 2025 (« somatosensory evoked cortical N20 potentials ») ; « enzyme CYP2C19 du cytochrome P450 » vient de l'usage général, non d'une AIPS lue.
+- Question : confirmer ces deux formulations à la source (ERC-ESICM 2025 ; AIPS Plavix®).
+- Emplacement : point 9.d, ligne « Pronostic neurologique multimodal » ; point 3, tableau de corrélation.
