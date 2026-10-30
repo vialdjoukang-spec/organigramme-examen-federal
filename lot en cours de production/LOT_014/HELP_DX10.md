@@ -36,3 +36,16 @@ Format : identifiant ; contexte ; question ; déjà cherché ; emplacement cible
 - Question : quel est le texte ERC 2025 « Paediatric Life Support » (séquence, profondeur en cm chez le nourrisson, arrêt de la réanimation) ?
 - Déjà cherché : https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines (30.10.2026).
 - Emplacement : point 7.1, fenêtre 7.1.
+
+## Audit médical du 30.10.2026 (auditeur-medical, opus, xhigh)
+
+- Cohérence G13 DX.8 ↔ G14 DX.10 : les deux tranches d'âge ont été relues dans les XLSX OFS (T 14.03.04.01.09, feuille 2024 ; T 14.03.04.01.10), état 22.12.2025. Moins d'un an : R95 = 2, R96–R99 = 26 (dont 15 au jour 0, 3 entre 1 et 6 jours, 8 entre 28 et 364 jours). Entre 28 et 364 jours : R95 + R96–R99 = 2 + 8 = 10. Le chiffre de `LOT_013_Phase_B_V0_DX.8.html` est exact ; DX.8 n'est pas modifié. DX.10 donne désormais aussi la tranche 28–364 jours : les deux fichiers ne se contredisent plus.
+- H14-DX10-01 à H14-DX10-04 : restent ouvertes ; aucune source suisse nouvelle trouvée pendant l'audit.
+- H14-DX10-05 : reste ouverte. La page RCUK « paediatric-basic-life-support-guidelines » (2025) renvoie le 30.10.2026 vers la page d'accueil du site (HTTP 200 sans le texte) ; « paediatric-life-support-guidelines » et « paediatric-advanced-life-support-guidelines » renvoient HTTP 404. Le fichier garde le diaporama SRC/SIRMED 2025 (15:2, 5 insufflations, deux pouces jusqu'à un an, i.v. avant i.o.), relu dans les preuves.
+
+## H14-DX10-06 — Signalement à l'APEA par le médecin : obligation cantonale
+- Identifiant : LOT_014, Phase B, DX.10, points 4, 5 et 14.
+- Contexte : le fichier cite CC art. 314c al. 2 (droit d'aviser malgré le secret) et art. 314d al. 1 et 3 (obligation hors secret ; les cantons peuvent prévoir d'autres obligations), Fedlex état 01.07.2026.
+- Question : quels cantons (au moins VD, GE, ZH, BE) imposent au médecin une obligation d'aviser l'APEA au sens de l'art. 314d al. 3 CC, et selon quel texte (loi, article, état) ?
+- Déjà cherché : Fedlex CC art. 314c–314d (30.10.2026) ; droit cantonal non lu.
+- Emplacement : point 14, piège sur l'APEA ; point 4, ligne « Traumatisme infligé ».
