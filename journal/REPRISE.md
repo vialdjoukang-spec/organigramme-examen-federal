@@ -1,4 +1,4 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T20:23:51+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T20:24:16+00:00, branche production-v2)
 
 **PAUSE ACTIVE** — 2026-10-30T16:50:29+00:00 ; motif : STOP d'urgence demandé par Vial
 Règle : pendant la pause, aucun agent n'est lancé ; les agents en cours finissent leur fichier (pause douce, aucun jeton perdu) ; arrêt dur seulement sur ordre explicite de Vial. Sortie : `python3 harnais/pons_oblongata.py reprise`.
@@ -24,7 +24,7 @@ Règle : pendant la pause, aucun agent n'est lancé ; les agents en cours finiss
 - LOT_017 DX.6 : redacteur lancé 10-30T16:20 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 276 min) : probablement en cours ou interrompu
 - LOT_017 DX.8 : redacteur lancé 10-30T16:26 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
 - LOT_017 DX.9 : redacteur lancé 10-30T16:29 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 275 min) : probablement en cours ou interrompu
-- LOT_017 DX.10 : redacteur lancé 10-30T16:30 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 274 min) : probablement en cours ou interrompu
+- LOT_017 DX.10 : redacteur lancé 10-30T16:30 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 275 min) : probablement en cours ou interrompu
 - LOT_017 items T non faits : T1 Verser dans `evidence/` les extraits des sources S44–S52  | T2 Phase A et tous les DX : vérifier tout chiffre repris d'A
 
 ## Prochaines actions (une ligne)
