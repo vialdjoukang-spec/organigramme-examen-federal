@@ -31,3 +31,9 @@ Questions ouvertes par le rédacteur DX.6 le 30.10.2026. Format : identifiant ; 
 - Question : quelles sources suisses ou européennes datées répondent à ces trois points ?
 - Déjà cherché : sources S12, S16, S17, S52, S57 du fichier, 30.10.2026.
 - Emplacement : DX.6, points 9.a, 9.c et 11.B (volet social).
+
+## État après audit médical (30.10.2026, auditeur-medical, opus, xhigh)
+
+- H14-DX6-01 — **Comblée en partie.** Aucun phénobarbital injectable n'est autorisé : liste Swissmedic des emballages autorisés (état au 30.09.2026) = Aphénylbarbite® 15/50/100 mg comprimés seulement (n° 12175 ; l'information professionnelle existe en français, mise à jour novembre 2023, et non en allemand seulement). Import possible selon l'art. 49 OAMéd (RS 812.212.1, état au 15.03.2025). Ajouté : Thiopental Inresa® (n° 62451), indication « contrôle des convulsions … d'origines diverses », dose AIPS seulement en cours de narcose (75–125 mg). Reste ouvert : protocole suisse de dose i.v. de phénobarbital importé (aucune source suisse lue).
+- Nouvelle constatation (comblée) : Valium® solution injectable (n° 30433) porte l'indication « état de mal épileptique » (0,15–0,25 mg/kg i.v., répétable après 10–15 min, max. 3 mg/kg/24 h) ; ajoutée au point 11.
+- H14-DX6-02 à H14-DX6-05 — Ouvertes ; aucune source nouvelle trouvée pendant l'audit.
