@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Vérifie une refonte V8 (zéro jeton) : python3 harnais/verif_refonte.py <source.html> <sortie.html> [--phase-a] [--ref <PhaseA.html>]
 --ref : les nombres présents dans la Phase A du LOT sont excusés (redondance retirée d'un DD)."""
-import re, sys
+import html, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent)); import taille_xy as T
 
 def texte(h):
     h = re.sub(r"(?is)<(style|script|head).*?</\1>", " ", h); h = re.sub(r"<[^>]+>", " ", h)
-    return re.sub(r"\s+", " ", h)
+    return re.sub(r"\s+", " ", html.unescape(h))
 
 def nombres(t):
     return set(re.findall(r"\d+(?:[.,]\d+)?", t))
