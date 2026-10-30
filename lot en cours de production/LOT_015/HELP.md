@@ -4,7 +4,7 @@ Questions ouvertes par le rédacteur Phase A le 30.10.2026. Format : identifiant
 
 ## H15-01 — Texte intégral des 2026 ESC Guidelines for the management of heart failure
 - Identifiant : LOT_015, Phase A, points 4, 9.b, 11.B ; Phase B DX.6.
-- Contexte : le HTML cite le communiqué ESC du 28.08.2026 (S13) et les seuils NT-proBNP de la Revue Médicale Suisse 2021 (S26), établis sous l'ESC 2021.
+- Contexte : le HTML cite le communiqué ESC du 28.08.2026 (S13) et les seuils NT-proBNP de la Revue Médicale Suisse 2021 (S26), établis sous l'ESC 2016 (et non l'ESC 2021 : correction d'audit).
 - Question : quels seuils diagnostiques de peptides natriurétiques (contexte chronique et décompensé) et quelles classes de recommandation l'ESC 2026 retient-elle ? Les seuils 125/300 pg/mL changent-ils ?
 - Déjà cherché : https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/heart-failure/ (licence ESC : réutilisation dans des outils logiciels soumise à accord) ; academic.oup.com (HTTP 403), 30.10.2026.
 - Emplacement : Phase A, point 9.b (tableau d'interprétation) ; Phase B DX.6, points 8 et 9.
@@ -104,3 +104,10 @@ Questions ouvertes par le rédacteur Phase A le 30.10.2026. Format : identifiant
 - H15-03, H15-04, H15-05 : **closes** (sources lues : annexe 1 OPAS en français du 1.7.2026 ; liste des spécialités, API publique de l'OFSP ; EASL–EASD–EASO 2024). Détail : `CORRECTIONS_AUDIT.md`, section « Lacunes HELP après audit ».
 - H15-14 : ouverte en partie (ordre justifié par l'ESE 2020, tableau 2 ; aucune donnée suisse homogène).
 - Toutes les autres restent ouvertes.
+
+## État après la passe transversale finale (30.10.2026, auditeur médical, opus, xhigh)
+
+- H15-01 : **close en partie**. Seuils de l'ESC 2026 lus dans le diaporama officiel (Official Slide Set, https://dam-assets.escardio.org/download/b2e587389baa11f185de06bdfb3e4be9) : figure 4, NT-proBNP ≥ 125 pg/mL (< 50 ans), ≥ 250 (50–74 ans), ≥ 500 (≥ 75 ans) ou BNP ≥ 35 pg/mL hors aigu ; figure 11, NT-proBNP ≥ 300 pg/mL en décompensation. Écrits dans la Phase A, DX.1, DX.2, DX.6 et DX.7, attribués au « diaporama officiel ESC 2026 », avec la divergence ESC 2016. Reste ouvert : texte intégral (academic.oup.com HTTP 403 ; Europe PMC PMID 42661420 sans texte, 30.10.2026) et note c de la figure 11.
+- H15-10 : **close pour le texte de l'OMS**. Section 6B82 lue mot pour mot dans la CDDR 2024 (p. 407–410), extrait `evidence/DX4_OMS_CDDR2024_CIM11_6B82.txt` remplacé ; table de correspondance 6B82 → F50.8. Reste ouvert : traduction française officielle (navigateur icd.who.int dynamique).
+- Faits établis pendant la passe (sans question HELP ouverte) : nom actuel de la SMOB « Swiss Multidisciplinary Obesity Society » (smob.ch, statuts 2024) ; décision de la Commission européenne C(2026) 3032 du 30.04.2026 pour le setmélanotide dans l'obésité hypothalamique acquise dès 4 ans (registre de l'Union, EU/1/21/1564) ; dose d'urgence pédiatrique d'hydrocortisone de la BSPED 2023 (aucune source suisse ni AIPS ne la fixe).
+- Toutes les autres questions gardent l'état décrit ci-dessus.
