@@ -59,3 +59,11 @@ Fichier audité : `LOT_015_Phase_B_V0_DX.10.html`, 122 748 → 130 288 octets (S
 | H15-DX10-07 | Ouverte | Non traitée. |
 | H15-DX10-08 (nouvelle) | Ouverte | Hypothermie du syndrome hypothalamique : aucune conduite d'urgence trouvée dans S28–S31, S33, BSPED. Emplacement : point 4 (fenêtre graves) et 11.B. |
 | H15-DX10-09 (nouvelle, Phase A) | À reporter | La Phase A (DX.10, fenêtre `b2-dx10`) écrit : « Aucun médicament n'a encore prouvé son efficacité par un essai randomisé [S19] ». TRANSCEND (NEJM 2026;395:138–150, phase 3 randomisé) le contredit. Correction à faire par la session principale. |
+
+## Suivi d'audit de conformité (auditeur-conformite, sonnet, high — 30.10.2026)
+
+Fichier : `LOT_015_Phase_B_V0_DX.10.html`, 130 288 → 130 232 octets. Aucune donnée de fond modifiée ; 93 corrections de forme dans `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`.
+
+| ID | État | Doute de fond signalé |
+|---|---|---|
+| H15-DX10-06 | Ouverte (complément) | Le point 13 écrit « l'Union européenne l'a autorisée en 2026 », alors que le corps du texte ne cite que l'avis du CHMP du 26.03.2026 et l'information produit mise à jour le 27.05.2026 ; la décision de la Commission reste non lue. À confirmer, puis reformuler le point 13 (« recommandée par le CHMP » ou « autorisée »). Non modifié par l'auditeur de conformité. |
