@@ -50,3 +50,17 @@ Questions ouvertes par le rédacteur DX.1 le 30.10.2026. Format : identifiant ; 
 - Question : quelle limitation s'appliquera dès le 1.3.2027 ?
 - Déjà cherché : API publique de la liste des spécialités, 30.10.2026.
 - Emplacement : DX.1, point 11.B ; à relire en passe transversale (CORRECTIONS_AUDIT, T1).
+
+## Suivi d'audit médical (auditeur-medical, opus, xhigh — 30.10.2026)
+
+| ID | État | Ce que l'audit a fait |
+|---|---|---|
+| H15-08 (suite) | Comblée en partie | SMOB 2023 § 7.4 lu dans le PDF complet : mobilisation précoce, conseils diététiques, ordonnance de sortie (IPP, thromboprophylaxie à domicile selon le cas, substitution), premier rendez-vous. Écrit au point 11.D. Critères cliniques chiffrés (douleur, alimentation, constantes) : toujours non trouvés. |
+| H15-11 (suite) | Ouverte | Recherche web « Todesfälle Übergewicht Adipositas » (OFS, Obsan, OFSP) et rapport Stucki 2025 (ZHAW) : aucun nombre de décès attribuables lu. |
+| H15-12 | Comblée en partie | Aucune édition SGSSC plus récente que 2017 trouvée ; le formulaire FO04-811 de l'Institut de médecine légale de Zurich (V03, 10.03.2026) s'y réfère encore. La SGSSC précise qu'aucune obligation d'annonce n'existe (écrit au point 11.B). Arrêt de travail, assurance-invalidité, incapacité postopératoire : toujours sans source. |
+| H15-13 | Ouverte | Non traitée par cet audit. |
+| H15-DX1-01 | Ouverte | NoSAS : score dérivé de la cohorte lausannoise HypnoLaus (Marti-Soler, Lancet Respir Med 2016;4:742–8) ; texte intégral inaccessible (Serval UNIL, Europe PMC) ; le seuil de tour de cou n'a pas été lu dans la source primaire. |
+| H15-DX1-02 | Ouverte | AIPS 68726 relue : aucun délai d'arrêt avant conception ; divergence avec la guidance 2026 (« environ 2 mois ») déjà écrite. |
+| H15-DX1-03 | Ouverte | API publique LS relue le 30.10.2026 : seule la limitation adulte 21548.01 (1.10.2026–28.2.2027) est publiée ; aucune limitation postérieure. |
+
+Corrections : 24 (0 critique, 0 grave, 10 moyennes, 14 légères) dans `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`. Nouveaux faits sourcés : code LS 21548.01 ; Orlistat Spirig HC limité aux patients déjà traités depuis le 1.4.2026.
