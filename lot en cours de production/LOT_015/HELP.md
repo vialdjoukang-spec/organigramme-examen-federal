@@ -98,3 +98,9 @@ Questions ouvertes par le rédacteur Phase A le 30.10.2026. Format : identifiant
 - Question : une donnée suisse homogène (prévalence en population adulte) permet-elle de confirmer cet ordre ?
 - Déjà cherché : S6, S11, S13, S26, 30.10.2026.
 - Emplacement : Phase A, liste des DX et critère d'ordre.
+
+## État après l'audit médical de la Phase A (30.10.2026)
+
+- H15-03, H15-04, H15-05 : **closes** (sources lues : annexe 1 OPAS en français du 1.7.2026 ; liste des spécialités, API publique de l'OFSP ; EASL–EASD–EASO 2024). Détail : `CORRECTIONS_AUDIT.md`, section « Lacunes HELP après audit ».
+- H15-14 : ouverte en partie (ordre justifié par l'ESE 2020, tableau 2 ; aucune donnée suisse homogène).
+- Toutes les autres restent ouvertes.
