@@ -14,7 +14,7 @@ MOTIF = re.compile(r"^LOT_\d{3}_Phase_[AB].*\.html$")
 
 def sources():
     lots = {}
-    for base in (R / "lot en cours de production", R / "LOT_Claude_Finaux"):  # le déposé l'emporte
+    for base in (R / "lot en cours de production", R / "LOT_Claude_Finaux", R / "LOTS_V8"):  # le déposé l'emporte, la refonte V8 l'emporte sur tout
         for d in sorted(base.glob("LOT_[0-9][0-9][0-9]")):
             fichiers = [f for f in d.rglob("*.html") if MOTIF.match(f.name)]
             if fichiers:
