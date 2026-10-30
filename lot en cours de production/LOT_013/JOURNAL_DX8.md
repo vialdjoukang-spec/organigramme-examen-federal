@@ -8,4 +8,5 @@
 - 2026-10-30 — Hypothèse : les 4 décès par maltraitance de 2024 proviennent de la dépêche SRF/sda du 26.05.2025 ; le rapport primaire 2024 n'a pas été trouvé (signalé dans le texte).
 - 2026-10-30 — HELP H13-02 : recommandations suisses trouvées et lues (SGP/SGN 2013, Paediatrica 24(5) ; commission SID de la SGP 2007, Paediatrica 18(1) ; Skriptum de médecine légale BE/LU 2013 hébergé par la SGRM) ; la HAS 2007 reste le repli européen pour le protocole d'investigation, avec RCPath/RCPCH 2016.
 - 2026-10-30 — Forme : attribut `type="button"` retiré et légendes descriptives raccourcies pour garder une marge sous 150 Ko ; aucun contenu clinique supprimé.
-- 2026-10-30 — Fichier écrit : `LOT_013_Phase_B_V0_DX.8.html` ; contrôle `controle_lot.py verifier --sans-nom` sans critique sur ce fichier ; aucun score attribué par le rédacteur.
+- 2026-10-30 — Fichier écrit : `LOT_013_Phase_B_V0_DX.8.html`, 146 702 octets, SHA-256 055a82a1d5b64220978a8b3c507965235e25d4fcfe7f428bfe07a03a55194454 ; 14 points, 47 fenêtres popover, 34 sources ; `controle_lot.py verifier` (avec et sans `--sans-nom`) : 0 critique, 0 avertissement pour ce fichier ; aucun score attribué par le rédacteur.
+- 2026-10-30 — Extraits AIPS mis en cache : `.cache/aips/51756.txt`, `39001.txt`, `56551.txt`, `56472.txt` (66396 réutilisé) ; sources nouvelles : `evidence/DX8_*.txt` (14 fichiers).
