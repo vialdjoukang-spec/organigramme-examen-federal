@@ -115,3 +115,7 @@ Modèle de référence : `harnais/modele_lecon/MODELE_DD_V8.html` (maladie d'Add
 - **Cible de qualité** : ≥ 95/100 à l'examen et ≥ 95/100 en prise en charge quotidienne (barème `prototypes_format/NOTATION.md`), lisibilité ≥ 90.
 - **Couple [Harnais + Routage] obligatoire pour toute IA** : harnais identique (manifeste `harnais/HARNAIS_MANIFESTE.json`, empreintes vérifiées) et routage créé par l'IA pour ses propres modèles (`<ia>-LOTS-html/ROUTAGE_<IA>.json`, `routage_<ia>.py`, autotest, veille en temps réel). `registre_ia.py pret <ia>` le contrôle ; sans lui, aucune production ni aucun commit de leçon. Modèles : `harnais/modele_routage/`.
 - **Pour toute opération du projet, Claude compris** : sans le couple [Harnais + Routage] (vérifié par `registre_ia.py pret <ia>` et par le hook pre-commit installé avec `registre_ia.py installer <ia>`), aucune production et aucun commit de leçon. Chaque passe d'agent est consignée avant le commit (Claude : `journal/routage.jsonl`).
+
+## Article 4 — Interdiction du mensonge (30.10.2026, ordre de Vial)
+
+Aucune affirmation sans preuve lue. Le modèle et l'effort d'un agent ne se déclarent jamais de mémoire : ils se lisent dans les transcriptions avec `python3 harnais/modele_reel.py etat` (servi réel, tour par tour) ; `journal/MODELE_REEL.md` est réécrit à chaque commit et fait foi contre `journal/routage.jsonl`. Tout lancement d'agent passe explicitement le modèle et l'effort du contrat. Un écart constaté se dit tout de suite à Vial, avec les fichiers touchés, puis se corrige.
