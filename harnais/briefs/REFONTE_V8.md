@@ -20,3 +20,4 @@ Source (ne pas modifier) : `LOT_Claude_Finaux/<LOT>/<fichier source>.html`. Sort
 - Connecteurs de cause (« donc », « car », « parce que », « c'est pourquoi », « si bien que », « d'où », « puisque », « en effet ») : seulement si la source donne elle-même la cause ; sinon connecteurs neutres (« et », « puis », « en outre », « par ailleurs »).
 - Fichiers de travail : uniquement dans un sous-dossier propre du scratchpad nommé <LOT>_<fichier> (ex. L012_DX4_V8/) ; jamais de build.py partagé.
 - Rendu : Playwright est préinstallé (node : require('playwright'), chromium.launch() sans option). Ouvrir le fichier, ouvrir chaque figure et une fenêtre imbriquée, vérifier à l'image (aucun chevauchement, rien de coupé).
+- Sur téléphone, un tableau qui déborde à 390 px s'empile en cartes (bloc <style id="pile"> permis, comme LOT_011 DX.5–6) ; toutes les colonnes restent.
