@@ -167,6 +167,10 @@ def main() -> int:
                 k = classer(c, det, txt_norm, flagged)
                 k["trouve_dans_version"] = bool(len(norm(str(c.get("avant", "")))[:34].rstrip()) >= 14 and norm(str(c.get("avant", "")))[:34].rstrip() in txt_norm)
                 lignes.append(k)
+            confiance = bestscore / max(1, len(utiles))
+            if confiance < 0.5:
+                res["fichiers"].append({"lot": L, "dx": dx, "ignore": f"version d'avant audit introuvable dans git (confiance {confiance:.2f})", "n_corr": len(cs)})
+                continue
             for c, k in zip(cs, lignes):
                 cat_tot[k["categorie"]] += 1
                 n_corr += 1
