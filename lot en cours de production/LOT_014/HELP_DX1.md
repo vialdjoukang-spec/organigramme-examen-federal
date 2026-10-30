@@ -1,0 +1,48 @@
+# HELP_DX1 — LOT_014 — DX.1 Cardiopathie ischémique (syndrome coronarien aigu ou cicatrice d'infarctus)
+
+Questions ouvertes par le rédacteur Phase B DX.1 le 30.10.2026. Format : identifiant ; contexte ; question ; déjà cherché ; emplacement cible.
+
+## H14-DX1-01 — Recommandation suisse sur le syndrome coronarien aigu
+- Identifiant : LOT_014, Phase B, DX.1, points 11 et 12.
+- Contexte : le fichier applique ESC 2023 (Byrne RA et al.) lu par WebFetch et le commentaire DGK 2024 ; il écrit qu'aucune recommandation suisse propre au SCA n'a été trouvée.
+- Question : la Société suisse de cardiologie (SSC) publie-t-elle une prise de position ou une adaptation suisse des recommandations ESC 2023 sur le SCA (titre, année, URL) ?
+- Déjà cherché : WebSearch « ESC 2023 Leitlinien akutes Koronarsyndrom … Schweiz » (30.10.2026) ; aucune source suisse.
+- Emplacement : point 11, phrase d'introduction.
+
+## H14-DX1-02 — Prise en charge LAMal de la réadaptation cardiaque
+- Identifiant : LOT_014, Phase B, DX.1, point 11.B (fenêtre DAI et réadaptation).
+- Contexte : le fichier écrit « donnée non trouvée dans les sources consultées » pour la prise en charge par l'assurance obligatoire.
+- Question : quel est le texte en vigueur de l'annexe 1 OPAS, chiffre 11 (réadaptation cardiaque) : indications, durée, garantie préalable, forme ambulatoire ou hospitalière ?
+- Déjà cherché : Fedlex OPAS RS 832.112.31 (annexe 1 non publiée au RS) ; page OFSP « anhang1klv » (HTTP 404 le 30.10.2026) ; WebSearch (seulement un arrêt cantonal et un document FMH BA.4).
+- Emplacement : point 11.B, fenêtre « DAI, défibrillateur portable, ablation, réadaptation ».
+
+## H14-DX1-03 — Nombre suisse de morts subites d'origine coronarienne ; données AMIS Plus récentes
+- Identifiant : LOT_014, Phase B, DX.1, point 2.
+- Contexte : l'OFS donne 6 354 décès par cardiopathie ischémique en 2024, sans part « subite » ; les HUG (2023) avancent « un décès toutes les trente minutes », discordant.
+- Question : existe-t-il un chiffre suisse de MSC coronariennes (SWISSRECA, AMIS Plus, OFS) et une mortalité hospitalière récente du STEMI en Suisse (AMIS Plus après 2015) ?
+- Déjà cherché : page OFS « maladies cardio-vasculaires » (redirigée vers le nouveau portail, sans chiffre) ; WebSearch AMIS Plus (séries 1997–2011 seulement).
+- Emplacement : point 2, fenêtre « Distribution chiffrée en Suisse ».
+
+## H14-DX1-04 — Tableaux de recommandations ESC 2023 (SCA) non lus
+- Identifiant : LOT_014, Phase B, DX.1, points 8, 9, 11.
+- Contexte : les tableaux de recommandations ESC 2023 sont des images ; les classes viennent du commentaire DGK 2024 ; les sections 12.3.5 (grossesse), 9.3 (dissection coronaire spontanée), 13.3.3 (bêtabloquants) et le seuil « ≥ 50 % de baisse du LDL-C » n'ont pas été lus.
+- Question : texte et classe exacts de ces recommandations, en particulier SCA pendant la grossesse et durée de la double antiagrégation chez le patient à haut risque hémorragique.
+- Déjà cherché : https://academic.oup.com/eurheartj/article/44/38/3720/7243210 (WebFetch, trois tranches, 30.10.2026) ; Europe PMC (non disponible en accès libre).
+- Emplacement : points 8, 9.d, 11.B.
+
+## H14-DX1-05 — Alternatives d'imagerie (allergie aux produits iodés, DFGe < 30 mL/min, dispositif non compatible IRM)
+- Identifiant : LOT_014, Phase B, DX.1, point 9.c.
+- Contexte : le fichier écrit « donnée non trouvée dans les sources consultées ».
+- Question : quelle conduite suisse ou européenne pour la coronarographie et le scanner corps entier chez ces patients ?
+- Déjà cherché : sources S13, S14, S19 du fichier (30.10.2026).
+- Emplacement : point 9.c, fenêtre « Recherche d'une cause non coronaire ».
+
+## H14-DX1-06 — Vaccination antigrippale du coronarien : recommandation OFSP en vigueur
+- Identifiant : LOT_014, Phase B, DX.1, point 12.
+- Contexte : le fichier cite l'ESC (via la DGK) qui attribue une preuve forte à la vaccination annuelle ; la recommandation OFSP n'a pas été lue.
+- Question : texte OFSP / Commission fédérale pour les vaccinations en vigueur (groupes à risque cardiaques), année, URL.
+- Déjà cherché : document du canton de Neuchâtel « Grippe_F03_GroupeRisque_20240901.pdf » (réponse HTML, non lisible, 30.10.2026).
+- Emplacement : point 12, ligne « Secondaire — après SCA ».
+
+## Apport pour la question H14-03 du LOT (classes ESC 2022)
+- La Pocket-Leitlinie DGK 2022 (adaptation de l'ESC 2022, https://leitlinien.dgk.org/files/34_2022_pocket_leitlinien_ventrikulaere_arrhythmien.pdf, lue le 30.10.2026) donne en texte : autopsie complète, conservation de sang pour la toxicologie et de tissu pour la génétique, orientation des apparentés du premier degré = classe I (figure 5) ; extraits dans `evidence/DX1_DGK2022_Pocket_VA_KHK.txt`. À vérifier par la session principale pour combler H14-03.
