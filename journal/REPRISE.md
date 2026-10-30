@@ -1,4 +1,4 @@
-# REPRISE — PONS-OBLONGATA (généré 2026-10-30T15:20:22+00:00, branche production-v2)
+# REPRISE — PONS-OBLONGATA (généré 2026-10-30T15:20:38+00:00, branche production-v2)
 
 ## Où on en est
 - LOT_017 (EN_COURS) : 1 conformité faite ; 6 rédaction en cours ; 4 aucun fichier
@@ -8,15 +8,16 @@
 - 017 Phase_A : conformité faite, 136080 o, h3=14, FIN_FICHIER=oui, corr 51 (g 6, c 0)
 - 017 DX.1 : rédaction en cours, 125722 o, h3=14, FIN_FICHIER=oui, corr 0 (g 0, c 0)
 - 017 DX.2 : rédaction en cours, 123096 o, h3=14, FIN_FICHIER=oui, corr 0 (g 0, c 0)
+- 017 DX.3 : rédaction en cours, 127213 o, h3=14, FIN_FICHIER=oui, corr 0 (g 0, c 0)
 - 017 DX.4 : rédaction en cours, 109942 o, h3=11, FIN_FICHIER=NON, corr 0 (g 0, c 0)
 - 017 DX.5 : rédaction en cours, 68916 o, h3=10, FIN_FICHIER=NON, corr 0 (g 0, c 0)
 - LOT_017 : liste canonique gelée
 
 ## Incertain
-- LOT_017 DX.1 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 1 min) : probablement en cours ou interrompu
-- LOT_017 DX.2 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 0 min) : probablement en cours ou interrompu
-- LOT_017 DX.3 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
-- LOT_017 DX.4 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 0 min) : probablement en cours ou interrompu
+- LOT_017 DX.1 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 2 min) : probablement en cours ou interrompu
+- LOT_017 DX.2 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 1 min) : probablement en cours ou interrompu
+- LOT_017 DX.3 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 0 min) : probablement en cours ou interrompu
+- LOT_017 DX.4 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 1 min) : probablement en cours ou interrompu
 - LOT_017 DX.5 : redacteur lancé 10-30T15:50 (opus/xhigh), aucun retour final sur disque (fichier modifié il y a 1 min) : probablement en cours ou interrompu
 - LOT_017 DX.6 : redacteur lancé 10-30T16:20 (opus/xhigh), aucun retour final sur disque : probablement en cours ou interrompu
 - LOT_017 items T non faits : T1 Verser dans `evidence/` les extraits des sources S44–S52 
