@@ -21,3 +21,12 @@ Lacunes ouvertes par le rédacteur DX.3 le 30.10.2026. Toute réponse se vérifi
 | H13-DX3-03 | Ouverte | Recherche web du 30.10.2026 : aucun guide suisse de postvention postérieur à 2016 destiné aux médecins ; seule la brochure OFSP 2021 vise les proches de personnes suicidaires vivantes |
 | H13-DX3-01 | Partielle | Skriptum Rechtsmedizin Berne-Lucerne 2013 (version 2 du 19.08.2015, PDF hébergé par la SGRM : https://sgrm.ch/inhalte/Allgemein/Skriptum_RM_UniBe-UniLu_2013_Net-02.pdf) lu le 30.10.2026 : chap. 8.1.2 (critères du suicide par arme blanche, « Probierschnitte »), 9.3.4 (suicide contre délit au tir), 10.2.2–10.2.4 (pendaison, strangulation, pétéchies). Réinjecté en [S35]. Reste ouverte : source suisse ou européenne plus récente (support de 2013) |
 | H13-DX3-04 à -08 | Ouvertes | Pas de nouvelle recherche pendant l'audit ; le fichier écrit déjà « donnée non trouvée dans les sources consultées » à chaque emplacement ; H13-DX3-08 dépend toujours de H13-05 (fmh.ch, HTTP 403) |
+
+## État après audit de conformité (auditeur-conformite, sonnet, high — 30.10.2026)
+
+Aucune donnée de fond modifiée. Aucun nouveau doute de fond. Précisions d'emplacement après correction de forme :
+
+| ID | Précision |
+|---|---|
+| H13-DX3-06 | Le paragraphe « Situations particulières » (fœtus, don d'organes) a quitté la fenêtre `dx3-p9-tox` pour la seule fenêtre `dx3-p11-speciales` (répétition supprimée). Emplacement cible actuel : `dx3-p11-speciales` |
+| H13-DX3-01 à -08 | Les mentions « donnée non trouvée » restent écrites à chaque emplacement ; les renvois internes à H13-05, H13-06 et H13-07 ont été retirés du texte du cours |
