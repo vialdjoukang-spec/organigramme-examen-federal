@@ -49,3 +49,14 @@ Questions ouvertes par le rédacteur de `LOT_015_Phase_B_V0_DX.4.html`, 30.10.20
 - Question : Obsan, OFS ou assureurs publient-ils ces données pour les TCA ou l'hyperphagie boulimique ?
 - Déjà cherché : Mohler-Kuo 2016 (S2), recherche web OFSP, 30.10.2026.
 - Emplacement : point 2 (fenêtres « Fréquence » et « Enjeux »).
+
+## Suivi d'audit médical — 30.10.2026 (auditeur-medical, opus, xhigh)
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H-DX4-01 | Ouverte | Traduction française officielle non trouvée (recherche web du 30.10.2026). Le fichier `evidence/DX4_OMS_CDDR2024_CIM11_6B82.txt` ne contient pas la section 6B82 : il reprend les pages de l'anorexie mentale (p. 400–402). L'audit a relu 6B82 dans le PDF de l'OMS (IRIS, p. 407–410) : le tableau des critères du HTML est conforme. Extrait à remplacer par la session principale. |
+| H-DX4-02 | Ouverte | Aucune recommandation suisse propre trouvée. Résultats de recherche AWMF : fichiers `051-026l_S3_Essstoerung-Diagnostik-Therapie_2020-03-abgelaufen.pdf` (version de mars 2020, échue) ; aucune version plus récente repérée. register.awmf.org non ouvert (page anti-robot). |
+| H-DX4-03 | Comblée en partie | Royal College of Psychiatrists, MEED, College Report CR233, mai 2022 (remplace MARSIPAN) : kaliémie < 3,0 mmol/L → avis médical urgent, admission à envisager ; < 2,5 mmol/L → risque vital élevé (tableau 1), voie IV à envisager au début ; une kaliémie normale n'exclut pas un risque. Ajouté au point 9.b et à l'urgence B du point 11 ([S29]). Source suisse : non trouvée. |
+| H-DX4-04 à H-DX4-08 | Ouvertes | Non traitées par cet audit. |
+
+Autres constats : l'extrait `evidence/DX4_Wyssen2019_…` coupe le paragraphe BES ; relu sur rosenfluh.ch (deux tiers d'épisode unique avec rémission en un an ; rémission jusqu'à 80 %) : conforme. Chiffres de Giel 2022 absents de l'extrait (prévalence postopératoire de 4 %, MC4R, 67–83 %, 3–6 mois) relus dans le texte intégral (efetch NCBI) : conformes. NICE NG69 : dernière mise à jour le 16.12.2020, toujours en vigueur. Journal : `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl` (28 lignes DX.4).

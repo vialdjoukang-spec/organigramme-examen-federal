@@ -43,3 +43,19 @@ Format : identifiant ; contexte ; question ; déjà cherché ; emplacement cible
 - Question : quelles règles suisses (AI, réadaptation) s'appliquent à l'adulte avec obésité hypothalamique et hypersomnie ?
 - Déjà cherché : S2, S11, 30.10.2026.
 - Emplacement : DX.10, point 11.B (fenêtre « Volet social »).
+
+## Suivi d'audit médical (auditeur-medical, opus, xhigh — 30.10.2026)
+
+Fichier audité : `LOT_015_Phase_B_V0_DX.10.html`, 122 748 → 130 288 octets (SHA-256 après : `c60c24da4080e79e7d291bdc44badb00d56cebb01ea1bf242b2472f2e99ea223`). Journal : 31 corrections (0 critique, 2 graves, 15 moyennes, 14 légères) dans `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`.
+
+| ID | État | Ce que l'audit a trouvé |
+|---|---|---|
+| H15-DX10-01 | Ouverte | Recherche web du 30.10.2026 (« Kinderkrebsregister Schweiz Kraniopharyngeom Inzidenz ») : aucun chiffre suisse ; seul le registre allemand KRANIOPHARYNGEOM 2019 (GPOH) apparaît. |
+| H15-DX10-02 | Comblée en partie | Aucune source suisse. BSPED 2023 (Arch Dis Child 2023;108:871–878, PMC10646833, texte intégral) : hydrocortisone i.m./i.v. 25 mg < 1 an, 50 mg 1–5 ans, 100 mg ≥ 6 ans ; ou 2 mg/kg (max 100 mg) /6 h ; glucose 10 % 2 mL/kg ; NaCl 0,9 % 10 mL/kg. Inséré au point 11.B et au point 14. Recommandation SGPED/SSED encore à chercher. |
+| H15-DX10-03 | Comblée (statut) | AIPS 33149, 40050, 46638, 55976 lues : indication ménopause/ostéoporose seulement ; Progynova : « Il n'existe aucune indication chez l'enfant et l'adolescente ». Induction pubertaire = hors information professionnelle. Schéma de dose : non trouvé. |
+| H15-DX10-04 | Ouverte | Non traitée ; critères de sortie toujours déduits. |
+| H15-DX10-05 | Comblée en partie | AIPS Gadovist® 1,0 n° 54423 (juin 2025) : grossesse, DFG < 30, nourrisson. Enfant à sédater : non trouvé. ESUR (esur.org) inaccessible le 30.10.2026. |
+| H15-DX10-06 | Comblée en partie | RCP EMA (information produit mise à jour le 27.05.2026) : posologie aHO dès 4 ans et mises en garde (surrénale, déficit en AVP) insérées. Date de la décision de la Commission : non lisible avec certitude dans « Procedural steps » (colonne ambiguë) ; non écrite. Demande Swissmedic : non trouvée. |
+| H15-DX10-07 | Ouverte | Non traitée. |
+| H15-DX10-08 (nouvelle) | Ouverte | Hypothermie du syndrome hypothalamique : aucune conduite d'urgence trouvée dans S28–S31, S33, BSPED. Emplacement : point 4 (fenêtre graves) et 11.B. |
+| H15-DX10-09 (nouvelle, Phase A) | À reporter | La Phase A (DX.10, fenêtre `b2-dx10`) écrit : « Aucun médicament n'a encore prouvé son efficacité par un essai randomisé [S19] ». TRANSCEND (NEJM 2026;395:138–150, phase 3 randomisé) le contredit. Correction à faire par la session principale. |
