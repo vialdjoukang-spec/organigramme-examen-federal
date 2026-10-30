@@ -119,3 +119,7 @@ Modèle de référence : `harnais/modele_lecon/MODELE_DD_V8.html` (maladie d'Add
 ## Article 4 — Interdiction du mensonge (30.10.2026, ordre de Vial)
 
 Aucune affirmation sans preuve lue. Le modèle et l'effort d'un agent ne se déclarent jamais de mémoire : ils se lisent dans les transcriptions avec `python3 harnais/modele_reel.py etat` (servi réel, tour par tour) ; `journal/MODELE_REEL.md` est réécrit à chaque commit et fait foi contre `journal/routage.jsonl`. Tout lancement d'agent passe explicitement le modèle et l'effort du contrat. Un écart constaté se dit tout de suite à Vial, avec les fichiers touchés, puis se corrige.
+
+## Parallélisme gouverné (30.10.2026)
+
+Avant chaque lancement d'agent Opus : `python3 harnais/gouverneur.py --lancer` (code 0 = place libre). Mesure du 30.10.2026 : budget de 5 h B ≈ 2,6·10⁸ unités de coût, agent xhigh ≈ 2 950 unités/s, session principale ≈ 740/s ; N_budget ≈ 4,7, débit individuel inchangé jusqu'à 10 agents simultanés. K = 0,94 (intervalle interquartile 0,81–1,15) : le facteur limitant est le budget de 5 h, pas la performance. Plafond appliqué : 5 tant que la fenêtre a consommé moins de 75 % de B, 4 au-delà.
