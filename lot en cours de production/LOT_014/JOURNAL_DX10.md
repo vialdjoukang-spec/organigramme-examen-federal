@@ -1,0 +1,9 @@
+# JOURNAL DX.10 — LOT_014 — Syndrome de la mort subite du nourrisson
+
+- 2026-10-30 — Phase B DX.10 (rédacteur) — hypothèse : angle clinique (définition, facteurs de risque, physiopathologie, diagnostic d'exclusion, prévention, accompagnement) ; le versant non naturel reste à G13 DX.8, dont les faits (SGP 2013 sur le partage du lit, OFS 2021–2024, CPP 253, CC 314c) sont repris sans contradiction.
+- 2026-10-30 — hypothèse : partage du lit présenté en deux temps (règle SGP 2007 rappelée par la SGP 2013, puis conseil individualisé de la SGP 2013), cohérent avec la Phase A et G13 DX.8.
+- 2026-10-30 — hypothèse : faute de recommandation suisse récente, la recommandation S1 AWMF 063-002 (état 11/2022, publiée en 2023) sert de source européenne de prévention ; la HAS 2007 et le RCPath/RCPCH 2016 servent pour l'enquête et l'examen du corps, avec mention que le droit français ou anglais ne s'applique pas.
+- 2026-10-30 — hypothèse : examen du corps en Suisse limité au constat de mort certaine par le médecin qui constate (IRM-UZH 2026), examen complet par le légiste ou le pédiatre en accord avec l'enquêteur (Skriptum, RCPath, HAS).
+- 2026-10-30 — hypothèse : physiopathologie fondée sur trois revues européennes en libre accès (Oslo 2025, Alcalá 2024, Parme 2026), signalées comme revues et non comme recommandations.
+- 2026-10-30 — hypothèse : médicaments retenus pour la famille et non pour le syndrome (adrénaline 56472/56551/66396, cabergoline 51756, bromocriptine 39001, nicotine transdermique 50582/58175), tous lus dans les documents liés du corpus AIPS du 08.10.2026 ; texte grossesse et allaitement cité mot pour mot.
+- 2026-10-30 — taille finale 124 843 octets, SHA-256 76552da2b83111505b6fb42d2e8881a48a737316586145732c4992c37e3db5cb ; contrôle mécanique sans critique pour ce fichier.

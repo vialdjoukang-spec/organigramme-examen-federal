@@ -1,0 +1,12 @@
+# JOURNAL_DX6 — LOT_014 Phase B — DX.6 Mort subite inattendue en épilepsie (SUDEP)
+
+- 2026-10-30 — rédacteur DX.6 — harnais : `bracelet_suggest.py` exécuté (exit 0, top-3 Chonkie · Crawl4AI · Firecrawl) ; `py_compile harnais/*.py` OK ; `PREUVE_EMBOITEMENT.txt` non modifié (écriture hors périmètre autorisé de ce rédacteur ; à consigner par la session principale).
+- 2026-10-30 — hypothèse : faute de recommandation suisse lisible sur l'état de mal (page DGN 2020 citée par la Ligue suisse rendue en JavaScript, non lisible), la séquence de l'état de mal suit NICE NG217 (2022, mise à jour 05.08.2026) ; toutes les doses viennent de l'AIPS (62556, 37756, 54331, 36110, 66396).
+- 2026-10-30 — hypothèse : divergence présentée sans trancher : l'AIPS de Keppra® perfusion (57519) déclare l'efficacité non démontrée et l'usage non recommandé dans l'état de mal, alors que NICE cite le lévétiracétam en deuxième ligne.
+- 2026-10-30 — constat : Dormicum® (44448), Midazolam Accord® (66718), Midazolam Sintetica (58875), Lorazepam Xilmac® (50490) et Temesta® (36203) n'ont aucune indication épileptique dans leur AIPS ; le fichier l'écrit et ne donne pas de dose « état de mal » pour ces produits.
+- 2026-10-30 — constat : phénobarbital injectable absent du téléchargement AIPS du 08.10.2026 (seul Aphenylbarbit® comprimés, n° 12175, document allemand) ; swissmedicinfo.ch non interrogeable par requête simple ; le fichier écrit « À vérifier (AIPS) » sans dose (question dans HELP_DX6.md).
+- 2026-10-30 — hypothèse : les publications ILAE (Nashef 2012, Fisher 2014, Trinka 2015, Beniczky 2021 et 2025, Hesdorffer 2011) et les études européennes sont lues sur leurs résumés PubMed ; la définition complète de la SUDEP est citée d'après Cochrane 2020 et Wartmann 2024 (tableau 1).
+- 2026-10-30 — hypothèse : adrénaline citée d'après l'extrait AIPS 66396 déjà en cache (lu par le rédacteur LOT_013 DX.6, relu ici : 1 mg i.v./i.o. toutes les 3 à 5 min ; jamais au deuxième stade du travail).
+- 2026-10-30 — calculs dérivés recalculés (python) : 80 000 × 1,1–1,3 ‰ = 88–104 ; 70/71 942 = 0,097 % ; 100/71 942 = 0,139 % ; 287/8 ≈ 36 ; 1 808/5 ≈ 362.
+- 2026-10-30 — taille finale ≈ 132 Ko (cible indicative 100–125 Ko dépassée de ≈ 7 Ko) ; fond conservé ; marge sous le plafond de 150 000 octets ≈ 18 Ko pour les audits.
+- 2026-10-30 — nouvelles sources : `evidence/DX6_S01` à `DX6_S10` ; extraits AIPS mis en cache : `.cache/aips/62556, 68478, 44448, 37756, 54467, 50490, 36203, 57519, 55297, 54331, 47693, 36110, 52853.txt`.

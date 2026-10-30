@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maladie d'Addison, version légère</title>
+<style>
+:root{--f:#fbf9f4;--t:#1f1d1a;--d:#5d574e;--l:#1d4f91;--c:#d9d3c7;--k:#fff;--b:#efe9dd;--a:#9b1c1c;--af:#fdf0ee}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--f:#17181b;--t:#e8e5df;--d:#a8a299;--l:#8db8f2;--c:#3a3b40;--k:#202126;--b:#2a2b31;--a:#f19a8e;--af:#2c1d1c}}
+:root[data-theme="dark"]{--f:#17181b;--t:#e8e5df;--d:#a8a299;--l:#8db8f2;--c:#3a3b40;--k:#202126;--b:#2a2b31;--a:#f19a8e;--af:#2c1d1c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--f);color:var(--t);font:1.06rem/1.68 Georgia,"Palatino Linotype",serif;hyphens:auto}
+main{max-width:70ch;margin:0 auto;padding:2.5rem 16px 4rem}
+h1{font-size:1.7rem;line-height:1.25;margin:0 0 .4rem}
+h2{font-size:1.3rem;margin:2.2rem 0 .6rem;padding-bottom:.25rem;border-bottom:1px solid var(--c)}
+h3{font-size:1.06rem;margin:1.3rem 0 .4rem}
+p,.p{margin:0 0 .9rem}
+sup{color:var(--d);font-size:.68em;line-height:0}
+a{color:var(--l)}
+.sous,.taille{color:var(--d);font-style:italic}
+.taille{font-size:.85rem;margin:0 0 .6rem}
+.ess,.som{background:var(--k);border:1px solid var(--c);border-radius:8px;padding:1rem 1.2rem}
+.ess{border-left:4px solid var(--a);margin:1.2rem 0 1.5rem}
+.som{padding-left:2.4rem}
+.urg{background:var(--af);border-left:4px solid var(--a);padding:.7rem 1rem;border-radius:6px}
+button.terme{all:unset;cursor:pointer;color:var(--l);border-bottom:1px dotted currentColor}
+button.terme::after{content:" ⧉";font-size:.75em}
+button.terme:focus-visible{outline:2px solid var(--l)}
+details.deplier{display:inline}
+details.deplier>summary{display:inline;cursor:pointer;color:var(--l);border-bottom:1px dashed currentColor;list-style:none}
+details.deplier>summary::-webkit-details-marker{display:none}
+details.deplier>summary::after{content:" ▸";font-size:.75em}
+details.deplier[open]{display:block;background:var(--k);border:1px solid var(--c);border-radius:6px;padding:.5rem .8rem;margin:.4rem 0}
+.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);height:fit-content;max-height:80vh;overflow:auto;padding:0;border:1px solid var(--c);border-radius:12px;background:var(--k);color:var(--t);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.fenetre::backdrop{background:rgba(0,0,0,.5)}
+.barre{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--b);border-bottom:1px solid var(--c);padding:.5rem .9rem;font:bold .95rem system-ui,sans-serif}
+.barre button{border:0;background:none;color:var(--t);font-size:1.1rem;cursor:pointer}
+.corps{padding:.9rem 1.1rem;font-size:.96rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.3rem 0 .7rem}
+th,td{border:1px solid var(--c);padding:.35rem .5rem;text-align:left;vertical-align:top}
+th{background:var(--b)}
+ul,ol{padding-left:1.4rem}
+.src{font-size:.85rem;color:var(--d)}
+.src a{word-break:break-all}
+@media (max-width:480px){body{font-size:1rem}table{font-size:.82rem}}
+</style>
+</head>
+<body>
+<main>
+<p class="taille" id="taille">Taille : T = 9.6 Ko (+ 24.7 Ko) · lecture de la fiche ≈ 8 min · 15 fenêtres, 17 dépliants</p>
+<h1>Insuffisance surrénalienne primaire (maladie d'Addison)</h1>
+<p class="sous">Diagnostic différentiel DX.10 du SSP G16 « Perte de poids, perte d'appétit »<sup>30</sup>, au rang 🚩 E1, car sa crise tue en quelques heures<sup>18</sup>. Texte du 30.10.2026 ; les exposants renvoient aux sources, et les <details class="deplier"><summary>sigles</summary>ISP : insuffisance surrénalienne primaire. ACTH : hormone adrénocorticotrope. MSH : hormone mélanotrope. TSH : thyréostimuline. CBG : protéine qui transporte le cortisol dans le sang. HCS : hyperplasie congénitale des surrénales. APS1, APS2 : syndromes polyendocriniens auto-immuns de types 1 et 2. ALD : adrénoleucodystrophie liée à l'X. AIPS : information professionnelle suisse (Swissmedic). ESE : Société européenne d'endocrinologie. Endo-ERN : réseau européen de référence des maladies endocriniennes rares. NICE : institut britannique des recommandations. BSPED : Société britannique d'endocrinologie et de diabétologie pédiatriques. LC-MS/MS : chromatographie liquide couplée à la spectrométrie de masse en tandem.</details> sont développés à part.</p>
+
+<div class="ess"><p><b>L'essentiel.</b> L'insuffisance surrénalienne primaire (ISP) est rare, mais sa crise tue en quelques heures sans hydrocortisone<sup>17,18</sup>. Elle se cache longtemps derrière une fatigue, une perte d'appétit et une perte de poids, c'est pourquoi une hyponatrémie inexpliquée, une peau qui fonce ou une hypotension imposent de doser ensemble cortisol et ACTH<sup>16</sup>. En hypotension ou en choc, le médecin injecte d'abord 100 mg d'hydrocortisone i.v. ou i.m. et perfuse du NaCl 0,9 %, sans attendre aucun résultat<sup>18</sup>. Ensuite, l'hydrocortisone et la fludrocortisone remplacent les hormones à vie, et le patient apprend les règles de stress<sup>28,19</sup>.</p></div>
+
+<nav aria-label="Sommaire"><ol class="som">
+<li><a href="#p1">Définition</a></li><li><a href="#p2">Épidémiologie</a></li><li><a href="#p3">Physiopathologie</a></li><li><a href="#p4">Démarche diagnostique</a></li><li><a href="#p5">Anamnèse et drapeaux rouges</a></li><li><a href="#p6">Examen physique</a></li><li><a href="#p7">Approche syndromique</a></li><li><a href="#p8">Diagnostic positif</a></li><li><a href="#p9">Examens complémentaires</a></li><li><a href="#p10">Arbre décisionnel</a></li><li><a href="#p11">Prise en charge en Suisse</a></li><li><a href="#p12">Prévention</a></li><li><a href="#p13">Points clés</a></li><li><a href="#p14">Pièges d'examen</a></li>
+</ol></nav>
+
+<h2 id="p1">1. Définition</h2>
+<p>L'ISP est un déficit en cortisol dû à la défaillance du cortex surrénalien, et l'aldostérone manque en général aussi<sup>20,16</sup>. « Maladie d'Addison » désigne une atteinte primaire ; le médecin n'emploie donc pas ce nom pour une insuffisance hypophysaire ou induite par les corticoïdes, car le traitement minéralocorticoïde en dépend<sup>6,18</sup>. Les <button type="button" class="terme" popovertarget="w-def">termes voisins</button> désignent d'autres entités.</p>
+<div id="w-def" popover class="fenetre"><div class="barre"><span>Terminologie et termes voisins</span><button type="button" popovertarget="w-def" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Adrénalite auto-immune.</b> Le réseau européen Endo-ERN et la pédiatrie bernoise réservent « maladie d'Addison » à cette cause auto-immune ; les anticorps anti-21-hydroxylase la confirment dans plus de 90 % des cas récents<sup>19,6,16</sup>.</p>
+<p><b>Insuffisance secondaire.</b> L'hypophyse ne sécrète plus assez d'ACTH (tumeur, chirurgie, hypophysite) ; l'ACTH reste donc basse, la peau ne fonce pas et l'aldostérone reste réglée par le système rénine-angiotensine<sup>19,6</sup>.</p>
+<p><b>Insuffisance tertiaire.</b> L'hypothalamus ne stimule plus l'axe, et une corticothérapie prolongée à forte dose en est la cause la plus fréquente ; on n'y donne pas de fludrocortisone<sup>19,20,18</sup>.</p>
+<p><b>Crise surrénalienne.</b> Le cortex ne produit pas assez de cortisol face à un stress ; la déplétion volumique et la vasoplégie conduisent alors à l'hypotension, au choc, puis au décès. Le diagnostic est clinique, et aucun examen ne retarde l'hydrocortisone<sup>18</sup>.</p>
+<p><b>HCS.</b> Un déficit enzymatique, surtout en 21-hydroxylase (gène CYP21A2), produit une ISP congénitale, que la Suisse dépiste à la naissance<sup>16,6</sup>.</p>
+<p><b>APS1 et APS2.</b> L'ISP s'associe à d'autres maladies auto-immunes, et l'APS1 vient de mutations du gène AIRE ; le médecin cherche ces maladies au diagnostic, puis chaque année<sup>16</sup>.</p>
+<p><b>Syndrome de sevrage des glucocorticoïdes.</b> Il survient pendant la décroissance d'une corticothérapie supraphysiologique, mais les électrolytes restent normaux, sans hyponatrémie ni hypoglycémie<sup>18</sup>.</p>
+<p><b>Ce que l'ISP n'est pas.</b> Une fatigue isolée rend la maladie très peu probable ; elle devient probable quand s'ajoutent une hyperpigmentation, une hyponatrémie ou des vomissements croissants sans autre cause<sup>16</sup>.</p>
+</div></div>
+
+<h2 id="p2">2. Épidémiologie</h2>
+<p>L'ISP touche environ 10 personnes sur 100 000 en Europe, et l'auto-immunité en explique environ 90 %<sup>16</sup>. Le diagnostic est souvent tardif ; or la crise survient 5 à 10 fois pour 100 années-patients et tue 0,5 patient pour 100 années-patients<sup>16,19</sup>. Les <button type="button" class="terme" popovertarget="w-epi">chiffres suisses et européens</button> précisent qui est touché.</p>
+<div id="w-epi" popover class="fenetre"><div class="barre"><span>Qui est touché, retard et pronostic</span><button type="button" popovertarget="w-epi" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Fréquence.</b> La prévalence suisse n'a pas été trouvée dans les sources consultées. En Europe, elle atteint environ 10 cas pour 100 000 habitants, 15 à 20 en Scandinavie, et l'incidence avoisine 5 cas par million et par an<sup>16</sup>. La forme auto-immune culmine entre 20 et 50 ans, et l'APS2 touche plus souvent les femmes<sup>16</sup>.</p>
+<p><b>Enfants et hommes.</b> Chez l'enfant, les causes congénitales et génétiques dominent ; l'HCS atteint 6 à 11 nouveau-nés pour 100 000 en Europe centrale<sup>6</sup>. Dans l'ALD, 50 % des patients ont une ISP à 14 ans et 80 % à 56 ans<sup>16</sup>. Chez le sujet âgé, les causes non auto-immunes deviennent fréquentes : métastases, lymphome, hémorragie<sup>16</sup>.</p>
+<p><b>Retard diagnostique.</b> Moins de 30 % des femmes et 50 % des hommes sont diagnostiqués dans les 6 premiers mois ; 20 % ont des symptômes depuis plus de 5 ans, et plus des deux tiers ont consulté au moins 3 médecins<sup>16</sup>.</p>
+<p><b>Suisse.</b> Une étude suisse compte 4,4 crises pour 100 années-patients d'insuffisance surrénalienne. Si 94,6 % des patients possèdent une carte d'urgence, seuls 57,1 % portent des comprimés de réserve, et le traitement d'urgence n'est disponible que chez environ la moitié<sup>2</sup>.</p>
+<p><b>Pronostic.</b> Chez des patients éduqués, environ 6 % des crises sont mortelles<sup>21</sup>. Sous substitution, la mortalité reste multipliée par 2,51, surtout par maladie cardiovasculaire<sup>22</sup>.</p>
+</div></div>
+
+<h2 id="p3">3. Physiopathologie</h2>
+<p>La destruction du cortex supprime le cortisol et l'aldostérone, alors que la médullosurrénale reste intacte ; le <button type="button" class="terme" popovertarget="w-axe">rappel de l'axe corticotrope</button> explique toute la clinique<sup>6,16</sup>. Faute de rétrocontrôle, l'ACTH monte et fonce la peau ; faute d'aldostérone, le rein perd du sodium, retient le potassium, et la rénine monte<sup>6,16</sup>. Un stress non couvert (infection, gastro-entérite, chirurgie, accouchement) déclenche ensuite la crise, dont le choc résiste aux amines tant que l'hydrocortisone manque<sup>18</sup>. Enfin, les inducteurs du CYP3A4 (rifampicine, carbamazépine, phénytoïne, millepertuis) accélèrent l'élimination de la substitution et exposent ainsi à une insuffisance aiguë<sup>9,10</sup>. Les <button type="button" class="terme" popovertarget="w-cau">causes</button> orientent le bilan.</p>
+<div id="w-axe" popover class="fenetre"><div class="barre"><span>Surrénale et axe corticotrope</span><button type="button" popovertarget="w-axe" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Anatomie.</b> Le cortex produit le cortisol, l'aldostérone et le DHEAS. La glande reçoit beaucoup de sang artériel mais se draine par peu de veines, ce qui explique sa fragilité hémorragique<sup>6,16</sup>.</p>
+<p><b>Axe.</b> L'hypothalamus stimule l'hypophyse, dont l'ACTH stimule le cortex, puis le cortisol freine les deux étages. Quand il manque, l'ACTH monte donc fortement avec la MSH, qui bronze la peau et ses plis. L'aldostérone dépend en revanche de la rénine et du potassium, c'est pourquoi elle est conservée dans la forme secondaire<sup>19,6,16</sup>.</p>
+<p><b>Étapes de l'auto-immunité.</b> Les anticorps apparaissent d'abord, puis vient le déficit minéralocorticoïde avec rénine élevée, puis le déficit en cortisol ; une production résiduelle peut ainsi masquer le déficit au début<sup>16</sup>.</p>
+<p><b>Autres effets.</b> Le manque de cortisol provoque des hypoglycémies et rend le diabétique plus sensible à l'insuline. Il élève aussi la TSH chez 52 % des patients sans hypothyroïdie connue ; or l'état hypothyroïdien freine la dégradation du cortisol, si bien qu'une lévothyroxine donnée avant le cortisol peut déclencher une crise<sup>16,6</sup>. Les vomissements font perdre du potassium, c'est pourquoi l'hyperkaliémie manque chez plus de la moitié des patients<sup>16</sup>.</p>
+</div></div>
+<div id="w-cau" popover class="fenetre"><div class="barre"><span>Causes de l'ISP</span><button type="button" popovertarget="w-cau" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<table><tr><th>Groupe</th><th>Exemples et indice</th></tr>
+<tr><td>Auto-immunité</td><td>ISP isolée, APS2, APS1, rarement inhibiteurs de PD-1 (nivolumab, pembrolizumab) ; anticorps anti-21-hydroxylase dans plus de 90 % des cas récents<sup>16</sup>.</td></tr>
+<tr><td>Hémorragie, infarctus</td><td>Sepsis, COVID-19, chirurgie majeure, traumatisme, anticoagulants, syndrome des antiphospholipides, thrombopénie induite par l'héparine ou par un vaccin<sup>16</sup>.</td></tr>
+<tr><td>Infection</td><td>Tuberculose, sepsis méningococcique (syndrome de Waterhouse-Friderichsen), histoplasmose, cryptococcose, cytomégalovirus, VIH, syphilis ; la tuberculose grossit d'abord les surrénales, puis les calcifie ou les atrophie<sup>16</sup>.</td></tr>
+<tr><td>Infiltration</td><td>Métastases (40 à 60 % des cancers disséminés du poumon ou du sein, mais l'ISP clinique reste moins fréquente), lymphome, amylose, sarcoïdose, hémochromatose<sup>16</sup>.</td></tr>
+<tr><td>Médicaments</td><td>Kétoconazole, métyrapone, mitotane, étomidate, abiratérone ; rifampicine, phénytoïne, phénobarbital ; les inhibiteurs de points de contrôle sont devenus une cause importante<sup>16,5</sup>.</td></tr>
+<tr><td>Génétique</td><td>ALD (gène ABCD1) chez le garçon ou l'homme, HCS (17-hydroxyprogestérone élevée), dysgénésie et résistance à l'ACTH (DAX1, MC2R, MRAP, syndrome triple A)<sup>16</sup>.</td></tr></table>
+</div></div>
+
+<h2 id="p4">4. Démarche diagnostique</h2>
+<p>Pour la démarche générale, voir le cours Perte de poids, perte d'appétit. Le médecin écarte d'abord la crise et l'<b>hémorragie surrénalienne bilatérale</b>, qui associe choc, douleur du flanc, anticoagulant ou sepsis, mais sans peau foncée<sup>18,16</sup>. Ensuite, il pense à l'ISP devant une « dépression », une « anorexie » ou une plainte digestive, car deux patients sur trois reçoivent d'abord un diagnostic psychiatrique ou digestif, et un cortisol bas avec une ACTH élevée tranche<sup>16,4</sup>. Chaque <button type="button" class="terme" popovertarget="w-dd">diagnostic différentiel</button> a son signe discriminant.</p>
+<div id="w-dd" popover class="fenetre"><div class="barre"><span>Diagnostics différentiels, graves d'abord</span><button type="button" popovertarget="w-dd" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<table><tr><th>Hypothèse</th><th>Ce qui tranche et le piège</th></tr>
+<tr><td>🚩 Crise inaugurale</td><td>Hypotension ou choc avec un signe de gravité ; attendre le cortisol est l'erreur<sup>18</sup>.</td></tr>
+<tr><td>🚩 Hémorragie surrénalienne bilatérale</td><td>Choc, chute de l'hémoglobine ou des plaquettes, douleur du flanc ou du dos, grosses surrénales au scanner ; l'hydrocortisone précède l'imagerie<sup>16</sup>.</td></tr>
+<tr><td>🚩 Décompensation diabétique (DX.7)</td><td>Chez le diabétique de type 1, des hypoglycémies répétées et une baisse des besoins en insuline évoquent l'ISP, car l'APS2 associe les deux<sup>16</sup>.</td></tr>
+<tr><td>🚩 Insuffisance secondaire ou induite par les corticoïdes</td><td>ACTH basse, sans hyperpigmentation ni hyperkaliémie ; même dose de stress, mais pas de fludrocortisone<sup>6,18</sup>.</td></tr>
+<tr><td>Dépression (DX.2), anorexie mentale (DX.9)</td><td>Le couple cortisol bas et ACTH élevée signe l'ISP ; un cas suisse s'est présenté comme une « anorexie »<sup>16,4</sup>.</td></tr>
+<tr><td>Cancer (DX.1)</td><td>Anticorps négatifs, puis masses surrénaliennes bilatérales au scanner (métastases, lymphome)<sup>16</sup>.</td></tr>
+<tr><td>Hypothyroïdie, hyperthyroïdie (DX.4)</td><td>Cortisol et ACTH avant toute lévothyroxine ; l'hyperthyroïdie réduit l'effet des corticoïdes<sup>16,13,9</sup>.</td></tr>
+<tr><td>Maladie cœliaque (DX.5), tuberculose (DX.8)</td><td>Elles coexistent souvent avec l'ISP ; la rifampicine impose d'adapter la substitution<sup>16,9,8</sup>.</td></tr></table>
+</div></div>
+
+<h2 id="p5">5. Anamnèse et drapeaux rouges</h2>
+<p>Le médecin demande activement l'envie de sel, que le patient tait souvent, les vertiges au lever, une peau qui fonce, l'auto-immunité personnelle et familiale, ainsi que les corticoïdes, anticoagulants, rifampicine ou œstrogènes<sup>16,18,12</sup>. Les drapeaux rouges imposent une conduite immédiate :</p>
+<ul>
+<li>une hypotension ou un choc avec vomissements, fièvre ou trouble de conscience appelle l'hydrocortisone avant tout examen<sup>18</sup> ;</li>
+<li>un patient connu qui vomit reçoit 100 mg i.m., et l'enfant la dose de son âge<sup>18,6</sup> ;</li>
+<li>une TSH élevée chez un patient amaigri et hyponatrémique interdit la lévothyroxine avant cortisol et ACTH<sup>16,13</sup> ;</li>
+<li>une femme enceinte avec nausées, fatigue et hypotension inexpliquées justifie les tests avec un seuil bas<sup>28</sup>.</li>
+</ul>
+
+<h2 id="p6">6. Examen physique</h2>
+<p>Le médecin pèse le patient, mesure la pression couché puis debout et inspecte la peau à la lumière du jour<sup>16,18</sup>. L'hyperpigmentation est le signe le plus évocateur ; cependant, elle manque dans l'hémorragie aiguë et dans la forme secondaire<sup>16,6</sup>. <details class="deplier"><summary>Où la chercher, et quels signes associés ?</summary>Elle fonce les articulations des doigts, les coudes, les naevi, les plis, les cicatrices et les aréoles, et elle tache les muqueuses ; on la compare à la peau couverte et aux photos anciennes. Le médecin cherche aussi un vitiligo, une thyroïdite à la palpation du cou, une candidose ou une hypoplasie de l'émail (APS1), une spasticité chez l'homme jeune (ALD) et un hyperandrogénisme chez la femme (HCS)<sup>16,6</sup>.</details></p>
+
+<h2 id="p7">7. Approche syndromique</h2>
+<p>C'est l'association qui rend l'ISP probable : le déficit en cortisol donne fatigue, nausées, perte de poids et hypoglycémie, tandis que le déficit en aldostérone donne envie de sel, hypotension, hyponatrémie et hyperkaliémie<sup>16,18</sup>. L'hyponatrémie touche 85 % des patients, alors que l'hyperkaliémie manque chez plus de la moitié<sup>16</sup>. La <button type="button" class="terme" popovertarget="w-cri">crise</button> associe hypotension ou choc et au moins un signe de gravité<sup>18</sup>, et les <button type="button" class="terme" popovertarget="w-aps">maladies auto-immunes associées</button> révèlent souvent la cause.</p>
+<div id="w-cri" popover class="fenetre"><div class="barre"><span>Syndrome de crise surrénalienne</span><button type="button" popovertarget="w-cri" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Signes.</b> Hypotension ou choc hypovolémique disproportionné au déclencheur, avec au moins un des signes suivants : nausées ou vomissements, fatigue sévère, fièvre, trouble de conscience (léthargie, confusion, coma ou convulsions). L'hyperkaliémie peut aussi causer des troubles du rythme<sup>18,6,27</sup>.</p>
+<p><b>Biologie.</b> Hyponatrémie avec natriurèse élevée, hyperkaliémie, urée et créatinine élevées, hypoglycémie, lymphocytose et éosinophilie ; elles ne sont cependant pas requises pour le diagnostic<sup>18</sup>.</p>
+<p><b>Facteurs de risque.</b> Une crise antérieure, un âge supérieur à 65 ans, l'adolescence et les comorbidités<sup>18</sup>.</p>
+<p><b>Déclencheurs.</b> Infections, fièvre, traumatisme, chirurgie, laxatifs, accouchement, soins dentaires, stress sévère, effort intense et chaleur ; 7 % des crises restent sans cause<sup>18,21</sup>.</p>
+</div></div>
+<div id="w-aps" popover class="fenetre"><div class="barre"><span>APS1, APS2 et syndromes associés</span><button type="button" popovertarget="w-aps" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>APS2.</b> De 50 à 65 % des patients auto-immuns ont une autre endocrinopathie auto-immune. L'APS2 associe la thyroïdite auto-immune (48 %), l'insuffisance ovarienne primaire (10 %) et le diabète de type 1 (10 %) ; le vitiligo, l'alopécie, l'anémie de Biermer et la maladie cœliaque s'associent aussi souvent à l'ISP<sup>16</sup>.</p>
+<p><b>APS1.</b> La perte du gène AIRE rompt la tolérance immunitaire centrale. Hypoparathyroïdie, candidose cutanéomuqueuse chronique et ISP en sont les composantes principales, et une hypoplasie de l'émail, une kératite ou une hépatite peuvent les précéder ; on dose alors les anticorps anti-interféron oméga ou alpha, et on dépiste la fratrie (1 sur 4 atteint)<sup>16</sup>.</p>
+<p><b>ALD et HCS.</b> Une atteinte neurologique progressive chez un garçon ou un homme fait doser les acides gras à très longue chaîne, alors qu'un hyperandrogénisme chez la femme fait doser la 17-hydroxyprogestérone<sup>16</sup>.</p>
+</div></div>
+
+<h2 id="p8">8. Diagnostic positif</h2>
+<p>Un cortisol inférieur à 100 nmol/L avec une ACTH supérieure à 2 fois la limite supérieure pose le diagnostic à toute heure ; si le cortisol est intermédiaire, le test au Synacthène tranche<sup>16,28</sup>. Les anticorps anti-21-hydroxylase établissent ensuite la cause auto-immune<sup>16</sup>. En revanche, la crise reste un diagnostic clinique, et un cortisol « normal » sous œstrogènes ne rassure pas, car la CBG élève le cortisol total<sup>18,16,12</sup>.</p>
+
+<h2 id="p9">9. Examens complémentaires</h2>
+<p>En <b>première intention</b>, avant toute hydrocortisone, le médecin dose cortisol et ACTH sur le même prélèvement, avec sodium, potassium, créatinine, glycémie, rénine, aldostérone et TSH<sup>16,18,27</sup>. Le cortisol matinal oriente ensuite selon des <button type="button" class="terme" popovertarget="w-bio">seuils et signes biologiques</button> précis. Sinon, le <button type="button" class="terme" popovertarget="w-syn">test court au Synacthène</button> atteint une sensibilité de 92 %<sup>33</sup>. Si les anticorps manquent, le scanner surrénalien et les acides gras à très longue chaîne chez l'homme cherchent la cause<sup>16</sup>.</p>
+<div id="w-bio" popover class="fenetre"><div class="barre"><span>Cortisol matinal et biologie</span><button type="button" popovertarget="w-bio" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Seuils NICE.</b> Un cortisol de 8–9 h sous 150 nmol/L impose l'avis de l'endocrinologue ; entre 150 et 300 nmol/L, il faut répéter, et au-dessus de 300 nmol/L l'insuffisance est très improbable. Les œstrogènes oraux sont arrêtés 6 semaines avant le dosage<sup>32</sup>.</p>
+<p><b>Résultat limite.</b> Il faut aussi se méfier d'un cortisol mesuré après chirurgie, en état critique, en maladie hépatique sévère ou en syndrome néphrotique, et un cortisol mesuré après une hydrocortisone est ininterprétable<sup>16,27</sup>.</p>
+<p><b>Autres signes.</b> Lymphocytose et éosinophilie font partie des anomalies biologiques, et une anémie est possible<sup>18,6</sup>. Une ACTH élevée avec un cortisol bas-normal signale une ISP débutante<sup>6</sup>.</p>
+</div></div>
+<div id="w-syn" popover class="fenetre"><div class="barre"><span>Test au Synacthen® (tétracosactide)</span><button type="button" popovertarget="w-syn" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Réalisation.</b> On injecte 0,25 mg i.v. ou i.m., puis on dose le cortisol avant, à 30 et à 60 minutes, et on surveille le patient 30 minutes<sup>12,16</sup>.</p>
+<p><b>Interprétation.</b> Un pic sous 500–550 nmol/L (immunodosage), ou sous 412 nmol/L à 30 minutes et 485 nmol/L à 60 minutes (LC-MS/MS), signe l'ISP si l'ACTH est élevée ; avec une ACTH basse, il oriente vers une forme secondaire<sup>16,18</sup>.</p>
+<p><b>Contre-indications (AIPS).</b> « Si l'anamnèse fait apparaître des antécédents d'hypersensibilité lors d'un traitement à l'hormone adrénocorticotrophine (ACTH), le tétracosactide ne doit être employé ni à des fins diagnostiques, ni à titre thérapeutique. » Le produit est aussi « contre-indiqué chez la femme enceinte » et pendant l'allaitement ; le dosage couplé cortisol-ACTH reste alors utilisable<sup>12,16</sup>.</p>
+<p><b>Asthme et allergie.</b> L'AIPS précise : « En raison de l'augmentation du risque de réaction anaphylactique, Synacthen ne doit pas être utilisé pour le traitement de l'asthme ou d'autres maladies allergiques sous-jacentes. » Chez l'allergique, le test n'est donc possible que s'il n'a jamais reçu de produit contenant de l'ACTH<sup>12</sup>.</p>
+</div></div>
+
+<h2 id="p10">10. Arbre décisionnel</h2>
+<ol>
+<li>🚩 Si le patient est en hypotension ou en choc avec un signe de gravité, alors il reçoit 100 mg d'hydrocortisone et du NaCl 0,9 %, après un prélèvement seulement s'il ne retarde rien<sup>18,16</sup>.</li>
+<li>S'il est stable avec hyponatrémie, peau foncée ou hypotension, alors on dose cortisol, ACTH, électrolytes et rénine, sans lévothyroxine<sup>16,13</sup>.</li>
+<li>Si le cortisol est &lt; 100 nmol/L avec une ACTH &gt; 2 fois la normale, l'ISP est établie ; s'il est intermédiaire, le Synacthène tranche ; si l'ACTH est basse, l'insuffisance est secondaire<sup>16,28,6</sup>.</li>
+<li>Ensuite, des anticorps positifs font dépister les maladies associées, tandis que des anticorps négatifs mènent au scanner<sup>16</sup>.</li>
+</ol>
+
+<h2 id="p11">11. Prise en charge en Suisse</h2>
+<p>Faute de recommandation suisse propre à l'adulte, le texte suit l'AIPS, la pédiatrie bernoise et les recommandations européennes<sup>6,18,19,32</sup>.</p>
+<h3>Urgence : la crise surrénalienne</h3>
+<p class="urg">Dès la suspicion, le médecin injecte 100 mg d'hydrocortisone i.v. ou i.m. et perfuse du NaCl 0,9 %, 1 L en 30 minutes<sup>18,32</sup>. Il poursuit avec 200 mg/24 h en perfusion continue, sinon 50 mg toutes les 6 heures, et traite le déclencheur<sup>18</sup>. L'enfant reçoit une dose selon l'âge, par exemple 50 mg à 4 ans ; la <button type="button" class="terme" popovertarget="w-crise">conduite adulte et enfant</button> détaille les étapes<sup>6,27</sup>.</p>
+<div id="w-crise" popover class="fenetre"><div class="barre"><span>Crise surrénalienne : conduite chronologique</span><button type="button" popovertarget="w-crise" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<table><tr><th>Temps</th><th>Adulte</th><th>Enfant</th></tr>
+<tr><td>0–5 min</td><td>Voie veineuse ; cortisol, ACTH, sodium, potassium, glycémie, urée et créatinine si cela ne retarde rien<sup>16,27</sup>.</td><td>En première présentation, la BSPED ajoute rénine, aldostérone, 17-hydroxyprogestérone et profil stéroïdien urinaire, si possible avant l'hydrocortisone<sup>27</sup>.</td></tr>
+<tr><td>0–15 min</td><td>Hydrocortisone 100 mg i.v. ou i.m., injectée i.v. « en 30 secondes au minimum », puis NaCl 0,9 % 1 L en 30 minutes<sup>18,32,7</sup>.</td><td>Berne : 25 mg jusqu'à 3 ans, 50 mg de 3 à 12 ans, 100 mg dès 12 ans, i.m. sans voie veineuse en 15 minutes<sup>6</sup>. BSPED : 25 mg avant 1 an, 50 mg de 1 à 5 ans, 100 mg dès 6 ans, ou 2 mg/kg (100 mg au plus) ; nouveau-né : 4 mg/kg<sup>27</sup>. De 1 à 3 ans et de 6 à 11 ans, la dose BSPED, plus haute, prévaut<sup>32</sup>.</td></tr>
+<tr><td>0–30 min</td><td>Glycémie, kaliémie et rythme sont surveillés et corrigés<sup>18</sup>.</td><td>Si la glycémie est &lt; 3 mmol/L, glucose 10 % 2 mL/kg i.v., contrôlé après 15 minutes ; en choc, NaCl 0,9 % 10 mL/kg en bolus, à répéter. L'entretien se fait en NaCl 0,9 %/glucose 5 %, 100 mL/kg/j pour les 10 premiers kg, 50 pour les 10 suivants, 20 au-delà. Une hyperkaliémie menaçante reçoit gluconate de calcium i.v., salbutamol nébulisé, insuline avec glucose, bicarbonate ou résines échangeuses<sup>27</sup>.</td></tr>
+<tr><td>1–24 h</td><td>200 mg/24 h en continu, sinon 50 mg toutes les 6 heures, jusqu'à la récupération ; on cherche le déclencheur<sup>18</sup>.</td><td>Même dose toutes les 6 heures tant que l'enfant reste instable ; une fois stabilisé, 1 mg/kg (50 mg au plus) toutes les 6 heures, et 2 mg/kg chez le nouveau-né<sup>27</sup>.</td></tr>
+<tr><td>24–72 h</td><td>Les fortes doses ne durent en général pas plus de 48–72 heures, puis l'hydrocortisone orale ≥ 40 mg/j en 2 à 4 prises suit jusqu'à la stabilité<sup>7,32</sup>.</td><td>Dès qu'il mange, 30 mg/m²/j en 4 prises, puis la fludrocortisone reprend<sup>27</sup>.</td></tr></table>
+<p>L'AIPS de Solu-CORTEF® ne fixe aucune dose de crise par âge ; pour l'enfant, elle précise seulement : « Ne pas administrer des doses inférieures à 25 mg par jour »<sup>7</sup>.</p>
+<p><b>Sortie.</b> La pression reste stable sans perfusion, l'hydrocortisone orale est tolérée, le déclencheur est traité, et les électrolytes et la glycémie se normalisent. Le patient et un proche connaissent les règles de stress et savent injecter ; le patient sort avec carte, trousse, 3 mois de traitement et un rendez-vous d'endocrinologie<sup>18,27,19,17</sup>.</p>
+</div></div>
+
+<h3>Traitement de fond</h3>
+<p>Le médecin prélève d'abord, puis il commence l'<button type="button" class="terme" popovertarget="w-hc">hydrocortisone</button>, 15 à 25 mg/j en 2 à 3 prises, la plus forte le matin<sup>28,32</sup>. Il ne donne jamais la lévothyroxine en premier, car l'AIPS d'Euthyrox® la contre-indique dans les « troubles de la fonction surrénalienne non traités » et précise : « En présence d'un trouble compensé de la fonction surrénalienne, il faut d'abord instituer un traitement de substitution aux glucocorticoïdes. »<sup>13</sup>. Il ajoute ensuite la <button type="button" class="terme" popovertarget="w-fl">fludrocortisone</button>, 0,1 mg par jour, sans restreindre le sel<sup>28,9</sup>.</p>
+<div id="w-hc" popover class="fenetre"><div class="barre"><span>Hydrocortisone (AIPS)</span><button type="button" popovertarget="w-hc" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Hydrocortisone Galepharm (n° 57970).</b> « Insuffisance surrénale chronique: 10 à 20 mg par jour, parfois davantage, avec 4 à 6 g de chlorure de sodium ou un minéralocorticoïde. » En stress : « la dernière dose administrée doit être doublée, ou éventuellement triplée. » Dans la substitution, seule l'hypersensibilité contre-indique le produit, et l'arrêt brutal peut tuer<sup>8,11</sup>.</p>
+<p><b>Plenadren® (n° 62068), adulte.</b> L'AIPS donne « 20 à 30 mg par jour, en une seule prise quotidienne, le matin », comprimé entier entre 6 h et 8 h ; en maladie, il faut « raccourcir l'intervalle entre les prises et non pas augmenter la dose du matin ». Sa contre-indication complète est : « Hypersensibilité à la substance active ou à l'un des excipients. » L'AIPS le déconseille en outre en cas de diarrhée chronique, car l'absorption baisse<sup>10</sup>. Le remboursement exige l'accord du médecin-conseil<sup>14</sup>.</p>
+<p><b>Alkindi® (n° 68226), enfant.</b> L'AIPS donne « 8 à 10 mg d'hydrocortisone/m2/jour pour les patients présentant une insuffisance surrénale » et « 10 à 15 mg d'hydrocortisone/m2/jour pour les patients présentant également une hyperplasie congénitale des surrénales (HCS) », en trois ou quatre prises. Les granulés se donnent sur la langue ou sur un aliment semi-solide froid, jamais dans un liquide ni par sonde. Contre-indications : « Hypersensibilité au principe actif ou à l'un des excipients mentionnés à la rubrique «Composition». Patients atteints de dysphagie ou nourrissons prématurés pour lesquels une alimentation par voie orale n'a pas été encore instaurée. » La substitution ne contre-indique pas les vaccins vivants<sup>11</sup>.</p>
+<p><b>Solu-CORTEF® (n° 23533), chirurgie.</b> L'AIPS prévoit « lors de petites interventions: 200 mg d'hydrocortisone i.v. avant de commencer; lors d'interventions de moyenne envergure: 100 mg d'hydrocortisone i.v. avant le début de l'opération puis 100 mg d'hydrocortisone toutes les 6 heures pendant 24 heures; lors d'interventions chirurgicales majeures: 100 mg d'hydrocortisone i.v. avant le début de l'opération, puis toutes les 6 heures pendant au moins 72 heures. » L'ESE propose 100 mg à l'induction puis 200 mg/24 h. L'AIPS contre-indique l'« Application intramusculaire en cas de purpura thrombopénique idiopathique »<sup>7,18</sup>.</p>
+<p><b>Interactions.</b> Rifampicine, phénytoïne, phénobarbital et carbamazépine accélèrent le catabolisme, alors que clarithromycine, kétoconazole et ritonavir renforcent l'effet<sup>8</sup>.</p>
+</div></div>
+<div id="w-fl" popover class="fenetre"><div class="barre"><span>Fludrocortisone, Florinef® n° 31095 (AIPS)</span><button type="button" popovertarget="w-fl" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Dose.</b> « La norme journalière est de 0,1 mg. » L'enfant de 0 à 12 ans reçoit 2 à 5 µg/kg par jour. En stress, la dose ne change pas, car l'hydrocortisone forte couvre le besoin<sup>9,6</sup>.</p>
+<p><b>Ajustement.</b> Une étude française juge la substitution correcte quand la rénine se situe entre 20 et 60 mUI/L ; en dessous, elle évoque un surdosage, au-dessus un sous-dosage<sup>24</sup>.</p>
+<p><b>Contre-indications.</b> « Mycoses systémiques » ; « Ulcères gastro-intestinaux aigus » ; « Herpès simplex oculaire » ; « Zona/varicelle » ; « Hypertension artérielle sévère » ; « Stade avancé de l'artériosclérose cérébrale » ; hypersensibilité. De plus, « il ne faut pas allaiter pendant le traitement par Florinef »<sup>9</sup>.</p>
+</div></div>
+
+<h3>Éducation et suivi</h3>
+<p>Dès le premier jour, le patient apprend les <button type="button" class="terme" popovertarget="w-stress">règles de stress</button> et reçoit une carte d'urgence, une trousse d'auto-injection et 3 mois de réserve ; lui et un proche s'exercent à l'injection i.m.<sup>6,18,19</sup>. L'éducation est répétée, car les connaissances restent faibles en Suisse<sup>23,2</sup>. L'endocrinologue le revoit au moins une fois par an : la prise de poids et l'hypertension signent un surdosage, alors que la fatigue et l'envie de sel signent un sous-dosage, et il dépiste chaque année thyroïde, diabète et vitamine B12<sup>17,9,16</sup>. Pendant la grossesse, la substitution se poursuit sous surveillance étroite<sup>10</sup> ; dans une cohorte, 18,8 % des grossesses ont connu une crise<sup>26</sup>. Les <button type="button" class="terme" popovertarget="w-spe">situations spéciales</button> modifient doses et suivi.</p>
+<div id="w-stress" popover class="fenetre"><div class="barre"><span>Règles de stress</span><button type="button" popovertarget="w-stress" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<table><tr><th>Situation</th><th>Règle</th></tr>
+<tr><td>Fièvre de 38 à 39 °C</td><td>Doubler la dose orale jusqu'à la guérison, souvent après 2 à 3 jours<sup>6</sup>.</td></tr>
+<tr><td>Fièvre ≥ 39 °C</td><td>Tripler la dose orale<sup>6,8</sup>.</td></tr>
+<tr><td>Stress mineur sans instabilité (alitement, antibiotique, deuil)</td><td>40 mg/j en 3 prises (20, 10, 10 mg) pendant 2 à 5 jours ; NICE : au moins 40 mg/j en 2 à 4 prises jusqu'à la guérison<sup>18,32</sup>.</td></tr>
+<tr><td>Vomissement dans les 30 minutes après une prise</td><td>Reprendre une dose double quand les vomissements cessent ; s'ils récidivent, s'injecter l'hydrocortisone i.m. et aller aux urgences<sup>32</sup>.</td></tr>
+<tr><td>Vomissements, diarrhée, prise orale impossible</td><td>L'adulte s'injecte 100 mg i.m., répète après 6 heures et va à l'hôpital sans amélioration ; l'enfant reçoit la dose de son âge<sup>18,6</sup>.</td></tr>
+<tr><td>Soins dentaires, petite intervention sous anesthésie locale</td><td>Hydrocortisone orale 40 mg ce jour-là : 20 mg une heure avant, 10 mg 6 heures après, 10 mg 6 heures plus tard<sup>18</sup>.</td></tr>
+<tr><td>Coloscopie sans anesthésie générale</td><td>Dose habituelle, ou équivalent i.v. si le jeûne se prolonge<sup>18</sup>.</td></tr>
+<tr><td>Anesthésie générale ou régionale</td><td>Couverture parentérale selon l'AIPS de Solu-CORTEF® (fenêtre hydrocortisone) ou l'ESE ; l'anesthésiste est informé<sup>18,7,11</sup>.</td></tr>
+<tr><td>Effort intense, chaleur</td><td>Ces situations ont déclenché des crises chez des patients éduqués<sup>21</sup>.</td></tr>
+</table>
+</div></div>
+<div id="w-spe" popover class="fenetre"><div class="barre"><span>Situations spéciales</span><button type="button" popovertarget="w-spe" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><b>Grossesse.</b> L'AIPS de Plenadren® demande de « poursuivre le traitement pendant la grossesse » et précise : « Le traitement de substitution par l'hydrocortisone doit être étroitement surveillé chez les femmes enceintes atteintes d'insuffisance surrénale. »<sup>10</sup> Dans la cohorte britannique et irlandaise de 101 grossesses, seules 41 % ont reçu une dose augmentée<sup>26</sup>. NICE envisage au 3e trimestre une hausse de l'hydrocortisone et de la fludrocortisone selon les symptômes, la natrémie et la pression posturale, et l'hyperémèse gravidique impose 100 mg i.m. et les urgences<sup>32</sup>.</p>
+<p><b>Accouchement.</b> La parturiente reçoit 100 mg i.v. au début du travail, puis 200 mg/24 h en perfusion ou 50 mg i.v. toutes les 6 heures ; la césarienne suit le schéma chirurgical<sup>18</sup>. Après la naissance, la dose orale de maladie dure 48 heures, puis la dose habituelle reprend<sup>32</sup>.</p>
+<p><b>Allaitement.</b> Les AIPS divergent : Plenadren® et Alkindi® peuvent être utilisés, mais Florinef® l'interdit, si bien que l'endocrinologue décide avec la patiente<sup>10,11,9</sup>.</p>
+<p><b>Sujet âgé.</b> Au-delà de 65 ans, le risque de crise augmente ; la fludrocortisone n'y a pas été étudiée, et Plenadren® demande prudence<sup>18,9,10</sup>.</p>
+<p><b>Diabète de type 1.</b> L'ISP rend plus sensible à l'insuline, c'est pourquoi le médecin revoit l'insuline au début de la substitution et pendant les règles de stress<sup>16,8</sup>.</p>
+<p><b>Vaccins.</b> L'AIPS d'Alkindi® ne voit pas de contre-indication aux vaccins vivants, alors que celle de Florinef® déconseille les vaccinations, « en particulier avec des vaccins vivants, surtout chez les patients prenant des corticostéroïdes à des doses élevées »<sup>11,9</sup>.</p>
+<p><b>Enfant.</b> Le pédiatre endocrinologue le revoit tous les 3 à 6 mois, et le nourrisson tous les 3 à 4 mois, car le surdosage freine la croissance<sup>6,11</sup>.</p>
+</div></div>
+
+<h2 id="p12">12. Prévention</h2>
+<p>Aucune prévention primaire de la forme auto-immune n'est décrite ; la prévention primaire vise en revanche les causes médicamenteuses. La prévention secondaire dépiste tôt les groupes à risque, et la prévention tertiaire empêche la crise par l'éducation, la carte et la trousse<sup>16,5,6,19</sup>. Les <button type="button" class="terme" popovertarget="w-pre">trois niveaux</button> ont chacun leurs gestes.</p>
+<div id="w-pre" popover class="fenetre"><div class="barre"><span>Trois niveaux de prévention</span><button type="button" popovertarget="w-pre" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<table><tr><th>Niveau</th><th>Geste et cible</th></tr>
+<tr><td>Primaire</td><td>Connaître les médicaments qui bloquent ou détruisent le cortex (kétoconazole, métyrapone, mitotane, étomidate, abiratérone) chez les patients traités pour un Cushing ou un cancer de la prostate<sup>16</sup>.</td></tr>
+<tr><td>Secondaire</td><td>Dépister régulièrement l'insuffisance surrénalienne sous inhibiteurs de points de contrôle (nivolumab, pembrolizumab)<sup>5,16</sup>.</td></tr>
+<tr><td>Secondaire</td><td>Doser cortisol et ACTH devant une hyponatrémie inexpliquée ou une TSH élevée avant la lévothyroxine<sup>16</sup>.</td></tr>
+<tr><td>Secondaire</td><td>Suivre le patient à anticorps anti-21-hydroxylase positifs et lui donner un glucocorticoïde d'urgence<sup>16</sup>.</td></tr>
+<tr><td>Secondaire</td><td>Dépister l'HCS chez tous les nouveau-nés en Suisse (test de Guthrie)<sup>6</sup>.</td></tr>
+<tr><td>Secondaire</td><td>Doser les acides gras à très longue chaîne chez les garçons et hommes sans anticorps, et dépister la fratrie d'un patient APS1<sup>16</sup>.</td></tr>
+<tr><td>Tertiaire</td><td>Former aux règles de stress, remettre carte et trousse, exercer l'injection, surtout après une crise, chez l'adolescent et après 65 ans ; dépister chaque année les maladies associées ; informer l'anesthésiste avant toute intervention<sup>19,18,21,16,11</sup>.</td></tr></table>
+</div></div>
+
+<h2 id="p13">13. Points clés</h2>
+<ul>
+<li>Un patient amaigri en choc reçoit 100 mg d'hydrocortisone et du NaCl 0,9 % sans attendre<sup>18</sup>.</li>
+<li>Une hyponatrémie inexpliquée impose de doser ensemble cortisol et ACTH<sup>16</sup>.</li>
+<li>Un cortisol &lt; 100 nmol/L avec une ACTH &gt; 2 fois la normale pose le diagnostic<sup>16</sup>.</li>
+<li>Une TSH élevée n'autorise aucune lévothyroxine avant le cortisol<sup>16,13</sup>.</li>
+<li>Le traitement associe hydrocortisone 15–25 mg/j, fludrocortisone 0,1 mg/j, règles de stress et trousse<sup>28,19</sup>.</li>
+<li>Un adulte connu qui vomit s'injecte 100 mg i.m. tout de suite<sup>18</sup>.</li>
+</ul>
+
+<h2 id="p14">14. Pièges d'examen</h2>
+<p>Chaque question se déplie pour montrer la réponse et sa raison.</p>
+<div class="p"><details class="deplier"><summary>Faut-il attendre le cortisol devant un choc évoquant une crise ?</summary>Non : hydrocortisone 100 mg i.v. ou i.m. et NaCl 0,9 % immédiatement, car le prélèvement ne se fait avant que s'il ne retarde rien<sup>18,16</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Quelle dose donner les 24 premières heures chez l'adulte ?</summary>200 mg/24 h en perfusion continue, ou 50 mg toutes les 6 heures, selon l'ESE, car l'AIPS ne fixe pas de dose de crise<sup>18,7</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Quelle dose pour un enfant de 4 ans en crise ?</summary>50 mg i.v. ou i.m., car Berne et la BSPED donnent tous deux 50 mg à cet âge<sup>6,27</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>TSH à 20 mUI/L, hyponatrémie, perte de poids : de la lévothyroxine ?</summary>Non, pas avant le cortisol et l'ACTH, car elle peut déclencher une crise et l'AIPS la contre-indique si l'insuffisance n'est pas traitée<sup>16,13</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Une kaliémie normale exclut-elle l'ISP ?</summary>Non, car l'hyperkaliémie manque chez plus de la moitié des patients<sup>16</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Un cortisol normal sous pilule rassure-t-il ?</summary>Non, car les œstrogènes élèvent la CBG et le cortisol total<sup>16,12</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Faut-il de la fludrocortisone dans l'insuffisance induite par les corticoïdes ?</summary>Non, car l'aldostérone y reste réglée (R 2.12 de l'ESE)<sup>18,6</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Un patient connu a 38,5 °C de fièvre : que fait-il ?</summary>Il double sa dose d'hydrocortisone, selon les règles de stress<sup>6,8</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Il vomit et ne garde pas ses comprimés : que fait-il ?</summary>Il s'injecte 100 mg d'hydrocortisone i.m. et consulte<sup>18</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Comment augmenter Plenadren® en cas de fièvre ?</summary>Le patient prend sa dose 2 ou 3 fois par jour, au lieu d'augmenter la dose du matin<sup>10</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Que faire si les anticorps anti-21-hydroxylase sont négatifs ?</summary>Un scanner des surrénales et, chez l'homme, les acides gras à très longue chaîne, car infections et métastases détruisent les deux glandes et l'ALD atteint l'homme<sup>16</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Un choc avec douleur du flanc sous anticoagulant, sans peau foncée, évoque-t-il l'ISP ?</summary>Oui, car il faut penser à une hémorragie surrénalienne bilatérale : la peau n'a pas le temps de foncer<sup>16</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Synacthen® est-il permis pendant la grossesse ?</summary>Non, car l'AIPS le contre-indique chez la femme enceinte et pendant l'allaitement<sup>12</sup>.</details></div>
+<div class="p"><details class="deplier"><summary>Que surveiller si un patient substitué commence la rifampicine ?</summary>Le médecin guette une insuffisance aiguë, car la rifampicine accélère le métabolisme des corticoïdes et la dose peut devoir augmenter<sup>9,8</sup>.</details></div>
+
+<h2>Sources</h2>
+<p class="src">Numéros de la source LOT_016 DX.10, consultées le 30.10.2026 ; la <details class="deplier"><summary>liste complète</summary>2 Notter, Swiss Med Wkly 2018. 4 Schafroth, Praxis 2022. 5 Borsari, Praxis 2025. 6 Flück, Pädiatrie 3/2023, <a href="https://rosenfluh.ch/?p=63885">rosenfluh.ch</a>. 7–13 Swissmedic, AIPS : Solu-CORTEF® n° 23533 (7, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/521df69c10204956ac5a90a438143ee8-fr.html">texte</a>), Hydrocortisone Galepharm n° 57970 (8, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/c3cc49cf817d4688a56a03bed83acfcd-fr.html">texte</a>), Florinef® n° 31095 (9, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3fd946330693449b86319bb80fa104f1-fr.html">texte</a>), Plenadren® n° 62068 (10, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/948a547bad6a407ead227d8253278f2e-fr.html">texte</a>), Alkindi® n° 68226 (11, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/4826b59b3dad46f8b79c6eefb2260568-fr.html">texte</a>), Synacthen® n° 31723 (12, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/166adf4ccf4143f88dbb064bb2373b7e-fr.html">texte</a>), Euthyrox® n° 54949 (13, <a href="https://files.refdata.ch/simis-public-prod/MedicinalDocuments/f5352e0e4d9b44c1a66a6f1e69061d8d-fr.html">texte</a>). 14 OFSP, liste des spécialités. 16 Øksnes, JCEM 2024. 17 Husebye, J Intern Med 2014. 18 Beuschlein (ESE/Endocrine Society), JCEM 2024. 19 Nowotny (Endo-ERN), Endocrine 2021. 20 Hahner, Nat Rev Dis Primers 2021. 21 Hahner, JCEM 2015. 22 Dalakas, Eur J Endocrinol 2025. 23 Chifu, Eur J Endocrinol 2023. 24 Piazzola, J Endocr Soc 2024. 26 Cauldwell, BJOG 2025. 27 Mushtaq (BSPED), Arch Dis Child 2023. 28 Bornstein, JCEM 2016. 29 Bosch, PLoS One 2017. 30 CIMS, PROFILES 2023. 32 NICE NG243, 2024, <a href="https://www.nice.org.uk/guidance/ng243">nice.org.uk</a>. 33 Ospina, JCEM 2016.</details> donne auteurs, numéros Swissmedic et liens.</p>
+<p class="sous">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main>
+</body>
+</html>

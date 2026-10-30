@@ -1,0 +1,15 @@
+# JOURNAL — LOT_016 — DX.8 Tuberculose (rédacteur Phase B, 30.10.2026)
+
+Hypothèses et décisions de rédaction (une ligne chacune). Sources : `evidence/DX8_*.txt`, `.cache/aips/<n°>.txt`.
+
+- 2026-10-30 — Source suisse primaire : guide OFSP–LPS « Tuberculose en Suisse », V1.2024, lu sur bag.admin.ch (lien de l'OFSP du 17.10.2024). Le lien tbinfo.ch des AIPS répond HTTP 404 ; liguepulmonaire.ch renvoie une page de vérification anti-robot : non contournée.
+- 2026-10-30 — Épidémiologie : Bulletin OFSP de septembre 2026 (données 2025 : 544 cas, 6,0/100 000) retenu comme chiffre suisse le plus récent ; l'écart ECDC 2024 (440 cas) / OFSP 2024 (432 cas, Liechtenstein compris) est écrit tel quel.
+- 2026-10-30 — Spécialités : choisies par lecture en flux du XML AIPS du 08.10.2026 et de la liste Swissmedic des conditionnements autorisés au 30.09.2026. Isoniazid Labatec 65161 (AIPS 2022 encore dans le XML) absent de la liste Swissmedic : Isoniaz-TB 69140 retenu. Bédaquiline, délamanide, prétomanide, rifapentine, tuberculine : 0 ligne Swissmedic.
+- 2026-10-30 — Numéros par forme : Rifampicin Labatec 50264 = gélules, 65105 = comprimés 450/600 mg, 65101 = perfusion ; Vitamine B6 Streuli 34173 = comprimés, 34172 = ampoules (liste Swissmedic).
+- 2026-10-30 — Divergences AIPS ↔ guide suisse écrites sans trancher (statut « hors information professionnelle » quand le guide dépasse l'AIPS) : grossesse (éthambutol et pyrazinamide contre-indiqués par l'AIPS, schéma standard recommandé par le guide) ; allaitement ; pyrazinamide en insuffisance rénale (AIPS < 50 mL/min contre-indiqué, guide : 3 fois par semaine sous 30 mL/min) ; éthambutol 25 mg/kg (AIPS, phase d'attaque) contre 15 mg/kg (guide) ; pyridoxine pour tous (guide) ou groupes à risque (AIPS Rimstar) ; seuil hépatique (AIPS : arrêt de l'isoniazide au-delà de 3 fois la normale ; guide : 3 × LSN avec symptômes, 5 × LSN sans) ; doses pédiatriques ; traitements de l'infection 6H, 4R, 3HR hors AIPS.
+- 2026-10-30 — Prise des médicaments : l'AIPS Rimstar exige la prise à jeun ; le guide admet un petit déjeuner pauvre en graisses. Les deux positions sont écrites.
+- 2026-10-30 — Crise surrénalienne : dose de l'ESE/ES 2024 (correction d'audit 2), prélèvement de cortisol et d'ACTH avant l'hydrocortisone si cela ne retarde rien ; l'AIPS Solu-CORTEF 23533 ne fixe aucune dose de crise (écrit).
+- 2026-10-30 — Corticoïdes adjuvants (méningite, péricardite) : aucune dose écrite, faute d'AIPS lue qui la fixe ; la dose NICE NG33 n'est pas reprise (règle « doses AIPS seulement »).
+- 2026-10-30 — Thiamine de renutrition : seule la prophylaxie AIPS de Benerva est citée ; toute dose plus forte est déclarée hors information professionnelle (correction d'audit 5).
+- 2026-10-30 — Rang E5 et ordre de l'algorithme repris de la liste gelée ; le test VIH suit la correction d'audit 11 (tuberculose = affection potentiellement définissant le sida).
+- 2026-10-30 — Taille : premier jet complet à environ 147 Ko avec sources ; compression de la forme (légendes, redites entre points 4, 5, 9, 11, lignes de remboursement regroupées, syndrome surrénalien 7.8 renvoyé au point 3 et à DX.10) jusqu'à 134 786 octets.

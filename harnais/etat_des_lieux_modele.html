@@ -1,0 +1,172 @@
+<title>Chantier production-v2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Mise en page : un rapport de garde, une seule colonne de lecture (68rem), sections numérotées dans l'ordre où Vial lira : verdict → file → LOT en cours → qualité → risques. */
+:root{
+  --bg:#F3F6F7; --surface:#FFFFFF; --ink:#13202A; --ink-2:#465663; --ink-3:#6F7E8A; --rule:#D8E0E5;
+  --accent:#0D6A8A; --ok:#1C7A4C; --ok-bg:#E3F2EA; --run:#9A5B00; --run-bg:#FBEFD9; --todo:#D3DCE2; --todo-ink:#5C6B77;
+  --crit:#C8102E; --crit-bg:#FBE4E8; --s-grave:#0B4A63; --s-moyen:#3C8BAA; --s-leger:#A8CEDC;
+  --band:rgba(13,106,138,.18);
+  --f-disp:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E151B; --surface:#151F28; --ink:#E4ECF1; --ink-2:#A8B6C1; --ink-3:#7F8D99; --rule:#273440;
+  --accent:#5EB4D4; --ok:#52C48C; --ok-bg:#15301F; --run:#E6A53E; --run-bg:#33260F; --todo:#2A3742; --todo-ink:#94A3AF;
+  --crit:#FF5C70; --crit-bg:#3A1419; --s-grave:#CDE9F3; --s-moyen:#5EB4D4; --s-leger:#2B6077;
+  --band:rgba(94,180,212,.22); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E151B; --surface:#151F28; --ink:#E4ECF1; --ink-2:#A8B6C1; --ink-3:#7F8D99; --rule:#273440;
+  --accent:#5EB4D4; --ok:#52C48C; --ok-bg:#15301F; --run:#E6A53E; --run-bg:#33260F; --todo:#2A3742; --todo-ink:#94A3AF;
+  --crit:#FF5C70; --crit-bg:#3A1419; --s-grave:#CDE9F3; --s-moyen:#5EB4D4; --s-leger:#2B6077;
+  --band:rgba(94,180,212,.22); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:68rem;margin:0 auto;padding-block:2.5rem 4rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:3rem}
+h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(2.1rem,5vw,3.1rem);font-weight:700;line-height:1.05}
+h2{font-size:1.45rem;font-weight:600;display:flex;gap:.6rem;align-items:baseline}
+h2 .n{font-family:var(--f-mono);font-size:.8rem;font-weight:500;color:var(--accent)}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font:500 .74rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.mono{font-family:var(--f-mono);font-size:.86em}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sub{color:var(--ink-3);font-size:.84rem}
+.lede{font-size:1.08rem;color:var(--ink-2);max-width:62ch}
+header{display:grid;gap:1rem}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;color:var(--ink-3);font-size:.85rem}
+section{display:grid;gap:1.1rem;min-width:0}
+.intro{color:var(--ink-2)}
+/* tuiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(14.5rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.tile{background:var(--surface);padding:1.1rem 1.2rem;display:grid;gap:.35rem;align-content:start}
+.tile .big{font:600 2.2rem/1 var(--f-disp);font-variant-numeric:tabular-nums}
+.tile .big small{font-size:1.05rem;color:var(--ink-3);font-weight:500}
+.tile p{font-size:.88rem;color:var(--ink-2)}
+.meter{height:6px;border-radius:3px;background:var(--todo);overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+/* pastilles */
+.pill{display:inline-flex;align-items:center;gap:.35rem;font:500 .74rem/1 var(--f-body);padding:.32rem .55rem;border-radius:999px;white-space:nowrap}
+.pill::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:currentColor}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.run{background:var(--run-bg);color:var(--run)}
+.pill.todo{background:var(--todo);color:var(--todo-ink)}
+.pill.crit{background:var(--crit-bg);color:var(--crit)}
+.pill.vial{background:var(--crit-bg);color:var(--crit)}
+/* file 248 */
+.fams{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr));gap:1.2rem 2rem}
+.fam{display:grid;gap:.45rem;min-width:0}
+.fam-h{display:flex;justify-content:space-between;font-size:.85rem;color:var(--ink-2);border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+.grid{width:100%;max-width:520px;height:auto;display:block}
+.c-ok{fill:var(--ok)} .c-run{fill:var(--run)} .c-todo{fill:var(--todo)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.84rem;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.sw{width:.8rem;height:.8rem;border-radius:2px;display:inline-block}
+/* tableaux */
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+thead th{font:500 .72rem/1.2 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);background:var(--bg);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+tbody th{font-weight:500}
+td.num,th.num{text-align:right}
+/* pipeline */
+.kb{min-width:9rem}
+.kb-t{position:relative;display:block;height:10px;border-radius:5px;background:var(--bg);border:1px solid var(--rule);overflow:hidden;margin-top:.3rem}
+.band{position:absolute;left:53.33%;right:0;top:0;bottom:0;background:var(--band);border-left:1px dashed var(--accent)}
+.kb-f{position:relative;display:block;height:100%;border-radius:5px}
+.kb-f.ok{background:var(--ok)} .kb-f.run{background:var(--run)} .kb-f.todo{background:transparent}
+/* graphiques */
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.2rem;display:grid;gap:.8rem;min-width:0;align-content:start}
+[hidden]{display:none!important}
+.lots th[scope=row]{min-width:12rem}
+.pipe td:nth-child(2){min-width:14rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:1.2rem}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font-family:var(--f-body)}
+.ax{fill:var(--ink-3);font-size:11px}
+.ax-h{fill:var(--ink);font-size:12px;font-weight:600}
+.val{fill:var(--ink-2);font-size:11px;font-family:var(--f-mono)!important}
+.gridl{stroke:var(--rule);stroke-width:1}
+.db-l{stroke:var(--ink-3);stroke-width:2;stroke-linecap:round;opacity:.55}
+.db-a{fill:var(--surface);stroke:var(--ink-3);stroke-width:2}
+.db-b{fill:var(--accent);stroke:var(--surface);stroke-width:2}
+.hb{display:grid;grid-template-columns:5.5rem 1fr 3.4rem;gap:.6rem;align-items:center;font-size:.86rem}
+.hb-t{height:12px;background:var(--bg);border-radius:0 4px 4px 0}
+.hb-f{display:block;height:100%;background:var(--s-leger);border-radius:0 4px 4px 0}
+.hb-f.hb-med{background:var(--accent)}
+.hb-v{text-align:right}
+.stk{display:grid;grid-template-columns:2.4rem 1fr 3.4rem;gap:.6rem;align-items:center;font-size:.86rem}
+.stk-b{display:flex;height:16px;gap:2px}
+.sg{display:block;height:100%;min-width:3px}
+.sg:first-child{border-radius:4px 0 0 4px}.sg:last-child{border-radius:0 4px 4px 0}
+.sg-critique{background:var(--crit)} .sg-grave{background:var(--s-grave)} .sg-moyen{background:var(--s-moyen)} .sg-leger{background:var(--s-leger)}
+.stk-v{text-align:right}
+.stk-d{font-size:.78rem;color:var(--ink-3);margin:-.2rem 0 .35rem 3rem}
+.note{font-size:.8rem;color:var(--ink-3)}
+/* critiques */
+.crits{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.crits li{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:.9rem 1.1rem;display:grid;gap:.4rem}
+.cr-h{display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:center}
+.cr-p{font-size:.84rem;color:var(--ink-3)}
+/* garde-fous */
+.checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:.6rem}
+.checks li{display:grid;grid-template-columns:1.3rem 1fr;gap:.5rem;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:.7rem .85rem;font-size:.88rem}
+.checks li::before{content:"✓";color:var(--ok);font-weight:700}
+.checks b{font-weight:600}
+.checks li.ko::before{content:"!";color:var(--crit)}
+/* chronologie */
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--rule);margin-left:.35rem}
+.tl li{position:relative;padding:.1rem 0 .85rem 1.2rem;display:grid;grid-template-columns:3.4rem 1fr;gap:.6rem;font-size:.88rem}
+.tl li::before{content:"";position:absolute;left:-6px;top:.45rem;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--ink-3)}
+.tl li.k::before{background:var(--ok);border-color:var(--ok)}
+.tl li.w::before{background:var(--run);border-color:var(--run)}
+.tl time{font-family:var(--f-mono);color:var(--ink-3);font-size:.82rem}
+.next{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:10px;padding:1.1rem 1.2rem;display:grid;gap:.6rem}
+.next ol{margin:0;padding-left:1.2rem;display:grid;gap:.3rem}
+footer{font-size:.8rem;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:1rem;display:grid;gap:.4rem}
+footer code{font-family:var(--f-mono);font-size:.95em}
+@media (max-width:520px){.hb{grid-template-columns:4.6rem 1fr 3rem}.tl li{grid-template-columns:1fr;gap:.1rem}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Chantier production-v2 · état des lieux automatique</div>
+  <h1>État des lieux du chantier</h1>
+  <p class="lede">{{lede}}</p>
+  <div class="meta">{{meta}}</div>
+</header>
+<section><div class="tiles">{{tiles}}</div></section>
+<section aria-labelledby="s1"><h2 id="s1"><span class="n">01</span>Où en est la file des {{tot}} LOTS</h2>
+  <div class="legend"><span><i class="sw" style="background:var(--ok)"></i>Accepté, déposé</span><span><i class="sw" style="background:var(--run)"></i>En cours</span><span><i class="sw" style="background:var(--todo)"></i>À traiter</span></div>
+  <div class="fams">{{grids}}</div><p class="note">{{next_lot}}</p></section>
+<section aria-labelledby="s2"><h2 id="s2"><span class="n">02</span>LOTS du chantier production-v2</h2>
+  <div class="tbl"><table class="lots"><thead><tr><th>LOT</th><th>Statut</th><th class="num">Fichiers</th><th class="num">Ko (min–max)</th><th class="num">Corrections</th><th class="num">Critiques</th><th class="num">Graves</th><th class="num">Médical avant → après</th><th class="num">Médical min.</th><th>Dépôt · durée</th></tr></thead><tbody>{{lot_table}}</tbody></table></div></section>
+<section aria-labelledby="s3"><h2 id="s3"><span class="n">03</span>{{encours_titre}}</h2>
+  <div class="tbl"><table><thead><tr><th>Fichier</th><th>Diagnostic</th><th>Étape</th><th>Taille · bande 80–150 Ko</th><th class="num">Ko</th><th class="num">Points</th><th class="num">Fin</th><th class="num">Corr.</th><th class="num">Méd. après</th></tr></thead><tbody>{{pipe_html}}</tbody></table></div>
+  <p class="note">Étape lue dans <span class="mono">audits/scores.jsonl</span> ; « Points » = titres <span class="mono">&lt;h3 id="dxN-pM"&gt;</span> ; « Fin » = marqueur <span class="mono">FIN_FICHIER</span> posé.</p></section>
+<section aria-labelledby="s4"><h2 id="s4"><span class="n">04</span>Ce que les audits ont changé</h2><div class="two">
+  <div class="panel"><h3>Scores moyens des LOTS déposés, avant et après audit</h3>
+    <div class="legend"><span><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="4.5" class="db-a"/></svg>Avant</span><span><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" class="db-b"/></svg>Après</span></div>
+    {{dumbbell}}<p class="note">* Langue : score estimé, sans barème. Scores attribués par les agents auditeurs, non validés par un médecin.</p></div>
+  <div class="panel"><h3>Corrections par nature</h3>
+    <div class="legend"><span><i class="sw" style="background:var(--accent)"></i>Fond médical</span><span><i class="sw" style="background:var(--s-leger)"></i>Forme, sources, omissions</span></div>
+    <div style="display:grid;gap:.45rem">{{bars}}</div>
+    <h3 style="margin-top:.6rem">Corrections par gravité</h3>
+    <div class="legend"><span><i class="sw" style="background:var(--crit)"></i>Critique</span><span><i class="sw" style="background:var(--s-grave)"></i>Grave</span><span><i class="sw" style="background:var(--s-moyen)"></i>Moyen</span><span><i class="sw" style="background:var(--s-leger)"></i>Léger</span></div>
+    <div>{{stack}}</div></div></div></section>
+<section aria-labelledby="s5"><h2 id="s5"><span class="n">05</span>Erreurs critiques ({{ncrit}}), toutes corrigées</h2><ul class="crits">{{crit_html}}</ul></section>
+<section aria-labelledby="s6"><h2 id="s6"><span class="n">06</span>Points ouverts</h2>
+  <div class="tbl"><table><thead><tr><th>Nature</th><th>Point</th><th>Ce qui est fait ou prévu</th></tr></thead><tbody>{{ouverts}}</tbody></table></div></section>
+<section aria-labelledby="s7"><h2 id="s7"><span class="n">07</span>Garde-fous contrôlés par le script</h2><ul class="checks">{{checks}}</ul></section>
+<section aria-labelledby="s8"><h2 id="s8"><span class="n">08</span>Routage des modèles</h2><p class="intro">{{nrout}} décisions dans <span class="mono">journal/routage.jsonl</span>.</p>
+  <div class="tbl"><table><thead><tr><th>Agent</th><th>Modèle</th><th>Effort</th><th class="num">Appels</th></tr></thead><tbody>{{rout_html}}</tbody></table></div></section>
+<section aria-labelledby="s9"><h2 id="s9"><span class="n">09</span>Chronologie (JOURNAL.md)</h2><ol class="tl">{{timeline}}</ol></section>
+<section aria-labelledby="s10"><h2 id="s10"><span class="n">10</span>Rythme</h2><div class="next"><p>{{rythme}}</p></div></section>
+<footer><span>Généré par <code>harnais/etat_des_lieux.py</code> le {{genere}} (Zurich), sans appel à un modèle, à partir de <code>RAPPORT_QUALITE.json</code>, <code>ETAT_FILE.json</code>, <code>audits/*.jsonl</code>, <code>journal/</code>, <code>JOURNAL.md</code> et de l'historique git.</span><span>Contenu médical établi à partir des sources citées ; non validé cliniquement par un médecin.</span></footer>
+</div>

@@ -1,0 +1,12 @@
+OBJET=recherche de l'oxygène médical dans le corpus AIPS local et sur swissmedicinfo
+CONSULTÉ=2026-10-30 (rédacteur LOT_013 DX.5)
+
+1) Corpus .cache/aips/AipsDownload_20261008.xml : grep « Sauerstoff|Oxygène|oxygène » = 0 occurrence ; lecture en flux (iterparse) des descriptions et titulaires PanGas, Carbagas, Messer, Linde Gas, Air Liquide : uniquement protoxyde d'azote, monoxyde d'azote (INOmax, VasoKINOX, Messer 65530), Entonox, Kalinox, Serynox, PulmoProDiff, PneumoXON ; aucun oxygène.
+2) Numéros d'oxygène médical vus sur une base tierce (ch.oddb.org, non retenue comme source) : 56407, 56408, 56667, 66641 → 0 occurrence dans le corpus.
+3) swissmedicinfo-pro.ch, https://www.swissmedicinfo-pro.ch/showText.aspx?textType=FI&lang=FR&authNr=<n>&supportMultipleResults=1 : 56407, 56408, 56667, 66641 → « Aucun résultat » ; contrôle positif 56952 → texte Naloxon OrPha affiché.
+CONCLUSION : oxygène médical absent du corpus et de swissmedicinfo → « À vérifier (AIPS) », aucune dose affirmée ; principe thérapeutique cité d'après ECHM 2016 et Tox Info Suisse (cyanure 2026).
+
+AJOUT 4-DMAP ET THIOSULFATE DE SODIUM (même date) :
+4) Corpus AIPS : grep « thiosulf|DMAP|Dimethylaminophenol » = 0 occurrence (lecture en flux également négative pour « thiosulfat » et « dimercap »).
+5) Liste « Antidotes contre les intoxications 2026/2027 » (Berne, 10.09.2026) : 4-DMAP® (Dr. Franz Köhler Chemie) et « Thiosulfate de sodium 10 % » figurent dans l'« Annexe : Producteurs et sources d'approvisionnement de produits non autorisés en Suisse » ; importation par les pharmacies d'hôpitaux et centres régionaux selon l'art. 49 OAMéd ; assortiment de la pharmacie de l'armée accessible par le 145.
+CONCLUSION : produits non autorisés en Suisse, sans information professionnelle AIPS → « À vérifier (AIPS) », aucune dose affirmée dans le fichier DX.5 (les doses de Tox Info Suisse ne sont pas reprises).
