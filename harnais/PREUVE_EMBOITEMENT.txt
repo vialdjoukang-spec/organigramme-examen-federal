@@ -164,3 +164,18 @@ outil_applique=collecte web ciblée (WebFetch/curl → extraits Markdown datés 
 lot=LOT_013
 phase=A
 producteur=Claude Opus (redacteur-phase-a, sous-agent)
+
+2026-10-30 03:20 Europe/Zurich
+boucle=phase-B-LOT_013
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "Phase B LOT_013 G13 : rédaction parallèle de 10 DX médico-légaux, audits médical puis conformité avec correction en place"
+1. [filtrage_nettoyage] Chonkie (feynic/chonkie) — découper longs documents  score=0.2
+2. [filtrage_nettoyage] Crawl4AI (unclecode/crawl4ai) — pages web → Markdown propre  score=0.2
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.2
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+outil_applique=découpage ciblé (controle_lot.py extraire) pour les audits ; cache AIPS par n° Swissmedic (.cache/aips/)
+lot=LOT_013
+phase=B
+producteur=Claude Opus (session principale ; redacteur ×10 et auditeurs en sous-agents)
