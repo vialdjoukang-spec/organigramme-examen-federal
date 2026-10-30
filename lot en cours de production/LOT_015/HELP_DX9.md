@@ -59,3 +59,8 @@ Questions ouvertes le 30.10.2026 par le rédacteur DX.9. Format : identifiant ; 
 - H15-DX9-07 — Comblée. Plan de vaccination suisse 2026 (état février 2026, PDF OFSP lu) : l'hypercortisolisme endogène n'est pas nommé ; groupe à risque « Immunosuppression médicamenteuse (y compris corticothérapie systémique au long cours et radiothérapie) ». Écrit au point 11.B ; source ajoutée à [S14].
 - H15-DX9-08 — Comblée en partie. Pituitary Society 2021 : la TEP (18F-FDG, 11C-méthionine) a été explorée seule ou avec l'IRM ; elle n'est ni disponible ni autorisée dans la plupart des pays. Conduite propre au dispositif incompatible : non trouvée.
 - Corrections : 29 (0 critique, 4 graves, 15 moyennes, 10 légères) ; journal `LOT_Claude_Finaux/LOT_015/audits/corrections.jsonl`. Graves : schéma de la crise surrénalienne (ESE/Endocrine Society 2024, [S30]) ; indication AIPS restreinte de Clexane (prophylaxie ambulatoire hors AIPS) ; contre-indications de Dostinex (dont enfant et adolescent) ; texte grossesse de Dostinex en divergence avec la revue 2026.
+
+## Suivi d'audit de conformité — 30.10.2026 (auditeur-conformite, sonnet, high)
+- Aucune question de fond nouvelle. Aucune dose, aucun seuil, aucune citation AIPS et aucun « À vérifier (AIPS) » modifié.
+- Forme corrigée : 41 retouches (doublons entre points, abréviations développées à la première occurrence, phrases longues scindées, un méta-commentaire retiré dans un en-tête de colonne). Taille : 138 445 → 136 866 octets.
+- Contenu déplacé de place : le paragraphe sur le remboursement d'Isturisa (garantie, médecin-conseil) a quitté le point 5 ; il reste au point 11.B (liste des spécialités et aspects sociaux).
