@@ -1,6 +1,6 @@
-# LOT_135 — audit médical en cours · 31.10.2026
+# LOT_135 — audit médical clos · 31.10.2026
 
-Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 en cours** (Phase A, DX.1–DX.9 faits). Reste : DX.10 puis conformité grok-4.5. Aucune PR. Branche `grok/lots`.
+Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 clos**. Reste : conformité grok-4.5. Aucune PR. Branche `grok/lots`.
 
 P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `LISTE_DX_CANONIQUE.md`.
 
@@ -16,7 +16,7 @@ P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `L
 | DX.7 | ORANGE | 2.6 (+ 35.3) Ko | 158dbcaf | 0 corr. · score 96 · grok-4.6 |
 | DX.8 | ORANGE | 2.6 (+ 35.0) Ko | d0dfb7d7 | 0 corr. · score 95 · grok-4.6 |
 | DX.9 | ORANGE | 2.8 (+ 36.5) Ko | 341ad8f8 | 1 corr. · score 94 · grok-4.6 |
-| DX.10 | ORANGE | 2.9 (+ 36.2) Ko | 26e8c47d | à faire |
+| DX.10 | ORANGE | 2.9 (+ 36.4) Ko | 4160a3d5 | 1 corr. · score 94 · grok-4.6 |
 
 Incertitudes tranchées en Phase A :
 - 14/1 000 après 65 ans retenu (RMS français + Thorax 2013). L'anglais 14/100 est un écart de traduction.
