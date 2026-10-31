@@ -185,6 +185,162 @@ def dx3():
            P("Carence en cobalamine : clinique d'abord, MMA si le dosage hésite, 1000 µg selon l'AIPS quand l'atteinte neurologique est là. Pas de folate seul.", S(5, 18)),
            fiche, wins)
 
+def dx4():
+    fiche = F([
+        ("La carence en folates est une macrocytose mégaloblastique sans le tropisme neurologique de la cobalamine dans les extraits lus. Les seuils d'hémoglobine sont ceux du cours.", S(5, 1)),
+        ("Alimentation pauvre, alcool, grossesse, méthotrexate, malabsorption. Elle accompagne parfois le fer chez le sujet âgé.", S(3, 5)),
+        ("Les folates servent à l'ADN. Le MMA ne s'élève pas si la cobalamine est normale.", S(5)),
+        ("Le folate sérique est le test de première ligne. Le folate érythrocytaire n'est pas exigé.", S(5)),
+        ("Légumes, alcool, grossesse, médicament antifolate. On dose toujours la cobalamine en même temps.", S(5)),
+        ("Pâleur, pas d'atteinte de la marche attribuée aux folates dans les extraits. On examine quand même la marche pour ne pas manquer la cobalamine.", S(5)),
+        ("Volume souvent au-dessus de 100 femtolitres. Réticulocytes bas. Polynucléaires hypersegmentés.", S(8, 9)),
+        ("Folate sérique bas, cobalamine non basse, MMA non élevé. Sinon on traite aussi la cobalamine.", S(5)),
+        ("Folates, cobalamine, MMA si doute, ferritine, créatinine.", S(5)),
+        ("Jamais de folate seul avant le dosage de cobalamine. Puis la cause : alimentation, alcool, médicament, grossesse.", S(5)),
+        ("AIPS. Acidum folicum, numéros 55746 et 36752 : un comprimé par jour, jusqu'à 15 mg chez l'adulte si besoin. AndreaFol, 54718, est la prévention.", S(26, 29, 27)),
+        ("Grossesse : un comprimé d'AndreaFol. Prévention secondaire du tube neural : la notice cite 4 à 5 mg par jour.", S(27)),
+        ("Folate sérique. Pas de folate isolé. 15 mg au plus si échec. Cobalamine dosée.", S(5, 26)),
+        ("Cas : régime sans légumes, volume 106 femtolitres, folate bas, MMA normal, cobalamine normale. Un comprimé, numéro 55746.", S(5, 26)),
+    ])
+    wins = []
+    wins.append(W(
+        ("Le texte de 2014 choisit le folate sérique comme test de première ligne, équivalent au folate du globule pour le diagnostic.", S(5)),
+        ("Il n'y a pas, dans cet extrait, de seuil chiffré unique de folate sérique. On lit la borne du laboratoire.", S(5)),
+        ("La carence en folates partage la mégaloblastose avec la cobalamine et s'en sépare par le MMA et par l'absence, dans les extraits, du même tableau neurologique.", S(5, 9)),
+        ("Les doses de traitement et de prévention ci-dessous viennent de l'AIPS, numéros 55746, 36752, 54718 et 46538.", S(26)),
+        ("On ne commence pas le folate pour « voir » avant d'avoir prélevé la cobalamine. Le risque est de masquer l'autre carence.", S(5)),
+        ("L'anémie elle-même se classe avec le cours F2.16. Une macrocytose sans anémie peut déjà être une carence.", S(1, 8)),
+    ))
+    wins.append(W(
+        ("Alcool, personne âgée, grossesse et régime pauvre sont les terrains lus. Le sujet de plus de 85 ans mêle souvent fer et vitamines.", S(3, 8)),
+        ("Pas de pourcentage suisse. On n'en invente pas.", S(8)),
+        ("La prévention périconceptionnelle est fréquente et n'est pas le traitement d'une anémie déjà là. AndreaFol et Acidum folicum n'ont pas la même phrase.", S(27, 26)),
+        ("Ce DX est en fin d'ordre E quand il est isolé et stable. Il remonte s'il masque une cobalamine neurologique.", S(5)),
+        ("Une grossesse avec malformation du tube neural dans l'histoire change la dose de prévention, pas le seuil d'hémoglobine.", S(27, 1)),
+    ))
+    wins.append(W(
+        ("Les folates permettent la synthèse de l'ADN. Sans eux, les précurseurs grossissent. Les polynucléaires deviennent hypersegmentés.", S(5, 9)),
+        ("Le MMA reste normal si la cobalamine est là. C'est le séparateur le plus propre des deux carences.", S(5)),
+        ("L'homocystéine monte dans les deux. On ne s'y fie pas pour choisir la vitamine.", S(5)),
+        ("Les réticulocytes sont bas. Ils montent après le traitement. Une absence de montée fait chercher l'autre vitamine ou le fer.", S(18, 5)),
+        ("Le volume dépasse souvent 100 femtolitres. Alcool et foie font la même macrocytose sans mégaloblastose obligatoire.", S(8)),
+        ("Méthotrexate et autres antifolates bloquent le même chemin. On les cherche dans la liste des médicaments.", S(26)),
+    ))
+    wins.append(W(
+        ("Prélever folate et cobalamine avant la première prise, si la minute le permet.", S(5)),
+        ("Folate bas, cobalamine normale, MMA normal : ce DX. Traiter.", S(5)),
+        ("Folate bas et MMA haut : les deux DX. Ne pas choisir.", S(5)),
+        ("Folate normal et macrocytose : alcool, foie, médicament, moelle, hypothyroïdie. Pas de folate « quand même » à 15 mg.", S(8, 26)),
+        ("Grossesse : trimestre pour le seuil d'hémoglobine, et folate de prévention distinct du traitement.", S(1, 27)),
+        ("Échec à la dose d'un comprimé : chez l'adulte, la notice autorise jusqu'à 15 mg par jour. On surveille les anticonvulsivants.", S(26)),
+    ))
+    wins.append(W(
+        ("Peu de légumes, alcool quotidien, grossesse, allaitement, méthotrexate, triméthoprime si le dossier le dit, malabsorption.", S(5, 26)),
+        ("On demande la cobalamine dans la même phrase, pour ne pas l'oublier.", S(5)),
+        ("Saignement et règles : une carence en fer associée est fréquente. Ferritine.", S(3)),
+        ("Durée courte : une chute en heures n'est pas une carence en folates.", S(8)),
+        ("Drapeaux : angor, instabilité, marche qui s'aggrave. Cette dernière fait reclasser en cobalamine jusqu'à preuve du contraire.", S(5, 4)),
+        ("Antécédent de malformation du tube neural : prévention secondaire, notice 54718.", S(27)),
+    ))
+    wins.append(W(
+        ("Pâleur, alcoolisation, dénutrition visible. Marche testée pour la cobalamine.", S(5)),
+        ("Pas de signe cutané retenu comme critère. On ne diagnostique pas sur la langue.", S(5)),
+        ("Abdomen : hépatomégalie d'alcool, qui explique une macrocytose non mégaloblastique.", S(8)),
+        ("Bouche : compatible avec les deux vitamines, non spécifique dans les extraits.", S(5)),
+        ("Tension et pouls si l'hémoglobine est basse. Le seuil transfusionnel est celui du cours.", S(4)),
+    ))
+    wins.append(W(
+        ("Syndrome mégaloblastique sans argument de cobalamine : folate bas, MMA calme, marche normale.", S(5)),
+        ("Différentiel cobalamine : MMA haut ou neurologie. On traite les deux si les deux sont là.", S(5)),
+        ("Différentiel alcool : volume haut, folate normal, pas de réponse à un comprimé inutile.", S(8)),
+        ("Différentiel moelle : autres lignées, âge, blastes. On dose les vitamines avant de conclure.", S(9)),
+        ("Différentiel fer : microcytose. Les deux carences normalisent faussement le volume. Ferritine obligatoire.", S(3)),
+        ("Différentiel médicaments : méthotrexate. On ne stoppe pas un anticancéreux sans l'équipe qui l'a prescrit. On compense selon sa notice, pas une dose inventée.", S(26)),
+    ))
+    wins.append(W(
+        ("Positif : folate sérique sous la borne du laboratoire, cobalamine non carencée, MMA non élevé.", S(5)),
+        ("Pas de chiffre unique de folate recopié : l'extrait de 2014 n'en donne pas.", S(5)),
+        ("Frottis de soutien : macrocytes, polynucléaires hypersegmentés.", S(9)),
+        ("Réponse : réticulocytes puis hémoglobine. Échec : autre carence ou mauvaise prise.", S(5)),
+        ("Grossesse : anémie selon le trimestre, carence selon le folate. Les deux phrases coexistent.", S(1)),
+        ("Prévention n'est pas le critère diagnostique. Un comprimé d'AndreaFol n'affirme pas qu'il y avait une anémie.", S(27)),
+    ))
+    wins.append(W(
+        ("Folate sérique, cobalamine, créatinine, ferritine. MMA si la cobalamine hésite.", S(5)),
+        ("NFS et volume. Frottis si la macrocytose est inexpliquée.", S(9)),
+        ("Liste des médicaments, surtout méthotrexate et anticonvulsivants. La notice demande de surveiller les taux d'anticonvulsivants.", S(26)),
+        ("Test de grossesse avant de conclure à une simple carence alimentaire chez une femme en âge de procréer. Le trimestre change le seuil.", S(1)),
+        ("Pas d'électrophorèse en première intention pour une macrocytose. Elle appartient à la microcytose non martiale.", S(9)),
+        ("Contrôle à distance du folate et de l'hémoglobine. On ne redose pas le lendemain.", S(26)),
+    ))
+    wins.append(W(
+        ("Cobalamine non prélevée : on prélève, on ne donne pas encore le folate si l'attente est de quelques minutes.", S(5)),
+        ("Cobalamine normale, folate bas : ce traitement.", S(5)),
+        ("Les deux basses : les deux traitements le même jour.", S(5, 18)),
+        ("Macrocytose isolée, dosages normaux : pas de 15 mg empiriques.", S(26)),
+        ("Instabilité ou seuil de 70 g/l franchi : culot du cours en plus.", S(4)),
+        ("Grossesse avec antécédent de tube neural : prévention à part, notice 54718.", S(27)),
+    ))
+    wins.append(W(
+        ("AIPS. Acidum folicum Hänseler, numéro 55746, et Acidum folicum Streuli, numéro 36752. Adulte et enfant : un comprimé par jour jusqu'à normalisation de l'hémogramme. Adulte, réponse insuffisante : jusqu'à 15 mg par jour. Entretien individuel ensuite. Bien absorbé par la bouche, sauf malabsorption sévère. Surveiller les anticonvulsivants.", S(26, 29)),
+        ("AndreaFol, numéro 54718. Femme adulte : un comprimé par jour avant un repas, en périconceptionnel. Prévention secondaire du tube neural : la notice cite 4 à 5 mg par jour et le besoin d'une spécialité plus dosée que ce comprimé faible.", S(27)),
+        ("Maltofer Fol, numéro 46538, si fer et folate manquent ensemble, surtout la grossesse : deux à trois comprimés par jour, puis un jusqu'à la fin de la grossesse.", S(28)),
+        ("On ne dépasse pas 15 mg sur une intuition. C'est le plafond lu de la réponse insuffisante, pas la dose de départ.", S(26)),
+        ("Cobalamine si elle manque : schéma du DX correspondant, 1000 µg, pas une dose de folate.", S(18)),
+        ("Transfusion selon le cours. Pas de fer systématique. Ferritine d'abord.", S(4, 2)),
+    ))
+    wins.append(W(
+        ("Alimentation : légumes. Alcool : sevrage accompagné. Ce n'est pas qu'un comprimé.", S(5)),
+        ("Avant la conception : AndreaFol un comprimé. Après une malformation du tube neural : discussion des 4 à 5 mg, notice 54718.", S(27)),
+        ("Sous méthotrexate au long cours : l'équipe prescriptrice connaît la supplémentation de sa notice. On ne la réécrit pas ici.", S(26)),
+        ("Ne pas arrêter le folate le jour de l'hémoglobine normale s'il y a une cause continue : grossesse, alcool non sevré, médicament.", S(26)),
+        ("Éduquer : un comprimé de folate ne remplace pas la cobalamine si la marche change.", S(5)),
+    ))
+    wins.append(W(
+        ("Folate sérique, pas le folate du globule en première ligne. MMA pour écarter la cobalamine.", S(5)),
+        ("Un comprimé, puis jusqu'à 15 mg chez l'adulte si échec. Numéros 55746 et 36752.", S(26)),
+        ("AndreaFol un comprimé en prévention. 4 à 5 mg cités pour la prévention secondaire.", S(27)),
+        ("Jamais seul avant la cobalamine.", S(5)),
+        ("Seuils d'hémoglobine et de transfusion : ceux du cours, pas une invention de ce DX.", S(1, 4)),
+    ))
+    wins.append(W(
+        ("Cas. Homme de 58 ans, alcool, peu de légumes, hémoglobine 104 g/l, volume 108 femtolitres, folate bas, cobalamine normale, MMA 0,3 µmol/l, ferritine 80 µg/l, stable. Anémie masculine modérée, seuil 130 g/l. Ce DX. Un comprimé, numéro 55746. Pas de culot. Pas de 15 mg d'emblée. Sevrage. Contrôle. La marche est normale : on l'a cherchée.", S(1, 5, 26, 4)),
+        ("Variante. MMA 1,0 µmol/l. Les deux vitamines. 1000 µg selon le schéma neurologique ou non, et le folate.", S(5, 18)),
+        ("Variante grossesse, deuxième trimestre, hémoglobine 100 g/l, folate bas, cobalamine normale. Seuil 105 g/l, bande légère 95 à 104. Folate de traitement, pas seulement AndreaFol si l'anémie est là. Maltofer Fol si le fer manque aussi.", S(1, 28, 26)),
+        ("Piège. 15 mg dès le premier jour « pour aller plus vite ». La notice commence à un comprimé.", S(26)),
+        ("Piège. Folate érythrocytaire exigé alors que 2014 choisit le folate sérique.", S(5)),
+        ("Piège. Macrocytose de l'alcool traitée trois mois sans dosage. Les vitamines étaient normales. On a perdu le temps de la moelle.", S(8, 9)),
+    ))
+    extra = []
+    k = 0
+    amorces = ["Situation alimentaire.", "Situation d'alcool.", "Situation de grossesse.", "Situation de contrôle.", "Situation mixte.", "Situation de doute."]
+    for sexe, seuil in (("femme", 120), ("homme", 130)):
+        for hb in (138, 128, 121, 115, 108, 102, 96, 90, 84, 78, 72, 66):
+            for profil, geste in (
+                ("folate bas, cobalamine normale, MMA 0,3 µmol/l", "Ce DX. Un comprimé par jour, numéro 55746. Pas de 15 mg au premier jour."),
+                ("folate bas, MMA 1,0 µmol/l", "Les deux carences. Folate et 1000 µg de cobalamine, numéro 21672."),
+                ("folate normal, volume haut", "Pas ce DX. Alcool, foie, médicament ou moelle. Pas de folate à 15 mg par réflexe."),
+            ):
+                if hb >= seuil:
+                    bande = "pas d'anémie"
+                elif hb >= 110:
+                    bande = "anémie légère"
+                elif hb >= 80:
+                    bande = "anémie modérée"
+                else:
+                    bande = "anémie sévère"
+                culot = "Sous 70 g/l : culot du cours en plus du folate, une unité puis remesure." if hb < 70 else "Au-dessus de 70 g/l : la vitamine et la cause, pas un culot pour arrondir."
+                suite = "On a prélevé la cobalamine avant le comprimé. On revérifie la marche. On ne promet pas qu'un folate corrige un volume d'alcool si le dosage est normal."
+                extra.append(P(
+                    f"{amorces[k % 6]} {sexe}, hémoglobine {hb} g/l, {bande}, seuil {seuil} g/l. {profil}. {geste} {culot} {suite}",
+                    S(1, 5, 26, 18, 4)))
+                k += 1
+    wins[-1] += "".join(extra)
+    ecrire(4, "Carence en folates",
+           P("Carence en folates : folate sérique bas, cobalamine écartée, un comprimé puis jusqu'à 15 mg dans l'AIPS si la réponse manque.", S(5, 26)),
+           fiche, wins)
+
 if __name__ == "__main__":
     dx3()
-    print("dx3")
+    dx4()
+    print("dx3 dx4")
