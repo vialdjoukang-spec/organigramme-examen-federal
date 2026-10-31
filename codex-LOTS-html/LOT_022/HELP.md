@@ -1,5 +1,5 @@
-# Lecture — LOT_022 incomplet
+# Lecture — LOT_022
 
-Ouvrir LOT_022_Phase_A_V0.html. Le cours, ses fenêtres d’anatomie et de BOTOX, ainsi que DX.1–4 sont présents. Les liens vers DX.5–10 attendent les six monographies manquantes. Les styles et polices sont embarqués, sans script.
+Ouvrir LOT_022_Phase_A_V0.html, puis les dix diagnostics. Onze leçons présentes avec fenêtres, références, 14 questions chacune et FIN_FICHIER. Styles et polices embarqués ; aucun script.
 
-Voir VALIDATION_PARTIELLE.md pour la portée réelle des contrôles et BRIEF_REPRISE.md pour la suite. Aucun audit indépendant ni rendu navigateur effectué. Ce checkpoint n’est pas la livraison complète du lot.
+Voir VALIDATION_FINALE.md pour les contrôles et audits/RELECTURE_DX5_DX10_TRANSVERSALE.md pour la relecture interne. Sources et limites dans evidence/INDEX.md. Pas de classement suisse chiffré inventé ; pas de validation clinique indépendante ni de rendu navigateur effectué.

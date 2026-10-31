@@ -18,3 +18,5 @@
 
 2026-10-31T02:19:07+00:00 — LOT_021 clos et poussé e2596088 : 11 HTML, 275/275 contrôles V8, 25 citations AIPS exactes. Corrections regroupées : sigles, phrase Curaçao et exception Rendu-Osler dans le cours. Aucun score ni décompte d’audit indépendant inventé.
 2026-10-31T02:19:07+00:00 — LOT_022 checkpoint : Phase A + DX.1–4, 124/125 contrôles partiels, 17 citations AIPS exactes ; six fichiers manquants. Reprise DX.5, travail seul. Contrôleurs officiels négatifs conservés, navigateur et audit indépendant non effectués.
+
+2026-10-31T02:46:08+00:00 — LOT_022 complet : six monographies ajoutées, 11 HTML/154 questions, 275 contrôles statiques V8 et 33 citations AIPS. Deux corrections techniques documentées ; aucune cotation clinique inventée. Relecture interne/transversale, pas de navigateur ni audit indépendant. Suite LOT_023.

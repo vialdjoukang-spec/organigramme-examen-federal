@@ -33,3 +33,26 @@ S18 AIPS Tobrex 44538 : tobramycine 3 mg/g pommade, 3 mg/ml collyre ; infections
 ## Reprise scientifique exacte
 
 Prochain : DX.5 Spasme hémifacial. Approfondir source suisse puis européenne pour distribution, causes, rôle de l’IRM et décompression ; la dose suisse BOTOX est déjà lue, ne pas recopier une dose étrangère. Puis DX.6 Tic moteur palpébral : recommandation européenne récente, critères et prise en charge selon retentissement. DX.7 : source actualisée des dystonies médicamenteuses, distinction aiguë/tardive et AIPS si traitement décrit. DX.8 : approfondir apraxie d’ouverture, associations et distinction ptosis/dystonie. DX.9 : recommandations d’abrasion/corps étranger et sécurité de plaie, produits AIPS éventuels. DX.10 : kératite, filière urgente, lentilles et traitement étiologique avec AIPS. Ne pas déclarer ces six recherches terminées ni passer au LOT_023.
+
+
+## Complément DX.5–10 — 31.10.2026
+
+Sources 19–21 : Inselspital, revue britannique 2025 et revue allemande 2012. Extraits définition, territoire facial, sommeil, causes secondaires, IRM, contacts incidents, traitement et risques chirurgicaux effectivement lus. Divergence sur perte d’efficacité inévitable de toxine résolue par formulation prudente ; taux non transposés.
+
+22–24 : recommandations européennes ESSTS parties I et II et NHS Scotland tics. Définition, âge, besoin prémonitoire variable, critères temporels/moteurs/vocaux, examens ciblés, comorbidités, psychoéducation, renversement d’habitude et exposition/prévention de réponse lus. Recherches suisses répétées non concluantes pour une recommandation spécifique : aucun résultat américain maquillé en suisse. Les résultats de recherche ne sont pas tous des sources retenues.
+
+25 : Akineton AIPS mai 2022. Composition, indication, doses adultes/enfants, contre-indications, précautions, interactions, grossesse/allaitement et arrêt lus. HTML officiel préservé ; extraire_akineton.py supprime seulement le balisage sans ajouter des espaces intramots. Texte et gzip dérivés, empreintes HTML et gzip dans AIPS_24035_officiel.json ; six citations exactes dans DX.7. Liste Swissmedic 30.09.2026 consultée pour injectable 24035, comprimés 24036 et retard 54937, lignes exactes conservées.
+
+26–27 : guide NHS écossais dystonie aiguë et RCEMLearning. Priorité voies aériennes, crise oculogyre, médicaments, différentiels métaboliques, suspension et suivi/récidive lus. Dates de révision non vérifiées, fréquences anciennes et doses britanniques non reprises. Source 13 BMJ 1999 reste descriptive, non fondement posologique.
+
+7 relue sur apraxie : activation prétarsale versus commande du releveur et associations. 28 Practical Neurology 2021 : extraits apraxie, signes oculomoteurs, variantes de paralysie supranucléaire progressive, chutes et soutien lus. Doses systémiques incidentes non utilisées. Recherche suisse apraxie non concluante ; sources anatomiques suisses déjà lues conservées.
+
+1 HUG 2025 relue sur kératite, trauma, lentilles, urgence et corticoïdes. Le mot « kératoplastie exposition » dans l’extraction n’est pas recopié comme diagnostic. 29–32 NHS/NICE : abrasion, corps étranger, plaie pénétrante, gestes, fluorescéine, protection sans pression, antibioprophylaxie à preuves limitées, pas anesthésique à domicile, pas pansement systématique, contrôle 24 heures. Page pénétration signalée à actualiser ; principes recoupés NICE/HUG.
+
+33–34 : NHS Scotland kératites bactériennes et herpétiques : prélèvements, profondeur, risques, traitements spécialisés, lentilles/Acanthamoeba, limites corticoïdes lus. HUG prime pour orientation urgente de toute suspicion ; seuils de traitement communautaire écossais non transposés.
+
+35 Ciloxan AIPS mars 2025 : composition, indication, schéma ulcère collyre/pommade, enfant, contre-indications, arrêt, précautions, interactions, grossesse/allaitement, effets cornéens lus. Collyre 51898/pommade 55982 vérifiés dans liste Swissmedic. 36 Virgan AIPS : fiche lue, comparaison avril 2019/Swissmedic décembre 2020, doses, durée, enfant, grossesse/allaitement et contraception explicites. Dix citations exactes au total pour les deux fenêtres.
+
+Floxal 51357 avril 2026 également lu, non prescrit dans les nouvelles leçons : ne pas convertir sa dose de traitement en preuve d’une prophylaxie d’abrasion ni en schéma universel d’ulcère. Les posologies publiées dans les pages britanniques ne sont pas reprises comme AIPS.
+
+Réponses exactes des recherches/fetch dans RECHERCHES_DX5_DX6_20261031.json, RECHERCHES_TICS_DYSTONIE_20261031.json, RECHERCHES_DX7_DX10_20261031.json et RECHERCHES_CORNEE_20261031.json. Réception d’une réponse ne signifie pas lecture intégrale de tous les résultats ; la portée réellement lue est décrite ci-dessus.

@@ -11,3 +11,8 @@ Corrections réalisées : extraction BOTOX par phrase exacte après ambiguïté 
 Les contrôles langue bruts ont été lus avant les passes internes. Les phrases longues et la phrase répétée restantes proviennent des citations AIPS exactes ; marque BOTOX et abréviations balisées expliquent les alertes de sigles. Les anciennes règles title/h3/bande brute et espaces insécables ne sont pas celles du format V8. Aucun contrôleur commun modifié.
 
 Comparaison partielle : toutes les fiches présentes renvoient au même cours, aux mêmes alarmes et produits. La comparaison transversale définitive est différée jusqu’aux onze fichiers. 124/125 contrôles partiels passent ; les six liens encore sans cible restent signalés comme échecs. Dix-sept citations AIPS retrouvées, neuf empreintes du harnais inchangées.
+
+
+## Clôture complète
+
+Six monographies supplémentaires rédigées et relues, voir audits/RELECTURE_DX5_DX10_TRANSVERSALE.md. Correction technique réelle de l’extraction Akineton depuis HTML officiel et précision des numéros par forme. Comparaison finale des onze leçons effectuée. Tous les liens auparavant manquants résolus ; 275/275 contrôles V8 et 33 citations exactes. Limites indépendance/navigateur inchangées.
