@@ -82,3 +82,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T12:57:56.361218+00:00 — LOT037 DX1–3 réellement rédigés, relus, corrigés et contrôlés :4HTML avec PhaseA,56questions,100conditionsV8,69citationsAIPS. Recherches exactes sauvegardées, prochainDX4. Aucun sous-agent, audit indépendant, score ou navigateur. Verrou conservé pour poursuite.
 
 2026-10-31T13:07:59.354043+00:00 — LOT037 checkpoint PhaseA+DX1–5 :6HTML,84questions,150conditionsV8,98citationsAIPS ; dix groupes de corrections cumulés. Criticité médicale non scorée, critiques historiques conservées. Premier incompletDX6. Rapport de tailles et recherches exactes sauvegardés.
+
+2026-10-31T13:08:50.353587+00:00 — Checkpoint037 DX1–5 poussé28639296 (DX1–3 :26ae96d4). Verrou libéré officiellement. Veilles locales existantes maintenues, aucun autre automate modifié. Prochaine production DX6 ; lot037 non terminé.
