@@ -238,11 +238,35 @@ def dx4():
                                 "Le rang E n'est pas le numéro de ce diagnostic."])])
     base_dx(4, r, P)
 
+def dx5():
+    r = "7"
+    phrases = [
+        "L'hémopéritoine et l'hémothorax sont du sang libre. Le sang frais est souvent noir à l'échographie.",
+        "Le trauma et la chute d'hémoglobine font la fréquence de ce diagnostic. Pas de taux suisse inventé.",
+        "Le sang s'écoule vers le point déclive. Il conduit les ultrasons, d'où le signe de la colonne dans la plèvre.",
+        "Instable et liquide : hémostase. Stable : scanner. On ne ponctionne pas pour retarder le bloc.",
+        "Trauma, grossesse extra-utérine, anticoagulant, douleur brutale, syncope.",
+        "Quatre fenêtres du FAST, plus la plèvre. On les nomme une par une.",
+        "Syndrome de sang libre : choc ou anémie aiguë plus liquide. Pas la fièvre du parapneumonique.",
+        "Positif par le contexte et le liquide, confirmé par l'hémoglobine ou le scanner chez le stable.",
+        "Hémoglobine répétée, échographie des fenêtres, scanner si stable. Pas de Balik.",
+        "Instable : hémostase. Stable : image en coupe. Drain pleural si l'hémothorax gêne la ventilation.",
+        "Pas de diurétique. Pas de céphalosporine comme premier geste. Le geste est mécanique.",
+        "Surveillance de la pression et de l'hémoglobine. Un négatif initial se répète si l'état change.",
+        "Quatre fenêtres, sang souvent noir, instable vers l'hémostase, chiffres de 2021 pour la colonne, pas de formule de volume.",
+        "Piège : appeler ascite un Morison de traumatisé. Piège : opérer un cirrhotique stable sans chute d'hémoglobine.",
+    ]
+    P = {}
+    for i, phrase in enumerate(phrases, 1):
+        P[f"p{i}"] = ([phrase, "Les fenêtres détaillent les décisions."],
+                     [("Décision", [phrase, "On nomme la fenêtre.", "On relie la pression au geste.", "On ne récite pas un seuil d'ascite."])])
+    base_dx(5, r, P)
+
 def run_all():
     dx2()
 
 if __name__ == "__main__":
     nums = [int(a) for a in sys.argv[1:]] or [2]
-    fn = {2: dx2, 3: dx3, 4: dx4}
+    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5}
     for n in nums:
         fn[n]()

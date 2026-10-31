@@ -226,3 +226,4 @@ DATA[1] = [
 
 charger_txt(3, "1", "dx3.txt")
 charger_txt(4, "2", "dx4.txt")
+charger_txt(5, "7", "dx5.txt")
