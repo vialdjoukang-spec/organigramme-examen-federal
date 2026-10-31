@@ -9,3 +9,7 @@ DX1–3 : C04–C08, lien de retour corrigé ; phrase rénale scindée ; ECA/CRP
 DX4–5 : C09 phrase adulte amoxicilline scindée ; C10 paracétamol formulé pour obstacle avec ou sans infection. Doses AIPS exactes, limites d’indication et de durée explicites. Tableaux originaux conservés.
 
 DX6 : C11 affectation9.a–d/11.A–D, interprétation et sortie explicites ; C12 phrase rénale adulte scindée ; C13 corrélation physiopathologique et examen normal attendu ajoutés. Deux notices parentérales confrontées aux téléchargements frais,17citations exactes. L’essai médical hospitalier reste réservé aux formes sélectionnées non compliquées ; clindamycine non présentée comme remplacement automatique en allergie. Voir audits/RELECTURE_DX6.md.
+
+DX7 : C14 excipients/aspartame et alcool benzylique de la suspension, restriction>une semaine chez<3ans confrontée à toute durée plus longue ; C15 contexte du paracétamol adapté à l’adénite sans modifier les HTML précédents ; C16 AMX/CLV/BSAC développés. Suspension457 non interchangeable avec156,25/312,5, tableaux adultes/enfants/reins distincts, duréeSPILF versusBSAC explicite. Voir audits/RELECTURE_DX7.md.
+
+DX8 : C17 phrase des alternatives scindée ; C18 capsule thérapeutique131I52728 ajoutée avec contre-indications et activité individualisée, sans confusion123I ; C19 classes EU-TIRADS et nombres espacés, sigles et date CEEDMM2022 précisés. Volume, fonction et risque nodulaire restent distincts. Voir audits/RELECTURE_DX8.md.

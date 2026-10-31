@@ -1,6 +1,6 @@
 # Points ouverts — LOT_037
 
-1. PhaseA et DX1–6 produits et relus ; premier incomplet DX7 Adénite cervicale infectieuse. Puis DX8 Goitre, DX9 Adénopathie cervicale maligne, DX10 Syndrome cave supérieur. Ne pas passer à038.
+1. PhaseA et DX1–8 produits et relus ; premier incomplet DX9 Adénopathie cervicale maligne, puis DX10 Syndrome cave supérieur. Ne pas passer à038.
 2. Search Service web fonctionne. Quota Parallel Search et refus403 directs restent tracés. NICE et support CHUV sialadénite n’ont pas été ouverts complètement : seuls extraits disponibles lus. Ne pas appeler une renumérotation NICE une recommandation nouvellement évaluée2026.
 3. DX1–3 : notices et mécanismes contrôlés. Aucun schéma spécifique d’auto-injecteur sans notice dédiée. Prophylaxies de longue durée et nouvelles molécules internationales non détaillées comme prescriptions exhaustives ; autorisations suisses à vérifier avant ajout.
 4. DX4 : recommandations suisses2020 confrontées SDCEP2026. Durée notice Amoxi-Mepha versus guide clinique et allaitement restrictif propres à la notice explicites. Alternatives en allergie et antibiothérapie parentérale nécessitent un protocole et leurs notices avant ajout. Ne pas utiliser les doses prophylactiques pour un abcès.
