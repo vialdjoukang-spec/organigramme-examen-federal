@@ -40,3 +40,5 @@ Onze HTML, 154 questions, 275 contrôles V8, 29 citations AIPS ; quatre notices 
 Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 partiels, huit liens futurs manquants. Lot non terminé, reprise DX.3 Otospongiose. LOT_025 92c3a9b5, LOT_026 6126fee0, LOT_027 1ab34abb terminés et poussés. Aucun audit indépendant ou navigateur.
 
 2026-10-31T06:00:51+00:00 — LOT_028 terminé en production : 11 HTML, 154 questions, 275 contrôles V8, 13 citations AIPS ; sept groupes de corrections. Gravité médicale non cotée, aucun critique V8 résiduel ; critiques historiques conservées. Relecture interne seule, aucun navigateur. Suite LOT_029.
+
+2026-10-31T06:14:26+00:00 — LOT_029 checkpoint partiel : Phase A et DX.1–DX.3, 56 questions, 99/100 contrôles V8, sept liens futurs absents. Cinq groupes de corrections internes ; aucun audit indépendant, score, navigateur ou validation du lot complet. Reprise DX.4 Hématome sous-dural. LOT_028 poussé 522789d9.

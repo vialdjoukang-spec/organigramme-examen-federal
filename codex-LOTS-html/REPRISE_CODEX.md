@@ -1,9 +1,9 @@
-# Reprise exacte — LOT_029
+# Reprise exacte — LOT_029 DX.4
 
 LOT_028 terminé et poussé au commit 522789d9 : onze leçons, 154 questions, 275 contrôles V8, 13 citations AIPS. LOT_027 1ab34abb ; LOT_026 6126fee0 ; LOT_025 92c3a9b5. Ne pas recommencer LOT_018 à LOT_028.
 
-Prochain lot : LOT_029 S1.13 Microcéphalie et macrocéphalie. Recherche et Phase A à produire, puis relecture interne, gel des dix diagnostics, dix monographies et contrôles. Contrat actif jusqu’à 133, 105 lots restants, sans saut.
+LOT_029 S1.13 Microcéphalie et macrocéphalie en cours : Phase A et DX.1–DX.3 rédigés et relus. Quatre HTML, 56 questions, 99/100 contrôles V8 partiels ; sept liens futurs absents. Reprendre DX.4 Hématome sous-dural, puis DX.5–DX.10. Lire LOT_029/BRIEF_REPRISE.md et evidence/INDEX.md ; aucune validation finale de ce lot.
 
-Session seule sous verrou exclusif ; aucun sous-agent ni second producteur. Branche codex/lots, écritures seulement codex-LOTS-html/. Commits/push autorisés. Deux veilles minute locales, limitées à la vie de l’environnement, ne rédigent pas. Aucun autre automate modifié.
+Contrat actif jusqu’à LOT_133 inclus, 105 lots restant à achever en comptant LOT_029 partiel. Avant toute reprise : dépôt frais, borne recontrôlée, STOP/PAUSE éventuel, registre du jour et pret/verifier ; acquérir officiellement le verrou sans concurrence. Seul, sans sous-agents ; branche codex/lots, écritures seulement codex-LOTS-html/. Commits/push autorisés.
 
-Modèle confirmé par Vial GPT‑6 Astra · ultra ; high conseillé en routine, réglage inchangé. Relecture interne seule ; aucun audit indépendant, score, navigateur ou validation clinique humaine. Rapports historiques négatifs conservés, contrôles V8 complémentaires positifs. Libérer le verrou en fin d’exécution.
+Deux veilles locales minute ne rédigent pas et dépendent de la disponibilité de l’environnement. Aucun autre automate modifié. Modèle confirmé par Vial GPT‑6 Astra · ultra ; high recommandé en routine, aucun réglage changé. Relecture interne seule ; aucun audit indépendant, score, navigateur ou validation clinique humaine. Rapports historiques négatifs conservés avec leurs limites V8.
