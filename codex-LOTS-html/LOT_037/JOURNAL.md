@@ -11,3 +11,5 @@
 2026-10-31T15:04:49.657785+00:00 — DX7 produit et relu :8HTML,112questions,200conditionsV8,155citationsAIPS cumulées. Notices orales53982/53995 fraîches concordantes ; trois groupes de corrections C14–16. Empreintes des sept HTML précédents inchangées. ProchainDX8 en recherche.
 
 2026-10-31T15:14:42.136451+00:00 — DX8 produit et relu :9HTML,126questions,225conditionsV8,163citationsAIPS cumulées. AIPS52728 fraîche concordante ; corrections C17–19, huit HTML précédents inchangés. Bilan de reprise actualisé et liens/empreintes vérifiés. ProchainDX9.
+
+2026-10-31T15:38:05.789856+00:00 — DX9/DX10 puis passe transversale interne : onzeHTML,154questions,275/275conditionsV8,174paragraphesAIPS ;23groupes de corrections cumulés, gravité médicale non scorée. SixHTML initiaux identiques à2b122a6c. C22/C23 sérialisation seulement, lignes longues supprimées et preuves structurelles. Harnais global et langue toujours négatifs, limites explicites ; aucun audit indépendant, score, validation clinique humaine ou navigateur. LOT037 terminé en production, suiteLOT038 après autorisation fraîche.

@@ -1,0 +1,13 @@
+# Leçons pour LOT038 — 31.10.2026
+
+Production séquentielle, seul, borne fraîche à relire, registre et verrou à vérifier. Écritures uniquement dans codex-LOTS-html/. Ne pas modifier le harnais commun pour contourner ses résultats négatifs. Tracer chaque passe réelle en rédaction, relecture-interne, controle-v8 ; pas d’audit indépendant simulé.
+
+1. Définir dès la rédaction les14parties,14questions,9.a–d et11.A–D. Relier mécanisme, signe, examen et conduite. Les25contrôles complémentaires ne prouvent pas l’exhaustivité médicale.
+2. Choisir le protocole d’imagerie selon la question. Une échographie superficielle négative n’exclut pas l’extension profonde. Transport, décubitus, sédation et anesthésie peuvent changer le risque ; stabiliser avant examen qui retarde les gestes vitaux.
+3. Sources suisses d’abord puis européennes, lues et datées. Un texte mis en ligne ou actualisé2026 peut contenir des recommandations plus anciennes. Ne pas attribuer un PDF à une société d’après son seul nom de fichier. Ne pas transformer une recherche ou une ouverture partielle en lecture intégrale.
+4. Les identifiants web peuvent devenir ambigus ; ouvrir l’URL canonique avant d’utiliser une dose ou une durée. Un refus403/500 est conservé ; ne pas inventer la lecture manquante. Le service de recherche disponible utilise system2_search_query.
+5. AIPS : archiver le texte officiel et son chemin source gzip, la date de notice et l’empreinte. Télécharger la version fraîche si utile et l’extraire avec le même parseur officiel, pas le texte incluant CSS. Une concordance documentaire ne valide pas le choix clinique.
+6. Doses : voie, concentration, rapport des principes actifs, dose par administration ou par jour, reins, enfant, grossesse/allaitement et excipients. Une suspension457 ne remplace pas toute suspension ; une dose prophylactique ne traite pas une thrombose. Un protocole étranger ne devient pas une indication suisse.
+7. Ne pas inventer un schéma universel pour un diagnostic anatomique : goitre, adénopathie maligne ou syndrome cave exigent leur cause et un parcours spécialisé. L’absence de dose uniforme peut être justifiée ; il faut l’expliquer et détailler la conduite initiale.
+8. Sauvegarder les résultats négatifs. Les longues lignes de sérialisation peuvent être coupées entre balises sans altérer les verbatim. Les phrases AIPS restent exactes. La nouvelle leçon est vérifiée après la correction ; les HTML antérieurs ne sont pas régénérés.
+9. Le verrou est local : état distant de libération, absence de producteur et synchronisation à établir avant reprise sur autre machine. Les veilles ne rédigent pas et n’assurent pas la survie du runtime. Laisser l’étape exacte, puis commit/push sans force.
