@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_165 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_166 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163 et LOT_165 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162 et LOT_164 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163 et LOT_165 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164 et LOT_166 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_167.**
-**Prochain LOT du rédacteur B : LOT_166.** LOT_164 (F2.16 Anémie) est rédigé et certifié. Détail : `LOT_164/A_AUDITER.md`. LOT_166 est en cours chez le rédacteur B.
+**Prochain LOT du rédacteur B : LOT_168.** LOT_166 (F2.18 Épanchement abdominal ou pleural détecté à l'échographie) est rédigé et certifié. Détail : `LOT_166/A_AUDITER.md`.
+
+## LOT_166 — rédigé et certifié
+Sujet : F2.18 « Épanchement abdominal ou pleural détecté à l'échographie ». Détail : `LOT_166/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Light, gradient 11 g/l, neutrophiles 250, pH pleural 7,2, FAST et signe de la colonne 2021, Balik exclu du sang et du pus, RAPID entier pour l'infection pleurale, classes péricardiques 2015 et 2025, colchicine 67974 distincte de la goutte.
+
+- Phase_A : certitude ORANGE · porte ORANGE · T = 10.2 (+ 57.3) Ko · SHA 6c33b494a808 · commit aa17c1f1
+- DX.1 : certitude ORANGE · porte ORANGE · T = 6.6 (+ 36.2) Ko · SHA 88fb4bef2267 · commit dd5ebd82
+- DX.2 : certitude ORANGE · porte ORANGE · T = 5.4 (+ 36.5) Ko · SHA b573e58bcec2 · commit e021524a
+- DX.3 : certitude ORANGE · porte ORANGE · T = 5.5 (+ 38.8) Ko · SHA e7885cf7476b · commit 173b9901
+- DX.4 : certitude ORANGE · porte ORANGE · T = 5.8 (+ 38.1) Ko · SHA 84c5e5ab5a1b · commit 50a36b4a
+- DX.5 : certitude ORANGE · porte ORANGE · T = 5.2 (+ 37.4) Ko · SHA 23c1f24e090f · commit 04dcfd56
+- DX.6 : certitude ORANGE · porte ORANGE · T = 5.3 (+ 41.1) Ko · SHA 3a0b80eec260 · commit d439e415
+- DX.7 : certitude ORANGE · porte ORANGE · T = 5.3 (+ 43.0) Ko · SHA 96dbeafd0be4 · commit 48eb7425
+- DX.8 : certitude ORANGE · porte ORANGE · T = 5.3 (+ 44.5) Ko · SHA a38563b2ca34 · commit 7a37d4d2
+- DX.9 : certitude ORANGE · porte ORANGE · T = 5.1 (+ 39.6) Ko · SHA 6cafddfeca01 · commit a47bbcb3
+- DX.10 : certitude ORANGE · porte ORANGE · T = 5.5 (+ 39.0) Ko · SHA 61b012e1bbab · commit dfeb8610
 
 ## LOT_165 — rédigé et certifié
 Sujet : F2.17 « Incompatibilité de groupe sanguin ». Détail : `LOT_165/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Systèmes ABO et RhD entiers, Kell, Duffy et Kidd, réactions hémolytiques aiguë et retardée, TRALI, TACO, classification Swissmedic du 09.08.2024, Coombs direct, contrôle ultime au lit, maladie hémolytique du nouveau-né, prophylaxie anti-D 300 µg (1500 UI) semaines 28 à 30 et dans les 72 heures, Kleihauer au-dessus de 4 ml, compatibilités plasmatiques et plaquettaires, donneur de globules O RhD négatif et receveur AB, arrêt immédiat, voie veineuse, bilan d'hémolyse, déclaration.
