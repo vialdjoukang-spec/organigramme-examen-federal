@@ -28,6 +28,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 
 16. Relu AIPS 69266 le 31.10.2026 (auditeur médical) : posologie rénale (3000 mg/j si clairance 10–50 ml/min ; 2000 mg/j si < 10 ml/min) et contre-indication Gilbert. Phrases dans `aips_69266_rein.txt`. Le fulltext ESVS 2024 sur ejves.com a répondu HTTP 403 à cette session ; les extraits locaux `esvs2024_aaa.txt` restent ceux lus le 31.10.2026.
 
+17. Relu ESVS 2017 (auditeur médical) : sensibilité/spécificité CTA de l'AMI 73–100 % / 90–100 % ; vascularites mésentériques non couvertes. Phrases ajoutées à `esvs2017_mesentere.txt` et `extraits_lus.txt`.
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
