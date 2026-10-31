@@ -76,3 +76,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T11:58:47.675635+00:00 — LOT_036 terminé en production seule :11HTML,154questions,275/275conditionsV8,81paragraphesAIPS. Huit groupes de corrections/précisions et limites H1–H6. Bilan HTML de tailles créé. ProchainLOT037 ; verrou conservé pour poursuite, pas de sous-agent ni audit indépendant.
 
 2026-10-31T12:09:35.998489+00:00 — Poursuite réelle LOT037 :PhaseA rédigée, relue, corrigée et contrôlée.103192octets,14questions,19citationsAIPS,25/25conditions. Quota recherche et refus directs tracés ; sources manquantes identifiées. Premier diagnostic incomplet :DX1.
+
+2026-10-31T12:10:04.976288+00:00 — Push confirmé LOT037 PhaseA963d5c98, LOT036b7acb939. Verrou libéré par outil officiel. Veilles locales existantes conservées ; aucun automate modifié. Prochaine production :037DX1, pas038.
