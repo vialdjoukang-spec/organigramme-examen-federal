@@ -2,6 +2,16 @@
 
 Format : `P-xx` · symptôme · cause · parade (outil ou règle) · preuve. Ajouter en tête, ne jamais supprimer sans ADR.
 
+**P-18 · Ligne de tableau supérieure à 3000 caractères.** Symptôme : `controle_lot.py` critique une seule ligne. Cause : les `<tr>` collés. Parade : un `<tr>` par ligne. Les critiques `title=`, feuille externe et absence de `[S1]` sont celles du modèle V8 : les laisser (P-01). Preuve : Phase A LOT_134, 31.10.2026, plus aucune ligne au-dessus de 3000.
+
+**P-17 · Phrase longue et sigle dans une citation.** Symptôme : une phrase qui continue après un point si la suivante commence par un chiffre ; sigle anglais (AAA, UK, US, SMA) non développé. Parade : reprendre par une majuscule ; développer le sigle avant la citation, ou citer un fragment sans sigle. L'avertissement `insecable` demande une espace insécable que `verif_refonte.py` interdit : ne pas l'ajouter. Preuve : porte Phase A LOT_134 passée au VERT le 31.10.2026.
+
+**P-16 · Apostrophe typographique.** Symptôme : `extrait()` ne trouve pas l'ancre. Cause : la source a U+2019, l'ancre une apostrophe droite. Parade : fragment ASCII réellement présent, ou `jusqua`. Preuve : Revue Médicale Suisse 2016, LOT_134.
+
+**P-15 · `exec` avale la porte.** Symptôme : une ligne ajoutée après `exec registre_ia.py garde` ne s'exécute pas. Parade : deux commandes séquentielles dans le hook local ; ne pas relancer `installer`, qui réécrit le hook. Preuve : hook de `grok/lots`, 31.10.2026.
+
+**P-14 · `lire` réécrit le registre.** Symptôme : `registre_ia.py lire` modifie `REGISTRE.md` et `REGISTRE.json`. Parade : les restaurer et ne jamais les committer. Preuve : session LOT_134, 31.10.2026.
+
 **P-01 · Faux critiques du harnais sur le format V8.** Symptôme : `audit_langue.py` et `controle_lot.py` signalent « title= interdit », « bande 80–150 Ko », « externe », « h2 », « h3_14 », « section Sources absente » sur des fichiers V8 corrects. Cause : outils écrits pour le format V0 ; le modèle validé `MODELE_DD_V8.html` déclenche les mêmes codes (mesure du 31.10.2026 : title 653, bande 1, externe 1, h2 1, h3_14 1 ; `controle_lot verifier LOTS_V8/LOT_016` = 66 critiques). Parade : ne jamais « corriger » ces codes (retirer `<abbr title>` casserait V8) ; passer par `outils/porte_zero_jeton.py`, qui ne signale que les codes absents du modèle validé. Harnais immuable : ne pas le modifier.
 
 **P-02 · Plafond de taille mal lu.** Le plafond vise x (texte de la fiche : DD ≤ 9 Ko, Phase A ≤ 100 Ko), pas les octets du fichier HTML (médiane V8 : 178 Ko). Parade : `harnais/taille_xy.py <fichier>` ; la porte lit « T = x Ko (+ y Ko) ».
