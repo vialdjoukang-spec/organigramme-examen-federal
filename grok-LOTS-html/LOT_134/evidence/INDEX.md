@@ -18,6 +18,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 
 11. Association européenne pour l'étude du foie. Cirrhose décompensée, 2018. Brouillon final du panel, UCL eprint 10053258, lu le 31.10.2026. Phrases dans `easl2018_cirrhose.txt`. DOI publié 10.1016/j.jhep.2018.03.024 (PDF du journal : 403).
 
+12. Swiss Medical Weekly. Peripheral lymphadenopathy of unknown origin in adults. DOI 10.57187/s.3549. Phrases dans `smw_adenopathie.txt`, lues le 31.10.2026. https://smw.ch/index.php/smw/article/view/3549
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
