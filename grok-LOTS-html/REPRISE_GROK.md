@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_172 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_171 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_174 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_171 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169 et LOT_171 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170 et LOT_172 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169 et LOT_171 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172 et LOT_174 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_173.**
-**Prochain LOT du rédacteur B : LOT_174.** LOT_172 (F2.24 Protéinurie) est rédigé et certifié. Détail : `LOT_172/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_176.** LOT_174 (O1.1 Poids de naissance anormal et prématurité) est rédigé et certifié. Détail : `LOT_174/A_AUDITER.md`.
+
+## LOT_174 — rédigé et certifié
+Sujet : O1.1 « Poids de naissance anormal et prématurité ». Détail : `LOT_174/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Bandes OMS 2022 et fiche du 10 mai 2023, parts OFS 2025, consensus de Gordijn 2016 (3e percentile, flux télédiastolique ombilical absent avant 32 semaines), Apgar 1953, avis SGGG 56 et 66, atosiban 69185, caféine 65490, poractant alfa 51886 (100 à 200 mg/kg, maximum 300 à 400 mg/kg), magnésium 56394 (4 g puis 1 à 2 g par heure), benzylpénicilline 56271, metformine 68510, labétalol 70383.
+
+- Phase_A : certitude VERT · porte VERT · T = 3.3 (+ 76.0) Ko · SHA 6491dcfc06b9 · commit 6fcf63f5
+- DX.1 : certitude VERT · porte VERT · T = 3.2 (+ 38.3) Ko · SHA cb3bbb7b6092 · commit b1f73fd3
+- DX.2 : certitude VERT · porte VERT · T = 3.3 (+ 40.1) Ko · SHA bea213034f7f · commit 6e9b174e
+- DX.3 : certitude VERT · porte VERT · T = 3.3 (+ 41.8) Ko · SHA b81f65328ae1 · commit 2bb51dfe
+- DX.4 : certitude VERT · porte VERT · T = 3.2 (+ 44.6) Ko · SHA fde27036b4ed · commit 853feaa0
+- DX.5 : certitude VERT · porte VERT · T = 3.2 (+ 37.0) Ko · SHA d0909eaa0c3b · commit 79f261fc
+- DX.6 : certitude VERT · porte VERT · T = 3.2 (+ 43.2) Ko · SHA b072c22d86d4 · commit a3e44699
+- DX.7 : certitude VERT · porte VERT · T = 3.3 (+ 39.2) Ko · SHA dfb997f716ed · commit 1f0c51eb
+- DX.8 : certitude VERT · porte VERT · T = 3.2 (+ 45.8) Ko · SHA 35394628a94a · commit 9bbd7fa0
+- DX.9 : certitude VERT · porte VERT · T = 3.2 (+ 40.8) Ko · SHA 8406a2fecca7 · commit 39d35d2b
+- DX.10 : certitude VERT · porte VERT · T = 3.3 (+ 44.0) Ko · SHA cdb6129c7cc2 · commit 6cea2efa
 
 ## LOT_172 — rédigé et certifié
 Sujet : F2.24 « Protéinurie ». Détail : `LOT_172/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Catégories KDIGO A1/A2/A3 entières (albumine et protéines), grille G×A, bandelette et chaînes légères, transitoire et orthostatique, quatre mécanismes, syndrome néphrotique et néphritique, classes ISN/RPS I à VI, ISSHP 2021 en quatre volets, bloqueur à dose maximale tolérée, dapagliflozine 10 mg (65176), empagliflozine 10 mg (63227), finérénone (68130), hausse de créatinine jusqu'à 30 pour cent.
