@@ -1,6 +1,21 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_135 **clos** (médical grok-4.6 + conformité grok-4.5). **Prochain : LOT_136**. Aucune PR, branche `grok/lots`.
+LOT_136 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 sortie 0, aucun ROUGE). Aucune PR, branche `grok/lots`. Ce rédacteur prend ensuite les lots pairs : **LOT_138, puis LOT_140**. Le rédacteur B garde les impairs (LOT_137, puis la suite).
+
+## LOT_136 — rédigé et certifié
+Sujet : F1.7 « Bradycardie, tachycardie, pouls irrégulier ». Détail : `LOT_136/A_AUDITER.md`.
+
+- Phase_A : certitude ORANGE · porte VERT · T = 6.4 (+ 72.4) Ko · SHA 0e6a7ab0809f · commit bdd0af4a
+- DX.1 : certitude ORANGE · porte VERT · T = 3.8 (+ 37.0) Ko · SHA b0b43452d872 · commit 891261d8
+- DX.2 : certitude ORANGE · porte VERT · T = 3.1 (+ 37.4) Ko · SHA 3888db6b6e57 · commit 6b78f39a
+- DX.3 : certitude ORANGE · porte VERT · T = 3.1 (+ 36.1) Ko · SHA 84d6f7d46ac8 · commit 4e8e2c8f
+- DX.4 : certitude ORANGE · porte VERT · T = 3.2 (+ 36.0) Ko · SHA d106eeb99db4 · commit baab3655
+- DX.5 : certitude ORANGE · porte VERT · T = 2.9 (+ 37.7) Ko · SHA 528b99ffc406 · commit 84219505
+- DX.6 : certitude ORANGE · porte VERT · T = 2.7 (+ 37.3) Ko · SHA 97ee1a7bc4ec · commit 70dd534d
+- DX.7 : certitude ORANGE · porte VERT · T = 2.9 (+ 37.4) Ko · SHA 2522c4e8e34a · commit 87a93358
+- DX.8 : certitude ORANGE · porte ORANGE · T = 2.8 (+ 37.2) Ko · SHA 5726dcef4a34 · commit 581f9ba1
+- DX.9 : certitude ORANGE · porte VERT · T = 3.0 (+ 37.1) Ko · SHA 5a2d668315ba · commit d4553341
+- DX.10 : certitude ORANGE · porte VERT · T = 3.0 (+ 37.1) Ko · SHA 9f35231b6cff · commit aa2e2bf1
 
 ## LOT_135 — clos (médical + conformité)
 Sujet : F1.6 « Anomalies à la percussion ». Liste gelée.
