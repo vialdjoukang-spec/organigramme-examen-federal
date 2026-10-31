@@ -27,3 +27,9 @@ Dépôt frais dc626799, cinq empreintes préexistantes vérifiées. Même runtim
 Les contrôles globaux V8 restent négatifs tant que les onze fichiers sont absents. Harnais et langue historiques négatifs conservés. Deux écarts initiaux d’extraction de citations Aprokam corrigés dans le comparateur local après inspection des frontières DOM, sans changer la leçon préexistante ni le harnais commun. Aucun score, audit indépendant, test navigateur ou validation humaine.
 
 2026-10-31T19:29:36.180453+00:00 — Checkpoint DX5–6 commité et poussé, référence distante vérifiée : 8e67ed70e29442ccf1fdd72f4aacd0ab24d23109. Verrou officiellement libéré. Suite exacte DX7 Uvéite antérieure ; quatre monographies absentes. Veilles45375/37511 actives au dernier contrôle, sans rédaction autonome.
+
+## Reprise DX7–8 — 2026-10-31T20:53:16.845565+00:00
+
+Dépôt frais f0078722, sept empreintes préexistantes vérifiées et inchangées. Même runtime, aucun producteur concurrent ; verrou officiel pris, registre lu/signé0784139d86, veille routage48342 relancée et contrat37511 actif. Seul, sans sous-agents. Sources suisses puis européennes et notices fraîches réellement lues, archives exactes conservées. DX7 etDX8 rédigés, relus séparément et corrigés C09/C10. Sous-parties9.a–d et11.A–D de DX8 restituées après relecture du prompt.
+
+Neuf HTML,126questions,225conditions V8 et223paragraphes AIPS retrouvés. Comparaison partielle PhaseA/DX1–8 effectuée. Deux monographies absentes, LOT039 incomplet, LOT040 non commencé. Langue/harnais historiques négatifs conservés. Aucun audit indépendant, score, navigateur, validation humaine ou changement de modèle.

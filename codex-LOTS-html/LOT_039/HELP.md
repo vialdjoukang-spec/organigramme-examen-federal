@@ -1,6 +1,6 @@
 # Points ouverts — LOT039
 
-Phase A et DX1–6 produits et relus en interne ; quatre monographies absentes. Prochaine rédaction : DX7 Uvéite antérieure, après recherches spécifiques CH puis européennes et notices AIPS des traitements retenus. Ne pas commencer LOT040 avant les onze leçons et la comparaison transversale réelle.
+Phase A et DX1–8 produits et relus en interne ; deux monographies absentes. Prochaine rédaction : DX9 Migraine avec aura visuelle, après recherches spécifiques CH puis européennes et notices AIPS des traitements retenus. Ne pas commencer LOT040 avant les onze leçons et la comparaison transversale réelle.
 
 La Phase A est une fiche de tri et de parcours. Elle ne contient pas de prescription dosée et aucune vérification AIPS de médicament n’est revendiquée. Avant les monographies thérapeutiques, lire les recommandations de spécialité et notices suisses pertinentes : fermeture aiguë de l’angle, uvéite, névrite optique, migraine et traitements maculaires selon indications. Ne pas convertir la simple indication d’un traitement urgent en schéma universel.
 
@@ -12,7 +12,7 @@ DX1 : Cyclogyl32634 exclusivement diagnostique par médecin, pas de prescription
 
 Accès documentaire : NICE direct403, passages indexés réellement lus ; ESCRS recommandations principales lues, pas l’ensemble des annexes. PDF RCOphth DPV indisponible, texte RNIB accessible lu à sa place. RNIB/NHS affichent des révisions2023 et dates attendues2026 : aucune révision nouvelle inventée. La page SSO des formes porte un chemin URL inattendu mais son contenu affiché a été lu et archivé. Pour le gaz, alerte RCOphth2018 lue, corroboration des précautions postopératoires HUG2025 et Cambridge2026.
 
-Harnais et langue historiques négatifs conservés. Les175conditions V8 positives des sept leçons ne valent ni conformité globale au prompt ni validation clinique humaine. Les140citations AIPS sont retrouvées dans les notices officielles fraîches archivées, sans certifier le choix de traitement ni l’exhaustivité. Comparaison transversale partielle effectuée ; comparaison finale avec DX7–10 encore impossible. Aucun audit indépendant, score, test navigateur ou changement de modèle.
+Harnais et langue historiques négatifs conservés. Les225conditions V8 positives des neuf leçons ne valent ni conformité globale au prompt ni validation clinique humaine. Les223citations AIPS sont retrouvées dans les notices officielles fraîches archivées, sans certifier le choix de traitement ni l’exhaustivité. Comparaison transversale partielle effectuée ; comparaison finale avec DX9–10 encore impossible. Aucun audit indépendant, score, test navigateur ou changement de modèle.
 
 Contrôle Git de blancs : avertissements dans les notices officielles fraîches et la capture brute, conservées à octets identiques comme preuves. Contrôle hors ces archives positif. Détail dans audits/verification_publication_dx4.json ; aucun résultat global négatif masqué.
 
@@ -22,3 +22,7 @@ DX5 : seule la présentation Eylea2mg documentée en détail ; pas d’exhaustiv
 DX6 : Diamox et Timoptic documentés ; schémas complets de pilocarpine, hyperosmotiques, anti-inflammatoires et antalgiques non fournis. Cette limite empêche de présenter la fiche comme ordonnance exhaustive de crise. L’orientation urgente et la stratégie causale sont explicites. RCOphth2022 lu ; EGS6 inaccessible intégralement malgré page accessible et deux voies essayées. Pas de changement du harnais ou des archives communes pour effacer les coupures de mots.
 
 Contrôle de publication DX5–6 : git diff --cached --check global retourne2 pour des blancs dans les notices exactes et la capture brute ; contrôle hors archives exactes retourne0. Rapport verification_publication_dx6.json et sortie brute conservés. Aucun échec global masqué.
+
+DX7 : Dexafree57477 et Atropine46994 ne constituent pas une association automatique. Durée14jours maximale de la notice Dexafree, glaucome, infection, âge et allaitement explicités. Aucun schéma anti-infectieux ou systémique complet revendiqué.
+
+DX8 : Solu-Medrol35112, notice août2025 et formes500mg/1g. Schéma chiffré contextualisé aux poussées SEP, sans extension automatique à NMOSD/MOGAD. Pas de traitement de fond ou relais oral inventé. Classification MOG distincte et urgence adaptée ; simplifications anciennes de pages HCL/SFO non reprises. Lectures ciblées, pas tous les chapitres ni toutes les données précliniques AIPS.

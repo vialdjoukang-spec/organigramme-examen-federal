@@ -23,3 +23,7 @@ Les quatre passes distinctes sont décrites dans audits/RELECTURE_DX1.md à RELE
 ## DX5–6 — 2026-10-31T19:28:07.845811+00:00
 
 C07 : glossaire et formulation DX5. C08 : transport sûr et abréviations DX6. Relectures internes distinctes, rapports dans audits/RELECTURE_DX5.md et RELECTURE_DX6.md. 14questions par fichier et25conditions V8 chacun après corrections. Aucun score, audit indépendant ni navigateur. Les rapports langue/harnais historiques restent négatifs.
+
+## DX7–8
+
+C09 : concentrations et définitions DX7. C10 : limites pupillaires, névrite indolore, quantités par flacon et abréviations DX8. Passes distinctes dans RELECTURE_DX7/DX8.md. 49 et34citations exactes,14questions et25conditions V8 par fichier. Aucun score ni audit indépendant.

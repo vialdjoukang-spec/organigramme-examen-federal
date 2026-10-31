@@ -38,3 +38,11 @@ Les résultats étrangers hors Europe non ouverts ne sont pas utilisés comme r�
 - Comparateur local _travail/verifier_aips_checkpoint.py :140paragraphes des DX1/2/5/6 retrouvés dans les HTML frais. Deux modes de sérialisation DOM explicités pour les anciennes citations Aprokam, sans rapprochement approximatif des mots. Échec initial conservé dans audits/aips_checkpoint_dx6_extraction_initiale.json.
 
 Les rapports v8_dx5_initial et v8_checkpoint_dx5 sont historiques, antérieurs à la fin C07. Le checkpoint courant est v8_checkpoint_dx6.json ; BILAN_REPRISE.json porte les empreintes finales. Les fichiers HTML PhaseA et DX1–4 restent inchangés.
+
+## Lectures DX7–8
+
+39dx7_search_ch/ch/eu/details : Inselspital, Jules-Gonin, HUG stratégie2025 (urgence et section6.4), HCL12.02.2026 et ICR06.03.2024. Dexafree et Atropine : notices fraîches intégralement lues, formes Swissmedic vérifiées ; fichiers HTML/texte/gzip et AIPS_57477/AIPS_46994035.
+
+39dx8_search_ch/ch/ch_eu/search_eu/eu/detail/examsearch/exam/examdetail/examclinique : sources CH puis européennes, sorties exactes conservées. CHUV introduction et annexe3 lues, pas tout le protocole. JG18.08.2025 ; OnO11.03.2025 avec limites étiologiques ; HCL névrite et NMO12.02.2026, MOG17.03.2026. NEMOS introduction, poussées et début prévention, correction ravulizumab05.04.2024 lue, pas les tableaux thérapeutiques complets. CEN passages neuropathies/urgences/pupille et SFO orientation/atypies/diagnostic, pas chapitres entiers. Solumedrol_frais : sections cliniques et manipulation lues, limites dans AIPS_35112.json. Formes500mg/1g vérifiées.
+
+Checkpoint courant v8_checkpoint_dx8.json et aips_checkpoint_dx8.json :223citations retrouvées, dont49DX7 et34DX8. Les sept HTML préexistants sont conservés.
