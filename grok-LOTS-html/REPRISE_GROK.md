@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_158 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience sans BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_157 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT, conscience de lot 0 BLOQUANT). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153 et LOT_155 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156 et LOT_158 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155 et LOT_157 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156 et LOT_158 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_157.**
+**Prochain LOT du rédacteur A : LOT_159.**
 **Prochain LOT du rédacteur B : LOT_160.**
+
+## LOT_157 — rédigé et certifié
+Sujet : F2.9 « Glycémie et marqueurs de l'homéostasie glucidique anormaux ». Détail : `LOT_157/A_AUDITER.md`.
+
+- Phase_A : certitude VERT · porte ORANGE · conscience 0 ordre · T = 4.6 (+ 66.2) Ko · SHA 362cc44481be · commit 85084705
+- DX.1 : certitude VERT · porte ORANGE · T = 4.1 (+ 24.1) Ko · SHA 9af0594b5766 · commit ab06c34e
+- DX.2 : certitude VERT · porte ORANGE · T = 4.0 (+ 21.2) Ko · SHA d007e66ef94e · commit 34ba2373
+- DX.3 : certitude VERT · porte ORANGE · T = 4.1 (+ 21.2) Ko · SHA a946afcfd6db · commit 2f398452
+- DX.4 : certitude VERT · porte ORANGE · T = 4.2 (+ 21.1) Ko · SHA 63ce64cb7aaf · commit 3c8106aa
+- DX.5 : certitude VERT · porte ORANGE · T = 4.5 (+ 20.8) Ko · SHA 49466e7fb35c · commit d799ad28
+- DX.6 : certitude VERT · porte ORANGE · T = 4.2 (+ 21.1) Ko · SHA d9d8408ee752 · commit e667f713
+- DX.7 : certitude VERT · porte ORANGE · T = 4.0 (+ 21.0) Ko · SHA 0b0006919908 · commit 99c5b66b
+- DX.8 : certitude VERT · porte ORANGE · T = 4.6 (+ 21.1) Ko · SHA fbecb9341d65 · commit 75399e4c
+- DX.9 : certitude VERT · porte ORANGE · T = 4.3 (+ 21.1) Ko · SHA d78c0848f7a3 · commit 5f73cc06
+- DX.10 : certitude VERT · porte ORANGE · T = 4.5 (+ 21.8) Ko · SHA eac47ee1727d · commit a9fdb1b6
 
 ## LOT_158 — rédigé et certifié
 Sujet : F2.10 « Histologie, cytologie et tests de génétique moléculaire anormaux ». Détail : `LOT_158/A_AUDITER.md`.
