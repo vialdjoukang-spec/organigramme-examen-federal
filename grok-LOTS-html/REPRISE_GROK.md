@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_151 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT). Aucune PR, branche `grok/lots`.
+LOT_154 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 et LOT_151 sont rédigés par A. LOT_150 et LOT_152 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 et LOT_151 sont rédigés par A. LOT_150, LOT_152 et LOT_154 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_153.**
-**Prochain LOT du rédacteur B : LOT_154.**
+**Prochain LOT du rédacteur B : LOT_156.**
+
+## LOT_154 — rédigé et certifié
+Sujet : F2.6 « Électrocardiogramme anormal ». Détail : `LOT_154/A_AUDITER.md`.
+
+- Phase_A : certitude ORANGE · porte ORANGE · T = 4.8 (+ 76.9) Ko · SHA 695eef8d0292 · commit 60ecf818
+- DX.1 : certitude ORANGE · porte ORANGE · T = 3.0 (+ 40.5) Ko · SHA cfc14acf9c74 · commit b83da0bd
+- DX.2 : certitude ORANGE · porte VERT · T = 3.4 (+ 41.0) Ko · SHA b34efa186dd9 · commit f92deebd
+- DX.3 : certitude ORANGE · porte ORANGE · T = 3.1 (+ 40.5) Ko · SHA e64e9253b980 · commit 679123d2
+- DX.4 : certitude ORANGE · porte ORANGE · T = 3.1 (+ 40.8) Ko · SHA bd6c947146e9 · commit 22ff0c4e
+- DX.5 : certitude ORANGE · porte ORANGE · T = 3.2 (+ 40.9) Ko · SHA 5fd21a7a0565 · commit fd9e1438
+- DX.6 : certitude ORANGE · porte ORANGE · T = 3.4 (+ 40.6) Ko · SHA ed15b8f3573f · commit cdfc9523
+- DX.7 : certitude ORANGE · porte ORANGE · T = 3.5 (+ 40.6) Ko · SHA c60f93dab82c · commit 1c2c72e7
+- DX.8 : certitude ORANGE · porte ORANGE · T = 3.1 (+ 40.7) Ko · SHA 1b648100d8ef · commit 01af4275
+- DX.9 : certitude ORANGE · porte ORANGE · T = 3.3 (+ 40.9) Ko · SHA e9815c1469a8 · commit ecba499f
+- DX.10 : certitude ORANGE · porte VERT · T = 3.4 (+ 40.6) Ko · SHA d5a18b56f7f4 · commit 614f25c8
 
 ## LOT_151 — rédigé et certifié
 Sujet : F2.3 « Bilan de coagulation anormal ». Détail : `LOT_151/A_AUDITER.md`.
