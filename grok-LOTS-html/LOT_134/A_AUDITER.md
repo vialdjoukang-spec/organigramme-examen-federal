@@ -1,21 +1,23 @@
-# LOT_134 — audit médical terminé (grok-4.6) · 31.10.2026
+# LOT_134 — terminé côté Grok (conformité) · 31.10.2026
 
-Sujet : F1.5 « Anomalies à la palpation ». Rédaction grok-4.7. Audit médical avec correction en place.
+Sujet : F1.5 « Anomalies à la palpation ». Rédaction grok-4.7 → audit médical grok-4.6 → **audit conformité grok-4.5 clos**.
 
-Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille Atkinson Hyperlegible et l'absence de `[S1]`. La Phase A ajoute `title=` sur les abréviations. Ces critiques sont celles du modèle (piège P-01). La porte zéro jeton est le seuil de ce run.
+Prochaine étape Grok : **LOT_135** (puis transversale sur LOT_134 si reprise dédiée). Aucune PR. Branche `grok/lots`.
 
-| Fichier | Poste consigné | Porte | x | Audit médical | Taille |
-|---|---|---|---|---|---|
-| LOT_134_Phase_A_V0.html | redacteur-phase-a, puis auditeur-medical | ORANGE (journal, sigles) | 8936 octets | 8 corr. (0 crit., 3 graves) · score 93 | T = 8.9 Ko (+ 74.3 Ko), 189 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.1.html | redacteur, puis auditeur-medical | ORANGE (journal, phrase_double) | 3794 octets | 3 corr. (0 crit., 2 moyens) · score 94 | T = 3.8 Ko (+ 46.2 Ko), 101 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.2.html | redacteur, puis auditeur-medical | ORANGE (journal) | 4450 octets | 3 corr. (0 crit., 1 grave) · score 93 | T = 4.5 Ko (+ 46.3 Ko), 110 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.3.html | redacteur, puis auditeur-medical | ORANGE (journal) | 3488 octets | 1 corr. (0 crit., 0 grave) · score 94 | T = 3.5 Ko (+ 43.6 Ko), 119 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.4.html | redacteur, puis auditeur-medical | ORANGE (journal) | 2874 octets | 3 corr. (0 crit., 2 graves) · score 93 | T = 2.9 Ko (+ 43.0 Ko), 117 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.5.html | redacteur, puis auditeur-medical | ORANGE (journal) | 3024 octets | 2 corr. (0 crit., 0 grave) · score 94 | T = 3.0 Ko (+ 41.2 Ko), 111 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.6.html | redacteur, puis auditeur-medical | ORANGE (journal) | 2790 octets | 2 corr. (0 crit., 0 grave) · score 95 | T = 2.8 Ko (+ 35.7 Ko), 102 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.7.html | redacteur, puis auditeur-medical | ORANGE (journal) | 3004 octets | 4 corr. (0 crit., 2 graves) · score 93 | T = 3.0 Ko (+ 37.4 Ko), 109 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.8.html | redacteur, puis auditeur-medical | ORANGE (journal, phrase_longue) | 2659 octets | 1 corr. (0 crit., 0 grave) · score 96 | T = 2.7 Ko (+ 37.7 Ko), 107 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.9.html | redacteur, puis auditeur-medical | ORANGE (journal) | 2809 octets | 2 corr. (0 crit., 0 grave) · score 94 | T = 2.8 Ko (+ 40.3 Ko), 105 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.10.html | redacteur, puis auditeur-medical | ORANGE (journal) | 2589 octets | 1 corr. (0 crit., 0 grave) · score 94 | T = 2.6 Ko (+ 37.6 Ko), 114 fenêtres, 15 dépliants |
+P-01 respecté : `title=`, bande fichier, feuille externe, h2/h3_14 V0 non « corrigés ». Porte zéro jeton = seuil (ORANGE admissible).
 
-Liste provisoire : `LISTE_DX_CANONIQUE_PROVISOIRE.md`. Le gel `LISTE_DX_CANONIQUE.md` appartient à l'auditeur médical.
+| Fichier | Conformité | Corr. | Score langue | Porte | T | SHA commit |
+|---|---|---|---|---|---|---|
+| Phase_A | auditeur-conformite | 8 | 96 | ORANGE | 9.0 (+74.6) Ko | b0eca73d |
+| DX.1 | auditeur-conformite | 1 | 96 | ORANGE | 3.8 (+46.2) Ko | 37377788 |
+| DX.2 | auditeur-conformite | 1 | 94 | ORANGE | 4.4 (+46.3) Ko | 1575b2f9 |
+| DX.3 | auditeur-conformite | 1 | 96 | ORANGE | 3.5 (+43.3) Ko | ed56ef7f |
+| DX.4 | auditeur-conformite | 2 | 96 | ORANGE | 2.9 (+42.7) Ko | 8ff921cc |
+| DX.5 | auditeur-conformite | 1 | 96 | ORANGE | 3.0 (+41.0) Ko | d5180c5c |
+| DX.6 | auditeur-conformite | 1 | 94 | ORANGE | 2.8 (+35.7) Ko | a192f3c0 |
+| DX.7 | auditeur-conformite | 1 | 97 | ORANGE | 3.0 (+37.2) Ko | 346ced12 |
+| DX.8 | auditeur-conformite | 1 | 96 | ORANGE | 2.7 (+37.5) Ko | 473e5a0c |
+| DX.9 | auditeur-conformite | 1 | 96 | ORANGE | 2.8 (+40.3) Ko | 0e67d7dd |
+| DX.10 | auditeur-conformite | 1 | 96 | ORANGE | 2.6 (+37.3) Ko | 1e13502c |
+
+Doutes médicaux notés (non modifiés) : `audits/DOUTES_MEDICAUX.md`. Liste gelée : `LISTE_DX_CANONIQUE.md`.

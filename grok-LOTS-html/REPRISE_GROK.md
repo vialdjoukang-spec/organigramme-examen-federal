@@ -1,17 +1,19 @@
-# REPRISE GROK — 31.10.2026 10:41
+# REPRISE GROK — 31.10.2026
 
-Suite : audit de conformité linguistique (grok-4.5), puis transversale. Aucune PR, branche `grok/lots`.
+LOT_134 conformité linguistique **terminée** (grok-4.5). **Prochain : LOT_135**. Puis transversale LOT_134 si run dédié. Aucune PR, branche `grok/lots`.
 
-## LOT_134
-- Phase_A : audit médical grok-4.6 · 8 corrections (3 graves : artérite vs ischémie, Alvarado, AAA CTA/bloc) · score 93 · T = 8.9 (+ 74.3) Ko · porte ORANGE · LISTE_DX_CANONIQUE.md gelée
-- DX.1 : audit médical grok-4.6 · 3 corrections (C3 ≠ CVI prouvée) · score 94 · T = 3.8 (+ 46.2) Ko · porte ORANGE · SHA c55fdea7
-- DX.2 : audit médical grok-4.6 · 3 corrections (EVAR rec. 87, rupture libre, bloc si choc) · score 93 · T = 4.5 (+ 46.3) Ko · porte ORANGE · SHA 3b76a575
-- DX.3 : audit médical grok-4.6 · 1 correction (7/10 jours WSES) · score 94 · T = 3.5 (+ 43.6) Ko · porte ORANGE · SHA 8d384323
-- DX.4 : audit médical grok-4.6 · 3 corrections (Alvarado ne confirme plus) · score 93 · T = 2.9 (+ 43.0) Ko · porte ORANGE · SHA ea88da49
-- DX.5 : audit médical grok-4.6 · 2 corrections (Gilbert, AINS/ascite, tétrade) · score 94 · T = 3.0 (+ 41.2) Ko · porte ORANGE · SHA 6efacf5f
-- DX.6 : audit médical grok-4.6 · 2 corrections (Virchow, 2 semaines) · score 95 · T = 2.8 (+ 35.7) Ko · porte ORANGE · SHA 71b19e4a
-- DX.7 : audit médical grok-4.6 · 4 corrections (qSOFA ≠ SOFA) · score 93 · T = 3.0 (+ 37.4) Ko · porte ORANGE · SHA 92f7d2ac
-- DX.8 : audit médical grok-4.6 · 1 correction (contrôle de source) · score 96 · T = 2.7 (+ 37.7) Ko · porte ORANGE · SHA 153fca66
-- DX.9 : audit médical grok-4.6 · 2 corrections (pas une artérite ; revasculariser d'abord) · score 94 · T = 2.8 (+ 40.3) Ko · porte ORANGE · SHA 27207e62
-- DX.10 : audit médical grok-4.6 · 1 correction (12 h / Bilton 38 vs 4,2) · score 94 · T = 2.6 (+ 37.6) Ko · porte ORANGE · SHA 9497246c
+## LOT_134 — clos (médical + conformité)
+- Phase_A : conformité 8 corr. · score langue 96 · T = 9.0 (+74.6) Ko · porte ORANGE · SHA b0eca73d
+- DX.1 : conformité 1 corr. · score 96 · T = 3.8 (+46.2) Ko · porte ORANGE · SHA 37377788
+- DX.2 : conformité 1 corr. · score 94 · T = 4.4 (+46.3) Ko · porte ORANGE · SHA 1575b2f9
+- DX.3 : conformité 1 corr. · score 96 · T = 3.5 (+43.3) Ko · porte ORANGE · SHA ed56ef7f
+- DX.4 : conformité 2 corr. · score 96 · T = 2.9 (+42.7) Ko · porte ORANGE · SHA 8ff921cc
+- DX.5 : conformité 1 corr. · score 96 · T = 3.0 (+41.0) Ko · porte ORANGE · SHA d5180c5c
+- DX.6 : conformité 1 corr. · score 94 · T = 2.8 (+35.7) Ko · porte ORANGE · SHA a192f3c0
+- DX.7 : conformité 1 corr. · score 97 · T = 3.0 (+37.2) Ko · porte ORANGE · SHA 346ced12
+- DX.8 : conformité 1 corr. · score 96 · T = 2.7 (+37.5) Ko · porte ORANGE · SHA 473e5a0c
+- DX.9 : conformité 1 corr. · score 96 · T = 2.8 (+40.3) Ko · porte ORANGE · SHA 0e67d7dd
+- DX.10 : conformité 1 corr. · score 96 · T = 2.6 (+37.3) Ko · porte ORANGE · SHA 1e13502c
 
+## LOT_135
+À ouvrir : rédaction Phase A / DX selon catalogue F1.6 (Anomalies à la percussion), hors registre (ne pas toucher `IA_RESERVATIONS.json`).
