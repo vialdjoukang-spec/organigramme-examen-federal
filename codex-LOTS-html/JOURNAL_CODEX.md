@@ -30,3 +30,7 @@
 - 2026-10-31T04:55:57+00:00 — LOT_025 complet : 11 HTML, 154 questions, 275 contrôles V8, 36 citations AIPS. Six groupes de corrections réelles ; gravité médicale non cotée, aucun critique V8 restant, critiques historiques conservées. Relecture interne seule ; aucun navigateur. Suite LOT_026.
 
 - 2026-10-31T05:15:31+00:00 — LOT_026 complet : 11 HTML, 154 questions, 275 contrôles V8, 33 citations AIPS. Quatre groupes de corrections ; gravité médicale non cotée, aucun critique V8 résiduel, critiques historiques conservées. Suite LOT_027.
+
+## 31.10.2026 — LOT_027 terminé en production
+
+Onze HTML, 154 questions, 275 contrôles V8, 29 citations AIPS ; quatre notices et neuf empreintes harnais intactes. Six corrections réelles, relecture interne et transversale ; résultats historiques négatifs conservés. Aucun audit indépendant, score ou navigateur. Suite LOT_028 ; verrou de session conservé pendant la poursuite.
