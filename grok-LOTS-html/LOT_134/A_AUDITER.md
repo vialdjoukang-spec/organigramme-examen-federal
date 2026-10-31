@@ -1,4 +1,4 @@
-# LOT_134 — audit médical en cours (grok-4.6)
+# LOT_134 — audit médical terminé (grok-4.6) · 31.10.2026
 
 Sujet : F1.5 « Anomalies à la palpation ». Rédaction grok-4.7. Audit médical avec correction en place.
 
@@ -16,6 +16,6 @@ Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille 
 | LOT_134_Phase_B_V0_DX.7.html | redacteur, puis auditeur-medical | ORANGE (journal) | 3004 octets | 4 corr. (0 crit., 2 graves) · score 93 | T = 3.0 Ko (+ 37.4 Ko), 109 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.8.html | redacteur, puis auditeur-medical | ORANGE (journal, phrase_longue) | 2659 octets | 1 corr. (0 crit., 0 grave) · score 96 | T = 2.7 Ko (+ 37.7 Ko), 107 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.9.html | redacteur, puis auditeur-medical | ORANGE (journal) | 2809 octets | 2 corr. (0 crit., 0 grave) · score 94 | T = 2.8 Ko (+ 40.3 Ko), 105 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.10.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2430 octets | non fait | T = 2.4 Ko (+ 37.4 Ko), 114 fenêtres, 15 dépliants |
+| LOT_134_Phase_B_V0_DX.10.html | redacteur, puis auditeur-medical | ORANGE (journal) | 2589 octets | 1 corr. (0 crit., 0 grave) · score 94 | T = 2.6 Ko (+ 37.6 Ko), 114 fenêtres, 15 dépliants |
 
 Liste provisoire : `LISTE_DX_CANONIQUE_PROVISOIRE.md`. Le gel `LISTE_DX_CANONIQUE.md` appartient à l'auditeur médical.

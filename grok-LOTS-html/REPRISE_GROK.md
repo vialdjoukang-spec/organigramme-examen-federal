@@ -1,4 +1,4 @@
-# REPRISE GROK — 31.10.2026 10:40
+# REPRISE GROK — 31.10.2026 10:41
 
 ## LOT_134
 - Phase_A : audit médical grok-4.6 · 8 corrections (3 graves : artérite vs ischémie, Alvarado, AAA CTA/bloc) · score 93 · T = 8.9 (+ 74.3) Ko · porte ORANGE · LISTE_DX_CANONIQUE.md gelée
@@ -11,5 +11,5 @@
 - DX.7 : audit médical grok-4.6 · 4 corrections (qSOFA ≠ SOFA) · score 93 · T = 3.0 (+ 37.4) Ko · porte ORANGE · SHA 92f7d2ac
 - DX.8 : audit médical grok-4.6 · 1 correction (contrôle de source) · score 96 · T = 2.7 (+ 37.7) Ko · porte ORANGE · SHA 153fca66
 - DX.9 : audit médical grok-4.6 · 2 corrections (pas une artérite ; revasculariser d'abord) · score 94 · T = 2.8 (+ 40.3) Ko · porte ORANGE · SHA 27207e62
-- DX.10 : approfondi V8 · T = 2.4 (+ 37.4) Ko · 114 fenêtres, 15 dépliants · porte ORANGE (journal) · postes : redacteur → audit médical (passe distincte)
+- DX.10 : audit médical grok-4.6 · 1 correction (12 h / Bilton 38 vs 4,2) · score 94 · T = 2.6 (+ 37.6) Ko · porte ORANGE · SHA 9497246c
 
