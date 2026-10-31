@@ -365,7 +365,10 @@ sources = [
     f"{AIPS} Baraclude, Swissmedic 57435.{S(15)}",
     f"{AIPS} Imurek, Swissmedic 31887.{S(16)}",
     f"{EASL} 2017, hépatite B, cinq phases et indications de traitement.{S(17)}",
-    f"Tokyo Guidelines 2018, angiocholite aiguë, grades I, II et III.{S(18)}",
+    f"Tokyo Guidelines 2018, angiocholite aiguë, grades I, II et III, plaquettes inférieures à 100 000/mm³.{S(18)}",
+    f"Forrest et al., Hepatology, 2005, score de Glasgow entier.{S(19)}",
+    f"Maddrey, 1978, et forme modifiée de 1989, seuil 32.{S(20)}",
+    f"EASL, maladie de Wilson, 2012, score de Leipzig.{S(21)}",
 ]
 
 sections = [

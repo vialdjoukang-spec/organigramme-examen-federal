@@ -76,7 +76,7 @@ def bloc_dxnoms():
         ["DX.6", "Hépatite auto-immune", "Score simplifié : probable dès 6, certaine dès 7. Quatre domaines."],
         ["DX.7", "Cholangite biliaire primitive", "Femme, prurit, phosphatase, anticorps antimitochondries, acide ursodésoxycholique selon l'information 60812."],
         ["DX.8", "Hémochromatose héréditaire", "Saturation et ferritine, puis homozygotie p.Cys282Tyr. Saignées selon les cibles de 2022."],
-        ["DX.9", "Maladie de Wilson", "Cinq piliers lus : clinique, céruléoplasmine, cuivre urinaire des 24 heures, cuivre hépatique, biologie moléculaire."],
+        ["DX.9", "Maladie de Wilson", "Score de Leipzig entier : 4 ou plus établi, 3 possible, 2 ou moins très improbable."],
         ["DX.10", "Insuffisance hépatique aiguë", "Enzymes aiguës, INR habituellement au-dessus de 1,5, encéphalopathie, sans cirrhose connue. King's College et Clichy."],
     ]
     return W("w-dix", "Les dix noms, tels que la liste les fige", "\n".join([
@@ -138,11 +138,15 @@ def bloc_alcool_long():
           "La biopsie montre une stéatose, des ballonisations et des polynucléaires, mais le diagnostic de départ est clinique et biologique.", 4),
         P(f"Biologie lue : polynucléose, bilirubine au-dessus de 50 µmol/l, {ASAT} au-dessus de deux fois la {LSN} et au-dessus de 50 U/l, rarement au-dessus de 300 U/l, "
           f"rapport {ASAT} sur {ALAT} en général supérieur à 1,5 jusqu'à 2. Au stade de cirrhose, le même rapport, simplement supérieur à 1, n'est ni sensible ni spécifique.", 4),
-        P("Maddrey modifié, 1989 : le seuil de gravité est 32. En dessous, le risque de décès à un mois lu dans la recommandation est inférieur à 10 %. "
-          "Le tableau 6 dit que le score utilise la bilirubine et le temps de prothrombine ou l'INR. L'équation chiffrée n'est pas dans l'extrait : on ne l'invente pas, on garde le seuil et les variables.", 4),
-        P("Glasgow : cinq variables, âge, bilirubine, urée, temps de prothrombine, leucocytes. Étendue de 5 à 12. "
-          "Un Glasgow d'au moins 9 ajouté à un Maddrey d'au moins 32 marque le mauvais pronostic et le bénéfice du corticoïde à 84 jours dans le texte lu. "
-          "Le barème point par point de chaque variable n'est pas dans l'extrait.", 4),
+        P("Maddrey, formule entière. En 1978 : 4,6 fois le temps de prothrombine en secondes, plus la bilirubine en mg/dl. Les décès de cette série survenaient au-dessus de 93. "
+          "Forme modifiée de 1989, celle du seuil 32 : 4,6 fois (temps de prothrombine du patient moins le temps témoin), plus la bilirubine en mg/dl. "
+          "Le rapport STOPAH écrit la même chose avec la bilirubine en µmol/l divisée par 17,1. Maladie sévère si le résultat est au moins 32, ou s'il y a une encéphalopathie. "
+          "En dessous de 32, le risque de décès à un mois lu dans l'EASL 2018 est inférieur à 10 %.", 4, 20),
+        P("Glasgow, Forrest, Hepatology 2005, toutes les cases. Âge : moins de 50 ans vaut 1, 50 ans ou plus vaut 2. "
+          "Leucocytes : moins de 15 milliards par litre vaut 1, 15 ou plus vaut 2. Urée : moins de 5 mmol/l vaut 1, 5 ou plus vaut 2. "
+          "Rapport de prothrombine ou INR : moins de 1,5 vaut 1, de 1,5 à 2,0 vaut 2, plus de 2,0 vaut 3. "
+          "Bilirubine : moins de 125 µmol/l vaut 1, de 125 à 250 vaut 2, plus de 250 vaut 3. "
+          "Total de 5 à 12. Au moins 9 : mauvais pronostic. Avec un Maddrey d'au moins 32, c'est aussi le groupe où le corticoïde a montré un bénéfice à 84 jours dans l'EASL 2018.", 4, 19),
         P("Lille, de 0 à 1, au septième jour de corticoïde. Au moins 0,45 : non-réponse. Trois classes, toutes gardées : réponse complète jusqu'à 0,16, réponse partielle de 0,16 à 0,56, réponse nulle à partir de 0,56. "
           "La recommandation arrête le corticoïde chez le non-répondeur nul.", 4),
         P("Le corticoïde lu est la prednisolone à quarante milligrammes par jour, ou la méthylprednisolone à trente-deux milligrammes par jour, s'il n'y a pas d'infection. "
@@ -180,9 +184,13 @@ def bloc_fer_cuivre_hai():
           "Homme ou femme ménopausée : saturation au-dessus de 50 % et ferritine au-dessus de 300 µg/l. "
           "Autre génotype : il faut le fer du foie à l'imagerie ou à la biopsie. On ne pose pas le nom sur une ferritine isolée d'inflammation.", 6),
         P("Saignées : ferritine sous 50 µg/l en induction, sous 100 µg/l en entretien. La fibrose avancée entre dans un dépistage du carcinome hépatocellulaire. L'hepcidine ne se dose pas.", 6),
-        P("Wilson. Le résumé de recommandation lu retient une maladie récessive du cuivre, foie et cerveau, et cinq éléments de diagnostic : "
-          "les signes cliniques, la céruléoplasmine, le cuivre urinaire des 24 heures, le cuivre dans le foie, l'analyse moléculaire. "
-          "Les seuils chiffrés et le tableau de points ne sont pas dans cet extrait : ils ne sont pas complétés de mémoire.", 3),
+        P("Wilson, score de Leipzig entier, EASL 2012. Anneaux de Kayser-Fleischer : 2 si présents, 0 si absents. "
+          "Neurologie : 2 si sévère, 1 si légère, 0 si absente. Céruléoplasmine : 0 au-dessus de 0,2 g/l, 1 entre 0,1 et 0,2 g/l, 2 en dessous de 0,1 g/l. "
+          "Hémolyse à Coombs négatif : 1 ou 0. Cuivre hépatique : 2 au-dessus de 4 µmol/g, 1 entre 0,8 et 4, moins 1 si normal. "
+          "Rhodanine : 1 point si le dosage quantitatif manque. Cuivre urinaire : 0, 1 ou 2 selon la limite, ou 2 si la pénicillamine fait dépasser cinq fois la limite. "
+          "Mutations : 4 sur les deux chromosomes, 1 sur un seul, 0 si aucune. "
+          "Quatre ou plus : diagnostic établi. Trois : possible. Deux ou moins : très improbable. "
+          "L'anneau manque dans jusqu'à la moitié des formes hépatiques. L'association anneau plus céruléoplasmine sous 0,1 g/l suffit souvent.", 21),
         P("Hépatite auto-immune, 2015. Score simplifié de 2008, quatre domaines : autoanticorps, immunoglobuline G, histologie typique ou compatible, absence de virus. "
           "Probable à partir de 6 points. Certaine à partir de 7. Les deux seuils restent. "
           "Chez l'adulte, un titre d'immunofluorescence d'au moins 1/40 est significatif. Chez l'enfant, 1/20 pour les antinucléaires ou le muscle lisse, 1/10 pour les anticorps anti-microsomes de foie et de rein.", 7),
@@ -345,9 +353,10 @@ def bloc_suivi():
           f"On écrit ensuite le profil R avec ses trois classes. On n'ouvre le {A('fibrosis-4 index','FIB')}-4 que si le patient est stable et que la question est la fibrose. "
           f"On n'ouvre le Child-Pugh, avec A, B et C, que si la cirrhose est déjà connue. "
           f"Mettre les quatre outils dans le même paragraphe sans dire lequel décide aujourd'hui est le défaut le plus fréquent.", 3, 5, 9, 11, 18),
-        P("Ce que l'on retire de la copie s'il n'a pas été lu. L'équation chiffrée de Maddrey. Le barème point par point de Glasgow. "
-          "Le seuil plaquettaire ambigu de Tokyo. Les chiffres de céruléoplasmine et le tableau de Leipzig. "
+        P("Ce que l'on retire de la copie s'il n'a pas été lu. "
           "Une troisième ligne de nomogramme. Un classement suisse des dix diagnostics par prévalence. "
+          "La répartition interne 1 ou 2 points du score simplifié d'hépatite auto-immune, dont le tableau n'était pas affiché. "
+          "On ne retire pas Maddrey, ni Glasgow, ni les plaquettes de Tokyo, ni Leipzig : ils sont écrits en entier. "
           "Ces trous sont écrits dans le fichier d'incertitudes du lot. Ils ne sont pas comblés par une moyenne de mémoire. "
           "En revanche, tout ce qui a été lu reste dans la copie : les trois classes de R, les trois classes de Child-Pugh, les cinq classes du score de causalité, "
           "les cinq phases du virus B, les trois grades de Tokyo, les deux lignes du nomogramme, les trois perfusions de Prescott, "
@@ -407,7 +416,7 @@ def bloc_vhb_tokyo():
         P(f"Grade III, sévère : un seul dysfonctionnement d'organe suffit. Cardiovasculaire : dopamine d'au moins cinq microgrammes par kilogramme par minute, ou noradrénaline. "
           f"Neurologique : trouble de conscience. Respiratoire : rapport de la pression artérielle d'oxygène sur la fraction inspirée inférieur à 300. "
           f"Rénal : oligurie ou créatinine sérique au-dessus de 2,0 mg/dl. Hépatique : {INR} au-dessus de 1,5. "
-          f"Coagulation : le texte extrait imprime un seuil plaquettaire ambigu. Ce seuil n'est pas récrit. Les trois grades, eux, sont tous enseignés, et le grade III garde ses six familles d'organes.", 18),
+          f"Hématologique : plaquettes inférieures à 100 000/mm³. Les trois grades et les six défaillances du grade III sont enseignés ensemble.", 18),
         P("Le drainage du grade III est urgent, avec le soutien des organes. Le grade II se draine tôt, sans attendre la défaillance. Le grade I se surveille sous antibiotique. "
           "Confondre ces trois tempos est la faute. La bilirubine de 2 mg/dl sert au diagnostic, celle de 5 mg/dl sert à la gravité : ce ne sont pas le même seuil.", 18),
     ])) + W("w-ischemie", "Ischémie et cas d'examen corrigé", "\n".join([

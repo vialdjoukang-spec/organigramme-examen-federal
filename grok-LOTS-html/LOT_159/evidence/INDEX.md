@@ -19,4 +19,7 @@ Extraits lus le 31 octobre 2026. Les doses en chiffres viennent des informations
 15. Information professionnelle Baraclude, numéro Swissmedic 57435, lue le 31 octobre 2026. `aips_57435.txt`.
 16. Information professionnelle Imurek, numéro Swissmedic 31887, lue le 31 octobre 2026. `aips_31887.txt`.
 17. EASL 2017, hépatite B, Journal of Hepatology, volume 67, publié en ligne le 18 avril 2017. `easl_vhb_2017.txt`.
-18. Tokyo Guidelines 2018, Journal of Hepato-Biliary-Pancreatic Sciences, critères diagnostiques et gravité, textes de 2017-2018. `tokyo2018_angiocholite.txt`.
+18. Tokyo Guidelines 2018, Journal of Hepato-Biliary-Pancreatic Sciences, critères diagnostiques et gravité, textes de 2017-2018, plaquettes inférieures à 100 000/mm³. `tokyo2018_angiocholite.txt`.
+19. Forrest et al., Hepatology, 2005, tableau du score de Glasgow ; dérivation Gut, 2005. `forrest2005_glasgow.txt`.
+20. Maddrey et al., Gastroenterology, 1978, formule initiale ; forme modifiée de 1989 ; formule STOPAH avec bilirubine en µmol/l divisée par 17,1. `maddrey_1978_1989.txt`.
+21. EASL, maladie de Wilson, Journal of Hepatology, mars 2012, score de Leipzig 2001. `easl_wilson_2012.txt`.
