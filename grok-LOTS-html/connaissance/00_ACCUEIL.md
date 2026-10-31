@@ -7,6 +7,7 @@ Nœud central. Chaque note de ce dossier renvoie ici et à au moins une autre no
 | [PIEGES.md](PIEGES.md) | mémoire persistante des pièges et leçons (ID `P-xx`, symptôme, cause, parade) | Tunder, à chaque défaut répété ou nouveau | début de chaque passe (déjà dans le paquet de contexte) |
 | [PROMPTS_QUI_MARCHENT.md](PROMPTS_QUI_MARCHENT.md) | messages de lancement constants par poste | Tunder | au lancement d'un run |
 | [COUTS.jsonl](COUTS.jsonl) | une ligne par passe : coût relatif mesuré (`outils/couts.py noter`) | script | fin de passe ; bilan par LOT |
+| [CONSO.jsonl](CONSO.jsonl) | durée, octets, jetons estimés, fenêtres, VM (`outils/compteur_conso.py`) | script | `debut` / `fin` de chaque fichier |
 | [PREVISION_SIMULATION.json](PREVISION_SIMULATION.json) | coûts prévus par la simulation (HYPOTHÈSES), à comparer au réel dans `couts.py bilan` | Tunder | après 3 à 5 LOTS réels |
 | [TARIFS_RELATIFS.json](TARIFS_RELATIFS.json) | barème relatif des modèles (HYPOTHÈSES à remplacer par les valeurs réelles de l'abonnement) | Vial / Tunder | quand le tarif réel change |
 | [HOOKS.md](HOOKS.md) | garde pre-commit : ce qu'elle contrôle, comment l'ajouter au crochet existant | Tunder | installation, dépannage |
