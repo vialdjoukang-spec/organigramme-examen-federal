@@ -9,3 +9,7 @@ Deux correctionsC01/C02, criticité médicale non scorée. Harnais et langue né
 31.10.2026 — DX2 Chalazion produit et relu ;14questions,25conditionsV8. Aucun médicament dosé, zéro citation AIPS sans prétention de validation pharmacologique. Pas de correction supplémentaire nécessaire ; compte des corrections non gonflé.
 
 31.10.2026 — DX3 Blépharite rédigée puis relue, C04 langue corrigée.14questions,25conditionsV8 et22citationsAIPS. Cohérence partielle PhaseA/DX1–3 relue ; ne vaut pas clôture transversale. Pas de score ni navigateur.
+
+31.10.2026 — DX4 puis DX5 rédigées et relues en passes distinctes ; C05/C06 langue. Chaque fichier a 14 questions et 25 conditions V8 ; 17 et 10 citations AIPS fraîches concordantes. Notices Hydrocortison-POS et Zaditen relues, indication/âge/durée propres à chaque produit. Suite DX6, pas de clôture du lot.
+
+31.10.2026 — DX6 produite puis relue séparément ; C07 langue,14 questions,25 conditionsV8,16 citations AIPS fraîches. Notices orale adulte et pédiatrique et formes Swissmedic vérifiées. Sources européennes partiellement accessibles déclarées. Contrôle transversal partiel de PhaseA etDX1–6 ; prochain DX7, lot non clôturé.

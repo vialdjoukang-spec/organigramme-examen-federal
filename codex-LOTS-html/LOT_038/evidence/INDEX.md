@@ -28,3 +28,12 @@ HUG traitements et facteurs/diagnostic/intervention03.09.2025 lus ; Moorfields p
 
 ## DX3 —31.10.2026
 S28 Moorfields présentation/facteurs lus ; S29 NHS révision12.06.2025 conseils, alertes et traitements conditionnels lus ; S30 SFO2023 passages ciblés Demodex lus, sans prétendre lire les2980lignes ni reprendre des prescriptions étrangères. HUG2025 blépharite déjà lu. Notice Tobrex relue pour indication blépharite, dose et précautions ;22citations retrouvées dans archive et texte frais. URL du College blepharitis inaccessible, non utilisée. Compendium présent dans des résultats de recherche non ouvert ni utilisé.
+
+## DX4 — 31.10.2026
+HUG allergies et œil rouge, Ameli contact et Eczema UK lus. Notice Hydrocortison-POS janvier 2018 lue et téléchargée fraîche ; 17 citations concordantes. Toutes les contre-indications, âge avant 18 ans non recommandé, surveillance et grossesse/allaitement relus.
+
+## DX5 — 31.10.2026
+HUG 2025 passage conjonctivite allergique relu ; résumés publics College of Optometrists saisonnière/vernale datés18.02.2025 et Ameli06.05.2025 lus. Contenu réservé du College non lu. Notice Zaditen juillet2022 relue ; 10 citations concordantes avec texte frais. Plafond six semaines propre au produit distingué du guide général deux mois.
+
+## DX6 — 31.10.2026
+HUG Mon enfant est malade Cellulite et présentation Berger27.11.2025 passages anatomie/complications lus ; les schémas de sinusite non compliquée ne sont pas transposés. BSAC parcours pédiatrique entier affiché et lu. NICE/ForthValley : extraits indexés seuls, documents complets refusés403 ; source déclarée partielle, sans date de mise à jour supposée. Amsterdamtimeout/HPCI502 puis refus directs403 : documents non lus intégralement ni utilisés pour prescrire. Recherches exactes et incidents archivés. Augmentin45674/53692 septembre2026 et Co-Amoxi-Mepha53982/57047 août2026 : indications/doses/CI/précautions/interactions/grossesse/allaitement/conservation lues ; HTTP200 frais,16 citations concordantes. Formes Swissmedic30.09.2026 vérifiées. Aucun protocole suisse spécifique pédiatrique déclaré disponible.

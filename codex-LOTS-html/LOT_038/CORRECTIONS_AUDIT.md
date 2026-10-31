@@ -7,3 +7,7 @@ Relecture interne uniquement. C01 : tableau des dix diagnostics avec préfixes e
 C03 — DX1 : espaces typographiques de la rédaction corrigées ; ne pas altérer les coupures historiques des citations AIPS. Héritage : les restrictions du collyre au bore priment sur le seuil pédiatrique général ; forme pommade45508 distincte.
 
 C04 — DX3 : espaces dose/unité/numéros dans réponse9. Cohérence partielle : dose Tobrex commune, duréesHUG7jours orgelet et10jours blépharite distinguées ; restrictions pédiatriques propres aux formes. Aucun contrôle des sept monographies absentes revendiqué.
+
+C05 DX4 : développement EXP et espaces ordinaires dans la rédaction. C06 DX5 : espaces autour des numéros et date de notice. Aucune citation AIPS modifiée. Relectures internes distinctes conservées dans audits/RELECTURE_DX4.md et RELECTURE_DX5.md. Pas de score, audit indépendant ou navigateur.
+
+C07 DX6 : phrase rénale scindée et sigleBSAC développé. Aucune modification des doses ou citations. Relecture clinique et limites sources consignées dans RELECTURE_DX6.md. Pas de score ni audit indépendant.
