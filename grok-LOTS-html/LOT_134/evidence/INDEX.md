@@ -8,7 +8,7 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 3. Rabe E, Pannier F. What have we learned from the Bonn Vein Study? Phlebolymphology. Enquête du 13.11.2000 au 15.3.2002, 3072 adultes. https://www.phlebolymphology.org/what-have-we-learned-from-the-bonn-vein-study/ — étude princeps citée par cette page : Rabe E et al. Phlebologie 2003;32:1-14.
 4. Wanhainen A et al. ESVS 2024 clinical practice guidelines on abdominal aorto-iliac artery aneurysms. Eur J Vasc Endovasc Surg. Texte intégral ouvert le 31.10.2026. Phrases citées dans `esvs2024_aaa.txt`. https://www.ejves.com/article/S1078-5884(23)00889-4/fulltext
 5. Björck M et al. Management of the diseases of mesenteric arteries and veins. ESVS, Eur J Vasc Endovasc Surg, publié le 29.3.2017. https://doi.org/10.1016/j.ejvs.2017.01.010
-6. Sartelli M et al. 2018 WSES/SIS-E consensus on skin and soft-tissue infections. World J Emerg Surg, 14 décembre 2018. https://link.springer.com/article/10.1186/s13017-018-0219-9
+6. Sartelli M et al. 2018 WSES/SIS-E consensus on skin and soft-tissue infections. World J Emerg Surg, 14 décembre 2018. Texte intégral Europe PMC lu le 31.10.2026. Phrases dans `wses2018_fasciite.txt`. https://link.springer.com/article/10.1186/s13017-018-0219-9
 7. Couderc M, Bart G, Coiffier G et al. 2020 French recommendations on septic arthritis in an adult native joint. Joint Bone Spine, publié le 3.8.2020. https://doi.org/10.1016/j.jbspin.2020.07.012
 8. Swissmedic, information professionnelle DAFALGAN comprimés, n° 69266, UPSA Switzerland AG, texte hors ligne du dépôt lu le 31.10.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/5ef966b419c74454924120d685e948cc-fr.html
 

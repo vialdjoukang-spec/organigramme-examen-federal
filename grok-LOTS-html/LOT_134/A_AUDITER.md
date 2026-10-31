@@ -16,6 +16,6 @@ Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille 
 | LOT_134_Phase_B_V0_DX.7.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2617 octets | non fait | T = 2.6 Ko (+ 37.1 Ko), 109 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.8.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2616 octets | non fait | T = 2.6 Ko (+ 37.7 Ko), 107 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.9.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2618 octets | non fait | T = 2.6 Ko (+ 40.3 Ko), 105 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.10.html | redacteur | VERT | 4026 octets | non fait |
+| LOT_134_Phase_B_V0_DX.10.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2430 octets | non fait | T = 2.4 Ko (+ 37.4 Ko), 114 fenêtres, 15 dépliants |
 
 Liste provisoire : `LISTE_DX_CANONIQUE_PROVISOIRE.md`. Le gel `LISTE_DX_CANONIQUE.md` appartient à l'auditeur médical.
