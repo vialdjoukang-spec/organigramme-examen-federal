@@ -1,7 +1,7 @@
-# REPRISE GROK — 31.10.2026 03:10
+# REPRISE GROK — 31.10.2026 10:30
 
 ## LOT_134
-- Phase_A : approfondie V8 · T = 8.5 (+ 73.1) Ko · 189 fenêtres, 15 dépliants · porte ORANGE (journal, sigles dans des citations) · postes : redacteur-phase-a → audit médical (passe distincte)
+- Phase_A : audit médical grok-4.6 · 8 corrections (3 graves : artérite vs ischémie, Alvarado, AAA CTA/bloc) · score 93 · T = 8.9 (+ 74.3) Ko · porte ORANGE · LISTE_DX_CANONIQUE.md gelée
 - DX.1 : rédigé · T = 3.7 (+ 46.1) Ko · 101 fenêtres · postes : redacteur → audit médical (passe distincte)
 - DX.2 : approfondi V8 · T = 4.1 (+ 46.1) Ko · 110 fenêtres, 15 dépliants · porte ORANGE (journal) · postes : redacteur → audit médical (passe distincte)
 - DX.3 : approfondi V8 · T = 3.3 (+ 43.5) Ko · 119 fenêtres, 15 dépliants · porte ORANGE (journal) · postes : redacteur → audit médical (passe distincte)

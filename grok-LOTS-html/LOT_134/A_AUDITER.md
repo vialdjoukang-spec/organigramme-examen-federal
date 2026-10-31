@@ -1,12 +1,12 @@
-# LOT_134 — à auditer (grok-4.6, run séparé)
+# LOT_134 — audit médical en cours (grok-4.6)
 
-Sujet : F1.5 « Anomalies à la palpation ». Rédaction grok-4.7. Aucun audit médical dans ce run.
+Sujet : F1.5 « Anomalies à la palpation ». Rédaction grok-4.7. Audit médical avec correction en place.
 
 Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille Atkinson Hyperlegible et l'absence de `[S1]`. La Phase A ajoute `title=` sur les abréviations. Ces critiques sont celles du modèle (piège P-01). La porte zéro jeton est le seuil de ce run.
 
-| Fichier | Poste consigné | Porte | x | Audit médical | Taille après approfondissement |
-|---|---|---|---|---|
-| LOT_134_Phase_A_V0.html | redacteur-phase-a, puis redacteur-phase-a (approfondissement V8) | ORANGE (journal, sigles) | 8549 octets | non fait | T = 8.5 Ko (+ 73.1 Ko), 189 fenêtres, 15 dépliants |
+| Fichier | Poste consigné | Porte | x | Audit médical | Taille |
+|---|---|---|---|---|---|
+| LOT_134_Phase_A_V0.html | redacteur-phase-a, puis auditeur-medical | ORANGE (journal, sigles) | 8936 octets | 8 corr. (0 crit., 3 graves) · score 93 | T = 8.9 Ko (+ 74.3 Ko), 189 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.1.html | redacteur, puis redacteur (approfondissement V8) | VERT | 3662 octets | non fait | T = 3.7 Ko (+ 46.1 Ko), 101 fenêtres |
 | LOT_134_Phase_B_V0_DX.2.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 4121 octets | non fait | T = 4.1 Ko (+ 46.1 Ko), 110 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.3.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 3325 octets | non fait | T = 3.3 Ko (+ 43.5 Ko), 119 fenêtres, 15 dépliants |

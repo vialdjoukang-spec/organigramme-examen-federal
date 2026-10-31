@@ -26,6 +26,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 
 15. Björck M et al. ESVS 2017, maladies des artères et veines mésentériques. DOI 10.1016/j.ejvs.2017.01.010. Page intégrale lue le 31.10.2026. Phrases dans `esvs2017_mesentere.txt`.
 
+16. Relu AIPS 69266 le 31.10.2026 (auditeur médical) : posologie rénale (3000 mg/j si clairance 10–50 ml/min ; 2000 mg/j si < 10 ml/min) et contre-indication Gilbert. Phrases dans `aips_69266_rein.txt`. Le fulltext ESVS 2024 sur ejves.com a répondu HTTP 403 à cette session ; les extraits locaux `esvs2024_aaa.txt` restent ceux lus le 31.10.2026.
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
