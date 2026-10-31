@@ -1,0 +1,11 @@
+# Recherche conservée pour la suite
+
+Reprendre DX2 sans saut. Sources HUG/EPOS et AIPS disponibles pour rhinite virale et médicamenteuse ; ne pas assimiler dépassement de dix jours à antibiothérapie. DX4 : HUG, Société suisse ORL2020 et NAIROS, bénéfice chez adultes sélectionnés ; une déviation asymptomatique ne s’opère pas automatiquement. Évaluer cornets et autres causes.
+
+DX5 polypes : EPOS et Nasonex54189, indication18ans,400microgrammes/j initial puis200après contrôle. Relire rubriques avant nouvelle fenêtre. DX6 adénoïdes : HUG2025 et S2k2023, sommeil/audition/examen du cavum ; observation possible sans retentissement, corticoïde local hors indication selon spécialité, chirurgie individualisée. S2k ne confirme pas l’ancienne explication unique par blocage mécanique du drainage de l’oreille ; ne pas recopier cette causalité simplifiée. Pas de dose pédiatrique d’allergie rebaptisée dose adénoïdes.
+
+DX7 : HUG/AP-HM corps étranger, pile et aimants, gestes sous visibilité. DX8 : HUG RUG traumatisme décrit tuméfaction molle dépressible sombre souvent bilatérale et appel ORL urgent/drainage dans24h ; ce délai n’est pas une attente à domicile. Le document évoque antibiotiques après drainage sans dosage : consulter les notices exactes avant d’en écrire. Complications abcès, nécrose cartilagineuse et atteinte intracrânienne ; radiographie standard non systématique du nez isolé.
+
+DX9 : CHUV et recommandations slovènes. Bilatéral nouveau-né : voie aérienne avant bilan ; unilatéral parfois tardif. Choanes bloquées par os/tissus, malformations associées à rechercher. CHUV décrit calendrier et technique propres, stents généralement évités ; ne pas promettre absence de risque. Recommandations slovènes proposent un calendrier différent, à attribuer si utilisé et jamais substituer à la stabilisation immédiate. Ne pas généraliser le passage de sonde de dépistage à tout nouveau-né. Le scanner unilatéral peut être réservé au bilan préopératoire si clinique/endoscopie évidentes selon ce référentiel.
+
+DX10 : ESMO2025 déjà lu, trois semaines n’est pas attente devant drapeau rouge, imagerie idéalement avant biopsie, histologies et périmètre de recommandations distincts. Une masse saignante chez adolescent peut aussi être un angiofibrome, évoqué dans S2k : ne pas biopsier à l’aveugle ni l’appeler cancer sans preuve.

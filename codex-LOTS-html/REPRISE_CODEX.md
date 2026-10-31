@@ -1,5 +1,7 @@
-# Reprise — LOT_031
+# Reprise exacte — LOT_031 DX2
 
-LOT_030 terminé : onze leçons V8,154questions,275/275contrôles statiques et60citations AIPS. Relecture interne et limites documentées. LOT_029e13cb7c4 et précédents conservés. Aucun navigateur ni audit indépendant.
+LOT_029 terminé et poussé :e13cb7c4. LOT_030 terminé et poussé :4e667c7e, onze leçons,154questions,275/275V8 et60citations AIPS. Ne pas recommencer les lots018–030.
 
-Prochaine production LOT_031 S1.15 Obstruction nasale ;103lots restent à achever jusqu’à133 inclus. État exact dans ETAT_CONTINUITE.json. Vérifier contrat, branche et borne fraîche, signer registre, pret/verifier et verrou exclusif avant production. Travail seul dans codex-LOTS-html/. Veilles locales minute durant la disponibilité du runtime, sans rédaction autonome.
+LOT_031 S1.15 Obstruction nasale : Phase A et DX1 présents et relus ;2/11HTML,28questions,29citations AIPS,49/50V8. L’échec correspond aux liens vers DX2–10 absents. Prochain fichier LOT_031/_travail/phase_b_2.py, Rhinite virale aiguë. Lire LOT_031/BRIEF_REPRISE.md, RECHERCHE_REPRISE.md et evidence/INDEX.md ; recherches et rédaction exactes sauvegardées. Pas de saut vers LOT032 avant achèvement.
+
+Contrat actif, borne fraîchement vérifiée133 incluse ;103lots à achever, dont031partiel. Au démarrage : dépôt frais, STOP/PAUSE, registre du jour, pret/verifier, verrou exclusif. Travail seul dans codex-LOTS-html/, aucun autre automate/branche/producteur modifié. Veilles minute uniquement tant que le runtime existe ; elles ne rédigent pas. Réglage confirmé Astra ultra, high recommandé sans changement simulé. Aucun audit indépendant, score ou navigateur.
