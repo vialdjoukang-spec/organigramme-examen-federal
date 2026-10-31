@@ -1,9 +1,9 @@
-# Reprise LOT_034 — Ronflement
+# Reprise LOTS — 31.10.2026
 
-LOT_033 terminé en production le 2026-10-31T10:41:09+00:00 : onze HTML,154questions,275/275V8,45citations AIPS,neuf groupes de corrections. Voir LOT_033/VALIDATION_FINALE.md et audits/RELECTURE_FINALE.md. Trois HTML sous80Ko historique ; tous sous plafonds de texte V8. Aucun audit indépendant ou validation clinique/navigateur.
+Branche `codex/lots` ; écritures uniquement dans `codex-LOTS-html/`. Borne fraîchement vérifiée : LOT_133. Ne pas reprendre LOT_018. LOT_033 terminé au commit `eb08d21a`. LOT_034 terminé en production : 11 HTML, 154 questions, 275/275 contrôles V8, 20 citations AIPS et quatre groupes de corrections réelles ; commit en préparation.
 
-Prochaine étape : LOT_034 S1.18 Ronflement, recherche suisse puis européenne, Phase A et relecture avant liste canonique et dix monographies. Borne fraîche18–133, sans saut. Le verrou de la session est conservé pour poursuivre immédiatement ; vérifier l’absence d’un producteur avant toute reprise extérieure.
+Nouvel ordre explicite de Vial : deux lots en parallèle. LOT_034 est produit par la session principale et LOT_035 par l’agent `/root/lot035`, qui écrit exclusivement dans son dossier. Ses onze HTML sont rédigés, mais sa relecture et ses contrôles sont encore en cours. Ne pas ouvrir LOT_036 avant la clôture du LOT_035. Le coordinateur détient le verrou global : ne pas lancer un producteur concurrent. Vérifier `ETAT_CONTINUITE.json` et l’activité réelle avant toute reprise.
 
-État exact et commit dans ETAT_CONTINUITE.json. Rapport ETAT_DES_LIEUX.html conservé comme photographie antérieure au commit d73fd507 :170leçons avant les six nouvelles ; ne pas le prendre pour un inventaire actualisé automatiquement. Production actuelle176HTML.
+Aucun audit indépendant, score, test navigateur ou validation clinique. Modèle confirmé par Vial : GPT-6 Astra, ultra ; high recommandé, réglage non modifié. Les veilles locales du contrat et du routage tournent chaque minute tant que l’environnement existe ; elles ne rédigent pas. L’automate existant reste inchangé.
 
-Travail seul et écritures codex-LOTS-html/ uniquement, branche codex/lots. STOP/PAUSE ultérieur prioritaire ; registre du jour et pret/verifier obligatoires. Les veilles contrôlent chaque minute tant que le runtime existe, sans rédiger.
+`ETAT_DES_LIEUX.html` reste l’instantané des 170 HTML précédant les dernières leçons du LOT_033. Il n’est pas actualisé automatiquement. Les preuves finales de chaque lot donnent l’état plus récent.

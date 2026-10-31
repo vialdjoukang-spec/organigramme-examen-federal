@@ -1,7 +1,7 @@
-# LOT_033 — S1.17 — checkpoint partiel
+# LOT_033 — S1.17 — production complète
 
-Phase A et DX1–4 rédigés, relus et contrôlés : conjonctivites virale, bactérienne, allergique et sécheresse oculaire. Cinq HTML autonomes,70parties et70questions. DX5–10 absents, six liens futurs de Phase A non résolus ; ne pas présenter le lot comme terminé.
+Onze leçons HTML, 154 parties et 154 questions ; clôture poussée au commit `eb08d21a`. Phase A et DX1–4 du checkpoint `3b1e7361` ont été préservés ; DX5–10 ont été complétés et relus. Le précédent texte de ce HELP décrivant cinq HTML était périmé. Il a été corrigé le 31.10.2026, sans modification des leçons.
 
-Sources exactes dans evidence/, scripts dans _travail/, rapports dans audits/. Aucun audit indépendant, score, test navigateur ou validation clinique humaine. Le prochain fichier est _travail/phase_b_5.py : Blépharite. Lire BRIEF_REPRISE.md.
+275/275 contrôles V8 positifs, 45 citations AIPS retrouvées, neuf groupes de corrections cumulés et neuf empreintes communes intactes. Lire `audits/RELECTURE_FINALE.md` et `BRIEF_REPRISE.md`. Les contrôles historiques restent négatifs ; aucun audit indépendant, score, test navigateur ou validation clinique. Les sources et scripts exacts sont conservés.
 
-Limites de spécialités : Zaditen Ophtha vise la conjonctivite saisonnière, dès3ans, maximum6semaines (différent du tableau HUG de classe à2mois). Viscotears : sécurité/efficacité pédiatriques non établies. Azyter :3jours, ni traitement universel de kératite ni remplacement d’un traitement systémique néonatal/gonococcique indiqué. Les trois exemples ne forment pas une prescription combinée ; leurs contraintes d’ordre nécessitent une prescription explicite si association.
+Les exemples pharmacologiques ne remplacent pas une prescription individualisée. Les contraintes d’âge, de forme, d’indication, de grossesse et d’allaitement ainsi que les contre-indications sont détaillées dans les leçons. Les traitements systémiques de la sclérite restent individualisés ; cette limite est explicite.

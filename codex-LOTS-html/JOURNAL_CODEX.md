@@ -62,3 +62,7 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T09:55:39+00:00 — Checkpoint LOT_033 poussé 3b1e7361 ; verrou officiellement libéré. Veilles minute laissées actives dans cet environnement, sans capacité de rédaction ni garantie de survie du runtime. Automatisation dédiée conservée ; borne133non atteinte.
 
 2026-10-31T10:41:09+00:00 — LOT_033 terminé en production :11HTML,154questions,275/275V8,45citations AIPS,neuf groupes de corrections. Cinq HTML antérieurs inchangés. Aucun audit indépendant, score ou navigateur. Contrôles historiques négatifs et trois fichiers sous80Ko signalés. Suite LOT_034.
+
+31.10.2026 — Nouvel ordre explicite de Vial : deux LOTs en parallèle. LOT_034 principal, LOT_035 agent dédié /root/lot035, écritures disjointes ; verrou et Git restent sous coordination principale. Autorisation registre LOT_035 vérifiée. Aucun audit indépendant implicite.
+
+2026-10-31T11:07:13.640733+00:00 — LOT034 terminéenproduction :11HTML,154parties/154questions,275/275V8,20citationsAIPS,4groupescorrectionsréelles,9empreintescommunesintactes. 7fichierssousanciennebande80Ko,tousplafondsV8respectés. Contrôleshistoriquesnégatifsconservés ; pasdauditindépendant,navigateurnivalidationclinique. LOT035encoursenparallèle. CorrectiondocumentaireHELP033 : anciencheckpointpartiel périmé, aucunHTML033modifié.
