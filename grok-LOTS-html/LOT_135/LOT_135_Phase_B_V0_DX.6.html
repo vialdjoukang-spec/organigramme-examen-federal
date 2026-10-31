@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DX.6 — Occlusion de l'intestin grêle sur bride</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}h1,h2,h3,.barre,summary,nav,caption,th{font-family:"Atkinson Hyperlegible",Verdana,sans-serif}h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}h3{font-size:1.08rem;color:var(--titre);margin:1rem 0 .3rem}p,.para{margin:0 0 .55rem}
+.sous{color:var(--doux);font-size:.95rem}.essentiel{border-left-width:4px}.essentiel h2{font-size:1.1rem}nav ol{padding-left:1.6rem;margin:.4rem 0 0}nav li{margin:.15rem 0}a{color:var(--lien)}.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.7rem .9rem;margin:.7rem 0}.urgence strong{color:var(--alerte)}button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre);font-size:.98rem}.fenetre::backdrop{background:var(--voile)}.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700;font-size:.95rem}.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);font-size:1rem;cursor:pointer}.barre button:hover{background:var(--alerte);color:#fff}.corps{padding:1rem 1.2rem 1.2rem}
+.corps p:last-child{margin-bottom:0}details.deplier{display:inline}details.deplier>summary{display:inline;cursor:pointer;list-style:none;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}details.deplier>summary::-webkit-details-marker{display:none}details.deplier>summary::after{content:" ▸";font-size:.8em}details.deplier[open]>summary::after{content:" ▾"}details.deplier>span{display:block;margin:.4rem 0 .6rem;padding:.5rem .8rem;border-left:3px solid var(--bord);background:var(--encadre);border-radius:0 6px 6px 0;font-size:.97rem}.tw{overflow-x:auto;margin:.6rem 0 1rem}table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}th{background:var(--th);font-size:.85rem}caption{text-align:left;font-weight:700;font-size:.9rem;padding:.2rem 0 .4rem}.algo li,.cles li{margin:.5rem 0}details.quiz{border:1px solid var(--trait);border-radius:8px;padding:.5rem .8rem;margin:.5rem 0}details.quiz>summary{cursor:pointer;font-weight:600}details.quiz>p{margin:.5rem 0 .1rem}figure{margin:1.2rem 0}figure svg{width:100%;height:auto;max-width:34rem;display:block;margin:auto;color:var(--texte)}figcaption{font-size:.88rem;color:var(--doux);text-align:center;margin-top:.3rem}.sources{font-size:.86rem;line-height:1.5}.sources li{margin:.3rem 0}
+.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}@media (max-width:480px){body{font-size:1rem}main{padding:1.4rem 16px 3rem}h1{font-size:1.45rem}h2{font-size:1.2rem}.corps{padding:.8rem}table{font-size:.84rem}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}@media (prefers-color-scheme:dark){sup.s{color:#8fb4ff}abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}figure.schema svg{max-width:100%;height:auto}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem;box-shadow:0 1px 2px var(--o1),0 6px 16px var(--o2)}.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}.ilot>:last-child,.ilot>.para:last-child{margin-bottom:0}.urgence{background:var(--page)}.lv{stroke:var(--vert)}.lc{stroke:var(--ciel)}.pv{fill:var(--vert)}.pc{fill:var(--ciel)}.tv{fill:var(--vert)}.tc{fill:var(--ciel)}.zr{fill:var(--alerte);opacity:.16}.zc{fill:var(--ciel);opacity:.16}.zv{fill:var(--vert);opacity:.18}.fenetre figure{margin:0}.fenetre figcaption{text-align:left;margin-top:.5rem}@media (max-width:480px){main{padding:.8rem 16px 2rem}
+.ilot{padding:.75rem 12px .5rem}.som{columns:2;column-gap:1.4rem}.som li{break-inside:avoid}.corps h3:first-child{margin-top:0}.fenetre.sousf{translate:1.2rem 1.2rem;z-index:2}@media (max-width:480px){.fenetre.sousf{translate:.4rem .9rem;width:min(88vw,44rem)}
+</style>
+</head>
+<body>
+<main>
+<h1 id="titre">Occlusion de l'intestin grêle sur bride</h1>
+<p class="taille" id="taille">Taille : T = 2.8 Ko (+ 36.6 Ko) · lecture de la fiche ≈ 2 min · 108 fenêtres, 15 dépliants</p>
+<p class="sous">DX.6 du cours F1.6. Le rang d'exclusion n'est pas le numéro DX. Texte du 31.10.2026.</p>
+<h2>DX.6 — Occlusion de l'intestin grêle sur bride</h2>
+<section class="ilot c essentiel"><h2 id="ess">L'essentiel</h2>
+<p>Un abdomen qui se distend et devient tympanique, avec des vomissements et une cicatrice, fait chercher une occlusion sur bride. Le tympanisme est un signe tardif, dit la revue de 2016. La main ne voit l'étranglement que dans 48 % des cas, selon le texte de Bologne.</p>
+</section>
+
+<nav class="ilot v" aria-labelledby="som">
+<h2 id="som">Sommaire</h2>
+<ol class="som">
+<li><a href="#p1">1. Définition</a></li>
+<li><a href="#p2">2. Épidémiologie</a></li>
+<li><a href="#p3">3. Physiopathologie</a></li>
+<li><a href="#p4">4. Démarche diagnostique</a></li>
+<li><a href="#p5">5. Anamnèse et drapeaux rouges</a></li>
+<li><a href="#p6">6. Examen physique</a></li>
+<li><a href="#p7">7. Approche syndromique</a></li>
+<li><a href="#p8">8. Diagnostic positif</a></li>
+<li><a href="#p9">9. Examens complémentaires</a></li>
+<li><a href="#p10">10. Arbre décisionnel</a></li>
+<li><a href="#p11">11. Prise en charge en Suisse</a></li>
+<li><a href="#p12">12. Prévention</a></li>
+<li><a href="#p13">13. Points clés</a></li>
+<li><a href="#p14">14. Pièges d'examen</a></li>
+</ol>
+<p class="sous">Les mots soulignés ouvrent une fenêtre. Les sources sont à la fin.</p>
+</nav>
+<section class="ilot c"><h2 id="p1">1. Définition</h2>
+<p>L'occlusion de l'intestin grêle sur bride est un arrêt du transit par une adhérence, presque toujours après une chirurgie. Le son tardif est le tympanisme. Une définition suisse séparée n'a pas été relue : À vérifier.</p>
+</section>
+
+<section class="ilot v"><h2 id="p2">2. Épidémiologie</h2>
+<p>Aux urgences, la revue de 2016 compte 15 % des douleurs abdominales. En premier recours, c'est exceptionnel. <button type="button" class="terme" popovertarget="w-dx6-epi">15 %</button></p>
+<div id="w-dx6-epi" popover class="fenetre"><div class="barre"><span>15 % aux urgences, pas au cabinet</span><button type="button" popovertarget="w-dx6-epi" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Revue Médicale Suisse, 2 novembre 2016 : 15 % des douleurs abdominales dans un centre d'urgences.</p>
+<p>Exceptionnel en médecine de premier recours.</p>
+<p>Récidive d'environ 15 à 20 % après un épisode.</p>
+<p>On le cherche après une chirurgie, une radiothérapie, une hernie, un cancer, une maladie inflammatoire, ou en postopératoire.</p>
+<p>Ces pourcentages ne sont pas une incidence suisse en population. Le rang DX.6 reste À vérifier face aux maladies plus rares dont le chiffre manque.</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p3">3. Physiopathologie</h2>
+<p>L'air piégé en amont de l'obstacle distend l'anse. Le doigt entend un tympanisme diffus. Ce n'est pas le premier signe.</p>
+<div id="w-dx6-phys" popover class="fenetre"><div class="barre"><span>Air en amont, son tardif</span><button type="button" popovertarget="w-dx6-phys" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>L'obstacle arrête le flux. L'air et le liquide s'accumulent.</p>
+<p>Le tympanisme diffus vient quand la distension est déjà là.</p>
+<p>La revue dit que c'est un signe tardif.</p>
+<p>L'auscultation ne sépare pas l'occlusion aiguë, subaiguë et l'absence d'occlusion, dans les études citées par cet article.</p>
+<p>Un ventre encore souple n'exclut pas une ischémie déjà installée.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p4">4. Démarche diagnostique</h2>
+<p>E3 : la souffrance d'intestin passe avant le confort. Le traitement non opératoire est interdit s'il y a péritonite ou ischémie. <button type="button" class="terme" popovertarget="w-dx6-dem">place</button> <button type="button" class="terme" popovertarget="w-dx6-index">extraits lus</button></p>
+<div id="w-dx6-dem" popover class="fenetre"><div class="barre"><span>48 % et l'opération</span><button type="button" popovertarget="w-dx6-dem" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Sensibilité de l'examen pour l'étranglement : 48 %, même entre des mains expertes, texte de Bologne.</p>
+<p>On ne rassure donc pas sur un abdomen acceptable.</p>
+<p>Péritonite, étranglement, ischémie : pas de traitement non opératoire.</p>
+<p>E3 place cette décision haut, derrière la perforation et le pneumothorax instable.</p>
+</div></div><div id="w-dx6-index" popover class="fenetre"><div class="barre"><span>Extraits des sources lues</span><button type="button" popovertarget="w-dx6-index" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 1. <button type="button" class="terme" popovertarget="w-dx6-q1">ouvrir 1</button></p>
+<p>Extrait 2. <button type="button" class="terme" popovertarget="w-dx6-q2">ouvrir 2</button></p>
+<p>Extrait 3. <button type="button" class="terme" popovertarget="w-dx6-q3">ouvrir 3</button></p>
+<p>Extrait 4. <button type="button" class="terme" popovertarget="w-dx6-q4">ouvrir 4</button></p>
+<p>Extrait 5. <button type="button" class="terme" popovertarget="w-dx6-q5">ouvrir 5</button></p>
+<p>Extrait 6. <button type="button" class="terme" popovertarget="w-dx6-q6">ouvrir 6</button></p>
+<p>Extrait 7. <button type="button" class="terme" popovertarget="w-dx6-q7">ouvrir 7</button></p>
+<p>Extrait 8. <button type="button" class="terme" popovertarget="w-dx6-q8">ouvrir 8</button></p>
+<p>Extrait 9. <button type="button" class="terme" popovertarget="w-dx6-q9">ouvrir 9</button></p>
+<p>Extrait 10. <button type="button" class="terme" popovertarget="w-dx6-q10">ouvrir 10</button></p>
+<p>Extrait 11. <button type="button" class="terme" popovertarget="w-dx6-q11">ouvrir 11</button></p>
+<p>Extrait 12. <button type="button" class="terme" popovertarget="w-dx6-q12">ouvrir 12</button></p>
+<p>Extrait 13. <button type="button" class="terme" popovertarget="w-dx6-q13">ouvrir 13</button></p>
+<p>Extrait 14. <button type="button" class="terme" popovertarget="w-dx6-q14">ouvrir 14</button></p>
+<p>Extrait 15. <button type="button" class="terme" popovertarget="w-dx6-q15">ouvrir 15</button></p>
+<p>Extrait 16. <button type="button" class="terme" popovertarget="w-dx6-q16">ouvrir 16</button></p>
+<p>Extrait 17. <button type="button" class="terme" popovertarget="w-dx6-q17">ouvrir 17</button></p>
+<p>Extrait 18. <button type="button" class="terme" popovertarget="w-dx6-q18">ouvrir 18</button></p>
+<p>Extrait 19. <button type="button" class="terme" popovertarget="w-dx6-q19">ouvrir 19</button></p>
+<p>Extrait 20. <button type="button" class="terme" popovertarget="w-dx6-q20">ouvrir 20</button></p>
+<p>Extrait 21. <button type="button" class="terme" popovertarget="w-dx6-q21">ouvrir 21</button></p>
+<p>Extrait 22. <button type="button" class="terme" popovertarget="w-dx6-q22">ouvrir 22</button></p>
+<p>Extrait 23. <button type="button" class="terme" popovertarget="w-dx6-q23">ouvrir 23</button></p>
+<p>Extrait 24. <button type="button" class="terme" popovertarget="w-dx6-q24">ouvrir 24</button></p>
+<p>Extrait 25. <button type="button" class="terme" popovertarget="w-dx6-q25">ouvrir 25</button></p>
+<p>Extrait 26. <button type="button" class="terme" popovertarget="w-dx6-q26">ouvrir 26</button></p>
+<p>Extrait 27. <button type="button" class="terme" popovertarget="w-dx6-q27">ouvrir 27</button></p>
+<p>Extrait 28. <button type="button" class="terme" popovertarget="w-dx6-q28">ouvrir 28</button></p>
+<p>Extrait 29. <button type="button" class="terme" popovertarget="w-dx6-q29">ouvrir 29</button></p>
+<p>Extrait 30. <button type="button" class="terme" popovertarget="w-dx6-q30">ouvrir 30</button></p>
+<p>Extrait 31. <button type="button" class="terme" popovertarget="w-dx6-q31">ouvrir 31</button></p>
+<p>Extrait 32. <button type="button" class="terme" popovertarget="w-dx6-q32">ouvrir 32</button></p>
+<p>Extrait 33. <button type="button" class="terme" popovertarget="w-dx6-q33">ouvrir 33</button></p>
+<p>Extrait 34. <button type="button" class="terme" popovertarget="w-dx6-q34">ouvrir 34</button></p>
+<p>Extrait 35. <button type="button" class="terme" popovertarget="w-dx6-q35">ouvrir 35</button></p>
+<p>Extrait 36. <button type="button" class="terme" popovertarget="w-dx6-q36">ouvrir 36</button></p>
+<p>Extrait 37. <button type="button" class="terme" popovertarget="w-dx6-q37">ouvrir 37</button></p>
+<p>Extrait 38. <button type="button" class="terme" popovertarget="w-dx6-q38">ouvrir 38</button></p>
+<p>Extrait 39. <button type="button" class="terme" popovertarget="w-dx6-q39">ouvrir 39</button></p>
+<p>Extrait 40. <button type="button" class="terme" popovertarget="w-dx6-q40">ouvrir 40</button></p>
+<p>Extrait 41. <button type="button" class="terme" popovertarget="w-dx6-q41">ouvrir 41</button></p>
+<p>Extrait 42. <button type="button" class="terme" popovertarget="w-dx6-q42">ouvrir 42</button></p>
+<p>Extrait 43. <button type="button" class="terme" popovertarget="w-dx6-q43">ouvrir 43</button></p>
+<p>Extrait 44. <button type="button" class="terme" popovertarget="w-dx6-q44">ouvrir 44</button></p>
+<p>Extrait 45. <button type="button" class="terme" popovertarget="w-dx6-q45">ouvrir 45</button></p>
+<p>Extrait 46. <button type="button" class="terme" popovertarget="w-dx6-q46">ouvrir 46</button></p>
+<p>Extrait 47. <button type="button" class="terme" popovertarget="w-dx6-q47">ouvrir 47</button></p>
+<p>Extrait 48. <button type="button" class="terme" popovertarget="w-dx6-q48">ouvrir 48</button></p>
+<p>Extrait 49. <button type="button" class="terme" popovertarget="w-dx6-q49">ouvrir 49</button></p>
+<p>Extrait 50. <button type="button" class="terme" popovertarget="w-dx6-q50">ouvrir 50</button></p>
+<p>Extrait 51. <button type="button" class="terme" popovertarget="w-dx6-q51">ouvrir 51</button></p>
+<p>Extrait 52. <button type="button" class="terme" popovertarget="w-dx6-q52">ouvrir 52</button></p>
+<p>Extrait 53. <button type="button" class="terme" popovertarget="w-dx6-q53">ouvrir 53</button></p>
+<p>Extrait 54. <button type="button" class="terme" popovertarget="w-dx6-q54">ouvrir 54</button></p>
+<p>Extrait 55. <button type="button" class="terme" popovertarget="w-dx6-q55">ouvrir 55</button></p>
+<p>Extrait 56. <button type="button" class="terme" popovertarget="w-dx6-q56">ouvrir 56</button></p>
+<p>Extrait 57. <button type="button" class="terme" popovertarget="w-dx6-q57">ouvrir 57</button></p>
+<p>Extrait 58. <button type="button" class="terme" popovertarget="w-dx6-q58">ouvrir 58</button></p>
+<p>Extrait 59. <button type="button" class="terme" popovertarget="w-dx6-q59">ouvrir 59</button></p>
+<p>Extrait 60. <button type="button" class="terme" popovertarget="w-dx6-q60">ouvrir 60</button></p>
+<p>Extrait 61. <button type="button" class="terme" popovertarget="w-dx6-q61">ouvrir 61</button></p>
+<p>Extrait 62. <button type="button" class="terme" popovertarget="w-dx6-q62">ouvrir 62</button></p>
+<p>Extrait 63. <button type="button" class="terme" popovertarget="w-dx6-q63">ouvrir 63</button></p>
+<p>Extrait 64. <button type="button" class="terme" popovertarget="w-dx6-q64">ouvrir 64</button></p>
+<p>Extrait 65. <button type="button" class="terme" popovertarget="w-dx6-q65">ouvrir 65</button></p>
+<p>Extrait 66. <button type="button" class="terme" popovertarget="w-dx6-q66">ouvrir 66</button></p>
+<p>Extrait 67. <button type="button" class="terme" popovertarget="w-dx6-q67">ouvrir 67</button></p>
+<p>Extrait 68. <button type="button" class="terme" popovertarget="w-dx6-q68">ouvrir 68</button></p>
+<p>Extrait 69. <button type="button" class="terme" popovertarget="w-dx6-q69">ouvrir 69</button></p>
+<p>Extrait 70. <button type="button" class="terme" popovertarget="w-dx6-q70">ouvrir 70</button></p>
+<p>Extrait 71. <button type="button" class="terme" popovertarget="w-dx6-q71">ouvrir 71</button></p>
+<p>Extrait 72. <button type="button" class="terme" popovertarget="w-dx6-q72">ouvrir 72</button></p>
+<p>Extrait 73. <button type="button" class="terme" popovertarget="w-dx6-q73">ouvrir 73</button></p>
+<p>Extrait 74. <button type="button" class="terme" popovertarget="w-dx6-q74">ouvrir 74</button></p>
+<p>Extrait 75. <button type="button" class="terme" popovertarget="w-dx6-q75">ouvrir 75</button></p>
+<p>Extrait 76. <button type="button" class="terme" popovertarget="w-dx6-q76">ouvrir 76</button></p>
+<p>Extrait 77. <button type="button" class="terme" popovertarget="w-dx6-q77">ouvrir 77</button></p>
+<p>Extrait 78. <button type="button" class="terme" popovertarget="w-dx6-q78">ouvrir 78</button></p>
+<p>Extrait 79. <button type="button" class="terme" popovertarget="w-dx6-q79">ouvrir 79</button></p>
+<p>Extrait 80. <button type="button" class="terme" popovertarget="w-dx6-q80">ouvrir 80</button></p>
+<p>Extrait 81. <button type="button" class="terme" popovertarget="w-dx6-q81">ouvrir 81</button></p>
+<p>Extrait 82. <button type="button" class="terme" popovertarget="w-dx6-q82">ouvrir 82</button></p>
+<p>Extrait 83. <button type="button" class="terme" popovertarget="w-dx6-q83">ouvrir 83</button></p>
+<p>Extrait 84. <button type="button" class="terme" popovertarget="w-dx6-q84">ouvrir 84</button></p>
+<p>Extrait 85. <button type="button" class="terme" popovertarget="w-dx6-q85">ouvrir 85</button></p>
+<p>Extrait 86. <button type="button" class="terme" popovertarget="w-dx6-q86">ouvrir 86</button></p>
+<p>Extrait 87. <button type="button" class="terme" popovertarget="w-dx6-q87">ouvrir 87</button></p>
+<p>Extrait 88. <button type="button" class="terme" popovertarget="w-dx6-q88">ouvrir 88</button></p>
+<p>Extrait 89. <button type="button" class="terme" popovertarget="w-dx6-q89">ouvrir 89</button></p>
+<p>Extrait 90. <button type="button" class="terme" popovertarget="w-dx6-q90">ouvrir 90</button></p>
+<p>Extrait 91. <button type="button" class="terme" popovertarget="w-dx6-q91">ouvrir 91</button></p>
+<p>Extrait 92. <button type="button" class="terme" popovertarget="w-dx6-q92">ouvrir 92</button></p>
+<p>Extrait 93. <button type="button" class="terme" popovertarget="w-dx6-q93">ouvrir 93</button></p>
+<p>Extrait 94. <button type="button" class="terme" popovertarget="w-dx6-q94">ouvrir 94</button></p>
+<p>Extrait 95. <button type="button" class="terme" popovertarget="w-dx6-q95">ouvrir 95</button></p>
+<p>Extrait 96. <button type="button" class="terme" popovertarget="w-dx6-q96">ouvrir 96</button></p>
+<p>Extrait 97. <button type="button" class="terme" popovertarget="w-dx6-q97">ouvrir 97</button></p>
+<p>Extrait 98. <button type="button" class="terme" popovertarget="w-dx6-q98">ouvrir 98</button></p>
+</div></div><div id="w-dx6-q1" popover class="fenetre"><div class="barre"><span>Extrait 1</span><button type="button" popovertarget="w-dx6-q1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 1, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Son RV+ est de 1,2 et son RV- de 0,45. ### Orifices herniaires 5, 6 L’inspection et la palpation des orifices herniaires (figure 5) font partie de l’examen clinique abdominal.»</p>
+</div></div><div id="w-dx6-q2" popover class="fenetre"><div class="barre"><span>Extrait 2</span><button type="button" popovertarget="w-dx6-q2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 2, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Un homme sur quatre a une hernie inguinale médicalement reconnaissable à l’examen clinique. ##### Fig 5 Orifices herniaires Les orifices herniaires inguinaux se palpent lors de plaintes anamnestiques de voussures inguinales, de sensation d’étirement, de déchirure, de lourdeurs ou de douleur au niveau inguinal.»</p>
+</div></div><div id="w-dx6-q3" popover class="fenetre"><div class="barre"><span>Extrait 3</span><button type="button" popovertarget="w-dx6-q3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 3, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Cet examen a de bonnes sensibilité et spécificité, de respectivement 75 et 95 %, ce qui permet de calculer les rapports de vraisemblance du test : RV+ 15 et RV- 0,26.»</p>
+</div></div><div id="w-dx6-q4" popover class="fenetre"><div class="barre"><span>Extrait 4</span><button type="button" popovertarget="w-dx6-q4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 4, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«L’examinateur doit inspecter la zone à la recherche d’une voussure spontanée et lors d’une manœuvre de Valsalva.»</p>
+</div></div><div id="w-dx6-q5" popover class="fenetre"><div class="barre"><span>Extrait 5</span><button type="button" popovertarget="w-dx6-q5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 5, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«La palpation se fait par invagination du scrotum avec l’index en partant de la partie basse du scrotum en suivant le cordon spermatique jusqu’à l’anneau inguinal superficiel (externe).»</p>
+</div></div><div id="w-dx6-q6" popover class="fenetre"><div class="barre"><span>Extrait 6</span><button type="button" popovertarget="w-dx6-q6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 6, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Une hernie inguinale directe est confirmée si une impulsion ou une voussure est ressentie sous le doigt.»</p>
+</div></div><div id="w-dx6-q7" popover class="fenetre"><div class="barre"><span>Extrait 7</span><button type="button" popovertarget="w-dx6-q7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 7, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Une fois ces pathologies exclues, 90 % des lésions présentes au toucher rectal (TR) sont gérables par le MPR.»</p>
+</div></div><div id="w-dx6-q8" popover class="fenetre"><div class="barre"><span>Extrait 8</span><button type="button" popovertarget="w-dx6-q8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 8, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Il est à effectuer dans les situations citées dans le tableau 3. ##### Fig 7 Toucher rectal : rappel anatomique ##### Tableau 3 Situations nécessitant un toucher rectal L’examen clinique se fait en décubitus latéral, les genoux sur la poitrine.»</p>
+</div></div><div id="w-dx6-q9" popover class="fenetre"><div class="barre"><span>Extrait 9</span><button type="button" popovertarget="w-dx6-q9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 9, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Lors de l’inspection des zones sacro-coccygiennes et périanales, on peut observer les pathologies décrites dans le tableau 4.»</p>
+</div></div><div id="w-dx6-q10" popover class="fenetre"><div class="barre"><span>Extrait 10</span><button type="button" popovertarget="w-dx6-q10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 10, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Après l’inspection, le TR se fait de la façon suivante : lubrifier son gant, expliquer le geste et demander au patient de pousser.»</p>
+</div></div><div id="w-dx6-q11" popover class="fenetre"><div class="barre"><span>Extrait 11</span><button type="button" popovertarget="w-dx6-q11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 11, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Evaluer le tonus sphinctérien (sphincter interne) et demander au patient de contracter afin de vérifier le tonus du sphincter externe.»</p>
+</div></div><div id="w-dx6-q12" popover class="fenetre"><div class="barre"><span>Extrait 12</span><button type="button" popovertarget="w-dx6-q12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 12, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Palper le plus de surface rectale possible en tournant le doigt à 360° et rechercher des douleurs, des masses, des indurations ou des irrégularités.»</p>
+</div></div><div id="w-dx6-q13" popover class="fenetre"><div class="barre"><span>Extrait 13</span><button type="button" popovertarget="w-dx6-q13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 13, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Les signes cliniques typiques sont une sensibilité au point de Mac Burney (figure 8), le signe du psoas (figure 9) et de l’obturateur (figure 10).»</p>
+</div></div><div id="w-dx6-q14" popover class="fenetre"><div class="barre"><span>Extrait 14</span><button type="button" popovertarget="w-dx6-q14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 14, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Le signe de Rovsing est décrit comme une douleur en fosse iliaque droite (FID) lors de pression exercée en fosse iliaque gauche (FIG).»</p>
+</div></div><div id="w-dx6-q15" popover class="fenetre"><div class="barre"><span>Extrait 15</span><button type="button" popovertarget="w-dx6-q15" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 15, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Le tableau 5 décrit les symptômes et les signes permettant d’inclure un diagnostic d’appendicite.»</p>
+</div></div><div id="w-dx6-q16" popover class="fenetre"><div class="barre"><span>Extrait 16</span><button type="button" popovertarget="w-dx6-q16" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 16, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«L’absence de ces signes ne permet pas d’exclure une appendicite. ##### Fig 8 Point de Mc Burney 1: Point de Mac Burney ; 2: Ombilic ; 3: Crête iliaque antérieure. ##### Fig 9 Signe du psoas En décubitus dorsal : demander au patient de lever la jambe contre résistance, main placée au-dessus du genou.»</p>
+</div></div><div id="w-dx6-q17" popover class="fenetre"><div class="barre"><span>Extrait 17</span><button type="button" popovertarget="w-dx6-q17" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 17, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«La présence de douleurs signe une irritation du psoas par un appendice enflammé. ##### Fig 10 Signe de l’obturateur Flexion passive de la hanche et du genou droit, rotation interne de la hanche droite.»</p>
+</div></div><div id="w-dx6-q18" popover class="fenetre"><div class="barre"><span>Extrait 18</span><button type="button" popovertarget="w-dx6-q18" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 18, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Ce signe provoque l’étirement du muscle obturateur, il est positif s’il produit une douleur abdominale à droite.»</p>
+</div></div><div id="w-dx6-q19" popover class="fenetre"><div class="barre"><span>Extrait 19</span><button type="button" popovertarget="w-dx6-q19" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 19, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Il reflète une irritation du muscle obturateur possiblement provoquée par l’appendice enflammé. ##### Tableau 5 Symptômes et signes discriminatifs lors de suspicion d’appendicite 4, 10– 12 Le score d’Alvarado permet de stratifier le risque d’appendicite.»</p>
+</div></div><div id="w-dx6-q20" popover class="fenetre"><div class="barre"><span>Extrait 20</span><button type="button" popovertarget="w-dx6-q20" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 20, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Un score ≥ 7 est fortement évocateur d’une appendicite et devrait orienter vers une stratégie opératoire (RV+ 3,1 ; RV- 0,26). www.mdcalc.com/alvarado-score-for-acute-appendicitis/ ## Diverticulite 13– 15 La diverticulose est présente chez 10 % des personnes de plus de 45 ans et 80 % des patients de plus de 85 ans.»</p>
+</div></div><div id="w-dx6-q21" popover class="fenetre"><div class="barre"><span>Extrait 21</span><button type="button" popovertarget="w-dx6-q21" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 21, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«La prévalence de la diverticulite au cours de la vie chez les gens connus pour une diverticulose est de 25 %.»</p>
+</div></div><div id="w-dx6-q22" popover class="fenetre"><div class="barre"><span>Extrait 22</span><button type="button" popovertarget="w-dx6-q22" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 22, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Les facteurs prédisposants sont l’âge, les antécédents familiaux, la prise d’AINS, l’obésité, la sédentarité, la constipation chronique, le tabagisme et l’alimentation pauvre en fibres.»</p>
+</div></div><div id="w-dx6-q23" popover class="fenetre"><div class="barre"><span>Extrait 23</span><button type="button" popovertarget="w-dx6-q23" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 23, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«L’unique signe relevant est la sensibilité en FIG isolée avec un RV+ de 10 (tableau 6). ##### Tableau 6 Diverticulite FIG : fosse iliaque gauche. ## Cholecystite Environ 5 % des patients consultant dans un centre d’urgences pour des douleurs abdominales aiguës ont une cholécystite.»</p>
+</div></div><div id="w-dx6-q24" popover class="fenetre"><div class="barre"><span>Extrait 24</span><button type="button" popovertarget="w-dx6-q24" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 24, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Aucune combinaison de symptômes et / ou de signes cliniques ne permet de poser un diagnostic de cholécystite avec certitude.»</p>
+</div></div><div id="w-dx6-q25" popover class="fenetre"><div class="barre"><span>Extrait 25</span><button type="button" popovertarget="w-dx6-q25" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 25, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Le signe de Murphy, douleur bloquant la respiration à la palpation de l’hypochondre droit, est un examen peu discriminatif (tableau 7). ##### Tableau 7 Cholécystite 4 ## Ascite En MPR, sa prévalence est estimée à 5 %.»</p>
+</div></div><div id="w-dx6-q26" popover class="fenetre"><div class="barre"><span>Extrait 26</span><button type="button" popovertarget="w-dx6-q26" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 26, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Il faut la rechercher cliniquement en présence d’une histoire de cirrhose, d’insuffisance cardiaque, de syndrome néphrotique, de néoplasie et des symptômes suivants : augmentation du périmètre abdominal anamnestique, prise de poids récente ou œdème des chevilles.»</p>
+</div></div><div id="w-dx6-q27" popover class="fenetre"><div class="barre"><span>Extrait 27</span><button type="button" popovertarget="w-dx6-q27" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 27, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«L’examen clinique comprend la recherche du bombement des flancs, la mesure du périmètre abdominal, la percussion de la limite de la matité déclive en décubitus dorsal et la variation de cette limite de matité en décubitus latéral.»</p>
+</div></div><div id="w-dx6-q28" popover class="fenetre"><div class="barre"><span>Extrait 28</span><button type="button" popovertarget="w-dx6-q28" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 28, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Il faut rechercher le signe du flot qui est le meilleur test clinique (figure 11, tableau 8). ##### Fig 11 Signe du flot La main sur la ligne médiane de l’abdomen bloque la transmission de l’impulsion par la graisse → donner des coups secs sur un flan et percevoir l’impulsion sur le flanc opposé.»</p>
+</div></div><div id="w-dx6-q29" popover class="fenetre"><div class="barre"><span>Extrait 29</span><button type="button" popovertarget="w-dx6-q29" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 29, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Ce signe est souvent négatif si l’ascite est peu abondante. ##### Tableau 8 Ascite L’absence de ces signes n’exclut pas la présence de petite quantité d’ascite. ## Iléus mécanique et paralytique 16– 19 Sa prévalence dans un centre d’urgences représente 15 % des douleurs abdominales.»</p>
+</div></div><div id="w-dx6-q30" popover class="fenetre"><div class="barre"><span>Extrait 30</span><button type="button" popovertarget="w-dx6-q30" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 30, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Il faut le rechercher en cas d’antécédent d’iléus car la récidive d’un épisode occlusif est d’environ 15 à 20 %, en cas d’antécédent de chirurgie abdominale, de néoplasie, de hernie, de maladie intestinale inflammatoire ou en situation postopératoire.»</p>
+</div></div><div id="w-dx6-q31" popover class="fenetre"><div class="barre"><span>Extrait 31</span><button type="button" popovertarget="w-dx6-q31" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 31, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Des études montrent qu’il n’y a pas de différence en termes d’intervalle entre les bruits ou de fréquence dominante des bruits abdominaux permettant de distinguer une obstruction abdominale aiguë, subaiguë ou une absence d’obstruction.»</p>
+</div></div><div id="w-dx6-q32" popover class="fenetre"><div class="barre"><span>Extrait 32</span><button type="button" popovertarget="w-dx6-q32" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 32, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«La palpation abdominale peut s’avérer faussement rassurante car une souplesse n’exclut en rien une ischémie déjà installée.»</p>
+</div></div><div id="w-dx6-q33" popover class="fenetre"><div class="barre"><span>Extrait 33</span><button type="button" popovertarget="w-dx6-q33" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 33, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«En conclusion, l’examen clinique est un examen peu fiable pour un diagnostic d’occlusion avec ischémie. ## Conclusions Les signes cliniques abdominaux isolés sont souvent peu discriminatifs.»</p>
+</div></div><div id="w-dx6-q34" popover class="fenetre"><div class="barre"><span>Extrait 34</span><button type="button" popovertarget="w-dx6-q34" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 34, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Ils sont à intégrer dans une évaluation globale comprenant la prévalence de la maladie suspectée en MPR ainsi que les symptômes et signes cliniques que présente le patient.»</p>
+</div></div><div id="w-dx6-q35" popover class="fenetre"><div class="barre"><span>Extrait 35</span><button type="button" popovertarget="w-dx6-q35" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 35, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«La clinique seule ne permet malheureusement pas d’exclure la majorité des pathologies abdominales aiguës, ce qui justifie souvent le recours à des examens complémentaires.»</p>
+</div></div><div id="w-dx6-q36" popover class="fenetre"><div class="barre"><span>Extrait 36</span><button type="button" popovertarget="w-dx6-q36" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 36, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Le praticien sera donc obligé de compléter son évaluation avec une imagerie pour inclure mais aussi souvent pour exclure les pathologies suspectées.»</p>
+</div></div><div id="w-dx6-q37" popover class="fenetre"><div class="barre"><span>Extrait 37</span><button type="button" popovertarget="w-dx6-q37" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 37, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Malgré ces limites, l’examen abdominal garde une place de choix en MPR, pour sa valeur diagnostique non négligeable, comme évoqué ci-dessus, mais aussi pour son rôle essentiel dans la construction du lien singulier qui s’établit entre le médecin traitant et son patient.»</p>
+</div></div><div id="w-dx6-q38" popover class="fenetre"><div class="barre"><span>Extrait 38</span><button type="button" popovertarget="w-dx6-q38" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 38, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«Le toucher et la palpation font de l’examen abdominal l’étape de l’examen clinique qui rapproche, physiquement, le plus le médecin de son patient.»</p>
+</div></div><div id="w-dx6-q39" popover class="fenetre"><div class="barre"><span>Extrait 39</span><button type="button" popovertarget="w-dx6-q39" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 39, copié depuis rms2016_abdomen.txt, fichier lu le 31.10.2026.</p>
+<p>«En autorisant son médecin à le toucher et le palper, le patient se confie physiquement à lui.»</p>
+</div></div><div id="w-dx6-q40" popover class="fenetre"><div class="barre"><span>Extrait 40</span><button type="button" popovertarget="w-dx6-q40" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 40, copié depuis rms2024_pneumonie.txt, fichier lu le 31.10.2026.</p>
+<p>«# Velasquez T, El Maazi S, Bergeron A, Bosetti D, Kaiser L, Gillabert C, Chevallier-Lugon C, Jalbert B. # Nouveautés dans le diagnostic et le traitement de la pneumonie acquise en communauté. # Revue Médicale Suisse 888, 25 septembre 2024.»</p>
+</div></div><div id="w-dx6-q41" popover class="fenetre"><div class="barre"><span>Extrait 41</span><button type="button" popovertarget="w-dx6-q41" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 41, copié depuis rms2024_pneumonie.txt, fichier lu le 31.10.2026.</p>
+<p>«La pneumonie acquise en communauté (PAC) est une entité bien connue de la médecine interne générale.»</p>
+</div></div><div id="w-dx6-q42" popover class="fenetre"><div class="barre"><span>Extrait 42</span><button type="button" popovertarget="w-dx6-q42" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 42, copié depuis rms2024_pneumonie.txt, fichier lu le 31.10.2026.</p>
+<p>«En effet, elle représente 1,2 cas pour 1000 habitants chaque année, et jusqu&#x27;à 14 cas pour 1000 habitants chez les plus de 65 ans.»</p>
+</div></div><div id="w-dx6-q43" popover class="fenetre"><div class="barre"><span>Extrait 43</span><button type="button" popovertarget="w-dx6-q43" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 43, copié depuis rms2024_pneumonie.txt, fichier lu le 31.10.2026.</p>
+<p>«Elle reste la première cause de mortalité liée à une infection et est responsable d&#x27;une morbidité importante.»</p>
+</div></div><div id="w-dx6-q44" popover class="fenetre"><div class="barre"><span>Extrait 44</span><button type="button" popovertarget="w-dx6-q44" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 44, copié depuis rms2024_pneumonie.txt, fichier lu le 31.10.2026.</p>
+<p>«It represents 1.2 cases per 1000 inhabitants every year, and up to 14 cases per 100 inhabitants in people older than 65 years old.»</p>
+</div></div><div id="w-dx6-q45" popover class="fenetre"><div class="barre"><span>Extrait 45</span><button type="button" popovertarget="w-dx6-q45" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 45, copié depuis rms2024_pneumonie.txt, fichier lu le 31.10.2026.</p>
+<p>«Despite our exposition to the disease almost daily, it is still the leading cause of death related to an infection.»</p>
+</div></div><div id="w-dx6-q46" popover class="fenetre"><div class="barre"><span>Extrait 46</span><button type="button" popovertarget="w-dx6-q46" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 46, copié depuis unige_respiration.txt, fichier lu le 31.10.2026.</p>
+<p>«Sémiologie Pneumologie Discipline non-documentée rajoutée - Palper le thorax pour reproduire par exemple une douleur thoracique décrite par le patient, pour mieux percevoir l’ampliation de la cage thoracique pendant la respiration, ou pour percevoir la transmission des vibrations vocales..»</p>
+</div></div><div id="w-dx6-q47" popover class="fenetre"><div class="barre"><span>Extrait 47</span><button type="button" popovertarget="w-dx6-q47" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 47, copié depuis unige_respiration.txt, fichier lu le 31.10.2026.</p>
+<p>«Sémiologie Pneumologie Discipline non-documentée rajoutée - Pratiquer la percussion afin de délimiter la limite inférieure des deux plages pulmonaires postérieurement, puis de comparer la sonorité des plages pulmonaires gauche et droite à différents niveaux et symétriquement..»</p>
+</div></div><div id="w-dx6-q48" popover class="fenetre"><div class="barre"><span>Extrait 48</span><button type="button" popovertarget="w-dx6-q48" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 48, copié depuis unige_respiration.txt, fichier lu le 31.10.2026.</p>
+<p>«Savoir reconnaître le bruit physiologique de la respiration ainsi que ses modifications pathologiques et en expliquer le mécanisme.»</p>
+</div></div><div id="w-dx6-q49" popover class="fenetre"><div class="barre"><span>Extrait 49</span><button type="button" popovertarget="w-dx6-q49" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 49, copié depuis unige_respiration.txt, fichier lu le 31.10.2026.</p>
+<p>«Décrire les quatre types de bruits adventices (sibilances, ronchi, râles fins et râles grossiers) et leur origine..»</p>
+</div></div><div id="w-dx6-q50" popover class="fenetre"><div class="barre"><span>Extrait 50</span><button type="button" popovertarget="w-dx6-q50" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 50, copié depuis unige_respiration.txt, fichier lu le 31.10.2026.</p>
+<p>«Sémiologie Pneumologie Discipline non-documentée rajoutée ## Problème n°1: Le ronfleur étonné»</p>
+</div></div><div id="w-dx6-q51" popover class="fenetre"><div class="barre"><span>Extrait 51</span><button type="button" popovertarget="w-dx6-q51" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 51, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update. # World Journal of Emergency Surgery, 19 juin 2018.»</p>
+</div></div><div id="w-dx6-q52" popover class="fenetre"><div class="barre"><span>Extrait 52</span><button type="button" popovertarget="w-dx6-q52" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 52, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Traditionally, ASBO is clinically diagnosed in a patient with intermittent colicky abdominal pain, distention, and nausea (with or without vomiting), with or without absence of stools.»</p>
+</div></div><div id="w-dx6-q53" popover class="fenetre"><div class="barre"><span>Extrait 53</span><button type="button" popovertarget="w-dx6-q53" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 53, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Although diagnosis of small bowel obstruction is fairly certain in a patient in whom all of these symptoms are present, there are some specific pitfalls that can result in delayed or misdiagnosis of bowel obstruction upon initial presentation.»</p>
+</div></div><div id="w-dx6-q54" popover class="fenetre"><div class="barre"><span>Extrait 54</span><button type="button" popovertarget="w-dx6-q54" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 54, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«The presence of watery diarrhea can cause an episode of ASBO to be mistaken for gastro-enteritis.»</p>
+</div></div><div id="w-dx6-q55" popover class="fenetre"><div class="barre"><span>Extrait 55</span><button type="button" popovertarget="w-dx6-q55" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 55, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Stools might also be present in patients with a relatively high obstruction who are admitted early after onset of symptoms.»</p>
+</div></div><div id="w-dx6-q56" popover class="fenetre"><div class="barre"><span>Extrait 56</span><button type="button" popovertarget="w-dx6-q56" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 56, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Moreover, not all of these symptoms may be present, especially in the elderly in whom pain is often less prominent [55, 56].»</p>
+</div></div><div id="w-dx6-q57" popover class="fenetre"><div class="barre"><span>Extrait 57</span><button type="button" popovertarget="w-dx6-q57" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 57, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«During physical examination, signs of peritonitis that might reveal strangulation or ischemia should be evaluated.»</p>
+</div></div><div id="w-dx6-q58" popover class="fenetre"><div class="barre"><span>Extrait 58</span><button type="button" popovertarget="w-dx6-q58" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 58, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Differential diagnostic considerations that can be assessed during physical examination include the presence of any abdominal wall or groin hernias.»</p>
+</div></div><div id="w-dx6-q59" popover class="fenetre"><div class="barre"><span>Extrait 59</span><button type="button" popovertarget="w-dx6-q59" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 59, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«The evaluation of ASBO by history taking and physical examination has a low sensitivity for detecting bowel strangulation and ischemia.»</p>
+</div></div><div id="w-dx6-q60" popover class="fenetre"><div class="barre"><span>Extrait 60</span><button type="button" popovertarget="w-dx6-q60" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 60, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Sensitivity of physical examination for detection of strangulation is only 48%, even in experienced hands [57]. #### Laboratory tests The minimum of laboratory tests include blood count, lactate, electrolytes, CRP, and BUN/creatinine.»</p>
+</div></div><div id="w-dx6-q61" popover class="fenetre"><div class="barre"><span>Extrait 61</span><button type="button" popovertarget="w-dx6-q61" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 61, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Electrolytes are often disturbed in patients with a bowel obstruction; in particular, low values of potassium are frequently found and need to be corrected.»</p>
+</div></div><div id="w-dx6-q62" popover class="fenetre"><div class="barre"><span>Extrait 62</span><button type="button" popovertarget="w-dx6-q62" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 62, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«BUN/creatinine needs to be assessed as patients with ASBO are frequently dehydrated which could result in acute kidney injury. ### Imaging studies #### Plain X-rays The value of plain X-rays complementary to physical examination is limited.»</p>
+</div></div><div id="w-dx6-q63" popover class="fenetre"><div class="barre"><span>Extrait 63</span><button type="button" popovertarget="w-dx6-q63" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 63, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«In high-grade obstruction, a triad of multiple air-fluid levels, distention of small bowel loops, and absence of gas in the colon are pathognomonic for small bowel obstruction, but overall sensitivity and specificity of plain x-rays are low (sensitivity approximately 70%) [59, 60].»</p>
+</div></div><div id="w-dx6-q64" popover class="fenetre"><div class="barre"><span>Extrait 64</span><button type="button" popovertarget="w-dx6-q64" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 64, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«A large volume pneumoperitoneum secondary to bowel perforation in ASBO can also be detected on plain X-rays, preferably by an erect chest X-ray.»</p>
+</div></div><div id="w-dx6-q65" popover class="fenetre"><div class="barre"><span>Extrait 65</span><button type="button" popovertarget="w-dx6-q65" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 65, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Plain X-rays, however, do not detect the more early signs of peritonitis or strangulation [59–61].»</p>
+</div></div><div id="w-dx6-q66" popover class="fenetre"><div class="barre"><span>Extrait 66</span><button type="button" popovertarget="w-dx6-q66" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 66, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Furthermore, a plain abdominal X-ray does not provide anatomical information that helps differentiate between the various causes of bowel obstruction. #### Water-soluble contrast studies Several systematic reviews and meta-analyses have established the usefulness of water-soluble contrast agents in the diagnostic work-up of ASBO [62–64].»</p>
+</div></div><div id="w-dx6-q67" popover class="fenetre"><div class="barre"><span>Extrait 67</span><button type="button" popovertarget="w-dx6-q67" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 67, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«If the contrast has not reached the colon on an abdominal X-ray taken 24 h following administration of the contrast, this is highly indicative of failure of non-operative management.»</p>
+</div></div><div id="w-dx6-q68" popover class="fenetre"><div class="barre"><span>Extrait 68</span><button type="button" popovertarget="w-dx6-q68" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 68, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Multiple studies have shown that the use of water-soluble contrast agents accurately predicts the need for surgery and reduces hospital stay [62, 63].»</p>
+</div></div><div id="w-dx6-q69" popover class="fenetre"><div class="barre"><span>Extrait 69</span><button type="button" popovertarget="w-dx6-q69" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 69, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«As with water-soluble contrast studies, progress of the contrast can be evaluated by X-ray at 24 h after CT scan.»</p>
+</div></div><div id="w-dx6-q70" popover class="fenetre"><div class="barre"><span>Extrait 70</span><button type="button" popovertarget="w-dx6-q70" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 70, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Although adhesions are not directly visible even on CT scan, a CT scan can differentiate accurately between different causes of bowel obstruction by excluding other causes.»</p>
+</div></div><div id="w-dx6-q71" popover class="fenetre"><div class="barre"><span>Extrait 71</span><button type="button" popovertarget="w-dx6-q71" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 71, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«The workgroup therefore considers CT scan to be the preferred imaging technique if there is any doubt about the diagnosis of ASBO, and to assess the need for urgent surgery.»</p>
+</div></div><div id="w-dx6-q72" popover class="fenetre"><div class="barre"><span>Extrait 72</span><button type="button" popovertarget="w-dx6-q72" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 72, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«A CT scan should help to differentiate between a complete obstruction of the bowel and help facilitate the decision for a trial of non-operative management versus a decision to proceed to surgery.»</p>
+</div></div><div id="w-dx6-q73" popover class="fenetre"><div class="barre"><span>Extrait 73</span><button type="button" popovertarget="w-dx6-q73" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 73, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«It may also help to define the location of the obstruction (e.g., high in the jejunum or deep in the pelvis).»</p>
+</div></div><div id="w-dx6-q74" popover class="fenetre"><div class="barre"><span>Extrait 74</span><button type="button" popovertarget="w-dx6-q74" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 74, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Signs of a closed loop, bowel ischemia, and free fluid are signs that suggest the need for surgery without delay.»</p>
+</div></div><div id="w-dx6-q75" popover class="fenetre"><div class="barre"><span>Extrait 75</span><button type="button" popovertarget="w-dx6-q75" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 75, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«In addition, radiological and clinical scores can be used to predict the need for surgery as described above [37, 38]. #### Ultrasound and MRI Although the working group considered CT scan to be the preferred technique for diagnosis of ASBO, ultrasound and MRI might be useful in specific situations.»</p>
+</div></div><div id="w-dx6-q76" popover class="fenetre"><div class="barre"><span>Extrait 76</span><button type="button" popovertarget="w-dx6-q76" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 76, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Ultrasound is operator dependent but in experienced hands can provide more information than plain X-rays, and is also available in most low income settings.»</p>
+</div></div><div id="w-dx6-q77" popover class="fenetre"><div class="barre"><span>Extrait 77</span><button type="button" popovertarget="w-dx6-q77" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 77, copié depuis wses2017_occlusion.txt, fichier lu le 31.10.2026.</p>
+<p>«Apart from distension of bowel loops, ultrasound enables detection of free fluid (that might indicate the need for urgent surgery)»</p>
+</div></div><div id="w-dx6-q78" popover class="fenetre"><div class="barre"><span>Extrait 78</span><button type="button" popovertarget="w-dx6-q78" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 78, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Perforated and bleeding peptic ulcer: WSES guidelines. # World Journal of Emergency Surgery, 7 janvier 2020.»</p>
+</div></div><div id="w-dx6-q79" popover class="fenetre"><div class="barre"><span>Extrait 79</span><button type="button" popovertarget="w-dx6-q79" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 79, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Localized or generalized peritonitis is typical of perforated peptic ulcer, but may be present in only two-thirds of the patients [14– 16].»</p>
+</div></div><div id="w-dx6-q80" popover class="fenetre"><div class="barre"><span>Extrait 80</span><button type="button" popovertarget="w-dx6-q80" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 80, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Thus, physical examination findings may be equivocal and peritonitis may be minimal or absent, particularly in patients with contained and / sealed leak.»</p>
+</div></div><div id="w-dx6-q81" popover class="fenetre"><div class="barre"><span>Extrait 81</span><button type="button" popovertarget="w-dx6-q81" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 81, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Laboratory tests are non-specific, although leukocytosis, metabolic acidosis and elevated serum amylase are usually associated with perforation [17].»</p>
+</div></div><div id="w-dx6-q82" popover class="fenetre"><div class="barre"><span>Extrait 82</span><button type="button" popovertarget="w-dx6-q82" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 82, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«The first diagnostic investigation is the radiograph of the abdomen and chest, to detect the presence of free abdominal air.»</p>
+</div></div><div id="w-dx6-q83" popover class="fenetre"><div class="barre"><span>Extrait 83</span><button type="button" popovertarget="w-dx6-q83" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 83, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Erect and left lateral decubitus X-rays have similar diagnostic accuracy, the latter being better tolerated by patients presenting with peritonitis.»</p>
+</div></div><div id="w-dx6-q84" popover class="fenetre"><div class="barre"><span>Extrait 84</span><button type="button" popovertarget="w-dx6-q84" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 84, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«The presence of this radiological sign is highly variable across various studies present in literature and ranges between 30 and 85% of perforations.»</p>
+</div></div><div id="w-dx6-q85" popover class="fenetre"><div class="barre"><span>Extrait 85</span><button type="button" popovertarget="w-dx6-q85" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 85, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«This high variability and the finding that a negative X-ray does not rule out a possible perforation led multiple authors to state that, in case of clear signs of peritonitis, an abdominal CT scan should be the first radiological examination to be performed.»</p>
+</div></div><div id="w-dx6-q86" popover class="fenetre"><div class="barre"><span>Extrait 86</span><button type="button" popovertarget="w-dx6-q86" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 86, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«However, in the setting of a peripheral hospital without prompt access to a CT scan, the plain X-ray still has a diagnostic role and free air on X-ray associated with a clear history and signs of peritonitis on physical examination is sufficient to justify surgical exploration [9, 14, 15, 18].»</p>
+</div></div><div id="w-dx6-q87" popover class="fenetre"><div class="barre"><span>Extrait 87</span><button type="button" popovertarget="w-dx6-q87" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 87, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Suspicious CT scan findings include unexplained intraperitoneal fluid, pneumoperitoneum, bowel wall thickening, mesenteric fat streaking, and presence of extraluminal water-soluble contrast.»</p>
+</div></div><div id="w-dx6-q88" popover class="fenetre"><div class="barre"><span>Extrait 88</span><button type="button" popovertarget="w-dx6-q88" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 88, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Indeed, CT scan is increasingly taking the main role in diagnosis of perforation, due to the greater sensitivity in detecting free air and to its ability to characterize the site and size of perforation and to exclude other possible causes [15, 18, 19].»</p>
+</div></div><div id="w-dx6-q89" popover class="fenetre"><div class="barre"><span>Extrait 89</span><button type="button" popovertarget="w-dx6-q89" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 89, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«However, up to 12% of patients with perforations may have a normal CT scan; in this scenario, the administration of oral water-soluble contrast or via nasogastric tube and performing triple contrast CT scan may improve diagnostic sensitivity and specificity [17].»</p>
+</div></div><div id="w-dx6-q90" popover class="fenetre"><div class="barre"><span>Extrait 90</span><button type="button" popovertarget="w-dx6-q90" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 90, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Numerous scoring systems have been designed and validated with the aim of predicting mortality and morbidity in patients with perforated peptic ulcer [20– 22].»</p>
+</div></div><div id="w-dx6-q91" popover class="fenetre"><div class="barre"><span>Extrait 91</span><button type="button" popovertarget="w-dx6-q91" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 91, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Boey&#x27;s score showed an elevated variability in accuracy across the different studies where it was tested.»</p>
+</div></div><div id="w-dx6-q92" popover class="fenetre"><div class="barre"><span>Extrait 92</span><button type="button" popovertarget="w-dx6-q92" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 92, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«On the other hand, the PULP score is difficult to apply and has not yet been validated outside the initial center.»</p>
+</div></div><div id="w-dx6-q93" popover class="fenetre"><div class="barre"><span>Extrait 93</span><button type="button" popovertarget="w-dx6-q93" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 93, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«Perforated peptic ulcer, with associated peritonitis and sepsis/septic shock, is a medical/surgical emergency requiring rapid evaluation and management [23].»</p>
+</div></div><div id="w-dx6-q94" popover class="fenetre"><div class="barre"><span>Extrait 94</span><button type="button" popovertarget="w-dx6-q94" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 94, copié depuis wses2020_perforation.txt, fichier lu le 31.10.2026.</p>
+<p>«It is crucial to identify parameters to assess the severity of the disease (i.e., to define»</p>
+</div></div><div id="w-dx6-q95" popover class="fenetre"><div class="barre"><span>Extrait 95</span><button type="button" popovertarget="w-dx6-q95" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 95, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«British Thoracic Society Guideline for pleural disease. # Thorax, publié le 1 juillet 2023.»</p>
+</div></div><div id="w-dx6-q96" popover class="fenetre"><div class="barre"><span>Extrait 96</span><button type="button" popovertarget="w-dx6-q96" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 96, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«Page lue le 31.10.2026. # Société thoracique britannique : source lue, pas une règle suisse.»</p>
+</div></div><div id="w-dx6-q97" popover class="fenetre"><div class="barre"><span>Extrait 97</span><button type="button" popovertarget="w-dx6-q97" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 97, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«Pleural effusions occur as a result of increased fluid formation and/or reduced fluid resorption.»</p>
+</div></div><div id="w-dx6-q98" popover class="fenetre"><div class="barre"><span>Extrait 98</span><button type="button" popovertarget="w-dx6-q98" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 98, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«The precise pathophysiology of fluid accumulation varies according to underlying aetiologies.»</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p5">5. Anamnèse et drapeaux rouges</h2>
+<p>Douleur colique, vomissement, arrêt des gaz, cicatrice, hernie. Diarrhée aqueuse possible si l'occlusion est incomplète. <button type="button" class="terme" popovertarget="w-dx6-red">pièges d'histoire</button></p>
+<div id="w-dx6-red" popover class="fenetre"><div class="barre"><span>Histoires qui trompent</span><button type="button" popovertarget="w-dx6-red" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Occlusion incomplète : diarrhée aqueuse, que l'on peut prendre pour une gastro-entérite.</p>
+<p>Obstacle haut, patient vu tôt : des selles peuvent encore sortir.</p>
+<p>Personne âgée : la douleur est souvent moindre.</p>
+<p>Hernie de paroi ou de l'aine : à palper, pas seulement à percuter.</p>
+<p>Déshydratation : à chercher dès l'arrivée.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p6">6. Examen physique</h2>
+<p>On cherche la distension, les orifices herniaires, la défense. <button type="button" class="terme" popovertarget="w-dx6-ex">geste</button></p>
+<div id="w-dx6-ex" popover class="fenetre"><div class="barre"><span>Distension, orifices, défense</span><button type="button" popovertarget="w-dx6-ex" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>On regarde le météorisme avant de percuter.</p>
+<p>Le tympanisme diffus confirme la distension, tardivement.</p>
+<p>On palpe les orifices. Une hernie étranglée change la voie.</p>
+<p>La défense et la contracture font quitter le traitement médical.</p>
+<p>La revue de 2016 conclut que l'examen clinique est peu fiable pour l'occlusion avec ischémie.</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p7">7. Approche syndromique</h2>
+<p>Le syndrome est aérique et tardif. Il n'est pas la matité mobile de l'ascite.</p>
+</section>
+
+<section class="ilot v"><h2 id="p8">8. Diagnostic positif</h2>
+<p>Le diagnostic positif ne repose pas sur le seul son. Le scanner tranche quand on doute.</p>
+</section>
+
+<section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2>
+<p>Lactate, ions, créatinine, protéine C réactive. Scanner avec produit hydrosoluble si besoin. <button type="button" class="terme" popovertarget="w-dx6-bil">images</button></p>
+<div id="w-dx6-bil" popover class="fenetre"><div class="barre"><span>Laboratoire mince, scanner large</span><button type="button" popovertarget="w-dx6-bil" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Minimum lu : numération, lactate, ions, protéine C réactive, urée et créatinine.</p>
+<p>Une protéine C réactive au-dessus de 75 et des leucocytes au-dessus de 10 000 par mm3 peuvent accompagner une péritonite, avec une sensibilité et une spécificité basses.</p>
+<p>Le potassium est souvent bas. On le corrige.</p>
+<p>Le cliché simple a une sensibilité d'environ 70 %. La triade niveaux hydro-aériques, anses grêles distendues et côlon sans air est évocatrice d'une occlusion haute, mais le cliché ne voit pas l'ischémie précoce.</p>
+<p>Le scanner est l'imagerie préférée du groupe quand le diagnostic doute, avec environ 90 % d'exactitude pour prédire l'étranglement dans les études citées.</p>
+<p>Le produit hydrosoluble aide. On regarde s'il atteint le côlon à 24 heures.</p>
+<p>Un pneumopéritoine volumineux se voit aussi sur le cliché, de préférence thorax debout.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2>
+<p>Signes d'ischémie : opératoire. Sans eux, et si la bride est probable : tentative non opératoire, contrôle à 24 heures.</p>
+</section>
+
+<section class="ilot c"><h2 id="p11">11. Prise en charge en Suisse</h2>
+<p>Pas d'antibiotique dosé. Pas de prokinétique dosé. Toute molécule : information professionnelle suisse (<abbr title="information professionnelle suisse">AIPS</abbr>), À vérifier. <button type="button" class="terme" popovertarget="w-dx6-pec">conduite</button></p>
+<div id="w-dx6-pec" popover class="fenetre"><div class="barre"><span>Opérer ou surveiller, sans dose</span><button type="button" popovertarget="w-dx6-pec" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Sans signe d'ischémie et si la bride est la cause probable, le traitement non opératoire est efficace chez la plupart des patients, dit le cadre du texte.</p>
+<p>On corrige l'eau et le potassium.</p>
+<p>On ne donne pas un antibiotique « au cas où » dans cette fiche. S'il faut une molécule, son <abbr title="information professionnelle suisse">AIPS</abbr> décide du milligramme.</p>
+<p>La sonde gastrique et la douleur se gèrent selon le service. Aucun protocole suisse n'a été relu : À vérifier.</p>
+<p>Si le contraste n'avance pas, ou si le patient se défend, on opère.</p>
+<p>«Signs of a closed loop, bowel ischemia, and free fluid are signs that suggest the need for surgery without delay.»</p>
+<p>Anse fermée, ischémie ou liquide libre au scanner : opérer sans attendre le délai de 24 heures. Texte de Bologne, 2017, publié le 19 juin 2018.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p12">12. Prévention</h2>
+<p>La prévention des brides n'a pas de programme suisse relu : À vérifier.</p>
+</section>
+
+<section class="ilot c"><h2 id="p13">13. Points clés</h2>
+<p>Tympanisme tardif, main peu fiable, scanner si doute, bloc si l'intestin souffre. <button type="button" class="terme" popovertarget="w-dx6-limites">limites de la fiche</button></p>
+<div id="w-dx6-limites" popover class="fenetre"><div class="barre"><span>Ce que cette fiche ne ferme pas</span><button type="button" popovertarget="w-dx6-limites" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Occlusion de l'intestin grêle sur bride reste un diagnostic de travail tant que l'examen qui le confirme n'est pas fait.</p>
+<p>Le son qui ouvre cette fiche est décrit dans les fenêtres du geste. Il ne remplace pas l'image, la fonction ou la ponction quand elles sont indiquées.</p>
+<p>Un patient peut cumuler Occlusion de l'intestin grêle sur bride et une autre cause du cours. Le son nouveau décide laquelle passer en premier.</p>
+<p>La Phase A garde l'ordre 🚩 E. Cette fiche ne le renverse pas parce que Occlusion de l'intestin grêle sur bride serait fréquent.</p>
+<p>Tout chiffre dont le dénominateur n'est pas écrit à côté reste À vérifier. On ne le complète pas de mémoire.</p>
+<p>Toute dose absente de cette page est absente parce que l'information professionnelle suisse du produit n'a pas été citée ici.</p>
+<p>La grossesse, l'allaitement et l'enfant se lisent dans cette information quand une spécialité est nommée, et nulle part ailleurs dans la fiche.</p>
+<p>Un protocole d'hôpital suisse peut être plus précis que le texte européen ou britannique cité. On le suit s'il existe. Il n'a pas été recopié ici.</p>
+<p>Le schéma et les rapports de vraisemblance non lus ne sont pas inventés pour faire rond.</p>
+<p>Si le patient se dégrade, on quitte la discussion du son et l'on traite la détresse.</p>
+<p>Occlusion de l'intestin grêle sur bride ne se surveille pas au domicile quand un drapeau rouge de sa fenêtre est présent.</p>
+<p>La comparaison gauche droite, demandée par l'objectif genevois pour le thorax, reste valable même quand le diagnostic semble évident.</p>
+<p>On écrit le son dans le dossier avant le nom de la maladie, y compris pour Occlusion de l'intestin grêle sur bride.</p>
+<p>Une fenêtre d'extrait recopié une phrase source. Elle ne crée pas un chiffre nouveau.</p>
+<p>Le relecteur médical de cette fiche n'est pas l'auteur. Les doutes restent marqués À vérifier plutôt que tranchés.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p14">14. Pièges d'examen</h2>
+<p><button type="button" class="terme" popovertarget="w-dx6-pieges">pièges</button></p>
+<div id="w-dx6-pieges" popover class="fenetre"><div class="barre"><span>Pièges d'examen</span><button type="button" popovertarget="w-dx6-pieges" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Répondez, puis ouvrez la réponse.</p>
+<details class="quiz"><summary>Le tympanisme est-il précoce ?</summary><p>Non. La revue de 2016 le dit tardif.</p></details>
+<details class="quiz"><summary>L&#x27;auscultation tranche-t-elle ?</summary><p>Non. Elle n'est pas spécifique dans cet article.</p></details>
+<details class="quiz"><summary>Ventre souple, intestin sain ?</summary><p>Non. La revue et le texte de Bologne disent que l'ischémie peut déjà être là.</p></details>
+<details class="quiz"><summary>Sensibilité de la main pour l&#x27;étranglement ?</summary><p>48 % dans le texte de Bologne, même experte.</p></details>
+<details class="quiz"><summary>Cliché assez sensible ?</summary><p>Environ 70 %. Il manque l'ischémie précoce.</p></details>
+<details class="quiz"><summary>Scanner ?</summary><p>Préféré si le diagnostic doute. Environ 90 % d'exactitude pour l'étranglement dans les études citées par le texte.</p></details>
+<details class="quiz"><summary>Diarrhée donc pas d&#x27;occlusion ?</summary><p>Non. L'occlusion incomplète peut donner une diarrhée aqueuse.</p></details>
+<details class="quiz"><summary>15 % au cabinet ?</summary><p>Non. 15 % des douleurs abdominales aux urgences. Exceptionnel en premier recours.</p></details>
+<details class="quiz"><summary>Protéine C réactive au-dessus de 75 ?</summary><p>Peut accompagner une péritonite, sans bonne sensibilité.</p></details>
+<details class="quiz"><summary>Potassium ?</summary><p>Souvent bas. On le corrige.</p></details>
+<details class="quiz"><summary>Antibiotique de principe ?</summary><p>Pas de dose dans cette fiche.</p></details>
+<details class="quiz"><summary>Contraste à 24 heures ?</summary><p>On regarde s'il a atteint le côlon. Anse fermée, ischémie ou liquide libre : opérer sans ce délai.</p></details>
+<details class="quiz"><summary>Hernie oubliée ?</summary><p>Elle se palpe. Elle change la décision.</p></details>
+<details class="quiz"><summary>E3 et ventre calme ?</summary><p>E3 rappelle de ne pas croire le calme. Le chiffre de 48 % est là pour ça.</p></details>
+</div></div></section>
+
+<section class="ilot v"><h2 id="sources">Sources</h2>
+<details class="quiz sources"><summary>Sources lues le 31.10.2026</summary>
+<ol class="sources">
+<li><sup class="s">2</sup> Piqueres S, Staeger P, Pasche O. Revue Médicale Suisse 2016;537, 2 novembre 2016.</li>
+<li><sup class="s">3</sup> Université de Genève, objectifs de l'unité Respiration, page lue le 31.10.2026.</li>
+<li><sup class="s">4</sup> Ligue pulmonaire suisse, communiqué du 13.11.2024.</li>
+<li><sup class="s">5</sup> Observatoire suisse de la santé, enquête 2022.</li>
+<li><sup class="s">6</sup> Velasquez T et al. Revue Médicale Suisse 888, 25 septembre 2024.</li>
+<li><sup class="s">7</sup> Association européenne pour l'étude du foie, cirrhose décompensée, 10 avril 2018.</li>
+<li><sup class="s">8</sup> Tarasconi A et al. Ulcère perforé, 7 janvier 2020.</li>
+<li><sup class="s">9</sup> ten Broek RPG et al. Occlusion sur bride, publié le 19 juin 2018.</li>
+<li><sup class="s">10</sup> Sociétés européennes de pneumologie et de chirurgie thoracique, pneumothorax spontané de l'adulte.</li>
+<li><sup class="s">11</sup> Roberts ME et al. Société thoracique britannique, Thorax, 1er juillet 2023.</li>
+<li><sup class="s">12</sup> Association européenne d'urologie, mise à jour avril 2024.</li>
+<li><sup class="s">13</sup> Association française d'urologie, fiche du 29 avril 2024.</li>
+<li><sup class="s">14</sup> Information professionnelle Aldactone, numéro 27257.</li>
+<li><sup class="s">15</sup> Information professionnelle Lasix comprimés 40 mg, numéro 30629.</li>
+<li><sup class="s">16</sup> Information professionnelle Augmentin comprimés filmés, numéro 45674.</li>
+<li>La Phase A porte PROFILES et le cadre des dix sons. Cette fiche ne les recopie pas.</li>
+</ol>
+</details></section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_135_Phase_B_DX.6 -->
