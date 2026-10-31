@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_156 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_155 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151 et LOT_153 sont rédigés par A. LOT_150, LOT_152, LOT_154 et LOT_156 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153 et LOT_155 sont rédigés par A. LOT_150, LOT_152, LOT_154 et LOT_156 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_155.**
+**Prochain LOT du rédacteur A : LOT_157.**
 **Prochain LOT du rédacteur B : LOT_158.**
+
+## LOT_155 — rédigé et certifié
+Sujet : F2.7 « Électrolytes anormaux ». Détail : `LOT_155/A_AUDITER.md`.
+
+- Phase_A : certitude VERT · porte VERT · conscience SIGNAL plage Samsca · T = 7.6 (+ 73.8) Ko · SHA b1ab2070490a · commit 28cbc94e
+- DX.1 : certitude VERT · porte VERT · T = 5.9 (+ 37.1) Ko · SHA 7cab50f00b54 · commit dce43e5e
+- DX.2 : certitude VERT · porte VERT · T = 6.0 (+ 36.4) Ko · SHA 663da5a3d93e · commit ae09f732
+- DX.3 : certitude VERT · porte VERT · T = 5.9 (+ 38.4) Ko · SHA f846df628b93 · commit b5778741
+- DX.4 : certitude VERT · porte VERT · T = 6.0 (+ 35.6) Ko · SHA b83e24fbcbb9 · commit f9d7193d
+- DX.5 : certitude VERT · porte VERT · T = 5.9 (+ 33.6) Ko · SHA 66f97d22e2ff · commit 989f22e9
+- DX.6 : certitude VERT · porte VERT · conscience SIGNAL plage Zometa et Aclasta · T = 6.0 (+ 34.0) Ko · SHA ee709ba967ff · commit eafbad86
+- DX.7 : certitude VERT · porte VERT · T = 6.0 (+ 32.1) Ko · SHA d308d13dab33 · commit f3040619
+- DX.8 : certitude VERT · porte VERT · T = 6.2 (+ 30.6) Ko · SHA d0e754b74c73 · commit aebaa6f5
+- DX.9 : certitude VERT · porte VERT · T = 6.1 (+ 32.0) Ko · SHA c7db1ce42404 · commit 960fc4ba
+- DX.10 : certitude VERT · porte VERT · T = 6.1 (+ 29.5) Ko · SHA d9fe825543a3 · commit b3275a9d
 
 ## LOT_156 — rédigé et certifié
 Sujet : F2.8 « Analyses des selles anormales, sang occulte, parasites ». Détail : `LOT_156/A_AUDITER.md`.
