@@ -54,3 +54,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T08:55:31+00:00 — LOT_032 checkpoint partiel réel : Phase A et DX1–3, quatre HTML/56questions/99contrôles V8 positifs sur100 ; sept liens futurs restent absents.54citations AIPS exactes,4groupes de corrections, gravité non cotée. Relecture interne et cohérence partielle, pas de clôture. Reprise DX4 fracture cervicale. LOT_031 b07e53e4 terminé et poussé.
 
 2026-10-31T08:56:18+00:00 — Checkpoint LOT_032 d7041ef3 poussé ; reprise DX.4. Verrou officiellement libéré ; veilles locales minute conservées tant que le runtime existe. Aucun autre automate ni producteur modifié. Contrat actif, borne133 et102lots à achever dont32partiel.
+
+2026-10-31T09:41:33+00:00 — LOT_032 clôturé :11HTML,154questions,275/275V8,89citations AIPS. Huit groupes de corrections internes cumulés ; défauts graves non évalués indépendamment. Rapports historiques négatifs conservés ; aucune validation navigateur ou clinique. Suite33.

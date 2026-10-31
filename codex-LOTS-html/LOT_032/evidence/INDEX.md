@@ -17,3 +17,9 @@ Décisions de rédaction :
 - Dafalgan : exemple adulte de forme effervescente 500 mg, âge et poids stricts, adaptations rénales/hépatiques et contre-indications exactes. Pas de transposition à l’enfant d’une dose adulte ni de garantie d’efficacité spécifique sur la cervicalgie.
 
 À la reprise DX 4–10 : compléter les lectures ciblées et les traitements nécessaires. Les recherches préparatoires d’une cause ne prouvent pas que sa monographie est produite ou contrôlée.
+
+## Compléments de clôture du 31.10.2026
+
+25 références finales. HUG immobilisation v1.4 : pied de page04.01.2024, métadonnées internes de date non uniformes, pas de prétendue actualisation globale. RMS2016 syndrome méningé ; NICE NG240 ; HUG2021 HSA puis NICE NG228 ; ESO2021 dissection, Inselspital puis EANS2025 spondylodiscite ; HUG2021 puis EULAR imagerie2023 publiée2024, EULAR traitement2011 et revue polonaise2017 pour instabilité rhumatoïde. Extraits effectivement lus archivés dans REPRISE_*, HSA_*, DISSECTION_LUE, RACHIS_EU_LU, DENT_EULAR et CRISTAL_TRAITEMENT. Les dates de moteur erronées, notamment ESO, ne deviennent pas dates de publication. CRISTAL_CH et DENT_EU contiennent aussi des résultats non retenus ; aucune attribution européenne fondée seulement sur le lieu d’édition.
+
+AIPS supplémentaires :44625 ceftriaxone,68815 amoxicilline,66710 dexaméthasone,45839 nimodipine. Rubriques pertinentes réellement lues, archives intégrales conservées sans prétendre lecture de toutes les rubriques. Total six notices et89 blocs exacts. Voir audits/aips_integrite.json. La recherche du schéma adulte de dexaméthasone a une limite déclarée, non comblée par une dose étrangère. La notice nimodipine décrit5–14jours de perfusion puis environ7jours de relais oral ;6×60mg/j et intervalle minimal4h cités exactement, sans transformer ce schéma en21jours d’oral. Les sources communes restent intactes.

@@ -1,11 +1,5 @@
-# Reprise — LOT_032, DX.4
+# Reprise — LOT_033, recherche Phase A
 
-Checkpoint du 2026-10-31T08:55:31+00:00. Dernier lot terminé : LOT_031, commit b07e53e4 poussé (11 HTML/154 questions/275 V 8/38 citations AIPS). LOT_0304e667c7e et tous les précédents conservés.
+2026-10-31T09:41:33+00:00 — LOT_032 terminé en production :11HTML,154questions,275/275 V8,89citations AIPS exactes, huit groupes de corrections. Six notices et neuf fichiers communs intacts. Commit de clôture à renseigner après push. Aucun audit indépendant, score ou navigateur. Limites médicamenteuses documentées dans LOT_032/HELP.md.
 
-LOT_032 S 1.16 Raideur et douleur cervicales : Phase A + DX 1–3 rédigés, relus et contrôlés. Quatre HTML,56 questions,99/100 contrôles V 8 ; un contrôle reste négatif pour sept liens futurs DX 4–10.54 citations AIPS exactes, deux notices archivées, harnais intact. Aucun audit indépendant, score ou navigateur.
-
-Reprendre exactement LOT_032/_travail/phase_b_4.py : Fracture du rachis cervical. Compléter les lectures suisses et européennes, puis rédaction/relecture/contrôles ; continuer DX 5–10. Ne pas recommencer les leçons contrôlées ni passer au LOT_033 avant clôture. Détails dans LOT_032/BRIEF_REPRISE.md.
-
-Contrat actif,102 lots à achever jusqu’à 133 inclus, dont 32 partiel. À toute reprise : dépôt frais, contrat/état/prompt/catalogue et réservation fraîche, STOP/PAUSE prioritaire, vérifier absence de producteur actif puis prendre le verrou, signer registre du jour, veilles minute, pret/verifier. Écritures exclusivement codex-LOTS-html/ ; pas de sous-agent. Les veilles contrôlent seulement pendant disponibilité du runtime. Modèle confirmé par Vial conservé, effort high recommandé sans changement revendiqué.
-
-Checkpoint de production poussé : d7041ef3. Verrou officiellement libéré le 2026-10-31T08:56:18+00:00. Les veilles locales restent des contrôleurs, pas des producteurs ; vérifier leur présence et l’absence de producteur actif avant toute nouvelle acquisition.
+Suite exacte : LOT_033 S1.17 « Yeux douloureux, rouges ou prurigineux ; écoulement oculaire ». Recherche suisse puis européenne, Phase A et gel de dix diagnostics après relecture interne distincte, puis DX1–10. Aucun saut.101 lots restent jusqu’à133 inclus. Recontrôler dépôt, réservation et STOP/PAUSE ; vérifier le producteur avant acquisition du verrou. La session actuelle détient le verrou et poursuit. Veilles locales minute, uniquement contrôleurs tant que le runtime existe. Registre signé du jour, modèle confirmé conservé, high recommandé sans changement revendiqué.

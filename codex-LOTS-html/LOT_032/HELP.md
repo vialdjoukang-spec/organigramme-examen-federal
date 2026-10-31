@@ -1,7 +1,9 @@
 # LOT_032 — S1.16 — Raideur et douleur cervicales
 
-Checkpoint partiel : Phase A + DX1 cervicalgie commune, DX2 radiculopathie et DX3 myélopathie. Les quatre fichiers HTML sont autonomes ; les liens futurs DX4–10 de la Phase A restent non résolus jusqu’à leur production. Ne pas présenter le lot comme terminé.
+Production terminée : Phase A et dix monographies, 154 parties et 154 questions. Onze HTML autonomes, 275/275 contrôles statiques V8. Sources, lectures et six notices suisses conservées dans evidence/ ; scripts exacts dans _travail/ ; rapports dans audits/.
 
-Sources et lectures exactes : evidence/. Scripts de génération : _travail/. Rapports réels : audits/. Doses de spécialités suisses dans des fenêtres dédiées, hors schéma de prescription universel.
+Limites : relecture interne uniquement, aucune validation clinique humaine, aucun audit indépendant ni test navigateur. Les rapports historiques restent négatifs sur leurs anciennes conventions et sont conservés. Aucun score attribué.
 
-Prochain fichier à produire : _travail/phase_b_4.py puis LOT_032_Phase_B_V0_DX.4.html, fracture du rachis cervical. Lire BRIEF_REPRISE.md et l’état racine avant toute reprise. Relecture interne seule, aucune validation clinique ou navigateur.
+Dexaméthasone : le schéma adulte adjuvant de méningite n’a pas été retrouvé tel quel dans les notices consultées ; aucune dose adulte présentée comme AIPS vérifiée. La citation pédiatrique conserve sa portée. Nimotop oral : schéma suisse de relais après perfusion explicitement distingué de NICE ; aucune durée orale universelle de vingt et un jours inventée. Les traitements de dissection, spondylodiscite et polyarthrite sont individualisés, sans schéma numérique universel. Dent couronnée : recommandations de traitement CPPD générales, preuves limitées, pas de dose de colchicine extrapolée.
+
+Suite : LOT_033, après vérification fraîche du contrat, de la réservation et du registre. Les documents PARTIELLE conservent l’historique du checkpoint à quatre leçons.
