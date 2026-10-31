@@ -302,11 +302,51 @@ def dx6():
                      [("Lecture courte", [phrase, fenetres[i - 1], "La source datée reste attachée au chiffre.", "Le numéro DX n'est pas l'urgence."])])
     base_dx(6, r, P)
 
+def dx7():
+    r = "2"
+    phrases = [
+        "L'ascite maligne est un liquide tumoral du péritoine. Le gradient d'albumine est souvent sous 11 g/l.",
+        "Ovaire, tube digestif, pancréas, sein, lymphome. Pas de part suisse inventée.",
+        "La carcinose enflamme le péritoine. L'hypertension portale n'est pas nécessaire. Si elle est là, le gradient est haut.",
+        "Ponction guidée. Paire d'albumine du même jour. Neutrophiles. Cytologie. Culture de 10 ml si fièvre.",
+        "Amaigrissement, ventre rapide, femme, ganglion, selles noires. Défense localisée. Fièvre.",
+        "L'échographie montre la poche et guide. Elle ne voit pas la cellule. Le noir n'est pas un diagnostic.",
+        "Syndrome de carcinose. Il n'est pas le grade 3 du cirrhotique à gradient haut, ni le sang qui fait chuter l'hémoglobine.",
+        "Positif par la cytologie, ou fortement suspect si le gradient est bas et l'histoire lourde. Une cytologie négative n'écarte pas.",
+        "Gradient, neutrophiles, cytologie. Pas de volume pleural recopié comme loi péritonéale.",
+        "Évacuation si la gêne l'exige. Antibiotique seulement si les neutrophiles dépassent 250. Chirurgien si la défense se localise.",
+        "Pas le schéma sodium/potassium de la cirrhose sur un gradient bas. Pas d'anti-inflammatoire. Pas de chimiothérapie inventée.",
+        "Le liquide revient souvent. On le dit. Une fièvre nouvelle est une nouvelle ponction.",
+        "11 g/l ou 1,1 g/dl, même seuil, exactitude d'environ 97 % pour le gradient haut seulement. Grades 1 à 3 pour décrire, pas pour conclure.",
+        "Piège. 400 mg parce que le ventre est gros. Piège. Appeler hypertension portale un gradient de 8 g/l. Piège. Rassurer parce que la cytologie est négative une fois.",
+    ]
+    extra = [
+        "On soustrait deux albumines du même jour.",
+        "On demande l'ovaire, le sein et le tube digestif.",
+        "On ne traite pas la tumeur avec un diurétique.",
+        "On remplit les tubes avant de vider le ventre.",
+        "On sépare douleur diffuse et défense localisée.",
+        "On regarde la figure de Morison sans lui faire dire la cause.",
+        "On garde le cœur et le néphrotique comme autres gradients.",
+        "On répète si l'histoire est forte.",
+        "On n'invente pas une sensibilité de cytologie.",
+        "On cite 59876 seulement pour l'infection, avec le décalage d'indication.",
+        "On cite 27257 seulement dans le bon paragraphe.",
+        "On barre l'ibuprofène, numéro 48164, dès qu'il y a une ascite.",
+        "On attache les 97 % au gradient d'au moins 11 g/l.",
+        "On refuse de copier 8 g/l si le gradient est bas.",
+    ]
+    P = {}
+    for i, phrase in enumerate(phrases, 1):
+        P[f"p{i}"] = ([phrase, "Les calculs sont dans les lectures."],
+                     [("Décision chiffrée", [phrase, extra[i - 1], "L'unité est écrite à côté du nombre.", "Le rang E n'est pas le numéro de fiche."])])
+    base_dx(7, r, P)
+
 def run_all():
     dx2()
 
 if __name__ == "__main__":
     nums = [int(a) for a in sys.argv[1:]] or [2]
-    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6}
+    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6, 7: dx7}
     for n in nums:
         fn[n]()
