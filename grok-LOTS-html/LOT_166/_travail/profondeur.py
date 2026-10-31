@@ -9,6 +9,17 @@ def injecter(n, ilots):
         fens.append(W(n, f"prof{i}", titre, [p(t, ref) for t in textes]))
 
 
+def charger_txt(n, ref, nom, pid="p4"):
+    from pathlib import Path
+    raw = Path(__file__).parent.joinpath("txt", nom).read_text(encoding="utf-8").strip().split("\n\n")
+    raw = [t.strip() for t in raw if t.strip()]
+    chunks = []
+    for i in range(0, len(raw), 5):
+        bloc = raw[i:i + 5]
+        chunks.append((pid, f"Lecture {i // 5 + 1}", ref, bloc))
+    DATA[n] = DATA.get(n, []) + chunks
+
+
 DATA = {}
 
 DATA[2] = [
@@ -212,3 +223,5 @@ DATA[1] = [
         "On ajoute, pour ne pas amputer la conduite, le cas du patient qui saigne de varices le matin et dont le ventre est tendu. Glypressine selon le poids, endoscopie, et ponction d'ascite dans la même séquence, parce que l'infection précipite le saignement. Le diurétique de la veille est souvent suspendu tant que la pression n'est pas sûre. Reprendre 400 mg le soir de l'hémostase, sans regarder le potassium, est une deuxième faute.",
     ]),
 ]
+
+charger_txt(3, "1", "dx3.txt")
