@@ -5,3 +5,5 @@
 Recherche suisse HUG2025 puis NICE/College, trois notices AIPS réellement lues. Phase A produite, relecture distincte et liste gelée. DX1–4 produits dans l’ordre, relus en passes distinctes ; quatre groupes de corrections cumulés. Contrôles langue puis structure :124/125V8,70questions,27citations exactes. Seul échec V8 : six liens futurs absents. Harnais historique négatif conservé.
 
 Sources/recherches et scripts exacts sauvegardés. Le lot reste incomplet. Prochaine action DX5Blépharite, lectures complémentaires puis rédaction. Aucun navigateur, score ou audit indépendant. Aucun autre producteur, branche ou automate modifié.
+
+2026-10-31T10:41:09+00:00 — Reprise après rapport prioritaire, verrou pris et registre signé, pret/verifier autorisés. Six nouvelles leçons DX5–10 rédigées, relecture interne distincte puis corrections et contrôles. Neuf groupes cumulés,11HTML/154questions/275V8/45citations. Cinq anciens HTML inchangés. Rapport détaillé VALIDATION_FINALE.md ; prochaine production34.
