@@ -72,6 +72,8 @@ def assembler(n, essentiel, ilots):
     # fenêtre d'écarts sur le point 7 si elle n'y est pas
     ile, fens = ilots["p7"]
     fens.append(ecarts(n))
+    from profondeur import injecter
+    injecter(n, ilots)
     html = page(
         f"LOT_166_Phase_B_V0_DX.{n}.html",
         nom,

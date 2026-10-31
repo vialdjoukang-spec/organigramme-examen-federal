@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 ICI = Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI))
-from dx_tous import FAST, NOMS, W, assembler, btn, ilot, p
+from dx_tous import A, FAST, NOMS, W, assembler, btn, ilot, p
 
 def S(n, ref="1"):
     """Paragraphe toujours daté par une source de l'INDEX."""
@@ -21,7 +21,7 @@ def base_dx(n, ref, points):
             fenetres.append(W(n, f"{ident}-{i}", titre, [p(t, ref) for t in textes]))
         ilots[ident] = ilot([p(t, ref) for t in bases], fenetres)
     essentiel = p(points["p1"][0][0], ref) + p(
-        "Les seuils chiffrés sont dans les fenêtres, avec la source. Le rang E n'est pas le numéro DX.", ref)
+        f"Les seuils chiffrés sont dans les fenêtres, avec la source. Les doses de spécialité citent l'{A} et le numéro Swissmedic. Le rang E n'est pas le numéro DX.", ref)
     assembler(n, essentiel, ilots)
 
 # textes : chaque liste de base a 2 phrases, chaque fenêtre 4 à 6 phrases.
