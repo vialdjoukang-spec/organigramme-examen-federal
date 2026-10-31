@@ -2,10 +2,25 @@
 
 LOT_166 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163 et LOT_165 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164 et LOT_166 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165 et LOT_167 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164 et LOT_166 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_167.**
+**Prochain LOT du rédacteur A : LOT_169.**
 **Prochain LOT du rédacteur B : LOT_168.** LOT_166 (F2.18 Épanchement abdominal ou pleural détecté à l'échographie) est rédigé et certifié. Détail : `LOT_166/A_AUDITER.md`.
+
+## LOT_167 — rédigé et certifié
+Sujet : F2.19 « Élévation des biomarqueurs de l'inflammation ». Détail : `LOT_167/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Cinétique de la CRP (6 h, 48 h, demi-vie 19 h), procalcitonine 0,25 et 0,5 µg/l (ProHOSP), formule de Miller, HScore entier, Sepsis-3, lactate supérieur à 2 mmol/l, campagne 2021, critères ACR/EULAR 2022, EULAR/ACR 2012, Yamaguchi, Durack et Street, électrophorèse.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 6.1 (+ 77.5) Ko · commit 11f2ff16
+- DX.1 : certitude VERT · porte ORANGE · T = 5.9 (+ 37.3) Ko · commit 0963612c
+- DX.2 : certitude VERT · porte ORANGE · T = 5.8 (+ 38.0) Ko · commit 0a9a30c7
+- DX.3 : certitude VERT · porte ORANGE · T = 6.4 (+ 40.1) Ko · commit ce180091
+- DX.4 : certitude VERT · porte ORANGE · T = 5.8 (+ 37.0) Ko · commit f0494f89
+- DX.5 : certitude VERT · porte ORANGE · T = 5.9 (+ 37.5) Ko · commit 883e9973
+- DX.6 : certitude VERT · porte ORANGE · T = 5.9 (+ 38.5) Ko · commit 6191c1d9
+- DX.7 : certitude VERT · porte ORANGE · T = 6.3 (+ 38.7) Ko · commit 367fd419
+- DX.8 : certitude VERT · porte ORANGE · T = 5.9 (+ 38.9) Ko · commit f915fa87
+- DX.9 : certitude VERT · porte ORANGE · T = 5.9 (+ 37.0) Ko · commit a0bd3b1b
+- DX.10 : certitude VERT · porte ORANGE · T = 6.0 (+ 41.9) Ko · commit a8ea7758
 
 ## LOT_166 — rédigé et certifié
 Sujet : F2.18 « Épanchement abdominal ou pleural détecté à l'échographie ». Détail : `LOT_166/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Light, gradient 11 g/l, neutrophiles 250, pH pleural 7,2, FAST et signe de la colonne 2021, Balik exclu du sang et du pus, RAPID entier pour l'infection pleurale, classes péricardiques 2015 et 2025, colchicine 67974 distincte de la goutte.
