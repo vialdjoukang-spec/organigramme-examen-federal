@@ -20,6 +20,7 @@ ABBR.update({'SSA':'antigène A associé à Sjögren, aussi appelé Ro','EHNS':'
 ABBR.update({'cf.':'se reporter à'})
 ABBR.update({'OFSP':'Office fédéral de la santé publique','RCEM':'Collège royal britannique de médecine d’urgence','HLA-A*3101':'allèle A*3101 du système des antigènes leucocytaires humains','HLA-B*1502':'allèle B*1502 du système des antigènes leucocytaires humains'})
 ABBR.update({'CMV':'cytomégalovirus','PTEN':'gène codant la phosphatase et homologue de la tensine','BESS':'élargissement bénin des espaces sous-arachnoïdiens','ADN':'acide désoxyribonucléique'})
+ABBR.update({'ERN GENTURIS':'réseau européen de référence des syndromes génétiques de prédisposition tumorale','IgM':'immunoglobulines de classe M','ASPM':'gène de la protéine associée à la microcéphalie à fuseau anormal','WDR62':'gène de la protéine 62 à répétitions WD','CDK5RAP2':'gène de la protéine 2 associée au régulateur de la kinase 5 dépendante des cyclines'})
 class Lesson:
  def __init__(self,title,n=None):self.title=title;self.n=n;self.prefix='a' if n is None else f'dx{n}';self.parts=[];self.windows=[]
  def add(self,main,detail='',refs=(1,)):

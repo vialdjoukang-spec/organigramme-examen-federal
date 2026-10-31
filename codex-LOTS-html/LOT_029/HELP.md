@@ -1,5 +1,12 @@
-# LOT_029 — en cours
+# LOT_029 — limites documentées
 
-Quatre leçons disponibles : Phase A, DX.1 Macrocéphalie familiale constitutionnelle, DX.2 Élargissement bénin des espaces sous-arachnoïdiens du nourrisson et DX.3 Hydrocéphalie. Les sept autres liens ne disposent pas encore de monographie. Ne pas publier comme lot terminé.
+Onze leçons rédigées, relues en interne et contrôlées statiquement. Lire VALIDATION_FINALE.md et audits/RELECTURE_FINALE.md.
 
-Lire VALIDATION_PARTIELLE.md, BRIEF_REPRISE.md et evidence/INDEX.md. Contenu non validé cliniquement par un médecin ; pas de navigateur ni d’audit indépendant.
+## H1 — CMV : posologie néonatale
+La notice AIPS65221 ne fournit pas de schéma du CMV congénital ; dose et formulation nécessitent validation spécialisée hors information professionnelle. La leçon ne prétend pas fournir une ordonnance néonatale.
+
+## H2 — Incertitudes de recommandations
+Pas de classement suisse de fréquence inventé. Calendriers PTEN divergents : référentiel européen2026 daté et incertitude explicités. Aucun percentile individuel calculé à partir d’une courbe non vérifiée graphiquement.
+
+## H3 — Vérifications non effectuées
+Aucun audit indépendant, test navigateur ni validation clinique humaine. Contrôles historiques incompatibles avec certaines règles V8 conservés négatifs.

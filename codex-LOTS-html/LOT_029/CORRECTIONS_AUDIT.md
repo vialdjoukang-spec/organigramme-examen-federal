@@ -7,3 +7,5 @@ Audit indépendant non effectué.
 - DX1-C01 : Fenêtre des critères NICE : développement normal ajouté explicitement et phrase scindée ; les conditions ne doivent pas être réduites à la taille et aux symptômes de pression.
 - DX2-C01 : La source BESS/sous-dural est désignée comme revue européenne de radiologie pédiatrique, sans lui attribuer un statut de recommandation formelle générale.
 - LANG-C01 : Définition −2/+2 scindée en deux phrases, avec conservation des signes et de la portée des seuils.
+
+Clôture : corrections DX6-C01, DX7-C01, PA-C03, LANG-C02 et OUTIL-C01 ajoutées. Voir les dix groupes réels cumulés et RELECTURE_FINALE.md ; relecture interne uniquement.

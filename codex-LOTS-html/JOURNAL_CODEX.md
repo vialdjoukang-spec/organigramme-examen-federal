@@ -44,3 +44,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T06:14:26+00:00 — LOT_029 checkpoint partiel : Phase A et DX.1–DX.3, 56 questions, 99/100 contrôles V8, sept liens futurs absents. Cinq groupes de corrections internes ; aucun audit indépendant, score, navigateur ou validation du lot complet. Reprise DX.4 Hématome sous-dural. LOT_028 poussé 522789d9.
 
 2026-10-31T06:15:02+00:00 — Checkpoint LOT_029 27f8a9e8 poussé ; reprise DX.4. Verrou officiellement libéré. Deux veilles locales minute constatées actives, aucun autre automate modifié. Contrat encore actif : 105 lots à achever de 29 à 133, dont LOT_029 partiel.
+
+2026-10-31T07:03:39+00:00 — LOT_029 terminé :11leçons/154questions/275V8/six citations AIPS ;10groupes de corrections, aucune faute clinique grave ou critique identifiée à la relecture interne (pas un audit indépendant). Limite CMV documentée. Suite LOT_030.

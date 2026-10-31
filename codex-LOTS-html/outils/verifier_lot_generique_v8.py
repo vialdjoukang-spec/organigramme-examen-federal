@@ -144,7 +144,11 @@ def verifier(dossier):
         check('citations_aips_presentes_dans_fichiers_originaux', not inconnues, {'citations': len(quotes), 'non_retrouvees': inconnues})
         if not phase_a:
             titre = f'DX.{num} — {dict(canon).get(str(num), "ABSENT")}'
-            check('titre_canonique_exact', f'<h2>{titre}</h2>' in source)
+            # Le balisage V8 des abréviations ne change pas le titre visible.
+            # Comparer le texte exact du premier titre, sans ignorer sa casse
+            # ni normaliser un intitulé différent de la liste canonique.
+            titres = tree.xpath('//main/h2')
+            check('titre_canonique_exact', bool(titres) and titres[0].text_content() == titre)
         else:
             noms = [normaliser(tr.xpath('./td[1]')[0].text_content()) for tr in tree.xpath('//tr[starts-with(normalize-space(td[1]),"DX.")]')]
             check('dix_diagnostics_canoniques_ordre_identique', noms == [f'DX.{n} — {s}' for n, s in canon])

@@ -11,3 +11,9 @@ La première URL de synthèse PNDS ne rendait qu’un titre ; recherche complém
 Divergences explicites : maximum de trois mesures valides selon NICE, médiane proposée par AFPA ; procédure NICE choisie et nommée. Seuils −2/+2 écarts-types et seuils décisionnels 2e/98e centiles non confondus. Courbes suisses actuelles distinctes des graphiques britanniques et anciennes références. Les formulations générales d’Inselspital sur scanner, hydrocéphalie communicante/pression normale et taux d’échec ne sont pas transposées en règle universelle pédiatrique.
 
 Aucune dose médicamenteuse dans les quatre textes présents. AIPS à consulter pour les futurs traitements spécifiques, notamment CMV ; les notices et citations seront archivées au moment de leur lecture réelle. Aucun Compendium, audit indépendant ou navigateur utilisé.
+
+## Complément de clôture — 31.10.2026
+
+27 références au total. RECHERCHES_REPRISE_DX4.json et LECTURES_REPRISE_DX4.json conservent recherches et extraits exacts : HUG traumatologie, NICE, HAS, ECCI, alcool suisse/HAS/Allemagne et PTEN. LECTURE_TUMEUR_CRANIOSTENOSE.json, LECTURE_MICROCEPHALIES_COMPLEMENT.json et LECTURE_CRETE_METOPIQUE.json précisent les lectures ciblées. LECTURE_PTEN_2026.json conserve les réponses complètes ; les passages cliniques et tableau de surveillance utilisés ont été lus, sans revendication de lecture de toute la bibliographie. RECHERCHE_PTEN_SUISSE.json garde la recherche suisse sans résultat clinique suisse pertinent retenu ; recours européen explicite.
+
+AIPS_65221.txt archive la notice exacte ; AIPS_65221.json fournit source, date et empreinte. Rubriques pertinentes réellement lues : indications, posologie, enfant, précautions, contre-indications et grossesse/allaitement. Six citations reproduites et vérifiées ; aucun schéma néonatal AIPS trouvé. Le reste du texte archivé n’est pas déclaré intégralement lu.
