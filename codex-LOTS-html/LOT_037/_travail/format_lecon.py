@@ -32,6 +32,9 @@ ABBR.update({'TBG':'globuline fixant la thyroxine','LAR':'présentation à libé
 ABBR.update({'RCOphth':'Royal College of Ophthalmologists, collège royal britannique des ophtalmologistes','SNC':'système nerveux central','SFO':'Société française d’ophtalmologie','AFSOP':'Association francophone de strabologie et d’ophtalmologie pédiatrique','EUGOGO':'Groupe européen sur l’orbitopathie de Graves','III':'troisième nerf crânien, nerf oculomoteur','IV':'quatrième nerf crânien, nerf trochléaire','VI':'sixième nerf crânien, nerf abducens'})
 ABBR.update({'i. v.':'intraveineux','i. m.':'intramusculaire','RB1':'gène de prédisposition au rétinoblastome'})
 ABBR.update({'i.m .':'intramusculaire','WAO':'Organisation mondiale de l’allergie','EAACI':'Académie européenne d’allergologie et d’immunologie clinique'})
+for _nerf in ('III','IV','VI'): ABBR.pop(_nerf,None)
+ABBR.update({'CLS':'syndrome de fuite capillaire'})
+ABBR.update({'IV':'intraveineux','ECA':'enzyme de conversion de l’angiotensine','CRPV':'centre régional de pharmacovigilance','CREAK':'Centre de référence des angio-œdèmes à kinines','OMS':'Organisation mondiale de la santé','U.I.':'unités internationales'})
 class Lesson:
  def __init__(self,title,n=None):self.title=title;self.n=n;self.prefix='a' if n is None else f'dx{n}';self.parts=[];self.windows=[]
  def add(self,main,detail='',refs=(1,)):
@@ -58,7 +61,7 @@ class Lesson:
   css+='\n@media(max-width:480px){.fenetre.sousf{translate:0 .6rem}.som{columns:1}}'
   heading=self.title if self.n is None else f'DX.{self.n} — {self.title}'
   out=['<!doctype html>','<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">',f'<title>{escape(self.title)} — S1.21</title><style>'+css.replace('}','}\n')+'</style></head><body><main>',f'<h2>{heading}</h2>','<p class="sous">Situation S1.21 · Sources consultées le 31 octobre 2026.</p>','<p id="taille" class="taille">Taille à mesurer.</p>']
-  if self.n is not None:out.append(paras('Pour le tri et les gestes communs, voir le <a href="LOT_037_Phase_A_V0.html">cours sur le strabisme</a>.'))
+  if self.n is not None:out.append(paras('Pour le tri et les gestes communs, voir le <a href="LOT_037_Phase_A_V0.html">cours sur la tuméfaction du visage ou du cou</a>.'))
   out.append('<nav class="ilot v" aria-label="Sommaire"><h2>Sommaire</h2><ol class="som">'+''.join(f'<li><a href="#{self.prefix}-p{i}">{t}</a></li>\n' for i,t in enumerate(T,1))+'</ol></nav>')
   for i,(main,refs) in enumerate(self.parts,1):out.append(f'<section class="ilot {"c" if i%2 else "v"}"><h2 id="{self.prefix}-p{i}">{i}. {T[i-1]}</h2>'+paras(main+ref(refs))+'</section>')
   out.extend(self.windows)

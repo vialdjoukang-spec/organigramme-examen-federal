@@ -1,0 +1,13 @@
+# Relecture interne DX1–3 — 31.10.2026
+
+Passe distincte de la rédaction, effectuée dans la session principale. Aucun auditeur indépendant, score médical, validation clinique ni navigateur.
+
+DX1 : relecture des quatorze parties et questions. L’angio-œdème mastocytaire ne devient pas une allergie prouvée. Le tri anaphylactique est indépendant de la présence d’urticaire. La notice cétirizine mai2023 a été lue : indication chronique distincte de l’usage aigu, dose quotidienne, paliers rénaux, grossesse/allaitement et somnolence. La phrase de synthèse rénale a été scindée. Les doses d’adrénaline proviennent de la notice suisse et non du tableau britannique du nourrisson. La durée d’observation n’est pas inventée. Aucun auto-injecteur spécifique n’est prescrit sans notice.
+
+DX2 : relecture du mécanisme, de l’éviction immédiate et durable de classe et du risque laryngé. Pas de test de réintroduction, pas de simple réduction de dose. Le bilan du C1-inhibiteur n’est pas réservé à une histoire familiale positive. Le protocole français et l’indication suisse de Firazyr sont distingués. Le relais antihypertenseur n’est pas automatisé. ECA, CRPV et CREAK sont développés ; le dictionnaire local hérité a perdu ses définitions de nerfs crâniens pour III/IV/VI. Aucun ancien HTML37 ne contenait ces définitions erronées lors du contrôle par recherche.
+
+DX3 : relecture des profils quantitatif/fonctionnel, de la limite du C4 isolé et de l’urgence laryngée. Berinert IV est distingué des préparations sous-cutanées. La dose20UI/kg, la même posologie pondérale pédiatrique, la voie lente et l’absence d’intervalle fixe inventé sont vérifiés. Firazyr conserve son tableau suisse par poids, sa limite avant2ans/sous12kg et sa restriction d’une injection par crise dans l’étude pédiatrique. Grossesse, allaitement, hypersensibilité, thrombose et traçabilité sont traités. CLS est développé. La phrase longue de grossesse signalée par audit_langue est un verbatim AIPS : elle est conservée exacte.
+
+Contrôle transversal partiel : PhaseA et DX1–3 concordent sur urgence des voies aériennes, distinction histamine/bradykinine, absence de généralisation d’indication et observation après traitement laryngé. Les autres diagnostics ne sont pas encore produits : aucune clôture globale.
+
+Les critiques du harnais historique (title, h3, références et espaces) restent dans les rapports bruts. Le format V8 exige h2 et autorise title uniquement sur abbr. Les contrôles complémentaires ne remplacent pas les rapports officiels. La conformité médicale totale n’est pas certifiée. Les prophylaxies spécialisées de longue durée ne sont pas détaillées comme prescriptions exhaustives.
