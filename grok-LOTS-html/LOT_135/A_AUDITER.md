@@ -1,6 +1,6 @@
 # LOT_135 — audit médical en cours · 31.10.2026
 
-Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 en cours** (Phase A, DX.1–DX.5 faits). Reste : DX.6–DX.10 puis conformité grok-4.5. Aucune PR. Branche `grok/lots`.
+Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 en cours** (Phase A, DX.1–DX.6 faits). Reste : DX.7–DX.10 puis conformité grok-4.5. Aucune PR. Branche `grok/lots`.
 
 P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `LISTE_DX_CANONIQUE.md`.
 
@@ -12,7 +12,7 @@ P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `L
 | DX.3 | ORANGE | 2.8 (+ 37.1) Ko | 6b70d2b1 | 2 corr. · score 94 · grok-4.6 |
 | DX.4 | ORANGE | 2.7 (+ 37.4) Ko | dc61c467 | 1 corr. · score 95 · grok-4.6 |
 | DX.5 | ORANGE | 3.0 (+ 37.1) Ko | bff891fa | 1 corr. · score 94 · grok-4.6 |
-| DX.6 | ORANGE | 2.8 (+ 36.2) Ko | 3131a0b3 | à faire |
+| DX.6 | ORANGE | 2.8 (+ 36.6) Ko | 45943ad5 | 1 corr. · score 95 · grok-4.6 |
 | DX.7 | ORANGE | 2.6 (+ 35.3) Ko | 4187a956 | à faire |
 | DX.8 | ORANGE | 2.6 (+ 35.0) Ko | 19a71be3 | à faire |
 | DX.9 | ORANGE | 2.8 (+ 35.6) Ko | 62803cab | à faire |
