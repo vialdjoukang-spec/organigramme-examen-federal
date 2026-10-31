@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_170 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_171 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167 et LOT_169 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168 et LOT_170 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169 et LOT_171 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168 et LOT_170 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_171.**
-**Prochain LOT du rédacteur B : LOT_172.** LOT_170 (F2.22 Polyglobulie) est rédigé et certifié. Détail : `LOT_170/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_173.**
+**Prochain LOT du rédacteur B : LOT_172.** LOT_171 (F2.23 Protéinémie, albuminémie) est rédigé et certifié. Détail : `LOT_171/A_AUDITER.md`.
+
+## LOT_171 — rédigé et certifié
+Sujet : F2.23 « Protéinémie, albuminémie ». Détail : `LOT_171/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Protéines totales 60 à 80 g/l (ACB), trou protéique, six profils d'électrophorèse, rapport des chaînes légères 0,26 à 1,65, Mayo 2005 entier (5, 21, 37 et 58 pour cent à 20 ans), IMWG 2014 entier (CRAB et biomarqueurs), Waldenström, amylose AL, KDIGO 2021 (3,5 grammes par jour, seuils 25 g/l au vert et 20 g/l au pourpre), Child-Pugh 1973 entier, Figge 1998, Payne 1973, EASL 2018 et AASLD 2021 pour l'albumine, AIPS 65562, 27257 et 30629.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 3.9 (+ 74.0) Ko · SHA cce303df00d8 · commit c1e9de41
+- DX.1 : certitude VERT · porte ORANGE · T = 3.8 (+ 45.2) Ko · SHA 7b15fb0d5952 · commit 7b254af5
+- DX.2 : certitude VERT · porte ORANGE · T = 3.7 (+ 44.6) Ko · SHA e7b9aaef1f93 · commit 3d8b0016
+- DX.3 : certitude VERT · porte ORANGE · T = 3.8 (+ 43.4) Ko · SHA 5b4faa762b21 · commit e12b3f5b
+- DX.4 : certitude VERT · porte ORANGE · T = 3.7 (+ 38.6) Ko · SHA c9982d217d04 · commit 52711ec9
+- DX.5 : certitude VERT · porte ORANGE · T = 3.7 (+ 44.1) Ko · SHA af49a86d257e · commit e3b29cd5
+- DX.6 : certitude VERT · porte ORANGE · T = 3.7 (+ 45.6) Ko · SHA aa12cf29f4b2 · commit 47edb665
+- DX.7 : certitude VERT · porte ORANGE · T = 3.7 (+ 38.1) Ko · SHA a6464fcd4016 · commit 05ed70b8
+- DX.8 : certitude VERT · porte ORANGE · T = 3.7 (+ 38.4) Ko · SHA ca235b190890 · commit 7f3a799a
+- DX.9 : certitude VERT · porte ORANGE · T = 3.7 (+ 37.7) Ko · SHA 5f401f0b39ec · commit 9a9b1e06
+- DX.10 : certitude VERT · porte ORANGE · T = 3.7 (+ 39.0) Ko · SHA a30b5b905e0e · commit 899bca68
 
 ## LOT_170 — rédigé et certifié
 Sujet : F2.22 « Polyglobulie ». Détail : `LOT_170/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Seuils OMS 2016 et ICC 2022 (hémoglobine supérieure à 16,5 g/dl chez l'homme et à 16,0 g/dl chez la femme, hématocrite supérieur à 49 % et 48 %), critères majeurs et mineur entiers, dérogation de biopsie, risque à 60 ans et classification britannique à 65 ans entière, cible d'hématocrite inférieure à 45 % (2013), aspirine 100 mg, hydroxycarbamide, ropeginterféron, ruxolitinib, formes secondaire, relative, médicamenteuse, congénitale, greffe, hyperviscosité, Budd-Chiari, myélofibrose post-polyglobulie.
