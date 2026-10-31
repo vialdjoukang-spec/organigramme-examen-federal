@@ -1,11 +1,27 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_173 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_174 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_176 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_173 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171 et LOT_173 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172 et LOT_174 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171 et LOT_173 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174 et LOT_176 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_175.**
-**Prochain LOT du rédacteur B : LOT_176.** LOT_174 (O1.1 Poids de naissance anormal et prématurité) est rédigé et certifié. Détail : `LOT_174/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_178.** LOT_176 (O1.3 Dépistage préconceptionnel et postconceptionnel des maladies génétiques et des malformations) est rédigé et certifié. Détail : `LOT_176/A_AUDITER.md`.
+
+## LOT_176 — rédigé et certifié
+Sujet : O1.3 « Dépistage préconceptionnel et postconceptionnel des maladies génétiques et des malformations ». Détail : `LOT_176/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Fiche OFSP du 7 juillet 2015 (seuil un pour mille, perte invasive un pour cent), LAGH RS 810.12 (consentement, conseil non directif, sexe avant douze semaines), ISUOG 2023 (fenêtre 11+0 à 14+0, clarté supérieure à 3,5 mm), CHUV page du 2 septembre 2022, liste des analyses OPAS du 1er janvier 2025, Fertifol 58121 (0,4 mg), AndreaFol 54718, Acidum folicum Streuli 36752 (5 mg).
+
+- Phase_A : certitude VERT · porte VERT · T = 2.9 (+ 76.0) Ko · SHA 71c687b7c689f114 · commit 4d05f26c
+- DX.1 : certitude VERT · porte VERT · T = 2.7 (+ 37.3) Ko · SHA 5f96f4b86342b694 · commit 48295450
+- DX.2 : certitude VERT · porte VERT · T = 2.8 (+ 39.8) Ko · SHA 7044a04c54c24965 · commit 55b979f4
+- DX.3 : certitude VERT · porte VERT · T = 2.7 (+ 42.2) Ko · SHA 8f6db75888bb0bcf · commit e3710ca2
+- DX.4 : certitude VERT · porte VERT · T = 2.7 (+ 44.7) Ko · SHA 85712219f495cc3c · commit 9765b176
+- DX.5 : certitude VERT · porte VERT · T = 2.7 (+ 46.4) Ko · SHA 861d6ce414acd0d1 · commit d6cefdfb
+- DX.6 : certitude VERT · porte VERT · T = 2.7 (+ 38.1) Ko · SHA a84925a6ee07bb2b · commit 4eb0d6f8
+- DX.7 : certitude VERT · porte VERT · T = 2.8 (+ 43.4) Ko · SHA a1d6614d59a40c1d · commit 3fc74d0c
+- DX.8 : certitude VERT · porte VERT · T = 2.7 (+ 45.5) Ko · SHA bc6ceb351bdf460e · commit 563f4f21
+- DX.9 : certitude VERT · porte VERT · T = 2.7 (+ 40.7) Ko · SHA f0cc2d3dc328775c · commit 619b687c
+- DX.10 : certitude VERT · porte VERT · T = 2.7 (+ 43.8) Ko · SHA 5926b7d08a9ad4e0 · commit 173efb8e
+
 
 ## LOT_173 — rédigé et certifié
 Sujet : F2.25 « Thrombopénie, thrombocytose ». Détail : `LOT_173/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Scores entiers (4T, PLASMIC, français, CIVD 2001, IPSET 2012 et révision 2015, OMS/ICC 2022), pseudothrombopénie EDTA, grossesse et HELLP, doses AIPS lues. Zéro retrait. Porte ORANGE (langue).
