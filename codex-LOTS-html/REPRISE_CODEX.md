@@ -1,9 +1,9 @@
-# Reprise exacte — LOT_025
+# Reprise exacte — LOT_026
 
-LOT_018 950a4cd1, LOT_019 35e1d64b, LOT_020 eb65e0b2, LOT_021 e2596088, LOT_022 1d5f6191, LOT_023 9e826e5b terminés. LOT_024 complet en production : onze HTML, 154 questions, 275 contrôles V8 et 27 citations AIPS exactes. Lire LOT_024/VALIDATION_FINALE.md et LECONS_LOT_024.md ; ne pas recommencer. Commit de clôture : c96d5b0c, poussé sur codex/lots.
+LOT_025 terminé en production au commit 92c3a9b5 : onze HTML, 154 questions, 275 contrôles V8 et 36 citations AIPS. Lire LOT_025/VALIDATION_FINALE.md et evidence/INDEX.md. Ne pas recommencer LOT_018 à LOT_025. LOT_024 c96d5b0c, checkpoint antérieur f722102a.
 
-Suite LOT_025 S1.9 « Sécheresse, douleur, masse buccale ou pharyngée, lésions buccales ». Aucun fichier de ce lot n’a encore été produit. Recherche et Phase A avant dix monographies. Contrat actif jusqu’à LOT_133 inclus, 109 lots restants. Dépôt et réservation à relire frais, premier incomplet sans saut ; vérifier absence de producteur actif puis prendre le verrou exclusif, registre du jour, veilles minute, pret/verifier. Session seule sans sous-agents, écritures uniquement codex-LOTS-html/, branche codex/lots, STOP/PAUSE prioritaire. Commits/push autorisés. Libérer le verrou à la sortie.
+Suite : LOT_026 S1.10 Otalgie. Contrat actif jusqu’à LOT_133 inclus, 108 lots restants. Reprendre le premier incomplet sans saut. Session actuelle en cours sous verrou exclusif : ne pas lancer un second producteur. Dépôt frais, réservations, absence de STOP/PAUSE, registre et pret/verifier requis avant nouvelle production.
 
-Modèle confirmé par Vial GPT‑6 Astra · ultra ; high conseillé, aucun changement de réglage revendiqué. Veilles dépendantes du runtime, ne rédigent pas. Automatisation dédiée conservée sans modification, autres automates intacts. Audit indépendant, score, navigateur et validation clinique humaine non réalisés. Harnais historique négatif expliqué.
+Seul, sans sous-agents ; branche codex/lots ; écritures seulement codex-LOTS-html/. Commits/push autorisés. Deux veilles locales minute constatées actives, dépendantes du runtime et ne rédigeant pas. Aucun autre automate modifié.
 
-Fin de cette exécution : verrou local libéré. Les deux veilles locales ont été constatées actives ; elles dépendent de la durée de vie du runtime et ne produisent aucun lot. LOT_025 reste à commencer ; le contrat jusqu’à 133 reste actif.
+Modèle confirmé par Vial GPT‑6 Astra · ultra ; high recommandé en routine, aucun réglage changé. Relecture interne uniquement ; aucun audit indépendant, score, navigateur ou validation clinique humaine. Harnais historique négatif conservé, contrôles V8 complémentaires positifs. Libérer le verrou à la fin de l’exécution.
