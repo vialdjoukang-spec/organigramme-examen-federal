@@ -242,7 +242,9 @@ def injecter_nombres(ancien_nom: str, html: str, ident: str = "w-reperes") -> st
 
 def controler_html(html: str, ctl: ControleLangue):
     # Retire style/script puis vérifie le texte des paragraphes approximativement via le texte brut des <p> et <summary>.
-    brut = re.sub(r"(?is)<style>.*?</style>", " ", html)
+    # <link> commence par « li » : sans retirer l'en-tête, le contrôle le prend pour un <li>.
+    brut = re.sub(r"(?is)<head>.*?</head>", " ", html)
+    brut = re.sub(r"(?is)<style>.*?</style>", " ", brut)
     for m in re.finditer(r"<(p|summary|td|th|li|caption)[^>]*>(.*?)</\1>", brut, flags=re.S):
         t = re.sub(r"<[^>]+>", " ", m.group(2))
         t = htmlmod.unescape(re.sub(r"\s+", " ", t)).strip()
