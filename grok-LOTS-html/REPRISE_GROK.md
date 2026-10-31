@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_155 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT). Aucune PR, branche `grok/lots`.
+LOT_158 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience sans BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153 et LOT_155 sont rédigés par A. LOT_150, LOT_152, LOT_154 et LOT_156 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153 et LOT_155 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156 et LOT_158 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_157.**
-**Prochain LOT du rédacteur B : LOT_158.**
+**Prochain LOT du rédacteur B : LOT_160.**
+
+## LOT_158 — rédigé et certifié
+Sujet : F2.10 « Histologie, cytologie et tests de génétique moléculaire anormaux ». Détail : `LOT_158/A_AUDITER.md`.
+
+- Phase_A : certitude ORANGE · porte ORANGE · conscience 0 BLOQUANT · T = 7.5 (+ 66.5) Ko · SHA 46c818671d03 · commit c0a865a5
+- DX.1 : certitude ORANGE · porte ORANGE · T = 3.0 (+ 24.2) Ko · SHA d43c3615b017 · commit 5decb13d
+- DX.2 : certitude ORANGE · porte ORANGE · T = 2.6 (+ 13.7) Ko · SHA b80c8735f8e5 · commit c2eb9d4f
+- DX.3 : certitude ORANGE · porte ORANGE · T = 2.7 (+ 4.9) Ko · SHA 3fae33ac1f73 · commit 507eae3a
+- DX.4 : certitude ORANGE · porte ORANGE · T = 2.5 (+ 12.0) Ko · SHA 5e2c4f627f70 · commit 44c0f3ba
+- DX.5 : certitude ORANGE · porte ORANGE · T = 2.6 (+ 13.4) Ko · SHA 249b765cdd92 · commit 4a577c6f
+- DX.6 : certitude ORANGE · porte ORANGE · T = 2.6 (+ 10.3) Ko · SHA 2de20b28a007 · commit 65a81934
+- DX.7 : certitude ORANGE · porte ORANGE · T = 2.3 (+ 7.7) Ko · SHA 254f4a60783d · commit 9b883ea0
+- DX.8 : certitude ORANGE · porte ORANGE · T = 2.7 (+ 9.0) Ko · SHA 75f01f5c416f · commit 5962f42c
+- DX.9 : certitude ORANGE · porte ORANGE · T = 2.6 (+ 7.1) Ko · SHA af09f1efb227 · commit e3508115
+- DX.10 : certitude ORANGE · porte ORANGE · T = 2.6 (+ 9.9) Ko · SHA 56eb64523fc7 · commit 19c2fa4d
 
 ## LOT_155 — rédigé et certifié
 Sujet : F2.7 « Électrolytes anormaux ». Détail : `LOT_155/A_AUDITER.md`.
