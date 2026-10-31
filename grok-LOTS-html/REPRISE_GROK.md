@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_169 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_170 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167 et LOT_169 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166 et LOT_168 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167 et LOT_169 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168 et LOT_170 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_171.**
-**Prochain LOT du rédacteur B : LOT_170.** LOT_169 (F2.21 Carences nutritionnelles) est rédigé et certifié. Détail : `LOT_169/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_172.** LOT_170 (F2.22 Polyglobulie) est rédigé et certifié. Détail : `LOT_170/A_AUDITER.md`.
+
+## LOT_170 — rédigé et certifié
+Sujet : F2.22 « Polyglobulie ». Détail : `LOT_170/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Seuils OMS 2016 et ICC 2022 (hémoglobine supérieure à 16,5 g/dl chez l'homme et à 16,0 g/dl chez la femme, hématocrite supérieur à 49 % et 48 %), critères majeurs et mineur entiers, dérogation de biopsie, risque à 60 ans et classification britannique à 65 ans entière, cible d'hématocrite inférieure à 45 % (2013), aspirine 100 mg, hydroxycarbamide, ropeginterféron, ruxolitinib, formes secondaire, relative, médicamenteuse, congénitale, greffe, hyperviscosité, Budd-Chiari, myélofibrose post-polyglobulie.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 3.0 (+ 72.5) Ko · SHA b258be1b18c78f59 · commit 41352b28
+- DX.1 : certitude VERT · porte ORANGE · T = 3.1 (+ 44.0) Ko · SHA cc3eb77f586b484a · commit a4153e9d
+- DX.2 : certitude VERT · porte ORANGE · T = 3.2 (+ 39.3) Ko · SHA 1ba465c9b3b06d55 · commit 007d1e7c
+- DX.3 : certitude VERT · porte ORANGE · T = 3.1 (+ 44.3) Ko · SHA bd4eb4d1f1b029f6 · commit fc959f04
+- DX.4 : certitude VERT · porte ORANGE · T = 3.2 (+ 39.2) Ko · SHA c6ac22292fdd8c3d · commit d75143b7
+- DX.5 : certitude VERT · porte ORANGE · T = 3.2 (+ 40.6) Ko · SHA c277da51f5e56b93 · commit 17143e9e
+- DX.6 : certitude VERT · porte ORANGE · T = 3.1 (+ 39.6) Ko · SHA a2dc55ed4f67fcbe · commit b67fc71c
+- DX.7 : certitude VERT · porte ORANGE · T = 3.1 (+ 45.5) Ko · SHA 46af51931c91e84c · commit ea5ccc67
+- DX.8 : certitude VERT · porte ORANGE · T = 3.1 (+ 42.0) Ko · SHA 4b91029b77bd43da · commit 0df18346
+- DX.9 : certitude VERT · porte ORANGE · T = 3.1 (+ 41.6) Ko · SHA c30d56d5e8b59901 · commit c8c604fb
+- DX.10 : certitude VERT · porte ORANGE · T = 3.2 (+ 43.1) Ko · SHA 1e1e1d775cf79ea8 · commit 663b15bb
 
 ## LOT_169 — rédigé et certifié
 Sujet : F2.21 « Carences nutritionnelles ». Détail : `LOT_169/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, un SIGNAL Redoxon (plage non extraite dans le cache, dose lue dans l'information 56194). NRS-2002 entier, MUST entier, MNA court et scores, GLIM 2019 phénotype et cause et grades, Wellcome et malnutrition aiguë, réalimentation NICE et grades ASPEN 2020, thiamine Benerva 200 mg/j parentéral, schéma EFNS 200 mg trois fois et bras 500 mg trois fois hors information, Wernicke et Korsakoff, vitamine D 25 et 50 nmol/l, EWGSOP2, cœliaque et Marsh, scorbut, pellagre, vitamines A et K, zinc, iode OMS. Fer, B12 et folates de l'anémie : renvoi au LOT_164.
