@@ -7,3 +7,5 @@ Recherche CH : HUG, Jules-Gonin, Société suisse d’ophtalmologie. Complément
 Rédaction réelle de Phase A : 14 parties et14questions, dix diagnostics canoniques. Relecture interne distincte, C01 formulation/production/langue et C02 références précises. Régénération et contrôles après modifications. Rapport de lot négatif attendu : une leçon sur onze.
 
 Prochain travail : DX1, sans saut. Aucun lot039 complet, aucune monographie fictive. Modèle historiquement confirmé par Vial GPT-6 Astra ultra ; sélecteur actuel non exposé, aucun changement prétendu. High reste une recommandation de routine.
+
+Checkpoint PhaseA039 commité et poussé : 879c8ff7ef3f813862469f8dc1f4539090faa366. Verrou libéré ; prochain DX1. Veilles locales encore actives au contrôle de fin, aucune rédaction en arrière-plan revendiquée.
