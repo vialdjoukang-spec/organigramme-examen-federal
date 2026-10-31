@@ -1,0 +1,13 @@
+{
+  "note": "Plages de plausibilité d'une mesure humaine. Ce ne sont pas des seuils diagnostiques ni des recommandations de société savante. Statut : À vérifier si on voulait s'en servir comme seuil clinique. Hors plage seulement : BLOQUANT (valeur incompatible avec une mesure, ou unité g/l confondue avec g/dl).",
+  "regles": [
+    {"id": "kaliemie", "nom": "kaliémie", "contexte": "kali|potassium|\\bK\\s*\\+", "nombre_avant": "mmol\\s*/\\s*l", "min": 1.0, "max": 10.0},
+    {"id": "natremie", "nom": "natrémie", "contexte": "natr|sodium|\\bNa\\s*\\+", "nombre_avant": "mmol\\s*/\\s*l", "min": 100, "max": 180},
+    {"id": "ph", "nom": "pH", "motif": "\\bpH\\s*(?:de|=|:|à)?\\s*(\\d+[.,]\\d+)", "min": 6.5, "max": 7.8},
+    {"id": "temperature", "nom": "température", "motif": "(\\d+[.,]\\d+)\\s*°\\s*C", "min": 25, "max": 45},
+    {"id": "frequence", "nom": "fréquence cardiaque", "motif": "\\b(\\d{2,3})\\s*(?:/\\s*min|par minute|battements)", "min": 15, "max": 300},
+    {"id": "saturation", "nom": "saturation", "contexte": "saturation|SpO2|SaO2", "motif_nombre": "(\\d{2,3})\\s*%", "min": 50, "max": 100},
+    {"id": "hemoglobine_gl", "nom": "hémoglobine", "contexte": "hémoglobine|\\bHb\\b", "motif": "(\\d+(?:[.,]\\d+)?)\\s*g\\s*/\\s*l\\b", "min": 30, "max": 220, "unite": "g/l"},
+    {"id": "hemoglobine_gdl", "nom": "hémoglobine", "contexte": "hémoglobine|\\bHb\\b", "motif": "(\\d+(?:[.,]\\d+)?)\\s*g\\s*/\\s*dl\\b", "min": 3, "max": 22, "unite": "g/dl"}
+  ]
+}
