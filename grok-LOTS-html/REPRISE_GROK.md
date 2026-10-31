@@ -15,7 +15,7 @@ Sujet : F1.6 « Anomalies à la percussion ». Liste gelée. Reste : conformité
 - DX.7 : audit médical 0 corr. · score 96 · T = 2.6 (+ 35.3) Ko · porte ORANGE · SHA 158dbcaf
 - DX.8 : audit médical 0 corr. · score 95 · T = 2.6 (+ 35.0) Ko · porte ORANGE · SHA d0dfb7d7
 - DX.9 : audit médical 1 corr. · score 94 · T = 2.8 (+ 36.5) Ko · porte ORANGE · SHA 341ad8f8
-- DX.10 : audit médical 1 corr. · score 94 · T = 2.9 (+ 36.4) Ko · porte ORANGE · SHA 4160a3d5
+- DX.10 : audit médical 1 corr. · score 94 · T = 2.9 (+ 36.5) Ko · porte ORANGE · SHA 216bdd6f
 
 Détail : `LOT_135/A_AUDITER.md`.
 

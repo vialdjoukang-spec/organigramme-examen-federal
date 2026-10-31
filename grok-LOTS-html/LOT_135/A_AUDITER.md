@@ -16,7 +16,7 @@ P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `L
 | DX.7 | ORANGE | 2.6 (+ 35.3) Ko | 158dbcaf | 0 corr. · score 96 · grok-4.6 |
 | DX.8 | ORANGE | 2.6 (+ 35.0) Ko | d0dfb7d7 | 0 corr. · score 95 · grok-4.6 |
 | DX.9 | ORANGE | 2.8 (+ 36.5) Ko | 341ad8f8 | 1 corr. · score 94 · grok-4.6 |
-| DX.10 | ORANGE | 2.9 (+ 36.4) Ko | 4160a3d5 | 1 corr. · score 94 · grok-4.6 |
+| DX.10 | ORANGE | 2.9 (+ 36.5) Ko | 216bdd6f | 1 corr. · score 94 · grok-4.6 |
 
 Incertitudes tranchées en Phase A :
 - 14/1 000 après 65 ans retenu (RMS français + Thorax 2013). L'anglais 14/100 est un écart de traduction.
