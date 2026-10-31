@@ -30,3 +30,4 @@ Extraits lus le 31.10.2026. Les milligrammes viennent des informations professio
 26. Revue Médicale Suisse 2012, numéro 355, dyspepsie et Helicobacter pylori. `rms2012_hp.txt`.
 27. Revue Médicale Suisse 2013, numéro 383, parasitoses digestives. `rms2013_amibe.txt`.
 28. ANOFEL et LABAC, examen parasitologique des selles, recommandations françaises 2025. `anofel2025.txt`.
+29. Truelove SC, Witts LJ, BMJ 1955;2:1041. ECCO, J Crohns Colitis 2017, DOI 10.1093/ecco-jcc/jjx009 et jjx008 (Mayo). Best WR et al., Gastroenterology 1976 : CDAI <150 rémission, >450 sévère. Harvey RF, Bradshaw JM, Lancet 1980 : HBI ≤3 probable rémission, ≥8–9 sévère. Date de la source : 1955-10-29. URL : https://doi.org/10.1136/bmj.2.4947.1041. Constat injecté le 2026-10-31 dans LOT_156_Phase_B_V0_DX.3.html, élément p1.
