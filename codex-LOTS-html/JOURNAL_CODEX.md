@@ -38,3 +38,5 @@ Onze HTML, 154 questions, 275 contrôles V8, 29 citations AIPS ; quatre notices 
 ## 31.10.2026 — Checkpoint réel LOT_028
 
 Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 partiels, huit liens futurs manquants. Lot non terminé, reprise DX.3 Otospongiose. LOT_025 92c3a9b5, LOT_026 6126fee0, LOT_027 1ab34abb terminés et poussés. Aucun audit indépendant ou navigateur.
+
+2026-10-31T06:00:51+00:00 — LOT_028 terminé en production : 11 HTML, 154 questions, 275 contrôles V8, 13 citations AIPS ; sept groupes de corrections. Gravité médicale non cotée, aucun critique V8 résiduel ; critiques historiques conservées. Relecture interne seule, aucun navigateur. Suite LOT_029.

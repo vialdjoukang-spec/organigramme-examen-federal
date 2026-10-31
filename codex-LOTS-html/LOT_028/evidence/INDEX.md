@@ -1,29 +1,13 @@
-# Sources réellement consultées — LOT_028, 31.10.2026
+# Sources réellement consultées — LOT_028
 
-Réponses exactes dans RECHERCHES_EXACTES_20261031.json : recherches et extraits HUG, CHUV, Suva, NICE, RNID, NHS et information otologique. Les recommandations NICE NG155 et NG233 ont été obtenues en contenu complet ; sections cliniques, d’orientation et de traitement effectivement lues. Les analyses d’évidence liées n’ont pas été lues intégralement. Complément NG98 relu pendant la passe interne : LECTURE_RELECTURE_NG98.json.
+Consultations du 31.10.2026. sources.json contient les 27 références utilisées. Les réponses exactes des outils sont conservées ; elles contiennent des extraits, erreurs ou contenus complets selon la requête, sans prétendre avoir lu toutes les pages des résultats annexes.
 
-LECTURES_ANTERIEURES_026.json conserve les lectures déjà effectuées plus tôt dans cette même session pour HUG otite externe, cérumen et corps étranger ENT UK ; il ne s’agit pas de nouvelles consultations. Les résultats non retenus, dont sources hors Europe ou hors sujet, restent dans les réponses brutes sans être adoptés.
+RECHERCHES_EXACTES_20261031.json : recherche initiale suisse/européenne, HUG, CHUV, Suva, Mudry, NICE NG98/155/233, NHS, RNID. LECTURE_RELECTURE_NG98.json : vérification extraction et délais adultes. LECTURES_ANTERIEURES_026.json : lectures de la même session réutilisées, HUG otite externe/cérumen et ENT UK corps étrangers.
 
-Priorité suisse : HUG, CHUV et Suva. Otospongiose : information ancienne d’Albert Mudry, complétée par Hôpital Paris Saint-Joseph ; approfondissement nécessaire avant DX.3. Cholestéatome : recherche suisse sans document institutionnel pertinent obtenu, complément NHS clairement attribué. Pas de taux étranger présenté comme prévalence suisse.
+LECTURES_COMPLEMENTAIRES_DX3_7.json : Mudry/otosclérose, HUG presbyacousie, Suva bruit, HUG/Ameli surdité brusque, position européenne Ménière 2018. VERIFICATION_CRITERES_MENIERE.json : réponse complète du document européen et recherche de vérification du consensus conjoint 2015 ; passage des critères lu, complément reproduit par American Academy of Audiology cité explicitement comme tel, pas lecture intégrale du document original prétendue.
 
-Aucune posologie médicamenteuse chiffrée dans les trois leçons présentes : aucune validation de dose AIPS n’est donc revendiquée à ce stade. Avant les monographies thérapeutiques, lire les notices des préparations retenues, sauvegarder leurs empreintes et les citations exactes ; ne pas transposer les doses étrangères. La bétahistine pour un acouphène isolé est distinguée de Ménière ; la cortisone n’est pas prescrite systématiquement pour un acouphène.
+LECTURES_COMPLEMENTAIRES_DX8_10.json : HUG schwannome et otite chronique, Société suisse ORL cholestéatome, recommandations européennes d’imagerie, CHUV et Inselspital fistules, Lille. L’horodatage d’acquisition du moteur peut différer de la date de consultation ; pour le document européen de radiologie, publication en ligne 2024 et volume 2025, malgré une date d’indexation ultérieure.
 
-Points encore à approfondir : critères européens définitifs/probables de Ménière (la brochure HUG mentionne une plage large de crises), protocole de surdité brusque, médicaments éventuels, bilan de la fistule et du cholestéatome. Ne pas annoncer ces monographies comme déjà produites ou auditées.
+AIPS 36119 Betaserc et 29349 Prednisone Streuli : notices locales réellement lues, manifestes et empreintes conservés. Treize citations exactes contrôlées dans les originaux ; la prednisone n’est pas présentée avec une indication ou dose spécifique de surdité brusque absente de cette notice. La bétahistine suit la dose suisse, sans reprise des doses supérieures de l’article européen.
 
-1. [HUG — Perte auditive brusque](https://www.hug.ch/orl-chirurgie-cervico-faciale/perte-auditive-brusque)
-2. [HUG — Acouphènes](https://www.hug.ch/orl-chirurgie-cervico-faciale/acouphenes)
-3. [HUG — Presbyacousie](https://www.hug.ch/orl-chirurgie-cervico-faciale/presbyacousie)
-4. [HUG — Maladie de Menière](https://www.hug.ch/orl-chirurgie-cervico-faciale/maladie-meniere)
-5. [HUG — Schwannome vestibulaire](https://www.hug.ch/orl-chirurgie-cervico-faciale/schwannome-vestibulaire)
-6. [CHUV — Traitement des fistules durales par embolisation](https://www.chuv.ch/en/rad/rad-home/patients-et-familles/nos-interventions/neuroradiologie-interventionnelle/traitement-des-fistules-durales-par-embolisation)
-7. [Suva — Bruit au poste de travail](https://www.suva.ch/fr-ch/prevention/par-danger/materiaux-rayonnements-et-situations-a-risque/bruit-et-vibrations/bruit-au-poste-de-travail)
-8. [Albert Mudry, otologie — Otospongiose, information spécialisée ancienne](https://www.oreillemudry.ch/l%E2%80%99otospongiose)
-9. [NICE NG98 — Hearing loss in adults, actualisé 2023](https://www.nice.org.uk/guidance/ng98/chapter/Recommendations)
-10. [NICE NG155 — Tinnitus, 2020](https://www.nice.org.uk/guidance/ng155/chapter/Recommendations)
-11. [NICE NG233 — Otitis media with effusion in under 12s, 2023](https://www.nice.org.uk/guidance/ng233/chapter/Recommendations)
-12. [NHS — Cholesteatoma, 2025](https://www.nhs.uk/conditions/cholesteatoma/)
-13. [RNID — Hyperacusis, mise à jour affichée mai 2026](https://rnid.org.uk/information-and-support/tinnitus/hyperacusis)
-14. [HUG — Stratégie vertiges 2024](https://www.hug.ch/sites/interhug/files/2024-10/strategie_vertiges_doi.pdf)
-15. [HUG — Protocole otite externe aiguë et annexe cérumen, 14.07.2022](https://www.hug.ch/sites/interhug/files/structures/rug/protocoles/non-traumatologique/otite_exerne_aigue_14.07.2022.pdf)
-16. [ENT UK — Foreign bodies in the external auditory canal](https://www.entuk.org/_userfiles/pages/files/guidelines/global%20ent%20guidelines/foreign_bodies_external_auditory_canal.pdf)
-17. [Hôpital Paris Saint-Joseph — Pathologies de l’oreille moyenne et interne](https://www.hpsj.fr/specialites/oto-rhino-laryngologie-orl/les-principales-pathologies/pathologies-de-loreille-moyenne-et-interne)
+Aucun accès Compendium utilisé. Aucun audit clinique indépendant ou test navigateur.

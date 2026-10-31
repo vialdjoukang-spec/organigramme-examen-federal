@@ -2,6 +2,8 @@
 
 LOT_027 terminé au commit 1ab34abb : onze HTML, 154 questions, 275 contrôles V8 et 29 citations AIPS. Lire LOT_027/VALIDATION_FINALE.md et evidence/INDEX.md. LOT_026 : 6126fee0 ; LOT_025 : 92c3a9b5. Ne pas recommencer LOT_018 à LOT_027.
 
+Checkpoint partiel LOT_028 poussé : 04c455b4. Phase A et DX.1–DX.2 rédigés et relus ; 42 questions, 74/75 contrôles V8 partiels, huit liens de monographies encore absentes. Reprise exacte : DX.3 Otospongiose, puis DX.4–DX.10. Lire LOT_028/BRIEF_REPRISE.md ; ne pas recommencer les trois leçons présentes.
+
 Suite : LOT_028 S1.12 Troubles de l’audition : hyperacousie, hypoacousie, surdité, sifflements, acouphènes. Contrat actif jusqu’à LOT_133 inclus, 106 lots restants. Reprendre le premier incomplet sans saut. Session actuelle sous verrou exclusif ; aucun second producteur. Dépôt frais, réservations, absence de STOP/PAUSE, registre et pret/verifier requis.
 
 Seul, sans sous-agents ; branche codex/lots ; écritures seulement codex-LOTS-html/. Commits/push autorisés. Deux veilles locales minute, dépendantes du runtime, ne rédigent pas. Aucun autre automate modifié.

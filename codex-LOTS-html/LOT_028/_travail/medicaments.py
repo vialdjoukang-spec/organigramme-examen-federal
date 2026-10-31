@@ -1,0 +1,23 @@
+import gzip
+from html import escape
+from format_lecon import R,paras
+def quote(n,s):
+ t=gzip.open(R/f'ressources_ia/aips/fi_fr/{n}.txt.gz','rt').read();assert s in t,(n,s)
+ return '<blockquote><p>« '+escape(s)+' »</p></blockquote>'
+def betahistine(l):
+ text=paras('Betaserc comprimés, dihydrochlorure de bétahistine, information professionnelle suisse n° 36119 mise à jour janvier 2026. L’indication ci-dessous concerne le syndrome de Ménière, et non tout acouphène isolé.')
+ for s in ["Syndrome de Ménière et syndromes méniériformes (vertiges, bourdonnements d'oreille, perte de l'ouïe).",'24 à 48 mg par jour, à répartir en 2 ou 3 prises, de préférence au cours des repas.', 'Le comprimé de 16 mg présente un sillon de sécabilité permettant de le diviser en deux doses égales de 8 mg.','Le comprimé de 24 mg présente un sillon de sécabilité permettant de le diviser pour faciliter la prise de toute la dose de 24 mg. Le sillon de sécabilité ne permet pas de doser des demi-unités.',"Betaserc n'est pas recommandé chez l'enfant et l'adolescent car les données concernant l'innocuité et l'efficacité sont insuffisantes.","Les patients souffrant de phéochromocytome ne doivent pas être traités par Betaserc."]:
+  text+=quote('36119',s)
+ text+=quote('36119',"Hypersensibilité au principe actif ou à l'un des excipients selon la composition du médicament.")
+ text+=paras('La notice ne demande pas d’adaptation rénale, hépatique ou chez la personne âgée d’après l’expérience après commercialisation, tout en signalant le manque de données cliniques dans ces groupes. Vérifier le terrain et la tolérance, sans confondre cette mention avec une preuve de sécurité dans toute situation.', 'Contre-indication également en cas d’hypersensibilité. Surveillance renforcée en cas d’asthme ou d’antécédent d’ulcère gastroduodénal ; vérifier les interactions avec inhibiteurs de la monoamine-oxydase et antihistaminiques.')
+ text+=quote('36119','Lorsque des douleurs gastriques apparaissent, la prise devra impérativement avoir lieu durant les repas ou la posologie sera réduite.')
+ text+=quote('36119',"La bétahistine ne doit pas être prise pendant la grossesse, sauf si explicitement nécessaire.")
+ text+=quote('36119',"L'utilisation de Betaserc n'est pas recommandée pendant la période d'allaitement.")
+ text+=paras('Discuter grossesse et allaitement avec médecin et pharmacien, sans modification autonome. Céphalées, nausées ou dyspepsie sont possibles ; une réaction allergique nécessite une prise en charge adaptée.', 'La recommandation européenne de 2018 décrit des résultats d’études contradictoires et cite des doses supérieures à la notice. Elles ne sont pas reprises ici comme schéma suisse. Définir avec le prescripteur un objectif, une durée d’essai et une réévaluation ; l’indication réglementaire ne garantit pas le bénéfice individuel.')
+ return l.subwindow('betahistine','Bétahistine : dose suisse et limites',text,(4,10,18,20))
+def corticoide_limites(l):
+ text=paras('Les HUG et NICE discutent une corticothérapie pour la surdité brusque neurosensorielle selon évaluation. La notice Prednisone Streuli n° 29349 consultée ne comporte ni indication nominative ni schéma propre à cette situation : sa posologie générale ne doit pas être renommée dose AIPS de surdité brusque.', 'La prescription éventuelle, la voie et le schéma hors information professionnelle doivent être validés rapidement par l’équipe ORL avec le pharmacien. Cette limite documentaire ne doit pas retarder l’orientation urgente ; aucun dosage étranger n’est transposé ici.', 'Avant prescription, évaluer infection, diabète, tension artérielle, risques digestifs, osseux, oculaires et psychiatriques. La voie intratympanique relève d’une procédure spécialisée et d’une préparation adaptée, sans extrapoler un comprimé ou une solution destinée à une autre voie.')
+ for s in ["Ce médicament ne doit pas être utilisé en cas d'hypersensibilité à la prednisone ou à l'un des excipients.","Pour ces raisons, Prednisone Streuli, à l'instar de tous les glucocorticoïdes, ne devrait être utilisé que si cela est clairement nécessaire, en particulier durant les premiers trois mois.","Pendant l'application systémique des corticostéroïdes on ne doit pas allaiter."]:
+  text+=quote('29349',s)
+ text+=paras('Ces restrictions sont celles de la préparation citée ; discuter l’alternative et les bénéfices avec le professionnel, sans sevrage ou arrêt autonome. Le contrôle auditif et le bilan étiologique restent nécessaires même si une amélioration apparaît après traitement.')
+ return l.subwindow('corticoides','Corticoïdes : décision urgente et limites de la notice',text,(1,9,19,21))
