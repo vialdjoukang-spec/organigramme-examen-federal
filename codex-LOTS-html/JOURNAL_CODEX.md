@@ -11,3 +11,7 @@
 30.10.2026 — LOT_019 S1.3 : onze HTML produits ; deux corrections éditoriales consignées, 275 contrôles V8 réussis et cinq citations AIPS exactes. Échecs historiques expliqués dans VALIDATION.md. Défauts médicaux graves/critiques non chiffrés indépendamment ; aucun score ni audit externe. Poursuite LOT_020 selon ordre de Vial.
 
 31.10.2026 — LOT_020 terminé : onze HTML, 275 contrôles statiques V8, 154 questions, 36 citations AIPS exactes. Corrections de navigation, développement des sigles et délai de Bell. Relecture interne et comparaison transversale seules ; aucun score, audit indépendant ou rendu navigateur. Suite LOT_021, borne 133.
+
+31.10.2026 00:33 UTC — Constat réel : les processus de veille locale ne figurent plus dans ps, derniers pouls vers 00:22 UTC. Relance de la veille de routage et de la veille de contrat en session locale, sans démarrer un second producteur. Le verrou de cette session est conservé. Une veille n’assure pas la survie de son environnement.
+
+31.10.2026 — LOT_020 poussé eb65e0b2. LOT_021 checkpoint réel : Phase A + DX.1–4, cinq HTML, 70 questions et sept citations AIPS. Contrôle global incomplet, six fiches et liens restants ; 124/125 contrôles des fichiers présents réussis. Prochaine action DX.5, sources à compléter selon index. Relecture seule, pas de score ni rendu. Verrou à libérer en fin de checkpoint, veille locale laissée active.
