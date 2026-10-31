@@ -1,13 +1,13 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_135 **audit médical en cours** (grok-4.6). Phase A et DX.1 faits. Suite : DX.2–DX.10 puis conformité grok-4.5. Aucune PR, branche `grok/lots`.
+LOT_135 **audit médical en cours** (grok-4.6). Phase A, DX.1 et DX.2 faits. Suite : DX.3–DX.10 puis conformité grok-4.5. Aucune PR, branche `grok/lots`.
 
 ## LOT_135 — audit médical grok-4.6
 Sujet : F1.6 « Anomalies à la percussion ». Liste gelée.
 
 - Phase_A : audit médical 6 corr. · score 93 · T = 6.5 (+ 77.9) Ko · porte ORANGE · SHA 3f0cf065
 - DX.1 : audit médical 2 corr. · score 95 · T = 3.2 (+ 37.2) Ko · porte ORANGE · SHA e65e168c
-- DX.2 : T = 3.1 (+ 37.3) Ko · porte ORANGE · SHA e2129bc6
+- DX.2 : audit médical 1 corr. · score 94 · T = 3.1 (+ 38.1) Ko · porte ORANGE · SHA 59643596
 - DX.3 : T = 2.8 (+ 36.5) Ko · porte ORANGE · SHA 381f7b59
 - DX.4 : T = 2.7 (+ 37.2) Ko · porte ORANGE · SHA 7abb3bf6
 - DX.5 : T = 2.8 (+ 36.4) Ko · porte ORANGE · SHA f64f833e
