@@ -27,7 +27,7 @@ Fragment autonome : SVG inline, CSS, quelques lignes de JavaScript. Un seul nive
 
 Survol (souris) : contour pointillé et nom. Toucher : le nom reste jusqu'au toucher suivant. Clavier : `tabindex`, `<title>`. Sans JavaScript, le `<title>` de chaque zone reste lu par le navigateur et la question est un `<details>`.
 
-La page de base montre le dessin, le repère D, la note et la légende numérotée. Les définitions restent dans l'infobulle.
+La page de base montre le dessin, le repère D, une pastille numérotée sur chaque structure, la note et la légende. Les définitions restent dans l'infobulle. Un niveau peut déclarer `"cliche"` : fichier image voisin. Le bouton « Superposer le cliché » et le curseur d'opacité servent à vérifier l'alignement.
 
 ## Autre LOT, autre lésion, autre imagerie
 
@@ -41,7 +41,7 @@ La fiche DD de base (au plus 9 Ko) ne contient qu'un lien vers la fenêtre, par 
 
 ## Dérogation de taille
 
-Ces figures détaillées ont une dérogation automatique : leur poids n'est pas tenu par le plafond de la fiche DD. On reste économe : pas d'image matricielle embarquée, chemins courts, une seule police locale. Le fragment de l'exemple LOT 150 fait environ 40 Ko, police non comprise (le fichier TTF est à part, environ 54 Ko).
+Ces figures détaillées ont une dérogation automatique : leur poids n'est pas tenu par le plafond de la fiche DD. Le fragment vise 60 Ko : chemins simplifiés, pas d'image embarquée. L'exemple tient dans 55 Ko. Le cliché de superposition est un JPEG voisin (lien relatif, environ 48 Ko), hors du fragment. La police TTF (environ 54 Ko) est aussi à part.
 
 ## Exemple
 

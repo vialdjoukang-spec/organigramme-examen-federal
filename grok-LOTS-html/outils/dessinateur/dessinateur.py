@@ -158,6 +158,18 @@ def geometrie(spec: dict) -> tuple[str, tuple[float, float, float, float], dict]
         d = ellipse_path(cx, cy, rx, ry)
         d += f"M{_n(cx - rx * 0.22)},{_n(cy + ry * 0.72)}L{_n(cx)},{_n(cy + ry + 48)}L{_n(cx + rx * 0.22)},{_n(cy + ry * 0.72)}Z"
         return d, (cx - rx, cy - ry, cx + rx, cy + ry + 48), extra
+    if t == "groupe":
+        formes = []
+        bbs = []
+        for part in spec["parts"]:
+            d, bb, ex = geometrie(part)
+            formes.append((d, part, ex))
+            bbs.append(bb)
+        extra["groupe"] = formes
+        return "", (
+            min(b[0] for b in bbs), min(b[1] for b in bbs),
+            max(b[2] for b in bbs), max(b[3] for b in bbs),
+        ), extra
     raise DescriptionInvalide(f"géométrie inconnue : {t}")
 
 
@@ -254,6 +266,18 @@ def _style_zone(st: dict) -> str:
     return f' fill="{fill}" stroke="{stroke}" stroke-width="{sw}"'
 
 
+def _forme_une(st: dict, d: str, extra: dict) -> str:
+    even = ' fill-rule="evenodd"' if extra.get("evenodd") else ""
+    trait = extra.get("trait") or st.get("trait")
+    if trait:
+        return (
+            f'<path class="touche" d="{d}" fill="none" stroke="transparent" stroke-width="16"/>'
+            f'<path class="vis" d="{d}" fill="none" stroke="{st.get("contour", "#5c564c")}" '
+            f'stroke-width="{st.get("epaisseur", 8)}" stroke-linecap="round"/>'
+        )
+    return f'<path class="vis" d="{d}"{_style_zone(st)}{even}/>'
+
+
 def rendre(desc: dict, police_url: str) -> str:
     if not desc.get("id") or not desc.get("niveaux"):
         raise DescriptionInvalide("id et niveaux sont requis")
@@ -280,6 +304,8 @@ def rendre(desc: dict, police_url: str) -> str:
         vx, vy, vw, vh = niv["viewBox"]
         zones = []
         items = []
+        pastilles = []
+        leaders = []
         vus = set()
         for st in niv["structures"]:
             sid = st["id"]
@@ -288,29 +314,37 @@ def rendre(desc: dict, police_url: str) -> str:
             vus.add(sid)
             if not st.get("nom"):
                 raise DescriptionInvalide(f"{sid} sans nom")
+            if "badge" not in st:
+                raise DescriptionInvalide(f"{nid}/{sid} sans pastille")
             d, bb, extra = geometrie(st["geometrie"])
-            pad = 8 if extra.get("trait") else 2
+            pad = 10 if extra.get("trait") or st.get("trait") else 3
             if bb[0] < vx - pad or bb[1] < vy - pad or bb[2] > vx + vw + pad or bb[3] > vy + vh + pad:
                 raise DescriptionInvalide(f"{nid}/{sid} déborde du viewBox {bb}")
             num = int(st["numero"])
             definition = (st.get("definition") or "").strip()
             titre = st["nom"] if not definition else f"{st['nom']}. {definition}"
-            even = ' fill-rule="evenodd"' if extra.get("evenodd") else ""
-            trait = extra.get("trait") or st.get("trait")
-            if trait:
-                forme = (
-                    f'<path class="touche" d="{d}" fill="none" stroke="transparent" stroke-width="18"/>'
-                    f'<path class="vis" d="{d}" fill="none" stroke="{st.get("contour", "#f7f5f1")}" '
-                    f'stroke-width="{st.get("epaisseur", 8)}" stroke-linecap="round"/>'
-                )
+            if extra.get("groupe"):
+                forme = "".join(_forme_une(part, dd, ex) for dd, part, ex in extra["groupe"])
             else:
-                forme = f'<path class="vis" d="{d}"{_style_zone(st)}{even}/>'
+                forme = _forme_une(st, d, extra)
             zid = f"{prefix}-{nid}-{sid}"
             zones.append(
                 f'<g class="zone" id="{zid}" tabindex="0" role="button" '
                 f'data-nom="{_esc(st["nom"])}" data-definition="{_esc(definition)}">'
                 f"<title>{_esc(titre)}</title>{forme}</g>"
             )
+            bx, by = float(st["badge"][0]), float(st["badge"][1])
+            if not (vx + 8 <= bx <= vx + vw - 8 and vy + 8 <= by <= vy + vh - 8):
+                raise DescriptionInvalide(f"pastille hors cadre {nid}/{sid}")
+            pastilles.append(
+                f'<span class="pastille" style="left:{_n(100 * (bx - vx) / vw)}%;top:{_n(100 * (by - vy) / vh)}%">{num}</span>'
+            )
+            if st.get("fleche"):
+                fx, fy = float(st["fleche"][0]), float(st["fleche"][1])
+                leaders.append(
+                    f'<line x1="{_n(bx)}" y1="{_n(by)}" x2="{_n(fx)}" y2="{_n(fy)}" '
+                    f'stroke="#142028" stroke-width="1.2"/>'
+                )
             items.append((num, f"<li><span>{num}</span> {_esc(st['nom'])}</li>"))
         rep = niv["repere"]
         if rep.get("texte") != "D":
@@ -319,12 +353,21 @@ def rendre(desc: dict, police_url: str) -> str:
         if not (vx <= rx <= vx + vw and vy <= ry <= vy + vh):
             raise DescriptionInvalide(f"repère hors cadre {nid}")
         note = niv.get("note", "")
+        cliche = ""
+        if niv.get("cliche"):
+            src = niv["cliche"]
+            if src.startswith("http") or ".." in src or "/" in src:
+                raise DescriptionInvalide("le cliché doit être un fichier voisin, sans réseau")
+            cliche = f'<img class="cliche" src="{_esc(src)}" alt="Cliché source pour vérifier la superposition"/>'
+        guides = f'<g class="guides" pointer-events="none">{"".join(leaders)}</g>' if leaders else ""
         svgs.append(
             f'<div class="niv niv-{nid}">'
-            f'<div class="cadre">'
+            f'<div class="cadre cadre-{nid}">'
+            f"{cliche}"
             f'<svg viewBox="{vx} {vy} {vw} {vh}" role="img" aria-labelledby="{rid}-titre">'
             f'<title id="{rid}-titre">{_esc(niv["etiquette"])}</title>'
-            f"{''.join(zones)}</svg>"
+            f"{''.join(zones)}{guides}</svg>"
+            f"{''.join(pastilles)}"
             f'<span class="repere" style="left:{_n(100 * (rx - vx) / vw)}%;top:{_n(100 * (ry - vy) / vh)}%" '
             f'title="{_esc(rep.get("titre", "Droite du patient"))}">D</span>'
             f"</div></div>"
@@ -333,12 +376,21 @@ def rendre(desc: dict, police_url: str) -> str:
         notes.append(f'<p class="note note-{nid}">{_esc(note)}</p>')
     q = desc["question"]
     sources = desc.get("sources_courtes", "")
-    css = _css(prefix, [n["id"] for n in niveaux])
+    cliche_id = next((n["id"] for n in niveaux if n.get("cliche")), "")
+    css = _css(prefix, [n["id"] for n in niveaux], cliche_id)
     js = _js()
+    outil = ""
+    if any(n.get("cliche") for n in niveaux):
+        radios.append(f'<input class="sr" type="checkbox" id="{prefix}-superpose"/>')
+        outil = (
+            f'<div class="superpose"><label for="{prefix}-superpose">Superposer le cliché</label>'
+            f'<label>Opacité <input class="rng-cliche" type="range" min="20" max="85" value="48"/></label></div>'
+        )
     return (
         f'<div data-dessinateur="1" id="{prefix}">'
         f"{''.join(radios)}"
         f'<div class="barre" role="tablist">{"".join(labels)}</div>'
+        f"{outil}"
         f'<div class="plan">{"".join(svgs)}</div>'
         f'<p class="bulle" hidden="hidden"><strong class="bulle-nom"></strong> '
         f'<span class="bulle-def" hidden="hidden"></span></p>'
@@ -350,7 +402,7 @@ def rendre(desc: dict, police_url: str) -> str:
     )
 
 
-def _css(prefix: str, ids: list[str]) -> str:
+def _css(prefix: str, ids: list[str], cliche: str = "") -> str:
     regles = []
     for nid in ids:
         regles.append(
@@ -376,7 +428,19 @@ def _css(prefix: str, ids: list[str]) -> str:
         + "".join(regles) +
         "[data-dessinateur] .cadre{position:relative}"
         "[data-dessinateur] svg{width:100%;height:auto;display:block;background:#e7eef2;border-radius:12px}"
-        "[data-dessinateur] .repere{position:absolute;transform:translate(-50%,-50%);"
+        "[data-dessinateur] .cliche{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:fill;"
+        "opacity:0;pointer-events:none;border-radius:12px}"
+        "[data-dessinateur] .pastille{position:absolute;transform:translate(-50%,-50%);z-index:2;"
+        "min-width:1.15rem;height:1.15rem;padding:0 .2rem;border-radius:999px;background:#142028;color:#fff;"
+        "font-size:12px;font-weight:700;line-height:1.15rem;text-align:center;pointer-events:none;"
+        "box-shadow:0 0 0 1.5px #fff}"
+        "[data-dessinateur] .superpose{display:none;align-items:center;gap:.8rem;margin:0 0 .45rem;font-size:.92rem}"
+        + (f"#{prefix}-{cliche}:checked~.superpose{{display:flex}}"
+           f"#{prefix}-superpose:checked~.plan .cadre-{cliche} .cliche{{opacity:.48}}"
+           f"#{prefix}-superpose:checked~.plan .cadre-{cliche} svg{{background:transparent}}"
+           f"#{prefix}-superpose:checked~.plan .cadre-{cliche} .vis{{fill-opacity:.3}}"
+           if cliche else "")
+        + "[data-dessinateur] .repere{position:absolute;transform:translate(-50%,-50%);"
         "font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:6px;"
         "padding:0 .4rem;line-height:1.3;pointer-events:none}"
         "[data-dessinateur] .zone{cursor:pointer;outline:none}"
@@ -454,6 +518,16 @@ def _js() -> str:
         "if(z)montrer(z);\n"
         "});\n"
         "racine.addEventListener('focusout',function(){montrer(null);});\n"
+        "var chk=racine.querySelector('#'+racine.id+'-superpose');\n"
+        "var rng=racine.querySelector('.rng-cliche');\n"
+        "var img=racine.querySelector('.cliche');\n"
+        "function opacite(){\n"
+        "if(!chk||!rng||!img)return;\n"
+        "if(chk.checked){img.style.opacity=String(rng.value/100);}\n"
+        "else{img.style.opacity='';}\n"
+        "}\n"
+        "if(chk)chk.addEventListener('change',opacite);\n"
+        "if(rng)rng.addEventListener('input',opacite);\n"
         "});\n"
         "})();\n"
         "//]]></script>"
@@ -512,9 +586,26 @@ def verifier(fragment: str, desc: dict) -> list[str]:
             erreurs.append(f"numéros non continus : {niv['id']} {nums}")
     if "D" not in _texte(racine):
         erreurs.append("repère D absent")
-    checks = [i for i in racine.findall(".//input") if i.get("checked")]
+    checks = [i for i in racine.findall(".//input") if i.get("type") == "radio" and i.get("checked")]
     if len(checks) != 1:
         erreurs.append(f"{len(checks)} niveaux cochés")
+    pastilles = [e for e in racine.iter() if (e.get("class") or "") == "pastille"]
+    if len(pastilles) != attendu:
+        erreurs.append(f"{len(pastilles)} pastilles pour {attendu} structures")
+    for niv in desc["niveaux"]:
+        pts = []
+        for st in niv["structures"]:
+            if "badge" not in st:
+                erreurs.append(f"pastille absente {niv['id']}/{st['id']}")
+                continue
+            x, y = float(st["badge"][0]), float(st["badge"][1])
+            pts.append((x, y, st["id"]))
+        for i, a in enumerate(pts):
+            for b in pts[i + 1:]:
+                if math.hypot(a[0] - b[0], a[1] - b[1]) < 30:
+                    erreurs.append(f"pastilles trop proches {niv['id']}: {a[2]} et {b[2]}")
+    if any(n.get("cliche") for n in desc["niveaux"]) and "Superposer le cliché" not in fragment:
+        erreurs.append("bouton de superposition absent")
     details = racine.find(".//details")
     if details is None or "faux chenal" not in _texte(details).lower():
         erreurs.append("question absente")

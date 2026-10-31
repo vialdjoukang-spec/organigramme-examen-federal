@@ -7,6 +7,8 @@ Ce qui n'est pas assez établi pour figurer comme un fait dans le dessin.
 - Les deux chenaux du cliché source sont opacifiés. Un thrombus n'y est pas dessiné. Le thrombus du niveau rénal est un exemple pédagogique.
 - La légende du fichier ne dit pas si la coupe est artérielle ou tardive. On ne peut donc pas trancher, sur cette image seule, entre flux lent et thrombus partiel pour la différence de contraste.
 - Les niveaux crosse, bifurcation pulmonaire et artères rénales ne sont pas des calques des autres coupes de cet examen : le fichier n'en montre qu'une axiale et une coronale du thorax. La coronale ne couvre pas les artères rénales.
-- L'œsophage de la coupe basse est au siège habituel, entre le cœur et l'aorte. Il n'a pas été segmenté pixel à pixel.
+- L'œsophage et la veine azygos de la coupe basse sont au siège habituel (œsophage entre l'oreillette gauche et l'aorte, azygos à droite du rachis). Ils n'ont pas été segmentés comme organes distincts sur les pixels.
+- Le pourtour du cœur, des poumons, du rachis, du sternum, des côtes et du dôme hépatique est décalqué. Les cloisons entre les cavités suivent la disposition axiale habituelle (ventricule droit antérieur, oreillette gauche postérieure) à l'intérieur de ce pourtour : les septa eux-mêmes ne sont pas lus pixel à pixel. Le dôme hépatique est l'enveloppe convexe du tissu mou sous le poumon droit.
+- Le canal vertébral est un ovale sombre placé dans le rachis tracé, pas un décalque du trou.
 - Le texte intégral des recommandations ESC 2024 (maladies artérielles périphériques et de l'aorte, avec l'EACTS) n'a pas été ouvert. Aucune phrase de 2024 n'est mise dans le dessin.
 - McMahon et Squirrell, RadioGraphics 2010;30:445-460, est cité par Shen 2022. Ce PDF n'a pas été relu ici. Les phrases du dessin viennent de l'ESC 2014, de Tanaka 2020, de Shen 2022 et de Radiopaedia.
