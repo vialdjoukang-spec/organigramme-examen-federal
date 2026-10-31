@@ -1,10 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_137 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_149 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 sans ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. File ensuite : 149–180, 184–207, 219–226. L'agent A prend les impairs (149, 151…), l'agent B les pairs.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs.
 
+**Prochain LOT du rédacteur A : LOT_151.**
 **Prochain LOT du rédacteur B : LOT_150.**
+
+## LOT_149 — rédigé et certifié
+Sujet : F2.1 « Gaz du sang anormaux ». Détail : `LOT_149/A_AUDITER.md`.
+
+- Phase_A : certitude VERT · porte VERT · T = 7.4 (+ 62.6) Ko · SHA dc08574d2d6b · commit c2c3481f
+- DX.1 : certitude VERT · porte VERT · T = 5.0 (+ 34.4) Ko · SHA afa8fdcd5ecb · commit 8b9ca245
+- DX.2 : certitude VERT · porte ORANGE · T = 5.0 (+ 35.8) Ko · SHA 06d406eaf743 · commit 806bbe6f
+- DX.3 : certitude VERT · porte VERT · T = 5.0 (+ 33.0) Ko · SHA 10eca91cc18d · commit d61d03c3
+- DX.4 : certitude VERT · porte VERT · T = 5.3 (+ 40.3) Ko · SHA e8fec0319b7e · commit 6a11e04e
+- DX.5 : certitude VERT · porte VERT · T = 5.1 (+ 41.9) Ko · SHA 6c7cc9720eaa · commit 0bb6ee92
+- DX.6 : certitude VERT · porte VERT · T = 5.0 (+ 37.2) Ko · SHA 9e8886e84dc1 · commit 8534d595
+- DX.7 : certitude VERT · porte VERT · T = 5.0 (+ 33.6) Ko · SHA f190bd7def01 · commit e230aff0
+- DX.8 : certitude VERT · porte VERT · T = 4.9 (+ 32.3) Ko · SHA 2cd848ba54c3 · commit 36b0354d
+- DX.9 : certitude VERT · porte ORANGE · T = 5.1 (+ 41.6) Ko · SHA 5711be978da5 · commit eb5070ad
+- DX.10 : certitude VERT · porte VERT · T = 5.0 (+ 37.8) Ko · SHA 5641416ad35b · commit 1e0312af
 
 ## LOT_137 — rédigé et certifié
 Sujet : F1.8 « Cachexie et malnutrition ». Détail : `LOT_137/A_AUDITER.md`.
