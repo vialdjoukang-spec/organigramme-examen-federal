@@ -1,9 +1,9 @@
 # Points ouverts — LOT_037
 
-1. Lot incomplet : PhaseA et DX1–3 produits et relus. Prochain DX4 Abcès odontogène ; ne pas passer à LOT038.
-2. Recherche de nouveau disponible via Search Service. Quota Parallel Search et refus403 directs RCUK/Liège restent des événements historiques. WAO2022 et actualisation2025 publiée mars2026 : passages primaires ciblés réellement lus, pas lecture exhaustive.
-3. DX1 : cétirizine notice complétée, indication aiguë distincte de chronique ; aucune posologie spécifique d’auto-injecteur sans notice dédiée. DX2 : ramipril avertissements lus, éviction de classe et Firazyr hors indication IEC explicites.
-4. DX3 : Berinert IV lu et utilisé, Firazyr pédiatrie exact. Les prophylaxies de longue durée et les nouvelles molécules internationales ne constituent pas ici une prescription exhaustive : autorisations et disponibilités suisses à vérifier avant ajout. Aucun traitement d’une forme à C1 normal n’est automatiquement présenté comme autorisé.
-5. Avant DX4–7 : compléter les sources suisses/européennes actuelles et les antibiotiques AIPS. Recherche actuelle SDCEP mise à jour mai2026 retrouvée ; ne pas utiliser les seuls supports HUG2018/2019 pour certifier un schéma actuel. Sources enregistrées au fur et à mesure.
-6. Classement comparatif suisse non établi ; ordre pédagogique, pas statistique.
-7. Audit indépendant, validation clinique humaine et navigateur non réalisés. Rapports historiques négatifs conservés. Conformité globale au prompt non certifiée.
+1. PhaseA et DX1–5 produits et relus ; premier incomplet DX6 Infection cervicale profonde. Puis DX7 Adénite cervicale infectieuse, DX8 Goitre, DX9 Adénopathie cervicale maligne, DX10 Syndrome cave supérieur. Ne pas passer à038.
+2. Search Service web fonctionne. Quota Parallel Search et refus403 directs restent tracés. NICE et support CHUV sialadénite n’ont pas été ouverts complètement : seuls extraits disponibles lus. Ne pas appeler une renumérotation NICE une recommandation nouvellement évaluée2026.
+3. DX1–3 : notices et mécanismes contrôlés. Aucun schéma spécifique d’auto-injecteur sans notice dédiée. Prophylaxies de longue durée et nouvelles molécules internationales non détaillées comme prescriptions exhaustives ; autorisations suisses à vérifier avant ajout.
+4. DX4 : recommandations suisses2020 confrontées SDCEP2026. Durée notice Amoxi-Mepha versus guide clinique et allaitement restrictif propres à la notice explicites. Alternatives en allergie et antibiothérapie parentérale nécessitent un protocole et leurs notices avant ajout. Ne pas utiliser les doses prophylactiques pour un abcès.
+5. DX5 : obstruction non infectée distincte d’infection. Pas de protocole universel de surinfection dans cette monographie ; dose du casHUG2018 non transposée. Antalgie documentée AIPS. Masse persistante à explorer.
+6. Avant DX6–7 : lire recommandations actuelles suisses/européennes, AIPS des antibiotiques parentéraux et alternatives/allergies, contextes pédiatriques, drainage et complications. Les documents HUG2019 sont datés et ne suffisent pas pour certifier une prescription actuelle.
+7. Classement comparatif suisse non établi ; ordre pédagogique. Audit indépendant, validation clinique humaine et navigateur non effectués. Contrôles historiques négatifs conservés. Conformité globale au prompt non certifiée.

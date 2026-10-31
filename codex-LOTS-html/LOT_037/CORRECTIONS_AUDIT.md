@@ -5,3 +5,5 @@ Relecture interne uniquement. C01 : airway remplacé et formulation du144 corrig
 À préserver : tri respiratoire avant imagerie ; adrénaline intramusculaire dans l’anaphylaxie ; voie/concentration et arrêt cardiaque distincts ; mécanisme bradykinique et indication suisse de Firazyr précis ; observation laryngée malgré injection à domicile ; drainage dentaire et contrôle du foyer ; masse kystique adulte non présumée bénigne ; sources anciennes signalées et doses non extrapolées. Aucun score ni classement de prévalence inventé.
 
 DX1–3 : C04–C08, lien de retour corrigé ; phrase rénale scindée ; ECA/CRPV/CREAK/CLS développés ; IV défini intraveineux pour ce lot. Verbatim AIPS conservés malgré typographie historique. Voir audits/RELECTURE_DX1_3.md.
+
+DX4–5 : C09 phrase adulte amoxicilline scindée ; C10 paracétamol formulé pour obstacle avec ou sans infection. Doses AIPS exactes, limites d’indication et de durée explicites. Tableaux originaux conservés.
