@@ -10,17 +10,17 @@ Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots part
 ## LOT_156 — rédigé et certifié
 Sujet : F2.8 « Analyses des selles anormales, sang occulte, parasites ». Détail : `LOT_156/A_AUDITER.md`.
 
-- Phase_A : certitude ORANGE · porte VERT · T = 4.6 (+ 79.8) Ko · SHA aba5be1e490e · commit 251b6c3c
-- DX.1 : certitude ORANGE · porte VERT · T = 2.8 (+ 46.2) Ko · SHA 412cc93c674d · commit 2750fffb
-- DX.2 : certitude ORANGE · porte VERT · T = 2.9 (+ 44.7) Ko · SHA 690eee953511 · commit c3ff3601
-- DX.3 : certitude ORANGE · porte ORANGE · T = 3.0 (+ 33.8) Ko · SHA a4ced3e5ccd1 · commit fb3d5010
-- DX.4 : certitude ORANGE · porte VERT · T = 2.5 (+ 20.8) Ko · SHA e06afb5edd57 · commit 962e9a2a
-- DX.5 : certitude ORANGE · porte VERT · T = 2.8 (+ 19.9) Ko · SHA d959ebcddd8c · commit 0bf9b056
-- DX.6 : certitude ORANGE · porte VERT · T = 2.9 (+ 40.6) Ko · SHA 070058d486ae · commit afca88c0
-- DX.7 : certitude ORANGE · porte VERT · T = 3.0 (+ 45.7) Ko · SHA 1e46160c947f · commit f17a0bfe
-- DX.8 : certitude ORANGE · porte VERT · T = 3.0 (+ 37.8) Ko · SHA 68fcb931ea7e · commit 13b1dd9f
-- DX.9 : certitude ORANGE · porte VERT · T = 3.3 (+ 44.9) Ko · SHA e4376b74b06a · commit 9cbe50fa
-- DX.10 : certitude ORANGE · porte ORANGE · T = 3.1 (+ 39.4) Ko · SHA 8d20884d9b3a · commit 7a34235f
+- Phase_A : certitude ORANGE · porte VERT · T = 4.6 (+ 79.8) Ko · SHA aba5be1e490e · commit 326c964f
+- DX.1 : certitude ORANGE · porte VERT · T = 2.8 (+ 46.2) Ko · SHA 412cc93c674d · commit bb8de64b
+- DX.2 : certitude ORANGE · porte VERT · T = 2.9 (+ 44.7) Ko · SHA 690eee953511 · commit b046d213
+- DX.3 : certitude ORANGE · porte ORANGE · T = 3.0 (+ 33.8) Ko · SHA a4ced3e5ccd1 · commit 6c0174ea
+- DX.4 : certitude ORANGE · porte VERT · T = 2.5 (+ 20.8) Ko · SHA e06afb5edd57 · commit fdca0fe2
+- DX.5 : certitude ORANGE · porte VERT · T = 2.8 (+ 19.9) Ko · SHA d959ebcddd8c · commit 92a8c0ef
+- DX.6 : certitude ORANGE · porte VERT · T = 2.9 (+ 40.6) Ko · SHA 070058d486ae · commit 5c946f77
+- DX.7 : certitude ORANGE · porte VERT · T = 3.0 (+ 45.7) Ko · SHA 1e46160c947f · commit 58822383
+- DX.8 : certitude ORANGE · porte VERT · T = 3.0 (+ 37.8) Ko · SHA 68fcb931ea7e · commit c275cdac
+- DX.9 : certitude ORANGE · porte VERT · T = 3.3 (+ 44.9) Ko · SHA e4376b74b06a · commit ed574b64
+- DX.10 : certitude ORANGE · porte ORANGE · T = 3.1 (+ 39.4) Ko · SHA 8d20884d9b3a · commit 7249bf05
 
 ## LOT_153 — rédigé et certifié
 Sujet : F2.5 « Numération leucocytaire anormale ». Détail : `LOT_153/A_AUDITER.md`.
