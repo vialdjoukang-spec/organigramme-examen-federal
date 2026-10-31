@@ -1,7 +1,7 @@
-# Reprise exacte — LOT_023
+# Reprise exacte — LOT_024
 
-LOT_018 950a4cd1, LOT_019 35e1d64b, LOT_020 eb65e0b2, LOT_021 e2596088 terminés. LOT_022 désormais complet : onze HTML, 275 contrôles V8, 154 questions, 33 citations AIPS, relecture interne et transversale. Lire LOT_022/VALIDATION_FINALE.md et LECONS_LOT_022.md ; ne pas recommencer.
+LOT_018 950a4cd1, LOT_019 35e1d64b, LOT_020 eb65e0b2, LOT_021 e2596088, LOT_022 1d5f6191 terminés. LOT_023 complet en production : onze HTML, 154 questions, 275 contrôles V8 et vingt citations AIPS exactes. Lire LOT_023/VALIDATION_FINALE.md et LECONS_LOT_023.md ; ne pas recommencer. Commit de clôture : git log codex/lots.
 
-Prochain LOT_023 S1.7 Difficulté à avaler, étouffement : recherche et Phase A à produire, puis dix diagnostics. Contrat actif jusqu’au LOT_133 inclus, 111 lots restants. Dépôt/borne frais, premier lot incomplet, verrou exclusif avant production, registre signé, veilles minute, pret/verifier. Seul sans sous-agents, codex/lots, écritures uniquement codex-LOTS-html/. STOP/PAUSE prioritaire. Commits/push autorisés. Libérer verrou à la sortie.
+Suite LOT_024 S1.8 Écoulement auriculaire : recherche et Phase A avant dix monographies. Contrat actif jusqu’à LOT_133 inclus, 110 lots restants. Vérifier dépôt/borne et premier incomplet ; verrou exclusif avant production, registre du jour, veilles minute, pret/verifier. Session seule sans sous-agents, écritures uniquement codex-LOTS-html/, branche codex/lots, STOP/PAUSE prioritaire. Commits/push autorisés. Libérer verrou à la sortie.
 
-Modèle confirmé par Vial GPT-6 Astra · ultra ; high conseillé en routine, aucun changement de réglage revendiqué. Veilles locales dépendantes du runtime : contrôlent, ne rédigent pas. Automatisation dédiée conservée sans changement ; autres automates intacts. Aucun score, audit indépendant ni test navigateur inventé.
+Modèle confirmé par Vial GPT‑6 Astra · ultra ; high conseillé, aucun changement de réglage revendiqué. Veilles dépendantes du runtime, ne rédigent pas. Automatisation dédiée conservée sans modification, autres automates intacts. Audit indépendant, score, navigateur et validation clinique humaine non réalisés. Harnais historique négatif expliqué.

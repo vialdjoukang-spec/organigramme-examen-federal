@@ -20,3 +20,5 @@
 2026-10-31T02:19:07+00:00 — LOT_022 checkpoint : Phase A + DX.1–4, 124/125 contrôles partiels, 17 citations AIPS exactes ; six fichiers manquants. Reprise DX.5, travail seul. Contrôleurs officiels négatifs conservés, navigateur et audit indépendant non effectués.
 
 2026-10-31T02:46:08+00:00 — LOT_022 complet : six monographies ajoutées, 11 HTML/154 questions, 275 contrôles statiques V8 et 33 citations AIPS. Deux corrections techniques documentées ; aucune cotation clinique inventée. Relecture interne/transversale, pas de navigateur ni audit indépendant. Suite LOT_023.
+
+2026-10-31T03:21:31+00:00 — LOT_023 complet : onze HTML/154 questions, 275 contrôles V8 et vingt citations AIPS. Trois corrections éditoriales, synchronisation bibliographique et extraction officielle Jorveza ; détails consignés, aucune cotation médicale indépendante. Suite LOT_024.
