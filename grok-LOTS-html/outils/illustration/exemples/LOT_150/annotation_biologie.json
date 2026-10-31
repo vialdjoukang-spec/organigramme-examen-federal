@@ -3,7 +3,7 @@
   "type": "biologie",
   "modalite": "courbe",
   "titre": "Cinétique schématique de la troponine cardiaque haute sensibilité",
-  "alt": "Schéma qualitatif : seuil du 99e percentile, courbe rise-and-fall, courbe plate",
+  "alt": "Schéma sur 72 heures : seuil 14 ng/L, lésion aiguë avec pic puis décroissance, lésion chronique en plateau",
   "source": {
     "entrepot": "schema",
     "references": [
@@ -11,52 +11,50 @@
         "titre": "Interprétation des troponines ultrasensibles dans l'insuffisance rénale chronique",
         "support": "Revue Médicale Suisse, 19 octobre 2016, Kolb et al. Extrait evidence/rms2016_irc.txt",
         "date_lecture": "2026-10-31",
-        "faits": ["URL de la troponine T ultrasensible 14 ng/L", "seuil de détection 2 ng/L", "cinétique significative citée : 7 ng/L, soit 50 % de l'URL", "discussion d'un changement relatif supérieur à 20 % si toutes les valeurs sont déjà positives"]
+        "faits": ["URL de la troponine T ultrasensible : 14 ng/L, seul chiffre reporté sur le schéma"]
       },
       {
         "titre": "Troponine élevée sans infarctus du myocarde",
         "support": "Revue Médicale Suisse, 22 mai 2019, Von Düring et al. Extrait evidence/rms2019_troponine.txt",
         "date_lecture": "2026-10-31",
-        "faits": ["cinétique rise-and-fall (figure 2, ligne rouge de l'article)", "variation faible, au plus 20 % si la valeur de base est déjà pathologique, évoquée comme non ischémique"]
+        "faits": ["cinétique rise-and-fall", "élévation persistante à variation faible"]
       },
       {
         "titre": "Prise en charge du syndrome coronarien aigu. Recommandations 2023 de la Société européenne de cardiologie",
         "support": "Revue Médicale Suisse, 2024, Planchat et al. Extrait evidence/rms2024_sca.txt",
         "date_lecture": "2026-10-31",
-        "faits": ["algorithme 0/1 h ou, à défaut, 0/2 h", "voie d'observation avec un dosage à 3 h", "aucun seuil chiffré propre à un dosage dans l'extrait lu"]
+        "faits": ["algorithmes horaires cités, sans seuil chiffré de dosage dans l'extrait lu"]
       }
     ]
   },
-  "axe_x": "Heures depuis le début des symptômes (schéma). Repères 0, 1, 2 et 3 h : algorithmes 0/1 h ou 0/2 h, contrôle à 3 h.",
-  "graduations_x": [["0", 0], ["1", 0.333], ["2", 0.666], ["3", 1]],
+  "axe_x": "Heures (schéma, 0 à 72). Forme qualitative, pas une mesure.",
+  "graduations_x": [["0", 0], ["24", 0.333], ["48", 0.666], ["72", 1]],
   "elements": [
     {
       "ordre": 1,
       "forme": "ligne",
-      "y_rel": 0.4,
+      "y_rel": 0.36,
       "etiquette": "14 ng/L",
-      "legende": "99e percentile de la troponine T haute sensibilité : 14 ng/L. Seuil de détection des tests ultrasensibles cité : 2 ng/L. Seule ligne chiffrée du schéma."
+      "legende": "99e percentile de la troponine T ultrasensible : 14 ng/L (Revue médicale suisse, 19 octobre 2016). Seule valeur chiffrée du schéma."
     },
     {
       "ordre": 2,
       "forme": "courbe",
-      "etiquette": "rise-and-fall",
-      "points_rel": [[0.02, 0.16], [0.18, 0.28], [0.4, 0.5], [0.7, 0.72], [1, 0.86]],
-      "legende": "Forme rise-and-fall, qualitative : elle part sous le 99e percentile et le franchit. Aucune ordonnée n'est une mesure. Le tracé monte encore à 3 h : l'heure du pic n'est pas affirmée."
+      "etiquette": "lésion aiguë",
+      "points_rel": [[0.0, 0.08], [0.06, 0.22], [0.12, 0.5], [0.22, 0.78], [0.33, 0.92], [0.48, 0.68], [0.66, 0.46], [0.84, 0.3], [1.0, 0.16]],
+      "legende": "Lésion aiguë, schéma : montée, pic, puis décroissance. Aucune ordonnée n'est une mesure. L'heure du pic n'est pas une donnée."
     },
     {
       "ordre": 3,
       "forme": "courbe",
-      "etiquette": "plate",
-      "points_rel": [[0.02, 0.58], [1, 0.6]],
-      "legende": "Élévation déjà au-dessus du 99e percentile, presque plate. L'article de 2019 décrit une variation d'au plus 20 % dans ce profil. Le dessin n'est pas une variation calculée."
+      "etiquette": "lésion chronique",
+      "points_rel": [[0.0, 0.58], [1.0, 0.6]],
+      "legende": "Lésion chronique, schéma : plateau au-dessus du seuil, sans pic et sans décroissance."
     }
   ],
-  "semiologie": "Schéma original, pas une figure copiée. L'axe vertical n'a pas d'échelle de patient : le seul chiffre de concentration est la ligne 1. Un changement absolu de 7 ng/L, soit 50 % de l'URL, est le critère de cinétique significative cité en 2016 pour la troponine T ultrasensible. Les mêmes auteurs discutent un changement relatif supérieur à 20 % lorsque toutes les mesures sont déjà positives. La Société européenne de cardiologie, dans le résumé suisse de 2024, recommande un algorithme à l'admission et à 1 heure, ou à 2 heures si le premier n'est pas faisable, puis une voie d'observation avec un dosage à 3 heures. Les seuils numériques propres à chaque dosage ne sont pas dessinés : l'extrait lu dit qu'ils dépendent du fabricant.",
+  "semiologie": "Schéma original. L'axe vertical n'a pas d'échelle de patient. Le seul chiffre est la ligne 1. La courbe 2 montre une lésion aiguë : elle franchit le seuil, culmine, puis redescend. La courbe 3 montre une lésion chronique, presque plate. Les seuils propres à un dosage ne sont pas dessinés.",
   "pieges": [
-    "La troponine est spécifique du myocarde, pas d'une maladie (article de 2019).",
-    "Aucun extrait lu ne donne une cinétique propre à la dissection aortique.",
-    "Ne pas lire les courbes comme le résultat d'un patient.",
-    "Ne pas confondre ce schéma avec les seuils 0/1 h d'un fabricant, qui ne sont pas dans l'extrait de 2024."
+    "Ne pas lire ces courbes comme le résultat d'un patient.",
+    "Ne pas confondre le plateau chronique avec la décroissance d'une lésion aiguë."
   ]
 }

@@ -56,7 +56,7 @@ Un schéma biologique (`"entrepot": "schema"`) ne télécharge pas d'image. Chaq
 
 `forme` : `polyligne` (ouvert), `polygone` (fermé), `ellipse` (`ellipse.cx/cy/rx/ry`, `norm` vrai si 0–1), `rect` (`rect.x/y/w/h`).
 
-`points` : pixels du fichier entier, avant le cadre. `points_norm` : 0–1 de l'image déjà cadrée.
+`points` : pixels du fichier entier, avant le cadre. `points_norm` : 0–1 de l'image déjà cadrée. `reperes` : `[{texte, x, y}]`, repère d'orientation en pixels du fichier entier.
 
 `ordre` fixe la lecture. Sans `ordre`, le cliché se lit de haut en bas puis de gauche à droite. Pour un ECG, de gauche à droite. Les numéros 1, 2, 3 suivent cet ordre. Rien n'est ajouté s'il n'y a pas de coordonnées.
 

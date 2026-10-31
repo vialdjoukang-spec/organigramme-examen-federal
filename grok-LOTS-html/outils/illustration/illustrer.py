@@ -474,9 +474,10 @@ def annoter_image(im: Image.Image, lesions: list[dict], modalite: str) -> tuple[
     fonds = [echantillon(im, pts) for _, pts, _ in geos]
     couleurs = choisir_couleurs(fonds)
     draw = ImageDraw.Draw(im)
-    trait = max(4, min(w, h) // 140)
+    # Plafond : sur un grand cliché, un numéro calé sur la largeur de l'image cache la lésion.
+    trait = min(5, max(3, min(w, h) // 220))
     on, off = trait * 3.2, trait * 2.2
-    rayon = max(16, min(w, h) // 36)
+    rayon = min(18, max(13, min(w, h) // 80))
     font = _police(max(16, rayon))
     pris = []
     for (lesion, pts, ferme), coul in zip(geos, couleurs):
@@ -492,16 +493,36 @@ def annoter_image(im: Image.Image, lesions: list[dict], modalite: str) -> tuple[
     return im, [g[0] for g in geos], couleurs
 
 
-def _plier(texte: str, font, largeur: int) -> list[str]:
-    mots, lignes, cour = texte.split(), [], ""
-    for mot in mots:
-        essai = (cour + " " + mot).strip()
-        if font.getlength(essai) <= largeur:
-            cour = essai
+def _morceaux(mot: str, font, largeur: int) -> list[str]:
+    """Coupe un mot plus large que la ligne, sinon le rend tel quel."""
+    if largeur < 8:
+        largeur = 8
+    if font.getlength(mot) <= largeur:
+        return [mot]
+    out, cour = [], ""
+    for ch in mot:
+        if cour and font.getlength(cour + ch) > largeur:
+            out.append(cour)
+            cour = ch
         else:
-            if cour:
+            cour += ch
+    if cour:
+        out.append(cour)
+    return out or [mot]
+
+
+def _plier(texte: str, font, largeur: int) -> list[str]:
+    """Retour à la ligne : aucun fragment ne dépasse `largeur`."""
+    largeur = max(8, int(largeur))
+    lignes, cour = [], ""
+    for mot in (texte or "").split():
+        for part in _morceaux(mot, font, largeur):
+            essai = (cour + " " + part).strip()
+            if cour and font.getlength(essai) > largeur:
                 lignes.append(cour)
-            cour = mot
+                cour = part
+            else:
+                cour = essai
     if cour:
         lignes.append(cour)
     return lignes or [""]
@@ -511,9 +532,12 @@ def bande_legende(im: Image.Image, lesions: list[dict], couleurs: list[tuple[int
     font = _police(max(18, im.width // 48))
     petit = _police(max(15, im.width // 58))
     marge, inter = 16, 8
+    pastille = font.size
+    indent = marge + pastille + 10
+    largeur_texte = im.width - indent - marge
     lignes: list[tuple] = []
     for lesion, coul in zip(lesions, couleurs):
-        bloc = _plier(f"{lesion['numero']}. {lesion.get('legende') or lesion.get('etiquette') or ''}", font, im.width - 2 * marge)
+        bloc = _plier(f"{lesion['numero']}. {lesion.get('legende') or lesion.get('etiquette') or ''}", font, largeur_texte)
         lignes.append((bloc, coul, font))
     attr = _plier(attribution, petit, im.width - 2 * marge)
     haut = marge
@@ -530,9 +554,9 @@ def bande_legende(im: Image.Image, lesions: list[dict], couleurs: list[tuple[int
                 draw.ellipse([marge, y + 2, marge + f.size, y + 2 + f.size], fill=coul)
                 encre_n = (255, 255, 255) if luminance(coul) < 0.45 else (20, 20, 22)
                 draw.text((marge + 4, y + 2), str(ligne.split(".", 1)[0]), fill=encre_n, font=petit)
-                draw.text((marge + f.size + 10, y), ligne, fill=(29, 42, 48), font=f)
+                draw.text((indent, y), ligne, fill=(29, 42, 48), font=f)
             else:
-                draw.text((marge + f.size + 10, y), ligne, fill=(29, 42, 48), font=f)
+                draw.text((indent, y), ligne, fill=(29, 42, 48), font=f)
             y += f.size + 6
         y += inter
     y += inter
@@ -639,13 +663,39 @@ def obtenir_image(annotation: dict) -> tuple[Image.Image, dict]:
         if L.get("numero_xy") and cadre:
             L["numero_xy"] = [float(L["numero_xy"][0]) - ox, float(L["numero_xy"][1]) - oy]
         lesions.append(L)
-    return im, {**annotation, "source": src, "lesions": lesions, "_origine": (ox, oy)}
+    reperes = []
+    for r in annotation.get("reperes") or []:
+        rr = dict(r)
+        if cadre:
+            rr["x"] = float(r["x"]) - ox
+            rr["y"] = float(r["y"]) - oy
+        reperes.append(rr)
+    return im, {**annotation, "source": src, "lesions": lesions, "reperes": reperes, "_origine": (ox, oy)}
+
+
+def _dessiner_reperes(im: Image.Image, reperes: list[dict]) -> None:
+    if not reperes:
+        return
+    font = _police(max(16, im.width // 55))
+    draw = ImageDraw.Draw(im)
+    for r in reperes:
+        texte = str(r.get("texte") or "")
+        if not texte:
+            continue
+        x, y = int(r["x"]), int(r["y"])
+        bb = font.getbbox(texte)
+        tw, th = bb[2] - bb[0], bb[3] - bb[1]
+        x = min(max(2, x), im.width - tw - 10)
+        y = min(max(2, y), im.height - th - 8)
+        draw.rectangle([x, y, x + tw + 8, y + th + 6], fill=(20, 20, 22))
+        draw.text((x + 4 - bb[0], y + 2 - bb[1]), texte, fill=(255, 255, 255), font=font)
 
 
 def rendre_imagerie(annotation: dict, dossier: Path) -> dict:
     im, ann = obtenir_image(annotation)
     modalite = ann.get("modalite") or "scanner"
     annote, lesions, couleurs = annoter_image(im, ann["lesions"], modalite)
+    _dessiner_reperes(annote, ann.get("reperes") or [])
     modif = ann.get("modification") or ""
     attr = attribution_image(ann["source"], modif)
     final = bande_legende(annote, lesions, couleurs, attr)
@@ -709,8 +759,9 @@ def rendre_biologie(annotation: dict, dossier: Path) -> dict:
         draw.line([(xx, y1), (xx, y1 + 6)], fill=(29, 42, 48), width=2)
         draw.text((xx - 8, y1 + 10), str(lab), fill=(29, 42, 48), font=petit)
     axe = annotation.get("axe_x") or ""
-    if axe:
-        draw.text((x0, y1 + 36), axe, fill=(79, 95, 102), font=petit)
+    axe_lignes = _plier(axe, petit, x1 - x0) if axe else []
+    for i, ligne in enumerate(axe_lignes):
+        draw.text((x0, y1 + 28 + i * (petit.size + 4)), ligne, fill=(79, 95, 102), font=petit)
     trait = 5
     lesions = []
     pris = []
@@ -729,7 +780,12 @@ def rendre_biologie(annotation: dict, dossier: Path) -> dict:
         bb = font.getbbox(chiffre)
         draw.text((cx - (bb[2] - bb[0]) / 2, cy - (bb[3] - bb[1]) / 2 - 2), chiffre, fill=encre, font=font)
         if el.get("etiquette"):
-            draw.text((pts[-1][0] - 180, pts[-1][1] - 26), el["etiquette"], fill=coul, font=petit)
+            et = el["etiquette"]
+            tw = petit.getlength(et)
+            sommet = min(pts, key=lambda p: p[1])
+            ex = min(max(x0, sommet[0] + 8), W - tw - 8)
+            ey = max(18, sommet[1] - 22)
+            draw.text((ex, ey), et, fill=coul, font=petit)
     src = dict(annotation.get("source") or {})
     src.setdefault("date_acces", date.today().isoformat())
     src.setdefault("entrepot", "schema")
@@ -740,7 +796,8 @@ def rendre_biologie(annotation: dict, dossier: Path) -> dict:
     )
     # Bande sous le graphe : on recolle car le graphe a déjà une marge basse.
     # On coupe la marge basse vide pour coller la légende.
-    graphe = fond.crop((0, 0, W, y1 + 64))
+    bas = y1 + 36 + max(1, len(axe_lignes)) * (petit.size + 4)
+    graphe = fond.crop((0, 0, W, min(H - 1, bas)))
     final = bande_legende(graphe, lesions, couleurs, attr)
     ident = annotation.get("id") or "biologie"
     dossier.mkdir(parents=True, exist_ok=True)
@@ -1008,6 +1065,22 @@ def _autotest() -> int:
     noirs = sum(1 for x in range(5, 190) if px[x, 20][0] < 30)
     blancs = sum(1 for x in range(5, 190) if px[x, 20][0] > 200)
     ok(noirs > 20 and blancs > 20, f"pointillés sans trous (noirs={noirs}, blancs={blancs})")
+
+    # Légende : le texte ne doit pas sortir du bord droit, même un mot très long.
+    fond_bande = (238, 247, 252)
+    base = Image.new("RGB", (280, 30), (255, 255, 255))
+    longue = "99e percentile de la troponine T ultrasensible : 14 ng/L. " * 3 + ("X" * 60)
+    bande = bande_legende(base, [{"numero": 1, "legende": longue}], [(20, 20, 22)], "Source longue " * 12)
+    bp = bande.load()
+    debord = 0
+    for y in range(base.height, bande.height):
+        for x in range(bande.width - 6, bande.width):
+            if bp[x, y][:3] != fond_bande:
+                debord += 1
+    ok(debord == 0, f"légende qui déborde à droite : {debord} px")
+    font_test = _police(22)
+    for ligne in _plier(longue, font_test, 180):
+        ok(font_test.getlength(ligne) <= 180, "ligne de légende plus large que la mesure")
 
     # Fragment et refus de licence.
     frag = fragment_figure("Titre", "alt", "<svg></svg>", [{"numero": 1, "legende": "Un"}], "Sémiologie.", "Auteur. CC BY. Consulté le 2026-10-31.", [])
