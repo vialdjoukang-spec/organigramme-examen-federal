@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import specs_suite  # enregistre les DX.2 à DX.10
 from dx_commun import ecrire_dx
 from gabarit_dx import details, fiches
 from gabarit_plus import extra
