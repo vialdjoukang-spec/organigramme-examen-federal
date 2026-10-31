@@ -2,6 +2,10 @@
 
 Format : `P-xx` · symptôme · cause · parade (outil ou règle) · preuve. Ajouter en tête, ne jamais supprimer sans ADR.
 
+**P-21 · `controle_lot.py extraire` muet sur le V8.** Symptôme : 0 octet sur un fichier Grok, alors que le même appel lit LOT_016. Cause : l'extracteur du harnais cherche des `<h3>` ou des `<strong>` numérotés (format V0), pas `<h2 id="pN">`. Parade : `python3 grok-LOTS-html/outils/extraire_v8.py <fichier> --points 1,2,3`. Ne pas modifier le harnais, ne pas « corriger » le fichier (P-01). Preuve : LOT_134 DX.1, 31.10.2026.
+
+**P-20 · Brief d'un autre LOT dans le paquet rédacteur.** Symptôme : `redacteur.md` de LOT_134 et LOT_135 dit « Phase B de LOT_017 — SSP PROFILES S1.1 Diplopie, ptosis », dépôt `/home/user/…`, branche `production-v2`. Cause : `dernier()` prend le dernier `BRIEF_PHASE_B.md` et le colle tel quel en N2. Parade : `adapter_brief` dans `outils/contexte_lot.py` substitue le code, le nom du SSP et les chemins depuis la ligne `CATALOGUE_248.csv` du LOT demandé et la racine du dépôt ; ce brief adapté est en N3 (fin de paquet). Preuve : paquets LOT_134 (F1.5 Anomalies à la palpation) et LOT_135 (F1.6 Anomalies à la percussion), 31.10.2026. Voir [ADR-004](ADR/ADR-004_brief_adapte.md).
+
 **P-19 · Un signe inférieur dans une citation.** Symptôme : deux citations se collent, ou la porte ne retrouve plus un passage pourtant copié. Cause : le texte entre `<` et `>` est retiré avant la comparaison, dans le HTML comme dans `evidence/`. Parade : écrire `&lt;` et `&gt;` des deux côtés. Preuve : LOT_134 DX.4 et DX.7, 31.10.2026.
 
 **P-18 · Ligne de tableau supérieure à 3000 caractères.** Symptôme : `controle_lot.py` critique une seule ligne. Cause : les `<tr>` collés. Parade : un `<tr>` par ligne. Les critiques `title=`, feuille externe et absence de `[S1]` sont celles du modèle V8 : les laisser (P-01). Preuve : Phase A LOT_134, 31.10.2026, plus aucune ligne au-dessus de 3000.

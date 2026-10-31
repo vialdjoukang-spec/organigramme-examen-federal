@@ -10,6 +10,8 @@ Principe n° 1 : le **premier message d'un run est identique pour tous les runs 
 | auditeur-conformite | « Poste auditeur-conformite (grok-4.5). Lis le paquet `auditeur-conformite.md` puis `TACHE.md` : la porte a déjà corrigé les espaces et listé les alertes de langue ; traite ces alertes, rien d'autre. Fond médical interdit : tu ne le touches pas. » |
 | transversale | « Poste transversale (grok-4.6). Lis le paquet `transversale.md`. Cohérence des doses, seuils, rangs entre les 11 fichiers ; `evidence/` manquants. » |
 
+Lecture d'un HTML V8 (rédacteur, audit, reprise) : `python3 grok-LOTS-html/outils/extraire_v8.py <fichier> --points N,N`. Ne pas utiliser `harnais/controle_lot.py extraire` sur ces fichiers : il renvoie 0 octet (P-21). Jamais un HTML de plus de 50 Ko en entier.
+
 Gabarit de `TACHE.md` (écrit par Tunder, 5 lignes) : LOT · fichier · numéro DX · nom exact (liste canonique) · SHA-256 du fichier à auditer (si audit).
 
 Mesure à tenir à jour : durée, octets lus, coût relatif de chaque run (`outils/couts.py noter`).

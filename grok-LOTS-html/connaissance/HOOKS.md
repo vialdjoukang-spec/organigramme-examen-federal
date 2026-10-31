@@ -14,4 +14,6 @@ Ajout au crochet existant (à faire par la session qui commite, dans son `.git/h
 ```
 python3 grok-LOTS-html/outils/porte_zero_jeton.py precommit || exit 1
 ```
-Hooks de session déjà décrits ailleurs (non refaits ici) : `suivi_ia.py capture grok` en fin de session, veille `routage_grok.py veille`.
+Hooks de session déjà décrits ailleurs (non refaits ici) : `suivi_ia.py capture grok` en fin de session.
+
+Mode « Harnais seul » (Vial, 31.10.2026) : ne pas lancer `routage_grok.py veille` et ne pas attendre le pouls `.veille_routage`. Le crochet local peut laisser passer le seul message « veille du routage » ; tout autre `BLOQUÉ` de `garde` arrête le commit. `routage_grok.py consigner` reste utilisé pour la trace des jetons.

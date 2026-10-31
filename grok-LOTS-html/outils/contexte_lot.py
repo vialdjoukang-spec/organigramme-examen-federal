@@ -126,16 +126,84 @@ def squelette_modele(texte: str) -> str:
     return re.sub(r"\n{2,}", "\n", s)
 
 
-def ligne_catalogue(racine: Path, lot: str) -> str:
+def fiche_catalogue(racine: Path, lot: str) -> dict:
+    """Ligne structurée de CATALOGUE_248.csv pour le LOT demandé (lot, code, ssp, statut, dossier)."""
     f = racine / "LOT_Claude_Finaux/CATALOGUE_248.csv"
     if not f.exists():
-        return ""
+        return {}
     num = str(int(lot.split("_")[1]))
     with f.open(encoding="utf-8", errors="replace", newline="") as h:
-        for r in csv.reader(h):
-            if r and any(c.strip() in (num, lot) or c.strip().lstrip("0") == num for c in r[:2]):
-                return " | ".join(r)
-    return ""
+        for r in csv.DictReader(h):
+            cle = (r.get("lot") or "").strip()
+            if cle == num or cle.lstrip("0") == num or cle == lot:
+                return {k: (v or "").strip() for k, v in r.items() if k}
+    return {}
+
+
+def ligne_catalogue(racine: Path, lot: str) -> str:
+    r = fiche_catalogue(racine, lot)
+    if not r:
+        return ""
+    ordre = ("lot", "code", "ssp_profiles_2023_fr_en", "statut", "nom_dossier_attendu_dans_archive")
+    return " | ".join(r.get(k, "") for k in ordre)
+
+
+def adapter_brief(texte: str, lot: str, fiche: dict, racine: Path) -> str:
+    """Substitue le SSP, le numéro de LOT et les chemins du brief modèle (souvent LOT_017).
+
+    Le brief lu sur le disque reste intact. Seule la copie mise dans le paquet change.
+    La bande 80–150 Ko de ce brief est une consigne V0 : la norme V8 du paquet reste prioritaire.
+    """
+    if not texte.strip():
+        return texte
+    code = fiche.get("code", "")
+    ssp = fiche.get("ssp_profiles_2023_fr_en", "")
+    dest = f"grok-LOTS-html/{lot}"
+    m = re.search(r"Phase [AB] de (LOT_\d{3})", texte)
+    source = m.group(1) if m else ""
+    if code and ssp:
+        texte = re.sub(
+            r"SSP PROFILES\s+\S+\s+«[^»]*»",
+            f"SSP PROFILES {code} « {ssp} »",
+            texte,
+            count=1,
+        )
+        texte = re.sub(
+            r"\(chaque DX est une cause ou un diagnostic différentiel[^)]*\)",
+            "(chaque DX est une cause ou un diagnostic différentiel de ce SSP, monographie clinique 14 points, Prompt V0 §11)",
+            texte,
+            count=1,
+        )
+    if source:
+        texte = texte.replace(f"lot en cours de production/{source}/", dest + "/")
+        texte = texte.replace(f"lot en cours de production/{source}", dest)
+        if source != lot:
+            texte = texte.replace(source, lot)
+    texte = re.sub(r"/home/user/\S+", str(racine), texte)
+    texte = texte.replace(
+        "(branche production-v2 ; AUCUN commit ni push, la session principale s'en charge)",
+        "(branche grok/lots ; écriture seulement dans grok-LOTS-html/)",
+    )
+    texte = re.sub(
+        r"Dix rédacteurs travaillent en parallèle dans le même dossier `[^`]+` : tu ",
+        "Tu ",
+        texte,
+        count=1,
+    )
+    texte = texte.replace(
+        "python3 harnais/controle_lot.py extraire",
+        "python3 grok-LOTS-html/outils/extraire_v8.py",
+    )
+    entete = (
+        f"BRIEF ADAPTÉ — {lot} — {code} « {ssp} ». "
+        f"SSP, numéro de LOT et chemins viennent de CATALOGUE_248.csv et de la racine du dépôt ({racine}). "
+        "Le fichier brief d'un autre LOT n'est plus la cible. "
+        "Norme V8 prioritaire sur la bande 80–150 Ko citée plus bas : harnais/taille_xy.py, "
+        "fiche DD x ≤ 9 Ko, Phase A x ≤ 100 Ko, détail en fenêtres. "
+        "Points d'un HTML V8 : python3 grok-LOTS-html/outils/extraire_v8.py "
+        "(controle_lot.py extraire renvoie 0 octet sur <h2 id=\"pN\">).\n\n"
+    )
+    return entete + texte
 
 
 def dernier(racine: Path, motif: str) -> Path | None:
@@ -159,12 +227,17 @@ def composants(racine: Path, lot: str, poste: str) -> list[tuple[str, str, str]]
     # N2 : stable par poste
     role = racine / ".claude/agents" / ROLE_FICHIER[poste]
     comp.append(("N2-poste", f".claude/agents/{role.name}", lire(role)))
+    brief_lot = None
     if poste in BRIEF_FICHIER:
         comp.append(("N2-poste", BRIEF_FICHIER[poste], lire(racine / BRIEF_FICHIER[poste])))
     else:
         b = dernier(racine, "lot en cours de production/LOT_0*/BRIEF_PHASE_B.md")
         if b:
-            comp.append(("N2-poste", str(b.relative_to(racine)), lire(b)))
+            # N3, en fin de paquet : le SSP change à chaque LOT, le préfixe stable non.
+            brief_lot = (
+                f"brief adapté depuis {b.relative_to(racine)}",
+                adapter_brief(lire(b), lot, fiche_catalogue(racine, lot), racine),
+            )
     l = dernier(racine, "lot en cours de production/LOT_0*/LECONS_LOT_*.md")
     if l:
         comp.append(("N2-poste", str(l.relative_to(racine)), lire(l)))
@@ -181,6 +254,8 @@ def composants(racine: Path, lot: str, poste: str) -> list[tuple[str, str, str]]
     cat = ligne_catalogue(racine, lot)
     if cat:
         comp.append(("N3-lot", "CATALOGUE_248.csv (ligne du LOT)", cat))
+    if brief_lot:
+        comp.append(("N3-lot", brief_lot[0], brief_lot[1]))
     return comp
 
 
