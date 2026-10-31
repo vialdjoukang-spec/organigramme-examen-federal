@@ -4,6 +4,7 @@ from pathlib import Path
 BASE=Path(__file__).resolve().parents[2];D=Path(__file__).resolve().parent;LOT=D.parent
 mapping={'LOT_018_Phase_A_V0.html':('a-explorations',['optique','retine']),'LOT_018_Phase_B_V0_DX.7.html':('dx7-detail9',['retine']),'LOT_018_Phase_B_V0_DX.8.html':('dx8-detail9',['optique'])}
 mapping.update({f'LOT_018_Phase_B_V0_DX.{n}.html':(f'dx{n}-detail9',[f'suite/dx{n}']) for n in [1,2,3,4,5,6,9,10]})
+mapping['LOT_018_Phase_B_V0_DX.10.html'] = ('dx10-detail9', ['suite/dx10', 'halo/temporal'])
 for name,(target,items) in mapping.items():
  p=LOT/name; text=p.read_text()
  backup=D/(name+'.avant.gz')
