@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_168 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_169 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165 et LOT_167 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166 et LOT_168 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167 et LOT_169 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166 et LOT_168 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_169.**
-**Prochain LOT du rédacteur B : LOT_170.** LOT_168 (F2.20 Diminution de la densité osseuse) est rédigé et certifié. Détail : `LOT_168/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_171.**
+**Prochain LOT du rédacteur B : LOT_170.** LOT_169 (F2.21 Carences nutritionnelles) est rédigé et certifié. Détail : `LOT_169/A_AUDITER.md`.
+
+## LOT_169 — rédigé et certifié
+Sujet : F2.21 « Carences nutritionnelles ». Détail : `LOT_169/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, un SIGNAL Redoxon (plage non extraite dans le cache, dose lue dans l'information 56194). NRS-2002 entier, MUST entier, MNA court et scores, GLIM 2019 phénotype et cause et grades, Wellcome et malnutrition aiguë, réalimentation NICE et grades ASPEN 2020, thiamine Benerva 200 mg/j parentéral, schéma EFNS 200 mg trois fois et bras 500 mg trois fois hors information, Wernicke et Korsakoff, vitamine D 25 et 50 nmol/l, EWGSOP2, cœliaque et Marsh, scorbut, pellagre, vitamines A et K, zinc, iode OMS. Fer, B12 et folates de l'anémie : renvoi au LOT_164.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 7.3 (+ 81.3) Ko · SHA e4753722a97bcf6a · commit e11fa1d7
+- DX.1 : certitude VERT · porte ORANGE · T = 5.5 (+ 42.6) Ko · SHA 1e4354ea253d5df5 · commit d6a4b2d4
+- DX.2 : certitude VERT · porte ORANGE · T = 4.8 (+ 39.9) Ko · SHA a6c209c47a207bbc · commit 0d515951
+- DX.3 : certitude VERT · porte ORANGE · T = 4.9 (+ 39.1) Ko · SHA 1ce6acf5922e7720 · commit 64f9c50e
+- DX.4 : certitude VERT · porte ORANGE · T = 4.8 (+ 39.8) Ko · SHA 314ca6a66b896857 · commit c08fb857
+- DX.5 : certitude VERT · porte ORANGE · T = 4.9 (+ 47.1) Ko · SHA 36441189c8f776e2 · commit 87ed5934
+- DX.6 : certitude VERT · porte ORANGE · T = 5.6 (+ 44.4) Ko · SHA 7b19f781e0c05174 · commit c3377bb8
+- DX.7 : certitude VERT · porte ORANGE · T = 4.9 (+ 48.4) Ko · SHA 03a4904913451882 · commit 9f8e60a8
+- DX.8 : certitude VERT · porte ORANGE · T = 4.9 (+ 39.4) Ko · SHA 079a3f08785794af · commit dc4e7591
+- DX.9 : certitude VERT · porte ORANGE · T = 4.9 (+ 37.4) Ko · SHA b895440851bce0cb · commit 45b7fb3e
+- DX.10 : certitude VERT · porte ORANGE · T = 4.9 (+ 37.9) Ko · SHA 665b7951f73452a6 · commit 8cd3c95b
 
 ## LOT_168 — rédigé et certifié
 Sujet : F2.20 « Diminution de la densité osseuse ». Détail : `LOT_168/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. T-score ≤ −2,5, ostéopénie, Z-score ≤ −2,0, sites DXA et arthrose lombaire, FRAX et cases SVGO/ASCO 2020, bilan secondaire, Genant entier, alendronate 70 mg, zolédronate 5 mg, dénosumab 60 mg et rebond, tériparatide, romosozumab, vitamine D et calcium, pause, ostéonécrose et fracture atypique, cortisone ≥ 7,5 mg/j ≥ 3 mois.
