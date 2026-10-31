@@ -1,5 +1,7 @@
 # LOT_150 — rédigé et certifié par script · 31.10.2026
 
+constats d'audit résiduel injectés le 2026-10-31
+
 Sujet : F2.2 « Enzymes cardiaques anormales ». Rédacteur B, grok-4.7. Aucun audit en boucle : `certitude_redaction.py` ORANGE (aucun ROUGE) et porte `avant redacteur` ORANGE. Aucune PR. Branche `grok/lots`.
 
 Prochain LOT du rédacteur B : LOT_152. Les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant.

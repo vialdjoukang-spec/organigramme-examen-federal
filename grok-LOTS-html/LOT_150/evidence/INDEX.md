@@ -14,3 +14,5 @@ Extraits datés, lus le 31.10.2026. Les incertitudes qui ne sont pas des faits d
 10. AIPS Plavix, n° 54509, Sanofi-Aventis (Suisse), corpus local lu le 31.10.2026. `aips_54509.txt`.
 11. AIPS EFIENT, n° 59136, corpus local lu le 31.10.2026. `aips_59136.txt`.
 12. AIPS Sortis, n° 54085, corpus local lu le 31.10.2026. `aips_54085.txt`.
+13. 2023 ESC Guidelines for the management of acute coronary syndromes, Eur Heart J 2023;44:3720-3826, Recommendation Table 5 : « Parenteral anticoagulation is recommended for all patients with ACS at the time of diagnosis » (I, A) Date de la source : 2023-08-25. URL : https://cardvasc.org/cvd-tool/esc-acs-guidelines-2023/ (DOI 10.1093/eurheartj/ehad191). Constat injecté le 2026-10-31 dans LOT_150_Phase_B_V0_DX.1.html, élément w1-coeur.
+14. 2023 ESC Guidelines for ACS, Eur Heart J 2023;44:3720, §3.3.4 + Table S4 : hs-cTnT Elecsys 0h/1h <5 / <12 / Δ<3 / ≥52 / Δ≥5 ng/L Date de la source : 2023-08-25. URL : https://www.revespcardiol.org/en-implementation-esc-0-h-1-h-articulo-S1885585723000270. Constat injecté le 2026-10-31 dans LOT_150_Phase_B_V0_DX.1.html, élément w1-coeur.
