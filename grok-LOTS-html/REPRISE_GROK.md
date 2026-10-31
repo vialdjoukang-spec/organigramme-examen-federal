@@ -5,7 +5,7 @@
 - DX.1 : rédigé · T = 3.7 (+ 46.1) Ko · 101 fenêtres · postes : redacteur → audit médical (passe distincte)
 - DX.2 : approfondi V8 · T = 4.1 (+ 46.1) Ko · 110 fenêtres, 15 dépliants · porte ORANGE (journal) · postes : redacteur → audit médical (passe distincte)
 - DX.3 : approfondi V8 · T = 3.3 (+ 43.5) Ko · 119 fenêtres, 15 dépliants · porte ORANGE (journal) · postes : redacteur → audit médical (passe distincte)
-- DX.4 : rédigé · T = 4.0 (+ 1.8) Ko · postes : redacteur → audit médical (passe distincte)
+- DX.4 : approfondi V8 · T = 2.8 (+ 42.8) Ko · 117 fenêtres, 15 dépliants · porte ORANGE (journal) · postes : redacteur → audit médical (passe distincte)
 - DX.5 : rédigé · T = 4.3 (+ 2.6) Ko · postes : redacteur → audit médical (passe distincte)
 - DX.6 : rédigé · T = 3.8 (+ 1.3) Ko · postes : redacteur → audit médical (passe distincte)
 - DX.7 : rédigé · T = 4.2 (+ 2.2) Ko · postes : redacteur → audit médical (passe distincte)
