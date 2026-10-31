@@ -50,3 +50,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T08:39:18+00:00 — Rattrapage documentaire : LOT_030 terminé et poussé4e667c7e,11HTML/154questions/275V8/60citations AIPS,6groupes de corrections ; rapports réels déjà présents, aucune nouvelle production revendiquée.
 
 2026-10-31T08:39:18+00:00 — LOT_031 terminé :11HTML/154questions/275V8/38citations AIPS ;3groupes de corrections, gravité non cotée, aucun critique V8 résiduel. Résultats historiques négatifs conservés ; relecture interne, aucun navigateur ou audit indépendant. Suite032.
+
+2026-10-31T08:55:31+00:00 — LOT_032 checkpoint partiel réel : Phase A et DX1–3, quatre HTML/56questions/99contrôles V8 positifs sur100 ; sept liens futurs restent absents.54citations AIPS exactes,4groupes de corrections, gravité non cotée. Relecture interne et cohérence partielle, pas de clôture. Reprise DX4 fracture cervicale. LOT_031 b07e53e4 terminé et poussé.
