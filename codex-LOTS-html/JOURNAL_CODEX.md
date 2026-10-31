@@ -34,3 +34,7 @@
 ## 31.10.2026 — LOT_027 terminé en production
 
 Onze HTML, 154 questions, 275 contrôles V8, 29 citations AIPS ; quatre notices et neuf empreintes harnais intactes. Six corrections réelles, relecture interne et transversale ; résultats historiques négatifs conservés. Aucun audit indépendant, score ou navigateur. Suite LOT_028 ; verrou de session conservé pendant la poursuite.
+
+## 31.10.2026 — Checkpoint réel LOT_028
+
+Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 partiels, huit liens futurs manquants. Lot non terminé, reprise DX.3 Otospongiose. LOT_025 92c3a9b5, LOT_026 6126fee0, LOT_027 1ab34abb terminés et poussés. Aucun audit indépendant ou navigateur.
