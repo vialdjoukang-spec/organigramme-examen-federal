@@ -5,7 +5,7 @@ LOT_160 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_red
 Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157 et LOT_159 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160 et LOT_162 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_161.**
-**Prochain LOT du rédacteur B : LOT_164.**
+**LOT du rédacteur B en cours : LOT_164** (F2.16 Anémie). Phase A et DX.1 à DX.6 et DX.8 sont poussés et certifiés verts. Il reste DX.7, DX.9 et DX.10. Ne pas passer à LOT_166 tant que ces trois fichiers ne sont pas écrits. Détail : `LOT_164/A_AUDITER.md`.
 
 ## LOT_159 — rédigé et certifié
 Sujet : F2.11 « Enzymes hépatiques anormales ». Détail : `LOT_159/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Score simplifié d'hépatite auto-immune (Hennes 2008, EASL 2015) rétabli en entier.
