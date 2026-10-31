@@ -19,3 +19,6 @@ Les prévalences sans dénominateur commun restent marquées « À vérifier ».
 14. AIPS Aldactone n° 27257. `aips_27257_aldactone.txt`.
 15. AIPS Lasix comprimés 40 mg n° 30629. `aips_30629_lasix.txt`.
 16. AIPS Augmentin comprimés filmés n° 45674. `aips_45674_augmentin.txt`.
+17. Torres et al. Thorax 2013, DOI 10.1136/thoraxjnl-2013-204282. 14/1 000 personnes-années ≥65 ans. `thorax2013_pac.txt`. Lu 31.10.2026 (audit médical).
+18. ERC 2021, Resuscitation, pneumothorax sous tension. `erc2021_tension.txt`. Lu 31.10.2026 (audit médical).
+19. ATLS 10e (ACS, États-Unis, 2018) via présentation 2018 et Injury 2021. `atls10_aiguille.txt`. Lu 31.10.2026 (audit médical).

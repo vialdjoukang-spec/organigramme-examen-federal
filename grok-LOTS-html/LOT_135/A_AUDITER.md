@@ -1,28 +1,25 @@
-# LOT_135 — rédigé, à auditer · 31.10.2026
+# LOT_135 — audit médical en cours · 31.10.2026
 
-Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical à faire par grok-4.6** (autre run, contexte vierge). Puis conformité. Aucune PR. Branche `grok/lots`.
+Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 en cours** (Phase A faite). Reste : DX.1–DX.10 puis conformité grok-4.5. Aucune PR. Branche `grok/lots`.
 
-P-01 respecté : `title=`, bande fichier, feuille externe, h2/h3_14 V0 non « corrigés ». Porte zéro jeton = seuil (ORANGE admissible : sigles non développés).
+P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `LISTE_DX_CANONIQUE.md`.
 
-Liste encore provisoire : `LISTE_DX_CANONIQUE_PROVISOIRE.md`. Le gel attend l'audit médical.
+| Fichier | Porte (après, preuves du LOT) | T | SHA | Audit médical |
+|---|---|---|---|---|
+| Phase_A | ORANGE | 6.5 (+ 77.9) Ko | 3f0cf065 | 6 corr. · score 93 · grok-4.6 |
+| DX.1 | ORANGE | 3.2 (+ 35.2) Ko | 64870774 | à faire |
+| DX.2 | ORANGE | 3.1 (+ 37.3) Ko | e2129bc6 | à faire |
+| DX.3 | ORANGE | 2.8 (+ 36.5) Ko | 381f7b59 | à faire |
+| DX.4 | ORANGE | 2.7 (+ 37.2) Ko | 7abb3bf6 | à faire |
+| DX.5 | ORANGE | 2.8 (+ 36.4) Ko | f64f833e | à faire |
+| DX.6 | ORANGE | 2.8 (+ 36.2) Ko | 3131a0b3 | à faire |
+| DX.7 | ORANGE | 2.6 (+ 35.3) Ko | 4187a956 | à faire |
+| DX.8 | ORANGE | 2.6 (+ 35.0) Ko | 19a71be3 | à faire |
+| DX.9 | ORANGE | 2.8 (+ 35.6) Ko | 62803cab | à faire |
+| DX.10 | ORANGE | 2.9 (+ 36.2) Ko | 26e8c47d | à faire |
 
-| Fichier | Porte (avant, preuves du LOT) | T | SHA |
-|---|---|---|---|
-| Phase_A | ORANGE | 6.5 (+ 75.4) Ko | 571fdd2c |
-| DX.1 | ORANGE | 3.2 (+ 35.2) Ko | 64870774 |
-| DX.2 | ORANGE | 3.1 (+ 37.3) Ko | e2129bc6 |
-| DX.3 | ORANGE | 2.8 (+ 36.5) Ko | 381f7b59 |
-| DX.4 | ORANGE | 2.7 (+ 37.2) Ko | 7abb3bf6 |
-| DX.5 | ORANGE | 2.8 (+ 36.4) Ko | f64f833e |
-| DX.6 | ORANGE | 2.8 (+ 36.2) Ko | 3131a0b3 |
-| DX.7 | ORANGE | 2.6 (+ 35.3) Ko | 4187a956 |
-| DX.8 | ORANGE | 2.6 (+ 35.0) Ko | 19a71be3 |
-| DX.9 | ORANGE | 2.8 (+ 35.6) Ko | 62803cab |
-| DX.10 | ORANGE | 2.9 (+ 36.2) Ko | 26e8c47d |
-
-Doutes laissés dans le texte (À vérifier), non tranchés par le rédacteur :
-- Revue Médicale Suisse du 25.09.2024 : 14/1 000 (français) contre 14/100 (anglais) après 65 ans.
-- Rangs de fréquence DX.3 à DX.10 sans incidence suisse commune.
-- Sensibilité de la disparition de la matité hépatique : non lue.
-- Site et calibre d'une décompression de pneumothorax sous tension : protocole suisse non lu.
-- Doses hors Aldactone 27257, Lasix 30629 et Augmentin 45674 : non écrites.
+Incertitudes tranchées en Phase A :
+- 14/1 000 après 65 ans retenu (RMS français + Thorax 2013). L'anglais 14/100 est un écart de traduction.
+- Rangs DX.3–DX.10 : toujours sans incidence suisse commune, À vérifier. Noms gelés.
+- Disparition de la matité hépatique : aucune sensibilité lue ; le signe n'affirme ni n'écarte.
+- Site d'aiguille : ERC 2021 4e–5e EIC ligne axillaire antérieure ; ATLS 10e (ACS, États-Unis) 5e EIC en avant de la ligne axillaire moyenne. Protocole suisse À vérifier.
