@@ -1,21 +1,21 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_135 **audit médical clos** (grok-4.6). Suite : conformité grok-4.5. Aucune PR, branche `grok/lots`.
+LOT_135 **clos** (médical grok-4.6 + conformité grok-4.5). **Prochain : LOT_136**. Aucune PR, branche `grok/lots`.
 
-## LOT_135 — audit médical grok-4.6 (clos)
-Sujet : F1.6 « Anomalies à la percussion ». Liste gelée. Reste : conformité grok-4.5.
+## LOT_135 — clos (médical + conformité)
+Sujet : F1.6 « Anomalies à la percussion ». Liste gelée.
 
-- Phase_A : audit médical 6 corr. · score 93 · T = 6.5 (+ 77.9) Ko · porte ORANGE · SHA 3f0cf065
-- DX.1 : audit médical 2 corr. · score 95 · T = 3.2 (+ 37.2) Ko · porte ORANGE · SHA e65e168c
-- DX.2 : audit médical 1 corr. · score 94 · T = 3.1 (+ 38.1) Ko · porte ORANGE · SHA 59643596
-- DX.3 : audit médical 2 corr. · score 94 · T = 2.8 (+ 37.1) Ko · porte ORANGE · SHA 6b70d2b1
-- DX.4 : audit médical 1 corr. · score 95 · T = 2.7 (+ 37.4) Ko · porte ORANGE · SHA dc61c467
-- DX.5 : audit médical 1 corr. · score 94 · T = 3.0 (+ 37.1) Ko · porte ORANGE · SHA bff891fa
-- DX.6 : audit médical 1 corr. · score 95 · T = 2.8 (+ 36.6) Ko · porte ORANGE · SHA 45943ad5
-- DX.7 : audit médical 0 corr. · score 96 · T = 2.6 (+ 35.3) Ko · porte ORANGE · SHA 158dbcaf
-- DX.8 : audit médical 0 corr. · score 95 · T = 2.6 (+ 35.0) Ko · porte ORANGE · SHA d0dfb7d7
-- DX.9 : audit médical 1 corr. · score 94 · T = 2.8 (+ 36.5) Ko · porte ORANGE · SHA 341ad8f8
-- DX.10 : audit médical 1 corr. · score 94 · T = 2.9 (+ 36.5) Ko · porte ORANGE · SHA 216bdd6f
+- Phase_A : conformité 8 corr. · score langue 96 · T = 6.8 (+ 78.1) Ko · porte ORANGE · SHA a583ac249877
+- DX.1 : conformité 2 corr. · score 96 · T = 3.3 (+ 37.1) Ko · porte ORANGE · SHA b00a19cf6db3
+- DX.2 : conformité 2 corr. · score 96 · T = 3.1 (+ 38.1) Ko · porte ORANGE · SHA 295a6304a294
+- DX.3 : conformité 3 corr. · score 96 · T = 2.8 (+ 37.2) Ko · porte ORANGE · SHA 7c858bba228f
+- DX.4 : conformité 1 corr. · score 96 · T = 2.7 (+ 37.4) Ko · porte ORANGE · SHA e1f161bf8e41
+- DX.5 : conformité 4 corr. · score 96 · T = 3.0 (+ 37.1) Ko · porte ORANGE · SHA 17497aff9436
+- DX.6 : conformité 1 corr. · score 96 · T = 2.9 (+ 36.6) Ko · porte ORANGE · SHA 18bf389aab75
+- DX.7 : conformité 1 corr. · score 96 · T = 2.6 (+ 35.3) Ko · porte ORANGE · SHA bed06c726326
+- DX.8 : conformité 1 corr. · score 96 · T = 2.7 (+ 35.0) Ko · porte ORANGE · SHA d33e29d1d53c
+- DX.9 : conformité 4 corr. · score 96 · T = 2.9 (+ 36.5) Ko · porte ORANGE · SHA e5bc46e34055
+- DX.10 : conformité 3 corr. · score 96 · T = 2.9 (+ 36.5) Ko · porte ORANGE · SHA dea58054a8fc
 
 Détail : `LOT_135/A_AUDITER.md`.
 
