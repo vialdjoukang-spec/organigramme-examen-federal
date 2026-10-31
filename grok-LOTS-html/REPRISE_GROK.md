@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_166 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_168 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165 et LOT_167 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164 et LOT_166 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165 et LOT_167 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166 et LOT_168 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_169.**
-**Prochain LOT du rédacteur B : LOT_168.** LOT_166 (F2.18 Épanchement abdominal ou pleural détecté à l'échographie) est rédigé et certifié. Détail : `LOT_166/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_170.** LOT_168 (F2.20 Diminution de la densité osseuse) est rédigé et certifié. Détail : `LOT_168/A_AUDITER.md`.
+
+## LOT_168 — rédigé et certifié
+Sujet : F2.20 « Diminution de la densité osseuse ». Détail : `LOT_168/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. T-score ≤ −2,5, ostéopénie, Z-score ≤ −2,0, sites DXA et arthrose lombaire, FRAX et cases SVGO/ASCO 2020, bilan secondaire, Genant entier, alendronate 70 mg, zolédronate 5 mg, dénosumab 60 mg et rebond, tériparatide, romosozumab, vitamine D et calcium, pause, ostéonécrose et fracture atypique, cortisone ≥ 7,5 mg/j ≥ 3 mois.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 3.6 (+ 77.0) Ko · SHA 3077b0f81870b349 · commit 41077aab
+- DX.1 : certitude VERT · porte ORANGE · T = 3.7 (+ 43.6) Ko · SHA c3b6c2e39518ecc2 · commit 7805ec6e
+- DX.2 : certitude VERT · porte ORANGE · T = 3.7 (+ 39.0) Ko · SHA 0d4106b627cd6ab3 · commit 98cbf7b5
+- DX.3 : certitude VERT · porte ORANGE · T = 3.6 (+ 46.0) Ko · SHA 5bf03009d658617e · commit 230fd37d
+- DX.4 : certitude VERT · porte ORANGE · T = 3.8 (+ 37.6) Ko · SHA 01c248eaa042dccc · commit eed08448
+- DX.5 : certitude VERT · porte ORANGE · T = 3.7 (+ 41.6) Ko · SHA e4359fb174a64682 · commit 789b3754
+- DX.6 : certitude VERT · porte ORANGE · T = 3.9 (+ 39.6) Ko · SHA 6f0ad84e3a343458 · commit a74f80ef
+- DX.7 : certitude VERT · porte ORANGE · T = 3.8 (+ 44.6) Ko · SHA 9ee2770f93b73b8b · commit c89bbe0f
+- DX.8 : certitude VERT · porte ORANGE · T = 3.5 (+ 38.2) Ko · SHA f57a5970c18f92b9 · commit c3b4c822
+- DX.9 : certitude VERT · porte ORANGE · T = 3.9 (+ 45.7) Ko · SHA fb47c9b8a490cb7f · commit 6776ee59
+- DX.10 : certitude VERT · porte ORANGE · T = 3.9 (+ 40.9) Ko · SHA cbdbbf9ddeff5aca · commit 62cd929d
 
 ## LOT_167 — rédigé et certifié
 Sujet : F2.19 « Élévation des biomarqueurs de l'inflammation ». Détail : `LOT_167/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Cinétique de la CRP (6 h, 48 h, demi-vie 19 h), procalcitonine 0,25 et 0,5 µg/l (ProHOSP), formule de Miller, HScore entier, Sepsis-3, lactate supérieur à 2 mmol/l, campagne 2021, critères ACR/EULAR 2022, EULAR/ACR 2012, Yamaguchi, Durack et Street, électrophorèse.
