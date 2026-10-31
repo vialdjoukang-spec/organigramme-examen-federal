@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_160 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_164 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159 et LOT_161 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160 et LOT_162 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159 et LOT_161 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162 et LOT_164 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_163.**
-**LOT du rédacteur B en cours : LOT_164** (F2.16 Anémie). Phase A et DX.1 à DX.6 et DX.8 sont poussés et certifiés verts. Il reste DX.7, DX.9 et DX.10. Ne pas passer à LOT_166 tant que ces trois fichiers ne sont pas écrits. Détail : `LOT_164/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_166.** LOT_164 (F2.16 Anémie) est rédigé et certifié. Détail : `LOT_164/A_AUDITER.md`.
+
+## LOT_164 — rédigé et certifié
+Sujet : F2.16 « Anémie ». Conscience de lot : 0 BLOQUANT. Koïlonychie et Plummer-Vinson (Novacek 2006), sclérose combinée (Stabler 2013), signe de Babinski (Vasconcelos 2006) et formule de Ganzoni 1970 sont dans le cours.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 7.2 (+ 70.7) Ko · SHA 0f8911b16b49 · commit f40137e9
+- DX.1 : certitude VERT · porte ORANGE · T = 4.4 (+ 35.9) Ko · SHA f56f3e4cdd50 · commit f40137e9
+- DX.2 : certitude VERT · porte ORANGE · T = 3.9 (+ 40.6) Ko · SHA dc230fac583b · commit 5c3e1664
+- DX.3 : certitude VERT · porte ORANGE · T = 4.0 (+ 36.5) Ko · SHA 7d74bd28bc40 · commit f40137e9
+- DX.4 : certitude VERT · porte ORANGE · T = 3.9 (+ 40.1) Ko · SHA 1497aa1a5f3c · commit 414a1302
+- DX.5 : certitude VERT · porte ORANGE · T = 4.0 (+ 37.6) Ko · SHA 6ee8fae7b2a2 · commit 3165dd45
+- DX.6 : certitude VERT · porte ORANGE · T = 4.3 (+ 36.1) Ko · SHA 889874698d2a · commit 6f805942
+- DX.7 : certitude ORANGE · porte ORANGE · T = 4.5 (+ 36.2) Ko · SHA b8021e8ebe93 · commit 7bc3a179
+- DX.8 : certitude VERT · porte ORANGE · T = 4.5 (+ 35.2) Ko · SHA e52f20b71fe4 · commit 17f91468
+- DX.9 : certitude ORANGE · porte ORANGE · T = 4.5 (+ 35.1) Ko · SHA 93b6900a64c2 · commit fdc5d3ce
+- DX.10 : certitude VERT · porte ORANGE · T = 4.1 (+ 35.6) Ko · SHA 65ec49d6380b · commit 742bfeec
 
 ## LOT_161 — rédigé et certifié
 Sujet : F2.13 « Lipides sériques anormaux ». Détail : `LOT_161/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Cibles de LDL 1,4 / 1,8 / 2,6 / 3,0 mmol/l, SCORE2 et SCORE2-OP (bornes AGLA par âge), réseau néerlandais entier, phénotypes I à V de Fredrickson.
