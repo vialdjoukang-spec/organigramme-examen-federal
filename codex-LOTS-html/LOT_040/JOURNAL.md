@@ -5,3 +5,5 @@
 2026-10-31T21:20:56.260104+00:00 — DX1 rédigé, relu, C02–C03, contrôles bruts conservés. Deux HTML,28questions,50conditions V8. Comparaison interne Phase A/DX1 réelle, neuf monographies absentes, prochaine DX2.
 
 2026-10-31T21:22:50.556174+00:00 — Premier commit refusé par le garde : identifiant complet DX1 au lieu de DX.1. Normalisation tracée de cinq lignes040, dates/actions conservées ; aucun contournement.
+
+2026-10-31T21:23:29.955169+00:00 — Garde Git accepté après normalisation. Checkpoint commité et pousséef2cba27a8197ed9f98b70c2b8f3bfc720142ad5, ref distante identique. Verrou libéré officiellement. SuiteDX2, aucune clôture040.

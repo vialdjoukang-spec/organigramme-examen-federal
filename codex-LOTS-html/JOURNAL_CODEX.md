@@ -106,3 +106,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T21:21:54.312026+00:00 — Même session seule : LOT039 DX7–8 publiés d32097a9, puis DX9–10 et clôture145c673f, push confirmé.11HTML/154questions/275conditionsV8/279paragraphesAIPS ; C01–C12 et cohérence finale internes. Aucun audit indépendant, score, navigateur ou validation clinique humaine.
 
 2026-10-31T21:21:54.312026+00:00 — Poursuite réelle LOT040 : PhaseA puis DX1, recherches CH/Europe lues et archivées, relectures distinctes C01–C03,28questions/50conditionsV8. DeuxHTML dans les limitesx et80–150Ko. Lot incomplet, premier fichier manquantDX2, total244HTML. BilanHTML mesuré créé ; rapports historiques négatifs conservés.
+
+2026-10-31T21:23:29.955169+00:00 — Push040 confirméef2cba27a8197ed9f98b70c2b8f3bfc720142ad5, verrou libéré. RepriseDX2 sauvegardée ; les veilles48342/37511 contrôlent seulement chaque minute tant que le runtime existe. Aucun autre automate modifié.
