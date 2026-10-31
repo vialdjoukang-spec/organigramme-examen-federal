@@ -11,15 +11,11 @@ def Q(e, c, p, k):
     return (e, c, p, k)
 
 def S(lignes):
+    """Clauses courtes : point() ajoute le gabarit une seule fois."""
     out = []
     for ligne in lignes:
         bas = ligne[0].lower() + ligne[1:]
-        out.append(Q(
-            ligne,
-            f"la conduite retenue part de là : {bas}",
-            f"le piège serait d'oublier ceci : {bas}",
-            f"le contrôle suivant porte sur ceci : {bas}",
-        ))
+        out.append(Q(ligne, bas, bas, bas))
     return out
 
 def lecon(n, nom, fiches, items, sous=None):
