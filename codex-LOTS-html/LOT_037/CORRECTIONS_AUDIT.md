@@ -7,3 +7,5 @@ Relecture interne uniquement. C01 : airway remplacé et formulation du144 corrig
 DX1–3 : C04–C08, lien de retour corrigé ; phrase rénale scindée ; ECA/CRPV/CREAK/CLS développés ; IV défini intraveineux pour ce lot. Verbatim AIPS conservés malgré typographie historique. Voir audits/RELECTURE_DX1_3.md.
 
 DX4–5 : C09 phrase adulte amoxicilline scindée ; C10 paracétamol formulé pour obstacle avec ou sans infection. Doses AIPS exactes, limites d’indication et de durée explicites. Tableaux originaux conservés.
+
+DX6 : C11 affectation9.a–d/11.A–D, interprétation et sortie explicites ; C12 phrase rénale adulte scindée ; C13 corrélation physiopathologique et examen normal attendu ajoutés. Deux notices parentérales confrontées aux téléchargements frais,17citations exactes. L’essai médical hospitalier reste réservé aux formes sélectionnées non compliquées ; clindamycine non présentée comme remplacement automatique en allergie. Voir audits/RELECTURE_DX6.md.
