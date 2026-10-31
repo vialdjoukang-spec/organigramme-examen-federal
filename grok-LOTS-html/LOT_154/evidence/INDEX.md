@@ -27,3 +27,5 @@ Extraits datés, lus le 31.10.2026. Les faits non retenus sont dans `../INCERTIT
 23. AIPS Beloc injectable, n° 56191, Recordati, corpus local lu le 31.10.2026. `aips_56191.txt`.
 24. AIPS Eliquis, n° 61549, corpus local lu le 31.10.2026. `aips_61549.txt`.
 25. AIPS Magnesiocard injectable, n° 45728, corpus local lu le 31.10.2026. `aips_45728.txt`.
+26. ERC Guidelines 2021 ALS, Resuscitation 2021;161:115-151 (torsade stable : sulfate de magnésium 2 g IV en 10 min) ; ESC 2022 ventricular arrhythmias, Eur Heart J 2022;43:3997-4126 (magnésium IV, classe I) Date de la source : 2021-03-24. URL : https://lms.resus.org.uk/modules/m10-v2-cardiac-arrest/10346/resources/chapter_11.pdf ; https://pmc.ncbi.nlm.nih.gov/articles/PMC12597394/. Constat injecté le 2026-10-31 dans LOT_154_Phase_B_V0_DX.9.html, élément p13.
+27. 2023 ESC Guidelines for ACS, Eur Heart J 2023;44:3720-3826 (anticoagulation parentérale chez tout patient avec SCA, I A ; HNF 70–100 UI/kg en bolus pour l'ICP) Date de la source : 2023-08-25. URL : https://cardvasc.org/cvd-tool/esc-acs-guidelines-2023/. Constat injecté le 2026-10-31 dans LOT_154_Phase_B_V0_DX.1.html, élément p12.

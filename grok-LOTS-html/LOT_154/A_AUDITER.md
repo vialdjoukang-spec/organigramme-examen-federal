@@ -1,5 +1,7 @@
 # LOT_154 à auditer — F2.6 Électrocardiogramme anormal
 
+constats d'audit résiduel injectés le 2026-10-31
+
 Rédacteur B, grok-4.7, 31.10.2026. Script `certitude_redaction.py`, aucun ROUGE. Branche `grok/lots`. Pas de PR.
 
 Les critères gardés : millimètres ESC 2023 au point J, occlusion postérieure V7–V9, 99e percentile et algorithme 0/1 heure (Revue Médicale Suisse 2024), Sgarbossa modifié (Smith 2012), CHA2DS2-VA 2024, QRS 120 ms, stimulation du bloc complet même asymptomatique (ESC 2021), deux critères sur quatre de la péricardite (ESC 2015), signes et seuil 6,5 mmol/L de l'hyperkaliémie (ERC 2021), QTc 500 ms seulement chez le sportif (ESC 2020).
