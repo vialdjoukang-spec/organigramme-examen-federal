@@ -96,3 +96,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 31.10.2026 — LOT038 checkpoint DX4–6 : trois nouvelles monographies, relectures distinctes C05–C07,43 citations fraîches supplémentaires. Total7HTML/98questions/175conditionsV8/104citations. Bilan des tailles x,y,x+y,HTML et règles V8/V0 actualisé et vérifié. Aucun audit indépendant, score, navigateur ou validation humaine. ProchainDX7 ; lot incomplet.
 
 2026-10-31T16:52:39.332457+00:00 — Push confirmé46b9445d. Capture mécanique sauvegardée, état et reprise actualisés ; verrou libéré officiellement. Veilles37510/37511 laissées en surveillance seule. Suite réelle LOT038 DX7 ; aucune clôture deLOT038 ou de la série133.
+
+2026-10-31T18:59:13.749477+00:00 — LOT039 DX1–4 ajoutés seul depuis930dafa5 ; cinqHTML présents avec PhaseA,70questions,125conditionsV8 et60citationsAIPS comparées aux notices fraîches. C03–C06 et comparaison partielle tracées. BilanHTML des tailles vérifié,236HTML présents au total ; premier incompletDX5. Aucun audit indépendant/score/navigateur/validation humaine. Contrôles historiques négatifs préservés.

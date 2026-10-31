@@ -7,3 +7,15 @@ C01 — Après rédaction et rapports initiaux : retirer les mentions de product
 C02 — Ajouter les références HUG précises réellement lues sur diagnostic maculaire et angle iridocornéen aux passages concernés.
 
 À préserver : urgence des pertes brusques/transitoires, flashes nouveaux et rideau ; test des deux occlusions pour diplopie ; pupille normale sans exclusion autonome de compression ; classification d’aura sans attente imposée ; artérite menaçant la vision sans attente d’histologie. Zéro dose AIPS dans la Phase A, protocoles futurs explicitement ouverts dans HELP.
+
+## Suite DX1–4
+
+C03 — DX1 : Développement de SNC et HUG dans le texte hors citations AIPS.
+
+C04 — DX2 : Précision du nom de l’institut britannique NICE.
+
+C05 — DX3 : Développement de DPV dès la première occurrence visible.
+
+C06 — DX4 : Scission de la phrase anatomique initiale pour la lisibilité.
+
+Les quatre passes distinctes sont décrites dans audits/RELECTURE_DX1.md à RELECTURE_DX4.md. Comparaison transversale partielle seulement : PhaseA et DX1–4. Les notices AIPS ne sont pas reformulées dans les citations ; vérification finale60/60 dans aips_checkpoint_dx4.json.

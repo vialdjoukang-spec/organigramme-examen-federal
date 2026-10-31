@@ -1,0 +1,9 @@
+# Relecture interne DX3 — 31.10.2026
+
+Passe distincte par le même rédacteur après génération et lecture des rapports initiaux. Le texte et les passages HUG, Cambridge, RNIB et NHS ont été confrontés. Décollement du vitré distingué du décollement de rétine ; complications possibles malgré absence de douleur ou bonne acuité centrale ; examen rétinien incomplet non assimilé à résultat normal ; aggravation après examen initial imposant réévaluation. Pas de délai fixe d’attente devant rideau, ni calendrier universel de suivi.
+
+Le suivi dépend du risque et de la qualité du fond d’œil. Aucun taux suisse de complications n’est inventé. Aucun collyre ou complément curatif, aucune prescription dosée : contrôle AIPS non applicable ici, sans prétention de validation pharmacologique. Laser rétinien et traitement de corps flottants distingués. Les restrictions après chirurgie et celles d’un DPV simple ne sont pas confondues.
+
+C05 : développer DPV dans le premier paragraphe visible, avant sa réutilisation dans la fiche ; sa définition dans une fenêtre située plus tard dans le document ne suffisait pas au contrôle de première occurrence. 25/25conditions V8,14questions. Rapports langue historiques négatifs conservés (title/h3/espaces), sans conformité linguistique globale annoncée. Aucune autre correction de fond identifiée dans cette passe, sans inventer de défaut. Pas d’audit indépendant ni navigateur.
+
+Limites sources : RNIB et NHS affichent encore des révisions2023, une révision attendue2026 ne prouve pas qu’elle a eu lieu. Cambridge version6 approuvée février2026 lue. Le PDF RCOphth demandé a expiré en accès ; il n’est pas revendiqué comme lu. Le texte RNIB accessible a été lu à sa place, avec ses limites. Cohérence partielle avec PhaseA/DX1/DX2, pas de comparaison finale avec les sept monographies absentes.
