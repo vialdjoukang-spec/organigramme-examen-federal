@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_152 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_151 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 est déjà rédigé par A. LOT_150 et LOT_152 sont déjà rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 et LOT_151 sont rédigés par A. LOT_150 et LOT_152 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_151.**
+**Prochain LOT du rédacteur A : LOT_153.**
 **Prochain LOT du rédacteur B : LOT_154.**
+
+## LOT_151 — rédigé et certifié
+Sujet : F2.3 « Bilan de coagulation anormal ». Détail : `LOT_151/A_AUDITER.md`.
+
+- Phase_A : certitude VERT · porte VERT · T = 8.3 (+ 70.8) Ko · SHA 0094b243e585 · commit 79893656
+- DX.1 : certitude VERT · porte ORANGE · T = 7.4 (+ 44.2) Ko · SHA 2bffd48dfcfd · commit d7088a4c
+- DX.2 : certitude VERT · porte ORANGE · T = 6.9 (+ 39.3) Ko · SHA b89a60bae875 · commit 2b611f64
+- DX.3 : certitude VERT · porte ORANGE · T = 7.4 (+ 43.7) Ko · SHA 265226cc4cac · commit ec20a903
+- DX.4 : certitude VERT · porte ORANGE · T = 7.4 (+ 43.4) Ko · SHA 3ba537187ebe · commit ee278617
+- DX.5 : certitude VERT · porte VERT · T = 7.1 (+ 41.7) Ko · SHA da1bf561cb6a · commit ea7457f3
+- DX.6 : certitude VERT · porte ORANGE · T = 7.5 (+ 44.6) Ko · SHA a1946c4d14d7 · commit 7739a8b4
+- DX.7 : certitude VERT · porte ORANGE · T = 7.1 (+ 40.5) Ko · SHA bb0b00334cf3 · commit c1f651de
+- DX.8 : certitude VERT · porte ORANGE · T = 7.3 (+ 41.7) Ko · SHA 31fd70b1a34e · commit dd87df0c
+- DX.9 : certitude VERT · porte ORANGE · T = 7.1 (+ 39.4) Ko · SHA 7e71900e90bd · commit f2fb45cb
+- DX.10 : certitude VERT · porte ORANGE · T = 7.1 (+ 39.0) Ko · SHA 3fbb8c2e9b92 · commit 638c7fdc
 
 ## LOT_152 — rédigé et certifié
 Sujet : F2.4 « Radiographies abdominales, thoraciques ou squelettiques anormales ». Détail : `LOT_152/A_AUDITER.md`.
