@@ -1,12 +1,16 @@
 # Reprise LOTS — 31.10.2026
 
-## PRIORITÉ ACTIVE : pause pour rattrapage des illustrations
+## PRIORITÉ ACTIVE : rattrapage des illustrations avec outils Codex créés
 
-Ordre de Vial du31.10.2026 reçu après le checkpoint ci-dessous : corriger les illustrations depuis le début, puis reprendre automatiquement. Lire `CONSIGNE_ILLUSTRATIONS.md`, `ETAT_CONTINUITE.json` et `ETAT_ILLUSTRATIONS.html`. Les244HTML des23lots présents n'avaient aucun img/SVG à l'inventaire initial. Aucun lot n'est déclaré corrigé pour cette nouvelle exigence. Le prochain lot de rattrapage est018 ; le prochain diagnostic rédactionnel reste040 DX2. La mention historique « ne pas refaire018 » ci-dessous interdit une réécriture inutile, pas le rattrapage expressément demandé.
+Vial a explicitement demandé de créer nos propres scripts. Le blocage des anciens outils absents est levé : ne plus attendre leur localisation. Utiliser outils/illustration/illustrer.py et outils/dessinateur/dessinateur.py, puis les contrôles et preuves de LOT_018/illustrations/. Travail seul, écritures uniquement dans codex-LOTS-html/ ; borne18–133 revérifiée. La pause des nouveaux diagnostics sert à terminer le rattrapage, pas à attendre une autorisation.
 
-Blocage : outils/illustration/illustrer.py et outils/dessinateur/dessinateur.py introuvables sur codex/lots, main et production-v2 aux commits consignés dans la consigne. Demande de branche/commit envoyée. Accès direct aux articles Europe PMC essayé :403 ; ouvertures web échouées. Les recherches conservées sont des pistes, pas des images acquises ou validées. Ne pas prétendre avoir exécuté ces outils ou effectué une revue visuelle. Ne pas remettre statut actif pour poursuivre la rédaction avant correction. La reprise après correction est déjà autorisée sans nouvelle confirmation.
+Résultat contrôlé : Phase A, DX7 décollement rétinien et DX8 névrite optique de LOT_018 enrichis dans leurs fenêtres d’examen. Image anatomique Commons préexistante copiée sans toucher à l’original, crédits complétés (Patrick J. Lynch et Beao, CC BY2.5), contours numérotés ; deux états schématiques originaux de la rétine. SOURCES.json, spécifications, sources lues, rendus, captures et relecture visuelle conservés. Aucun cliché pathologique ajouté ; ce résultat ne clôture pas LOT_018 au titre du rattrapage.
 
-Checkpoint illustrations : inventaire et consigne sauvegardés, 737 vérifications de rapport réussies, zéro image produite. Verrou exclusif libéré officiellement en fin de correction préparatoire. Veilles existantes conservées ; le contrôle de contrat signale la pause attendue. Aucun nouveau diagnostic, aucun changement du harnais ou des autres producteurs. Reprendre le verrou avant toute correction future.
+275 contrôles V8 réussis sur les11leçons,38 contrôles Chromium ordinateur/émulation tactile,8 tests de garde-fous de l’outil. Fiches x inchangées : PhaseA13,119Ko, DX7 5,248Ko, DX8 5,494Ko. HTML bruts :152,939Ko /89,499Ko /104,651Ko ; le dépassement historique150Ko de PhaseA est dû aux ajouts illustratifs et ne dépasse pas son plafond textuel100Ko. Les schémas sont exemptés selon la consigne. Les contrôles de langue historiques restent négatifs et sont conservés ; relecture interne réelle des nouvelles légendes, aucune validation clinique humaine ou audit indépendant.
+
+Suite exacte : compléter les lésions clés et les niveaux de coupe pertinents de LOT_018, puis rattraper019–040. Utiliser les sources et crédits disponibles, vérifier chaque licence et chaque rendu. Ne pas recommencer les textes achevés. Reprise040 DX2 déjà autorisée après correction ; aucun saut à041. ETAT_ILLUSTRATIONS.html présente l’inventaire actuel, avec3leçons dotées de supports sur244. Le bilan initial sans illustrations reste dans le commit13a50403.
+
+Verrou exclusif libéré officiellement en fin de session. Veilles existantes conservées ; pret est vert. Le contrôle de contrat signale la pause des nouveaux diagnostics, attendue pendant ce rattrapage. Acquérir le verrou avant la correction suivante.
 
 ## Checkpoint rédactionnel antérieur, conservé pour la reprise conditionnelle
 

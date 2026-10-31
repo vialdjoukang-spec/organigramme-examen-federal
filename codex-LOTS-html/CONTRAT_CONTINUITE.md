@@ -23,3 +23,5 @@ Le nouvel ordre reçu après la clôture de LOT_034/035 rétablit « seul et san
 ## Priorité ultérieure — illustrations annotées, 31.10.2026
 
 Vial ordonne une pause des nouveaux diagnostics, le rattrapage des illustrations depuis le début, puis la reprise automatique après correction. `CONSIGNE_ILLUSTRATIONS.md` porte les critères détaillés et les limites vérifiées. La correction des lots018–040 est autorisée malgré leur clôture rédactionnelle antérieure. Le statut pause interdit de reprendre040 DX2 tant que ce rattrapage n'est pas vérifié ; il n'interdit pas le travail de correction demandé. La reprise après correction est déjà autorisée. Les prochaines productions doivent appliquer ces critères dès leur création. Aucun autre automate n'est modifié.
+
+Autorisation suivante de Vial : créer nos propres scripts d'illustration et de dessin pour satisfaire le besoin. Les outils absents ne constituent plus un prérequis bloquant. Utiliser les deux scripts créés sous codex-LOTS-html/outils/, avec leurs preuves de sources et de rendu. La pause rédactionnelle reste une priorité de correction, pas une attente de permission ni de localisation d'anciens outils.

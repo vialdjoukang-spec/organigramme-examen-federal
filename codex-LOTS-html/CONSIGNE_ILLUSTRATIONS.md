@@ -1,5 +1,11 @@
 # Illustrations annotées — ordre de Vial du 31.10.2026
 
+## Actualisation — autorisation explicite de créer les outils
+
+Vial demande ensuite de créer nos propres scripts pour insérer des images fiables et des formes schématiques expliquées. Cette instruction lève le blocage lié aux deux outils absents et autorise les dessins pédagogiques originaux, identifiés comme tels. Les scripts effectifs sont désormais `codex-LOTS-html/outils/illustration/illustrer.py` et `codex-LOTS-html/outils/dessinateur/dessinateur.py`. Ils ne sont pas des copies prétendues des anciens outils. Le premier annote des images locales documentées ; le second rend des schémas SVG à partir de spécifications conservées. Aucun dessin n'est présenté comme un cliché de patient. Les autres critères de sources, attribution, annotations et inspection visuelle restent applicables.
+
+Premier résultat : LOT_018 Phase A, DX7 et DX8 enrichis dans leurs fenêtres d'examen. Anatomie Commons CC BY2.5 et deux états schématiques de la rétine ; sources et revue dans `LOT_018/SOURCES.json` et `LOT_018/illustrations/`. Les clichés pathologiques et les niveaux de coupe radioanatomiques restent à compléter. Ce résultat partiel ne clôture aucun lot au titre du rattrapage.
+
 Cette consigne s'applique au rattrapage depuis LOT_018 et aux productions suivantes, dans la borne fraîchement vérifiée des réservations. Écritures uniquement dans codex-LOTS-html/, travail seul. La pause porte sur les nouveaux diagnostics ; le rattrapage est autorisé immédiatement. Après correction vérifiée, la reprise de LOT_040 DX2 est déjà autorisée, sans nouvelle confirmation.
 
 ## Production et réception
@@ -14,7 +20,7 @@ Cette consigne s'applique au rattrapage depuis LOT_018 et aux productions suivan
 8. Vérifier l'intégration, les interactions réellement testées, la langue de la légende, les sources médicales et la cohérence avec la leçon. Conserver 14 parties et 14 questions. Ne déclarer ni test navigateur, ni audit indépendant, ni validation clinique humaine non réalisés. Selon le guide local `docs/skills/ssp-images-licence/SKILL.md`, le champ de validation humaine reste faux sans confirmation humaine ; cela n'empêche pas la revue visuelle interne autorisée.
 9. Avant push : contrôler les fichiers réellement modifiés, actualiser les empreintes et bilans concernés, consigner les passes et les limites. Un lot antérieurement terminé en rédaction reste « rattrapage illustrations à réaliser » tant que les nouveaux critères ne sont pas satisfaits. Ne pas réécrire inutilement les monographies déjà achevées.
 
-## Point de blocage vérifié pendant cette session
+## Historique du blocage initial, désormais levé pour les outils
 
 Les deux chemins d'outils demandés sont absents de la branche fraîche codex/lots (5c52ac86032f7e3667ce525e2c195cc43fc42620). Ils n'ont pas été trouvés dans les arbres récursifs non tronqués de main (ffb0dcb17e64bb8404a310a75afeba6d216504e2) et production-v2 (f8c38e338be0dd3057cab1d4b5c6d0fae109997c). Cela ne démontre pas leur absence de toute autre branche ou de tout historique. Leur branche ou commit a été demandé à Vial.
 
