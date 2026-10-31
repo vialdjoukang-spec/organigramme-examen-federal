@@ -1,19 +1,23 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_134 conformité linguistique **terminée** (grok-4.5). **Prochain : LOT_135**. Puis transversale LOT_134 si run dédié. Aucune PR, branche `grok/lots`.
+LOT_135 **rédigé** (grok-4.7). **Prochain : audit médical par grok-4.6** (autre run). Puis conformité. Aucune PR, branche `grok/lots`.
+
+## LOT_135 — rédigé, à auditer médicalement
+Sujet : F1.6 « Anomalies à la percussion ». Liste provisoire, pas gelée.
+
+- Phase_A : T = 6.5 (+ 75.4) Ko · porte ORANGE · SHA 571fdd2c
+- DX.1 : T = 3.2 (+ 35.2) Ko · porte ORANGE · SHA 64870774
+- DX.2 : T = 3.1 (+ 37.3) Ko · porte ORANGE · SHA e2129bc6
+- DX.3 : T = 2.8 (+ 36.5) Ko · porte ORANGE · SHA 381f7b59
+- DX.4 : T = 2.7 (+ 37.2) Ko · porte ORANGE · SHA 7abb3bf6
+- DX.5 : T = 2.8 (+ 36.4) Ko · porte ORANGE · SHA f64f833e
+- DX.6 : T = 2.8 (+ 36.2) Ko · porte ORANGE · SHA 3131a0b3
+- DX.7 : T = 2.6 (+ 35.3) Ko · porte ORANGE · SHA 4187a956
+- DX.8 : T = 2.6 (+ 35.0) Ko · porte ORANGE · SHA 19a71be3
+- DX.9 : T = 2.8 (+ 35.6) Ko · porte ORANGE · SHA 62803cab
+- DX.10 : T = 2.9 (+ 36.2) Ko · porte ORANGE · SHA 26e8c47d
+
+Détail : `LOT_135/A_AUDITER.md`.
 
 ## LOT_134 — clos (médical + conformité)
-- Phase_A : conformité 8 corr. · score langue 96 · T = 9.0 (+74.6) Ko · porte ORANGE · SHA b0eca73d
-- DX.1 : conformité 1 corr. · score 96 · T = 3.8 (+46.2) Ko · porte ORANGE · SHA 37377788
-- DX.2 : conformité 1 corr. · score 94 · T = 4.4 (+46.3) Ko · porte ORANGE · SHA 1575b2f9
-- DX.3 : conformité 1 corr. · score 96 · T = 3.5 (+43.3) Ko · porte ORANGE · SHA ed56ef7f
-- DX.4 : conformité 2 corr. · score 96 · T = 2.9 (+42.7) Ko · porte ORANGE · SHA 8ff921cc
-- DX.5 : conformité 1 corr. · score 96 · T = 3.0 (+41.0) Ko · porte ORANGE · SHA d5180c5c
-- DX.6 : conformité 1 corr. · score 94 · T = 2.8 (+35.7) Ko · porte ORANGE · SHA a192f3c0
-- DX.7 : conformité 1 corr. · score 97 · T = 3.0 (+37.2) Ko · porte ORANGE · SHA 346ced12
-- DX.8 : conformité 1 corr. · score 96 · T = 2.7 (+37.5) Ko · porte ORANGE · SHA 473e5a0c
-- DX.9 : conformité 1 corr. · score 96 · T = 2.8 (+40.3) Ko · porte ORANGE · SHA 0e67d7dd
-- DX.10 : conformité 1 corr. · score 96 · T = 2.6 (+37.3) Ko · porte ORANGE · SHA 1e13502c
-
-## LOT_135
-À ouvrir : rédaction Phase A / DX selon catalogue F1.6 (Anomalies à la percussion), hors registre (ne pas toucher `IA_RESERVATIONS.json`).
+Inchangé. Voir l'historique du fichier avant cette reprise, et `LOT_134/A_AUDITER.md`.
