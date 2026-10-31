@@ -17,7 +17,7 @@ for n in (34,35):
   rows.append(dict(lot=lot,lecon='Phase A' if phase else f'DX.{f["fichier"].split("DX.")[1].split(".html")[0]}',titre=title,chemin=f'{lot}/{f["fichier"]}',x=f['texte_fiche_octets'],y=f['texte_fenetres_octets'],xy=f['texte_fiche_octets']+f['texte_fenetres_octets'],html=f['octets'],limite=limit,taille_v8=f['texte_fiche_octets']<=limit,ancien_80_150=80000<=f['octets']<=150000,v8=sum(c['ok']for c in f['controles']),citations=f['citations_aips'],sha256=f['sha256']))
 now=datetime.now(timezone.utc).isoformat(timespec='seconds');summary={'date_utc':now,'lots':[34,35],'lecons':len(rows),'parties':14*len(rows),'questions':14*len(rows),'v8':sum(r['v8']for r in rows),'citations_aips':sum(r['citations']for r in rows),'sous_80_ko':sum(r['html']<80000 for r in rows),'plus_150_ko':sum(r['html']>150000 for r in rows),'audit_independant':False,'navigateur':False,'validation_clinique':False}
 (D/'mesures.json').write_text(json.dumps({'bilan':summary,'lecons':rows},ensure_ascii=False,indent=2)+'\n')
-s=io.StringIO();w=csv.DictWriter(s,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows);(D/'mesures.csv').write_text(s.getvalue())
+s=io.StringIO();w=csv.DictWriter(s,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows);(D/'mesures.csv').write_text(s.getvalue())
 def ko(n):return f'{n/1000:.3f}'.replace('.',',')
 def cell(r):
  verdict='Dans la bande' if r['ancien_80_150'] else 'Sous 80 Ko' if r['html']<80000 else 'Dépasse 150 Ko'
