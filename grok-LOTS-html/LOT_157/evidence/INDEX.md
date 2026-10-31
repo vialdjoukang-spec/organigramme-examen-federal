@@ -16,3 +16,4 @@ Extraits lus le 31 octobre 2026. Les milligrammes et grammes de médicament vien
 12. Information professionnelle Jardiance, numéro Swissmedic 63227, lue le 31 octobre 2026. `aips_63227.txt`.
 13. Dufey A, Köhler Ballan B, Philippe J, Revue Médicale Suisse, 5 juin 2013, hypoglycémie non diabétique. `rms2013_whipple.txt`.
 14. Cryer PE et al., Endocrine Society, Journal of Clinical Endocrinology and Metabolism, 2009, troubles hypoglycémiques de l'adulte. `endo2009_whipple.txt`.
+15. WHO/IDF 2006, Definition and diagnosis of diabetes mellitus and intermediate hyperglycaemia. Glycémie à jeun altérée 6,1–6,9 mmol/l ; le seuil reste 6,1 mmol/l, distinct de 5,6 mmol/l. Date de la source : 2006-01-01. URL : https://iris.who.int/bitstream/handle/10665/43588/9241594934_eng.pdf. Constat injecté le 2026-10-31 dans LOT_157_Phase_B_V0_DX.2.html, élément p1.
