@@ -44,3 +44,12 @@ def allergie(l):
  text+=paras('La somnolence peut affecter la conduite et les activités demandant de l’attention ; prudence avec alcool et autres sédatifs. Évaluer les risques de rétention urinaire et de convulsions. Une réaction allergique impose arrêt et prise en charge adaptée ; coordonner l’interruption avant tests cutanés avec l’équipe qui les réalise. Les doses supérieures parfois citées dans d’autres documents ne sont pas présentées ici comme la dose de rhinite de cette notice.')
  b=l.subwindow('cetirizine','Cétirizine : dose suisse et adaptation',text,(6,16))
  return a+paras(b)
+
+def mometasone_polypes(l):
+ text=paras('Nasonex spray doseur nasal, furoate de mométasone, information professionnelle suisse n° 54189. Cette fenêtre concerne les polypes nasaux chez l’adulte dès dix-huit ans. Une masse unilatérale inhabituelle doit être explorée, sans traitement empirique prolongé supposant une polypose banale.')
+ for prefix in ['Le spray doseur nasal Nasonex est indiqué pour le traitement des polypes','La dose recommandée est de 2 pulvérisations de spray 2×','Une fois les symptômes sous contrôle','En l\'absence d\'amélioration après 5 à 6','La tolérance et l\'efficacité de Nasonex n\'ont pas été étudiées dans le traitement des polypes chez']:
+  text+=q('54189',line('54189',prefix))
+ for s in ["Hypersensibilité au principe actif ou à l'un des excipients conformément à la composition.","Le traitement par des corticoïdes en application nasale pendant la grossesse et l'allaitement n'aura lieu qu'en cas d'absolue nécessité."]:
+  text+=q('54189',s)
+ text+=paras('La dose initiale est de quatre cents microgrammes par jour ; la dose réduite citée est de deux cents. Elle n’est pas interchangeable avec le schéma de rhinite allergique ou avec une préparation destinée au lavage. Ne pas utiliser sur une infection locale non traitée ou avant cicatrisation après traumatisme ou chirurgie.', 'Vérifier les interactions avec puissants inhibiteurs du CYP3A4. Surveiller irritation et épistaxis ; un saignement persistant, une infection ou un trouble visuel impose une réévaluation. Les effets systémiques des corticoïdes restent possibles, notamment avec doses élevées, traitement prolongé ou interactions. La surveillance clinique accompagne l’emploi prolongé.')
+ return l.subwindow('mometasone-polypes','Mométasone : dose suisse pour polypes adultes',text,(15,))

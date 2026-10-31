@@ -1,5 +1,3 @@
-# Reprise LOT_031 — DX2
+# LOT_031 terminé — ne pas recommencer
 
-Phase A et DX1 rédigés, relus et contrôlés ; liste canonique gelée. Prochain fichier _travail/phase_b_2.py, Rhinite virale aiguë. Lire RECHERCHE_REPRISE.md et evidence/INDEX.md ; adapter au SSP obstruction, sans simple changement de titre.49/50V8 au checkpoint, échec attendu des neuf liens absents. Compléter DX2–10 puis relecture transversale finale avant LOT032.
-
-Au début de nouvelle session : dépôt frais, contrat, borne, registre signé, pret/verifier et verrou exclusif. Modèle confirmé GPT-6 Astra ultra ; recommandation high sans changement de réglage revendiqué. Travail seul et uniquement dans codex-LOTS-html/.
+Onze HTML,154questions,275/275V8 et38citations AIPS. Relecture finale dans audits/RELECTURE_FINALE.md. Sources et scripts exacts conservés. Prochaine production LOT_032 S1.16 Raideur et douleur cervicales. Au début : dépôt frais, contrat et borne, registre signé, pret/verifier et verrou exclusif. État courant dans ETAT_CONTINUITE.json.

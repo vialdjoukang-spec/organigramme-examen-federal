@@ -25,6 +25,7 @@ ABBR.update({'EPOS2020':'édition 2020 des recommandations européennes sur les 
 ABBR.update({'CYP3A4':'enzyme cytochrome P450 3A4','DFG':'débit de filtration glomérulaire'})
 ABBR.update({'BIHAM':'Institut bernois de médecine de famille','p.ex.':'par exemple'})
 ABBR.update({'NAIROS':'essai britannique Nasal AIRway Obstruction Study sur la chirurgie de la cloison nasale'})
+ABBR.update({'S2k':'recommandation allemande élaborée par consensus structuré'})
 class Lesson:
  def __init__(self,title,n=None):self.title=title;self.n=n;self.prefix='a' if n is None else f'dx{n}';self.parts=[];self.windows=[]
  def add(self,main,detail='',refs=(1,)):

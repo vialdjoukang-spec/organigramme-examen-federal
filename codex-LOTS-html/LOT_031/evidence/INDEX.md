@@ -9,3 +9,5 @@ Réemploi explicite des lectures de cette même session LOT030 : HUG allergie202
 Notices AIPS24926,54189,65119 : textes exacts et empreintes recopiés après lecture réelle et contrôle dans la session.29citations dans les deux leçons présentes. Aucune modification des sources communes ni recours au Compendium.
 
 Décisions critiques : page HUG sur septum ne justifie pas un vasoconstricteur prolongé ; AIPS limite à une semaine. NAIROS apporte une preuve chez adultes sélectionnés, à la différence du résumé Merck encore fondé sur revue2018. La page CHUV ne permet pas de promettre une chirurgie sans risques ni de généraliser les sondages néonataux. La recommandation S2k décrit un usage local corticoïde hors indication pour adénoïdes, distinct de l’allergie autorisée.
+
+Complément de clôture : LECTURE_CHOANES_REPRISE.json conserve la lecture ciblée du31.10.2026 : cyanose cyclique, voie aérienne avant bilan et portée des calendriers/tuteurs. AIPS24926 et54189 relus dans leurs rubriques pertinentes pendant cette reprise.38citations dans les onze fichiers finaux, pas de nouvelle dose étrangère introduite.

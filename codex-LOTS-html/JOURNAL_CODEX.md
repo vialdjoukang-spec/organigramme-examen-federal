@@ -46,3 +46,7 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T06:15:02+00:00 — Checkpoint LOT_029 27f8a9e8 poussé ; reprise DX.4. Verrou officiellement libéré. Deux veilles locales minute constatées actives, aucun autre automate modifié. Contrat encore actif : 105 lots à achever de 29 à 133, dont LOT_029 partiel.
 
 2026-10-31T07:03:39+00:00 — LOT_029 terminé :11leçons/154questions/275V8/six citations AIPS ;10groupes de corrections, aucune faute clinique grave ou critique identifiée à la relecture interne (pas un audit indépendant). Limite CMV documentée. Suite LOT_030.
+
+2026-10-31T08:39:18+00:00 — Rattrapage documentaire : LOT_030 terminé et poussé4e667c7e,11HTML/154questions/275V8/60citations AIPS,6groupes de corrections ; rapports réels déjà présents, aucune nouvelle production revendiquée.
+
+2026-10-31T08:39:18+00:00 — LOT_031 terminé :11HTML/154questions/275V8/38citations AIPS ;3groupes de corrections, gravité non cotée, aucun critique V8 résiduel. Résultats historiques négatifs conservés ; relecture interne, aucun navigateur ou audit indépendant. Suite032.
