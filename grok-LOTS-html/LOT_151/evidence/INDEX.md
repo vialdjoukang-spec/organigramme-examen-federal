@@ -33,3 +33,4 @@ Extraits lus le 31.10.2026. Les milligrammes viennent des informations professio
 29. Information professionnelle Octostim, numéro Swissmedic 52711, lue le 31 octobre 2026. `aips_52711.txt`.
 30. Information professionnelle MabThera, numéro Swissmedic 54378, lue le 31 octobre 2026. `aips_54378.txt`.
 31. Information professionnelle CellCept, numéro Swissmedic 53337, lue le 31 octobre 2026. `aips_53337.txt`.
+32. Taylor FB et al., Thromb Haemost 2001;86:1327-30 (score ISTH de la CIVD), Table 1 reprise in J Thromb Haemost 5-year overview : « Elevated fibrin related marker (no increase = 0; moderate increase = 2; strong increase = 3) »; Levi M et al., Br J Haematol 2009;145:24-33, Table II Date de la source : 2001-12-01. URL : https://www.jthjournal.org/article/S1538-7836(22)10108-X/pdf ; https://www.thebloodproject.com/wp-content/uploads/2021/11/ISTH_DIC.pdf. Constat injecté le 2026-10-31 dans LOT_151_Phase_A_V0.html, élément a-p3.
