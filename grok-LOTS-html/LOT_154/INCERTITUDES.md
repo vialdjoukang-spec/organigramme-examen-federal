@@ -1,0 +1,11 @@
+# Incertitudes — LOT_154
+
+Faits retirés du cours le 31.10.2026. Cinq retraits. Aucun ne porte sur un critère diagnostique ou une conduite qui avait une source datée relue. Le script `certitude_redaction.py` n'a pas été modifié. Les avertissements ORANGE de sigles dans les extraits anglais collés en fenêtre sont un bruit de forme, pas un fait retiré.
+
+1. Part suisse de chacune des dix causes d'électrocardiogramme anormal : aucun texte lu ne la donne, sauf la prévalence ponctuelle de la fibrillation auriculaire à Lausanne (CoLaus, Herz 2023, 0,9 %). L'ordre DX n'est pas une prévalence.
+2. Perfusion d'amiodarone de 900 mg sur 24 heures (Conseil européen de réanimation 2021) : non recopiée. Ce n'est pas la phrase de l'information professionnelle n° 41060. La dose gardée est 300 mg, puis 150 mg si la fibrillation ventriculaire persiste.
+3. Glucose en grammes associé à l'insuline (25 g et 50 g, Conseil européen de réanimation 2021) : non recopié. Aucune information professionnelle d'insuline n'a été ouverte pour ce lot. L'étape « faire entrer le potassium » et la phrase de calcium (10 ml de chlorure de calcium à 10 % en 2 à 5 minutes) sont gardées, avec la réserve que cette phrase est européenne et non une étiquette suisse relue.
+4. Seuil unique de QTc « dangereux » pour tout adulte : la Revue Médicale Suisse 2007 écrit qu'il n'existe pas de valeur limite consensuelle pour affirmer un risque avéré. Le cours garde le chiffre de 2020 dans son cadre : chez le sportif, un QTc de 500 ms est diagnostique du QT long congénital, et la suspicion commence à 470 ms chez l'homme et 480 ms chez la femme.
+5. Aspects absents des textes relus, donc non enseignés comme critères : S1Q3T3 et sa fréquence, ondes de Wellens, aspect de de Winter, barème en points du Sgarbossa de 1996. Sont gardés : l'occlusion postérieure (V7 à V9, relevé ESC 2023), les critères modifiés de Smith 2012 (concordance d'au moins 1 mm, ratio ST/S), la stratification pronostique de l'embolie (Revue Médicale Suisse 2009).
+
+Faux positif du script, non modifié : un exposant nu « 10 » collé au mot suivant s'il commence par g était lu comme une dose. Les extraits portent l'exposant entre parenthèses. Les sigles anglais des extraits collés restent en avertissement ORANGE.
