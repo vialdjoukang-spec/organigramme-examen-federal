@@ -1,0 +1,445 @@
+{
+  "documents": [
+    {
+      "chemin": "LOT_018/CORRECTIONS_AUDIT.md",
+      "sha256": "91ceeccdd41033274b1b3b412c50453943d1b3994c0da2ff4e66a691181adbaf",
+      "texte": "# Consignes héritées de la relecture interne — LOT_018\n\nNom de fichier prévu par le protocole. Cette note n’atteste pas d’un audit indépendant : la poursuite en session unique est autorisée par `ACCORD_POURSUITE.md`.\n\n- Distinguer rang pédagogique et fréquence démontrée ; ne pas transférer un chiffre de population à une probabilité de consultation.\n- L’ACG avec signe visuel demande une prise en charge immédiate ; l’âge supérieur à 50 ans oriente, sans remplacer le raisonnement ni les explorations.\n- Une pression élevée isolée n’établit pas un glaucome ; une pression normale ne l’exclut pas. Le laser sélectif peut être proposé en première intention selon EGS, 6e édition.\n- L’occlusion artérielle impose la filière neurovasculaire ; l’occlusion veineuse ne justifie pas à elle seule une anticoagulation systématique.\n- Une névrite atypique impose la recherche d’autres causes, notamment AQP4/MOG ; ne pas appliquer un pronostic de SEP à toutes les névrites.\n- Chaque posologie médicamenteuse reproduit l’information suisse de la formulation exacte. Pour Eylea, l’entrée du corpus `62393002` désigne le document de la formulation 2 mg ; le numéro d’autorisation et les formes se vérifient séparément dans Swissmedic.\n- Ne pas adoucir les contre-indications de grossesse ou d’allaitement. Ne pas transposer les doses françaises ou d’un anti-VEGF à un autre.\n- Les durées minimales d’injection de Solu-MEDROL ne sont pas un schéma complet d’ACG. Toute recommandation extérieure à l’information professionnelle est identifiée.\n- Pour un gaz intraoculaire, documenter les restrictions d’altitude et d’anesthésie selon la source suisse et les consignes du chirurgien.\n- Le format de référence est V8, avec `<abbr title>` et références en exposant. Les rapports du contrôleur historique sont conservés en parallèle.\n\n## Passe transversale interne terminée\n\nLes neuf entrées T1–T9 de `audits/corrections_internes.jsonl` décrivent les corrections et vérifications effectivement effectuées. Les onze fichiers partagent la liste canonique, leurs liens se résolvent et les citations AIPS sont comparées aux originaux. Voir `VALIDATION.md`. Cette passe reste interne, sans score ni auditeur indépendant.\n"
+    },
+    {
+      "chemin": "LOT_018/VALIDATION.md",
+      "sha256": "0f1411a187318bef1d69b011b5f579e5192f647fc8c9c6a20d034138cd436120",
+      "texte": "# Validation de production — LOT_018\n\nÉtat : onze leçons produites et relues en session unique, selon l’accord de Vial du 30.10.2026. Contrôles statiques V8 validés. Ce constat ne constitue pas une validation clinique, un audit indépendant ou une note de qualité médicale.\n\n## Résultats contrôlés\n\n- 11 fichiers HTML complets ; 14 parties et 14 questions par fichier, soit 154 questions.\n- 275 contrôles statiques réussis ; liens locaux et entre leçons résolus.\n- 161 fenêtres atteignables depuis la fiche, avec fermeture explicite ; fonctionnement réel au navigateur non testé.\n- 183 paragraphes de citation AIPS retrouvés dans les fichiers originaux fournis ; seules les espaces sont normalisées pour la comparaison.\n- Neuf empreintes du harnais inchangées ; polices locales embarquées et feuille de style officielle reprise.\n\n| Fichier | Texte principal (Ko) | Fenêtres (Ko) | Contrôle statique |\n|---|---:|---:|---|\n| [Phase A](LOT_018_Phase_A_V0.html) | 13.1 | 41.3 | Réussi |\n| [DX.1](LOT_018_Phase_B_V0_DX.1.html) | 5.2 | 11.4 | Réussi |\n| [DX.2](LOT_018_Phase_B_V0_DX.2.html) | 5.1 | 10.4 | Réussi |\n| [DX.3](LOT_018_Phase_B_V0_DX.3.html) | 5.1 | 16.5 | Réussi |\n| [DX.4](LOT_018_Phase_B_V0_DX.4.html) | 4.9 | 13.9 | Réussi |\n| [DX.5](LOT_018_Phase_B_V0_DX.5.html) | 5.0 | 16.8 | Réussi |\n| [DX.6](LOT_018_Phase_B_V0_DX.6.html) | 5.2 | 15.6 | Réussi |\n| [DX.7](LOT_018_Phase_B_V0_DX.7.html) | 5.2 | 10.3 | Réussi |\n| [DX.8](LOT_018_Phase_B_V0_DX.8.html) | 5.5 | 16.4 | Réussi |\n| [DX.9](LOT_018_Phase_B_V0_DX.9.html) | 5.0 | 10.0 | Réussi |\n| [DX.10](LOT_018_Phase_B_V0_DX.10.html) | 5.6 | 22.1 | Réussi |\n\nLimites appliquées par le script officiel `taille_xy.py` : 100 Ko de texte principal pour la Phase A ; 9 Ko pour chaque diagnostic. Les fenêtres ne sont pas plafonnées. Le manifeste contient les onze empreintes finales.\n\n## Compatibilité des contrôleurs\n\nLes scripts officiels ont réellement été exécutés et retournent le code 1. Leurs rapports bruts sont conservés : `audits/controle_officiel.json` et `audits/langue*.json`. Ils n’ont pas été modifiés.\n\n| Règle historique qui échoue | Norme V8 appliquée (§12 du prompt maître) | Vérification complémentaire |\n|---|---|---|\n| Interdiction de tout `title` | `<abbr title>` explicitement demandé | `title` réservé aux abréviations non vides |\n| Sources littérales `[S1]` | Exposants bleus, sans `[S1]` | Citations et entrées Sources reliées, URLs présentes |\n| 14 titres `h3` | Parties en îlots avec `h2`, comme le modèle V8 | 14 identifiants ordonnés, titres DX canoniques exacts |\n| Bande du fichier 80–150 Ko (DX.2 sous 80 Ko) | Taille du texte x, excluant fenêtres et balisage | Mesure officielle x conforme pour les onze fichiers |\n\nLes avertissements linguistiques ont été examinés. Les sigles médicaux signalés sont définis dans `abbr`, que le contrôle historique ignore. Les répétitions relevées correspondent aux déclencheurs et titres de fenêtres. Les longues phrases AIPS et leur ponctuation sont conservées pour respecter le texte cité. La phrase explicative longue de DX.8 a été scindée. Les espaces insécables réclamées par le contrôle de langue restent exclues par le prompt. Les points-virgules restants sont un signal stylistique indicatif.\n\nLe script complémentaire `../outils/verifier_lot_v8.py` contrôle la norme V8 sur les fichiers finaux. Il ne transforme pas le résultat du contrôleur historique en succès.\n\n## Portée de la relecture\n\nLa relecture de la session principale a vérifié : cohérence des dix noms avec la Phase A ; distinction urgence artérielle/veineuse ; menace visuelle de l’ACG ; diagnostic de glaucome indépendant de la seule pression ; phénotypes de névrite ; gaz intraoculaire ; doses suisses par produit et par indication. Les corrections et choix sont consignés dans `CORRECTIONS_AUDIT.md`, `audits/corrections_internes.jsonl` et le journal de routage.\n\nAucun auditeur externe ni médecin n’a validé ces leçons. Aucun score 95/100 ou 90/100 n’est attribué. Le nombre de défauts médicaux graves n’est pas établi indépendamment. Le classement des dix diagnostics est pédagogique, pas un classement statistique démontré.\n\nLe rendu navigateur et mobile reste non vérifié : téléchargement Playwright refusé HTTP 403 ; Chromium local refuse `file://` avec `net::ERR_BLOCKED_BY_ADMINISTRATOR`. Aucune restriction n’a été contournée. L’accord de poursuite autorise le dépôt avec ces limites connues.\n"
+    }
+  ],
+  "passes": [
+    {
+      "horodatage": "2026-10-30T22:26:42+01:00",
+      "lot": "LOT_018",
+      "fichier": "Phase_A",
+      "poste": "redacteur-phase-a",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Première rédaction terminée dans la session principale GPT-6 Astra ultra confirmée par Vial ; 14 parties, 17 fenêtres, 10 DD provisoires. Sources datées et citations AIPS contrôlées mécaniquement. Aucun audit indépendant, aucun score, aucun gel de liste. Voir HELP.md."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.1",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.2",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.3",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.4",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.5",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.6",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.7",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.8",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.9",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.10",
+      "poste": "redacteur",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Monographie originale complète en 14 parties, sources consultées et 14 questions ; rédaction en session principale après accord de Vial."
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "Phase_A",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.1",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.2",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.3",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.4",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.5",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.6",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.7",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.8",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.9",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.10",
+      "poste": "relecture-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Relecture clinique et des sources par le rédacteur, distinctions et corrections consignées ; pas un audit indépendant.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "Phase_A",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.1",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.2",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.3",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.4",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.5",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.6",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.7",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.8",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.9",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.10",
+      "poste": "controle-v8",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Contrôle statique complémentaire V8 réussi, scripts officiels exécutés et écarts historiques documentés ; rendu navigateur non vérifié.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "Phase_A",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.1",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.2",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.3",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.4",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.5",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.6",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.7",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.8",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.9",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    },
+    {
+      "horodatage": "2026-10-30T23:25:19+01:00",
+      "lot": "LOT_018",
+      "fichier": "DX.10",
+      "poste": "transversale-interne",
+      "modele": "gpt-6-astra",
+      "effort": "ultra",
+      "raison": "Cohérence de la liste, des urgences, des médicaments, des citations et des liens entre les onze fichiers vérifiée en session principale ; voir VALIDATION.md.",
+      "independant": false
+    }
+  ]
+}
