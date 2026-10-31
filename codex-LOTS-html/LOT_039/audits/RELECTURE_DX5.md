@@ -1,0 +1,11 @@
+# Relecture interne DX5 — 31.10.2026
+
+Passe distincte de la rédaction, même session, sans auditeur indépendant. Relecture du script et du texte produit, confrontés aux pages suisses HUG/Jules-Gonin puis NHS/HCL/EMA effectivement lues et à la notice Eylea fraîche. Formes atrophique et néovasculaire distinguées, changement central nouveau à signaler, complication après injection urgente sans limitation arbitraire à 72 heures. Vision périphérique conservée ne signifie pas absence de handicap. OCT et autotest ne sont pas interchangeables.
+
+Notice Eylea 2 mg/50 µl : indication, calendrier, adaptation des intervalles, contre-indications, grossesse/allaitement, populations particulières, surveillance, suspension et préparation relus. 62393 = seringue préremplie, 62397 = flacon ; 62393002 = clé documentaire. Forme 8 mg distincte, sans extrapolation. Le contenu entier de la seringue ne constitue pas la dose. Les risques vasculaires décrits pour certaines autres indications ne sont pas transformés en contre-indication universelle de DMLA. Suspension d’injection ne signifie pas attente sans traitement d’une complication.
+
+C07 : développement visible des sigles avant les citations, puis scission de ce glossaire ; espaces nombre/unité dans les questions ; correction « lorsque le traitement est indiqué ». Vérification après correction : 14 questions, 25 conditions V8, 44 paragraphes AIPS retrouvés dans la notice fraîche. Empreinte finale dans aips_checkpoint_dx6.json. Les phrases longues signalées sont des citations officielles conservées exactement. L’audit historique reste négatif pour title/h3 et la typographie des espaces ; les libellés répétés correspondent aux boutons/fenêtres. Aucun résultat de conformité linguistique globale annoncé.
+
+Arbitrages : les antibiotiques postopératoires évoqués par la brochure HUG ne sont pas universalisés ; pas de prescription antibiotique ajoutée. Le refus EMA de Syfovre est une décision européenne, pas une décision suisse. Aucun accès intégral NICE (403) ni NCBI (page de vérification) revendiqué. Aucun supplément dosé improvisé. La comparaison exhaustive des anti-VEGF et les conditions individuelles de remboursement ne sont pas certifiées.
+
+102364 octets HTML ; x5854, y26249 octets. Tailles V8 et bande initiale respectées. Aucun score médical, test navigateur ou validation clinique humaine.

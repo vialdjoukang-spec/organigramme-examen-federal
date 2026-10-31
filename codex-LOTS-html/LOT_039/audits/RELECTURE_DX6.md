@@ -1,0 +1,13 @@
+# Relecture interne DX6 — 31.10.2026
+
+Passe distincte de la rédaction, même session principale. Sources HUG/SSO puis Belgian Glaucoma Society et passages RCOphth réellement exposés. Le PDF britannique est daté juin2022, recherche décembre2020, révision prévue juin2025 ; son chemin2026 ne prouve pas une mise à jour. Page EGS6 accessible mais téléchargement officiel en erreur ; miroir trop volumineux pour l’outil web et accès shell403. Aucun texte intégral EGS6 déclaré lu.
+
+Points médicaux relus : crise symptomatique distincte du glaucome chronique et des seuls angles étroits ; confirmation pression/angle sans retarder le transfert ; causes secondaires à identifier ; myotique non systématique dans les causes cristalliniennes/rétrolenticulaires ; absence de substitution automatique du schéma britannique à une prescription suisse. L’autre œil est évalué, sans transformer tout angle étroit asymptomatique en indication identique à celle d’une crise primitive.
+
+Diamox : comprimés21191, injectable22002 ; données Swissmedic vérifiées. Dose initiale éventuelle intégrée au cumul24heures, sans addition mécanique aux répétitions. Reconstitution, voie, contre-indications, électrolytes, reins/foie, sulfamides, risques pulmonaires et choroïdiens, grossesse/allaitement relus. Timoptic41634 distinct de XE52509 ; dose usuelle non présentée comme protocole complet de crise ; absence de monothérapie causale ; risques cardiorespiratoires et interactions vérifiés. Une fermeture secondaire ne justifie pas automatiquement le myotique évoqué dans la notice. Aucune dose de pilocarpine, mannitol ou autre produit non documenté inventée. Cette limite laisse le protocole médicamenteux complet ouvert, explicitement.
+
+C08 : après relecture, ajout d’un transport adapté sans conduite devant la baisse visuelle aiguë ; développement des abréviations i.v./p.ex. par balisage explicatif sans modifier les citations. 14questions, 25conditions V8 et36citations exactes dans les notices fraîches. Les archives communes contiennent des mots coupés ; elles restent inchangées. Le contrôle utilise l’extraction des paragraphes officiels frais, HTML et empreintes conservés, pas une correction approximative de mots.
+
+Audit historique de langue toujours négatif : title/h3, espaces insécables et abréviations dans citations. Les quatre phrases longues signalées appartiennent aux citations officielles. Harnais historique négatif pour title et format des références. Aucun de ces résultats n’est requalifié positif. Aucun audit indépendant, score, validation humaine ou navigateur.
+
+100574 octets HTML ; x5340, y27288 octets. Les deux critères de taille sont satisfaits. Le succès statique ne certifie pas le fond médical global.

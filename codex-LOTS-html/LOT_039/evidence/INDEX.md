@@ -1,6 +1,6 @@
 # Sources et lectures — LOT039 — 31.10.2026
 
-sources.json porte désormais41références, dans l’ordre des exposants :14pour PhaseA puis les ajouts DX1–4. Les JSON lot39_* et39dx* conservent les réponses exactes des outils : pages et passages effectivement exposés, résultats de recherche, éventuelles limites de fenêtre. Ils ne constituent pas une archive intégrale de tous les sites ni une preuve de lecture des liens non ouverts.
+sources.json porte désormais54références, dans l’ordre des exposants :14pour PhaseA puis les ajouts DX1–6. Les JSON lot39_* et39dx* conservent les réponses exactes des outils : pages et passages effectivement exposés, résultats de recherche, éventuelles limites de fenêtre. Ils ne constituent pas une archive intégrale de tous les sites ni une preuve de lecture des liens non ouverts.
 
 - lot39_initial : recherche initiale suisse.
 - lot39_ch1 : HUG décollement de rétine/diagnostic, Jules-Gonin diplopie, SSO signes d’urgence.
@@ -26,3 +26,15 @@ autorisation_reprise.json : preuve de séquence, périmètre et contrôle avant 
 - 39dx4_search/ch_eu/formes/formes_ch : HUG traitement et retour après décollement, SSO traitement/formes/diagnostic/pronostic, Cambridge chirurgie version8 avril2026, alerte professionnelle RCOphth protoxyde2018. Premier clic par URL refusé puis clics par référence réussis, erreurs conservées. Page SSO des formes : titre réel « Formes de décollement de la rétine », chemin URL « blessures-oculaires-dans-la-vie-quotidienne » conservé tel qu’observé.
 
 Les résultats étrangers hors Europe non ouverts ne sont pas utilisés comme références lues. Les pourcentages généraux des brochures ne sont pas présentés comme une étude de fréquence suisse. Les arbitrages cliniques et limites sont détaillés dans les relectures et HELP.
+
+
+## Lectures DX5–6
+
+- 39dx5_search/ch_eu/detail/eu_clinique : HUG diagnostic, traitement DMLA et injection ; Jules-Gonin ; NHS et HCL ; EMA refus Syfovre. NICE403 et NCBI vérification d’accès non déclarés lus intégralement. Dates HUG2025, NHS22.01.2025, HCL26.02.2026, EMA page30.10.2025 avec décision2024 distinguées.
+- Eylea2 : notice fraîche septembre2026, sections cliniques réellement lues, sans prétendre lire tous les résultats d’essais. AIPS_62393002.json et formes_swissmedic_eylea.json distinguent clé documentaire, seringue62393, flacon62397 et présentations2mg/8mg.
+- 39dx6_search/ch/eu/eu_detail/egs_page : HUG formes/diagnostic et laser, SSO glaucome, Belgian Glaucoma Society ; RCOphth sections initiales, diagnostic et prise en charge aiguë exposées. PDF réellement publié juin2022 malgré chemin2026. La page EGS6 est accessible, pas le contenu du livre : téléchargement officiel en erreur, miroir trop volumineux via web et tunnel403 via shell. Aucun chapitre EGS6 présenté comme lu.
+- Diamox et Timoptic : notices officielles fraîches HTML/textes/gzip. Les paragraphes cliniques indication, posologie, contre-indications, précautions, interactions, grossesse/allaitement ont été lus. Pas tous les essais cliniques. La lecture des archives communes avait montré des coupures internes de mots ; sources communes préservées, citations fondées sur le texte frais. AIPS_21191.json et AIPS_41634.json indiquent ce choix et les empreintes. Formes Swissmedic vérifiées dans formes_swissmedic_dx6.json : comprimés21191, injectable22002, Timoptic41634 distinct de XE52509.
+- Glaupax38412 : archive parcourue mais affichage tronqué ; produit non prescrit ni cité dans DX6. Pas de lecture intégrale revendiquée.
+- Comparateur local _travail/verifier_aips_checkpoint.py :140paragraphes des DX1/2/5/6 retrouvés dans les HTML frais. Deux modes de sérialisation DOM explicités pour les anciennes citations Aprokam, sans rapprochement approximatif des mots. Échec initial conservé dans audits/aips_checkpoint_dx6_extraction_initiale.json.
+
+Les rapports v8_dx5_initial et v8_checkpoint_dx5 sont historiques, antérieurs à la fin C07. Le checkpoint courant est v8_checkpoint_dx6.json ; BILAN_REPRISE.json porte les empreintes finales. Les fichiers HTML PhaseA et DX1–4 restent inchangés.

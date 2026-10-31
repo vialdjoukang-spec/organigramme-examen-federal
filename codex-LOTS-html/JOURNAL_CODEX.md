@@ -100,3 +100,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T18:59:13.749477+00:00 — LOT039 DX1–4 ajoutés seul depuis930dafa5 ; cinqHTML présents avec PhaseA,70questions,125conditionsV8 et60citationsAIPS comparées aux notices fraîches. C03–C06 et comparaison partielle tracées. BilanHTML des tailles vérifié,236HTML présents au total ; premier incompletDX5. Aucun audit indépendant/score/navigateur/validation humaine. Contrôles historiques négatifs préservés.
 
 2026-10-31T19:00:14.320876+00:00 — Checkpoint039 DX1–4 poussé et ref distante vérifiée : 6f9214ba6c7434865640531598cd97aa04f4d2b8. Verrou officiellement libéré. SuiteDX5 ; six monographies absentes. Veilles locales37511/43560 actives lors du contrôle final, surveillance seulement.
+
+2026-10-31T19:28:07.845811+00:00 — LOT039 DX5–6 produits :2relectures internes,2groupes de corrections C07/C08 ;7HTML/98questions/175conditionsV8/140paragraphesAIPS. Aucun nouveau défaut médical identifié dans la passe ciblée, sans score ni certification. Contrôles historiques title/h3/références/typographie toujours négatifs. Lot incomplet ; prochain DX7.
