@@ -17,3 +17,5 @@ Dépôt frais930dafa5, borne18–133, absence de verrou/producteur local vérifi
 DX1–4 rédigés successivement, chacun14parties/14questions. Relectures distinctes et corrections C03–C06, sources suisses puis européennes lues et réponses exactes archivées. Notices Cyclogyl32634 et Aprokam63029 relues intégralement et comparées aux textes officiels frais ; formes vérifiées Swissmedic. 60paragraphes retrouvés après corrections finales. Aucun médicament dosé dans DX3/DX4.
 
 Cinq HTML présents,70questions,125conditionsV8 satisfaites. Rapports historiques langue/harnais négatifs conservés ; pas de conformité globale annoncée. Comparaison interne partielle PhaseA/DX1–4 réalisée ; six monographies et comparaison finale restent à faire. Premier fichier manquant DX5 Dégénérescence maculaire liée à l’âge. LOT040 non commencé. Aucun test navigateur, audit indépendant, score ni validation humaine.
+
+2026-10-31T19:00:14.320876+00:00 — Checkpoint039 DX1–4 poussé et ref distante vérifiée : 6f9214ba6c7434865640531598cd97aa04f4d2b8. Verrou officiellement libéré. SuiteDX5 ; six monographies absentes. Veilles locales37511/43560 actives lors du contrôle final, surveillance seulement.
