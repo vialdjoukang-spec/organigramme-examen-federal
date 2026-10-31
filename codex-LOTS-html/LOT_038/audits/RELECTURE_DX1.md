@@ -1,0 +1,11 @@
+# Relecture interne DX1 — 31.10.2026
+
+Passe distincte après rédaction, audit langue initial, puis lecture du texte et confrontation aux sources. Aucun audit indépendant ni score.
+
+Diagnostic : nodule folliculaire, hordeolum interne distingué, signes visuels et orbitaires non banalisés. Un examen impossible n’est pas normal. Soins non brûlants, sans perçage ni épilation domestique. Seuil HUG de trois jours sans amélioration distinct d’un retour immédiat si aggravation. Masse durable et perte de cils orientent vers un autre diagnostic. Pas de chiffre de prévalence suisse inventé.
+
+Traitement : le guide HUG2025 propose tobramycine pour un orgelet franc ; conseils NHS/Ameli plus conditionnels. Cette différence est exposée, sans imposer un antibiotique à chaque lésion. Sept jours vient du guide, non de l’AIPS. Pommade45508 à3mg/g et collyre44538 vérifiés dans Swissmedic30.09.2026. Dose pommade≈1,5cm deux à trois fois/jour ; schéma grave cité mais jamais proposé pour traiter une cellulite par topique seul. Notice : pommade non recommandée avant deux mois ; collyre au bore interdit avant deux ans et avant douze ans pour infection grave. Pas d’ajustement rénal/hépatique inventé. Allergies croisées, maladie neuromusculaire, aminoglycoside systémique, grossesse restrictive et décision d’allaitement citées. Aucun sevrage automatique proposé. Durée de conservation distincte de durée de traitement.
+
+C03 : espaces corrigées dans la prose (HUG 2025, numéro44538 devenu numéro 44538, environ1,5cm devenu environ 1,5 cm). Les coupures internes de mots et la phrase longue dans l’AIPS restent verbatim. Contrôle de toutes les citations contre le téléchargement officiel frais et le gzip commun. Les alertes historiques h3/title/espaces insécables ne sont pas masquées ; V8 demande h2, abbr title et absence d’insécables. Répétition pédiatrique provient de deux paragraphes officiels applicables à des rubriques différentes.
+
+Limites : pas de traitement alternatif complet en allergie, ni protocole systémique de cellulite dans cette monographie focalisée. Les textes professionnels réservés du College of Optometrists ne sont pas prétendus lus. Pas de test navigateur ni validation clinique humaine.

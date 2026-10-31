@@ -19,3 +19,12 @@ Recherche suisse HUG/CHUV puis française et britannique. Résultats bruts archi
 - S16 HUG2023 : passages présentation, mécanisme et bilan de l’angio-œdème relus. Pas de prophylaxie héréditaire universelle prescrite.
 
 Incidents : MSF a répondu405, son texte intégral n’est pas prétendu lu. Une URLHUG non canonique a été inaccessible ; l’URL exacte de la stratégie2023 a ensuite été lue. Le premier rafraîchissement56551 a rencontré un champurl absent dans l’ancien métadonné copié ; URL officielle récupérée depuis l’en-tête de l’archive puis téléchargement réussi. Aucun texte manquant inventé.17paragraphesAIPS de PhaseA retrouvés dans les archives par le contrôle complémentaire. Aucun médecin validateur ou audit indépendant.
+
+## DX1 —31.10.2026
+S18 HUG Œil rouge2025 : signes d’alarme et sections blépharite/chalazion/orgelet lus. S19 NHS soins et alertes lus. S20 College of Optometrists28.01.2025 : résumé public seulement, contenu réservé non lu. S21 COUF sections ciblées lues ; doses étrangères non transposées. S23 Ameli soins23.04.2025 lus. S22 Tobrex document44538 lu, pommade45508 et collyre44538 vérifiés dans Swissmedic30.09.2026 ; notice juillet2020, texte fraisHTTP200, toutes les citations retrouvées. Fucithalmic48165 lu comme candidat, non prescrit et non cité dans la leçon. Incident technique : bibliothèque requests absente ; téléchargement réussi avec urllib, sans installation.
+
+## DX2 —31.10.2026
+HUG traitements et facteurs/diagnostic/intervention03.09.2025 lus ; Moorfields présentation et chirurgie/enfant lus. Parcours pédiatrique professionnel daté avril2021 lu pour orientation, doses britanniques et délai6mois non transposés. GGC403 : seul extrait de recherche vu, non cité dans la leçon. Textes exacts de recherche et lectures conservés. Aucun schéma de corticoïde local, injection ou postopératoire inventé.
+
+## DX3 —31.10.2026
+S28 Moorfields présentation/facteurs lus ; S29 NHS révision12.06.2025 conseils, alertes et traitements conditionnels lus ; S30 SFO2023 passages ciblés Demodex lus, sans prétendre lire les2980lignes ni reprendre des prescriptions étrangères. HUG2025 blépharite déjà lu. Notice Tobrex relue pour indication blépharite, dose et précautions ;22citations retrouvées dans archive et texte frais. URL du College blepharitis inaccessible, non utilisée. Compendium présent dans des résultats de recherche non ouvert ni utilisé.
