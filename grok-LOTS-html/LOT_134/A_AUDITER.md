@@ -8,7 +8,7 @@ Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille 
 |---|---|---|---|---|---|
 | LOT_134_Phase_A_V0.html | redacteur-phase-a, puis auditeur-medical | ORANGE (journal, sigles) | 8936 octets | 8 corr. (0 crit., 3 graves) · score 93 | T = 8.9 Ko (+ 74.3 Ko), 189 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.1.html | redacteur, puis auditeur-medical | ORANGE (journal, phrase_double) | 3794 octets | 3 corr. (0 crit., 2 moyens) · score 94 | T = 3.8 Ko (+ 46.2 Ko), 101 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.2.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 4121 octets | non fait | T = 4.1 Ko (+ 46.1 Ko), 110 fenêtres, 15 dépliants |
+| LOT_134_Phase_B_V0_DX.2.html | redacteur, puis auditeur-medical | ORANGE (journal) | 4450 octets | 3 corr. (0 crit., 1 grave) · score 93 | T = 4.5 Ko (+ 46.3 Ko), 110 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.3.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 3325 octets | non fait | T = 3.3 Ko (+ 43.5 Ko), 119 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.4.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2781 octets | non fait | T = 2.8 Ko (+ 42.8 Ko), 117 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.5.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2814 octets | non fait | T = 2.8 Ko (+ 41.0 Ko), 111 fenêtres, 15 dépliants |
