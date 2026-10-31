@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_150 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_152 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 est déjà rédigé par A.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 est déjà rédigé par A. LOT_150 et LOT_152 sont déjà rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_151.**
-**Prochain LOT du rédacteur B : LOT_152.**
+**Prochain LOT du rédacteur B : LOT_154.**
+
+## LOT_152 — rédigé et certifié
+Sujet : F2.4 « Radiographies abdominales, thoraciques ou squelettiques anormales ». Détail : `LOT_152/A_AUDITER.md`.
+
+- Phase_A : certitude ORANGE · porte ORANGE · T = 8.0 (+ 73.5) Ko · SHA 8c0558a11a92 · commit c9fec529
+- DX.1 : certitude ORANGE · porte ORANGE · T = 3.5 (+ 37.8) Ko · SHA 65d9e6f4360d · commit 22307895
+- DX.2 : certitude ORANGE · porte ORANGE · T = 3.8 (+ 40.0) Ko · SHA 3fc2c1763155 · commit 5acfa787
+- DX.3 : certitude ORANGE · porte ORANGE · T = 3.6 (+ 44.7) Ko · SHA 60fa9106e40b · commit e8a6f306
+- DX.4 : certitude ORANGE · porte ORANGE · T = 3.6 (+ 37.4) Ko · SHA 3f7345fbd1a2 · commit afedbc6a
+- DX.5 : certitude ORANGE · porte ORANGE · T = 3.4 (+ 43.3) Ko · SHA c4fb06e9c144 · commit 152de6ab
+- DX.6 : certitude ORANGE · porte ORANGE · T = 3.5 (+ 42.6) Ko · SHA 2e17bf4f6236 · commit bf45d417
+- DX.7 : certitude ORANGE · porte ORANGE · T = 3.7 (+ 36.7) Ko · SHA e854581ab6ae · commit 3bf3ce77
+- DX.8 : certitude ORANGE · porte ORANGE · T = 3.7 (+ 44.7) Ko · SHA 6e33d0f43404 · commit 6ee59593
+- DX.9 : certitude ORANGE · porte ORANGE · T = 3.6 (+ 39.3) Ko · SHA 79901d59de56 · commit 375bac68
+- DX.10 : certitude ORANGE · porte ORANGE · T = 3.5 (+ 36.4) Ko · SHA 3fff53d92383 · commit 8a58eddd
 
 ## LOT_150 — rédigé et certifié
 Sujet : F2.2 « Enzymes cardiaques anormales ». Détail : `LOT_150/A_AUDITER.md`.
