@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circuit 3D du duo optimisé — Grok LOTS 134–248</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0b1220;color:#e8eef7;font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;overflow:hidden}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+.panel{position:fixed;background:rgba(11,18,32,.84);border:1px solid #2b3a55;border-radius:12px;padding:10px 14px;backdrop-filter:blur(4px)}
+#title{top:12px;left:12px;max-width:360px}
+#title h1{font-size:1.05rem;margin:0 0 2px}
+#title p{margin:0;font-size:.85rem;color:#a9b8cf}
+#legend{top:12px;right:12px;font-size:.85rem;max-width:300px}
+#legend h2{font-size:.95rem;margin:0 0 6px}
+.row{display:flex;align-items:center;gap:8px;margin:3px 0}
+.sw{width:26px;height:6px;border-radius:3px;flex:none}
+.dot{width:14px;height:14px;border-radius:50%;flex:none}
+#hud{left:50%;transform:translateX(-50%);bottom:14px;width:min(820px,calc(100% - 24px))}
+#step{font-size:1.02rem;min-height:2.6em}
+#step b{color:#ffd166}
+#ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px;font-size:.85rem}
+button{font:inherit;background:#1f9d55;color:#fff;border:0;border-radius:8px;padding:5px 12px;cursor:pointer}
+button.alt{background:#2e86ab} button:hover,button:focus{filter:brightness(1.15)}
+input[type=range]{accent-color:#f2a900}
+#bar{height:6px;background:#22314a;border-radius:3px;margin-top:6px;overflow:hidden}
+#bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1f9d55,#f2a900)}
+#info{left:12px;bottom:14px;max-width:290px;font-size:.88rem;display:none}
+#info h3{margin:0 0 4px;font-size:1rem;color:#ffd166}
+#tip{position:fixed;left:12px;top:92px;font-size:.78rem;color:#8fa2bf;max-width:280px}
+@media (max-width:900px){#legend{display:none}#info{display:none!important}}
+</style>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="panel" id="title"><h1>Circuit du duo [Harnais + Routage] — S2 optimisé</h1><p>Trajet typique d'une leçon, de la demande de Tunder à la ligne du registre. Glisser = tourner · molette = zoomer · clic sur un nœud = détail.</p><p style="margin-top:4px">Paquet jaune = la leçon. Paquet rouge = retour gratuit : défaut de forme attrapé par la porte avant tout audit par modèle.</p></div>
+<div class="panel" id="legend">
+<h2>Légende</h2>
+<div class="row"><span class="sw" style="background:#4cc9f0"></span>Flux de travail (leçon, contexte)</div>
+<div class="row"><span class="sw" style="background:#2fd27a"></span>Porte zéro jeton (contrôles gratuits)</div>
+<div class="row"><span class="sw" style="background:#b388ff"></span>Mémoire et coûts (base de connaissance)</div>
+<div class="row"><span class="sw" style="background:#f2a900"></span>Garde 5 min, registre, publication</div>
+<div class="row"><span class="sw" style="background:#ff6b4a"></span>Retour : défaut à corriger</div>
+<hr style="border:0;border-top:1px solid #2b3a55;margin:8px 0">
+<div class="row"><span class="dot" style="background:#ffd166"></span>Tunder (orchestrateur)</div>
+<div class="row"><span class="dot" style="background:#ff7a59"></span>grok-4.7 xhigh · rédacteur</div>
+<div class="row"><span class="dot" style="background:#a06cff"></span>grok-4.6 · audit médical, transversale</div>
+<div class="row"><span class="dot" style="background:#35b0d6"></span>grok-4.5 · conformité (high), mécanique (low, fast)</div>
+<div class="row"><span class="dot" style="background:#2fd27a"></span>Porte zéro jeton (Python)</div>
+<div class="row"><span class="dot" style="background:#e9edf5"></span>GitHub grok/lots · registre · base</div>
+</div>
+<div class="panel" id="info"><h3 id="it"></h3><div id="ib"></div></div>
+<div class="panel" id="hud">
+<div id="step">Chargement…</div>
+<div id="bar"><i id="barfill"></i></div>
+<div id="ctl">
+<button id="pp">Pause</button><button class="alt" id="nx">Étape suivante</button><button class="alt" id="rs">Recommencer</button><button class="alt" id="cv">Recentrer la vue</button>
+<label>Vitesse <input id="sp" type="range" min="0.4" max="2.5" step="0.1" value="1"></label>
+</div></div>
+
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+await (document.fonts ? document.fonts.load('700 28px "Atkinson Hyperlegible"').catch(()=>{}) : null);
+const FONT='"Atkinson Hyperlegible", system-ui, Arial, sans-serif';
+
+/* ---------- données ---------- */
+const COL={flux:0x4cc9f0, porte:0x2fd27a, mem:0xb388ff, garde:0xf2a900, retour:0xff6b4a, lecon:0xffd166};
+const N={ // id: [nom, sous-titre, x,y,z, couleur, forme, description]
+ tunder:['Tunder','orchestrateur',0,5.2,0,0xffd166,'ico','Assistant de Vial : lance chaque poste comme un run cloud-agent distinct (Max mode), lit le verdict de la porte, tient le registre à jour. Ne rédige pas.'],
+ routage:['Routage + veille','ROUTAGE_GROK.json',-7.5,5.2,-2.5,0x7fd1ff,'cone','Table poste → modèle + effort ; routage_grok.py prouve le choix (« ROUTAGE PROUVÉ »). Règles immuables.'],
+ vault:['Base de connaissance','pièges · prompts · coûts · ADR',-10,-1.2,-2.5,0xb388ff,'cyl','connaissance/ : PIEGES.md, PROMPTS_QUI_MARCHENT.md, COUTS.jsonl, ADR, journal. contexte_lot.py y puise le paquet stable mis en cache ; couts.py y écrit une ligne par passe.'],
+ redacteur:['Rédacteur','grok-4.7 xhigh',-6.5,0.4,3.4,0xff7a59,'sph','Phase A et DX.1–10. Reçoit le paquet de 49 Ko (squelette V8 de 20,8 Ko au lieu du modèle de 254 Ko).'],
+ gate:['Porte zéro jeton','harnais Python · 0 token',0,0,0,0x2fd27a,'oct','porte_zero_jeton.py + taille_xy, verif_refonte, audit_langue, aips : taille, FIN_FICHIER, ids V8, citations, langue (différentielle contre MODELE_DD_V8). VERT / ORANGE / ROUGE en moins d\'une seconde. Passage obligatoire avant et après chaque poste.'],
+ medical:['Auditeur médical','grok-4.6 xhigh · indépendant',1.5,0.4,7.6,0xa06cff,'sph','Seul juge de l\'exactitude médicale (doses AIPS suisses). Jamais remplacé par la porte, jamais le même modèle que le rédacteur.'],
+ conformite:['Conformité','grok-4.5 high',7,0.4,4.2,0x35b0d6,'sph','Relit le fichier guidé par les alertes de la porte ; conditionnel : rentable si la relance reste < 17 %.'],
+ mecanique:['Mécanique','grok-4.5 low · fast',7.5,0.4,-3.2,0x35b0d6,'sph','Formatage, scellé et corrections mécaniques ; les corrections de langue purement mécaniques passent par script.'],
+ transversale:['Transversale','grok-4.6',0,0.4,-7,0xa06cff,'sph','Une fois par LOT : cohérence entre les 11 leçons.'],
+ github:['GitHub','branche grok/lots',11,4,0.5,0xe9edf5,'box','Commit limité à grok-LOTS-html/. Aucun push sur main.'],
+ registre:['Registre','registre_ia.py · suivi_ia.py',12,-2.8,-2,0xe9edf5,'cyl','Tient l\'état de chaque leçon et du LOT. Immuable côté Grok (lecture et appels officiels uniquement).'],
+ garde:['Garde 5 min','boucle box + YAML GitHub',5.5,6,-5.2,0xf2a900,'tor','Toutes les 5 min : vérifie la branche et le registre. Boucle de la box en attendant que Vial active le YAML sur main (les workflows planifiés ne tournent que depuis main).']
+};
+const E=[ // [a,b,type]
+ ['tunder','routage','flux'],['routage','vault','mem'],['vault','redacteur','flux'],['tunder','vault','mem'],
+ ['redacteur','gate','porte'],['gate','medical','flux'],['gate','conformite','flux'],['gate','mecanique','flux'],['gate','transversale','flux'],
+ ['gate','github','garde'],['github','registre','garde'],['registre','garde','garde'],['garde','github','garde'],['garde','tunder','garde'],['gate','tunder','porte']
+];
+const S=[ // trajet d'une leçon : [de, vers, couleur, texte]
+ ['tunder','routage','lecon','<b>1.</b> Tunder demande au routage quel modèle pour le poste « rédacteur » : <b>grok-4.7 xhigh</b>.'],
+ ['routage','vault','lecon','<b>2.</b> <b>contexte_lot.py</b> assemble le paquet stable : règles, pièges, rôle, squelette V8 (lu une fois, mis en cache).'],
+ ['vault','redacteur','lecon','<b>3.</b> Run cloud-agent : le rédacteur reçoit un paquet de 49 Ko et écrit la leçon.'],
+ ['redacteur','gate','lecon','<b>4.</b> Porte zéro jeton : taille, FIN_FICHIER, ids, citations, langue. Coût en jetons : 0.'],
+ ['gate','redacteur','retour','<b>5.</b> ROUGE : une balise manque. Retour <b>gratuit</b> au rédacteur, avant tout audit payant (sans porte : ≈ 0,23 défaut de forme échappé par LOT).'],
+ ['redacteur','gate','lecon','<b>6.</b> Corrigé : la porte repasse, VERT.'],
+ ['gate','medical','lecon','<b>7.</b> Audit médical sur modèle fort et indépendant : doses AIPS, exactitude. La porte ne prouve pas la médecine.'],
+ ['medical','gate','lecon','<b>8.</b> Corrections appliquées, vérifiées par la porte (ré-audit seulement si le défaut est grave).'],
+ ['gate','conformite','lecon','<b>9.</b> Conformité sur modèle léger, guidée par les alertes de la porte.'],
+ ['conformite','gate','lecon','<b>10.</b> Retour à la porte : fichier conforme.'],
+ ['gate','mecanique','lecon','<b>11.</b> Mécanique : formatage et scellé (script, quasi zéro jeton).'],
+ ['mecanique','gate','lecon','<b>12.</b> Contrôle final avant commit (pre-commit).'],
+ ['gate','github','lecon','<b>13.</b> Commit sur la branche <b>grok/lots</b> (dossier grok-LOTS-html/ uniquement).'],
+ ['github','registre','lecon','<b>14.</b> Le registre note la leçon. Après les 11 leçons : la transversale (1 fois par LOT) valide la cohérence.'],
+ ['registre','garde','garde','<b>15.</b> Garde 5 min : voit le nouvel état de la branche et du registre.'],
+ ['garde','tunder','garde','<b>16.</b> Garde → Tunder : « rien à corriger ». Tunder note le coût de la passe dans la base (couts.py).'],
+ ['tunder','vault','mem','<b>17.</b> COUTS.jsonl : une ligne par passe. Sans mesure, aucune optimisation n\'est prouvée.']
+];
+const SC={lecon:COL.lecon,retour:COL.retour,garde:COL.garde,mem:COL.mem,flux:COL.flux,porte:COL.porte};
+
+/* ---------- scène ---------- */
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0x0b1220); scene.fog=new THREE.Fog(0x0b1220,28,60);
+const camera=new THREE.PerspectiveCamera(50,1,.1,200);
+const HOME=new THREE.Vector3(14,9.5,21);
+camera.position.copy(HOME);
+const controls=new OrbitControls(camera,canvas); controls.target.set(1.5,1,0); controls.enableDamping=true; controls.maxDistance=55; controls.minDistance=6;
+scene.add(new THREE.AmbientLight(0xaabbdd,.9));
+const dl=new THREE.DirectionalLight(0xffffff,1.2); dl.position.set(8,14,10); scene.add(dl);
+const pl=new THREE.PointLight(0x2fd27a,1.6,14); pl.position.set(0,1,0); scene.add(pl);
+// sol
+const grid=new THREE.GridHelper(40,40,0x25385a,0x172338); grid.position.y=-3.6; scene.add(grid);
+// étoiles
+{const g=new THREE.BufferGeometry(),p=[];for(let i=0;i<500;i++){p.push((Math.random()-.5)*120,(Math.random()-.2)*60,(Math.random()-.5)*120)}
+ g.setAttribute('position',new THREE.Float32BufferAttribute(p,3)); scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x6a7fa8,size:.12})));}
+
+function label(t1,t2){
+ const c=document.createElement('canvas'); c.width=512;c.height=160; const g=c.getContext('2d');
+ g.textAlign='center'; g.fillStyle='rgba(11,18,32,.78)'; const r=14; g.beginPath(); g.roundRect?g.roundRect(8,8,496,144,r):g.rect(8,8,496,144); g.fill();
+ g.fillStyle='#fff'; g.font='700 52px '+FONT; g.fillText(t1,256,70,480);
+ g.fillStyle='#a9c0e6'; g.font='400 34px '+FONT; g.fillText(t2,256,122,480);
+ const tx=new THREE.CanvasTexture(c); tx.anisotropy=4;
+ const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tx,depthTest:false,transparent:true})); s.scale.set(3.9,1.22,1); s.renderOrder=10; return s;
+}
+const nodes={}, pickables=[];
+for(const [id,[nm,sub,x,y,z,col,shape]] of Object.entries(N)){
+ let geo;
+ switch(shape){case 'ico':geo=new THREE.IcosahedronGeometry(1.0,1);break;case 'oct':geo=new THREE.OctahedronGeometry(1.1);break;case 'cyl':geo=new THREE.CylinderGeometry(.75,.75,1.1,28);break;
+  case 'box':geo=new THREE.BoxGeometry(1.5,1.1,1.5);break;case 'tor':geo=new THREE.TorusGeometry(.7,.28,16,40);break;case 'cone':geo=new THREE.ConeGeometry(.8,1.4,24);break;default:geo=new THREE.SphereGeometry(.85,32,24);}
+ const m=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:col,metalness:.35,roughness:.35,emissive:col,emissiveIntensity:.25}));
+ const grp=new THREE.Group(); grp.position.set(x,y,z); grp.add(m);
+ const halo=new THREE.Mesh(new THREE.SphereGeometry(1.5,24,16),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:0,depthWrite:false})); grp.add(halo);
+ const lb=label(nm,sub); lb.position.set(0,1.75,0); grp.add(lb);
+ scene.add(grp); nodes[id]={grp,mesh:m,halo,pulse:0,base:col,pos:new THREE.Vector3(x,y,z)}; m.userData.id=id; pickables.push(m);
+ if(id==='gate'){ const ring=new THREE.Mesh(new THREE.TorusGeometry(2.0,.04,8,80),new THREE.MeshBasicMaterial({color:0x2fd27a,transparent:true,opacity:.55})); ring.rotation.x=Math.PI/2; grp.add(ring); nodes.gate.ring=ring;
+  const ring2=ring.clone(); ring2.scale.setScalar(1.4); grp.add(ring2); nodes.gate.ring2=ring2; }
+}
+// arêtes
+const edges={}; const ambient=[];
+function key(a,b){return a<b?a+'|'+b:b+'|'+a}
+E.forEach(([a,b,t],i)=>{
+ const A=nodes[a].pos,B=nodes[b].pos; const mid=A.clone().add(B).multiplyScalar(.5);
+ const lift=(a==='garde'&&b==='github')?-1.1:(a==='github'&&b==='registre'?.4:1.1); mid.y+=lift; if(a==='garde'&&b==='github') mid.x+=.8;
+ const curve=new THREE.QuadraticBezierCurve3(A,mid,B);
+ const pts=curve.getPoints(48);
+ const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:SC[t],transparent:true,opacity:.42}));
+ scene.add(line);
+ const k=key(a,b); (edges[k]=edges[k]||[]).push({a,b,curve,len:curve.getLength(),type:t});
+ for(let j=0;j<3;j++){const p=new THREE.Mesh(new THREE.SphereGeometry(.07,8,8),new THREE.MeshBasicMaterial({color:SC[t],transparent:true,opacity:.75})); scene.add(p); ambient.push({p,curve,off:Math.random(),v:.04+.03*Math.random(),dir:(i+j)%2?1:-1});}
+});
+function edgeFor(a,b){const L=edges[key(a,b)]; return L.find(e=>e.a===a&&e.b===b)||L[0]}
+// paquet principal
+const pk=new THREE.Mesh(new THREE.SphereGeometry(.26,20,16),new THREE.MeshBasicMaterial({color:COL.lecon})); scene.add(pk);
+const glow=new THREE.Mesh(new THREE.SphereGeometry(.55,20,16),new THREE.MeshBasicMaterial({color:COL.lecon,transparent:true,opacity:.28,depthWrite:false})); pk.add(glow);
+const trail=[]; for(let i=0;i<14;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.17*(1-i/16),10,8),new THREE.MeshBasicMaterial({color:COL.lecon,transparent:true,opacity:.5*(1-i/14)})); scene.add(m); trail.push(m);}
+
+/* ---------- animation ---------- */
+const $=id=>document.getElementById(id);
+let playing=true, speed=1, si=0, t=0, dwell=0, hist=[];
+const MOVE=1.1, DWELL=.55; // secondes de base par unité de longueur (voir plus bas)
+function stepDur(i){const [a,b]=S[i]; return Math.max(1.6, edgeFor(a,b).len/6.5)}
+function setStep(i){si=i%S.length; t=0; dwell=0; const [a,b,c,tx]=S[si]; $('step').innerHTML=tx; const col=SC[c]; pk.material.color.setHex(col); glow.material.color.setHex(col); trail.forEach(m=>m.material.color.setHex(col)); hist=[]; $('barfill').style.width=((si)/S.length*100)+'%';}
+setStep(0);
+{const m=location.hash.match(/etape=(\d+)/); if(m){setStep(+m[1]); t=.55; if(/pause/.test(location.hash)){playing=false;$('pp').textContent='Lecture'}}}
+$('pp').onclick=()=>{playing=!playing;$('pp').textContent=playing?'Pause':'Lecture'};
+$('nx').onclick=()=>{setStep(si+1)}; $('rs').onclick=()=>{setStep(0)};
+$('cv').onclick=()=>{camera.position.copy(HOME);controls.target.set(1.5,1,0)};
+$('sp').oninput=e=>speed=+e.target.value;
+function easing(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2}
+
+const ray=new THREE.Raycaster(), mouse=new THREE.Vector2(); let down=null;
+canvas.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);
+canvas.addEventListener('pointerup',e=>{ if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5) return;
+ mouse.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1); ray.setFromCamera(mouse,camera);
+ const h=ray.intersectObjects(pickables)[0]; const box=$('info');
+ if(h){const d=N[h.object.userData.id]; $('it').textContent=d[0]+' — '+d[1]; $('ib').textContent=d[7]; box.style.display='block'; nodes[h.object.userData.id].pulse=1;} else box.style.display='none'; });
+
+function resize(){const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();}
+addEventListener('resize',resize); resize();
+
+const clock=new THREE.Clock();
+function frame(){
+ const dt=Math.min(clock.getDelta(),.05), time=clock.elapsedTime;
+ if(playing){
+  const dur=stepDur(si)/speed;
+  if(t<1){t+=dt/dur; if(t>=1){t=1; dwell=0; nodes[S[si][1]].pulse=1;}}
+  else{dwell+=dt*speed; if(dwell>DWELL) setStep(si+1);}
+ }
+ const [a,b]=S[si]; const e=edgeFor(a,b); const u=easing(Math.min(t,1));
+ const rev=!(e.a===a);
+ const pos=e.curve.getPoint(rev?1-u:u); pk.position.copy(pos);
+ hist.unshift(pos.clone()); if(hist.length>60) hist.pop();
+ trail.forEach((m,i)=>{const p=hist[Math.min(hist.length-1,(i+1)*3)]; if(p){m.position.copy(p);m.visible=true}else m.visible=false});
+ glow.scale.setScalar(1+.25*Math.sin(time*8));
+ $('barfill').style.width=((si+Math.min(t,1))/S.length*100)+'%';
+ // pulsation des nœuds
+ for(const n of Object.values(nodes)){ n.pulse=Math.max(0,n.pulse-dt*1.3); const s=1+.28*n.pulse; n.mesh.scale.setScalar(s); n.halo.material.opacity=.35*n.pulse; n.mesh.material.emissiveIntensity=.25+.9*n.pulse; n.mesh.rotation.y+=dt*.3; }
+ nodes.tunder.mesh.rotation.x+=dt*.2;
+ nodes.garde.mesh.rotation.x=Math.PI/2+Math.sin(time*.6)*.4; nodes.garde.mesh.rotation.z+=dt*.8;
+ nodes.gate.ring.rotation.z+=dt*.5; nodes.gate.ring2.rotation.z-=dt*.35;
+ const live=playing?1:0;
+ ambient.forEach(o=>{o.off=(o.off+o.dir*o.v*dt*(.3+.7*live)+1)%1; o.p.position.copy(o.curve.getPoint(o.off));});
+ controls.update(); renderer.render(scene,camera); requestAnimationFrame(frame);
+}
+frame();
+window.__circuit_ready=true;
+</script>
+<noscript>Ce schéma 3D exige JavaScript et WebGL.</noscript>
+</body>
+</html>
