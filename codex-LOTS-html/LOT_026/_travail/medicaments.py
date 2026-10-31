@@ -1,0 +1,59 @@
+import gzip
+from html import escape
+from format_lecon import R,paras
+def quote(n,s):
+ t=gzip.open(R/f'ressources_ia/aips/fi_fr/{n}.txt.gz','rt').read();assert s in t,(n,s)
+ return '<blockquote><p>« '+escape(s)+' »</p></blockquote>'
+def paracetamol(l):
+ text=paras('DAFALGAN comprimés, information professionnelle suisse n° 46206. Le soulagement de la douleur ne remplace pas le diagnostic ; employer la plus faible dose efficace selon poids, terrain et préparation.')
+ text+=paras('Tableau des comprimés de 500 mg, extrait pour plus de 40 kg et plus de 12 ans :')+quote('46206','>40 kg (>12 ans et adultes)\n4 g\nJusqu\'à 4 x 1 – 2 comprimés')
+ text+=quote('46206','Respecter un intervalle de 4 à 8 h entre chaque prise.')
+ text+=quote('46206',"Afin d'éviter tout risque de surdosage, il faut s'assurer que les médicaments pris simultanément ne contiennent pas de paracétamol.")
+ text+=paras('Extrait du tableau des comprimés de 500 mg pour l’enfant : chaque ligne donne poids/âge, dose journalière maximale et répartition possible. Le poids doit guider le choix et les bornes doivent être vérifiées avec le professionnel.')+quote('46206',"15 – 22 kg (3 – 6 ans)\n1 g\nJusqu'à 4 x ½ comprimé\n22 – 30 kg (6 – 9 ans)\n1,5 g\nJusqu'à 3 x ½ – 1 comprimé\n30 – 40 kg (9 – 12 ans)\n2 g\nJusqu'à 4 x 1 comprimé")
+ text+=quote('46206',"La durée maximale d'utilisation continue pour les enfants jusqu'à 12 ans sans consultation médicale est de 3 jours.")
+ text+=paras('Le comprimé de 1 g a d’autres bornes : plus de 50 kg et plus de 15 ans dans son tableau. Sa rainure facilite la déglutition et ne permet pas de considérer chaque morceau comme une dose exacte de 500 mg. Pour un enfant plus petit, choisir une formulation pédiatrique et sa notice, sans extrapoler ce tableau.')
+ text+=quote('46206',"Chez les patients ayant une maladie hépatique chronique ou compensée active, en particulier une insuffisance hépatocellulaire, alcoolisme chronique, déficit d'alimentation chronique (faibles réserves de glutathion hépatique) ou déshydratation, la dose quotidienne pour les adultes ne doit pas dépasser 3 g (cf. aussi «Contre-indications» et «Mises en garde et précautions»).")
+ text+=paras('Ce plafond n’autorise pas l’utilisation dans les situations contre-indiquées : la notice cite hypersensibilité, atteinte hépatique sévère, hépatite aiguë ou maladie décompensée active et maladie de Gilbert. Une insuffisance rénale exige un espacement adapté ; vérifier le tableau complet avant prescription.', 'Grossesse — extrait de la préparation :')+quote('46206',"En cas de nécessité clinique, le paracétamol peut être pris ou utilisé pendant la grossesse. Toutefois, il convient de prendre ou d'utiliser la dose efficace la plus faible pendant la durée la plus courte possible et à la fréquence la plus basse possible.")
+ text+=quote('46206',"La prudence est de mise en cas d'utilisation de DAFALGAN durant la grossesse et l'allaitement.")
+ text+=quote('46206',"Bien que l'utilisation du paracétamol soit considérée comme compatible avec l'allaitement, la prudence est recommandée lors de l'utilisation du Dafalgan pendant l'allaitement.")
+ text+=paras('En cas de surdosage possible, demander immédiatement un avis médical ou Tox Info Suisse 145, même sans symptôme. Le plafond de dose n’est pas un objectif à atteindre ni un seuil de toxicité universel.')
+ return l.subwindow('paracetamol','Paracétamol : préparation suisse, poids et plafonds',text,(20,))
+def amoxicilline(l):
+ text=paras('Amoxi-Mepha : information professionnelle suisse, voie orale. La directive SSI et cette préparation ne décrivent pas la même répartition pédiatrique ; garder leur attribution explicite.')
+ text+=quote('44911','Otite moyenne, sinusite, amygdalite, pharyngite (due aux streptocoques).')
+ text+=quote('44911',"Adultes et enfants de plus de 40 kg\nInfections légères à moyennes\nConsignes générales: 1500 mg – 3000 mg d'amoxicilline/jour en 3 à 4 doses individuelles.")
+ text+=quote('44911',"Enfants jusqu'à 40 kg inclus\nIndications générales: 50 à 100 mg/kg/jour, répartis en 3 à 4 prises.\nDose journalière maximale: 2000 mg répartis en 3 à 4 prises.\nDose unitaire maximale: 50 mg/kg.")
+ text+=paras('La directive SSI donne, pour l’otite moyenne aiguë, 25 mg/kg toutes les 12 heures chez l’enfant : dix jours avant deux ans ou en cas de perforation, cinq à sept jours à partir de deux ans sans ces situations. Elle donne 1 g toutes les huit heures pendant cinq jours chez l’adulte. Ces durées relèvent de la directive clinique, et les deux prises pédiatriques sont hors du schéma de la notice citée ; le prescripteur doit valider répartition, plafond et adaptation au patient.', 'Les nouveau-nés et prématurés ne relèvent pas d’une extrapolation ambulatoire. Vérifier fonction rénale, allergie, mononucléose, excipients et interactions ; l’amoxicilline seule n’est pas un traitement de toutes les complications.')
+ text+=quote('44911',"Les enfants jusqu'à 40 kg inclus souffrant d'insuffisance rénale: doivent être traités par une forme d'amoxicilline parentérale.")
+ text+=quote('44911',"Hypersensibilité envers le principe actif ou l'un des excipients selon la composition: Amoxi-Mepha ne doit pas être administré aux patients présentant une hypersensibilité aux pénicillines ou aux céphalosporines.")
+ text+=quote('44911',"La prudence est donc de rigueur lors de l'emploi d'Amoxi-Mepha au cours de la grossesse.")
+ text+=quote('44911',"La substance ne doit donc pas être administrée pendant la période d'allaitement ou, si nécessaire, il faut procéder au sevrage de l'enfant.")
+ text+=paras('Cette restriction d’allaitement est attribuée à la préparation citée ; rechercher une décision adaptée avec prescripteur et pharmacien, sans sevrage autonome. Une réaction allergique, diarrhée sévère ou aggravation exige une réévaluation.')
+ return l.subwindow('amoxicilline','Amoxicilline : notice et directive suisse distinctes',text,(2,17))
+def valaciclovir(l):
+ text=paras('Valtrex, valaciclovir par voie orale : schéma adulte de la notice suisse pour le zona. Le protocole HUG de paralysie faciale cite cette option pour Ramsay-Hunt ; évaluer terrain, reins et gravité avant prescription.')
+ text+=quote('53116','Valtrex est indiqué pour le traitement du zona (entreprendre le traitement aussi rapidement que possible, au plus tard dans les 72 heures).')
+ text+=quote('53116','1000 mg de Valtrex 3 fois par jour pendant 7 jours.')
+ text+=paras('Tableau rénal de la notice pour le zona, clairance puis dose :')+quote('53116','≥50 ml/minute\n1000 mg 3 fois par jour\n(aucun ajustement nécessaire)\n30 à 49 ml/minute\n1000 mg 2 fois par jour\n10 à 29 ml/minute\n1000 mg 1 fois par jour\n<10 ml/minute\n500 mg 1 fois par jour')
+ text+=quote('53116',"Comme il n'existe pas encore de données à ce propos, l'emploi de Valtrex chez l'enfant ne peut pas être recommandé.")
+ text+=quote('53116','Valtrex ne doit pas être utilisé pendant la grossesse, sauf en cas de nécessité absolue et uniquement à la dose recommandée.')
+ text+=quote('53116',"La prudence s'impose lorsque Valtrex est administré aux femmes qui allaitent.")
+ text+=paras('Contre-indication : hypersensibilité au valaciclovir, à l’aciclovir ou aux excipients, y compris antécédent de réaction cutanée sévère. Hydratation et adaptation rénale limitent le risque d’accumulation et de troubles neurologiques ; surveiller particulièrement la personne âgée.', 'Le délai de 72 heures incite à traiter tôt ; une présentation tardive avec complication ne doit pas être refusée ni abandonnée. La décision tardive, une forme sévère, une immunodépression ou l’impossibilité de voie orale demandent l’avis spécialisé.', 'Le protocole HUG associe une corticothérapie dans la prise en charge de la paralysie faciale. La notice Prednisone Streuli lue ne fournit pas de schéma spécifique de Ramsay-Hunt ni cette indication nominative : ne pas transformer sa dose générale en posologie autorisée pour ce syndrome. L’indication hors information professionnelle, la dose, les contre-indications infectieuses et métaboliques et l’arrêt doivent être validés par l’équipe.')
+ text+=quote('29349',"Ce médicament ne doit pas être utilisé en cas d'hypersensibilité à la prednisone ou à l'un des excipients.")
+ text+=paras('Grossesse/allaitement de Prednisone Streuli, extraits de la préparation :')+quote('29349',"Pour ces raisons, Prednisone Streuli, à l'instar de tous les glucocorticoïdes, ne devrait être utilisé que si cela est clairement nécessaire, en particulier durant les premiers trois mois.")+quote('29349',"Pendant l'application systémique des corticostéroïdes on ne doit pas allaiter.")
+ text+=paras('Ces restrictions sont attribuées à cette notice. Discuter le choix avec médecin et pharmacien, sans arrêt autonome d’un traitement essentiel ou de l’allaitement. Une corticothérapie ne remplace ni l’antiviral ni la protection cornéenne et ne se prescrit pas seule pour une infection zostérienne.')
+ return l.subwindow('valaciclovir','Zona : antiviral suisse et limites de la corticothérapie',text,(4,18,19))
+def ciproxin_hc(l):
+ t=gzip.open(R/'ressources_ia/aips/fi_fr/54807.txt.gz','rt').read()
+ qs=[
+ "Traitement des inflammations bactériennes aiguës de l'oreille externe, dues à des micro-organismes sensibles à la ciprofloxacine.",
+ "Il convient d'effectuer un test de sensibilité avant le début du traitement.",
+ "Chez les enfants (dès deux ans), les adolescents et les adultes, instiller pendant sept jours, trois gouttes de suspension dans l'oreille atteinte, deux fois par jour. Bien agiter le flacon immédiatement avant l'emploi.",
+ "Pour administrer les gouttes, le patient devra se coucher, l'oreille atteinte dirigée vers le haut. Cette position devra être maintenue pendant 30 à 60 secondes, afin de faciliter la pénétration des gouttes dans le conduit auditif externe. Si nécessaire, traiter ensuite également l'autre oreille.",
+ "· Hypersensibilité à un principe actif, à un antibiotique du groupe des quinolones ou à l'un des excipients.\n· Patients présentant une perforation connue ou supposée du tympan.\n· Infections virales du conduit auditif externe\n· Infections fongiques\n· Ciproxin HC Suspension auriculaire en gouttes n'est pas indiqué pour le traitement d'une otite moyenne.",
+ "C'est pourquoi Ciproxin HC Suspension auriculaire en gouttes ne doit pas être utilisé pendant la grossesse, ou uniquement en cas d'absolue nécessité.",
+ "C'est pourquoi Ciproxin HC Suspension auriculaire en gouttes ne doit pas être utilisé pendant l'allaitement, ou uniquement en cas d'absolue nécessité.",
+ "Aucune interaction cliniquement significative n'a été observée lors de l'administration locale de ciprofloxacine dans le conduit auditif externe. Toute association avec un autre médicament devrait malgré tout être évitée."]
+ for q in qs:assert q in t,q
+ detail=paras('Ciproxin HC est une suspension auriculaire associant ciprofloxacine et hydrocortisone. Les extraits suivants proviennent de l’information professionnelle suisse, mars 2024. Ils concernent cette préparation précise et un tympan non perforé.')+''.join('<blockquote><p>« '+escape(q)+' »</p></blockquote>' for q in qs)+paras('Ne pas extrapoler le schéma aux moins de deux ans, à une otite moyenne ou à un tympan possiblement perforé. Le test de sensibilité mentionné dans l’information professionnelle doit être pris en compte avant ce choix.', 'Arrêter et réévaluer en cas de réaction d’hypersensibilité ou de signes de tendinite. L’usage prolongé peut favoriser une surinfection ; le capuchon contient du latex et la suspension de l’alcool benzylique. La présence du corticoïde peut masquer une réaction allergique.', 'Une absence d’amélioration en 48 à 72 heures nécessite une réévaluation clinique sans attendre la fin de la durée prescrite. Une aggravation ou un signe de gravité impose un contrôle immédiat.')
+ return l.subwindow('ciproxin','Ciproxin HC : indication, dose et limites suisses',detail,(21,16))
