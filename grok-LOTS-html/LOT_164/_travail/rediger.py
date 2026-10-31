@@ -411,9 +411,9 @@ def phase_a():
         P("Pâleur des conjonctives et des paumes, tachycardie, souffle fonctionnel, hypotension orthostatique. "
           "Ictère scléral et splénomégalie orientent vers l'hémolyse ou le foie. Une rate absente chez un drépanocytaire adulte est attendue : l'auto-infarctus. "
           "Une rate très grosse chez un enfant drépanocytaire fait craindre la séquestration.", S(8, 31)),
-        P("La carence en fer se voit surtout par la pâleur et les signes de saignement. "
-          "La cobalamine ajoute l'atteinte neurologique que le texte de 2014 refuse de laisser évoluer. "
-          "Les folates partagent la macrocytose sans qu'on leur attribue, dans les extraits lus, le même tropisme neurologique.", S(5, 9)),
+        P("La carence en fer se voit par la pâleur, le saignement, et parfois une koïlonychie, ongles en cuillère. Le syndrome de Plummer-Vinson, Novacek 2006, est la triade dysphagie, anémie ferriprive et membrane œsophagienne, avec glossite et chéilite angulaire. "
+          "La cobalamine, Stabler 2013, ajoute la sclérose combinée des cordons dorsaux et latéraux, perte de la vibration et du sens de position, hyperréflexie, signe de Romberg. Le signe de Babinski, Vasconcelos 2006, marque le faisceau pyramidal de cette sclérose. "
+          "Les folates partagent la macrocytose sans ce tropisme neurologique dans les extraits lus.", S(32, 33, 34, 5)),
         P("Peau : purpura et pétéchies si les plaquettes sont basses, livedo ou ischémie digitale d'une microangiopathie, ictère. "
           "Abdomen : hépatosplénomégalie, cicatrice, masse, méléna au doigtier quand il est indiqué. "
           "Ganglions et fièvre : hémopathie ou infection, pas une carence simple.", S(6, 8)),

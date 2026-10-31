@@ -74,7 +74,7 @@ def dx3():
         ("Marche, Romberg clinique simple, pâleur, pas de fièvre. On note ce qu'on a testé.", S(5)),
         ("Ictère léger possible par érythropoïèse inefficace. Une rate très grosse oriente ailleurs.", S(9)),
         ("Bouche douloureuse : compatible, pas un critère lu comme obligatoire. On ne retient pas le diagnostic sur la langue seule.", S(5)),
-        ("Réflexes : on les examine. Le texte de 2014 parle d'atteinte neurologique sans détailler un signe unique. On décrit ce qu'on voit.", S(5)),
+        ("Stabler, New England Journal of Medicine, 2013 : sclérose combinée subaiguë, démyélinisation des cordons dorsaux et latéraux cervicaux et thoraciques, perte de la vibration et du sens de position, démarche ataxique, spasticité avec hyperréflexie, signe de Romberg, signe de Lhermitte. Vasconcelos, Journal of General Internal Medicine, 2006 : le signe de Babinski traduit l'atteinte pyramidale du cordon latéral dans cette même sclérose combinée. On le cherche. Son absence n'écarte pas la carence.", S(33, 34)),
         ("Examen abdominal : cicatrice de gastrectomie. Elle change l'entretien en traitement à vie.", S(18)),
     ))
     wins.append(W(

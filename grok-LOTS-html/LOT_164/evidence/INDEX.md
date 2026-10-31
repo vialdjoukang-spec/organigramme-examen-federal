@@ -33,3 +33,8 @@ Extraits lus le 31 octobre 2026. Les doses des spécialités viennent des inform
 29. Information professionnelle Acidum folicum Streuli, numéro Swissmedic 36752, lue le 31 octobre 2026. `aips_36752.txt`.
 30. Catalogue PROFILES, code F2.16, intitulé Anémie, ligne lue le 31 octobre 2026 dans CATALOGUE_248.csv. `profiles_f216.txt`.
 31. Qureshi et al. British Society for Haematology, hydroxycarbamide dans la drépanocytose. British Journal of Haematology, 2018. `bsh_hydroxy_2018.txt`.
+32. Novacek G. Plummer-Vinson syndrome. Orphanet Journal of Rare Diseases, 2006. `novacek_2006_pv.txt`.
+33. Stabler SP. Vitamin B12 deficiency. New England Journal of Medicine, 2013. `stabler_2013_b12.txt`.
+34. Vasconcelos et al. Sclérose combinée subaiguë et signe de Babinski. Journal of General Internal Medicine, 2006. `vasconcelos_2006_babinski.txt`.
+35. Ganzoni AM. Schweizerische Medizinische Wochenschrift, 1970, formule du déficit en fer. `ganzoni_1970.txt`.
+36. Kulasekararaj et al. British Society for Haematology, aplasie médullaire de l'adulte. British Journal of Haematology, 2024. `bsh_aa_2024.txt`.
