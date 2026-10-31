@@ -1,5 +1,7 @@
 # LOT_153 — rédigé et certifié · 31.10.2026
 
+constats d'audit résiduel injectés le 2026-10-31
+
 Sujet : F2.5 « Numération leucocytaire anormale ». Rédacteur A, grok-4.7. Aucun audit en boucle : la certitude est `outils/certitude_redaction.py`. Aucune PR. Branche `grok/lots`.
 
 Certitude : 11/11 VERT. Porte `avant redacteur` : 11/11 VERT. Le pré-commit est parfois ORANGE sur les citations parce qu'il ne reçoit pas `--preuves`.

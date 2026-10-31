@@ -16,3 +16,4 @@ Extraits lus le 31 octobre 2026. Les milligrammes viennent des informations prof
 12. Information professionnelle Allopurinol Spirig HC, numéro Swissmedic 70148, lue le 31 octobre 2026. `aips_70148.txt`.
 13. Information professionnelle Fasturtec, numéro Swissmedic 55789, lue le 31 octobre 2026. `aips_55789.txt`.
 14. Information professionnelle Néo-Mercazole, numéro Swissmedic 21037, lue le 31 octobre 2026. `aips_21037.txt`.
+15. Sanz MA et al., ELN APL expert panel, Blood 2019;133(15):1630-1643 : ATRA à débuter dès la suspicion de LAP, sans attendre la confirmation moléculaire ; correction immédiate de la coagulopathie Date de la source : 2019-04-11. URL : https://pmc.ncbi.nlm.nih.gov/articles/PMC6509567/. Constat injecté le 2026-10-31 dans LOT_153_Phase_A_V0.html, élément p4.
