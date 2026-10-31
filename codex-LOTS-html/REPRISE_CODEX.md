@@ -1,7 +1,7 @@
-# Reprise exacte — LOT_024
+# Reprise exacte — LOT_025
 
-LOT_018 950a4cd1, LOT_019 35e1d64b, LOT_020 eb65e0b2, LOT_021 e2596088, LOT_022 1d5f6191 terminés. LOT_023 complet en production : onze HTML, 154 questions, 275 contrôles V8 et vingt citations AIPS exactes. Lire LOT_023/VALIDATION_FINALE.md et LECONS_LOT_023.md ; ne pas recommencer. Commit de clôture : git log codex/lots.
+LOT_018 950a4cd1, LOT_019 35e1d64b, LOT_020 eb65e0b2, LOT_021 e2596088, LOT_022 1d5f6191, LOT_023 9e826e5b terminés. LOT_024 complet en production : onze HTML, 154 questions, 275 contrôles V8 et 27 citations AIPS exactes. Lire LOT_024/VALIDATION_FINALE.md et LECONS_LOT_024.md ; ne pas recommencer. Commit de clôture : git log codex/lots.
 
-Suite LOT_024 S1.8 Écoulement auriculaire : recherche et Phase A avant dix monographies. Contrat actif jusqu’à LOT_133 inclus, 110 lots restants. Vérifier dépôt/borne et premier incomplet ; verrou exclusif avant production, registre du jour, veilles minute, pret/verifier. Session seule sans sous-agents, écritures uniquement codex-LOTS-html/, branche codex/lots, STOP/PAUSE prioritaire. Commits/push autorisés. Libérer verrou à la sortie.
+Suite LOT_025 S1.9 « Sécheresse, douleur, masse buccale ou pharyngée, lésions buccales ». Aucun fichier de ce lot n’a encore été produit. Recherche et Phase A avant dix monographies. Contrat actif jusqu’à LOT_133 inclus, 109 lots restants. Dépôt et réservation à relire frais, premier incomplet sans saut ; vérifier absence de producteur actif puis prendre le verrou exclusif, registre du jour, veilles minute, pret/verifier. Session seule sans sous-agents, écritures uniquement codex-LOTS-html/, branche codex/lots, STOP/PAUSE prioritaire. Commits/push autorisés. Libérer le verrou à la sortie.
 
 Modèle confirmé par Vial GPT‑6 Astra · ultra ; high conseillé, aucun changement de réglage revendiqué. Veilles dépendantes du runtime, ne rédigent pas. Automatisation dédiée conservée sans modification, autres automates intacts. Audit indépendant, score, navigateur et validation clinique humaine non réalisés. Harnais historique négatif expliqué.

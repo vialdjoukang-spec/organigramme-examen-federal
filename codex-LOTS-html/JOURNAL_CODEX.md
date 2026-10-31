@@ -22,3 +22,5 @@
 2026-10-31T02:46:08+00:00 — LOT_022 complet : six monographies ajoutées, 11 HTML/154 questions, 275 contrôles statiques V8 et 33 citations AIPS. Deux corrections techniques documentées ; aucune cotation clinique inventée. Relecture interne/transversale, pas de navigateur ni audit indépendant. Suite LOT_023.
 
 2026-10-31T03:21:31+00:00 — LOT_023 complet : onze HTML/154 questions, 275 contrôles V8 et vingt citations AIPS. Trois corrections éditoriales, synchronisation bibliographique et extraction officielle Jorveza ; détails consignés, aucune cotation médicale indépendante. Suite LOT_024.
+
+2026-10-31T03:47:53+00:00 — LOT_024 complet : onze HTML/154 questions, 275 contrôles V8, 27 citations AIPS, six empreintes AIPS et neuf de harnais identiques. Corrections de composition, sources, sigles et prévention documentées ; aucun décompte clinique indépendant inventé. Suite LOT_025, aucun fichier produit ; borne 133 relue.
