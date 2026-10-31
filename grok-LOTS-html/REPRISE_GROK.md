@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_154 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_153 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 et LOT_151 sont rédigés par A. LOT_150, LOT_152 et LOT_154 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151 et LOT_153 sont rédigés par A. LOT_150, LOT_152 et LOT_154 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_153.**
+**Prochain LOT du rédacteur A : LOT_155.**
 **Prochain LOT du rédacteur B : LOT_156.**
+
+## LOT_153 — rédigé et certifié
+Sujet : F2.5 « Numération leucocytaire anormale ». Détail : `LOT_153/A_AUDITER.md`.
+
+- Phase_A : certitude VERT · porte VERT · T = 8.4 (+ 74.3) Ko · SHA a9db3a99809d · commit c3220a82
+- DX.1 : certitude VERT · porte VERT · T = 8.3 (+ 40.5) Ko · SHA c063e5e465aa · commit 87c40650
+- DX.2 : certitude VERT · porte VERT · T = 8.0 (+ 38.6) Ko · SHA 5e16b812e6e2 · commit 16689be0
+- DX.3 : certitude VERT · porte VERT · T = 8.2 (+ 39.8) Ko · SHA a87fd016a4fb · commit c01aa20d
+- DX.4 : certitude VERT · porte VERT · T = 8.2 (+ 39.9) Ko · SHA 2fd746ac8cc7 · commit b87b0c8d
+- DX.5 : certitude VERT · porte VERT · T = 8.0 (+ 38.3) Ko · SHA e4a046f2f79f · commit c02ef1ca
+- DX.6 : certitude VERT · porte VERT · T = 8.1 (+ 38.7) Ko · SHA 643aaa2d9cc8 · commit 88775cd5
+- DX.7 : certitude VERT · porte VERT · T = 7.4 (+ 38.4) Ko · SHA 6eb249683647 · commit e5e66878
+- DX.8 : certitude VERT · porte VERT · T = 7.7 (+ 36.8) Ko · SHA f63ef0aa67cb · commit 6b1d18d6
+- DX.9 : certitude VERT · porte VERT · T = 7.7 (+ 36.3) Ko · SHA 891565d23d3e · commit 42e30e3e
+- DX.10 : certitude VERT · porte VERT · T = 7.9 (+ 38.0) Ko · SHA 0e303b3ecd6e · commit 0aa59729
 
 ## LOT_154 — rédigé et certifié
 Sujet : F2.6 « Électrocardiogramme anormal ». Détail : `LOT_154/A_AUDITER.md`.
