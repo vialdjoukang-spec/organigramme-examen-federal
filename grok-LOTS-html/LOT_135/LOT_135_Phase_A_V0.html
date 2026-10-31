@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F1.6 Anomalies à la percussion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}h1,h2,h3,.barre,summary,nav,caption,th{font-family:"Atkinson Hyperlegible",Verdana,sans-serif}h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}h3{font-size:1.08rem;color:var(--titre);margin:1rem 0 .3rem}p,.para{margin:0 0 .55rem}
+.sous{color:var(--doux);font-size:.95rem}.essentiel{border-left-width:4px}.essentiel h2{font-size:1.1rem}nav ol{padding-left:1.6rem;margin:.4rem 0 0}nav li{margin:.15rem 0}a{color:var(--lien)}.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.7rem .9rem;margin:.7rem 0}.urgence strong{color:var(--alerte)}button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre);font-size:.98rem}.fenetre::backdrop{background:var(--voile)}.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700;font-size:.95rem}.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);font-size:1rem;cursor:pointer}.barre button:hover{background:var(--alerte);color:#fff}.corps{padding:1rem 1.2rem 1.2rem}
+.corps p:last-child{margin-bottom:0}details.deplier{display:inline}details.deplier>summary{display:inline;cursor:pointer;list-style:none;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}details.deplier>summary::-webkit-details-marker{display:none}details.deplier>summary::after{content:" ▸";font-size:.8em}details.deplier[open]>summary::after{content:" ▾"}details.deplier>span{display:block;margin:.4rem 0 .6rem;padding:.5rem .8rem;border-left:3px solid var(--bord);background:var(--encadre);border-radius:0 6px 6px 0;font-size:.97rem}.tw{overflow-x:auto;margin:.6rem 0 1rem}table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}th{background:var(--th);font-size:.85rem}caption{text-align:left;font-weight:700;font-size:.9rem;padding:.2rem 0 .4rem}.algo li,.cles li{margin:.5rem 0}details.quiz{border:1px solid var(--trait);border-radius:8px;padding:.5rem .8rem;margin:.5rem 0}details.quiz>summary{cursor:pointer;font-weight:600}details.quiz>p{margin:.5rem 0 .1rem}figure{margin:1.2rem 0}figure svg{width:100%;height:auto;max-width:34rem;display:block;margin:auto;color:var(--texte)}figcaption{font-size:.88rem;color:var(--doux);text-align:center;margin-top:.3rem}.sources{font-size:.86rem;line-height:1.5}.sources li{margin:.3rem 0}
+.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}@media (max-width:480px){body{font-size:1rem}main{padding:1.4rem 16px 3rem}h1{font-size:1.45rem}h2{font-size:1.2rem}.corps{padding:.8rem}table{font-size:.84rem}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}@media (prefers-color-scheme:dark){sup.s{color:#8fb4ff}abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}figure.schema svg{max-width:100%;height:auto}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem;box-shadow:0 1px 2px var(--o1),0 6px 16px var(--o2)}.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}.ilot>:last-child,.ilot>.para:last-child{margin-bottom:0}.urgence{background:var(--page)}.lv{stroke:var(--vert)}.lc{stroke:var(--ciel)}.pv{fill:var(--vert)}.pc{fill:var(--ciel)}.tv{fill:var(--vert)}.tc{fill:var(--ciel)}.zr{fill:var(--alerte);opacity:.16}.zc{fill:var(--ciel);opacity:.16}.zv{fill:var(--vert);opacity:.18}.fenetre figure{margin:0}.fenetre figcaption{text-align:left;margin-top:.5rem}@media (max-width:480px){main{padding:.8rem 16px 2rem}
+.ilot{padding:.75rem 12px .5rem}.som{columns:2;column-gap:1.4rem}.som li{break-inside:avoid}.corps h3:first-child{margin-top:0}.fenetre.sousf{translate:1.2rem 1.2rem;z-index:2}@media (max-width:480px){.fenetre.sousf{translate:.4rem .9rem;width:min(88vw,44rem)}
+</style>
+</head>
+<body>
+<main>
+<h1 id="titre">Anomalies à la percussion</h1>
+<p class="taille" id="taille">Taille : T = 6.5 Ko (+ 77.9 Ko) · lecture de la fiche ≈ 6 min · 189 fenêtres, 15 dépliants</p>
+<p class="sous">Cours F1.6. Le rang d'exclusion n'est pas le numéro du diagnostic. Texte du 31.10.2026.</p>
+<section class="ilot c essentiel"><h2 id="ess">L'essentiel</h2>
+<p>Une anomalie à la percussion est un son qui change, et non encore une maladie. On compare deux zones, puis on nomme la matité, le tympanisme ou l'hypersonorité. Dix diagnostics organisent ce cours. Le rang 🚩 E dit ce qu'il faut exclure d'abord : la <button type="button" class="terme" popovertarget="w-dix">perforation</button> passe avant la bronchopathie, bien plus commune. Les chiffres lus et les doses de l'information professionnelle suisse (<abbr title="information professionnelle suisse">AIPS</abbr>) sont dans les fenêtres. Là où le dénominateur change, le rang reste À vérifier.</p>
+</section>
+
+<nav class="ilot v" aria-labelledby="som">
+<h2 id="som">Sommaire</h2>
+<ol class="som">
+<li><a href="#p1">1. Définition</a></li>
+<li><a href="#p2">2. Épidémiologie</a></li>
+<li><a href="#p3">3. Physiopathologie</a></li>
+<li><a href="#p4">4. Démarche diagnostique</a></li>
+<li><a href="#p5">5. Anamnèse et drapeaux rouges</a></li>
+<li><a href="#p6">6. Examen physique</a></li>
+<li><a href="#p7">7. Approche syndromique</a></li>
+<li><a href="#p8">8. Diagnostic positif</a></li>
+<li><a href="#p9">9. Examens complémentaires</a></li>
+<li><a href="#p10">10. Arbre décisionnel</a></li>
+<li><a href="#p11">11. Prise en charge en Suisse</a></li>
+<li><a href="#p12">12. Prévention</a></li>
+<li><a href="#p13">13. Points clés</a></li>
+<li><a href="#p14">14. Pièges d'examen</a></li>
+</ol>
+<p class="sous">Les mots soulignés ouvrent une fenêtre. Les sources sont à la fin.</p>
+</nav>
+<section class="ilot c"><h2 id="p1">1. Définition</h2>
+<p>La situation de départ (<abbr title="situation de départ de PROFILES">SSP</abbr>) F1.6 appartient au référentiel Principal Relevant Objectives and Framework for Integrated Learning and Education in Switzerland (<abbr title="Principal Relevant Objectives and Framework for Integrated Learning and Education in Switzerland">PROFILES</abbr>). Validé le 1er novembre 2023, il s'intitule abnormal findings upon percussion, et en français « Anomalies à la percussion » dans le catalogue du projet<sup class="s">1</sup>. Aucune société savante lue ici n'en publie une définition officielle unique : À vérifier. En pratique, la <button type="button" class="terme" popovertarget="w-geste">percussion indirecte</button> cherche une matité, un tympanisme ou une hypersonorité, au thorax comme à l'abdomen<sup class="s">2,3</sup>.</p>
+<div id="w-geste" popover class="fenetre"><div class="barre"><span>Percussion indirecte</span><button type="button" popovertarget="w-geste" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Le doigt plessimètre se plaque sur la peau. L'autre majeur frappe la deuxième phalange, avec le poignet, pas l'épaule.</p>
+<p>On frappe deux fois, au même endroit, puis on compare le côté opposé au même niveau.</p>
+<p>L'objectif genevois de l'unité Respiration, page lue le 31 octobre 2026, demande de délimiter le bord inférieur des plages pulmonaires en arrière, puis de comparer la sonorité à gauche et à droite, à plusieurs hauteurs.</p>
+<p>L'année de mise à jour de cette page n'est pas affichée : À vérifier.</p>
+<p>La même page demande aussi de palper les vibrations vocales. Ce geste n'est pas une percussion, mais il change le sens d'une matité.</p>
+<p>Une matité avec vibrations abolies oriente vers un épanchement ou une atélectasie. Une matité avec vibrations augmentées oriente vers une condensation. Les rapports de vraisemblance de cette séparation n'ont pas été lus ici : À vérifier.</p>
+<p>On commence par le côté qui n'a pas mal, comme pour la palpation abdominale décrite par la Revue Médicale Suisse en 2016.</p>
+<p>Le patient respire bouche ouverte si la paroi est tendue. On regarde le visage.</p>
+<p>Le schéma ci-dessous est pédagogique. Il ne remplace pas un traité d'anatomie nommé : À vérifier pour une référence d'anatomie de société.</p>
+<p><svg viewBox="0 0 420 120" role="img" aria-label="Quatre sons de percussion">
+<rect x="8" y="20" width="90" height="70" fill="none" stroke="currentColor"/>
+<rect x="112" y="20" width="90" height="70" fill="none" stroke="currentColor"/>
+<rect x="216" y="20" width="90" height="70" fill="none" stroke="currentColor"/>
+<rect x="320" y="20" width="90" height="70" fill="none" stroke="currentColor"/>
+<g font-family="Atkinson Hyperlegible, Verdana, sans-serif" font-size="12" text-anchor="middle" fill="currentColor">
+<text x="53" y="50">Sonore</text><text x="53" y="68">poumon aéré</text>
+<text x="157" y="50">Hypersonore</text><text x="157" y="68">plus d'air</text>
+<text x="261" y="50">Tympanique</text><text x="261" y="68">air sous tension</text>
+<text x="365" y="50">Mat</text><text x="365" y="68">liquide ou plein</text>
+</g></svg></p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p2">2. Épidémiologie</h2>
+<p>La Ligue pulmonaire suisse écrivait, le 13 novembre 2024, que 400 000 personnes en Suisse souffrent de bronchopneumopathie chronique obstructive<sup class="s">4</sup>. L'Observatoire suisse de la santé (<abbr title="Observatoire suisse de la santé">OBSAN</abbr>), pour 2022, compte 2,0 % de bronchite chronique, de bronchopneumopathie symptomatique ou d'emphysème chez les 15 ans et plus : ce n'est pas le même dénominateur<sup class="s">5</sup>. La pneumonie acquise en communauté est donnée à 1,2 cas pour 1 000 habitants et par année dans la Revue Médicale Suisse du 25 septembre 2024. Après 65 ans, le résumé français retient 14 cas pour 1 000. L'anglais de la même page écrit 14 pour 100 : <button type="button" class="terme" popovertarget="w-epi">écart de traduction</button><sup class="s">6</sup>.</p>
+<div id="w-epi" popover class="fenetre"><div class="barre"><span>Fréquences lues, dénominateurs séparés</span><button type="button" popovertarget="w-epi" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Bronchopneumopathie. La Ligue pulmonaire, le 13 novembre 2024 : 400 000 personnes en Suisse souffrent de cette maladie. Le rapport de l'Observatoire, qui cite la Ligue pour 2023, dit « près de 400 000 personnes développent une bronchopneumopathie ». Les deux verbes ne sont pas une incidence calculée ici.</p>
+<p>Observatoire suisse de la santé, enquête 2022, personnes de 15 ans et plus en ménage privé : 2,0 % ont eu, au cours des douze mois, une bronchite chronique, une bronchopneumopathie symptomatique ou un emphysème diagnostiqué. Ce n'est pas 400 000 divisé par la population.</p>
+<p>La même page donne 5,4 % d'asthme et 6,8 % pour l'ensemble des maladies chroniques des voies respiratoires. L'asthme n'est pas l'un des dix diagnostics de ce lot.</p>
+<p>Pneumonie. Revue Médicale Suisse du 25 septembre 2024, résumé français : 1,2 cas pour 1 000 habitants chaque année, et jusqu'à 14 cas pour 1 000 chez les plus de 65 ans.</p>
+<p>Le résumé anglais du même article écrit 14 cases per 100 inhabitants après 65 ans. Les deux phrases sont sur la page lue. On retient le 14 pour 1 000 du français : une revue européenne de 2013 donne 14 cas pour 1 000 personnes-années après 65 ans. L'anglais 14 pour 100 est un écart de traduction, pas une seconde incidence.</p>
+<p>Le 1,2 pour 1 000, lui, est le même dans les deux langues.</p>
+<p>Ascite. La revue de 2016 estime sa prévalence à 5 % en médecine de premier recours, dans le chapitre de l'examen abdominal. Le dénominateur exact, au-delà de ce cadre, n'est pas recopié : À vérifier.</p>
+<p>Occlusion. La même revue : 15 % des douleurs abdominales dans un centre d'urgences, exceptionnelle en premier recours, récidive d'environ 15 à 20 % après un épisode.</p>
+<p>Épanchement, rétention, rate, atélectasie, pneumothorax et perforation : aucune incidence suisse commune n'a été lue. Leur place de DX.3 à DX.10 est un ordre de grandeur clinique, marqué À vérifier.</p>
+<p>«### Ascites Ascites is the most common cause of decompensation in cirrhosis, as 5% to 10% of patients with compensated cirrhosis per year develop this complication.»</p>
+<p>Ce 5 à 10 % par an concerne des cirrhoses déjà compensées, pas la population générale. On ne l'additionne pas aux 400 000.</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p3">3. Physiopathologie</h2>
+<p>Le doigt n'entend qu'une vibration. Plus le tissu contient d'air, plus le son est clair ou tympanique. Plus il contient de liquide ou de solide, plus il est mat. La <button type="button" class="terme" popovertarget="w-physio">physique du son</button> sépare donc l'air libre, l'air piégé, le liquide déclive et le parenchyme sans air. Le détail de chaque maladie est dans son diagnostic, qui ne répète pas ce cours.</p>
+<div id="w-physio" popover class="fenetre"><div class="barre"><span>Ce que le son mesure</span><button type="button" popovertarget="w-physio" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>L'air libre sous la paroi donne un tympanisme, comme l'estomac ou un intestin distendu.</p>
+<p>L'air en trop dans un poumon distendu donne une hypersonorité, souvent des deux côtés.</p>
+<p>L'air dans la plèvre, s'il est unilatéral et sous pression, donne aussi une hypersonorité, mais d'un seul côté, avec un murmure aboli.</p>
+<p>Le liquide pleural ou l'ascite donne une matité. Le liquide se déclive : la matité descend vers le flanc le plus bas.</p>
+<p>Un poumon sans air, condensation ou atélectasie, donne une matité qui ne se déplace pas quand le patient se tourne.</p>
+<p>La Revue Médicale Suisse de 2016 écrit que la percussion abdominale cherche une matité localisée, une matité des flancs, ou un tympanisme diffus.</p>
+<p>Elle ajoute qu'un abdomen tympanique est un signe tardif d'occlusion, pas un signe précoce.</p>
+<p>Ces phrases ne donnent pas la sensibilité du doigt pour un pneumothorax. Ce chiffre est À vérifier.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p4">4. Démarche diagnostique</h2>
+<p>DX.1 est la Bronchopneumopathie chronique obstructive, parce que c'est la prévalence de population la plus haute parmi les textes lus. DX.10 est la Perforation d'ulcère gastroduodénal, placée en dernier faute d'incidence suisse lue, et ce rang de fréquence est À vérifier. Le <button type="button" class="terme" popovertarget="w-dix">tableau des dix</button> donne le rang 🚩 E, le son et le premier acte. L'algorithme du point 10 commence par E1. <button type="button" class="terme" popovertarget="w-pa-index">extraits des sources</button></p>
+<div id="w-dix" popover class="fenetre"><div class="barre"><span>Dix diagnostics, son et premier acte</span><button type="button" popovertarget="w-dix" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Le numéro DX suit un ordre de fréquence quand un chiffre lu existe. Le rang E est l'ordre d'exclusion. Ils ne coïncident pas.</p>
+<p><table><caption>Comparaison des dix diagnostics</caption>
+<thead><tr><th>DX</th><th>Rang E</th><th>Nom</th><th>Son</th><th>Chiffre lu</th><th>Premier acte</th></tr></thead>
+<tbody>
+<tr><td>DX.1</td><td>E10</td><td>Bronchopneumopathie chronique obstructive</td><td>Hypersonorité bilatérale</td><td>400 000 en Suisse, Ligue 13.11.2024. Le 2,0 % de l'Observatoire est un autre dénominateur.</td><td>Spirométrie. Le doigt ne pose pas le diagnostic.</td></tr>
+<tr><td>DX.2</td><td>E5</td><td>Pneumonie acquise en communauté</td><td>Matité localisée</td><td>1,2 / 1 000 / an, Revue Médicale Suisse 25.09.2024. Après 65 ans : 14 / 1 000 (français Revue Médicale Suisse (RMS) et Thorax 2013). L'anglais 14 / 100 de la même page est un écart de traduction.</td><td>Image. Dose lue : Augmentin 45674, pas une autre spécialité.</td></tr>
+<tr><td>DX.3</td><td>E4</td><td>Épanchement pleural</td><td>Matité franche, déclive</td><td>Fréquent selon la société thoracique britannique, 2023. Incidence suisse : À vérifier.</td><td>Ponction guidée si unilatéral et non diagnostiqué. Règle suisse : À vérifier.</td></tr>
+<tr><td>DX.4</td><td>E7</td><td>Ascite</td><td>Matité des flancs, mobile</td><td>5 % en premier recours dans la revue de 2016, dénominateur À vérifier. Grade 1 : échographie seule.</td><td>Ponction si grade 2 ou 3 nouveau, selon l'European Association for the Study of the Liver (EASL) 2018.</td></tr>
+<tr><td>DX.5</td><td>E6</td><td>Rétention aiguë d'urine</td><td>Matité sus-pubienne</td><td>Incidence suisse non lue : À vérifier. Définition European Association of Urology (EAU) 2024 : vessie douloureuse, palpable ou percutable, sans volume.</td><td>Drainage. Les 500 ml de la fiche française du 29.04.2024 sont un intervalle de clampage à la vidange, pas un seuil diagnostique.</td></tr>
+<tr><td>DX.6</td><td>E3</td><td>Occlusion de l'intestin grêle sur bride</td><td>Tympanisme, signe tardif</td><td>15 % des douleurs abdominales aux urgences, revue 2016. Pas le premier recours.</td><td>Scanner si doute. La main manque l'ischémie : sensibilité lue 48 %.</td></tr>
+<tr><td>DX.7</td><td>E9</td><td>Splénomégalie</td><td>Matité de Traube</td><td>Pas de prévalence suisse lue : À vérifier.</td><td>Le signe est moins bon que la palpation. Le rapport de vraisemblance (RV) positif est d'environ 2,5.</td></tr>
+<tr><td>DX.8</td><td>E8</td><td>Atélectasie pulmonaire</td><td>Matité qui ne bouge pas</td><td>Incidence non lue : À vérifier.</td><td>Image. Ne pas la confondre avec un épanchement mobile.</td></tr>
+<tr><td>DX.9</td><td>E2</td><td>Pneumothorax spontané</td><td>Hypersonorité d'un seul côté</td><td>Incidence non lue : À vérifier.</td><td>Observation 4 h seulement si primaire, peu symptomatique et stable.</td></tr>
+<tr><td>DX.10</td><td>E1</td><td>Perforation d'ulcère gastroduodénal</td><td>Disparition de la matité hépatique : aucune sensibilité lue. Le gaz colique droit fausse la percussion</td><td>Incidence suisse non lue : À vérifier.</td><td>Chirurgie si péritonite ou pneumopéritoine important. Air radiologique 30 à 85 %. Le signe n'affirme ni n'écarte.</td></tr>
+</tbody></table></p>
+<p>Aucune ligne n'additionne des pourcentages qui n'ont pas le même dénominateur.</p>
+</div></div><div id="w-pa-index" popover class="fenetre"><div class="barre"><span>Extraits des sources lues</span><button type="button" popovertarget="w-pa-index" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 1. <button type="button" class="terme" popovertarget="w-pa-q1">ouvrir 1</button></p>
+<p>Extrait 2. <button type="button" class="terme" popovertarget="w-pa-q2">ouvrir 2</button></p>
+<p>Extrait 3. <button type="button" class="terme" popovertarget="w-pa-q3">ouvrir 3</button></p>
+<p>Extrait 4. <button type="button" class="terme" popovertarget="w-pa-q4">ouvrir 4</button></p>
+<p>Extrait 5. <button type="button" class="terme" popovertarget="w-pa-q5">ouvrir 5</button></p>
+<p>Extrait 6. <button type="button" class="terme" popovertarget="w-pa-q6">ouvrir 6</button></p>
+<p>Extrait 7. <button type="button" class="terme" popovertarget="w-pa-q7">ouvrir 7</button></p>
+<p>Extrait 8. <button type="button" class="terme" popovertarget="w-pa-q8">ouvrir 8</button></p>
+<p>Extrait 9. <button type="button" class="terme" popovertarget="w-pa-q9">ouvrir 9</button></p>
+<p>Extrait 10. <button type="button" class="terme" popovertarget="w-pa-q10">ouvrir 10</button></p>
+<p>Extrait 11. <button type="button" class="terme" popovertarget="w-pa-q11">ouvrir 11</button></p>
+<p>Extrait 12. <button type="button" class="terme" popovertarget="w-pa-q12">ouvrir 12</button></p>
+<p>Extrait 13. <button type="button" class="terme" popovertarget="w-pa-q13">ouvrir 13</button></p>
+<p>Extrait 14. <button type="button" class="terme" popovertarget="w-pa-q14">ouvrir 14</button></p>
+<p>Extrait 15. <button type="button" class="terme" popovertarget="w-pa-q15">ouvrir 15</button></p>
+<p>Extrait 16. <button type="button" class="terme" popovertarget="w-pa-q16">ouvrir 16</button></p>
+<p>Extrait 17. <button type="button" class="terme" popovertarget="w-pa-q17">ouvrir 17</button></p>
+<p>Extrait 18. <button type="button" class="terme" popovertarget="w-pa-q18">ouvrir 18</button></p>
+<p>Extrait 19. <button type="button" class="terme" popovertarget="w-pa-q19">ouvrir 19</button></p>
+<p>Extrait 20. <button type="button" class="terme" popovertarget="w-pa-q20">ouvrir 20</button></p>
+<p>Extrait 21. <button type="button" class="terme" popovertarget="w-pa-q21">ouvrir 21</button></p>
+<p>Extrait 22. <button type="button" class="terme" popovertarget="w-pa-q22">ouvrir 22</button></p>
+<p>Extrait 23. <button type="button" class="terme" popovertarget="w-pa-q23">ouvrir 23</button></p>
+<p>Extrait 24. <button type="button" class="terme" popovertarget="w-pa-q24">ouvrir 24</button></p>
+<p>Extrait 25. <button type="button" class="terme" popovertarget="w-pa-q25">ouvrir 25</button></p>
+<p>Extrait 26. <button type="button" class="terme" popovertarget="w-pa-q26">ouvrir 26</button></p>
+<p>Extrait 27. <button type="button" class="terme" popovertarget="w-pa-q27">ouvrir 27</button></p>
+<p>Extrait 28. <button type="button" class="terme" popovertarget="w-pa-q28">ouvrir 28</button></p>
+<p>Extrait 29. <button type="button" class="terme" popovertarget="w-pa-q29">ouvrir 29</button></p>
+<p>Extrait 30. <button type="button" class="terme" popovertarget="w-pa-q30">ouvrir 30</button></p>
+<p>Extrait 31. <button type="button" class="terme" popovertarget="w-pa-q31">ouvrir 31</button></p>
+<p>Extrait 32. <button type="button" class="terme" popovertarget="w-pa-q32">ouvrir 32</button></p>
+<p>Extrait 33. <button type="button" class="terme" popovertarget="w-pa-q33">ouvrir 33</button></p>
+<p>Extrait 34. <button type="button" class="terme" popovertarget="w-pa-q34">ouvrir 34</button></p>
+<p>Extrait 35. <button type="button" class="terme" popovertarget="w-pa-q35">ouvrir 35</button></p>
+<p>Extrait 36. <button type="button" class="terme" popovertarget="w-pa-q36">ouvrir 36</button></p>
+<p>Extrait 37. <button type="button" class="terme" popovertarget="w-pa-q37">ouvrir 37</button></p>
+<p>Extrait 38. <button type="button" class="terme" popovertarget="w-pa-q38">ouvrir 38</button></p>
+<p>Extrait 39. <button type="button" class="terme" popovertarget="w-pa-q39">ouvrir 39</button></p>
+<p>Extrait 40. <button type="button" class="terme" popovertarget="w-pa-q40">ouvrir 40</button></p>
+<p>Extrait 41. <button type="button" class="terme" popovertarget="w-pa-q41">ouvrir 41</button></p>
+<p>Extrait 42. <button type="button" class="terme" popovertarget="w-pa-q42">ouvrir 42</button></p>
+<p>Extrait 43. <button type="button" class="terme" popovertarget="w-pa-q43">ouvrir 43</button></p>
+<p>Extrait 44. <button type="button" class="terme" popovertarget="w-pa-q44">ouvrir 44</button></p>
+<p>Extrait 45. <button type="button" class="terme" popovertarget="w-pa-q45">ouvrir 45</button></p>
+<p>Extrait 46. <button type="button" class="terme" popovertarget="w-pa-q46">ouvrir 46</button></p>
+<p>Extrait 47. <button type="button" class="terme" popovertarget="w-pa-q47">ouvrir 47</button></p>
+<p>Extrait 48. <button type="button" class="terme" popovertarget="w-pa-q48">ouvrir 48</button></p>
+<p>Extrait 49. <button type="button" class="terme" popovertarget="w-pa-q49">ouvrir 49</button></p>
+<p>Extrait 50. <button type="button" class="terme" popovertarget="w-pa-q50">ouvrir 50</button></p>
+<p>Extrait 51. <button type="button" class="terme" popovertarget="w-pa-q51">ouvrir 51</button></p>
+<p>Extrait 52. <button type="button" class="terme" popovertarget="w-pa-q52">ouvrir 52</button></p>
+<p>Extrait 53. <button type="button" class="terme" popovertarget="w-pa-q53">ouvrir 53</button></p>
+<p>Extrait 54. <button type="button" class="terme" popovertarget="w-pa-q54">ouvrir 54</button></p>
+<p>Extrait 55. <button type="button" class="terme" popovertarget="w-pa-q55">ouvrir 55</button></p>
+<p>Extrait 56. <button type="button" class="terme" popovertarget="w-pa-q56">ouvrir 56</button></p>
+<p>Extrait 57. <button type="button" class="terme" popovertarget="w-pa-q57">ouvrir 57</button></p>
+<p>Extrait 58. <button type="button" class="terme" popovertarget="w-pa-q58">ouvrir 58</button></p>
+<p>Extrait 59. <button type="button" class="terme" popovertarget="w-pa-q59">ouvrir 59</button></p>
+<p>Extrait 60. <button type="button" class="terme" popovertarget="w-pa-q60">ouvrir 60</button></p>
+<p>Extrait 61. <button type="button" class="terme" popovertarget="w-pa-q61">ouvrir 61</button></p>
+<p>Extrait 62. <button type="button" class="terme" popovertarget="w-pa-q62">ouvrir 62</button></p>
+<p>Extrait 63. <button type="button" class="terme" popovertarget="w-pa-q63">ouvrir 63</button></p>
+<p>Extrait 64. <button type="button" class="terme" popovertarget="w-pa-q64">ouvrir 64</button></p>
+<p>Extrait 65. <button type="button" class="terme" popovertarget="w-pa-q65">ouvrir 65</button></p>
+<p>Extrait 66. <button type="button" class="terme" popovertarget="w-pa-q66">ouvrir 66</button></p>
+<p>Extrait 67. <button type="button" class="terme" popovertarget="w-pa-q67">ouvrir 67</button></p>
+<p>Extrait 68. <button type="button" class="terme" popovertarget="w-pa-q68">ouvrir 68</button></p>
+<p>Extrait 69. <button type="button" class="terme" popovertarget="w-pa-q69">ouvrir 69</button></p>
+<p>Extrait 70. <button type="button" class="terme" popovertarget="w-pa-q70">ouvrir 70</button></p>
+<p>Extrait 71. <button type="button" class="terme" popovertarget="w-pa-q71">ouvrir 71</button></p>
+<p>Extrait 72. <button type="button" class="terme" popovertarget="w-pa-q72">ouvrir 72</button></p>
+<p>Extrait 73. <button type="button" class="terme" popovertarget="w-pa-q73">ouvrir 73</button></p>
+<p>Extrait 74. <button type="button" class="terme" popovertarget="w-pa-q74">ouvrir 74</button></p>
+<p>Extrait 75. <button type="button" class="terme" popovertarget="w-pa-q75">ouvrir 75</button></p>
+<p>Extrait 76. <button type="button" class="terme" popovertarget="w-pa-q76">ouvrir 76</button></p>
+<p>Extrait 77. <button type="button" class="terme" popovertarget="w-pa-q77">ouvrir 77</button></p>
+<p>Extrait 78. <button type="button" class="terme" popovertarget="w-pa-q78">ouvrir 78</button></p>
+<p>Extrait 79. <button type="button" class="terme" popovertarget="w-pa-q79">ouvrir 79</button></p>
+<p>Extrait 80. <button type="button" class="terme" popovertarget="w-pa-q80">ouvrir 80</button></p>
+<p>Extrait 81. <button type="button" class="terme" popovertarget="w-pa-q81">ouvrir 81</button></p>
+<p>Extrait 82. <button type="button" class="terme" popovertarget="w-pa-q82">ouvrir 82</button></p>
+<p>Extrait 83. <button type="button" class="terme" popovertarget="w-pa-q83">ouvrir 83</button></p>
+<p>Extrait 84. <button type="button" class="terme" popovertarget="w-pa-q84">ouvrir 84</button></p>
+<p>Extrait 85. <button type="button" class="terme" popovertarget="w-pa-q85">ouvrir 85</button></p>
+<p>Extrait 86. <button type="button" class="terme" popovertarget="w-pa-q86">ouvrir 86</button></p>
+<p>Extrait 87. <button type="button" class="terme" popovertarget="w-pa-q87">ouvrir 87</button></p>
+<p>Extrait 88. <button type="button" class="terme" popovertarget="w-pa-q88">ouvrir 88</button></p>
+<p>Extrait 89. <button type="button" class="terme" popovertarget="w-pa-q89">ouvrir 89</button></p>
+<p>Extrait 90. <button type="button" class="terme" popovertarget="w-pa-q90">ouvrir 90</button></p>
+<p>Extrait 91. <button type="button" class="terme" popovertarget="w-pa-q91">ouvrir 91</button></p>
+<p>Extrait 92. <button type="button" class="terme" popovertarget="w-pa-q92">ouvrir 92</button></p>
+<p>Extrait 93. <button type="button" class="terme" popovertarget="w-pa-q93">ouvrir 93</button></p>
+<p>Extrait 94. <button type="button" class="terme" popovertarget="w-pa-q94">ouvrir 94</button></p>
+<p>Extrait 95. <button type="button" class="terme" popovertarget="w-pa-q95">ouvrir 95</button></p>
+<p>Extrait 96. <button type="button" class="terme" popovertarget="w-pa-q96">ouvrir 96</button></p>
+<p>Extrait 97. <button type="button" class="terme" popovertarget="w-pa-q97">ouvrir 97</button></p>
+<p>Extrait 98. <button type="button" class="terme" popovertarget="w-pa-q98">ouvrir 98</button></p>
+<p>Extrait 99. <button type="button" class="terme" popovertarget="w-pa-q99">ouvrir 99</button></p>
+<p>Extrait 100. <button type="button" class="terme" popovertarget="w-pa-q100">ouvrir 100</button></p>
+<p>Extrait 101. <button type="button" class="terme" popovertarget="w-pa-q101">ouvrir 101</button></p>
+<p>Extrait 102. <button type="button" class="terme" popovertarget="w-pa-q102">ouvrir 102</button></p>
+<p>Extrait 103. <button type="button" class="terme" popovertarget="w-pa-q103">ouvrir 103</button></p>
+<p>Extrait 104. <button type="button" class="terme" popovertarget="w-pa-q104">ouvrir 104</button></p>
+<p>Extrait 105. <button type="button" class="terme" popovertarget="w-pa-q105">ouvrir 105</button></p>
+<p>Extrait 106. <button type="button" class="terme" popovertarget="w-pa-q106">ouvrir 106</button></p>
+<p>Extrait 107. <button type="button" class="terme" popovertarget="w-pa-q107">ouvrir 107</button></p>
+<p>Extrait 108. <button type="button" class="terme" popovertarget="w-pa-q108">ouvrir 108</button></p>
+<p>Extrait 109. <button type="button" class="terme" popovertarget="w-pa-q109">ouvrir 109</button></p>
+<p>Extrait 110. <button type="button" class="terme" popovertarget="w-pa-q110">ouvrir 110</button></p>
+<p>Extrait 111. <button type="button" class="terme" popovertarget="w-pa-q111">ouvrir 111</button></p>
+<p>Extrait 112. <button type="button" class="terme" popovertarget="w-pa-q112">ouvrir 112</button></p>
+<p>Extrait 113. <button type="button" class="terme" popovertarget="w-pa-q113">ouvrir 113</button></p>
+<p>Extrait 114. <button type="button" class="terme" popovertarget="w-pa-q114">ouvrir 114</button></p>
+<p>Extrait 115. <button type="button" class="terme" popovertarget="w-pa-q115">ouvrir 115</button></p>
+<p>Extrait 116. <button type="button" class="terme" popovertarget="w-pa-q116">ouvrir 116</button></p>
+<p>Extrait 117. <button type="button" class="terme" popovertarget="w-pa-q117">ouvrir 117</button></p>
+<p>Extrait 118. <button type="button" class="terme" popovertarget="w-pa-q118">ouvrir 118</button></p>
+<p>Extrait 119. <button type="button" class="terme" popovertarget="w-pa-q119">ouvrir 119</button></p>
+<p>Extrait 120. <button type="button" class="terme" popovertarget="w-pa-q120">ouvrir 120</button></p>
+<p>Extrait 121. <button type="button" class="terme" popovertarget="w-pa-q121">ouvrir 121</button></p>
+<p>Extrait 122. <button type="button" class="terme" popovertarget="w-pa-q122">ouvrir 122</button></p>
+<p>Extrait 123. <button type="button" class="terme" popovertarget="w-pa-q123">ouvrir 123</button></p>
+<p>Extrait 124. <button type="button" class="terme" popovertarget="w-pa-q124">ouvrir 124</button></p>
+<p>Extrait 125. <button type="button" class="terme" popovertarget="w-pa-q125">ouvrir 125</button></p>
+<p>Extrait 126. <button type="button" class="terme" popovertarget="w-pa-q126">ouvrir 126</button></p>
+<p>Extrait 127. <button type="button" class="terme" popovertarget="w-pa-q127">ouvrir 127</button></p>
+<p>Extrait 128. <button type="button" class="terme" popovertarget="w-pa-q128">ouvrir 128</button></p>
+<p>Extrait 129. <button type="button" class="terme" popovertarget="w-pa-q129">ouvrir 129</button></p>
+<p>Extrait 130. <button type="button" class="terme" popovertarget="w-pa-q130">ouvrir 130</button></p>
+<p>Extrait 131. <button type="button" class="terme" popovertarget="w-pa-q131">ouvrir 131</button></p>
+<p>Extrait 132. <button type="button" class="terme" popovertarget="w-pa-q132">ouvrir 132</button></p>
+<p>Extrait 133. <button type="button" class="terme" popovertarget="w-pa-q133">ouvrir 133</button></p>
+<p>Extrait 134. <button type="button" class="terme" popovertarget="w-pa-q134">ouvrir 134</button></p>
+<p>Extrait 135. <button type="button" class="terme" popovertarget="w-pa-q135">ouvrir 135</button></p>
+<p>Extrait 136. <button type="button" class="terme" popovertarget="w-pa-q136">ouvrir 136</button></p>
+<p>Extrait 137. <button type="button" class="terme" popovertarget="w-pa-q137">ouvrir 137</button></p>
+<p>Extrait 138. <button type="button" class="terme" popovertarget="w-pa-q138">ouvrir 138</button></p>
+<p>Extrait 139. <button type="button" class="terme" popovertarget="w-pa-q139">ouvrir 139</button></p>
+<p>Extrait 140. <button type="button" class="terme" popovertarget="w-pa-q140">ouvrir 140</button></p>
+<p>Extrait 141. <button type="button" class="terme" popovertarget="w-pa-q141">ouvrir 141</button></p>
+<p>Extrait 142. <button type="button" class="terme" popovertarget="w-pa-q142">ouvrir 142</button></p>
+<p>Extrait 143. <button type="button" class="terme" popovertarget="w-pa-q143">ouvrir 143</button></p>
+<p>Extrait 144. <button type="button" class="terme" popovertarget="w-pa-q144">ouvrir 144</button></p>
+<p>Extrait 145. <button type="button" class="terme" popovertarget="w-pa-q145">ouvrir 145</button></p>
+<p>Extrait 146. <button type="button" class="terme" popovertarget="w-pa-q146">ouvrir 146</button></p>
+<p>Extrait 147. <button type="button" class="terme" popovertarget="w-pa-q147">ouvrir 147</button></p>
+<p>Extrait 148. <button type="button" class="terme" popovertarget="w-pa-q148">ouvrir 148</button></p>
+<p>Extrait 149. <button type="button" class="terme" popovertarget="w-pa-q149">ouvrir 149</button></p>
+<p>Extrait 150. <button type="button" class="terme" popovertarget="w-pa-q150">ouvrir 150</button></p>
+<p>Extrait 151. <button type="button" class="terme" popovertarget="w-pa-q151">ouvrir 151</button></p>
+<p>Extrait 152. <button type="button" class="terme" popovertarget="w-pa-q152">ouvrir 152</button></p>
+<p>Extrait 153. <button type="button" class="terme" popovertarget="w-pa-q153">ouvrir 153</button></p>
+<p>Extrait 154. <button type="button" class="terme" popovertarget="w-pa-q154">ouvrir 154</button></p>
+<p>Extrait 155. <button type="button" class="terme" popovertarget="w-pa-q155">ouvrir 155</button></p>
+<p>Extrait 156. <button type="button" class="terme" popovertarget="w-pa-q156">ouvrir 156</button></p>
+<p>Extrait 157. <button type="button" class="terme" popovertarget="w-pa-q157">ouvrir 157</button></p>
+<p>Extrait 158. <button type="button" class="terme" popovertarget="w-pa-q158">ouvrir 158</button></p>
+<p>Extrait 159. <button type="button" class="terme" popovertarget="w-pa-q159">ouvrir 159</button></p>
+<p>Extrait 160. <button type="button" class="terme" popovertarget="w-pa-q160">ouvrir 160</button></p>
+<p>Extrait 161. <button type="button" class="terme" popovertarget="w-pa-q161">ouvrir 161</button></p>
+<p>Extrait 162. <button type="button" class="terme" popovertarget="w-pa-q162">ouvrir 162</button></p>
+<p>Extrait 163. <button type="button" class="terme" popovertarget="w-pa-q163">ouvrir 163</button></p>
+<p>Extrait 164. <button type="button" class="terme" popovertarget="w-pa-q164">ouvrir 164</button></p>
+<p>Extrait 165. <button type="button" class="terme" popovertarget="w-pa-q165">ouvrir 165</button></p>
+<p>Extrait 166. <button type="button" class="terme" popovertarget="w-pa-q166">ouvrir 166</button></p>
+<p>Extrait 167. <button type="button" class="terme" popovertarget="w-pa-q167">ouvrir 167</button></p>
+<p>Extrait 168. <button type="button" class="terme" popovertarget="w-pa-q168">ouvrir 168</button></p>
+<p>Extrait 169. <button type="button" class="terme" popovertarget="w-pa-q169">ouvrir 169</button></p>
+<p>Extrait 170. <button type="button" class="terme" popovertarget="w-pa-q170">ouvrir 170</button></p>
+<p>Extrait 171. <button type="button" class="terme" popovertarget="w-pa-q171">ouvrir 171</button></p>
+<p>Extrait 172. <button type="button" class="terme" popovertarget="w-pa-q172">ouvrir 172</button></p>
+<p>Extrait 173. <button type="button" class="terme" popovertarget="w-pa-q173">ouvrir 173</button></p>
+<p>Extrait 174. <button type="button" class="terme" popovertarget="w-pa-q174">ouvrir 174</button></p>
+<p>Extrait 175. <button type="button" class="terme" popovertarget="w-pa-q175">ouvrir 175</button></p>
+</div></div><div id="w-pa-q1" popover class="fenetre"><div class="barre"><span>Extrait 1</span><button type="button" popovertarget="w-pa-q1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 1, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«# Swissmedic, information professionnelle Aldactone, n° 27257, Pfizer AG. # Texte hors ligne du dépôt, lu le 31.10.2026.»</p>
+</div></div><div id="w-pa-q2" popover class="fenetre"><div class="barre"><span>Extrait 2</span><button type="button" popovertarget="w-pa-q2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 2, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Excipients Comprimés pelliculés à 25 mg: calcii sulfas dihydricus, maydis amylum, povidonum K30, magnesii stearas, aromatica (mentha piperita), hypromellosum, macrogolum 400, titanii dioxidum (E 171), ferri oxidum flavum (E 172), ferri oxidum rubrum (E 172).»</p>
+</div></div><div id="w-pa-q3" popover class="fenetre"><div class="barre"><span>Extrait 3</span><button type="button" popovertarget="w-pa-q3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 3, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Comprimés pelliculés à 50 mg: calcii sulfas dihydricus, maydis amylum, povidonum K30, magnesii stearas, aromatica (mentha piperita), hypromellosum, macrogolum 400, titanii dioxidum (E 171).»</p>
+</div></div><div id="w-pa-q4" popover class="fenetre"><div class="barre"><span>Extrait 4</span><button type="button" popovertarget="w-pa-q4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 4, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Comprimés pelliculés à 100 mg: calcii sulfas dihydricus, maydis amylum, povidonum K30, magnesii stearas, aromatica (mentha piperita), hypromellosum, macrogolum 400, titanii dioxidum (E 171), ferri oxidum flavum (E 172), ferri oxidum rubrum (E 172).»</p>
+</div></div><div id="w-pa-q5" popover class="fenetre"><div class="barre"><span>Extrait 5</span><button type="button" popovertarget="w-pa-q5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 5, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Les comprimés pelliculés contiennent 25 mg, 50 mg ou 100 mg de spironolactone sous forme micronisée.»</p>
+</div></div><div id="w-pa-q6" popover class="fenetre"><div class="barre"><span>Extrait 6</span><button type="button" popovertarget="w-pa-q6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 6, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Indications/Possibilités d’emploi Hypertension essentielle Aldactone est administré conjointement à d&#x27;autres antihypertenseurs lorsque les mesures usuelles ne donnent pas les résultats escomptés ou produisent des effets indésirables.»</p>
+</div></div><div id="w-pa-q7" popover class="fenetre"><div class="barre"><span>Extrait 7</span><button type="button" popovertarget="w-pa-q7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 7, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Hypertension En cas d&#x27;hyperproduction d&#x27;aldostérone, d&#x27;hypokaliémie et d&#x27;alcalose métabolique.»</p>
+</div></div><div id="w-pa-q8" popover class="fenetre"><div class="barre"><span>Extrait 8</span><button type="button" popovertarget="w-pa-q8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 8, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Oedèmes lors d&#x27;insuffisance cardiaque Spécialement pour les patients sous traitement digitalique et ceux à risque de développer une hypokaliémie induite par les diurétiques.»</p>
+</div></div><div id="w-pa-q9" popover class="fenetre"><div class="barre"><span>Extrait 9</span><button type="button" popovertarget="w-pa-q9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 9, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Cirrhose avec ascite Cette affection va souvent de pair avec une aldostéronémie très élevée.»</p>
+</div></div><div id="w-pa-q10" popover class="fenetre"><div class="barre"><span>Extrait 10</span><button type="button" popovertarget="w-pa-q10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 10, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Syndrome néphrotique Lorsque les mesures usuelles, telles que la restriction d&#x27;eau et de sel, ainsi que les diurétiques classiques, ne donnent pas le résultat escompté.»</p>
+</div></div><div id="w-pa-q11" popover class="fenetre"><div class="barre"><span>Extrait 11</span><button type="button" popovertarget="w-pa-q11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 11, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Posologie/Mode d’emploi En général, Aldactone est administré avec un salurétique usuel, car Aldactone ne déploie pas son plein effet avant le 3 ème jour de traitement.»</p>
+</div></div><div id="w-pa-q12" popover class="fenetre"><div class="barre"><span>Extrait 12</span><button type="button" popovertarget="w-pa-q12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 12, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La dose journalière pour adultes peut être administrée fractionnée en plusieurs prises ou en une prise unique.»</p>
+</div></div><div id="w-pa-q13" popover class="fenetre"><div class="barre"><span>Extrait 13</span><button type="button" popovertarget="w-pa-q13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 13, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Hypertension essentielle La dose initiale habituelle pour adultes est de 50-100 mg/jour en une seule prise ou en deux prises réparties sur la journée, et de préférence en association à un autre antihypertenseur.»</p>
+</div></div><div id="w-pa-q14" popover class="fenetre"><div class="barre"><span>Extrait 14</span><button type="button" popovertarget="w-pa-q14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 14, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Dans les cas difficiles, la posologie peut être augmentée jusqu&#x27;à 200 mg/jour à intervalles de 2 semaines.»</p>
+</div></div><div id="w-pa-q15" popover class="fenetre"><div class="barre"><span>Extrait 15</span><button type="button" popovertarget="w-pa-q15" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 15, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Le succès du traitement devrait être évalué au plus tôt après 2 semaines car l&#x27;effet d&#x27;Aldactone se manifeste souvent avec du retard.»</p>
+</div></div><div id="w-pa-q16" popover class="fenetre"><div class="barre"><span>Extrait 16</span><button type="button" popovertarget="w-pa-q16" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 16, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Lors d&#x27;un traitement à long terme par Aldactone, une réduction de la dose est toujours indiquée.»</p>
+</div></div><div id="w-pa-q17" popover class="fenetre"><div class="barre"><span>Extrait 17</span><button type="button" popovertarget="w-pa-q17" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 17, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Comme traitement associé lors d&#x27;hypertension en cas d&#x27;hyperproduction d&#x27;aldostérone, d&#x27;hypokaliémie et d&#x27;alcalose métabolique En association à d&#x27;autres antihypertenseurs: dose initiale 100 mg/jour.»</p>
+</div></div><div id="w-pa-q18" popover class="fenetre"><div class="barre"><span>Extrait 18</span><button type="button" popovertarget="w-pa-q18" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 18, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Si besoin est, la dose peut être augmentée jusqu&#x27;à 200 mg par jour en l&#x27;espace de 2 semaines.»</p>
+</div></div><div id="w-pa-q19" popover class="fenetre"><div class="barre"><span>Extrait 19</span><button type="button" popovertarget="w-pa-q19" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 19, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Oedèmes lors d&#x27;insuffisance cardiaque La posologie usuelle pour adultes est de 100 mg/jour.»</p>
+</div></div><div id="w-pa-q20" popover class="fenetre"><div class="barre"><span>Extrait 20</span><button type="button" popovertarget="w-pa-q20" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 20, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Le poids une fois stabilisé. on choisira une dose d&#x27;entretien aussi basse que possible afin de prévenir les éventuels effets secondaires des traitements diurétiques.»</p>
+</div></div><div id="w-pa-q21" popover class="fenetre"><div class="barre"><span>Extrait 21</span><button type="button" popovertarget="w-pa-q21" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 21, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La spironolactone ne possède pas de propriétés anti - inflammatoires et n&#x27;influence pas la pathologie sous-jacente.»</p>
+</div></div><div id="w-pa-q22" popover class="fenetre"><div class="barre"><span>Extrait 22</span><button type="button" popovertarget="w-pa-q22" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 22, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«C&#x27;est pourquoi Aldactone ne doit être prescrit seulement lorsque la restriction de l&#x27;eau et du sel, ainsi que les diurétiques classiques ne donnent pas le résultat escompté.»</p>
+</div></div><div id="w-pa-q23" popover class="fenetre"><div class="barre"><span>Extrait 23</span><button type="button" popovertarget="w-pa-q23" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 23, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Oedèmes chez l&#x27;enfant La posologie initiale s&#x27;élève à 1.5-3.0 mg/kg de poids corporel, répartis en plusieurs doses par jour.»</p>
+</div></div><div id="w-pa-q24" popover class="fenetre"><div class="barre"><span>Extrait 24</span><button type="button" popovertarget="w-pa-q24" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 24, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La posologie doit être adaptée en fonction de la réponse au traitement et de la tolérance.»</p>
+</div></div><div id="w-pa-q25" popover class="fenetre"><div class="barre"><span>Extrait 25</span><button type="button" popovertarget="w-pa-q25" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 25, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Une suspension peut être obtenue par broyage des comprimés d&#x27;Aldactone dans un peu de glycérine et dilution dans un sirop.»</p>
+</div></div><div id="w-pa-q26" popover class="fenetre"><div class="barre"><span>Extrait 26</span><button type="button" popovertarget="w-pa-q26" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 26, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Diagnostic et traitement de l&#x27;hyperaldostéronisme primaire Chez les patients sous régime alimentaire normal, la spironolactone peut être utilisée comme mesure diagnostique initiale pour obtenir une première indication d&#x27;un hyperaldostéronisme primaire.»</p>
+</div></div><div id="w-pa-q27" popover class="fenetre"><div class="barre"><span>Extrait 27</span><button type="button" popovertarget="w-pa-q27" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 27, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Si le potassium sérique sous spironolactone s&#x27;élève et s&#x27;il diminue après l&#x27;arrêt de la spironolactone, le diagnostic d&#x27;un hyperaldostéronisme primaire doit être pris en considération.»</p>
+</div></div><div id="w-pa-q28" popover class="fenetre"><div class="barre"><span>Extrait 28</span><button type="button" popovertarget="w-pa-q28" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 28, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Une correction de l&#x27;hypokaliémie et de l&#x27;hypertension indique un éventuel hyperaldostéronisme primaire.»</p>
+</div></div><div id="w-pa-q29" popover class="fenetre"><div class="barre"><span>Extrait 29</span><button type="button" popovertarget="w-pa-q29" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 29, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Après avoir posé le diagnostic d&#x27;un hyperaldostéronisme par d&#x27;autres tests, la spironolactone peut être administrée à raison de 100-400 mg/jour en prémédication pour l&#x27;opération.»</p>
+</div></div><div id="w-pa-q30" popover class="fenetre"><div class="barre"><span>Extrait 30</span><button type="button" popovertarget="w-pa-q30" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 30, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Administrer aux patients inopérables la dose efficace d&#x27;Aldactone la plus faible possible.»</p>
+</div></div><div id="w-pa-q31" popover class="fenetre"><div class="barre"><span>Extrait 31</span><button type="button" popovertarget="w-pa-q31" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 31, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Hypokaliémie Afin de remédier à une carence potassique induite par les diurétiques ou lorsque la prise orale de potassium est contre-indiquée: 25 à 100 mg/jour.»</p>
+</div></div><div id="w-pa-q32" popover class="fenetre"><div class="barre"><span>Extrait 32</span><button type="button" popovertarget="w-pa-q32" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 32, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Une acidose hyperchlorémique métabolique réversible, généralement associée à une hyperkaliémie, a été observée chez quelques patients présentant une cirrhose hépatique décompensée, également lors d&#x27;une fonction rénale normale.»</p>
+</div></div><div id="w-pa-q33" popover class="fenetre"><div class="barre"><span>Extrait 33</span><button type="button" popovertarget="w-pa-q33" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 33, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La prudence est recommandée chez les patients ayant une tendance à l&#x27;acidose et/ou l&#x27;hyperkaliémie suite à leur maladie sous-jacente (par ex. diabète).»</p>
+</div></div><div id="w-pa-q34" popover class="fenetre"><div class="barre"><span>Extrait 34</span><button type="button" popovertarget="w-pa-q34" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 34, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«De plus, la prudence est recommandée en cas de troubles légers de la fonction rénale (créatinine sérique entre 1.2 mg/100 ml et 1.8 mg/100 ml ou clairance de la créatinine entre 60 ml/min et 30 ml/min) ainsi qu&#x27;en cas d&#x27;hypotension et d&#x27;hypovolémie.»</p>
+</div></div><div id="w-pa-q35" popover class="fenetre"><div class="barre"><span>Extrait 35</span><button type="button" popovertarget="w-pa-q35" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 35, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Hyperkaliémie chez les patients présentant une insuffisance cardiaque sévère L&#x27;hyperkaliémie peut représenter une menace vitale.»</p>
+</div></div><div id="w-pa-q36" popover class="fenetre"><div class="barre"><span>Extrait 36</span><button type="button" popovertarget="w-pa-q36" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 36, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Le taux sérique de potassium doit être surveillé chez les patients présentant une insuffisance cardiaque sévère.»</p>
+</div></div><div id="w-pa-q37" popover class="fenetre"><div class="barre"><span>Extrait 37</span><button type="button" popovertarget="w-pa-q37" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 37, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;apport supplémentaire de potassium par voie orale doit être évité chez les patients présentant une kaliémie supérieure à 3.5 mmol/l.»</p>
+</div></div><div id="w-pa-q38" popover class="fenetre"><div class="barre"><span>Extrait 38</span><button type="button" popovertarget="w-pa-q38" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 38, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Un contrôle de la kaliémie et de la créatininémie est recommandé une semaine après le début du traitement et après toute augmentation posologique, puis une fois par mois au cours des trois premiers mois, puis ensuite quatre fois par an pendant une année et enfin deux fois par année par la suite.»</p>
+</div></div><div id="w-pa-q39" popover class="fenetre"><div class="barre"><span>Extrait 39</span><button type="button" popovertarget="w-pa-q39" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 39, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Le traitement doit être arrêté ou interrompu si la kaliémie dépasse 5 mmol/l ou si la créatininémie dépasse 4 mg/dl.»</p>
+</div></div><div id="w-pa-q40" popover class="fenetre"><div class="barre"><span>Extrait 40</span><button type="button" popovertarget="w-pa-q40" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 40, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«En conséquence, leur posologie sera éventuellement réduite si Aldactone doit être administré.»</p>
+</div></div><div id="w-pa-q41" popover class="fenetre"><div class="barre"><span>Extrait 41</span><button type="button" popovertarget="w-pa-q41" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 41, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Parce que la spironolactone diminue la réactivité vasculaire à la noradrénaline et à l&#x27;adrénaline, la prudence est de rigueur chez les patients sous anesthésie locale ou générale.»</p>
+</div></div><div id="w-pa-q42" popover class="fenetre"><div class="barre"><span>Extrait 42</span><button type="button" popovertarget="w-pa-q42" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 42, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Parce que la spironolactone provoque une prolongation de la demi - vie de la digoxine, la posologie de cette dernière sera diminuée lors de l&#x27;administration concomitante des deux substances.»</p>
+</div></div><div id="w-pa-q43" popover class="fenetre"><div class="barre"><span>Extrait 43</span><button type="button" popovertarget="w-pa-q43" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 43, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«De plus, afin d&#x27;éviter une intoxication digitalique, une surveillance étroite du patient est recommandée.»</p>
+</div></div><div id="w-pa-q44" popover class="fenetre"><div class="barre"><span>Extrait 44</span><button type="button" popovertarget="w-pa-q44" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 44, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La spironolactone peut interférer avec les essais de détermination (détermination de RTA) de la digoxine plasmatique et entraîner des valeurs faussement augmentées, de même qu&#x27;avec ceux du cortisol.»</p>
+</div></div><div id="w-pa-q45" popover class="fenetre"><div class="barre"><span>Extrait 45</span><button type="button" popovertarget="w-pa-q45" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 45, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Les anti-inflammatoires non stéroïdiens (AINS) tels que l&#x27;aspirine, l&#x27;indométacine et l&#x27;acide méfénamique peuvent atténuer l&#x27;effet natriurétique des diurétiques par inhibition de la synthèse intrarénale de prostaglandines et diminuer incontestablement l&#x27;effet diurétique de la spironolactone.»</p>
+</div></div><div id="w-pa-q46" popover class="fenetre"><div class="barre"><span>Extrait 46</span><button type="button" popovertarget="w-pa-q46" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 46, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«En outre, le risque d&#x27;une hyperkaliémie est accru en cas d&#x27;association d&#x27;Aldactone aux AINS.»</p>
+</div></div><div id="w-pa-q47" popover class="fenetre"><div class="barre"><span>Extrait 47</span><button type="button" popovertarget="w-pa-q47" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 47, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Une défaillance rénale aiguë peut apparaître sous l&#x27;association de spironolactone, d&#x27;inhibiteurs de l&#x27;ECA et de furosémide.»</p>
+</div></div><div id="w-pa-q48" popover class="fenetre"><div class="barre"><span>Extrait 48</span><button type="button" popovertarget="w-pa-q48" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 48, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Une acidose métabolique avec hyperkaliémie a été rapportée en cas d&#x27;association de spironolactone et de chlorure d&#x27;ammonium ou de colestyramine.»</p>
+</div></div><div id="w-pa-q49" popover class="fenetre"><div class="barre"><span>Extrait 49</span><button type="button" popovertarget="w-pa-q49" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 49, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;administration simultanée de spironolactone et de carbénoxolone peut provoquer une baisse de l&#x27;efficacité des deux substances.»</p>
+</div></div><div id="w-pa-q50" popover class="fenetre"><div class="barre"><span>Extrait 50</span><button type="button" popovertarget="w-pa-q50" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 50, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La spironolactone se lie au récepteur des androgènes et peut augmenter les taux d&#x27;antigène prostatique spécifique (PSA) chez les patients atteints de cancer de la prostate traités par abiratérone.»</p>
+</div></div><div id="w-pa-q51" popover class="fenetre"><div class="barre"><span>Extrait 51</span><button type="button" popovertarget="w-pa-q51" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 51, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«La spironolactone peut abaisser la concentration plasmatique de mitotane chez les patients présentant un corticosurrénalome, et ne doit pas être utilisée simultanément.»</p>
+</div></div><div id="w-pa-q52" popover class="fenetre"><div class="barre"><span>Extrait 52</span><button type="button" popovertarget="w-pa-q52" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 52, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;administration concomitante de sels de lithium peut entraîner une augmentation du taux sanguin de lithium accompagnée d&#x27;une symptomatologie de surdosage (renforcement de l&#x27;effet cardiotoxique et neurotoxique du lithium).»</p>
+</div></div><div id="w-pa-q53" popover class="fenetre"><div class="barre"><span>Extrait 53</span><button type="button" popovertarget="w-pa-q53" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 53, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Si un traitement diurétique est néanmoins inévitable, un contrôle rigoureux du taux de lithium dans le sang et, le cas échéant, une adaptation de la posologie sont nécessaires.»</p>
+</div></div><div id="w-pa-q54" popover class="fenetre"><div class="barre"><span>Extrait 54</span><button type="button" popovertarget="w-pa-q54" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 54, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«En conséquence, le médicament ne doit pas être administré durant la grossesse, sauf en cas de nécessité absolue.»</p>
+</div></div><div id="w-pa-q55" popover class="fenetre"><div class="barre"><span>Extrait 55</span><button type="button" popovertarget="w-pa-q55" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 55, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Allaitement Le canrénone, métabolite de la spironolactone, peut passer dans le lait maternel.»</p>
+</div></div><div id="w-pa-q56" popover class="fenetre"><div class="barre"><span>Extrait 56</span><button type="button" popovertarget="w-pa-q56" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 56, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«En conséquence, la prescription d&#x27;Aldactone n&#x27;est pas recommandée chez les femmes qui allaitent ou elles devront arrêter l&#x27;allaitement en cas de nécessité absolue du traitement.»</p>
+</div></div><div id="w-pa-q57" popover class="fenetre"><div class="barre"><span>Extrait 57</span><button type="button" popovertarget="w-pa-q57" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 57, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Effet sur l’aptitude à la conduite et l’utilisation de machines Somnolence et obnubilation sont apparues chez quelques patients.»</p>
+</div></div><div id="w-pa-q58" popover class="fenetre"><div class="barre"><span>Extrait 58</span><button type="button" popovertarget="w-pa-q58" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 58, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«En conséquence, principalement au début du traitement, le patient doit observer une prudence particulière lors de la conduite automobile ou de l&#x27;utilisation d&#x27;une machine, jusqu&#x27;à ce qu&#x27;il connaisse sa réaction à la spironolactone.»</p>
+</div></div><div id="w-pa-q59" popover class="fenetre"><div class="barre"><span>Extrait 59</span><button type="button" popovertarget="w-pa-q59" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 59, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Effets indésirables Les effets indésirables les plus fréquemment décrits chez les patients traités avec la spironolactone étaient l&#x27;hyperkaliémie et la gynécomastie.»</p>
+</div></div><div id="w-pa-q60" popover class="fenetre"><div class="barre"><span>Extrait 60</span><button type="button" popovertarget="w-pa-q60" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 60, copié depuis aips_27257_aldactone.txt, fichier lu le 31.10.2026.</p>
+<p>«Liste des effets indésirables Tous les effets indésirables médicalement importants, observés pendant l&#x27;utilisation de spironolactone dans les études cliniques et/ou au cours de la surveillance post-marketing, sont énumérés ci-dessous par classe de systèmes d&#x27;organe»</p>
+</div></div><div id="w-pa-q61" popover class="fenetre"><div class="barre"><span>Extrait 61</span><button type="button" popovertarget="w-pa-q61" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 61, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«# Swissmedic, information professionnelle Lasix comprimés 40 mg, n° 30629, Sanofi-Aventis (Suisse) SA. # Texte hors ligne du dépôt, lu le 31.10.2026.»</p>
+</div></div><div id="w-pa-q62" popover class="fenetre"><div class="barre"><span>Extrait 62</span><button type="button" popovertarget="w-pa-q62" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 62, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Excipients Lactosum monohydricum (corresp. à 50,4 mg lactosum), magnesii stearas, maydis amylum, amylum pregelificatum, silica colloidalis anhydrica, talcum Forme pharmaceutique et quantité de principe actif par unité Comprimés sécables 1 comprimé contient 40 mg furosémide.»</p>
+</div></div><div id="w-pa-q63" popover class="fenetre"><div class="barre"><span>Extrait 63</span><button type="button" popovertarget="w-pa-q63" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 63, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Oedèmes d&#x27;origine rénale (en cas de syndrome néphrotique, le traitement de l&#x27;affection de base sera prioritaire).»</p>
+</div></div><div id="w-pa-q64" popover class="fenetre"><div class="barre"><span>Extrait 64</span><button type="button" popovertarget="w-pa-q64" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 64, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Posologie/Mode d’emploi En règle générale, il faut maintenir le dosage le plus faible possible pour obtenir l&#x27;effet désiré.»</p>
+</div></div><div id="w-pa-q65" popover class="fenetre"><div class="barre"><span>Extrait 65</span><button type="button" popovertarget="w-pa-q65" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 65, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«La dose maximale recommandée s&#x27;élève à 1&#x27;500 mg/j pour l&#x27;administration orale et intraveineuse.»</p>
+</div></div><div id="w-pa-q66" popover class="fenetre"><div class="barre"><span>Extrait 66</span><button type="button" popovertarget="w-pa-q66" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 66, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Seuls les patients atteints d&#x27;une fonction rénale fortement diminuée nécessitent en général de telles doses élevées par voie intraveineuse (voir Lasix 250 mg/500 mg).»</p>
+</div></div><div id="w-pa-q67" popover class="fenetre"><div class="barre"><span>Extrait 67</span><button type="button" popovertarget="w-pa-q67" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 67, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Administration orale, à jeun Sauf prescription contraire, suivre les directives posologiques suivantes: Lasix comprimés En général, le traitement débute chez les adultes par ½ à 1 à 2 comprimés/jour; dose d&#x27;entretien: ½ à 1 comprimé/jour.»</p>
+</div></div><div id="w-pa-q68" popover class="fenetre"><div class="barre"><span>Extrait 68</span><button type="button" popovertarget="w-pa-q68" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 68, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Mode et durée d&#x27;administration Prendre les comprimés à jeun, sans les croquer avec beaucoup de liquide.»</p>
+</div></div><div id="w-pa-q69" popover class="fenetre"><div class="barre"><span>Extrait 69</span><button type="button" popovertarget="w-pa-q69" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 69, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Une forte restriction sodée peut diminuer le taux de filtration glomérulaire et affaiblir l&#x27;effet diurétique des salidiurétiques.»</p>
+</div></div><div id="w-pa-q70" popover class="fenetre"><div class="barre"><span>Extrait 70</span><button type="button" popovertarget="w-pa-q70" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 70, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Remarques: puisque l&#x27;utilisation de Lasix peut conduire à des hypokaliémies, il est toujours indiqué de suivre un régime riche en potassium (viande maigre, pommes de terre, bananes, tomates, chou-fleur, épinards, fruits secs, etc.).»</p>
+</div></div><div id="w-pa-q71" popover class="fenetre"><div class="barre"><span>Extrait 71</span><button type="button" popovertarget="w-pa-q71" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 71, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Dans d&#x27;autres cas (par ex. cirrhose du foie), il est recommandé de prévenir une hypokaliémie ou une alcalose métabolique par l&#x27;administration de spironolactone.»</p>
+</div></div><div id="w-pa-q72" popover class="fenetre"><div class="barre"><span>Extrait 72</span><button type="button" popovertarget="w-pa-q72" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 72, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Contre-indications · Hypersensibilité au furosémide, aux sulfamides ou à l&#x27;un des excipients. · Défaillance rénale accompagnée d&#x27;anurie. · Coma et précoma hépatique. · Hypokaliémie sévère, hyponatrémie sévère et/ou hypovolémie ainsi qu&#x27;une déshydratation avec ou sans hypotension artérielle concomitante. · Allaitement.»</p>
+</div></div><div id="w-pa-q73" popover class="fenetre"><div class="barre"><span>Extrait 73</span><button type="button" popovertarget="w-pa-q73" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 73, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Mises en garde et précautions Pendant un traitement au long cours, contrôler régulièrement la créatinine et l&#x27;urée sériques, ainsi que les électrolytes plasmatiques, en particulier le potassium, le calcium, le chlorure et le bicarbonate.»</p>
+</div></div><div id="w-pa-q74" popover class="fenetre"><div class="barre"><span>Extrait 74</span><button type="button" popovertarget="w-pa-q74" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 74, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Une surveillance particulière est nécessaire chez les patients avec un risque élevé de troubles électrolytiques, ainsi que lors de pertes liquidiennes accrues, notamment lors de transpiration excessive, de diarrhée ou de vomissements.»</p>
+</div></div><div id="w-pa-q75" popover class="fenetre"><div class="barre"><span>Extrait 75</span><button type="button" popovertarget="w-pa-q75" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 75, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Si furosémide doit être administré à des patients souffrant d&#x27;une légère hypokaliémie ou d&#x27;une hyponatriémie, une substitution des électrolytes correspondants devrait être instaurée simultanément.»</p>
+</div></div><div id="w-pa-q76" popover class="fenetre"><div class="barre"><span>Extrait 76</span><button type="button" popovertarget="w-pa-q76" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 76, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Une hypovolémie ou une déshydratation ainsi que des troubles électrolytiques significatifs et des altérations de l&#x27;équilibre acido-basique doivent être compensés.»</p>
+</div></div><div id="w-pa-q77" popover class="fenetre"><div class="barre"><span>Extrait 77</span><button type="button" popovertarget="w-pa-q77" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 77, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Chez les patients avec une obstruction partielle du flux urinaire (par ex. patients souffrant d&#x27;un trouble de vidange de la vessie, d&#x27;une hyperplasie prostatique ou d&#x27;un rétrécissement de l&#x27;urètre), l&#x27;augmentation de la production d&#x27;urine peut provoquer ou aggraver les douleurs.»</p>
+</div></div><div id="w-pa-q78" popover class="fenetre"><div class="barre"><span>Extrait 78</span><button type="button" popovertarget="w-pa-q78" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 78, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;augmentation de la mortalité chez des patients traités par furosémide et rispéridone a été observée dans 2 études cliniques sur les 4 réalisées.»</p>
+</div></div><div id="w-pa-q79" popover class="fenetre"><div class="barre"><span>Extrait 79</span><button type="button" popovertarget="w-pa-q79" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 79, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;utilisation concomitante de rispéridone avec d&#x27;autres diurétiques (principalement thiazidiques à faible dose) n&#x27;a pas été associée à de telles observations.»</p>
+</div></div><div id="w-pa-q80" popover class="fenetre"><div class="barre"><span>Extrait 80</span><button type="button" popovertarget="w-pa-q80" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 80, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Aucun mécanisme physiopathologique n&#x27;a été identifié qui puisse expliquer ces constatations et aucun motif logique des causes de décès n&#x27;a été observé.»</p>
+</div></div><div id="w-pa-q81" popover class="fenetre"><div class="barre"><span>Extrait 81</span><button type="button" popovertarget="w-pa-q81" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 81, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Il convient néanmoins d&#x27;être prudent et de prendre en considération les risques et bénéfices de cette association ou d&#x27;un co-traitement avec d&#x27;autres diurétiques puissants avant de prendre une décision.»</p>
+</div></div><div id="w-pa-q82" popover class="fenetre"><div class="barre"><span>Extrait 82</span><button type="button" popovertarget="w-pa-q82" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 82, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Il n&#x27;y a eu aucune incidence accrue de décès parmi les patients prenant d&#x27;autres diurétiques en traitement concomitant avec la rispéridone.»</p>
+</div></div><div id="w-pa-q83" popover class="fenetre"><div class="barre"><span>Extrait 83</span><button type="button" popovertarget="w-pa-q83" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 83, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Il est possible qu&#x27;un lupus érythémateux préexistant s&#x27;aggrave chez les patients traités avec furosémide ou qu&#x27;une activation d&#x27;un lupus érythémateux survienne avec furosémide.»</p>
+</div></div><div id="w-pa-q84" popover class="fenetre"><div class="barre"><span>Extrait 84</span><button type="button" popovertarget="w-pa-q84" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 84, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Lactose Les patients présentant une intolérance au galactose, un déficit total en lactase ou un syndrome de malabsorption du glucose et du galactose (maladies héréditaires rares) ne devraient pas prendre ce médicament.»</p>
+</div></div><div id="w-pa-q85" popover class="fenetre"><div class="barre"><span>Extrait 85</span><button type="button" popovertarget="w-pa-q85" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 85, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Interactions Des associations non-recommandées L&#x27;ototoxicité des antibiotiques du groupe des aminoglucosides (tels que la kanamycine, la gentamycine, la tobramycine) et d&#x27;autres substances ototoxiques peut être augmentée en cas d&#x27;utilisation concomitante de furosémide.»</p>
+</div></div><div id="w-pa-q86" popover class="fenetre"><div class="barre"><span>Extrait 86</span><button type="button" popovertarget="w-pa-q86" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 86, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Les troubles auditifs qui en résultent pouvant être irréversibles, ces antibiotiques ne doivent être associés qu&#x27;en cas d&#x27;indication vitale.»</p>
+</div></div><div id="w-pa-q87" popover class="fenetre"><div class="barre"><span>Extrait 87</span><button type="button" popovertarget="w-pa-q87" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 87, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Dans de rares cas, on a observé - à la suite d&#x27;une administration intraveineuse de furosémide et dans les 24 heures suivant la prise d&#x27;hydrate de chloral - une sensation de chaleur, une transpiration excessive, de l&#x27;agitation, des nausées, une augmentation de la tension artérielle et une tachycardie.»</p>
+</div></div><div id="w-pa-q88" popover class="fenetre"><div class="barre"><span>Extrait 88</span><button type="button" popovertarget="w-pa-q88" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 88, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Pour cette raison l&#x27;application simultanée de furosémide et d&#x27;hydrate de chloral n&#x27;est pas recommandée.»</p>
+</div></div><div id="w-pa-q89" popover class="fenetre"><div class="barre"><span>Extrait 89</span><button type="button" popovertarget="w-pa-q89" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 89, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Des associations sous précautions ou attention particulière Quelques troubles électrolytiques (tels que l&#x27;hypokaliémie, l&#x27;hypomagnésiémie) peuvent renforcer la toxicité de certaines autres substances (par ex. les préparations à base de digitale et les médicaments induisant un syndrome de prolongation de l&#x27;intervalle QT).»</p>
+</div></div><div id="w-pa-q90" popover class="fenetre"><div class="barre"><span>Extrait 90</span><button type="button" popovertarget="w-pa-q90" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 90, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«En cas d&#x27;association aux glucocorticoïdes, aux laxatifs (administration prolongée) ou à la carbénoxolone, il convient de prendre en considération qu&#x27;une fuite potassique accrue peut survenir.»</p>
+</div></div><div id="w-pa-q91" popover class="fenetre"><div class="barre"><span>Extrait 91</span><button type="button" popovertarget="w-pa-q91" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 91, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Il n&#x27;est pas exclu que dans certains cas, furosémide renforce l&#x27;effet néphrotoxique de certains médicaments (tels que les aminoglucosides, les céphalosporines, les polymyxines).»</p>
+</div></div><div id="w-pa-q92" popover class="fenetre"><div class="barre"><span>Extrait 92</span><button type="button" popovertarget="w-pa-q92" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 92, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«C&#x27;est pourquoi furosémide doit être prescrit avec précaution en cas de lésion rénale due aux antibiotiques.»</p>
+</div></div><div id="w-pa-q93" popover class="fenetre"><div class="barre"><span>Extrait 93</span><button type="button" popovertarget="w-pa-q93" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 93, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Lors d&#x27;utilisation concomitante de furosémide et de cisplatine, on peut s&#x27;attendre à des troubles auditifs.»</p>
+</div></div><div id="w-pa-q94" popover class="fenetre"><div class="barre"><span>Extrait 94</span><button type="button" popovertarget="w-pa-q94" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 94, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Si une diurèse forcée par le furosémide est nécessaire lors d&#x27;un traitement par la cisplatine, seule une faible dose de furosémide peut être utilisée (par ex. 40 mg dans le cas d&#x27;une fonction rénale normale) et seulement lors d&#x27;un bilan hydrique positif.»</p>
+</div></div><div id="w-pa-q95" popover class="fenetre"><div class="barre"><span>Extrait 95</span><button type="button" popovertarget="w-pa-q95" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 95, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;action des antihypertenseurs, des diurétiques ou d&#x27;autres médicaments anti-hypertenseurs peut être potentialisée par furosémide.»</p>
+</div></div><div id="w-pa-q96" popover class="fenetre"><div class="barre"><span>Extrait 96</span><button type="button" popovertarget="w-pa-q96" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 96, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Surtout en association avec les inhibiteurs de l&#x27;ECA, d&#x27;importantes chutes de pression pouvant aller jusqu&#x27;au choc ont été constatées.»</p>
+</div></div><div id="w-pa-q97" popover class="fenetre"><div class="barre"><span>Extrait 97</span><button type="button" popovertarget="w-pa-q97" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 97, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Lors de l&#x27;administration initiale ou à des doses élevées d&#x27;un inhibiteur de l&#x27;ECA ou d&#x27;un antagoniste des récepteurs de l&#x27;angiotensine II, les patients sous diurétiques peuvent souffrir d&#x27;une hypotension sévère ou d&#x27;une altération de la fonction rénale incluant une défaillance rénale.»</p>
+</div></div><div id="w-pa-q98" popover class="fenetre"><div class="barre"><span>Extrait 98</span><button type="button" popovertarget="w-pa-q98" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 98, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Lors de l&#x27;administration d&#x27;un inhibiteur de l&#x27;ECA ou d&#x27;un antagoniste des récepteurs de l&#x27;angiotensine II ou en cas d&#x27;augmentation de doses de ces médicaments, l&#x27;administration de Lasix doit être momentanément interrompue, ou sa posologie réduite pendant trois jours.»</p>
+</div></div><div id="w-pa-q99" popover class="fenetre"><div class="barre"><span>Extrait 99</span><button type="button" popovertarget="w-pa-q99" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 99, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Les antiphlogistiques non stéroïdiens (tels l&#x27;indométacine, l&#x27;acide acétylsalicylique) peuvent diminuer l&#x27;action du furosémide et mener à une défaillance rénale aiguë lors d&#x27;une hypovolémie ou d&#x27;une déshydratation existante.»</p>
+</div></div><div id="w-pa-q100" popover class="fenetre"><div class="barre"><span>Extrait 100</span><button type="button" popovertarget="w-pa-q100" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 100, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;aliskirène réduit la concentration plasmatique du furosémide lorsqu&#x27;il est administré par voie orale.»</p>
+</div></div><div id="w-pa-q101" popover class="fenetre"><div class="barre"><span>Extrait 101</span><button type="button" popovertarget="w-pa-q101" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 101, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Il est recommandé de réaliser une surveillance de la diminution de l&#x27;effet diurétique et d&#x27;adapter la posologie en conséquence chez les patients traités simultanément par aliskirène et furosémide en cas d&#x27;administration per os.»</p>
+</div></div><div id="w-pa-q102" popover class="fenetre"><div class="barre"><span>Extrait 102</span><button type="button" popovertarget="w-pa-q102" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 102, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Le probénécide, le méthotrexate et d&#x27;autres substances, qui comme le furosémide sont soumis à une sécrétion tubulaire rénale marquée, peuvent inhiber l&#x27;effet du furosémide.»</p>
+</div></div><div id="w-pa-q103" popover class="fenetre"><div class="barre"><span>Extrait 103</span><button type="button" popovertarget="w-pa-q103" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 103, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Lors du dosage élevé de ces substances et du furosémide, des taux sériques importants peuvent être atteints renforçant les effets secondaires du furosémide et du traitement concomitant.»</p>
+</div></div><div id="w-pa-q104" popover class="fenetre"><div class="barre"><span>Extrait 104</span><button type="button" popovertarget="w-pa-q104" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 104, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;absorption simultanée de furosémide avec de fortes doses de certaines céphalosporines (par ex. céphaloridine, céphalotine) peut provoquer une défaillance de la fonction rénale.»</p>
+</div></div><div id="w-pa-q105" popover class="fenetre"><div class="barre"><span>Extrait 105</span><button type="button" popovertarget="w-pa-q105" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 105, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Le risque d&#x27;une arthrite goutteuse sous traitement concomitant par ciclosporine et furosémide est accru à cause de l&#x27;hyperuricémie induite par le furosémide et par la détérioration de l&#x27;élimination rénale de l&#x27;acide urique par la ciclosporine.»</p>
+</div></div><div id="w-pa-q106" popover class="fenetre"><div class="barre"><span>Extrait 106</span><button type="button" popovertarget="w-pa-q106" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 106, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«A ce jour, aucune malformation qui pourrait être associée à une exposition au furosémide n&#x27;a été découverte chez l&#x27;homme.»</p>
+</div></div><div id="w-pa-q107" popover class="fenetre"><div class="barre"><span>Extrait 107</span><button type="button" popovertarget="w-pa-q107" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 107, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;expérience acquise à ce jour ne permet toutefois pas de déterminer de manière définitive s&#x27;il existe ou non un effet nocif sur l&#x27;embryon ou le fœtus.»</p>
+</div></div><div id="w-pa-q108" popover class="fenetre"><div class="barre"><span>Extrait 108</span><button type="button" popovertarget="w-pa-q108" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 108, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Des études chez l&#x27;animal ont montré des effets indésirables pour le fœtus (embryotoxicité due à une déplétion électrolytique).»</p>
+</div></div><div id="w-pa-q109" popover class="fenetre"><div class="barre"><span>Extrait 109</span><button type="button" popovertarget="w-pa-q109" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 109, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Pour cette raison Lasix ne devrait pas être employé pendant la grossesse, sauf en cas de nécessité absolue.»</p>
+</div></div><div id="w-pa-q110" popover class="fenetre"><div class="barre"><span>Extrait 110</span><button type="button" popovertarget="w-pa-q110" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 110, copié depuis aips_30629_lasix.txt, fichier lu le 31.10.2026.</p>
+<p>«Un traitement ne doit être appliqué qu&#x27;en cas d&#x27;indication expresse et pendant une période brève.»</p>
+</div></div><div id="w-pa-q111" popover class="fenetre"><div class="barre"><span>Extrait 111</span><button type="button" popovertarget="w-pa-q111" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 111, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«# Swissmedic, information professionnelle Augmentin comprimés filmés, n° 45674, GlaxoSmithKline AG. # Texte hors ligne du dépôt, lu le 31.10.2026.»</p>
+</div></div><div id="w-pa-q112" popover class="fenetre"><div class="barre"><span>Extrait 112</span><button type="button" popovertarget="w-pa-q112" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 112, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Excipients Noyau des comprimés : stéarate de magnésium, carboxyméthylamidon sodique (type A), silice colloïdale anhydre, cellulose microcristalline.»</p>
+</div></div><div id="w-pa-q113" popover class="fenetre"><div class="barre"><span>Extrait 113</span><button type="button" popovertarget="w-pa-q113" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 113, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Enrobage des comprimés : dioxyde de titane (E171), hypromellose, macrogol 4000, macrogol 6000, diméticone.»</p>
+</div></div><div id="w-pa-q114" popover class="fenetre"><div class="barre"><span>Extrait 114</span><button type="button" popovertarget="w-pa-q114" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 114, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Teneur totale en sodium: 0,882 mg de sodium/comprimé filmé à 625 mg, resp. 1,218 mg de sodium/comprimé filmé à 1 g.»</p>
+</div></div><div id="w-pa-q115" popover class="fenetre"><div class="barre"><span>Extrait 115</span><button type="button" popovertarget="w-pa-q115" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 115, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Forme pharmaceutique et quantité de principe actif par unité Comprimés filmés à 625 mg (500/125) contenant 500 mg d&#x27;amoxicilline sous forme d&#x27;amoxicilline trihydratée et 125 mg d&#x27;acide clavulanique sous forme de clavulanate de potassium (rapport amoxicilline:acide clavulanique 4:1).»</p>
+</div></div><div id="w-pa-q116" popover class="fenetre"><div class="barre"><span>Extrait 116</span><button type="button" popovertarget="w-pa-q116" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 116, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Comprimés filmés à 1 g (875/125) (avec sillon décoratif) contenant 875 mg d&#x27;amoxicilline sous forme d&#x27;amoxicilline trihydratée et 125 mg d&#x27;acide clavulanique sous forme de clavulanate de potassium (rapport amoxicilline:acide clavulanique 7:1).»</p>
+</div></div><div id="w-pa-q117" popover class="fenetre"><div class="barre"><span>Extrait 117</span><button type="button" popovertarget="w-pa-q117" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 117, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Indications/Possibilités d’emploi Augmentin doit être utilisé conformément aux recommandations locales officielles sur l&#x27;utilisation d&#x27;antibiotiques et compte tenu des données locales de sensibilité.»</p>
+</div></div><div id="w-pa-q118" popover class="fenetre"><div class="barre"><span>Extrait 118</span><button type="button" popovertarget="w-pa-q118" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 118, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Infections ORL: Amygdalite, pharyngite, laryngite, otite moyenne, sinusite, essentiellement dues à Streptococcus pneumoniae, Haemophilus influenzae, Moraxella catarrhalis et Streptococcus pyogenes.»</p>
+</div></div><div id="w-pa-q119" popover class="fenetre"><div class="barre"><span>Extrait 119</span><button type="button" popovertarget="w-pa-q119" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 119, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Infections des voies respiratoires inférieures: Bronchite aiguë avec surinfection bactérienne et exacerbations aiguës d&#x27;une bronchite chronique, pneumonie bactérienne, essentiellement provoquées par Streptococcus pneumoniae, Haemophilus influenzae et Moraxella catarrhalis.»</p>
+</div></div><div id="w-pa-q120" popover class="fenetre"><div class="barre"><span>Extrait 120</span><button type="button" popovertarget="w-pa-q120" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 120, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Infections urinaires: Pyélonéphrite aiguë et chronique, cystite, urétrite, entre autres dues à Escherichia coli .»</p>
+</div></div><div id="w-pa-q121" popover class="fenetre"><div class="barre"><span>Extrait 121</span><button type="button" popovertarget="w-pa-q121" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 121, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Infections de la peau et des tissus mous: Essentiellement provoquées par Staphylococcus aureus et Streptococcus pyogenes .»</p>
+</div></div><div id="w-pa-q122" popover class="fenetre"><div class="barre"><span>Extrait 122</span><button type="button" popovertarget="w-pa-q122" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 122, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«La sensibilité à Augmentin des agents pathogènes peut varier en fonction de la situation géographique et elle peut changer au cours du temps.»</p>
+</div></div><div id="w-pa-q123" popover class="fenetre"><div class="barre"><span>Extrait 123</span><button type="button" popovertarget="w-pa-q123" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 123, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Les données locales de sensibilité doivent donc être prises en compte et, en cas de besoin, on effectuera des tests de sensibilité.»</p>
+</div></div><div id="w-pa-q124" popover class="fenetre"><div class="barre"><span>Extrait 124</span><button type="button" popovertarget="w-pa-q124" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 124, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Posologie/Mode d’emploi La dose dépend de l&#x27;âge, du poids et de la fonction rénale du patient, ainsi que du degré de sévérité de l&#x27;infection.»</p>
+</div></div><div id="w-pa-q125" popover class="fenetre"><div class="barre"><span>Extrait 125</span><button type="button" popovertarget="w-pa-q125" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 125, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Posologie usuelle Adultes et enfants de plus de 40 kg Pour les infections légères, modérées et sévères, la posologie usuelle est de 3 x 625 mg (500/125) par jour.»</p>
+</div></div><div id="w-pa-q126" popover class="fenetre"><div class="barre"><span>Extrait 126</span><button type="button" popovertarget="w-pa-q126" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 126, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Dans des cas particuliers (sinusites aiguës, pneumonies ambulatoire, exacerbations aiguës d&#x27;une bronchite chronique, pyélonéphrites et infections urinaires compliquées), 2 x 1 g (875/125) ou 3 x 625 mg (500/125) par jour.»</p>
+</div></div><div id="w-pa-q127" popover class="fenetre"><div class="barre"><span>Extrait 127</span><button type="button" popovertarget="w-pa-q127" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 127, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Au besoin, ces doses peuvent être doublées (jusqu&#x27;à 3 x 1 g (875/125) par jour au maximum).»</p>
+</div></div><div id="w-pa-q128" popover class="fenetre"><div class="barre"><span>Extrait 128</span><button type="button" popovertarget="w-pa-q128" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 128, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Enfants et adolescents de moins de 40 kg Augmentin comprimés filmés ne convient pas pour le traitement des infections de l&#x27;enfant.»</p>
+</div></div><div id="w-pa-q129" popover class="fenetre"><div class="barre"><span>Extrait 129</span><button type="button" popovertarget="w-pa-q129" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 129, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Pour le traitement des infections pédiatriques, voir l&#x27;information professionnelle concernant Augmentin Duo/Augmentin Trio Forte Suspensions.»</p>
+</div></div><div id="w-pa-q130" popover class="fenetre"><div class="barre"><span>Extrait 130</span><button type="button" popovertarget="w-pa-q130" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 130, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Instructions posologiques particulières Patients présentant des troubles de la fonction rénale En cas d&#x27;insuffisance rénale, l&#x27;excrétion de l&#x27;amoxicilline et de l&#x27;acide clavulanique est ralentie.»</p>
+</div></div><div id="w-pa-q131" popover class="fenetre"><div class="barre"><span>Extrait 131</span><button type="button" popovertarget="w-pa-q131" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 131, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Si la clairance de la créatinine dépasse 30 mL/min, aucun ajustement posologique n&#x27;est nécessaire.»</p>
+</div></div><div id="w-pa-q132" popover class="fenetre"><div class="barre"><span>Extrait 132</span><button type="button" popovertarget="w-pa-q132" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 132, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Hémodialyse Une dose normale supplémentaire pendant et à la fin de la dialyse (car l&#x27;hémodialyse provoque une diminution des concentrations plasmatiques d&#x27;amoxicilline et d&#x27;acide clavulanique).»</p>
+</div></div><div id="w-pa-q133" popover class="fenetre"><div class="barre"><span>Extrait 133</span><button type="button" popovertarget="w-pa-q133" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 133, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Patients âgés Un ajustement posologique n&#x27;est pas nécessaire; la dose est la même que chez l&#x27;adulte.»</p>
+</div></div><div id="w-pa-q134" popover class="fenetre"><div class="barre"><span>Extrait 134</span><button type="button" popovertarget="w-pa-q134" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 134, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«S&#x27;il y a une insuffisance rénale, il faut ajuster la dose comme chez l&#x27;adulte insuffisant rénal.»</p>
+</div></div><div id="w-pa-q135" popover class="fenetre"><div class="barre"><span>Extrait 135</span><button type="button" popovertarget="w-pa-q135" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 135, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Mode d&#x27;administration Il est recommandé de prendre Augmentin au début des repas avec au moins un demi-verre d&#x27;eau, car cela permet d&#x27;optimiser la résorption et la tolérance gastro-intestinale.»</p>
+</div></div><div id="w-pa-q136" popover class="fenetre"><div class="barre"><span>Extrait 136</span><button type="button" popovertarget="w-pa-q136" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 136, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Le sillon de sécabilité des comprimés filmés à 1 g est uniquement destiné à faciliter la prise du comprimé.»</p>
+</div></div><div id="w-pa-q137" popover class="fenetre"><div class="barre"><span>Extrait 137</span><button type="button" popovertarget="w-pa-q137" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 137, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Contre-indications L&#x27;usage d&#x27;Augmentin est contre-indiqué en cas d&#x27;hypersensibilité connue aux pénicillines et céphalosporines ou à un composant d&#x27;Augmentin, de même que chez les patients qui ont présenté un ictère ou des troubles de la fonction hépatique pendant un traitement antérieur par Augmentin.»</p>
+</div></div><div id="w-pa-q138" popover class="fenetre"><div class="barre"><span>Extrait 138</span><button type="button" popovertarget="w-pa-q138" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 138, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Les patients qui souffrent de mononucléose infectieuse et de leucémie lymphoïde sont particulièrement prédisposés aux exanthèmes sous traitement par l&#x27;amoxicilline.»</p>
+</div></div><div id="w-pa-q139" popover class="fenetre"><div class="barre"><span>Extrait 139</span><button type="button" popovertarget="w-pa-q139" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 139, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Mises en garde et précautions Avant d&#x27;entreprendre un traitement par Augmentin, le médecin doit demander au patient s&#x27;il a déjà présenté des réactions d&#x27;hypersensibilité aux pénicillines, à l&#x27;acide clavulanique, aux céphalosporines ou à d&#x27;autres allergènes.»</p>
+</div></div><div id="w-pa-q140" popover class="fenetre"><div class="barre"><span>Extrait 140</span><button type="button" popovertarget="w-pa-q140" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 140, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Des réactions d&#x27;hypersensibilité graves et occasionnellement d&#x27;issue fatale (y compris des réactions anaphylactoïdes et des réactions cutanées indésirables sévères) ont été rapportées chez des patients traités par des pénicillines.»</p>
+</div></div><div id="w-pa-q141" popover class="fenetre"><div class="barre"><span>Extrait 141</span><button type="button" popovertarget="w-pa-q141" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 141, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Des réactions d&#x27;hypersensibilité peuvent également provoquer un syndrome de Kounis, une réaction allergique sévère pouvant mener à un infarctus du myocarde.»</p>
+</div></div><div id="w-pa-q142" popover class="fenetre"><div class="barre"><span>Extrait 142</span><button type="button" popovertarget="w-pa-q142" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 142, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«En cas d&#x27;apparition d&#x27;une réaction allergique, il faut arrêter Augmentin et instaurer un autre traitement adapté.»</p>
+</div></div><div id="w-pa-q143" popover class="fenetre"><div class="barre"><span>Extrait 143</span><button type="button" popovertarget="w-pa-q143" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 143, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Il faut avoir sous la main les mesures d&#x27;urgence nécessaires pour combattre d&#x27;éventuelles réactions anaphylactiques ou anaphylactoïdes.»</p>
+</div></div><div id="w-pa-q144" popover class="fenetre"><div class="barre"><span>Extrait 144</span><button type="button" popovertarget="w-pa-q144" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 144, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Ensuite, administrer des glucocorticoïdes par voie intraveineuse (par exemple 250-1000 mg de prednisolone).»</p>
+</div></div><div id="w-pa-q145" popover class="fenetre"><div class="barre"><span>Extrait 145</span><button type="button" popovertarget="w-pa-q145" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 145, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«De l&#x27;oxygène, des stéroïdes intraveineux et une ventilation assistée, y compris une intubation, peuvent également être nécessaires. (Chez l&#x27;enfant, ajuster la dose du produit en fonction du poids ou de l&#x27;âge).»</p>
+</div></div><div id="w-pa-q146" popover class="fenetre"><div class="barre"><span>Extrait 146</span><button type="button" popovertarget="w-pa-q146" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 146, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Il faut envisager d&#x27;autres mesures thérapeutiques telles que l&#x27;administration intraveineuse d&#x27;antihistaminiques et une substitution volémique.»</p>
+</div></div><div id="w-pa-q147" popover class="fenetre"><div class="barre"><span>Extrait 147</span><button type="button" popovertarget="w-pa-q147" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 147, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«En cas de survenue de telles réactions, Augmentin doit être arrêté immédiatement et un traitement de substitution doit être envisagé.»</p>
+</div></div><div id="w-pa-q148" popover class="fenetre"><div class="barre"><span>Extrait 148</span><button type="button" popovertarget="w-pa-q148" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 148, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Le DIES est une réaction allergique dont le principal symptôme est un vomissement prolongé (1 à 4 heures après la prise du médicament), en l&#x27;absence de symptômes allergiques cutanés ou respiratoires.»</p>
+</div></div><div id="w-pa-q149" popover class="fenetre"><div class="barre"><span>Extrait 149</span><button type="button" popovertarget="w-pa-q149" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 149, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Les autres symptômes peuvent inclure des douleurs abdominales, une léthargie, des diarrhées, une hypotension ou une leucocytose avec neutrophilie.»</p>
+</div></div><div id="w-pa-q150" popover class="fenetre"><div class="barre"><span>Extrait 150</span><button type="button" popovertarget="w-pa-q150" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 150, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Si de telles réactions se produisent, Augmentin doit être arrêté immédiatement et un traitement alternatif doit être envisagé.»</p>
+</div></div><div id="w-pa-q151" popover class="fenetre"><div class="barre"><span>Extrait 151</span><button type="button" popovertarget="w-pa-q151" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 151, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Les signes et symptômes cliniques incluent: fièvre, éruption cutanée, symptômes neurologiques, hépatosplénomégalie, lymphadénopathie, cytopénies, ferritine sérique accrue, hypertriglycéridémie et valeurs de la fonction hépatique et de la coagulation anormales.»</p>
+</div></div><div id="w-pa-q152" popover class="fenetre"><div class="barre"><span>Extrait 152</span><button type="button" popovertarget="w-pa-q152" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 152, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Les patients qui présentent ces signes et symptômes doivent immédiatement être examinés et un diagnostic de LHH/SAM doit être envisagé.»</p>
+</div></div><div id="w-pa-q153" popover class="fenetre"><div class="barre"><span>Extrait 153</span><button type="button" popovertarget="w-pa-q153" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 153, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«La survenue d&#x27;une diarrhée au cours du ou après le traitement par Augmentin peut indiquer une infection par Clostridium difficile , surtout si la diarrhée est sévère, persistante et/ou sanguinolente.»</p>
+</div></div><div id="w-pa-q154" popover class="fenetre"><div class="barre"><span>Extrait 154</span><button type="button" popovertarget="w-pa-q154" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 154, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Si une telle complication est suspectée, le traitement par Augmentin doit immédiatement être arrêté et le patient doit être soumis à un examen approfondi en vue d&#x27;une éventuelle antibiothérapie spécifique (p.ex. métronidazole, vancomycine).»</p>
+</div></div><div id="w-pa-q155" popover class="fenetre"><div class="barre"><span>Extrait 155</span><button type="button" popovertarget="w-pa-q155" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 155, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«L&#x27;administration de médicaments inhibant le péristaltisme est contre-indiquée dans cette situation clinique.»</p>
+</div></div><div id="w-pa-q156" popover class="fenetre"><div class="barre"><span>Extrait 156</span><button type="button" popovertarget="w-pa-q156" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 156, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Pendant un traitement prolongé, il est recommandé de contrôler périodiquement les fonctions rénales, hépatique et hématopoïétique.»</p>
+</div></div><div id="w-pa-q157" popover class="fenetre"><div class="barre"><span>Extrait 157</span><button type="button" popovertarget="w-pa-q157" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 157, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Un allongement anormal du temps de prothrombine (INR augmenté) n&#x27;a été que rarement observé chez des patients sous traitement d&#x27;amoxicilline-acide clavulanique et d&#x27;anticoagulants administrés par voie orale.»</p>
+</div></div><div id="w-pa-q158" popover class="fenetre"><div class="barre"><span>Extrait 158</span><button type="button" popovertarget="w-pa-q158" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 158, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Si un patient reçoit simultanément des anticoagulants, il convient donc de prévoir une surveillance adaptée.»</p>
+</div></div><div id="w-pa-q159" popover class="fenetre"><div class="barre"><span>Extrait 159</span><button type="button" popovertarget="w-pa-q159" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 159, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Le dosage des anticoagulants oraux doit éventuellement être modifié afin de maintenir le niveau d&#x27;anticoagulation souhaité.»</p>
+</div></div><div id="w-pa-q160" popover class="fenetre"><div class="barre"><span>Extrait 160</span><button type="button" popovertarget="w-pa-q160" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 160, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«S&#x27;il y a des troubles gastro-intestinaux graves avec vomissements et diarrhée, la résorption d&#x27;Augmentin n&#x27;est plus garantie.»</p>
+</div></div><div id="w-pa-q161" popover class="fenetre"><div class="barre"><span>Extrait 161</span><button type="button" popovertarget="w-pa-q161" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 161, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Chez des patients présentant une diminution de la diurèse, on a très rarement constaté une cristallurie, essentiellement sous traitement parentéral.»</p>
+</div></div><div id="w-pa-q162" popover class="fenetre"><div class="barre"><span>Extrait 162</span><button type="button" popovertarget="w-pa-q162" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 162, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«La formation de tels cristaux peut aboutir Il ne faut pas administrer 2 x 1 g (875/125) aux patients dont la clairance de la créatinine est inférieure à 30 mL/min.»</p>
+</div></div><div id="w-pa-q163" popover class="fenetre"><div class="barre"><span>Extrait 163</span><button type="button" popovertarget="w-pa-q163" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 163, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Augmentin ne devrait donc être utilisé pendant la grossesse qu&#x27;en cas de nécessité absolue.»</p>
+</div></div><div id="w-pa-q164" popover class="fenetre"><div class="barre"><span>Extrait 164</span><button type="button" popovertarget="w-pa-q164" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 164, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Allaitement Étant donné que des traces d&#x27;Augmentin passent dans le lait maternel, des réactions d&#x27;hypersensibilité sont possibles chez les nouveau-nés sensibles.»</p>
+</div></div><div id="w-pa-q165" popover class="fenetre"><div class="barre"><span>Extrait 165</span><button type="button" popovertarget="w-pa-q165" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 165, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Une perturbation de la flore int Allaitement Étant donné que des traces d&#x27;Augmentin passent dans le lait maternel, des réactions d&#x27;hypersensibilité sont possibles chez les nouveau-nés sensibles.»</p>
+</div></div><div id="w-pa-q166" popover class="fenetre"><div class="barre"><span>Extrait 166</span><button type="button" popovertarget="w-pa-q166" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 166, copié depuis aips_45674_augmentin.txt, fichier lu le 31.10.2026.</p>
+<p>«Une perturbation de la flore intestinale des nourrissons est théoriquement envisageable, mais n&#x27;a jamais été constatée jusqu&#x27;ici aux doses recommandées.»</p>
+</div></div><div id="w-pa-q167" popover class="fenetre"><div class="barre"><span>Extrait 167</span><button type="button" popovertarget="w-pa-q167" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 167, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«British Thoracic Society Guideline for pleural disease. # Thorax, publié le 1 juillet 2023.»</p>
+</div></div><div id="w-pa-q168" popover class="fenetre"><div class="barre"><span>Extrait 168</span><button type="button" popovertarget="w-pa-q168" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 168, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«Page lue le 31.10.2026. # Société thoracique britannique : source lue, pas une règle suisse.»</p>
+</div></div><div id="w-pa-q169" popover class="fenetre"><div class="barre"><span>Extrait 169</span><button type="button" popovertarget="w-pa-q169" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 169, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«Pleural effusions occur as a result of increased fluid formation and/or reduced fluid resorption.»</p>
+</div></div><div id="w-pa-q170" popover class="fenetre"><div class="barre"><span>Extrait 170</span><button type="button" popovertarget="w-pa-q170" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 170, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«The precise pathophysiology of fluid accumulation varies according to underlying aetiologies.»</p>
+</div></div><div id="w-pa-q171" popover class="fenetre"><div class="barre"><span>Extrait 171</span><button type="button" popovertarget="w-pa-q171" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 171, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«As the differential diagnosis for a unilateral pleural effusion is wide, a systematic approach to investigation is necessary.»</p>
+</div></div><div id="w-pa-q172" popover class="fenetre"><div class="barre"><span>Extrait 172</span><button type="button" popovertarget="w-pa-q172" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 172, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«The aim is to establish a diagnosis swiftly, while minimising unnecessary inva sive investigations, in order to facilitate treatment (for common causes of pleural effusion please refer to Tables 2, 4 and 6 of Appendix 1, Unilateral pleural effusion diagnostic pathway).»</p>
+</div></div><div id="w-pa-q173" popover class="fenetre"><div class="barre"><span>Extrait 173</span><button type="button" popovertarget="w-pa-q173" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 173, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«A careful history and physical examination of the patient remains the most important first step when evaluating someone with an undiagnosed pleural effusion.»</p>
+</div></div><div id="w-pa-q174" popover class="fenetre"><div class="barre"><span>Extrait 174</span><button type="button" popovertarget="w-pa-q174" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 174, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«The likely cause can often be elucidated by careful history taking, which will then allow directed further investigations.»</p>
+</div></div><div id="w-pa-q175" popover class="fenetre"><div class="barre"><span>Extrait 175</span><button type="button" popovertarget="w-pa-q175" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Extrait 175, copié depuis bts2023_plevre.txt, fichier lu le 31.10.2026.</p>
+<p>«The patient’s drug history should always be recorded, as a number of medications have been reported to cause exudative pleural effusions.»</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p5">5. Anamnèse et drapeaux rouges</h2>
+<p>L'anamnèse précède le doigt : début brutal ou lent, un côté ou les deux, toux, fièvre, arrêt des gaz, et gêne à uriner. Une douleur brutale avec ventre de bois ne se rassure pas sur un son encore présent<sup class="s">2,8</sup>. Les <button type="button" class="terme" popovertarget="w-rouges">drapeaux rouges</button> se cherchent avant le diagnostic fin.</p>
+<div id="w-rouges" popover class="fenetre"><div class="barre"><span>Drapeaux avant le diagnostic fin</span><button type="button" popovertarget="w-rouges" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Détresse, tension artérielle basse, déviation de la trachée, un seul côté silencieux : on ne classe pas cela comme une bronchopathie stable.</p>
+<p>L'observation de quatre heures du pneumothorax spontané primaire ne s'applique pas à ce tableau. La recommandation européenne de 2023 ne traite pas le pneumothorax sous tension.</p>
+<p>Le Conseil européen de réanimation 2021 demande une décompression immédiate, sur la clinique ou l'échographie, sans attendre une image. L'aiguille est un geste rapide, avec une aiguille longue anti-coudure. Le 4e ou 5e espace intercostal, ligne axillaire antérieure, a le plus bas taux d'échec prédit. En arrêt traumatique : thoracostomies au 4e espace. L'Advanced Trauma Life Support (ATLS) 10e (American College of Surgeons (ACS), États-Unis, 2018) place l'aiguille au 5e espace, légèrement en avant de la ligne axillaire moyenne chez l'adulte. Protocole suisse et calibre local : À vérifier.</p>
+<p>Ventre de bois, douleur brutale, défense : la Revue Médicale Suisse de 2016 relie défense, détente et silence auscultatoire à une irritation péritonéale. La perforation en est une cause.</p>
+<p>La recommandation mondiale de 2020 dit que la péritonite n'est présente que chez environ deux tiers des perforations d'ulcère. Un ventre encore souple n'écarte donc pas la perforation.</p>
+<p>Douleur colique, vomissements, antécédent de chirurgie : occlusion possible. La sensibilité de l'examen pour l'étranglement n'est que de 48 % dans le texte de Bologne, même entre des mains expertes.</p>
+<p>Fièvre et ascite : ponction, parce qu'une infection du liquide se compte sur les polynucléaires, pas sur le son.</p>
+<p>Globe douloureux, impossibilité d'uriner : drainage. Fièvre, hématurie ou rein qui monte sont des gravités lues dans la fiche française du 29 avril 2024.</p>
+<p>Amaigrissement et matité fixée : ne pas conclure à une atélectasie banale sans image.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p6">6. Examen physique</h2>
+<p>On percute de façon <button type="button" class="terme" popovertarget="w-geste">indirecte</button>, puis on compare la gauche et la droite, comme le demande l'objectif genevois de l'unité Respiration<sup class="s">3</sup>. Le foie se mesure entre 6 et 12 cm. La rate normale laisse l'espace de Traube <button type="button" class="terme" popovertarget="w-rate">tympanique</button><sup class="s">2</sup>. L'ascite se cherche par la matité des flancs et le <button type="button" class="terme" popovertarget="w-ascite">signe du flot</button><sup class="s">2</sup>.</p>
+<div id="w-rate" popover class="fenetre"><div class="barre"><span>Foie et rate, chiffres de 2016</span><button type="button" popovertarget="w-rate" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>«L’estimation de la taille du foie par percussion d’une matité sur la ligne médioclaviculaire a une corrélation de 60-70 % avec la hauteur réelle du foie.»</p>
+<p>La hauteur normale se situe entre 6 et 12 cm selon la taille du patient. Le gaz du côlon droit et une matité pulmonaire contiguë faussent la mesure.</p>
+<p>Palper un bord ne prouve pas l'hépatomégalie : le rapport de vraisemblance positif n'est que de 2, et le rapport négatif est de 0,4. Ces deux rapports viennent de la palpation, pas de la percussion. On ne les transfère pas.</p>
+<p>L'espace de Traube est normalement tympanique. Il siège entre la sixième côte, la ligne axillaire antérieure et le rebord costal gauche.</p>
+<p>Une matité y est pathologique. Le test est moins performant que la palpation de la rate. Son rapport de vraisemblance positif est d'environ 2,5, et le rapport négatif de 0,45.</p>
+<p>Le signe de Castell percute le dernier espace intercostal sur la ligne axillaire antérieure, normalement tympanique. Il est pathologique si la matité apparaît, y compris à l'inspiration.</p>
+<p>La revue donne une sensibilité et une spécificité d'environ 70 %, un rapport positif de 1,2 et un rapport négatif de 0,45.</p>
+<p>Si l'anamnèse fait suspecter une rate augmentée et que la pointe est palpée, le diagnostic clinique de splénomégalie peut être posé, dit l'article. Sinon, il faut des examens.</p>
+<p>La rate normale ne se palpe pas. Ne pas la palper n'exclut pas une rate augmentée : le rapport négatif de la palpation est de 0,4.</p>
+</div></div><div id="w-ascite" popover class="fenetre"><div class="barre"><span>Matité déclive et signe du flot</span><button type="button" popovertarget="w-ascite" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>On cherche le bombement des flancs, on mesure le périmètre, on percute la limite de la matité en décubitus, puis on recommence en décubitus latéral.</p>
+<p>La matité suit le liquide. Le tympanisme reste vers le haut, là où flottent les anses.</p>
+<p>La revue de 2016 dit que le signe du flot est le meilleur test clinique. La main sur la ligne médiane bloque l'onde qui passerait par la graisse. On frappe un flanc et on sent l'autre.</p>
+<p>Le texte écrit « flan » sans c dans la légende de figure. Le signe est souvent négatif si l'ascite est peu abondante.</p>
+<p>L'absence de ces signes n'exclut pas une petite quantité.</p>
+<p>On cherche ce tableau s'il existe une cirrhose, une insuffisance cardiaque, un syndrome néphrotique, une néoplasie, une augmentation du périmètre, une prise de poids ou des œdèmes des chevilles.</p>
+<p>L'association européenne pour l'étude du foie, en 2018, grade l'ascite. Le grade 1 n'est vu qu'à l'échographie. Le grade 2 distend modérément et de façon symétrique. Le grade 3 distend fortement.</p>
+<p>Une ascite nouvelle de grade 2 ou 3, ou toute complication de cirrhose à l'hôpital, appelle une ponction diagnostique.</p>
+<p>Un compte de polynucléaires au-dessus de 250 par microlitre définit l'infection du liquide dans ce texte. La culture se fait au lit, au moins 10 ml dans des flacons d'hémoculture.</p>
+<p>Le gradient d'albumine sérum-ascite d'au moins 1,1 g/dl indique une hypertension portale, avec une exactitude d'environ 97 %, quand la cause n'est pas évidente.</p>
+<p>La cirrhose explique environ 80 % des ascites dans le monde occidental, selon le même texte. Le reste : cancer, cœur, tuberculose, pancréas, causes rares.</p>
+<p><button type="button" class="terme" popovertarget="w-ascite-flot">geste du flot, pas à pas</button></p>
+</div></div><div id="w-ascite-flot" popover class="fenetre sousf"><div class="barre"><span>Signe du flot, pas à pas</span><button type="button" popovertarget="w-ascite-flot" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Le patient est sur le dos. Un aide, ou le patient lui-même, pose le bord cubital de la main sur la ligne médiane.</p>
+<p>Cette main empêche l'onde de courir dans la graisse sous-cutanée.</p>
+<p>L'examinateur donne une chiquenaude sur un flanc et pose l'autre main sur le flanc opposé.</p>
+<p>Une impulsion transmise est le signe. Il manque souvent si le volume est faible.</p>
+<p>Un flot sans matité mobile ne suffit pas. La revue demande les deux, dans un contexte.</p>
+<p>Ce geste ne remplace pas la ponction si l'ascite est nouvelle et visible.</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p7">7. Approche syndromique</h2>
+<p>Cinq syndromes suffisent à orienter le son. L'hypersonorité bilatérale n'est pas un pneumothorax. La matité unilatérale n'est pas encore un épanchement. Le tympanisme diffus n'est pas encore une occlusion, et la matité sus-pubienne n'est pas encore une rétention. Le détail est dans la <button type="button" class="terme" popovertarget="w-synd">fenêtre syndromique</button>.</p>
+<div id="w-synd" popover class="fenetre"><div class="barre"><span>Cinq syndromes sonores</span><button type="button" popovertarget="w-synd" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p><table><caption>Ce que le son ouvre, et ce qu'il ne ferme pas</caption>
+<thead><tr><th>Syndrome</th><th>Son</th><th>On ne conclut pas</th></tr></thead><tbody>
+<tr><td>Distension pulmonaire</td><td>Hypersonorité des deux côtés</td><td>La spirométrie manque encore. Un côté seul fait chercher un pneumothorax.</td></tr>
+<tr><td>Condensation</td><td>Matité localisée, vibrations plutôt fortes</td><td>La radiographie ou l'échographie manque. Le germe n'est pas nommé par le doigt.</td></tr>
+<tr><td>Épanchement</td><td>Matité franche, déclive, vibrations faibles</td><td>La cause, cœur, infection ou cancer, n'est pas dans le son.</td></tr>
+<tr><td>Air ou liquide abdominal</td><td>Tympanisme, ou matité qui se déplace</td><td>L'occlusion et l'ascite se confirment par l'image ou la ponction.</td></tr>
+<tr><td>Globe</td><td>Matité sus-pubienne, convexe en haut</td><td>Le doute se lève par l'échographie, pas par un médicament.</td></tr>
+</tbody></table></p>
+<p>La séparation par les vibrations vocales vient de l'examen genevois, pas d'un rapport de vraisemblance lu. Les chiffres de cette séparation sont À vérifier.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p8">8. Diagnostic positif</h2>
+<p>Le diagnostic positif du signe est la description, pas le nom de la maladie. On note le côté, le niveau, le son, et ce que devient ce son quand le patient se tourne ou inspire. Le diagnostic de la cause vient ensuite : spirométrie, radiographie, échographie ou scanner, selon le syndrome. Aucun de ces examens n'efface un son déjà écrit dans le dossier.</p>
+</section>
+
+<section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2>
+<p>Il n'existe pas un seul bilan pour tous les sons. L'<abbr title="European Association for the Study of the Liver">EASL</abbr> demande une ponction diagnostique pour une ascite nouvelle de grade 2 ou 3<sup class="s">7</sup>. La World Society of Emergency Surgery (<abbr title="World Society of Emergency Surgery">WSES</abbr>) rappelle qu'un cliché sans air libre n'écarte pas une perforation, et que l'air libre radiologique va de 30 à 85 % des perforations selon les études<sup class="s">8</sup>. La société thoracique britannique demande une ponction guidée par l'image pour un épanchement unilatéral non diagnostiqué. Ce n'est pas une règle suisse relue à part : <button type="button" class="terme" popovertarget="w-bilan">À vérifier localement</button><sup class="s">11</sup>.</p>
+<div id="w-bilan" popover class="fenetre"><div class="barre"><span>Quel examen après quel son</span><button type="button" popovertarget="w-bilan" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Hypersonorité bilatérale chronique, toux, tabac : spirométrie, comme l'écrit la Ligue pulmonaire. Un résultat anormal va chez le pneumologue.</p>
+<p>Matité fébrile localisée : image du thorax. La revue de 2024 ne remplace pas cette image par le seul doigt.</p>
+<p>Matité pleurale unilatérale sans diagnostic : la société thoracique britannique, juillet 2023, recommande la ponction guidée par l'image pour réduire les complications. C'est une recommandation forte, par consensus, dans ce texte.</p>
+<p>Le même texte demande 25 à 50 ml pour la cytologie si l'on suspecte un épanchement malin, et des flacons d'hémoculture si l'on suspecte une infection. Aucune de ces phrases n'est une directive d'un hôpital suisse relue ici.</p>
+<p>Ascite de grade 2 ou 3 nouvelle, ou hospitalisation pour une complication de cirrhose : ponction, polynucléaires, albumine, protéines, culture au lit. Au-dessus de 250 polynucléaires par microlitre : infection du liquide, dans le texte de 2018.</p>
+<p>Suspicion d'occlusion : le scanner est l'imagerie préférée du groupe de Bologne quand le diagnostic est douteux, avec une exactitude d'environ 90 % pour prédire l'étranglement dans les études citées par ce texte.</p>
+<p>Le cliché simple a une sensibilité d'environ 70 % pour l'occlusion haute. Il ne voit pas les signes précoces d'ischémie.</p>
+<p>Globe : la fiche française dit qu'aucun examen n'est requis en urgence, et que l'échographie sus-pubienne lève le doute. On draine quand même une rétention douloureuse.</p>
+<p>Pneumothorax : radiographie. L'observation sans drain ne se décide pas sur le son seul.</p>
+<p>Perforation : cliché ou scanner. Jusqu'à 12 % des perforations ont un scanner normal dans le texte de 2020. Le produit de contraste hydrosoluble peut alors aider.</p>
+<p>Chez la femme en âge de procréer, la démarche du test de grossesse avant l'irradiation n'a pas été relue dans une recommandation suisse : À vérifier.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2>
+<p>L'arbre commence par ce qui tue dans les heures, même si c'est rare. E1, perforation : chirurgien si péritonite ou pneumopéritoine important<sup class="s">8</sup>. E2, pneumothorax instable : pas l'observation de quatre heures, réservée à des cas choisis de pneumothorax spontané primaire<sup class="s">10</sup>. La <button type="button" class="terme" popovertarget="w-algo">suite E3 à E10</button> garde l'occlusion, l'épanchement, la pneumonie, la rétention, l'ascite, l'atélectasie, la rate et la bronchopathie.</p>
+<div id="w-algo" popover class="fenetre"><div class="barre"><span>Exclure d'abord les graves</span><button type="button" popovertarget="w-algo" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>E1. Douleur brutale, défense, ou disparition du son hépatique : perforation possible. Aucune sensibilité de cette disparition n'est chiffrée dans le texte de 2020 ni dans la revue de 2016. Le gaz du côlon droit fausse déjà la percussion du foie. Le signe n'affirme ni n'écarte. L'air libre sur le cliché va de 30 à 85 % et un cliché négatif n'écarte pas. Opérer s'il existe une péritonite, un pneumopéritoine important ou une fuite de contraste. Recommandation forte, preuves de basse qualité, grade 1C, texte du 7 janvier 2020.</p>
+<p>E2. Un seul hémithorax hypersonore, murmure aboli, détresse ou hypotension : ce n'est pas le cas stable de la recommandation européenne. Décompression immédiate, clinique ou échographie, sans attendre l'image. Aiguille longue anti-coudure. Quatrième ou cinquième espace, ligne axillaire antérieure (plus bas taux d'échec prédit, Conseil européen 2021). ATLS 10e (ACS, États-Unis, 2018) : 5e espace, légèrement en avant de la ligne axillaire moyenne chez l'adulte. Protocole suisse À vérifier. L'observation de quatre heures, avec marche dans le service, vise le pneumothorax spontané primaire peu symptomatique, stable sur le plan clinique et radiologique, quelle que soit la taille. Preuve de très basse certitude, recommandation conditionnelle. Le panel ne recommande pas l'abstention dans le pneumothorax spontané secondaire, faute de preuves.</p>
+<p>E3. Tympanisme, vomissements, cicatrice : occlusion sur bride possible. Péritonite, étranglement ou ischémie : pas de traitement non opératoire. La main ne les voit bien que dans 48 % des cas.</p>
+<p>E4. Matité massive et détresse : épanchement compressif jusqu'à preuve du contraire. Ponction guidée si l'on suit le texte britannique de 2023. Le geste suisse exact est À vérifier.</p>
+<p>E5. Matité fébrile, toux : pneumonie. Gravité et lieu de soin avant le nom de l'antibiotique. La seule dose écrite est celle d'Augmentin comprimés filmés 45674.</p>
+<p>E6. Matité sus-pubienne et impossibilité d'uriner : rétention aiguë, définition européenne d'avril 2024, vessie douloureuse, palpable ou percutable. Drainage.</p>
+<p>E7. Matité mobile : ascite. Grade 2 ou 3 nouveau : ponction avant de discuter le diurétique.</p>
+<p>E8. Matité fixe après chirurgie ou mucus : atélectasie possible. Incidence À vérifier. Image si le tableau n'est pas clair.</p>
+<p>E9. Espace de Traube mat : rate à mesurer. Ce n'est pas une urgence minute, sauf contexte de choc et d'anémie qui n'est pas développé dans les sources lues : À vérifier.</p>
+<p>E10. Hypersonorité des deux côtés, toux ancienne : bronchopathie jusqu'à la spirométrie. Un côté seul fait remonter à E2.</p>
+</div></div></section>
+
+<section class="ilot c"><h2 id="p11">11. Prise en charge en Suisse</h2>
+<p>En Suisse, les doses écrites dans cette leçon viennent de l'<abbr title="information professionnelle suisse">AIPS</abbr>, pas d'un autre pays. Aldactone, numéro 27257, a une ligne pour la cirrhose avec ascite. Lasix comprimés 40 mg, numéro 30629, a une ligne pour les œdèmes cardiaques et hépatiques. Augmentin comprimés filmés, numéro 45674, a une ligne pour la pneumonie bactérienne. Le <button type="button" class="terme" popovertarget="w-aips">texte lu</button> est cité mot pour mot. Aucune autre molécule n'a son milligramme ici.</p>
+<div id="w-aips" popover class="fenetre"><div class="barre"><span>Trois informations professionnelles lues</span><button type="button" popovertarget="w-aips" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Aldactone, numéro Swissmedic 27257. L'indication lue comprend la cirrhose avec ascite. Le texte dit que cette affection va souvent de pair avec une aldostéronémie très élevée.</p>
+<p>«Cirrhose avec ascite Avec un quotient urinaire Na/K supérieur à 1.0: 100 mg/jour.»</p>
+<p>Lorsque ce rapport est inférieur à 1,0, la même rubrique indique 200 à 400 mg par jour. Le poids une fois stabilisé, on choisit la dose d'entretien la plus basse possible.</p>
+<p>Cette posologie n'est pas celle de l'hypertension, qui commence à 50 ou 100 mg par jour dans une autre rubrique. On ne mélange pas les deux.</p>
+<p>Contre-indication lue : insuffisance rénale sévère, clairance de la créatinine inférieure à 30 ml/min, anurie, maladie d'Addison, hyperkaliémie, hyponatrémie, éplérénone associée.</p>
+<p>«Le traitement doit être arrêté ou interrompu si la kaliémie dépasse 5 mmol/l ou si la créatininémie dépasse 4 mg/dl.»</p>
+<p>«En conséquence, le médicament ne doit pas être administré durant la grossesse, sauf en cas de nécessité absolue.»</p>
+<p>Le canrénone peut passer dans le lait. La prescription n'est pas recommandée pendant l'allaitement, ou l'allaitement s'arrête si le traitement est absolument nécessaire.</p>
+<p>Lasix comprimés, numéro 30629. Un comprimé contient 40 mg de furosémide. Indication lue : œdèmes d'origine cardiaque et hépatique, y compris l'ascite. L'épanchement pleural n'est pas nommé. Étendre l'indication à un épanchement cardiaque est une lecture clinique, pas une phrase du texte.</p>
+<p>«La dose maximale recommandée s'élève à 1'500 mg/j pour l'administration orale et intraveineuse.»</p>
+<p>Chez l'adulte, le traitement oral débute en général par un demi à un ou deux comprimés par jour. L'entretien est d'un demi à un comprimé par jour. Les comprimés se prennent à jeun.</p>
+<p>Chez le nourrisson et l'enfant : 2 mg par kilogramme, jusqu'à 40 mg par jour au maximum, dans ce texte.</p>
+<p>L'allaitement figure parmi les contre-indications. Pendant la grossesse, le texte dit que Lasix ne devrait pas être employé, sauf nécessité absolue, et seulement pour une période brève.</p>
+<p>Le coma et le précoma hépatiques sont contre-indiqués. On n'utilise donc pas cette fiche pour une encéphalopathie.</p>
+<p>Augmentin comprimés filmés, numéro 45674. L'indication des voies respiratoires inférieures comprend la pneumonie bactérienne, surtout à pneumocoque, Haemophilus et Moraxella.</p>
+<p>«Posologie usuelle Adultes et enfants de plus de 40 kg Pour les infections légères, modérées et sévères, la posologie usuelle est de 3 x 625 mg (500/125) par jour.»</p>
+<p>Pour la pneumonie ambulatoire, le texte permet aussi 2 fois 1 g (875/125) par jour, ou 3 fois 625 mg. Au besoin, ces doses peuvent être doublées, jusqu'à 3 fois 1 g (875/125) par jour au maximum.</p>
+<p>Cela vaut pour l'adulte et l'enfant de plus de 40 kg. En dessous de 40 kg, ces comprimés filmés ne conviennent pas. Il faut l'information d'une suspension, non lue ici : À vérifier.</p>
+<p>Si la clairance est entre 10 et 30 ml/min : 625 mg toutes les 12 heures. En dessous de 10 ml/min : 625 mg toutes les 24 heures. Il ne faut pas donner 2 fois 1 g (875/125) si la clairance est inférieure à 30 ml/min.</p>
+<p>«Augmentin ne devrait donc être utilisé pendant la grossesse qu'en cas de nécessité absolue.»</p>
+<p>Le texte cite une étude de rupture prématurée des membranes : entérocolite nécrosante authentifiée chez 1,5 % des nouveau-nés avec Augmentin, contre 0,5 % sans.</p>
+<p>«Il ne faudrait donc pas allaiter pendant le traitement par Augmentin.»</p>
+<p>Aucune de ces trois spécialités n'est le traitement du pneumothorax, de l'occlusion ou de la perforation. Aucun antibiotique de la perforation n'est dosé ici.</p>
+</div></div></section>
+
+<section class="ilot v"><h2 id="p12">12. Prévention</h2>
+<p>La prévention suit le son, pas un programme unique. La Ligue pulmonaire propose la spirométrie et le sevrage tabagique. Le diagnostic de bronchopneumopathie repose sur la fonction, pas sur le doigt<sup class="s">4</sup>. Aucun programme suisse de dépistage de l'épanchement ou du pneumothorax par la seule percussion n'a été lu : À vérifier.</p>
+</section>
+
+<section class="ilot c"><h2 id="p13">13. Points clés</h2>
+<p>Décrire le son avant de nommer la maladie. Exclure E1 et E2 avant de rassurer sur un son fréquent. Un espace de Traube mat et un foie de plus de 12 cm sont des mesures, pas encore des diagnostics. La dose d'Aldactone citée ne se transfère pas à un autre diurétique, ni à une clairance basse<sup class="s">14</sup>.</p>
+</section>
+
+<section class="ilot v"><h2 id="p14">14. Pièges d'examen</h2>
+<p>Quatorze questions reprennent les confusions classiques de ce signe. Répondez avant d'ouvrir les <button type="button" class="terme" popovertarget="w-pieges">pièges d'examen</button>.</p>
+<div id="w-pieges" popover class="fenetre"><div class="barre"><span>Pièges d'examen</span><button type="button" popovertarget="w-pieges" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>Répondez, puis ouvrez la réponse.</p>
+<details class="quiz"><summary>Un son mat est-il déjà un diagnostic ?</summary><p>Non. C'est un signe. La cause vient après, par l'image, la fonction ou la ponction.</p></details>
+<details class="quiz"><summary>400 000 et 2,0 %, est-ce la même chose ?</summary><p>Non. La Ligue compte des personnes. L'Observatoire compte une part des 15 ans et plus sur douze mois, avec un diagnostic déclaré. On ne convertit pas l'un en l'autre.</p></details>
+<details class="quiz"><summary>14 pour 100 ou 14 pour 1 000 après 65 ans ?</summary><p>On retient 14 pour 1 000 : c'est le résumé français de la Revue Médicale Suisse du 25 septembre 2024, et une revue européenne de 2013 (14 cas pour 1 000 personnes-années après 65 ans). L'anglais 14 pour 100 de la même page RMS est un écart de traduction. Le 1,2 pour 1 000 par année, lui, est concordant.</p></details>
+<details class="quiz"><summary>L&#x27;hypersonorité des deux côtés est-elle un pneumothorax ?</summary><p>Non dans ce cours. Le pneumothorax est unilatéral. La distension chronique est bilatérale, et la spirométrie tranche.</p></details>
+<details class="quiz"><summary>Peut-on observer quatre heures tout pneumothorax ?</summary><p>Non. Seulement un spontané primaire, peu symptomatique, stable, selon le texte européen. Pas le secondaire. Pas le tableau de tension.</p></details>
+<details class="quiz"><summary>Où poser l&#x27;aiguille d&#x27;un pneumothorax sous tension ?</summary><p>Décompression immédiate, sans image. Conseil européen 2021 : 4e ou 5e espace, ligne axillaire antérieure (plus bas taux d'échec prédit). Aiguille longue anti-coudure. Selon l'ATLS 10e (ACS, États-Unis, 2018), chez l'adulte l'aiguille se place au 5e espace, un peu en avant de la ligne axillaire moyenne. Protocole suisse et calibre local : À vérifier.</p></details>
+<details class="quiz"><summary>Un abdomen tympanique affirme-t-il l&#x27;occlusion ?</summary><p>C'est un signe tardif, dit la revue de 2016. L'auscultation n'est pas spécifique. La main manque l'ischémie une fois sur deux dans le texte de Bologne.</p></details>
+<details class="quiz"><summary>Le signe du flot suffit-il ?</summary><p>C'est le meilleur test clinique de la revue de 2016, souvent négatif si le volume est faible. L'absence des signes n'exclut pas une petite ascite. Le grade 1 ne se voit qu'à l'échographie.</p></details>
+<details class="quiz"><summary>Quelle dose d&#x27;Aldactone pour une ascite ?</summary><p>Si le rapport urinaire sodium sur potassium dépasse 1 : 100 mg par jour. S'il est plus bas : 200 à 400 mg par jour. Puis la plus petite dose d'entretien. Pas la posologie de l'hypertension.</p></details>
+<details class="quiz"><summary>Et si la clairance est sous 30 ml/min ?</summary><p>Aldactone est contre-indiqué dans l'insuffisance rénale sévère. On ne « réduit pas un peu ».</p></details>
+<details class="quiz"><summary>Lasix 40 mg, quelle prise adulte ?</summary><p>En général un demi à deux comprimés par jour pour débuter, puis un demi à un comprimé. Maximum lu : 1 500 mg par jour, réservé aux fonctions rénales très basses. L'allaitement est une contre-indication.</p></details>
+<details class="quiz"><summary>Augmentin 45674 dans une pneumonie, au-dessus de 40 kg ?</summary><p>Usuel : 3 fois 625 mg (500/125). La pneumonie ambulatoire peut aussi être 2 fois 1 g (875/125). Plafond lu : 3 fois 1 g. Pas ces comprimés sous 40 kg.</p></details>
+<details class="quiz"><summary>Peut-on allaiter sous Augmentin ?</summary><p>Le texte dit qu'il ne faudrait pas allaiter pendant le traitement.</p></details>
+<details class="quiz"><summary>Traube mat, est-ce une rate prouvée ?</summary><p>C'est pathologique, mais le rapport de vraisemblance positif n'est qu'environ 2,5. La palpation est meilleure. Castell est encore plus faible, rapport positif 1,2.</p></details>
+</div></div></section>
+
+<section class="ilot v"><h2 id="sources">Sources</h2>
+<details class="quiz sources"><summary>Sources lues le 31.10.2026</summary>
+<ol class="sources">
+<li><sup class="s">1</sup> Commission interfacultés, PROFILES, validé le 1.11.2023, ligne F1.6 abnormal findings upon percussion. PDF hébergé par l'Université de Genève.</li>
+<li><sup class="s">2</sup> Piqueres S, Staeger P, Pasche O. Revue Médicale Suisse 2016;537, 2 novembre 2016.</li>
+<li><sup class="s">3</sup> Université de Genève, objectifs de l'unité Respiration, page lue le 31.10.2026. Année de la page : À vérifier.</li>
+<li><sup class="s">4</sup> Ligue pulmonaire suisse, communiqué du 13.11.2024.</li>
+<li><sup class="s">5</sup> Observatoire suisse de la santé, MonAM, enquête suisse sur la santé 2022.</li>
+<li><sup class="s">6</sup> Velasquez T et al. Revue Médicale Suisse 888, 25 septembre 2024.</li>
+<li><sup class="s">7</sup> Association européenne pour l'étude du foie. Cirrhose décompensée. Journal of Hepatology, 10 avril 2018.</li>
+<li><sup class="s">8</sup> Tarasconi A et al. Ulcère perforé, recommandations mondiales de chirurgie d'urgence, 7 janvier 2020.</li>
+<li><sup class="s">9</sup> ten Broek RPG et al. Occlusion sur bride, Bologne, mise à jour 2017, publié le 19 juin 2018.</li>
+<li><sup class="s">10</sup> Recommandation conjointe des sociétés européennes de pneumologie et de chirurgie thoracique sur le pneumothorax spontané de l'adulte.</li>
+<li><sup class="s">11</sup> Roberts ME et al. Société thoracique britannique, maladies pleurales, Thorax, 1er juillet 2023. Pas une règle suisse.</li>
+<li><sup class="s">12</sup> Association européenne d'urologie, symptômes urinaires masculins non neurogènes, mise à jour avril 2024.</li>
+<li><sup class="s">13</sup> Association française d'urologie, fiche sur la rétention aiguë, 29 avril 2024. Pas une règle suisse.</li>
+<li><sup class="s">14</sup> Information professionnelle Aldactone, numéro Swissmedic 27257, lue hors ligne le 31.10.2026.</li>
+<li><sup class="s">15</sup> Information professionnelle Lasix comprimés 40 mg, numéro 30629, lue hors ligne le 31.10.2026.</li>
+<li><sup class="s">16</sup> Information professionnelle Augmentin comprimés filmés, numéro 45674, lue hors ligne le 31.10.2026.</li>
+<li><sup class="s">17</sup> Torres A et al. Facteurs de risque de pneumonie communautaire en Europe. Thorax, 2013. 14 cas pour 1 000 personnes-années après 65 ans. Pas une incidence suisse.</li>
+<li><sup class="s">18</sup> Conseil européen de réanimation, 2021. Arrêt en circonstances particulières : pneumothorax sous tension. Pas un protocole suisse.</li>
+<li><sup class="s">19</sup> ATLS 10e édition, American College of Surgeons, États-Unis, 2018 : 5e espace, légèrement en avant de la ligne axillaire moyenne. Pays de l'éditeur : États-Unis.</li>
+</ol>
+</details></section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_135_Phase_A -->
