@@ -11,6 +11,7 @@ Nœud central. Chaque note de ce dossier renvoie ici et à au moins une autre no
 | [PREVISION_SIMULATION.json](PREVISION_SIMULATION.json) | coûts prévus par la simulation (HYPOTHÈSES), à comparer au réel dans `couts.py bilan` | Tunder | après 3 à 5 LOTS réels |
 | [TARIFS_RELATIFS.json](TARIFS_RELATIFS.json) | barème relatif des modèles (HYPOTHÈSES à remplacer par les valeurs réelles de l'abonnement) | Vial / Tunder | quand le tarif réel change |
 | [HOOKS.md](HOOKS.md) | garde pre-commit : ce qu'elle contrôle, comment l'ajouter au crochet existant | Tunder | installation, dépannage |
+| [certitude_redaction.py](../outils/certitude_redaction.py) | script de certitude du rédacteur (31.10.2026) : 14 points, doses AIPS mot pour mot, chiffres datés, tailles V8, leçons des audits 134/135 ; VERT / ORANGE / ROUGE, zéro jeton | rédacteur | avant chaque commit de leçon |
 | [ADR/](ADR/) | décisions d'architecture datées (une par fichier) | Tunder | avant de changer le circuit |
 | [JOURNAL_CONNAISSANCE.md](JOURNAL_CONNAISSANCE.md) | journal quotidien, une ligne par fait notable, renvoie vers PIEGES / ADR | Tunder | fin de journée |
 
