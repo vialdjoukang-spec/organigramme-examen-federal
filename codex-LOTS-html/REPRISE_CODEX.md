@@ -1,7 +1,7 @@
-# Reprise — LOT_020 est le suivant
+# Reprise — LOT_021 est le suivant
 
-Contrat actif jusqu’au LOT_133 inclus, borne relue dans IA_RESERVATIONS.json. LOT_018 terminé au commit 950a4cd1 ; LOT_019 terminé en production avec onze HTML, 275 contrôles statiques V8 réussis, 154 questions et cinq citations AIPS exactes. Voir LOT_019/VALIDATION.md pour les échecs des contrôleurs historiques et les limites. Aucun audit indépendant ni rendu navigateur revendiqué.
+Contrat actif jusqu’au LOT_133 inclus, borne fraîchement lue dans IA_RESERVATIONS.json. LOT_018 terminé au commit 950a4cd1 ; LOT_019 déposé au commit 35e1d64b. LOT_020 terminé en production : onze HTML, 275 contrôles V8 réussis, 154 questions, 36 citations AIPS exactes, sources et scripts conservés. Voir VALIDATION.md pour les contrôleurs historiques négatifs et les limites ; aucun audit indépendant ni rendu navigateur.
 
-Prochaine action : autorisation du registre pour LOT_020, S1.4 « Asymétrie ou déformation du visage », recherche suisse puis européenne, Phase A puis dix fiches. Ne pas recommencer les lots terminés. Lire LOT_019/LECONS_LOT_019.md et utiliser le contrôleur générique V8.
+Prochaine action : vérifier LOT_021 au registre, lire son entrée du catalogue puis recherche et Phase A. Ne pas recommencer les lots terminés. Après LOT_020, il reste 113 lots jusqu’à LOT_133 inclus. Consulter LOT_020/LECONS_LOT_020.md.
 
-La session principale détient le verrou pendant le travail ; une reprise concurrente doit seulement contrôler. Verrou à libérer au point de sortie. Reprise horaire dédiée, veille locale minute : ce sont des mécanismes distincts, aucun ne prouve seul une rédaction. STOP/PAUSE prioritaire. Modèle confirmé par Vial GPT-6 Astra · ultra, recommandation high sans modification effective revendiquée.
+La session principale détient le verrou pendant le travail. Une reprise concurrente contrôle seulement. Libérer au point de sortie. Reprise horaire dédiée et veille locale minute distinctes, aucune ne prouve seule une rédaction. Un message de reprise horaire reçu pendant ce chantier a été absorbé dans la session unique. STOP/PAUSE prioritaire. Modèle confirmé GPT-6 Astra · ultra ; recommandation high sans modification effective revendiquée.

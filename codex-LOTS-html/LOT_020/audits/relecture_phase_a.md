@@ -1,0 +1,3 @@
+# Relecture interne — Phase A
+
+Vérifiés : distinction moteur/volume/squelette ; facial versus trijumeau ; commande centrale et exceptions du front, atteinte pontique ; urgence même transitoire ; fenêtre de reperfusion non exclue par délai seul ; protection cornéenne ; signes de cellulite profonde ; tumeur parotidienne et déficit ; mécanismes d’angioœdème ; microsomie avec fonctions atteintes. Dose adrénaline et précautions citées depuis AIPS 56551. Correction d’une coquille « saliv aire ». Sources HUG simplifiées recoupées avec CEN et recommandations européennes. Monographies à produire, liens encore en attente.

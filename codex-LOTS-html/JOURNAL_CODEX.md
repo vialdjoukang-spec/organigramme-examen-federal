@@ -9,3 +9,5 @@
 30.10.2026 — Nouveau mandat continu LOT_019–LOT_133 : borne vérifiée, reprise horaire dédiée activée, veille locale chaque minute et trois tests du contrat réussis. LOT_019 : sources HUG et résumé complémentaire consultés, notes et brief sauvegardés ; aucun nouveau HTML terminé. Contrat, limites de runtime et prochain travail exact consignés.
 
 30.10.2026 — LOT_019 S1.3 : onze HTML produits ; deux corrections éditoriales consignées, 275 contrôles V8 réussis et cinq citations AIPS exactes. Échecs historiques expliqués dans VALIDATION.md. Défauts médicaux graves/critiques non chiffrés indépendamment ; aucun score ni audit externe. Poursuite LOT_020 selon ordre de Vial.
+
+31.10.2026 — LOT_020 terminé : onze HTML, 275 contrôles statiques V8, 154 questions, 36 citations AIPS exactes. Corrections de navigation, développement des sigles et délai de Bell. Relecture interne et comparaison transversale seules ; aucun score, audit indépendant ou rendu navigateur. Suite LOT_021, borne 133.
