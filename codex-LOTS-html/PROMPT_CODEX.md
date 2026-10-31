@@ -85,3 +85,8 @@ Aucune production ne commence, et aucun commit de leçon n'est accepté, tant qu
 **9.3 Mémoire de reprise.** En fin de session : `python3 ressources_ia/outils/suivi_ia.py capture codex` écrit `codex-LOTS-html/REPRISE_CODEX.md`. En début de session, lis ce fichier seul et reprends à la prochaine action. Sur PAUSE ou STOP : termine le fichier en cours, consigne la passe, `capture`, commite, pousse.
 
 **Preuve de ton routage (obligatoire)** : à chaque push, commite aussi `codex-LOTS-html/ROUTAGE_CODEX.json`, `routage_codex.py`, `ROUTAGE_CODEX.jsonl`, `.veille_routage` et `VEILLE_CODEX.log`. Vial et Claude vérifient depuis GitHub, sans toi, que ton routage existe et fonctionne (`python3 harnais/registre_ia.py preuves`, rapport `PREUVES_ROUTAGE.md`) : table valide, auditeur médical ≠ rédacteur, chaque leçon poussée a sa passe consignée, pouls de veille récent. Verdict « NON PROUVÉ » = ta production n'est pas acceptée.
+
+
+## Précision prioritaire de Vial — fenêtres illustrées, 31.10.2026
+
+Lorsqu’une leçon doit recevoir des schémas, le texte de ses fenêtres n’a aucune limite de taille. Toutes les images, tous les clichés d’imagerie et tous les schémas résident dans les fenêtres et sont TOUJOURS ANNOTÉS. Conserver les noms, les repères numérotés, les légendes explicatives, les sources et l’inspection visuelle. La fiche de base du diagnostic différentiel reste au maximum à9Ko. Mesurer les fenêtres et le HTML complet pour information, sans en faire un plafond et sans réduire les explications pour respecter une ancienne bande de taille.

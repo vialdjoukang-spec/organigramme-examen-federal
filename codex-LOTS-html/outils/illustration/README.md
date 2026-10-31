@@ -12,6 +12,8 @@ Avant chaque intégration : vérifier la page de licence et les crédits de la f
 
 Insérer le fragment dans la fenêtre d'examen pertinente. Le script d'exemple `LOT_018/illustrations/integrer.py` préserve le contenu antérieur, sauvegarde les originaux, évite les doublons et actualise le manifeste ; ses cibles sont propres à LOT_018 et doivent être adaptées explicitement pour un autre lot.
 
+Précision de Vial : le texte des fenêtres n'a aucun plafond lorsqu'il faut ajouter des schémas. Toutes les images, tous les clichés et tous les schémas doivent rester dans les fenêtres, toujours annotés. Ne pas appliquer l'ancienne bande de poids HTML comme un plafond des fenêtres ; conserver la mesure pour information. Le plafond de9Ko reste applicable à la fiche de base du DD.
+
 Après rendu : inspection visuelle obligatoire, corrections, tests des interactions, contrôle V8 et taille x. Renseigner `SOURCES.json` et une preuve de revue datée avec l'empreinte exacte du rendu examiné. Un succès technique ne vaut pas validation clinique. Toute modification des coordonnées ou du rendu impose une nouvelle inspection. La validation humaine reste distincte et ne doit pas être inventée.
 
 Les captures et tests Chromium de LOT_018 sont de vrais essais sur HTML local chargé par `setContent`, avec émulation tactile ; ils ne prouvent pas un essai sur téléphone physique. Le chargement par URL `file://` a échoué dans cet environnement ; cette limite est conservée dans le journal.

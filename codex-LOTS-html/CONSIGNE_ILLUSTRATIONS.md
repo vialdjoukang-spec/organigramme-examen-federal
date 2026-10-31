@@ -1,5 +1,11 @@
 # Illustrations annotées — ordre de Vial du 31.10.2026
 
+## Précision prioritaire de Vial — texte des fenêtres sans plafond
+
+Lorsqu'une leçon doit comporter des schémas, aucune limite de taille de texte ne s'applique à ses fenêtres. Les schémas, les clichés d'imagerie et toutes les autres images doivent résider dans les fenêtres, toujours annotés. Cette obligation concerne aussi les images d'anatomie normale : nommer les structures ; pour les lésions réellement visibles, conserver les contours pointillés contrastés, les numéros et la légende médicale explicative. Les sources, crédits et contrôles visuels restent obligatoires.
+
+La fiche de base des diagnostics différentiels conserve son plafond de 9 Ko. Mesurer le texte des fenêtres et le poids complet des fichiers pour information, sans les utiliser comme plafond ni raccourcir les explications pour respecter l'ancienne bande de taille. Les exigences de pertinence, d'exactitude et de lisibilité restent applicables. Cette précision prime sur toute formulation antérieure qui limiterait le texte des fenêtres illustrées ou réserverait l'exemption aux seuls dessins radioanatomiques.
+
 ## Actualisation — autorisation explicite de créer les outils
 
 Vial demande ensuite de créer nos propres scripts pour insérer des images fiables et des formes schématiques expliquées. Cette instruction lève le blocage lié aux deux outils absents et autorise les dessins pédagogiques originaux, identifiés comme tels. Les scripts effectifs sont désormais `codex-LOTS-html/outils/illustration/illustrer.py` et `codex-LOTS-html/outils/dessinateur/dessinateur.py`. Ils ne sont pas des copies prétendues des anciens outils. Le premier annote des images locales documentées ; le second rend des schémas SVG à partir de spécifications conservées. Aucun dessin n'est présenté comme un cliché de patient. Les autres critères de sources, attribution, annotations et inspection visuelle restent applicables.

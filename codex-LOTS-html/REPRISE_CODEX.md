@@ -2,6 +2,8 @@
 
 ## PRIORITÉ ACTIVE : rattrapage des illustrations avec outils Codex créés
 
+Dernière précision de Vial : aucune limite de taille de texte dans les fenêtres lorsqu'il faut ajouter des schémas. Toutes les images, tous les clichés d'imagerie et tous les schémas résident dans les fenêtres, TOUJOURS ANNOTÉS. Conserver le plafond9Ko de la fiche de base du DD ; les poids des fenêtres et du HTML complet restent informatifs. Appliquer cette précision au rattrapage et aux productions futures.
+
 Vial a explicitement demandé de créer nos propres scripts. Le blocage des anciens outils absents est levé : ne plus attendre leur localisation. Utiliser outils/illustration/illustrer.py et outils/dessinateur/dessinateur.py, puis les contrôles et preuves de LOT_018/illustrations/. Travail seul, écritures uniquement dans codex-LOTS-html/ ; borne18–133 revérifiée. La pause des nouveaux diagnostics sert à terminer le rattrapage, pas à attendre une autorisation.
 
 Résultat contrôlé : Phase A, DX7 décollement rétinien et DX8 névrite optique de LOT_018 enrichis dans leurs fenêtres d’examen. Image anatomique Commons préexistante copiée sans toucher à l’original, crédits complétés (Patrick J. Lynch et Beao, CC BY2.5), contours numérotés ; deux états schématiques originaux de la rétine. SOURCES.json, spécifications, sources lues, rendus, captures et relecture visuelle conservés. Aucun cliché pathologique ajouté ; ce résultat ne clôture pas LOT_018 au titre du rattrapage.
