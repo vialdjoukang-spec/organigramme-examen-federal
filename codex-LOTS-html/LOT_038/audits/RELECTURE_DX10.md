@@ -1,0 +1,7 @@
+# Relecture interne DX10 — 31.10.2026
+
+Passe distincte après rédaction, lecture de la leçon et du rapport de langue. HUG diagnostic2020 et traitements2025, CHUV biopsie2025, ESOPRS et résumé public College17.02.2026 confrontés. Pas de contenu réservé prétendu lu. Tarso fibreux maintenu malgré la simplification «cartilage» d’une brochure. Statistiques étrangères et détails de délais britanniques non transposés en données suisses.
+
+Contrôle : tumeur non synonyme de malignité ; perte de cils, ulcération, récidive au même site et fausse blépharite reliées au diagnostic tissulaire. Carcinome sébacé, mélanome peu pigmenté et destruction locale du basocellulaire distingués. Biopsie représentative, discordance clinique-histologique, marges et communication du résultat explicitées. Imagerie et bilan ganglionnaire conditionnels, aucune méthode unique imposée. Reconstruction fonctionnelle et cornée protégées ; arrêt d’anticoagulants non automatique.
+
+Aucun médicament spécifique dosé dans cette leçon : zéro citation AIPS, sans prétendre valider un protocole oncologique pharmacologique. Les prescriptions périopératoires ou systémiques nécessitent leur propre notice avant détail. Aucun défaut supplémentaire nécessitant modification trouvé lors de cette passe ; pas de correction artificielle ajoutée. Quatorze questions et parties, 25 conditions V8 positives. Alertes historiques conservées. Ni score, audit indépendant, validation humaine ni navigateur.

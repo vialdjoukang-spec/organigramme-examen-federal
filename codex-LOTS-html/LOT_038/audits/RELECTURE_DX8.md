@@ -1,0 +1,9 @@
+# Relecture interne DX8 — 31.10.2026
+
+Passe distincte après rédaction, lecture du texte généré et rapport de langue. Sources HUG sur problème, traitement et DCR confrontées au résumé public College, au guide UZGent et à ICR. Le contenu réservé College n’a pas été lu. Les descriptions générales de sondage/lavage et de massage ne deviennent pas des gestes domestiques sur un abcès. Le risque pédiatrique motive l’orientation hospitalière le jour même. Vision, motilité et possibilité d’examiner l’œil contrôlées dans l’algorithme.
+
+Contrôle de fond : infection du sac et obstruction distinguées, sac médial et glande supérieure externe séparés, signes orbitaires reliés à DX7. Absence de fièvre non exclusive. DCR individualisée sans calendrier universel ni arrêt automatique d’anticoagulants. Reflux possible sans compression forcée par le patient. Collyre non substitué au traitement systémique nécessaire.
+
+Médicament : Augmentin 625 = 500/125 mg, dose adulte trois fois par jour, seuil 40 kg, fonction rénale et contre-indications confrontés à la notice suisse septembre 2026. Sept jours viennent du guide de Gand pour l’atteinte limitée au sac, non d’une durée AIPS. Extension et enfant sortent de ce schéma adulte. Grossesse/allaitement reproduits sans ordre automatique de sevrage. Huit citations concordent avec une nouvelle récupération de la notice. Les formes avaient été vérifiées dans le classeur Swissmedic lors de DX6 ; aucune nouvelle vérification de ce classeur n’est revendiquée ici.
+
+C09 : phrase d’éligibilité au traitement oral divisée pour rendre la sélection clinique explicite avant le chiffre de dose. Citations officielles inchangées. Quatorze parties et questions, 25 conditions V8 positives. Alertes historiques h3/title/insécables et longues citations conservées. Aucun score, audit indépendant, navigateur ni validation médicale humaine.
