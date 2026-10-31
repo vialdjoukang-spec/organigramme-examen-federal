@@ -1,5 +1,7 @@
 # REPRISE GROK — 31.10.2026 10:41
 
+Suite : audit de conformité linguistique (grok-4.5), puis transversale. Aucune PR, branche `grok/lots`.
+
 ## LOT_134
 - Phase_A : audit médical grok-4.6 · 8 corrections (3 graves : artérite vs ischémie, Alvarado, AAA CTA/bloc) · score 93 · T = 8.9 (+ 74.3) Ko · porte ORANGE · LISTE_DX_CANONIQUE.md gelée
 - DX.1 : audit médical grok-4.6 · 3 corrections (C3 ≠ CVI prouvée) · score 94 · T = 3.8 (+ 46.2) Ko · porte ORANGE · SHA c55fdea7
