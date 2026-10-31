@@ -23,3 +23,4 @@ Extraits lus le 31 octobre 2026. Les doses en chiffres viennent des informations
 19. Forrest et al., Hepatology, 2005, tableau du score de Glasgow ; dérivation Gut, 2005. `forrest2005_glasgow.txt`.
 20. Maddrey et al., Gastroenterology, 1978, formule initiale ; forme modifiée de 1989 ; formule STOPAH avec bilirubine en µmol/l divisée par 17,1. `maddrey_1978_1989.txt`.
 21. EASL, maladie de Wilson, Journal of Hepatology, mars 2012, score de Leipzig 2001. `easl_wilson_2012.txt`.
+22. Hennes et al., Hepatology, 2008, score simplifié d'hépatite auto-immune ; repris par l'EASL 2015. `hennes2008_hai.txt`.

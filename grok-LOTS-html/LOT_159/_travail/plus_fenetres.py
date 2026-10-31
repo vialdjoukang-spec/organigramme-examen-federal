@@ -191,9 +191,17 @@ def bloc_fer_cuivre_hai():
           "Mutations : 4 sur les deux chromosomes, 1 sur un seul, 0 si aucune. "
           "Quatre ou plus : diagnostic établi. Trois : possible. Deux ou moins : très improbable. "
           "L'anneau manque dans jusqu'à la moitié des formes hépatiques. L'association anneau plus céruléoplasmine sous 0,1 g/l suffit souvent.", 21),
-        P("Hépatite auto-immune, 2015. Score simplifié de 2008, quatre domaines : autoanticorps, immunoglobuline G, histologie typique ou compatible, absence de virus. "
-          "Probable à partir de 6 points. Certaine à partir de 7. Les deux seuils restent. "
-          "Chez l'adulte, un titre d'immunofluorescence d'au moins 1/40 est significatif. Chez l'enfant, 1/20 pour les antinucléaires ou le muscle lisse, 1/10 pour les anticorps anti-microsomes de foie et de rein.", 7),
+        P("Hépatite auto-immune. Score simplifié de Hennes, Hepatology 2008, tableau 2, repris par l'EASL 2015. "
+          "Autoanticorps, somme plafonnée à 2 : antinucléaires ou anti-muscle lisse d'au moins 1/40 = 1 point ; "
+          "antinucléaires ou anti-muscle lisse d'au moins 1/80, ou anticorps anti-microsomes d'au moins 1/40, ou anticorps anti-SLA positifs = 2 points. "
+          "Immunoglobuline G au-dessus de la limite supérieure = 1 point ; au-dessus de 1,10 fois cette limite = 2 points. "
+          "Histologie, une hépatite est nécessaire : atypique = 0 (par exemple une stéatohépatite), compatible = 1 (hépatite chronique lymphocytaire sans tous les traits typiques), "
+          "typique = 2 (hépatite d'interface, infiltrat lymphocytaire ou lymphoplasmocytaire portal étendu au lobule, empéripolèse, rosettes). "
+          "Absence d'hépatite virale = 2 points. Au moins 6 : probable. Au moins 7 : certaine. "
+          "Jeu de validation : sensibilité 88 % et spécificité 97 % au seuil d'au moins 6 ; sensibilité 81 % et spécificité 99 % au seuil d'au moins 7. "
+          "Une phrase de la conclusion de 2008 dit plus de 6 pour le probable et 7 ou plus pour le certain. Le tableau et l'EASL 2015 disent au moins 6 et au moins 7 : c'est ce tableau que l'on enseigne, sans cacher la variante de la conclusion.", 7, 22),
+        P("Chez l'adulte, un titre d'immunofluorescence d'au moins 1/40 est significatif. "
+          "Chez l'enfant, 1/20 pour les antinucléaires ou le muscle lisse, 1/10 pour les anticorps anti-microsomes de foie et de rein.", 7),
         P("Environ 85 % des patients ont une immunoglobuline G haute. Environ 25 % débutent de façon aiguë. "
           "Dans la forme aiguë, 25 à 39 % ont une immunoglobuline G normale et 9 à 17 % n'ont pas d'autoanticorps : un bilan négatif n'écarte pas la maladie si le tableau est fulminant.", 7),
         P(f"Chevauchement avec la cholangite biliaire primitive, critères de Paris, au moins deux critères sur trois de chaque maladie. "
@@ -249,6 +257,8 @@ def bloc_questions():
          "Le diagnostic provisoire est posé sans biopsie. Un autre génotype exige le fer hépatique en image ou en histologie."),
         ("Immunoglobuline G normale et pas d'anticorps, hépatite aiguë sévère ?",
          "La forme aiguë de l'hépatite auto-immune peut être dans ce cas : 25 à 39 % ont une immunoglobuline normale, 9 à 17 % n'ont pas d'anticorps. On n'écarte pas la maladie sur ce seul négatif."),
+        ("Score simplifié à 6, probable ou certain ?",
+         "Tableau de Hennes 2008 et EASL 2015 : au moins 6 probable, au moins 7 certaine. Autoanticorps plafonnés à 2, immunoglobuline G (1 au-dessus de la limite, 2 au-dessus de 1,10 fois), histologie 0, 1 ou 2, absence de virus = 2. Une phrase de conclusion dit plus de 6 ; on enseigne le tableau."),
         ("Quelle cible sous traitement auto-immun ?",
          f"Normaliser l'immunoglobuline G et l'{A('alanine aminotransférase','ALAT')}. Le thiopurique épargne le corticoïde. L'azathioprine suisse, hors greffe, commence en général entre 1 et 3 mg/kg par jour."),
         ("Acide ursodésoxycholique pour tout prurit ?",
@@ -353,14 +363,14 @@ def bloc_suivi():
           f"On écrit ensuite le profil R avec ses trois classes. On n'ouvre le {A('fibrosis-4 index','FIB')}-4 que si le patient est stable et que la question est la fibrose. "
           f"On n'ouvre le Child-Pugh, avec A, B et C, que si la cirrhose est déjà connue. "
           f"Mettre les quatre outils dans le même paragraphe sans dire lequel décide aujourd'hui est le défaut le plus fréquent.", 3, 5, 9, 11, 18),
-        P("Ce que l'on retire de la copie s'il n'a pas été lu. "
+        P("Ce que l'on retire encore, parce que la page ne le donnait pas. "
           "Une troisième ligne de nomogramme. Un classement suisse des dix diagnostics par prévalence. "
-          "La répartition interne 1 ou 2 points du score simplifié d'hépatite auto-immune, dont le tableau n'était pas affiché. "
-          "On ne retire pas Maddrey, ni Glasgow, ni les plaquettes de Tokyo, ni Leipzig : ils sont écrits en entier. "
-          "Ces trous sont écrits dans le fichier d'incertitudes du lot. Ils ne sont pas comblés par une moyenne de mémoire. "
+          "Le score simplifié d'hépatite auto-immune n'est plus dans cette liste : autoanticorps, immunoglobuline G, histologie et absence de virus sont écrits, avec les seuils 6 et 7. "
+          "On ne retire pas Maddrey, ni Glasgow, ni les plaquettes de Tokyo, ni Leipzig, ni Hennes : ils sont écrits en entier. "
+          "Les deux trous restants sont dans le fichier d'incertitudes du lot. Ils ne sont pas comblés par une moyenne de mémoire. "
           "En revanche, tout ce qui a été lu reste dans la copie : les trois classes de R, les trois classes de Child-Pugh, les cinq classes du score de causalité, "
           "les cinq phases du virus B, les trois grades de Tokyo, les deux lignes du nomogramme, les trois perfusions de Prescott, "
-          "les seuils du score de fibrose, les seuils de Maddrey, de Glasgow et de Lille, et les deux systèmes de transplantation, King's College et Clichy. "
+          "les seuils du score de fibrose, les seuils de Maddrey, de Glasgow et de Lille, les quatre domaines du score simplifié, et les deux systèmes de transplantation, King's College et Clichy. "
           "La copie qui ne garde qu'une classe, qu'une phase ou qu'une ligne est incomplète, même si le reste de la phrase est juste. "
           "On relit enfin les unités : mg/dl contre µmol/l, µg/ml contre mg/kg, plaquettes par mm³ contre milliards par litre. "
           "Une conversion fausse fait échouer un seuil juste. On refait le calcul sur le brouillon avant de cocher la case. Le seuil juste dans la mauvaise unité est une mauvaise réponse.", 4, 10, 18),

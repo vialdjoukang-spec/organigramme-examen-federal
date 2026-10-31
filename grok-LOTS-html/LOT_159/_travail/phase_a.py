@@ -369,6 +369,7 @@ sources = [
     f"Forrest et al., Hepatology, 2005, score de Glasgow entier.{S(19)}",
     f"Maddrey, 1978, et forme modifiée de 1989, seuil 32.{S(20)}",
     f"EASL, maladie de Wilson, 2012, score de Leipzig.{S(21)}",
+    f"Hennes et al., Hepatology, 2008, score simplifié d'hépatite auto-immune, repris par l'EASL 2015.{S(22)}",
 ]
 
 sections = [
