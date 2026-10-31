@@ -2,10 +2,25 @@
 
 LOT_160 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155 et LOT_157 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158 et LOT_160 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157 et LOT_159 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160 et LOT_162 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_159.**
+**Prochain LOT du rédacteur A : LOT_161.**
 **Prochain LOT du rédacteur B : LOT_164.**
+
+## LOT_159 — rédigé et certifié
+Sujet : F2.11 « Enzymes hépatiques anormales ». Détail : `LOT_159/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Score simplifié d'hépatite auto-immune (Hennes 2008, EASL 2015) rétabli en entier.
+
+- Phase_A : certitude ORANGE · porte ORANGE · conscience 0 BLOQUANT · T = 7.8 (+ 72.4) Ko · SHA 478a8e9a7b19 · commit 98265ed9
+- DX.1 : certitude ORANGE · porte ORANGE · T = 5.4 (+ 35.0) Ko · SHA 17652007f15d · commit cf225654
+- DX.2 : certitude VERT · porte ORANGE · T = 2.9 (+ 35.0) Ko · SHA 5d4bad4fb5f4 · commit c6658750
+- DX.3 : certitude VERT · porte ORANGE · T = 2.2 (+ 42.4) Ko · SHA cc452878ae37 · commit 98265ed9
+- DX.4 : certitude VERT · porte ORANGE · T = 2.7 (+ 36.2) Ko · SHA 7b07b0b8c1ea · commit 55ecc687
+- DX.5 : certitude VERT · porte ORANGE · T = 2.6 (+ 35.1) Ko · SHA ed0016079cfa · commit 763f9067
+- DX.6 : certitude VERT · porte ORANGE · T = 2.5 (+ 35.2) Ko · SHA fcd1eb9747cd · commit 06d3783d
+- DX.7 : certitude VERT · porte ORANGE · T = 2.4 (+ 35.1) Ko · SHA 3ab6ac6ce3ed · commit d704b42e
+- DX.8 : certitude VERT · porte ORANGE · T = 2.4 (+ 35.1) Ko · SHA 43e4625bc608 · commit bc493c36
+- DX.9 : certitude VERT · porte ORANGE · T = 2.5 (+ 35.2) Ko · SHA f8006ed8bd2b · commit d9225a71
+- DX.10 : certitude VERT · porte ORANGE · T = 2.7 (+ 35.1) Ko · SHA 961d05d69b1c · commit 7bd134f9
 
 ## LOT_162 — rédigé et certifié
 Sujet : F2.14 « Hormones thyroïdiennes anormales ». Détail : `LOT_162/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT.
