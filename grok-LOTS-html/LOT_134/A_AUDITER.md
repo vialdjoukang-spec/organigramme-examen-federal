@@ -11,7 +11,7 @@ Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille 
 | LOT_134_Phase_B_V0_DX.2.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 4121 octets | non fait | T = 4.1 Ko (+ 46.1 Ko), 110 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.3.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 3325 octets | non fait | T = 3.3 Ko (+ 43.5 Ko), 119 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.4.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2781 octets | non fait | T = 2.8 Ko (+ 42.8 Ko), 117 fenêtres, 15 dépliants |
-| LOT_134_Phase_B_V0_DX.5.html | redacteur | VERT | 4300 octets | non fait |
+| LOT_134_Phase_B_V0_DX.5.html | redacteur, puis redacteur (approfondissement V8) | ORANGE (journal) | 2814 octets | non fait | T = 2.8 Ko (+ 41.0 Ko), 111 fenêtres, 15 dépliants |
 | LOT_134_Phase_B_V0_DX.6.html | redacteur | VERT | 3829 octets | non fait |
 | LOT_134_Phase_B_V0_DX.7.html | redacteur | VERT | 4193 octets | non fait |
 | LOT_134_Phase_B_V0_DX.8.html | redacteur | VERT | 3891 octets | non fait |

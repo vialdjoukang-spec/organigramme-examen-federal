@@ -16,6 +16,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 
 10. Di Saverio S et al. 2020 update of the WSES Jerusalem guidelines for acute appendicitis. PMC7386163. Phrases citées dans `wses2020_appendicite.txt`, lues le 31.10.2026. https://doi.org/10.1186/s13017-020-00306-3
 
+11. Association européenne pour l'étude du foie. Cirrhose décompensée, 2018. Brouillon final du panel, UCL eprint 10053258, lu le 31.10.2026. Phrases dans `easl2018_cirrhose.txt`. DOI publié 10.1016/j.jhep.2018.03.024 (PDF du journal : 403).
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
