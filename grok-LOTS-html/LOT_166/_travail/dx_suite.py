@@ -262,11 +262,51 @@ def dx5():
                      [("Décision", [phrase, "On nomme la fenêtre.", "On relie la pression au geste.", "On ne récite pas un seuil d'ascite."])])
     base_dx(5, r, P)
 
+def dx6():
+    r = "1"
+    phrases = [
+        "L'épanchement pleural malin est un exsudat produit par une tumeur de la plèvre ou par un blocage lymphatique.",
+        "Poumon, sein, lymphome, mésothéliome et ovaires dominent. Pas de part suisse inventée.",
+        "La plèvre perméable laisse passer protéine et lactate déshydrogénase. Un critère de Light suffit.",
+        "Ponction guidée. Vingt-cinq à cinquante millilitres pour la cytologie. Light et pH le jour même.",
+        "Amaigrissement, tabac, sein ancien, douleur unilatérale, amiante. La fièvre ajoute l'infection.",
+        "Échographie pour la poche et l'aiguille. La colonne ne nomme pas la cellule.",
+        "Syndrome tumoral pleural. Il n'est pas le transsudat cardiaque bilatéral ni le sang traumatique.",
+        "Positif par la cytologie. Un exsudat unilatéral sans cellule reste suspect. Une cytologie négative n'écarte pas.",
+        "Light, cytologie sur 25 à 50 ml, pH non souillé, glucose si le pH manque.",
+        "Dyspnée. Évacuation symptomatique. Pus ou pH infectieux. Drain. Pas de diurétique d'épreuve.",
+        "Pas de talc dosé ici. Pas de chimiothérapie inventée. L'antibiotique seulement si l'infection s'ajoute.",
+        "Le liquide qui revient n'est pas un échec de l'aiguille. On rediscute sans pourcentage de survie inventé.",
+        "Vingt-cinq à cinquante millilitres, un seul critère de Light, pH 7,2 réservé à l'infection, pas de rendement cytologique inventé.",
+        "Piège. Diurétiser un unilatéral. Piège. Drainer tout cancer parce que le pH infectieux existe. Piège. Citer 97,8 % hors du trauma.",
+    ]
+    P = {}
+    fenetres = [
+        "On envoie les cellules avant de vider la poche.",
+        "On écrit le côté et la fièvre.",
+        "On calcule les trois rapports avec la borne du laboratoire.",
+        "On guide l'aiguille. On ne ponctionne pas une matité aveugle.",
+        "On demande le sein, l'amiante et la chute.",
+        "On ne transfère pas la série de 2021 sur la cytologie.",
+        "On sépare le cœur, le pus et le sang.",
+        "On répète ou l'on adresse si le doute clinique reste.",
+        "On jette un pH souillé par la lidocaïne.",
+        "On soulage la dyspnée. On ne promet pas la vidange définitive.",
+        "On n'invente pas un gramme de produit sclérosant.",
+        "On explique que la plèvre peut produire encore.",
+        "On cite 25 à 50 ml et la règle du critère unique.",
+        "On refuse le score RAPID sans infection.",
+    ]
+    for i, phrase in enumerate(phrases, 1):
+        P[f"p{i}"] = ([phrase, "Le détail chiffré est dans les lectures."],
+                     [("Lecture courte", [phrase, fenetres[i - 1], "La source datée reste attachée au chiffre.", "Le numéro DX n'est pas l'urgence."])])
+    base_dx(6, r, P)
+
 def run_all():
     dx2()
 
 if __name__ == "__main__":
     nums = [int(a) for a in sys.argv[1:]] or [2]
-    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5}
+    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6}
     for n in nums:
         fn[n]()
