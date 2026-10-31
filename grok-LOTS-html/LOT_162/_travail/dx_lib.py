@@ -41,5 +41,8 @@ SOURCES = """
 <li>Eltroxine-LF, numéro 29812.</li>
 <li>Hydrocortisone Galepharm, numéro 57970.</li>
 <li>Catalogue PROFILES, F2.14, 2026 pour la lecture du catalogue.</li>
+<li>Alexander et al., Thyroid, 2017, grossesse.</li>
+<li>Lazarus et al., European Thyroid Journal, 2014, grossesse.</li>
+<li>Popoveniuc et al., Endocrine Practice, 2014, score du coma.</li>
 </ol>
 """
