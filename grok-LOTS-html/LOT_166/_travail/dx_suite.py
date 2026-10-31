@@ -342,11 +342,51 @@ def dx7():
                      [("Décision chiffrée", [phrase, extra[i - 1], "L'unité est écrite à côté du nombre.", "Le rang E n'est pas le numéro de fiche."])])
     base_dx(7, r, P)
 
+def dx8():
+    r = "3"
+    phrases = [
+        "L'épanchement péricardique est du liquide dans le sac. La tamponnade est la compression clinique du cœur.",
+        "Pas de part suisse. Les causes se séparent. Virale, cancer, urémie, dissection, plaie, tuberculose.",
+        "Le sac peu extensible monte la pression autour des cavités. Une lame lente distend. Une lame aiguë comprime.",
+        "Pression d'abord. Puis millimètres en télédiastole. Moins de 10, de 10 à 20, plus de 20.",
+        "Douleur, plaie, dissection, anticoagulant, dialyse, cancer, hypothyroïdie. Fièvre si pus.",
+        "Fenêtre sous-xiphoïdienne ou autre incidence. La figure du lot montre la lame, pas la décision.",
+        "Syndrome de compression. Il n'est pas l'œdème pulmonaire, ni la plèvre, ni l'ascite.",
+        "Tamponnade si la clinique compresse. La taille seule ne suffit ni dans un sens ni dans l'autre.",
+        "Pression, jugulaires, pouls paradoxal, mesure en télédiastole, cause.",
+        "Choc et lame. Drainage. Péricardite stable. Colchicine selon le poids, notice suisse, pas la goutte.",
+        "Numéro 67974. 0,5 mg selon que le poids dépasse ou non 70 kg. Ibuprofène barré s'il y a une ascite.",
+        "Après drainage, on arrête le pont de remplissage. On surveille le retour de la compression.",
+        "Sac normal 10 à 50 ml. Paradoxe au-dessus de 10 mmHg. Classes de 2015, reprises en 2025 pour 10 et 20 mm.",
+        "Piège. Drainer 28 mm chez un patient qui marche. Piège. Surveiller 6 mm après une plaie. Piège. Copier 1 mg de la goutte.",
+    ]
+    extra = [
+        "On demande la pression avant la classe.",
+        "On cherche la dissection avant l'anti-inflammatoire.",
+        "On relie l'ancienneté de la lame au risque.",
+        "On mesure en télédiastole, pas dans la graisse.",
+        "On sépare le pus, le sang et le virus.",
+        "On change de fenêtre si la première est illisible.",
+        "On ne diurétise pas un sac qui comprime.",
+        "On ne rassure pas sur un millimètre aigu.",
+        "On cherche le paradoxe sans en faire le seul critère.",
+        "On draine avant de discuter la durée de colchicine.",
+        "On signale l'écart à 70 kg entre la notice et l'ESC.",
+        "On ne noie pas le patient une fois le sac vide.",
+        "On cite 2015 et 2025 pour les mêmes bornes.",
+        "On barre le schéma goutte, maximum 2 mg par 24 heures.",
+    ]
+    P = {}
+    for i, phrase in enumerate(phrases, 1):
+        P[f"p{i}"] = ([phrase, "Les cas chiffrés sont dans les lectures."],
+                     [("Au lit", [phrase, extra[i - 1], "La notice suisse prime pour la dose.", "Le numéro de fiche n'est pas l'urgence."])])
+    base_dx(8, r, P)
+
 def run_all():
     dx2()
 
 if __name__ == "__main__":
     nums = [int(a) for a in sys.argv[1:]] or [2]
-    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6, 7: dx7}
+    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6, 7: dx7, 8: dx8}
     for n in nums:
         fn[n]()
