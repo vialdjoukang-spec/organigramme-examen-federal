@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_163 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_165 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161 et LOT_163 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162 et LOT_164 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163 et LOT_165 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162 et LOT_164 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_165.**
-**Prochain LOT du rédacteur B : LOT_166.** LOT_164 (F2.16 Anémie) est rédigé et certifié. Détail : `LOT_164/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_167.**
+**Prochain LOT du rédacteur B : LOT_166.** LOT_164 (F2.16 Anémie) est rédigé et certifié. Détail : `LOT_164/A_AUDITER.md`. LOT_166 est en cours chez le rédacteur B.
+
+## LOT_165 — rédigé et certifié
+Sujet : F2.17 « Incompatibilité de groupe sanguin ». Détail : `LOT_165/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Systèmes ABO et RhD entiers, Kell, Duffy et Kidd, réactions hémolytiques aiguë et retardée, TRALI, TACO, classification Swissmedic du 09.08.2024, Coombs direct, contrôle ultime au lit, maladie hémolytique du nouveau-né, prophylaxie anti-D 300 µg (1500 UI) semaines 28 à 30 et dans les 72 heures, Kleihauer au-dessus de 4 ml, compatibilités plasmatiques et plaquettaires, donneur de globules O RhD négatif et receveur AB, arrêt immédiat, voie veineuse, bilan d'hémolyse, déclaration.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 5.5 (+ 72.2) Ko · commit 719a76ba
+- DX.1 : certitude VERT · porte ORANGE · T = 6.4 (+ 41.1) Ko · commit 16b05aa6
+- DX.2 : certitude VERT · porte ORANGE · T = 6.4 (+ 37.3) Ko · commit 339c2ad7
+- DX.3 : certitude VERT · porte ORANGE · T = 5.5 (+ 39.3) Ko · commit 36e7628a
+- DX.4 : certitude VERT · porte ORANGE · T = 5.7 (+ 40.1) Ko · commit 7832282d
+- DX.5 : certitude VERT · porte ORANGE · T = 5.8 (+ 37.5) Ko · commit f2703a2c
+- DX.6 : certitude VERT · porte ORANGE · T = 5.6 (+ 40.0) Ko · commit ccfd691d
+- DX.7 : certitude VERT · porte ORANGE · T = 5.8 (+ 44.8) Ko · commit f49a23d8
+- DX.8 : certitude VERT · porte ORANGE · T = 5.7 (+ 44.5) Ko · commit 07de945d
+- DX.9 : certitude VERT · porte ORANGE · T = 6.1 (+ 46.9) Ko · commit 31940e03
+- DX.10 : certitude VERT · porte ORANGE · T = 6.4 (+ 39.2) Ko · commit e052b42d
 
 ## LOT_163 — rédigé et certifié
 Sujet : F2.15 « Sédiment urinaire anormal ». Détail : `LOT_163/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Au moins 3 hématies par champ (AUA/SUFU 2025), acanthocytes au moins 5 % (Köhler 1991), leucocytes 10 par microlitre si l'urine est concentrée (EFLM 2023), bactériurie 10 exposant 5 et seuils de contexte (EAU 2024).
