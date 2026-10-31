@@ -382,11 +382,91 @@ def dx8():
                      [("Au lit", [phrase, extra[i - 1], "La notice suisse prime pour la dose.", "Le numéro de fiche n'est pas l'urgence."])])
     base_dx(8, r, P)
 
+def dx9():
+    r = "1"
+    phrases = [
+        "La pleurésie tuberculeuse est un exsudat souvent lymphocytaire et subaigu, pauvre en bacilles visibles.",
+        "Pas de prévalence suisse. Le contage se demande. Son absence n'écarte pas.",
+        "La plèvre réagit. Protéine et lactate déshydrogénase passent. Un critère de Light suffit.",
+        "Ponction guidée. Cytologie 25 à 50 ml. Formule. pH propre. Recherche de bacille.",
+        "Fièvre de semaines, sueurs, douleur pleurale, amaigrissement, collectivité, immunodépression.",
+        "Échographie pour la poche et les cloisons. Les cloisons ne nomment pas le germe.",
+        "Syndrome subaigu unilatéral. Il n'est pas la pneumonie de quarante-huit heures ni le transsudat cardiaque.",
+        "Diagnostic de travail par le tableau et l'exsudat. La culture et la biopsie confirment. Une recherche négative n'écarte pas.",
+        "Light, formule, cytologie, pH. Pas d'adénosine désaminase chiffrée.",
+        "Drain si pus ou si le critère infectieux lu est là. Pas de drain pour le seul mot tuberculose.",
+        "Pas de diurétique. Pas de milligramme d'antituberculeux inventé. Adressage.",
+        "Le liquide peut revenir. On ne reponctionne pas sans question nouvelle. On revient si ça s'aggrave.",
+        "25 à 50 ml, critère unique de Light, pH 7,2 et 7,4 réservés à l'infection, glucose 3,3 mmol/l en secours.",
+        "Piège. Inventer un seuil d'enzyme. Piège. Drainer tout exsudat fébrile. Piège. Oublier la cytologie.",
+    ]
+    extra = [
+        "On dit lymphocytes nombreux sans pourcentage inventé.",
+        "On demande aussi le sein, le tabac et l'amiante.",
+        "On calcule les trois rapports avec la borne locale.",
+        "On sépare les tubes avant de quitter la salle.",
+        "On distingue trois semaines et quarante-huit heures.",
+        "On ne cite pas Balik sur des cloisons.",
+        "On sépare le pus, le cœur et le cancer.",
+        "On n'attend pas un examen direct négatif pour adresser.",
+        "On refuse le nombre d'enzyme absent de l'extrait.",
+        "On draine le pus le jour même.",
+        "On n'écrit pas une posologie absente des notices ouvertes.",
+        "On explique que le résultat du bacille n'est pas immédiat.",
+        "On garde 900 UI/l dans la zone grise infectieuse.",
+        "On barre le diurétique d'épreuve.",
+    ]
+    P = {}
+    for i, phrase in enumerate(phrases, 1):
+        P[f"p{i}"] = ([phrase, "Le détail est dans les lectures."],
+                     [("Au lit", [phrase, extra[i - 1], "La source datée reste sur le chiffre lu.", "Le numéro de fiche n'est pas l'urgence."])])
+    base_dx(9, r, P)
+
+def dx10():
+    r = "2"
+    phrases = [
+        "L'ascite par hypoalbuminémie vient d'une pression oncotique basse. La protéine manque ou se perd.",
+        "Néphrotique, dénutrition, pertes digestives. Pas de part suisse. La cirrhose à gradient haut est une autre fiche.",
+        "L'eau sort du vaisseau. Le gradient dit si l'hypertension portale participe quand même.",
+        "Albumine, protéinurie, gradient du même jour, ionogramme, clairance. Ponction si la nature du liquide doute.",
+        "Œdèmes mous, urines mousseuses, alimentation, diarrhée, foie clinique, cœur.",
+        "Échographie du liquide et des plèvres. Deux bases transsudatives vont avec. Un exsudat unilatéral n'y va pas.",
+        "Syndrome de protéine basse sans hypertension portale. Il n'est pas le foie à gradient haut ni le pus.",
+        "Positif par l'albumine basse, la cause, et un gradient qui n'affirme pas l'hypertension portale.",
+        "Gradient, protéinurie, Light si l'on ponctionne une plèvre douteuse, neutrophiles si fièvre.",
+        "Traiter la cause. Sel et diurétique usuel d'abord. Aldactone 100 à 200 mg seulement ensuite, rubrique néphrotique.",
+        "Numéro 27257 pour cette rubrique. Numéro 30629 en titration prudente. Numéro 48164 barré.",
+        "Revoir poids, pression, créatinine, potassium. Trop vite, on suspend. Fièvre, on reponctionne.",
+        "11 g/l réservé au gradient haut, 97 % avec lui. 100 à 200 mg ici. 200 à 400 mg seulement dans la cirrhose. 250 neutrophiles si fièvre.",
+        "Piège. 400 mg parce que le ventre est gros. Piège. Appeler néphrotique une trace de protéine. Piège. Normaliser l'albumine par des flacons inventés.",
+    ]
+    extra = [
+        "On nomme la fuite, rein, assiette ou intestin.",
+        "On ne fabrique pas un pourcentage suisse.",
+        "On soustrait deux albumines du même matin.",
+        "On ne prescrit pas dans un trou de laboratoire.",
+        "On demande la mousse et l'on dose quand même.",
+        "On ponctionne la base unique, pas les deux par habitude.",
+        "On salue le foie, le pus et le sac sans les copier.",
+        "On refuse le diagnostic sur la seule albumine.",
+        "On calcule Light avant de rassurer une plèvre.",
+        "On n'ouvre pas 400 mg dans cette rubrique.",
+        "On ne commence pas par le plafond de 1'500 mg.",
+        "On arrête si le potassium ou la créatinine montent.",
+        "On attache les 97 % au seul gradient haut.",
+        "On barre l'anti-inflammatoire dès qu'il y a une ascite.",
+    ]
+    P = {}
+    for i, phrase in enumerate(phrases, 1):
+        P[f"p{i}"] = ([phrase, "Les ordonnances corrigées sont dans les lectures."],
+                     [("Rubrique", [phrase, extra[i - 1], "La notice lue prime sur l'habitude.", "Le numéro de fiche n'est pas l'urgence."])])
+    base_dx(10, r, P)
+
 def run_all():
     dx2()
 
 if __name__ == "__main__":
     nums = [int(a) for a in sys.argv[1:]] or [2]
-    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6, 7: dx7, 8: dx8}
+    fn = {2: dx2, 3: dx3, 4: dx4, 5: dx5, 6: dx6, 7: dx7, 8: dx8, 9: dx9, 10: dx10}
     for n in nums:
         fn[n]()
