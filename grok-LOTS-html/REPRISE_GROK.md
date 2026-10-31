@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_149 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 sans ROUGE). Aucune PR, branche `grok/lots`.
+LOT_150 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149 est déjà rédigé par A.
 
 **Prochain LOT du rédacteur A : LOT_151.**
-**Prochain LOT du rédacteur B : LOT_150.**
+**Prochain LOT du rédacteur B : LOT_152.**
+
+## LOT_150 — rédigé et certifié
+Sujet : F2.2 « Enzymes cardiaques anormales ». Détail : `LOT_150/A_AUDITER.md`.
+
+- Phase_A : certitude ORANGE · porte ORANGE · T = 5.6 (+ 71.1) Ko · SHA d8f40c6b6096 · commit 2cffa213
+- DX.1 : certitude ORANGE · porte ORANGE · T = 4.1 (+ 45.9) Ko · SHA cae1aba4f0ca · commit 3275fe27
+- DX.2 : certitude ORANGE · porte ORANGE · T = 4.1 (+ 37.9) Ko · SHA 9bbd090ed597 · commit 28a97d4d
+- DX.3 : certitude ORANGE · porte ORANGE · T = 4.0 (+ 40.9) Ko · SHA bb9c245b2d48 · commit 9229d65f
+- DX.4 : certitude ORANGE · porte ORANGE · T = 4.0 (+ 42.2) Ko · SHA 1ade4b78cba2 · commit 460fcf53
+- DX.5 : certitude ORANGE · porte ORANGE · T = 4.1 (+ 42.4) Ko · SHA fc85a19a74fd · commit f9a0bfc1
+- DX.6 : certitude ORANGE · porte ORANGE · T = 4.1 (+ 35.2) Ko · SHA 2b5046df946d · commit f5aa7df3
+- DX.7 : certitude ORANGE · porte ORANGE · T = 4.2 (+ 39.0) Ko · SHA 86b023b4f91a · commit 17fd9aee
+- DX.8 : certitude ORANGE · porte ORANGE · T = 4.1 (+ 36.8) Ko · SHA ddb3ede20b8b · commit 1724e83e
+- DX.9 : certitude ORANGE · porte ORANGE · T = 4.1 (+ 36.7) Ko · SHA 25acc43693b3 · commit ec4006af
+- DX.10 : certitude ORANGE · porte ORANGE · T = 4.0 (+ 47.9) Ko · SHA 0bc164754f66 · commit 9a9ce8ac
 
 ## LOT_149 — rédigé et certifié
 Sujet : F2.1 « Gaz du sang anormaux ». Détail : `LOT_149/A_AUDITER.md`.
