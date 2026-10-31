@@ -1,13 +1,14 @@
-# Incertitudes retirées du cours — LOT_162
+# Incertitudes — LOT_162
 
-Rédacteur B, 31 octobre 2026. Un fait non établi par une source lue sort du cours. Cinq retraits, aucun élément central.
+Rédacteur B, 31 octobre 2026. Trois retraits centraux ont été rétablis après lecture des textes datés.
 
-1. Seuils de thyréostimuline par trimestre de grossesse. Le texte de l'American Thyroid Association de 2017 sur la grossesse n'a pas été ouvert. La Revue Médicale Suisse de 2010 demande un avis spécialisé pour toute atteinte thyroïdienne chez la femme enceinte, et un dosage en début de grossesse seulement si le risque est augmenté. Ces deux faits restent. Les seuils chiffrés par trimestre ne sont pas écrits.
-2. Barème chiffré de Popoveniuc et Wartofsky (2014) pour le coma myxœdémateux. Le tableau intégral des points n'était pas dans les textes ouverts. Il n'est pas recopié en partie. Le cours garde le tableau clinique et le traitement lus dans la recommandation de l'American Thyroid Association de 2014 : hypothermie, hypoventilation, hyponatrémie, hypoglycémie, déplétion volémique, coma, glucocorticoïde de stress avant la lévothyroxine intraveineuse.
-3. Prévalence suisse qui rangerait les dix diagnostics. Aucun texte lu ne donne cet ordre. Le rang E est un ordre d'exclusion, pas une fréquence.
-4. Dose suisse de propylthiouracile. Aucune spécialité de ce nom n'est sortie de l'index des informations professionnelles parcouru le 31 octobre 2026. Aucune dose n'est écrite. Le thionamide enseigné est le carbimazole (Néo-Mercazole, n° 21037).
-5. Spécialité suisse de lévothyroxine intraveineuse. L'index parcouru contient Euthyrox (54949) et Eltroxine-LF (29812), formes orales, et pas de forme intraveineuse. La dose de charge de 200 à 400 microgrammes intraveineux reste dans le cours : elle est celle de Jonklaas et al., Thyroid, 2014. Elle n'est pas présentée comme une autorisation Swissmedic.
+Rétablis dans le cours :
+- Seuils de thyréostimuline en grossesse : ETA 2014 (2,5 / 3,0 / 3,5 mU/l si pas de borne de laboratoire) et ATA 2017 (environ 4,0 mU/l si pas de borne locale).
+- Score de Popoveniuc, Endocrine Practice, 2014, toutes les lignes, avec 60 ou plus, 25 à 59, et moins de 25. Le résumé de 2014 dit aussi qu'un score entre 45 et 59 pouvait classer un risque.
+- Propylthiouracile dans la crise : Ross et al., Thyroid, 2016, charge de cinq cents à mille milligrammes puis deux cent cinquante milligrammes toutes les quatre heures. Aucune spécialité dans l'index AIPS parcouru. Le carbimazole suisse reste plafonné à 60 mg par jour (Néo-Mercazole, 21037).
 
-Faux positif possible du script de certitude : une dose écrite en toutes lettres (microgrammes, milligrammes) pour un fait central absent de l'information professionnelle n'est pas une dose « µg » ou « mg » au sens du motif du script. Ce n'est pas un contournement d'une dose inventée : la phrase nomme la recommandation datée.
+Retraits non centraux, maintenus :
+1. Prévalence suisse qui rangerait les dix diagnostics. Aucun texte lu ne la donne. Le rang E est un ordre d'exclusion.
+2. Spécialité suisse de lévothyroxine intraveineuse. L'index contient Euthyrox (54949) et Eltroxine-LF (29812), formes orales. La dose de charge de 200 à 400 microgrammes intraveineux reste citée depuis Jonklaas et al., Thyroid, 2014. Elle n'est pas une autorisation Swissmedic.
 
-Société Suisse d'Endocrinologie et de Diabétologie : aucun texte de recommandation n'a été ouvert dans cette session. Le cours ne lui attribue aucune phrase.
+Société Suisse d'Endocrinologie et de Diabétologie : aucun texte de recommandation ouvert dans cette session. Le cours ne lui attribue aucune phrase.

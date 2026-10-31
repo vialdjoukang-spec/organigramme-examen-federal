@@ -67,7 +67,7 @@ cas_faux = fen("w-cas-faux", "Biotine, basse T3, et le piège surrénalien", f""
 interactions = fen("w-inter", "Absorption, métabolisme, et ce qui fausse le contrôle", f"""
 {P("Euthyrox se prend le matin, et la spécialité voisine Eltroxine se prend 30 minutes avant le petit-déjeuner, en une fois. Un contrôle fait chez un patient qui prend le comprimé avec le café et le calcium du petit-déjeuner montre une thyréostimuline haute qui n'est pas un échec de la dose théorique.", S(9, 15))}
 {P("La revue de 2010 liste ce qui diminue l'absorption : sels de calcium, fer, hydroxyde d'aluminium, cholestyramine. Ce qui accélère le métabolisme : phénytoïne, carbamazépine, phénobarbital, rifampicine. On espace le calcium et le fer de la lévothyroxine. On ne double pas la dose de mémoire quand on ajoute de la rifampicine : on recontrôle et on adapte.", S(1))}
-{P("Grossesse et œstrogènes augmentent les besoins. La revue demande un contrôle plus fréquent, et un avis spécialisé pour toute atteinte pendant la grossesse. On n'écrit pas de seuil par trimestre.", S(1))}
+{P("Grossesse et œstrogènes augmentent les besoins. La revue demande un contrôle plus fréquent, et un avis spécialisé pour toute atteinte pendant la grossesse. Sans borne locale, limite haute d'environ 4,0 mU/l pour l'ATA de 2017, et 2,5 mU/l, 3,0 mU/l, 3,5 mU/l selon le trimestre pour l'ETA de 2014.", S(1))}
 {P("Sous carbimazole, un surdosage prolongé fait monter la thyréostimuline et grossir le goitre. Ce n'est pas une aggravation de Basedow : c'est un excès de thionamide. On baisse vers 5 à 20 mg par jour quand l'euthyroïdie est obtenue.", S(8))}
 {P("Le propranolol de l'hyperthyroïdie masque la tachycardie. Une fréquence à 80 sous bêtabloquant ne prouve pas l'euthyroïdie. On se fie à la thyroxine libre et à la clinique, pas au pouls seul.", S(10))}
 """)
@@ -89,7 +89,7 @@ cas_deq = fen("w-cas-deq", "Thyroïdite, nodule chaud, hypothyroïdie centrale",
 {P("Nodule chaud. Homme de 66 ans, thyréostimuline basse, thyroxine libre normale, triiodothyronine libre haute, nodule unique à droite. Scintigraphie : foyer droit, reste de la glande éteint. C'est un nodule autonome, pas un Basedow. L'anticorps anti-récepteur, s'il est négatif, va dans le même sens. L'échographie classe le nodule à part, pour le cancer. Un nodule solide isoéchogène à marge lisse de 2,8 cm est un TR3 : la cytoponction se discute à partir de 2,5 cm. Le traitement de l'autonomie, chirurgie ou iode radioactif, se décide avec l'endocrinologue. Le carbimazole peut préparer, il ne guérit pas l'autonomie. Le bêtabloquant traite le cœur en attendant.", S(2, 6, 8, 10))}
 {P("Hypothyroïdie centrale. Femme de 36 ans, fatigue, aménorrhée, thyroxine libre basse, thyréostimuline à 0,8 mU/l dans des bornes basses. On ne dit pas que la thyroïde va bien parce que la thyréostimuline n'est pas haute. On cherche l'hypophyse : autres déficits, imagerie. On ne donne pas la lévothyroxine avant d'avoir écarté ou couvert le déficit corticotrope. Euthyrox est contre-indiqué si la surrénale n'est pas traitée. La cible ensuite n'est pas une thyréostimuline normale, qui ne montera pas : c'est la thyroxine libre.", S(1, 9))}
 {P("Prise cachée. Infirmière, thyroxine libre très haute, triiodothyronine moins haute, thyréostimuline effondrée, thyroïde petite, fixation nulle, pas de douleur. Le rapport penche vers une prise exogène, comme la recommandation de 2016 le décrit pour la thyrotoxicose factice. On ne donne pas de carbimazole. On cherche la prise, on arrête l'apport, on surveille le cœur. La scintigraphie basse ressemble à une thyroïdite : la clinique, l'absence de douleur et le rapport des hormones séparent les deux.", S(2))}
-{P("Grossesse, ce que l'on dit et ce que l'on ne dit pas. Toute atteinte thyroïdienne chez une femme enceinte mène à un avis spécialisé. Le dépistage systématique de toutes les adultes n'est pas recommandé. Il l'est en début de grossesse si le risque est augmenté. On ne récite pas de seuil par trimestre. Le carbimazole passe le placenta : une dose inadaptée peut donner un goitre fœtal, une hypothyroïdie et un petit poids de naissance. On ne promet pas un schéma unique.", S(1, 8))}
+{P("Grossesse, ce que l'on dit et ce que l'on ne dit pas. Toute atteinte thyroïdienne chez une femme enceinte mène à un avis spécialisé. Le dépistage systématique de toutes les adultes n'est pas recommandé. Il l'est en début de grossesse si le risque est augmenté. On cite les deux jeux de seuils lus, ATA 2017 et ETA 2014, et l'on ne les moyenne pas. Le carbimazole passe le placenta : une dose inadaptée peut donner un goitre fœtal, une hypothyroïdie et un petit poids de naissance. On ne promet pas un schéma unique.", S(1, 8))}
 """)
 
 consultation = fen("w-consult", "Déroulement d'une consultation, de la porte à l'ordonnance", f"""
@@ -102,11 +102,48 @@ consultation = fen("w-consult", "Déroulement d'une consultation, de la porte à
 {P("La lettre au confrère dit trois choses : le profil chiffré avec les bornes, le mécanisme retenu, et ce qui a été exclu. Elle ne dit pas hyperthyroïdie sans dire fabrication, fuite ou prise. Elle ne dit pas hypothyroïdie sans dire primaire ou centrale. Elle mentionne la biotine si le chiffre et la clinique se contredisent.", S(7))}
 {P("À l'examen fédéral, la réponse gagne des points si elle donne l'ordre. D'abord la défaillance. Ensuite le mécanisme. Ensuite le médicament suisse avec sa limite. Ensuite le piège : iode avant thionamide, comprimé nucléaire dans la crise, hormone thyroïdienne avant le glucocorticoïde du coma, thionamide dans une thyroïdite, traitement d'une basse T3 de réanimation, score appliqué à un patient euthyroïdien. Une réponse qui nomme Basedow devant toute thyréostimuline basse est fausse, même si Basedow est fréquent chez la femme jeune.", S(2, 3, 5))}
 {P("Ce que l'on écrit dans le dossier le jour même. Le profil avec les unités, mU/l ou pmol/l selon le laboratoire. Le pouls, la température, le poids et son évolution. La présence ou l'absence d'orbitopathie, de douleur cervicale, de nodule. Les médicaments, y compris la biotine. La décision : urgence, traitement ambulatoire, ou simple contrôle. Le nom du médicament, la dose du jour, la dose plafond, et la consigne d'arrêt. La date du prochain dosage. Si un chiffre n'a pas été lu dans une source, il n'entre pas dans cette note.")}
-{P("Ce que l'on n'écrit pas. Une prévalence suisse des dix diagnostics, qu'aucun texte lu ne donne. Un seuil de thyréostimuline par trimestre de grossesse. Un barème chiffré du coma dont le tableau complet n'a pas été ouvert. Une dose de propylthiouracile. Une autorisation suisse de lévothyroxine intraveineuse. Une indication du comprimé d'iodure nucléaire dans la crise. Ces absences sont assumées. Elles ne trouent pas les classifications qui, elles, ont été lues en entier : score de Burch-Wartofsky, critères japonais TS1 et TS2, catégories TR1 à TR5, types 1 et 2 de la thyrotoxicose à l'amiodarone, et les huit profils hormonaux.", S(4, 5, 6))}
+{P("Ce que l'on n'écrit pas. Une prévalence suisse des dix diagnostics, qu'aucun texte lu ne donne. Une autorisation suisse de lévothyroxine intraveineuse. Les seuils de grossesse, le score de Popoveniuc et la dose de propylthiouracile de la crise sont, eux, écrits depuis les textes de 2017, 2014 et 2016. Une indication du comprimé d'iodure nucléaire dans la crise. Ces absences sont assumées. Elles ne trouent pas les classifications qui, elles, ont été lues en entier : score de Burch-Wartofsky, critères japonais TS1 et TS2, catégories TR1 à TR5, types 1 et 2 de la thyrotoxicose à l'amiodarone, et les huit profils hormonaux.", S(4, 5, 6))}
 {P("Passage de relais. Le médecin de premier recours garde l'hypothyroïdie primaire stable et une part des formes infracliniques, avec un spécialiste facilement joignable. Il adresse l'hyperthyroïdie, la grossesse, l'enfant surtout avant trois ans, l'amiodarone, le nodule qui atteint un seuil de cytoponction, et toute défaillance. La revue de 2010 le dit : hors les formes sévères et la grossesse, beaucoup de dysthyroïdies se suivent au cabinet, mais les choix de l'hyperthyroïdie se discutent avec l'endocrinologue.", S(1, 6, 8))}
 {P("Dernière vérification avant d'imprimer l'ordonnance. Le patient a-t-il compris qu'il arrête le carbimazole s'il a de la fièvre. A-t-il compris qu'il prend la lévothyroxine à jeun. A-t-il une carte ou un proche prévenu s'il est à risque de crise. La femme en âge de procréer a-t-elle un test ou un avis. Le patient sous amiodarone sait-il que sa thyroxine libre peut être haute sans qu'il soit malade. Ces quatre phrases évitent plus d'erreurs qu'un dosage supplémentaire.", S(4, 8, 9))}
 {P("Contrôle de cohérence avant de fermer le dossier. La dose de carbimazole du jour est-elle au plus égale à 60 mg chez l'adulte et à 30 mg avant 12 ans. La dose de propranolol est-elle celle de l'hyperthyroïdie, 10-40 mg trois à quatre fois, et non celle de l'hypertension. L'hydrocortisone de stress est-elle de 100 mg, pas un schéma inventé. L'iode nucléaire de 130.0 mg est-il resté dans sa contre-indication. La lévothyroxine orale commence-t-elle à 25 µg quand le cœur ou l'âge l'exigent. Si une de ces phrases ne tient pas, l'ordonnance ne part pas.", S(8, 9, 10, 11, 12))}
 {P("Le texte de la leçon date du 31 octobre 2026. Il suit les informations professionnelles du corpus local et les recommandations lues cette session. Il ne remplace pas l'ordonnance du moment ni le compte rendu du laboratoire qui a rendu le chiffre. Un résultat discordant avec la clinique s'arrête, se rediscute, et ne se traite pas pour faire taire un nombre. On relit aussi l'unité : mU/l n'est pas pmol/l, et une thyroxine libre à 48 pmol/l n'est pas une thyréostimuline à 48 mU/l. Confondre les deux inverse le diagnostic. On écrit aussi le numéro Swissmedic à côté de la dose, pour que la phrase puisse être relue dans l'information professionnelle et pas dans un aide-mémoire non daté.")}
 """)
 
-TOUTES = [lecture_score, nodules, suivi, cas_crise, cas_coma, cas_amio, cas_faux, interactions, populations, cas_deq, consultation]
+popo = fen("w-popo", "Score de Popoveniuc, toutes les lignes", f"""
+{P("Popoveniuc et al., Endocrine Practice, 2014, ont proposé un score diagnostique du coma myxœdémateux. Le tableau ci-dessous est celui reproduit avec toutes ses lignes. Les domaines cardiovasculaire et métabolique s'additionnent. Température, cerveau et tube digestif : un seul choix. Un précipitant ajoute 10 points s'il est présent.", S(20))}
+{table("Score de Popoveniuc, 2014. Aucune ligne retirée.",
+["Domaine", "Constat", "Points"],
+[
+["Température", "Supérieure à 35 °C", "0"],
+["Température", "32 à 35 °C", "10"],
+["Température", "Inférieure à 32 °C", "20"],
+["Système nerveux", "Absent", "0"],
+["Système nerveux", "Somnolence ou léthargie", "10"],
+["Système nerveux", "Obnubilation", "15"],
+["Système nerveux", "Stupeur", "20"],
+["Système nerveux", "Coma ou convulsions", "30"],
+["Digestif", "Anorexie, douleur abdominale ou constipation", "5"],
+["Digestif", "Motilité diminuée", "15"],
+["Digestif", "Iléus paralytique", "20"],
+["Précipitant", "Absent", "0"],
+["Précipitant", "Présent", "10"],
+["Bradycardie", "Absente", "0"],
+["Bradycardie", "50 à 59 par minute", "10"],
+["Bradycardie", "40 à 49 par minute", "20"],
+["Bradycardie", "Inférieure à 40 par minute", "30"],
+["Cœur, en plus", "Autre anomalie électrocardiographique", "10"],
+["Cœur, en plus", "Épanchement péricardique ou pleural", "10"],
+["Cœur, en plus", "Œdème pulmonaire", "15"],
+["Cœur, en plus", "Cardiomégalie", "15"],
+["Cœur, en plus", "Hypotension", "20"],
+["Métabolisme, en plus", "Hyponatrémie", "10"],
+["Métabolisme, en plus", "Hypoglycémie", "10"],
+["Métabolisme, en plus", "Hypoxémie", "10"],
+["Métabolisme, en plus", "Hypercapnie", "10"],
+["Métabolisme, en plus", "Baisse du débit de filtration glomérulaire", "10"],
+])}
+{P("Lecture. 60 ou plus : très évocateur, voire diagnostique. 25 à 59 : évocateur d'un risque de coma myxœdémateux. Moins de 25 : peu probable. L'article de 2014 écrit aussi, dans son résumé, que des scores entre 45 et 59 pouvaient classer un patient à risque, et que le seuil de 60 avait une sensibilité de 100 % et une spécificité de 85,71 % sur la série étudiée. On garde les deux formulations lues. On ne traite pas un score : un patient froid et inconscient reçoit le glucocorticoïde puis la lévothyroxine sans attendre le total.", S(20, 3))}
+{P("Les autres anomalies de l'électrocardiogramme qui valent 10 points sont, dans la note du tableau : QT long, ou microvoltage, ou bloc de branche, ou anomalies ST-T non spécifiques, ou blocs. On n'en choisit pas une seule liste amputée.", S(20))}
+""")
+
+TOUTES = [lecture_score, nodules, suivi, cas_crise, cas_coma, cas_amio, cas_faux, interactions, populations, cas_deq, consultation, popo]

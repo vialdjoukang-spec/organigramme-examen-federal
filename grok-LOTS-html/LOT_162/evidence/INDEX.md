@@ -19,3 +19,6 @@ Extraits lus le 31 octobre 2026. Les milligrammes et les microgrammes des spéci
 15. Information professionnelle Eltroxine-LF, numéro Swissmedic 29812, lue le 31 octobre 2026. `aips_29812.txt`.
 16. Information professionnelle Hydrocortisone Galepharm, numéro Swissmedic 57970, lue le 31 octobre 2026. `aips_57970.txt`.
 17. Catalogue des situations PROFILES, code F2.14, intitulé « Hormones thyroïdiennes anormales », ligne du fichier CATALOGUE_248.csv, lu le 31 octobre 2026. `profiles_f214.txt`.
+18. Alexander EK et al., Thyroid, 2017, recommandation sur la grossesse et le post-partum. `ata2017_grossesse.txt`.
+19. Lazarus J et al., European Thyroid Journal, 2014, hypothyroïdie infraclinique de la grossesse. `eta2014_grossesse.txt`.
+20. Popoveniuc G et al., Endocrine Practice, 2014, score diagnostique du coma myxœdémateux. `popoveniuc2014.txt`.

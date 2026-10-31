@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Phase A de LOT_162. Texte rédigé, pas un gabarit vide."""
 from moteur import btn, fen, page, table, SIGLES
-from fenetres_longues import lecture_score, nodules, suivi, cas_crise, cas_coma, cas_amio, cas_faux, interactions, populations, cas_deq, consultation
+from fenetres_longues import lecture_score, nodules, suivi, cas_crise, cas_coma, cas_amio, cas_faux, interactions, populations, cas_deq, consultation, popo
 from pathlib import Path
 
 S = lambda *n: "".join(f'<sup class="s">{i}</sup>' for i in n)
@@ -155,7 +155,7 @@ basst3 = fen("w-t3", "Syndrome de basse T3 : ce qu'on ne traite pas", f"""
 
 urgences = fen("w-urgences", "Médicaments de l'urgence, dans l'ordre", f"""
 {P("Crise thyréotoxique. Le traitement est multiple : bêtabloquant, thionamide, iode minéral au moins une heure après le thionamide, glucocorticoïde, refroidissement, remplissage, traitement de la cause, soins intensifs selon le tableau. L'iode donné avant le thionamide peut servir de substrat et aggraver la fabrication. C'est la raison de l'ordre, écrite dans la recommandation japonaise de 2016 qui cite l'American Thyroid Association.", S(2, 5))}
-{P("Le thionamide suisse lu est le carbimazole, Néo-Mercazole, numéro 21037. Dose initiale 20 à 60 mg par jour, en deux ou trois prises, sans dépasser 60 mg par jour. Cette limite rejoint le plafond japonais du méthimazole dans la crise due à Basedow, qui est aussi de 60 mg par jour. On n'écrit pas ici les doses plus hautes signalées pour d'autres pays. Le propylthiouracile n'a pas de spécialité dans l'index parcouru : aucune dose n'est enseignée.", S(5, 8))}
+{P("Le thionamide suisse lu est le carbimazole, Néo-Mercazole, numéro 21037. Dose initiale 20 à 60 mg par jour, en deux ou trois prises, sans dépasser 60 mg par jour. Cette limite rejoint le plafond japonais du méthimazole dans la crise due à Basedow, qui est aussi de 60 mg par jour. On n'écrit pas ici les doses plus hautes signalées pour d'autres pays. Le propylthiouracile n'a pas de spécialité dans l'index. La recommandation de 2016 écrit quand même, pour la crise, une charge de cinq cents à mille milligrammes puis deux cent cinquante milligrammes toutes les quatre heures. Cette phrase est celle de la recommandation, pas d'une information professionnelle suisse. En Suisse on reste au carbimazole, au plus 60 mg par jour.", S(5, 8))}
 {P("Le propranolol, Propranolol Zentiva, numéro 47025, a pour indication lue l'hyperthyroïdie et les crises thyréotoxiques. La dose écrite pour cette indication est de 10-40 mg, 3 à 4 fois par jour. On ne lui substitue pas la dose de l'hypertension, qui est une autre ligne de la même information professionnelle.", S(10))}
 {P("L'iode de la crise n'est pas le comprimé d'iodure de potassium prévu pour un accident nucléaire. Iodure de potassium axapharm, numéro 67017, indique 130.0 mg chez l'adulte, et il est contre-indiqué dans l'hyperthyroïdie, la maladie de Basedow et l'autonomie thyroïdienne. La recommandation japonaise parle d'environ 200 milligrammes par jour d'iodure minéral, donnés après le thionamide, par la bouche, sous la langue, par sonde ou par voie rectale selon l'état. Cette dose n'est pas celle du comprimé de blocage nucléaire.", S(5, 12))}
 {P("Le glucocorticoïde diminue la conversion de thyroxine en triiodothyronine et couvre une surrénale débordée. Solu-CORTEF, numéro 23533, décrit pour une intervention majeure chez un patient déjà sous corticoïde 100 mg par voie intraveineuse, puis 100 mg toutes les 6 heures pendant au moins 72 heures. Le cours retient cette dose de stress, déjà écrite, comme couverture de la crise et du coma, sans inventer un autre schéma.", S(3, 11))}
@@ -176,7 +176,7 @@ doses = fen("w-doses", "Doses lues, spécialité par spécialité", f"""
 ["Iodure de potassium axapharm", "67017", "Adulte, accident nucléaire : 130.0 mg. Contre-indiqué si hyperthyroïdie, Basedow ou autonomie.", "Ce n'est pas le traitement de la crise. L'iode de la crise vient après le thionamide et n'est pas ce comprimé."],
 ])}
 {P("Agranulocytose au carbimazole. Elle peut survenir en quelques heures, et des décès sont rapportés. Le patient arrête le médicament et consulte devant une fièvre, un malaise, des aphtes, une angine ou un autre signe d'infection. On contrôle alors la formule. L'arrêt précoce rend l'aplasie réversible dans la phrase lue. Des vascularites à ANCA sont décrites, surtout sous propylthiouracile, mais aussi sous carbimazole.", S(8))}
-{P("Grossesse. Le carbimazole passe le placenta. Une dose inadaptée peut donner un goitre et une hypothyroïdie chez l'enfant, et un petit poids de naissance. Toute atteinte thyroïdienne chez une femme enceinte justifie un avis spécialisé, selon la revue de 2010. Les seuils de thyréostimuline par trimestre ne sont pas écrits ici : le texte de 2017 n'a pas été ouvert.", S(1, 8))}
+{P("Grossesse. Le carbimazole passe le placenta. Une dose inadaptée peut donner un goitre et une hypothyroïdie chez l'enfant, et un petit poids de naissance. Toute atteinte thyroïdienne chez une femme enceinte justifie un avis spécialisé, selon la revue de 2010. Si le laboratoire n'a pas de borne de grossesse, l'ATA de 2017 retient une limite haute d'environ 4,0 mU/l, et l'ETA de 2014 retient 2,5 mU/l puis 3,0 mU/l puis 3,5 mU/l selon le trimestre.", S(1, 8, 18, 19))}
 """)
 
 algo = fen("w-algo", "Algorithme et tableau des dix diagnostics", f"""
@@ -262,6 +262,9 @@ sources = """
 <li>Eltroxine-LF, information professionnelle, numéro 29812.</li>
 <li>Hydrocortisone Galepharm, information professionnelle, numéro 57970.</li>
 <li>Catalogue PROFILES, situation F2.14, lu le 31 octobre 2026.</li>
+<li>Alexander et al., Thyroid, 2017, grossesse.</li>
+<li>Lazarus et al., European Thyroid Journal, 2014, grossesse.</li>
+<li>Popoveniuc et al., Endocrine Practice, 2014, score du coma.</li>
 </ol>
 <p>Les fenêtres portent le même numérotage. Le détail des extraits est dans le dossier evidence.</p>
 """
@@ -282,8 +285,8 @@ ilots = {
       [examen]),
 "p7": (P("Le syndrome se lit sur le profil, pas sur un organe. Huit combinaisons couvrent la fabrication, la fuite, le manque, le centre, la maladie grave, l'amiodarone et la biotine. Elles sont dans le ", btn("w-profils", "tableau des profils"), ". On ouvre à part le ", btn("w-t3", "syndrome de basse T3"), " et la ", btn("w-biotine", "biotine"), ".", S(1)),
       [basst3, biotine]),
-"p8": (P("Le diagnostic positif de la crise est clinique, appuyé par le ", btn("w-burch", "score complet et les critères japonais"), " et par trois ", btn("w-score-lire", "calculs ligne à ligne"), ". Le diagnostic positif de Basedow s'appuie sur la clinique et l'anticorps anti-récepteur. Celui de l'hypothyroïdie primaire s'appuie sur la thyréostimuline haute et la thyroxine libre basse.", S(2, 5)),
-      [burch, lecture_score]),
+"p8": (P("Le diagnostic positif de la crise est clinique, appuyé par le ", btn("w-burch", "score complet et les critères japonais"), ", trois ", btn("w-score-lire", "calculs ligne à ligne"), " et le ", btn("w-popo", "score du coma"), ". Le diagnostic positif de Basedow s'appuie sur la clinique et l'anticorps anti-récepteur. Celui de l'hypothyroïdie primaire s'appuie sur la thyréostimuline haute et la thyroxine libre basse.", S(2, 5, 20)),
+      [burch, lecture_score, popo]),
 "p9": (P("Anticorps anti-récepteur, anticorps anti-thyroperoxydase, scintigraphie et échographie classée n'ont pas la même question. Le ", btn("w-anticorps", "choix de l'examen"), ", la ", btn("w-tirads", "classification échographique en cinq catégories"), " et quatre ", btn("w-nodules-lire", "nodules chiffrés"), " sont développés à part.", S(2, 6)),
       [anticorps, tirads, nodules]),
 "p10": (P("On exclut d'abord la crise thyréotoxique et le coma myxœdémateux, puis on nomme le mécanisme. L'", btn("w-algo", "algorithme"), " donne le rang E des dix diagnostics."),

@@ -137,6 +137,8 @@ SIGLES = (
     '<abbr title="catégorie 4, moyennement suspecte">TR4</abbr>, '
     '<abbr title="catégorie 5, très suspecte">TR5</abbr>, '
     '<abbr title="deuxième partie du nom commercial de l\'hydrocortisone injectable">CORTEF</abbr>, '
-    '<abbr title="forme d\'Eltroxine mentionnée dans l\'information professionnelle">LF</abbr>.'
+    '<abbr title="forme d\'Eltroxine mentionnée dans l\'information professionnelle">LF</abbr>, '
+    '<abbr title="intervalle QT de l\'électrocardiogramme">QT</abbr>, '
+    '<abbr title="segment ST de l\'électrocardiogramme">ST</abbr>.'
     '</p>'
 )
