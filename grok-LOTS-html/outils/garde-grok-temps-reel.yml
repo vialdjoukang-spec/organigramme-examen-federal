@@ -1,0 +1,37 @@
+# À copier par Vial dans .github/workflows/ sur main pour activation
+# Garde temps réel de Grok (couple [Harnais + Routage], branche grok/lots).
+# Toutes les 5 min : exécute grok-LOTS-html/outils/garde_temps_reel.py en lecture seule.
+# Couple VERT → rapport dans le résumé du job (exit 0).
+# Couple ROUGE → le job échoue uniquement ; n'ouvre ni ne met à jour aucune PR / issue.
+name: Garde Grok temps réel
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: garde-grok-temps-reel
+  cancel-in-progress: true
+jobs:
+  garde:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: grok/lots, fetch-depth: 0 }
+      - name: Garde Grok (lecture seule)
+        id: g
+        run: |
+          set +e
+          python3 grok-LOTS-html/outils/garde_temps_reel.py controle --sans-correction | tee rapport.txt
+          rc=${PIPESTATUS[0]}
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Garde Grok temps réel"
+            echo
+            echo '```'
+            cat rapport.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"

@@ -1,0 +1,44 @@
+{
+  "_mode_emploi": "Table de routage Grok (xAI) pour le couple [Harnais + Routage]. Chaque poste = un run Cursor cloud-agent distinct (Tunder), avec le modèle de cette table.",
+  "ia": "grok",
+  "modeles_disponibles": ["grok-4.7", "grok-4.6", "grok-4.5"],
+  "postes": {
+    "redacteur-phase-a": {
+      "modele": "grok-4.7",
+      "effort": "maximal",
+      "reasoning_effort": "xhigh"
+    },
+    "redacteur": {
+      "modele": "grok-4.7",
+      "effort": "maximal"
+    },
+    "auditeur-medical": {
+      "modele": "grok-4.6",
+      "effort": "maximal",
+      "reasoning_effort": "xhigh"
+    },
+    "auditeur-conformite": {
+      "modele": "grok-4.5",
+      "effort": "élevé",
+      "reasoning_effort": "high"
+    },
+    "transversale": {
+      "modele": "grok-4.6",
+      "effort": "maximal"
+    },
+    "mecanique": {
+      "modele": "grok-4.5",
+      "effort": "moyen",
+      "reasoning_effort": "low",
+      "fast": true
+    }
+  },
+  "audit_croise_externe": false,
+  "equivalence_claude": {
+    "redacteur": "opus · xhigh",
+    "auditeur-medical": "opus · xhigh",
+    "auditeur-conformite": "sonnet · high",
+    "mecanique": "haiku · medium"
+  },
+  "execution": "each poste = a separate Cursor cloud-agent run launched by Tunder with the model of this table"
+}
