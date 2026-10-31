@@ -15,3 +15,4 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
+Le fichier `citations_dd.txt` reprend les citations des dix diagnostics, avec `&lt;` et `&gt;` à la place des signes `<` et `>`.

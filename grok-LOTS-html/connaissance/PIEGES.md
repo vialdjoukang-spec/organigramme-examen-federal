@@ -2,6 +2,8 @@
 
 Format : `P-xx` · symptôme · cause · parade (outil ou règle) · preuve. Ajouter en tête, ne jamais supprimer sans ADR.
 
+**P-19 · Un signe inférieur dans une citation.** Symptôme : deux citations se collent, ou la porte ne retrouve plus un passage pourtant copié. Cause : le texte entre `<` et `>` est retiré avant la comparaison, dans le HTML comme dans `evidence/`. Parade : écrire `&lt;` et `&gt;` des deux côtés. Preuve : LOT_134 DX.4 et DX.7, 31.10.2026.
+
 **P-18 · Ligne de tableau supérieure à 3000 caractères.** Symptôme : `controle_lot.py` critique une seule ligne. Cause : les `<tr>` collés. Parade : un `<tr>` par ligne. Les critiques `title=`, feuille externe et absence de `[S1]` sont celles du modèle V8 : les laisser (P-01). Preuve : Phase A LOT_134, 31.10.2026, plus aucune ligne au-dessus de 3000.
 
 **P-17 · Phrase longue et sigle dans une citation.** Symptôme : une phrase qui continue après un point si la suivante commence par un chiffre ; sigle anglais (AAA, UK, US, SMA) non développé. Parade : reprendre par une majuscule ; développer le sigle avant la citation, ou citer un fragment sans sigle. L'avertissement `insecable` demande une espace insécable que `verif_refonte.py` interdit : ne pas l'ajouter. Preuve : porte Phase A LOT_134 passée au VERT le 31.10.2026.
