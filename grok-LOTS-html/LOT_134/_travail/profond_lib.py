@@ -103,11 +103,13 @@ class ControleLangue:
         self.erreurs: list[str] = []
 
     def verifier_bloc(self, ou: str, texte: str):
-        if ABREV.search(texte):
+        # La citation entre « » est verbatim : elle n'entre pas dans le compte des phrases françaises.
+        hors = RE_CIT.sub(" ", texte)
+        if ABREV.search(hors):
             self.erreurs.append(f"{ou} : abréviation interdite")
-        if "<" in texte or ">" in texte:
-            self.erreurs.append(f"{ou} : signe < ou > brut (échapper la citation)")
-        for ph in phrases_de(texte):
+        if "<" in hors or ">" in hors:
+            self.erreurs.append(f"{ou} : signe < ou > brut hors citation (échapper, ou citer)")
+        for ph in phrases_de(hors):
             n = mots_de(ph)
             if n > 35:
                 self.erreurs.append(f"{ou} : {n} mots : {ph[:160]}")
