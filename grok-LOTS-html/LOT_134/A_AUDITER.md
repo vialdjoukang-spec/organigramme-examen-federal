@@ -4,10 +4,10 @@ Sujet : F1.5 « Anomalies à la palpation ». Rédaction grok-4.7. Aucun audit m
 
 Le contrôle `controle_lot.py --sans-nom` signale, sur le format V8, la feuille Atkinson Hyperlegible et l'absence de `[S1]`. La Phase A ajoute `title=` sur les abréviations. Ces critiques sont celles du modèle (piège P-01). La porte zéro jeton est le seuil de ce run.
 
-| Fichier | Poste consigné | Porte | x | Audit médical |
+| Fichier | Poste consigné | Porte | x | Audit médical | Taille après approfondissement |
 |---|---|---|---|---|
 | LOT_134_Phase_A_V0.html | redacteur-phase-a | VERT | 8301 octets | non fait |
-| LOT_134_Phase_B_V0_DX.1.html | redacteur | VERT | 4136 octets | non fait |
+| LOT_134_Phase_B_V0_DX.1.html | redacteur, puis redacteur (approfondissement V8) | VERT | 3662 octets | non fait | T = 3.7 Ko (+ 46.1 Ko), 101 fenêtres |
 | LOT_134_Phase_B_V0_DX.2.html | redacteur | VERT | 4327 octets | non fait |
 | LOT_134_Phase_B_V0_DX.3.html | redacteur | VERT | 4042 octets | non fait |
 | LOT_134_Phase_B_V0_DX.4.html | redacteur | VERT | 3992 octets | non fait |
