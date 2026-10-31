@@ -1,0 +1,7 @@
+# Relecture interne DX.7 — 31.10.2026
+
+Les 14 parties et 14 questions ont été relues contre DGN 2023, CEN et la notice suisse Mestinon. La présentation actuellement oculaire est distinguée de la définition après deux ans du CEN ; aucun délai d’attente thérapeutique n’en découle. Sérologie ou stimulation périphérique négatives n’excluent pas la maladie. Les signes respiratoires et bulbaires, les crises cholinergiques et le risque initial des corticoïdes sont explicites.
+
+Quinze paragraphes AIPS verbatim contrôlés. La plage générale adulte ne devient pas un schéma initial oculaire. La forme est une dragée de 60 mg, et non un comprimé de 60 mg. La lecture du pied de notice révèle une discordance documentaire : notice juin 2020, également récupérée en direct, indiquant comprimés 19943 / dragées 19945 ; liste officielle de conditionnements du 30.09.2026 indiquant dragées 19943. Les deux preuves sont conservées ; aucun numéro par forme n’est arbitrairement certifié dans la leçon. Le titre de S14 a été corrigé pour désigner la notice commune. La concordance réglementaire du conditionnement reste à clarifier.
+
+25/25 conditions statiques positives. Le rapport langue signale une phrase de 41 mots dans la présentation de forme : scission effectuée dans la passe de correction, à revérifier lors de la régénération. Autres alertes h3/title et espaces proviennent de l’écart historique au V8. Pas de validation clinique, audit indépendant ou score.

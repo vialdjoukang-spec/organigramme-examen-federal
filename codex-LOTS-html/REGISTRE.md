@@ -1,4 +1,4 @@
-# REGISTRE IA — état au 2026-10-30T22:03:11+01:00
+# REGISTRE IA — état au 2026-10-31T12:19:46+01:00
 
 LOIS DU REGISTRE (ordre de Vial, 30.10.2026) — lecture et signature obligatoires, sinon toute écriture est bloquée.
 L1. Lis ce registre et signe-le (`signer`) au début de chaque session, avant d'écrire quoi que ce soit.
@@ -14,7 +14,7 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT | Code | Statut | IA | Réservé à | Fichiers |
 |---|---|---|---|---|---|
 | LOT_001 | G1 | DÉPOSÉ | claude | claude | 16/11 |
-| LOT_002 | G2 | DÉPOSÉ | claude | claude | 17/11 |
+| LOT_002 | G2 | DÉPOSÉ | claude | claude | 16/11 |
 | LOT_003 | G3 | DÉPOSÉ | claude | claude | 14/11 |
 | LOT_004 | G4 | DÉPOSÉ | claude | claude | 12/11 |
 | LOT_005 | G5 | DÉPOSÉ | claude | claude | 16/11 |
@@ -30,24 +30,24 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_015 | G15 | DÉPOSÉ | claude | claude | 11/11 |
 | LOT_016 | G16 | DÉPOSÉ | claude | claude | 11/11 |
 | LOT_017 | S1.1 | AMORCÉ | claude | claude | 10/11 |
-| LOT_018 | S1.2 | LIBRE | — | codex | 0/11 |
-| LOT_019 | S1.3 | LIBRE | — | codex | 0/11 |
-| LOT_020 | S1.4 | LIBRE | — | codex | 0/11 |
-| LOT_021 | S1.5 | LIBRE | — | codex | 0/11 |
-| LOT_022 | S1.6 | LIBRE | — | codex | 0/11 |
-| LOT_023 | S1.7 | LIBRE | — | codex | 0/11 |
-| LOT_024 | S1.8 | LIBRE | — | codex | 0/11 |
-| LOT_025 | S1.9 | LIBRE | — | codex | 0/11 |
-| LOT_026 | S1.10 | LIBRE | — | codex | 0/11 |
-| LOT_027 | S1.11 | LIBRE | — | codex | 0/11 |
-| LOT_028 | S1.12 | LIBRE | — | codex | 0/11 |
-| LOT_029 | S1.13 | LIBRE | — | codex | 0/11 |
-| LOT_030 | S1.14 | LIBRE | — | codex | 0/11 |
-| LOT_031 | S1.15 | LIBRE | — | codex | 0/11 |
-| LOT_032 | S1.16 | LIBRE | — | codex | 0/11 |
-| LOT_033 | S1.17 | LIBRE | — | codex | 0/11 |
-| LOT_034 | S1.18 | LIBRE | — | codex | 0/11 |
-| LOT_035 | S1.19 | LIBRE | — | codex | 0/11 |
+| LOT_018 | S1.2 | AMORCÉ | codex | codex | 11/11 |
+| LOT_019 | S1.3 | AMORCÉ | codex | codex | 11/11 |
+| LOT_020 | S1.4 | AMORCÉ | codex | codex | 11/11 |
+| LOT_021 | S1.5 | AMORCÉ | codex | codex | 11/11 |
+| LOT_022 | S1.6 | AMORCÉ | codex | codex | 11/11 |
+| LOT_023 | S1.7 | AMORCÉ | codex | codex | 11/11 |
+| LOT_024 | S1.8 | AMORCÉ | codex | codex | 11/11 |
+| LOT_025 | S1.9 | AMORCÉ | codex | codex | 11/11 |
+| LOT_026 | S1.10 | AMORCÉ | codex | codex | 11/11 |
+| LOT_027 | S1.11 | AMORCÉ | codex | codex | 11/11 |
+| LOT_028 | S1.12 | AMORCÉ | codex | codex | 11/11 |
+| LOT_029 | S1.13 | AMORCÉ | codex | codex | 11/11 |
+| LOT_030 | S1.14 | AMORCÉ | codex | codex | 11/11 |
+| LOT_031 | S1.15 | AMORCÉ | codex | codex | 11/11 |
+| LOT_032 | S1.16 | AMORCÉ | codex | codex | 11/11 |
+| LOT_033 | S1.17 | AMORCÉ | codex | codex | 11/11 |
+| LOT_034 | S1.18 | AMORCÉ | codex | codex | 11/11 |
+| LOT_035 | S1.19 | AMORCÉ | codex | codex | 11/11 |
 | LOT_036 | S1.20 | LIBRE | — | codex | 0/11 |
 | LOT_037 | S1.21 | LIBRE | — | codex | 0/11 |
 | LOT_038 | S1.22 | LIBRE | — | codex | 0/11 |

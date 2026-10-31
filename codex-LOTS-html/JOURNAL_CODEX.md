@@ -72,3 +72,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T11:13:05.575439+00:00 — Dépôts confirmés : LOT_034 a83d0a77 ; LOT_035 et bilan HTML 34f2f3dc. Verrou libéré, agent035 inactif, reprise036. Total présent : 198 HTML dans18 lots complets en production. CSV du bilan normalisé en fins de ligne LF, données identiques. Veilles locales seules encore actives ; aucune rédaction autonome garantie hors session.
 
 - 2026-10-31T11:39:13.227430+00:00 — reprise seul selon nouvel ordre ; LOT_036 checkpoint6 : PhaseA+DX1–5,84questions,150/150statique,44verbatim, sources exactes et limites sauvegardées. Dernier complet35 inchangé, suiteDX6. Verrou conservé pendant production.
+
+2026-10-31T11:58:47.675635+00:00 — LOT_036 terminé en production seule :11HTML,154questions,275/275conditionsV8,81paragraphesAIPS. Huit groupes de corrections/précisions et limites H1–H6. Bilan HTML de tailles créé. ProchainLOT037 ; verrou conservé pour poursuite, pas de sous-agent ni audit indépendant.
