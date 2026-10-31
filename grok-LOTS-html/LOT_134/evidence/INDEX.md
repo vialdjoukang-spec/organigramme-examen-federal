@@ -12,6 +12,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 7. Couderc M, Bart G, Coiffier G et al. 2020 French recommendations on septic arthritis in an adult native joint. Joint Bone Spine, publié le 3.8.2020. https://doi.org/10.1016/j.jbspin.2020.07.012
 8. Swissmedic, information professionnelle DAFALGAN comprimés, n° 69266, UPSA Switzerland AG, texte hors ligne du dépôt lu le 31.10.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/5ef966b419c74454924120d685e948cc-fr.html
 
+9. Sartelli M et al. 2020 WSES updated guidelines, acute calculus cholecystitis. PMC7643471. Phrases citées dans `wses2020_cholecystite.txt`, lues le 31.10.2026. https://doi.org/10.1186/s13017-020-00336-x
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
