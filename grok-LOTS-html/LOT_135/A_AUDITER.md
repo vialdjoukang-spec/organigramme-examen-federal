@@ -1,13 +1,13 @@
 # LOT_135 — audit médical en cours · 31.10.2026
 
-Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 en cours** (Phase A faite). Reste : DX.1–DX.10 puis conformité grok-4.5. Aucune PR. Branche `grok/lots`.
+Sujet : F1.6 « Anomalies à la percussion ». Rédaction grok-4.7 terminée. **Audit médical grok-4.6 en cours** (Phase A et DX.1 faits). Reste : DX.2–DX.10 puis conformité grok-4.5. Aucune PR. Branche `grok/lots`.
 
 P-01 respecté. Porte zéro jeton = seuil (ORANGE admissible). Liste gelée : `LISTE_DX_CANONIQUE.md`.
 
 | Fichier | Porte (après, preuves du LOT) | T | SHA | Audit médical |
 |---|---|---|---|---|
 | Phase_A | ORANGE | 6.5 (+ 77.9) Ko | 3f0cf065 | 6 corr. · score 93 · grok-4.6 |
-| DX.1 | ORANGE | 3.2 (+ 35.2) Ko | 64870774 | à faire |
+| DX.1 | ORANGE | 3.2 (+ 37.2) Ko | e65e168c | 2 corr. · score 95 · grok-4.6 |
 | DX.2 | ORANGE | 3.1 (+ 37.3) Ko | e2129bc6 | à faire |
 | DX.3 | ORANGE | 2.8 (+ 36.5) Ko | 381f7b59 | à faire |
 | DX.4 | ORANGE | 2.7 (+ 37.2) Ko | 7abb3bf6 | à faire |
