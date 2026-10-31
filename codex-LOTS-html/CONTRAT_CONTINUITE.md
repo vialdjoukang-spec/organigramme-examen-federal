@@ -15,3 +15,7 @@ Commandes : `python3 codex-LOTS-html/outils/veille_contrat.py prendre` acquiert 
 ## Avenant — ordre explicite de Vial du 31.10.2026
 
 « Tu fais à présent 2 LOTs en parallèles ». Cette instruction remplace la consigne de travail seul pour la production simultanée de deux lots. Une session coordonnatrice conserve le verrou exclusif et les écritures globales ainsi que Git. Chaque agent travaille dans un dossier de lot distinct, autorisé au registre. La clôture et la reprise restent dans l’ordre croissant, sans saut, avec la borne 133 vérifiée. Aucun autre producteur, branche ou automate n’est modifié. Deux agents ne constituent pas automatiquement un audit indépendant.
+
+## Consigne de reprise ultérieure — 31.10.2026
+
+Le nouvel ordre reçu après la clôture de LOT_034/035 rétablit « seul et sans sous-agents ». La production reprend donc séquentiellement à LOT_036, sous le verrou unique de la session principale. L’avenant précédent décrit uniquement la paire achevée.

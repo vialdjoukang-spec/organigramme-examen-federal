@@ -1,15 +1,9 @@
 # Reprise LOTS — 31.10.2026
 
-Branche `codex/lots`, écritures uniquement dans `codex-LOTS-html/`. Réservation vérifiée : 18–133. Ne pas recommencer les lots achevés.
+Branche codex/lots, écritures uniquement codex-LOTS-html/. Borne18–133 fraîchement vérifiée. Dernier lot complet35 (34f2f3dc). Le dernier ordre de Vial rétablit le travail seul sans sous-agents.
 
-- LOT_033 : production complète, commit `eb08d21a` poussé.
-- LOT_034 : production complète, commit `a83d0a77` poussé ; 11 HTML, 154 questions, 275/275 V8, 20 citations AIPS.
-- LOT_035 : production complète, commit `34f2f3dc` poussé ; 11 HTML, 154 questions, 275/275 V8, 34 citations AIPS. Sept groupes de corrections, dont C07 sur le plafond pédiatrique absent de la recommandation SSI. Neuf autres HTML préservés lors de cette correction.
+LOT_036 Strabisme : PhaseA etDX1–5 produits et relus intérieurement, sixHTML,84questions,150contrôles statiques positifs,44citations AIPS retrouvées. Lot incomplet ; prochain fichier LOT_036/_travail/dx6.py. Sources exactes et scripts dans le lot ; lire HELP et evidence/INDEX avant de compléterDX6–10 puis transversale.
 
-Prochain lot : LOT_036. Aucun HTML ni recherche de LOT_036/037 créé dans cette session. Le nouvel ordre de Vial autorise deux lots en parallèle : vérifier leur liberté et la borne fraîche avant la prochaine paire. Garder un coordinateur unique pour le verrou et Git, avec dossiers distincts par agent. L’agent `/root/lot035` a cessé toutes ses écritures. Le verrou global a été libéré après les deux dépôts. Les deux producteurs ont cessé leur rédaction ; acquérir un nouveau verrou avant toute reprise et vérifier ETAT_CONTINUITE.json.
+Session active : verrou acquis et conservé pendant la poursuite ; ne pas démarrer un autre producteur. Veilles locales existantes actives chaque60s, elles ne rédigent pas. Avant une reprise ultérieure vérifier fraîchement le verrou et l’activité.
 
-Le bilan `BILAN_LOTS_034_035.html` présente les 22 leçons, poids HTML, texte sans/avec fenêtres et limites. 56 vérifications du rapport réussies, sans navigateur. `ETAT_DES_LIEUX.html` reste l’instantané historique des 170 HTML, sans mise à jour silencieuse.
-
-Aucun audit indépendant, score médical ou validation clinique. Les rapports historiques restent négatifs avec leurs incompatibilités V8 explicites. Modèle confirmé par Vial : GPT-6 Astra · ultra ; high recommandé en routine, aucun changement de réglage prétendu. Les veilles locales contrôlent chaque minute pendant la vie de l’environnement ; elles ne rédigent pas. Aucun autre automate n’a été modifié.
-
-Au checkpoint : 18 lots complets en production, LOT_018 à LOT_035, soit 198 HTML. Il reste 98 lots dans la plage autorisée, du LOT_036 au LOT_133. Ces comptes ne constituent pas une certification médicale.
+Modèle confirmé antérieurement par Vial : GPT-6 Astra · ultra ; high recommandé, aucun changement prétendu. Aucun audit indépendant, score, validation clinique ou test navigateur. Bilan historique170 et bilan22 de34/35 conservés.
