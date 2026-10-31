@@ -211,11 +211,38 @@ def dx3():
     }
     base_dx(3, r, P)
 
+def dx4():
+    r = "2"
+    P = {}
+    textes = {
+        "p1": "La péritonite bactérienne spontanée est l'infection d'une ascite sans perforation. Le seuil est un compte de neutrophiles au-dessus de 250 par mm³.",
+        "p2": "Elle complique surtout l'ascite de cirrhose. Une ponction tardive, au-delà de douze heures, est associée à plus de morts dans la série citée par l'EASL.",
+        "p3": "La translocation bactérienne infecte un liquide pauvre en défenses. La protéine basse marque le risque, les neutrophiles marquent l'infection.",
+        "p4": "Ponction dans l'heure si fièvre, confusion ou hémorragie. Traitement si le seuil est franchi, sans attendre la culture.",
+        "p5": "Cirrhose, fièvre, douleur diffuse, trouble de la conscience, saignement digestif. Une défense localisée oriente vers le chirurgien.",
+        "p6": "L'échographie montre le liquide et guide l'aiguille. Elle ne compte pas les cellules.",
+        "p7": "Syndrome infectieux sur ascite. Il n'est pas l'empyème, ni le transsudat cardiaque simple.",
+        "p8": "Positif si les neutrophiles dépassent 250 par mm³. La culture négative ne l'annule pas.",
+        "p9": "Compte de neutrophiles, albumine, protéine, culture de 10 ml au lit, créatinine et bilirubine.",
+        "p10": "Seuil franchi : antibiotique et albumine. Seuil non franchi : pas de céphalosporine de couverture. Ventre chirurgical : avis immédiat.",
+        "p11": "Ceftriaxone dans la fourchette lue du n° 59876. Albumine en deux temps selon l'EASL, pas selon la notice d'Albunorm.",
+        "p12": "Toute fièvre ultérieure est une nouvelle ponction. L'anti-inflammatoire est interdit.",
+        "p13": "250, 10 ml, 1 à 2 g jusqu'à 4 g avec le décalage d'indication, albumine jour 0 et jour 3, bilirubine 68 et créatinine 88.",
+        "p14": "Piège : couvrir un compte sous le seuil. Piège : arrêter quand la culture est négative. Piège : oublier le chirurgien si la douleur se localise.",
+    }
+    for i, (pid, phrase) in enumerate(textes.items(), 1):
+        P[pid] = ([phrase, "Le détail et les cas chiffrés sont dans les fenêtres."],
+                  [("Repères", [phrase,
+                                "On écrit le chiffre à côté du seuil.",
+                                "On ne mélange pas ce seuil avec le pH pleural.",
+                                "Le rang E n'est pas le numéro de ce diagnostic."])])
+    base_dx(4, r, P)
+
 def run_all():
     dx2()
 
 if __name__ == "__main__":
     nums = [int(a) for a in sys.argv[1:]] or [2]
-    fn = {2: dx2, 3: dx3}
+    fn = {2: dx2, 3: dx3, 4: dx4}
     for n in nums:
         fn[n]()
