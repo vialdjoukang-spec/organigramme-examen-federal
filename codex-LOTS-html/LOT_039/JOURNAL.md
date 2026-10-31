@@ -42,3 +42,5 @@ Checkpoint DX7–8 commité et poussé : d32097a9feb82fda42e536ed76653771b912b49
 Même session, verrou conservé, aucun sous-agent. DX9 puis DX10 rédigés, relectures distinctes, corrections C11/C12 et contrôles après corrections. Sources suisses puis européennes réellement lues, notices/formes Imigran et Algifor vérifiées. Comparaison transversale finale ciblée des onze leçons effectuée. 11HTML,154questions,275conditions V8,279citations AIPS retrouvées ; toutes les tailles xV8 et HTML80–150Ko conformes. Les neuf HTML de d32097a9 restent inchangés. Harnais/langue historiques négatifs conservés, pas de conformité globale ni validation médicale humaine. Aucun score, audit indépendant ou navigateur.
 
 Borne18–133 et dépôt distant revérifiés avant publication ; pret/verifier039 positifs. Catalogue : LOT040=S2.1 Apnée, apnée avec éveil. Publication puis poursuite séquentielle, même verrou.
+
+Clôture039 committée et poussée :145c673fe6fd2c193c23944291a82074a932b1c3, référence distante vérifiée. Même session poursuit040 avec verrou conservé.

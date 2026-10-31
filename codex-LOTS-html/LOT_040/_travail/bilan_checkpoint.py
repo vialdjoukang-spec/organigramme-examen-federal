@@ -1,0 +1,31 @@
+"""Bilan mesuré du checkpoint présent ; aucun score médical."""
+from pathlib import Path
+from datetime import datetime, timezone
+from html import escape
+import hashlib,json
+from lxml import html
+P=Path(__file__).resolve().parents[1]
+v=json.loads((P/'audits/v8_checkpoint_dx1.json').read_text())
+rows=[]; fichiers=[]
+for f in v['fichiers']:
+ p=P/f['fichier'];b=p.read_bytes();t=html.fromstring(b)
+ assert hashlib.sha256(b).hexdigest()==f['sha256'] and len(b)==f['octets']
+ q=len(t.xpath('//details[contains(concat(" ",normalize-space(@class)," ")," quiz ")]'))
+ assert q==14
+ ok=sum(c['ok'] for c in f['controles']);assert ok==len(f['controles'])==25
+ x=f['texte_fiche_octets'];y=f['texte_fenetres_octets'];limite=100000 if 'Phase_A' in p.name else 9000
+ item={k:f[k] for k in ['fichier','sha256','octets','texte_fiche_octets','texte_fenetres_octets','citations_aips']}
+ item.update(texte_total_octets=x+y,taille_v8_conforme=x<=limite,bande_v0_conforme=80000<=len(b)<=150000,questions=q,conditions_positives=ok,conditions_total=25)
+ fichiers.append(item)
+ vals=[f'{x/1000:.3f}',f'{y/1000:.3f}',f'{(x+y)/1000:.3f}',f'{len(b)/1000:.3f}','Oui' if item['taille_v8_conforme'] else 'Non','Oui' if item['bande_v0_conforme'] else 'Non',str(q),'25/25']
+ rows.append('<tr><th><a href="LOT_040/'+escape(p.name)+'">'+escape(p.name)+'</a></th>'+''.join('<td>'+a+'</td>' for a in vals)+'</tr>')
+nextdx=next((i for i in range(1,11) if not (P/f'LOT_040_Phase_B_V0_DX.{i}.html').exists()),None)
+assert nextdx==2 and len(fichiers)==2
+r={'date':datetime.now(timezone.utc).isoformat(),'lot':40,'source_controles':'LOT_040/audits/v8_checkpoint_dx1.json','html':len(fichiers),'questions':sum(f['questions'] for f in fichiers),'conditions_v8_positives':sum(f['conditions_positives'] for f in fichiers),'citations_aips':0,'prochain_diagnostic':nextdx,'statut':'Lot incomplet : Phase A et DX1 produits ; DX2–10 absents.','audit_independant':False,'validation_clinique_humaine':False,'navigateur':False,'fichiers':fichiers}
+(P/'audits/BILAN_REPRISE.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+page='''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LOT040 — checkpoint mesuré</title><style>body{font:17px/1.6 system-ui,sans-serif;color:#173044;background:#f4f6f7;margin:0}main{max-width:1200px;margin:auto;padding:2rem}article{background:white;padding:1.5rem;border-radius:12px;margin:1rem 0}h1,h2{line-height:1.2}table{border-collapse:collapse;width:100%;font-size:.82rem}th,td{border-bottom:1px solid #ccd7dc;padding:.65rem;text-align:right}th:first-child{text-align:left}thead{background:#e5eff2}a{color:#075e8a}.table{overflow:auto}.limites{border-left:6px solid #be8418}</style></head><body><main><h1>LOT040 : deux leçons produites sur onze</h1><p>31 octobre 2026 · S2.1 — Apnée, apnée avec éveil.</p><article><h2>Avancement vérifié</h2><p>Phase A et monographie du syndrome d’apnées-hypopnées obstructives du sommeil rédigées, relues en interne et corrigées. 28 questions et 50 conditions statiques V8 satisfaites. Le lot reste incomplet : prochaine production DX2, syndrome obésité-hypoventilation. La cohérence des deux fichiers a été comparée ; la relecture transversale finale des onze leçons reste à faire.</p></article><article><h2>Tailles exactes</h2><p>1 Ko = 1000 octets. x : texte de la fiche sans fenêtres ; y : texte des fenêtres et dépliants ; x+y : texte total. Le HTML inclut aussi les polices, styles et balises. Ouvrir une fenêtre ne change pas la taille du fichier déjà téléchargé.</p><p>Limite V8 sur x : 100 Ko pour le cours du symptôme et 9 Ko par diagnostic (PROMPT_PRODUCTION_V2.md §12 et PROMPT_CODEX.md §8). Bande initiale V0 du HTML : 80–150 Ko (PROMPT_ULTIME_PRODUCTION_LOTS_V0.md §14). Réussir ces comparaisons ne certifie pas la conformité globale au prompt.</p><div class="table"><table><thead><tr><th>Leçon</th><th>Sans fenêtres x Ko</th><th>Fenêtres y Ko</th><th>Avec fenêtres x+y Ko</th><th>HTML Ko</th><th>Taille V8 conforme</th><th>Bande V0 conforme</th><th>Questions</th><th>Conditions V8</th></tr></thead><tbody>'''+''.join(rows)+'''</tbody></table></div></article><article class="limites"><h2>Contrôles et limites</h2><p>Relectures médicales et linguistiques internes tracées, sans auditeur indépendant ni score. Aucune posologie pharmacologique dans ces deux leçons : aucune vérification AIPS de dose n’est revendiquée. Les gestes de secours ont été rapprochés des documents SRC 2025 et des directives v1.2 du 15 avril 2026.</p><p>Les audits historiques langue/harnais restent négatifs : conventions title/h2 et références V8, espaces insécables exclus par V8, et neuf monographies absentes. Les échecs initiaux sont conservés. Aucun test navigateur ni validation clinique humaine. Les recommandations datées, les lectures partielles et les refus d’accès sont explicités.</p><p><a href="LOT_040/audits/v8_checkpoint_dx1.json">Contrôles V8</a> · <a href="LOT_040/audits/harnais_checkpoint_dx1.json">Harnais brut</a> · <a href="LOT_040/audits/COHERENCE_CHECKPOINT.md">Comparaison interne</a> · <a href="LOT_040/audits/BILAN_REPRISE.json">Mesures et empreintes</a></p><p><a href="LOT_040/audits/RELECTURE_PHASE_A.md">Relecture Phase A</a> · <a href="LOT_040/audits/RELECTURE_DX1.md">Relecture DX1</a> · <a href="LOT_040/HELP.md">Points ouverts</a> · <a href="LOT_040/evidence/INDEX.md">Sources réellement lues</a></p></article><p><a href="BILAN_CHECKPOINT_LOT_039.html">LOT039 : onze leçons produites</a></p><p>Les veilles contrôlent le contrat pendant la vie du runtime. Elles ne rédigent pas les leçons.</p></main></body></html>'''
+dest=P.parent/'BILAN_CHECKPOINT_LOT_040.html';dest.write_text(page)
+t=html.fromstring(dest.read_bytes());assert len(t.xpath('//tbody/tr'))==2
+for a in t.xpath('//a[@href]/@href'):assert (P.parent/a).exists(),a
+(P/'audits/verification_bilan_reprise.json').write_text(json.dumps({'date':r['date'],'lignes':2,'questions':28,'empreintes_sources_verifiees':True,'liens_locaux_resolus':True,'sha256_rapport':hashlib.sha256(dest.read_bytes()).hexdigest(),'test_navigateur':False},ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({k:r[k] for k in ['html','questions','conditions_v8_positives','prochain_diagnostic']},ensure_ascii=False))
