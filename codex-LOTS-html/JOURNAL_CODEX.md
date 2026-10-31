@@ -15,3 +15,6 @@
 31.10.2026 00:33 UTC — Constat réel : les processus de veille locale ne figurent plus dans ps, derniers pouls vers 00:22 UTC. Relance de la veille de routage et de la veille de contrat en session locale, sans démarrer un second producteur. Le verrou de cette session est conservé. Une veille n’assure pas la survie de son environnement.
 
 31.10.2026 — LOT_020 poussé eb65e0b2. LOT_021 checkpoint réel : Phase A + DX.1–4, cinq HTML, 70 questions et sept citations AIPS. Contrôle global incomplet, six fiches et liens restants ; 124/125 contrôles des fichiers présents réussis. Prochaine action DX.5, sources à compléter selon index. Relecture seule, pas de score ni rendu. Verrou à libérer en fin de checkpoint, veille locale laissée active.
+
+2026-10-31T02:19:07+00:00 — LOT_021 clos et poussé e2596088 : 11 HTML, 275/275 contrôles V8, 25 citations AIPS exactes. Corrections regroupées : sigles, phrase Curaçao et exception Rendu-Osler dans le cours. Aucun score ni décompte d’audit indépendant inventé.
+2026-10-31T02:19:07+00:00 — LOT_022 checkpoint : Phase A + DX.1–4, 124/125 contrôles partiels, 17 citations AIPS exactes ; six fichiers manquants. Reprise DX.5, travail seul. Contrôleurs officiels négatifs conservés, navigateur et audit indépendant non effectués.
