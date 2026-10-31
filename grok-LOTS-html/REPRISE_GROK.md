@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_174 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_171 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_173 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_174 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169 et LOT_171 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172 et LOT_174 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171 et LOT_173 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172 et LOT_174 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_173.**
+**Prochain LOT du rédacteur A : LOT_175.**
 **Prochain LOT du rédacteur B : LOT_176.** LOT_174 (O1.1 Poids de naissance anormal et prématurité) est rédigé et certifié. Détail : `LOT_174/A_AUDITER.md`.
+
+## LOT_173 — rédigé et certifié
+Sujet : F2.25 « Thrombopénie, thrombocytose ». Détail : `LOT_173/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Scores entiers (4T, PLASMIC, français, CIVD 2001, IPSET 2012 et révision 2015, OMS/ICC 2022), pseudothrombopénie EDTA, grossesse et HELLP, doses AIPS lues. Zéro retrait. Porte ORANGE (langue).
+
+- Phase_A : certitude VERT · porte ORANGE · T = 2.8 (+ 72.1) Ko · SHA fe2a8096f16a · commit 7ddca9dd
+- DX.1 : certitude VERT · porte ORANGE · T = 2.7 (+ 38.3) Ko · SHA 27e112e0d9fa · commit ea5c26cd
+- DX.2 : certitude VERT · porte ORANGE · T = 2.5 (+ 42.2) Ko · SHA c5ee985478fc · commit 817fe04d
+- DX.3 : certitude VERT · porte ORANGE · T = 2.5 (+ 39.9) Ko · SHA 9ebaa3901871 · commit 27baad51
+- DX.4 : certitude VERT · porte ORANGE · T = 2.7 (+ 44.4) Ko · SHA 6072946c5223 · commit 10baa83c
+- DX.5 : certitude VERT · porte ORANGE · T = 2.8 (+ 45.6) Ko · SHA dcd170875961 · commit b5aa0a54
+- DX.6 : certitude VERT · porte ORANGE · T = 2.6 (+ 36.8) Ko · SHA 546688519eb5 · commit 8730849d
+- DX.7 : certitude VERT · porte ORANGE · T = 2.7 (+ 43.3) Ko · SHA ddad144e14d5 · commit 35b0d232
+- DX.8 : certitude VERT · porte ORANGE · T = 3.0 (+ 41.0) Ko · SHA 1b6f3a46562a · commit 0e645439
+- DX.9 : certitude VERT · porte ORANGE · T = 2.8 (+ 43.7) Ko · SHA 6b6049068060 · commit f04c14f0
+- DX.10 : certitude VERT · porte ORANGE · T = 2.8 (+ 39.3) Ko · SHA 95ebc4017f53 · commit f2d8c525
 
 ## LOT_174 — rédigé et certifié
 Sujet : O1.1 « Poids de naissance anormal et prématurité ». Détail : `LOT_174/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Bandes OMS 2022 et fiche du 10 mai 2023, parts OFS 2025, consensus de Gordijn 2016 (3e percentile, flux télédiastolique ombilical absent avant 32 semaines), Apgar 1953, avis SGGG 56 et 66, atosiban 69185, caféine 65490, poractant alfa 51886 (100 à 200 mg/kg, maximum 300 à 400 mg/kg), magnésium 56394 (4 g puis 1 à 2 g par heure), benzylpénicilline 56271, metformine 68510, labétalol 70383.
