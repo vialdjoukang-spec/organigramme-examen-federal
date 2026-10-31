@@ -1,4 +1,4 @@
-# REGISTRE IA — état au 2026-10-31T21:42:00+01:00
+# REGISTRE IA — état au 2026-10-31T23:08:33+01:00
 
 LOIS DU REGISTRE (ordre de Vial, 30.10.2026) — lecture et signature obligatoires, sinon toute écriture est bloquée.
 L1. Lis ce registre et signe-le (`signer`) au début de chaque session, avant d'écrire quoi que ce soit.
@@ -51,8 +51,8 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_036 | S1.20 | AMORCÉ | codex | codex | 11/11 |
 | LOT_037 | S1.21 | AMORCÉ | codex | codex | 11/11 |
 | LOT_038 | S1.22 | AMORCÉ | codex | codex | 11/11 |
-| LOT_039 | S1.23 | AMORCÉ | codex | codex | 7/11 |
-| LOT_040 | S2.1 | LIBRE | — | codex | 0/11 |
+| LOT_039 | S1.23 | AMORCÉ | codex | codex | 11/11 |
+| LOT_040 | S2.1 | AMORCÉ | codex | codex | 2/11 |
 | LOT_041 | S2.2 | LIBRE | — | codex | 0/11 |
 | LOT_042 | S2.3 | LIBRE | — | codex | 0/11 |
 | LOT_043 | S2.4 | LIBRE | — | codex | 0/11 |
@@ -146,10 +146,10 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_131 | F1.2 | LIBRE | — | codex | 0/11 |
 | LOT_132 | F1.3 | LIBRE | — | codex | 0/11 |
 | LOT_133 | F1.4 | LIBRE | — | codex | 0/11 |
-| LOT_134 | F1.5 | LIBRE | — | grok | 0/11 |
-| LOT_135 | F1.6 | LIBRE | — | grok | 0/11 |
-| LOT_136 | F1.7 | LIBRE | — | grok | 0/11 |
-| LOT_137 | F1.8 | LIBRE | — | grok | 0/11 |
+| LOT_134 | F1.5 | AMORCÉ | grok | grok | 11/11 |
+| LOT_135 | F1.6 | AMORCÉ | grok | grok | 11/11 |
+| LOT_136 | F1.7 | AMORCÉ | grok | grok | 11/11 |
+| LOT_137 | F1.8 | AMORCÉ | grok | grok | 11/11 |
 | LOT_138 | F1.9 | LIBRE | — | grok | 0/11 |
 | LOT_139 | F1.10 | LIBRE | — | grok | 0/11 |
 | LOT_140 | F1.11 | LIBRE | — | grok | 0/11 |
@@ -161,30 +161,30 @@ L8. Règles de fond : sources suisses puis européennes lues et datées, sinon �
 | LOT_146 | F1.17 | LIBRE | — | grok | 0/11 |
 | LOT_147 | F1.18 | LIBRE | — | grok | 0/11 |
 | LOT_148 | F1.19 | LIBRE | — | grok | 0/11 |
-| LOT_149 | F2.1 | LIBRE | — | grok | 0/11 |
-| LOT_150 | F2.2 | LIBRE | — | grok | 0/11 |
-| LOT_151 | F2.3 | LIBRE | — | grok | 0/11 |
-| LOT_152 | F2.4 | LIBRE | — | grok | 0/11 |
-| LOT_153 | F2.5 | LIBRE | — | grok | 0/11 |
-| LOT_154 | F2.6 | LIBRE | — | grok | 0/11 |
-| LOT_155 | F2.7 | LIBRE | — | grok | 0/11 |
-| LOT_156 | F2.8 | LIBRE | — | grok | 0/11 |
-| LOT_157 | F2.9 | LIBRE | — | grok | 0/11 |
-| LOT_158 | F2.10 | LIBRE | — | grok | 0/11 |
-| LOT_159 | F2.11 | LIBRE | — | grok | 0/11 |
-| LOT_160 | F2.12 | LIBRE | — | grok | 0/11 |
-| LOT_161 | F2.13 | LIBRE | — | grok | 0/11 |
-| LOT_162 | F2.14 | LIBRE | — | grok | 0/11 |
-| LOT_163 | F2.15 | LIBRE | — | grok | 0/11 |
-| LOT_164 | F2.16 | LIBRE | — | grok | 0/11 |
-| LOT_165 | F2.17 | LIBRE | — | grok | 0/11 |
-| LOT_166 | F2.18 | LIBRE | — | grok | 0/11 |
-| LOT_167 | F2.19 | LIBRE | — | grok | 0/11 |
-| LOT_168 | F2.20 | LIBRE | — | grok | 0/11 |
-| LOT_169 | F2.21 | LIBRE | — | grok | 0/11 |
-| LOT_170 | F2.22 | LIBRE | — | grok | 0/11 |
-| LOT_171 | F2.23 | LIBRE | — | grok | 0/11 |
-| LOT_172 | F2.24 | LIBRE | — | grok | 0/11 |
+| LOT_149 | F2.1 | AMORCÉ | grok | grok | 11/11 |
+| LOT_150 | F2.2 | AMORCÉ | grok | grok | 11/11 |
+| LOT_151 | F2.3 | AMORCÉ | grok | grok | 11/11 |
+| LOT_152 | F2.4 | AMORCÉ | grok | grok | 11/11 |
+| LOT_153 | F2.5 | AMORCÉ | grok | grok | 11/11 |
+| LOT_154 | F2.6 | AMORCÉ | grok | grok | 11/11 |
+| LOT_155 | F2.7 | AMORCÉ | grok | grok | 11/11 |
+| LOT_156 | F2.8 | AMORCÉ | grok | grok | 11/11 |
+| LOT_157 | F2.9 | AMORCÉ | grok | grok | 11/11 |
+| LOT_158 | F2.10 | AMORCÉ | grok | grok | 11/11 |
+| LOT_159 | F2.11 | AMORCÉ | grok | grok | 11/11 |
+| LOT_160 | F2.12 | AMORCÉ | grok | grok | 11/11 |
+| LOT_161 | F2.13 | AMORCÉ | grok | grok | 11/11 |
+| LOT_162 | F2.14 | AMORCÉ | grok | grok | 11/11 |
+| LOT_163 | F2.15 | AMORCÉ | grok | grok | 11/11 |
+| LOT_164 | F2.16 | AMORCÉ | grok | grok | 11/11 |
+| LOT_165 | F2.17 | AMORCÉ | grok | grok | 11/11 |
+| LOT_166 | F2.18 | AMORCÉ | grok | grok | 11/11 |
+| LOT_167 | F2.19 | AMORCÉ | grok | grok | 11/11 |
+| LOT_168 | F2.20 | AMORCÉ | grok | grok | 11/11 |
+| LOT_169 | F2.21 | AMORCÉ | grok | grok | 11/11 |
+| LOT_170 | F2.22 | AMORCÉ | grok | grok | 11/11 |
+| LOT_171 | F2.23 | AMORCÉ | grok | grok | 11/11 |
+| LOT_172 | F2.24 | AMORCÉ | grok | grok | 11/11 |
 | LOT_173 | F2.25 | LIBRE | — | grok | 0/11 |
 | LOT_174 | O1.1 | LIBRE | — | grok | 0/11 |
 | LOT_175 | O1.2 | LIBRE | — | grok | 0/11 |

@@ -19,3 +19,7 @@ Commandes : `python3 codex-LOTS-html/outils/veille_contrat.py prendre` acquiert 
 ## Consigne de reprise ultérieure — 31.10.2026
 
 Le nouvel ordre reçu après la clôture de LOT_034/035 rétablit « seul et sans sous-agents ». La production reprend donc séquentiellement à LOT_036, sous le verrou unique de la session principale. L’avenant précédent décrit uniquement la paire achevée.
+
+## Priorité ultérieure — illustrations annotées, 31.10.2026
+
+Vial ordonne une pause des nouveaux diagnostics, le rattrapage des illustrations depuis le début, puis la reprise automatique après correction. `CONSIGNE_ILLUSTRATIONS.md` porte les critères détaillés et les limites vérifiées. La correction des lots018–040 est autorisée malgré leur clôture rédactionnelle antérieure. Le statut pause interdit de reprendre040 DX2 tant que ce rattrapage n'est pas vérifié ; il n'interdit pas le travail de correction demandé. La reprise après correction est déjà autorisée. Les prochaines productions doivent appliquer ces critères dès leur création. Aucun autre automate n'est modifié.

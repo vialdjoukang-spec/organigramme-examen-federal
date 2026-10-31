@@ -1,5 +1,15 @@
 # Reprise LOTS — 31.10.2026
 
+## PRIORITÉ ACTIVE : pause pour rattrapage des illustrations
+
+Ordre de Vial du31.10.2026 reçu après le checkpoint ci-dessous : corriger les illustrations depuis le début, puis reprendre automatiquement. Lire `CONSIGNE_ILLUSTRATIONS.md`, `ETAT_CONTINUITE.json` et `ETAT_ILLUSTRATIONS.html`. Les244HTML des23lots présents n'avaient aucun img/SVG à l'inventaire initial. Aucun lot n'est déclaré corrigé pour cette nouvelle exigence. Le prochain lot de rattrapage est018 ; le prochain diagnostic rédactionnel reste040 DX2. La mention historique « ne pas refaire018 » ci-dessous interdit une réécriture inutile, pas le rattrapage expressément demandé.
+
+Blocage : outils/illustration/illustrer.py et outils/dessinateur/dessinateur.py introuvables sur codex/lots, main et production-v2 aux commits consignés dans la consigne. Demande de branche/commit envoyée. Accès direct aux articles Europe PMC essayé :403 ; ouvertures web échouées. Les recherches conservées sont des pistes, pas des images acquises ou validées. Ne pas prétendre avoir exécuté ces outils ou effectué une revue visuelle. Ne pas remettre statut actif pour poursuivre la rédaction avant correction. La reprise après correction est déjà autorisée sans nouvelle confirmation.
+
+Checkpoint illustrations : inventaire et consigne sauvegardés, 737 vérifications de rapport réussies, zéro image produite. Verrou exclusif libéré officiellement en fin de correction préparatoire. Veilles existantes conservées ; le contrôle de contrat signale la pause attendue. Aucun nouveau diagnostic, aucun changement du harnais ou des autres producteurs. Reprendre le verrou avant toute correction future.
+
+## Checkpoint rédactionnel antérieur, conservé pour la reprise conditionnelle
+
 Branche codex/lots, écritures uniquement codex-LOTS-html/. Borne18–133 revérifiée. Travail seul et sans sous-agents ; STOP/PAUSE ultérieur prime. Dernier lot terminé en production :039, commit145c673fe6fd2c193c23944291a82074a932b1c3 poussé et référence distante vérifiée. Ne pas refaire LOT018 ni les onze leçons039.
 
 Premier incomplet : LOT040, S2.1 « Apnée, apnée avec éveil ». Phase A et DX1 SAHOS produits, relus en interne, corrigés C01–C03 et contrôlés. Prochain fichier exact : LOT_040/LOT_040_Phase_B_V0_DX.2.html — Syndrome obésité-hypoventilation. Neuf monographies absentes ; aucun saut à041. Reprendre la liste canonique figée et les recherches/rédactions exactes dans LOT_040/evidence/ et _travail/. Ne pas exécuter les copies avant correction comme versions finales.
