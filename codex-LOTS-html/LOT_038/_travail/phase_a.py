@@ -1,0 +1,130 @@
+from format_lecon import Lesson, paras, table, steps, ABBR
+from medicaments import adrenaline
+from collyres import ketotifene
+
+ABBR.update({'BSAC':'British Society for Antimicrobial Chemotherapy, société britannique de chimiothérapie antimicrobienne','SDU':'présentation en dose unitaire'})
+l=Lesson('Gonflement de la paupière')
+adr=adrenaline(l);keto=ketotifene(l)
+l.add('Le {gonflement palpébral} est un signe, pas un diagnostic. Il peut correspondre à un œdème diffus, une inflammation locale ou une masse. L’évaluation doit aussi vérifier la vision, les mouvements de l’œil et l’état général.',paras(
+    'L’œdème palpébral est une accumulation anormale de liquide dans les tissus de la paupière. Le mot gonflement couvre aussi un nodule glandulaire, une tuméfaction inflammatoire ou une lésion tissulaire. Une paupière basse par déficit du muscle releveur et un excès de peau ne sont pas synonymes d’œdème.',
+    'Préciser unilatéral ou bilatéral, supérieur ou inférieur, focal ou diffus et aigu ou chronique. Ces distinctions orientent le raisonnement sans suffire à exclure une cause grave. La fonction du globe et le retentissement général comptent davantage que l’aspect impressionnant de la paupière.',
+    'Un œil apparemment fermé par le gonflement doit être évalué : l’impossibilité de voir le globe peut masquer une complication orbitaire. Ne pas conclure que la vision est normale parce que le patient ne la décrit pas clairement, surtout chez le petit enfant.'
+),(1,2,8,9))
+l.add('Les {causes locales bénignes et inflammatoires} sont fréquentes, mais le tri doit rechercher les urgences. Le terrain modifie les hypothèses et le seuil d’orientation. Aucun classement comparatif de fréquence suisse n’est établi par les sources consultées.',paras(
+    'Chalazion, orgelet, inflammation du bord des paupières et manifestations allergiques sont des causes courantes de consultation. Les HUG décrivent notamment l’obstruction des glandes de Meibomius et l’infection à la racine d’un cil. Ces données descriptives ne donnent pas un taux national applicable à toute tuméfaction.',
+    'Chez l’enfant, une infection palpébrale ou sinusienne peut nécessiter un bilan orbitaire. Une conjonctivite avec douleur importante ou baisse visuelle ne doit pas être présumée simple. Chez la personne immunodéprimée, le risque infectieux modifie l’orientation.',
+    'Un œdème bilatéral chez l’enfant appelle aussi une recherche rénale. Une lésion persistante ou atypique nécessite une caractérisation tissulaire selon le contexte. Les dix diagnostics détaillés constituent une sélection pédagogique et ne couvrent pas toutes les maladies générales, orbitaires ou traumatiques.'
+),(1,2,7,8,9,12))
+l.add('Les {rapports anatomiques de la paupière} expliquent les signes et les risques. Le septum sépare les tissus palpébraux antérieurs du compartiment orbitaire. Les glandes et les voies lacrymales ont des fonctions différentes.',table(['Structure ou mécanisme','Manifestation','Conséquence pour le soin'],[
+    ['Glandes de Meibomius et film lacrymal','Obstruction puis inflammation : nodule dans l’épaisseur de la paupière.','Soins glandulaires adaptés après exclusion d’une complication.'],
+    ['Follicule d’un cil','Infection focale douloureuse du bord libre.','Distinguer l’orgelet d’une infection diffuse ; ne pas percer soi-même.'],
+    ['Septum orbitaire','La cellulite préseptale reste en avant ; l’atteinte postseptale concerne l’orbite.','Tester vision et motilité, puis imagerie et hospitalisation si suspicion orbitaire.'],
+    ['Sac et drainage lacrymaux','Larmoiement et tuméfaction près du coin interne en cas d’obstruction ou infection.','Examen des voies lacrymales ; ne pas assimiler à une atteinte de la glande lacrymale supéro-externe.'],
+    ['Perméabilité vasculaire ou mécanisme général','Œdème allergique, angio-œdème ou syndrome œdémateux.','Rechercher retentissement respiratoire, mécanisme et signes extraoculaires.']
+])+paras('Le tarse constitue l’armature fibreuse de la paupière et contient les glandes de Meibomius. Leurs lipides contribuent à limiter l’évaporation des larmes. L’obstruction glandulaire et le défaut du film peuvent s’entretenir, d’où l’intérêt de l’hygiène dans les situations appropriées.',
+    'L’orbite contient notamment muscles oculomoteurs et nerf optique. Une infection ou une collection peut menacer la vision et s’étendre vers les structures intracrâniennes. Un traitement par gouttes seul ne couvre pas ce risque profond.'),(1,2,4,8,9,12,16))
+l.add('Le tri recherche une {menace visuelle, orbitaire ou vitale}. Douleur aux mouvements, diplopie, exophtalmie ou baisse visuelle nécessitent un avis urgent. Une atteinte respiratoire ou circulatoire associée au gonflement impose les secours immédiats.',table(['Priorité','Signes','Conduite'],[
+    ['🚩 E1 — Immédiate','Baisse visuelle, exophtalmie, mouvements douloureux ou limités, diplopie nouvelle ou œil impossible à examiner dans un contexte infectieux suspect.','Évaluation hospitalière urgente pour atteinte orbitaire ou autre urgence oculaire ; ne pas attendre l’effet d’un collyre.'],
+    ['🚩 E1 — Immédiate','Céphalée intense, vomissements, somnolence ou déficit neurologique dans un contexte infectieux.','Rechercher extension intracrânienne et mobiliser immédiatement les équipes adaptées.'],
+    ['🚩 E1 — Immédiate','Œdème lingual/pharyngé, stridor, dyspnée, hypotension ou malaise compatible avec anaphylaxie.','Appel au 144 et traitement urgent, dont adrénaline intramusculaire si anaphylaxie.'],
+    ['🚩 E1 — Immédiate','Traumatisme à risque, projection chimique ou suspicion de plaie du globe.','Mesures d’urgence propres au mécanisme et avis ophtalmologique ; éviter pression ou manipulation sur un globe possiblement ouvert.'],
+    ['E2 — Rapide selon situation','Fièvre, gonflement rouge et douloureux ou terrain fragile sans signe orbitaire après examen complet.','Évaluation le jour même ; toute suspicion orbitaire fait passer au parcours urgent.'],
+    ['E2 — Accélérée','Masse persistante ou récidivante atypique, ulcération ou anomalie du bord palpébral.','Examen spécialisé et prélèvement si indiqué.']
+])+paras('E1 signifie un danger fonctionnel ou vital nécessitant une action immédiate. E2 impose une évaluation rapide adaptée à la situation, mais ne correspond pas à un délai uniforme. Toute aggravation peut faire changer le niveau de priorité. L’absence de fièvre ou d’un signe isolé ne permet pas d’écarter une atteinte orbitaire.'),(7,8,9,10,14,16))
+l.add('L’anamnèse précise la {chronologie, la douleur et les expositions}. Elle recherche les signes oculaires et les symptômes généraux. Produits cosmétiques, collyres, lentilles et médicaments systémiques peuvent changer l’hypothèse.',steps(
+    'Dater début et progression, latéralité, premier épisode ou récidive, nodule local ou œdème diffus.',
+    'Demander baisse visuelle, diplopie, photophobie, douleur de l’œil ou à ses mouvements, céphalée et fièvre.',
+    'Rechercher traumatisme, projection, piqûre, plaie, chirurgie récente, lentilles, sinusite, infection dentaire ou cutanée.',
+    'Recenser cosmétiques, produits pour cheveux/ongles, médicaments locaux et généraux, ainsi que le délai avec les symptômes.',
+    'Rechercher prurit, sécrétions, larmoiement et rhinite, sans conclure allergie sur la seule bilatéralité.',
+    'Demander dyspnée, gonflement des lèvres ou de la langue, autres œdèmes, modification des urines et prise de poids.',
+    'Préciser diabète, immunodépression, grossesse éventuelle, traitements antérieurs et possibilité réelle de suivi.'
+),(6,7,8,9,11,12,16))
+l.add('L’examen compare les {paupières et les fonctions des deux yeux}. La vision et la motilité sont documentées avant de retenir une lésion superficielle. Un examen incomplet doit être reconnu et conduire à une stratégie adaptée.',paras(
+    'Évaluer d’abord l’état général, température et paramètres vitaux selon le contexte. Mesurer l’acuité visuelle de chaque œil avec correction habituelle et une méthode adaptée à l’âge. Le repère est une vision conservée par rapport à l’état antérieur ; une baisse nouvelle est une alarme.',
+    'Inspecter sans forcer : nodule du bord libre ou du tarse, rougeur diffuse, croûtes, squames, vésicules, porte d’entrée et coin interne. Comparer au côté opposé. Ne pas comprimer une lésion ni pratiquer de manœuvre appuyée si un globe ouvert est possible.',
+    'Rechercher exophtalmie, chémosis, alignement, douleur ou limitation dans les directions du regard, diplopie et anomalies pupillaires. Normalement les mouvements sont complets et indolores, sans protrusion nouvelle ni déficit pupillaire afférent. Les tests doivent rester adaptés à la coopération.',
+    'Examiner conjonctive et cornée à la lampe à fente selon les moyens et l’urgence. L’examen recherche une atteinte du globe, pas seulement de la peau. Si l’œil est impossible à examiner, le dire explicitement et obtenir le niveau d’expertise et l’imagerie nécessaires.',
+    'Devant un œdème bilatéral, rechercher œdèmes ailleurs, pression artérielle et signes généraux. Chez l’enfant, compléter par une bandelette urinaire pour ne pas méconnaître une protéinurie. Les résultats orientent ensuite le bilan rénal.'
+),(4,5,8,9,12))
+l.add('Le diagnostic différentiel se construit par {siège, durée et retentissement}. Les dix diagnostics retenus sont comparés pour guider l’action. Les situations graves restent prioritaires même si elles sont moins courantes en pratique.',table(['Diagnostic retenu','Indices discriminants','Décision initiale'],[
+    ['DX.1 — Orgelet','Foyer douloureux du bord palpébral, souvent à la racine d’un cil.','Soins prudents et examen si extension, fièvre, douleur forte ou baisse visuelle.'],
+    ['DX.2 — Chalazion','Nodule dans l’épaisseur de la paupière, souvent peu douloureux hors phase inflammatoire.','Hygiène adaptée ; explorer une évolution atypique ou persistante.'],
+    ['DX.3 — Blépharite','Bord palpébral inflammatoire, croûtes, prurit et gêne de surface.','Soins du bord et recherche d’une atteinte cornéenne si symptômes d’alarme.'],
+    ['DX.4 — Dermatite de contact palpébrale','Peau prurigineuse, squameuse ou vésiculeuse ; exposition possible.','Éviction du produit suspect et bilan ciblé ; ne pas appliquer au hasard un ancien topique.'],
+    ['DX.5 — Conjonctivite allergique','Prurit oculaire, écoulement clair et contexte allergique, souvent bilatéral.','Vérifier absence d’urgence oculaire ; traitement selon indication et âge.'],
+    ['DX.6 — Cellulite préseptale','Paupière rouge, chaude et douloureuse avec fonctions oculaires conservées à l’examen complet.','Antibiothérapie systémique choisie selon terrain et gravité, suivi rapproché.'],
+    ['DX.7 — Cellulite orbitaire','🚩 E1 : exophtalmie, douleur/limitation des mouvements, diplopie ou baisse visuelle.','Hospitalisation, traitement parentéral et équipes ophtalmologique/ORL ; imagerie et geste selon le bilan.'],
+    ['DX.8 — Dacryocystite aiguë','Tuméfaction douloureuse près du sac lacrymal, au coin interne, avec larmoiement.','Avis rapide et traitement infectieux ; rechercher extension ou collection.'],
+    ['DX.9 — Angio-œdème','Gonflement profond, parfois lèvres/langue ou urticaire ; mécanismes différents.','🚩 E1 si atteinte des voies aériennes ou anaphylaxie ; traitement selon mécanisme.'],
+    ['DX.10 — Tumeur palpébrale','Masse ou lésion durable, parfois déformante ou atypique.','Examen spécialisé et preuve tissulaire si nécessaire ; ne pas multiplier les traitements empiriques.']
+])+paras('Cette liste n’est pas exhaustive ni un classement chiffré de prévalence. Ajouter au raisonnement selon contexte : traumatisme, brûlure, piqûre, conjonctivite infectieuse, kératite, dacryoadénite, maladie thyroïdienne, thrombose du sinus caverneux ou syndrome œdémateux général.',
+    'Chez l’enfant, une tuméfaction bilatérale sans prurit ne devient pas automatiquement une allergie. La recherche d’une atteinte rénale accompagne l’évaluation. Une masse profonde ou une exophtalmie progressive appelle aussi son propre bilan orbitaire.'),(1,2,4,5,6,7,8,9,10,11,12,16))
+l.add('Le diagnostic positif établit la {cause du gonflement et son niveau de risque}. L’aspect extérieur seul ne suffit pas à distinguer toutes les causes. La certitude peut nécessiter imagerie, analyses ou prélèvement selon l’hypothèse.',paras(
+    'Une lésion locale typique peut être reconnue à l’examen après vérification de la vision et de la motilité. Le siège folliculaire évoque l’orgelet, le nodule tarsal le chalazion, les croûtes du bord une blépharite. L’histoire et l’évolution doivent rester concordantes.',
+    'Une cellulite préseptale suppose que les fonctions oculaires aient été réellement examinées et restent normales. Une douleur aux mouvements, une diplopie, une exophtalmie ou une baisse de vision fait suspecter une atteinte orbitaire. Il n’est pas nécessaire que tous les signes soient présents.',
+    'Une suspicion de dermatite de contact demande une enquête d’exposition ; des tests épicutanés peuvent identifier une sensibilisation dont la pertinence clinique doit être établie. Une lésion tumorale exige un prélèvement lorsqu’il est indiqué, pas une assurance fondée sur une ressemblance avec un chalazion.',
+    'Un syndrome œdémateux systémique se confirme par un bilan dirigé. Chez l’enfant, le syndrome néphrotique associe une protéinurie importante et une hypoalbuminémie. Une simple photographie de paupières gonflées n’en établit ni n’en exclut le diagnostic.'
+),(1,5,6,8,9,12))
+l.add('Les {examens complémentaires} répondent à une question clinique précise. Ils ne sont pas systématiques devant une lésion superficielle typique. Une suspicion orbitaire ou un examen impossible peut au contraire imposer une imagerie urgente.',
+    '<h3>9.a — Référence selon la cause</h3>'+paras('Il n’existe pas un examen de référence unique pour toutes les paupières gonflées. Le diagnostic d’une lésion locale typique est clinique. Le scanner injecté des orbites et des sinus cartographie une suspicion infectieuse profonde ; le prélèvement tissulaire caractérise une masse suspecte. Ces examens ne répondent pas à la même question.')+
+    '<h3>9.b — Première intention</h3>'+paras('Documenter vision, pupilles et motilité. En infection sévère, adapter hémogramme, marqueurs inflammatoires, fonction rénale et hémocultures au retentissement. L’antibiothérapie urgente ne doit pas attendre les résultats ni un scanner retardé. Chez l’enfant avec œdème bilatéral, rechercher une protéinurie par bandelette puis la quantifier si nécessaire.')+
+    table(['Résultat ou constat','Interprétation','Suite'],[
+        ['Fonctions oculaires conservées et foyer local typique','Atteinte superficielle probable.','Soins ciblés et consignes de retour, sans imagerie automatique.'],
+        ['Signes orbitaires ou œil impossible à examiner','L’extension profonde ne peut être écartée.','Avis hospitalier et imagerie appropriée sans retarder le traitement urgent.'],
+        ['Collection ou extension intracrânienne à l’imagerie','Complication nécessitant une stratégie spécialisée.','Antibiotiques parentéraux et discussion de drainage avec les équipes adaptées.'],
+        ['Protéinurie dans un œdème bilatéral de l’enfant','Une atteinte rénale doit être recherchée.','Quantification, albuminémie et fonction rénale avec avis pédiatrique.'],
+        ['Masse atypique persistante','La nature n’est pas établie.','Planifier examen spécialisé et prélèvement selon suspicion.']
+    ])+
+    '<h3>9.c — Alternatives ciblées</h3>'+paras('L’imagerie par résonance magnétique peut préciser une extension intracrânienne ou une autre question orbitaire, selon disponibilité et sécurité. Le choix tient compte notamment d’un éventuel corps étranger métallique et des contraintes de sédation. L’échographie superficielle ne remplace pas toute cartographie profonde.')+
+    '<h3>9.d — Seconde intention</h3>'+paras('Devant échec ou récidive, réexaminer diagnostic, adhésion au traitement et complication. L’enquête allergologique, la biopsie, le bilan lacrymal, thyroïdien ou rénal sont ciblés par les signes. L’imagerie d’une obstruction lacrymale chronique n’est pas le même parcours qu’une infection orbitaire aiguë.'),(4,5,6,8,9,12))
+l.add('L’{arbre décisionnel} commence par vision et fonctions vitales. Il sépare ensuite nodule local, inflammation diffuse et œdème général. Une évolution discordante impose de reprendre le diagnostic.',steps(
+    'Si détresse respiratoire ou circulatoire, gonflement lingual ou pharyngé, alors appeler le 144 et traiter la menace, notamment l’anaphylaxie si elle est suspectée.',
+    'Si baisse visuelle, diplopie, exophtalmie, douleur ou limitation des mouvements, signe neurologique ou impossibilité d’examen préoccupante, alors obtenir une évaluation hospitalière urgente.',
+    'Si la lésion est focale et les fonctions oculaires normales, alors distinguer foyer folliculaire, nodule glandulaire, bord palpébral et lésion tissulaire.',
+    'Si rougeur chaude et douloureuse diffuse, alors évaluer une cellulite et son extension ; si prurit et lésions cutanées/conjonctivales, alors rechercher le mécanisme allergique ou irritatif.',
+    'Si œdème bilatéral chez l’enfant ou autres œdèmes, alors rechercher une protéinurie et une cause générale au lieu de conclure automatiquement allergie.',
+    'Si persistance, récidive atypique ou réponse insuffisante, alors organiser une nouvelle évaluation et les examens ciblés ; ne pas répéter indéfiniment des collyres empiriques.'
+),(1,4,5,6,7,8,9,12,14,16))
+l.add('La {prise en charge en Suisse} dépend du diagnostic et de la gravité. Les soins locaux ne remplacent ni une antibiothérapie systémique indiquée ni une intervention urgente. Toute prescription doit correspondre à la voie, à l’âge et à l’indication retenus.',
+    '<h3>11.A — But</h3>'+paras('Préserver vision, cornée, motilité et fonctions vitales, puis traiter la cause et réduire les symptômes. Un gonflement spectaculaire ne détermine pas seul le traitement. Un examen complet, ou la reconnaissance de son impossibilité, guide le lieu de soins.')+
+    '<h3>11.B — Moyens</h3>'+paras('En anaphylaxie suspectée, l’adrénaline intramusculaire est administrée précocement avec appel aux secours et surveillance. Un œdème palpébral isolé ne suffit pas à diagnostiquer une anaphylaxie. Les antihistaminiques ou les gouttes ne remplacent pas son traitement vital :')+adr+paras(
+    'Une cellulite orbitaire relève d’une prise en charge hospitalière avec antibiothérapie parentérale et avis ophtalmologique et ORL. L’imagerie recherche notamment une collection et les complications. Le contrôle d’un foyer ou le drainage est discuté selon extension, vision et réponse. Une forme préseptale simple peut relever d’une voie orale seulement après évaluation complète, avec suivi fiable.',
+    'Les antibiotiques sont choisis selon foyer, gravité, âge, allergies, reins et recommandations locales, puis adaptés aux prélèvements. Les doses et alternatives des monographies infectieuses nécessitent les notices suisses correspondantes ; un collyre seul n’est pas un schéma de cellulite. Les durées britanniques ne sont pas transposées en ordonnance suisse uniforme.',
+    'Pour une atteinte glandulaire bénigne sans signe d’alarme, l’hygiène des mains et des paupières et une chaleur douce non brûlante peuvent aider. Ne pas percer ni presser soi-même un nodule. Les schémas HUG diffèrent selon soin général ou chalazion ; l’équipe adapte les consignes au diagnostic plutôt que d’appliquer la chaleur à toute paupière gonflée.',
+    'Devant une allergie, réduire l’exposition et vérifier le diagnostic. Pour la conjonctivite allergique saisonnière, un exemple suisse de collyre est détaillé ici :')+keto+paras(
+    'Une dermatite de contact nécessite l’éviction de la substance pertinente et un traitement cutané adapté. Éviter de remettre un ancien produit ou un corticoïde oculaire sans examen ; une atteinte cornéenne infectieuse peut être aggravée ou masquée. Les traitements locaux peuvent eux-mêmes provoquer une hypersensibilité.',
+    'L’infection des voies lacrymales et la masse suspecte nécessitent leur parcours spécialisé. Les gestes sur les voies lacrymales ne sont pas entrepris à domicile. Un syndrome œdémateux demande son bilan causal ; ne pas prescrire un diurétique pour dégonfler les paupières sans évaluer la volémie et les reins.',
+    'Chez le nourrisson, la personne immunodéprimée, pendant grossesse ou allaitement, adapter le niveau de soins et vérifier la notice de chaque produit. Les préparations cutanées et ophtalmiques ne sont pas interchangeables. Arrêter temporairement les lentilles sur un œil rouge ou inflammatoire et faire examiner une douleur associée.')+
+    '<h3>11.C — Surveillance</h3>'+paras('Surveiller vision, douleur, motilité, fièvre et extension. Donner un point de contrôle adapté ; une infection traitée impose une réévaluation rapprochée. Toute aggravation ou symptôme visuel nouveau appelle un avis immédiat, sans attendre un rendez-vous prévu. Vérifier que le patient peut réellement accéder au suivi.')+
+    '<h3>11.D — Pronostic et suivi</h3>'+paras('Les causes superficielles typiques sont souvent favorables, mais une récidive au même endroit ou une lésion durable nécessite une nouvelle caractérisation. Une infection orbitaire peut menacer vision et pronostic vital. Le suivi confirme la guérison, la tolérance et le résultat des examens ou du prélèvement ; il ne s’arrête pas à la disparition partielle du gonflement.'),(1,2,3,4,5,6,7,8,9,12,13,14,15,16,17))
+l.add('La {prévention et l’éducation} dépendent de la cause. Une hygiène adaptée et l’identification des expositions réduisent certains risques. Elles ne dispensent pas d’évaluer un symptôme d’alarme ou une masse persistante.',paras(
+    'Se laver les mains avant les soins, ne pas partager collyres ou produits oculaires et éviter la contamination des embouts. Ne pas se frotter les yeux ni manipuler une lésion. Les produits anciens, cosmétiques et topiques suspects sont revus avec le professionnel.',
+    'Les soins des glandes palpébrales sont utiles quand indiqués ; une cornée malade ou une chirurgie récente nécessite l’avis de l’ophtalmologue avant de commencer. Les compresses doivent rester non brûlantes. Aucun antibiotique préventif systématique n’est déduit du seul gonflement.',
+    'En cas d’allergie, transmettre la liste des substances à éviter après une enquête pertinente. Après infection ou traitement de masse, fournir les signes de retour et le contact de suivi. Le patient doit reconnaître une baisse visuelle, une diplopie, une douleur à la mobilisation ou une gêne respiratoire comme des signaux urgents.'
+),(2,3,6,7,9,11,17))
+l.add('Les {points clés} relient l’aspect palpébral aux fonctions menacées. Le premier examen ne se limite pas à la peau. La cause guide le traitement et l’évolution guide la réévaluation.',steps(
+    'Documenter vision, pupilles et motilité ; reconnaître un examen impossible.',
+    'Écarter atteinte orbitaire, urgence du globe et réaction systémique menaçante.',
+    'Distinguer nodule glandulaire, infection diffuse, lésion cutanée et atteinte conjonctivale.',
+    'Rechercher une cause générale devant œdème bilatéral, notamment rénale chez l’enfant.',
+    'Éviter collyres, antibiotiques et corticoïdes empiriques répétés sans diagnostic.',
+    'Organiser suivi, résultat du prélèvement si indiqué et consignes de retour.'
+),(1,4,5,6,8,9,12,14))
+l.quiz([
+    ('Un gonflement important prouve-t-il une cellulite orbitaire ?','Non. La fonction oculaire et le contexte orientent ; un examen impossible peut cependant imposer un bilan urgent.'),
+    ('Quels signes suggèrent une atteinte postseptale ?','Exophtalmie, douleur ou limitation des mouvements, diplopie, baisse visuelle ou anomalie pupillaire ; ils ne sont pas tous nécessaires.'),
+    ('Une vision non testée chez un petit enfant est-elle réputée normale ?','Non. Il faut une méthode adaptée et reconnaître les limites de l’examen.'),
+    ('Quel repère distingue habituellement orgelet et chalazion ?','L’orgelet est souvent centré sur un cil du bord libre ; le chalazion siège dans l’épaisseur glandulaire de la paupière.'),
+    ('Un chalazion implique-t-il d’emblée un antibiotique ?','Non. Il s’agit d’abord d’une inflammation obstructive ; une infection ou complication change la conduite.'),
+    ('Peut-on percer soi-même un nodule palpébral ?','Non. Les HUG déconseillent de percer ou presser soi-même le chalazion.'),
+    ('Un œdème bilatéral chez l’enfant est-il automatiquement allergique ?','Non. Une bandelette urinaire recherche notamment une protéinurie, avec bilan ciblé si anomalie.'),
+    ('Quel indice oriente vers la conjonctivite allergique ?','Le prurit oculaire, souvent avec écoulement clair et contexte allergique, après exclusion d’une urgence.'),
+    ('Quelle indication suisse est citée pour Zaditen Ophtha ?','La conjonctivite allergique saisonnière ; pas tout gonflement palpébral.'),
+    ('Quelle est sa dose de notice à partir de trois ans ?','Une goutte dans le sac conjonctival de chaque œil deux fois par jour, pour une durée maximale de six semaines, avec réévaluation plus tôt si nécessaire.'),
+    ('Des gouttes antiallergiques traitent-elles l’anaphylaxie ?','Non. Une atteinte respiratoire ou circulatoire compatible demande adrénaline intramusculaire et secours urgents.'),
+    ('Un collyre antibiotique suffit-il à traiter une cellulite orbitaire ?','Non. Elle nécessite une prise en charge hospitalière et une antibiothérapie systémique adaptée, avec discussion du foyer et du drainage.'),
+    ('Une masse persistante qui ressemble à un chalazion peut-elle être traitée indéfiniment sans nouvel examen ?','Non. Une évolution atypique nécessite une caractérisation spécialisée et parfois un prélèvement.'),
+    ('Quel symptôme impose un retour immédiat même si un contrôle est déjà prévu ?','Une baisse visuelle, une diplopie nouvelle, une douleur aux mouvements ou une aggravation générale ou respiratoire.')
+],(1,3,5,7,8,9,12,13,14,15))
+l.write()
