@@ -1,5 +1,9 @@
-# Reprise — LOT_033, recherche Phase A
+# Reprise — LOT_033, DX.5 Blépharite
 
-2026-10-31T09:41:33+00:00 — LOT_032 terminé en production :11HTML,154questions,275/275 V8,89citations AIPS exactes, huit groupes de corrections. Six notices et neuf fichiers communs intacts. Commit de clôture à renseigner après push. Aucun audit indépendant, score ou navigateur. Limites médicamenteuses documentées dans LOT_032/HELP.md.
+Checkpoint du2026-10-31T09:54:48+00:00. Dernier lot terminé :LOT_032, commit8f0d81ba poussé (11HTML/154questions/275V8/89citations AIPS). LOT_031b07e53e4 et précédents conservés.
 
-Suite exacte : LOT_033 S1.17 « Yeux douloureux, rouges ou prurigineux ; écoulement oculaire ». Recherche suisse puis européenne, Phase A et gel de dix diagnostics après relecture interne distincte, puis DX1–10. Aucun saut.101 lots restent jusqu’à133 inclus. Recontrôler dépôt, réservation et STOP/PAUSE ; vérifier le producteur avant acquisition du verrou. La session actuelle détient le verrou et poursuit. Veilles locales minute, uniquement contrôleurs tant que le runtime existe. Registre signé du jour, modèle confirmé conservé, high recommandé sans changement revendiqué.
+LOT_033 S1.17 :Phase A et DX1–4 produits, relus et contrôlés.5HTML,70questions,124/125V8 ; seul échec :six liens futurs DX5–10 absents.27citations AIPS exactes, trois notices et neuf éléments communs intacts. Quatre groupes de corrections. Aucun score, audit indépendant ou navigateur.
+
+Reprendre exactement LOT_033/_travail/phase_b_5.py :Blépharite. Compléter lectures européennes et AIPS si nécessaire, puis rédaction/relecture/contrôles ; continuer DX6–10 sans saut. Ne pas recommencer les leçons contrôlées ni passer à34avant clôture. Voir LOT_033/BRIEF_REPRISE.md.
+
+Contrat actif,101lots à achever jusqu’à133inclus, dont33partiel. À toute reprise :dépôt frais, contrat/état/prompt/catalogue et réservation fraîche, STOP/PAUSE prioritaire, vérifier absence de producteur actif puis prendre le verrou, lire/signer registre, veilles minute, pret/verifier. Écritures uniquement codex-LOTS-html/, seul. Les veilles contrôlent seulement pendant disponibilité du runtime. Modèle confirmé conservé, high recommandé sans changement revendiqué. Le verrou sera libéré après sauvegarde et push ; vérifier son état réel.
