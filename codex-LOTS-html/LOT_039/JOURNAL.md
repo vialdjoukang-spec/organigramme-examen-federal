@@ -33,3 +33,12 @@ Les contrôles globaux V8 restent négatifs tant que les onze fichiers sont abse
 Dépôt frais f0078722, sept empreintes préexistantes vérifiées et inchangées. Même runtime, aucun producteur concurrent ; verrou officiel pris, registre lu/signé0784139d86, veille routage48342 relancée et contrat37511 actif. Seul, sans sous-agents. Sources suisses puis européennes et notices fraîches réellement lues, archives exactes conservées. DX7 etDX8 rédigés, relus séparément et corrigés C09/C10. Sous-parties9.a–d et11.A–D de DX8 restituées après relecture du prompt.
 
 Neuf HTML,126questions,225conditions V8 et223paragraphes AIPS retrouvés. Comparaison partielle PhaseA/DX1–8 effectuée. Deux monographies absentes, LOT039 incomplet, LOT040 non commencé. Langue/harnais historiques négatifs conservés. Aucun audit indépendant, score, navigateur, validation humaine ou changement de modèle.
+
+Checkpoint DX7–8 commité et poussé : d32097a9feb82fda42e536ed76653771b912b493. Référence distante vérifiée. Verrou conservé par la même session pour poursuivre DX9.
+
+
+## Clôture de production LOT039 — 2026-10-31T21:05:42.704420+00:00
+
+Même session, verrou conservé, aucun sous-agent. DX9 puis DX10 rédigés, relectures distinctes, corrections C11/C12 et contrôles après corrections. Sources suisses puis européennes réellement lues, notices/formes Imigran et Algifor vérifiées. Comparaison transversale finale ciblée des onze leçons effectuée. 11HTML,154questions,275conditions V8,279citations AIPS retrouvées ; toutes les tailles xV8 et HTML80–150Ko conformes. Les neuf HTML de d32097a9 restent inchangés. Harnais/langue historiques négatifs conservés, pas de conformité globale ni validation médicale humaine. Aucun score, audit indépendant ou navigateur.
+
+Borne18–133 et dépôt distant revérifiés avant publication ; pret/verifier039 positifs. Catalogue : LOT040=S2.1 Apnée, apnée avec éveil. Publication puis poursuite séquentielle, même verrou.

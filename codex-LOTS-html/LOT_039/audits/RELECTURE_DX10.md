@@ -1,0 +1,13 @@
+# Relecture interne DX10 — 31.10.2026
+
+Relecture distincte du HTML généré, par la session principale sans sous-agent. Sources CH Jules-Gonin et annexe3 du CHUV2025 puis sources européennes. CEN clinique et urgences ; COUF introduction/imagerie seulement ; Sussex symptômes/prismes/suivi ; filière BHR et article Patel–Burdon réellement ouverts. L’article britannique est une correspondance sur une série rétrospective, pas une recommandation nationale suisse.
+
+Contrôles de fond : occlusion successive des deux yeux, diplopie monoculaire/binoculaire, ptosis pouvant masquer le symptôme, nerfs moteurs distincts du nerf optique. Repères III/IV/VI, atteinte partielle et déficit d’abduction sans valeur localisatrice obligatoire. Diabète et pupille épargnée ne suffisent pas à conclure à une cause microvasculaire. Exploration vasculaire d’un III récent, priorité aux signes centraux, à la céphalée explosive, à l’artérite et à l’atteinte bulbaire/respiratoire. Examen normal entre épisodes et disparition du symptôme ne banalisent pas l’épisode.
+
+Différences entre sources explicitées : la dispense de bilan en cas de diabète sur la fiche Sussex n’est pas retenue comme règle de tri. La mention BHR de veinographie pour tout nerf et celle d’anticorps anti-muscariniques ne sont pas transposées ; choix d’examens guidé par la question clinique et l’équipe spécialisée. La série de Birmingham soutient la prudence envers la règle pupillaire ; aucune fréquence de sa cohorte n’est généralisée à la Suisse. PDF écossais refusé403 et Nature redirection non présentés comme lus. Article exact finalement lu sur PMC.
+
+C12 : phrase initiale scindée ; distinction explicite des chiffres romains des nerfs et de la voie intraveineuse ; anisocorie isolée non assimilée à un III, tout en maintenant l’urgence d’une anisocorie nouvelle douloureuse. Glossaire IV local à cette leçon, sans changer l’outil de format commun ni les HTML antérieurs.
+
+Prismes et cache ne remplacent pas le bilan causal et n’autorisent pas à conduire. Occlusion pédiatrique surveillée, récupération non garantie, chirurgie différée individualisée. Aucun médicament universel ni dose AIPS inventée. Zéro citation pharmacologique ne signifie pas validation thérapeutique. Les protocoles causaux complets restent une limite explicite.
+
+Après correction :91959octets HTML, x5994 et y19873octets ;14parties,14questions,15fenêtres,25conditions V8, sous-parties9.a–d et11.A–D. Audit langue négatif historique conservé : title/h3, espaces insécables et suggestions de scission. Pas de phrase longue signalée, pas de nouveau sigle non défini. Aucun audit indépendant, score, test navigateur ou validation clinique humaine.

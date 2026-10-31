@@ -46,3 +46,12 @@ Les rapports v8_dx5_initial et v8_checkpoint_dx5 sont historiques, antérieurs �
 39dx8_search_ch/ch/ch_eu/search_eu/eu/detail/examsearch/exam/examdetail/examclinique : sources CH puis européennes, sorties exactes conservées. CHUV introduction et annexe3 lues, pas tout le protocole. JG18.08.2025 ; OnO11.03.2025 avec limites étiologiques ; HCL névrite et NMO12.02.2026, MOG17.03.2026. NEMOS introduction, poussées et début prévention, correction ravulizumab05.04.2024 lue, pas les tableaux thérapeutiques complets. CEN passages neuropathies/urgences/pupille et SFO orientation/atypies/diagnostic, pas chapitres entiers. Solumedrol_frais : sections cliniques et manipulation lues, limites dans AIPS_35112.json. Formes500mg/1g vérifiées.
 
 Checkpoint courant v8_checkpoint_dx8.json et aips_checkpoint_dx8.json :223citations retrouvées, dont49DX7 et34DX8. Les sept HTML préexistants sont conservés.
+
+
+## Lectures DX9–10 et clôture
+
+39dx9_search_ch/ch_eu/chdetail/chsuite/typique : Société suisse des céphalées édition11.2 (date exacte non établie), HUG stratégie2017, ICHD-3 aura générale/typique/rétinienne, synthèse SFEMC2021 et mécanismes Inserm2020. Lecture ciblée, pas toutes les30pages suisses. Notice Imigran fraîche septembre2025 et Algifor décembre2024 : sections cliniques lues, pas toutes les données d’essais/précliniques. HTML/texte/gzip, métadonnées et formes_swissmedic_dx9.json conservés. 56paragraphes cités.
+
+39dx10_ch_cen/eu/urgences/europe_lue/recherche3/complements/iii_article : Jules-Gonin diplopie et CHUV introduction/annexe3 relus, CEN examen/causes/urgences réellement affichés, COUF introduction/imagerie, Sussex clinique/prismes/suivi, filière BHR, correspondance Patel–Burdon sur PMC. Les limites et éléments non retenus sont explicités dans RELECTURE_DX10.md. PDF écossais refusé403 via web et shell ; Nature redirigé vers authentification, pas déclaré lu. Une première URL Nature incorrecte n’est pas retenue ; l’identifiant exact01349-1 a été retrouvé par recherche puis article lu sur PMC8727561.
+
+Clôture : v8_final.json, aips_final.json, COHERENCE_FINALE.md et BILAN_REPRISE.json font foi pour les onze HTML. Les contrôles antérieurs restent des états historiques. Les279extraits sont retrouvés sans modification des notices communes. Neuf HTML du checkpoint d32097a9 inchangés.
