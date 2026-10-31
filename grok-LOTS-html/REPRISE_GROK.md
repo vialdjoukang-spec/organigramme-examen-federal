@@ -5,7 +5,17 @@ LOT_160 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_red
 Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155 et LOT_157 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158 et LOT_160 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_159.**
-**Prochain LOT du rédacteur B : LOT_162.**
+**Prochain fichier du rédacteur B : LOT_162 DX.4** (LOT_162 non clos : Phase A, DX.1 et DX.2 dans la cible ; DX.3 à 30,6 Ko, sous la cible 35–46 ; DX.4 à DX.10 non rédigés). Ne pas passer à LOT_164.
+
+## LOT_162 — en cours, non clos
+Sujet : F2.14 « Hormones thyroïdiennes anormales ». Branche `grok/lots`. Aucune PR.
+
+- Phase_A : certitude VERT · porte ORANGE · conscience 0 BLOQUANT · T = 6.7 (+ 70.0) Ko · SHA 98921f5a0ab8 · commit 1613b5db
+- DX.1 : certitude VERT · porte ORANGE · conscience 0 BLOQUANT · T = 4.4 (+ 35.0) Ko · SHA 00a58267c952 · commit de771f40
+- DX.2 : certitude VERT · porte ORANGE · conscience 0 BLOQUANT · T = 3.9 (+ 35.1) Ko · SHA b36c5f97a275 · commit b4d65e2b
+- DX.3 : certitude VERT · porte ORANGE · conscience 0 BLOQUANT · T = 3.9 (+ 30.6) Ko · SHA d47be3f8c3e2 · commit c61d2552
+
+Cinq retraits dans `LOT_162/INCERTITUDES.md`. Détail : `LOT_162/A_AUDITER.md`.
 
 ## LOT_160 — rédigé et certifié
 Sujet : F2.12 « Marqueurs de la fonction rénale anormaux ». Détail : `LOT_160/A_AUDITER.md`.
