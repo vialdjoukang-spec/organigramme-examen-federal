@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_164 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_163 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159 et LOT_161 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162 et LOT_164 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161 et LOT_163 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162 et LOT_164 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_163.**
+**Prochain LOT du rédacteur A : LOT_165.**
 **Prochain LOT du rédacteur B : LOT_166.** LOT_164 (F2.16 Anémie) est rédigé et certifié. Détail : `LOT_164/A_AUDITER.md`.
+
+## LOT_163 — rédigé et certifié
+Sujet : F2.15 « Sédiment urinaire anormal ». Détail : `LOT_163/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Au moins 3 hématies par champ (AUA/SUFU 2025), acanthocytes au moins 5 % (Köhler 1991), leucocytes 10 par microlitre si l'urine est concentrée (EFLM 2023), bactériurie 10 exposant 5 et seuils de contexte (EAU 2024).
+
+- Phase_A : certitude VERT · porte ORANGE · T = 4.7 (+ 70.1) Ko · SHA 6a84fd5fa82b · commit 2cbc2a60
+- DX.1 : certitude VERT · porte ORANGE · T = 6.7 (+ 36.2) Ko · SHA 6297e7c9eef2 · commit c92ac7fc
+- DX.2 : certitude VERT · porte ORANGE · T = 6.4 (+ 37.2) Ko · SHA f73145a28820 · commit b3245d18
+- DX.3 : certitude VERT · porte ORANGE · T = 6.3 (+ 36.4) Ko · SHA a88a07b52d2a · commit babb3847
+- DX.4 : certitude VERT · porte ORANGE · T = 6.2 (+ 35.3) Ko · SHA 7cb57aa07291 · commit 43dc4b59
+- DX.5 : certitude VERT · porte ORANGE · T = 5.7 (+ 34.8) Ko · SHA 52845d65427a · commit 8aebeac4
+- DX.6 : certitude VERT · porte ORANGE · T = 6.7 (+ 34.0) Ko · SHA c05fc570c00c · commit b5510766
+- DX.7 : certitude VERT · porte ORANGE · T = 6.1 (+ 35.5) Ko · SHA 7181e9d2279f · commit fe4c2e38
+- DX.8 : certitude VERT · porte ORANGE · T = 6.5 (+ 36.8) Ko · SHA 2db341356ce4 · commit 8bd3e391
+- DX.9 : certitude VERT · porte ORANGE · T = 5.9 (+ 33.8) Ko · SHA 6c0da07fe827 · commit 2ccdecb8
+- DX.10 : certitude VERT · porte ORANGE · T = 6.2 (+ 34.7) Ko · SHA 70d1f76ad0f4 · commit 42f1bc95
 
 ## LOT_164 — rédigé et certifié
 Sujet : F2.16 « Anémie ». Conscience de lot : 0 BLOQUANT. Koïlonychie et Plummer-Vinson (Novacek 2006), sclérose combinée (Stabler 2013), signe de Babinski (Vasconcelos 2006) et formule de Ganzoni 1970 sont dans le cours.
