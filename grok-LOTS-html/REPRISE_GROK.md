@@ -1,6 +1,25 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_136 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 sortie 0, aucun ROUGE). Aucune PR, branche `grok/lots`. Ce rédacteur prend ensuite les lots pairs : **LOT_138, puis LOT_140**. Le rédacteur B garde les impairs (LOT_137, puis la suite).
+LOT_137 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, aucun ROUGE). Aucune PR, branche `grok/lots`.
+
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. File ensuite : 149–180, 184–207, 219–226. L'agent A prend les impairs (149, 151…), l'agent B les pairs.
+
+**Prochain LOT du rédacteur B : LOT_150.**
+
+## LOT_137 — rédigé et certifié
+Sujet : F1.8 « Cachexie et malnutrition ». Détail : `LOT_137/A_AUDITER.md`.
+
+- Phase_A : certitude ORANGE · porte ORANGE · T = 8.5 (+ 71.1) Ko · SHA 86174d52a636 · commit 4ef9a3d8
+- DX.1 : certitude ORANGE · porte ORANGE · T = 3.7 (+ 50.5) Ko · SHA f16d04c86c06 · commit 065741ef
+- DX.2 : certitude ORANGE · porte ORANGE · T = 3.4 (+ 39.1) Ko · SHA 58533ab34df2 · commit 05424b3e
+- DX.3 : certitude ORANGE · porte ORANGE · T = 3.2 (+ 37.1) Ko · SHA eb6636f91e28 · commit 8b46410e
+- DX.4 : certitude ORANGE · porte ORANGE · T = 3.0 (+ 37.4) Ko · SHA 6e506c88afc4 · commit be1a4c41
+- DX.5 : certitude ORANGE · porte ORANGE · T = 2.9 (+ 39.4) Ko · SHA a88e5ab0a38f · commit 4d77e72e
+- DX.6 : certitude ORANGE · porte ORANGE · T = 3.1 (+ 38.0) Ko · SHA a2cef9378c3d · commit 360fc4ff
+- DX.7 : certitude ORANGE · porte ORANGE · T = 2.9 (+ 40.3) Ko · SHA b2b5586a7cb7 · commit 053c1186
+- DX.8 : certitude ORANGE · porte ORANGE · T = 3.0 (+ 42.5) Ko · SHA ea263d003255 · commit 867fb881
+- DX.9 : certitude ORANGE · porte ORANGE · T = 2.7 (+ 35.8) Ko · SHA 5b5d9dc46506 · commit 8ccaba44
+- DX.10 : certitude ORANGE · porte ORANGE · T = 3.2 (+ 54.0) Ko · SHA 3149e7582c1d · commit 610eed57
 
 ## LOT_136 — rédigé et certifié
 Sujet : F1.7 « Bradycardie, tachycardie, pouls irrégulier ». Détail : `LOT_136/A_AUDITER.md`.
