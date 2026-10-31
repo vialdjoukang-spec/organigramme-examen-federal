@@ -24,6 +24,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 
 14. Sartelli M et al. WSES 2016 consensus, intra-abdominal infections. PMC5418731. DOI 10.1186/s13017-017-0132-7. Phrases dans `wses2016_peritonite.txt`, lues le 31.10.2026.
 
+15. Björck M et al. ESVS 2017, maladies des artères et veines mésentériques. DOI 10.1016/j.ejvs.2017.01.010. Page intégrale lue le 31.10.2026. Phrases dans `esvs2017_mesentere.txt`.
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
