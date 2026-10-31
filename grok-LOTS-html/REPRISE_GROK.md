@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_171 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
+LOT_172 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_171 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169 et LOT_171 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168 et LOT_170 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169 et LOT_171 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170 et LOT_172 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_173.**
-**Prochain LOT du rédacteur B : LOT_172.** LOT_171 (F2.23 Protéinémie, albuminémie) est rédigé et certifié. Détail : `LOT_171/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_174.** LOT_172 (F2.24 Protéinurie) est rédigé et certifié. Détail : `LOT_172/A_AUDITER.md`.
+
+## LOT_172 — rédigé et certifié
+Sujet : F2.24 « Protéinurie ». Détail : `LOT_172/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Catégories KDIGO A1/A2/A3 entières (albumine et protéines), grille G×A, bandelette et chaînes légères, transitoire et orthostatique, quatre mécanismes, syndrome néphrotique et néphritique, classes ISN/RPS I à VI, ISSHP 2021 en quatre volets, bloqueur à dose maximale tolérée, dapagliflozine 10 mg (65176), empagliflozine 10 mg (63227), finérénone (68130), hausse de créatinine jusqu'à 30 pour cent.
+
+- Phase_A : certitude VERT · porte ORANGE · T = 8.5 (+ 73.1) Ko · SHA 0ff3f5b7abb1 · commit 2b55b21b
+- DX.1 : certitude VERT · porte ORANGE · T = 3.7 (+ 38.5) Ko · SHA a66aec4617c3 · commit 3dea5506
+- DX.2 : certitude VERT · porte ORANGE · T = 3.7 (+ 41.0) Ko · SHA e0971097a071 · commit 8d90afc1
+- DX.3 : certitude VERT · porte ORANGE · T = 3.7 (+ 40.9) Ko · SHA b22c9e32d180 · commit b0d98258
+- DX.4 : certitude VERT · porte ORANGE · T = 3.7 (+ 40.7) Ko · SHA 33d470a60411 · commit 53b2f9b3
+- DX.5 : certitude VERT · porte ORANGE · T = 3.7 (+ 40.1) Ko · SHA 8941486acacb · commit 9de49b4d
+- DX.6 : certitude VERT · porte ORANGE · T = 3.8 (+ 40.8) Ko · SHA 03e4eba8ff68 · commit f564be11
+- DX.7 : certitude VERT · porte ORANGE · T = 3.6 (+ 37.5) Ko · SHA 86614542437f · commit aa72fd28
+- DX.8 : certitude VERT · porte ORANGE · T = 3.7 (+ 37.1) Ko · SHA 9b8e3b9cbae2 · commit a81d5a68
+- DX.9 : certitude VERT · porte ORANGE · T = 3.8 (+ 43.0) Ko · SHA 6a03106b5f8b · commit 3935aa3f
+- DX.10 : certitude VERT · porte ORANGE · T = 3.6 (+ 38.1) Ko · SHA 570af6730703 · commit 18fc5b13
 
 ## LOT_171 — rédigé et certifié
 Sujet : F2.23 « Protéinémie, albuminémie ». Détail : `LOT_171/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT. Protéines totales 60 à 80 g/l (ACB), trou protéique, six profils d'électrophorèse, rapport des chaînes légères 0,26 à 1,65, Mayo 2005 entier (5, 21, 37 et 58 pour cent à 20 ans), IMWG 2014 entier (CRAB et biomarqueurs), Waldenström, amylose AL, KDIGO 2021 (3,5 grammes par jour, seuils 25 g/l au vert et 20 g/l au pourpre), Child-Pugh 1973 entier, Figge 1998, Payne 1973, EASL 2018 et AASLD 2021 pour l'albumine, AIPS 65562, 27257 et 30629.
