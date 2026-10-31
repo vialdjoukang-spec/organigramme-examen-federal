@@ -20,6 +20,8 @@ Le fichier `extraits_lus.txt` reprend les passages cités entre guillemets.
 
 12. Swiss Medical Weekly. Peripheral lymphadenopathy of unknown origin in adults. DOI 10.57187/s.3549. Phrases dans `smw_adenopathie.txt`, lues le 31.10.2026. https://smw.ch/index.php/smw/article/view/3549
 
+13. Couderc M et al. 2020 French recommendations, septic arthritis, adult native joint. DOI 10.1016/j.jbspin.2020.07.012. Phrases dans `sfr2020_arthrite.txt`, page ouverte lue le 31.10.2026.
+
 Les prévalences sans dénominateur commun, et les doses absentes de cette AIPS, restent marquées « À vérifier ».
 
 Le fichier `bonn_vein.txt` reprend les passages de la page de Bonn lus le 31.10.2026 (œdème C3, étude française, contention).
