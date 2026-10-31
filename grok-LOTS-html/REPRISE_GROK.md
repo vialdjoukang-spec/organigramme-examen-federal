@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_157 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, 11/11 VERT, conscience de lot 0 BLOQUANT). Aucune PR, branche `grok/lots`.
+LOT_160 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155 et LOT_157 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156 et LOT_158 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155 et LOT_157 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158 et LOT_160 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_159.**
-**Prochain LOT du rédacteur B : LOT_160.**
+**Prochain LOT du rédacteur B : LOT_162.**
+
+## LOT_160 — rédigé et certifié
+Sujet : F2.12 « Marqueurs de la fonction rénale anormaux ». Détail : `LOT_160/A_AUDITER.md`.
+
+- Phase_A : certitude VERT · porte ORANGE · conscience 0 BLOQUANT · T = 6.3 (+ 45.3) Ko · SHA f6705e26c6b9 · commit 651a9322
+- DX.1 : certitude VERT · porte ORANGE · T = 3.8 (+ 8.8) Ko · SHA f7fbe5f41f2c · commit f23504d0
+- DX.2 : certitude VERT · porte ORANGE · T = 3.4 (+ 7.0) Ko · SHA 9458c7566365 · commit bd9f69af
+- DX.3 : certitude VERT · porte ORANGE · T = 3.2 (+ 5.2) Ko · SHA 325e21c7e139 · commit b02ae517
+- DX.4 : certitude VERT · porte ORANGE · T = 3.2 (+ 6.7) Ko · SHA 3f06f655455b · commit bc71dac5
+- DX.5 : certitude VERT · porte ORANGE · T = 3.2 (+ 3.4) Ko · SHA bb749804a5c4 · commit 38648314
+- DX.6 : certitude VERT · porte ORANGE · T = 3.5 (+ 3.1) Ko · SHA 305cd2091971 · commit 1dcdefa2
+- DX.7 : certitude VERT · porte ORANGE · T = 3.2 (+ 3.4) Ko · SHA dc0309259257 · commit 60d18ab9
+- DX.8 : certitude VERT · porte ORANGE · T = 3.4 (+ 5.3) Ko · SHA 1f1e47fe818c · commit 4d339509
+- DX.9 : certitude VERT · porte ORANGE · T = 3.3 (+ 3.2) Ko · SHA d6b807f69686 · commit 84948296
+- DX.10 : certitude VERT · porte ORANGE · T = 3.2 (+ 3.8) Ko · SHA 490f4bb7bab9 · commit 6f42824d
 
 ## LOT_157 — rédigé et certifié
 Sujet : F2.9 « Glycémie et marqueurs de l'homéostasie glucidique anormaux ». Détail : `LOT_157/A_AUDITER.md`.
