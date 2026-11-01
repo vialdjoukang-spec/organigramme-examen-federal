@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_196 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_197 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_196 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193 et LOT_195 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194 et LOT_196 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193, LOT_195 et LOT_197 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194 et LOT_196 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_197.**
-**Prochain LOT du rédacteur B : LOT_198.** LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_199.**
+**Prochain LOT du rédacteur B : LOT_198.** LOT_197 (O3.3 Malnutrition et sarcopénie) est rédigé et certifié. Détail : `LOT_197/A_AUDITER.md`. LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+
+## LOT_197 — rédigé et certifié
+Sujet : O3.3 « Malnutrition et sarcopénie ». Détail : `LOT_197/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Consensus GLIM, 2019. Consensus européen de sarcopénie, page de revue 2018-2019. Recommandation ESPEN de gériatrie, 2022. Revue Médicale Suisse, 2021. Mains Libres, 2020. NICE CG32, 22 février 2006, mise à jour du 4 août 2017. Guide MNA, octobre 2021. Kaiser et collaborateurs, 2009. Rubenstein et collaborateurs, 2001. Grades hospitaliers lus dans l'annexe de 2019. Autorisations 10989 et 33481. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 4.8 (+ 72.0) Ko · SHA b905023c7b830119 · commit 23ad189d0
+- DX.1 : certitude VERT · porte VERT · T = 4.7 (+ 38.1) Ko · SHA 4eb3a1421ff0efdd · commit 135a06d68
+- DX.2 : certitude VERT · porte VERT · T = 4.7 (+ 43.1) Ko · SHA cb353592e97b301c · commit 662cd180d
+- DX.3 : certitude VERT · porte VERT · T = 4.7 (+ 37.6) Ko · SHA 04f904531d147a21 · commit 59d6d6d6e
+- DX.4 : certitude VERT · porte VERT · T = 4.7 (+ 40.1) Ko · SHA 12638691cbd2b2bb · commit d8371e9ac
+- DX.5 : certitude VERT · porte VERT · T = 4.7 (+ 44.5) Ko · SHA ede4db2ab571b3c3 · commit 7d9d3ecbc
+- DX.6 : certitude VERT · porte VERT · T = 4.7 (+ 37.0) Ko · SHA e0113d4501a8dbd9 · commit 1a66596e1
+- DX.7 : certitude VERT · porte VERT · T = 4.7 (+ 41.6) Ko · SHA 83ce83481938049d · commit d5507d8f0
+- DX.8 : certitude VERT · porte VERT · T = 4.7 (+ 38.2) Ko · SHA ace3b97c4a701cae · commit b8c3a7c0f
+- DX.9 : certitude VERT · porte VERT · T = 4.7 (+ 42.6) Ko · SHA 9d37fcfa0b54d72b · commit bba7ac3ef
+- DX.10 : certitude VERT · porte VERT · T = 4.7 (+ 39.1) Ko · SHA dcd4e17f6c36bb56 · commit 79ee9ccf3
 
 ## LOT_196 — rédigé et certifié
 Sujet : O3.2 « Déficit fonctionnel cognitif, sensoriel ou moteur ». Détail : `LOT_196/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Office fédéral, estimation 2026. Alzheimer Suisse, page et communiqué du 17 septembre 2026. Organisation mondiale de la santé, fiche audition et rapport 2021, fiche vision. Haute Autorité de santé, mai 2018. Sachdev et collaborateurs, 2014. Test des quatre items, lu le 1er novembre 2026. Lignes mondiales sur les chutes, 2022. Concept suisse du 28 février 2025. Parkinson Suisse, page lue le 1er novembre 2026. Référentiel du 1er novembre 2023. Autorisations 60535, 65181, 54275, 56754, 38096, 26891, 48313, 57135, 54949 et 21672. Zéro retrait.
