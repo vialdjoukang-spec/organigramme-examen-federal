@@ -10,7 +10,7 @@ Contrôles :550 conditions V8 réussies sur22 fichiers,242 autres leçons et9 fi
 
 Tailles exactes :018DX3 HTML112,455Ko, fiche5,142Ko, fenêtres31,882Ko ;029DX3 HTML276,595Ko, fiche5,574Ko, fenêtres24,644Ko. Base DD sous9Ko, fenêtres illustrées exemptées. Bilan courant : BILAN_RENFORCEMENT_MEDICAL.html. Preuves : renforcement_solo_dx3_20261101/ ; contrôleur courant verifier.py de ce dossier et imagerie_20261101/verifier.py. Les scripts de première tranche restent des preuves historiques, leur baseline ne décrit pas les nouveaux DX3. Inventaire :244 leçons,565 passages.
 
-Suite :018 DX4 puis029 DX4 et clichés manquants. La pause concerne les nouveaux diagnostics ;040DX2 reste le premier absent. Les veilles locales37511 et48342 tournent chaque60s tant que l’environnement subsiste ; elles ne rédigent pas. Publication et libération du verrou à renseigner après vérification distante. Famille GPT-6 exposée ; variante/effort courants non exposés. Confirmation historique Astra conservée, aucun réglage prétendument changé.
+Suite :018 DX4 puis029 DX4 et clichés manquants. La pause concerne les nouveaux diagnostics ;040DX2 reste le premier absent. Les veilles locales37511 et48342 tournent chaque60s tant que l’environnement subsiste ; elles ne rédigent pas. Publication du contenu confirmée au commit 64f5b9f878b7e2fc085cb96601d3a0366070aeac, égalité distante vérifiée le 2026-11-01T19:46:15+00:00. Verrou libéré. Le commit suivant consigne ce checkpoint. Famille GPT-6 exposée ; variante/effort courants non exposés. Confirmation historique Astra conservée, aucun réglage prétendument changé.
 
 ## Historique — chiffres et modalités datés
 
