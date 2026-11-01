@@ -138,3 +138,7 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T05:45:08+00:00 — Reprise seule depuisa0fcfe081885169cb415c95c6355d6b9da040db1 : borne18–133 fraîche, verrou pris, registre lu/signé et pret/verifier018 réussis. Politique réseau effective inchangée ; les trois domaines d’images restent exclus, aucune requête vers eux.244leçons et9fichiers du harnais identiques. Neuf candidats retenus et un suspendu conservés. Aucun contenu, cliché, test navigateur ou validation médicale nouveau ; seulement sauvegarde du blocage et du point de reprise. Veilles37511/48342 actives toutes60secondes.
 
 2026-11-01T05:45:08+00:00 — Verrou officiellement libéré ; reprise bloquée sauvegardée, surveillance locale maintenue.
+
+2026-11-01T06:18:16+00:00 — Contrôle de reprise depuisd00661eaf481d273df8974607de1c5a8f103c64e, distant identique. Borne18–133 relue, registre lu/signé, pret/verifier018 réussis. Trois domaines d’images toujours exclus ; aucun téléchargement tenté vers eux.244leçons et9fichiers du harnais intacts. Veilles37511/48342 actives sans relance. Aucun nouveau lot, cliché, test navigateur ou relecture clinique ; état de blocage conservé.
+
+2026-11-01T06:18:16+00:00 — Verrou libéré officiellement. Surveillance seule maintenue tant que le runtime existe.
