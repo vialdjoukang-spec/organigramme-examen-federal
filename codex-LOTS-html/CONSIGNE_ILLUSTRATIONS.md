@@ -1,5 +1,11 @@
 # Illustrations annotées — ordre de Vial du 31.10.2026
 
+## Précision du 01.11.2026 — clic sur le signe dans les examens complémentaires
+
+L’expression source est le signe recherché, dans la partie 9 « Examens complémentaires » ou une de ses fenêtres liées, quel que soit son niveau. Son clic ouvre directement la fenêtre contenant les deux vues du même cliché : original sans annotations ajoutées et copie juxtaposée annotée, puis l’explication. Une galerie séparée ou un simple lien vers l’article ne satisfait pas cette demande.
+
+Vial autorise la création de scripts pour rechercher sur le web, classer et télécharger les candidats dans le dossier du lot et du diagnostic, préparer les annotations puis insérer la fenêtre. La recherche utilise le connecteur web disponible ; les scripts n’inventent ni les images, ni les positions des lésions, ni les preuves de revue. Le travail de cette session reste réalisé seul, avec scripts et sans sous-agents. Les droits et la revue visuelle des pixels puis du rendu restent obligatoires avant insertion et push.
+
 ## Précision orale de Vial — 01.11.2026 : original et annotation côte à côte
 
 Balayer les lots attribués pour repérer les examens d’imagerie et les ECG dans les explorations complémentaires, puis rechercher des clichés permettant d’apprendre à reconnaître les signes utiles au raisonnement diagnostique. Une mention d’examen ne suffit pas : distinguer indication, examen déconseillé et diagnostic alternatif, puis choisir un cliché concordant et une licence autorisée.

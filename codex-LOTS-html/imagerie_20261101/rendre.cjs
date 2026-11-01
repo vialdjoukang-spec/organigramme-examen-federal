@@ -9,7 +9,7 @@ const {chromium}=require('playwright');
   for(const [nom,width] of [['ordinateur',1200],['mobile',390]]){
    const c=await browser.newContext({viewport:{width,height:900},hasTouch:nom==='mobile'}),p=await c.newPage();
    await p.setContent(raw.toString());
-   if(await p.locator('details.lecon:visible').count()!==212)throw Error('Compte initial');
+   if(await p.locator('details.lecon:visible').count()!==data.totaux.lecons_avec_mentions)throw Error('Compte initial');
    if(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Débordement');
    await p.screenshot({path:path.join(d,`accueil-${nom}.png`)});
    const options=await p.locator('#modalite option').allTextContents();
@@ -32,10 +32,23 @@ const {chromium}=require('playwright');
    if(await row.getAttribute('open')===null)throw Error('Ouverture');
    await row.screenshot({path:path.join(d,`extraits-${nom}.png`)});
    essais.push({vue:nom,ouverture:true,filtre:'ECG'});
+   const candidats=await p.locator('details.candidat').all();
+   if(candidats.length!==4)throw Error('Quatre pistes documentaires attendues');
+   for(let i=0;i<candidats.length;i++){
+    const el=candidats[i];
+    if(nom==='mobile')await el.locator('summary').tap();else await el.locator('summary').click();
+    if(await el.getAttribute('open')===null)throw Error('Candidat non ouvert');
+    if(i===0){
+     if(!(await el.innerText()).includes('CC BY 4.0'))throw Error('Licence absente');
+     await el.screenshot({path:path.join(d,`candidat-${nom}.png`)});
+    }
+    essais.push({vue:nom,candidat:i,ouverture:true});
+    if(nom==='mobile')await el.locator('summary').tap();else await el.locator('summary').click();
+   }
    await c.close();
   }
-  const result={date:new Date().toISOString(),rapport_sha256:crypto.createHash('sha256').update(raw).digest('hex'),essais,portee:'Rapport seulement, ordinateur et tactile émulé ; aucune image clinique rendue.',captures:4};
+  const result={date:new Date().toISOString(),rapport_sha256:crypto.createHash('sha256').update(raw).digest('hex'),essais,portee:'Rapport seulement, ordinateur et tactile émulé ; aucune image clinique rendue.',captures:6};
   fs.writeFileSync(path.join(d,'NAVIGATEUR.json'),JSON.stringify(result,null,2)+'\n');
-  console.log(JSON.stringify({essais:essais.length,captures:4}));
+  console.log(JSON.stringify({essais:essais.length,captures:6}));
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exit(1)});

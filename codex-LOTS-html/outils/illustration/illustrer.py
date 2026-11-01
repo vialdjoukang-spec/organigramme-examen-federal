@@ -51,10 +51,19 @@ def render(spec):
         x,y=a['repere']
         if not(0<=x<=w and 0<=y<=h):raise ValueError('Repère hors image')
         poly=' '.join(f'{px},{py}' for px,py in points)
-        svg.append(f'<polygon points="{poly}" fill="none" stroke="#152538" stroke-width="3"/><polygon points="{poly}" fill="none" stroke="#ffff68" stroke-width="1.7" stroke-dasharray="4 3"/>')
+        if spec.get('comparaison'):
+            svg.append(f'<polygon points="{poly}" fill="none" stroke="#fff" stroke-width="5"/><polygon points="{poly}" fill="none" stroke="#dc001f" stroke-width="3" stroke-dasharray="6 4"/>')
+        else:
+            svg.append(f'<polygon points="{poly}" fill="none" stroke="#152538" stroke-width="3"/><polygon points="{poly}" fill="none" stroke="#ffff68" stroke-width="1.7" stroke-dasharray="4 3"/>')
         buttons.append(f'<button type="button" class="repere" style="left:{x/w*100:.3f}%;top:{y/h*100:.3f}%" popovertarget="{spec["id"]}-def{n}" aria-label="{n}. {e(a["nom"])}">{n}<span class="nom">{e(a["nom"])}</span></button>')
         defs.append(f'<div id="{spec["id"]}-def{n}" popover="manual" class="definition"><strong>{n}. {e(a["nom"])}</strong><p>{e(a["definition"])}</p><button type="button" popovertarget="{spec["id"]}-def{n}" popovertargetaction="hide">Fermer la définition</button></div>')
     svg.append('</svg>')
+    if spec.get('comparaison'):
+        pair_css='<style>.illustration .paire{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.illustration .paire>div{min-width:0}.illustration .paire img{display:block;width:100%;height:auto}.illustration .paire .repere{background:#b00020!important}.illustration .paire h4{font:700 16px system-ui;margin:8px 0}@media(max-width:600px){.illustration .paire{grid-template-columns:1fr}}</style>'
+        raw_view=f'<div><h4>Original — sans annotation ajoutée</h4><img src="data:image/webp;base64,{encoded}" width="{w}" height="{h}" alt="{e(spec["titre"])} — original sans annotation ajoutée"></div>'
+        annotated='<div><h4>Même cliché — copie annotée</h4><div class="scene">'+''.join(svg+buttons)+'</div></div>'
+        caption=f'{spec["auteur"]} — {spec["licence"]} — accès {spec["acces_le"]}. {spec.get("modifications", "Contours rouges pointillés et numéros ajoutés sur la copie de droite.")}'
+        return CSS+pair_css+f'<figure class="illustration" data-illustration="{spec["id"]}"><h3>{e(spec["titre"])}</h3><p class="mode">{e(spec["nature"].capitalize())}</p><div class="paire">'+raw_view+annotated+'</div>'+''.join(defs)+'<ol>'+''.join(f'<li><strong>{e(a["nom"])}</strong> : {e(a["definition"])}</li>' for a in spec['annotations'])+f'</ol><p>{e(spec["legende"])}</p><p><strong>Piège :</strong> {e(spec["pieges"])}</p><figcaption>{e(caption)} <a href="{e(spec["source_url"])}">Source</a> · <a href="{e(spec["licence_url"])}">Licence</a></figcaption></figure>'
     caption=f'{spec["auteur"]} — {spec["licence"]} — accès {spec["acces_le"]}. {spec.get("modifications", "Contours et numéros ajoutés.")}'
     return CSS+f'<figure class="illustration" data-illustration="{spec["id"]}"><h3>{e(spec["titre"])}</h3><p class="mode">{e(spec["nature"].capitalize())} — repères explicatifs</p><p>Survolez ou touchez un numéro pour son nom ; cliquez pour sa définition.</p><div class="scene">'+''.join(svg+buttons)+'</div>'+''.join(defs)+'<ol>'+''.join(f'<li><strong>{e(a["nom"])}</strong> : {e(a["definition"])}</li>' for a in spec['annotations'])+f'</ol><p>{e(spec["legende"])}</p><p><strong>Piège :</strong> {e(spec["pieges"])}</p><figcaption>{e(caption)} <a href="{e(spec["source_url"])}">Source</a> · <a href="{e(spec["licence_url"])}">Licence</a> · <a href="{e(spec.get("source_medicale",spec["source_url"]))}">Référence médicale</a></figcaption></figure>'
 
