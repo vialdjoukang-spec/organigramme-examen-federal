@@ -1,0 +1,16 @@
+# Incertitudes — LOT_201 — O3.7 Incontinence urinaire et fécale
+
+Retraits : 0. Aucun élément central retiré. Les critères, les signes, les grilles entières lues, les seuils lus, la conduite et les traitements d'urgence restent dans les leçons.
+
+- Duloxétine, autorisation 65781, lue le 1 novembre 2026 : les indications du texte sont la dépression, la prévention de la rechute dépressive, la douleur neuropathique diabétique et l'anxiété généralisée. L'incontinence d'effort n'y figure pas. Aucun milligramme n'est enseigné pour l'effort. Le guide britannique de 2006, repris en 2019, ne la met pas en premier choix et l'envisage seulement si la femme préfère un médicament à la chirurgie ou ne peut pas être opérée. Cette phrase est gardée, sans posologie suisse.
+- La grille centimétrique du prolapsus, par rapport à l'hymen, n'est pas dans l'extrait britannique archivé. La leçon retient le stade 1 ou 2 symptomatique et la rééducation d'au moins 16 semaines. Elle ne reconstruit pas les centimètres.
+- Les poids d'un questionnaire court d'incontinence urinaire ne sont pas archivés. Ils ne sont pas enseignés.
+- Les dessins de l'échelle de consistance des selles ne sont pas archivés. La leçon parle de selles dures, moulées ou liquides, sans numéro de type.
+- Le guide européen de 2025 dit qu'il n'y a pas de consensus sur un résidu post-mictionnel significatif chez la femme. Aucun seuil en millilitres n'est inventé. La leçon enseigne la mesure échographique et le calcul d'efficacité de vidange.
+- Des bandes de gravité d'une société française pour le total de Vaizey ne sont pas archivées. La leçon enseigne les items, les poids et les totaux 0 à 20 et 0 à 24, pas ces bandes.
+- Le parcours de la queue de cheval est britannique, 2023. Le chiffre 1 à 3 pour 100 000 vient de ce texte, pas d'un registre suisse.
+- La fourchette britannique qui commence à une demi-dose de sirop de lopéramide n'est pas la posologie de la gélule suisse. Elle n'est pas enseignée. La gélule archivée commence à 2 mg. La codéine et le co-phénotrope sont nommés par le guide britannique de 2007. Aucune information professionnelle suisse de ces deux produits n'est archivée ici, donc aucune dose.
+- L'information du timbre d'oxybutynine, autorisation 57733, place sous le titre du foie une phrase sur le rein, et sous le titre du rein une phrase sur le foie. La leçon ne choisit pas un organe à la place de l'autre. Elle retient qu'aucune dose réduite du timbre n'est donnée, et qu'un suivi étroit est demandé.
+- L'information du mirabégron, autorisation 62755, dit que l'association à un anticholinergique n'est pas recommandée, faute de données. La leçon suit ce texte.
+- L'oxybutynine orale à libération immédiate a une dose de départ chez la personne âgée dans l'autorisation 70200. Le guide britannique de 2013, amendé en 2019, demande de ne pas la proposer aux femmes âgées à plus haut risque de dégradation physique ou mentale soudaine. La leçon garde cette interdiction pour ce groupe, et la dose suisse pour les autres adultes.
+- Le script du dessinateur est retiré de la leçon, qui ne peut pas porter de script. Les boutons changent le niveau. La bulle au pointeur ne s'affiche pas. Le titre natif de la zone reste.
