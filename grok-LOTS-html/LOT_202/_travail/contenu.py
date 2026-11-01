@@ -1,0 +1,222 @@
+# -*- coding: utf-8 -*-
+"""Phrases cliniques de LOT_202. Une ligne = une phrase. [[n]] = source de l'INDEX."""
+
+DOSE_PAR = (
+    "La prise adulte de paracétamol lue est de 500 mg, et le plafond lu est de 4 g par jour, autorisation 69266. [[12]]",
+    "Chez l'adulte, l'intervalle lu entre deux prises de paracétamol va de 4 à 8 heures. [[12]]",
+    "On vérifie qu'un autre produit du jour ne contient pas déjà du paracétamol. [[12]]",
+)
+DOSE_IBU = (
+    "Si un anti-inflammatoire est choisi, la prise lue d'ibuprofène forte est de 400 mg, autorisation 67372. [[13]]",
+    "En automédication, le plafond lu est de 1200 mg d'ibuprofène par jour, au plus 3 jours. [[13]]",
+    "On prend la dose efficace la plus faible, le moins longtemps possible. [[13]]",
+    "L'ibuprofène lu est contre-indiqué au troisième trimestre et en cas d'ulcère actif. [[13]]",
+    "L'insuffisance cardiaque grave et la clairance très basse font récuser cet anti-inflammatoire. [[13]]",
+)
+DOSE_SALBU = (
+    "Chaque bouffée lue du nébuliseur-doseur apporte 100 µg de salbutamol, autorisation 37397. [[14]]",
+    "Chez l'adulte, la prévention lue de l'asthme d'effort est de 2 inhalations avant l'activité. [[14]]",
+    "De 4 à 12 ans, la prévention lue sur ce nébuliseur-doseur est de 1 inhalation avant l'effort. [[14]]",
+    "Si le besoin du jour dépasse 800 µg, la personne prévient son médecin. [[14]]",
+)
+
+COMMUN_URGENCE = (
+    "Une douleur thoracique, une syncope d'effort ou un trouble de vigilance arrêtent l'aptitude.",
+    "Un cou douloureux après un choc ne se manipule pas au bord du terrain.",
+    "On ne renvoie personne au jeu le jour d'une commotion. [[4]]",
+    "Un genou qui se bloque vraiment ne se force pas en extension.",
+    "Une déformation, une peau ouverte ou un pouls distal absent sortent du soin simple.",
+)
+
+# --- Phase A ---
+A = {
+    "titre": "Consultation avant une activité sportive ou après une blessure sportive",
+    "sous": "Code O4 (situation de départ). Deux portes : avant l'activité, ou après la blessure.",
+    "fin": "LOT_202_Phase_A_V0.html",
+    "teasers": {
+        1: "Deux portes, une seule décision du jour.",
+        2: "Le rang enseigne. Il ne remplace pas un registre.",
+        3: "L'énergie, le choc et la charge expliquent la plupart des portes.",
+        4: "Le danger immédiat passe avant le certificat.",
+        5: "Le mécanisme et le projet sportif se racontent ensemble.",
+        6: "Trois plans suffisent avant de choisir un examen.",
+        7: "Dix pistes couvrent l'avant et l'après.",
+        8: "Chaque piste a son critère lu, pas une impression.",
+        9: "L'examen change une décision, sinon il attend.",
+        10: "Trois portes : danger, confirmation, action.",
+        11: "Le milligramme vient de l'information suisse.",
+        12: "La charge monte par paliers, jamais d'un coup.",
+        13: "Peu de phrases, toutes décisives.",
+        14: "Le cas montre l'erreur, puis la correction.",
+    },
+    "ess": [
+        "On sépare la visite d'avant l'activité et la visite d'après la blessure.",
+        "Le danger du jour passe avant le certificat et avant le retour au jeu.",
+        "La décision écrite dit quoi faire, jusqu'à quelle date, et qui revoit.",
+    ],
+    "faits": {
+        1: [
+            "Le référentiel suisse validé le 1er novembre 2023 nomme cette situation O4.1. [[1]]",
+            "La porte d'avant cherche une maladie qui rendrait l'effort dangereux.",
+            "La porte d'après classe la blessure, protège, puis date le retour.",
+            "Le certificat n'est pas un examen de performance.",
+            "Le retour au jeu n'est pas la disparition de la peur du coach.",
+            "Une même personne peut ouvrir les deux portes le même mois.",
+        ],
+        2: [
+            "Aucune incidence suisse de ce motif n'a été lue pour ce lot.",
+            "Le rang des dix pistes est donc un rang d'enseignement.",
+            "L'entorse de cheville et la lésion musculaire ouvrent souvent la porte d'après.",
+            "La commotion et le coup de chaleur sont moins fréquents, et plus urgents.",
+            "La cardiopathie recherchée avant le sport est rare, et elle commande l'aptitude.",
+            "Au second temps de 1993, la sensibilité malléolaire lue est de 1,0 sur 50 fractures. [[2]]",
+            "Le retour sans restriction après commotion a une moyenne groupée de 19,8 jours. [[4]]",
+        ],
+        3: [
+            "L'effort révèle une réserve cardiaque, respiratoire ou énergétique déjà basse.",
+            "Le pivot et la réception transmettent l'énergie au ligament, au muscle ou à l'os.",
+            "La répétition de la charge, sans repos, fissure l'os ou irrite le tendon.",
+            "Un coup transmis au cerveau déclenche une cascade métabolique, pas seulement un bleu. [[4]]",
+            "La chaleur d'effort dépasse la capacité d'évacuer la chaleur produite par le muscle. [[9]]",
+            "Le déficit énergétique prolongé atteint le cycle, l'os, l'humeur et la performance. [[7]]",
+        ],
+        4: [
+            "D'abord le cou, la vigilance, la poitrine, le souffle et la chaleur.",
+            "Ensuite on demande si la visite est d'avant ou d'après.",
+            "Puis on choisit une seule piste principale, sans fermer les autres.",
+            "La piste choisie doit changer la conduite du jour.",
+            "On écrit la restriction avec une date, pas avec un adjectif vague.",
+            "Un proche ou un coach peut raconter le mécanisme, pas décider à la place.",
+        ],
+        5: [
+            "On demande le sport, le niveau, le volume de la semaine et le changement récent de charge.",
+            "On demande les syncopes, les douleurs de poitrine, les palpitations et l'essoufflement hors proportion. [[6]]",
+            "On demande les morts subites familiales et les maladies cardiaques familiales. [[6]]",
+            "On demande les commotions anciennes et le dernier retour au jeu. [[4]]",
+            "On demande les règles, le poids, les fractures de fatigue et la restriction alimentaire. [[7]]",
+            "On demande la toux, le sifflement et la gêne dès l'air froid. [[8]]",
+            "Après la blessure, on demande le craquement, l'appui, le gonflement de la première heure.",
+        ],
+        6: [
+            "On regarde la marche, l'appui, le gonflement et une déformation.",
+            "On palpe l'os, pas seulement la zone molle.",
+            "On ausculte le cœur et on prend la pression au repos avant un effort maximal. [[6]]",
+            "On cherche un souffle, des signes de Marfan et un pouls fémoral faible. [[6]]",
+            "Après un choc à la tête, on regarde la vigilance, le cou et la marche. [[4]]",
+            "Le dessin à trois plans situe la tête, le thorax et le membre. Ce n'est pas une radiographie.",
+        ],
+        7: [
+            "DX.1 Entorse latérale de la cheville : inversion, appui, règle de radio.",
+            "DX.2 Lésion musculaire des ischio-jambiers : douleur vive à la course, classification de Munich.",
+            "DX.3 Commotion cérébrale liée au sport : choc transmis au cerveau, pas de retour le jour même.",
+            "DX.4 Tendinopathie du tendon d'Achille : douleur de charge, matin raide, tendon continu.",
+            "DX.5 Rupture du ligament croisé antérieur : pivot, craquement, genou qui lâche.",
+            "DX.6 Fracture de fatigue du membre inférieur : douleur d'os qui monte avec les semaines.",
+            "DX.7 Bronchoconstriction induite par l'exercice : gêne à l'effort, prouvée par le souffle.",
+            "DX.8 Cardiopathie à risque pendant l'effort : symptôme ou tracé qui interdit de signer.",
+            "DX.9 Déficit énergétique relatif dans le sport : apports trop bas pour la charge.",
+            "DX.10 Coup de chaleur d'effort : trouble neurologique et température centrale haute.",
+        ],
+        8: [
+            "La règle de cheville de 1993 exige une douleur de la zone malléolaire et un signe. [[2]]",
+            "Le signe est une douleur osseuse des 6 cm postérieurs, ou l'impossibilité de quatre pas. [[2]]",
+            "La classification de Munich sépare le trouble fonctionnel de la déchirure vue. [[3]]",
+            "La commotion de 2022 est un traumatisme cérébral par un coup à la tête, au cou ou au corps. [[4]]",
+            "Cette définition conceptuelle a obtenu 78,6 % des voix, sous la barre de 80 %. [[4]]",
+            "Le dépistage cardiaque du jeune compétiteur associe l'histoire, l'examen et le tracé. [[6]]",
+            "Le tracé, lu avec les standards actuels, fait mieux que l'histoire et l'examen seuls. [[6]]",
+            "Le coup de chaleur grave associe un trouble neurologique et une température centrale haute. [[9]]",
+        ],
+        9: [
+            "La radio de cheville suit la règle, elle ne suit pas le gonflement seul. [[2]]",
+            "L'échographie cardiaque n'est pas un dépistage de routine. [[6]]",
+            "L'épreuve d'effort n'est pas un dépistage de routine chez l'asymptomatique de plus de 35 ans. [[6]]",
+            "Le souffle après effort se mesure, il ne se devine pas sur la toux. [[8]]",
+            "L'os douloureux à la charge répétée se voit mieux par l'imagerie que par la radio précoce. [[11]]",
+            "La température centrale se mesure si l'on soupçonne un coup de chaleur. [[9]]",
+        ],
+        10: [
+            "Porte du danger : cou, vigilance, poitrine, souffle, chaleur, déformation.",
+            "Porte de la confirmation : le critère lu de la piste choisie.",
+            "Porte de l'action : restriction, traitement, adresse, et une date.",
+        ],
+        11: list(DOSE_PAR) + list(DOSE_IBU) + list(DOSE_SALBU) + [
+            "Le refroidissement du coup de chaleur précède le transport. [[9]]",
+            "Aucune dose médicamenteuse n'a été lue pour remplacer ce refroidissement.",
+            "Le retour après commotion suit les six étapes, chacune d'au moins 24 heures. [[4]]",
+        ],
+        12: [
+            "La charge de course monte par petits paliers, après une douleur d'os éteinte. [[11]]",
+            "Le compétiteur jeune a une histoire, un examen et un tracé avant la saison. [[6]]",
+            "On demande les apports et les règles avant d'augmenter le volume. [[7]]",
+            "L'échauffement et l'air moins froid diminuent la gêne bronchique, sans la prouver. [[8]]",
+            "Le club prévoit l'eau, l'ombre et un bain froid les jours de chaleur. [[10]]",
+        ],
+        13: [
+            "On ne signe pas l'aptitude le jour d'un symptôme cardiaque d'effort. [[6]]",
+            "On ne renvoie pas au jeu le jour d'une commotion. [[4]]",
+            "On ne radiographie pas chaque cheville gonflée. [[2]]",
+            "On refroidit un coup de chaleur avant de rouler. [[9]]",
+            "Le milligramme affiché vient de l'autorisation suisse citée.",
+        ],
+        14: [
+            "Cas. Un gardien de 17 ans veut son certificat le lendemain d'un choc tête contre genou.",
+            "Erreur. Signer parce qu'il sourit et qu'il connaît le score du match.",
+            "Correction. On retire du jeu, on protège le cou s'il est douloureux, et on ouvre les étapes. [[4]]",
+            "Le mot score, ici, est celui du match, pas un outil clinique. [[4]]",
+        ],
+    },
+    "algo": [
+        ("alerte", "Écarter le danger", "Cou, vigilance, poitrine, souffle bloquant, chaleur ou déformation : on quitte le certificat."),
+        ("bilan", "Confirmer la piste", "On confirme avec le critère lu : règle de cheville, Munich, étapes de commotion, tracé ou température."),
+        ("age", "Agir et revoir", "On écrit une restriction, un soin ou une adresse, puis une date de revue."),
+    ],
+    "niveaux": [
+        {"cle": "tete", "etiquette": "Tête", "structures": [
+            {"nom": "Cuir chevelu", "cx": 500, "cy": 280, "rx": 120, "ry": 90, "definition": "Zone du coup direct. Le dessin n'est pas un scanner."},
+            {"nom": "Cou", "cx": 500, "cy": 470, "rx": 70, "ry": 50, "definition": "Un cou douloureux après choc arrête la mobilisation."},
+            {"nom": "Oreille", "cx": 650, "cy": 300, "rx": 40, "ry": 55, "definition": "Repère latéral. La droite du patient est à gauche de l'écran."},
+            {"nom": "Menton", "cx": 500, "cy": 390, "rx": 36, "ry": 28, "definition": "Le menton sert au récit du choc, pas à un diagnostic de fracture ici."},
+        ]},
+        {"cle": "thorax", "etiquette": "Thorax", "structures": [
+            {"nom": "Cage", "cx": 500, "cy": 380, "rx": 220, "ry": 160, "definition": "Cadre du thorax. Ce n'est pas une radiographie."},
+            {"nom": "Cœur", "cx": 430, "cy": 390, "rx": 70, "ry": 55, "definition": "On ausculte avant de signer une aptitude."},
+            {"nom": "Souffle", "cx": 620, "cy": 340, "rx": 80, "ry": 60, "definition": "La gêne d'effort se mesure, elle ne se devine pas."},
+            {"nom": "Sternum", "cx": 500, "cy": 300, "rx": 28, "ry": 70, "definition": "Repère médian du schéma."},
+        ]},
+        {"cle": "membre", "etiquette": "Membre", "structures": [
+            {"nom": "Cuisse", "cx": 420, "cy": 280, "rx": 70, "ry": 110, "definition": "Siège fréquent de la lésion musculaire."},
+            {"nom": "Genou", "cx": 430, "cy": 450, "rx": 55, "ry": 40, "definition": "Le pivot et le lâchage orientent vers le croisé."},
+            {"nom": "Cheville", "cx": 620, "cy": 560, "rx": 50, "ry": 36, "definition": "L'appui et la douleur osseuse décident de la radio."},
+            {"nom": "Tendon", "cx": 680, "cy": 470, "rx": 22, "ry": 70, "definition": "Le tendon d'Achille douloureux à la charge."},
+        ]},
+    ],
+    "question": "Quel plan ouvre-t-on en premier ?",
+    "reponse": [
+        "On ouvre d'abord le plan du danger raconté.",
+        "La tête si le choc ou la chaleur domine.",
+        "Le thorax si la poitrine ou le souffle domine.",
+        "Le membre si la blessure est locale et la vigilance claire.",
+    ],
+    "vignettes_cible_extra": 0,
+}
+
+# Les modèles de situations appliquent la règle sans répéter une phrase entière.
+A_MODELES = [
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on demande d'abord si la visite est d'avant ou d'après.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on n'écrit pas apte si la poitrine a serré à l'effort.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on protège le cou si le choc l'a rendu douloureux.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on observe quatre pas avant de parler d'une radio de cheville.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on ne reprend pas le match le jour d'un choc à la tête.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on demande le volume de course des deux dernières semaines.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on demande si les règles ont disparu avec la charge.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on sépare une gêne bronchique d'une douleur d'os.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on écrit une date de revue avec la restriction.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on ne promet pas un retour parce que le coach est pressé.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on cherche un craquement et l'heure du gonflement.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on compare le genou blessé au genou sain.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on ne force pas un genou qui se bloque.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on demande les morts subites dans la famille proche.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on mesure la pression au repos avant un test maximal.",
+    "Situation {k}. Chez une personne de {age} ans qui pratique {sport}, vue {lieu}, on prévoit l'ombre et l'eau si la séance est en chaleur.",
+]
