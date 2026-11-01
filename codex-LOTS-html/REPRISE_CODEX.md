@@ -1,3 +1,19 @@
+# Reprise solo — 2026-11-01T19:45:11+00:00
+
+Dernier ordre de Vial : travailler seul, sans sous-agents. Il remplace la modalité précédente d’équipe. Aucun agent lancé ni réactivé dans cette passe. Borne fraîchement vérifiée : LOT018–133 inclus ; branche codex/lots, écritures dans codex-LOTS-html uniquement.
+
+Avancée : LOT018 DX3 (DMLA) et LOT029 DX3 (hydrocéphalie) enrichis dans les14 parties et14 réponses chacun. Relecture interne explicite ; aucune nouvelle contrelecture indépendante. Les6 leçons de la première tranche sont inchangées. Total renforcé8/244 ;236 restantes.22 lots déjà rédigés018–039,040 PhaseA/DX1 seulement ; aucun nouveau LOT terminé. Ne pas refaire la production initiale018 du commit950a4cd1.
+
+Cliché réel de valve déjà acquis réutilisé dans la fenêtre d’examens029DX3 : terme cliquable, original/copie annotée, définitions, crédits. Ne pas le présenter comme une lésion cérébrale. Le schéma maculaire018DX3 est conservé, contraste sombre corrigé. Clichés de DMLA et de dilatation ventriculaire encore absents. Banque OCTDL identifiée, pas d’image récupérée ; notes d’accès et limites dans LECTURES.json.
+
+Contrôles :550 conditions V8 réussies sur22 fichiers,242 autres leçons et9 fichiers communs intacts. Chromium réel :8 configurations,112 fenêtres,112 réponses,16 définitions ;20 captures inspectées. Audit langue historique non conforme, motifs détaillés sans falsification. Pas de nouvelle dose, fenêtre AIPS aflibercept conservée.
+
+Tailles exactes :018DX3 HTML112,455Ko, fiche5,142Ko, fenêtres31,882Ko ;029DX3 HTML276,595Ko, fiche5,574Ko, fenêtres24,644Ko. Base DD sous9Ko, fenêtres illustrées exemptées. Bilan courant : BILAN_RENFORCEMENT_MEDICAL.html. Preuves : renforcement_solo_dx3_20261101/ ; contrôleur courant verifier.py de ce dossier et imagerie_20261101/verifier.py. Les scripts de première tranche restent des preuves historiques, leur baseline ne décrit pas les nouveaux DX3. Inventaire :244 leçons,565 passages.
+
+Suite :018 DX4 puis029 DX4 et clichés manquants. La pause concerne les nouveaux diagnostics ;040DX2 reste le premier absent. Les veilles locales37511 et48342 tournent chaque60s tant que l’environnement subsiste ; elles ne rédigent pas. Publication et libération du verrou à renseigner après vérification distante. Famille GPT-6 exposée ; variante/effort courants non exposés. Confirmation historique Astra conservée, aucun réglage prétendument changé.
+
+## Historique — chiffres et modalités datés
+
 # Reprise LOTS — renforcement médical en équipe — 2026-11-01T19:25:08+00:00
 
 Priorité explicite de Vial : renforcer les cours déjà présents et intégrer des images réelles ; futurs cours d’emblée riches et illustrés. Travail solitaire interdit. Six agents effectivement mobilisés : deux rédacteurs Astra high, deux iconographes, un contrelecteur médical distinct et un contrôleur navigateur. Le coordinateur conserve le verrou et les publications. Répartition des cours existants018–028 et029–040 ; les lots absents ne sont pas sautés/créés.
