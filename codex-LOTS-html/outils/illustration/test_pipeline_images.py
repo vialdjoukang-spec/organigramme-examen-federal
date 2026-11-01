@@ -47,6 +47,12 @@ class Pipeline(unittest.TestCase):
     def test_version_inconnue(self):
         node=etree.fromstring('<front><license>Creative Commons Attribution</license></front>')
         self.assertEqual(p.license_info(node)['decision'],'reserve_licence')
+    def test_auteurs_type_porte_par_groupe(self):
+        xml=b'<article><front><article-meta><contrib-group content-type="author"><contrib><name><given-names>Lena</given-names><surname>Folkestad</surname></name></contrib></contrib-group></article-meta></front><body/></article>'
+        self.assertEqual(p.parse_article(xml,{},'PMC1')['auteur'],'Lena Folkestad')
+    def test_editeur_non_attribue_comme_auteur(self):
+        xml=b'<article><front><article-meta><contrib-group content-type="author"><contrib contrib-type="editor"><name><given-names>Un</given-names><surname>Editeur</surname></name></contrib><contrib contrib-type="author"><string-name><given-names>Une</given-names><surname>Autrice</surname></string-name></contrib></contrib-group></article-meta></front><body/></article>'
+        self.assertEqual(p.parse_article(xml,{},'PMC1')['auteur'],'Une Autrice')
     def test_chemin_hors_perimetre(self):
         with self.assertRaises(ValueError):p.path('../ailleurs')
     def test_lien_symbolique_hors_perimetre(self):

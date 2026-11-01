@@ -102,7 +102,9 @@ def license_info(node):
 def parse_article(raw, metadata, pmcid):
     doc = etree.fromstring(raw, etree.XMLParser(resolve_entities=False, no_network=True))
     info = license_info(doc.find('front'))
-    authors = [' '.join(n.xpath('.//given-names/text()') + n.xpath('.//surname/text()')) for n in doc.xpath('./front/article-meta/contrib-group/contrib[@contrib-type="author"]/name')]
+    author_nodes = doc.xpath('./front/article-meta/contrib-group/contrib[@contrib-type="author" or (not(@contrib-type) and parent::contrib-group[@content-type="author"])]')
+    authors = [' '.join(n.xpath('./name/given-names/text() | ./string-name/given-names/text()') + n.xpath('./name/surname/text() | ./string-name/surname/text()')) for n in author_nodes]
+    authors = [name for name in authors if name.strip()]
     result = {'pmcid': pmcid, 'titre': ' '.join(doc.xpath('./front/article-meta/title-group/article-title//text()')),
               'auteur': ', '.join(authors), 'droits': info, 'figures': []}
     if info['decision'] != 'licence_admissible_a_relire':

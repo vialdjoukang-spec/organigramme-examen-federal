@@ -16,12 +16,18 @@ assert len(doc.xpath('//tr[@data-lot]')) == 116
 assert len(doc.xpath('//details[@class="lecon"]')) == data['totaux']['lecons_avec_mentions']
 assert len(doc.xpath('//blockquote')) == data['totaux']['passages']
 triage = json.loads((D/'TRIAGE.json').read_text())
-assert len(triage['lecons']) == 22 == len(doc.xpath('//*[@data-triage="effectue"]'))
-assert sum(len(x['passages_lus']) for x in triage['lecons']) == 89
+assert len(triage['lecons']) == triage['lecons_triees'] == len(doc.xpath('//*[@data-triage="effectue"]'))
+assert sum(len(x['passages_lus']) for x in triage['lecons']) == triage['passages_lus']
+assert len({x['fichier'] for x in triage['lecons']}) == triage['lecons_triees']
+assert triage['reste_lecons_avec_mentions'] == data['totaux']['lecons_avec_mentions'] - sum(bool(x['passages_lus']) for x in triage['lecons'])
 for revue in triage['lecons']:
     row = next(x for x in data['lecons'] if x['fichier']==revue['fichier'])
     assert revue['sha256_lecon']==row['sha256']
     assert [x['sha256_texte'] for x in revue['passages_lus']] == [hashlib.sha256(x['extrait_exact_normalise'].encode()).hexdigest() for x in row['passages']]
+    if 'extrait_supplementaire_lu' in revue:
+        extra = revue['extrait_supplementaire_lu']
+        source = html.fromstring((B/revue['fichier']).read_bytes()).get_element_by_id(extra['ancre'])
+        assert extra['texte_normalise'] == ' '.join(' '.join(source.itertext()).split())
 for acquisition in json.loads((D/'sources_orl/ACCES.json').read_text()):
     if acquisition.get('contenu_conserve') is False:
         assert acquisition['fichier']=='PMC11150114.xml'
@@ -42,7 +48,7 @@ manifeste = json.loads((B.parent/'harnais/HARNAIS_MANIFESTE.json').read_text())[
 assert all(hashlib.sha256((B.parent/p).read_bytes()).hexdigest()==sha for p,sha in manifeste.items())
 result = {'date':datetime.now(timezone.utc).isoformat(timespec='seconds'), 'lecons_inchangees':244,
           'lots_sans_saut':116,'liens_extraits_verifies':links,'harnais_intacts':len(manifeste),
-          'lecons_triees':22,'passages_tries':89,'acquisitions_documentaires':5,
+          'lecons_triees':triage['lecons_triees'],'passages_tries':triage['passages_lus'],'acquisitions_documentaires_sources_orl':5,
           'statut':'contrôles mécaniques réussis','validation_clinique':False}
 (D/'CONTROLE.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(result,ensure_ascii=False))

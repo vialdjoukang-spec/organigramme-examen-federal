@@ -147,7 +147,20 @@ def produire():
         for c in selection['candidats']:
             decision = {'retenu_documentaire_sous_reserve_visuelle': 'Retenu sous réserve visuelle', 'reserve_version_licence': 'Réserve : licence à préciser'}[c['decision']]
             out.append(f'<details class="candidat"><summary>{e(c["titre"])} — {e(decision)}</summary><p>{e(c["auteur"])} · {e(c.get("licence",c.get("licence_annoncee","")))}</p><p>{e(c.get("piege",c.get("condition","")))}</p><a href="{e(c["source_url"])}">Publication source</a></details>')
-        out.append('<p><a href="imagerie_20261101/CANDIDATS_ORL.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/TRIAGE.json">Tri des 22 leçons</a> · <a href="imagerie_20261101/sources_orl/LECTURES.json">Lectures suisses et européennes</a></p>')
+        out.append(f'<p><a href="imagerie_20261101/CANDIDATS_ORL.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/TRIAGE.json">Tri des {len(par_fichier)} leçons</a> · <a href="imagerie_20261101/sources_orl/LECTURES.json">Lectures suisses et européennes</a></p>')
+    sans_mention = [r for r in lecons if not r['passages'] and r['fichier'] in par_fichier]
+    if sans_mention:
+        out.append('<h2>Fenêtres relues sans mention d’imagerie</h2><p>Ces leçons ne figurent pas parmi les 215 fiches filtrables ci-dessus. Leur bilan biologique ou clinique peut justifier un schéma documenté, sans inventer de cliché radiologique.</p>')
+        for row in sans_mention:
+            revue = par_fichier[row['fichier']]
+            out.append(f'<details class="sans-imagerie"><summary>LOT_{row["lot"]:03} — {e(row["titre"])}</summary><aside data-triage="effectue"><strong>{e(revue["objectif_iconographique"])}</strong><p>{e(revue["contexte"])}</p><p><strong>Piège :</strong> {e(revue["piege"])}</p><a href="{e(row["fichier"])}#{e(revue["extrait_supplementaire_lu"]["ancre"])}">Ouvrir la fenêtre source</a></aside></details>')
+    suite = D/'tri_020_021/CANDIDATS.json'
+    if suite.exists():
+        selection = json.loads(suite.read_text())
+        out.append('<h2>Pistes iconographiques des LOT_020 et LOT_021</h2><p>Trois candidats CC BY 4.0 documentés ; aucun cliché acquis ou inspecté. Une source NC/ND refusée, une autre en réserve pour licence à préciser.</p>')
+        for c in selection['candidats']:
+            out.append(f'<details class="candidat-suite"><summary>LOT_{c["lot"]:03} — {e(c["titre"])}</summary><p>{e(c["auteur"])} · {e(c["licence"])}</p><p>{e(c["piege"])}</p><a href="{e(c["source_url"])}">Publication source</a></details>')
+        out.append('<p><a href="imagerie_20261101/tri_020_021/CANDIDATS.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/tri_020_021/LECTURES.json">Lectures et limites</a></p>')
     out += ['<script>const q=document.querySelector("#recherche"),m=document.querySelector("#modalite"),rows=[...document.querySelectorAll("details.lecon")];function filtre(){let n=0;for(const r of rows){const ok=r.textContent.toLocaleLowerCase("fr").includes(q.value.toLocaleLowerCase("fr"))&&(!m.value||JSON.parse(r.dataset.categories).includes(m.value));r.hidden=!ok;if(ok)n++;}document.querySelector("#compte").textContent=n+" leçons affichées";}q.addEventListener("input",filtre);m.addEventListener("change",filtre);filtre();</script>',
             '<footer><p>Les extraits décrivent les textes présents, sans nouvelle validation médicale. La sélection de chaque cliché devra préciser le signe visible, le contexte clinique, les limites et les droits de réutilisation.</p></footer></main></html>']
     (B/'BILAN_IMAGERIE_ECG.html').write_text('\n'.join(out)+'\n')
