@@ -1,11 +1,27 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_179 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_180 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_184 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_179 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177 et LOT_179 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178 et LOT_180 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177 et LOT_179 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180 et LOT_184 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_185.**
-**Prochain LOT du rédacteur B : LOT_184.** LOT_180 (O1.7 Soins de base autour de la conception et pendant la grossesse) est rédigé et certifié. Détail : `LOT_180/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_186.** LOT_184 (O2.2 Problèmes comportementaux durant l’enfance et l’adolescence) est rédigé et certifié. Détail : `LOT_184/A_AUDITER.md`.
+
+## LOT_184 — rédigé et certifié
+Sujet : O2.2 « Problèmes comportementaux durant l’enfance et l’adolescence ». Détail : `LOT_184/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Haute Autorité de Santé, septembre 2024 ; recommandation sur l'attention, mars 2018 ; feuille de cotation du questionnaire des forces et des difficultés, lue en 2026 ; conduites, 2013 ; dépression du jeune, juin 2019 ; articles 314c et 314d, en vigueur en 2019. Autorisations 20736, 56249, 56846, 63023, 67475, 52316, 54469, 57135, 56209, 68968. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 3.5 (+ 73.3) Ko · SHA 2b2db926049a6ad8 · commit 3f12107a2
+- DX.1 : certitude VERT · porte VERT · T = 3.5 (+ 39.2) Ko · SHA b797990c35d80f81 · commit 11246c5c8
+- DX.2 : certitude VERT · porte VERT · T = 3.4 (+ 41.9) Ko · SHA d5d755cee4ed7d75 · commit d5dce7939
+- DX.3 : certitude VERT · porte VERT · T = 3.4 (+ 43.7) Ko · SHA ab940779b935d9dd · commit 8c8adfe4c
+- DX.4 : certitude VERT · porte VERT · T = 3.4 (+ 45.2) Ko · SHA 2829888877d7d3e6 · commit d560a413f
+- DX.5 : certitude VERT · porte VERT · T = 3.4 (+ 36.8) Ko · SHA 884b560644e36096 · commit 9a795b1e5
+- DX.6 : certitude VERT · porte VERT · T = 3.4 (+ 40.6) Ko · SHA f1ccd2f7c2f1cc1f · commit 1dcb61ee8
+- DX.7 : certitude VERT · porte VERT · T = 3.4 (+ 42.9) Ko · SHA cd99ad69280e0b31 · commit f7404c5d1
+- DX.8 : certitude VERT · porte VERT · T = 3.4 (+ 44.3) Ko · SHA 749c78b471a12a42 · commit 47e5fc90c
+- DX.9 : certitude VERT · porte VERT · T = 3.4 (+ 37.4) Ko · SHA 3ceb7412c4aaf30c · commit d45239a15
+- DX.10 : certitude VERT · porte VERT · T = 3.4 (+ 46.1) Ko · SHA 942aed90e8fb132b · commit fd0697e81
+
 
 ## LOT_179 — rédigé et certifié
 Sujet : O1.6 « Problèmes liés à l'allaitement ». Détail : `LOT_179/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Société Suisse de Pédiatrie 2017, guide du post-partum du 20 avril 2021 mis à jour le 9 juin 2026, section sein du guide de 2015, protocole 36 de 2022, étude suisse de 2014. Autorisations 47503, 37404, 51756, 48164. Zéro retrait central.
