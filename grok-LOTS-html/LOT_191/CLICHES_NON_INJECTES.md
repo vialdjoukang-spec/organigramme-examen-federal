@@ -1,20 +1,21 @@
-# LOT_191 — 5 clichés non injectés : blocage documenté · 01.11.2026 17:35 (Europe/Zurich)
+# LOT_191 — clichés : 14/14 injectés, plus aucun blocage · 01.11.2026 18:20 (Europe/Zurich)
 
-Ordre de Vial « Corrige ce qu'il faut » (alerte 3 de l'état des lieux). Règle : injecter seulement une paire PRET
-(brute + annotée, même cadrage, licence libre vérifiée) ; **ne pas inventer d'image**.
+Historique : à 17:35, 5 clichés (052, 053, 054, 059, 062) étaient bloqués faute de source libre (seules des captures
+de la leçon existaient). Sur ordre vocal de Vial, 5 vraies images cliniques sous licence libre ont été trouvées,
+annotées au format des 9 paires, puis **validées par Vial** (« Oui, injecter les 5 paires dans LOT_191 et pousser sur grok/lots »).
+Injection : `injecter_cliches.py --appliquer --lot LOT_191` (popover dual-vue brute | annotée, sans JavaScript, x inchangé).
 
-Contrôle refait : `injecter_cliches.py --simuler --lot LOT_191` sur origin/grok/lots @ 96bbfb49
-→ PRET 9 (déjà injectés, ce1fbb4) · A_RENDRE_WEB 2 · A_SOURCER 2 · A_RENDRE_BIO 1. Rapport : `rapports/simulation_LOT_191_20261101_1734.md`.
-Inventaire `/workspace/LOT_Tunder/images_cliches_queue/LOT_191/IMG-0xx_*/` : pour les 5, seulement `candidat_Phase_B_V0_DX.n_n1|n3.png`
-(captures de la leçon elle-même, pas des clichés) ; aucun `brute/IMG-xxx_brute.*`, aucun `annotee/IMG-xxx_annotee.*`, aucun `SOURCES.json`.
-DISPOSITION (`/workspace/LOT_Tunder/DISPOSITION_IMAGES_LOTS.json`) : `injection = "NON FAITE"` pour les 5 (inchangé).
+| IMG | Leçon / ancre | Mot devenu bouton | Ce que montre l'image | Patient | Source | Licence |
+|---|---|---|---|---|---|---|
+| 052 | DX.2 #p8 | endoscopie | Œsophagite érosive, grade D de Los Angeles (érosions confluentes, fibrine) | enfant de 9 ans (pas nourrisson : aucune endoscopie libre de nourrisson trouvée) | Kato D, Uchida H et al., Pediatr Surg Int 2024, doi:10.1007/s00383-024-05683-3 (PMC10963562), fig. 1b | CC BY 4.0 |
+| 053 | DX.2 #p9 | transit baryté | Transit œso-gastro-duodénal : duodénum et jéjunum à droite = malrotation | nouveau-né, J3 | Ganeshan S, Zakka KR et al., AJP Rep 2026, doi:10.1055/a-2803-3478 (PMC12962794), fig. 2 ; cercle de l'auteur effacé sur la brute | CC BY 4.0 |
+| 054 | DX.4 #p9 | bandelette urinaire | Bandelette réelle : nitrites + (rose), leucocytes + (violet) | prélèvement | Grook Da Oger, Wikimedia Commons, File:Urine trouble - BU sang nitrite leucocyte.jpg | CC BY-SA 3.0 |
+| 059 | DX.6 #p8 | imagerie | Écho-Doppler : signe du tourbillon (veine mésentérique supérieure enroulée autour de l'artère) | nouveau-né de 2 jours, volvulus confirmé au bloc | Chen Y, Lu H et al., Front Pediatr 2025, doi:10.3389/fped.2025.1612968 (PMC12313561), fig. 1B | CC BY 4.0 |
+| 062 | DX.9 #p8 | échocardiographie | Écho apicale 4 cavités : ventricule gauche dilaté (cardiomyopathie dilatée, FEVG 13 % dans l'article) | nourrisson de 30 jours (remplace le candidat adulte ECHOpedia E00473) | Wang Y, Liang L et al., Front Genet 2026, doi:10.3389/fgene.2026.1841224 (PMC13673423), fig. 1A | CC BY 4.0 |
 
-| IMG | Leçon / ancre | Signe | Statut | Blocage précis | Ce qui débloquerait |
-|---|---|---|---|---|---|
-| 052 | DX.2 #p8 (RGO du nourrisson) | Œsophagite érosive (endoscopie) | A_RENDRE_WEB | URL de la disposition = PDF (Rabeprazole.pdf), pas une image. Aucune endoscopie d'œsophagite peptique érosive sous licence libre trouvée (seulement lymphocytaire, éosinophile, histologie). | Une image endoscopique libre (CC0/BY/BY-SA/PD) d'œsophagite érosive, ou une image fournie par Vial avec droits. |
-| 053 | DX.2 #p9 | Malrotation / sténose (transit) | A_SOURCER | Aucun transit œso-gastro-duodénal pédiatrique libre ; seul un schéma de bride de Ladd existe. | Un TOGD pédiatrique libre, ou accord de Vial pour un schéma pédagogique (marqué « schéma »). |
-| 054 | DX.4 #p9 | Bandelette leucocytes / nitrites | A_RENDRE_BIO | Seule photo libre (Comp.Urine.Test.Strip.jpg, CC BY-SA 3.0) montre leucocytes et nitrites **négatifs** : ne montre pas le signe. | Accord de Vial pour un schéma original de bandelette (comme IMG-064), ou photo libre positive. |
-| 059 | DX.6 #p8 | Volvulus du grêle sur malrotation (tourbillon) | A_SOURCER | Seulement volvulus sigmoïde adulte (TDM) ou animal : hors sujet. | Image libre d'un tourbillon mésentérique pédiatrique (écho-Doppler ou TDM). |
-| 062 | DX.9 #p8 | Dysfonction ventriculaire (échocardiographie) | A_RENDRE_WEB | URL de la disposition = PDF hors sujet. Candidat ECHOpedia E00473 (PLAX, CMD, CC BY-SA 3.0) : contours du VG pas assez sûrs sur image fixe ; « Dilated cardiomyopathy B-Mode.jpg » = chien, exclu. | Relecture d'un cardiologue sur la frame E00473, ou autre écho libre humaine. |
+Fichiers : `cliches/IMG-0xx_brute.jpg` + `cliches/IMG-0xx_annotee.jpg` (même cadrage, mêmes dimensions vérifiées).
+Annotations (pointillés, numéros, cartouche) : œuvre dérivée sous la même licence ; crédit et licence affichés dans chaque fenêtre.
 
-Aucune injection, aucun commit d'image, aucune capture QC (pas d'injection réelle). Les 9 paires de ce1fbb4 restent en place.
+Contrôles : certitude_redaction VERT ×4 (DX.2, DX.4, DX.6, DX.9 ; x inchangé 1541 / 1523 / 1555 / 1555 o) ; conscience 0 ordre ×4 ;
+idempotence (2e passage : 0 injection) ; captures headless (bouton « ouvrir » puis clic sur le mot) 7/7 : fenêtre parent + cliché
+ouvertes, 2 images chargées de même taille, fermeture par ✕ (062 aussi en mobile et en mode sombre).
