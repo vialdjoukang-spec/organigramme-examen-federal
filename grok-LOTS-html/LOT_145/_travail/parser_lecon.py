@@ -219,6 +219,9 @@ def lire(path: Path) -> dict:
             f["id"] = f"{pid}f{n}"
             for i, para in enumerate(f["paragraphes"]):
                 f["paragraphes"][i] = injecter_schema(para)
+        if len(fenetres) > 1:
+            liens = " ".join(bouton(f["id"], f["titre"]) for f in fenetres[1:])
+            fenetres[0]["paragraphes"].insert(0, liens)
         fiche = re.sub(
             r"\{\{auto:([^}]+)\}\}",
             lambda m: bouton(fenetres[0]["id"], m.group(1)) if fenetres else m.group(1),
