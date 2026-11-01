@@ -2,6 +2,8 @@
 
 ## PRIORITÉ ACTIVE : acquisition des clichés cliniques018
 
+Bilan HTML et complément de sources publiés au commit `18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844`, référence distante vérifiée. Verrou libéré officiellement après ce push.
+
 Seul, sans sous-agents ; codex/lots ; écritures uniquement codex-LOTS-html/. Départ frais8e4222ae3ba4d40d267619c75dbfcaf0a8defd3a, égal à FETCH_HEAD. Réservation18–133 relue ; registre du01.11 lu/signé, pret et verifier018 réussis. Aucun autre producteur, branche ou automate modifié.
 
 État rédactionnel inchangé :244leçons,22lots complets018–039 et040partiel (PhaseA/DX1). Nouveau diagnostic040 DX2 toujours suspendu jusqu’au rattrapage des illustrations demandé par Vial. LOT018 possède onze leçons avec supports, douze composants et vingt-et-une vues uniques ; zéro cliché pathologique réel intégré.

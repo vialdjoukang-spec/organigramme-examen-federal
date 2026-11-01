@@ -124,3 +124,5 @@ Publication de la sélection et de l’import : e5339811e222292cfb3428a4f1f1dc1a
 Six nouvelles notices Commons lues, cinq candidats pourDX2/3/4/8/10 ; dix au total avec la sélection précédente. Faux témoin normal exclu, DMLA replacée dans sa chronologie, réserves de séquence/latéralité et de modalité explicites. Lectures CH puis Europe, relecture interne dans acquisition_suite/. Aucun original acquis : politique réseau inchangée, cinq refus avant requête.
 
 BILAN_CLICHES_LOT_018.html créé : tailles x/y/x+y/HTML des11leçons, dix candidats séparés des12supports intégrés.128vérifications et20interactions du rapport réussies ; deux captures de rapport inspectées.244leçons inchangées, harnais intact. Aucun nouveau test médical/V8, aucune image clinique inspectée, aucun lot clôturé. Suite dépendante de l’accès aux originaux, sans nouveau diagnostic040.
+
+Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, égalité distante vérifiée. Verrou libéré officiellement. Aucun nouveau cliché intégré ; dix candidats prêts pour acquisition dès accès autorisé.
