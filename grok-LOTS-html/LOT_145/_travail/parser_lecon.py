@@ -33,6 +33,64 @@ def marques(s: str) -> str:
     return MARQUE.sub(repl, s)
 
 
+SCHEMAS_DX = {
+    "[[TVP]]": ("tvp", [
+        ("Veine souple", ("La lumière s'efface", ["Compression proximale", "Pas de caillot vu", "Question non close"], "#e8f7ef", "#1a7a50")),
+        ("Veine dure", ("La lumière reste", ["Poplité, fémoral, iliaque", "Caillot proximal", "Anticoagulation lue"], "#f8e8e8", "#a1262f")),
+        ("Délai", ("Quatre heures, 2020", ["Score probable de 2003", "Écho sinon D-dimères", "Image sous vingt-quatre heures"], "#e5f3fb", "#176fa0")),
+    ]),
+    "[[ANGIO]]": ("angio", [
+        ("Voix", ("D'abord la gorge", ["Langue, lèvre, stridor", "Appeler avant le nom", "Ne pas renvoyer"], "#f8e8e8", "#a1262f")),
+        ("Peau", ("Blanc et douloureux", ["Plus d'un jour", "Sans urticaire", "Pas l'allergie seule"], "#fff6df", "#8a5a00")),
+        ("Crise", ("Deux produits lus", ["Inhibiteur par kilogramme", "Icatibant adulte", "51950 et 68263"], "#e5f3fb", "#176fa0")),
+    ]),
+    "[[OAP]]": ("oap", [
+        ("Position", ("Assis, jambes pendantes", ["On n'allonge pas", "Oxygène", "Voix et sueurs"], "#f8e8e8", "#a1262f")),
+        ("Poumons", ("Deux bases", ["Crépitants symétriques", "Pas un seul mollet", "Le godet vient après"], "#fff6df", "#8a5a00")),
+        ("Injection", ("Lentement, 30630", ["Quarante milligrammes", "Puis réévaluation", "Quatre milligrammes par minute"], "#e5f3fb", "#176fa0")),
+    ]),
+    "[[NECROSE]]": ("necrose", [
+        ("Douleur", ("Hors de proportion", ["Peau encore pauvre", "Effleurement intolérable", "On n'attend pas"], "#f8e8e8", "#a1262f")),
+        ("Bulle", ("Signe possible", ["Bulle hémorragique", "Tache livide", "Le bloc ne se discute plus"], "#fff6df", "#8a5a00")),
+        ("Appel", ("Chirurgie d'abord", ["À jeun", "Marquer le contour", "Pas de dose récitée"], "#e5f3fb", "#176fa0")),
+    ]),
+    "[[CAVE]]": ("cave", [
+        ("Territoire", ("Pèlerine", ["Visage, cou, bras", "Pas les chevilles seules", "Collatérales du thorax"], "#f8e8e8", "#a1262f")),
+        ("Image", ("Scanner, 2012", ["Lacout en fait la clé", "Obstacle et détours", "Résonance si elle tient"], "#e5f3fb", "#176fa0")),
+        ("Geste", ("Lever l'obstacle", ["Asseoir si étouffement", "Pas le diurétique seul", "Cause souvent tumorale"], "#fff6df", "#8a5a00")),
+    ]),
+    "[[COEUR]]": ("coeur", [
+        ("Cou", ("Jugulaires visibles", ["Tronc relevé", "Surcharge d'amont", "Les deux déclivités"], "#f8e8e8", "#a1262f")),
+        ("Souffle", ("Oreillers et crépitants", ["Globale si les deux", "Droite si le poumon est clair", "Poids du matin"], "#fff6df", "#8a5a00")),
+        ("Diurétique", ("Selon l'autorisation", ["Furosémide ou torasémide", "Pas à la place d'un caillot", "Potassium et poids"], "#e5f3fb", "#176fa0")),
+    ]),
+    "[[NEPHRO]]": ("nephro", [
+        ("Définition", ("Deux critères, 2021", ["Plus de 3,5 grammes", "Albumine sous 30 g/l", "L'œdème n'est pas exigé"], "#e5f3fb", "#176fa0")),
+        ("Visage", ("Paupières du matin", ["Urines mousseuses", "Godet blanc mou", "Pas un seul mollet"], "#fff6df", "#8a5a00")),
+        ("Traitement", ("Sel, eau, puis diurétique", ["Spironolactone si échec", "Autorisation 27257", "Pas anti-inflammatoire"], "#e8f7ef", "#1a7a50")),
+    ]),
+    "[[FOIE]]": ("foie", [
+        ("Ventre", ("Ascite", ["Matité et flot", "Angiomes stellaires", "Chevilles souvent avec"], "#fff6df", "#8a5a00")),
+        ("Albumine", ("Le foie ne fabrique plus", ["Porte oncotique", "Et parfois l'amont", "Deux mécanismes"], "#e5f3fb", "#176fa0")),
+        ("Diurétique", ("Plutôt à l'hôpital", ["Spironolactone selon Na/K", "Torasémide si choisi", "Foie sévère, lire l'interdit"], "#f8e8e8", "#a1262f")),
+    ]),
+    "[[VEINE]]": ("veine", [
+        ("Classes", ("Zéro à six, 2020", ["Rien, puis télangiectasies", "Varices, y compris récidive", "La classe trois est l'œdème"], "#e8f7ef", "#1a7a50")),
+        ("Peau", ("Pigment et ulcère", ["Pigment ou eczéma", "Sclérose, atrophie, couronne", "Ulcère guéri ou actif"], "#fff6df", "#8a5a00")),
+        ("Preuve", ("Pas la classe seule", ["Écho-doppler", "Pouls avant le bas", "Caillot aigu d'abord"], "#f8e8e8", "#a1262f")),
+    ]),
+    "[[LYMPHE]]": ("lymphe", [
+        ("Territoire", ("Dos du pied", ["Orteils compris", "Pli de Stemmer", "Écho pour écarter la veine"], "#e8f7ef", "#1a7a50")),
+        ("Stades", ("Trois stades, 2002", ["Godet, régresse la nuit", "Permanent, plis marqués", "Peau épaisse"], "#fff6df", "#8a5a00")),
+        ("Soin", ("Compression", ["Pierre angulaire lue", "Pas le diurétique seul", "Érysipèle à surveiller"], "#e5f3fb", "#176fa0")),
+    ]),
+}
+
+
+def _onglets(spec):
+    return [(lib, svg_boite(*args)) for lib, args in spec]
+
+
 def injecter_schema(para: str) -> str:
     token = para.strip()
     if token == "[[PORTES]]":
@@ -82,6 +140,9 @@ def injecter_schema(para: str) -> str:
                 ("C5 et C6", svg_boite("Ulcère", ["C5 guéri", "C6 actif", "C6r récidive"], "#f8e8e8", "#a1262f")),
             ],
         )
+    if token in SCHEMAS_DX:
+        nom, onglets = SCHEMAS_DX[token]
+        return schema(nom, _onglets(onglets))
     return para
 
 
