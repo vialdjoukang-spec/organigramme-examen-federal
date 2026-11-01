@@ -1,5 +1,7 @@
 # Reprise LOTS — 01.11.2026
 
+Contrôle de reprise du 2026-11-01T08:34:54+00:00 : dépôt frais `2b7ced963c69e3d1f98dce6982e280d2adc88fff`, identique au distant ; borne18–133, registre signé et pret/verifier018 réussis. Les trois domaines d’images restent exclus ; aucun outil disponible ne permet de modifier cette configuration.244leçons et9fichiers du harnais intacts. Aucune nouvelle source, leçon, image ou validation ; le travail documentaire publié ci-dessous reste le dernier avancement. Verrou libéré ; veilles existantes actives chaque60secondes.
+
 Dernière avancée : source primaire de l’occlusion veineuse de branche (PMC3171721) acquise et lue partiellement. Départ frais `871da1608ac06db411adc4d31cec436d835330e2`, égal au distant. Travail seul, verrou officiel acquis, registre du jour signé et pret/verifier018 réussis. Publié au commit `78d6f9205f9392e14fa659140a943123536d2ded`, égalité distante vérifiée. Verrou libéré officiellement le 2026-11-01T07:39:12+00:00.
 
 Quatre articles primaires acquis au total. Le nouveau dossier LOT_018/illustrations/acquisition_epmc_obvr/ conserve le XML exact, les métadonnées, accès, empreintes et passages réellement lus. Licence CC BY 2.0 et cinq auteurs complets confirmés. F1 et le cas indiquent l’œil gauche ; la discussion mentionne le côté droit. Réserve explicite avant annotation, sans correction tacite. Pas de seconde occlusion inférotemporale prouvée, pas de décollement séreux F4 déclaré visible sur la photographie F1, pas de causalité de la quétiapine démontrée par ce rapport de cas. Aucun traitement transposé.
