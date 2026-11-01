@@ -1,11 +1,28 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_192 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_191 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_193 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_192 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189 et LOT_191 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190 et LOT_192 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191 et LOT_193 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190 et LOT_192 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_193.**
-**Prochain LOT du rédacteur B : LOT_194.** LOT_192 (O2.10 Difficultés d’apprentissage et problèmes scolaires durant l’enfance et l’adolescence) est rédigé et certifié. Détail : `LOT_192/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_195.**
+**Prochain LOT du rédacteur B : LOT_194.** LOT_192 (O2.10 Difficultés d’apprentissage et problèmes scolaires durant l’enfance et l’adolescence) est rédigé et certifié. Détail : `LOT_192/A_AUDITER.md`. LOT_193 (O2.11 Faible tonus musculaire et hypotonie) est rédigé et certifié. Détail : `LOT_193/A_AUDITER.md`.
+
+## LOT_193 — rédigé et certifié
+Sujet : O2.11 « Faible tonus musculaire et hypotonie ». Détail : `LOT_193/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Jeannet, pédiatrie suisse, 2006. Dépistage néonatal, rapport 2024 publié en juillet 2025. Office fédéral, 28 janvier 2025 et botulisme d'avril 2023. Hypoglycémie de maternité, 6 avril 2021. Prader-Willi, 2001. Beighton lu en 2023. Dystrophie myotonique, cas de 2026. Suivi de la trisomie 21, 2017. Autorisations 66495, 67251, 67529, 58038, 19943, 54949. Zéro retrait.
+
+- Phase_A : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 76.1) Ko · SHA d0245db24209afce · commit b6aaf332e
+- DX.1 : certitude VERT · porte VERT · T = 1.5 (+ 37.3) Ko · SHA 1006591cb2e9073e · commit 9862d9963
+- DX.2 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 40.2) Ko · SHA 68ef942441cfda03 · commit ccb6ad6ad
+- DX.3 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 42.9) Ko · SHA db86b842ce1a8ae2 · commit 5ab1f0269
+- DX.4 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 45.5) Ko · SHA 9afcd26ec2c63700 · commit ff8dff4a4
+- DX.5 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 36.7) Ko · SHA 0e70f8d3bbf0f0f6 · commit b4bedb416
+- DX.6 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.6 (+ 41.4) Ko · SHA 9aa4ca1b7514d069 · commit 828801734
+- DX.7 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 43.9) Ko · SHA 7a1d9828c0e2fbf0 · commit 4a2591276
+- DX.8 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 46.2) Ko · SHA c5f6385b28fba0b9 · commit df7e2aec2
+- DX.9 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 39.0) Ko · SHA c6a9dde983565fe9 · commit ba9efd0f5
+- DX.10 : certitude VERT · porte ORANGE (phrases répétées) · T = 1.5 (+ 44.7) Ko · SHA 0d45f424b4fdf293 · commit 6a76db496
+
+
 
 ## LOT_192 — rédigé et certifié
 Sujet : O2.10 « Difficultés d’apprentissage et problèmes scolaires durant l’enfance et l’adolescence ». Détail : `LOT_192/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. OMS CDDR 2024. Service de psychologie scolaire, fichier du 18 août 2023. CDIP, 25 octobre 2007, articles 1, 2 et 15. Sommeil, 2016. Ligue internationale contre l'épilepsie, page relue en 2026. Essai de 2010, sans milligrammes. Centre hospitalier universitaire vaudois, page lue en 2026. Référentiel suisse du 1er novembre 2023. Autorisation 62228. Société respiratoire européenne, 5 novembre 2015. Zéro retrait.
