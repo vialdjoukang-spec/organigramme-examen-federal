@@ -160,3 +160,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T12:10:12+00:00 — Chaîne et tri018/019 publiés au commit bc647c3a61c47f0124246f1c2ad4579464f59f2a, référence distante vérifiée. Verrou libéré officiellement. Deux veilles locales maintenues ; aucune nouvelle image clinique ni leçon produite. Prochaine cible documentaire020 ; acquisition018/019 toujours dépendante du réseau.
 
 2026-11-01T13:16:12+00:00 — Tri020/021 :22leçons,43passages et4fenêtres biologiques, total44leçons/132passages. Trois nouveaux candidats CC BY4 documentés, aucun cliché acquis (CDN exclu). Correction auteurs JATS,35tests ;22interactions du bilan et6captures inspectées.244leçons/9fichiers communs intacts. Prochain tri022.
+
+2026-11-01T13:17:16+00:00 — Tri020/021 et correction des auteurs publiés au commit 52618f12aeb254660cd758519fbf1ab3c0d58c94, égalité distante vérifiée. Verrou libéré ; veilles existantes actives. Prochain tri022. Acquisition des vrais clichés encore bloquée, aucune clôture de lot annoncée.
