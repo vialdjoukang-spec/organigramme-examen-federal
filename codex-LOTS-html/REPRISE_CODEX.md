@@ -1,3 +1,21 @@
+# Reprise solo DX5 — 2026-11-01T21:06:07+00:00
+
+Dernier ordre : seul, sans sous-agents ; aucun agent lancé. Dépôt frais6c43b8b2, branche codex/lots ; borne18–133 relue, registre signé, pret/verifier018 et029 autorisés, verrou acquis. Écritures exclusivement codex-LOTS-html/.
+
+Deux leçons renforcées : LOT018 DX5 rétinopathie diabétique et LOT029 DX5 tumeur intracrânienne pédiatrique.14parties et14réponses chacune ; relecture interne réelle, pas de contrelecture indépendante ni validation clinique humaine. Les dix leçons précédentes restent identiques. Cumul12/244,232restantes. Aucun nouveau lot terminé :22lots018–039 rédigés,040 PhaseA/DX1. Ne pas refaire la production initiale018 au commit950a4cd1.
+
+Sources suisses HUG/Paediatrie2020, européennes COUF2025 et extraitsNICE ; résuméSIOPE seulement, complément international IRM2022 partiel. AIPS Eylea62393002 local relu ; deux fenêtres exactes préservées. Pas de nouvelle dose. Registre des lectures et limites dans renforcement_solo_dx5_20261101/LECTURES.json.
+
+Images : aucun nouveau cliché intégré. IDRiD/RETA identifiés sousCC BY4 ; deux aperçus tiers acquis et inspectés, non retenus : composite déjà annoté, et original non identifié/résolution faible. MDPI429 ; EuropePMC403 pour la revue IRM, pixels non acquis. Schéma rétinien conceptuel conservé, contraste sombre corrigé. Ne pas déclarer le rattrapage iconographique terminé. Les réponses web et candidats exacts sont conservés localement dans _cache ignoré, notes et liens publiés.
+
+Contrôles :550conditions V8 sur22fichiers,242autres leçons/9harnais intacts. Chromium8configurations,112fenêtres,112réponses,8définitions ;8captures partie9 inspectées. Audit langue historique toujours non conforme à certaines règles incompatibles avec V8 ; corrections de formulation documentées. Inventaire244leçons/574passages actualisé. Mesures : LOT_018/LOT_018_Phase_B_V0_DX.5.html : HTML 111.545 Ko, base 5.155 Ko, fenêtres 31.319 Ko ; LOT_029/LOT_029_Phase_B_V0_DX.5.html : HTML 91.801 Ko, base 4.987 Ko, fenêtres 20.197 Ko. Base DD sous9Ko ; poids HTML complet distinct du plafond.
+
+Suite :018 DX6 puis029 DX6, acquisitions DX5 et lacunes antérieures.040 DX2 suspendu pendant le rattrapage. Les veilles locales37511/48342 contrôlent chaque60s pendant le runtime, sans rédiger ; aucune nouvelle veille concurrente. Le contrôleur générique signale la pause des nouveaux diagnostics ; cette alerte n’est pas masquée. Verrou détenu pour publication ; état final à consulter dans ETAT_CONTINUITE.json et JOURNAL_PASSES.jsonl.
+
+Modèle : famille GPT-6 exposée ; variante et effort courants non exposés. Confirmation Astra ultra historique conservée, high recommandé ; aucun changement de réglage revendiqué.
+
+## Historique daté conservé
+
 # Reprise solo DX4 — 2026-11-01T20:34:25+00:00
 
 Dernier ordre : seul, sans sous-agents ; aucun agent lancé. Dépôt frais fdd11b10, branche codex/lots, borne18–133 relue, registre signé, pret/verifier018 et029 autorisés, verrou acquis. Écritures exclusivement codex-LOTS-html/.

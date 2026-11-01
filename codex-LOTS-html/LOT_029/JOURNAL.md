@@ -5,3 +5,5 @@
 2026-10-31T07:03:39+00:00 — Reprise seule sous verrou acquis officiellement. DX.4–10 rédigés et relus, corrections et comparaison transversale. Onze HTML/154questions/275contrôles V8 positifs, six citations AIPS, neuf empreintes communes identiques. Production terminée avec limites déclarées ; passage à LOT_030 autorisé après checkpoint.
 
 2026-11-01T20:34:25+00:00 — DX4 renforcé,14parties/14réponses relues en interne. Preuves ../renforcement_solo_dx4_20261101/. Autres dix leçons inchangées ; aucune image nouvelle ni validation indépendante.
+
+2026-11-01T21:06:07+00:00 — DX5 renforcé,14parties/14réponses relues en interne. Preuves ../renforcement_solo_dx5_20261101/. Dix autres leçons inchangées ; aucun cliché nouveau intégré ni validation indépendante.

@@ -23,3 +23,5 @@ Corrections internes : retrait des termes de fabrication dans la lecture, dével
 Production terminée selon l’accord de poursuite ; le dépôt Git n’est pas une validation clinique. La reprise automatique du harnais conserve son attente d’audit externe, tandis que `VALIDATION.md` décrit explicitement la clôture de production en session unique autorisée.
 
 2026-11-01T20:34:25+00:00 — DX4 renforcé,14parties/14réponses relues en interne. Preuves ../renforcement_solo_dx4_20261101/. Autres dix leçons inchangées ; aucune image nouvelle ni validation indépendante.
+
+2026-11-01T21:06:07+00:00 — DX5 renforcé,14parties/14réponses relues en interne. Preuves ../renforcement_solo_dx5_20261101/. Dix autres leçons inchangées ; aucun cliché nouveau intégré ni validation indépendante.
