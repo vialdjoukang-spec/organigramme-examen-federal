@@ -108,3 +108,5 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T21:21:54.312026+00:00 — Poursuite réelle LOT040 : PhaseA puis DX1, recherches CH/Europe lues et archivées, relectures distinctes C01–C03,28questions/50conditionsV8. DeuxHTML dans les limitesx et80–150Ko. Lot incomplet, premier fichier manquantDX2, total244HTML. BilanHTML mesuré créé ; rapports historiques négatifs conservés.
 
 2026-10-31T21:23:29.955169+00:00 — Push040 confirméef2cba27a8197ed9f98b70c2b8f3bfc720142ad5, verrou libéré. RepriseDX2 sauvegardée ; les veilles48342/37511 contrôlent seulement chaque minute tant que le runtime existe. Aucun autre automate modifié.
+
+- 2026-11-01T00:49:58.213865+00:00 — LOT_018, rattrapage illustrations : trois niveaux coronaux dans PhaseA/DX8 ; correctionsC08/C09,275conditions V8 et52contrôles Chromium ciblés. Clichés réels non acquis ; aucun nouveau lot clôturé. Preuves : LOT_018/illustrations/niveaux/.
