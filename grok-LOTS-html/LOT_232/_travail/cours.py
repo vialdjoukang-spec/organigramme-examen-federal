@@ -111,6 +111,10 @@ dict(
     proche="Elle vient seule et le souhaite. On ne retient pas un proche pour « être en règle ».",
     urgence="Les coliques sont douloureuses mais pas une angiocholite ce jour-là. Le délai a été respecté.",
     cliche_mot="reformulation", cid="LOT_232-DX.6-1",
+    complements=[
+        "Ce que ce dossier modèle apprend pour les autres. Le oui vaut parce que trois conditions tiennent ensemble : information, capacité, liberté. La signature n'en est que la trace. Une prémédication avant la confirmation rendrait douteuses la liberté et la capacité du moment. Un entretien muet sur la plaie biliaire laisserait l'information incomplète. Vous gardez ce dossier comme gabarit : qui a informé, quand, de quoi, ce qu'elle a reformulé, ce qu'elle a choisi.",
+        "Si elle change d'avis au bloc, son non s'impose comme son oui. Vous arrêtez la préparation, vous notez l'heure et ses mots, et vous proposez de revoir la décision en consultation. Vous ne lui demandez pas de justifier son retrait. Ce qui a été fait avant reste couvert par le consentement donné à ce moment.",
+    ],
 ),
 dict(
     n=7, cle="mineur",
@@ -261,11 +265,11 @@ def extras(d):
         f"Ce que le médecin dit, avec des mots simples : {q['dit']}{s(9)}",
         f"Ce qu'il écrit tout de suite : {q['dossier']} La preuve lui incombe. La mémoire de l'après-midi ne suffit pas.{s(8)}",
         f"Ce qu'il ne prescrit pas : aucune dose n'est indiquée par ce motif. Un sédatif donné pour « faciliter la signature » détruirait le consentement, selon le guide de juin 2026.{s(8)}",
-        f"Représentant et directives, rappel utile même si ce n'est pas le fait principal. Ordre de l'article 378, plan de l'article 377, urgence de l'article 379, saisine de l'autorité selon l'article 381, traitement psychiatrique d'une personne placée selon les règles du {PAFA}, article 380.{s(4,5,6)} Ici : {q['proche']}",
+        f"Représentant et directives, rappel utile même si ce n'est pas le fait principal. Ici : {q['proche']} Les repères sont l'ordre de l'article 378, le plan de l'article 377 et l'urgence de l'article 379. S'y ajoutent la saisine de l'autorité, article 381, et le {PAFA} d'une personne placée en psychiatrie, article 380.{s(4,5,6)}",
     )
     out[12] = _p(12,
         f"Prévention pour le prochain patient du même type. Annoncer l'entretien comme un soin, pas comme une formalité d'accueil. Prévoir la langue, le délai, et le moment sans tiers.{s(8)}",
-        f"Pour {q['geste']}, la prévention concrète est de ne pas répéter le défaut : {q['manque']}{s(9)}",
+        f"Pour {q['geste']}, la prévention concrète tient en une règle : ne pas répéter le défaut relevé ici. {q['manque']}{s(9)}",
         f"Au bloc, une check-list tient en quatre lignes : qui a informé, quels risques graves, quelle alternative, quelle décision, à quelle heure, et la personne était-elle encore capable et non sédatée.{s(8)}",
         f"Après coup, si le défaut est déjà réalisé, on le dit à la personne, on le trace, et on ne le couvre pas par une signature tardive.{s(9)}",
     )

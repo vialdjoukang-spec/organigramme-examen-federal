@@ -14,6 +14,7 @@ from allonge import supplements  # noqa: E402
 from oral import N_ORAL, oral  # noqa: E402
 from rediger import COMMUN, P, SOURCES, s  # noqa: E402
 from schemas import arbre, chaine, page_schema, urgence_refus  # noqa: E402
+from dedoublonner import dedoublonner  # noqa: E402
 import taille_xy  # noqa: E402
 
 RACINE = Path(__file__).resolve().parents[1]
@@ -50,7 +51,7 @@ def assembler(h1, sous, essentiel, extra, cartes, svgs, fin, titre):
         if n == 7:
             corps += TABLEAU_DX
         sections.append((n, carte(cartes[n], wid, "ouvrir le développement"), [fenetre(wid, f"Point {n}", corps)]))
-    return page(fin, titre, h1, sous, essentiel, sections, SOURCES, fin)
+    return dedoublonner(page(fin, titre, h1, sous, essentiel, sections, SOURCES, fin))
 
 
 ESSENTIEL = (
@@ -100,7 +101,7 @@ def construire_dx(d):
     extra, cartes = extras(d)
     extra[14] += oral(d, N_ORAL[d["n"]])
     extra.setdefault(3, "")
-    pool = supplements(d)
+    pool = supplements(d) + [c + s(7, 8) for c in d.get("complements", [])]
     ymin, ymax = CIBLES[d["n"]]
     fin = f"LOT_232_Phase_B_V0_DX.{d['n']}.html"
     k = 0
@@ -153,8 +154,9 @@ def construire_phase_a():
     titre = "Demande de consentement éclairé pour une intervention"
     pool = []
     for d in SITUATIONS:
-        for para in supplements(d):
-            pool.append(f"<h3>{d['nom']}</h3>\n" + P(para))
+        for i, para in enumerate(supplements(d)):
+            # Le titre de la situation une seule fois : pas de <h3> répété (porte, phrase_double).
+            pool.append((f"<h3>Développements : {d['nom'].lower()}</h3>\n" if i == 0 else "") + P(para))
     ymin, ymax = CIBLES["A"]
     html = assembler(titre, SOUS, ESSENTIEL, extra, cartes, svgs, fin, titre)
     y = mesurer(html)[1]
@@ -165,7 +167,7 @@ def construire_phase_a():
         html = assembler(titre, SOUS, ESSENTIEL, extra, cartes, svgs, fin, titre)
         y = mesurer(html)[1]
         if y > ymax:
-            extra[11] = extra[11].rsplit("<h3>", 1)[0]
+            extra[11] = extra[11][: len(extra[11]) - len(pool[k - 1])]
             html = assembler(titre, SOUS, ESSENTIEL, extra, cartes, svgs, fin, titre)
             break
     return html

@@ -57,7 +57,7 @@ COMMUN = {
 1: [
 f"Le consentement éclairé est l'autorisation donnée par la personne concernée à une atteinte à son intégrité corporelle. Sans cette autorisation, ou sans un autre fait justificatif, l'acte est illicite, même s'il est indiqué et même s'il est bien exécuté.{s(9)}",
 f"Trois conditions se cumulent. L'information doit être adéquate. La personne doit être capable de discernement pour cette décision. Le choix doit être libre. Si une seule manque, le consentement n'est pas valable.{s(7,9)}",
-f"L'article 16 du {CC} dit qu'est capable de discernement toute personne qui n'est pas privée de la faculté d'agir raisonnablement en raison de son jeune âge, d'une déficience mentale, de troubles psychiques, d'ivresse ou d'autres causes semblables.{s(1)}",
+f"Selon l'article 16 du {CC}, toute personne est capable de discernement si elle peut agir raisonnablement. Seules des causes précises lui retirent cette faculté : jeune âge, déficience mentale, troubles psychiques, ivresse ou causes semblables.{s(1)}",
 f"La capacité est présumée. On ne l'évalue que si un doute fondé apparaît, ou si l'incapacité est manifeste, comme chez un nourrisson ou une personne inconsciente.{s(7)}",
 ],
 2: [
@@ -68,7 +68,7 @@ f"Aucune des sources lues en 2026 ne donne la part, au cabinet ou à l'hôpital,
 ],
 3: [
 f"Le raisonnement est normatif. Le point de départ est l'atteinte à l'intégrité. Le fait justificatif ordinaire est le consentement. Le fait justificatif de l'urgence, chez une personne incapable, est l'article 379 du {CC}.{s(6,9)}",
-f"L'information crée la possibilité de choisir. Le Tribunal fédéral, dans l'arrêt 4A_547/2019 qui reprend l'{ATF} 133 III 121, demande des termes clairs sur le diagnostic, la thérapie, le pronostic, les alternatives, les risques, les chances, l'évolution sans traitement et les questions financières.{s(9)}",
+f"L'information crée la possibilité de choisir. Le Tribunal fédéral, dans l'arrêt 4A_547/2019 qui reprend l'{ATF} 133 III 121, demande des termes clairs. Ils portent sur le diagnostic, la thérapie, le pronostic et les alternatives. Ils portent aussi sur les risques, les chances, l'évolution sans traitement et les questions financières.{s(9)}",
 f"La capacité n'est pas un test de la sagesse du choix. Les directives de 2019 interdisent de conclure à l'incapacité seulement parce que la décision étonne ou s'écarte de la recommandation.{s(7)}",
 f"La liberté manque si la personne décide sous la pression d'un proche, d'une équipe ou d'un délai artificiel. Les directives de 2019 demandent un moment sans tiers, lorsque le patient le souhaite, pour entendre sa volonté propre.{s(7)}",
 ],
@@ -86,7 +86,7 @@ f"Il demande s'il existe des directives anticipées, un mandat pour cause d'inap
 ],
 6: [
 f"L'examen décisif est l'entretien de capacité, pas un score global. Les directives de 2019 décrivent quatre capacités : comprendre au moins dans les grandes lignes, évaluer la situation pour soi, se forger une volonté à partir de ses valeurs, communiquer cette volonté et la défendre.{s(7)}",
-f"L'incapacité n'est retenue que si ces capacités sont fortement limitées, et si cette limite se rattache au jeune âge, à un trouble psychique, à une déficience mentale, à l'ivresse ou à une cause semblable, comme le dit l'article 16.{s(1,7)}",
+f"L'incapacité n'est retenue que si ces capacités sont fortement limitées. Il faut aussi que cette limite se rattache à une cause de l'article 16 : jeune âge, trouble psychique, déficience mentale, ivresse ou cause semblable.{s(1,7)}",
 f"Un {MMSE} bas ne tranche pas. Une personne peut être capable pour un soin simple et incapable pour une décision lourde. L'inverse existe aussi. On juge la décision du jour.{s(7)}",
 f"Le médecin observe la {cliche('LOT_232-A-1', 'fluctuation')} de la vigilance, l'heure, la douleur, la langue, et la présence d'un tiers. Il réévalue si l'état change ou si le geste est loin de l'information.{s(7)}",
 ],
@@ -105,7 +105,7 @@ f"Pour la liberté, le critère est l'absence de contrainte repérée et un dél
 9: [
 f"Les compléments ne sont pas un laboratoire. Ce sont les pièces qui rendent la décision loyale : directives écrites, carte d'assuré, mandat, jugement de curatelle, nom du représentant, et identité de l'interprète.{s(3,12)}",
 f"L'article 372 demande au médecin qui ignore si des directives existent de consulter la carte d'assuré, sauf urgence. L'article 371 exige un écrit daté et signé.{s(3)}",
-f"Si les représentants du même rang ne s'accordent pas, si aucun représentant n'est joignable hors urgence, ou si les intérêts de la personne sont menacés, le médecin saisit l'autorité de protection de l'adulte, article 381.{s(6)}",
+f"Le médecin saisit l'autorité de protection de l'adulte, article 381, dans trois cas. Les représentants du même rang ne s'accordent pas. Aucun représentant n'est joignable hors urgence. Ou les intérêts de la personne sont menacés.{s(6)}",
 f"Pour une recherche, le complément est le dossier du projet : information écrite, consentement écrit, délai laissé, et autorisation de la commission d'éthique, article 45 de la loi de 2011.{s(13)}",
 ],
 10: [
