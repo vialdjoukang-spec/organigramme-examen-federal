@@ -164,3 +164,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T13:17:16+00:00 — Tri020/021 et correction des auteurs publiés au commit 52618f12aeb254660cd758519fbf1ab3c0d58c94, égalité distante vérifiée. Verrou libéré ; veilles existantes actives. Prochain tri022. Acquisition des vrais clichés encore bloquée, aucune clôture de lot annoncée.
 
 2026-11-01T14:20:41+00:00 — Tri022–024 :33leçons supplémentaires, cumul77/195passages ; lexique corrigé539passages. Quatre candidats CC BY2/4 documentés, zéro cliché acquis (CDN exclu).24vérifications Chromium/6captures inspectées,244leçons/9fichiers communs intacts. Prochain tri025 ; aucune clôture de lot.
+
+2026-11-01T14:21:29+00:00 — Tri022–024 publié au commit 7d5b7a454abf80adb8c956e4ab2ba85a86bbe73b, égalité distante vérifiée. Verrou libéré officiellement. Prochain tri025 ; veilles37511/48342 maintenues, aucun nouveau cliché ni lot clos.

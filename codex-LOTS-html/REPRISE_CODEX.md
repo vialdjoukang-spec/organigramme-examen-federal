@@ -8,6 +8,8 @@ Quatre candidats documentés : transit baryté de l’achalasie PMC2040141 F2 (C
 
 Prochain tri : LOT025. La pause des nouveaux diagnostics reste active pendant le rattrapage018–040. Premier diagnostic incomplet inchangé : LOT040 DX2. Travail seul ; borne18–133 relue, registre signé, pret/verifier022–024 réussis. Publication et libération consignées dans ETAT_CONTINUITE.json après vérification distante. Veilles37511/48342 maintenues ; elles contrôlent seulement tant que le runtime existe.
 
+2026-11-01T14:21:29+00:00 — Tri022–024 publié au commit 7d5b7a454abf80adb8c956e4ab2ba85a86bbe73b, égalité distante vérifiée. Verrou libéré officiellement. Prochain tri025 ; veilles37511/48342 maintenues, aucun nouveau cliché ni lot clos.
+
 ## Checkpoints antérieurs conservés
 
 Dernière avancée — 2026-11-01T13:16:12+00:00 : tri des22leçons020/021, soit43passages repérés supplémentaires et4fenêtres de bilan biologique lues séparément. Total44leçons triées,132passages ;40de ces leçons comportent des mentions et4n’en comportent pas.175leçons avec mentions restent à trier. Le repérage global reste244leçons/215avecmentions/532passages.
