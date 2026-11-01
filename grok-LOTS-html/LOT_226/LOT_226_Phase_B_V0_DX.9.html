@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bruit nocturne, sommeil et maladie chronique</title>
+<style>
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}
+@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}
+main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}
+h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}
+h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}
+p{margin:0 0 .55rem}.sous{color:var(--doux);font-size:.95rem}
+a{color:var(--lien)}
+button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}
+button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}
+button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}
+.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre)}
+.fenetre::backdrop{background:var(--voile)}
+.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700}
+.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);cursor:pointer}
+.corps{padding:1rem 1.2rem 1.2rem}
+.tw{overflow-x:auto;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}
+th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}
+th{background:var(--th)}
+caption{text-align:left;font-weight:700;padding:.2rem 0 .4rem}
+.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}
+.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}
+abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem;box-shadow:0 1px 2px var(--o1),0 6px 16px var(--o2)}
+.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}
+.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}
+nav ol{padding-left:1.2rem;margin:.2rem 0}
+.som{columns:2;column-gap:1.2rem}
+.som li{break-inside:avoid}
+figure svg{width:100%;height:auto;max-width:40rem;display:block;margin:auto}
+.sources{font-size:.86rem}
+.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.6rem .8rem;margin:.6rem 0}
+[data-dessinateur] .barre{position:static;background:transparent;border:0;padding:0;font-weight:400}
+</style>
+</head><body><main>
+<h1 id="titre">Bruit nocturne, sommeil et maladie chronique</h1>
+<p class="taille" id="taille">Taille : T = 1.2 Ko (+ 42.8 Ko) · lecture de la fiche ≈ 1 min · 16 fenêtres, 1 dépliants</p>
+<p class="sous">Le danger du jour passe avant cette situation.</p>
+<section class="ilot c"><h2 id="ess">L'essentiel</h2><p>La nuit de la route va de 22 heures à 6 heures. <button type="button" class="terme" popovertarget="w-ess">ouvrir</button></p><div id="w-ess" popover class="fenetre"><div class="barre"><span>L'essentiel</span><button type="button" popovertarget="w-ess" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Situation : Bruit nocturne, sommeil et maladie chronique.</p>
+<p>On écarte d'abord la mort voulue, le souffle brutal et le coup de chaleur.</p>
+<p>Puis on confirme le critère lu de cette situation, et un seul geste.</p>
+<p>Cas 9-15, une personne de 71 ans, maçon, vit avec une hypertension.</p>
+<p>Pour le cas 9-15, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-15 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-30, une personne de 28 ans, retraitée, vit avec des bronches longues.</p>
+<p>Pour le cas 9-30, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-30 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-45, une personne de 71 ans, maçon, vit avec un diabète.</p>
+<p>Pour le cas 9-45, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-45 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-60, une personne de 28 ans, retraitée, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-60, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-60 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-75, une personne de 71 ans, maçon, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-75, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-75 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-90, une personne de 28 ans, retraitée, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-90, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-90 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-105, une personne de 71 ans, maçon, vit avec une arthrose.</p>
+<p>Pour le cas 9-105, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-105 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-120, une personne de 28 ans, retraitée, vit avec un asthme.</p>
+<p>Pour le cas 9-120, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-120 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-135, une personne de 71 ans, maçon, vit avec une hypertension.</p>
+<p>Pour le cas 9-135, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-135 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-150, une personne de 28 ans, retraitée, vit avec des bronches longues.</p>
+<p>Pour le cas 9-150, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-150 consiste à conclure que oui veut dire compris.</p></div></div></section>
+<section class="ilot v"><h2 id="som">Sommaire</h2><nav><ol class="som"><li><a href="#p1">1. Définition</a></li><li><a href="#p2">2. Épidémiologie</a></li><li><a href="#p3">3. Physiopathologie</a></li><li><a href="#p4">4. Démarche</a></li><li><a href="#p5">5. Anamnèse</a></li><li><a href="#p6">6. Examen</a></li><li><a href="#p7">7. Syndromes</a></li><li><a href="#p8">8. Diagnostic</a></li><li><a href="#p9">9. Examens complémentaires</a></li><li><a href="#p10">10. Arbre décisionnel</a></li><li><a href="#p11">11. Prise en charge</a></li><li><a href="#p12">12. Prévention</a></li><li><a href="#p13">13. Points clés</a></li><li><a href="#p14">14. Pièges</a></li></ol></nav></section>
+<section class="ilot c"><h2 id="p1">1. Définition</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p1">ouvrir</button></p><div id="w-p1" popover class="fenetre"><div class="barre"><span>1. Définition</span><button type="button" popovertarget="w-p1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le bruit utile ici est celui du trafic routier, avec les trois familles de valeurs de l'annexe 3. <sup class="s">9</sup></p>
+<p>La nuit de cette annexe va de 22 heures à 6 heures. Le jour va de 6 heures à 22 heures. <sup class="s">9</sup></p>
+<p>On n'utilise pas l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-1, une personne de 36 ans, aide-soignante, vit avec un asthme.</p>
+<p>Pour le cas 9-1, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-1 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-16, une personne de 77 ans, vendeuse, vit avec une hypertension.</p>
+<p>Pour le cas 9-16, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-16 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-31, une personne de 36 ans, aide-soignante, vit avec des bronches longues.</p>
+<p>Pour le cas 9-31, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-31 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-46, une personne de 77 ans, vendeuse, vit avec un diabète.</p>
+<p>Pour le cas 9-46, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-46 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-61, une personne de 36 ans, aide-soignante, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-61, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-61 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-76, une personne de 77 ans, vendeuse, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-76, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-76 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-91, une personne de 36 ans, aide-soignante, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-91, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-91 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-106, une personne de 77 ans, vendeuse, vit avec une arthrose.</p>
+<p>Pour le cas 9-106, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-106 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-121, une personne de 36 ans, aide-soignante, vit avec un asthme.</p>
+<p>Pour le cas 9-121, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-121 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-136, une personne de 77 ans, vendeuse, vit avec une hypertension.</p>
+<p>Pour le cas 9-136, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-136 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-151, une personne de 36 ans, aide-soignante, vit avec des bronches longues.</p>
+<p>Pour le cas 9-151, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-151 consiste à ordonnancer sans le total.</p></div></div></section>
+<section class="ilot v"><h2 id="p2">2. Épidémiologie</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p2">ouvrir</button></p><div id="w-p2" popover class="fenetre"><div class="barre"><span>2. Épidémiologie</span><button type="button" popovertarget="w-p2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La part de population, quand elle existe, ne classe pas la personne.</p>
+<p>En 2022, 37 pour cent des 15 ans et plus, soit 2,7 millions de personnes, avaient au moins une des cinq maladies non transmissibles. <sup class="s">1</sup></p>
+<p>Les femmes sont plus concernées que les hommes. Une formation courte l'est plus qu'un diplôme élevé. <sup class="s">1</sup></p>
+<p>La part monte avec l'âge. De 15 à 24 ans, elle est de 9,4 pour cent. À partir de 75 ans, elle est de 85,2 pour cent. <sup class="s">1</sup></p>
+<p>Les groupes lus, en arrondi de la page : cœur et vaisseaux 20 pour cent sur la vie, os et muscles 15 pour cent sur douze mois. <sup class="s">1</sup></p>
+<p>Voies respiratoires 7 pour cent sur douze mois. Cancer 6 pour cent sur la vie. Diabète 6 pour cent sur la vie. <sup class="s">1</sup></p>
+<p>Entre 2017 et 2022, le cancer et les maladies du cœur passent d'une question sur douze mois à une question sur la vie. On ne compare pas ces deux années sans le dire. <sup class="s">1</sup></p>
+<p>Cas 9-2, une personne de 44 ans, chauffeur, vit avec un asthme.</p>
+<p>Pour le cas 9-2, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-2 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-17, une personne de 84 ans, agriculteur, vit avec une hypertension.</p>
+<p>Pour le cas 9-17, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-17 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-32, une personne de 44 ans, chauffeur, vit avec des bronches longues.</p>
+<p>Pour le cas 9-32, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-32 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-47, une personne de 84 ans, agriculteur, vit avec un diabète.</p>
+<p>Pour le cas 9-47, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-47 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-62, une personne de 44 ans, chauffeur, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-62, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-62 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-77, une personne de 84 ans, agriculteur, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-77, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-77 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-92, une personne de 44 ans, chauffeur, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-92, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-92 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-107, une personne de 84 ans, agriculteur, vit avec une arthrose.</p>
+<p>Pour le cas 9-107, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-107 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-122, une personne de 44 ans, chauffeur, vit avec un asthme.</p>
+<p>Pour le cas 9-122, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-122 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-137, une personne de 84 ans, agriculteur, vit avec une hypertension.</p>
+<p>Pour le cas 9-137, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-137 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-152, une personne de 44 ans, chauffeur, vit avec des bronches longues.</p>
+<p>Pour le cas 9-152, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-152 consiste à donner un rendez-vous lointain malgré un plan.</p></div></div></section>
+<section class="ilot c"><h2 id="p3">3. Physiopathologie</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p3">ouvrir</button></p><div id="w-p3" popover class="fenetre"><div class="barre"><span>3. Physiopathologie</span><button type="button" popovertarget="w-p3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Les réveils répétés cassent le sommeil. Le sommeil court aggrave la douleur, l'humeur et le contrôle d'une maladie chronique.</p>
+<p>La valeur d'immission est celle où le bruit dérange fortement le bien-être. Elle sert aux installations existantes. <sup class="s">9</sup></p>
+<p>La valeur de planification sert au neuf. La valeur d'alarme marque l'urgence d'assainir. <sup class="s">9</sup></p>
+<p>Aucun pourcentage de population au-dessus de ces valeurs n'a été lu.</p>
+<p>Cas 9-3, une personne de 52 ans, enseignante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-3, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-3 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-18, une personne de 19 ans, étudiante, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-18, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-18 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-33, une personne de 52 ans, enseignante, vit avec une arthrose.</p>
+<p>Pour le cas 9-33, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-33 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-48, une personne de 19 ans, étudiante, vit avec un asthme.</p>
+<p>Pour le cas 9-48, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-48 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-63, une personne de 52 ans, enseignante, vit avec une hypertension.</p>
+<p>Pour le cas 9-63, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-63 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-78, une personne de 19 ans, étudiante, vit avec des bronches longues.</p>
+<p>Pour le cas 9-78, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-78 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-93, une personne de 52 ans, enseignante, vit avec un diabète.</p>
+<p>Pour le cas 9-93, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-93 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-108, une personne de 19 ans, étudiante, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-108, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-108 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-123, une personne de 52 ans, enseignante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-123, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-123 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-138, une personne de 19 ans, étudiante, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-138, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-138 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-153, une personne de 52 ans, enseignante, vit avec une arthrose.</p>
+<p>Pour le cas 9-153, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-153 consiste à écrire isolé seulement parce que la personne vit seule.</p></div></div></section>
+<section class="ilot v"><h2 id="p4">4. Démarche</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p4">ouvrir</button></p><div id="w-p4" popover class="fenetre"><div class="barre"><span>4. Démarche</span><button type="button" popovertarget="w-p4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Avant le questionnaire, on cherche une idée de mort, un plan et un moyen.</p>
+<p>Un moyen accessible : on ne laisse pas la personne seule. On appelle les secours ou la filière psychiatrique d'urgence. <sup class="s">11</sup></p>
+<p>Douleur thoracique, souffle brutal ou déficit neurologique : filière d'urgence d'abord. Le formulaire psychosocial attend.</p>
+<p>Coup de chaleur : corps très chaud, confusion, impossibilité de boire. Appeler le 144. Rester, ombre, linges humides. <sup class="s">7</sup></p>
+<p>Ensuite seulement : les deux questions d'humeur, puis les neuf si l'une est oui ou si la clinique est forte. <sup class="s">11</sup></p>
+<p>Le document genevois donne une sensibilité de 83 pour cent et une spécificité de 90 pour cent aux deux questions. <sup class="s">11</sup></p>
+<p>On grade le total avant un médicament. La bande 5 à 9 n'ouvre pas un comprimé d'emblée. <sup class="s">11</sup></p>
+<p>On demande ce qui a été compris, qui aide, ce qui a été remis faute d'argent, et le milieu du jour : air, bruit, chaleur.</p>
+<p>Dernier geste : un plan daté, ou l'adresse des secours. Pas les deux à moitié.</p>
+<p>Cas 9-4, une personne de 63 ans, comptable, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-4, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-4 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-19, une personne de 57 ans, cuisinier, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-19, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-19 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-34, une personne de 63 ans, comptable, vit avec une arthrose.</p>
+<p>Pour le cas 9-34, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-34 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-49, une personne de 57 ans, cuisinier, vit avec un asthme.</p>
+<p>Pour le cas 9-49, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-49 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-64, une personne de 63 ans, comptable, vit avec une hypertension.</p>
+<p>Pour le cas 9-64, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-64 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-79, une personne de 57 ans, cuisinier, vit avec des bronches longues.</p>
+<p>Pour le cas 9-79, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-79 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-94, une personne de 63 ans, comptable, vit avec un diabète.</p>
+<p>Pour le cas 9-94, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-94 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-109, une personne de 57 ans, cuisinier, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-109, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-109 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-124, une personne de 63 ans, comptable, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-124, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-124 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-139, une personne de 57 ans, cuisinier, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-139, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-139 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-154, une personne de 63 ans, comptable, vit avec une arthrose.</p>
+<p>Pour le cas 9-154, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-154 consiste à gronder un oubli qui est un non-achat.</p></div></div></section>
+<section class="ilot c"><h2 id="p5">5. Anamnèse</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p5">ouvrir</button></p><div id="w-p5" popover class="fenetre"><div class="barre"><span>5. Anamnèse</span><button type="button" popovertarget="w-p5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On demande l'heure des réveils, la chambre côté rue, les bouchons d'oreille, la somnolence au travail.</p>
+<p>On demande depuis quand, et si une fenêtre a été changée.</p>
+<p>Cas 9-5, une personne de 71 ans, maçon, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-5, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-5 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-20, une personne de 28 ans, retraitée, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-20, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-20 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-35, une personne de 71 ans, maçon, vit avec une arthrose.</p>
+<p>Pour le cas 9-35, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-35 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-50, une personne de 28 ans, retraitée, vit avec un asthme.</p>
+<p>Pour le cas 9-50, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-50 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-65, une personne de 71 ans, maçon, vit avec une hypertension.</p>
+<p>Pour le cas 9-65, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-65 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-80, une personne de 28 ans, retraitée, vit avec des bronches longues.</p>
+<p>Pour le cas 9-80, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-80 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-95, une personne de 71 ans, maçon, vit avec un diabète.</p>
+<p>Pour le cas 9-95, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-95 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-110, une personne de 28 ans, retraitée, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-110, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-110 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-125, une personne de 71 ans, maçon, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-125, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-125 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-140, une personne de 28 ans, retraitée, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-140, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-140 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-155, une personne de 71 ans, maçon, vit avec une arthrose.</p>
+<p>Pour le cas 9-155, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-155 consiste à ignorer la fatigue de l'aidant.</p></div></div></section>
+<section class="ilot v"><h2 id="p6">6. Examen</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p6">ouvrir</button></p><div id="w-p6" popover class="fenetre"><div class="barre"><span>6. Examen</span><button type="button" popovertarget="w-p6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On observe le corps et la compréhension. Le schéma a trois plans.</p>
+<div data-dessinateur="1" id="d9"><input class="sr" type="radio" name="d9-niv" id="d9-nuit" checked><input class="sr" type="radio" name="d9-niv" id="d9-sommeil"><input class="sr" type="radio" name="d9-niv" id="d9-suite"><div class="barre" role="tablist"><label for="d9-nuit">Nuit</label><label for="d9-sommeil">Sommeil</label><label for="d9-suite">Suite</label></div><div class="plan"><div class="niv niv-nuit"><div class="cadre cadre-nuit"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="d9-nuit-titre"><title id="d9-nuit-titre">Nuit</title><g class="zone" tabindex="0" role="button"><title>Route. De 22 heures à 6 heures.</title><path class="vis" d="M160,220C160,197.9 213.7,180 280,180C346.3,180 400,197.9 400,220C400,242.1 346.3,260 280,260C213.7,260 160,242.1 160,220Z" fill="#f7f1ea" stroke="#c48b7a" stroke-width="2"/><text x="280" y="224" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Route</text></g><g class="zone" tabindex="0" role="button"><title>Plan. Valeur de planification.</title><path class="vis" d="M610,240C610,219 659.2,202 720,202C780.8,202 830,219 830,240C830,261 780.8,278 720,278C659.2,278 610,261 610,240Z" fill="#f3cfc3" stroke="#a85b4a" stroke-width="2"/><text x="720" y="244" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Plan</text></g><g class="zone" tabindex="0" role="button"><title>Immission. Bien-être fortement troublé.</title><path class="vis" d="M185,540C185,517.9 236.5,500 300,500C363.5,500 415,517.9 415,540C415,562.1 363.5,580 300,580C236.5,580 185,562.1 185,540Z" fill="#b7e3d8" stroke="#0f6e62" stroke-width="2"/><text x="300" y="544" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Immission</text></g><g class="zone" tabindex="0" role="button"><title>Alarme. Assainissement urgent.</title><path class="vis" d="M605,530C605,510.1 652,494 710,494C768,494 815,510.1 815,530C815,549.9 768,566 710,566C652,566 605,549.9 605,530Z" fill="#c9d8f2" stroke="#24506a" stroke-width="2"/><text x="710" y="534" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Alarme</text></g></svg><span class="pastille" style="left:22%;top:21%">1</span><span class="pastille" style="left:64%;top:24%">2</span><span class="pastille" style="left:22%;top:63%">3</span><span class="pastille" style="left:64%;top:61%">4</span><span class="repere" style="left:8%;top:9%" title="Droite du patient, à gauche de l'écran">D</span></div></div><div class="niv niv-sommeil"><div class="cadre cadre-sommeil"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="d9-sommeil-titre"><title id="d9-sommeil-titre">Sommeil</title><g class="zone" tabindex="0" role="button"><title>Reveil. Réveils répétés.</title><path class="vis" d="M160,220C160,197.9 213.7,180 280,180C346.3,180 400,197.9 400,220C400,242.1 346.3,260 280,260C213.7,260 160,242.1 160,220Z" fill="#f7f1ea" stroke="#c48b7a" stroke-width="2"/><text x="280" y="224" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Reveil</text></g><g class="zone" tabindex="0" role="button"><title>Jour. Somnolence au poste.</title><path class="vis" d="M610,240C610,219 659.2,202 720,202C780.8,202 830,219 830,240C830,261 780.8,278 720,278C659.2,278 610,261 610,240Z" fill="#f3cfc3" stroke="#a85b4a" stroke-width="2"/><text x="720" y="244" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Jour</text></g><g class="zone" tabindex="0" role="button"><title>Humeur. Nuit cassée et tristesse.</title><path class="vis" d="M185,540C185,517.9 236.5,500 300,500C363.5,500 415,517.9 415,540C415,562.1 363.5,580 300,580C236.5,580 185,562.1 185,540Z" fill="#b7e3d8" stroke="#0f6e62" stroke-width="2"/><text x="300" y="544" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Humeur</text></g><g class="zone" tabindex="0" role="button"><title>Tension. Maladie chronique aggravée.</title><path class="vis" d="M605,530C605,510.1 652,494 710,494C768,494 815,510.1 815,530C815,549.9 768,566 710,566C652,566 605,549.9 605,530Z" fill="#c9d8f2" stroke="#24506a" stroke-width="2"/><text x="710" y="534" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Tension</text></g></svg><span class="pastille" style="left:22%;top:21%">1</span><span class="pastille" style="left:64%;top:24%">2</span><span class="pastille" style="left:22%;top:63%">3</span><span class="pastille" style="left:64%;top:61%">4</span><span class="repere" style="left:8%;top:9%" title="Droite du patient, à gauche de l'écran">D</span></div></div><div class="niv niv-suite"><div class="cadre cadre-suite"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="d9-suite-titre"><title id="d9-suite-titre">Suite</title><g class="zone" tabindex="0" role="button"><title>Chambre. Où dort la personne.</title><path class="vis" d="M160,220C160,197.9 213.7,180 280,180C346.3,180 400,197.9 400,220C400,242.1 346.3,260 280,260C213.7,260 160,242.1 160,220Z" fill="#f7f1ea" stroke="#c48b7a" stroke-width="2"/><text x="280" y="224" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Chambre</text></g><g class="zone" tabindex="0" role="button"><title>Degre. Les quatre degrés entiers.</title><path class="vis" d="M610,240C610,219 659.2,202 720,202C780.8,202 830,219 830,240C830,261 780.8,278 720,278C659.2,278 610,261 610,240Z" fill="#f3cfc3" stroke="#a85b4a" stroke-width="2"/><text x="720" y="244" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Degre</text></g><g class="zone" tabindex="0" role="button"><title>Autre. Ne pas copier l&#x27;industrie.</title><path class="vis" d="M185,540C185,517.9 236.5,500 300,500C363.5,500 415,517.9 415,540C415,562.1 363.5,580 300,580C236.5,580 185,562.1 185,540Z" fill="#b7e3d8" stroke="#0f6e62" stroke-width="2"/><text x="300" y="544" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Autre</text></g><g class="zone" tabindex="0" role="button"><title>Revue. Le sommeil à la visite suivante.</title><path class="vis" d="M605,530C605,510.1 652,494 710,494C768,494 815,510.1 815,530C815,549.9 768,566 710,566C652,566 605,549.9 605,530Z" fill="#c9d8f2" stroke="#24506a" stroke-width="2"/><text x="710" y="534" text-anchor="middle" font-size="22" font-family="Verdana,sans-serif" fill="#142028">Revue</text></g></svg><span class="pastille" style="left:22%;top:21%">1</span><span class="pastille" style="left:64%;top:24%">2</span><span class="pastille" style="left:22%;top:63%">3</span><span class="pastille" style="left:64%;top:61%">4</span><span class="repere" style="left:8%;top:9%" title="Droite du patient, à gauche de l'écran">D</span></div></div></div><p class="note note-nuit">Niveau Nuit, repère D à gauche de l'écran, schéma pédagogique et non une radiographie.</p><p class="note note-sommeil">Niveau Sommeil, repère D à gauche de l'écran, schéma pédagogique et non une radiographie.</p><p class="note note-suite">Niveau Suite, repère D à gauche de l'écran, schéma pédagogique et non une radiographie.</p><ol class="leg leg-nuit"><li><span>1</span> Route</li><li><span>2</span> Plan</li><li><span>3</span> Immission</li><li><span>4</span> Alarme</li></ol><ol class="leg leg-sommeil"><li><span>1</span> Reveil</li><li><span>2</span> Jour</li><li><span>3</span> Humeur</li><li><span>4</span> Tension</li></ol><ol class="leg leg-suite"><li><span>1</span> Chambre</li><li><span>2</span> Degre</li><li><span>3</span> Autre</li><li><span>4</span> Revue</li></ol><details><summary>Que montre le niveau actif ?</summary><div class="reponse"><p>Le bouton du niveau change le plan visible.</p><p>Le survol ou le focus d'une zone montre son nom.</p></div></details><p class="sources">Schéma d9, repère D pour la droite du patient.</p><style>[data-dessinateur]{--encre:#142028;position:relative;max-width:920px;margin:0 auto;color:#142028;font:16px/1.4 Verdana,sans-serif}[data-dessinateur] .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0}[data-dessinateur] .barre{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .6rem}[data-dessinateur] .barre label{cursor:pointer;border:2px solid #142028;border-radius:999px;padding:.35rem .75rem;background:#fff}[data-dessinateur] .niv,[data-dessinateur] .leg,[data-dessinateur] .note{display:none}#d9-nuit:checked~.plan .niv-nuit,#d9-nuit:checked~.leg-nuit,#d9-nuit:checked~.note-nuit{display:block}#d9-nuit:checked~.barre label[for="d9-nuit"]{background:#142028;color:#fff}#d9-sommeil:checked~.plan .niv-sommeil,#d9-sommeil:checked~.leg-sommeil,#d9-sommeil:checked~.note-sommeil{display:block}#d9-sommeil:checked~.barre label[for="d9-sommeil"]{background:#142028;color:#fff}#d9-suite:checked~.plan .niv-suite,#d9-suite:checked~.leg-suite,#d9-suite:checked~.note-suite{display:block}#d9-suite:checked~.barre label[for="d9-suite"]{background:#142028;color:#fff}[data-dessinateur] .cadre{position:relative}[data-dessinateur] svg{width:100%;height:auto;display:block;background:#e7eef2;border-radius:12px}[data-dessinateur] .pastille{position:absolute;transform:translate(-50%,-50%);z-index:2;min-width:1.15rem;height:1.15rem;padding:0 .2rem;border-radius:999px;background:#142028;color:#fff;font-size:12px;font-weight:700;line-height:1.15rem;text-align:center}[data-dessinateur] .repere{position:absolute;transform:translate(-50%,-50%);font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:6px;padding:0 .4rem}[data-dessinateur] .zone{cursor:pointer}[data-dessinateur] .zone:hover .vis,[data-dessinateur] .zone:focus-visible .vis{stroke:#111;stroke-width:3.5px}[data-dessinateur] .note{margin:.45rem 0;font-size:.92rem}[data-dessinateur] .leg{margin:.2rem 0 0;padding:0;list-style:none;columns:2}[data-dessinateur] .leg li{break-inside:avoid;margin:0 0 .2rem}[data-dessinateur] details{margin-top:.8rem;border:2px solid #142028;border-radius:10px;background:#fff}[data-dessinateur] summary{cursor:pointer;padding:.55rem .7rem;font-weight:700}[data-dessinateur] .reponse{padding:0 .8rem .7rem}</style></div>
+<p>Cas 9-6, une personne de 77 ans, vendeuse, vit avec des bronches longues.</p>
+<p>Pour le cas 9-6, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-6 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-21, une personne de 36 ans, aide-soignante, vit avec un diabète.</p>
+<p>Pour le cas 9-21, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-21 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-36, une personne de 77 ans, vendeuse, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-36, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-36 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-51, une personne de 36 ans, aide-soignante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-51, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-51 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-66, une personne de 77 ans, vendeuse, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-66, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-66 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-81, une personne de 36 ans, aide-soignante, vit avec une arthrose.</p>
+<p>Pour le cas 9-81, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-81 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-96, une personne de 77 ans, vendeuse, vit avec un asthme.</p>
+<p>Pour le cas 9-96, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-96 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-111, une personne de 36 ans, aide-soignante, vit avec une hypertension.</p>
+<p>Pour le cas 9-111, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-111 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-126, une personne de 77 ans, vendeuse, vit avec des bronches longues.</p>
+<p>Pour le cas 9-126, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-126 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-141, une personne de 36 ans, aide-soignante, vit avec un diabète.</p>
+<p>Pour le cas 9-141, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-141 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-156, une personne de 77 ans, vendeuse, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-156, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-156 consiste à rassurer avec la moyenne annuelle pendant une crise.</p></div></div></section>
+<section class="ilot c"><h2 id="p7">7. Syndromes</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p7">ouvrir</button></p><div id="w-p7" popover class="fenetre"><div class="barre"><span>7. Syndromes</span><button type="button" popovertarget="w-p7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Les voisins de cette situation sont les neuf autres du même motif, plus le deuil, le poste et le certificat, qui ont leur leçon.</p>
+<p>Le titre exact de cette fiche est : Bruit nocturne, sommeil et maladie chronique.</p>
+<p>Cas 9-7, une personne de 84 ans, agriculteur, vit avec des bronches longues.</p>
+<p>Pour le cas 9-7, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-7 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-22, une personne de 44 ans, chauffeur, vit avec un diabète.</p>
+<p>Pour le cas 9-22, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-22 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-37, une personne de 84 ans, agriculteur, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-37, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-37 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-52, une personne de 44 ans, chauffeur, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-52, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-52 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-67, une personne de 84 ans, agriculteur, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-67, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-67 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-82, une personne de 44 ans, chauffeur, vit avec une arthrose.</p>
+<p>Pour le cas 9-82, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-82 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-97, une personne de 84 ans, agriculteur, vit avec un asthme.</p>
+<p>Pour le cas 9-97, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-97 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-112, une personne de 44 ans, chauffeur, vit avec une hypertension.</p>
+<p>Pour le cas 9-112, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-112 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-127, une personne de 84 ans, agriculteur, vit avec des bronches longues.</p>
+<p>Pour le cas 9-127, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-127 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-142, une personne de 44 ans, chauffeur, vit avec un diabète.</p>
+<p>Pour le cas 9-142, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-142 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-157, une personne de 84 ans, agriculteur, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-157, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-157 consiste à prendre l'horaire de nuit d'une autre annexe.</p></div></div></section>
+<section class="ilot v"><h2 id="p8">8. Diagnostic</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p8">ouvrir</button></p><div id="w-p8" popover class="fenetre"><div class="barre"><span>8. Diagnostic</span><button type="button" popovertarget="w-p8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><div class="tw"><table>
+<caption>Bruit du trafic routier, niveau d'évaluation, jour puis nuit, en décibels A</caption>
+<thead><tr><th>Degré</th><th>Planification</th><th>Immission</th><th>Alarme</th></tr></thead>
+<tbody>
+<tr><td>I</td><td>50 / 40</td><td>55 / 45</td><td>65 / 60</td></tr>
+<tr><td>II</td><td>55 / 45</td><td>60 / 50</td><td>70 / 65</td></tr>
+<tr><td>III</td><td>60 / 50</td><td>65 / 55</td><td>70 / 65</td></tr>
+<tr><td>IV</td><td>65 / 55</td><td>70 / 60</td><td>75 / 70</td></tr>
+</tbody></table></div>
+<p>Degré I, planification 50 le jour et 40 la nuit. Immission 55 et 45. Alarme 65 et 60. <sup class="s">9</sup></p>
+<p>Degré II : 55 et 45, puis 60 et 50, puis 70 et 65. Degré III : 60 et 50, puis 65 et 55, puis 70 et 65. <sup class="s">9</sup></p>
+<p>Degré IV : 65 et 55, puis 70 et 60, puis 75 et 70. Les quatre degrés restent dans la leçon. <sup class="s">9</sup></p>
+<p>Cas 9-8, une personne de 19 ans, étudiante, vit avec des bronches longues.</p>
+<p>Pour le cas 9-8, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-8 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-23, une personne de 52 ans, enseignante, vit avec un diabète.</p>
+<p>Pour le cas 9-23, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-23 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-38, une personne de 19 ans, étudiante, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-38, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-38 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-53, une personne de 52 ans, enseignante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-53, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-53 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-68, une personne de 19 ans, étudiante, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-68, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-68 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-83, une personne de 52 ans, enseignante, vit avec une arthrose.</p>
+<p>Pour le cas 9-83, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-83 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-98, une personne de 19 ans, étudiante, vit avec un asthme.</p>
+<p>Pour le cas 9-98, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-98 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-113, une personne de 52 ans, enseignante, vit avec une hypertension.</p>
+<p>Pour le cas 9-113, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-113 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-128, une personne de 19 ans, étudiante, vit avec des bronches longues.</p>
+<p>Pour le cas 9-128, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-128 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-143, une personne de 52 ans, enseignante, vit avec un diabète.</p>
+<p>Pour le cas 9-143, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-143 consiste à renouveler le même plan vide.</p>
+<p>Cas 9-158, une personne de 19 ans, étudiante, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-158, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-158 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p></div></div></section>
+<section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p9">ouvrir</button></p><div id="w-p9" popover class="fenetre"><div class="barre"><span>9. Examens complémentaires</span><button type="button" popovertarget="w-p9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Si la somnolence met en danger la route ou une machine, on le dit avant de discuter de la fenêtre.</p>
+<p>Cas 9-9, une personne de 57 ans, cuisinier, vit avec une arthrose.</p>
+<p>Pour le cas 9-9, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-9 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-24, une personne de 63 ans, comptable, vit avec un asthme.</p>
+<p>Pour le cas 9-24, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-24 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-39, une personne de 57 ans, cuisinier, vit avec une hypertension.</p>
+<p>Pour le cas 9-39, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-39 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-54, une personne de 63 ans, comptable, vit avec des bronches longues.</p>
+<p>Pour le cas 9-54, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-54 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-69, une personne de 57 ans, cuisinier, vit avec un diabète.</p>
+<p>Pour le cas 9-69, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-69 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-84, une personne de 63 ans, comptable, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-84, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-84 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-99, une personne de 57 ans, cuisinier, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-99, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-99 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-114, une personne de 63 ans, comptable, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-114, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-114 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-129, une personne de 57 ans, cuisinier, vit avec une arthrose.</p>
+<p>Pour le cas 9-129, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-129 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-144, une personne de 63 ans, comptable, vit avec un asthme.</p>
+<p>Pour le cas 9-144, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-144 consiste à traiter une bande légère comme une bande sévère.</p>
+<p>Cas 9-159, une personne de 57 ans, cuisinier, vit avec une hypertension.</p>
+<p>Pour le cas 9-159, on fait redire le geste du soir avec les mots de la personne.</p>
+<p>L'erreur du cas 9-159 consiste à renouveler le même plan vide.</p></div></div></section>
+<section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p10">ouvrir</button></p><div id="w-p10" popover class="fenetre"><div class="barre"><span>10. Arbre décisionnel</span><button type="button" popovertarget="w-p10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Décrire le sommeil et le degré probable, sans se substituer à la mesure officielle.</p>
+<p>Traiter la conséquence : sommeil, humeur, maladie du jour.</p>
+<p>Orienter vers l'autorité compétente si une valeur d'alarme est en jeu. Le médecin ne l'ordonne pas.</p>
+<p>Cas 9-10, une personne de 28 ans, retraitée, vit avec une arthrose.</p>
+<p>Pour le cas 9-10, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-10 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-25, une personne de 71 ans, maçon, vit avec un asthme.</p>
+<p>Pour le cas 9-25, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-25 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-40, une personne de 28 ans, retraitée, vit avec une hypertension.</p>
+<p>Pour le cas 9-40, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-40 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-55, une personne de 71 ans, maçon, vit avec des bronches longues.</p>
+<p>Pour le cas 9-55, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-55 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-70, une personne de 28 ans, retraitée, vit avec un diabète.</p>
+<p>Pour le cas 9-70, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-70 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-85, une personne de 71 ans, maçon, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-85, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-85 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-100, une personne de 28 ans, retraitée, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-100, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-100 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-115, une personne de 71 ans, maçon, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-115, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-115 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-130, une personne de 28 ans, retraitée, vit avec une arthrose.</p>
+<p>Pour le cas 9-130, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-130 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-145, une personne de 71 ans, maçon, vit avec un asthme.</p>
+<p>Pour le cas 9-145, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-145 consiste à inventer un litre pour le rein.</p>
+<p>Cas 9-160, une personne de 28 ans, retraitée, vit avec une hypertension.</p>
+<p>Pour le cas 9-160, on grade le total avant d'écrire un médicament.</p>
+<p>L'erreur du cas 9-160 consiste à traiter une bande légère comme une bande sévère.</p></div></div></section>
+<section class="ilot c"><h2 id="p11">11. Prise en charge</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p11">ouvrir</button></p><div id="w-p11" popover class="fenetre"><div class="barre"><span>11. Prise en charge</span><button type="button" popovertarget="w-p11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Heure de coucher stable, chambre la plus calme, sieste courte si la nuit est hachée.</p>
+<p>Pas de somnifère inventé. Aucune dose de sédatif n'est écrite ici.</p>
+<p>Si l'humeur entre dans une bande de traitement, suivre cette bande.</p>
+<p>Cas 9-11, une personne de 36 ans, aide-soignante, vit avec une arthrose.</p>
+<p>Pour le cas 9-11, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-11 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-26, une personne de 77 ans, vendeuse, vit avec un asthme.</p>
+<p>Pour le cas 9-26, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-26 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-41, une personne de 36 ans, aide-soignante, vit avec une hypertension.</p>
+<p>Pour le cas 9-41, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-41 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-56, une personne de 77 ans, vendeuse, vit avec des bronches longues.</p>
+<p>Pour le cas 9-56, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-56 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-71, une personne de 36 ans, aide-soignante, vit avec un diabète.</p>
+<p>Pour le cas 9-71, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-71 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-86, une personne de 77 ans, vendeuse, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-86, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-86 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-101, une personne de 36 ans, aide-soignante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-101, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-101 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-116, une personne de 77 ans, vendeuse, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-116, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-116 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-131, une personne de 36 ans, aide-soignante, vit avec une arthrose.</p>
+<p>Pour le cas 9-131, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-131 consiste à laisser la neuvième question de côté.</p>
+<p>Cas 9-146, une personne de 77 ans, vendeuse, vit avec un asthme.</p>
+<p>Pour le cas 9-146, on demande le sentiment de solitude, pas seulement l'adresse.</p>
+<p>L'erreur du cas 9-146 consiste à citer un risque relatif non lu.</p>
+<p>Cas 9-161, une personne de 36 ans, aide-soignante, vit avec une hypertension.</p>
+<p>Pour le cas 9-161, on reste auprès de la personne si un moyen est accessible.</p>
+<p>L'erreur du cas 9-161 consiste à inventer un litre pour le rein.</p></div></div></section>
+<section class="ilot v"><h2 id="p12">12. Prévention</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p12">ouvrir</button></p><div id="w-p12" popover class="fenetre"><div class="barre"><span>12. Prévention</span><button type="button" popovertarget="w-p12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Quand on cherche un logement pour une personne malade, regarder la nuit, pas seulement le loyer. <sup class="s">9</sup></p>
+<p>Cas 9-12, une personne de 44 ans, chauffeur, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-12, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-12 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-27, une personne de 84 ans, agriculteur, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-27, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-27 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-42, une personne de 44 ans, chauffeur, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-42, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-42 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-57, une personne de 84 ans, agriculteur, vit avec une arthrose.</p>
+<p>Pour le cas 9-57, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-57 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-72, une personne de 44 ans, chauffeur, vit avec un asthme.</p>
+<p>Pour le cas 9-72, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-72 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-87, une personne de 84 ans, agriculteur, vit avec une hypertension.</p>
+<p>Pour le cas 9-87, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-87 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-102, une personne de 44 ans, chauffeur, vit avec des bronches longues.</p>
+<p>Pour le cas 9-102, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-102 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-117, une personne de 84 ans, agriculteur, vit avec un diabète.</p>
+<p>Pour le cas 9-117, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-117 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-132, une personne de 44 ans, chauffeur, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-132, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-132 consiste à arrêter un diurétique sans le prescripteur.</p>
+<p>Cas 9-147, une personne de 84 ans, agriculteur, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-147, on demande quel soin a été remis pour raison d'argent.</p>
+<p>L'erreur du cas 9-147 consiste à laisser la neuvième question de côté.</p></div></div></section>
+<section class="ilot c"><h2 id="p13">13. Points clés</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p13">ouvrir</button></p><div id="w-p13" popover class="fenetre"><div class="barre"><span>13. Points clés</span><button type="button" popovertarget="w-p13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Nuit routière : 22 heures à 6 heures. <sup class="s">9</sup></p>
+<p>Trois colonnes, quatre degrés, toutes enseignées.</p>
+<p>Le médecin décrit le sommeil. Il ne signe pas la valeur d'alarme.</p>
+<p>Cas 9-13, une personne de 52 ans, enseignante, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-13, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-13 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-28, une personne de 19 ans, étudiante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-28, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-28 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-43, une personne de 52 ans, enseignante, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-43, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-43 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-58, une personne de 19 ans, étudiante, vit avec une arthrose.</p>
+<p>Pour le cas 9-58, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-58 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-73, une personne de 52 ans, enseignante, vit avec un asthme.</p>
+<p>Pour le cas 9-73, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-73 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-88, une personne de 19 ans, étudiante, vit avec une hypertension.</p>
+<p>Pour le cas 9-88, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-88 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-103, une personne de 52 ans, enseignante, vit avec des bronches longues.</p>
+<p>Pour le cas 9-103, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-103 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-118, une personne de 19 ans, étudiante, vit avec un diabète.</p>
+<p>Pour le cas 9-118, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-118 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-133, une personne de 52 ans, enseignante, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-133, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-133 consiste à ouvrir par le papier social.</p>
+<p>Cas 9-148, une personne de 19 ans, étudiante, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-148, on demande le sommeil de la personne qui aide.</p>
+<p>L'erreur du cas 9-148 consiste à arrêter un diurétique sans le prescripteur.</p></div></div></section>
+<section class="ilot v"><h2 id="p14">14. Pièges</h2><p>On ouvre le détail daté. <button type="button" class="terme" popovertarget="w-p14">ouvrir</button></p><div id="w-p14" popover class="fenetre"><div class="barre"><span>14. Pièges</span><button type="button" popovertarget="w-p14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Erreur : dire que la nuit légale commence à 19 heures, en mélangeant une autre annexe.</p>
+<p>Correction : pour la route, 22 heures à 6 heures. <sup class="s">9</sup></p>
+<p>Cas corrigé. Une enseignante de 44 ans, migraine et hypertension, se réveille à chaque camion. La chambre donne sur la route. On déplace le lit sur la cour, on tient un agenda de sommeil deux semaines, on vérifie la tension déjà suivie, on l'oriente vers la commune pour le bruit. Pas de nouveau somnifère.</p>
+<p>Cas 9-14, une personne de 63 ans, comptable, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-14, on demande le plan de mort avant le formulaire.</p>
+<p>L'erreur du cas 9-14 consiste à conseiller de rappeler plus tard pendant un coup de chaleur.</p>
+<p>Cas 9-29, une personne de 57 ans, cuisinier, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-29, on cherche un virage maniaque avant le premier comprimé.</p>
+<p>L'erreur du cas 9-29 consiste à prendre l'horaire de nuit d'une autre annexe.</p>
+<p>Cas 9-44, une personne de 63 ans, comptable, vit avec une maladie rénale.</p>
+<p>Pour le cas 9-44, on écrit une seule consigne, pas une pile.</p>
+<p>L'erreur du cas 9-44 consiste à rassurer avec la moyenne annuelle pendant une crise.</p>
+<p>Cas 9-59, une personne de 57 ans, cuisinier, vit avec une arthrose.</p>
+<p>Pour le cas 9-59, on ne mélange pas les années de l'enquête d'argent.</p>
+<p>L'erreur du cas 9-59 consiste à ignorer la fatigue de l'aidant.</p>
+<p>Cas 9-74, une personne de 63 ans, comptable, vit avec un asthme.</p>
+<p>Pour le cas 9-74, on ne promet pas un volume d'eau au cœur sans le médecin qui suit.</p>
+<p>L'erreur du cas 9-74 consiste à gronder un oubli qui est un non-achat.</p>
+<p>Cas 9-89, une personne de 57 ans, cuisinier, vit avec une hypertension.</p>
+<p>Pour le cas 9-89, on sépare la bande légère de la bande qui se traite.</p>
+<p>L'erreur du cas 9-89 consiste à écrire isolé seulement parce que la personne vit seule.</p>
+<p>Cas 9-104, une personne de 63 ans, comptable, vit avec des bronches longues.</p>
+<p>Pour le cas 9-104, on fixe une date de revue avant de quitter la pièce.</p>
+<p>L'erreur du cas 9-104 consiste à donner un rendez-vous lointain malgré un plan.</p>
+<p>Cas 9-119, une personne de 57 ans, cuisinier, vit avec un diabète.</p>
+<p>Pour le cas 9-119, on appelle le 144 si la personne confuse ne peut plus boire.</p>
+<p>L'erreur du cas 9-119 consiste à ordonnancer sans le total.</p>
+<p>Cas 9-134, une personne de 63 ans, comptable, vit avec un cancer en suivi.</p>
+<p>Pour le cas 9-134, on situe la nuit de la route entre 22 heures et 6 heures.</p>
+<p>L'erreur du cas 9-134 consiste à conclure que oui veut dire compris.</p>
+<p>Cas 9-149, une personne de 57 ans, cuisinier, vit avec une insuffisance cardiaque.</p>
+<p>Pour le cas 9-149, on traite le souffle du jour avant de commenter la moyenne annuelle.</p>
+<p>L'erreur du cas 9-149 consiste à ouvrir par le papier social.</p></div></div></section>
+<section class="ilot c"><h2 id="sources">Sources</h2><p>Douze sources datées portent le lot. <button type="button" class="terme" popovertarget="w-sources">ouvrir</button></p><div id="w-sources" popover class="fenetre"><div class="barre"><span>Sources</span><button type="button" popovertarget="w-sources" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Prévalence des maladies non transmissibles, enquête 2022, lue le 1er novembre 2026. <sup class="s">1</sup></p>
+<p>Symptômes dépressifs, même enquête 2022, neuf questions, lue le 1er novembre 2026. <sup class="s">2</sup></p>
+<p>Solitude souvent ressentie, enquête 2022, lue le 1er novembre 2026. <sup class="s">3</sup></p>
+<p>Renoncement aux soins pour raison d'argent, années 2022, 2023 et 2024. <sup class="s">4</sup></p>
+<p>Littératie en santé, entretiens de mars et avril 2020, rapport lu le 1er novembre 2026. <sup class="s">5</sup></p>
+<p>Plan de mesures 2025-2028 de l'Office fédéral de la santé publique, lu le 1er novembre 2026. <sup class="s">6</sup></p>
+<p>Plan canicule du Valais, juin 2025, lu le 1er novembre 2026. <sup class="s">7</sup></p>
+<p>Rapport 2023 de la commission fédérale de l'hygiène de l'air, séance du 10 mai 2023. <sup class="s">8</sup></p>
+<p>Ordonnance sur le bruit, annexe 3, trafic routier, lue le 1er novembre 2026. <sup class="s">9</sup></p>
+<p><abbr title="information professionnelle suisse">AIPS</abbr> (information professionnelle suisse), autorisation 57135, corpus du 8 octobre 2026. <sup class="s">10</sup></p>
+<p>Stratégie dépression des hôpitaux universitaires de Genève, document 2022. <sup class="s">11</sup></p>
+<p>Brochure vaudoise Proche aidant, 2022. <sup class="s">12</sup></p></div></div></section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main></body></html>
+<!-- FIN_FICHIER LOT_226_Phase_B_V0_DX.9.html -->
