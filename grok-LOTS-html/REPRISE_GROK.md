@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_191 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_190 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_192 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_191 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189 et LOT_191 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188 et LOT_190 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189 et LOT_191 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190 et LOT_192 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_193.**
-**Prochain LOT du rédacteur B : LOT_192.** LOT_190 (O2.8 Décès d’un nourrisson) est rédigé et certifié. Détail : `LOT_190/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_194.** LOT_192 (O2.10 Difficultés d’apprentissage et problèmes scolaires durant l’enfance et l’adolescence) est rédigé et certifié. Détail : `LOT_192/A_AUDITER.md`.
+
+## LOT_192 — rédigé et certifié
+Sujet : O2.10 « Difficultés d’apprentissage et problèmes scolaires durant l’enfance et l’adolescence ». Détail : `LOT_192/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. OMS CDDR 2024. Service de psychologie scolaire, fichier du 18 août 2023. CDIP, 25 octobre 2007, articles 1, 2 et 15. Sommeil, 2016. Ligue internationale contre l'épilepsie, page relue en 2026. Essai de 2010, sans milligrammes. Centre hospitalier universitaire vaudois, page lue en 2026. Référentiel suisse du 1er novembre 2023. Autorisation 62228. Société respiratoire européenne, 5 novembre 2015. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.8 (+ 76.6) Ko · SHA 98d1840cfc678427 · commit 9d2a48cb2
+- DX.1 : certitude VERT · porte VERT · T = 1.7 (+ 39.2) Ko · SHA 4ed09649af524c80 · commit 31a124835
+- DX.2 : certitude VERT · porte VERT · T = 1.7 (+ 42.1) Ko · SHA 1b33b5f93d6c02c4 · commit 03c7ccfaa
+- DX.3 : certitude VERT · porte VERT · T = 1.7 (+ 43.1) Ko · SHA 6786a9e9241c02a6 · commit 266e13b3b
+- DX.4 : certitude VERT · porte VERT · T = 1.7 (+ 45.5) Ko · SHA 11b6ba02fe08b43d · commit fe5808e67
+- DX.5 : certitude VERT · porte VERT · T = 1.7 (+ 46.3) Ko · SHA 7e4aac7fbf47414b · commit fde88ff26
+- DX.6 : certitude VERT · porte VERT · T = 1.7 (+ 40.0) Ko · SHA b79837e5c6694950 · commit 9faec4854
+- DX.7 : certitude VERT · porte VERT · T = 1.7 (+ 41.0) Ko · SHA 042a5d2430e431f4 · commit 00db65823
+- DX.8 : certitude VERT · porte VERT · T = 1.7 (+ 45.1) Ko · SHA 82b0116553b07dd9 · commit af54f8508
+- DX.9 : certitude VERT · porte VERT · T = 1.7 (+ 45.3) Ko · SHA f4db5ea36b4d24ea · commit 8e9de8ae4
+- DX.10 : certitude VERT · porte VERT · T = 1.7 (+ 46.4) Ko · SHA 5abf2c7ccb0632b6 · commit 0f35ba5e9
 
 ## LOT_191 — rédigé et certifié
 Sujet : O2.9 « Nourrisson irritable ou qui pleure ». Détail : `LOT_191/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Critères de Rome, 2016. Brochure genevoise lue le 1 novembre 2026. Fiche francophone des coliques, septembre 2018. Reflux, 2018. Allergie au lait, 2024. Invagination, 18 août 2017. Règle des ecchymoses, 2021. pédiatrie suisse, 15 octobre 2021. Code civil, articles 314c et 314d, 2019. Hypoglycémie de maternité, 2021. Glaucome, 2017 et 2021. Autorisations 43838, 58834, 58091, 44625. Zéro retrait.
