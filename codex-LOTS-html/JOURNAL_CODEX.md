@@ -182,3 +182,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 01.11.2026 — Refonte en équipe : six agents, six leçons018/029 PhaseA-DX1-DX2 renforcées,84parties et84réponses contre-relues. DeuximagesréellesCCBY4 intégrées ; correctionglobeouvert, syntaxe et2contrastes.550conditionsV8 ;238autresleçons/9harnaisintacts. Bilan BILAN_RENFORCEMENT_MEDICAL.html ; refonte globale incomplète.
 
 2026-11-01T20:34:25+00:00 — Solo DX4 : glaucome018 et hématome sous-dural029 renforcés,28parties/28réponses relues.550conditionsV8 ;8configurations/8captures inspectées. Cumul10/244. Deux accès images403, aucun cliché nouveau ni lot clos. Publication en préparation.
+
+2026-11-01T20:35:47+00:00 — Renforcement DX4 publié 171ca0c76e51b6104adb0a1e42b9131007d0aa30, égalité distante vérifiée. Verrou libéré. Prochaines corrections018DX5/029DX5. Aucun nouveau lot ni cliché ; veilles37511/48342 maintenues.
