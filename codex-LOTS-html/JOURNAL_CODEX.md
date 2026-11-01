@@ -118,3 +118,9 @@ Neuf notices Commons et cinq liens permanents ouverts ; cinq originaux retenus s
 Outil acquerir_commons.py ajouté dans le seul périmètre Codex : neuf tests locaux réussis, HTTP simulé explicitement. L’invocation réelle s’arrête avant cinq requêtes interdites par la politique actuelle. EuropePMC403 confirmé.244leçons et12supports inchangés, neuf fichiers du harnais intacts. Pas de nouveau V8/navigateur ni d’audit indépendant revendiqués. Nouveau travail : recherche et outil d’acquisition, pas clôture d’un lot. Reprise rédactionnelle040 DX2 toujours conditionnée au rattrapage demandé.
 
 Publication de la sélection et de l’import : e5339811e222292cfb3428a4f1f1dc1aef9cd387 poussé, égalité distante vérifiée. Verrou libéré officiellement après publication. Les veilles locales restent actives, sans production autonome.
+
+## 01.11.2026 — complément iconographique018 et bilan mesuré
+
+Six nouvelles notices Commons lues, cinq candidats pourDX2/3/4/8/10 ; dix au total avec la sélection précédente. Faux témoin normal exclu, DMLA replacée dans sa chronologie, réserves de séquence/latéralité et de modalité explicites. Lectures CH puis Europe, relecture interne dans acquisition_suite/. Aucun original acquis : politique réseau inchangée, cinq refus avant requête.
+
+BILAN_CLICHES_LOT_018.html créé : tailles x/y/x+y/HTML des11leçons, dix candidats séparés des12supports intégrés.128vérifications et20interactions du rapport réussies ; deux captures de rapport inspectées.244leçons inchangées, harnais intact. Aucun nouveau test médical/V8, aucune image clinique inspectée, aucun lot clôturé. Suite dépendante de l’accès aux originaux, sans nouveau diagnostic040.
