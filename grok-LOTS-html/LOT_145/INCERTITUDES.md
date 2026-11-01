@@ -1,27 +1,28 @@
 # INCERTITUDES — LOT_145 F1.16 Œdème
 
-Rédigé le 1er novembre 2026. Aucun élément central n'est retiré. Les éléments centraux (mécanismes hydrostatique, oncotique, inflammatoire et lymphatique, bilans d'échographie et de tomodensitométrie, conduite à tenir, traitements) sont dans les leçons.
+Réécrit le 1er novembre 2026. Aucun élément central n'est retiré. Les quatre mécanismes (hydrostatique, oncotique, inflammatoire, lymphatique), l'échographie de compression, la tomodensitométrie du syndrome cave, la conduite et les traitements lus sont dans les leçons.
 
-## Ce qui est enseigné côte à côte
+## Ce qui est enseigné, et n'est pas un trou
 
-- Quatre portes. Depairon, Lausanne, 3 juin 2021, relie l'œdème à l'équilibre de Starling. La leçon garde les quatre mécanismes même quand un diagnostic en privilégie un.
-- Anticoagulation de la thrombose. L'énoxaparine, autorisation 49456, et le rivaroxaban, autorisation 68552, sont deux phrases lues. Le choix entre elles n'est pas un classement de préférence inventé.
-- Diurétiques. Le furosémide, le torasémide et la spironolactone ont chacun leur indication lue. La leçon ne les additionne pas en un schéma unique.
-- Angiœdème. La revue du 8 avril 2020 dit que la forme bradykinique ne répond pas aux antihistaminiques. Les doses aiguës viennent des autorisations 68263 et 51950.
-- Lymphœdème. Bongard, 2002, met la compression au centre. Le diurétique n'est pas le traitement de fond dans cette leçon.
+- Quatre portes. Depairon, Lausanne, 3 juin 2021.
+- Thrombose. Guidance britannique numéro 158, amendée en 2020, reprend le score de 2003 à deux niveaux. L'énoxaparine (49456) et le rivaroxaban (68552) sont les phrases lues.
+- Angiœdème bradykinique. Revue du 8 avril 2020. Doses aiguës des autorisations 68263 et 51950. Pas d'antihistaminique, de corticoïde ni d'adrénaline comme traitement de cette forme.
+- Œdème pulmonaire et insuffisance cardiaque. Furosémide 30630 et 30629, torasémide 68924, dans les bornes lues.
+- Dermohypodermite nécrosante. La chirurgie passe devant. Aucune dose d'antibiotique n'est récitée.
+- Syndrome cave. Lacout, 2012, fait du scanner la clé. Aucun milligramme de corticoïde, aucun volume de contraste.
+- Syndrome néphrotique. Guide de 2021 : plus de 3,5 grammes par jour et albumine sous 30 g/l. L'œdème n'est pas exigé. Spironolactone 27257, ligne 100-200 mg par jour, seulement après le sel, l'eau et le diurétique d'anse.
+- Cirrhose. Même autorisation 27257, autre paragraphe : 100 mg si le quotient urinaire dépasse 1, 200 à 400 mg s'il est en dessous. Départ plutôt à l'hôpital. Aucun gradient chiffré.
+- Insuffisance veineuse. Classification clinique de 2020. La classe trois est l'œdème. Elle n'égale pas une maladie veineuse documentée. Pouls avant une compression forte. Caillot aigu avant le bas.
+- Lymphœdème. Bongard, 2002 : prévalence lue 1/20 000 avant 20 ans, érysipèle environ 30 pour cent à dix ans, trois stades, compression au centre. Depairon, 2021 : pli positif en faveur, pli négatif au début qui n'écarte pas une thrombose silencieuse.
 
 ## Retraits non centraux
 
-1. Points chiffrés du score clinique de la thrombose : le tableau d'origine n'a pas été rouvert le 1er novembre 2026. La conduite reste : compression d'un côté aigu, avant un autre diagnostic local.
-2. Seuils chiffrés du peptide natriurétique : le texte intégral de la société européenne de cardiologie n'a pas été extrait. Le nom du dosage n'est pas enseigné comme un chiffre.
-3. Seuil en grammes de la protéinurie du syndrome néphrotique : le texte de néphrologie qui le fixe n'a pas été rouvert. La leçon garde l'urine, l'albumine et la spironolactone lue.
-4. Gradient d'albumine de l'ascite et plafond de poids perdu par jour : non recopiés, pages non rouvertes.
-5. Chiffre d'index cheville-bras avant contention : feuillet non rouvert. La leçon dit de regarder l'artère, sans seuil.
-6. Milligrammes d'antibiotique de la dermohypodermite nécrosante : l'indication exacte n'a pas été alignée sur une information professionnelle dans ce lot. La chirurgie reste première.
-7. Corticoïde en milligrammes par kilogramme du syndrome cave, volume de contraste de la revue de 2012, danazol et lanadélumab de la revue de 2020 : pas des informations professionnelles ouvertes pour une ordonnance de ce lot.
-8. Créatininémie en milligrammes par décilitre citée pour le débit de perfusion du furosémide : unité de l'information professionnelle, non convertie et non enseignée comme seuil suisse.
-9. Part suisse de l'œdème comme motif de consultation : non trouvée le 1er novembre 2026.
+1. Seuils chiffrés du peptide natriurétique. Le texte qui les fixe n'a pas été extrait. Aucun chiffre n'est enseigné.
+2. Gradient d'albumine de l'ascite. Aucun nombre n'est enseigné.
+3. Index de pression cheville-bras et pression du bas en millimètres de mercure. Aucun chiffre. La leçon dit de palper les pouls et d'écarter le caillot aigu avant de comprimer.
+4. Milligrammes d'antibiotique, corticoïde du syndrome cave, lanadélumab, volume de contraste et litres de ponction. Ces ordonnances n'ont pas été ouvertes. La chirurgie reste première pour la nécrose. Le scanner de 2012 reste l'image, sans volume.
+5. Part suisse de l'œdème comme motif de consultation. Conduite de la spironolactone pendant la grossesse : l'extrait 27257 n'en donne pas, et aucune n'est inventée. Créatininémie en milligrammes par décilitre : citée par l'information du furosémide, non enseignée comme seuil suisse.
 
 ## Piste Flash
 
-Les branches flash/vague2/LOT_145-A (deb6532) et flash/vague2/LOT_145-B (d6f9724) ont été lues par extraits le 1er novembre 2026. Les dix noms sont conservés. Le HTML de 150 à 200 Ko n'a pas été copié. Le fond a été réécrit. Aucune image n'a été téléchargée ni injectée.
+Les branches flash/vague2/LOT_145-A (deb6532) et flash/vague2/LOT_145-B (d6f9724) ont été lues par extraits le 1er novembre 2026. Les dix noms et leur ordre sont conservés. Le HTML de 150 à 200 Ko n'a pas été copié. Le fond a été réécrit. Aucune image n'a été téléchargée ni injectée.

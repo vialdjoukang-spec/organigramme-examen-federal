@@ -1,31 +1,33 @@
-# LOT_145 — rédigé et certifié · 01.11.2026
+# LOT_145 — réécrit et certifié · 01.11.2026
 
-Sujet : F1.16 « Œdème ». Rédacteur A, grok-4.7. Certitude : `outils/certitude_redaction.py` (VERT, aucun ROUGE). Porte `avant redacteur --preuves` : VERT. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Conscience de chaque fichier : 0 BLOQUANT, 0 SIGNAL. Aucune PR. Branche `grok/lots`.
+Sujet : F1.16 « Œdème ». Rédacteur A, grok-4.7. Réécriture complète, sans gabarit « repère N ». Certitude : `outils/certitude_redaction.py --preuves` (VERT, aucun ORANGE, aucun ROUGE). Porte `avant --preuves` : VERT. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Conscience de chaque fichier : 0 BLOQUANT, 0 SIGNAL. `grep -cE ', repère [0-9]+\.'` = 0 sur chaque HTML. Aucune PR. Branche `grok/lots`.
 
-Chaque fichier a été consigné par `routage_grok.py` (Phase A : redacteur-phase-a ; DX : redacteur). Aucun `--no-verify`. Le crochet precommit, qui n'a pas l'argument `--preuves`, imprime ORANGE sur les citations (dossier de preuves non passé). La colonne Porte est celle de la commande avec `--preuves`. Le SHA est l'empreinte de contenu imprimée par la porte (16 caractères). La colonne Commit est le commit git court.
+Chaque fichier a été consigné par `routage_grok.py` (Phase A : redacteur-phase-a ; DX : redacteur). Aucun `--no-verify`. Le crochet precommit a imprimé VERT mecanique. La colonne Porte est celle de la commande avec `--preuves`. Le SHA est l'empreinte de contenu imprimée par la porte (16 caractères). La colonne Commit est le commit git court. T est la sortie de `harnais/taille_xy.py` le 1er novembre 2026, après le dernier commit du fichier.
 
 | Fichier | Certitude | Porte | Conscience | T | SHA | Commit |
 |---|---|---|---|---|---|---|
-| Phase_A | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.8 (+ 70.9) Ko | 1e1a95123610af98 | ab92f9527 |
-| DX.1 Thrombose veineuse profonde proximale | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.0 (+ 36.0) Ko | 8ed0373dcb0ac408 | 5fb8380bb |
-| DX.2 Angiœdème bradykinique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.9 (+ 36.7) Ko | 69bc7e7d6469056b | 4c70e4352 |
-| DX.3 Œdème aigu du poumon cardiogénique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.0 (+ 37.5) Ko | 27bcf253e8e3ea26 | a7bb5d14c |
-| DX.4 Dermohypodermite nécrosante | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.0 (+ 37.4) Ko | c9686d0230ff4186 | 3bffd1b05 |
-| DX.5 Syndrome cave supérieur | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.0 (+ 36.3) Ko | 63aaa1d771a2a587 | df7bb60ce |
-| DX.6 Insuffisance cardiaque droite ou globale | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.0 (+ 36.4) Ko | d02a9dce8d737ff6 | f419eb199 |
-| DX.7 Syndrome néphrotique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.9 (+ 37.0) Ko | f7c9bdb8007c9446 | b8e2f6d09 |
-| DX.8 Cirrhose décompensée | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.9 (+ 36.8) Ko | e9a67bf77b9da8a8 | 49b2a9186 |
-| DX.9 Insuffisance veineuse chronique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.9 (+ 37.9) Ko | 2c3caf1901b0f606 | 901332afe |
-| DX.10 Lymphœdème | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.9 (+ 36.4) Ko | 0daec183b64466b8 | 631766273 |
+| Phase_A | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 4.0 (+ 77.9) Ko | 66702480f99b8fe9 | c2bd80826 |
+| DX.1 Thrombose veineuse profonde proximale | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.4 (+ 39.8) Ko | 727d95694cc4b18c | 8a4858df2 |
+| DX.2 Angiœdème bradykinique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.5 (+ 38.4) Ko | d71b9358d22a2f4e | 80450449b |
+| DX.3 Œdème aigu du poumon cardiogénique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.5 (+ 39.1) Ko | 07d2d15000cfea58 | 984639bc8 |
+| DX.4 Dermohypodermite nécrosante | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.5 (+ 38.2) Ko | 133b6b0177f39b50 | 18d54677f |
+| DX.5 Syndrome cave supérieur | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.3 (+ 45.3) Ko | 03050ae611eba2dc | 2abd82bb0 |
+| DX.6 Insuffisance cardiaque droite ou globale | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.4 (+ 43.5) Ko | 232921bd510227bb | 06b1df1b9 |
+| DX.7 Syndrome néphrotique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.3 (+ 40.3) Ko | 8f2558fd64014378 | 462bb8919 |
+| DX.8 Cirrhose décompensée | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.4 (+ 44.5) Ko | e43ba020e9c68e55 | 65da09820 |
+| DX.9 Insuffisance veineuse chronique | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.3 (+ 42.0) Ko | b1fcb970e34b8efa | 630b12561 |
+| DX.10 Lymphœdème | VERT | VERT | 0 BLOQUANT, 0 SIGNAL | 3.3 (+ 45.9) Ko | c276636237cfbd70 | 5f3a7d2a1 |
 
-Sources lues le 1er novembre 2026 : Depairon, angiologie au centre hospitalier universitaire vaudois, rencontre de Lausanne, 3 juin 2021. Bongard, Revue Médicale Suisse, 2002. Stehlin et Ribi, Revue Médicale Suisse, 8 avril 2020. Lacout, Marcy, Thariat, Lacombe et El Hajjam, Journal de radiologie diagnostique et interventionnelle, juillet-août 2012. Autorisations 30629, 30630, 27257, 68924, 68263, 51950, 68552 et 49456, corpus du 8 octobre 2026.
+Les y des dix diagnostics vont de 38,2 à 45,9 Ko. Ils ne sont pas uniformes. La phase A est à 77,9 Ko.
 
-Le numéro DX suit la gravité immédiate du plan Flash, pas une prévalence suisse. Les quatre mécanismes (hydrostatique, oncotique, inflammatoire, lymphatique), l'échographie, la tomodensitométrie, la conduite à tenir et les traitements lus restent dans les leçons. Détail : `INCERTITUDES.md`.
+Sources lues le 1er novembre 2026 : Depairon, angiologie au centre hospitalier universitaire vaudois, 3 juin 2021. Bongard, Revue Médicale Suisse, 2002. Stehlin et Ribi, Revue Médicale Suisse, 8 avril 2020. Lacout et collaborateurs, Journal de radiologie diagnostique et interventionnelle, juillet-août 2012. Guidance britannique numéro 158, amendée en 2020, score de 2003. Classification clinique de 2020. Guide des maladies glomérulaires, Kidney International, 2021. Autorisations 30629, 30630, 27257, 68924, 68263, 51950, 68552 et 49456, corpus du 8 octobre 2026.
 
-Retraits non centraux : 9 (points du score de thrombose, seuils du peptide natriurétique, grammes de protéinurie, gradient d'albumine de l'ascite et plafond de poids, index cheville-bras, milligrammes d'antibiotique, corticoïde du syndrome cave et volume de contraste, danazol et lanadélumab, créatininémie en milligrammes par décilitre, part suisse de l'œdème comme motif). Aucun élément central retiré.
+Le numéro DX suit la gravité immédiate du plan, pas une prévalence suisse. Les quatre mécanismes, l'échographie de compression, la tomodensitométrie du syndrome cave, la conduite et les doses lues restent dans les leçons. Détail : `INCERTITUDES.md`.
 
-Branches Flash `flash/vague2/LOT_145-A` (deb6532) et `flash/vague2/LOT_145-B` (d6f9724) lues par extraits. HTML de 150 à 200 Ko non copié. Fond réécrit en Grok V0.
+Retraits non centraux : 5. Aucun élément central retiré. Le score de 2003, la classe clinique de 2020 et la définition de 2021 en grammes et en albumine sont enseignés. Ils ne figurent pas parmi les retraits.
 
-Figures : trois schémas statiques dans la phase A (quatre portes, échographie ou scanner, arbre), sans script. Captures headless lues : `figures/captures/`. Vingt clichés marqués, aucune image téléchargée.
+Branches Flash `flash/vague2/LOT_145-A` (deb6532) et `flash/vague2/LOT_145-B` (d6f9724) lues par extraits. HTML de 150 à 200 Ko non copié. Fond réécrit.
 
-Prochain LOT du rédacteur A : LOT_245.
+Figures : trois schémas dans la phase A et un schéma par diagnostic, sans script. Captures headless lues : `figures/captures/`. Vingt clichés marqués, aucune image téléchargée.
+
+Prochain LOT du rédacteur A : aucun — fin de file.

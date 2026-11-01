@@ -52,20 +52,20 @@ Sujet : F1.17 « Pâleur ». Détail : `LOT_146/A_AUDITER.md`. Conscience de lot
 - DX.9 : certitude VERT · porte VERT · T = 3.1 (+ 44.7) Ko · SHA 01d489c8c583718a · commit 2abac5ede
 - DX.10 : certitude VERT · porte VERT · T = 3.2 (+ 38.2) Ko · SHA 9c286555ee7b1169 · commit 9fb3f644a
 
-## LOT_145 — rédigé et certifié
-Sujet : F1.16 « Œdème ». Détail : `LOT_145/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Depairon, centre hospitalier universitaire vaudois, 3 juin 2021. Bongard, Revue Médicale Suisse, 2002. Stehlin et Ribi, Revue Médicale Suisse, 8 avril 2020. Lacout et collaborateurs, Journal de radiologie diagnostique et interventionnelle, juillet-août 2012. Autorisations 30629, 30630, 27257, 68924, 68263, 51950, 68552 et 49456. Neuf retraits non centraux. Branches Flash vague2 lues, HTML non copié. Trois schémas, captures headless. Vingt clichés, aucune image injectée. Prochain rédacteur A : LOT_245.
+## LOT_145 — réécrit et certifié
+Sujet : F1.16 « Œdème ». Détail : `LOT_145/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Réécriture complète du 1er novembre 2026, zéro « repère N ». Depairon, 3 juin 2021. Bongard, 2002. Stehlin et Ribi, 8 avril 2020. Lacout, 2012. Guidance britannique numéro 158 (score de 2003). Classification clinique de 2020. Guide glomérulaire de 2021. Autorisations 30629, 30630, 27257, 68924, 68263, 51950, 68552 et 49456. Cinq retraits non centraux. y des DX de 38,2 à 45,9 Ko. Phase A 77,9 Ko. Vingt clichés, aucune image injectée. Prochain rédacteur A : aucun — fin de file.
 
-- Phase_A : certitude VERT · porte VERT · T = 4.8 (+ 70.9) Ko · SHA 1e1a95123610af98 · commit ab92f9527
-- DX.1 : certitude VERT · porte VERT · T = 4.0 (+ 36.0) Ko · SHA 8ed0373dcb0ac408 · commit 5fb8380bb
-- DX.2 : certitude VERT · porte VERT · T = 3.9 (+ 36.7) Ko · SHA 69bc7e7d6469056b · commit 4c70e4352
-- DX.3 : certitude VERT · porte VERT · T = 4.0 (+ 37.5) Ko · SHA 27bcf253e8e3ea26 · commit a7bb5d14c
-- DX.4 : certitude VERT · porte VERT · T = 4.0 (+ 37.4) Ko · SHA c9686d0230ff4186 · commit 3bffd1b05
-- DX.5 : certitude VERT · porte VERT · T = 4.0 (+ 36.3) Ko · SHA 63aaa1d771a2a587 · commit df7bb60ce
-- DX.6 : certitude VERT · porte VERT · T = 4.0 (+ 36.4) Ko · SHA d02a9dce8d737ff6 · commit f419eb199
-- DX.7 : certitude VERT · porte VERT · T = 3.9 (+ 37.0) Ko · SHA f7c9bdb8007c9446 · commit b8e2f6d09
-- DX.8 : certitude VERT · porte VERT · T = 3.9 (+ 36.8) Ko · SHA e9a67bf77b9da8a8 · commit 49b2a9186
-- DX.9 : certitude VERT · porte VERT · T = 3.9 (+ 37.9) Ko · SHA 2c3caf1901b0f606 · commit 901332afe
-- DX.10 : certitude VERT · porte VERT · T = 3.9 (+ 36.4) Ko · SHA 0daec183b64466b8 · commit 631766273
+- Phase_A : certitude VERT · porte VERT · T = 4.0 (+ 77.9) Ko · SHA 66702480f99b8fe9 · commit c2bd80826
+- DX.1 : certitude VERT · porte VERT · T = 3.4 (+ 39.8) Ko · SHA 727d95694cc4b18c · commit 8a4858df2
+- DX.2 : certitude VERT · porte VERT · T = 3.5 (+ 38.4) Ko · SHA d71b9358d22a2f4e · commit 80450449b
+- DX.3 : certitude VERT · porte VERT · T = 3.5 (+ 39.1) Ko · SHA 07d2d15000cfea58 · commit 984639bc8
+- DX.4 : certitude VERT · porte VERT · T = 3.5 (+ 38.2) Ko · SHA 133b6b0177f39b50 · commit 18d54677f
+- DX.5 : certitude VERT · porte VERT · T = 3.3 (+ 45.3) Ko · SHA 03050ae611eba2dc · commit 2abd82bb0
+- DX.6 : certitude VERT · porte VERT · T = 3.4 (+ 43.5) Ko · SHA 232921bd510227bb · commit 06b1df1b9
+- DX.7 : certitude VERT · porte VERT · T = 3.3 (+ 40.3) Ko · SHA 8f2558fd64014378 · commit 462bb8919
+- DX.8 : certitude VERT · porte VERT · T = 3.4 (+ 44.5) Ko · SHA e43ba020e9c68e55 · commit 65da09820
+- DX.9 : certitude VERT · porte VERT · T = 3.3 (+ 42.0) Ko · SHA b1fcb970e34b8efa · commit 630b12561
+- DX.10 : certitude VERT · porte VERT · T = 3.3 (+ 45.9) Ko · SHA c276636237cfbd70 · commit 5f3a7d2a1
 
 ## LOT_144 — rédigé et certifié
 Sujet : F1.15 « Altération ou perte de conscience, coma ». Détail : `LOT_144/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Plan Flash vague2 LOT_144-A (5ada6a4) et LOT_144-B (6384d82), réécrit, zéro retrait des éléments centraux. Fiche `data/tip/F1.15.json`. PROFILES 2023. Autorisations 29550719, 10989, 56952, 59400, 31754, 59876, 60325 et 23533. Trois schémas, captures headless. Cinq clichés, aucune image injectée. Prochain rédacteur B : LOT_146.
