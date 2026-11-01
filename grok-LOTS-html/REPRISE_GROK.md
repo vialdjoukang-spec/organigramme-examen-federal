@@ -1,11 +1,26 @@
-# REPRISE GROK — 31.10.2026
+# REPRISE GROK — 01.11.2026
 
-LOT_178 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_175 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_177 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_178 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173 et LOT_175 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176 et LOT_178 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175 et LOT_177 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176 et LOT_178 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_177.**
+**Prochain LOT du rédacteur A : LOT_179.**
 **Prochain LOT du rédacteur B : LOT_180.** LOT_178 (O1.5 Problèmes liés à l'accouchement) est rédigé et certifié. Détail : `LOT_178/A_AUDITER.md`.
+
+## LOT_177 — rédigé et certifié
+Sujet : O1.4 « Problèmes maternels pendant la grossesse : fièvre, œdème, hypertension, travail prématuré irrégulier ». Détail : `LOT_177/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. ISSHP 2021, guide de juin 2019, guide de 2015, avis 67 du 2 décembre 2019, avis 41 de 2013, avis 34 de 2009, Haram 2009. Autorisations 70383, 41529, 56394, 69185, 28080, 51795, 47503, 49456, 44486, 52896, 62724, 56271, 59876. Autorisation 66710 : aucun schéma milligrammé de maturation pulmonaire. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 5.3 (+ 74.6) Ko · SHA 7c259057c3bf253d · commit 068e5fdcc
+- DX.1 : certitude VERT · porte VERT · T = 5.3 (+ 39.3) Ko · SHA 4cd60bebe8c7228c · commit 22cad2d43
+- DX.2 : certitude VERT · porte VERT · T = 5.3 (+ 38.5) Ko · SHA 7754fd9714964e5a · commit a35b51597
+- DX.3 : certitude VERT · porte VERT · T = 5.2 (+ 40.0) Ko · SHA b5f59c99b90250f0 · commit 16a31077d
+- DX.4 : certitude VERT · porte VERT · T = 5.3 (+ 42.1) Ko · SHA ee42eb8228e47473 · commit 61a2e68b9
+- DX.5 : certitude VERT · porte VERT · T = 5.2 (+ 43.0) Ko · SHA bc60eb18ccfef275 · commit 951ac67f9
+- DX.6 : certitude VERT · porte VERT · T = 5.3 (+ 38.5) Ko · SHA a21b7a9d73958a2d · commit 72e131ec5
+- DX.7 : certitude VERT · porte VERT · T = 5.2 (+ 40.6) Ko · SHA bca12eb8a0e97e90 · commit b07fb6462
+- DX.8 : certitude VERT · porte VERT · T = 5.2 (+ 42.6) Ko · SHA 40b9f3967e780ffd · commit 9b0b01231
+- DX.9 : certitude VERT · porte VERT · T = 5.2 (+ 43.5) Ko · SHA 949a5b02858be38a · commit 911e395c5
+- DX.10 : certitude VERT · porte VERT · T = 5.2 (+ 45.0) Ko · SHA 8a360a613ab7eb4c · commit ce5505653
 
 ## LOT_178 — rédigé et certifié
 Sujet : O1.5 « Problèmes liés à l'accouchement ». Détail : `LOT_178/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Classification du tracé 2015, ligne hémorragie d'août 2022, recommandations de 2018, ligne périnée de juin 2015, dystocie des épaules de mars 2012 et mise à jour de 2026, avis suisse 26 du 19 juillet 2012 (archivé, dose de misoprostol non recopiée). Syntocinon 22114, Pabal 58079, Méthergin 12730, Nalador 43642, acide tranexamique 70581, Angusta 67580, Cytotec 46945 (ulcère, contre-indiqué pendant la grossesse). Zéro retrait.
