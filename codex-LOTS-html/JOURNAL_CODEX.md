@@ -156,3 +156,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T11:40:26+00:00 — Recensement imagerie/ECG publié 196885530c258ef0a21c43da74a2f2953440a772, référence distante vérifiée ; verrou libéré officiellement.26interactions et4captures concernent uniquement le bilan. Aucun cliché acquis ; tri contextuel et recherche iconographique à poursuivre.
 
 2026-11-01T12:08:54+00:00 — Tri018/019 :22 leçons,89 passages ; recensement215/532. Chaîne web→droits→acquisition→comparaison→insertion créée, trois recherches réelles et26résultats.33tests locaux,12interactions/4captures de démonstration anatomique ;36interactions/6captures du bilan. Deux clichés019 sélectionnés mais toujours bloqués par réseau, aucun nouveau lot clos.
+
+2026-11-01T12:10:12+00:00 — Chaîne et tri018/019 publiés au commit bc647c3a61c47f0124246f1c2ad4579464f59f2a, référence distante vérifiée. Verrou libéré officiellement. Deux veilles locales maintenues ; aucune nouvelle image clinique ni leçon produite. Prochaine cible documentaire020 ; acquisition018/019 toujours dépendante du réseau.
