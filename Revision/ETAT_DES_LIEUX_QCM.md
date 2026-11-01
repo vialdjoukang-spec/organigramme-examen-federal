@@ -1,11 +1,11 @@
 # ÉTAT DES LIEUX — Questionnaires Type A « Réflexe SSP » · Temps 1 · catégorie G
 
-_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:35 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
+_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:47 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
 
 ## Relève Λ — en une ligne
 
-- **Progression globale : 3/16 SSP livrés = 18.75 %** · pondérée (statut × couverture DD) : **15.0 %** · 199 questions au total.
-- **Prochain SSP : G4 (LOT_004) — Fatigue, lassitude**
+- **Progression globale : 4/16 SSP livrés = 25.00 %** · pondérée (statut × couverture DD) : **20.0 %** · 287 questions au total.
+- **Prochain SSP : G5 (LOT_005) — Sensation de maladie**
 - **Blockers / dettes :** aucun gap de couverture sur les SSP livrés. · Validation humaine (statut `valide`) : 0 SSP à ce jour.
 
 ## Tableau G1–G16
@@ -15,7 +15,7 @@ _Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:35 (Europe
 | G1 | LOT_001 | Transpiration anormale | 51 | 34 | 10 | 7 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G01_transpiration_anormale/LOT_001_G1_TypeA_Reflexe.html) |
 | G2 | LOT_002 | Tuméfaction, tumeur, y compris augmentation de volume des ga | 63 | 42 | 11 | 10 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G02_adenopathie_tumefaction/LOT_002_G2_TypeA_Reflexe.html) |
 | G3 | LOT_003 | Soif excessive, consommation excessive de liquides (polydips | 85 | 49 | 23 | 13 | 13/13 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G03_soif_polydipsie/LOT_003_G3_TypeA_Reflexe.html) |
-| G4 | LOT_004 | Fatigue, lassitude | 0 | 0 | 0 | 0 | 0/11 | ⬜ à faire | 0 % | — |
+| G4 | LOT_004 | Fatigue, lassitude | 88 | 52 | 20 | 16 | 11/11 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G04_fatigue_lassitude/LOT_004_G4_TypeA_Reflexe.html) |
 | G5 | LOT_005 | Sensation de maladie | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
 | G6 | LOT_006 | Fièvre, frissons, hyperthermie | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
 | G7 | LOT_007 | Bouffées vasomotrices (flush) | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
@@ -33,7 +33,7 @@ _Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:35 (Europe
 
 ```bash
 cd /workspace/grok/Revision
-python3 _outils/scripts/init_ssp.py G4          # canevas + checklist DD
+python3 _outils/scripts/init_ssp.py G5          # canevas + checklist DD
 # rédiger _bank_GNN.py selon _outils/CHARTE_REDACTION.md (sources = LOT audité uniquement)
 python3 _outils/scripts/build_ssp.py G_symptomes_generaux/GNN_xxx   # JSON + HTML
 python3 _outils/scripts/couverture_dd.py G_symptomes_generaux/GNN_xxx  # 0 gap exigé
