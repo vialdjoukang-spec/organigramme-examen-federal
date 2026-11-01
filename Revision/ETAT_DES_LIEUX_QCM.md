@@ -1,11 +1,11 @@
 # ÉTAT DES LIEUX — Questionnaires Type A « Réflexe SSP » · Temps 1 · catégorie G
 
-_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:47 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
+_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:59 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
 
 ## Relève Λ — en une ligne
 
-- **Progression globale : 4/16 SSP livrés = 25.00 %** · pondérée (statut × couverture DD) : **20.0 %** · 287 questions au total.
-- **Prochain SSP : G5 (LOT_005) — Sensation de maladie**
+- **Progression globale : 5/16 SSP livrés = 31.25 %** · pondérée (statut × couverture DD) : **25.0 %** · 381 questions au total.
+- **Prochain SSP : G6 (LOT_006) — Fièvre, frissons, hyperthermie**
 - **Blockers / dettes :** aucun gap de couverture sur les SSP livrés. · Validation humaine (statut `valide`) : 0 SSP à ce jour.
 
 ## Tableau G1–G16
@@ -16,7 +16,7 @@ _Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:47 (Europe
 | G2 | LOT_002 | Tuméfaction, tumeur, y compris augmentation de volume des ga | 63 | 42 | 11 | 10 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G02_adenopathie_tumefaction/LOT_002_G2_TypeA_Reflexe.html) |
 | G3 | LOT_003 | Soif excessive, consommation excessive de liquides (polydips | 85 | 49 | 23 | 13 | 13/13 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G03_soif_polydipsie/LOT_003_G3_TypeA_Reflexe.html) |
 | G4 | LOT_004 | Fatigue, lassitude | 88 | 52 | 20 | 16 | 11/11 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G04_fatigue_lassitude/LOT_004_G4_TypeA_Reflexe.html) |
-| G5 | LOT_005 | Sensation de maladie | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
+| G5 | LOT_005 | Sensation de maladie | 94 | 56 | 22 | 16 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G05_sensation_maladie/LOT_005_G5_TypeA_Reflexe.html) |
 | G6 | LOT_006 | Fièvre, frissons, hyperthermie | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
 | G7 | LOT_007 | Bouffées vasomotrices (flush) | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
 | G8 | LOT_008 | Hypothermie | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
@@ -33,7 +33,7 @@ _Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 23:47 (Europe
 
 ```bash
 cd /workspace/grok/Revision
-python3 _outils/scripts/init_ssp.py G5          # canevas + checklist DD
+python3 _outils/scripts/init_ssp.py G6          # canevas + checklist DD
 # rédiger _bank_GNN.py selon _outils/CHARTE_REDACTION.md (sources = LOT audité uniquement)
 python3 _outils/scripts/build_ssp.py G_symptomes_generaux/GNN_xxx   # JSON + HTML
 python3 _outils/scripts/couverture_dd.py G_symptomes_generaux/GNN_xxx  # 0 gap exigé

@@ -1,0 +1,13 @@
+# LOT_005 · G5 Sensation de maladie — Type A — CHANGELOG
+
+## v1.0.0 (1 nov. 2026, Zurich UTC+1) — première série
+- 94 questions Type A (5 options, une seule clé) : **56 EX · 22 AP · 16 SPE** (59,6 / 23,4 / 17,0 %) ; 31 R · 46 D · 17 P ; clés A19 B19 C19 D19 E18, jamais 3 identiques d'affilée (seed 16). 2 questions à polarité négative (2,1 % : tolvaptan en hypovolémie, nitrés et sildénafil).
+- SPE : Infectiologie ×3, Endocrinologie ×2, Cardiologie ×2, Oncologie ×2, Médecine intensive, Neurologie, Gériatrie, Rhumatologie, Psychogériatrie, Néphrologie, Toxicologie clinique (bouton 🔥).
+- Couverture DD : **15/15 DX avec ≥ 2 EX cibles** (3 à 5 EX par DX), aucun gap ; chaque DX a au moins 1 AP ou SPE. Voir `COUVERTURE_DD.md`.
+- Drapeaux rouges testés (ordre d'exclusion E1–E6) : E1 sepsis (DX.11), E2 AVC (DX.12), E3 SCA atypique (DX.13), E4 crise surrénalienne (DX.15), E5 trouble ionique sévère (DX.2), E6 cancer (DX.14) ; plus urosepsis, méningite, infection nécrosante, artérite à cellules géantes, idées suicidaires, acidocétose, compression médullaire, hypercalcémie, neutropénie fébrile, lyse tumorale, dissection aortique, surdosage opioïde et paracétamol, syndrome sérotoninergique.
+- Indice de longueur contrôlé : la bonne réponse est l'option la plus longue dans 9/94 questions (9,6 %) et la plus courte dans 12/94 (12,8 %). Aucun « toujours / jamais / uniquement » dans les options.
+- Blueprint : 38 évaluation / diagnostic, 51 prise en charge, 5 mécanismes ; 6 settings (urgences, cabinet, hôpital, EMS, domicile, policlinique).
+- Carte réflexe (3 questions, infection, ions-métabolisme, médicaments-psyché, ceintures-organe, ordre E1–E6) + algorithme (Phase A §algo et §10) intégrés.
+- Sources exclusivement `repo/LOT_Claude_Finaux/LOT_005/` (Phase A §/algo, Phase B DX.n §8/§10/§13/§14), 51 liens distincts, 0 cassé. Audits C7 : 0 critique sur les 16 fichiers. Aucune image (aucun cliché dans le LOT).
+- Valeurs du LOT incohérentes, non testées à la limite : seuil d'anémie de l'homme (< 130 g/L OMS 2011 en Phase A, ≈ 135 g/L en DX.10 d'après les centiles 2024) ; limite de correction de la natrémie (≤ 10 mmol/L le 1er jour en Phase A, « moins de 10 à 12 mmol/L » en DX.2 : la question de démyélinisation utilise + 17 mmol/L, hors de toute zone grise) ; pneumonie ambulatoire (Augmentin® en Phase A, amoxicilline sans comorbidité en DX.3 : la question cite DX.3 et n'oppose pas les deux). Les seuils de troponine propres à chaque dosage et les points « À vérifier » (dépistage du cancer, bolus de glucose) ne sont pas utilisés.
+- 💡 fermé par défaut, mode révision avec confirmation ; rendu Chrome 390 px OK. PDF : questions puis corrigé en annexe (97 pages).
