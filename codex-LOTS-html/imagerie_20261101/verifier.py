@@ -10,16 +10,17 @@ data = json.loads((D/'INVENTAIRE.json').read_text())
 doc = html.parse(str(B/'BILAN_IMAGERIE_ECG.html'))
 before = json.loads((B/'LOT_018/illustrations/acquisition/LECONS_AVANT.json').read_text())
 current = {str(p.relative_to(B.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in B.glob('LOT_*/*.html')}
-# Deux corrections iconographiques autorisées, sans écraser le témoin initial.
-# Le contrôleur dédié prouve aussi la conservation du texte antérieur.
+# Nouvelle campagne clinique : témoin du checkpoint précédent conservé,
+# six fichiers autorisés et préservation des figures antérieures contrôlés.
 import subprocess
-subprocess.run(['python3','-B',str(B/'schemas_sommeil_20261101/verifier.py')],check=True)
-transitions = json.loads((B/'schemas_sommeil_20261101/MODIFICATIONS.json').read_text())
-expected = dict(before)
+campaign=B/'renforcement_medical_20261101'
+subprocess.run(['python3','-B',str(campaign/'verifier.py')],check=True)
+expected=json.loads((campaign/'BASELINE.json').read_text())['lecons']
+transitions=json.loads((campaign/'CONTROLE.json').read_text())['lecons']
 for change in transitions:
-    key = 'codex-LOTS-html/' + change['fichier']
-    assert before[key] == change['sha256_avant']
-    expected[key] = change['sha256_apres']
+    key='codex-LOTS-html/'+change['fichier']
+    assert expected[key]==change['sha256_avant']
+    expected[key]=change['sha256_apres']
 assert current == expected and len(current) == 244
 assert len(data['lots']) == 116 and [x['lot'] for x in data['lots']] == list(range(18,134))
 assert len(doc.xpath('//tr[@data-lot]')) == 116
@@ -56,7 +57,7 @@ for row in data['lecons']:
         links += 1
 manifeste = json.loads((B.parent/'harnais/HARNAIS_MANIFESTE.json').read_text())['fichiers']
 assert all(hashlib.sha256((B.parent/p).read_bytes()).hexdigest()==sha for p,sha in manifeste.items())
-result = {'date':datetime.now(timezone.utc).isoformat(timespec='seconds'), 'lecons_inchangees':242, 'lecons_illustrees_modifiees':2,
+result = {'date':datetime.now(timezone.utc).isoformat(timespec='seconds'), 'lecons_inchangees':238, 'lecons_renforcees':6, 'lecons_avec_nouvelle_image_reelle':2,
           'lots_sans_saut':116,'liens_extraits_verifies':links,'harnais_intacts':len(manifeste),
           'lecons_triees':triage['lecons_triees'],'passages_tries':triage['passages_lus'],'acquisitions_documentaires_sources_orl':5,
           'statut':'contrôles mécaniques réussis','validation_clinique':False}

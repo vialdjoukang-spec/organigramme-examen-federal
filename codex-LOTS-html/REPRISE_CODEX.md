@@ -1,3 +1,19 @@
+# Reprise LOTS — renforcement médical en équipe — 2026-11-01T19:25:08+00:00
+
+Priorité explicite de Vial : renforcer les cours déjà présents et intégrer des images réelles ; futurs cours d’emblée riches et illustrés. Travail solitaire interdit. Six agents effectivement mobilisés : deux rédacteurs Astra high, deux iconographes, un contrelecteur médical distinct et un contrôleur navigateur. Le coordinateur conserve le verrou et les publications. Répartition des cours existants018–028 et029–040 ; les lots absents ne sont pas sautés/créés.
+
+Première tranche réelle : PhaseA, DX1 et DX2 des LOT018 et029, soit6leçons,84parties et84questions/réponses. Sources CH puis UE lues, renforcements spécifiques, gras/italique et sous-titres. Contrelecture distincte avec correction importante globe ouvert/échographie et clarification syntaxique029. Rapports et empreintes dans renforcement_medical_20261101/contrelecture/. Aucun score médical, aucune validation humaine, pas de réaudit exhaustif des doses AIPS historiques.
+
+Deux vraies images CC BY4 acquises depuis dépôts officiels des auteurs et intégrées en fenêtres de partie9 : membrane échogène à l’échographie oculaire (ERDES, panneau200×200, attribution diagnostique des auteurs) et matériel de dérivation (CSFShuntvalves). Cette seconde image ne montre PAS une lésion BESS/hydrocéphalie et ne prouve pas fonctionnement/réglage. Les paires originale/annotée, repères, crédits et licences sont visibles. Sources/scripts/contrôles dans images_ophtalmo et images_neuropediatrie. Wikimedia/CDN NCBI restent restreints, mais ne constituent plus un blocage général de toute acquisition.
+
+550 conditions V8 passées sur les22fichiers présents des deux lots ;238 autres leçons et9 fichiers du harnais intacts. Six cours renforcés sur244, aucun LOT entièrement refait. QA a identifié puis fait corriger le contraste sombre des titres et crédits de figures, sans altérer les figures historiques. Deltas CSS après contrelecture explicitement prouvés. Bilan public : BILAN_RENFORCEMENT_MEDICAL.html. Inventaire imagerie actualisé :244leçons,559passages.
+
+Suite exacte :018 DX3 et029 DX3, avec maintien des rôles auteurs/iconographes/contrelecture/QA. Poursuivre images lésionnelles manquantes, notamment BESS/hydrocéphalie. Les futurs cours doivent appliquer le nouveau prompt dès leur création ; ne pas annoncer la refonte globale achevée. Plage fraîche018–133. Ne pas modifier autres producteurs, branches, sources/harness communs. Les veilles locales37511/48342 contrôlent chaque60s tant que le runtime existe ; elles ne rédigent pas.
+
+Publication en préparation ; verrou détenu par coordinateur, à libérer après checkpoint publié. Les sources intégrales sans droit de republication vérifié restent en cache local ignoré ; notes/extraits courts/URL/date/hash et articles licenciés sont conservés selon leurs droits. Premiers contrôleurs historiques sont datés ; utiliser renforcement_medical_20261101/verifier.py et imagerie_20261101/verifier.py pour l’état courant.
+
+## Historique daté des checkpoints antérieurs
+
 # Reprise LOTS — 2026-11-01T18:42:06+00:00
 
 Avancée contrôlée : un schéma original à trois vues est intégré dans les fenêtres d’examens de LOT034 DX1 et LOT040 DX1. Cliquer les termes débit/effort depuis la fenêtre de partie9. Ventilation régulière, apnée obstructive et centrale ; aucune donnée de patient. Sources HUG puis Inserm lues, crédits/licence/date dans chaque légende et SOURCES.json.
