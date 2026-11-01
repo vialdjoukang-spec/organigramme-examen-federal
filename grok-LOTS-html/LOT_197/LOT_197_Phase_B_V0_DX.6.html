@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DX.6 — Anorexie de la dépression</title>
+<style>
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb}
+@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Liberation Sans","Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}
+main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}h1,h2,h3,.barre,summary,nav,caption,th{font-family:"Liberation Sans","Atkinson Hyperlegible",Verdana,sans-serif}
+h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}h3{font-size:1.08rem;color:var(--titre);margin:1rem 0 .3rem}
+p,.para{margin:0 0 .55rem}.sous{color:var(--doux);font-size:.95rem}.essentiel{border-left-width:4px}.essentiel h2{font-size:1.1rem}
+nav ol{padding-left:1.6rem;margin:.4rem 0 0}nav li{margin:.15rem 0}a{color:var(--lien)}
+button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}
+button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}
+.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre);font-size:.98rem}
+.fenetre::backdrop{background:var(--voile)}
+.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700;font-size:.95rem}
+.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);font-size:1rem;cursor:pointer}
+.corps{padding:1rem 1.2rem 1.2rem}.corps p:last-child{margin-bottom:0}
+.tw{overflow-x:auto;margin:.6rem 0 1rem}table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}th{background:var(--th);font-size:.85rem}caption{text-align:left;font-weight:700;font-size:.9rem;padding:.2rem 0 .4rem}
+figure{margin:1.2rem 0}figure svg{width:100%;height:auto;max-width:40rem;display:block;margin:auto;color:var(--texte);background:#f7fbfd;border:1px solid var(--trait);border-radius:10px}
+figcaption{font-size:.88rem;color:var(--doux);text-align:center;margin-top:.3rem}
+.sources{font-size:.86rem;line-height:1.5}.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}
+abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem}
+.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}
+.sch .niv{display:none}.sch input.sr{position:absolute;opacity:0;width:1px;height:1px}
+.sch .bn{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}.sch .bn label{border:1px solid #9bb;border-radius:8px;padding:4px 8px;cursor:pointer}
+.som{columns:2;column-gap:1.4rem}.som li{break-inside:avoid}
+details.schema{margin:.4rem 0 .6rem;border:1px solid var(--trait);border-radius:10px;padding:.4rem .6rem;background:var(--encadre)}
+details.schema summary{cursor:pointer;font-weight:700}
+.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.7rem .9rem;margin:.7rem 0}
+</style>
+</head>
+<body>
+<main>
+<h1 id="titre">DX.6 — Anorexie de la dépression</h1>
+<p class="taille" id="taille">Taille : T = 4.7 Ko (+ 37.0 Ko) · lecture de la fiche ≈ 4 min · 15 fenêtres, 2 dépliants</p>
+<p class="sous">Diagnostic différentiel du motif malnutrition et sarcopénie. Le cadre général est celui du cours.</p>
+<section class="ilot c essentiel"><h2 id="ess">L'essentiel</h2><p>La dépression coupe les repas. Elle n'est pas, à elle seule, le critère inflammatoire de 2019.</p></section>
+<nav class="ilot v"><h2 id="som">Sommaire</h2><ol class="som"><li><a href="#p1">1. Définition</a></li><li><a href="#p2">2. Épidémiologie</a></li><li><a href="#p3">3. Physiopathologie</a></li><li><a href="#p4">4. Démarche diagnostique</a></li><li><a href="#p5">5. Anamnèse et drapeaux rouges</a></li><li><a href="#p6">6. Examen physique</a></li><li><a href="#p7">7. Approche syndromique</a></li><li><a href="#p8">8. Diagnostic positif</a></li><li><a href="#p9">9. Examens complémentaires</a></li><li><a href="#p10">10. Arbre décisionnel</a></li><li><a href="#p11">11. Prise en charge</a></li><li><a href="#p12">12. Prévention</a></li><li><a href="#p13">13. Points clés</a></li><li><a href="#p14">14. Pièges et cas</a></li></ol>
+<p class="sous">Chaque titre ouvre une fenêtre. Les sources sont à la fin.</p></nav>
+<section class="ilot c"><h2 id="p1">1. Définition</h2><p>Le tableau travaillé ici est Anorexie de la dépression. Les seuils de 2019 restent ceux du consensus, lus dans la fenêtre, sans être réécrits pour ce seul nom. <button type="button" class="terme" popovertarget="w-1">ouvrir</button></p><div id="w-1" popover class="fenetre"><div class="barre"><span>1. Définition</span><button type="button" popovertarget="w-1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Ce chapitre développe le tableau Anorexie de la dépression. Le cours du motif en donne le cadre commun.</p>
+<p>La dénutrition du consensus <abbr title="Global Leadership Initiative on Malnutrition">GLIM</abbr> (consensus de dénutrition de 2019) n'est pas un simple poids bas. <sup class="s">1</sup></p>
+<p>Il faut au moins un critère phénotypique et un critère étiologique. <sup class="s">1</sup></p>
+<p>Le phénotype regarde la perte de poids, l'indice et la masse musculaire. <sup class="s">1</sup></p>
+<p>L'étiologie regarde l'apport, l'assimilation, ou le fardeau inflammatoire. <sup class="s">1</sup></p>
+<p>La sarcopénie du <abbr title="European Working Group on Sarcopenia in Older People, révision 2">EWGSOP2</abbr> (groupe européen sarcopénie, révision de 2019) est une maladie du muscle, pas un synonyme de maigreur. <sup class="s">2</sup></p>
+<p>Elle associe une force basse, puis une masse basse, puis une performance basse si elle est sévère. <sup class="s">2</sup></p>
+<p>La revue suisse de 2021 sépare sarcopénie, dénutrition, fragilité et cachexie. <sup class="s">4</sup></p>
+<p>Dans la dénutrition, la masse grasse et la masse maigre peuvent baisser ensemble. <sup class="s">4</sup></p>
+<p>La cachexie vient d'une maladie chronique inflammatoire et emporte souvent une sarcopénie. <sup class="s">4</sup></p>
+<p>L'inverse n'est pas constant : une sarcopénie peut exister sans cachexie. <sup class="s">4</sup></p>
+<p>La fragilité ajoute une perte d'endurance et d'autres fonctions, dont le muscle n'est qu'une part. <sup class="s">4</sup></p>
+<p>Phénotype diagnostique lu en 2019. <sup class="s">1</sup></p>
+<div class="tw"><table>
+<tr><th>Repère</th><th>Lecture retenue</th></tr>
+<tr><td>Perte de poids</td><td>Plus de 5 pour cent en six mois, ou plus de 10 pour cent au-delà</td></tr>
+<tr><td>Indice avant 70 ans</td><td>Inférieur à 20 kilogrammes par mètre carré</td></tr>
+<tr><td>Indice après 70 ans</td><td>Inférieur à 22 dans le tableau diagnostique, formulation supérieur à 70 ans</td></tr>
+<tr><td>Masse musculaire</td><td>Basse selon une méthode validée, ou à défaut un périmètre</td></tr>
+<tr><td>Apport</td><td>Au plus la moitié des besoins pendant plus d'une semaine</td></tr>
+<tr><td>Autre apport</td><td>Toute baisse pendant plus de deux semaines</td></tr>
+<tr><td>Assimilation</td><td>Maladie digestive chronique qui gêne l'absorption</td></tr>
+<tr><td>Inflammation</td><td>Maladie aiguë grave ou maladie chronique inflammatoire</td></tr>
+</table></div>
+<p>Gravité phénotypique, stades lus en 2019. <sup class="s">1</sup></p>
+<div class="tw"><table>
+<tr><th>Repère</th><th>Lecture retenue</th></tr>
+<tr><td>Stade modéré, poids</td><td>5 à 10 pour cent en six mois, ou 10 à 20 pour cent au-delà</td></tr>
+<tr><td>Stade sévère, poids</td><td>Plus de 10 pour cent en six mois, ou plus de 20 pour cent au-delà</td></tr>
+<tr><td>Stade modéré, indice</td><td>Moins de 20 avant 70 ans, ou moins de 22 à partir de 70 ans</td></tr>
+<tr><td>Stade sévère, indice</td><td>Moins de 18,5 avant 70 ans, ou moins de 20 à partir de 70 ans</td></tr>
+<tr><td>Muscle modéré</td><td>Déficit léger à modéré selon la méthode validée</td></tr>
+<tr><td>Muscle sévère</td><td>Déficit sévère selon la méthode validée</td></tr>
+<tr><td>Rôle de l'étiologie</td><td>Elle guide le traitement, elle ne grade pas la sévérité</td></tr>
+</table></div>
+<p>Quatre classes étiologiques sont nommées dans le même rapport de 2019. <sup class="s">1</sup></p>
+<p>Maladie chronique avec inflammation. <sup class="s">1</sup></p>
+<p>Maladie chronique avec inflammation minime ou non perçue. <sup class="s">1</sup></p>
+<p>Maladie aiguë ou blessure avec inflammation sévère. <sup class="s">1</sup></p>
+<p>Jeûne, y compris la faim liée à un manque social ou d'environnement. <sup class="s">1</sup></p>
+<p>La cachexie entre dans la classe inflammatoire chronique, sans effacer son nom propre. <sup class="s">1</sup></p>
+<p>Le tableau diagnostique de 2019 écrit un indice inférieur à 22 seulement si l'âge est supérieur à 70 ans. <sup class="s">1</sup></p>
+<p>Le tableau de gravité du même rapport écrit ce repère à partir de 70 ans, signe supérieur ou égal. <sup class="s">1</sup></p>
+<p>À 70 ans pile, le tableau diagnostique ne formule donc pas la borne, et le cours ne l'invente pas. <sup class="s">1</sup></p>
+<p>Pour l'Asie, le même tableau diagnostique écrit un indice inférieur à 18,5 avant 70 ans, ou inférieur à 20 au-delà de 70 ans. <sup class="s">1</sup></p>
+<p>Ce repère asiatique n'est pas le repère utilisé pour une personne suivie en Suisse. <sup class="s">1</sup></p>
+<p>Le <abbr title="European Working Group on Sarcopenia in Older People, révision 2">EWGSOP2</abbr> place la force avant la masse, parce que la force prédit mieux le devenir. <sup class="s">2</sup></p>
+<p>Sarcopénie probable : force basse seule. <sup class="s">2</sup></p>
+<p>Sarcopénie confirmée : force basse et quantité ou qualité musculaire basse. <sup class="s">2</sup></p>
+<p>Sarcopénie sévère : le tableau confirmé plus une performance physique basse. <sup class="s">2</sup></p>
+<p>Le chemin clinique se lit trouver, mesurer, confirmer, grader. <sup class="s">2</sup></p>
+<p>La dépression coupe les repas. Elle entre dans les causes d'apport réduit du rapport de 2019. <sup class="s">1</sup></p></div></div></section><section class="ilot v"><h2 id="p2">2. Épidémiologie</h2><p>Chez qui vit seul, la dénutrition lue en 2022 reste en général sous 10 pour cent. Elle monte jusqu'à deux tiers des personnes âgées hospitalisées. La sarcopénie suisse estimée en 2021 n'est pas ce chiffre. On ne moyenne pas des populations différentes. <button type="button" class="terme" popovertarget="w-2">ouvrir</button></p><div id="w-2" popover class="fenetre"><div class="barre"><span>2. Épidémiologie</span><button type="button" popovertarget="w-2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La recommandation <abbr title="European Society for Clinical Nutrition and Metabolism">ESPEN</abbr> (société européenne de nutrition clinique) de 2022 vise en général les personnes de 65 ans ou plus. <sup class="s">3</sup></p>
+<p>La prévalence de la dénutrition y est en général inférieure à 10 pour cent chez qui vit seul. <sup class="s">3</sup></p>
+<p>Elle monte jusqu'à deux tiers des personnes âgées hospitalisées, dans la même synthèse. <sup class="s">3</sup></p>
+<p>Ces deux chiffres ne décrivent pas la sarcopénie. <sup class="s">3</sup></p>
+<p>Mains Libres, texte de 2020, situe la sarcopénie entre 6 et 22 pour cent après 65 ans. <sup class="s">5</sup></p>
+<p>La revue suisse de 2021 donne 9,9 à 40,4 pour cent dans des populations à risque, selon la définition. <sup class="s">4</sup></p>
+<p>En Suisse, la même revue estime 26,3 pour cent des femmes et 28 pour cent des hommes. <sup class="s">4</sup></p>
+<p>Cette estimation suisse repose sur la force, dans un groupe d'âge moyen de 84 ans. <sup class="s">4</sup></p>
+<p>On ne moyenne pas ces fourchettes : les populations et les définitions diffèrent. <sup class="s">4</sup></p>
+<p>Aucune des sources lues ne donne la part suisse de chacun des dix tableaux du cours. <sup class="s">4</sup></p>
+<p>Le dépistage concerne aussi les personnes en surpoids ou obèses. <sup class="s">3</sup></p>
+<p>Une obésité n'écarte ni la dénutrition ni la sarcopénie. <sup class="s">4</sup></p></div></div></section><section class="ilot c"><h2 id="p3">3. Physiopathologie</h2><p>L'âge baisse la dépense de repos parce que la masse maigre baisse, texte de 2022. L'inflammation coupe l'appétit et accélère la fonte. Une inflammation passagère et légère ne remplit pas le critère étiologique de 2019. <button type="button" class="terme" popovertarget="w-3">ouvrir</button></p><div id="w-3" popover class="fenetre"><div class="barre"><span>3. Physiopathologie</span><button type="button" popovertarget="w-3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Avec l'âge, la dépense de repos baisse surtout parce que la masse maigre baisse. <sup class="s">3</sup></p>
+<p>L'anorexie liée à l'âge réduit l'apport avant même une maladie aiguë. <sup class="s">3</sup></p>
+<p>L'inflammation coupe l'appétit et augmente la dépense et la fonte musculaire. <sup class="s">1</sup></p>
+<p>La synthèse des protéines musculaires ne suit plus l'apport si l'énergie manque. <sup class="s">3</sup></p>
+<p>Le muscle perd aussi de la qualité, pas seulement du volume. <sup class="s">2</sup></p>
+<p>La force baisse peut précéder la baisse de masse visible. <sup class="s">2</sup></p>
+<p>Une inflammation passagère et légère ne suffit pas au critère étiologique de 2019. <sup class="s">1</sup></p>
+<p>L'infection grave, la brûlure, le trauma et le traumatisme crânien portent une inflammation aiguë forte. <sup class="s">1</sup></p>
+<p>Cancer, bronchopneumopathie, insuffisance cardiaque et maladie rénale portent une inflammation chronique. <sup class="s">1</sup></p>
+<p>La dysphagie, les nausées, la diarrhée et la douleur abdominale gênent l'apport ou l'assimilation. <sup class="s">1</sup></p>
+<p>La revue de 2021 rappelle le rôle de l'immobilité et de la maladie chronique sur le muscle. <sup class="s">4</sup></p></div></div></section><section class="ilot v"><h2 id="p4">4. Démarche diagnostique</h2><p>On dépiste avec un outil valide, puis on confirme. À l'hôpital, un total d'au moins 3 sur l'outil de 2003 ouvre un plan, d'après l'annexe de 2019. Chez la personne âgée, le formulaire court de 2021 classe 0 à 7, 8 à 11 et 12 à 14. Le danger du jour passe avant le score. <button type="button" class="terme" popovertarget="w-4">ouvrir</button></p><div id="w-4" popover class="fenetre"><div class="barre"><span>4. Démarche diagnostique</span><button type="button" popovertarget="w-4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le premier temps est un dépistage valide, pas un diagnostic. <sup class="s">1</sup></p>
+<p>À l'hôpital, l'outil de 2003, reproduit dans l'annexe du rapport de 2019, commence par quatre questions. <sup class="s">1</sup></p>
+<p>Indice inférieur à 20,5, perte de poids en trois mois, apport réduit dans la semaine, maladie sévère. <sup class="s">1</sup></p>
+<p>Une seule réponse oui ouvre le tableau complet. <sup class="s">1</sup></p>
+<p>Le total additionne l'état nutritionnel, la gravité de la maladie, et un point à partir de 70 ans. <sup class="s">1</sup></p>
+<p>Un total d'au moins 3 déclenche un plan nutritionnel. <sup class="s">1</sup></p>
+<p>Un total inférieur à 3 conduit à répéter le dépistage chaque semaine. <sup class="s">1</sup></p>
+<p>Une cirrhose en soins intensifs prend le grade 3 de maladie, pas le grade 1. <sup class="s">1</sup></p>
+<p>État nutritionnel du tableau de 2003. <sup class="s">1</sup></p>
+<div class="tw"><table>
+<tr><th>Repère</th><th>Lecture retenue</th></tr>
+<tr><td>Grade 0</td><td>État nutritionnel habituel</td></tr>
+<tr><td>Grade 1</td><td>Perte de plus de 5 pour cent en trois mois, ou apport de 50 à 75 pour cent</td></tr>
+<tr><td>Grade 2</td><td>Perte de plus de 5 pour cent en deux mois, ou indice 18,5 à 20,5 avec état général altéré</td></tr>
+<tr><td>Grade 2, apport</td><td>Apport de 25 à 60 pour cent de l'habituel dans la semaine précédente</td></tr>
+<tr><td>Grade 3</td><td>Perte de plus de 5 pour cent en un mois, ou plus de 15 pour cent en trois mois</td></tr>
+<tr><td>Grade 3, indice</td><td>Indice inférieur à 18,5 avec état général altéré</td></tr>
+<tr><td>Grade 3, apport</td><td>Apport de 0 à 25 pour cent dans la semaine précédente</td></tr>
+</table></div>
+<p>Gravité de maladie du tableau de 2003, lue dans l'annexe de 2019. <sup class="s">1</sup></p>
+<div class="tw"><table>
+<tr><th>Repère</th><th>Lecture retenue</th></tr>
+<tr><td>Grade 1</td><td>Fracture de hanche, complication d'une maladie chronique, dialyse, diabète, cancer</td></tr>
+<tr><td>Grade 2</td><td>Chirurgie abdominale majeure, accident vasculaire, pneumonie sévère, hémopathie</td></tr>
+<tr><td>Grade 3</td><td>Traumatisme crânien, greffe de moelle, soins intensifs avec gravité supérieure à 10</td></tr>
+</table></div>
+<p>Chez la personne âgée, le formulaire <abbr title="Mini Nutritional Assessment">MNA</abbr> (formulaire nutritionnel de la personne âgée) court est le dépistage le plus cité en 2022. <sup class="s">3</sup></p>
+<p>Le guide d'octobre 2021 classe 12 à 14 comme normal, 8 à 11 comme risque, 0 à 7 comme dénutrition. <sup class="s">7</sup></p>
+<p>La validation révisée donne les mêmes trois classes, lues sur la page de Kaiser et collaborateurs. <sup class="s">8</sup></p>
+<p>Pour la version avec indice, le seuil haut de 11 a une sensibilité de 89,3 pour cent et une spécificité de 81,8 pour cent, article de 2009. <sup class="s">8</sup></p>
+<p>Le seuil bas de 8 y a une sensibilité de 85,2 pour cent et une spécificité de 94,3 pour cent. <sup class="s">8</sup></p>
+<p>Avec le mollet à la place de l'indice, les chiffres de 2009 deviennent 90,2 et 76,2 pour cent au seuil de 11. <sup class="s">8</sup></p>
+<p>Au seuil de 8, cette version au mollet a une sensibilité de 88,3 pour cent et une spécificité de 87,1 pour cent. <sup class="s">8</sup></p>
+<p>L'article de juin 2001 classe normal à partir de 11, avec une sensibilité de 97,9 pour cent contre le formulaire long. <sup class="s">9</sup></p>
+<p>La spécificité lue pour cet ancien seuil est de 100 pour cent, et la justesse diagnostique est de 98,7 pour cent. <sup class="s">9</sup></p>
+<p>On ne mélange pas la sensibilité de 2001 et celle de la validation à trois classes. <sup class="s">8</sup></p>
+<p>Pour le muscle, le <abbr title="Strength, assistance, rise, climb, falls">SARC</abbr> (cinq questions de dépistage musculaire)-F cherche les cas, il ne confirme pas. <sup class="s">2</sup></p>
+<p>Mains Libres fixe le seuil de détection à 4 points sur 10. <sup class="s">5</sup></p>
+<p>La revue de 2021 retient une spécificité supérieure à 81,4 pour cent et une valeur prédictive négative supérieure à 92,3 pour cent. <sup class="s">4</sup></p>
+<p>La valeur prédictive positive y est inférieure à 50 pour cent : un total haut n'est pas un diagnostic. <sup class="s">4</sup></p>
+<p>Le texte de 2020 donne une valeur prédictive positive de 29 pour cent et une valeur prédictive négative de 93 pour cent. <sup class="s">5</sup></p>
+<p>Le même texte de 2020 dit qu'une version francophone validée n'existe pas. <sup class="s">5</sup></p>
+<p>La revue de 2021 dit au contraire que le formulaire est validé en français. <sup class="s">4</sup></p>
+<p>Les deux phrases restent, parce que les sources ne disent pas la même chose. <sup class="s">4</sup></p>
+<p>Henri a 83 ans et consulte en au cabinet.</p>
+<p>Henri : le poids est de 74 kilogrammes pour 1,78 mètres.</p>
+<p>Henri : l'indice vaut 23,4 kilogrammes par mètre carré.</p>
+<p>Henri : la perte déclarée est de 9 pour cent sur 4 mois. <sup class="s">1</sup></p>
+<p>Henri : phénotype de <abbr title="Global Leadership Initiative on Malnutrition">GLIM</abbr> : la perte dépasse 5 pour cent en six mois. <sup class="s">1</sup></p>
+<p>Henri : étiologie présente : l'apport est réduit. <sup class="s">1</sup></p>
+<p>Henri : le diagnostic de dénutrition de 2019 est donc tenu pour ce récit. <sup class="s">1</sup></p>
+<p>Henri : la force à 29 kilogrammes n'est pas sous le seuil de 27 kilogrammes. <sup class="s">2</sup></p>
+<p>Henri : cinq levers en 14 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p>
+<p>Henri : quatre mètres en 5 secondes donnent 0,80 mètre par seconde, au seuil sévère de 0,8. <sup class="s">2</sup></p>
+<p>Henri : la force et le lever n'ouvrent pas la sarcopénie sur ces seuls chiffres. <sup class="s">2</sup></p>
+<p>Henri : le questionnaire à 3 points reste sous 4, ce qui rend le tableau musculaire moins probable. <sup class="s">5</sup></p>
+<p>Henri : le formulaire court à 9 points est dans la classe à risque de 8 à 11. <sup class="s">7</sup></p>
+<p>Henri : le cadre de haut risque de 2006 n'est pas réuni sur les chiffres donnés. <sup class="s">6</sup></p>
+<p>Henri : le repère de 30 kilocalories par kilogramme peut alors servir de point de départ ajustable, texte de 2022. <sup class="s">3</sup></p>
+<p>Henri : la conduite du jour pour Henri : traiter la dépression et faire reprendre les repas.</p>
+<p>Henri : l'idée fausse à corriger : une force normale signifie que l'humeur n'y est pour rien.</p>
+<p>Henri : lecture retenue : anorexie de la dépression avec dénutrition, sans sarcopénie confirmée.</p>
+<p>Henri : il est revu sur le poids, la force et l'apport, sans clore le dossier au premier indice. <sup class="s">3</sup></p>
+<p>Exemple 3 de Anorexie de la dépression : le formulaire court à 0 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 9 de Anorexie de la dépression : le formulaire court à 1 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 15 de Anorexie de la dépression : le formulaire court à 2 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 21 de Anorexie de la dépression : le formulaire court à 3 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 27 de Anorexie de la dépression : le formulaire court à 4 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 33 de Anorexie de la dépression : le formulaire court à 5 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 39 de Anorexie de la dépression : le formulaire court à 6 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 45 de Anorexie de la dépression : le formulaire court à 7 points est dans la classe de 0 à 7. <sup class="s">7</sup></p>
+<p>Exemple 51 de Anorexie de la dépression : le formulaire court à 8 points est dans la classe de 8 à 11. <sup class="s">7</sup></p>
+<p>Exemple 57 de Anorexie de la dépression : le formulaire court à 9 points est dans la classe de 8 à 11. <sup class="s">7</sup></p>
+<p>Exemple 63 de Anorexie de la dépression : le formulaire court à 10 points est dans la classe de 8 à 11. <sup class="s">7</sup></p>
+<p>Exemple 69 de Anorexie de la dépression : le formulaire court à 11 points est dans la classe de 8 à 11. <sup class="s">7</sup></p>
+<p>Exemple 75 de Anorexie de la dépression : le formulaire court à 12 points est dans la classe de 12 à 14. <sup class="s">7</sup></p></div></div></section><section class="ilot c"><h2 id="p5">5. Anamnèse et drapeaux rouges</h2><p>On date la perte de poids et on demande si elle est voulue. On demande l'appétit, la déglutition, les courses, les chutes et l'humeur. L'alcool, l'insuline, la chimiothérapie, les antiacides et les diurétiques comptent pour le risque de 2006. <button type="button" class="terme" popovertarget="w-5">ouvrir</button></p><div id="w-5" popover class="fenetre"><div class="barre"><span>5. Anamnèse et drapeaux rouges</span><button type="button" popovertarget="w-5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On demande le poids habituel, la date de la perte, et si la perte est voulue. <sup class="s">1</sup></p>
+<p>Une perte voulue chez une personne obèse peut quand même cacher une dénutrition. <sup class="s">7</sup></p>
+<p>Le guide de 2021 demande de garder la question de poids même en surpoids, sinon l'outil perd en sensibilité. <sup class="s">7</sup></p>
+<p>On demande l'appétit sur trois mois, la mastication, la déglutition et les troubles digestifs. <sup class="s">7</sup></p>
+<p>On demande qui fait les courses, qui cuit, et si les repas sont sautés. <sup class="s">3</sup></p>
+<p>On demande une chute dans l'année, une lenteur, et la peine à quitter une chaise. <sup class="s">4</sup></p>
+<p>On demande l'humeur, une tristesse longue, et un diagnostic de démence. <sup class="s">7</sup></p>
+<p>On demande l'alcool, l'insuline, une chimiothérapie, les antiacides et les diurétiques. <sup class="s">6</sup></p>
+<p>Ces médicaments entrent dans le deuxième volet du risque de réalimentation. <sup class="s">6</sup></p>
+<p>On demande depuis combien de jours l'apport est presque nul. <sup class="s">6</sup></p>
+<p>On demande les dents, la bouche sèche, et les régimes encore imposés. <sup class="s">3</sup></p>
+<p>Un régime sans sel, sans cholestérol ou de diabète peut réduire l'apport chez la personne âgée. <sup class="s">3</sup></p>
+<p>On demande une tristesse longue, une perte d'élan et l'arrêt des courses. <sup class="s">7</sup></p></div></div></section><section class="ilot v"><h2 id="p6">6. Examen physique</h2><p>On pèse, on mesure, on regarde tempes, clavicules, cuisses et mollets. La force est basse sous 27 kilogrammes chez l'homme et sous 16 chez la femme, consensus de 2019. Cinq levers au-delà de 15 secondes et une marche d'au plus 0,8 mètre par seconde complètent la lecture. Le schéma de cuisse est dans la fenêtre. <button type="button" class="terme" popovertarget="w-6">ouvrir</button></p><div id="w-6" popover class="fenetre"><div class="barre"><span>6. Examen physique</span><button type="button" popovertarget="w-6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On pèse sans chaussures et sans manteau lourd, sur une balance contrôlée. <sup class="s">7</sup></p>
+<p>On mesure la taille debout, ou la taille de genou, la demi-envergure ou l'envergure si la station est impossible. <sup class="s">7</sup></p>
+<p>Les œdèmes et l'ascite font monter le poids sans restaurer le muscle. <sup class="s">1</sup></p>
+<p>On regarde les tempes, les clavicules, les cuisses et les mollets. <sup class="s">2</sup></p>
+<p>Une personne obèse peut avoir des loges musculaires pauvres : c'est l'obésité sarcopénique. <sup class="s">4</sup></p>
+<p>La force de poigne du <abbr title="European Working Group on Sarcopenia in Older People, révision 2">EWGSOP2</abbr> est basse sous 27 kilogrammes chez l'homme. <sup class="s">2</sup></p>
+<p>Elle est basse sous 16 kilogrammes chez la femme. <sup class="s">2</sup></p>
+<p>Le lever de chaise est bas si cinq levers dépassent 15 secondes. <sup class="s">2</sup></p>
+<p>Quinze secondes pile ne dépassent pas ce seuil strict. <sup class="s">2</sup></p>
+<p>La marche habituelle sur 4 mètres est sévère à une vitesse inférieure ou égale à 0,8 mètre par seconde. <sup class="s">2</sup></p>
+<p>La revue suisse de 2021 illustre ce repère par plus de 5 secondes pour 4 mètres. <sup class="s">4</sup></p>
+<p>Quatre mètres en exactement 5 secondes valent 0,8 mètre par seconde, donc le seuil européen est atteint. <sup class="s">2</sup></p>
+<p>La batterie courte est basse à un total inférieur ou égal à 8 points sur 12. <sup class="s">2</sup></p>
+<p>Le lever, la marche et le demi-tour sont bas à partir de 20 secondes. <sup class="s">2</sup></p>
+<p>Le test de 400 mètres est bas s'il n'est pas fini ou s'il dure au moins 6 minutes. <sup class="s">2</sup></p>
+<p>La masse appendiculaire est basse sous 20 kilogrammes chez l'homme et sous 15 kilogrammes chez la femme. <sup class="s">2</sup></p>
+<p>Rapportée à la taille au carré, elle est basse sous 7,0 chez l'homme et sous 5,5 chez la femme. <sup class="s">2</sup></p>
+<p>Le tableau comparatif de 2019 attribue à la cachexie 7,26 et 5,45 : ce n'est pas le même seuil. <sup class="s">1</sup></p>
+<p>Le tour de mollet inférieur à 31 centimètres peut dépanner là où aucune mesure de masse n'existe. <sup class="s">2</sup></p>
+<p>Dans la question du formulaire long, guide d'octobre 2021, un mollet inférieur à 31 centimètres cote 0, et 31 ou plus cote 1. <sup class="s">7</sup></p>
+<p>Quand le mollet remplace l'indice dans le formulaire court, la validation de 2009 passe ce poids de un à trois points, pour garder un total de 14. <sup class="s">8</sup></p>
+<p>Si le mollet remplace l'indice dans le formulaire court, on ne complète pas le formulaire long. <sup class="s">7</sup></p>
+<p>Sinon le mollet serait compté deux fois. <sup class="s">7</sup></p>
+<div data-dessinateur="1" id="cuissea"><input class="sr" type="radio" name="cuissea-niv" id="cuissea-n0" checked="checked"/><input class="sr" type="radio" name="cuissea-niv" id="cuissea-n1"/><input class="sr" type="radio" name="cuissea-niv" id="cuissea-n2"/><div class="barre" role="tablist"><label for="cuissea-n0">Cuisse conservée</label><label for="cuissea-n1">Fonte musculaire</label><label for="cuissea-n2">Graisse épaisse</label></div><div class="plan"><div class="niv niv-n0"><div class="cadre cadre-n0"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="cuissea-n0-titre"><title id="cuissea-n0-titre">Cuisse conservée</title><g class="zone" id="cuissea-n0-peau0" tabindex="0" role="button" data-nom="Peau" data-definition="Enveloppe cutanée du schéma de cuisse. Ce n&#x27;est pas une coupe scanographique."><title>Peau. Enveloppe cutanée du schéma de cuisse. Ce n&#x27;est pas une coupe scanographique.</title><path class="vis" d="M80,390C80,224.3 268,90 500,90C732,90 920,224.3 920,390C920,555.7 732,690 500,690C268,690 80,555.7 80,390Z" fill="#f3cfc3" stroke="#c48b7a" stroke-width="1.2"/></g><g class="zone" id="cuissea-n0-gras0" tabindex="0" role="button" data-nom="Graisse" data-definition="Graisse sous-cutanée en jaune. Elle peut être épaisse alors que le muscle fond."><title>Graisse. Graisse sous-cutanée en jaune. Elle peut être épaisse alors que le muscle fond.</title><path class="vis" d="M200,390C200,270.7 334.3,174 500,174C665.7,174 800,270.7 800,390C800,509.3 665.7,606 500,606C334.3,606 200,509.3 200,390Z" fill="#ffe08a" stroke="#c8962e" stroke-width="1.2"/></g><g class="zone" id="cuissea-n0-quad0" tabindex="0" role="button" data-nom="Quadriceps" data-definition="Loge antérieure. Le rayon diminue quand la masse musculaire baisse."><title>Quadriceps. Loge antérieure. Le rayon diminue quand la masse musculaire baisse.</title><path class="vis" d="M270,340C270,280.4 337.2,232 420,232C502.8,232 570,280.4 570,340C570,399.6 502.8,448 420,448C337.2,448 270,399.6 270,340Z" fill="#e07a7a" stroke="#8d2f2f" stroke-width="1.4"/></g><g class="zone" id="cuissea-n0-post0" tabindex="0" role="button" data-nom="Loge postérieure" data-definition="Ischio-jambiers schématiques, du même côté que la fonte."><title>Loge postérieure. Ischio-jambiers schématiques, du même côté que la fonte.</title><path class="vis" d="M450,480C450,429.7 508.2,389 580,389C651.8,389 710,429.7 710,480C710,530.3 651.8,571 580,571C508.2,571 450,530.3 450,480Z" fill="#d35b5b" stroke="#6e2424" stroke-width="1.4"/></g><g class="zone" id="cuissea-n0-os0" tabindex="0" role="button" data-nom="Fémur" data-definition="Repère osseux au centre. L&#x27;os ne mesure pas la sarcopénie."><title>Fémur. Repère osseux au centre. L&#x27;os ne mesure pas la sarcopénie.</title><path class="vis" d="M458,400C458,376.8 476.8,358 500,358C523.2,358 542,376.8 542,400C542,423.2 523.2,442 500,442C476.8,442 458,423.2 458,400Z" fill="#f7f1e4" stroke="#8a8172" stroke-width="1.4"/></g></svg><span class="pastille" style="left:15%;top:18.4%">1</span><span class="pastille" style="left:23%;top:27.6%">2</span><span class="pastille" style="left:39%;top:36.8%">3</span><span class="pastille" style="left:68%;top:68.4%">4</span><span class="pastille" style="left:50%;top:52.6%">5</span><span class="repere" style="left:8%;top:11.8%" title="Droite du patient, à gauche du schéma">D</span></div></div><div class="niv niv-n1"><div class="cadre cadre-n1"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="cuissea-n1-titre"><title id="cuissea-n1-titre">Fonte musculaire</title><g class="zone" id="cuissea-n1-peau1" tabindex="0" role="button" data-nom="Peau" data-definition="Enveloppe cutanée du schéma de cuisse. Ce n&#x27;est pas une coupe scanographique."><title>Peau. Enveloppe cutanée du schéma de cuisse. Ce n&#x27;est pas une coupe scanographique.</title><path class="vis" d="M80,390C80,224.3 268,90 500,90C732,90 920,224.3 920,390C920,555.7 732,690 500,690C268,690 80,555.7 80,390Z" fill="#f3cfc3" stroke="#c48b7a" stroke-width="1.2"/></g><g class="zone" id="cuissea-n1-gras1" tabindex="0" role="button" data-nom="Graisse" data-definition="Graisse sous-cutanée en jaune. Elle peut être épaisse alors que le muscle fond."><title>Graisse. Graisse sous-cutanée en jaune. Elle peut être épaisse alors que le muscle fond.</title><path class="vis" d="M200,390C200,270.7 334.3,174 500,174C665.7,174 800,270.7 800,390C800,509.3 665.7,606 500,606C334.3,606 200,509.3 200,390Z" fill="#ffe08a" stroke="#c8962e" stroke-width="1.2"/></g><g class="zone" id="cuissea-n1-quad1" tabindex="0" role="button" data-nom="Quadriceps" data-definition="Loge antérieure. Le rayon diminue quand la masse musculaire baisse."><title>Quadriceps. Loge antérieure. Le rayon diminue quand la masse musculaire baisse.</title><path class="vis" d="M330,340C330,304.7 370.3,276 420,276C469.7,276 510,304.7 510,340C510,375.3 469.7,404 420,404C370.3,404 330,375.3 330,340Z" fill="#e07a7a" stroke="#8d2f2f" stroke-width="1.4"/></g><g class="zone" id="cuissea-n1-post1" tabindex="0" role="button" data-nom="Loge postérieure" data-definition="Ischio-jambiers schématiques, du même côté que la fonte."><title>Loge postérieure. Ischio-jambiers schématiques, du même côté que la fonte.</title><path class="vis" d="M506,480C506,451.8 539.1,429 580,429C620.9,429 654,451.8 654,480C654,508.2 620.9,531 580,531C539.1,531 506,508.2 506,480Z" fill="#d35b5b" stroke="#6e2424" stroke-width="1.4"/></g><g class="zone" id="cuissea-n1-os1" tabindex="0" role="button" data-nom="Fémur" data-definition="Repère osseux au centre. L&#x27;os ne mesure pas la sarcopénie."><title>Fémur. Repère osseux au centre. L&#x27;os ne mesure pas la sarcopénie.</title><path class="vis" d="M458,400C458,376.8 476.8,358 500,358C523.2,358 542,376.8 542,400C542,423.2 523.2,442 500,442C476.8,442 458,423.2 458,400Z" fill="#f7f1e4" stroke="#8a8172" stroke-width="1.4"/></g></svg><span class="pastille" style="left:15%;top:18.4%">1</span><span class="pastille" style="left:23%;top:27.6%">2</span><span class="pastille" style="left:39%;top:36.8%">3</span><span class="pastille" style="left:68%;top:68.4%">4</span><span class="pastille" style="left:50%;top:52.6%">5</span><span class="repere" style="left:8%;top:11.8%" title="Droite du patient, à gauche du schéma">D</span></div></div><div class="niv niv-n2"><div class="cadre cadre-n2"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="cuissea-n2-titre"><title id="cuissea-n2-titre">Graisse épaisse</title><g class="zone" id="cuissea-n2-peau2" tabindex="0" role="button" data-nom="Peau" data-definition="Enveloppe cutanée du schéma de cuisse. Ce n&#x27;est pas une coupe scanographique."><title>Peau. Enveloppe cutanée du schéma de cuisse. Ce n&#x27;est pas une coupe scanographique.</title><path class="vis" d="M80,390C80,224.3 268,90 500,90C732,90 920,224.3 920,390C920,555.7 732,690 500,690C268,690 80,555.7 80,390Z" fill="#f3cfc3" stroke="#c48b7a" stroke-width="1.2"/></g><g class="zone" id="cuissea-n2-gras2" tabindex="0" role="button" data-nom="Graisse" data-definition="Graisse sous-cutanée en jaune. Elle peut être épaisse alors que le muscle fond."><title>Graisse. Graisse sous-cutanée en jaune. Elle peut être épaisse alors que le muscle fond.</title><path class="vis" d="M110,390C110,235.4 284.6,110 500,110C715.4,110 890,235.4 890,390C890,544.6 715.4,670 500,670C284.6,670 110,544.6 110,390Z" fill="#ffe08a" stroke="#c8962e" stroke-width="1.2"/></g><g class="zone" id="cuissea-n2-quad2" tabindex="0" role="button" data-nom="Quadriceps" data-definition="Loge antérieure. Le rayon diminue quand la masse musculaire baisse."><title>Quadriceps. Loge antérieure. Le rayon diminue quand la masse musculaire baisse.</title><path class="vis" d="M325,340C325,302.4 367.5,272 420,272C472.5,272 515,302.4 515,340C515,377.6 472.5,408 420,408C367.5,408 325,377.6 325,340Z" fill="#e07a7a" stroke="#8d2f2f" stroke-width="1.4"/></g><g class="zone" id="cuissea-n2-post2" tabindex="0" role="button" data-nom="Loge postérieure" data-definition="Ischio-jambiers schématiques, du même côté que la fonte."><title>Loge postérieure. Ischio-jambiers schématiques, du même côté que la fonte.</title><path class="vis" d="M501,480C501,449.6 536.4,425 580,425C623.6,425 659,449.6 659,480C659,510.4 623.6,535 580,535C536.4,535 501,510.4 501,480Z" fill="#d35b5b" stroke="#6e2424" stroke-width="1.4"/></g><g class="zone" id="cuissea-n2-os2" tabindex="0" role="button" data-nom="Fémur" data-definition="Repère osseux au centre. L&#x27;os ne mesure pas la sarcopénie."><title>Fémur. Repère osseux au centre. L&#x27;os ne mesure pas la sarcopénie.</title><path class="vis" d="M458,400C458,376.8 476.8,358 500,358C523.2,358 542,376.8 542,400C542,423.2 523.2,442 500,442C476.8,442 458,423.2 458,400Z" fill="#f7f1e4" stroke="#8a8172" stroke-width="1.4"/></g></svg><span class="pastille" style="left:15%;top:18.4%">1</span><span class="pastille" style="left:23%;top:27.6%">2</span><span class="pastille" style="left:39%;top:36.8%">3</span><span class="pastille" style="left:68%;top:68.4%">4</span><span class="pastille" style="left:50%;top:52.6%">5</span><span class="repere" style="left:8%;top:11.8%" title="Droite du patient, à gauche du schéma">D</span></div></div></div><p class="bulle" hidden="hidden"><strong class="bulle-nom"></strong> <span class="bulle-def" hidden="hidden"></span></p><p class="note note-n0">Schéma. Loge musculaire large et graisse fine.</p><p class="note note-n1">Schéma. Les deux loges rétrécissent, l&#x27;os reste.</p><p class="note note-n2">Schéma. La graisse augmente et le muscle reste petit.</p><ol class="leg leg-n0"><li><span>1</span> Peau</li><li><span>2</span> Graisse</li><li><span>3</span> Quadriceps</li><li><span>4</span> Loge postérieure</li><li><span>5</span> Fémur</li></ol><ol class="leg leg-n1"><li><span>1</span> Peau</li><li><span>2</span> Graisse</li><li><span>3</span> Quadriceps</li><li><span>4</span> Loge postérieure</li><li><span>5</span> Fémur</li></ol><ol class="leg leg-n2"><li><span>1</span> Peau</li><li><span>2</span> Graisse</li><li><span>3</span> Quadriceps</li><li><span>4</span> Loge postérieure</li><li><span>5</span> Fémur</li></ol><details><summary>Où est le muscle ?</summary><div class="reponse"><p>Le muscle est en rouge, la graisse en jaune, l'os au centre. Le niveau change avec les boutons.</p></div></details><p class="sources">Schéma pédagogique. Orientation avec le repère D. Pas un cliché.</p></div><style>@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("POLICE") format("truetype")}[data-dessinateur]{--encre:#142028;--papier:#f4f7f8;--filet:#c5d0d6;position:relative;max-width:920px;margin:0 auto;color:var(--encre);font:16px/1.4 Atkinson Hyperlegible,Verdana,sans-serif}[data-dessinateur] .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0}[data-dessinateur] .barre{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .6rem}[data-dessinateur] .barre label{cursor:pointer;border:2px solid var(--encre);border-radius:999px;padding:.35rem .75rem;background:#fff}[data-dessinateur] .barre label:focus-within,[data-dessinateur] .sr:focus+label{outline:3px solid #ffe14a}[data-dessinateur] .niv,[data-dessinateur] .leg,[data-dessinateur] .note{display:none}#cuissea-n0:checked~.plan .niv-n0,#cuissea-n0:checked~.leg-n0,#cuissea-n0:checked~.note-n0{display:block}#cuissea-n0:checked~.barre label[for="cuissea-n0"]{background:#142028;color:#fff}#cuissea-n0:focus~.barre label[for="cuissea-n0"]{outline:3px solid #ffe14a}#cuissea-n1:checked~.plan .niv-n1,#cuissea-n1:checked~.leg-n1,#cuissea-n1:checked~.note-n1{display:block}#cuissea-n1:checked~.barre label[for="cuissea-n1"]{background:#142028;color:#fff}#cuissea-n1:focus~.barre label[for="cuissea-n1"]{outline:3px solid #ffe14a}#cuissea-n2:checked~.plan .niv-n2,#cuissea-n2:checked~.leg-n2,#cuissea-n2:checked~.note-n2{display:block}#cuissea-n2:checked~.barre label[for="cuissea-n2"]{background:#142028;color:#fff}#cuissea-n2:focus~.barre label[for="cuissea-n2"]{outline:3px solid #ffe14a}[data-dessinateur] .cadre{position:relative}[data-dessinateur] svg{width:100%;height:auto;display:block;background:#e7eef2;border-radius:12px}[data-dessinateur] .cliche{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:fill;opacity:0;pointer-events:none;border-radius:12px}[data-dessinateur] .pastille{position:absolute;transform:translate(-50%,-50%);z-index:2;min-width:1.15rem;height:1.15rem;padding:0 .2rem;border-radius:999px;background:#142028;color:#fff;font-size:12px;font-weight:700;line-height:1.15rem;text-align:center;pointer-events:none;box-shadow:0 0 0 1.5px #fff}[data-dessinateur] .superpose{display:none;align-items:center;gap:.8rem;margin:0 0 .45rem;font-size:.92rem}[data-dessinateur] .repere{position:absolute;transform:translate(-50%,-50%);font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:6px;padding:0 .4rem;line-height:1.3;pointer-events:none}[data-dessinateur] .zone{cursor:pointer;outline:none}[data-dessinateur] .zone:hover .vis,[data-dessinateur] .zone:focus-visible .vis,[data-dessinateur] .zone.actif .vis{stroke:#111;stroke-width:3.5px;stroke-dasharray:6 4;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff)}[data-dessinateur] .bulle{margin:.55rem 0 0;padding:.55rem .7rem;background:#142028;color:#fff;border-radius:8px;overflow-wrap:anywhere}[data-dessinateur] .bulle[hidden]{display:none}[data-dessinateur] .bulle-def{display:block;margin-top:.25rem;color:#ffe9a8}[data-dessinateur] .note{margin:.45rem 0;font-size:.92rem}[data-dessinateur] .leg{margin:.2rem 0 0;padding:0;list-style:none;columns:2;gap:1rem}[data-dessinateur] .leg li{break-inside:avoid;margin:0 0 .2rem}[data-dessinateur] .leg span{display:inline-block;min-width:1.4rem;font-weight:700}[data-dessinateur] details{margin-top:.8rem;border:2px solid var(--encre);border-radius:10px;background:#fff}[data-dessinateur] summary{cursor:pointer;padding:.55rem .7rem;font-weight:700}[data-dessinateur] .reponse{padding:0 .8rem .7rem}[data-dessinateur] .reponse p{margin:.4rem 0}[data-dessinateur] .sources{font-size:.82rem;color:#24343c}@media (max-width:640px){[data-dessinateur] .leg{columns:1}}</style>
+<p>Exemple 0 de Anorexie de la dépression : une femme à 8 kilogrammes de force est sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 1 de Anorexie de la dépression : cinq levers en 12 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 6 de Anorexie de la dépression : une homme à 19 kilogrammes de force est sous le seuil de 27. <sup class="s">2</sup></p>
+<p>Exemple 7 de Anorexie de la dépression : cinq levers en 13 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 12 de Anorexie de la dépression : une femme à 10 kilogrammes de force est sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 13 de Anorexie de la dépression : cinq levers en 14 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 18 de Anorexie de la dépression : une homme à 21 kilogrammes de force est sous le seuil de 27. <sup class="s">2</sup></p>
+<p>Exemple 19 de Anorexie de la dépression : cinq levers en 15 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 24 de Anorexie de la dépression : une femme à 12 kilogrammes de force est sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 25 de Anorexie de la dépression : cinq levers en 16 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 30 de Anorexie de la dépression : une homme à 23 kilogrammes de force est sous le seuil de 27. <sup class="s">2</sup></p>
+<p>Exemple 31 de Anorexie de la dépression : cinq levers en 17 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 36 de Anorexie de la dépression : une femme à 14 kilogrammes de force est sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 37 de Anorexie de la dépression : cinq levers en 18 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 42 de Anorexie de la dépression : une homme à 25 kilogrammes de force est sous le seuil de 27. <sup class="s">2</sup></p>
+<p>Exemple 43 de Anorexie de la dépression : cinq levers en 19 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 48 de Anorexie de la dépression : une femme à 16 kilogrammes de force n'est pas sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 49 de Anorexie de la dépression : cinq levers en 20 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 54 de Anorexie de la dépression : une homme à 27 kilogrammes de force n'est pas sous le seuil de 27. <sup class="s">2</sup></p>
+<p>Exemple 55 de Anorexie de la dépression : cinq levers en 21 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 60 de Anorexie de la dépression : une femme à 18 kilogrammes de force n'est pas sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 61 de Anorexie de la dépression : cinq levers en 22 secondes dépassent le seuil de 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 66 de Anorexie de la dépression : une homme à 29 kilogrammes de force n'est pas sous le seuil de 27. <sup class="s">2</sup></p>
+<p>Exemple 67 de Anorexie de la dépression : cinq levers en 12 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p>
+<p>Exemple 72 de Anorexie de la dépression : une femme à 8 kilogrammes de force est sous le seuil de 16. <sup class="s">2</sup></p>
+<p>Exemple 73 de Anorexie de la dépression : cinq levers en 13 secondes ne dépassent pas 15 secondes. <sup class="s">2</sup></p></div></div></section><section class="ilot c"><h2 id="p7">7. Approche syndromique</h2><p>On écarte d'abord la reprise alimentaire dangereuse et la fausse route. Viennent ensuite le cancer rapide, la maladie inflammatoire, la démence, la dépression, la malabsorption et l'hormone. La carence d'apport et la sarcopénie primaire restent quand ces voies sont négatives. <button type="button" class="terme" popovertarget="w-7">ouvrir</button></p><div id="w-7" popover class="fenetre"><div class="barre"><span>7. Approche syndromique</span><button type="button" popovertarget="w-7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On classe d'abord le danger du jour, puis le mécanisme. <sup class="s">6</sup></p>
+<p>Le syndrome de réalimentation se cherche avant d'augmenter les calories. <sup class="s">6</sup></p>
+<p>La fausse route se cherche avant de pousser l'alimentation orale. <sup class="s">1</sup></p>
+<p>La cachexie cancéreuse se cherche si la perte est rapide et l'inflammation présente. <sup class="s">1</sup></p>
+<p>La maladie chronique inflammatoire explique une fonte malgré un apport qui semble tenu. <sup class="s">1</sup></p>
+<p>La démence et la dépression coupent l'apport sans être, à elles seules, le critère inflammatoire. <sup class="s">1</sup></p>
+<p>La malabsorption se reconnaît à la stéatorrhée, à la diarrhée chronique ou au pancréas. <sup class="s">1</sup></p>
+<p>L'hyperthyroïdie fait fondre le muscle sans être listée parmi les inflammations types de 2019. <sup class="s">1</sup></p>
+<p>La carence d'apport pure n'a pas besoin d'une maladie d'organe. <sup class="s">1</sup></p>
+<p>La sarcopénie primaire reste quand la force et la masse baissent sans ces mécanismes. <sup class="s">2</sup></p>
+<p>Ordre d'exclusion du motif. <sup class="s">1</sup></p>
+<div class="tw"><table>
+<tr><th>Repère</th><th>Lecture retenue</th></tr>
+<tr><td>E1</td><td>Syndrome de réalimentation</td></tr>
+<tr><td>E2</td><td>Dysphagie oropharyngée</td></tr>
+<tr><td>E3</td><td>Cachexie cancéreuse</td></tr>
+<tr><td>E4</td><td>Dénutrition inflammatoire chronique</td></tr>
+<tr><td>E5</td><td>Troubles alimentaires de la démence</td></tr>
+<tr><td>E6</td><td>Anorexie de la dépression</td></tr>
+<tr><td>E7</td><td>Malabsorption du sujet âgé</td></tr>
+<tr><td>E8</td><td>Fonte musculaire endocrinienne</td></tr>
+<tr><td>E9</td><td>Dénutrition par carence d'apport</td></tr>
+<tr><td>E10</td><td>Sarcopénie primaire</td></tr>
+</table></div></div></div></section><section class="ilot v"><h2 id="p8">8. Diagnostic positif</h2><p>Le diagnostic de dénutrition de 2019 est tenu seulement si les deux familles sont présentes. La gravité se lit sur le phénotype, pas sur l'étiologie. Une force basse autorise déjà l'exercice, sans attendre la masse, texte de 2020. <button type="button" class="terme" popovertarget="w-8">ouvrir</button></p><div id="w-8" popover class="fenetre"><div class="barre"><span>8. Diagnostic positif</span><button type="button" popovertarget="w-8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le diagnostic de dénutrition de 2019 est positif seulement si les deux familles de critères sont là. <sup class="s">1</sup></p>
+<p>Une masse basse sans baisse d'apport et sans maladie ne porte pas seule ce diagnostic. <sup class="s">1</sup></p>
+<p>Un indice bas sans mécanisme ne le porte pas non plus. <sup class="s">1</sup></p>
+<p>La gravité se lit sur le phénotype le plus altéré, pas sur l'étiologie. <sup class="s">1</sup></p>
+<p>Le diagnostic de sarcopénie probable autorise déjà l'exercice et la revue de l'apport. <sup class="s">2</sup></p>
+<p>La confirmation par absorptiométrie ou impédance ne doit pas retarder ces deux mesures. <sup class="s">5</sup></p>
+<p>Mains Libres écrit que la mesure de masse confirme quand elle existe, sans être obligatoire pour traiter. <sup class="s">5</sup></p>
+<p>Le formulaire long, sur la page de validation, classe 24 à 30 comme bien nourri. <sup class="s">8</sup></p>
+<p>Il classe 17 à 23,5 comme à risque, et 0 à 16,5 comme dénutri. <sup class="s">8</sup></p>
+<p>Le formulaire court ne remplace pas ce diagnostic étiologique. <sup class="s">1</sup></p>
+<p>Le tableau nommé Sarcopénie primaire est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Dénutrition par carence d'apport est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Dénutrition inflammatoire chronique est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Cachexie cancéreuse est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Dysphagie oropharyngée est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Anorexie de la dépression est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Troubles alimentaires de la démence est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Syndrome de réalimentation est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Malabsorption du sujet âgé est développé à part, avec ses propres seuils.</p>
+<p>Le tableau nommé Fonte musculaire endocrinienne est développé à part, avec ses propres seuils.</p>
+<p>Elle n'est pas, à elle seule, le critère inflammatoire chronique. <sup class="s">1</sup></p>
+<p>Exemple 2 de Anorexie de la dépression : à 65 ans, l'indice 18,0 est un phénotype sévère. <sup class="s">1</sup></p>
+<p>Exemple 4 de Anorexie de la dépression : une perte de 4 pour cent en 2 mois ne dépasse pas 5 pour cent sur six mois. <sup class="s">1</sup></p>
+<p>Exemple 8 de Anorexie de la dépression : à 66 ans, l'indice 21,0 n'est pas un phénotype bas. <sup class="s">1</sup></p>
+<p>Exemple 10 de Anorexie de la dépression : une perte de 8 pour cent en 5 mois est dans la bande modérée de 5 à 10, rapport de 2019. <sup class="s">1</sup></p>
+<p>Exemple 14 de Anorexie de la dépression : à 67 ans, l'indice 23,0 n'est pas un phénotype bas. <sup class="s">1</sup></p>
+<p>Exemple 16 de Anorexie de la dépression : une perte de 12 pour cent en 8 mois est dans la bande 10 à 20 au-delà de six mois, stade modéré. <sup class="s">1</sup></p>
+<p>Exemple 20 de Anorexie de la dépression : à 68 ans, l'indice 18,0 est un phénotype sévère. <sup class="s">1</sup></p>
+<p>Exemple 22 de Anorexie de la dépression : une perte de 18 pour cent en 2 mois dépasse 10 pour cent sur six mois : stade sévère de 2019. <sup class="s">1</sup></p>
+<p>Exemple 26 de Anorexie de la dépression : à 69 ans, l'indice 21,0 n'est pas un phénotype bas. <sup class="s">1</sup></p>
+<p>Exemple 28 de Anorexie de la dépression : une perte de 4 pour cent en 5 mois ne dépasse pas 5 pour cent sur six mois. <sup class="s">1</sup></p>
+<p>Exemple 32 de Anorexie de la dépression : à 70 ans pile, l'indice 23,0 n'est pas tranché par le tableau diagnostique. <sup class="s">1</sup></p>
+<p>Exemple 34 de Anorexie de la dépression : une perte de 8 pour cent en 8 mois ne dépasse pas 10 pour cent au-delà de six mois. <sup class="s">1</sup></p>
+<p>Exemple 38 de Anorexie de la dépression : à 71 ans, l'indice 18,0 est un phénotype sévère. <sup class="s">1</sup></p>
+<p>Exemple 40 de Anorexie de la dépression : une perte de 12 pour cent en 2 mois dépasse 10 pour cent sur six mois : stade sévère de 2019. <sup class="s">1</sup></p>
+<p>Exemple 44 de Anorexie de la dépression : à 72 ans, l'indice 21,0 est un phénotype modéré. <sup class="s">1</sup></p>
+<p>Exemple 46 de Anorexie de la dépression : une perte de 18 pour cent en 5 mois dépasse 10 pour cent sur six mois : stade sévère de 2019. <sup class="s">1</sup></p>
+<p>Exemple 50 de Anorexie de la dépression : à 73 ans, l'indice 23,0 n'est pas un phénotype bas. <sup class="s">1</sup></p>
+<p>Exemple 52 de Anorexie de la dépression : une perte de 4 pour cent en 8 mois ne dépasse pas 10 pour cent au-delà de six mois. <sup class="s">1</sup></p>
+<p>Exemple 56 de Anorexie de la dépression : à 74 ans, l'indice 18,0 est un phénotype sévère. <sup class="s">1</sup></p>
+<p>Exemple 58 de Anorexie de la dépression : une perte de 8 pour cent en 2 mois est dans la bande modérée de 5 à 10, rapport de 2019. <sup class="s">1</sup></p>
+<p>Exemple 62 de Anorexie de la dépression : à 75 ans, l'indice 21,0 est un phénotype modéré. <sup class="s">1</sup></p>
+<p>Exemple 64 de Anorexie de la dépression : une perte de 12 pour cent en 5 mois dépasse 10 pour cent sur six mois : stade sévère de 2019. <sup class="s">1</sup></p>
+<p>Exemple 68 de Anorexie de la dépression : à 76 ans, l'indice 23,0 n'est pas un phénotype bas. <sup class="s">1</sup></p>
+<p>Exemple 70 de Anorexie de la dépression : une perte de 18 pour cent en 8 mois est dans la bande 10 à 20 au-delà de six mois, stade modéré. <sup class="s">1</sup></p>
+<p>Exemple 74 de Anorexie de la dépression : à 77 ans, l'indice 18,0 est un phénotype sévère. <sup class="s">1</sup></p>
+<p>Exemple 76 de Anorexie de la dépression : une perte de 4 pour cent en 2 mois ne dépasse pas 5 pour cent sur six mois. <sup class="s">1</sup></p></div></div></section><section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2><p>L'albumine n'est pas un critère de 2019. Avant une reprise à risque, on lit potassium, phosphate et magnésium, ligne de 2006. La thyrotropine se discute si la fonte semble endocrine. La vitamine D se lit sur l'autorisation 33481, pas pour poser la sarcopénie. <button type="button" class="terme" popovertarget="w-9">ouvrir</button></p><div id="w-9" popover class="fenetre"><div class="barre"><span>9. Examens complémentaires</span><button type="button" popovertarget="w-9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>L'albumine n'est pas un critère diagnostique du consensus de 2019. <sup class="s">1</sup></p>
+<p>Elle baisse dans l'inflammation et ne mesure pas à elle seule les réserves. <sup class="s">1</sup></p>
+<p>Avant une reprise alimentaire à risque, on lit le potassium, le phosphate et le magnésium. <sup class="s">6</sup></p>
+<p>La ligne de 2006 ne demande pas de corriger ces valeurs avant de commencer, si l'on supplémente en même temps. <sup class="s">6</sup></p>
+<p>La protéine C réactive aide à voir l'inflammation, elle ne pose pas le diagnostic nutritionnel. <sup class="s">1</sup></p>
+<p>La thyrotropine se demande si la fonte semble endocrine et l'apport tenu. <sup class="s">4</sup></p>
+<p>Une stéatorrhée oriente vers une malabsorption, puis vers le pancréas ou le grêle. <sup class="s">1</sup></p>
+<p>La vitamine D ne se dose pas pour poser la sarcopénie. <sup class="s">2</sup></p>
+<p>Elle se discute si une carence osseuse ou une malabsorption est déjà suspectée. <sup class="s">12</sup></p>
+<p>L'absorptiométrie biphotonique mesure la masse appendiculaire quand le doute musculaire persiste. <sup class="s">2</sup></p>
+<p>Le scanner ou l'imagerie par résonance ne sont pas un bilan de première ligne au cabinet. <sup class="s">4</sup></p></div></div></section><section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2><p>L'algorithme commence par le haut risque de réalimentation, puis la fausse route, puis la perte rapide. Le schéma interactif de la fenêtre suit cet ordre. On ne saute pas une étape parce que l'indice paraît simple. <button type="button" class="terme" popovertarget="w-10">ouvrir</button></p><div id="w-10" popover class="fenetre"><div class="barre"><span>10. Arbre décisionnel</span><button type="button" popovertarget="w-10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On écarte d'abord la réalimentation dangereuse, puis la fausse route, puis le cancer rapide. <sup class="s">6</sup></p>
+<p>Ensuite viennent la maladie inflammatoire, la démence, la dépression, la malabsorption et l'endocrine. <sup class="s">1</sup></p>
+<p>La carence d'apport et la sarcopénie primaire restent quand ces voies sont négatives. <sup class="s">2</sup></p>
+<details class="schema"><summary>Schéma interactif</summary><figure><style>#ori1970:checked ~ .plan .n0{display:block}#ori1970:checked ~ .bn label[for='ori1970']{background:#d7eef8;border-color:#176fa0}#ori1971:checked ~ .plan .n1{display:block}#ori1971:checked ~ .bn label[for='ori1971']{background:#d7eef8;border-color:#176fa0}#ori1972:checked ~ .plan .n2{display:block}#ori1972:checked ~ .bn label[for='ori1972']{background:#d7eef8;border-color:#176fa0}.plan .niv{display:none}</style><div class="sch" id="ori197"><input class="sr" type="radio" name="ori197" id="ori1970" checked><input class="sr" type="radio" name="ori197" id="ori1971"><input class="sr" type="radio" name="ori197" id="ori1972"><div class="bn"><label for="ori1970">1. Danger</label><label for="ori1971">2. Mécanisme</label><label for="ori1972">3. Suite</label></div><div class="plan"><svg class="niv n0" viewBox="0 0 640 340" role="img" aria-label="Avant d'augmenter l'apport"><text x="320" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="#14303b">Avant d'augmenter l'apport. </text><rect x="40" y="78" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="102" text-anchor="middle" font-size="15" fill="#14303b">Réalimentation : indice, jeûne, électrolytes. </text><rect x="40" y="126" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="150" text-anchor="middle" font-size="15" fill="#14303b">Fausse route : toux, voix, repas. </text><rect x="40" y="174" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="198" text-anchor="middle" font-size="15" fill="#14303b">Perte rapide : chercher un cancer. </text></svg><svg class="niv n1" viewBox="0 0 640 340" role="img" aria-label="Deux familles de critères"><text x="320" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="#14303b">Deux familles de critères. </text><rect x="40" y="78" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="102" text-anchor="middle" font-size="15" fill="#14303b">Phénotype : poids, indice, muscle. </text><rect x="40" y="126" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="150" text-anchor="middle" font-size="15" fill="#14303b">Étiologie : apport ou inflammation. </text><rect x="40" y="174" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="198" text-anchor="middle" font-size="15" fill="#14303b">Force basse : sarcopénie probable. </text></svg><svg class="niv n2" viewBox="0 0 640 340" role="img" aria-label="Traiter sans attendre la masse"><text x="320" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="#14303b">Traiter sans attendre la masse. </text><rect x="40" y="78" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="102" text-anchor="middle" font-size="15" fill="#14303b">Exercice contre résistance. </text><rect x="40" y="126" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="150" text-anchor="middle" font-size="15" fill="#14303b">Énergie et protéines ajustées. </text><rect x="40" y="174" width="560" height="36" rx="8" fill="#e7f4fb" stroke="#176fa0"/><text x="320" y="198" text-anchor="middle" font-size="15" fill="#14303b">Revoir à un mois le poids et la force. </text></svg></div></div><figcaption>Schéma d'orientation, pas une radiographie. Le bouton change le niveau.</figcaption></figure></details></div></div></section><section class="ilot c"><h2 id="p11">11. Prise en charge</h2><p>Le repère d'énergie de 2022 est de 30 kilocalories par kilogramme, ajusté, et jamais au premier jour d'un haut risque. Le départ du haut risque de 2006 est d'au plus 10 kilocalories par kilogramme. La protéine recommandée est d'au moins un gramme par kilogramme. La thiamine suit l'autorisation 10989. <button type="button" class="terme" popovertarget="w-11">ouvrir</button></p><div id="w-11" popover class="fenetre"><div class="barre"><span>11. Prise en charge</span><button type="button" popovertarget="w-11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le repère d'énergie de <abbr title="European Society for Clinical Nutrition and Metabolism">ESPEN</abbr> en 2022 est de 30 kilocalories par kilogramme et par jour. <sup class="s">3</sup></p>
+<p>Ce repère s'ajuste à l'état nutritionnel, à l'activité, à la maladie et à la tolérance. <sup class="s">3</sup></p>
+<p>Il ne s'applique pas tel quel au premier jour d'une personne à haut risque de réalimentation. <sup class="s">6</sup></p>
+<p>Le haut risque de 2006 tient en un critère majeur ou en deux critères mineurs. <sup class="s">6</sup></p>
+<p>Haut risque de réalimentation, texte de 2006 mis à jour en 2017. <sup class="s">6</sup></p>
+<div class="tw"><table>
+<tr><th>Repère</th><th>Lecture retenue</th></tr>
+<tr><td>Un seul suffit, indice</td><td>Indice inférieur à 16</td></tr>
+<tr><td>Un seul suffit, poids</td><td>Perte non voulue de plus de 15 pour cent en trois à six mois</td></tr>
+<tr><td>Un seul suffit, jeûne</td><td>Apport presque nul depuis plus de dix jours</td></tr>
+<tr><td>Un seul suffit, ions</td><td>Potassium, phosphate ou magnésium déjà bas</td></tr>
+<tr><td>Deux requis, indice</td><td>Indice inférieur à 18,5</td></tr>
+<tr><td>Deux requis, poids</td><td>Perte de plus de 10 pour cent en trois à six mois</td></tr>
+<tr><td>Deux requis, jeûne</td><td>Apport presque nul depuis plus de cinq jours</td></tr>
+<tr><td>Deux requis, contexte</td><td>Alcool, insuline, chimiothérapie, antiacides ou diurétiques</td></tr>
+<tr><td>Départ usuel du haut risque</td><td>Au plus 10 kilocalories par kilogramme et par jour</td></tr>
+<tr><td>Cas extrême</td><td>5 kilocalories si indice inférieur à 14, ou jeûne négligeable au-delà de quinze jours</td></tr>
+<tr><td>Montée</td><td>Vers le besoin complet en quatre à sept jours</td></tr>
+</table></div>
+<p>Dans le cas extrême, le rythme cardiaque se surveille en continu. <sup class="s">6</sup></p>
+<p>La thiamine orale de l'autorisation 10989, lue dans l'<abbr title="information professionnelle suisse">AIPS</abbr> (information professionnelle suisse), va de 200 à 300 mg par jour si les symptômes d'hypovitaminose sont graves. <sup class="s">11</sup></p>
+<p>La même information prévoit 100 mg tous les deux jours pour des symptômes légers, et 100 mg par jour pour des symptômes modérés. <sup class="s">11</sup></p>
+<p>Par voie parentérale, les doses quotidiennes peuvent atteindre 200 mg, très lentement si la voie est intraveineuse. <sup class="s">11</sup></p>
+<p>La ligne de 2006 propose la même fourchette orale de 200 à 300 mg juste avant la reprise et pendant les dix premiers jours. <sup class="s">6</sup></p>
+<p>Cette prophylaxie n'est pas la phrase d'indication de l'information professionnelle, qui vise l'hypovitaminose. <sup class="s">11</sup></p>
+<p>Les comprimés à 100 mg contiennent lactose et saccharose : intolérance au galactose ou au fructose, déficit en lactase, malabsorption du glucose et du galactose, déficit en sucrase-isomaltase. <sup class="s">11</sup></p>
+<p>L'usage chez l'enfant et l'adolescent n'a pas été étudié de façon systématique. <sup class="s">11</sup></p>
+<p>Pendant la grossesse et l'allaitement, le médicament ne s'utilise qu'en nécessité absolue. <sup class="s">11</sup></p>
+<p>La recommandation de 2022 est d'au moins un gramme de protéine par kilogramme et par jour, puis un ajustement. <sup class="s">3</sup></p>
+<p>Le commentaire cite une proposition de 1,0 à 1,2 gramme chez la personne âgée en bonne santé. <sup class="s">3</sup></p>
+<p>Il cite 1,2 à 1,5 gramme en maladie aiguë ou chronique, sans en faire la phrase graduée. <sup class="s">3</sup></p>
+<p>Il cite jusqu'à 2,0 grammes par kilogramme en maladie sévère, blessure ou dénutrition. <sup class="s">3</sup></p>
+<p>Ces grammes supposent que l'énergie suit, sinon les protéines sont brûlées. <sup class="s">3</sup></p>
+<p>L'exercice contre résistance est le traitement musculaire le mieux appuyé dans les textes de 2020 et de 2021. <sup class="s">5</sup></p>
+<p>La revue de 2021 écrit que des médicaments sont à l'étude, sans dose à recopier. <sup class="s">4</sup></p>
+<p>Si une carence en vitamine D est avérée, on ouvre l'<abbr title="information professionnelle suisse">AIPS</abbr> de l'autorisation 33481, pas un schéma de sarcopénie. <sup class="s">12</sup></p>
+<p>Chez l'adulte d'au moins 60 ans, la prophylaxie lue est de 0,2 ml par jour, soit 800 unités internationales. <sup class="s">12</sup></p>
+<p>Un millilitre de cette solution contient 4000 unités internationales, et 0,1 ml correspond à 400 unités internationales. <sup class="s">12</sup></p>
+<p>En prophylaxie chez la femme enceinte, 600 unités internationales par jour ne doivent pas être dépassées. <sup class="s">12</sup></p>
+<p>Pour une carence déjà manifeste, la grossesse autorise jusqu'à 2000 unités internationales par jour, avec surveillance du calcium et du phosphate. <sup class="s">12</sup></p>
+<p>Un traitement continu au-dessus de 1000 unités internationales par jour exige d'expliquer les signes de surdosage. <sup class="s">12</sup></p>
+<p>Les boissons recommandées via l'autorité alimentaire européenne, reprises en 2022, sont d'environ 1,6 litre chez la femme et 2,0 litres chez l'homme. <sup class="s">3</sup></p>
+<p>Le total eau, aliments compris, est de 2,0 litres chez la femme et de 2,5 litres chez l'homme. <sup class="s">3</sup></p>
+<p>On lève les restrictions alimentaires qui n'ont plus de bénéfice clair. <sup class="s">3</sup></p>
+<p>La nutrition entérale vient si la bouche ne suffit pas et si le pronostic d'ensemble reste favorable. <sup class="s">3</sup></p>
+<p>La voie parentérale vient si l'entérale est impossible ou insuffisante, avec la même réserve de pronostic. <sup class="s">3</sup></p>
+<p>Traiter l'humeur et faire reprendre les repas vont ensemble. Le texte de 2022 ne donne pas d'essai nutritionnel qui ferme la question dépressive. <sup class="s">3</sup></p>
+<p>Exemple 5 de Anorexie de la dépression : un départ à 5 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 11 de Anorexie de la dépression : un départ à 10 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 17 de Anorexie de la dépression : 30 kilocalories par kilogramme sont un repère de 2022, pas un départ à haut risque. <sup class="s">3</sup></p>
+<p>Exemple 23 de Anorexie de la dépression : un départ à 5 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 29 de Anorexie de la dépression : un départ à 10 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 35 de Anorexie de la dépression : 30 kilocalories par kilogramme sont un repère de 2022, pas un départ à haut risque. <sup class="s">3</sup></p>
+<p>Exemple 41 de Anorexie de la dépression : un départ à 5 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 47 de Anorexie de la dépression : un départ à 10 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 53 de Anorexie de la dépression : 30 kilocalories par kilogramme sont un repère de 2022, pas un départ à haut risque. <sup class="s">3</sup></p>
+<p>Exemple 59 de Anorexie de la dépression : un départ à 5 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 65 de Anorexie de la dépression : un départ à 10 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p>
+<p>Exemple 71 de Anorexie de la dépression : 30 kilocalories par kilogramme sont un repère de 2022, pas un départ à haut risque. <sup class="s">3</sup></p>
+<p>Exemple 77 de Anorexie de la dépression : un départ à 5 kilocalories par kilogramme suit le haut risque de 2006, pas le repère de 30. <sup class="s">6</sup></p></div></div></section><section class="ilot v"><h2 id="p12">12. Prévention</h2><p>On dépiste aussi les personnes en surpoids. En établissement stable, le rythme de 2022 est d'environ trois mois. Au cabinet, il est d'au moins une fois par an. Le dépistage musculaire ciblé suit une chute ou une peine à se lever. <button type="button" class="terme" popovertarget="w-12">ouvrir</button></p><div id="w-12" popover class="fenetre"><div class="barre"><span>12. Prévention</span><button type="button" popovertarget="w-12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Toute personne âgée est dépistée, y compris en surpoids, avec un outil valide. <sup class="s">3</sup></p>
+<p>En établissement stable, le rythme lu en 2022 est d'environ tous les trois mois. <sup class="s">3</sup></p>
+<p>Au cabinet, le rythme lu est d'au moins une fois par an. <sup class="s">3</sup></p>
+<p>Le guide de 2021 ajoute un passage à chaque changement clinique. <sup class="s">7</sup></p>
+<p>On profite d'une chute, d'une hospitalisation ou d'une plainte de faiblesse. <sup class="s">4</sup></p>
+<p>Un dépistage systématique de la seule sarcopénie n'est pas réclamé par le texte de 2020. <sup class="s">5</sup></p>
+<p>Le dépistage ciblé, lui, est recommandé après 65 ans en cas de chute ou de peine à marcher, se lever ou monter. <sup class="s">5</sup></p>
+<p>L'activité contre résistance et un apport suffisant sont la prévention lue, pas un médicament. <sup class="s">4</sup></p>
+<p>Les soignants et les proches reçoivent une information nutritionnelle simple. <sup class="s">3</sup></p></div></div></section><section class="ilot c"><h2 id="p13">13. Points clés</h2><p>Force d'abord. Deux familles de critères pour la dénutrition. Pas de rattrapage calorique aveugle. Un formulaire positif n'est pas un diagnostic. Les seuils 7,0 et 5,5 de 2019 ne sont pas les seuils 7,26 et 5,45 de la ligne cachexie. <button type="button" class="terme" popovertarget="w-13">ouvrir</button></p><div id="w-13" popover class="fenetre"><div class="barre"><span>13. Points clés</span><button type="button" popovertarget="w-13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Deux familles de critères pour la dénutrition, force d'abord pour la sarcopénie. <sup class="s">1</sup></p>
+<p>Un formulaire positif n'est pas un diagnostic. <sup class="s">7</sup></p>
+<p>On traite la force basse avant le résultat de masse. <sup class="s">5</sup></p>
+<p>On ne démarre pas à 30 kilocalories par kilogramme si le haut risque de réalimentation est là. <sup class="s">6</sup></p>
+<p>La thiamine suit l'information 10989, et la ligne de 2006 en précise le moment. <sup class="s">11</sup></p>
+<p>L'albumine ne pose pas le diagnostic. <sup class="s">1</sup></p>
+<p>Les fourchettes de prévalence ne se moyennent pas. <sup class="s">4</sup></p>
+<p>Les seuils 7,0 et 5,5 ne sont pas les seuils 7,26 et 5,45. <sup class="s">2</sup></p></div></div></section><section class="ilot v"><h2 id="p14">14. Pièges et cas</h2><p>Le piège type est l'indice confortable avec une force basse. Une femme de 84 ans peut être sarcopénique sévère sans remplir la dénutrition de 2019. On commence l'exercice et on vérifie l'assiette. Le cas corrigé est dans la fenêtre. <button type="button" class="terme" popovertarget="w-14">ouvrir</button></p><div id="w-14" popover class="fenetre"><div class="barre"><span>14. Pièges et cas</span><button type="button" popovertarget="w-14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Piège : appeler sarcopénie toute perte de poids. <sup class="s">2</sup></p>
+<p>Piège : attendre l'imagerie pour prescrire l'exercice et revoir l'assiette. <sup class="s">5</sup></p>
+<p>Piège : rassurer parce que l'indice est au-dessus de 25. <sup class="s">4</sup></p>
+<p>Piège : utiliser l'albumine comme seuil de dénutrition. <sup class="s">1</sup></p>
+<p>Piège : copier 30 kilocalories par kilogramme le premier jour d'un jeûne long. <sup class="s">6</sup></p>
+<p>Piège : citer une dose de vitamine D qui n'est pas dans l'autorisation 33481. <sup class="s">12</sup></p>
+<p>Piège : prendre la sensibilité de 2001 pour les trois classes actuelles. <sup class="s">9</sup></p>
+<p>Piège : croire qu'un total de questions inférieur à 4 exclut une force basse dans tous les textes. <sup class="s">5</sup></p>
+<p>Le texte de 2020 dit qu'un total inférieur à 4 rend la sarcopénie très peu probable, sans être une preuve de force normale. <sup class="s">5</sup></p>
+<p>Cas corrigé. Une femme de 84 ans a un indice à 27 et une force à 14 kilogrammes. <sup class="s">2</sup></p>
+<p>La première idée, une nutrition rassurante parce que l'indice est confortable, est fausse. <sup class="s">4</sup></p>
+<p>La force est sous 16 kilogrammes, le lever dépasse 15 secondes, la marche de 4 mètres dépasse 5 secondes. <sup class="s">2</sup></p>
+<p>Si la masse est basse, la sarcopénie est confirmée et sévère. <sup class="s">2</sup></p>
+<p>Sans baisse d'apport et sans maladie, le consensus de dénutrition de 2019 n'est pas rempli. <sup class="s">1</sup></p>
+<p>On commence l'exercice et on vérifie l'assiette, sans attendre un médicament. <sup class="s">4</sup></p>
+<p>Une force encore normale ne signifie pas que l'humeur est hors de cause. <sup class="s">2</sup></p></div></div></section>
+<section class="ilot c"><h2 id="sources">Sources</h2>
+<p>Les preuves datées sont dans la fenêtre et dans le dossier du cours. <button type="button" class="terme" popovertarget="w-src">ouvrir</button></p>
+<div id="w-src" popover class="fenetre"><div class="barre"><span>Sources</span><button type="button" popovertarget="w-src" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>1. Consensus mondial de dénutrition, 2019, lu le 1 novembre 2026.</p>
+<p>2. Consensus européen révisé sur la sarcopénie, texte en ligne le 24 septembre 2018, revue 2019.</p>
+<p>3. Recommandation gériatrique européenne de nutrition et d'hydratation, 2022.</p>
+<p>4. Revue Médicale Suisse, 2021, dépistage de la sarcopénie au cabinet.</p>
+<p>5. Mains Libres, article reçu en mars 2020, fascicule 2020.</p>
+<p>6. Ligne britannique de soutien nutritionnel, publiée le 22 février 2006, mise à jour le 4 août 2017.</p>
+<p>7. Guide du formulaire nutritionnel court, fichier d'octobre 2021.</p>
+<p>8. Validation du formulaire court révisé, journal de 2009, page lue le 1 novembre 2026.</p>
+<p>9. Formulaire court original, 2001, sensibilité et spécificité lues pour l'ancien seuil.</p>
+<p>10. Outil hospitalier de 2003, grades lus dans l'annexe du rapport de 2019.</p>
+<p>11. Information professionnelle suisse, autorisation 10989, thiamine, lue le 1 novembre 2026.</p>
+<p>12. Information professionnelle suisse, autorisation 33481, vitamine D3 buvable, lue le 1 novembre 2026.</p></div></div></section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_197_Phase_B_V0_DX.6.html -->
