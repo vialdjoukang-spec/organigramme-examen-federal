@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+"""Repérage documentaire de l'imagerie et des ECG, sans modifier les leçons."""
+import csv
+import hashlib
+import json
+import re
+import subprocess
+from datetime import datetime, timezone
+from html import escape
+from pathlib import Path
+from lxml import html
+
+B = Path(__file__).resolve().parents[1]
+R = B.parent
+D = B / 'imagerie_20261101'
+MOTIFS = {
+    'ECG': r'\bECG\b|électrocardio\w+',
+    'IRM': r'\bIRM\b|résonance magnétique',
+    'Scanner': r'\bTDM\b|\bscanner\b|tomodensitom\w+|angioscanner',
+    'Radiographie': r'radiograph\w+',
+    'Échographie / Doppler': r'échograph\w+|échocardiograph\w+|ultrason\w+|\bDoppler\b',
+    'OCT': r'\bOCT(?:A)?\b|tomographie par cohérence optique',
+    'Angiographie': r'angiograph\w+',
+    'Fond d’œil / rétinographie': r'fond(?:s)? d[’\x27 ](?:œil|oeil|yeux)|rétinograph\w+',
+    'Scintigraphie / TEP': r'scintigraph\w+|\bTEP\b|\bPET(?:-CT)?\b|tomographie par émission de posit(?:ons|rons)',
+    'Imagerie non précisée': r'\bimagerie\b',
+}
+REGEX = {k: re.compile(v, re.I) for k, v in MOTIFS.items()}
+
+
+def texte(node):
+    return ' '.join(' '.join(node.itertext()).split())
+
+
+def analyser(p):
+    raw = p.read_bytes()
+    doc = html.document_fromstring(raw.decode('utf-8'))
+    heads = doc.xpath('//h1') or doc.xpath('//h2')
+    titre = texte(heads[0]) if heads else p.stem
+    sections = doc.xpath('//h2[contains(@id,"-p9")]/parent::section')
+    if len(sections) != 1:
+        raise ValueError(f'Section 9 non unique : {p}')
+    roots = list(sections)
+    ids = set()
+    # Les détails d'examens sont souvent dans des popovers hors de la section.
+    for root in roots:
+        for target in root.xpath('.//*[@popovertarget]/@popovertarget'):
+            if target in ids:
+                continue
+            ids.add(target)
+            nodes = doc.xpath('//*[@id=$id]', id=target)
+            if len(nodes) != 1:
+                raise ValueError(f'Cible absente ou ambiguë : {p}#{target}')
+            corps = nodes[0].xpath('./*[@class="corps"]')
+            roots.append(corps[0] if corps else nodes[0])
+    passages = []
+    vus = set()
+    for root in roots:
+        for node in root.xpath('.//p|.//li[not(.//p)]|.//tr'):
+            t = texte(node)
+            if not t or t in vus:
+                continue
+            vus.add(t)
+            categories = [k for k, rx in REGEX.items() if rx.search(t)]
+            if not categories:
+                continue
+            parents = node.xpath('ancestor-or-self::*[@id]')
+            anchor = parents[-1].get('id') if parents else sections[0].xpath('./h2/@id')[0]
+            passages.append({'categories': categories, 'extrait_exact_normalise': t,
+                             'ancre': anchor, 'statut': 'à relire : indication, exclusion ou contexte'})
+    return {'lot': int(p.parent.name.split('_')[1]), 'fichier': str(p.relative_to(B)),
+            'titre': titre, 'sha256': hashlib.sha256(raw).hexdigest(),
+            'fenetres_parcourues': sorted(ids), 'passages': passages,
+            'categories': sorted({c for x in passages for c in x['categories']})}
+
+
+def produire():
+    assert (B / '_cache/production.lock').exists(), 'Verrou requis'
+    res = json.loads((R / 'IA_RESERVATIONS.json').read_text())['codex']
+    assert subprocess.check_output(['git', 'branch', '--show-current'], cwd=R, text=True).strip() == res['branche'] == 'codex/lots'
+    subprocess.run(['python3', '-B', str(B/'registre_ia.py'), 'pret', 'codex'], cwd=R, check=True)
+    bornes = res['plage']
+    def ordre(p):
+        dx = re.search(r'DX\.(\d+)', p.name)
+        return int(p.parent.name.split('_')[1]), int(dx[1]) if dx else 0
+    lecons = [analyser(p) for p in sorted(B.glob('LOT_*/*.html'), key=ordre)
+              if bornes[0] <= int(p.parent.name.split('_')[1]) <= bornes[1]]
+    catalogue = {int(r['lot']): r for r in csv.DictReader((R/'LOT_Claude_Finaux/CATALOGUE_248.csv').open())}
+    lots = []
+    for n in range(bornes[0], bornes[1]+1):
+        rows = [r for r in lecons if r['lot'] == n]
+        lots.append({'lot': n, 'ssp': catalogue[n]['ssp_profiles_2023_fr_en'],
+                     'lecons_presentes': len(rows), 'lecons_avec_mentions': sum(bool(r['passages']) for r in rows),
+                     'passages': sum(len(r['passages']) for r in rows),
+                     'categories': sorted({c for r in rows for c in r['categories']}),
+                     'statut': 'recensement des textes présents' if rows else 'non rédigé : examens non évaluables'})
+    data = {'date': datetime.now(timezone.utc).isoformat(timespec='seconds'), 'borne': bornes,
+            'commit_source': subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),
+            'methode': 'Section 9 et fenêtres liées récursivement ; repérage lexical, sans conclusion automatique sur l’indication.',
+            'limites': 'Une mention peut déconseiller un examen ou concerner un diagnostic alternatif. Absence de mot repéré ne prouve pas absence de besoin iconographique. Les autres parties et les lots non rédigés ne sont pas évalués par ce repérage.',
+            'consigne': 'Même cliché : original sans surimpression ajouté à gauche, copie annotée à droite ; pointillés rouges contrastés, repères numérotés et légende française. Les deux restent dans la fenêtre. Source, licence et contrôle visuel obligatoires.',
+            'lots': lots, 'lecons': lecons,
+            'totaux': {'lots_autorises': len(lots), 'lots_avec_textes': sum(bool(r['lecons_presentes']) for r in lots),
+                       'lecons': len(lecons), 'lecons_avec_mentions': sum(bool(r['passages']) for r in lecons),
+                       'passages': sum(len(r['passages']) for r in lecons)}}
+    D.mkdir(exist_ok=True)
+    (D/'INVENTAIRE.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    e = escape
+    out = ['<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Imagerie et ECG — inventaire des LOTS</title>',
+           '<style>body{font:17px/1.55 system-ui,sans-serif;background:#f2f6f8;color:#173448;margin:0}main{max-width:1160px;margin:auto;padding:24px}h1{font-size:2rem}a{color:#006184}details,.note{background:white;border:1px solid #bacbd5;border-radius:8px;padding:14px;margin:12px 0}summary{cursor:pointer;font-weight:650}input,select{font:inherit;padding:8px;max-width:100%;box-sizing:border-box}.filtres{display:flex;gap:12px;flex-wrap:wrap}blockquote{margin:10px 0;border-left:4px solid #168499;padding:10px 16px;background:#eff7fa;overflow-wrap:anywhere}.tag{color:#785213;font-weight:600}.table{overflow:auto}table{border-collapse:collapse;width:100%;min-width:720px}td,th{text-align:left;border:1px solid #bacbd5;padding:8px;vertical-align:top}small{color:#435c69}[hidden]{display:none!important}@media(max-width:600px){main{padding:14px}h1{font-size:1.6rem}}</style><main>',
+           '<h1>Imagerie et ECG : où rechercher les illustrations</h1>',
+           f'<p>Inventaire du {e(data["date"])} · LOTS {bornes[0]:03}–{bornes[1]:03} · source {e(data["commit_source"][:8])}.</p>',
+           f'<p><strong>{len(lecons)} leçons parcourues ; {data["totaux"]["lecons_avec_mentions"]} avec au moins une mention ; {data["totaux"]["passages"]} passages repérés.</strong></p>',
+           '<div class="note"><strong>Repérage documentaire à relire.</strong> '+e(data['methode'])+' '+e(data['limites'])+'</div>',
+           '<p>'+e(data['consigne'])+'</p>',
+           '<p>Aucun cliché nouveau acquis ni intégré par cet inventaire. Les domaines de téléchargement Wikimedia et CDN NCBI restent exclus de la configuration réseau au dernier contrôle. Les neuf candidats retenus du LOT_018 restent sous réserve visuelle ; un autre est suspendu pour provenance discordante.</p>',
+           '<p><a href="BILAN_CLICHES_LOT_018.html">Candidats déjà documentés et tailles du LOT_018</a> · <a href="imagerie_20261101/INVENTAIRE.json">Données, extraits et empreintes</a></p>',
+           '<details><summary>Couverture des lots attribués</summary><div class="table"><table><thead><tr><th>Lot / SSP</th><th>Leçons présentes</th><th>Leçons avec mention</th><th>Modalités repérées</th></tr></thead><tbody>']
+    for lot in lots:
+        out.append(f'<tr data-lot="{lot["lot"]}"><td>{lot["lot"]:03} — {e(lot["ssp"])}</td><td>{lot["lecons_presentes"]}</td><td>{lot["lecons_avec_mentions"] if lot["lecons_presentes"] else "Non évaluable"}</td><td>{e(", ".join(lot["categories"]) or lot["statut"])}</td></tr>')
+    out += ['</tbody></table></div></details><h2>Passages à examiner</h2><div class="filtres"><label>Rechercher <input id="recherche" type="search" placeholder="Lot, diagnostic ou mot"></label><label>Modalité <select id="modalite"><option value="">Toutes</option>']
+    out += [f'<option>{e(k)}</option>' for k in MOTIFS]
+    out += ['</select></label></div><p id="compte" role="status"></p>']
+    for row in lecons:
+        if not row['passages']:
+            continue
+        out.append(f'<details class="lecon" data-categories="{e(json.dumps(row["categories"],ensure_ascii=False),quote=True)}"><summary>LOT_{row["lot"]:03} — {e(row["titre"])} · {len(row["passages"])} passages</summary>')
+        for i, x in enumerate(row['passages'], 1):
+            out.append(f'<article><p class="tag">{i}. {e(", ".join(x["categories"]))} — à relire</p><blockquote>{e(x["extrait_exact_normalise"])}</blockquote><a href="{e(row["fichier"])}#{e(x["ancre"])}">Ouvrir la leçon source</a></article>')
+        out.append('</details>')
+    out += ['<script>const q=document.querySelector("#recherche"),m=document.querySelector("#modalite"),rows=[...document.querySelectorAll("details.lecon")];function filtre(){let n=0;for(const r of rows){const ok=r.textContent.toLocaleLowerCase("fr").includes(q.value.toLocaleLowerCase("fr"))&&(!m.value||JSON.parse(r.dataset.categories).includes(m.value));r.hidden=!ok;if(ok)n++;}document.querySelector("#compte").textContent=n+" leçons affichées";}q.addEventListener("input",filtre);m.addEventListener("change",filtre);filtre();</script>',
+            '<footer><p>Les extraits décrivent les textes présents, sans nouvelle validation médicale. La sélection de chaque cliché devra préciser le signe visible, le contexte clinique, les limites et les droits de réutilisation.</p></footer></main></html>']
+    (B/'BILAN_IMAGERIE_ECG.html').write_text('\n'.join(out)+'\n')
+    print(json.dumps(data['totaux'],ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    produire()

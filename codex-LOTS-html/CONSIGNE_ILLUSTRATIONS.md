@@ -1,5 +1,13 @@
 # Illustrations annotées — ordre de Vial du 31.10.2026
 
+## Précision orale de Vial — 01.11.2026 : original et annotation côte à côte
+
+Balayer les lots attribués pour repérer les examens d’imagerie et les ECG dans les explorations complémentaires, puis rechercher des clichés permettant d’apprendre à reconnaître les signes utiles au raisonnement diagnostique. Une mention d’examen ne suffit pas : distinguer indication, examen déconseillé et diagnostic alternatif, puis choisir un cliché concordant et une licence autorisée.
+
+Dans la fenêtre, présenter le même cliché en deux versions côte à côte : original à gauche, copie annotée à droite. L’original ne reçoit pas de surimpression ajoutée ; cette comparaison demandée explicitement constitue l’exception à l’ancienne formulation « toutes les images toujours annotées ». La copie reçoit des contours en pointillés rouges fortement contrastés, des repères numérotés et une légende explicative en français sous les images. Conserver un cadrage comparable, les éventuels repères natifs du cliché, les crédits et les réserves. Sur écran étroit, les deux versions peuvent se placer l’une sous l’autre avec leurs titres explicites. Les deux images restent exclusivement dans une fenêtre. Aucun cliché synthétique présenté comme image de patient ; inspecter réellement les pixels et les deux rendus avant intégration.
+
+Le recensement couvre les textes effectivement présents dans la borne fraîchement vérifiée. Les lots non rédigés sont signalés comme non évaluables ; une absence de mot-clé ne démontre pas l’absence de besoin d’illustration. Les recherches et les candidats restent distincts des images acquises et intégrées. Cette consigne autorise le balayage transversal demandé, sans modifier les autres producteurs ni réécrire les leçons déjà achevées.
+
 ## Précision prioritaire de Vial — texte des fenêtres sans plafond
 
 Lorsqu'une leçon doit comporter des schémas, aucune limite de taille de texte ne s'applique à ses fenêtres. Les schémas, les clichés d'imagerie et toutes les autres images doivent résider dans les fenêtres, toujours annotés. Cette obligation concerne aussi les images d'anatomie normale : nommer les structures ; pour les lésions réellement visibles, conserver les contours pointillés contrastés, les numéros et la légende médicale explicative. Les sources, crédits et contrôles visuels restent obligatoires.
