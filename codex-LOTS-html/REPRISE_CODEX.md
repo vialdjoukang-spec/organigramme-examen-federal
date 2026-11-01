@@ -10,7 +10,7 @@ Deux vraies images CC BY4 acquises depuis dépôts officiels des auteurs et int�
 
 Suite exacte :018 DX3 et029 DX3, avec maintien des rôles auteurs/iconographes/contrelecture/QA. Poursuivre images lésionnelles manquantes, notamment BESS/hydrocéphalie. Les futurs cours doivent appliquer le nouveau prompt dès leur création ; ne pas annoncer la refonte globale achevée. Plage fraîche018–133. Ne pas modifier autres producteurs, branches, sources/harness communs. Les veilles locales37511/48342 contrôlent chaque60s tant que le runtime existe ; elles ne rédigent pas.
 
-Publication en préparation ; verrou détenu par coordinateur, à libérer après checkpoint publié. Les sources intégrales sans droit de republication vérifié restent en cache local ignoré ; notes/extraits courts/URL/date/hash et articles licenciés sont conservés selon leurs droits. Premiers contrôleurs historiques sont datés ; utiliser renforcement_medical_20261101/verifier.py et imagerie_20261101/verifier.py pour l’état courant.
+Publication confirmée au commit 5daf8dad3f9754e2ffff364464439f0cb9229ec5, égalité distante vérifiée ; verrou libéré le 2026-11-01T19:27:18+00:00. Les sources intégrales sans droit de republication vérifié restent en cache local ignoré ; notes/extraits courts/URL/date/hash et articles licenciés sont conservés selon leurs droits. Premiers contrôleurs historiques sont datés ; utiliser renforcement_medical_20261101/verifier.py et imagerie_20261101/verifier.py pour l’état courant.
 
 ## Historique daté des checkpoints antérieurs
 
