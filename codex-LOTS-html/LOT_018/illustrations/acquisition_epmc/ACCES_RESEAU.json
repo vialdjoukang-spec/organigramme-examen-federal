@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-01T04:49:49+00:00",
+  "source_controle": "cloud_environment_environment_status (observations_current=true) et politique locale",
+  "mode": "restricted",
+  "state": "enforced",
+  "hotes": {
+    "europepmc.org": true,
+    "commons.wikimedia.org": false,
+    "upload.wikimedia.org": false,
+    "cdn.ncbi.nlm.nih.gov": false
+  },
+  "configuration_modifiee": false,
+  "nouveau_constat": "Page Europe PMC 200 et API du site 200 pour trois XML et trois métadonnées ; les images référencées dans ces métadonnées sont sur cdn.ncbi.nlm.nih.gov, exclu. Aucun original image téléchargé.",
+  "requete_vers_hote_exclu": false,
+  "essais_preliminaires": [
+    {
+      "url": "https://europepmc.org/articles/PMC9560484",
+      "status": 302,
+      "location": "https://europepmc.org/article/PMC/9560484"
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/9560484",
+      "client_identifie": "Codex-LOTS/1.0 (verification documentaire)",
+      "status": 200
+    },
+    {
+      "url": "https://europepmc.org/webservices/rest/PMC9560484/fullTextXML",
+      "status": 404,
+      "interpretation": "Ce chemin n’est pas le service appelé par le site ; aucun défaut d’accès aux bons endpoints déduit."
+    },
+    {
+      "url": "https://europepmc.org/article/PMC/9560484",
+      "client": "urllib par défaut",
+      "status": 403,
+      "interpretation": "Échec de cette requête ; ne pas généraliser aux requêtes identifiées ayant obtenu200."
+    }
+  ],
+  "decouverte_api": {
+    "script_url": "https://europepmc.org/js/app.904ec08d.js",
+    "sha256": "8f5b60cd0f7ffa43266881157e28c00a607f226ebfd29c2ac2c450191fa1ee2e",
+    "chemins_lus": [
+      "/api/fulltextXmlRepo?ft_id=",
+      "/api/fulltextRepo?pmcId=...&type=METADATA"
+    ],
+    "portee": "API en lecture publique utilisée par le site, même domaine autorisé ; aucun proxy alternatif."
+  }
+}

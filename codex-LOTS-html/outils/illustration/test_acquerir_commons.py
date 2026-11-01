@@ -29,7 +29,8 @@ class Importer(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix='tests-acquisition-', dir=m.BASE / '_cache')
         self.addCleanup(self.tmp.cleanup)
-        self.s = copy.deepcopy(json.loads((m.BASE / 'LOT_018/illustrations/acquisition/CANDIDATS.json').read_text())['candidats'][0])
+        notices = json.loads((m.BASE / 'LOT_018/illustrations/acquisition/CANDIDATS.json').read_text())['candidats']
+        self.s = copy.deepcopy(next(s for s in notices if s['decision'] == 'retenu_sous_reserve_visuelle'))
         self.s['destination'] = str((Path(self.tmp.name) / 'fixture.webp').relative_to(m.BASE))
         # Fixture anatomique déjà présente, explicitement sans prétention clinique.
         self.raw = (m.BASE / 'LOT_018/illustrations/cerveau-inferieur-commons.webp').read_bytes()
@@ -51,6 +52,16 @@ class Importer(unittest.TestCase):
         result = m.traiter(self.s, self.allowed, False, ouvrir)
         self.assertFalse(result['acquis'])
         ouvrir.assert_not_called()
+
+    def test_candidat_suspendu_refuse_meme_si_reseau_autorise(self):
+        notices = json.loads((m.BASE / 'LOT_018/illustrations/acquisition/CANDIDATS.json').read_text())['candidats']
+        suspendu = next(s for s in notices if s['id'] == 'rd-fond-oeil')
+        self.assertEqual(suspendu['decision'], 'suspendu_provenance')
+        ouvrir = Mock()
+        with self.assertRaisesRegex(ValueError, 'Candidat non retenu'):
+            m.traiter(suspendu, self.allowed, True, ouvrir)
+        ouvrir.assert_not_called()
+        self.assertFalse((m.BASE / suspendu['destination']).exists())
 
     def test_licences_nc_nd_inconnues_refusees(self):
         for lic in ['CC BY-NC 4.0', 'CC BY-ND 4.0', 'CC BY-NC-ND 4.0', 'inconnue', 'CC BY 4.0 ou NC']:

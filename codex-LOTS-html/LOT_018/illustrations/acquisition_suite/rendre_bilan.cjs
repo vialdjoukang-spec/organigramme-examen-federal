@@ -27,9 +27,14 @@ const fichier = path.join(base, 'BILAN_CLICHES_LOT_018.html');
       }
       await page.evaluate(() => scrollTo(0,0));
       await page.screenshot({path:path.join(d,`bilan-${nom}.png`),fullPage:nom==='ordinateur'});
+      const suspendu = page.locator('#rd-fond-oeil');
+      if(nom==='mobile') await suspendu.locator('summary').tap(); else await suspendu.locator('summary').click();
+      if(await suspendu.getAttribute('open') === null || !(await suspendu.innerText()).includes('Import suspendu')) throw new Error('Alerte de provenance absente');
+      essais.push({vue:nom,id:'rd-fond-oeil',ouverture:true,alerte_provenance:true});
+      await suspendu.screenshot({path:path.join(d,`provenance-${nom}.png`)});
       await context.close();
     }
     fs.writeFileSync(path.join(d,'TEST_RAPPORT_NAVIGATEUR.json'),JSON.stringify({date:new Date().toISOString(),fichier:'BILAN_CLICHES_LOT_018.html',sha256:crypto.createHash('sha256').update(raw).digest('hex'),portee:'Rapport seulement ; aucun cliché clinique ni HTML de leçon rendu dans cette campagne.',essais,appareil_physique:false},null,2)+'\n');
-    console.log(JSON.stringify({interactions:essais.length,captures:2}));
+    console.log(JSON.stringify({interactions:essais.length,captures:4}));
   } finally { await navigateur.close(); }
 })().catch(e=>{console.error(e);process.exit(1)});

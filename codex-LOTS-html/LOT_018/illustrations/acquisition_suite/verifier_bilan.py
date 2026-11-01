@@ -48,6 +48,18 @@ for p, sha in json.loads((R/'harnais/HARNAIS_MANIFESTE.json').read_text())['fich
     check('harnais '+p,hashlib.sha256((R/p).read_bytes()).hexdigest()==sha)
 for s in data['candidats']:
     check('candidat non intégré '+s['id'],not s['inspection_visuelle'] and not s['integre'] and not (B/s['destination']).exists())
+    details = doc.xpath('//details[@id="'+s['id']+'"]')
+    check('décision visible '+s['id'],len(details)==1 and details[0].get('data-decision')==s['decision'])
+sources = []
+for parent in [D.parent/'acquisition', D]:
+    sources.extend(s for s in json.loads((parent/'CANDIDATS.json').read_text())['candidats'] if s['decision'] in ('retenu_sous_reserve_visuelle','suspendu_provenance'))
+check('notices actuelles reproduites exactement',data['candidats']==sources)
+for key, decision in [('retenus','retenu_sous_reserve_visuelle'),('suspendus','suspendu_provenance')]:
+    expected = sum(s['decision']==decision for s in sources)
+    cells = doc.xpath('//*[@data-compte="'+key+'"]')
+    check('compte '+key,len(cells)==1 and cells[0].text==str(expected) and data['candidats_'+key]==expected)
+rd = doc.xpath('//details[@id="rd-fond-oeil"]')
+check('discordance de provenance explicitée',len(rd)==1 and rd[0].get('data-decision')=='suspendu_provenance' and 'organigramme' in rd[0].text_content() and 'Import suspendu' in rd[0].text_content())
 result={'date':datetime.now(timezone.utc).isoformat(timespec='seconds'),'reussis':sum(c['conforme'] for c in checks),'total':len(checks),'controles':checks,'portee':'Contrôle du rapport et de l’intégrité, pas validation clinique ni nouvel audit V8 des leçons.'}
 (D/'CONTROLE_BILAN.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({k:result[k] for k in ['reussis','total']}))
