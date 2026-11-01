@@ -2,6 +2,8 @@
 
 ## PRIORITÉ ACTIVE : clichés cliniques du LOT_018
 
+Checkpoint de sélection publié : `e5339811e222292cfb3428a4f1f1dc1aef9cd387`, égalité distante vérifiée le01.11.2026. Verrou libéré officiellement après ce push. Recherche et outil seulement : zéro nouvelle image clinique intégrée.
+
 Travail seul, sans sous-agents, sur codex/lots ; écritures uniquement dans codex-LOTS-html/. Départ frais au commit 5ec52adb244975f7b3b3fece27018725cf447c77, égal à FETCH_HEAD. Réservation18–133 relue, registre du01.11 lu et signé, pret et verifier018 réussis. Aucun autre producteur ou automate modifié.
 
 La reprise des illustrations reste prioritaire. LOT018 possède onze leçons avec supports, douze composants et vingt-et-une vues uniques ; aucun cliché pathologique réel acquis. Les 244 HTML de leçons, les12composants antérieurs et les9fichiers du harnais ont leurs empreintes préservées lors du contrôle final. Aucun nouveau diagnostic ni nouveau rendu d’image pendant cette session.
