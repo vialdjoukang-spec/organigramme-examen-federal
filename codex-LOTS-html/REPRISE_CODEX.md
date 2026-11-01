@@ -8,7 +8,7 @@ Tailles :034 DX1 HTML109,557Ko ; fiche4,537Ko ; fenêtres14,111Ko.040 DX1 HTML13
 
 244leçons présentes,22lots complets en rédaction018–039,040 partiel PhaseA/DX1. Treize leçons avec support visuel désormais ; aucun lot clos pour le rattrapage, zéro cliché pathologique acquis. La politique réseau actuelle exclut toujours Wikimedia/CDN NCBI ; ne pas contourner. L’inventaire244/539 a été actualisé ; anciens témoins SHA conservés et transitions034/040 contrôlées explicitement.
 
-Suite : poursuivre schémas utiles et recherches034–040/lacunes antérieures ; acquérir018 puis les candidats suivants lorsque le réseau l’autorise. Pas de reprise040DX2 avant rattrapage018–040. Borne fraîche18–133. Travail seul, sans sous-agents. Veilles37511/48342 existantes chaque60s, surveillance seule tant que le runtime subsiste. Verrou détenu pour publication ; libérer à la fin, consigner le commit réel.
+Suite : poursuivre schémas utiles et recherches034–040/lacunes antérieures ; acquérir018 puis les candidats suivants lorsque le réseau l’autorise. Pas de reprise040DX2 avant rattrapage018–040. Borne fraîche18–133. Travail seul, sans sous-agents. Veilles37511/48342 existantes chaque60s, surveillance seule tant que le runtime subsiste. Publication confirmée au commit bcc96eafc4316a25bef97ae530537beb0f6fea04 ; verrou libéré officiellement le 2026-11-01T18:43:25+00:00.
 
 Modèle historiquement confirmé : GPT-6 Astra ; réglage courant non exposé, high recommandé, aucun changement prétendu.
 
