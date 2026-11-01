@@ -47,6 +47,20 @@ class Pipeline(unittest.TestCase):
     def test_version_inconnue(self):
         node=etree.fromstring('<front><license>Creative Commons Attribution</license></front>')
         self.assertEqual(p.license_info(node)['decision'],'reserve_licence')
+    def test_cc0_metadonnees_ne_remplace_pas_licence_article(self):
+        node=etree.fromstring('<front><license><license-p>Article <ext-link href="https://creativecommons.org/licenses/by/4.0/">CC BY4</ext-link>.</license-p><license-p>The Creative Commons Public Domain Dedication waiver <ext-link href="https://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link> applies to the metadata files associated with this article.</license-p></license></front>')
+        result=p.license_info(node)
+        self.assertEqual(result['licence'],'CC BY 4.0')
+        self.assertEqual(result['perimetres_exclus_du_contenu'][0]['portee'],'métadonnées seules')
+    def test_double_licence_sans_portee_reste_en_reserve(self):
+        node=etree.fromstring('<front><license><ext-link href="https://creativecommons.org/licenses/by/4.0/"/><ext-link href="https://creativecommons.org/publicdomain/zero/1.0/"/></license></front>')
+        self.assertEqual(p.license_info(node)['decision'],'reserve_licence')
+    def test_metadonnees_seules_ne_licencient_pas_article(self):
+        node=etree.fromstring('<front><license><license-p>The Creative Commons Public Domain Dedication waiver <ext-link href="https://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link> applies to the metadata files associated with this article.</license-p></license></front>')
+        self.assertEqual(p.license_info(node)['decision'],'reserve_licence')
+    def test_portee_figures_non_assimilee_aux_metadonnees(self):
+        node=etree.fromstring('<front><license><ext-link href="https://creativecommons.org/licenses/by/4.0/"/><license-p>The Creative Commons Public Domain Dedication waiver <ext-link href="https://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link> applies to the figures associated with this article.</license-p></license></front>')
+        self.assertEqual(p.license_info(node)['decision'],'reserve_licence')
     def test_auteurs_type_porte_par_groupe(self):
         xml=b'<article><front><article-meta><contrib-group content-type="author"><contrib><name><given-names>Lena</given-names><surname>Folkestad</surname></name></contrib></contrib-group></article-meta></front><body/></article>'
         self.assertEqual(p.parse_article(xml,{},'PMC1')['auteur'],'Lena Folkestad')

@@ -176,6 +176,8 @@ def produire():
         selection = json.loads(suite.read_text())
         campagne = suite.parent.name
         out.append(f'<h2>Campagne {e(campagne.replace("tri_", "").replace("_", "–"))} : figures candidates</h2><p>{len(selection["candidats"])} figures documentées. Les cibles désignent les leçons envisagées ; elles ne prouvent pas une intégration.</p>')
+        if selection.get('limite'):
+            out.append(f'<p class="note">{e(selection["limite"])}</p>')
         for c in selection['candidats']:
             etat = 'Original acquis' if c.get('original_acquis') else 'Original non acquis'
             out.append(f'<details class="candidat-auto" data-campagne="{e(campagne)}"><summary>{e(c["titre"])}</summary><p>Cibles : {e(", ".join(c["cibles"]))}</p><p>{e(c["auteur"])} · {e(c["licence"])} · accès : {e(c["acces_le"])}</p><p>{e(etat)} ; inspection visuelle : {"oui" if c.get("pixels_inspectes") else "non"}.</p><p>{e(c["piege"])}</p><a href="{e(c["source_url"])}">Publication source</a></details>')

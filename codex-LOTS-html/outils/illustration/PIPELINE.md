@@ -8,6 +8,8 @@ La chaîne est disponible dans le périmètre Codex. Elle ne rédige pas en arri
 
 Le script Python utilise les API publiques Europe PMC pour obtenir les XML et les métadonnées des figures repérées. Il conserve URL, date et empreintes, refuse les licences NC/ND/inconnues et signale les organigrammes PRISMA. Une licence d’article admissible ne valide pas automatiquement les droits propres de chaque figure ni sa pertinence médicale. Les figures candidates restent à relire. Le script existant `acquerir_commons.py` reste disponible pour les notices Wikimedia documentées ; cette nouvelle chaîne ne prétend pas avoir un importeur Open-i.
 
+Le sélecteur distingue le paragraphe JATS standard qui réserve explicitement la CC0 aux seuls fichiers de métadonnées de la licence du contenu de l’article. Il conserve cette distinction dans `perimetres_exclus_du_contenu`. Cette règle étroite ne permet ni d’attribuer la CC0 aux figures, ni d’accepter une double licence de portée indéterminée. Une mention CC BY sans version ou URL explicite reste en réserve. Les légendes et crédits propres des figures doivent toujours être relus.
+
 Les trois URL de recherche REST essayées sur europepmc.org ont répondu 404 dans cet environnement. La recherche effective utilise donc le connecteur web, puis les deux API documentaires `/api/fulltextXmlRepo` et `/api/fulltextRepo`, réellement fonctionnelles. Aucun contournement de politique réseau, aucune clé inventée.
 
 ## Dossiers et étapes

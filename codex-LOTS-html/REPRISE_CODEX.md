@@ -1,5 +1,17 @@
 # Reprise LOTS — 01.11.2026
 
+Dernière avancée — 2026-11-01T16:24:47+00:00 : tri des 33 leçons des LOT_028–030, soit 72 passages repérés et lecture intégrale des 33 fenêtres principales de partie9. Cumul143 leçons/316 passages ;14 sans mention lexicale et86 leçons avec mentions restantes. Inventaire global244 leçons/215 avec mentions/539 passages, inchangé.
+
+Trois figures candidates CC BY4 : schwannome vestibulaire droit (PMC8553833 Fig1), échographie des espaces sous-arachnoïdiens et collection sous-durale associée (PMC10027800 Fig1/4). Crédits, séquences, cibles et limites dans imagerie_20261101/tri_028_030/. Points blancs de recalage à ne pas traiter comme lésions ; segmentation native à ne pas attribuer à notre chantier ; privilégier les panneaux anonymisés après inspection. Ne pas assimiler toute collection à un hématome ou décider de sa cause sur la seule image. Trois acquisitions arrêtées avant requête par la politique réseau : CDN NCBI toujours exclu, aucune image acquise ou annotée.
+
+LOT030 : revue Oxford PMC11818516 lue partiellement et conservée CC BY4, mais ses figures sont classification/algorithmes/matériaux de reconstruction ; aucun cliché diagnostique retenu. PMC8330510 et PMC8795981 restent en réserve : CC BY mentionnée sans version/URL explicite dans le XML ; aucune republication intégrale. Ne pas transformer ces réserves en autorisations.
+
+Correction LIC-METADATA-01 dans le pipeline : reconnaître le paragraphe JATS exact qui réserve la CC0 aux seules métadonnées ; conserver CC BY4 pour le contenu.39 tests locaux réussis, dont4 ajoutés ; refus NC/ND et doubles licences ambiguës conservés. Documentation mise à jour. Trois sources suisses consultées puis trois articles européens/internationaux,13 légendes et textes ciblés ; aucune dose ou nouvelle conduite thérapeutique.
+
+18 vérifications Chromium et6 captures du rapport réellement inspectées ;244 leçons/9 fichiers communs intacts,539 extraits/liens vérifiés. Pas de nouveau V8/AIPS ni audit indépendant ou validation clinique globale. Prochain tri031 ; recherche de clichés030 à compléter. Pause des nouveaux diagnostics maintenue jusqu’au rattrapage018–040, premier diagnostic manquant040 DX2. Borne18–133 fraîche, registre signé, pret/verifier028–030 réussis. État de publication et verrou dans ETAT_CONTINUITE.json ; veilles37511/48342 maintenues pendant la disponibilité du runtime, contrôle seul.
+
+## Checkpoints antérieurs conservés
+
 Dernière avancée — 2026-11-01T15:25:52+00:00 : tri des 33 leçons des LOT_025–027, soit 49 passages repérés et lecture intégrale des 33 fenêtres principales de partie9. Cumul 110 leçons / 244 passages ; 14 leçons sans mention lexicale, 119 leçons avec mentions restantes. Inventaire global inchangé : 244 leçons / 215 avec mentions / 539 passages.
 
 Six figures candidates CC BY4 documentées : deux images de calcul du canal de Wharton droit (PMC5965241), IRM de déplacement discal avec recapture et TDM de fracture condylienne (PMC9031630), échographie vasculaire et histologie temporale d’une artérite à cellules géantes (PMC6032496). Trois XML et métadonnées exacts conservés dans LOT025/026/027 illustrations/recherche_web ; auteurs, licences,17 légendes et textes ciblés réellement lus. Deux pages HUG lues ; ouverture Rheumatology inaccessible déclarée. Le siège suisse de MDPI ne transforme pas la revue américaine en recommandation suisse. Aucune dose ou conduite thérapeutique ajoutée.

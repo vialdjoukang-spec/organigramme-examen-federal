@@ -77,10 +77,23 @@ def get(url, limit=MAX):
 
 def license_info(node):
     """N'accepte qu'une URL de licence explicite et non ambiguë."""
-    urls = set(node.xpath('.//license//@*[local-name()="href"]'))
+    attributes = node.xpath('.//license//@*[local-name()="href"]')
+    urls = set(attributes)
     text = ' '.join(node.xpath('.//license//text()'))
     if re.search(r'non.?commercial|no.?derivatives|by-nc|by-nd', text + ' '.join(urls), re.I):
         return {'decision': 'exclu_NC_ND', 'preuve': text}
+    # Certains JATS distinguent explicitement contenu CC BY et métadonnées CC0.
+    # Exclusion étroite : uniquement le paragraphe autonome de cette déclaration.
+    metadata = []
+    ignored = set()
+    for paragraph in node.xpath('.//license/license-p'):
+        sentence = ' '.join(' '.join(paragraph.itertext()).split())
+        links = paragraph.xpath('.//@*[local-name()="href"]')
+        if (re.fullmatch(r'The Creative Commons Public Domain Dedication waiver https?://creativecommons\.org/publicdomain/zero/1\.0/ applies to the metadata files associated with this article\.', sentence)
+                and len(links) == 1 and str(links[0]) in ('http://creativecommons.org/publicdomain/zero/1.0/', 'https://creativecommons.org/publicdomain/zero/1.0/')):
+            ignored.add(links[0].getparent())
+            metadata.append({'portee': 'métadonnées seules', 'licence': 'CC0 1.0', 'preuve': sentence})
+    urls = {str(a) for a in attributes if a.getparent() not in ignored}
     valid = []
     for u in urls:
         parsed = urlparse(u)
@@ -96,7 +109,10 @@ def license_info(node):
     if len(set(valid)) != 1:
         return {'decision': 'reserve_licence', 'preuve': text, 'urls': sorted(urls)}
     lic, url = valid[0]
-    return {'decision': 'licence_admissible_a_relire', 'licence': lic, 'licence_url': url, 'preuve': text}
+    result = {'decision': 'licence_admissible_a_relire', 'licence': lic, 'licence_url': url, 'preuve': text}
+    if metadata:
+        result['perimetres_exclus_du_contenu'] = metadata
+    return result
 
 
 def parse_article(raw, metadata, pmcid):
