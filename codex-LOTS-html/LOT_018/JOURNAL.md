@@ -21,3 +21,5 @@ Contrôles finaux : 275 vérifications statiques V8 réussies sur onze fichiers,
 Corrections internes : retrait des termes de fabrication dans la lecture, développement des abréviations restantes, ajout du contexte NICE à la supplémentation, scission d’une phrase longue, citations et liens vérifiés. Les traitements urgents et les différences de schémas par indication ont été relus. Aucun score ni audit externe n’est attribué à cette relecture. Le rendu navigateur demeure non vérifié pour les raisons déjà consignées.
 
 Production terminée selon l’accord de poursuite ; le dépôt Git n’est pas une validation clinique. La reprise automatique du harnais conserve son attente d’audit externe, tandis que `VALIDATION.md` décrit explicitement la clôture de production en session unique autorisée.
+
+2026-11-01T20:34:25+00:00 — DX4 renforcé,14parties/14réponses relues en interne. Preuves ../renforcement_solo_dx4_20261101/. Autres dix leçons inchangées ; aucune image nouvelle ni validation indépendante.

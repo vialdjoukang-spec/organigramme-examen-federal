@@ -1,3 +1,19 @@
+# Reprise solo DX4 — 2026-11-01T20:34:25+00:00
+
+Dernier ordre : seul, sans sous-agents ; aucun agent lancé. Dépôt frais fdd11b10, branche codex/lots, borne18–133 relue, registre signé, pret/verifier018 et029 autorisés, verrou acquis. Écritures exclusivement codex-LOTS-html/.
+
+Deux leçons renforcées : LOT018 DX4 glaucome et LOT029 DX4 hématome sous-dural.14parties et14réponses chacune ; relecture interne explicite, pas de contrelecture indépendante ni validation clinique humaine. Les huit leçons déjà renforcées demeurent identiques ; cumul10/244,234 restantes. Aucun nouveau lot terminé.22lots018–039 rédigés ;040 PhaseA/DX1. Ne pas refaire la production initiale018 au commit950a4cd1.
+
+Sources CH puis UE lues : HUG, Paediatrie Suisse, EGS6 conservé et passage officiel sur la cible, Raissaki XML, paragraphe pédiatrique NICE indexé. AIPS Xalatan53675 local relu, fenêtres exactes préservées. Nouvelle fenêtre partie13 glaucome ; schéma inchangé, contraste sombre corrigé. Aucune image nouvelle : miroirs DNB/WhiteRose refusés403 ; licence article PAPILA non transposée au dataset. Clichés glaucomateux et sous-duraux toujours manquants.
+
+Contrôles :550 conditions V8 sur22fichiers ;242autres leçons/9harnais intacts. Chromium8configurations,112fenêtres,112réponses,12définitions ;8captures partie9 inspectées, autres captures conservées sans allégation d’inspection. Audit langue historique non conforme à ses règles anciennes ; une phrase scindée. Inventaire244leçons/569passages actualisé. Mesures : LOT_018/LOT_018_Phase_B_V0_DX.4.html : HTML106.975Ko, base5.068Ko, fenêtres28.133Ko ; LOT_029/LOT_029_Phase_B_V0_DX.4.html : HTML91.600Ko, base5.118Ko, fenêtres19.273Ko. Base DD sous9Ko ; fichier complet distinct de ce plafond.
+
+Preuves : renforcement_solo_dx4_20261101/ ; contrôleur courant dans ce dossier et imagerie_20261101/verifier.py. Anciennes preuves conservées, leurs baselines ne décrivent pas les nouveaux DX4. Bilan BILAN_RENFORCEMENT_MEDICAL.html. Suite :018 DX5 puis029 DX5, acquisitions et lacunes antérieures.040DX2 suspendu pendant le rattrapage. Veilles37511/48342 chaque60s, contrôle seul pendant le runtime. Verrou détenu pour publication ; état final dans ETAT_CONTINUITE.json et JOURNAL_PASSES.jsonl.
+
+Modèle : famille GPT-6 exposée ; variante/effort courants non exposés. Astra ultra historique, high recommandé. Aucun réglage modifié. Incident : déconnexion ponctuelle exec, reprise réussie sans perte de fichiers ni arrêt des veilles.
+
+## Historique daté conservé
+
 # Reprise solo — 2026-11-01T19:45:11+00:00
 
 Dernier ordre de Vial : travailler seul, sans sous-agents. Il remplace la modalité précédente d’équipe. Aucun agent lancé ni réactivé dans cette passe. Borne fraîchement vérifiée : LOT018–133 inclus ; branche codex/lots, écritures dans codex-LOTS-html uniquement.
