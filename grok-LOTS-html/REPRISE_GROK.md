@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_198 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_197 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_196 **rédigé et certifié** (rédacteur B). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_199 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_198 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_197 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_196 **rédigé et certifié** (rédacteur B). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193, LOT_195 et LOT_197 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194, LOT_196 et LOT_198 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193, LOT_195, LOT_197 et LOT_199 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194, LOT_196 et LOT_198 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_199.**
-**Prochain LOT du rédacteur B : LOT_200.** LOT_198 (O3.4 Patient polymorbide et polymédiqué) est rédigé et certifié. Détail : `LOT_198/A_AUDITER.md`. LOT_197 (O3.3 Malnutrition et sarcopénie) est rédigé et certifié. Détail : `LOT_197/A_AUDITER.md`. LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_201.**
+**Prochain LOT du rédacteur B : LOT_200.** LOT_199 (O3.5 Escarres) est rédigé et certifié. Détail : `LOT_199/A_AUDITER.md`. LOT_198 (O3.4 Patient polymorbide et polymédiqué) est rédigé et certifié. Détail : `LOT_198/A_AUDITER.md`. LOT_197 (O3.3 Malnutrition et sarcopénie) est rédigé et certifié. Détail : `LOT_197/A_AUDITER.md`. LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+
+## LOT_199 — rédigé et certifié
+Sujet : O3.5 « Escarres ». Détail : `LOT_199/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Communiqué du 8 novembre 2022. Foire aux questions d'octobre 2024 et février 2025. Conférence d'avril 2016. Guide international 2019. Guide britannique, page lue le 1er novembre 2026. Revue Médicale Suisse, 28 novembre 2012. Grille de Braden et bandes de 2023. Échelle de Norton citant 1962. Outil gantois 2018. Déchirures, décembre 2018. Consensus de fin de vie 2009. Guide du pied diabétique 2023. Autorisations 69266 et 45674. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 2.2 (+ 74.5) Ko · SHA ec4a0065b422aa85 · commit 0cda71989
+- DX.1 : certitude VERT · porte VERT · T = 2.3 (+ 37.3) Ko · SHA 81ad712b83a9470e · commit 339b5a374
+- DX.2 : certitude VERT · porte VERT · T = 2.3 (+ 39.9) Ko · SHA 44da703e9aa30ab7 · commit eedb47af4
+- DX.3 : certitude VERT · porte VERT · T = 2.3 (+ 42.1) Ko · SHA fe455a9cbcd53882 · commit 2eb6e0e28
+- DX.4 : certitude VERT · porte VERT · T = 2.3 (+ 44.6) Ko · SHA 6d1118e4916fe98f · commit 40dbcf1bc
+- DX.5 : certitude VERT · porte VERT · T = 2.3 (+ 45.9) Ko · SHA d6801be396d38988 · commit 3638da901
+- DX.6 : certitude VERT · porte VERT · T = 2.2 (+ 38.2) Ko · SHA 77fdfe1c39a7db4a · commit 88d5ed473
+- DX.7 : certitude VERT · porte VERT · T = 2.3 (+ 41.0) Ko · SHA 833534c4f9b41588 · commit de438e3d5
+- DX.8 : certitude VERT · porte VERT · T = 2.2 (+ 43.3) Ko · SHA f5e8c0c46b7cc5b4 · commit 9e91b952b
+- DX.9 : certitude VERT · porte VERT · T = 2.3 (+ 46.4) Ko · SHA 86464bd8857ef450 · commit 2811fe699
+- DX.10 : certitude VERT · porte VERT · T = 2.3 (+ 44.1) Ko · SHA 01756f6b7b3ad6f7 · commit 9d2a019a6
 
 ## LOT_198 — rédigé et certifié
 Sujet : O3.4 « Patient polymorbide et polymédiqué ». Détail : `LOT_198/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Observatoire suisse de la santé, indicateur 2022. Blozik et collaborateurs, juillet 2013. Ligne directrice de polymorbidité, 2016, relue le 1er novembre 2026. Critères européens du 31 mai 2023, 133 et 57. Fondation pour la sécurité des patients, programme 2016-2021. Entretien officinal public, dès quatre médicaments. Page fédérale du projet de revue, 12 février 2026. Référentiel du 1er novembre 2023, situation O3.4. Autorisations 68510, 59079, 57056, 68552, 70190, 66978, 57383 et 70235. Zéro retrait.
