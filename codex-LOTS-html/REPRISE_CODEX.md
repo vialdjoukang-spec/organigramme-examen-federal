@@ -1,3 +1,19 @@
+# Reprise LOTS — 2026-11-01T17:42:44+00:00
+
+Tri documentaire des 244 leçons présentes terminé dans le périmètre partie9 et fenêtres liées recensées : 539 passages, 29 leçons sans mention lexicale également annotées dans le rapport. Cette reprise ajoute 101 leçons031–040 et223 passages. Le tri ne valide pas médicalement les indications et ne clôture pas le rattrapage des illustrations. Les autres parties n’ont pas été intégralement relues.
+
+Sept figures candidates CC BY4 documentées pour031–033 : endoscopie et TDM de l’atrésie choanale, radiographie/IRM de l’atteinte cervicale rhumatoïde, échographie nodulaire et décollement séreux associés à la sclérite postérieure. Trois XML et leurs métadonnées exacts conservés,14 légendes et passages ciblés lus après les sources suisses. PMC5647537 exclu NC ; PMC7963878 réservé sans licence explicite. La figure1 de PMC8554953 ne montre pas l’échographie décrite : ne pas l’utiliser comme preuve du signe en T. Les cas cervicaux sont des patients différents, jamais une paire original/annoté.
+
+Aucune image acquise : les7 acquisitions ont été arrêtées avant HTTP, CDN NCBI exclu. Dernier statut réseau actuel restricted/enforced ; Wikimedia reste également exclu. Pas de changement de réseau. Images et annotations cliniques absentes ; ne pas confondre les captures du rapport avec des clichés médicaux inspectés.
+
+Rapport BILAN_IMAGERIE_ECG.html :40 vérifications Chromium finales,6 captures inspectées ;26 vérifications et6 captures intermédiaires conservées avec RAPPORT_INTERMEDIAIRE.html.244 leçons/9 fichiers du harnais intacts,539 extraits/liens contrôlés. Pas de nouveau contrôle V8/AIPS, audit indépendant ni validation clinique humaine. Corrections de langue mineures et correction du contrôleur de preuves après TypeError consigné.
+
+Prochaine action : recherche iconographique dès034 et compléments manquants, notamment030. Tri034–040 effectué sur les textes existants, sans nouvelles sources externes pour ces extensions. Dès accès effectif aux images, acquisition018 puis candidats suivants, examen réel des pixels, annotations et intégration dans les fenêtres. Aucun saut de production : nouveaux diagnostics en pause jusqu’au rattrapage018–040 ; premier fichier absent040 DX2 inchangé. Borne18–133 fraîchement vérifiée. Travail seul ; aucun autre producteur ni automate modifié.
+
+Verrou détenu pour sauvegarde finale ; publication et libération dans ETAT_CONTINUITE.json. Veilles37511/48342 déjà actives toutes60secondes pendant le runtime. Modèle historiquement confirmé par Vial : GPT-6 Astra ; réglage courant non exposé, aucune modification prétendue.
+
+## Checkpoints antérieurs conservés
+
 # Reprise LOTS — 01.11.2026
 
 Dernière avancée — 2026-11-01T16:24:47+00:00 : tri des 33 leçons des LOT_028–030, soit 72 passages repérés et lecture intégrale des 33 fenêtres principales de partie9. Cumul143 leçons/316 passages ;14 sans mention lexicale et86 leçons avec mentions restantes. Inventaire global244 leçons/215 avec mentions/539 passages, inchangé.
