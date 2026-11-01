@@ -1,16 +1,16 @@
 # Résumé du jour — Revision QCM
 
-*Généré dynamiquement le 2026-11-01 22:34 Europe/Zurich par `Revision/_outils/scripts/resume_jour.py`.*
+*Généré dynamiquement le 2026-11-01 23:35 Europe/Zurich par `Revision/_outils/scripts/resume_jour.py`.*
 
 ## Progression G1–G16
 
-**2/16 SSP prêts (12.5 %)** · branche locale repo `grok/revision` @ `2598db63`
+**3/16 SSP prêts (18.8 %)** · branche locale repo `grok/revision` @ `2598db63`
 
 | SSP | LOT | Titre | Statut | Q | EX | AP | SPE | HTML |
 |-----|-----|-------|--------|---|----|----|-----|------|
 | G01 | LOT_001 | Transpiration anormale | revue_auto | 51 | 34 | 10 | 7 | `G_symptomes_generaux/G01_transpiration_anormale/LOT_001_G1_TypeA_Reflexe.html` |
 | G02 | LOT_002 | Tuméfaction / adénopathie | revue_auto | 63 | 42 | 11 | 10 | `G_symptomes_generaux/G02_adenopathie_tumefaction/LOT_002_G2_TypeA_Reflexe.html` |
-| G03 | LOT_003 | Soif excessive / polydipsie | absent | 0 | 0 | 0 | 0 | `—` |
+| G03 | LOT_003 | Soif excessive / polydipsie | revue_auto | 85 | 49 | 23 | 13 | `G_symptomes_generaux/G03_soif_polydipsie/LOT_003_G3_TypeA_Reflexe.html` |
 | G04 | LOT_004 | Fatigue, lassitude | absent | 0 | 0 | 0 | 0 | `—` |
 | G05 | LOT_005 | Sensation de maladie | absent | 0 | 0 | 0 | 0 | `—` |
 | G06 | LOT_006 | Fièvre, frissons, hyperthermie | absent | 0 | 0 | 0 | 0 | `—` |
@@ -36,6 +36,7 @@
 - `Revision/_outils/PROFIL_GRAND_MAITRE_BITUNDER.md` — Profil Grand Maître Professeur Bitunder
 - `Revision/G_symptomes_generaux/G01_transpiration_anormale/LOT_001_G1_TypeA_Reflexe.html` — G01 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
 - `Revision/G_symptomes_generaux/G02_adenopathie_tumefaction/LOT_002_G2_TypeA_Reflexe.html` — G02 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
+- `Revision/G_symptomes_generaux/G03_soif_polydipsie/LOT_003_G3_TypeA_Reflexe.html` — G03 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
 - `STRATEGIE_QCM_EXAMEN_CH.html` — Stratégie QCM (HTML)
 - `STRATEGIE_QCM_EXAMEN_CH.pdf` — Stratégie QCM (PDF)
 - `EVALUATION_MEDICAL_LANGUE_LOT_001_248.json` — Évaluation (JSON)
@@ -47,8 +48,8 @@
 
 ## Relève Λ
 
-- Progression globale G : **12.5 %** (2/16).
-- Prochain SSP absent : **G03** · détail couverture DD et blockers : `ETAT_DES_LIEUX_QCM.md`.
+- Progression globale G : **18.8 %** (3/16).
+- Prochain SSP absent : **G04** · détail couverture DD et blockers : `ETAT_DES_LIEUX_QCM.md`.
 - Contraintes : GitHub only (jamais Drive) ; pas de PR/merge/main/force-push sans ordre Vial.
 
 ## Prêt à pousser (CloudAgent)
