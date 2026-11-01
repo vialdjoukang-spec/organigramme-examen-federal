@@ -10,6 +10,8 @@ Le rapport incorpore désormais automatiquement les campagnes suivantes.24 véri
 
 Prochain tri : LOT028. La pause des nouveaux diagnostics demeure jusqu’au rattrapage018–040 ; premier diagnostic manquant inchangé040 DX2. Travail seul, borne18–133 fraîche, registre signé, pret/verifier025–027 réussis. État de publication et verrou dans ETAT_CONTINUITE.json. Veilles37511/48342 existantes maintenues, sans second producteur ; contrôle seul chaque minute pendant la disponibilité du runtime.
 
+2026-11-01T15:26:20+00:00 — Tri025–027 publié au commit 9b6f7dda8cf2565e9a5a9d3b9408614c0702bd57, égalité distante vérifiée. Verrou libéré officiellement. Prochain tri028 ; veilles37511/48342 maintenues, aucun nouveau cliché ni lot clos.
+
 ## Checkpoints antérieurs conservés
 
 Dernière avancée — 2026-11-01T14:20:41+00:00 : tri des33leçons022–024 et63passages repérés, avec lecture complète des33fenêtres principales de partie9. Cumul77leçons/195passages ;8leçons sans mention lexicale,146leçons avec mentions restantes. Lexique FEES/VFSS/vidéofluoroscopie/transit corrigé :7passages supplémentaires, recensement244leçons/215avecmentions/539passages.
