@@ -126,3 +126,7 @@ Six nouvelles notices Commons lues, cinq candidats pourDX2/3/4/8/10 ; dix au tot
 BILAN_CLICHES_LOT_018.html créé : tailles x/y/x+y/HTML des11leçons, dix candidats séparés des12supports intégrés.128vérifications et20interactions du rapport réussies ; deux captures de rapport inspectées.244leçons inchangées, harnais intact. Aucun nouveau test médical/V8, aucune image clinique inspectée, aucun lot clôturé. Suite dépendante de l’accès aux originaux, sans nouveau diagnostic040.
 
 Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, égalité distante vérifiée. Verrou libéré officiellement. Aucun nouveau cliché intégré ; dix candidats prêts pour acquisition dès accès autorisé.
+
+2026-11-01T02:56:18+00:00 — Reprise technique seule depuis32729e76, distant identique. Verrou officiel acquis ; registre01.11 lu/signé, pret et verifier018 réussis. Politique effective toujours restricted/enforced sans Wikimedia ; aucune requête vers les hôtes exclus, EuropePMC non retesté. Comparaison SHA-256 :244leçons inchangées,9fichiers communs intacts. Contrôleur toujours en pause comme attendu ; deux veilles existantes actives chaque60secondes. Aucun nouveau lot, fichier de leçon ou cliché produit ; aucun V8, navigateur, audit médical ou changement de modèle revendiqué. Reprise exacte maintenue sur acquisition018.
+
+2026-11-01T02:56:45+00:00 — Verrou libéré officiellement ; contrôle de blocage prêt pour checkpoint. Les veilles de surveillance restent actives tant que le runtime existe.

@@ -1,5 +1,7 @@
 # Reprise LOTS — 01.11.2026
 
+Dernier contrôle de reprise : 2026-11-01T02:56:18+00:00, départ et référence distante `32729e76e01aa73cbc75a0089257461fee0e2c5c`. Registre lu/signé, pret et verifier018 réussis ;244leçons inchangées par SHA-256 et9fichiers du harnais intacts. Politique réseau toujours restricted/enforced : commons.wikimedia.org et upload.wikimedia.org exclus. Aucun nouvel import, cliché, diagnostic, test navigateur ou contrôle médical ; EuropePMC non retesté. Ce passage est un constat de blocage réel, pas une production. Veilles37511/48342 déjà actives, sans doublon. Le détail courant et la libération finale figurent dans ETAT_CONTINUITE.json.
+
 ## PRIORITÉ ACTIVE : acquisition des clichés cliniques018
 
 Bilan HTML et complément de sources publiés au commit `18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844`, référence distante vérifiée. Verrou libéré officiellement après ce push.

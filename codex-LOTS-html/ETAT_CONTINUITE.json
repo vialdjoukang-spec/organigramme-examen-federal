@@ -190,7 +190,7 @@
     "validation_clinique": false,
     "statut": "incomplet : DX9–10 absents"
   },
-  "veilles_runtime": "Routage48342 relancé ; contrat37511 actif, toutes60secondes.",
+  "veilles_runtime": "Contrat37511 et routage48342 vérifiés actifs toutes60secondes ; pas de relance en double. Surveillance seule tant que le runtime existe.",
   "pause_le": "2026-10-31T22:08:52.993905+00:00",
   "illustrations": {
     "statut": "en_cours_acquisition_clinique_bloquee",
@@ -212,9 +212,9 @@
       "reussis": 737,
       "total": 737
     },
-    "blocage": "Politique restricted/enforced actuelle inchangée le01.11 : upload.wikimedia.org absent. Les deux sélections totalisent dix candidats ; aucun original acquis. Notices lisibles via outil web, clics d’images sans pixels/fichier exploitable. Dernier résultat EuropePMC403 au checkpoint précédent, non retesté dans cette reprise.",
+    "blocage": "Politique réseau restricted/enforced revérifiée le 2026-11-01T02:56:18+00:00 : commons.wikimedia.org et upload.wikimedia.org toujours exclus. Dix candidats préparés, zéro original clinique acquis. Aucun nouvel essai d’import ou de requête Europe PMC dans ce contrôle ; le403 historique reste identifié comme tel.",
     "dernier_controle": "2026-11-01T00:49:58.213865+00:00",
-    "verrou_libere_le": "2026-11-01T02:18:30+00:00",
+    "verrou_libere_le": "2026-11-01T02:56:45+00:00",
     "blocage_outils_resolu": true,
     "lecons_illustrees": [
       "LOT_018 Phase A",
@@ -302,5 +302,55 @@
     "sources_harnais_communs_intacts": true,
     "lecons_inchangees_verifiees": 244,
     "publication_verifiee_le": "2026-11-01T02:18:30+00:00"
+  },
+  "controle_reprise_sans_production": {
+    "date": "2026-11-01T02:56:18+00:00",
+    "nature": "Contrôle de reprise et de blocage, aucune production",
+    "checkpoint_frais": "32729e76e01aa73cbc75a0089257461fee0e2c5c",
+    "reference_distante_identique": true,
+    "branche": "codex/lots",
+    "borne_fraiche": [
+      18,
+      133
+    ],
+    "registre": "lu et signé le 01.11 ; pret et verifier LOT_018 réussis",
+    "politique_reseau": {
+      "source": "cloud_environment_environment_status, observations_current=true",
+      "mode": "restricted",
+      "state": "enforced",
+      "spec_revision": "1",
+      "commons.wikimedia.org_autorise": false,
+      "upload.wikimedia.org_autorise": false,
+      "openi.nlm.nih.gov_autorise": false,
+      "europepmc.org_autorise": true,
+      "requetes_images_ce_controle": 0,
+      "europepmc_reteste": false
+    },
+    "integrite": {
+      "lecons_identiques_au_baseline": 244,
+      "baseline": "LOT_018/illustrations/acquisition/LECONS_AVANT.json",
+      "harnais_identiques_au_manifeste": 9
+    },
+    "veilles": {
+      "contrat_pid": 37511,
+      "routage_pid": 48342,
+      "intervalle_secondes": 60,
+      "actives": true,
+      "relance_necessaire": false,
+      "production_autonome": false
+    },
+    "controle_contrat": [
+      "Contrat en pause : aucune reprise autorisée"
+    ],
+    "nouveaux_html": 0,
+    "nouveaux_cliches": 0,
+    "nouveaux_lots_clotures": 0,
+    "nouveau_test_navigateur": false,
+    "nouvelle_validation_medicale": false,
+    "modele": "GPT-6 Astra historiquement confirmé par Vial ; sélecteur et effort actuels non exposés, aucun changement prétendu.",
+    "dependance": "Autoriser commons.wikimedia.org et upload.wikimedia.org dans la configuration réseau de cet environnement pour acquérir les dix candidats préparés.",
+    "suite": "Acquisition puis inspection/annotation des clichés LOT_018 ; rattrapage019–040 ensuite, avant040 DX2.",
+    "verrou": "libéré officiellement après contrôle ; aucun travail de production entrepris",
+    "verrou_libere_le": "2026-11-01T02:56:45+00:00"
   }
 }
