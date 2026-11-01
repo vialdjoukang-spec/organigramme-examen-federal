@@ -1,11 +1,27 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_195 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_194 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_196 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193 et LOT_195 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192 et LOT_194 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193 et LOT_195 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194 et LOT_196 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_197.**
-**Prochain LOT du rédacteur B : LOT_196.** LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`. LOT_194 (O2.12 Consultations de suivi du nourrisson, de l'enfant et de l'adolescent en bonne santé) est rédigé et certifié. Détail : `LOT_194/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_198.** LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+
+## LOT_196 — rédigé et certifié
+Sujet : O3.2 « Déficit fonctionnel cognitif, sensoriel ou moteur ». Détail : `LOT_196/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Office fédéral, estimation 2026. Alzheimer Suisse, page et communiqué du 17 septembre 2026. Organisation mondiale de la santé, fiche audition et rapport 2021, fiche vision. Haute Autorité de santé, mai 2018. Sachdev et collaborateurs, 2014. Test des quatre items, lu le 1er novembre 2026. Lignes mondiales sur les chutes, 2022. Concept suisse du 28 février 2025. Parkinson Suisse, page lue le 1er novembre 2026. Référentiel du 1er novembre 2023. Autorisations 60535, 65181, 54275, 56754, 38096, 26891, 48313, 57135, 54949 et 21672. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.5 (+ 72.2) Ko · SHA 53910d37ae248388 · commit 802e85f74
+- DX.1 : certitude VERT · porte VERT · T = 1.5 (+ 38.8) Ko · SHA 333eeef3b5c6133a · commit 8c364e211
+- DX.2 : certitude VERT · porte VERT · T = 1.5 (+ 40.8) Ko · SHA 3d244eb952ec4b9d · commit 74344f697
+- DX.3 : certitude VERT · porte VERT · T = 1.5 (+ 40.1) Ko · SHA e0ea0b5f734ae07a · commit 02501e062
+- DX.4 : certitude VERT · porte VERT · T = 1.5 (+ 42.5) Ko · SHA 5d4adf46c40eb176 · commit ab9fb593f
+- DX.5 : certitude VERT · porte VERT · T = 1.5 (+ 41.4) Ko · SHA 2dccb9c0bd445822 · commit c9391df57
+- DX.6 : certitude VERT · porte VERT · T = 1.5 (+ 39.0) Ko · SHA 28e9f7ca18c21221 · commit 138c4e7ad
+- DX.7 : certitude VERT · porte VERT · T = 1.5 (+ 42.3) Ko · SHA e9b59e4c76cfb48e · commit a1f93fb73
+- DX.8 : certitude VERT · porte VERT · T = 1.5 (+ 37.9) Ko · SHA 55924598d83da33f · commit 93f78dfc4
+- DX.9 : certitude VERT · porte VERT · T = 1.5 (+ 44.2) Ko · SHA d8f26cf6eb64191b · commit b365732d2
+- DX.10 : certitude VERT · porte VERT · T = 1.5 (+ 39.0) Ko · SHA 6b5a65cd0ed9911c · commit 2cba8031f
+
 
 ## LOT_195 — rédigé et certifié
 Sujet : O3.1 « Maltraitance et négligence envers la personne âgée ». Détail : `LOT_195/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Conseil fédéral, 18 septembre 2020. Fiche de l'Organisation mondiale de la santé, 15 juin 2024. Directives de l'Académie suisse des sciences médicales, adaptées au 1 janvier 2013. Code civil, état au 1 janvier 2025. Rapport 2025 de la permanence et communiqué du 13 juin 2025. Autorisation 69266. Zéro retrait.
