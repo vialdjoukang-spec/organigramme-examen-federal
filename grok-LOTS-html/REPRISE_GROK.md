@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_188 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_187 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_189 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_188 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185 et LOT_187 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186 et LOT_188 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187 et LOT_189 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186 et LOT_188 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_189.**
+**Prochain LOT du rédacteur A : LOT_191.**
 **Prochain LOT du rédacteur B : LOT_190.** LOT_188 (O2.6 Problèmes d'alimentation durant la petite enfance, l'enfance et l'adolescence) est rédigé et certifié. Détail : `LOT_188/A_AUDITER.md`.
+
+## LOT_189 — rédigé et certifié
+Sujet : O2.7 « Problèmes fœtaux pendant la grossesse ». Détail : `LOT_189/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Guide de la restriction, août 2020, et consensus de 2016. Classification du rythme du 30 septembre 2015. Guide gémellaire 2016. Avis suisse anti-D du 7 janvier 2026. Directive suisse de la grossesse prolongée, février 2014. Consensus français sur la mort fœtale, 2024. Échographie de 11 à 14 semaines, 3 janvier 2023. Transfert néonatal du 23 février 2022. Avis suisse du 10 juin 2025. Autorisations 53609, 55205, 67580, 56394, 39528, 66710, 51795. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.8 (+ 79.0) Ko · SHA 379a22f63d5fafea · commit 51c4b238b
+- DX.1 : certitude VERT · porte VERT · T = 1.8 (+ 43.3) Ko · SHA 6448acb21541a71a · commit 455056ac9
+- DX.2 : certitude VERT · porte VERT · T = 1.8 (+ 41.8) Ko · SHA 6a2cddb03827f138 · commit c3717cade
+- DX.3 : certitude VERT · porte VERT · T = 1.8 (+ 39.8) Ko · SHA cf67b64534b40abe · commit c570c1f65
+- DX.4 : certitude VERT · porte VERT · T = 1.8 (+ 42.5) Ko · SHA f661876cc0d0d009 · commit 6bfa0e64e
+- DX.5 : certitude VERT · porte VERT · T = 1.8 (+ 45.6) Ko · SHA 8f23e1e5d45955be · commit 78d7ddd4a
+- DX.6 : certitude VERT · porte VERT · T = 1.8 (+ 40.7) Ko · SHA d41241e67a33d511 · commit a8361420b
+- DX.7 : certitude VERT · porte VERT · T = 1.8 (+ 39.6) Ko · SHA e03fa494e266dfe6 · commit e28cd23be
+- DX.8 : certitude VERT · porte VERT · T = 1.8 (+ 42.9) Ko · SHA 1c9b908a6bcdeded · commit 0e658095d
+- DX.9 : certitude VERT · porte VERT · T = 1.8 (+ 43.8) Ko · SHA 90ea67f0194637bb · commit 78d062a62
+- DX.10 : certitude VERT · porte VERT · T = 1.8 (+ 41.2) Ko · SHA 891dfe7a412b3f0e · commit d0c0c2471
 
 ## LOT_188 — rédigé et certifié
 Sujet : O2.6 « Problèmes d'alimentation durant la petite enfance, l'enfance et l'adolescence ». Détail : `LOT_188/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. pédiatrie suisse, 27 février 2025 ; reflux britannique 2015, surveillance 2018 ; reflux européen et nord-américain 2018 ; allergie au lait 2024 ; maladie cœliaque 2020 ; concept d'hospitalisation du 18 mars 2026. Autorisations 53836, 70596, 54469, 30124, 10989. Zéro retrait.
