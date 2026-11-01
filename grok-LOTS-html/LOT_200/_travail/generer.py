@@ -1033,7 +1033,7 @@ def build_one(mod, cle: str):
         blocs["ess_teaser"] = pack["idee"]
         blocs["ess"] = [
             P(f"La piste {pack['n']} s'appelle {pack['nom']}."),
-            P(pack["idee"]),
+            P("On retient le critère lu, puis une seule décision."),
             P("Après la piste, une seule décision se choisit, puis une date."),
         ]
         blocs["tableau"] = ""
