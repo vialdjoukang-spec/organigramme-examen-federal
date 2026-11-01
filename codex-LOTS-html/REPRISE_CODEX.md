@@ -1,5 +1,7 @@
 # Reprise LOTS — 01.11.2026
 
+Dernier contrôle sans production : 2026-11-01T05:45:08+00:00, dépôt frais `a0fcfe081885169cb415c95c6355d6b9da040db1`. Borne18–133, registre signé, pret/verifier018 réussis ;244leçons et9fichiers communs inchangés. Les domaines commons.wikimedia.org, upload.wikimedia.org et cdn.ncbi.nlm.nih.gov restent exclus. Neuf candidats retenus, un suspendu ; aucune nouvelle acquisition ni relecture clinique. Les veilles existantes sont actives ; aucun doublon créé. Blocage réel inchangé, pas un nouveau lot produit.
+
 Vérification primaire et bilan corrigé publiés au commit `da4b134437c23bae4a337afffeec2591f8ac328d`, référence distante vérifiée. Verrou libéré officiellement le 2026-11-01T04:53:52+00:00.
 
 ## Priorité active : rattrapage des illustrations018
