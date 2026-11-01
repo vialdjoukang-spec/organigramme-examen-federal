@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_177 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_178 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_180 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_177 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175 et LOT_177 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176 et LOT_178 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175 et LOT_177 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178 et LOT_180 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_179.**
-**Prochain LOT du rédacteur B : LOT_180.** LOT_178 (O1.5 Problèmes liés à l'accouchement) est rédigé et certifié. Détail : `LOT_178/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_184.** LOT_180 (O1.7 Soins de base autour de la conception et pendant la grossesse) est rédigé et certifié. Détail : `LOT_180/A_AUDITER.md`.
+
+## LOT_180 — rédigé et certifié
+Sujet : O1.7 « Soins de base autour de la conception et pendant la grossesse ». Détail : `LOT_180/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Communiqué OFS du 18.06.2026, avis 81 du 4 octobre 2023, avis prééclampsie du 10.2.2019, Pavord juillet 2011, coqueluche janvier 2017, lettre 55 confirmée en novembre 2025, NG133 du 25 juin 2019, NG201 du 19 août 2021. Autorisations 58121, 36752, 51795, 53609, 30124, 56271, 00637, 69992. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 3.2 (+ 77.1) Ko · SHA 213ebb563e570e2b · commit 82e5c0ae2
+- DX.1 : certitude VERT · porte VERT · T = 3.2 (+ 39.8) Ko · SHA 8e233a0d02ca26d5 · commit 8623f3807
+- DX.2 : certitude VERT · porte VERT · T = 3.2 (+ 41.6) Ko · SHA 4af1a6612c33fa63 · commit 4d2f41640
+- DX.3 : certitude VERT · porte VERT · T = 3.2 (+ 42.8) Ko · SHA 51bab51c2dd1cd94 · commit f829a6dc5
+- DX.4 : certitude VERT · porte VERT · T = 3.2 (+ 42.9) Ko · SHA 15d2622cb0e0a953 · commit 55c4b3c6a
+- DX.5 : certitude VERT · porte VERT · T = 3.2 (+ 37.1) Ko · SHA be0abc96bbd1d979 · commit ba638e3b3
+- DX.6 : certitude VERT · porte VERT · T = 3.2 (+ 41.8) Ko · SHA 3742316601f2cf3b · commit bdf32ac52
+- DX.7 : certitude VERT · porte VERT · T = 3.2 (+ 45.5) Ko · SHA 1e2eb233a82b768f · commit aa805c5b7
+- DX.8 : certitude VERT · porte VERT · T = 3.2 (+ 41.1) Ko · SHA 616c36d050d2842a · commit 475e1d8a6
+- DX.9 : certitude VERT · porte VERT · T = 3.2 (+ 39.7) Ko · SHA fa817977c3efeb4f · commit 54410eec8
+- DX.10 : certitude VERT · porte VERT · T = 3.2 (+ 42.6) Ko · SHA e47d0364d3bc850c · commit f5773d15d
 
 ## LOT_177 — rédigé et certifié
 Sujet : O1.4 « Problèmes maternels pendant la grossesse : fièvre, œdème, hypertension, travail prématuré irrégulier ». Détail : `LOT_177/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. ISSHP 2021, guide de juin 2019, guide de 2015, avis 67 du 2 décembre 2019, avis 41 de 2013, avis 34 de 2009, Haram 2009. Autorisations 70383, 41529, 56394, 69185, 28080, 51795, 47503, 49456, 44486, 52896, 62724, 56271, 59876. Autorisation 66710 : aucun schéma milligrammé de maturation pulmonaire. Zéro retrait.
