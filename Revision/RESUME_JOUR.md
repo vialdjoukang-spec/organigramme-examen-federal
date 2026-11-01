@@ -1,10 +1,10 @@
 # Résumé du jour — Revision QCM
 
-*Généré dynamiquement le 2026-11-01 23:59 Europe/Zurich par `Revision/_outils/scripts/resume_jour.py`.*
+*Généré dynamiquement le 2026-11-02 00:10 Europe/Zurich par `Revision/_outils/scripts/resume_jour.py`.*
 
 ## Progression G1–G16
 
-**5/16 SSP prêts (31.2 %)** · branche locale repo `grok/revision` @ `2598db63`
+**6/16 SSP prêts (37.5 %)** · branche locale repo `grok/revision` @ `2598db63`
 
 | SSP | LOT | Titre | Statut | Q | EX | AP | SPE | HTML |
 |-----|-----|-------|--------|---|----|----|-----|------|
@@ -13,7 +13,7 @@
 | G03 | LOT_003 | Soif excessive / polydipsie | revue_auto | 85 | 49 | 23 | 13 | `G_symptomes_generaux/G03_soif_polydipsie/LOT_003_G3_TypeA_Reflexe.html` |
 | G04 | LOT_004 | Fatigue, lassitude | revue_auto | 88 | 52 | 20 | 16 | `G_symptomes_generaux/G04_fatigue_lassitude/LOT_004_G4_TypeA_Reflexe.html` |
 | G05 | LOT_005 | Sensation de maladie | revue_auto | 94 | 56 | 22 | 16 | `G_symptomes_generaux/G05_sensation_maladie/LOT_005_G5_TypeA_Reflexe.html` |
-| G06 | LOT_006 | Fièvre, frissons, hyperthermie | absent | 0 | 0 | 0 | 0 | `—` |
+| G06 | LOT_006 | Fièvre, frissons, hyperthermie | revue_auto | 100 | 60 | 24 | 16 | `G_symptomes_generaux/G06_fievre_frissons/LOT_006_G6_TypeA_Reflexe.html` |
 | G07 | LOT_007 | Bouffées vasomotrices (flush) | absent | 0 | 0 | 0 | 0 | `—` |
 | G08 | LOT_008 | Hypothermie | absent | 0 | 0 | 0 | 0 | `—` |
 | G09 | LOT_009 | Prurit | absent | 0 | 0 | 0 | 0 | `—` |
@@ -39,6 +39,7 @@
 - `Revision/G_symptomes_generaux/G03_soif_polydipsie/LOT_003_G3_TypeA_Reflexe.html` — G03 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
 - `Revision/G_symptomes_generaux/G04_fatigue_lassitude/LOT_004_G4_TypeA_Reflexe.html` — G04 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
 - `Revision/G_symptomes_generaux/G05_sensation_maladie/LOT_005_G5_TypeA_Reflexe.html` — G05 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
+- `Revision/G_symptomes_generaux/G06_fievre_frissons/LOT_006_G6_TypeA_Reflexe.html` — G06 Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)
 - `STRATEGIE_QCM_EXAMEN_CH.html` — Stratégie QCM (HTML)
 - `STRATEGIE_QCM_EXAMEN_CH.pdf` — Stratégie QCM (PDF)
 - `EVALUATION_MEDICAL_LANGUE_LOT_001_248.json` — Évaluation (JSON)
@@ -50,8 +51,8 @@
 
 ## Relève Λ
 
-- Progression globale G : **31.2 %** (5/16).
-- Prochain SSP absent : **G06** · détail couverture DD et blockers : `ETAT_DES_LIEUX_QCM.md`.
+- Progression globale G : **37.5 %** (6/16).
+- Prochain SSP absent : **G07** · détail couverture DD et blockers : `ETAT_DES_LIEUX_QCM.md`.
 - Contraintes : GitHub only (jamais Drive) ; pas de PR/merge/main/force-push sans ordre Vial.
 
 ## Prêt à pousser (CloudAgent)
