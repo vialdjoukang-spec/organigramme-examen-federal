@@ -1,3 +1,21 @@
+# Reprise solo DX6 — 2026-11-01T22:49:55+00:00
+
+Dernier ordre : seul, sans sous-agents ; aucun agent lancé. Dépôt frais013d1302, branche codex/lots ; borne18–133 relue, registre signé, pret/verifier018 et029 autorisés, verrou acquis. Écritures exclusivement codex-LOTS-html/.
+
+Deux leçons renforcées : LOT018 DX6 occlusion veineuse rétinienne et LOT029 DX6 craniosténose.14parties et14réponses chacune ; relecture interne réelle, pas de contrelecture indépendante ni validation clinique humaine. Les12leçons précédentes restent identiques. Cumul14/244,230restantes. Aucun nouveau lot terminé :22lots018–039 rédigés,040 PhaseA/DX1. Ne pas refaire la production initiale018 au commit950a4cd1.
+
+Sources CH HUG/Paediatrie2023/CHUV, puis UE COUF2025, RCOphth2022 et guide néerlandais2021, dans les sections consignées. AIPS Eylea62393002 local relu pour occlusion veineuse ; deux fenêtres thérapeutiques identiques, pas de dose nouvelle ni certification de fraîcheur distante. Lectures et limites : renforcement_solo_dx6_20261101/LECTURES.json.
+
+Images : aucun nouveau cliché intégré. Notice Commons Branch_retinal_vein_occlusion.jpg lue, auteurs etCC BY2.0 identifiés. Acquisition directe refusée par tunnel403 ; aucun pixel vu, aucune annotation. Guide craniosténoseCC BY-NC-ND exclu pour ses figures. RevuesPMC8467503/PMC10887665 simples pistes à vérifier. Schéma rétinien conceptuel antérieur préservé ; contraste sombre corrigé. Rattrapage iconographique incomplet. Réponses web exactes en cache local ignoré, notes/liens publiés.
+
+Contrôles :550conditionsV8 sur22fichiers,242autres leçons/9harnais intacts. Chromium8configurations,112fenêtres,112réponses,8définitions ;8captures partie9 inspectées. Répétition ajoutée corrigée, accent normalisé ; audit langue historique encore non conforme à certaines règles incompatibles avecV8. Inventaire244leçons/578passages actualisé. Mesures : LOT_018/LOT_018_Phase_B_V0_DX.6.html : HTML 111.920 Ko, base 5.409 Ko, fenêtres 31.417 Ko ; LOT_029/LOT_029_Phase_B_V0_DX.6.html : HTML 92.433 Ko, base 4.785 Ko, fenêtres 20.292 Ko. Base DD sous9Ko ; HTML complet distinct du plafond.
+
+Suite :018 DX7 puis029 DX7 ; clichés manquants DX6 et antérieurs.040 DX2 suspendu pendant le rattrapage. Veilles locales37511/48342 existantes, contrôle chaque60s pendant le runtime, sans rédaction ; aucune veille concurrente. Le contrôleur générique continue de signaler la pause des nouveaux diagnostics, sans masquer son alerte. Verrou détenu pour publication ; état final dans ETAT_CONTINUITE.json et JOURNAL_PASSES.jsonl.
+
+Modèle : famille GPT-6 exposée ; variante et effort courants non exposés. Astra ultra historiquement confirmé, high recommandé ; aucun changement de réglage revendiqué.
+
+## Historique daté conservé
+
 # Publication DX5 confirmée — 2026-11-01T21:07:01+00:00
 
 Commit de contenu `b7b74f041905cf735450178d485662b59aa8a540` poussé sur `codex/lots` ; référence distante vérifiée. Verrou exclusif libéré. Cumul12/244 leçons renforcées,232restantes. Prochaine reprise018 DX6 puis029 DX6 ; dette iconographique DX5 ouverte. Aucun nouveau lot entier terminé. Deux aperçus tiers acquis/inspectés, aucun nouveau cliché intégré. Veilles locales de contrôle existantes maintenues pendant le runtime, sans rédaction autonome.

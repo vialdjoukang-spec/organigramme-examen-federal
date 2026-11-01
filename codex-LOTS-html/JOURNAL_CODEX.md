@@ -188,3 +188,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T21:06:07+00:00 — Solo DX5 : rétinopathie018 et tumeur intracrânienne pédiatrique029 renforcées.28parties/28réponses relues,550conditionsV8,8configurationsChromium,8captures inspectées. Cumul12/244 ; aucune nouvelle image intégrée ni lot clos. Publication en préparation.
 
 2026-11-01T21:07:01+00:00 — Publication DX5 vérifiée : b7b74f041905cf735450178d485662b59aa8a540. Verrou libéré ; reprise018 DX6/029 DX6. Une erreur503 transitoire lors du contrôle distant, puis vérification réussie.
+
+2026-11-01T22:49:55+00:00 — Solo DX6 : occlusion veineuse018 et craniosténose029 renforcées.28parties/28réponses relues,550conditionsV8,8configurationsChromium,8captures inspectées. Cumul14/244 ; aucune nouvelle image ni lot clos. Publication en préparation.

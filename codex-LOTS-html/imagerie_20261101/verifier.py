@@ -10,10 +10,10 @@ data = json.loads((D/'INVENTAIRE.json').read_text())
 doc = html.parse(str(B/'BILAN_IMAGERIE_ECG.html'))
 before = json.loads((B/'LOT_018/illustrations/acquisition/LECONS_AVANT.json').read_text())
 current = {str(p.relative_to(B.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in B.glob('LOT_*/*.html')}
-# Transition solo DX5 : les dix leçons de la campagne précédente sont
+# Transition solo DX6 : les douze leçons de la campagne précédente sont
 # vérifiées inchangées par le nouveau contrôleur ; leurs preuves restent datées.
 import subprocess
-campaign=B/'renforcement_solo_dx5_20261101'
+campaign=B/'renforcement_solo_dx6_20261101'
 subprocess.run(['python3','-B',str(campaign/'verifier.py')],check=True)
 expected=json.loads((campaign/'BASELINE.json').read_text())['lecons']
 transitions=json.loads((campaign/'CONTROLE.json').read_text())['lecons']
@@ -57,7 +57,7 @@ for row in data['lecons']:
         links += 1
 manifeste = json.loads((B.parent/'harnais/HARNAIS_MANIFESTE.json').read_text())['fichiers']
 assert all(hashlib.sha256((B.parent/p).read_bytes()).hexdigest()==sha for p,sha in manifeste.items())
-result = {'date':datetime.now(timezone.utc).isoformat(timespec='seconds'), 'lecons_inchangees_depuis_checkpoint':242, 'lecons_renforcees_cumul':12, 'lecons_renforcees_cette_passe':2, 'lecons_avec_image_reelle_cumul':3, 'images_reelles_distinctes':2,
+result = {'date':datetime.now(timezone.utc).isoformat(timespec='seconds'), 'lecons_inchangees_depuis_checkpoint':242, 'lecons_renforcees_cumul':14, 'lecons_renforcees_cette_passe':2, 'lecons_avec_image_reelle_cumul':3, 'images_reelles_distinctes':2,
           'lots_sans_saut':116,'liens_extraits_verifies':links,'harnais_intacts':len(manifeste),
           'lecons_triees':triage['lecons_triees'],'passages_tries':triage['passages_lus'],'acquisitions_documentaires_sources_orl':5,
           'statut':'contrôles mécaniques réussis','validation_clinique':False}
