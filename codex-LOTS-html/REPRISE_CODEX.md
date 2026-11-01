@@ -1,5 +1,15 @@
 # Reprise LOTS — 01.11.2026
 
+Dernière avancée : source primaire de l’occlusion veineuse de branche (PMC3171721) acquise et lue partiellement. Départ frais `871da1608ac06db411adc4d31cec436d835330e2`, égal au distant. Travail seul, verrou officiel acquis, registre du jour signé et pret/verifier018 réussis. Publication et libération du verrou à vérifier dans ETAT_CONTINUITE.json.
+
+Quatre articles primaires acquis au total. Le nouveau dossier LOT_018/illustrations/acquisition_epmc_obvr/ conserve le XML exact, les métadonnées, accès, empreintes et passages réellement lus. Licence CC BY 2.0 et cinq auteurs complets confirmés. F1 et le cas indiquent l’œil gauche ; la discussion mentionne le côté droit. Réserve explicite avant annotation, sans correction tacite. Pas de seconde occlusion inférotemporale prouvée, pas de décollement séreux F4 déclaré visible sur la photographie F1, pas de causalité de la quétiapine démontrée par ce rapport de cas. Aucun traitement transposé.
+
+BILAN_CLICHES_LOT_018.html actualisé : 146 contrôles positifs, 24 ouvertures Chromium et six captures du rapport inspectées (ordinateur et tactile émulé). Neuf candidats retenus, un suspendu, zéro cliché clinique acquis ou inspecté. Les 244 leçons et neuf fichiers du harnais sont inchangés. Les dix tests d’import du précédent checkpoint restent historiques, sans nouvelle exécution ici. Aucun nouveau V8, AIPS, audit indépendant ni validation clinique humaine.
+
+Blocage effectif inchangé : commons.wikimedia.org, upload.wikimedia.org et cdn.ncbi.nlm.nih.gov restent exclus de la politique réseau. La source primaire est accessible, ses images ne le sont pas. Aucun contournement ni changement de réseau. Prochaine action : acquérir sous verrou les originaux dès accès effectif, inspecter leurs pixels, annoter puis vérifier les rendus. Résoudre séparément la provenance discordante du candidat diabétique. Rattrapage018 puis019–040 avant toute reprise040 DX2 ; ne pas créer un nouveau diagnostic pour contourner cette priorité.
+
+## Vérification primaire précédente — historique conservé
+
 Dernier contrôle sans production : 2026-11-01T06:18:16+00:00, dépôt frais `d00661eaf481d273df8974607de1c5a8f103c64e`. Borne18–133, registre signé, pret/verifier018 réussis ;244leçons et9fichiers communs inchangés. Les domaines commons.wikimedia.org, upload.wikimedia.org et cdn.ncbi.nlm.nih.gov restent exclus. Neuf candidats retenus, un suspendu ; aucune nouvelle acquisition ni relecture clinique. Veilles existantes actives. Blocage réel inchangé, pas un nouveau lot produit.
 
 Vérification primaire et bilan corrigé publiés au commit `da4b134437c23bae4a337afffeec2591f8ac328d`, référence distante vérifiée. Verrou libéré officiellement le 2026-11-01T04:53:52+00:00.

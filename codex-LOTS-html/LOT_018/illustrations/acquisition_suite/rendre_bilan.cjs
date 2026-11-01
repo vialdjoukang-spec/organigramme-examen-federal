@@ -32,9 +32,15 @@ const fichier = path.join(base, 'BILAN_CLICHES_LOT_018.html');
       if(await suspendu.getAttribute('open') === null || !(await suspendu.innerText()).includes('Import suspendu')) throw new Error('Alerte de provenance absente');
       essais.push({vue:nom,id:'rd-fond-oeil',ouverture:true,alerte_provenance:true});
       await suspendu.screenshot({path:path.join(d,`provenance-${nom}.png`)});
+      const obvr = page.locator('#obvr-fond-oeil');
+      if(nom==='mobile') await obvr.locator('summary').tap(); else await obvr.locator('summary').click();
+      const texteObvr = await obvr.innerText();
+      if(await obvr.getAttribute('open') === null || !texteObvr.includes('côté droit') || !texteObvr.includes('quétiapine')) throw new Error('Réserves de la source OBVR absentes');
+      essais.push({vue:nom,id:'obvr-fond-oeil',ouverture:true,reserves_documentaires:true});
+      await obvr.screenshot({path:path.join(d,`obvr-${nom}.png`)});
       await context.close();
     }
     fs.writeFileSync(path.join(d,'TEST_RAPPORT_NAVIGATEUR.json'),JSON.stringify({date:new Date().toISOString(),fichier:'BILAN_CLICHES_LOT_018.html',sha256:crypto.createHash('sha256').update(raw).digest('hex'),portee:'Rapport seulement ; aucun cliché clinique ni HTML de leçon rendu dans cette campagne.',essais,appareil_physique:false},null,2)+'\n');
-    console.log(JSON.stringify({interactions:essais.length,captures:4}));
+    console.log(JSON.stringify({interactions:essais.length,captures:6}));
   } finally { await navigateur.close(); }
 })().catch(e=>{console.error(e);process.exit(1)});
