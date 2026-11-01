@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restriction de croissance fœtale</title>
+<style>
+
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}
+@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}
+main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}h1,h2,h3,.barre,summary,nav,caption,th{font-family:"Atkinson Hyperlegible",Verdana,sans-serif}
+h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}h3{font-size:1.08rem;color:var(--titre);margin:1rem 0 .3rem}
+p,.para{margin:0 0 .55rem}.sous{color:var(--doux);font-size:.95rem}.essentiel{border-left-width:4px}.essentiel h2{font-size:1.1rem}
+nav ol{padding-left:1.6rem;margin:.4rem 0 0}nav li{margin:.15rem 0}a{color:var(--lien)}
+button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}
+button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}
+.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre);font-size:.98rem}
+.fenetre::backdrop{background:var(--voile)}
+.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700;font-size:.95rem}
+.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);font-size:1rem;cursor:pointer}
+.corps{padding:1rem 1.2rem 1.2rem}.corps p:last-child{margin-bottom:0}
+.tw{overflow-x:auto;margin:.6rem 0 1rem}table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}th{background:var(--th);font-size:.85rem}caption{text-align:left;font-weight:700;font-size:.9rem;padding:.2rem 0 .4rem}
+figure{margin:1.2rem 0}figure svg{width:100%;height:auto;max-width:34rem;display:block;margin:auto;color:var(--texte)}figcaption{font-size:.88rem;color:var(--doux);text-align:center;margin-top:.3rem}
+.sources{font-size:.86rem;line-height:1.5}.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}
+abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem}
+.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}
+.sch .niv{display:none}.sch input.sr{position:absolute;opacity:0;width:1px;height:1px}
+.sch .bn{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}.sch .bn label{border:1px solid #9bb;border-radius:8px;padding:4px 8px;cursor:pointer}
+.som{columns:2;column-gap:1.4rem}.som li{break-inside:avoid}
+
+
+</style>
+</head>
+<body>
+<main>
+<h1 id="titre">Restriction de croissance fœtale</h1>
+<p class="taille" id="taille">Taille : mesurée par le script du dépôt.</p>
+<section class="ilot c essentiel"><h2 id="ess">L'essentiel</h2><p>Les critères de Restriction de croissance fœtale sont dans les fenêtres, avec la source de chaque seuil.</p></section><nav><h2 id="som">Sommaire</h2><ol class="som"><li><a href="#p1">1. Définition</a></li><li><a href="#p2">2. Épidémiologie</a></li><li><a href="#p3">3. Physiopathologie</a></li><li><a href="#p4">4. Démarche diagnostique</a></li><li><a href="#p5">5. Anamnèse et drapeaux rouges</a></li><li><a href="#p6">6. Examen physique</a></li><li><a href="#p7">7. Approche syndromique</a></li><li><a href="#p8">8. Diagnostic positif</a></li><li><a href="#p9">9. Examens complémentaires</a></li><li><a href="#p10">10. Arbre décisionnel</a></li><li><a href="#p11">11. Prise en charge</a></li><li><a href="#p12">12. Prévention</a></li><li><a href="#p13">13. Points clés</a></li><li><a href="#p14">14. Pièges et cas</a></li></ol><p class="sous">Chaque titre ouvre une fenêtre. Les sources sont à la fin.</p></nav><section class="ilot c"><h2 id="p1">1. Définition</h2><p>Le détail sur définition est dans la fenêtre. <button type="button" class="terme" popovertarget="w-1">ouvrir</button></p><div id="w-1" popover class="fenetre"><div class="barre"><span>1. Définition</span><button type="button" popovertarget="w-1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La restriction de croissance fœtale n'est pas le simple petit fœtus.</p>
+<p>Le guide d'août 2020 appelle petit pour l'âge un poids estimé ou un périmètre abdominal sous le 10e percentile.</p>
+<p>La taille seule ne nomme la restriction que si le périmètre abdominal ou le poids estimé est sous le 3e percentile.</p>
+<p>Une chute de plus de deux quartiles, ou de plus de 50 percentiles, alerte sans suffire à elle seule.</p>
+<p>Le consensus de 2016 et le guide d'août 2020 séparent la forme précoce, avant 32 semaines, et la forme tardive, à partir de 32 semaines.</p>
+<p>La définition utilisée suppose l'absence d'anomalie congénitale.</p>
+<p>Avant 32 semaines, un critère solitaire est le périmètre ou le poids sous le 3e percentile.</p>
+<p>Avant 32 semaines, un autre critère solitaire est un flux diastolique ombilical absent.</p>
+<p>Avant 32 semaines, le critère combiné joint un périmètre ou un poids sous le 10e percentile à un indice de pulsatilité utérin ou ombilical au-dessus du 95e percentile.</p>
+<p>À partir de 32 semaines, le critère solitaire reste le périmètre ou le poids sous le 3e percentile.</p>
+<p>À partir de 32 semaines, il faut au moins deux des trois signes suivants.</p>
+<p>Le premier de ces trois signes tardifs est un périmètre ou un poids sous le 10e percentile.</p>
+<p>Le deuxième est un franchissement de plus de deux quartiles sur des courbes non personnalisées.</p>
+<p>Le troisième est un rapport cérébro-placentaire sous le 5e percentile ou un indice ombilical au-dessus du 95e percentile.</p>
+<p>Environ 70 % des restrictions précoces s'accompagnent d'une hypertension gravidique, surtout une pré-éclampsie.</p>
+<p>Le Doppler de l'artère cérébrale moyenne guide la surveillance avant 32 semaines.</p>
+<p>Le même guide dit qu'aucune preuve lue ne fait décider l'extraction sur ce seul Doppler cérébral avant 32 semaines.</p>
+<p>Après 34 semaines et 0 jour, l'intervalle médian lu entre un indice cérébral bas et une mort fœtale est de 5 jours ou moins.</p>
+<p>Avant 27 semaines et pour un poids de naissance extrêmement bas, chaque jour gagné améliorait la survie néonatale de 2 % dans la série citée par le guide.</p>
+<p>Le guide écrit un poids inférieur à 600 grammes pour cette série, sans en faire un seuil d'extraction automatique.<sup class="s">1</sup></p>
+<p>De 24 semaines et 0 jour à 25 semaines et 6 jours, la conduite est personnalisée.</p>
+<p>Les recommandations suisses à la limite de la viabilité réservent les soins de confort en dessous de 23 semaines et 0 jour lorsque l'âge est confirmé au premier trimestre.</p>
+<p>Dans cette zone, le même texte suisse ne retient ni la cardiotocographie ni la césarienne pour une indication fœtale.</p>
+<p>À partir de 26 semaines et 0 jour, des ralentissements répétés, spontanés, persistants et non provoqués indiquent l'extraction.</p></div></div></section><section class="ilot v"><h2 id="p2">2. Épidémiologie</h2><p>Le détail sur épidémiologie est dans la fenêtre. <button type="button" class="terme" popovertarget="w-2">ouvrir</button></p><div id="w-2" popover class="fenetre"><div class="barre"><span>2. Épidémiologie</span><button type="button" popovertarget="w-2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Un profil biophysique coté 4 ou moins est aussi un motif d'extraction à partir de 26 semaines et 0 jour.</p>
+<p>De 26 semaines et 0 jour à 28 semaines et 6 jours, on extrait si l'onde a du canal d'Arantius est sur la ligne de base ou en dessous.</p>
+<p>Dans la même bande, on extrait si la variation à court terme est inférieure à 2,6 ms.</p>
+<p>De 29 semaines et 0 jour à 31 semaines et 6 jours, le seuil de variation à court terme lu est 3,0 ms.<sup class="s">1</sup></p>
+<p>L'onde a du canal d'Arantius sur la ligne de base ou en dessous reste un motif dans cette bande.</p>
+<p>De 32 semaines et 0 jour à 33 semaines et 6 jours, le guide permet la règle dès 30 semaines et 0 jour.</p>
+<p>Dans cette bande, on extrait si le flux diastolique ombilical est inversé ou si la variation courte est inférieure à 3,5 ms.</p>
+<p>À partir de 34 semaines et 0 jour, la règle est permise dès 32 semaines et 0 jour.</p>
+<p>On extrait alors si le flux diastolique ombilical est absent ou si la variation courte est inférieure à 4,5 ms.</p>
+<p>Une indication maternelle ou une urgence obstétricale fait extraire à tout âge.</p>
+<p>Le guide recommande une prophylaxie par corticostéroïde si l'extraction est prévue avant 34 semaines et 0 jour.</p>
+<p>Aucune information professionnelle suisse lue ne donne le schéma milligrammé de cette maturation.</p>
+<p>Diprophos, autorisation 39528, signale une hypoglycémie néonatale après bétaméthasone au-delà de 33 semaines.</p>
+<p>La dexaméthasone en ampoule, autorisation 66710, ne contient pas de schéma de maturation pulmonaire.</p>
+<p>La même ampoule signale une hypoglycémie néonatale après corticostéroïde prénatal court lorsque l'accouchement prématuré tardif menace.</p>
+<p>Le sulfate de magnésium Bichsel, autorisation 56394, écrit une dose initiale de tocolyse de 4 g par voie intraveineuse.</p>
+<p>Cette ligne de 4 g est une tocolyse, pas un schéma de neuroprotection lu dans la même information.</p>
+<p>Le texte signale une mortalité néonatale décrite après fortes doses avant 34 semaines chez des nouveau-nés de poids inférieur à 1250 g.</p></div></div></section><section class="ilot c"><h2 id="p3">3. Physiopathologie</h2><p>Le détail sur physiopathologie est dans la fenêtre. <button type="button" class="terme" popovertarget="w-3">ouvrir</button></p><div id="w-3" popover class="fenetre"><div class="barre"><span>3. Physiopathologie</span><button type="button" popovertarget="w-3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le guide d'août 2020 demande de suivre la règle locale pour la neuroprotection et ne fixe pas un âge unique.</p>
+<p>La césarienne élective est recommandée si la variation courte est anormale.</p>
+<p>Si le canal d'Arantius est altéré, si le flux ombilical diastolique est absent ou inversé, si le profil biophysique est altéré, ou s'il existe une indication maternelle.</p>
+<p>Angusta, autorisation 67580, est contre-indiqué lorsqu'un état fœtal inquiétant est déjà connu.</p>
+<p>On ne déclenche donc pas par ce comprimé un fœtus dont le tracé ou le Doppler a déjà donné le motif d'extraction.</p>
+<p>La surveillance d'une restriction précoce se fait dans une structure avec néonatologie de haut niveau.</p>
+<p>Le pédiatre est appelé avant la naissance si le poids estimé est sous le 3e percentile, selon le texte suisse du 23 février 2022.</p>
+<p>Un poids estimé sous 2000 grammes ou un terme avant 34 semaines fait aussi discuter cette consultation.</p>
+<p>La perte du tonus fœtal, avec l'altération veineuse, est associée dans le guide à un pH de cordon très bas.</p>
+<p>La perte des mouvements globaux, jointe à l'altération du canal d'Arantius, peut annoncer un pH de cordon inférieur à 7,20.</p>
+<p>On ne rassure pas sur un seul percentile isolé si le Doppler ou la cinétique de croissance est déjà anormal.</p>
+<p>On ne traite pas comme une restriction un fœtus simplement sous le 10e percentile, sans autre critère, lorsque le 3e percentile est respecté.</p>
+<p>Après une restriction, l'avis suisse du 10 juin 2025 chiffre le risque de récidive entre 20 et 30 %.</p>
+<p>Le même avis évoque l'aspirine si le Doppler utérin suivant est anormal.</p>
+<p>Aspirine Cardio, autorisation 51795, est contre-indiquée au troisième trimestre.</p>
+<p>Son libellé lu est cardiovasculaire, et le schéma milligrammé de l'avis n'est pas recopié.</p>
+<p>Le petit fœtus constitutionnel reste au-dessus du 3e percentile et ne cumule pas deux critères tardifs.</p>
+<p>Une malformation exclut la définition du guide, qui est écrite en l'absence d'anomalie congénitale.</p>
+<p>L'oligoamnios peut accompagner la restriction sans la définir.</p>
+<p>L'anémie se cherche par le pic de vitesse cérébrale, pas par le percentile abdominal seul.</p>
+<p>Le syndrome transfuseur-transfusé exige une grossesse monochoriale et une discordance de liquide.</p>
+<p>Un tracé suspect est un outil de surveillance, pas la définition de la restriction.</p>
+<p>Dans la bande de 26 et 28 semaines, le motif d'extraction lu est : onde a limite ou variation courte inférieure à 2,6 ms.</p>
+<p>On répète la biométrie et le Doppler avant de dater l'extraction dans la bande de 26 et 28 semaines.</p>
+<p>On note dans le dossier la bande de 26 et 28 semaines et le signe qui a fait décider.</p>
+<p>On n'emprunte pas le seuil d'une autre bande lorsque la patiente est dans la bande de 26 et 28 semaines.<sup class="s">1</sup></p>
+<p>Dans la bande de 29 et 31 semaines, le motif d'extraction lu est : onde a limite ou variation courte inférieure à 3,0 ms.</p></div></div></section><section class="ilot v"><h2 id="p4">4. Démarche diagnostique</h2><p>Le détail sur démarche diagnostique est dans la fenêtre. <button type="button" class="terme" popovertarget="w-4">ouvrir</button></p><div id="w-4" popover class="fenetre"><div class="barre"><span>4. Démarche diagnostique</span><button type="button" popovertarget="w-4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On répète la biométrie et le Doppler avant de dater l'extraction dans la bande de 29 et 31 semaines.</p>
+<p>On note dans le dossier la bande de 29 et 31 semaines et le signe qui a fait décider.</p>
+<p>On n'emprunte pas le seuil d'une autre bande lorsque la patiente est dans la bande de 29 et 31 semaines.<sup class="s">1</sup></p>
+<p>Dans la bande de 32 et 33 semaines, le motif d'extraction lu est : flux ombilical inversé ou variation courte inférieure à 3,5 ms.</p>
+<p>On répète la biométrie et le Doppler avant de dater l'extraction dans la bande de 32 et 33 semaines.</p>
+<p>On note dans le dossier la bande de 32 et 33 semaines et le signe qui a fait décider.</p>
+<p>On n'emprunte pas le seuil d'une autre bande lorsque la patiente est dans la bande de 32 et 33 semaines.<sup class="s">1</sup></p>
+<p>Dans la bande de 34 et au-delà semaines, le motif d'extraction lu est : flux ombilical absent ou variation courte inférieure à 4,5 ms.</p>
+<p>On répète la biométrie et le Doppler avant de dater l'extraction dans la bande de 34 et au-delà semaines.</p>
+<p>On note dans le dossier la bande de 34 et au-delà semaines et le signe qui a fait décider.</p>
+<p>On n'emprunte pas le seuil d'une autre bande lorsque la patiente est dans la bande de 34 et au-delà semaines.<sup class="s">1</sup></p>
+<p>Le lundi du diagnostic, on relit l'âge, le percentile, le Doppler ombilical et l'onde a avant de conclure.</p>
+<p>Le lundi du diagnostic, un ralentissement spontané répété à partir de 26 semaines ne se range pas dans la surveillance simple.</p>
+<p>Le lundi du diagnostic, on cherche une hypertension maternelle parce que la forme précoce s'y associe souvent.</p>
+<p>Le lundi du diagnostic, on confirme que la poche mesurée ne contient ni cordon ni membre si l'on parle aussi de liquide.</p>
+<p>Le contrôle des 48 heures, on relit l'âge, le percentile, le Doppler ombilical et l'onde a avant de conclure.</p>
+<p>Le contrôle des 48 heures, un ralentissement spontané répété à partir de 26 semaines ne se range pas dans la surveillance simple.</p>
+<p>Le contrôle des 48 heures, on cherche une hypertension maternelle parce que la forme précoce s'y associe souvent.</p>
+<p>Le contrôle des 48 heures, on confirme que la poche mesurée ne contient ni cordon ni membre si l'on parle aussi de liquide.</p>
+<p>Le contrôle de la semaine, on relit l'âge, le percentile, le Doppler ombilical et l'onde a avant de conclure.</p>
+<p>Le contrôle de la semaine, un ralentissement spontané répété à partir de 26 semaines ne se range pas dans la surveillance simple.</p>
+<p>Le contrôle de la semaine, on cherche une hypertension maternelle parce que la forme précoce s'y associe souvent.</p>
+<p>Le contrôle de la semaine, on confirme que la poche mesurée ne contient ni cordon ni membre si l'on parle aussi de liquide.</p>
+<p>Le veille de l'extraction, on relit l'âge, le percentile, le Doppler ombilical et l'onde a avant de conclure.</p>
+<p>Le veille de l'extraction, un ralentissement spontané répété à partir de 26 semaines ne se range pas dans la surveillance simple.</p>
+<p>Le veille de l'extraction, on cherche une hypertension maternelle parce que la forme précoce s'y associe souvent.</p>
+<p>Le veille de l'extraction, on confirme que la poche mesurée ne contient ni cordon ni membre si l'on parle aussi de liquide.</p>
+<p>Pour Restriction de croissance fœtale, on confirme l'âge avant d'interpréter un percentile ou une poche.</p>
+<p>Pour Restriction de croissance fœtale, on écrit l'heure, la voie d'abord et le nom du signe.</p>
+<p>Pour Restriction de croissance fœtale, on sépare ce qui est vu de ce qui est supposé.</p></div></div></section><section class="ilot c"><h2 id="p5">5. Anamnèse et drapeaux rouges</h2><p>Le détail sur anamnèse et drapeaux rouges est dans la fenêtre. <button type="button" class="terme" popovertarget="w-5">ouvrir</button></p><div id="w-5" popover class="fenetre"><div class="barre"><span>5. Anamnèse et drapeaux rouges</span><button type="button" popovertarget="w-5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Pour Restriction de croissance fœtale, on compare au compte rendu précédent, pas seulement au souvenir.</p>
+<p>Pour Restriction de croissance fœtale, on dit aux parents le seuil utilisé et le texte d'où il vient.</p>
+<p>Pour Restriction de croissance fœtale, on ne rassure pas sur un seul chiffre isolé.</p>
+<p>Pour Restriction de croissance fœtale, on cherche une indication maternelle qui changerait l'heure de la naissance.</p>
+<p>Pour Restriction de croissance fœtale, on vérifie la chorionicité si les fœtus sont deux.</p>
+<p>Pour Restriction de croissance fœtale, on prend le pouls maternel devant un tracé bizarre.</p>
+<p>Pour Restriction de croissance fœtale, on relit les contre-indications avant un médicament.</p>
+<p>Pour Restriction de croissance fœtale, on appelle le pédiatre si le texte suisse de 2022 place la situation en transfert.</p>
+<p>Pour Restriction de croissance fœtale, on ne mélange pas la prophylaxie et le traitement d'un fœtus déjà malade.</p>
+<p>Pour Restriction de croissance fœtale, on date la prochaine visite selon le signe le plus grave, pas selon l'habitude.</p>
+<p>Pour Restriction de croissance fœtale, on documente ce qui ferait changer d'avis au contrôle suivant.</p>
+<p>Devant Restriction de croissance fœtale, on demande : Depuis quand les mouvements ont-ils changé.</p>
+<p>La réponse à la question sur depuis quand les mouvements ont-ils changé change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Devant Restriction de croissance fœtale, on demande : Y a-t-il un saignement, une fièvre, une hypertension connue.</p>
+<p>La réponse à la question sur y a-t-il un saignement, une fièvre, une hypertension connue change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Devant Restriction de croissance fœtale, on demande : Le groupe RhD et le génotype fœtal sont-ils écrits.</p>
+<p>La réponse à la question sur le groupe RhD et le génotype fœtal sont-ils écrits change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Devant Restriction de croissance fœtale, on demande : Une malformation a-t-elle déjà été vue.</p>
+<p>La réponse à la question sur une malformation a-t-elle déjà été vue change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Devant Restriction de croissance fœtale, on demande : La grossesse est-elle unique, et la chorionicité est-elle connue.</p>
+<p>La réponse à la question sur la grossesse est-elle unique, et la chorionicité est-elle connue change le rang d'urgence de Restriction de croissance fœtale.</p></div></div></section><section class="ilot v"><h2 id="p6">6. Examen physique</h2><p>Le détail sur examen physique est dans la fenêtre. <button type="button" class="terme" popovertarget="w-6">ouvrir</button></p><div id="w-6" popover class="fenetre"><div class="barre"><span>6. Examen physique</span><button type="button" popovertarget="w-6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Devant Restriction de croissance fœtale, on demande : Un médicament utérotonique ou un bêta-stimulant a-t-il été donné.</p>
+<p>La réponse à la question sur un médicament utérotonique ou un bêta-stimulant a-t-il été donné change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Devant Restriction de croissance fœtale, on demande : Le terme a-t-il été fixé par une longueur cranio-caudale.</p>
+<p>La réponse à la question sur le terme a-t-il été fixé par une longueur cranio-caudale change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Devant Restriction de croissance fœtale, on demande : Une césarienne antérieure ou un utérus cicatriciel existe-t-il.</p>
+<p>La réponse à la question sur une césarienne antérieure ou un utérus cicatriciel existe-t-il change le rang d'urgence de Restriction de croissance fœtale.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de prendre le percentile de poids pour un diagnostic complet.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de mesurer une poche qui contient le cordon.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de lire le tracé de la mère.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de donner un anti-D alors que le fœtus est RhD négatif sans exception prévue.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de déclencher par Angusta un état fœtal déjà inquiétant.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de inventer les milligrammes de la maturation pulmonaire.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de appeler neuroprotection la ligne de tocolyse de 4 g.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de classer une grossesse bichoriale comme un syndrome transfuseur-transfusé.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de annoncer une mort sans image du cœur.</p>
+<p>Le piège, dans Restriction de croissance fœtale, serait de promettre que le laser ou la césarienne efface toute séquelle.</p>
+<p>Cas corrigé de Restriction de croissance fœtale : on commence par l'âge, le nombre de fœtus et l'activité cardiaque.</p>
+<p>Dans ce cas de Restriction de croissance fœtale, on écrit le signe seuil avec son texte source avant l'ordonnance.</p></div></div></section><section class="ilot c"><h2 id="p7">7. Approche syndromique</h2><p>Le détail sur approche syndromique est dans la fenêtre. <button type="button" class="terme" popovertarget="w-7">ouvrir</button></p><div id="w-7" popover class="fenetre"><div class="barre"><span>7. Approche syndromique</span><button type="button" popovertarget="w-7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Dans ce cas de Restriction de croissance fœtale, une indication maternelle grave passe avant le calendrier fœtal habituel.</p>
+<p>Dans ce cas de Restriction de croissance fœtale, on revoit la décision si le signe qui l'a motivée n'est plus présent.</p>
+<p>Dans ce cas de Restriction de croissance fœtale, le compte rendu final sépare la définition, la surveillance et le médicament réellement autorisé.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>À l'arrivée, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p></div></div></section><section class="ilot v"><h2 id="p8">8. Diagnostic positif</h2><p>Le détail sur diagnostic positif est dans la fenêtre. <button type="button" class="terme" popovertarget="w-8">ouvrir</button></p><div id="w-8" popover class="fenetre"><div class="barre"><span>8. Diagnostic positif</span><button type="button" popovertarget="w-8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Au contrôle du lendemain, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p></div></div></section><section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2><p>Le détail sur examens complémentaires est dans la fenêtre. <button type="button" class="terme" popovertarget="w-9">ouvrir</button></p><div id="w-9" popover class="fenetre"><div class="barre"><span>9. Examens complémentaires</span><button type="button" popovertarget="w-9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Avant le retour à domicile, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Avant le retour à domicile, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p></div></div></section><section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2><p>Le détail sur arbre décisionnel est dans la fenêtre. <button type="button" class="terme" popovertarget="w-10">ouvrir</button></p><div id="w-10" popover class="fenetre"><div class="barre"><span>10. Arbre décisionnel</span><button type="button" popovertarget="w-10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Avec le pédiatre, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Avec le pédiatre, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Pendant le travail, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p><figure class="schema"><style>#m1891-a:checked ~ .plan .m1891-a{display:block}#m1891-a:checked ~ .bn label[for='m1891-a']{background:#d7eef8;border-color:#176fa0}#m1891-b:checked ~ .plan .m1891-b{display:block}#m1891-b:checked ~ .bn label[for='m1891-b']{background:#d7eef8;border-color:#176fa0}#m1891-c:checked ~ .plan .m1891-c{display:block}#m1891-c:checked ~ .bn label[for='m1891-c']{background:#d7eef8;border-color:#176fa0}</style><div class="sch" id="m1891"><input class="sr" type="radio" name="m1891" id="m1891-a" checked><input class="sr" type="radio" name="m1891" id="m1891-b"><input class="sr" type="radio" name="m1891" id="m1891-c"><div class="bn"><label for="m1891-a">Avant 32 sem.</label><label for="m1891-b">Dès 32 sem.</label><label for="m1891-c">Extraction</label></div><div class="plan"><div class="niv m1891-a"><svg viewBox="0 0 640 320" role="img"><text x="24" y="36" font-size="18">Avant 32 sem.</text><rect x="24" y="70" width="580" height="44" rx="8" fill="#f6c1c4" stroke="#14303b"/><text x="40" y="98" font-size="16">Sous le 3e</text><rect x="24" y="122" width="580" height="44" rx="8" fill="#f3d7a1" stroke="#14303b"/><text x="40" y="150" font-size="16">Flux absent</text><rect x="24" y="174" width="580" height="44" rx="8" fill="#d5ead8" stroke="#14303b"/><text x="40" y="202" font-size="16">Combiné 10e</text><rect x="24" y="226" width="580" height="44" rx="8" fill="#c5e0f5" stroke="#14303b"/><text x="40" y="254" font-size="16">Pas d&#x27;anomalie</text></svg></div><div class="niv m1891-b"><svg viewBox="0 0 640 320" role="img"><text x="24" y="36" font-size="18">Dès 32 sem.</text><rect x="24" y="70" width="580" height="44" rx="8" fill="#f6c1c4" stroke="#14303b"/><text x="40" y="98" font-size="16">Sous le 3e</text><rect x="24" y="122" width="580" height="44" rx="8" fill="#f3d7a1" stroke="#14303b"/><text x="40" y="150" font-size="16">Deux critères</text><rect x="24" y="174" width="580" height="44" rx="8" fill="#d5ead8" stroke="#14303b"/><text x="40" y="202" font-size="16">Rapport cérébral</text><rect x="24" y="226" width="580" height="44" rx="8" fill="#c5e0f5" stroke="#14303b"/><text x="40" y="254" font-size="16">Quartiles</text></svg></div><div class="niv m1891-c"><svg viewBox="0 0 640 320" role="img"><text x="24" y="36" font-size="18">Extraction</text><rect x="24" y="70" width="580" height="44" rx="8" fill="#f6c1c4" stroke="#14303b"/><text x="40" y="98" font-size="16">Onde a</text><rect x="24" y="122" width="580" height="44" rx="8" fill="#f3d7a1" stroke="#14303b"/><text x="40" y="150" font-size="16">Variation courte</text><rect x="24" y="174" width="580" height="44" rx="8" fill="#d5ead8" stroke="#14303b"/><text x="40" y="202" font-size="16">Flux ombilical</text><rect x="24" y="226" width="580" height="44" rx="8" fill="#c5e0f5" stroke="#14303b"/><text x="40" y="254" font-size="16">Mère d&#x27;abord</text></svg></div></div></div><figcaption>Schéma d'orientation. Le détail chiffré est dans le texte sourcé.</figcaption></figure></div></div></section><section class="ilot c"><h2 id="p11">11. Prise en charge</h2><p>Le détail sur prise en charge est dans la fenêtre. <button type="button" class="terme" popovertarget="w-11">ouvrir</button></p><div id="w-11" popover class="fenetre"><div class="barre"><span>11. Prise en charge</span><button type="button" popovertarget="w-11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>À la visite du terme, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>À la visite du terme, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Si les mouvements baissent, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p></div></div></section><section class="ilot v"><h2 id="p12">12. Prévention</h2><p>Le détail sur prévention est dans la fenêtre. <button type="button" class="terme" popovertarget="w-12">ouvrir</button></p><div id="w-12" popover class="fenetre"><div class="barre"><span>12. Prévention</span><button type="button" popovertarget="w-12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Avant toute prescription, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Avant toute prescription, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p></div></div></section><section class="ilot c"><h2 id="p13">13. Points clés</h2><p>Le détail sur points clés est dans la fenêtre. <button type="button" class="terme" popovertarget="w-13">ouvrir</button></p><div id="w-13" popover class="fenetre"><div class="barre"><span>13. Points clés</span><button type="button" popovertarget="w-13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Dans le compte rendu, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on laisse Angusta de côté quand le motif d'extraction est déjà écrit.</p></div></div></section><section class="ilot v"><h2 id="p14">14. Pièges et cas</h2><p>Le détail sur pièges et cas est dans la fenêtre. <button type="button" class="terme" popovertarget="w-14">ouvrir</button></p><div id="w-14" popover class="fenetre"><div class="barre"><span>14. Pièges et cas</span><button type="button" popovertarget="w-14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Dans le compte rendu, pour la restriction de croissance fœtale, on appelle le pédiatre pour un poids estimé sous le 3e percentile.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on cherche l'hypertension maternelle dans la forme précoce.</p>
+<p>Dans le compte rendu, pour la restriction de croissance fœtale, on rappelle une récidive lue de 20 à 30 pour cent sans schéma d'aspirine.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on confirme l'âge avant de lire un percentile.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on réserve la taille seule au fœtus sous le 3e percentile.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on ne conclut pas sur un poids seulement sous le 10e percentile.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on vérifie l'absence d'anomalie congénitale avant d'appliquer le guide.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on sépare la forme avant 32 semaines et la forme dès 32 semaines.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on cherche un flux diastolique ombilical absent avant 32 semaines.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on joint le Doppler au-dessus du 95e percentile au fœtus sous le 10e percentile.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on exige deux des trois signes tardifs à partir de 32 semaines.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on ne fixe pas la naissance sur le seul Doppler cérébral avant 32 semaines.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on personnalise la décision de 24 semaines et 0 jour à 25 semaines et 6 jours.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on propose l'extraction dès 26 semaines si les ralentissements spontanés se répètent.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on tient un profil biophysique à 4 ou moins comme motif dès 26 semaines.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on lit la variation courte dans la bande d'âge réelle.</p>
+<p>Au conseil des parents, pour la restriction de croissance fœtale, on retient la césarienne si le flux diastolique ombilical est absent ou inversé.</p>
+<p>Cas corrigé. Une femme à 29 semaines a un poids estimé au 8e percentile et un Doppler encore normal.</p>
+<p>On ne nomme pas encore la restriction, parce que le 3e percentile est respecté et qu'un second critère manque.</p>
+<p>Le contrôle écrit la bande d'âge et ne lui emprunte pas le seuil d'une bande plus tardive.</p>
+<p>Deux semaines plus tard, le flux diastolique ombilical disparaît.</p>
+<p>Le dossier retient alors le critère solitaire d'avant 32 semaines et appelle le niveau de néonatologie.</p>
+<p>On n'écrit pas Angusta, parce que l'état fœtal a déjà fourni un motif de surveillance hospitalière.</p>
+<p>La variation courte est lue avec le chiffre de la bande 29 à 31 semaines, soit 3,0 ms.</p>
+<p>La mère est prise la tension, car la forme précoce s'associe souvent à une pré-éclampsie.</p>
+<p>Le compte rendu sépare le percentile, le Doppler et l'heure prévue de la prochaine lecture.</p></div></div></section><section class="ilot c"><h2 id="sources">Sources</h2><p>Les preuves datées sont dans la fenêtre et dans le dossier evidence. <button type="button" class="terme" popovertarget="w-src">ouvrir</button></p><div id="w-src" popover class="fenetre"><div class="barre"><span>Sources</span><button type="button" popovertarget="w-src" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps">
+<p>1. Guide international sur le fœtus petit et la restriction, août 2020.<sup class="s">1</sup></p>
+<p>2. Consensus de définition, 2016.<sup class="s">2</sup></p>
+<p>3. Classification du cardiotocogramme de la fédération internationale, 30 septembre 2015.<sup class="s">3</sup></p>
+<p>4. Guide international de la grossesse gémellaire, 2016.<sup class="s">4</sup></p>
+<p>5. Avis suisse numéro 94 sur l'anti-D, 7 janvier 2026.<sup class="s">5</sup></p>
+<p>6. Directive suisse de la grossesse prolongée, édition de février 2014.<sup class="s">6</sup></p>
+<p>7. Consensus français sur la mort fœtale, 2024.<sup class="s">7</sup></p>
+<p>8. Guide international de l'échographie de 11 à 14 semaines, 3 janvier 2023.<sup class="s">8</sup></p>
+<p>9. Recommandations suisses de transfert néonatal, 23 février 2022.<sup class="s">9</sup></p>
+<p>10. Avis suisse numéro 92, conseil préconceptionnel, 10 juin 2025.<sup class="s">10</sup></p>
+<p>11. Description française de la macrosomie, thèse déposée le 30 novembre 2015.<sup class="s">11</sup></p>
+<p>12. Recommandations suisses à la limite de la viabilité, révision des textes de 2011.<sup class="s">12</sup></p>
+<p>13. <abbr title="information professionnelle suisse">AIPS</abbr> Rhophylac, autorisation 53609, corpus du 8 octobre 2026.</p>
+<p>14. <abbr title="information professionnelle suisse">AIPS</abbr> Mifegyne, autorisation 55205, corpus du 8 octobre 2026.</p>
+<p>15. <abbr title="information professionnelle suisse">AIPS</abbr> Angusta, autorisation 67580, corpus du 8 octobre 2026.</p>
+<p>16. <abbr title="information professionnelle suisse">AIPS</abbr> sulfate de magnésium Bichsel, autorisation 56394, corpus du 8 octobre 2026.</p>
+<p>17. <abbr title="information professionnelle suisse">AIPS</abbr> Diprophos, autorisation 39528, corpus du 8 octobre 2026.</p>
+<p>18. <abbr title="information professionnelle suisse">AIPS</abbr> dexaméthasone Galepharm Amp, autorisation 66710, corpus du 8 octobre 2026.</p>
+<p>19. <abbr title="information professionnelle suisse">AIPS</abbr> Aspirine Cardio, autorisation 51795, corpus du 8 octobre 2026.</p>
+<p><abbr title="société internationale d'échographie en obstétrique et gynécologie">ISUOG</abbr> désigne le guide international d'échographie cité.</p>
+<p><abbr title="fédération internationale de gynécologie et d'obstétrique">FIGO</abbr> désigne la fédération qui a publié la classification de 2015.</p>
+<p><abbr title="société suisse de gynécologie et d'obstétrique">SGGG</abbr> désigne la société suisse auteur des avis lus.</p>
+</div></div></section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_189_Phase_B_V0_DX.1.html -->
