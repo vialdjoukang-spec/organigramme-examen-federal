@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_194 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_193 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_195 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_194 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191 et LOT_193 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192 et LOT_194 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193 et LOT_195 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192 et LOT_194 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_195.**
-**Prochain LOT du rédacteur B : LOT_196.** LOT_194 (O2.12 Consultations de suivi du nourrisson, de l'enfant et de l'adolescent en bonne santé) est rédigé et certifié. Détail : `LOT_194/A_AUDITER.md`. LOT_193 (O2.11 Faible tonus musculaire et hypotonie) est rédigé et certifié. Détail : `LOT_193/A_AUDITER.md`.
+**Prochain LOT du rédacteur A : LOT_197.**
+**Prochain LOT du rédacteur B : LOT_196.** LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`. LOT_194 (O2.12 Consultations de suivi du nourrisson, de l'enfant et de l'adolescent en bonne santé) est rédigé et certifié. Détail : `LOT_194/A_AUDITER.md`.
+
+## LOT_195 — rédigé et certifié
+Sujet : O3.1 « Maltraitance et négligence envers la personne âgée ». Détail : `LOT_195/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Conseil fédéral, 18 septembre 2020. Fiche de l'Organisation mondiale de la santé, 15 juin 2024. Directives de l'Académie suisse des sciences médicales, adaptées au 1 janvier 2013. Code civil, état au 1 janvier 2025. Rapport 2025 de la permanence et communiqué du 13 juin 2025. Autorisation 69266. Zéro retrait.
+
+- Phase_A : certitude VERT · porte ORANGE (sigles) · T = 1.7 (+ 77.6) Ko · SHA 52641c8977fecc5a · commit abe096fa0
+- DX.1 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 37.2) Ko · SHA 266f5de0b450042e · commit 3253b8e03
+- DX.2 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 39.2) Ko · SHA c7bb8e80ad77f3d8 · commit 2e8a25cb5
+- DX.3 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 41.1) Ko · SHA f2530b85bbd6cb69 · commit beb1aa229
+- DX.4 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 43.4) Ko · SHA 3511782c89d95284 · commit 24f9dd0f1
+- DX.5 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 41.1) Ko · SHA 248ac9dcc3da3b65 · commit d9f082deb
+- DX.6 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 40.7) Ko · SHA 0e277d0261c14268 · commit 0b84e61ea
+- DX.7 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 42.1) Ko · SHA 87121e35e634554f · commit 2f9e75bbb
+- DX.8 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 44.6) Ko · SHA fcb8ddf83ab2ddaa · commit cd4ca887d
+- DX.9 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 37.1) Ko · SHA 34798b07def8ddf3 · commit bc01c9496
+- DX.10 : certitude VERT · porte ORANGE (phrase répétée) · T = 1.7 (+ 42.2) Ko · SHA 63af71dcfd0ab78c · commit b74a41ea0
 
 ## LOT_194 — rédigé et certifié
 Sujet : O2.12 « Consultations de suivi du nourrisson, de l'enfant et de l'adolescent en bonne santé ». Détail : `LOT_194/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Carnet de santé, 22e édition revue en 2025, fichier du 8 octobre 2025. Checklists 2011. Page du carnet et page des examens préventifs, lues le 1er novembre 2026. Référentiel du 1er novembre 2023. Autorisations 09395 (octobre 2021) et 48112 (janvier 2022). Zéro retrait.
