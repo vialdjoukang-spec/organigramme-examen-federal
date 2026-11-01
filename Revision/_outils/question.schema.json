@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Revision/_outils/question.schema.json",
+  "title": "Question Type A — Revision (examen fédéral CH)",
+  "type": "object",
+  "required": [
+    "id",
+    "lot",
+    "ssp",
+    "bloc",
+    "dx",
+    "niveau",
+    "type",
+    "polarite",
+    "blueprint",
+    "stem",
+    "question",
+    "options",
+    "correct",
+    "feedback",
+    "media",
+    "qualite",
+    "dx_cibles"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^Q-LOT\\d{3}-G\\d+-[RDP]-\\d{2}$"
+    },
+    "lot": {
+      "type": "string",
+      "pattern": "^LOT_\\d{3}$"
+    },
+    "ssp": {
+      "type": "string",
+      "pattern": "^G\\d+$"
+    },
+    "bloc": {
+      "enum": [
+        "Raisonner",
+        "Discriminer",
+        "Pièges & alarmes"
+      ]
+    },
+    "dx": {
+      "type": "string",
+      "description": "Premier DX.n = DX cible ; les suivants = discrimination croisée. Sans DX.n = question transversale (avertissement)."
+    },
+    "dx_cibles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^DX\\.\\d+$"
+      }
+    },
+    "niveau": {
+      "enum": [
+        "examen",
+        "approfondissement",
+        "specialiste"
+      ]
+    },
+    "specialite": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Obligatoire si niveau = specialiste"
+    },
+    "type": {
+      "const": "A"
+    },
+    "polarite": {
+      "enum": [
+        "positive",
+        "negative"
+      ]
+    },
+    "blueprint": {
+      "type": "object",
+      "required": [
+        "tache",
+        "setting"
+      ],
+      "properties": {
+        "tache": {
+          "enum": [
+            "mechanisms",
+            "assessment_diagnosis",
+            "management"
+          ]
+        },
+        "setting": {
+          "type": "string"
+        }
+      }
+    },
+    "stem": {
+      "type": "string",
+      "minLength": 40
+    },
+    "question": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "cle",
+          "texte"
+        ],
+        "properties": {
+          "cle": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          },
+          "texte": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "correct": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "enum": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "required": [
+        "cle_libelle",
+        "pourquoi_vrai",
+        "pourquoi_faux_par_option",
+        "perle_clinique",
+        "source_lecon"
+      ],
+      "description": "4 blocs : ① pourquoi_vrai ② pourquoi_faux_par_option (une entrée par distracteur) ③ perle_clinique ④ source_lecon (lien relatif vers repo/LOT_Claude_Finaux/LOT_0NN/, ancre vérifiée)",
+      "properties": {
+        "pourquoi_faux_par_option": {
+          "type": "object",
+          "minProperties": 4
+        }
+      }
+    },
+    "media": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "null sauf média réellement présent dans la leçon — aucune image inventée"
+    },
+    "qualite": {
+      "type": "object",
+      "required": [
+        "statut"
+      ],
+      "properties": {
+        "statut": {
+          "enum": [
+            "brouillon",
+            "revue_auto",
+            "valide"
+          ]
+        },
+        "checklist_iml": {
+          "type": "object"
+        },
+        "relecteur": {}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "niveau": {
+            "const": "specialiste"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "specialite"
+        ],
+        "properties": {
+          "specialite": {
+            "type": "string",
+            "minLength": 2
+          }
+        }
+      }
+    }
+  ]
+}

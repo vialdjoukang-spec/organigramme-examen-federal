@@ -40,7 +40,9 @@
 
 ## 5. Couverture DD (contrat SSP)
 - Avant de rédiger, on extrait la **liste DD** du LOT (Phase A + DX.1…n) et on construit la matrice DD × tâche (mechanisms / assessment / management).
-- **Chaque DD ≥ 1 item** (clé ou distracteur discriminant). Les distracteurs sont **des DD réels du même LOT** dès que possible.
+- **Chaque DD ≥ 2 items EX où il est la cible** (premier `DX.n` du champ `dx`), vérifié par `couverture_dd.py` (code retour 1 tant qu'il reste un gap). Les DX cités ensuite (« DX.3 vs DX.7 ») comptent comme discrimination croisée. Les distracteurs sont **des DD réels du même LOT** dès que possible.
+- Volume : pas de plancher artificiel ; **plafond souple 80–100 questions par SSP**. Mieux vaut 2 EX solides par DD qu'un trivia de plus.
+- Faits médicaux : **uniquement le LOT audité** `repo/LOT_Claude_Finaux/LOT_0NN/` (Phase A, Phase B DX.n §), lien d'ancre vérifié par le build.
 - La répartition des blocs se cale sur G01 : Raisonner ≈ 1/3, Discriminer ≈ 1/2, Pièges & alarmes ≈ 1/6.
 - Répartition des niveaux : **EX 55–60 %**, **AP ≈ 25 %**, **SPE 15–20 %** (chaque SPE étiquetée par spécialité).
 - Clés équilibrées A–E (± 1), jamais 3 clés identiques d'affilée.
@@ -77,7 +79,10 @@
 2. **JSON** versionné (source de vérité), généré par `_bank_GXX.py`.
 3. **PDF** en second (questions puis corrigé en annexe).
 4. **CHANGELOG.md** par SSP.
-5. Ensuite, `python3 Revision/_outils/scripts/resume_jour.py --write`.
+5. Ensuite : `python3 _outils/scripts/couverture_dd.py GNN` puis `python3 _outils/scripts/etat_lieux.py` (et `resume_jour.py --write`, qui appelle etat_lieux.py).
 
 ## 11. Checklist IML par item (champ `qualite.checklist_iml`)
 `couverture` · `homogene` · `sans_cue` · `sans_trivia`. Les quatre doivent être à `true` pour obtenir `revue_auto`.
+
+## 12. Outillage (voir README.md)
+`init_ssp.py G3` (canevas `_bank_G03.py` + checklist DD + CHANGELOG) → rédaction → `build_ssp.py <dossier>` (contrôles bloquants : 5 options, une clé, niveau/spécialité, « pourquoi » par distracteur, doublons ; **clés stables** : une question publiée garde sa lettre) → `couverture_dd.py` → `etat_lieux.py`.

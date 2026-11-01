@@ -122,9 +122,18 @@ def deliverables_today():
     ]:
         if path.exists():
             items.append(f"- `{path.relative_to(ROOT) if path.is_relative_to(ROOT) else path}` — {label}")
-    g01 = list((REV / "G_symptomes_generaux").glob("G01_*/*Reflexe.html")) if (REV / "G_symptomes_generaux").exists() else []
-    if g01:
-        items.append(f"- `{g01[0].relative_to(ROOT)}` — G1 Type A Réflexe")
+    for h in sorted((REV / "G_symptomes_generaux").glob("G*_*/*Reflexe.html")) if (REV / "G_symptomes_generaux").exists() else []:
+        items.append(f"- `{h.relative_to(ROOT)}` — {h.parent.name[:3]} Type A Réflexe (+ JSON, COUVERTURE_DD.md, CHANGELOG.md)")
+    for path, label in [
+        (ROOT / "STRATEGIE_QCM_EXAMEN_CH.html", "Stratégie QCM (HTML)"), (ROOT / "STRATEGIE_QCM_EXAMEN_CH.pdf", "Stratégie QCM (PDF)"),
+        (ROOT / "EVALUATION_MEDICAL_LANGUE_LOT_001_248.json", "Évaluation (JSON)"), (ROOT / "EVALUATION_MEDICAL_LANGUE_LOT_001_248.pdf", "Évaluation (PDF)"),
+        (ROOT / "QCM-banque" / "LOT_001" / "README_POINTEUR.md", "Pointeur QCM-banque → Revision/G01"),
+        (REV / "_index" / "MAP_G1_G16.json", "Carte G1–G16 (DX par SSP)"),
+        (REV / "_outils" / "scripts" / "build_ssp.py", "Build générique SSP"),
+        (REV / "_outils" / "scripts" / "etat_lieux.py", "État des lieux + REGISTRE"),
+    ]:
+        if path.exists():
+            items.append(f"- `{path.relative_to(ROOT)}` — {label}")
     return items
 
 def render_md(rows):
@@ -159,8 +168,14 @@ def render_md(rows):
         "## Relève Λ",
         "",
         f"- Progression globale G : **{p} %** ({ready}/{total}).",
-        f"- Prochain SSP absent : **{next((r['code'] for r in rows if r['n']==0), '—')}**.",
+        f"- Prochain SSP absent : **{next((r['code'] for r in rows if r['n']==0), '—')}** · détail couverture DD et blockers : `ETAT_DES_LIEUX_QCM.md`.",
         f"- Contraintes : GitHub only (jamais Drive) ; pas de PR/merge/main/force-push sans ordre Vial.",
+        "",
+        "## Prêt à pousser (CloudAgent)",
+        "",
+        "- Cible : `vialdjoukang-spec/organigramme-examen-federal`, branche **`grok/revision`** — jamais Drive, jamais force-push, jamais `main`, pas de PR.",
+        "- À synchroniser dans le dépôt : `Revision/` entier (sans `__pycache__/`, sans `_print.html`) ; `QCM-banque/LOT_001/README_POINTEUR.md` ; `STRATEGIE_QCM_EXAMEN_CH.{md,html,pdf}` ; `EVALUATION_MEDICAL_LANGUE_LOT_001_248.{html,json,pdf}` ; script résumé dynamique `Revision/_outils/scripts/resume_jour.py`.",
+        "- Source de vérité : `/workspace/grok/Revision` (la copie `repo/Revision` @ HEAD local est plus ancienne : G1 v2, pas de G2).",
         "",
         "## Commandes",
         "",
@@ -200,6 +215,11 @@ def main():
     if args.write:
         REV.mkdir(parents=True, exist_ok=True)
         (REV / "RESUME_JOUR.md").write_text(md, encoding="utf-8")
+        full = REV / "_outils" / "scripts" / "etat_lieux.py"
+        if full.exists():  # l'état des lieux complet (couverture DD, REGISTRE détaillé) fait foi
+            subprocess.run(["python3", str(full)], check=False)
+            print(f"\n→ écrit {REV/'RESUME_JOUR.md'} ; ETAT_DES_LIEUX_QCM.md + REGISTRE.csv par etat_lieux.py", flush=True)
+            return
         write_registre(rows)
         # sync short etat
         etat = [

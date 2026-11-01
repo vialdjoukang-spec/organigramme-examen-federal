@@ -1,4 +1,14 @@
-# LOT_001 · G1 Type A — CHANGELOG v2 (1 nov. 2026, 22 h, Zurich UTC+1)
+# LOT_001 · G1 Type A — CHANGELOG
+
+## v3.0.0 (1 nov. 2026, Zurich UTC+1) — couverture DD 15/15
+- Migration vers `Revision/G_symptomes_generaux/G01_transpiration_anormale/` (banque `_bank_G01.py`, build générique `_outils/scripts/build_ssp.py`). Les originaux de `QCM-banque/LOT_001/` sont intacts.
+- **+11 questions EX** (40 → 51) pour que chaque DX ait ≥ 2 EX cibles : DX.2 (exclure l'organique avant le trouble panique), DX.3 (réduire l'insuline sous aGLP-1), DX.5 (sels d'aluminium en 1re ligne), DX.7 (fièvre sous carbimazole → arrêt + hémogramme), DX.8 (sevrage d'ISRS), DX.9 (paludisme malgré prophylaxie), DX.10 (sueur asymétrique tardive → cause avant traitement), DX.11 (contact TB < 5 ans → test sans délai), DX.12 (sueurs nocturnes isolées → pas de biopsie, réévaluer), DX.14 (VIH 4e gén. négatif à 3 semaines → test moléculaire), DX.15 (NT-proBNP + écho dans le syndrome carcinoïde).
+- Sources : exclusivement Phase B DX.n §13/§14 de `repo/LOT_Claude_Finaux/LOT_001/` (0 lien cassé).
+- **Clés stables** : les 40 questions existantes gardent leur id et leur lettre (progression localStorage `LOT001_G1_TypeA_v2` conservée) ; seules les nouvelles équilibrent A–E → A11 B10 C10 D10 E10.
+- Total : 34 EX · 10 AP · 7 SPE ; 13 R · 29 D · 9 P. Test Chrome 390 px : 0 commentaire visible au chargement et après un choix ; visible seulement après 💡.
+- PDF régénéré (questions puis corrigé en annexe).
+
+## v2.0.0 (1 nov. 2026, 22 h, Zurich UTC+1)
 
 ## Réponses plus jamais exposées (correctif urgent)
 - Aucun `<details open>` dans le HTML. Le feedback `.fb` est masqué par défaut ; règle écran explicite `details.reveal:not([open]) .fb{display:none!important}`.

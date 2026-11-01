@@ -6,6 +6,7 @@ Usage
   python3 build_ssp.py <dossier_SSP>            # lit _bank_GNN.py → écrit JSON + HTML
   python3 build_ssp.py <dossier_SSP> --json     # relit le JSON existant → réécrit le HTML seul
   python3 build_ssp.py <dossier_SSP> --print    # en plus : _print.html (questions puis corrigé en annexe)
+  python3 build_ssp.py <dossier_SSP> --reshuffle  # ignore les clés déjà publiées (sinon : une question existante garde sa lettre)
 
 Contrat (identique à build_g1_v2) : Type A 5 options, 1 seule clé, niveaux examen/approfondissement/specialiste,
 blocs R/D/P, feedback 4 blocs (① pourquoi juste ② pourquoi pas les autres ③ perle ④ source) masqué tant que 💡 fermé,
@@ -77,6 +78,17 @@ def bank_to_json(meta, Q):
     check(Q)
     Q = sorted(Q, key=lambda x: ORDER[x['bloc']])
     keys = keys_for(len(Q), meta.get('seed', 2))
+    prev = meta.get('_prev_keys') or {}
+    if prev:  # clés stables : une question déjà publiée garde sa lettre ; les nouvelles comblent l'équilibre A–E
+        fixed = [prev.get(x['stem']) for x in Q]
+        cnt = collections.Counter(k for k in fixed if k)
+        target = len(Q) / 5
+        keys = []
+        for i, k in enumerate(fixed):
+            if not k:
+                cands = sorted(L, key=lambda c: (cnt[c] - target, c))
+                k = next((c for c in cands if not (len(keys) >= 2 and keys[-1] == keys[-2] == c)), cands[0]); cnt[k] += 1
+            keys.append(k)
     lotn = meta['lot'].replace('_', ''); code = meta['code']; ver = meta.get('version', '2.0.0'); today = meta.get('date', datetime.date.today().isoformat())
     bank = []; cnt = collections.Counter()
     for i, x in enumerate(Q):
@@ -191,6 +203,9 @@ def main():
         J = json.load(open(jpath[0], encoding='utf-8')); base = jpath[0][:-5]
     else:
         meta, Q, bf = load_bank(d)
+        if jpath and '--reshuffle' not in a:
+            P = json.load(open(jpath[0], encoding='utf-8'))
+            meta['_prev_keys'] = {b['stem']: b['correct'][0] for b in P['questions']}
         J = bank_to_json(meta, Q)
         base = os.path.join(d, f"{meta['lot']}_{meta['code']}_TypeA_Reflexe")
         json.dump(J, open(base + '.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

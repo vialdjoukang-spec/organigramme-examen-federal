@@ -1,12 +1,43 @@
-# État des lieux QCM — G1–G16
+# ÉTAT DES LIEUX — Questionnaires Type A « Réflexe SSP » · Temps 1 · catégorie G
 
-*Maj 2026-11-01 22:16 Europe/Zurich — voir aussi RESUME_JOUR.md*
+_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-01 à 22:34 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
 
-**Progression : 6.2 %** (1/16 SSP avec banque HTML).
+## Relève Λ — en une ligne
 
-Détail : généré par `resume_jour.py --write`.
+- **Progression globale : 2/16 SSP livrés = 12.50 %** · pondérée (statut × couverture DD) : **10.0 %** · 114 questions au total.
+- **Prochain SSP : G3 (LOT_003) — Soif excessive, consommation excessive de liquides (polydipsie)**
+- **Blockers / dettes :** aucun gap de couverture sur les SSP livrés. · Validation humaine (statut `valide`) : 0 SSP à ce jour.
 
-## Relève Λ
-- % G1–G16 : **6.2**
-- Prochain : G02 Tuméfaction / adénopathie
-- GitHub : `grok/revision` (jamais Drive)
+## Tableau G1–G16
+
+| SSP | LOT | Titre | Q | EX | AP | SPE | DX couverts | Statut | Progression | HTML |
+|---|---|---|---:|---:|---:|---:|---|---|---:|---|
+| G1 | LOT_001 | Transpiration anormale | 51 | 34 | 10 | 7 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G01_transpiration_anormale/LOT_001_G1_TypeA_Reflexe.html) |
+| G2 | LOT_002 | Tuméfaction, tumeur, y compris augmentation de volume des ga | 63 | 42 | 11 | 10 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G02_adenopathie_tumefaction/LOT_002_G2_TypeA_Reflexe.html) |
+| G3 | LOT_003 | Soif excessive, consommation excessive de liquides (polydips | 0 | 0 | 0 | 0 | 0/13 | ⬜ à faire | 0 % | — |
+| G4 | LOT_004 | Fatigue, lassitude | 0 | 0 | 0 | 0 | 0/11 | ⬜ à faire | 0 % | — |
+| G5 | LOT_005 | Sensation de maladie | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
+| G6 | LOT_006 | Fièvre, frissons, hyperthermie | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
+| G7 | LOT_007 | Bouffées vasomotrices (flush) | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
+| G8 | LOT_008 | Hypothermie | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
+| G9 | LOT_009 | Prurit | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
+| G10 | LOT_010 | Douleurs de tous types | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
+| G11 | LOT_011 | Troubles du sommeil (insomnies, hypersomnies ou somnolence,  | 0 | 0 | 0 | 0 | 0/13 | ⬜ à faire | 0 % | — |
+| G12 | LOT_012 | Œdème diffus ou localisé | 0 | 0 | 0 | 0 | 0/13 | ⬜ à faire | 0 % | — |
+| G13 | LOT_013 | Décès non naturel | 0 | 0 | 0 | 0 | 0/10 | ⬜ à faire | 0 % | — |
+| G14 | LOT_014 | Décès inattendu ou mort subite | 0 | 0 | 0 | 0 | 0/10 | ⬜ à faire | 0 % | — |
+| G15 | LOT_015 | Prise de poids, obésité | 0 | 0 | 0 | 0 | 0/10 | ⬜ à faire | 0 % | — |
+| G16 | LOT_016 | Perte de poids, perte d’appétit | 0 | 0 | 0 | 0 | 0/10 | ⬜ à faire | 0 % | — |
+
+## Procédure pour le SSP suivant (5 commandes)
+
+```bash
+cd /workspace/grok/Revision
+python3 _outils/scripts/init_ssp.py G3          # canevas + checklist DD
+# rédiger _bank_GNN.py selon _outils/CHARTE_REDACTION.md (sources = LOT audité uniquement)
+python3 _outils/scripts/build_ssp.py G_symptomes_generaux/GNN_xxx   # JSON + HTML
+python3 _outils/scripts/couverture_dd.py G_symptomes_generaux/GNN_xxx  # 0 gap exigé
+python3 _outils/scripts/etat_lieux.py                                 # ce fichier
+```
+
+Légende statut : ⬜ absent · 🟨 brouillon (canevas/bank sans JSON) · 🟦 revue_auto (contrôles automatiques OK, pas de relecture humaine) · 🟩 validé (relu).
