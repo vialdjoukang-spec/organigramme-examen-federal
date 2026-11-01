@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_180 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_177 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_179 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_180 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175 et LOT_177 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178 et LOT_180 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177 et LOT_179 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178 et LOT_180 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_179.**
+**Prochain LOT du rédacteur A : LOT_185.**
 **Prochain LOT du rédacteur B : LOT_184.** LOT_180 (O1.7 Soins de base autour de la conception et pendant la grossesse) est rédigé et certifié. Détail : `LOT_180/A_AUDITER.md`.
+
+## LOT_179 — rédigé et certifié
+Sujet : O1.6 « Problèmes liés à l'allaitement ». Détail : `LOT_179/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Société Suisse de Pédiatrie 2017, guide du post-partum du 20 avril 2021 mis à jour le 9 juin 2026, section sein du guide de 2015, protocole 36 de 2022, étude suisse de 2014. Autorisations 47503, 37404, 51756, 48164. Zéro retrait central.
+
+- Phase_A : certitude VERT · porte VERT · T = 3.0 (+ 76.2) Ko · SHA 4f0c4116add54a48 · commit 8eee51199
+- DX.1 : certitude VERT · porte VERT · T = 2.9 (+ 37.2) Ko · SHA 87b47a2e7134604e · commit 6deefb64a
+- DX.2 : certitude VERT · porte VERT · T = 2.9 (+ 38.9) Ko · SHA 7c3f99ad3555c27e · commit 35edf4303
+- DX.3 : certitude VERT · porte VERT · T = 2.9 (+ 40.6) Ko · SHA f4527625f77fc6b4 · commit 62c2a5b6f
+- DX.4 : certitude VERT · porte VERT · T = 2.9 (+ 42.2) Ko · SHA 115d168420c94243 · commit 53b5b3f4c
+- DX.5 : certitude VERT · porte VERT · T = 2.9 (+ 43.9) Ko · SHA 0d2ddc5f78478987 · commit b6bbfec6f
+- DX.6 : certitude VERT · porte VERT · T = 2.9 (+ 36.7) Ko · SHA 3510caec9d7a577c · commit 48b6ef2d8
+- DX.7 : certitude VERT · porte VERT · T = 2.9 (+ 38.3) Ko · SHA 8e8f1f3e9357bcf3 · commit dbde5d30e
+- DX.8 : certitude VERT · porte VERT · T = 2.9 (+ 39.9) Ko · SHA 01772c34ca239941 · commit 6c6ca4df6
+- DX.9 : certitude VERT · porte VERT · T = 2.9 (+ 41.6) Ko · SHA 653f9239d7823b1d · commit 08940ba18
+- DX.10 : certitude VERT · porte VERT · T = 2.9 (+ 44.7) Ko · SHA 2adb3660ca3c71c3 · commit 5945aba77
 
 ## LOT_180 — rédigé et certifié
 Sujet : O1.7 « Soins de base autour de la conception et pendant la grossesse ». Détail : `LOT_180/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Communiqué OFS du 18.06.2026, avis 81 du 4 octobre 2023, avis prééclampsie du 10.2.2019, Pavord juillet 2011, coqueluche janvier 2017, lettre 55 confirmée en novembre 2025, NG133 du 25 juin 2019, NG201 du 19 août 2021. Autorisations 58121, 36752, 51795, 53609, 30124, 56271, 00637, 69992. Zéro retrait.
