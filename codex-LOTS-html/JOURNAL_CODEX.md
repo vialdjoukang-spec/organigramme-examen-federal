@@ -110,3 +110,9 @@ Phase A et DX.1–DX.2 rédigés et relus, 42 questions ; 74/75 contrôles V8 pa
 2026-10-31T21:23:29.955169+00:00 — Push040 confirméef2cba27a8197ed9f98b70c2b8f3bfc720142ad5, verrou libéré. RepriseDX2 sauvegardée ; les veilles48342/37511 contrôlent seulement chaque minute tant que le runtime existe. Aucun autre automate modifié.
 
 - 2026-11-01T00:49:58.213865+00:00 — LOT_018, rattrapage illustrations : trois niveaux coronaux dans PhaseA/DX8 ; correctionsC08/C09,275conditions V8 et52contrôles Chromium ciblés. Clichés réels non acquis ; aucun nouveau lot clôturé. Preuves : LOT_018/illustrations/niveaux/.
+
+## 01.11.2026 — sélection des clichés réels018
+
+Neuf notices Commons et cinq liens permanents ouverts ; cinq originaux retenus sous réserve visuelle (DX5/6/7/9), deux exclus pour cet usage et deux en réserve. Auteur, licence, URL et projets de repères conservés dans LOT_018/illustrations/acquisition/CANDIDATS.json. Lectures HUG puis COUF ciblées ; relecture interne avec distinction schéma/photo, branche/centrale, masquage/non-perfusion et mécanisme du décollement. Aucun cliché observé ou intégré.
+
+Outil acquerir_commons.py ajouté dans le seul périmètre Codex : neuf tests locaux réussis, HTTP simulé explicitement. L’invocation réelle s’arrête avant cinq requêtes interdites par la politique actuelle. EuropePMC403 confirmé.244leçons et12supports inchangés, neuf fichiers du harnais intacts. Pas de nouveau V8/navigateur ni d’audit indépendant revendiqués. Nouveau travail : recherche et outil d’acquisition, pas clôture d’un lot. Reprise rédactionnelle040 DX2 toujours conditionnée au rattrapage demandé.

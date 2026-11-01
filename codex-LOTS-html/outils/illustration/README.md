@@ -17,3 +17,19 @@ Précision de Vial : le texte des fenêtres n'a aucun plafond lorsqu'il faut ajo
 Après rendu : inspection visuelle obligatoire, corrections, tests des interactions, contrôle V8 et taille x. Renseigner `SOURCES.json` et une preuve de revue datée avec l'empreinte exacte du rendu examiné. Un succès technique ne vaut pas validation clinique. Toute modification des coordonnées ou du rendu impose une nouvelle inspection. La validation humaine reste distincte et ne doit pas être inventée.
 
 Les captures et tests Chromium de LOT_018 sont de vrais essais sur HTML local chargé par `setContent`, avec émulation tactile ; ils ne prouvent pas un essai sur téléphone physique. Le chargement par URL `file://` a échoué dans cet environnement ; cette limite est conservée dans le journal.
+
+## Acquisition des originaux Commons
+
+`acquerir_commons.py registre.json` vérifie la sélection et la politique réseau locale sans envoyer de requête. Ajouter `--acquerir` pour télécharger les originaux retenus lorsque le domaine est autorisé. Exécuter sous le verrou officiel, après lecture/signature du registre ; le script revérifie la branche, la réservation, `pret` et `verifier`. Il écrit son résultat dans `CONTROLE_ACQUISITION.json` auprès du registre, avec un code de sortie non nul en cas de blocage.
+
+Exemple prêt pour la reprise :
+
+```sh
+python3 -B codex-LOTS-html/outils/illustration/acquerir_commons.py codex-LOTS-html/LOT_018/illustrations/acquisition/CANDIDATS.json --acquerir
+```
+
+La notice et sa licence doivent avoir été lues avant de sélectionner un fichier. Le script contrôle ces métadonnées déclarées ; il ne prouve pas leur véracité et ne relit pas Commons à votre place. Relire la notice en cas de changement ou de reprise différée. Les cinq notices de l’exemple ont été ouvertes le 01.11.2026 ; leurs révisions sont conservées. Les images CC BY-SA gardent cette licence pour leur adaptation annotée.
+
+Les originaux restent intacts, accompagnés de leur empreinte et de leur provenance. Les pages d’erreur HTML, les dimensions différentes, les destinations existantes et les redirections sont refusées. Proxy et certificats de l’environnement sont conservés. Aucun miroir ni changement de configuration réseau n’est effectué. L’outil actuel est limité aux images fixes JPEG, PNG et WebP de Commons ; Europe PMC, Open-i, vidéos et animations demandent un traitement distinct.
+
+Après acquisition, inspecter l’original, définir les contours à partir des pixels réellement visibles, rédiger la légende, rendre avec `illustrer.py`, puis inspecter le rendu avant l’intégration. Un original téléchargé reste explicitement « non inspecté » ; aucune coordonnée d’annotation ni validation médicale n’est inventée. `test_acquerir_commons.py` teste ces règles avec des réponses locales simulées et une fixture anatomique déjà présente, sans appel réseau ni acquisition clinique.
