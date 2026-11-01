@@ -1,3 +1,7 @@
+# Publication DX5 confirmée — 2026-11-01T21:07:01+00:00
+
+Commit de contenu `b7b74f041905cf735450178d485662b59aa8a540` poussé sur `codex/lots` ; référence distante vérifiée. Verrou exclusif libéré. Cumul12/244 leçons renforcées,232restantes. Prochaine reprise018 DX6 puis029 DX6 ; dette iconographique DX5 ouverte. Aucun nouveau lot entier terminé. Deux aperçus tiers acquis/inspectés, aucun nouveau cliché intégré. Veilles locales de contrôle existantes maintenues pendant le runtime, sans rédaction autonome.
+
 # Reprise solo DX5 — 2026-11-01T21:06:07+00:00
 
 Dernier ordre : seul, sans sous-agents ; aucun agent lancé. Dépôt frais6c43b8b2, branche codex/lots ; borne18–133 relue, registre signé, pret/verifier018 et029 autorisés, verrou acquis. Écritures exclusivement codex-LOTS-html/.
