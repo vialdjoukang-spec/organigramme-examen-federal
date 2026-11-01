@@ -1,11 +1,27 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_187 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_186 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_188 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_187 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185 et LOT_187 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184 et LOT_186 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185 et LOT_187 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186 et LOT_188 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_189.**
-**Prochain LOT du rédacteur B : LOT_188.** LOT_186 (O2.4 Vaccination de l’enfant) est rédigé et certifié. Détail : `LOT_186/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_190.** LOT_188 (O2.6 Problèmes d'alimentation durant la petite enfance, l'enfance et l'adolescence) est rédigé et certifié. Détail : `LOT_188/A_AUDITER.md`.
+
+## LOT_188 — rédigé et certifié
+Sujet : O2.6 « Problèmes d'alimentation durant la petite enfance, l'enfance et l'adolescence ». Détail : `LOT_188/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. pédiatrie suisse, 27 février 2025 ; reflux britannique 2015, surveillance 2018 ; reflux européen et nord-américain 2018 ; allergie au lait 2024 ; maladie cœliaque 2020 ; concept d'hospitalisation du 18 mars 2026. Autorisations 53836, 70596, 54469, 30124, 10989. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 2.7 (+ 77.0) Ko · SHA ad0d9db9df29f23e · commit 0c598e2c2
+- DX.1 : certitude VERT · porte VERT · T = 2.7 (+ 38.5) Ko · SHA 01c9ac3ee01eff77 · commit 8433df1e1
+- DX.2 : certitude VERT · porte VERT · T = 2.7 (+ 40.7) Ko · SHA e613a87781270c03 · commit 5b0fc707e
+- DX.3 : certitude VERT · porte VERT · T = 2.6 (+ 42.5) Ko · SHA 3fb01013d2e5f41d · commit e4507f50c
+- DX.4 : certitude VERT · porte VERT · T = 2.6 (+ 44.8) Ko · SHA e83b407875469061 · commit 4b5e80aff
+- DX.5 : certitude VERT · porte VERT · T = 2.6 (+ 45.7) Ko · SHA b3d75e76cca08726 · commit 8a1d3aa05
+- DX.6 : certitude VERT · porte VERT · T = 2.6 (+ 37.6) Ko · SHA dec168e04c203382 · commit a7e9ef505
+- DX.7 : certitude VERT · porte VERT · T = 2.6 (+ 39.9) Ko · SHA 8ce883def5a3bcf6 · commit 83386a97c
+- DX.8 : certitude VERT · porte VERT · T = 2.6 (+ 44.1) Ko · SHA 9eafc6ade1a84540 · commit 4a46ffe92
+- DX.9 : certitude VERT · porte VERT · T = 2.6 (+ 41.7) Ko · SHA 6434f5f323da9201 · commit 3118107cc
+- DX.10 : certitude VERT · porte VERT · T = 2.6 (+ 46.6) Ko · SHA d7947f545471d5ad · commit f6771fbb1
+
 
 ## LOT_187 — rédigé et certifié
 Sujet : O2.5 « Retard du développement ». Détail : `LOT_187/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Fenêtres motrices 2006, alertes autisme 19 février 2018, dépistage auditif 16 décembre 2019, rapport néonatal 2024, suivi des nouveau-nés à risque 20 mars 2025, définition et classifications motrices 2000 et mai 2022. Autorisations 54949, 50043, 36083, 43838. Zéro retrait.
