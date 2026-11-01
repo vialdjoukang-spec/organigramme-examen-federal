@@ -1,11 +1,27 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_189 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_188 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_190 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_189 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187 et LOT_189 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186 et LOT_188 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187 et LOT_189 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188 et LOT_190 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_191.**
-**Prochain LOT du rédacteur B : LOT_190.** LOT_188 (O2.6 Problèmes d'alimentation durant la petite enfance, l'enfance et l'adolescence) est rédigé et certifié. Détail : `LOT_188/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_192.** LOT_190 (O2.8 Décès d’un nourrisson) est rédigé et certifié. Détail : `LOT_190/A_AUDITER.md`.
+
+## LOT_190 — rédigé et certifié
+Sujet : O2.8 « Décès d’un nourrisson ». Détail : `LOT_190/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Office fédéral de la statistique, 4 septembre 2026 ; Hôpitaux universitaires de Genève, 29 octobre 2026 ; Centre hospitalier universitaire vaudois, janvier 2015 ; Jenni et collaborateurs, 2013 ; page bernoise lue en 2026 ; dépistage néonatal lu en 2026 ; réanimation pédiatrique européenne, 2025. Autorisations 56472, 56952, 48112021. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 2.7 (+ 75.6) Ko · SHA 602ace1a6f07b25b · commit 8c1fbbc6c
+- DX.1 : certitude VERT · porte VERT · T = 2.7 (+ 37.2) Ko · SHA 0051819868e1f4b3 · commit 31d76d0be
+- DX.2 : certitude VERT · porte VERT · T = 2.7 (+ 39.8) Ko · SHA 4c95b879c27c5d76 · commit 2fe59e5aa
+- DX.3 : certitude VERT · porte VERT · T = 2.7 (+ 42.1) Ko · SHA 06fbb3b93ee92042 · commit ac8495c45
+- DX.4 : certitude VERT · porte VERT · T = 2.7 (+ 43.9) Ko · SHA 29cd092ce1010d5e · commit b881deecf
+- DX.5 : certitude VERT · porte VERT · T = 2.7 (+ 45.6) Ko · SHA 26eea46b2502f276 · commit 26b9cf28b
+- DX.6 : certitude VERT · porte VERT · T = 2.8 (+ 38.1) Ko · SHA dc7c535df178f77f · commit 83a20d855
+- DX.7 : certitude VERT · porte VERT · T = 2.7 (+ 41.0) Ko · SHA d2b2499033648d7d · commit 975dc47e0
+- DX.8 : certitude VERT · porte VERT · T = 2.8 (+ 43.3) Ko · SHA 3a6eac39a447b939 · commit fdd2805d2
+- DX.9 : certitude VERT · porte VERT · T = 2.8 (+ 44.8) Ko · SHA ff37b2031ab2ac31 · commit b9ce7055c
+- DX.10 : certitude VERT · porte VERT · T = 2.8 (+ 46.9) Ko · SHA 4c19c53edcc6aa3a · commit e7797ca0b
+
 
 ## LOT_189 — rédigé et certifié
 Sujet : O2.7 « Problèmes fœtaux pendant la grossesse ». Détail : `LOT_189/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Guide de la restriction, août 2020, et consensus de 2016. Classification du rythme du 30 septembre 2015. Guide gémellaire 2016. Avis suisse anti-D du 7 janvier 2026. Directive suisse de la grossesse prolongée, février 2014. Consensus français sur la mort fœtale, 2024. Échographie de 11 à 14 semaines, 3 janvier 2023. Transfert néonatal du 23 février 2022. Avis suisse du 10 juin 2025. Autorisations 53609, 55205, 67580, 56394, 39528, 66710, 51795. Zéro retrait.
