@@ -116,6 +116,9 @@ def deliverables_today():
         (ROOT / "EVALUATION_MEDICAL_LANGUE_LOT_001_248.html", "Évaluation médicale/langue 001–248"),
         (REV / "ETAT_DES_LIEUX_QCM.md", "État des lieux QCM"),
         (REV / "README.md", "README Revision"),
+        (REV / "_outils" / "PEDAGOGIE_PREPARATION_SANS_COMPARAISON.md", "Architecture « Préparation sans comparaison »"),
+        (REV / "_outils" / "CHARTE_REDACTION.md", "Charte de rédaction QCM Type A"),
+        (REV / "_outils" / "PROFIL_GRAND_MAITRE_BITUNDER.md", "Profil Grand Maître Professeur Bitunder"),
     ]:
         if path.exists():
             items.append(f"- `{path.relative_to(ROOT) if path.is_relative_to(ROOT) else path}` — {label}")
