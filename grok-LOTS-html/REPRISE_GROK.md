@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_186 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_185 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_187 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_186 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179 et LOT_185 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184 et LOT_186 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185 et LOT_187 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184 et LOT_186 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_187.**
+**Prochain LOT du rédacteur A : LOT_189.**
 **Prochain LOT du rédacteur B : LOT_188.** LOT_186 (O2.4 Vaccination de l’enfant) est rédigé et certifié. Détail : `LOT_186/A_AUDITER.md`.
+
+## LOT_187 — rédigé et certifié
+Sujet : O2.5 « Retard du développement ». Détail : `LOT_187/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Fenêtres motrices 2006, alertes autisme 19 février 2018, dépistage auditif 16 décembre 2019, rapport néonatal 2024, suivi des nouveau-nés à risque 20 mars 2025, définition et classifications motrices 2000 et mai 2022. Autorisations 54949, 50043, 36083, 43838. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.7 (+ 76.1) Ko · SHA 88cbb1eb2cbf6dd5 · commit 680061c6f
+- DX.1 : certitude VERT · porte VERT · T = 1.7 (+ 37.9) Ko · SHA c47b959cb8ca8949 · commit b9ae0d4b1
+- DX.2 : certitude VERT · porte VERT · T = 1.7 (+ 41.2) Ko · SHA fac1a9b87837acfb · commit f100a4648
+- DX.3 : certitude VERT · porte VERT · T = 1.7 (+ 44.7) Ko · SHA a2f3043c6bb1119e · commit 4584ab3c8
+- DX.4 : certitude VERT · porte VERT · T = 1.7 (+ 38.9) Ko · SHA 6f8e88ddf7a077a7 · commit 5fa02e7ea
+- DX.5 : certitude VERT · porte VERT · T = 1.7 (+ 45.8) Ko · SHA 5ccba0bb314e648b · commit b31521baf
+- DX.6 : certitude VERT · porte VERT · T = 1.7 (+ 40.2) Ko · SHA 7e0256baa3aee939 · commit e476539d7
+- DX.7 : certitude VERT · porte VERT · T = 1.7 (+ 43.3) Ko · SHA d86b098dc584bea7 · commit 5a433bee4
+- DX.8 : certitude VERT · porte VERT · T = 1.7 (+ 42.2) Ko · SHA 1ed47b2e076ea64d · commit 8d817c85b
+- DX.9 : certitude VERT · porte VERT · T = 1.7 (+ 36.7) Ko · SHA de6fdf0237579842 · commit 2074b552a
+- DX.10 : certitude VERT · porte VERT · T = 1.7 (+ 45.0) Ko · SHA 6eb4ebe670192ffe · commit 68133bbd6
 
 ## LOT_186 — rédigé et certifié
 Sujet : O2.4 « Vaccination de l’enfant ». Détail : `LOT_186/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Plan de vaccination suisse 2026, publié le 23 février 2026, version corrigée le 16 avril 2026. Autorisations 00640, 43838, 53836, 58158, 60150, 65387, 65730, 69039. Zéro retrait.
