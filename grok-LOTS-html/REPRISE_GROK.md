@@ -1,11 +1,27 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_197 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_196 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_198 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_197 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_196 **rédigé et certifié** (rédacteur B). LOT_195 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193, LOT_195 et LOT_197 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194 et LOT_196 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191, LOT_193, LOT_195 et LOT_197 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192, LOT_194, LOT_196 et LOT_198 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_199.**
-**Prochain LOT du rédacteur B : LOT_198.** LOT_197 (O3.3 Malnutrition et sarcopénie) est rédigé et certifié. Détail : `LOT_197/A_AUDITER.md`. LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_200.** LOT_198 (O3.4 Patient polymorbide et polymédiqué) est rédigé et certifié. Détail : `LOT_198/A_AUDITER.md`. LOT_197 (O3.3 Malnutrition et sarcopénie) est rédigé et certifié. Détail : `LOT_197/A_AUDITER.md`. LOT_196 (O3.2 Déficit fonctionnel cognitif, sensoriel ou moteur) est rédigé et certifié. Détail : `LOT_196/A_AUDITER.md`. LOT_195 (O3.1 Maltraitance et négligence envers la personne âgée) est rédigé et certifié. Détail : `LOT_195/A_AUDITER.md`.
+
+## LOT_198 — rédigé et certifié
+Sujet : O3.4 « Patient polymorbide et polymédiqué ». Détail : `LOT_198/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Observatoire suisse de la santé, indicateur 2022. Blozik et collaborateurs, juillet 2013. Ligne directrice de polymorbidité, 2016, relue le 1er novembre 2026. Critères européens du 31 mai 2023, 133 et 57. Fondation pour la sécurité des patients, programme 2016-2021. Entretien officinal public, dès quatre médicaments. Page fédérale du projet de revue, 12 février 2026. Référentiel du 1er novembre 2023, situation O3.4. Autorisations 68510, 59079, 57056, 68552, 70190, 66978, 57383 et 70235. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.5 (+ 77.5) Ko · SHA 7eebfba71d5a950e · commit 1dd08254b
+- DX.1 : certitude VERT · porte VERT · T = 1.5 (+ 38.0) Ko · SHA efcbd683a2392994 · commit d0fec10f7
+- DX.2 : certitude VERT · porte VERT · T = 1.5 (+ 40.0) Ko · SHA 824fdecb984d4932 · commit 3049d0181
+- DX.3 : certitude VERT · porte VERT · T = 1.5 (+ 40.8) Ko · SHA ff02b4e01d39efb5 · commit c0ceb0beb
+- DX.4 : certitude VERT · porte VERT · T = 1.5 (+ 43.1) Ko · SHA 0a5d4e13c767f070 · commit 3fdcb1870
+- DX.5 : certitude VERT · porte VERT · T = 1.6 (+ 46.0) Ko · SHA cd71edc5840500bb · commit 2f0a7ff88
+- DX.6 : certitude VERT · porte VERT · T = 1.5 (+ 46.4) Ko · SHA 98b8ef389bdba463 · commit 390a76e0c
+- DX.7 : certitude VERT · porte VERT · T = 1.5 (+ 37.6) Ko · SHA 6ebeaac56e823fd5 · commit d48c27262
+- DX.8 : certitude VERT · porte VERT · T = 1.5 (+ 43.1) Ko · SHA d62bc5591b597d3b · commit c599c3a73
+- DX.9 : certitude VERT · porte VERT · T = 1.5 (+ 44.4) Ko · SHA e2dda90204642244 · commit 7dbd591b2
+- DX.10 : certitude VERT · porte VERT · T = 1.5 (+ 46.3) Ko · SHA c3c2fe8e7630443d · commit d1413f077
+
 
 ## LOT_197 — rédigé et certifié
 Sujet : O3.3 « Malnutrition et sarcopénie ». Détail : `LOT_197/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Consensus GLIM, 2019. Consensus européen de sarcopénie, page de revue 2018-2019. Recommandation ESPEN de gériatrie, 2022. Revue Médicale Suisse, 2021. Mains Libres, 2020. NICE CG32, 22 février 2006, mise à jour du 4 août 2017. Guide MNA, octobre 2021. Kaiser et collaborateurs, 2009. Rubenstein et collaborateurs, 2001. Grades hospitaliers lus dans l'annexe de 2019. Autorisations 10989 et 33481. Zéro retrait.
