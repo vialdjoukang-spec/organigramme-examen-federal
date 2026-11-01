@@ -132,3 +132,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T02:56:45+00:00 — Verrou libéré officiellement ; contrôle de blocage prêt pour checkpoint. Les veilles de surveillance restent actives tant que le runtime existe.
 
 2026-11-01T04:51:29+00:00 — LOT018 : accès XML Europe PMC retrouvé, trois articles et trois métadonnées acquis. PROV01 : fond d’œil diabétique suspendu car la figure1 originale est un organigramme ; attribution de panneau non inventée. Neuf candidats retenus, un suspendu ; zéro cliché acquis, CDN NCBI et Wikimedia toujours exclus. Rapport corrigé,145contrôles après RAP01,10tests locaux importeur,22ouvertures Chromium et4captures du rapport inspectées.244leçons et9fichiers communs inchangés. Relecture interne, pas audit indépendant ni nouvelle validation clinique. Preuves : LOT_018/illustrations/acquisition_epmc/.
+
+2026-11-01T04:53:52+00:00 — Correction de provenance et bilan publiés da4b134437c23bae4a337afffeec2591f8ac328d, référence distante vérifiée. Verrou libéré officiellement ;9candidats retenus,1suspendu,0cliché acquis. Veilles locales maintenues en surveillance seule.

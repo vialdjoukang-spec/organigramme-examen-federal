@@ -1,5 +1,7 @@
 # Reprise LOTS — 01.11.2026
 
+Vérification primaire et bilan corrigé publiés au commit `da4b134437c23bae4a337afffeec2591f8ac328d`, référence distante vérifiée. Verrou libéré officiellement le 2026-11-01T04:53:52+00:00.
+
 ## Priorité active : rattrapage des illustrations018
 
 Dernière avancée : vérification primaire de trois articles et correction de provenance PROV01. Départ frais2cca24335b22761beab1a2f6d72ccbf723e4e78e, égal à FETCH_HEAD ; réservation18–133 relue. Travail seul, sans sous-agents ; branche codex/lots et écritures uniquement codex-LOTS-html/. Registre du01.11 lu/signé, pret et verifier018 réussis. État de publication et du verrou dans ETAT_CONTINUITE.json.
