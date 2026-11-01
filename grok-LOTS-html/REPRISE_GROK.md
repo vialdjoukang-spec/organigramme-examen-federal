@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_193 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_192 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_194 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_193 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191 et LOT_193 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190 et LOT_192 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189, LOT_191 et LOT_193 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188, LOT_190, LOT_192 et LOT_194 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_195.**
-**Prochain LOT du rédacteur B : LOT_194.** LOT_192 (O2.10 Difficultés d’apprentissage et problèmes scolaires durant l’enfance et l’adolescence) est rédigé et certifié. Détail : `LOT_192/A_AUDITER.md`. LOT_193 (O2.11 Faible tonus musculaire et hypotonie) est rédigé et certifié. Détail : `LOT_193/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_196.** LOT_194 (O2.12 Consultations de suivi du nourrisson, de l'enfant et de l'adolescent en bonne santé) est rédigé et certifié. Détail : `LOT_194/A_AUDITER.md`. LOT_193 (O2.11 Faible tonus musculaire et hypotonie) est rédigé et certifié. Détail : `LOT_193/A_AUDITER.md`.
+
+## LOT_194 — rédigé et certifié
+Sujet : O2.12 « Consultations de suivi du nourrisson, de l'enfant et de l'adolescent en bonne santé ». Détail : `LOT_194/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Carnet de santé, 22e édition revue en 2025, fichier du 8 octobre 2025. Checklists 2011. Page du carnet et page des examens préventifs, lues le 1er novembre 2026. Référentiel du 1er novembre 2023. Autorisations 09395 (octobre 2021) et 48112 (janvier 2022). Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 2.2 (+ 78.2) Ko · SHA 78050e8f62b3d35c · commit 13d40cc95
+- DX.1 : certitude VERT · porte VERT · T = 2.1 (+ 40.3) Ko · SHA 3dc6a9c5f8442201 · commit a665c955e
+- DX.2 : certitude VERT · porte VERT · T = 2.1 (+ 41.4) Ko · SHA c8d45cb88c38269c · commit 481a81c02
+- DX.3 : certitude VERT · porte VERT · T = 2.1 (+ 44.7) Ko · SHA 169ef20f2a1a39d2 · commit 1b40b87a5
+- DX.4 : certitude VERT · porte VERT · T = 2.1 (+ 44.9) Ko · SHA 3220b47aca0feef4 · commit dd5a9e075
+- DX.5 : certitude VERT · porte VERT · T = 2.1 (+ 45.5) Ko · SHA 942f8ec4d799021f · commit 961f531a0
+- DX.6 : certitude VERT · porte VERT · T = 2.1 (+ 37.8) Ko · SHA cdb8a689faf1d8b2 · commit 0a0c1b479
+- DX.7 : certitude VERT · porte VERT · T = 2.1 (+ 42.4) Ko · SHA 6810388c276cb9ec · commit 07b3eb015
+- DX.8 : certitude VERT · porte VERT · T = 2.1 (+ 43.8) Ko · SHA 6550cadc233a2e85 · commit 39a421811
+- DX.9 : certitude VERT · porte VERT · T = 2.1 (+ 45.1) Ko · SHA 98845b3ed949bdc8 · commit 7bee4c6c6
+- DX.10 : certitude VERT · porte VERT · T = 2.2 (+ 45.7) Ko · SHA 832f871aa4d0cc51 · commit 8d88cf0b5
 
 ## LOT_193 — rédigé et certifié
 Sujet : O2.11 « Faible tonus musculaire et hypotonie ». Détail : `LOT_193/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Jeannet, pédiatrie suisse, 2006. Dépistage néonatal, rapport 2024 publié en juillet 2025. Office fédéral, 28 janvier 2025 et botulisme d'avril 2023. Hypoglycémie de maternité, 6 avril 2021. Prader-Willi, 2001. Beighton lu en 2023. Dystrophie myotonique, cas de 2026. Suivi de la trisomie 21, 2017. Autorisations 66495, 67251, 67529, 58038, 19943, 54949. Zéro retrait.
