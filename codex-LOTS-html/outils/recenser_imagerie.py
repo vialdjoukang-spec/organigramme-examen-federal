@@ -169,6 +169,17 @@ def produire():
         for c in selection['candidats']:
             out.append(f'<details class="candidat-nouveau"><summary>LOT_{c["lot"]:03} — {e(c["titre"])}</summary><p>{e(c["auteur"])} · {e(c["licence"])}</p><p>{e(c["piege"])}</p><a href="{e(c["source_url"])}">Publication source</a></details>')
         out.append('<p><a href="imagerie_20261101/tri_022_024/CANDIDATS.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/tri_022_024/LECTURES.json">Lectures et limites</a></p>')
+    # Les campagnes suivantes apparaissent sans ajout manuel d'une nouvelle section HTML.
+    for suite in sorted(D.glob('tri_*/CANDIDATS.json')):
+        if suite.parent.name in ('tri_020_021', 'tri_022_024'):
+            continue
+        selection = json.loads(suite.read_text())
+        campagne = suite.parent.name
+        out.append(f'<h2>Campagne {e(campagne.replace("tri_", "").replace("_", "–"))} : figures candidates</h2><p>{len(selection["candidats"])} figures documentées. Les cibles désignent les leçons envisagées ; elles ne prouvent pas une intégration.</p>')
+        for c in selection['candidats']:
+            etat = 'Original acquis' if c.get('original_acquis') else 'Original non acquis'
+            out.append(f'<details class="candidat-auto" data-campagne="{e(campagne)}"><summary>{e(c["titre"])}</summary><p>Cibles : {e(", ".join(c["cibles"]))}</p><p>{e(c["auteur"])} · {e(c["licence"])} · accès : {e(c["acces_le"])}</p><p>{e(etat)} ; inspection visuelle : {"oui" if c.get("pixels_inspectes") else "non"}.</p><p>{e(c["piege"])}</p><a href="{e(c["source_url"])}">Publication source</a></details>')
+        out.append(f'<p><a href="imagerie_20261101/{e(campagne)}/CANDIDATS.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/{e(campagne)}/LECTURES.json">Lectures et limites</a></p>')
     out += ['<script>const q=document.querySelector("#recherche"),m=document.querySelector("#modalite"),rows=[...document.querySelectorAll("details.lecon")];function filtre(){let n=0;for(const r of rows){const ok=r.textContent.toLocaleLowerCase("fr").includes(q.value.toLocaleLowerCase("fr"))&&(!m.value||JSON.parse(r.dataset.categories).includes(m.value));r.hidden=!ok;if(ok)n++;}document.querySelector("#compte").textContent=n+" leçons affichées";}q.addEventListener("input",filtre);m.addEventListener("change",filtre);filtre();</script>',
             '<footer><p>Les extraits décrivent les textes présents, sans nouvelle validation médicale. La sélection de chaque cliché devra préciser le signe visible, le contexte clinique, les limites et les droits de réutilisation.</p></footer></main></html>']
     (B/'BILAN_IMAGERIE_ECG.html').write_text('\n'.join(out)+'\n')

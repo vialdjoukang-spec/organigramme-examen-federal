@@ -1,5 +1,17 @@
 # Reprise LOTS — 01.11.2026
 
+Dernière avancée — 2026-11-01T15:25:52+00:00 : tri des 33 leçons des LOT_025–027, soit 49 passages repérés et lecture intégrale des 33 fenêtres principales de partie9. Cumul 110 leçons / 244 passages ; 14 leçons sans mention lexicale, 119 leçons avec mentions restantes. Inventaire global inchangé : 244 leçons / 215 avec mentions / 539 passages.
+
+Six figures candidates CC BY4 documentées : deux images de calcul du canal de Wharton droit (PMC5965241), IRM de déplacement discal avec recapture et TDM de fracture condylienne (PMC9031630), échographie vasculaire et histologie temporale d’une artérite à cellules géantes (PMC6032496). Trois XML et métadonnées exacts conservés dans LOT025/026/027 illustrations/recherche_web ; auteurs, licences,17 légendes et textes ciblés réellement lus. Deux pages HUG lues ; ouverture Rheumatology inaccessible déclarée. Le siège suisse de MDPI ne transforme pas la revue américaine en recommandation suisse. Aucune dose ou conduite thérapeutique ajoutée.
+
+Les six acquisitions ont été arrêtées avant requête : cdn.ncbi.nlm.nih.gov reste exclu de la politique réseau effective. Zéro nouveau cliché acquis, inspecté ou annoté ; aucune leçon modifiée. Sources/cibles inter-lots explicites : IRM ATM vers026 DX8 et027 DX4 ; fracture condylienne vers027 DX6, pas vers luxation simple. Conserver les repères natifs et ne pas confondre acquisitions différentes et paire même original/copie annotée.
+
+Le rapport incorpore désormais automatiquement les campagnes suivantes.24 vérifications Chromium et6 captures réellement inspectées,244 leçons et9 fichiers communs intacts,539 extraits/liens vérifiés. Les35 tests historiques de pipeline ne sont pas réexécutés. Pas de nouveau V8/AIPS, d’audit indépendant ou de validation clinique globale.
+
+Prochain tri : LOT028. La pause des nouveaux diagnostics demeure jusqu’au rattrapage018–040 ; premier diagnostic manquant inchangé040 DX2. Travail seul, borne18–133 fraîche, registre signé, pret/verifier025–027 réussis. État de publication et verrou dans ETAT_CONTINUITE.json. Veilles37511/48342 existantes maintenues, sans second producteur ; contrôle seul chaque minute pendant la disponibilité du runtime.
+
+## Checkpoints antérieurs conservés
+
 Dernière avancée — 2026-11-01T14:20:41+00:00 : tri des33leçons022–024 et63passages repérés, avec lecture complète des33fenêtres principales de partie9. Cumul77leçons/195passages ;8leçons sans mention lexicale,146leçons avec mentions restantes. Lexique FEES/VFSS/vidéofluoroscopie/transit corrigé :7passages supplémentaires, recensement244leçons/215avecmentions/539passages.
 
 Quatre candidats documentés : transit baryté de l’achalasie PMC2040141 F2 (CC BY2, Farrokhi/Vaezi, article2007 utilisé seulement comme source iconographique) ; cholestéatome PMC11913933 Fig1/4/7 (CC BY4, Touska/Connor, ESR). XML, métadonnées, crédits et refus d’acquisition sauvegardés dans LOT023/024 illustrations/recherche_web. Le réseau bloque toujours cdn.ncbi.nlm.nih.gov avant toute requête image. Aucun pixel médical acquis, aucune annotation ni leçon modifiée. Les figures comprennent des cas, côtés ou séquences différents : ne pas les confondre avec la paire même original/copie annotée. Images à intégrer uniquement après inspection réelle dans une fenêtre ouverte par le signe de partie9.
