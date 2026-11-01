@@ -125,6 +125,7 @@ def produire():
            '<div class="note"><strong>Repérage documentaire à relire.</strong> '+e(data['methode'])+' '+e(data['limites'])+'</div>',
            '<p>'+e(data['consigne'])+'</p>',
            '<p>Aucun cliché nouveau acquis ni intégré par cet inventaire. Les domaines de téléchargement Wikimedia et CDN NCBI restent exclus de la configuration réseau au dernier contrôle. Les neuf candidats retenus du LOT_018 restent sous réserve visuelle ; un autre est suspendu pour provenance discordante.</p>',
+           '<p>Ajout vérifié le 01.11.2026 : un schéma original à trois vues est intégré dans les fenêtres d’examens des leçons DX1 des LOT_034 et LOT_040. <a href="BILAN_SCHEMAS_SOMMEIL.html">Voir le bilan, les tailles et les limites</a>. Ces dessins ne sont pas des enregistrements de patient et ne clôturent pas le rattrapage.</p>',
            '<p><a href="BILAN_CLICHES_LOT_018.html">Candidats déjà documentés et tailles du LOT_018</a> · <a href="imagerie_20261101/INVENTAIRE.json">Données, extraits et empreintes</a></p>',
            '<details><summary>Couverture des lots attribués</summary><div class="table"><table><thead><tr><th>Lot / SSP</th><th>Leçons présentes</th><th>Leçons avec mention</th><th>Modalités repérées</th></tr></thead><tbody>']
     for lot in lots:
