@@ -1,11 +1,26 @@
 # REPRISE GROK — 31.10.2026
 
-LOT_175 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_176 est rédigé par B. Aucune PR, branche `grok/lots`.
+LOT_178 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, aucun ROUGE). LOT_175 est rédigé par A. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173 et LOT_175 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174 et LOT_176 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173 et LOT_175 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176 et LOT_178 sont rédigés par B.
 
 **Prochain LOT du rédacteur A : LOT_177.**
-**Prochain LOT du rédacteur B : LOT_178.** LOT_176 (O1.3 Dépistage préconceptionnel et postconceptionnel des maladies génétiques et des malformations) est rédigé et certifié. Détail : `LOT_176/A_AUDITER.md`.
+**Prochain LOT du rédacteur B : LOT_180.** LOT_178 (O1.5 Problèmes liés à l'accouchement) est rédigé et certifié. Détail : `LOT_178/A_AUDITER.md`.
+
+## LOT_178 — rédigé et certifié
+Sujet : O1.5 « Problèmes liés à l'accouchement ». Détail : `LOT_178/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Classification du tracé 2015, ligne hémorragie d'août 2022, recommandations de 2018, ligne périnée de juin 2015, dystocie des épaules de mars 2012 et mise à jour de 2026, avis suisse 26 du 19 juillet 2012 (archivé, dose de misoprostol non recopiée). Syntocinon 22114, Pabal 58079, Méthergin 12730, Nalador 43642, acide tranexamique 70581, Angusta 67580, Cytotec 46945 (ulcère, contre-indiqué pendant la grossesse). Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 3.4 (+ 76.0) Ko · SHA de7b036ae5a917b0 · commit 2667713e
+- DX.1 : certitude VERT · porte VERT · T = 3.4 (+ 38.2) Ko · SHA ba30f4c85ee0af56 · commit e0ce2779
+- DX.2 : certitude VERT · porte VERT · T = 3.4 (+ 40.9) Ko · SHA 2af52e620eb9158a · commit 2a3a6168
+- DX.3 : certitude VERT · porte VERT · T = 3.4 (+ 43.4) Ko · SHA 641bd341325b9914 · commit 1e3a6c6b
+- DX.4 : certitude VERT · porte VERT · T = 3.4 (+ 45.3) Ko · SHA 2a73ba0b7afdb8d3 · commit 8764dc24
+- DX.5 : certitude VERT · porte VERT · T = 3.4 (+ 37.1) Ko · SHA 9e1e882bfcc38ee5 · commit 85db4e9d
+- DX.6 : certitude VERT · porte VERT · T = 3.4 (+ 41.9) Ko · SHA 5a90dfdbbdc08330 · commit b21a239f
+- DX.7 : certitude VERT · porte VERT · T = 3.3 (+ 39.7) Ko · SHA f688b0ad4083989c · commit 693f98c5
+- DX.8 : certitude VERT · porte VERT · T = 3.4 (+ 44.7) Ko · SHA 26f6bfe245f4f011 · commit 33b406af
+- DX.9 : certitude VERT · porte VERT · T = 3.3 (+ 40.3) Ko · SHA aa7e9d35ebd856ff · commit 4f483264
+- DX.10 : certitude VERT · porte VERT · T = 3.3 (+ 43.1) Ko · SHA 8d12112aa1db5ef3 · commit b90ede45
 
 ## LOT_175 — rédigé et certifié
 Sujet : O1.2 « Soins de base lors d'un accouchement normal et durant le post-partum ». Détail : `LOT_175/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Classification du cardiotocogramme de 2015, repères de travail de 2018, échelle d'Édimbourg (13, 10 à 12, question 10), avis 77 (hémoglobine inférieure à 100 g/l), Syntocinon 22114, Pabal 58079, Méthergin 12730, Rhophylac 53609, Konakion 48112021, Dafalgan 47503. Zéro retrait.
