@@ -1,11 +1,27 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_190 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_189 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_191 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_190 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187 et LOT_189 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188 et LOT_190 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179, LOT_185, LOT_187, LOT_189 et LOT_191 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180, LOT_184, LOT_186, LOT_188 et LOT_190 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_191.**
+**Prochain LOT du rédacteur A : LOT_193.**
 **Prochain LOT du rédacteur B : LOT_192.** LOT_190 (O2.8 Décès d’un nourrisson) est rédigé et certifié. Détail : `LOT_190/A_AUDITER.md`.
+
+## LOT_191 — rédigé et certifié
+Sujet : O2.9 « Nourrisson irritable ou qui pleure ». Détail : `LOT_191/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Critères de Rome, 2016. Brochure genevoise lue le 1 novembre 2026. Fiche francophone des coliques, septembre 2018. Reflux, 2018. Allergie au lait, 2024. Invagination, 18 août 2017. Règle des ecchymoses, 2021. pédiatrie suisse, 15 octobre 2021. Code civil, articles 314c et 314d, 2019. Hypoglycémie de maternité, 2021. Glaucome, 2017 et 2021. Autorisations 43838, 58834, 58091, 44625. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.5 (+ 76.1) Ko · SHA ee57df25dadfd173 · commit 70439e0d9
+- DX.1 : certitude VERT · porte VERT · T = 1.5 (+ 37.8) Ko · SHA 5632aafd86fa334e · commit abb1a0fb6
+- DX.2 : certitude VERT · porte VERT · T = 1.5 (+ 40.2) Ko · SHA 7acb7f7c32943ebe · commit ecaa01428
+- DX.3 : certitude VERT · porte VERT · T = 1.5 (+ 42.7) Ko · SHA 86e63fcc0a74f96c · commit 5196bbcd3
+- DX.4 : certitude VERT · porte VERT · T = 1.5 (+ 45.1) Ko · SHA a4c9e0128a5ad395 · commit 0cfaf3cbb
+- DX.5 : certitude VERT · porte VERT · T = 1.5 (+ 37.0) Ko · SHA 84dd0a62445e95f0 · commit 4af9c6ed7
+- DX.6 : certitude VERT · porte VERT · T = 1.6 (+ 41.4) Ko · SHA f4b83ee94575b7c4 · commit 8fff1bfeb
+- DX.7 : certitude VERT · porte VERT · T = 1.5 (+ 43.9) Ko · SHA e3006182465beb42 · commit fdb5cbd1a
+- DX.8 : certitude VERT · porte VERT · T = 1.5 (+ 46.2) Ko · SHA d1a26eacf867c665 · commit 3d8be1020
+- DX.9 : certitude VERT · porte VERT · T = 1.6 (+ 39.1) Ko · SHA 70be62195fa20c7b · commit f9bd3f7ed
+- DX.10 : certitude VERT · porte VERT · T = 1.6 (+ 44.7) Ko · SHA 4ad0f3db33fc2253 · commit 45d7b5285
+
 
 ## LOT_190 — rédigé et certifié
 Sujet : O2.8 « Décès d’un nourrisson ». Détail : `LOT_190/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Office fédéral de la statistique, 4 septembre 2026 ; Hôpitaux universitaires de Genève, 29 octobre 2026 ; Centre hospitalier universitaire vaudois, janvier 2015 ; Jenni et collaborateurs, 2013 ; page bernoise lue en 2026 ; dépistage néonatal lu en 2026 ; réanimation pédiatrique européenne, 2025. Autorisations 56472, 56952, 48112021. Zéro retrait.
