@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>%%CODE%% — %%TITRE_COURT%% · Type A · Réflexe SSP · v%%VMAJ%%</title>
+<style>
+%%FONTS%%
+:root{--bg:#EAF5FC;--card:#fff;--ink:#1a1a1a;--ui:#22313F;--mut:#4A5A6A;--red:#C8102E;--ok:#0B7A3B;--ap:#0B5A8C;--spe:#6B2D8B;--line:#C4DCEC}
+*{box-sizing:border-box}html{scroll-padding-top:120px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Atkinson Hyperlegible",Verdana,Arial,sans-serif}
+header.top{background:var(--ui);color:#fff;padding:14px 16px 10px}
+header.top h1{margin:0;font-size:1.22rem;line-height:1.25}header.top p{margin:4px 0 0;color:#D5E3EF;font-size:.88rem}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:2px solid var(--line);box-shadow:0 2px 6px #0002}
+nav .links{display:flex;overflow-x:auto;gap:2px;padding:6px 6px 2px}
+nav a{flex:0 0 auto;text-decoration:none;color:var(--ui);font-weight:700;padding:6px 10px;border-radius:8px;font-size:.9rem}
+nav a:hover,nav a:focus{background:var(--bg)}
+.filt{display:flex;gap:6px;padding:2px 8px 4px;overflow-x:auto}
+.filt button{white-space:nowrap;margin:0;padding:4px 10px;font-size:.82rem;border-radius:999px;background:#fff;color:var(--ui);border:2px solid var(--line)}
+.filt button.on{background:var(--ui);color:#fff;border-color:var(--ui)}
+.filt button[data-f="ex"].on{background:#1a1a1a;border-color:#1a1a1a}.filt button[data-f="ap"].on{background:var(--ap);border-color:var(--ap)}.filt button[data-f="spe"].on{background:var(--spe);border-color:var(--spe)}
+.bar{height:7px;background:#DCEBF6}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ui),var(--ok));transition:width .3s}
+.live{display:flex;justify-content:space-between;font-size:.84rem;color:var(--mut);padding:3px 10px 5px}.live b{color:var(--ink)}
+main{max-width:860px;margin:0 auto;padding:12px}
+section{margin:18px 0 28px}
+h2{font-size:1.22rem;margin:0 0 6px;padding:8px 12px;background:var(--ui);color:#fff;border-radius:10px}
+h2 small{font-weight:400;color:#D5E3EF;font-size:.84rem}
+.intro{color:var(--mut);margin:6px 2px 12px}
+/* légende niveaux */
+.legend{display:grid;gap:8px;grid-template-columns:1fr;margin:10px 0}
+@media(min-width:700px){.legend{grid-template-columns:repeat(3,1fr)}}
+.legend div{background:#fff;border-radius:12px;padding:8px 10px;border:1px solid var(--line);font-size:.9rem}
+.legend .l-ex{border-left:6px solid #1a1a1a}.legend .l-ap{border-left:6px solid var(--ap);color:var(--ap)}.legend .l-spe{border-left:6px solid var(--spe);color:var(--spe)}
+/* badges */
+.bd{display:inline-block;font-weight:700;font-size:.78rem;letter-spacing:.04em;border-radius:6px;padding:2px 8px;color:#fff}
+.bd.ex{background:#1a1a1a}.bd.ap{background:var(--ap)}.bd.spe{background:var(--spe)}
+/* cartes question */
+.card,.qcm{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0;box-shadow:0 1px 3px #0001}
+.qcm.ex{border-left:7px solid #1a1a1a}
+.qcm.ap{border-left:7px solid var(--ap);background:#F4FAFE}
+.qcm.ap .stem,.qcm.ap .q{color:var(--ap)}
+.qcm.spe{border-left:7px solid var(--spe);background:#FBF6FD}
+.qcm.spe .stem{color:#3F1A55}.qcm.spe .q{color:var(--spe)}
+.qcm.hide{display:none}
+.qh{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
+.qn{background:var(--ui);color:#fff;font-weight:700;border-radius:8px;padding:2px 9px}
+.tag{background:#E6EEF4;color:var(--ui);border-radius:8px;padding:2px 8px;font-size:.78rem;font-weight:700}
+.tag.t2{background:#F2F5F8;color:var(--mut);font-weight:400}
+.neg{background:var(--red);color:#fff;border-radius:8px;padding:2px 8px;font-size:.78rem;font-weight:700}
+.fire{margin:0 0 0 auto;padding:3px 10px;font-size:.82rem;background:#fff;color:var(--spe);border:2px solid var(--spe);border-radius:999px}
+.fire.on{background:var(--spe);color:#fff}
+.stem{margin:6px 0}.q{font-weight:700;margin:8px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:9px 10px;margin:7px 0;cursor:pointer;background:#FCFDFE;color:#1a1a1a}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .l{flex:0 0 28px;height:28px;border-radius:50%;background:#E6EEF4;color:var(--ui);font-weight:700;display:flex;align-items:center;justify-content:center}
+.opt:hover{border-color:var(--ui)}
+.qcm.locked .opt{cursor:default}
+.opt.good{border-color:var(--ok);background:#E7F6EC}.opt.good .l{background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--red);background:#FCE9EC}.opt.bad .l{background:var(--red);color:#fff}
+.res{font-weight:700;margin:4px 2px 0;min-height:0}.res.v1{color:var(--ok)}.res.v0{color:var(--red)}
+.reveal{margin-top:8px}
+.reveal>summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px dashed var(--ui);border-radius:999px;padding:4px 14px;color:var(--ui);font-weight:700}
+.reveal>summary::-webkit-details-marker{display:none}
+.bulb{font-size:1.35rem}
+.reveal[open]>summary{border-style:solid;background:#FFF8DB;border-color:#C9A400;color:#6B5600}
+/* FEEDBACK : masqué par défaut, visible UNIQUEMENT si le 💡 est ouvert */
+.fb{display:none;border-left:5px solid var(--ok);background:#F6FBF8;border-radius:0 10px 10px 0;padding:8px 12px;margin-top:8px;font-size:.95rem;color:#1a1a1a}
+details.reveal[open] > .fb{display:block}
+@media screen{details.reveal:not([open]) .fb{display:none!important}}
+.fb p{margin:6px 0}.ok{color:var(--ok)}
+.others summary{cursor:pointer;color:var(--ui)}.others ul{margin:4px 0;padding-left:18px}.others li{margin:3px 0}
+.src a{color:var(--ui)}
+.media{margin-top:6px}.media figure{margin:6px 0}.media img{max-width:100%;border-radius:8px}
+/* Carte */
+.map{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:700px){.map{grid-template-columns:1fr 1fr}}
+.ax{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.ax h3{margin:0 0 6px;font-size:1rem;color:var(--ui)}.ax ul{margin:0;padding-left:18px}.ax li{margin:3px 0}
+.ax.rf{border:2px solid var(--red);grid-column:1/-1}.ax.rf h3{color:var(--red)}
+.rf ol{margin:0;padding-left:20px}@media(min-width:700px){.rf ol{columns:2}}
+.reflex{background:var(--ui);color:#fff;border-radius:12px;padding:12px 14px}
+.reflex ol{margin:6px 0 0;padding-left:22px}.reflex li{margin:4px 0}.reflex b{color:#FFD86B}
+.red{color:var(--red);font-weight:700}
+.algo{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;font-size:.93rem}
+.algo th,.algo td{border-bottom:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+.algo th{background:#E6EEF4}.algo tr.e td:first-child{color:var(--red);font-weight:700}
+/* Score */
+.sc{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.sc div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.sc b{display:block;font-size:1.5rem}
+.sc .s-ex{border-top:5px solid #1a1a1a}.sc .s-ap{border-top:5px solid var(--ap);color:var(--ap)}.sc .s-spe{border-top:5px solid var(--spe);color:var(--spe)}
+table.spe{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;margin-top:10px;font-size:.93rem}
+table.spe th,table.spe td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left}
+table.spe th{background:#F1E8F6;color:var(--spe)}
+.exalt{margin:10px 2px;font-weight:700;color:var(--spe)}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:9px 14px;background:var(--ui);color:#fff;cursor:pointer;margin:8px 6px 0 0}
+button.alt{background:#fff;color:var(--red);border:2px solid var(--red)}
+button.rev{background:#fff;color:var(--ui);border:2px solid var(--ui)}
+.verdict{font-weight:700;margin:8px 2px 0}.verdict.v1{color:var(--ok)}.verdict.v0{color:var(--red)}
+footer{color:var(--mut);font-size:.8rem;text-align:center;padding:16px}
+@media print{
+ nav,.live,button,.filt{display:none!important}
+ body{background:#fff;font-size:12px}
+ .qcm,.card,.ax{break-inside:avoid;box-shadow:none}
+ .qcm.hide{display:block}
+ .reveal>summary{display:none}
+ .fb{display:block}
+ details>*:not(summary){display:block}
+ html{scroll-padding-top:0}
+}
+</style></head><body>
+<header class="top"><h1>%%CODE%% — %%TITRE_COURT%% · Entraînement Type A · Réflexe SSP <span style="font-weight:400">· v%%VMAJ%%</span></h1>
+<p>%%LOT%% audité · Phase A + Phase B (DX.1–%%NDX%%) · %%N%% questions Type A, 5 options · examen fédéral CH (CK) · %%NEX%% EX · %%NAP%% AP · %%NSPE%% SPE</p></header>
+<nav><div class="links"><a href="#carte">🧭 Carte</a><a href="#raisonner">① Raisonner</a><a href="#discriminer">② Discriminer</a><a href="#pieges">🚩 Pièges</a><a href="#algo">⇢ Algo</a><a href="#score">★ Score</a></div>
+<div class="filt" role="group" aria-label="Filtrer par niveau"><button class="on" data-f="all">Tous</button><button data-f="ex">EX Examen</button><button data-f="ap">AP Approfondissement</button><button data-f="spe">SPE Spécialiste</button></div>
+<div class="bar"><i id="pbar"></i></div><div class="live"><span>Répondu <b id="ndone">0</b>/%%N%%</span><span>Score <b id="nok">0</b> · <b id="pct">–</b></span></div></nav>
+<main>
+<section id="carte"><h2>🧭 Carte mentale %%CODE%% <small>· 60 secondes avant de répondre</small></h2>
+<div class="legend">
+<div class="l-ex"><span class="bd ex">EX</span> <b>Examen</b> — vignette type examen fédéral CK : décision clinique, 5 options. Priorité absolue.</div>
+<div class="l-ap"><span class="bd ap">AP</span> <b>Approfondissement</b> — mécanismes, nuances, raisonnement enrichi. Texte en bleu.</div>
+<div class="l-spe"><span class="bd spe">SPE · spécialité</span> <b>Spécialiste</b> — niveau spécialité. Touchez <b>🔥</b> quand une question vous passionne : le score dira quelle spécialité vous exalte.</div></div>
+<p class="intro">Mode d'emploi : choisissez une option → elle se marque <span style="color:var(--ok);font-weight:700">juste</span> ou <span class="red">fausse</span>. Le commentaire ne s'ouvre <b>que</b> si vous touchez <b>💡</b>.</p>
+%%CARTE%%
+</section>
+
+<section id="raisonner"><h2>① Raisonner <small>· %%NR%% Q · avant de nommer le diagnostic</small></h2>
+<p class="intro">%%INTRO_R%%</p>
+%%R%%</section>
+<section id="discriminer"><h2>② Discriminer <small>· %%ND%% Q · un signe, un examen qui tranche</small></h2>
+<p class="intro">%%INTRO_D%%</p>
+%%D%%</section>
+<section id="pieges"><h2>🚩 Pièges & alarmes <small>· %%NP%% Q · ce qu'il ne faut jamais rater</small></h2>
+<p class="intro">%%INTRO_P%%</p>
+%%P%%</section>
+
+<section id="algo"><h2>⇢ Algorithme condensé <small>· si… alors…</small></h2>
+%%ALGO%%</section>
+
+%%SCORE%%
+</main>
+<footer>%%FOOTER%%</footer>
+%%SCRIPT%%
+</body></html>
