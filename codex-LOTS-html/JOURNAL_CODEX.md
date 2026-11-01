@@ -172,3 +172,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T15:26:20+00:00 — Tri025–027 publié au commit 9b6f7dda8cf2565e9a5a9d3b9408614c0702bd57, égalité distante vérifiée. Verrou libéré officiellement. Prochain tri028 ; veilles37511/48342 maintenues, aucun nouveau cliché ni lot clos.
 
 2026-11-01T16:24:47+00:00 — Tri028–030 :33 leçons/72 passages ajoutés ; cumul143/316. Trois figures candidates, deux articles en réserve ; aucun cliché030 retenu. LIC-METADATA-01 corrigé,39 tests.18 vérifications Chromium/6 captures inspectées ;244 leçons/9 fichiers communs intacts. Prochain tri031 ; aucun cliché acquis ni lot clos.
+
+2026-11-01T16:25:14+00:00 — Tri028–030 et correction LIC-METADATA-01 publiés au commit 65da529400d5604c42b7a455dc007a637f58adf0, égalité distante vérifiée. Verrou libéré officiellement. Prochain tri031 ; recherche de clichés030 encore ouverte, aucun nouveau cliché ni lot clos. Veilles37511/48342 maintenues.

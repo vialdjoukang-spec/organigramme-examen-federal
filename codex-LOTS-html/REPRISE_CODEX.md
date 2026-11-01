@@ -10,6 +10,8 @@ Correction LIC-METADATA-01 dans le pipeline : reconnaître le paragraphe JATS ex
 
 18 vérifications Chromium et6 captures du rapport réellement inspectées ;244 leçons/9 fichiers communs intacts,539 extraits/liens vérifiés. Pas de nouveau V8/AIPS ni audit indépendant ou validation clinique globale. Prochain tri031 ; recherche de clichés030 à compléter. Pause des nouveaux diagnostics maintenue jusqu’au rattrapage018–040, premier diagnostic manquant040 DX2. Borne18–133 fraîche, registre signé, pret/verifier028–030 réussis. État de publication et verrou dans ETAT_CONTINUITE.json ; veilles37511/48342 maintenues pendant la disponibilité du runtime, contrôle seul.
 
+2026-11-01T16:25:14+00:00 — Tri028–030 et correction LIC-METADATA-01 publiés au commit 65da529400d5604c42b7a455dc007a637f58adf0, égalité distante vérifiée. Verrou libéré officiellement. Prochain tri031 ; recherche de clichés030 encore ouverte, aucun nouveau cliché ni lot clos. Veilles37511/48342 maintenues.
+
 ## Checkpoints antérieurs conservés
 
 Dernière avancée — 2026-11-01T15:25:52+00:00 : tri des 33 leçons des LOT_025–027, soit 49 passages repérés et lecture intégrale des 33 fenêtres principales de partie9. Cumul 110 leçons / 244 passages ; 14 leçons sans mention lexicale, 119 leçons avec mentions restantes. Inventaire global inchangé : 244 leçons / 215 avec mentions / 539 passages.
