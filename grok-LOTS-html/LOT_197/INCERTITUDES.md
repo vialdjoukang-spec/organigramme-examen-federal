@@ -1,0 +1,15 @@
+# Incertitudes — LOT_197 — 1 novembre 2026
+
+Aucun retrait d'un élément central. Les trous sont ici, pas dans le cours sous forme de marqueur.
+
+1. Frontière d'âge de l'indice dans le consensus de 2019. Le tableau diagnostique lu retient un indice inférieur à 22 si l'âge est supérieur à 70 ans. Le tableau de gravité lu retient 70 ans ou plus. Le cours cite les deux formulations. Il ne choisit pas une troisième.
+2. Grille chiffrée du dépistage communautaire. La figure des points n'a pas été extraite le 1 novembre 2026. Ces points ne sont pas enseignés.
+3. Grades de l'outil hospitalier de 2003. Ils ont été lus dans l'annexe du rapport de 2019, pas sur la page originale de Kondrup rouverte le même jour. Le cours suit cette annexe, qui écrit 25 à 60 pour cent pour le grade modéré d'apport.
+4. Version française du questionnaire en cinq questions. Mains Libres, texte de 2020, écrit qu'il n'existe pas de version francophone validée. La Revue Médicale Suisse de 2021 écrit que le formulaire est validé en français. Les deux phrases sont citées. Aucune des deux n'est effacée.
+5. Vitesse de marche. Le consensus de 2019 retient une vitesse inférieure ou égale à 0,8 mètre par seconde. La revue suisse de 2021 illustre ce seuil par plus de 5 secondes pour 4 mètres. Quatre mètres en exactement 5 secondes valent 0,8 mètre par seconde. Le cours garde les deux phrases.
+6. Indices de masse musculaire. La page de revue du consensus européen de sarcopénie retient 7,0 et 5,5 kilogrammes par mètre carré. Une copie PDF lue à part écrivait 6,0 chez la femme. Le cours suit 5,5. Le tableau comparatif du rapport de dénutrition de 2019 attribue à la cachexie 7,26 et 5,45. Ce ne sont pas les mêmes définitions.
+7. Sensibilités du formulaire court. Les chiffres 89,3 et 81,8 pour cent, puis 85,2 et 94,3 pour cent, sont ceux de la version avec indice, article de 2009. La version au mollet a d'autres chiffres, 90,2 et 76,2 pour cent, puis 88,3 et 87,1 pour cent. Le cours les sépare.
+8. Seuils d'indice proposés pour l'Asie dans le tableau diagnostique de 2019 : inférieur à 18,5 avant 70 ans, ou inférieur à 20 au-delà de 70 ans. Ils sont cités. Ils ne remplacent pas le repère utilisé pour une personne suivie en Suisse.
+9. Prévalence unique des dix tableaux. Les fourchettes lues ne portent pas sur la même population ni sur la même définition. Aucun rang national suisse n'a été lu.
+10. Indication de la thiamine. L'information professionnelle 10989 vise une hypovitaminose, avec une fourchette orale de 200 à 300 mg par jour pour des symptômes graves. La ligne britannique de 2006, mise à jour en 2017, propose la même fourchette orale avant et pendant les dix premiers jours chez la personne à haut risque de réalimentation. Le cours dit les deux textes. Il ne présente pas la prophylaxie comme une phrase de l'information professionnelle.
+11. Dose de vitamine D. Seules les phrases de l'autorisation 33481 sont utilisées. La dose se règle sur la carence et le contexte, pas sur un schéma unique de sarcopénie. La revue suisse de 2021 écrit que des médicaments sont à l'étude. Aucun milligramme d'anabolisant n'est donné.
