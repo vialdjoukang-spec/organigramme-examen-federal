@@ -1,5 +1,15 @@
 # Reprise LOTS — 01.11.2026
 
+Dernière avancée — 2026-11-01T14:20:41+00:00 : tri des33leçons022–024 et63passages repérés, avec lecture complète des33fenêtres principales de partie9. Cumul77leçons/195passages ;8leçons sans mention lexicale,146leçons avec mentions restantes. Lexique FEES/VFSS/vidéofluoroscopie/transit corrigé :7passages supplémentaires, recensement244leçons/215avecmentions/539passages.
+
+Quatre candidats documentés : transit baryté de l’achalasie PMC2040141 F2 (CC BY2, Farrokhi/Vaezi, article2007 utilisé seulement comme source iconographique) ; cholestéatome PMC11913933 Fig1/4/7 (CC BY4, Touska/Connor, ESR). XML, métadonnées, crédits et refus d’acquisition sauvegardés dans LOT023/024 illustrations/recherche_web. Le réseau bloque toujours cdn.ncbi.nlm.nih.gov avant toute requête image. Aucun pixel médical acquis, aucune annotation ni leçon modifiée. Les figures comprennent des cas, côtés ou séquences différents : ne pas les confondre avec la paire même original/copie annotée. Images à intégrer uniquement après inspection réelle dans une fenêtre ouverte par le signe de partie9.
+
+24vérifications Chromium et6captures du rapport réellement inspectées ;244leçons et9fichiers communs intacts,539extraits/liens vérifiés. Deux incidents de lancement/attente navigateur corrigés et consignés. Pas de nouveau contrôle AIPS, de V8, de score ou d’audit indépendant ; la relecture porte sur les notes iconographiques, pas sur une validation clinique globale.
+
+Prochain tri : LOT025. La pause des nouveaux diagnostics reste active pendant le rattrapage018–040. Premier diagnostic incomplet inchangé : LOT040 DX2. Travail seul ; borne18–133 relue, registre signé, pret/verifier022–024 réussis. Publication et libération consignées dans ETAT_CONTINUITE.json après vérification distante. Veilles37511/48342 maintenues ; elles contrôlent seulement tant que le runtime existe.
+
+## Checkpoints antérieurs conservés
+
 Dernière avancée — 2026-11-01T13:16:12+00:00 : tri des22leçons020/021, soit43passages repérés supplémentaires et4fenêtres de bilan biologique lues séparément. Total44leçons triées,132passages ;40de ces leçons comportent des mentions et4n’en comportent pas.175leçons avec mentions restent à trier. Le repérage global reste244leçons/215avecmentions/532passages.
 
 Trois nouveaux candidats CC BY4 : deux figures de fractures orbitaires (PMC10175405, auteurs Folkestad/Jönsson/Karlsson), une figure d’angiofibrome en IRM (PMC5854277, huit auteurs). Sources et métadonnées exactes dans LOT020/021 illustrations/recherche_web ; sélection et cibles dans PLAN_ACQUISITION.json. Article PMC8034345 refusé NC/ND ; PMC3716018 réservé, CC BY sans version/URL exacte. Aucune image acquise : CDN NCBI toujours exclu, trois acquisitions arrêtées avant requête. Ne pas assimiler les panneaux de séquences ou cas différents à la comparaison original/annoté. Ni hernie orbitaire ni arrondissement musculaire ne prouvent seuls un enclavement ; ne pas appeler TDM la figure IRM d’angiofibrome.

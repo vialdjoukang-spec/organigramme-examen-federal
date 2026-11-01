@@ -21,7 +21,8 @@ MOTIFS = {
     'Échographie / Doppler': r'échograph\w+|échocardiograph\w+|ultrason\w+|\bDoppler\b',
     'OCT': r'\bOCT(?:A)?\b|tomographie par cohérence optique',
     'Angiographie': r'angiograph\w+',
-    'Endoscopie / laryngoscopie': r'endoscop\w+|(?:naso)?fibroscop\w+|laryngoscop\w+|stroboscop\w+|rhinoscop\w+',
+    'Endoscopie / laryngoscopie': r'endoscop\w+|(?:naso)?fibroscop\w+|laryngoscop\w+|stroboscop\w+|rhinoscop\w+|\bFEES\b',
+    'Vidéofluoroscopie / transit': r'vid[ée]ofluoroscop\w+|\bVFSS\b|transit (?:pharyngo[-‑])?(?:œsophag\w+|oesophag\w+)|transit baryt\w+',
     'Fond d’œil / rétinographie': r'fond(?:s)? d[’\x27 ](?:œil|oeil|yeux)|rétinograph\w+',
     'Scintigraphie / TEP': r'scintigraph\w+|\bTEP\b|\bPET(?:-CT)?\b|tomographie par émission de posit(?:ons|rons)',
     'Imagerie non précisée': r'\bimagerie\b',
@@ -150,7 +151,7 @@ def produire():
         out.append(f'<p><a href="imagerie_20261101/CANDIDATS_ORL.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/TRIAGE.json">Tri des {len(par_fichier)} leçons</a> · <a href="imagerie_20261101/sources_orl/LECTURES.json">Lectures suisses et européennes</a></p>')
     sans_mention = [r for r in lecons if not r['passages'] and r['fichier'] in par_fichier]
     if sans_mention:
-        out.append('<h2>Fenêtres relues sans mention d’imagerie</h2><p>Ces leçons ne figurent pas parmi les 215 fiches filtrables ci-dessus. Leur bilan biologique ou clinique peut justifier un schéma documenté, sans inventer de cliché radiologique.</p>')
+        out.append(f'<h2>Fenêtres relues sans mention repérée</h2><p>Ces leçons ne figurent pas parmi les {data["totaux"]["lecons_avec_mentions"]} fiches filtrables ci-dessus. Leur bilan peut justifier une photographie clinique ou un schéma documenté. L’absence de mot-clé ne signifie pas absence de besoin visuel.</p>')
         for row in sans_mention:
             revue = par_fichier[row['fichier']]
             out.append(f'<details class="sans-imagerie"><summary>LOT_{row["lot"]:03} — {e(row["titre"])}</summary><aside data-triage="effectue"><strong>{e(revue["objectif_iconographique"])}</strong><p>{e(revue["contexte"])}</p><p><strong>Piège :</strong> {e(revue["piege"])}</p><a href="{e(row["fichier"])}#{e(revue["extrait_supplementaire_lu"]["ancre"])}">Ouvrir la fenêtre source</a></aside></details>')
@@ -161,6 +162,13 @@ def produire():
         for c in selection['candidats']:
             out.append(f'<details class="candidat-suite"><summary>LOT_{c["lot"]:03} — {e(c["titre"])}</summary><p>{e(c["auteur"])} · {e(c["licence"])}</p><p>{e(c["piege"])}</p><a href="{e(c["source_url"])}">Publication source</a></details>')
         out.append('<p><a href="imagerie_20261101/tri_020_021/CANDIDATS.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/tri_020_021/LECTURES.json">Lectures et limites</a></p>')
+    suite = D/'tri_022_024/CANDIDATS.json'
+    if suite.exists():
+        selection = json.loads(suite.read_text())
+        out.append('<h2>Pistes iconographiques des LOT_023 et LOT_024</h2><p>Quatre candidats documentés sous licences CC BY 2.0 ou 4.0 ; aucun cliché acquis ou inspecté. Le tri des LOT_022–024 comprend aussi les photographies cliniques et les examens dynamiques.</p>')
+        for c in selection['candidats']:
+            out.append(f'<details class="candidat-nouveau"><summary>LOT_{c["lot"]:03} — {e(c["titre"])}</summary><p>{e(c["auteur"])} · {e(c["licence"])}</p><p>{e(c["piege"])}</p><a href="{e(c["source_url"])}">Publication source</a></details>')
+        out.append('<p><a href="imagerie_20261101/tri_022_024/CANDIDATS.json">Crédits et décisions détaillés</a> · <a href="imagerie_20261101/tri_022_024/LECTURES.json">Lectures et limites</a></p>')
     out += ['<script>const q=document.querySelector("#recherche"),m=document.querySelector("#modalite"),rows=[...document.querySelectorAll("details.lecon")];function filtre(){let n=0;for(const r of rows){const ok=r.textContent.toLocaleLowerCase("fr").includes(q.value.toLocaleLowerCase("fr"))&&(!m.value||JSON.parse(r.dataset.categories).includes(m.value));r.hidden=!ok;if(ok)n++;}document.querySelector("#compte").textContent=n+" leçons affichées";}q.addEventListener("input",filtre);m.addEventListener("change",filtre);filtre();</script>',
             '<footer><p>Les extraits décrivent les textes présents, sans nouvelle validation médicale. La sélection de chaque cliché devra préciser le signe visible, le contexte clinique, les limites et les droits de réutilisation.</p></footer></main></html>']
     (B/'BILAN_IMAGERIE_ECG.html').write_text('\n'.join(out)+'\n')
