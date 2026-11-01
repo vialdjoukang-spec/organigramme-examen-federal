@@ -1,11 +1,26 @@
 # REPRISE GROK — 01.11.2026
 
-LOT_184 **rédigé et certifié** (rédacteur B, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_179 est rédigé par A. Aucune PR, branche `grok/lots`.
+LOT_185 **rédigé et certifié** (rédacteur A, grok-4.7, script `certitude_redaction.py`, conscience de lot 0 BLOQUANT, 0 SIGNAL). LOT_184 est rédigé par B. Aucune PR, branche `grok/lots`.
 
-Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177 et LOT_179 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180 et LOT_184 sont rédigés par B.
+Cahier du 31.10.2026 : les LOT 138 à 146 ne sont pas à rédiger. Les lots partiels ou complets venus de Drive seront audités plus tard, pas rédigés maintenant. File vide de rédaction : 149–180, 184–207, 219–226. L'agent A prend les impairs, l'agent B les pairs. LOT_149, LOT_151, LOT_153, LOT_155, LOT_157, LOT_159, LOT_161, LOT_163, LOT_165, LOT_167, LOT_169, LOT_171, LOT_173, LOT_175, LOT_177, LOT_179 et LOT_185 sont rédigés par A. LOT_150, LOT_152, LOT_154, LOT_156, LOT_158, LOT_160, LOT_162, LOT_164, LOT_166, LOT_168, LOT_170, LOT_172, LOT_174, LOT_176, LOT_178, LOT_180 et LOT_184 sont rédigés par B.
 
-**Prochain LOT du rédacteur A : LOT_185.**
+**Prochain LOT du rédacteur A : LOT_187.**
 **Prochain LOT du rédacteur B : LOT_186.** LOT_184 (O2.2 Problèmes comportementaux durant l’enfance et l’adolescence) est rédigé et certifié. Détail : `LOT_184/A_AUDITER.md`.
+
+## LOT_185 — rédigé et certifié
+Sujet : O2.3 « Maltraitance et négligence envers l'enfant ». Détail : `LOT_185/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. pédiatrie suisse, 15 octobre 2021 ; recommandations hospitalières, février 2017 ; guide révisé en 2020 ; code civil, articles 314c et 314d, 2019 ; règle des ecchymoses, 2021 ; organisation mondiale de la santé, 2024 ; chapitre européen, mars 2020. Autorisation 43838. Zéro retrait.
+
+- Phase_A : certitude VERT · porte VERT · T = 1.9 (+ 79.3) Ko · SHA 09011912ac257892 · commit dddaefd22
+- DX.1 : certitude VERT · porte VERT · T = 1.8 (+ 38.8) Ko · SHA eb17440399401d88 · commit 4b1d85e43
+- DX.2 : certitude VERT · porte VERT · T = 1.8 (+ 45.0) Ko · SHA 6330b44b488011b0 · commit 773a8d847
+- DX.3 : certitude VERT · porte VERT · T = 1.8 (+ 39.1) Ko · SHA 142526c5b2a42348 · commit df47427dd
+- DX.4 : certitude VERT · porte VERT · T = 1.8 (+ 42.6) Ko · SHA fc466921d1a51885 · commit c8e6ac3f5
+- DX.5 : certitude VERT · porte VERT · T = 1.8 (+ 45.2) Ko · SHA f4209d23822cbb4b · commit 0a6b7da76
+- DX.6 : certitude VERT · porte VERT · T = 1.8 (+ 45.0) Ko · SHA 637a7786820f18c8 · commit d182cb0d0
+- DX.7 : certitude VERT · porte VERT · T = 1.8 (+ 38.4) Ko · SHA 3a7a814cd452c9a4 · commit 975402f2b
+- DX.8 : certitude VERT · porte VERT · T = 1.8 (+ 38.5) Ko · SHA 94734b9d8aac5027 · commit e39ade12a
+- DX.9 : certitude VERT · porte VERT · T = 1.8 (+ 39.8) Ko · SHA 80630d03b3d7301e · commit a728b7956
+- DX.10 : certitude VERT · porte VERT · T = 1.8 (+ 43.3) Ko · SHA 3b9d5a4c4bc8763e · commit 702eb9b24
 
 ## LOT_184 — rédigé et certifié
 Sujet : O2.2 « Problèmes comportementaux durant l’enfance et l’adolescence ». Détail : `LOT_184/A_AUDITER.md`. Conscience de lot : 0 BLOQUANT, 0 SIGNAL. Haute Autorité de Santé, septembre 2024 ; recommandation sur l'attention, mars 2018 ; feuille de cotation du questionnaire des forces et des difficultés, lue en 2026 ; conduites, 2013 ; dépression du jeune, juin 2019 ; articles 314c et 314d, en vigueur en 2019. Autorisations 20736, 56249, 56846, 63023, 67475, 52316, 54469, 57135, 56209, 68968. Zéro retrait.
