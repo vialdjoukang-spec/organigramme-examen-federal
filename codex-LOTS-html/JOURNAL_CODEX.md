@@ -144,3 +144,5 @@ Bilan et sources publiés au commit 18b19fda2a3562cf5a4dc8034d89a3a0ee9d1844, é
 2026-11-01T06:18:16+00:00 — Verrou libéré officiellement. Surveillance seule maintenue tant que le runtime existe.
 
 2026-11-01T07:37:37+00:00 — LOT018 : quatrième source primaire acquise (PMC3171721), licence et auteurs vérifiés, discordance gauche/droite et limites de causalité consignées. Bilan actualisé :146 contrôles,24 ouvertures Chromium,6 captures inspectées ;244 leçons et9 fichiers du harnais inchangés. Aucun cliché acquis et aucun lot clos ; hôtes d’images toujours exclus. Relecture interne seulement ; preuves acquisition_epmc_obvr/.
+
+2026-11-01T07:39:12+00:00 — Source OBVR et bilan publiés 78d6f9205f9392e14fa659140a943123536d2ded, référence distante vérifiée. Verrou libéré officiellement. Veilles37511/48342 maintenues en surveillance seule ; blocage d’acquisition des clichés inchangé. Aucun nouveau lot clos.
