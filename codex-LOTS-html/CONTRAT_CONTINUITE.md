@@ -45,3 +45,7 @@ Les sources d’images peuvent être élargies au-delà des trois plateformes in
 
 ## Reprise solo du 01.11.2026 — dernier ordre de Vial
 Le dernier ordre demande expressément de poursuivre seul et sans sous-agents. Il remplace pour cette session les anciennes modalités de travail en équipe. La priorité au renforcement médical des cours existants et aux images annotées demeure. Reprise ciblée : LOT_018 DX3 puis LOT_029 DX3 ; préservation de la production initiale. Les nouvelles passes seront des relectures internes, sans revendication de contrelecture indépendante. Borne fraîchement relue : LOT_133 inclus.
+
+## Ordre prioritaire de Vial du02.11.2026 — sens descendant
+
+Commencer par le dernier lot du contrat puis revenir vers018. Borne fraîche133. Cette instruction remplace l’ordre croissant pour la suite. Travail seul maintenu ; renforcer les fenêtres avec faits structurants en gras, explications médicales concises et illustrations sourcées.133 ne contient aucun HTML : début par préparation PhaseA, sans le déclarer achevé. La reprise des nouveaux cours demandée par cet ordre est consignée ; la dette des illustrations antérieures reste ouverte.

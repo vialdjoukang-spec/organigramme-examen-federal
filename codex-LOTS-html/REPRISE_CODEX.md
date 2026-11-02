@@ -1,3 +1,13 @@
+# Sauvegarde descendante — 2026-11-02T00:40:37+00:00
+
+Verrou libéré. LOT133 : brouillon préparatoire14rubriques/14questions, sources initiales et candidatClubbing1.JPG identifiés. Téléchargement terminal403 ; aucun cliché acquis/annoté, aucun HTML ni lot achevé. Reprendre133 avant132, compléter sources et convertirV8 après relecture. DX6 antérieurs publiés et vérifiés au commitde37845d. Les deux veilles existantes contrôlent seulement, elles ne rédigent pas.
+
+# Priorité descendante — 2026-11-02T00:39:56+00:00
+
+Dernier ordre :133 vers018, seul. Réservation133 vérifiée et registre du jour signé, verifier133 AUTORISÉ. LOT133 amorcé par brouillon clinique14rubriques et14questions dans LOT_133/_travail/PHASE_A_REDACTION.md ; aucun HTML, aucune liste canonique gelée, aucun lot achevé. Compléter sources et images avant conversion V8. Première recherche trop centrée sur le thorax corrigée : inspection générale attendue.
+
+DX6 publiés au commit de37845dce56689043d4de7adbbd6586159dd6e3, vérifié sur FETCH_HEAD. Cumul14/244 renforcées ; dette images persistante. État final du verrou dans ETAT_CONTINUITE.json.
+
 # Reprise solo DX6 — 2026-11-01T22:49:55+00:00
 
 Dernier ordre : seul, sans sous-agents ; aucun agent lancé. Dépôt frais013d1302, branche codex/lots ; borne18–133 relue, registre signé, pret/verifier018 et029 autorisés, verrou acquis. Écritures exclusivement codex-LOTS-html/.
