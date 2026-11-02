@@ -1,3 +1,5 @@
+Publication vérifiée : `c069c919d383813cc33dec01bce6fc5cd0bf5145`. Verrou libéré ; réacquérir avant reprise. Réserves classées dans RESERVES_CLINIQUES_1103.json ; imagesabsentes, pasLOT132.
+
 # Checkpoint 2026-11-02T11:10:29.645857+00:00
 
 11HTML préparatoires maintenus. DX4 Ferinject etDX9 Privigen enrichis depuisAIPS etcontre-audités. Défaut d’abréviation des sources S3 corrigé sur10monographies ; textevisible8autres pages identique.190contrôlesstatiques et40configurationsChromiumréels réussis. Réserves actives classées dans RESERVES_CLINIQUES_1103.json : distinguer exigencesmandat/limitesfacultatives. Images0 réseauinchangé. PasLOT132. Publication/verroudansETAT.
