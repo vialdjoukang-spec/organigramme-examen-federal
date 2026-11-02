@@ -1,3 +1,5 @@
+Publication vérifiée : `2f638cff98886a69dc6c180ff76efbd56421185f`. Verrou libéré ; réacquérir avant reprise. Onze HTML préparatoires, lot133 non clos. Priorité réserves et illustrations, pasLOT132.
+
 # Checkpoint 2026-11-02T09:08:48.672413+00:00
 
 LOT133 contient11HTML : PhaseA +10monographies préparatoires. DX5/DX10 ajoutés, DX3 rendu corrigé sans valeur médicale modifiée.190contrôles statiques monographies réussis ; caches historiques négatifs conservés. Audits et cohérence ciblée dans rapports0858. Aucune clôture : images0, pharmacologie/actualité encore réservées. Prochaine priorité : résoudre ces réserves dans133, pasLOT132. Les veilles locales contrôlent seulement et dépendent du runtime.
