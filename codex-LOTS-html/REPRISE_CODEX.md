@@ -1,3 +1,5 @@
+Publication vérifiée : Phase A 06e242a6 ; brouillons et préaudit 1763dd28. Verrou libéré le 2026-11-02T02:55:48.616147+00:00. Missions des quatre agents terminées. Veille locale de contrôle active lors de la vérification ; dépend du runtime. Aucun automate modifié pendant cette session.
+
 # Checkpoint rédactionnel — 02.11.2026
 
 Phase A du LOT133 publiée au commit 06e242a6, distant vérifié. Liste pédagogique figée après contre-audit. Deux brouillons Markdown sont rédigés : DX1 AVC (17,571 Ko) et DX6 hépatopathie chronique décompensée (14,325 Ko), chacun avec 14 parties et 14 questions. Leur contrelecture est préparatoire ; aucun HTML Phase B et aucun nouveau lot terminé.
