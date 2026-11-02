@@ -1,3 +1,8 @@
+PAUSE HUMAINE — 2026-11-02T22:21:41.783381+00:00
+NE PAS REPRENDRE sans nouvel ordre explicite de Vial. Les quatre agents sont interrompus.
+Dernière livraison : PhaseA132 auditée, gel canonique, commit752865ad. DX1 et DX6 sont des brouillons NON VALIDÉS, conservés dans LOT_132/_travail/ ; leurs rendus sont déplacés sans altération dans _travail/brouillons_pause/. Audit DX1 avec corrections à appliquer ; audit DX6 interrompu. Huit autres monographies non livrées. Image C : contour2 incorrect signalé, non corrigé et non intégré.
+État précis et prochaines corrections : LOT_132/audits/PAUSE_VIAL.json. Le prompt ci-dessous est utilisable uniquement APRÈS levée explicite de cette pause.
+
 ## Checkpoint prioritaire — 2026-11-02T22:16:28.471273+00:00
 
 LOT132 PhaseA rédigée, audit distinct favorable, corrections réauditées et dix diagnostics gelés. Preuves : LOT_132/audits/CHECKPOINT_PHASEA_GELEE.json. Deux auteurs rédigent DX1–5 et DX6–10 ; rien de ces monographies encore livré ici. Contenu d’abord, images en parallèle. Verrou détenu par root courant ; ne pas concurrencer. Prompt complet : CONTINUATION_WORK.me.
