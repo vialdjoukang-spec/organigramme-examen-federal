@@ -1,3 +1,5 @@
+Publication vérifiée : `3762a91705468731b8ced13a1a96075986834401`. Verrou libéré ; réacquérir avant reprise. Correctif pipeline validé42tests ; aucune image admissible acquise, origine/licence et réseau restent documentés.
+
 # Checkpoint 2026-11-02T12:58:15.979502+00:00
 
 LOT13311HTML cliniques inchangés. Pipeline insertion corrigé pourSOURCESdocumentaire :42testsréussis agentetroot, pasimageclinique de test. RechercheoriginaleGitHub4README sansdroits/provenanceadmissibles, aucunpixelacquis. Agentdroits interrompucapacitémodèle. BlocageclichésCommonsdéjàlicenciés : upload.wikimedia.org horspolitiqueréseau ; aucuneconfigmodifiée. Ne pasrépéterrefusinchangés niétendregratuitementprotocolesspécialité. VoirSYNTHESE_1252.json/RESERVES_CLINIQUES_1252.json.
