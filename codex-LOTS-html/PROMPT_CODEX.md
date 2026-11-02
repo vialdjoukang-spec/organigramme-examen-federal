@@ -104,3 +104,11 @@ Un cours sans contrelecture distincte ou dont l’iconographie nécessaire reste
 
 ## Reprise solo du 01.11.2026 — dernier ordre de Vial
 Le dernier ordre demande expressément de poursuivre seul et sans sous-agents. Il remplace pour cette session les anciennes modalités de travail en équipe. La priorité au renforcement médical des cours existants et aux images annotées demeure. Reprise ciblée : LOT_018 DX3 puis LOT_029 DX3 ; préservation de la production initiale. Les nouvelles passes seront des relectures internes, sans revendication de contrelecture indépendante. Borne fraîchement relue : LOT_133 inclus.
+
+## Ordre prioritaire du 02.11.2026 — harnais et quatre agents Astra
+
+Vial impose maintenant le travail multi-agent et le sens décroissant : LOT133 puis132 jusqu’à18, sous réserve de la borne relue. Cet ordre remplace les anciennes consignes solo et la reprise ascendante040. Quatre agents GPT-6 Astra réellement lancés : audit médical, conformité/correction, recherche d’images, cache du harnais. Le responsable seul détient le verrou et écrit les fichiers globaux/Git. Un seul lot actif ; PhaseA documentée et auditée avant gel puis monographies. Les 22 lots historiquement rédigés ne sont pas déclarés conformes au nouveau mandat par cette activation.
+
+Le harnais local est dans harness/. Les documents reçus y sont conservés. Les chemins Claude et la modification des communs proposés dans le document historique ne s’appliquent pas : périmètre explicite codex-LOTS-html uniquement. Les bandes historiques de taille sont signalées séparément ; aucun remplissage pour atteindre un poids arbitraire. Les fenêtres illustrées restent exemptées selon l’ordre explicite de Vial ; la fiche DD reste limitée à9Ko.
+
+La veille contrôle chaque60secondes dans le runtime. GitHub héberge le code et les instantanés poussés ; aucun workflow Actions installé, car .github/ est hors périmètre. Le bilan est programmé pour le03.11.2026 à08h00 Europe/Zurich. Un arrêt du runtime interrompt les processus locaux. STOP/PAUSE ultérieur prioritaire.

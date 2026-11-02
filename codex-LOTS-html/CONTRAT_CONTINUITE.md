@@ -49,3 +49,11 @@ Le dernier ordre demande expressément de poursuivre seul et sans sous-agents. I
 ## Ordre prioritaire de Vial du02.11.2026 — sens descendant
 
 Commencer par le dernier lot du contrat puis revenir vers018. Borne fraîche133. Cette instruction remplace l’ordre croissant pour la suite. Travail seul maintenu ; renforcer les fenêtres avec faits structurants en gras, explications médicales concises et illustrations sourcées.133 ne contient aucun HTML : début par préparation PhaseA, sans le déclarer achevé. La reprise des nouveaux cours demandée par cet ordre est consignée ; la dette des illustrations antérieures reste ouverte.
+
+## Ordre prioritaire du 02.11.2026 — harnais et quatre agents Astra
+
+Vial impose maintenant le travail multi-agent et le sens décroissant : LOT133 puis132 jusqu’à18, sous réserve de la borne relue. Cet ordre remplace les anciennes consignes solo et la reprise ascendante040. Quatre agents GPT-6 Astra réellement lancés : audit médical, conformité/correction, recherche d’images, cache du harnais. Le responsable seul détient le verrou et écrit les fichiers globaux/Git. Un seul lot actif ; PhaseA documentée et auditée avant gel puis monographies. Les 22 lots historiquement rédigés ne sont pas déclarés conformes au nouveau mandat par cette activation.
+
+Le harnais local est dans harness/. Les documents reçus y sont conservés. Les chemins Claude et la modification des communs proposés dans le document historique ne s’appliquent pas : périmètre explicite codex-LOTS-html uniquement. Les bandes historiques de taille sont signalées séparément ; aucun remplissage pour atteindre un poids arbitraire. Les fenêtres illustrées restent exemptées selon l’ordre explicite de Vial ; la fiche DD reste limitée à9Ko.
+
+La veille contrôle chaque60secondes dans le runtime. GitHub héberge le code et les instantanés poussés ; aucun workflow Actions installé, car .github/ est hors périmètre. Le bilan est programmé pour le03.11.2026 à08h00 Europe/Zurich. Un arrêt du runtime interrompt les processus locaux. STOP/PAUSE ultérieur prioritaire.
