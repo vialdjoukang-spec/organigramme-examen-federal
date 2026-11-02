@@ -23,7 +23,7 @@ import taille_xy
 def verifier(path):
     n = int(re.search(r'DX\.(\d+)\.html$', path.name)[1])
     from rendre_dx import parse
-    donnees = parse(n, [] if n in (2, 7) else [path.parent / f'evidence/SOURCES_RENDU_DX{n}_0330.json'])
+    donnees = parse(n, [] if n in (2, 3, 4, 7, 8, 9) else [path.parent / f'evidence/SOURCES_RENDU_DX{n}_0330.json'])
     raw = path.read_bytes()
     source = raw.decode('utf-8')
     tree = html.document_fromstring(source)

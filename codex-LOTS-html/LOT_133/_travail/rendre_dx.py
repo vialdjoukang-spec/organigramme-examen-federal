@@ -38,6 +38,8 @@ def references(text):
 
 
 def input_paths(n):
+    if n in (3, 4, 8, 9):
+        return LOT / f"_travail/DX{n}_REDACTION_0506.md", LOT / f"evidence/DX{n}_0506.json"
     if n in (2, 7):
         return LOT / f"_travail/DX{n}_REDACTION_0427.md", LOT / f"evidence/DX{n}_0427.json"
     return LOT / f"_travail/DX{n}_REDACTION_0240.md", LOT / f"evidence/dx{n}_0240.json"
@@ -70,7 +72,7 @@ def parse(n, extras):
         parts.append((h[2], text[h.end():end].strip()))
     # Les références brutes et journaux restent dans le Markdown de preuve uniquement.
     last = parts[-1][1]
-    appendix = re.search(r'^(?:#{2,3} |Sources et passages\s*:|Sources détaillées,)', last, re.M)
+    appendix = re.search(r'^(?:#{2,3} |Sources et passages\s*:|Sources détaillées,|Sources, portée effectivement lue,)', last, re.M)
     quiz_text = last[:appendix.start()] if appendix else last
     questions = list(QUESTION.finditer(quiz_text))
     if [int(q[1]) for q in questions] != list(range(1, 15)):
@@ -158,7 +160,9 @@ class Markdown:
 def clinical_scope(data):
     """Conserver le périmètre clinique verbatim, sans métadonnées de production."""
     preamble = data['preamble']
-    if data['n'] in (2, 7):
+    if data['n'] == 8:
+        return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte, principalement membre inférieur. Grossesse et pédiatrie nécessitent un parcours distinct. Les posologies présentées concernent uniquement l’apixaban, d’après la notice suisse citée.'
+    if data['n'] in (2, 3, 4, 7, 9):
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Aucune posologie médicamenteuse proposée.'
     marker = 'Le champ principal est ' if data['n'] == 1 else 'Le titre canonique est conservé ; '
     if marker not in preamble:
@@ -178,7 +182,7 @@ def render(data):
     rows = data['rows']
     numbers = {ident: i for i, ident in enumerate(rows, 1)}
     module.S = [(f"{ident} — {r.get('titre') or r.get('title')}" +
-                 ''.join(f' ; {k}: {r[k]}' for k in ('version', 'date', 'lecture', 'passages', 'limite', 'limites', 'portee_lue', 'date_consultation', 'date_lecture', 'read_date') if r.get(k)), r['url']) for ident, r in rows.items()]
+                 ''.join(f' ; {k}: {r[k]}' for k in ('version', 'date', 'lecture', 'passages', 'limite', 'limites', 'portee_lue', 'date_publication', 'reserve_fraicheur', 'date_consultation', 'date_lecture', 'read_date') if r.get(k)), r['url']) for ident, r in rows.items()]
     module.T = [title for title, _ in data['parts']]
     md = Markdown(numbers)
     canonical = re.search(r'^DX\.' + str(data['n']) + r' — (.+)$', (LOT / 'LISTE_DX_CANONIQUE.md').read_text(), re.M)
@@ -222,11 +226,11 @@ def render(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--dx', nargs='+', type=int, choices=(1, 2, 6, 7), default=[1, 6])
+    parser.add_argument('--dx', nargs='+', type=int, choices=(1, 2, 3, 4, 6, 7, 8, 9), default=[1, 6])
     parser.add_argument('--sources', action='append', default=[], metavar='DX:JSON')
     parser.add_argument('--render', action='store_true', help='Écrire les HTML après autorisation root')
     args = parser.parse_args()
-    extras = {n: [] for n in (1, 2, 6, 7)}
+    extras = {n: [] for n in (1, 2, 3, 4, 6, 7, 8, 9)}
     for value in args.sources:
         n, path = value.split(':', 1); extras[int(n)].append(Path(path).resolve())
     inputs = [p for n in args.dx for p in [*input_paths(n), *extras[n]]]
