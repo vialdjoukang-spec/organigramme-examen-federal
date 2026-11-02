@@ -1,3 +1,5 @@
+Publication vérifiée : `c4a0f36c0d51fefe8342cc78e3702a48c7233fed`. Verrou libéré en fin de session ; réacquérir avant toute production.
+
 # Checkpoint du 2026-11-02T03:42:46.980628+00:00
 
 LOT_133 reste actif. Phase A gelée ; DX1 et DX6 HTML préparatoires produits, audités avec réserves et contrôlés. Huit autres monographies restent à produire. Aucune illustration clinique intégrée. Voir `LOT_133/audits/SYNTHESE_DX_0330.json`. Résoudre les réserves et acquérir les images ; poursuivre DX2/DX7, pas LOT132. Quatre agents Astra réels ont livré leurs missions. Le contrôle local ne garantit aucune activité après disparition du runtime.
