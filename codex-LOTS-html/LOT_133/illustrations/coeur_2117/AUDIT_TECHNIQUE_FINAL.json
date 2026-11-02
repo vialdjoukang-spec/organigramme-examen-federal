@@ -1,0 +1,1343 @@
+{
+  "date": "2026-11-02T21:40:22.694179+00:00",
+  "auditeur": "pipeline_2117, qualification technique distincte, sans audit médical",
+  "portee": "Les11 HTML actuels, cache historique, contrôles statiques2117+DX3_2104 ; aucune écriture hors présent rapport",
+  "normes_lues": [
+    "harnais/briefs/REFONTE_V8.md points2,4,5 et titre h1",
+    "codex-LOTS-html/CONSIGNE_ILLUSTRATIONS.md taille et paire en fenêtre",
+    "codex-LOTS-html/CONTRAT_CONTINUITE.md priorité illustrations et incompatibilités non masquées",
+    "codex-LOTS-html/PROMPT_CODEX.md §6.4 : titre DD explicitement h2 ; §8 renvoi modèle V8 h1, contradiction documentaire"
+  ],
+  "controle_historique": "audits/CACHE_DEPENDANCES_2117.txt",
+  "verdict_historique_conserve": "rouge, non réécrit",
+  "familles": [
+    {
+      "critique": "attribut title= présent",
+      "qualification": "incompatibilite_controle_historique",
+      "preuve": "Tous les title sont portés par des abbr non vides dans les11 HTML ; le brief V8 point4 exige cette forme. Pas de suppression justifiée."
+    },
+    {
+      "critique": "ligne(s) >3000 caractères",
+      "qualification": "incompatibilite_ancienne_contrainte_serialisation",
+      "preuve": "Une ligne par fichier embarque la paire image data:. DX6 a aussi une ligne de tableau7144caractères dans sa fenêtre ; pas de borne sur les fenêtres illustrées. Longueur du code source ne mesure pas débordement ni longueur des phrases."
+    },
+    {
+      "critique": "script, image ou feuille de style externe présent",
+      "qualification": "faux_positif_sur_images_embarquees",
+      "preuve": "Le regex harnais/controle_lot.py94 rejette tout img. Analyse DOM : images data:image dans popovers, aucun script/iframe/link stylesheet, aucune URL CSS distante ni gestionnaire événement."
+    },
+    {
+      "critique": "section Sources [S1] absente",
+      "qualification": "faux_positif_sur_presence_des_sources_mais_defaut_depliant_distinct",
+      "preuve": "Le regex exige la chaîne littérale[S1]. Sources s1 et suivantes présentes avec liens, citations sup.s ; V8 prescrit les exposants. Toutefois leur liste est en section ouverte, pas dans le dépliant final prescrit : défaut réel séparé."
+    },
+    {
+      "critique": "monographie m0 points manquants",
+      "qualification": "incompatibilite_parseur_historique",
+      "preuve": "RE_H3 cherche h3-pN ; repli RE_STRONG prend les numéros de légende1/2/3 pour des parties. Les11 HTML portent h2 a-p1..14 ou dxN-p1..14 en ordre, plus14quiz. Le titre principal h2 est conforme au §6 de PROMPT_CODEX ; contradiction avec le brief générique explicitée séparément."
+    },
+    {
+      "critique": "poids hors80–150Ko / PhaseA>150Ko",
+      "qualification": "incompatibilite_bande_globale_historique",
+      "preuve": "CONSIGNE_ILLUSTRATIONS précise poids total informatif et fenêtres sans plafond. Taille x réellement mesurée : chaque DD≤9000octets, PhaseA≤100000octets ; figures exclusivement en fenêtres."
+    }
+  ],
+  "controles2117": 191,
+  "controlesDX3_2104": 19,
+  "fichiers": [
+    {
+      "fichier": "LOT_133_Phase_A_V0.html",
+      "sha256": "05c210008656fd83017576aece58f7cc6e1d81b8ceef30a921241467093ee46d",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_PHASEA_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 20,
+      "controles_total": 20,
+      "title_nombre": 40,
+      "title_types": {
+        "abbr": 40
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 20,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "a-p1",
+        "a-p2",
+        "a-p3",
+        "a-p4",
+        "a-p5",
+        "a-p6",
+        "a-p7",
+        "a-p8",
+        "a-p9",
+        "a-p10",
+        "a-p11",
+        "a-p12",
+        "a-p13",
+        "a-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h1",
+          "texte": "Anomalies à l’inspection"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 573,
+          "caracteres": 153585,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-phasea-hematome\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>imagerie c"
+        }
+      ],
+      "octets": 256672,
+      "texte_fiche_octets": 8092,
+      "texte_fenetres_octets": 27087,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.573)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ]
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.1.html",
+      "sha256": "91835668f8649867a37d12dcb7fac09382d0dfac8dc2a2523d7a32dcef855c68",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX1_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 67,
+      "title_types": {
+        "abbr": 67
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 19,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx1-p1",
+        "dx1-p2",
+        "dx1-p3",
+        "dx1-p4",
+        "dx1-p5",
+        "dx1-p6",
+        "dx1-p7",
+        "dx1-p8",
+        "dx1-p9",
+        "dx1-p10",
+        "dx1-p11",
+        "dx1-p12",
+        "dx1-p13",
+        "dx1-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.1 — Accident vasculaire cérébral"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 571,
+          "caracteres": 153746,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx1-hematome-intraparenchymateux\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\""
+        }
+      ],
+      "octets": 255592,
+      "texte_fiche_octets": 6474,
+      "texte_fenetres_octets": 24827,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.571)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.10.html",
+      "sha256": "84b24065acd619bec28d52e2a716990573f4b0a1a4c1e93f743b7d46d76e3d11",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX10_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 11,
+      "title_types": {
+        "abbr": 11
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 6,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx10-p1",
+        "dx10-p2",
+        "dx10-p3",
+        "dx10-p4",
+        "dx10-p5",
+        "dx10-p6",
+        "dx10-p7",
+        "dx10-p8",
+        "dx10-p9",
+        "dx10-p10",
+        "dx10-p11",
+        "dx10-p12",
+        "dx10-p13",
+        "dx10-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.10 — Cancer bronchopulmonaire"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 550,
+          "caracteres": 164747,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx10-masse-pulmonaire\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>thor"
+        }
+      ],
+      "octets": 256661,
+      "texte_fiche_octets": 5148,
+      "texte_fenetres_octets": 22755,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.550)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.2.html",
+      "sha256": "c29ee30a3fcb166c8eddbed59a7ed57f6f5ecd1abc0f3b333d7a59b0f46ca70a",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX2_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 27,
+      "title_types": {
+        "abbr": 27
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 7,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx2-p1",
+        "dx2-p2",
+        "dx2-p3",
+        "dx2-p4",
+        "dx2-p5",
+        "dx2-p6",
+        "dx2-p7",
+        "dx2-p8",
+        "dx2-p9",
+        "dx2-p10",
+        "dx2-p11",
+        "dx2-p12",
+        "dx2-p13",
+        "dx2-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.2 — Sepsis avec purpura (suspecté)"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 558,
+          "caracteres": 314148,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx2-purpura-fulminans\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>lési"
+        }
+      ],
+      "octets": 413280,
+      "texte_fiche_octets": 4701,
+      "texte_fenetres_octets": 27905,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.558)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.3.html",
+      "sha256": "a35328372992f9fbca3b0b22dacd552535f38b89b61423ffe06e1cdf5d35e353",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX3_SEMIO_2104.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 12,
+      "title_types": {
+        "abbr": 12
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 5,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx3-p1",
+        "dx3-p2",
+        "dx3-p3",
+        "dx3-p4",
+        "dx3-p5",
+        "dx3-p6",
+        "dx3-p7",
+        "dx3-p8",
+        "dx3-p9",
+        "dx3-p10",
+        "dx3-p11",
+        "dx3-p12",
+        "dx3-p13",
+        "dx3-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.3 — Insuffisance respiratoire aiguë"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 558,
+          "caracteres": 283670,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx3-opacites-bilaterales\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>o"
+        }
+      ],
+      "octets": 383184,
+      "texte_fiche_octets": 4114,
+      "texte_fenetres_octets": 28912,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.558)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.4.html",
+      "sha256": "2d433f793407ac5f89695790f2a62aeb91025b7798c03e185dcb67779e216b26",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX4_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 27,
+      "title_types": {
+        "abbr": 27
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 6,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx4-p1",
+        "dx4-p2",
+        "dx4-p3",
+        "dx4-p4",
+        "dx4-p5",
+        "dx4-p6",
+        "dx4-p7",
+        "dx4-p8",
+        "dx4-p9",
+        "dx4-p10",
+        "dx4-p11",
+        "dx4-p12",
+        "dx4-p13",
+        "dx4-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.4 — Anémie"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 567,
+          "caracteres": 139696,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx4-spherocytes\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>sphérocyte"
+        }
+      ],
+      "octets": 248656,
+      "texte_fiche_octets": 4556,
+      "texte_fenetres_octets": 35929,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.567)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.5.html",
+      "sha256": "4f3fc6375d7efcb1c9e1ba367a75e35c3816d3ecf691b6728d6c9ffc3127e09b",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX5_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 28,
+      "title_types": {
+        "abbr": 28
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 5,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx5-p1",
+        "dx5-p2",
+        "dx5-p3",
+        "dx5-p4",
+        "dx5-p5",
+        "dx5-p6",
+        "dx5-p7",
+        "dx5-p8",
+        "dx5-p9",
+        "dx5-p10",
+        "dx5-p11",
+        "dx5-p12",
+        "dx5-p13",
+        "dx5-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.5 — Obstruction biliaire"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 560,
+          "caracteres": 299067,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx5-calcul-distal\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>calcul d"
+        }
+      ],
+      "octets": 400688,
+      "texte_fiche_octets": 3675,
+      "texte_fenetres_octets": 30684,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.560)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.6.html",
+      "sha256": "63ea41b823f1a83a9abeaf2a39e89d25cff6937ec27ec054c74587429dab9cd6",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX6_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 30,
+      "title_types": {
+        "abbr": 30
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 14,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx6-p1",
+        "dx6-p2",
+        "dx6-p3",
+        "dx6-p4",
+        "dx6-p5",
+        "dx6-p6",
+        "dx6-p7",
+        "dx6-p8",
+        "dx6-p9",
+        "dx6-p10",
+        "dx6-p11",
+        "dx6-p12",
+        "dx6-p13",
+        "dx6-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.6 — Hépatopathie chronique décompensée"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 499,
+          "caracteres": 7144,
+          "type": "tableau_en_fenetre",
+          "debut": "<div class=\"tw\"><table><thead><tr><th scope=\"col\">Situation / spécialité suisse</th><th scope=\"col\">"
+        },
+        {
+          "ligne": 563,
+          "caracteres": 687827,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx6-ascite-cloisonnee\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>Asci"
+        }
+      ],
+      "octets": 783865,
+      "texte_fiche_octets": 6272,
+      "texte_fenetres_octets": 23336,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "2 ligne(s) > 3 000 caractères (ex. l.499)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.7.html",
+      "sha256": "700cf0978bfef64a2ddb9e388250078ae5bf9c6252976796d3200709103e8d77",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX7_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 30,
+      "title_types": {
+        "abbr": 30
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 7,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx7-p1",
+        "dx7-p2",
+        "dx7-p3",
+        "dx7-p4",
+        "dx7-p5",
+        "dx7-p6",
+        "dx7-p7",
+        "dx7-p8",
+        "dx7-p9",
+        "dx7-p10",
+        "dx7-p11",
+        "dx7-p12",
+        "dx7-p13",
+        "dx7-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.7 — Insuffisance cardiaque"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 563,
+          "caracteres": 620145,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx7-cavites-dilatees\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>les d"
+        }
+      ],
+      "octets": 717396,
+      "texte_fiche_octets": 5706,
+      "texte_fenetres_octets": 27983,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.563)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.8.html",
+      "sha256": "414ada3e3d522f3e8e5f9d62aa79b95c8cf3c585a66e0f59c259a775cfc7fb88",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX8_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 26,
+      "title_types": {
+        "abbr": 26
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 5,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx8-p1",
+        "dx8-p2",
+        "dx8-p3",
+        "dx8-p4",
+        "dx8-p5",
+        "dx8-p6",
+        "dx8-p7",
+        "dx8-p8",
+        "dx8-p9",
+        "dx8-p10",
+        "dx8-p11",
+        "dx8-p12",
+        "dx8-p13",
+        "dx8-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.8 — Thrombose veineuse profonde"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 555,
+          "caracteres": 326710,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx8-compression-tvp\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>non-co"
+        }
+      ],
+      "octets": 421255,
+      "texte_fiche_octets": 5000,
+      "texte_fenetres_octets": 27063,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.555)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.9.html",
+      "sha256": "3038101ea54d83265c09fd83ced172f3ebb0a647d8b1265aa4b52d31c98921b9",
+      "cache_historique_sha_identique": true,
+      "controle_statique": "LOT_133/audits/CONTROLE_DX9_IMAGE_2117.json",
+      "controle_sha_identique": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "title_nombre": 71,
+      "title_types": {
+        "abbr": 71
+      },
+      "images": [
+        {
+          "tag": "img",
+          "embarquee": true,
+          "dans_popover": true
+        },
+        {
+          "tag": "image",
+          "embarquee": true,
+          "dans_popover": true
+        }
+      ],
+      "scripts": 0,
+      "ressources_css_distantes": [],
+      "attributs_evenement": [],
+      "sources_s1_presente": true,
+      "sources_id_nombre": 7,
+      "sources_s1_ancetres": [
+        "ol",
+        "section",
+        "main",
+        "body",
+        "html"
+      ],
+      "parties": [
+        "dx9-p1",
+        "dx9-p2",
+        "dx9-p3",
+        "dx9-p4",
+        "dx9-p5",
+        "dx9-p6",
+        "dx9-p7",
+        "dx9-p8",
+        "dx9-p9",
+        "dx9-p10",
+        "dx9-p11",
+        "dx9-p12",
+        "dx9-p13",
+        "dx9-p14"
+      ],
+      "questions": 14,
+      "titres_principaux": [
+        {
+          "tag": "h2",
+          "texte": "DX.9 — Thrombopénie"
+        }
+      ],
+      "lignes_longues": [
+        {
+          "ligne": 561,
+          "caracteres": 130784,
+          "type": "image_embarquee",
+          "debut": "<div id=\"image-dx9-schizocytes\" class=\"fenetre\" popover=\"manual\"><div class=\"barre\"><span>hémolyse m"
+        }
+      ],
+      "octets": 234335,
+      "texte_fiche_octets": 6664,
+      "texte_fenetres_octets": 28197,
+      "critiques_historiques": [
+        "attribut title= présent (infobulle interdite)",
+        "1 ligne(s) > 3 000 caractères (ex. l.561)",
+        "script, image ou feuille de style externe présent",
+        "section Sources [S1]… absente",
+        "monographie m0 : point(s) manquant(s) [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
+      ],
+      "defauts_reels": [
+        "sources_hors_depliant_final"
+      ],
+      "titre_qualification": "h2 conforme PROMPT_CODEX §6, contradiction avec modèle générique exposée"
+    }
+  ],
+  "verdict": "Favorable techniquement sur les11 empreintes finales : défauts Sources/statut corrigés, fenêtres/figures/listes de sources et14sections inchangées vérifiées indépendamment ;210 contrôles statiques verts et44 configurations navigateur liées aux SHA finaux.",
+  "cloture_preparatoire": "Pas de blocage technique restant dans cette qualification ; le responsable peut décider la clôture préparatoire avec les contre-audits médicaux et visuels distincts. Aucun verdict clinique humain, publication ou fusion n’est attesté ici.",
+  "phasea_outil018": "CONTROLE_PHASEA_OUTIL018_2117.json conservé séparément ; non utilisé pour décider conformité de133. Contrôle133 frais20/20 lié au SHA vérifié.",
+  "limites": "Contrôles navigateur exécutés par root puis rapports vérifiés ici ; captures non réinspectées dans cette mission technique. Les figures/fenêtres demeurent identiques à celles contrôlées visuellement auparavant, preuves binaires/DOM dans recontrole_final. Le contrôleur historique reste rouge et conservé, pas renommé vert.",
+  "contradiction_titre": {
+    "statut": "non_bloquant_conforme_instruction_locale_explicite",
+    "prescription_locale": "PROMPT_CODEX.md61 prescrit <h2>DX.N — nom exact</h2>",
+    "prescription_generique": "REFONTE_V8.md exige h1, tandis que §8 du prompt renvoie au modèleV8",
+    "qualification": "Le h2 des10DX respecte la règle locale explicite §6. Ce choix ne peut être qualifié de défaut certain sur la seule règle générique h1. Première qualification rectifiée après confrontation des deux documents."
+  },
+  "corrections_en_cours_root": [],
+  "date_finalisation": "2026-11-02T21:42:16.326143+00:00",
+  "etat_initial": {
+    "description": "Les champs fichiers, familles, contrôles2117 et DX3_2104 décrivent les empreintes avant finition ; ne pas les utiliser comme contrôles finaux.",
+    "defauts_reels_corriges": [
+      {
+        "fichier": "LOT_133_Phase_A_V0.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.1.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.10.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.2.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.3.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.4.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.5.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.6.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.7.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.8.html",
+        "defaut": "sources_hors_depliant_final"
+      },
+      {
+        "fichier": "LOT_133_Phase_B_V0_DX.9.html",
+        "defaut": "sources_hors_depliant_final"
+      }
+    ],
+    "bandeau_perime": "Illustrations absentes contredisait les figures intégrées ; constat dans sauvegardes, désormais remplacé."
+  },
+  "recontrole_final": [
+    {
+      "fichier": "LOT_133_Phase_A_V0.html",
+      "sha256_avant": "05c210008656fd83017576aece58f7cc6e1d81b8ceef30a921241467093ee46d",
+      "sha256_final": "77650e2e8bafe96ee3f3bf552233c47690b8a75782c94aa2c3de2f30dc38df00",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée après contre-audit ciblé du 02.11.2026 ; iconographie non intégrée ; lot incomplet."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_PHASEA_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 20,
+      "controles_total": 20,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_PHASE_A.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.1.html",
+      "sha256_avant": "91835668f8649867a37d12dcb7fac09382d0dfac8dc2a2523d7a32dcef855c68",
+      "sha256_final": "8b3daa78244c8831eccc180441018c81e272068e368ecdb9e78fda1e4b01e0d3",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX1_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX1.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.10.html",
+      "sha256_avant": "84b24065acd619bec28d52e2a716990573f4b0a1a4c1e93f743b7d46d76e3d11",
+      "sha256_final": "bc8ad037c19f360f282918169d56d88211cc36c8cc956d28ba50e354f3ba1144",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX10_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX10.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.2.html",
+      "sha256_avant": "c29ee30a3fcb166c8eddbed59a7ed57f6f5ecd1abc0f3b333d7a59b0f46ca70a",
+      "sha256_final": "ad587adf72830438c037c4a8fe232057e300e1c35f272300173ab88310cffdae",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX2_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX2.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.3.html",
+      "sha256_avant": "a35328372992f9fbca3b0b22dacd552535f38b89b61423ffe06e1cdf5d35e353",
+      "sha256_final": "81272a55b6b7e9f134cebce5bcf4d87d5d81f56057937c72befb315d7a033a5a",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX3_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX3.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.4.html",
+      "sha256_avant": "2d433f793407ac5f89695790f2a62aeb91025b7798c03e185dcb67779e216b26",
+      "sha256_final": "21cb9b3d3f23d2622e94f1872e4eb85048a52b90157ecd7474c66513531ab241",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX4_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX4.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.5.html",
+      "sha256_avant": "4f3fc6375d7efcb1c9e1ba367a75e35c3816d3ecf691b6728d6c9ffc3127e09b",
+      "sha256_final": "5ef11d45a54d6dcd0bf40de2020ea20429be40f97eb432b188daef43d749cf42",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX5_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX5.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.6.html",
+      "sha256_avant": "63ea41b823f1a83a9abeaf2a39e89d25cff6937ec27ec054c74587429dab9cd6",
+      "sha256_final": "36c3c82c6e75a3dd5c495d827645ef1d8e994ae886a031744546caf6f29ef2de",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX6_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX6.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.7.html",
+      "sha256_avant": "700cf0978bfef64a2ddb9e388250078ae5bf9c6252976796d3200709103e8d77",
+      "sha256_final": "036be7eabe7e8b9258b7d78df5492cb13fe696fad6590b73c0c2b913d773ac95",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX7_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX7.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.8.html",
+      "sha256_avant": "414ada3e3d522f3e8e5f9d62aa79b95c8cf3c585a66e0f59c259a775cfc7fb88",
+      "sha256_final": "49f485112924d54cc18fb03a43a1a59dddedb99038761ab0bfd823ed3a497a72",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX8_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX8.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    },
+    {
+      "fichier": "LOT_133_Phase_B_V0_DX.9.html",
+      "sha256_avant": "3038101ea54d83265c09fd83ced172f3ebb0a647d8b1265aa4b52d31c98921b9",
+      "sha256_final": "9a32dbb127709579c9a3d29f4f7b4c9c35c106475df115b046b04ac4274f76f8",
+      "preuve_finition_sha_corrects": true,
+      "fenetres_identiques_reverifiees": true,
+      "figures_identiques_reverifiees": true,
+      "liste_sources_identique_reverifiee": true,
+      "sections14_identiques_reverifiees": true,
+      "sources_depliant_present": true,
+      "ancien_statut": [
+        "Version de travail : liste pédagogique figée ; monographie préparatoire ; illustrations absentes."
+      ],
+      "nouveau_statut": [
+        "Cours préparatoire adulte : illustration clinique et contrelecture ciblée disponibles ; réserves documentaires précisées dans les fenêtres."
+      ],
+      "absence_bandeau_illustrations_absentes": true,
+      "controle_final": "LOT_133/audits/CONTROLE_DX9_FINAL_2117.json",
+      "controle_sha_correct": true,
+      "controles_reussis": 19,
+      "controles_total": 19,
+      "statique_ok": true,
+      "navigateur": "LOT_133/audits/NAVIGATEUR_DX9.json",
+      "navigateur_sha_correct": true,
+      "navigateur_configurations": 4,
+      "navigateur_sans_erreur": true,
+      "couverture_sha_correct": true,
+      "couverture_liens_brises": []
+    }
+  ],
+  "controles_finaux_total": 210,
+  "controles_finaux_reussis": 210,
+  "configurations_navigateur_finales": 44,
+  "bloquants_techniques_restants": []
+}

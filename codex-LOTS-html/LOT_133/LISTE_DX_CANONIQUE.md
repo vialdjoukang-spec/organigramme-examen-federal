@@ -13,4 +13,6 @@ DX.8 — Thrombose veineuse profonde
 DX.9 — Thrombopénie
 DX.10 — Cancer bronchopulmonaire
 
-Preuve : audits/AUDIT_DOCUMENTAIRE_0240.md. Le gel fixe les intitulés et l’ordre pédagogique ; il ne valide pas des monographies encore absentes ni un protocole spécialisé exhaustif. Iconographie encore absente ; aucune validation médicale humaine. La mention de statut et deux formulations mineures sont actualisées ensuite sans changer la sélection.
+Preuve : audits/AUDIT_DOCUMENTAIRE_0240.md. Le gel fixe les intitulés et l’ordre pédagogique ; il ne valide pas des monographies encore absentes ni un protocole spécialisé exhaustif. À la date du gel, iconographie absente ; aucune validation médicale humaine. La mention de statut et deux formulations mineures sont actualisées ensuite sans changer la sélection.
+
+Actualisation du02.11.2026 : PhaseA et dix monographies illustrées, dix originaux distincts, PhaseA réutilise DX1. Sélection canonique inchangée ; preuves audits/SYNTHESE_2117.json et illustrations/*/REVUE_RENDU.json.

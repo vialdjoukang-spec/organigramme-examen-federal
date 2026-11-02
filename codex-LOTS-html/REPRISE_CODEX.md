@@ -1,3 +1,17 @@
+# LOT133 clôturé — reprise descendante132
+
+Dix images originales réelles, onze leçons illustrées,210 contrôles statiques et44 configurations navigateur. Critiques historiques qualifiées incompatibles avec les règles V8 prioritaires, non effacées. Réserves de fraîcheur et contradiction Duphalac maintenues ; aucun protocole spécialisé exhaustif ni validation humaine revendiqué.
+
+Prochain travail : LOT132 F1.3, anomalies à l’auscultation ; PhaseA et audit distinct avant gel canonique. Aucun lot inférieur réputé renforcé par cette clôture. Verrou encore détenu par la session principale. Preuves : LOT_133/audits/SYNTHESE_2117.json.
+
+Historique :
+
+# Checkpoint 2117 — onze leçons illustrées
+
+LOT133 : dix monographies + PhaseA, dix images distinctes. Préserver les intégrations lors de toute régénération Markdown. Preuves : LOT_133/audits/SYNTHESE_2117.json. Contrôle technique final en cours ; réserves documentaires conservées. Verrou détenu par la session principale. Publication antérieure vérifiée : 1cd64fd6cc9e6d1624c4e507b7b02f109858ae23.
+
+Historique ci-dessous ; ses statuts ne remplacent pas le checkpoint courant.
+
 # Reprise2117 — quatre nouvelles figures intégrées
 
 DX1,2,5,9 contrôlés et contre-audités, plus DX3 antérieur : cinq leçons illustrées. 65 tests pipeline, 76 contrôles statiques, 16 configurations navigateur de leçon, huit configurations de comparaison. Verrou encore détenu par session principale. Figures DX4,6,8,10 en préparation séparée ; aucune complétude du lot revendiquée.
