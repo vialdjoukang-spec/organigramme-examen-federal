@@ -1,0 +1,11 @@
+# Tracé fin et interprétation — 2 novembre 2026
+
+Périmètre : générateur `outils/illustration/illustrer.py` et ses tests. Aucun cliché, JSON clinique ni HTML généré modifié par cette intervention.
+
+Interface : `trace_fin: true` active les contours rouges fins. À une largeur source de 640 pixels : halo blanc 1,8, trait rouge 0,8 et pointillés 2,5 / 2 unités SVG. Pour une autre largeur source, ces valeurs sont proportionnelles à largeur / 640. L’affichage responsive conserve le rapport au cliché. Les numéros mesurent 20 pixels CSS dans une zone interactive transparente de 30 pixels. Les anciens contours et boutons sont conservés sans cette option.
+
+Chaque annotation peut fournir `cible: [x, y]` : un trait de rappel blanc/rouge fin relie le `repere` existant à cette cible lorsque le tracé fin est actif. Les coordonnées concernent l’image après recadrage. Le placement extérieur des repères et l’exactitude clinique du point cible relèvent de la spécification et de sa revue visuelle ; le générateur ne déplace pas automatiquement les numéros. Toutes les coordonnées doivent être numériques, finies et dans l’image ; NaN, infinis, booléens et chaînes sont refusés.
+
+`cliche: "texte"` ajoute une description du cliché avant l’image. `interpretation: [{"titre": "…", "texte": "…"}, …]` remplace la liste descriptive standard par les étapes ordonnées, avec titres seuls en gras. Les définitions interactives des annotations restent présentes. Tous les nouveaux textes passent par l’échappement HTML, sans balisage autorisé. La liste doit être non vide, avec titres et textes non blancs. Sans ce champ, la liste historique des annotations est conservée.
+
+Vérification : `python3 -B -m unittest discover -s codex-LOTS-html/outils/illustration -p test_illustrer.py` — 20 tests réussis. Couverture nouvelle : épaisseurs et rappel, limites et types des coordonnées, HTML échappé dans les deux modes, ordre des étapes, rejet des métadonnées invalides, conservation exacte des données raster encodées entre mode fin et mode historique et entre original/copie, absence d’écriture sur le fichier source, maintien du rendu historique. Cette vérification technique ne constitue pas une validation clinique ni un contre-audit indépendant.

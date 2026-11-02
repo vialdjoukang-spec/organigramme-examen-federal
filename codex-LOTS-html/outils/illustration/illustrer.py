@@ -3,7 +3,7 @@
 Usage : python3 -B illustrer.py specification.json sortie.html
 Les coordonnées sont exprimées dans l'image après éventuel recadrage.
 """
-import base64, hashlib, io, json, re, sys
+import base64, hashlib, io, json, math, re, sys
 from datetime import date
 from html import escape as e
 from pathlib import Path
@@ -29,6 +29,24 @@ def validate(s):
     if date.fromisoformat(s['acces_le'])>date.today(): raise ValueError('Date future')
     if not s.get('annotations'):raise ValueError('Annotations absentes')
     if s['nature'] not in ['anatomie normale','image clinique']:raise ValueError('Nature ambiguë')
+    if 'trace_fin' in s and type(s['trace_fin']) is not bool:raise ValueError('trace_fin doit être booléen')
+    if 'cliche' in s and not isinstance(s['cliche'], str):raise ValueError('Cliché invalide')
+    if 'interpretation' in s:
+        steps=s['interpretation']
+        if not isinstance(steps, list) or not steps or any(not isinstance(step, dict) or any(not isinstance(step.get(k), str) or not step[k].strip() for k in ('titre','texte')) for step in steps):
+            raise ValueError('Interprétation : liste de titres et textes requise')
+
+
+def point_valid(point, w, h):
+    return (isinstance(point, (list, tuple)) and len(point)==2
+            and all(type(v) in (int, float) and math.isfinite(v) for v in point)
+            and 0<=point[0]<=w and 0<=point[1]<=h)
+
+
+def interpretation_html(spec):
+    if 'interpretation' not in spec:
+        return '<ol>'+''.join(f'<li><strong>{e(a["nom"])}</strong> : {e(a["definition"])}</li>' for a in spec['annotations'])+'</ol>'
+    return '<ol class="interpretation">'+''.join(f'<li><strong>{e(step["titre"])}</strong> : {e(step["texte"])}</li>' for step in spec['interpretation'])+'</ol>'
 
 
 def ensure_output(p):
@@ -44,18 +62,30 @@ def render(spec):
     w,h=im.size; stream=io.BytesIO();im.save(stream,format='WEBP',quality=92)
     encoded=base64.b64encode(stream.getvalue()).decode()
     svg=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" role="img" aria-label="{e(spec["titre"])}"><image href="data:image/webp;base64,{encoded}" width="{w}" height="{h}"/>']
+    fine=spec.get('trace_fin', False)
+    scale=w/640
+    fine_css=('<style>.illustration.traits-fins .repere{width:30px;height:30px;min-width:30px;min-height:30px;border:0;background:transparent!important;font:700 12px system-ui;display:grid;place-items:center}.illustration.traits-fins .numero{box-sizing:border-box;width:20px;height:20px;display:grid;place-items:center;border:1px solid #fff;border-radius:50%;background:#b00020;color:#fff}.illustration.traits-fins .repere:focus-visible{outline:2px solid #087985;outline-offset:1px}.illustration .interpretation li{margin:8px 0;line-height:1.5}</style>' if fine else '')
+    figure_class='illustration traits-fins' if fine else 'illustration'
+    cliche=f'<p class="cliche">{e(spec["cliche"])}</p>' if spec.get('cliche') else ''
     buttons=[];defs=[]
     for n,a in enumerate(spec['annotations'],1):
         points=a['contour']
-        if len(points)<3 or any(not(0<=x<=w and 0<=y<=h) for x,y in points):raise ValueError('Contour hors image')
+        if not isinstance(points, list) or len(points)<3 or any(not point_valid(p,w,h) for p in points):raise ValueError('Contour hors image')
+        if not point_valid(a['repere'],w,h):raise ValueError('Repère hors image')
         x,y=a['repere']
-        if not(0<=x<=w and 0<=y<=h):raise ValueError('Repère hors image')
+        if 'cible' in a and not point_valid(a['cible'],w,h):raise ValueError('Cible hors image')
         poly=' '.join(f'{px},{py}' for px,py in points)
-        if spec.get('comparaison'):
+        if fine:
+            if 'cible' in a:
+                tx,ty=a['cible']
+                svg.append(f'<line x1="{x}" y1="{y}" x2="{tx}" y2="{ty}" stroke="#fff" stroke-width="{1.8*scale:g}"/><line x1="{x}" y1="{y}" x2="{tx}" y2="{ty}" stroke="#dc001f" stroke-width="{0.8*scale:g}"/>')
+            svg.append(f'<polygon points="{poly}" fill="none" stroke="#fff" stroke-width="{1.8*scale:g}"/><polygon points="{poly}" fill="none" stroke="#dc001f" stroke-width="{0.8*scale:g}" stroke-dasharray="{2.5*scale:g} {2*scale:g}"/>')
+        elif spec.get('comparaison'):
             svg.append(f'<polygon points="{poly}" fill="none" stroke="#fff" stroke-width="5"/><polygon points="{poly}" fill="none" stroke="#dc001f" stroke-width="3" stroke-dasharray="6 4"/>')
         else:
             svg.append(f'<polygon points="{poly}" fill="none" stroke="#152538" stroke-width="3"/><polygon points="{poly}" fill="none" stroke="#ffff68" stroke-width="1.7" stroke-dasharray="4 3"/>')
-        buttons.append(f'<button type="button" class="repere" style="left:{x/w*100:.3f}%;top:{y/h*100:.3f}%" popovertarget="{spec["id"]}-def{n}" aria-label="{n}. {e(a["nom"])}">{n}<span class="nom">{e(a["nom"])}</span></button>')
+        number=f'<span class="numero">{n}</span>' if fine else str(n)
+        buttons.append(f'<button type="button" class="repere" style="left:{x/w*100:.3f}%;top:{y/h*100:.3f}%" popovertarget="{spec["id"]}-def{n}" aria-label="{n}. {e(a["nom"])}">{number}<span class="nom">{e(a["nom"])}</span></button>')
         defs.append(f'<div id="{spec["id"]}-def{n}" popover="manual" class="definition"><strong>{n}. {e(a["nom"])}</strong><p>{e(a["definition"])}</p><button type="button" popovertarget="{spec["id"]}-def{n}" popovertargetaction="hide">Fermer la définition</button></div>')
     svg.append('</svg>')
     if spec.get('comparaison'):
@@ -63,9 +93,9 @@ def render(spec):
         raw_view=f'<div><h4>Original — sans annotation ajoutée</h4><img src="data:image/webp;base64,{encoded}" width="{w}" height="{h}" alt="{e(spec["titre"])} — original sans annotation ajoutée"></div>'
         annotated='<div><h4>Même cliché — copie annotée</h4><div class="scene">'+''.join(svg+buttons)+'</div></div>'
         caption=f'{spec["auteur"]} — {spec["licence"]} — accès {spec["acces_le"]}. {spec.get("modifications", "Contours rouges pointillés et numéros ajoutés sur la copie de droite.")}'
-        return CSS+pair_css+f'<figure class="illustration" data-illustration="{spec["id"]}"><h3>{e(spec["titre"])}</h3><p class="mode">{e(spec["nature"].capitalize())}</p><div class="paire">'+raw_view+annotated+'</div>'+''.join(defs)+'<ol>'+''.join(f'<li><strong>{e(a["nom"])}</strong> : {e(a["definition"])}</li>' for a in spec['annotations'])+f'</ol><p>{e(spec["legende"])}</p><p><strong>Piège :</strong> {e(spec["pieges"])}</p><figcaption>{e(caption)} <a href="{e(spec["source_url"])}">Source</a> · <a href="{e(spec["licence_url"])}">Licence</a></figcaption></figure>'
+        return CSS+pair_css+fine_css+f'<figure class="{figure_class}" data-illustration="{spec["id"]}"><h3>{e(spec["titre"])}</h3><p class="mode">{e(spec["nature"].capitalize())}</p>{cliche}<div class="paire">'+raw_view+annotated+'</div>'+''.join(defs)+interpretation_html(spec)+f'<p>{e(spec["legende"])}</p><p><strong>Piège :</strong> {e(spec["pieges"])}</p><figcaption>{e(caption)} <a href="{e(spec["source_url"])}">Source</a> · <a href="{e(spec["licence_url"])}">Licence</a></figcaption></figure>'
     caption=f'{spec["auteur"]} — {spec["licence"]} — accès {spec["acces_le"]}. {spec.get("modifications", "Contours et numéros ajoutés.")}'
-    return CSS+f'<figure class="illustration" data-illustration="{spec["id"]}"><h3>{e(spec["titre"])}</h3><p class="mode">{e(spec["nature"].capitalize())} — repères explicatifs</p><p>Survolez ou touchez un numéro pour son nom ; cliquez pour sa définition.</p><div class="scene">'+''.join(svg+buttons)+'</div>'+''.join(defs)+'<ol>'+''.join(f'<li><strong>{e(a["nom"])}</strong> : {e(a["definition"])}</li>' for a in spec['annotations'])+f'</ol><p>{e(spec["legende"])}</p><p><strong>Piège :</strong> {e(spec["pieges"])}</p><figcaption>{e(caption)} <a href="{e(spec["source_url"])}">Source</a> · <a href="{e(spec["licence_url"])}">Licence</a> · <a href="{e(spec.get("source_medicale",spec["source_url"]))}">Référence médicale</a></figcaption></figure>'
+    return CSS+fine_css+f'<figure class="{figure_class}" data-illustration="{spec["id"]}"><h3>{e(spec["titre"])}</h3><p class="mode">{e(spec["nature"].capitalize())} — repères explicatifs</p><p>Survolez ou touchez un numéro pour son nom ; cliquez pour sa définition.</p>{cliche}<div class="scene">'+''.join(svg+buttons)+'</div>'+''.join(defs)+interpretation_html(spec)+f'<p>{e(spec["legende"])}</p><p><strong>Piège :</strong> {e(spec["pieges"])}</p><figcaption>{e(caption)} <a href="{e(spec["source_url"])}">Source</a> · <a href="{e(spec["licence_url"])}">Licence</a> · <a href="{e(spec.get("source_medicale",spec["source_url"]))}">Référence médicale</a></figcaption></figure>'
 
 if __name__=='__main__':
     s=json.loads(Path(sys.argv[1]).read_text());p=Path(sys.argv[2]);ensure_output(p);p.write_text(render(s));print(p)

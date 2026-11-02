@@ -112,3 +112,11 @@ Vial impose maintenant le travail multi-agent et le sens décroissant : LOT133 p
 Le harnais local est dans harness/. Les documents reçus y sont conservés. Les chemins Claude et la modification des communs proposés dans le document historique ne s’appliquent pas : périmètre explicite codex-LOTS-html uniquement. Les bandes historiques de taille sont signalées séparément ; aucun remplissage pour atteindre un poids arbitraire. Les fenêtres illustrées restent exemptées selon l’ordre explicite de Vial ; la fiche DD reste limitée à9Ko.
 
 La veille contrôle chaque60secondes dans le runtime. GitHub héberge le code et les instantanés poussés ; aucun workflow Actions installé, car .github/ est hors périmètre. Le bilan est programmé pour le03.11.2026 à08h00 Europe/Zurich. Un arrêt du runtime interrompt les processus locaux. STOP/PAUSE ultérieur prioritaire.
+
+## Règle rédactionnelle et iconographique — Vial, 02.11.2026, 21h04 UTC
+
+Priorité permanente pour ce chantier : contenu médical dense, direct et concis. Supprimer les phrases sans notion, les répétitions et les commentaires sur la démarche. Gras pour le fait ou la distinction à développer.
+
+Fenêtre d’imagerie : **Cliché** (modalité, incidence ou séquence connue), puis **étapes numérotées** : qualité technique ; structures ; signes sémiologiques ; synthèse syndromique ; limites discriminantes. Donner les constatations propres au document. Distinguer observé, probable et non évaluable. Ne jamais écrire « normal » ou « absence de lésion » sans possibilité réelle de le vérifier ; ne pas inventer un syndrome pour remplir une rubrique. Le diagnostic causal ne découle pas automatiquement d’un signe.
+
+Annotations : traits fins contrastés, pointillés discrets, numéros hors des zones analysées avec rappels fins. Adapter les contours aux signes visibles ; un bord flou ne permet pas une segmentation exacte. Conserver l’original en regard. Vérifier lisibilité mobile et précision sur les pixels, puis contrelecture distincte. La résolution source limite la précision : ne pas simuler des détails absents.

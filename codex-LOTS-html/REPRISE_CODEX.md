@@ -1,3 +1,9 @@
+# Révision sémiologique — 2026-11-02T21:11:06.301167+00:00
+
+LOT133 DX3 : traits fins, numéros déportés, six étapes anatomiques concises. Une image clinique unique, deux vues ; dix autres leçons restent sans image. 61 tests pipeline, 19 contrôles statiques, quatre configurations navigateur leçon et deux comparaison ; six captures inspectées, audit distinct réel. Kenhub consulté comme référence anatomique, aucune image reprise. Voir `LOT_133/audits/SYNTHESE_2104.json`. Cache global non conforme conservé. Préférence de Vial persistée dans `CONSIGNE_DENSITE_SEMIOLOGIQUE.md`.
+
+Repartir de cette version DX3 : une régénération Markdown ne doit pas effacer la fenêtre illustrée. Original/précédente version/specification/captures archivés. Poursuivre les autres diagnostics133, ne pas commencer132. Publication et verrou à vérifier dans état.
+
 Publication vérifiée : `8f0afd5307e3aa88d8da43bdeadce5d40f5df654`. Première image clinique intégrée à DX3, paire originale/annotée et contrôles réels. Verrou libéré ; réacquérir avant reprise.
 
 # Avancée clinique iconographique — 2026-11-02T20:51:31.659121+00:00
