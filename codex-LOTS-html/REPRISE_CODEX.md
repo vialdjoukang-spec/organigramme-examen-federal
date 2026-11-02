@@ -1,3 +1,5 @@
+Publication vérifiée : DX3/DX8 `a1cef268`, DX4/DX9 `0fc797a44ac46757a37fc7e15f529d6964ef44ec`. Verrou libéré ; réacquérir avant reprise. Prochains DX5/DX10 ; aucune illustration intégrée, aucun lot clos.
+
 # Checkpoint 2026-11-02T08:38:32.632372+00:00
 
 LOT133 : PhaseA + huit monographies HTML préparatoires (DX1,2,3,4,6,7,8,9). Suite DX5/DX10, puis cohérence transversale et réserves. Audits réels3/8 et4/9,19contrôles/fichier,4configurationsChromium ; images0. AIPS Eliquis août2026 doses lues ; Privigen juillet2025 sécurité/indication sansdose. Interruptionusage surmontée, aucune activité permanente desagents revendiquée. Voir synthèses0506 etétatpourverrou/publication.
