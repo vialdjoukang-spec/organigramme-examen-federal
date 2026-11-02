@@ -1,3 +1,5 @@
+Publication vérifiée : `abd937bbd7a611b4bf45b4e9e3fbf602f83a59e5`. Verrou libéré ; prochaine production après nouvelle acquisition et vérification. Réserves restantes dans RESERVES_CLINIQUES_1020.json, pas de passage132.
+
 # Checkpoint 2026-11-02T10:25:24.548232+00:00
 
 LOT133 :11HTML préparatoires maintenus. PharmacologieDX2/Rocephin etDX7/Forxiga enrichie depuisAIPS puis auditée ; 19contrôles statiques par page et4configurationsChromium. Réserves classées avec critères de levée dans LOT_133/audits/RESERVES_CLINIQUES_1020.json. Images0, politique inchangée. Ne pas commencer132, ne pas réouvrir anciennesréserves déjàrésolues. Voir état pour publication/verrou.
