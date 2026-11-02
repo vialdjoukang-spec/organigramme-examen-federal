@@ -12,3 +12,5 @@ Prochaine étape : rédiger Phase A à partir des lectures exactes ci-dessous, p
 Conserver tous les PDF, extraits et empreintes. Une acquisition ou un aperçu ne constitue pas une leçon achevée. Ne pas régénérer les leçons133 depuis Markdown sans préserver leurs fenêtres illustrées.
 
 Contrelecture préparatoire de l’image : favorable pour provenance et repérage, réserve de résolution mobile. Avant intégration, fournir un agrandissement ou recadrage du panneau C et corriger les espaces manquantes du texte. Rapport : recherche/cadrage/AUDIT_IMAGE_PREPARATOIRE.json.
+
+Ressources complémentaires fournies par Vial : voir ../ressources_imagerie/REPERTOIRE_VIAL.json (depuis LOT_132). Dix sites enregistrés avec résultat réel du contrôle d’accès. Priorité de lecture thoracique : Radiology Assistant, congestion et condensation. Aucun droit de reproduction présumé ; aucune nouvelle image importée par cet ajout.
