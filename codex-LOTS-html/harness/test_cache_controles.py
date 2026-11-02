@@ -30,6 +30,20 @@ class CacheTests(unittest.TestCase):
                 '<p>[S1] non validé cliniquement</p>\n' + padding +
                 '</body></html>\n<!-- FIN_FICHIER test -->', encoding='utf-8')
 
+    def test_v8_extract_includes_only_linked_windows(self):
+        p = self.root / 'v8.html'
+        p.write_text('<section><h2 id="a-p9">9. Examens</h2><button popovertarget="w9">source</button></section>'
+                     '<div id="w9" popover>DETAIL9<button popovertarget="sub">nested</button><button popovertarget="w9" popovertargetaction="hide">close</button></div>'
+                     '<div id="sub" popover>SOUSFENETRE</div><div id="w8" popover>NONDEMANDE</div>')
+        text = c.extraire(p, [9])
+        self.assertIn('DETAIL9', text)
+        self.assertIn('SOUSFENETRE', text)
+        self.assertNotIn('NONDEMANDE', text)
+        with self.assertRaises(ValueError):
+            c.extraire(p, [8, 9])
+        p.write_text(p.read_text().replace('a-p9', 'dx6-p9'))
+        self.assertIn('DETAIL9', c.extraire(p, [9], True))
+
     def run_check(self, **kw):
         return c.verifier(self.lot, self.cache, validateur=self.validator, **kw)
 

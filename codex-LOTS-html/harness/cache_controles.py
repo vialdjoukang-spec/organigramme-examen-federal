@@ -89,6 +89,31 @@ def verifier(lot, cache=None, *, validateur=VALIDATEUR, sans_nom=False, dependan
 def extraire(fichier, points, brut_html=False, *, validateur=VALIDATEUR):
     if not points or any(n not in range(1, 15) for n in points):
         raise ValueError('Points attendus : entiers de 1 à 14.')
+    # Le V8 place les développements dans des popovers hors des sections.
+    from lxml import html as lh
+    arbre = lh.document_fromstring(Path(fichier).read_bytes())
+    sections = []
+    for n in points:
+        matches = arbre.xpath('//section[h2[@id="a-p'+str(n)+'" or substring(@id, string-length(@id)-'+str(len(str(n))+1)+')="-p'+str(n)+'"]]')
+        sections.extend(matches)
+    if sections:
+        found = {int(x.xpath('./h2')[0].get('id').rsplit('-p', 1)[1]) for x in sections}
+        if found != set(points):
+            raise ValueError('Extraction V8 incomplète : parties absentes.')
+        blocs = list(sections)
+        vus = set()
+        for bloc in blocs:
+            for ident in bloc.xpath('.//button[@popovertargetaction!="hide" or not(@popovertargetaction)]/@popovertarget'):
+                if ident in vus:
+                    continue
+                vus.add(ident)
+                fenetres = arbre.xpath('//*[@id=$ident and @popover]', ident=ident)
+                if len(fenetres) != 1:
+                    raise ValueError('Fenêtre V8 absente ou ambiguë : '+ident)
+                blocs.append(fenetres[0])
+        if brut_html:
+            return '\n'.join(lh.tostring(x, encoding='unicode') for x in blocs)
+        return '\n\n'.join(' '.join(x.text_content().split()) for x in blocs)
     texte = charger(Path(validateur)).extraire(Path(fichier), points, brut_html)
     if not texte:
         raise ValueError('Aucun point demandé retrouvé ; extraction impossible.')

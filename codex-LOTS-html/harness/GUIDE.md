@@ -11,7 +11,7 @@ python3 -B codex-LOTS-html/harness/cache_controles.py activite
 python3 -B -m unittest discover -s codex-LOTS-html/harness -p test_cache_controles.py -v
 ```
 
-Les chemins d'exemple doivent correspondre aux fichiers disponibles. L'extraction retourne uniquement les points sélectionnés ; `--html` conserve leurs balises. Le lecteur n'a donc pas à ouvrir le HTML complet. Une sélection invalide ou sans point reconnu échoue explicitement. Le découpage reprend exactement les conventions du validateur fourni.
+Les chemins d'exemple doivent correspondre aux fichiers disponibles. L'extraction retourne uniquement les points sélectionnés ; `--html` conserve leurs balises. Le lecteur n'a donc pas à ouvrir le HTML complet. Une sélection invalide ou sans point reconnu échoue explicitement. Pour les fichiers historiques, le découpage reprend les conventions du validateur fourni. Pour V8, l’adaptateur utilise lxml (installé dans cet environnement) et extrait les sections demandées avec leurs fenêtres liées, y compris les sous-fenêtres. Une section ou une cible manquante fait échouer l’extraction. Les fenêtres étrangères sont exclues. Le harnais commun reste intact.
 
 ## Cache strict
 
@@ -36,3 +36,7 @@ Du code hébergé sur GitHub reste du code stocké : sa présence ne démarre au
 ## Vérification réalisée
 
 Huit tests exécutent le vrai validateur sur un LOT synthétique complet et conforme (Phase A + 10 Phase B). Ils vérifient le résultat conforme, la réutilisation sans exécution du validateur, l'invalidation HTML/inventaire/liste canonique/code à version constante/dépendances/options, le recalcul après corruption, l'extraction ciblée et l'attribution des événements. Les fichiers temporaires sont créés puis supprimés dans `harness/`, sans réseau ni écriture ailleurs. Les données synthétiques vérifient la mécanique uniquement.
+
+## Reprise du 02.11.2026 à 03h30 UTC
+
+Correction de l’extraction V8 : les identifiants a-pN et dxN-pN et les fenêtres liées sont pris en charge. Neuf tests réussis, dont une fixture avec sous-fenêtre, fenêtre non demandée et partie absente. Les huit tests antérieurs du cache restent verts. La dépendance lxml concerne cette extraction, pas le validateur commun ni sa clé de cache.
