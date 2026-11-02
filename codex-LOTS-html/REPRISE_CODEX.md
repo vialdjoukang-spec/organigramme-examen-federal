@@ -1,3 +1,7 @@
+# Checkpoint 2026-11-02T08:38:32.632372+00:00
+
+LOT133 : PhaseA + huit monographies HTML préparatoires (DX1,2,3,4,6,7,8,9). Suite DX5/DX10, puis cohérence transversale et réserves. Audits réels3/8 et4/9,19contrôles/fichier,4configurationsChromium ; images0. AIPS Eliquis août2026 doses lues ; Privigen juillet2025 sécurité/indication sansdose. Interruptionusage surmontée, aucune activité permanente desagents revendiquée. Voir synthèses0506 etétatpourverrou/publication.
+
 # Checkpoint 2026-11-02T08:34:36.834717+00:00
 
 PhaseA + six monographies HTML préparatoires DX1,2,3,6,7,8. DX3/DX8 audits distincts et Chromium réels ; voir SYNTHESE_DX3_DX8_0506.json. Brouillons DX4/DX9 sauvegardés malgré limiteusage ; preuves et audits restent à compléter. Quatre agents relancés après exécutionrétablie. Verrou conservé par sessionprincipale pour cette reprise. Aucun lot clos, images0.
