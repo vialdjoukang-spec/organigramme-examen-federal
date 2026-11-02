@@ -1,3 +1,7 @@
+# Checkpoint 2026-11-02T15:03:10.489518+00:00
+
+LOT133 reste incomplet. Recherches nouvelles AVC et hématologie archivées : aucune image diagnostique admissible. Le PDF JRM42782 a été acquis, page5 inspectée : cartes agrégées/statistiques, pas cliché individuel. Deux nouveaux dépôts hématologiques sans droits établis. Huit caches hématologie déplacés après erreur de chemin, empreintes vérifiées. Voir `LOT_133/audits/SYNTHESE_1458.json`. Demande de configuration réseau transmise à Vial pour `upload.wikimedia.org` ; aucun changement observé. Ne pas répéter les mêmes pistes, ne pas commencer132. Reprendre après vérification de la réponse, de la politique effective et du verrou.
+
 Publication vérifiée : `d400033a5cde3b79a45f312468620e39000bc8cb`. Verrou libéré. Quatre agents Astra ont livré ; aucune activité permanente de ces agents revendiquée. Reprise après acquisition du verrou et contrôle des accès.
 
 # Checkpoint iconographique — 2026-11-02T13:45:28.254765+00:00
