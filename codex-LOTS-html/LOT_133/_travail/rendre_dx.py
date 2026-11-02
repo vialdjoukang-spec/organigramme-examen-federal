@@ -164,9 +164,9 @@ def clinical_scope(data):
     preamble = data['preamble']
     if data['n'] == 8:
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte, principalement membre inférieur. Grossesse et pédiatrie nécessitent un parcours distinct. Les posologies présentées concernent uniquement l’apixaban, d’après la notice suisse citée.'
-    if data['n'] in (2, 7):
+    if data['n'] in (2, 4, 7, 9):
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Les modalités médicamenteuses détaillées sont limitées aux spécialités suisses citées.'
-    if data['n'] in (3, 4, 5, 9, 10):
+    if data['n'] in (3, 5, 10):
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Aucune posologie médicamenteuse proposée.'
     marker = 'Le champ principal est ' if data['n'] == 1 else 'Le titre canonique est conservé ; '
     if marker not in preamble:
@@ -176,6 +176,10 @@ def clinical_scope(data):
         scope = scope.split('Cette version préparatoire', 1)[0].strip()
     scope = scope.replace('Aucun HTML produit.', '').strip()
     return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\n' + scope
+
+
+def clean_source_labels(raw):
+    return re.sub(r'<sup class="s">.*?</sup>', lambda m: re.sub(r'<abbr\b[^>]*>(S\d+)</abbr>', r'\1', m[0]), raw, flags=re.S)
 
 
 def render(data):
@@ -213,6 +217,7 @@ def render(data):
         with contextlib.redirect_stdout(io.StringIO()): lesson.write()
         name = f"LOT_133_Phase_B_V0_DX.{data['n']}.html"
         raw = (module.D / name).read_text()
+    raw = clean_source_labels(raw)
     old_status = 'couverture documentaire et iconographie incomplètes ; liste différentielle proposée, non gelée.'
     if raw.count(old_status) != 1:
         raise ValueError('Bannière du formatter modifiée : adaptation locale à revoir')

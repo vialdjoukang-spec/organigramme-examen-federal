@@ -1,5 +1,5 @@
 import unittest
-from rendre_dx import Markdown, references
+from rendre_dx import Markdown, references, clean_source_labels
 class Citations(unittest.TestCase):
  def test_references_apres_point_virgule(self):
   self.assertEqual(references('[S3 ; S6, définition]'), ['S3','S6'])
@@ -13,4 +13,9 @@ class Citations(unittest.TestCase):
   self.assertEqual(t.count('<strong>'),2)
   self.assertIn('&lt; 60',t);self.assertIn('&gt; 45',t)
   self.assertNotIn('**',t)
+ def test_identifiants_sources(self):
+  t='<p><abbr title="allemand">S3</abbr></p><sup class="s"><a href="#s3"><abbr title="allemand">S3</abbr></a></sup>'
+  r=clean_source_labels(t)
+  self.assertIn('<p><abbr title="allemand">S3</abbr></p>',r)
+  self.assertIn('<a href="#s3">S3</a>',r)
 if __name__=='__main__':unittest.main()

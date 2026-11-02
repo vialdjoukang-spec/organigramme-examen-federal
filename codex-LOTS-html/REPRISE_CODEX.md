@@ -1,3 +1,7 @@
+# Checkpoint 2026-11-02T11:10:29.645857+00:00
+
+11HTML préparatoires maintenus. DX4 Ferinject etDX9 Privigen enrichis depuisAIPS etcontre-audités. Défaut d’abréviation des sources S3 corrigé sur10monographies ; textevisible8autres pages identique.190contrôlesstatiques et40configurationsChromiumréels réussis. Réserves actives classées dans RESERVES_CLINIQUES_1103.json : distinguer exigencesmandat/limitesfacultatives. Images0 réseauinchangé. PasLOT132. Publication/verroudansETAT.
+
 Publication vérifiée : `abd937bbd7a611b4bf45b4e9e3fbf602f83a59e5`. Verrou libéré ; prochaine production après nouvelle acquisition et vérification. Réserves restantes dans RESERVES_CLINIQUES_1020.json, pas de passage132.
 
 # Checkpoint 2026-11-02T10:25:24.548232+00:00
