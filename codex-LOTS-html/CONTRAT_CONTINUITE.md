@@ -65,3 +65,7 @@ Priorité permanente pour ce chantier : contenu médical dense, direct et concis
 Fenêtre d’imagerie : **Cliché** (modalité, incidence ou séquence connue), puis **étapes numérotées** : qualité technique ; structures ; signes sémiologiques ; synthèse syndromique ; limites discriminantes. Donner les constatations propres au document. Distinguer observé, probable et non évaluable. Ne jamais écrire « normal » ou « absence de lésion » sans possibilité réelle de le vérifier ; ne pas inventer un syndrome pour remplir une rubrique. Le diagnostic causal ne découle pas automatiquement d’un signe.
 
 Annotations : traits fins contrastés, pointillés discrets, numéros hors des zones analysées avec rappels fins. Adapter les contours aux signes visibles ; un bord flou ne permet pas une segmentation exacte. Conserver l’original en regard. Vérifier lisibilité mobile et précision sur les pixels, puis contrelecture distincte. La résolution source limite la précision : ne pas simuler des détails absents.
+
+## Ordre prioritaire de Vial — contenu didactique avant images
+
+Le 02.11.2026, Vial demande de produire d’abord le contenu didactique, avec recherche d’images automatisée en parallèle de la rédaction. Une image encore en préparation ne bloque plus la publication du texte contrôlé ; son absence et sa réserve restent explicites. Les critères de source, licence, annotation et inspection sont maintenus avant insertion. L’audit clinique reste distinct de l’auteur ; aucun audit ou achèvement global simulé. Les décisions courantes sont prises sans nouvelle confirmation.
