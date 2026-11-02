@@ -37,3 +37,19 @@ Le premier candidat et sa copie annotée utilisent le même cadrage et les même
 Trois recherches via le connecteur, 26 résultats enregistrés ; trois articles traités, six figures endoscopiques repérées, un organigramme PRISMA écarté et une source NC/ND rejetée. Les deux clichés sélectionnés restent bloqués par la politique réseau sur cdn.ncbi.nlm.nih.gov. Aucun nouveau cliché clinique intégré.
 
 `imagerie_20261101/pipeline/DEMONSTRATION.html` montre le clic et la comparaison avec une illustration d’anatomie normale déjà présente, clairement identifiée. Ce n’est pas une nouvelle image de patient ni une leçon clinique. Tests Python : données locales et attestations simulées explicitement réservées aux tests ; navigateur : démonstration réelle, 12 interactions sur ordinateur et mobile émulé, quatre captures. Les preuves de revue visuelle sont distinctes des tests mécaniques.
+
+## Compatibilité LOT_133 — correction du 02.11.2026 à 12:52
+
+`LOT_133/SOURCES.json` conserve ses rubriques `lectures`, `images` et ses compléments documentaires ; il ne possède pas encore `images_et_schemas`. L'intégration initialise désormais cette collection seulement si elle manque, puis ajoute le crédit de la figure. Les autres rubriques restent inchangées. Une collection déjà présente mais malformée est refusée avant toute sauvegarde ou modification de la leçon. Le rendu côte à côte, les contours, les numéros et les légendes françaises utilisent toujours `illustrer.py` ; le formateur de sources et les fichiers communs ne sont pas modifiés.
+
+Après acquisition licite des pixels et inspection réelle, le producteur pourra créer `LOT_133/illustrations/pipeline/PLAN.json` avec `lot: "LOT_133"`, `dossier: "LOT_133/illustrations/pipeline"`, `integration: "LOT_133/illustrations/pipeline/INTEGRATION.json"` et `revue_rendu: "LOT_133/illustrations/pipeline/REVUE_RENDU.json"`. Ces chemins sont des emplacements de travail futurs, pas des fichiers déjà préparés. `INTEGRATION.json` contient `id`, `lecon`, `sha256_lecon`, `specification`, `ancre` et `expression`. Choisir l'expression effectivement présente dans la section 9 ou sa fenêtre liée, ainsi que l'ancre exacte ; aucune position de lésion ne se déduit du texte. La spécification documente notamment les droits propres à la figure, son original et son SHA-256, la revue originale et ses observations, les contours réellement inspectés et les légendes françaises.
+
+Depuis la racine du dépôt, sous verrou officiel et réservation fraîche, lorsque ces fichiers et pixels existent :
+
+```sh
+python3 -B codex-LOTS-html/outils/illustration/pipeline_images.py preparer codex-LOTS-html/LOT_133/illustrations/pipeline/PLAN.json
+# Inspecter réellement l'aperçu et ses deux vues ; consigner observations et captures avec leurs SHA-256.
+python3 -B codex-LOTS-html/outils/illustration/pipeline_images.py integrer codex-LOTS-html/LOT_133/illustrations/pipeline/PLAN.json
+```
+
+L'étape `integrer` exige la revue du rendu ; aucune commande ne crée cette attestation. Les tests mécaniques utilisent des attestations explicitement simulées et ne prouvent aucune inspection clinique. Le correctif ne signifie donc pas qu'une illustration a été acquise, inspectée ou intégrée au LOT_133.

@@ -108,6 +108,50 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(len(json.loads(source.read_text())['images_et_schemas']),2)
         self.assertIn('image-i018-optique',self.lesson.read_text())
         with self.assertRaises(ValueError):p.integrer(self.plan,self.folder)
+    def test_integration_sources_documentaires_sans_collection_images(self):
+        # Structure réellement rencontrée dans LOT_133, sans recopier ses données.
+        prior={'lectures':[{'url':'https://example.org/reference'}],
+               'images':[{'licence':'CC BY-SA3.0','statut':'non acquise'}],
+               'limites':'Couverture documentaire incomplète'}
+        source=self.root/'LOT_018/SOURCES.json';p.save(source,prior)
+        self.prepare_review();p.integrer(self.plan,self.folder)
+        after=json.loads(source.read_text())
+        self.assertEqual({k:after[k] for k in prior},prior)
+        credit=after['images_et_schemas'][0]
+        for key in ('auteur','licence','licence_url','source_url','sha256_original'):
+            self.assertEqual(credit[key],self.spec[key])
+        rendered=html.fromstring(self.lesson.read_text())
+        for key in ('source_url','licence_url'):
+            self.assertTrue(rendered.xpath('//figure//figcaption/a[@href=$u]',u=credit[key]))
+        self.assertFalse(credit['validation_humaine'])
+    def test_collection_images_invalide_refusee_sans_ecriture(self):
+        source=self.root/'LOT_018/SOURCES.json'
+        p.save(source,{'images_et_schemas':{'id':'ancien'}})
+        before=source.read_bytes();lesson=self.lesson.read_bytes()
+        self.prepare_review()
+        with self.assertRaisesRegex(ValueError,'Collection'):p.integrer(self.plan,self.folder)
+        self.assertEqual(source.read_bytes(),before)
+        self.assertEqual(self.lesson.read_bytes(),lesson)
+        self.assertFalse((self.folder/'i018-optique-avant.html').exists())
+    def test_fenetre_liee_multiniveau_et_references_preservees(self):
+        original=fixture().replace('<p>Reconnaître les voies optiques.</p>',
+            '<button popovertarget="niveau1">Examen</button><sup><a href="#s1">1</a></sup>')
+        original=original.replace('</main>',
+            '<div id="niveau1" popover><button popovertarget="niveau2">Détail</button></div>'
+            '<div id="niveau2" popover><p>Reconnaître les voies optiques.</p>'
+            '<sup><a href="#s1">1</a></sup></div><p id="s1">Source conservée.</p></main>')
+        self.spec['comparaison']=True
+        out=p.injection(original,dict(self.job,ancre='niveau2'),p.illustrer.render(self.spec))
+        root=html.fromstring(out)
+        self.assertEqual(len(root.xpath('//*[@id="niveau2"]//button[@popovertarget="image-i018-optique"]')),1)
+        self.assertEqual(len(root.xpath('//a[@href="#s1"]')),2)
+        self.assertIn('<p id="s1">Source conservée.</p>',out)
+        for target in root.xpath('//*[@popovertarget]/@popovertarget'):
+            self.assertEqual(len(root.xpath('//*[@id=$t]',t=target)),1)
+        window=root.xpath('//*[@id="image-i018-optique"]')[0]
+        self.assertEqual(len(window.xpath('.//figure//div[@class="paire"]')),1)
+        self.assertTrue(window.xpath('.//*[local-name()="polygon"][@stroke-dasharray]'))
+        self.assertTrue(window.xpath('.//figure/ol/li'))
     def test_lecon_modifiee_refusee(self):
         self.prepare_review();self.lesson.write_text(self.lesson.read_text()+'\n')
         with self.assertRaises(ValueError):p.integrer(self.plan,self.folder)

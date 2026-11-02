@@ -1,3 +1,7 @@
+# Checkpoint 2026-11-02T12:58:15.979502+00:00
+
+LOT13311HTML cliniques inchangés. Pipeline insertion corrigé pourSOURCESdocumentaire :42testsréussis agentetroot, pasimageclinique de test. RechercheoriginaleGitHub4README sansdroits/provenanceadmissibles, aucunpixelacquis. Agentdroits interrompucapacitémodèle. BlocageclichésCommonsdéjàlicenciés : upload.wikimedia.org horspolitiqueréseau ; aucuneconfigmodifiée. Ne pasrépéterrefusinchangés niétendregratuitementprotocolesspécialité. VoirSYNTHESE_1252.json/RESERVES_CLINIQUES_1252.json.
+
 Publication vérifiée : `8751431c`. Verrou libéré ; réacquérir avant prochaine production. Réserves courantes dans RESERVES_CLINIQUES_1203.json. Images absentes ; LOT133 reste actif.
 
 # Checkpoint 2026-11-02T12:10:06.343908+00:00

@@ -333,9 +333,14 @@ def integrer(plan, folder):
     sources_path = path(BASE / plan['lot'] / 'SOURCES.json', BASE / plan['lot'])
     prior = sources_path.read_bytes() if sources_path.exists() else None
     sources = json.loads(prior) if prior else {'portee': 'Illustrations seulement ; sources médicales des leçons préservées.', 'images_et_schemas': []}
-    if any(s['id'] == job['id'] for s in sources['images_et_schemas']):
+    # Les lots documentaires (dont LOT_133) n'ont pas encore cette collection.
+    # Ajouter seulement la collection iconographique, sans remplacer leurs sources.
+    images = sources.setdefault('images_et_schemas', [])
+    if not isinstance(images, list) or any(not isinstance(s, dict) for s in images):
+        raise ValueError('Collection images_et_schemas invalide')
+    if any(s.get('id') == job['id'] for s in images):
         raise ValueError('Crédit déjà présent')
-    sources['images_et_schemas'].append({**{k: spec[k] for k in ('auteur','licence','licence_url','source_url','acces_le','sha256_original')}, 'id': job['id'], 'fichier_original': spec['image'], 'lecon': job['lecon'], 'sha256_lecon': sha(raw), 'preuve': plan['revue_rendu'], 'validation_humaine': False, 'revue_visuelle_interne': True, 'modifications': 'Comparaison du même cliché, contours rouges pointillés et repères numérotés dans une fenêtre de la section 9.'})
+    images.append({**{k: spec[k] for k in ('auteur','licence','licence_url','source_url','acces_le','sha256_original')}, 'id': job['id'], 'fichier_original': spec['image'], 'lecon': job['lecon'], 'sha256_lecon': sha(raw), 'preuve': plan['revue_rendu'], 'validation_humaine': False, 'revue_visuelle_interne': True, 'modifications': 'Comparaison du même cliché, contours rouges pointillés et repères numérotés dans une fenêtre de la section 9.'})
     backup = path(folder / (job['id'] + '-avant.html'), folder)
     if backup.exists():
         raise ValueError('Sauvegarde existante ; examiner la précédente intégration')
