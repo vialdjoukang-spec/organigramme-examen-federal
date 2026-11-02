@@ -1,0 +1,126 @@
+
+<p>L'algorithme se lit de haut en bas, et chaque case ouvre sa fenêtre de détails. Si un drapeau rouge est présent → le médecin applique la conduite d'urgence avant toute autre démarche. Si l'IMC n'atteint pas le seuil de l'obésité → le médecin recherche et traite une autre cause de la sueur. Si une autre cause de sueur est trouvée → elle se traite selon son chapitre. Si aucune autre cause n'est retenue → l'obésité est prise en charge selon le point 11.</p>
+<div class="algo" data-brain="algo" data-id="algo1"><template class="algo-modele">{
+"titre": "Devant une sueur excessive avec obésité",
+"noeuds": [
+{
+"id": "q1",
+"type": "losange",
+"texte": "Drapeau rouge ?",
+"detail": "Une douleur thoracique, une hypoglycémie sous insuline, une fièvre avec amaigrissement ou une hypercapnie imposent la conduite d'urgence."
+},
+{
+"id": "u",
+"type": "case",
+"texte": "Urgence : ECG, glycémie, bilan",
+"detail": "Le médecin réalise un ECG, une glycémie capillaire, un bilan infectieux ou des gaz du sang selon le tableau, puis oriente le patient."
+},
+{
+"id": "q2",
+"type": "losange",
+"texte": "IMC ≥ 30, ou ≥ 25 avec complication ?",
+"detail": "Un IMC ≥ 30 kg/m², ou ≥ 25 kg/m² avec rapport tour de taille/taille > 0,5 et complication, confirme l'obésité."
+},
+{
+"id": "q3",
+"type": "losange",
+"texte": "Autre cause de sueur ?",
+"detail": "Le médecin écarte les apnées du sommeil (STOP-Bang ≥ 3), l'hyperhidrose primaire (début avant 25 ans), un médicament, la ménopause (45–55 ans) et une dysthyroïdie."
+},
+{
+"id": "f1",
+"type": "fin",
+"texte": "Obésité retenue : prise en charge",
+"detail": "Le mode de vie s'associe, selon l'AIPS, à un médicament dès un IMC ≥ 30 ; la réponse se contrôle à 12–28 semaines. Un IMC ≥ 35 après deux ans d'échec ouvre la chirurgie bariatrique (SMOB). Un diabète avec HbA1c ≥ 8 % ouvre la chirurgie métabolique. La conduite suit le point 11."
+},
+{
+"id": "f2",
+"type": "fin",
+"texte": "Autre cause : la traiter",
+"detail": "Le médecin traite la cause identifiée selon son chapitre."
+}
+],
+"liens": [
+{
+"de": "q1",
+"a": "u",
+"etiquette": "Oui"
+},
+{
+"de": "q1",
+"a": "q2",
+"etiquette": "Non"
+},
+{
+"de": "q2",
+"a": "q3",
+"etiquette": "Oui"
+},
+{
+"de": "q2",
+"a": "f2",
+"etiquette": "Non"
+},
+{
+"de": "q3",
+"a": "f2",
+"etiquette": "Oui"
+},
+{
+"de": "q3",
+"a": "f1",
+"etiquette": "Non"
+}
+]
+}</template>
+<style>#algo1-1:checked~.algo-det #algo1-1-d{display:block}
+#algo1-2:checked~.algo-det #algo1-2-d{display:block}
+#algo1-3:checked~.algo-det #algo1-3-d{display:block}
+#algo1-4:checked~.algo-det #algo1-4-d{display:block}
+#algo1-5:checked~.algo-det #algo1-5-d{display:block}
+#algo1-6:checked~.algo-det #algo1-6-d{display:block}</style>
+<input type="checkbox" id="algo1-1">
+<input type="checkbox" id="algo1-2">
+<input type="checkbox" id="algo1-3">
+<input type="checkbox" id="algo1-4">
+<input type="checkbox" id="algo1-5">
+<input type="checkbox" id="algo1-6">
+<div class="algo-t">Devant une sueur excessive avec obésité</div>
+<div class="algo-sc"><div class="algo-can" style="width:540px;height:386px">
+<svg width="540" height="386" viewBox="0 0 540 386" aria-hidden="true">
+<path class="tr" d="M243 68 H296"/><polygon class="fl" points="295,63 295,73 303,68"/>
+<text x="249" y="62">Oui</text>
+<path class="tr" d="M145 116 V138"/><polygon class="fl" points="140,137 150,137 145,145"/>
+<text x="151" y="126">Non</text>
+<path class="tr" d="M243 193 H290"/><polygon class="fl" points="289,188 289,198 297,193"/>
+<text x="249" y="187">Oui</text>
+<path class="tr" d="M145 241 V278"/><polygon class="fl" points="140,277 150,277 145,285"/>
+<text x="151" y="259">Non</text>
+<path class="tr" d="M493 193 H514 V258 H145 V278"/><polygon class="fl" points="140,277 150,277 145,285"/>
+<text x="497" y="187">Oui</text>
+<path class="tr" d="M395 241 V278"/><polygon class="fl" points="390,277 400,277 395,285"/>
+<text x="401" y="259">Non</text>
+<polygon class="lo" points="145,20 243,68 145,116 47,68"/>
+<rect class="ca" x="303" y="35" width="184" height="66"/>
+<polygon class="lo" points="145,145 243,193 145,241 47,193"/>
+<polygon class="lo" points="395,145 493,193 395,241 297,193"/>
+<rect class="fi" x="303" y="285" width="184" height="66"/>
+<rect class="fi" x="53" y="285" width="184" height="66"/>
+</svg>
+<label class="algo-n lo cl" for="algo1-1" style="left:47px;top:20px;width:196px;height:96px"><span>Drapeau rouge ?</span></label>
+<label class="algo-n ca cl" for="algo1-2" style="left:303px;top:35px;width:184px;height:66px"><span>Urgence : ECG, glycémie, bilan</span></label>
+<label class="algo-n lo cl" for="algo1-3" style="left:47px;top:145px;width:196px;height:96px"><span>IMC ≥ 30, ou ≥ 25 avec complication ?</span></label>
+<label class="algo-n lo cl" for="algo1-4" style="left:297px;top:145px;width:196px;height:96px"><span>Autre cause de sueur ?</span></label>
+<label class="algo-n ca cl" for="algo1-5" style="left:303px;top:285px;width:184px;height:66px"><span>Obésité retenue : prise en charge</span></label>
+<label class="algo-n ca cl" for="algo1-6" style="left:53px;top:285px;width:184px;height:66px"><span>Autre cause : la traiter</span></label>
+</div></div>
+<div class="algo-det">
+<div class="algo-d" id="algo1-1-d"><label class="fx-x" for="algo1-1" aria-label="Fermer">×</label><b class="algo-dt">Drapeau rouge ?</b> · Une douleur thoracique, une hypoglycémie sous insuline, une fièvre avec amaigrissement ou une hypercapnie imposent la conduite d'urgence.</div>
+<div class="algo-d" id="algo1-2-d"><label class="fx-x" for="algo1-2" aria-label="Fermer">×</label><b class="algo-dt">Urgence : ECG, glycémie, bilan</b> · Le médecin réalise un ECG, une glycémie capillaire, un bilan infectieux ou des gaz du sang selon le tableau, puis oriente le patient.</div>
+<div class="algo-d" id="algo1-3-d"><label class="fx-x" for="algo1-3" aria-label="Fermer">×</label><b class="algo-dt">IMC ≥ 30, ou ≥ 25 avec complication ?</b> · Un IMC ≥ 30 kg/m², ou ≥ 25 kg/m² avec rapport tour de taille/taille > 0,5 et complication, confirme l'obésité.</div>
+<div class="algo-d" id="algo1-4-d"><label class="fx-x" for="algo1-4" aria-label="Fermer">×</label><b class="algo-dt">Autre cause de sueur ?</b> · Le médecin écarte les apnées du sommeil (STOP-Bang ≥ 3), l'hyperhidrose primaire (début avant 25 ans), un médicament, la ménopause (45–55 ans) et une dysthyroïdie.</div>
+<div class="algo-d" id="algo1-5-d"><label class="fx-x" for="algo1-5" aria-label="Fermer">×</label><b class="algo-dt">Obésité retenue : prise en charge</b> · Le mode de vie s'associe, selon l'AIPS, à un médicament dès un IMC ≥ 30 ; la réponse se contrôle à 12–28 semaines. Un IMC ≥ 35 après deux ans d'échec ouvre la chirurgie bariatrique (SMOB). Un diabète avec HbA1c ≥ 8 % ouvre la chirurgie métabolique. La conduite suit le point 11.</div>
+<div class="algo-d" id="algo1-6-d"><label class="fx-x" for="algo1-6" aria-label="Fermer">×</label><b class="algo-dt">Autre cause : la traiter</b> · Le médecin traite la cause identifiée selon son chapitre.</div>
+</div></div><!--/algo-->
+<p>Médicaments de l'obésité : <a class="tm med" data-auto="1" href="#med-ccec121e">sémaglutide</a>, <a class="tm med" data-auto="1" href="#med-f5fae9cc">tirzépatide</a>, <a class="tm med" data-auto="1" href="#med-15c1f6a9">liraglutide</a>, <a class="tm med" data-auto="1" href="#med-042743f2">orlistat</a>. Le sémaglutide et le tirzépatide sont exclus en cas de grossesse.<sup class="r"><a href="#sb-5">5</a>,<a href="#sb-6">6</a>,<a href="#sb-7">7</a>,<a href="#sb-8">8</a>,<a href="#sb-9">9</a>,<a href="#sb-10">10</a>,<a href="#sb-11">11</a>,<a href="#sb-12">12</a>,<a href="#sb-13">13</a>,<a href="#sb-15">15</a>,<a href="#sb-18">18</a>,<a href="#sb-19">19</a>,<a href="#sb-22">22</a>,<a href="#sb-23">23</a>,<a href="#sb-24">24</a></sup></p>
+

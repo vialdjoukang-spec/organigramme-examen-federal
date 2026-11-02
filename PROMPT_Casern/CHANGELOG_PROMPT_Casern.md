@@ -1,5 +1,10 @@
 # CHANGELOG — PROMPT_Casern
 
+## V0 — amendement 2026-10-26 (Vial, via Claude Code)
+- §11 et §12.1 du `PROMPT_ULTIME_PRODUCTION_LOTS_V0.md` remplacés par la **GRILLE À 14 POINTS** éditée par Vial (26 cellules modifiées : points 1, 2, 4 à 7, 9, 10, 11 et amendements « CONCIS + DENSE + EXHAUSTIF »).
+- Nouveau §14.5 bis **Format FLASH** (texte = cours, sources en dernière page, mots cliquables, classification d'origine, style simple, police Atkinson). Bande de taille à fixer par Vial.
+- Publication autonome : `harnais/GRILLE_14_POINTS.md` et `.pdf` (source : `harnais/grille14/gen.py`). Points à confirmer listés dans la grille.
+
 ## V8 — 2026-10-25 Europe/Zurich (Grok Bot)
 - Remplace **PROMPT V7** (22.10.2026) comme prompt de production en vigueur.
 - Demande obligatoire au démarrage : confirmer l’usage de PROMPT V8 (PROMPT_Casern).

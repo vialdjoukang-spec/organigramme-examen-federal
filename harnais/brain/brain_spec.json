@@ -1,0 +1,151 @@
+{
+ "version": 2,
+ "titre": "BRAIN-HARNESS · plan de conception v2",
+ "but": "Réduire de 99,99 % le risque d'erreur médicale de fond et les écarts au prompt, à la concision, à la densité et à la complétude, et de ~95 % les jetons des boucles de correction : des scriptones gratuits, testables seuls, reliés par un bus de doléances typées.",
+ "critique_v1": [
+  "Ajouté : région BUS (contrat JSON, doléances typées, journal) ; v1 la citait sans lui donner de corps.",
+  "Ajouté : boucle de retour PRO ← BUS ; en v1, aucun audit ne renvoyait de correction vers le rédacteur.",
+  "Ajouté : métriques chiffrées (formule, seuil, mesure), jeu d'essai doré, test par mutation, budgets de jetons par étage, points de contrôle emboîtés.",
+  "Ajouté : état de chaque scriptone (implémenté, existant, prévu) et son fichier ; un plan sans état ne se pilote pas.",
+  "Ajouté : mutants médicaux (dose ×10, unité, PMID, chiffre) : sans eux, les 99,99 % médicaux ne se mesurent pas.",
+  "Supprimé : LiteLLM, RouteLLM, Hishel, « Iris » (payants, redondants ou non définis) ; remplacés par un routeur à règles et requests-cache existant."
+ ],
+ "principes": [
+  "Zéro jeton par défaut : un script avant tout modèle ; un modèle seulement pour juger ou rédiger.",
+  "Contrat d'abord : entrée et sortie JSON (brain.scriptone/1), validées sans dépendance ; un contrat rompu arrête la chaîne.",
+  "Inter-indépendance : chaque scriptone se teste seul (tests, mutation, idempotence, dry-run, empreinte SHA-256).",
+  "Interconnexion : un seul bus de doléances {région, fichier, ancre, sévérité, constat, correction_prescrite, preuve} ; l'agent applique sans réinterpréter.",
+  "Un scriptone agit : il corrige ce qui est mécanique (--appliquer) et prescrit le reste ; il ne crée jamais de contenu médical.",
+  "Aucune contraction des notions ni des explications ; tout chiffre déplacé reste dans le cours (inventaire joint à la doléance).",
+  "Preuve avant passage : pas de contournement silencieux ; une panne est annoncée et consignée, jamais avalée."
+ ],
+ "regions": [
+  {"id": "MEM", "nom": "Cortex mémoire", "couleur": "#7c3aed", "role": "Mémoire persistante : leçons, décisions de Vial, historique des doléances par fichier, journal append-only.",
+   "scriptones": [
+    {"nom": "rappel des leçons (5 par agent)", "etat": "existant", "fichier": "harnais/rappel_memoire.py"},
+    {"nom": "journal append-only des scriptones", "etat": "implémenté", "fichier": ".cache/brain/journal.jsonl"},
+    {"nom": "dernier état des doléances par fichier", "etat": "implémenté", "fichier": ".cache/brain/doleances/"},
+    {"nom": "registre des décisions de Vial (seuils, budgets)", "etat": "implémenté", "fichier": "harnais/brain/scriptones/budgets.json"},
+    {"nom": "index plein texte local (SQLite FTS5)", "etat": "prévu"}]},
+  {"id": "ENT", "nom": "Aire d'entrée · consignes", "couleur": "#0ea5e9", "role": "Transformer consignes et lignes directrices en règles actives et en brief minimal.",
+   "scriptones": [
+    {"nom": "compilateur de brief : règles + leçons + doléances ouvertes = prompt minimal", "etat": "prévu"},
+    {"nom": "veille AIPS (monographies suisses)", "etat": "existant", "fichier": "harnais/aips_texte.py"},
+    {"nom": "routeur à règles (difficulté du DD → modèle, effort)", "etat": "prévu"}]},
+  {"id": "PRO", "nom": "Postes de production", "couleur": "#16a34a", "role": "Le rédacteur écrit le texte ; il reçoit les doléances [agent] et les applique telles quelles.",
+   "scriptones": [
+    {"nom": "moteur des agents (memoire, controle, fin, cerveau)", "etat": "existant", "fichier": "harnais/grille14/grille_agent.py"},
+    {"nom": "convertisseur de forme (police embarquée corrigée)", "etat": "existant", "fichier": "harnais/forme_interactive.py"}]},
+  {"id": "BUS", "nom": "Bus de doléances", "couleur": "#0f766e", "role": "Système nerveux : contrat, validation, déduplication (id), sortie compacte, panne annoncée.",
+   "scriptones": [
+    {"nom": "bus et contrat brain.scriptone/1", "etat": "implémenté", "fichier": "harnais/brain/scriptones/bus.py", "codes": "valider, executer, resume"},
+    {"nom": "orchestrateur (analyser, corriger, mesurer, empreintes)", "etat": "implémenté", "fichier": "harnais/brain/cerveau.py"},
+    {"nom": "schéma JSON du contrat", "etat": "implémenté", "fichier": "harnais/brain/scriptones/contrat.schema.json"}]},
+  {"id": "AUM", "nom": "Audit médical", "couleur": "#dc2626", "role": "Fond : doses AIPS, PMID, chiffres retrouvés dans leur source, lignes directrices à jour.",
+   "scriptones": [
+    {"nom": "dose contre AIPS, PMID, chiffres retrouvés", "etat": "existant", "fichier": "harnais/controle_medical.py"},
+    {"nom": "conservateur des chiffres et unités (contraction)", "etat": "existant", "fichier": "harnais/contracteur/contracteur.py"},
+    {"nom": "mutants médicaux (dose ×10, mg↔µg, PMID altéré, chiffre altéré) injectés dans controle_medical", "etat": "prévu"},
+    {"nom": "cohérence interne : même mesure citée avec deux valeurs", "etat": "prévu"},
+    {"nom": "détecteur d'« À vérifier » non résolu", "etat": "prévu"}]},
+  {"id": "AUL", "nom": "Audit de langue et de concision", "couleur": "#f59e0b", "role": "Phrases verbales denses reliées par des connecteurs ; zéro phrase superflue ; budgets par point.",
+   "scriptones": [
+    {"nom": "concision : formules creuses, redites, métadiscours, juxtapositions", "etat": "implémenté", "fichier": "harnais/brain/scriptones/s3_concision.py", "codes": "C1 C2 C3 C4"},
+    {"nom": "budget de lignes par point (épidémiologie 3–4 lignes, sources, dénominateurs)", "etat": "implémenté", "fichier": "harnais/brain/scriptones/s4_budget.py", "codes": "B1 B2 B3 B4"},
+    {"nom": "phrases nominales et longueur", "etat": "existant", "fichier": "harnais/controle_langue.py"}]},
+  {"id": "AUF", "nom": "Audit de forme et de classification", "couleur": "#ec4899", "role": "Police, rythme vertical, arbre de classification cliquable, tableaux lisibles ligne à ligne.",
+   "scriptones": [
+    {"nom": "police Atkinson partout (repli hors ligne, police cassée)", "etat": "implémenté", "fichier": "harnais/brain/scriptones/s1_police.py", "codes": "P1–P7"},
+    {"nom": "rythme vertical, interlignes, blancs, orphelines, paragraphes détachés", "etat": "implémenté", "fichier": "harnais/brain/scriptones/s2_rythme.py", "codes": "L1–L6"},
+    {"nom": "arbre déroulant : parents cliquables, homologues explicités, notion surlignée", "etat": "implémenté", "fichier": "harnais/brain/scriptones/s5_arbre.py", "codes": "A1–A6"},
+    {"nom": "tableaux d'épidémiologie à en-têtes explicites (règle de réécriture)", "etat": "implémenté", "fichier": "harnais/brain/scriptones/s8_tableaux.py", "codes": "T1–T7"},
+    {"nom": "sigles survolables, médicaments cliquables", "etat": "existant", "fichier": "harnais/forme_interactive.py"}]},
+  {"id": "VIS", "nom": "Vérification visuelle", "couleur": "#14b8a6", "role": "Captures sur toute la longueur, par chapitre, en rotation ; mesures au pixel.",
+   "scriptones": [
+    {"nom": "captures pleine longueur par chapitre, rotation, mesures (police chargée, orphelines, blancs, débordement)", "etat": "implémenté", "fichier": "harnais/bilan/captures.js", "codes": "V1–V5"}]},
+  {"id": "SEC", "nom": "Gardiens et intégrité", "couleur": "#475569", "role": "Empreintes, mutation, idempotence, verrous, anti ping-pong.",
+   "scriptones": [
+    {"nom": "empreintes SHA-256 des scriptones (refus si altération)", "etat": "implémenté", "fichier": "harnais/brain/scriptones/SHA256SUMS"},
+    {"nom": "test par mutation sur le jeu doré (+ variations neutres)", "etat": "implémenté", "fichier": "harnais/brain/scriptones/mutation.py"},
+    {"nom": "tests unitaires, contrat, dry-run, idempotence", "etat": "implémenté", "fichier": "harnais/brain/scriptones/test_scriptones.py"},
+    {"nom": "anti ping-pong, stagnation, verrous", "etat": "existant", "fichier": "harnais/grille14/grille_agent.py"},
+    {"nom": "stagnation par id de doléance (même id deux fois = bloqué)", "etat": "prévu"}]},
+  {"id": "LIV", "nom": "Livraison", "couleur": "#2563eb", "role": "Contrôle de LOT, PR minimale, CI, fusion par commit de fusion.",
+   "scriptones": [
+    {"nom": "contrôle de LOT (+ --cerveau, avertissements)", "etat": "existant", "fichier": "harnais/controle_lot.py"},
+    {"nom": "arsenal PR et CI", "etat": "existant", "fichier": "tools/arsenal/"}]},
+  {"id": "ECO", "nom": "Observation et économie", "couleur": "#84cc16", "role": "Mesurer chaque jeton et chaque détection ; couper le gaspillage sans toucher au fond.",
+   "scriptones": [
+    {"nom": "mesure avant/après (détection, lignes, jetons)", "etat": "implémenté", "fichier": "harnais/brain/cerveau.py mesurer"},
+    {"nom": "courbe de jetons par LOT", "etat": "existant", "fichier": "harnais/bilan/courbe_jetons.py"},
+    {"nom": "tableau de bord des métriques M1–M10", "etat": "prévu"}]}
+ ],
+ "liens": [
+  ["MEM", "ENT", "leçons"], ["ENT", "PRO", "brief"], ["MEM", "PRO", "mémoire"],
+  ["PRO", "AUM", "fichier prêt"], ["PRO", "AUL", "fichier prêt"], ["PRO", "AUF", "fichier prêt"], ["AUF", "VIS", "rendu"],
+  ["AUM", "BUS", "doléances"], ["AUL", "BUS", "doléances"], ["AUF", "BUS", "doléances"], ["VIS", "BUS", "doléances"],
+  ["BUS", "PRO", "correction prescrite"], ["BUS", "MEM", "journal"], ["BUS", "LIV", "verdict"], ["BUS", "ECO", "jetons, détection"],
+  ["SEC", "BUS", "contrat, empreintes"], ["SEC", "AUM", "mutation"], ["SEC", "AUL", "mutation"], ["SEC", "AUF", "mutation"],
+  ["LIV", "MEM", "historique"], ["ECO", "ENT", "budgets"]
+ ],
+ "doleances": {"forme": "{id, region, scriptone, code, fichier, ancre, severite, constat, correction_prescrite, executant, preuve}",
+  "executant": "script : corrigé par --appliquer ; agent : appliqué tel quel par le rédacteur",
+  "effet": "Une correction, un seul passage, zéro aller-retour ; l'id (sha1) déduplique et détecte la stagnation."},
+ "points_de_controle": [
+  "C0 empreintes SHA-256 (moteur et scriptones) : altération → arrêt",
+  "C1 contrat d'entrée (fichier ou html) : erreur → code 2",
+  "C2 scriptone : analyse en lecture seule (dry-run)",
+  "C3 contrat de sortie validé (bus.valider) : rompu → arrêt",
+  "C4 correction mécanique (--appliquer), puis réanalyse",
+  "C5 idempotence : corriger(corriger(x)) = corriger(x)",
+  "C6 grille des 14 points et checkpoint (existants)",
+  "C7 audit V1/V2 (Opus) sur doléances et extraits ciblés",
+  "C8 contracteur : conservation des notions",
+  "C9 contrôle de LOT, CI, fusion",
+  "C10 captures pleine longueur, police réellement chargée"
+ ],
+ "metriques": [
+  {"id": "M1", "nom": "détection des erreurs connues", "formule": "mutants détectés / mutants distincts", "seuil": "≥ 99,99 % (borne d'évasion 95 % ≤ 0,01 %, soit ≥ 29 958 mutants distincts sans évasion)", "mesure": "30 452 mutants distincts, 0 évasion : borne 0,0099 %"},
+  {"id": "M2", "nom": "faux positifs sur le jeu doré", "formule": "doléances sur cours_dore.html et ses variations neutres", "seuil": "0", "mesure": "0"},
+  {"id": "M3", "nom": "idempotence", "formule": "scriptones et chaîne complète", "seuil": "100 %", "mesure": "100 %"},
+  {"id": "M4", "nom": "couverture des 8 doléances de Vial", "formule": "doléances couvertes par un scriptone testé", "seuil": "8/8", "mesure": "8/8 (circuit existant : 0/8 sur 2 cours réels)"},
+  {"id": "M5", "nom": "erreurs médicales échappées", "formule": "mutants médicaux non détectés / injectés", "seuil": "≤ 0,01 %", "mesure": "prévu (P4)"},
+  {"id": "M6", "nom": "conformité au prompt au 1er passage", "formule": "fichiers V2 ≥ 90 sans relance / fichiers", "seuil": "≥ 99 %", "mesure": "à instrumenter"},
+  {"id": "M7", "nom": "doléances résolues en un passage", "formule": "id absents au passage suivant / id émis", "seuil": "≥ 99 %", "mesure": "à instrumenter (id en place)"},
+  {"id": "M8", "nom": "jetons d'une boucle de correction", "formule": "1 − jetons(doléances agent) / jetons(relecture intégrale)", "seuil": "≥ 90 %", "mesure": "92,7 % et 97,2 %"},
+  {"id": "M9", "nom": "épidémiologie dans son budget", "formule": "fichiers dont le point 2 tient en 3–4 lignes", "seuil": "100 %", "mesure": "0/2 (14 et 8 lignes)"},
+  {"id": "M10", "nom": "couverture visuelle", "formule": "hauteur capturée / hauteur de page", "seuil": "≥ 99 %", "mesure": "99 %"}
+ ],
+ "jeu_dore": {"source": "harnais/brain/dore/source.html", "construit": "harnais/brain/dore/cours_dore.html (construire.py)", "regle": "zéro doléance ; toute modification du doré passe par construire.py"},
+ "mutation": {"outil": "harnais/brain/scriptones/mutation.py --n N", "mutants": 23, "variation_neutre": "chiffres et phrase neutre insérée dans un paragraphe des points 3–14 (doit rester sans doléance)"},
+ "budgets_jetons": [
+  {"etage": "MEM rappel", "plafond": 800},
+  {"etage": "ENT brief compilé", "plafond": 3000},
+  {"etage": "PRO rédaction d'un DD (entrée)", "plafond": 15000},
+  {"etage": "PRO rédaction d'un DD (sortie)", "plafond": 30000},
+  {"etage": "BUS boucle de correction (doléances + extraits ciblés, entrée)", "plafond": 6000, "mesure": "1 100 à 1 633 jetons de doléances"},
+  {"etage": "PRO boucle de correction (sortie, Edit seulement)", "plafond": 3000},
+  {"etage": "AUM, AUL, AUF, VIS, SEC, LIV, ECO (scripts)", "plafond": 0},
+  {"etage": "audit Opus d'un DD", "plafond": 20000},
+  {"etage": "total par DD", "plafond": 80000, "note": "contre ~250 000 mesurés (paire de rédacteurs 400–570 k) : −68 % ; boucles de correction −95 %"}
+ ],
+ "taches_vial": [
+  {"n": 1, "sujet": "Police Atkinson partout", "region": "AUF", "scriptone": "s1_police.py (P1–P7) + captures.js (V1)"},
+  {"n": 2, "sujet": "Mise en page, interlignes, espaces", "region": "AUF", "scriptone": "s2_rythme.py (L1–L6) + captures.js (V2, V3)"},
+  {"n": 3, "sujet": "Phrases superflues, densité, connecteurs", "region": "AUL", "scriptone": "s3_concision.py (C1–C4)"},
+  {"n": 4, "sujet": "Épidémiologie en 3 à 4 lignes", "region": "AUL", "scriptone": "s4_budget.py (B1–B4)"},
+  {"n": 5, "sujet": "Arbre de classification avec homologues cliquables", "region": "AUF", "scriptone": "s5_arbre.py (A1–A6)"},
+  {"n": 6, "sujet": "Classification déroulante par clics progressifs", "region": "AUF", "scriptone": "s5_arbre.py (rendu details/summary)"},
+  {"n": 7, "sujet": "Captures sur toute la longueur", "region": "VIS", "scriptone": "captures.js (chapitres, tuiles, rotation)"},
+  {"n": 8, "sujet": "Tableaux d'épidémiologie à en-têtes explicites", "region": "AUF", "scriptone": "s8_tableaux.py (T1–T7)"}
+ ],
+ "phases": [
+  "P0 Inventaire : fait (v1).",
+  "P1 Socle : bus, contrat, journal, empreintes, mutation, jeu doré — fait.",
+  "P2 Forme et captures (S1, S2, S5, S8, S7) — fait.",
+  "P3 Concision et budgets (S3, S4) — fait.",
+  "P4 Mutants médicaux, cohérence interne, compilateur de brief, stagnation par id — à faire.",
+  "P5 Essai sur 2 cours réels, mesure avant-après — fait (MESURES.md).",
+  "P6 Correction de masse des LOT 001 à 012 — sur ordre de Vial seulement."
+ ]
+}

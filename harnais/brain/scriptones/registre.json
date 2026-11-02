@@ -1,0 +1,6551 @@
+{
+ "version": 3,
+ "total": 160,
+ "note": "Catalogue des scriptones du BRAIN-HARNESS (généré par outils/gabarit.py). Coût en jetons : 0 pour tous (scripts) ; seuls les nœuds auditeurs consomment des jetons.",
+ "scriptones": [
+  {
+   "id": "s1_police",
+   "fichier": "s1_police.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUF",
+   "signal": "forme",
+   "nom": "Police Atkinson Hyperlegible partout",
+   "fonction": "repère la police non embarquée, externe, cassée par un saut de ligne, concurrencée ; la réembarque (woff2 400 et 700)",
+   "entree": "HTML converti (CSS réel)",
+   "sortie": "P1–P7 ; --appliquer : @font-face réparé + garde de police",
+   "doleances_vial": [
+    1
+   ],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "CSS:brain-fonte",
+    "CSS:brain-police",
+    "CSS:@font-face"
+   ],
+   "mutants": [
+    [
+     "police non embarquée",
+     "P1"
+    ],
+    [
+     "règle concurrente",
+     "P4"
+    ],
+    [
+     "police externe",
+     "P2"
+    ],
+    [
+     "graisse 700 absente",
+     "P3"
+    ],
+    [
+     "police cassée par un saut de ligne",
+     "P7"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "26a91e2d0642bff6de9ed2e33a27993aca8e711485cc3588e7cd44618cdd8973",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s2_rythme",
+   "fichier": "s2_rythme.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUF",
+   "signal": "forme",
+   "nom": "Rythme vertical et interlignes",
+   "fonction": "interligne, blancs inutiles, paragraphes détachés, orphelines, colonne trop large ; pose la grille de rythme",
+   "entree": "HTML converti",
+   "sortie": "L1–L6 ; --appliquer : blancs retirés + style de rythme",
+   "doleances_vial": [
+    2
+   ],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "CSS:brain-rythme",
+    "BLANCS:éléments vides"
+   ],
+   "mutants": [
+    [
+     "blanc inutile",
+     "L2"
+    ],
+    [
+     "paragraphe détaché",
+     "L3"
+    ],
+    [
+     "interligne serré",
+     "L1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "069a1d6e3e7ea2ccf890fabacc469e2e580b633af08f88da921106d48f1c30c1",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s3_concision",
+   "fichier": "s3_concision.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUL",
+   "signal": "langue",
+   "nom": "Concision extrême",
+   "fonction": "formules creuses, redites entre points, métadiscours, phrases juxtaposées sans connecteur",
+   "entree": "cours HTML",
+   "sortie": "C1–C4 ; --appliquer : formules creuses retirées en tête de phrase",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "TEXTE:tête de phrase"
+   ],
+   "mutants": [
+    [
+     "formule creuse",
+     "C1"
+    ],
+    [
+     "redite",
+     "C2"
+    ],
+    [
+     "métadiscours",
+     "C3"
+    ],
+    [
+     "juxtaposition",
+     "C4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "021a08c30c765761b29e8aff1c43d7bf8f634eec82c9a743d42d8c6c5f7a87e4",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s4_budget",
+   "fichier": "s4_budget.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUL",
+   "signal": "langue",
+   "nom": "Budget de lignes par point",
+   "fonction": "épidémiologie en 3 à 4 lignes, chiffre sourcé dans sa phrase, dénominateur ; inventaire des chiffres à conserver",
+   "entree": "cours HTML",
+   "sortie": "B1–B4 (agent, avec inventaire)",
+   "doleances_vial": [
+    4
+   ],
+   "jumeau": "a02_Q",
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "épidémiologie hors budget",
+     "B1"
+    ],
+    [
+     "chiffre sans source",
+     "B2"
+    ],
+    [
+     "pourcentage sans dénominateur",
+     "B3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "8e3d91fdcffea39fb0638370b6a20712d0fb2eb6410996af561ba211108b9a61",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s5_arbre",
+   "fichier": "s5_arbre.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUF",
+   "signal": "forme",
+   "nom": "Arbre de classification déroulant",
+   "fonction": "parents cliquables qui déroulent leurs homologues explicités, notion surlignée parmi eux",
+   "entree": "cours HTML (point 1)",
+   "sortie": "A1–A6 ; --appliquer : rendu details/summary natif",
+   "doleances_vial": [
+    6
+   ],
+   "jumeau": "a01_S",
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "P1:arbre",
+    "CSS:brain-arbre"
+   ],
+   "mutants": [
+    [
+     "parent sans homologues",
+     "A3"
+    ],
+    [
+     "homologue non explicité",
+     "A4"
+    ],
+    [
+     "arbre statique",
+     "A2"
+    ],
+    [
+     "notion non marquée",
+     "A5"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "ababb825fc196d104e4da16d2f1add8dafb9d21a193c22441be792173ea636dc",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s6_barre14",
+   "fichier": "s6_barre14.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUF",
+   "signal": "forme",
+   "nom": "Barre des 14 points fixe et cliquable",
+   "fonction": "barre fixe à l'écran, un lien par point vers son ancre, sources, titre jamais masqué",
+   "entree": "cours HTML",
+   "sortie": "N1–N6 ; --appliquer : ancres, barre, style",
+   "doleances_vial": [
+    7
+   ],
+   "jumeau": "s20_ancres",
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "H3:id",
+    "NAV:barre14",
+    "CSS:brain-barre",
+    "SRC:id"
+   ],
+   "mutants": [
+    [
+     "barre absente",
+     "N1"
+    ],
+    [
+     "lien mort",
+     "N3"
+    ],
+    [
+     "barre non fixe",
+     "N2"
+    ],
+    [
+     "point sans ancre",
+     "N4"
+    ],
+    [
+     "barre incomplète",
+     "N5"
+    ],
+    [
+     "titre masqué",
+     "N6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "571122b715c488f2f8d0e306977e842d0fe0996c5c7272afc898ce8ff3e2b178",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s7_captures",
+   "fichier": "../../bilan/captures.js",
+   "langage": "js",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "VIS",
+   "signal": "forme",
+   "nom": "Captures pleine longueur par chapitre, en rotation",
+   "fonction": "captures navigateur de toute la page, chapitre par chapitre, rotation entre passages ; police réellement chargée, orphelines, débordements",
+   "entree": "fichiers HTML (navigateur Playwright)",
+   "sortie": "V1–V5 + captures.json",
+   "doleances_vial": [
+    1,
+    2,
+    9
+   ],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "police cassée vue au navigateur",
+     "V1"
+    ],
+    [
+     "rotation des chapitres",
+     "V-"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d3c61ed1abe6cce2d965ae3fa74af210de2560f759ed4fce97164458b0a31ff8",
+   "test": "test_scriptones.Captures (navigateur)"
+  },
+  {
+   "id": "s8_tableaux",
+   "fichier": "s8_tableaux.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUF",
+   "signal": "forme",
+   "nom": "Tableaux à en-têtes explicites",
+   "fonction": "en-têtes génériques, portée des pourcentages, unités, légende ; règle de réécriture « mesure portée (unité) »",
+   "entree": "cours HTML",
+   "sortie": "T1–T7 ; --appliquer : unité ajoutée à l'en-tête",
+   "doleances_vial": [
+    8
+   ],
+   "jumeau": "a03_S",
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "TABLE:unité des en-têtes"
+   ],
+   "mutants": [
+    [
+     "en-tête générique",
+     "T2"
+    ],
+    [
+     "portée ambiguë",
+     "T4"
+    ],
+    [
+     "légende absente",
+     "T6"
+    ],
+    [
+     "sans en-têtes",
+     "T1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "7411d81f201580b4667647ed3134f5bbedbdfc258a6e1f5213118eaff7953bce",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s9_sources",
+   "fichier": "s9_sources.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUM",
+   "signal": "medical",
+   "nom": "Sources : Suisse d'abord, AIPS pour les doses",
+   "fonction": "Compendium, source américaine seule, version périmée, date de consultation, identifiant",
+   "entree": "liste des sources",
+   "sortie": "I1–I5 (agent)",
+   "doleances_vial": [],
+   "jumeau": "b02_S",
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "Compendium cité",
+     "I1"
+    ],
+    [
+     "version périmée",
+     "I3"
+    ],
+    [
+     "sans date",
+     "I4"
+    ],
+    [
+     "sans identifiant",
+     "I5"
+    ],
+    [
+     "source américaine seule",
+     "I2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "20f882255d7eb18055d8049406a05c4aeb847e8232b3895c109db73e562be054",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s10_memoire",
+   "fichier": "s10_memoire.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "MEM",
+   "signal": "memoire",
+   "nom": "Mémoire tentaculaire des fautes corrigées",
+   "fonction": "empêche la récidive des fautes déjà jugées (P2Y12, anaphylaxie, C4, ESE, FDA, rangs, title=)",
+   "entree": "cours HTML + memoire_fautes.json",
+   "sortie": "M1–M8 (agent, routées par tentacule)",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "récidive M1",
+     "M1"
+    ],
+    [
+     "récidive M2",
+     "M2"
+    ],
+    [
+     "récidive M3",
+     "M3"
+    ],
+    [
+     "récidive M4",
+     "M4"
+    ],
+    [
+     "récidive M5",
+     "M5"
+    ],
+    [
+     "récidive M6",
+     "M6"
+    ],
+    [
+     "récidive M7",
+     "M7"
+    ],
+    [
+     "récidive M8",
+     "M8"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "beb4621175e96dad137a471cc9343f274d5cadd35c3e72737e4b2a2fcb541c23",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s11_collecteur",
+   "fichier": "s11_collecteur.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "ENT",
+   "signal": "forme",
+   "nom": "Harnais externe de collecte",
+   "fonction": "garde l'entrée (tronqué, encodage, équilibre) et découpe le cours en 14 paquets transmis de nœud en nœud",
+   "entree": "fichier brut",
+   "sortie": "K1–K5 + paquets par point",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "fichier tronqué",
+     "K1"
+    ],
+    [
+     "balises déséquilibrées",
+     "K2"
+    ],
+    [
+     "encodage abîmé",
+     "K3"
+    ],
+    [
+     "aucun point",
+     "K4"
+    ],
+    [
+     "caractères de contrôle",
+     "K5"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "6ad7e2c37469ad6ee3e58d2eed4e09540d0d7019ad5844d33162658e59f2e615",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s12_ordonnanceur",
+   "fichier": "s12_ordonnanceur.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "BUS",
+   "signal": "doleance",
+   "nom": "Ordonnanceur anti-conflit",
+   "fonction": "un seul écrivain par zone (registre), confluence de tous les ordres, idempotence, écriture hors zone",
+   "entree": "cours HTML + registre",
+   "sortie": "O1–O4",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "deux écrivains sur une zone",
+     "O1"
+    ],
+    [
+     "duel d'écrivains",
+     "O2"
+    ],
+    [
+     "écrivain non idempotent",
+     "O3"
+    ],
+    [
+     "écrivain intrus",
+     "O4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "93026a34dad89cb9909e5b722c55b7bae5e36118ab56cac14f72e05d16f75b38",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s13_disjoncteur",
+   "fichier": "s13_disjoncteur.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "SEC",
+   "signal": "doleance",
+   "nom": "Disjoncteurs et ré-routage",
+   "fonction": "panne → disjoncteur ouvert → jumeau → escalade ; stagnation ; lenteur",
+   "entree": "cours HTML + pannes injectées",
+   "sortie": "Z1–Z4",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "panne (exception)",
+     "Z1"
+    ],
+    [
+     "contrat rompu",
+     "Z1"
+    ],
+    [
+     "panne sans jumeau",
+     "Z2"
+    ],
+    [
+     "lenteur",
+     "Z4"
+    ],
+    [
+     "stagnation",
+     "Z3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "625ea1f96d1d235ace7e9dffead10e9582d62cd33c2bb4286d53d2b4532ce18f",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s14_journal",
+   "fichier": "s14_journal.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "BUS",
+   "signal": "memoire",
+   "nom": "Journal de circulation",
+   "fonction": "intégrité du journal JSONL rejoué par la vue 3D (lignes tronquées, champs, types, rangs concurrents)",
+   "entree": "journal JSONL",
+   "sortie": "J1–J4 ; --appliquer : quarantaine",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [
+    "JOURNAL:quarantaine"
+   ],
+   "mutants": [
+    [
+     "ligne tronquée",
+     "J1"
+    ],
+    [
+     "champ absent",
+     "J2"
+    ],
+    [
+     "type inconnu",
+     "J3"
+    ],
+    [
+     "rang dupliqué",
+     "J4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/journal_dore.jsonl",
+   "sha256": "8898d791f22240bad54b1c9c353cd5744c2a24b06f45a3f990d88b1ad7835d30",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s15_gardien",
+   "fichier": "s15_gardien.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "SEC",
+   "signal": "doleance",
+   "nom": "Gardien d'intégrité",
+   "fonction": "empreintes SHA-256 des 160 scriptones et cohérence du registre",
+   "entree": "SHA256SUMS + registre",
+   "sortie": "G1–G4",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "empreinte altérée",
+     "G1"
+    ],
+    [
+     "fichier fantôme",
+     "G2"
+    ],
+    [
+     "fichier non listé",
+     "G3"
+    ],
+    [
+     "registre périmé",
+     "G4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "scriptones/SHA256SUMS",
+   "sha256": "f6ca1b2ef6e4053c35d92447439b296bca8226cdc7c9061a734a2739bbdf27fe",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s16_economie",
+   "fichier": "s16_economie.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "ECO",
+   "signal": "jetons",
+   "nom": "Économie de jetons par étage",
+   "fonction": "mesure relecture intégrale, paquets, doléances ; plafonds par nœud",
+   "entree": "cours HTML (+ doléances)",
+   "sortie": "W1–W3 + mesures de jetons",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "paquet trop lourd",
+     "W1"
+    ],
+    [
+     "fichier trop lourd",
+     "W2"
+    ],
+    [
+     "fichier hors bande",
+     "W3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "3999c578091cbe5d2de328ecd9c5624ab43f097607351bec449ec51795d80098",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s17_brief",
+   "fichier": "s17_brief.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "ENT",
+   "signal": "jetons",
+   "nom": "Compilateur de brief",
+   "fonction": "ce que l'agent reçoit : règle absolue, interdits, doléances [agent] par point, plafond",
+   "entree": "doléances → brief Markdown",
+   "sortie": "F1–F4 (contrôle du brief)",
+   "doleances_vial": [
+    3,
+    5
+   ],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "règle absolue retirée",
+     "F1"
+    ],
+    [
+     "interdit retiré",
+     "F2"
+    ],
+    [
+     "brief trop long",
+     "F3"
+    ],
+    [
+     "ligne mal formée",
+     "F4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/brief_dore.md",
+   "sha256": "8a4d4d87227c4943f18f9d9f1f9b70dde7da296f8f1c6e2bcb564fb625fe3b3b",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s18_vote",
+   "fichier": "s18_vote.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "BUS",
+   "signal": "doleance",
+   "nom": "Nœud de vote α/β",
+   "fonction": "compare les verdicts α et β par point et route les désaccords vers les nœuds Sonnet ou Opus",
+   "entree": "cours HTML",
+   "sortie": "X1–X2 + table de routage",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "faute vue par β seul",
+     "X1"
+    ],
+    [
+     "faute vue par α seul",
+     "X2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d9eda590199b4d1766de204d5c982ed8875c22ed02efec94f530c7da06985086",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s19_couverture",
+   "fichier": "s19_couverture.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "MEM",
+   "signal": "memoire",
+   "nom": "Couverture des fautes récurrentes",
+   "fonction": "classe le cumul des corrections (262 rapports) et vérifie qu'un scriptone empêche chaque famille de récidiver",
+   "entree": "cumul Markdown",
+   "sortie": "U1–U2 + table de couverture",
+   "doleances_vial": [],
+   "jumeau": null,
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "couverture retirée",
+     "U1"
+    ],
+    [
+     "cumul inconnu",
+     "U2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "DOSSIER_INGENIEUR/04_CUMUL_CORRECTIONS_AUDITEURS.md",
+   "sha256": "aea7f53fdf7268122252e00bd470574db3189f7ddafd2ec2666d5956bba7b610",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "s20_ancres",
+   "fichier": "s20_ancres.py",
+   "langage": "python",
+   "zone": "transversal",
+   "synapse": null,
+   "point": null,
+   "famille": null,
+   "region": "AUF",
+   "signal": "forme",
+   "nom": "Ancres et liens internes",
+   "fonction": "liens morts, cibles ambiguës, liens non sûrs (barre, exposants, bandes)",
+   "entree": "cours HTML",
+   "sortie": "Y1–Y3",
+   "doleances_vial": [
+    7
+   ],
+   "jumeau": "s6_barre14",
+   "cout_jetons": 0,
+   "etat": "implémenté",
+   "ecrit": [],
+   "mutants": [
+    [
+     "lien mort",
+     "Y1"
+    ],
+    [
+     "cible en double",
+     "Y2"
+    ],
+    [
+     "lien non sûr",
+     "Y3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2890f4bdf6e0e1211d94e1fdbc8a605fe46fc7c226bc5a955903db9d19eb448b",
+   "test": "test_scriptones.py · test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a01_S",
+   "fichier": "alpha/a01_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α1",
+   "point": 1,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 1",
+   "fonction": "structure du point",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b01_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P1:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : arbre de classification (amendement de Vial)",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "970da4230660fe889a6a46fc90f8acca336934fa56638f3f8bae839a3374d0e3",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a01_R",
+   "fichier": "alpha/a01_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α1",
+   "point": 1,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 1",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b01_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P1:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "31660ca7631def66ca9e676446a0999b438a9dd354f1996317c7e2b142c5e787",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a01_H",
+   "fichier": "alpha/a01_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α1",
+   "point": 1,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 1",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b01_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "92a1664c29304dbcfae3ba39f169fff6ea060df75326f9aade187f0b703c6cbd",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a01_Q",
+   "fichier": "alpha/a01_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α1",
+   "point": 1,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 1",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b01_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2ef05616a172df60ab8856586906debf541c8fc7622bb17a259cb8d6a03a8545",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a01_D",
+   "fichier": "alpha/a01_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α1",
+   "point": 1,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 1",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b01_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "775bfa129e20156e161ff328bd5b3d917aa022cf608b23acd33e081baf7d184b",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a02_S",
+   "fichier": "alpha/a02_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α2",
+   "point": 2,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 2",
+   "fonction": "structure du point",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b02_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P2:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : chiffre épidémiologique (%, pour 1 000 ou pour 100 000)",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "7cc22c5fdb2c0c256c839f69d213a3d9035c98f3b18d65efc9796719ef99bc2e",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a02_R",
+   "fichier": "alpha/a02_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α2",
+   "point": 2,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 2",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b02_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P2:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "ff93fbe9313578f4e5ce36adbc8669c8014d14d5d8a44b44223cc6d37a0e6522",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a02_H",
+   "fichier": "alpha/a02_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α2",
+   "point": 2,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 2",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b02_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f1257dfef04c55c15396d624dd973dcf9ee28c3557a6ff9b15b1adc62312f2fe",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a02_Q",
+   "fichier": "alpha/a02_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α2",
+   "point": 2,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 2",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [
+    4
+   ],
+   "jumeau": "b02_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P2:blocs"
+   ],
+   "mutants": [
+    [
+     "bloc scindé en lignes",
+     "AQ1"
+    ],
+    [
+     "étiquette en tête",
+     "AQ2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b3ada4bb64303c402b31912640f5b24e3e2d63b0847b08be2eaad10f1db5b665",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a02_D",
+   "fichier": "alpha/a02_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α2",
+   "point": 2,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 2",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b02_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b5722ee99f9883893814895a594be857e8dae1ac1d42172b8fcfb5b2f971dcd2",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a03_S",
+   "fichier": "alpha/a03_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α3",
+   "point": 3,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 3",
+   "fonction": "structure du point",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b03_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P3:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : tableau de corrélation lésion → exploration → thérapeutique (Q3.4)",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "0bc8c261d07fdc83ecc881f1292ba40cac9545912c40362f65ddcaa7a18a8a74",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a03_R",
+   "fichier": "alpha/a03_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α3",
+   "point": 3,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 3",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b03_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P3:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c2e0cbfa8c6a9ff287307187dd7da92237bcdf8e568d41e9b9a7413c53f0c98e",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a03_H",
+   "fichier": "alpha/a03_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α3",
+   "point": 3,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 3",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b03_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "946d1d9b290ffc2002f59895c13c1449ef19fb3538bf696580536d88ad50f6ef",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a03_Q",
+   "fichier": "alpha/a03_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α3",
+   "point": 3,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 3",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b03_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d14f4c7475b500e8d997641e1cfa08a9f0d223304d991543ec98867563a5db21",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a03_D",
+   "fichier": "alpha/a03_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α3",
+   "point": 3,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 3",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b03_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "ccbef9553abb7d3e351e11036f9147f4c173f70d62738ccad9c7b32a0a87cb9e",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a04_S",
+   "fichier": "alpha/a04_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α4",
+   "point": 4,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 4",
+   "fonction": "structure du point",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b04_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P4:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : drapeaux rouges cités",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "8a7dc3c240994f8a9835aa84f6dfcb623638eeeb1d3230f560eeebb419f61ed7",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a04_R",
+   "fichier": "alpha/a04_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α4",
+   "point": 4,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 4",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b04_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P4:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "9312ef9e0679d9eff7c00b32826ca6a6b05180c53badf7412b4691de6c024c1c",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a04_H",
+   "fichier": "alpha/a04_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α4",
+   "point": 4,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 4",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b04_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2ae18d9400b4eef37b2db6a5c85e60477b3480afc90a57ddd004df5b73ce7707",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a04_Q",
+   "fichier": "alpha/a04_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α4",
+   "point": 4,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 4",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b04_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c83127be49f6f8928b510bfe442335a7ab61f6463ddd44b9d31602cc7daf28e2",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a04_D",
+   "fichier": "alpha/a04_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α4",
+   "point": 4,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 4",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b04_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "207b0800ecafc1a4fa6edf2e98252acc3952c2c2d4fd4407ed4f507ccf71eac1",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a05_S",
+   "fichier": "alpha/a05_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α5",
+   "point": 5,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 5",
+   "fonction": "structure du point",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b05_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P5:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : drapeaux rouges actionnables",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "fd3804dab54de12a469456ecbd0cc2af0cb142da1de6da808b93f95d4dfd9522",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a05_R",
+   "fichier": "alpha/a05_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α5",
+   "point": 5,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 5",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b05_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P5:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a092ef8cdd55daf3c3d6fac0997c859311e69a25a075378d692b722343ab9925",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a05_H",
+   "fichier": "alpha/a05_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α5",
+   "point": 5,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 5",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b05_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "76a9f49f690c0a4d79b3b355b5a61179fc64be4e5730a06999793f2d4dfbdb09",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a05_Q",
+   "fichier": "alpha/a05_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α5",
+   "point": 5,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 5",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b05_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f6beb82c7160b24e3ab758a82f08dc2a83f52629edb68ba4a00a181d9684b411",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a05_D",
+   "fichier": "alpha/a05_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α5",
+   "point": 5,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 5",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b05_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "5404f525a8ec748640f0bdf015147b269947c2fbe81eae8f818cd0359fdac429",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a06_S",
+   "fichier": "alpha/a06_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α6",
+   "point": 6,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 6",
+   "fonction": "structure du point",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b06_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P6:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "78c6b27cbcc45e838832a0c5f4b64f5cbbceb0dc8d6270252dc999aed194fc14",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a06_R",
+   "fichier": "alpha/a06_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α6",
+   "point": 6,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 6",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b06_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P6:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "8e1171683b6ab9f9b66e5451ea3d4c9c46732c00f707a40b473036fe6caefd8f",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a06_H",
+   "fichier": "alpha/a06_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α6",
+   "point": 6,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 6",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b06_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2ed011839bc252c414b0a74daf667051686a085de7d040b1f8e00c1fabf91cca",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a06_Q",
+   "fichier": "alpha/a06_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α6",
+   "point": 6,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 6",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b06_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f77037d1c615f8a53791d0910dc43d4cdabddfaa7f00f4d49d61241f71259e8b",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a06_D",
+   "fichier": "alpha/a06_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α6",
+   "point": 6,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 6",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b06_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "971d91eb9ca155f08e0ba4c3bfde62a734f7600e285de991e14a7c699736a6fe",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a07_S",
+   "fichier": "alpha/a07_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α7",
+   "point": 7,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 7",
+   "fonction": "structure du point",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b07_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P7:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : syndromes numérotés (7.1, 7.2…)",
+     "AS4"
+    ],
+    [
+     "requis absent : signes fonctionnels",
+     "AS4"
+    ],
+    [
+     "requis absent : signes physiques",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f079b6565f9165800efbe72cfa9cf34e8c7e9c8d2a526ac63acc37c85d64e27e",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a07_R",
+   "fichier": "alpha/a07_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α7",
+   "point": 7,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 7",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b07_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P7:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b8e23840dfba2c26fad496124ba1da407cd9109388528b800bcbc070f7da02ca",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a07_H",
+   "fichier": "alpha/a07_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α7",
+   "point": 7,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 7",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b07_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c3d45f3bb9e424ea19a9a954eb3fe7efcb7a7506c8f7324e3f166b6b055eca67",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a07_Q",
+   "fichier": "alpha/a07_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α7",
+   "point": 7,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 7",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b07_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "5fd2bdfaf52e28fcf08d34f3f72e6c2e61479f257051cadd451c719d8f093da1",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a07_D",
+   "fichier": "alpha/a07_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α7",
+   "point": 7,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 7",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b07_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "e8e737326ee473a0a609345d0631ba1ce7b04b4b6eabebb664e3ebe079677b12",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a08_S",
+   "fichier": "alpha/a08_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α8",
+   "point": 8,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 8",
+   "fonction": "structure du point",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b08_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P8:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : critères datés (société savante, année)",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "3bf234e530ee443751b28f345af9ce1e21326a75f9a58b17e30d10841dcb7a8f",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a08_R",
+   "fichier": "alpha/a08_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α8",
+   "point": 8,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 8",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b08_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P8:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "cadd80f551b033fad5111e0e5a83e8a15255fef331b289c43638cdbbe88c9a57",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a08_H",
+   "fichier": "alpha/a08_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α8",
+   "point": 8,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 8",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b08_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d89c5a7fbd82eaa8c537b297f09978ac5e0fad28b3e42e976acedac4a5e7f5d6",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a08_Q",
+   "fichier": "alpha/a08_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α8",
+   "point": 8,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 8",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b08_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "1e7331c811b5d280fe0750cb72bc157de0a5b5575a0f54b2f33084b6a82c9c5b",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a08_D",
+   "fichier": "alpha/a08_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α8",
+   "point": 8,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 8",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b08_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "6dacca55c0df34550b1743774ac3263d33b8d613ac09b4a63c7786664c9d3c40",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a09_S",
+   "fichier": "alpha/a09_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α9",
+   "point": 9,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 9",
+   "fonction": "structure du point",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b09_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P9:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : 9.a gold standard ou examen de référence",
+     "AS4"
+    ],
+    [
+     "requis absent : 9.b première intention",
+     "AS4"
+    ],
+    [
+     "requis absent : tableau d'interprétation (Q9.4)",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "4d2993b7aa13324297bcd9ccafc819c8e182d6cdea4d51496ce0ebbdecb242c6",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a09_R",
+   "fichier": "alpha/a09_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α9",
+   "point": 9,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 9",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b09_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P9:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b4fad510ce7609de6034d8fc0eff587216a1309f7c1be21a5184b54f422bf506",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a09_H",
+   "fichier": "alpha/a09_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α9",
+   "point": 9,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 9",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b09_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a9645da0973dd66a7d4f16d12e662b9a63bf837af0d7d142d986c26fe0a73e25",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a09_Q",
+   "fichier": "alpha/a09_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α9",
+   "point": 9,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 9",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b09_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "79efe8e17827d9a17743cdea056ff2fbb0b9bb941a4e2d79efc50b89949882d7",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a09_D",
+   "fichier": "alpha/a09_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α9",
+   "point": 9,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 9",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b09_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "3af80f6b396b1902f9300a9fff5571a08c45b2273c16c84c43fcd7dd98a0b1ba",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a10_S",
+   "fichier": "alpha/a10_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α10",
+   "point": 10,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 10",
+   "fonction": "structure du point",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b10_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P10:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : embranchements « si … → … »",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "10f06701f5b0d479c298e8e4b74ffc5b215a83093ec51e7d985092e6fd9da419",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a10_R",
+   "fichier": "alpha/a10_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α10",
+   "point": 10,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 10",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b10_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P10:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "9611b8a738142ea7b59a94a834352d2e396c439af7a9bb985c836a56c0ab1c30",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a10_H",
+   "fichier": "alpha/a10_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α10",
+   "point": 10,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 10",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b10_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a24895711d5e94ca1807c5fea4d149aac20b4caa1eeadd7bff9c3fe2c7ecbf24",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a10_Q",
+   "fichier": "alpha/a10_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α10",
+   "point": 10,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 10",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b10_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "8e9fc4c044cd840f0f00b1bf2f67c173442d778c48c8dd248457007fd0aa3bff",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a10_D",
+   "fichier": "alpha/a10_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α10",
+   "point": 10,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 10",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b10_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "4fc570fd66cef84676134690b272fb77aa03216b923da21d4dfecca90122ba13",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a11_S",
+   "fichier": "alpha/a11_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α11",
+   "point": 11,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 11",
+   "fonction": "structure du point",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b11_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P11:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : 11.A But",
+     "AS4"
+    ],
+    [
+     "requis absent : 11.B Moyens",
+     "AS4"
+    ],
+    [
+     "requis absent : 11.C Surveillance",
+     "AS4"
+    ],
+    [
+     "requis absent : 11.D Pronostic",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "4f51615e89c72b637418f95d92cd27d69245ba512e23b9bf3a391c26cc85bff4",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a11_R",
+   "fichier": "alpha/a11_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α11",
+   "point": 11,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 11",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b11_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P11:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ],
+    [
+     "dose à vérifier",
+     "AR3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "fad97974318a9224c51d054c20c15e4cd3dfce3be9ffad7b9e7a2edd0861fcc8",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a11_H",
+   "fichier": "alpha/a11_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α11",
+   "point": 11,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 11",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b11_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "fb1c312db17d14e5c028427ca617ae9905f0550e9ba309b37be2bd0ac2d94298",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a11_Q",
+   "fichier": "alpha/a11_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α11",
+   "point": 11,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 11",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b11_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "dfb8cd523689be83b24b5c8307b04956054f4000a45688f983b47552822abb1d",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a11_D",
+   "fichier": "alpha/a11_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α11",
+   "point": 11,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 11",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b11_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "625e8c0a2672aee1de5983484e851f2b782bb0dfe84186b4d235a571f37341b6",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a12_S",
+   "fichier": "alpha/a12_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α12",
+   "point": 12,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 12",
+   "fonction": "structure du point",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b12_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P12:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : prévention primaire",
+     "AS4"
+    ],
+    [
+     "requis absent : prévention secondaire",
+     "AS4"
+    ],
+    [
+     "requis absent : prévention tertiaire",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f8cc2fc4016e5ab2fd4521cd3d10d39ca493c8071e2043b8409f9b49f120a5ad",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a12_R",
+   "fichier": "alpha/a12_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α12",
+   "point": 12,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 12",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b12_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P12:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "6f3beee2fdb4d9eb603804385ef09d1aca1f9281aa69457e52c8b3331fb70685",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a12_H",
+   "fichier": "alpha/a12_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α12",
+   "point": 12,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 12",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b12_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b7147b2a2622b0c466078ac515d7e5588ce04d8b48f715cac80c910b29c38056",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a12_Q",
+   "fichier": "alpha/a12_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α12",
+   "point": 12,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 12",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b12_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "5cda7a879fe976c91f3e093fde4619e580a65088b2373431c63f67b95106fe9a",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a12_D",
+   "fichier": "alpha/a12_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α12",
+   "point": 12,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 12",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b12_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b8b96656aa94aeff21f611bce63864b3c69a0f4fe6ed1dcd28851658656142ac",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a13_S",
+   "fichier": "alpha/a13_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α13",
+   "point": 13,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 13",
+   "fonction": "structure du point",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b13_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P13:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a9ac12921043bc18c0291edf4eeb4c676904e47303c96526aaac703ae8fa7ed9",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a13_R",
+   "fichier": "alpha/a13_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α13",
+   "point": 13,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 13",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b13_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P13:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a04ca796937d33e5cf55fba076719a9ede9f9e82bcb16592806772e7886b2088",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a13_H",
+   "fichier": "alpha/a13_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α13",
+   "point": 13,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 13",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b13_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "83203586e9286af960f131fbfc2efefa53721a597f7dea101d0634de67ff3108",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a13_Q",
+   "fichier": "alpha/a13_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α13",
+   "point": 13,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 13",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b13_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "trop de points clés",
+     "AQ3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2599ef926b79e8fff0485a427d71d207f50bd09e7093f4e1c4ef5f4b8055e5b1",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a13_D",
+   "fichier": "alpha/a13_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α13",
+   "point": 13,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 13",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b13_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "fenêtre dans un point clé",
+     "AD3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "60a0966433b71de714161f1b076172e101e3cabfcf5b58f4c005ea6f1d9d7293",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a14_S",
+   "fichier": "alpha/a14_S.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α14",
+   "point": 14,
+   "famille": "S",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "structure du point · point 14",
+   "fonction": "structure du point",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "AS1 absent · AS2 titre sans gras · AS3 doublon · AS4 élément requis absent · AS5 ordre",
+   "doleances_vial": [],
+   "jumeau": "b14_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P14:titre"
+   ],
+   "mutants": [
+    [
+     "point absent",
+     "AS1"
+    ],
+    [
+     "titre sans gras",
+     "AS2"
+    ],
+    [
+     "point en double",
+     "AS3"
+    ],
+    [
+     "requis absent : question d'examen",
+     "AS4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f3c716d09331d2d873f420fb9655a131198ef35dbbed937e25797b9c69a999a8",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a14_R",
+   "fichier": "alpha/a14_R.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α14",
+   "point": 14,
+   "famille": "R",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "récit négatif interdit · point 14",
+   "fonction": "récit négatif interdit",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "AR1 phrase d'absence pure (supprimée par script) · AR2 phrase mixte · AR3 dose « à vérifier » · AR4 dans une fenêtre",
+   "doleances_vial": [
+    5
+   ],
+   "jumeau": "b14_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P14:absence"
+   ],
+   "mutants": [
+    [
+     "phrase d'absence pure",
+     "AR1"
+    ],
+    [
+     "phrase porteuse avec absence",
+     "AR2"
+    ],
+    [
+     "absence dans une fenêtre",
+     "AR4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "bc60618fec588b4afd542b76f2bbb3deaf35d6c41c9675abc769f49436bb60df",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a14_H",
+   "fichier": "alpha/a14_H.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α14",
+   "point": 14,
+   "famille": "H",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "phrases verbales et longueur · point 14",
+   "fonction": "phrases verbales et longueur",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "AH1 phrase nominale · AH2 phrase de plus de 35 mots",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b14_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "phrase nominale",
+     "AH1"
+    ],
+    [
+     "phrase trop longue",
+     "AH2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c8864bc557a370937849c5c7fd345f2992143625e9f8bea71ba8f77b09f04be4",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a14_Q",
+   "fichier": "alpha/a14_Q.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α14",
+   "point": 14,
+   "famille": "Q",
+   "region": "ALP",
+   "signal": "forme",
+   "nom": "continuité du texte (bloc, lignes séparées, nombre de phrases) · point 14",
+   "fonction": "continuité du texte (bloc, lignes séparées, nombre de phrases)",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "AQ1 lignes séparées (bloc exigé) · AQ2 étiquette en tête de phrase · AQ3 nombre de phrases hors bornes · AQ4 texte haché",
+   "doleances_vial": [],
+   "jumeau": "b14_X",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "texte haché",
+     "AQ4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2014e4a4d4cedb88e2626b00aa401c556d56b6ae1f230c9917c2ad83796824fd",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "a14_D",
+   "fichier": "alpha/a14_D.py",
+   "langage": "python",
+   "zone": "alpha",
+   "synapse": "α14",
+   "point": 14,
+   "famille": "D",
+   "region": "ALP",
+   "signal": "langue",
+   "nom": "termes dédiés et absence de méta-conception · point 14",
+   "fonction": "termes dédiés et absence de méta-conception",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "AD1 mention de conception · AD2 termes cliquables insuffisants · AD3 fenêtre qui coupe une phrase porteuse · AD4 mot cliquable dans le titre",
+   "doleances_vial": [
+    3
+   ],
+   "jumeau": "b14_L",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "mention de conception",
+     "AD1"
+    ],
+    [
+     "mot cliquable dans le titre",
+     "AD4"
+    ],
+    [
+     "termes rendus muets",
+     "AD2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "6017ad49cbc6a0a15de1fa77705b26e5daeecbf76118d1dcc5001ab9554632f0",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b01_X",
+   "fichier": "beta/b01_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β1",
+   "point": 1,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 1",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a01_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : définition (verbe définitoire)",
+     "BX2"
+    ],
+    [
+     "notion retirée : distinction des notions voisines (Q1.3)",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "e288c6cacd2d119b41c5e6b643db68458393aee242509004906d44e95a7ff35f",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b01_C",
+   "fichier": "beta/b01_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β1",
+   "point": 1,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 1",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a01_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P1:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "be0d0990242385066ed02474c6d3c466ea1568d1a7c7331d13da70761cad7b6d",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b01_S",
+   "fichier": "beta/b01_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β1",
+   "point": 1,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 1",
+   "fonction": "sources du point",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a01_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "1e2e924d6a5a8d49b8ec4a6197466f7ccddae3819590ca97e256236cbbe4d868",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b01_M",
+   "fichier": "beta/b01_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β1",
+   "point": 1,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 1",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a01_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α1·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α1·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α1·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α1·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α1·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "8c6635dcaa98731a99a0dd5f3ea6a05f1d6e7990f7ad381f8f0173518ea72faa",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b01_L",
+   "fichier": "beta/b01_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β1",
+   "point": 1,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 1",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 1 « Définition »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a01_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P1:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "64326fc2a373c8c57645b391d38823a64b58d95f1810ebb998ba0edd3aca8b65",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b02_X",
+   "fichier": "beta/b02_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β2",
+   "point": 2,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 2",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a02_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : prévalence, incidence ou fréquence chiffrée",
+     "BX2"
+    ],
+    [
+     "notion retirée : âge, sexe ou groupe à risque",
+     "BX2"
+    ],
+    [
+     "notion retirée : géographie suisse ou européenne",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "e65ad5c27c4e4b3595b875d251bb5ee24dcfd55f7e60a972cfb8839a135d6f16",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b02_C",
+   "fichier": "beta/b02_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β2",
+   "point": 2,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 2",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a02_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P2:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "008f5dea55ac7babfed4b00a7ba33559ce841a865cf6f0260bc9ccb42f323119",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b02_S",
+   "fichier": "beta/b02_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β2",
+   "point": 2,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 2",
+   "fonction": "sources du point",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a02_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "78975a41b63c42e43f812527b83d4eef4e40a8db0ff2986c3a867dc8747f0317",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b02_M",
+   "fichier": "beta/b02_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β2",
+   "point": 2,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 2",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a02_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α2·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α2·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α2·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α2·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α2·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "ebb74cc156cb23e08dfa6ac5227a8449066abbb524a86f7ed2e51e2c2a467b7e",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b02_L",
+   "fichier": "beta/b02_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β2",
+   "point": 2,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 2",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 2 « Épidémiologie »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a02_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P2:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "ebd75847fdee60afcc2870b6501e44eef8c4b7eca8f19e9a3c198f7d14fa85b5",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b03_X",
+   "fichier": "beta/b03_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β3",
+   "point": 3,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 3",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a03_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : mécanisme causal",
+     "BX2"
+    ],
+    [
+     "notion retirée : lien avec le traitement (Q3.3)",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "7c521a4e57de4b1735ddb393e162873078bfd65af9230fd19860ee9fbfd587e5",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b03_C",
+   "fichier": "beta/b03_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β3",
+   "point": 3,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 3",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a03_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P3:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "1d77e5325c8d47652c2c755dbf9e5fb72d4e7a9d4960be420f6dff72b391d12b",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b03_S",
+   "fichier": "beta/b03_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β3",
+   "point": 3,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 3",
+   "fonction": "sources du point",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a03_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "3ab36b68cb97784a4ed1e5b6af522d48f8e9662b994990776fc63e63b7de3fef",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b03_M",
+   "fichier": "beta/b03_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β3",
+   "point": 3,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 3",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a03_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α3·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α3·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α3·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α3·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α3·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f390081466f337ac19e5f5274b79124ede706add199b03b35be018716cd649f5",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b03_L",
+   "fichier": "beta/b03_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β3",
+   "point": 3,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 3",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 3 « Physiopathologie »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a03_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P3:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "789ce37525a5a96f1408d930b0c773fbfb032c91593c25b82cecc109d1f0dbdb",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b04_X",
+   "fichier": "beta/b04_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β4",
+   "point": 4,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 4",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a04_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : hypothèses graves d'abord",
+     "BX2"
+    ],
+    [
+     "notion retirée : signe ou examen qui tranche",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2b215f536d8427857319776c702ac375e3403d3ba30b83d97787a802e71b39e8",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b04_C",
+   "fichier": "beta/b04_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β4",
+   "point": 4,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 4",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a04_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P4:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "951746476094d6ed7b745981c2f511dd3aa802db3b353a2b9ac033437007a923",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b04_S",
+   "fichier": "beta/b04_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β4",
+   "point": 4,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 4",
+   "fonction": "sources du point",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a04_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a893f94220aeb3f1245b10acd45fe2c8f2b19b567746b5265c8e17946e158b4c",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b04_M",
+   "fichier": "beta/b04_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β4",
+   "point": 4,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 4",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a04_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α4·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α4·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α4·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α4·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α4·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "7d1bd2cdc639f0ccba990d342aa93577d9e8e7e3a1e5904bb4cac7f2a0cb4651",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b04_L",
+   "fichier": "beta/b04_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β4",
+   "point": 4,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 4",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 4 « Démarche »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a04_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P4:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c2285b95a8e420c84a415684e4e3138fc7e722f51260a805120bc864b9af92a6",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b05_X",
+   "fichier": "beta/b05_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β5",
+   "point": 5,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 5",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a05_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : question et sa raison (Q5.1)",
+     "BX2"
+    ],
+    [
+     "notion retirée : drapeaux rouges",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "02456ec6419e8b352aedda2cce555cd8733cff2f75e8554ada3fbee07ac173bd",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b05_C",
+   "fichier": "beta/b05_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β5",
+   "point": 5,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 5",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a05_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P5:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "3757d8cb0a5e40cc53d431e22827704237d4d053fba44234597fa009715e82af",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b05_S",
+   "fichier": "beta/b05_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β5",
+   "point": 5,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 5",
+   "fonction": "sources du point",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a05_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "85335c2847733065456504c72d31363d547349111aca3170a8e930a498104b35",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b05_M",
+   "fichier": "beta/b05_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β5",
+   "point": 5,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 5",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a05_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α5·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α5·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α5·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α5·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α5·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f43c988396ece8032250366ab222eeddf80c34d89a6f95005c35b9531446dca4",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b05_L",
+   "fichier": "beta/b05_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β5",
+   "point": 5,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 5",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 5 « Anamnèse »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a05_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P5:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b5e84356df03ef5fe3045a07f64003c13836fcee33fec2931d8c67d08f4d917f",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b06_X",
+   "fichier": "beta/b06_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β6",
+   "point": 6,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 6",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a06_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : technique du geste (Q6.2)",
+     "BX2"
+    ],
+    [
+     "notion retirée : normal avant le pathologique (Q6.1)",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b97389aecf2cb349dbc0b4bd31789fe3a84350340e21d34200b14488e9d26da7",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b06_C",
+   "fichier": "beta/b06_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β6",
+   "point": 6,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 6",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a06_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P6:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "eca794ee74e97588a6bc93dc8a64197f82cb66b1adb74ec75c8ec9f86e7ff15c",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b06_S",
+   "fichier": "beta/b06_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β6",
+   "point": 6,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 6",
+   "fonction": "sources du point",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a06_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "43d8da70f165244706a9cb8f1cd9aabe06dc3d4f6314e70b86821f640c403609",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b06_M",
+   "fichier": "beta/b06_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β6",
+   "point": 6,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 6",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a06_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α6·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α6·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α6·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α6·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α6·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c271d50d0dc7217cafede627f0653517b7bacd09341151746eba1905155eaee7",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b06_L",
+   "fichier": "beta/b06_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β6",
+   "point": 6,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 6",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 6 « Examen »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a06_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P6:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f1addf5ad3040be4fa1f030afc6ce274a061526d9481429eff4f64a6e36a3dc7",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b07_X",
+   "fichier": "beta/b07_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β7",
+   "point": 7,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 7",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a07_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : signes fonctionnels",
+     "BX2"
+    ],
+    [
+     "notion retirée : signes physiques",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "e1e39b1e9f0da0ad2497a5ff9b11fda32ecbe3e1a4d9dbde206382b03537a22d",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b07_C",
+   "fichier": "beta/b07_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β7",
+   "point": 7,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 7",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a07_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P7:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "92b9a4afdd2820e4b9fbc34e2ba3bae60798ef264997ab017255bc0b74a8d04a",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b07_S",
+   "fichier": "beta/b07_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β7",
+   "point": 7,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 7",
+   "fonction": "sources du point",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a07_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "211410a18ef6cd0f9d840b1ad1b0b81c8b6cbcb05cf7b935231f1ec20deee477",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b07_M",
+   "fichier": "beta/b07_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β7",
+   "point": 7,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 7",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a07_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α7·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α7·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α7·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α7·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α7·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "14745f1f4d6e90594c3e8fe60908f3305471585a5d48fa9c063f80de08d8d180",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b07_L",
+   "fichier": "beta/b07_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β7",
+   "point": 7,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 7",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 7 « Syndromes »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a07_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P7:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "fd77137a5da21e99cba8556341d8c14ea90d295426b5dcb41306c7476e846d87",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b08_X",
+   "fichier": "beta/b08_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β8",
+   "point": 8,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 8",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a08_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : critère ou seuil",
+     "BX2"
+    ],
+    [
+     "notion retirée : ce qui ne suffit pas (Q8.2)",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "b74c7a45ecf9848d8f8c3fd317a41ef4e8212b89afe31957b73abf261ef67d91",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b08_C",
+   "fichier": "beta/b08_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β8",
+   "point": 8,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 8",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a08_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P8:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "90a8ad5e3871de8970a55e0a1ae6dad0a3b7d9993078ff30c93193cb627be604",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b08_S",
+   "fichier": "beta/b08_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β8",
+   "point": 8,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 8",
+   "fonction": "sources du point",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a08_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "9d1cfab075511ccf1dfa5f57ba6c281f46d46c23dc7b5c85a0344d4ae382a473",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b08_M",
+   "fichier": "beta/b08_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β8",
+   "point": 8,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 8",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a08_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α8·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α8·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α8·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α8·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α8·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "947c9ee7b98005641f84cd648adba516090c26a5148b1d4f3a8966b396a09765",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b08_L",
+   "fichier": "beta/b08_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β8",
+   "point": 8,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 8",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 8 « Diagnostic positif »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a08_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P8:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "647101eede71b7a785d41ddb86a87b700440077ec20bc7c427de4bf31dc5daf2",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b09_X",
+   "fichier": "beta/b09_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β9",
+   "point": 9,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 9",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a09_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : valeur diagnostique ou référence",
+     "BX2"
+    ],
+    [
+     "notion retirée : interprétation selon le résultat",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "3bd5e2ce726e4dcbfc77ab806868570e19495814b845a23f692c0827c7aaa065",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b09_C",
+   "fichier": "beta/b09_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β9",
+   "point": 9,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 9",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a09_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P9:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "f296bb415ff71af1b714261a1fd43307006f82321738dbcd6b9ab3fc4d6f6d1d",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b09_S",
+   "fichier": "beta/b09_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β9",
+   "point": 9,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 9",
+   "fonction": "sources du point",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a09_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a4feb6ad7d656a559baa7a6df5e2727c138b1939cc2034a739a928505ed44942",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b09_M",
+   "fichier": "beta/b09_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β9",
+   "point": 9,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 9",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a09_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α9·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α9·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α9·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α9·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α9·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "a9bf4e89f7e909370954583d80fced8ff7520244db083013f4970e719a6141dd",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b09_L",
+   "fichier": "beta/b09_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β9",
+   "point": 9,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 9",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 9 « Examens »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a09_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P9:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d7c2979084cb8a4e204b7996ca235b927c33569922878bbfaab68d37075a4331",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b10_X",
+   "fichier": "beta/b10_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β10",
+   "point": 10,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 10",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a10_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : décision au bout de chaque branche",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "88760bbb277e9e0a28ba5343898dc0a959b81eb756f96749b502240bf86db8de",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b10_C",
+   "fichier": "beta/b10_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β10",
+   "point": 10,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 10",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a10_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P10:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "6b0d80ef45e9b7c89530f7ba766f9b496e28e49b420b7a70ef5cbb5332ed3943",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b10_S",
+   "fichier": "beta/b10_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β10",
+   "point": 10,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 10",
+   "fonction": "sources du point",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a10_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "1b0191448578ad61dbe9fb65c1d9e951e25b26789d01bced4659182f6d2ef967",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b10_M",
+   "fichier": "beta/b10_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β10",
+   "point": 10,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 10",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a10_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α10·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α10·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α10·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α10·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α10·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "73677a03e39e197b13d0482d38cec5054a05738071977d63686a534cee9c16c3",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b10_L",
+   "fichier": "beta/b10_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β10",
+   "point": 10,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 10",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 10 « Arbre »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a10_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P10:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "06226a41a31a6fbc51c33f7ff1f6796447293dddfccf39e3475ffa7cf3d53367",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b11_X",
+   "fichier": "beta/b11_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β11",
+   "point": 11,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 11",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a11_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : but thérapeutique (11.A)",
+     "BX2"
+    ],
+    [
+     "notion retirée : surveillance (11.C)",
+     "BX2"
+    ],
+    [
+     "notion retirée : situations spéciales (grossesse, sujet âgé, enfant, rein, foie)",
+     "BX2"
+    ],
+    [
+     "notion retirée : pronostic ou sortie (11.D)",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "1d99ee7b13586989a1de2e498b9b8cd17cc28892334cd0ddc7d36baebf3dc9ff",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b11_C",
+   "fichier": "beta/b11_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β11",
+   "point": 11,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 11",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a11_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P11:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "aa3f48bb71e02719248bfcdd7517d241b13fea0d7c5283ee9ffd537a9be61a42",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b11_S",
+   "fichier": "beta/b11_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β11",
+   "point": 11,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 11",
+   "fonction": "sources du point",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a11_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ],
+    [
+     "dose sans source",
+     "BS3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "57ae2fb2442993c4f0b3bb4cff8484df5d58e4016a5c529fef818c7bada4e7a7",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b11_M",
+   "fichier": "beta/b11_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β11",
+   "point": 11,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 11",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a11_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α11·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α11·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α11·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α11·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α11·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "4929cc0eba7cf85f9e49de4c89a784ce74d8e6470aaeced8e1e62805687f95e5",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b11_L",
+   "fichier": "beta/b11_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β11",
+   "point": 11,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 11",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 11 « Prise en charge »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a11_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P11:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d109e05446c0575bb8a66110d9c5eddf38f2318149919bbf4116bda0ce4b4102",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b12_X",
+   "fichier": "beta/b12_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β12",
+   "point": 12,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 12",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a12_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : mesure concrète (vaccin, dépistage, éducation, réadaptation)",
+     "BX2"
+    ],
+    [
+     "notion retirée : population cible",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "be2b88e483b5da79eefd2db81d515ac9004764e1a612f4ccb239ee6d3855c43b",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b12_C",
+   "fichier": "beta/b12_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β12",
+   "point": 12,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 12",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a12_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P12:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "c1516d334ce3e2b3be28569fb70f03745efd4d82ff96a5c97fad2ac854cdbc92",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b12_S",
+   "fichier": "beta/b12_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β12",
+   "point": 12,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 12",
+   "fonction": "sources du point",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a12_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "9eff1691be958a22096f812199321130e142b910a97552c26872e317df9e3368",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b12_M",
+   "fichier": "beta/b12_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β12",
+   "point": 12,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 12",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a12_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α12·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α12·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α12·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α12·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α12·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "83f2c4dce53e35030cc7aa8e7a532eb590988c4416c080469293209316b63a46",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b12_L",
+   "fichier": "beta/b12_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β12",
+   "point": 12,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 12",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 12 « Prévention »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a12_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P12:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "bb32ad190485549d304235627b0c7032a3cc1bb3ae24684deedda1dd3eeb82e8",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b13_X",
+   "fichier": "beta/b13_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β13",
+   "point": 13,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 13",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a13_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "793a891834facd7c44edfaf6cddd07a4f7e7959785b57678390dde586ae5b88c",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b13_C",
+   "fichier": "beta/b13_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β13",
+   "point": 13,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 13",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a13_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P13:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ],
+    [
+     "chiffre hors du corps",
+     "BC3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d1328166b9746030b911b52e23694b6d5c28e588b1be2b1c4c0ad90f929bc5f4",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b13_S",
+   "fichier": "beta/b13_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β13",
+   "point": 13,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 13",
+   "fonction": "sources du point",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a13_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "8ea9d6f9e5564c9a53bd854a2d50e0e6c6458bfebd73abbb7109044212b32292",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b13_M",
+   "fichier": "beta/b13_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β13",
+   "point": 13,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 13",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a13_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α13·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α13·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α13·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α13·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α13·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "e48ef4b21b721750542d019274009084ff4a6a90c43fafe5184abeaf98275403",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b13_L",
+   "fichier": "beta/b13_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β13",
+   "point": 13,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 13",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 13 « Points clés »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a13_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P13:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "38ee421d511a66c2cd6c85fdd5291cdda8dd9a5b8404daf74e0b8a61e0c3ff8f",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b14_X",
+   "fichier": "beta/b14_X.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β14",
+   "point": 14,
+   "famille": "X",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "exhaustivité adverse (contre la sur-contraction) · point 14",
+   "fonction": "exhaustivité adverse (contre la sur-contraction)",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "BX1 point sous son plancher · BX2 notion requise absente",
+   "doleances_vial": [],
+   "jumeau": "a14_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "point tronqué",
+     "BX1"
+    ],
+    [
+     "notion retirée : bonne réponse après chaque question",
+     "BX2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "976f9ee2e8bfeaf1e2c0bfb4ce3b6f4c37f2879cc74f6f3d3454541a5c879c60",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b14_C",
+   "fichier": "beta/b14_C.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β14",
+   "point": 14,
+   "famille": "C",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "cohérence chiffrée et unités · point 14",
+   "fonction": "cohérence chiffrée et unités",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "BC1 point médian décimal · BC2 décimale à point · BC3 chiffre des points clés absent du corps · BC4 unité non SI · BC5 comparateur ASCII · BC6 espace avant %",
+   "doleances_vial": [],
+   "jumeau": "a14_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P14:typo-chiffres"
+   ],
+   "mutants": [
+    [
+     "point médian décimal",
+     "BC1"
+    ],
+    [
+     "décimale à point",
+     "BC2"
+    ],
+    [
+     "unité non SI",
+     "BC4"
+    ],
+    [
+     "comparateur ASCII",
+     "BC5"
+    ],
+    [
+     "pourcentage collé",
+     "BC6"
+    ],
+    [
+     "chiffre hors du corps",
+     "BC3"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "7c5b1f2f0991f898afdf733761268c500a2cf1f30baadabb538ef69f63fa7bed",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b14_S",
+   "fichier": "beta/b14_S.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β14",
+   "point": 14,
+   "famille": "S",
+   "region": "BET",
+   "signal": "medical",
+   "nom": "sources du point · point 14",
+   "fonction": "sources du point",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "BS1 bloc chiffré sans source · BS2 renvoi orphelin · BS3 dose sans source",
+   "doleances_vial": [],
+   "jumeau": "a14_R",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "bloc chiffré sans source",
+     "BS1"
+    ],
+    [
+     "renvoi orphelin",
+     "BS2"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "5f2303831a7fb8099036bda8b1c4110ff2a031d2a7347df239b43e46f2cfafca",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b14_M",
+   "fichier": "beta/b14_M.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β14",
+   "point": 14,
+   "famille": "M",
+   "region": "BET",
+   "signal": "doleance",
+   "nom": "contre-épreuve par mutation (sentinelle sur le fichier réel) · point 14",
+   "fonction": "contre-épreuve par mutation (sentinelle sur le fichier réel)",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "BM1 synapse α aveugle sur ce fichier",
+   "doleances_vial": [],
+   "jumeau": "a14_S",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [],
+   "mutants": [
+    [
+     "α14·S aveuglée",
+     "BM1"
+    ],
+    [
+     "α14·R aveuglée",
+     "BM1"
+    ],
+    [
+     "α14·H aveuglée",
+     "BM1"
+    ],
+    [
+     "α14·Q aveuglée",
+     "BM1"
+    ],
+    [
+     "α14·D aveuglée",
+     "BM1"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "d263060a19d07d5e3dd9c7b1ceb126872228a394fa56d182fa07f035830ef6de",
+   "test": "test_synapses.py · mutation.py"
+  },
+  {
+   "id": "b14_L",
+   "fichier": "beta/b14_L.py",
+   "langage": "python",
+   "zone": "beta",
+   "synapse": "β14",
+   "point": 14,
+   "famille": "L",
+   "region": "BET",
+   "signal": "langue",
+   "nom": "langue adverse (lexique, anglicismes, typographie) · point 14",
+   "fonction": "langue adverse (lexique, anglicismes, typographie)",
+   "entree": "paquet du point 14 « Pièges »",
+   "sortie": "BL1 nuance vague sans chiffre · BL2 anglicisme · BL3 typographie française · BL4 mot doublé",
+   "doleances_vial": [],
+   "jumeau": "a14_H",
+   "cout_jetons": 0,
+   "etat": "généré",
+   "ecrit": [
+    "P14:typo-texte"
+   ],
+   "mutants": [
+    [
+     "nuance vague",
+     "BL1"
+    ],
+    [
+     "anglicisme",
+     "BL2"
+    ],
+    [
+     "guillemets droits",
+     "BL3"
+    ],
+    [
+     "mot doublé",
+     "BL4"
+    ]
+   ],
+   "version": "1.0.0",
+   "dore": "dore/cours_dore.html",
+   "sha256": "2a7f2151a85797d631262891947ed7e703d46f04fc135a346f6449ec606e3675",
+   "test": "test_synapses.py · mutation.py"
+  }
+ ]
+}

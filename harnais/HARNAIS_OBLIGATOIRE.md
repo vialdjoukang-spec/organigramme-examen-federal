@@ -8,6 +8,7 @@
 - `harnais/controle_lot.py` — contrôles mécaniques d'un LOT, extraction de points, manifeste
 - `harnais/scinder_1_10.py` — découpe d'un HTML multi-DD en 1 HTML par DD
 - `harnais/ROUTAGE_MODELES.md` · `.claude/agents/` — bascule des modèles
+- `harnais/SOURCES_AUTORISEES.md` — sites de référence autorisés (liste de Vial), accès réseau ouvert
 - `harnais/PREUVE_EMBOITEMENT.txt` — preuve datée, jamais inventée
 
 ## 1. Protocole (étape zéro)

@@ -1,0 +1,206 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "brain.scriptone/1",
+ "title": "Contrat d'un scriptone du BRAIN-HARNESS (validé sans dépendance par bus.valider)",
+ "definitions": {
+  "entree": {
+   "type": "object",
+   "properties": {
+    "fichier": {
+     "type": "string"
+    },
+    "html": {
+     "type": "string"
+    },
+    "appliquer": {
+     "type": "boolean",
+     "default": false
+    },
+    "options": {
+     "type": "object"
+    }
+   },
+   "anyOf": [
+    {
+     "required": [
+      "fichier"
+     ]
+    },
+    {
+     "required": [
+      "html"
+     ]
+    }
+   ]
+  },
+  "doleance": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "region",
+    "scriptone",
+    "code",
+    "fichier",
+    "ancre",
+    "severite",
+    "constat",
+    "correction_prescrite",
+    "executant",
+    "preuve"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{12}$",
+     "description": "sha1(scriptone|code|ancre|constat) : déduplication et détection de stagnation"
+    },
+    "region": {
+     "enum": [
+      "MEM",
+      "ENT",
+      "PRO",
+      "AUM",
+      "AUL",
+      "AUF",
+      "VIS",
+      "SEC",
+      "LIV",
+      "ECO",
+      "BUS",
+      "ALP",
+      "BET"
+     ]
+    },
+    "scriptone": {
+     "type": "string"
+    },
+    "code": {
+     "type": "string",
+     "pattern": "^[A-Z]{1,2}[0-9]$"
+    },
+    "fichier": {
+     "type": "string"
+    },
+    "ancre": {
+     "type": "string",
+     "description": "#id le plus proche · l.<ligne> · « extrait »"
+    },
+    "severite": {
+     "enum": [
+      "CRITIQUE",
+      "GRAVE",
+      "MOYEN",
+      "DETAIL"
+     ]
+    },
+    "constat": {
+     "type": "string"
+    },
+    "correction_prescrite": {
+     "type": "string",
+     "minLength": 1,
+     "description": "action exacte, applicable sans réinterprétation"
+    },
+    "executant": {
+     "enum": [
+      "script",
+      "agent"
+     ]
+    },
+    "preuve": {
+     "type": "string",
+     "maxLength": 400
+    }
+   }
+  }
+ },
+ "type": "object",
+ "required": [
+  "contrat",
+  "scriptone",
+  "version",
+  "region",
+  "sha256_script",
+  "sha256_entree",
+  "sha256_sortie",
+  "dry_run",
+  "modifie",
+  "mesures",
+  "doleances"
+ ],
+ "properties": {
+  "contrat": {
+   "const": "brain.scriptone/1"
+  },
+  "scriptone": {
+   "type": "string"
+  },
+  "version": {
+   "type": "string"
+  },
+  "region": {
+   "enum": [
+    "MEM",
+    "ENT",
+    "PRO",
+    "AUM",
+    "AUL",
+    "AUF",
+    "VIS",
+    "SEC",
+    "LIV",
+    "ECO",
+    "BUS",
+    "ALP",
+    "BET"
+   ]
+  },
+  "sha256_script": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "sha256_entree": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "sha256_sortie": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "dry_run": {
+   "type": "boolean"
+  },
+  "modifie": {
+   "type": "boolean"
+  },
+  "corrigeable": {
+   "type": "boolean"
+  },
+  "mesures": {
+   "type": "object"
+  },
+  "doleances": {
+   "type": "array",
+   "items": {
+    "$ref": "#/definitions/doleance"
+   }
+  },
+  "encodage": {
+   "type": "string",
+   "description": "encodage lu (utf-8, utf-16, cp1252) ou « texte » si l'entrée est passée en mémoire"
+  },
+  "panne": {
+   "type": "object",
+   "description": "présent si le scriptone a levé une exception : annoncée par une doléance Z0, jamais avalée",
+   "properties": {
+    "type": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,141 @@
+
+<p>L'algorithme se lit de haut en bas ; chaque case ouvre sa fenêtre de détails.</p>
+<div class="algo" data-brain="algo" data-id="algo1"><template class="algo-modele">{
+"titre": "Devant une suspicion de tuberculose",
+"noeuds": [
+{
+"id": "q1",
+"type": "losange",
+"texte": "Signe de gravité ?",
+"detail": "Céphalées, raideur de nuque, trouble de conscience, dyspnée aiguë ou miliaire imposent l'hospitalisation et l'avis spécialisé."
+},
+{
+"id": "u",
+"type": "case",
+"texte": "Hospitalisation, schéma allongé",
+"detail": "Une méningite suspectée justifie un schéma allongé avec corticostéroïde (point 11)."
+},
+{
+"id": "q2",
+"type": "losange",
+"texte": "PCR directe : MTB détecté ?",
+"detail": "La radiographie précède la PCR sur deux échantillons espacés d'une heure ; un frottis positif avec Xpert négatif évoque une mycobactérie non tuberculeuse."
+},
+{
+"id": "q3",
+"type": "losange",
+"texte": "Résistance à la rifampicine ?",
+"detail": "La souche est envoyée au Laboratoire de référence ; le groupe d'experts TB-MR est consulté."
+},
+{
+"id": "f1",
+"type": "fin",
+"texte": "Schéma standard 2 HRZE / 4 HR",
+"detail": "L'isolement aérien et la déclaration au médecin cantonal accompagnent le traitement (point 11)."
+},
+{
+"id": "f2",
+"type": "fin",
+"texte": "Schéma TB-MR avec experts",
+"detail": "Le schéma de substitution est choisi avec les experts (point 11)."
+},
+{
+"id": "f3",
+"type": "fin",
+"texte": "Bronchoscopie, autre diagnostic",
+"detail": "Si deux échantillons restent négatifs malgré une forte probabilité, la culture reste attendue, l'isolement est levé et une tumeur ou une autre infection est recherchée."
+}
+],
+"liens": [
+{
+"de": "q1",
+"a": "u",
+"etiquette": "Oui"
+},
+{
+"de": "q1",
+"a": "q2",
+"etiquette": "Non"
+},
+{
+"de": "q2",
+"a": "q3",
+"etiquette": "Oui"
+},
+{
+"de": "q2",
+"a": "f3",
+"etiquette": "Non"
+},
+{
+"de": "q3",
+"a": "f2",
+"etiquette": "Oui"
+},
+{
+"de": "q3",
+"a": "f1",
+"etiquette": "Non"
+}
+]
+}</template>
+<style>#algo1-1:checked~.algo-det #algo1-1-d{display:block}
+#algo1-2:checked~.algo-det #algo1-2-d{display:block}
+#algo1-3:checked~.algo-det #algo1-3-d{display:block}
+#algo1-4:checked~.algo-det #algo1-4-d{display:block}
+#algo1-5:checked~.algo-det #algo1-5-d{display:block}
+#algo1-6:checked~.algo-det #algo1-6-d{display:block}
+#algo1-7:checked~.algo-det #algo1-7-d{display:block}</style>
+<input type="checkbox" id="algo1-1">
+<input type="checkbox" id="algo1-2">
+<input type="checkbox" id="algo1-3">
+<input type="checkbox" id="algo1-4">
+<input type="checkbox" id="algo1-5">
+<input type="checkbox" id="algo1-6">
+<input type="checkbox" id="algo1-7">
+<div class="algo-t">Devant une suspicion de tuberculose</div>
+<div class="algo-sc"><div class="algo-can" style="width:790px;height:386px">
+<svg width="790" height="386" viewBox="0 0 790 386" aria-hidden="true">
+<path class="tr" d="M243 68 H296"/><polygon class="fl" points="295,63 295,73 303,68"/>
+<text x="249" y="62">Oui</text>
+<path class="tr" d="M145 116 V138"/><polygon class="fl" points="140,137 150,137 145,145"/>
+<text x="151" y="126">Non</text>
+<path class="tr" d="M243 193 H290"/><polygon class="fl" points="289,188 289,198 297,193"/>
+<text x="249" y="187">Oui</text>
+<path class="tr" d="M145 241 V278"/><polygon class="fl" points="140,277 150,277 145,285"/>
+<text x="151" y="259">Non</text>
+<path class="tr" d="M493 193 H546"/><polygon class="fl" points="545,188 545,198 553,193"/>
+<text x="499" y="187">Oui</text>
+<path class="tr" d="M395 241 V278"/><polygon class="fl" points="390,277 400,277 395,285"/>
+<text x="401" y="259">Non</text>
+<polygon class="lo" points="145,20 243,68 145,116 47,68"/>
+<rect class="ca" x="303" y="35" width="184" height="66"/>
+<polygon class="lo" points="145,145 243,193 145,241 47,193"/>
+<polygon class="lo" points="395,145 493,193 395,241 297,193"/>
+<rect class="fi" x="303" y="285" width="184" height="66"/>
+<rect class="fi" x="553" y="160" width="184" height="66"/>
+<rect class="fi" x="53" y="285" width="184" height="66"/>
+</svg>
+<label class="algo-n lo cl" for="algo1-1" style="left:47px;top:20px;width:196px;height:96px"><span>Signe de gravité ?</span></label>
+<label class="algo-n ca cl" for="algo1-2" style="left:303px;top:35px;width:184px;height:66px"><span>Hospitalisation, schéma allongé</span></label>
+<label class="algo-n lo cl" for="algo1-3" style="left:47px;top:145px;width:196px;height:96px"><span>PCR directe : MTB détecté ?</span></label>
+<label class="algo-n lo cl" for="algo1-4" style="left:297px;top:145px;width:196px;height:96px"><span>Résistance à la rifampicine ?</span></label>
+<label class="algo-n ca cl" for="algo1-5" style="left:303px;top:285px;width:184px;height:66px"><span>Schéma standard 2 HRZE / 4 HR</span></label>
+<label class="algo-n ca cl" for="algo1-6" style="left:553px;top:160px;width:184px;height:66px"><span>Schéma TB-MR avec experts</span></label>
+<label class="algo-n ca cl" for="algo1-7" style="left:53px;top:285px;width:184px;height:66px"><span>Bronchoscopie, autre diagnostic</span></label>
+</div></div>
+<div class="algo-det">
+<div class="algo-d" id="algo1-1-d"><label class="fx-x" for="algo1-1" aria-label="Fermer">×</label><b class="algo-dt">Signe de gravité ?</b> · Céphalées, raideur de nuque, trouble de conscience, dyspnée aiguë ou miliaire imposent l'hospitalisation et l'avis spécialisé.</div>
+<div class="algo-d" id="algo1-2-d"><label class="fx-x" for="algo1-2" aria-label="Fermer">×</label><b class="algo-dt">Hospitalisation, schéma allongé</b> · Une méningite suspectée justifie un schéma allongé avec corticostéroïde (point 11).</div>
+<div class="algo-d" id="algo1-3-d"><label class="fx-x" for="algo1-3" aria-label="Fermer">×</label><b class="algo-dt">PCR directe : MTB détecté ?</b> · La radiographie précède la PCR sur deux échantillons espacés d'une heure ; un frottis positif avec Xpert négatif évoque une mycobactérie non tuberculeuse.</div>
+<div class="algo-d" id="algo1-4-d"><label class="fx-x" for="algo1-4" aria-label="Fermer">×</label><b class="algo-dt">Résistance à la rifampicine ?</b> · La souche est envoyée au Laboratoire de référence ; le groupe d'experts TB-MR est consulté.</div>
+<div class="algo-d" id="algo1-5-d"><label class="fx-x" for="algo1-5" aria-label="Fermer">×</label><b class="algo-dt">Schéma standard 2 HRZE / 4 HR</b> · L'isolement aérien et la déclaration au médecin cantonal accompagnent le traitement (point 11).</div>
+<div class="algo-d" id="algo1-6-d"><label class="fx-x" for="algo1-6" aria-label="Fermer">×</label><b class="algo-dt">Schéma TB-MR avec experts</b> · Le schéma de substitution est choisi avec les experts (point 11).</div>
+<div class="algo-d" id="algo1-7-d"><label class="fx-x" for="algo1-7" aria-label="Fermer">×</label><b class="algo-dt">Bronchoscopie, autre diagnostic</b> · Si deux échantillons restent négatifs malgré une forte probabilité, la culture reste attendue, l'isolement est levé et une tumeur ou une autre infection est recherchée.</div>
+</div></div><!--/algo-->
+<ul>
+<li>Les sueurs nocturnes isolées justifient un bilan limité et des diagnostics non infectieux<sup class="r"><a href="#sb-17">17</a></sup>.</li>
+<li>La culture adapte le schéma : <a class="tm med" data-auto="1" href="#med-14024a45">rifampicine</a>, <a class="tm med" data-auto="1" href="#med-ca1470f5">pyrazinamide</a>, <a class="tm med" data-auto="1" href="#med-8932198a">éthambutol</a> et <a class="tm med" data-auto="1" href="#med-916d1581">lévofloxacine</a> pendant 6 mois en cas de résistance à l'<a class="tm med" data-auto="1" href="#med-121ad159">isoniazide</a>.</li>
+<li>Un contact de 12 ans ou plus est testé 2 mois après l'exposition ; un enfant de moins de 5 ans reçoit de l'<a class="tm med" data-auto="1" href="#med-121ad159">isoniazide</a> si le premier test est négatif.</li>
+</ul>
+

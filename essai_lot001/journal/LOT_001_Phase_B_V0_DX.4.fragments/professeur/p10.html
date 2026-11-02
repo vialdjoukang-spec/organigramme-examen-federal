@@ -1,0 +1,120 @@
+
+<p>L'algorithme se lit de haut en bas ; chaque case ouvre sa fenêtre de détails.</p>
+<div class="algo" data-brain="algo" data-id="algo1"><template class="algo-modele">{
+"titre": "Devant des sueurs chez un diabétique traité",
+"noeuds": [
+{
+"id": "q1",
+"type": "losange",
+"texte": "Glycémie < 4,0 mmol/L ?",
+"detail": "La glycémie capillaire est mesurée sans délai ; si la mesure est impossible, le traitement commence sans attendre."
+},
+{
+"id": "q2",
+"type": "losange",
+"texte": "Conscient et capable d'avaler ?",
+"detail": "La conscience altérée ou le jeûne strict imposent la voie parentérale et l'appel du médecin."
+},
+{
+"id": "o",
+"type": "case",
+"texte": "15 g de glucides oraux",
+"detail": "Le patient reçoit 15 g de glucides par voie orale, 30 g si la glycémie est inférieure à 2,5 mmol/L, puis un recontrôle après 20 à 30 minutes."
+},
+{
+"id": "g",
+"type": "case",
+"texte": "Glucose IV ou glucagon",
+"detail": "Le médecin administre 32 g de glucose IV lente en 3 à 5 minutes, ou du glucagon nasal 3 mg ou SC/IM 1 mg avec recontrôle après 10 minutes ; sans réponse, le glucose IV suit. Après jeûne prolongé, alcool ou insuffisance surrénalienne, le glucose IV est d'emblée préféré."
+},
+{
+"id": "f1",
+"type": "fin",
+"texte": "Hospitaliser si effet prolongé",
+"detail": "Une sulfonylurée, un glinide ou une insuline ultralongue imposent l'hospitalisation, la perfusion de glucose et des glycémies toutes les 2 à 3 heures, l'effet pouvant durer jusqu'à 48 heures."
+},
+{
+"id": "f2",
+"type": "fin",
+"texte": "Autre cause de sueurs",
+"detail": "Une glycémie d'au moins 4,0 mmol/L exclut l'hypoglycémie à cet instant ; fièvre, douleur thoracique, sudation gustative ou sueurs nocturnes orientent vers une autre cause."
+}
+],
+"liens": [
+{
+"de": "q1",
+"a": "q2",
+"etiquette": "Oui"
+},
+{
+"de": "q1",
+"a": "f2",
+"etiquette": "Non"
+},
+{
+"de": "q2",
+"a": "o",
+"etiquette": "Oui"
+},
+{
+"de": "q2",
+"a": "g",
+"etiquette": "Non"
+},
+{
+"de": "o",
+"a": "f1",
+"etiquette": "Rechute"
+}
+]
+}</template>
+<style>#algo1-1:checked~.algo-det #algo1-1-d{display:block}
+#algo1-2:checked~.algo-det #algo1-2-d{display:block}
+#algo1-3:checked~.algo-det #algo1-3-d{display:block}
+#algo1-4:checked~.algo-det #algo1-4-d{display:block}
+#algo1-5:checked~.algo-det #algo1-5-d{display:block}
+#algo1-6:checked~.algo-det #algo1-6-d{display:block}</style>
+<input type="checkbox" id="algo1-1">
+<input type="checkbox" id="algo1-2">
+<input type="checkbox" id="algo1-3">
+<input type="checkbox" id="algo1-4">
+<input type="checkbox" id="algo1-5">
+<input type="checkbox" id="algo1-6">
+<div class="algo-t">Devant des sueurs chez un diabétique traité</div>
+<div class="algo-sc"><div class="algo-can" style="width:790px;height:261px">
+<svg width="790" height="261" viewBox="0 0 790 261" aria-hidden="true">
+<path class="tr" d="M243 68 H290"/><polygon class="fl" points="289,63 289,73 297,68"/>
+<text x="249" y="62">Oui</text>
+<path class="tr" d="M145 116 V153"/><polygon class="fl" points="140,152 150,152 145,160"/>
+<text x="151" y="134">Non</text>
+<path class="tr" d="M493 68 H546"/><polygon class="fl" points="545,63 545,73 553,68"/>
+<text x="499" y="62">Oui</text>
+<path class="tr" d="M395 116 V153"/><polygon class="fl" points="390,152 400,152 395,160"/>
+<text x="401" y="134">Non</text>
+<path class="tr" d="M645 101 V153"/><polygon class="fl" points="640,152 650,152 645,160"/>
+<text x="651" y="126">Rechute</text>
+<polygon class="lo" points="145,20 243,68 145,116 47,68"/>
+<polygon class="lo" points="395,20 493,68 395,116 297,68"/>
+<rect class="ca" x="553" y="35" width="184" height="66"/>
+<rect class="ca" x="303" y="160" width="184" height="66"/>
+<rect class="fi" x="553" y="160" width="184" height="66"/>
+<rect class="fi" x="53" y="160" width="184" height="66"/>
+</svg>
+<label class="algo-n lo cl" for="algo1-1" style="left:47px;top:20px;width:196px;height:96px"><span>Glycémie < 4,0 mmol/L ?</span></label>
+<label class="algo-n lo cl" for="algo1-2" style="left:297px;top:20px;width:196px;height:96px"><span>Conscient et capable d'avaler ?</span></label>
+<label class="algo-n ca cl" for="algo1-3" style="left:553px;top:35px;width:184px;height:66px"><span>15 g de glucides oraux</span></label>
+<label class="algo-n ca cl" for="algo1-4" style="left:303px;top:160px;width:184px;height:66px"><span>Glucose IV ou glucagon</span></label>
+<label class="algo-n ca cl" for="algo1-5" style="left:553px;top:160px;width:184px;height:66px"><span>Hospitaliser si effet prolongé</span></label>
+<label class="algo-n ca cl" for="algo1-6" style="left:53px;top:160px;width:184px;height:66px"><span>Autre cause de sueurs</span></label>
+</div></div>
+<div class="algo-det">
+<div class="algo-d" id="algo1-1-d"><label class="fx-x" for="algo1-1" aria-label="Fermer">×</label><b class="algo-dt">Glycémie < 4,0 mmol/L ?</b> · La glycémie capillaire est mesurée sans délai ; si la mesure est impossible, le traitement commence sans attendre.</div>
+<div class="algo-d" id="algo1-2-d"><label class="fx-x" for="algo1-2" aria-label="Fermer">×</label><b class="algo-dt">Conscient et capable d'avaler ?</b> · La conscience altérée ou le jeûne strict imposent la voie parentérale et l'appel du médecin.</div>
+<div class="algo-d" id="algo1-3-d"><label class="fx-x" for="algo1-3" aria-label="Fermer">×</label><b class="algo-dt">15 g de glucides oraux</b> · Le patient reçoit 15 g de glucides par voie orale, 30 g si la glycémie est inférieure à 2,5 mmol/L, puis un recontrôle après 20 à 30 minutes.</div>
+<div class="algo-d" id="algo1-4-d"><label class="fx-x" for="algo1-4" aria-label="Fermer">×</label><b class="algo-dt">Glucose IV ou glucagon</b> · Le médecin administre 32 g de glucose IV lente en 3 à 5 minutes, ou du glucagon nasal 3 mg ou SC/IM 1 mg avec recontrôle après 10 minutes ; sans réponse, le glucose IV suit. Après jeûne prolongé, alcool ou insuffisance surrénalienne, le glucose IV est d'emblée préféré.</div>
+<div class="algo-d" id="algo1-5-d"><label class="fx-x" for="algo1-5" aria-label="Fermer">×</label><b class="algo-dt">Hospitaliser si effet prolongé</b> · Une sulfonylurée, un glinide ou une insuline ultralongue imposent l'hospitalisation, la perfusion de glucose et des glycémies toutes les 2 à 3 heures, l'effet pouvant durer jusqu'à 48 heures.</div>
+<div class="algo-d" id="algo1-6-d"><label class="fx-x" for="algo1-6" aria-label="Fermer">×</label><b class="algo-dt">Autre cause de sueurs</b> · Une glycémie d'au moins 4,0 mmol/L exclut l'hypoglycémie à cet instant ; fièvre, douleur thoracique, sudation gustative ou sueurs nocturnes orientent vers une autre cause.</div>
+</div></div><!--/algo-->
+<p>En pharmacologie, le <a class="tm med" data-auto="1" href="#med-d1428def">glucagon</a> par <a class="tm med" data-auto="1" href="#med-d1428def">voie nasale</a> (<span class="tm med" tabindex="0">Baqsimi®<span class="df"><b><abbr class="ab" data-k="DCI" tabindex="0">DCI</abbr> : glucagon</b> (Baqsimi®, voie nasale)<br><b>Classe : hormone glycogénolytique</b> (<abbr class="ab" data-k="ATC" tabindex="0">ATC</abbr> H04AA01). Il libère le glucose du glycogène du foie et corrige l'hypoglycémie. Pairs : glucagon injectable (GlucaGen®).<br><b>Groupe : médicaments qui règlent la glycémie</b> (hormones pancréatiques H04, glucose B05, antidiabétiques A10). Chefs de file (indication ; posologie <abbr class="ab" data-k="AIPS" tabindex="0">AIPS</abbr>) :<ul><li><b>Glucagon</b> — hypoglycémie sévère sous insuline ; Baqsimi® 3 mg par voie nasale ; GlucaGen® 1 mg <abbr class="ab" data-k="SC" tabindex="0">SC</abbr> ou <abbr class="ab" data-k="IM" tabindex="0">IM</abbr>.</li><li><b>Glucose</b> — hypoglycémie ; perfusion de 0,5 g/kg/h au maximum (Glucosum Bichsel).</li><li><b>Insulines</b> : asparte — diabète traité par insuline ; 0,5 à 1,0 U/kg/jour au total.</li><li><b>Biguanides</b> : metformine — diabète de type 2 ; 500 à 1000 mg/jour au début, maximum 3000 mg.</li></ul></span></span> et <a class="tm med" data-auto="1" href="#med-a8609747">GlucaGen®</a> corrigent l'hypoglycémie sévère ; l'insuline ultralongue <a class="tm med" data-auto="1" href="#med-91bf66fd">Tresiba®</a> prolonge l'hypoglycémie ; le <a class="tm med" data-auto="1" href="#med-3a3c0633">miconazole</a> la favorise.</p>
+<p>Sources<sup class="r"><a href="#sb-6">6</a>,<a href="#sb-16">16</a>,<a href="#sb-17">17</a>,<a href="#sb-9">9</a>,<a href="#sb-22">22</a>,<a href="#sb-26">26</a>,<a href="#sb-4">4</a>,<a href="#sb-24">24</a>,<a href="#sb-11">11</a>,<a href="#sb-12">12</a>,<a href="#sb-13">13</a>,<a href="#sb-2">2</a>,<a href="#sb-3">3</a>,<a href="#sb-20">20</a></sup>.</p>
+

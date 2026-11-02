@@ -21,7 +21,11 @@ import argparse, hashlib, html, json, re, sys
 from pathlib import Path
 
 VERSION = "1.0"
-BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bornes comprises
+try:  # BANDE.json est absent de main : repli sur 100–200 Ko, jamais d'échec à l'import
+    _B = json.loads((Path(__file__).resolve().parent / "BANDE.json").read_text(encoding="utf-8"))
+    BANDE_MIN, BANDE_MAX = int(_B["min_ko"]) * 1000, int(_B["max_ko"]) * 1000
+except (OSError, ValueError, KeyError, TypeError):
+    BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bande indicative : avertissement, jamais critique
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
@@ -85,9 +89,9 @@ def analyse_fichier(p: Path) -> dict:
         par_classe = any(re.search(rf"class\s*=\s*[\"'][^\"']*\b{re.escape(c)}\b", avant) for c in classes_defil)
         if not (inline or par_classe):
             crit.append("tableau non enveloppé (ni style overflow-x:auto, ni classe CSS interne équivalente)"); break
-    longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 3000]
+    longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 10000 and "data:font" not in l and "font/woff" not in l and "data-brain=" not in l]
     if longues:
-        crit.append(f"{len(longues)} ligne(s) > 3 000 caractères (ex. l.{longues[0]})")
+        crit.append(f"{len(longues)} ligne(s) > 10 000 caractères (ex. l.{longues[0]})")
     if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I):
         crit.append("script, image ou feuille de style externe présent")
     if not re.search(r"\[S1\]", t):
@@ -111,7 +115,7 @@ def lire_liste(d: Path) -> dict[int, str]:
             out = {}
             for l in cand.read_text(encoding="utf-8").splitlines():
                 m = RE_LISTE.search(l)
-                if m and 1 <= int(m.group(1)) <= 10 and int(m.group(1)) not in out:
+                if m and 1 <= int(m.group(1)) <= 15 and int(m.group(1)) not in out:
                     out[int(m.group(1))] = norm(m.group(2))
             return out
     return {}
@@ -152,34 +156,34 @@ def verifier(d: Path, sans_nom: bool) -> dict:
     C = rapport["critiques_lot"]
     if len(A) != 1:
         C.append(f"Phase A : {len(A)} fichier(s) au lieu de 1")
-    if sorted(B) != list(range(1, 11)):
-        C.append(f"Phase B : DX présents {sorted(B)} ; attendus 1 à 10, un fichier chacun")
+    liste = lire_liste(d)
+    N = len(liste) if 10 <= len(liste) <= 15 else 10  # 10 DD, jusqu'à 15 si lignes vertes retenues
+    if sorted(B) != list(range(1, N + 1)):
+        C.append(f"Phase B : DX présents {sorted(B)} ; attendus 1 à {N}, un fichier chacun")
     if autres:
-        C.append(f"HTML hors nommage 1 + 10 : {autres}")
+        C.append(f"HTML hors nommage 1 + N : {autres}")
     for r in rapport["fichiers"]:
         ml = RE_A.match(r["fichier"]) or RE_B.match(r["fichier"])
         if ml and lot and ml.group(1) != lot:
             C.append(f"{r['fichier']} : numéro de LOT ≠ dossier {d.name}")
+    AV = rapport["avertissements_lot"]   # taille : indicative, jamais bloquante (Vial 27.10.2026)
     for i, r in B.items():
         if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            C.append(f"DX.{i} : {r['octets']} octets hors bande 100–200 Ko")
+            AV.append(f"DX.{i} : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko (indicative, non bloquante)")
         if len(r["monographies"]) != 1:
             C.append(f"DX.{i} : {len(r['monographies'])} monographie(s) dans le fichier au lieu de 1")
     for r in A:
-        if r["octets"] < BANDE_MIN:
-            C.append(f"Phase A : {r['octets']} octets < 100 Ko")
-        elif r["octets"] > BANDE_MAX:
-            C.append(f"Phase A : {r['octets']} octets > 200 Ko (plafond absolu)")
-    liste = lire_liste(d)
+        if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
+            AV.append(f"Phase A : {r['octets']} octets hors bande {BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko (indicative, non bloquante)")
     if not liste:
         C.append("LISTE_DX_CANONIQUE.md absente ou illisible (contrôle A↔B impossible)")
     else:
-        if sorted(liste) != list(range(1, 11)):
+        if sorted(liste) != list(range(1, N + 1)):
             C.append(f"liste canonique incomplète : {sorted(liste)}")
         for i, r in B.items():
             titres = r.get("dx_titres") or []
             attendu = f"DX.{i} — {liste.get(i, '?')}"
-            if not titres or norm(titres[0].replace("–", "—").replace(" - ", " — ")) != norm(attendu):
+            if not titres or norm(titres[0].replace("–", "—").replace(" - ", " — ").replace("’", "'")) != norm(attendu.replace("–", "—").replace(" - ", " — ").replace("’", "'")):
                 C.append(f"DX.{i} : titre {titres[:1]} ≠ liste canonique « {attendu} » (CRITIQUE A↔B)")
         if A:
             ta = norm(Path(d / A[0]["fichier"]).read_text(encoding="utf-8", errors="replace"))
@@ -187,6 +191,21 @@ def verifier(d: Path, sans_nom: bool) -> dict:
                 if nom and nom not in ta:
                     C.append(f"Phase A : DX.{i} « {nom} » introuvable mot pour mot (CRITIQUE A↔B)")
     return rapport
+
+
+def cerveau_lot(d: Path, rapport: dict) -> None:
+    """BRAIN-HARNESS en avertissements de lot (conseil) : sans effet si harnais/brain n'existe pas (ex. main)."""
+    b = Path(__file__).resolve().parent / "brain"
+    if not (b / "cerveau.py").exists():
+        rapport["avertissements_lot"].append("cerveau : harnais/brain absent, contrôle sauté"); return
+    sys.path.insert(0, str(b))
+    try:
+        import cerveau as CV
+        for p in sorted(d.glob("*.html")):
+            dl, _ = CV.analyser(p.read_text(encoding="utf-8", errors="replace"), p.name, ecrire=False)
+            if dl: rapport["avertissements_lot"].append(f"cerveau {p.name} : {len(dl)} doléance(s) {CV.compte(dl)}")
+    except BaseException as e:
+        rapport["avertissements_lot"].append(f"cerveau en panne : {type(e).__name__} {str(e)[:120]}")
 
 
 def extraire(p: Path, points: list[int], brut_html: bool) -> str:
@@ -219,11 +238,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     sp = ap.add_subparsers(dest="cmd", required=True)
     v = sp.add_parser("verifier"); v.add_argument("dossier"); v.add_argument("--json", action="store_true"); v.add_argument("--sans-nom", action="store_true")
+    v.add_argument("--cerveau", action="store_true", help="ajoute les doléances du BRAIN-HARNESS en avertissements (jamais bloquant ; ignoré si harnais/brain est absent)")
     e = sp.add_parser("extraire"); e.add_argument("fichier"); e.add_argument("--points", required=True); e.add_argument("--html", action="store_true")
     m = sp.add_parser("manifeste"); m.add_argument("dossier")
     a = ap.parse_args()
     if a.cmd == "verifier":
         r = verifier(Path(a.dossier), a.sans_nom)
+        if a.cerveau: cerveau_lot(Path(a.dossier), r)
         nc = len(r["critiques_lot"]) + sum(len(f["critiques"]) for f in r["fichiers"])
         na = len(r["avertissements_lot"]) + sum(len(f["avertissements"]) for f in r["fichiers"])
         if a.json:

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HARNAIS_FILE_G</title>
+<style>:root{--bg:#fafaf8;--fg:#1d2430;--mut:#6b7280;--line:#e1e4e8;--card:#fff;--g:#1f9d55;--r:#d93636;--b:#2563eb;--a:#f59e0b}
+@media(prefers-color-scheme:dark){:root{--bg:#14171c;--fg:#e8eaed;--mut:#9aa3af;--line:#2a2f38;--card:#1b1f26;--g:#4ade80;--r:#ff6b6b;--b:#6ea8ff;--a:#fbbf24}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 system-ui,sans-serif;padding:24px clamp(14px,4vw,48px) 60px}
+h1{font-size:1.25rem;margin:0}p.s{color:var(--mut);margin:4px 0 20px}h2{font-size:.95rem;margin:28px 0 10px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}svg text{fill:var(--fg);font:12px system-ui}svg .m{fill:var(--mut);font-size:11px}
+.node{cursor:pointer}.node rect{fill:var(--card);stroke:var(--line);stroke-width:1.5;rx:10}.node:hover rect,.node.on rect{stroke:var(--b);stroke-width:2.5}
+.node.ro rect{stroke:var(--g)}.edge{stroke:var(--mut);stroke-width:1.5;fill:none;marker-end:url(#ar)}
+#info{margin-top:12px;min-height:3.2em}#info b{color:var(--b)}
+.q{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.l{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--card);font-size:12px}.l b{display:block;font-size:13px}.l.act{border-color:var(--g);box-shadow:inset 0 0 0 1px var(--g)}.l small{color:var(--mut)}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 12px;font-size:12px;color:var(--mut)}.ctl input{vertical-align:middle;width:120px}
+.k{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px}.note{font-size:12px;color:var(--mut);margin-top:8px}</style></head><body>
+<h1>HARNAIS · FILE G (LOT_001 → LOT_016)</h1><p class="s">Dispositif en vigueur. Cliquer un bloc pour le détail. Un seul LOT actif à la fois.</p>
+<h2>1 · Dispositif</h2><div class="card"><svg id="sc" viewBox="0 0 980 330" width="100%" role="img" aria-label="Schéma du harnais"><defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#9aa3af"/></marker></defs></svg><div id="info" class="note">Cliquer un bloc.</div></div>
+<h2>2 · File G · un seul LOT actif</h2><div class="q" id="q"></div>
+<h2>3 · Tokens en fonction de la file (estimation)</h2><div class="card"><div class="ctl">
+<label>Coût d'un LOT sans harnais (k tokens) <input id="c0" type="range" min="500" max="4000" value="2400" step="100"> <b id="vc0"></b></label>
+<label>Plancher avec harnais (% du coût) <input id="f" type="range" min="25" max="90" value="55"> <b id="vf"></b></label>
+<label>Vitesse d'apprentissage τ (LOTS) <input id="t" type="range" min="1" max="10" value="3" step=".5"> <b id="vt"></b></label>
+<label>Dérive sans harnais (%/LOT) <input id="e" type="range" min="0" max="8" value="3" step=".5"> <b id="ve"></b></label>
+<label><input type="checkbox" id="cum"> cumulé</label></div>
+<svg id="ch" viewBox="0 0 980 340" width="100%"></svg>
+<div class="note"><span class="k" style="background:var(--g)"></span>avec harnais : c(n)=c₀·[f+(1−f)·e^(−(n−1)/τ)] &nbsp; <span class="k" style="background:var(--r)"></span>sans harnais : c(n)=c₀·(1+ε·(n−1)) &nbsp; <span style="color:var(--a)">●</span> mesuré LOT_001 (sous-agents Phase A + audits, sans harnais complet).<br><b>Estimation par modèle, non mesurée</b> : les paramètres sont des hypothèses réglables ; seul le point orange est une mesure. Gains attendus : cache AIPS/PubMed, verdicts par SHA, contrôle mécanique avant audit, lecture ciblée.</div></div>
+<h2>4 · Reprises d'audit par LOT (estimation)</h2><div class="card"><svg id="ch2" viewBox="0 0 980 240" width="100%"></svg><div class="note">Hypothèse : le prompt de projet en lecture seule + liste DX figée avant rédaction réduisent les cycles d'audit (LOT_001 sans harnais : 2 cycles puis REFUSE). <b>Estimation, non mesurée.</b></div></div>
+<script>
+const LOTS=[{"lot": "001", "code": "G1", "nom": "Transpiration anormale", "n": 15}, {"lot": "002", "code": "G2", "nom": "Tuméfaction, tumeur, y compris augmentation de volume des ganglions lymphatiques (adénopathie)", "n": 15}, {"lot": "003", "code": "G3", "nom": "Soif excessive, consommation excessive de liquides (polydipsie)", "n": 13}, {"lot": "004", "code": "G4", "nom": "Fatigue, lassitude", "n": 11}, {"lot": "005", "code": "G5", "nom": "Sensation de maladie", "n": 15}, {"lot": "006", "code": "G6", "nom": "Fièvre, frissons, hyperthermie", "n": 15}, {"lot": "007", "code": "G7", "nom": "Bouffées vasomotrices (flush)", "n": 12}, {"lot": "008", "code": "G8", "nom": "Hypothermie", "n": 12}, {"lot": "009", "code": "G9", "nom": "Prurit", "n": 15}, {"lot": "010", "code": "G10", "nom": "Douleurs de tous types", "n": 15}, {"lot": "011", "code": "G11", "nom": "Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies)", "n": 13}, {"lot": "012", "code": "G12", "nom": "Œdème diffus ou localisé", "n": 13}, {"lot": "013", "code": "G13", "nom": "Décès non naturel", "n": 12}, {"lot": "014", "code": "G14", "nom": "Décès inattendu ou mort subite", "n": 15}, {"lot": "015", "code": "G15", "nom": "Prise de poids, obésité", "n": 13}, {"lot": "016", "code": "G16", "nom": "Perte de poids, perte d’appétit", "n": 15}];
+const N=[["prompt","Prompt projet (lecture seule)",20,20,"harnais/prompt_projet.py · chmod 444 · SHA-256 surveillé. L'agent le lit au départ : mission, seuils, règles. Toute altération est détectée en 1 s.",1],
+["veille","Veille 1 s",270,20,"harnais/dispositif/veille.py : fichiers, prompt intact, scripts compilés, agents ; réseau (AIPS, PubMed) toutes les 30 s. État : .cache/harnais/etat.json.",0],
+["bracelet","Bracelet (sélecteur)",520,20,"Choisit 1 à 3 outils par tâche, jamais les 19. harnais/bracelet/bracelet_suggest.py.",0],
+["entree","Tableaux G (autre IA)",770,20,"g_tables.json : 10 DD + lignes vertes (jusqu'à 15). file_g.py prep XXX génère la liste canonique et le plan R1/R2.",0],
+["outils","Outils gratuits",20,125,"aips_texte.py (texte AIPS, Symbol µ/≥, cache) · pubmed.py + MCP PubMed · controle_lot.py (N DD, 100–200 Ko, 14 points) · scinder_1_10.py · captures.js.",0],
+["r1","Rédacteur 1 (Opus/Sonnet)",270,125,"Phase A (Opus), puis première moitié des DD. Ne note jamais son travail.",0],
+["r2","Rédacteur 2 (Sonnet)",520,125,"Seconde moitié des DD, en parallèle dès que la liste est connue.",0],
+["a1","Auditeur médical (Opus)",770,125,"Points 2,3,4,8,9,11,12 : doses vs AIPS, seuils, grossesse, ordre. Indépendant.",0],
+["a2","Auditeur conformité (Sonnet)",770,230,"Points 1,5,6,7,10,13,14, forme, bande 100–200 Ko, liste A↔B. Indépendant.",0],
+["porte","Porte : ≥90 % · 0 critique · « oui »",520,230,"Sinon cycle +1 (2 au plus) puis REFUSE consigné. controle_lot verifier = CONFORME.",0],
+["depot","Dépôt · PR · CI · fusion",270,230,"LOT_Claude_Finaux/LOT_XXX/ + MANIFESTE + audits ; branche prod/lot-XXX-final ; fusion par commit de fusion. Puis 3 captures par fichier pour Vial.",0],
+["suiv","LOT suivant",20,230,"Démarre seulement quand le LOT n est achevé et mergé.",0]];
+const E=[["prompt","veille"],["veille","bracelet"],["bracelet","entree"],["entree","outils"],["outils","r1"],["r1","r2"],["r2","a1"],["a1","a2"],["a2","porte"],["porte","depot"],["depot","suiv"]];
+const sc=document.getElementById('sc'),pos={};let s='';
+N.forEach(n=>pos[n[0]]=[n[2],n[3]]);
+E.forEach(([a,b])=>{const A=pos[a],B=pos[b];const x1=A[0]+(A[0]<B[0]?210:A[0]>B[0]?0:105),y1=A[1]+(A[1]==B[1]?27:A[1]<B[1]?55:0),x2=B[0]+(A[0]<B[0]?0:A[0]>B[0]?210:105),y2=B[1]+(A[1]==B[1]?27:A[1]<B[1]?0:55);s+=`<path class="edge" d="M${x1} ${y1}L${x2} ${y2}"/>`});
+N.forEach(n=>{s+=`<g class="node${n[5]?' ro':''}" data-k="${n[0]}"><rect x="${n[2]}" y="${n[3]}" width="210" height="55"/><text x="${n[2]+12}" y="${n[3]+32}">${n[1]}</text></g>`});
+sc.insertAdjacentHTML('beforeend',s);
+sc.querySelectorAll('.node').forEach(g=>g.onclick=()=>{sc.querySelectorAll('.node').forEach(x=>x.classList.remove('on'));g.classList.add('on');const n=N.find(x=>x[0]==g.dataset.k);document.getElementById('info').innerHTML=`<b>${n[1]}</b> — ${n[4]}`});
+document.getElementById('q').innerHTML=LOTS.map((l,i)=>`<div class="l${i==0?' act':''}"><b>LOT_${l.lot}_${l.code}</b>${l.nom.slice(0,46)}<br><small>${l.n} DD · ${i==0?'actif':'en attente'}</small></div>`).join('');
+const $=id=>document.getElementById(id);
+function ax(svg,W,H,m,xmax,ymax,lab){let s='';for(let i=0;i<=4;i++){const y=m.t+(H-m.t-m.b)*(1-i/4);s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${y}" y2="${y}" stroke="var(--line)"/><text class="m" x="${m.l-6}" y="${y+4}" text-anchor="end">${+(ymax*i/4).toFixed(ymax<10?1:0)}</text>`}
+for(let n=1;n<=xmax;n++){const x=m.l+(W-m.l-m.r)*(n-1)/(xmax-1);s+=`<text class="m" x="${x}" y="${H-m.b+16}" text-anchor="middle">${n}</text>`}
+return s+`<text class="m" x="${(W+m.l)/2}" y="${H-4}" text-anchor="middle">LOT de la file G (temps →)</text><text class="m" x="12" y="${m.t-8}">${lab}</text>`}
+function draw(){const c0=+$('c0').value,f=$('f').value/100,t=+$('t').value,e=$('e').value/100,cum=$('cum').checked;
+$('vc0').textContent=c0;$('vf').textContent=Math.round(f*100);$('vt').textContent=t;$('ve').textContent=Math.round(e*1000)/10;
+const W=980,H=340,m={l:56,r:20,t:24,b:34};let g=[],r=[],a=0,b=0;for(let n=1;n<=16;n++){const cg=c0*(f+(1-f)*Math.exp(-(n-1)/t)),cr=c0*(1+e*(n-1));a+=cg;b+=cr;g.push(cum?a:cg);r.push(cum?b:cr)}
+const ym=Math.max(...r)*1.1,X=n=>m.l+(W-m.l-m.r)*(n-1)/15,Y=v=>m.t+(H-m.t-m.b)*(1-v/ym);
+const P=a=>a.map((v,i)=>`${i?'L':'M'}${X(i+1)} ${Y(v)}`).join('');
+let s=ax($('ch'),W,H,m,16,ym,cum?'k tokens cumulés':'k tokens par LOT')+`<path d="${P(r)}" stroke="var(--r)" stroke-width="3" fill="none"/><path d="${P(g)}" stroke="var(--g)" stroke-width="3" fill="none"/>`;
+const mes=1172;s+=`<circle cx="${X(1)}" cy="${Y(mes)}" r="6" fill="var(--a)"><title>LOT_001 mesuré ≥ 1 172 k (sous-agents : Phase A ×2 + audits ×4 ; hors 7 Phase B)</title></circle>`;
+s+=`<text x="${X(16)-4}" y="${Y(g[15])-8}" text-anchor="end" style="fill:var(--g)">${Math.round(g[15])} k</text><text x="${X(16)-4}" y="${Y(r[15])-8}" text-anchor="end" style="fill:var(--r)">${Math.round(r[15])} k</text>`;
+$('ch').innerHTML=s;
+const sv=Math.round((1-(cum?a/b:g[15]/r[15]))*100);$('ch').insertAdjacentHTML('beforeend',`<text x="${m.l+10}" y="${m.t+16}" style="fill:var(--g);font-weight:600">économie estimée ${sv} % ${cum?'sur la file':'au LOT 16'}</text>`);
+let s2=ax($('ch2'),980,240,{l:56,r:20,t:24,b:34},16,3,'cycles d\'audit');const Y2=v=>24+(240-24-34)*(1-v/3),X2=n=>56+(980-76)*(n-1)/15;
+const rr=[...Array(16)].map((_,i)=>Y2(2.0+0.0*i)),gg=[...Array(16)].map((_,i)=>Y2(1.2+0.8*Math.exp(-i/t)));
+s2+=`<path d="${rr.map((y,i)=>`${i?'L':'M'}${X2(i+1)} ${y}`).join('')}" stroke="var(--r)" stroke-width="3" fill="none"/><path d="${gg.map((y,i)=>`${i?'L':'M'}${X2(i+1)} ${y}`).join('')}" stroke="var(--g)" stroke-width="3" fill="none"/>`;$('ch2').innerHTML=s2}
+['c0','f','t','e','cum'].forEach(i=>$(i).oninput=draw);draw();
+</script></body></html>

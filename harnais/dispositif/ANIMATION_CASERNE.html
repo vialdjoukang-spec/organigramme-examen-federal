@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ANIMATION_CASERNE</title>
+<style>
+:root{--bg:#0a0e1f;--card:#12183a;--ln:#2a3466;--fg:#e8ecff;--mut:#8b96c9;--b1:#38d3ff;--b2:#ffb23d;--b3:#ff5fc8;--ok:#22d38a;--bad:#ff5d73}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 500px at 10% -10%,#26226b,transparent),radial-gradient(800px 500px at 100% 110%,#0b4a5a66,transparent),var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;padding:20px clamp(12px,3vw,38px) 40px}
+h1{margin:0;font-size:1.1rem;letter-spacing:.14em}.sub{color:var(--mut);font-size:12px;margin:2px 0 12px}.wrap{background:#10163acc;border:1px solid var(--ln);border-radius:18px;padding:8px}svg{width:100%;height:auto;display:block}
+text{fill:var(--fg);font:600 11px system-ui}.m{fill:var(--mut);font:400 10px system-ui}
+.cap{display:flex;gap:12px;align-items:center;margin:8px 4px;flex-wrap:wrap}#cap{flex:1;min-width:260px}button,input{accent-color:#b388ff}button{border:1px solid var(--ln);background:#1c2455;color:var(--fg);border-radius:10px;padding:6px 14px;font:600 13px system-ui;cursor:pointer}
+.leg{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut)}.leg i{display:inline-block;width:22px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}th,td{padding:7px 10px;border-bottom:1px solid var(--ln);text-align:left}th{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+@keyframes p{50%{opacity:.35}}.pulse{animation:p 1s infinite}
+</style></head><body>
+<h1>HARNAIS · CASERNE OPUS · TERRITOIRES B1 · B2 · B3</h1><div class="sub">Rédacteurs Sonnet rafraîchis → checkpoint script → territoire → audit-correctif Opus 5.5 strictement dans son territoire → sortie prête</div>
+<div class="wrap"><svg id="s" viewBox="0 0 1000 540"></svg>
+<div class="cap"><div id="cap">…</div><button id="pl">⏸ Pause</button><label class="m" style="font-size:12px">vitesse <input id="sp" type="range" min="0.4" max="3" step="0.1" value="1"></label></div>
+<div class="leg"><span><i style="background:var(--b1)"></i>Territoire B1 · chapitres 1–5</span><span><i style="background:var(--b2)"></i>B2 · chapitres 6–10</span><span><i style="background:var(--b3)"></i>B3 · chapitres 11–15</span><span><i style="background:#cfd6ff"></i>Phase A (hors territoire)</span><span><i style="background:var(--bad)"></i>sortie de territoire interdite</span></div></div>
+<table><tr><th>#</th><th>Étape du plan</th><th>Qui</th><th>Gratuit / coût</th></tr>
+<tr><td>1</td><td>Fusion de LOT_001 (PR #460) puis du Harnais (#459)</td><td>Moi, CI</td><td>gratuit</td></tr>
+<tr><td>2</td><td>LOT_002 : préparation (liste DX, tableau de tâches, territoires, branche du LOT)</td><td>Scripts</td><td>gratuit</td></tr>
+<tr><td>3</td><td>Rafraîchisseur : un appel qui emboîte prompt, Prompt ULTIME, leçons, skills, outils</td><td>Chaque agent</td><td>gratuit</td></tr>
+<tr><td>4</td><td>Rédaction : 1 Phase A + 7 rédacteurs Sonnet 5.5, 1–2 chapitres chacun</td><td>8 Sonnet</td><td>tokens</td></tr>
+<tr><td>5</td><td>Checkpoint script par fichier (médical, ancrage des sources, langue rapide, forme)</td><td>Scripts</td><td>gratuit</td></tr>
+<tr><td><span class="dot" style="background:var(--b1)"></span><span class="dot" style="background:var(--b2)"></span><span class="dot" style="background:var(--b3)"></span>6</td><td>Audit-correctif simultané, dès qu'un chapitre est rédigé : 1 Opus par territoire (5 chapitres), strictement dans son territoire</td><td>3 Opus 5.5</td><td>tokens (ciblé)</td></tr>
+<tr><td>7</td><td>Contrôle de territoire (aucun fichier hors territoire modifié) puis commit sur la branche du LOT</td><td>Scripts</td><td>gratuit</td></tr>
+<tr><td>8</td><td>PR du LOT, CI, fusion ; 5 leçons au plus par rôle ; instantané et captures</td><td>Moi</td><td>gratuit</td></tr>
+<tr><td>9</td><td>LOT_003 → LOT_016, même circuit, un LOT à la fois</td><td>Harnais</td><td>—</td></tr></table>
+<script>
+const C={1:"#38d3ff",2:"#ffb23d",3:"#ff5fc8"},ns="http://www.w3.org/2000/svg",$=i=>document.getElementById(i),S=$("s");
+const el=(t,a,p)=>{const x=document.createElementNS(ns,t);for(const k in a)x.setAttribute(k,a[k]);(p||S).appendChild(x);return x};
+const T=(x,y,s,c,a)=>{const t=el("text",{x,y,class:c||"",...(a||{})});t.textContent=s;return t};
+// rafraîchisseur + rédacteurs
+el("rect",{x:14,y:14,width:190,height:62,rx:12,fill:"#171f4d",stroke:"#6a78d6","stroke-width":1.5});T(26,38,"Rafraîchisseur de mémoire");T(26,56,"prompt · Prompt ULTIME · leçons · skills · MCP","m");
+const W=[];for(let i=0;i<8;i++){const y=96+i*50;el("rect",{x:14,y,width:190,height:38,rx:10,fill:"#10163a",stroke:i?"#46549e":"#cfd6ff","stroke-width":1.4});T(26,y+16,i?"Sonnet 5.5 · rédacteur "+i:"Sonnet 5.5 · Phase A");T(26,y+30,i?"1–2 chapitres":"booster linguistique","m");W.push([204,y+19])}
+// checkpoint script
+el("rect",{x:226,y:230,width:84,height:90,rx:12,fill:"#16233f",stroke:"#22d38a","stroke-width":1.6});T(236,254,"Checkpoint");T(236,270,"médical","m");T(236,283,"sources","m");T(236,296,"langue · forme","m");
+// territoires
+const Z={1:{y:14,h:166},2:{y:190,h:166},3:{y:366,h:166}},ZP={};
+[1,2,3].forEach(n=>{const z=Z[n],c=C[n];el("rect",{x:340,y:z.y,width:480,height:z.h,rx:18,fill:c+"12",stroke:c,"stroke-width":2.4,"stroke-dasharray":"10 6"});T(356,z.y+22,"TERRITOIRE B"+n+" · chapitres "+(n*5-4)+"–"+n*5,"",{style:"fill:"+c});
+ el("rect",{x:362,y:z.y+50,width:110,height:70,rx:12,fill:"#0e1432",stroke:c});T(372,z.y+72,"entrée");const ce=T(372,z.y+98,"0 fichier","m");
+ const cx=590,cy=z.y+85;el("circle",{cx,cy,r:34,fill:"#151c48",stroke:c,"stroke-width":3,id:"op"+n});T(cx-27,cy-3,"Opus 5.5");T(cx-24,cy+13,"territoire B"+n,"m");
+ el("rect",{x:700,y:z.y+50,width:104,height:70,rx:12,fill:"#0e1432",stroke:c});T(710,z.y+72,"sortie");const cs=T(710,z.y+98,"0 prêt","m");
+ ZP[n]={ent:[472,z.y+85],op:[cx-34,cy],sor:[700,cy],out:[804,cy],ce,cs,ne:0,ns:0}});
+// sortie du harnais
+el("rect",{x:850,y:180,width:136,height:180,rx:14,fill:"#102b2a",stroke:"#22d38a","stroke-width":2});T(862,206,"Fichier prêt");T(862,224,"commit sur la","m");T(862,237,"branche du LOT","m");T(862,260,"PR du LOT","m");T(862,273,"CI · fusion","m");const fin=T(862,340,"0 / 16","",{style:"fill:#22d38a;font-size:16px"});
+// lignes de territoire (fond)
+const L=[];[1,2,3].forEach(n=>{const [x,y]=ZP[n].ent;el("path",{d:`M310 275C330 275 330 ${y} 362 ${y}`,fill:"none",stroke:C[n],"stroke-width":2,opacity:.55});el("path",{d:`M${ZP[n].sor[0]+104} ${y}L850 ${y>270?y-10:y+20}`,fill:"none",stroke:C[n],"stroke-width":2,opacity:.45})});
+el("path",{d:"M204 115C260 115 215 140 226 262",fill:"none",stroke:"#cfd6ff","stroke-width":2,opacity:.5});
+// violation
+const vio=el("g",{opacity:0});el("path",{d:"M624 270L624 192",stroke:"#ff5d73","stroke-width":3,"stroke-dasharray":"5 4"},vio);T(520,318,"✋ sortie de territoire refusée (territoire.py)","",{style:"fill:#ff5d73"}).setAttribute("opacity",0);
+const vt=S.lastChild;vio.appendChild(vt);
+// sprites
+const sp=[];let t=0,play=true,n=0,done=0;const cap=$("cap");
+function lerp(a,b,u){return a+(b-a)*u}
+function bez(p,u){const [a,b,c,d]=p,m=1-u;return[m*m*m*a[0]+3*m*m*u*b[0]+3*m*u*u*c[0]+u*u*u*d[0],m*m*m*a[1]+3*m*m*u*b[1]+3*m*u*u*c[1]+u*u*u*d[1]]}
+function spawn(){const i=n%16;n++;const terr=i==0?0:Math.ceil(i/5);const w=W[i%8];const col=terr?C[terr]:"#cfd6ff";const c=el("circle",{r:6,fill:col,style:"filter:drop-shadow(0 0 6px "+col+")"});
+ const label=i==0?"Phase A":"DX."+i;sp.push({c,i,terr,col,label,w,t:0,stage:0})}
+function say(s){cap.innerHTML=s}
+function step(dt){sp.forEach(o=>{o.t+=dt;const T0=[1.2,1.0,1.4,1.6,1.0];let u;
+ if(o.stage==0){u=Math.min(1,o.t/T0[0]);const p=bez([o.w,[o.w[0]+40,o.w[1]],[215,275],[226,275]],u);o.c.setAttribute("cx",p[0]);o.c.setAttribute("cy",p[1]);if(u>=1){o.stage=1;o.t=0;say("<b>"+o.label+"</b> : checkpoint script — doses vs AIPS, chiffres dans leurs sources, langue, forme.")}}
+ else if(o.stage==1){u=Math.min(1,o.t/T0[1]);o.c.setAttribute("cx",lerp(226,310,u));o.c.setAttribute("cy",275);if(u>=1){o.t=0;if(!o.terr){o.stage=9;say("<b>Phase A</b> : hors territoire, commit direct sur la branche du LOT.")}else{o.stage=2;ZP[o.terr].ne++;ZP[o.terr].ce.textContent=ZP[o.terr].ne+" fichier"+(ZP[o.terr].ne>1?"s":"");say("<b>"+o.label+"</b> entre dans le territoire <b style='color:"+o.col+"'>B"+o.terr+"</b> : seul l'Opus de B"+o.terr+" peut le toucher.")}}}
+ else if(o.stage==2){u=Math.min(1,o.t/T0[2]);const e=ZP[o.terr].ent;const p=bez([[310,275],[335,275],[340,e[1]],[e[0]-10,e[1]]],u);o.c.setAttribute("cx",p[0]);o.c.setAttribute("cy",p[1]);if(u>=1){o.stage=3;o.t=0}}
+ else if(o.stage==3){const z=ZP[o.terr];u=Math.min(1,o.t/T0[3]);o.c.setAttribute("cx",lerp(z.ent[0]-10,z.op[0]+34+Math.sin(o.t*8)*6,Math.min(1,u*2)));o.c.setAttribute("cy",z.ent[1]+Math.sin(o.t*10)*5);$("op"+o.terr).setAttribute("stroke-width",3+Math.sin(o.t*10)*1.5);if(u<0.05)say("Opus <b style='color:"+o.col+"'>B"+o.terr+"</b> audite et corrige <b>"+o.label+"</b> en même temps, strictement dans son territoire.");if(u>=1){o.stage=4;o.t=0;ZP[o.terr].ne--;ZP[o.terr].ce.textContent=Math.max(0,ZP[o.terr].ne)+" fichier"}}
+ else if(o.stage==4){const z=ZP[o.terr];u=Math.min(1,o.t/T0[4]);o.c.setAttribute("cx",lerp(z.op[0]+34,z.sor[0]+50,u));o.c.setAttribute("cy",z.ent[1]);if(u>=1){o.stage=5;o.t=0;z.ns++;z.cs.textContent=z.ns+" prêt"+(z.ns>1?"s":"");say("<b>"+o.label+"</b> : contrôle de territoire OK → sorti, prêt.")}}
+ else if(o.stage==5){const z=ZP[o.terr];u=Math.min(1,o.t/1.2);o.c.setAttribute("cx",lerp(z.sor[0]+50,858,u));o.c.setAttribute("cy",lerp(z.ent[1],270,u));if(u>=1){o.stage=9}}
+ else if(o.stage==9){o.c.remove();o.dead=1;done++;fin.textContent=Math.min(done,16)+" / 16"}});
+ for(let k=sp.length-1;k>=0;k--)if(sp[k].dead)sp.splice(k,1)}
+let acc=0,last=performance.now(),vcnt=0;
+function loop(now){requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000)*(+$("sp").value);last=now;if(!play)return;acc+=dt;if(acc>1.1&&sp.length<9){acc=0;spawn();if(n%7==0){vcnt++;vio.setAttribute("opacity",1);say("<b style='color:#ff5d73'>Tentative hors territoire</b> : l'Opus de B2 touche un fichier de B1 → contrôle de territoire : VIOLATION, sortie refusée.");setTimeout(()=>vio.setAttribute("opacity",0),2200)}}step(dt);if(done>=16){done=0;n=0;fin.textContent="0 / 16";[1,2,3].forEach(k=>{ZP[k].ns=0;ZP[k].cs.textContent="0 prêt"})}}
+$("pl").onclick=()=>{play=!play;$("pl").textContent=play?"⏸ Pause":"▶ Lecture"};requestAnimationFrame(loop);
+</script></body></html>
