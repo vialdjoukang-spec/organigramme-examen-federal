@@ -124,6 +124,9 @@ class Pipeline(unittest.TestCase):
         for key in ('source_url','licence_url'):
             self.assertTrue(rendered.xpath('//figure//figcaption/a[@href=$u]',u=credit[key]))
         self.assertFalse(credit['validation_humaine'])
+        self.assertEqual(credit['ancre'],self.job['ancre'])
+        self.assertIn('ancre examens.',credit['modifications'])
+        self.assertNotIn('section 9',credit['modifications'])
     def test_collection_images_invalide_refusee_sans_ecriture(self):
         source=self.root/'LOT_018/SOURCES.json'
         p.save(source,{'images_et_schemas':{'id':'ancien'}})

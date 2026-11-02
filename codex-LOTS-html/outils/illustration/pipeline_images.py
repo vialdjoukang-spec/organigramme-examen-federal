@@ -340,7 +340,7 @@ def integrer(plan, folder):
         raise ValueError('Collection images_et_schemas invalide')
     if any(s.get('id') == job['id'] for s in images):
         raise ValueError('Crédit déjà présent')
-    images.append({**{k: spec[k] for k in ('auteur','licence','licence_url','source_url','acces_le','sha256_original')}, 'id': job['id'], 'fichier_original': spec['image'], 'lecon': job['lecon'], 'sha256_lecon': sha(raw), 'preuve': plan['revue_rendu'], 'validation_humaine': False, 'revue_visuelle_interne': True, 'modifications': 'Comparaison du même cliché, contours rouges pointillés et repères numérotés dans une fenêtre de la section 9.'})
+    images.append({**{k: spec[k] for k in ('auteur','licence','licence_url','source_url','acces_le','sha256_original')}, 'id': job['id'], 'fichier_original': spec['image'], 'lecon': job['lecon'], 'ancre': job['ancre'], 'sha256_lecon': sha(raw), 'preuve': plan['revue_rendu'], 'validation_humaine': False, 'revue_visuelle_interne': True, 'modifications': f"Comparaison du même cliché, contours rouges pointillés et repères numérotés dans une fenêtre liée à l’ancre {job['ancre']}."})
     backup = path(folder / (job['id'] + '-avant.html'), folder)
     if backup.exists():
         raise ValueError('Sauvegarde existante ; examiner la précédente intégration')

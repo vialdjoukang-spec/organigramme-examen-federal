@@ -17,6 +17,24 @@ class Licences(unittest.TestCase):
   with self.assertRaises(ValueError):m.validate(dict(self.s,licence_url='https://creativecommons.org/licenses/by-nc/4.0/'))
  def test_domaine_non_autorise(self):
   with self.assertRaises(ValueError):m.validate(dict(self.s,source_url='https://example.com/image.jpg'))
+ def test_editeur_original_cc_by(self):
+  m.validate(dict(self.s,source_url='https://medicaljournalssweden.se/actaoncologica/article/view/123',licence='CC BY 4.0',licence_url='https://creativecommons.org/licenses/by/4.0/'))
+ def test_depot_original_cc_by(self):
+  m.validate(dict(self.s,source_url='https://github.com/ml-workgroup/covid-19-image-repository/blob/ad7ab099/README.md',licence='CC BY 3.0',licence_url='https://creativecommons.org/licenses/by/3.0/'))
+ def test_depot_original_licence_refusee(self):
+  for lic in ['CC BY-NC 3.0','CC BY-ND 3.0','inconnue']:
+   with self.subTest(lic=lic),self.assertRaisesRegex(ValueError,'Licence refusée'):
+    m.validate(dict(self.s,source_url='https://github.com/ml-workgroup/covid-19-image-repository',licence=lic))
+ def test_editeur_original_licence_refusee(self):
+  for lic in ['CC BY-NC 4.0','CC BY-ND 4.0','inconnue']:
+   with self.subTest(lic=lic),self.assertRaisesRegex(ValueError,'Licence refusée'):
+    m.validate(dict(self.s,source_url='https://medicaljournalssweden.se/actaoncologica/article/view/123',licence=lic))
+ def test_editeur_original_url_licence_incoherente(self):
+  with self.assertRaisesRegex(ValueError,'URL de licence incohérente'):
+   m.validate(dict(self.s,source_url='https://medicaljournalssweden.se/actaoncologica/article/view/123',licence='CC BY 4.0',licence_url='https://creativecommons.org/licenses/by-nc/4.0/'))
+ def test_editeur_domaine_exact_et_https(self):
+  for url in ['http://medicaljournalssweden.se/article/123','https://medicaljournalssweden.se.example.com/article/123','https://example.com/medicaljournalssweden.se','https://medicaljournalssweden.se@example.com/article/123','http://github.com/ml-workgroup/repo','https://github.com.example.com/repo','https://raw.githubusercontent.com/ml-workgroup/repo/main/image.jpg']:
+   with self.subTest(url=url),self.assertRaises(ValueError):m.validate(dict(self.s,source_url=url))
  def test_empreinte_modifiee(self):
   with self.assertRaises(ValueError):m.render(dict(self.s,sha256_original='0'*64))
  def test_contour_hors_image(self):

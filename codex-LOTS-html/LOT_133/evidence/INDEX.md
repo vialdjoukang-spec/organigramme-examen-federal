@@ -25,3 +25,6 @@ Lectures documentaires du02.11.2026 par deux agents Astra ; audit distinct en co
 | CH8 | [HUG SMPR — La thrombose veineuse profonde](https://www.hug.ch/sites/interhug/files/2023-09/strategie_tvp_2023.pdf) | Algorithme page 2 ; diagnostic différentiel page 5 | [recherche_b_0240.json](recherche_b_0240.json) |
 | CH10 | [HUG — Diagnostic du cancer du poumon](https://www.hug.ch/centre-cancers/diagnostic-cancer-poumon) | Imagerie et biopsie ; lignes 125–142 | [recherche_b_0240.json](recherche_b_0240.json) |
 | UE10 | [Collège des enseignants de pneumologie — Référentiel sémiologie respiratoire](https://cep.splf.fr/wp-content/uploads/2014/12/Referentiel_National_Semiologie_Respiratoire_30_MAI_10.pdf) | Hippocratisme digital, pages imprimées 65–66 ; lignes 3408–3476 | [recherche_b_0240.json](recherche_b_0240.json) |
+
+## 02.11.2026 — illustration clinique DX3
+Source originale Hannover Medical School, dépôt ml-workgroup/covid-19-image-repository au commit ad7ab099b425f16e06bba22322336b7d6a732965. Droits images explicitement CC BY3.0 ; image 00870a9c, projection AP. Une paire intégrée via illustrations/dx3-opacites/ ; revue clinique ciblée RADIO_2044.json et droits DROITS_2044.md. Données de 2020 utilisées comme illustration sémiologique, pas comme recommandation thérapeutique actuelle.

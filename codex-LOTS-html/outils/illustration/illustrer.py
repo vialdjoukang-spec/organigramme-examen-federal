@@ -20,7 +20,7 @@ def validate(s):
     source=urlparse(s['source_url'])
     if source.scheme!='https':raise ValueError('Source HTTPS requise')
     host=source.hostname
-    if host not in ['commons.wikimedia.org','europepmc.org','www.europepmc.org','openi.nlm.nih.gov']:raise ValueError('Source non autorisée')
+    if host not in ['commons.wikimedia.org','europepmc.org','www.europepmc.org','openi.nlm.nih.gov','medicaljournalssweden.se','github.com']:raise ValueError('Source non autorisée')
     lic=urlparse(s['licence_url'])
     suffix={'Domaine public':'/publicdomain/mark/1.0/','CC0 1.0':'/publicdomain/zero/1.0/'}.get(s['licence'])
     if suffix is None:

@@ -1,3 +1,9 @@
+# Avancée clinique iconographique — 2026-11-02T20:51:31.659121+00:00
+
+LOT133 DX3 possède désormais un cliché thoracique original de Hanovre, CC BY3.0, et sa copie annotée. Partie9 : clic sur « opacités bilatérales ». Contrôles :19statiques,55tests pipeline,4configurations navigateur leçon et2comparaison ; images et légendes réellement revues et contre-lues. Sources/specification/aperçu/sauvegarde et captures dans `LOT_133/illustrations/dx3-opacites/`. Les dix autres leçons restent sans image clinique. Ne pas confondre opacités et preuve de COVID/SDRA/gravité. Poursuivre autres sources originales accessibles ; Wikimedia n’est plus un prérequis exclusif.
+
+Attention : une régénération DX3 depuis le Markdown doit préserver ou réappliquer cette intégration avec nouvelles empreintes et contrôles ; ne pas écraser silencieusement la fenêtre illustrée. Plan courant dans evidence/PLAN_ICONOGRAPHIQUE_ACTUEL.json, plan1340 historique conservé, anciens rapports de zéroimage restent historiques. Voir `audits/SYNTHESE_2044.json`.
+
 Publication vérifiée : `105ebae2fb7d0f2e5e01780d57270a806c7561a0`. Verrou libéré. Trois agents Astra ont livré leurs missions de recherche et contrelecture. Blocage iconographique maintenu ; aucune activité des agents après cette livraison présumée.
 
 # Checkpoint 2026-11-02T15:03:10.489518+00:00
