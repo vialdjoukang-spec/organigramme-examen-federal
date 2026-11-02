@@ -2,7 +2,7 @@
 from pathlib import Path
 from html import escape
 import re
-from format_lecon import Lesson,paras,table,steps
+from format_lecon import Lesson,paras,table,steps,ref
 D=Path(__file__).resolve().parent
 raw=(D/'PHASE_A_REDACTION.md').read_text()
 parts=re.split(r'\n## \d+\. [^\n]+\n',raw)[1:15]
@@ -13,21 +13,21 @@ def md(s):
 def body(s):return paras(*(md(x.strip()) for x in s.strip().split('\n\n') if x.strip()))
 l=Lesson('Anomalies à l’inspection')
 dx=[
-('Accident vasculaire cérébral','Asymétrie faciale ou motrice brutale, parole inhabituelle.','Heure de début, examen neurologique et filière urgente avec imagerie.','🚩 Appeler immédiatement le 144, même si les signes régressent.'),
-('Sepsis avec purpura (suspecté)','Lésions non blanchissantes et altération générale, fièvre possible.','Évaluer circulation et vigilance ; filière urgente, prélèvements sans retarder les soins.','🚩 Évoquer notamment une méningococcémie ; protocole cité pédiatrique. Le non-blanchiment seul ne prouve pas le sepsis.'),
-('Insuffisance respiratoire aiguë','Effort respiratoire, posture, cyanose possible.','Constantes, oxygénation et ventilation selon gravité ; rechercher le mécanisme.','🚩 Détresse : action immédiate ; absence de cyanose non excluante.'),
-('Anémie','Pâleur avec fatigue, dyspnée ou saignement selon contexte.','Hémogramme puis mécanisme de l’anémie, en intégrant la tolérance.','Urgence si instabilité ou hémorragie ; couleur seule non diagnostique.'),
-('Obstruction biliaire','Ictère, urines foncées ou selles décolorées selon contexte.','Bilan hépatique et exploration dirigée des voies biliaires.','Urgence si signes infectieux ou instabilité ; ictère non spécifique.'),
-('Hépatopathie chronique décompensée','Ictère, distension abdominale, œdèmes ou signes cutanés possibles.','Rechercher défaillance, infection, saignement et confusion ; bilan spécialisé.','Urgence devant complication aiguë ; aspect seul insuffisant.'),
-('Insuffisance cardiaque','Gonflement des chevilles, dyspnée et modification rapide du poids.','Examen cardiorespiratoire et confirmation fonctionnelle selon présentation.','🚩 Étouffement, douleur thoracique, malaise ou perte de connaissance : appeler le 144. Œdème non spécifique.'),
-('Thrombose veineuse profonde','Asymétrie récente d’un membre, gonflement et douleur possibles.','Estimer la probabilité clinique et choisir le parcours de confirmation.','Urgence si dyspnée ou douleur thoracique associée ; inspection non confirmatoire.'),
-('Thrombopénie','Pétéchies, ecchymoses ou saignement muqueux selon le tableau.','Numération plaquettaire et recherche du mécanisme ; apprécier gravité hémorragique.','Urgence si saignement important ou atteinte générale.'),
-('Cancer bronchopulmonaire','Hippocratisme acquis possible avec symptômes respiratoires ou généraux.','Confirmer le signe et explorer selon le contexte ; plusieurs causes possibles.','Investigation orientée ; le signe photographique ne prouve pas la tumeur.')]
-comparison=table(['Diagnostic proposé','Indices à l’inspection et contexte','Confirmation ou décision','Priorité et limite'],[[f'DX.{i} — {a}',b,c,d] for i,(a,b,c,d) in enumerate(dx,1)])
-comparison+=paras('<strong>Ordre pédagogique, sans classement suisse de fréquence.</strong> Ces dix propositions organisent le raisonnement et ne couvrent pas toutes les anomalies visibles. Elles doivent être relues et documentées avant gel de la liste. Le contexte peut imposer une autre urgence : traumatisme, anaphylaxie, infection cutanée profonde ou autre défaillance.')
-refmap={1:(4,),2:(4,),3:(4,5),4:(1,2,3),5:(1,2,3,5),6:(2,3,4,5),7:(1,2,3,5),8:(1,5),9:(1,2,3,4,5),10:(1,2,3),11:(1,2,3,5),12:(3,),13:(1,2,3,4,5)}
+('Accident vasculaire cérébral','Asymétrie faciale ou motrice, parole inhabituelle, début brutal.','Examen neurologique, fonctions vitales et imagerie cérébrale urgente.','Scanner et/ou IRM ; bilan vasculaire et cardiaque orienté ensuite.','🚩 Appeler immédiatement le 144, même si les signes régressent.',(2,5)),
+('Sepsis avec purpura (suspecté)','Lésions non blanchissantes et altération générale ; rechercher une infection.','Conscience, circulation, respiration et diurèse ; lactate, hémogramme, hémostase, fonctions rénale/hépatique et cultures ciblées.','Infection avec défaillance d’organe ; cultures négatives non excluantes.','🚩 Purpura fulminans : prise en charge immédiate ; prélèvements sans retard de l’antibiothérapie. Le purpura seul ne prouve pas le sepsis.',(6,)),
+('Insuffisance respiratoire aiguë','Effort respiratoire, tirage, cyanose possible, épuisement ou trouble de conscience.','Fréquence respiratoire, saturation pulsée et qualité du signal ; radiographie thoracique et ECG orientent la cause.','Gazométrie artérielle : oxygénation, gaz carbonique et pH, interprétés avec l’oxygène reçu.','🚩 Détresse : stabiliser sans attendre ; absence de cyanose non excluante.',(7,)),
+('Anémie','Pâleur avec fatigue, dyspnée ou saignement selon le contexte.','Hémogramme, volume globulaire moyen, réticulocytes ; ferritine, B12/folates ou hémolyse selon la branche.','Hémoglobine mesurée ; caractérisation biologique puis recherche de cause.','Urgence si instabilité ou hémorragie ; pâleur seule non diagnostique.',(8,)),
+('Obstruction biliaire','Ictère, urines foncées, selles décolorées ; douleur ou fièvre possibles.','Bilirubine et profil hépatique, échographie ; bilan infectieux si indiqué.','Obstacle localisé par imagerie ; cholangio-IRM ou écho-endoscopie selon suspicion et échographie.','Urgence si angiocholite suspectée ou instabilité ; triade douleur-fièvre-ictère parfois incomplète.',(11,12,13)),
+('Hépatopathie chronique décompensée','Ictère, ascite, œdèmes ; rechercher saignement, infection et confusion.','Hémogramme, hémostase, fonction rénale, ionogramme, albumine et bilan hépatique ; ponction si ascite croissante ou complication.','Documenter terrain et complication séparément ; ascite : neutrophiles, protides/albumine et cultures.','Urgence devant défaillance, hémorragie ou infection ; culture d’ascite négative non excluante.',(14,15)),
+('Insuffisance cardiaque','Œdèmes des chevilles, dyspnée, intolérance à l’effort ou variation rapide du poids.','Examen cardiorespiratoire, ECG et peptides natriurétiques interprétés dans le contexte.','Concordance clinique et anomalies objectives à l’échocardiographie ; peptide élevé insuffisant isolément.','🚩 Étouffement, douleur thoracique, malaise ou perte de connaissance : 144 selon les consignes HUG. Œdème non spécifique.',(3,16,17)),
+('Thrombose veineuse profonde','Asymétrie récente d’un membre inférieur, gonflement et douleur possibles.','Probabilité de Wells : vraisemblable, échographie ; invraisemblable, D-dimères puis échographie si positifs.','Échographie veineuse ; si négative malgré forte probabilité, nouvel ultrason à 5–7 jours selon HUG 2023.','Dyspnée ou douleur thoracique : rechercher une embolie pulmonaire en urgence. Même sans ces signes, poursuivre le bilan de thrombose.',(18,)),
+('Thrombopénie','Pétéchies, ecchymoses ou saignement muqueux.','Hémogramme et frottis ; rechercher autres cytopénies, cellules anormales, schizocytes, médicaments et hémolyse selon le contexte.','Numération contrôlée ; agrégats : rechercher une fausse thrombopénie, notamment par prélèvement citraté.','Urgence si saignement important, cellules anormales ou microangiopathie suspectée ; purpura non synonyme de thrombopénie.',(9,10)),
+('Cancer bronchopulmonaire','Hippocratisme acquis possible avec symptômes respiratoires ou généraux.','Confirmer le signe et rechercher ses autres causes ; scanner thoracique si suspicion de tumeur.','Prélèvement tissulaire et anatomopathologie habituellement nécessaires ; bilan d’extension distinct.','Filière spécialisée ; hippocratisme et photographie ne prouvent pas la tumeur.',(19,20))]
+comparison=table(['Diagnostic proposé','Indices à l’inspection et contexte','Bilan initial adulte','Confirmation ou décision','Priorité et limite'],[[f'DX.{i} — {a}'+ref(rs),b,c,d,e] for i,(a,b,c,d,e,rs) in enumerate(dx,1)])
+comparison+=paras('<strong>Sélection pédagogique adulte, sans classement suisse de fréquence.</strong> Ces dix hypothèses relient signes de couleur, volume et mouvement à un bilan et à une décision. La liste pédagogique est non exhaustive, figée après contre-audit ciblé du 02.11.2026 ; grossesse et pédiatrie nécessitent un parcours adapté. Traumatisme, anaphylaxie ou infection cutanée profonde peuvent imposer une autre urgence. Le rappel HUG pédiatrique du point 4 reste distinct.')
+refmap={1:(4,),2:(4,),3:(7,8,20),4:(1,2,3,6,7),5:(2,3,8,10),6:(2,3,7,20),7:tuple([2,3,5,6]+list(range(7,21))),8:(5,6,7,8,9,10,11,14,15,16,17,18,19,20),9:tuple([5,6]+list(range(7,21))),10:(2,3,6,18),11:(2,3,6,7),12:(3,),13:(2,3,7,18,20)}
 main=[
-'Une {anomalie visible} est un constat clinique à décrire avant d’en nommer la cause. L’examen précise sa distribution et son évolution, puis recherche son retentissement.',
+'Chez l’adulte, une {anomalie visible} est un constat clinique à décrire avant d’en nommer la cause. L’examen précise sa distribution et son évolution, puis recherche son retentissement.',
 'Le {contexte de découverte} modifie la probabilité et la priorité. Aucun classement unique des causes ne convient à toutes les populations ; une anomalie aiguë se distingue d’une particularité ancienne stable.',
 'Les {mécanismes} concernent la couleur, le volume et le mouvement. L’apparence oriente la confirmation, mais ne mesure pas directement la fonction d’un organe.',
 'La {gravité} dépend de l’état général et des signes associés. Détresse respiratoire, déficit brutal, altération de vigilance ou purpura fébrile préoccupant imposent une évaluation urgente.',
@@ -54,11 +54,11 @@ for line in parts[13].split('\n'):
  m=re.match(r'\d+\. \*\*(.*?)\*\* (.+)',line)
  if m:quiz.append((md(m[1]),md(m[2])))
 assert len(quiz)==14
-l.quiz(quiz,(1,2,3,4,5));l.write()
+l.quiz(quiz,(1,2,3,7,8,9,10,11,18,19,20));l.write()
 
 # Corrections locales de présentation ; le formatter partagé reste inchangé.
 dest=D.parent/'LOT_133_Phase_A_V0.html'
-rendered=dest.read_text().replace('<h2>Anomalies à l’inspection</h2>','<h1>Anomalies à l’inspection</h1>',1)
+rendered=dest.read_text().replace('couverture documentaire et iconographie incomplètes ; liste différentielle proposée, non gelée.', 'liste pédagogique figée après contre-audit ciblé du 02.11.2026 ; iconographie non intégrée ; lot incomplet.').replace('<h2>Anomalies à l’inspection</h2>','<h1>Anomalies à l’inspection</h1>',1)
 chunks=re.split(r'(<[^>]+>)',rendered)
 in_body=False
 for index,chunk in enumerate(chunks):
