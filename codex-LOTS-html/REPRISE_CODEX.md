@@ -1,3 +1,7 @@
+# Checkpoint 2026-11-02T10:25:24.548232+00:00
+
+LOT133 :11HTML préparatoires maintenus. PharmacologieDX2/Rocephin etDX7/Forxiga enrichie depuisAIPS puis auditée ; 19contrôles statiques par page et4configurationsChromium. Réserves classées avec critères de levée dans LOT_133/audits/RESERVES_CLINIQUES_1020.json. Images0, politique inchangée. Ne pas commencer132, ne pas réouvrir anciennesréserves déjàrésolues. Voir état pour publication/verrou.
+
 Publication vérifiée : `2f638cff98886a69dc6c180ff76efbd56421185f`. Verrou libéré ; réacquérir avant reprise. Onze HTML préparatoires, lot133 non clos. Priorité réserves et illustrations, pasLOT132.
 
 # Checkpoint 2026-11-02T09:08:48.672413+00:00

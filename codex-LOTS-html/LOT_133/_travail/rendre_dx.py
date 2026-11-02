@@ -164,7 +164,9 @@ def clinical_scope(data):
     preamble = data['preamble']
     if data['n'] == 8:
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte, principalement membre inférieur. Grossesse et pédiatrie nécessitent un parcours distinct. Les posologies présentées concernent uniquement l’apixaban, d’après la notice suisse citée.'
-    if data['n'] in (2, 3, 4, 5, 7, 9, 10):
+    if data['n'] in (2, 7):
+        return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Les modalités médicamenteuses détaillées sont limitées aux spécialités suisses citées.'
+    if data['n'] in (3, 4, 5, 9, 10):
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Aucune posologie médicamenteuse proposée.'
     marker = 'Le champ principal est ' if data['n'] == 1 else 'Le titre canonique est conservé ; '
     if marker not in preamble:

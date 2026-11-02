@@ -111,6 +111,21 @@
       "cache_lecture": "_travail/_cache/dx7_0427/esc2023passage.json",
       "sha256_brut": "602bc4daf6287ebe46443f8452e9377be9ebfb3323c4705e0f288b6493e78fa3",
       "sha256_lecture": "b66baf209daa7f4536e2b8a0daac5a60c986a4bf734395be58416494aa9633de"
+    },
+    {
+      "id": "S8",
+      "titre": "AIPS — Forxiga, information professionnelle française, autorisation Swissmedic 65176, AstraZeneca AG",
+      "url": "https://www.swissmedicinfo-pro.ch/showText.aspx?authNr=65176&lang=FR&supportMultipleResults=1&textType=FI",
+      "region": "CH",
+      "date_source": "Août 2026, mise à jour affichée dans la notice",
+      "date_consultation": "2026-11-02",
+      "date_acquisition_fournisseur": "2026-10-04T00:00:00Z",
+      "portee_lue": "Composition et forme ; indication IC ; posologie IC et tableau rénal ; insuffisance hépatique/pédiatrie ; interruption chirurgicale ; contre-indications ; précautions rénales, hypotension, acidocétose, mycoses, Fournier ; interactions insuline/sulfonylurées, diurétiques, lithium ; grossesse/allaitement ; résumé sécurité et populations DAPA-HF/DELIVER. Texte complet archivé, lecture ciblée de ces rubriques uniquement.",
+      "limites": "Extraction du fournisseur web de la notice AIPS exacte ; pas acquisition HTML directe ce jour, ni interrogation du registre en temps réel. Date affichée et acquisition fournisseur distinctes. Ne valide pas les autres molécules, le remboursement, une recommandation ESC2026 ou un protocole aigu universel.",
+      "cache_brut": "_travail/_cache/pharma7_1020/aips_forxiga_fetch.json",
+      "cache_lecture": "_travail/_cache/pharma7_1020/aips_forxiga_fr.txt",
+      "sha256_brut": "f9b18610a45a451aa17d7dd5179d1ea4d4048d266abf4c9fa2a7a79b986c7a9c",
+      "sha256_lecture": "0be3aa982137ff6f2e8ca349ff81e399a0de40e3626669e252952be1f8b34db0"
     }
   ],
   "fraicheur": {
@@ -132,12 +147,14 @@
     }
   ],
   "aips": {
-    "doses_integrees": false,
-    "notices_lues_pour_ce_lot": [],
-    "reserve": "Vérification AIPS exacte requise pour dose, indication et conditions suisses."
+    "doses_integrees": true,
+    "notices_lues_pour_ce_lot": [
+      "S8 : Forxiga, autorisation 65176, information professionnelle française, mise à jour août 2026"
+    ],
+    "reserve": "Vérification ciblée dapagliflozine seulement ; autres notices non vérifiées. Pas validation thérapeutique globale2026 ni actualité du registre attestée."
   },
   "redaction": "_travail/DX7_REDACTION_0427.md",
-  "sha256_redaction": "94018d1f5e241957c53996203ae866622768233c0557b1052758fcba8f8256e1",
+  "sha256_redaction": "86090f1e489ffb4f7327526d18e60d4521b51323f85e7c051a70fe3b8db960b6",
   "controle_structure": {
     "parties": 14,
     "questions": 14
@@ -145,7 +162,8 @@
   "anomalies_sources_non_reproduites": [
     "CH3 page2 unités µg/L confondues avec pg/mL ; chiffres et unités du texte page8 utilisés",
     "CH3 page3 titre asymptomatiques associé NYHAII-IV, non repris",
-    "CH3 tableaux posologiques et affirmations larges non transposés"
+    "CH3 tableaux posologiques et affirmations larges non transposés",
+    "S8 extraction AIPS : résumé sécurité (ligne330) et titre DELIVER (ligne995) indiquent FEVG >40 %, mais paragraphe étude (ligne997) affiche ≤40 %. Discordance interne source/extraction consignée ; >40 % retenu sur résumé sécurité effectivement lu et titre concordant, sans altérer l’indication suisse."
   ],
   "perimetre": "Deux livrables et cache propre uniquement, aucun HTML/Git/registre global.",
   "corrections_relecture": [
@@ -154,6 +172,7 @@
     "P13 réserve métadocumentaire retirée, demeure en-tête/P11/preuves",
     "Q13 devenue question clinique alerte respiratoire sans gain pondéral",
     "P11 risque acidocétose et diabète type1 ajoutés selon S7 L954 ; AIPS réservé",
-    "Portée extraits indexés S5 rendue explicite dans chaque passage associé"
+    "Portée extraits indexés S5 rendue explicite dans chaque passage associé",
+    "Complément pharma7_1020 : S8 AIPS Forxiga exacte, dose IC, populations, rein/foie, volume/interactions, acidocétose et arrêts contextuels ; chapeau corrigé."
   ]
 }
