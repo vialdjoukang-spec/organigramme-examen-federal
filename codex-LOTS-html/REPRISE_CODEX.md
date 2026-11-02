@@ -1,3 +1,11 @@
+# Checkpoint rédactionnel — 02.11.2026
+
+Phase A du LOT133 publiée au commit 06e242a6, distant vérifié. Liste pédagogique figée après contre-audit. Deux brouillons Markdown sont rédigés : DX1 AVC (17,571 Ko) et DX6 hépatopathie chronique décompensée (14,325 Ko), chacun avec 14 parties et 14 questions. Leur contrelecture est préparatoire ; aucun HTML Phase B et aucun nouveau lot terminé.
+
+Cinq notices AIPS locales ont été relues et leurs empreintes contrôlées. Versions 2023–2025 ; actualité en ligne en 2026 non vérifiée. La discordance interne de Duphalac sur le lactose reste une réserve explicite. Aucune résolution ni autorisation thérapeutique inventée. Preuves : LOT_133/audits/DX1_DX6_PREAUDIT_0240.md et les trois fichiers de preuves dx1_0240.json, dx6_0240.json, DX6_AIPS_0240.json dans evidence/.
+
+Suite : compléter les imitateurs, la branche hémorragique et la prévention antithrombotique de DX1 ; compléter les traitements spécialisés et les notices suisses de DX6. Actualiser les informations AIPS avant publication posologique. Acquérir les images cliniques autorisées, toujours absentes du LOT133. Ne pas commencer LOT132. Aucun automate modifié. État final du verrou et publication dans ETAT_CONTINUITE.json.
+
 # Reprise active — 2026-11-02T02:49:22.376641+00:00
 
 PhaseA133 documentée avec20références,20contrôles statiques ; liste pédagogique adulte figée après audit distinct (AUDIT_DOCUMENTAIRE_0240.md). HTML 102862octets, base8091, fenêtres24152. Dernières modifications : statut et trois formulations mineures (REDACTION_0240.md). Aucun lot terminé, aucune nouvelle image ; dette iconographique maintenue. Deux rédacteurs travaillent sur DX1 etDX6 en fichiers disjoints. Ne pas créer132. Modèleagentsgpt-6-astra réellement invoqué, aucun réglageeffort prétendu.
