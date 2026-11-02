@@ -24,6 +24,12 @@ def controle():
  out={'date':datetime.datetime.now(datetime.timezone.utc).isoformat(),'branche':branch,'borne':[lo,hi],'erreurs':errors,'pret_infrastructure':not errors,'verrou_present':(B/'_cache/production.lock').exists(),'date_zurich':datetime.datetime.now(ZoneInfo('Europe/Zurich')).isoformat(),'fichiers':files,'portee':'Contrôle infrastructure et empreintes ; aucune validation médicale ni complétude déduite.'}
  tmp=D/f'ACTIVITE.{os.getpid()}.tmp';tmp.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n');tmp.replace(D/'ACTIVITE.json');return out
 
+def controle_surveille():
+ try:return controle()
+ except Exception as exc:
+  out={'date':datetime.datetime.now(datetime.timezone.utc).isoformat(),'date_zurich':datetime.datetime.now(ZoneInfo('Europe/Zurich')).isoformat(),'pret_infrastructure':False,'erreurs':[type(exc).__name__+': '+str(exc)],'portee':'Erreur de contrôle ; production interdite tant que non résolue.'}
+  tmp=D/f'ACTIVITE.{os.getpid()}.tmp';tmp.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n');tmp.replace(D/'ACTIVITE.json');return out
+
 def bracelet(task):
  p=subprocess.run([sys.executable,'-B',str(D/'bracelet/bracelet_suggest.py'),task],capture_output=True,text=True)
  with (D/'PREUVE_EMBOITEMENT.jsonl').open('a') as f:f.write(json.dumps({'date':datetime.datetime.now(datetime.timezone.utc).isoformat(),'date_zurich':datetime.datetime.now(ZoneInfo('Europe/Zurich')).isoformat(),'tache':task,'sortie_exacte':p.stdout,'stderr':p.stderr,'code_sortie':p.returncode,'ARSENAL_lu':True,'HARNAIS_lu':True,'producteur':'codex'},ensure_ascii=False)+'\n')
@@ -39,7 +45,7 @@ if __name__=='__main__':
    fd=os.open(lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY);os.write(fd,str(os.getpid()).encode());os.close(fd)
   except FileExistsError:sys.exit('Veille déjà enregistrée ; contrôler le PID avant reprise.')
   try:
-   while True:controle();time.sleep(60)
+   while True:controle_surveille();time.sleep(60)
   finally:lock.unlink(missing_ok=True)
  else:
-  r=controle();print(json.dumps({k:v for k,v in r.items() if k!='fichiers'},ensure_ascii=False));sys.exit(bool(r['erreurs']))
+  r=controle_surveille();print(json.dumps({k:v for k,v in r.items() if k!='fichiers'},ensure_ascii=False));sys.exit(bool(r['erreurs']))

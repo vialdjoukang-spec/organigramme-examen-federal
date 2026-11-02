@@ -13,19 +13,19 @@ def md(s):
 def body(s):return paras(*(md(x.strip()) for x in s.strip().split('\n\n') if x.strip()))
 l=Lesson('Anomalies à l’inspection')
 dx=[
-('Accident vasculaire cérébral','Asymétrie faciale ou motrice brutale, parole inhabituelle.','Heure de début, examen neurologique et filière urgente avec imagerie.','🚩 Urgence immédiate même si les signes régressent.'),
-('Sepsis avec purpura','Lésions non blanchissantes et altération générale, fièvre possible.','Évaluer circulation et vigilance ; filière urgente, prélèvements sans retarder les soins.','🚩 Urgence immédiate ; critères pédiatriques distincts.'),
+('Accident vasculaire cérébral','Asymétrie faciale ou motrice brutale, parole inhabituelle.','Heure de début, examen neurologique et filière urgente avec imagerie.','🚩 Appeler immédiatement le 144, même si les signes régressent.'),
+('Sepsis avec purpura (suspecté)','Lésions non blanchissantes et altération générale, fièvre possible.','Évaluer circulation et vigilance ; filière urgente, prélèvements sans retarder les soins.','🚩 Évoquer notamment une méningococcémie ; protocole cité pédiatrique. Le non-blanchiment seul ne prouve pas le sepsis.'),
 ('Insuffisance respiratoire aiguë','Effort respiratoire, posture, cyanose possible.','Constantes, oxygénation et ventilation selon gravité ; rechercher le mécanisme.','🚩 Détresse : action immédiate ; absence de cyanose non excluante.'),
 ('Anémie','Pâleur avec fatigue, dyspnée ou saignement selon contexte.','Hémogramme puis mécanisme de l’anémie, en intégrant la tolérance.','Urgence si instabilité ou hémorragie ; couleur seule non diagnostique.'),
 ('Obstruction biliaire','Ictère, urines foncées ou selles décolorées selon contexte.','Bilan hépatique et exploration dirigée des voies biliaires.','Urgence si signes infectieux ou instabilité ; ictère non spécifique.'),
 ('Hépatopathie chronique décompensée','Ictère, distension abdominale, œdèmes ou signes cutanés possibles.','Rechercher défaillance, infection, saignement et confusion ; bilan spécialisé.','Urgence devant complication aiguë ; aspect seul insuffisant.'),
-('Insuffisance cardiaque','Gonflement des chevilles, dyspnée et modification rapide du poids.','Examen cardiorespiratoire et confirmation fonctionnelle selon présentation.','🚩 Étouffement ou malaise : urgence ; œdème non spécifique.'),
+('Insuffisance cardiaque','Gonflement des chevilles, dyspnée et modification rapide du poids.','Examen cardiorespiratoire et confirmation fonctionnelle selon présentation.','🚩 Étouffement, douleur thoracique, malaise ou perte de connaissance : appeler le 144. Œdème non spécifique.'),
 ('Thrombose veineuse profonde','Asymétrie récente d’un membre, gonflement et douleur possibles.','Estimer la probabilité clinique et choisir le parcours de confirmation.','Urgence si dyspnée ou douleur thoracique associée ; inspection non confirmatoire.'),
 ('Thrombopénie','Pétéchies, ecchymoses ou saignement muqueux selon le tableau.','Numération plaquettaire et recherche du mécanisme ; apprécier gravité hémorragique.','Urgence si saignement important ou atteinte générale.'),
 ('Cancer bronchopulmonaire','Hippocratisme acquis possible avec symptômes respiratoires ou généraux.','Confirmer le signe et explorer selon le contexte ; plusieurs causes possibles.','Investigation orientée ; le signe photographique ne prouve pas la tumeur.')]
 comparison=table(['Diagnostic proposé','Indices à l’inspection et contexte','Confirmation ou décision','Priorité et limite'],[[f'DX.{i} — {a}',b,c,d] for i,(a,b,c,d) in enumerate(dx,1)])
 comparison+=paras('<strong>Ordre pédagogique, sans classement suisse de fréquence.</strong> Ces dix propositions organisent le raisonnement et ne couvrent pas toutes les anomalies visibles. Elles doivent être relues et documentées avant gel de la liste. Le contexte peut imposer une autre urgence : traumatisme, anaphylaxie, infection cutanée profonde ou autre défaillance.')
-refmap={1:(4,),2:(4,),3:(4,5),4:(1,2,3),5:(1,2,3,5),6:(4,5),7:(1,2,3,5),8:(1,5),9:(1,2,3,4,5),10:(1,2,3),11:(1,2,3,5),12:(3,),13:(1,2,3,4,5)}
+refmap={1:(4,),2:(4,),3:(4,5),4:(1,2,3),5:(1,2,3,5),6:(2,3,4,5),7:(1,2,3,5),8:(1,5),9:(1,2,3,4,5),10:(1,2,3),11:(1,2,3,5),12:(3,),13:(1,2,3,4,5)}
 main=[
 'Une {anomalie visible} est un constat clinique à décrire avant d’en nommer la cause. L’examen précise sa distribution et son évolution, puis recherche son retentissement.',
 'Le {contexte de découverte} modifie la probabilité et la priorité. Aucun classement unique des causes ne convient à toutes les populations ; une anomalie aiguë se distingue d’une particularité ancienne stable.',
@@ -38,7 +38,7 @@ main=[
 'Les {examens complémentaires} répondent à une question précise. Leur choix dépend du signe, des hypothèses et de la gravité ; aucune batterie identique ne convient à tous.',
 'L’{algorithme clinique} commence par la stabilité, puis décrit le signe et explore son mécanisme. Une situation menaçante doit être traitée sans attendre un dossier exhaustif.',
 'La {prise en charge} vise la cause et le retentissement. Les prescriptions dépendent du diagnostic, de l’âge et du contexte, avec vérification suisse de toute posologie.',
-'La {surveillance} compare des éléments définis dans des conditions cohérentes. Une amélioration visible doit être confrontée aux symptômes et à la fonction.',
+'La {surveillance} contribue à prévenir l’aggravation d’une insuffisance cardiaque connue : suivre le traitement prescrit, le poids, le souffle et les œdèmes. Les consignes de recours dépendent des symptômes ; une amélioration visible ne suffit pas à clôturer le suivi.',
 'Les {points clés} séparent constat, danger, hypothèse et action. Les limites de l’examen et les incertitudes doivent accompagner la conclusion.'
 ]
 for i in range(1,14):
@@ -52,6 +52,17 @@ for i in range(1,14):
 quiz=[]
 for line in parts[13].split('\n'):
  m=re.match(r'\d+\. \*\*(.*?)\*\* (.+)',line)
- if m:quiz.append((m[1],m[2]))
+ if m:quiz.append((md(m[1]),md(m[2])))
 assert len(quiz)==14
 l.quiz(quiz,(1,2,3,4,5));l.write()
+
+# Corrections locales de présentation ; le formatter partagé reste inchangé.
+dest=D.parent/'LOT_133_Phase_A_V0.html'
+rendered=dest.read_text().replace('<h2>Anomalies à l’inspection</h2>','<h1>Anomalies à l’inspection</h1>',1)
+chunks=re.split(r'(<[^>]+>)',rendered)
+in_body=False
+for index,chunk in enumerate(chunks):
+ if chunk.startswith('<body'):in_body=True
+ if in_body and not chunk.startswith('<') and 'Contenu établi à partir des sources citées' not in chunk:
+  chunks[index]=re.sub(r' (?=[:;!?])', '\u00a0', chunk)
+dest.write_text(''.join(chunks))
