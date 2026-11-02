@@ -38,6 +38,8 @@ def references(text):
 
 
 def input_paths(n):
+    if n in (5, 10):
+        return LOT / f"_travail/DX{n}_REDACTION_0858.md", LOT / f"evidence/DX{n}_0858.json"
     if n in (3, 4, 8, 9):
         return LOT / f"_travail/DX{n}_REDACTION_0506.md", LOT / f"evidence/DX{n}_0506.json"
     if n in (2, 7):
@@ -102,7 +104,7 @@ class Markdown:
         def token(value):
             tokens.append(value)
             return f'\x00{len(tokens)-1}\x00'
-        text = re.sub(r'<[^>]+>', lambda m: token(m[0]), text)
+        text = re.sub(r'</?[A-Za-z][A-Za-z0-9]*(?:\s+[^<>]*)?\s*/?>', lambda m: token(m[0]), text)
         text = escape(text, quote=False)
         def citation(match):
             def linked(ident):
@@ -162,7 +164,7 @@ def clinical_scope(data):
     preamble = data['preamble']
     if data['n'] == 8:
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte, principalement membre inférieur. Grossesse et pédiatrie nécessitent un parcours distinct. Les posologies présentées concernent uniquement l’apixaban, d’après la notice suisse citée.'
-    if data['n'] in (2, 3, 4, 7, 9):
+    if data['n'] in (2, 3, 4, 5, 7, 9, 10):
         return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Aucune posologie médicamenteuse proposée.'
     marker = 'Le champ principal est ' if data['n'] == 1 else 'Le titre canonique est conservé ; '
     if marker not in preamble:
@@ -182,7 +184,7 @@ def render(data):
     rows = data['rows']
     numbers = {ident: i for i, ident in enumerate(rows, 1)}
     module.S = [(f"{ident} — {r.get('titre') or r.get('title')}" +
-                 ''.join(f' ; {k}: {r[k]}' for k in ('version', 'date', 'lecture', 'passages', 'limite', 'limites', 'portee_lue', 'date_publication', 'reserve_fraicheur', 'date_consultation', 'date_lecture', 'read_date') if r.get(k)), r['url']) for ident, r in rows.items()]
+                 ''.join(f' ; {k}: {r[k]}' for k in ('version', 'date', 'lecture', 'passages', 'limite', 'limites', 'portee_lue', 'date_publication', 'date_source', 'reserve_fraicheur', 'date_consultation', 'date_lecture', 'read_date') if r.get(k)), r['url']) for ident, r in rows.items()]
     module.T = [title for title, _ in data['parts']]
     md = Markdown(numbers)
     canonical = re.search(r'^DX\.' + str(data['n']) + r' — (.+)$', (LOT / 'LISTE_DX_CANONIQUE.md').read_text(), re.M)
@@ -226,11 +228,11 @@ def render(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--dx', nargs='+', type=int, choices=(1, 2, 3, 4, 6, 7, 8, 9), default=[1, 6])
+    parser.add_argument('--dx', nargs='+', type=int, choices=tuple(range(1, 11)), default=[1, 6])
     parser.add_argument('--sources', action='append', default=[], metavar='DX:JSON')
     parser.add_argument('--render', action='store_true', help='Écrire les HTML après autorisation root')
     args = parser.parse_args()
-    extras = {n: [] for n in (1, 2, 3, 4, 6, 7, 8, 9)}
+    extras = {n: [] for n in tuple(range(1, 11))}
     for value in args.sources:
         n, path = value.split(':', 1); extras[int(n)].append(Path(path).resolve())
     inputs = [p for n in args.dx for p in [*input_paths(n), *extras[n]]]
