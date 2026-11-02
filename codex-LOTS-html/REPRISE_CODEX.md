@@ -1,3 +1,7 @@
+# Reprise2117 — quatre nouvelles figures intégrées
+
+DX1,2,5,9 contrôlés et contre-audités, plus DX3 antérieur : cinq leçons illustrées. 65 tests pipeline, 76 contrôles statiques, 16 configurations navigateur de leçon, huit configurations de comparaison. Verrou encore détenu par session principale. Figures DX4,6,8,10 en préparation séparée ; aucune complétude du lot revendiquée.
+
 Publication vérifiée : `a0814ba068f0eecf87188de497b156c5c7b8a3ab`. Révision DX3 publiée, verrou libéré ; réacquérir avant production. Trois agents ont livré ; aucune activité permanente garantie.
 
 # Révision sémiologique — 2026-11-02T21:11:06.301167+00:00

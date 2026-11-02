@@ -222,10 +222,15 @@ def acquerir(plan, folder):
     return out
 
 
-def reachable(root):
-    parts = root.xpath('//h2[contains(@id,"-p9")]/parent::section')
+def reachable(root, partie=9):
+    # P9 reste le défaut historique ; P8 sert notamment au bilan d'extension.
+    # Aucune partie arbitraire ni cible non popover n'ouvre le périmètre.
+    if type(partie) is not int or partie not in (8, 9):
+        raise ValueError('Partie d’insertion autorisée : 8 ou 9')
+    parts = [h.getparent() for h in root.xpath('//section/h2[@id]')
+             if h.get('id').endswith(f'-p{partie}')]
     if len(parts) != 1:
-        raise ValueError('Section 9 non unique')
+        raise ValueError(f'Section {partie} non unique')
     seen, nodes = set(), parts[:]
     for n in nodes:
         if n.get('id'):
@@ -233,7 +238,7 @@ def reachable(root):
         for target in n.xpath('.//*[@popovertarget]/@popovertarget'):
             if target not in seen:
                 found = root.xpath('//*[@id=$x]', x=target)
-                if len(found) == 1:
+                if len(found) == 1 and 'popover' in found[0].attrib:
                     seen.add(target)
                     nodes.append(found[0])
     return parts[0], nodes
@@ -243,10 +248,10 @@ def injection(original, job, figure):
     if not re.fullmatch('[a-z][a-z0-9-]*', job['id']):
         raise ValueError('Identifiant de fenêtre invalide')
     root = html.fromstring(original)
-    section, nodes = reachable(root)
+    section, nodes = reachable(root, job.get('partie_insertion', 9))
     anchor = root.xpath('//*[@id=$x]', x=job['ancre'])
     if len(anchor) != 1 or not any(n is anchor[0] or n in anchor[0].iterancestors() for n in nodes):
-        raise ValueError('Ancre hors des examens complémentaires et fenêtres liées')
+        raise ValueError('Ancre hors de la partie d’examen sélectionnée et fenêtres liées')
     term = job['expression']
     if not term or '<' in term or '>' in term:
         raise ValueError('Expression invalide')

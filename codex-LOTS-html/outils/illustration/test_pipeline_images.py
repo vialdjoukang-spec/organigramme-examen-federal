@@ -13,10 +13,10 @@ import pipeline_images as p
 
 REAL = p.BASE
 
-def fixture():
+def fixture(partie=9):
     sections=[]
     for i in range(1,15):
-        content='<div id="examens"><p>Reconnaître les voies optiques.</p></div>' if i==9 else '<p>Texte conservé.</p>'
+        content='<div id="examens"><p>Reconnaître les voies optiques.</p></div>' if i==partie else '<p>Texte conservé.</p>'
         sections.append(f'<section><h2 id="dx-p{i}">{i}. Exemple technique</h2>{content}</section>')
     return '<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Essai technique — anatomie normale</title></head><body><main><h1>Essai technique du clic — aucune lésion clinique</h1>'+''.join(sections)+('<details class="quiz"><summary>Question technique</summary><p>Réponse</p></details>'*14)+'</main></body></html>'
 
@@ -91,6 +91,43 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(len(r.xpath('//*[@popover="manual"]//figure')),1)
     def test_ancre_hors_examen_refusee(self):
         with self.assertRaises(ValueError):p.injection(fixture(),dict(self.job,ancre='dx-p1'),'<figure/>')
+    def test_partie8_exige_selection_explicite(self):
+        with self.assertRaises(ValueError):p.injection(fixture(8),self.job,'<figure/>')
+        out=p.injection(fixture(8),dict(self.job,partie_insertion=8),'<figure/>')
+        root=html.fromstring(out)
+        self.assertEqual(len(root.xpath('//figure')),1)
+        self.assertEqual(len(root.xpath('//*[@popover]//figure')),1)
+        self.assertEqual(len(root.xpath('//*[@id="examens"]//button')),1)
+        with self.assertRaises(ValueError):
+            p.injection(fixture(),dict(self.job,partie_insertion=8),'<figure/>')
+    def test_partie_non_autorisee_refusee(self):
+        for partie in (1,10,'8',True,8.0,None):
+            with self.subTest(partie=partie),self.assertRaises(ValueError):
+                p.injection(fixture(),dict(self.job,partie_insertion=partie),'<figure/>')
+    def test_suffixe_partie_exact_et_section_unique(self):
+        for partie in (8,9):
+            original=fixture(partie)
+            job=dict(self.job,partie_insertion=partie)
+            with self.subTest(partie=partie),self.assertRaises(ValueError):
+                p.injection(original.replace(f'id="dx-p{partie}"',f'id="dx-p{partie}0"'),job,'<figure/>')
+            with self.subTest(partie=partie),self.assertRaises(ValueError):
+                p.injection(original.replace('</main>',f'<section><h2 id="autre-p{partie}">Ambigu</h2></section></main>'),job,'<figure/>')
+    def test_fenetres_liees_p8_p9_et_refus_cibles_sans_popover(self):
+        for partie in (8,9):
+            original=fixture(partie).replace('<p>Reconnaître les voies optiques.</p>',
+                '<button popovertarget="niveau1">Examen</button>')
+            original=original.replace('</main>',
+                '<div id="niveau1" popover><button popovertarget="niveau2">Détail</button></div>'
+                '<div id="niveau2" popover><p>Reconnaître les voies optiques.</p></div></main>')
+            job=dict(self.job,partie_insertion=partie,ancre='niveau2')
+            with self.subTest(partie=partie):
+                out=p.injection(original,job,'<figure/>')
+                root=html.fromstring(out)
+                self.assertEqual(len(root.xpath('//figure')),1)
+                self.assertEqual(len(root.xpath('//*[@popover]//figure')),1)
+                for target in ('niveau1','niveau2'):
+                    with self.subTest(cible=target),self.assertRaises(ValueError):
+                        p.injection(original.replace(f'id="{target}" popover',f'id="{target}"'),job,'<figure/>')
     def test_terme_ambigu_refuse(self):
         with self.assertRaises(ValueError):p.injection(fixture().replace('les voies optiques','les voies optiques et voies optiques'),self.job,'<figure/>')
     def test_inspection_original_requise(self):
