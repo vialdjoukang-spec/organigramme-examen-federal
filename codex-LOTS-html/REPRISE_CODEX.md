@@ -1,3 +1,13 @@
+# PhaseA initiale LOT133 — 2026-11-02T01:01:01+00:00
+
+Reprise depuis52722d3a frais ; borne18–133, registre signé3affd2be17, pret/verifier133 autorisés, verrou acquis. Seul sans sous-agents. L’ordre descendant spécifique enregistré reste le contexte de cette reprise.
+
+Produit : LOT_133/LOT_133_Phase_A_V0.html,14parties/14fenêtres/14questions, tableau10DD proposés NON GELÉS. Version de travail explicitement signalée : couverture bibliographique partielle,0monographie et aucune image intégrée. Compléter sources CH/UE et approfondir avant gel etPhaseB. Aucun nouveau lot achevé. Anciennes244leçons inchangées,9harnais intacts. Les inventaires antérieurs244leçons restent datés et devront être régénérés pour intégrer cette245ePage.
+
+Contrôles : statiquePhaseA réussi avec5sources identifiées, pas le validateur complet11leçons ; Chromium4configurations,56fenêtres et56réponses ouvertes ;4captures finales inspectées. Audit langue signale title surabbr autoriséV8, siglesdéfinis et insécables selon anciennes règles ; aucun faux verdict positif. Aucun audit indépendant ni score ni nouvelle dose. Les sourcesHUG AVC et insuffisancecardiaque ont été lues ; UNESS introduction seulement, sous-sections etNICE403/inaccessibles. Candidatimage antérieur non acquis, aucun progrès pixels revendiqué.
+
+Suite : compléter133 avant132 ; relecture clinique et sources desDD, image brute/annotée, puis gel canonique et dix monographies. Voir BILAN_LOT_133.html etLOT_133/audits/RELECTURE_INTERNE.json. État final du verrou à lire dansETAT_CONTINUITE.json.
+
 # Sauvegarde descendante — 2026-11-02T00:40:37+00:00
 
 Verrou libéré. LOT133 : brouillon préparatoire14rubriques/14questions, sources initiales et candidatClubbing1.JPG identifiés. Téléchargement terminal403 ; aucun cliché acquis/annoté, aucun HTML ni lot achevé. Reprendre133 avant132, compléter sources et convertirV8 après relecture. DX6 antérieurs publiés et vérifiés au commitde37845d. Les deux veilles existantes contrôlent seulement, elles ne rédigent pas.
