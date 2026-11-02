@@ -1,3 +1,5 @@
+Publication vérifiée : `adfe2f38137a7db82e2ad228f6b5d64ef59a2d24`. Verrou libéré ; réacquérir avant prochaine production. Suite : DX3/DX8, réserves et images.
+
 # Checkpoint 2026-11-02T04:39:19.521139+00:00
 
 LOT133 : PhaseA gelée + DX1,DX2,DX6,DX7 HTML préparatoires. Six monographies manquent ; prochaine paire DX3/DX8. Ne pas passer132. Audits médical et langue réels, testsChromium ; voir LOT_133/audits/SYNTHESE_0427.json. Images toujours0 : refusEuropePMC403, Wikimediaexclu. Aucun protocole complet ni lot terminé revendiqué.
