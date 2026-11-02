@@ -1,3 +1,13 @@
+# Checkpoint — LOT133 publié ; recherche132 sauvegardée
+
+LOT133 terminé comme cours préparatoire adulte avec réserves, publié au commit cb1c0010aa48d03526ee9f38962af3d7cd54f440. Onze leçons, dix images,154 questions ;210 contrôles statiques,44 configurations navigateur finales. Détails et tailles : BILAN_LOT_133.html.
+
+LOT132 F1.3 : recherches cardiaques/pulmonaires et cadrage14parties/questions livrés ; un scanner CC BY4 préparé et contre-lu. Aucun cours HTML ni gel canonique. Lire LOT_132/REPRISE_RECHERCHE.md : sources exactes, réserves numériques HUG2026, agrandissement mobile du panneauC avant insertion. Reprendre PhaseA puis audit distinct, correction, gel, puis DX1–5/DX6–10.
+
+Quatre agents Astra réels ont livré. Acquisition du verrou obligatoire à toute reprise ; l’état final du verrou est dans ETAT_CONTINUITE.json. Le runtime héberge les veilles, aucune activité après sa disparition garantie.
+
+Historique ci-dessous :
+
 # LOT133 clôturé — reprise descendante132
 
 Dix images originales réelles, onze leçons illustrées,210 contrôles statiques et44 configurations navigateur. Critiques historiques qualifiées incompatibles avec les règles V8 prioritaires, non effacées. Réserves de fraîcheur et contradiction Duphalac maintenues ; aucun protocole spécialisé exhaustif ni validation humaine revendiqué.
