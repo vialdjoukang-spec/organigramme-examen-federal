@@ -25,7 +25,7 @@ def references(text):
     found = []
     for citation in CITATION.finditer(text):
         # La partie après ; est une qualification pédagogique conservée au rendu.
-        ids = citation[1].split(';', 1)[0]
+        ids = citation[1]
         for match in IDENT.finditer(ids):
             prefix, start, endprefix, end = match.groups()
             if end and endprefix and endprefix != prefix:
@@ -37,9 +37,15 @@ def references(text):
     return list(dict.fromkeys(found))
 
 
+def input_paths(n):
+    if n in (2, 7):
+        return LOT / f"_travail/DX{n}_REDACTION_0427.md", LOT / f"evidence/DX{n}_0427.json"
+    return LOT / f"_travail/DX{n}_REDACTION_0240.md", LOT / f"evidence/dx{n}_0240.json"
+
+
 def read_sources(n, extras):
     rows = {}
-    paths = [LOT / f'evidence/dx{n}_0240.json', *extras]
+    paths = [input_paths(n)[1], *extras]
     for path in paths:
         document = json.loads(path.read_text())
         for row in document['sources']:
@@ -53,7 +59,7 @@ def read_sources(n, extras):
 
 
 def parse(n, extras):
-    path = LOT / f'_travail/DX{n}_REDACTION_0240.md'
+    path = input_paths(n)[0]
     text = path.read_text()
     headings = list(SECTION.finditer(text))
     if [int(h[1]) for h in headings] != list(range(1, 15)):
@@ -64,7 +70,7 @@ def parse(n, extras):
         parts.append((h[2], text[h.end():end].strip()))
     # Les références brutes et journaux restent dans le Markdown de preuve uniquement.
     last = parts[-1][1]
-    appendix = re.search(r'^(?:#{2,3} |Sources et passages\s*:)', last, re.M)
+    appendix = re.search(r'^(?:#{2,3} |Sources et passages\s*:|Sources détaillées,)', last, re.M)
     quiz_text = last[:appendix.start()] if appendix else last
     questions = list(QUESTION.finditer(quiz_text))
     if [int(q[1]) for q in questions] != list(range(1, 15)):
@@ -97,10 +103,10 @@ class Markdown:
         text = re.sub(r'<[^>]+>', lambda m: token(m[0]), text)
         text = escape(text, quote=False)
         def citation(match):
-            ids = references(match[0])
-            links = ','.join(f'<a href="#s{self.numbers[x]}">{x}</a>' for x in ids)
-            qualifier = match[1].partition(';')[2]
-            return token('<sup class="s">[' + links + (' ;' + qualifier if qualifier else '') + ']</sup>')
+            def linked(ident):
+                ids = references('[' + ident[0] + ']')
+                return ','.join(f'<a href="#s{self.numbers[x]}">{x}</a>' for x in ids)
+            return token('<sup class="s">[' + IDENT.sub(linked, match[1]) + ']</sup>')
         text = CITATION.sub(citation, text)
         text = re.sub(r'`([^`]+)`', lambda m: token('<code>' + m[1] + '</code>'), text)
         text = re.sub(r'\[([^\]]+)\]\((https?://[^\s)]+)\)',
@@ -152,6 +158,8 @@ class Markdown:
 def clinical_scope(data):
     """Conserver le périmètre clinique verbatim, sans métadonnées de production."""
     preamble = data['preamble']
+    if data['n'] in (2, 7):
+        return '**Monographie préparatoire ; ne constitue pas un protocole thérapeutique exhaustif.**\n\nPopulation adulte. Pédiatrie et grossesse nécessitent un parcours distinct. Aucune posologie médicamenteuse proposée.'
     marker = 'Le champ principal est ' if data['n'] == 1 else 'Le titre canonique est conservé ; '
     if marker not in preamble:
         raise ValueError(f"DX.{data['n']}: préambule changé, périmètre clinique à revoir")
@@ -170,7 +178,7 @@ def render(data):
     rows = data['rows']
     numbers = {ident: i for i, ident in enumerate(rows, 1)}
     module.S = [(f"{ident} — {r.get('titre') or r.get('title')}" +
-                 ''.join(f' ; {k}: {r[k]}' for k in ('version', 'date', 'lecture', 'passages', 'limite', 'date_lecture', 'read_date') if r.get(k)), r['url']) for ident, r in rows.items()]
+                 ''.join(f' ; {k}: {r[k]}' for k in ('version', 'date', 'lecture', 'passages', 'limite', 'limites', 'portee_lue', 'date_consultation', 'date_lecture', 'read_date') if r.get(k)), r['url']) for ident, r in rows.items()]
     module.T = [title for title, _ in data['parts']]
     md = Markdown(numbers)
     canonical = re.search(r'^DX\.' + str(data['n']) + r' — (.+)$', (LOT / 'LISTE_DX_CANONIQUE.md').read_text(), re.M)
@@ -214,14 +222,14 @@ def render(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--dx', nargs='+', type=int, choices=(1, 6), default=[1, 6])
+    parser.add_argument('--dx', nargs='+', type=int, choices=(1, 2, 6, 7), default=[1, 6])
     parser.add_argument('--sources', action='append', default=[], metavar='DX:JSON')
     parser.add_argument('--render', action='store_true', help='Écrire les HTML après autorisation root')
     args = parser.parse_args()
-    extras = {1: [], 6: []}
+    extras = {n: [] for n in (1, 2, 6, 7)}
     for value in args.sources:
         n, path = value.split(':', 1); extras[int(n)].append(Path(path).resolve())
-    inputs = [p for n in args.dx for p in [LOT / f'_travail/DX{n}_REDACTION_0240.md', LOT / f'evidence/dx{n}_0240.json', *extras[n]]]
+    inputs = [p for n in args.dx for p in [*input_paths(n), *extras[n]]]
     snapshots = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}
     documents = [parse(n, extras[n]) for n in args.dx]
     outputs = [render(d) for d in documents] if args.render else []

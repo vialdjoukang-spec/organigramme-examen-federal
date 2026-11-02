@@ -1,0 +1,122 @@
+{
+  "mission": "LOT_133 — recherche documentaire et acquisition de cliché réel pour IC/œdème pulmonaire, AVC ou hépatopathie",
+  "date": "2026-11-02T04:29:39.804908+00:00",
+  "statut": "bloque_acquisition_reseau",
+  "images_acquises": [],
+  "images_integrees": [],
+  "inspection_visuelle_realisee": false,
+  "validation_humaine": false,
+  "consignes_lues": [
+    "AGENTS.md",
+    "docs/ARSENAL.md",
+    "codex-LOTS-html/CONSIGNE_ILLUSTRATIONS.md",
+    "codex-LOTS-html/outils/illustration/README.md",
+    "codex-LOTS-html/outils/illustration/PIPELINE.md"
+  ],
+  "outils_disponibles": {
+    "recherche": "mcp__codex_apps__search_service_web_run",
+    "acquisition_commons": "codex-LOTS-html/outils/illustration/acquerir_commons.py",
+    "pipeline": "codex-LOTS-html/outils/illustration/pipeline_images.py",
+    "annotation": "codex-LOTS-html/outils/illustration/illustrer.py",
+    "annotation_executee": false
+  },
+  "reseau": {
+    "policy_file": "/etc/codex/network-policy.json",
+    "type": "restricted",
+    "runtime_observations_current": true,
+    "runtime_state": "enforced",
+    "vpn_configured": false,
+    "domaines_requis": {
+      "europepmc.org": true,
+      "commons.wikimedia.org": false,
+      "upload.wikimedia.org": false,
+      "thumb.wikimedia.org": false,
+      "openi.nlm.nih.gov": false,
+      "cdn.ncbi.nlm.nih.gov": false
+    },
+    "respect": "Proxy et vérification TLS conservés. Aucune requête de téléchargement vers un domaine exclu, aucun miroir ni changement réseau."
+  },
+  "recherches_web": [
+    {
+      "q": "site.europepmc.org pulmonary edema chest radiograph case report",
+      "resultat": "Articles/cas indexés, dont PMC5667298 identifié lors de la recherche ciblée suivante."
+    },
+    {
+      "q": "site.commons.wikimedia.org pulmonary edema radiograph",
+      "resultat": "Notice AP portable CXR trouvée et ouverte."
+    },
+    {
+      "q": "\"Unilateral cardiogenic pulmonary edema associated with acute mitral regurgitation\" PMC",
+      "resultat": "PMC5667298 identifié."
+    }
+  ],
+  "candidats": [
+    {
+      "titre": "AP portable CXR of a patient in acute pulmonary oedema.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:AP_portable_CXR_of_a_patient_in_acute_pulmonary_oedema.jpg",
+      "notice_lue_le": "2026-11-02",
+      "auteur_notice": "Frank Gaillard, Jeremy Jones",
+      "credit_specifique": "Image courtesy of Dr Jeremy Jones",
+      "licence": "CC BY-SA 3.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "preuve_droits": "Notice Commons ouverte : auteur lignes 118–120, licence lignes 123–158, ticket VRT 2009072410040687 lignes 138–139.",
+      "dimensions_annoncees": [
+        1600,
+        1600
+      ],
+      "mime_annonce": "image/jpeg",
+      "taille_annoncee": "745 KB",
+      "origine_annoncee": "Radiopaedia, mise en ligne Commons du 23 juillet 2009 à 18:06.",
+      "pertinence_documentaire": "Radiographie AP portable annoncée comme œdème pulmonaire aigu ; concordance précise des signes avec LOT_133 à contrôler sur pixels avant sélection définitive.",
+      "statut": "notice_licence_lue_original_non_acquis",
+      "blocage": "upload.wikimedia.org et thumb.wikimedia.org absents de la liste autorisée. Téléchargement non tenté par respect de la politique.",
+      "original_url": null,
+      "fichier_local": null,
+      "sha256_original": null,
+      "coordonnees_annotations": null,
+      "modifications": []
+    },
+    {
+      "titre": "Unilateral cardiogenic pulmonary edema associated with acute mitral regurgitation",
+      "pmcid": "PMC5667298",
+      "source_url": "https://europepmc.org/articles/PMC5667298",
+      "doi": "10.1002/ams2.234",
+      "auteurs_resultat_pubmed": [
+        "Masahiro Kashiura",
+        "Kazuya Tateishi",
+        "Taro Yokoyama",
+        "Mioko Jujo",
+        "Takahiro Tanabe",
+        "Kazuhiro Sugiyama",
+        "Akiko Akashi",
+        "Yuichi Hamabe"
+      ],
+      "statut": "candidat_documentaire_non_acquis_droits_non_verifies",
+      "licence": null,
+      "figure_selectionnee": null,
+      "reserve": "Cas atypique unilatéral ; ne pas présenter comme cliché classique bilatéral. Article et droits des figures non consultables par API pendant cette tentative.",
+      "blocage": "Deux API documentaires Europe PMC renvoient HTTP 403, corps error code: 1010. Ouverture web de la page Europe PMC : not accessible via this tool."
+    }
+  ],
+  "tentatives_http": [
+    {
+      "url": "https://europepmc.org/api/fulltextXmlRepo?ft_id=PMC5667298",
+      "at": "2026-11-02T04:29:03.347894+00:00",
+      "error": "HTTP Error 403: Forbidden",
+      "diagnostic_at": "2026-11-02T04:29:12.135774+00:00",
+      "status": 403,
+      "response_body": "error code: 1010\n",
+      "response_sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c"
+    },
+    {
+      "url": "https://europepmc.org/api/fulltextRepo?pmcId=PMC5667298&type=METADATA",
+      "at": "2026-11-02T04:29:03.490902+00:00",
+      "error": "HTTP Error 403: Forbidden",
+      "diagnostic_at": "2026-11-02T04:29:12.165647+00:00",
+      "status": 403,
+      "response_body": "error code: 1010\n",
+      "response_sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c"
+    }
+  ],
+  "conclusion": "Aucun fichier image réel acquis. La notice Commons fournit un candidat licencié ; acquisition et inspection restent à faire lorsque le domaine image sera accessible par une voie autorisée. Aucun droit ni repère anatomique inventé."
+}

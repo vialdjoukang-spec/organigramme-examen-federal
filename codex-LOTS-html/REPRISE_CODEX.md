@@ -1,3 +1,7 @@
+# Checkpoint 2026-11-02T04:39:19.521139+00:00
+
+LOT133 : PhaseA gelée + DX1,DX2,DX6,DX7 HTML préparatoires. Six monographies manquent ; prochaine paire DX3/DX8. Ne pas passer132. Audits médical et langue réels, testsChromium ; voir LOT_133/audits/SYNTHESE_0427.json. Images toujours0 : refusEuropePMC403, Wikimediaexclu. Aucun protocole complet ni lot terminé revendiqué.
+
 Publication vérifiée : `c4a0f36c0d51fefe8342cc78e3702a48c7233fed`. Verrou libéré en fin de session ; réacquérir avant toute production.
 
 # Checkpoint du 2026-11-02T03:42:46.980628+00:00

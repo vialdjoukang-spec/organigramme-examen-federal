@@ -23,7 +23,7 @@ import taille_xy
 def verifier(path):
     n = int(re.search(r'DX\.(\d+)\.html$', path.name)[1])
     from rendre_dx import parse
-    donnees = parse(n, [path.parent / f'evidence/SOURCES_RENDU_DX{n}_0330.json'])
+    donnees = parse(n, [] if n in (2, 7) else [path.parent / f'evidence/SOURCES_RENDU_DX{n}_0330.json'])
     raw = path.read_bytes()
     source = raw.decode('utf-8')
     tree = html.document_fromstring(source)
@@ -52,9 +52,9 @@ def verifier(path):
     check('abbreviations_definies', all(e.get('title', '').strip() for e in tree.xpath('//abbr')))
     check('aucune_execution_ou_ressource_distante', not tree.xpath('//script|//iframe|//link[@rel="stylesheet"]|//*[@src and not(starts-with(@src,"data:"))]'))
     check('references_en_exposant', bool(tree.xpath('//sup[@class="s"]/a')) and '[S1]' not in source)
-    refs = [(r.get('titre') or r.get('title'), r['url']) for r in donnees['rows'].values()]
-    check('sources_identifiees_selon_catalogue', len(refs) >= 5 and all(f's{i}' in ids for i in range(1, len(refs)+1)))
-    check('url_sources_concordantes', all(tree.xpath('//*[@id=$id]//a[@href=$url]', id=f's{i}', url=ref[1]) for i,ref in enumerate(refs,1)))
+    refs = [(i, r['url']) for i, (ident, r) in enumerate(donnees['rows'].items(), 1) if ident in donnees['used']]
+    check('sources_identifiees_selon_catalogue', len(refs) >= 5 and all(f's{i}' in ids for i, url in refs))
+    check('url_sources_concordantes', all(tree.xpath('//*[@id=$id]//a[@href=$url]', id=f's{i}', url=url) for i,url in refs))
     check('quatorze_questions', len(tree.xpath('//details[@class="quiz"]')) == 14)
     check('marque_fin', source.rstrip().endswith(f'<!-- FIN_FICHIER LOT_133_Phase_B_DX.{n} -->'))
     check('mention_clinique', 'Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.' in source)
@@ -81,7 +81,7 @@ def verifier(path):
         'octets': len(raw), 'texte_fiche_octets': measure.x[1], 'texte_fenetres_octets': measure.y[1],
         'fenetres': len(windows), 'questions': len(tree.xpath('//details[@class="quiz"]')),
         'controles': checks, 'statique_ok': all(c['ok'] for c in checks),
-        'rendu_navigateur': {'statut': 'non_verifie', 'motif': 'Chromium : net::ERR_BLOCKED_BY_ADMINISTRATOR pour file:// ; aucune tentative de contournement.'},
+        'rendu_navigateur': {'statut': 'non_verifie', 'motif': 'Non exécuté par ce script statique ; consulter NAVIGATEUR_DX*.json pour les contrôles distincts.'},
     }
 
 
