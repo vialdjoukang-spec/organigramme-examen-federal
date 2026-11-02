@@ -1,3 +1,5 @@
+Publication vérifiée : `a0814ba068f0eecf87188de497b156c5c7b8a3ab`. Révision DX3 publiée, verrou libéré ; réacquérir avant production. Trois agents ont livré ; aucune activité permanente garantie.
+
 # Révision sémiologique — 2026-11-02T21:11:06.301167+00:00
 
 LOT133 DX3 : traits fins, numéros déportés, six étapes anatomiques concises. Une image clinique unique, deux vues ; dix autres leçons restent sans image. 61 tests pipeline, 19 contrôles statiques, quatre configurations navigateur leçon et deux comparaison ; six captures inspectées, audit distinct réel. Kenhub consulté comme référence anatomique, aucune image reprise. Voir `LOT_133/audits/SYNTHESE_2104.json`. Cache global non conforme conservé. Préférence de Vial persistée dans `CONSIGNE_DENSITE_SEMIOLOGIQUE.md`.
