@@ -1,3 +1,7 @@
+# Checkpoint iconographique — 2026-11-02T13:45:28.254765+00:00
+
+LOT 133 reste actif et incomplet. Les onze HTML cliniques sont inchangés. Dix cibles et ancrages sont préparés dans `LOT_133/evidence/PLAN_ICONOGRAPHIQUE_1340.json` ; scanner DX10 en partie 8. Le contrôleur `outils/illustration/couverture_images.py --points 8,9` inventorie les fenêtres imbriquées et les assets sans valider la médecine ni les droits. Suite illustration : 49 tests réussis. Aucune image acquise ou inspectée. Sources nouvelles refusées ou non accessibles : `evidence/IMAGES_1340.json`. Ne pas répéter les refus inchangés. Autoriser effectivement `upload.wikimedia.org` dans la configuration réseau débloquerait les candidats Commons déjà sélectionnés ; modification non réalisée ici. Aucun passage au LOT 132. Voir `audits/SYNTHESE_1340.json` et état pour publication et verrou.
+
 Publication vérifiée : `3762a91705468731b8ced13a1a96075986834401`. Verrou libéré ; réacquérir avant reprise. Correctif pipeline validé42tests ; aucune image admissible acquise, origine/licence et réseau restent documentés.
 
 # Checkpoint 2026-11-02T12:58:15.979502+00:00
