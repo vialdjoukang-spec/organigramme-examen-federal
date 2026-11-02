@@ -1,3 +1,5 @@
+Publication vérifiée : `8f0afd5307e3aa88d8da43bdeadce5d40f5df654`. Première image clinique intégrée à DX3, paire originale/annotée et contrôles réels. Verrou libéré ; réacquérir avant reprise.
+
 # Avancée clinique iconographique — 2026-11-02T20:51:31.659121+00:00
 
 LOT133 DX3 possède désormais un cliché thoracique original de Hanovre, CC BY3.0, et sa copie annotée. Partie9 : clic sur « opacités bilatérales ». Contrôles :19statiques,55tests pipeline,4configurations navigateur leçon et2comparaison ; images et légendes réellement revues et contre-lues. Sources/specification/aperçu/sauvegarde et captures dans `LOT_133/illustrations/dx3-opacites/`. Les dix autres leçons restent sans image clinique. Ne pas confondre opacités et preuve de COVID/SDRA/gravité. Poursuivre autres sources originales accessibles ; Wikimedia n’est plus un prérequis exclusif.
