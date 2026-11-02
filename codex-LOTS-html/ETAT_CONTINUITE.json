@@ -4,7 +4,7 @@
   "dernier_lot_autorise": 133,
   "dernier_lot_termine": 39,
   "prochain_lot": 133,
-  "etape": "pharmacologie_DX4_DX9_et_references_corrigees",
+  "etape": "securite_DX6_attribution_DX7_corrigees",
   "fichier_en_cours": null,
   "automatisation_id": "6ae52476f6448191b77facd444e21214",
   "reprise": "horaire",
@@ -14,7 +14,7 @@
   "execution_immediate_automatisation": "Reprise horaire confirmée activée par lecture privée ; last_run_time enregistré 2026-10-31T00:22:39.395445+00:00, aucun détail de run ni résultat disponible, livraison inconnue. Un message reçu pendant la production a été traité dans la session unique. run_now indisponible (HTTP 404).",
   "html_lot_en_cours": 11,
   "prochain_diagnostic": null,
-  "prochaine_action": "Traiter les exigences et réserves actives de RESERVES_CLINIQUES_1103.json ; acquisition et annotation images prioritaires. Ne pas exiger exhaustivité spécialisée non mandatée. LOT133 reste actif, pasLOT132.",
+  "prochaine_action": "Acquérir images réelles licenciées par chemin autorisé, annoter et vérifier ; suivre critères de RESERVES_CLINIQUES_1203.json. ContradictionDuphalac signalée, pas de fausse résolution ni passageLOT132.",
   "dernier_commit_lot_termine": "145c673fe6fd2c193c23944291a82074a932b1c3",
   "dernier_bilan_lot_termine": {
     "date": "2026-10-31T21:04:52.881461+00:00",
@@ -35,7 +35,7 @@
     "commit": "145c673fe6fd2c193c23944291a82074a932b1c3",
     "push_confirme": true
   },
-  "verrou": "libéré en fin de session",
+  "verrou": "acquis_session_principale",
   "priorite_session": "Ordre explicite : harnais préalable, renforcement dense et images, LOT133 puis descente vers18.",
   "rapport_etat_des_lieux": {
     "date": "2026-10-31T10:16:32+00:00",
@@ -1483,5 +1483,43 @@
       "push_verifie": true,
       "date": "2026-11-02T11:11:08.650276+00:00"
     }
+  },
+  "checkpoint_1203": {
+    "date": "2026-11-02T12:10:06.343908+00:00",
+    "monographies": [
+      {
+        "dx": 6,
+        "fichier": "LOT_133_Phase_B_V0_DX.6.html",
+        "octets": 95831,
+        "sha256": "199b127024a1f20b5ed0d18510488143aa02cf16bf2ebac72bca5d75846907dc",
+        "base_octets": 6271,
+        "fenetres_octets": 20574,
+        "statut": "corrections ciblées auditées ; réserves résiduelles explicites"
+      },
+      {
+        "dx": 7,
+        "fichier": "LOT_133_Phase_B_V0_DX.7.html",
+        "octets": 97005,
+        "sha256": "82ba9c00584211bc6dfa4da60bc4f11d08578e5d71087478795e4246e1242160",
+        "base_octets": 5705,
+        "fenetres_octets": 24241,
+        "statut": "corrections ciblées auditées ; réserves résiduelles explicites"
+      }
+    ],
+    "changements": [
+      "DX6 : arrêt/évaluation pour réactions cutanées graves sous rifaximine ; calcium/ceftriaxone distinguant adulte/nouveau-né ; contradiction Duphalac préservée et conduite prudente",
+      "DX7 : appui clinique S5 retiré, énoncés aigus adossés aux passages S6 réellement relus ; signalement2026 non authentifié, doseForxiga inchangée"
+    ],
+    "structure": "19 contrôles par page réussis",
+    "navigateur": "4 configurationsChromium par page,14fenêtres14réponses chacune, SHA concordants",
+    "visuel": "HautP11 mobile sombre des2pages inspecté, inspection partielle du contenu défilant",
+    "audits": [
+      "AUDIT_DX6_DX7_1203.md",
+      "LANGUE_DX6_DX7_1203.md",
+      "RESERVES_CLINIQUES_1203.json"
+    ],
+    "images": 0,
+    "lot_termine": false,
+    "limites": "Politiqueréseau inchangée ; nouvellepisteGitHub accessible mais licenceNC rejetée. DernièreversionAIPSnon garantie, contradictionDuphalacnonrésolue. Deux fichiers sous100Ko signalés sans remplissage. RelecturelangueDX7 auSHA1972… puis correctiondepréfixesde lignesfa6e… sansmodificationde fond."
   }
 }
