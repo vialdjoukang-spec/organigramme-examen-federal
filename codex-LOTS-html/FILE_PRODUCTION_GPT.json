@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "production_gpt_en_cours",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
   "production_en_cours_confirmee": false,
-  "dernier_checkpoint_le": "2026-11-03T21:39:56+00:00",
+  "dernier_checkpoint_le": "2026-11-03T22:43:48.149Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,17 +36,17 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "DX1-C1/C2 sont DEJA appliquees. Lire LOT_132/audits/REPRISE_GPT_DX1_20261103.json, reauditer les changements, regenerer le HTML avec les scripts existants, executer les controles du harnais et du navigateur puis promouvoir seulement apres les portes requises. Si auditeur distinct indisponible, conserver le candidat et avancer la redaction sourcee de DX2 dans le meme lot sans declarer DX1 valide ni LOT132 termine.",
+  "prochaine_action": "LOT132 : DX1 corrigé (JSON) et HTML candidat créé ; réaudit clinique distinct puis régénération par rendre_dx.py et navigateur. DX2 BPCO désormais rédigé dans _travail/DX2_CONTENU.json : contrôle sources complet, rendu avec rendre_dx.py, audit indépendant avant promotion. Si portes bloquées, rédiger DX3 avec sources consultées ; jamais passer à LOT131 avant clôture des 11 leçons.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
-    "DX1": "corrections_C1_C2_sauvegardees_16_controles_cibles_reussis_non_promu",
+    "DX1": "source_corrigee_html_candidat_statique_cible_ok_attente_audit_et_chromium",
     "DX1_source": "LOT_132/_travail/DX1_CONTENU.json",
     "DX1_sha256": "bf8881a7de3107d93e92e4c299bad20a5f89b84df47d2505558db4e055fab7a1",
     "DX1_blob_git": "b233e783584eb19bb71b47f927d19599c286ddd4",
     "DX1_commit": "10a471ceec02ce12d6ed346c4388e682bd238ee2",
     "DX1_ancien_html_pause": "Historique non regenere, ne contient pas les corrections C1/C2.",
-    "DX2": "non_livre_au_checkpoint_arret",
+    "DX2": "nouveau_json_redige_13_sections_14_questions_8_sources_attente_harnais_rendu_audit",
     "DX3": "non_livre_au_checkpoint_arret",
     "DX4": "non_livre_au_checkpoint_arret",
     "DX5": "non_livre_au_checkpoint_arret",
@@ -58,7 +58,14 @@
     "source_etat_initial": "LOT_132/audits/PAUSE_VIAL.json",
     "source_etat_initial_date": "2026-11-02T22:21:41.783381+00:00",
     "inventaire_actuel_autres_diagnostics_a_refaire": true,
-    "lot_termine": false
+    "lot_termine": false,
+    "DX1_html_candidat": "LOT_132/_travail/brouillons_gpt/LOT_132_Phase_B_V0_DX.1.html",
+    "DX1_html_candidat_blob": "4bce27df47339f0f8151fb2db2e4cd837efcd5a0",
+    "DX2_source": "LOT_132/_travail/DX2_CONTENU.json",
+    "DX2_source_blob": "d7429c5eef576e0f2c9766659531382d03cd2b0f",
+    "DX2_commit": "93259e5b42ccf01bd8a682be73dd9caeb3249530",
+    "controle_cible": "LOT_132/audits/CONTROLE_GPT_DX1_DX2_20261103.json",
+    "controle_cible_commit": "ce67296f533d79ac3683f41d2dbd7caf10c3cd20"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -83,33 +90,33 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-file-132-20261103-turn",
     "pris_le": "2026-11-03T22:36:17.667Z",
     "expire_le": "2026-11-03T23:11:17.667Z",
     "travail": "LOT132 DX1 generation rendu candidat et DX2 redaction sourcée ; audit et sauvegarde sans promotion clinique",
-    "reference_precedente_sha": "5716871262b0615b61f681b32f2c37ca0fa6c723"
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-reprise-20261103-213425",
-    "pris_le": "2026-11-03T21:34:25+00:00",
-    "liberation_demandee_le": "2026-11-03T21:39:56+00:00",
-    "motif": "Fin de passe avec source et preuves sauvegardees ; prochaine execution autorisee apres acquisition conditionnelle.",
+    "reference_precedente_sha": "5716871262b0615b61f681b32f2c37ca0fa6c723",
+    "liberation_demandee_le": "2026-11-03T22:43:48.149Z",
+    "motif": "Candidats et preuves sauvegardés, pas d'autre producteur relancé.",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
   "regle_publication": "Aucun candidat déclaré validé sans audit distinct requis, corrections et contrôles réels. Les échecs et contrôles absents restent explicites. Ne pas passer au lot suivant avant clôture réelle du lot actif.",
   "regle_images": "Absence non bloquante pour texte contrôlé ; insertion seulement après licence et inspection vérifiées.",
   "nouvelle_production_cette_activation": {
-    "lecons_redigees": 0,
+    "lecons_redigees": 1,
     "lecons_corrigees": 1,
     "lecons_publiees_validees": 0,
-    "lots_clotures": 0
+    "lots_clotures": 0,
+    "html_candidats_sauvegardes": 1
   },
   "limites_execution_initiale": [
     "Le terminal n'a pas resolu github.com lors d'un git ls-remote ; acces au depot via connecteur GitHub fonctionnel. Ce constat ne decrit pas les futurs environnements.",
     "Harnais global, bracelet, regeneration HTML et navigateur non executes pour cette nouvelle version ; candidat non promu.",
-    "Aucun nouveau sous-agent ni nouvel audit distinct apres correction execute. L'audit historique distinct a fourni les deux remplacements appliques."
+    "Aucun nouveau sous-agent ni nouvel audit distinct apres correction execute. L'audit historique distinct a fourni les deux remplacements appliques.",
+    "Harnais Python et bracelet non executes dans cette passe : environnement Python/container indisponible (erreur systeme), aucune preuve verte simulee.",
+    "Rendu DX1 construit par remplacement vérifié depuis HTML historique, sans exécution de rendre_dx.py ; DX2 est seulement un JSON source ; pas de navigateur ni d'audit distinct postérieur."
   ],
   "historique_passes": [
     {
@@ -124,6 +131,37 @@
       "script_commit": "83d6adac88b5358b9e8bf0e4282ecdd905690ac5",
       "statut": "candidat_corrige_sauvegarde_non_promu",
       "verification_distante": "Blob complet de la source concordant avec le contenu local controle ; section11 relue via connecteur."
+    },
+    {
+      "session": "gpt-file-132-20261103-turn",
+      "lot": 132,
+      "lecons": [
+        "DX1",
+        "DX2"
+      ],
+      "travail": "DX1 candidat HTML corrigé sauvegardé par substitution réversible des deux formulations historiques. DX2 BPCO source rédigée en 13 sections, 14 questions, 8 sources consultées ; 19 contrôles ciblés JavaScript sur contenus distants.",
+      "livrables": [
+        {
+          "fichier": "LOT_132/_travail/brouillons_gpt/LOT_132_Phase_B_V0_DX.1.html",
+          "commit": "645d5d19ae8d7b27ef11b2757d3f7b3c27902f39",
+          "statut": "candidat_non_valide"
+        },
+        {
+          "fichier": "LOT_132/_travail/DX2_CONTENU.json",
+          "commit": "93259e5b42ccf01bd8a682be73dd9caeb3249530",
+          "statut": "candidat_non_audite"
+        },
+        {
+          "fichier": "LOT_132/audits/CONTROLE_GPT_DX1_DX2_20261103.json",
+          "commit": "ce67296f533d79ac3683f41d2dbd7caf10c3cd20",
+          "statut": "controle_mecanique_cible_19_sur_19"
+        }
+      ],
+      "audit_distinct_effectue": false,
+      "tests_navigateur_effectues": false,
+      "harnais_python_execute": false,
+      "autre_lot_actif": false,
+      "validation_clinique_humaine": false
     }
   ]
 }
