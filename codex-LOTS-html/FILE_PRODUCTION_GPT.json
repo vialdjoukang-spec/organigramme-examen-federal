@@ -4,8 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "execution_initiale_en_cours",
-  "production_en_cours_confirmee": true,
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-03T21:39:56+00:00",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -16,11 +17,16 @@
   "premiere_lecon_a_traiter": "DX1",
   "ordre_lecons": ["PhaseA", "DX1", "DX2", "DX3", "DX4", "DX5", "DX6", "DX7", "DX8", "DX9", "DX10"],
   "lots_suivants": {"de": 131, "a": 18, "pas": -1},
-  "prochaine_action": "Appliquer DX1-C1 et DX1-C2 au JSON existant, après comparaison avec l'information professionnelle AIPS55568 relue en ligne ; conserver le statut candidat jusqu'au réaudit et contrôles requis.",
+  "prochaine_action": "DX1-C1/C2 sont DEJA appliquees. Lire LOT_132/audits/REPRISE_GPT_DX1_20261103.json, reauditer les changements, regenerer le HTML avec les scripts existants, executer les controles du harnais et du navigateur puis promouvoir seulement apres les portes requises. Si auditeur distinct indisponible, conserver le candidat et avancer la redaction sourcee de DX2 dans le meme lot sans declarer DX1 valide ni LOT132 termine.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
-    "DX1": "corrections_ciblees_en_cours",
+    "DX1": "corrections_C1_C2_sauvegardees_16_controles_cibles_reussis_non_promu",
+    "DX1_source": "LOT_132/_travail/DX1_CONTENU.json",
+    "DX1_sha256": "bf8881a7de3107d93e92e4c299bad20a5f89b84df47d2505558db4e055fab7a1",
+    "DX1_blob_git": "b233e783584eb19bb71b47f927d19599c286ddd4",
+    "DX1_commit": "10a471ceec02ce12d6ed346c4388e682bd238ee2",
+    "DX1_ancien_html_pause": "Historique non regenere, ne contient pas les corrections C1/C2.",
     "DX2": "non_livre_au_checkpoint_arret",
     "DX3": "non_livre_au_checkpoint_arret",
     "DX4": "non_livre_au_checkpoint_arret",
@@ -30,9 +36,9 @@
     "DX8": "non_livre_au_checkpoint_arret",
     "DX9": "non_livre_au_checkpoint_arret",
     "DX10": "non_livre_au_checkpoint_arret",
-    "source_etat": "LOT_132/audits/PAUSE_VIAL.json",
-    "source_etat_date": "2026-11-02T22:21:41.783381+00:00",
-    "inventaire_actuel_detaille_a_refaire": true,
+    "source_etat_initial": "LOT_132/audits/PAUSE_VIAL.json",
+    "source_etat_initial_date": "2026-11-02T22:21:41.783381+00:00",
+    "inventaire_actuel_autres_diagnostics_a_refaire": true,
     "lot_termine": false
   },
   "lot133": {"statut": "livraison_anterieure_preservee_avec_reserves", "commit": "cb1c0010aa48d03526ee9f38962af3d7cd54f440", "recreer": false},
@@ -43,24 +49,42 @@
     "is_enabled_confirme_creation": true,
     "frequence": "HOURLY",
     "timing_mode": "flexible_schedule",
-    "execution_immediate": "run_now_confirme_inline_execution_dans_cette_conversation",
-    "premier_resultat": null,
+    "execution_immediate": "run_now_confirme_inline_execute_dans_cette_conversation",
+    "premier_resultat": "LOT132 DX1 source corrigee, commit10a471ce ; pas de nouvelle lecon HTML validee.",
     "garantie_activite_entre_declenchements": false,
     "desactivation": "apres_achevement_verifie_ou_STOP_humain"
   },
   "codex": {"arrete": true, "ancienne_tache_id": "6ae52476f6448191b77facd444e21214", "ancienne_tache_enabled_verifie": false, "reactivation_autorisee": false},
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-reprise-20261103-213425",
     "pris_le": "2026-11-03T21:34:25+00:00",
-    "expire_le": "2026-11-03T22:19:25+00:00",
-    "travail": "LOT132 DX1 : application des corrections deja demandees par audit distinct ; controle cible et persistance",
-    "reference_precedente_sha": "f0bc19c65cfa0bff7080690c55d6f54c514c982a",
-    "condition": "Bail de coordination uniquement ; ne prouve pas une activite jusqu'a son expiration. Liberation en fin de passe."
+    "liberation_demandee_le": "2026-11-03T21:39:56+00:00",
+    "motif": "Fin de passe avec source et preuves sauvegardees ; prochaine execution autorisee apres acquisition conditionnelle.",
+    "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
   "regle_publication": "Aucun candidat déclaré validé sans audit distinct requis, corrections et contrôles réels. Les échecs et contrôles absents restent explicites. Ne pas passer au lot suivant avant clôture réelle du lot actif.",
   "regle_images": "Absence non bloquante pour texte contrôlé ; insertion seulement après licence et inspection vérifiées.",
-  "nouvelle_production_cette_activation": {"lecons_redigees": 0, "lecons_corrigees": 0, "lecons_publiees": 0, "lots_clotures": 0},
-  "limites_execution_initiale": ["Le terminal de cette session n'a pas résolu github.com lors d'un git ls-remote ; l'accès au dépôt via le connecteur GitHub est fonctionnel. Ce constat ne décrit pas les futurs environnements."],
-  "historique_passes": []
+  "nouvelle_production_cette_activation": {"lecons_redigees": 0, "lecons_corrigees": 1, "lecons_publiees_validees": 0, "lots_clotures": 0},
+  "limites_execution_initiale": [
+    "Le terminal n'a pas resolu github.com lors d'un git ls-remote ; acces au depot via connecteur GitHub fonctionnel. Ce constat ne decrit pas les futurs environnements.",
+    "Harnais global, bracelet, regeneration HTML et navigateur non executes pour cette nouvelle version ; candidat non promu.",
+    "Aucun nouveau sous-agent ni nouvel audit distinct apres correction execute. L'audit historique distinct a fourni les deux remplacements appliques."
+  ],
+  "historique_passes": [
+    {
+      "session": "gpt-reprise-20261103-213425",
+      "lot": 132,
+      "lecon": "DX1",
+      "travail": "Application exacte DX1-C1/C2 au JSON ; notice professionnelle AIPS55568 relue en ligne ;16assertions mecaniques reussies, autres contenus inchanges et reversibilite binaire verifiee.",
+      "source_commit": "10a471ceec02ce12d6ed346c4388e682bd238ee2",
+      "preuve": "LOT_132/audits/REPRISE_GPT_DX1_20261103.json",
+      "preuve_commit": "503d9beb34a80157c32b979ad0f2456a02487b9a",
+      "script": "LOT_132/_travail/appliquer_corrections_dx1_gpt.py",
+      "script_commit": "83d6adac88b5358b9e8bf0e4282ecdd905690ac5",
+      "statut": "candidat_corrige_sauvegarde_non_promu",
+      "verification_distante": "Blob complet de la source concordant avec le contenu local controle ; section11 relue via connecteur."
+    }
+  ]
 }
