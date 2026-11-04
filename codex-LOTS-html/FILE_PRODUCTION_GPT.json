@@ -5,8 +5,8 @@
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
   "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T07:41:26.864Z",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T08:33:06.262Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,7 +36,7 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132: DX10 section11 et Q11 CORRIGÉS (épreuve hydrosoluble, radiographie à 24 h) et HTML candidat synchronisé ; ne pas répéter. Rapports audits/CONTROLE_ALIGNEMENT_GPT_20261104_0735Z.json (150/150 contrôles ciblés, 413 paragraphes, 140 questions) et audits/JOURNAL_GPT_20261104_0740Z.md. En checkout complet exécuter les précontrôles du bracelet/harnais, node LOT_132/_travail/controle_alignement_gpt.js, verifier_dx.py / V8 / Chromium desktop-mobile, puis obtenir contre-audits médicaux distincts des DX1–DX10, corriger les réserves et recontrôler. Ne promouvoir aucun HTML ni passer au LOT131 avant toutes les portes.",
+  "prochaine_action": "LOT132 DX3 PAC sections10/12, Q13 et bibliographie NICE NG250 CORRIGÉS dans JSON+HTML candidat ; ne pas refaire. Preuve LOT_132/audits/CORRECTION_CANDIDATE_DX3_GPT_20261104_0830Z.json et journal 0830Z. Exécuter contre-audit médical distinct de cette correction puis de DX1–10 ; en checkout complet : précontrôle harnais et bracelet, Node _travail/controle_alignement_gpt.js, verifier_dx.py, contrôle V8 et Chromium bureau/mobile sur 11 HTML. Recontrôler après corrections, ne publier aucune leçon comme validée ni commencer LOT131 tant que portes non passées.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
@@ -47,7 +47,7 @@
     "DX1_commit": "10a471ceec02ce12d6ed346c4388e682bd238ee2",
     "DX1_ancien_html_pause": "Historique non regenere, ne contient pas les corrections C1/C2.",
     "DX2": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
-    "DX3": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
+    "DX3": "source_et_html_candidats_revus_NICE2025_risques_sortie_relecture_3jours_audit_distinct_non_effectue",
     "DX4": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX5": "source_et_html_candidats_corriges_ERS2024_non_audites_non_promus",
     "DX6": "source_et_html_candidats_corriges_pseudoexsudats_non_audites_non_promus",
@@ -143,7 +143,11 @@
     "DX10_revision_20261104_commit_html": "e5ab74a745ce3d4c89f4fcb86e11570c383db5d0",
     "controle_alignement_20261104": "LOT_132/audits/CONTROLE_ALIGNEMENT_GPT_20261104_0735Z.json",
     "script_alignement": "LOT_132/_travail/controle_alignement_gpt.js",
-    "journal_0740": "LOT_132/audits/JOURNAL_GPT_20261104_0740Z.md"
+    "journal_0740": "LOT_132/audits/JOURNAL_GPT_20261104_0740Z.md",
+    "DX3_revision_20261104_0830_json_commit": "065a685c6a6b1faf8c67d61a7dc8c2e7a54563f5",
+    "DX3_revision_20261104_0830_html_commit": "b8d11135e95b90bd57416e37f8a9aa5442dd15b3",
+    "preuve_20261104_0830": "LOT_132/audits/CORRECTION_CANDIDATE_DX3_GPT_20261104_0830Z.json",
+    "journal_20261104_0830": "LOT_132/audits/JOURNAL_GPT_20261104_0830Z.md"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -168,17 +172,12 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-lots-turn11-20261104-0826z",
     "pris_le": "2026-11-04T08:28:01.386Z",
-    "expire_le": "2026-11-04T08:58:01.386Z",
-    "travail": "LOT132: contrôles effectifs, détection et correction d'anomalies dans les candidats JSON/HTML, sans promouvoir avant audit distinct"
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-lots-turn10-20261104-0733z",
-    "pris_le": "2026-11-04T07:34:48.158Z",
-    "liberation_demandee_le": "2026-11-04T07:41:26.864Z",
-    "motif": "Correction réelle DX10, script de test, 10 couples contrôlés, preuves et journal sauvegardés; exécution close",
+    "liberation_demandee_le": "2026-11-04T08:33:06.262Z",
+    "motif": "DX3 source+HTML candidat corrigés avec preuves et journal vérifiés ; contre-audits et validations non simulés",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -474,14 +473,48 @@
       "bracelet_cette_passe": false,
       "chromium": false,
       "lot_clos": false
+    },
+    {
+      "session": "gpt-lots-turn11-20261104-0826z",
+      "lot": 132,
+      "lecon": "DX3",
+      "travail": "Ajout de critères de sécurité pour sortie hospitalière PAC, consignes explicites non-amélioration à 3 jours et réévaluation; 2 fenêtres, une réponse, référence NICE NG250 mises à jour et HTML candidat synchronisé.",
+      "commits": [
+        "065a685c6a6b1faf8c67d61a7dc8c2e7a54563f5",
+        "b8d11135e95b90bd57416e37f8a9aa5442dd15b3"
+      ],
+      "preuve": "LOT_132/audits/CORRECTION_CANDIDATE_DX3_GPT_20261104_0830Z.json",
+      "preuve_commit": "53c0dfbc8da425f75ff4a2a7b6173d08f6dcacf2",
+      "journal_commit": "a84b45c731cd3eafcf5034a5bfb9521890d9cc17",
+      "controles_cibles": {
+        "ok": 9,
+        "total": 9
+      },
+      "audit_distinct": false,
+      "harnais_v8": false,
+      "bracelet": false,
+      "chromium": false,
+      "statut": "candidat_corrige_non_valide"
     }
   ],
   "nouvelle_production_cette_passe": {
-    "lecons_corrigees": 1,
-    "lecons_redigees": 0,
-    "lecons_validees": 0,
-    "lots_clotures": 0,
-    "tests_cibles_reussis": 150
+    "session": "gpt-lots-turn11-20261104-0826z",
+    "lecons_corrigees": [
+      "DX3"
+    ],
+    "sections_modifiees": 2,
+    "questions_modifiees": 1,
+    "sources_tracabilite_mises_a_jour": 1,
+    "html_candidats_synchronises": 1,
+    "controles_mecaniques_cibles": {
+      "reussis": 9,
+      "total": 9
+    },
+    "audit_distinct": "non_effectue",
+    "harnais_v8": "non_execute",
+    "bracelet_cette_passe": "non_execute",
+    "chromium": "non_execute",
+    "lot_clos": false
   },
   "production_passe_20261104_0136Z": {
     "lot": 132,
