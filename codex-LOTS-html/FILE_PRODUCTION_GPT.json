@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "active_bail_gpt_en_cours",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T08:33:06.262Z",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T09:44:51.143Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,17 +36,17 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132 DX3 PAC sections10/12, Q13 et bibliographie NICE NG250 CORRIGÉS dans JSON+HTML candidat ; ne pas refaire. Preuve LOT_132/audits/CORRECTION_CANDIDATE_DX3_GPT_20261104_0830Z.json et journal 0830Z. Exécuter contre-audit médical distinct de cette correction puis de DX1–10 ; en checkout complet : précontrôle harnais et bracelet, Node _travail/controle_alignement_gpt.js, verifier_dx.py, contrôle V8 et Chromium bureau/mobile sur 11 HTML. Recontrôler après corrections, ne publier aucune leçon comme validée ni commencer LOT131 tant que portes non passées.",
+  "prochaine_action": "LOT132: DX1 sections8/12 DEP HUG 2024 et DX2 sections9/12/Q13 hypoxémie HUG 2022 déjà corrigés dans JSON+HTML candidats, ne pas refaire. Audit médical réellement distinct sur DX1/DX2 puis DX3–10; corrections des réserves, contrôles officiels bracelet/harnais V8, Node alignement, vérifier_dx et Chromium desktop/mobile sur 11 leçons. Pas de publication clinique validée ni LOT131 sans portes réelles.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
-    "DX1": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
+    "DX1": "json_html_candidats_enrichis_DEP_HUG2024_non_valides",
     "DX1_source": "LOT_132/_travail/DX1_CONTENU.json",
     "DX1_sha256": "bf8881a7de3107d93e92e4c299bad20a5f89b84df47d2505558db4e055fab7a1",
     "DX1_blob_git": "b233e783584eb19bb71b47f927d19599c286ddd4",
     "DX1_commit": "10a471ceec02ce12d6ed346c4388e682bd238ee2",
     "DX1_ancien_html_pause": "Historique non regenere, ne contient pas les corrections C1/C2.",
-    "DX2": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
+    "DX2": "json_html_candidats_enrichis_oxygene_HUG2022_non_valides",
     "DX3": "source_et_html_candidats_revus_NICE2025_risques_sortie_relecture_3jours_audit_distinct_non_effectue",
     "DX4": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX5": "source_et_html_candidats_corriges_ERS2024_non_audites_non_promus",
@@ -147,7 +147,9 @@
     "DX3_revision_20261104_0830_json_commit": "065a685c6a6b1faf8c67d61a7dc8c2e7a54563f5",
     "DX3_revision_20261104_0830_html_commit": "b8d11135e95b90bd57416e37f8a9aa5442dd15b3",
     "preuve_20261104_0830": "LOT_132/audits/CORRECTION_CANDIDATE_DX3_GPT_20261104_0830Z.json",
-    "journal_20261104_0830": "LOT_132/audits/JOURNAL_GPT_20261104_0830Z.md"
+    "journal_20261104_0830": "LOT_132/audits/JOURNAL_GPT_20261104_0830Z.md",
+    "preuve_20261104_0943": "LOT_132/audits/CORRECTIONS_CANDIDATES_DX1_DX2_GPT_20261104_0943Z.json",
+    "journal_20261104_0943": "LOT_132/audits/JOURNAL_GPT_20261104_0943Z.md"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -172,20 +174,12 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-lots-turn11-20261104-0935z",
     "pris_le": "2026-11-04T09:35:24Z",
-    "expire_le": "2026-11-04T09:55:24Z",
-    "lot": 132,
-    "travail": "Rédaction/correction clinique ciblée des candidats LOT132, relecture et contrôles mécaniques, sans audit distinct inventé",
-    "acquisition": "update_file conditionnel sur SHA distant courant",
-    "autre_runtime_force": false
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-lots-turn11-20261104-0826z",
-    "pris_le": "2026-11-04T08:28:01.386Z",
-    "liberation_demandee_le": "2026-11-04T08:33:06.262Z",
-    "motif": "DX3 source+HTML candidat corrigés avec preuves et journal vérifiés ; contre-audits et validations non simulés",
+    "liberation_demandee_le": "2026-11-04T09:44:51.143Z",
+    "motif": "DX1 et DX2 enrichis; JSON/HTML candidats relus; 15 contrôles ciblés et preuve/journal publiés",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -503,6 +497,30 @@
       "bracelet": false,
       "chromium": false,
       "statut": "candidat_corrige_non_valide"
+    },
+    {
+      "session": "gpt-lots-turn11-20261104-0935z",
+      "date_utc": "2026-11-04T09:44:51.143Z",
+      "lot": 132,
+      "lecons": [
+        "DX1",
+        "DX2"
+      ],
+      "nature": "deux enrichissements cliniques sources suisse dans JSON et HTML candidats",
+      "commits": [
+        "33c05bea1a31460b0ca7c7707e5faf85ace3aee9",
+        "1b510602cbbdc42c18045906a01980c171550824",
+        "68e9b187876c8096b604b476433df0abc722b595",
+        "f53b85502ef3210ef66d6b0320f13691060b2073"
+      ],
+      "preuve": "LOT_132/audits/CORRECTIONS_CANDIDATES_DX1_DX2_GPT_20261104_0943Z.json",
+      "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0943Z.md",
+      "controles_cibles_reussis": 15,
+      "audit_distinct": "non_effectue",
+      "harnais_v8": "non_execute",
+      "bracelet": "non_execute",
+      "chromium": "non_execute",
+      "validation_clinique": false
     }
   ],
   "nouvelle_production_cette_passe": {
