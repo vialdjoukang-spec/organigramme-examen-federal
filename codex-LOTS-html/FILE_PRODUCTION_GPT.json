@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "en_cours_gpt_bail_acquis",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T01:41:46Z",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T02:37:56.226Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,7 +36,7 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132 reste actif. Sources DX7 et DX9 corrigées dans la présente passe, non auditées ; obtenir un contre-audit médical distinct sur DX1–DX10, y compris DX7 bas débit/calcium et DX9 critères ESC. Vérifier la source primaire complète si accessible, exécuter le harnais et le bracelet OFFICIELS sur le dépôt entier, puis rendre_dx.py, contrôles V8/Chromium. Les dix candidats JSON existent ; ne pas créer LOT131 sans clôture réelle. Image panneau C contour2 exclue.",
+  "prochaine_action": "LOT132 : sources DX2 BPCO et DX3 PAC enrichies aux commits a0c41e6 et 8c21d39. Contrôle transversal 150/150 structures seulement, pas harnais ni audit clinique. Vérifier JOURNAL_GPT_20261104_0235Z.md et CONTROLE_STRUCTURE_GPT_20261104_0235Z.json ; exécuter le bracelet/harnas officiels, contre-audits médicaux distincts des DX1–10, puis rendre_dx.py, vérifier V8 et Chromium. Si auditeurs indisponibles, améliorer candidats sans promotion. Ne pas passer LOT131 avant clôture.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
@@ -46,8 +46,8 @@
     "DX1_blob_git": "b233e783584eb19bb71b47f927d19599c286ddd4",
     "DX1_commit": "10a471ceec02ce12d6ed346c4388e682bd238ee2",
     "DX1_ancien_html_pause": "Historique non regenere, ne contient pas les corrections C1/C2.",
-    "DX2": "nouveau_json_redige_13_sections_14_questions_8_sources_attente_harnais_rendu_audit",
-    "DX3": "source_candidat_redige_13_sections_14_questions_6_sources_17_controles_cibles_sans_audit",
+    "DX2": "source_candidate_enrichie_6_sections_6_reponses_GOLD2026_attente_harnais_audit",
+    "DX3": "source_candidate_enrichie_CRB65_CURB65_suivi_pneumonie_attente_harnais_audit",
     "DX4": "source_candidat_redige_13_sections_14_questions_5_sources_17_controles_cibles_sans_audit",
     "DX5": "source_candidat_redige_13_sections_14_questions_5_sources_17_controles_cibles_sans_audit",
     "DX6": "source_candidat_enrichi_5_sources_13_sections_14_questions_23_controles_structurels_sans_audit",
@@ -103,7 +103,11 @@
     "audits_recents": [
       "LOT_132/audits/REVISION_CLINIQUE_GPT_DX7_DX9_20261104.json",
       "LOT_132/audits/JOURNAL_GPT_20261104_0136Z.md"
-    ]
+    ],
+    "DX2_enrichissement_commit": "a0c41e6ebe9653adaefddc1c54f32e5f22f402a4",
+    "DX3_enrichissement_commit": "8c21d392a1346bdf37d90507601d8979e2aee2f9",
+    "controle_structure_10_dx": "LOT_132/audits/CONTROLE_STRUCTURE_GPT_20261104_0235Z.json",
+    "journal_0235": "LOT_132/audits/JOURNAL_GPT_20261104_0235Z.md"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -128,18 +132,12 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-lots-20261104T0233Z",
     "pris_le": "2026-11-04T02:32:36.100Z",
-    "expire_le": "2026-11-04T03:12:36.100Z",
-    "travail": "LOT132 DX2 BPCO: enrichissement scientifique ciblé des sections 4,6,10,11,12 et quiz, contrôles structurels; candidat non validé",
-    "reference_precedente_sha": "efd284944f7fe81a3762afdacda5e833ed718bcd"
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-file-132-audit-20261104T0136Z",
-    "pris_le": "2026-11-04T01:36:00Z",
-    "libere_le": "2026-11-04T01:41:46Z",
-    "raison": "Deux corrections cliniques candidates et preuves publiées ; pas d'audit indépendant",
+    "libere_le": "2026-11-04T02:37:56.226Z",
+    "raison": "DX2 et DX3 enrichies comme sources candidates ; contrôle structurel transversal effectué",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -311,6 +309,21 @@
       ],
       "preuve": "LOT_132/audits/REVISION_CLINIQUE_GPT_DX7_DX9_20261104.json",
       "statut": "sources candidates non validées, bail libéré"
+    },
+    {
+      "session": "gpt-lots-20261104T0233Z",
+      "lot": 132,
+      "lecons": [
+        2,
+        3
+      ],
+      "travail": "Enrichissement clinique BPCO et PAC; préservation sources et parties non visées, contrôle transversal 150/150 sur les dix JSON candidats",
+      "commits": [
+        "a0c41e6ebe9653adaefddc1c54f32e5f22f402a4",
+        "8c21d392a1346bdf37d90507601d8979e2aee2f9"
+      ],
+      "preuve": "LOT_132/audits/JOURNAL_GPT_20261104_0235Z.md",
+      "statut": "sources_candidates_corrigees_non_promues"
     }
   ],
   "nouvelle_production_cette_passe": {
@@ -342,5 +355,54 @@
       "Bracelet original non exécuté; reconstruction locale non identique",
       "Chromium et validation humaine non effectués"
     ]
+  },
+  "production_passe_20261104_0235Z": {
+    "lot": 132,
+    "lecons_modifiees": [
+      2,
+      3
+    ],
+    "sections_modifiees_dx2": [
+      3,
+      4,
+      6,
+      10,
+      11,
+      12
+    ],
+    "quiz_modifies_dx2": [
+      4,
+      6,
+      10,
+      11,
+      12,
+      14
+    ],
+    "sections_modifiees_dx3": [
+      10,
+      12
+    ],
+    "quiz_modifies_dx3": [
+      10,
+      13
+    ],
+    "commits": [
+      "a0c41e6ebe9653adaefddc1c54f32e5f22f402a4",
+      "8c21d392a1346bdf37d90507601d8979e2aee2f9"
+    ],
+    "controle_10_sources": {
+      "reussis": 150,
+      "total": 150,
+      "rapport": "LOT_132/audits/CONTROLE_STRUCTURE_GPT_20261104_0235Z.json",
+      "commit": "5f22cf9b260f5ed8b3053fb8e495cc4123387e1d"
+    },
+    "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0235Z.md",
+    "journal_commit": "973d8ae9c1d99567e26df7e46967efe080cd20f1",
+    "audits_independants_nouveaux": 0,
+    "harnais_officiel_execute": false,
+    "bracelet_officiel_execute": false,
+    "chromium_execute": false,
+    "nouveaux_html_valides": 0,
+    "lots_clotures": 0
   }
 }
