@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "execution_en_cours_bail_gpt",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T00:40:10Z",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T01:41:46Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,7 +36,7 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132 : les dix DX ont maintenant des sources JSON candidates. Priorité au réaudit médical distinct des DX1 à DX10 (DX1 corrections C1/C2, DX6 enrichi), corrections, vérification harnais/bracelet puis rendre_dx.py/V8/Chromium et cohérence finale. Aucun HTML nouveau validé. Ne pas passer LOT131 avant clôture réelle de LOT132 ; panneau C contour2 à corriger et réauditer avant image.",
+  "prochaine_action": "LOT132 reste actif. Sources DX7 et DX9 corrigées dans la présente passe, non auditées ; obtenir un contre-audit médical distinct sur DX1–DX10, y compris DX7 bas débit/calcium et DX9 critères ESC. Vérifier la source primaire complète si accessible, exécuter le harnais et le bracelet OFFICIELS sur le dépôt entier, puis rendre_dx.py, contrôles V8/Chromium. Les dix candidats JSON existent ; ne pas créer LOT131 sans clôture réelle. Image panneau C contour2 exclue.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
@@ -51,9 +51,9 @@
     "DX4": "source_candidat_redige_13_sections_14_questions_5_sources_17_controles_cibles_sans_audit",
     "DX5": "source_candidat_redige_13_sections_14_questions_5_sources_17_controles_cibles_sans_audit",
     "DX6": "source_candidat_enrichi_5_sources_13_sections_14_questions_23_controles_structurels_sans_audit",
-    "DX7": "source_candidat_13_sections_14_questions_5_sources_21_controles_non_audite",
+    "DX7": "source_candidate_enrichie_bas_debit_score_calcique_2025_non_auditee",
     "DX8": "source_candidat_13_sections_14_questions_5_sources_21_controles_non_audite",
-    "DX9": "source_candidat_13_sections_14_questions_6_sources_21_controles_non_audite",
+    "DX9": "source_candidate_enrichie_stratification_ESC2025_suivi_1_2_semaines_non_auditee",
     "DX10": "source_candidat_13_sections_14_questions_5_sources_21_controles_non_audite",
     "source_etat_initial": "LOT_132/audits/PAUSE_VIAL.json",
     "source_etat_initial_date": "2026-11-02T22:21:41.783381+00:00",
@@ -97,7 +97,13 @@
     "controles_source_dx7_dx10": "LOT_132/audits/CONTROLE_GPT_DX7_DX10_20261104.json",
     "controles_source_dx6": "LOT_132/audits/CONTROLE_GPT_DX6_20261104.json",
     "journal_courant": "LOT_132/audits/JOURNAL_GPT_20261104_0030Z.md",
-    "inventaire_dix_sources_candidats": true
+    "inventaire_dix_sources_candidats": true,
+    "DX7_revision_commit": "2712b56df5194361ee91a59185d569ecb5dd048a",
+    "DX9_revision_commit": "5fa601c36bb978d2fb654496e5044dd27ee4f591",
+    "audits_recents": [
+      "LOT_132/audits/REVISION_CLINIQUE_GPT_DX7_DX9_20261104.json",
+      "LOT_132/audits/JOURNAL_GPT_20261104_0136Z.md"
+    ]
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -122,19 +128,12 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-file-132-audit-20261104T0136Z",
     "pris_le": "2026-11-04T01:36:00Z",
-    "expire_le": "2026-11-04T02:06:00Z",
-    "travail": "LOT132 DX9 et DX7 : consolidation scientifique ciblée à partir des recommandations ESC 2025 réellement consultées; validation interne candidat",
-    "reference_fichier_precedent_sha": "8c60db59f5391667948482b926dafdeb27971e6c",
-    "autre_verrou_force": false
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-file-132-dx7-20261104T0028Z",
-    "pris_le": "2026-11-04T00:28:02Z",
-    "libere_le": "2026-11-04T00:40:10Z",
-    "raison": "Fin de passe ; cinq fichiers de contenu, deux contrôles et journal sauvegardés.",
+    "libere_le": "2026-11-04T01:41:46Z",
+    "raison": "Deux corrections cliniques candidates et preuves publiées ; pas d'audit indépendant",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -291,6 +290,21 @@
       },
       "publication_validee_clinique": false,
       "lot_termine": false
+    },
+    {
+      "session": "gpt-file-132-audit-20261104T0136Z",
+      "lot": 132,
+      "lecons": [
+        "DX7",
+        "DX9"
+      ],
+      "nature": "Consolidation sémiologique et décisionnelle fondée sur extraits ciblés ESC 2025; aucune nouvelle posologie",
+      "commits": [
+        "2712b56df5194361ee91a59185d569ecb5dd048a",
+        "5fa601c36bb978d2fb654496e5044dd27ee4f591"
+      ],
+      "preuve": "LOT_132/audits/REVISION_CLINIQUE_GPT_DX7_DX9_20261104.json",
+      "statut": "sources candidates non validées, bail libéré"
     }
   ],
   "nouvelle_production_cette_passe": {
@@ -301,5 +315,26 @@
     "controles_structurels_total": 107,
     "html_nouveaux_valides": 0,
     "lots_clotures": 0
+  },
+  "production_passe_20261104_0136Z": {
+    "lot": 132,
+    "diagnostics_modifies": [
+      7,
+      9
+    ],
+    "sources_json_candidates_modifiees": 2,
+    "html_valides": 0,
+    "audits_independants_nouveaux": 0,
+    "tests_cibles": {
+      "dx7": 12,
+      "dx9": 9
+    },
+    "preuve": "LOT_132/audits/REVISION_CLINIQUE_GPT_DX7_DX9_20261104.json",
+    "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0136Z.md",
+    "limites": [
+      "Harnais complet non exécuté",
+      "Bracelet original non exécuté; reconstruction locale non identique",
+      "Chromium et validation humaine non effectués"
+    ]
   }
 }
