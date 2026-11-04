@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "verification_clinique_gpt_en_cours",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T03:44:35.789Z",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T04:34:20Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,7 +36,7 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132 : DX4 insuffisance cardiaque actualisé selon ESC2026, sections 1/8/10/11/12/13 et questions 9/11/12, commit 8cd7880. Audit distinct des recommandations 2026 encore NON effectué. Lire LOT_132/audits/REVISION_ESC2026_GPT_DX4_20261104.json et JOURNAL_GPT_20261104_0340Z.md; exécuter harnais original V8 sur checkout complet, réauditer cliniquement DX1–10, régénérer HTML par rendre_dx.py, contrôler fenêtres et Chromium. Si auditeur indisponible, garder candidatures non validées; ne pas passer LOT131.",
+  "prochaine_action": "LOT132 DX4/DX8 révisés le 04.11 04:3xZ ; lire auditeurs et réserves: LOT_132/audits/JOURNAL_GPT_20261104_0430Z.md, CONTROLE_CANDIDATS_GPT_20261104_0430Z.json. Contre-audit indépendant DX4 (ESC2026 critères HFpEF, niveau de preuve FEVG41-49) et DX8 (seuils IM primaire sévère, TEER ventriculaire vs atriale). Conserver les candidats non validés. Exécuter harnais V8 et bracelet originaux depuis checkout complet ; rendu DX1–10 par _travail/rendre_dx.py, vérifications navigateur/Chromium et clôture transversale. Ne pas engager LOT131 avant validation LOT132.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
@@ -48,11 +48,11 @@
     "DX1_ancien_html_pause": "Historique non regenere, ne contient pas les corrections C1/C2.",
     "DX2": "source_candidate_enrichie_6_sections_6_reponses_GOLD2026_attente_harnais_audit",
     "DX3": "source_candidate_enrichie_CRB65_CURB65_suivi_pneumonie_attente_harnais_audit",
-    "DX4": "source_candidate_ESC2026_seuil_50_FMT_AMT_GDIT_6_sections_3_quiz_7_sources_non_auditee",
+    "DX4": "source_candidate_precisions_HFpEF_EF_recovered_preuves_41_49_non_auditee",
     "DX5": "source_candidat_redige_13_sections_14_questions_5_sources_17_controles_cibles_sans_audit",
     "DX6": "source_candidat_enrichi_5_sources_13_sections_14_questions_23_controles_structurels_sans_audit",
     "DX7": "source_candidate_enrichie_bas_debit_score_calcique_2025_non_auditee",
-    "DX8": "source_candidat_13_sections_14_questions_5_sources_21_controles_non_audite",
+    "DX8": "source_candidate_seuils_IM_primaire_Teer_pheno_secondaire_non_auditee",
     "DX9": "source_candidate_enrichie_stratification_ESC2025_suivi_1_2_semaines_non_auditee",
     "DX10": "source_candidat_13_sections_14_questions_5_sources_21_controles_non_audite",
     "source_etat_initial": "LOT_132/audits/PAUSE_VIAL.json",
@@ -112,7 +112,11 @@
     "preuve_revision_dx4": "LOT_132/audits/REVISION_ESC2026_GPT_DX4_20261104.json",
     "preuve_controles_0340": "LOT_132/audits/CONTROLE_TRANSVERSAL_GPT_20261104_0340Z.json",
     "preuve_bracelet_0340": "harness/PREUVE_BRACELET_GPT_20261104_0340Z.json",
-    "journal_0340": "LOT_132/audits/JOURNAL_GPT_20261104_0340Z.md"
+    "journal_0340": "LOT_132/audits/JOURNAL_GPT_20261104_0340Z.md",
+    "DX4_revision_20261104_commit": "7c14461379adecf9c44a4033e9ea013e36b48278",
+    "DX8_revision_20261104_commit": "a226ddf9db16db6caaa41aaf73219aee2b14086a",
+    "controle_structure_20261104_0430": "LOT_132/audits/CONTROLE_CANDIDATS_GPT_20261104_0430Z.json",
+    "journal_20261104_0430": "LOT_132/audits/JOURNAL_GPT_20261104_0430Z.md"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -137,18 +141,15 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-20261104-0428z-esc-dx4-review",
     "pris_le": "2026-11-04T04:28:00Z",
     "expire_le": "2026-11-04T05:08:00Z",
     "travail": "LOT132: vérification primaire recommandations ESC2026 et révision documentée source DX4, contrôle mécanique et checkpoint",
-    "condition": "Aucune production concurrente autorisée pendant le bail. Ne représente pas une exécution continue."
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-file-20261104-audit-harness-0336z",
-    "pris_le": "2026-11-04T03:36:38.797Z",
-    "libere_le": "2026-11-04T03:44:35.789Z",
-    "raison": "DX4 ESC2026 révisée; 151 assertions structurelles; bracelet original exécuté; preuves et journal sauvegardés",
+    "condition": "Aucune production concurrente autorisée pendant le bail. Ne représente pas une exécution continue.",
+    "libere_le": "2026-11-04T04:34:20Z",
+    "raison": "DX4 et DX8 revus et publiés comme candidats ; 200 assertions structurelles réussies ; audit indépendant et V8/Chromium non exécutés",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -357,6 +358,31 @@
       "harnais_complet": false,
       "chromium": false,
       "lot_clos": false
+    },
+    {
+      "session": "gpt-20261104-0428z-esc-dx4-review",
+      "lot": 132,
+      "lecons": [
+        "DX4",
+        "DX8"
+      ],
+      "source_commits": [
+        "7c14461379adecf9c44a4033e9ea013e36b48278",
+        "a226ddf9db16db6caaa41aaf73219aee2b14086a"
+      ],
+      "travail": "Mise à jour documentée de 2 monographies sources : 7 sections et 5 questions révisées, 2 références ajoutées dont une transcription secondaire explicitement identifiée. Contre-audit indépendant non exécuté.",
+      "controle": "LOT_132/audits/CONTROLE_CANDIDATS_GPT_20261104_0430Z.json",
+      "controle_commit": "b7683b4c29901c0b78b1b2c75f64c5e6ba1241c2",
+      "controle_reussis": 200,
+      "controle_total": 200,
+      "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0430Z.md",
+      "journal_commit": "723146300f40c9fed770e28aa8885e301f88535d",
+      "audit_distinct": false,
+      "harnais_complet": false,
+      "bracelet_cette_passe": false,
+      "chromium": false,
+      "lot_clos": false,
+      "statut": "sources_candidates_revisees_non_validees"
     }
   ],
   "nouvelle_production_cette_passe": {
