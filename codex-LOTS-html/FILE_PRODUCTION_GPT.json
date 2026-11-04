@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "execution_en_cours",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T05:40:00Z",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T06:48:00Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,7 +36,7 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132: dix HTML candidats disponibles sous LOT_132/_travail/brouillons_gpt/ (DX1 préexistant, DX2-10 générés le 04.11 à 05:3xZ). Lire LOT_132/audits/JOURNAL_GPT_20261104_0540Z.md et CONTROLE_HTML_CANDIDATS_GPT_20261104_0540Z.json. Exécuter sur checkout complet le bracelet, harnais V8 et rendre_dx.py; confronter les rendus officiels aux candidats; exécuter verifier_dx.py et Chromium; contre-audit médical indépendant des dix diagnostics (DX4/DX8 prioritaires); correction des écarts; vérifier source DX5 indexée non lue; conserver les brouillons non validés. Ne pas engager LOT131 sans clôture totale LOT132.",
+  "prochaine_action": "LOT132: corrections médicales candidates DX5 (ERS2024) et DX6 (pseudoexsudat) et HTML synchronisés; lire audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX1_5.json et _DX6_10.json (200/200 cohérence statique) + audits/JOURNAL_GPT_20261104_0647Z.md. Sur checkout complet: exécuter bracelet et harnais officiels; régénérer comparer via rendre_dx.py, exécuter verifier_dx.py et Chromium desktop/mobile, puis obtenir contre-audits médicaux distincts DX1–DX10 et corriger les réserves (DX4,DX5,DX6,DX8 prioritaires). Aucun HTML clinique validé, ne pas engager LOT131 avant clôture vérifiée de LOT132.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
@@ -49,8 +49,8 @@
     "DX2": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX3": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX4": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
-    "DX5": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide_source_indexee_non_exploitee",
-    "DX6": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
+    "DX5": "source_et_html_candidats_corriges_ERS2024_non_audites_non_promus",
+    "DX6": "source_et_html_candidats_corriges_pseudoexsudats_non_audites_non_promus",
     "DX7": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX8": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX9": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
@@ -129,7 +129,16 @@
     "html_candidats_total": 10,
     "html_candidats_nouveaux_cette_passe": 9,
     "controle_html_20261104_0540": "LOT_132/audits/CONTROLE_HTML_CANDIDATS_GPT_20261104_0540Z.json",
-    "journal_20261104_0540": "LOT_132/audits/JOURNAL_GPT_20261104_0540Z.md"
+    "journal_20261104_0540": "LOT_132/audits/JOURNAL_GPT_20261104_0540Z.md",
+    "DX5_revision_20261104_0646_json_commit": "dca5ae47fd30f3dd7722bc80d6dd53d4496efb7e",
+    "DX5_revision_20261104_0646_html_commit": "a8386fc2f100d77cac25ca672c86940d5e10c9f9",
+    "DX6_revision_20261104_0646_json_commit": "06c362652e5fe63b18ec6e6d45ba8dde0155c769",
+    "DX6_revision_20261104_0646_html_commit": "89595b160717dd42708e299bd15fe15921a09409",
+    "controle_coherence_20261104_0646": [
+      "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX1_5.json",
+      "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX6_10.json"
+    ],
+    "journal_20261104_0647": "LOT_132/audits/JOURNAL_GPT_20261104_0647Z.md"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -154,17 +163,14 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-lots-20261104-0636z-audit-dx5",
     "pris_le": "2026-11-04T06:36:00Z",
     "expire_le": "2026-11-04T07:21:00Z",
-    "travail": "LOT132 DX5: correction documentaire source ERS 2024 et réconciliation source/rendu candidat; preuves ciblées"
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-20261104-0532z-controles-html",
-    "pris_le": "2026-11-04T05:32:00Z",
-    "libere_le": "2026-11-04T05:40:00Z",
-    "motif": "9 candidats HTML générés, dix relus, contrôle JS 180/180, journal publié",
+    "travail": "LOT132 DX5: correction documentaire source ERS 2024 et réconciliation source/rendu candidat; preuves ciblées",
+    "libere_le": "2026-11-04T06:48:00Z",
+    "motif": "DX5 et DX6 corrigées, JSON et HTML sauvegardés; 200/200 contrôles statiques de concordance des dix diagnostics, deux rapports et journal publiés; pas de validation clinique",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -412,24 +418,54 @@
       "harnais_v8": false,
       "chromium": false,
       "lot_clos": false
+    },
+    {
+      "session": "gpt-lots-20261104-0636z-audit-dx5",
+      "lot": 132,
+      "lecons": [
+        "DX5 Pneumothorax",
+        "DX6 Epanchement pleural liquidien"
+      ],
+      "travail": "Corrections médicales et bibliographiques réelles, synchronisation JSON/HTML, contrôle 200/200 des dix couples de candidats, sans prétendre à un audit indépendant",
+      "commits": [
+        "dca5ae47fd30f3dd7722bc80d6dd53d4496efb7e",
+        "a8386fc2f100d77cac25ca672c86940d5e10c9f9",
+        "06c362652e5fe63b18ec6e6d45ba8dde0155c769",
+        "89595b160717dd42708e299bd15fe15921a09409"
+      ],
+      "controles": [
+        "25420e0ca84e0fd28d669543a62d627234d02cc8",
+        "1545f8d5d7a6bf06013dd1093430c38e798991e8"
+      ],
+      "journal_commit": "fe3effe5ea223628d208fe096af5863408d4686c",
+      "audit_distinct": false,
+      "harnais": false,
+      "chromium": false,
+      "statut": "candidats_ameliore_non_promus"
     }
   ],
   "nouvelle_production_cette_passe": {
-    "session": "gpt-20261104-0532z-controles-html",
+    "session": "gpt-lots-20261104-0636z-audit-dx5",
     "lot": 132,
-    "html_candidats_crees": 9,
-    "html_candidats_verifies": 10,
-    "tests_statiques_js_reussis": 180,
-    "tests_statiques_js_total": 180,
-    "sources_json_cliniques_modifiees": 0,
-    "html_candidat_corrige": 1,
-    "html_valides": 0,
-    "lots_clotures": 0,
+    "lecons_cliniques_modifiees": 2,
+    "sections_enrichies": 3,
+    "questions_revisees": 3,
+    "referencements_ameliores": 2,
+    "versions_json_candidates_sauvegardees": 2,
+    "versions_html_candidates_sauvegardees": 2,
+    "coherence_source_html_tests": 200,
+    "coherence_source_html_reussis": 200,
+    "preuves": [
+      "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX1_5.json",
+      "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX6_10.json"
+    ],
+    "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0647Z.md",
+    "audit_distinct": false,
     "harnais_officiel_execute": false,
     "bracelet_execute": false,
     "chromium_execute": false,
-    "audit_distinct_effectue": false,
-    "preuve": "LOT_132/audits/CONTROLE_HTML_CANDIDATS_GPT_20261104_0540Z.json"
+    "lecons_finales_publiees": 0,
+    "lots_clotures": 0
   },
   "production_passe_20261104_0136Z": {
     "lot": 132,
