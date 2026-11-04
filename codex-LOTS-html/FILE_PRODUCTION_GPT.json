@@ -4,9 +4,9 @@
   "ordre_utilisateur": "Lance une file de production continue Leçon après Leçon, Lot après Lot jusqu'à achèvement",
   "ordre_date_locale": "2026-11-03",
   "timezone": "Europe/Zurich",
-  "statut_file": "passe_en_cours",
-  "production_en_cours_confirmee": true,
-  "dernier_checkpoint_le": "2026-11-04T06:48:00Z",
+  "statut_file": "active_reprise_programmee_checkpoint_sauvegarde",
+  "production_en_cours_confirmee": false,
+  "dernier_checkpoint_le": "2026-11-04T07:41:26.864Z",
   "reference_initiale_verifiee": "ef0130544b7e8c762ad36a6cd876ec87ef5117c0",
   "depot": "vialdjoukang-spec/organigramme-examen-federal",
   "branche": "codex/lots",
@@ -36,7 +36,7 @@
     "a": 18,
     "pas": -1
   },
-  "prochaine_action": "LOT132: corrections médicales candidates DX5 (ERS2024) et DX6 (pseudoexsudat) et HTML synchronisés; lire audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX1_5.json et _DX6_10.json (200/200 cohérence statique) + audits/JOURNAL_GPT_20261104_0647Z.md. Sur checkout complet: exécuter bracelet et harnais officiels; régénérer comparer via rendre_dx.py, exécuter verifier_dx.py et Chromium desktop/mobile, puis obtenir contre-audits médicaux distincts DX1–DX10 et corriger les réserves (DX4,DX5,DX6,DX8 prioritaires). Aucun HTML clinique validé, ne pas engager LOT131 avant clôture vérifiée de LOT132.",
+  "prochaine_action": "LOT132: DX10 section11 et Q11 CORRIGÉS (épreuve hydrosoluble, radiographie à 24 h) et HTML candidat synchronisé ; ne pas répéter. Rapports audits/CONTROLE_ALIGNEMENT_GPT_20261104_0735Z.json (150/150 contrôles ciblés, 413 paragraphes, 140 questions) et audits/JOURNAL_GPT_20261104_0740Z.md. En checkout complet exécuter les précontrôles du bracelet/harnais, node LOT_132/_travail/controle_alignement_gpt.js, verifier_dx.py / V8 / Chromium desktop-mobile, puis obtenir contre-audits médicaux distincts des DX1–DX10, corriger les réserves et recontrôler. Ne promouvoir aucun HTML ni passer au LOT131 avant toutes les portes.",
   "lot132": {
     "PhaseA": "publiee_avec_gel_canonique_historique",
     "PhaseA_commit": "752865adee9f348d388860a0b54addd52fa2ead9",
@@ -54,7 +54,7 @@
     "DX7": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX8": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
     "DX9": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
-    "DX10": "source_candidate_preexistante_et_html_candidat_sauvegarde_non_valide",
+    "DX10": "source_et_html_candidats_corriges_contraste_24h_non_audites_non_promus",
     "source_etat_initial": "LOT_132/audits/PAUSE_VIAL.json",
     "source_etat_initial_date": "2026-11-02T22:21:41.783381+00:00",
     "inventaire_actuel_autres_diagnostics_a_refaire": false,
@@ -138,7 +138,12 @@
       "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX1_5.json",
       "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX6_10.json"
     ],
-    "journal_20261104_0647": "LOT_132/audits/JOURNAL_GPT_20261104_0647Z.md"
+    "journal_20261104_0647": "LOT_132/audits/JOURNAL_GPT_20261104_0647Z.md",
+    "DX10_revision_20261104_commit_json": "1dd92efe530a565c0b21be296babd57aa14ec2e3",
+    "DX10_revision_20261104_commit_html": "e5ab74a745ce3d4c89f4fcb86e11570c383db5d0",
+    "controle_alignement_20261104": "LOT_132/audits/CONTROLE_ALIGNEMENT_GPT_20261104_0735Z.json",
+    "script_alignement": "LOT_132/_travail/controle_alignement_gpt.js",
+    "journal_0740": "LOT_132/audits/JOURNAL_GPT_20261104_0740Z.md"
   },
   "lot133": {
     "statut": "livraison_anterieure_preservee_avec_reserves",
@@ -163,20 +168,12 @@
     "ancienne_tache_enabled_verifie": false,
     "reactivation_autorisee": false
   },
-  "bail": {
+  "bail": null,
+  "dernier_bail": {
     "proprietaire": "gpt-lots-turn10-20261104-0733z",
     "pris_le": "2026-11-04T07:34:48.158Z",
-    "expire_le": "2026-11-04T08:09:48.158Z",
-    "travail": "LOT132 contrôles officiels et enrichissement clinique ciblé DX10, synchronisation HTML, preuves mécaniques",
-    "reference_precedente_sha": "641ff6304574e65fd36e9b69777ad6ccf7a564e3"
-  },
-  "dernier_bail": {
-    "proprietaire": "gpt-lots-20261104-0636z-audit-dx5",
-    "pris_le": "2026-11-04T06:36:00Z",
-    "expire_le": "2026-11-04T07:21:00Z",
-    "travail": "LOT132 DX5: correction documentaire source ERS 2024 et réconciliation source/rendu candidat; preuves ciblées",
-    "libere_le": "2026-11-04T06:48:00Z",
-    "motif": "DX5 et DX6 corrigées, JSON et HTML sauvegardés; 200/200 contrôles statiques de concordance des dix diagnostics, deux rapports et journal publiés; pas de validation clinique",
+    "liberation_demandee_le": "2026-11-04T07:41:26.864Z",
+    "motif": "Correction réelle DX10, script de test, 10 couples contrôlés, preuves et journal sauvegardés; exécution close",
     "verrou_autre_runtime_force": false
   },
   "regle_bail": "Acquisition par update_file conditionnel au SHA frais ; identifiant unique de session, pris_le, expire_le et travail. Ne pas concurrencer un bail valide, ne pas forcer de verrou distant ; renouveler seulement pendant travail réel. Libérer son propre bail en fin.",
@@ -448,30 +445,38 @@
       "harnais": false,
       "chromium": false,
       "statut": "candidats_ameliore_non_promus"
+    },
+    {
+      "session": "gpt-lots-turn10-20261104-0733z",
+      "lot": 132,
+      "lecon": "DX10",
+      "travail": "Source et HTML candidat enrichis (WSES, 24h pour contraste hydrosoluble); vérification d'alignement des dix monographies sur les fichiers distants et création script réutilisable",
+      "commits": [
+        "1dd92efe530a565c0b21be296babd57aa14ec2e3",
+        "e5ab74a745ce3d4c89f4fcb86e11570c383db5d0",
+        "ed2e9893b2baff04131010415faa109f15a4686d"
+      ],
+      "preuve": "LOT_132/audits/CONTROLE_ALIGNEMENT_GPT_20261104_0735Z.json",
+      "preuve_commit": "35dc7728727cc0a3afb480ccf14675271a79f48d",
+      "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0740Z.md",
+      "journal_commit": "bdfddd8e87bb3862211d09327e209c778eb26942",
+      "controles_statiques": {
+        "total": 150,
+        "ok": 150
+      },
+      "audit_distinct": false,
+      "harnais_v8": false,
+      "bracelet_cette_passe": false,
+      "chromium": false,
+      "lot_clos": false
     }
   ],
   "nouvelle_production_cette_passe": {
-    "session": "gpt-lots-20261104-0636z-audit-dx5",
-    "lot": 132,
-    "lecons_cliniques_modifiees": 2,
-    "sections_enrichies": 3,
-    "questions_revisees": 3,
-    "referencements_ameliores": 2,
-    "versions_json_candidates_sauvegardees": 2,
-    "versions_html_candidates_sauvegardees": 2,
-    "coherence_source_html_tests": 200,
-    "coherence_source_html_reussis": 200,
-    "preuves": [
-      "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX1_5.json",
-      "LOT_132/audits/CONTROLE_COHERENCE_GPT_20261104_0646Z_DX6_10.json"
-    ],
-    "journal": "LOT_132/audits/JOURNAL_GPT_20261104_0647Z.md",
-    "audit_distinct": false,
-    "harnais_officiel_execute": false,
-    "bracelet_execute": false,
-    "chromium_execute": false,
-    "lecons_finales_publiees": 0,
-    "lots_clotures": 0
+    "lecons_corrigees": 1,
+    "lecons_redigees": 0,
+    "lecons_validees": 0,
+    "lots_clotures": 0,
+    "tests_cibles_reussis": 150
   },
   "production_passe_20261104_0136Z": {
     "lot": 132,
