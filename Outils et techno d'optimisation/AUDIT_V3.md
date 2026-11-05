@@ -1,0 +1,44 @@
+# Auto-audit v3 — Atlas des outils puissants
+
+Résultat global : **OK** — 5 novembre 2026 (Europe/Zurich).
+
+- [x] **OK · Alphabet A–Z complet** — 26 lettres
+- [x] **OK · 128 outils conservés** — 128 outils
+- [x] **OK · Corrections v2 présentes** — LadybugDB, QueryGym, Quivr, Elysia, AutoGen, Kuzu
+- [x] **OK · FastEmbed sans doublon** — 1 entrée
+- [x] **OK · Rouge usage intensif** — 107 outils signalés
+- [x] **OK · Vulgarisation chaque outil** — 128 explications doubles
+- [x] **OK · Vulgarisation chaque technologie** — 11 technos + 4 modèles entreprise
+- [x] **OK · Guide en 6 étapes** — 6 étapes
+- [x] **OK · Objectifs vulgarisés** — gaspillage, coût, recherche, automatisation
+- [x] **OK · Atkinson WOFF2 embarquée** — 4 variantes inline
+- [x] **OK · Aucun CDN** — aucune dépendance externe
+- [x] **OK · Deux schémas · reseaux** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · obsidian** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · harness** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · rag** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · web** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · ops** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · bracelet** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · mcp** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · skills** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · scripts** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Deux schémas · ultra** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · Onglet entreprise** — 4 modèles cliquables
+- [x] **OK · Conseil projet présent** — formulaire structuré et textarea
+- [x] **OK · Questions ciblées → recommandation** — questions conditionnelles et scoring local
+- [x] **OK · Score honnête + alternatives** — adéquation, pas promesse
+- [x] **OK · Export IA Markdown/JSON** — copie + téléchargements
+- [x] **OK · Mise à jour lettre/section** — export + import fusionné par lettre
+- [x] **OK · Onglet guide fonctionnel** — 
+- [x] **OK · Bouton outil révèle la vulgarisation** — 
+- [x] **OK · Deux schémas MCP visibles** — 
+- [x] **OK · Explication nœud MCP medina** — 
+- [x] **OK · Explication nœud MCP ssp** — 
+- [x] **OK · Schéma entreprise cliquable** — 
+- [x] **OK · Questions projet générées** — 
+- [x] **OK · Recommandation et alternatives affichées** — 
+- [x] **OK · Export IA JSON téléchargé** — 
+- [x] **OK · Aucune erreur JavaScript** — 
+- [x] **OK · Mobile sans débordement** — 
+- [x] **OK · Mobile entreprise cliquable** — 
