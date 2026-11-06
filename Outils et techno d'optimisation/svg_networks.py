@@ -9,7 +9,7 @@ import html
 import re
 
 ROOT = Path('/workspace/outils-puissants')
-W, H = 1100, 580
+W, H = 1100, 720
 
 
 def esc(value, quote=True):
@@ -115,6 +115,24 @@ def svg_network(tech, kind, existing):
         out.append(graph_panel(tech,kind))
     for i,(pos,label,sub,info,original) in enumerate(zip(positions,labels,subtitles,roles,originals)):
         out.append(note_card(i,pos,label,sub,info,tech,kind,original,hub=(i==6)))
+    metrics = {
+'reseaux': (80,4,4,2,'Deux voies avancent sans relire deux fois les mêmes notes.'),
+'obsidian': (95,4,4,2,'Le cerveau secondaire garde décisions, index et preuves hors du prompt.'),
+'harness': (85,4,5,3,'Les portes automatiques arrêtent les défauts avant une relecture coûteuse.'),
+'rag': (90,4,4,3,'Seuls les extraits nécessaires arrivent au modèle.'),
+'web': (70,4,5,2,'La recherche reste ciblée ; les preuves originales sont conservées.'),
+'ops': (90,4,4,3,'Files, reprises et mesures suppriment les exécutions répétées.'),
+'bracelet': (85,4,3,1,'Un à trois outils par tâche : le bracelet évite l’arsenal complet.'),
+'mcp': (65,4,4,3,'Des prises communes simplifient les outils, avec installation initiale.'),
+'skills': (85,4,4,2,'Chaque protocole est chargé seulement au moment utile.'),
+'scripts': (99,4,4,1,'Les contrôles déterministes ne consomment aucun token.'),
+'ultra': (90,5,5,4,'Le socle commun mutualise preuves, mesure et reprise sans mélanger les formats.')}
+    if kind == 'ssp':
+        # Variante prudente : même architecture, gabarit et liste canonique distincts.
+        economy, perf, quality, setup, sentence = metrics[tech]
+    else:
+        economy, perf, quality, setup, sentence = metrics[tech]
+    out.append(f'<g class="diagram-metrics" aria-label="Estimations {tech} {kind}"><rect x="20" y="586" width="1060" height="116" rx="10"/><text x="38" y="614" class="metric-title">LÉGENDE CHIFFRÉE · ESTIMATION, NON MESURÉE</text><text x="38" y="644">Coût évité : ~{economy} % · 0 € d’API pour les étapes scripts</text><text x="38" y="671">Performance : {perf}/5 · Fiabilité/qualité : {quality}/5 · Mise en place : {setup}/5</text><text x="38" y="694" class="metric-note">{esc(sentence[:124])}</text></g>')
     out.append('</svg>')
     head = re.split(r'<svg class="pro-network[^>]*>', existing, maxsplit=1)[0]
     tail = existing[existing.index('<div class="node-explanation"'):]

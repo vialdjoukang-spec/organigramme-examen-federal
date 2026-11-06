@@ -9,7 +9,7 @@ Résultat global : **OK** — 6 novembre 2026 (Europe/Zurich).
 - [x] **OK · Rouge usage intensif** — 107 outils signalés
 - [x] **OK · Vulgarisation chaque outil** — 128 explications doubles
 - [x] **OK · Vulgarisation chaque technologie** — 11 technos + 4 modèles entreprise
-- [x] **OK · Guide en 6 étapes** — 6 étapes
+- [x] **OK · Guide en 6 étapes** — 6 étapes guide (+6 bac à sable)
 - [x] **OK · Objectifs vulgarisés** — gaspillage, coût, recherche, automatisation
 - [x] **OK · Atkinson WOFF2 embarquée** — 4 variantes inline
 - [x] **OK · Aucun CDN** — aucune dépendance externe
@@ -36,6 +36,17 @@ Résultat global : **OK** — 6 novembre 2026 (Europe/Zurich).
 - [x] **OK · Score honnête + alternatives** — adéquation, pas promesse
 - [x] **OK · Export IA Markdown/JSON** — copie + téléchargements
 - [x] **OK · Mise à jour lettre/section** — export + import fusionné par lettre
+- [x] **OK · Mission6 · 22 légendes chiffrées** — 22 × coût, performance, qualité, complexité + justification
+- [x] **OK · Mission6 · 11 fiches chef-d’œuvre** — 11 architectures Atelier + circuit bac à sable
+- [x] **OK · Mission6 · coût honnête** — estimations, aucune promesse 99–100 %
+- [x] **OK · Mission6 · harnais bracelet audit local** — outils récents + escalade bornée
+- [x] **OK · Mission6 · onglet bac à sable** — 🧪 + six options avec coût et limites
+- [x] **OK · Mission6 · vrai vault Obsidian** — six notes liées [[...]]
+- [x] **OK · Mission6 · JSON Canvas valide** — 6 cartes-fichiers + 6 flèches conformes
+- [x] **OK · Mission6 · document RECAP_TECHNOS_EXISTANTES.md** — texte sourcé inclus
+- [x] **OK · Mission6 · document REFERENCES_OBSIDIAN.md** — texte sourcé inclus
+- [x] **OK · Mission6 · document HARNAIS_BRACELET_V4.md** — texte sourcé inclus
+- [x] **OK · Mission6 · sources web ouvertes** — Obsidian + GitHub + X
 - [x] **OK · Onglet guide fonctionnel** — 
 - [x] **OK · Bouton outil révèle la vulgarisation** — 
 - [x] **OK · Deux schémas MCP visibles** — 
@@ -46,5 +57,6 @@ Résultat global : **OK** — 6 novembre 2026 (Europe/Zurich).
 - [x] **OK · Recommandation et alternatives affichées** — 
 - [x] **OK · Export IA JSON téléchargé** — 
 - [x] **OK · Aucune erreur JavaScript** — 
+- [x] **OK · Onglet bac à sable fonctionnel** — 
 - [x] **OK · Mobile sans débordement** — 
 - [x] **OK · Mobile entreprise cliquable** — 
