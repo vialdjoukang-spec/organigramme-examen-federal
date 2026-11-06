@@ -1,0 +1,76 @@
+TECHS = [
+ ('reseaux','Réseaux série et parallèle','Une chaîne de fabrication : chaque poste transmet seulement son résultat utile. Les tâches indépendantes avancent côte à côte, puis un contrôleur les réunit.'),
+ ('obsidian','Mémoire Obsidian','Un classeur médical bien tenu : on retrouve la note et sa source sans rouvrir tous les dossiers. Le texte lourd reste dans des tiroirs séparés.'),
+ ('harness','Harnais et contrôles','Une checklist opératoire : avant, pendant et après le travail, des règles empêchent l’agent d’improviser ou de continuer sans preuve.'),
+ ('rag','RAG et contexte','Un assistant qui apporte trois extraits pertinents au lieu de charrier toute la bibliothèque. Le modèle lit moins, mais lit les bons passages.'),
+ ('web','Recherche web et preuves','Un dossier de preuves : on cherche, on ouvre la source originale, puis on conserve la citation exacte et sa date.'),
+ ('ops','Automatisation et mesure','Un laboratoire automatisé : chaque échantillon suit le même circuit, les résultats sont enregistrés et les anomalies sont isolées.'),
+ ('bracelet','Bracelet de sélection','Un aiguilleur : avant chaque tâche, il propose un à trois outils adaptés au lieu d’allumer tout l’arsenal.'),
+ ('mcp','MCP : prises normalisées','Une prise murale commune : l’agent branche un outil par une interface connue, avec des permissions explicites, sans apprendre chaque câblage.'),
+ ('skills','Skills : modes d’emploi','Un protocole de service : l’agent ouvre seulement la fiche correspondant au geste demandé, plutôt que de transporter tout le manuel.'),
+ ('scripts','Scripts et caches','Un tampon et une photocopieuse contrôlée : un petit programme répète le contrôle sans modèle, et une copie valide évite de refaire le travail.'),
+ ('ultra','Réseau Ultra','Un hôpital coordonné : deux services gardent leurs dossiers propres, tandis que le même standard de transmission suit preuves, coûts et décisions.')
+]
+# name, role, savings
+MEDINA = {
+ 'Demande':('Chapitre et question clinique','Le code, le public et la partie à produire sont fixés avant tout appel.','Empêche les recherches et générations hors sujet.'),
+ 'Plan':('Plan monographique','CHAPTER_SPEC découpe la mission en onglets et fragments précis.','Une seule partie est traitée à la fois.'),
+ 'Sources':('Sources suisses et européennes','Le collecteur ouvre seulement les documents retenus pour ce fragment.','Évite de lire un corpus entier à chaque étape.'),
+ 'Cache':('Copie déjà validée','Une empreinte reconnaît une source ou un contrôle inchangé.','Supprime les lectures et appels répétés.'),
+ 'Extraits':('Passages nécessaires','Les paragraphes utiles sont sélectionnés avec leurs références.','Le modèle reçoit quelques preuves plutôt que les documents complets.'),
+ 'Bracelet':('Choix de 1 à 3 outils','La tâche est comparée aux fonctions du catalogue.','N’allume pas les outils inutiles.'),
+ 'MCP':('Outils autorisés','Une interface commune donne accès aux lectures et écritures prévues.','Réduit les adaptations et limite les actions possibles.'),
+ 'Skill':('Protocole Medina','Le mode d’emploi du chapitre est chargé à la demande.','Le manuel complet ne reste pas dans chaque conversation.'),
+ 'Script':('Contrôle automatique','Un programme vérifie classes, clés, taille et structure sans IA.','Un contrôle mécanique coûte presque rien et évite un audit prématuré.'),
+ 'Agent':('Rédaction bornée','L’agent rédige un fragment avec les extraits et le protocole.','Le grand modèle n’intervient que là où il apporte quelque chose.'),
+ 'Audit':('Relecture indépendante','Un autre contrôle examine fond, citations et forme.','Les erreurs sont corrigées avant une publication coûteuse.'),
+ 'Medina':('Chapitre validé','Les quatre onglets, fenêtres et quiz sont assemblés puis testés.','Le résultat validé est réutilisable sans nouvelle génération.'),
+ 'Vault':('Note de chapitre','La synthèse, les décisions et les liens sont visibles dans Obsidian.','On repart d’une note courte plutôt que de toute la production.'),
+ 'Archive':('Preuves et fichiers lourds','Sources, extraits et rapports restent hors du prompt.','Les documents restent disponibles sans encombrer le modèle.'),
+ 'Index':('Index des fragments','Chaque îlot est repéré par code, onglet et sujet.','Une question retrouve directement le bon fragment.'),
+ 'Recherche':('Découverte ciblée','Les moteurs proposent des candidats suisses et européens.','Réduit les ouvertures de pages peu pertinentes.'),
+ 'Vérification':('Citation et actualité','La source originale, la date et le passage exact sont comparés.','Évite les réponses plausibles mais non fondées.'),
+ 'File':('File de tâches','Les fragments attendent leur tour avec un état enregistré.','Évite les relances en double après interruption.'),
+ 'Mesure':('Coût et qualité','Tokens, temps, erreurs et cache sont comptés par chapitre.','Montre quelle optimisation fonctionne réellement.'),
+ 'Bus':('Registre commun','Les étapes échangent des identifiants et pointeurs, pas les textes complets.','Empêche la duplication entre services.'),
+ 'Publication':('Sortie autorisée','Le chapitre ne passe que si les portes de qualité sont vertes.','Évite de diffuser puis réparer une version fautive.')
+}
+SSP = {
+ 'Demande':('LOT et liste canonique','Le groupe de notions et gestes à traiter est figé.','Empêche les ajouts non demandés et les doublons.'),
+ 'Plan':('Découpe du LOT','Chaque notion ou geste reçoit un identifiant et un état.','Le travail reprend au bon point.'),
+ 'Sources':('Référentiel et sources propres','Seuls les passages liés au point traité sont ouverts.','Évite de relire le référentiel complet.'),
+
+ 'Plan':('Découpe du LOT','Chaque notion ou geste reçoit un identifiant et un état.','Le travail reprend au bon point.'),
+ 'Sources':('Référentiel et sources propres','Seuls les passages liés au point traité sont ouverts.','Évite de relire le référentiel complet.'),
+ 'Cache':('Verdict réutilisable','Une empreinte identique permet de conserver le contrôle précédent.','Supprime les audits identiques.'),
+ 'Extraits':('Points ciblés','Le contrôleur extrait les numéros de points demandés.','Un gros fichier HTML n’est jamais injecté entier.'),
+ 'Bracelet':('Choix de 1 à 3 outils','Le bracelet adapte la suggestion à extraction, audit ou contrôle.','Limite la dépense à l’outil réellement utile.'),
+ 'MCP':('Accès borné au LOT','Les connecteurs lisent les chemins et sections permis.','Standardise les appels sans donner un accès général.'),
+ 'Skill':('Protocole SSP','Les règles notions-gestes sont chargées sans les règles Medina.','Évite les mélanges de gabarits et le contexte superflu.'),
+ 'Script':('Contrôle du LOT','Le programme contrôle structure, taille et manifeste avant l’IA.','Les défauts simples sont corrigés sans audit coûteux.'),
+ 'Agent':('Rédaction par point','L’agent traite une notion ou un geste avec sa source.','Réduit le contexte et facilite la reprise.'),
+ 'Audit':('Audit médico-linguistique','Les contrôles distincts jugent le fond et la langue.','Évite les cycles inutiles sur un lot non conforme.'),
+ 'SSP':('LOT HTML validé','Les notions et gestes sont déposés avec leur manifeste.','Le résultat est stable et réutilisable.'),
+ 'Vault':('Note de suivi du LOT','Obsidian rassemble état, verdict et liens de preuves.','Le suivi tient en une note au lieu de nombreux journaux.'),
+ 'Archive':('Dossier evidence','Les pièces brutes et rapports sont stockés par empreinte.','Les preuves ne sont pas recopiées dans les conversations.'),
+ 'Index':('Index notions et gestes','Chaque point est relié à son LOT, sa région et sa source.','On retrouve un geste sans parcourir tous les lots.'),
+ 'Recherche':('Recherche par notion','La requête porte sur un geste ou une notion précis.','Réduit les sources sans rapport avec le SSP.'),
+ 'Vérification':('Signe et source','Chaque affirmation importante garde son extrait et sa référence.','Renforce la fiabilité et accélère la revue.'),
+ 'File':('Un seul LOT actif','La file limite le parallélisme et conserve les tentatives.','Évite que les agents se dupliquent ou se contredisent.'),
+ 'Mesure':('Cycles et verdicts','Le tableau suit coût, taille, cycles et motifs de refus.','Permet de corriger les étapes qui gaspillent.'),
+ 'Bus':('Registre commun','Les événements indiquent état et chemin du LOT.','Les services ne transportent pas le HTML complet.'),
+ 'Publication':('Dépôt final contrôlé','Seul un LOT accepté rejoint la sortie prévue.','Empêche les corrections coûteuses après diffusion.')
+}
+FLOWS = {
+ 'reseaux':['Demande','Plan','Cache','Extraits','Agent','Audit','Publication'],
+ 'obsidian':['Demande','Vault','Index','Extraits','Agent','Archive','Publication'],
+ 'harness':['Demande','Skill','Script','Agent','Audit','Mesure','Publication'],
+ 'rag':['Demande','Cache','Index','Extraits','Agent','Vérification','Publication'],
+ 'web':['Demande','Recherche','Sources','Extraits','Vérification','Archive','Agent'],
+ 'ops':['Demande','File','Script','Agent','Audit','Mesure','Publication'],
+ 'bracelet':['Demande','Bracelet','Cache','Script','Agent','Mesure','Publication'],
+ 'mcp':['Demande','Skill','MCP','Sources','Agent','Audit','Publication'],
+ 'skills':['Demande','Skill','Extraits','Agent','Script','Audit','Publication'],
+ 'scripts':['Demande','Cache','Script','Extraits','Agent','Audit','Publication'],
+ 'ultra':['Demande','Bus','Extraits','Agent','Audit','Mesure','Publication']
+}
