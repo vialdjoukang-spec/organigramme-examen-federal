@@ -1,6 +1,6 @@
 # Auto-audit v3 — Atlas des outils puissants
 
-Résultat global : **OK** — 5 novembre 2026 (Europe/Zurich).
+Résultat global : **OK** — 6 novembre 2026 (Europe/Zurich).
 
 - [x] **OK · Alphabet A–Z complet** — 26 lettres
 - [x] **OK · 128 outils conservés** — 128 outils
@@ -24,6 +24,12 @@ Résultat global : **OK** — 5 novembre 2026 (Europe/Zurich).
 - [x] **OK · Deux schémas · skills** — Medina + Organigramme, 7 nœuds chacun
 - [x] **OK · Deux schémas · scripts** — Medina + Organigramme, 7 nœuds chacun
 - [x] **OK · Deux schémas · ultra** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · t287u · 22 schémas SVG** — 22 vues SVG, 154 cases
+- [x] **OK · t287u · courbes et cibles** — courbes cubiques C + flèches marker-end
+- [x] **OK · t287u · Obsidian dédié** — Vault, notes, liens bidirectionnels, graph, plugins
+- [x] **OK · t287u · fond blanc et liens cliquables** — fond blanc, nœuds et connexions accessibles
+- [x] **OK · t288u · Graph Obsidian circulaire** — 2 panneaux Graph, 32 nœuds circulaires, courbes denses
+- [x] **OK · t288u · Canvas entreprise** — 20 cartes-notes, liens cubiques, contenu hors santé
 - [x] **OK · Onglet entreprise** — 4 modèles cliquables
 - [x] **OK · Conseil projet présent** — formulaire structuré et textarea
 - [x] **OK · Questions ciblées → recommandation** — questions conditionnelles et scoring local
