@@ -42,3 +42,5 @@ Résultat global : **OK** — 5 novembre 2026 (Europe/Zurich).
 - [x] **OK · Aucune erreur JavaScript** — 
 - [x] **OK · Mobile sans débordement** — 
 - [x] **OK · Mobile entreprise cliquable** — 
+
+- [x] **OK · t286u — Entreprise hors médical** — 4 modèles non médicaux, 20 nœuds cliquables et vulgarisation vérifiée ; Alphabet et Atelier inchangés.
