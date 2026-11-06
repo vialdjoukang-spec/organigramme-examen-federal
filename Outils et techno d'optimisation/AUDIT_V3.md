@@ -24,6 +24,10 @@ Résultat global : **OK** — 5 novembre 2026 (Europe/Zurich).
 - [x] **OK · Deux schémas · skills** — Medina + Organigramme, 7 nœuds chacun
 - [x] **OK · Deux schémas · scripts** — Medina + Organigramme, 7 nœuds chacun
 - [x] **OK · Deux schémas · ultra** — Medina + Organigramme, 7 nœuds chacun
+- [x] **OK · t287u · 22 schémas SVG** — 22 vues SVG, 154 cases
+- [x] **OK · t287u · courbes et cibles** — courbes Q + flèches marker-end
+- [x] **OK · t287u · Obsidian dédié** — Vault, notes, liens bidirectionnels, graph, plugins
+- [x] **OK · t287u · fond blanc et liens cliquables** — fond blanc, nœuds et connexions accessibles
 - [x] **OK · Onglet entreprise** — 4 modèles cliquables
 - [x] **OK · Conseil projet présent** — formulaire structuré et textarea
 - [x] **OK · Questions ciblées → recommandation** — questions conditionnelles et scoring local
@@ -42,5 +46,3 @@ Résultat global : **OK** — 5 novembre 2026 (Europe/Zurich).
 - [x] **OK · Aucune erreur JavaScript** — 
 - [x] **OK · Mobile sans débordement** — 
 - [x] **OK · Mobile entreprise cliquable** — 
-
-- [x] **OK · t286u — Entreprise hors médical** — 4 modèles non médicaux, 20 nœuds cliquables et vulgarisation vérifiée ; Alphabet et Atelier inchangés.
