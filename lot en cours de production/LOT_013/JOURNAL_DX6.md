@@ -1,0 +1,15 @@
+# JOURNAL_DX6 — LOT_013 — Phase B, DX.6 « Accident de montagne, de sport ou noyade »
+
+Rédacteur Phase B DX.6, 30.10.2026 (Europe/Zurich). Une ligne par hypothèse ou décision.
+
+- 2026-10-30 — Hypothèse — transposition §9.3 : point 3 = mécanismes de mort (chute, asphyxie d'ensevelissement ou de submersion, hypothermie, arrêt naturel à l'effort) et mort apparente ; point 11 = victime encore réanimable (doses AIPS) + versant médico-légal, assurance, état civil. La Phase A renvoyait explicitement les doses de réanimation à la Phase B.
+- 2026-10-30 — Doses : adrénaline lue dans l'AIPS Adrenalin Aguettant® 1 mg/mL et 0,1 mg/mL (Swissmedic 66396 ; identifiants de corpus 66396008 et 66396006) ; amiodarone lue dans l'AIPS Cordarone® (Swissmedic 41060). Extraits en cache : `.cache/aips/66396.txt`, `.cache/aips/41060.txt`. Amiodarone Labatec® i.v. (59528) nommée sans dose.
+- 2026-10-30 — ERC 2025 « Special Circumstances » lu en texte intégral (manuscrit accepté, dépôt Minerva, CC BY-NC-ND) ; divergences avec le résumé RCUK (stade IV ; moment de l'adrénaline et de l'amiodarone) présentées côte à côte, sans fusion (§13.3.4).
+- 2026-10-30 — « Nobody is dead until warm and dead » : 0 occurrence dans le texte du manuscrit ERC 2025 (grep) ; l'adage n'est pas utilisé comme règle, le fichier le signale comme piège.
+- 2026-10-30 — ICAR MedCom 2023 : seule la liste de contrôle officielle (janvier 2023) a été lue ; l'article complet (boris.unibe.ch) présente une page de contrôle anti-robot, non contournée.
+- 2026-10-30 — Incident d'outil : une requête curl avec un agent utilisateur personnalisé vers resuscitationjournal.com a été refusée par le classificateur du mode automatique ; elle n'a pas été répétée ; le texte ERC a été obtenu par le dépôt institutionnel.
+- 2026-10-30 — Statistiques : BPA (185 décès sportifs/an), CAS (98 morts en 2025), SSS–BPA (43 noyades en 2025, suicides exclus), SLF (21 morts par avalanche/an sur 20 ans) se recouvrent ; le fichier interdit leur addition. Calculs dérivés recalculés en python (68,4 % ; 18,4 % ; 80,6 % ; 49,0 % ; 35,7 % ; écart DX.5/DX.6 1,6 %).
+- 2026-10-30 — Hypothèse — réduction de l'art. 50 OLAA appliquée aux rentes de survivants : déduite de la structure de la LAA (rentes au chapitre « Prestations en espèces », frais funéraires au chapitre « Prestations pour soins ») ; étiquetée « lecture de la structure de la loi ».
+- 2026-10-30 — Source internationale (Cureus 2026, Arabie saoudite) retenue seulement pour la valeur limitée des diatomées et des signes de noyade, faute de source suisse ou européenne lue ; étiquetée comme telle.
+- 2026-10-30 — Aucune recommandation suisse propre à la réanimation en montagne ou dans l'eau trouvée ; ERC 2025 et ICAR 2023 suivis pour la victime vivante.
+- 2026-10-30 — Fichier écrit : `LOT_013_Phase_B_V0_DX.6.html`, 136 033 octets, SHA-256 ce17ae8a81234c289292d8602abaaea46a1083706be52be24b776e0ee5adf2bb ; `controle_lot.py verifier --sans-nom` : 0 critique, 0 avertissement pour ce fichier ; 45 fenêtres popover ; aucun score attribué par le rédacteur.

@@ -1,0 +1,12 @@
+# JOURNAL — LOT_014 — Phase B DX.9 (rédacteur)
+
+- 2026-10-30 — Harnais : `python3 harnais/bracelet/bracelet_suggest.py "Rédaction Phase B LOT_014 DX.9 canalopathie héréditaire monographie HTML 14 points"` → 1. Chonkie, 2. Crawl4AI, 3. Firecrawl (filtrage_nettoyage, score 1.0), code 0. Outil appliqué : découpage ciblé des sources (pdftotext, extraction par section) et cache AIPS par numéro. La PREUVE_EMBOITEMENT.txt n'a pas été écrite : fichier hors du périmètre d'écriture de ce rédacteur.
+- Hypothèse : l'ESC 2022 (VA/SCD) est lue dans la traduction officielle de la Société espagnole de cardiologie, seule version intégrale accessible (OUP tronqué, PDF 403) ; classes et niveaux repris des tableaux de recommandations en texte.
+- Hypothèse : seuil de l'aspect de Brugada de type 1 = « ≥ 2 mm » (ESC 2020 sport, EHRA 2022) ; la traduction ESC 2022 écrit « >2 mV » (erreur de traduction présumée, signalée en HELP_DX9).
+- Hypothèse : aucune dose hors AIPS ; les protocoles de test ESC (ajmaline, adrénaline) sont décrits sans dose ; le bolus de flécaïnide vient de l'AIPS Tambocor (identique au protocole ESC).
+- Hypothèse : l'isoprénaline dans la tempête du Brugada est présentée comme décision spécialisée hors information professionnelle (AIPS Isuprel : contre-indication « Hyperexcitabilité auriculaire et ventriculaire », indication absente).
+- Hypothèse : nadolol, mexilétine, quinidine, ajmaline, cilostazol, propafénone : absents du corpus AIPS et de la liste Swissmedic du 30.09.2026 → « À vérifier (AIPS) » sans dose (7 occurrences).
+- Hypothèse : les critères de sortie sont établis à partir des sources citées (aucune liste de sortie publiée trouvée) ; le HTML l'écrit.
+- Hypothèse : divergences présentées sans trancher : ESC (bêtabloquant poursuivi pendant la grossesse) contre AIPS (« sauf nécessité absolue ») ; ESC (magnésium dans la torsade) contre AIPS (blocs contre-indiqués).
+- Cache AIPS créé dans `.cache/aips/` : 31706, 56457, 49970, 41903, 50709, 26891, 50469, 51352, 53831, 35960. Déjà présents et non réécrits : 56191, 52110, 56394, 45728, 45710, 54553, 46461, 41060, 55961, 56542, 66396, 56551.
+- Taille finale : 137 744 octets (au-dessus de la cible indicative 100–125 Ko) : trois entités, cadre médico-légal et génétique suisse ; compression de forme faite (doublons retirés, fenêtres fusionnées) ; marge de 12,3 Ko sous le plafond. `controle_lot.py verifier` : 0 critique, 0 avertissement ; lot CONFORME (11 HTML).

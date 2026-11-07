@@ -1,0 +1,14 @@
+# JOURNAL — LOT_015
+
+- 2026-10-30 07:12 — LOT VIDE confirmé (archive : dossier « LOT_015 — G15 — Prise de poids, obésité _ weight gain, obesity/ » sans fichier). LOT_014 déposé (ACCEPTE) : la file stricte autorise LOT_015.
+- 2026-10-30 — Phase A (redacteur-phase-a) — hypothèse : la rétention hydrosodée forme deux DD distincts (DX.6 insuffisance cardiaque, DX.7 syndrome néphrotique) plutôt qu'une catégorie fourre-tout ; cirrhose/ascite (S3.2), lipœdème (G12, F1.16) et grossesse (O1.9) restent aux SSP voisins.
+- 2026-10-30 — Phase A — hypothèse : le Cushing iatrogène (corticoïdes) appartient à DX.2 ; DX.9 couvre le Cushing endogène seul (ESE 2020, R.3.5).
+- 2026-10-30 — Phase A — hypothèse : arrêt du tabac, cannabis, sommeil, alcool, ménopause et rétention post-gravidique sont des facteurs de DX.1 (tableau 2 de la guidance suisse 2026), non des DD séparés ; insulinome, hypogonadisme masculin, déficit en GH et dépression sont examinés et non retenus (raisons écrites dans le HTML).
+- 2026-10-30 — Phase A — hypothèse : l'ordre de fréquence mêle prévalences, fréquences chez l'obèse et incidences ; il reste indicatif et le HTML l'écrit. DX.8 (génétique) précède DX.9 (Cushing) sur la base des prévalences génétiques (S20) face à une incidence de 3,2/million/an (S18).
+- 2026-10-30 — Phase A — hypothèse : rangs d'exclusion E1–E10 donnés aux dix DD ; 🚩 réservé aux quatre graves (E1 DX.6, E2 DX.7, E3 DX.9, E4 DX.10) ; E5–E6 = causes réversibles.
+- 2026-10-30 — Phase A — hypothèse : le nom « syndrome des ovaires polykystiques » est gardé (AIPS, OPAS, guidance suisse 2026) ; le renommage 2026 en « polyendocrine metabolic ovarian syndrome » est signalé sans traduction française inventée.
+- 2026-10-30 — Phase A — hypothèse : l'insuffisance cardiaque s'appuie sur l'ESC 2026 (communiqué seulement ; licence ESC) et sur la Revue Médicale Suisse 2021 pour les seuils NT-proBNP (établis sous l'ESC 2021) → H15-01.
+- 2026-10-30 — Phase A — hypothèse : l'annexe 1 OPAS est lue en allemand (édition du 1.7.2026, copie USZ) ; la divergence « > 35 » (OPAS) / « ≥ 35 » (SMOB) est écrite sans trancher → H15-03.
+- 2026-10-30 — Phase A — doses : 11 informations professionnelles lues dans le document lié au corpus local (68798, 68726, 65899, 54282, 69694, 53709, 54447, 34734, 30774, 57057, 38840), mises en cache `.cache/aips/<numéro>.txt` ; citations AIPS longues vérifiées par script contre le texte lu (34 sur 34 présentes).
+- 2026-10-30 — Phase A — taille : 134 470 octets après compression de la forme (cible 110–130 Ko dépassée de 4,5 Ko ; marge de 15,5 Ko sous le plafond de 150 000 octets) ; `controle_lot.py verifier --sans-nom` : CONFORME, 0 critique.
+- 2026-10-30 — Phase A — accès : Orphanet et smob.csactive.de inaccessibles (vérification anti-robot ; domaine non autorisé) ; aucun contournement ; sources de repli européennes ou smob.ch.

@@ -131,3 +131,99 @@ outil_applique=découpage ciblé (controle_lot.py extraire) des sources longues 
 lot=LOT_001
 phase=A
 producteur=Claude Opus (redacteur-phase-a, sous-agent)
+
+2026-10-30 01:52 Europe/Zurich
+boucle=etape-zero-chantier-production-v2
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "production LOTS V2 parallèle"
+1. [filtrage_nettoyage] Chonkie (feynic/chonkie) — découper longs documents  score=0.2
+2. [filtrage_nettoyage] Crawl4AI (unclecode/crawl4ai) — pages web → Markdown propre  score=0.2
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.2
+PROMPT_V0_lu=§3, §4, §8–14, §16, §19, §22–23
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+ROUTAGE_lu=harnais/ROUTAGE_MODELES.md
+exit=0
+py_compile=harnais/*.py exit=0
+outil_applique=découpage ciblé (lecture par sections du Prompt V0, sed -n) ; aucun outil réseau requis pour l'étape 1
+branche=production-v2
+producteur=Claude Opus (session principale, chantier production-v2)
+
+2026-10-30 Europe/Zurich
+boucle=redaction-phase-a-LOT_013
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "Rédiger la Phase A du LOT_013 décès non naturel : collecte de sources suisses, monographie 14 points, 10 scénarios médico-légaux"
+1. [memoire_persistante] Graphiti (getzep/graphiti) — graphe de faits évolutifs  score=1.0
+2. [memoire_persistante] Mem0 (mem0ai/mem0) — faits persistants entre exécutions  score=1.0
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.5
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+py_compile=harnais/*.py exit=0
+outil_applique=collecte web ciblée (WebFetch/curl → extraits Markdown datés dans evidence/) ; mémoire persistante = evidence/INDEX.md pour la Phase B
+lot=LOT_013
+phase=A
+producteur=Claude Opus (redacteur-phase-a, sous-agent)
+
+2026-10-30 03:20 Europe/Zurich
+boucle=phase-B-LOT_013
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "Phase B LOT_013 G13 : rédaction parallèle de 10 DX médico-légaux, audits médical puis conformité avec correction en place"
+1. [filtrage_nettoyage] Chonkie (feynic/chonkie) — découper longs documents  score=0.2
+2. [filtrage_nettoyage] Crawl4AI (unclecode/crawl4ai) — pages web → Markdown propre  score=0.2
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.2
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+outil_applique=découpage ciblé (controle_lot.py extraire) pour les audits ; cache AIPS par n° Swissmedic (.cache/aips/)
+lot=LOT_013
+phase=B
+producteur=Claude Opus (session principale ; redacteur ×10 et auditeurs en sous-agents)
+
+2026-10-30 Europe/Zurich
+boucle=redaction-phase-a-LOT_014
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "Rédiger la Phase A du LOT_014 G14 mort subite ou inattendue : collecte de sources suisses et européennes, monographie 14 points, 10 diagnostics différentiels gradués"
+1. [memoire_persistante] Graphiti (getzep/graphiti) — graphe de faits évolutifs  score=1.0
+2. [memoire_persistante] Mem0 (mem0ai/mem0) — faits persistants entre exécutions  score=1.0
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.5
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+py_compile=harnais/*.py exit=0
+outil_applique=collecte web ciblée (WebFetch/curl → extraits datés dans evidence/) ; mémoire persistante = evidence/INDEX.md pour la Phase B
+lot=LOT_014
+phase=A
+producteur=Claude Opus (redacteur-phase-a, sous-agent)
+
+2026-10-30 Europe/Zurich
+boucle=redaction-phase-a-LOT_015
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "Rédiger la Phase A du LOT_015 G15 prise de poids obésité : collecte de sources suisses et européennes, monographie 14 points, 10 diagnostics différentiels gradués"
+1. [memoire_persistante] Graphiti (getzep/graphiti) — graphe de faits évolutifs  score=1.0
+2. [memoire_persistante] Mem0 (mem0ai/mem0) — faits persistants entre exécutions  score=1.0
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.5
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+py_compile=harnais/*.py exit=0
+outil_applique=collecte web ciblée (WebFetch/curl → extraits datés dans evidence/) ; mémoire persistante = evidence/INDEX.md pour la Phase B
+lot=LOT_015
+phase=A
+producteur=Claude Opus (redacteur-phase-a, sous-agent)
+
+2026-10-30 Europe/Zurich
+boucle=redaction-phase-a-LOT_016
+ok=True
+commande=python3 harnais/bracelet/bracelet_suggest.py "Rédiger la Phase A du LOT_016 G16 perte de poids perte d'appétit : collecte de sources suisses et européennes, monographie 14 points, 10 diagnostics différentiels gradués"
+1. [memoire_persistante] Graphiti (getzep/graphiti) — graphe de faits évolutifs  score=1.0
+2. [memoire_persistante] Mem0 (mem0ai/mem0) — faits persistants entre exécutions  score=1.0
+3. [filtrage_nettoyage] Firecrawl (firecrawl/firecrawl) — collecte web Markdown/JSON ciblée  score=0.5
+ARSENAL_lu=harnais/ARSENAL.md
+HARNAIS_lu=harnais/HARNAIS_OBLIGATOIRE.md
+exit=0
+py_compile=harnais/*.py exit=0
+outil_applique=collecte web ciblée (WebFetch/curl → extraits datés dans evidence/) ; mémoire persistante = evidence/INDEX.md pour la Phase B
+lot=LOT_016
+phase=A
+producteur=Claude Opus (redacteur-phase-a, sous-agent)

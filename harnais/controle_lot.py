@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Contrôle mécanique d'un LOT (zéro jeton) — harnais V0, 26.10.2026.
+"""Contrôle mécanique d'un LOT (zéro jeton) — harnais V0, 26.10.2026 ; bande 80–150 Ko et fenêtres popover, 30.10.2026.
 
 Usage
   python3 harnais/controle_lot.py verifier  <dossier_LOT_XXX> [--json] [--sans-nom]
@@ -18,10 +18,12 @@ pour des contrôles déterministes. Ko = 1 000 octets.
 """
 from __future__ import annotations
 import argparse, hashlib, html, json, re, sys
+from collections import Counter
 from pathlib import Path
 
-VERSION = "1.0"
-BANDE_MIN, BANDE_MAX = 100_000, 200_000  # Ko = 1 000 octets ; bornes comprises
+VERSION = "1.1"
+BANDE_MIN, BANDE_MAX = 80_000, 150_000  # Ko = 1 000 octets ; bornes comprises (Prompt V0 §14, 30.10.2026)
+BANDE_TXT = f"{BANDE_MIN // 1000}–{BANDE_MAX // 1000} Ko"
 RE_A = re.compile(r"^LOT_(\d{3})_Phase_A_V0\.html$")
 RE_B = re.compile(r"^LOT_(\d{3})_Phase_B_V0_DX\.(\d{1,2})\.html$")
 RE_H3 = re.compile(r"<h3[^>]*\bid\s*=\s*[\"']([A-Za-z0-9_-]+?)-p(\d{1,2})[\"']", re.I)
@@ -74,7 +76,7 @@ def analyse_fichier(p: Path) -> dict:
         crit.append("FIN_FICHIER absent en fin de fichier (troncature présumée)")
     if re.search(r"\stitle\s*=", t, re.I):
         crit.append("attribut title= présent (infobulle interdite)")
-    for tag in ("details", "table", "section", "div", "main"):
+    for tag in ("details", "table", "section", "div", "main", "button"):
         o, f = compte(t, tag)
         if o != f:
             crit.append(f"balises <{tag}> déséquilibrées ({o} ouvertes / {f} fermées)")
@@ -90,6 +92,19 @@ def analyse_fichier(p: Path) -> dict:
         crit.append(f"{len(longues)} ligne(s) > 3 000 caractères (ex. l.{longues[0]})")
     if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I):
         crit.append("script, image ou feuille de style externe présent")
+    if re.search(r"<[a-z][^>]*\son[a-z]+\s*=", t, re.I):
+        crit.append("attribut d'événement on…= présent (JavaScript interdit)")
+    # Grandes fenêtres sans JavaScript (Prompt V0 §14.2) : chaque popovertarget vise un id porteur de popover.
+    cibles = set(re.findall(r"\bpopovertarget\s*=\s*[\"']([^\"']+)[\"']", t, re.I))
+    popovers = {m.group(1) for m in re.finditer(r"<[a-z]+(?=[^>]*\bpopover\b(?!target))[^>]*\bid\s*=\s*[\"']([^\"']+)[\"']", t, re.I)}
+    orphelins = sorted(cibles - popovers)
+    if orphelins:
+        crit.append(f"{len(orphelins)} popovertarget sans fenêtre popover correspondante (ex. {orphelins[0]})")
+    ids = re.findall(r"\bid\s*=\s*[\"']([^\"']+)[\"']", t, re.I)
+    doublons = sorted(i for i, n in Counter(ids).items() if n > 1)
+    if doublons:
+        crit.append(f"{len(doublons)} id dupliqué(s) (ex. {doublons[0]})")
+    info["fenetres"] = {"popover": len(popovers), "details": compte(t, "details")[0]}
     if not re.search(r"\[S1\]", t):
         crit.append("section Sources [S1]… absente")
     if "non validé cliniquement" not in t:
@@ -162,14 +177,14 @@ def verifier(d: Path, sans_nom: bool) -> dict:
             C.append(f"{r['fichier']} : numéro de LOT ≠ dossier {d.name}")
     for i, r in B.items():
         if not BANDE_MIN <= r["octets"] <= BANDE_MAX:
-            C.append(f"DX.{i} : {r['octets']} octets hors bande 100–200 Ko")
+            C.append(f"DX.{i} : {r['octets']} octets hors bande {BANDE_TXT}")
         if len(r["monographies"]) != 1:
             C.append(f"DX.{i} : {len(r['monographies'])} monographie(s) dans le fichier au lieu de 1")
     for r in A:
         if r["octets"] < BANDE_MIN:
-            C.append(f"Phase A : {r['octets']} octets < 100 Ko")
+            C.append(f"Phase A : {r['octets']} octets < {BANDE_MIN // 1000} Ko")
         elif r["octets"] > BANDE_MAX:
-            C.append(f"Phase A : {r['octets']} octets > 200 Ko (plafond absolu)")
+            C.append(f"Phase A : {r['octets']} octets > {BANDE_MAX // 1000} Ko (plafond absolu)")
     liste = lire_liste(d)
     if not liste:
         C.append("LISTE_DX_CANONIQUE.md absente ou illisible (contrôle A↔B impossible)")

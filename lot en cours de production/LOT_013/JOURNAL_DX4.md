@@ -1,0 +1,10 @@
+# JOURNAL_DX4 — LOT_013 — DX.4 Accident de la circulation routière
+
+- 2026-10-30 — Harnais : bracelet exécuté (« rédaction Phase B DX.4 … », exit 0 ; top-3 : Chonkie, Crawl4AI, Firecrawl — non appliqués, collecte faite par curl/pdftotext) ; `py_compile harnais/*.py` OK. PREUVE_EMBOITEMENT.txt non écrite : hors du périmètre d'écriture du brief (session principale).
+- 2026-10-30 — Hypothèse : transposition §9.3 — point 3 = biomécanique lésionnelle et thanatologie ; colonne « thérapeutique » du tableau de corrélation = conséquence médico-légale ou mesure qui corrige le mécanisme (prévention).
+- 2026-10-30 — Hypothèse : rangs de gravité de la Phase A réutilisés dans le point 4 (🚩 E1 homicide, E3 intoxication, E4 acte médical, E5 indéterminé), précédés de « vie non exclue » et « danger sur les lieux ».
+- 2026-10-30 — Hypothèse : pharmacologie limitée à la victime encore vivante (arrêt cardiaque traumatique) ; adrénaline d'après AIPS Adrenalin Aguettant 66396 (indication RCP adulte, cohérente avec DX.6) et Adrenalin Sintetica 56551 ; aucune dose d'acide tranexamique (aucune indication « traumatisme » dans 7 SmPC AIPS lus).
+- 2026-10-30 — Hypothèse : chiffres les plus récents = OFROU 2025 (214 tués, publié 19.03.2026) ; 2024 conservé (OFROU/BPA 250 ; OFS 221) pour la cohérence avec la Phase A et la correction d'audit n° 9.
+- 2026-10-30 — Hypothèse : Skriptum Rechtsmedizin Berne/Lucerne 2013 (hébergé SGRM) utilisé pour la biomécanique et l'alcoolémie ; le droit cité vient uniquement de Fedlex (versions en vigueur au 30.10.2026).
+- 2026-10-30 — Accès refusés non contournés : boris.unibe.ch (défi anti-robot Anubis), core.ac.uk (HTML au lieu du PDF), uzh.ch Merkblatt 3D (JavaScript), ch.ch/fr/police (404).
+- 2026-10-30 — Fichier écrit : LOT_013_Phase_B_V0_DX.4.html, 134245 octets, SHA-256 aa8423ba124e2575ea63c83486d984f666148e6216f3065c713ede35da183c0b ; controle_lot --sans-nom : 0 critique, 0 avertissement pour ce fichier ; 44 fenêtres popover ; aucun score attribué par le rédacteur.

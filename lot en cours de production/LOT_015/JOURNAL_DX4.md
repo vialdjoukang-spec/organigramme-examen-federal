@@ -1,0 +1,13 @@
+# JOURNAL_DX4 — LOT_015 — DX.4 Hyperphagie boulimique (Phase B)
+
+- 2026-10-30 — harnais : `python3 harnais/bracelet/bracelet_suggest.py "Rédiger la Phase B DX.4 hyperphagie boulimique du LOT_015 : sources suisses et européennes, AIPS, monographie 14 points"` → exit 0 ; outils appliqués : découpage ciblé des longs documents (CDDR OMS 340 p., HAS 88 p., S3 non accessible) et mémoire persistante par `evidence/DX4_*.txt`. `harnais/PREUVE_EMBOITEMENT.txt` non modifié (hors fichiers autorisés par le brief).
+- Hypothèse : aucune spécialité n'est présentée comme indiquée dans l'hyperphagie boulimique. Lisdexamfétamine (Elvanse 63023), fluoxétine (Fluctine 46347), sertraline (Zoloft 52251), topiramate (Topamax 53537) : usage écrit « hors information professionnelle » ; seule la dose AIPS de l'indication propre est donnée (TDAH, dépression), jamais une dose pour l'hyperphagie boulimique.
+- Hypothèse : la « boulimie » de l'AIPS Fluctine est la bulimia nervosa ; la dose de 60 mg/j est donnée comme dose d'une indication distincte et sert de piège d'examen.
+- Hypothèse : le DSM-5 (classification américaine) est cité seulement en second, à travers deux revues européennes (Giel 2022, 2025), derrière la CIM-11 de l'OMS (CDDR 2024).
+- Hypothèse : l'étude BEDS-7 (américaine) est citée pour ses seuls chiffres d'outil, signalée comme telle ; aucune recommandation américaine n'est utilisée.
+- Hypothèse : en l'absence de recommandation suisse propre, la conduite suit HAS 2019, NICE NG69 (mise à jour 2020) et la synthèse suisse de la S3 allemande (Wyssen 2019) ; la guidance suisse obésité 2026 fixe le dépistage et l'avis psychiatrique.
+- Divergence écrite sans trancher : NICE (pas de tentative d'amaigrissement pendant la TCC) et HAS (régimes restrictifs systématiques bannis) face à la limitation de la liste des spécialités (régime à 500 kcal de déficit pour Wegovy/Mounjaro).
+- Doses : AIPS lues dans le document lié au XML du 08.10.2026 pour 63023, 46347, 52251, 53537 (mises en cache `.cache/aips/<numéro>.txt`, nouvelles) et 68798, 68726, 65899, 54282 (cache existant). Mysimba® : aucune occurrence dans le XML.
+- Liste des spécialités (API OFSP, 30.10.2026) : Elvanse limité au TDAH de deuxième ligne ; Saxenda absent ; Xenical, Wegovy, Mounjaro lus (`evidence/DX4_LS_OFSP_Elvanse_Wegovy_Mounjaro.txt`).
+- Accès : register.awmf.org bloqué par une page anti-robot ; pmc.ncbi.nlm.nih.gov bloqué par captcha ; textes PMC lus par l'API officielle NCBI E-utilities (efetch) ; aucun contournement.
+- Taille : 134 833 octets après compression de la forme (≤ 135 000) ; `controle_lot.py verifier --sans-nom` : 0 critique, 0 avertissement pour DX.4. Les cellules de tableaux restent en partie télégraphiques (faute de marge de taille).
