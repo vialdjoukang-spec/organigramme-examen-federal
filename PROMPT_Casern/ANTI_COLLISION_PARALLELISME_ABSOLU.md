@@ -1,6 +1,6 @@
 # Anti-collision & parallélisme absolu — outil de session
 
-**Règle bloquante — outil d’onsession.** À charger avec le harnais et le PROMPT V8 dès l’ouverture de session. Objectif : réduire à la nullité conflits Git, collisions de fichiers et double rédaction du même lot.
+**Règle bloquante — outil d’onsession.** À charger avec le harnais et le PROMPT V0 révisé le 30 octobre 2026 dès l’ouverture de session : [PROMPT ULTIME V0, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/541c396da0b8358850fdc3fef4ff1194691936fd/PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md). Objectif : réduire à la nullité conflits Git, collisions de fichiers et double rédaction du même lot.
 
 ## 1. Parallélisme absolu d’action
 

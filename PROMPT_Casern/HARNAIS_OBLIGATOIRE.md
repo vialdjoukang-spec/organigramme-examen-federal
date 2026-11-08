@@ -1,4 +1,6 @@
 
+> Copie du **25 octobre 2026** dans `PROMPT_Casern/`. Elle est antérieure à `harnais/HARNAIS_OBLIGATOIRE.md` du 26 octobre 2026 sur `main`, lui-même antérieur à la révision du 30 octobre 2026 : [HARNAIS OBLIGATOIRE, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/6b6bee7b4c4aa99e4f261c2a5cc635744c0cec16/harnais/HARNAIS_OBLIGATOIRE.md). Le texte ci-dessous est conservé.
+
 ## Étape zéro (BLOQUANT) — avant toute activité
 
 1. **Création / installation** du harnais sur l’agent (`harnais/` + bracelet)

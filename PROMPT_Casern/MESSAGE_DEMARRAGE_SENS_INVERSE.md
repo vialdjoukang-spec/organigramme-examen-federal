@@ -1,3 +1,5 @@
+> Procédure historique du **25 octobre 2026**, écrite pour le PROMPT V8 et le départ LOT_226. Elle est conservée. Le prompt courant est le [V0 rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/541c396da0b8358850fdc3fef4ff1194691936fd/PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md). Le sens de file postérieur est celui de `MESSAGE_DEMARRAGE_CLAUDE_V0.md` (26 octobre 2026) : LOT_001 → LOT_248.
+
 # Message de démarrage — sens inverse (248 → 001)
 
 **À coller dans ChatGPT Sol Moyen.**
