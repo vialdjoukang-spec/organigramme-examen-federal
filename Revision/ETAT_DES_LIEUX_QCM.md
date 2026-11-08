@@ -1,11 +1,11 @@
 # ÉTAT DES LIEUX — Questionnaires Type A « Réflexe SSP » · Temps 1 · catégorie G
 
-_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-02 à 00:10 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
+_Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-02 à 00:21 (Europe/Zurich, UTC+1) · seuil couverture : ≥ 2 EX par DX_
 
 ## Relève Λ — en une ligne
 
-- **Progression globale : 6/16 SSP livrés = 37.50 %** · pondérée (statut × couverture DD) : **30.0 %** · 481 questions au total.
-- **Prochain SSP : G7 (LOT_007) — Bouffées vasomotrices (flush)**
+- **Progression globale : 7/16 SSP livrés = 43.75 %** · pondérée (statut × couverture DD) : **35.0 %** · 579 questions au total.
+- **Prochain SSP : G8 (LOT_008) — Hypothermie**
 - **Blockers / dettes :** aucun gap de couverture sur les SSP livrés. · Validation humaine (statut `valide`) : 0 SSP à ce jour.
 
 ## Tableau G1–G16
@@ -18,7 +18,7 @@ _Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-02 à 00:10 (Europe
 | G4 | LOT_004 | Fatigue, lassitude | 88 | 52 | 20 | 16 | 11/11 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G04_fatigue_lassitude/LOT_004_G4_TypeA_Reflexe.html) |
 | G5 | LOT_005 | Sensation de maladie | 94 | 56 | 22 | 16 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G05_sensation_maladie/LOT_005_G5_TypeA_Reflexe.html) |
 | G6 | LOT_006 | Fièvre, frissons, hyperthermie | 100 | 60 | 24 | 16 | 15/15 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G06_fievre_frissons/LOT_006_G6_TypeA_Reflexe.html) |
-| G7 | LOT_007 | Bouffées vasomotrices (flush) | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
+| G7 | LOT_007 | Bouffées vasomotrices (flush) | 98 | 58 | 24 | 16 | 12/12 | 🟦 revue_auto | 80 % | [ouvrir](G_symptomes_generaux/G07_bouffees_flush/LOT_007_G7_TypeA_Reflexe.html) |
 | G8 | LOT_008 | Hypothermie | 0 | 0 | 0 | 0 | 0/12 | ⬜ à faire | 0 % | — |
 | G9 | LOT_009 | Prurit | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
 | G10 | LOT_010 | Douleurs de tous types | 0 | 0 | 0 | 0 | 0/15 | ⬜ à faire | 0 % | — |
@@ -33,7 +33,7 @@ _Régénéré par `_outils/scripts/etat_lieux.py` le 2026-11-02 à 00:10 (Europe
 
 ```bash
 cd /workspace/grok/Revision
-python3 _outils/scripts/init_ssp.py G7          # canevas + checklist DD
+python3 _outils/scripts/init_ssp.py G8          # canevas + checklist DD
 # rédiger _bank_GNN.py selon _outils/CHARTE_REDACTION.md (sources = LOT audité uniquement)
 python3 _outils/scripts/build_ssp.py G_symptomes_generaux/GNN_xxx   # JSON + HTML
 python3 _outils/scripts/couverture_dd.py G_symptomes_generaux/GNN_xxx  # 0 gap exigé
