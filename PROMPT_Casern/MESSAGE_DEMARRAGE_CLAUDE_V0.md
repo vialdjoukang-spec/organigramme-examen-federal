@@ -3,8 +3,8 @@
 CLAUDE — lis dans cet ordre, puis exécute :
 
 1. `PROMPT_Casern/MESSAGE_DEMARRAGE_CLAUDE_V0.md` (ce fichier) — brief : périmètre, file, équipes, règles, dépôt.
-2. `PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md` — référence : 14 points, audit, Harness. Le `.md` fait foi.
-3. `harnais/HARNAIS_OBLIGATOIRE.md`, puis `harnais/ROUTAGE_MODELES.md`.
+2. `PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md` — la copie sur `main` est la révision du 26 octobre 2026. La révision du 30 octobre 2026 fait foi, elle est absente de `main`, et c’est ce `.md` qui fait foi : [PROMPT ULTIME V0, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/541c396da0b8358850fdc3fef4ff1194691936fd/PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md).
+3. `harnais/HARNAIS_OBLIGATOIRE.md`, puis `harnais/ROUTAGE_MODELES.md`. Sur `main`, ces deux fichiers sont datés du 26 octobre 2026. Leurs révisions du 30 octobre 2026 : [HARNAIS OBLIGATOIRE, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/6b6bee7b4c4aa99e4f261c2a5cc635744c0cec16/harnais/HARNAIS_OBLIGATOIRE.md) et [ROUTAGE DES MODÈLES, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/565fb1a007adb945bd0ba41f3af03a89c5b9c64b/harnais/ROUTAGE_MODELES.md).
 
 **BLOQUANT avant tout :** Harness — Prompt V0 §5 / §5.1 (étape zéro : bracelet → ARSENAL → PREUVE_EMBOITEMENT). Sans Harness en place = pas de production.
 

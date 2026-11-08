@@ -1,3 +1,5 @@
+> Copie sur `main` du **26 octobre 2026**. La révision du **30 octobre 2026** fait foi et n’est pas dans cet arbre : [HARNAIS OBLIGATOIRE, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/6b6bee7b4c4aa99e4f261c2a5cc635744c0cec16/harnais/HARNAIS_OBLIGATOIRE.md) (commit `6b6bee7b4c4aa99e4f261c2a5cc635744c0cec16`). Le texte qui suit est conservé.
+
 # HARNAIS OBLIGATOIRE — V0 renforcé (26.10.2026)
 
 **BLOQUANT : sans exécuter ce harnais, tu ne produis pas.** Ce fichier remplace la version du 25.10.2026. Il ne contient plus aucune règle de dépôt externe : le dépôt final est `LOT_Claude_Finaux/`.

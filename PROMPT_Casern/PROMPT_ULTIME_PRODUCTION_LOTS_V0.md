@@ -1,3 +1,5 @@
+> Copie présente sur `main` : révision du **26 octobre 2026**. La révision du **30 octobre 2026** du même prompt fait foi et n’est pas dans cet arbre : [PROMPT ULTIME V0, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/541c396da0b8358850fdc3fef4ff1194691936fd/PROMPT_Casern/PROMPT_ULTIME_PRODUCTION_LOTS_V0.md) (commit `541c396da0b8358850fdc3fef4ff1194691936fd`). Le texte qui suit est conservé tel qu’il était au 26 octobre 2026, y compris la mention « En vigueur » de cette date.
+
 <a id="sec-00"></a>
 
 # PROMPT ULTIME V0 — PRODUCTION DES LOTS « PROFILES »

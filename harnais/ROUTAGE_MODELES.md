@@ -1,3 +1,5 @@
+> Copie sur `main` du **26 octobre 2026**. La révision du **30 octobre 2026** fait foi et n’est pas dans cet arbre : [ROUTAGE DES MODÈLES, rév. 30.10.2026](https://github.com/vialdjoukang-spec/organigramme-examen-federal/blob/565fb1a007adb945bd0ba41f3af03a89c5b9c64b/harnais/ROUTAGE_MODELES.md) (commit `565fb1a007adb945bd0ba41f3af03a89c5b9c64b`). Le texte qui suit est conservé.
+
 # ROUTAGE DES MODÈLES — bascule économique (V0, 26.10.2026)
 
 Ordre de décision unique : **Qualité → Exhaustivité du fond → Économie → Esthétique.** L'économie est une sous-contrainte : on ne bascule vers un modèle moins cher que si le fond reste intact.

@@ -1,5 +1,11 @@
 # CHANGELOG — PROMPT_Casern
 
+## Navigation — 2026-11-08
+- Le prompt de production le plus récent prouvé est le V0 révisé le 30 octobre 2026, commit `541c396da0b8358850fdc3fef4ff1194691936fd`. Ce texte n’est pas sur `main`.
+- `00_LIRE_EN_PREMIER.md` pointe vers cette révision. Il ne prescrit plus V8.
+- La copie `PROMPT_ULTIME_PRODUCTION_LOTS_V0.md` sur `main` reste celle du 26 octobre 2026.
+- Les entrées V8, V7 et du 25 octobre 2026 ci-dessous sont inchangées. Aucun fichier n’a été supprimé.
+
 ## V8 — 2026-10-25 Europe/Zurich (Grok Bot)
 - Remplace **PROMPT V7** (22.10.2026) comme prompt de production en vigueur.
 - Demande obligatoire au démarrage : confirmer l’usage de PROMPT V8 (PROMPT_Casern).
