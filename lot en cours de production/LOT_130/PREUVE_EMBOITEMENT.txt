@@ -1,0 +1,12 @@
+date: 2026-11-09T17:09:37Z (commande date -u) ; Europe/Zurich = 18:09
+tâche: Rédiger la Phase A et les diagnostics différentiels impairs du LOT 130 F1.1 pression artérielle anormale, convertir au modèle V8, sources suisses AIPS, sans collision avec agentB
+bracelet_sortie:
+1. [protection_routage_observation] RouteLLM (lm-sys/RouteLLM) — router tâches simples → modèle cheap  score=1.3
+2. [protection_routage_observation] LiteLLM (BerriAI/litellm) — budgets / tracking API  score=1.0
+3. [protection_routage_observation] Phoenix (Arize-ai/phoenix) — traces / coûts / qualité  score=1.0
+code_sortie: 0
+compile: python3 -m py_compile harnais/controle_lot.py harnais/scinder_1_10.py → COMPILE_OK
+ARSENAL_lu: oui (harnais/ARSENAL.md)
+HARNAIS_lu: oui (harnais/HARNAIS_OBLIGATOIRE.md)
+producteur: agent A, branche agentA/lot-130-p1
+ecart: RouteLLM, LiteLLM et Phoenix ne sont pas des outils de lecture AIPS ni de contrôle de lot. Ils ne sont pas installés. Appliqués à la place : extraits ciblés (ESC 2024, MonAM, HUG 2025, SSH 2017, information professionnelle Triatec août 2026) et harnais/controle_lot.py. La PREUVE n'est pas écrite dans harnais/, parce que la consigne du 9 novembre 2026 interdit d'y écrire.
