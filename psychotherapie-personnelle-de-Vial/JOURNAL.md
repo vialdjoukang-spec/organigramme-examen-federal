@@ -17,3 +17,9 @@
 - Clôture : « Ce n'est pas une faiblesse de reconnaître ses faiblesses. »
 - Émergents : dépendance à la médication pour réguler tristesse/frustration ; liste médicamenteuse consignée ; alopécie bi-frontale dose-dépendante à l'ibuprofène + œdèmes genoux à l'arrêt (pattern reproductible, non interprété).
 - Prochaine étape : séance 01.02 — histoire de vie.
+
+### 2026-11-09 — Rappel et préparation séance 01.02 (19h Europe/Zurich)
+- Consigne de Vial : ouvrir le dossier sur branche `seance-01-01-consignation` (ou main après merge) ; préparer la séance suivante selon le plan phase 1 (01.01–01.04). La séance du jour étant 01.02, concentration sur l'histoire de vie. Noter consignes dans JOURNAL.md et fichier de séance.
+- Signal de sécurité actif : « dur ».
+- Points à tenir en vigilance (issus de 01.01) : fréquence encore à trancher ; émergents médicamenteux et somatiques non interprétés ; double position.
+- Préparation 01.02 prête : ligne de temps, nœuds, zones d'ombre, clôture.
