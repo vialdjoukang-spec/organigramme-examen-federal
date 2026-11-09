@@ -34,7 +34,7 @@ def extra3() -> dict[int, str]:
 """
     blocs[14] = """
 <p>Question : 5 % contre 25 %, de quoi parle-t-on ? Réponse : de la récidive de courbure après allongement ventral, moins fréquente qu’après plicature dorsale, dans les travaux cités par le chapitre. [S1]</p>
-<p>Question : pourquoi ne pas donner la dose de testostérone ? Réponse : le chapitre dit les preuves non concluantes et limite l’usage habituel au proximal avec petit gland ou plateau étroit, sans schéma posologique. L’information professionnelle suisse n’a pas été relue. [S1]</p>
+<p>Question : pourquoi ne pas donner la dose de testostérone ? Réponse : le chapitre dit les preuves non concluantes, et les notices Testogel® 56779, Nebido® 56813, Testostérone Spirig HC® 68976 et Testosteron-Mepha 68989 ne portent pas l’indication hypospadias. [S1]</p>
 <p>Question : le consensus contre l’imagerie vise quel examen ? Réponse : les études d’imagerie à la recherche de malformations urinaires associées, que le panel ne recommande pas en systématique. [S1]</p>
 <p>Question : un ballonnement de l’urètre à la miction oriente vers quoi ? Réponse : vers une sténose du méat à exclure, sans attendre l’âge de l’urétroplastie. [S1]</p>
 <p>Question : 6 à 18 mois est-il une fenêtre diagnostique ? Réponse : non. C’est l’âge habituel de la réparation primaire. Le diagnostic, lui, est en général néonatal. [S1]</p>

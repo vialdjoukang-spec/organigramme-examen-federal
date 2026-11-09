@@ -21,6 +21,6 @@ def extra6() -> dict[int, str]:
 """<p>Question : la vidéo-endoscopie du curage est-elle inférieure dans l’extrait ? Réponse : l’extrait ne donne pas cette infériorité. Il la cite à côté de la voie ouverte quand la sentinelle n’est pas retenue. [S3]</p>""",
 """<p>Question : 80 % et 50 % du chapitre sur le virus parlent-ils de la même chose ? Réponse : non. Jusqu’à 80 % concerne les lésions pré-néoplasiques. Jusqu’à la moitié concerne les carcinomes invasifs. La prévalence poolée de 50,8 % est encore une autre mesure, sur les cancers. [S1]</p>""",
 """<p>Question : le plan 2026 a-t-il abaissé l’objectif de couverture ? Réponse : non. Il l’a monté de 80 à 90 % pour la vaccination de base des filles et des garçons jusqu’à 14 ans. [S4]</p>""",
-"""<p>Le dernier garde-fou de dose : cette monographie nomme le 5-fluorouracile, l’imiquimod et l’idée d’une chimiothérapie d’induction sans jamais un milligramme. Elle nomme le vaccin 9-valent avec le nombre de doses du plan, qui n’est pas une dose en microgrammes. Ajouter un schéma de crème serait franchir la source. [S3] [S4]</p>""",
+"""<p>Le garde-fou de dose : la chimiothérapie d’induction reste sans milligramme, parce qu’aucune notice de platine n’a été ouverte pour cette tumeur. Les crèmes et Gardasil ont, eux, une notice recopiée. [S3] [S4]</p>""",
     ]
     return {11: "\n".join(paras[:10]), 14: "\n".join(paras[10:])}

@@ -150,7 +150,7 @@ def body() -> str:
 <p>Sectionner le plateau sans le faire, dans une forme sévère, exposait à 20 % de récidive de courbure et 17 % de sténose. L’allongement ventral récidive moins que la plicature dorsale, 5 % contre 25 %, et la plicature raccourcit la verge, motif fréquent d’insatisfaction. On évite de poser en même temps un greffon de corps caverneux et un greffon urétral, selon les données croissantes citées. [S1]</p>
 <p>Le prépuce peut être reconstruit s’il ne sert pas à l’urètre ni à couvrir le ventre, sans augmenter les fistules dans les données citées. La désunion du prépuce va de 7 à 17 %, le phimosis secondaire à 1,5 %. Dans les formes mineures, reconstruire seulement le prépuce peut cacher la malformation sans prendre le risque de l’urétroplastie. [S1]</p>
 <p>Le drainage urinaire peut être une sonde qui goutte, un cathéter sus-pubien, ou rien après une forme distale. Ni le matériau de la sonde, ni le pansement, ni la durée n’ont de consensus fort. L’antibioprophylaxie n’a pas montré de baisse des infections du site ou des urines, surtout d’après des séries distales. On n’écrit donc pas une durée d’antibiotique. [S1]</p>
-<p>L’analgésie par bloc caudal ou par bloc pénien est efficace dans les travaux cités, et le type de bloc n’a pas été lié aux complications de la réparation primaire. Aucune dose d’anesthésique local n’est recopiée : l’information professionnelle suisse n’a pas été relue. [S1]</p>
+<p>L’analgésie par bloc caudal ou par bloc pénien est efficace dans les travaux cités, et le type de bloc n’a pas été lié aux complications de la réparation primaire. Le chapitre ne nomme aucun anesthésique, donc aucune notice n’est recopiée. [S1]</p>
 <p>Le traitement hormonal préopératoire ne reçoit ni nom de marque ni dose. Preuves non concluantes, usage habituel limité au proximal avec petit gland ou plateau étroit. [S1]</p>
 <p>Situations particulières. Le nouveau-né à gonades absentes : pas de chirurgie de forme avant le bilan. L’adulte : plus de complications après TIP dans l’étude citée, facteur 2,5. L’enfant prépubère : l’âge précis entre les bornes habituelles n’était pas un facteur de complication du TIP. Il n’y a pas de grossesse du patient. L’insuffisance rénale ou hépatique n’est pas discutée dans la page. [S1]</p>
 <p><em>11.C Surveillance</em></p>
@@ -182,14 +182,14 @@ def body() -> str:
 <p>Question : reconstruire le prépuce augmente-t-il les fistules ? Réponse : non dans les données citées, si le prépuce n’est pas nécessaire à l’urètre. La désunion propre du prépuce va de 7 à 17 %. [S1]</p>
 <p>Question : l’antibioprophylaxie est-elle obligatoire ? Réponse : elle n’a pas réduit les infections du site ni les infections urinaires dans les preuves rassemblées, surtout distales. [S1]</p>
 <p>Question : un homme adulte non opéré est-il toujours satisfait ? Réponse : non. Des études récentes décrivent l’éclaboussure, l’obstruction, la courbure et la douleur, et plus de la moitié ont demandé une correction. [S1]</p>
-<p>Question : où est le numéro Swissmedic de la testostérone locale ? Réponse : absent de cette monographie, parce qu’aucune information professionnelle suisse n’a été relue et que le chapitre ne donne pas de schéma. [S1]</p>
+<p>Question : quelle dose de testostérone donne-t-on avant un hypospadias proximal ? Réponse : aucune dans cette monographie. Le chapitre ne donne pas de schéma, et les notices suisses lues n’ont pas cette indication. [S1]</p>
 """))
     P.append("""
 <section class="ilot sources">
 <h3>Sources</h3>
 <p>[S1] Association européenne d’urologie, Guidelines on Paediatric Urology, chapitre « Hypospadias », texte en ligne consulté le 9 novembre 2026. https://uroweb.org/guidelines/paediatric-urology/chapter/hypospadias</p>
 <p>La monographie de l’hypospadias repose sur cette page et reste non validé cliniquement.</p>
-<p>Limite : pas de taux suisse ouvert le 9 novembre 2026. Pas de dose hormonale, anesthésique ou antibiotique, le corpus AIPS local étant absent et le chapitre ne donnant pas ces posologies.</p>
+<p>Limite : pas de taux suisse ouvert le 9 novembre 2026. Pas de dose de testostérone, d’anesthésique ou d’antibiotique : le chapitre n’en nomme pas, et les notices de testostérone du corpus du 8.10.2026 n’indiquent pas l’hypospadias.</p>
 </section>
 """)
     html = "\n".join(P)

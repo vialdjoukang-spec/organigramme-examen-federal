@@ -48,7 +48,7 @@ def extra() -> dict[int, str]:
 11: """
 <p>Le conseil aux parents, avant une forme distale, peut se dire ainsi. L’opération, si on la fait, vise un méat au gland et une verge droite. Le succès primaire cité est de 85 à 90 %. Une fistule ou une sténose restent possibles. Reconstruire le prépuce n’augmente pas, dans les données lues, le risque urétral, mais le prépuce lui-même peut se désunir dans 7 à 17 % des cas ou se resténoser dans 1,5 %. Ne pas opérer est encore compatible avec le chapitre si le jet est bon et la verge droite. [S1]</p>
 <p>Le conseil avant une forme proximale est plus sombre et doit l’être. Les complications vont de 14 à 68 %. L’expérience de l’opérateur compte. Un TIP « standard » n’est pas le réflexe. L’allongement ventral protège mieux la longueur que la plicature dorsale. Plusieurs temps opératoires sont souvent préférés. [S1]</p>
-<p>Aucun médicament de fond n’a de dose. Pas de testostérone chiffrée, pas d’antibiotique de durée imposée, pas d’anesthésique local en millilitres. Le corpus AIPS manquait le 9 novembre 2026. Les blocs caudal et pénien sont cités comme efficaces, sans posologie. [S1]</p>
+<p>Aucun antibiotique nommé, donc aucune posologie d’antibiotique. La testostérone n’est pas dosée : les notices du corpus du 8.10.2026 n’ont pas l’hypospadias pour indication. Les blocs caudal et pénien restent sans nom de spécialité. [S1]</p>
 <p>La sortie se vérifie ainsi. L’enfant a un mode de drainage compris par les parents, ou pas de drainage si l’équipe a choisi cette option distale. La famille sait quoi faire si l’urine ne sort plus, si le pansement saigne, ou si la fièvre apparaît. La date de revue est écrite. Le sport et le bain n’ont pas de jour imposé par le chapitre. [S1]</p>
 """,
 12: """
