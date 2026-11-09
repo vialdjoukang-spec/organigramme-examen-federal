@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Point d'entrée unique du harnais : harnais [--instance DOSSIER] <commande> …
+C="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
+PY="$C/.venv/bin/python"; [ -x "$PY" ] || PY="$(command -v python3)"
+exec "$PY" "$C/harnais.py" "$@"
