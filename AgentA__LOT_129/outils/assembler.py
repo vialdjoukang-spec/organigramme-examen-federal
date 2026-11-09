@@ -161,7 +161,20 @@ def blocs_de(lignes, pops, prefixe, deja):
             cur.append(lignes[i].strip())
             i += 1
         texte = " ".join(cur)
-        html_parts.append("<p>" + inline(e_sauf_boutons(texte), prefixe) + "</p>")
+        rendu = inline(e_sauf_boutons(texte), prefixe)
+        if len(rendu) <= 2400:
+            html_parts.append("<p>" + rendu + "</p>")
+        else:
+            morceaux = re.split(r"(?<=[.!?])\s+", rendu)
+            paquet = ""
+            for morceau in morceaux:
+                if paquet and len(paquet) + len(morceau) > 2200:
+                    html_parts.append("<p>" + paquet + "</p>")
+                    paquet = morceau
+                else:
+                    paquet = (paquet + " " + morceau).strip()
+            if paquet:
+                html_parts.append("<p>" + paquet + "</p>")
     # fenêtres citées dans cette section
     cites = set(re.findall(r'popovertarget="([^"]+)"', "\n".join(html_parts)))
     for did in cites:
