@@ -90,8 +90,19 @@ def analyse_fichier(p: Path) -> dict:
     longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 3000]
     if longues:
         crit.append(f"{len(longues)} ligne(s) > 3 000 caractères (ex. l.{longues[0]})")
-    if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I):
-        crit.append("script, image ou feuille de style externe présent")
+    if re.search(r"<script[\s>]|<link[^>]+stylesheet", t, re.I):
+        crit.append("script ou feuille de style externe présent")
+    # Prompt rév. 9.11.2026 §14.2 et §14.8 : l'image externe reste interdite ;
+    # l'image embarquée du point 9 (data:image/jpeg ou data:image/webp) est admise.
+    for tag in re.findall(r"<img\b[^>]*>", t, re.I):
+        srcs = re.findall(r"\bsrc\s*=\s*[\"']([^\"']*)[\"']", tag, re.I)
+        propre = bool(srcs) and all(
+            re.fullmatch(r"data:image/(?:jpeg|webp);base64,[A-Za-z0-9+/=\s]+", s.strip())
+            for s in srcs
+        )
+        if not propre:
+            crit.append("image non autonome (seuls data:image/jpeg et data:image/webp, sans URL http)")
+            break
     if re.search(r"<[a-z][^>]*\son[a-z]+\s*=", t, re.I):
         crit.append("attribut d'événement on…= présent (JavaScript interdit)")
     # Grandes fenêtres sans JavaScript (Prompt V0 §14.2) : chaque popovertarget vise un id porteur de popover.

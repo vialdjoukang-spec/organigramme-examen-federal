@@ -112,3 +112,77 @@ def test_dx1_reel_lecture_seule():
     f = Path("/workspace/outils-puissants/Leona__Production_4LOTs_Cloud_20261109/LOT_132/LOT_132_Phase_B_V0_DX.1.html"); avant = f.read_bytes()
     R = H.controler(None, f, francais=False); M = json.dumps(R, ensure_ascii=False)
     assert "texte non justifié" in M and "îlots : 0/14" in M and f.read_bytes() == avant
+
+def test_illustrer_data_uri_fragment(tmp_path):
+    """Convertit une image rendue en data:URI ≤25 Ko et produit un <figure> avec licence + <ol>."""
+    from PIL import Image
+    png = tmp_path / "lesion.png"
+    Image.new("RGB", (320, 240), (30, 90, 140)).save(png, "PNG")
+    uri, mime, nbytes = H.image_vers_data_uri(png)
+    assert uri.startswith("data:image/") and ";base64," in uri and nbytes <= H.MAX_IMG_DATA_O
+    frag = H.fragment_figure_data(uri, alt="Scanner thorax", titre="BPCO — emphysème",
+                                  source="Wikimedia Commons", auteur="Exemple", licence="CC BY-SA 4.0",
+                                  anomalies=["Bulle d'emphysème au sommet droit", "Aplatissement diaphragmatique"])
+    assert "<figure" in frag and 'src="data:image/' in frag
+    assert "CC BY-SA 4.0" in frag and "Wikimedia Commons" in frag
+    assert "<ol" in frag and ("Bulle d&#x27;emphysème" in frag or "Bulle d'emphysème" in frag)
+    out = tmp_path / "x.fragment.html"; out.write_text(frag, encoding="utf-8")
+    # voie CLI --image
+    r = subprocess.run([str(RACINE / "coeur/bin/harnais"), "illustrer", "--image", str(png),
+                        "--titre", "T", "--source", "Wikimedia Commons", "--auteur", "A", "--licence", "CC0",
+                        "--anomalies", "Anomalie 1|Anomalie 2", "--fragment-sortie", str(tmp_path / "cli.fragment.html")],
+                       capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr
+    j = json.loads(r.stdout); assert j["octets_binaires"] <= 25_000 and Path(j["fragment"]).exists()
+
+def test_controle_images_point9(tmp_path):
+    """Contrôle p9 : data:+licence OK ; externe/NC critiques ; absence = avertissement."""
+    f = squelette(tmp_path); t = f.read_text(encoding="utf-8")
+    # 1) absence → avert
+    R0 = H.controler(None, f, francais=False)
+    assert any("aucune image" in x["msg"] for x in R0["semantique_detecte"] if x["niveau"] == "avert")
+    # 2) figure conforme
+    from PIL import Image
+    png = tmp_path / "ok.png"; Image.new("RGB", (64, 48), (10, 10, 10)).save(png)
+    uri, _, _ = H.image_vers_data_uri(png)
+    fig = H.fragment_figure_data(uri, alt="x", titre="Radio", source="Wikimedia Commons File:X.jpg",
+                                 auteur="N. N.", licence="CC BY 4.0", anomalies=["Opacité basale droite"])
+    t2 = t.replace('<h3 id="dx2-p9"><strong>9. Examens complémentaires</strong></h3>',
+                   '<h3 id="dx2-p9"><strong>9. Examens complémentaires</strong></h3>\n' + fig, 1)
+    f.write_text(t2, encoding="utf-8")
+    R1 = H.controler(None, f, francais=False)
+    assert R1["info"].get("images_p9", {}).get("ok") == 1
+    assert not any("p9 image" in x["msg"] and x["niveau"] == "critique"
+                   for c in ("securite", "sources", "semantique_detecte") for x in R1[c])
+    # 3) image externe → critique
+    fig_ext = fig.replace(uri, "https://upload.wikimedia.org/exemple.jpg")
+    f.write_text(t.replace('<h3 id="dx2-p9"><strong>9. Examens complémentaires</strong></h3>',
+                           '<h3 id="dx2-p9"><strong>9. Examens complémentaires</strong></h3>\n' + fig_ext, 1), encoding="utf-8")
+    R2 = H.controler(None, f, francais=False); M2 = json.dumps(R2, ensure_ascii=False)
+    assert "src externe" in M2 or "ressource externe" in M2
+    # 4) licence NC → critique
+    fig_nc = fig.replace("CC BY 4.0", "CC BY-NC 4.0")
+    f.write_text(t.replace('<h3 id="dx2-p9"><strong>9. Examens complémentaires</strong></h3>',
+                           '<h3 id="dx2-p9"><strong>9. Examens complémentaires</strong></h3>\n' + fig_nc, 1), encoding="utf-8")
+    R3 = H.controler(None, f, francais=False)
+    assert any("NC/ND" in x["msg"] or "non libre" in x["msg"] for x in R3["sources"])
+
+def test_illustrer_copie_et_cli():
+    """illustrer.py est présent (copie), CLI expose la sous-commande, délégation --help via script."""
+    assert H.ILLUSTRER_PY.is_file() and (H.ILLUSTRATION / "README.md").is_file()
+    assert (H.ILLUSTRATION / "polices" / "AtkinsonHyperlegible-Regular.ttf").is_file()
+    r = subprocess.run([str(RACINE / "coeur/bin/harnais"), "--help"], capture_output=True, text=True)
+    assert r.returncode == 0 and "illustrer" in r.stdout
+    r2 = subprocess.run([str(RACINE / "coeur/bin/harnais"), "illustrer", "--help"], capture_output=True, text=True)
+    assert r2.returncode == 0 and "--chercher" in r2.stdout and "--data-uri" in r2.stdout
+
+def test_p9_gold_standard_et_termes_vagues(tmp_path):
+    """Rév. prompt 9.11.2026 : p9 sans sous-titre gold standard ni 1re intention = critique ; terme vague = avertissement."""
+    f = squelette(tmp_path); t = f.read_text(encoding="utf-8")
+    R0 = H.controler(None, f, francais=False)
+    assert R0["info"]["contenu_p9"]["sous_titres"] == {"gold_standard": True, "premiere_intention": True}
+    t2 = re.sub(r'<h4 id="dx2-p9[ab]">.*?</h4>', "", t)
+    t2 = t2.replace("(ou « pas de gold standard » écrit)", "").replace("⟦À RÉDIGER⟧ gold standard", "⟦À RÉDIGER⟧ On voit une tache au poumon droit")
+    f.write_text(t2, encoding="utf-8"); R1 = H.controler(None, f, francais=False)
+    assert any("aucun sous-titre « gold standard »" in x["msg"] and x["niveau"] == "critique" for x in R1["semantique_detecte"])
+    assert any("terme(s) vague(s)" in x["msg"] and x["niveau"] == "avert" for x in R1["semantique_detecte"])
