@@ -9,17 +9,19 @@ Travail interrompu sur ordre de Vial (usage 50 %). Rien n'a été supprimé.
 - Posologies AIPS recopiées dans la Phase A : Sertraline Spirig HC 57135, Paroxetin-Mepha 58636, Atarax 21871.
 - La mention « Gutron absent » a été retirée. La midodrine n'est pas citée dans les monographies (n° à utiliser plus tard : Gutron 44977, pas 44976).
 
-## DX finis
+## DX finis sur cette branche (impairs)
 
-Aucun. Aucun fichier `LOT_127_Phase_B_V0_DX.*.html` n'est sur cette branche.
+- DX.1 — Réaction aiguë à un facteur de stress, `LOT_127_Phase_B_V0_DX.1.html`
+- DX.3 — Trouble de l'adaptation, `LOT_127_Phase_B_V0_DX.3.html`
+- DX.5 — Panique déclenchée par un souvenir, `LOT_127_Phase_B_V0_DX.5.html`
+- DX.7 — Insomnie après l'événement, `LOT_127_Phase_B_V0_DX.7.html`
+- DX.9 — Idées de mort après l'événement, `LOT_127_Phase_B_V0_DX.9.html`
+
+La prazosine est déclarée absente du corpus AIPS local du 8.10.2026 dans chaque page, sans dose. Aucun audit séparé n'a été lancé.
 
 ## DX restants pour l'agent A (impairs)
 
-- DX.1 — Réaction aiguë à un facteur de stress
-- DX.3 — Trouble de l'adaptation
-- DX.5 — Panique déclenchée par un souvenir
-- DX.7 — Insomnie après l'événement
-- DX.9 — Idées de mort après l'événement
+Aucun.
 
 ## Hors périmètre de cette branche
 
