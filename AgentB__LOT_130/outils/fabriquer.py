@@ -43,7 +43,7 @@ html{hyphens:auto;-webkit-hyphens:auto}
 body{font-family:Georgia,serif;line-height:1.55;margin:0 auto;max-width:52rem;padding:4.2rem 1rem 2rem;color:#14202b;background:#eef2f3}
 h2{font-size:1.35rem;border-left:6px solid #0f4c5c;padding:.2rem .7rem;background:#e6f1f3}
 h3{font-size:1.05rem;background:#0f4c5c;color:#fff;padding:.45rem .7rem;border-radius:.4rem;margin:0 0 .7rem}
-h4{font-size:1rem;color:#0f4c5c;margin:1rem 0 .3rem}
+h4{font-size:1rem;color:#0f4c5c;margin:1rem 0 .3rem;font-style:italic}
 p,.corps,.pas,.meca,.ex,.piege,td,li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 p{margin:.55rem 0}
 .ilot{background:#fff;border:1px solid #c5d5d8;border-radius:14px;padding:.85rem 1rem 1rem;margin:0 0 1.35rem;box-shadow:0 1px 2px #0001}
@@ -51,6 +51,9 @@ table{border-collapse:collapse;width:100%;font-size:.92rem}
 th,td{border:1px solid #9bb;padding:.35rem .45rem;vertical-align:top}
 th{background:#d7e6ea}
 .tw{overflow-x:auto}
+figure.schema{margin:.7rem 0;background:#f7fbfb;border:1px dashed #0f4c5c;padding:.45rem .55rem;border-radius:8px}
+figure.schema img{max-width:100%;height:auto}
+.exception-non-suisse{background:#fff3cd}
 .r{font-size:.72em;vertical-align:super}
 .r a{color:#0b5;text-decoration:none}
 details.refs{margin:.6rem 0}
@@ -141,7 +144,7 @@ def sources_html() -> str:
         items.append(
             f'<li id="sb-{pid}"><span class="n">[S{i}] {html.escape(pid)}.</span> '
             f'{html.escape(r["organisme"])}, {html.escape(r["annee"])}, {html.escape(r["pays"])}. '
-            f'Consulté le {html.escape(r["consultation"])}. {html.escape(r["url"])}</li>'
+            f'Consulté le {html.escape(r["consultation"])}. <a href="{html.escape(r["url"])}">{html.escape(r["url"])}</a></li>'
         )
     return (
         '<section id="sources">\n<h2 id="refs">Sources</h2>\n<details class="refs"><summary>Sources consultées</summary><ol>\n'
@@ -149,6 +152,39 @@ def sources_html() -> str:
         '<p class="ment">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>\n'
         '</section>\n'
     )
+
+def _rang_url(url: str) -> int:
+    u = (url or "").lower()
+    if any(x in u for x in ("swissmedicinfo", "swissmedic.ch", "refdata.ch")):
+        return 1
+    if "fedlex" in u:
+        return 2
+    if ".admin.ch" in u:
+        return 3
+    hote = re.search(r"https?://([^/]+)", u)
+    host = hote.group(1) if hote else ""
+    if host.endswith(".ch") or host.endswith(".swiss"):
+        return 4
+    return 7
+
+def marquer_p11(doc: str) -> str:
+    """Point 11 : source suisse réelle, sinon marque exception-non-suisse dans la phrase."""
+    def _p(m: re.Match) -> str:
+        inner = m.group(1)
+        ids = re.findall(r'href="#sb-([^"]+)"', inner)
+        if any(_rang_url(PREUVES[i]["url"]) <= 5 for i in ids if i in PREUVES):
+            return m.group(0)
+        if "information professionnelle" in inner:
+            return f"<p>{inner}{cite(['AIPSHT'])}</p>"
+        mots = html.unescape(re.sub(r"<[^>]+>", " ", inner)).split()
+        if len(mots) < 8 or "exception-non-suisse" in inner:
+            return m.group(0)
+        return f'<p><span class="exception-non-suisse">{inner}</span></p>'
+
+    def zone(m: re.Match) -> str:
+        return re.sub(r"(?is)<p>(.*?)</p>", _p, m.group(0))
+
+    return re.sub(r'(?is)<h3 id="[^"]+-p11">.*?(?=<h3 id=)', zone, doc)
 
 def barre(prefixe: str) -> str:
     liens = [f'<a href="#{prefixe}-p{i}"><b>{i}</b></a>' for i in range(1, 15)]
@@ -165,7 +201,7 @@ def page(titre_h2: str, prefixe: str, sections: list[str], fin: str, annexes: st
         f'<section class="monograph" id="{prefixe}">\n{corps}\n</section>\n'
         f"{sources_html()}{annexes}</main>\n</body>\n</html>\n{fin}\n"
     )
-    return insecables(doc)
+    return marquer_p11(insecables(doc))
 
 def insecables(src: str) -> str:
     out, skip = [], 0
@@ -221,7 +257,7 @@ def h3(prefixe: str, n: int, inner: str) -> str:
     if not isinstance(inner, str):
         raise TypeError(f"{prefixe}-p{n} n'est pas du HTML ({type(inner).__name__})")
     return (
-        f'<section class="ilot">\n'
+        f'<section class="ilot" id="{prefixe}-i{n}">\n'
         f'<h3 id="{prefixe}-p{n}"><strong>{html.escape(TITRES[n-1])}</strong></h3>\n'
         f'{inner}\n</section>\n'
     )

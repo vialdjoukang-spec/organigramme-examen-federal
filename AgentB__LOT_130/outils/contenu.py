@@ -31,7 +31,7 @@ def urgence(prefix: str, lignes: list[tuple[str, list[str]]]) -> str:
                 liens.append((i, SN[i]))
     src = " ".join(f'<a href="#sb-{i}">[S{n}]</a>' for i, n in liens)
     return (
-        "<p>Dès lors, les gestes urgents commencent tout de suite, et le bilan complet vient ensuite.</p>\n"
+        "<p>Les gestes urgents commencent tout de suite.</p>\n"
         f"<details style='display:inline;' id=\"{fid}\"><summary>Urgence — conduite chronologique</summary>"
         f"<div class=\"corps\">{pas}"
         f"<div class=\"piege\">Piège d'examen : attendre une confirmation alors que l'organe ou la perfusion souffre déjà.</div>"
@@ -72,6 +72,13 @@ GLOSSAIRE = [
     ("prééclampsie", "ESCPRE"), ("manchette", "SSHM1B"), ("automesure", "SSHM2"),
     ("résistante", "ESCRES"), ("nocturne", "ESCNUIT"), ("dysplasie", "ESCRVH"),
     ("cocaïne", "SSHT3"), ("anti-inflammatoires", "SSHT3"), ("kaliémie", "ISHK"),
+    ("monothérapie", "AIPSDB"), ("hypokaliémie", "ISHK"), ("artériographie", "SSHRAS"),
+    ("néphropathie", "AIPSPROT"), ("albuminurie", "ESCSP"), ("oligurie", "SSCCRT"),
+    ("hématurie", "ISHREN"), ("échographie", "ISHREN"), ("leucocyturie", "ISHREN"),
+    ("glomérulopathie", "AIPSPROT"), ("athéromatose", "ESCRVH"), ("nycturie", "ESCNUIT"),
+    ("endoscopie", "ESCOSA"), ("hypovolémie", "ESCALP"), ("tomographie", "ISHRAS"),
+    ("ischémie", "ESCSTR"), ("microangiopathie", "ESCFO"),
+    ("rétinopathie", "ESCFO"), ("irm", "SSHRAS"), ("coronarographie", "SSHRAS"),
 ]
 _vus_glossaire: set[str] = set()
 
@@ -86,7 +93,7 @@ AMORCES = {
     8: "En outre, le critère décisif se distingue de ce qui ne suffit pas.",
     9: "Toutefois, prescrire un examen suppose de savoir l'interpréter.",
     10: "De plus, chaque embranchement nomme le résultat qui fait choisir.",
-    11: "En revanche, le but du traitement se formule avant la liste des moyens.",
+    11: "En revanche, le but précède les moyens.",
     12: "Enfin, prévenir ne consiste pas à recopier le traitement déjà indiqué.",
     14: "Or, un piège d'examen se pose comme une question, puis se ferme par la réponse.",
 }
@@ -100,8 +107,22 @@ def rendre(prefix: str, spec: list[list]) -> list[str]:
         morceaux, fenetres = [], []
         if numero in AMORCES:
             morceaux.append(p(AMORCES[numero]))
+        if numero == 9 and prefix.startswith("dx"):
+            from point9 import bloc_p9
+            morceaux.append(bloc_p9(prefix))
         if numero == 11:
             fenetres.append(divergence(prefix))
+            fenetres.append(
+                "<details style='display:inline;' id=\"" + prefix + "-p11-europe\">"
+                "<summary>sources européennes du point 11</summary><div class=\"corps\">"
+                "<div class=\"meca\">D'abord, la phrase surlignée ne trouve pas d'équivalent dans les sources suisses du dossier. "
+                "Ensuite, elle reste attribuée au texte européen ou international qui la porte. "
+                "Ainsi, elle ne devient pas une recommandation suisse.</div>"
+                "<div class=\"piege\">Piège d'examen : présenter un seuil européen comme s'il était celui de la fiche suisse.</div>"
+                "<div class=\"src\">Marque exception-non-suisse. Exemple de texte européen déjà au dossier, sans chiffre ajouté ici."
+                + cite(["ESCCIBLE"]) + "</div>"
+                "</div></details>\n"
+            )
         for item in bloc:
             if isinstance(item, str):
                 morceaux.append(item if item.endswith("\n") else item + "\n")

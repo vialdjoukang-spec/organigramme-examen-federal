@@ -44,7 +44,7 @@ def dx2():
          T("Le repos préalable dure cinq minutes, assis ou couché.", "ESCOHDEF"),
          T("Ce qui ne suffit pas, c'est un enregistrement ambulatoire isolé, inadapté à ce diagnostic formel.", "ESCOH"),
          T("Le diagnostic est posé au cabinet.", "ESCOH")],
-        [h4("9.a Référence"),
+        [h4("9.a Gold standard"),
          T("Le test de référence est clinique : mesure debout au cabinet après un repos de cinq minutes.", "ESCOH", w=("test au cabinet", "ESCOH")),
          h4("9.b Première intention"),
          T("On mesure à une minute et à trois minutes, et l'on retient une baisse d'au moins 20/10 mmHg.", "ESCOH"),

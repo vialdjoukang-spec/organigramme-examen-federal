@@ -2,7 +2,7 @@
 """Harnais d'agent LOT (zéro jeton) — Leona, 9 nov. 2026.
 Automatise UNIQUEMENT le mécanique : collecte, extraction, index BM25, recherche/tri/filtre, mémoire, CP,
 squelette HTML V0, contrôles, rapport, captures, santé. Ne rédige rien, ne juge rien cliniquement.
-Usage : harnais [--instance DOSSIER] <commande> ... (ou variable HARNAIS_INSTANCE). `harnais aide`."""
+Usage : harnais [--instance DOSSIER] <commande> ... (ou variable HARNAIS_INSTANCE). Inclut `illustrer` (délégation + fragment data:URI)."""
 from __future__ import annotations
 import argparse, csv, datetime as dt, hashlib, html, json, os, re, shutil, sqlite3, subprocess, sys, time
 import urllib.parse, urllib.request, urllib.robotparser
@@ -11,6 +11,9 @@ from pathlib import Path
 COEUR = Path(__file__).resolve().parent
 RACINE = COEUR.parent
 REGISTRE = RACINE / "registre"
+ILLUSTRATION = COEUR / "illustration"
+ILLUSTRER_PY = ILLUSTRATION / "illustrer.py"
+MAX_IMG_DATA_O = 25_000  # plafond data:URI WebP/JPEG (octets binaires)
 UA = "Leona-Harnais/1.0 (+collecte polie, usage pedagogique non commercial)"
 DELAI_DOMAINE_S = 2.0
 TITRES = {1: "Définition et sémantique", 2: "Épidémiologie (Suisse, puis Europe)", 3: "Physiopathologie",
@@ -303,6 +306,8 @@ def squelette(lot: str, n: int, titre: str, lot_titre: str = "") -> str:
         fen = "" if k == 13 else (f"\n<p>⟦À RÉDIGER⟧ 1 à 4 phrases ; terme technique → <button type=\"button\" class=\"fen\" popovertarget=\"dx{n}-p{k}-f1\">terme</button> (grande fenêtre).</p>\n"
               f"<div id=\"dx{n}-p{k}-f1\" popover class=\"fenetre\"><button type=\"button\" popovertarget=\"dx{n}-p{k}-f1\" popovertargetaction=\"hide\">Fermer ✕</button>\n<p>⟦À RÉDIGER⟧ mécanisme, exemple chiffré, piège, source [Sn].</p></div>\n"
               f"<div class=\"p\">⟦À RÉDIGER⟧ phrase avec fenêtre courte <details class=\"fc\" style=\"display:inline;\"><summary>terme</summary><div>⟦À RÉDIGER⟧ définition courte, source [Sn].</div></details> qui reste intacte.</div>")
+        if k == 9: fen = (f"\n<h4 id=\"dx{n}-p9a\"><em>9.a Gold standard</em></h4>\n<p>⟦À RÉDIGER⟧ gold standard (ou « pas de gold standard » écrit).</p>"
+                          f"\n<h4 id=\"dx{n}-p9b\"><em>9.b 1<sup>re</sup> intention</em></h4>" + fen)
         if k == 13: fen = "\n<p>⟦À RÉDIGER⟧ 3 à 6 phrases courtes, verbales, intactes ; aucune fenêtre ne coupe une phrase porteuse.</p>"
         urg = (f"\n<div class=\"u\" id=\"dx{n}-urgence\"><h4>Fenêtre « Urgence — conduite chronologique »</h4><p>⟦À RÉDIGER⟧ conduite minute par minute ; sources suisses uniquement.</p></div>" if k == 11 else "")
         blocs.append(f"<section class=\"ilot\" id=\"dx{n}-i{k}\">\n<h3 id=\"dx{n}-p{k}\"><strong>{k}. {TITRES[k]}</strong></h3>{fen}{urg}\n</section>")
@@ -336,6 +341,160 @@ def squelette(lot: str, n: int, titre: str, lot_titre: str = "") -> str:
 </html>
 <!-- FIN_FICHIER {nom} -->
 """
+
+
+# ---------------------------------------------------------------- illustration (délégation + data:URI)
+LICENCES_IMG_OK = re.compile(r"(?i)\b(CC\s*0|CC0|CC\s*BY(?:\s*[- ]?\s*SA)?|domaine\s+public|public\s+domain)\b")
+LICENCES_IMG_INTERDITES = re.compile(r"(?i)(?:\bNC\b|\bND\b|non[\s-]?commercial|no[\s-]?derivativ)")
+
+def image_vers_data_uri(chemin: Path, plafond: int = MAX_IMG_DATA_O) -> tuple[str, str, int]:
+    """Convertit une image rendue en data:URI WebP (sinon JPEG) ≤ plafond octets binaires."""
+    from PIL import Image
+    import base64, io
+    im = Image.open(chemin).convert("RGB")
+    essais = [
+        ("WEBP", "image/webp", [{"quality": q, "method": 4} for q in (80, 70, 60, 50, 40, 30, 20)]),
+        ("JPEG", "image/jpeg", [{"quality": q, "optimize": True} for q in (85, 75, 65, 55, 45, 35, 25)]),
+    ]
+    candidats = [im]
+    w, h = im.size
+    for scale in (0.75, 0.5, 0.35, 0.25):
+        candidats.append(im.resize((max(1, int(w * scale)), max(1, int(h * scale))), Image.Resampling.LANCZOS))
+    for img in candidats:
+        for fmt, mime, kws in essais:
+            for kw in kws:
+                buf = io.BytesIO(); img.save(buf, fmt, **kw); raw = buf.getvalue()
+                if len(raw) <= plafond:
+                    return f"data:{mime};base64,{base64.b64encode(raw).decode('ascii')}", mime, len(raw)
+    raise RuntimeError(f"impossible de compresser {chemin} sous {plafond} o")
+
+def fragment_figure_data(data_uri: str, *, alt: str, titre: str, source: str, auteur: str, licence: str, anomalies: list[str]) -> str:
+    """Fragment HTML <figure> autonome : img data:, légende source/auteur/licence, liste numérotée des anomalies."""
+    items = "".join(f"<li>{html.escape(a)}</li>" for a in anomalies)
+    mention = f"Source : {source}. Auteur : {auteur}. Licence : {licence}."
+    return (
+        '<figure class="schema illustration">\n'
+        f'<img src="{data_uri}" alt="{html.escape(alt or titre or "illustration")}">\n'
+        "<figcaption>\n"
+        f"<strong>{html.escape(titre or 'Illustration')}</strong>\n"
+        f'<p class="mention">{html.escape(mention)}</p>\n'
+        f'<ol start="1">{items}</ol>\n'
+        "</figcaption>\n</figure>\n"
+    )
+
+def illustrer_deleguer(argv: list[str]) -> int:
+    """Délègue à coeur/illustration/illustrer.py (copie octet-identique, non modifiée)."""
+    if not ILLUSTRER_PY.exists():
+        raise FileNotFoundError(f"illustrer.py absent : {ILLUSTRER_PY}")
+    py = str(COEUR / ".venv/bin/python") if (COEUR / ".venv/bin/python").exists() else sys.executable
+    r = subprocess.run([py, str(ILLUSTRER_PY), *argv], capture_output=True, text=True)
+    if r.stdout: print(r.stdout, end="" if r.stdout.endswith("\n") else "\n")
+    if r.stderr: print(r.stderr, end="" if r.stderr.endswith("\n") else "\n", file=sys.stderr)
+    return r.returncode
+
+def illustrer_apres_rendre(annotations: list[Path], sortie: Path) -> list[dict]:
+    """Après --rendre : convertit chaque PNG en data:URI ≤25 Ko et réécrit le fragment HTML."""
+    res = []
+    for ap in annotations:
+        ann = json.loads(Path(ap).read_text(encoding="utf-8"))
+        ident = ann.get("id") or Path(ap).stem
+        png = sortie / f"{ident}.png"
+        if not png.exists():
+            # biologie peut produire SVG ; chercher aussi .webp/.jpg
+            cands = list(sortie.glob(f"{ident}.*"))
+            pngs = [c for c in cands if c.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp")]
+            if not pngs: raise FileNotFoundError(f"image rendue introuvable pour {ident} dans {sortie}")
+            png = pngs[0]
+        uri, mime, nbytes = image_vers_data_uri(png)
+        src = ann.get("source") or {}
+        licence = src.get("licence") or ""
+        if isinstance(src.get("references"), list) and src["references"]:
+            licence = licence or src["references"][0].get("licence_figure") or "schéma pédagogique (références citées)"
+            auteur = ", ".join(r.get("titre", "") for r in src["references"] if r.get("titre")) or "schéma"
+            source = "schéma biologique (références de l'annotation)"
+        else:
+            auteur = src.get("auteur") or "—"
+            source = src.get("url_page") or src.get("identifiant") or src.get("entrepot") or "—"
+        anomalies = [str(L.get("legende") or L.get("texte") or "").strip() for L in (ann.get("lesions") or ann.get("elements") or [])]
+        anomalies = [a for a in anomalies if a]
+        frag = fragment_figure_data(uri, alt=ann.get("alt") or ann.get("titre") or ident,
+                                   titre=ann.get("titre") or ident, source=str(source),
+                                   auteur=str(auteur), licence=str(licence), anomalies=anomalies)
+        fp = sortie / f"{ident}.fragment.html"
+        fp.write_text(frag, encoding="utf-8")
+        res.append({"id": ident, "fragment": str(fp), "mime": mime, "octets_binaires": nbytes, "licence": licence})
+    return res
+
+# Rév. prompt 9.11.2026 (§11 point 9, §24) : sous-titre gold standard / 1re intention + termes vagues
+RE_SOUS_TITRE_P9 = {
+    "gold_standard": re.compile(r"(?is)<(h4|h5|strong|em|summary|th)\b[^>]*>(?:(?!</\1>).)*?(gold[\s\u00a0-]*standard|examen\s+de\s+r[ée]f[ée]rence)"),
+    "premiere_intention": re.compile(r"(?is)<(h4|h5|strong|em|summary|th)\b[^>]*>(?:(?!</\1>).)*?(1\s*(?:<sup>\s*)?(?:re|ère|er)\b|premi[eè]re)(?:\s*</sup>)?[\s\u00a0]*intention"),
+}
+RE_TERMES_VAGUES = re.compile(r"(?i)\b(anomalies?|taches?|trucs?|machins?|quelque\s+chose|images?\s+(?:bizarres?|suspectes?|anormales?)|aspects?\s+anormal(?:e|aux|es)?|truc)\b")
+RE_TERMES_DEDIES = re.compile(r"(?i)(opacit|clart|bronchogramme|silhouette|épanchement|epanchement|hydro-?a[ée]rique|hypodens|hyperdens|isodens|prise\s+de\s+contraste|rehaussement|verre\s+dépoli|hypersignal|hyposignal|isosignal|échogène|echogene|cône\s+d.ombre|renforcement\s+postérieur|décalage|onde\s+q|trouble\s+ventilatoire|réversibilit|cytolyse|cholestase|émie|urie|hyperfix|hypofix|de\s+signal)")
+def controler_point9_contenu(seg9: str, E) -> dict:
+    """p9 : sous-titre gold standard et/ou 1re intention (critique si les deux manquent) ; termes vagues (avertissement)."""
+    st = {k: bool(r.search(seg9)) for k, r in RE_SOUS_TITRE_P9.items()}
+    if not any(st.values()):
+        E("semantique_detecte", "critique", "p9 : aucun sous-titre « gold standard » ni « 1re intention » (prompt rév. 9.11.2026 §11 point 9 : au minimum l'un des deux)")
+    # texte principal + listes sous images (figcaption) ; on retire seulement les mentions source/licence
+    s = re.sub(r"(?is)<p[^>]*class=[\"']mention[\"'][^>]*>.*?</p>", " ", seg9)
+    s = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<h[1-6].*?</h[1-6]>", " ", s)))
+    vagues = []
+    for m in RE_TERMES_VAGUES.finditer(s):
+        voisin = s[m.end(): m.end() + 60]
+        if m.group(1).lower().startswith("anomalie") and RE_TERMES_DEDIES.search(voisin): continue  # « anomalie de signal : hypersignal T2 » admis
+        vagues.append(norm(s[max(0, m.start() - 30): m.end() + 30]))
+    if vagues:
+        E("semantique_detecte", "avert", f"p9 : {len(vagues)} terme(s) vague(s) (heuristique ; employer le terme dédié de la modalité, prompt §24) ex. « {vagues[0][:80]} »")
+    return {"sous_titres": st, "termes_vagues": vagues[:20]}
+
+def controler_images_point9(seg9: str, E) -> dict:
+    """Contrôle « images point 9 » : data:URI, licence libre, source, liste numérotée ; absence = avertissement."""
+    info = {"nb_img": 0, "ok": 0}
+    imgs = list(re.finditer(r"(?is)<img\b([^>]*)>", seg9))
+    info["nb_img"] = len(imgs)
+    if not imgs:
+        E("semantique_detecte", "avert", "p9 examens complémentaires : aucune image (absence peut être justifiée si aucune figure libre fiable)")
+        return info
+    # découper le point en figures ou fenêtres autour de chaque img
+    for i, m in enumerate(imgs, 1):
+        attrs = m.group(1)
+        src_m = re.search(r"""src\s*=\s*["']([^"']+)["']""", attrs, re.I)
+        src = src_m.group(1) if src_m else ""
+        # contexte : figure englobante si possible, sinon voisinage
+        avant = seg9.rfind("<figure", 0, m.start())
+        apres_fig = seg9.find("</figure>", m.end())
+        if avant >= 0 and apres_fig > m.start():
+            ctx = seg9[avant:apres_fig + len("</figure>")]
+        else:
+            ctx = seg9[max(0, m.start() - 200): m.end() + 1200]
+        if not src:
+            E("securite", "critique", f"p9 image #{i} : attribut src absent")
+            continue
+        if re.match(r"(?i)https?://", src) or (not src.startswith("data:") and "://" in src):
+            E("securite", "critique", f"p9 image #{i} : src externe interdit (exiger data:URI embarquée)")
+            continue
+        if not src.startswith("data:"):
+            E("securite", "critique", f"p9 image #{i} : src non data: (fichier relatif/externe refusé pour autonomie du DX)")
+            continue
+        # légende / licence / source
+        if LICENCES_IMG_INTERDITES.search(ctx):
+            E("sources", "critique", f"p9 image #{i} : licence NC/ND ou non libre")
+            continue
+        if not LICENCES_IMG_OK.search(ctx):
+            E("sources", "critique", f"p9 image #{i} : licence absente ou non reconnue (exiger CC0 / CC BY / CC BY-SA / domaine public)")
+            continue
+        if not re.search(r"(?i)\b(source|wikimedia|commons|open-?i|europe\s*pmc|pmc|auteur)\b", ctx):
+            E("sources", "critique", f"p9 image #{i} : source/auteur absent de la légende")
+            continue
+        # liste numérotée juste après l'image (dans la figure / figcaption)
+        apres_img = ctx[ctx.find("<img"):] if "<img" in ctx else ctx[m.start() - (avant if avant >= 0 else 0):]
+        if not re.search(r"(?is)<img\b[^>]*>.*?<ol\b", apres_img):
+            E("semantique_detecte", "critique", f"p9 image #{i} : liste numérotée <ol> absente juste après l'image (anomalies / contours)")
+            continue
+        info["ok"] += 1
+    return info
 
 # ---------------------------------------------------------------- contrôles scriptables
 STOP_TERMES = set("""limite suite visite site vite ensuite petite conduite faite dite chose dose propose suppose repose impose expose
@@ -420,6 +579,12 @@ def controler(inst: Instance | None, f: Path, liens=False, francais=True) -> dic
     if re.search(r"(?i)<script\b", t): E("securite", "critique", "<script> présent (fichier sans JavaScript)")
     if re.search(r"(?i)<[a-z][^>]*\son[a-z]+\s*=", t): E("securite", "critique", "attribut on…= présent")
     if re.search(r"(?i)<(img|link|iframe)[^>]*(src|href)=[\"']https?://", t): E("securite", "critique", "ressource externe chargée (img/link/iframe)")
+    # images point 9 (examens complémentaires)
+    if 9 in seg:
+        R["info"]["images_p9"] = controler_images_point9(seg[9], E)
+        R["info"]["contenu_p9"] = controler_point9_contenu(seg[9], E)
+    else:
+        E("semantique_detecte", "avert", "p9 absent : contrôle images point 9 non applicable")
     # html-validate (syntaxe)
     hv = COEUR / "node" / "node_modules" / ".bin" / "html-validate"
     if hv.exists():
@@ -607,6 +772,18 @@ def main(argv=None):
     s.add_argument("--titre", required=True); s.add_argument("--lot-titre", default=""); s.add_argument("--sortie", required=True)
     s = sp.add_parser("controler", help="contrôles scriptables + rapport HTML coloré"); s.add_argument("fichier"); s.add_argument("--liens", action="store_true"); s.add_argument("--sans-francais", action="store_true")
     s = sp.add_parser("captures", help="4 captures × (mobile 390 px, desktop 1280 px)"); s.add_argument("fichier"); s.add_argument("--dx", type=int, default=0)
+    s = sp.add_parser("illustrer", help="délègue à coeur/illustration/illustrer.py (--chercher/--rendre) ; --data-uri → fragment HTML autonome ≤25 Ko")
+    s.add_argument("--chercher", nargs=2, metavar=("ENTREPOT", "REQUETE"), help="wikimedia|openi|pmc + requête")
+    s.add_argument("--rendre", nargs="+", metavar="ANNOTATION.json")
+    s.add_argument("-o", "--sortie", default=".")
+    s.add_argument("--page", default="")
+    s.add_argument("--rafraichir", action="store_true")
+    s.add_argument("--data-uri", action="store_true", help="après --rendre : WebP/JPEG data:URI ≤25 Ko + fragment <figure>")
+    s.add_argument("--image", default=None, help="image déjà rendue → fragment data:URI (sans appeler illustrer.py)")
+    s.add_argument("--titre", default=""); s.add_argument("--alt", default="")
+    s.add_argument("--source", default=""); s.add_argument("--auteur", default=""); s.add_argument("--licence", default="")
+    s.add_argument("--anomalies", default="", help="anomalies séparées par | (ordre = contours)")
+    s.add_argument("--fragment-sortie", default="", help="chemin du .fragment.html à écrire")
     sp.add_parser("init", help="prépare l'instance : index NEO local (orientation) + CP initial")
     sp.add_parser("sante", help="teste outils, CP, skills ; statut.json ; ALERTE.json si échec")
     sp.add_parser("cloud-etat", help="dernier run Actions de la branche (API publique)")
@@ -614,6 +791,31 @@ def main(argv=None):
     if a.cmd == "registre":
         reg = construire_registre(Path(a.md), Path(a.liens), Path(a.paramedical) if a.paramedical else None); ecrire_registre(reg, REGISTRE)
         print(json.dumps(reg["meta"], ensure_ascii=False, indent=1)); return 0
+    if a.cmd == "illustrer":
+        if a.image:
+            uri, mime, nbytes = image_vers_data_uri(Path(a.image))
+            anom = [x.strip() for x in a.anomalies.split("|") if x.strip()]
+            frag = fragment_figure_data(uri, alt=a.alt, titre=a.titre, source=a.source or "—",
+                                       auteur=a.auteur or "—", licence=a.licence or "—", anomalies=anom)
+            out = Path(a.fragment_sortie) if a.fragment_sortie else Path(a.sortie) / (Path(a.image).stem + ".fragment.html")
+            out.parent.mkdir(parents=True, exist_ok=True); out.write_text(frag, encoding="utf-8")
+            print(json.dumps({"fragment": str(out), "mime": mime, "octets_binaires": nbytes, "plafond": MAX_IMG_DATA_O}, ensure_ascii=False, indent=1))
+            return 0
+        if a.chercher:
+            ent, req = a.chercher
+            if ent not in ("wikimedia", "openi", "pmc"):
+                print("entrepôt : wikimedia, openi ou pmc", file=sys.stderr); return 2
+            argv_d = ["--chercher", ent, req] + (["--rafraichir"] if a.rafraichir else [])
+            return illustrer_deleguer(argv_d)
+        if a.rendre:
+            argv_d = ["--rendre", *a.rendre, "-o", a.sortie] + (["--page", a.page] if a.page else []) + (["--rafraichir"] if a.rafraichir else [])
+            rc = illustrer_deleguer(argv_d)
+            if rc: return rc
+            if a.data_uri:
+                infos = illustrer_apres_rendre([Path(x) for x in a.rendre], Path(a.sortie))
+                print(json.dumps({"data_uri": infos, "plafond": MAX_IMG_DATA_O}, ensure_ascii=False, indent=1))
+            return 0
+        ap.parse_args(["illustrer", "--help"]); return 2
     if not a.instance: ap.error("--instance ou HARNAIS_INSTANCE requis")
     inst = Instance(Path(a.instance)); P = lambda o: print(json.dumps(o, ensure_ascii=False, indent=1))
     if a.cmd == "collecter":

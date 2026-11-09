@@ -68,7 +68,7 @@ def dx1():
          T("Ce qui ne suffit pas, c'est un seul chiffre de dépistage, surtout près du seuil.", "ESCSINGLE"),
          T("La Société suisse parle d'un stade 3 au-delà de 180/110 mmHg, seuil qui déclenche la recherche d'une urgence.", "SSHT2"),
          T("Environ 15 % des personnes divergent entre domicile et ambulatoire, et la moitié de ces écarts dépasse 5 mmHg.", "ESC15")],
-        [h4("9.a Référence"),
+        [h4("9.a Gold standard"),
          T("Les extraits ne nomment pas un étalon or en ces termes, mais ils préfèrent la confirmation hors cabinet.", "ESCCONF"),
          T("L'enregistrement ambulatoire identifie les phénotypes que le cabinet mélange.", "ESC15", w=("ambulatoire", "ESC15")),
          h4("9.b Première intention"),

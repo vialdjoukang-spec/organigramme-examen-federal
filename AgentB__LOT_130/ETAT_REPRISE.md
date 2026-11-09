@@ -1,3 +1,16 @@
+# ETAT_REPRISE — LOT_130 — point 9, rév. 9.11.2026
+
+Branche `agentB/lot-130`. Aucune pull request.
+
+## Point 9 (rév. 9.11.2026)
+
+- Sous-titre `9.a Gold standard` et `9.b Première intention` dans chaque monographie.
+- Biologie : tableau Cas → Interprétation → Hypothèse (normal, positif, limite, discordant). Unités seulement si l'extrait les donne (mmHg, mmol/L). Aucun seuil inventé.
+- Aucune image embarquée : aucune figure libre fiable pour le gold standard ou la première intention. Phrase explicite (Wikimedia Commons, Open-i, bibliothèque ouverte européenne, neuf novembre deux mille vingt-six). Pas de schéma généré.
+- Point 11 : source suisse citée, sinon marque `exception-non-suisse`.
+- Îlots `section.ilot` avec id `dxN-iK`. Harnais : 10 DX conformes, 0 critique. Avertissements : absence d'image (justifiée) ; « induite » (faux positif du suffixe) ; spaCy « sans verbe ».
+- Phase A : le contrôleur cherche des ids `dx1-p*` parce que le nom de fichier n'est pas `Phase_B_V0_DX.n`. Les ids réels sont `ssp-p1`…`p14`.
+
 # ETAT_REPRISE — LOT_130 — pause du 9 novembre 2026
 
 Branche `agentB/lot-130`. Aucune pull request. Reprise seulement sur ordre explicite.

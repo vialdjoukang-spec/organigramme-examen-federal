@@ -59,7 +59,7 @@ def spec():
          T("L'urgence exige l'atteinte d'organe en plus du chiffre.", "ESCURG"),
          T("Le choc septique exige l'infection et l'hypoperfusion, dont le lactate élevé fait partie.", "SSCLAC"),
          T("Ce qui ne suffit jamais, c'est un chiffre isolé de dépistage.", "ESCSINGLE")],
-        [h4("9.a Référence"),
+        [h4("9.a Gold standard"),
          T("La confirmation hors cabinet est préférée pour l'hypertension, sans que le mot étalon n'y soit écrit.", "ESCCONF"),
          h4("9.b Première intention"),
          T("Créatinine, débit de filtration et rapport albuminurie ouvrent le bilan de toute hypertension.", "ESCLAB"),

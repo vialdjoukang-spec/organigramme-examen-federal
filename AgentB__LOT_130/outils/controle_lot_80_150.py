@@ -89,11 +89,13 @@ def analyse_fichier(p: Path) -> dict:
         par_classe = any(re.search(rf"class\s*=\s*[\"'][^\"']*\b{re.escape(c)}\b", avant) for c in classes_defil)
         if not (inline or par_classe):
             crit.append("tableau non enveloppé (ni style overflow-x:auto, ni classe CSS interne équivalente)"); break
-    longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 3000]
+    longues = [i + 1 for i, l in enumerate(t.splitlines()) if len(l) > 3000 and "data:image/" not in l]
     if longues:
         crit.append(f"{len(longues)} ligne(s) > 3 000 caractères (ex. l.{longues[0]})")
-    if re.search(r"<script[\s>]|<img[\s>]|<link[^>]+stylesheet", t, re.I):
-        crit.append("script, image ou feuille de style externe présent")
+    if re.search(r"<script[\s>]|<link[^>]+stylesheet", t, re.I):
+        crit.append("script ou feuille de style externe présent")
+    if re.search(r"<img[^>]+src=[\"'](?!data:image/(?:webp|jpeg);base64,)[^\"']+", t, re.I):
+        crit.append("image externe ou format non autonome")
     if re.search(r"<[a-z][^>]*\son[a-z]+\s*=", t, re.I):
         crit.append("attribut d'événement on…= présent (JavaScript interdit)")
     # Grandes fenêtres sans JavaScript (Prompt V0 §14.2) : chaque popovertarget vise un id porteur de popover.
@@ -225,6 +227,7 @@ def extraire(p: Path, points: list[int], brut_html: bool) -> str:
 
 
 def manifeste(d: Path) -> Path:
+    d = d.resolve()
     items = [{"fichier": p.name, "octets": p.stat().st_size, "sha256": sha(p.read_bytes())}
              for p in sorted(d.glob("*.html"))]
     out = d / "MANIFESTE.json"
