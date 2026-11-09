@@ -3,3 +3,5 @@ DX.2 rédigé après lecture HUG 2021, MonAM ESS 2022, AIPS Campral 09/2023, Nal
 L'information professionnelle prescripteur de Seresta n'a pas été ouverte en entier : le protocole de sevrage reste attribué aux HUG.
 
 DX.4, DX.6, DX.8 et DX.10 ajoutés. Phrases uniques ≥ 95 % dans chaque fichier. Deux phrases cliniques reprises entre fichiers ont été reformulées.
+
+Fenêtres ajoutées le 9 novembre 2026 au soir : une par terme, sous le plafond de 150 Ko.
