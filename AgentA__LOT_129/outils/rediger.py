@@ -91,7 +91,9 @@ def alcool():
          "<p>La stratégie retient qu'au moins un patient de premier recours sur quatre a une consommation problématique. Elle ne publie pas, dans le PDF lu, une incidence annuelle genevoise séparée de cette proportion.</p>",
          ""),
         ("Physiopathologie",
-         "<p>Quand l'alcool manque, apparaissent agitation, anxiété, insomnie, tremblement, sueurs, tachycardie et hypertension, puis parfois fièvre, délire et convulsions. Cette séquence dure de 3 à 10 jours. Le texte HUG la qualifie d'urgence médicale, et il dit qu'elle peut tuer.</p>",
+         "<p>Quand l'alcool manque, apparaissent agitation, anxiété, insomnie, tremblement, sueurs, tachycardie et hypertension, puis parfois fièvre, délire et convulsions. Cette séquence dure de 3 à 10 jours. Le texte HUG la qualifie d'urgence médicale, et il dit qu'elle peut tuer.</p>"
+         "<p>La veisalgie, ou « gueule de bois », n'est pas ce sevrage. Elle associe nausées, céphalées et vertiges. Le texte incrimine la perte urinaire d'eau et de sels, et l'acétaldéhyde issu du métabolisme. On réhydrate (eau minérale, jus, bouillon), on traite le symptôme avec prudence : le paracétamol pèse sur le foie, l'aspirine sur l'estomac. On évite un nouveau verre, la chaleur forte, l'effort intense et les repas gras.</p>"
+         "<p>Deux types de dépendance sont rappelés d'après Jellinek : le type continu, qui boit pour éviter le manque, et le type intermittent, la dipsomanie ou binge. Les conséquences somatiques se cherchent chez les deux.</p>",
          ""),
         ("Étiologie et facteurs de risque",
          "<p>Sont écrits : histoire familiale de dépendance ou de cancer, autres substances, difficultés psychosociales, métiers de la restauration. Ce ne sont pas des destins. Ils changent la vigilance, pas le respect du récit.</p>",
@@ -114,34 +116,45 @@ def alcool():
          ""),
         ("Examens complémentaires",
          "<p><em>9.a Gold standard.</em> En premier recours, l'outil de référence lu est l'AUDIT, pas une alcoolémie ni un bilan hépatique.</p>"
-         "<p><em>9.b 1re intention.</em> Question ouverte, puis ACME, puis AUDIT dès qu'ACME s'allume. Le laboratoire ne vient pas avant.</p>"
+         "<p><em>9.b 1re intention.</em> Question ouverte, puis ACME, puis AUDIT dès qu'ACME s'allume. La biologie ne pose jamais le diagnostic seule. Elle est décrite dans " + btn(d + "-w9", "GGT, CDT, VGM") + ".</p>"
          '<div class="tw"><table><thead><tr><th>Cas</th><th>AUDIT</th><th>Lecture</th><th>Hypothèse</th></tr></thead><tbody>'
          "<tr><td>normal</td><td>moins de 7</td><td>faible risque</td><td>renforcer la modération</td></tr>"
          "<tr><td>positif</td><td>plus de 7 (femme) ou plus de 8 (homme)</td><td>excès</td><td>réduction</td></tr>"
          "<tr><td>limite</td><td>un seul item ACME</td><td>spécificité 52 pour cent</td><td>faire l'AUDIT</td></tr>"
          "<tr><td>discordant</td><td>score rassurant mais sueurs et tremblement</td><td>le sevrage clinique prime</td><td>soin du manque</td></tr>"
          "</tbody></table></div>",
-         ""),
+         fen(d + "-w9", "Biologie de l'excès chronique", [
+             "La GGT a une sensibilité et une spécificité d'environ 60 pour cent. Elle monte dès 60 à 70 g d'alcool par jour pendant au moins quinze jours, et elle diminue de moitié tous les dix jours. Elle gagne en performance si on la couple à la CDT.",
+             "La CDT augmente dès environ 50 g par jour et se normalise avec l'abstinence. Sensibilité citée d'environ 80 pour cent chez l'homme et 60 pour cent chez la femme, spécificité d'environ 90 pour cent. Faux positifs : hépatopathie, grossesse, insuffisance rénale. Faux négatifs : variante génétique de la transferrine.",
+             "Le VGM a une sensibilité de 25 pour cent et une spécificité de 90 pour cent s'il n'y a pas de carence vitaminique. Il ne monte pas lors d'une alcoolisation aiguë. Il faut en général plus de 100 g par jour pendant trois mois, et le retour à la normale prend plusieurs mois.",
+             "L'éthanol urinaire est seulement qualitatif et reste positif environ 24 heures. Une alcoolémie ou un éthylotest, en cas de déni, se font après explication : le but est le dialogue, pas le piège. Source [S1].",
+         ])),
         ("Arbre décisionnel",
          "<p>Pas de consommation : on la renforce et on parle des autres risques cardiovasculaires. Excès : réduction, par exemple un programme du type Mes choix Alcool, cité par les HUG. Dépendance : l'abstinence est l'objectif préféré ; la consommation contrôlée reste un cadre si l'abstinence ne tient pas.</p>",
          ""),
         ("Prise en charge",
          "<p>Ambulatoire, on revoit la personne tous les deux ou trois jours. Vitamine B1 : 300 mg par jour pendant trois semaines. Oxazépam : 60 à 200 mg par jour en quatre à six prises, baisse d'environ 20 pour cent par jour, ou mieux selon le CIWA. Le choix du lieu est dans " + btn(d + "-w11", "contre-indications") + ".</p>"
-         "<p>Ensuite, acamprosate : deux comprimés de 300 mg, deux fois par jour sous 60 kg et trois fois par jour au-dessus, pour trois à douze mois. Naltrexone : un demi à un comprimé de 50 mg une fois par jour pendant six mois.</p>"
-         '<div class="urgence"><strong>Urgence — conduite chronologique.</strong> Sueurs, tremblement, tachycardie : c\'est le sevrage, pas une grippe. Contre-indication absolue ou convulsion : hôpital. Sinon thiamine et oxazépam, revue rapide.</div>',
+         "<p>Ensuite, acamprosate : deux comprimés de 300 mg, deux fois par jour sous 60 kg et trois fois par jour au-dessus, pour trois à douze mois. C'est un agoniste GABA et un antagoniste du glutamate, utile seulement si la personne est abstinente. Effets digestifs possibles. Pas de contre-indication hors allergie, selon le texte.</p>"
+         "<p>Naltrexone : un demi à un comprimé de 50 mg une fois par jour pendant six mois. Antagoniste opioïde, elle diminue l'appétence et le plaisir subjectif. Elle sert à l'abstinence ou au contrôle. Elle est interdite avec des opioïdes, contre-indiquée si cirrhose Child B ou C, et la personne doit porter une carte en cas d'accident.</p>"
+         "<p>En deuxième ligne, le nalméfène est décrit comme proche de la naltrexone, possiblement mieux toléré et plus cher, sans posologie détaillée dans le passage lu. Le disulfirame : un comprimé de 400 mg une fois par jour pendant trois jours, puis un demi-comprimé par jour ou un comprimé trois fois par semaine. Il bloque l'aldéhyde déshydrogénase. L'alcool pris avec lui donne malaise, nausées, hypotension. On le réserve à la demande ou en dernier recours. Il est contre-indiqué si hépatite biologique ou si une hypotension serait dangereuse. Transaminases avant, chaque semaine au début, puis chaque mois.</p>"
+         "<p>En troisième ligne, le baclofène, agoniste GABA-B, est cité hors indication jusqu'à la dose ambulatoire reconnue par Swissmedic de 80 mg par jour. Départ : 5 mg trois fois par jour, même palier tous les trois jours. Vertiges et somnolence. Seulement après échec des lignes précédentes. Le texte rappelle une autorisation temporaire française de 2014, qui n'est pas une autorisation suisse.</p>"
+         "<p>Le mode d'emploi CIWA joint à la stratégie commence par un éthylotest. Au-dessus de 2,5 pour mille, pas d'oxazépam : on refait le test une heure plus tard jusqu'à passer sous ce seuil. Score inférieur à 8 : à boire et surveillance toutes les six heures pendant les 36 premières heures. Score d'au moins 8 : un comprimé de 15 mg, nouveau score à 30 minutes, et on répète tant que le score reste à 8 ou plus. Score d'au moins 15 : deux comprimés de 15 mg d'emblée. Quand le score redescend sous 8, contrôle à six heures puis un comprimé toutes les six heures. On ajoute un point si le pouls dépasse 90 ou si la systolique dépasse 150 mmHg. L'hydratation et le confort diminuent le besoin d'oxazépam.</p>"
+         "<p>Plus de la moitié des personnes alcoolo-dépendantes ont, selon le texte, une comorbidité psychiatrique (dépression, anxiété, personnalité, trouble de l'attention). On n'étiquette ce trouble qu'après au moins un mois d'abstinence, parce que l'alcool est fortement anxiogène et dépressogène. Un psychiatre peut suivre en parallèle.</p>"
+         "<p>À Genève, la stratégie indique des groupes : les lundis 17 h 30 à 18 h 30, rue Goetz-Monin, téléphone 022 372 95 13 ; le maintien d'abstinence le jeudi midi à l'unité des dépendances, 75 boulevard de la Cluse, 022 372 95 37 ; le CAAP, 70c rue Grand-Pré, 022 372 57 50 ; les Alcooliques anonymes au 0848 848 846 ; la Croix-Bleue genevoise au 022 320 41 00 ; Mes Choix Alcool, six étapes vers une consommation contrôlée, via le SMPR au même 022 372 95 37.</p>"
+         '<div class="urgence"><strong>Urgence — conduite chronologique.</strong> Lorsque des sueurs, un tremblement et une tachycardie apparaissent après une baisse de l\'alcool, il s\'agit du sevrage et non d\'une grippe, c\'est pourquoi on ne renvoie pas la personne chez elle avec un simple conseil. S\'il existe une contre-indication absolue, ou si une convulsion survient, on hospitalise. Dans le cas contraire, on commence la thiamine et l\'oxazépam, puis on revoit dans les deux ou trois jours.</div>',
          fen(d + "-w11", "Ne pas sevrer en ville si", [
-             "Absolu : comorbidité somatique ou psychique importante, convulsion ou delirium tremens déjà vécus, prise importante de benzodiazépines.",
-             "Relatif : échec ambulatoire, souhait de la personne, alliance fragile, isolement, entourage épuisé.",
-             "Piège. Appliquer la baisse de 20 pour cent alors que le CIWA remonte. Source [S1].",
+             "Le sevrage en ville est absolument contre-indiqué lorsqu'une comorbidité somatique ou psychique est importante, ou lorsqu'une convulsion ou un delirium tremens a déjà eu lieu, ou encore lorsque les benzodiazépines sont prises de façon importante, car le manque peut alors dépasser ce qu'un suivi espacé peut rattraper.",
+             "En revanche, l'échec d'une tentative ambulatoire, le souhait de la personne, une alliance fragile, l'isolement ou un entourage épuisé sont des contre-indications relatives : on peut donc encore discuter le lieu, mais on ne décide pas seul contre ces signes.",
+             "C'est pourquoi on ne baisse pas l'oxazépam de 20 pour cent par jour si le CIWA remonte, car le score dit alors que le manque n'est pas couvert. Source [S1].",
          ])),
         ("Prévention",
-         "<p>Interroger chaque patient, pas une sous-population déjà étiquetée. L'empathie et un objectif tenable précèdent le discours d'abstinence.</p>",
+         "<p>On interroge chaque patient, et non une sous-population déjà étiquetée, car la stratégie estime qu'au moins un consultant sur quatre boit de façon problématique. Ainsi l'empathie et un objectif tenable précèdent le discours d'abstinence, sinon la personne se ferme avant d'avoir entendu le conseil.</p>",
          ""),
         ("Points clés",
-         "<p>Un quart des consultants, au moins, boit de façon problématique. Dix grammes par verre. AUDIT : 7, 8 et 13. Sevrage : 3 à 10 jours, possiblement mortel. Thiamine 300 mg par jour. Oxazépam 60 à 200 mg par jour guidé par le CIWA.</p>",
+         "<p>Au moins un quart des consultants de premier recours boit de façon problématique, et c'est pourquoi le sujet se pose à tout le monde. Un verre standard vaut 10 g, donc les plafonds se comptent en verres et non en « verres de table ». L'AUDIT sépare le faible risque, sous 7 points, de l'excès, au-dessus de 7 chez la femme ou de 8 chez l'homme, et de la dépendance, au-dessus de 13. Le sevrage dure de 3 à 10 jours et peut tuer, c'est pourquoi la thiamine à 300 mg par jour et l'oxazépam entre 60 et 200 mg par jour, guidé par le CIWA, ne se remplacent pas par un conseil d'attendre.</p>",
          ""),
         ("Pièges",
-         "<p>Croire le nombre de verres avoué. Sevrer en ville après un delirium. Promettre l'acamprosate sans avoir choisi entre abstinence et contrôle.</p>",
+         "<p>Le premier piège est de croire le nombre de verres avoué, car le déni le rabote. Le deuxième est de sevrer en ville après un delirium tremens, or cette antériorité est une contre-indication absolue. Le troisième est de promettre l'acamprosate sans avoir choisi entre abstinence et contrôle, car cette molécule n'est utile, selon le texte, que si la personne est abstinente.</p>",
          ""),
     ]
 
@@ -161,12 +174,16 @@ def tabac():
          "<p>Génétique, trauma, entourage. Le tabac est relié par le texte à 85-90 pour cent des BPCO, à un risque de dégénérescence maculaire multiplié par quatre, et à des plaies qui ne ferment pas.</p>",
          ""),
         ("Anamnèse",
-         "<p>Forme exacte : cigarette, cigare, pipe, snus, prisé, vapoteuse. Début, quantité, arrêts, envie. Le Fagerström, six questions sur 10, est ouvert dans " + btn(d + "-w5", "Fagerström") + ".</p>",
+         "<p>Forme exacte : cigarette, cigare, pipe, snus, prisé, vapoteuse, y compris chez les jeunes la chicha et les puffs. Début, quantité, paquets-années, arrêts, envie. L'intervention brève en six A est dans " + btn(d + "-w5b", "six A") + ". Le Fagerström, six questions sur 10, est ouvert dans " + btn(d + "-w5", "Fagerström") + ".</p>",
          fen(d + "-w5", "Fagerström 0 à 10", [
-             "0 à 2 : pas de dépendance nicotinique. 3 à 4 : faible. 5 à 6 : modérée. 7 à 10 : forte.",
-             "Première cigarette dans les cinq minutes : 3 points. Trente et une cigarettes ou plus : 3 points aussi.",
-             "Le score sert encore au remboursement du bupropion et de la varénicline, tout en cédant le pas clinique à la Cigarette Dependence Scale.",
-             "Piège. Oublier le snus parce que la question ne disait que « fumer ». Source [S2].",
+             "Un total de 0 à 2 signifie qu'il n'y a pas de dépendance nicotinique, tandis que 3 à 4 décrivent une dépendance faible, 5 à 6 une dépendance modérée, et 7 à 10 une dépendance forte.",
+             "La première cigarette dans les cinq minutes vaut 3 points, et trente et une cigarettes ou plus par jour valent aussi 3 points, donc ces deux réponses pèsent autant que plusieurs items réunis.",
+             "Le score sert encore au remboursement du bupropion et de la varénicline, mais il cède le pas clinique à la Cigarette Dependence Scale, car celle-ci est mieux validée selon le texte.",
+             "Le piège est d'oublier le snus parce que la question ne disait que « fumer », or les jeunes consomment aussi la chicha, la vapoteuse et les puffs. Source [S2].",
+         ]) + fen(d + "-w5b", "Intervention brève en six A", [
+             "Ask : demander la permission de parler du tabac. Assess : dépendance et envie d'arrêter ou de réduire. Advise : conseiller l'arrêt ou la réduction. Agree : un objectif tenable. Assist : proposer un traitement. Arrange : fixer le suivi ou adresser.",
+             "L'échelle Q-MAT peut coter la motivation. Les stades de Prochaska et DiClemente sont renvoyés par le texte tabac vers la stratégie alcool, sans être redéveloppés dans le PDF tabac.",
+             "La Cigarette Dependence Scale, 12 questions alignées sur le DSM-5, est préférée au Fagerström pour le suivi du sevrage. La HONC vise les adolescents. Source [S2].",
          ])),
         ("Examen physique",
          "<p>Toux, souffle, pouls, tension, claudication, plaie traînante. L'examen documente le dommage. Il ne sert pas à faire honte.</p>",
@@ -179,14 +196,19 @@ def tabac():
          ""),
         ("Examens complémentaires",
          "<p><em>9.a Gold standard.</em> L'entretien, proposé à chaque patient après son accord. Le Fagerström grade la nicotine. Aucun seuil de CO expiré n'est donné comme référence dans les pages lues.</p>"
-         "<p><em>9.b 1re intention.</em> Demander s'il y a une consommation et sous quelle forme. Le score vient pour choisir l'intensité du patch, pas pour autoriser la question.</p>"
+         "<p><em>9.b 1re intention.</em> Demander s'il y a une consommation et sous quelle forme. Le score vient pour choisir l'intensité du patch, pas pour autoriser la question. Le CO expiré, la spirométrie et le scanner basse dose sont des examens de conséquence, décrits dans " + btn(d + "-w9", "CO et dépistages") + ", pas le gold standard du diagnostic de dépendance.</p>"
          '<div class="tw"><table><thead><tr><th>Cas</th><th>Score</th><th>Lecture 2024</th><th>Suite si arrêt choisi</th></tr></thead><tbody>'
          "<tr><td>normal</td><td>0 à 2</td><td>pas de dépendance</td><td>conseil quand même</td></tr>"
          "<tr><td>positif</td><td>7 à 10</td><td>dépendance forte</td><td>patch à 21 mg</td></tr>"
          "<tr><td>limite</td><td>3 à 6</td><td>faible ou modérée</td><td>dose moyenne ou faible</td></tr>"
          "<tr><td>discordant</td><td>total bas mais cigarette au lit</td><td>un item peut porter seul</td><td>croire le craving</td></tr>"
          "</tbody></table></div>",
-         ""),
+         fen(d + "-w9", "CO, souffle, scanner, aorte", [
+             "Le CO expiré estime l'intoxication à ce gaz. Il n'a pas de conséquence clinique hors intoxication aiguë, mais il motive et il suit. Il est en général supérieur à 10 ppm chez un fumeur, sauf abstinence de 4 à 6 heures.",
+             "Spirométrie recommandée par le texte chez tout fumeur ou ex-fumeur dès 20 paquets-années, surtout s'il y a toux, expectoration, sibilants ou dyspnée, même si la preuve chez l'asymptomatique est faible.",
+             "Scanner thoracique basse dose environ une fois par an : fumeurs d'au moins 20 paquets-années et ex-fumeurs arrêtés depuis moins de 10 ans, entre 50 et 80 ans. Le texte dit que le remboursement, les faux positifs et le surdiagnostic font discuter une décision partagée.",
+             "Échographie de l'aorte une fois chez l'homme qui a fumé au moins 100 cigarettes dans les 15 dernières années, entre 65 et 75 ans. Examen ORL chez tout fumeur, et avis spécialisé si ganglion, lésion buccale ou dysphonie. Source [S2].",
+         ])),
         ("Arbre décisionnel",
          "<p>Volonté d'arrêt : date et traitement. Volonté de continuer : proposer le non-combustible et revoir. Échec : nouvelle tentative, pas une sentence d'incapacité.</p>",
          ""),
@@ -196,13 +218,15 @@ def tabac():
          '<div class="urgence"><strong>Urgence — conduite chronologique.</strong> Douleur thoracique ou détresse respiratoire : ce n\'est pas un craving. Orientation vers les urgences. Le craving lui-même se couvre avec le substitut, pas avec l\'ordre de « tenir » sans rien.</div>',
          ""),
         ("Prévention",
-         "<p>Tous les services, après accord. Y compris en psychiatrie : le texte refuse l'idée que ces personnes ne voudraient pas ou ne pourraient pas arrêter.</p>",
+         "<p>Tous les services, après accord. Deux fumeurs adultes sur trois ont commencé avant 20 ans : les moins de 25 ans sont prioritaires, y compris pour la chicha, le snus, la vapoteuse et le cannabidiol. En psychiatrie la prévalence citée va de 30 à 50 pour cent. Deux tiers de ces fumeurs voudraient arrêter. Le soulagement ressenti est surtout celui du manque, et la combustion aggrave les symptômes à long terme. La peur de déclencher une dépression ne doit pas bloquer le projet d'arrêt.</p>"
+         "<p>Au premier trimestre, le texte dit que le tabac triple le risque de fausse couche et double celui de grossesse extra-utérine. Ensuite : retard de croissance, petit poids, décollement ou malposition du placenta, rupture des membranes, prématurité. Chez l'enfant : fente palatine, malformations crâniennes, asthme, infections, et mort subite du nourrisson trois fois plus fréquente. La plupart des fumeuses réduisent ou arrêtent pendant la grossesse : c'est le moment d'aider, pas de sermonner.</p>"
+         "<p>Le coût du tabac aggrave la pauvreté. Les personnes déjà malades (BPCO, risque cardiovasculaire ou oncologique) restent candidates à l'arrêt pour freiner l'évolution. L'arrêt fait prendre du poids : les fumeurs pèsent en moyenne 4 à 5 kg de moins que leur poids hors nicotine, à cause du métabolisme et de l'effet coupe-faim. Ceux qui dépassent 25 cigarettes par jour pèsent pourtant davantage, par les comportements associés.</p>",
          ""),
         ("Points clés",
-         "<p>Maladie, pas vice. Dix ans perdus en moyenne selon le chiffre OFSP cité. Fagerström sur 10. Patch fort à 21 mg. Bupropion 150 mg puis deux fois 150 mg. Varénicline indisponible depuis le retrait de 2022.</p>",
+         "<p>La consommation quotidienne est une maladie, et non un vice, c'est pourquoi on la dépiste chez chaque patient après son accord. Environ dix ans d'espérance de vie se perdent en moyenne, selon le chiffre de l'OFSP repris par les HUG, donc même une petite consommation mérite le conseil. Le Fagerström va de 0 à 10. Le patch fort commence à 21 mg, puis descend à 14 mg et à 7 mg. Le bupropion passe de 150 mg une fois par jour à 150 mg deux fois par jour après une semaine. La varénicline, en revanche, n'est plus disponible depuis le retrait de 2022.</p>",
          ""),
         ("Pièges",
-         "<p>Attendre que le fumeur supplie. Attribuer le cancer à la nicotine seule. Prescrire encore la varénicline comme disponible.</p>",
+         "<p>Le premier piège est d'attendre que le fumeur supplie, car une majorité voudrait une aide que peu reçoivent. Le deuxième est d'attribuer le cancer à la nicotine seule, or ce sont les produits de combustion que le texte incrimine. Le troisième est de prescrire encore la varénicline comme si elle était au catalogue, alors que la stratégie de 2024 la décrit comme retirée.</p>",
          ""),
     ]
 
