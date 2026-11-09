@@ -15,10 +15,11 @@ Branche `agentB/lot-130`. Aucune pull request. Reprise seulement sur ordre expli
 - Dernier assemblage : chiffres hors extrait = 0 ; `controle_lot_80_150.py` = CONFORME, 0 critique ; `controle_fenetres.py` = OK (381 fenêtres dans les îlots). Tailles entre 112 557 et 118 754 octets. SHA-256 dans `MANIFESTE.json`.
 - Répétitions : les phrases qui répètent un 4-gramme déjà vu sont déplacées dans une fenêtre, pas supprimées.
 
-## Reste
+## Clos à la reprise du 9 novembre 2026
 
-- Métriques de français **de ce dernier assemblage** : mesure interrompue par la pause. Ne pas les inventer.
-- Mesure précédente (déduplication un peu moins stricte, mêmes textes de fond) : connecteurs dans la bande 1,5–4 pour les 10 DX, débuts identiques consécutifs à 0, 4-grammes encore au-dessus de 10/1000 pour plusieurs DX (notamment 2, 5, 6, 9 et 10), mots par phrase sous 14, détecteur de verbes spaCy `sm` encore bruité.
-- Rapport final demandé (fenêtres par rubrique, avant/après, défauts) non clos.
-- `audits/*.html` décrivent l’audit médical d’avant cette passe de forme. Ils n’ont pas été régénérés.
-- Pas de pull request. Pas de fusion. Pas d’écriture dans `harnais/` ni `LOT_Claude_Finaux/`.
+- Métriques du dernier assemblage mesurées avec `Leona__Harnais_Agents/coeur/metriques_francais.py`.
+- Seuls DX.6 (10,2) et DX.10 (11,1) dépassaient 10 répétitions de 4-grammes pour 1000 mots. Phrases reformulées, faits conservés. Après correction : les 11 fichiers sont dans la bande (répétitions ≤ 10, connecteurs entre 1,5 et 4).
+- Les îlots sont des `<section class="ilot">`. Les citations portent aussi `[Sn]`.
+- `audits/*.html` restent l’audit médical d’avant la passe de forme.
+- Défauts encore ouverts : le contrôleur du harnais signale, au point 11, des blocs dont la seule source citée n’est pas de rang suisse 1 à 5 (ESC ou campagne sepsis) ; l’heuristique des termes sans fenêtre (par exemple endoscopie, nycturie) ; le détecteur spaCy `sm` et la longueur moyenne des phrases, hors cible de cette reprise.
+- Pas de pull request.

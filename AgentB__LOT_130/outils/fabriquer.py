@@ -68,7 +68,10 @@ SN = {pid: i for i, pid in enumerate(PREUVES, start=1)}
 def cite(ids: list[str]) -> str:
     if not ids:
         return ""
-    liens = ",".join(f'<a href="#sb-{i}">{html.escape(i)}</a>' for i in ids)
+    liens = ",".join(
+        f'<a href="#sb-{i}">{html.escape(i)}</a>' + (f"[S{SN[i]}]" if i in SN else "")
+        for i in ids
+    )
     return f'<sup class="r">{liens}</sup>'
 
 def p(texte: str, ids: list[str] | None = None) -> str:
@@ -141,9 +144,10 @@ def sources_html() -> str:
             f'Consulté le {html.escape(r["consultation"])}. {html.escape(r["url"])}</li>'
         )
     return (
-        '<h2 id="refs">Sources</h2>\n<details class="refs"><summary>Sources consultées</summary><ol>\n'
+        '<section id="sources">\n<h2 id="refs">Sources</h2>\n<details class="refs"><summary>Sources consultées</summary><ol>\n'
         + "\n".join(items) + "\n</ol></details>\n"
         '<p class="ment">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>\n'
+        '</section>\n'
     )
 
 def barre(prefixe: str) -> str:
@@ -217,9 +221,9 @@ def h3(prefixe: str, n: int, inner: str) -> str:
     if not isinstance(inner, str):
         raise TypeError(f"{prefixe}-p{n} n'est pas du HTML ({type(inner).__name__})")
     return (
-        f'<article class="ilot">\n'
+        f'<section class="ilot">\n'
         f'<h3 id="{prefixe}-p{n}"><strong>{html.escape(TITRES[n-1])}</strong></h3>\n'
-        f'{inner}\n</article>\n'
+        f'{inner}\n</section>\n'
     )
 
 # --- contrôles internes ---
