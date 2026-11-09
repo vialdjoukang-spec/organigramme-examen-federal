@@ -1,7 +1,5 @@
 # Liste canonique LOT 129
 
-Ordre d'enseignement. Aucune prévalence suisse n'a été lue : pas de rang chiffré.
-
 DX.1 — Tabagisme
 DX.2 — Trouble de l'usage d'alcool
 DX.3 — Trouble de l'usage d'opioïdes
