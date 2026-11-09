@@ -4,3 +4,4 @@
 2026-11-09 : corpus AIPS local absent ; aucune dose affirmée.
 2026-11-09 : la fiche PEPra française imprime les mêmes indicateurs pour « élevé » et « extrêmement élevé » ; seule la colonne d'action ajoute « action immédiate requise ». Aucun critère distinct n'est inventé.
 2026-11-09 : bracelet Graphiti/Mem0/Chonkie non installés ; faits gardés dans evidence/ et lectures par extraits.
+2026-11-09 : controle_lot.py sur les cinq HTML pairs : aucune critique de fichier. Les critiques de lot (Phase A absente, DX impairs absents) sont attendues. Phrases uniques intra-fichier ≥ 99 %. Aucune phrase clinique reprise d’un DX à l’autre ; seule la formule imposée « non validé cliniquement » est commune à DX.6 et DX.10.
