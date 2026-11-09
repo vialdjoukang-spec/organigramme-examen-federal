@@ -6,4 +6,4 @@ Correction de dose avant le premier HTML : une lecture ODDB laissait entendre qu
 
 Floxyfral, notice 44603, ne se mélange pas avec cette règle : intervalle de 2 semaines pour un IMAO irréversible, d'un jour pour un IMAO réversible, d'une semaine quand on passe de Floxyfral vers un IMAO, et pas d'association, y compris le linézolide.
 
-Gutron (midodrine, 44976) : absent du corpus AIPS local du 8.10.2026. Aucune dose.
+Correction du 9 novembre 2026, 18:04 : Gutron n'est pas absent. Le fichier lu est fi_fr/44977.txt.gz, n° Swissmedic 44977. La rubrique Posologie/Mode d'emploi est recopiée dans la Phase A, point 11, pour l'hypotension orthostatique après antidépresseurs. MIDODRIN SUBSTIPHARM est le n° 69384 et n'est pas la notice collée. Aucune mention « absent » ne reste pour la midodrine.
