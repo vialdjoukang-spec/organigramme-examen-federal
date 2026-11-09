@@ -153,6 +153,8 @@ Si la personne refuse l'hôpital alors que la température est haute, que la poi
 
 On note aussi l'heure de l'appel au 144 ou au 145, pas seulement le fait d'avoir appelé, parce qu'une relève qui arrive vingt minutes plus tard doit savoir si les secours sont déjà en route ou encore à joindre. Cette heure évite un double appel inutile ou, pire, un trou où chacun croit que l'autre a composé.
 
+On relit cette heure à voix haute au moment de la transmission, pour qu'elle ne reste pas enfouie dans un champ du dossier que personne n'ouvre.
+
 ## Points clés
 On retient qu'aucun médicament n'est établi pour la dépendance à la cocaïne, papier SSAM du 20 janvier 2024. On retient qu'un agoniste opioïde déjà en cours se continue. On retient le cocaéthylène, les pupilles larges, et 41 degrés comme repère de surdosage d'amphétamine. On retient les durées : amphétamine trois à six heures ou quatre à douze, restes jusqu'à vingt-quatre heures ; méthamphétamine six à trente heures et suites jusqu'à soixante-dix ; MDMA dès trente minutes, parfois quatre-vingt-dix, sérotonine jusqu'à une semaine. On retient le sevrage d'amphétamine sur une à deux semaines, avec risque suicidaire, et le psychisme de la méthamphétamine sur des mois. On retient le méthylphénidate comme médicament du trouble de l'attention ou de la narcolepsie, pas comme substitut de rue. On retient le logement, les soins et le contingency management comme axes, le second encore à éprouver en Suisse. On retient de ne pas inventer une dose de thé de coca.
 
