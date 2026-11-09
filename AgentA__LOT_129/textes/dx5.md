@@ -1,5 +1,5 @@
 ## Définition et sémantique
-Le trouble de l'usage de stimulants réunit, pour ce fichier, la cocaïne, les amphétamines, la méthamphétamine et la MDMA, parce que les pages Infodrog les décrivent toutes comme des activateurs du système nerveux central, avec tachycardie, hypertension et montée de la température. Ce n'est pas une seule molécule. La cocaïne, ou benzoylméthylecgonine, est extraite des feuilles de coca. L'amphétamine de rue, souvent appelée speed, est un mélange instable. La méthamphétamine en est un dérivé plus rapide et plus puissant. La MDMA, 3,4-méthylènedioxy-N-méthylamphétamine, est un dérivé synthétisé en 1912 chez Merck, entactogène, stimulant et un peu hallucinogène. Les classer ensemble aide le premier recours à reconnaître l'urgence cardio-vasculaire et thermique. Les distinguer évite de promettre le même sevrage ou le même médicament. La SSAM, dans son papier adopté le 20 janvier 2024, écrit qu'aucun traitement médicamenteux établi n'existe pour la dépendance à la cocaïne. On ne comble pas ce vide par une dose inventée. La cocaïne reste soumise à la loi fédérale sur les stupéfiants, comme l'amphétamine. L'usage médical de l'amphétamine ou d'un analogue, notamment le [[w1|méthylphénidate]], est une autre histoire : narcolepsie ou trouble de l'attention, prescrit par un médecin expérimenté. Ce n'est pas un traitement de la cocaïne de rue.
+Le trouble de l'usage de stimulants réunit, pour ce fichier, la [[w30|cocaïne]], les amphétamines, la [[w32|méthamphétamine]] et la [[w33|MDMA]], parce que les pages Infodrog les décrivent toutes comme des activateurs du système nerveux central, avec tachycardie, hypertension et montée de la température. Ce n'est pas une seule molécule. La cocaïne, ou benzoylméthylecgonine, est extraite des feuilles de coca. L'[[w31|amphétamine]] de rue, souvent appelée speed, est un mélange instable. La méthamphétamine en est un dérivé plus rapide et plus puissant. La MDMA, 3,4-méthylènedioxy-N-méthylamphétamine, est un dérivé synthétisé en 1912 chez Merck, entactogène, stimulant et un peu hallucinogène. Les classer ensemble aide le premier recours à reconnaître l'urgence cardio-vasculaire et thermique. Les distinguer évite de promettre le même sevrage ou le même médicament. La SSAM, dans son papier adopté le 20 janvier 2024, écrit qu'aucun traitement médicamenteux établi n'existe pour la dépendance à la cocaïne. On ne comble pas ce vide par une dose inventée. La cocaïne reste soumise à la loi fédérale sur les [[w41|stupéfiants]], comme l'amphétamine. L'usage médical de l'amphétamine ou d'un analogue, notamment le [[w1|méthylphénidate]], est une autre histoire : narcolepsie ou trouble de l'attention, prescrit par un médecin expérimenté. Ce n'est pas un traitement de la cocaïne de rue.
 
 @@w1 méthylphénidate
 Infodrog cite le méthylphénidate, par exemple Ritalin, Concerta et des génériques, parmi les médicaments autorisés en Suisse.
@@ -9,10 +9,10 @@ Page amphétamines d'Infodrog, lue le 9 novembre 2026.
 @@
 
 ## Épidémiologie
-La SSAM écrit que la cocaïne est, avec le cannabis, la substance illégale la plus souvent consommée, et que plusieurs villes suisses ont vu ces derniers mois une scène ouverte où le crack domine. Le papier ne donne pas un pourcentage national. On n'en fabrique pas un. Il dit que les offres psychosociales habituelles sont saturées par les personnes les plus atteintes, souvent difficiles à joindre. Infodrog renvoie les chiffres de marché vers des pages de monitorage que ce fichier n'a pas ouvertes. On ne recopie donc pas une prévalence devinée. Pour la MDMA, la page lue ne donne pas non plus un taux suisse. Elle dit que les comprimés varient fortement en principe actif et contiennent parfois autre chose, comme du 2C-B. Cette incertitude compte plus, en consultation, qu'un pourcentage absent. Le drug checking suisse a trouvé, dans le speed, des impuretés de synthèse et, rarement, de la méthamphétamine. La teneur n'est donc pas celle annoncée. C'est le fait épidémiologique utile au lit du malade : le produit n'est pas standardisé.
+La SSAM écrit que la cocaïne est, avec le cannabis, la substance illégale la plus souvent consommée, et que plusieurs villes suisses ont vu ces derniers mois une scène ouverte où le [[w34|crack]] domine. Le papier ne donne pas un pourcentage national. On n'en fabrique pas un. Il dit que les offres psychosociales habituelles sont saturées par les personnes les plus atteintes, souvent difficiles à joindre. Infodrog renvoie les chiffres de marché vers des pages de monitorage que ce fichier n'a pas ouvertes. On ne recopie donc pas une prévalence devinée. Pour la MDMA, la page lue ne donne pas non plus un taux suisse. Elle dit que les comprimés varient fortement en principe actif et contiennent parfois autre chose, comme du 2C-B. Cette incertitude compte plus, en consultation, qu'un pourcentage absent. Le [[w36|drug checking]] suisse a trouvé, dans le speed, des impuretés de synthèse et, rarement, de la méthamphétamine. La teneur n'est donc pas celle annoncée. C'est le fait épidémiologique utile au lit du malade : le produit n'est pas standardisé.
 
 ## Physiopathologie
-La cocaïne libère de la dopamine et d'autres transmetteurs. Le cœur s'accélère, la pression et la température montent, la respiration aussi, et les pupilles se dilatent. Le vécu est une vigilance, une impression d'efficacité, une euphorie, une confiance haute, et moins de faim, de soif, de fatigue et de douleur. L'agressivité et la surestimation suivent. L'environnement peut devenir persécuteur, avec hallucinations. Quand l'effet tombe, l'humeur se vide, le sommeil se casse, et l'envie de reprendre est forte et désagréable. Avec l'alcool se forme le [[w3|cocaéthylène]], plus toxique pour le cœur. Avec un opioïde, le système cardiovasculaire est tiré dans deux sens et le surdosage augmente. On ne décrit pas comment fabriquer ce mélange. L'amphétamine libère noradrénaline et dopamine. Tremblements, agitation, nausées, céphalées, crampes, pouls et tension hauts, faim et sommeil effacés. Le sniff agit en deux à dix minutes et dure trois à six heures. L'ingestion agit en trente à quarante-cinq minutes et dure quatre à douze heures. Des restes peuvent tenir vingt-quatre heures, car le corps métabolise mal la molécule. Le surdosage va jusqu'à l'arrêt circulatoire, l'infarctus, la défaillance du rein, du foie ou du cœur, l'hémorragie, le spasme vasculaire, le coma. La température peut atteindre 41 degrés. Infodrog dit que ce danger est sous-estimé, avec déshydratation et surchauffe mortelle. La méthamphétamine ajoute sérotonine, agit plus vite et plus longtemps, de six à trente heures, avec des effets secondaires jusqu'à soixante-dix heures. La MDMA agit surtout sur la sérotonine, la noradrénaline et la dopamine. L'effet commence vers trente minutes, parfois seulement à quatre-vingt-dix. La soif et la faim baissent, la température et la tension montent. L'empathie subjective et la levée des inhibitions côtoient, selon le contexte, la panique et les hallucinations. Les jours d'après peuvent être dépressifs. Les réserves de sérotonine mettent jusqu'à une semaine à se refaire. Les vider souvent abîme l'humeur sur la durée. La recherche long terme n'est pas close, et certaines études supposent un lien avec des troubles psychiques durables, mémoire comprise.
+La cocaïne libère de la dopamine et d'autres transmetteurs. Le cœur s'accélère, la pression et la température montent, la respiration aussi, et les [[w39|pupilles]] se dilatent. Le vécu est une vigilance, une impression d'efficacité, une euphorie, une confiance haute, et moins de faim, de soif, de fatigue et de douleur. L'agressivité et la surestimation suivent. L'environnement peut devenir persécuteur, avec hallucinations. Quand l'effet tombe, l'humeur se vide, le sommeil se casse, et l'envie de reprendre est forte et désagréable. Avec l'alcool se forme le [[w3|cocaéthylène]], plus toxique pour le cœur. Avec un opioïde, le système cardiovasculaire est tiré dans deux sens et le surdosage augmente. On ne décrit pas comment fabriquer ce mélange. L'amphétamine libère noradrénaline et dopamine. Tremblements, agitation, nausées, céphalées, crampes, pouls et tension hauts, faim et sommeil effacés. Le sniff agit en deux à dix minutes et dure trois à six heures. L'ingestion agit en trente à quarante-cinq minutes et dure quatre à douze heures. Des restes peuvent tenir vingt-quatre heures, car le corps métabolise mal la molécule. Le surdosage va jusqu'à l'arrêt circulatoire, l'infarctus, la défaillance du rein, du foie ou du cœur, l'hémorragie, le spasme vasculaire, le coma. La température peut atteindre [[w40|41]] degrés. Infodrog dit que ce danger est sous-estimé, avec déshydratation et surchauffe mortelle. La méthamphétamine ajoute [[w35|sérotonine]], agit plus vite et plus longtemps, de six à trente heures, avec des effets secondaires jusqu'à soixante-dix heures. La MDMA agit surtout sur la sérotonine, la noradrénaline et la dopamine. L'effet commence vers trente minutes, parfois seulement à quatre-vingt-dix. La soif et la faim baissent, la température et la tension montent. L'empathie subjective et la levée des inhibitions côtoient, selon le contexte, la panique et les hallucinations. Les jours d'après peuvent être dépressifs. Les réserves de sérotonine mettent jusqu'à une semaine à se refaire. Les vider souvent abîme l'humeur sur la durée. La recherche long terme n'est pas close, et certaines études supposent un lien avec des troubles psychiques durables, mémoire comprise.
 
 @@w3 cocaéthylène
 Infodrog explique qu'il se forme quand la cocaïne et l'alcool sont pris ensemble.
@@ -25,13 +25,13 @@ Page cocaïne d'Infodrog, lue le 9 novembre 2026.
 L'effet dépend de la dose, de la personne, de l'humeur et du lieu. Infodrog le répète pour chaque substance. Un même comprimé ne fait donc pas la même nuit chez deux personnes, et deux comprimés « d'ecstasy » ne sont pas la même dose. Danser longtemps au chaud sans boire assez, sous MDMA, mène à la surchauffe mortelle. Ce n'est pas une consigne de fête. C'est la raison d'appeler quand quelqu'un est brûlant et confus. L'alcool ajouté à l'amphétamine ou à la méthamphétamine augmente l'agressivité et le risque d'intoxication alcoolique, parce que la sensation d'ivresse est masquée. La grossesse est un facteur à part. La cocaïne resserre les vaisseaux, peut infarcer le placenta, avancer l'accouchement, aller jusqu'à l'enfant mort-né, freiner la croissance et retentir plus tard sur le comportement. L'amphétamine et la méthamphétamine passent au fœtus, gênent nutriments, développement et comportement, et peuvent déclencher des contractions. Chez la femme, la méthamphétamine peut dérégler le cycle. Un contexte sexuel sous méthamphétamine, que la page appelle chemsex surtout chez des hommes ayant des rapports avec des hommes, s'accompagne de plus d'infections sexuellement transmissibles, VIH et hépatites compris. On ne décrit pas les gestes. On propose le dépistage et le préservatif. Le speed acheté peut contenir une substance inattendue. Le risque vient autant de l'inconnu que de l'amphétamine elle-même.
 
 ## Anamnèse
-On demande le nom que la personne utilise, puisque coke, blanche, speed, ice, crystal ou ecstasy ne désignent pas la même page. On demande depuis quand, à quel rythme, et si la nuit dernière comportait de l'alcool, un opioïde ou un autre stimulant. On demande la douleur thoracique, la céphalée brutale, la confusion, la température ressentie, les convulsions. Ces questions trient l'urgence avant le projet de soin. On demande le sommeil des jours suivants, l'humeur vide, les mâchoires serrées, les saignements de nez, les dents, la perte de poids. On demande une grossesse possible. On demande si un traitement agoniste opioïde est déjà en cours. La SSAM dit qu'il est vital de le continuer et de le financer quand la cocaïne ou le crack s'y ajoutent. On ne l'arrête pas « pour punir le stimulant ». On demande enfin ce que la personne peut encore tenir : logement, nourriture, soins. Le papier SSAM met ces besoins de base au centre de la survie, avant un médicament qui n'existe pas.
+On demande le nom que la personne utilise, puisque coke, blanche, speed, ice, crystal ou ecstasy ne désignent pas la même page. On demande depuis quand, à quel rythme, et si la nuit dernière comportait de l'alcool, un opioïde ou un autre stimulant. On demande la douleur thoracique, la céphalée brutale, la confusion, la température ressentie, les convulsions. Ces questions trient l'urgence avant le projet de soin. On demande le sommeil des jours suivants, l'humeur vide, les mâchoires serrées, les saignements de nez, les dents, la perte de poids. On demande une grossesse possible. On demande si un traitement agoniste opioïde est déjà en cours. La SSAM dit qu'il est vital de le continuer et de le financer quand la cocaïne ou le crack s'y ajoutent. On ne l'arrête pas « pour punir le stimulant ». On demande enfin ce que la personne peut encore tenir : [[w37|logement]], nourriture, soins. Le papier SSAM met ces besoins de base au centre de la survie, avant un médicament qui n'existe pas.
 
 ## Examen physique
 On prend le pouls, la tension et la température avant de discuter motivation. Une température qui approche les 41 degrés, une douleur thoracique, un déficit neurologique, une convulsion ou un collapsus ne restent pas au cabinet. On appelle le 144, et le 145 de Tox Info Suisse pour l'intoxication. Les pupilles larges orientent vers le stimulant, à l'opposé de la pupille en tête d'épingle de l'opioïde, mais un mélange existe et l'examen ne nomme pas la molécule à lui seul. On regarde le nez sans en faire un cours d'anatomie de rue : une cloison abîmée est une conséquence lue de l'usage nasal de cocaïne ou d'amphétamine. On regarde les dents et les mâchoires, car la méthamphétamine est liée à des caries, des pertes dentaires et un grincement, avec une nutrition pauvre. On cherche l'agitation, la logorrhée, la paranoïa. On pèse. On ausculte le cœur. On ne pratique pas un examen génital systématique. On propose, si le récit sexuel est là, un dépistage d'infection. Chez la femme enceinte, on adresse, on ne minimise pas les contractions.
 
 ## Approche syndromique
-Trois tableaux ne se soignent pas à la même heure. L'intoxication chaude, douloureuse dans la poitrine, convulsive ou effondrée est une urgence vitale. Le contrecoup des jours suivants, humeur basse, sommeil cassé, faim qui revient, est pénible et parfois suicidaire, surtout au sevrage d'amphétamine, mais ce n'est pas la surchauffe. Le trouble installé, avec craving et vie qui se rétrécit, n'a pas de comprimé de référence. Il a besoin d'un toit, de soins, d'un lien, et parfois d'une psychothérapie ou d'un renforcement par objectifs. La SSAM juge bonne l'évidence de combiner interventions communautaires, psychosociales, psychothérapeutiques, ou le contingency management, et elle ajoute que le succès en Suisse reste à vérifier. On ne vend donc pas une méthode comme déjà calibrée pour chaque ville. Le patient sous méthylphénidate pour un trouble de l'attention diagnostiqué n'est pas, par ce seul fait, dans ce trouble d'usage. On vérifie l'indication, la dose prescrite et les écarts, sans confondre l'ordonnance et le speed.
+Trois tableaux ne se soignent pas à la même heure. L'intoxication chaude, douloureuse dans la poitrine, convulsive ou effondrée est une urgence vitale. Le contrecoup des jours suivants, humeur basse, sommeil cassé, faim qui revient, est pénible et parfois suicidaire, surtout au sevrage d'amphétamine, mais ce n'est pas la surchauffe. Le trouble installé, avec [[w42|craving]] et vie qui se rétrécit, n'a pas de comprimé de référence. Il a besoin d'un toit, de soins, d'un lien, et parfois d'une psychothérapie ou d'un renforcement par objectifs. La SSAM juge bonne l'évidence de combiner interventions communautaires, psychosociales, psychothérapeutiques, ou le [[w38|contingency]] management, et elle ajoute que le succès en Suisse reste à vérifier. On ne vend donc pas une méthode comme déjà calibrée pour chaque ville. Le patient sous méthylphénidate pour un trouble de l'attention diagnostiqué n'est pas, par ce seul fait, dans ce trouble d'usage. On vérifie l'indication, la dose prescrite et les écarts, sans confondre l'ordonnance et le speed.
 
 ## Diagnostic positif
 Le diagnostic est clinique. Aucun taux sanguin lu ne sert de gold standard. La cocaïne se reconnaît au récit, au cœur qui s'emballe, aux pupilles larges, au vide d'après, à la poursuite malgré le nez, les dettes ou la paranoïa. L'amphétamine se reconnaît aux durées lues, deux à dix minutes ou trente à quarante-cinq selon la voie, et au sevrage d'une à deux semaines fait de fatigue, sommeil agité, irritabilité, appétit massif, dépression, parfois violence ou idées suicidaires. La dépendance psychique, elle, dure bien plus. La méthamphétamine se distingue par une durée d'effet de six à trente heures et des suites jusqu'à soixante-dix heures, plus un craving plus marqué quand elle est inhalée. La MDMA se distingue par l'empathie, la serre des mâchoires, et une semaine possible pour recharger la sérotonine. Le nom sur le comprimé ne suffit pas, puisque la teneur varie et que d'autres molécules s'y cachent. Le drug checking, couplé à un entretien bref, est la réduction des risques que décrit Infodrog. Il ne pose pas le diagnostic de trouble à la place du clinicien.
@@ -96,7 +96,7 @@ Le patient déjà en traitement opioïde et qui ajoute du crack a deux maladies 
 
 Le méthylphénidate se range dans un autre tiroir. Si l'indication de trouble de l'attention ou de narcolepsie est documentée et le prescripteur expérimenté, on suit l'ordonnance et on cherche les écarts, les prises en plus, le partage. Si l'indication n'est pas là, on n'ouvre pas ce médicament pour calmer un craving de cocaïne. La page Infodrog et le papier SSAM ne se contredisent pas. L'un autorise un usage médical précis. L'autre dit qu'il n'y a pas de médicament établi de la dépendance à la cocaïne. Tenir les deux évite le piège.
 
-On écrit le dossier en quatre lignes utiles. La substance supposée et l'heure. Les constantes, surtout la température et le cœur. Ce qui a été associé, alcool ou opioïde. Le plan : urgences, ou retour avec un relais, un toit, et la poursuite de l'agoniste s'il existe. On note le 145 comme ressource d'intoxication. On ne note pas une recette. On ne note pas une dose de sédatif qu'on n'a pas lue. Cette sobriété est le contenu du fichier : assez de chiffres pour agir, aucun chiffre fabriqué.
+On écrit le dossier en quatre lignes utiles. La substance supposée et l'heure. Les constantes, surtout la température et le cœur. Ce qui a été associé, alcool ou opioïde. Le plan : urgences, ou retour avec un relais, un toit, et la poursuite de l'agoniste s'il existe. On note le 145 comme ressource d'intoxication. On n'y inscrit aucun mode de préparation. On ne note pas une dose de sédatif qu'on n'a pas lue. Cette sobriété est le contenu du fichier : assez de chiffres pour agir, aucun chiffre fabriqué.
 
 Le nez, les dents et le poids se suivent sur des semaines, parce que ce sont les conséquences lues et non des détails. Une cloison qui se perce n'est pas une fatalité à commenter. C'est un motif d'ORL. Des dents qui partent sous méthamphétamine demandent un dentiste et une nutrition, pas seulement un sermon. La page lie ces dégâts à la nutrition pauvre, à l'hygiène et au serrement des mâchoires. On peut donc agir sur le repas et le grincement sans décrire l'usage. Une perte de poids rapide se pèse. Elle oriente vers un usage qui coupe la faim, fréquent avec ces molécules, et vers une dénutrition qui aggrave le cœur. On ne fixe pas un indice de masse inventé. On suit la courbe de la personne.
 
@@ -160,3 +160,147 @@ On retient qu'aucun médicament n'est établi pour la dépendance à la cocaïne
 
 ## Pièges
 Le premier piège est de prescrire un stimulant « pour remplacer » la cocaïne parce qu'une petite étude existe. La SSAM demande de la recherche, pas une ordonnance improvisée. Le deuxième est d'arrêter la méthadone chez quelqu'un qui fume du crack. Le papier dit l'inverse. Le troisième est de prendre l'alcool pour un calmant de la cocaïne, alors qu'il crée le cocaéthylène. Le quatrième est de laisser danser ou de garder au chaud une personne déjà trop chaude. Le cinquième est d'annoncer une dépression chronique le lendemain d'une MDMA, avant d'avoir laissé à la sérotonine le délai lu, jusqu'à une semaine. Le sixième est de croire le logo d'un comprimé. La teneur varie et d'autres substances s'y trouvent. Le septième est de décrire la préparation du crack ou une injection. Ce fichier nomme les risques cardiaques, infectieux et thermiques. Il n'enseigne pas les gestes. Le huitième est d'inventer un seuil sanguin ou une dose de benzodiazépine absents des pages lues. Le neuvième est de confondre une ordonnance de méthylphénidate suivie pour un trouble de l'attention avec un trouble d'usage de stimulants.
+
+@@w30 Cocaïne
+La cocaïne libère de la dopamine, accélère le cœur et dilate les pupilles, puis laisse un vide qui pousse à reprendre.
+
+Exemple : aucun médicament établi n'existe, papier du comité SSAM du 20 janvier 2024.
+
+On se trompe en arrêtant une méthadone déjà en cours pour punir le crack.
+
+Page Infodrog cocaïne et papier SSAM du 20 janvier 2024.
+
+@@
+
+@@w31 Amphétamine
+L'amphétamine libère noradrénaline et dopamine, coupe faim et sommeil, et peut surchauffer.
+
+Exemple : par voie nasale l'effet dure souvent trois à six heures, avec des restes jusqu'à vingt-quatre heures.
+
+On se trompe en déclarant l'épisode clos au bout d'une heure parce que la personne parle mieux.
+
+Page Infodrog amphétamines, lue le 9 novembre 2026.
+
+@@
+
+@@w32 Méthamphétamine
+La méthamphétamine atteint le cerveau plus vite que l'amphétamine et tient beaucoup plus longtemps.
+
+Exemple : l'effet principal peut durer de six à trente heures, et les effets secondaires jusqu'à soixante-dix heures.
+
+On se trompe en calquant la surveillance sur une simple amphétamine d'une soirée.
+
+Page Infodrog méthamphétamines, lue le 9 novembre 2026.
+
+@@
+
+@@w33 MDMA
+La MDMA vide en partie la sérotonine, d'où une empathie puis parfois un jour terne.
+
+Exemple : l'effet commence vers trente minutes, parfois seulement à quatre-vingt-dix, et la sérotonine peut mettre jusqu'à une semaine à se refaire.
+
+On se trompe en donnant une seconde pilule parce que la première semble muette à vingt minutes.
+
+Page Infodrog ecstasy-MDMA, lue le 9 novembre 2026.
+
+@@
+
+@@w34 Crack
+Le crack est la forme que la SSAM place au centre de plusieurs scènes urbaines, sans que ce fichier n'en décrive la fabrication.
+
+Exemple : les structures bas seuil sont saturées et les personnes les plus malades n'entrent pas d'elles-mêmes.
+
+On se trompe en exigeant l'abstinence de crack comme ticket pour garder un agoniste opioïde.
+
+Papier SSAM du 20 janvier 2024, paragraphe sur la poursuite du traitement agoniste.
+
+@@
+
+@@w35 Sérotonine
+La sérotonine porte une part de l'humeur, et la MDMA en consomme les réserves.
+
+Exemple : jusqu'à une semaine peut être nécessaire pour les remplir à nouveau après une prise.
+
+On se trompe en posant une dépression chronique le lendemain, avant ce délai.
+
+Page Infodrog MDMA, mécanisme sérotoninergique.
+
+@@
+
+@@w36 Drug checking
+Le drug checking analyse la composition réelle et s'accompagne d'un entretien bref.
+
+Exemple : les comprimés d'ecstasy varient fortement et peuvent contenir du 2C-B.
+
+On se trompe en identifiant une pilule sur son logo ou sa couleur.
+
+Pages Infodrog cocaïne et MDMA, réduction des risques.
+
+@@
+
+@@w37 Housing first
+Le logement d'abord fait partie des mesures de survie que la SSAM met avant un médicament inexistant.
+
+Exemple : manger, se laver et dormir à l'abri sont les besoins nommés avec les soins de base.
+
+On se trompe en promettant un comprimé à quelqu'un qui dort dehors.
+
+Papier SSAM du 20 janvier 2024, dommages et besoins de base.
+
+@@
+
+@@w38 Contingency management
+Le contingency management renforce des actes concrets, rendez-vous tenu, repas, dépistage accepté.
+
+Exemple : la SSAM juge bonne l'évidence de le combiner au psychosocial, et dit que le rendement suisse reste à mesurer.
+
+On se trompe en annonçant un taux de réussite qui n'est pas dans le papier.
+
+Papier SSAM du 20 janvier 2024, interventions thérapeutiques.
+
+@@
+
+@@w39 Pupilles larges
+Les pupilles larges accompagnent la cocaïne et les amphétamines, avec le cœur rapide.
+
+Exemple : une pupille large plus une douleur thoracique oriente vers l'urgence, pas vers un conseil du lendemain.
+
+On se trompe en rassurant parce que la personne a surtout bu : l'alcool ajoute le cocaéthylène.
+
+Page Infodrog cocaïne, effets physiques.
+
+@@
+
+@@w40 Quarante et un degrés
+Quarante et un degrés est le repère de surchauffe du surdosage d'amphétamine, souvent sous-estimé.
+
+Exemple : Infodrog y associe déshydratation et risque mortel, avec défaillance d'organes.
+
+On se trompe en couvrant une personne qui tremble de chaleur.
+
+Page Infodrog amphétamines, paragraphe surdosage.
+
+@@
+
+@@w41 LStup et stimulants
+La cocaïne et l'amphétamine sont soumises à la loi sur les stupéfiants, tandis que le méthylphénidate a un usage médical distinct.
+
+Exemple : le méthylphénidate vise la narcolepsie ou le trouble de l'attention, pas le craving de cocaïne.
+
+On se trompe en ouvrant cette ordonnance pour remplacer une poudre de rue.
+
+Pages Infodrog cocaïne et amphétamines, cadres légaux.
+
+@@
+
+@@w42 Craving
+Le craving est l'envie forte de reprendre quand l'effet tombe, décrit pour la cocaïne et encore plus net pour la méthamphétamine inhalée.
+
+Exemple : après l'amphétamine, le sevrage psychique dépasse les une à deux semaines du sevrage physique.
+
+On se trompe en le prenant pour un simple coup de fatigue du lendemain.
+
+Pages Infodrog cocaïne, amphétamines et méthamphétamines.
+
+@@
+

@@ -197,7 +197,7 @@ def e_sauf_boutons(texte):
     return "".join(out)
 
 
-def page(prefixe, h2, md, sources):
+def page(prefixe, h2, md, sources, chapeau):
     sections, pops = parse(md, prefixe)
     bits = []
     utilises = set()
@@ -226,15 +226,17 @@ def page(prefixe, h2, md, sources):
     src = (
         '<section id="sources"><h3>Sources</h3><ol>\n'
         + "\n".join('<li id="sb-' + str(i) + '">' + e(t) + "</li>" for i, t in enumerate(sources, 1))
-        + '\n</ol>\n<p class="s">Non validé cliniquement. Le référentiel de liens n\'est pas une source de cours.</p></section>'
+        + "\n</ol></section>"
     )
+    if "non validé cliniquement" not in chapeau:
+        raise SystemExit("le chapeau doit contenir « non validé cliniquement »")
     return (
         '<!DOCTYPE html>\n<html lang="fr"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
         "<title>LOT 129</title><style>\n"
         + font_css()
         + "</style></head><body><main>\n"
-        '<p class="s">LOT 129 · S9.13 · non validé cliniquement.</p>\n'
+        '<p class="s">' + e(chapeau) + "</p>\n"
         '<h2 id="' + prefixe + '">' + e(h2) + "</h2>\n"
         + "\n".join(bits)
         + "\n"

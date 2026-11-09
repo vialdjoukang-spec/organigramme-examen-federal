@@ -1,5 +1,5 @@
 ## Définition et sémantique
-Le tabagisme quotidien est, dans la stratégie 2024 du service de médecine de premier recours des HUG, une maladie et non un défaut de volonté, car la nicotine figure parmi les substances les plus addictives aux côtés de l'héroïne, de l'alcool, de la cocaïne et des barbituriques. Le diagnostic d'addiction suit la [[w1|CIM-10]] : au moins trois critères sur six, pendant un mois ou de façon répétée sur douze mois. Ces critères sont le désir puissant, la tolérance, la difficulté à contrôler la fréquence ou la quantité, le sevrage soulagé par la substance ou un substitut, l'abandon des autres plaisirs et la poursuite malgré des dommages évidents. La combustion, et non la nicotine isolée, porte l'essentiel des cancers et de la BPCO, c'est pourquoi un substitut nicotinique n'est pas « une autre cigarette ». Même une à quatre cigarettes par jour gardent un risque, or le conseil d'arrêt ne se réserve donc pas aux gros fumeurs. Le sevrage apparaît souvent au-delà de cinq cigarettes par jour et peut durer de trois semaines à trois mois. Il associe craving, humeur basse, insomnie, irritabilité, anxiété, trouble de la concentration, agitation et augmentation de l'appétit. La stratégie cite aussi la Cigarette Dependence Scale, à douze items tirés du DSM-5, qui tend à remplacer le Fagerström en clinique, ainsi que la HONC chez l'adolescent et le Q-MAT pour la motivation.
+Le tabagisme quotidien est, dans la stratégie 2024 du service de médecine de premier recours des HUG, une maladie et non un défaut de volonté, car la nicotine figure parmi les substances les plus addictives aux côtés de l'héroïne, de l'alcool, de la cocaïne et des barbituriques. Le diagnostic d'addiction suit la [[w1|CIM-10]] : au moins trois critères sur six, pendant un mois ou de façon répétée sur douze mois. Ces critères sont le désir puissant, la tolérance, la difficulté à contrôler la fréquence ou la quantité, le [[w38|sevrage]] soulagé par la substance ou un substitut, l'abandon des autres plaisirs et la poursuite malgré des dommages évidents. La combustion, et non la nicotine isolée, porte l'essentiel des cancers et de la BPCO, c'est pourquoi un substitut nicotinique n'est pas « une autre cigarette ». Même une à quatre cigarettes par jour gardent un risque, or le conseil d'arrêt ne se réserve donc pas aux gros fumeurs. Le sevrage apparaît souvent au-delà de cinq cigarettes par jour et peut durer de trois semaines à trois mois. Il associe craving, humeur basse, insomnie, irritabilité, anxiété, trouble de la concentration, agitation et augmentation de l'appétit. La stratégie cite aussi la Cigarette Dependence Scale, à douze items tirés du DSM-5, qui tend à remplacer le Fagerström en clinique, ainsi que la HONC chez l'adolescent et le Q-MAT pour la motivation.
 
 @@w1 CIM-10
 La CIM-10, telle que la stratégie tabac des HUG la rappelle pour les substances, demande trois critères sur six.
@@ -12,7 +12,7 @@ Lu dans la stratégie HUG 2024.
 La stratégie retient 8 millions de morts par an dans le monde et 9 500 en Suisse, soit plus d'un décès par heure et 15 pour cent de tous les décès suisses. Un cinquième de ces décès suisses survient avant 65 ans. En 2020, les consommateurs de tabac représentaient 22,3 pour cent des adultes dans le monde, soit 1,3 milliard de personnes, avec 36,7 pour cent d'hommes et 7,8 pour cent de femmes. En Suisse en 2022, 22,1 pour cent des personnes de plus de 15 ans fumaient, dont 12,7 pour cent chaque jour. Les hommes étaient à 24 pour cent et les femmes à 20 pour cent. Les 15-24 ans atteignaient 28,1 pour cent, c'est pourquoi cette classe d'âge est prioritaire. Environ 1,2 million des 8 millions de morts mondiales concernent des non-fumeurs exposés passivement, donc le sujet dépasse le fumeur assis en face. L'exposition passive, définie ici par au moins une heure par jour, est passée en Suisse de 35 pour cent à 6 pour cent entre 2002 et 2017 après l'interdiction de 2017 dans les lieux publics fermés. Dès la première année, les hospitalisations pour syndrome coronarien aigu ont baissé de 17 pour cent, celles pour BPCO décompensée de 46 pour cent et l'asthme aigu de l'enfant de 18 pour cent. L'OFSP, cité par la stratégie, retient environ dix ans de vie perdus. La Suisse est avant-dernière de la Tobacco Control Scale en 2024, or ce rang décrit la politique, pas la culpabilité d'un patient.
 
 ## Physiopathologie
-La nicotine entraîne une dépendance, mais ce sont les produits de combustion qui abîment vaisseaux, bronches et génome, donc arrêter la fumée reste l'objectif même si une nicotine de remplacement continue un temps. Le tabac cause 85 à 90 pour cent des BPCO et multiplie par quatre le risque de dégénérescence maculaire liée à l'âge. Il retarde aussi la cicatrisation, c'est pourquoi la question se pose avant une opération et pas seulement en pneumologie. Le monoxyde de carbone expiré dépasse en général 10 ppm chez un fumeur, sauf abstinence de quatre à six heures. Ce chiffre motive et suit, or il ne décide pas le diagnostic hors intoxication aiguë au CO. Après l'arrêt, la pression et la fréquence cardiaques se normalisent en vingt minutes. À douze heures le CO sanguin redevient normal et l'oxygénation cellulaire s'améliore. À vingt-quatre heures le risque d'infarctus diminue, les poumons commencent à éliminer mucus et résidus, et le corps a éliminé la nicotine. Le goût et l'odorat s'améliorent à quarante-huit heures, la respiration à soixante-douze heures. Entre deux semaines et trois mois les fonctions respiratoires s'améliorent et la toux diminue. Entre un et neuf mois le système muco-ciliaire reprend de l'activité. À un an le risque d'infarctus du myocarde diminue de 50 pour cent et le risque d'AVC rejoint celui d'un non-fumeur, sous réserve des plaques déjà constituées. À cinq ans le risque de cancer du poumon diminue d'environ 50 pour cent. Entre dix et quinze ans l'espérance de vie rejoint celle d'une personne qui n'a jamais fumé, selon le calendrier de la stratégie.
+La nicotine entraîne une dépendance, mais ce sont les produits de combustion qui abîment vaisseaux, bronches et génome, donc arrêter la fumée reste l'objectif même si une nicotine de remplacement continue un temps. Le tabac cause 85 à 90 pour cent des BPCO et multiplie par quatre le risque de dégénérescence maculaire liée à l'âge. Il retarde aussi la cicatrisation, c'est pourquoi la question se pose avant une opération et pas seulement en pneumologie. Le [[w30|monoxyde de carbone]] expiré dépasse en général 10 ppm chez un fumeur, sauf abstinence de quatre à six heures. Ce chiffre motive et suit, or il ne décide pas le diagnostic hors intoxication aiguë au CO. Après l'arrêt, la pression et la fréquence cardiaques se normalisent en vingt minutes. À douze heures le CO sanguin redevient normal et l'oxygénation cellulaire s'améliore. À vingt-quatre heures le risque d'infarctus diminue, les poumons commencent à éliminer mucus et résidus, et le corps a éliminé la nicotine. Le goût et l'odorat s'améliorent à quarante-huit heures, la respiration à soixante-douze heures. Entre deux semaines et trois mois les fonctions respiratoires s'améliorent et la toux diminue. Entre un et neuf mois le système muco-ciliaire reprend de l'activité. À un an le risque d'infarctus du myocarde diminue de 50 pour cent et le risque d'AVC rejoint celui d'un non-fumeur, sous réserve des plaques déjà constituées. À cinq ans le risque de cancer du poumon diminue d'environ 50 pour cent. Entre dix et quinze ans l'espérance de vie rejoint celle d'une personne qui n'a jamais fumé, selon le calendrier de la stratégie.
 
 
 La fumée d'une cigarette combustible contient plus de 4 000 substances, dont plusieurs centaines sont dangereuses, donc le risque ne se résume pas au goudron que le public connaît déjà. On y trouve des additifs, le monoxyde de carbone, des aldéhydes, des nitrosamines, l'oxyde d'azote, l'acide cyanhydrique et des métaux lourds comme le plomb, le mercure ou le chrome. La [[w20|nicotine]] active la dopamine du circuit de récompense et crée une dépendance physique et psychique. Par cigarette, elle atteint le cerveau en dix à vingt secondes, or cette vitesse explique une partie de l'addiction. Le hit immédiat vient d'une contraction de la gorge quand l'air chargé de nicotine passe sur les récepteurs de l'oropharynx. La stratégie classe la nicotine parmi les cinq substances les plus addictives, avec l'héroïne, l'alcool, la cocaïne et les barbituriques, et elle précise qu'elle n'est pas directement la cause des maladies du tabac. Le facteur cardiovasculaire est le premier moteur de morbidité et de mortalité. Le tabac majore l'angor, l'infarctus, les maladies vasculaires périphériques, l'anévrisme de l'aorte, l'AVC et d'autres atteintes cérébrales. Il augmente aussi le risque de diabète de type 2 et d'hypertension. Les cancers cités sont ceux du poumon, de la sphère ORL, de l'œsophage, de l'estomac, du foie, du pancréas, de la vessie, du rein, et, chez la femme, du sein et du col. Au poumon, outre les 85 à 90 pour cent de BPCO, le tabac favorise la pneumonie et rend plus vulnérable à certains pathogènes, dont la tuberculose. L'asthme décline plus vite et les lésions bronchiques se chronicisent.
@@ -25,7 +25,7 @@ Lu dans la stratégie HUG 2024, page sur le contenu de la cigarette.
 @@
 
 ## Étiologie et facteurs de risque
-Deux fumeurs adultes sur trois ont commencé une consommation régulière avant 20 ans, donc la prévention avant 25 ans pèse plus qu'un conseil tardif isolé. Les jeunes sont visés par le marketing et leur plasticité cérébrale les rend plus vulnérables. Il faut nommer la chicha, le snus, la vapoteuse, les puffs, le cannabis et le CBD, car s'arrêter à la cigarette classique rate ce que cette classe d'âge utilise. Aucun milieu social n'est épargné, or la prévalence est plus haute quand le niveau socio-économique est bas, et le coût du tabac plus les soins aggravent la pauvreté. En psychiatrie la prévalence va de 30 à 50 pour cent. Le soulagement ressenti est surtout celui du manque, et la combustion aggrave les symptômes à long terme. Deux tiers de ces fumeurs veulent arrêter. La peur de déclencher une dépression ne doit pas bloquer le projet, c'est pourquoi on accompagne plutôt qu'on reporte sans date. Au premier trimestre le tabac triple le risque de fausse couche et double celui de grossesse extra-utérine. Ensuite viennent le retard de croissance, le petit poids, le décollement ou la malposition du placenta, la rupture prématurée des membranes et la prématurité. Chez l'enfant exposé on voit fente palatine, malformations crâniennes, asthme et infections. La mort subite du nourrisson est trois fois plus fréquente. La plupart des fumeuses enceintes réduisent ou stoppent, donc la grossesse est un moment utile et non une raison de se taire. Les patients déjà compliqués, ou qui cumulent d'autres risques cardiovasculaires ou oncologiques, ont besoin d'un arrêt ou d'une réduction des risques pour freiner la BPCO ou une récidive d'infarctus.
+Deux fumeurs adultes sur trois ont commencé une consommation régulière avant 20 ans, donc la prévention avant 25 ans pèse plus qu'un conseil tardif isolé. Les jeunes sont visés par le marketing et leur plasticité cérébrale les rend plus vulnérables. Il faut nommer la chicha, le [[w36|snus]], la [[w35|vapoteuse]], les puffs, le cannabis et le CBD, car s'arrêter à la cigarette classique rate ce que cette classe d'âge utilise. Aucun milieu social n'est épargné, or la prévalence est plus haute quand le niveau socio-économique est bas, et le coût du tabac plus les soins aggravent la pauvreté. En psychiatrie la prévalence va de 30 à 50 pour cent. Le soulagement ressenti est surtout celui du manque, et la combustion aggrave les symptômes à long terme. Deux tiers de ces fumeurs veulent arrêter. La peur de déclencher une dépression ne doit pas bloquer le projet, c'est pourquoi on accompagne plutôt qu'on reporte sans date. Au premier trimestre le tabac triple le risque de fausse couche et double celui de grossesse extra-utérine. Ensuite viennent le retard de croissance, le petit poids, le décollement ou la malposition du placenta, la rupture prématurée des membranes et la prématurité. Chez l'enfant exposé on voit fente palatine, malformations crâniennes, asthme et infections. La mort subite du nourrisson est trois fois plus fréquente. La plupart des fumeuses enceintes réduisent ou stoppent, donc la grossesse est un moment utile et non une raison de se taire. Les patients déjà compliqués, ou qui cumulent d'autres risques cardiovasculaires ou oncologiques, ont besoin d'un arrêt ou d'une réduction des risques pour freiner la BPCO ou une récidive d'infarctus.
 
 
 La cigarette combustible reste la forme la plus fréquente et la plus dangereuse. La cigarette dite légère, à plus faible taux affiché de nicotine et de goudron, entraîne en pratique des inhalations plus fréquentes et plus profondes, donc elle ne diminue ni les maladies ni la mortalité. Le cigare et la pipe, pour une même quantité de nicotine, contiennent en général plus de substances carcinogènes que la cigarette. La bidi, petite cigarette roulée dans une feuille de temburni, semble plus nicotinée et plus addictive, avec davantage de cancers oral, pulmonaire, gastrique et œsophagien et un risque cardiovasculaire plus haut. Peu d'études existent, or ce manque n'autorise pas à la présenter comme douce. La [[w21|chicha]] chauffe un tabac souvent aromatisé au contact du charbon. L'eau du récipient n'ajoute pas de filtration. Le volume de fumée est plus grand, le risque global est plus élevé et l'intoxication au monoxyde de carbone aussi. Le tabac mâché et le tabac à priser n'ont pas de combustion, mais les carcinogènes touchent la bouche, l'œsophage et le pancréas. Les risques d'infarctus et d'AVC sont établis pour ces formes sans fumée. Le snus, sachet humide entre gencive et lèvre, partage cette logique. Il est plus nocif que des poches de nicotine orale sans tabac, comme la stratégie le rappelle plus loin.
@@ -38,7 +38,7 @@ Lu dans le tableau des formes de tabac de la stratégie HUG 2024.
 @@
 
 ## Anamnèse
-On demande à chaque patient, car environ 60 pour cent des fumeurs attendent que le médecin de famille ouvre le sujet et 51 pour cent voulaient une aide dans l'étude suisse de 2010 citée par la stratégie. Les médecins en parlent avec 68 pour cent des fumeurs, conseillent l'arrêt à 34 pour cent et prescrivent une aide à 19 pour cent seulement. Addiction Suisse, toujours selon la stratégie, indique que presque 60 pour cent veulent un arrêt total et qu'un quart a essayé dans les douze derniers mois. L'entretien suit les [[w5|six A]] : demander la permission, évaluer dépendance et envie, conseiller l'arrêt ou la réduction, s'accorder sur un objectif réaliste, aider avec un traitement, organiser le suivi ou adresser. Le [[w6|Fagerström]] va de 0 à 10. De 0 à 2 il n'y a pas de dépendance nicotinique, de 3 à 4 elle est faible, de 5 à 6 modérée, de 7 à 10 forte. La première cigarette dans les cinq minutes vaut 3 points, entre 6 et 30 minutes 2 points, entre 31 et 60 minutes 1 point, et après 60 minutes 0. Trente et une cigarettes ou plus par jour valent 3 points, 21 à 30 en valent 2, 11 à 20 en valent 1, et 10 ou moins valent 0. L'échelle sert encore au remboursement du bupropion et de la varénicline, or elle perd du terrain clinique au profit de la Cigarette Dependence Scale. On chiffre aussi les paquets-années, car les seuils de spirométrie et de scanner partent de 20 UPA.
+On demande à chaque patient, car environ 60 pour cent des fumeurs attendent que le médecin de famille ouvre le sujet et 51 pour cent voulaient une aide dans l'étude suisse de 2010 citée par la stratégie. Les médecins en parlent avec 68 pour cent des fumeurs, conseillent l'arrêt à 34 pour cent et prescrivent une aide à 19 pour cent seulement. Addiction Suisse, toujours selon la stratégie, indique que presque 60 pour cent veulent un arrêt total et qu'un quart a essayé dans les douze derniers mois. L'entretien suit les [[w5|six A]] : demander la permission, évaluer dépendance et envie, conseiller l'arrêt ou la réduction, s'accorder sur un objectif réaliste, aider avec un traitement, organiser le suivi ou adresser. Le [[w6|Fagerström]] va de 0 à 10. De 0 à 2 il n'y a pas de dépendance nicotinique, de 3 à 4 elle est faible, de 5 à 6 modérée, de 7 à 10 forte. La première cigarette dans les cinq minutes vaut 3 points, entre 6 et 30 minutes 2 points, entre 31 et 60 minutes 1 point, et après 60 minutes 0. Trente et une cigarettes ou plus par jour valent 3 points, 21 à 30 en valent 2, 11 à 20 en valent 1, et 10 ou moins valent 0. L'échelle sert encore au remboursement du bupropion et de la [[w32|varénicline]], or elle perd du terrain clinique au profit de la Cigarette Dependence Scale. On chiffre aussi les [[w37|paquets-années]], car les seuils de [[w31|spirométrie]] et de scanner partent de 20 UPA.
 
 @@w5 six A
 Ask : la permission d'abord, sinon la personne se ferme.
@@ -101,10 +101,10 @@ Le schéma ci-dessous a été dessiné par l'outil d'illustration du dépôt à 
 %%
 
 ## Arbre décisionnel
-Si la personne ne consomme aucune nicotine, on le note et on n'ouvre pas un sevrage. Si elle fume et n'a pas donné la permission, on s'arrête à la question et on y revient, car forcer ferme la suite. Si elle est d'accord et peu dépendante, l'arrêt fixé à une date, brutal, est la technique recommandée, avec ou sans traitement. La baisse progressive a une efficacité semblable et peut utiliser des substituts avant la date. Si le Fagerström est haut ou si les tentatives ont échoué, on propose un substitut, qui double les chances, ou le bupropion. La varénicline n'est plus une option disponible depuis son retrait mondial de décembre 2022. La cytisine est reconnue efficace mais n'est pas commercialisée en Suisse. Son importation reste possible, or la stratégie ne donne pas de posologie suisse à recopier. Si une combustion doit cesser vite à cause d'une BPCO sévère, d'un infarctus, d'une greffe ou d'une chirurgie bariatrique, et que la personne veut continuer à inhaler, la vape entre dans les cas du tableau 5. Le tabac chauffé n'est qu'une réduction partielle des risques pour qui ne change rien d'autre.
+Si la personne ne consomme aucune nicotine, on le note et on n'ouvre pas un sevrage. Si elle fume et n'a pas donné la permission, on s'arrête à la question et on y revient, car forcer ferme la suite. Si elle est d'accord et peu dépendante, l'arrêt fixé à une date, brutal, est la technique recommandée, avec ou sans traitement. La baisse progressive a une efficacité semblable et peut utiliser des substituts avant la date. Si le Fagerström est haut ou si les tentatives ont échoué, on propose un substitut, qui double les chances, ou le bupropion. La varénicline n'est plus une option disponible depuis son retrait mondial de décembre 2022. La [[w33|cytisine]] est reconnue efficace mais n'est pas commercialisée en Suisse. Son importation reste possible, or la stratégie ne donne pas de posologie suisse à recopier. Si une combustion doit cesser vite à cause d'une BPCO sévère, d'un infarctus, d'une greffe ou d'une chirurgie bariatrique, et que la personne veut continuer à inhaler, la vape entre dans les cas du tableau 5. Le tabac chauffé n'est qu'une réduction partielle des risques pour qui ne change rien d'autre.
 
 ## Prise en charge
-Les substituts multiplient par deux les chances d'arrêt. Il n'y a pas de contre-indication formelle hors hypersensibilité à un composant. On est très prudent dans l'angor instable, l'arythmie ventriculaire grave et les deux semaines après un infarctus, à cause d'un effet vasoconstricteur coronaire possible. Ce risque reste acceptable si le substitut permet d'arrêter de fumer, car le rapport bénéfice-risque est jugé favorable. Le patch forte dose est de 21 mg pendant quatre semaines, puis 14 mg pendant deux à quatre semaines, puis 7 mg pendant deux à quatre semaines, sur deux à trois mois et jusqu'à six à douze mois si besoin. La dose moyenne part de 14 mg et la faible de 7 mg. On change d'endroit entre le cou et les cuisses, sur 24 heures ou 16 heures si le sommeil est troublé. Le spray apporte 1 à 2 mg toutes les 30 à 60 minutes, au plus 64 pulvérisations par jour, et au plus 30 si un patch est déjà en place. La gomme se prend en park and chew environ 30 minutes, 8 à 12 par jour pendant quatre semaines, au plus 15, et au plus six gommes de 2 mg avec un patch. L'inhalateur va de 6 à 12 cartouches par jour, au plus 16, et au plus 4 avec un patch. Le [[w11|bupropion]] est de 150 mg une fois par jour de J0 à J7, l'arrêt du tabac se fixe à J7, puis 150 mg deux fois par jour. Il augmente d'environ 60 pour cent les chances d'arrêt à six mois contre placebo, même sans dépression. La varénicline, quand elle existait, montait de 0,5 mg une fois par jour les trois premiers jours à 0,5 mg deux fois de J4 à J7 puis 1 mg deux fois par jour. Elle n'est plus au marché. Les nausées étaient citées à 28,2 pour cent, les céphalées à 14,8 pour cent, l'insomnie à 14,1 pour cent, les rêves anormaux et la rhinopharyngite à 10,7 pour cent. Fumer avec un substitut n'est pas contre-indiqué et peut aider à baisser. L'intoxication grave par la nicotine des substituts ou des cigarettes est décrite comme hors d'atteinte. En revanche l'ingestion de liquide de vape peut intoxiquer un enfant ou survenir dans un geste suicidaire, c'est pourquoi ces flacons ne traînent pas. La technique qui consiste à fumer énormément d'un coup pour se dégoûter est déconseillée.
+Les substituts multiplient par deux les chances d'arrêt. Il n'y a pas de contre-indication formelle hors hypersensibilité à un composant. On est très prudent dans l'angor instable, l'arythmie ventriculaire grave et les deux semaines après un infarctus, à cause d'un effet vasoconstricteur coronaire possible. Ce risque reste acceptable si le substitut permet d'arrêter de fumer, car le rapport bénéfice-risque est jugé favorable. Le [[w34|patch]] forte dose est de 21 mg pendant quatre semaines, puis 14 mg pendant deux à quatre semaines, puis 7 mg pendant deux à quatre semaines, sur deux à trois mois et jusqu'à six à douze mois si besoin. La dose moyenne part de 14 mg et la faible de 7 mg. On change d'endroit entre le cou et les cuisses, sur 24 heures ou 16 heures si le sommeil est troublé. Le spray apporte 1 à 2 mg toutes les 30 à 60 minutes, au plus 64 pulvérisations par jour, et au plus 30 si un patch est déjà en place. La gomme se prend en park and chew environ 30 minutes, 8 à 12 par jour pendant quatre semaines, au plus 15, et au plus six gommes de 2 mg avec un patch. L'inhalateur va de 6 à 12 cartouches par jour, au plus 16, et au plus 4 avec un patch. Le [[w11|bupropion]] est de 150 mg une fois par jour de J0 à J7, l'arrêt du tabac se fixe à J7, puis 150 mg deux fois par jour. Il augmente d'environ 60 pour cent les chances d'arrêt à six mois contre placebo, même sans dépression. La varénicline, quand elle existait, montait de 0,5 mg une fois par jour les trois premiers jours à 0,5 mg deux fois de J4 à J7 puis 1 mg deux fois par jour. Elle n'est plus au marché. Les nausées étaient citées à 28,2 pour cent, les céphalées à 14,8 pour cent, l'insomnie à 14,1 pour cent, les rêves anormaux et la rhinopharyngite à 10,7 pour cent. Fumer avec un substitut n'est pas contre-indiqué et peut aider à baisser. L'intoxication grave par la nicotine des substituts ou des cigarettes est décrite comme hors d'atteinte. En revanche l'ingestion de liquide de vape peut intoxiquer un enfant ou survenir dans un geste suicidaire, c'est pourquoi ces flacons ne traînent pas. La technique qui consiste à fumer énormément d'un coup pour se dégoûter est déconseillée.
 
 @@w11 bupropion
 Le Zyban inhibe le recaptage de la noradrénaline et de la dopamine.
@@ -159,3 +159,103 @@ On retient que 9 500 décès suisses par an et environ dix ans de vie perdus jus
 
 ## Pièges
 Le premier piège est de croire que la nicotine du patch cause les cancers de la fumée. Le deuxième est de reporter l'arrêt d'un patient psychiatrique par peur d'une dépression, alors que deux tiers veulent arrêter et que la combustion aggrave les symptômes. Le troisième est de lire un CO sous 10 ppm comme une abstinence alors que quatre à six heures sans cigarette peuvent suffire à faire chuter la mesure. Le quatrième est d'annoncer un scanner annuel automatique, alors que la stratégie demande une décision partagée à cause des faux positifs, du surdiagnostic, du coût et du non-remboursement. Le cinquième est de proposer le tabac chauffé comme un arrêt. Il garde une addiction de cigarette et des toxiques. Le sixième est de promettre que la vape est sans danger. Elle est moins nocive d'un facteur estimé à 10-20, pas inoffensive, et les jeunes peuvent y augmenter leur dépendance. Le septième est d'inventer une posologie de cytisine. La stratégie dit l'efficacité et l'importation possible, sans dose suisse dans le passage lu. Le huitième est la technique aversive qui consiste à fumer jusqu'au dégoût. Elle est inefficace le plus souvent et déconseillée.
+
+@@w30 CO expiré
+Le CO expiré estime l'imprégnation récente et sert de miroir motivationnel, pas de diagnostic de cancer.
+
+Exemple : il dépasse en général 10 ppm chez un fumeur, sauf abstinence de quatre à six heures.
+
+On se trompe en félicitant un chiffre bas pris l'après-midi chez quelqu'un qui a fumé le matin.
+
+Stratégie tabac HUG 2024, chapitre dépistages, lue le 9 novembre 2026.
+
+@@
+
+@@w31 Spirométrie
+La spirométrie cherche un syndrome obstructif chez le fumeur ou l'ex-fumeur exposé.
+
+Exemple : la stratégie la recommande dès 20 paquets-années, surtout avec toux, crachats, sibilances ou dyspnée.
+
+On se trompe en annonçant une BPCO sur la seule toux, sans la courbe.
+
+Stratégie tabac HUG 2024, même chapitre dépistages.
+
+@@
+
+@@w32 Varénicline
+La varénicline était un agoniste partiel des récepteurs nicotiniques, retiré du marché mondial en décembre 2022.
+
+Exemple : l'ancien schéma montait de 0,5 mg une fois par jour à 1 mg deux fois par jour, avec des nausées chez 28,2 pour cent des personnes.
+
+On se trompe en la prescrivant encore comme si la boîte existait.
+
+Tableau des médicaments non nicotiniques, stratégie tabac HUG 2024.
+
+@@
+
+@@w33 Cytisine
+La cytisine est un agoniste nicotinique jugé efficace, non commercialisé en Suisse, importable sans posologie dans le texte lu.
+
+Exemple : aucune dose suisse n'est écrite dans la stratégie, donc aucune ordonnance ne peut être recopiée d'ici.
+
+On se trompe en inventant un comprimé de cytisine pour combler le retrait de la varénicline.
+
+Stratégie tabac HUG 2024, paragraphe suivant le retrait de décembre 2022.
+
+@@
+
+@@w34 Patch de nicotine
+Le patch délivre une nicotine continue pour doubler, avec les autres substituts, les chances d'arrêt.
+
+Exemple : la forte dose est 21 mg pendant quatre semaines, puis 14 mg deux à quatre semaines, puis 7 mg.
+
+On se trompe en le refusant par peur du cancer : la stratégie attribue cancers et BPCO à la combustion.
+
+Tableau des substituts, stratégie tabac HUG 2024.
+
+@@
+
+@@w35 Vapoteuse
+La vapoteuse chauffe un liquide sans combustion et contient beaucoup moins de toxiques que la fumée, sans être inoffensive.
+
+Exemple : en Suisse le liquide va de 0 à 20 mg/ml, et l'on part souvent d'environ 1 mg/ml par cigarette quotidienne.
+
+On se trompe en la proposant d'emblée à un adolescent : la stratégie la réserve à des échecs ou à un arrêt urgent de la combustion.
+
+Chapitre vapotage, stratégie tabac HUG 2024.
+
+@@
+
+@@w36 Snus
+Le snus est un tabac oral humide, sans combustion, mais porteur des toxiques du tabac et d'un risque cardiovasculaire établi.
+
+Exemple : la stratégie le juge plus nocif que des poches de nicotine orale sans tabac.
+
+On se trompe en le présentant à un sportif comme une forme anodine.
+
+Tableau des formes et paragraphe snus, stratégie tabac HUG 2024.
+
+@@
+
+@@w37 Paquets-années
+Les paquets-années mesurent l'exposition cumulée et ouvrent des dépistages, ils ne diagnostiquent pas la dépendance.
+
+Exemple : le seuil lu pour la spirométrie et pour discuter le scanner faible dose est de 20.
+
+On se trompe en les confondant avec le score de Fagerström, qui cote le manque et non les années.
+
+Stratégie tabac HUG 2024, dépistages respiratoires.
+
+@@
+
+@@w38 Sevrage nicotinique
+Le sevrage nicotinique est l'ensemble des signes de manque quand la fumée s'arrête, fréquent au-dessus de cinq cigarettes par jour.
+
+Exemple : il peut durer de trois semaines à trois mois, avec craving, insomnie, irritabilité et faim.
+
+On se trompe en y voyant un défaut de caractère ou en l'arrêtant au bout de quatre jours.
+
+Stratégie tabac HUG 2024, critères CIM-10 et clinique du manque.
+
+@@
+

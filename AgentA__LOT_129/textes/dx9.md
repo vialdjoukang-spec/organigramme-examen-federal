@@ -1,14 +1,14 @@
 ## Définition et sémantique
-L'intoxication aiguë est l'effet toxique immédiat d'une substance, ou de plusieurs, au point que la vigilance, la respiration, le cœur ou la température sont menacés. Elle n'est pas le trouble d'usage, qui se juge sur des semaines. Elle n'est pas le sevrage, qui vient du manque. Les trois peuvent se suivre chez la même personne, et les confondre retarde le geste. La SSAM, dans le chapitre intoxication de ses recommandations de 2020, dit que l'intoxication grave est le plus souvent mixte et que, sur le moment, on ignore souvent quelles substances ont été prises. Cette ignorance est la définition opérationnelle. On soigne la fonction vitale avant de nommer la molécule. Tox Info Suisse affiche le 145 comme numéro d'urgence sur sa page d'accueil, avec une rubrique premiers secours. Les schémas de traitement pour professionnels y sont liés. Ils n'ont pas été ouverts. Aucune dose d'antidote n'est donc recopiée depuis eux. Le site du 144, lu le même jour, présente l'Interverband für Rettungswesen, chaîne de sauvetage du lieu jusqu'à l'hôpital, au sol, sur l'eau et dans les airs. Composer le 144, c'est entrer dans cette chaîne. Ce n'est pas un conseil à différer.
+L'intoxication aiguë est l'effet toxique immédiat d'une substance, ou de plusieurs, au point que la vigilance, la respiration, le cœur ou la température sont menacés. Elle n'est pas le trouble d'usage, qui se juge sur des semaines. Elle n'est pas le sevrage, qui vient du manque. Les trois peuvent se suivre chez la même personne, et les confondre retarde le geste. La SSAM, dans le chapitre intoxication de ses recommandations de 2020, dit que l'intoxication grave est le plus souvent mixte et que, sur le moment, on ignore souvent quelles substances ont été prises. Cette ignorance est la définition opérationnelle. On soigne la fonction vitale avant de nommer la molécule. Tox Info Suisse affiche le [[w31|145]] comme numéro d'urgence sur sa page d'accueil, avec une rubrique premiers secours. Les schémas de traitement pour professionnels y sont liés. Ils n'ont pas été ouverts. Aucune dose d'antidote n'est donc recopiée depuis eux. Le site du [[w30|144]], lu le même jour, présente l'Interverband für Rettungswesen, chaîne de sauvetage du lieu jusqu'à l'hôpital, au sol, sur l'eau et dans les airs. Composer le 144, c'est entrer dans cette chaîne. Ce n'est pas un conseil à différer.
 
 ## Épidémiologie
-Aucun taux suisse d'intoxications aiguës n'est donné dans les pages lues. On n'en fabrique pas. On retient des faits qui changent la garde. Les décès par opioïdes ne sont pas rares et surviennent souvent avec un autre sédatif. Le fentanyl est décrit comme environ cinquante fois plus puissant que l'héroïne et cent fois plus que la morphine, si bien qu'un écart minime de quantité suffit. Les quatorze premiers jours d'une méthadone portent plus de morts, plutôt le deuxième ou le troisième jour que le premier, par œdème pulmonaire et dépression respiratoire. Hors programme, les morts à la méthadone sont liées à une tolérance perdue. Ces repères disent quand surveiller. Ils ne disent pas combien de cas Genève a vus cette année.
+Aucun taux suisse d'intoxications aiguës n'est donné dans les pages lues. On n'en fabrique pas. On retient des faits qui changent la garde. Les décès par opioïdes ne sont pas rares et surviennent souvent avec un autre sédatif. Le fentanyl est décrit comme environ cinquante fois plus puissant que l'héroïne et cent fois plus que la morphine, si bien qu'un écart minime de quantité suffit. Les quatorze premiers jours d'une [[w33|méthadone]] portent plus de morts, plutôt le deuxième ou le troisième jour que le premier, par [[w41|œdème]] pulmonaire et dépression respiratoire. Hors programme, les morts à la méthadone sont liées à une tolérance perdue. Ces repères disent quand surveiller. Ils ne disent pas combien de cas Genève a vus cette année.
 
 ## Physiopathologie
-Deux pôles se reconnaissent, et le mélange les brouille. Le pôle opioïde ralentit la respiration jusqu'à l'arrêt, serre la pupille, baisse la tension et le pouls, peut donner nausées, démangeaisons et rétention. Le cerveau manque alors d'oxygène. Le pôle stimulant dilate la pupille, accélère le cœur, monte la pression et la chaleur. Pour l'amphétamine, Infodrog va jusqu'à 41 degrés, avec déshydratation et surchauffe qui tue, infarctus, convulsion, défaillance d'organe. La MDMA partage la chaleur quand la pièce est chaude, la danse longue et l'eau insuffisante, sans que la page ne fixe le même nombre de degrés. On n'aligne donc pas 41 sur toutes les molécules. Les benzodiazépines et les médicaments Z ralentissent aussi la respiration. Avec l'alcool ou un opioïde, Infodrog décrit la perte de conscience et la paralysie respiratoire. L'association cocaïne et alcool crée le cocaéthylène, plus dur pour le cœur. Un opioïde et un stimulant tirent le cœur dans les deux sens. On ne décrit pas comment les associer. On décrit pourquoi le tableau devient illisible.
+Deux pôles se reconnaissent, et le mélange les brouille. Le pôle opioïde ralentit la respiration jusqu'à l'arrêt, serre la [[w35|pupille]], baisse la tension et le pouls, peut donner nausées, démangeaisons et rétention. Le cerveau manque alors d'[[w40|oxygène]]. Le pôle stimulant dilate la pupille, accélère le cœur, monte la pression et la chaleur. Pour l'[[w38|amphétamine]], Infodrog va jusqu'à 41 degrés, avec déshydratation et surchauffe qui tue, infarctus, [[w44|convulsion]], défaillance d'organe. La [[w39|MDMA]] partage la chaleur quand la pièce est chaude, la danse longue et l'eau insuffisante, sans que la page ne fixe le même nombre de degrés. On n'aligne donc pas 41 sur toutes les molécules. Les benzodiazépines et les [[w43|médicaments Z]] ralentissent aussi la respiration. Avec l'alcool ou un opioïde, Infodrog décrit la perte de conscience et la paralysie respiratoire. L'association cocaïne et alcool crée le [[w36|cocaéthylène]], plus dur pour le cœur. Un opioïde et un stimulant tirent le cœur dans les deux sens. On ne décrit pas comment les associer. On décrit pourquoi le tableau devient illisible.
 
 ## Étiologie et facteurs de risque
-Le risque monte quand la puissance est inconnue, quand la tolérance a chuté après une pause, quand un sédatif s'ajoute, quand la personne est âgée sous benzodiazépine parce que l'élimination est plus lente et le cerveau plus sensible, et quand un enfant avale un liquide de vapotage. Ce dernier cas est écrit dans la stratégie tabac des HUG. Il n'est pas une intoxication par la fumée. C'est une ingestion. La grossesse ajoute un risque fœtal, déjà détaillé dans les fichiers de chaque substance. Ici, on retient de ne pas attendre pour oxygéner la mère. Le cadre festif, chaud, sans eau, est le terrain de la surchauffe sous MDMA. Le marché noir, qualité non garantie, est le terrain de la SSAM pour la cocaïne. Aucun de ces terrains ne donne une dose sûre. Il n'y en a pas dans les textes.
+Le risque monte quand la puissance est inconnue, quand la tolérance a chuté après une pause, quand un sédatif s'ajoute, quand la personne est âgée sous [[w37|benzodiazépine]] parce que l'élimination est plus lente et le cerveau plus sensible, et quand un enfant avale un liquide de vapotage. Ce dernier cas est écrit dans la stratégie tabac des HUG. Il n'est pas une intoxication par la fumée. C'est une ingestion. La grossesse ajoute un risque fœtal, déjà détaillé dans les fichiers de chaque substance. Ici, on retient de ne pas attendre pour oxygéner la mère. Le cadre festif, chaud, sans eau, est le terrain de la surchauffe sous MDMA. Le marché noir, qualité non garantie, est le terrain de la SSAM pour la cocaïne. Aucun de ces terrains ne donne une dose sûre. Il n'y en a pas dans les textes.
 
 ## Anamnèse
 Si la personne parle, on demande quoi, quelle heure, quelle quantité approximative sans la convertir en dose létale, et quoi d'autre : alcool, somnifère, opioïde, stimulant. On demande une grossesse, un traitement agoniste en cours, une pause récente qui aurait fait fondre la tolérance. On demande qui a vu la scène et si un antidote a déjà été donné. Si elle ne parle pas, l'anamnèse est celle du proche, plus les constantes. On ne perd pas des minutes à identifier un comprimé par sa couleur. Tox Info peut aider au téléphone. Le 144 transporte. Les deux numéros ne se remplacent pas.
@@ -57,10 +57,10 @@ Naloxone|pas de milligrammes dans le chapitre lu|utile contre un agoniste, peu u
 %%
 
 ## Arbre décisionnel
-Elle ne respire pas ou presque : on ventile, on appelle le 144, on ne cherche pas le nom du produit d'abord. Elle respire, elle est chaude ou convulse ou a mal à la poitrine : 144 aussi, et l'on sort de la chaleur. Elle respire bien, elle somnole, un proche reste : 145 pour le conseil, hôpital si le produit a une longue demi-vie ou si un antagoniste a déjà été donné. Elle va bien et raconte une prise ancienne sans signe : ce n'est pas cette urgence. On organise le suivi du trouble d'usage, pas une ambulance de principe. Un enfant qui a avalé un liquide : 145 et 144 selon la vigilance, flacon gardé pour le dire, pas pour le goûter.
+Elle ne respire pas ou presque : on ventile, on appelle le 144, on ne cherche pas le nom du produit d'abord. Elle respire, elle est chaude ou convulse ou a mal à la poitrine : 144 aussi, et l'on sort de la chaleur. Elle respire bien, elle somnole, un proche reste : 145 pour le conseil, hôpital si le produit a une longue demi-vie ou si un antagoniste a déjà été donné. Elle va bien et raconte une prise ancienne sans signe : ce n'est pas cette urgence. On organise le suivi du trouble d'usage, pas une ambulance de principe. Un enfant qui a avalé un liquide : 145 et 144 selon la vigilance, [[w42|flacon]] gardé pour le dire, pas pour le goûter.
 
 ## Prise en charge
-La mesure de grade le plus haut dans le chapitre SSAM est d'assurer l'oxygène. L'hôpital est recommandé pour surveiller, et il devient urgent si de la naloxone a été donnée, à cause de l'œdème qui peut venir après et parce que la naloxone dure moins longtemps que la plupart des opioïdes. La personne peut se rendormir, surtout si elle reprend quelque chose dans la fenêtre du manque. Contre la buprénorphine, les doses usuelles de naloxone sont largement inefficaces, l'affinité étant moindre. Le texte dit qu'il faudrait des doses très hautes. Il ne les chiffre pas. On ne les chiffre pas non plus. Une naloxone nasale par un proche peut sauver lors de surdoses répétées. Elle ne remplace pas la chaîne du 144. Si l'intoxication s'installe sur plusieurs jours sous agoniste, la SSAM propose de baisser vite la dose, par exemple de moitié. C'est un geste de traitement, pas de rue. On ne l'applique pas à l'aveugle sur un produit inconnu.
+La mesure de grade le plus haut dans le chapitre SSAM est d'assurer l'oxygène. L'hôpital est recommandé pour surveiller, et il devient urgent si de la [[w32|naloxone]] a été donnée, à cause de l'œdème qui peut venir après et parce que la naloxone dure moins longtemps que la plupart des opioïdes. La personne peut se rendormir, surtout si elle reprend quelque chose dans la fenêtre du manque. Contre la [[w34|buprénorphine]], les doses usuelles de naloxone sont largement inefficaces, l'affinité étant moindre. Le texte dit qu'il faudrait des doses très hautes. Il ne les chiffre pas. On ne les chiffre pas non plus. Une naloxone nasale par un proche peut sauver lors de surdoses répétées. Elle ne remplace pas la chaîne du 144. Si l'intoxication s'installe sur plusieurs jours sous agoniste, la SSAM propose de baisser vite la dose, par exemple de moitié. C'est un geste de traitement, pas de rue. On ne l'applique pas à l'aveugle sur un produit inconnu.
 
 On ne donne pas à boire à quelqu'un qui n'avale pas. On ne fait pas vomir. Aucune page lue ne le recommande, et les schémas Tox Info n'ont pas été ouverts. On ne calcule pas une dose mortelle pour décider. La SSAM dit qu'une dose létale de méthadone ne se fixe pas, les facteurs génétiques comptant. Infodrog dit que la marge est étroite pour les opioïdes puissants, sans donner un milligramme universel. S'arrêter à cette phrase protège. Inventer le milligramme tuerait la crédibilité et, peut-être, quelqu'un.
 
@@ -182,3 +182,169 @@ On retient que l'intoxication aiguë se décide sur la respiration, le cœur, la
 
 ## Pièges
 Le premier piège est d'attendre le nom du produit pour donner l'oxygène. Le deuxième est d'inventer les milligrammes de naloxone ou de charbon. Le troisième est de croire qu'une naloxone habituelle réveille une buprénorphine. Le quatrième est de laisser sortir après le réveil, alors que l'effet retombe et que l'œdème peut venir. Le cinquième est d'appliquer 41 degrés à toutes les molécules. Ce nombre est celui de l'amphétamine dans la page lue. Le sixième est de couvrir une personne déjà trop chaude. Le septième est de donner un somnifère à un mélange sédatif. Le huitième est de calculer une dose mortelle pour rassurer. Le neuvième est de confondre cette urgence avec le trouble d'usage ou avec le sevrage du lendemain. Le dixième est d'ouvrir les schémas Tox Info en prétendant les avoir lus. Ils sont liés sur la page. Ils ne sont pas dans ce fichier.
+
+@@w30 Numéro 144
+Le 144 lance la chaîne de secours, du lieu vers l'hôpital.
+
+Exemple : une poitrine qui ne se soulève plus fait composer le 144 avant le nom du produit.
+
+On se trompe en finissant l'interrogatoire pendant que l'air manque.
+
+Site de l'Interverband, lu le 9 novembre 2026, monographie de l'intoxication.
+
+@@
+
+@@w31 Numéro 145
+Le 145 conseille sur le poison quand Tox Info Suisse est joint, sans remplacer l'ambulance.
+
+Exemple : un cachet inconnu chez un lycéen encore stable se décrit au 145, avec l'heure.
+
+On se trompe en citant un schéma d'antidote que l'accueil annonce mais que ce fichier n'a pas ouvert.
+
+Accueil Tox Info Suisse, 9 novembre 2026, monographie intoxication.
+
+@@
+
+@@w32 Naloxone
+La naloxone renverse un agoniste opioïde puis dure moins longtemps que lui, d'où un rendormissement possible.
+
+Exemple : après une dose nasale donnée par un proche, l'hôpital devient urgent à cause de l'œdème qui peut suivre.
+
+On se trompe en inventant les milligrammes : le chapitre SSAM ne les chiffre pas.
+
+Chapitre intoxication, SSAM 16 juillet 2020.
+
+@@
+
+@@w33 Méthadone
+La méthadone a une demi-vie longue : l'intoxication ne se juge pas sur la première heure seule.
+
+Exemple : en induction, les décès lus tombent plutôt le deuxième ou le troisième jour.
+
+On se trompe en reprenant l'ancienne dose après une pause, quand la tolérance a fondu.
+
+Même chapitre SSAM, demi-vie et tolérance.
+
+@@
+
+@@w34 Buprénorphine
+La buprénorphine tient le récepteur plus fort que la naloxone, si bien que les doses usuelles d'antagoniste échouent largement.
+
+Exemple : on assure quand même l'oxygène et l'hôpital, sans promettre un réveil.
+
+On se trompe en annonçant une dose haute de naloxone qui n'est pas écrite.
+
+SSAM 2020, paragraphe sur l'affinité de la buprénorphine.
+
+@@
+
+@@w35 Pupille serrée
+La pupille en tête d'épingle, avec une respiration rare, oriente vers l'opioïde sans le certifier.
+
+Exemple : on ventile et on appelle même si un stimulant a pu être mêlé.
+
+On se trompe en choisissant l'antidote sur ce seul signe.
+
+Page Infodrog opioïdes, signes aigus, monographie intoxication.
+
+@@
+
+@@w36 Cocaéthylène
+Le cocaéthylène se forme quand cocaïne et alcool sont pris ensemble et pèse davantage sur le cœur.
+
+Exemple : une douleur thoracique dans ce récit part aux urgences comme un syndrome coronarien possible.
+
+On se trompe en rassurant parce que la personne a surtout bu.
+
+Page Infodrog cocaïne, rappelée pour l'intoxication aiguë.
+
+@@
+
+@@w37 Benzodiazépine
+La benzodiazépine ralentit la respiration et, avec un opioïde ou de l'alcool, peut la paralyser.
+
+Exemple : un somnifère d'un ami ajouté à une méthadone et une bière n'est pas un sommeil, c'est souvent une voie qui se ferme.
+
+On se trompe en ajoutant un deuxième calmant pour la nuit.
+
+Page Infodrog benzodiazépines, mélanges sédatifs.
+
+@@
+
+@@w38 Amphétamine
+L'amphétamine en surdosage peut porter la température jusqu'à 41 degrés.
+
+Exemple : on découvre, on sort de la pièce, on n'attend pas le dernier degré pour appeler si la chaleur est déjà clinique.
+
+On se trompe en remettant une couverture parce que la personne tremble.
+
+Page Infodrog amphétamines, utilisée ici pour l'urgence thermique.
+
+@@
+
+@@w39 MDMA
+La MDMA peut mettre jusqu'à quatre-vingt-dix minutes à agir et surchauffe dans une pièce close.
+
+Exemple : une seconde pilule prise parce que la première semble inactive est le piège de ce délai.
+
+On se trompe en collant le seuil de 41 degrés, qui n'est écrit que pour l'amphétamine.
+
+Page Infodrog MDMA, délais et chaleur, monographie intoxication.
+
+@@
+
+@@w40 Oxygène
+L'oxygène est la mesure de grade le plus haut du chapitre SSAM, avant le nom du produit.
+
+Exemple : on le demande ou on ventile dès que la poitrine ne se soulève plus.
+
+On se trompe en partant chercher un dossier en laissant la personne seule.
+
+SSAM 16 juillet 2020, recommandation de grade A sur l'oxygène.
+
+@@
+
+@@w41 Œdème pulmonaire
+L'œdème pulmonaire non cardiogénique accompagne l'opioïde grave, et l'hyperventilation de besoin peut manquer.
+
+Exemple : il motive l'hôpital après naloxone, même si les yeux se sont rouverts.
+
+On se trompe en laissant repartir quelqu'un réveillé.
+
+Chapitre intoxication SSAM, œdème et demi-vie de la naloxone.
+
+@@
+
+@@w42 Liquide de vapotage
+Avaler un liquide de vapoteuse peut intoxiquer un enfant, à l'inverse du patch porté en fumant encore.
+
+Exemple : on garde le flacon pour le nommer au 145 et l'on ne fait pas vomir.
+
+On se trompe en donnant du lait ou un vomitif, qui ne sont pas dans la stratégie lue.
+
+Stratégie tabac HUG 2024, passage sur l'ingestion de liquide.
+
+@@
+
+@@w43 Médicaments Z
+Le zolpidem et la zopiclone ne sont pas chimiquement des benzodiazépines mais partagent une grande part de leurs risques.
+
+Exemple : chez l'aîné, l'élimination plus lente allonge l'effet et la chute peut être une intoxication.
+
+On se trompe en mettant la confusion sur le seul compte de l'âge.
+
+Page Infodrog benzodiazépines, analogues Z.
+
+@@
+
+@@w44 Convulsion
+Une convulsion se protège, se chronomètre, et part avec le 144 si elle ne cède pas.
+
+Exemple : Infodrog la cite pour la MDMA, l'amphétamine, et l'arrêt brutal d'une benzodiazépine.
+
+On se trompe en mettant un objet dans la bouche, geste écrit nulle part ici.
+
+Pages Infodrog MDMA, amphétamines et benzodiazépines, geste commun de l'urgence.
+
+@@
+

@@ -1,5 +1,5 @@
 ## Définition et sémantique
-Ce syndrome rassemble les usages non médicaux et les addictions que le cabinet de premier recours doit trier avant de les soigner une par une. Dix diagnostics en sortent. Le [[w1|tabagisme]] est une maladie de la fumée et de la nicotine, pas un défaut. Le trouble de l'usage d'alcool se juge en verres et en manque. Le trouble de l'usage d'opioïdes est une maladie chronique dont le traitement agoniste est la première intention lue. Le trouble de l'usage de cannabis est l'usage illégal le plus répandu en Suisse selon Infodrog, sans que tout usage soit un trouble. Le trouble de l'usage de stimulants n'a pas de médicament établi pour la cocaïne. L'usage problématique de médicaments contrôlés vise ici surtout les benzodiazépines, les médicaments Z et les antalgiques détournés. Le jeu d'argent excessif mise de l'argent. L'usage excessif des jeux vidéo est entré dans la CIM-11 en 2022 comme trouble du jeu vidéo, et Infodrog rappelle que c'est l'usage, pas l'écran, qui fait l'addiction. L'intoxication aiguë est le danger de cette heure. Le syndrome de sevrage menaçant est le danger de l'arrêt. Les confondre fait donner un sermon à quelqu'un qui ne respire plus, ou un calmant à quelqu'un qui en a déjà trop.
+Ce syndrome rassemble les usages non médicaux et les addictions que le cabinet de premier recours doit trier avant de les soigner une par une. Dix diagnostics en sortent. Le [[w1|tabagisme]] est une maladie de la fumée et de la nicotine, pas un défaut. Le trouble de l'usage d'alcool se juge en verres et en manque. Le trouble de l'usage d'opioïdes est une maladie chronique dont le traitement agoniste est la première intention lue. Le trouble de l'usage de [[w36|cannabis]] est l'usage illégal le plus répandu en Suisse selon Infodrog, sans que tout usage soit un trouble. Le trouble de l'usage de stimulants n'a pas de médicament établi pour la [[w37|cocaïne]]. L'usage problématique de médicaments contrôlés vise ici surtout les [[w34|benzodiazépines]], les médicaments Z et les antalgiques détournés. Le jeu d'argent excessif mise de l'argent. L'usage excessif des jeux vidéo est entré dans la [[w33|CIM-11]] en 2022 comme trouble du jeu vidéo, et Infodrog rappelle que c'est l'usage, pas l'[[w40|écran]], qui fait l'addiction. L'intoxication aiguë est le danger de cette heure. Le syndrome de [[w41|sevrage]] menaçant est le danger de l'arrêt. Les confondre fait donner un sermon à quelqu'un qui ne respire plus, ou un calmant à quelqu'un qui en a déjà trop.
 
 @@w1 tabagisme
 La stratégie HUG de 2024 le traite comme une maladie, à chercher chez chaque patient.
@@ -12,13 +12,13 @@ Stratégie lue le 9 novembre 2026.
 Les chiffres lus ne se mélangent pas. Pour le tabac, la stratégie HUG retient 9 500 décès suisses par an, environ dix ans de vie perdus, 22,1 pour cent de fumeurs de plus de 15 ans en 2022 dont 12,7 pour cent quotidiens, et 28,1 pour cent chez les 15-24 ans. Pour les opioïdes, la SSAM estime environ 25 000 personnes dépendantes, dont environ 18 400 en traitement agoniste en 2018. Pour la cocaïne, elle dit qu'elle est, avec le cannabis, la substance illégale la plus consommée, sans pourcentage dans le papier du 20 janvier 2024. Infodrog dit que le cannabis est la substance illégale la plus consommée, surtout chez les jeunes, les jeunes adultes et les hommes. Les benzodiazépines arrivent troisièmes pour la dépendance, après le tabac et l'alcool. Le jeu d'argent n'a pas de prévalence dans les pages ouvertes. Les jeux vidéo n'ont pas non plus de taux suisse dans la page lue. On n'en invente pas. Le triage n'a pas besoin d'un taux pour recevoir la personne qui est là.
 
 ## Physiopathologie
-Chaque famille a son mécanisme, et le premier recours n'a pas à les réciter tous pour agir. La fumée apporte des milliers de toxiques. L'alcool manque et le système nerveux s'excite. L'opioïde freine la respiration et serre la pupille. Le stimulant accélère le cœur et peut chauffer. Le cannabis, fumé, irrite les bronches et, pris tôt ou longtemps, peut précipiter une psychose ou une dépression. La benzodiazépine calme, puis rend dépendant, puis convulse si on la coupe net. Le jeu d'argent associe la mise au soulagement, puis le soulagement s'émousse. Le jeu vidéo, selon Infodrog, modifie le circuit de récompense sans être une substance, et la CIM-11 le reconnaît depuis 2022. L'intoxication est l'excès de l'heure. Le sevrage est le manque. Retenir ces contrastes suffit à choisir le bon fichier. Les doses et les délais sont dans les monographies, pas répétés ici mot pour mot.
+Chaque famille a son mécanisme, et le premier recours n'a pas à les réciter tous pour agir. La fumée apporte des milliers de toxiques. L'alcool manque et le système nerveux s'excite. L'opioïde freine la respiration et serre la [[w39|pupille]]. Le stimulant accélère le cœur et peut chauffer. Le cannabis, fumé, irrite les bronches et, pris tôt ou longtemps, peut précipiter une psychose ou une dépression. La benzodiazépine calme, puis rend dépendant, puis convulse si on la coupe net. Le jeu d'argent associe la mise au soulagement, puis le soulagement s'émousse. Le jeu vidéo, selon Infodrog, modifie le circuit de récompense sans être une substance, et la CIM-11 le reconnaît depuis 2022. L'intoxication est l'excès de l'heure. Le sevrage est le manque. Retenir ces contrastes suffit à choisir le bon fichier. Les doses et les délais sont dans les monographies, pas répétés ici mot pour mot.
 
 ## Étiologie et facteurs de risque
-Les risques qui changent le tri sont l'âge, la grossesse, le mélange, la pause qui fait fondre une tolérance, la chaleur d'une fête, un mineur devant un casino en ligne, un somnifère qui dure depuis des mois, une douleur qui a glissé vers l'euphorie. La grossesse concentre plusieurs interdits lus : tabac, alcool, cannabis, stimulants, benzodiazépines. On n'en fait pas une morale. On en fait une adresse obstétricale. Le mélange sédatif, alcool plus benzodiazépine plus opioïde, est celui qui arrête la respiration. Le mélange stimulant plus alcool aggrave le cœur. Un adolescent cumule le tabac, le cannabis, les puffs, le jeu et les écrans. On demande les cinq, pas un seul. Un aîné cumule le somnifère et la chute. On ne met pas la chute sur le compte de l'âge avant d'avoir regardé la boîte.
+Les risques qui changent le tri sont l'âge, la grossesse, le mélange, la pause qui fait fondre une tolérance, la chaleur d'une fête, un mineur devant un casino en ligne, un [[w43|somnifère]] qui dure depuis des mois, une douleur qui a glissé vers l'euphorie. La grossesse concentre plusieurs interdits lus : tabac, alcool, cannabis, stimulants, benzodiazépines. On n'en fait pas une morale. On en fait une adresse obstétricale. Le mélange sédatif, alcool plus benzodiazépine plus opioïde, est celui qui arrête la respiration. Le mélange stimulant plus alcool aggrave le cœur. Un adolescent cumule le tabac, le cannabis, les puffs, le jeu et les écrans. On demande les cinq, pas un seul. Un aîné cumule le somnifère et la chute. On ne met pas la chute sur le compte de l'âge avant d'avoir regardé la boîte.
 
 ## Anamnèse
-L'entretien commence par la permission, comme les six A du tabac, puis par la fonction vitale si quelque chose cloche. On demande quoi, depuis quand, avec quoi d'autre, et ce que la personne veut. On demande l'argent si c'est un jeu, les heures d'écran si c'est un jeu vidéo, les verres si c'est l'alcool, les cigarettes si c'est le tabac, la dernière prise si c'est un opioïde ou un stimulant. On demande les idées de mort, parce que le jeu, l'amphétamine et la dépression associée les portent, sans qu'un taux unique ait été lu. On demande la conduite. On demande la grossesse. On n'enchaîne pas dix questionnaires. On choisit celui du diagnostic une fois le tri fait. Forcer un score pendant une détresse respiratoire est une faute de triage, pas une vertu d'exhaustivité.
+L'entretien commence par la permission, comme les six A du tabac, puis par la fonction vitale si quelque chose cloche. On demande quoi, depuis quand, avec quoi d'autre, et ce que la personne veut. On demande l'argent si c'est un jeu, les heures d'écran si c'est un jeu vidéo, les verres si c'est l'alcool, les cigarettes si c'est le tabac, la dernière prise si c'est un opioïde ou un stimulant. On demande les idées de mort, parce que le jeu, l'[[w42|amphétamine]] et la dépression associée les portent, sans qu'un taux unique ait été lu. On demande la conduite. On demande la grossesse. On n'enchaîne pas dix questionnaires. On choisit celui du diagnostic une fois le tri fait. Forcer un score pendant une détresse respiratoire est une faute de triage, pas une vertu d'exhaustivité.
 
 ## Examen physique
 On compte la respiration, on prend le pouls et la température, on regarde la pupille, avant le reste. Une pupille serrée et une respiration lente orientent vers l'opioïde. Une pupille large et une chaleur orientent vers le stimulant. Ni l'une ni l'autre ne prouvent la molécule si un mélange est possible. Le nez, les dents, la toux, le tremblement, l'amaigrissement se notent ensuite, selon le récit. Le jeu d'argent et le jeu vidéo n'ont pas de signe cutané spécifique dans les pages lues. Leur examen est psychique et social : sommeil, agitation, dettes, posture, céphalées, vue. On n'invente pas un réflexe pathognomonique. On écoute assez longtemps pour le suicide et la honte.
@@ -30,7 +30,7 @@ Quatre portes. Si la vie est en jeu maintenant, c'est l'intoxication aiguë, et 
 Le diagnostic positif du syndrome n'est pas un onzième nom. C'est le choix parmi les dix, avec les mots exacts de la liste. On les aligne pour que chacun soit retrouvable. Le tabagisme se positif par la fumée et la dépendance nicotinique. Le trouble de l'usage d'alcool se positif par les seuils et le manque. Le trouble de l'usage d'opioïdes se positif par la perte de contrôle et le sevrage, pas par un taux. Le trouble de l'usage de cannabis se positif par le retentissement, pas par le seul fait d'avoir essayé. Le trouble de l'usage de stimulants se positif par le craving et les dégâts, sans dosage sanguin lu. L'usage problématique de médicaments contrôlés se positif quand la durée, la dose ou le but ont dérapé. Le jeu d'argent excessif se positif par la perte de contrôle et les dettes. L'usage excessif des jeux vidéo se positif par la priorité du jeu sur le reste, au sens de la CIM-11 depuis 2022. L'intoxication aiguë se positif par la fonction vitale. Le syndrome de sevrage menaçant se positif par le manque dangereux. Un seul de ces dix suffit à ouvrir un soin. Plusieurs peuvent coexister. On les écrit tous ceux qui sont vrais, pas un fourre-tout.
 
 ## Examens complémentaires
-Il n'existe pas un seul gold standard de laboratoire pour les dix. La première intention est le tri clinique, puis l'outil du diagnostic retenu. Le tabac a le CO expiré comme miroir, pas comme preuve de cancer. L'alcool a ses questionnaires et, plus tard, une biologie qui ne pose pas le diagnostic seule. L'opioïde a un creux de méthadone seulement au-dessus de 120 mg si le sevrage persiste. Le cannabis peut rester positif dans le sang au-delà de douze heures et plusieurs jours dans l'urine, ce qui ne dit pas l'intoxication de cette minute. Les stimulants n'ont pas de seuil sanguin lu. Les médicaments contrôlés non plus dans les pages ouvertes. Le jeu d'argent et le jeu vidéo n'ont pas de tube. L'intoxication aiguë se décide sans attendre un tube. Le sevrage menaçant non plus. Le tableau range ces choix. Le schéma rappelle seulement quel numéro composer pendant le tri.
+Il n'existe pas un seul gold standard de laboratoire pour les dix. La première intention est le tri clinique, puis l'outil du diagnostic retenu. Le tabac a le CO expiré comme miroir, pas comme preuve de cancer. L'alcool a ses questionnaires et, plus tard, une biologie qui ne pose pas le diagnostic seule. L'opioïde a un creux de [[w35|méthadone]] seulement au-dessus de 120 mg si le sevrage persiste. Le cannabis peut rester positif dans le sang au-delà de douze heures et plusieurs jours dans l'urine, ce qui ne dit pas l'intoxication de cette minute. Les stimulants n'ont pas de seuil sanguin lu. Les médicaments contrôlés non plus dans les pages ouvertes. Le jeu d'argent et le jeu vidéo n'ont pas de tube. L'intoxication aiguë se décide sans attendre un tube. Le sevrage menaçant non plus. Le tableau range ces choix. Le schéma rappelle seulement quel numéro composer pendant le tri.
 
 %%TABLE
 Diagnostic de la liste|Ce qui décide|Ce qu'on ne fait pas|Où ça mène
@@ -68,13 +68,13 @@ Syndrome de sevrage menaçant|manque dangereux, convulsion|couper net une benzod
 %%
 
 ## Arbre décisionnel
-On regarde d'abord si ça respire, si le cœur tient, si la personne est brûlante ou convulse. Oui : intoxication aiguë, 144, et 145 si l'on peut dire le produit. Non : on demande si un arrêt est en cours et s'il menace, convulsion après benzodiazépine, agitation majeure, sevrage d'alcool bruyant. Oui : syndrome de sevrage menaçant, on ne coupe pas davantage, on sécurise. Non : on classe l'usage. Fumée : tabagisme. Verres : trouble de l'usage d'alcool. Opioïde illicite ou traitement agoniste : trouble de l'usage d'opioïdes. Cannabis avec retentissement : trouble de l'usage de cannabis. Cocaïne, amphétamine ou MDMA : trouble de l'usage de stimulants. Somnifère, Z ou antalgique détourné : usage problématique de médicaments contrôlés. Mise d'argent : jeu d'argent excessif. Jeu sur écran sans mise, ou avec loot boxes que la page politique range à part : usage excessif des jeux vidéo, en se rappelant que la CIM-11 vise le jeu vidéo depuis 2022. Plusieurs cases peuvent être cochées. Aucune case vitale ne s'efface parce qu'une case d'usage est plus intéressante.
+On regarde d'abord si ça respire, si le cœur tient, si la personne est brûlante ou convulse. Oui : intoxication aiguë, [[w30|144]], et [[w31|145]] si l'on peut dire le produit. Non : on demande si un arrêt est en cours et s'il menace, convulsion après benzodiazépine, agitation majeure, sevrage d'alcool bruyant. Oui : syndrome de sevrage menaçant, on ne coupe pas davantage, on sécurise. Non : on classe l'usage. Fumée : tabagisme. Verres : trouble de l'usage d'alcool. Opioïde illicite ou traitement agoniste : trouble de l'usage d'opioïdes. Cannabis avec retentissement : trouble de l'usage de cannabis. Cocaïne, amphétamine ou MDMA : trouble de l'usage de stimulants. Somnifère, Z ou antalgique détourné : usage problématique de médicaments contrôlés. Mise d'argent : jeu d'argent excessif. Jeu sur écran sans mise, ou avec loot boxes que la page politique range à part : usage excessif des jeux vidéo, en se rappelant que la CIM-11 vise le jeu vidéo depuis 2022. Plusieurs cases peuvent être cochées. Aucune case vitale ne s'efface parce qu'une case d'usage est plus intéressante.
 
 ## Prise en charge
-Le premier quart d'heure est commun. Air, numéros, pas de dose inventée, pas de vomissement provoqué. Ensuite les chemins divergent et ne doivent pas être résumés en un seul ordonnancier. Le tabac a des substituts chiffrés et un bupropion chiffré dans la stratégie HUG. L'alcool a ses propres seuils et son propre sevrage, dans son fichier. L'opioïde a une induction basse, pas plus de 30 mg de méthadone pour commencer, et un entretien titré. Le stimulant cocaïne n'a pas de médicament établi au 20 janvier 2024. Le cannabis n'a pas de posologie d'arrêt dans la page lue. La benzodiazépine s'arrête progressivement, jamais d'un coup, et ne devrait pas dépasser quatre semaines en règle. Le jeu d'argent a sos-jeu.ch et l'exclusion, pas une molécule. Le jeu vidéo a le sommeil, l'école, la limite de temps, pas un dosage. L'intoxication a le 144. Le sevrage menaçant a la sécurité et la reprise progressive quand c'est une benzodiazépine. Appliquer le patch du tabac à un sevrage de benzodiazépine, ou la méthadone à un jeu vidéo, serait absurde. Le syndrome sert à ne pas faire cette confusion, pas à tout traiter pareil.
+Le premier quart d'heure est commun. Air, numéros, pas de dose inventée, pas de vomissement provoqué. Ensuite les chemins divergent et ne doivent pas être résumés en un seul ordonnancier. Le tabac a des substituts chiffrés et un bupropion chiffré dans la stratégie HUG. L'alcool a ses propres seuils et son propre sevrage, dans son fichier. L'opioïde a une induction basse, pas plus de 30 mg de méthadone pour commencer, et un entretien titré. Le stimulant cocaïne n'a pas de médicament établi au 20 janvier 2024. Le cannabis n'a pas de posologie d'arrêt dans la page lue. La benzodiazépine s'arrête progressivement, jamais d'un coup, et ne devrait pas dépasser quatre semaines en règle. Le jeu d'argent a [[w38|sos-jeu]].ch et l'exclusion, pas une molécule. Le jeu vidéo a le sommeil, l'école, la limite de temps, pas un dosage. L'intoxication a le 144. Le sevrage menaçant a la sécurité et la reprise progressive quand c'est une benzodiazépine. Appliquer le patch du tabac à un sevrage de benzodiazépine, ou la méthadone à un jeu vidéo, serait absurde. Le syndrome sert à ne pas faire cette confusion, pas à tout traiter pareil.
 
 ## Prévention
-La prévention commune est de demander, tôt, sans attendre le dégât. La stratégie tabac le dit pour chaque patient. Infodrog le dit pour retarder le premier usage des autres produits. Les numéros se donnent avant la crise : 144 pour la chaîne de secours, 145 pour le poison, 147 pour un enfant ou un adolescent, 143 si la détresse psychique a besoin d'une oreille, numéro vu sur sa page d'accueil dans une lecture antérieure du même jour de travail et à reconfirmer si l'on s'en sert. On n'ajoute pas ici un mode d'emploi de consommation. On range les liquides, on limite les semaines de somnifère, on dit les âges du jeu d'argent, on parle des écrans comme d'un usage et non d'un objet maudit. La grossesse est une fenêtre de prévention pour plusieurs de ces dix, pas pour un seul. Le mélange sédatif se dit aux personnes âgées et à celles qui ont un agoniste. Une phrase préventive juste vaut mieux qu'une affiche qui invente un pourcentage.
+La prévention commune est de demander, tôt, sans attendre le dégât. La stratégie tabac le dit pour chaque patient. Infodrog le dit pour retarder le premier usage des autres produits. Les numéros se donnent avant la crise : 144 pour la chaîne de secours, 145 pour le poison, [[w32|147]] pour un enfant ou un adolescent, 143 si la détresse psychique a besoin d'une oreille, numéro vu sur sa page d'accueil dans une lecture antérieure du même jour de travail et à reconfirmer si l'on s'en sert. On n'ajoute pas ici un mode d'emploi de consommation. On range les liquides, on limite les semaines de somnifère, on dit les âges du jeu d'argent, on parle des écrans comme d'un usage et non d'un objet maudit. La grossesse est une fenêtre de prévention pour plusieurs de ces dix, pas pour un seul. Le mélange sédatif se dit aux personnes âgées et à celles qui ont un agoniste. Une phrase préventive juste vaut mieux qu'une affiche qui invente un pourcentage.
 
 Une matinée de cabinet peut voir les dix sans que ce soit une garde d'urgences. Le premier patient fume depuis vingt ans et tousse. On ouvre le tabagisme, on demande la permission, on ne commence pas par un scanner. Le deuxième boit chaque soir au-dessus de ce qu'il appelle un verre, et il tremble le matin. On n'ouvre pas un jeu vidéo. On ouvre le trouble de l'usage d'alcool, et si le tremblement s'accompagne d'une confusion on bascule vers le sevrage menaçant plutôt que vers un conseil. Le troisième a une méthadone et ajoute des somnifères d'un voisin. On ouvre à la fois le trouble de l'usage d'opioïdes et l'usage problématique de médicaments contrôlés, et l'on surveille la respiration avant de discuter la dose.
 
@@ -185,3 +185,158 @@ On retient les dix noms et la porte qui y mène. On retient que l'air passe avan
 
 ## Pièges
 Le premier piège est de traiter les dix comme une seule maladie avec une seule ordonnance. Le deuxième est d'ouvrir un score pendant que la respiration s'arrête. Le troisième est de couper net un somnifère et d'appeler cela une prévention. Le quatrième est d'inventer une prévalence de jeu ou de cannabis au-delà de la phrase lue. Le cinquième est de prescrire un stimulant pour remplacer la cocaïne. Le sixième est d'utiliser un test urinaire de cannabis comme preuve que la personne est intoxiquée maintenant. Le septième est de blâmer l'écran plutôt que l'usage. Le huitième est de menacer un joueur d'une peine pour un site illégal. Le neuvième est de citer un schéma Tox Info non ouvert. Le dixième est de répéter, d'un fichier à l'autre, la même phrase pour gonfler. Chaque diagnostic a son texte. Celui-ci ne fait que les tenir ensemble.
+
+@@w30 Numéro 144
+Le 144 déclenche la chaîne de sauvetage suisse, du lieu de l'événement jusqu'à l'hôpital, au sol, sur l'eau ou dans les airs.
+
+Exemple : une respiration qui se raréfie fait composer le 144 avant tout questionnaire.
+
+On se trompe en demandant au 144 un conseil de sevrage pour la semaine suivante.
+
+Page de l'Interverband für Rettungswesen lue le 9 novembre 2026, phase générale.
+
+@@
+
+@@w31 Numéro 145
+Le 145 est le numéro d'urgence affiché par Tox Info Suisse pour une intoxication.
+
+Exemple : un flacon identifié chez une personne encore éveillée justifie le 145 pour décider du transport.
+
+On se trompe en attendant d'avoir ouvert les schémas d'antidotes, qui n'ont pas été lus.
+
+Accueil de Tox Info Suisse lu le 9 novembre 2026, phase générale.
+
+@@
+
+@@w32 Numéro 147
+Le 147 est la ligne pour un enfant ou un adolescent en détresse, reprise sur les pages Infodrog.
+
+Exemple : un élève de quinze ans qui mise en ligne et parle de honte oriente vers le 147, pas vers une ambulance d'emblée.
+
+On se trompe en lui lisant l'amende de 500 000 francs, qui vise la publicité et non l'enfant.
+
+Pages Infodrog lues le 9 novembre 2026, rappel du 147 dans la phase générale.
+
+@@
+
+@@w33 CIM-11
+La CIM-11, depuis 2022, inscrit le trouble du jeu vidéo comme diagnostic, distinct d'une substance.
+
+Exemple : des nuits d'écran sans mise d'argent relèvent de ce trouble, pas de la loi des casinos.
+
+On se trompe en accusant l'objet écran alors qu'Infodrog dit que l'usage est en cause.
+
+Page Infodrog sur internet et les écrans, lue le 9 novembre 2026.
+
+@@
+
+@@w34 Benzodiazépines
+Les benzodiazépines calment, favorisent le sommeil et, avec l'alcool ou un opioïde, peuvent paralyser la respiration.
+
+Exemple : la page Infodrog limite l'usage habituel à quatre semaines, avec un maximum de deux à huit.
+
+On se trompe en coupant la boîte d'un coup : l'arrêt brutal peut provoquer une convulsion.
+
+Page Infodrog sur les benzodiazépines, lue le 9 novembre 2026, phase générale.
+
+@@
+
+@@w35 Méthadone
+La méthadone est un agoniste opioïde de longue demi-vie, utilisé comme traitement de la dépendance.
+
+Exemple : la SSAM estime qu'environ 70 pour cent des personnes en traitement hors diacétylmorphine la recevaient en 2018.
+
+On se trompe en l'arrêtant parce qu'un stimulant s'y ajoute : le papier cocaïne demande de la poursuivre.
+
+Recommandations SSAM du 16 juillet 2020, rappelées dans la phase générale.
+
+@@
+
+@@w36 Cannabis
+Le cannabis est, selon Infodrog, la substance illégale la plus consommée en Suisse, sans que chaque essai soit un trouble.
+
+Exemple : le THC peut rester détectable plus de douze heures dans le sang et plusieurs jours dans l'urine.
+
+On se trompe en lisant une urine positive comme la preuve d'une intoxication de cette minute.
+
+Page Infodrog cannabis, lue le 9 novembre 2026, phase générale.
+
+@@
+
+@@w37 Cocaïne
+La cocaïne est un stimulant sans médicament de substitution établi, selon le papier SSAM du 20 janvier 2024.
+
+Exemple : avec l'alcool elle forme le cocaéthylène, plus toxique pour le cœur.
+
+On se trompe en prescrivant un stimulant de mémoire pour la remplacer.
+
+Papier SSAM sur la cocaïne adopté le 20 janvier 2024, cité dans la phase générale.
+
+@@
+
+@@w38 sos-jeu.ch
+sos-jeu.ch est la plateforme et le téléphone que les cantons doivent offrir contre le jeu excessif.
+
+Exemple : une dette de loyer liée aux machines oriente vers cette adresse avant tout dosage.
+
+On se trompe en inventant un groupe local quand cette adresse existe déjà.
+
+Page Infodrog sur la politique des jeux, article 85, lue le 9 novembre 2026.
+
+@@
+
+@@w39 Pupille
+La pupille serrée oriente vers un opioïde, la pupille large vers un stimulant, sans prouver la molécule si les deux se mêlent.
+
+Exemple : respiration rare et pupille en tête d'épingle font passer le tri vers l'intoxication, pas vers un score.
+
+On se trompe en choisissant l'antidote sur la seule pupille quand l'histoire dit un mélange.
+
+Synthèse des pages Infodrog opioïdes et amphétamines, phase générale, 9 novembre 2026.
+
+@@
+
+@@w40 Écran
+L'écran n'est pas l'addiction : Infodrog dit que c'est l'usage qui l'est, jeux, achats ou réseaux.
+
+Exemple : une nuit blanche sur un jeu sans mise se range avec le trouble du jeu vidéo de la CIM-11.
+
+On se trompe en appliquant l'exclusion de casino à un jeu qui ne mise pas d'argent.
+
+Page Infodrog internet et écrans, lue le 9 novembre 2026.
+
+@@
+
+@@w41 Sevrage
+Le sevrage est le manque après l'arrêt, distinct de l'intoxication qui est le trop-plein de l'heure.
+
+Exemple : couper une benzodiazépine peut convulser, donc le sevrage menaçant appelle les secours et non des félicitations.
+
+On se trompe en donnant encore un somnifère à quelqu'un dont la respiration ralentit déjà.
+
+Page Infodrog benzodiazépines et tri de la phase générale, 9 novembre 2026.
+
+@@
+
+@@w42 Amphétamine
+L'amphétamine accélère le cœur et peut porter la température jusqu'à 41 degrés en surdosage.
+
+Exemple : un sniff agit en deux à dix minutes et l'effet dure souvent trois à six heures.
+
+On se trompe en collant ce 41 degrés à toutes les autres molécules stimulantes.
+
+Page Infodrog amphétamines, rappelée dans la phase générale le 9 novembre 2026.
+
+@@
+
+@@w43 Somnifère
+Un somnifère benzodiazépinique ou Z qui dure des mois sort du cadre court recommandé et majore chutes et confusion chez l'aîné.
+
+Exemple : au-delà de quatre semaines, la dépendance devient le risque principal cité par Infodrog.
+
+On se trompe en renouvelant trois mois d'un coup parce que l'insomnie du manque ressemble au motif initial.
+
+Page Infodrog sur les somnifères et tranquillisants, phase générale, 9 novembre 2026.
+
+@@
+

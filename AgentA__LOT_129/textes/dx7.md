@@ -1,5 +1,5 @@
 ## Définition et sémantique
-Le jeu d'argent excessif est un usage où l'on mise pour gagner plus, et où le contrôle sur le temps et l'argent se perd. Infodrog rappelle que le résultat dépend en général du hasard, même si l'habileté compte dans certains jeux comme le poker ou le black jack. Les formes courantes sont les loteries, les grattages, les paris sportifs, les machines et les jeux de casino. L'acceptation sociale n'est pas la même. Une loterie est mieux tolérée qu'une machine, or cette tolérance ne dit pas le risque. Depuis le 1er janvier 2019, la [[w1|loi fédérale sur les jeux d'argent]] et son ordonnance règlent toutes ces offres, y compris les maisons de jeu en ligne. La Commission fédérale des maisons de jeu surveille les casinos. La Gespa, autrefois Comlot, surveille et autorise les jeux de grande envergure, lutte contre les offres illégales et sert de centre de compétence des cantons. Le diagnostic médical n'est pas cette carte administrative. C'est la perte de contrôle, l'endettement, l'isolement et la poursuite malgré les dégâts. Aucun critère chiffré du type « tant de critères sur tant » n'est écrit dans les pages lues. On ne l'invente pas.
+Le jeu d'argent excessif est un usage où l'on mise pour gagner plus, et où le contrôle sur le temps et l'argent se perd. Infodrog rappelle que le résultat dépend en général du hasard, même si l'habileté compte dans certains jeux comme le poker ou le black jack. Les formes courantes sont les loteries, les grattages, les paris sportifs, les [[w35|machines]] et les jeux de casino. L'acceptation sociale n'est pas la même. Une [[w37|loterie]] est mieux tolérée qu'une machine, or cette tolérance ne dit pas le risque. Depuis le 1er janvier 2019, la [[w1|loi fédérale sur les jeux d'argent]] et son ordonnance règlent toutes ces offres, y compris les maisons de jeu en ligne. La [[w31|Commission]] fédérale des maisons de jeu surveille les casinos. La [[w30|Gespa]], autrefois Comlot, surveille et autorise les jeux de grande envergure, lutte contre les offres illégales et sert de centre de compétence des cantons. Le diagnostic médical n'est pas cette carte administrative. C'est la perte de contrôle, l'endettement, l'isolement et la poursuite malgré les dégâts. Aucun critère chiffré du type « tant de critères sur tant » n'est écrit dans les pages lues. On ne l'invente pas.
 
 @@w1 loi fédérale sur les jeux d'argent
 Elle est en vigueur depuis le 1er janvier 2019 et couvre aussi les casinos en ligne.
@@ -9,16 +9,16 @@ Page politique des jeux d'Infodrog, lue le 9 novembre 2026.
 @@
 
 ## Épidémiologie
-Les pages lues ne donnent pas un pourcentage suisse de joueurs excessifs. On n'en calcule pas un. Elles donnent des faits de structure. La Suisse a une forte densité de casinos, sans que le nombre exact soit écrit dans le passage. Les offres en ligne sont disponibles en permanence. Après la légalisation des jeux en ligne, les interdictions de jeu ont fortement augmenté. Aucun effectif n'accompagne cette phrase. On retient la direction, pas un faux total. Les machines à sous sont jugées particulièrement dangereuses et ne peuvent être exploitées en Suisse que dans les casinos. Les quasi-gains, les parties rapides, les jetons et l'atmosphère du casino favorisent l'excès. Le virtuel ajoute un choix presque illimité, une disponibilité permanente, des contrôles parfois faibles surtout chez les prestataires étrangers, des mises dématérialisées et l'absence de regard social. Ces conditions sont le terrain. Elles ne remplacent pas l'histoire d'une personne.
+Les pages lues ne donnent pas un pourcentage suisse de joueurs excessifs. On n'en calcule pas un. Elles donnent des faits de structure. La Suisse a une forte densité de casinos, sans que le nombre exact soit écrit dans le passage. Les offres en ligne sont disponibles en permanence. Après la légalisation des jeux en ligne, les interdictions de jeu ont fortement augmenté. Aucun effectif n'accompagne cette phrase. On retient la direction, pas un faux total. Les machines à sous sont jugées particulièrement dangereuses et ne peuvent être exploitées en Suisse que dans les casinos. Les [[w39|quasi-gains]], les parties rapides, les jetons et l'atmosphère du casino favorisent l'excès. Le virtuel ajoute un choix presque illimité, une disponibilité permanente, des contrôles parfois faibles surtout chez les prestataires étrangers, des mises dématérialisées et l'absence de regard social. Ces conditions sont le terrain. Elles ne remplacent pas l'histoire d'une personne.
 
 ## Physiopathologie
 Infodrog décrit des modifications biochimiques cérébrales qui influencent l'état psychique et contribuent à la dépendance. Les premiers gains sont des expériences positives. Miser excite, et cette excitation procure paradoxalement une détente. Le cerveau associe le jeu au soulagement des problèmes. L'intensité baisse avec le temps, c'est pourquoi les mises et les risques montent pour retrouver le même effet. Ce mécanisme ressemble à une tolérance, sans être une molécule. Il explique la poursuite. Il n'autorise pas à parler d'un taux sanguin. Aucun dosage de neurotransmetteur n'est donné. On n'en dessine pas. Les conséquences psychiques lues sont la dépression, les troubles de concentration et de performance, l'agitation, les problèmes de sommeil, un changement de personnalité, et une hausse d'alcool, de tabac, de médicaments ou d'autres substances. Le corps peut perdre l'appétit, avoir des troubles digestifs, des sueurs et des tremblements. Le risque de suicide est accru. Aucun taux de suicide n'est écrit. On le cherche quand même à chaque entretien, parce que l'accroissement est nommé.
 
 ## Étiologie et facteurs de risque
-La vulnérabilité individuelle compte. Infodrog cite l'âge, le sexe, la nationalité, l'éducation, le statut socio-économique, la région et l'état civil, sans donner de coefficient. On les demande comme contexte, pas comme score. Les machines, les quasi-gains et la vitesse sont des facteurs du jeu lui-même. Le virtuel en ajoute. La proximité d'une école ou d'un centre de jeunesse est interdite pour les automates de jeux de grande envergure, article 71 alinéa 3 de l'ordonnance. Cette règle reconnaît que le lieu forme le risque chez les jeunes. Les mineurs sont protégés à part, article 72 de la loi. Les paris ne peuvent pas porter sur des événements dont les participants sont en majorité mineurs, article 25 alinéa 2. Les crédits de jeu gratuits ne doivent pas les cibler, article 79. La publicité non plus, sous peine d'amende jusqu'à 500 000 francs, article 131. Un jeune dans un casino en ligne n'est donc pas un « petit joueur ». Il est hors du cadre d'âge.
+La vulnérabilité individuelle compte. Infodrog cite l'âge, le sexe, la nationalité, l'éducation, le statut socio-économique, la région et l'état civil, sans donner de coefficient. On les demande comme contexte, pas comme score. Les machines, les quasi-gains et la vitesse sont des facteurs du jeu lui-même. Le virtuel en ajoute. La proximité d'une école ou d'un centre de jeunesse est interdite pour les automates de jeux de grande envergure, article 71 alinéa 3 de l'ordonnance. Cette règle reconnaît que le lieu forme le risque chez les jeunes. Les [[w34|mineurs]] sont protégés à part, [[w41|article 72]] de la loi. Les paris ne peuvent pas porter sur des événements dont les participants sont en majorité mineurs, article 25 alinéa 2. Les crédits de jeu gratuits ne doivent pas les cibler, article 79. La [[w38|publicité]] non plus, sous peine d'amende jusqu'à 500 000 francs, article 131. Un jeune dans un casino en ligne n'est donc pas un « petit joueur ». Il est hors du cadre d'âge.
 
 ## Anamnèse
-On demande le type de jeu, depuis quand, combien d'heures, combien d'argent misé, emprunté ou perdu, et si une exclusion existe déjà. On demande les dettes, le travail, le couple, le sommeil, l'alcool et les médicaments, parce que la page lie l'excès à ces dégâts. On demande les idées de suicide sans attendre une phrase spontanée. On demande si le jeu sert encore le plaisir ou seulement à rattraper une perte. Le passage du plaisir à la compulsion est le tournant décrit par Infodrog. On demande qui paie : la personne, le conjoint, un crédit. On demande les quasi-gains, ces fois où il ne manquait qu'un symbole, parce qu'ils entretiennent le retour. On demande si le jeu est en ligne, à l'étranger, ou dans un casino suisse. L'offre illégale en ligne n'est pas punissable pour le joueur, selon la page. L'est le fait de la proposer. On ne menace donc pas le patient d'une peine pour avoir cliqué. On l'aide à sortir du site.
+On demande le type de jeu, depuis quand, combien d'heures, combien d'argent misé, emprunté ou perdu, et si une [[w32|exclusion]] existe déjà. On demande les dettes, le travail, le couple, le sommeil, l'alcool et les médicaments, parce que la page lie l'excès à ces dégâts. On demande les idées de suicide sans attendre une phrase spontanée. On demande si le jeu sert encore le plaisir ou seulement à rattraper une perte. Le passage du plaisir à la compulsion est le tournant décrit par Infodrog. On demande qui paie : la personne, le conjoint, un crédit. On demande les quasi-gains, ces fois où il ne manquait qu'un symbole, parce qu'ils entretiennent le retour. On demande si le jeu est en ligne, à l'étranger, ou dans un casino suisse. L'offre illégale en ligne n'est pas punissable pour le joueur, selon la page. L'est le fait de la proposer. On ne menace donc pas le patient d'une peine pour avoir cliqué. On l'aide à sortir du site.
 
 ## Examen physique
 Il n'y a pas de signe cutané spécifique dans les pages lues. L'examen cherche ce que le jeu entraîne : amaigrissement si l'appétit est perdu, tremblement, sueurs, signes d'alcool associé, et l'état psychique. Une agitation, une concentration qui lâche, un discours qui nie des dettes déjà chiffrées par la famille, se notent. On ne fait pas un bilan hépatique « parce que c'est une addiction ». Rien dans la page jeu ne le demande. Si l'alcool est au premier plan, c'est un autre diagnostic, avec ses propres examens. Ici, le corps confirme la souffrance. Il ne pose pas le nom du trouble. On écoute assez longtemps pour entendre le suicide, le sommeil et la honte. Un examen trop court rate ces trois-là.
@@ -27,7 +27,7 @@ Il n'y a pas de signe cutané spécifique dans les pages lues. L'examen cherche 
 Trois situations se séparent. Le joueur qui mise encore pour le plaisir, sans dette et sans perte de contrôle, relève de l'information et des limites. Le joueur qui ne peut plus s'arrêter, qui emprunte et qui nie, relève du soin et souvent d'une exclusion. Le joueur qui parle de mourir relève de l'urgence, le 144 si le geste est imminent, le 147 si c'est un adolescent. La dépression, l'alcool ou un médicament qui montent en parallèle ne sont pas des à-côtés. Infodrog les met dans les conséquences. On les traite, ou on adresse, en même temps que le jeu. Le jeu contrôlé, réduction de la fréquence, du temps et de l'argent, est un objectif possible pour qui ne veut pas ou ne peut pas tout arrêter, à condition qu'à terme il n'y ait plus de dégât financier ou social. Ce n'est pas un slogan pour continuer comme avant.
 
 ## Diagnostic positif
-Le diagnostic positif est clinique. Aucun test sanguin lu ne le confirme. On retient la perte de contrôle, la priorité du jeu sur le reste de la vie, la poursuite malgré les dettes, les conflits et l'isolement, et le passage d'un jeu plaisir à un jeu compulsionnel. Le déni fait partie du tableau. Une famille qui apporte des chiffres et un patient qui dit « je gère » ne s'annulent pas. On croit les faits financiers et on garde l'alliance. Une exclusion déjà prononcée est un indice fort, pas le diagnostic à elle seule. L'article 80 vise les personnes surendettées, celles dont les mises dépassent le revenu, ou celles qui présentent une dépendance. Ces trois portes ne sont pas des critères CIM recopiés. Ce sont des portes légales. Le soin peut commencer avant que l'exclusion existe.
+Le diagnostic positif est clinique. Aucun test sanguin lu ne le confirme. On retient la perte de contrôle, la priorité du jeu sur le reste de la vie, la poursuite malgré les dettes, les conflits et l'isolement, et le passage d'un jeu plaisir à un jeu compulsionnel. Le déni fait partie du tableau. Une famille qui apporte des chiffres et un patient qui dit « je gère » ne s'annulent pas. On croit les faits financiers et on garde l'alliance. Une exclusion déjà prononcée est un indice fort, pas le diagnostic à elle seule. L'[[w40|article 80]] vise les personnes surendettées, celles dont les mises dépassent le revenu, ou celles qui présentent une dépendance. Ces trois portes ne sont pas des critères CIM recopiés. Ce sont des portes légales. Le soin peut commencer avant que l'exclusion existe.
 
 ## Examens complémentaires
 Le gold standard lu est l'entretien, pas un laboratoire. La première intention est de chiffrer le temps, l'argent, les dettes et le danger suicidaire, puis de proposer conseil et exclusion si besoin. Un tableau biologique n'a pas de ligne positive dans les pages lues. On le marque non applicable, et l'on met à la place les repères légaux et cliniques qui, eux, sont chiffrés ou clairement décrits. Le schéma dessine les deux âges de la loi. Ce ne sont pas des constantes. Ce sont des seuils d'accès.
@@ -59,15 +59,15 @@ Suicide|risque accru, sans taux lu|l'absence de pourcentage ne dispense pas de l
 <circle cx="900.0" cy="125.0" r="14" fill="#a1262f"/>
 <text x="895.0" y="130.0" font-size="16" fill="#ffffff">2</text>
 </svg>
-<figcaption>Figure produite par l'outil d'illustration. Trait 1 : 16 ans, plancher pour les autres jeux de grande envergure. Trait 2 : 18 ans pour les casinos et les grands jeux en ligne. Page Infodrog sur la politique des jeux, lue le 9 novembre 2026. Schéma légal, pas une photographie et pas un bilan sanguin.</figcaption>
+<figcaption>Figure produite par l'outil d'illustration. Trait 1 : 16 ans, plancher pour les autres jeux de grande envergure. Trait 2 : 18 ans pour les casinos et les grands jeux en ligne. Légende tirée de la page politique des jeux d'Infodrog, schéma légal, pas une photographie et pas un bilan sanguin.</figcaption>
 </figure>
 %%
 
 ## Arbre décisionnel
-Si un mineur joue, on arrête l'accès et on appelle un adulte responsable, le 147 si la détresse est là. L'amende jusqu'à 500 000 francs vise la publicité qui cible les mineurs, pas l'enfant. On ne le culpabilise pas avec ce chiffre. On l'utilise pour faire retirer une publicité. Si un adulte perd le contrôle sans danger immédiat, on propose le conseil cantonal, la plateforme et le téléphone sos-jeu.ch, et l'on discute une exclusion. Si les dettes dépassent déjà le revenu ou si la famille s'effondre, l'exclusion est précisément une des portes de l'article 80. Si des idées de mort sont présentes, le jeu passe après la sécurité. On ne donne pas rendez-vous la semaine prochaine à quelqu'un qui a un plan. Le 144 est là pour cela.
+Si un mineur joue, on arrête l'accès et on appelle un adulte responsable, le 147 si la détresse est là. L'amende jusqu'à 500 000 francs vise la publicité qui cible les mineurs, pas l'enfant. On ne le culpabilise pas avec ce chiffre. On l'utilise pour faire retirer une publicité. Si un adulte perd le contrôle sans danger immédiat, on propose le conseil cantonal, la plateforme et le téléphone [[w33|sos-jeu]].ch, et l'on discute une exclusion. Si les dettes dépassent déjà le revenu ou si la famille s'effondre, l'exclusion est précisément une des portes de l'article 80. Si des idées de mort sont présentes, le jeu passe après la sécurité. On ne donne pas rendez-vous la semaine prochaine à quelqu'un qui a un plan. Le 144 est là pour cela.
 
 ## Prise en charge
-Les cantons doivent prévenir le jeu excessif, article 85, et offrir conseil et traitement aux personnes dépendantes ou à risque. Une taxe de 0,5 pour cent du revenu brut des jeux de grande envergure finance cette prévention. Les cantons mettent à disposition sos-jeu.ch, plateforme et téléphone. On donne cette adresse plutôt qu'un réseau inventé. Les casinos, Swisslos et la Loterie Romande doivent un programme social, article 76 : information, repérage précoce, autocontrôle, limites, modérateurs, formation du personnel. L'exclusion, article 80, peut être demandée par eux, par le joueur ou par un tiers. Elle se lève, article 81, quand les motifs ont disparu, avec un spécialiste reconnu par le canton. On explique ce circuit. On ne promet pas une levée rapide. Après la légalisation en ligne, les exclusions ont augmenté, et les sites illégaux ou mal contrôlés permettent de les contourner. On le dit, pour ne pas croire qu'une exclusion sur papier ferme tous les écrans.
+Les cantons doivent prévenir le jeu excessif, [[w42|article 85]], et offrir conseil et traitement aux personnes dépendantes ou à risque. Une [[w43|taxe]] de 0,5 pour cent du revenu brut des jeux de grande envergure finance cette prévention. Les cantons mettent à disposition sos-jeu.ch, plateforme et téléphone. On donne cette adresse plutôt qu'un réseau inventé. Les casinos, [[w36|Swisslos]] et la Loterie Romande doivent un programme social, article 76 : information, repérage précoce, autocontrôle, limites, modérateurs, formation du personnel. L'exclusion, article 80, peut être demandée par eux, par le joueur ou par un tiers. Elle se lève, article 81, quand les motifs ont disparu, avec un spécialiste reconnu par le canton. On explique ce circuit. On ne promet pas une levée rapide. Après la légalisation en ligne, les exclusions ont augmenté, et les sites illégaux ou mal contrôlés permettent de les contourner. On le dit, pour ne pas croire qu'une exclusion sur papier ferme tous les écrans.
 
 Le jeu contrôlé est la réduction des risques pour qui ne s'arrête pas tout de suite. On fixe moins de jours, moins d'heures, un plafond d'argent qui ne mange pas le loyer. On revoit ces trois chiffres. S'ils dérapent, on revient à l'exclusion et au soin. Les joueurs pathologiques sont difficiles à atteindre et les prestataires parfois réticents. Infodrog le reconnaît. Le cabinet peut être le seul endroit où la question est posée. On la pose.
 
@@ -180,3 +180,158 @@ On retient la loi du 1er janvier 2019, la Gespa pour les grands jeux hors casino
 
 ## Pièges
 Le premier piège est d'inventer une prévalence suisse ou un nombre de casinos que les pages ne donnent pas. Le deuxième est d'inventer un score diagnostic chiffré. Le troisième est de menacer le joueur d'une peine pour un site illégal, alors que la page dit qu'il n'est pas punissable. Le quatrième est de croire qu'une exclusion ferme internet. Le contournement est écrit. Le cinquième est de laisser un mineur « juste regarder » un casino en ligne. L'âge est 18 ans. Le sixième est de traiter le suicide comme un détail parce qu'aucun pourcentage n'est publié. Le septième est de prescrire une molécule anti-jeu de mémoire. Aucune n'est dans les sources. Le huitième est de confondre la taxe AVS des casinos avec un conseil au patient. Elle explique le système. Elle ne soigne pas la dette du mois. Le neuvième est de prendre une loterie sociale pour une machine de casino. Les régimes d'autorisation ne sont pas les mêmes. Le dixième est d'oublier de demander l'alcool, le sommeil et les médicaments, que la page met dans les conséquences.
+
+@@w30 Gespa
+La Gespa, autrefois Comlot, autorise et surveille les jeux de grande envergure hors casino et combat les offres illégales.
+
+Exemple : une loterie en ligne ou intercantonale relève d'elle, pas de la commune.
+
+On se trompe en lui écrivant pour une dette ordinaire de casino, qui va d'abord à l'exploitant.
+
+Page Infodrog sur la politique des jeux, lue le 9 novembre 2026.
+
+@@
+
+@@w31 Commission fédérale des maisons de jeu
+La Commission fédérale des maisons de jeu surveille les casinos terrestres et, depuis 2019, les casinos en ligne.
+
+Exemple : une roulette ou une machine se signale de ce côté, pas à la Gespa.
+
+On se trompe en lui demandant de soigner une dette : elle surveille l'exploitant.
+
+Même page Infodrog, répartition des autorités.
+
+@@
+
+@@w32 Exclusion de jeu
+L'exclusion interdit l'accès quand il y a surendettement, mises trop hautes pour le revenu, ou dépendance.
+
+Exemple : l'article 80 permet au joueur, à un tiers, au casino, à Swisslos ou à la Loterie Romande de la demander.
+
+On se trompe en croyant qu'elle ferme tous les sites : le contournement en ligne est écrit.
+
+Article 80 LJAr, page politique des jeux Infodrog.
+
+@@
+
+@@w33 sos-jeu.ch
+sos-jeu.ch est le dispositif cantonal de conseil, financé notamment par une taxe de prévention.
+
+Exemple : on le donne dès le premier appel, avant même le rendez-vous.
+
+On se trompe en le remplaçant par un pourcentage de joueurs que la page ne donne pas.
+
+Article 85 et taxe de 0,5 pour cent, page Infodrog.
+
+@@
+
+@@w34 Mineurs
+Les mineurs sont protégés à part : pas de casino avant 18 ans, et pas de grand jeu sous 16 ans.
+
+Exemple : un compte ouvert à quinze ans se ferme, et le 147 s'ajoute si la détresse est là.
+
+On se trompe en brandissant contre l'enfant l'amende qui punit la publicité.
+
+Article 72 LJAr, page Infodrog lue le 9 novembre 2026.
+
+@@
+
+@@w35 Machines à sous
+Les machines sont jugées particulièrement dangereuses et ne peuvent être exploitées en Suisse que dans les casinos.
+
+Exemple : un café qui en proposerait sortirait du cadre lu.
+
+On se trompe en les traitant comme une loterie de village.
+
+Page Infodrog jeux d'argent, formes et dangers.
+
+@@
+
+@@w36 Swisslos
+Swisslos est tenu, avec la Loterie Romande, à un programme social de repérage et de limites.
+
+Exemple : une demande d'exclusion peut partir de la personne vers Swisslos, pas seulement d'un croupier.
+
+On se trompe en écrivant un réquisitoire au lieu d'une lettre courte avec les faits.
+
+Article 76 LJAr, page politique Infodrog.
+
+@@
+
+@@w37 Loterie Romande
+La Loterie Romande partage ce devoir social pour les jeux qu'elle exploite en Suisse romande.
+
+Exemple : un compte de loterie en ligne qui dépasse le revenu peut motiver une exclusion.
+
+On se trompe en la confondant avec la Commission des maisons de jeu.
+
+Même article 76, page Infodrog du 9 novembre 2026.
+
+@@
+
+@@w38 Publicité
+La publicité des jeux ne doit ni être outrancière, ni tromper, ni viser un mineur ou une personne exclue.
+
+Exemple : l'amende peut atteindre 500 000 francs quand elle cible des mineurs.
+
+On se trompe en gronder le joueur exclu qui a seulement ouvert le message.
+
+Articles 74 et 131 LJAr, page Infodrog.
+
+@@
+
+@@w39 Quasi-gain
+Le quasi-gain, quand il ne manque qu'un symbole, entretient le retour au jeu.
+
+Exemple : Infodrog le met avec la vitesse des parties, les jetons et l'atmosphère du casino.
+
+On se trompe en le racontant comme une simple malchance neutre.
+
+Page Infodrog jeux d'argent, facteurs du jeu lui-même.
+
+@@
+
+@@w40 Article 80
+L'article 80 ouvre l'exclusion pour dettes, mises excessives ou dépendance.
+
+Exemple : un loyer passé après la mise place déjà cet article dans la pièce, même sans lettre.
+
+On se trompe en l'imposant dans le dos d'une personne capable, hors danger grave.
+
+Page politique des jeux, Infodrog, 9 novembre 2026.
+
+@@
+
+@@w41 Article 72
+L'article 72 fixe la protection des mineurs et les âges d'accès.
+
+Exemple : 18 ans pour les casinos et les grands jeux en ligne, jamais moins de 16 ans pour les autres grands jeux.
+
+On se trompe en laissant un adolescent juste regarder un casino en ligne.
+
+Article 72 LJAr tel que résumé par Infodrog.
+
+@@
+
+@@w42 Article 85
+L'article 85 oblige les cantons à prévenir le jeu excessif et à offrir conseil et traitement.
+
+Exemple : la taxe de 0,5 pour cent du revenu brut des grands jeux alimente cette prévention.
+
+On se trompe en y voyant un droit individuel à des soins illimités.
+
+Article 85 LJAr, page Infodrog.
+
+@@
+
+@@w43 Taxe de 0,5 pour cent
+Cette taxe de 0,5 pour cent explique pourquoi un dispositif cantonal existe, elle ne rembourse pas la mise perdue.
+
+Exemple : elle se distingue de l'impôt sur le produit brut des casinos, qui va vers l'AVS et l'AI entre 20 et 80 pour cent selon le cadre.
+
+On se trompe en disant au patient que le casino lui doit les soins parce qu'il a perdu.
+
+Page politique des jeux, financement, lue le 9 novembre 2026.
+
+@@
+
