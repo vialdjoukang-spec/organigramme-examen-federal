@@ -1,0 +1,50 @@
+# Santé du harnais AgentA__Harnais_LOT131 — à déposer dans .github/workflows/ de la branche agentA/lot-131 UNIQUEMENT (jamais main).
+# ATTENTION (documentation GitHub) : « schedule » et « workflow_dispatch » ne s'exécutent que pour un workflow présent
+# sur la branche par défaut (main). Sur agentA/lot-131, seul le déclencheur « push » est effectif ; « schedule » reste inerte ici.
+# Surveillance 5 min effective = boucle de l'agent dans sa VM (boucle_sante.sh) + lecture des runs depuis la box (harnais cloud-etat).
+name: Harnais sante AgentA__Harnais_LOT131
+on:
+  push:
+    branches: ["agentA/lot-131"]
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: harnais-sante-AgentA__Harnais_LOT131
+  cancel-in-progress: true
+jobs:
+  sante:
+    if: github.ref == 'refs/heads/agentA/lot-131'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      H: ${{ github.workspace }}/Leona__Harnais_Agents
+      HARNAIS_INSTANCE: ${{ github.workspace }}/Leona__Harnais_Agents/instances/AgentA__Harnais_LOT131
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - uses: astral-sh/setup-uv@v6
+      - name: Outils système
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ripgrep poppler-utils
+      - name: Installer le harnais (gratuit)
+        run: HARNAIS_DEPS_SYSTEME=1 bash "$H/coeur/installer.sh"
+      - name: Init si index absent
+        run: test -s "$HARNAIS_INSTANCE/index.sqlite" || "$H/coeur/bin/harnais" init
+      - name: Tests automatiques
+        run: cd "$H" && coeur/.venv/bin/python -m pytest -q tests
+      - name: Santé (outils, CP, skills)
+        run: |
+          "$H/coeur/bin/harnais" sante
+      - name: Statut
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sante-AgentA__Harnais_LOT131
+          path: |
+            ${{ env.HARNAIS_INSTANCE }}/sante/
+          if-no-files-found: warn
