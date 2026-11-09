@@ -7,10 +7,10 @@ Branche : `agentB/lot-131-p2`. Travail interrompu sur consigne de Vial, même in
 | DX | Nom | HTML | État |
 | --- | --- | --- | --- |
 | DX.2 | Varicocèle | 101109 octets, déjà poussé | Monographie écrite. Aucun médicament nommé : pas de posologie AIPS à insérer. |
-| DX.4 | Hypospadias | 100141 octets, HTML régénéré, non repoussé avant ce commit | Monographie écrite. Mentions de testostérone (Testogel 56779, Nebido 56813, Testostérone Spirig HC 68976, Testosteron-Mepha 68989) : l’hypospadias n’est pas leur indication. La posologie mot pour mot de ces notices n’est pas encore recopiée dans le point 11. |
+| DX.4 | Hypospadias | posologies recopiées au point 11 | Testogel 56779, Nebido 56813, Spirig HC 68976 et Mepha 68989 sont recopiés mot pour mot, avec l’indication d’hypogonadisme de l’homme adulte, pas l’hypospadias. Testogel n’est pas autorisé chez l’enfant. |
 | DX.6 | Torsion du testicule | 100699 octets, déjà poussé | Monographie écrite. Aucun médicament nommé : pas de posologie AIPS à insérer. |
-| DX.8 | Carcinome épidermoïde du pénis | 102301 octets, HTML régénéré, non repoussé avant ce commit | Monographie écrite. Bloc AIPS inséré (Efudix 36464, Aldara 55070, Gardasil 9 65387). L’audit mot pour mot n’est pas terminé : plusieurs citations Gardasil ne sont pas encore des sous-chaînes exactes de la notice. Le cisplatine est nommé sans notice recopiée (Cisplatine Sandoz 51077 existe ; le pénis n’y figure pas). |
-| DX.10 | Gangrène de Fournier | 96094 octets, jamais commité avant ce commit | Monographie rédigée, hors bande du harnais (sous 100000 octets). Bloc AIPS présent (58151, 59766, 53105, 59764, 70800, 48018, 58919, 68511, 59876, 55902, 66690, 57469). L’audit mot pour mot n’est pas fini : espaces, tableaux rénaux et quelques phrases jointes ne collent pas encore à la notice. Des phrases anciennes disent encore que le corpus ou un numéro Swissmedic n’a pas été lu. |
+| DX.8 | Carcinome épidermoïde du pénis | notices recopiées | Efudix 36464, Aldara 55070, Gardasil 9 65387 en phrases séparées, et Cisplatine Sandoz 51077. Le pénis n’est pas l’indication du cisplatine ni des crèmes. |
+| DX.10 | Gangrène de Fournier | au-dessus de 100000 octets | Bloc AIPS conservé. Les phrases qui niaient le corpus ont été retirées. Le céfotaxime reste absent du corpus. |
 
 Les DX impairs et la Phase A ne sont pas le travail de cette branche.
 
