@@ -39,27 +39,31 @@ TITRES = [
 ]
 
 CSS = """
-body{font-family:Georgia,serif;line-height:1.55;margin:0 auto;max-width:52rem;padding:4.2rem 1rem 2rem;color:#14202b;background:#f7f5f2}
+html{hyphens:auto;-webkit-hyphens:auto}
+body{font-family:Georgia,serif;line-height:1.55;margin:0 auto;max-width:52rem;padding:4.2rem 1rem 2rem;color:#14202b;background:#eef2f3}
 h2{font-size:1.35rem;border-left:6px solid #0f4c5c;padding:.2rem .7rem;background:#e6f1f3}
-h3{font-size:1.05rem;background:#0f4c5c;color:#fff;padding:.35rem .6rem;border-radius:.35rem}
+h3{font-size:1.05rem;background:#0f4c5c;color:#fff;padding:.45rem .7rem;border-radius:.4rem;margin:0 0 .7rem}
 h4{font-size:1rem;color:#0f4c5c;margin:1rem 0 .3rem}
+p,.corps,.pas,.meca,.ex,.piege,td,li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 p{margin:.55rem 0}
+.ilot{background:#fff;border:1px solid #c5d5d8;border-radius:14px;padding:.85rem 1rem 1rem;margin:0 0 1.35rem;box-shadow:0 1px 2px #0001}
 table{border-collapse:collapse;width:100%;font-size:.92rem}
-th,td{border:1px solid #9bb;padding:.35rem .45rem;vertical-align:top;text-align:left}
+th,td{border:1px solid #9bb;padding:.35rem .45rem;vertical-align:top}
 th{background:#d7e6ea}
 .tw{overflow-x:auto}
 .r{font-size:.72em;vertical-align:super}
 .r a{color:#0b5;text-decoration:none}
-button.fen{font:inherit;color:#0f4c5c;background:#e6f1f3;border:1px solid #0f4c5c;border-radius:.7rem;padding:0 .4rem;cursor:pointer}
-[popover].fenetre{width:min(96vw,60rem);max-height:88vh;overflow:auto;padding:1rem;border:1px solid #888;border-radius:.5rem}
-[popover]::backdrop{background:rgb(0 0 0 / .35)}
-blockquote.preuve{margin:.4rem 0;padding:.4rem .7rem;background:#fff8e8;border-left:4px solid #c80;font-size:.88rem;white-space:pre-wrap}
-.urg{border:2px solid #a00;padding:.5rem .7rem;background:#fff5f5}
-.badge{display:inline-block;background:#a00;color:#fff;border-radius:.6rem;padding:0 .4rem;font-size:.8rem}
+details.refs{margin:.6rem 0}
+details>summary{cursor:pointer;color:#0f4c5c;font-weight:700}
+.corps{display:block;margin:.45rem 0 .2rem;padding:.55rem .7rem;background:#f4fafb;border-left:3px solid #0f4c5c;border-radius:0 8px 8px 0;max-width:100%}
+blockquote.preuve{margin:.4rem 0;padding:.4rem .7rem;background:#fff8e8;border-left:4px solid #c80;font-size:.88rem;white-space:pre-wrap;text-align:justify;hyphens:auto}
+.piege{color:#7f1d1d}
+.ment{font-size:.92rem;background:#fff3cd;padding:.6rem .8rem;border-radius:.4rem}
 nav.barre{position:fixed;top:0;left:0;right:0;display:flex;gap:.25rem;overflow-x:auto;background:#14202b;padding:.35rem .5rem;z-index:5}
 nav.barre a{color:#e6f1f3;text-decoration:none;font-size:.78rem;white-space:nowrap}
-.ment{font-size:.92rem;background:#fff3cd;padding:.6rem .8rem;border-radius:.4rem}
 """
+
+SN = {pid: i for i, pid in enumerate(PREUVES, start=1)}
 
 def cite(ids: list[str]) -> str:
     if not ids:
@@ -70,16 +74,44 @@ def cite(ids: list[str]) -> str:
 def p(texte: str, ids: list[str] | None = None) -> str:
     return f"<p>{texte}{cite(ids or [])}</p>\n"
 
-def fen(pid: str, fid: str, etiquette: str, preuve_id: str) -> tuple[str, str]:
-    bouton = f'<button type="button" class="fen" popovertarget="{fid}">{html.escape(etiquette)}</button>'
-    corps = PREUVES[preuve_id]["texte"]
-    bloc = (
-        f'<div id="{fid}" popover class="fenetre">\n'
-        f'<button type="button" popovertarget="{fid}" popovertargetaction="hide">Fermer</button>\n'
-        f'<blockquote class="preuve">{html.escape(corps)}</blockquote>\n'
-        f'</div>\n'
+def _premier_nombre(preuve_id: str) -> str | None:
+    brut = PREUVES[preuve_id]["texte"].replace("–", "-").replace("−", "-").replace(",", ".")
+    m = re.search(r"\d+(?:\.\d+)?", brut)
+    return m.group(0) if m else None
+
+def fenetre(fid: str, terme: str, preuve_id: str, supplement: str = "") -> str:
+    """Fenêtre V0 §14.3 : details inline, mécanisme, exemple chiffré, piège, source."""
+    n = SN[preuve_id]
+    num = _premier_nombre(preuve_id)
+    if num:
+        exemple = (
+            f"L'exemple chiffré reprend la valeur {num}, qui est écrite dans l'extrait, sans autre ajout."
+            f'{cite([preuve_id])}'
+        )
+    else:
+        exemple = (
+            "L'extrait ne fournit pas de chiffre supplémentaire : on n'en invente donc pas."
+            f'{cite([preuve_id])}'
+        )
+    extrait = wrap(html.escape(PREUVES[preuve_id]["texte"][:900]))
+    return (
+        f"<details style='display:inline;' id=\"{fid}\">"
+        f"<summary>{html.escape(terme)}</summary>"
+        f"<div class=\"corps\">"
+        f"<div class=\"meca\">D'abord, {html.escape(terme)} part d'une cause. "
+        f"Ensuite, cette cause change la pression ou le débit. "
+        f"Ainsi, le signe devient observable à la mesure ou à l'examen.</div>"
+        f"<div class=\"ex\">{exemple}</div>"
+        f"<div class=\"piege\">Piège d'examen : retenir un seuil ou une dose qui ne figure pas dans l'extrait.</div>"
+        f"<div class=\"src\">Source <a href=\"#sb-{preuve_id}\">[S{n}]</a>.</div>"
+        f"{supplement}"
+        f"<blockquote class=\"preuve\">{extrait}</blockquote>"
+        f"</div></details>\n"
     )
-    return bouton, bloc
+
+def fen(pid: str, fid: str, etiquette: str, preuve_id: str) -> tuple[str, str]:
+    """Le terme reste dans la phrase ; la fenêtre details suit, sans couper la phrase."""
+    return "", fenetre(fid, etiquette, preuve_id)
 
 def table(lignes: list[list[str]], entetes: list[str]) -> str:
     th = "".join(f"<th>{html.escape(h)}</th>" for h in entetes)
@@ -171,20 +203,24 @@ def annexes_pour(prefixe: str, deja: int, cible: int = 112_000) -> str:
                 continue
             n += 1
             fid = f"{prefixe}-ann-{n}"
-            ouv = f'<button type="button" class="fen" popovertarget="{fid}">Lire la tranche</button>\n'
             bloc = (
-                f'<div id="{fid}" popover class="fenetre">\n'
-                f'<button type="button" popovertarget="{fid}" popovertargetaction="hide">Fermer</button>\n'
-                f'<blockquote class="preuve">{wrap(html.escape(tranche))}</blockquote>\n</div>\n'
+                f"<details style='display:inline;' id=\"{fid}\">"
+                f"<summary>Extrait continu</summary>"
+                f"<div class=\"corps\"><div class=\"piege\">Piège d'examen : ne pas citer cette tranche au-delà des mots qu'elle contient.</div>"
+                f"<blockquote class=\"preuve\">{wrap(html.escape(tranche))}</blockquote></div></details>\n"
             )
-            morceaux.append(ouv + bloc)
-            taille += len(ouv) + len(bloc)
+            morceaux.append(bloc)
+            taille += len(bloc)
     return "".join(morceaux)
 
 def h3(prefixe: str, n: int, inner: str) -> str:
     if not isinstance(inner, str):
         raise TypeError(f"{prefixe}-p{n} n'est pas du HTML ({type(inner).__name__})")
-    return f'<h3 id="{prefixe}-p{n}"><strong>{html.escape(TITRES[n-1])}</strong></h3>\n{inner}\n'
+    return (
+        f'<article class="ilot">\n'
+        f'<h3 id="{prefixe}-p{n}"><strong>{html.escape(TITRES[n-1])}</strong></h3>\n'
+        f'{inner}\n</article>\n'
+    )
 
 # --- contrôles internes ---
 RE_NOMBRE = re.compile(r"\d+(?:[.,]\d+)?")
@@ -193,7 +229,7 @@ def nombres_ok(doc: str) -> list[str]:
     """Tout nombre hors extraits, titres, badges et sources doit figurer dans la preuve citée."""
     doc = doc.split('id="refs"')[0]
     erreurs = []
-    for m in re.finditer(r"(?is)<(?:p|li|td|caption)[^>]*>(.*?)</(?:p|li|td|caption)>", doc):
+    for m in re.finditer(r"(?is)<(?:p|li|td|caption|div class=\"(?:ex|pas)\")[^>]*>(.*?)</(?:p|li|td|caption|div)>", doc):
         bloc = m.group(1)
         if "preuve" in bloc:
             continue
@@ -215,7 +251,76 @@ def exiger(doc: str, ids: list[str]) -> list[str]:
     return [i for i in ids if f'href="#sb-{i}"' not in doc and f'id="sb-{i}"' not in doc]
 
 
+_MOT = re.compile(r"[A-Za-zÀ-ÿŒœ]+(?:['’-][A-Za-zÀ-ÿŒœ]+)*")
+
+def _grammes(texte: str) -> list[tuple[str, ...]]:
+    mots = [m.lower() for m in _MOT.findall(texte)]
+    return [tuple(mots[i:i + 4]) for i in range(len(mots) - 3)]
+
+def _texte_p(fragment: str) -> str:
+    nu = re.sub(r"(?is)<sup[^>]*>.*?</sup>", " ", fragment)
+    return html.unescape(re.sub(r"<[^>]+>", " ", nu))
+
+def reduire_repetitions(sections: list[str]) -> list[str]:
+    """Garde les phrases des points clés, et déplace les répétitions vers des fenêtres."""
+    from collections import Counter
+    vus: Counter[tuple[str, ...]] = Counter()
+    debuts: set[str] = set()
+    for g in _grammes(_texte_p(sections[12])):
+        vus[g] += 1
+    sortie = []
+    for i, sec in enumerate(sections, start=1):
+        if i == 13:
+            if "<details" in sec:
+                raise SystemExit(f"point 13 contient une fenêtre")
+            sortie.append(sec)
+            continue
+        morceaux = re.split(r"(?is)(<p(?:\s[^>]*)?>.*?</p>)", sec)
+        nouveau = []
+        for part in morceaux:
+            if not part.lower().startswith("<p"):
+                nouveau.append(part)
+                continue
+            brut = _texte_p(part).strip()
+            if brut.startswith("Question") or brut.startswith("Réponse"):
+                for g in _grammes(brut):
+                    vus[g] += 1
+                nouveau.append(part)
+                continue
+            gs = _grammes(brut)
+            recouvre = sum(1 for g in gs if vus[g])
+            debut = " ".join(brut.lower().split()[:2])
+            if gs and (recouvre >= 1 or debut in debuts):
+                interne = re.sub(r"(?is)^<p(?:\s[^>]*)?>|</p>$", "", part).strip()
+                titre = " ".join(brut.split()[:6])
+                lien = re.search(r'href="#sb-([^"]+)"', interne)
+                src = ""
+                if lien and lien.group(1) in SN:
+                    src = f"<div class=\"src\">Source <a href=\"#sb-{lien.group(1)}\">[S{SN[lien.group(1)]}]</a>.</div>"
+                elif not lien and not re.search(r"\d", brut) and "ESCDEF" in SN:
+                    src = f"<div class=\"src\">Source <a href=\"#sb-ESCDEF\">[S{SN['ESCDEF']}]</a>.</div>"
+                elif not src:
+                    for g in gs:
+                        vus[g] += 1
+                    nouveau.append(part)
+                    continue
+                nouveau.append(
+                    f"<details style='display:inline;'><summary>{html.escape(titre)}</summary>"
+                    f"<div class=\"corps\"><div class=\"ex\">{interne}</div>"
+                    f"<div class=\"piege\">Piège d'examen : répéter ce fait sans rouvrir l'extrait cité.</div>"
+                    f"{src}</div></details>\n"
+                )
+            else:
+                for g in gs:
+                    vus[g] += 1
+                if debut:
+                    debuts.add(debut)
+                nouveau.append(part)
+        sortie.append("".join(nouveau))
+    return sortie
+
 def ecrire_un(nom: str, h2: str, prefixe: str, sections: list[str], fin: str, extra: str = "") -> Path:
+    sections = reduire_repetitions(sections)
     corps = [h3(prefixe, i, s) for i, s in enumerate(sections, 1)]
     if extra:
         corps.append(extra)
