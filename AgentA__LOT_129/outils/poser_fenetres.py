@@ -234,7 +234,7 @@ FICHIERS = {
             "LOT_129_Phase_B_V0_DX.9.html", [
                 "[S1] SSAM, chapitre intoxication des recommandations d'agoniste opioïde du 16 juillet 2020, extrait lu le 9 novembre 2026",
                 "[S2] Infodrog, pages héroïne, amphétamines, MDMA et benzodiazépines, mobilisées pour les signes aigus le 9 novembre 2026",
-                "[S3] Tox Info Suisse, page d'accueil seulement : le 145 y est affiché, les schémas professionnels d'antidotes n'ont pas été ouverts ce 9 novembre 2026",
+                "[S3] Tox Info Suisse : page d'accueil (145) et liste des antidotes 2026/2027, lignes naloxone et charbon actif, lues le 9 novembre 2026 ; les autres fiches de la liste n'ont pas été ouvertes",
                 "[S4] Interverband für Rettungswesen, présentation de la chaîne du 144, lue le 9 novembre 2026",
                 "[S5] Stratégie tabac des HUG, 2024, seul le passage sur l'ingestion d'un liquide à vapoter a été repris ici, lecture du 9 novembre 2026",
             ]),
