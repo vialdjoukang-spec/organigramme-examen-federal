@@ -1,0 +1,40 @@
+# Rédaction Gemma du LOT_131, déclenchée seulement par un push sur agentA/**.
+# Le fichier ne vit pas sur main. Aucune PR, aucun push retour (les artefacts sont lus par l'auditeur).
+name: Gemma LOT 131
+on:
+  push:
+    branches: ['agentA/**']
+    paths: ['Gemma__LOTS_Pilote/COMMANDES/lot131.json']
+permissions:
+  contents: read
+concurrency:
+  group: gemma-lot131-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  rediger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 11
+      matrix:
+        entite: ['Phase_A', 'DX.1', 'DX.2', 'DX.3', 'DX.4', 'DX.5', 'DX.6', 'DX.7', 'DX.8', 'DX.9', 'DX.10']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ollama et Gemma 4 (poids publics)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq zstd
+          curl -fsSL https://ollama.com/install.sh | sh
+          (OLLAMA_NUM_PARALLEL=1 OLLAMA_MAX_LOADED_MODELS=1 ollama serve > /tmp/ollama.log 2>&1 &)
+          for i in 1 2 3 4 5 6 7 8 9 10; do curl -sf http://127.0.0.1:11434/api/tags && break; sleep 2; done
+          ollama pull gemma4:e4b-it-qat
+      - name: Une passe par rubrique
+        run: python3 AgentA__LOT_131/outils/rediger_gemma.py "${{ matrix.entite }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: brut-${{ matrix.entite }}
+          path: Gemma__LOTS_Pilote/LOT_131/brut/${{ matrix.entite }}
+          retention-days: 14
+          if-no-files-found: warn
