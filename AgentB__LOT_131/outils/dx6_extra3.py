@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+def extra3() -> dict[int, str]:
+    return {
+4: """
+<p>Un garçon de treize ans vomit depuis deux heures, le testicule droit est horizontal et le réflexe manque. La conduite lue est l’exploration, pas une échographie « pour confirmer » qui mangerait la fenêtre. Un deuxième garçon, du même âge, a une douleur du seul pôle supérieur depuis un jour, un point bleu visible et un testicule souple : la surveillance de l’hydatide devient défendable. Un troisième a de la fièvre, un épididyme sensible et une douleur depuis trois jours : l’épididymite prend le devant, sans que la bandelette décide seule. Ces trois récits appliquent l’ordre du chapitre sans ajouter de seuil. [S1]</p>
+<p>Le purpura d’Henoch-Schönlein et l’appendicite restent des diagnostics d’environnement. Ils n’autorisent pas à oublier le cordon si la bourse est le siège principal et le début suraigu. Le chapitre les cite pour élargir la liste, pas pour retarder le bloc. [S1]</p>
+""",
+9: """
+<p>On peut encore lire quatre comptes rendus fictifs, construits seulement avec les catégories du chapitre. « Flux aboli à droite, flux présent à gauche, symptômes depuis une heure » : ischémie probable, bloc. « Flux symétrique, vomissements, réflexe absent, symptômes depuis une heure » : discordance connue, bloc quand même. « Tour de spire vu au cordon, sensibilité 97,3 % et spécificité 99 % dans les travaux cités » : on opère sans programmer cela le lendemain. « Leucocytes urinaires et testicule haut » : la bandelette ne gagne pas. Aucun de ces comptes rendus n’invente un seuil de vitesse sanguine en centimètres par seconde, parce que la page n’en donne pas. [S1]</p>
+<p>L’échographie au lit, faite par le médecin qui soigne, est mentionnée avec une revue systématique et un biais possible des études sources. Elle peut accélérer le tri. Elle ne crée pas un droit de sortie si le tableau clinique reste celui d’une torsion. [S1]</p>
+<p>Le schéma didactique du point 9 ne remplace pas ces comptes rendus. Il rappelle seulement où regarder le cordon. Aucune photographie de patient n’est jointe. [S1]</p>
+""",
+11: """
+<p>Deux trajets minutés, sans dose de médicament. Trajet A : la douleur a commencé à 16 h, l’appel au 144 part à 16 h 20, l’arrivée au bloc est visée avant 20 h, donc dans les quatre heures. On note l’heure, on ne lance pas de spermogramme, on tente au besoin une rotation externe seulement en attendant l’incision. Trajet B : la douleur date de la veille au soir, il est midi, plus de vingt-quatre heures se sont écoulées. L’exploration reste nécessaire mais le chapitre la dit semi-élective. On cesse de parler de fenêtre idéale. On parle de vitalité incertaine, de fixation de l’autre côté, et d’information sur l’atrophie. [S1]</p>
+<p>Au réveil, la phrase dite aux parents reprend des faits lus, pas un slogan. Le testicule a été détordu ou enlevé selon ce qui a été vu. L’autre côté a été fixé si la torsion était confirmée. Jusqu’à un organe sur deux jugé vivant peut diminuer ensuite. Une nouvelle douleur brutale justifie le 144, y compris après fixation, puisque 4,5 % de récidives sont citées. Le sperme sera parlé plus tard, pas ce soir. [S1]</p>
+<p>L’antalgie et l’antibiothérapie restent sans posologie suisse. Le corpus local manquait. On peut dire la classe d’intention pour l’hydatide : un anti-inflammatoire antalgique, sans nom de marque. Pour l’épididymite du petit garçon, pas d’antibiotique tant que la culture et la bandelette ne montrent pas d’infection. [S1]</p>
+<p>Critères de sortie relus un par un au lit. Heure de début écrite dans le compte rendu. Geste réalisé nommé. Côté controlatéral fixé ou raison explicite de ne pas l’avoir fixé. Parents capables de reformuler le 144. Rendez-vous de volume proposé. Absence de douleur ischémique croissante au moment du départ. [S1]</p>
+""",
+14: """
+<p>Question : un enfant soulagé après rotation externe peut-il rentrer ? Réponse : non. Sur 53 explorations, 17 torsions résiduelles ont été vues, dont 11 chez des patients qui avaient annoncé un soulagement. [S1]</p>
+<p>Question : quatre heures et un tour de plus de 360 degrés ont-ils le même pronostic que douze heures et un tour incomplet ? Réponse : non. L’étude citée a vu une atrophie sévère dès quatre heures au-delà de 360 degrés, et pas d’atrophie jusqu’à douze heures entre 180 et 360 degrés. [S1]</p>
+<p>Question : la valeur prédictive positive de 100 % du Doppler signifie-t-elle qu’un flux aboli est toujours une torsion ? Réponse : c’est le chiffre cité pour la performance globale de l’examen dans les travaux rassemblés par le chapitre. Cela ne dispense pas de l’exploration, et cela ne dit rien du flux encore présent. [S1]</p>
+<p>Question : 30 % d’atrophie après oreillons s’appliquent-ils à la torsion ? Réponse : non. Ce pourcentage du chapitre concerne l’orchite ourlienne. Le pronostic de torsion a ses propres fourchettes, jusqu’à la moitié d’atrophies après sauvetage apparent, et 36 à 39 % de subfertilité. [S1]</p>
+<p>Question : pourquoi la fixation controlatérale n’est-elle pas programmée à froid ? Réponse : parce que le chapitre demande de la faire immédiatement après la détorsion, pas comme une opération élective séparée. [S1]</p>
+<p>Question : le niveau de preuve 3 du diagnostic clinique est-il une raison d’attendre mieux ? Réponse : non. C’est l’étiquette du texte pour un diagnostic qui repose sur l’examen, et la recommandation de traiter immédiatement est forte. [S1]</p>
+<p>Question : quelle incidence suisse citer ? Réponse : aucune. Ni l’OFS ni l’Obsan n’ont été ouverts pour cette entité le 9 novembre 2026. Le repère suisse lu est la place de la torsion aux urgences dans la Revue Médicale Suisse de 2015. [S2]</p>
+""",
+    }
