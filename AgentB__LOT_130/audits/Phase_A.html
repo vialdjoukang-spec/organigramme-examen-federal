@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><title>Audit Phase A</title>
+<style>
+body{font-family:Georgia,sans-serif;max-width:46rem;margin:1.5rem auto;padding:0 1rem;color:#14202b;background:#f6f7f8}
+h1{font-size:1.25rem} h2{font-size:1rem;margin:1rem 0 .3rem;padding:.25rem .5rem;border-radius:.3rem}
+.ok{background:#dcfce7} .mineur{background:#e0f2fe} .majeur{background:#ffedd5} .crit{background:#fee2e2}
+table{border-collapse:collapse;width:100%} td,th{border:1px solid #cbd5e1;padding:.3rem .45rem;text-align:left;font-size:.92rem}
+.tag{display:inline-block;padding:0 .4rem;border-radius:.4rem;font-size:.8rem}
+</style>
+</head><body>
+<h1>Audit Phase A</h1>
+<p>LOT_130 · F1.1 · non validé cliniquement · score monographie <b>92 %</b> · question finale : <b>oui, sous réserve de non-validation clinique</b></p>
+<table><thead><tr><th>Catégorie</th><th>Gravité</th><th>Constat</th><th>Correction appliquée</th></tr></thead>
+<tbody>
+<tr><td>syntaxe / format HTML</td><td><span class='tag ok'>ok</span></td><td>DOCTYPE, 14 identifiants dxN-p1 à p14, popover avec bouton Fermer, FIN_FICHIER, aucune ligne > 3000, pas de title=.</td><td>Gabarit imposé par le script, non par Gemma.</td></tr><tr><td>sémantique / fond médical</td><td><span class='tag mineur'>mineur</span></td><td>Divergence assumée entre la cible suisse de 2017 (sous 140/90 mmHg) et la cible européenne de 2024 (120 à 129 mmHg si tolérée). Plusieurs posologies hors ramipril restent « À vérifier (AIPS) ».</td><td>Les deux textes sont cités l'un à côté de l'autre. Aucune dose absente de l'AIPS n'est présentée comme suisse.</td></tr><tr><td>langue française</td><td><span class='tag mineur'>mineur</span></td><td>spaCy sm marque à tort des verbes (décrit, impose, maintient). Longueur moyenne brute souvent 11 à 13 mots. Répétitions de 4-grammes au-dessus du seuil pilote de 10 pour 1000 mots sur plusieurs DX.</td><td>Le détecteur n'est pas utilisé comme seuil. Les phrases nominales « Posologie : … » ont été réécrites avec un verbe. Pas de second passage Gemma.</td></tr><tr><td>sources / preuves</td><td><span class='tag ok'>ok</span></td><td>Chaque chiffre de la prose est un jeton présent dans l'extrait cité. 83 preuves vérifiées par inclusion dans le fichier source normalisé.</td><td>Les ancres qui ne collaient pas ont été raccourcies avant rédaction.</td></tr><tr><td>sécurité</td><td><span class='tag ok'>ok</span></td><td>Grossesse et ramipril, double blocage, délai de 36 heures avec le sacubitril, sténose bilatérale, alpha avant bêta, pas de baisse brutale, cible de 65 mmHg, remplissage d'au moins 30 ml/kg.</td><td>La phrase européenne ambiguë « 1–2 mg/kg twice weekly » n'a pas été transformée en ordonnance.</td></tr>
+</tbody></table>
+<p>Contrôle mécanique <code>controle_lot_80_150.py</code> : conforme, 0 critique. Bande 80–150 Ko respectée.</p>
+</body></html>
