@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DX.3 — Cryptorchidie</title>
+<style>
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("data:font/woff2;base64,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") format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url("data:font/woff2;base64,d09GMgABAAAAAB48AA4AAAAAPPgAAB3nAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl4bmFwc\
+MAZgAIMmEQgK0Ry/DAE2AiQDhQgLgkYABCAFBgcgG6sxo6KetFo1G1FBKoqietDN/kMCp7JB\
+tDB/B5fENpH92F2TTORMO9UoglBD75VfM9sY5kdDMVUMwjPkLQd3BgfSREdIMtvy8N9+5p1J\
+MtltfwHREoAickQa0bWWdU+Nq2XhEN7w/DZ7hEWIiqASKfHhEy0gEmUkZmDPhcoUFRQjUTdj\
+9py7yEVdVO2iYl61L+lepYT17BSZJJ3tK+Mwdc9fiwzUP3/wm3veJ8gtCTQgyaBtcIzvncfv\
+z60uu0sRTqtQrl8jcO+fHz+nqspV2UpfSxp5YzdVYDWi2/g2/i/hS4Zg1lJ3/7vWmifAzAga\
+1/QG+B2VCA8KC+JJAgoAwH+0dPolVDkO5MiT693cLu1TbZpCZYShFS1xKeqMBGMs//+cffYl\
+af4A5iMuov+gd1k4FvLmvWnnQbKbDGGmn6jJECXbirTLKAyxKiwAKGBF7ND/PR6MXm8JzZba\
+7GKHlK4QjYNxEwp53/f29zMd3ZtbroMYIwTMuV+/+tmtEqACQIa/SASC+GREJEuSbBRUY2Ab\
+j8AgYpOQmoLG0hjNzGJ+axV4dRsiaVBz5+eWgMTvnpYDOPpp9B16AA0w8kz27+yZL6KBrWNo\
+SEfClK+u9qr9/pIjJ1riJHnSJkuqS74ymMbKg2UrXUlflEvpl1HyTnkw35n3XywqsWaovVfv\
+bIDIm42EckMjucEYlqkNUWNPe/z0SUkt0vJaSSuu1K0p7aWpbAW5IeRq8GJ3dXdr9wYu2d3l\
+wXWvQSJCiwA0xRZlHCIMkuT/nYouARMLCQdPEogUlZwaWxoDvnRmEC8viXbtpDp1kunmI9cn\
+SG3ErHRhC9zWrMmG0CwOQlR8QImSCBe2zFoQcKFBQoclIkSUqLiAkQobpAFText62tDbhgjo\
+AEwIXFgyg4YMKFFhZYCd4uAHcahUKXmBoCc+9ycGGNTQRQEQrJWfM3K3WJKcaesuAWwYhrEj\
+EJyjsOBfAy8SA3+Jjw8AwA8S7LIQghChQneoGyLEKWudRqVDaexYertMmNXno1/DZEQTZJIp\
+pn0u1oV9PsiClqhl+EocW+XEkLXYFYmMhtMEN5aaZXIOzUATCx9LyI2lpvASfKYg0FM+ld/S\
+QGDQh4IAwWUUPFrDIeKUWYL8pQYCg8MRuIkY5ErY4nHwcdHAnueqJrStScO67mKE8DFGCCBK\
+SY5RA/qUhd8E0Yh4EqwnFBERMRJXJdSuiegq5exuhs/nfUF/+hsbIIM+FAsQ1LDFiCbAJFNM\
++3zAgi8FWZ5y4WMSQhAh8qqoKjovWZw2YsQCLCysKNGgqyyqz6t+pj8yIAx+Y1PDFiOaIJNM\
+Me3zIRa0lLWMOx5PZxxJYCSURxQQS1K6LIcGnYw26TITX+OkX/OhRIDgCQ94eBGYYtrnwhH+\
+wgdewFcCVjmhtYvQ8WqNh9S2LWM2R5CPzsZFrH2lJnMYXTRnTDYWG3VUCOKU9UKj0kGG3FgL\
+fBPXKVMoFCrItOa8CssXxlCBqziZrhcgk6XRwrFlcMBdUrTRUXai8yEbIkDQ50ITvooT71zQ\
+s4CHyxAYxElHYZIsA4kZhc/SUCBA0OcQhF+voUAiI41OMyRlD7yHg9KuWq2wGwEvEU9+1YAw\
++DcIGEwInYWhoYNExJ0oTJjYEIkdcFrEjShzmDqSodPPtgMSRzyuBCic+PIqNTQG50jpmkcg\
+6YNxhBRs7m4A+V0Noz6VvA8N1A7V2yWJA+IPT4ePHx1zPNWEFr8Alta6OnEtEe8cn8ViFWFm\
+RxnH0rvdXTLT9rc6gT7tE7i193buLhnWqTqUm/pVEezTuJ6Uxjepx8YrtqeET+LUubns8bWn\
+6B3/7ZvQXGknP+ip9mQ8RW58+/G4LQ4zCOEjMukXD2AgFmlUazt31TIh4/Y7ojDPonNWkFRZ\
+7J9mDGHNZCxIldoXS4PhCr9oyPvl2Ws2NBIKJSZ4BHHi10eFqBhY2Hj460kG7/avoqajZ1DS\
+R9s4uLTpWBH9Oe3Tz2/AoCEBQcNGhIwaM27CpCnTZsyat2DRMcetWHXCGiQIHh4aAQFWnDgo\
+8eIhkZBESpaMhIoKhYEhAQtLHDY2DB6eeHx8BBBIDDExBBgskY4OmZ5eFAODWEZGEdKlwzMz\
+w7OwwLGxIXJwIHJxidamTbQOHaJ164bk44PQpw9Sv34IfoPQhg3DGjEiRsg4pAnTENaKyEsN\
+ZVHDWFkSYc3aRZE4VrciER8aElVDomtILI63rlysTYCTUat8gIYj0yKptWgajrD3cBCWxyoY\
+BSNibFkVavOQIJRFCtJExDPmhE8cackyhIn5XXFEmFRhFDF8TxvrWZvvbxwL8vl8H+Di53Wn\
+dxSHBAk9B6lZu4//Z35WsIf1dQZ15/8PgPSkEgeQANLH7QAGQlUmKetKgYg1dFr+oq1nEYGM\
+RUbPokqDQcP23Ox2l93hLvd5wMMe9bjnvOQ1b3rbez7yic9865pf/OZP//gfUTwwkZXCorM4\
+LD7rzP//yEBscgZW1RoNQa7sgvakF6U31HdnfOEH6e99egYSWcks2osWHxg7BOL5vnuyh5pa\
+r1Ypt3yZ0g3q1AbQ0gNijlpVq1QGHKwuen4yFQuq/wgiwMX6jxCeDsFKpdNVzXW0TfXIa5Uq\
+UKiIR7FuwyPB4AVH+YyMCMMQEPGvAWoe4gkBvfyWbbcCHXYA6S6QOkbtNYhbE/nKUFFCkq1k\
+qYpMluVP0xHFwcrJddJQie8KOzmSiSR3FBFQSfCiMBceKp4CoD71xrWPjsGkjMeiWP1xUdQK\
+l1RFo+JbY+jt8DgMt8LFV5F4TFxHPDaxa1yMoiWxicfFYJhtiBWre91+mqSBeFIVicuN53WL\
+wxErRkWAupHsDfFtCLGEJ41dgLMdGZla0cmjDonomJQmGh1VY5vaLzqx0ejoMZxhw0HT6sIP\
+jcvgSuRWGHRsLCHACOYQZ3dPw+NozRwiaWJwKR05UTeHwCY4YMNbuknww3rVHP+PKyIJgT/x\
+uLDyEsY8bCk2EoSgNSY+HwC0+I//ub4kHm39zdL4vE1T0nYGh9OkZ+8t9s9bW0ZcPifn8ZF3\
+tzfB7yPlii8oEwTrxW3UO/QUiDkh6jGlZHcZ2PxDjJi4jX66NZMAKjD9GP5pZL+PhB0bS7fO\
+OdRjtFS972PF6qK0Riu0aFzmWjJs/sUh8mQaLW11+gaq/dp/+2M/ww9xg2XiiQY4Kj1bQwA7\
+5ByXDda0vlEMHxtqM72GQM6dxAE2NKFnQ29Dhzr8ToJ+i9lN/YIEgCBFllyX9MbQ8odGvmYa\
+vbGDuXxIqc7aVSMGy+uQRjDHthzsPu09f27VlFLDmwusXSeFUq7r/N0+i00b+0tZXjEqeSpP\
+e64x5mR8HkM2/jqAtL3FUB75+fyGvBP78j+i474Efa2p5PRyO5zWjc/Mxa9rQiFMCsVHiX1+\
+3DdOd5+QpGWQ7poT4kGWw+wO9w1Db1wg3VfEPot8vTW+/7eVX7dMLP0g149DigyxgAVkubim\
+5eeH7jorA18SXrDWyYjz0Enik5Z+GZVTc/O0EuUVCKU3s/nWdFXVDe+vmErhuhAlCDhPDJJs\
+wuUG6X6Ms+dt7EzIiur6cZNbO0nZr1PRrtOkZ3nvLexhKCBHDh4WynMLEgXqTQK2qX/YvILg\
+RX9A4KUAbRcp3W8LvqFXL/LS1tbctQynm/htzv4jv3WfpebTmz29S8gyt+oykdFuj9BcfGFP\
+8Le4HF2qENBqb/Qc+l03HfiOlQgiJxMcdNHet94qsXczbtdF+1NkCm1L2t7bbCKttOewvhJG\
+dd3GabSv9FOCJwa7a8Cd62y4n2GPodsWgeowq4+n9nEybgs7ATuxD4nM6DLw/RcOoAFBkQ9y\
+7ZEi4+hdTta+xsjx5TYVvDfgj4gPp2tcnSLTNteiyj67va2L4dyO+XOSa85pRrV07FamcqeG\
+t3k0XKeWR+81HqCWvGeMXvGPouHAR8JKNkCkRzdQbW2lpZ+aUzYpKIYs0XRTnetMRAQQpRKR\
+87fX6Hq2STZ/QgN6BYdp8r4jYQs2FizMcxsgn/gy/n5dR4Ft97yGVt5FbkCEDivgkGUVBR7v\
+fx/zeF6NbmGYuq5z5oNF26aKhuVHzqOTFpZZz6v1hUuKtr/92I18bXYZy8g59PEM0IfZhbNT\
+2ZMrl3A0Gc5UMCsYovsprU4hnZC+Y5PxsLbFh4uIDpOYYsX3rPslJ1rfnsLKnQHdmexxaCLz\
+ESSUQctUiiWwuNi2iv+Nr2ufw1g7sjozGOgHmN7yU7NBddNUKngntM6w/K53xTmuhoefZ77w\
+S+C07pJH9KQ+W7hWmKB2GTuganRfw0z+AvHxviya5OtmpXsfv3tDvvYYpifg5HqzSajBcTxY\
+NDx2awyEvcKKX4bpxmpxOYfNUbgjEULQD+oJs8/jKBo8kdJ50JXOTm9SZQjBRgz9Va9w9x/3\
+4Jtmt6QHayQkVoyqdIH6Do1Jox7qb58kKp3EZV0/Sku9sy2RAab45BLNy1ejm8dcWp1s7qdr\
+7Ll2d0y72bqi9GK3PZ6vj0gks33F3CrsdImzLaBCH0sGbx1tF8CWgpgNZjK8AEvjfcZeEwos\
+0/jLiLOKJyv9mX/TmwiOrbnyDcu4E8bqOueEqwL/+H22cc8xIm2mPAmvHNhp5d4acDh6q0R5\
+ZtJ1S1y2y6abntw2N+reZe/wX4cMFlnEe6T72BZBb9w/Y0N3z+JN5dGZUGxmGNfP0v1lpC4l\
+V+HVRY8EsARWZ+6BKJE9iWbppJurtMCphlX9Pva8XWLYWZHvJ7um7NWFFWAT1YLOFGYl68In\
+PQr1wSS11bLdappZtjtPL901vyDW6c4M5X9FdESZYtB1yCjZz72g/PxZrjqDNuA+Ap56eGNI\
+48R8RevdAZzgeM12yNEoFrTxmJfOzSoozvHsCscB2FRmbrnlzHKpOQg42LRWZp7NMat42CmA\
+ZEEISi+JU3aW1chgwRcQ79WTMwplnrmFrpOWE10ikUWi1RdysZ8Gma6sqn4JqFlwHnac2pit\
+mapZ0CXsPQr42PKpXGbWuOzlz3gau8mQ4dLLsrmWKQVU+lDAGhtoyI7npneqbK35udltg2pg\
+wTb0FWiP1WUyJx0dB035uS3q7Wn58WWKxlZYNuVIURhbtRnNTqf1QK8p54hCZ9FodFal/LxW\
+a7CA4lhGcfCXIGCANGx+QOFudJv0ecNfRjI18vIylV5fppKVa9LBsCE/w+VuHFLknaG10+jl\
+dNo0nTZDlaqsKqHIKlGprRIRZFWC2x5Re1ewn7RZTB1Wm/nAAbPVdtBi6bIxYxKZtrzTwmJV\
+PvxgbOzPkOygSGHRgYh/ts89Z58R9IGPl+e320r/BfBOalY3zZbtkgqdZdcMblOOrXJAWHR8\
+JSx8nMl6VBjeWFYJuVyBahkcwbafKC7Y7uz0bK2XtNXPF/NcYWVFDgeS5ijFDY6OhkNufiGz\
+c04pcC17ALzznmee1Z5rCNU3GEYUwmPxmCas4nz8V9wCm41b+FV+rNjqyIEMN/veDr893Rw+\
+bfggbPFZ5NORAOqxTQsluTudnaWbG8UtFfNOgX1a96eNp5blySR17o76I/k8e+JFEXEtpB5s\
+J2WZSwG8s/s/8f9UbTeBmAD0gbob6gIVgZobagLgP2zHUEtiyXF19cRppjK/cGd3JzixWPp+\
+YvajH4miJwbveoxgz35iry7eQuG+vp/7YP6D73e28Lu4sZM4PNzPIN59b3Pn2ZQFBLCt26Xl\
+2+3tMnu7tLWNVWS5Ysiookgur3e7AXoWhTzJDuAdRPkMN7+2ojy/DjtIuferA+28szwuN/UM\
+rx3co+1qLTUOGvwuMdC8G53Nx4r15xanPWUhvyczyez/S+z8ymI+Ndth2n+kuuvK3+5/Qu1p\
+2TSpLJuW1g702IOrFYyCY6oPcyU6ek0GhWvnVxYSqmpgXbZeq8jzKLzJSm0zvSDDvqh6xMaV\
+SR9mpqyQK+Oni5NdQrFdrZF7CnVeGvgi/s1wTvjNeJCDPTl2Ysu/O6lIyOzX6doSMhWTu/6t\
+8RPgu4+3b9j4ZvObGz/ZBrfvbe/WvNj44g1NL9a8uLu3fWvL682vA8wvZV84Hph+aOahB75w\
+/FL24Imrq1dBDPq/9btXwSq45791NGANFK7bwoSBvPXaMHgUK8vjSiwSU4l7hVsfqaEqmN8F\
+RySjPmtpZ3dt90EWKivK6lyg3lnCQrZJHnLg8iPraYLkAGjACst4/gTb5M7Gvr9MKLQ0mXQ9\
+RUW6vibz4aOwJdfpsLhhicWWm2exAhLWc8Rq6MvPN/t6zDnikqTMtIZhyUNf06mU7zXa/zBU\
+1t1PDMHzWWoPCfyEtTSZdX1FRbqeJpMFKhX69zfe4UW2rC0Rbd94uFFxiTUv12L7uXY7nJZc\
+IMAWDmY4jnoKMnv95kyPL9c4hS4/rHKoRNzUD/3idp/msu4Twj4stklAecDj8xQZBdbiFLvT\
+LxKeotu7fF0BkPosVJzoVnUNwe+oKPIdReXvHp5I26g3HcgpNx2q16hkZdDdRPv4c4HJ3n4P\
+I/JNeZZFB0ssRqvNYgHKnY0fsPkqfYOrs0W6Ec0d+IQnFzsc/3vUynPw+HYeX8XnqXusgTrf\
+7/vGDxTz7Fkc65+U+42Csyk/fRNPo5YkmnnV22+878ojL77MuhK6rA2CN0zuxO8McRtfca/w\
+xQGg3J9MsGLzVDqjC4p+ugJS17vxhvzEk0IWa+TmZ3THJ6kykd2KAiWTN+reGFhnvy7LV1mV\
+1dOvdToE1KqqLGH+OO1HpenW/IIfYMkPBfkmK1DsLU0Q7d7FAUE+EB33IiyD/F+1YmCL2+Ww\
+5PgehcWcl2txAOXtedU5ZYX9pRAUVZMwh+9eiPaJZ5nREH12/Jf7FKRuiSM3z2JuyXG4bu8t\
+oNz3U6oOFMjGNi7GYXXXG/8CUdjyYfMLIem5H8S8qaQ40k0VsW5sZVaGOsPZxjG5/cp7R6Sd\
+So5HSLgUUR1XSSg1ZRiseQd5AMXVG7Dv8XkCG4EuX9fT3Bt4cAC8j7Vlyxm1dtEGyTHPk4Sd\
+EZv7E4nOEgsMLl64drKj6JH95MVrIDB0bS27wFxwvIc3XR/d+01ur8sLwBh5y3c3lfpL/Dcp\
+5A/cTd7F5kVg2TvE4JD4/ge+u75BU6e5/oFrw3JnDtUKGAPg35+P3znw/7/YATDnEW4KYxSC\
+nMeq1DO/Xc8VzoKMOvX07zdwoA2hcAZKKMx9rMTCUmPmffSOA9aYl/1YtWYVAxnHAbK9Uy7N\
+huEciRTOVi5Vi7OlEjjHBTawwk2hywP5IeGALiYaLcLZD276AgCrRwHuEixdXXrl/OorJ66e\
+Wrm68srZ572sXgXPNMJZYnGWRCLOVAuWsFiUWSLKylLJ3GIwtpiM2xjMAX653PZw18PtofbD\
+p6fNfDkEQkC9XJSjKrWZyQmjCeSblVWsP3PFaemFqjRdqSdTvlsOnp3T5YqSqlhNKBKlL55s\
+TSWUEKx84kvxCS8XVrAicvkac5FawXhWf+t/bN4lFwWsrQk3hNC6UDgNCWcAT0AQnYOTc+rE\
+1dXD0OVXlq+CQ69ujTyfl5f7c0kF1LVb0B/FLRq1wT8ukUljCeSbbVWsPwjssUil05V53L/0\
+idjvXvV+d3XRftTeD9SUETDy/4sIGAVDi45+x9HF7656wT0/4Zi3D175/J2UlGNy2MF+YkZB\
+dS5keW29qZnZRltmZubjPytjcv4TzgqhaSHUDwkHwBDWHdDU1WkCmW5NsK4uqMl0DihqKtX9\
+LlRteauDs/TS4Q9Z3M/4bk2utrwiVcl49u4HOEgSa1CY5erps2YavOKcHMir14u8uTnNkMH1\
+af7f3ojkM3BJNxtDaliQcJBgwChcD2PrtMD9p0Ydk2H2cLz3BfWMTMg9J8aPSbxnAr5QWagX\
+JKK3N5HbgLXXOx7qAyag1t3t7X7+QI41PtL0CIgZCW2FwLJJkgNzkpIQSZSfDk6Bkp+Ef599\
+9Cz0t+a/+kb+dDH260X811L8eyKYih8OEeeIphaHQwnD82gWLVijiQtygjUaPwaiGYuHWX3b\
+Ts4CQlleTVSwjOo+prrB2H9yprpGrMvWW92lh2VXnFnOzAi/nepYVLEeOnZ6qjjZBYntaqu7\
+rkfza27mXxOqlykpq6R8GbGBS/1xDrxH11aq1RVancyu1Gi1oLZOm7OrPfSr2yOvbjessN9n\
+PUvZrDrtqVxWWUnLAcmqUEc9DKms0Gj7WN+znxLrfcn+HsTg3Af16bVqbXa7h/MHLYej0ubU\
+ioyKMqmuQC7W19qh2gMSmntuBJulG/kzcPzCa2MdjOhHiuPIVB+TkkshXkY0JjVcCB670Ejh\
+LAPNRY7eKZf3rNX5Hwbb9U+oSo/ry7WPdQUq37dUAc6etari/UCX5jFD+XF1adoT7cH8Dy3V\
+4GSdS2koqmdQPPWMloqWWgbVU8cwFC2MLgS/3v1w6OG7Q++dQLLk8drB4XaS7hp1jYIBrMfe\
+EgJ6ex25DWh7xlKKxGWth72yIVmTuMEqcZZSjCo/m8mkDYlOb06hJjdPi4M0JpPtF87P9bIJ\
+sPf8HBaBFhQv3XoU1XfrkmiIRmBx/Or0EorEaW0QN0mHpF643ipxlVDSQetN3AUTPWEhoZ2H\
+zjVWuPln6cnxu6yOVHSuvgIkninqyjo8Kh19hM3OJicVy3t0NmZWURpfZikjOxhKg72RoxcW\
+EG1yw6iU/9n/NEZ8XBzmgQGjm5OfpYfkjrucLWytvqBZjGtOK4lLOsM8qBlPSaScBaNW+gad\
+vkmnz9LpMzcqNPA8/SDi3S1E2Nv7ztw7M94wov+jgr7rf5t/EQjvDt0Wekd/PJMXsdJiltoq\
+Z97rloaozXTxdcKl0dtC4yHdY5dVefpyjdPo8iNcpxJKTb3WL+7wqU3jOfmhVvoX2k8J+xKR\
+XfI7UnLBFF0EasgCai2YIlVVTk/PzVRVzR7pHAFQwKxxcnrVW77V0bs1T8T8YL6ZmtMc/oA5\
+DrcsfiXZFFl0Ki/vrcqnaWTb5HVcredo3jIIHfEoIR7xI3+zHkfGgNtmbWC9pP2E8JFEbJNg\
+fp7ri/OvlV7L/4ks46LWdvFjSvL/cooMzpGAd18xWF9RJSWBJPzqDGyUgPJ7k5/k/dgrTEjY\
+JuBM8bjPxnxei1ZVPPPh1UTi0G1JdNspkLE8XkzLb+zW3aXxkD3dng7evR5fn4ulzV6ZGLWn\
+29KBKxzZw219d0JJ3U2CLIWp6vWjk55yeHOkt2ykmO0KSXl2Ng92pSXeK8zai47GjIzIyiJn\
+6qVcN0MwIuW6Jjygdox6nLV/ksGby7HkTuSkHwJzoO+3rvf3/eXM924jgnv/J6ba6IjcWCaA\
+ox7ZHiCeJpgWsyNiP5uQ09VFsgHkcHhA07ZVW7se0W91ySlPAopg1q7lqxRbG1XpzhFBqDBt\
+058mlCg3m/FQ4Z141oavAY3b+xQhoOSZYkxpKbY1a91bOuUNEbF82CAByYNVkhJh7FWWX0f2\
+5N8mlQPlHpWq7Khs5R6TXUmZVtlKp6EBljdHNPKxdCNvyxuXNxpmdU7bwBOKsv/6N4D8pNb7\
+qXoPflRyL4tGvqW+Mfwl3EIL51tKd+h+u//AXmn8KSRqr/DqCB4ETtQ31TfcL+EA6ZEX6YvT\
+NTsusWRnfiO+xEIsIHvbqkk1L5gfSEms9mb2QjIlZkQh31Lf2P1LQNQv8oUgACnNbvmL8qgn\
+pH+LJqC+Anh98CVN9OSfa8v/gwIRrbVdCJGQABLwVwyrccYo/m/B98GnkQ8zASjPAry+Sfki\
+yT1Mtmyc1WKvR9KaQfNTjYmQu/GnwN8lEXkEvNO4O6fMAYnFXirRza57ln5yW1pZkgJ+2dL9\
+7B+L9XAJHnC3OPyAlHUg5HVsOA5T65WSfJ90vvBBrEGSV0K56E8A0rrusIhcmjemU56x3Ij6\
+fzAdqAHx10eZ1TiTDqq0z8dhZKQbgs+2a7EA5FcidZOKUweMywKK1Z+G3knzuKCd1N3dKuE6\
+2TrwNpUAZ9mvQg1TNolZq+zxJ1w/Sx52eeC7FwGt7OW1bDwHkwxg1DW6xfgjgGTb7fdKoA/K\
+gXxAeIdw2y5RQhIIow+KwNCeUOwbXR8rZyTC2ZDuccb3h4j0D+hlC+vlfqmgDw/33UrCFEtm\
+QZJx2KZFg2R/jPkNxHPuWZwl+pPEpfgKH45nrYOnmSTPMlAei0gAsPIDmJ7sNK4FFdRBCPEO\
+qRDFAy1RM29PK1A3Slyi9wQA") format("woff2")}
+
+html{text-size-adjust:100%}
+html,body,body *:not(code):not(pre){font-family:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif!important}
+body{margin:0;background:#eef7fc;color:#1d2a30;font-size:1.05rem;line-height:1.5;text-align:justify;hyphens:auto;overflow-wrap:break-word}
+main{max-width:46rem;margin:0 auto;padding:1rem 1rem 2.5rem}
+h2{font-size:1.28rem;line-height:1.3;color:#14303b;margin:0 0 .6rem}
+h3{font-size:1.05rem;color:#14303b;margin:.2rem 0 .45rem}
+p{margin:0 0 .55rem}
+.ilot{background:#fff;border:1px solid #cfe3ec;border-radius:12px;padding:.85rem 1rem .55rem;margin:0 0 .75rem}
+.ilot em{font-style:italic}
+a{color:#0b5d86}
+button.fen{background:none;border:0;padding:0;margin:0;color:#0b5d86;font:inherit;text-align:inherit;cursor:pointer;text-decoration:underline dotted 1.5px;text-underline-offset:3px}
+button.fen:focus-visible{outline:2px solid #0b5d86;outline-offset:2px}
+[popover].fenetre{box-sizing:border-box;width:min(94vw,46rem);max-height:86vh;overflow:auto;padding:1rem 1.1rem;border:1px solid #888;border-radius:.5rem;background:#fff;color:#1d2a30;text-align:justify;hyphens:auto}
+[popover].fenetre::backdrop{background:rgb(15 23 42 / .55)}
+button.fermer{display:block;margin:0 0 .6rem auto;border:1px solid #888;background:#fff;border-radius:6px;padding:.25rem .55rem;cursor:pointer;font:inherit}
+.tw{overflow-x:auto;margin:.4rem 0 .7rem}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid #cfe3ec;padding:.35rem .45rem;vertical-align:top;text-align:left}
+th{background:#f2f5f7}
+figure{margin:.6rem 0}
+figcaption,ol.legende{font-size:.92rem}
+.mention{font-style:italic;color:#4f5f66}
+svg{max-width:100%;height:auto}
+@media (max-width:480px){main{padding:.8rem 12px 2rem}.ilot{padding:.7rem 12px .45rem}}
+</style>
+</head>
+<body>
+<main>
+<h2>DX.3 — Cryptorchidie</h2>
+<section class="monograph" id="dx3">
+<section class="ilot" id="dx3-i1">
+<h3 id="dx3-p1"><strong>1. Définition et sémantique</strong></h3>
+<p>
+La cryptorchidie est l’arrêt de la descente testiculaire, si bien que la gonade n’est pas au fond du scrotum. Swiss Medical Weekly, en 2008, la distingue du testicule oscillant, qui peut être amené et maintenu dans le scrotum, et de l’ectopie, qui s’est écartée du trajet normal. L’Hôpital universitaire pédiatrique des deux Bâle parle de testicule surélevé et demande qu’il soit dans le scrotum au plus tard à douze mois révolus. On n’emploie pas « testicule absent » tant que la cœlioscopie n’a pas montré qu’il n’y a pas de gonade. On n’emploie pas cryptorchidie pour un testicule rétractile que l’examen en tailleur fait descendre.</p>
+<p>Le <button type="button" class="fen" popovertarget="dx3-w1">testicule non palpable</button> change donc la conduite. La définition reste clinique pour la forme palpable. Elle devient chirurgicale pour la forme qu’on ne sent pas.</p>
+<div id="dx3-w1" popover class="fenetre"><button type="button" class="fermer" popovertarget="dx3-w1" popovertargetaction="hide">Fermer ✕</button><p>
+Swiss Medical Weekly 2008 juge la cœlioscopie la meilleure voie pour voir et traiter un testicule intra-abdominal.</p><p>
+L’absence de gonade palpable des deux côtés, ou l’association à un hypospadias, impose le sexe chromosomique et le bilan hormonal.</p><p>
+Un garçon avec un seul testicule non palpable unilatéral et un méat normal n’a pas le même degré d’urgence endocrinienne.</p><p>Le piège est de conclure à une anorchidie sur une échographie seule.</p>
+<p>Source [S1].</p></div>
+
+</section>
+<section class="ilot" id="dx3-i2">
+<h3 id="dx3-p2"><strong>2. Épidémiologie (Suisse, puis Europe)</strong></h3>
+<p>
+Swiss Medical Weekly 2008 situe la prévalence entre 2,5 et 9 % à la naissance, entre 1 et 1,9 % à trois mois, et entre 0,8 et 1,5 % à dix-huit mois. La forme bilatérale représente 10 à 20 % des cas. La descente spontanée s’observe surtout pendant le premier semestre, avec une qualité de preuve haute et une recommandation forte du panel. Après cet âge, attendre encore n’est plus la stratégie écrite. Les facteurs de risque cités sont la prédisposition familiale, la prématurité, le petit poids de naissance et l’exposition prénatale au tabac ou à des perturbateurs, chez la mère ou chez le père. Une hausse séculaire de la prévalence n’était pas prouvée dans cette revue, alors que le nombre d’orchidopexies semblait dépasser ce que la prévalence laissait attendre.</p>
+<p>
+Il n’y a pas, dans les pages lues, de registre suisse annuel des testicules non descendus. On n’invente donc pas un taux vaudois ou genevois. L’histoire naturelle, si on n’opère pas, est histologique puis clinique : le testicule qui reste au chaud perd en croissance, et la revue relie la correction avant dix ans à un risque de cancer ramené au niveau de la population générale. Elle reconnaît que l’effet sur la fertilité d’une chirurgie au deuxième semestre, comparé à une chirurgie vers deux ans, n’était pas démontré de façon certaine, même si une étude citée montrait une meilleure croissance après opération à neuf mois. Le groupe à risque le plus net est le prématuré et le nouveau-né de petit poids, que l’on réexamine après le terme corrigé sans appeler trop tôt une cryptorchidie définitive.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i3">
+<h3 id="dx3-p3"><strong>3. Physiopathologie</strong></h3>
+<p>
+La descente dépend de la traction du gubernaculum, de la pression abdominale et des androgènes. Lorsqu’elle s’arrête dans le canal, le testicule reste à une température plus haute que dans le scrotum. Cette chaleur altère les cellules germinales. C’est pourquoi la revue veut opérer avant que les lésions histologiques s’installent, au deuxième semestre. Le maintien de la situation est mécanique : le cordon est trop court ou la gonade est retenue. L’installation du risque de cancer et d’hypofertilité est lente, ce qui explique qu’un nouveau-né ne soit pas opéré la première semaine, mais qu’un garçon d’un an ne soit plus observé.</p>
+<p>
+La thérapeutique qui corrige la position est l’orchidopexie, pas une hormone donnée à tous. Swiss Medical Weekly laisse ouverte, avec une recommandation incertaine et un panel partagé, l’essai de gonadotrophine chorionique ou d’analogue de la LH-RH seulement si le testicule est en dessous de la poche inguinale superficielle. Bâle ne propose l’essai hormonal que dans de rares cas choisis, faute de données à long terme homogènes. Aucune dose en unités internationales n’a été lue, et aucune n’est écrite. Le tableau relie la position au geste.</p>
+<div class="tw"><table>
+<caption>Position du testicule, ce qui la montre, ce qui la corrige</caption>
+<thead><tr><th>Situation</th><th>Exploration</th><th>Correction</th></tr></thead>
+<tbody>
+<tr><td>Le testicule est haut mais peut être amené au fond du scrotum et y rester.</td><td>La palpation couchée, puis assis en tailleur, le fait descendre.</td><td>On surveille. Ce n’est pas une cryptorchidie fixée.</td></tr>
+<tr><td>Le testicule inguinal palpable ne descend plus après six mois.</td><td>L’examen répété le confirme.</td><td>L’orchidopexie inguinale le fixe avant douze mois.</td></tr>
+<tr><td>Aucune gonade n’est palpable.</td><td>La cœlioscopie regarde dans l’abdomen.</td><td>Le chirurgien descend la gonade, en un temps ou en deux temps selon la longueur des vaisseaux, ou constate l’absence.</td></tr>
+<tr><td>La cryptorchidie s’associe à un hypospadias ou les deux testicules manquent.</td><td>Le caryotype et les hormones précèdent ou accompagnent la chirurgie.</td><td>
+On traite d’abord la menace endocrinienne, notamment surrénalienne, puis la position.</td></tr>
+</tbody>
+</table></div>
+
+
+</section>
+<section class="ilot" id="dx3-i4">
+<h3 id="dx3-p4"><strong>4. Démarche diagnostique</strong></h3>
+<p>
+On exclut d’abord ce qui menace la vie ou la gonade dans les heures qui viennent, puis on classe la position. Un scrotum aigu et douloureux n’est pas une cryptorchidie chronique : c’est une torsion jusqu’à preuve opératoire, surtout si le testicule non descendu devient brutalement sensible. Un nouveau-né avec deux loges vides et des organes génitaux atypiques n’est pas un simple retard de descente : c’est un bilan de développement sexuel, et l’hyperplasie congénitale des surrénales reste à écarter. Ensuite seulement on sépare le rétractile, l’inguinal palpable et le non palpable.</p>
+<p>
+Le signe qui tranche le rétractile est la possibilité de le maintenir au fond sans tension. Le piège est de l’opérer. La conduite est la surveillance. Le signe qui tranche l’inguinal est une gonade que l’on sent dans le canal et qui repart dès qu’on la lâche. Le piège est d’attendre l’âge scolaire. La conduite est l’orchidopexie entre six et douze mois. Le signe qui tranche le non palpable est l’examen négatif bien fait. Le piège est l’échographie rassurante à tort. La conduite est la cœlioscopie par une équipe pédiatrique.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i5">
+<h3 id="dx3-p5"><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h3>
+<p>
+On demande si le testicule a été senti à la naissance, parce que la descente du premier semestre existe encore et qu’un testicule jamais palpé n’a pas la même probabilité de descendre. On demande la prématurité et le poids de naissance, parce que la revue les cite comme risques et qu’un ancien prématuré s’évalue avec l’âge corrigé au début. On demande les testicules dans la famille et le tabac pendant la grossesse, parce que ces facteurs sont écrits. On demande un hypospadias, une ambiguïté ou des vomissements du nouveau-né, parce que ces éléments sortent de la cryptorchidie isolée et peuvent annoncer une perte de sel.</p>
+<p>
+Le drapeau rouge du scrotum vide et douloureux impose l’exploration, pas un rendez-vous à six mois. Le drapeau des deux testicules absents chez un nouveau-né impose le bilan le jour même, pas l’attente du carton seulement. Le drapeau d’une masse inguinale dure chez un grand enfant, autrefois cryptorchide, impose la recherche d’une tumeur, parce que le risque oncologique est la raison historique de la correction. On apprend ensuite l’autopalpation après la puberté, comme la revue le demande, sans faire de cette consigne un dépistage sanguin.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i6">
+<h3 id="dx3-p6"><strong>6. Examen physique ciblé, région par région</strong></h3>
+<p>
+Le normal est un testicule au pôle inférieur de chaque bourse, de consistance souple, que l’on sent sans faire crier. On commence couché, mains chaudes, en partant de l’épine iliaque vers le scrotum pour ne pas repousser la gonade vers le haut. Si l’on doute, Swiss Medical Weekly propose la position assise jambes croisées. Le pathologique palpable est une gonade qui s’arrête dans le canal ou à l’orifice, et qui ne reste pas en bas. Le pathologique non palpable est un hémi-scrotum vide après cette manœuvre, des deux côtés ou d’un seul.</p>
+<p>
+On décrit le scrotum : une bourse hypoplasique oriente vers une gonade jamais descendue, une bourse bien formée rend le rétractile plus probable. On palpe le canal, le pubis et la racine de la cuisse, parce qu’une ectopie peut sortir du trajet. On ne conclut pas sur un enfant qui contracte les crémasters. On réexamine à chaud. La valeur de l’examen est majeure : la revue dit que le diagnostic est clinique et que les examens paracliniques ne sont pas systématiques. L’échographie n’a pas, dans ce texte, la place d’un gold standard.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i7">
+<h3 id="dx3-p7"><strong>7. Approche syndromique</strong></h3>
+<p><em>7.1 Testicule rétractile.</em>
+ Le signe fonctionnel manque. Le signe physique est une gonade qui monte au froid et qui redescend au calme, maintenable au fond. On le cherche en tailleur. Le mécanisme est un réflexe crémastérien vif, pas un cordon trop court. On ne l’opère pas.</p>
+<p><em>7.2 Testicule inguinal palpable.</em>
+ Le signe fonctionnel peut être une voussure ou une gêne. Le signe physique est la gonade du canal, qui échappe vers le haut. On la cherche avec une main qui obture l’orifice interne pendant que l’autre palpe. Le mécanisme est l’arrêt de la descente avec un cordon limite. L’orchidopexie le corrige.</p>
+<p><em>7.3 Testicule non palpable.</em>
+ Il n’y a pas de signe fonctionnel fiable. Le signe physique est le vide après un examen correct. On cherche aussi le côté opposé et le méat. Le mécanisme peut être une gonade abdominale, une régression ou une ectopie. Seule la cœlioscopie sépare ces possibilités.</p>
+<p><em>7.4 Forme syndromique.</em>
+ Le signe fonctionnel du nouveau-né peut être le vomissement. Le signe physique associe le scrotum vide à un hypospadias ou à une virilisation. On cherche alors la perte de sel. Le mécanisme peut être hormonal, et la position testiculaire n’est plus le premier problème.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i8">
+<h3 id="dx3-p8"><strong>8. Diagnostic positif et critères</strong></h3>
+<p>
+Le diagnostic positif, selon Swiss Medical Weekly 2008, est clinique. Il est posé lorsque le testicule n’est pas au fond du scrotum et ne peut pas y être maintenu, en dehors de la période où la descente spontanée est encore attendue, c’est-à-dire le premier semestre. Ce qui ne suffit pas, c’est un examen unique chez un enfant qui pleure, une échographie qui « ne voit rien », ou un testicule rétractile maintenable. Bâle fixe l’échéance thérapeutique à douze mois révolus et accepte d’observer six mois. La revue place l’intervention optimale entre six et douze mois, avec une qualité de preuve basse et une force incertaine, mais un accord du panel. On retient cette fenêtre, et on ne la remplace pas par l’ancienne habitude d’attendre deux ans, que la revue cite comme dépassée dans son raisonnement histologique.</p>
+<p>
+Il n’y a pas de score chiffré. Il y a une phrase de dossier : palpable ou non, côté, hauteur, rétractile ou non, méat, âge corrigé si prématurité. La biopsie de routine est refusée par la revue. Après la puberté, toute modification du testicule autrefois cryptorchide se fait examiner, et l’autopalpation est enseignée.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i9">
+<h3 id="dx3-p9"><strong>9. Examens complémentaires</strong></h3>
+<p><em>9.a Gold standard.</em>
+ Pour le testicule palpable, le gold standard est l’examen, pas l’image. Pour le testicule non palpable, le gold standard diagnostique et souvent thérapeutique est la <button type="button" class="fen" popovertarget="dx3-w2">
+cœlioscopie</button> . Aucune sensibilité chiffrée de l’échographie n’a été retenue dans les pages lues, et on ne l’invente pas.</p>
+<p><em>9.b Première intention.</em>
+ On prescrit un second examen bien fait, au calme, avant toute image. On demande le caryotype et les hormones si rien n’est palpable ou s’il y a un hypospadias. On ne prescrit pas une IRM de routine. Le carton de dépistage néonatal suit son cours pour la 17-hydroxyprogestérone, mais il ne localise pas le testicule.</p>
+<p><em>9.c Alternatives.</em>
+ Si l’enfant est trop contracté, on revoit un autre jour plutôt que d’enchaîner les images. Si les parents refusent la cœlioscopie, on explique le risque de laisser une gonade abdominale non vue, et on documente. L’allergie à l’iode et l’incompatibilité IRM ne changent pas la première intention, qui n’est pas scanographique. Le prématuré est examiné avec l’âge corrigé au début, puis selon l’âge civil pour ne pas manquer la fenêtre des douze mois.</p>
+<p><em>9.d Deuxième intention.</em>
+ L’échographie peut aider un examinateur peu sûr sur un testicule inguinal douteux, mais elle ne remplace pas la cœlioscopie du non palpable. On y passe seulement si elle change le geste, ce que la revue ne retient pas comme systématique. Le critère de passage vers le bloc est l’âge de six mois dépassé sans descente, ou l’impossibilité de palper.</p>
+<div class="tw"><table>
+<caption>Ce que l’on peut conclure sans biologie inutile</caption>
+<thead><tr><th>Constat</th><th>Interprétation</th><th>Hypothèse</th></tr></thead>
+<tbody>
+<tr><td>Les deux testicules sont au fond à trois mois.</td><td>La descente a eu lieu dans le semestre attendu.</td><td>Pas de cryptorchidie résiduelle.</td></tr>
+<tr><td>Un testicule inguinal palpable persiste à huit mois.</td><td>La fenêtre spontanée est passée.</td><td>Orchidopexie avant douze mois.</td></tr>
+<tr><td>Rien n’est palpable et l’échographie est « normale ».</td><td>L’image n’a pas la valeur de la cœlioscopie dans la revue de 2008.</td><td>On n’exclut pas une gonade abdominale.</td></tr>
+<tr><td>Les deux loges sont vides et le méat est anormal.</td><td>Le problème peut être hormonal.</td><td>Caryotype, hormones, et exclusion d’une hyperplasie congénitale des surrénales.</td></tr>
+<tr><td>Le testicule descend en tailleur et y reste.</td><td>Le crémaster est vif.</td><td>Testicule rétractile, pas d’opération.</td></tr>
+<tr><td>Une masse dure apparaît à l’adolescence sur un testicule opéré tard.</td><td>Le risque tumoral justifie l’examen, pas l’attente.</td><td>Tumeur jusqu’à preuve histologique.</td></tr>
+</tbody>
+</table></div>
+<figure>
+<svg viewBox="0 0 640 200" role="img" aria-labelledby="dx3leg">
+<title id="dx3leg">Hauteurs testiculaires</title>
+<rect x="20" y="20" width="180" height="120" fill="none" stroke="#0b5d86" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="110" y="80" text-anchor="middle">1 scrotum</text>
+<rect x="230" y="20" width="180" height="120" fill="none" stroke="#1a7a50" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="320" y="80" text-anchor="middle">2 canal</text>
+<rect x="440" y="20" width="180" height="120" fill="none" stroke="#a1262f" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="530" y="80" text-anchor="middle">3 abdomen</text>
+</svg>
+<figcaption>Schéma didactique du 9 novembre 2026, sans photographie d’enfant. Les cadres numérotent la hauteur, pas une image opératoire.</figcaption>
+</figure>
+<ol class="legende">
+<li>Au fond du scrotum, la position est normale si la gonade y reste.</li>
+<li>Dans le canal, palpable, l’orchidopexie se discute dès six mois si la descente n’a pas eu lieu.</li>
+<li>Dans l’abdomen, non palpable, la cœlioscopie voit ce que l’échographie ne garantit pas.</li>
+</ol>
+<div id="dx3-w2" popover class="fenetre"><button type="button" class="fermer" popovertarget="dx3-w2" popovertargetaction="hide">Fermer ✕</button><p>
+La cœlioscopie voit les vaisseaux spermatiques et le canal dans l’abdomen.</p><p>Des vaisseaux qui entrent dans le canal orientent vers une exploration inguinale.</p><p>
+Une gonade abdominale peut être descendue selon la longueur du pédicule.</p><p>Le piège est de croire qu’une échographie négative a la même valeur.</p><p>Source [S1].</p></div>
+
+</section>
+<section class="ilot" id="dx3-i10">
+<h3 id="dx3-p10"><strong>10. Arbre décisionnel</strong></h3>
+<p>
+Si le nouveau-né a les deux loges vides et un aspect atypique ou des vomissements, on traite la possible insuffisance surrénale et on bilan avant de parler d’orchidopexie. Si un testicule non descendu devient aigu et douloureux, on explore comme une torsion. Si le testicule est rétractile et maintenable, on surveille. Si le testicule est palpable et encore haut après six mois, on programme l’orchidopexie pour qu’elle soit faite avant douze mois. Si rien n’est palpable, on adresse pour cœlioscopie, avec caryotype et hormones lorsque l’autre côté manque aussi ou que le méat est anormal. Si l’enfant arrive à trois ans sans avoir été opéré, on opère sans utiliser ce retard comme raison d’abandonner.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i11">
+<h3 id="dx3-p11"><strong>11. Prise en charge selon les recommandations suisses</strong></h3>
+<p><em>11.A But.</em>
+ Le but est un testicule au fond du scrotum avant l’âge d’un an, pour limiter les lésions histologiques que la revue associe à la position haute. Le but n’est pas une fertilité garantie : la revue dit que la supériorité fertilité de la chirurgie très précoce sur la chirurgie vers deux ans n’était pas prouvée. Le but oncologique cité est de ramener le risque de cancer au niveau de la population si la correction a lieu avant dix ans. Bâle ajoute un taux de complications de 1 à 3 % pour la chirurgie inguinale, et un pronostic favorable lorsque le testicule était inguinal.</p>
+<p><em>11.B Moyens.</em>
+ L’ordre est l’examen, l’attente du premier semestre, puis la chirurgie. On n’opère pas un nouveau-né à terme la première semaine pour une cryptorchidie isolée palpable. On n’attend pas l’école. L’hormone n’est pas le premier moyen. Aucune dose de gonadotrophine n’est écrite, faute de l’avoir lue. L’opération inguinale, à Bâle, est en général ambulatoire. Le testicule non palpable relève d’une équipe qui pratique la cœlioscopie. La revue demande que l’opérateur soit habitué à l’enfant pour limiter les complications, avec une recommandation faible mais un accord du panel. Il n’y a pas de médicament AIPS spécifique de la descente dans les pages lues. Le non-médicamenteux est l’opération, l’explication aux parents et, plus tard, l’autopalpation. Le social est l’arrêt bref après ambulatoire, sans durée chiffrée lue au-delà du retour le jour même. Grossesse : sans objet pour le garçon. Le prématuré : âge corrigé au début, puis ne pas manquer douze mois. L’insuffisance rénale ou hépatique ne change pas l’indication chirurgicale.</p>
+<p><em>11.C Surveillance.</em>
+ La revue propose un contrôle à un mois, six mois et douze mois après l’opération, sans biopsie. On cherche l’atrophie, la remontée et l’infection de paroi. Bâle annonce un taux de complications bas, 1 à 3 %, pour la voie inguinale. Un testicule qui remonte retourne au chirurgien. Après la puberté, l’autopalpation cherche une masse. La fenêtre d’urgence concerne la torsion sur testicule non descendu, pas la cryptorchidie stable.</p>
+<div id="dx3-urgence" popover class="fenetre"><button type="button" class="fermer" popovertarget="dx3-urgence" popovertargetaction="hide">Fermer ✕</button>
+<p>Si un testicule qui n’était pas dans le scrotum devient douloureux d’un coup, on n’attend pas le rendez-vous des six mois.</p>
+<p>On note l’heure, on appelle le chirurgien, et on explore si la clinique est celle d’une ischémie.</p>
+<p>La Revue Médicale Suisse de 2011, déjà utilisée pour la torsion, place les lésions irréversibles à partir de six heures. Ce délai s’applique aussi lorsque la gonade est inguinale.</p>
+<p>Le piège est de croire qu’un testicule non descendu ne peut pas tourner.</p>
+<p>Source [S1], [S3].</p>
+</div>
+<p>On ouvre cette <button type="button" class="fen" popovertarget="dx3-urgence">horloge</button> dès que la douleur est brutale. <em>11.D Pronostic.</em>
+ Bâle juge le pronostic bon lorsque le testicule inguinal a été descendu, avec peu de complications. La revue est plus prudente sur la fertilité et plus claire sur l’intérêt d’opérer avant dix ans pour le cancer. La guérison de la position est un testicule stable au fond du scrotum aux contrôles d’un, six et douze mois. La guérison de la fertilité ne se promet pas. Aucune étude suisse de 2026 n’a été lue sur une technique nouvelle.</p>
+
+
+<h2>Situations pour décider</h2>
+<p>
+Le calendrier se retient mieux avec des âges qu’avec des slogans. De la naissance à six mois, on examine et on attend la descente, qui est fréquente et bien étayée. De six à douze mois, on opère ce qui n’est pas descendu. Après douze mois, chaque mois supplémentaire est un retard par rapport à Bâle, pas une nouvelle période d’observation. Avant dix ans, la revue voit encore un bénéfice oncologique à corriger. Après la puberté, on ne découvre plus une cryptorchidie comme une surprise bénigne : on cherche une gonade et on explique le risque déjà pris.</p>
+<p>
+Un garçon né à terme, vu à deux jours, avec un testicule à l’orifice inguinal que l’on sent bien, rentre à la maison avec une phrase : réexamen vers six à huit semaines, pas de chirurgie cette semaine, pas d’échographie. Les parents qui veulent « en finir » entendent que beaucoup de ces testicules descendent encore, et que l’opération trop tôt opère des descentes naturelles. On leur donne le rendez-vous, pas une date de bloc.</p>
+<p>
+Le même garçon revu à sept mois, testicule toujours inguinal, non maintenable en bas, entre dans la fenêtre opératoire. On n’attend pas le premier anniversaire pour décider. On décide maintenant pour que le geste ait lieu avant douze mois. Le dossier porte le côté, la hauteur et l’absence de hypospadias. L’anesthésie et le caractère ambulatoire se disent comme Bâle les décrit pour la forme inguinale, sans nommer un hypnotique.</p>
+<p>
+Un garçon de neuf mois dont le testicule descend quand on le met en tailleur et qui y reste dix secondes sans tension n’est pas opéré. On l’écrit « rétractile ». On revoit, parce qu’un rétractile peut être mal classé, mais on ne réserve pas le bloc. Le piège inverse est de déclarer rétractile une gonade que l’on amène avec douleur et qui repart aussitôt. Celle-là est trop courte. Elle s’opère.</p>
+<p>
+Quand le scrotum est vide des deux côtés à la maternité et que le méat est au sommet, on palpe très soigneusement le canal avant d’annoncer une anorchidie. Si l’on ne sent vraiment rien, la revue demande le sexe chromosomique et les hormones. On ne se contente pas du phénotype masculin. Un nouveau-né 46,XX virilisé peut avoir l’air d’un garçon sans testicules. C’est alors le territoire du syndrome adrénogénital, pas une orchidopexie.</p>
+<p>
+La cœlioscopie se comprend par ce qu’elle montre, pas par une check-list d’instruments. Des vaisseaux qui s’engagent dans l’anneau profond disent que la gonade est passée ou a régressé plus bas, et l’exploration continue à l’aine. Une gonade vue dans l’abdomen se descend si le pédicule le permet. La revue ne détaille pas dans l’extrait lu le nombre de temps opératoires. On n’invente pas un délai de six mois entre deux temps. On dit que l’équipe habituée choisit la technique selon la longueur des vaisseaux.</p>
+<p>
+L’échographie rassure trop. Un compte rendu « pas de testicule vu » ne prouve pas l’absence, parce que la gonade abdominale échappe souvent à la sonde, et parce que la revue ne fait pas de l’image le gold standard. On peut accepter une échographie demandée ailleurs, la lire, et maintenir l’indication de cœlioscopie. On n’annule pas le bloc parce que le radiologue n’a rien vu. Cette phrase évite des anorchidies administratives.</p>
+<p>
+Après l’opération, le contrôle d’un mois vérifie que le testicule est vivant, bas, et que la plaie est fermée. Le contrôle de six mois vérifie qu’il n’est pas remonté et qu’il a grossi. Le contrôle de douze mois ferme la surveillance rapprochée de position. La revue ne demande pas de spermogramme à cet âge. Elle demande plus tard l’autopalpation. Une atrophie se dit aux parents comme un risque compris dans les 1 à 3 % de complications inguinales cités par Bâle, sans le transformer en certitude pour leur enfant.</p>
+<p>
+Le cancer n’est pas une menace de l’année qui vient. La revue le situe comme un risque de l’adulte, diminué si la gonade a été mise au scrotum avant dix ans. On n’envoie donc pas un enfant de quatre ans au marqueur tumoral chaque année. On lui apprend, à l’adolescence, à palper. Une grosseur, une lourdeur nouvelle ou une différence de volume se fait voir. Le dépistage sanguin systématique n’est pas dans le texte de 2008.</p>
+<p>
+La fertilité se discute sans promesses. La revue reconnaît l’incertitude. Un testicule unilatéral bien descendu tôt laisse l’autre côté, s’il est normal, porter une grande part de la fonction. Une forme bilatérale inquiète davantage, et les 10 à 20 % de formes bilatérales méritent qu’on le dise. On propose, à l’âge adulte, un avis si la paternité tarde, pas un spermogramme à douze ans. Aucun seuil de concentration spermatique n’a été lu.</p>
+<p>
+Le prématuré de 1 200 g avec deux testicules inguinaux n’est pas un échec de la salle de naissance. La descente finit souvent après le terme. On note l’âge corrigé. On revoit. On ne programme pas une orchidopexie à l’âge civil de trois mois si l’âge corrigé est encore celui d’un nouveau-né. On ne se perd pas non plus dans la correction au point d’opérer à deux ans. La fenêtre se calcule, elle ne se devine pas.</p>
+<p>
+Les parents demandent si le herniaire associé change tout. Une voussure inguinale qui apparaît aux pleurs, avec un testicule haut, peut être une hernie, et la hernie étranglée est une urgence que la cryptorchidie stable n’est pas. On palpe une masse tendue, douloureuse, non réductible. On n’attend pas six mois. On appelle le chirurgien le jour même. La page de 2008 ne donne pas le taux de hernie associée dans l’extrait retenu, et on ne l’invente pas. On retient seulement que la douleur et l’irréductibilité sortent du calendrier électif.</p>
+<p>
+L’examen en tailleur se fait vraiment, pas seulement dans le compte rendu. L’enfant assis, plantes des pieds face à face, crémasters relâchés, on reprend la palpation. Beaucoup de « cryptorchidies » de consultation pressée disparaissent dans cette position. Les opérer serait la complication la plus évitable. La revue cite cette position lorsque l’examen couché laisse un doute, avec une force de recommandation incertaine mais un accord du panel. On la fait quand même, parce qu’elle ne coûte rien et qu’elle évite un bloc.</p>
+<p>
+La lettre au chirurgien tient en huit lignes. Identité et âge en mois. Côté et hauteur. Palpable ou non. Rétractile exclu, et comment. Méat normal ou non. Prématurité et poids. Déjà deux examens à distance. Demande : orchidopexie avant douze mois, ou cœlioscopie si non palpable. On ne joint pas une échographie « pour faire complet » si elle ne change pas le plan. On joint le caryotype s’il a été demandé.</p>
+<p>
+Le consentement dit les bénéfices et les limites. Bénéfice de position, espoir de meilleure croissance testiculaire, réduction du risque de cancer si l’on opère avant dix ans, complication inguinale autour de 1 à 3 % selon Bâle, fertilité non garantie, biopsie non faite en routine, contrôle à un, six et douze mois. On laisse les parents répéter la phrase. S’ils repartent avec « ça garantit qu’il aura des enfants », on reprend l’entretien.</p>
+<p>
+À l’examen, la question piège est l’âge. La réponse « le plus tôt possible, dès la naissance » est fausse pour la forme isolée, parce que le premier semestre sert à la descente spontanée. La réponse « avant la puberté » est trop lâche au regard de Bâle et de la revue. La réponse juste est six à douze mois, au plus tard douze mois révolus. Une autre question piège est l’hormone. La réponse juste est qu’aucune dose n’est à citer et que l’essai est rare et incertain, pas un réflexe.</p>
+<p>
+On peut croiser ce diagnostic avec le phimosis sans les fusionner. Un garçon peut avoir un prépuce non rétractable, ce qui est souvent physiologique, et un testicule haut, ce qui ne l’est plus après six mois. On ne circoncit pas pour « voir mieux ». On traite chaque problème selon sa règle. Le prépuce silencieux s’observe. Le testicule haut s’opère dans sa fenêtre. Les parents comprennent mieux deux phrases séparées qu’un mot « malformations » qui effraie.</p>
+<p>
+Le garçon vu pour la première fois à quatre ans avec un testicule inguinal jamais opéré n’est pas renvoyé parce que « c’est trop tard pour la fertilité ». La revue parle encore du cancer jusqu’à dix ans, et la position haute reste à corriger. On opère sans prétendre rattraper toute l’histologie perdue. On explique le retard. On organise quand même les contrôles et l’autopalpation future. L’abandon n’est pas une option écrite.</p>
+<p>
+Enfin, la monographie s’arrête où les sources s’arrêtent. Pas de dose de hCG. Pas de sensibilité d’échographie inventée. Pas de promesse de paternité. Pas de marqueur tumoral annuel. Le gold standard change avec la palpation : la main si l’on sent, la cœlioscopie si l’on ne sent pas. Le calendrier est suisse par Bâle et européen par la revue publiée dans Swiss Medical Weekly. Le contenu aide à l’examen et à ne pas opérer un rétractile. Il n’est pas validé cliniquement par un médecin.</p>
+</section>
+<section class="ilot" id="dx3-i12">
+<h3 id="dx3-p12"><strong>12. Prévention</strong></h3>
+<p>
+La prévention primaire de la cryptorchidie n’a pas de geste simple dans les pages lues, en dehors de l’arrêt du tabac pendant la grossesse, cité comme facteur. Il n’y a pas de vaccin. La prévention secondaire est l’examen à la naissance et à chaque contrôle, recommandation forte de la revue malgré une qualité de preuve très basse, parce que manquer la gonade coûte plus que l’examen. On réexamine le prématuré. La prévention tertiaire est l’orchidopexie dans la fenêtre des six à douze mois, puis l’autopalpation, pour limiter cancer et perte de croissance testiculaire. Le lien avec les chiffres est direct : puisque la prévalence tombe déjà beaucoup dans les six premiers mois, opérer avant ce délai opère des testicules qui seraient descendus. Puisque après dix-huit mois il reste encore autour de 1 %, laisser ces garçons sans opération n’est plus de la prudence.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i13">
+<h3 id="dx3-p13"><strong>13. Points clés</strong></h3>
+<p>Un testicule qui n’est pas au fond du scrotum après six mois se programme pour être fixé avant douze mois.</p>
+<p>Le testicule que l’on maintient en bas sans tension est rétractile et ne s’opère pas.</p>
+<p>Quand on ne palpe rien, la cœlioscopie prime sur l’échographie, selon la revue de 2008.</p>
+<p>Deux loges vides ou un hypospadias associé imposent le caryotype et les hormones.</p>
+<p>Aucune dose hormonale n’est écrite, parce qu’aucune unité n’a été lue, et Bâle réserve l’essai hormonal à de rares cas.</p>
+<p>Ce texte n’est pas validé cliniquement.</p>
+
+
+</section>
+<section class="ilot" id="dx3-i14">
+<h3 id="dx3-p14"><strong>14. Pièges et questions fréquentes à l'examen fédéral suisse</strong></h3>
+<p>
+Question. À quel âge Swiss Medical Weekly 2008 place-t-il l’intervention, et que vaut la preuve ? Réponse. Entre six et douze mois. La qualité de preuve est basse, la force incertaine, le panel d’accord. Bâle dit : au plus tard à douze mois révolus, après avoir observé six mois.</p>
+<p>Question. Faut-il une échographie devant tout scrotum vide ? Réponse. Non. Le diagnostic palpable est clinique, et le non palpable va à la cœlioscopie.</p>
+<p>Question. Une biopsie systématique est-elle recommandée ? Réponse. Non. La revue la refuse en routine.</p>
+<p>
+Question. Le risque de cancer est-il annulé par une orchidopexie avant dix ans ? Réponse. La revue écrit qu’une correction avant dix ans ramène ce risque au niveau de la population générale. Elle ne promet pas la fertilité de la même façon.</p>
+<p>Question. Quelle dose de gonadotrophine chorionique prescrire ? Réponse. Aucune dose n’a été lue. Bâle ne la propose que rarement, et la revue ne la discute que si le testicule est bas, avec un avis de panel incertain.</p>
+<p>
+Question. Un ancien prématuré de deux mois d’âge civil, né à vingt-huit semaines, a un testicule haut. Opère-t-on ? Réponse. Non immédiatement. On tient compte de l’âge corrigé pour la descente du premier semestre, puis on ne rate pas l’échéance d’un an.</p>
+<p>Question. Les deux testicules manquent et il existe un hypospadias. Quelle est la première peur ? Réponse. Une cause hormonale, dont l’hyperplasie congénitale des surrénales, pas seulement la position de la gonade.</p>
+
+
+</section>
+</section>
+
+<section class="ilot">
+<h2>Repères pour la consultation</h2>
+<p>
+Le mot cryptorchidie vient du grec et désigne une gonade cachée. Dans la pratique suisse lue en 2008 et à Bâle, on l’emploie lorsque le testicule n’est pas au fond du scrotum et ne peut pas y être gardé. On le retire du vocabulaire dès que la position assise jambes croisées fait descendre la gonade et qu’elle y reste. Ce changement de mot change le bloc opératoire. Il mérite donc d’être écrit en toutes lettres dans le dossier, pas seulement coché dans une case.</p>
+<p>
+La prévalence qui tombe de 2,5 à 9 % à la naissance vers 1 à 1,9 % à trois mois est le meilleur argument contre la chirurgie néonatale systématique. Ces intervalles viennent de Swiss Medical Weekly 2008. Ils sont larges parce que les études et les pays diffèrent. On n’en tire pas une moyenne suisse inventée. On en tire une conduite : le premier semestre est fertile en descentes spontanées, le deuxième semestre est fertile en décisions opératoires.</p>
+<p>
+À dix-huit mois, la revue situe encore 0,8 à 1,5 % de garçons concernés. Ce chiffre n’est pas un objectif. C’est ce qui reste si l’on a trop attendu ou si la descente n’a pas eu lieu. Un programme qui viserait « on verra à dix-huit mois » rate la fenêtre de Bâle, qui veut le testicule en place à douze mois révolus. Le chiffre de dix-huit mois sert à mesurer le résidu, pas à caler le rendez-vous.</p>
+<p>
+La forme bilatérale, 10 à 20 % selon la revue, n’est pas deux fois la forme unilatérale sur le plan de la pensée. Elle fait chercher une cause hormonale plus souvent, surtout si le méat est anormal. Elle inquiète davantage la fertilité future, sans chiffre de spermogramme lu. Elle ne double pas automatiquement le risque opératoire cité par Bâle, qui parle de 1 à 3 % pour la chirurgie inguinale sans distinguer les côtés dans l’extrait lu.</p>
+<p>
+Le tabac prénatal est cité des deux parents. On le demande sans accuser. On l’écrit comme facteur associé, pas comme cause prouvée chez cet enfant. On n’en fait pas une raison de retarder l’opération, ni une raison d’opérer plus tôt que six mois. La prévention, elle, se joue à la grossesse suivante. Ce n’est pas le traitement du garçon déjà né.</p>
+<p>
+Le petit poids et la prématurité se lisent sur le carnet. On calcule l’âge corrigé pour les premières semaines. Un enfant né à trente semaines, vu à trois mois d’âge civil, a un âge corrigé d’environ un mois. Il est encore dans la période où la descente peut finir. Le même enfant à quatorze mois d’âge civil a dépassé douze mois même en corrigeant un peu. On ne corrige pas indéfiniment. La correction sert le début, pas à repousser l’échéance d’un an jusqu’à l’âge scolaire.</p>
+<p>
+L’examen couché rate des rétractiles et rassure à tort sur des inguinaux. Les mains froides font monter le testicule. On réchauffe les mains, on distrait l’enfant, on recommence. La revue accepte que la position en tailleur soit d’une force incertaine. Elle reste utile parce qu’elle est sans risque. Un testicule qui ne descend qu’avec une traction douloureuse n’est pas un succès de cette manœuvre. C’est une gonade trop haute.</p>
+<p>
+Palper depuis l’épine iliaque vers le bas évite de chasser la gonade vers l’abdomen avec le doigt qui vient du scrotum. Ce détail technique est la raison pour laquelle un premier examinateur « ne sent rien » et le deuxième sent un inguinal. On l’enseigne au lit. On ne le remplace pas par une sonde. La revue dit que les examens paracliniques ne sont pas routiniers. Cette phrase vise surtout l’image facile demandée pour se rassurer.</p>
+<p>
+La bourse vide et plate suggère que la gonade n’y a jamais séjourné. La bourse plissée, avec un testicule que l’on finit par sentir au froid seulement, suggère le rétractile. On regarde avant de palper. Cette inspection prend cinq secondes et oriente la main. Elle ne remplace pas la palpation. Elle empêche de chercher au pubis un testicule qui est déjà au fond et qui s’est rétracté pendant qu’on parlait.</p>
+<p>
+L’ectopie vers la cuisse ou le périnée se cherche parce que la main qui ne quitte pas le canal la rate. On passe la pulpe à la racine de la cuisse et au pubis. Une gonade là n’est pas « un peu haute ». Elle est hors du trajet. La revue distingue l’ectopie de l’arrêt simple. Le traitement reste chirurgical, mais le compte rendu doit dire le lieu, sinon le chirurgien incise au mauvais endroit.</p>
+<p>
+Quand la famille apporte une échographie faite en ville, on la lit poliment et on ne la laisse pas décider. Si elle montre un testicule inguinal que l’on sent aussi, elle ne contredit pas l’examen et elle ne remplace pas le calendrier. Si elle ne montre rien alors que l’examen est vide, elle ne prouve pas l’absence. On explique cette limite aux parents qui croient que l’image a tout vu. On maintient la cœlioscopie.</p>
+<p>
+La cœlioscopie n’est pas une punition pour un examen paresseux. On ne l’indique que lorsque la palpation bien faite est négative, ou lorsque le chirurgien doit voir l’abdomen. Un testicule que tout le monde sent à l’aine n’a pas besoin d’une optique. Il a besoin d’une orchidopexie inguinale dans la fenêtre d’âge. Réserver la cœlioscopie au non palpable évite une anesthésie plus lourde inutile.</p>
+<p>
+Le nouveau-né qui vomit, avec des loges vides, a deux horloges. L’horloge du sel et du cortisol se compte en heures. L’horloge de l’orchidopexie se compte en mois. On ne mélange pas. On perfuse et on appelle l’endocrinologie si le choc ou l’hyponatrémie sont là, selon les règles du syndrome adrénogénital développées ailleurs dans le lot. On ne descend pas un testicule imaginaire pendant que l’enfant perd son sodium.</p>
+<p>
+L’hypospadias associé, même distal, change le dossier. L’European Association of Urology, lue pour le lot, demande un bilan génétique et endocrinien rapide lorsque les deux testicules manquent. Swiss Medical Weekly dit la même chose dès qu’aucun testicule n’est palpable ou qu’une hypovirilisation s’ajoute. On prélève avant d’attribuer un sexe d’état civil si le doute est réel. On n’attend pas le résultat pour traiter un choc.</p>
+<p>
+L’hormone, gonadotrophine ou analogue, n’est pas un essai anodin que l’on tente « en attendant le bloc ». La revue la limite au testicule déjà bas, sous la poche inguinale superficielle, et le panel est incertain. Bâle la réserve à de rares cas. Sans dose lue, la prescrire serait inventer. On dit aux parents que la chirurgie est le moyen retenu, et que l’injection n’est pas le plan de ce garçon sauf avis spécialisé écrit, avec une dose qui viendra de l’information professionnelle, pas de cette page.</p>
+<p>
+Le jour de l’opération inguinale, Bâle décrit un retour à la maison le jour même dans le cas habituel. On vérifie que l’enfant boit, que la douleur est calmée par ce que l’anesthésiste a prévu, et que les parents savent reconnaître un saignement ou une fièvre. On ne donne pas ici un nom d’antalgique. On donne le rendez-vous d’un mois. On montre où le testicule doit se trouver, pour que les parents puissent signaler une remontée sans attendre six mois.</p>
+<p>
+À un mois, un testicule haut, dur ou douloureux n’est pas « encore enflé normalement » sans examen. On revoit. Une atrophie précoce se discute avec le chirurgien. Les 1 à 3 % de Bâle incluent ces suites. Ils ne disent pas lesquels. On ne rassure pas avec le pourcentage. On examine. À six mois, on compare la taille au côté opposé si celui-ci est normal. Une grosse différence se mesure, elle ne se devine pas, et aucun seuil en millimètres n’a été lu.</p>
+<p>
+À douze mois postopératoires, si le testicule est bas, souple et stable, la surveillance de position s’espace. On n’arrête pas l’éducation. On explique que l’adolescence apportera l’autopalpation. On n’institue pas d’échographie annuelle. La revue ne la demande pas. Une consigne simple, « toute grosseur se montre », suffit jusqu’à preuve qu’un suivi d’image améliore le destin, preuve qui n’est pas dans le texte de 2008.</p>
+<p>
+Le garçon opéré à huit ans parce qu’il a été perdu de vue entend deux vérités. La position peut encore être corrigée. Le bénéfice histologique maximal de la fenêtre des six à douze mois est passé. On ne transforme pas cette vérité en abandon. On opère, on surveille, on apprend l’autopalpation plus tôt dans le discours, et on évite la phrase « ça ne sert plus à rien » que aucune des deux sources ne prononce.</p>
+<p>
+Le testicule non descendu qui tourne fait mal dans l’aine, pas toujours dans le scrotum, puisque le scrotum est vide. Les parents et parfois le médecin cherchent la douleur au mauvais étage. On palpe le canal. Une masse inguinale aiguë, vomissements, heure de début précise : on explore. Le délai de six heures de la Revue Médicale Suisse 2011 ne devient pas plus long parce que la gonade n’est pas dans la bourse. L’ischémie ne connaît pas l’étage.</p>
+<p>
+Une hernie inguinale étranglée imite cette masse. Elle aussi se voit le jour même. La différence fine se fait souvent au bloc, pas dans la salle d’attente. On n’envoie pas l’enfant faire une échographie en ville l’après-midi si la voussure est tendue et douloureuse. On appelle le chirurgien. La cryptorchidie élective, elle, n’est pas tendue et n’empêche pas de jouer. Cette distinction sauve des intestins et des gonades.</p>
+<p>
+Les familles lisent que l’opération garantit la fertilité. On reprend Swiss Medical Weekly : le raisonnement est histologique et de croissance, une étude citée montrait une meilleure croissance après chirurgie à neuf mois qu’à trois ans, mais la fertilité comparée à une chirurgie vers deux ans n’était pas démontrée. On peut donc dire « on opère pour donner la meilleure chance de croissance et pour le risque de cancer ». On ne peut pas dire « il sera père ». Cette nuance est toute la monographie.</p>
+<p>
+Le cancer ramené « au niveau de la population » si l’on corrige avant dix ans est une phrase de la revue, pas un certificat. On la cite avec son âge. On ne dit pas que le risque est nul. On ne dit pas qu’après dix ans il est inutile d’opérer. On dit que le bénéfice oncologique décrit s’attache à cette limite, et que la position anormale, elle, se corrige encore pour d’autres raisons, dont l’examen futur et la gêne.</p>
+<p>
+À l’examen fédéral, un item avec un garçon de onze mois et un testicule inguinal palpable attend « orchidopexie maintenant », pas « contrôle à deux ans » et pas « échographie puis on verra ». Un item avec un garçon de deux mois attend « surveillance ». Un item avec un testicule qui reste en bas en tailleur attend « pas d’opération ». Un item avec deux loges vides et un hypospadias attend « caryotype et hormones ». Ces quatre réponses couvrent l’essentiel du DX.3.</p>
+<p>
+Le fichier ne contient pas de dose parce qu’il n’y a pas de médicament dont l’information professionnelle a été lue pour faire descendre un testicule. Inventer 1 500 unités de gonadotrophine serait exactement l’erreur que le lot interdit. Le traitement est le calendrier et le geste chirurgical. Le médecin qui veut une hormone ouvre l’AIPS ce jour-là, il ne s’appuie pas sur cette page. Le contenu reste non validé cliniquement, et il préfère cette limite à une précision fausse.</p>
+
+<p>
+Imaginons la consultation du mardi, telle qu’elle devrait se passer si l’on applique vraiment Swiss Medical Weekly 2008 et la page de Bâle. Le premier enfant a trois semaines. Il est né à terme, 3&nbsp;400&nbsp;g. Le testicule droit est au fond, le gauche est à l’orifice, palpable, indolore. La mère a lu qu’il fallait opérer « le plus tôt possible ». On pose le carnet, on confirme le poids et le terme, on refait l’examen les mains chaudes. On explique l’intervalle de 2,5 à 9&nbsp;% à la naissance et la chute déjà nette à trois mois. On donne un rendez-vous entre six et huit semaines. On n’ouvre pas le planning opératoire. On écrit que le méat est au sommet et que l’autre testicule est normal, pour ne pas avoir à y revenir dans l’urgence endocrinienne.</p>
+<p>
+Le deuxième enfant a huit mois. Même testicule gauche, toujours à l’orifice, impossible à maintenir en bas. Le père dit « on nous a dit d’attendre un an et on verra ». On corrige : attendre le premier semestre était juste, attendre au-delà sans date de bloc ne l’est plus. Bâle veut la gonade dans le scrotum à douze mois révolus. Il faut donc décider aujourd’hui. On explique l’ambulatoire, le contrôle à un, six et douze mois, les complications de l’ordre de 1 à 3&nbsp;% sans les transformer en liste catastrophiste, et l’absence de promesse sur la fertilité. On n’ajoute pas d’échographie. L’examen suffit.</p>
+<p>
+Le troisième enfant a dix mois et un testicule que l’interne n’a pas senti. On reprend l’examen avant d’annoncer la cœlioscopie. Couché, puis en tailleur, le testicule apparaît à l’aine et reste au fond quelques secondes sans tension. On annule l’idée de bloc. On parle de rétractile. On revoit quand même, parce qu’un classement peut changer, mais on ne fait pas peur avec le cancer. Le rétractile n’est pas la cryptorchidie dont la revue parle quand elle cite le risque tumoral. Confondre les deux est une faute de vocabulaire qui devient une faute opératoire.</p>
+<p>
+Le quatrième est un nouveau-né de quatre jours, les deux bourses plates, aucun testicule, et un méat qui s’ouvre à la base de la verge. Il ne tète plus et a vomi deux fois. Ici on quitte le calendrier des mois. On regarde la couleur, on prend la glycémie capillaire, on appelle la pédiatrie et l’endocrinologie, on ne rassure pas avec « les testicules descendront ». Swiss Medical Weekly demande le sexe chromosomique et les hormones dès que rien n’est palpable ou qu’une hypovirilisation s’ajoute. Le carton de 17-hydroxyprogestérone du dépistage ne remplace pas le traitement d’un enfant symptomatique. L’orchidopexie, s’il y a jamais une gonade à descendre, viendra bien plus tard.</p>
+<p>
+Le cinquième a quatre ans. Il arrive de l’étranger, jamais examiné, testicule droit inguinal. La mère pleure parce qu’un site a écrit qu’après un an « c’est foutu ». On reprend la revue : la fenêtre idéale est six à douze mois, le bénéfice oncologique cité va jusqu’à une correction avant dix ans, et rien n’autorise à laisser la gonade dans le canal jusqu’à la puberté. On opère sans prétendre effacer quatre ans de chaleur testiculaire. On organise l’autopalpation future plus clairement que pour un enfant opéré à dix mois. On n’ajoute pas un marqueur sanguin annuel que 2008 ne demande pas.</p>
+
+
+<p>
+Le sixième cas est une douleur. Garçon de sept ans, connu pour un testicule gauche jamais descendu, douleur inguinale depuis trois heures, un vomissement. Le scrotum gauche est vide, le canal est tendu et intouchable. On n’appelle pas cela une cryptorchidie « qui tire ». On appelle cela une ischémie jusqu’à preuve du contraire. La Revue Médicale Suisse de 2011 place le début des lésions irréversibles à six heures pour la torsion. Le fait que la gonade soit inguinale ne rallonge pas ce délai. On n’envoie pas l’enfant à l’échographie en ville. On appelle le chirurgien de garde. Si c’est une hernie étranglée plutôt qu’une torsion, le bloc reste la bonne porte.</p>
+<p>
+Le septième cas est une échographie déjà faite. Le compte rendu dit « absence de testicule gauche, droit normal ». L’enfant a onze mois, l’examen est vide à gauche après deux tentatives correctes. Les parents veulent annuler la cœlioscopie « puisque l’image a tranché ». On explique que la revue de 2008 ne donne pas à l’échographie la place de gold standard du non palpable. Une gonade abdominale peut manquer sur la sonde. Annuler le geste sur ce compte rendu créerait une anorchidie de papier. On maintient la cœlioscopie. On peut classer l’image dans le dossier comme information accessoire, pas comme décision.</p>
+<p>
+Le huitième cas est une demande d’hormone. Un collègue propose « un cycle de gonadotrophine pour éviter l’anesthésie ». On ouvre la revue : l’essai n’est discuté que si le testicule est déjà bas, sous la poche inguinale superficielle, la preuve est faible, le panel incertain. Bâle ne le fait que rarement. Surtout, aucune dose en unités n’a été lue dans ces pages, et l’information professionnelle n’a pas été ouverte. Proposer un nombre serait inventer. On répond que pour ce testicule inguinal haut, le plan est chirurgical, et que l’hormone n’est pas une étape obligatoire. Si un endocrinologue la prescrit plus tard, la dose viendra de lui et de l’AIPS, pas de cette monographie.</p>
+<p>
+Le neuvième cas est le contrôle à six mois d’une orchidopexie. Le testicule est bas mais paraît plus petit que l’autre. Les parents mesurent avec les doigts. Aucun seuil en millimètres n’a été lu. On ne invente pas « moins de 1&nbsp;cm, on réopère ». On compare cliniquement, on revoit à douze mois comme la revue le propose, et on appelle le chirurgien si la gonade remonte ou devient dure. Les 1 à 3&nbsp;% de complications de Bâle rappellent que l’atrophie existe. Ils ne donnent pas la conduite millimétrée. On reste clinique.</p>
+<p>
+Le dixième cas est un adolescent de quinze ans, opéré à neuf mois, qui sent une boule. On ne le rassure pas par téléphone avec « tu as été opéré tôt, donc ce n’est rien ». La revue dit que la correction avant dix ans ramène le risque de cancer au niveau de la population, elle ne dit pas que le risque est nul ni qu’une boule est banale. On l’examine dans la semaine. On n’institue pas, pour tous les opérés, un dosage de marqueurs. On examine celui qui a un signe. C’est la prévention tertiaire réelle, pas un calendrier de prises de sang.</p>
+
+
+<p>
+Ces dix consultations tiennent tout le DX.3. Elles évitent cinq erreurs. Opérer à trois semaines un inguinal isolé. Attendre deux ans un inguinal qui n’a pas bougé à huit mois. Opérer un rétractile maintenable. Croire une échographie négative. Donner une hormone dont la dose n’existe pas dans les sources lues. Elles évitent aussi de manquer le nouveau-né en perte de sel et la torsion inguinale. Si l’étudiant sait ranger un garçon dans une de ces cases, il répond à l’essentiel de l’examen fédéral sur ce diagnostic.</p>
+<p>
+La lettre type, une fois la décision prise, peut être relue à voix haute. « Garçon de huit mois, né à terme, testicule gauche inguinal palpable, non rétractile, méat normal, deux examens concordants, indication d’orchidopexie afin que la gonade soit au scrotum avant douze mois, pas d’imagerie, pas d’hormone. Contrôles prévus à un, six et douze mois. Information donnée sur l’incertitude de fertilité et sur un taux de complications inguinales cité entre 1 et 3&nbsp;% par l’hôpital pédiatrique de Bâle. » Cette lettre ne contient aucun fait qui n’ait été lu. Elle peut être signée.</p>
+<p>
+On ajoute, pour le non palpable, une lettre différente. « Testicule droit non retrouvé après examen couché et en tailleur, côté gauche normal, méat normal, âge onze mois. Demande de cœlioscopie. L’échographie externe négative est jointe et ne modifie pas l’indication. » Si le méat était anormal ou les deux côtés vides, la lettre demanderait d’abord le caryotype et les hormones, et elle mentionnerait l’exclusion d’une hyperplasie congénitale des surrénales. Le chirurgien n’a pas à deviner cette branche. Elle se dit.</p>
+<p>
+Le suivi scolaire est simple. L’enfant opéré en ambulatoire ne reste pas des semaines à la maison. Aucune durée d’arrêt n’a été lue au-delà du retour le jour même et des contrôles. On ne fabrique pas un certificat d’un mois. On écrit ce que le chirurgien a dit ce jour-là. Le sport se reprend quand la plaie le permet, décision clinique, pas un dogme de cette page. L’assurance n’a pas été ouverte. On ne cite ni LAMal ni un tarif.</p>
+<p>
+Reste l’honnêteté sur ce qui manque. Pas de registre suisse de l’année 2026 dans les pages lues. Pas de dose. Pas de sensibilité d’échographie. Pas de seuil de volume testiculaire. Pas de spermogramme de référence. Pas de protocole anesthésique. Ces trous sont des trous. Ils ne se remplissent pas avec des habitudes d’un autre pays. Le médecin qui a besoin d’un de ces chiffres ouvre la source primaire avant de le dire à une famille. En attendant, il a un calendrier, un examen, une cœlioscopie et une surveillance. C’est assez pour ne pas nuire, et ce n’est pas une validation clinique.</p>
+
+<h2>Âges et décisions</h2>
+<p>
+Repère 1, naissance. À la naissance, on palpe les deux bourses avant la sortie de maternité, comme la revue de 2008 le recommande avec une force forte malgré une preuve très basse. On note palpable, haut ou absent. On ne promet pas la descente, on la surveille. Un testicule non senti une seule fois par une sage-femme pressée n'est pas une cryptorchidie définitive. On refait le geste les mains chaudes.</p>
+<p>
+Repère 2, six semaines. À six semaines, beaucoup de gonades inguinales ont déjà avancé. On compare au carnet. Si le testicule est arrivé au fond et y reste, on ferme l'épisode. S'il est toujours haut, on donne la date des six mois comme moment de décision, pas comme nouveau délai d'espoir illimité. Les parents repartent avec une seule phrase.</p>
+<p>
+Repère 3, six mois. À six mois révolus, l'espoir de descente spontanée que la revue qualifie de preuve haute est passé. On décide. Palpable et haut : orchidopexie programmée pour avoir lieu avant l'anniversaire. Non palpable : cœlioscopie. Rétractile vrai : pas de bloc. Cette triade est le cœur du DX.3.</p>
+<p>
+Repère 4, douze mois. À douze mois, Bâle veut le testicule déjà dans le scrotum, pas en train d'être mis sur liste d'attente. Si la liste d'attente de l'hôpital dépasse, on le dit et on documente la date de la décision, pour que le retard ne soit pas silencieux. On n'invente pas un délai maximal de liste d'attente, parce qu'aucune page ne le donne.</p>
+<p>
+Repère 5, cancer. Le cancer est une histoire d'adulte jeune, pas de nourrisson. La revue relie la correction avant dix ans à un risque ramené à celui de la population. On le dit une fois, clairement, sans image effrayante. On n'envoie pas de marqueur à trois ans. On apprendra l'autopalpation. Une boule plus tard s'examine, même si l'opération a été précoce.</p>
+<p>
+Repère 6, fertilité. La fertilité reste une phrase prudente. Meilleure croissance citée après chirurgie à neuf mois qu'à trois ans, dans une étude que la revue rapporte. Pas de preuve que six à douze mois batte une chirurgie à deux ans pour la paternité. On opère quand même pour l'histologie, la position et le cancer. On ne vend pas un enfant.</p>
+<p>
+Repère 7, hormone. L'hormone n'a pas de dose ici. Répéter cette absence est utile, parce que les candidats inventent des unités. La revue ne l'envisage que pour un testicule déjà bas, avec un panel incertain. Bâle la rarefie encore. Le plan ordinaire est le bistouri, pas la seringue.</p>
+<p>
+Repère 8, echo. L'échographie est la fausse sécurité. On peut la lire. On ne la laisse pas annuler une cœlioscopie de non palpable. On ne la demande pas pour confirmer un testicule que la main sent. Le gold standard change avec la palpation, il ne change pas avec l'angoisse des parents.</p>
+<p>
+Repère 9, coelio. La cœlioscopie regarde les vaisseaux. S'ils entrent dans le canal, on cherche plus bas. Si la gonade est dans l'abdomen, on la descend selon le pédicule, sans que cette page décrive les temps. Si les vaisseaux s'arrêtent en cul-de-sac, on conclut à la régression avec le chirurgien, pas avec une sonde. Le compte rendu opératoire remplace alors l'image.</p>
+<p>
+Repère 10, torsion. La torsion d'un testicule inguinal fait mal à l'aine. On palpe le canal devant une douleur brutale et un scrotum vide. Trois heures de douleur, un vomissement : on n'attend pas le contrôle des six mois. Six heures est le repère de la Revue Médicale Suisse 2011. On appelle le bloc.</p>
+<p>
+Repère 11, hernie. La hernie étranglée est l'autre masse inguinale douloureuse. On ne passe pas l'après-midi à les distinguer par des images. On les distingue au bloc si besoin. La cryptorchidie calme, elle, permet le calendrier. La masse tendue ne le permet pas.</p>
+<p>
+Repère 12, prema. Le prématuré se corrige au début. Né à 28 semaines, vu à 3 mois d'âge civil, il a environ un mois d'âge corrigé. On attend encore la descente. On note le calcul dans le dossier pour que le confrère suivant ne croie pas à un oubli. À 14 mois d'âge civil, on ne se cache plus derrière la prématurité.</p>
+<p>
+Repère 13, bilateral. Deux côtés vides sans méat anormal restent un bilan. La revue demande chromosomes et hormones dès que rien n'est palpable. On ne se fie pas à l'aspect masculin. Un 46,XX virilisé peut tromper. C'est le pont avec l'hyperplasie congénitale des surrénales du lot.</p>
+<p>
+Repère 14, hypospadias. Un hypospadias plus deux testicules absents est une urgence de classement, pas une curiosité anatomique. L'European Association of Urology, lue pour l'hypospadias du lot, demande le bilan vite. On ne circoncit pas. On ne ferme pas le dossier « cryptorchidie simple ».</p>
+<p>
+Repère 15, retractile. Le rétractile se prouve en le maintenant en bas sans douleur. S'il remonte dès qu'on lâche, ce n'est pas gagné. S'il reste, on n'opère pas. On revoit une fois pour ne pas s'être trompé. On ne parle pas de cancer à ces parents-là de la même façon.</p>
+<p>
+Repère 16, ectopie. L'ectopie à la cuisse se cherche avec la main, pas avec un réflexe limité au canal. Une gonade fémorale n'est pas un inguinal. Le chirurgien doit connaître le lieu. On le dessine d'un mot dans la lettre : cuisse, pubis ou périnée.</p>
+<p>
+Repère 17, consentement. Le consentement dit : position, espoir de croissance, cancer réduit si correction avant dix ans, fertilité non garantie, complications 1 à 3 % selon Bâle pour la voie inguinale, pas de biopsie de routine, contrôles à 1, 6 et 12 mois. Les parents répètent. S'ils disent « il aura des enfants grâce à ça », on reprend.</p>
+<p>
+Repère 18, lettre. La lettre tient en dix lignes maximum. Âge en mois, côté, hauteur, palpable ou non, rétractile exclu, méat, prématurité, deux examens, demande précise. Pas d'échographie jointe pour faire joli. Caryotype joint s'il existe.</p>
+<p>
+Repère 19, controles. Un mois : vivant, bas, plaie. Six mois : pas remonté, taille comparée sans seuil inventé. Douze mois : on espace. Adolescence : autopalpation. Pas d'échographie annuelle. Pas de marqueur systématique. Une boule : on voit.</p>
+<p>
+Repère 20, retard. Vu à quatre ans, on opère quand même. On ne dit pas que c'est trop tard pour tout. On dit que la fenêtre idéale est passée et que la position se corrige encore. On parle plus tôt d'autopalpation. On ne punit pas la famille par un abandon.</p>
+<p>
+Repère 21, ambulance. L'opération inguinale habituelle est ambulatoire à Bâle. On vérifie la boisson, la douleur, le saignement. On ne nomme pas l'antalgique. On montre aux parents où doit être le testicule. On donne le rendez-vous d'un mois. On ne fabrique pas un arrêt scolaire d'un mois.</p>
+<p>
+Repère 22, sport. Le sport reprend quand la plaie le permet. Aucune page ne dit trois semaines. On suit le chirurgien qui a vu la cicatrice. On n'interdit pas l'école la semaine suivante par principe.</p>
+<p>
+Repère 23, assurance. LAMal, LAA et certificat long ne sont pas dans les sources de ce diagnostic. On ne les invente pas. Le social se limite à l'accompagnant le jour de l'ambulatoire et à l'explication.</p>
+<p>
+Repère 24, examen. Quatre réponses d'examen : deux mois, on surveille ; onze mois inguinal, on opère ; rétractile maintenable, on n'opère pas ; deux loges vides et hypospadias, on bilan. Tout le reste est commentaire.</p>
+<p>
+Repère 25, limite. Pas de dose, pas de registre 2026, pas de sensibilité d'image, pas de millimètres, pas de spermogramme. Ces absences sont voulues. Le contenu n'est pas validé cliniquement. Il empêche d'opérer trop tôt, trop tard, ou un rétractile, et d'oublier le sel et la torsion.</p>
+<h2>Décisions par situation</h2>
+<p>
+À la maternité, l'examen des bourses fait partie de la sortie, parce que la revue de 2008 en a fait une recommandation forte. On écrit le côté et la hauteur le jour même. Une case vide dans le carnet oblige le pédiatre suivant à tout recommencer, et parfois à croire qu'un testicule jamais vu était descendu.</p>
+<p>
+À six semaines, on compare au mot de la maternité. Une gonade arrivée au fond et stable ferme l'histoire. Une gonade toujours inguinale reçoit une date : décision à six mois, opération avant douze mois si rien n'a bougé. On n'ajoute pas d'examen d'image entre ces deux rendez-vous.</p>
+<p>
+Le jour des six mois, la preuve haute de la descente spontanée ne couvre plus l'attente. On choisit entre orchidopexie, cœlioscopie et simple surveillance du rétractile. Ce choix se dit aux parents avec l'âge en mois, pas avec « on verra à l'école ».</p>
+<p>
+Si la liste opératoire de l'hôpital glisse au-delà de douze mois, on note la date où l'indication a été posée. Aucune source lue ne fixe un délai administratif maximal. Documenter évite que le retard passe pour une décision médicale d'attendre.</p>
+<p>
+On parle du cancer une seule fois, avec l'âge de dix ans cité par la revue, et sans calendrier de prises de sang. L'autopalpation viendra à l'adolescence. Une grosseur, même après une opération précoce, s'examine. Le risque ramené à celui de la population n'est pas un risque nul.</p>
+<p>
+On parle de fertilité sans contrat. La revue rapporte une meilleure croissance après une chirurgie à neuf mois qu'à trois ans, et elle ne démontre pas que la fenêtre de six à douze mois batte une opération vers deux ans pour la paternité. On opère pour la position, l'histologie et le cancer. On ne promet pas d'enfant.</p>
+<p>
+Aucune unité de gonadotrophine n'est prescrite depuis cette page. Le panel de 2008 est incertain, et seulement pour un testicule déjà bas. Bâle raréfie encore cet essai. Le garçon avec une gonade inguinale haute a un plan chirurgical, pas une seringue.</p>
+<p>
+Une échographie apportée de la ville se classe dans le dossier et ne commande pas. Elle ne confirme pas un testicule déjà palpé. Elle n'annule pas la cœlioscopie d'un scrotum vraiment vide. Les parents qui voulaient s'arrêter à l'image entendent cette limite avant de signer.</p>
+<p>
+Au bloc, pour le non palpable, le chirurgien regarde où s'arrêtent les vaisseaux. Cette page ne décrit ni les trocarts ni le nombre de temps. Elle dit seulement que la cœlioscopie est le gold standard lu en 2008, et que le compte rendu opératoire remplace ensuite les hypothèses.</p>
+<p>
+Une douleur inguinale brutale avec scrotum vide et vomissement quitte le calendrier. On palpe le canal. On appelle le chirurgien. Six heures, repère de la Revue Médicale Suisse de 2011, ne s'allongent pas parce que la gonade n'est pas dans la bourse. Une hernie étranglée emprunte la même porte, le bloc, sans après-midi d'images.</p>
+<p>
+L'ancien prématuré se calcule. Né à vingt-huit semaines et vu à trois mois d'âge civil, il a environ un mois d'âge corrigé : on peut encore attendre une descente. Vu à quatorze mois d'âge civil, la prématurité n'excuse plus l'absence de date opératoire.</p>
+<p>
+Deux loges vides imposent chromosomes et hormones, même si le méat semble masculin. Un hypospadias en plus accélère encore ce bilan, comme l'European Association of Urology le demande lorsque les deux testicules manquent. On ne circoncit pas ce prépuce. On ne ferme pas « cryptorchidie simple ».</p>
+<p>
+Le rétractile se gagne seulement s'il reste au fond sans traction douloureuse. S'il repart dès qu'on lâche, on ne le classe pas ainsi. On revoit une fois un classement favorable, pour ne pas avoir opéré trop vite ni rassuré trop vite.</p>
+<p>Une gonade à la racine de la cuisse n'est pas un inguinal. On le dit dans la lettre : cuisse, pubis ou périnée. Le chirurgien incisionne alors au bon endroit. La main doit avoir quitté le canal pour la trouver.</p>
+<p>
+Le consentement que les parents répètent contient la position, l'espoir de croissance, la limite de dix ans pour le bénéfice oncologique cité, l'absence de garantie de fertilité, les 1 à 3 % de complications inguinales selon Bâle, l'absence de biopsie de routine, et les contrôles à un, six et douze mois. S'ils résument par « il sera père », on recommence.</p>
+<p>
+La lettre au chirurgien reste courte : âge en mois, côté, hauteur, palpable ou non, rétractile exclu, méat, prématurité, concordance de deux examens, demande. On n'y joint pas une échographie décorative. On y joint le caryotype s'il a déjà été fait.</p>
+<p>
+Après l'opération, un mois vérifie que la gonade est basse et que la plaie est calme. Six mois vérifie qu'elle n'est pas remontée. Douze mois espace la surveillance de position. Aucun seuil en millimètres n'a été lu : une différence de taille se montre au chirurgien, elle ne se convertit pas en chiffre inventé.</p>
+<p>Un garçon de quatre ans jamais opéré est encore opérable. On dit que la meilleure fenêtre est passée et que la position se corrige malgré tout. On parle plus tôt d'autopalpation. On ne transforme pas le retard en renoncement.</p>
+<p>
+L'ambulatoire bâlois suppose un adulte à la maison, une consigne sur le saignement et la fièvre, et un rendez-vous à un mois. Le nom de l'antalgique n'est pas dans cette monographie. La durée d'arrêt d'école n'y est pas non plus. On écrit ce que le chirurgien a dit ce jour-là, pas un mois fictif.</p>
+<p>
+LAMal et LAA ne sont pas ouverts pour ce diagnostic. On ne cite pas un tarif. Le seul fait social lu est le retour le jour même et la nécessité que quelqu'un accompagne l'enfant. Le sport reprend selon la plaie vue par l'opéré, pas selon un dogme de trois semaines.</p>
+<p>
+Quatre items suffisent à l'épreuve. À deux mois, on surveille. À onze mois, testicule inguinal, on opère. Rétractile maintenable, on n'opère pas. Deux loges vides avec hypospadias, on fait le bilan. Le commentaire qui ajoute une dose ou une échographie obligatoire est une mauvaise réponse.</p>
+<p>
+Ce qui manque reste manquant : registre suisse de 2026, dose hormonale, sensibilité de l'échographie, volume en millimètres, spermogramme, protocole d'anesthésie. Le médecin qui en a besoin ouvre la source ce jour-là. Cette page donne le calendrier, la main, la cœlioscopie et la surveillance. Elle n'est pas validée cliniquement, et elle suffit à ne pas opérer un rétractile ni à oublier un choc.</p>
+<h2>Sources</h2>
+<ol>
+<li>[S1] Swiss Medical Weekly 2008. Management of cryptorchidism in children: guidelines. https://doi.org/10.4414/smw.2008.12192 — consulté le 9 novembre 2026.</li>
+<li>[S2] Hôpital universitaire pédiatrique des deux Bâle. Cryptorchidie. https://www.ukbb.ch/fr/traitement-prise-en-charge/tableaux-de-maladies/cryptorchidie-testiculaire/ — consulté le 9 novembre 2026.</li>
+<li>
+[S3] Revue Médicale Suisse 2011, n° 320. Torsion testiculaire. Le délai de six heures est repris seulement pour la douleur brutale d’un testicule non descendu. https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-320/torsion-testiculaire-une-urgence-piege — consulté le 9 novembre 2026.</li>
+<li>[S4] Liste canonique LOT_131, DX.3, gelée le 9 novembre 2026.</li>
+</ol>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement.</p>
+</section>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_131_Phase_B_V0_DX.3 -->
