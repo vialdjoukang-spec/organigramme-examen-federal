@@ -22,3 +22,20 @@
 - Rocephin® et Dafalgan® : toutes les doses relues dans l'AIPS (n° 44625 et 47503) le 10.11.2026 ; la lidocaïne n'a plus de n° AIPS propre (n° 52094 non vérifié, retiré).
 - Prise de position OFSP/CFV (PCV) : texte relu le 10.11.2026 ; la formule « non relu » est supprimée.
 - Les défauts restants de controle3 (phrases « nominales » ou longues) naissent de la concaténation terme + définition des fenêtres ; ils disparaîtraient en reformulant les fenêtres du glossaire.
+
+## DX.3 Pneumonie — renforcement du 10.11.2026
+- Mauvaises citations corrigées : les doses amoxicilline, Rocephin® et Tavanic® du point 14 citaient Kemp 2020 (S2) ; elles citent désormais leur propre AIPS (56203, 44625, 54365). Les lignes SpO2 < 90 % et CRP « jour 3 à 4 » du point 11.C citaient l'AIPS Klacid (50469), sans rapport : SpO2 reçoit ERS 2023 (S6) ; le délai de la CRP au jour 3 à 4 n'a plus de source (aucune source suisse ou européenne lue), à documenter.
+- Médicaments : les contre-indications majeures de Rocephin®, Augmentin® (hors posologie) et amoxicilline n'ont pas été relues dans l'AIPS (aucun paquet `_travail/DX.3`, hors périmètre d'écriture) ; la route et la durée propres de Rocephin®, Augmentin® et Doxycyclin-Mepha® sont à lire dans leur AIPS pour compléter le tableau « Synthèse des médicaments ».
+- Point 9.b : les valeurs normales en unités SI (CRP en mg/L, leucocytes en G/L) ne sont pas chiffrées, faute de source suisse lue.
+- Image : cliché du point 9 inséré (scanner et radiographie, pneumonie à Legionella, domaine public, 1 seul `prendre`). Point 6 : aucun signe visible propre à la pneumonie, aucune image.
+- Le modèle JSON `data-modele` de l'arbre du point 1 garde les anciens libellés nominaux ; seul le rendu HTML a été rendu verbal. À régénérer si l'arbre est reconstruit.
+- Polices intégrées (@font-face data:) retirées (20 Ko) ; la leçon retombe sur les polices du système.
+
+## DX.5 — Atteintes musculosquelettiques (renforcement du 10.11.2026)
+
+- Statines : l'AIPS d'une statine n'a pas été lue ; la fenêtre ne donne aucune dose. À ajouter : dose et contre-indications d'une spécialité suisse (atorvastatine, n° AIPS à retrouver via `lecon.py prep --dci atorvastatin`).
+- Dose initiale de glucocorticoïde dans la PMR : le tableau et la question 3 du point 14 disent 12,5 à 25 mg par jour (EULAR/ACR 2015, source 5) ; l'AIPS 69640 ne donne qu'une fourchette générale de 5 à 60 mg. Les recommandations EULAR 2025 (source 6) peuvent donner une autre valeur : texte intégral à lire.
+- Point 9, valeur normale de la CRP (inférieure à 5 mg/L) : rattachée à la source 12 par le script de citations ; une source de laboratoire suisse reste à lire pour ce seuil.
+- Point 11.A (but chiffré), 11.D (critères de guérison et de sortie énumérés) et point 12 (recommandation suisse avec organisme et année) : pas de chiffre ni de source suisse lue ; à compléter à partir du texte intégral des sources 5 et 6 et d'une recommandation de la SSR.
+- Point 9 : une échographie de l'artère temporale (signe du halo) serait le cliché le plus utile ; aucune image libre trouvée. La coupe histologique de biopsie (Nephron, CC BY-SA 3.0) a été insérée à la place.
+- Arbre du point 1 : six libellés de nœuds restent nominaux (widget généré à partir de `data-modele`) ; contrôle3 les compte en B_phrase_nominale (orange).
