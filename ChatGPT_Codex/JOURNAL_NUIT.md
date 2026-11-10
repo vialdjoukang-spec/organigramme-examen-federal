@@ -145,4 +145,6 @@ LOT082 DX2 : hallux valgus produit,191704octets, contrôleVERT ; contrelecture i
 
 LOT082 DX7 : scoliose idiopathique de l’adolescent produite,169831octets, contrôleORANGE B seulement ; auditindépendant requis.
 
-LOTs livrés : 0/23 ; leçons poussées : 28/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
+LOT082 DX1 : arthrose déformante de la main produite,151447octets, contrôleORANGE B seulement ; P3 indépendant requis.
+
+LOTs livrés : 0/23 ; leçons poussées : 29/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
