@@ -40,7 +40,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | réservé |
 | 087 | S6.2 | Ecchymoses, hématomes, purpura | réservé |
 | 088 | S6.3 | Hyperpigmentation ou hypopigmentation | réservé |
-| 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | réservé |
+| 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | en cours |
 | 090 | S6.5 | Ictère | réservé |
 | 091 | S6.6 | Absence ou perte de cheveux et de poils, pilosité excessive | réservé |
 | 092 | S6.7 | Macules, papules, pustules, vésicules, ulcères, abcès, bulles, épaississements, nécroses et tumeurs cutanées | réservé |
