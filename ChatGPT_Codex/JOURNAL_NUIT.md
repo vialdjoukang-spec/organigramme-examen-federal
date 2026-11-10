@@ -217,4 +217,6 @@ LOT083 DX4 : six corrections ciblées, seconde P3 indépendante 51/52 finale oui
 
 LOT083 DX10 : trois corrections AIPS ciblées poussées, seconde P3 en cours.
 
-LOTs livrés : 2/23 ; leçons poussées : 44/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 contrôles requis attendus ; LOT083 CI/fusion à établir ; LOT084–102 à produire.
+LOT083 PhaseA : mécanismes ajoutés au tableau comparatif µ1.4, sources inchangées ; attestation ciblée en cours avant fusion.
+
+LOTs livrés : 2/23 ; leçons poussées : 44/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 contrôles requis attendus ; LOT083 CI/fusion à établir ; LOT084–102 à produire.
