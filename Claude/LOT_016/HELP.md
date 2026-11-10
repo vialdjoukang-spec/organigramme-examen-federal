@@ -39,3 +39,15 @@ Registre ouvert lors du renfort L1 du 10.11.2026. Les formules de lacune retiré
 - Lacune retirée du cours : La sensibilité et la spécificité de la VFS et de la FEES sont une donnée non trouvée dans les sources consultées.
 - Lacune retirée du cours : Aucune liste officielle suisse de critères de sortie propre à ce diagnostic n'a été trouvée
 - Images (µ6) : aucune photographie libre de candidose buccale sous prothèse n'a été trouvée sur Wikimedia (recherche « oral candidiasis elderly », 10.11.2026) ; lien de cas à proposer en fenêtre lors d'une reprise.
+
+## DX.4
+- Lacune retirée du cours : Une prévalence nationale suisse récente de l'hyperthyroïdie est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : la part propre de la thyrotoxicose par âge est une donnée non trouvée dans les sources consultées S1 .
+- Lacune retirée du cours : Les valeurs chiffrées de sensibilité et de spécificité sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Aucune recommandation suisse de traitement de l'hyperthyroïdie n'a été trouvée
+- Lacune retirée du cours : La sensibilité et la spécificité de chaque signe sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : La conduite propre à cette situation est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : l'imagerie orbitaire de remplacement est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Les seuils suisses de sortie après iode radioactif sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Les règles d'arrêt de travail propres à l'hyperthyroïdie sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : La prise en charge de la thyrotoxicose gestationnelle est une donnée non trouvée dans les sources consultées.
