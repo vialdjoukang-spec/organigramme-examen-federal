@@ -2,7 +2,7 @@
 
 ## État actuel
 
-32 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et 10 du LOT082. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT081 a onze leçons auditées et sa PR567 attend la fusion automatique après synchronisation avec main et contrôles. Le LOT082 poursuit les audits et la dernière rédaction, DX10. Les 858 leçons existantes consolidées sont sur main.
+32 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et 10 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 termine la rédaction DX10 et les audits. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -165,4 +165,6 @@ LOT082 DX5 : doigt en maillet produit,182695octets, contrôleVERT zéro défaut 
 
 LOT082 DX7 : durée quotidienne du corset, gestes de mesure et prévention précisés ;176581octets, secondeP3 indépendante engagée.
 
-LOTs livrés : 0/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
+LOT081 livré : PR567 fusionnée automatiquement le 10 novembre 2026 à10:19:47UTC, commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Contrôles requis verts, onze empreintes et validations P3 vérifiées sur main. Preuves : _outils/rapports/fusions/LOT_081_GITHUB.json et LOT_081_VERIFICATION_MAIN.json.
+
+LOTs livrés : 1/23 ; leçons poussées : 32/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX5 secondelecture et DX10 rédaction/audit ; LOT083–102 à produire.
