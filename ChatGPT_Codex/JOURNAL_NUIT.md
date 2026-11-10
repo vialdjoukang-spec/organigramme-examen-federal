@@ -220,3 +220,8 @@ LOT083 DX10 : trois corrections AIPS ciblées poussées, seconde P3 en cours.
 LOT083 PhaseA : mécanismes ajoutés au tableau comparatif µ1.4, sources inchangées ; attestation ciblée en cours avant fusion.
 
 LOTs livrés : 2/23 ; leçons poussées : 44/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 contrôles requis attendus ; LOT083 CI/fusion à établir ; LOT084–102 à produire.
+
+
+Arrêt de production demandé par Vial le 10 novembre 2026. Toute réservation Codex est levée ; toute IA est autorisée à reprendre, terminer et auditer ce contenu. Lecture obligatoire : python3 ChatGPT_Codex/LIRE_AVANT_REPRISE.py. PR602 confirmée fusionnée ; onze empreintes LOT083 conformes au manifeste sur main. Préparations LOT084 de l’ancien environnement à récupérer, sans livraison attestée.
+
+LOTs livrés : 3/23 ; leçons poussées : 44/253, 858 existantes consolidées séparément ; blocages : LOT080 DX5/DX6 REFUSE P3, sauvegarde récente LOT084 non retrouvée dans main, LOT084–102 inachevés ; production Codex arrêtée, reprise ouverte à toute IA.
