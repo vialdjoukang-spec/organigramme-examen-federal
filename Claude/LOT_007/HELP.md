@@ -72,3 +72,14 @@
 - Paroxétine (Paroxetin-Mepha 58636), fluoxétine (Fluoxetin Zentiva 54327) et sildénafil (Sildenafil Viatris 62721) : AIPS lues et ajoutées à la bibliographie ; l'AIPS Viagra 54642 reste citée pour les doses du sildénafil.
 - Image point 6 : insérer `File:NiacinFlush.jpg` (CC BY-SA 4.0, Doc James) après le tableau « Examen physique » ; Wikimedia a répondu 429, image placée dans /home/user/wt/images_attente.txt. Lecture guidée à composer avec cliche.py figure (repères : face et cou, tronc ; piège : l'urticaire n'est pas un flush isolé ; décision : rougeur seule, bien tolérée, donc rassurer).
 - Point 9 : aucune modalité d'imagerie décisive ; aucune image insérée.
+
+## DX.3 — Flush émotionnel, troubles anxieux (renforcement du 10.11.2026)
+
+- Fréquence cardiaque normale de 60 à 100 par minute (point 6, fenêtre « Fréquence cardiaque et PA ») : aucune source lue ne porte ce chiffre ; le contrôle signale une phrase chiffrée sans citation.
+- Les citations « AIPS Temesta » qui étayaient à tort des gestes d'examen (point 6 et 7) ont été retirées ; ces gestes d'examen n'ont pas de source lue.
+- Inderal® en grossesse (« évité sauf nécessité absolue ») : la phrase est rattachée à l'AIPS 31706 sans relecture du texte AIPS (swissmedicinfo illisible ici) ; à confirmer.
+- Point 9.c, DFGe inférieur à 30 mL/min et IRM sans gadolinium : cité sur Hannah-Shmouni 2016 (S2), qui ne porte probablement pas ce seuil ; source à remplacer.
+- Point 12 (prévention) : aucune recommandation suisse (organisme, année) lue ; tableau 9.b sans valeurs normales SI sourcées.
+- Délais « 2 semaines puis 4 à 6 semaines » (11.C) et « 4 à 12 semaines » (11.A) : rattachés à l'AIPS Cipralex et à la WFSBP (résumé) sans relecture des chiffres exacts.
+- Images : Flush01.webp (flush à la niacine, CC BY-SA 4.0, JBCH) au point 6 ; 12_lead_generated_sinus_rhythm.webp (ECG généré par simulateur, domaine public) au point 9. Aucun cliché de modalité décisive propre au flush émotionnel n'existe ; l'ECG est celui du tracé de repos normal.
+- Le gabarit µ7 n'est qu'approché : la section Sources est devenue `<section id="dx3-sources">` ; les définitions de codes CIM-10 (R23.x) ont été retirées des fenêtres de l'arbre (elles restent dans le modèle data-modele).
