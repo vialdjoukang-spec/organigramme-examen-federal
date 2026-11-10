@@ -28,18 +28,18 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | livré PR 559 |
 | 067 | S4.6 | Masse pelvienne | livré PR 560 |
 | 068 | S4.7 | Douleur pelvienne | livré PR 562 |
-| 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
-| 070 | S4.9 | Douleur, gonflement ou masse du scrotum | réservé |
-| 071 | S4.10 | Plaintes et dysfonctions sexuelles | réservé |
-| 079 | S4.18 | Écoulement vaginal | réservé |
-| 081 | S5.2 | Douleur dorsale ou lombaire | réservé |
-| 082 | S5.3 | Déformations du squelette et des articulations | réservé |
-| 083 | S5.4 | Myalgies | réservé |
-| 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | réservé |
-| 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | réservé |
-| 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | réservé |
-| 087 | S6.2 | Ecchymoses, hématomes, purpura | réservé |
-| 088 | S6.3 | Hyperpigmentation ou hypopigmentation | réservé |
+| 069 | S4.8 | Demande de contraception, contraception d’urgence | livré PR 563 |
+| 070 | S4.9 | Douleur, gonflement ou masse du scrotum | livré PR 564 |
+| 071 | S4.10 | Plaintes et dysfonctions sexuelles | livré PR 565 |
+| 079 | S4.18 | Écoulement vaginal | livré PR 568 |
+| 081 | S5.2 | Douleur dorsale ou lombaire | livré PR 569 |
+| 082 | S5.3 | Déformations du squelette et des articulations | livré PR 570 |
+| 083 | S5.4 | Myalgies | livré PR 571 |
+| 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | livré PR 572 |
+| 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | livré PR 573 |
+| 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | livré PR 574 |
+| 087 | S6.2 | Ecchymoses, hématomes, purpura | livré PR 576 |
+| 088 | S6.3 | Hyperpigmentation ou hypopigmentation | livré PR 577 |
 | 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | réservé |
 | 090 | S6.5 | Ictère | réservé |
 | 091 | S6.6 | Absence ou perte de cheveux et de poils, pilosité excessive | réservé |
