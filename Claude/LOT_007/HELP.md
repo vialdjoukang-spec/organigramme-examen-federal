@@ -48,3 +48,27 @@
 - Arrêt de l'octréotide court avant lutécium : « 8 à 24 h » (source non retrouvée) remplacé par « au moins 24 h » (AIPS 66580).
 - Images : aucun cliché inséré, la recherche Wikimedia n'a rien retourné (limitation de débit). À faire : TEP/scintigraphie des récepteurs de la somatostatine (point 9), flush carcinoïde (point 6).
 - Tableau médicaments du point 11 : colonnes durée et extrait AIPS encore absentes.
+
+## DX.8 Urticaire, anaphylaxie — renforcement du 10.11.2026
+- Cristalloïdes (1 à 2 L adulte, 10 mL/kg enfant) : aucune AIPS applicable (soluté, pas une molécule dosée de ce cours) ; la leçon cite la recommandation WAO 2020 et EAACI 2021 seule.
+- Adrénaline i.m. 0,01 mg/kg (max 0,5 mg) : dose de la recommandation WAO, absente de l'AIPS ; conservée avec la WAO et l'AIPS d'Epipen (voie i.m., dose fixe).
+- Adrénaline nébulisée, glucagon sous bêtabloquant : hors AIPS, citées avec la WAO seule.
+- Point 9 : aucun cliché de modalité décisive (diagnostic clinique, tryptase). Point 6 : figure Hives_urticaria (Wikimedia, CC0) insérée.
+- Les fenêtres médicaments en ligne ont été remplacées par des liens vers les bandeaux .mb (contenu identique, ancres AIPS ajoutées ; bandeau Adrenalin Bichsel ajouté).
+- Fenêtre « Urgence » : rendue en <details> ouvert ; l'ordre est chronologique, sans minutage chiffré faute de source.
+
+## DX.10 Phéochromocytome — renforcement (10.11.2026)
+- Retiré du cours la formule de lacune du point 12 (« Aucune recommandation suisse propre au phéochromocytome n'a été trouvée »). À faire : chercher une recommandation suisse (SSED, SGAIM, Rev Med Suisse) sur la prévention et le dépistage génétique familial du phéochromocytome ; si elle existe, la citer au point 12.
+- Doses : chaque posologie citait l'AIPS d'une autre molécule (propranolol cité avec l'AIPS du labétalol, labétalol avec celui du propranolol, urapidil avec celui de la doxazosine, nitroprussiate avec ceux de l'urapidil et du propranolol, etc.). Les renvois étrangers sont supprimés ; chaque dose cite seulement son AIPS (urapidil 44486, nitroprussiate 67308, labétalol 70383, doxazosine 59194, propranolol 31706, glucagon 31489, sunitinib 57563). Le sunitinib 37,5 mg dans le phéochromocytome reste hors AIPS (essai FIRSTMAPPP, [10]).
+- Doses d'urgence de la crise hypertensive (urapidil 10 à 50 mg puis perfusion, nitroprussiate 0,2 µg/kg/min) : conservées. Elles proviennent des AIPS cités ; l'Endocrine Society [1] et Nazari [5] fixent l'indication et le seuil 180/120 mm Hg, sans dose chiffrée lue ici.
+- Fenêtres médicament : fiche complète à la première mention en tableau, version courte ensuite ; fenêtres retirées des phrases d'urgence (phrases trop longues). Le glucagon n'a plus de fenêtre dans le texte ; sa fiche reste dans l'index « Aide-mémoire » en fin de fichier.
+- Image à insérer (file d'attente `images_attente.txt`, Wikimedia en 429) : `File:Pheocromocitoma-MIBG.jpg` (CC BY 4.0, scintigraphie MIBG et TDM d'un cas VHL, 750 x 420). Place : point 9.d, après le tableau de 2e intention, avec `cliche.py figure` (repères : fixation surrénalienne bilatérale sur les images antéropostérieures à 4 et 24 h ; vérifier avant sur l'image). Aucun signe visible au point 6 ne justifie une photographie.
+- Restent flagués par controle3 (ORANGE, bloc généré identique dans tous les fichiers du LOT) : arbre taxonomique CIM (étiquettes nominales) et plan « Rappel mémoire » en liste imbriquée (2 phrases de 37 et 42 mots).
+
+## DX.6 Flush médicamenteux (renforcement du 10.11.2026)
+- Niacine (acide nicotinique) : aucune préparation AIPS lisible dans le corpus local ; la posologie n'est citée qu'avec la revue de Sood et Arora (2009, PMID 19878384), qui ne chiffre ni la dose de niacine ni la dose d'aspirine. Une dose chiffrée de niacine reste à ajouter si un Vial fournit une source.
+- Aucun critère de société savante ni score d'imputabilité trouvé pour le flush médicamenteux (Izikson 2006 ne donne que la démarche clinique) ; Naranjo non lu.
+- AIPS Norvasc (50044), Viagra (54642), Nitrolingual (40558), Epipen (53836), Aspirin Cardio (51795) non relus dans le corpus local (absents du paquet) ; leurs doses et indications ont été conservées telles que citées. Les affirmations « amlodipine : aucun usage avant 18 ans » et « prudence hépatique » restent à confirmer sur la fiche Norvasc.
+- Paroxétine (Paroxetin-Mepha 58636), fluoxétine (Fluoxetin Zentiva 54327) et sildénafil (Sildenafil Viatris 62721) : AIPS lues et ajoutées à la bibliographie ; l'AIPS Viagra 54642 reste citée pour les doses du sildénafil.
+- Image point 6 : insérer `File:NiacinFlush.jpg` (CC BY-SA 4.0, Doc James) après le tableau « Examen physique » ; Wikimedia a répondu 429, image placée dans /home/user/wt/images_attente.txt. Lecture guidée à composer avec cliche.py figure (repères : face et cou, tronc ; piège : l'urticaire n'est pas un flush isolé ; décision : rougeur seule, bien tolérée, donc rassurer).
+- Point 9 : aucune modalité d'imagerie décisive ; aucune image insérée.
