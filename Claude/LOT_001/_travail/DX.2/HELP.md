@@ -10,3 +10,4 @@
 - Anciennes sections hors sujet reprises de la V0 (ESUR contraste, IRM Insel, ESC SCA, Resus UK ABCDE, Fedlex) : sources non relues, supprimées.
 - pedlaus.ch (hypoglycémie pédiatrique) : connexion refusée, aucun contenu pédiatrique hors AIPS.
 Molécules sans AIPS lisible : aucune pour le point 11 (GlucaGen 31489, Baqsimi 67465, Glucose B. Braun lus). Insulines et sulfonylurées : conduite sans milligramme.
+- Images (µ6 v2) : aucun cliché diagnostique pour l'hypoglycémie (diagnostic biologique : glycémie, triade de Whipple). Seul schéma libre lisible : « Homeostasis of blood sugar.png » (CC0, Wikimedia Commons), inséré au point 3.a avec ses limites (sans insuline ni glucagon). Liens de cas en fenêtre, à ajouter par Vial si souhaité : Radiopaedia (insulinome, TDM abdominale ou IRM du pancréas), Eurorad (insulinome), Ultrasound Cases (échographie endoscopique du pancréas).
