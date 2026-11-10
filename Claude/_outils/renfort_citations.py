@@ -10,6 +10,8 @@ from controle3 import nombres, STRUCT, DOSE, texte
 
 BLOC = re.compile(r'<(p|li|td|dd|div class="p")((?:\s[^>]*)?)>(.*?)</(p|li|td|dd|div)>', re.S | re.I)
 LAB = re.compile(r'href="#source-(S\d+)"')
+MOTS_VIDES = {'information', 'professionnelle', 'swissmedic', 'refdata', 'comprimés', 'comprimé', 'solution', 'injectable',
+              'autorisation', 'consulté', 'octobre', 'novembre', 'pelliculés', 'chaque', 'pendant', 'jusqu', 'adulte', 'adultes'}
 SPLIT = re.compile(r'(?<=[.!?])(\s+)(?=[A-ZÀ-Ý«])')
 
 
@@ -80,11 +82,12 @@ def traiter(h):
             if len(t.split()) < 4 or not nombres(STRUCT.sub(' ', t)):
                 continue
             if DOSE.search(t):
-                choix = [l for l in labs if ids.get(l, '').startswith('aips')]
+                mots = {w.lower() for w in re.findall(r'[A-Za-zÀ-ÿ]{5,}', t)} - MOTS_VIDES
+                choix = [l for l, nm in noms.items() if any(w in nm for w in mots)][:2]  # la molécule nommée d'abord
                 if not choix:
-                    mots = {w.lower() for w in re.findall(r'[A-Za-zÀ-ÿ]{5,}', t)}
-                    choix = [l for l, nm in noms.items() if any(w in nm for w in mots)][:2]
-                choix = choix or labs
+                    choix = [l for l in labs if ids.get(l, '').startswith('aips')][:1]
+                if not choix:
+                    continue  # dose sans AIPS identifiable : laissée au contrôle, jamais attribuée au hasard
             else:
                 choix = labs
             c = ''.join(sup(ids.get(l, l), l) for l in choix)
@@ -123,12 +126,10 @@ def traiter_sb(h, noms):
             if len(t.split()) < 4 or not nombres(STRUCT.sub(' ', t)):
                 continue
             if DOSE.search(t):
-                choix = [l for l in labs if l.startswith('aips')]
+                mots = {w.lower() for w in re.findall(r'[A-Za-zÀ-ÿ]{5,}', t)} - MOTS_VIDES
+                choix = [i for i, nm in noms.items() if any(w in nm for w in mots)][:2]  # la molécule nommée d'abord
                 if not choix:
-                    mots = {w.lower() for w in re.findall(r'[A-Za-zÀ-ÿ]{5,}', t)}
-                    choix = [i for i, nm in noms.items() if any(w in nm for w in mots)][:2]
-                if not choix:
-                    continue
+                    continue  # dose sans AIPS identifiable : laissée au contrôle
             else:
                 choix = labs
             c = ''.join(f'<sup class="r"><a href="#sb-{i}">{i.split("-")[-1]}</a></sup>' for i in choix if i not in CITID.findall(p))
