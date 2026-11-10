@@ -537,6 +537,8 @@ faut suffit suffisent vise visent cible ciblent porte portent concerne concernen
 """.split())
 VERBE_RE = re.compile(r"\b(?:\w+(?:ent|ait|aient|era|eront|erait|eraient|ise|isent|it|issent))\b", re.I)
 PRONOM_VERBE = re.compile(r"\b(?:il|elle|ils|elles|on|qui|cela|ce|celle-ci|celui-ci)\s+(?:ne\s+|n'|se\s+|s'|l'|le\s+|la\s+|les\s+|y\s+|en\s+)*\w+", re.I)
+STRUCT = re.compile(r"\b(?:points?|DX\.?|rangs?|E|étapes?|îlots?|n°|LOT_?|Phase)\s*\d+(?:[.,]\d+)?", re.I)
+SOURCES = re.compile(r'<section\b[^>]*id="[\w-]*sources"[^>]*>.*?</section>', re.S | re.I)
 TAG_SS = re.compile(r'<(script|style)\b[^>]*>.*?</\1>', re.S | re.I)
 VIDES = {'br', 'hr', 'img', 'meta', 'link', 'input', 'source', 'col', 'wbr', 'area', 'base', 'embed', 'track', 'param'}
 
@@ -546,7 +548,11 @@ def texte(fragment):
 
 
 def nombres(s):
-    return {re.sub(r'[’\' ]', '', n).replace(',', '.') for n in NUM.findall(s)}
+    out = set()
+    for n in NUM.findall(s):
+        n = re.sub(r'[’\' ]', '', n).replace(',', '.')
+        out.add(re.sub(r'^0+(?=\d)', '', n))  # « 07 » et « 7 » désignent le même nombre
+    return out
 
 
 def est_verbale(ph):
@@ -585,11 +591,11 @@ def controler(chemin, paquet, a, vus_lot):
     brut = open(chemin, 'rb').read()
     h = brut.decode('utf-8', 'ignore')
     d = collections.defaultdict(list)
-    ph = phrases_html(h)
+    ph = phrases_html(SOURCES.sub(' ', h))  # la section Sources (générée, identique partout) n'entre pas dans l'analyse
     # A — véracité
     for tag, b, t in ph:
         cites = CIT.findall(b)
-        nums = nombres(t) - {str(i) for i in range(0, 15)}  # numéros de point/rangs tolérés
+        nums = nombres(STRUCT.sub(' ', t))  # seuls les libellés structurels (point 3, DX.4, rang 2…) sont exemptés
         if nums and not cites and tag.lower() != 'td':
             d['A_chiffre_sans_citation'].append(t[:140])
         for c in cites if paquet else []:
@@ -808,10 +814,12 @@ def aips(xml_path, dcis, autorisations, reseau=True):
             if reseau and url:
                 try:
                     contenu = telecharger(url)
+                    k = 0  # compteur unique par document : un ID d'extrait ne se répète jamais entre rubriques
                     for sec in re.split(r'\n(?=(?:' + '|'.join(AIPS_SECTIONS) + r'))', contenu, flags=re.I):
                         if sec.lower().startswith(AIPS_SECTIONS):
                             for p in decouper(sec, f'aips-{no}', source, 900):
-                                p['url'] = url
+                                k += 1
+                                p.update(id=f'aips-{no}-{k}', url=url)
                                 out.append(p)
                 except Exception as e:
                     print(f'AIPS {no} non rapatrié ({e}) : URL consignée, aucune dose écrite sans texte lu', file=sys.stderr)

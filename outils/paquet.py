@@ -128,10 +128,12 @@ def aips(xml_path, dcis, autorisations, reseau=True):
             if reseau and url:
                 try:
                     contenu = telecharger(url)
+                    k = 0  # compteur unique par document : un ID d'extrait ne se répète jamais entre rubriques
                     for sec in re.split(r'\n(?=(?:' + '|'.join(AIPS_SECTIONS) + r'))', contenu, flags=re.I):
                         if sec.lower().startswith(AIPS_SECTIONS):
                             for p in decouper(sec, f'aips-{no}', source, 900):
-                                p['url'] = url
+                                k += 1
+                                p.update(id=f'aips-{no}-{k}', url=url)
                                 out.append(p)
                 except Exception as e:
                     print(f'AIPS {no} non rapatrié ({e}) : URL consignée, aucune dose écrite sans texte lu', file=sys.stderr)
