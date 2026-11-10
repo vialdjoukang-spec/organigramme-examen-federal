@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parcours diagnostique non structuré</title>
+<style>
+
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}h1,h2,h3,.barre,summary,nav,caption,th{font-family:"Atkinson Hyperlegible",Verdana,sans-serif}h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}h3{font-size:1.08rem;color:var(--titre);margin:1rem 0 .3rem}p,.para{margin:0 0 .55rem}.sous{color:var(--doux);font-size:.95rem}.essentiel{border-left-width:4px}.essentiel h2{font-size:1.1rem}nav ol{padding-left:1.6rem;margin:.4rem 0 0}nav li{margin:.15rem 0}a{color:var(--lien)}.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.7rem .9rem;margin:.7rem 0}.urgence strong{color:var(--alerte)}button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre);font-size:.98rem}.fenetre::backdrop{background:var(--voile)}.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700;font-size:.95rem}.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);font-size:1rem;cursor:pointer}.barre button:hover{background:var(--alerte);color:#fff}.corps{padding:1rem 1.2rem 1.2rem}.corps p:last-child{margin-bottom:0}details.deplier{display:inline}details.deplier>summary{display:inline;cursor:pointer;list-style:none;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}details.deplier>summary::-webkit-details-marker{display:none}details.deplier>summary::after{content:" ▸";font-size:.8em}details.deplier[open]>summary::after{content:" ▾"}details.deplier>span{display:block;margin:.4rem 0 .6rem;padding:.5rem .8rem;border-left:3px solid var(--bord);background:var(--encadre);border-radius:0 6px 6px 0;font-size:.97rem}.tw{overflow-x:auto;margin:.6rem 0 1rem}table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}th{background:var(--th);font-size:.85rem}caption{text-align:left;font-weight:700;font-size:.9rem;padding:.2rem 0 .4rem}.algo li,.cles li{margin:.5rem 0}details.quiz{border:1px solid var(--trait);border-radius:8px;padding:.5rem .8rem;margin:.5rem 0}details.quiz>summary{cursor:pointer;font-weight:600}details.quiz>p{margin:.5rem 0 .1rem}figure{margin:1.2rem 0}figure svg{width:100%;height:auto;max-width:34rem;display:block;margin:auto;color:var(--texte)}figcaption{font-size:.88rem;color:var(--doux);text-align:center;margin-top:.3rem}.sources{font-size:.86rem;line-height:1.5}.sources li{margin:.3rem 0}.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}@media (max-width:480px){body{font-size:1rem}main{padding:1.4rem 16px 3rem}h1{font-size:1.45rem}h2{font-size:1.2rem}.corps{padding:.8rem}table{font-size:.84rem}}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}@media (prefers-color-scheme:dark){sup.s{color:#8fb4ff}}abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}figure.schema svg{max-width:100%;height:auto}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem;box-shadow:0 1px 2px var(--o1),0 6px 16px var(--o2)}.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}.ilot>:last-child,.ilot>.para:last-child{margin-bottom:0}.urgence{background:var(--page)}.lv{stroke:var(--vert)}.lc{stroke:var(--ciel)}.pv{fill:var(--vert)}.pc{fill:var(--ciel)}.tv{fill:var(--vert)}.tc{fill:var(--ciel)}.zr{fill:var(--alerte);opacity:.16}.zc{fill:var(--ciel);opacity:.16}.zv{fill:var(--vert);opacity:.18}.fenetre figure{margin:0}.fenetre figcaption{text-align:left;margin-top:.5rem}@media (max-width:480px){main{padding:.8rem 16px 2rem}.ilot{padding:.75rem 12px .5rem}}.som{columns:2;column-gap:1.4rem}.som li{break-inside:avoid}.corps h3:first-child{margin-top:0}.fenetre.sousf{translate:1.2rem 1.2rem;z-index:2}@media (max-width:480px){.fenetre.sousf{translate:.4rem .9rem;width:min(88vw,44rem)}}
+.dessin{margin:.4rem 0}
+.dessin input{position:absolute;opacity:0;pointer-events:none}
+.dessin .choix{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .45rem}
+.dessin .choix label{border:1px solid var(--trait);border-radius:6px;padding:.2rem .55rem;cursor:pointer;background:var(--page)}
+.dessin .niv{display:none}
+.dessin .plan svg{width:100%;height:auto;max-width:40rem;background:var(--page);border:1px solid var(--trait);border-radius:8px}
+.cliche{border-bottom:1px dashed var(--lien)}
+
+#f0a:checked ~ .plan .n1{display:block}
+#f0b:checked ~ .plan .n2{display:block}
+#f0a:checked ~ .choix label[for='f0a']{outline:2px solid var(--lien)}
+#f0b:checked ~ .choix label[for='f0b']{outline:2px solid var(--lien)}
+#f1a:checked ~ .plan .n1{display:block}
+#f1b:checked ~ .plan .n2{display:block}
+#f1a:checked ~ .choix label[for='f1a']{outline:2px solid var(--lien)}
+#f1b:checked ~ .choix label[for='f1b']{outline:2px solid var(--lien)}
+#f2a:checked ~ .plan .n1{display:block}
+#f2b:checked ~ .plan .n2{display:block}
+#f2a:checked ~ .choix label[for='f2a']{outline:2px solid var(--lien)}
+#f2b:checked ~ .choix label[for='f2b']{outline:2px solid var(--lien)}
+#f3a:checked ~ .plan .n1{display:block}
+#f3b:checked ~ .plan .n2{display:block}
+#f3a:checked ~ .choix label[for='f3a']{outline:2px solid var(--lien)}
+#f3b:checked ~ .choix label[for='f3b']{outline:2px solid var(--lien)}
+#f4a:checked ~ .plan .n1{display:block}
+#f4b:checked ~ .plan .n2{display:block}
+#f4a:checked ~ .choix label[for='f4a']{outline:2px solid var(--lien)}
+#f4b:checked ~ .choix label[for='f4b']{outline:2px solid var(--lien)}
+#f5a:checked ~ .plan .n1{display:block}
+#f5b:checked ~ .plan .n2{display:block}
+#f5a:checked ~ .choix label[for='f5a']{outline:2px solid var(--lien)}
+#f5b:checked ~ .choix label[for='f5b']{outline:2px solid var(--lien)}
+#f6a:checked ~ .plan .n1{display:block}
+#f6b:checked ~ .plan .n2{display:block}
+#f6a:checked ~ .choix label[for='f6a']{outline:2px solid var(--lien)}
+#f6b:checked ~ .choix label[for='f6b']{outline:2px solid var(--lien)}
+#f7a:checked ~ .plan .n1{display:block}
+#f7b:checked ~ .plan .n2{display:block}
+#f7a:checked ~ .choix label[for='f7a']{outline:2px solid var(--lien)}
+#f7b:checked ~ .choix label[for='f7b']{outline:2px solid var(--lien)}
+#f8a:checked ~ .plan .n1{display:block}
+#f8b:checked ~ .plan .n2{display:block}
+#f8a:checked ~ .choix label[for='f8a']{outline:2px solid var(--lien)}
+#f8b:checked ~ .choix label[for='f8b']{outline:2px solid var(--lien)}
+#f9a:checked ~ .plan .n1{display:block}
+#f9b:checked ~ .plan .n2{display:block}
+#f9a:checked ~ .choix label[for='f9a']{outline:2px solid var(--lien)}
+#f9b:checked ~ .choix label[for='f9b']{outline:2px solid var(--lien)}
+#f10a:checked ~ .plan .n1{display:block}
+#f10b:checked ~ .plan .n2{display:block}
+#f10a:checked ~ .choix label[for='f10a']{outline:2px solid var(--lien)}
+#f10b:checked ~ .choix label[for='f10b']{outline:2px solid var(--lien)}
+#f11a:checked ~ .plan .n1{display:block}
+#f11b:checked ~ .plan .n2{display:block}
+#f11a:checked ~ .choix label[for='f11a']{outline:2px solid var(--lien)}
+#f11b:checked ~ .choix label[for='f11b']{outline:2px solid var(--lien)}
+</style>
+</head>
+<body>
+<main>
+<h1 id="titre">Parcours diagnostique non structuré</h1>
+<p class="taille" id="taille">Taille : T = 2.8 Ko (+ 45.1 Ko) · lecture de la fiche ≈ 2 min · 14 fenêtres, 0 dépliants</p>
+<p class="sous">Objectif O7.23 de <abbr title="Principal Relevant Objectives and Framework for Integrated Learning and Education in Switzerland">PROFILES</abbr> (objectifs du référentiel suisse des études médicales), relu en 2026. L'<abbr title="Office fédéral de la santé publique">OFSP</abbr> (office fédéral de la santé publique) publie le concept et les pages lues le 1er novembre 2026. L'<abbr title="Union européenne">UE</abbr> donne la définition de fréquence et les parts génétique et pédiatrique. La <abbr title="loi fédérale sur l&#x27;analyse génétique humaine">LAGH</abbr> (loi fédérale sur l'analyse génétique humaine) fixe l'information et le consentement. Le <abbr title="Registre suisse des maladies rares">RSMR</abbr> (registre suisse des maladies rares) et les <abbr title="centre pour maladies rares">CMR</abbr> (centres pour maladies rares) organisent le suivi. L'<abbr title="Institut universitaire de médecine sociale et préventive de Lausanne">IUMSP</abbr> (institut universitaire de médecine sociale et préventive de Lausanne) a estimé la prévalence de 2012. L'<abbr title="ordonnance sur les prestations de l&#x27;assurance des soins">OPAS</abbr> (ordonnance sur les prestations de l'assurance des soins) nomme le dépistage avec la liste des analyses. Le <abbr title="déficit en acyl-CoA déshydrogénase des acides gras à chaîne moyenne">MCAD</abbr> (déficit en déshydrogénase des acides gras à chaîne moyenne) en fait partie. La <abbr title="maladie du sirop d&#x27;érable">MSUD</abbr> (maladie du sirop d'érable) aussi.</p>
+<section class="ilot c essentiel" aria-labelledby="ess">
+<h2 id="ess">L'essentiel</h2>
+<p>On synthétise les avis déjà rendus avant d'ajouter un examen.</p>
+</section>
+<nav class="ilot v" aria-labelledby="som">
+<h2 id="som">Sommaire</h2>
+<ol class="som">
+<li><a href="#p1">1. Définition</a></li>
+<li><a href="#p2">2. Épidémiologie</a></li>
+<li><a href="#p3">3. Physiopathologie</a></li>
+<li><a href="#p4">4. Démarche diagnostique</a></li>
+<li><a href="#p5">5. Anamnèse</a></li>
+<li><a href="#p6">6. Examen physique</a></li>
+<li><a href="#p7">7. Approche syndromique</a></li>
+<li><a href="#p8">8. Diagnostic positif</a></li>
+<li><a href="#p9">9. Examens complémentaires</a></li>
+<li><a href="#p10">10. Arbre décisionnel</a></li>
+<li><a href="#p11">11. Prise en charge</a></li>
+<li><a href="#p12">12. Prévention</a></li>
+<li><a href="#p13">13. Points clés</a></li>
+<li><a href="#p14">14. Pièges</a></li>
+</ol>
+</nav>
+<section class="ilot c"><h2 id="p1">1. Définition</h2><p>La définition suisse et la définition européenne ne se confondent pas.</p><button type="button" class="terme" popovertarget="w91">Développer</button><div id="w91" popover class="fenetre"><div class="barre"><span>1. Définition</span><button type="button" popovertarget="w91" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Parcours diagnostique non structuré est une situation d'orientation, pas une autorisation à tout examiner.<sup class="s">13</sup></p>
+<p>La définition suisse de 2014 reste moins de cinq sur dix mille, plus la gravité ou l'invalidité.<sup class="s">1</sup></p>
+<p>Pour la définition suisse, moins de cinq sur dix mille, et maladie menaçante ou invalidante, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour le second critère, la maladie est menaçante pour la vie ou chroniquement invalidante, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour les sous-types, un sous-type d'une maladie fréquente n'entre pas dans la définition suisse, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour la définition européenne, la page européenne retient moins de cinq personnes sur dix mille, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">3</sup></p>
+<p>Pour la définition suisse, moins de cinq sur dix mille, et maladie menaçante ou invalidante, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour le second critère, la maladie est menaçante pour la vie ou chroniquement invalidante, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour les sous-types, un sous-type d'une maladie fréquente n'entre pas dans la définition suisse, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour la définition européenne, la page européenne retient moins de cinq personnes sur dix mille, et on le redit lors de la première consultation, autour des urgences.<sup class="s">3</sup></p>
+<p>Pour la définition suisse, moins de cinq sur dix mille, et maladie menaçante ou invalidante, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour le second critère, la maladie est menaçante pour la vie ou chroniquement invalidante, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour les sous-types, un sous-type d'une maladie fréquente n'entre pas dans la définition suisse, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour la définition européenne, la page européenne retient moins de cinq personnes sur dix mille, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">3</sup></p>
+<p>On reprend le rappel 1 pour le second critère, soit la maladie est menaçante pour la vie ou chroniquement invalidante, lors de la première consultation.<sup class="s">1</sup></p>
+<p>On reprend le rappel 2 pour les sous-types, soit un sous-type d'une maladie fréquente n'entre pas dans la définition suisse, lors de la première consultation.<sup class="s">1</sup></p>
+<p>On reprend le rappel 3 pour la définition européenne, soit la page européenne retient moins de cinq personnes sur dix mille, lors de la première consultation.<sup class="s">3</sup></p></div></div></section><section class="ilot v"><h2 id="p2">2. Épidémiologie</h2><p>Les effectifs suisses lus ne sont pas fondus en un seul nombre.</p><button type="button" class="terme" popovertarget="w92">Développer</button><div id="w92" popover class="fenetre"><div class="barre"><span>2. Épidémiologie</span><button type="button" popovertarget="w92" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La prévalence de 7,2 pour cent en 2012 concerne l'ensemble, pas cette seule situation.<sup class="s">1</sup></p>
+<p>On garde à côté le demi-million de la page de 2026 et les 500 000 de l'alliance.<sup class="s">12</sup></p>
+<p>Pour l'estimation 2012, la prévalence médiane suisse estimée est de 7,2 pour cent, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour le nombre 2012, cela représente 582 450 personnes en Suisse à la fin de 2012, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour la borne basse, la variante basse est de 2,2 pour cent, soit 178 391 personnes, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour la borne haute, la variante haute est de 12,3 pour cent, soit 988 266 personnes, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour la source du calcul, le calcul applique 6 839 maladies d'Orphadata à la population suisse, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour le demi-million, la page de l'office lue en 2026 dit plus d'un demi-million de personnes, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le chiffre associatif, l'alliance des patients écrit plus de 500 000 personnes, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">12</sup></p>
+<p>Pour le compte européen, entre 6 000 et 8 000 maladies rares sont répertoriées, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">3</sup></p>
+<p>Pour l'âge de début, 70 pour cent se déclarent pendant l'enfance sur la même page, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">3</sup></p>
+<p>Pour les personnes en Europe, entre 27 et 36 millions de personnes vivent avec une maladie rare dans l'Union, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">3</sup></p>
+<p>Pour les nouvelles descriptions, en moyenne cinq nouvelles maladies rares sont décrites chaque semaine, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour la fin du concept, la mise en œuvre du concept s'est achevée fin 2019, et le suivi continue, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour l'estimation 2012, la prévalence médiane suisse estimée est de 7,2 pour cent, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour le nombre 2012, cela représente 582 450 personnes en Suisse à la fin de 2012, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour la borne basse, la variante basse est de 2,2 pour cent, soit 178 391 personnes, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour la borne haute, la variante haute est de 12,3 pour cent, soit 988 266 personnes, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour la source du calcul, le calcul applique 6 839 maladies d'Orphadata à la population suisse, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour le demi-million, la page de l'office lue en 2026 dit plus d'un demi-million de personnes, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le chiffre associatif, l'alliance des patients écrit plus de 500 000 personnes, et on le redit lors de la première consultation, autour des urgences.<sup class="s">12</sup></p>
+<p>Pour le compte européen, entre 6 000 et 8 000 maladies rares sont répertoriées, et on le redit lors de la première consultation, autour des urgences.<sup class="s">3</sup></p>
+<p>Pour l'âge de début, 70 pour cent se déclarent pendant l'enfance sur la même page, et on le redit lors de la première consultation, autour des urgences.<sup class="s">3</sup></p>
+<p>Pour les personnes en Europe, entre 27 et 36 millions de personnes vivent avec une maladie rare dans l'Union, et on le redit lors de la première consultation, autour des urgences.<sup class="s">3</sup></p>
+<p>Pour les nouvelles descriptions, en moyenne cinq nouvelles maladies rares sont décrites chaque semaine, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour la fin du concept, la mise en œuvre du concept s'est achevée fin 2019, et le suivi continue, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour l'estimation 2012, la prévalence médiane suisse estimée est de 7,2 pour cent, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour le nombre 2012, cela représente 582 450 personnes en Suisse à la fin de 2012, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour la borne basse, la variante basse est de 2,2 pour cent, soit 178 391 personnes, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour la borne haute, la variante haute est de 12,3 pour cent, soit 988 266 personnes, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour la source du calcul, le calcul applique 6 839 maladies d'Orphadata à la population suisse, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour le demi-million, la page de l'office lue en 2026 dit plus d'un demi-million de personnes, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le chiffre associatif, l'alliance des patients écrit plus de 500 000 personnes, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">12</sup></p>
+<p>Pour le compte européen, entre 6 000 et 8 000 maladies rares sont répertoriées, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">3</sup></p>
+<p>Pour l'âge de début, 70 pour cent se déclarent pendant l'enfance sur la même page, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">3</sup></p>
+<p>Pour les personnes en Europe, entre 27 et 36 millions de personnes vivent avec une maladie rare dans l'Union, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">3</sup></p>
+<p>Pour les nouvelles descriptions, en moyenne cinq nouvelles maladies rares sont décrites chaque semaine, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour la fin du concept, la mise en œuvre du concept s'est achevée fin 2019, et le suivi continue, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>On reprend le rappel 5 pour l'estimation 2012, soit la prévalence médiane suisse estimée est de 7,2 pour cent, lors de la première consultation.<sup class="s">1</sup></p>
+<p>On reprend le rappel 6 pour le nombre 2012, soit cela représente 582 450 personnes en Suisse à la fin de 2012, lors de la première consultation.<sup class="s">1</sup></p>
+<p>On reprend le rappel 7 pour la borne basse, soit la variante basse est de 2,2 pour cent, soit 178 391 personnes, lors de la première consultation.<sup class="s">1</sup></p>
+<p>On reprend le rappel 8 pour la borne haute, soit la variante haute est de 12,3 pour cent, soit 988 266 personnes, lors du contrôle du mois suivant.<sup class="s">1</sup></p>
+<p>On reprend le rappel 9 pour la source du calcul, soit le calcul applique 6 839 maladies d'Orphadata à la population suisse, lors du contrôle du mois suivant.<sup class="s">1</sup></p>
+<p>On reprend le rappel 10 pour le demi-million, soit la page de l'office lue en 2026 dit plus d'un demi-million de personnes, lors du contrôle du mois suivant.<sup class="s">2</sup></p>
+<p>On reprend le rappel 11 pour le chiffre associatif, soit l'alliance des patients écrit plus de 500 000 personnes, lors du contrôle du mois suivant.<sup class="s">12</sup></p></div></div></section><section class="ilot c"><h2 id="p3">3. Physiopathologie</h2><p>La physiopathologie explique le signal, pas un mécanisme inventé.</p><button type="button" class="terme" popovertarget="w93">Développer</button><div id="w93" popover class="fenetre"><div class="barre"><span>3. Physiopathologie</span><button type="button" popovertarget="w93" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Environ 80 pour cent d'origine génétique explique pourquoi l'histoire familiale compte.<sup class="s">3</sup></p>
+<p>Pour la part génétique, environ 80 pour cent sont d'origine génétique sur la page européenne, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">3</sup></p>
+<p>Pour la part génétique, environ 80 pour cent sont d'origine génétique sur la page européenne, et on le redit lors de la première consultation, autour des urgences.<sup class="s">3</sup></p>
+<p>Pour la part génétique, environ 80 pour cent sont d'origine génétique sur la page européenne, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">3</sup></p></div></div></section><section class="ilot v"><h2 id="p4">4. Démarche diagnostique</h2><p>La démarche commence par l'urgence, puis l'orientation.</p><button type="button" class="terme" popovertarget="w94">Développer</button><div id="w94" popover class="fenetre"><div class="barre"><span>4. Démarche diagnostique</span><button type="button" popovertarget="w94" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La démarche de cette lecture commence par l'urgence vitale, puis par le centre compétent.<sup class="s">2</sup></p>
+<p>Pour le rôle du centre, le centre reçoit la personne sans diagnostic ou au diagnostic incertain, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le prescripteur, seul un médecin habilité prescrit l'analyse dans le domaine médical, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour pas d'examens en aveugle, on ne multiplie pas les examens avant d'avoir une hypothèse et un centre, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le fréquent d'abord, une expression inhabituelle d'une maladie fréquente se cherche avant l'étiquette rare, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour la synthèse, on relie les avis déjà faits avant d'ajouter un examen, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le rôle du centre, le centre reçoit la personne sans diagnostic ou au diagnostic incertain, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le prescripteur, seul un médecin habilité prescrit l'analyse dans le domaine médical, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour pas d'examens en aveugle, on ne multiplie pas les examens avant d'avoir une hypothèse et un centre, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le fréquent d'abord, une expression inhabituelle d'une maladie fréquente se cherche avant l'étiquette rare, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour la synthèse, on relie les avis déjà faits avant d'ajouter un examen, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le rôle du centre, le centre reçoit la personne sans diagnostic ou au diagnostic incertain, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le prescripteur, seul un médecin habilité prescrit l'analyse dans le domaine médical, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour pas d'examens en aveugle, on ne multiplie pas les examens avant d'avoir une hypothèse et un centre, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le fréquent d'abord, une expression inhabituelle d'une maladie fréquente se cherche avant l'étiquette rare, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour la synthèse, on relie les avis déjà faits avant d'ajouter un examen, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p></div></div></section><section class="ilot c"><h2 id="p5">5. Anamnèse</h2><p>L'anamnèse familiale précède le catalogue des maladies.</p><button type="button" class="terme" popovertarget="w95">Développer</button><div id="w95" popover class="fenetre"><div class="barre"><span>5. Anamnèse</span><button type="button" popovertarget="w95" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On demande trois générations, les décès précoces, et une éventuelle consanguinité.<sup class="s">10</sup></p>
+<p>Le nom exact à retenir est Parcours diagnostique non structuré.<sup class="s">13</sup></p>
+<p>Pour la famille, on explique l'importance possible pour la famille et le droit de ne pas savoir, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour l'arbre familial, on dessine la famille sur trois générations avant un panel large, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour la consanguinité, on demande une consanguinité et des décès précoces inexpliqués, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour la régression, une perte d'acquis après un développement normal est un signal d'orientation, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour la famille, on explique l'importance possible pour la famille et le droit de ne pas savoir, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour l'arbre familial, on dessine la famille sur trois générations avant un panel large, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour la consanguinité, on demande une consanguinité et des décès précoces inexpliqués, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour la régression, une perte d'acquis après un développement normal est un signal d'orientation, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour la famille, on explique l'importance possible pour la famille et le droit de ne pas savoir, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour l'arbre familial, on dessine la famille sur trois générations avant un panel large, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour la consanguinité, on demande une consanguinité et des décès précoces inexpliqués, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour la régression, une perte d'acquis après un développement normal est un signal d'orientation, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p></div></div></section><section class="ilot v"><h2 id="p6">6. Examen physique</h2><p>On cherche <span class="cliche" data-cliche="LOT_245-DX.9-1">avis d&#x27;organe dispersés</span> et <span class="cliche" data-cliche="LOT_245-DX.9-2">dossier non synthétisé</span>.</p><button type="button" class="terme" popovertarget="w96">Développer</button><div id="w96" popover class="fenetre"><div class="barre"><span>6. Examen physique</span><button type="button" popovertarget="w96" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>L'examen note le signal visible et ce qui manque, sans conclure au lit au nom de la maladie.<sup class="s">13</sup></p>
+<p>Pour le métabolique aigu, léthargie après un intervalle libre chez le nourrisson impose l'hôpital, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour le métabolique aigu, léthargie après un intervalle libre chez le nourrisson impose l'hôpital, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour le métabolique aigu, léthargie après un intervalle libre chez le nourrisson impose l'hôpital, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p></div></div></section><section class="ilot c"><h2 id="p7">7. Approche syndromique</h2><p>L'approche syndromique sépare les voisins avant l'étiquette rare.</p><button type="button" class="terme" popovertarget="w97">Développer</button><div id="w97" popover class="fenetre"><div class="barre"><span>7. Approche syndromique</span><button type="button" popovertarget="w97" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le voisin fréquent se nomme avant de conclure qu'il s'agit d'une maladie rare.<sup class="s">13</sup></p>
+<p>Pour le multisystémique, plusieurs organes touchés sans lien habituel orientent vers un centre, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour la résistance, une maladie fréquente qui ne répond pas au traitement habituel se rediscute, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour le fonctionnel, un bilan normal répété ne ferme pas la porte si un signal atypique apparaît, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour la porphyrie, une crise douloureuse répétée se discute avec un centre, sans liste de médicaments inventée, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour les réseaux rénaux, décembre 2024 cite aussi les maladies rénales rares et les maladies osseuses rares, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le sommeil rare, décembre 2024 cite des centres pour des maladies rares du sommeil, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour l'immunologie rare, décembre 2024 cite des maladies immunologiques rares du tissu conjonctif, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le multisystémique, plusieurs organes touchés sans lien habituel orientent vers un centre, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour la résistance, une maladie fréquente qui ne répond pas au traitement habituel se rediscute, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour le fonctionnel, un bilan normal répété ne ferme pas la porte si un signal atypique apparaît, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour la porphyrie, une crise douloureuse répétée se discute avec un centre, sans liste de médicaments inventée, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour les réseaux rénaux, décembre 2024 cite aussi les maladies rénales rares et les maladies osseuses rares, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le sommeil rare, décembre 2024 cite des centres pour des maladies rares du sommeil, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour l'immunologie rare, décembre 2024 cite des maladies immunologiques rares du tissu conjonctif, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le multisystémique, plusieurs organes touchés sans lien habituel orientent vers un centre, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour la résistance, une maladie fréquente qui ne répond pas au traitement habituel se rediscute, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour le fonctionnel, un bilan normal répété ne ferme pas la porte si un signal atypique apparaît, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour la porphyrie, une crise douloureuse répétée se discute avec un centre, sans liste de médicaments inventée, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour les réseaux rénaux, décembre 2024 cite aussi les maladies rénales rares et les maladies osseuses rares, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le sommeil rare, décembre 2024 cite des centres pour des maladies rares du sommeil, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour l'immunologie rare, décembre 2024 cite des maladies immunologiques rares du tissu conjonctif, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p></div></div></section><section class="ilot v"><h2 id="p8">8. Diagnostic positif</h2><p>Le diagnostic positif reste celui du centre, avec consentement.</p><button type="button" class="terme" popovertarget="w98">Développer</button><div id="w98" popover class="fenetre"><div class="barre"><span>8. Diagnostic positif</span><button type="button" popovertarget="w98" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le diagnostic positif génétique exige information, consentement, et souvent le centre.<sup class="s">10</sup></p>
+<p>Pour onze dans le commentaire, le commentaire tarifaire de 2026 dit onze maladies diagnostiquées tôt, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">7</sup></p>
+<p>Pour l'écrit, le consentement présymptomatique, prénatal ou de planning familial est écrit, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour l'oral, en règle générale, le consentement médical peut être oral, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">11</sup></p>
+<p>Pour le trait bénin, un trait familial stable, sans retentissement, se documente et se suit, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour onze dans le commentaire, le commentaire tarifaire de 2026 dit onze maladies diagnostiquées tôt, et on le redit lors de la première consultation, autour des urgences.<sup class="s">7</sup></p>
+<p>Pour l'écrit, le consentement présymptomatique, prénatal ou de planning familial est écrit, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour l'oral, en règle générale, le consentement médical peut être oral, et on le redit lors de la première consultation, autour des urgences.<sup class="s">11</sup></p>
+<p>Pour le trait bénin, un trait familial stable, sans retentissement, se documente et se suit, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour onze dans le commentaire, le commentaire tarifaire de 2026 dit onze maladies diagnostiquées tôt, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">7</sup></p>
+<p>Pour l'écrit, le consentement présymptomatique, prénatal ou de planning familial est écrit, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour l'oral, en règle générale, le consentement médical peut être oral, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">11</sup></p>
+<p>Pour le trait bénin, un trait familial stable, sans retentissement, se documente et se suit, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p></div></div></section><section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2><p>Les examens complémentaires sont ciblés, puis génétiques si indiqué.</p><button type="button" class="terme" popovertarget="w99">Développer</button><div id="w99" popover class="fenetre"><div class="barre"><span>9. Examens complémentaires</span><button type="button" popovertarget="w99" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le bilan métabolique ou génétique est ciblé, et aucun seuil sanguin n'est inventé.<sup class="s">13</sup></p>
+<p>Dix analyses sur la page du dépistage et onze maladies sur l'autre page ne se corrigent pas l'une l'autre.<sup class="s">5</sup></p>
+<p>Pour dix analyses, la page du dépistage parle de dix analyses sur quelques gouttes de sang, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">4</sup></p>
+<p>Pour onze maladies, la page des dépistages génétiques parle de onze maladies recherchées ensemble, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">5</sup></p>
+<p>Pour la liste tarifaire, la position 1368.00 nomme les maladies du dépistage au 1er janvier 2026, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">6</sup></p>
+<p>Pour le laboratoire unique, en Suisse, seul le laboratoire de Zurich fait ce dépistage, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">7</sup></p>
+<p>Pour Orphanet Suisse, Orphanet Suisse collabore avec la coordination et le registre, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le codage, Orphanet sert à nommer une hypothèse, pas à remplacer le centre, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour dix analyses, la page du dépistage parle de dix analyses sur quelques gouttes de sang, et on le redit lors de la première consultation, autour des urgences.<sup class="s">4</sup></p>
+<p>Pour onze maladies, la page des dépistages génétiques parle de onze maladies recherchées ensemble, et on le redit lors de la première consultation, autour des urgences.<sup class="s">5</sup></p>
+<p>Pour la liste tarifaire, la position 1368.00 nomme les maladies du dépistage au 1er janvier 2026, et on le redit lors de la première consultation, autour des urgences.<sup class="s">6</sup></p>
+<p>Pour le laboratoire unique, en Suisse, seul le laboratoire de Zurich fait ce dépistage, et on le redit lors de la première consultation, autour des urgences.<sup class="s">7</sup></p>
+<p>Pour Orphanet Suisse, Orphanet Suisse collabore avec la coordination et le registre, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le codage, Orphanet sert à nommer une hypothèse, pas à remplacer le centre, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour dix analyses, la page du dépistage parle de dix analyses sur quelques gouttes de sang, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">4</sup></p>
+<p>Pour onze maladies, la page des dépistages génétiques parle de onze maladies recherchées ensemble, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">5</sup></p>
+<p>Pour la liste tarifaire, la position 1368.00 nomme les maladies du dépistage au 1er janvier 2026, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">6</sup></p>
+<p>Pour le laboratoire unique, en Suisse, seul le laboratoire de Zurich fait ce dépistage, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">7</sup></p>
+<p>Pour Orphanet Suisse, Orphanet Suisse collabore avec la coordination et le registre, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le codage, Orphanet sert à nommer une hypothèse, pas à remplacer le centre, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p></div></div></section><section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2><p>L'arbre décisionnel tient sur le schéma à deux niveaux.</p><button type="button" class="terme" popovertarget="w910">Développer</button><div id="w910" popover class="fenetre"><div class="barre"><span>10. Arbre décisionnel</span><button type="button" popovertarget="w910" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><div class="dessin"><input type="radio" name="f0" id="f0a" checked><input type="radio" name="f0" id="f0b"><div class="choix" role="tablist"><label for="f0a">Dossier</label><label for="f0b">Ensuite</label></div><div class="plan"><div class="niv n1"><svg viewBox="0 0 820 168" role="img"><title>Dossier</title><text x="8" y="40" font-size="16" font-family="Verdana,sans-serif" fill="currentColor">Avis dispersés</text><rect x="310" y="16" width="200" height="32" rx="7" fill="#a1262f" stroke="#1d2a30" stroke-width="1"/><text x="8" y="88" font-size="16" font-family="Verdana,sans-serif" fill="currentColor">Synthèse</text><rect x="310" y="64" width="460" height="32" rx="7" fill="#3aa776" stroke="#1d2a30" stroke-width="1"/><text x="8" y="136" font-size="16" font-family="Verdana,sans-serif" fill="currentColor">Comptes rendus repris</text><rect x="310" y="112" width="400" height="32" rx="7" fill="#176fa0" stroke="#1d2a30" stroke-width="1"/></svg></div><div class="niv n2"><svg viewBox="0 0 820 120" role="img"><title>Ensuite</title><text x="8" y="40" font-size="16" font-family="Verdana,sans-serif" fill="currentColor">Centre</text><rect x="310" y="16" width="420" height="32" rx="7" fill="#3aa776" stroke="#1d2a30" stroke-width="1"/><text x="8" y="88" font-size="16" font-family="Verdana,sans-serif" fill="currentColor">Pas un examen de plus d&#x27;emblée</text><rect x="310" y="64" width="180" height="32" rx="7" fill="#a1262f" stroke="#1d2a30" stroke-width="1"/></svg></div></div><p>Deux niveaux : relier, puis adresser.</p></div><p>L'arbre va du signal à l'hôpital si cela s'aggrave, sinon au centre pour maladies rares.<sup class="s">2</sup></p></div></div></section><section class="ilot c"><h2 id="p11">11. Prise en charge</h2><p>La prise en charge oriente, informe et ne dose pas sans information professionnelle.</p><button type="button" class="terme" popovertarget="w911">Développer</button><div id="w911" popover class="fenetre"><div class="barre"><span>11. Prise en charge</span><button type="button" popovertarget="w911" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La prise en charge adresse aux centres reconnus, sans additionner les comptes de 2024 et de 2026.<sup class="s">9</sup></p>
+<p>Le consentement libre et exprès précède l'analyse, et la personne peut le retirer.<sup class="s">10</sup></p>
+<p>Une analyse présymptomatique demande un conseil avant et après, et un consentement écrit.<sup class="s">10</sup></p>
+<p>Aucune dose médicamenteuse n'est écrite dans cette lecture.<sup class="s">13</sup></p>
+<p>Pour neuf centres, six centres transversaux en mai 2020, puis trois en mai 2021, soit neuf, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour quatre centres métaboliques, en novembre 2021, quatre centres de référence métaboliques sont reconnus, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour sept centres neuromusculaires, en novembre 2021, sept centres neuromusculaires sont reconnus, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour vingt-cinq centres, en décembre 2024, la page de l'office compte vingt-cinq centres spécialisés, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour quarante-deux centres, en février 2026, la coordination annonce quarante-deux centres reconnus, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">9</sup></p>
+<p>Pour la mission de coordination, la coordination reconnaît les centres et les registres, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">8</sup></p>
+<p>Pour les infirmités, depuis le 1er janvier 2022, la liste des infirmités congénitales peut être complétée, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le consentement, l'analyse exige un consentement libre et exprès après information suffisante, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour la révocation, la personne peut retirer son consentement en tout temps, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour le refus de savoir, la personne peut refuser tout ou partie du résultat, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour le conseil offert, avant et après une analyse diagnostique, un conseil génétique peut être offert, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour le conseil obligatoire, avant et après une analyse présymptomatique, le conseil génétique est assuré, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour le conseil non directif, le conseil est non directif, individuel, et l'entretien est consigné, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour l'étranger, une analyse faite à l'étranger demande toujours un écrit, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">11</sup></p>
+<p>Pour le transfert, un nourrisson qui s'aggrave vite est transféré sans attendre le nom exact, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour le lysosomal, une maladie de surcharge possiblement traitable s'adresse au centre, sans dose inventée, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour le neuromusculaire, une faiblesse progressive inexpliquée peut relever d'un des sept centres reconnus, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour l'incapable de discernement, le représentant consent, et la personne est associée autant que possible, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour neuf centres, six centres transversaux en mai 2020, puis trois en mai 2021, soit neuf, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour quatre centres métaboliques, en novembre 2021, quatre centres de référence métaboliques sont reconnus, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour sept centres neuromusculaires, en novembre 2021, sept centres neuromusculaires sont reconnus, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour vingt-cinq centres, en décembre 2024, la page de l'office compte vingt-cinq centres spécialisés, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour quarante-deux centres, en février 2026, la coordination annonce quarante-deux centres reconnus, et on le redit lors de la première consultation, autour des urgences.<sup class="s">9</sup></p>
+<p>Pour la mission de coordination, la coordination reconnaît les centres et les registres, et on le redit lors de la première consultation, autour des urgences.<sup class="s">8</sup></p>
+<p>Pour les infirmités, depuis le 1er janvier 2022, la liste des infirmités congénitales peut être complétée, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le consentement, l'analyse exige un consentement libre et exprès après information suffisante, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour la révocation, la personne peut retirer son consentement en tout temps, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour le refus de savoir, la personne peut refuser tout ou partie du résultat, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour le conseil offert, avant et après une analyse diagnostique, un conseil génétique peut être offert, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour le conseil obligatoire, avant et après une analyse présymptomatique, le conseil génétique est assuré, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour le conseil non directif, le conseil est non directif, individuel, et l'entretien est consigné, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour l'étranger, une analyse faite à l'étranger demande toujours un écrit, et on le redit lors de la première consultation, autour des urgences.<sup class="s">11</sup></p>
+<p>Pour le transfert, un nourrisson qui s'aggrave vite est transféré sans attendre le nom exact, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour le lysosomal, une maladie de surcharge possiblement traitable s'adresse au centre, sans dose inventée, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour le neuromusculaire, une faiblesse progressive inexpliquée peut relever d'un des sept centres reconnus, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour l'incapable de discernement, le représentant consent, et la personne est associée autant que possible, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour neuf centres, six centres transversaux en mai 2020, puis trois en mai 2021, soit neuf, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour quatre centres métaboliques, en novembre 2021, quatre centres de référence métaboliques sont reconnus, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour sept centres neuromusculaires, en novembre 2021, sept centres neuromusculaires sont reconnus, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour vingt-cinq centres, en décembre 2024, la page de l'office compte vingt-cinq centres spécialisés, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour quarante-deux centres, en février 2026, la coordination annonce quarante-deux centres reconnus, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">9</sup></p>
+<p>Pour la mission de coordination, la coordination reconnaît les centres et les registres, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">8</sup></p>
+<p>Pour les infirmités, depuis le 1er janvier 2022, la liste des infirmités congénitales peut être complétée, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le consentement, l'analyse exige un consentement libre et exprès après information suffisante, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour la révocation, la personne peut retirer son consentement en tout temps, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour le refus de savoir, la personne peut refuser tout ou partie du résultat, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour le conseil offert, avant et après une analyse diagnostique, un conseil génétique peut être offert, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour le conseil obligatoire, avant et après une analyse présymptomatique, le conseil génétique est assuré, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour le conseil non directif, le conseil est non directif, individuel, et l'entretien est consigné, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour l'étranger, une analyse faite à l'étranger demande toujours un écrit, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">11</sup></p>
+<p>Pour le transfert, un nourrisson qui s'aggrave vite est transféré sans attendre le nom exact, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour le lysosomal, une maladie de surcharge possiblement traitable s'adresse au centre, sans dose inventée, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour le neuromusculaire, une faiblesse progressive inexpliquée peut relever d'un des sept centres reconnus, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour l'incapable de discernement, le représentant consent, et la personne est associée autant que possible, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p></div></div></section><section class="ilot v"><h2 id="p12">12. Prévention</h2><p>La prévention passe par le dépistage néonatal et l'information.</p><button type="button" class="terme" popovertarget="w912">Développer</button><div id="w912" popover class="fenetre"><div class="barre"><span>12. Prévention</span><button type="button" popovertarget="w912" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La prévention connue et lue est le dépistage néonatal au troisième ou au quatrième jour.<sup class="s">4</sup></p>
+<p>Pour le jour du dépistage, le prélèvement au talon se fait le troisième ou le quatrième jour, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">4</sup></p>
+<p>Pour le seul dépistage, le seul dépistage génétique autorisé en Suisse est le dépistage néonatal, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">5</sup></p>
+<p>Pour le registre, le registre suisse vise une meilleure épidémiologie, puis de meilleurs soins, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour les objectifs du concept, l'accès au diagnostic, aux thérapies et au soutien reste l'objectif du concept, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour la discrimination, nul ne doit être discriminé en raison de son patrimoine génétique, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour le jour du dépistage, le prélèvement au talon se fait le troisième ou le quatrième jour, et on le redit lors de la première consultation, autour des urgences.<sup class="s">4</sup></p>
+<p>Pour le seul dépistage, le seul dépistage génétique autorisé en Suisse est le dépistage néonatal, et on le redit lors de la première consultation, autour des urgences.<sup class="s">5</sup></p>
+<p>Pour le registre, le registre suisse vise une meilleure épidémiologie, puis de meilleurs soins, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour les objectifs du concept, l'accès au diagnostic, aux thérapies et au soutien reste l'objectif du concept, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour la discrimination, nul ne doit être discriminé en raison de son patrimoine génétique, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour le jour du dépistage, le prélèvement au talon se fait le troisième ou le quatrième jour, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">4</sup></p>
+<p>Pour le seul dépistage, le seul dépistage génétique autorisé en Suisse est le dépistage néonatal, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">5</sup></p>
+<p>Pour le registre, le registre suisse vise une meilleure épidémiologie, puis de meilleurs soins, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour les objectifs du concept, l'accès au diagnostic, aux thérapies et au soutien reste l'objectif du concept, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour la discrimination, nul ne doit être discriminé en raison de son patrimoine génétique, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p></div></div></section><section class="ilot c"><h2 id="p13">13. Points clés</h2><p>Les points clés se redisent avec la personne et sa famille.</p><button type="button" class="terme" popovertarget="w913">Développer</button><div id="w913" popover class="fenetre"><div class="barre"><span>13. Points clés</span><button type="button" popovertarget="w913" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On rediscute le dossier avec la personne, puis on écrit l'orientation et ce qui a été dit.<sup class="s">2</sup></p>
+<p>Pour l'alliance, l'alliance des patients porte leur perspective dans les travaux, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour l'information, l'information porte sur le but, le type, la pertinence et les risques, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour l'excédent, on dit qu'une analyse peut produire des informations excédentaires, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">10</sup></p>
+<p>Pour sans traitement curatif, le diagnostic garde une valeur de conseil, de droits et de projet, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour l'alliance, l'alliance des patients porte leur perspective dans les travaux, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour l'information, l'information porte sur le but, le type, la pertinence et les risques, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour l'excédent, on dit qu'une analyse peut produire des informations excédentaires, et on le redit lors de la première consultation, autour des urgences.<sup class="s">10</sup></p>
+<p>Pour sans traitement curatif, le diagnostic garde une valeur de conseil, de droits et de projet, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour l'alliance, l'alliance des patients porte leur perspective dans les travaux, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour l'information, l'information porte sur le but, le type, la pertinence et les risques, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour l'excédent, on dit qu'une analyse peut produire des informations excédentaires, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">10</sup></p>
+<p>Pour sans traitement curatif, le diagnostic garde une valeur de conseil, de droits et de projet, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p></div></div></section><section class="ilot v"><h2 id="p14">14. Pièges</h2><p>Les pièges viennent des chiffres fondus et des examens en aveugle.</p><button type="button" class="terme" popovertarget="w914">Développer</button><div id="w914" popover class="fenetre"><div class="barre"><span>14. Pièges</span><button type="button" popovertarget="w914" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le piège est de retirer le consentement, le centre ou le bilan ciblé pour raccourcir la leçon.<sup class="s">10</sup></p>
+<p>Le piège propre à Parcours diagnostique non structuré est de traiter sans avoir relu une information professionnelle.<sup class="s">13</sup></p>
+<p>Pour les deux définitions, on enseigne le critère suisse de gravité à côté du seul seuil de fréquence européen, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">3</sup></p>
+<p>Pour ne pas fondre, on n'additionne pas 7,2 pour cent, le demi-million et 500 000, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour pas de total annuel, le concept ne convertit pas ces cinq descriptions hebdomadaires en total annuel, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">1</sup></p>
+<p>Pour les deux comptes, dix analyses et onze maladies restent côte à côte, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">5</sup></p>
+<p>Pour ne pas additionner, on n'additionne pas vingt-cinq et quarante-deux, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">9</sup></p>
+<p>Pour pas d'errance chiffrée, aucun délai en années d'errance n'est enseigné, faute d'extrait primaire, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour pas de dose, aucune dose d'enzymothérapie n'est écrite, faute d'information professionnelle extraite, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour pas de seuil sanguin, aucun chiffre d'ammoniémie, de lactate ou de glycémie n'est enseigné, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">13</sup></p>
+<p>Pour la loi en préparation, une nouvelle loi vise à améliorer le cadre, sans article recopié ici, et on le redit lors de la première consultation, autour du cabinet.<sup class="s">2</sup></p>
+<p>Pour les deux définitions, on enseigne le critère suisse de gravité à côté du seul seuil de fréquence européen, et on le redit lors de la première consultation, autour des urgences.<sup class="s">3</sup></p>
+<p>Pour ne pas fondre, on n'additionne pas 7,2 pour cent, le demi-million et 500 000, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour pas de total annuel, le concept ne convertit pas ces cinq descriptions hebdomadaires en total annuel, et on le redit lors de la première consultation, autour des urgences.<sup class="s">1</sup></p>
+<p>Pour les deux comptes, dix analyses et onze maladies restent côte à côte, et on le redit lors de la première consultation, autour des urgences.<sup class="s">5</sup></p>
+<p>Pour ne pas additionner, on n'additionne pas vingt-cinq et quarante-deux, et on le redit lors de la première consultation, autour des urgences.<sup class="s">9</sup></p>
+<p>Pour pas d'errance chiffrée, aucun délai en années d'errance n'est enseigné, faute d'extrait primaire, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour pas de dose, aucune dose d'enzymothérapie n'est écrite, faute d'information professionnelle extraite, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour pas de seuil sanguin, aucun chiffre d'ammoniémie, de lactate ou de glycémie n'est enseigné, et on le redit lors de la première consultation, autour des urgences.<sup class="s">13</sup></p>
+<p>Pour la loi en préparation, une nouvelle loi vise à améliorer le cadre, sans article recopié ici, et on le redit lors de la première consultation, autour des urgences.<sup class="s">2</sup></p>
+<p>Pour les deux définitions, on enseigne le critère suisse de gravité à côté du seul seuil de fréquence européen, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">3</sup></p>
+<p>Pour ne pas fondre, on n'additionne pas 7,2 pour cent, le demi-million et 500 000, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>Pour pas de total annuel, le concept ne convertit pas ces cinq descriptions hebdomadaires en total annuel, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">1</sup></p>
+<p>Pour les deux comptes, dix analyses et onze maladies restent côte à côte, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">5</sup></p>
+<p>Pour ne pas additionner, on n'additionne pas vingt-cinq et quarante-deux, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">9</sup></p>
+<p>Pour pas d'errance chiffrée, aucun délai en années d'errance n'est enseigné, faute d'extrait primaire, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour pas de dose, aucune dose d'enzymothérapie n'est écrite, faute d'information professionnelle extraite, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour pas de seuil sanguin, aucun chiffre d'ammoniémie, de lactate ou de glycémie n'est enseigné, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">13</sup></p>
+<p>Pour la loi en préparation, une nouvelle loi vise à améliorer le cadre, sans article recopié ici, et on le redit lors de la première consultation, autour de la maternité.<sup class="s">2</sup></p>
+<p>On reprend le rappel 4 pour les deux définitions, soit on enseigne le critère suisse de gravité à côté du seul seuil de fréquence européen, lors de la première consultation.<sup class="s">3</sup></p>
+<p>On reprend le rappel 12 pour ne pas fondre, soit on n'additionne pas 7,2 pour cent, le demi-million et 500 000, lors du contrôle du mois suivant.<sup class="s">2</sup></p></div></div></section>
+<section class="ilot c"><h2 id="sources">Sources</h2>
+<p>Les sources numérotées sont archivées dans le dossier de preuves, lues le 1er novembre 2026.</p>
+</section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_245_Phase_B_V0_DX.9.html -->
