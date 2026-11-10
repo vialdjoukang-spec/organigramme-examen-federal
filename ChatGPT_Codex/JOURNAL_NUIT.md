@@ -96,4 +96,6 @@ LOT081 DX2 : dépôt individuel ; contrôle technique VERT, audit P3 indépendan
 
 LOT081 DX5 : dépôt individuel ; contrôle technique VERT, audit P3 indépendant à effectuer.
 
-LOTs livrés : 0/23 ; leçons poussées : 13/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 en production, LOT082–102 à produire.
+LOT081 DX4 : dépôt individuel ; contrôle technique VERT, audit P3 indépendant à effectuer.
+
+LOTs livrés : 0/23 ; leçons poussées : 14/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 en production, LOT082–102 à produire.
