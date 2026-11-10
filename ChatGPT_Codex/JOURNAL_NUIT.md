@@ -2,7 +2,7 @@
 
 ## État actuel
 
-22 nouvelles leçons sont poussées : les 11 du LOT080 et les 11 du LOT081. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
+33 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et les 11 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 a ses onze leçons et onze P3 franchies ; P4 attend la CI de la PR. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -128,4 +128,55 @@ LOT081 : dix versions ont franchi P3 ; DX2 corrigée est poussée et attend sa s
 
 LOT081 : onze leçons P2/P3 franchies, empreintes finales et navigation vérifiées. Main intégré sans conflit ; PR et CI en préparation, aucune fusion encore annoncée.
 
-LOTs livrés : 0/23 ; leçons poussées : 22/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 CI/fusion à vérifier ; LOT082–102 à produire.
+
+LOT082 : branche historique reprise et main intégré. Conflit limité au journal commun résolu avec la version de suivi la plus récente du LOT081, sans perdre ses22leçons poussées. PR567 LOT081 ouverte, CI en cours, fusion autorisée dès verte.
+
+
+LOT082 DX3 : première leçon déposée individuellement ;170601octets, contrôleORANGE B seulement, auditP3 indépendant à effectuer. PR567LOT081 fusionautomatique activée souscontrôles, mainavanceencore ; aucunefusionannoncée.
+
+
+LOT082 DX6 : dépôt individuel,129553octets, contrôleVERT zéro défaut ; contrelecture indépendante à effectuer.
+
+LOT082 DX4 : leçon produite,155860octets, contrôle sans défautA/C ; DX3 reformaté sans modification clinique pour conserver les citations lisibles par le contrôleur. Audits indépendants en cours.
+
+LOT082 DX8 : fracture déplacée du radius produite,105119octets, contrôleVERT zéro défaut ; P3 indépendant requis. PR567 : main intégré à nouveau avant fusion autorisée.
+
+LOT082 DX2 : hallux valgus produit,191704octets, contrôleVERT ; contrelecture indépendante requise. DX6 premierP3 46/52, correction ciblée demandée avant secondelecture.
+
+LOT082 DX7 : scoliose idiopathique de l’adolescent produite,169831octets, contrôleORANGE B seulement ; auditindépendant requis.
+
+LOT082 DX1 : arthrose déformante de la main produite,151447octets, contrôleORANGE B seulement ; P3 indépendant requis.
+
+LOT082 DX9 : Charcot du pied diabétique produit,191679octets, contrôleORANGE B seulement ; P3 indépendant engagé. DX8 premierP3non avec correction pharmacologique pédiatrique demandée.
+
+LOT082 PhaseA : leçon générale produite,194464octets ; contrôleORANGE B seulement, audit indépendant demandé.
+
+LOT082 DX6 : version corrigée138039octets, secondeP3 indépendante51/52finaleoui ; premièreversion conservée danshistoriqueGit.
+
+LOT082 DX8 : corrections ciblées120830octets, notamment intervalle pédiatrique paracétamol, syndrome de loge et fracture ouverte ; secondeP3 à effectuer.
+
+LOT082 DX9 : restriction ESUR mère enceinte ou allaitante insuffisante rénale complétée ;194255octets, secondeP3 indépendante engagée.
+
+LOT082 PhaseA : corrections ciblées après premierP3, notamment branche neurologique urgente HUG, dates et contre-indications ;197386octets, secondelecture indépendante demandée.
+
+LOT082 DX1 : prescription Dafalgan explicitement adulte et précautions Condrosulf complétées ;154083octets, secondeP3 indépendante engagée.
+
+LOT082 DX5 : doigt en maillet produit,182695octets, contrôleVERT zéro défaut ; premièreP3 indépendante engagée.
+
+LOT082 DX7 : durée quotidienne du corset, gestes de mesure et prévention précisés ;176581octets, secondeP3 indépendante engagée.
+
+LOT081 livré : PR567 fusionnée automatiquement le 10 novembre 2026 à10:19:47UTC, commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Contrôles requis verts, onze empreintes et validations P3 vérifiées sur main. Preuves : _outils/rapports/fusions/LOT_081_GITHUB.json et LOT_081_VERIFICATION_MAIN.json.
+
+LOT082 DX5 : normalité de ténodèse et aspects travail/conduite/assurance complétés avec attribution ;186129octets, secondeP3 indépendante engagée.
+
+Conservation des branches : GitHub a delete_branch_on_merge=true ; codex/lot-081 a été rétablie par push ordinaire au commit24fc274f948cde2ee5cd9df0c35cd12fda428067 après sa suppression automatique. Aucun --force ni commande de suppression.
+
+La branche de consolidation codex/consolidation-chatgpt-20261110, également supprimée automatiquement après PR516, a été rétablie au commitf8541e8294fa5e5cd5bc7123bc17331fec1ce02b par push ordinaire.
+
+LOT082 DX10 : leçon complète, 186648 octets, contrôle original ORANGE B seulement ; première P3 indépendante engagée.
+
+LOT082 DX10 : trois corrections ciblées au point11 après première P3 ; 187012 octets, seconde P3 indépendante engagée.
+
+LOT082 : les onze versions franchissent P3. DX10 seconde lecture49/52, finaleoui, corrections limitées à la citation AIPS et deux terrains. Historique Git rétabli avec /usr/bin/git2.47.3 après échec du fetch approfondi sousGit2.52.0 ; fusion normale de main réussie.
+
+LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 PR/CI/P4 ; LOT083–102 à produire.
