@@ -30,12 +30,22 @@ def conv(txt,n):
                 tag='th' if hd else 'td'
                 t+=('<thead>' if hd else '')+'<tr>'+''.join(f'<{tag}>{inline(c,n)}</{tag}>' for c in cells)+'</tr>'+('</thead><tbody>' if hd else '')
             out.append(t+'</tbody></table></div>')
-        elif l.startswith('- '):
+        elif re.match(r'^\s*- ',l):
             flush(); its=[]
-            while i<len(lines) and lines[i].startswith('- '):
-                its.append(lines[i][2:]);i+=1
+            while i<len(lines) and re.match(r'^\s*- ',lines[i]):
+                m=re.match(r'^(\s*)- (.*)$',lines[i]); its.append((len(m.group(1))//2,m.group(2)));i+=1
             i-=1
-            out.append('<ul>'+''.join(f'<li>{inline(x,n)}</li>' for x in its)+'</ul>')
+            h='<ul>';cur=0
+            for k,(lv,tx) in enumerate(its):
+                if k>0: h+='</li>'
+                if lv>cur: h+='<li><ul>'*(lv-cur); cur=lv
+                elif lv<cur:
+                    while cur>lv: h+='</ul></li>'; cur-=1
+                h+='<li>'+inline(tx,n)
+            h+='</li>'
+            while cur>0: h+='</ul></li>'; cur-=1
+            h+='</ul>'
+            out.append(h)
         else: para.append(l)
         i+=1
     flush()
