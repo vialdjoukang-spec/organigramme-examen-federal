@@ -11,3 +11,16 @@ for k,v in r['defauts'].items():
     print(k,v['n'])
     for e in v['ex']: print('   ',e[:260])
 "
+python3 - <<'P'
+import re,sys
+sys.path.insert(0,'/home/user/organigramme-examen-federal/Claude/_outils')
+import controle3 as c
+h=open('/home/user/wt/lot-048/Claude/LOT_048/LOT_048_Phase_B_V0_DX.4.html').read()
+h=c.SOURCES.sub(' ',h)
+for tag,b,t in c.phrases_html(h):
+    n=len(t.split())
+    if tag!='td' and n>28: print('>28 (%d):'%n,t[:100])
+for p in re.findall(r'<(?:p|div class="p")(?:\s[^>]*)?>(.*?)</(?:p|div)>',h,re.S):
+    t=c.texte(p)
+    if len(t.split())>40 and not c.CONNECT.search(t): print('SANSCONN:',t[:90])
+P
