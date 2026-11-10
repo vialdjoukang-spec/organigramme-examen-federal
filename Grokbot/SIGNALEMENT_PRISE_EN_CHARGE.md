@@ -10,25 +10,25 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 
 | LOT | SSP | Intitulé | Statut |
 |---|---|---|---|
-| 051 | S2.12 | Douleur de la paroi thoracique | réservé |
-| 052 | S3.1 | Douleur abdominale | réservé |
-| 053 | S3.2 | Distension abdominale | réservé |
-| 054 | S3.3 | Masse abdominale | réservé |
+| 051 | S2.12 | Douleur de la paroi thoracique | livré PR 541 |
+| 052 | S3.1 | Douleur abdominale | livré PR 542 |
+| 053 | S3.2 | Distension abdominale | livré PR 544 |
+| 054 | S3.3 | Masse abdominale | livré PR 545 |
 | 055 | S3.4 | Modification du transit intestinal, incontinence anale | livré PR 548 |
-| 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | réservé |
-| 057 | S3.6 | Hématémèse | réservé |
-| 058 | S3.7 | Constipation | réservé |
-| 059 | S3.8 | Diarrhée | réservé |
-| 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
-| 061 | S3.10 | Nausées, vomissements | réservé |
+| 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | livré PR 549 |
+| 057 | S3.6 | Hématémèse | livré PR 550 |
+| 058 | S3.7 | Constipation | livré PR 546 |
+| 059 | S3.8 | Diarrhée | livré PR 547 |
+| 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | livré PR 551 |
+| 061 | S3.10 | Nausées, vomissements | livré PR 552 |
 | 062 | S4.1 | Variations du développement sexuel | livré PR 553 |
-| 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | réservé |
-| 064 | S4.3 | Dysurie, pyurie, hématurie | réservé |
-| 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | réservé |
-| 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | réservé |
-| 067 | S4.6 | Masse pelvienne | réservé |
-| 068 | S4.7 | Douleur pelvienne | réservé |
-| 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
+| 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | livré PR 556 |
+| 064 | S4.3 | Dysurie, pyurie, hématurie | livré PR 557 |
+| 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | livré PR 558 |
+| 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | livré PR 559 |
+| 067 | S4.6 | Masse pelvienne | livré PR 560 |
+| 068 | S4.7 | Douleur pelvienne | livré PR 562 |
+| 069 | S4.8 | Demande de contraception, contraception d’urgence | livré PR 563 |
 | 070 | S4.9 | Douleur, gonflement ou masse du scrotum | livré PR 564 |
 | 071 | S4.10 | Plaintes et dysfonctions sexuelles | réservé |
 | 079 | S4.18 | Écoulement vaginal | réservé |
