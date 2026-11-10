@@ -1,0 +1,13 @@
+# LOT_014 — G14 Décès inattendu ou mort subite : lacunes et suites (renfort L1, 10.11.2026)
+
+Les formules de lacune ont été retirées des cours (LV7) et consignées ici. Les images restent à insérer : Wikimedia Commons
+répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n'a donc pu être vérifié ni mis en file.
+
+## Phase A (monographie du SSP)
+- Lacunes retirées : prise en charge financière de l'autopsie clinique et des tests des apparentés ; signe physique propre aux
+  prodromes ; registre suisse de la SUDEP (les chiffres suisses restent des estimations tirées de l'incidence internationale).
+- Image à insérer (µ6, Phase A) : cliché qui sépare EP massive et dissection aortique (POCUS : cœur droit dilaté contre
+  épanchement péricardique compressif). Requête Commons : « pericardial tamponade ultrasound » et « right ventricle dilatation
+  pulmonary embolism echocardiography ».
+- Réserve L1 : l'examen physique ciblé reste une fenêtre unique organisée en lignes par région (signe, technique, aspect,
+  piège) ; une fenêtre par région dépasserait la bande de 150 Ko (149,7 Ko atteints).
