@@ -41,7 +41,7 @@ def infos(pages):
     return out
 
 
-def chercher(q, n, largeur=1000):
+def chercher(q, n, largeur=960):
     d = get(API + '?' + urllib.parse.urlencode({'action': 'query', 'generator': 'search', 'gsrsearch': f'filetype:bitmap {q}',
             'gsrnamespace': 6, 'gsrlimit': n, 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size', 'iiurlwidth': largeur, 'format': 'json'}))
     return infos(d.get('query', {}).get('pages', {}).values())
@@ -90,7 +90,7 @@ def figure(a):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(); s = ap.add_subparsers(dest='c')
     c = s.add_parser('chercher'); c.add_argument('q'); c.add_argument('--n', type=int, default=8)
-    p = s.add_parser('prendre'); p.add_argument('titre'); p.add_argument('--lot', required=True); p.add_argument('--largeur', type=int, default=1000)
+    p = s.add_parser('prendre'); p.add_argument('titre'); p.add_argument('--lot', required=True); p.add_argument('--largeur', type=int, default=960)
     f = s.add_parser('figure')
     for k in ('meta', 'titre', 'cliche', 'reperes', 'decision'):
         f.add_argument('--' + k, required=True)
