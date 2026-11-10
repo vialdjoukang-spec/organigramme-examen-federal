@@ -13,7 +13,7 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
    lis-la dans le corpus local (swissmedicinfo est illisible depuis ici) :
    `python3 Claude/_outils/lecon.py prep --lot XXX --cible <CIBLE> --ajouter --dci <racine> --aips-max 4` (ou `--autorisation <n°>`),
    puis `lecon.py extraire --lot XXX --cible <CIBLE> --prefixe aips --motif "<regex>"`, puis ajoute-la à la bibliographie dans le même format. Si aucune AIPS n'est lisible, garde la
-   conduite, retire le milligramme et note-le dans `Claude/LOT_XXX/HELP.md`. Une phrase chiffrée sans source reçoit la
+   conduite, retire le milligramme et note-le dans `Claude/LOT_XXX/HELP.md`. Une dose d'urgence qui vient d'une recommandation (ERC, ESCMID, SSC…) et que l'AIPS ne donne pas ne se retire jamais. Elle cite la recommandation lue et l'AIPS de la molécule, avec la mention « la recommandation X donne… ; l'AIPS autorise la voie… ». Une phrase chiffrée sans source reçoit la
    source déjà citée qui porte ce chiffre.
 3. **B, langue (µ4).** Coupe chaque phrase de plus de 32 mots en phrases verbales complètes, en gardant les citations de chaque
    moitié. Rends verbale chaque phrase nominale. Reformule les phrases dupliquées ou partagées avec un autre fichier du LOT.
