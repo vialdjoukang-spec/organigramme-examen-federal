@@ -13,9 +13,11 @@ def cit(m):
 for f in sorted(glob.glob('src/p*.txt')):
     n=int(re.search(r'p(\d+)',f).group(1))
     s=open(f,encoding='utf-8').read()
+    s=re.sub(r'\.\s*\[\[(f\d+)\|([^\]]+)\]\]',lambda m:f' ([[{m.group(1)}|{m.group(2)}]]).',s)
     s=re.sub(r'\[\[(f\d+)\|([^\]]+)\]\]',lambda m:f'<button class="w" popovertarget="dx1-p{n}-{m.group(1)}">{m.group(2)}</button>',s)
     s=re.sub(r'<<(f\d+)',lambda m:f'<div id="dx1-p{n}-{m.group(1)}" popover class="fenetre">',s)
     s=s.replace('>>','</div>')
     s=re.sub(r'\{([^{}]+)\}',cit,s)
+    s=s.replace('<div class="t">','<div class="t" style="overflow-x:auto">')
     s=re.sub(r'\n{2,}','\n',s)
     open(f'fragments/p{n:02d}.html','w',encoding='utf-8').write(s)
