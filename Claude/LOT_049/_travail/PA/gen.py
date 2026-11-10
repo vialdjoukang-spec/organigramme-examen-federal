@@ -28,7 +28,7 @@ def build(n):
             flush(); rows=[[c.strip() for c in x.split(' | ')] for x in r.split(';;')]
             h='<tr>'+''.join(f'<th>{txt(c,n,"")}</th>' for c in rows[0])+'</tr>'
             b=''.join('<tr>'+''.join(f'<td>{txt(c,n,"")}</td>' for c in x)+'</tr>' for x in rows[1:])
-            out.append(f'<div class="t"><table>{h}{b}</table></div>')
+            out.append(f'<div class="t" style="overflow-x:auto"><table>{h}'+b.replace('</tr>','</tr>\n')+'</table></div>')
         elif t=='R': flush(); out.append(r)
         else: raise SystemExit(f'ligne inconnue p{n}: {l[:60]}')
     flush()
