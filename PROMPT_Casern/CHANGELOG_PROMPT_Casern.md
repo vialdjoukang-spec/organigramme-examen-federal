@@ -1,5 +1,15 @@
 # CHANGELOG — PROMPT_Casern
 
+## L1 — 10.11.2026 (ordre de Vial, bloquant)
+
+- Nouveau nom de version : `PROMPT_LOTS_L1_10.11.26.{claude,codex,grok}.md` (remplace Lo_10.11.26).
+- Page naturelle de 80 à 150 Ko ; les fenêtres centrales occultantes (CSS `:target`) n'ont pas de limite de taille.
+- Les examens complémentaires (biologie, imagerie interprétée et juxtaposée), l'anamnèse (symptômes caractérisés, typiques ou non) et l'examen physique ciblé (ordre topo-systémique : signe, technique, aspect ou son) se déploient en fenêtres.
+- Le point 1 devient « Définition » seule. La sémantique et les notions voisines sont interdites, comme l'arbre CIM emboîté et le sommaire en boutons.
+- Phrases verbales obligatoires ; toute persévération ou redondance est prohibée.
+- Le front-end est uniforme du LOT 1 au LOT 248 (forme.css), avec une palette strictement différente d'un cours à l'autre, sans bleu. L'agent designer francophone est obligatoire.
+- Porte bloquante `tools/garde/prompt_l1.py` dans le contrôle obligatoire `garde` : une PR de LOT porte la ligne « Prompt L1 lu et appliqué ».
+
 ## Lo 10.11.26 — 2026-11-10 (Claude, ordre de Vial)
 - `PROMPT_LOTS_Lo_10.11.26.claude.md` remplace µ6 par **µ6 v2 : l'image, objet d'enseignement**. Elle est sourcée, interprétée (paire brut/annoté, lecture guidée, pièges, décision) et juxtaposée au point qu'elle sert. Une couverture minimale est fixée par point.
 - Base : l'inventaire de 2 061 figures des LOTs 133–248 (`Claude/_outils/inventaire_images.py`). 86 % de ces figures sont des SVG ; 23 seulement ont une lecture guidée et 11 une licence citée. Modèles retenus : LOT_191 et LOT_133.
