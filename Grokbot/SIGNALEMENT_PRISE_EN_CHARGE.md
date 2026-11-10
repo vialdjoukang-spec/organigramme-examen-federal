@@ -10,8 +10,8 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 
 | LOT | SSP | Intitulé | Statut |
 |---|---|---|---|
-| 051 | S2.12 | Douleur de la paroi thoracique | réservé |
-| 052 | S3.1 | Douleur abdominale | en cours |
+| 051 | S2.12 | Douleur de la paroi thoracique | livré PR 541 |
+| 052 | S3.1 | Douleur abdominale | livré PR 542 |
 | 053 | S3.2 | Distension abdominale | réservé |
 | 054 | S3.3 | Masse abdominale | réservé |
 | 055 | S3.4 | Modification du transit intestinal, incontinence anale | réservé |
