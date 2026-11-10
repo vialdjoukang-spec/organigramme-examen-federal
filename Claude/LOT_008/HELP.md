@@ -38,3 +38,25 @@ Lacunes retirées du cours (ancienne section « Lacunes des données ») :
 - Point 14 : les questions restent en liste (question, réponse, raison) et non en tableau.
 - Doses de la crise hyperglycémique (insuline 0,1 UI/kg/h, KCl 10 mmol/h, NaCl 500–1000 ml/h) : issues du consensus ADA-EASD 2024 ; les AIPS d'Actrapid HM, de Kaliumchlorid B. Braun et de NaCl Sintetica autorisent la voie sans fixer ces débits. Le bolus de glucose IV ne figure ni dans l'AIPS ni dans les recommandations lues (Paal 2021) : le texte ne donne pas de dose.
 - Image : une figure insérée (point 9.a, glucomètre, Commons CC BY-SA 4.0). Aucune photographie libre trouvée pour la lipohypertrophie (point 6) ni la respiration de Kussmaul ; recherche à refaire quand Wikimedia lève la limite 429.
+
+## DX.8 (Événement neurologique) — lacunes à traiter, relevé du 10.11.2026
+- Épidémiologie : incidence suisse de l'AVC et de l'état de mal non lue (retirée du cours, sources divergentes) ; à chercher dans les rapports suisses (OFS, Registre suisse des AVC) puis à ajouter au point 2.
+- Prévention (point 12) : aucune recommandation suisse (organisme, année) lue pour la prévention secondaire de l'AVC et de la crise ; à lire (SSV/SGN, ESO) avant d'étoffer.
+- Signes des syndromes 7.2 (hémorragie) et 7.3 (crise) : aucune source lue pour la liste des signes ; le cours les cite sans renvoi sur 7.2 hormis l'AIPS Actilyse ; à sourcer.
+- Lien crise prolongée → hypothermie : mécanisme plausible, aucun chiffre lu ; formule retirée du cours.
+- Recommandation NICE NG217 (10 mg de midazolam buccal chez l'adulte) : site illisible depuis ici (403) ; source reprise du lot 014 (lue le 30.10.2026). L'AIPS Buccolam 62556 donne aussi 10 mg « dès 10 ans et adultes » : correction faite (le cours disait « hors AIPS », « dès 3 mois »).
+- ESO 2023 ténectéplase (PMID 37021186) : résumé PubMed lu le 10.11.2026, texte intégral non lu.
+- Image point 6 (signe visible : asymétrie faciale) : non insérée, Wikimedia en 429 ; à chercher (« facial droop stroke ») puis `prendre` quand le débit le permet.
+- Image point 9 insérée : scanner sans injection, infarctus sylvien gauche (Europe PMC, CC BY, PMC13544956, hypodensité discrète : repère à contrôler par un radiologue). Un cliché de scanner avec hémorragie intracérébrale reste à ajouter.
+- Point 14 : tableau question/réponse/raison non fait (questions en paragraphes).
+- Glycémie < 2,8 ou > 22,2 mmol/l : l'AIPS Actilyse demande une évaluation bénéfice-risque et une correction avant traitement ; le cours dit « corriger avant ».
+- DX.10 Sepsis, point 6 : image en file d'attente (429 persistant), à insérer en point 6 (examen de la peau, purpura) après téléchargement : File:Типовий висип на кисті при менінгококцемії.jpg (domaine public, éruption hémorragique étoilée de la main dans la méningococcémie), via cliche.py figure.
+- DX.10 Sepsis, point 9 : aucune modalité d'imagerie ne tranche le diagnostic (diagnostic clinique, microbiologie, SOFA) ; aucun cliché de référence retenu, liens de cas à proposer en fenêtre.
+- DX.10 Sepsis, point 12 : recommandation suisse de prévention (organisme, année) à trouver.
+
+## DX.4 — renforcement du 10.11.2026
+- Intervalle de l'adrénaline entre 30 et 35 °C (ancienne mention « 6 à 10 minutes, Paal 2022 ») : absent du texte lu de Paal 2022 ; retiré du cours. À rechercher dans la recommandation ERC 2021 (arrêt cardiaque en circonstances particulières, texte intégral non accessible).
+- Dose de thiamine i.v. de la recommandation EFNS 2010 (texte intégral fermé) : non ajoutée ; le cours cite l'AIPS Benerva.
+- Noradrenalin Sintetica : AIPS 60955004 lue (octobre 2020) et ajoutée à la bibliographie.
+- Image point 6 (myosis, photographie clinique) : non cherchée ; à insérer si une photo libre est trouvée.
+- Sources S1, S3 à S6, S12, S14 non relues ici pour les chiffres ; seules S2, les AIPS et JBDS 01 ont été relues.
