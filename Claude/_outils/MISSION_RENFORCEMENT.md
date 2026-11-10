@@ -39,3 +39,8 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
 
 Rapport en 5 lignes au plus : verdict, octets, déficits complétés, images insérées, faits retirés (aucun, idéalement).
 Travaille dans un dossier temporaire privé (`mktemp -d`), jamais dans un scratchpad partagé. Ne commite rien.
+
+## 8. Rappel de reprise (obligatoire, dernière action)
+Ajoute UNE ligne à `Claude/LOT_XXX/REPRISE.log` (ajout seulement, jamais de réécriture) :
+`AAAA-MM-JJ HH:MM | <fichier> | VERT/ORANGE/ROUGE | octets | images insérées/en file | reste : <5 mots>`
+Après une pause, `python3 Claude/_outils/reprise_g.py` + `tail Claude/LOT_*/REPRISE.log` suffisent pour reprendre sans rien relire.
