@@ -10,7 +10,9 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
 0. **Interdit dans le cours** : toute formule de lacune (« À vérifier », « non lu », « aucune donnée suisse »). Une lacune va dans `Claude/LOT_XXX/HELP.md`.
 1. **Contrôle.** `python3 /home/user/organigramme-examen-federal/Claude/_outils/controle3.py <html>` liste les défauts restants.
 2. **A, véracité.** Une phrase de dose cite l'ancre AIPS de sa molécule, présente dans la bibliographie. Si l'AIPS manque,
-   lis-la sur swissmedicinfo, puis ajoute-la à la bibliographie dans le même format. Si aucune AIPS n'est lisible, garde la
+   lis-la dans le corpus local (swissmedicinfo est illisible depuis ici) :
+   `python3 Claude/_outils/lecon.py prep --lot XXX --cible <CIBLE> --ajouter --dci <racine> --aips-max 4` (ou `--autorisation <n°>`),
+   puis `lecon.py extraire --lot XXX --cible <CIBLE> --prefixe aips --motif "<regex>"`, puis ajoute-la à la bibliographie dans le même format. Si aucune AIPS n'est lisible, garde la
    conduite, retire le milligramme et note-le dans `Claude/LOT_XXX/HELP.md`. Une phrase chiffrée sans source reçoit la
    source déjà citée qui porte ce chiffre.
 3. **B, langue (µ4).** Coupe chaque phrase de plus de 32 mots en phrases verbales complètes, en gardant les citations de chaque
