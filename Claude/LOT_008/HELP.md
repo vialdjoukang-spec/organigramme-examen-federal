@@ -22,3 +22,11 @@ Lacunes retirées du cours (ancienne section « Lacunes des données ») :
 - Les doses d'urgence en hypothermie (pas d'adrénaline ni d'amiodarone sous 30 °C, intervalle de 6 à 10 minutes) restent attribuées à ERC 2021 via Paal 2022 (texte lu sur Europe PMC) ; l'ERC 2025 n'a pas été lu pour ce lot : à rapprocher si Vial le demande.
 - Point 6 : aucun signe visible propre à la noyade n'a de cliché libre adéquat. Point 9 : ECG avec onde J d'Osborn inséré (HypothermiaECG.webp, CC BY 3.0). La légende Commons dit « onde J d'Osborn » ; Paal 2022 ne mentionne pas Osborn, la lecture de l'image repose sur cette légende.
 - Les phrases de la zone « Rappel mémoire » qui citaient Pellegrino 2023 pour un plan de classement ont perdu cette citation (attribution erronée) ; les nombres y sont écrits en lettres.
+
+## DX.3 — Exposition au froid (10.11.2026)
+- Retirées de la leçon faute de source dans l'AIPS citée : « Glucose 40 % : voie centrale uniquement », « solution à 10 % recommandée pour l'hypoglycémie de l'enfant », « Glucose 5 % : apport d'eau libre » (l'AIPS lue est celle de Glucose 20 % B.Braun, n° 29550212). À rouvrir avec l'AIPS de Glucose 5 %, 10 % ou 40 % B.Braun si Vial veut les restituer.
+- Retirée aussi la ligne « noradrénaline » qui figurait dans la fenêtre de l'adrénaline (dose d'une autre molécule) ; la noradrénaline a sa propre fenêtre et son AIPS (60955).
+- La dose d'amiodarone citait l'AIPS du glucose (29550) : elle cite désormais Cordarone (41060), lue dans le corpus local.
+- Les citations « Paal 2022 » ajoutées (stades, réchauffement, ECLS, intubation, pronostic) viennent du texte intégral Europe PMC PMC8744717, lu en entier le 10.11.2026. L'étude bernoise [2] et les sources [3] à [5] n'ont pas été relues ici : leurs chiffres restent tels que la leçon les portait.
+- Plusieurs citations [2] posées par le script renfort sur des phrases de recommandation (38–42 °C, 4–10 °C/h, POCUS, seuils ECLS) ont été reportées sur [1], qui porte ces faits.
+- Image : HypothermiaECG.webp (ECG, onde J d'Osborn, CC BY 3.0 WikiSysop) insérée au point 9. Aucune photographie d'engelure insérée au point 6 : recherche non lancée (Wikimedia limite le débit) ; à faire ensuite : `cliche.py chercher "frostbite fingers"`.
