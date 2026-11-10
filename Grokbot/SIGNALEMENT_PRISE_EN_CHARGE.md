@@ -30,7 +30,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 068 | S4.7 | Douleur pelvienne | réservé |
 | 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
 | 070 | S4.9 | Douleur, gonflement ou masse du scrotum | réservé |
-| 071 | S4.10 | Plaintes et dysfonctions sexuelles | réservé |
+| 071 | S4.10 | Plaintes et dysfonctions sexuelles | en cours |
 | 079 | S4.18 | Écoulement vaginal | réservé |
 | 081 | S5.2 | Douleur dorsale ou lombaire | réservé |
 | 082 | S5.3 | Déformations du squelette et des articulations | réservé |
