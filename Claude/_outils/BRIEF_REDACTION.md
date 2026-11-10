@@ -39,7 +39,9 @@ Chaque phrase factuelle, y compris de physiopathologie, cite un extrait (LV1) : 
      dans l'extrait cité dans cette même phrase ; sinon ROUGE. Écris les nombres sans référence en toutes lettres
      seulement s'ils ne sont pas des faits (« deux examens »). Attention : « COVID-19 », « SpO2 » isolé, « 3e » sont des nombres pour le contrôle.
    - Une phrase avec dose (mg, µg, UI) cite un extrait `aips-…` ; doses, voies, durées, grossesse/allaitement recopiés de l'AIPS,
-     sans adoucir ; numéro Swissmedic lu dans la source AIPS (5 chiffres).
+     sans adoucir ; numéro Swissmedic lu dans la source AIPS (5 chiffres). Si une société savante diverge de l'AIPS
+     (dose, contre-indication, grossesse), la conduite enseignée suit l'AIPS ; la recommandation divergente est citée comme telle,
+     hors AIPS, sans jamais être présentée comme une option équivalente.
    - Langue µ4 : phrase verbale 12–28 mots (jamais > 32), connecteur logique dans chaque paragraphe > 40 mots,
      ≥ 35 % de phrases avec connecteur (car, donc, ainsi, en effet, dès lors, cependant, en revanche, lorsque, si, ce qui, d'où…),
      abréviation développée à la 1re occurrence, normal avant pathologique, grave avant fréquent. Aucune formule de lacune

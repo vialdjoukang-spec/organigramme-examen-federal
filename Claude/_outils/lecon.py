@@ -21,7 +21,9 @@ REF = os.environ.get('OUTILS_REF', os.path.join(ICI, '..', '..', 'outils'))
 sys.path.insert(0, REF)
 os.environ.setdefault('PAQUET_CACHE', '/tmp/claude_paquet_cache')
 AIPS_ZIP = os.environ.get('AIPS_ZIP', '/home/user/Medina/AipsDownload_20261008.zip')
-HAM = os.environ.get('HAM_XLSX', '/home/user/Medina/docs/collaboration/references/medicaments-suisses-vial-2026-10-11/zugelassene_packungen_ham.xlsx')
+_D = '/home/user/Medina/docs/collaboration/references/medicaments-suisses-vial-2026-10-11/'
+# erweiterte_ham_ind couvre les monopréparations courantes (Dafalgan 46206…) absentes de zugelassene_packungen_ham
+HAMS = os.environ.get('HAM_XLSX', _D + 'erweiterte_ham_ind.xlsx:' + _D + 'zugelassene_packungen_ham.xlsx').split(':')
 
 POINTS = [
  ("Définition et sémantique", 5000, "Définition exacte de la société savante, nommée et datée ; synonymes admis et termes à éviter ; ce que l'entité est, ce qu'elle n'est pas et ce qui s'en approche."),
@@ -75,18 +77,36 @@ def prep(a):
                 P += PQ.decouper(t, 'w' + PQ.sha(u.encode())[:6], u)
             except Exception as e:
                 echecs.append(f'{u} : {e}')
-    if a.dci:
-        autor = PQ.ham(HAM, a.dci)
+    if a.dci or a.autorisation:
+        autor = set(a.autorisation)
+        for h in HAMS:
+            autor |= PQ.ham(h, a.dci)
+        no_prio = lambda no: 0 if no in a.autorisation else 1
         A = PQ.aips(AIPS_ZIP, a.dci, autor)
         par_doc = collections.OrderedDict()
         for p in A:
             par_doc.setdefault(p['id'].split('-')[1], []).append(p)
         garde, compte = [], collections.Counter()
-        # préférer les documents dont les rubriques ont été découpées (texte réellement lu)
-        for no, ps in sorted(par_doc.items(), key=lambda kv: -len(kv[1])):
+
+        def actifs(ps):
+            """Nombre de principes actifs (noms latins en -um) de la rubrique Composition : 1 = monopréparation."""
+            comp = next((q['texte'] for q in ps if re.search(r'Principes? actifs?', q['texte'])), '')
+            m = re.search(r'Principes? actifs?\s*:?\s*(.{0,300}?)(Excipients|$)', comp)
+            return len(set(re.findall(r'\b[A-Z]?[a-z]+(?:um|i|ae)\b', m.group(1)))) if m else 9
+
+        def rubriques(ps):
+            return sum(bool(re.match(r'(Posologie|Grossesse|Contre-indications)', q['texte'])) for q in ps)
+        # monopréparations lisibles d'abord (Posologie + Grossesse découpées), puis volume de texte
+        COMBI = re.compile(r'\b(plus|comp|duo|grippe|combi|forte?|cold|rhume|night|day)\b|[/+]|co-|\bet\b', re.I)
+        ENFANT = re.compile(r'enfant|sirop|suspension|junior|b[ée]b[ée]|p[ée]diatr|gouttes|suppositoire', re.I)
+
+        def cle(kv):
+            nom = kv[1][0]['source']
+            return (no_prio(kv[0]), bool(COMBI.search(nom)), bool(ENFANT.search(nom)), -rubriques(kv[1]), -len(kv[1]))
+        for no, ps in sorted(par_doc.items(), key=cle):
             nom = ps[0]['source'].lower()
             dci = next((x for x in a.dci if x.lower() in nom), None) or next((x for x in a.dci if any(x.lower() in q['texte'].lower() for q in ps)), a.dci[0])
-            if compte[dci] < a.aips_max and len(ps) > 1:
+            if no in a.autorisation or (compte[dci] < a.aips_max and len(ps) > 1):
                 compte[dci] += 1
                 garde += ps
         P += garde
@@ -169,7 +189,7 @@ if __name__ == '__main__':
     p = s.add_parser('prep'); p.add_argument('--lot', required=True); p.add_argument('--cible', required=True)
     p.add_argument('--entite', required=True); p.add_argument('--ssp'); p.add_argument('--securite')
     p.add_argument('--urls'); p.add_argument('--textes', nargs='*'); p.add_argument('--dci', nargs='*', default=[])
-    p.add_argument('--aips-max', type=int, default=1); p.add_argument('--ajouter', action='store_true')
+    p.add_argument('--aips-max', type=int, default=2); p.add_argument('--autorisation', nargs='*', default=[], help='n° Swissmedic à inclure d\'office'); p.add_argument('--ajouter', action='store_true')
     f = s.add_parser('finir'); f.add_argument('--lot', required=True); f.add_argument('--cible', required=True)
     f.add_argument('--titre', required=True); f.add_argument('--ex', type=int, default=4)
     e = s.add_parser('extraire'); e.add_argument('--lot', required=True); e.add_argument('--cible', required=True)
