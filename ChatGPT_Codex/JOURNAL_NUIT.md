@@ -2,7 +2,7 @@
 
 ## État actuel
 
-32 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et 10 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 termine la rédaction DX10 et les audits. Les 858 leçons existantes consolidées sont sur main.
+33 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et les 11 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 a ses onze leçons ; la première P3 indépendante de DX10 est en cours. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -175,4 +175,4 @@ La branche de consolidation codex/consolidation-chatgpt-20261110, également sup
 
 LOT082 DX10 : leçon complète, 186648 octets, contrôle original ORANGE B seulement ; première P3 indépendante engagée.
 
-LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 rédaction/audit ; LOT083–102 à produire.
+LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 première P3 indépendante ; LOT083–102 à produire.
