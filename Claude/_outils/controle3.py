@@ -10,7 +10,7 @@
                 balises équilibrées, bande d'octets.
 
 Usage :
-  python3 controle3.py FICHIER.html [FICHIER2.html ...] --paquet paquet.json [--points 14] [--min 100000 --max 200000]
+  python3 controle3.py FICHIER.html [FICHIER2.html ...] --paquet paquet.json [--points 14] [--min 80000 --max 150000]
 Sortie : JSON par fichier (verdict VERT/ORANGE/ROUGE + défauts localisés) ; code 0 si aucun ROUGE.
 """
 import re, sys, json, html, hashlib, argparse, collections
@@ -185,9 +185,16 @@ def controler(chemin, paquet, a, vus_lot):
     e = equilibre(h)
     if e:
         d['C_balises'].append(e)
-    if not (a.min <= len(brut) <= a.max):
-        d['C_taille_hors_bande'].append(f'{len(brut)} o (bande {a.min}–{a.max})')
-    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee'))]
+    # L1 (10.11.2026) : la bande de taille porte sur la page naturelle, hors fenêtres centrales (sans limite)
+    page = len(re.sub(r'<section\b[^>]*class="[^"]*\bfenetre\b[^"]*"[^>]*>.*?</section>', '', h, flags=re.S).encode('utf-8'))
+    if not (a.min <= page <= a.max):
+        d['C_taille_hors_bande'].append(f'{page} o hors fenêtres (bande {a.min}–{a.max})')
+    # L1 : architectures et contenus interdits
+    if re.search(r'Où se situe le problème', h):
+        d['C_L1_arbre_CIM_interdit'].append('arbre CIM emboîté « Où se situe le problème ? »')
+    if re.search(r'<h[1-4][^>]*>(?:<[^>]+>)*\s*1\.\s*Définition et sémantique', h) or re.search(r'>\s*Notions voisines\s*<', h):
+        d['C_L1_definition_alourdie'].append('point 1 : « sémantique » ou « notions voisines » interdits')
+    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee', 'C_L1_'))]
     verdict = 'ROUGE' if rouge else ('ORANGE' if d else 'VERT')
     return {'fichier': chemin, 'octets': len(brut), 'sha256': hashlib.sha256(brut).hexdigest()[:16],
             'verdict': verdict, 'phrases': nph, 'connecteur%': round(100 * conn / nph),
@@ -207,8 +214,8 @@ if __name__ == '__main__':
     ap.add_argument('fichiers', nargs='+')
     ap.add_argument('--paquet')
     ap.add_argument('--points', type=int, default=14)
-    ap.add_argument('--min', type=int, default=100_000)
-    ap.add_argument('--max', type=int, default=200_000)
+    ap.add_argument('--min', type=int, default=80_000)  # L1 : page hors fenêtres 80–150 Ko
+    ap.add_argument('--max', type=int, default=150_000)
     ap.add_argument('--ex', type=int, default=3, help='exemples par défaut (concision du rapport)')
     ap.add_argument('--script-ok', action='store_true')
     a = ap.parse_args()
