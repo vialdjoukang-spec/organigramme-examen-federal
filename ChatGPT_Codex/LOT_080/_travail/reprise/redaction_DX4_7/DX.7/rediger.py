@@ -333,3 +333,18 @@ save(14,
  para('Question : une rémission permet-elle d’arrêter brutalement le traitement biologique ? Réponse : les recommandations envisagent plutôt une diminution progressive, avec réévaluations et décision partagée. Les données discutées montrent davantage de poussées après arrêt brutal que lors d’un maintien ou d’une réduction.', 'eu-asas-eular-2022-detail-51','eu-asas-eular-2022-detail-52')+
  para('Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?', 'prompt-question-finale')
 )
+
+# Compléments ciblés de couverture : mêmes faits et extraits que la prose.
+f = ROOT/'fragments/p03.html'
+f.write_text(f.read_text()+title('Corrélation entre perturbation, exploration et décision')+table(
+ ['Perturbation','Exploration pertinente','Conséquence thérapeutique'],[
+ [('L’inflammation contribue aux douleurs et à la raideur.',['eu-asas-eular-2022-detail-20','eu-asas-eular-2022-detail-33']),('Les symptômes, l’ASDAS avec CRP et, en cas d’incertitude, l’IRM contribuent à l’évaluation.',['eu-asas-eular-2022-detail-28','eu-asas-eular-2022-detail-29']),('Les AINS puis, si nécessaire, une stratégie ciblée spécialisée cherchent à contrôler l’activité.',['eu-asas-eular-2022-detail-33','eu-asas-eular-2022-detail-38'])],
+ [('Le dommage structural peut comporter des syndesmophytes et une déformation invalidante.',['eu-asas-eular-2022-detail-29','eu-asas-eular-2022-detail-53']),('Les radiographies évaluent le dommage ; l’examen apprécie la mobilité et la fonction.',['eu-asas-eular-2022-detail-29','eu-asas-eular-2022-detail-28']),('L’exercice et la physiothérapie participent à la fonction ; une déformation sévère invalidante peut justifier un avis chirurgical spécialisé.',['eu-asas-eular-2022-detail-32','eu-asas-eular-2022-detail-53'])],
+ [('Une fracture peut survenir sur un rachis ankylosé après un traumatisme mineur.',['eu-asas-eular-2022-detail-54']),('Une modification importante du tableau conduit à une IRM et/ou un CT selon la suspicion.',['eu-asas-eular-2022-detail-54']),('L’évaluation peut nécessiter un chirurgien rachidien expérimenté ; une simple escalade anti-inflammatoire ne répond pas à la question.',['eu-asas-eular-2022-detail-54'])]
+ ]))
+f = ROOT/'fragments/p05.html'
+f.write_text(f.read_text()+title('🚩 Une nouvelle alarme neurologique change la priorité')+table(
+ ['Signal recherché','Interprétation','Action immédiate'],[
+ [('Une rétention urinaire, une incontinence anale nouvelle ou une anesthésie en selle est rapportée.',['pa17-lomb22-queue']),('Ces signes évoquent notamment un syndrome de la queue de cheval.',['pa17-lomb22-queue']),('Une imagerie rachidienne sans attendre, si possible IRM et au minimum CT, accompagne l’avis neurochirurgical.',['pa17-lomb22-urgence'])],
+ [('Un nouveau déficit moteur est constaté.',['pa17-lomb22-urgence']),('Il constitue un signal d’alerte neurologique dans la stratégie des HUG.',['pa17-lomb22-urgence']),('L’évaluation neurologique et l’imagerie urgente précèdent le suivi habituel de la spondylarthrite.',['pa17-lomb22-urgence'])]
+ ]))
