@@ -14,6 +14,7 @@ def conv(txt,n):
     while i<len(lines):
         l=lines[i].rstrip()
         if not l: flush()
+        elif l.startswith('##### '): flush(); out.append('<h4><em>'+l[6:]+'</em></h4>')
         elif l.startswith('#### '): flush(); out.append('<h4><em>'+l[5:]+'</em></h4>')
         elif l.startswith('@@ '):
             flush(); fid=l[3:].strip(); body=[];i+=1
