@@ -31,3 +31,11 @@ Registre ouvert lors du renfort L1 du 10.11.2026. Les formules de lacune retiré
 - Lacune retirée du cours : Ce choix est un raisonnement tiré des profils AIPS, pas une recommandation : une recommandation suisse dédiée au patient dénutri est une donnée non trouvée dans les sources consultées.
 - Lacune retirée du cours : Son contenu détaillé est une donnée non trouvée dans les sources consultées.
 - Lacune retirée du cours : Aucune liste officielle suisse de critères de sortie propre à l'épisode dépressif n'a été trouvée
+
+## DX.3
+- Lacune retirée du cours : La fréquence suisse de l'anorexie du vieillissement comme cause de PPI est une donnée non trouvée dans les sources consultées
+- Lacune retirée du cours : Aucune recommandation suisse propre à l'anorexie du vieillissement n'a été trouvée.
+- Lacune retirée du cours : Sexe et géographie : aucune donnée par sexe ou par canton n'a été trouvée pour DX.3 dans les sources consultées.
+- Lacune retirée du cours : La sensibilité et la spécificité de la VFS et de la FEES sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Aucune liste officielle suisse de critères de sortie propre à ce diagnostic n'a été trouvée
+- Images (µ6) : aucune photographie libre de candidose buccale sous prothèse n'a été trouvée sur Wikimedia (recherche « oral candidiasis elderly », 10.11.2026) ; lien de cas à proposer en fenêtre lors d'une reprise.
