@@ -49,7 +49,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 095 | S7.1 | Troubles de l’équilibre, chutes | livré PR 585 |
 | 096 | S7.2 | Troubles de la marche | livré PR 586 |
 | 097 | S7.3 | Mouvements involontaires anormaux, tremblements, tics, troubles de la coordination | livré PR 587 |
-| 098 | S7.4 | Troubles de la parole ou du langage | réservé |
+| 098 | S7.4 | Troubles de la parole ou du langage | livré PR 588 |
 | 099 | S7.5 | Étourdissements, vertiges | réservé |
 | 100 | S7.6 | Céphalées | réservé |
 | 101 | S7.7 | Troubles cognitifs, notamment difficultés de concentration, troubles de la mémoire et de la compréhension | réservé |
