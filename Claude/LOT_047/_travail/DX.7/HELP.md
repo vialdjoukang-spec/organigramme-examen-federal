@@ -2,11 +2,12 @@
 
 Lacunes à traiter par le chef de production (aucune n'est écrite dans le cours comme formule de lacune).
 
-## Molécules sans AIPS lisible dans le paquet (pas de milligramme dans le cours)
-- Budésonide comprimé orodispersible (Jorveza®) : absent de la base AIPS locale (seuls Pulmicort, Seretide, Symbicort, Seffalair, Pylera, Esomeprazol-Mepha lus). Posologie, durée, grossesse, n° Swissmedic non donnés. Statut suisse (Swissmedic) non lu : seule l'approbation EMA de novembre 2017 est citée (m9).
-- Dupilumab (Dupixent®) : absent de l'AIPS local. Seule l'approbation « Europe, Suisse comprise, 12 ans et plus, 40 kg » est citée (revue Schoepfer, Inflamm Intest Dis 2024). Posologie et n° Swissmedic non donnés.
-- Fluticasone déglutie (hors AIPS, produits inhalés seulement) et oméprazole (absent de l'AIPS local) : conduite sans milligramme. La dose PPI des recommandations européennes 2017 (oméprazole deux fois par jour) n'est pas chiffrée, car le contrôle exige une citation AIPS pour toute dose.
-- Esomeprazol-Mepha (62581) : l'AIPS ne mentionne pas l'œsophagite à éosinophiles ; les doses citées sont celles du reflux (usage dans la maladie = hors indication).
+## Molécules
+- Jorveza (66999) et Dupixent (66649) rapatriés : doses, grossesse, allaitement et indication suisse (Dupixent dès un an et 15 kg) écrits d'après l'AIPS. Omeprazol Zentiva (56313) ajouté ; aucune indication AIPS dans l'œsophagite à éosinophiles (hors indication).
+- Fluticasone déglutie : hors AIPS (produits inhalés seulement). Dose d'inhibiteur de la pompe à protons de la maladie : recommandation européenne 2017 sans milligramme ; partie 2 (traitement) de la mise à jour 2026 non trouvée, donc non utilisée.
+- Esomeprazol-Mepha (62581) : l'AIPS ne mentionne pas l'œsophagite à éosinophiles ; doses citées = reflux.
+- Eohilia (États-Unis seulement) : ligne retirée du tableau.
+- Délai d'endoscopie de l'impaction alimentaire : aucun extrait lu, non écrit.
 
 ## Sources manquantes
 - Recommandations européennes 2026 (Lucendo et al., Allergy 2026, partie 1) : seul le résumé PubMed est lisible ; la partie 2 (traitement) n'a pas été trouvée ; le traitement suit donc le texte intégral de 2017 (PMC5415218).

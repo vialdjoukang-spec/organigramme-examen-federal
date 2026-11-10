@@ -8,3 +8,5 @@
 - Aspects social et assurances : aucune source lue ; non rédigés.
 - Source suisse RMS 972 (2026) : résumé seul (article réservé aux abonnés) ; rapport HTA OFSP : résumé seul.
 - PMID 28251844 (physiopathologie GERD) : 429 au premier rapatriement, passages présents après relance.
+- AGA 2022 (wdbbc94, États-Unis) : encore citée pour des points secondaires (éducation, sevrage des inhibiteurs, durées, chirurgie) ; ses indications d'endoscopie et de traitement d'essai ont été retirées ou remplacées par Lyon 2.0 et l'AIPS. À remplacer par une source européenne lisible si disponible.
+- Amitriptyline : grossesse et allaitement ajoutés (aips-66978-30, -31).
