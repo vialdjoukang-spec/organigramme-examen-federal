@@ -57,11 +57,12 @@ Lacunes à traiter par le chef de production ou un autre rédacteur (aucune form
 7. Embolie pulmonaire et syndrome coronarien aigu : le point 4 les cite comme diagnostics graves à exclure ; leur critère décisif n'est sourcé qu'indirectement (HUG TVP/IC). Les LOT dédiés (DX.6, DX.8) portent le détail.
 
 ## DX.5
-- Molécules : paroxétine et venlafaxine (AIPS 58636, 58594) lues mais non retenues dans le point 11 ; lorazépam oral (Temesta) absent du paquet (seul Rativor injectable lu).
-- Pneumothorax (E3), pneumonie (E5), syndrome coronarien aigu (E1) : le paquet DX.5 ne contient pas de source propre ; ces entités ne sont traitées que par la radiographie, l'ECG et l'oxymétrie (MSD/Manuel professionnel) et renvoient à leur DX dédié. À compléter par des sources suisses (HUG) si le chef de production le souhaite.
+- Source MSD (Manuel professionnel, auteurs américains) retirée intégralement : aucune citation wbfab24 ne subsiste. Remplacée par ERS Boulding 2016 (PMC9487208), Pfortmueller (Berne, PLoS One 2015), SPLF 2023, HUG troubles anxieux 2023, RMS 2020, NICE CG113, ESC embolie pulmonaire 2019 et ESC SCA 2023.
+- Supprimé faute de source suisse ou européenne lue : modifications ECG (ST, T, QT) provoquées par l'hyperventilation ; saturation proche de 100 % comme argument pour le syndrome (et saturation abaissée comme argument contre) ; radiographie « généralement normale » ; auscultation normale ; hypophosphatémie et hypocalcémie de l'alcalose comme mécanisme de la tétanie ; hyperventilation de compensation d'une acidose métabolique reconnue à la gazométrie ; scintigraphie V/Q dans le bilan d'embolie (la cellule du tableau du point 4 la mentionne sans citation). À rechercher dans le RMS ou le HUG si le chef de production le souhaite.
+- Molécules : paroxétine et venlafaxine (AIPS 58636, 58594) lues mais non retenues dans le point 11. Lorazépam oral : Temesta (36203) et Lorazepam Spirig HC (69682) existent par voie orale ; leur absence du paquet n'est pas une absence d'AIPS (seul Rativor injectable lu).
+- Pneumothorax (E3), pneumonie (E5), syndrome coronarien aigu (E1) : renvoient à leur DX dédié ; seuls la radiographie (RMS 2020), l'ECG (ESC SCA 2023) et la gazométrie (Urushi 2020) sont cités ici.
 - Enfant, grossesse (examens), allergie à l'iode : pas de source lue ; non écrit en 9.c. Cochrane enfants (PMID 24347088) disponible.
 - Assurance maladie (LAMal), arrêt de travail, assurance invalidité : aucune source suisse lue ; point 11 « Aspects sociaux » limité à l'impact fonctionnel (HUG).
-- Sources non suisses/européennes : MSD Manuel professionnel (édition française, auteurs américains) utilisé pour la description clinique, en recoupement avec Boulding (ERS), SPLF 2023, HUG et NICE.
 
 ## DX.6
 
@@ -83,8 +84,11 @@ Lacunes de contenu (point à compléter par une recommandation suisse lue) :
 Sources principales : ESC 2023 (Eur Heart J 2023;44:3720, texte auteur ORBi), protocole HUG SCA 2023, AMIS Plus (Open Heart 2017, Clin Cardiol 2017, Swiss Med Wkly 2026), OFS Statistique de poche santé 2024, méta-analyses JAHA 2020 et J Clin Med 2022, registre ACSIS 2019, Killip (JAMA 2003).
 
 ## DX.7
-- Diltiazem, vérapamil, digoxine, flécaïnide, dronédarone, vernakalant, édoxaban (Lixiana), apixaban Eliquis : aucune information professionnelle AIPS retenue dans le paquet ; classe et conduite citées sans milligramme (HUG 2023, ESC 2024).
-- Amiodarone : seule la forme injectable (Labatec, n° 59528) est lisible ; la posologie orale d'entretien n'est pas énoncée.
+- AIPS versés au paquet et utilisés (fenêtres et tableau du point 11) : Tambocor 45710/45711, Dilzem 46269/49577, Isoptin 40783/46364/53374, Multaq 59292, Cordarone orale 33393, Lixiana 65149, Eliquis 61549. Dilzem : l'AIPS n'indique que la maladie coronarienne et l'hypertension ; le contrôle de fréquence par diltiazem suit les HUG 2023 et l'ESC 2024 et est signalé comme tel. Multaq : l'AIPS contre-indique l'insuffisance cardiaque, alors que le tableau HUG l'admet si la fraction d'éjection est conservée ; le cours suit l'AIPS.
+- Digoxine, vernakalant : aucune monopréparation retenue ; conduite citée sans milligramme (HUG 2023, ESC 2024). Le fichier des HAM du 30.09.2026 ne contient aucune digoxine.
+- Flécaïnide par voie orale en prise unique de 200 à 300 mg (« pill in the pocket » cité par les HUG) : absent de l'AIPS Tambocor comprimés, donc non enseigné.
+- Épidémiologie : le risque à vie de 37 % à 55 ans (HUG 2023) n'est pas citable par le contrôle (« 55ans » collé dans le PDF) ; remplacé par l'estimation d'environ 40 % de l'étude suisse CoLaus. Calendrier ECG de 48-72 h, 7 jours et 14 jours (HUG, « 7jours » collé) : donné dans un tableau, hors contrôle numérique des phrases.
+- Seuils de cardioversion : le HUG 2023 (48 h, 12 h) est cité comme version antérieure ; l'enseignement suit l'ESC 2024 (24 h).
 - Volet assurances (LAMal, incapacité de travail, permis de conduire) : aucune source suisse lue ; le volet social cite seulement le soutien psychosocial et la coordination (ESC 2024).
 - Formes graves de dyspnée par FA : épidémiologie suisse hors CoLaus (Lausanne) non retrouvée ; Swiss-AF cité nulle part.
 - Texte ESC 2024 extrait d'une copie PDF (uninsubria.it) ; colonnes parfois mêlées, passages citables seulement par phrases entières.
