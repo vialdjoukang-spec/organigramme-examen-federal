@@ -9,7 +9,7 @@ Version : 168863 octets, SHA-256 `80032402db2e7147`. Audit ciblé Θ3, points 4,
 | 10 | 2/2 | Chaque nœud mène à une décision |
 | 11 | 1/2 | AIPS Augmentin adoucie ; amoxicilline dosée par HUG sans AIPS alors que l'AIPS adulte existe |
 
-**Score : 70.0 %. Question finale : non.** Corrections Critique ouvertes ; le fichier ne passe pas la porte.
+**Score : 70.0 %. Question finale : non.** Des corrections Critique restent ouvertes ; le fichier ne passe pas la porte.
 
 | Gravité | Pt | Extrait (≤ 200 car.) | Source |
 |---|---|---|---|
@@ -19,7 +19,7 @@ Version : 168863 octets, SHA-256 `80032402db2e7147`. Audit ciblé Θ3, points 4,
 | Moyen | 4 | Les seuils de définition sont un BNP supérieur à 35 pg/ml ou un NT-proBNP supérieur à 125 ng/l w149687-13 . | w149687-13, w149687-30 |
 | Moyen | 11 | En outre, les recommandations internationales placent une fluoroquinolone ou un macrolide, de préférence l'azithromycine, en première ligne dans la légionellose wac7cb5-5 . | wac7cb5-5 (revue, non recommandation ; l'AIPS lévofloxacine signale une expérience insuffisante dans la légionellose, aips-62207-4) |
 
-Corrections exactes (avant/après) : `LOT_046_Phase_B_V0_DX.1.audit.json`.
+Corrections exactes (avant/après) : `LOT_046_Phase_B_V0_DX.1.html.audit.json`.
 
 **Ce qui manque :**
 - Amoxicilline orale adulte, doxycycline (Doxyclin 44000, dose dans aips-44000-8 du paquet DX.3), lévofloxacine orale (Tavanic 54365) : monopréparations présentes dans la liste HAM ; HELP « sans AIPS » faux (Grave).

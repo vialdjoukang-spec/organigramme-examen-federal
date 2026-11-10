@@ -9,7 +9,7 @@ Version : 171790 octets, SHA-256 `977959113918c7d9`. Audit ciblé Θ3, points 4,
 | 10 | 1/2 | Embranchements décisionnels ; nœud ECG illogique ; pas de reperfusion ni de décompression |
 | 11 | 0/2 | Numéro Swissmedic faux (Ventolin), voie AIPS déformée (Aspirine Cardio), CI nitrés renvoyées alors que lues, doses en lettres |
 
-**Score : 40.0 %. Question finale : non.** Corrections Critique ouvertes ; le fichier ne passe pas la porte.
+**Score : 40.0 %. Question finale : non.** Des corrections Critique restent ouvertes ; le fichier ne passe pas la porte.
 
 | Gravité | Pt | Extrait (≤ 200 car.) | Source |
 |---|---|---|---|
@@ -37,7 +37,7 @@ Version : 171790 octets, SHA-256 `977959113918c7d9`. Audit ciblé Θ3, points 4,
 | Moyen | 10 | Si l'électrocardiogramme est anormal, alors il est obtenu dans les 10 minutes après le premier contact médical, puis répété si nécessaire w480b78-96 . | w480b78-96 (condition illogique : l'ECG est anormal avant d'être obtenu) |
 | Grave | 10 | Si le patient est instable, alors l'héparine non fractionnée intraveineuse est débutée sans délai, car l'embolie à haut risque est suspectée wa6f758-110 . | wa6f758-110 ; ajouter au paquet la recommandation 6.6 ESC/ERS 2019 (thrombolyse systémique de l'EP à haut risque) — absente du P10 et du P11 |
 
-Corrections exactes (avant/après) : `LOT_046_Phase_A_V0.audit.json`.
+Corrections exactes (avant/après) : `LOT_046_Phase_A_V0.html.audit.json`.
 
 **Ce qui manque :**
 - Ajouter au paquet PA les seuils d'exclusion aigus ESC (BNP < 100, NT-proBNP < 300 pg/ml) depuis le texte ESC 2026 de l'insuffisance cardiaque (doi 10.1093/eurheartj/ehag100, publié le 28.08.2026), non depuis une revue.
