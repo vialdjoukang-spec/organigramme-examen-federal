@@ -119,4 +119,7 @@ LOT081 DX10 : dépôt individuel ; contrôle technique ORANGE B seulement, navig
 
 LOT081 : PA, DX1 et DX10 corrigées et poussées ; contrelectures indépendantes franchies. Sept versions P3 validées (PA, DX1, DX3, DX4, DX5, DX8, DX10), empreintes dans VALIDATIONS_P3.json. DX6 en contrelecture finale ; DX2 en premier audit ; DX9 rédaction et DX7 correction à terminer.
 
-LOTs livrés : 0/23 ; leçons poussées : 21/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 audits et rédaction restants ; LOT082–102 à produire.
+
+LOT081 DX9 : dépôt individuel 187321 octets, contrôle ORANGE B seulement ; première contrelecture indépendante en cours. Les onze leçons sont écrites, huit versions validées P3.
+
+LOTs livrés : 0/23 ; leçons poussées : 22/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 DX2/DX7/DX9 audits en cours ; LOT082–102 à produire.
