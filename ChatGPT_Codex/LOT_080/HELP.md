@@ -1,3 +1,7 @@
+# État actualisé — reprise active
+
+La liste canonique a franchi P1. La Phase A a franchi P3 (92,59 %, finale oui). Les mentions de blocage P1 ci-dessous décrivent la première tentative et sont conservées comme historique. Les DX sont en production et audit.
+
 # LOT_080 — obstacles documentaires
 
 ## Porte P1

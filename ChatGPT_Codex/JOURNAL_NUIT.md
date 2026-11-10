@@ -65,4 +65,7 @@ P1 franchie après recontrôle indépendant ; liste gelée et cadres de classeme
 
 Phase A corrigée : 172129 octets, P3 VERT 92,59 %, finale oui, sans critique. DX4 rédigé : 112791 octets, contrôle VERT ; P3 en cours.
 
-LOTs livrés : 0/23 (080–102) ; leçons poussées : 2/253 nouvelles, 858 existantes consolidées ; blocages : neuf DX du LOT080 à pousser et audits DX en cours ; LOT081–102 à produire.
+
+DX7 rédigé : 187499 octets, quatorze points et posologie Celebrex fondée sur AIPS54994. Contrôle ORANGE B uniquement, audit médical en cours.
+
+LOTs livrés : 0/23 (080–102) ; leçons poussées : 3/253 nouvelles, 858 existantes consolidées ; blocages : huit DX du LOT080 à pousser et audits DX en cours ; LOT081–102 à produire.
