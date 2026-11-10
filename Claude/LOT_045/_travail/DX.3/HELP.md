@@ -15,3 +15,7 @@ Lacunes de sources (aucune formule de lacune dans le cours) :
 - Aucune règle d'assurance suisse propre au STOVAS lue (point 11.B.6 le dit par une phrase verbale).
 - Le seuil d'éosinophiles sanguins est imprimé « 0,3 cellule par microlitre » dans l'ERS 2019 ; l'unité probable est 0,3 G/L (point 9, tableau) : à faire contrôler par l'auditeur.
 - Contenu didactique non chiffré et non cité (technique de la rhinoscopie, anatomie, mécanisme des antihistaminiques, conduites usuelles) : à faire auditer.
+
+## Après correction P3 (lot 045)
+- Xylométazoline (Otrivin Rhume 58857) et furoate de fluticasone nasal (Fluticason-Mepha 69312) : doses ajoutées (prose et tableau). Aerius grossesse/allaitement rétabli mot pour mot. Seuil d'éosinophiles : 0,3 G/L.
+- Morphine à libération prolongée (ERS) : dose retirée, aucun AIPS morphine dans le paquet ; gabapentine/prégabaline retirées (extrait absent). Seuil d'hémoptysie massive de Singapour retiré (source non européenne unique).

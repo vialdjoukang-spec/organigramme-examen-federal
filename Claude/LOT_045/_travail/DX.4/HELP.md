@@ -6,3 +6,8 @@
 - Social et assurances (point 11.B) : aucune source lue sur les prestations suisses (LAA, LAMal, LiMaS) ; le texte le dit en une phrase et ne chiffre rien.
 - Grossesse et examens d'imagerie (point 9.c) : aucune source lue sur la spirométrie ou la radiographie pendant la grossesse ; l'affirmation a été retirée.
 - Embolie pulmonaire, pneumonie, cancer bronchique, tuberculose (tableau du point 4, cellules de tableau) : éléments cliniques classiques non chiffrés, sans citation en cellule ; sources de la Phase A (NICE ng120, SPLF item 204) pour les signes de gravité.
+
+## Après correction P3 (lot 045)
+- Salbutamol (Ventolin 37397), budésonide (Pulmicort 50192), fluticasone (Axotide 53390) : doses AIPS ajoutées ; lacune ci-dessus levée. Symbicort grossesse et allaitement rétablis d'après l'AIPS.
+- GINA : rapport 2025 non lu ; critère de méthacholine GINA 2022 supprimé, lignes du tableau réétiquetées « GINA, d'après la revue PMC9907191 » ; à actualiser avec le rapport GINA récent.
+- Urgence : oxygénothérapie et dose de corticoïde oral propre à l'asthme (GINA) non sourcées ; seule la dose AIPS générale de la prednisone (états aigus sévères) est citée.
