@@ -38,7 +38,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | livré PR 572 |
 | 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | livré PR 573 |
 | 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | livré PR 574 |
-| 087 | S6.2 | Ecchymoses, hématomes, purpura | réservé |
+| 087 | S6.2 | Ecchymoses, hématomes, purpura | livré PR 576 |
 | 088 | S6.3 | Hyperpigmentation ou hypopigmentation | réservé |
 | 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | réservé |
 | 090 | S6.5 | Ictère | réservé |
