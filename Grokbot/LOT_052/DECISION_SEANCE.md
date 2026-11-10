@@ -25,3 +25,14 @@ Ordre de Vial (« Tu dois corriger ») : la Phase A est réécrite par Grok Bot 
 - Images : paire brute / annotée sur le cliché de Bill Rhodes ; cliché Cerevisae corrigé (repère 1 sur la clarté, 2 sur le L, 3 sur l'air libre et non sur l'estomac) et présenté comme déjà annoté par l'auteur.
 - Phase B : DX.1 (douleur non spécifique) et DX.2 (gastroentérite) ont été réécrits sur la branche par un autre passage et ne sont pas touchés ici. DX.3 à DX.10 sont restaurés depuis `origin/main` (anciennes versions, ancienne liste) et restent à refaire.
 - Toujours pas d'audit indépendant (Θ2-P3) : le rédacteur ne s'audite pas lui-même.
+
+## Passage fix052b — 2026-11-10
+
+- Rangs E : exactement ceux de `LISTE_DX_CANONIQUE.md`. Le rang E3 disparaît ; « hospitalisation sans rang E » le remplace (appendicite, cholécystite simple, pancréatite, diverticulite compliquée). La pancréatite est une hospitalisation médicale, pas une urgence chirurgicale.
+- Occlusion et hernie étranglée : porte E1, conduite unique « transfert immédiat en ambulance médicalisée, à jeun », après palpation des orifices herniaires (RMS 2010, HUG 2017).
+- GEU : β-HCG positive avec douleur → urgences de gynécologie sans délai, échographie ; ambulance médicalisée si instable (HUG, plaintes gynécologiques, 30.10.2018 ; RMS 2010).
+- 144 nommé d'après la page CHUV « Appeler le 144 ». Buscopan® non ajouté : le seul extrait (HUG 2023) le cite pour la douleur chronique.
+- Hinchey : RMS 2009 (stades I à IV) et RMS 2021 (Hinchey modifiée, abstention d'antibiotique dans la forme simple sans facteur de risque).
+- Embryologie : limites d'après TeachMeAnatomy (artère mésentérique supérieure) ; règle clinique d'après Sinz 2021. StatPearls (NBK545247) bloque la lecture automatique.
+- Images : fiche 1 = échographie axiale d'AAA, Mikael Häggström, CC0, sans échelle donc sans diamètre ; fiche 2 = Rhodes. Attribution complète dans chaque légende.
+- La question finale garde la formulation imposée par le prompt de Lo (ligne 24), qui contient « fenêtres » ; c'est la seule occurrence.

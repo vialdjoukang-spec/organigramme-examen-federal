@@ -13,3 +13,6 @@ Mise à jour : 2026-11-10, correction de la Phase A.
 - L'échographie titrée « Appendicitis ultrasound » (62343b66aacf7581.png) a été refusée après inspection (vésicule lithiasique) et retirée du dépôt.
 - Aucun cliché libre d'ischémie mésentérique (E1) sans mention imprimée n'a été obtenu.
 - Catalogue de cas (liens seulement, aucune copie) : Radiopaedia, Radiology Assistant, Eurorad, Ultrasound Cases, Casimage.
+- Passage fix052b : StatPearls « Embryology, Bowel » (NBK545247) refuse curl et la lecture web ; la limite embryologique est sourcée par TeachMeAnatomy (extrait dans `_travail/evidence/teachmeanatomy_ams.txt`). À remplacer par une source suisse ou un manuel si l'audit l'exige.
+- Aucun extrait ne soutient Buscopan® en aigu ; il n'est pas cité.
+- L'échographie d'AAA n'a pas d'échelle : aucun diamètre n'est donné.
