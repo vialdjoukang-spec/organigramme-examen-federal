@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demande de consentement éclairé pour une intervention</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}
+@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}
+main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}
+h1,h2,h3,.barre,summary,nav,caption,th{font-family:"Atkinson Hyperlegible",Verdana,sans-serif}
+h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}
+h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}
+h3{font-size:1.05rem;color:var(--titre);margin:.8rem 0 .3rem}
+p{margin:0 0 .55rem}.sous{color:var(--doux);font-size:.95rem}
+a{color:var(--lien)}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem;box-shadow:0 1px 2px var(--o1),0 6px 16px var(--o2)}
+.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}
+.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}
+button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}
+button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}
+button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}
+.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,46rem);max-height:86vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre)}
+.fenetre::backdrop{background:var(--voile)}
+.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700}
+.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);cursor:pointer}
+.corps{padding:1rem 1.2rem 1.2rem}
+.tw{overflow-x:auto;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.4}
+th,td{border:1px solid var(--trait);padding:.35rem .45rem;vertical-align:top;text-align:left}
+th{background:var(--th)}
+caption{text-align:left;font-weight:700;padding:.2rem 0 .4rem}
+nav ol{padding-left:1.2rem;margin:.2rem 0}
+.som{columns:2;column-gap:1.2rem}.som li{break-inside:avoid}
+.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.7rem .9rem;margin:.7rem 0;background:var(--page)}
+.urgence strong{color:var(--alerte)}
+figure{margin:.6rem 0}figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:.88rem;color:var(--doux);margin-top:.3rem}
+.sources{font-size:.86rem}.sources li{margin:.35rem 0}
+.mention{font-style:italic;color:var(--doux)}
+.taille{font-size:.85rem;color:var(--doux)}
+sup.s{font-size:.66em;font-weight:700;color:#1a3a6b}
+.cliche{text-decoration:underline dotted;text-underline-offset:3px}
+abbr[title]{text-decoration:underline dotted 1px;cursor:help}
+.schema .etape rect{fill:var(--page);stroke:var(--ciel);stroke-width:1.6}
+.schema .etape:hover rect,.schema .etape:focus rect,.schema .etape:target rect{stroke:var(--alerte);stroke-width:3}
+.schema text{fill:var(--texte);font-family:"Atkinson Hyperlegible",Verdana,sans-serif}
+@media (max-width:480px){h1{font-size:1.45rem}.som{columns:1}}
+
+</style>
+</head>
+<body>
+<main>
+<h1 id="titre">Demande de consentement éclairé pour une intervention</h1>
+<p class="taille" id="taille">Taille : en cours de mesure</p>
+<p class="sous">Situation de départ O7.10, demande de consentement éclairé pour une intervention. Droit suisse lu le 1er novembre 2026 : code civil, directives de 2019, guide de juin 2026, loi de 2011 sur la recherche.</p>
+<section class="ilot c essentiel" aria-labelledby="ess">
+<h2 id="ess">L'essentiel</h2>
+<p>Un geste sur le corps n'est licite que s'il est couvert par un consentement valable ou par un autre fait justificatif. Trois conditions se cumulent : information adéquate, capacité de discernement et liberté. Le refus d'une personne capable s'impose. L'incapacité ouvre les directives anticipées, puis le représentant. L'urgence, chez une personne incapable, autorise seulement les soins indispensables.</p>
+</section>
+<nav class="ilot v" aria-labelledby="som">
+<h2 id="som">Sommaire</h2>
+<ol class="som">
+<li><a href="#p1">Définition</a></li>
+<li><a href="#p2">Épidémiologie</a></li>
+<li><a href="#p3">Physiopathologie</a></li>
+<li><a href="#p4">Démarche diagnostique</a></li>
+<li><a href="#p5">Anamnèse et drapeaux rouges</a></li>
+<li><a href="#p6">Examen clinique</a></li>
+<li><a href="#p7">Approche syndromique</a></li>
+<li><a href="#p8">Diagnostic positif</a></li>
+<li><a href="#p9">Examens complémentaires</a></li>
+<li><a href="#p10">Arbre décisionnel</a></li>
+<li><a href="#p11">Prise en charge en Suisse</a></li>
+<li><a href="#p12">Prévention</a></li>
+<li><a href="#p13">Points clés</a></li>
+<li><a href="#p14">Pièges d'examen</a></li>
+</ol>
+<p class="sous">Les mots ⧉ ouvrent une fenêtre. Les sources sont à la fin.</p>
+</nav>
+<section class="ilot c"><h2 id="p1">1. Définition</h2>
+<p>Le consentement est l'autorisation qui rend licite une atteinte à l'intégrité. Trois conditions se cumulent. <button type="button" class="terme" popovertarget="w-p1">ouvrir le développement</button></p>
+<div id="w-p1" popover class="fenetre"><div class="barre"><span>Point 1</span><button type="button" popovertarget="w-p1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le consentement éclairé est l'autorisation donnée par la personne concernée à une atteinte à son intégrité corporelle. Sans cette autorisation, ou sans un autre fait justificatif, l'acte est illicite, même s'il est indiqué et même s'il est bien exécuté.<sup class="s">9</sup></p>
+<p>Trois conditions se cumulent. L'information doit être adéquate. La personne doit être capable de discernement pour cette décision. Le choix doit être libre. Si une seule manque, le consentement n'est pas valable.<sup class="s">7,9</sup></p>
+<p>Selon l'article 16 du <abbr title="code civil suisse">CC</abbr>, toute personne est capable de discernement si elle peut agir raisonnablement. Seules des causes précises lui retirent cette faculté : jeune âge, déficience mentale, troubles psychiques, ivresse ou causes semblables.<sup class="s">1</sup></p>
+<p>La capacité est présumée. On ne l'évalue que si un doute fondé apparaît, ou si l'incapacité est manifeste, comme chez un nourrisson ou une personne inconsciente.<sup class="s">7</sup></p>
+<p><b>Acte médical sans consentement valable.</b> Une femme de 54 ans, enseignante, sans trouble cognitif. Geste : une cure de hernie inguinale programmée, sous anesthésie générale. Elle arrive à 7 h. L'accueil lui tend un formulaire de « consentement opératoire ». Elle croit signer l'autorisation administrative. Personne ne nomme le risque d'atteinte nerveuse, la douleur chronique, ni l'option d'une surveillance. À 10 h elle est au bloc.<sup class="s">9</sup></p>
+<p><b>Défaut d'information avant une intervention.</b> Un homme de 61 ans, comptable, opéré d'un goitre. Geste : une thyroïdectomie totale programmée. L'entretien a duré huit minutes, trois semaines avant. On a parlé de la cicatrice et de l'hormone à prendre ensuite. On n'a pas parlé de la voix, de l'hypocalcémie, ni de la possibilité d'une lobo-isthmectomie. Au réveil, une corde vocale est paralysée.<sup class="s">9</sup></p>
+<p><b>Consentement recueilli d'une personne incapable de discernement.</b> Un homme de 82 ans, habituellement autonome, hospitalisé pour une fracture du col. Geste : une prothèse de hanche proposée le soir de l'admission. Il est désorienté par moments, s'endort en parlant, et dit oui à tout sans pouvoir redire le but du geste. Sa fille, pressée, guide sa main pour signer. Le matin il était plus clair, l'après-midi non.<sup class="s">9</sup></p>
+<p><b>Passage outre un refus éclairé.</b> Une femme de 47 ans, Témoin de Jéhovah, ingénieure. Geste : une prothèse de hanche élective, avec un plan sans transfusion. Elle refuse toute transfusion et tout dérivé, par écrit, après un entretien où elle reformule le risque hémorragique et la possibilité de mourir. L'équipe prévoit quand même de transfuser « si vraiment il le faut ».<sup class="s">9</sup></p>
+<p><b>Urgence chez une personne incapable de discernement.</b> Un motard de 29 ans, inconscient après un choc. Geste : une laparotomie pour choc hémorragique abdominal. Il ne parle pas, la pression tombe, l'échographie montre du liquide. Aucun proche n'est là. Le portefeuille contient une carte : pas de directives déposées. L'équipe hésite à inciser sans signature.<sup class="s">9</sup></p>
+<p><b>Consentement valable d'une personne capable de discernement.</b> Une femme de 43 ans, boulangère, sans traitement psychotrope. Geste : une cholécystectomie sous cœlioscopie pour coliques répétés. Deux consultations. Elle reformule : retirer la vésicule, diminuer les coliques, risques de plaie biliaire, d'ouverture, de phlébite, option d'attendre en évitant les graisses. Elle choisit l'opération, puis confirme la veille.<sup class="s">9</sup></p>
+<p><b>Consentement personnel du mineur capable de discernement.</b> Une adolescente de 16 ans, au lycée, fracture du ménisque instable. Geste : une arthroscopie du genou. Elle comprend le but, le risque de raideur, l'alternative d'un plâtre plus long, et elle veut être opérée pour reprendre le handball. Ses parents refusent « pour ne pas manquer les examens » et exigent que rien ne se fasse sans leur signature.<sup class="s">9</sup></p>
+<p><b>Personne sous curatelle encore capable de discernement.</b> Un homme de 58 ans, sous curatelle de portée générale pour une maladie psychique stabilisée. Geste : une coloscopie après un test de sang occulte positif. Le curateur écrit qu'il « décide des soins ». Le patient, ce matin-là, explique le but de la coloscopie, le risque de perforation, l'alternative de ne pas la faire, et il veut la faire. Il est calme, sans délire, et il répète son choix le lendemain.<sup class="s">9</sup></p>
+<p><b>Information non comprise pour cause de barrière linguistique.</b> Un homme de 67 ans, albanophone, peu lecteur du français. Geste : une colectomie droite pour un cancer. Son fils de 19 ans traduit. Le patient hoche la tête. En le faisant reformuler avec un interprète professionnel, on découvre qu'il croit à une « petite ablation de polype » et qu'il ignore la poche possible et la chimiothérapie.<sup class="s">9</sup></p>
+<p><b>Consentement à une recherche sur l'être humain.</b> Une femme de 70 ans, déjà consentante pour une prothèse de genou. Geste : la même prothèse, plus un tirage au sort dans un essai sur un ciment. On lui a bien expliqué l'opération. À la fin, une phrase dit qu'elle « participe à l'amélioration des soins » et qu'elle signe le même papier. Elle ne sait pas qu'elle peut refuser l'essai et être quand même opérée.<sup class="s">9</sup></p>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p2">2. Épidémiologie</h2>
+<p>En 2022, 24 pour cent des adultes interrogés ont rédigé des directives. La synthèse de 2018 en trouve 16 pour cent déposées. <button type="button" class="terme" popovertarget="w-p2">ouvrir le développement</button></p>
+<div id="w-p2" popover class="fenetre"><div class="barre"><span>Point 2</span><button type="button" popovertarget="w-p2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>En 2022, une enquête téléphonique de Pro Senectute auprès de 1204 adultes de 18 à 99 ans trouve que 24 pour cent ont rédigé des directives anticipées. La même année, 85 pour cent disent les connaître.<sup class="s">10</sup></p>
+<p>L'enquête de l'<abbr title="Office fédéral de la santé publique">OFSP</abbr> (office fédéral de la santé publique) sur les soins palliatifs, dont la synthèse date de 2018, trouve une part plus basse de personnes ayant déposé des directives : 16 pour cent. En région germanophone, 19 pour cent en ont déposé, contre 9 pour cent en région francophone et 7 pour cent en région italophone.<sup class="s">11</sup></p>
+<p>Ces deux enquêtes ne mesurent pas la même chose. L'une demande si la personne a rédigé des directives. L'autre demande si elle en a déposé. Le médecin ne convertit pas l'une dans l'autre.<sup class="s">10,11</sup></p>
+<p>Aucune des sources lues en 2026 ne donne la part, au cabinet ou à l'hôpital, des interventions faites sans information adéquate. Le médecin ne retient donc pas un pourcentage de plaintes.<sup class="s">8</sup></p>
+</div></div>
+</section>
+<section class="ilot c"><h2 id="p3">3. Physiopathologie</h2>
+<p>Le raisonnement est normatif : atteinte, puis fait justificatif. Le défaut d'une condition rend l'acte illicite. <button type="button" class="terme" popovertarget="w-p3">ouvrir le développement</button></p>
+<div id="w-p3" popover class="fenetre"><div class="barre"><span>Point 3</span><button type="button" popovertarget="w-p3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le raisonnement est normatif. Le point de départ est l'atteinte à l'intégrité. Le fait justificatif ordinaire est le consentement. Le fait justificatif de l'urgence, chez une personne incapable, est l'article 379 du <abbr title="code civil suisse">CC</abbr>.<sup class="s">6,9</sup></p>
+<p>L'information crée la possibilité de choisir. Le Tribunal fédéral, dans l'arrêt 4A_547/2019 qui reprend l'<abbr title="arrêt du Tribunal fédéral publié au recueil officiel">ATF</abbr> (arrêt publié) 133 III 121, demande des termes clairs. Ils portent sur le diagnostic, la thérapie, le pronostic et les alternatives. Ils portent aussi sur les risques, les chances, l'évolution sans traitement et les questions financières.<sup class="s">9</sup></p>
+<p>La capacité n'est pas un test de la sagesse du choix. Les directives de 2019 interdisent de conclure à l'incapacité seulement parce que la décision étonne ou s'écarte de la recommandation.<sup class="s">7</sup></p>
+<p>La liberté manque si la personne décide sous la pression d'un proche, d'une équipe ou d'un délai artificiel. Les directives de 2019 demandent un moment sans tiers, lorsque le patient le souhaite, pour entendre sa volonté propre.<sup class="s">7</sup></p>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p4">4. Démarche diagnostique</h2>
+<p>On commence par l'urgence vitale, puis la capacité, puis les directives et le représentant. <button type="button" class="terme" popovertarget="w-p4">ouvrir le développement</button></p>
+<div id="w-p4" popover class="fenetre"><div class="barre"><span>Point 4</span><button type="button" popovertarget="w-p4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Devant une demande de consentement, le médecin classe d'abord le danger immédiat. S'il existe et que la personne est incapable, il donne les soins indispensables selon la volonté présumée et les intérêts, article 379.<sup class="s">6</sup></p>
+<p>S'il n'y a pas cette urgence, il cherche un refus déjà écrit, puis il apprécie la capacité pour cette décision et à ce moment. Capable, la personne décide. Incapable, il suit les directives puis le représentant.<sup class="s">3,5,7</sup></p>
+<p>Il sépare ensuite le soin et la recherche. Le consentement à l'opération ne couvre pas un projet de recherche. La loi de 2011 exige alors une information orale et écrite, un écrit, un délai de réflexion et l'autorisation de la commission d'éthique.<sup class="s">13</sup></p>
+<p>À chaque embranchement, il écrit ce qu'il a dit, ce qu'il a compris de la personne, et la décision. La charge de la preuve de l'information lui incombe.<sup class="s">8,9</sup></p>
+<p>Pour acte médical sans consentement valable : On n'opère pas. On reprend l'entretien le jour même si elle le souhaite et si le délai du guide est tenu, sinon on reporte.<sup class="s">8</sup></p>
+<p>Pour défaut d'information avant une intervention : Avant le geste, nommer la paralysie récurrentielle, l'hypocalcémie, l'hématome, et l'alternative d'un geste plus limité si elle est défendable.<sup class="s">8</sup></p>
+<p>Pour consentement recueilli d'une personne incapable de discernement : Ne pas faire signer. Corriger douleur, heure et médicaments s'ils troublent, réévaluer au moment le plus clair. Sinon, directives puis représentant de l'article 378, et plan de l'article 377.<sup class="s">8</sup></p>
+<p>Pour passage outre un refus éclairé : Respecter le refus. Organiser l'épargne sanguine, le fer, le chirurgien habitué, et un plan si l'hémorragie met la vie en danger sans transfusion : on ne transfuse pas.<sup class="s">8</sup></p>
+<p>Pour urgence chez une personne incapable de discernement : Contrôler l'hémorragie. Ne pas ajouter un geste de confort ou une recherche. Chercher ensuite directives et proches. Réévaluer dès qu'il reprend conscience.<sup class="s">8</sup></p>
+<p>Pour consentement valable d'une personne capable de discernement : Opérer. Garder la trace. Vérifier la veille qu'elle n'a pas changé d'avis et qu'aucun sédatif n'a été donné avant la confirmation.<sup class="s">8</sup></p>
+<p>Pour consentement personnel du mineur capable de discernement : Recueillir son consentement. Informer les parents du cadre, sans leur donner un veto sur le soin. Le contrat d'hospitalisation et les frais peuvent encore relever du représentant : les directives de 2019 laissent cette question ouverte.<sup class="s">8</sup></p>
+<p>Pour personne sous curatelle encore capable de discernement : C'est lui qui consent. Le curateur n'a pas à autoriser le soin. Il reste utile pour l'organisation et les frais. S'il devenait incapable, le curateur chargé du domaine médical viendrait au deuxième rang de l'article 378.<sup class="s">8</sup></p>
+<p>Pour information non comprise pour cause de barrière linguistique : Reporter le geste électif. Reprendre avec un interprète professionnel, dans la langue du patient, avec reformulation. Écrire le nom de l'interprète et la langue.<sup class="s">8</sup></p>
+<p>Pour consentement à une recherche sur l'être humain : Séparer les entretiens. Laisser un délai raisonnable. Consentement écrit pour la recherche, révocable sans justification et sans effet sur l'opération. Vérifier l'autorisation de la commission d'éthique.<sup class="s">8</sup></p>
+</div></div>
+</section>
+<section class="ilot c"><h2 id="p5">5. Anamnèse et drapeaux rouges</h2>
+<p>L'entretien vérifie ce qui a été compris, la pression d'un tiers, et l'existence de directives. <button type="button" class="terme" popovertarget="w-p5">ouvrir le développement</button></p>
+<div id="w-p5" popover class="fenetre"><div class="barre"><span>Point 5</span><button type="button" popovertarget="w-p5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>L'entretien commence par ce que la personne sait déjà et par ce qu'elle veut savoir, y compris ce qu'elle préfère ne pas entendre dans le détail. Le médecin ne remplace pas cette préférence par un formulaire.<sup class="s">8</sup></p>
+<p>Il demande le but que la personne attribue au geste, le risque grave qu'elle retient, l'alternative qu'on lui a nommée, et ce qui se passe si elle refuse. Une réponse vague est une information inachevée, pas un accord.<sup class="s">9</sup></p>
+<p>Il cherche une pression. Il demande si quelqu'un a insisté, et il offre un temps seul. Un changement d'avis dès que le proche sort est un drapeau rouge de liberté, pas une versatilité à mépriser.<sup class="s">7</sup></p>
+<p>Il demande s'il existe des directives anticipées, un mandat pour cause d'inaptitude, une curatelle, et qui devrait parler au médecin si la personne ne pouvait plus décider. L'<abbr title="Office fédéral de la santé publique">OFSP</abbr> (office fédéral de la santé publique) rappelle que l'équipe doit s'enquérir des directives en cas d'incapacité.<sup class="s">12</sup></p>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p6">6. Examen clinique</h2>
+<p>Les quatre capacités de 2019 se jugent pour une décision et un moment. Un test cognitif bref ne tranche pas. <button type="button" class="terme" popovertarget="w-p6">ouvrir le développement</button></p>
+<div id="w-p6" popover class="fenetre"><div class="barre"><span>Point 6</span><button type="button" popovertarget="w-p6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>L'examen décisif est l'entretien de capacité, pas un score global. Les directives de 2019 décrivent quatre capacités : comprendre au moins dans les grandes lignes, évaluer la situation pour soi, se forger une volonté à partir de ses valeurs, communiquer cette volonté et la défendre.<sup class="s">7</sup></p>
+<p>L'incapacité n'est retenue que si ces capacités sont fortement limitées. Il faut aussi que cette limite se rattache à une cause de l'article 16 : jeune âge, trouble psychique, déficience mentale, ivresse ou cause semblable.<sup class="s">1,7</sup></p>
+<p>Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental) bas ne tranche pas. Une personne peut être capable pour un soin simple et incapable pour une décision lourde. L'inverse existe aussi. On juge la décision du jour.<sup class="s">7</sup></p>
+<p>Le médecin observe la <span class="cliche" data-cliche="LOT_232-A-1">fluctuation</span> de la vigilance, l'heure, la douleur, la langue, et la présence d'un tiers. Il réévalue si l'état change ou si le geste est loin de l'information.<sup class="s">7</sup></p>
+</div></div>
+</section>
+<section class="ilot c"><h2 id="p7">7. Approche syndromique</h2>
+<p>Dix situations se séparent par un fait dominant. Le tableau comparatif est dans la fenêtre. <button type="button" class="terme" popovertarget="w-p7">ouvrir le développement</button></p>
+<div id="w-p7" popover class="fenetre"><div class="barre"><span>Point 7</span><button type="button" popovertarget="w-p7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Cinq tableaux se séparent au lit. Le patient capable qui accepte. Le patient capable qui refuse. Le patient dont la capacité est douteuse. Le patient incapable avec un représentant. Le patient incapable en danger immédiat sans représentant joignable.<sup class="s">6,7</sup></p>
+<p>Deux tableaux voisins se trompent souvent. La personne sous curatelle de portée générale n'est pas, par cela seul, incapable de discernement. Le mineur capable n'a pas besoin du consentement parental pour le soin lui-même.<sup class="s">2,7</sup></p>
+<p>Deux autres tableaux concernent la forme. L'information non comprise, surtout si un proche traduit, n'est pas une information. Le consentement de recherche n'est pas le consentement de soin.<sup class="s">13</sup></p>
+<p>Le formulaire signé sans entretien ressemble à un consentement et n'en est pas un. Il se range avec l'acte sans consentement valable ou avec le défaut d'information, selon ce qui a manqué.<sup class="s">8,9</sup></p>
+
+<div class="tw"><table>
+<caption>Dix situations du motif, et le fait qui les sépare</caption>
+<thead><tr><th>Situation</th><th>Fait qui reclasse</th><th>Conduite immédiate</th></tr></thead>
+<tbody>
+<tr><td>Acte sans consentement valable</td><td>Une condition manque, souvent l'information, et le geste est parti ou va partir.</td><td>Arrêter ou reporter. Reprendre l'entretien.</td></tr>
+<tr><td>Défaut d'information</td><td>Risque grave ou alternative tus, alors que la personne était capable.</td><td>Compléter avant le geste. Prouver ensuite.</td></tr>
+<tr><td>Consentement d'une personne incapable</td><td>Acquiescement sans les quatre capacités.</td><td>Ne pas faire signer. Directives, puis représentant.</td></tr>
+<tr><td>Passage outre un refus</td><td>Refus capable, stable, éclairé.</td><td>Respecter. Organiser l'alternative.</td></tr>
+<tr><td>Urgence, personne incapable</td><td>Danger immédiat, personne qui ne décide pas, soins indispensables.</td><td>Article 379. Pas d'élargissement.</td></tr>
+<tr><td>Consentement valable</td><td>Information, capacité, liberté, trace.</td><td>Faire le geste. Confirmer avant toute sédation.</td></tr>
+<tr><td>Mineur capable</td><td>Il décide pour ce soin. Les parents n'ont pas de veto.</td><td>Consentement personnel. Frais à part.</td></tr>
+<tr><td>Curatelle avec capacité</td><td>La curatelle ne retire pas le discernement.</td><td>La personne consent elle-même.</td></tr>
+<tr><td>Barrière linguistique</td><td>Pas de reformulation dans sa langue.</td><td>Interprète professionnel. Reporter si électif.</td></tr>
+<tr><td>Recherche</td><td>Projet distinct du soin.</td><td>Écrit, délai, commission, retrait libre.</td></tr>
+</tbody></table></div>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p8">8. Diagnostic positif</h2>
+<p>Le diagnostic de situation s'écrit : information, capacité, liberté, et la trace. <button type="button" class="terme" popovertarget="w-p8">ouvrir le développement</button></p>
+<div id="w-p8" popover class="fenetre"><div class="barre"><span>Point 8</span><button type="button" popovertarget="w-p8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le diagnostic de situation est positif quand les trois conditions sont décrites une à une, et non quand une signature est présente. Information, capacité, liberté : chacune est notée.<sup class="s">9</sup></p>
+<p>Pour l'information, le critère est le contenu réellement transmis : diagnostic, nature, but, bénéfices, risques fréquents, risques graves même rares, alternatives, abstention, suites et coût.<sup class="s">8,9</sup></p>
+<p>Pour la capacité, le critère est le jugement clinique sur les quatre capacités, pour cette décision, avec le motif écrit si l'on conclut à l'incapacité. Les directives de 2019 exigent cette trace.<sup class="s">7</sup></p>
+<p>Pour la liberté, le critère est l'absence de contrainte repérée et un délai proportionné. Le guide de juin 2026, citant l'arrêt 4P.265/2002 du 28 avril 2003, retient la veille au plus tard pour un geste simple, et au minimum trois jours avant un geste lourd.<sup class="s">8</sup></p>
+<p>Critère de « Acte médical sans consentement valable » : Il n'y a eu ni information sur les risques graves, ni vérification de ce qu'elle avait compris, ni moment pour refuser. Trace : Pas d'entretien médical avant la signature. Patiente capable. Information non donnée. Intervention reportée.<sup class="s">9</sup></p>
+<p>Critère de « Défaut d'information avant une intervention » : Un risque grave, rare mais connu, et une alternative raisonnable n'ont pas été dits. Trace : Risques graves nommés : voix, calcium, hématome. Alternative discutée : geste limité. Délai : trois semaines. Décision du patient après reformulation.<sup class="s">9</sup></p>
+<p>Critère de « Consentement recueilli d'une personne incapable de discernement » : On a pris un acquiescement fluctuant pour un consentement, sans évaluer les quatre capacités et sans chercher les directives. Trace : Capacité non retenue à 20 h : ne reformule pas le but, vigilance fluctuante. Signature annulée. Réévaluation prévue à 8 h. Fille entendue comme proche, pas encore comme représentante : on vérifie l'ordre légal.<sup class="s">9</sup></p>
+<p>Critère de « Passage outre un refus éclairé » : Le refus est éclairé, stable, capable. Le projet de passer outre est une atteinte illicite. Trace : Refus de transfusion éclairé, capable, répété seule. Alternatives d'épargne acceptées. Transfusion exclue même en cas de danger vital peropératoire.<sup class="s">9</sup></p>
+<p>Critère de « Urgence chez une personne incapable de discernement » : L'hésitation retarde les soins indispensables. L'article 379 est le fait justificatif. Trace : Choc hémorragique, patient inconscient, aucun représentant joignable, pas de refus anticipé connu. Laparotomie selon l'article 379. Heure, constat, et limite du geste écrite.<sup class="s">9</sup></p>
+<p>Critère de « Consentement valable d'une personne capable de discernement » : Rien d'essentiel ne manque si la trace est complète. Ce dossier est le modèle, pas un manquement. Trace : Entretien du 12, confirmation la veille. Risques nommés dont plaie biliaire. Alternative d'expectative expliquée. Décision d'opérer. Capable. Libre.<sup class="s">9</sup></p>
+<p>Critère de « Consentement personnel du mineur capable de discernement » : Le manque serait d'obéir aux parents alors qu'elle est capable pour ce soin, ou l'inverse : opérer un enfant de 7 ans sur son seul oui. Trace : Mineure de 16 ans, capable pour l'arthroscopie. Consentement personnel. Parents opposés pour un motif scolaire, informés, sans veto sur le soin. Frais : à clarifier avec le représentant.<sup class="s">9</sup></p>
+<p>Critère de « Personne sous curatelle encore capable de discernement » : Confondre la curatelle avec l'incapacité. L'article 17 lui retire l'exercice des droits civils. L'article 19c lui laisse les droits strictement personnels s'il est capable. Trace : Curatelle de portée générale. Capacité retenue pour la coloscopie : reformule but, risque de perforation, alternative. Consentement personnel. Curateur informé de l'organisation, pas substitut.<sup class="s">9</sup></p>
+<p>Critère de « Information non comprise pour cause de barrière linguistique » : L'information n'est pas adéquate tant qu'elle n'est pas comprise. L'acquiescement poli n'est pas un consentement. Trace : Entretien initial non valable : traduction par le fils, reformulation impossible. Nouvel entretien avec interprète professionnel, langue albanaise. Risques graves reformulés par le patient.<sup class="s">9</sup></p>
+<p>Critère de « Consentement à une recherche sur l'être humain » : Le consentement de soin ne couvre pas la recherche. La loi de 2011 sépare les deux. Trace : Consentement opératoire distinct. Essai : information orale et écrite remise, délai jusqu'à demain, signature séparée, droit de retrait expliqué. Numéro d'autorisation de la commission noté.<sup class="s">9</sup></p>
+</div></div>
+</section>
+<section class="ilot c"><h2 id="p9">9. Examens complémentaires</h2>
+<p>Les pièces sont la trace, la carte d'assuré, les directives, le représentant ou l'interprète. <button type="button" class="terme" popovertarget="w-p9">ouvrir le développement</button></p>
+<div id="w-p9" popover class="fenetre"><div class="barre"><span>Point 9</span><button type="button" popovertarget="w-p9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Les compléments ne sont pas un laboratoire. Ce sont les pièces qui rendent la décision loyale : directives écrites, carte d'assuré, mandat, jugement de curatelle, nom du représentant, et identité de l'interprète.<sup class="s">3,12</sup></p>
+<p>L'article 372 demande au médecin qui ignore si des directives existent de consulter la carte d'assuré, sauf urgence. L'article 371 exige un écrit daté et signé.<sup class="s">3</sup></p>
+<p>Le médecin saisit l'autorité de protection de l'adulte, article 381, dans trois cas. Les représentants du même rang ne s'accordent pas. Aucun représentant n'est joignable hors urgence. Ou les intérêts de la personne sont menacés.<sup class="s">6</sup></p>
+<p>Pour une recherche, le complément est le dossier du projet : information écrite, consentement écrit, délai laissé, et autorisation de la commission d'éthique, article 45 de la loi de 2011.<sup class="s">13</sup></p>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p10">10. Arbre décisionnel</h2>
+<p>Trois schémas : capacité et représentation, chaîne de l'information, urgence et refus. <button type="button" class="terme" popovertarget="w-p10">ouvrir le développement</button></p>
+<div id="w-p10" popover class="fenetre"><div class="barre"><span>Point 10</span><button type="button" popovertarget="w-p10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>L'arbre tient en une question d'ouverture : y a-t-il un danger immédiat chez une personne qui ne peut pas décider ? Si oui, soins indispensables, volonté présumée, et respect d'un refus anticipé déjà connu.<sup class="s">6,3</sup></p>
+<p>Si non, la deuxième question est la capacité pour cette décision. Le capable accepte ou refuse. Le doute se lève en corrigeant ce qui est réversible, puis en réévaluant. L'incapable ouvre les directives, puis l'article 378.<sup class="s">5,7</sup></p>
+<p>La chaîne d'information est un second dessin. Dix maillons vont du diagnostic à la trace écrite. Il manque un maillon décisif, en particulier un risque grave ou une alternative, et l'information n'est pas adéquate.<sup class="s">8,9</sup></p>
+<p>Le troisième dessin sépare le refus et l'urgence. Ils ne se traitent pas par le même réflexe. Le refus capable s'impose. L'urgence de l'incapable autorise les soins indispensables, pas davantage.<sup class="s">6,9</sup></p>
+<figure class="schema"><svg viewBox="0 0 700 540" role="img" aria-label="Arbre capacité et représentation">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M370 58 V88" marker-end="url(#fl)"/><path d="M280 134 H145 V170" marker-end="url(#fl)"/><path d="M460 134 H530 V170" marker-end="url(#fl)"/><path d="M145 222 V250" marker-end="url(#fl)"/><path d="M530 222 V250" marker-end="url(#fl)"/><path d="M530 296 V322" marker-end="url(#fl)"/><path d="M530 368 V394" marker-end="url(#fl)"/><path d="M530 446 V472" marker-end="url(#fl)"/></g>
+<g class="etape" id="acte" tabindex="0"><rect x="250" y="12" width="240" height="46" rx="8"/><text x="370" y="30" text-anchor="middle" font-size="13">Acte proposé</text><text x="370" y="46" text-anchor="middle" font-size="13">hors recherche</text></g><g class="etape" id="urgence" tabindex="0"><rect x="230" y="88" width="280" height="46" rx="8"/><text x="370" y="106" text-anchor="middle" font-size="13">Danger immédiat ?</text><text x="370" y="122" text-anchor="middle" font-size="13">Patient incapable</text></g><g class="etape" id="oui379" tabindex="0"><rect x="20" y="170" width="250" height="52" rx="8"/><text x="145" y="188" text-anchor="middle" font-size="13">Oui : soins indispensables</text><text x="145" y="204" text-anchor="middle" font-size="13">volonté présumée</text></g><g class="etape" id="refusant" tabindex="0"><rect x="20" y="250" width="250" height="52" rx="8"/><text x="145" y="268" text-anchor="middle" font-size="13">Refus anticipé connu</text><text x="145" y="284" text-anchor="middle" font-size="13">ne pas passer outre</text></g><g class="etape" id="capa" tabindex="0"><rect x="390" y="170" width="280" height="52" rx="8"/><text x="530" y="188" text-anchor="middle" font-size="13">Non : capacité pour</text><text x="530" y="204" text-anchor="middle" font-size="13">cette décision, ce moment</text></g><g class="etape" id="capable" tabindex="0"><rect x="390" y="250" width="280" height="46" rx="8"/><text x="530" y="268" text-anchor="middle" font-size="13">Capable : il décide</text><text x="530" y="284" text-anchor="middle" font-size="13">accord ou refus</text></g><g class="etape" id="doute" tabindex="0"><rect x="390" y="322" width="280" height="46" rx="8"/><text x="530" y="340" text-anchor="middle" font-size="13">Doute : quatre aptitudes</text><text x="530" y="356" text-anchor="middle" font-size="13">puis réévaluer</text></g><g class="etape" id="incap" tabindex="0"><rect x="390" y="394" width="280" height="52" rx="8"/><text x="530" y="412" text-anchor="middle" font-size="13">Incapable : directives</text><text x="530" y="428" text-anchor="middle" font-size="13">puis représentant</text></g><g class="etape" id="plan" tabindex="0"><rect x="390" y="472" width="280" height="46" rx="8"/><text x="530" y="490" text-anchor="middle" font-size="13">Plan de traitement</text><text x="530" y="506" text-anchor="middle" font-size="13">associer la personne</text></g>
+</svg>
+<figcaption>Chaque cadre réagit au survol, au focus et à l'ancre. La branche de gauche est l'urgence. La branche de droite part de la capacité.</figcaption>
+</figure><figure class="schema"><svg viewBox="0 0 680 420" role="img" aria-label="Chaîne de l'information avant une intervention">
+<g class="etape" id="c1" tabindex="0"><rect x="24" y="16" width="300" height="52" rx="8"/><text x="174" y="44" text-anchor="middle" font-size="13">1. Diagnostic</text></g><g class="etape" id="c2" tabindex="0"><rect x="354" y="16" width="300" height="52" rx="8"/><text x="504" y="44" text-anchor="middle" font-size="13">2. Nature et but</text></g><g class="etape" id="c3" tabindex="0"><rect x="24" y="94" width="300" height="52" rx="8"/><text x="174" y="122" text-anchor="middle" font-size="13">3. Bénéfices</text></g><g class="etape" id="c4" tabindex="0"><rect x="354" y="94" width="300" height="52" rx="8"/><text x="504" y="122" text-anchor="middle" font-size="13">4. Risques fréquents</text></g><g class="etape" id="c5" tabindex="0"><rect x="24" y="172" width="300" height="52" rx="8"/><text x="174" y="200" text-anchor="middle" font-size="13">5. Risques graves</text></g><g class="etape" id="c6" tabindex="0"><rect x="354" y="172" width="300" height="52" rx="8"/><text x="504" y="200" text-anchor="middle" font-size="13">6. Alternatives</text></g><g class="etape" id="c7" tabindex="0"><rect x="24" y="250" width="300" height="52" rx="8"/><text x="174" y="278" text-anchor="middle" font-size="13">7. Abstention</text></g><g class="etape" id="c8" tabindex="0"><rect x="354" y="250" width="300" height="52" rx="8"/><text x="504" y="278" text-anchor="middle" font-size="13">8. Coût et suites</text></g><g class="etape" id="c9" tabindex="0"><rect x="24" y="328" width="300" height="52" rx="8"/><text x="174" y="356" text-anchor="middle" font-size="13">9. Reformulation</text></g><g class="etape" id="c10" tabindex="0"><rect x="354" y="328" width="300" height="52" rx="8"/><text x="504" y="356" text-anchor="middle" font-size="13">10. Délai, puis trace</text></g>
+</svg>
+<figcaption>Dix maillons. Un maillon manquant, surtout un risque grave ou une alternative, empêche de parler d'information adéquate. Le survol épaissit le cadre.</figcaption>
+</figure><figure class="schema"><svg viewBox="0 0 680 410" role="img" aria-label="Parcours urgence et refus">
+<g fill="none" stroke="currentColor" stroke-width="1.4">
+<path d="M330 68 H164 V110" marker-end="url(#fl2)"/>
+<path d="M330 68 H500 V110" marker-end="url(#fl2)"/>
+<path d="M164 162 V220" marker-end="url(#fl2)"/>
+<path d="M500 162 V220" marker-end="url(#fl2)"/>
+<path d="M164 272 H330 V330" marker-end="url(#fl2)"/>
+<path d="M500 272 H330 V330" marker-end="url(#fl2)"/>
+</g>
+<defs><marker id="fl2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<g class="etape" id="u1" tabindex="0"><rect x="180" y="16" width="300" height="52" rx="8"/><text x="330" y="34" text-anchor="middle" font-size="13">Patient qui ne décide pas</text><text x="330" y="50" text-anchor="middle" font-size="13">ou qui refuse</text></g><g class="etape" id="u2" tabindex="0"><rect x="24" y="110" width="280" height="52" rx="8"/><text x="164" y="128" text-anchor="middle" font-size="13">Capable et refus stable</text><text x="164" y="144" text-anchor="middle" font-size="13">respecter, tracer</text></g><g class="etape" id="u3" tabindex="0"><rect x="360" y="110" width="280" height="52" rx="8"/><text x="500" y="128" text-anchor="middle" font-size="13">Incapable, danger immédiat</text><text x="500" y="144" text-anchor="middle" font-size="13">soins indispensables</text></g><g class="etape" id="u4" tabindex="0"><rect x="24" y="220" width="280" height="52" rx="8"/><text x="164" y="238" text-anchor="middle" font-size="13">Proposer l'alternative</text><text x="164" y="254" text-anchor="middle" font-size="13">ne pas passer outre</text></g><g class="etape" id="u5" tabindex="0"><rect x="360" y="220" width="280" height="52" rx="8"/><text x="500" y="238" text-anchor="middle" font-size="13">Chercher un refus écrit</text><text x="500" y="254" text-anchor="middle" font-size="13">s'il ne retarde rien</text></g><g class="etape" id="u6" tabindex="0"><rect x="180" y="330" width="300" height="52" rx="8"/><text x="330" y="348" text-anchor="middle" font-size="13">Dès que c'est possible</text><text x="330" y="364" text-anchor="middle" font-size="13">reprendre avec lui</text></g>
+</svg>
+<figcaption>À gauche, le refus d'une personne capable. À droite, l'urgence chez une personne incapable. Les deux se rejoignent : on rediscute dès que la personne peut décider.</figcaption>
+</figure></div></div>
+</section>
+<section class="ilot c"><h2 id="p11">11. Prise en charge en Suisse</h2>
+<p>En Suisse, on informe, on respecte le refus capable, on suit les articles 377 à 381 si la personne est incapable. <button type="button" class="terme" popovertarget="w-p11">ouvrir le développement</button></p>
+<div id="w-p11" popover class="fenetre"><div class="barre"><span>Point 11</span><button type="button" popovertarget="w-p11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>En Suisse, le médecin informe, vérifie la capacité s'il y a doute, laisse le choix, et écrit. Il n'y a pas de dose à prescrire pour ce motif. La conduite est un entretien et une trace.<sup class="s">8</sup></p>
+<p>L'ordre de l'article 378 est fixe. D'abord la personne désignée dans les directives ou le mandat. Puis le curateur chargé du domaine médical. Puis le conjoint ou le partenaire enregistré qui fait ménage commun ou apporte une aide personnelle régulière. Puis la personne qui fait ménage commun et aide régulièrement. Puis les descendants, les père et mère, les frères et sœurs, aux mêmes conditions d'aide régulière.<sup class="s">5</sup></p>
+<p>Le représentant, s'il n'y a pas d'instruction écrite, décide selon la volonté présumée et les intérêts. Le médecin établit avec lui le plan de traitement et l'informe selon l'article 377, y compris sur le coût et les autres traitements. Il associe la personne incapable autant que possible.<sup class="s">4,5</sup></p>
+<p>Un consentement donné alors que la personne est déjà sous sédatifs n'est pas valable, selon le guide de juin 2026. On n'informe pas la veille un patient pour une opération lourde qui était prévisible depuis longtemps.<sup class="s">8</sup></p>
+<p>Conduite de « Acte médical sans consentement valable » : On n'opère pas. Phrase dite : Je ne peux pas vous opérer sur cette signature. Voici le but, les risques graves, les autres options, et le droit de refuser.<sup class="s">8</sup></p>
+<p>Conduite de « Défaut d'information avant une intervention » : Avant le geste, nommer la paralysie récurrentielle, l'hypocalcémie, l'hématome, et l'alternative d'un geste plus limité si elle est défendable. Phrase dite : Le risque de voix bitonale ou de paralysie est rare. Pour vous qui chantez, il compte. Voici l'autre option, et ce qui se passe si l'on n'opère pas.<sup class="s">8</sup></p>
+<p>Conduite de « Consentement recueilli d'une personne incapable de discernement » : Ne pas faire signer. Phrase dite : Je ne vous demande pas de signer ce soir. Je revérifierai demain matin, quand vous serez plus clair.<sup class="s">8</sup></p>
+<p>Conduite de « Passage outre un refus éclairé » : Respecter le refus. Phrase dite : Votre refus tient, y compris si le saignement devient grave. Je ne vous transfuserai pas. Voici comment on réduit ce risque, et vous pouvez encore renoncer à l'opération.<sup class="s">8</sup></p>
+<p>Conduite de « Urgence chez une personne incapable de discernement » : Contrôler l'hémorragie. Chercher ensuite directives et proches. Réévaluer dès qu'il reprend conscience. Phrase dite : Au réveil : vous ne pouviez pas décider. J'ai arrêté le saignement. Voici ce qui a été fait, et ce qui reste à décider avec vous.<sup class="s">8</sup></p>
+<p>Conduite de « Consentement valable d'une personne capable de discernement » : Opérer. Garder la trace. Phrase dite : Vous pouvez encore dire non demain matin. Si vous dites oui, je noterai que vous avez reformulé le risque de plaie des voies biliaires.<sup class="s">8</sup></p>
+<p>Conduite de « Consentement personnel du mineur capable de discernement » : Recueillir son consentement. Phrase dite : C'est à vous de dire oui ou non pour votre genou. Vos parents peuvent être informés. Ils ne signent pas à votre place si vous décidez vous-même.<sup class="s">8</sup></p>
+<p>Conduite de « Personne sous curatelle encore capable de discernement » : C'est lui qui consent. Phrase dite : La curatelle organise une partie de votre vie. Pour cet examen, c'est vous qui décidez, parce que vous comprenez l'enjeu.<sup class="s">8</sup></p>
+<p>Conduite de « Information non comprise pour cause de barrière linguistique » : Reporter le geste électif. Phrase dite : Je vais chercher un interprète. Votre fils peut rester si vous le voulez, mais ce n'est pas lui qui traduit l'opération.<sup class="s">8</sup></p>
+<p>Conduite de « Consentement à une recherche sur l'être humain » : Séparer les entretiens. Laisser un délai raisonnable. Vérifier l'autorisation de la commission d'éthique. Phrase dite : L'opération est décidée. L'étude est autre chose. Vous pouvez la refuser et je vous opère de la même façon.<sup class="s">8</sup></p>
+<h3>Développements : acte médical sans consentement valable</h3>
+<p>Lecture horaire du dossier. Le premier contact ne sert pas à faire signer. Il sert à savoir si une femme de 54 ans peut encore choisir. Vous notez l'heure, la douleur, les médicaments pris, et qui est dans la pièce. Elle arrive à 7 h. Elle croit signer l'autorisation administrative. À 10 h elle est au bloc. Si vous découvrez le problème seulement au bloc, vous vous arrêtez, sauf danger immédiat.<sup class="s">8,9</sup></p>
+<p>Ce que vous expliquez, dans l'ordre, pour une cure de hernie inguinale programmée, sous anesthésie générale. Le diagnostic en mots ordinaires. La nature du geste et son but. Le bénéfice que vous espérez, dit comme une fréquence que la personne peut se représenter. Les risques fréquents. Les risques graves, même rares, qui compteraient pour cette vie-là. Les alternatives, y compris ne rien faire. Les suites, l'arrêt de travail, le coût si la question se pose. Le formulaire cite le nom du geste. Il ne décrit ni bénéfice attendu, ni alternative, ni risque grave.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Vous demandez de redire le but, un risque grave et l'option de refuser. Si la personne répète vos mots sans les lier à sa vie, vous recommencez. Elle est capable : elle travaille, elle raconte sa journée, elle pose des questions dès qu'on lui en laisse le temps. Les directives de 2019 rappellent que la capacité se juge sur cette décision, pas sur une étiquette de maladie.<sup class="s">7</sup></p>
+<p>La liberté se protège par le cadre, pas par une formule. Vous proposez un moment sans tiers. Vous ne faites pas confirmer après un sédatif. Vous ne serrez pas le délai quand le geste était prévisible. Le guide de juin 2026, qui cite l'arrêt du 28 avril 2003, retient la veille pour un geste simple et au moins trois jours pour un geste lourd. Rien n'indique une contrainte. Le défaut n'est pas la liberté. C'est l'absence d'information et donc l'absence d'un vrai oui.<sup class="s">8</sup></p>
+<p>Le représentant n'entre que si la capacité manque. Vous suivez alors l'ordre de l'article 378 du <abbr title="code civil suisse">CC</abbr>. D'abord la personne désignée dans les directives ou le mandat, puis le curateur du domaine médical. Ensuite le conjoint ou partenaire qui vit avec la personne ou l'aide régulièrement, puis un autre membre du ménage qui l'aide. Enfin les descendants, les parents, les frères et sœurs, s'ils apportent cette aide régulière. Son conjoint est dans la salle d'attente. Il n'a pas à signer à sa place. Vous ne prenez pas le plus loquace.<sup class="s">5</sup></p>
+<p>S'il faut un plan de traitement, l'article 377 vous fait informer le représentant comme vous auriez informé la personne : raisons, but, nature, modalités, risques, effets, coût, conséquences d'un refus, autres traitements. Vous adaptez le plan si l'état change. Vous associez la personne incapable autant qu'elle peut suivre. On n'opère pas.</p>
+<p>Les directives anticipées, si elles existent, priment sur l'avis du proche. Elles sont écrites, datées, signées, article 371. Vous les respectez, sauf illicéité ou doute sérieux sur la volonté libre ou sur l'adéquation à la situation actuelle. Vous écrivez pourquoi vous vous en écarteriez. L'article 372 réserve l'urgence pour la consultation de la carte. Il n'y a pas d'étranglement ni de douleur incoercible. Rien ne justifie l'article 379.<sup class="s">3</sup></p>
+<p>L'autorité de protection n'est pas un recours honteux. Vous la saisissez, article 381, s'il n'y a personne pour représenter, si personne n'accepte, si les représentants du même rang s'opposent, ou si les intérêts sont menacés. Un proche peut aussi écrire à l'autorité, article 373, si les directives ne sont pas respectées. Son conjoint est dans la salle d'attente.</p>
+<p>Cas du mineur et de la curatelle, pour ne pas les plaquer à tort sur ce dossier. L'article 19c laisse à la personne capable, même sans exercice des droits civils, ses droits strictement personnels. Les directives de 2019 en déduisent que le mineur capable consent seul au soin, et que les parents ne le représentent plus pour ce oui ou ce non. La curatelle de portée générale ne crée pas l'incapacité. Ici, vous restez sur le fait : Il n'y a eu ni information sur les risques graves, ni vérification de ce qu'elle avait compris, ni moment pour refuser.<sup class="s">2,7</sup></p>
+<p>La recherche se tient à part, loi de 2011. Information orale et écrite, contenu de l'article 16, délai raisonnable, écrit, retrait sans justification selon l'article 7, autorisation de la commission selon l'article 45. L'information partielle de l'article 18 est exceptionnelle : raison méthodologique et risques minimaux, puis information complète, et usage des données seulement si la personne consent après. Le formulaire cite le nom du geste.</p>
+<p>Ce que vous ne faites pas passer pour une preuve. Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. L'accord du conjoint alors que la personne est capable. Dire que le geste, bien fait, reste licite parce que la hernie était indiquée. La trace utile est celle que vous dictez. Pas d'entretien médical avant la signature. Patiente capable. Information non donnée. Intervention reportée.<sup class="s">7,8</sup></p>
+<p>Au réveil ou au prochain rendez-vous, vous rouvrez la décision si l'état a changé. Je ne peux pas vous opérer sur cette signature. Vous dites ce qui a été fait sans titre quand c'est le cas, vous ne le cachez pas derrière une signature tardive, et vous laissez la personne reprendre la main pour la suite.<sup class="s">9</sup></p>
+<p>Différentiel interne au motif, appliqué à une cure de hernie inguinale programmée, sous anesthésie générale. Vous écartez l'urgence si Il n'y a pas d'étranglement ni de douleur incoercible. Rien ne justifie l'article 379. Vous écartez le simple défaut d'information si la capacité elle-même manque. Vous écartez le refus outrepassé si la personne n'a jamais pu dire non. Vous écartez la barrière de langue si la reformulation a eu lieu dans sa langue. Vous écartez la recherche si aucun projet ne s'ajoute au soin.<sup class="s">8,13</sup></p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Il n'y a eu ni information sur les risques graves, ni vérification de ce qu'elle avait compris, ni moment pour refuser. La conduite est : On n'opère pas. La phrase fausse est : Dire que le geste, bien fait, reste licite parce que la hernie était indiquée. La phrase vraie de dossier est : Pas d'entretien médical avant la signature. Patiente capable. Information non donnée. Intervention reportée.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Brief de cinq minutes avant le programme opératoire : dossiers sans trace relus, interprètes commandés, directives cherchées, confirmations prévues avant toute prémédication. Une femme de 54 ans, enseignante, sans trouble cognitif ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Entretien avec le proche, quand il a un rôle et quand il n'en a pas. Son conjoint est dans la salle d'attente. Vous le remerciez de ce qu'il sait de la vie de la personne. Vous ne lui demandez pas de signer à la place d'une personne capable. S'il représente, vous lui demandez ce que la personne aurait voulu, pas ce que lui préférerait.<sup class="s">5,7</sup></p>
+<p>Limite de ce que vous affirmez. Vous ne citez pas un pourcentage de plaintes, ni une part d'incapables à l'hôpital, parce que ces chiffres ne sont pas dans les textes lus en 2026. Vous citez, quand les directives sont le sujet, 24 pour cent d'adultes en ayant rédigé en 2022, et 16 pour cent en ayant déposé dans la synthèse de 2018.<sup class="s">10,11</sup></p>
+<p>Place de l'article 380. Le traitement d'un trouble psychique chez une personne incapable placée en psychiatrie suit les règles du <abbr title="placement à des fins d&#39;assistance">PAFA</abbr> (placement à des fins d'assistance), pas le seul consentement ordinaire. Vous ne l'utilisez pas pour une cure de hernie inguinale programmée, sous anesthésie générale si la personne n'est pas dans ce cadre. Vous ne l'oubliez pas si elle y est.<sup class="s">6</sup></p>
+<p>Check-list finale, à voix haute, avant de valider. Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je un titre si elle ne pouvait pas : directive, représentant, ou article 379 ? Ai-je écrit Pas d'entretien médical avant la signature. Patiente capable. Information non donnée. Intervention reportée. ? Si une case est vide, vous ne lancez pas une cure de hernie inguinale programmée, sous anesthésie générale.<sup class="s">8,9</sup></p>
+<p>Retour sur le cas corrigé, version que l'on raconte à un collègue. Elle arrive à 7 h. Elle croit signer l'autorisation administrative. À 10 h elle est au bloc. Vous auriez dit : Je ne peux pas vous opérer sur cette signature. Vous n'auriez pas cédé au piège : Dire que le geste, bien fait, reste licite parce que la hernie était indiquée. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : On n'opère pas.</p>
+<h3>Développements : défaut d'information avant une intervention</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si un homme de 61 ans peut encore choisir. Au réveil, une corde vocale est paralysée.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une thyroïdectomie totale programmée. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. L'information a porté sur des suites banales. Elle a tu le risque qui pouvait changer sa décision.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Il était capable le jour de l'entretien et le jour du geste. Le défaut n'est pas la capacité.</p>
+<p>Vous proposez un moment sans tiers. Il dit qu'il aurait demandé un deuxième avis s'il avait su pour la voix, parce qu'il chante dans un chœur.<sup class="s">8</sup></p>
+<p>Son épouse était présente et posait les questions. Il n'a pas eu de temps seul.</p>
+<p>Vous adaptez le plan si l'état change. Avant le geste, nommer la paralysie récurrentielle, l'hypocalcémie, l'hématome, et l'alternative d'un geste plus limité si elle est défendable.<sup class="s">4</sup></p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Le goitre n'est pas compressif. Le délai de réflexion était possible.<sup class="s">3</sup></p>
+<p>Il n'a pas eu de temps seul.<sup class="s">6</sup></p>
+<p>Ici, vous restez sur le fait : Un risque grave, rare mais connu, et une alternative raisonnable n'ont pas été dits.<sup class="s">2,7</sup></p>
+<p>L'information a porté sur des suites banales.</p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Croire qu'un pourcentage très bas dispense de dire un risque qui abîme une fonction précieuse pour cette personne. Risques graves nommés : voix, calcium, hématome. Alternative discutée : geste limité. Délai : trois semaines. Décision du patient après reformulation.<sup class="s">7,8</sup></p>
+<p>Le risque de voix bitonale ou de paralysie est rare. Pour vous qui chantez, il compte.</p>
+<p>Différentiel interne au motif, appliqué à une thyroïdectomie totale programmée. Vous écartez l'urgence si Le goitre n'est pas compressif. Le délai de réflexion était possible.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Un risque grave, rare mais connu, et une alternative raisonnable n'ont pas été dits. La conduite est : Avant le geste, nommer la paralysie récurrentielle, l'hypocalcémie, l'hématome, et l'alternative d'un geste plus limité si elle est défendable. La phrase fausse est : Croire qu'un pourcentage très bas dispense de dire un risque qui abîme une fonction précieuse pour cette personne. La phrase vraie de dossier est : Risques graves nommés : voix, calcium, hématome. Alternative discutée : geste limité. Délai : trois semaines. Décision du patient après reformulation.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Un homme de 61 ans, comptable, opéré d'un goitre ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Il n'a pas eu de temps seul.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une thyroïdectomie totale programmée si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Risques graves nommés : voix, calcium, hématome. Alternative discutée : geste limité. Délai : trois semaines. Décision du patient après reformulation. ? Si une case est vide, vous ne lancez pas une thyroïdectomie totale programmée.<sup class="s">8,9</sup></p>
+<p>Au réveil, une corde vocale est paralysée. Vous auriez dit : Le risque de voix bitonale ou de paralysie est rare. Pour vous qui chantez, il compte. Vous n'auriez pas cédé au piège : Croire qu'un pourcentage très bas dispense de dire un risque qui abîme une fonction précieuse pour cette personne. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Avant le geste, nommer la paralysie récurrentielle, l'hypocalcémie, l'hématome, et l'alternative d'un geste plus limité si elle est défendable.<sup class="s">7,9</sup></p>
+<h3>Développements : consentement recueilli d'une personne incapable de discernement</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si un homme de 82 ans peut encore choisir.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une prothèse de hanche proposée le soir de l'admission. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Même une information parfaite ne rend pas capable une personne qui ne peut pas l'utiliser.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Le doute est fondé : fluctuation, impossibilité de reformuler, heure tardive, douleur. On ne présume plus. On évalue.</p>
+<p>Vous proposez un moment sans tiers. La main guidée par un proche est une contrainte, en plus du doute sur la capacité.<sup class="s">8</sup></p>
+<p>La fille aide régulièrement et fait ménage commun depuis le veuvage. Elle peut représenter s'il n'y a ni directive ni curateur, et seulement selon la volonté présumée.</p>
+<p>Vous adaptez le plan si l'état change. Ne pas faire signer.</p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. La fracture fait mal mais la prothèse peut attendre le matin. Ce n'est pas l'article 379.<sup class="s">3</sup></p>
+<p>Ici, vous restez sur le fait : On a pris un acquiescement fluctuant pour un consentement, sans évaluer les quatre capacités et sans chercher les directives.<sup class="s">2,7</sup></p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Conclure à l'incapacité parce qu'il hésite, ou à la capacité parce qu'il a dit oui. Capacité non retenue à 20 h : ne reformule pas le but, vigilance fluctuante. Signature annulée. Réévaluation prévue à 8 h.</p>
+<p>Je ne vous demande pas de signer ce soir.</p>
+<p>Différentiel interne au motif, appliqué à une prothèse de hanche proposée le soir de l'admission. Vous écartez l'urgence si La fracture fait mal mais la prothèse peut attendre le matin. Ce n'est pas l'article 379.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : On a pris un acquiescement fluctuant pour un consentement, sans évaluer les quatre capacités et sans chercher les directives. La conduite est : Ne pas faire signer. La phrase fausse est : Conclure à l'incapacité parce qu'il hésite, ou à la capacité parce qu'il a dit oui. La phrase vraie de dossier est : Capacité non retenue à 20 h : ne reformule pas le but, vigilance fluctuante. Signature annulée. Réévaluation prévue à 8 h.</p>
+<p>Prévention d'équipe pour ce type de geste. Un homme de 82 ans, habituellement autonome, hospitalisé pour une fracture du col ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une prothèse de hanche proposée le soir de l'admission si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Capacité non retenue à 20 h : ne reformule pas le but, vigilance fluctuante. Signature annulée. Réévaluation prévue à 8 h. Si une case est vide, vous ne lancez pas une prothèse de hanche proposée le soir de l'admission.<sup class="s">8,9</sup></p>
+<p>Vous auriez dit : Je ne vous demande pas de signer ce soir. Vous n'auriez pas cédé au piège : Conclure à l'incapacité parce qu'il hésite, ou à la capacité parce qu'il a dit oui. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Ne pas faire signer.</p>
+<h3>Développements : passage outre un refus éclairé</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si une femme de 47 ans peut encore choisir.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une prothèse de hanche élective, avec un plan sans transfusion. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Elle a entendu le bénéfice de la prothèse, le risque de saignement, les techniques d'épargne, et l'option de ne pas opérer.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Elle comprend, elle relie le risque à sa foi et à sa vie, elle défend son choix hors de la présence de l'ancien de la congrégation. Les quatre capacités sont là.</p>
+<p>Vous proposez un moment sans tiers. On a vérifié l'absence de pression en lui parlant seule. Le choix reste le même.<sup class="s">8</sup></p>
+<p>Son mari souhaite qu'on transfuse. Il ne décide pas. Elle est capable.</p>
+<p>Vous adaptez le plan si l'état change. Respecter le refus.</p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Il n'y a pas d'urgence. Le refus anticipé écrit vaudrait aussi si elle devenait incapable pendant l'opération.<sup class="s">3</sup></p>
+<p>Son mari souhaite qu'on transfuse. Il ne décide pas. Elle est capable.<sup class="s">6</sup></p>
+<p>Ici, vous restez sur le fait : Le refus est éclairé, stable, capable.</p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Transfuser au nom du bien de la patiente, ou déclarer le refus incapable parce qu'il paraît déraisonnable. Refus de transfusion éclairé, capable, répété seule. Alternatives d'épargne acceptées.</p>
+<p>Votre refus tient, y compris si le saignement devient grave. Je ne vous transfuserai pas.</p>
+<p>Différentiel interne au motif, appliqué à une prothèse de hanche élective, avec un plan sans transfusion. Vous écartez l'urgence si Il n'y a pas d'urgence.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Le refus est éclairé, stable, capable. La conduite est : Respecter le refus. La phrase fausse est : Transfuser au nom du bien de la patiente, ou déclarer le refus incapable parce qu'il paraît déraisonnable. La phrase vraie de dossier est : Refus de transfusion éclairé, capable, répété seule. Alternatives d'épargne acceptées.</p>
+<p>Prévention d'équipe pour ce type de geste. Une femme de 47 ans, Témoin de Jéhovah, ingénieure ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Son mari souhaite qu'on transfuse. Il ne décide pas. Elle est capable.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une prothèse de hanche élective, avec un plan sans transfusion si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Refus de transfusion éclairé, capable, répété seule. Alternatives d'épargne acceptées. Si une case est vide, vous ne lancez pas une prothèse de hanche élective, avec un plan sans transfusion.<sup class="s">8,9</sup></p>
+<p>Vous auriez dit : Votre refus tient, y compris si le saignement devient grave. Je ne vous transfuserai pas. Vous n'auriez pas cédé au piège : Transfuser au nom du bien de la patiente, ou déclarer le refus incapable parce qu'il paraît déraisonnable. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Respecter le refus.</p>
+<h3>Développements : urgence chez une personne incapable de discernement</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si un motard de 29 ans peut encore choisir. Aucun proche n'est là. L'équipe hésite à inciser sans signature.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une laparotomie pour choc hémorragique abdominal. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. On n'informe pas une personne inconsciente. On informe le représentant dès qu'il est joignable, sans retarder le geste qui sauve.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. L'incapacité est manifeste. On ne cherche pas les quatre capacités au milieu du choc.</p>
+<p>Vous proposez un moment sans tiers. Il ne peut pas s'exprimer. On ne fabrique pas un accord.<sup class="s">8</sup></p>
+<p>Les parents arrivent deux heures après. On les informe. On ne leur demande pas de valider rétroactivement comme si le droit l'exigeait pour le geste déjà indispensable.</p>
+<p>Vous adaptez le plan si l'état change. Contrôler l'hémorragie. Chercher ensuite directives et proches. Réévaluer dès qu'il reprend conscience.<sup class="s">4</sup></p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Le danger est immédiat. C'est le cœur de l'article 379.<sup class="s">3</sup></p>
+<p>Les parents arrivent deux heures après. On les informe.</p>
+<p>Ici, vous restez sur le fait : L'hésitation retarde les soins indispensables. L'article 379 est le fait justificatif.<sup class="s">2,7</sup></p>
+<p>On n'informe pas une personne inconsciente.</p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Étendre la cicatrice à une cure de hernie « tant qu'on y est », ou attendre une signature qui ne viendra pas. Choc hémorragique, patient inconscient, aucun représentant joignable, pas de refus anticipé connu. Laparotomie selon l'article 379.</p>
+<p>Au réveil : vous ne pouviez pas décider. J'ai arrêté le saignement.</p>
+<p>Différentiel interne au motif, appliqué à une laparotomie pour choc hémorragique abdominal. Vous écartez l'urgence si Le danger est immédiat. C'est le cœur de l'article 379.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : L'hésitation retarde les soins indispensables. L'article 379 est le fait justificatif. La conduite est : Contrôler l'hémorragie. Chercher ensuite directives et proches. Réévaluer dès qu'il reprend conscience. La phrase fausse est : Étendre la cicatrice à une cure de hernie « tant qu'on y est », ou attendre une signature qui ne viendra pas. La phrase vraie de dossier est : Choc hémorragique, patient inconscient, aucun représentant joignable, pas de refus anticipé connu. Laparotomie selon l'article 379.</p>
+<p>Prévention d'équipe pour ce type de geste. Un motard de 29 ans, inconscient après un choc ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Les parents arrivent deux heures après. On les informe.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une laparotomie pour choc hémorragique abdominal si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Choc hémorragique, patient inconscient, aucun représentant joignable, pas de refus anticipé connu. Laparotomie selon l'article 379. Heure, constat, et limite du geste écrite. ? Si une case est vide, vous ne lancez pas une laparotomie pour choc hémorragique abdominal.<sup class="s">8,9</sup></p>
+<p>Aucun proche n'est là. L'équipe hésite à inciser sans signature. Vous auriez dit : Au réveil : vous ne pouviez pas décider. J'ai arrêté le saignement. Vous n'auriez pas cédé au piège : Étendre la cicatrice à une cure de hernie « tant qu'on y est », ou attendre une signature qui ne viendra pas. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Contrôler l'hémorragie. Chercher ensuite directives et proches. Réévaluer dès qu'il reprend conscience.<sup class="s">7,9</sup></p>
+<h3>Développements : consentement valable d'une personne capable de discernement</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si une femme de 43 ans peut encore choisir. Deux consultations. Elle choisit l'opération, puis confirme la veille.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une cholécystectomie sous cœlioscopie pour coliques répétés. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Bénéfice, risques fréquents, risque grave rare, alternative d'attente, suites et arrêt de travail ont été dits.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Elle comprend, applique l'information à son travail de nuit, choisit, et défend son choix.</p>
+<p>Vous proposez un moment sans tiers. Délai de dix jours. Personne ne la presse. Elle sait qu'elle peut revenir en arrière.<sup class="s">8</sup></p>
+<p>Elle vient seule et le souhaite. On ne retient pas un proche pour « être en règle ».</p>
+<p>Vous adaptez le plan si l'état change. Opérer. Garder la trace.</p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Les coliques sont douloureuses mais pas une angiocholite ce jour-là. Le délai a été respecté.<sup class="s">3</sup></p>
+<p>Elle vient seule et le souhaite.</p>
+<p>Ici, vous restez sur le fait : Rien d'essentiel ne manque si la trace est complète.</p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Ajouter la veille un geste non discuté, ou faire confirmer après la prémédication. Entretien du 12, confirmation la veille. Risques nommés dont plaie biliaire. Alternative d'expectative expliquée. Décision d'opérer. Capable. Libre.<sup class="s">7,8</sup></p>
+<p>Vous pouvez encore dire non demain matin.</p>
+<p>Différentiel interne au motif, appliqué à une cholécystectomie sous cœlioscopie pour coliques répétés. Vous écartez l'urgence si Les coliques sont douloureuses mais pas une angiocholite ce jour-là. Le délai a été respecté.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Rien d'essentiel ne manque si la trace est complète. La conduite est : Opérer. Garder la trace. La phrase fausse est : Ajouter la veille un geste non discuté, ou faire confirmer après la prémédication. La phrase vraie de dossier est : Entretien du 12, confirmation la veille. Risques nommés dont plaie biliaire. Alternative d'expectative expliquée. Décision d'opérer. Capable. Libre.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Une femme de 43 ans, boulangère, sans traitement psychotrope ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Elle vient seule et le souhaite.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une cholécystectomie sous cœlioscopie pour coliques répétés si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Entretien du 12, confirmation la veille. Risques nommés dont plaie biliaire. Alternative d'expectative expliquée. Décision d'opérer. Capable. Libre. ? Si une case est vide, vous ne lancez pas une cholécystectomie sous cœlioscopie pour coliques répétés.<sup class="s">8,9</sup></p>
+<p>Deux consultations. Elle choisit l'opération, puis confirme la veille. Vous auriez dit : Vous pouvez encore dire non demain matin. Vous n'auriez pas cédé au piège : Ajouter la veille un geste non discuté, ou faire confirmer après la prémédication. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Opérer. Garder la trace.</p>
+<h3>Développements : consentement personnel du mineur capable de discernement</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si une adolescente de 16 ans peut encore choisir.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une arthroscopie du genou. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Même contenu que pour un adulte, avec des mots qu'elle reformule.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Pour cette arthroscopie, elle remplit les quatre capacités. Les directives de 2019 disent que le mineur capable consent lui-même et que la représentation parentale n'est plus admissible pour ce consentement.</p>
+<p>Vous proposez un moment sans tiers. On lui parle sans ses parents. Le choix ne change pas. On vérifie qu'elle ne cède pas seulement à l'entraîneur.<sup class="s">8</sup></p>
+<p>Les deux parents sont titulaires de l'autorité. Leur désaccord entre eux ne retire pas la capacité de l'adolescente.</p>
+<p>Vous adaptez le plan si l'état change. Recueillir son consentement.</p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Le genou est stable sous attelle pour quelques jours. On a le temps de l'entretien seul.<sup class="s">3</sup></p>
+<p>Les deux parents sont titulaires de l'autorité.</p>
+<p>Ici, vous restez sur le fait : Le manque serait d'obéir aux parents alors qu'elle est capable pour ce soin, ou l'inverse : opérer un enfant de 7 ans sur son seul oui.<sup class="s">2,7</sup></p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Exiger la signature parentale comme condition du soin, ou traiter tout mineur comme incapable. Mineure de 16 ans, capable pour l'arthroscopie. Consentement personnel. Frais : à clarifier avec le représentant.<sup class="s">7,8</sup></p>
+<p>C'est à vous de dire oui ou non pour votre genou. Vos parents peuvent être informés.</p>
+<p>Différentiel interne au motif, appliqué à une arthroscopie du genou. Vous écartez l'urgence si Le genou est stable sous attelle pour quelques jours. On a le temps de l'entretien seul.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Le manque serait d'obéir aux parents alors qu'elle est capable pour ce soin, ou l'inverse : opérer un enfant de 7 ans sur son seul oui. La conduite est : Recueillir son consentement. La phrase fausse est : Exiger la signature parentale comme condition du soin, ou traiter tout mineur comme incapable. La phrase vraie de dossier est : Mineure de 16 ans, capable pour l'arthroscopie. Consentement personnel. Frais : à clarifier avec le représentant.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Une adolescente de 16 ans, au lycée, fracture du ménisque instable ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Les deux parents sont titulaires de l'autorité.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une arthroscopie du genou si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Mineure de 16 ans, capable pour l'arthroscopie. Consentement personnel. Frais : à clarifier avec le représentant. ? Si une case est vide, vous ne lancez pas une arthroscopie du genou.<sup class="s">8,9</sup></p>
+<p>Vous auriez dit : C'est à vous de dire oui ou non pour votre genou. Vos parents peuvent être informés. Vous n'auriez pas cédé au piège : Exiger la signature parentale comme condition du soin, ou traiter tout mineur comme incapable. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Recueillir son consentement.</p>
+<h3>Développements : personne sous curatelle encore capable de discernement</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si un homme de 58 ans peut encore choisir. Le curateur écrit qu'il « décide des soins ».</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une coloscopie après un test de sang occulte positif. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Perforation, saignement, examen incomplet, et la possibilité de ne rien faire ont été dits.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Pour cette coloscopie, les quatre capacités sont présentes. La curatelle ne les efface pas.</p>
+<p>Vous proposez un moment sans tiers. On le voit sans le curateur. Pas de menace. Il sait qu'il peut refuser.<sup class="s">8</sup></p>
+<p>Le curateur est de bonne foi. On lui explique l'article 19c sans l'humilier, et on l'associe à ce qui n'est pas le soin lui-même.</p>
+<p>Vous adaptez le plan si l'état change. C'est lui qui consent.</p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Le test positif n'est pas une hémorragie active. On a le temps.<sup class="s">3</sup></p>
+<p>Le curateur est de bonne foi.</p>
+<p>Ici, vous restez sur le fait : Confondre la curatelle avec l'incapacité.</p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Appeler le curateur pour qu'il signe, ou croire qu'une curatelle de portée générale est une incapacité permanente. Curatelle de portée générale. Consentement personnel. Curateur informé de l'organisation, pas substitut.<sup class="s">7,8</sup></p>
+<p>La curatelle organise une partie de votre vie.</p>
+<p>Différentiel interne au motif, appliqué à une coloscopie après un test de sang occulte positif. Vous écartez l'urgence si Le test positif n'est pas une hémorragie active. On a le temps.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Confondre la curatelle avec l'incapacité. La conduite est : C'est lui qui consent. La phrase fausse est : Appeler le curateur pour qu'il signe, ou croire qu'une curatelle de portée générale est une incapacité permanente. La phrase vraie de dossier est : Curatelle de portée générale. Consentement personnel. Curateur informé de l'organisation, pas substitut.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Un homme de 58 ans, sous curatelle de portée générale pour une maladie psychique stabilisée ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Le curateur est de bonne foi.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une coloscopie après un test de sang occulte positif si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Curatelle de portée générale. Consentement personnel. Curateur informé de l'organisation, pas substitut. ? Si une case est vide, vous ne lancez pas une coloscopie après un test de sang occulte positif.<sup class="s">8,9</sup></p>
+<p>Le curateur écrit qu'il « décide des soins ». Vous auriez dit : La curatelle organise une partie de votre vie. Vous n'auriez pas cédé au piège : Appeler le curateur pour qu'il signe, ou croire qu'une curatelle de portée générale est une incapacité permanente. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : C'est lui qui consent.</p>
+<h3>Développements : information non comprise pour cause de barrière linguistique</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si un homme de 67 ans peut encore choisir. Son fils de 19 ans traduit. Le patient hoche la tête.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour une colectomie droite pour un cancer. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Le contenu médical existait dans la tête du chirurgien. Il n'est pas arrivé au patient.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Avec un interprète, il est capable. Sans interprète, on ne peut même pas évaluer les quatre capacités.</p>
+<p>Vous proposez un moment sans tiers. Le fils veut « ne pas l'effrayer » et adoucit les risques. Ce filtre retire la liberté de choisir.<sup class="s">8</sup></p>
+<p>Le fils aime son père. Il n'est pas neutre. On le remercie et on le sort du rôle de traducteur.</p>
+<p>Vous adaptez le plan si l'état change. Reporter le geste électif.</p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Le cancer est à opérer sans des mois d'attente, mais pas dans l'heure. L'interprète fait partie du soin.<sup class="s">3</sup></p>
+<p>Le fils aime son père. Il n'est pas neutre.</p>
+<p>Ici, vous restez sur le fait : L'information n'est pas adéquate tant qu'elle n'est pas comprise. L'acquiescement poli n'est pas un consentement.<sup class="s">2,7</sup></p>
+<p>Il n'est pas arrivé au patient.<sup class="s">13</sup></p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Se contenter des hochements de tête, ou faire signer un formulaire français illisible pour lui. Entretien initial non valable : traduction par le fils, reformulation impossible. Nouvel entretien avec interprète professionnel, langue albanaise. Risques graves reformulés par le patient.<sup class="s">7,8</sup></p>
+<p>Je vais chercher un interprète.</p>
+<p>Différentiel interne au motif, appliqué à une colectomie droite pour un cancer. Vous écartez l'urgence si Le cancer est à opérer sans des mois d'attente, mais pas dans l'heure. L'interprète fait partie du soin.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : L'information n'est pas adéquate tant qu'elle n'est pas comprise. L'acquiescement poli n'est pas un consentement. La conduite est : Reporter le geste électif. La phrase fausse est : Se contenter des hochements de tête, ou faire signer un formulaire français illisible pour lui. La phrase vraie de dossier est : Entretien initial non valable : traduction par le fils, reformulation impossible. Nouvel entretien avec interprète professionnel, langue albanaise. Risques graves reformulés par le patient.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Un homme de 67 ans, albanophone, peu lecteur du français ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Le fils aime son père. Il n'est pas neutre.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour une colectomie droite pour un cancer si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Entretien initial non valable : traduction par le fils, reformulation impossible. Nouvel entretien avec interprète professionnel, langue albanaise. Risques graves reformulés par le patient. ? Si une case est vide, vous ne lancez pas une colectomie droite pour un cancer.<sup class="s">8,9</sup></p>
+<p>Son fils de 19 ans traduit. Le patient hoche la tête. Vous auriez dit : Je vais chercher un interprète. Vous n'auriez pas cédé au piège : Se contenter des hochements de tête, ou faire signer un formulaire français illisible pour lui. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Reporter le geste électif.</p>
+<h3>Développements : consentement à une recherche sur l'être humain</h3>
+<p>Lecture horaire du dossier. Il sert à savoir si une femme de 70 ans peut encore choisir. On lui a bien expliqué l'opération.</p>
+<p>Ce que vous expliquez, dans l'ordre, pour la même prothèse, plus un tirage au sort dans un essai sur un ciment. Le diagnostic en mots ordinaires. La nature du geste et son but. Les risques fréquents. Les alternatives, y compris ne rien faire. Il manque, pour l'essai, la nature, le but, la durée, le déroulement, les risques, le bénéfice attendu, la protection des données et les droits, par oral et par écrit.<sup class="s">8,9</sup></p>
+<p>La reformulation n'est pas une politesse. Elle est capable pour l'opération. Pour l'essai, elle ne peut pas encore décider : elle n'a pas reçu l'information de l'article 16.</p>
+<p>Vous proposez un moment sans tiers. Mélanger les deux signatures crée une pression : refuser l'essai semblerait refuser le soin.<sup class="s">8</sup></p>
+<p>Sa fille lit l'étude plus vite qu'elle. La fille ne signe pas la recherche à sa place.</p>
+<p>Vous adaptez le plan si l'état change. Séparer les entretiens. Laisser un délai raisonnable. Vérifier l'autorisation de la commission d'éthique.<sup class="s">4</sup></p>
+<p>Elles sont écrites, datées, signées, article 371. Vous écrivez pourquoi vous vous en écarteriez. Une prothèse élective n'est pas une urgence qui dispenserait du délai de réflexion de la recherche.<sup class="s">3</sup></p>
+<p>Sa fille lit l'étude plus vite qu'elle.</p>
+<p>Ici, vous restez sur le fait : Le consentement de soin ne couvre pas la recherche. La loi de 2011 sépare les deux.<sup class="s">2,7</sup></p>
+<p>Un hochement de tête. Une signature d'accueil. Un <abbr title="mini-examen de l&#39;état mental">MMSE</abbr> (mini-examen de l'état mental). La présence d'un fils qui traduit. Glisser la recherche dans le formulaire opératoire, ou utiliser une information partielle sans les conditions de l'article 18. Consentement opératoire distinct. Numéro d'autorisation de la commission noté.<sup class="s">7,8</sup></p>
+<p>L'opération est décidée. L'étude est autre chose.</p>
+<p>Différentiel interne au motif, appliqué à la même prothèse, plus un tirage au sort dans un essai sur un ciment. Vous écartez l'urgence si Une prothèse élective n'est pas une urgence qui dispenserait du délai de réflexion de la recherche.</p>
+<p>Phrase d'examen, version longue. Le fait qui reclasse est : Le consentement de soin ne couvre pas la recherche. La loi de 2011 sépare les deux. La conduite est : Séparer les entretiens. Laisser un délai raisonnable. Vérifier l'autorisation de la commission d'éthique. La phrase fausse est : Glisser la recherche dans le formulaire opératoire, ou utiliser une information partielle sans les conditions de l'article 18. La phrase vraie de dossier est : Consentement opératoire distinct. Numéro d'autorisation de la commission noté.<sup class="s">9</sup></p>
+<p>Prévention d'équipe pour ce type de geste. Une femme de 70 ans, déjà consentante pour une prothèse de genou ne devrait plus arriver au bloc avec le défaut que vous venez de corriger.<sup class="s">8</sup></p>
+<p>Sa fille lit l'étude plus vite qu'elle.</p>
+<p>Limite de ce que vous affirmez.</p>
+<p>Place de l'article 380. Vous ne l'utilisez pas pour la même prothèse, plus un tirage au sort dans un essai sur un ciment si la personne n'est pas dans ce cadre.</p>
+<p>Ai-je dit le risque grave et l'alternative ? La personne pouvait-elle décider, à ce moment ? Était-elle libre, y compris sans le tiers ? Ai-je écrit Consentement opératoire distinct. Numéro d'autorisation de la commission noté. ? Si une case est vide, vous ne lancez pas la même prothèse, plus un tirage au sort dans un essai sur un ciment.<sup class="s">8,9</sup></p>
+<p>On lui a bien expliqué l'opération. Vous auriez dit : L'opération est décidée. L'étude est autre chose. Vous n'auriez pas cédé au piège : Glisser la recherche dans le formulaire opératoire, ou utiliser une information partielle sans les conditions de l'article 18. Le collègue doit pouvoir répéter la conduite sans rouvrir le livre : Séparer les entretiens. Laisser un délai raisonnable. Vérifier l'autorisation de la commission d'éthique.<sup class="s">7,9</sup></p>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p12">12. Prévention</h2>
+<p>On sépare l'entretien de la signature d'accueil. On confirme avant toute sédation. <button type="button" class="terme" popovertarget="w-p12">ouvrir le développement</button></p>
+<div id="w-p12" popover class="fenetre"><div class="barre"><span>Point 12</span><button type="button" popovertarget="w-p12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La prévention du litige est la prévention de l'atteinte illicite. Le médecin prévoit l'entretien avant le geste électif, dans une langue comprise, avec un interprète professionnel si besoin, et avec un délai.<sup class="s">8</sup></p>
+<p>Il propose les directives anticipées avant la crise, surtout après 65 ans, âge où l'enquête de 2022 trouve une meilleure connaissance. Il ne les impose pas.<sup class="s">10</sup></p>
+<p>Il relit le dossier avant le bloc : qui a informé, quand, quels risques graves ont été dits, quelle alternative, quelle décision. S'il manque une ligne, il reprend l'entretien.<sup class="s">8</sup></p>
+<p>Il apprend à l'équipe à ne pas faire signer à l'accueil. La signature peut aider la preuve. Elle ne crée pas l'information.<sup class="s">8,9</sup></p>
+</div></div>
+</section>
+<section class="ilot c"><h2 id="p13">13. Points clés</h2>
+<p>Un geste non consenti reste illicite, même bien fait. La recherche obéit à une autre loi. <button type="button" class="terme" popovertarget="w-p13">ouvrir le développement</button></p>
+<div id="w-p13" popover class="fenetre"><div class="barre"><span>Point 13</span><button type="button" popovertarget="w-p13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Un acte non consenti est une atteinte illicite, même parfaitement réalisé. Les trois conditions sont cumulatives : information, capacité, liberté.<sup class="s">9</sup></p>
+<p>L'information inclut les risques graves même rares et les alternatives, dont l'abstention. Le guide de 2026 rappelle qu'aucun pourcentage-seuil n'a été fixé par le Tribunal fédéral pour dire un risque.<sup class="s">8</sup></p>
+<p>La capacité est présumée, relative et réévaluable. Elle ne se confond ni avec la majorité ni avec la curatelle. Le mineur capable consent seul au soin.<sup class="s">2,7</sup></p>
+<p>Le refus éclairé d'une personne capable s'impose. L'incapacité ouvre les directives, le représentant et, seulement en urgence, l'article 379. La recherche a sa propre loi.<sup class="s">6,13</sup></p>
+</div></div>
+</section>
+<section class="ilot v"><h2 id="p14">14. Pièges d'examen</h2>
+<p>Les pièges classiques : la signature, le risque grave tu, l'incapacité collée au refus, le proche traducteur. <button type="button" class="terme" popovertarget="w-p14">ouvrir le développement</button></p>
+<div id="w-p14" popover class="fenetre"><div class="barre"><span>Point 14</span><button type="button" popovertarget="w-p14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Piège un : faire signer et croire que le soin est licite. Piège deux : taire un risque grave parce qu'il est rare. Piège trois : déclarer incapable celui qui refuse.<sup class="s">7,8,9</sup></p>
+<p>Piège quatre : prendre le conjoint présent pour le représentant alors qu'une directive désigne quelqu'un d'autre, ou qu'il n'y a ni ménage commun ni aide régulière.<sup class="s">5</sup></p>
+<p>Piège cinq : traduire par l'enfant. Piège six : utiliser le consentement opératoire pour inclure la personne dans une recherche.<sup class="s">13</sup></p>
+<p>Piège sept : en urgence, élargir l'acte au-delà de l'indispensable, ou ignorer un refus anticipé déjà connu et applicable.<sup class="s">3,6</sup></p>
+<p>Piège de « Acte médical sans consentement valable » : Dire que le geste, bien fait, reste licite parce que la hernie était indiquée.<sup class="s">7</sup></p>
+<p>Piège de « Défaut d'information avant une intervention » : Croire qu'un pourcentage très bas dispense de dire un risque qui abîme une fonction précieuse pour cette personne.<sup class="s">7</sup></p>
+<p>Piège de « Consentement recueilli d'une personne incapable de discernement » : Conclure à l'incapacité parce qu'il hésite, ou à la capacité parce qu'il a dit oui.<sup class="s">7</sup></p>
+<p>Piège de « Passage outre un refus éclairé » : Transfuser au nom du bien de la patiente, ou déclarer le refus incapable parce qu'il paraît déraisonnable.<sup class="s">7</sup></p>
+<p>Piège de « Urgence chez une personne incapable de discernement » : Étendre la cicatrice à une cure de hernie « tant qu'on y est », ou attendre une signature qui ne viendra pas.<sup class="s">7</sup></p>
+<p>Piège de « Consentement valable d'une personne capable de discernement » : Ajouter la veille un geste non discuté, ou faire confirmer après la prémédication.<sup class="s">7</sup></p>
+<p>Piège de « Consentement personnel du mineur capable de discernement » : Exiger la signature parentale comme condition du soin, ou traiter tout mineur comme incapable.<sup class="s">7</sup></p>
+<p>Piège de « Personne sous curatelle encore capable de discernement » : Appeler le curateur pour qu'il signe, ou croire qu'une curatelle de portée générale est une incapacité permanente.<sup class="s">7</sup></p>
+<p>Piège de « Information non comprise pour cause de barrière linguistique » : Se contenter des hochements de tête, ou faire signer un formulaire français illisible pour lui.<sup class="s">7</sup></p>
+<p>Piège de « Consentement à une recherche sur l'être humain » : Glisser la recherche dans le formulaire opératoire, ou utiliser une information partielle sans les conditions de l'article 18.<sup class="s">7</sup></p>
+</div></div>
+</section>
+<section class="ilot c">
+<h2 id="sources">Sources</h2>
+<ol class="sources">
+
+<li>Code civil suisse, <abbr title="recueil systématique du droit fédéral">RS</abbr> 210, art. 16, 14 et 17. Révision du 19 décembre 2008, en vigueur le 1er janvier 2013. Texte Fedlex consulté le 1er novembre 2026.<sup class="s">1</sup></li>
+<li>Code civil suisse, art. 19c, droits strictement personnels. En vigueur depuis 2013. Consulté le 1er novembre 2026.<sup class="s">2</sup></li>
+<li>Code civil suisse, art. 370 à 373, directives anticipées. En vigueur depuis 2013. Consulté le 1er novembre 2026.<sup class="s">3</sup></li>
+<li>Code civil suisse, art. 377, plan de traitement. En vigueur depuis 2013. Consulté le 1er novembre 2026.<sup class="s">4</sup></li>
+<li>Code civil suisse, art. 378, représentants. En vigueur depuis 2013. Consulté le 1er novembre 2026.<sup class="s">5</sup></li>
+<li>Code civil suisse, art. 379 à 381, urgence, <abbr title="placement à des fins d&#39;assistance">PAFA</abbr> (placement à des fins d'assistance) et autorité de protection. En vigueur depuis 2013. Consulté le 1er novembre 2026.<sup class="s">6</sup></li>
+<li>Académie suisse des sciences médicales. La capacité de discernement dans la pratique médicale. Approuvées le 29 novembre 2018, tirage janvier 2019. Consultées le 1er novembre 2026.<sup class="s">7</sup></li>
+<li>Guide <abbr title="Fédération des médecins suisses">FMH</abbr> et <abbr title="Académie suisse des sciences médicales">ASSM</abbr>, information du patient. Mise à jour du 22 juin 2026. Consulté le 1er novembre 2026.<sup class="s">8</sup></li>
+<li>Tribunal fédéral, arrêt 4A_547/2019, reprenant l'<abbr title="arrêt du Tribunal fédéral publié au recueil officiel">ATF</abbr> (arrêt publié) 133 III 121 de 2007. Consulté le 1er novembre 2026.<sup class="s">9</sup></li>
+<li>Pro Senectute Suisse et gfs.zürich, enquête du 2 au 23 novembre 2022, 1204 adultes. Consultée le 1er novembre 2026.<sup class="s">10</sup></li>
+<li>Office fédéral de la santé publique et bureau d'études mandaté, enquête sur les soins palliatifs, résultats 2017, synthèse 2018. Consultée le 1er novembre 2026.<sup class="s">11</sup></li>
+<li>Office fédéral de la santé publique. Renforcer la volonté du patient. Page consultée le 1er novembre 2026.<sup class="s">12</sup></li>
+<li>Loi fédérale du 30 septembre 2011 relative à la recherche sur l'être humain, art. 7, 16, 18 et 45. Consultée le 1er novembre 2026.<sup class="s">13</sup></li>
+<li>Commentaire de l'arrêt 4A_415/2023, février 2024, sur le consentement hypothétique et l'art. 28 du code civil. Consulté le 1er novembre 2026.<sup class="s">14</sup></li>
+
+</ol>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</section>
+</main>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_232_Phase_A_V0.html -->
