@@ -47,6 +47,7 @@ faut suffit suffisent vise visent cible ciblent porte portent concerne concernen
 """.split())
 VERBE_RE = re.compile(r"\b(?:\w+(?:ent|ait|aient|era|eront|erait|eraient|ise|isent|it|issent))\b", re.I)
 PRONOM_VERBE = re.compile(r"\b(?:il|elle|ils|elles|on|qui|cela|ce|celle-ci|celui-ci)\s+(?:ne\s+|n'|se\s+|s'|l'|le\s+|la\s+|les\s+|y\s+|en\s+)*\w+", re.I)
+LACUNE = re.compile(r"\(\s*À vérifier|À vérifier\s*[:)]|reste à (?:lire|vérifier)|texte (?:intégral )?non (?:lu|relu)|non relue? dans|faute d'extrait lisible|aucune source (?:lue|lisible)", re.I)
 STRUCT = re.compile(r"\b(?:points?|DX\.?|rangs?|E|étapes?|îlots?|n°|LOT_?|Phase)\s*\d+(?:[.,]\d+)?|\b[A-Z]\d{2}(?:\.\d{1,2})?\b|\bCIM-1[01]\b|\b(?:le|au|du|appeler le)\s+14[0-9]\b|\binterleukine[- ]\d+\b|\bIL-\d+\b", re.I)
 SOURCES = re.compile(r'<section\b[^>]*id="[\w-]*sources"[^>]*>.*?</section>|<details\b[^>]*class="refs"[^>]*>.*?</details>', re.S | re.I)
 TAG_SS = re.compile(r'<(script|style)\b[^>]*>.*?</\1>', re.S | re.I)
@@ -135,6 +136,10 @@ def controler(chemin, paquet, a, vus_lot):
                 d['A_nombre_absent_de_l_extrait'].append(f'{sorted(manq)} :: {t[:120]}')
         if DOSE.search(t) and not any(c.lower().startswith('aips') for c in cites):
             d['A_dose_sans_AIPS'].append(t[:140])
+    # A — formule de lacune dans le cours (LV7) : la lacune va dans HELP.md, jamais dans la leçon
+    for tag, b, t in ph:
+        if LACUNE.search(t):
+            d['A_formule_lacune'].append(t[:140])
     # B — langue
     paras = re.findall(r'<(?:p|div class="p")(?:\s[^>]*)?>(.*?)</(?:p|div)>', h, re.S | re.I)
     sans_conn = sum(1 for p in paras if len(texte(p).split()) > 40 and not CONNECT.search(texte(p)))
@@ -175,7 +180,7 @@ def controler(chemin, paquet, a, vus_lot):
         d['C_balises'].append(e)
     if not (a.min <= len(brut) <= a.max):
         d['C_taille_hors_bande'].append(f'{len(brut)} o (bande {a.min}–{a.max})')
-    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee'))]
+    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee'))]
     verdict = 'ROUGE' if rouge else ('ORANGE' if d else 'VERT')
     return {'fichier': chemin, 'octets': len(brut), 'sha256': hashlib.sha256(brut).hexdigest()[:16],
             'verdict': verdict, 'phrases': nph, 'connecteur%': round(100 * conn / nph),
