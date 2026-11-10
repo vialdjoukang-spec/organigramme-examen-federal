@@ -17,7 +17,7 @@ def biblio(h):
     ids, noms = {}, {}
     for m in re.finditer(r'<li id="source-(S\d+)">(.*?)</li>', h, re.S):
         t = texte(m.group(2))
-        a = re.search(r'autorisation\s*(?:n°\s*)?(\d{5})', t)
+        a = re.search(r'(?:autorisation|n°|Swissmedic)\s*(?:n°\s*|Swissmedic\s*)?(\d{5})', t)
         if 'AIPS' in t and a:
             ids[m.group(1)] = f'aips-{a.group(1)}'
             noms[m.group(1)] = t.lower()
