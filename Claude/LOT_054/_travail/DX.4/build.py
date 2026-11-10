@@ -38,7 +38,11 @@ def conv(src, pre, n):
     blocs = re.split(r'\n\s*\n', src.strip())
     for b in blocs:
         L = b.strip().split('\n')
-        if L[0].startswith('# '):
+        if L[0].startswith('## '):
+            out.append(f'<h4><em>{inline(L[0][3:])}</em></h4>')
+            rest = '\n'.join(L[1:]).strip()
+            if rest: out.append(conv(rest, pre, n))
+        elif L[0].startswith('# '):
             out.append(f'<h4><em>{inline(L[0][2:])}</em></h4>')
             rest = '\n'.join(L[1:]).strip()
             if rest: out.append(conv(rest, pre, n))

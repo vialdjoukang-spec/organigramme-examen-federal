@@ -4,6 +4,8 @@ def cite(m):
     return ''.join(f'<sup class="r"><a href="#sb-{i.strip()}">{i.strip()}</a></sup>' for i in m.group(1).split(','))
 for f in sorted(glob.glob('src/p*.html')):
     t=open(f,encoding='utf-8').read()
+    t=re.sub(r'\.(\{\{[^}]+\}\})',r'\1.',t)
+    t=t.replace('<div class="t"><table>','<div class="t" style="overflow-x:auto"><table>')
     t=re.sub(r'\{\{([^}]+)\}\}',cite,t)
     open('fragments/'+os.path.basename(f),'w',encoding='utf-8').write(t)
 print('ok')

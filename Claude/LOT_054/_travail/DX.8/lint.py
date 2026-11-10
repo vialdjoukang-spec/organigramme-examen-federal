@@ -20,7 +20,7 @@ for tag,b,t in ph:
 if mode=='conn':
     paras=re.findall(r'<(?:p|div class="p")(?:\s[^>]*)?>(.*?)</(?:p|div)>',body,re.S|re.I)
     for p in paras:
-        tx=C.texte(re.sub(r'<sup class="r">.*?</sup>','',p))
+        tx=C.texte(p)
         if len(tx.split())>40 and not C.CONNECT.search(tx): print(where(tx),'|',tx[:110])
 if mode=='noconn':
     for tag,b,t in ph:
