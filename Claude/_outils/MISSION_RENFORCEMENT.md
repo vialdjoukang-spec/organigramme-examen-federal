@@ -15,7 +15,7 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
 3. **B, langue (µ4).** Coupe chaque phrase de plus de 32 mots en phrases verbales complètes, en gardant les citations de chaque
    moitié. Rends verbale chaque phrase nominale. Reformule les phrases dupliquées ou partagées avec un autre fichier du LOT.
    Retouche la phrase, jamais son contenu.
-4. **C, gabarit.** Enveloppe chaque tableau dans `<div class="t">`, retire tout `title=` et équilibre les balises. Ramène le fichier
+4. **C, gabarit.** Retire d'abord les polices intégrées (`@font-face` en data:) : le gabarit µ7 n'en prévoit pas. Enveloppe chaque tableau dans `<div class="t">`, retire tout `title=` et équilibre les balises. Ramène le fichier
    dans la bande 100–200 Ko en supprimant les redites, jamais un fait utile. Si c'est impossible, signale-le.
 5. **Déficits (µ3, 14 points).** Compare la leçon au tableau des 14 points de `PROMPT_Casern/PROMPT_LOTS_Lo_9.11.26.claude.md`
    (µ3). Ajoute en quelques phrases sourcées ce qui manque, par exemple 9.c alternatives, 11.A but chiffré, une fenêtre
@@ -32,4 +32,4 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
 7. Relance `controle3` jusqu'au **VERT**.
 
 Rapport en 5 lignes au plus : verdict, octets, déficits complétés, images insérées, faits retirés (aucun, idéalement).
-Ne commite rien.
+Travaille dans un dossier temporaire privé (`mktemp -d`), jamais dans un scratchpad partagé. Ne commite rien.
