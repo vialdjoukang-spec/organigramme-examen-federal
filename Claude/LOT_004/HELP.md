@@ -17,3 +17,18 @@
 - Corrections de citations faites : tableau d'épidémiologie (Hickie, Katz, Nehme, Ballouz réattribués selon leurs résumés PubMed), AIPS ibuprofène (61210) à la place de Novalgin (16951) sur le groupe ATC et la grossesse, AIPS paracétamol (47503) à la place de NICE sur le groupe ATC, citations parasites [14] retirées du Rappel mémoire et de la bibliographie.
 - Image : frottis sanguin (lymphocytes réactifs, Wikimedia Commons, CC BY 2.0) inséré au point 9.b. Aucun signe visible exploitable pour le point 6.
 - Taille : 90 037 octets, sous la bande 100–200 Ko, car les polices intégrées (20 Ko) ont été retirées ; le complément exige des extraits NICE et OFSP lus.
+
+## DX.2 — Problèmes musculo-squelettiques (renforcement du 10.11.2026)
+- Citations corrigées : l'AIPS Lyrica (57057) ne porte plus la dose Dafalgan, l'AIPS Duloxetin Sandoz (65996) ne porte plus la dose Saroten ; les rangs [2], [3], [4], [6] hors sujet ont été retirés ou reportés sur la source qui porte le fait ([3] pour raideur >45 min et âge >50 ans, [5] pour l'âge des polymyalgies, [2] pour les critères de 2016).
+- Doses AIPS relues dans le corpus local : Dafalgan 47503, Brufen 45031, Spiricort 38840, Saroten 66978, Lyrica 57057 et Duloxetin Sandoz 65996 concordent avec la leçon. Brufen : « jusqu'à 2400 mg » (l'AIPS le dit « dans certains cas », pas comme maximum absolu).
+- Sans source lue, retirés du texte : le chapitre 15 de la CIM-11 dans la phrase d'ouverture (reste dans l'arbre) ; le seuil de clairance de 30 mL/min pour le contraste iodé (9.c) ; l'attribution « selon l'AIPS » à calcium et vitamine D (l'AIPS Spiricort ne les mentionne pas). À sourcer : recommandation d'ostéoporose cortico-induite (Suisse, ex. SVGO), seuil de contraste iodé (ESUR), CIM-11 (OMS), prévention primaire (point 12 : organisme et année suisses).
+- Définitions de « Notions à ne pas confondre » (douleur nociplastique, arthrose, myopathie, fatigue chronique) : l'ancienne citation [1] (Nijrolder) ne les portait pas ; elles restent sans source. À sourcer.
+- Image : coupe histologique d'artérite à cellules géantes (File:Giant cell arteritis -- intermed mag.jpg, Nephron, CC BY-SA 3.0) insérée au point 9.d. Le point 9 n'a pas d'échographie de l'artère temporale (signe du halo) : la recherche Commons « halo sign temporal artery » n'a rien donné ; à reprendre avec une autre requête.
+- Écarts connus : sb-2 (Wolfe 2016) n'a été lu qu'en résumé ; les seuils chiffrés (WPI/SSS) ont été vérifiés de mémoire de la littérature, non sur le texte intégral.
+
+## DX.6 Anémie (renforcement 10.11.2026)
+- Point 11.D : les critères de sortie (hospitalisation) ne sont pas rédigés : aucune source suisse lue. Critères de guérison rédigés (Hb, ferritine, cause).
+- Point 6 : technique des gestes de l'examen (pâleur conjonctivale, koïlonychie, etc.) non sourcée ; à documenter par une source lue.
+- Point 9.c : pour l'anémie, les alternatives d'imagerie (iode, IRM) ne s'appliquent pas ; remplacées par seuils de grossesse et d'enfant, sTfR, holoTC (sources lues sur PubMed).
+- Image : un seul frottis (carence en fer) inséré. Manquent : frottis macrocytaire (B12), koïlonychie et glossite (point 6), non cherchés pour limiter les requêtes Wikimedia.
+- Citations non-AIPS (sb-1 à sb-10) relues contre les résumés PubMed ; seules les corrections de mauvaise attribution ont été faites (taux 2,8 % sb-1, mortalité sb-6, index sTfR sb-6, Daude sb-7, etc.). Les dates « consultée le 27.10.2026 » des AIPS ont été remplacées par la date de relecture du corpus AIPS du 08.10.2026.
