@@ -70,3 +70,20 @@
 - Point 2 : aucune donnée d'incidence suisse propre (OFS, Obsan) n'est lue ; le chiffre 1 sur 25 000 vient de la revue suisse de Refardt et Christ-Crain (2020), et le chiffre de polyurie vient d'une cohorte d'urologie américaine (Fisch, 2022).
 - Bibliographie : les huit extraits AIPS (Minirin comprimés 49002, Melt 57151, injectable 43585, Esidrex 24958, Glucose 5 % B. Braun 29550001, Euthyrox 54949, Hydrocortison Galepharm 57970, Lithiofor 38061) sont séparés par molécule, mais la date de consultation de chaque notice n'est pas consignée dans le fichier. Les doses de l'hydrocortisone, de l'Euthyrox et de l'Esidrex viennent des fenêtres médicament déjà présentes, non relues ici.
 - Point 9 : le test génétique (AVPR2, AQP2, AVP) et l'échographie rénale n'ont pas de source citée.
+
+## DX.5 Hyperparathyroïdie primaire — renforcement du 10.11.2026
+- Fenêtres répétées : seule la première occurrence d'une définition ou d'un médicament garde sa fenêtre ; les suivantes sont devenues un lien (médicaments) ou le terme nu (notions), pour supprimer les phrases dupliquées. À rétablir si la charte µ5 l'exige.
+- Citations AIPS mal attribuées : les ancres sb-aips posées par le renfort sur des phrases non médicamenteuses (sensibilités échographie et sestamibi, imagerie 4D, PET, seuil de crise) ont été remplacées par [2], source qui les porte (Kochman 2023, texte intégral relu ce jour : 79 %, 88 %, 5 à 55 %, seuils de calciurie, calcium alimentaire 800 et 1000 mg).
+- Seuils non médicamenteux (calciurie 250 et 300 mg, calcium alimentaire 800 à 1000 mg) : unité écrite « milligrammes » pour ne pas les confondre avec une dose AIPS. Aucun chiffre retiré.
+- Dose à revérifier dans l'AIPS (non relue ici) : Fosamax, seuil de clairance de la créatinine (la leçon dit 30 mL/min ; vérifier si l'AIPS indique 35) ; Aclasta 35 mL/min.
+- Point 9.c : aucune source lue sur l'enfant ; ligne non ajoutée.
+- Point 11.D : critères de guérison et de sortie chiffrés (durée de la normocalcémie postopératoire) à sourcer dans Bilezikian 2022 (texte intégral non lu) ; seule la normalisation de la calcémie corrigée est énoncée.
+- Image : File:CT, ultrasonography, SPECT and scintigraphy of intra-thyroid parathyroid adenoma.jpg (CC BY 4.0) en attente (erreur 429), ajouté à images_attente.txt ; à insérer au point 9.c après la scintigraphie. Aucune image au point 6 (kératopathie en bande non cherchée). Le repère 3 de la scintigraphie reste à confirmer : la légende Commons ne localise pas l'adénome.
+- Rappel mémoire et gabarit : phrases du gabarit reformulées pour ne plus être partagées avec les autres fichiers du LOT ; à signaler au chef si le générateur les réécrit.
+
+## Phase A (renforcement du 10.11.2026)
+- Glucose 5 % B. Braun (n° 29550) : texte AIPS illisible dans l'export local. La fiche « glucose 5 % » de la Phase A reprend désormais Glucosum « Bichsel » (n° 32920, lu) : 10 mL/min, 2000 mL/jour, 0,5 g/kg/h.
+- Perfusion d'insuline IV (0,1 puis 0,05 UI/kg/h, bolus 0,1 UI/kg) : ces débits viennent du consensus ADA/EASD 2024 (source 11) ; l'AIPS Actrapid HM (n° 44610) ne donne que la voie IV et 0,05–1,0 UI/mL. La phrase cite les deux, chacun pour sa part.
+- Xgeva (n° 61865) : l'hypercalcémie maligne ne figure pas dans l'AIPS ; l'indication reste citée via l'Endocrine Society (source 17).
+- Citations de la renfort_citations corrigées à la main : tableaux Algorithme, Comparatif des 13 DD et Drapeaux rouges (sources 19, 12, 13 mal attribuées retirées ou reciblées) ; [S20] retiré de la bibliographie. Un contrôle des autres renvois chiffrés reste à faire par l'audit.
+- Images : IRM T1 sagittale de la selle (point brillant, point 9) et pli cutané de la main (point 6) insérées. Aucun cliché libre retenu pour Sjögren (parotides) ; à ajouter si disponible.
