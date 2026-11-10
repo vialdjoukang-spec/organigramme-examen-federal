@@ -11,3 +11,10 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
   pulmonary embolism echocardiography ».
 - Réserve L1 : l'examen physique ciblé reste une fenêtre unique organisée en lignes par région (signe, technique, aspect,
   piège) ; une fenêtre par région dépasserait la bande de 150 Ko (149,7 Ko atteints).
+
+## DX.1 — Cardiopathie ischémique
+- Lacune retirée : signe physique propre à un syndrome du point 7 (« donnée non trouvée »).
+- Point 1 : la fenêtre « ce qui est / ce qui n'est pas » passe au point 4 (entités qui imitent la cardiopathie ischémique) ;
+  synonymes et termes à éviter retirés (L1-3). Le chiffre 75–80 % reste au point 2.
+- Images à insérer : ECG 12 dérivations d'un STEMI inférieur (point 9) et coronarographie d'une occlusion (point 9) ;
+  requêtes Commons « inferior STEMI ECG 12 lead », « coronary angiography occlusion right coronary artery ».
