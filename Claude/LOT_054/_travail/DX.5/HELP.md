@@ -1,0 +1,6 @@
+# HELP DX.5 — Anévrisme de l'aorte abdominale
+
+1. ESVS 2024 (Wanhainen et al., Eur J Vasc Endovasc Surg 67:192-331, PMID 38307694) : seul le résumé PubMed est lisible (texte intégral hors PMC ; ejves.com, sciencedirect, academic.oup.com renvoient 403). Les seuils de réparation (5,5 cm homme, 5 cm femme), les intervalles de surveillance par classe de diamètre, l'âge et la population de dépistage, la pression cible de l'hypotension permissive et le calendrier de suivi après EVAR ne sont donc pas citables depuis l'ESVS. La leçon s'appuie sur RMS 350 (2012), IMPROVE, une cohorte danoise de statines et des revues PMC ; la leçon ne donne aucun intervalle de surveillance chiffré. À fournir : texte intégral ESVS 2024 (ou ESC 2024 PMID 39210722, aussi limité au résumé).
+2. Recommandation suisse actuelle de dépistage de l'AAA (société suisse de chirurgie vasculaire / Swiss Medical Forum) : aucune source suisse récente lisible trouvée ; seule la RMS 2012 (HUG) est citée.
+3. AIPS : atorvastatine (Sortis 54085), rosuvastatine (Crestor 56139) et ASS Cardio Spirig HC (66097) trouvés dans le corpus, aucune molécule déclarée absente. Aucune de ces spécialités n'a l'AAA comme indication AIPS (le texte le dit).
+4. Règles suisses de conduite automobile en cas d'AAA : non trouvées ; seules les règles britanniques, irlandaises et d'autres pays sont citées (Ir J Med Sci 2026).

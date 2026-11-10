@@ -62,8 +62,8 @@ def lst(L, pre, n, k):
         else: items.append([l[2:], []])
     res = '<ul>'
     for t, subs in items:
-        res += '<li>' + inline(t)
-        if subs: res += '<ul>' + ''.join('<li>' + inline(s) + '</li>' for s in subs) + '</ul>'
+        if subs: res += '<li><p>' + inline(t) + '</p>\n<ul>' + ''.join('<li>' + inline(s) + '</li>' for s in subs) + '</ul>'
+        else: res += '<li>' + inline(t)
         res += '</li>\n'
     return res + '</ul>'
 if __name__ == '__main__':
