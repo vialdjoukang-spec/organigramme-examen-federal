@@ -1,0 +1,11 @@
+# HELP — DX.8 Péricardite aiguë et myopéricardite (LOT_043)
+- Acide acétylsalicylique : aucune information professionnelle AIPS lisible dans le paquet pour la posologie de la péricardite (Aspirine 500 non retenue par prep). Le cours donne la classe et « dose anti-inflammatoire complète » sans milligramme. À compléter avec l'AIPS d'une spécialité à dose anti-inflammatoire.
+- Anakinra (Kineret) : aucune information professionnelle suisse trouvée dans l'index AIPS (zip du 8 octobre 2026) ; aucun milligramme écrit. Rilonacept : non lu dans l'AIPS ; mentionné par classe seulement.
+- Inhibiteur de la pompe à protons : dose citée en « pleine dose » sans milligramme (pantoprazole non rapatrié).
+- Divergence de sources sur le niveau de recommandation des inhibiteurs de l'IL-1 dans l'ESC 2025 (« Classe I » selon PMID41534803, « Class 2 » selon PMC12869867) : texte intégral de l'ESC 2025 (Eur Heart J 2025;46:3952-4041, doi 10.1093/eurheartj/ehaf192) inaccessible (OUP 403) ; à trancher sur le texte.
+- Le texte intégral de la recommandation ESC 2025 n'a pu être lu ; les critères et recommandations sont rapportés via des revues PMC (PMC12869867, PMC13485469, PMC13339194, PMC13109608, PMC12985884) et le résumé PubMed du Lakartidningen (PMID42026924).
+- Aucune recommandation suisse spécifique à la péricardite (HUG, RMS, FMS) trouvée en texte intégral ; l'étude suisse de 2022 sur 1,9 % / 1,1 % est citée de seconde main (via PMC13109608). Source primaire à retrouver.
+- Contradiction grossesse/allaitement : colchicine contre-indiquée selon l'AIPS COLCTAB (67974) mais jugée compatible par une revue (PMC13264112) ; signalé dans le cours.
+- Volets sans source lue : technique du geste du pouls paradoxal et de la recherche du frottement (décrits sans citation), volet « assurances » (LAMal / liste des spécialités pour anakinra, certificat de travail) non sourcé.
+- Le 1,1 % préhospitalier (cohorte suédoise BMJ Open 2021, PMC8055143) regroupe myocardite, péricardite et endocardite : signalé dans le tableau, le texte et la question d'examen huit.
+- Gadolinium / DFGe < 30 et allergie à l'iode : alternatives non sourcées, non écrites.
