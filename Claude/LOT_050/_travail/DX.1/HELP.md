@@ -2,10 +2,10 @@
 
 Lacunes à traiter hors du cours (aucune n'est écrite dans le HTML) :
 
-1. Flécaïnide : l'index AIPS contient Tambocor®, mais aucun texte de l'information professionnelle n'a été rapatrié ; le cours donne la classe (IC) et la conduite sans milligramme ni numéro Swissmedic. À reprendre sur swissmedicinfo.ch.
-2. Propafénone : absente de l'index AIPS local (aucun document) ; non citée dans le cours (R35 ne nomme que la flécaïnide pour la classe IC).
-3. Bisoprolol : seul Concor® 2,5/5/10 (47311) est lu ; ses indications AIPS ne comprennent pas les troubles du rythme, le cours le dit sans dose pour l'ESV.
-4. Vérapamil et antagonistes calciques non dihydropyridiniques : hors liste DCI de la ligne DX.1 ; cités par classe (R35) et par les interactions AIPS des bêtabloquants, sans dose.
+1. Flécaïnide, sotalol, vérapamil, amiodarone : AIPS rapatriés après audit (Tambocor 45710, Sotalol-Mepha 54553, Isoptin 40783, Amiodaron-Mepha 55349) et cités avec dose, voie, contre-indications.
+2. Propafénone : absente du corpus AIPS (recherche « propaf », « rytmonorm » vide) ; non citée dans le cours.
+3. Bisoprolol : Concor® 2,5/5/10 (47311) lu ; ses indications AIPS ne comprennent pas les troubles du rythme, le cours le dit sans dose pour l'ESV.
+4. Seuil de la tachycardie ventriculaire (plus de quatre battements) : propre à une étude par patch ; la définition de la tachycardie ventriculaire non soutenue de l'ESC 2022 (texte intégral non lu) n'est pas écrite dans le cours.
 5. ESC 2022 (Eur Heart J 43:3997, Zeppenfeld) : texte intégral non lu (résumé PubMed seulement) ; la recommandation d'ablation de première ligne (chambre de chasse droite, fascicule gauche) est citée via Praxis 2025 (Diaconu, Wyss, Ghenzi). Classe et niveau de preuve de la recommandation non cités.
 6. Aucune recommandation d'une société suisse (SSC) sur l'ESV ; sources suisses : HUG (page troubles du rythme, colloque palpitations), Praxis 2025, cohorte de Bâle (Heart 2017). La page Rosenfluh 2006 (Herzklopfen) renvoie 404.
 7. Examen physique (point 6) : aucune source lue ne décrit la technique gestuelle (palpation du pouls, auscultation) ; le texte s'appuie sur les corrélats sourcés (pause, bradysphygmie, signes d'insuffisance cardiaque).
