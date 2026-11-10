@@ -62,4 +62,7 @@ La conclusion précédente est un état historique, pas une clôture. Vial deman
 
 P1 franchie après recontrôle indépendant ; liste gelée et cadres de classement conservés. Phase A assemblée, 171803 octets, 14 points, 155 références citées (dont la consigne éditoriale de la question finale). Contrôle3 ORANGE, sans défaut A ou C ; audit médical P3 en cours. La présence du fichier poussé ne signifie pas que le LOT est livré. Les dix DX sont en rédaction parallèle.
 
-LOTs livrés : 0/23 (080–102) ; leçons poussées : 1/253 nouvelles, 858 existantes consolidées ; blocages : audit P3 Phase A et dix DX du LOT080 en cours, LOT081–102 à produire.
+
+Phase A corrigée : 172129 octets, P3 VERT 92,59 %, finale oui, sans critique. DX4 rédigé : 112791 octets, contrôle VERT ; P3 en cours.
+
+LOTs livrés : 0/23 (080–102) ; leçons poussées : 2/253 nouvelles, 858 existantes consolidées ; blocages : neuf DX du LOT080 à pousser et audits DX en cours ; LOT081–102 à produire.
