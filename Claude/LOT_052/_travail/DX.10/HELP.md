@@ -2,7 +2,7 @@
 
 ## Molécules et AIPS
 - Morphine : AIPS lu (Morphin-HCl Sintetica 51039, Morphini HCl Streuli 56554). Dose i.v. recopiée ; aucune dose spécifique à la rupture d'anévrisme n'existe dans l'AIPS.
-- Acide tranexamique : AIPS i.v. lu (Tranexam Labatec 69390 ; Cyklokapron 33741 oral). L'indication « rupture d'anévrisme » n'y figure pas et l'ESVS 2024 ne le recommande pas : classe et dose AIPS générale, sans indication établie.
+- Acide tranexamique : AIPS i.v. lu (Tranexam Labatec 69390 ; Cyklokapron 33741 oral). L'AIPS couvre les hémorragies par fibrinolyse et la chirurgie majeure, dont cardiovasculaire, mais ne vise pas la rupture d'anévrisme ; le texte ESVS 2024 lu ne mentionne pas l'acide tranexamique (silence, pas déconseil) : classe et dose AIPS générale, sans indication établie.
 - Héparine « Bichsel » 46240 et Clexane 49456 : AIPS lus (prophylaxie). Héparine peropératoire dans la rupture : l'AIPS ne donne pas de dose pour ce contexte, la dose suit les tests de coagulation (aucun milligramme écrit).
 - Noradrénaline, produits sanguins, plasma, culots : non détaillés (hors DCI de la ligne DX.10 ; l'ESVS renvoie aux protocoles de transfusion massive locaux).
 

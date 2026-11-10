@@ -2,9 +2,10 @@
 
 Lacunes consignées hors du cours (LV7) :
 
+- ESVS 2025 (EJVES 70:153-218, PMID 40513642) : seul le résumé PubMed est lisible (PDF ejves.com en 403, absent de PMC) ; citée pour son existence, ses 102 recommandations et la succession à 2017 ; son contenu (anticoagulation, revascularisation, NOMI, thrombose veineuse) reste à confronter dès qu'un texte intégral sera lisible.
 - ESVS 2017 (Björck et al., EJVES 53:460-510) : seul le résumé PubMed (vide) est lisible ; texte intégral non accessible. Ses données ne sont citées qu'indirectement via WSES 2022 et ESC 2024. À lire en texte intégral.
 - Épidémiologie suisse (OFS, Obsan) : aucune source chiffrée lue. Les chiffres viennent d'AMESI (international), de Helsinki, Malmö, ESTES, WSES ; la RMS 2016 (CHUV) donne seulement « environ une hospitalisation sur mille ».
-- Métronidazole i.v. : aucune spécialité AIPS dans le corpus (Pylera = autre indication) ; classe citée sans milligramme.
+- Métronidazole i.v. : Metronidazol i.v. B. Braun 48018 rapatrié ; dose enseignée.
 - Papavérine et alprostadil intra-artériels : aucune AIPS pour cet usage (Caverject = intracaverneux) ; aucune dose écrite.
 - Doses héparine (Heparin Sintetica 67780) : posologie AIPS générale de la maladie thromboembolique, pas propre à l'IMA. Enoxaparine (Hepaxane 67702) : dose AIPS de la TVP ; usage IMA hors indication. Actilyse 48313 : IMA hors indication AIPS.
 - Pipéracilline-tazobactam : seule Stragen 58459 citée ; Labatec 60142 présente dans le paquet, non citée.
