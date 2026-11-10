@@ -1,6 +1,6 @@
 # Consolidation Grokbot
-Dernier passage : 2026-11-10T09:18:45+01:00 (Europe/Zurich).
-Exigences remplies : **74 / 1760 (4 %)**.
+Dernier passage : 2026-11-10T10:07:50+01:00 (Europe/Zurich).
+Exigences remplies : **107 / 1760 (6 %)**.
 Revérifiées : 1686. Déjà conformes et inchangées : 74. FIN_FICHIER ajoutés : 0.
 Exigences : présence du fichier, 14 points, FIN_FICHIER, bande 100–200 Ko, aucun bloqueur, score ≥ 90.
 Le détail par leçon est dans `Grokbot/consolidation/etat.json`. Aucun texte clinique n'est inventé pour atteindre la bande.
@@ -11,17 +11,14 @@ Le détail par leçon est dans `Grokbot/consolidation/etat.json`. Aucun texte cl
 | 052 | 11 | 0 | 0 |
 | 053 | 11 | 0 | 0 |
 | 054 | 11 | 0 | 0 |
-| 055 | 11 | 0 | 0 |
 | 056 | 11 | 0 | 0 |
 | 057 | 11 | 0 | 0 |
 | 058 | 11 | 0 | 0 |
 | 059 | 11 | 0 | 0 |
 | 060 | 11 | 0 | 0 |
 | 061 | 11 | 0 | 0 |
-| 062 | 11 | 0 | 0 |
 | 063 | 11 | 0 | 0 |
 | 064 | 11 | 0 | 0 |
-| 065 | 11 | 0 | 0 |
 | 066 | 11 | 0 | 0 |
 | 067 | 11 | 0 | 0 |
 | 068 | 11 | 0 | 0 |
