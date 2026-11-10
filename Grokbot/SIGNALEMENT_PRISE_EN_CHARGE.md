@@ -10,15 +10,15 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 
 | LOT | SSP | Intitulé | Statut |
 |---|---|---|---|
-| 051 | S2.12 | Douleur de la paroi thoracique | réservé |
-| 052 | S3.1 | Douleur abdominale | réservé |
-| 053 | S3.2 | Distension abdominale | réservé |
-| 054 | S3.3 | Masse abdominale | réservé |
+| 051 | S2.12 | Douleur de la paroi thoracique | livré PR 541 |
+| 052 | S3.1 | Douleur abdominale | livré PR 542 |
+| 053 | S3.2 | Distension abdominale | livré PR 544 |
+| 054 | S3.3 | Masse abdominale | livré PR 545 |
 | 055 | S3.4 | Modification du transit intestinal, incontinence anale | livré PR 548 |
-| 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | réservé |
+| 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | livré PR 549 |
 | 057 | S3.6 | Hématémèse | réservé |
-| 058 | S3.7 | Constipation | réservé |
-| 059 | S3.8 | Diarrhée | réservé |
+| 058 | S3.7 | Constipation | livré PR 546 |
+| 059 | S3.8 | Diarrhée | livré PR 547 |
 | 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
 | 061 | S3.10 | Nausées, vomissements | réservé |
 | 062 | S4.1 | Variations du développement sexuel | livré PR 553 |
