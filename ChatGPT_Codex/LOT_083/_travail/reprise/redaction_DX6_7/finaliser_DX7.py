@@ -1,0 +1,43 @@
+from pathlib import Path
+import json,re,hashlib
+B=Path(__file__).resolve().parent;D=B/'DX.7';F=D/'LOT_083_Phase_B_V0_DX.7.html';sha=hashlib.sha256(F.read_bytes()).hexdigest()
+def out(name,obj):(D/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+P=json.loads((D/'paquet.json').read_text());C=json.loads((D/'contrat.json').read_text());ctrl=json.loads((D/'controle.json').read_text())[0];v=json.loads((D/'VERIFICATIONS_TECHNIQUES.json').read_text())
+points=[]
+for n in range(1,15):
+ f=D/'fragments'/f'p{n:02d}.html';h=f.read_text()
+ points.append({'point':n,'titre':C['points'][str(n)]['titre'],'fragment':str(f.relative_to(D)),'octets':len(f.read_bytes()),'phrases_ids':re.findall(r'id="(dx7-p\d+-f\d+)"',h),'fenetres':re.findall(r'popovertarget="([^"]+)"',h),'sources':P['points'][str(n)]})
+q={
+'Q1a':{'points':[1],'repere':'Définition DGN2025 ; origine primaire ou centrale selon SFE/CEEDMM2021.'},
+'Q1b':{'points':[1],'repere':'Termes myalgie, fatigue, parésie et myopathie ; coexistence des mécanismes statinique et endocrine.'},
+'Q2a':{'points':[2],'repere':'Contexte suisse Hirslanden/mediX2026 puis chiffres DGN2025 et SFE, dénominateurs explicités.'},
+'Q2b':{'points':[2],'repere':'Groupes à risque, formes rares graves, évolution et enjeux ; limites de population détaillées dans HELP hors cours.'},
+'Q3a':{'points':[3],'repere':'Régulation hormonale, fonction mitochondriale et métabolismes ; mécanisme de T4, sans cascade moléculaire inventée.'},
+'Q3b':{'points':[3],'repere':'Table perturbation→exploration→traitement ; interactions et maintien du déficit.'},
+'Q4a':{'points':[4],'repere':'Décompensation myxœdémateuse et rhabdomyolyse compliquée avant présentation stable.'},
+'Q4b':{'points':[4],'repere':'Quatre sorties discriminantes avec éléments, pièges et conduite.'},
+'Q5a':{'points':[5],'repere':'Questions ciblées avec leur raison et conséquence pratique.'},
+'Q5b':{'points':[5],'repere':'Drapeaux rouges avec action explicite ; traitements et prise réelle.'},
+'Q6a':{'points':[6],'repere':'Normalité force5, contraction idiomusculaire rapide et réponses ROT avant anomalies.'},
+'Q6b':{'points':[6],'repere':'Mingazzini, Barré, force segmentaire, lever, palpation, percussion et limites.'},
+'Q7':{'points':[7],'repere':'Syndromes7.1–7.5, signes fonctionnels/physiques et fenêtres de définition/recherche/mécanisme.'},
+'Q8a':{'points':[8],'repere':'Critères HAS2022 avérée/fruste avec seuils et durée ; insuffisance thyréotrope distincte.'},
+'Q8b':{'points':[8],'repere':'Ce qui conclut et ce qui ne conclut pas ; critères hormonaux distincts de l’attribution musculaire.'},
+'Q9a':{'points':[9],'repere':'Référence clinique+biologie ; prescriptions, contexte, limites du laboratoire et interprétation.'},
+'Q9b':{'points':[9],'repere':'Première/seconde intention ; grossesse/enfant/atteinte rénale-hépatique ; contraste/IRM non systématiques, sonographie limitée.'},
+'Q10':{'points':[10],'repere':'Douze embranchements si→action et branche centrale spécifique.'},
+'Q11a':{'points':[11],'repere':'Cible TSH de laboratoire ; deux mesures normales3mois sous même dose ; force0–5 suivie.'},
+'Q11b':{'points':[11],'repere':'Sécurité puis confirmation, substitution T4, modalités d’absorption et accompagnement.'},
+'Q11c':{'points':[11],'repere':'Fenêtre Urgence — conduite chronologique ; coma, lyse, surrénale avant T4.'},
+'Q11d':{'points':[11],'repere':'AIPS Euthyrox54949 février2023, dose adulte/voie/durée, CI, interactions et effets.'},
+'Q11e':{'points':[11],'repere':'Terrains spéciaux, contrôle6–8sem/annuel, effets d’alerte, huit critères énumérés et social ASSM/FMH.'},
+'Q12':{'points':[12],'repere':'Primaire/secondaire/tertiaire ; mediX2026 suisse et AIPS ; mesures concrètes par terrain.'},
+'Q13':{'points':[13],'repere':'Six phrases intactes sans fenêtre.'},
+'Q14':{'points':[14],'repere':'Dix-neuf questions/réponses/raisons et question finale littérale unique.'}}
+out('INDEX_REPERAGE_P3.json',{'lot':'LOT_083','dx':'DX.7','sha256':sha,'role':'Index factuel de couverture pour auditeur indépendant, sans score ni porte attribuée','grille_originale':'26 questions /52 hors images ; point11 cinq questions exactement','priorite_lecture':[4,8,9,10,11],'questions':q,'points':points})
+verbs=['rapporte','s’effectue','s’effectue','complète','signifie','invite','rapporte et demande','participe','dispose','motive et dispense','propose']
+ex=ctrl['defauts']['B_phrase_nominale']['ex'];assert len(ex)==len(verbs)
+out('ARBITRAGE_B.json',{'role':'Repérage grammatical de rédaction ; aucune autoévaluation P3','sha256':sha,'controle_brut':'ORANGE :11 B_phrase_nominale, zéro A/C','details':[{'signal_script':t,'verbe_conjugue':v,'constat':'Phrase verbale ; forme non reconnue par le lexique heuristique.'}for t,v in zip(ex,verbs)],'inter_DX6_DX7':{'rapport_brut':'controle_inter_DX6_DX7.json','verdict_brut_DX7':'ROUGE','unique_phrase_partagee':'Question finale exacte M1.3 obligatoire dans chaque leçon ; aucun autre partage signalé','interpretation':'Le rapport brut est conservé sans modification et sans annonce VERT.'},'score_P3':None,'finale_P3':None})
+out('HELP.json',{'auteur':'/root/sources_lot080','date':'2026-11-10','sha256':sha,'limites_documentaires_hors_cours':[{'point':2,'limite':'Pas de prévalence/incidence suisse de myopathie hypothyroïdienne identifiée ; aucun taux inventé. La plage DGN concerne tous symptômes neuromusculaires chez hypothyroïdiens symptomatiques ; les chiffres SFE concernent le trouble hormonal.'},{'point':3,'limite':'Régulation métabolique/mitochondriale et pharmacologie AIPS documentées ; aucune cascade moléculaire détaillée non lue ajoutée.'},{'point':8,'limite':'Critères hormonaux HAS2022 et confrontation clinique ; aucune série de critères majeurs/mineurs musculaires ni score étiologique inventés.'},{'point':9,'limite':'Normales biologiques renvoyées à l’intervalle de la méthode ; aucune plage CK/fT4 universelle inventée. Pas de protocole d’imagerie pédiatrique ou de contraste ajouté pour une maladie initialement diagnostiquée sans imagerie.'},{'point':12,'limite':'Prévention des retards, interactions et iatrogénie ; aucune prophylaxie universelle de maladie auto-immune revendiquée.'}],'divergences_explicitement_gerees':['DGN large bilan de myalgies incluant fT3 ; algorithme primaire HAS2022 ne recommande pas T3 libre de routine. Le cours retient la prescription adaptée à la question hormonale.','mediX algorithme2026 est public ; texte intégral actualisé03/2026 de la page est réservé. Aucune lecture intégrale de cette partie réservée n’est revendiquée.','mediX/HAS proposent d’autres modalités posologiques ; doses et espacements prescrits dans le cours suivent exclusivement AIPS Euthyrox suisse : demi-heure avant repas,fer/calcium au moins2h après, résines4–5h après.','Les schémas étrangers par poids et autoaugmentation de grossesse ne sont pas transposés dans une ordonnance suisse ; AIPS grossesse et suivi spécialisé conservés.','AIPS palier possible2–4sem et HAS contrôleTSH6–8sem sont présentés avec individualisation, sans escalade automatique.','L’item public Hirslanden est utilisé seulement pour contexte suisse, symptômes et urgence ; la mention de calcitonine comme hormone du déficit n’est pas reprise.'],'securite':['Contre-indications cardiaques/hypophysaires/surrénaliennes relues avantT4 ; faible dose ne lève aucuneCI.','Déficit surrénalien nécessitant substitution : glucocorticoïdes avantT4, sans dose de glucocorticoïde non acquise.','Coma myxœdémateux et rhabdomyolyse compliquée sortent de la titration orale ambulatoire.','Prescription adulte clairement limitée ; aucune dose pédiatrique dérivée.'],'autoaudit':False})
+out('REMISE_REDACTION.json',{'lot':'LOT_083','dx':'DX.7','entite':'Myopathie hypothyroïdienne','auteur':'/root/sources_lot080','fichier':str(F),'octets':len(F.read_bytes()),'sha256':sha,'paquet':str(D/'paquet.json'),'paquet_sha256':hashlib.sha256((D/'paquet.json').read_bytes()).hexdigest(),'contrat_sha256':hashlib.sha256((D/'contrat.json').read_bytes()).hexdigest(),'controle_original':ctrl,'index_Q':str(D/'INDEX_REPERAGE_P3.json'),'structure':v,'statut':'Version privée stable remise pour copie/push root et audit indépendant ; aucune autoévaluation P3','images':'Différées selon Vial','git':False,'canonique_modifie':False,'reproduction':'PYTHONDONTWRITEBYTECODE=1 python3 ChatGPT_Codex/LOT_083/_travail/reprise/redaction_DX6_7/assembler_controler.py 7 depuis la racine du dépôt'})
+print(sha,len(F.read_bytes()));print('packet',hashlib.sha256((D/'paquet.json').read_bytes()).hexdigest());print('contract',hashlib.sha256((D/'contrat.json').read_bytes()).hexdigest())
