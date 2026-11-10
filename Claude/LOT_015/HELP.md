@@ -34,3 +34,9 @@ Les lacunes ne figurent plus dans les cours (L1, LV7) ; elles sont consignées i
 - Point 1 : la fenêtre « notions voisines » devient « Situations frontières » au point 4 ; « termes à éviter » supprimés.
 - Citations « mot pour mot » longues (contre-indications de la metformine, d'Androcur®-50, de GONAL-f®, tableau grossesse/allaitement, limitation LS de GONAL-f®) reformulées en phrases verbales sans perte de condition ni de nombre.
 - Réserve L1-2 : examen physique en tableau unique (budget 150 Ko). Image en attente d'insertion : échographie d'ovaire polykystique (File:PCO polycystic ovary.jpg, CC BY-SA 3.0, téléchargée).
+
+## DX.4 — Hyperphagie boulimique
+- Lacunes retirées : répartition cantonale, coûts suisses, seuils et valeurs propres de certains signes, sensibilité et spécificité de signes de purge, mécanismes précis non décrits, traduction française officielle de la CIM-11, imagerie alternative de la lésion hypothalamique, règles travail/assurance-invalidité, critères de sortie propres.
+- Point 1 : fenêtre « terminologie, synonymes et termes à éviter » supprimée (date d'entrée dans le DSM-5 et la CIM-11 gardée au point 1 ; place PROFILES G15/S9.4/O2.6 conservée en Phase A) ; « notions voisines » réduites aux situations non couvertes par le point 4 et déplacées au point 4.
+- Fenêtre « obésité associée » condensée : schémas des médicaments du poids réduits à une phrase AIPS par molécule (détail complet dans DX.1).
+- Situations spéciales : citations AIPS reformulées ; doublons avec les fiches (doses rénales et hépatiques) remplacés par un renvoi interne.
