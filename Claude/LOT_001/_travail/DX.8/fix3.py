@@ -1,0 +1,21 @@
+R=[]
+def r(f,a,b): R.append((f,a,b))
+r('p02',"dans les semaines qui suivent l'infection{G270}","une à quatre semaines après l'infection{G270}")
+r('p02',"Symptômes pseudo-grippaux quelques semaines après l'infection{V12}","Symptômes pseudo-grippaux deux à quatre semaines après l'infection{V12}")
+r('p02',"espérance de vie très réduite sans traitement{V15}","espérance de vie de quelques mois à trois ans sans traitement{V15}")
+r('p02',"L'âge médian au diagnostic était de 36 ans","Calculé sur les cinq dernières années, l'âge médian au diagnostic était de 36 ans")
+r('p02',"Le sida est diagnostiqué la plupart du temps","Une cinquantaine de diagnostics de sida sont posés chaque année, la plupart du temps")
+r('p04',"dans les premières semaines après une exposition{A10}","dans les deux premières semaines après une exposition{A10}")
+r('p07',"quelques semaines après l'infection{V12}","deux à quatre semaines après l'infection{V12}")
+r('p08',"environ un mois plus tard{D46}","environ quatre semaines plus tard{D46}")
+r('p11',"Le plus tôt possible après une exposition, la première dose de PEP est administrée{P8}.","Dans les quatre heures suivant l'exposition, la première dose de PEP est administrée{P8}.")
+r('p11',"d'administrer la première dose le plus tôt possible après l'exposition.","d'administrer la première dose dans les quatre heures suivant l'exposition.")
+r('p11',"doivent disposer de starter kits, afin de remettre rapidement les comprimés{P12}","doivent disposer de starter kits pour trois à cinq jours, afin de remettre rapidement les comprimés{P12}")
+r('p11',"Un contrôle précoce évalue","Un contrôle deux semaines après le début évalue")
+r('p12',"de prendre des comprimés de PrEP dès que possible","de prendre deux comprimés de PrEP dès que possible")
+r('p12',"{E30}. La CFIST recommande une PEP lorsque la prise de PrEP a été insuffisante lors de rapports anaux ou vaginaux insertifs{P28}.","{E30 P30}. La CFIST recommande une PEP si moins de quatre comprimés de PrEP ont été pris au cours des sept derniers jours lors de rapports anaux ou vaginaux insertifs{P28}.")
+r('p09',"Elle demande, pour vérifier un autotest réactif, des tests offrant la meilleure sensibilité et spécificité possibles{D25}. Aucun pourcentage n'est cité, car une valeur copiée d'une notice de fabricant serait présentée à tort comme celle d'un laboratoire suisse.","Elle demande, pour vérifier un autotest réactif, des tests offrant la meilleure sensibilité et spécificité possibles{D25}. Les autotests sur goutte de sang capillaire disponibles en Suisse ont une sensibilité et une spécificité supérieures à 99 % hors de la fenêtre sérologique de 3 mois{M14}. Aucune valeur chiffrée n'a été trouvée pour l'algorithme de laboratoire lui-même dans la directive OFSP ni dans le résumé EACS lus.")
+for f,a,b in R:
+    p=f'src/{f}.txt'; t=open(p,encoding='utf-8').read()
+    if a not in t: print('MANQUE',f,a[:70]); continue
+    open(p,'w',encoding='utf-8').write(t.replace(a,b,1))
