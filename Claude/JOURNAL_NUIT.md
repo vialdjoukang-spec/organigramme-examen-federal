@@ -1,0 +1,14 @@
+# JOURNAL_NUIT — Claude (mission LOT_043–071 + LOT_079, ordre de Vial du 10.11.2026)
+
+- 01:40 · détection (327 branches) : LOT_043–071 et 079 absents partout ; consolidation de 218 leçons Claude → PR #514.
+- 01:45 · correctif local : `outils/paquet.py` ne découpait pas les rubriques AIPS (espace en tête de ligne) → `Claude/_outils/lecon.py`.
+- 02:30 · cause racine des doses « absentes » : liste HAM `zugelassene_packungen` sans les monopréparations courantes → liste élargie `erweiterte_ham_ind.xlsx` + préférence monopréparation.
+- 02:45 · LOT_045 : P1–P3 franchies (11 ACCEPTE) → PR #524 ; revue Codex : Dafalgan 500 mg, clairance de la créatinine (corrigé).
+- 02:57 · LOT_044 : P1–P3 franchies (11 ACCEPTE) → PR #525 ; revue Codex : fibrinolyse du STEMI (corrigé).
+- 03:10 · BLOCAGE fusion : la protection de `main` exige 4 contrôles « expected » jamais publiés, et `auto-fusion.yml` n'agit que sur une autorisation technique (n° PR + SHA) inscrite dans `main` par Vial. PR #514, #524, #525 prêtes (CI verte, `audit-ok`), en attente de cette autorisation ou d'une fusion manuelle.
+- 07:20 UTC · LOT_046 livré : PR #532 (11 leçons, 9 VERT/2 ORANGE, P3 + audit3), étiquette audit-ok ; fusion bloquée comme #514/#524/#525/#527 (autorisation technique absente). Limite d'usage 03:25–05:50 UTC : 15 agents interrompus puis relancés. LOT_048 en audit P3 ; LOT_050 liste en audit P1.
+- 07:53 UTC · LOT_048 livré : PR #533 ; LOT_049 livré : PR #535 (11 leçons VERT, P3 + audit3, arbitrage salbutamol « AIPS prime » soumis à Vial). LOT_047 : second audit, corrections DX.5–DX.7 en cours. LOT_050 : 11 leçons VERT, audit P3 en cours. LOT_051 (S2.12) : liste DX en cours. Fusions toujours bloquées (autorisation technique).
+- 07:58 UTC · LOT_047 livré : PR #537 (11 leçons VERT, P3 + audit3). LOT_050 : 11 leçons en correction P3 (nombreux AIPS déclarés à tort absents ; brief renforcé). LOT_051 : liste gelée (audit P1 : néoplasie pariétale ajoutée, péricardite retirée), rédaction des 11 leçons lancée.
+- 08:16 UTC · LOT_050 livré : PR #539 (11 leçons VERT, P3 + audit3 ; ~30 AIPS rapatriés). LOT_051 : Phase A VERT, DX.1–DX.10 en rédaction. #514 fusionnée par Vial ; autres PR LOT toujours bloquées par la protection (4 contrôles requis).
+- 08:46 UTC · Ordre ATTRIBUTIONS exécuté : PR #543 (ATTRIBUTIONS.json, outils par propriétaire, 77 dossiers déplacés, 3 jauges, LIRE_AVANT_DE_CONTINUER.md) — CI verte, fusion refusée par la protection (« 4 of 4 required status checks are expected ») ; étiquette attente-vial. LOT_052 : PA, DX.1, DX.2, DX.3, DX.5, DX.6, DX.7, DX.8 VERT ; DX.4, DX.9, DX.10 en rédaction. LOT_051 DX en rédaction.
+- 09:37 UTC · LOTs livrés (PR) : 043–050, 052 (#575), 051 (#584) ; attributions #543 ; leçons poussées : 110 ; en cours : LOT_053 (DX), LOT_054 (PA + DX.1–DX.8) ; blocages : fusion protégée (4 contrôles requis) → Vial ; doublons Grokbot LOT_051/052 sur main → choix de Vial.
