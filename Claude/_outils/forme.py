@@ -18,7 +18,7 @@ FACES = ''.join(
     f"src:url('{POLICES}{w}-{st}.woff2') format('woff2')}}"
     for w in (400, 700) for st in ('normal', 'italic'))
 CSS = (FACES +
-       "html,body,p,li,td,th,dd,dt,div,span,figcaption,summary,details,button,input,select{"
+       "html,body,body *:not(code):not(pre):not(kbd):not(samp){"
        "font-family:'Atkinson Hyperlegible',Verdana,'Segoe UI',system-ui,sans-serif!important}"
        "body{line-height:1.4!important}"
        "p,.p,li,dd,blockquote,.df{text-align:justify;hyphens:auto;-webkit-hyphens:auto}"
