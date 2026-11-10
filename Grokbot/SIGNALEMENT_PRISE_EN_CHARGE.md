@@ -18,7 +18,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | réservé |
 | 057 | S3.6 | Hématémèse | réservé |
 | 058 | S3.7 | Constipation | réservé |
-| 059 | S3.8 | Diarrhée | en cours |
+| 059 | S3.8 | Diarrhée | livré PR 547 |
 | 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
 | 061 | S3.10 | Nausées, vomissements | réservé |
 | 062 | S4.1 | Variations du développement sexuel | réservé |
