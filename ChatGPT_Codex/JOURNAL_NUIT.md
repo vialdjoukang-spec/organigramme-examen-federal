@@ -155,4 +155,6 @@ LOT082 DX6 : version corrigée138039octets, secondeP3 indépendante51/52finaleou
 
 LOT082 DX8 : corrections ciblées120830octets, notamment intervalle pédiatrique paracétamol, syndrome de loge et fracture ouverte ; secondeP3 à effectuer.
 
+LOT082 DX9 : restriction ESUR mère enceinte ou allaitante insuffisante rénale complétée ;194255octets, secondeP3 indépendante engagée.
+
 LOTs livrés : 0/23 ; leçons poussées : 31/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
