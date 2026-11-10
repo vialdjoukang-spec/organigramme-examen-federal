@@ -9,3 +9,7 @@ E2/E3 : collecte préparatoire par `/root/sources_lot080`, extraits archivés et
 ## Reprise ordonnée par Vial
 
 La consigne ultérieure demande de continuer jusqu’à la fin des LOTs. Les constats P1 précédents restent historiques et sont réexaminés sur des sources approfondies, avec cadres d’âge explicites. Les fragments cliniques de Phase A sont rédigés en préparation pendant cette recherche ; aucun classement non démontré ni audit réussi n’est annoncé.
+
+## État courant après reprise
+
+La liste est gelée après P1 indépendante. Les onze leçons sont poussées ; neuf contrelectures P3 sont validées sur leurs empreintes actuelles. DX5 et DX6 reçoivent les corrections précises de leurs audits. Les dépôts individuels ci-dessus sont historiques ; le MANIFESTE et les rapports nommés selon les HTML portent les versions actuelles. Vial a confirmé le droit de fusion dès CI verte.

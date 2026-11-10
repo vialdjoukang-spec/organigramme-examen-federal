@@ -1,10 +1,10 @@
 # État actualisé — reprise active
 
-La liste canonique a franchi P1. La Phase A a franchi P3 (92,59 %, finale oui). Les mentions de blocage P1 ci-dessous décrivent la première tentative et sont conservées comme historique. Les DX sont en production et audit.
+La liste canonique a franchi P1. La Phase A a franchi P3 (92,59 %, finale oui). Les mentions de blocage P1 ci-dessous décrivent la première tentative et sont conservées comme historique. Les onze HTML ont été poussés. Neuf leçons ont une contrelecture P3 validée sur leur empreinte actuelle ; les corrections de DX5 et DX6 sont en cours.
 
 # LOT_080 — obstacles documentaires
 
-## Porte P1
+## Historique — première porte P1
 
 Aucune liste gelée. Les extraits consultés soutiennent certaines distinctions et comparaisons partielles, mais pas dix positions de fréquence dans la SSP tous âges confondus.
 
