@@ -1,1 +1,6 @@
 - 2026-11-10 · gel P1 de la liste DX (audit indépendant, verdict CORRIGER, liste corrigée de l'auditeur appliquée) · sha a45bddafaff100ad
+- 2026-11-10 · rédaction des 11 leçons (P2 controle3 VERT) ; phrases partagées DX.8 reformulées
+- 2026-11-10 · audit P3 (3 auditeurs) : 11 CORRIGER (décompression du pneumothorax sous tension, nitroglycérine, altéplase, AIPS déclarées absentes à tort, sources américaines) ; corrections A-5
+- 2026-11-10 · second passage P3 : DX.2–DX.5, DX.7 ACCEPTE ; corrections des restants (héparine, aspirine 3e trimestre, ESC 2024 aorte, oxygène 90 % cohérent, D-dimères BMJ 2013)
+- 2026-11-10 · vérification indépendante (audit3) : PA, DX.1, DX.6, DX.8, DX.9, DX.10 ACCEPTE ; 11 ACCEPTE
+- 2026-11-10 · écart à la règle Θ2 « deux échecs P3 → REFUSE » : 6 fichiers corrigés après le second échec plutôt que refusés (corrections ponctuelles vérifiées indépendamment)
