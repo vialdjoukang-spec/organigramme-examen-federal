@@ -1,0 +1,11 @@
+# HELP — LOT_048 DX.7 (cancer de l'œsophage)
+- ESMO 2022 (Ann Oncol, PMID 35914638) : seul le résumé bibliographique est lisible ; le texte intégral n'a pas été lu. Les recommandations ESMO citées viennent de la mise à jour intermédiaire 2025 (PMC11889489).
+- ESGE Barrett 2023 (PMID 37813356) : résumé partiellement tronqué à l'extraction (MR2 à MR9 illisibles) ; seuls MR1, MR10 et MR11 sont cités.
+- Pembrolizumab : l'AIPS lu (Keytruda 66231) ne mentionne pas le carcinome épidermoïde de l'œsophage ; option citée hors AIPS (recommandation allemande).
+- FLOT, carboplatine-paclitaxel (CROSS) et FOLFOX : aucune indication œsophagienne dans les monographies AIPS lues ; pas de milligramme enseigné hors AIPS.
+- Tislélizumab (recommandation ESMO) : aucune monographie suisse lue ; non enseigné.
+- Seuil PD-L1 du nivolumab dans l'adénocarcinome : AIPS (CPS ≥ 10) diverge de la recommandation allemande (CPS ≥ 5) ; conduite = AIPS.
+- Grossesse et allaitement des examens d'imagerie : non couverts par les sources.
+- Assurances sociales suisses (LAMal, AI) : aucune source suisse lue.
+- Prévention : aucune recommandation suisse de prévention spécifique lue (OFS 2021 et Ligue seulement).
+- Épidémiologie OFS : rapport 2021 (données 2013-2017), plus ancien que les registres actuels.
