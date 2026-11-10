@@ -33,7 +33,7 @@ def build(n):
     def close_lists():
         nonlocal ul, sub
         if sub:
-            out.append('</ul></li>'); sub = False
+            out.append('</ul>'); sub = False
         if ul:
             out.append('</ul>'); ul = False
 
@@ -53,7 +53,7 @@ def build(n):
             pass
         if tag == 'LI':
             if sub:
-                out.append('</ul></li>'); sub = False
+                out.append('</ul>'); sub = False
             elif ul:
                 pass
             if not ul:
@@ -66,10 +66,6 @@ def build(n):
             continue
         if tag == 'SUB':
             # supprime le marqueur @@LI précédent (li reste ouvert)
-            for j in range(len(out) - 1, -1, -1):
-                if out[j] == '@@LI':
-                    out[j] = ''
-                    break
             if not sub:
                 out.append('<ul>'); sub = True
             out.append(f'<li>{cites(rest)}</li>')
@@ -77,7 +73,7 @@ def build(n):
         # tout autre marqueur ferme les listes
         if ul or sub:
             if sub:
-                out.append('</ul></li>'); sub = False
+                out.append('</ul>'); sub = False
             else:
                 pass
             if ul:
@@ -102,7 +98,7 @@ def build(n):
         else:
             raise SystemExit(f'p{n}: marqueur inconnu {tag!r} dans {l[:60]}')
     if sub:
-        out.append('</ul></li>')
+        out.append('</ul>')
     if ul:
         out.append('</ul>')
     flush()
