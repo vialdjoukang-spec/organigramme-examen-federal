@@ -11,3 +11,5 @@ Proposition de dix entités précises et20passages continus préparés par root,
 2026-11-10 | suite | aucun HTML produit ; blocage consigné, passage au LOT suivant.
 
 DX9 : audit indépendant root, 49/52 = 94,23 %, finale oui, zéro critique ; SHA e238b8f64cc8a5a8922b83b8295df1d50d6a49d92228c0d454b3052096d838d7. DX5 : première P3 46/52, correction ciblée confiée au rédacteur.
+
+Les onze contenus sont poussés et ont franchi P3 indépendante. DX10 seconde P3 49/52. Main intégré avant PR ; CI et fusion restent à établir.

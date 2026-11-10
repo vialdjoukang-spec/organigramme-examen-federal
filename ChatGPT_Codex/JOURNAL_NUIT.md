@@ -2,7 +2,7 @@
 
 ## État actuel
 
-34 nouvelles leçons sont poussées : les11 du LOT080, les11 du LOT081, les11 du LOT082 et DX3 du LOT083. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 est livré après fusion de PR599, CI verte et vérification des onze empreintes sur main. Le LOT083 a sa P1 franchie et sa liste gelée ; dixDX sont en rédaction parallèle et DX3 est poussée pour audit. Les 858 leçons existantes consolidées sont sur main.
+44 nouvelles leçons sont poussées : onze pour chacun des LOT080, LOT081, LOT082 et LOT083. LOT081 et LOT082 sont livrés sur main et leurs empreintes vérifiées. LOT080 est clos en REFUSE après deux échecs P3 de DX5 et DX6. Les onze leçons du LOT083 ont franchi P3 indépendante ; preuves locales P4 conformes, CI et fusion à établir. Les sources du LOT084 sont en préparation. Les858 leçons existantes consolidées restent distinctes de la production nouvelle.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -217,4 +217,4 @@ LOT083 DX4 : six corrections ciblées, seconde P3 indépendante 51/52 finale oui
 
 LOT083 DX10 : trois corrections AIPS ciblées poussées, seconde P3 en cours.
 
-LOTs livrés : 2/23 ; leçons poussées : 44/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
+LOTs livrés : 2/23 ; leçons poussées : 44/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 contrôles requis attendus ; LOT083 CI/fusion à établir ; LOT084–102 à produire.
