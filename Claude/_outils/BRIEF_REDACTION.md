@@ -35,8 +35,11 @@ Chaque phrase factuelle, y compris de physiopathologie, cite un extrait (LV1) : 
      et `<div id="PREFIX-pN-fK" popover class="fenetre">…</div>` placé APRÈS le paragraphe (PREFIX = `pa` ou `dxi`, ex. `dx3`).
    - Citation : `<sup class="r"><a href="#sb-ID">ID</a></sup>` en fin de phrase factuelle, ID exact du paquet.
    - **Chaque nombre** (y compris âges, pourcentages, doses, seuils, années, « 1re », « 24 h ») d'une phrase citée doit figurer
-     dans l'extrait cité dans cette même phrase ; sinon ROUGE. Écrire un nombre factuel en toutes lettres pour échapper au contrôle
-     est interdit (LV3) : il doit figurer dans l'extrait cité. Attention : « COVID-19 », « SpO2 » isolé, « 3e » sont des nombres pour le contrôle.
+     dans l'extrait cité dans cette même phrase ; sinon ROUGE. Écrire un nombre factuel ou une unité (« milligrammes ») en toutes lettres pour échapper
+     au contrôle est interdit (LV3, LV6) : le nombre figure dans l'extrait cité, la dose dans un extrait `aips-*`. Attention : « COVID-19 », « SpO2 » isolé, « 3e » sont des nombres pour le contrôle.
+   - Avant d'écrire « sans AIPS » (HELP), cherche la molécule dans tout le corpus : `prep --ajouter --dci <racine> --aips-max 4`,
+     ou `--autorisation <n°>` si tu connais une spécialité (Concor, Beloc i.v., Tambocor, Solu-Cortef…). Les audits ont trouvé
+     de nombreuses molécules déclarées absentes alors que leur AIPS existe : c'est un défaut Grave.
    - Une phrase avec dose (mg, µg, UI) cite un extrait `aips-…` ; doses, voies, durées, grossesse/allaitement recopiés de l'AIPS,
      sans adoucir ; numéro Swissmedic lu dans la source AIPS (5 chiffres). Si une société savante diverge de l'AIPS
      (dose, contre-indication, grossesse), la conduite enseignée suit l'AIPS ; la recommandation divergente est citée comme telle,
