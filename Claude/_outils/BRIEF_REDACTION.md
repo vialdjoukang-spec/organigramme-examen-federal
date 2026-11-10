@@ -19,7 +19,9 @@ Tu ne fais ni commit, ni push, ni branche : le chef de production s'en charge.
    ESGE, ESHRE, EAU, ESCMID, KDIGO, NICE, HAS, AWMF ; textes intégraux PMC (`https://pmc.ncbi.nlm.nih.gov/articles/PMCxxxx/`)
    et résumés PubMed pour les chiffres d'épidémiologie. Jamais une recommandation exclusivement américaine.
    Vérifie la version la plus récente (LV8). Mets une URL par ligne dans `Claude/LOT_XXX/_travail/<CIBLE>/urls.txt`.
-   (academic.oup.com et europepmc.org renvoient 403 : passe par PMC ou PubMed.)
+   (academic.oup.com et europepmc.org renvoient 403. Si la page PMC renvoie un reCAPTCHA, utilise le texte intégral
+   `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=<n° PMC sans « PMC »>` ; résumé PubMed :
+   `…/efetch.fcgi?db=pubmed&id=<PMID>&rettype=abstract&retmode=text`. Erreur 429 : relance une fois.)
 2. **Paquet.** `python3 $L prep --lot XXX --cible <CIBLE> --entite "<nom>" --ssp <code> --urls Claude/LOT_XXX/_travail/<CIBLE>/urls.txt --dci <racines DCI des médicaments du point 11>`
    (`<CIBLE>` = `PA` pour la Phase A, `DX.i` pour un DX ; DCI en racine courte : `colchic ibuprofen amoxicill`).
    Relance avec `--ajouter` pour compléter. Une URL en ECHEC ou vide (< 2 passages) se remplace par une autre.
