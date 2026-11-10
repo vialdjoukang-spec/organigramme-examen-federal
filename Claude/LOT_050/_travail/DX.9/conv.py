@@ -8,6 +8,7 @@ def conv(txt):
     for blk in re.split(r'\n\s*\n',txt.strip()):
         b=blk.strip()
         if not b: continue
+        if b.startswith('### '): out.append('<h4><em>%s</em></h4>'%b[4:]); continue
         if b.startswith('## '): out.append('<h4><em>%s</em></h4>'%b[3:]); continue
         if b.startswith('<'): out.append(cit(b)); continue
         lines=b.split('\n')
