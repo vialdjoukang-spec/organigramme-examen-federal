@@ -19,7 +19,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 057 | S3.6 | Hématémèse | livré PR 550 |
 | 058 | S3.7 | Constipation | livré PR 546 |
 | 059 | S3.8 | Diarrhée | livré PR 547 |
-| 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
+| 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | livré PR 551 |
 | 061 | S3.10 | Nausées, vomissements | réservé |
 | 062 | S4.1 | Variations du développement sexuel | livré PR 553 |
 | 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | réservé |
