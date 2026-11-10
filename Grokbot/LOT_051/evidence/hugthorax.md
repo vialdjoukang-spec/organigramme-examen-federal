@@ -18,3 +18,7 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 ## hugthorax.2 (cité)
 
 > Le site privilégié pour une décompression à l’aiguille d’un pneumothorax sous tension est le 2e espace intercostal, au niveau de la ligne médio-claviculaire de l’hémithorax affecté.
+
+## hugthorax.3 (cité)
+
+> TRANSFERT en Centre hospitalier (avec cardiomobile SANS DELAI) • Avis spécialisé • VVP, O2 • Surveillance scopée, TA aux 15 mn minimum • Traitement de l’instabilité hémodynamique

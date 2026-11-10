@@ -1,6 +1,6 @@
 # aips-aspegic
 
-Information professionnelle Aspégic® (acétylsalicylate de lysine), AIPS/Swissmedic, n° d’autorisation 38133
+Information professionnelle Aspégic® (acétylsalicylate de lysine), AIPS/Swissmedic, n° d’autorisation 38133, mise à jour décembre 2025
 
 https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3654cabaf2774fda9fa35c4eae0eb4c3-fr.html
 Consulté le 10.11.2026. Priorité : aips.
@@ -18,3 +18,7 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 ## aips-aspegic.2 (cité)
 
 > Numéro d’autorisation 38133 ( Swissmedic ).
+
+## aips-aspegic.3 (cité)
+
+> Pour le traitement des douleurs légèrement à modérément fortes et aiguës (céphalées, douleurs dentaires, douleurs articulaires et tendineuses, dorsalgies). Traitement symptomatique de la fièvre et/ou des douleurs lors de refroidissements.

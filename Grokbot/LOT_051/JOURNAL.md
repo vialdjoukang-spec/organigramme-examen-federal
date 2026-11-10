@@ -47,3 +47,11 @@ Un auditeur distinct a d’abord bloqué trois formulations. Elles ont été cor
 ## Arrêt
 
 DX.2 à DX.10 ne sont pas rédigés. Aucune pull request. Aucune fusion.
+
+## fix051c — ré-audit (commit 38dbbe5e6)
+
+Rangs E réordonnés (E1 pneumothorax sous tension, E2 maladie coronarienne, E3 dissection, E4 embolie) ; arbre ouvert sur une porte d’instabilité vitale ; angioscanner de dissection (Wikimedia Commons, CC BY-SA 3.0) au point 9 ; question finale ajoutée ; règle 6 de sélection dans la liste.
+
+## fix051d — contre-vérification
+
+Question finale : « oui » appuyé sur le tableau d’ouverture complété (signe, examen, conduite) ; la Phase B n’est plus qu’un approfondissement. Acide acétylsalicylique : indication et dose de l’AIPS Aspirine® Cardio (n° 51795, 200 à 300 mg) ; Aspégic® présenté hors AIPS, selon les HUG ; contre-indication aiguë limitée à l’allergie connue, diathèse hémorragique et hémorragie digestive selon l’AIPS ; phrase « dose selon le protocole SMUR » retirée. Contrôle de la dissection avant toute aspirine (point 4, fenêtre SCA, arbre, point 13) ; si suspicion, aucun antithrombotique et 144. Sortie de la porte d’instabilité : 144, oxygène, monitorage, voie veineuse, patchs, puis cause ciblée (pneumothorax sous tension, embolie massive, tamponnade, trouble du rythme). Carte ECG : coronaire droite, 7 % d’ondes Q nouvelles ou de sus-décalage ST. AIPS Aspégic® daté de décembre 2025. Doses de la péricardite : « protocole local », faute d’extrait ESC accessible. Tableau comparatif à 15 px calculés. Planche de Gray retirée de la Phase A pour la taille (fichier conservé pour DX.1 et DX.9). Liste : règle 6 reformulée, justification de E3 par les antithrombotiques ; ordre et titres inchangés ; SHA recalculé dans `gel_p1.json`. Phase A : 147 219 octets, controle3 VERT.

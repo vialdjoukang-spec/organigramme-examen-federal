@@ -30,3 +30,7 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 ## hugsca.5 (cité)
 
 > Alarme STEMI via 144 : Déclenchée uniquement si critères STEMI selon point 3 associés à symptômes compatibles avec une ischémie myocardique, par exemple douleur thoracique typique prolongée (>20 min) et persistante. Lors de l’annonce de l’alarme STEMI, indiquer dans la mesure du possible l’identité et la date de naissance, le délai d’arrivée, le territoire ECG ET dans tous les cas les critères d’instabilité cliniques (OAP, choc cardiogène, troubles du rythme.)
+
+## hugsca.6 (cité)
+
+> O2 si FiO2< 90%, Monitoring, VVP (MSG) ECG 12 D STEMI 2 NSTEMI / angor instable 3 Diagnostic incertain 4 ASA 250 mg iv 5 Patchs de défibrillation

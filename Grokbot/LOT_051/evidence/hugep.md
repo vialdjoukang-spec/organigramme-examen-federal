@@ -42,3 +42,7 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 ## hugep.8 (cité)
 
 > Fréquence cardiaque 75 à 94/min +1 ≥ 95/min +2 Signes de TVP* +1 • Étude de 4 règles de prédiction et leurs variantes (Wells, Genève, Pise, Charlotte) • 3 niveaux (p clinique faible, intermédiaire, forte) • 2 niveaux (PE unlikely, PE likely) • Scores originaux et simplifiés (1 point par item)
+
+## hugep.9 (cité)
+
+> Suspicion d’EP non massive Probabilité clinique d’EP: scores cliniques Evaluer la probabilité clinique d’EP (pEP)

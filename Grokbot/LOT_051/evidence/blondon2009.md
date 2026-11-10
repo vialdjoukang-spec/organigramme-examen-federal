@@ -75,10 +75,18 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 
 > Le premier patient fut amené en ambulance médicalisée de France voisine au Service d’Accueil et d’Urgences de Genève, pour une suspicion de syndrome coronarien aigu. Dans cette démarche, il avait déjà bénéficié d’un traitement antiagrégant par aspirine et clopidogrel, ainsi qu’une dose d’enoxaparine 1mg/kg. A son arrivée, nous restions étonnés par la présence d’une douleur thoracique intense, transfixiante, avec une anamnèse de début extrêmement brusque et un ECG normal. Un scanner thoraco-abdominal confirma notre suspicion en montrant une dissection de type A descendant jusqu’aux artères rénales. Le patient décéda malheureusement en salle d’opération quelques heures plus tard.
 
-## blondon2009.17 (cité)
+## blondon2009.17
 
 > Ce fut alors dans un bilan d’embolie pulmonaire, suite à des Ddimères très élevés, que le diagnostic de dissection aortique de type B fut posé.
 
 ## blondon2009.18 (cité)
 
 > Y figurent l’hématome intramural, correspondant à une dissection sans brèche intimale
+
+## blondon2009.19 (cité)
+
+> Ils comprennent : • une hypertension, dans un contexte chronique ou aigu (douleur, stress) • un souffle diastolique sur insuffisance aortique • des déficits de pouls et déficits neurologiques focaux engendrés par la compression des branches de l’aorte • un choc
+
+## blondon2009.20 (cité)
+
+> La présence d’un seul de ces éléments isolé doit par contre faire rechercher une dissection aortique, en raison de bonnes spécificités.
