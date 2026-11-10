@@ -36,3 +36,11 @@
 - Fiches médicaments : les fenêtres au survol sont devenues des panneaux (a.tm.med vers div.mb) pour supprimer les phrases dupliquées ; la posologie hors AIPS du gluconate de calcium, de l’insuline et du salbutamol reste attribuée à la UK Kidney Association [8].
 - Épidémiologie : mortalité et histoire naturelle de l’IRC non sourcées dans la leçon ; à compléter avec une source suisse lue.
 - Image du point 6 : cliché d’œdème à godet d’un patient en insuffisance hépatique (Commons), faute de cliché libre d’œdème rénal.
+
+## DX.7 (Polydipsie médicamenteuse) — lacunes notées lors du renfort (10.11.2026)
+- Amiloride : aucune AIPS lisible (aucune spécialité) ; le milligramme de l'essai publié (10 mg/j) a été retiré de la fenêtre médicament, la conduite est gardée.
+- Tableau « Médicaments » : la colonne « durée » du contrat µ3 n'est pas renseignée, faute de durée lue dans les AIPS du paquet.
+- Point 9 : l'ECG (bradycardie sinusale, cliché Wikimedia Commons) illustre la lecture de la modalité ; le lien ECG-lithium (bradycardie, QT) n'a pas été relu dans l'AIPS Lithiofor, donc non affirmé dans le texte.
+- Point 12 : aucune recommandation suisse de prévention (organisme, année) lue ; seul le calendrier AIPS du Lithiofor est cité.
+- Section « Rappel mémoire » et liste des sources : des étiquettes de citation ajoutées par renfort_citations.py (ex. 70200 sur le plan) ne correspondaient pas au contenu ; retirées dans les sources et le plan.
+- Image de la langue sèche (DryTongue) : réutilisée depuis le dossier images (déjà prise pour un autre DX).
