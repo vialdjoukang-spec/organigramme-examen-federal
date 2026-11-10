@@ -2,7 +2,7 @@
 
 ## État actuel
 
-33 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et les 11 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 est livré après fusion de PR599, CI verte et vérification des onze empreintes sur main. Le LOT083 est en audit P1 de reprise. Les 858 leçons existantes consolidées sont sur main.
+34 nouvelles leçons sont poussées : les11 du LOT080, les11 du LOT081, les11 du LOT082 et DX3 du LOT083. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 est livré après fusion de PR599, CI verte et vérification des onze empreintes sur main. Le LOT083 a sa P1 franchie et sa liste gelée ; dixDX sont en rédaction parallèle et DX3 est poussée pour audit. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -185,4 +185,8 @@ LOT082 livré au commitf7089963b65d4e7cf7b139a1148a350aa6181388 : onze SHA main/
 
 LOT083 DX3 : courbatures retardées après effort,101129 octets, contrôle original ORANGE B seul ; première P3 indépendante engagée.
 
-LOTs livrés : 2/23 ; leçons poussées : 34/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT083 P1 en audit ; LOT084–102 à produire.
+Tableau de midi PR600 : une tentative de fusion normale après CI visible verte et intégration de main est refusée par GitHub : « 4 of 4 required status checks are expected. » Branche poussée et fusion automatique conservées ; aucun contournement. HTML disponible dans ChatGPT_Codex/Progression_Equipe_Midi_20261110.html.
+
+LOT083 DX4 : remise de contenu contrôlée, audit indépendant en attente.
+
+LOTs livrés : 2/23 ; leçons poussées : 35/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.

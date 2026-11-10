@@ -1,6 +1,6 @@
 # LOT083 — reprise S5.4 Myalgies
 
-Proposition de dix entités précises et20passages continus préparés par root, sources suisses puis européennes. Audit P1 indépendant demandé à sources_cutanees ; aucun gel ni cours produit. La première P1 reste historique.
+Proposition de dix entités précises et20passages continus préparés par root, sources suisses puis européennes. P1 indépendante franchie après ajout de deux extraits, liste gelée ; DX3 poussée et les autres cours en rédaction parallèle. La première P1 reste historique.
 
 ## Première passe documentaire
 
