@@ -58,3 +58,12 @@ Ordre de Vial (« Tu dois corriger ») : la Phase A est réécrite par Grok Bot 
 - DX.2 : aucune source ne chiffre sa part isolée ; le cours garde « 80 % causes médicales, sans part isolée ».
 - La règle « la série la plus récente tranche » est présentée comme règle de lecture du cours, pas comme phrase d'une source.
 - Néphropathie au contraste : « se normalise ensuite en moins d'une semaine », sans chiffre, car l'extrait écrit la durée en lettres.
+
+## Passage fix052e — 2026-11-10
+
+- Aucune citation mot pour mot dans le corps du texte : la définition de l'anévrisme, la restriction de la morphine et l'effet des opiacés sont reformulés. La nuance « uniquement en cas de nécessité absolue » est gardée (6 mots, sous le seuil de 8).
+- Délais d'arrivée (10 et 60 minutes) au seul point 11.A ; la fenêtre Urgence garde un rappel bref (priorité ESI 1 ou 2). L'antibiotique dans l'heure n'apparaît plus qu'au point 11.B ; la question d'examen correspondante est remplacée par le Novalgin® en choc (AIPS 16950).
+- Dose intraveineuse de la morphine : au seul tableau des antalgiques.
+- Points clés : la ligne « orifices herniaires, ECG, β-HCG » est retirée (déjà au point 6, dans la fenêtre Urgence et au point 14).
+- Lactates : aucun extrait de valeur normale ; la phrase est retirée.
+- `verif.py` compte de nouveau les citations entre guillemets dans le contrôle des 8 mots.
