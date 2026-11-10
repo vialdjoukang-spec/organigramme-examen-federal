@@ -1,0 +1,11 @@
+# HELP DX.1 (lacunes hors cours)
+- Urocit (citrate de potassium) : aucune information professionnelle AIPS rapatriée ; classe et conduite citées sans dose (HUG 2023, HUG 2010).
+- Tamsulosine : AIPS lue (T Spirig 62817, T-Mepha 62292) = indication hyperplasie bénigne de la prostate seulement ; usage dans la colique hors autorisation, dose 400 µg tirée de HUG 2023.
+- Kétorolac, diclofénac per os, thiazide-amiloride, allopurinol : doses HUG non reprises (AIPS non rapatrié pour la colique).
+- Paracetamol Fresenius 1 g : numéro AIPS « 61442002 » non à 5 chiffres ; Paracetamol Sintetica 58716 cité à la place.
+- Morphine i.v. : aucune spécialité injectable AIPS rapatriée ; hydromorphone Palladon Inject 59225 citée sans dose.
+- Épidémiologie suisse spécifique (OFS/Obsan) de la lithiase : non trouvée ; chiffres HUG et EAU utilisés.
+- Volet social et assurances (arrêt de travail, LAMal) : aucune source suisse lue ; seule la profession à risque (HUG 2023) est mentionnée.
+- Revue Médicale Suisse 2016 n°504 (Morandi) : page payante, texte non lu, non citée.
+- Reçus de sources anciennes : HUG prévention lithiase 2010 (version la plus récente trouvée) ; Marston 1992 (série historique).
+- Défauts ORANGE restants : phrases longues et nominales heuristiques, connecteur% ~33.
