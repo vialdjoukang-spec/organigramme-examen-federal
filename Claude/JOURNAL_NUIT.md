@@ -6,3 +6,4 @@
 - 02:45 · LOT_045 : P1–P3 franchies (11 ACCEPTE) → PR #524 ; revue Codex : Dafalgan 500 mg, clairance de la créatinine (corrigé).
 - 02:57 · LOT_044 : P1–P3 franchies (11 ACCEPTE) → PR #525 ; revue Codex : fibrinolyse du STEMI (corrigé).
 - 03:10 · BLOCAGE fusion : la protection de `main` exige 4 contrôles « expected » jamais publiés, et `auto-fusion.yml` n'agit que sur une autorisation technique (n° PR + SHA) inscrite dans `main` par Vial. PR #514, #524, #525 prêtes (CI verte, `audit-ok`), en attente de cette autorisation ou d'une fusion manuelle.
+- 07:20 UTC · LOT_046 livré : PR #532 (11 leçons, 9 VERT/2 ORANGE, P3 + audit3), étiquette audit-ok ; fusion bloquée comme #514/#524/#525/#527 (autorisation technique absente). Limite d'usage 03:25–05:50 UTC : 15 agents interrompus puis relancés. LOT_048 en audit P3 ; LOT_050 liste en audit P1.
