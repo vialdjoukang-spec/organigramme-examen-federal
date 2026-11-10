@@ -141,4 +141,6 @@ LOT082 DX4 : leçon produite,155860octets, contrôle sans défautA/C ; DX3 refor
 
 LOT082 DX8 : fracture déplacée du radius produite,105119octets, contrôleVERT zéro défaut ; P3 indépendant requis. PR567 : main intégré à nouveau avant fusion autorisée.
 
-LOTs livrés : 0/23 ; leçons poussées : 26/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
+LOT082 DX2 : hallux valgus produit,191704octets, contrôleVERT ; contrelecture indépendante requise. DX6 premierP3 46/52, correction ciblée demandée avant secondelecture.
+
+LOTs livrés : 0/23 ; leçons poussées : 27/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
