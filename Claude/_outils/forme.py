@@ -59,18 +59,31 @@ align-items:stretch!important;justify-content:flex-start!important;gap:1px!impor
 z-index:95!important;background:var(--fm-menu)!important;color:var(--fm-menu-txt)!important;padding:20px 12px 28px!important;
 border-right:1px solid var(--fm-menu-bord)!important;box-shadow:none!important;scrollbar-width:thin;scrollbar-color:#d9c6ab transparent}
 #brain-barre14::before{content:"Parties du cours";display:block;font:700 12px/1.2 'Atkinson Hyperlegible',Verdana,sans-serif;
-letter-spacing:.12em;text-transform:uppercase;color:var(--fm-vin);margin:0 10px 12px;padding-bottom:10px;border-bottom:2px solid #ead7bb}
+letter-spacing:.12em;text-transform:uppercase;color:var(--fm-a,#7c2431);margin:0 10px 12px;padding-bottom:10px;border-bottom:2px solid var(--fm-a-doux,#ead7bb)}
 #brain-barre14 a{display:flex!important;flex:0 0 auto!important;gap:11px!important;align-items:center!important;padding:6px 10px 6px 8px!important;
 margin:0!important;border:0!important;border-left:3px solid transparent!important;border-radius:0 8px 8px 0!important;min-height:0!important;
 white-space:normal!important;color:var(--fm-menu-txt)!important;background:transparent!important;text-decoration:none!important;
 font:400 14.5px/1.28 'Atkinson Hyperlegible',Verdana,sans-serif!important;outline:0!important;box-shadow:none!important;text-align:left!important}
 #brain-barre14 a b{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 27px!important;
 width:27px!important;min-width:27px!important;height:27px!important;padding:0!important;margin:0!important;border-radius:50%!important;
-background:#f1e0c6!important;color:#6b3412!important;font:700 12px/1 'Atkinson Hyperlegible',Verdana,sans-serif!important;
-letter-spacing:-.03em!important;font-variant-numeric:tabular-nums;overflow:hidden;white-space:nowrap!important;box-shadow:inset 0 0 0 1px #e2c9a5}
-#brain-barre14 a:hover,#brain-barre14 a:focus-visible{background:#f3e5d1!important;border-left-color:var(--fm-terre)!important;color:#000!important}
-#brain-barre14 a:hover b,#brain-barre14 a:focus-visible b{background:var(--fm-terre)!important;color:#fff!important;box-shadow:none}
-#brain-barre14 a:focus-visible{outline:2px solid var(--fm-terre)!important;outline-offset:-2px!important}
+background:var(--fm-a-pale,#f1e0c6)!important;color:var(--fm-a,#6b3412)!important;font:700 12px/1 'Atkinson Hyperlegible',Verdana,sans-serif!important;
+letter-spacing:-.03em!important;font-variant-numeric:tabular-nums;overflow:hidden;white-space:nowrap!important;box-shadow:inset 0 0 0 1px var(--fm-a-doux,#e2c9a5)}
+#brain-barre14 a:hover,#brain-barre14 a:focus-visible{background:var(--fm-a-pale)!important;border-left-color:var(--fm-a-mid)!important;color:#000!important}
+#brain-barre14 a:hover b,#brain-barre14 a:focus-visible b{background:var(--fm-a-doux)!important;color:var(--fm-a)!important}
+#brain-barre14 a:focus-visible{outline:2px solid var(--fm-a)!important;outline-offset:-2px!important}
+#brain-barre14 a.fm-actif,#brain-barre14 a[aria-current]{background:var(--fm-a-doux)!important;border-left-color:var(--fm-a)!important;color:#000!important;font-weight:700!important}
+#brain-barre14 a.fm-actif b,#brain-barre14 a[aria-current] b{background:var(--fm-a)!important;color:#fff!important;box-shadow:none!important}
+#brain-barre14 a:target{background:var(--fm-a-pale)!important}
+#brain-barre14.fm-dyn{background-image:linear-gradient(var(--fm-a-mid),var(--fm-a-mid))!important;background-repeat:no-repeat!important;
+background-size:3px calc(var(--fm-prog,0)*100%)!important;background-position:right top!important}
+#fm-bandeau{position:relative;margin-top:0!important;margin-bottom:1.1rem!important;padding:30px 34px 24px!important;background:var(--fm-a-pale)!important;
+border-left:7px solid var(--fm-a)!important;border-radius:0 0 18px 18px;box-shadow:0 1px 0 var(--fm-a-doux)}
+#fm-bandeau .fm-code{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:0 0 .5em!important;text-align:left!important;color:var(--fm-a)!important;
+font-size:13px!important;font-weight:700!important;letter-spacing:.13em;text-transform:uppercase}
+#fm-bandeau .fm-phase{font-weight:400;letter-spacing:.04em;text-transform:none;color:#3d342e;font-size:14px}
+#fm-bandeau .fm-nom{margin:0!important;color:#111!important;font-size:clamp(1.9rem,2.7vw,2.75rem)!important;font-weight:700!important;line-height:1.1!important;
+text-align:left!important;hyphens:manual!important;letter-spacing:-.012em}
+.fm-double{display:none!important}
 table{border-collapse:separate!important;border-spacing:0!important;width:100%;background:#fff!important;border:1px solid var(--fm-bord)!important;
 border-radius:10px;overflow:hidden;margin:.7em 0 1.1em;font-size:.95em;line-height:1.38}
 th{background:var(--fm-tete)!important;color:#2a160c!important;font-weight:700!important;text-align:left;vertical-align:bottom;
@@ -118,6 +131,8 @@ blockquote{border-left:4px solid #e2bf8f;background:var(--fm-pale);margin:.8em 0
 @media (max-width:900px){
 :root{--fm-col:100%}
 body{padding:62px 16px 3rem!important;font-size:16.5px}
+#fm-bandeau{padding:20px 18px 16px!important;border-radius:0 0 12px 12px}
+#brain-barre14.fm-dyn{background-size:calc(var(--fm-prog,0)*100%) 3px!important;background-position:left bottom!important}
 #brain-barre14{bottom:auto!important;right:0!important;width:auto!important;height:auto!important;flex-direction:row!important;
 gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:8px 10px!important;border-right:0!important;
 border-bottom:1px solid var(--fm-menu-bord)!important;scrollbar-width:none}
@@ -130,8 +145,10 @@ table{font-size:.9em}}
 @media print{#brain-barre14{display:none!important}body{padding:0!important}body>*{max-width:none!important}}
 """
 CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE)
-BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css">'  # aucun script : contrat C_script_interdit  # feuille partagée : ~70 octets par leçon
-RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>', re.S)
+# Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
+BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
+RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
+                     r'|<script src="\.\./_polices/forme\.js" defer></script>', re.S)
 PROTEGES = re.compile(r'(<(script|style|pre|svg|textarea)\b.*?</\2>)', re.S | re.I)
 
 
@@ -295,7 +312,64 @@ def retirer_sommaire(h):
         pos = m.end()
 
 
-def corriger(h):
+def teinte(nom):
+    """Couleur d'accent propre à chaque leçon, déterministe : angle d'or sur un hachage du nom de fichier,
+    dans les 220° autorisés (0–165° et 305–360° : jamais de bleu, cyan, indigo ni violet)."""
+    import zlib
+    k = zlib.crc32(nom.encode('utf-8'))
+    a = (k * 137.50776405) % 220
+    h = a if a < 165 else a + 140
+    def hx(l, s):
+        r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
+        return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
+    return hx(.29, .62), hx(.47, .55), hx(.955, .70), hx(.90, .62)
+
+
+def _texte(x):
+    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', x)).replace('&amp;', '&').strip()
+
+
+def bandeau(h, nom):
+    """En-tête : le nom du diagnostic (DX) ou du SSP (Phase A), en grand, le code en petit ; accent propre à la leçon.
+    Le titre d'origine identique est conservé dans le fichier mais masqué (classe fm-double) pour éviter le doublon."""
+    h = re.sub(r'<header id="fm-bandeau".*?</header>', '', h, flags=re.S)
+    h = re.sub(r'(<h[1-3]\b[^>]*?) class="fm-double"', r'\1', h).replace('class="fm-double ', 'class="')
+    a, m, p, p2 = teinte(nom)
+    h = re.sub(r'<body\b[^>]*>', f'<body style="--fm-a:{a};--fm-a-mid:{m};--fm-a-pale:{p};--fm-a-doux:{p2}">', h, count=1)
+    lot = re.match(r'(LOT_\d+)', nom)
+    lot = lot.group(1) if lot else ''
+    dx = re.search(r'DX\.(\d+)', nom)
+    titre = None
+    if dx:
+        for t in re.finditer(r'<(h[1-3])\b([^>]*)>(.*?)</\1>', h, re.S):
+            tx = _texte(t.group(3))
+            mm = re.match(rf'DX\.{dx.group(1)}\s*[—–:-]\s*(.+)', tx)
+            if mm:
+                titre, cible = mm.group(1), t
+                break
+        code, phase = f'{lot} · DX.{dx.group(1)}', 'Phase B · diagnostic différentiel'
+    else:
+        cible = re.search(r'<(h1)\b([^>]*)>(.*?)</\1>', h, re.S)
+        titre = _texte(cible.group(3)) if cible else None
+        g = re.search(r'<title>[^<]*?\b(G\d+)\b', h)
+        code, phase = f'{lot} · SSP {g.group(1)}' if g else lot, 'Phase A · situation clinique de départ'
+    if not titre:
+        t = re.search(r'<title>([^<]+)</title>', h)
+        titre, cible = (_texte(t.group(1)) if t else nom), None
+    if cible is not None:
+        balise = cible.group(0)
+        n = re.sub(r'^<(h[1-3])\b', r'<\1 class="fm-double"', balise) if 'class=' not in balise.split('>')[0] else \
+            re.sub(r'class="', 'class="fm-double ', balise, count=1)
+        h = h.replace(balise, n, 1)
+    bloc = (f'<header id="fm-bandeau"><div class="fm-code"><span>{code}</span><span class="fm-phase">{phase}</span></div>'
+            f'<div class="fm-nom">{titre}</div></header>')
+    mm = re.search(r'<nav id="brain-barre14".*?</nav>', h, re.S)
+    if mm:
+        return h[:mm.end()] + bloc + h[mm.end():]
+    return re.sub(r'(<body\b[^>]*>)', lambda x: x.group(1) + bloc, h, count=1)
+
+
+def corriger(h, nom=''):
     h = retirer_sommaire(ajouter_menu(RE_BLOC.sub('', h)))
     parts = PROTEGES.split(h)
     out = []
@@ -307,6 +381,7 @@ def corriger(h):
         i += 3
     h = ''.join(out)
     h = recolorer(h)
+    h = bandeau(h, nom)
     if '</head>' in h:
         h = h.replace('</head>', BLOC + '</head>', 1)
     else:
@@ -327,7 +402,7 @@ if __name__ == '__main__':
     change = 0
     for f in fichiers:
         h = open(f, encoding='utf-8').read()
-        n = corriger(h)
+        n = corriger(h, os.path.basename(f))
         if n != h:
             change += 1
             if not verif:

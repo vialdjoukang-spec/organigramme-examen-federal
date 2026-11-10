@@ -51,6 +51,7 @@ PRONOM_VERBE = re.compile(r"\b(?:il|elle|ils|elles|on|qui|cela|ce|celle-ci|celui
 LACUNE = re.compile(r"\(\s*À vérifier|À vérifier\s*[:)]|reste à (?:lire|vérifier)|texte (?:intégral )?non (?:lu|relu)|non relue? dans|faute d'extrait lisible|aucune source (?:lue|lisible)", re.I)
 STRUCT = re.compile(r"\b(?:points?|DX\.?|rangs?|E|étapes?|îlots?|n°|LOT_?|Phase)\s*\d+(?:[.,]\d+)?|\b[A-Z]\d{2}(?:\.\d{1,2})?\b|\bCIM-1[01]\b|\b(?:le|au|du|appeler le)\s+14[0-9]\b|\binterleukine[- ]\d+\b|\bIL-\d+\b|^\s*\d{1,2}\.[A-D]\d?\b", re.I)
 SOURCES = re.compile(r'<section\b[^>]*id="[\w-]*sources"[^>]*>.*?</section>|<details\b[^>]*class="refs"[^>]*>.*?</details>', re.S | re.I)
+SCRIPT_FORME = '<script src="../_polices/forme.js" defer></script>'  # ordre de Vial du 10.11.2026
 TAG_SS = re.compile(r'<(script|style)\b[^>]*>.*?</\1>', re.S | re.I)
 VIDES = {'br', 'hr', 'img', 'meta', 'link', 'input', 'source', 'col', 'wbr', 'area', 'base', 'embed', 'track', 'param'}
 
@@ -174,7 +175,9 @@ def controler(chemin, paquet, a, vus_lot):
         d['C_FIN_FICHIER_absent'].append('-')
     if re.search(r'\stitle=', h):
         d['C_title_interdit'].append(str(len(re.findall(r'\stitle=', h))))
-    if re.search(r'<script\b', h, re.I) and not a.script_ok:
+    # Ordre de Vial du 10.11.2026 : seule exception tolérée, le script externe partagé du menu dynamique,
+    # exactement <script src="../_polices/forme.js" defer></script> ; tout autre script (en ligne ou externe) reste refusé.
+    if re.search(r'<script\b', h.replace(SCRIPT_FORME, ''), re.I) and not a.script_ok:
         d['C_script_interdit'].append('-')
     nus = len(re.findall(r'<table\b', h)) - len(re.findall(r'overflow-x:\s*auto[^>]*>\s*<table', h))
     if nus > 0:
