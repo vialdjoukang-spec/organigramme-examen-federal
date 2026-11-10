@@ -1,7 +1,7 @@
 # HELP — DX.6 Syndrome coronarien aigu (LOT_046)
 
 Molécules ou points sans information professionnelle suisse (AIPS) lisible dans le cache du lot :
-- Acide acétylsalicylique (aspirine) : aucune notice AIPS dans le paquet ; le cours cite la dose d'entretien de 75 à 150 mg lue dans la notice du ticagrélor (Ticagrelor axapharm, 69596) et donne la dose de charge sans milligramme.
+- Acide acétylsalicylique : AIPS Aspirine Cardio (51795) versée au paquet et citée (200 à 300 mg puis 100 mg par jour, contre-indications, grossesse, allaitement) ; la dose d'entretien du ticagrélor (75 à 150 mg) reste citée de son AIPS 69596 pour l'association. Le métoprolol i.v. (Beloc 56191), Actilyse 48313, Metalyse 55418/69958 et la morphine Sintetica 51039 (HAM) ne sont toujours pas lus.
 - Opioïdes intraveineux (morphine, fentanyl), fibrinolytiques (alteplase, ténectéplase, reteplase), bivalirudine, fondaparinux : classe et conduite sans milligramme (ESC 2023) ; AIPS non lu.
 - Atorvastatine, rosuvastatine monopréparations, ézétimibe, inhibiteurs de PCSK9, IEC, ARNI, antagonistes des minéralocorticoïdes : classe seulement ; l'AIPS retenu pour l'atorvastatine est une association (68105) et n'a pas été exploité.
 - Métoprolol : seule la notice orale à libération prolongée (59206) est dans le paquet ; la dose du métoprolol intraveineux d'urgence n'y figure pas.
