@@ -41,3 +41,9 @@
   window.addEventListener('hashchange', maj);
   maj();
 })();
+/* L1 : la touche Échap ferme la fenêtre centrale ouverte (CSS :target). */
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape' || !location.hash) return;
+  var s = document.getElementById(location.hash.slice(1));
+  if (s && s.classList.contains('fenetre')) { location.hash = ''; }
+});
