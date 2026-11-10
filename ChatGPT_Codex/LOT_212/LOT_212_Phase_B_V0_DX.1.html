@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>LOT_212 — chapitre O5 (code de chapitre du projet Organigramme_Examen_Fédéral), sujet O5.4 — Prise en charge des symptômes réfractaires (douleur, nausées) — Appel B, Partie 1 (DX.1 et DX.2)</title>
+<style>
+/*FENETRES_EXAMENS*/
+details.ex,details.terme{display:inline-block;max-width:100%}
+details.ex[open],details.terme[open]{display:block}
+details.ex:not([open])::details-content,details.terme:not([open])::details-content{display:none}
+details.ex>summary{display:inline;cursor:pointer;font-weight:normal;color:#0b5a7a;border-bottom:1px dotted #0b5a7a;list-style:none}
+details.ex>summary::-webkit-details-marker{display:none}
+details.ex>summary::after{content:" ▸";font-size:.75em}
+details.ex[open]>summary::after{content:" ▾"}
+details.ex[open]>summary{font-weight:bold}
+.exw{display:block;margin:.5rem 0 .8rem;border:1px solid #8cc3d6;border-left:4px solid #0b5a7a;background:#f3f9fc;border-radius:8px;padding:.5rem .8rem;font-weight:normal}
+.onglets>input{position:absolute;opacity:0;width:1px;height:1px}
+.onglets>label{display:inline-block;padding:.3rem .8rem;margin:0 .3rem .4rem 0;border:1px solid #8cc3d6;border-radius:6px 6px 0 0;cursor:pointer;background:#e3f1f7;font-weight:bold}
+.onglets>input:checked+label{background:#0b5a7a;color:#fff}
+.onglets>input:focus-visible+label{outline:2px solid #972d34}
+.onglets>.op,.onglets>.oi{display:none;border-top:2px solid #0b5a7a;padding-top:.4rem}
+.onglets>input:nth-of-type(1):checked~.op{display:block}
+.onglets>input:nth-of-type(2):checked~.oi{display:block}
+.oi .ctx{border-left:3px solid #972d34;background:#fff5f0;padding:.3rem .6rem;margin:.4rem 0}
+
+.ext{font-weight:bold;color:#0b5a7a;margin-bottom:.3rem}
+.exn{font-size:.9em;margin-top:.4rem}
+.exw table{font-size:.9em}
+
+details.terme>summary{display:inline;cursor:pointer;font-weight:normal;color:#145f4a;border-bottom:1px dashed #145f4a;list-style:none}
+details.terme>summary::-webkit-details-marker{display:none}
+details.terme[open]>summary{font-weight:bold}
+details.terme>.exw{border-color:#a8cbe2;border-left-color:#40997b;background:#f1f8fd}
+.p{margin:.8rem 0}
+
+
+body{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif;max-width:980px;margin:auto;padding:16px;line-height:1.55;color:#1c2833;}
+h1{color:#1f618d;font-size:1.6em;}h2{color:#1f618d;border-bottom:2px solid #1f618d;}h3{color:#154360;}h4{color:#1a5276;margin-bottom:4px;}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:0.92em;}td,th{border:1px solid #aab7b8;padding:5px;vertical-align:top;}th{background:#d6eaf8;}
+caption{font-weight:bold;text-align:left;padding:4px 0;}ul.txt{list-style:none;padding-left:0;margin:6px 0;}
+.proba{color:#C8102E;font-weight:700}.s{font-size:0.85em;color:#1a5276;}
+body{background:#f3f9fd;}pre.arbre{background:#e8f3fb;padding:8px;white-space:pre-wrap;}
+/*mobile*/@media (max-width:640px){table.empile,table.empile>tbody,table.empile>tbody>tr,table.empile>tbody>tr>td,table.empile>tr,table.empile>tr>td{display:block;width:auto;max-width:100%;min-width:0;box-sizing:border-box}table.empile{border-collapse:separate;border-spacing:0;width:100%}table.empile>thead{display:none}table.empile>tbody>tr,table.empile>tr{border:1px solid #b2c7d6;border-radius:6px;margin:0 0 .7rem;background:#fff}table.empile>tbody>tr>td,table.empile>tr>td{border:0;border-bottom:1px solid #e2ebf2}table.empile td[class*=l]::before{display:block;font:bold .8em Arial,sans-serif;color:#14664f;margin-bottom:.15rem}div:has(>table.empile){overflow-x:visible!important}.exw{max-width:100%;overflow-wrap:anywhere}.exw .t,.exw div[style*='overflow-x']{max-width:100%}}@media (max-width:640px){table.empile .l0::before{content:"Anomalie"}table.empile .l1::before{content:"Signification"}table.empile .l2::before{content:"Conduite"}}/*fin-mobile*//*charte_v7plus*/body,button,input,select,textarea,table,summary,label{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif}table.empile td[class*=l]::before{font-family:"Atkinson Hyperlegible",Verdana,Arial,sans-serif!important}.proba{color:#C8102E;font-weight:700;white-space:nowrap;margin-left:.15em}.proba+.s{font-size:.7em;vertical-align:super}/*fin-charte*/</style>
+</head>
+<body><details class="fenetre sigles" id="sigles-auto"><summary>Sigles et abréviations de ce fichier</summary><ul class="s"><li><strong>AINS</strong> (anti-inflammatoire non stéroïdien)</li><li><strong>AIPS</strong> (information professionnelle suisse des médicaments (Swissmedic))</li><li><strong>ASSM</strong> (Académie suisse des sciences médicales)</li><li><strong>BPCO</strong> (bronchopneumopathie chronique obstructive)</li><li><strong>CRP</strong> (protéine C réactive)</li><li><strong>CT</strong> (tomodensitométrie)</li><li><strong>ECG</strong> (électrocardiogramme)</li><li><strong>HUG</strong> (Hôpitaux universitaires de Genève)</li><li><strong>IRM</strong> (imagerie par résonance magnétique)</li><li><strong>OFS</strong> (Office fédéral de la statistique)</li><li><strong>OFSP</strong> (Office fédéral de la santé publique)</li><li><strong>OMS</strong> (Organisation mondiale de la santé)</li><li><strong>ONEC</strong> (Organe national d’enregistrement du cancer)</li><li><strong>PAL</strong> (phosphatases alcalines)</li><li><strong>QT</strong> (intervalle QT de l’ECG)</li><li><strong>QTc</strong> (intervalle QT corrigé)</li><li><strong>SpO2</strong> (saturation pulsée en oxygène)</li></ul></details>
+<h1>LOT_212 — chapitre O5 (code de chapitre du projet Organigramme_Examen_Fédéral), sujet O5.4 — Prise en charge des symptômes réfractaires (douleur, nausées) — Appel B, Partie 1 (DX.1 et DX.2)</h1>
+<h2>LOT_212 — Partie 1 : monographies des diagnostics différentiels DX.1 et DX.2</h2>
+<ul class="txt"><li>Cette Partie 1 de l’Appel B reprend à l’identique la liste des 10 diagnostics différentiels fixée par l’Appel A et rédige les monographies DX.1 et DX.2 selon les 14 points du plan clinique ; chaque précision, y compris l’interprétation de chaque examen complémentaire, s’ouvre d’un clic.</li></ul>
+<h3>Liste des 10 diagnostics différentiels (reprise de l’Appel A)</h3>
+<ul class="txt">
+<li>DX.1 — Douleur cancéreuse nociceptive insuffisamment contrôlée et exacerbations douloureuses <sup class="proba">≈ 40–80 %</sup> <span class="s">douleur chez 60 à 80 % des patients en maladie avancée ; exacerbations chez 40 à 80 % [S5], [S17]</span> (rédigé dans cette Partie 1)</li>
+<li>DX.2 — Nausées et vomissements chroniques d’origine médicamenteuse, toxique ou métabolique <sup class="proba">≈ 40–70 %</sup> <span class="s">40 à 70 % de la population palliative générale [S6] ; 40 à 70 % en cancer avancé [S18]</span> (rédigé dans cette Partie 1)</li>
+<li>DX.3 — Constipation induite par les opioïdes et fécalome <sup class="proba">≈ 50 %</sup> <span class="s">environ 50 % des patients en soins palliatifs ; 85 à 90 % sous opioïdes sans prophylaxie [S7], [S19]</span></li>
+<li>DX.4 — Délirium avec agitation de la phase avancée et terminale <sup class="proba">≈ 28–88 %</sup> <span class="s">28 à 88 % dans les derniers jours de vie [S10]</span></li>
+<li>DX.5 — Occlusion intestinale maligne <sup class="proba">≈ 4–42 %</sup> <span class="s">5 à 42 % en cancer ovarien avancé, 4 à 24 % en cancer colorectal avancé [S8]</span></li>
+<li>DX.6 — Douleur neuropathique ou mixte d’origine cancéreuse <sup class="proba">≈ 19–39 %</sup> <span class="s">douleur mixte chez 19 à 39 % des patients oncologiques [S5]</span></li>
+<li>DX.7 — Compression médullaire métastatique <sup class="proba">≈ 3–10 %</sup> <span class="s">3 à 10 % des patients en situation oncologique avancée, 20 % en cas de métastases vertébrales [S11]</span></li>
+<li>DX.8 — Hypercalcémie tumorale <sup class="proba">≈ 0,2–9 %</sup> <span class="s">prévalence de 0,2 à 9 % [S12]</span></li>
+<li>DX.9 — Neurotoxicité des opioïdes, surdosage et intoxication <sup class="proba">n. d.</sup> <span class="s">donnée non trouvée dans les sources consultées [S5], [S13]</span></li>
+<li>DX.10 — Souffrance réfractaire globale (« douleur totale ») et indication de sédation palliative <sup class="proba">≈ 4,7–17,5 % des décès</sup> <span class="s">sédation profonde continue chez 4,7 % (2001) à 17,5 % (2013) des décès en Suisse [S22]</span></li>
+</ul>
+<details open="">
+<summary><strong>DX.1 — Douleur cancéreuse nociceptive insuffisamment contrôlée et exacerbations douloureuses</strong> <sup class="proba">≈ 40–80 %</sup> <span class="s">[S17]</span></summary>
+<h3>DX.1 — Douleur cancéreuse nociceptive insuffisamment contrôlée et exacerbations douloureuses <sup class="proba">≈ 40–80 %</sup> <span class="s">[S17]</span></h3>
+<ul class="txt"><li>Diagnostic de l’objectif SSP O5.4 (PROFILES) : prise en charge des symptômes réfractaires, ici la douleur cancéreuse nociceptive et ses exacerbations [S1]. Probabilité dans la population cible : exacerbations chez 40 à 80 % des patients douloureux en soins palliatifs [S17].</li></ul>
+<section class="point" id="dx1-p1">
+<h4><strong>1. Définition et sémantique</strong></h4>
+<ul class="txt">
+<li><em>1.1 — Douleur nociceptive</em> : La douleur nociceptive naît de l’activation des nocicepteurs par une lésion tissulaire [S5]. Elle est somatique, bien localisée, ou viscérale, mal localisée et souvent projetée [S5]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Ce qui la distingue des autres douleurs</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La douleur neuropathique découle d’une lésion du système nerveux somatosensoriel et la douleur nociplastique d’une altération de la nociception sans lésion démontrée ; une douleur mixte associe les deux premières composantes [S5]. La composante neuropathique est traitée au DX.6 de ce LOT.</span></details></li>
+<li><em>1.2 — Douleur insuffisamment contrôlée</em> : La douleur de fond est insuffisamment contrôlée quand le patient prend 3 réserves ou plus par 24 heures [S5], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Le repère des 3 réserves</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La recommandation Bigorio vise idéalement au plus 3 réserves par 24 heures ; un recours à 3 réserves ou plus pendant plus de 2 jours impose de réévaluer la douleur de fond et le traitement de base [S17].</span></details></li>
+<li><em>1.3 — Exacerbation douloureuse</em> : L’exacerbation douloureuse (en anglais breakthrough pain) est une aggravation transitoire de la douleur chez un patient dont la douleur de fond est par ailleurs contrôlée [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Trois formes cliniques</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La douleur incidente est déclenchée par un mouvement, la toux ou la défécation ; la douleur spontanée survient sans facteur identifiable ; la douleur de fin de dose réapparaît avant la prise suivante de l’opioïde à libération prolongée [S17].</span></details></li>
+<li><em>1.4 — Vocabulaire de prescription</em> : Le traitement de base est l’opioïde donné à heure fixe [S5]. La réserve est une dose supplémentaire du même opioïde, prise à la demande [S17].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p2">
+<h4><strong>2. Épidémiologie (Suisse d’abord, puis Europe)</strong></h4>
+<ul class="txt">
+<li><em>2.1 — Fréquence de la douleur</em> : La douleur touche 60 à 80 % des patients atteints d’une maladie oncologique avancée selon l’aide-mémoire des Hôpitaux universitaires de Genève (HUG) [S5]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi ce chiffre est pertinent pour la Suisse</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le rapport fédéral sur le cancer recense les nouveaux cas et décès annuels en Suisse ; c’est dans cette population que se recrutent les patients concernés par la douleur avancée [S27].</span></details></li>
+<li><em>2.2 — Fréquence des exacerbations</em> : Les exacerbations douloureuses surviennent chez 40 à 80 % des patients douloureux en soins palliatifs selon la recommandation suisse Bigorio 2006 [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Douleur de fin de dose</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Elle concerne environ 5 à 10 % des patients sous opioïde à libération prolongée [S17].</span></details></li>
+<li><em>2.3 — Prévalences comparables du LOT</em> : En soins palliatifs, les exacerbations touchent 40 à 80 % des patients [S17] et les nausées 40 à 70 % [S6]. La douleur mixte touche 19 à 39 % des patients [S5]. La compression médullaire touche 3 à 10 % des patients oncologiques avancés [S11]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Limite de la comparaison</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les études sources n’utilisent pas toutes les mêmes définitions ni les mêmes populations ; ces chiffres donnent un ordre de grandeur, ils ne s’additionnent pas [S5], [S6], [S11], [S17].</span></details></li>
+<li><em>2.4 — Europe</em> : Donnée non trouvée dans les sources consultées pour un chiffre européen distinct et comparable ; les fourchettes ci-dessus proviennent de références suisses [S5], [S17].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p3">
+<h4><strong>3. Physiopathologie</strong></h4>
+<ul class="txt">
+<li><em>3.1 — Anatomie et physiologie</em> : Les nocicepteurs sont des terminaisons nerveuses qui codent la lésion tissulaire et la transmettent à la moelle puis au cerveau [S5]. Les métastases osseuses sont une cause majeure de douleur cancéreuse [S29]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Lien avec la clinique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le squelette est le troisième site métastatique après le poumon et le foie ; les cancers du sein, de la prostate, du poumon et du rein y ont une prédilection [S29]. La douleur osseuse métastatique associe des composantes nociceptive et neuropathique [S29].</span></details></li>
+<li><em>3.2 — Physiopathologie de l’exacerbation</em> : La charge mécanique d’un os fragilisé, la distension d’un viscère ou la baisse de concentration de l’opioïde en fin d’intervalle déclenchent un pic douloureux au-dessus d’un fond contrôlé [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Chaîne logique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Métastase osseuse → fragilisation → mise en charge (marche, transfert) → activation des nocicepteurs → douleur incidente ; c’est pourquoi la décharge de l’os, la radiothérapie, les bisphosphonates ou la chirurgie font partie du traitement [S17], [S29].</span></details></li>
+<li><em>3.3 — Pharmacologie utile</em> : La morphine agit sur les récepteurs opioïdes µ ; elle déprime la respiration et ralentit le transit, ce qui explique ses effets indésirables principaux [S23]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi la constipation est constante</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La constipation est l’effet indésirable le plus constant des opioïdes ; elle n’entraîne pas de tolérance, d’où un laxatif prescrit d’emblée [S5].</span></details></li>
+<li><em>3.4 — Douleur totale</em> : La douleur a aussi des dimensions psychologique, sociale et spirituelle ; une douleur qui ne cède pas malgré l’opioïde peut traduire une souffrance globale, diagnostic d’exclusion traité au DX.10 [S17].</li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Type de douleur → mécanisme → orientation thérapeutique [S5], [S17], [S29]</caption>
+<tr><th>Type</th><th>Mécanisme</th><th>Orientation</th></tr>
+<tr><td>Somatique osseuse</td><td>Activation des nocicepteurs osseux, composante neuropathique possible</td><td>Opioïde, AINS en cure courte, radiothérapie, bisphosphonate [S5], [S17], [S29]</td></tr>
+<tr><td>Viscérale</td><td>Distension ou infiltration d’un organe</td><td>Opioïde, traitement de la cause [S5]</td></tr>
+<tr><td>Incidente</td><td>Mise en charge d’une lésion</td><td>Réserve 5 à 20 minutes avant l’activité [S17]</td></tr>
+<tr><td>Fin de dose</td><td>Baisse de concentration de l’opioïde</td><td>Raccourcir l’intervalle (8 h au lieu de 12 h, patch à 48 h) [S17]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx1-p4">
+<h4><strong>4. Démarche diagnostique</strong></h4>
+<ul class="txt">
+<li><em>4.1 — Écarter d’abord ce qui est grave</em> : Devant une douleur nouvelle, le médecin exclut d’abord une compression médullaire (DX.7), une fracture pathologique, une occlusion (DX.5) et une hypercalcémie (DX.8) [S11], [S12], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi cet ordre</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">La compression médullaire est une urgence dont le traitement est efficace dans les 6 à 8 heures et le pronostic fonctionnel dépend de la durée du déficit [S11].</span></details></li>
+<li><em>4.2 — Caractériser la douleur</em> : Le médecin précise le type (nociceptif, neuropathique, mixte), le profil (fond ou exacerbation) et le nombre de réserves des dernières 24 heures [S5], [S17].</li>
+<li><em>4.3 — Mesurer</em> : L’intensité est cotée par le patient lui-même sur une échelle, par exemple l’échelle visuelle analogique ou l’ESAS (Edmonton Symptom Assessment System), puis suivie avec le même outil [S15], [S17].</li>
+<li><em>4.4 — Réévaluer</em> : L’effet d’une réserve est contrôlé après 30 à 60 minutes, et un journal de la douleur aide à repérer le type d’exacerbation [S17].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p5">
+<h4><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h4>
+<ul class="txt">
+<li><em>5.1 — Anamnèse</em> : L’anamnèse suit la grille des HUG LINDA (localisation, intensité, nature, durée, aggravation ou amélioration), complétée par le contexte [S5]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Questions à poser</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le médecin demande combien de réserves ont été prises, à quel moment, avec quel effet et après quel déclencheur ; il recherche aussi les effets indésirables (constipation, nausées, somnolence, confusion) [S5], [S17].</span></details></li>
+<li><em>5.2 — Drapeau rouge rachidien</em> : Une douleur vertébrale « crescendo », aggravée en position couchée ou au Valsalva, nocturne, avec signe de Lhermitte ou radiculopathie, fait suspecter une compression médullaire [S11]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Conduite immédiate</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">En cas de forte suspicion, la dexaméthasone 8 à 16 mg par 24 heures est débutée sans délai et une IRM de toute la colonne est demandée [S11].</span></details></li>
+<li><em>5.3 — Autres drapeaux rouges</em> : Une douleur osseuse brutale avec impotence évoque une fracture pathologique [S17]. Une douleur abdominale avec arrêt du transit fait suspecter une occlusion [S8]. Une constipation inexpliquée fait doser la calcémie corrigée [S7], [S12].</li>
+<li><em>5.4 — Drapeau rouge médicamenteux</em> : Des myoclonies, une confusion ou des hallucinations sous opioïde font suspecter une neurotoxicité et conduisent à une rotation d’opioïde (DX.9) [S5].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p6">
+<h4><strong>6. Examen physique ciblé, région par région</strong></h4>
+<ul class="txt">
+<li><em>6.1 — Ce qui est normal</em> : Normalement, sous opioïde bien dosé, le patient est éveillé et respire régulièrement à plus de 10 par minute [S13]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi ce repère</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Il sert de référence pour reconnaître un surdosage : myosis serré, fréquence respiratoire de 8 à 10 par minute ou moins, sédation [S13].</span></details></li>
+<li><em>6.2 — Rachis et os</em> : Le médecin palpe et percute le rachis et les sites osseux douloureux, puis teste la mise en charge à la recherche d’une douleur incidente ou d’une fracture [S11], [S17].</li>
+<li><em>6.3 — Neurologie</em> : Il recherche un déficit moteur, un niveau sensitif, une ataxie ou des troubles sphinctériens, signes de compression médullaire [S11].</li>
+<li><em>6.4 — Abdomen et état général</em> : Il examine l’abdomen (distension, bruits intestinaux, fécalome au toucher rectal) et cote la sédation avec l’échelle de Richmond (RASS) adaptée aux soins palliatifs, dite RASS-PAL [S7], [S8], [S14].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p7">
+<h4><strong>7. Approche syndromique</strong></h4>
+<ul class="txt">
+<li><em>7.1 — Signes fonctionnels</em> : Le syndrome douloureux mal contrôlé associe une douleur de fond intense, des réserves répétées et un retentissement sur le sommeil, la mobilité et l’humeur [S5], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Comment le mesurer</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le patient cote lui-même sa douleur sur l’ESAS ou une échelle visuelle analogique, et le soignant compte les réserves sur 24 heures [S15], [S17].</span></details></li>
+<li><em>7.2 — Signes physiques</em> : Les signes physiques orientent vers la cause : douleur à la percussion rachidienne, douleur à la mise en charge, défense abdominale ou déficit neurologique [S11], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi ils comptent</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un déficit neurologique change l’urgence, car la compression médullaire se traite dans les 6 à 8 heures [S11].</span></details></li>
+<li><em>7.3 — Syndromes à reconnaître</em> : Le clinicien distingue la douleur de fond insuffisante, la douleur incidente, la douleur de fin de dose et la douleur totale, car chacune a une réponse différente [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Lecture pratique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Plus de 3 réserves par jour orientent vers une douleur de fond insuffisante, des exacerbations non contrôlées ou une douleur totale [S17].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx1-p8">
+<h4><strong>8. Diagnostic positif et critères</strong></h4>
+<ul class="txt">
+<li><em>8.1 — Critère de contrôle insuffisant</em> : Selon la recommandation Bigorio 2006 de palliative ch, 3 réserves ou plus par 24 heures pendant plus de 2 jours imposent une réévaluation [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi 2 jours</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un pic isolé ne suffit pas ; c’est la répétition qui signe une base insuffisante [S17].</span></details></li>
+<li><em>8.2 — Critère de stabilité</em> : Selon l’AIPS de Sevredol® (consultée en 2026), la dose d’entretien est atteinte après 2 à 3 jours stables avec au plus 2 réserves par jour [S23]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Conséquence pratique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une fois la dose stable, le patient peut passer à une morphine à libération prolongée [S5], [S23].</span></details></li>
+<li><em>8.3 — Critère de fin de dose</em> : Selon Bigorio 2006, une douleur qui revient régulièrement avant la prise suivante d’un opioïde à libération prolongée signe une douleur de fin de dose [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Fréquence</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Elle touche environ 5 à 10 % des patients sous opioïde à libération prolongée [S17].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx1-p9">
+<h4><strong>9. Examens complémentaires</strong></h4>
+<ul class="txt">
+<li><em>9.a — Biologie</em> : La <details class="ex"><summary>créatinine</summary><div class="exw"><div class="ext">Créatinine et fonction rénale</div>
+<div class="onglets"><input checked="" id="ol212e1p" name="ol212e1" type="radio"/><label for="ol212e1p">Principe</label><input id="ol212e1i" name="ol212e1" type="radio"/><label for="ol212e1i">Interprétation</label>
+<div class="op">La créatinine sérique reflète la filtration rénale ; elle sert à adapter les médicaments éliminés par le rein, dont la morphine et le métoclopramide [S23], [S24].</div>
+<div class="oi"><div class="ctx">En soins palliatifs, la créatinine guide le choix de l’opioïde et la dose de l’antiémétique [S5], [S24].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Insuffisance rénale</td><td class="l1">Accumulation des métabolites de la morphine [S5], [S23]</td><td class="l2">Réduire la dose, préférer buprénorphine ou fentanyl [S5]</td></tr>
+<tr><td class="l0">Clairance entre 15 et 60 ml/min</td><td class="l1">Élimination ralentie du métoclopramide [S24]</td><td class="l2">Réduire la dose de moitié [S24]</td></tr>
+<tr><td class="l0">Clairance ≤ 15 ml/min</td><td class="l1">Insuffisance rénale terminale [S24]</td><td class="l2">Réduire la dose de métoclopramide de 75 % [S24]</td></tr>
+</tbody></table></div></div></div></div></details> et les tests hépatiques guident le choix et la dose de l’opioïde [S5], [S23]. La <details class="ex"><summary>calcémie corrigée</summary><div class="exw"><div class="ext">Calcémie corrigée et calcium ionisé</div>
+<div class="onglets"><input checked="" id="ol212e2p" name="ol212e2" type="radio"/><label for="ol212e2p">Principe</label><input id="ol212e2i" name="ol212e2" type="radio"/><label for="ol212e2i">Interprétation</label>
+<div class="op">Le calcium total est corrigé selon l’albumine ; le calcium ionisé mesure directement la fraction active [S12].</div>
+<div class="oi"><div class="ctx">Chez le patient oncologique, une hypercalcémie explique nausées, constipation ou confusion et se traite [S7], [S12], [S18].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Calcémie corrigée &gt; 2,6 mmol/l ou calcium ionisé &gt; 1,35 mmol/l</td><td class="l1">Hypercalcémie [S12]</td><td class="l2">Rechercher la cause, contrôler la clinique [S12]</td></tr>
+<tr><td class="l0">Calcémie corrigée &gt; 3 mmol/l</td><td class="l1">Seuil de traitement, à moduler selon la clinique [S12]</td><td class="l2">Hydratation isotonique 2 à 3 l, puis bisphosphonate (DX.8) [S12]</td></tr>
+</tbody></table></div></div></div></div></details> recherche une hypercalcémie [S12].</li>
+<li><em>9.b — Imagerie</em> : L’<details class="ex"><summary>IRM de toute la colonne</summary><div class="exw"><div class="ext">IRM (imagerie par résonance magnétique) de toute la colonne</div>
+<div class="onglets"><input checked="" id="ol212e3p" name="ol212e3" type="radio"/><label for="ol212e3p">Principe</label><input id="ol212e3i" name="ol212e3" type="radio"/><label for="ol212e3i">Interprétation</label>
+<div class="op">L’IRM visualise la moelle et l’espace épidural sur toute la hauteur du rachis ; c’est l’examen de choix de la compression médullaire [S11].</div>
+<div class="oi"><div class="ctx">Une douleur rachidienne qui change chez un patient oncologique impose cet examen sans délai [S11].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Compression épidurale</td><td class="l1">Compression médullaire, 70 % thoracique, 20 % lombaire, 10 % cervicale [S11]</td><td class="l2">Dexaméthasone 8 à 16 mg par 24 h, chirurgie ou radiothérapie [S11]</td></tr>
+<tr><td class="l0">Atteinte de plusieurs étages</td><td class="l1">Présente chez un tiers des patients [S11]</td><td class="l2">Planifier le traitement sur tous les étages [S11]</td></tr>
+</tbody></table></div></div></div></div></details> est l’examen de référence (gold standard) en cas de suspicion de compression médullaire [S11]. Une <details class="ex"><summary>radiographie</summary><div class="exw"><div class="ext">Radiographie osseuse</div>
+<div class="onglets"><input checked="" id="ol212e4p" name="ol212e4" type="radio"/><label for="ol212e4p">Principe</label><input id="ol212e4i" name="ol212e4" type="radio"/><label for="ol212e4i">Interprétation</label>
+<div class="op">La radiographie montre la structure de l’os et recherche une fracture pathologique sur métastase [S17], [S29].</div>
+<div class="oi"><div class="ctx">Une douleur incidente sévère de la hanche ou du fémur fait rechercher une lésion qui menace de fracturer [S17].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Fracture pathologique</td><td class="l1">Rupture d’un os fragilisé par la tumeur [S17]</td><td class="l2">Consolidation chirurgicale si l’état le permet [S17]</td></tr>
+<tr><td class="l0">Lésion lytique à risque</td><td class="l1">Risque imminent de fracture [S17]</td><td class="l2">Consolidation prophylactique, radiothérapie [S17]</td></tr>
+</tbody></table></div></div></div></div></details> recherche une fracture pathologique [S17].</li>
+<li><em>9.c — Surveillance clinique</em> : La <details class="ex"><summary>fréquence respiratoire</summary><div class="exw"><div class="ext">Fréquence respiratoire et saturation</div>
+<div class="onglets"><input checked="" id="ol212e5p" name="ol212e5" type="radio"/><label for="ol212e5p">Principe</label><input id="ol212e5i" name="ol212e5" type="radio"/><label for="ol212e5i">Interprétation</label>
+<div class="op">La fréquence respiratoire, la saturation en oxygène et le score de sédation RASS-PAL surveillent la tolérance des opioïdes [S13].</div>
+<div class="oi"><div class="ctx">Un myosis serré bilatéral avec respiration lente fait suspecter une intoxication [S13].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Fréquence ≤ 8 à 10 par minute ou SpO2 &lt; 90 %</td><td class="l1">Intoxication aux opioïdes [S13]</td><td class="l2">Arrêter l’opioïde, oxygène, naloxone titrée (DX.9) [S13]</td></tr>
+<tr><td class="l0">Sédation ou coma hypotonique</td><td class="l1">Surdosage [S13]</td><td class="l2">Naloxone 0,08 mg IV toutes les 2 minutes, au plus 0,4 mg [S13]</td></tr>
+</tbody></table></div></div></div></div></details> et le score de sédation détectent un surdosage [S13].</li>
+<li><em>9.d — Ce qui n’est pas utile</em> : Aucun examen ne mesure la douleur elle-même : le diagnostic est clinique, et un examen n’est demandé que s’il change la conduite [S5], [S17].</li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Examens utiles dans la douleur cancéreuse [S5], [S11], [S12], [S13], [S23]</caption>
+<tr><th>Examen</th><th>Normal</th><th>Seuil ou anomalie</th><th>Signification</th><th>Conduite</th></tr>
+<tr><td>Créatinine</td><td>Fonction rénale conservée [S5]</td><td>Insuffisance rénale [S5]</td><td>Accumulation des métabolites de la morphine [S23]</td><td>Préférer buprénorphine ou fentanyl, réduire la dose [S5], [S23]</td></tr>
+<tr><td>Calcémie corrigée</td><td>≤ 2,6 mmol/l [S12]</td><td>&gt; 2,6 mmol/l ; traiter si &gt; 3 mmol/l selon la clinique [S12]</td><td>Hypercalcémie tumorale [S12]</td><td>Hydratation, bisphosphonate (DX.8) [S12]</td></tr>
+<tr><td>IRM de toute la colonne</td><td>Pas de compression [S11]</td><td>Compression épidurale [S11]</td><td>Compression médullaire [S11]</td><td>Dexaméthasone, radiothérapie ou chirurgie (DX.7) [S11]</td></tr>
+<tr><td>Fréquence respiratoire</td><td>&gt; 10 par minute [S13]</td><td>≤ 8 à 10 par minute, SpO2 &lt; 90 % [S13]</td><td>Surdosage en opioïde [S13]</td><td>Arrêt de l’opioïde, naloxone titrée (DX.9) [S13]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx1-p10">
+<h4><strong>10. Arbre décisionnel</strong></h4>
+<ul class="txt">
+<li><em>10.1 — Étape 1</em> : Une douleur nouvelle ou modifiée fait d’abord rechercher un drapeau rouge [S11], [S12], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Drapeaux rouges</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Compression médullaire, fracture pathologique, occlusion et hypercalcémie ont chacune un traitement urgent propre [S8], [S11], [S12], [S17].</span></details></li>
+<li><em>10.2 — Étape 2</em> : Si aucun drapeau rouge n’est présent, le médecin compte les réserves ; 3 ou plus par 24 heures conduisent à augmenter la base d’environ 30 % [S5], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Calcul</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le total des 24 heures (base et réserves) est majoré de 30 % puis divisé en 6 prises [S5].</span></details></li>
+<li><em>10.3 — Étape 3</em> : Si la base suffit, il traite le type d’exacerbation : réserve anticipée pour la douleur incidente, intervalle raccourci pour la fin de dose [S17].</li>
+<li><em>10.4 — Étape 4</em> : Si la douleur persiste, il réévalue la base et la réserve, envisage une autre voie ou une mesure interventionnelle et demande l’avis d’un spécialiste en soins palliatifs [S17].</li>
+</ul>
+<details class="t"><summary>Arbre décisionnel résumé</summary><pre class="arbre">Douleur nouvelle ou modifiée
+ ├─ drapeau rouge ? → IRM, calcémie, radiographie → DX.5, DX.7, DX.8
+ └─ non → réserves ≥ 3 / 24 h ?
+      ├─ oui → base + 30 % [S5]
+      └─ non → type d’exacerbation
+           ├─ incidente → réserve 5–20 min avant [S17]
+           ├─ fin de dose → intervalle 8 h ou patch 48 h [S17]
+           └─ rebelle → avis soins palliatifs [S17]</pre></details>
+</section>
+<section class="point" id="dx1-p11">
+<h4><strong>11. Prise en charge selon les recommandations suisses</strong></h4>
+<ul class="txt">
+<li><em>11.A — But et débuter la morphine</em> : Le but est une douleur de fond contrôlée avec au plus 3 réserves par jour [S17]. Chez un patient naïf, Sevredol® se donne à 10 mg toutes les 4 heures selon l’AIPS [S23]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi la morphine en premier</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La morphine est l’opioïde de référence, et l’on peut commencer d’emblée au palier 3 de l’OMS (Organisation mondiale de la santé) si la douleur est intense [S5].</span></details></li>
+<li><em>11.B — Titrer</em> : Si le patient prend 3 réserves ou plus par 24 heures, la base est augmentée de 30 % [S5]. L’AIPS prévoit des paliers de 10, 20, 30, 50, 70 puis 100 mg toutes les 4 heures [S23]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Exemple chiffré</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un patient sous 60 mg par jour qui prend 4 réserves de 5 mg a reçu 80 mg ; majoré de 30 %, cela donne environ 104 mg par jour, soit environ 17 mg toutes les 4 heures [S5].</span></details></li>
+<li><em>11.C — Réserve</em> : La réserve est le même opioïde, à 10 à 15 % de la dose quotidienne selon Bigorio et à 5 à 10 % selon l’AIPS [S17], [S23]. La voie intramusculaire est toujours inappropriée [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Exemple chiffré</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un patient sous 180 mg de morphine orale par jour reçoit une réserve de 20 à 30 mg [S17].</span></details></li>
+<li><em>11.D — Mesures associées et surveillance</em> : Un laxatif est prescrit d’emblée et un antiémétique en réserve les 3 premiers jours [S5]. La surveillance porte chaque jour sur la douleur, les réserves, le transit, la vigilance et la respiration [S5], [S13], [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Adjuvants</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le paracétamol et les anti-inflammatoires en cure courte s’associent à l’opioïde ; l’os douloureux est déchargé par radiothérapie, bisphosphonate ou chirurgie [S5], [S17].</span></details></li>
+<li><em>11.E — Situations spéciales</em> : Chaque situation spéciale s’ouvre d’un clic.
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance rénale</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La dose de morphine est réduite et la buprénorphine ou le fentanyl sont préférés [S5], [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance hépatique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La dose de morphine doit être réduite selon l’AIPS [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Sujet âgé</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les HUG proposent de débuter à 2,5 à 5 mg toutes les 4 heures, car le métabolisme de la morphine est ralenti [S5], [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Enfant</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS prévoit 5 mg toutes les 4 heures de 3 à 5 ans et 5 à 10 mg de 6 à 12 ans, puis un ajustement individuel [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Grossesse</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un usage prolongé expose le nouveau-né à un syndrome de sevrage potentiellement mortel, qui doit être anticipé avec les néonatologues [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Allaitement</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La morphine passe dans le lait à des concentrations supérieures à celles du plasma maternel ; le rapport bénéfice-risque doit être évalué [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Fin de dose</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’intervalle passe de 12 à 8 heures pour un comprimé à libération prolongée, et de 72 à 48 heures pour un patch [S17].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Contre-indications</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Sevredol® est contre-indiqué en cas de dépression respiratoire sévère, de BPCO (bronchopneumopathie chronique obstructive) ou d’asthme sévères, d’abdomen aigu et d’iléus paralytique [S23].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Usage hors étiquette</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">En Suisse, 12 à 26 % des patients en soins palliatifs reçoivent au moins un médicament hors indication autorisée, ce qui impose information et documentation [S21].</span></details></li>
+<li><em>11.F — Critères de sortie et retour à domicile</em> : Le retour à domicile se prépare quand la douleur est stable et que le réseau de soins est informé [S30]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Piège pratique des opioïdes</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La plupart des opioïdes ne sont pas en stock en pharmacie ; l’ordonnance est envoyée 24 heures avant la sortie ou un traitement de 24 heures est remis au patient [S30].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx1-p12">
+<h4><strong>12. Prévention</strong></h4>
+<ul class="txt">
+<li><em>12.1 — Primaire</em> : Le dépistage systématique de la douleur par une échelle auto-évaluée évite qu’une douleur s’installe sans traitement [S15]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Rythme</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’ESAS se remplit une à deux fois par semaine et se suit avec le même outil [S15].</span></details></li>
+<li><em>12.2 — Secondaire</em> : La réserve prise 5 à 20 minutes avant une activité douloureuse prévient la douleur incidente [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Exemple</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Un patient qui a mal lors de la toilette prend sa réserve 20 minutes avant [S17].</span></details></li>
+<li><em>12.3 — Tertiaire</em> : Le laxatif d’emblée, la surveillance de la neurotoxicité et la décharge osseuse limitent les complications [S5], [S17].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p13">
+<h4><strong>13. Points clés</strong></h4>
+<ul class="txt">
+<li><em>13.1</em> : Trois réserves ou plus par 24 heures signent une base insuffisante [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Rappel</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La base est alors augmentée d’environ 30 % [S5].</span></details></li>
+<li><em>13.2</em> : La réserve vaut 10 à 15 % de la dose quotidienne du même opioïde [S17].</li>
+<li><em>13.3</em> : Tout opioïde doit être prescrit avec un laxatif [S5].</li>
+<li><em>13.4</em> : Une douleur rachidienne qui change fait penser à la compression médullaire [S11].</li>
+</ul>
+</section>
+<section class="point" id="dx1-p14">
+<h4><strong>14. Pièges et questions fréquentes à l’examen fédéral suisse</strong></h4>
+<ul class="txt">
+<li><em>14.1 — Piège examen fédéral : la voie intramusculaire</em> : Proposer une injection intramusculaire pour une réserve est faux, car cette voie est toujours inappropriée [S17]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Alternative</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La voie sous-cutanée est en général aussi efficace et sûre que la voie intraveineuse [S17].</span></details></li>
+<li><em>14.2 — Piège examen fédéral : oublier le laxatif</em> : Une ordonnance de morphine sans laxatif est incomplète, car la constipation ne s’épuise pas avec le temps [S5].</li>
+<li><em>14.3 — Piège examen fédéral : augmenter la réserve seule</em> : Quand les réserves dépassent 3 par jour, il faut augmenter la base [S5], [S17].</li>
+<li><em>14.4 — Question fréquente</em> : Le paracétamol ne dépasse pas 4 g par 24 heures, ni 3 g chez la personne âgée, fragile ou cirrhotique [S5].</li>
+</ul>
+</section>
+</details>
+<details open="">
+<summary><strong>DX.2 — Nausées et vomissements chroniques d’origine médicamenteuse, toxique ou métabolique</strong> <sup class="proba">≈ 40–70 %</sup> <span class="s">[S6]</span></summary>
+<h3>DX.2 — Nausées et vomissements chroniques d’origine médicamenteuse, toxique ou métabolique <sup class="proba">≈ 40–70 %</sup> <span class="s">[S6]</span></h3>
+<ul class="txt"><li>Diagnostic de l’objectif SSP O5.4 (PROFILES) : nausées et vomissements chroniques d’origine médicamenteuse, toxique ou métabolique [S1]. Probabilité dans la population cible : 40 à 70 % des patients en soins palliatifs [S6], [S18].</li></ul>
+<section class="point" id="dx2-p1">
+<h4><strong>1. Définition et sémantique</strong></h4>
+<ul class="txt">
+<li><em>1.1 — Nausée et vomissement</em> : La nausée est une envie désagréable de vomir, et le vomissement est l’expulsion du contenu gastrique [S18]. Les deux peuvent exister séparément [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi les distinguer</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Des vomissements sans nausée orientent vers une cause centrale, une nausée continue vers une cause toxique ou métabolique, et un soulagement après le vomissement vers une cause digestive [S18].</span></details></li>
+<li><em>1.2 — Chronicité</em> : Selon la recommandation Bigorio 2003, les nausées sont dites chroniques lorsqu’elles persistent au-delà de 1 à 2 semaines [S18].</li>
+<li><em>1.3 — Les trois familles de causes de ce DX</em> : Ce diagnostic regroupe les causes médicamenteuses (opioïdes notamment), toxiques (insuffisance d’organe) et métaboliques (hypercalcémie, hyponatrémie) [S6], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Ce qui relève d’autres DX</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’occlusion intestinale maligne est traitée au DX.5 et l’hypercalcémie tumorale au DX.8 ; elles restent des causes à écarter ici [S6], [S8], [S12].</span></details></li>
+<li><em>1.4 — Symptôme réfractaire</em> : Un symptôme est dit réfractaire quand les traitements bien conduits ne le soulagent pas ; cette situation est traitée dans l’objectif SSP O5.4 [S1].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p2">
+<h4><strong>2. Épidémiologie (Suisse d’abord, puis Europe)</strong></h4>
+<ul class="txt">
+<li><em>2.1 — Fréquence en soins palliatifs</em> : Selon les HUG, les nausées touchent 40 à 70 % des patients en soins palliatifs [S6]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Au-delà du cancer</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les fréquences sont de 17 à 48 % dans l’insuffisance cardiaque terminale, 30 à 43 % dans l’insuffisance rénale chronique sévère et 4 à 18 % dans la BPCO de stade IV [S6].</span></details></li>
+<li><em>2.2 — Cancer avancé</em> : La recommandation Bigorio 2003 rapporte 40 à 70 % de nausées dans le cancer avancé [S18].</li>
+<li><em>2.3 — Prévalences comparables du LOT</em> : En soins palliatifs, les nausées touchent 40 à 70 % des patients [S6], la constipation environ 50 % [S7] et les exacerbations douloureuses 40 à 80 % [S17]. L’hypercalcémie touche 0,2 à 9 % des patients [S12]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Limite de la comparaison</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les définitions et les populations diffèrent selon les sources ; ces chiffres donnent un ordre de grandeur et ne s’additionnent pas [S6], [S7], [S12], [S17].</span></details></li>
+<li><em>2.4 — Europe</em> : Donnée non trouvée dans les sources consultées pour un chiffre européen distinct et comparable ; les fourchettes citées sont suisses [S6], [S18].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p3">
+<h4><strong>3. Physiopathologie</strong></h4>
+<ul class="txt">
+<li><em>3.1 — Anatomie</em> : L’area postrema, au plancher du quatrième ventricule, est la zone gâchette chimioréceptrice [S28]. Sans barrière hémato-encéphalique, elle détecte les substances émétisantes du sang [S28]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Le complexe vagal dorsal</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Avec le noyau du tractus solitaire et le noyau dorsal du vague, elle forme le complexe vagal dorsal, principal relais des afférences vagales digestives ; le noyau du tractus solitaire serait le début de la voie finale commune du vomissement [S28].</span></details></li>
+<li><em>3.2 — Physiologie</em> : Quatre entrées convergent vers ce centre : la zone gâchette (médicaments, urée, calcium), le tube digestif par le nerf vague, le système vestibulaire et le cortex (anxiété, douleur) [S6], [S28].</li>
+<li><em>3.3 — Physiopathologie</em> : Les opioïdes et les désordres métaboliques stimulent la zone gâchette, riche en récepteurs dopaminergiques de type 2, ce qui explique l’efficacité des antidopaminergiques comme le métoclopramide ou l’halopéridol [S6], [S18], [S28]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Lien avec le choix du médicament</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Chaque antiémétique bloque des récepteurs différents : antidopaminergiques pour la cause toxique, sétrons (antagonistes des récepteurs de la sérotonine de type 3) pour la chimiothérapie ou la radiothérapie, prokinétiques pour la gastroparésie [S6], [S18].</span></details></li>
+<li><em>3.4 — Complications</em> : Des vomissements prolongés entraînent déshydratation, troubles électrolytiques, insuffisance rénale et inefficacité des traitements oraux [S18].</li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Mécanisme → indice clinique → médicament de choix [S6], [S18], [S28]</caption>
+<tr><th>Voie</th><th>Indice clinique</th><th>Médicament de choix</th></tr>
+<tr><td>Zone gâchette (toxique, métabolique, opioïde)</td><td>Nausée continue</td><td>Métoclopramide, halopéridol [S6], [S18]</td></tr>
+<tr><td>Digestive (gastroparésie, stase)</td><td>Soulagement après le vomissement</td><td>Métoclopramide, dompéridone [S18]</td></tr>
+<tr><td>Centrale (hypertension intracrânienne)</td><td>Vomissements sans nausée</td><td>Dexaméthasone [S6], [S18]</td></tr>
+<tr><td>Chimiothérapie ou radiothérapie</td><td>Lien temporel avec le traitement</td><td>Sétrons [S18]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx2-p4">
+<h4><strong>4. Démarche diagnostique</strong></h4>
+<ul class="txt">
+<li><em>4.1 — Écarter d’abord ce qui est grave</em> : Le médecin exclut d’abord une occlusion (DX.5), une hypertension intracrânienne, une hypercalcémie (DX.8) et une hyponatrémie [S6], [S8], [S12], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Conséquence directe</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">En cas d’occlusion complète, les prokinétiques (métoclopramide, dompéridone) sont contre-indiqués car ils aggravent les coliques et le risque de perforation [S8].</span></details></li>
+<li><em>4.2 — Identifier le mécanisme</em> : Le profil de la nausée (continue, soulagée par le vomissement ou absente) oriente vers le mécanisme dominant [S18].</li>
+<li><em>4.3 — Revoir les médicaments</em> : Le médecin relit l’ordonnance à la recherche d’un opioïde récemment introduit ou augmenté et d’autres médicaments émétisants [S6], [S18].</li>
+<li><em>4.4 — Mesurer</em> : L’intensité est cotée par le patient sur une échelle visuelle analogique ou l’ESAS, et suivie avec le même outil [S15], [S18].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p5">
+<h4><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h4>
+<ul class="txt">
+<li><em>5.1 — Anamnèse</em> : L’anamnèse précise le début, le lien avec les repas et les médicaments, le volume et l’aspect des vomissements, le transit et les symptômes associés [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Questions utiles</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le médecin demande si la nausée est continue ou par épisodes, si le vomissement soulage, et depuis quand les selles manquent [S18].</span></details></li>
+<li><em>5.2 — Drapeau rouge digestif</em> : Des vomissements avec arrêt du transit, crampes et distension abdominale font suspecter une occlusion [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Conduite</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Le patient est mis à jeun, les traitements passent par voie parentérale et les laxatifs stimulants sont arrêtés [S8].</span></details></li>
+<li><em>5.3 — Drapeau rouge neurologique</em> : Des vomissements sans nausée, des céphalées matinales ou des signes neurologiques font suspecter une hypertension intracrânienne [S6], [S18].</li>
+<li><em>5.4 — Drapeau rouge métabolique</em> : Une confusion ou une soif inhabituelle chez un patient porteur de métastases osseuses fait doser la calcémie corrigée [S12], [S18].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p6">
+<h4><strong>6. Examen physique ciblé, région par région</strong></h4>
+<ul class="txt">
+<li><em>6.1 — Ce qui est normal</em> : Chez un patient sans complication, la bouche est humide, l’abdomen souple et les bruits intestinaux présents [S8], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi ce repère</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Il permet de reconnaître une déshydratation (bouche sèche) ou une occlusion (distension, bruits absents ou métalliques) [S8], [S18].</span></details></li>
+<li><em>6.2 — Bouche</em> : Le médecin inspecte la bouche à la recherche d’une mycose, d’une sécheresse ou d’une lésion qui entretient la nausée [S18].</li>
+<li><em>6.3 — Abdomen</em> : Il recherche une distension, une masse, un fécalome au toucher rectal et des bruits intestinaux anormaux [S7], [S8], [S18].</li>
+<li><em>6.4 — Neurologie</em> : Il fait un examen neurologique avec fond d’œil à la recherche d’un œdème papillaire [S18].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p7">
+<h4><strong>7. Approche syndromique</strong></h4>
+<ul class="txt">
+<li><em>7.1 — Signes fonctionnels</em> : Nausée, vomissements, perte d’appétit et intolérance aux traitements oraux forment le noyau du syndrome [S6], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Comment le mesurer</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le patient cote lui-même la nausée sur une échelle visuelle analogique ou l’ESAS [S15], [S18].</span></details></li>
+<li><em>7.2 — Signes physiques</em> : Par ailleurs, la sécheresse buccale, la distension abdominale, fécalome ou signes neurologiques désignent la cause ou la complication [S8], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi ils comptent</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une distension avec bruits absents ou métalliques fait suspecter une occlusion, qui contre-indique les prokinétiques [S8].</span></details></li>
+<li><em>7.3 — Syndromes à reconnaître</em> : Le clinicien distingue donc le syndrome toxique ou métabolique, la stase gastrique et le syndrome central [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Indices</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La nausée est continue dans le premier, soulagée par le vomissement dans le deuxième et absente dans le troisième [S18].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx2-p8">
+<h4><strong>8. Diagnostic positif et critères</strong></h4>
+<ul class="txt">
+<li><em>8.1 — Critère de durée</em> : Selon la recommandation Bigorio 2003 de palliative ch, la nausée est chronique au-delà de 1 à 2 semaines [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi ce seuil</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Il distingue la nausée transitoire d’un symptôme durable qui demande une démarche étiologique [S18].</span></details></li>
+<li><em>8.2 — Critère étiologique</em> : Selon Bigorio 2003, la cause médicamenteuse, toxique ou métabolique repose sur le profil continu de la nausée, le contexte et la biologie [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Exemple</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une nausée continue apparue après l’augmentation de la morphine oriente vers une cause médicamenteuse [S5], [S18].</span></details></li>
+<li><em>8.3 — Critère de réponse</em> : Selon Bigorio 2003, l’échec d’un traitement bien conduit fait passer à l’étape suivante [S18].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p9">
+<h4><strong>9. Examens complémentaires</strong></h4>
+<ul class="txt">
+<li><em>9.a — Biologie</em> : Le bilan comprend <details class="ex"><summary>sodium, urée et créatinine</summary><div class="exw"><div class="ext">Ionogramme (sodium), urée et créatinine</div>
+<div class="onglets"><input checked="" id="ol212e6p" name="ol212e6" type="radio"/><label for="ol212e6p">Principe</label><input id="ol212e6i" name="ol212e6" type="radio"/><label for="ol212e6i">Interprétation</label>
+<div class="op">Ce bilan mesure les électrolytes et la fonction rénale, deux causes métaboliques ou toxiques de nausée [S18].</div>
+<div class="oi"><div class="ctx">Une nausée continue en soins palliatifs fait demander ce bilan avec la calcémie corrigée et la CRP [S18].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Hyponatrémie</td><td class="l1">Cause métabolique de nausée [S6], [S18]</td><td class="l2">Rechercher et corriger la cause [S18]</td></tr>
+<tr><td class="l0">Urée et créatinine élevées</td><td class="l1">Insuffisance rénale, cause toxique de nausée [S6], [S18]</td><td class="l2">Adapter les doses, traiter la cause [S18], [S24]</td></tr>
+</tbody></table></div></div></div></div></details>, <details class="ex"><summary>calcémie corrigée</summary><div class="exw"><div class="ext">Calcémie corrigée et calcium ionisé</div>
+<div class="onglets"><input checked="" id="ol212e7p" name="ol212e7" type="radio"/><label for="ol212e7p">Principe</label><input id="ol212e7i" name="ol212e7" type="radio"/><label for="ol212e7i">Interprétation</label>
+<div class="op">Le calcium total est corrigé selon l’albumine ; le calcium ionisé mesure directement la fraction active [S12].</div>
+<div class="oi"><div class="ctx">Chez le patient oncologique, une hypercalcémie explique nausées, constipation ou confusion et se traite [S7], [S12], [S18].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Calcémie corrigée &gt; 2,6 mmol/l ou calcium ionisé &gt; 1,35 mmol/l</td><td class="l1">Hypercalcémie [S12]</td><td class="l2">Rechercher la cause, contrôler la clinique [S12]</td></tr>
+<tr><td class="l0">Calcémie corrigée &gt; 3 mmol/l</td><td class="l1">Seuil de traitement, à moduler selon la clinique [S12]</td><td class="l2">Hydratation isotonique 2 à 3 l, puis bisphosphonate (DX.8) [S12]</td></tr>
+</tbody></table></div></div></div></div></details>, tests hépatiques et CRP (protéine C réactive) [S18].</li>
+<li><em>9.b — Imagerie</em> : La <details class="ex"><summary>radiographie de l’abdomen</summary><div class="exw"><div class="ext">Radiographie de l’abdomen sans préparation (ASP)</div>
+<div class="onglets"><input checked="" id="ol212e8p" name="ol212e8" type="radio"/><label for="ol212e8p">Principe</label><input id="ol212e8i" name="ol212e8" type="radio"/><label for="ol212e8i">Interprétation</label>
+<div class="op">Le cliché couché montre la répartition des selles, le cliché debout les niveaux hydroaériques ; sa sensibilité pour l’iléus est de 66 % [S8], [S18].</div>
+<div class="oi"><div class="ctx">Chez un patient sous opioïdes, il distingue une stase fécale d’un iléus [S7], [S8].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">Anses distendues (&gt; 3 cm grêle, &gt; 6 cm côlon, &gt; 9 cm cæcum)</td><td class="l1">Occlusion, règle 3-6-9 [S8]</td><td class="l2">Mise à jeun, avis chirurgical (DX.5) [S8]</td></tr>
+<tr><td class="l0">Au moins 2 niveaux hydroaériques</td><td class="l1">Iléus [S8]</td><td class="l2">Arrêter les prokinétiques si occlusion complète [S8]</td></tr>
+<tr><td class="l0">Stase fécale abondante</td><td class="l1">Constipation ou fécalome [S7], [S18]</td><td class="l2">Laxatifs, lavement (DX.3) [S7]</td></tr>
+</tbody></table></div></div></div></div></details> recherche une stase fécale ou un iléus [S8], [S18]. Le scanner (CT) est l’examen de référence (gold standard) si une chirurgie est envisagée [S8].</li>
+<li><em>9.c — Électrocardiogramme</em> : Un <details class="ex"><summary>ECG</summary><div class="exw"><div class="ext">ECG (électrocardiogramme)</div>
+<div class="onglets"><input checked="" id="ol212e9p" name="ol212e9" type="radio"/><label for="ol212e9p">Principe</label><input id="ol212e9i" name="ol212e9" type="radio"/><label for="ol212e9i">Interprétation</label>
+<div class="op">L’ECG enregistre l’activité électrique du cœur et mesure l’intervalle QT corrigé (QTc) [S25].</div>
+<div class="oi"><div class="ctx">Avant l’halopéridol, l’ECG recherche un QTc allongé, qui est une contre-indication [S25].</div>
+<div style="overflow-x:auto;"><table class="empile"><thead><tr><th>Anomalie</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
+<tr><td class="l0">QTc allongé</td><td class="l1">Risque d’arythmie ventriculaire [S25]</td><td class="l2">Ne pas donner d’halopéridol, corriger la kaliémie [S25]</td></tr>
+<tr><td class="l0">Infarctus récent ou arythmie ventriculaire</td><td class="l1">Contre-indication à l’halopéridol [S25]</td><td class="l2">Choisir un autre antiémétique [S6], [S25]</td></tr>
+</tbody></table></div></div></div></div></details> mesure le QTc avant l’halopéridol [S25].</li>
+<li><em>9.d — Ce qui n’est pas utile</em> : Un examen n’est demandé que s’il change la conduite, selon le pronostic et les souhaits du patient [S18].</li>
+</ul>
+<div style="overflow-x:auto;"><table><caption>Examens utiles dans les nausées chroniques [S8], [S12], [S18], [S25]</caption>
+<tr><th>Examen</th><th>Normal</th><th>Seuil ou anomalie</th><th>Signification</th><th>Conduite</th></tr>
+<tr><td>Calcémie corrigée</td><td>≤ 2,6 mmol/l [S12]</td><td>&gt; 2,6 mmol/l [S12]</td><td>Hypercalcémie tumorale [S12]</td><td>Hydratation, bisphosphonate (DX.8) [S12]</td></tr>
+<tr><td>Sodium, urée, créatinine</td><td>Valeurs du laboratoire [S18]</td><td>Hyponatrémie, urémie [S18]</td><td>Cause métabolique ou toxique [S6], [S18]</td><td>Corriger la cause, adapter les doses [S18], [S24]</td></tr>
+<tr><td>Radiographie de l’abdomen</td><td>Pas de niveau hydroaérique [S8]</td><td>Au moins 2 niveaux, anses distendues (règle 3-6-9) [S8]</td><td>Iléus [S8]</td><td>Mise à jeun, avis chirurgical (DX.5) [S8]</td></tr>
+<tr><td>ECG</td><td>QTc normal [S25]</td><td>QTc allongé [S25]</td><td>Risque d’arythmie [S25]</td><td>Éviter l’halopéridol [S25]</td></tr>
+</table></div>
+</section>
+<section class="point" id="dx2-p10">
+<h4><strong>10. Arbre décisionnel</strong></h4>
+<ul class="txt">
+<li><em>10.1 — Étape 1</em> : Le médecin écarte une occlusion, une hypertension intracrânienne et une hypercalcémie [S8], [S12], [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi d’abord</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#fdedec;border-left:3px solid #922b21;font-size:0.93em;">Chacune a un traitement propre, et l’occlusion complète contre-indique les prokinétiques [S8], [S12].</span></details></li>
+<li><em>10.2 — Étape 2</em> : Il corrige la cause réversible : médicament, désordre métabolique ou constipation [S6], [S18].</li>
+<li><em>10.3 — Étape 3</em> : Il débute le métoclopramide, ajoute la dexaméthasone, puis passe à une perfusion continue selon Bigorio [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Doses Bigorio</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Métoclopramide 10 mg toutes les 4 heures, dexaméthasone 10 à 20 mg par 24 heures, puis métoclopramide 60 à 120 mg par 24 heures [S18].</span></details></li>
+<li><em>10.4 — Étape 4</em> : En cas d’échec ou de contre-indication, il passe à l’halopéridol, puis à l’olanzapine ou à un sétron selon le mécanisme [S6], [S18].</li>
+</ul>
+<details class="t"><summary>Arbre décisionnel résumé</summary><pre class="arbre">Nausées chroniques
+ ├─ occlusion, hypertension intracrânienne, hypercalcémie ? → DX.5, dexaméthasone, DX.8
+ └─ non → cause réversible ? → corriger [S18]
+      └─ métoclopramide 10 mg / 4 h [S18]
+           ├─ échec → + dexaméthasone [S18]
+           ├─ échec → métoclopramide continu [S18]
+           └─ contre-indication → halopéridol [S6], [S18]</pre></details>
+</section>
+<section class="point" id="dx2-p11">
+<h4><strong>11. Prise en charge selon les recommandations suisses</strong></h4>
+<ul class="txt">
+<li><em>11.A — But et mesures non médicamenteuses</em> : Le but est de soulager la nausée et de permettre l’alimentation et les traitements oraux [S18]. Des repas petits et fréquents, l’éviction des odeurs fortes et les soins de bouche aident [S6].</li>
+<li><em>11.B — Métoclopramide</em> : Bigorio propose 10 mg toutes les 4 heures, alors que l’AIPS de Paspertin® limite la dose à 30 mg par jour pendant au plus 5 jours [S18], [S24]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi cette différence</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’AIPS limite la durée en raison du risque de dyskinésie tardive ; une dose ou une durée supérieure est un usage hors étiquette qui impose information et documentation [S21], [S24].</span></details></li>
+<li><em>11.C — Escalade</em> : En cas d’échec, la dexaméthasone 10 à 20 mg par 24 heures est ajoutée, puis le métoclopramide peut passer en perfusion continue de 60 à 120 mg par 24 heures [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Contre-indications du métoclopramide (AIPS)</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Hémorragie, obstruction ou perforation digestive, phéochromocytome, épilepsie, maladie de Parkinson et antécédent de dyskinésie tardive contre-indiquent le métoclopramide [S24].</span></details></li>
+<li><em>11.D — Halopéridol et surveillance</em> : Haldol® 0,3 à 1 mg par jour est la première alternative pour la nausée due aux opioïdes, usage hors étiquette selon l’AIPS [S18], [S21], [S25]. La surveillance recherche chaque jour des signes extrapyramidaux, une sédation et, sous halopéridol, un QTc allongé [S24], [S25]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Contre-indications de l’halopéridol (AIPS)</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Coma, maladie de Parkinson, démence à corps de Lewy, QTc allongé, infarctus récent, insuffisance cardiaque décompensée et hypokaliémie non corrigée contre-indiquent l’halopéridol [S25].</span></details></li>
+<li><em>11.E — Situations spéciales</em> : Chaque situation spéciale s’ouvre d’un clic.
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance rénale</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La dose de métoclopramide est réduite de moitié si la clairance est entre 15 et 60 ml/min et de 75 % au stade terminal [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Insuffisance hépatique</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La dose de métoclopramide est réduite de moitié en cas d’insuffisance hépatique sévère [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Sujet âgé</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une réduction de dose est envisagée selon les fonctions rénale et hépatique et la fragilité [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Enfant</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les comprimés et gouttes de Paspertin® ne sont pas destinés à l’enfant ni à l’adolescent [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Grossesse</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’expérience porte sur environ 1000 grossesses exposées au métoclopramide sans effet néfaste décrit [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Allaitement</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le métoclopramide passe dans le lait et n’est pas recommandé pendant l’allaitement [S24].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Gastroparésie</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La dompéridone est préférée [S18].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Chimiothérapie ou radiothérapie</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les sétrons, antagonistes des récepteurs de la sérotonine de type 3, sont le traitement de choix [S18].</span></details>
+<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Vomissements réfractaires</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Une sonde nasogastrique à court terme ou une gastrostomie de décharge à plus long terme peuvent soulager [S18].</span></details></li>
+<li><em>11.F — Critères de sortie et retour à domicile</em> : Le retour à domicile se prépare quand la nausée est contrôlée par une voie utilisable à domicile [S30]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Traitement parentéral</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Les ampoules ne sont souvent obtenues qu’après plusieurs jours en pharmacie de quartier ; il faut l’anticiper avant la sortie [S30].</span></details></li>
+</ul>
+</section>
+<section class="point" id="dx2-p12">
+<h4><strong>12. Prévention</strong></h4>
+<ul class="txt">
+<li><em>12.1 — Primaire</em> : Un antiémétique en réserve est prescrit pendant les 3 premiers jours d’un opioïde [S5]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Pourquoi 3 jours</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">La nausée due aux opioïdes survient surtout à l’introduction du traitement [S5].</span></details></li>
+<li><em>12.2 — Secondaire</em> : Le dépistage régulier par une échelle auto-évaluée repère tôt les nausées [S15]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Rythme</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’ESAS se remplit une à deux fois par semaine [S15].</span></details></li>
+<li><em>12.3 — Tertiaire</em> : La surveillance des signes extrapyramidaux et du QTc limite les complications des antiémétiques [S24], [S25].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p13">
+<h4><strong>13. Points clés</strong></h4>
+<ul class="txt">
+<li><em>13.1</em> : Une nausée continue oriente vers une cause toxique, métabolique ou médicamenteuse [S18]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Rappel</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Le bilan doit toujours inclure la calcémie corrigée [S18].</span></details></li>
+<li><em>13.2</em> : Le métoclopramide est le premier choix, sauf en cas d’occlusion complète [S8], [S18].</li>
+<li><em>13.3</em> : L’halopéridol est la première alternative pour la nausée due aux opioïdes [S18].</li>
+<li><em>13.4</em> : L’AIPS limite la durée du métoclopramide à 5 jours au plus [S24].</li>
+</ul>
+</section>
+<section class="point" id="dx2-p14">
+<h4><strong>14. Pièges et questions fréquentes à l’examen fédéral suisse</strong></h4>
+<ul class="txt">
+<li><em>14.1 — Piège examen fédéral : prokinétique et occlusion</em> : Le métoclopramide est contre-indiqué dans l’occlusion complète, car il aggrave les coliques [S8]. <details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">Que donner alors</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">L’halopéridol par voie sous-cutanée est le premier choix dans l’iléus [S8].</span></details></li>
+<li><em>14.2 — Piège examen fédéral : durée du métoclopramide</em> : L’AIPS limite Paspertin® à 5 jours ; une prescription plus longue doit être justifiée et documentée [S21], [S24].</li>
+<li><em>14.3 — Piège examen fédéral : QT et halopéridol</em> : Prescrire l’halopéridol sans vérifier le QTc et la kaliémie est une erreur [S25].</li>
+<li><em>14.4 — Question fréquente</em> : Des vomissements sans nausée évoquent une cause centrale et font rechercher une hypertension intracrânienne [S18].</li>
+</ul>
+</section>
+</details>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>[S1] PROFILES 2023 — Situations as Starting Points (SSP), SSP O5.4 « management of refractory symptoms (pain, nausea) ». Swiss Medical Interfaculty Commission (SMIFK-CIMS), 2023. <a href="https://smifk-cims.ch/profiles-2023/ssps">https://smifk-cims.ch/profiles-2023/ssps</a> (consulté le 24.10.2026)</li>
+<li>[S2] Attitude face à la fin de vie et à la mort — directives médico-éthiques (chapitre 6.1.3 « Sédation » et glossaire). Académie Suisse des Sciences Médicales (ASSM), 2018, version 2022. <a href="https://www.samw.ch/dam/jcr:eb32e1ba-8c35-404c-b704-61275262b183/directives_assm_fin_de_vie_et_mort.pdf">https://www.samw.ch/dam/jcr:eb32e1ba-8c35-404c-b704-61275262b183/directives_assm_fin_de_vie_et_mort.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S3] Soins palliatifs — directives médico-éthiques et recommandations. ASSM, 2006, adaptées en 2013. <a href="https://www.samw.ch/dam/jcr:72848dc4-22e9-47b6-ad25-7a39a6f2a9d1/directives_assm_soins_palliatifs.pdf">https://www.samw.ch/dam/jcr:72848dc4-22e9-47b6-ad25-7a39a6f2a9d1/directives_assm_soins_palliatifs.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S4] Directives nationales concernant les soins palliatifs. Office fédéral de la santé publique (OFSP) et Conférence des directrices et directeurs cantonaux de la santé (CDS), 2010. <a href="https://www.bag.admin.ch/fr/directives-nationales-concernant-les-soins-palliatifs">https://www.bag.admin.ch/fr/directives-nationales-concernant-les-soins-palliatifs</a> (consulté le 24.10.2026)</li>
+<li>[S5] Douleur. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleur">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleur</a> (consulté le 24.10.2026)</li>
+<li>[S6] Nausées et vomissements. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/nausees-vomissements">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/nausees-vomissements</a> (consulté le 24.10.2026)</li>
+<li>[S7] Constipation. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/constipation">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/constipation</a> (consulté le 24.10.2026)</li>
+<li>[S8] Iléus. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/ileus">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/ileus</a> (consulté le 24.10.2026)</li>
+<li>[S9] Douleurs neuropathiques. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleurs-neuropathiques">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/douleurs-neuropathiques</a> (consulté le 24.10.2026)</li>
+<li>[S10] Délirium. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/delirium">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/delirium</a> (consulté le 24.10.2026)</li>
+<li>[S11] Urgences : compression médullaire. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-compression-medullaire">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-compression-medullaire</a> (consulté le 24.10.2026)</li>
+<li>[S12] Urgences : hypercalcémie tumorale. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-hypercalcemie-tumorale">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-hypercalcemie-tumorale</a> (consulté le 24.10.2026)</li>
+<li>[S13] Intoxication aux opiacés. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/intoxication-aux-opiaces">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/intoxication-aux-opiaces</a> (consulté le 24.10.2026)</li>
+<li>[S14] Sédation palliative. Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/sedation-palliative">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/sedation-palliative</a> (consulté le 24.10.2026)</li>
+<li>[S15] Échelle d’évaluation des symptômes (ESAS). Hôpitaux universitaires de Genève (HUG), Service de médecine palliative, aide-mémoire destiné aux soignants, 2024. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/echelle-evaluation-symptomes">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/echelle-evaluation-symptomes</a> (consulté le 24.10.2026)</li>
+<li>[S16] Avis général sur la sédation palliative. HUG, Conseil d’éthique clinique, 2024. <a href="https://www.hug.ch/sites/interhug/files/structures/gr-ethique/documents/sedation_palliative_cec_2024.pdf">https://www.hug.ch/sites/interhug/files/structures/gr-ethique/documents/sedation_palliative_cec_2024.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S17] Recommandations sur l’exacerbation douloureuse. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2006. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2006_-_Recommandations_sur_l_exacerbation_douloureuse.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2006_-_Recommandations_sur_l_exacerbation_douloureuse.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S18] Recommandations sur les nausées. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2003. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2003_-_Recommandations_sur_les_nausees.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2003_-_Recommandations_sur_les_nausees.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S19] Recommandations sur la constipation, l’obstruction intestinale et l’iléus paralytique. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2007. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2007_-_Recommandations_sur_la_constipation__l_obstruction_intestinale_et_l_ileus_paralytique.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2007_-_Recommandations_sur_la_constipation__l_obstruction_intestinale_et_l_ileus_paralytique.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S20] Recommandations « Sédation palliative ». palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2005. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2005_-_Recommandations_Sedation_palliative.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2005_-_Recommandations_Sedation_palliative.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S21] Particularités de la pharmacothérapie en soins palliatifs — indications off label. palliative ch, Société suisse de médecine et de soins palliatifs, consensus d’experts Bigorio, 2012. <a href="https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2012_-_Particularites_de_la_pharmacotherapie_en_soins_palliatifs_.pdf">https://www.palliative.ch/public/dokumente/was_wir_tun/angebote/bigorio_best_practice/BIGORIO_2012_-_Particularites_de_la_pharmacotherapie_en_soins_palliatifs_.pdf</a> (consulté le 24.10.2026)</li>
+<li>[S22] Beauverd M, Mazzoli M, Pralong J, Tomczyk M, Eychmüller S, Gaertner J. Palliative sedation – revised recommendations. Swiss Med Wkly 2024;154:3590. Swiss Medical Weekly (recommandations suisses révisées), 2024. <a href="https://doi.org/10.57187/s.3590">https://doi.org/10.57187/s.3590</a> (consulté le 24.10.2026)</li>
+<li>[S23] Information professionnelle Sevredol® (morphine), mise à jour mai 2024. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Mundipharma Medical Company, 2024. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=52076">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=52076</a> (consulté le 24.10.2026)</li>
+<li>[S24] Information professionnelle Paspertin® (métoclopramide), mise à jour janvier 2020. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Viatris Pharma GmbH, 2020. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=32733">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=32733</a> (consulté le 24.10.2026)</li>
+<li>[S25] Information professionnelle Haldol® (halopéridol), mise à jour novembre 2024. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Essential Pharma Switzerland, 2024. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=26891">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=26891</a> (consulté le 24.10.2026)</li>
+<li>[S26] Information professionnelle Zoledronat Accord onco® (acide zolédronique), mise à jour mars 2026. Swissmedic, AIPS (swissmedicinfo.ch), titulaire Accord Healthcare AG, 2026. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI&amp;lang=FR&amp;authNr=67071">https://www.swissmedicinfo.ch/ShowText.aspx?textType=FI⟨=FR&amp;authNr=67071</a> (consulté le 24.10.2026)</li>
+<li>[S27] Le cancer en Suisse, rapport 2021. Office fédéral de la statistique (OFS), Organe national d’enregistrement du cancer (ONEC) et Registre du cancer de l’enfant, 2021. <a href="https://dam-api.bfs.admin.ch/hub/api/dam/assets/19305697/master">https://dam-api.bfs.admin.ch/hub/api/dam/assets/19305697/master</a> (consulté le 24.10.2026)</li>
+<li>[S28] Miller AD, Leslie RA. The area postrema and vomiting. Front Neuroendocrinol 1994 ; 15 : 301-20 (repli non suisse signalé). PubMed, 1994. <a href="https://pubmed.ncbi.nlm.nih.gov/7895890/">https://pubmed.ncbi.nlm.nih.gov/7895890/</a> (consulté le 24.10.2026)</li>
+<li>[S29] Zajączkowska R et al. Bone pain in cancer patients: mechanisms and current treatment. Int J Mol Sci 2019 ; 20 : 6047 (repli non suisse signalé). PubMed, 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31801267/">https://pubmed.ncbi.nlm.nih.gov/31801267/</a> (consulté le 24.10.2026)</li>
+<li>[S30] Organisation du retour à domicile d’un patient en soins palliatifs. Hôpitaux universitaires de Genève (HUG), aide-mémoire de soins palliatifs, 2026. <a href="https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/organisation-du-retour-domicile-dun-patient">https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/organisation-du-retour-domicile-dun-patient</a> (consulté le 24.10.2026)</li>
+</ul>
+<ul class="txt"><li>Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin.</li></ul>
+</body>
+</html>
+<!-- FIN_FICHIER LOT_212_Partie_1 -->
