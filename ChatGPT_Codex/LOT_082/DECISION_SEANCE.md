@@ -1,7 +1,9 @@
-# LOT_082 — décision de séance
+# LOT082 — reprise de production
 
-Ordre de Vial du 10 novembre 2026 : production de contenu uniquement, images et perfectionnement renvoyés à une passe commune. Branche `codex/lot-082`, créée depuis `main` ; aucune autre IA n'est modifiée.
+Ordre Vial : contenu seul, onze leçons, images/perfection ultérieures. Branche codex/lot-082 créée depuis main lors de la première passe puis main intégré à la reprise. Détection389branches : aucune clé082 dans la carte du10novembre2026 à08:58UTC. Consolidation préalable858leçons achevée, non répétée.
 
-Référence unique : `PROMPT_Casern/PROMPT_LOTS_Lo_9.11.26.claude.md` et `outils/` de `reference/prompts-9.11.26`, commit `037545b80fe03166dec9e05f70e24fb9f008821d`. La détection préalable de 332 branches ne trouve aucune leçon dans les LOTs 080–102 ; la branche historique de statut indique « à rédiger ». Consolidation préalable achevée : 858 copies vérifiées et poussées (PR516).
+Référence unique désormais présente sur main : PROMPT_Casern/PROMPT_LOTS_Lo_9.11.26.claude.md et outils/, identiques au commit de référence037545b80fe03166dec9e05f70e24fb9f008821d.
 
-E2/E3 : collecte préparatoire par `/root/sources_lot080`, extraits archivés et fonctions originales de `paquet.py` exécutées (`decouper`, `registres`, `selection`). E4 : audit indépendant par `/root/audit_p1_lot080`, porte P1 non franchie. Aucune liste canonique n'est gelée. Les dix fichiers DX ne sont pas lancés ; aucune leçon ou validation médicale n'est déclarée. Passage au LOT suivant après cette tentative, selon l'ordre de Vial.
+La première P1 échouée est conservée dans audits/P1.audit.json. Sélectionv3 par sources_uro81, audit indépendant root FRANCHIE sur21passages vérifiés ; liste canonique gelée. Ordre contextuel, dix entités discriminantes, E1radiuscomplication/E2Charcotactif conditionnels. Paquets complémentaires acquis avant rédaction.
+
+La PR567 du LOT081 reste sous surveillance CI ; aucune fusion annoncée avant preuve. Tous les auteurs écrivent seulement dans ChatGPT_Codex/LOT_082/, root seul utilise Git.
