@@ -6,3 +6,4 @@
 - Aspects sociaux/assurances (LAMal, AI) : sources Fedlex non relues, retirés.
 - Fréquence suisse de l'endocardite parmi les consultations pour transpiration anormale : non trouvée.
 - HAS : page captée sans contenu utile, non citée. MANIFESTE.json du LOT réécrit par l'assembleur (outil), à re-signer par le chef.
+- Mise à jour : récupérés via PMC (revue 2026 Pathogens, endossement NVVC de l'ESC 2023, Lausanne/Zurich, Duke-ISCVID évalué) : seuils de classement, évolution des critères, chirurgie (3 catégories, 3 à 5 jours, classes), durées CIED, TEP, OPAT. Toujours illisibles : texte intégral Duke-ISCVID (PMC10681650, non OA : seul l'en-tête) et ESC 2023 ; schéma empirique valve native/prothétique par germe et doses oraux (amoxicilline 4×/jour) non repris faute d'AIPS.

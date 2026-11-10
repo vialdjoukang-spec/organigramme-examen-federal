@@ -21,6 +21,7 @@ def mots(t):
     return {w[:6] for w in re.findall(r"[a-zà-ÿ]{5,}", t.lower())}
 for p in PQ: p['_m'] = mots(p['texte'])
 PROT = re.compile(r'\[(S\d+)\]')
+NEEDED = set(json.load(open(D + 'needed.json'))) if os.path.exists(D + 'needed.json') else set()
 USED = set(); perdus = []; stats = {'cite': 0, 'sans': 0, 'perdu': 0}
 CONNECT_DEFAULT = 'Le lecteur ouvre les fenêtres de la rubrique « %s » : '
 
@@ -74,7 +75,8 @@ def choisir(ph, srcs, dose):
                     b = max(ok, key=score)
                     if score(b) >= 5: return [b]
         return None
-    # sans nombre
+    # sans nombre : uniquement des extraits déjà cités par une phrase chiffrée (limite le poids des sources)
+    cand = [i for i in cand if i in NEEDED] if NEEDED else cand
     if cand:
         b = max(cand, key=score)
         if score(b) >= 3: return [b]
@@ -94,8 +96,10 @@ def scinder(t):
     res.append(cur)
     return res
 
+NUMUSED = set()
 def poser(ph0, r):
     end = ph0.rstrip()
+    if r != 'AUCUNE' and (C.nombres(C.STRUCT.sub(' ', C.texte(ph0))) or C.DOSE.search(C.texte(ph0))): NUMUSED.update(r)
     if r == 'AUCUNE': return end
     m = re.search(r'([.!?]|[.!?]</\w+>)$', end)
     return (end[:m.start()] + cit(r) + end[m.start():]) if m else end + cit(r)
@@ -323,4 +327,5 @@ if __name__ == '__main__':
         txt = section(pts[n], n)
         open(D + f'fragments/p{n:02d}.html', 'w').write(txt + '\n')
     open(D + 'HELP_perdus.txt', 'w').write('\n'.join(perdus))
+    if '--needed' in sys.argv: json.dump(sorted(NUMUSED), open(D + 'needed.json', 'w'))
     print(stats)
