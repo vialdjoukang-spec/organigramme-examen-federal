@@ -47,7 +47,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 093 | S6.8 | Plaintes concernant les ongles | réservé |
 | 094 | S6.9 | Rougeur cutanée localisée ou diffuse et/ou rougeur des muqueuses | réservé |
 | 095 | S7.1 | Troubles de l’équilibre, chutes | réservé |
-| 096 | S7.2 | Troubles de la marche | en cours |
+| 096 | S7.2 | Troubles de la marche | livré PR 586 |
 | 097 | S7.3 | Mouvements involontaires anormaux, tremblements, tics, troubles de la coordination | réservé |
 | 098 | S7.4 | Troubles de la parole ou du langage | réservé |
 | 099 | S7.5 | Étourdissements, vertiges | réservé |
