@@ -7,6 +7,7 @@ aucune information médicale utile.
 Le chef a déjà lancé `Claude/_outils/renfort_citations.py`, qui reporte sur chaque phrase chiffrée les sources que la leçon citait
 déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
 
+0. **Interdit dans le cours** : toute formule de lacune (« À vérifier », « non lu », « aucune donnée suisse »). Une lacune va dans `Claude/LOT_XXX/HELP.md`.
 1. **Contrôle.** `python3 /home/user/organigramme-examen-federal/Claude/_outils/controle3.py <html>` liste les défauts restants.
 2. **A, véracité.** Une phrase de dose cite l'ancre AIPS de sa molécule, présente dans la bibliographie. Si l'AIPS manque,
    lis-la sur swissmedicinfo, puis ajoute-la à la bibliographie dans le même format. Si aucune AIPS n'est lisible, garde la
