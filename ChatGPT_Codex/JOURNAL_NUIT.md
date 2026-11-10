@@ -2,7 +2,7 @@
 
 ## État actuel
 
-20 nouvelles leçons sont poussées : les 11 du LOT080 et 9 du LOT081. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
+21 nouvelles leçons sont poussées : les 11 du LOT080 et 10 du LOT081. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -114,4 +114,6 @@ LOT081 DX6 : dépôt individuel ; contrôle technique VERT, audit P3 indépendan
 
 LOT081 DX8 : dépôt individuel ; contrôle technique VERT, audit P3 indépendant à effectuer. DX4 et DX5 franchissent leur première contrelecture ; harmonisation des deux badges E de DX4 préparée.
 
-LOTs livrés : 0/23 ; leçons poussées : 20/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 DX7 en correction, autres audits en cours ; LOT082–102 à produire.
+LOT081 DX10 : dépôt individuel ; contrôle technique ORANGE B seulement, navigation vérifiée, audit P3 indépendant en cours.
+
+LOTs livrés : 0/23 ; leçons poussées : 21/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 Phase A, DX1, DX6, DX7 en correction/contrelecture ; LOT082–102 à produire.
