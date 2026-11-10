@@ -8,8 +8,8 @@ a.p("Selon la Revue Médicale Suisse, le diagnostic différentiel d'une cholécy
 a.t(["Diagnostic à exclure","Élément qui tranche","Piège","Conduite si positif"],[
  ["Rupture d'anévrisme de l'aorte abdominale (DX.10, E1)","Instabilité hémodynamique, douleur abdominale ou lombaire chez un patient à risque vasculaire ; imagerie en urgence.[[w683c0b-4]]","Attribuer la douleur à des calculs découverts fortuitement.[[wee35ed-6]]","Alerte chirurgicale vasculaire immédiate, sans attendre la biologie."],
  ["Grossesse extra-utérine (DX.8, E2)","Test de grossesse chez toute femme en âge de procréer.[[w683c0b-8]]","Raisonner sur la vésicule avant d'avoir exclu la grossesse.","Échographie pelvienne et avis gynécologique en urgence."],
- ["Ischémie mésentérique aiguë (DX.9, E3)","Douleur disproportionnée par rapport à l'examen, sujet âgé, fibrillation atriale ; angio-scanner.[[w683c0b-4]]","La fièvre et le péritonisme s'atténuent avec l'âge.[[w683c0b-6]]","Angio-scanner et prise en charge chirurgicale."],
- ["Ulcère perforé (DX.4, E4)","Péritonisme, air libre sous le diaphragme.[[wf130fd-6]]","Prendre un ulcère perforé pour une cholécystite chez un patient âgé.","Chirurgie urgente."],
+ ["Ischémie mésentérique aiguë (DX.9, E3)","La thrombose mésentérique figure parmi les causes de douleur abdominale haute de l'algorithme des HUG ; l'imagerie vasculaire en urgence la confirme.[[w683c0b-4]]","La fièvre et le péritonisme s'atténuent avec l'âge.[[w683c0b-6]]","Angio-scanner et prise en charge chirurgicale."],
+ ["Ulcère perforé (DX.4, E4)","Le péritonisme et l'air libre à l'imagerie sont décisifs ; l'ulcère figure dans le diagnostic différentiel.[[wf130fd-6]]","Prendre un ulcère perforé pour une cholécystite chez un patient âgé.","Chirurgie urgente."],
  ["Pancréatite aiguë (DX.7, E6)","Lipase sérique, imagerie.[[w683c0b-8]]","Une pancréatite biliaire coexiste avec des calculs : la lipase doit être dosée devant toute douleur épigastrique.[[w7b1cf5-5]]","Hospitalisation, évaluation de la gravité, cholécystectomie différée selon la sévérité."],
  ["Appendicite aiguë (DX.3, E7)","Douleur de la fosse iliaque droite, échographie en première intention.[[w683c0b-8]]","L'appendice rétrocæcal ou une vésicule basse peuvent mimer la douleur de l'hypochondre droit.","Chirurgie."],
  ["Cholangite aiguë","Triade de Charcot : fièvre, douleur abdominale, ictère.[[wf130fd-6]]","La triade complète n'est présente que dans 50 à 70 % des cas.[[wf130fd-7]]","Antibiotique et drainage biliaire selon le grade.[[wf130fd-15]]"]])
@@ -69,7 +69,7 @@ c.p("Le signe de Murphy est le premier critère local de la cholécystite aiguë
 c.h("6.d Abdomen : recherche des signes de gravité")
 c.p("La palpation recherche une défense, qui signale une irritation péritonéale. Un abdomen contracturé est évocateur d'une perforation avec péritonite biliaire.[[wf130fd-6]] On cherche aussi une masse de l'hypochondre droit, qui peut correspondre à une vésicule distendue ou à un plastron péricholécystique.[[wf130fd-6]] Chez le patient âgé, ces signes sont atténués.[[w683c0b-6]]")
 c.h("6.e Examens à faire au lit du patient")
-c.p("Le toucher de l'ictère et l'inspection des urines font partie de l'examen. La bandelette urinaire et le test de grossesse chez la femme en âge de procréer écartent d'autres causes, car le test de grossesse est le premier examen listé dans l'atelier des HUG.[[w683c0b-8]]")
+c.p("La recherche d'un ictère et l'inspection des urines font partie de l'examen. La bandelette urinaire et le test de grossesse chez la femme en âge de procréer écartent d'autres causes, car le test de grossesse est le premier examen listé dans l'atelier des HUG.[[w683c0b-8]]")
 c.h("6.f Valeur diagnostique et pièges")
 c.t(["Signe","Valeur","Piège"],[
  ["Signe de Murphy","Spécificité de 79 à 96 %.[[wf130fd-6]]","Intervalle de confiance du rapport de vraisemblance incluant 1,0.[[w9a8a8f-22]]"],
