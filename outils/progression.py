@@ -44,8 +44,14 @@ def lien_audite(lot, l):
     return f'https://raw.githack.com/{DEPOT}/{_commit(ref)}/Claude/LOT_{lot:03d}/{nom}'
 
 
-def jauge(p, grande=False, bloq=False):
-    teinte = round(1.35 * p)  # 0 → rouge … 100 → vert d'eau ; fluide libre en couleur
+def teinte_lot(lot):
+    """Teinte propre à chaque LOT (angle d'or) : deux LOTs, voisins ou non, n'ont jamais la même couleur."""
+    return round((lot * 137.508) % 360, 2)
+
+
+def jauge(p, grande=False, bloq=False, teinte=None):
+    if teinte is None:
+        teinte = round(1.35 * p)  # jauges globales : 0 → rouge … 100 → vert d'eau
     return (f'<div class="j{" g" if grande else ""}{" b" if bloq else ""}"><div class="t"><div class="f" '
             f'style="--p:{p}%;--h:{teinte}"></div></div><span>{p} %</span></div>')
 
@@ -62,12 +68,12 @@ def rendre(C, cat, ia_nom, sortie):
         contrib = sorted({r.get('auteur_ia', r['ia']) for r in rows if r} - {prop, 'inconnu'})
         code, nom = cat.get(lot, ('', ''))
         mini = ''.join(
-            f'<div class="l"><b>{(f'<a href="{html.escape(lien_audite(lot, l))}" target="_blank" rel="noopener" title="Ouvrir le cours audité">' if lien_audite(lot, l) else '')}{"Phase A" if l == "A" else "DX." + l[2:]}{" ↗</a>" if lien_audite(lot, l) else ""}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]))}'
+            f'<div class="l"><b>{(f'<a href="{html.escape(lien_audite(lot, l))}" target="_blank" rel="noopener" title="Ouvrir le cours audité">' if lien_audite(lot, l) else '')}{"Phase A" if l == "A" else "DX." + l[2:]}{" ↗</a>" if lien_audite(lot, l) else ""}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]), teinte=teinte_lot(lot))}'
             f'<i>{html.escape(r.get("auteur_ia", r["ia"])) if r else "absent"}</i></div>' for l, r in zip(LECONS, rows))
         n = sum(1 for r in rows if r)
         cartes.append(
             f'<article class="c" data-e="{prop}" data-p="{p}"><header><h2>LOT_{lot:03d} <small>{html.escape(code)}</small></h2>'
-            f'<p>{html.escape(nom.split("|")[0].strip())}</p>{jauge(p, True)}<p class="m">{n}/11 leçons · propriétaire {html.escape(prop)}{(" · contributions " + html.escape(", ".join(contrib))) if contrib else ""}</p></header>'
+            f'<p>{html.escape(nom.split("|")[0].strip())}</p>{jauge(p, True, teinte=teinte_lot(lot))}<p class="m">{n}/11 leçons · propriétaire {html.escape(prop)}{(" · contributions " + html.escape(", ".join(contrib))) if contrib else ""}</p></header>'
             f'<details><summary>Leçons</summary><div class="ls">{mini}</div></details></article>')
     if ia_nom in IAS:  # jauge d'une IA : ses seuls LOTs attribués
         tot = [tot[lot - 1] for lot in lots_de(ia_nom)]
