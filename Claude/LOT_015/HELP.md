@@ -28,3 +28,9 @@ Les lacunes ne figurent plus dans les cours (L1, LV7) ; elles sont consignées i
 - Point 1 : « notions voisines » déplacées au point 4 sous le titre « Situations frontières » (faits uniques conservés : œdèmes sous amlodipine 11,1 %, pioglitazone et insuffisance cardiaque, hypothyroïdie sous lithium ou quétiapine) ; fréquence ESE retirée du point 1 (badge conservé au point 2).
 - AIPS ajoutées : Dexaméthasone Galepharm (57974), Prednisone Streuli® (29349, seuil de Cushing 7,5 mg ; décroissance progressive), lues le 10.11.2026. Les paliers de décroissance chiffrés viennent de la recommandation citée [S13] ; l'AIPS est citée pour la molécule.
 - Dédoublonnage : métformine hors indication (gardée au point 11, CHUV), étude GWAS lausannoise (gardée aux pistes de recherche), grossesse sous sémaglutide (gardée aux situations spéciales).
+
+## DX.3 — Syndrome des ovaires polykystiques
+- Lacunes retirées : terme français officiel du nom PMOS ; mortalité et coût suisses ; sensibilité et spécificité de l'échographie et de l'AMH ; seuil de laboratoire de la testostérone ; dose d'acide folique renforcée ; dose de létrozole pour l'ovulation ; clomifène (aucune AIPS : aucun médicament autorisé en Suisse) ; remboursement du laser ; règles travail/assurance-invalidité ; critères de sortie ; vaccination propre ; chiffrage du test du lever de chaise.
+- Point 1 : la fenêtre « notions voisines » devient « Situations frontières » au point 4 ; « termes à éviter » supprimés.
+- Citations « mot pour mot » longues (contre-indications de la metformine, d'Androcur®-50, de GONAL-f®, tableau grossesse/allaitement, limitation LS de GONAL-f®) reformulées en phrases verbales sans perte de condition ni de nombre.
+- Réserve L1-2 : examen physique en tableau unique (budget 150 Ko). Image en attente d'insertion : échographie d'ovaire polykystique (File:PCO polycystic ovary.jpg, CC BY-SA 3.0, téléchargée).
