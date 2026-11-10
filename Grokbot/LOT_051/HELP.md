@@ -11,3 +11,4 @@ Ces faits ne sont pas dans les extraits rapatriés. Ils ne sont pas enseignés d
 - Aucune dose d’anticoagulant, d’antiagrégant de syndrome coronarien aigu, ni de thrombolyse n’est dans les extraits. Aucune n’est inventée.
 - La chaîne moléculaire de la douleur pariétale n’est pas décrite par Verdon au-delà des insertions, de l’amplification mécanique et de l’anxiété reprise de Bass. Les prostaglandines ne sont citées que depuis les informations professionnelles.
 - L’association de l’ibuprofène à un autre anti-inflammatoire, y compris un coxib, « doit être évitée ». Le cours ne la transforme pas en interdiction plus forte que le texte.
+- Péricardite : l’extrait peri2022.5 (Rev Med Suisse 2022) nomme « AINS » et « colchicine pendant 3 mois » sans molécule d’AINS ni dose. L’extrait ESC 2015 n’a pas été rapatrié. La Phase A renvoie donc au « protocole local ». Manquent : la molécule d’AINS, sa dose et la dose de colchicine (à sourcer en Phase B, DX.10).
