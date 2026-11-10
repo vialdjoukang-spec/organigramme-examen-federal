@@ -10,7 +10,7 @@
                 balises équilibrées, bande d'octets.
 
 Usage :
-  python3 controle3.py FICHIER.html [FICHIER2.html ...] --paquet paquet.json [--points 14] [--min 100000 --max 200000]
+  python3 controle3.py FICHIER.html [FICHIER2.html ...] --paquet paquet.json [--points 14] [--min 80000 --max 150000]
 Sortie : JSON par fichier (verdict VERT/ORANGE/ROUGE + défauts localisés) ; code 0 si aucun ROUGE.
 """
 import re, sys, json, html, hashlib, argparse, collections
@@ -51,6 +51,7 @@ PRONOM_VERBE = re.compile(r"\b(?:il|elle|ils|elles|on|qui|cela|ce|celle-ci|celui
 LACUNE = re.compile(r"\(\s*À vérifier|À vérifier\s*[:)]|reste à (?:lire|vérifier)|texte (?:intégral )?non (?:lu|relu)|non relue? dans|faute d'extrait lisible|aucune source (?:lue|lisible)", re.I)
 STRUCT = re.compile(r"\b(?:points?|DX\.?|rangs?|E|étapes?|îlots?|n°|LOT_?|Phase)\s*\d+(?:[.,]\d+)?|\b[A-Z]\d{2}(?:\.\d{1,2})?\b|\bCIM-1[01]\b|\b(?:le|au|du|appeler le)\s+14[0-9]\b|\binterleukine[- ]\d+\b|\bIL-\d+\b|^\s*\d{1,2}\.[A-D]\d?\b", re.I)
 SOURCES = re.compile(r'<section\b[^>]*id="[\w-]*sources"[^>]*>.*?</section>|<details\b[^>]*class="refs"[^>]*>.*?</details>', re.S | re.I)
+SCRIPT_FORME = '<script src="../_polices/forme.js" defer></script>'  # ordre de Vial du 10.11.2026
 TAG_SS = re.compile(r'<(script|style)\b[^>]*>.*?</\1>', re.S | re.I)
 VIDES = {'br', 'hr', 'img', 'meta', 'link', 'input', 'source', 'col', 'wbr', 'area', 'base', 'embed', 'track', 'param'}
 
@@ -174,7 +175,9 @@ def controler(chemin, paquet, a, vus_lot):
         d['C_FIN_FICHIER_absent'].append('-')
     if re.search(r'\stitle=', h):
         d['C_title_interdit'].append(str(len(re.findall(r'\stitle=', h))))
-    if re.search(r'<script\b', h, re.I) and not a.script_ok:
+    # Ordre de Vial du 10.11.2026 : seule exception tolérée, le script externe partagé du menu dynamique,
+    # exactement <script src="../_polices/forme.js" defer></script> ; tout autre script (en ligne ou externe) reste refusé.
+    if re.search(r'<script\b', h.replace(SCRIPT_FORME, ''), re.I) and not a.script_ok:
         d['C_script_interdit'].append('-')
     nus = len(re.findall(r'<table\b', h)) - len(re.findall(r'overflow-x:\s*auto[^>]*>\s*<table', h))
     if nus > 0:
@@ -182,9 +185,20 @@ def controler(chemin, paquet, a, vus_lot):
     e = equilibre(h)
     if e:
         d['C_balises'].append(e)
-    if not (a.min <= len(brut) <= a.max):
-        d['C_taille_hors_bande'].append(f'{len(brut)} o (bande {a.min}–{a.max})')
-    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee'))]
+    # L1 (10.11.2026, précision de Vial) : la bande porte sur le cours entier, fenêtres comprises ;
+    # seules les images (<img>, <svg>, <picture>, URI data:image) sont hors limite.
+    sans_img = re.sub(r'<(svg|picture)\b.*?</\1>', '', h, flags=re.S | re.I)
+    sans_img = re.sub(r'<img\b[^>]*>', '', sans_img, flags=re.I)
+    sans_img = re.sub(r'data:image/[^"\')\s]+', '', sans_img)
+    page = len(sans_img.encode('utf-8'))
+    if not (a.min <= page <= a.max):
+        d['C_taille_hors_bande'].append(f'{page} o hors images (bande {a.min}–{a.max})')
+    # L1 : architectures et contenus interdits
+    if re.search(r'Où se situe le problème', h):
+        d['C_L1_arbre_CIM_interdit'].append('arbre CIM emboîté « Où se situe le problème ? »')
+    if re.search(r'<h[1-4][^>]*>(?:<[^>]+>)*\s*1\.\s*Définition et sémantique', h) or re.search(r'>\s*Notions voisines\s*<', h):
+        d['C_L1_definition_alourdie'].append('point 1 : « sémantique » ou « notions voisines » interdits')
+    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee', 'C_L1_'))]
     verdict = 'ROUGE' if rouge else ('ORANGE' if d else 'VERT')
     return {'fichier': chemin, 'octets': len(brut), 'sha256': hashlib.sha256(brut).hexdigest()[:16],
             'verdict': verdict, 'phrases': nph, 'connecteur%': round(100 * conn / nph),
@@ -204,8 +218,8 @@ if __name__ == '__main__':
     ap.add_argument('fichiers', nargs='+')
     ap.add_argument('--paquet')
     ap.add_argument('--points', type=int, default=14)
-    ap.add_argument('--min', type=int, default=100_000)
-    ap.add_argument('--max', type=int, default=200_000)
+    ap.add_argument('--min', type=int, default=80_000)  # L1 : cours entier 80–150 Ko, images hors limite
+    ap.add_argument('--max', type=int, default=150_000)
     ap.add_argument('--ex', type=int, default=3, help='exemples par défaut (concision du rapport)')
     ap.add_argument('--script-ok', action='store_true')
     a = ap.parse_args()
