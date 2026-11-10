@@ -183,4 +183,6 @@ LOT082 : PR599 ouverte, fusion automatique active ; main intégré à distance a
 
 LOT082 livré au commitf7089963b65d4e7cf7b139a1148a350aa6181388 : onze SHA main/manifeste/P3 concordants, CI requise verte ; branche conservée par push ordinaire à91f98d3a83183c572398e2f4a9efe56193977a47. Preuves dans _outils/rapports/fusions/. Tableau HTML de midi pour toute l’équipe poussé dans PR600, inventaire11h58Zurich.
 
-LOTs livrés : 2/23 ; leçons poussées : 33/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT083 P1 en audit ; LOT084–102 à produire.
+LOT083 DX3 : courbatures retardées après effort,101129 octets, contrôle original ORANGE B seul ; première P3 indépendante engagée.
+
+LOTs livrés : 2/23 ; leçons poussées : 34/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT083 P1 en audit ; LOT084–102 à produire.
