@@ -14,3 +14,11 @@
 - AIPS : les n° 52251 (Zoloft), 55961 (Cipralex), 54168 (Efexor ER) et 54447 (Remeron) ne figurent pas dans le corpus local ; les doses ont été relues dans les AIPS de la même molécule présentes dans le corpus (Zoloft 55391, Escitalopram Sandoz 62641, Venlafaxin retard Zentiva 58594, Mirtazapine Spirig HC 69879). Les valeurs concordent. Le n° exact des AIPS cités reste à confirmer sur swissmedicinfo.
 - Citations à revoir : la ligne « Mortalité aux urgences pour plainte non spécifique (OR 2,50) » du tableau d'épidémiologie cite Wittchen 2011 (S4) alors que le chiffre vient d'une étude des urgences (S2 ou S3). Le chiffre n'a pas été vérifié dans l'extrait.
 - Images : aucune image insérée. Le diagnostic est clinique (9.a) et aucun signe visible du point 6 n'est propre à la dépression ou à l'anxiété ; une image serait décorative. Rien à mettre en file d'attente.
+
+## DX.7 — renforcement du 10.11.2026
+- Image point 6 (signe visible, pâleur conjonctivale) : la recherche Commons n'a rien renvoyé (429 probable) ; à insérer plus tard, requête « conjunctival pallor anemia », 1 repère sur la conjonctive.
+- Point 9.c (alternatives d'imagerie) : aucune source lue ; le seuil de DFGe (30 mL/min) a été retiré du texte (« fonction rénale sévèrement réduite »). À rétablir avec une source (lignes directrices ESUR sur les produits de contraste, et recommandation européenne sur l'imagerie de la femme enceinte).
+- Point 6 : les valeurs normales du pouls (60 à 100/min) et de la fréquence respiratoire (12 à 20/min) n'ont pas de source lue.
+- Rocephin® et Dafalgan® : toutes les doses relues dans l'AIPS (n° 44625 et 47503) le 10.11.2026 ; la lidocaïne n'a plus de n° AIPS propre (n° 52094 non vérifié, retiré).
+- Prise de position OFSP/CFV (PCV) : texte relu le 10.11.2026 ; la formule « non relu » est supprimée.
+- Les défauts restants de controle3 (phrases « nominales » ou longues) naissent de la concaténation terme + définition des fenêtres ; ils disparaîtraient en reformulant les fenêtres du glossaire.
