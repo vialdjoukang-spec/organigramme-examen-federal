@@ -15,3 +15,8 @@
 - Images : deux clichés Wikimedia (pli cutané, CC BY-SA 4.0) au point 6. Aucun cliché de la modalité décisive du point 9 (copeptine, IRM hypophysaire : tache hyperintense postérieure) n'a été pris ; à chercher.
 
 - DX.2 (mise à jour) : points 2, 9 et 12 complétés avec Fenske NEJM 2018 et Winzeler Lancet 2019 (résumés PubMed lus) et la revue Sailer 2017 (résumé) ; aucune recommandation suisse formelle de prévention n'a été trouvée, le point 12 s'appuie sur la revue suisse. Restent à sourcer : technique du geste au point 6.
+
+## DX.10 (renforcement 10.11.2026)
+- Point 6 : image placée (DryTongue, langue sèche) ; aucun cliché décisif pour le point 9 (le diagnostic est biologique).
+- AIPS : n° 41181, 29552, 29550001, 31754, 49456, 55346, 44610 cités par molécule ; les extraits ne sont pas relus ici, la bibliographie reprend les numéros déjà cités.
+- Points 12 et 14 : aucune recommandation suisse de prévention du SHH n'a été citée (sources suisses à compléter).
