@@ -9,7 +9,7 @@ d = f'Claude/LOT_{lot}'
 nom = f'LOT_{lot}_Phase_A_V0.html' if cible in ('A', 'PA') else f'LOT_{lot}_Phase_B_V0_{cible}.html'
 src = sys.argv[sys.argv.index('--json') + 1] if '--json' in sys.argv else f'{d}/audits/{nom}.audit.json'
 C = json.load(open(src))
-C = C['corrections'] if isinstance(C, dict) else C
+C = (C.get('corrections') or C.get('restants') or []) if isinstance(C, dict) else C
 frs = sorted(glob.glob(f'{d}/_travail/{"PA" if cible in ("A","PA") else cible}/fragments/p*.html'))
 T = {f: open(f, encoding='utf-8').read() for f in frs}
 ok, ko = 0, []

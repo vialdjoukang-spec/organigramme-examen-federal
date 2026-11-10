@@ -6,7 +6,8 @@ Leçon : Phase A (LOT_XXX_Phase_A_V*.html, Appel_A…Plan_et_Liste) ou DX.i (LOT
 Ancien format multi-DX (« Partie_n_DX.a_a_DX.b ») : couverture partielle, score plafonné, jamais préféré.
 Score (0–100) : existe 40 · 14 points 20 · bande 100–200 Ko 20 · aucun défaut bloquant 10 · verdict vert 10.
 Choix : score le plus élevé, puis le plus récent (date du commit de la branche), puis main.
-Attribution (dossier cible) : Claude · ChatGPT_Codex · Grokbot, d'après le dossier d'origine, la branche, puis l'auteur.
+Propriétaire (dossier cible) : lu dans ATTRIBUTIONS.json (ordre de Vial du 10.11.2026), jamais l'auteur ni le dossier.
+La signature d'auteur (dossier, branche, auteur) reste notée à titre informatif dans le champ « auteur_ia ».
 
 Usage : python3 detecteur_lots.py <depot> [--rafraichir] [--sortie carte_lots.json]
 Sortie : carte_lots.json = {lecons:{"018:DX3":{ia,ref,chemin,blob,score,date,...}}, obsoletes_main:[…], branches_supplantees:[…]}
@@ -16,6 +17,7 @@ from concurrent.futures import ProcessPoolExecutor
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import controle3
+from attributions import proprietaire
 
 IAS = ('Claude', 'ChatGPT_Codex', 'Grokbot')
 RE_LOT = re.compile(r'LOT[_\- ]?0*(\d{1,3})(?!\d)', re.I)
@@ -50,12 +52,19 @@ def rafraichir(d):
         git(d, 'fetch', '-q', '--depth=1', 'origin', *specs[i:i + 30])
 
 
-def attribuer(chemin, ref, auteur):
+def auteur_ia(chemin, ref, auteur):
+    """Signature de l'auteur (information seulement) : ne décide jamais du propriétaire."""
     for motif, ia in SIGNES:
         cible = chemin if motif.startswith('(^|/)') else (ref if motif.startswith('^origin') else f'{ref} {auteur}')
         if re.search(motif, cible):
             return ia, False
-    return 'ChatGPT_Codex', True  # défaut déclaré (attribution_par_defaut=True dans la carte)
+    return 'inconnu', True
+
+
+def attribuer(chemin, ref, auteur):
+    """Propriétaire exclusif du LOT de ce chemin, selon ATTRIBUTIONS.json ; None si aucun LOT reconnu."""
+    L = lecons_du_chemin(chemin)
+    return (proprietaire(L[0]), False) if L else (None, True)
 
 
 def lecons_du_chemin(f):
@@ -120,18 +129,18 @@ def main():
                 continue
             L = lecons_du_chemin(chemin)
             if L:
-                ia, defaut = attribuer(chemin, ref, aut)
-                occur.append((L[0], L[1], L[2], ref, chemin, blob, ts, ia, defaut))
+                ia = proprietaire(L[0])
+                occur.append((L[0], L[1], L[2], ref, chemin, blob, ts, ia, auteur_ia(chemin, ref, aut)[0]))
     blobs = sorted({o[5] for o in occur if not o[2]})
     with ProcessPoolExecutor() as ex:
         mesures = dict(ex.map(mesurer, [(b, d) for b in blobs], chunksize=16))
     best = {}
-    for lot, lecs, ancien, ref, chemin, blob, ts, ia, defaut in occur:
+    for lot, lecs, ancien, ref, chemin, blob, ts, ia, auteur in occur:
         m = mesures.get(blob) or {'score': 30, 'bloquant': False, 'octets': 0, 'connect': None, 'defauts': ['ancien_format_multi_DX']}
         if ancien:
             m = dict(m, score=min(m['score'], 30))
         for lec in lecs:
-            cand = {'ia': ia, 'attribution_par_defaut': defaut, 'ref': ref, 'chemin': chemin, 'blob': blob, 'date': ts,
+            cand = {'ia': ia, 'auteur_ia': auteur, 'ref': ref, 'chemin': chemin, 'blob': blob, 'date': ts,
                     'main': ref == 'origin/main', 'ancien_format': ancien, **m}
             k = f'{lot:03d}:{lec}'
             if k not in best:
