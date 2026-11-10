@@ -2,7 +2,7 @@
 
 ## État de la reprise
 
-P1 franchie sur la proposition v3, liste gelée ; onze leçons poussées, dix P3 franchies. Première P3 indépendante de DX10 en cours. Main intégré après la livraison du LOT081. Les empreintes et audits en vigueur sont dans MANIFESTE.json, VALIDATIONS_P3.json et ETAT_FILE.json.
+P1 franchie sur la proposition v3, liste gelée ; onze leçons poussées, onze P3 franchies sur les empreintes finales. DX10 atteint49/52, finaleoui après trois corrections ciblées. Structure et cohérence conformes ; P4 attend la CI de la PR. Main intégré après la livraison du LOT081. Les empreintes et audits en vigueur sont dans MANIFESTE.json, VALIDATIONS_P3.json et ETAT_FILE.json.
 
 ## Première passe historique, remplacée par la reprise ci-dessus
 

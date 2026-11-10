@@ -2,7 +2,7 @@
 
 ## État actuel
 
-33 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et les 11 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 a ses onze leçons ; la première P3 indépendante de DX10 est en cours. Les 858 leçons existantes consolidées sont sur main.
+33 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et les 11 du LOT082. Le LOT081 est livré sur main après P4 et fusion automatique de la PR567 ; ses onze empreintes auditées ont été vérifiées au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT082 a ses onze leçons et onze P3 franchies ; P4 attend la CI de la PR. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -177,4 +177,6 @@ LOT082 DX10 : leçon complète, 186648 octets, contrôle original ORANGE B seule
 
 LOT082 DX10 : trois corrections ciblées au point11 après première P3 ; 187012 octets, seconde P3 indépendante engagée.
 
-LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 première P3 indépendante ; LOT083–102 à produire.
+LOT082 : les onze versions franchissent P3. DX10 seconde lecture49/52, finaleoui, corrections limitées à la citation AIPS et deux terrains. Historique Git rétabli avec /usr/bin/git2.47.3 après échec du fetch approfondi sousGit2.52.0 ; fusion normale de main réussie.
+
+LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 PR/CI/P4 ; LOT083–102 à produire.
