@@ -1,20 +1,20 @@
 # LOT_052 — Liste DX canonique
 
-SSP S3.1, douleur abdominale. Ordre de fréquence : ordre d'énumération de Sinz, Forum Médical Suisse, 2021 (DOI 10.4414/fms.2021.08848), et non un tri par médiane. Les fourchettes se chevauchent. La douleur abdominale non spécifique (jusqu'à 44,3 %) est un reliquat, pas un concurrent. Les rangs E sont un ordre d'exclusion, distinct du rang de fréquence. L'algorithme commence par E1.
+SSP S3.1, douleur abdominale aiguë au cabinet. Ordre de fréquence décroissante pour la médecine de premier recours, et non l'énumération de Forum Médical Suisse 2021. Le premier rang est la douleur non spécifique (un tiers des consultations de médecine générale ; première ligne de toutes les séries du colloque HUG du 11 octobre 2017). La gastroentérite vient ensuite, parce que 80 % des douleurs aiguës sont médicales et qu'environ 10 % seulement exigent l'hôpital. À partir de la colique néphrétique, l'ordre suit la colonne Bouillot 2004 présentée à ce colloque, la plus récente du tableau. La pancréatite (4,3 %) précède la diverticulite (3,8 %). L'ulcère perforé (2,8 % dans les séries de 1977 et 1979) précède la grossesse extra-utérine, dont la rupture est la fraction vitale d'une ligne gynécologique plus large (6,1 %). L'anévrisme rompu ferme la liste : il est rare dans l'ensemble des douleurs, et fréquent seulement chez le patient âgé. Les rangs E sont un ordre d'exclusion, distinct de la fréquence. L'occlusion, la hernie étranglée, l'ischémie mésentérique et l'infarctus inférieur restent dans l'algorithme E1 ; ils n'occupent pas un des dix fichiers.
 
-| DX | Concurrent | Fréquence lue chez Sinz | Rang E |
+| DX | Diagnostic | Fréquence retenue | Rang E |
 |---|---|---|---|
-| DX.1 | Appendicite aiguë | 6,7–28,1 % | aucun |
-| DX.2 | Cholécystite | 2,9–31,5 % | aucun |
-| DX.3 | Hernie incarcérée | 10–18,2 % | E3 |
-| DX.4 | Iléus mécanique | 4,1–45 % | aucun rang propre |
-| DX.5 | Perforation du tractus gastro-intestinal | 2,3–18 % | E2 |
-| DX.6 | Hémorragie gastro-intestinale | 5 % | E4 |
-| DX.7 | Occlusion des vaisseaux mésentériques | 9,4 % | E1 |
-| DX.8 | Diverticulite | 8,2–9 % | aucun |
-| DX.9 | Pancréatite aiguë | 3,2–4 % | aucun |
-| DX.10 | Maladies inflammatoires de l'intestin | 0,6 % | aucun |
+| DX.1 | Douleur abdominale non spécifique | un tiers au cabinet ; 34,8 % (série 2004) à 53,3 % (série 1977) | aucun |
+| DX.2 | Gastroentérite aiguë | dans les 80 % de causes médicales ; pas de part isolée | aucun |
+| DX.3 | Colique néphrétique | 11 % (série 2004) | aucun |
+| DX.4 | Appendicite aiguë | 7,5 % (série 2004) ; 18,8 à 26 % dans les séries plus anciennes | aucun |
+| DX.5 | Cholécystite ou angiocholite | 6,1 % plus 1,5 % de colique hépatique | E2 si triade ou choc |
+| DX.6 | Pancréatite aiguë | 4,3 % (série 2004) | aucun |
+| DX.7 | Diverticulite aiguë | 3,8 % (série 2004) | aucun |
+| DX.8 | Ulcère ou perforation | 2,8 % (séries 1977 et 1979) | E2 si perforation |
+| DX.9 | Grossesse extra-utérine | rupture : fraction vitale de la ligne gynécologique à 6,1 % | E1 |
+| DX.10 | Anévrisme de l'aorte abdominale | rare globalement ; parmi les plus fréquentes après 70 ans | E1 |
 
-Le nom de DX.10 est celui de la source. Aucune médiane n'a été calculée pour réordonner la liste.
+L'hémorragie digestive et les maladies inflammatoires de l'intestin ne sont pas des causes de cette douleur dans cette liste.
 
-Gel SHA-256 des lignes au-dessus de cette ligne : `1680c8e6f231cb5b2e9a21248f3f18ba6d6f02c13ba59be03b88b479b5d32f50`
+Gel SHA-256 des lignes au-dessus de cette ligne : `77a8d8a3735b13d4b88532ef914981412aa12959fe1575d6bd44cdb39f296ead`
