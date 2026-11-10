@@ -17,4 +17,6 @@ SSP S2.12, douleur de la paroi thoracique. Ordre : fréquence décroissante. Le 
 
 Le groupe respiratoire suisse de 10 % et le groupe digestif suisse de 8 % (PMC2072948-11) sont des ensembles. Ils ne sont pas additionnés aux lignes 4, 5 et 8, qui viennent d’autres découpages. Le rapport de 2008 donne 48,8 % pour le syndrome de paroi (PMC4655927-37) : ce chiffre ne remplace pas 44,6 %.
 
-SHA-256 du texte de cette liste, ligne de signature exclue : calculé dans `_travail/PA/gel_p1.json`.
+Hors liste. La dissection aortique et le pneumothorax sous tension sont trop rares en cabinet pour recevoir un rang chiffré dans cette liste ; ils n’ont donc ni rang de fréquence ni rang E, mais la Phase A les traite comme urgences 🚩 à exclure dès le premier temps de la démarche, au même titre que E1 et E2. La péricardite et le zona, sans rang chiffré ici, sont enseignés dans les points 3 à 11 sans rang.
+
+SHA-256 du texte de cette liste, ligne de signature exclue : 46e926edb703b993b2631cb6c272ab42b0394923feaab4676eeec9ec2e2b154a (détail dans `_travail/PA/gel_p1.json`).
