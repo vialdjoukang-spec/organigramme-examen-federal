@@ -19,7 +19,9 @@ V3='aips-67886-3',V9='aips-67886-9',V14='aips-67886-14',V16='aips-67886-16',V27=
 def R(m):
     ids=[x.strip() for x in m.group(1).split(',')]
     return ''.join(f'<sup class="r"><a href="#sb-{AL.get(i,i)}">{AL.get(i,i)}</a></sup>' for i in ids)
-def conv(t): return re.sub(r'\[\[([^\]]+)\]\]',R,t)
+def conv(t):
+    t=re.sub(r'([.!?])((?:\[\[[^\]]+\]\])+)',r'\2\1',t)
+    return re.sub(r'\[\[([^\]]+)\]\]',R,t)
 def build(n):
     src=open(f'src/p{n:02d}.txt',encoding='utf8').read().split('\n')
     out=[];wins=[];k=0
