@@ -48,8 +48,9 @@ def main():
         lot = int(k[:3])
         if v['ia'] != a.ia or lot not in lots or v['main'] and v['chemin'] == v['destination']:
             continue
-        if v['chemin'] == v['destination']:
-            continue
+        if v['chemin'] == v['destination'] and os.path.exists(v['destination']) and \
+                open(v['destination'], 'rb').read() == git('cat-file', 'blob', v['blob'], binaire=True):
+            continue  # version retenue déjà présente, à l'octet près, à sa destination
         if faites >= a.max:
             break
         faites += 1
@@ -61,12 +62,21 @@ def main():
             if src.startswith('..') or not rel.strip():
                 continue
             assets.append((v['ref'], src, posixpath.normpath(posixpath.join(posixpath.dirname(v['destination']), rel))))
-    # Copies périmées de son ressort : chemins de main attribués à cette IA, hors destinations
+    # Copies périmées de son ressort : chemins de main des LOTs de cette IA, hors destinations.
+    # Une copie n'est supprimée que si chacune de ses leçons a sa destination écrite dans ce passage ou déjà présente
+    # (sinon --max aurait laissé la leçon absente de l'arbre).
     dest = {v['destination'] for v in C['lecons'].values()}
+    ecrites = {d for _, d in ecrits}
+
+    def couverte(lot, lec):
+        v = C['lecons'].get(f'{lot:03d}:{lec}')
+        return v is not None and (v['destination'] in ecrites or os.path.exists(v['destination']))
+
     ressort = []
     for p in C['obsoletes_main']:
         L = lecons_du_chemin(p)
-        if L and L[0] in lots and attribuer(p, 'origin/main', '')[0] == a.ia and p not in dest:
+        if L and L[0] in lots and attribuer(p, 'origin/main', '')[0] == a.ia and p not in dest \
+                and all(couverte(L[0], lec) for lec in L[1]):
             ressort.append(p)
     print(f'{a.ia} : {len(ecrits)} leçons à écrire, {len(assets)} annexes relatives, {len(ressort)} copies périmées à supprimer')
     if not a.appliquer:
