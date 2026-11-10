@@ -1,11 +1,11 @@
 # HELP DX.1 (lacunes hors cours)
-- Urocit (citrate de potassium) : aucune information professionnelle AIPS rapatriée ; classe et conduite citées sans dose (HUG 2023, HUG 2010).
+- Urocit (61884) rapatrié : dose 30 à 60 mEq par jour, pH 6 à 7, indication limitée à la prévention des récidives (dissolution hors indication AIPS) ; pH 6,5-7,2 des HUG cité comme source divergente.
 - Tamsulosine : AIPS lue (T Spirig 62817, T-Mepha 62292) = indication hyperplasie bénigne de la prostate seulement ; usage dans la colique hors autorisation, dose 400 µg tirée de HUG 2023.
-- Kétorolac, diclofénac per os, thiazide-amiloride, allopurinol : doses HUG non reprises (AIPS non rapatrié pour la colique).
+- Allopurinol Zyloric 32917 rapatrié (100-200 mg/j cas légers, 300-600 mg/j modérés). Kétorolac Nardia 70358 (douleurs postopératoires) et hydrochlorothiazide Esidrex 24958 : non enseignés (indication non colique / non utilisés). Diclofénac oral Diclo-Acino 62728 non repris.
 - Paracetamol Fresenius 1 g : numéro AIPS « 61442002 » non à 5 chiffres ; Paracetamol Sintetica 58716 cité à la place.
-- Morphine i.v. : aucune spécialité injectable AIPS rapatriée ; hydromorphone Palladon Inject 59225 citée sans dose.
+- Morphine injectable Morphin-HCl Sintetica 51039 rapatriée (2,5-15 mg i.v.) ; hydromorphone Palladon Inject 59225 citée sans dose.
 - Épidémiologie suisse spécifique (OFS/Obsan) de la lithiase : non trouvée ; chiffres HUG et EAU utilisés.
 - Volet social et assurances (arrêt de travail, LAMal) : aucune source suisse lue ; seule la profession à risque (HUG 2023) est mentionnée.
 - Revue Médicale Suisse 2016 n°504 (Morandi) : page payante, texte non lu, non citée.
 - Reçus de sources anciennes : HUG prévention lithiase 2010 (version la plus récente trouvée) ; Marston 1992 (série historique).
-- Défauts ORANGE restants : phrases longues et nominales heuristiques, connecteur% ~33.
+- Barème STONE : l'hématurie vaut 3 points dans Moore 2014 (PMC3966515, wb5f3f7-33, total 0-13) ; le tableau HUG (wdc6f0c-16) ne donne que 1 point : divergence signalée dans le cours.
