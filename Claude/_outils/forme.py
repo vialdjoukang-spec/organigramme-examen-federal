@@ -158,7 +158,7 @@ CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
     "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
     "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
-    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in}")
+    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in;hyphens:manual;-webkit-hyphens:manual}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
