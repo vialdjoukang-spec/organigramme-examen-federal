@@ -44,3 +44,21 @@
 - Point 12 : aucune recommandation suisse de prévention (organisme, année) lue ; seul le calendrier AIPS du Lithiofor est cité.
 - Section « Rappel mémoire » et liste des sources : des étiquettes de citation ajoutées par renfort_citations.py (ex. 70200 sur le plan) ne correspondaient pas au contenu ; retirées dans les sources et le plan.
 - Image de la langue sèche (DryTongue) : réutilisée depuis le dossier images (déjà prise pour un autre DX).
+
+## DX.1 Diabète sucré — renforcement du 10.11.2026
+
+- Lacune retirée du cours (ligne « Non trouvé » du tableau du point 2) : incidence suisse du diabète et coût national, non lus dans les sources consultées. À chercher chez l'Obsan, l'OFS et l'OFSP.
+- Point 1 : synonymes admis et termes à éviter non lus (ADA 2025, section 2, et CIM-10) ; à ajouter après lecture.
+- Point 12 : année et organisme de la recommandation suisse de vaccination antigrippale (OFSP) non lus ; la phrase du cours ne les cite pas.
+- Point 11.C : l'intervalle de l'HbA1c (tous les 3 mois) et celui du fond d'œil (annuel) viennent de l'ancien texte sans source lue ; l'ADA Standards of Care, section sur les complications, reste à lire.
+- Image en attente (429 Wikimedia) : « File:Acanthious nigricans new photo for diagnosis… .jpg » (CC BY-SA 4.0), ligne ajoutée à /home/user/wt/images_attente.txt. Insertion à faire au point 6 (examen de la peau) : signe de résistance à l'insuline, plaque brune veloutée du cou, repères à placer après inspection (plis du cou, aspect épaissi et pigmenté). Format : cliche.py figure.
+- Fait : fond d'œil de rétinopathie diabétique (CC BY 4.0, Shaofeng Hao et al.) inséré au point 9.d, avec lecture guidée à 4 repères.
+- Images aucune autre n'est disponible pour le point 9 : le diagnostic du diabète est biologique (aucune modalité d'imagerie décisive).
+
+## DX.6 Syndrome de Sjögren primaire (renforcement du 10.11.2026)
+- Point 2 : aucune prévalence ou incidence suisse lue ; seule la donnée italienne (S3) figure. Source suisse ou européenne à fournir.
+- Point 6 : aucun cliché libre de licence du signe visible (tuméfaction parotidienne, kératoconjonctivite sèche) trouvé sur Commons (recherches du 10.11.2026). Insertion à faire si un cliché est retrouvé.
+- Point 12 : aucune recommandation suisse de prévention (organisme, année) lue.
+- Popup « bloc cardiaque congénital » et grossesse anti-SSA : le suivi spécialisé n'a pas de source citée (l'ancre AIPS 55901, ajoutée à tort par renfort_citations, a été retirée).
+- Les ancres sb-aips-55901 posées par renfort_citations sur des faits ACR/EULAR, EULAR ou non médicamenteux ont été retirées ou remplacées par sb-1 ; les ancres AIPS sont désormais une par molécule (55901, 66093, 53831, 54378).
+- Point 14 : la « raison » de chaque réponse n'est pas rédigée pour toutes les questions.
