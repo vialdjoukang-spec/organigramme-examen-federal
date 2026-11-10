@@ -80,8 +80,8 @@ def figure(a):
     lecture = ''.join(f'<li><b>{i}.</b> {e(t)}</li>' for i, (_, _, t) in enumerate(rep, 1))
     pg = ''.join(f'<li>{e(p)}</li>' for p in pieges)
     print(f'''<figure class="cliche-guide"><p class="p"><b>{e(a.titre)}.</b> {e(a.cliche)}</p>
-<div class="paire"><div><img src="{m['fichier']}" width="{w}" height="{h}" alt="{e(a.titre)} — cliché brut" loading="lazy"><p class="p">Le cliché brut se lit d'abord sans aide : cherchez vous-même le signe.</p></div>
-<div><svg viewBox="0 0 {w} {h}" role="img" aria-label="{e(a.titre)} — copie annotée"><image href="{m['fichier']}" width="{w}" height="{h}"/>{marques}</svg><p class="p">La copie annotée numérote les repères décrits ci-dessous.</p></div></div>
+<div class="paire"><div><img src="{m['fichier']}" width="{w}" height="{h}" alt="{e(a.titre)} — cliché brut" loading="lazy"><p class="p">Lisez d'abord seul ce cliché ({e(a.titre.lower())}) : cherchez vous-même le signe.</p></div>
+<div><svg viewBox="0 0 {w} {h}" role="img" aria-label="{e(a.titre)} — copie annotée"><image href="{m['fichier']}" width="{w}" height="{h}"/>{marques}</svg><p class="p">La copie annotée ({e(a.titre.lower())}) numérote les repères décrits ci-dessous.</p></div></div>
 <div class="p"><b>Lecture guidée.</b><ol>{lecture}</ol></div>{f'<div class="p"><b>Pièges.</b><ul>{pg}</ul></div>' if pg else ''}
 <p class="p"><b>Ce que l'image décide.</b> {e(a.decision)}</p>
 <figcaption>Image : {e(m['auteur'] or 'auteur non indiqué')}, {e(m['licence'])}, Wikimedia Commons, <a href="{e(m['url'])}">{e(m['titre'])}</a>, consultée le {m['consulte']}. Copie annotée : œuvre dérivée sous la même licence.</figcaption></figure>''')
