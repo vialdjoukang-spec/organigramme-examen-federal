@@ -73,3 +73,10 @@ Lacunes retirées du cours (ancienne section « Lacunes des données ») :
 - Prévention suisse : aucune recommandation suisse de prévention propre à l'entité n'a été lue ; la phrase de lacune a été retirée du cours (le point 12 s'appuie sur l'épidémiologie du point 2). À chercher : recommandation suisse de prévention des traumatismes et de l'hypothermie.
 - Schéma traumatologique de l'acide tranexamique (1 g en 10 minutes puis 1 g en 8 heures) : issu de la recommandation européenne (Rossaint 2023), absent de l'AIPS 69390 ; le cours cite la recommandation et l'AIPS (voie i.v. lente). Usage de la noradrénaline dans le choc hémorragique : idem, AIPS 60955 impose de corriger d'abord l'hypovolémie.
 - Doses lues dans l'AIPS local (zip du 08.10.2026) : noradrénaline 60955, acide tranexamique 69390, adrénaline 56472, amiodarone 41060, glucose 29550190, NaCl 42425, Ringer 58605.
+
+## DX.7 (arrêt cardiaque), renforcement du 10.11.2026
+- Prévention (point 12) : aucune recommandation suisse (organisme, année) lue ; à ajouter si le texte du Swiss Resuscitation Council ou de la SSMUS est lisible.
+- Adrénaline et amiodarone, doses de RCP : confirmées par l'AIPS 56472 et 59528 (lues) ; les doses de la recommandation ERC 2025 n'ont pas été relues dans son texte intégral, seul le résumé S9 figure dans la bibliographie.
+- Noradrénaline, dopamine, dobutamine, flécaïnide, propafénone, énoxaparine, rivaroxaban, apixaban : cités par nom seulement, sans dose ; AIPS à lire si une dose doit entrer dans le cours.
+- Image point 6 (signe visible) : non insérée ; la recherche Wikimedia a échoué (429). Image point 9 : ECG d'Osborn déjà en cache (HypothermiaECG, CC BY 3.0), réutilisée.
+- Point 9.c : alternatives enfant, allergie à l'iode et IRM impossible non couvertes faute de source lue.
