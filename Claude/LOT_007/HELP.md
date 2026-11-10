@@ -21,3 +21,12 @@
 - « Sujet âgé : surveiller la PA » (11.B) garde ses citations 15104 et 26313 mais aucune des deux ne le dit mot pour mot ; source gériatrique suisse à trouver.
 - Point 9 : aucun cliché de la modalité décisive (génotypage ALDH2, test cutané à l'éthanol) n'est imageable ; seul le signe visible du point 6 est illustré (Brooks 2009, CC BY 2.5).
 - Épidémiologie suisse du flush à l'alcool : aucune donnée suisse lue ; le tableau repose sur Brooks 2009 (Asie de l'Est).
+
+## Phase A (G7) — renforcement du 10.11.2026 : lacunes retirées du cours et consignées ici
+- Épidémiologie (point 2) : aucune prévalence, incidence, répartition par âge ou sexe, ni mortalité suisse du flushing toutes causes confondues n'a été lue (OFSP, HUG, recommandations européennes par cause). Le cours dit seulement que chaque chiffre se rattache à une cause. Source à fournir : dénominateur, période et définition clinique.
+- Ordre de fréquence suisse des dix diagnostics, pondéré par la gravité : non lu. Le cours présente le rang comme pédagogique.
+- Rosacée topique (Mirvaso, brimonidine) : l'AIPS n'a pas pu être ouverte. Le cours cite la recommandation S2k (S11) seule, sans posologie ; ajouter l'AIPS de la spécialité choisie.
+- Syndrome de Frey : seule la revue Cochrane 2015 (S16) est lue ; aucune dose de toxine botulique ou d'anticholinergique n'est donnée.
+- Test de Minor : sensibilité et spécificité suisses contemporaines non lues.
+- Citations : S9 et S19 (rapports Swissmedic Veoza et Lynkuet) ne sont pas des AIPS ; les doses citent les AIPS 53836, 56551, 53128 et 69232 de leur propre molécule.
+- Images : une figure insérée (Rosacea 01, point 6). Point 9 : aucun cliché décisif, la démarche est clinique et biologique ; Minor non illustré (aucune image prise, faute d'une requête validée).
