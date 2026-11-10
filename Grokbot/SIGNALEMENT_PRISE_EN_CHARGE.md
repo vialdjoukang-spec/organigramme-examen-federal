@@ -28,7 +28,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | livré PR 559 |
 | 067 | S4.6 | Masse pelvienne | livré PR 560 |
 | 068 | S4.7 | Douleur pelvienne | livré PR 562 |
-| 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
+| 069 | S4.8 | Demande de contraception, contraception d’urgence | livré PR 563 |
 | 070 | S4.9 | Douleur, gonflement ou masse du scrotum | réservé |
 | 071 | S4.10 | Plaintes et dysfonctions sexuelles | réservé |
 | 079 | S4.18 | Écoulement vaginal | réservé |
