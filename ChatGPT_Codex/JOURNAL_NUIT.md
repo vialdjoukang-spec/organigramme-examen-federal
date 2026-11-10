@@ -171,4 +171,6 @@ LOT082 DX5 : normalité de ténodèse et aspects travail/conduite/assurance comp
 
 Conservation des branches : GitHub a delete_branch_on_merge=true ; codex/lot-081 a été rétablie par push ordinaire au commit24fc274f948cde2ee5cd9df0c35cd12fda428067 après sa suppression automatique. Aucun --force ni commande de suppression.
 
+La branche de consolidation codex/consolidation-chatgpt-20261110, également supprimée automatiquement après PR516, a été rétablie au commitf8541e8294fa5e5cd5bc7123bc17331fec1ce02b par push ordinaire.
+
 LOTs livrés : 1/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 rédaction/audit ; LOT083–102 à produire.
