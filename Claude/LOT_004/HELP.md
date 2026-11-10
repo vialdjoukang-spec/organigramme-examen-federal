@@ -68,3 +68,10 @@ Images :
 
 - Point 9, ECG : File:ECG long-QT bionerd.jpg (Bionerd, CC BY 3.0), insérée dans Claude/LOT_004/images/ECG_long-QT_bionerd.webp (téléchargement réussi, aucun 429). Elle illustre le contrôle du QTc avant l'escitalopram (AIPS Cipralex).
 - Point 6 : aucun signe visible et photographiable ne caractérise la dépression ; aucune image n'a été cherchée.
+
+## DX.3 — Troubles du sommeil (renforcement du 10.11.2026)
+- Citations corrigées : les doses de zolpidem, témazépam et mélatonine citaient l'AIPS Quviviq ou une autre molécule ; chaque dose cite maintenant son AIPS (Quviviq 68481, Stilnox 49106, Circadin 59311, Normison 44854, Trittico 46559, Anexate 48280), relues dans le corpus local. Les AIPS ne portaient pas les gestes d'examen, le STOP-Bang ni l'arbre : ces phrases citent désormais [9] ou [6]. Les chiffres du point 2 sont reportés sur Ericson [2], Maire [3] et Bassetti [4] (résumés PubMed relus). Citations parasites retirées de la liste des sources et du Rappel mémoire.
+- Retiré : « après avoir assuré les voies aériennes et la ventilation » (flumazénil) : l'AIPS Anexate ne le dit pas, il parle d'autres mesures de réanimation. À sourcer.
+- Sans source lue : IMC normal < 25 kg/m² (écrit en lettres), gestes d'examen du point 6, 9.c (enfant, adulte, femme enceinte, personne âgée : choix polysomnographie ou polygraphie), seuil ESS 10 (cité [17], résumé non relu), prévention (organisme et année suisses), classement du SAOS (cité [9], seuils IAH 5, 15, 30 relus dans le résumé).
+- Image : polysomnographie (File:Polysomnography.png, Eumetaxas, CC BY-SA 3.0) au point 9.d ; les étiquettes du tracé indiquent des apnées centrales (effort absent), lues comme telles malgré la description Commons « obstructive ». Point 6 : aucune image cherchée (cou, pharynx de Mallampati à chercher quand Wikimedia lèvera sa limite).
+- Taille 100–200 Ko atteinte sans les polices intégrées ; le plan du Rappel mémoire a été mis à plat.
