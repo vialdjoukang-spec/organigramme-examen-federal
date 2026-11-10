@@ -91,3 +91,6 @@ Lacunes retirées du cours et consignées ici (ajouts seulement) :
 - Sources à relire dans le texte de Karrer (non lisible localement) : attribution des chiffres d'Europe centrale (30 à 50 % sans cause, 25 à 30 %, 10 à 20 %, 10 à 15 %, 5 à 10 %) au tableau de l'épidémiologie (cité S2, probablement S1), de la série belge de 436 patients (mortalité 6,9 % et 38 %, cités S2) et du seuil de corticoïde de 10 mg d'équivalent prednisone ; durée de 10 à 14 jours d'essai de prednisone ; durée de 2 à 4 semaines de doxycycline.
 - Dose d'urgence conservée : prednisone 40 à 60 mg par jour dans l'artérite à cellules géantes (recommandation EULAR 2025, S11) ; l'AIPS 69640 donne 5 à 60 mg par jour et autorise des doses plus élevées à court terme.
 - Chaque citation de dose cite l'AIPS de sa propre molécule (69640, 43522, 47503, 65952, 66191). Aucune autre AIPS n'a été ajoutée.
+
+## DX.6 paludisme : doses OMS sans AIPS (finition)
+Les doses d'artésunate IV, de quinine et de primaquine (OMS 2023, source S5) ne citent plus l'AIPS d'une autre molécule (Riamet, Doxycyclin-Mepha, Plaquenil). La leçon écrit que ces molécules n'ont pas d'AIPS dans le corpus suisse consulté (importation ou centre de référence). controle3 classe encore ces 7 phrases de dose en A_dose_sans_AIPS (exige une citation `aips`) : décision de Vial requise (exemption OMS ou autre règle).
