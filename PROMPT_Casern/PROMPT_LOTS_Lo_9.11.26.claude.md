@@ -65,20 +65,17 @@
 ## M4. Architecture d'un LOT
 
 ```text
-lot en cours de production/LOT_XXX/            ← seul lieu d'écriture pendant la production
-├── DECISION_SEANCE.md                           ← périmètre du jour (qui, quoi, branche)
-├── evidence/                                    ← extraits bruts datés (*.txt), AIPS compris
-├── PA/  paquet.json · contrat.json · fragments/pNN.html · fenetres/ · controle.json
-├── DX.1/ … DX.10/  (même structure que PA/)
-├── LISTE_DX_CANONIQUE.md                        ← gelée après la porte de Phase A
-├── images/  CANDIDATS.json · PLANCHE.html · <sha>.jpg · figures.json
-├── HELP.md · JOURNAL.md · CORRECTIONS_AUDIT.md
-└── audits/  <fichier>.audit.json
-LOT_Claude_Finaux/LOT_XXX/                       ← dépôt final, après la porte P4 seulement
-├── LOT_XXX_Phase_A_V0.html
-├── LOT_XXX_Phase_B_V0_DX.1.html … DX.10.html
-├── MANIFESTE.json
-└── audits/
+<DOSSIER_IA>/                                    ← Claude/ · ChatGPT_Codex/ · Grokbot/ : seul lieu d'écriture de l'IA
+├── _outils/                                     ← copies de detecteur_lots.py, consolider.py, progression.py, controle3.py
+├── Progression_PR_<DOSSIER_IA>.html             ← jauges régénérées par l'IA après chaque PR
+├── JOURNAL_NUIT.md
+└── LOT_XXX/
+    ├── LOT_XXX_Phase_A_V0.html                  ← destination UNIQUE de chaque leçon (une seule copie dans tout le dépôt)
+    ├── LOT_XXX_Phase_B_V0_DX.1.html … DX.10.html
+    ├── MANIFESTE.json · DECISION_SEANCE.md · LISTE_DX_CANONIQUE.md · HELP.md · JOURNAL.md · CORRECTIONS_AUDIT.md
+    ├── audits/  <fichier>.audit.json
+    ├── images/  CANDIDATS.json · PLANCHE.html · <sha>.jpg · figures.json
+    └── _travail/                                ← evidence/, PA/ et DX.1/…DX.10/ (paquet.json, contrat.json, fragments/)
 ```
 
 - **Bande d'octets :** chaque HTML final pèse de 100 000 à 200 000 octets, bornes comprises. Sous 100 000 octets, une omission est présumée et l'on complète par des extraits nouveaux. Au-dessus de 200 000 octets, on comprime la forme. Le poids vient toujours de faits distincts, jamais d'un remplissage ; `controle3.py` repère les doublons et les phrases partagées entre fichiers.
@@ -90,7 +87,7 @@ LOT_Claude_Finaux/LOT_XXX/                       ← dépôt final, après la po
 | Étape | Action | Exécutant | Coût modèle | Sortie |
 |---|---|---|---|---|
 | E0 | Légion : état des LOTs, des branches et des collisions | `mere.py` | 0 | `DIGEST.md` |
-| E1 | Réservation du LOT et ouverture de la branche `prod/lot-XXX` | script, plus `DECISION_SEANCE.md` | 0 | branche |
+| E1 | Réservation du LOT et ouverture de la branche `<préfixe>/lot-XXX` | script, plus `DECISION_SEANCE.md` | 0 | branche |
 | E2 | Collecte des sources : URL tirées des registres de Vial, téléchargement en cache, extraits AIPS | `paquet.py` | 0 | `evidence/`, `PA/paquet.json` |
 | E3 | Liste DX.1 à DX.10 : sélection, ordre de fréquence, rangs E | modèle fort (A-2) | moyen | `LISTE_DX_CANONIQUE.md` (brouillon) |
 | E4 | Porte P1 de la liste : audit médical ciblé, puis gel | IA d'audit (A-4) | faible | liste gelée |
@@ -99,7 +96,7 @@ LOT_Claude_Finaux/LOT_XXX/                       ← dépôt final, après la po
 | E7 | Images : collecte, planche, inspection, puis figures | `images.py`, puis un seul contrôle visuel | 0, puis faible | `figures.json` |
 | E8 | Assemblage et contrôle des trois axes | `assembler.py` + `controle3.py` | 0 | HTML + `controle.json` |
 | E9 | Audit ciblé des seuls défauts et des points à risque, puis correction chirurgicale | IA d'audit (A-4), puis IA de rédaction (A-5) | faible | `audits/`, HTML corrigé |
-| E10 | Porte P4, manifeste, dépôt final et fusion | scripts + CI | 0 | `LOT_Claude_Finaux/LOT_XXX/` |
+| E10 | Porte P4, manifeste et fusion | scripts + CI | 0 | `<DOSSIER_IA>/LOT_XXX/` sur `main` |
 
 **Règle d'un seul passage.** Un fragment reçu n'est jamais renvoyé au modèle pour être « amélioré ». La correction vise la phrase fautive, désignée par l'audit, et rien d'autre (A-5). Une étape ne relit pas un fichier dont le SHA-256 n'a pas changé depuis son dernier verdict.
 
@@ -257,7 +254,7 @@ Le gabarit impose les règles techniques suivantes : aucun `title=` servant d'in
 | **P3** | Chaque fichier | Audit A-4 : score ≥ 90 % (cible 95–100 %), zéro critique, question finale « oui » | IA d'audit |
 | **P4** | LOT complet | 11 fichiers ayant franchi P2 et P3 ; cohérence A↔B ; `MANIFESTE.json` égal aux octets audités ; CI verte | Script + CI |
 
-Après P4, le LOT est déposé **immédiatement** dans `LOT_Claude_Finaux/LOT_XXX/` par une PR fusionnée après CI verte, sans attendre d'accord supplémentaire : la porte vaut décision. Un fichier qui échoue deux fois à P3 reçoit le verdict `REFUSE`, consigné dans `ETAT_FILE.json`, puis la file passe au LOT suivant sans blocage.
+Après P4, le LOT part **immédiatement** sur `main`, dans `<DOSSIER_IA>/LOT_XXX/`, par une PR fusionnée après CI verte, sans attendre d'accord supplémentaire : la porte vaut décision. Un fichier qui échoue deux fois à P3 reçoit le verdict `REFUSE`, consigné dans `ETAT_FILE.json`, puis la file passe au LOT suivant sans blocage.
 
 ## Θ3. Audit ciblé (l'auditeur ne lit que ce qui compte)
 
@@ -305,11 +302,11 @@ Le score d'un fichier vaut la somme obtenue divisée par la somme maximale (les 
 
 ## Θ5. Anti-collision
 
-1. Un producteur travaille sur un LOT, dans une branche `prod/lot-XXX` basée sur `main`, et écrit dans le seul dossier `lot en cours de production/LOT_XXX/`.
+1. Une IA travaille sur un LOT, dans une branche `<préfixe>/lot-XXX` basée sur `main`, et écrit dans son seul dossier `<DOSSIER_IA>/LOT_XXX/`. Avant toute production, `detecteur_lots.py` établit la version la plus avancée de chaque leçon et `consolider.py` la place à sa destination unique.
 2. Avant d'écrire, il interroge la légion (`DIGEST.md`). Si une autre branche active touche déjà ce LOT, il s'arrête et le chef de production arbitre.
 3. Sans mandat, `PROMPT_Casern/`, `HANDOFF.md`, `ETAT.md`, la CI racine et les LOTs des autres producteurs restent en lecture seule.
 4. Le producteur pousse après chaque fichier assemblé : une session qui s'arrête sans branche poussée n'a rien produit.
-5. Un remplacement dans `LOT_Claude_Finaux/` se fait ainsi : la nouvelle version est déposée et vérifiée, puis l'ancienne passe dans `_OBSOLETES/` avec le suffixe `_OBSOLETE_`.
+5. Une leçon n'existe qu'en une copie : sa destination unique. Quand une version plus avancée la remplace, l'ancienne est supprimée dans le même commit (l'historique Git la conserve).
 
 ## Θ6. Traçabilité
 
@@ -339,15 +336,16 @@ Le score d'un fichier vaut la somme obtenue divisée par la somme maximale (les 
 | Session arrêtée par quota sans branche poussée | Θ5.4 |
 | Dépôt annoncé mais inexistant | LV9 |
 
-## Θ8. Stratégie d'achèvement des 248 LOTs (état collecté par la légion le 9 novembre 2026)
+## Θ8. Stratégie d'achèvement des 248 LOTs (carte établie par `detecteur_lots.py` sur `main` et 326 branches)
 
 | Ensemble | LOTs | Action | Coût |
 |---|---|---|---|
-| **Existants avec 11 fichiers** (environ 132) | 1–40, 109–133, 134–146 et 149–172, 173–207 et 219–226, 232, 245 | Lancer `controle3.py` sur tous ; trier les fichiers VERT, ORANGE et ROUGE ; corriger chirurgicalement les ORANGE et ROUGE ; auditer seulement les fichiers passés à P2 | Scripts gratuits, puis audit ciblé |
-| **Partiels** (environ 36) | 14, 17, 40–42, 72–78, 104–108, 110, 112, 121, 122, 137, 147, 148, 181–183, 208–216 | Compléter les DX manquants à partir de la liste existante si elle passe P1 ; sinon, refaire la Phase A | Rédaction locale |
-| **Absents** (environ 80) | 43–71, 79–103, 114, 116, 118, 120, 217, 218, 227–231, 233–244, 246–248 | Chaîne M5 complète | Rédaction locale, audit ciblé |
+| **Complets, 11 leçons** (165) | tous les LOTs hors lignes suivantes | Consolider à la destination unique ; `controle3.py` ; correction chirurgicale des leçons sous 90 % ; audit ciblé | Scripts gratuits, puis audit ciblé |
+| **Partiels** (20) | 17, 41–42, 75–77, 122, 147–148, 229, 231, 233–235, 237, 241–244, 248 | Compléter les leçons manquantes à partir de la liste existante si elle passe P1 ; sinon, refaire la Phase A | Rédaction peu coûteuse |
+| **Ancien format multi-DX** (leçons plafonnées à 30 %) | 41–42, 75–78, 105–108, 181–183, 208–218, 227–229, 231, 233–235, 237–239, 241–244, 248 | Réécrire en un fichier par DX à partir du paquet ; l'ancien fichier est supprimé dès que ses DX ont leur leçon | Rédaction peu coûteuse |
+| **Absents** (63) | 43–71, 79–103, 114, 116, 118, 120, 230, 236, 240, 246–247 | Chaîne M5 complète | Rédaction peu coûteuse, audit ciblé |
 
-**Ordre recommandé.** (1) Consolider les portes P2 et P3 des LOTs existants, car c'est le gain le plus rapide sans nouvelle rédaction. (2) Compléter les partiels. (3) Fabriquer les absents par vagues de dix LOTs, à raison de 11 paquets et 11 rédactions en parallèle par LOT. Cet état se recalcule chaque jour par `python3 mere.py <dépôt> --jours 30`.
+**Ordre.** (1) Consolider : une leçon, une copie, à sa destination. (2) Porter à 90 % les leçons existantes. (3) Compléter les partiels et l'ancien format. (4) Fabriquer les absents. La carte se recalcule à volonté (D-9) ; elle seule fait foi pour les jauges.
 
 ---
 
@@ -1664,6 +1662,382 @@ if __name__ == '__main__':
     main()
 ````
 
+### C-7. Détection, consolidation et jauges — `detecteur_lots.py`, `consolider.py`, `progression.py`
+
+`detecteur_lots.py`
+````python
+#!/usr/bin/env python3
+"""DETECTEUR_LOTS — trouve, pour chacune des 248 × 11 leçons, la version la plus avancée qui existe
+dans tout le dépôt (main + TOUTES les branches), l'attribue à une IA et liste tout ce qui est périmé. Zéro modèle.
+
+Leçon : Phase A (LOT_XXX_Phase_A_V*.html, Appel_A…Plan_et_Liste) ou DX.i (LOT_XXX_Phase_B_V*_DX.i.html, Appel_B_V*_DX.i).
+Ancien format multi-DX (« Partie_n_DX.a_a_DX.b ») : couverture partielle, score plafonné, jamais préféré.
+Score (0–100) : existe 40 · 14 points 20 · bande 100–200 Ko 20 · aucun défaut bloquant 10 · verdict vert 10.
+Choix : score le plus élevé, puis le plus récent (date du commit de la branche), puis main.
+Attribution (dossier cible) : Claude · ChatGPT_Codex · Grokbot, d'après le dossier d'origine, la branche, puis l'auteur.
+
+Usage : python3 detecteur_lots.py <depot> [--rafraichir] [--sortie carte_lots.json]
+Sortie : carte_lots.json = {lecons:{"018:DX3":{ia,ref,chemin,blob,score,date,...}}, obsoletes_main:[…], branches_supplantees:[…]}
+"""
+import os, re, sys, json, time, argparse, subprocess, collections, tempfile
+from concurrent.futures import ProcessPoolExecutor
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import controle3
+
+IAS = ('Claude', 'ChatGPT_Codex', 'Grokbot')
+RE_LOT = re.compile(r'LOT[_\- ]?0*(\d{1,3})(?!\d)', re.I)
+RE_A = re.compile(r'(?:Phase_A_V\d+|Appel_A_V?\d*_?(?:Ultra_Pedagogique_)?Plan_et_Liste)(?:__export_GoogleDoc)?\.html$', re.I)
+RE_DX = re.compile(r'(?:Phase_B_V\d+|Appel_B_V\d+)_DX\.(\d{1,2})\.html$', re.I)
+RE_PARTIE = re.compile(r'DX?\.?(\d{1,2})_a_DX?\.?(\d{1,2})', re.I)
+EXCLUS = re.compile(r'(^|/)(audit|audits|AUDIT|qa|_OBSOLETES|orig|prototypes_format|essai_[^/]*|tests)(/|$)|\.rapport\.html$|_OBSOLETE|/p\d+\.html$', re.I)
+BLOQUANTS = ('C_points_manquants', 'C_FIN_FICHIER_absent', 'C_balises', 'B_phrase_partagee_entre_fichiers')
+SIGNES = [  # (motif sur chemin+branche+auteur, IA) — ordre = priorité
+    (r'(^|/)(Claude|LOT_Claude_Finaux|claude)(/|$)', 'Claude'),
+    (r'(^|/)(Grokbot|grok-LOTS-html|LOT_Tunder|LOT_Bitunder|Leona[^/]*|[^/]*[Tt]under[^/]*)(/|$)', 'Grokbot'),
+    (r'(^|/)(ChatGPT_Codex|codex-LOTS-html|[^/]*[Cc]odex[^/]*|[^/]*GPT[^/]*)(/|$)', 'ChatGPT_Codex'),
+    (r'^origin/(claude|corr2/.*opus)', 'Claude'),
+    (r'^origin/(grok|tunder|bitunder|leona|alpha)/', 'Grokbot'),
+    (r'^origin/(codex|gpt|chatgpt)', 'ChatGPT_Codex'),
+    (r'(?i)\bclaude\b|anthropic', 'Claude'),
+    (r'(?i)grok|tunder|leona', 'Grokbot'),
+    (r'(?i)codex|chatgpt|gpt|openai|cursor', 'ChatGPT_Codex'),
+]
+
+
+def git(d, *a, t=1800, binaire=False):
+    p = subprocess.run(['git', '-C', d, *a], capture_output=True, timeout=t)
+    return p.stdout if binaire else p.stdout.decode('utf-8', 'ignore')
+
+
+def rafraichir(d):
+    git(d, 'fetch', '-q', '--depth=1', '--filter=tree:0', 'origin', '+refs/heads/*:refs/remotes/origin/*')
+    refs = [r for r in git(d, 'for-each-ref', '--format=%(refname:short)', 'refs/remotes').split() if r.startswith('origin/') and r != 'origin/HEAD']
+    specs = [f'+refs/heads/{r[7:]}:refs/remotes/{r}' for r in refs]
+    for i in range(0, len(specs), 30):
+        git(d, 'fetch', '-q', '--depth=1', 'origin', *specs[i:i + 30])
+
+
+def attribuer(chemin, ref, auteur):
+    for motif, ia in SIGNES:
+        cible = chemin if motif.startswith('(^|/)') else (ref if motif.startswith('^origin') else f'{ref} {auteur}')
+        if re.search(motif, cible):
+            return ia, False
+    return 'ChatGPT_Codex', True  # défaut déclaré (attribution_par_defaut=True dans la carte)
+
+
+def lecons_du_chemin(f):
+    if not f.endswith('.html') or EXCLUS.search(f):
+        return None
+    m = RE_LOT.search(f.split('/')[-1]) or RE_LOT.search(f)
+    if not m or not 1 <= int(m.group(1)) <= 248:
+        return None
+    lot, nom = int(m.group(1)), f.split('/')[-1]
+    if RE_A.search(nom):
+        return lot, ['A'], False
+    dx = RE_DX.search(nom)
+    if dx and 1 <= int(dx.group(1)) <= 10:
+        return lot, [f'DX{int(dx.group(1))}'], False
+    p = RE_PARTIE.search(nom)
+    if p and 'Appel_B' in nom or (p and 'Partie' in nom):
+        a, b = sorted((int(p.group(1)), int(p.group(2))))
+        return lot, [f'DX{i}' for i in range(max(a, 1), min(b, 10) + 1)], True
+    return None
+
+
+def mesurer(blob_et_depot):
+    blob, d = blob_et_depot
+    brut = git(d, 'cat-file', 'blob', blob, binaire=True)
+    with tempfile.NamedTemporaryFile(suffix='.html', delete=False) as fh:
+        fh.write(brut)
+        tmp = fh.name
+
+    class A:
+        points, min, max, ex, script_ok = 14, 100_000, 200_000, 1, False
+    try:
+        r = controle3.controler(tmp, {}, A, {})
+    finally:
+        os.unlink(tmp)
+    defs = set(r['defauts'])
+    s = 40 + (0 if 'C_points_manquants' in defs else 20) + (0 if 'C_taille_hors_bande' in defs else 20)
+    bloq = bool(defs & set(BLOQUANTS))
+    s += (0 if bloq else 10) + (10 if not defs else 0)
+    return blob, {'score': s, 'bloquant': bloq, 'octets': len(brut), 'connect': r['connecteur%'], 'defauts': sorted(defs)}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('depot')
+    ap.add_argument('--rafraichir', action='store_true')
+    ap.add_argument('--sortie', default='carte_lots.json')
+    a = ap.parse_args()
+    d = os.path.abspath(a.depot)
+    if a.rafraichir:
+        rafraichir(d)
+    refs = []
+    for l in git(d, 'for-each-ref', '--format=%(committerdate:unix)|%(refname:short)|%(authorname) %(authoremail)', 'refs/remotes').splitlines():
+        ts, ref, aut = l.split('|', 2)
+        if ref not in ('origin/HEAD', 'origin'):
+            refs.append((int(ts), ref, aut))
+    occur = []  # (lot, lecons, ancien, ref, chemin, blob, date, ia, defaut)
+    for ts, ref, aut in refs:
+        for ligne in git(d, 'ls-tree', '-r', ref).splitlines():
+            meta, chemin = ligne.split('\t', 1)
+            _, typ, blob = meta.split()
+            if typ != 'blob':
+                continue
+            L = lecons_du_chemin(chemin)
+            if L:
+                ia, defaut = attribuer(chemin, ref, aut)
+                occur.append((L[0], L[1], L[2], ref, chemin, blob, ts, ia, defaut))
+    blobs = sorted({o[5] for o in occur if not o[2]})
+    with ProcessPoolExecutor() as ex:
+        mesures = dict(ex.map(mesurer, [(b, d) for b in blobs], chunksize=16))
+    best = {}
+    for lot, lecs, ancien, ref, chemin, blob, ts, ia, defaut in occur:
+        m = mesures.get(blob) or {'score': 30, 'bloquant': False, 'octets': 0, 'connect': None, 'defauts': ['ancien_format_multi_DX']}
+        if ancien:
+            m = dict(m, score=min(m['score'], 30))
+        for lec in lecs:
+            cand = {'ia': ia, 'attribution_par_defaut': defaut, 'ref': ref, 'chemin': chemin, 'blob': blob, 'date': ts,
+                    'main': ref == 'origin/main', 'ancien_format': ancien, **m}
+            k = f'{lot:03d}:{lec}'
+            if k not in best:
+                best[k] = cand
+            elif cand['blob'] == best[k]['blob']:  # contenu identique : la copie de main prime
+                if cand['main'] and not best[k]['main']:
+                    best[k] = cand
+            elif (cand['score'], cand['date']) > (best[k]['score'], best[k]['date']):
+                best[k] = cand
+    # Destination unique de chaque leçon : <IA>/LOT_XXX/LOT_XXX_Phase_A_V0.html | LOT_XXX_Phase_B_V0_DX.i.html
+    for k, v in best.items():
+        lot, lec = int(k[:3]), k[4:]
+        nom = f'LOT_{lot:03d}_Phase_A_V0.html' if lec == 'A' else f'LOT_{lot:03d}_Phase_B_V0_DX.{lec[2:]}.html'
+        v['destination'] = f"{v['ia']}/LOT_{lot:03d}/{nom}"
+    dest = {v['destination'] for v in best.values()}
+    retenus = {v['blob'] for v in best.values()}
+    # Périmés sur main : toute copie de leçon (format actuel ou ancien) qui n'est pas à sa destination unique
+    obs_main = sorted({o[4] for o in occur if o[3] == 'origin/main' and o[4] not in dest})
+    # Branches supplantées : aucune de leurs leçons n'est la version retenue
+    par_ref = collections.defaultdict(set)
+    for o in occur:
+        par_ref[o[3]].add(o[5])
+    branches = sorted(r for r, bs in par_ref.items() if r != 'origin/main' and not (bs & retenus))
+    carte = {'genere': time.strftime('%Y-%m-%dT%H:%M:%S%z'), 'branches_scannees': len(refs), 'occurrences': len(occur),
+             'versions_uniques_mesurees': len(blobs), 'lecons': dict(sorted(best.items())),
+             'obsoletes_main': obs_main, 'branches_supplantees': branches}
+    json.dump(carte, open(a.sortie, 'w'), ensure_ascii=False, indent=0)
+    par_ia = collections.Counter(v['ia'] for v in best.values())
+    print(f"{a.sortie} : {len(refs)} branches, {len(occur)} occurrences, {len(blobs)} versions uniques, "
+          f"{len(best)} leçons trouvées / 2728, {len(obs_main)} copies périmées sur main, {len(branches)} branches supplantées, {dict(par_ia)}")
+
+
+if __name__ == '__main__':
+    main()
+````
+
+`consolider.py`
+````python
+#!/usr/bin/env python3
+"""CONSOLIDER — exécute, pour UNE IA, la carte produite par detecteur_lots.py : chaque leçon qui lui est attribuée
+est écrite à sa destination unique <IA>/LOT_XXX/… (avec ses images et annexes relatives), puis toutes les copies
+périmées de son ressort sont supprimées de l'arbre de travail. Zéro modèle. Aucun conflit possible entre IA :
+chacune n'écrit et ne supprime que dans son ressort (leçons attribuées + copies de son ancien dossier).
+
+Usage (depuis la racine du dépôt, sur une branche créée depuis main) :
+  python3 outils/consolider.py --carte carte.json --ia Grokbot [--lots 100-120] [--max 60] [--appliquer]
+Sans --appliquer : simulation (liste ce qui serait écrit et supprimé). Avec --appliquer : écrit, `git rm`, prêt à committer.
+--max limite le nombre de leçons par passage (PR légères, poussées sans erreur 413).
+"""
+import os, re, sys, json, argparse, subprocess, posixpath
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from detecteur_lots import attribuer, lecons_du_chemin
+
+RELATIF = re.compile(r'''(?:src|href)=["'](?!https?:|data:|#|mailto:|/)([^"'#?]+)''', re.I)
+
+
+def git(*a, binaire=False):
+    p = subprocess.run(['git', *a], capture_output=True)
+    if p.returncode and not binaire:
+        raise RuntimeError(p.stderr.decode()[:300])
+    return p.stdout if binaire else p.stdout.decode('utf-8', 'ignore')
+
+
+def plage(s):
+    if not s:
+        return range(1, 249)
+    a, _, b = s.partition('-')
+    a, b = int(a), int(b or a)
+    return range(min(a, b), max(a, b) + 1)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--carte', required=True)
+    ap.add_argument('--ia', required=True, choices=['Claude', 'ChatGPT_Codex', 'Grokbot'])
+    ap.add_argument('--lots')
+    ap.add_argument('--max', type=int, default=60)
+    ap.add_argument('--appliquer', action='store_true')
+    a = ap.parse_args()
+    C = json.load(open(a.carte))
+    lots = set(plage(a.lots))
+    faites, ecrits, assets = 0, [], []
+    for k, v in C['lecons'].items():
+        lot = int(k[:3])
+        if v['ia'] != a.ia or lot not in lots or v['main'] and v['chemin'] == v['destination']:
+            continue
+        if v['chemin'] == v['destination']:
+            continue
+        if faites >= a.max:
+            break
+        faites += 1
+        ecrits.append((v['blob'], v['destination']))
+        contenu = git('cat-file', 'blob', v['blob'], binaire=True).decode('utf-8', 'ignore')
+        base = posixpath.dirname(v['chemin'])
+        for rel in set(RELATIF.findall(contenu)):
+            src = posixpath.normpath(posixpath.join(base, rel))
+            if src.startswith('..') or not rel.strip():
+                continue
+            assets.append((v['ref'], src, posixpath.normpath(posixpath.join(posixpath.dirname(v['destination']), rel))))
+    # Copies périmées de son ressort : chemins de main attribués à cette IA, hors destinations
+    dest = {v['destination'] for v in C['lecons'].values()}
+    ressort = []
+    for p in C['obsoletes_main']:
+        L = lecons_du_chemin(p)
+        if L and L[0] in lots and attribuer(p, 'origin/main', '')[0] == a.ia and p not in dest:
+            ressort.append(p)
+    print(f'{a.ia} : {len(ecrits)} leçons à écrire, {len(assets)} annexes relatives, {len(ressort)} copies périmées à supprimer')
+    if not a.appliquer:
+        for b, d in ecrits[:10]:
+            print('  écrire', d)
+        for p in ressort[:10]:
+            print('  supprimer', p)
+        return
+    for blob, d in ecrits:
+        os.makedirs(os.path.dirname(d), exist_ok=True)
+        open(d, 'wb').write(git('cat-file', 'blob', blob, binaire=True))
+    for ref, src, d in assets:
+        brut = subprocess.run(['git', 'show', f'{ref}:{src}'], capture_output=True).stdout
+        if brut and not os.path.exists(d):
+            os.makedirs(os.path.dirname(d) or '.', exist_ok=True)
+            open(d, 'wb').write(brut)
+    for p in ressort:
+        if os.path.exists(p):
+            git('rm', '-q', '--', p)
+    git('add', '--', a.ia)
+    print('appliqué : vérifier `git status`, puis committer, pousser et ouvrir la PR')
+
+
+if __name__ == '__main__':
+    main()
+````
+
+`progression.py`
+````python
+#!/usr/bin/env python3
+"""PROGRESSION — rend Progression_PR_<IA>.html à partir de la carte de detecteur_lots.py (zéro modèle).
+248 LOTs × 11 leçons ; jauge par LOT et par leçon, fluide animé, pourcentage marqué ; filtres par IA.
+
+Usage : python3 outils/progression.py --carte carte.json --ia Claude --sortie Claude/Progression_PR_Claude.html
+        (--catalogue LOT_Claude_Finaux/CATALOGUE_248.csv par défaut ; noms des SSP)
+"""
+import os, csv, json, html, argparse, datetime
+
+LECONS = ['A'] + [f'DX{i}' for i in range(1, 11)]
+IAS = ('Claude', 'ChatGPT_Codex', 'Grokbot')
+
+
+def jauge(p, grande=False, bloq=False):
+    teinte = round(1.35 * p)  # 0 → rouge … 100 → vert d'eau ; fluide libre en couleur
+    return (f'<div class="j{" g" if grande else ""}{" b" if bloq else ""}"><div class="t"><div class="f" '
+            f'style="--p:{p}%;--h:{teinte}"></div></div><span>{p} %</span></div>')
+
+
+def rendre(C, cat, ia_nom, sortie):
+    L = C['lecons']
+    cartes, tot, parias = [], [], {i: [] for i in IAS}
+    for lot in range(1, 249):
+        rows = [L.get(f'{lot:03d}:{l}') for l in LECONS]
+        p = round(sum(r['score'] if r else 0 for r in rows) / 11)
+        tot.append(p)
+        owners = sorted({r['ia'] for r in rows if r})
+        for o in owners:
+            parias[o].append(p)
+        code, nom = cat.get(lot, ('', ''))
+        mini = ''.join(
+            f'<div class="l"><b>{"Phase A" if l == "A" else "DX." + l[2:]}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]))}'
+            f'<i>{html.escape(r["ia"]) if r else "absent"}</i></div>' for l, r in zip(LECONS, rows))
+        n = sum(1 for r in rows if r)
+        cartes.append(
+            f'<article class="c" data-e="{" ".join(owners)}" data-p="{p}"><header><h2>LOT_{lot:03d} <small>{html.escape(code)}</small></h2>'
+            f'<p>{html.escape(nom.split("|")[0].strip())}</p>{jauge(p, True)}<p class="m">{n}/11 leçons · {html.escape(", ".join(owners) or "aucune")}</p></header>'
+            f'<details><summary>Leçons</summary><div class="ls">{mini}</div></details></article>')
+    g = round(sum(tot) / 248)
+    n90, n0 = sum(1 for p in tot if p >= 90), sum(1 for p in tot if p == 0)
+    resume = ''.join(f'<div class="ia"><b>{i}</b>{jauge(round(sum(v) / len(v)) if v else 0)}<small>{len(v)} LOTs</small></div>'
+                     for i, v in parias.items())
+    filtres = ''.join(f'<button data-f="{i}">{i}</button>' for i in IAS)
+    maj = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).strftime('%d.%m.%Y %H:%M')
+    doc = f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progression_PR_{html.escape(ia_nom)}</title><style>
+:root{{--fond:#f2f3f5;--carte:#fbfbfc;--encre:#2e3440;--doux:#8a909a;--trait:#dfe2e7;--piste:#e6e8ec}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--fond);color:var(--encre);font:14.5px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}}
+main{{max-width:1240px;margin:0 auto;padding:18px 16px}}h1{{font-size:1.35rem;margin:0 0 4px;letter-spacing:-.01em}}
+.top{{background:var(--carte);border:1px solid var(--trait);border-radius:16px;padding:16px 18px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(30,40,60,.06)}}
+.k{{display:flex;gap:26px;flex-wrap:wrap;margin:10px 0 12px}}.k b{{font-size:1.25rem;display:block}}.k small{{color:var(--doux)}}
+.ias{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}}.ia{{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:4px 10px}}.ia small{{grid-column:2;color:var(--doux)}}
+.fl{{display:flex;gap:6px;flex-wrap:wrap}}.fl button{{border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit}}
+.fl button.on{{background:var(--encre);color:var(--carte);border-color:var(--encre)}}
+.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}}
+.c{{background:var(--carte);border:1px solid var(--trait);border-radius:14px;padding:12px 14px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 6px 16px rgba(30,40,60,.05)}}
+.c h2{{font-size:.98rem;margin:0}}.c h2 small{{color:var(--doux);font-weight:500}}.c p{{margin:3px 0 8px;font-size:.84rem}}.m{{color:var(--doux)}}
+.j{{display:grid;grid-template-columns:1fr 46px;align-items:center;gap:8px}}.j span{{font-size:.76rem;font-weight:650;text-align:right;font-variant-numeric:tabular-nums}}
+.t{{height:8px;background:var(--piste);border-radius:99px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.08)}}.g .t{{height:13px}}.g span{{font-size:.86rem}}
+.f{{height:100%;width:0;border-radius:inherit;position:relative;overflow:hidden;
+background:linear-gradient(90deg,hsl(calc(var(--h) - 18) 78% 52%),hsl(var(--h) 80% 48%) 60%,hsl(calc(var(--h) + 14) 85% 56%));
+box-shadow:0 0 8px hsl(var(--h) 80% 50% / .35);animation:monte 1.7s cubic-bezier(.2,.8,.2,1) forwards}}
+.f::before{{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 60%)}}
+.f::after{{content:"";position:absolute;top:0;bottom:0;width:40%;left:-40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:lueur 2.8s ease-in-out infinite}}
+.b .f{{background:linear-gradient(90deg,#c0392b,#e74c3c)}}
+@keyframes monte{{to{{width:var(--p)}}}}@keyframes lueur{{0%{{left:-40%}}70%,100%{{left:110%}}}}
+@media (prefers-reduced-motion:reduce){{.f{{animation:none;width:var(--p)}}.f::after{{display:none}}}}
+details{{margin-top:6px}}summary{{cursor:pointer;font-size:.82rem;color:var(--doux)}}.ls{{display:grid;gap:6px;margin-top:8px}}
+.l{{display:grid;grid-template-columns:56px 1fr 92px;gap:8px;align-items:center;font-size:.78rem}}.l i{{color:var(--doux);font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+</style></head><body><main>
+<section class="top"><h1>Progression_PR — {html.escape(ia_nom)}</h1>
+<div class="k"><div><b>{g} %</b><small>progression globale</small></div><div><b>{n90}</b><small>LOTs ≥ 90 %</small></div>
+<div><b>{248 - n90 - n0}</b><small>LOTs en cours</small></div><div><b>{n0}</b><small>LOTs absents</small></div>
+<div><b>{len(L)}/2728</b><small>leçons trouvées</small></div><div><b>{C.get("branches_scannees", "?")}</b><small>branches scannées</small></div>
+<div><b>{maj}</b><small>mise à jour (Zurich)</small></div></div>{jauge(g, True)}
+<div class="ias">{resume}</div>
+<p class="m" style="margin:4px 0 10px">Version la plus avancée de chaque leçon, cherchée sur main et sur toutes les branches. Score : existe 40 · 14 points 20 · bande 100–200 Ko 20 · aucun défaut bloquant 10 · verdict vert 10 ; ancien format multi-DX plafonné à 30. La véracité clinique se contrôle à l'audit.</p>
+<div class="fl"><button class="on" data-f="">Tous</button>{filtres}</div></section>
+<section class="grid">{''.join(cartes)}</section></main>
+<script>
+document.querySelectorAll('.fl button').forEach(b=>b.onclick=()=>{{document.querySelectorAll('.fl button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+const f=b.dataset.f;document.querySelectorAll('.c').forEach(c=>c.style.display=(!f||c.dataset.e.split(' ').includes(f))?'':'none')}});
+</script></body></html>'''
+    os.makedirs(os.path.dirname(sortie) or '.', exist_ok=True)
+    open(sortie, 'w').write(doc)
+    return g
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--carte', required=True)
+    ap.add_argument('--ia', required=True)
+    ap.add_argument('--sortie', required=True)
+    ap.add_argument('--catalogue', default='LOT_Claude_Finaux/CATALOGUE_248.csv')
+    a = ap.parse_args()
+    cat = {}
+    if os.path.exists(a.catalogue):
+        for r in csv.DictReader(open(a.catalogue, encoding='utf-8')):
+            cat[int(r['lot'])] = (r['code'], r['ssp_profiles_2023_fr_en'])
+    g = rendre(json.load(open(a.carte)), cat, a.ia, a.sortie)
+    print(f'{a.sortie} : progression globale {g} %')
+````
+
 ## D. Commandes (une commande par bloc, avec son but)
 
 D-1 (dresser l'état de tous les LOTs et des branches actives, sans modèle) :
@@ -1673,27 +2047,27 @@ python3 outils/mere.py . --jours 30 --soldats 16
 
 D-2 (construire le paquet de preuves d'un DX à partir des registres de Vial et de l'AIPS) :
 ```bash
-python3 outils/paquet.py --entite "Ascite de l'hypertension portale" --sortie "lot en cours de production/LOT_166/DX.1/paquet.json" --registres tools/prevalences/sources_reconnues.json data/ck/src.json data/ck/doses_ch.json --textes "lot en cours de production/LOT_166/evidence/"*.txt --aips ../Medina/AipsDownload_20261008.zip --ham ../Medina/docs/collaboration/references/medicaments-suisses-vial-2026-10-11/zugelassene_packungen_ham.xlsx --dci spironolact furosemid
+python3 outils/paquet.py --entite "Ascite de l'hypertension portale" --sortie "Grokbot/LOT_166/_travail/DX.1/paquet.json" --registres tools/prevalences/sources_reconnues.json data/ck/src.json data/ck/doses_ch.json --textes "Grokbot/LOT_166/_travail/evidence/"*.txt --aips ../Medina/AipsDownload_20261008.zip --ham ../Medina/docs/collaboration/references/medicaments-suisses-vial-2026-10-11/zugelassene_packungen_ham.xlsx --dci spironolact furosemid
 ```
 
 D-3 (rédiger les 14 points en une passe avec le modèle local) :
 ```bash
-python3 outils/rediger.py --gabarit outils/P-POINT.txt --paquet "lot en cours de production/LOT_166/DX.1/paquet.json" --contrat "lot en cours de production/LOT_166/DX.1/contrat.json" --sortie "lot en cours de production/LOT_166/DX.1/fragments" --moteur local --modele "$MODELE_LOCAL"
+python3 outils/rediger.py --gabarit outils/P-POINT.txt --paquet "Grokbot/LOT_166/_travail/DX.1/paquet.json" --contrat "Grokbot/LOT_166/_travail/DX.1/contrat.json" --sortie "Grokbot/LOT_166/_travail/DX.1/fragments" --moteur local --modele "$MODELE_LOCAL"
 ```
 
 D-4 (collecter les images candidates et produire la planche) :
 ```bash
-python3 outils/images.py --lot "lot en cours de production/LOT_166" --besoins "lot en cours de production/LOT_166/images/besoins.json" --budget 60
+python3 outils/images.py --lot "Grokbot/LOT_166" --besoins "Grokbot/LOT_166/images/besoins.json" --budget 60
 ```
 
 D-5 (assembler le HTML final avec les figures inspectées) :
 ```bash
-python3 outils/assembler.py --fragments "lot en cours de production/LOT_166/DX.1/fragments" --paquet "lot en cours de production/LOT_166/DX.1/paquet.json" --contrat "lot en cours de production/LOT_166/DX.1/contrat.json" --titre "DX.1 — Ascite de l'hypertension portale" --sortie "lot en cours de production/LOT_166/LOT_166_Phase_B_V0_DX.1.html" --figures "lot en cours de production/LOT_166/images/figures.json" --integrer-images
+python3 outils/assembler.py --fragments "Grokbot/LOT_166/_travail/DX.1/fragments" --paquet "Grokbot/LOT_166/_travail/DX.1/paquet.json" --contrat "Grokbot/LOT_166/_travail/DX.1/contrat.json" --titre "DX.1 — Ascite de l'hypertension portale" --sortie "Grokbot/LOT_166/LOT_166_Phase_B_V0_DX.1.html" --figures "Grokbot/LOT_166/images/figures.json" --integrer-images
 ```
 
 D-6 (contrôler les trois axes des 11 fichiers du LOT ; code 1 si un fichier est ROUGE) :
 ```bash
-python3 outils/controle3.py "lot en cours de production/LOT_166/"LOT_166_Phase_*.html --paquet "lot en cours de production/LOT_166/DX.1/paquet.json" > "lot en cours de production/LOT_166/controle.json"
+python3 outils/controle3.py "Grokbot/LOT_166/"LOT_166_Phase_*.html --paquet "Grokbot/LOT_166/_travail/DX.1/paquet.json" > "Grokbot/LOT_166/_travail/controle.json"
 ```
 
 D-7 (appliquer une correction chirurgicale A-5 par remplacement exact) :
@@ -1703,7 +2077,22 @@ python3 -c "import json,sys;f=sys.argv[1];h=open(f).read();[h:=h.replace(c['avan
 
 D-8 (trier tous les LOTs existants par verdict avant toute nouvelle rédaction) :
 ```bash
-for d in LOT_Claude_Finaux/LOT_* grok-LOTS-html/LOT_*; do python3 outils/controle3.py "$d"/*.html > "$d/controle.json"; echo "$d $?"; done
+for d in Claude/LOT_* ChatGPT_Codex/LOT_* Grokbot/LOT_*; do python3 outils/controle3.py "$d"/*.html > "$d/controle.json"; echo "$d $?"; done
+```
+
+D-9 (détecter la version la plus avancée de chaque leçon sur main et toutes les branches) :
+```bash
+python3 outils/detecteur_lots.py . --rafraichir --sortie /tmp/carte_lots.json
+```
+
+D-10 (placer les leçons de l'IA à leur destination unique et supprimer ses copies périmées, par passes de 60) :
+```bash
+python3 outils/consolider.py --carte /tmp/carte_lots.json --ia Grokbot --max 60 --appliquer
+```
+
+D-11 (régénérer les jauges de l'IA) :
+```bash
+python3 outils/progression.py --carte /tmp/carte_lots.json --ia Grokbot --sortie Grokbot/Progression_PR_Grokbot.html
 ```
 
 ---
