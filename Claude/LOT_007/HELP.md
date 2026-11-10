@@ -93,3 +93,10 @@
 - Lacune : la dose d'adrénaline cite l'AIPS de Jext (61315), qui vise l'auto-injecteur ; l'ampoule d'adrénaline n'a pas d'AIPS lue.
 - Image : une seule figure au point 6 (Rosacea 01.jpg, Wikimedia Commons, CC BY 2.0). Le point 9 n'a pas de cliché décisif, car le diagnostic est clinique.
 - Corrections de citations faites en place : des renvois à la méta-analyse de prévalence [1] et à l'AIPS de Soolantra [4] étaient collés à des phrases sur le 5-HIAA, les métanéphrines, la TSH, le DFGe et l'imagerie ; ils sont retirés ou remplacés par la source qui porte le fait ([9], [10], [3]). Les tests de grossesse sous Roaccutan citent désormais l'AIPS 45307 et non celui de Soolantra. Le mécanisme d'action de Soolantra est ramené à la formule de l'AIPS (« non connu »).
+
+## Réalignement de la Phase A sur DX.1–DX.10 (10.11.2026)
+- La liste, le tableau comparatif, l'algorithme et le découpage 2–3–2–3 de la Phase A suivent désormais la numérotation de la Phase B : DX.1 ménopause, DX.2 rosacée, DX.3 flush émotionnel, DX.4 hyperthyroïdie, DX.5 alcool, DX.6 flush médicamenteux, DX.7 fièvre, DX.8 urticaire/anaphylaxie, DX.9 carcinoïde, DX.10 phéochromocytome.
+- Écart avec LOT_Claude_Finaux/LOT_007/LISTE_DX_CANONIQUE.md : celle-ci compte 12 lignes (DX.11 mastocytose systémique, DX.12 carcinome médullaire de la thyroïde) ; la Phase A n'en garde que 10 et les cite comme hors cadre. À trancher : ajouter DX.11 et DX.12 à la Phase A si Vial veut 12 monographies.
+- Retirés du tableau (restent dans le corps du cours) : syndrome de Frey, mastocytose systémique comme ligne. Sources ajoutées pour DX.4, DX.5, DX.7 : S26 à S30, reprises des monographies Phase B.
+- Les cellules DX.4, DX.5 et DX.7 ont été rédigées sans relecture des textes primaires dans ce passage : à contrôler contre S26–S30 (mécanisme de la fièvre, acétaldéhyde).
+- DX.9 : doses d'octréotide de l'ENETS associées à l'AIPS 49137 (qui ne retient pas l'indication) ; la nicotinamide est déclarée absente de l'AIPS.
