@@ -126,6 +126,21 @@ def ajouter_menu(h):
         liens.append((i, lib))
         return f'<h2{attrs}>{txt}</h2>'
     h2 = re.sub(r'<h2((?:\s[^>]*)?)>(.*?)</h2>', ident, h, flags=re.S)
+    if len(liens) < 5:  # leçons dont les parties numérotées « 1. … 14. » sont en h3
+        liens.clear(); n[0] = 0
+        def ident3(m):
+            attrs, txt = m.group(1), m.group(2)
+            lib = re.sub(r'<[^>]+>', '', txt).strip()
+            if not re.match(r'^(?:\d{1,2}\.|Sources|Bibliographie)', lib):
+                return m.group(0)
+            mid = re.search(r'\sid="([^"]+)"', attrs)
+            if not mid:
+                n[0] += 1; i = f'fm-{n[0]}'; attrs += f' id="{i}"'
+            else:
+                i = mid.group(1)
+            liens.append((i, lib))
+            return f'<h3{attrs}>{txt}</h3>'
+        h2 = re.sub(r'<h3((?:\s[^>]*)?)>(.*?)</h3>', ident3, h, flags=re.S)
     if len(liens) < 3:
         return h
     nav = '<nav id="brain-barre14" aria-label="Parties du cours">' + ''.join(
