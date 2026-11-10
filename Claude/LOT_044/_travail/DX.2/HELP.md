@@ -18,3 +18,5 @@ Lacunes de sources (aucune phrase du cours ne les affirme) :
 Remarques techniques :
 - Le paquet cite le texte intégral ESC 2024 extrait par pdftotext (ordre de lecture) ; les classes et niveaux de preuve (I A, IIa B…) sont dissociés des recommandations dans l'extraction et ne sont donc pas cités en lettres.
 - Passages TOPIC : les nombres du tableau 1 sont fusionnés par l'extracteur (« 287 42.7 ») ; seuls les pourcentages arrondis du résumé sont cités.
+
+- Correction P3 (lot 044) : AIPS Aspirine Cardio 51795, Sortis 54085, Crestor 56139, Norvasc 50044, Concor 47311 importées et dosées. Lodoco 0,5 mg (Swissmedic 69931) est absent de l'index AIPS du 08.10.2026 : la dose de colchicine n'est donc pas écrite (ESC 2024 seul, sans milligramme dans la phrase).

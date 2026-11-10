@@ -6,3 +6,5 @@
 - Volet « social et assurances » (incapacité de travail, AI, assurance perte de gain) : aucune source suisse lue ; la leçon se limite au retentissement fonctionnel (HUG 2023).
 - Les chiffres épidémiologiques du trouble panique en population générale viennent de l'étude américaine ECA citée par la RMS 2008 ; le tableau de prévalence du HUG (Obsan 2020) n'est pas lisible dans le texte rapatrié.
 - Le MANIFESTE.json du dossier LOT_044 a été mis à jour par l'assembleur (fichier partagé avec les autres cibles).
+
+- Correction P3 (lot 044) : AIPS lues pour Temesta 36203, Seropram 49970, Fluctine 46347. L'AIPS de la fluoxétine ne retient PAS le trouble panique (dépression, boulimie) ; sertraline, paroxétine, escitalopram, citalopram l'ont. Fluvoxamine (Floxyfral 44603) non importée : non citée. Tableau 9 (valeurs normales SI) toujours sans citation (valeurs dépendantes du laboratoire) ; paragraphes 9.c sans source supprimés. Épidémiologie Obsan 2020 non lue.

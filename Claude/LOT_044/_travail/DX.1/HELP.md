@@ -6,3 +6,5 @@
 - Tableaux TOPIC : les chiffres par diagnostic du tableau 1 (287 cas, 75 angors aigus, etc.) ne sont pas vérifiables par le contrôle (nombres collés dans l'extrait) ; le texte cite à la place le résumé (43 %, 12 %, 7 %).
 - Valeurs normales SI de la troponine hypersensible : non fournies (dépendent du kit, source luxembourgeoise lue) ; à compléter par la valeur du laboratoire local.
 - Sources AIPS lues : Ibuprofen Viatris 67940, Naproxen-Mepha 51480, Voltaren Dolo forte Emulgel 61859 (Inflamac 70437, Vimovo, naproxène/ésoméprazole rapatriés mais non utilisés).
+
+- Correction P3 (lot 044) : l'AIPS paracétamol est désormais lue (Paracétamol axapharm 66983, Dafalgan 47503) ; la ligne « aucune AIPS lisible » ci-dessus est caduque. L'épreuve d'effort suit l'ESC 2024 (passages esc24-* importés du paquet DX.2), non l'atelier HUG 2007. Le cas 1,54 (douleur influencée par un mouvement) est cité sans chiffre : l'extrait w468b64-23 colle « 2 1.54 » et fait échouer le contrôle numérique.

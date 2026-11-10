@@ -15,3 +15,5 @@
 
 ## Défauts de contrôle restants
 - Deux paragraphes de plus de 40 mots sans connecteur selon le contrôle (points 3 et 11), sans conséquence ROUGE.
+
+- Correction P3 (lot 044) : AIPS lues pour Amoxi-Mepha 44911, Doxycyclin-Mepha 65952, Azithromycine Spirig HC 67654, Dalacin C 35438. Divergences avec les HUG 2024 : amoxicilline 1 g 3x/j (3000 mg/j = limite haute de l'AIPS) ; doxycycline 100 mg 2x/j (HUG) contre 200 mg puis 100 mg/j (AIPS). Doses clindamycine « très sévère » (1200-1800 mg/j) non écrites : le contrôle numérique ne lit pas les plages à tiret.
