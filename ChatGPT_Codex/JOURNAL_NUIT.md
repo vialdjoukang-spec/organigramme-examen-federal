@@ -2,7 +2,7 @@
 
 ## État actuel
 
-24 nouvelles leçons sont poussées : les11 du LOT080, les11 du LOT081 et DX3/DX6 du LOT082. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
+31 nouvelles leçons sont poussées : les 11 du LOT080, les 11 du LOT081 et 9 du LOT082. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3. Le LOT081 a onze leçons auditées et sa PR567 attend la fusion automatique après synchronisation avec main et contrôles. Le LOT082 poursuit les audits et les deux dernières rédactions. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
