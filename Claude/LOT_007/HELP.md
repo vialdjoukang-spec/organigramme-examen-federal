@@ -100,3 +100,9 @@
 - Retirés du tableau (restent dans le corps du cours) : syndrome de Frey, mastocytose systémique comme ligne. Sources ajoutées pour DX.4, DX.5, DX.7 : S26 à S30, reprises des monographies Phase B.
 - Les cellules DX.4, DX.5 et DX.7 ont été rédigées sans relecture des textes primaires dans ce passage : à contrôler contre S26–S30 (mécanisme de la fièvre, acétaldéhyde).
 - DX.9 : doses d'octréotide de l'ENETS associées à l'AIPS 49137 (qui ne retient pas l'indication) ; la nicotinamide est déclarée absente de l'AIPS.
+
+## DX.1 : renvois sans source retirés (10.11.2026)
+- Retiré : renvois AIPS de VEOZA et Femoston collés à des phrases d'examen clinique et de diagnostic différentiel, qui ne décrivent pas ces faits.
+- Retiré : « Région 1 à 5 » devient « Première à cinquième région » ; « après 5 minutes » (pression artérielle), « 40 à 65 ans » (critère majeur), « après 12 mois » (réévaluation sous VEOZA) et les renvois « DX.n » dans l'examen et le diagnostic différentiel, faute de source lue.
+- Retiré : le sigle 5-HIAA, remplacé par « principal métabolite urinaire de la sérotonine ».
+- Sourcé : seuils hépatiques et bilan de VEOZA [1] ; délai et récidive du cancer du sein sous LIVIAL [3] ; début avant 40 ans [14].
