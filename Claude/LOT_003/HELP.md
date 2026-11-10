@@ -20,3 +20,12 @@
 - Point 6 : image placée (DryTongue, langue sèche) ; aucun cliché décisif pour le point 9 (le diagnostic est biologique).
 - AIPS : n° 41181, 29552, 29550001, 31754, 49456, 55346, 44610 cités par molécule ; les extraits ne sont pas relus ici, la bibliographie reprend les numéros déjà cités.
 - Points 12 et 14 : aucune recommandation suisse de prévention du SHH n'a été citée (sources suisses à compléter).
+
+## DX.9 Acidocétose diabétique (renforcement du 10.11.2026)
+- Point 12 : aucune recommandation suisse de prévention (organisme, année) lue ; seule l'AIPS (SGLT2) et le consensus ADA/EASD/JBDS 2024 sont citées. À chercher (SGED/SSED) puis à ajouter.
+- Point 1 : les synonymes admis et les termes à éviter (acidocétose / cétoacidose / « coma diabétique ») ne s'appuient sur aucune source lue ; à sourcer avant d'ajouter.
+- Point 11 : les contre-indications AIPS de plusieurs spécialités (Baxter, B.Braun, Bichsel) ne sont pas extraites ; la fenêtre « Urgence » reste un tableau, non une fenêtre popover.
+- Point 9 : le diagnostic est biologique, donc pas de cliché décisif ; un ECG d'hypokaliémie (LowKECG, CC BY-SA 3.0, kaliémie 1,1 mmol/L, cas extrême) est inséré en 9.b. Un cliché de respiration de Kussmaul ou de pli cutané reste à chercher au point 6.
+- Contrôle3 : phrases partagées avec d'autres fichiers du LOT, non reformulées car issues du gabarit de l'onglet « Rappel mémoire » (mnémotechnique « Tom Trouve… », « Dix Pêcheurs… », « Fondement physiologique », « Aide-mémoire de classement »).
+- Citations : renfort_citations a rattaché presque tout à [1] et à l'ancre AIPS unique (sb-aips-44610 = entrée S7 regroupant toutes les spécialités) ; une ré-attribution phrase par phrase (S1/S3/S8 selon le fait) reste à faire.
+- Corrections techniques : « B. Braun » coupé par une étiquette de citation, bibliographie enveloppée dans une section « sources », deux fenêtres de médicaments (NovoRapid®, Lantus®) transformées en liens vers des encadrés.
