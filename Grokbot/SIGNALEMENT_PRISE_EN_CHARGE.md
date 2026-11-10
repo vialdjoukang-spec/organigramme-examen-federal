@@ -12,7 +12,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 |---|---|---|---|
 | 051 | S2.12 | Douleur de la paroi thoracique | réservé |
 | 052 | S3.1 | Douleur abdominale | réservé |
-| 053 | S3.2 | Distension abdominale | en cours |
+| 053 | S3.2 | Distension abdominale | livré PR 544 |
 | 054 | S3.3 | Masse abdominale | réservé |
 | 055 | S3.4 | Modification du transit intestinal, incontinence anale | réservé |
 | 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | réservé |
