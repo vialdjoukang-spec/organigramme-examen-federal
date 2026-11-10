@@ -30,3 +30,11 @@ Lacunes retirées du cours (ancienne section « Lacunes des données ») :
 - Les citations « Paal 2022 » ajoutées (stades, réchauffement, ECLS, intubation, pronostic) viennent du texte intégral Europe PMC PMC8744717, lu en entier le 10.11.2026. L'étude bernoise [2] et les sources [3] à [5] n'ont pas été relues ici : leurs chiffres restent tels que la leçon les portait.
 - Plusieurs citations [2] posées par le script renfort sur des phrases de recommandation (38–42 °C, 4–10 °C/h, POCUS, seuils ECLS) ont été reportées sur [1], qui porte ces faits.
 - Image : HypothermiaECG.webp (ECG, onde J d'Osborn, CC BY 3.0 WikiSysop) insérée au point 9. Aucune photographie d'engelure insérée au point 6 : recherche non lancée (Wikimedia limite le débit) ; à faire ensuite : `cliche.py chercher "frostbite fingers"`.
+
+## DX.6 (Hypoglycémie ou hyperglycémie), renforcement du 10.11.2026
+- Point 1/8 : les seuils chiffrés de l'hypoglycémie (niveaux 1, 2 et 3 de l'ADA) ne sont pas dans une source lue ; le texte renvoie au consensus ADA-EASD 2024 sans chiffres. À lire (ADA Standards of Care) puis chiffrer.
+- Volet social (point 11) : l'article 4 LPGA n'est plus cité par son numéro faute de texte Fedlex lu ; à relire sur Fedlex (RS 830.1) et à rétablir avec la source.
+- Point 12 : aucune recommandation suisse de prévention (SSED/SGED) lue ; la prévention repose sur l'AIPS et sur les sources [1] et [2].
+- Point 14 : les questions restent en liste (question, réponse, raison) et non en tableau.
+- Doses de la crise hyperglycémique (insuline 0,1 UI/kg/h, KCl 10 mmol/h, NaCl 500–1000 ml/h) : issues du consensus ADA-EASD 2024 ; les AIPS d'Actrapid HM, de Kaliumchlorid B. Braun et de NaCl Sintetica autorisent la voie sans fixer ces débits. Le bolus de glucose IV ne figure ni dans l'AIPS ni dans les recommandations lues (Paal 2021) : le texte ne donne pas de dose.
+- Image : une figure insérée (point 9.a, glucomètre, Commons CC BY-SA 4.0). Aucune photographie libre trouvée pour la lipohypertrophie (point 6) ni la respiration de Kussmaul ; recherche à refaire quand Wikimedia lève la limite 429.
