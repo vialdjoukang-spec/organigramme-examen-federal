@@ -1,1 +1,2 @@
 - 2026-11-10 · gel P1 de la liste DX (audit indépendant, verdict CORRIGER, liste corrigée de l'auditeur appliquée) · sha 78a0843709265c1b
+- 2026-11-10 · P3 (2 passages + audit3) clos ; 11 leçons VERT ; PR vers main
