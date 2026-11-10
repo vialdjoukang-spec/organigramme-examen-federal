@@ -169,4 +169,6 @@ LOT081 livré : PR567 fusionnée automatiquement le 10 novembre 2026 à10:19:47U
 
 LOT082 DX5 : normalité de ténodèse et aspects travail/conduite/assurance complétés avec attribution ;186129octets, secondeP3 indépendante engagée.
 
-LOTs livrés : 1/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX5 secondelecture et DX10 rédaction/audit ; LOT083–102 à produire.
+Conservation des branches : GitHub a delete_branch_on_merge=true ; codex/lot-081 a été rétablie par push ordinaire au commit24fc274f948cde2ee5cd9df0c35cd12fda428067 après sa suppression automatique. Aucun --force ni commande de suppression.
+
+LOTs livrés : 1/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 rédaction/audit ; LOT083–102 à produire.
