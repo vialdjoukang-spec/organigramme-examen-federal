@@ -2,7 +2,7 @@
 
 ## État actuel
 
-21 nouvelles leçons sont poussées : les 11 du LOT080 et 10 du LOT081. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
+22 nouvelles leçons sont poussées : les 11 du LOT080 et les 11 du LOT081. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -122,4 +122,10 @@ LOT081 : PA, DX1 et DX10 corrigées et poussées ; contrelectures indépendantes
 
 LOT081 DX9 : dépôt individuel 187321 octets, contrôle ORANGE B seulement ; première contrelecture indépendante en cours. Les onze leçons sont écrites, huit versions validées P3.
 
-LOTs livrés : 0/23 ; leçons poussées : 22/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 DX2/DX7/DX9 audits en cours ; LOT082–102 à produire.
+
+LOT081 : dix versions ont franchi P3 ; DX2 corrigée est poussée et attend sa seconde contrelecture. Les onze structures finales passent les contrôles ; main intégré sans conflit. LOT082 P1 reprise franchie sur propositionv3, gel à effectuer sur sa branche.
+
+
+LOT081 : onze leçons P2/P3 franchies, empreintes finales et navigation vérifiées. Main intégré sans conflit ; PR et CI en préparation, aucune fusion encore annoncée.
+
+LOTs livrés : 0/23 ; leçons poussées : 22/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 CI/fusion à vérifier ; LOT082–102 à produire.
