@@ -37,7 +37,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 083 | S5.4 | Myalgies | réservé |
 | 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | réservé |
 | 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | réservé |
-| 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | réservé |
+| 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | en cours |
 | 087 | S6.2 | Ecchymoses, hématomes, purpura | réservé |
 | 088 | S6.3 | Hyperpigmentation ou hypopigmentation | réservé |
 | 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | réservé |
