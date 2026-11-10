@@ -7,3 +7,8 @@
 - Épidémiologie suisse spécifique (Obsan/OFS) : aucune donnée trouvée ; chiffres d'Europe de l'Ouest et série genevoise (RMS 2022).
 - Valeurs normales SI (CRP, troponine hs) : non reprises, les intervalles dépendent de la méthode du laboratoire.
 - Pas de source suisse lue pour : frottement (technique d'auscultation), irradiation, pouls paradoxal (technique du brassard) : textes didactiques sans chiffre, à contrôler par le relecteur.
+
+## Après audit P3 (correction)
+- AIPS Brufen 45031 et ASA-Tabs 49494 versées : aucune ne cite la péricardite ; seules les doses générales, contre-indications et grossesse (3e trimestre) sont recopiées. Aucune dose péricardite AINS/aspirine sous AIPS.
+- AIPS Ilaris 66191 versée : indications = fièvres périodiques, pas la péricardite.
+- Non traités faute de source lue : tableau 8.d « Aiguë : moins de 4 à 6 semaines » (à aligner sur ESC 2025 ≤ 4 semaines) ; datation 30.09.2026 du statut anakinra (liste Swissmedic non versée) ; critères de sortie 11.D sans citation propre.

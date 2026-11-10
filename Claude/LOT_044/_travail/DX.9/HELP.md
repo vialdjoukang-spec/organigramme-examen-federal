@@ -6,3 +6,8 @@
 - Pédiatrie : la recommandation ERS/EACTS/ESTS 2024 vise l'adulte ; aucune source pédiatrique lue.
 - Divergence à arbitrer : délai de vol 7 jours après résolution radiologique (ERS 2024) vs 3 mois (RMG 2012) ; le cours retient ERS 2024.
 - Échec réseau : publications.ersnet.org (403) ; texte ERS lu via air.unimi.it.
+
+## Après audit P3 (correction)
+- Lidocaïne : AIPS Lidocaïne Streuli 30015 utilisée (Rapidocain 32381 absent du paquet) ; Xylocain 52094 (gel urétral) retiré.
+- Morphine : numéro corrigé 56560 (solution injectable).
+- Non traités : source européenne récente pour le site de décompression à l'aiguille (RMG 2012 conservée) ; adaptation rénale du paracétamol (aips-47503-8).
