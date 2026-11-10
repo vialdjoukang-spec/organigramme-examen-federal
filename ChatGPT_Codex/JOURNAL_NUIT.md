@@ -102,4 +102,6 @@ LOT081 DX1 : dépôt individuel ; contrôle technique VERT, audit P3 indépendan
 
 LOT081 Phase A : dépôt individuel ; contrôle technique ORANGE (phrases verbales non reconnues par heuristique), aucun défaut A/C. Audit P3 indépendant à effectuer.
 
-LOTs livrés : 0/23 ; leçons poussées : 16/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 en production, LOT082–102 à produire.
+LOT081 DX7 : dépôt individuel ; contrôle technique ORANGE B seulement, audit P3 indépendant à effectuer.
+
+LOTs livrés : 0/23 ; leçons poussées : 17/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 en production, LOT082–102 à produire.
