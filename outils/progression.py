@@ -7,13 +7,29 @@ que les LOTs dont elle est propriétaire, même si une autre IA y a contribué.
 Usage : python3 outils/progression.py --carte carte.json --ia Claude --sortie Claude/Progression_PR_Claude.html
         (--catalogue LOT_Claude_Finaux/CATALOGUE_248.csv par défaut ; noms des SSP)
 """
-import os, sys, csv, json, html, argparse, datetime
+import os, sys, csv, json, html, argparse, datetime, subprocess, functools
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from attributions import proprietaire, lots_de
 
 LECONS = ['A'] + [f'DX{i}' for i in range(1, 11)]
 IAS = ('Claude', 'ChatGPT_Codex', 'Grokbot')
+
+
+DEPOT = 'vialdjoukang-spec/organigramme-examen-federal'
+
+
+@functools.lru_cache(maxsize=None)
+def _commit(ref):
+    if ref in ('origin/main', 'main'):
+        return 'main'
+    p = subprocess.run(['git', 'rev-parse', ref], capture_output=True, text=True)
+    return p.stdout.strip() or ref.replace('origin/', '')
+
+
+def lien(r):
+    """Lien direct vers le cours tel que déposé sur GitHub (rendu HTML via raw.githack, aucune copie dans la jauge)."""
+    return f'https://raw.githack.com/{DEPOT}/{_commit(r["ref"])}/{r["chemin"]}'
 
 
 def jauge(p, grande=False, bloq=False):
@@ -34,7 +50,7 @@ def rendre(C, cat, ia_nom, sortie):
         contrib = sorted({r.get('auteur_ia', r['ia']) for r in rows if r} - {prop, 'inconnu'})
         code, nom = cat.get(lot, ('', ''))
         mini = ''.join(
-            f'<div class="l"><b>{"Phase A" if l == "A" else "DX." + l[2:]}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]))}'
+            f'<div class="l"><b>{(f'<a href="{html.escape(lien(r))}" target="_blank" rel="noopener" title="Ouvrir le cours">' if r else '')}{"Phase A" if l == "A" else "DX." + l[2:]}{" ↗</a>" if r else ""}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]))}'
             f'<i>{html.escape(r.get("auteur_ia", r["ia"])) if r else "absent"}</i></div>' for l, r in zip(LECONS, rows))
         n = sum(1 for r in rows if r)
         cartes.append(
@@ -73,7 +89,7 @@ box-shadow:0 0 8px hsl(var(--h) 80% 50% / .35);animation:monte 1.7s cubic-bezier
 @keyframes monte{{to{{width:var(--p)}}}}@keyframes lueur{{0%{{left:-40%}}70%,100%{{left:110%}}}}
 @media (prefers-reduced-motion:reduce){{.f{{animation:none;width:var(--p)}}.f::after{{display:none}}}}
 details{{margin-top:6px}}summary{{cursor:pointer;font-size:.82rem;color:var(--doux)}}.ls{{display:grid;gap:6px;margin-top:8px}}
-.l{{display:grid;grid-template-columns:56px 1fr 92px;gap:8px;align-items:center;font-size:.78rem}}.l i{{color:var(--doux);font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+.l{{display:grid;grid-template-columns:70px 1fr 92px;gap:8px;align-items:center;font-size:.78rem}}.l a{{color:#2a5d9f;text-decoration:none}}.l a:hover{{text-decoration:underline}}.l i{{color:var(--doux);font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 </style></head><body><main>
 <section class="top"><h1>Progression_PR — {html.escape(ia_nom)}</h1>
 <div class="k"><div><b>{g} %</b><small>progression globale</small></div><div><b>{n90}</b><small>LOTs ≥ 90 %</small></div>
