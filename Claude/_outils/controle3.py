@@ -65,6 +65,18 @@ def nombres(s):
     return out
 
 
+def nombres_source(s):
+    """Correctif local (Claude/_outils) : dans un extrait, des nombres de colonnes voisines séparés par une espace
+    (« 0 0.35 0.21 », « 98 8.1 ») sont fusionnés par NUM ; on ajoute aussi chaque nombre pris isolément. Le contrôle
+    reste strict : le nombre de la phrase doit figurer tel quel dans l'extrait cité."""
+    out = nombres(s)
+    for tok in re.split(r'[\s\u00a0\u202f]+', s):
+        out |= nombres(tok)
+    for n in re.findall(r'\d+(?:[.,]\d+)?', s):  # nombres collés à un glyphe OCR (« >_80 », « e8.5 »)
+        out |= nombres(' ' + n + ' ')
+    return out
+
+
 def est_verbale(ph):
     mots = {m.lower() for m in re.findall(r"[\w'’-]+", ph)}
     return bool(mots & VERBES or PRONOM_VERBE.search(ph) or VERBE_RE.search(ph))
@@ -113,7 +125,8 @@ def controler(chemin, paquet, a, vus_lot):
                 d['A_citation_inconnue'].append(c)
         if paquet and cites and nums:
             source = ' '.join(paquet.get(c, '') for c in cites)
-            manq = {n for n in nums if n not in nombres(source)}
+            ns = nombres_source(source)
+            manq = {n for n in nums if n not in ns}
             if manq:
                 d['A_nombre_absent_de_l_extrait'].append(f'{sorted(manq)} :: {t[:120]}')
         if DOSE.search(t) and not any(c.lower().startswith('aips') for c in cites):
