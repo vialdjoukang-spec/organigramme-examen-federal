@@ -1,11 +1,15 @@
-# HELP — LOT_052 — ce qui n'a pas été ouvert
+# HELP — LOT_052 — ce qui n'a pas été ouvert ou reste limité
 
-Consulté le 2026-11-10.
+Mise à jour : 2026-11-10, correction de la Phase A.
 
-- Antibiotiques nommés par Sinz sans milligramme, parce que l'information professionnelle suisse n'a pas été rapatriée : céfuroxime, céfotaxime, ciprofloxacine, métronidazole, amoxicilline / acide clavulanique. Aucune dose en milligrammes n'est écrite.
-- Métamizole et morphine : Börner autorise l'analgésie précoce, sans dose. Aucun texte AIPS de ces molécules n'a été ouvert. Aucune dose n'est écrite.
-- Zahnd, Revue Médicale Suisse, 2024 : le résumé public a été lu. Le corps est réservé aux abonnés. Seuls les chiffres du résumé sont utilisés.
-- DOI 10.4414/fms.2021.08848 : le résolveur renvoie aujourd'hui vers le sélecteur Crossref, et medicalforum.ch n'a pas répondu. Le texte français intégral a été repris depuis le rendu déjà obtenu de cet article, avec l'URL du DOI. Licence Unpaywall signalée CC BY-NC-ND : les faits sont cités, les figures de l'article ne sont pas reproduites.
-- Échographie `images/62343b66aacf7581.png` (Borbély Márton, CC BY-SA 4.0, titre Commons « Appendicitis ultrasound ») : l'inspection visuelle montre une vésicule avec images hyperéchogènes et cône d'ombre, pas un appendice. Refusée pour l'enseignement. Elle n'est pas insérée dans une leçon.
-- Il n'existe pas, sur Commons, un second fichier brut non légendé de la même acquisition que le cliché d'air libre. La paire utilise le fichier original tel quel, puis le même fichier avec un SVG numéroté par-dessus. Les pixels du fichier ne sont pas modifiés.
+- Antibiotiques : aucune information professionnelle suisse d'antibiotique n'a été rapatriée. La Phase A ne donne ni molécule ni milligramme ; elle renvoie le choix à l'hôpital.
+- Morphine et autres opiacés : aucun texte AIPS ouvert. La Phase A recommande l'analgésie précoce (RMS 2006, grade B) sans écrire de dose.
+- Métamizole : l'information professionnelle Novalgin® solution injectable (Swissmedic 16950, mise à jour septembre 2025) a été ouverte ; extrait dans `_travail/evidence/aips-16950.txt`.
+- Zahnd, Revue médicale suisse 2024 : seul le résumé public a été lu ; seuls ses chiffres sont cités.
+- Forum Médical Suisse 2021 (Sinz) : texte repris depuis le rendu déjà obtenu ; licence CC BY-NC-ND, faits cités, figures non reproduites.
+- RMS 2010 (référer aux urgences) : les tableaux 1, 2 et la figure 2 sont des images ; leur transcription est dans `_travail/evidence/rms_referer_2010_tableaux.txt`.
+- IASP : le site bloque curl ; la page a été lue par un autre moyen de lecture web et l'extrait conservé dans `_travail/evidence/iasp_terminologie.txt`.
+- Images : la paire brute / annotée de la Phase A utilise le cliché de Bill Rhodes (CC BY 2.0), sans mention de l'auteur hormis le repère L. Le second cliché (Cerevisae, CC BY-SA 4.0) porte déjà les mentions anglaises de l'auteur : il est présenté comme tel, pas comme cliché brut.
+- L'échographie titrée « Appendicitis ultrasound » (62343b66aacf7581.png) a été refusée après inspection (vésicule lithiasique) et retirée du dépôt.
+- Aucun cliché libre d'ischémie mésentérique (E1) sans mention imprimée n'a été obtenu.
 - Catalogue de cas (liens seulement, aucune copie) : Radiopaedia, Radiology Assistant, Eurorad, Ultrasound Cases, Casimage.
