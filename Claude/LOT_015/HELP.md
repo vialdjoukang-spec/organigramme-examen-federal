@@ -40,3 +40,9 @@ Les lacunes ne figurent plus dans les cours (L1, LV7) ; elles sont consignées i
 - Point 1 : fenêtre « terminologie, synonymes et termes à éviter » supprimée (date d'entrée dans le DSM-5 et la CIM-11 gardée au point 1 ; place PROFILES G15/S9.4/O2.6 conservée en Phase A) ; « notions voisines » réduites aux situations non couvertes par le point 4 et déplacées au point 4.
 - Fenêtre « obésité associée » condensée : schémas des médicaments du poids réduits à une phrase AIPS par molécule (détail complet dans DX.1).
 - Situations spéciales : citations AIPS reformulées ; doublons avec les fiches (doses rénales et hépatiques) remplacés par un renvoi interne.
+
+## DX.5 — Hypothyroïdie
+- Lacunes retirées : mortalité suisse ; volume thyroïdien chiffré ; sensibilité et spécificité des signes et de la TSH ; préparation du patient avant la TSH ; délai chiffré de récupération ; une dose sans AIPS lisible (« À vérifier ») ; aptitude à conduire, arrêt de travail et assurance-invalidité propres ; critères de sortie après coma myxœdémateux ; pistes de recherche 2026.
+- Unités : anti-TPO écrits « 500 kUI/L » (= 500 UI/mL) ; apports en iode écrits en toutes lettres (microgrammes, milligrammes), car il s'agit d'apports nutritionnels et non de doses médicamenteuses.
+- AIPS ajoutées aux phrases de dose : Euthyrox® (54949), Eltroxine®-LF (29812), Tirosint® (57455), Novothyral® (37716), Solu-CORTEF® (23533), Dexaméthasone Galepharm (57974). Les schémas HAS/ETA restent attribués à leur recommandation, l'AIPS de la molécule est ajoutée.
+- Point 1 : « notions voisines et termes à éviter » déplacées au point 4 (« situations frontières ») ; synonyme OFSP « hypothyroïdie légère » retiré (terminologie interdite au point 1).
