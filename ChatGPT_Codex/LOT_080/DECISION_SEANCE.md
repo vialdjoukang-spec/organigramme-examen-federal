@@ -5,3 +5,7 @@ Ordre de Vial du 10 novembre 2026 : production de contenu uniquement, images et 
 Référence unique : `PROMPT_Casern/PROMPT_LOTS_Lo_9.11.26.claude.md` et `outils/` de `reference/prompts-9.11.26`, commit `037545b80fe03166dec9e05f70e24fb9f008821d`. La détection préalable de 332 branches ne trouve aucune leçon dans les LOTs 080–102 ; la branche historique de statut indique « à rédiger ». Consolidation préalable achevée : 858 copies vérifiées et poussées (PR516).
 
 E2/E3 : collecte préparatoire par `/root/sources_lot080`, extraits archivés et fonctions originales de `paquet.py` exécutées (`decouper`, `registres`, `selection`). E4 : audit indépendant par `/root/audit_p1_lot080`, porte P1 non franchie. Aucune liste canonique n'est gelée. Les dix fichiers DX ne sont pas lancés ; aucune leçon ou validation médicale n'est déclarée. Passage au LOT suivant après cette tentative, selon l'ordre de Vial.
+
+## Reprise ordonnée par Vial
+
+La consigne ultérieure demande de continuer jusqu’à la fin des LOTs. Les constats P1 précédents restent historiques et sont réexaminés sur des sources approfondies, avec cadres d’âge explicites. Les fragments cliniques de Phase A sont rédigés en préparation pendant cette recherche ; aucun classement non démontré ni audit réussi n’est annoncé.
