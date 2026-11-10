@@ -167,4 +167,6 @@ LOT082 DX7 : durée quotidienne du corset, gestes de mesure et prévention préc
 
 LOT081 livré : PR567 fusionnée automatiquement le 10 novembre 2026 à10:19:47UTC, commit d49f8b7ba5696e8ffd561708d681c9b4c412db06. Contrôles requis verts, onze empreintes et validations P3 vérifiées sur main. Preuves : _outils/rapports/fusions/LOT_081_GITHUB.json et LOT_081_VERIFICATION_MAIN.json.
 
-LOTs livrés : 1/23 ; leçons poussées : 32/253, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX5 secondelecture et DX10 rédaction/audit ; LOT083–102 à produire.
+LOT082 DX5 : normalité de ténodèse et aspects travail/conduite/assurance complétés avec attribution ;186129octets, secondeP3 indépendante engagée.
+
+LOTs livrés : 1/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX5 secondelecture et DX10 rédaction/audit ; LOT083–102 à produire.
