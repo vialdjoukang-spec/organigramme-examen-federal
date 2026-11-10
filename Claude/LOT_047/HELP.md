@@ -55,16 +55,19 @@
 - Aspects social et assurances : aucune source lue ; non rédigés.
 - Source suisse RMS 972 (2026) : résumé seul (article réservé aux abonnés) ; rapport HTA OFSP : résumé seul.
 - PMID 28251844 (physiopathologie GERD) : 429 au premier rapatriement, passages présents après relance.
+- AGA 2022 (wdbbc94, États-Unis) : encore citée pour des points secondaires (éducation, sevrage des inhibiteurs, durées, chirurgie) ; ses indications d'endoscopie et de traitement d'essai ont été retirées ou remplacées par Lyon 2.0 et l'AIPS. À remplacer par une source européenne lisible si disponible.
+- Amitriptyline : grossesse et allaitement ajoutés (aips-66978-30, -31).
 
 ## DX.5
 - ESC 2023 (syndromes coronariens aigus) et ESC 2024 (syndromes coronariens chroniques) : seules les références PubMed (sans résumé), la fiche de la plateforme suisse des guides de pratique et des revues secondaires ont été lues ; aucun seuil ECG, aucun score ni aucune classe de recommandation ESC n'est écrit comme tel. La conduite suit la NICE (CG95, CG126, NG185), l'AIPS et la revue 2025 du J Clin Med.
 - Épidémiologie suisse de l'incidence du syndrome coronarien aigu et de la prévalence de l'angor : aucun chiffre lu (seuls l'OFSP, AMIS Plus et la NICE britannique sont cités).
-- Fibrinolyse : liste des contre-indications absolues et relatives, choix et doses du fibrinolytique : aucun extrait lu ; seule la phrase « sans contre-indication » est écrite. Aucune dose de morphine, de fondaparinux, de prasugrel ni de clopidogrel (pas d'AIPS lu).
+- Fibrinolyse : liste des contre-indications absolues et relatives, choix et doses du fibrinolytique : aucun extrait lu ; seule la phrase « sans contre-indication » est écrite. Doses AIPS de la morphine, du fondaparinux, du prasugrel et du clopidogrel rapatriées (51039, 55937, 59136, 54509) ; dose de morphine propre au STEMI absente de l'AIPS (dose générale intraveineuse citée).
 - Examen physique : techniques de palpation et d'auscultation, signes de dissection aortique, comparaison tensionnelle aux deux bras : aucun extrait lu ; le point 6 se limite aux gestes cités par la NICE.
 - Grossesse, enfant, allergie à l'iode, DFGe inférieure à 30 : seules les limites du scanner (contraste iodé) et de la résonance magnétique ont été lues ; aucune conduite spécifique pour la grossesse ou l'enfant pour les examens.
 - Assurances sociales suisses (LAMal, AI, réadaptation cardiaque remboursée) : aucun extrait lu ; seule l'équité d'accès (AMIS Plus) et les recommandations NICE sur les besoins sociaux sont citées.
-- Monopréparations sans AIPS lu : fondaparinux, prasugrel, clopidogrel, opioïdes ; classe et conduite sans milligramme. Sortis : indication suisse limitée à l'hypercholestérolémie ; la statine post-infarctus repose sur la NICE.
+- Sortis : indication suisse limitée à l'hypercholestérolémie ; la statine post-infarctus repose sur la NICE.
 - Brilique n'a pas été lu ; le ticagrélor repose sur Ticagrelor axapharm 69596.
+- ESC 2023/2024 : seuls des commentaires secondaires lisibles (revue J Clin Med, revue imagerie PMC12448739) soutiennent les délais de coronarographie et la stratégie du scanner ; texte intégral ESC non lu. Seuil d'oxygène : NICE (94 %) nommé ; l'ESC (hypoxémie, SaO2 < 90 %) non lu.
 
 ## DX.6
 - Épidémiologie suisse : aucune prévalence suisse de l'ulcère lue ; chiffres WSES, OCDE, Finlande ; seules données suisses : éradication à Zurich (Swiss Med Wkly 2023).
@@ -81,11 +84,12 @@
 
 Lacunes à traiter par le chef de production (aucune n'est écrite dans le cours comme formule de lacune).
 
-## Molécules sans AIPS lisible dans le paquet (pas de milligramme dans le cours)
-- Budésonide comprimé orodispersible (Jorveza®) : absent de la base AIPS locale (seuls Pulmicort, Seretide, Symbicort, Seffalair, Pylera, Esomeprazol-Mepha lus). Posologie, durée, grossesse, n° Swissmedic non donnés. Statut suisse (Swissmedic) non lu : seule l'approbation EMA de novembre 2017 est citée (m9).
-- Dupilumab (Dupixent®) : absent de l'AIPS local. Seule l'approbation « Europe, Suisse comprise, 12 ans et plus, 40 kg » est citée (revue Schoepfer, Inflamm Intest Dis 2024). Posologie et n° Swissmedic non donnés.
-- Fluticasone déglutie (hors AIPS, produits inhalés seulement) et oméprazole (absent de l'AIPS local) : conduite sans milligramme. La dose PPI des recommandations européennes 2017 (oméprazole deux fois par jour) n'est pas chiffrée, car le contrôle exige une citation AIPS pour toute dose.
-- Esomeprazol-Mepha (62581) : l'AIPS ne mentionne pas l'œsophagite à éosinophiles ; les doses citées sont celles du reflux (usage dans la maladie = hors indication).
+## Molécules
+- Jorveza (66999) et Dupixent (66649) rapatriés : doses, grossesse, allaitement et indication suisse (Dupixent dès un an et 15 kg) écrits d'après l'AIPS. Omeprazol Zentiva (56313) ajouté ; aucune indication AIPS dans l'œsophagite à éosinophiles (hors indication).
+- Fluticasone déglutie : hors AIPS (produits inhalés seulement). Dose d'inhibiteur de la pompe à protons de la maladie : recommandation européenne 2017 sans milligramme ; partie 2 (traitement) de la mise à jour 2026 non trouvée, donc non utilisée.
+- Esomeprazol-Mepha (62581) : l'AIPS ne mentionne pas l'œsophagite à éosinophiles ; doses citées = reflux.
+- Eohilia (États-Unis seulement) : ligne retirée du tableau.
+- Délai d'endoscopie de l'impaction alimentaire : aucun extrait lu, non écrit.
 
 ## Sources manquantes
 - Recommandations européennes 2026 (Lucendo et al., Allergy 2026, partie 1) : seul le résumé PubMed est lisible ; la partie 2 (traitement) n'a pas été trouvée ; le traitement suit donc le texte intégral de 2017 (PMC5415218).
