@@ -12,3 +12,8 @@ Lacunes à combler (aucune n'est écrite dans le HTML) :
 8. Aspects sociaux et assurances (LAMal, certificat d'incapacité de travail, hospitalisation à domicile en Suisse) : aucune source suisse lue.
 9. Hémoptysie : seuil de risque de cancer divergent (HUG : plus de 40 ans et plus de 40 paquets-années ; article de Singapour : 30 paquets-années, 40 ans ou plus). Article de Singapour utilisé en complément seulement, jamais seul pour un rang.
 10. Durée de l'antibiotique : NICE donne 5 jours, l'AIPS de la lévofloxacine 7 à 14 jours ; divergence signalée dans le texte.
+
+## Après correction P3 (lot 045)
+- Recommandation suisse SSI (ssi.guidelines.ch, PAC) : site rendu par JavaScript, texte illisible ici ; la conduite repose toujours sur NICE NG250 (à lire avant clôture).
+- Amoxicilline adulte : dose tirée d'une AIPS pédiatrique ; lire l'AIPS d'un comprimé adulte.
+- Seuil d'hémoptysie massive harmonisé sur la Revue Médicale Suisse 2015 (250 ml/24 h) ; le seuil de 300 ml reste cité comme variante.

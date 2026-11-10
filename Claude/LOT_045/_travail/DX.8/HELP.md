@@ -1,8 +1,6 @@
 # HELP — DX.8 Cancer bronchique (lacunes hors du cours)
 
 ## Molécules sans AIPS lisible (classe et conduite sans milligramme dans le cours)
-- cisplatine : aucune information professionnelle trouvée dans l'index AIPS pour la racine « cisplatin/cisplatine » ; sa dose n'apparaît qu'en citation de l'AIPS pémétrexed (75 mg/m2) et docétaxel (75 mg/m2).
-- durvalumab (Imfinzi) : aucune information professionnelle trouvée ; classe et conduite uniquement (recommandation ESMO CBPC 2021).
 - lurbinectédine : pas d'AIPS dédié ; mentionnée sans dose.
 - alectinib, lorlatinib, crizotinib, topotécan : hors paquet AIPS, cités sans dose (essais rapportés par l'ESMO CBPC 2021 et la revue JAMA 2025).
 - acide tranexamique (Tranexamic Acid Leman, 69880) : l'hémoptysie tumorale ne figure pas dans les indications AIPS lues ; aucune dose proposée pour cette indication.
@@ -22,3 +20,10 @@ Les tableaux (td) échappent au contrôle de citation : seuils TNM (T1a à T4, N
 
 ## Incident d'outillage
 `Claude/LOT_045/_travail/PA/dci.txt` : les lignes DX.n sont décalées d'un rang (la ligne « DX.8 » liste des antibiotiques de la pneumonie, la ligne « DX.9 » liste les molécules du cancer bronchique). Les DCI du cancer bronchique ont été prises dans la ligne « DX.9 ».
+
+
+## Après correction P3 (lot 045)
+- Cisplatine (Cisplatine Sandoz 51077) et durvalumab (Imfinzi 66548) désormais lus dans l AIPS et cités.
+- Seuils TNM (T1a à T4, N2a/N2b, M1c1/M1c2) : écrits sans source lue ; citer l UICC/IASLC 9e édition.
+- Valeurs normales SI du point 9 renvoyées au laboratoire ; critères de sortie après hémoptysie : seuls les deux critères sourcés (saturation, antithrombotiques) sont conservés.
+- LV8 : versions ESMO CBPC postérieure à 2021 et CBNPC postérieure à 2023 non vérifiées.

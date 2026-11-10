@@ -9,3 +9,10 @@ Lacunes de sources lues, à combler par une relecture humaine ou une session sui
 5. Aspects sociaux et assurances (carte d'anticoagulation, arrêt de travail, LAMal, assurance-accidents) : texte général non sourcé, aucun texte suisse lu.
 6. Sources AIPS : la sélection prend le premier document par DCI ; les mentions « Swissmedic » dans les tableaux reprennent les numéros du paquet (Xarelto 58728, Eliquis 61549, Lixiana 65149, Dabigatran Sandoz 68658, Clexane 49456, Heparin-Na B. Braun 46613, Actilyse 48313).
 7. Les extraits PMC ont été rapatriés par l'API eutils (XML) car le téléchargement direct renvoie une page reCAPTCHA ; le contenu est identique au texte intégral PMC.
+
+## Après correction P3 (lot 045)
+- PERC : seule source lue américaine (étude Kline 2008, soupçon estimé sous 15 %) ; aucun passage de l'ESC 2019 lu qui la mentionne. Règle conservée avec sa condition ; à retirer si une source européenne ne la soutient pas (LV5).
+- HTPTEC : définition ESC/ERS 2022 lue par PMC13126078 (Pulm Circ 2026), texte secondaire ; le texte intégral de l'ESC/ERS 2022 n'a pas été lu.
+- Cancer, situations spéciales : PMC7467952-30 reflète l'ESC 2019 ; ESC 2022 de cardio-oncologie non lue (LV8).
+- Valeurs normales SI du point 9 et du point 6 renvoyées au laboratoire ou à l'établissement.
+- Retirés faute de source : causes de D-dimères élevés, anticoagulation de l'étape 2 « au cas par cas ».
