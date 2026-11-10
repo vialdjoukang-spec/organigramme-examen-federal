@@ -19,3 +19,8 @@ Mise à jour : 2026-11-10, correction de la Phase A.
 - Passage fix052c : aucun extrait accessible de Larsen, Moore ou Langman n'a été trouvé. L'embryologie reste sourcée par TeachMeAnatomy, une citation par phrase : artère mésentérique supérieure, artère mésentérique inférieure et canal anal (ligne pectinée).
 - Aucun extrait ne donne l'admission LAMal de la morphine ; rien n'est affirmé.
 - Le seuil de l'AAA vient de deux articles de la Revue médicale suisse (2012, 2004), pas de l'ESC.
+- Passage fix052d : l'AIPS de la morphine (51039) est lue sur arzneimittelinfo.ch, miroir de l'AIPS ; swissmedicinfo.ch exige JavaScript. Les contre-indications sont dans `_travail/evidence/morphine_51039.txt`.
+- LAMal : ODDB et le portail de la liste des spécialités bloquent curl. La quote-part de 10 % et la mention LS viennent de compendium.ch (`_travail/evidence/compendium_morphine.txt`).
+- Valeurs de référence : PDF du CHUV, extrait dans `_travail/evidence/chuv_valeurs_reference.txt`. La ligne de la lipase garde ses espaces multiples, sinon `controle3.py` lit « 13 60 » comme 1360.
+- GEU : aucune version libre sans légende de l'image n'existe (seulement un SVG et une variante arménienne, légendés) ; la fiche 2 le dit dans le titre de l'image brute.
+- `verif.py` exclut les citations entre guillemets « … » du contrôle des copies de 8 mots.
