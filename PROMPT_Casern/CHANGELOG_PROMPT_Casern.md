@@ -3,7 +3,7 @@
 ## L1 — 10.11.2026 (ordre de Vial, bloquant)
 
 - Nouveau nom de version : `PROMPT_LOTS_L1_10.11.26.{claude,codex,grok}.md` (remplace Lo_10.11.26).
-- Page naturelle de 80 à 150 Ko ; les fenêtres centrales occultantes (CSS `:target`) n'ont pas de limite de taille.
+- Cours entier de 80 à 150 Ko, fenêtres centrales occultantes (CSS `:target`) comprises ; seules les images sont hors limite (précision de Vial du 10.11.2026).
 - Les examens complémentaires (biologie, imagerie interprétée et juxtaposée), l'anamnèse (symptômes caractérisés, typiques ou non) et l'examen physique ciblé (ordre topo-systémique : signe, technique, aspect ou son) se déploient en fenêtres.
 - Le point 1 devient « Définition » seule. La sémantique et les notions voisines sont interdites, comme l'arbre CIM emboîté et le sommaire en boutons.
 - Phrases verbales obligatoires ; toute persévération ou redondance est prohibée.

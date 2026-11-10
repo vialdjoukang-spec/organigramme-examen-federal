@@ -7,8 +7,8 @@
 
 ## L1-1. Taille
 
-1. La **page naturelle**, c'est-à-dire tout ce qui est hors fenêtres, pèse **de 80 à 150 Ko** au total.
-2. Les **fenêtres** n'ont **aucune limite de taille**. On y voit, on y entend et on y comprend : images, tableaux détaillés, techniques, sons.
+1. Le **cours entier**, fenêtres comprises, pèse **de 80 à 150 Ko** au total.
+2. Seules les **images** (`<img>`, `<svg>`, `<picture>`, URI `data:image`) sont **hors limite** : elles peuvent largement dépasser 150 Ko. On y voit, on y entend et on y comprend.
 
 ## L1-2. Page naturelle et fenêtres
 
@@ -208,7 +208,7 @@
 
 ## µ3. Les 14 points — contrat de contenu
 
-Le budget indique les octets visés pour le texte du point. Depuis L1, la page naturelle (hors fenêtres) pèse de 80 à 150 Ko au total, et les fenêtres n'ont pas de limite (L1-1). L'assembleur ajoute ensuite le gabarit et les Sources.
+Le budget indique les octets visés pour le texte du point. Depuis L1, le cours entier, fenêtres comprises, pèse de 80 à 150 Ko au total ; seules les images sont hors limite (L1-1). L'assembleur ajoute ensuite le gabarit et les Sources.
 
 | N° | Point | Contenu exigé (et rien d'autre) | Tableau obligatoire | Image | Budget |
 |---|---|---|---|---|---|
