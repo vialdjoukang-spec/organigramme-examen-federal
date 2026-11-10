@@ -27,13 +27,31 @@ def _commit(ref):
     return p.stdout.strip() or ref.replace('origin/', '')
 
 
+AUDITES = {}  # lot -> réf git de la version auditée (main si fusionnée) ; seuls ces LOTs portent des liens
+
+
 def lien(r):
-    """Lien direct vers le cours tel que déposé sur GitHub (rendu HTML via raw.githack, aucune copie dans la jauge)."""
+    """Lien direct vers le cours audité tel que déposé sur GitHub (rendu HTML via raw.githack, aucune copie)."""
     return f'https://raw.githack.com/{DEPOT}/{_commit(r["ref"])}/{r["chemin"]}'
 
 
-def jauge(p, grande=False, bloq=False):
-    teinte = round(1.35 * p)  # 0 → rouge … 100 → vert d'eau ; fluide libre en couleur
+def lien_audite(lot, l):
+    """Lien vers la version auditée d'un LOT de la liste --audites, None sinon."""
+    ref = AUDITES.get(lot)
+    if not ref:
+        return None
+    nom = f'LOT_{lot:03d}_Phase_A_V0.html' if l == 'A' else f'LOT_{lot:03d}_Phase_B_V0_DX.{l[2:]}.html'
+    return f'https://raw.githack.com/{DEPOT}/{_commit(ref)}/Claude/LOT_{lot:03d}/{nom}'
+
+
+def teinte_lot(lot):
+    """Teinte propre à chaque LOT (angle d'or) : deux LOTs, voisins ou non, n'ont jamais la même couleur."""
+    return round((lot * 137.508) % 360, 2)
+
+
+def jauge(p, grande=False, bloq=False, teinte=None):
+    if teinte is None:
+        teinte = round(1.35 * p)  # jauges globales : 0 → rouge … 100 → vert d'eau
     return (f'<div class="j{" g" if grande else ""}{" b" if bloq else ""}"><div class="t"><div class="f" '
             f'style="--p:{p}%;--h:{teinte}"></div></div><span>{p} %</span></div>')
 
@@ -50,12 +68,12 @@ def rendre(C, cat, ia_nom, sortie):
         contrib = sorted({r.get('auteur_ia', r['ia']) for r in rows if r} - {prop, 'inconnu'})
         code, nom = cat.get(lot, ('', ''))
         mini = ''.join(
-            f'<div class="l"><b>{(f'<a href="{html.escape(lien(r))}" target="_blank" rel="noopener" title="Ouvrir le cours">' if r else '')}{"Phase A" if l == "A" else "DX." + l[2:]}{" ↗</a>" if r else ""}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]))}'
+            f'<div class="l"><b>{(f'<a href="{html.escape(lien_audite(lot, l))}" target="_blank" rel="noopener" title="Ouvrir le cours audité">' if lien_audite(lot, l) else '')}{"Phase A" if l == "A" else "DX." + l[2:]}{" ↗</a>" if lien_audite(lot, l) else ""}</b>{jauge(r["score"] if r else 0, bloq=bool(r and r["bloquant"]), teinte=teinte_lot(lot))}'
             f'<i>{html.escape(r.get("auteur_ia", r["ia"])) if r else "absent"}</i></div>' for l, r in zip(LECONS, rows))
         n = sum(1 for r in rows if r)
         cartes.append(
             f'<article class="c" data-e="{prop}" data-p="{p}"><header><h2>LOT_{lot:03d} <small>{html.escape(code)}</small></h2>'
-            f'<p>{html.escape(nom.split("|")[0].strip())}</p>{jauge(p, True)}<p class="m">{n}/11 leçons · propriétaire {html.escape(prop)}{(" · contributions " + html.escape(", ".join(contrib))) if contrib else ""}</p></header>'
+            f'<p>{html.escape(nom.split("|")[0].strip())}</p>{jauge(p, True, teinte=teinte_lot(lot))}<p class="m">{n}/11 leçons · propriétaire {html.escape(prop)}{(" · contributions " + html.escape(", ".join(contrib))) if contrib else ""}</p></header>'
             f'<details><summary>Leçons</summary><div class="ls">{mini}</div></details></article>')
     if ia_nom in IAS:  # jauge d'une IA : ses seuls LOTs attribués
         tot = [tot[lot - 1] for lot in lots_de(ia_nom)]
@@ -116,7 +134,13 @@ if __name__ == '__main__':
     ap.add_argument('--ia', required=True)
     ap.add_argument('--sortie', required=True)
     ap.add_argument('--catalogue', default='LOT_Claude_Finaux/CATALOGUE_248.csv')
+    ap.add_argument('--audites', default='', help='LOTs audités et leur réf : 1-4=origin/main,5=origin/claude/lot-005-renfort')
     a = ap.parse_args()
+    for part in filter(None, a.audites.split(',')):
+        lots, ref = part.split('=')
+        x, _, y = lots.partition('-')
+        for n in range(int(x), int(y or x) + 1):
+            AUDITES[n] = ref
     cat = {}
     if os.path.exists(a.catalogue):
         for r in csv.DictReader(open(a.catalogue, encoding='utf-8')):
