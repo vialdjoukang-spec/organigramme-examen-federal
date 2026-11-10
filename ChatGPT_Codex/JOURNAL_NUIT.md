@@ -137,4 +137,6 @@ LOT082 DX3 : première leçon déposée individuellement ;170601octets, contrôl
 
 LOT082 DX6 : dépôt individuel,129553octets, contrôleVERT zéro défaut ; contrelecture indépendante à effectuer.
 
-LOTs livrés : 0/23 ; leçons poussées : 24/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
+LOT082 DX4 : leçon produite,155860octets, contrôle sans défautA/C ; DX3 reformaté sans modification clinique pour conserver les citations lisibles par le contrôleur. Audits indépendants en cours.
+
+LOTs livrés : 0/23 ; leçons poussées : 25/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
