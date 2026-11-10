@@ -1,1 +1,2 @@
 - 2026-11-10 · gel P1 de la liste DX (audit indépendant, verdict CORRIGER, liste corrigée de l'auditeur appliquée) · sha 1edc9c05a9f79dc0
+- 2026-11-10 · audit3 appliqué (DX.2–DX.5), 11 VERT, PR ouverte (audit-ok, attente-vial).
