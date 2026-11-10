@@ -1,0 +1,6 @@
+# HELP — DX.6 Syndrome coronarien aigu (LOT_043)
+- Molécules sans AIPS lisible dans le paquet : aspirine intraveineuse (Aspégic®, dose 250 mg prise dans le protocole HUG 5.1.1 v1.7b, 15.12.2023), fentanyl (dose HUG, patch Fentalis seul disponible), colchicine à faible dose (classe IIb ESC 2023 citée sans milligramme), énoxaparine dans le SCA (Inhixa dans le paquet, rubrique NSTE-ACS non lue).
+- Texte intégral ESC 2023 (Eur Heart J 2023;44:3720) inaccessible (academic.oup.com 403) : recommandations citées par l'intermédiaire de J Clin Med 2024 (PMC11012418), de l'extrait HUG et de la fiche de la plateforme suisse des guides (FMH).
+- Article RMS 2025/908 (Mian et al.) et RMS 2024/875 (Planchat et al.) : seuls les résumés sont lisibles (abonnement).
+- Non couverts faute de source lue : mortalité hospitalière suisse du SCA, volet social et assurances (certificat d'incapacité, réadaptation cardiaque remboursée), grossesse et allaitement pour les antithrombotiques (rubriques AIPS non extraites), adaptations enfant, DFGe < 30 mL/min et allergie à l'iode pour le point 9.c, seuils de troponine propres à chaque dosage (tableaux du supplément ESC).
+- Doses de nitroglycérine sublinguale non citées (AIPS lu : solution intraveineuse seule).
