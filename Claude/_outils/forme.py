@@ -17,37 +17,113 @@ FACES = ''.join(
     f"@font-face{{font-family:'Atkinson Hyperlegible';font-style:{st};font-weight:{w};font-display:swap;"
     f"src:url('{POLICES}{w}-{st}.woff2') format('woff2')}}"
     for w in (400, 700) for st in ('normal', 'italic'))
-CSS = (FACES +
-       "html,body,body *:not(code):not(pre):not(kbd):not(samp){"
-       "font-family:'Atkinson Hyperlegible',Verdana,'Segoe UI',system-ui,sans-serif!important}"
-       "body{line-height:1.4!important}"
-       "p,.p,li,dd,blockquote,.df{text-align:justify;hyphens:auto;-webkit-hyphens:auto}"
-       "p,.p{margin:.35em 0}li{margin:.15em 0}"
-       "h1,h2,h3,h4,h5,h6,td,th,caption,figcaption,nav li,.ls li{text-align:left;hyphens:manual}"
-       "h1,h2,h3,h4{line-height:1.2;margin:.8em 0 .35em}"
-       # Palette chaude (ordre de Vial : aucun bleu ni teinte apparentée) et mise en page large
-       ":root{--fm-fond:#fbf6ee;--fm-encre:#2a211c;--fm-terre:#b4532a;--fm-ambre:#c9861a;--fm-olive:#5f7a35;"
-       "--fm-vin:#8a2c35;--fm-bord:#e7d9c6;--fm-menu:#2f221b;--fm-menu-txt:#f5e7d3}"
-       "html,body{background:var(--fm-fond)!important;color:var(--fm-encre)}"
-       "a{color:var(--fm-terre)}a:visited{color:var(--fm-vin)}"
-       "main,article,.wrap,.page,.contenu,body>section{max-width:none!important;width:auto!important}"
-       "body{margin:0!important;padding:0 2.4vw 3rem 312px!important;max-width:none!important}"
-       "main *:not(img):not(svg):not(video):not(image),article *:not(img):not(svg):not(video):not(image),body>section *:not(img):not(svg){max-width:none!important}"
-       "img,svg,video{max-width:100%!important;height:auto}"
-       "main,article{margin:0 auto!important;padding:1.2rem 0!important;max-width:min(1500px,100%)!important}"
-       "#brain-barre14{position:fixed!important;top:0!important;left:0!important;right:auto!important;bottom:0!important;width:276px!important;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:flex-start!important;gap:2px!important;overflow-y:auto!important;overflow-x:hidden!important;z-index:95!important;"
-       "background:var(--fm-menu)!important;color:var(--fm-menu-txt);padding:18px 12px 24px!important;box-shadow:2px 0 14px rgba(0,0,0,.22)!important}""#brain-barre14::before{content:\"Parties du cours\";font-weight:700;font-size:15px;margin:0 8px 12px;color:#f9d9a8}"
-                            "#brain-barre14 a{display:flex!important;gap:10px!important;align-items:center!important;padding:7px 10px!important;border-radius:9px!important;min-height:0!important;white-space:normal!important;"
-       "color:var(--fm-menu-txt)!important;background:transparent!important;text-decoration:none;font:500 14px/1.3 'Atkinson Hyperlegible',Verdana,sans-serif!important;outline:0!important}"
-       "#brain-barre14 a b{background:#e9a54b!important;color:#2f221b!important;min-width:24px!important;height:24px!important;border-radius:12px!important;font-size:12px!important}"
-       "#brain-barre14 a:hover,#brain-barre14 a:focus-visible{background:var(--fm-terre)!important;color:#fff!important}"
-                     "[id]{scroll-margin-top:14px}"
-       "table{border-collapse:collapse}th{background:var(--fm-terre)!important;color:#fff!important}"
-       "td,th{border-color:var(--fm-bord)!important}"
-       "h2{color:var(--fm-vin)}h3{color:var(--fm-terre)}"
-       "@media (max-width:900px){body{padding:64px 14px 3rem!important}"
-       "#brain-barre14{bottom:auto!important;right:0!important;width:auto!important;flex-direction:row!important;overflow-x:auto!important;padding:8px!important}"
-       "#brain-barre14::before{display:none}#brain-barre14 a{white-space:nowrap!important}}")
+# Feuille commune (ordre de Vial du 10.11.2026, révisé) : lisibilité d'abord — encre quasi noire sur blanc pur,
+# gras 700 nettement distinct, fonds chauds très pâles, accents chauds sombres (contraste AA), aucun bleu ni violet,
+# colonne de texte ≈ 60 % de la page centrée à droite d'un menu latéral clair. Aucun script.
+CSS_LISIBLE = """
+:root{--fm-fond:#fff;--fm-encre:#161616;--fm-noir:#000;--fm-doux:#4a3f38;--fm-terre:#a3431e;--fm-vin:#7c2431;
+--fm-ambre:#85560b;--fm-olive:#4d6524;--fm-bord:#e9dccb;--fm-pale:#fbf3e6;--fm-zebre:#fdf9f2;--fm-tete:#f5e6cf;
+--fm-menu:#faf6ef;--fm-menu-bord:#e4d5c0;--fm-menu-txt:#2b1f17;--fm-col:min(60vw,100%)}
+html,body,body *:not(code):not(pre):not(kbd):not(samp){font-family:'Atkinson Hyperlegible',Verdana,'Segoe UI',system-ui,sans-serif!important}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+html,body{background:var(--fm-fond)!important;color:var(--fm-encre)!important}
+body{margin:0!important;padding:0 24px 4rem 300px!important;max-width:none!important;width:auto!important;
+font-size:17px;font-weight:400;line-height:1.42!important;text-rendering:optimizeLegibility;font-kerning:normal}
+body>*:not(#brain-barre14):not([popover]):not(script):not(style){box-sizing:border-box;max-width:var(--fm-col)!important;
+width:auto!important;margin-left:auto!important;margin-right:auto!important}
+main,article,.wrap,.page,.contenu,.monographie,.monograph,body>section{max-width:none!important;width:auto!important;
+background:transparent!important;box-shadow:none!important}
+main,article{padding:1.4rem 0 2rem!important}
+img,svg,video{max-width:100%!important;height:auto}
+p,.p,li,dd,dt,blockquote,figcaption,caption,td,label{color:var(--fm-encre)!important}
+p,.p,li,dd,blockquote,.df{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+p,.p{margin:.4em 0!important}li{margin:.18em 0}ul,ol{padding-left:1.35em}
+b,strong{font-weight:700!important}
+p b,p strong,.p b,.p strong,li b,li strong,td b,td strong,dd b,dd strong,blockquote b{color:var(--fm-noir)!important}
+em,i{font-style:italic}
+h1,h2,h3,h4,h5,h6,td,th,caption,figcaption,nav li,.ls li{text-align:left;hyphens:manual}
+h1,h2,h3,h4,h5{font-weight:700!important;line-height:1.22;letter-spacing:-.005em}
+h1{color:#1c1410;font-size:2.05em;margin:.5em 0 .45em}
+h2{color:var(--fm-vin);font-size:1.5em;margin:1.5em 0 .5em;padding-bottom:.28em;border-bottom:2px solid var(--fm-bord)}
+h3{color:var(--fm-terre);font-size:1.22em;margin:1.25em 0 .4em}
+h4{color:var(--fm-ambre);font-size:1.06em;margin:1em 0 .3em}
+h5,h6{color:var(--fm-doux);font-size:1em;margin:.9em 0 .3em}
+a{color:var(--fm-terre);text-decoration-thickness:1px;text-underline-offset:2px}a:visited{color:var(--fm-vin)}
+a:hover{color:var(--fm-vin)}
+[id]{scroll-margin-top:16px}
+hr{border:0;border-top:1px solid var(--fm-bord);margin:1.4em 0}
+nav[aria-label="Plan"],nav[aria-label="Navigation"]{display:none!important}
+#brain-barre14{position:fixed!important;top:0!important;left:0!important;right:auto!important;bottom:0!important;width:268px!important;
+max-width:none!important;margin:0!important;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;
+align-items:stretch!important;justify-content:flex-start!important;gap:1px!important;overflow-y:auto!important;overflow-x:hidden!important;
+z-index:95!important;background:var(--fm-menu)!important;color:var(--fm-menu-txt)!important;padding:20px 12px 28px!important;
+border-right:1px solid var(--fm-menu-bord)!important;box-shadow:none!important;scrollbar-width:thin;scrollbar-color:#d9c6ab transparent}
+#brain-barre14::before{content:"Parties du cours";display:block;font:700 12px/1.2 'Atkinson Hyperlegible',Verdana,sans-serif;
+letter-spacing:.12em;text-transform:uppercase;color:var(--fm-vin);margin:0 10px 12px;padding-bottom:10px;border-bottom:2px solid #ead7bb}
+#brain-barre14 a{display:flex!important;flex:0 0 auto!important;gap:11px!important;align-items:center!important;padding:6px 10px 6px 8px!important;
+margin:0!important;border:0!important;border-left:3px solid transparent!important;border-radius:0 8px 8px 0!important;min-height:0!important;
+white-space:normal!important;color:var(--fm-menu-txt)!important;background:transparent!important;text-decoration:none!important;
+font:400 14.5px/1.28 'Atkinson Hyperlegible',Verdana,sans-serif!important;outline:0!important;box-shadow:none!important;text-align:left!important}
+#brain-barre14 a b{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 27px!important;
+width:27px!important;min-width:27px!important;height:27px!important;padding:0!important;margin:0!important;border-radius:50%!important;
+background:#f1e0c6!important;color:#6b3412!important;font:700 12px/1 'Atkinson Hyperlegible',Verdana,sans-serif!important;
+letter-spacing:-.03em!important;font-variant-numeric:tabular-nums;overflow:hidden;white-space:nowrap!important;box-shadow:inset 0 0 0 1px #e2c9a5}
+#brain-barre14 a:hover,#brain-barre14 a:focus-visible{background:#f3e5d1!important;border-left-color:var(--fm-terre)!important;color:#000!important}
+#brain-barre14 a:hover b,#brain-barre14 a:focus-visible b{background:var(--fm-terre)!important;color:#fff!important;box-shadow:none}
+#brain-barre14 a:focus-visible{outline:2px solid var(--fm-terre)!important;outline-offset:-2px!important}
+table{border-collapse:separate!important;border-spacing:0!important;width:100%;background:#fff!important;border:1px solid var(--fm-bord)!important;
+border-radius:10px;overflow:hidden;margin:.7em 0 1.1em;font-size:.95em;line-height:1.38}
+th{background:var(--fm-tete)!important;color:#2a160c!important;font-weight:700!important;text-align:left;vertical-align:bottom;
+padding:.55em .75em!important;border:0!important;border-bottom:2px solid #dcc09b!important;border-right:1px solid #ecdcc4!important}
+td{padding:.5em .75em!important;vertical-align:top;border:0!important;border-top:1px solid #efe4d5!important;border-right:1px solid #f3eadd!important}
+th:last-child,td:last-child{border-right:0!important}
+tr:first-child>td{border-top:0!important}
+tbody tr:nth-child(even)>td{background-color:var(--fm-zebre)}
+tbody tr:hover>td{background-color:#fbf0df}
+caption{caption-side:top;text-align:left;font-weight:700;color:var(--fm-vin)!important;padding:.2em 0 .5em}
+sup.r{line-height:0;white-space:nowrap}
+sup.r a,.r a{display:inline-block;font-size:.66em!important;line-height:1.25;font-weight:700;padding:0 .32em!important;margin-left:2px;
+border-radius:4px;background:#f6e9d8!important;color:#8d3816!important;text-decoration:none!important;vertical-align:.35em}
+sup.r a:hover,.r a:hover{background:var(--fm-terre)!important;color:#fff!important}
+.tm{color:#8a3512;border-bottom:1.5px dotted #c27a3a;text-decoration:none}
+.tm.med{background:#fbefe2!important;color:#7a2f12!important;border-bottom:1.5px solid #c46a35!important}
+.tm .df,.tm.med .df{background:#fffaf2!important;color:var(--fm-encre)!important;border:1px solid #e6d2b6!important;border-left:4px solid var(--fm-terre)!important;
+border-radius:10px!important;padding:10px 14px!important;box-shadow:0 14px 34px -10px rgba(70,38,14,.35)!important;line-height:1.45!important;
+font-size:.9em!important;font-weight:400!important;text-align:left!important}
+.tm .df *{color:inherit}
+.tm .df b,.tm .df strong{color:#000!important}
+.tm .df .tm{color:#8a3512!important}
+button.w{color:var(--fm-terre)!important;border-bottom:1.5px dotted var(--fm-terre)!important;cursor:pointer}
+button.w:hover{background:#fbefe2!important}
+[popover].fenetre,.fenetre{background:#fff!important;color:var(--fm-encre)!important;border:1px solid #e3cfb2!important;border-top:5px solid var(--fm-terre)!important;
+border-radius:14px!important;box-shadow:0 24px 60px -12px rgba(50,26,10,.45)!important;padding:18px 22px!important;line-height:1.45}
+.fenetre::backdrop{background:rgba(42,24,12,.32)!important}
+details{margin:.55em 0}
+details:not([class]){border:1px solid var(--fm-bord);border-radius:10px;background:var(--fm-pale);padding:.45em .95em}
+details:not([class])>summary{cursor:pointer;font-weight:700;color:var(--fm-vin)}
+details:not([class])[open]>summary{margin-bottom:.35em;padding-bottom:.35em;border-bottom:1px solid var(--fm-bord)}
+figure.cliche-guide,.cliche-guide{background:var(--fm-pale)!important;border:1px solid var(--fm-bord)!important;border-radius:12px!important;
+padding:12px 16px!important;margin:1em 0!important}
+.cliche-guide img{border-radius:8px;background:#fff}
+.cliche-guide figcaption{font-size:.88em!important;color:var(--fm-doux)!important;margin-top:.5em;line-height:1.38}
+blockquote{border-left:4px solid #e2bf8f;background:var(--fm-pale);margin:.8em 0;padding:.5em 1em;border-radius:0 8px 8px 0}
+.alert{background:#fdf1ec!important;border-left:4px solid var(--fm-vin)!important;color:var(--fm-encre)!important}
+.key{background:var(--fm-pale)!important;border-left:4px solid var(--fm-ambre)!important;color:var(--fm-encre)!important}
+@media (max-width:900px){
+:root{--fm-col:100%}
+body{padding:62px 16px 3rem!important;font-size:16.5px}
+#brain-barre14{bottom:auto!important;right:0!important;width:auto!important;height:auto!important;flex-direction:row!important;
+gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:8px 10px!important;border-right:0!important;
+border-bottom:1px solid var(--fm-menu-bord)!important;scrollbar-width:none}
+#brain-barre14::before{display:none}
+#brain-barre14 a{white-space:nowrap!important;border-left:0!important;border-radius:999px!important;padding:4px 12px 4px 4px!important;
+background:#fff!important;box-shadow:inset 0 0 0 1px var(--fm-menu-bord)!important;font-size:14px!important;gap:7px!important}
+#brain-barre14 a b{flex-basis:24px!important;width:24px!important;min-width:24px!important;height:24px!important;font-size:11px!important}
+[id]{scroll-margin-top:66px}
+table{font-size:.9em}}
+@media print{#brain-barre14{display:none!important}body{padding:0!important}body>*{max-width:none!important}}
+"""
+CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css">'  # aucun script : contrat C_script_interdit  # feuille partagée : ~70 octets par leçon
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>', re.S)
 PROTEGES = re.compile(r'(<(script|style|pre|svg|textarea)\b.*?</\2>)', re.S | re.I)
@@ -73,12 +149,15 @@ RE_RGB = re.compile(r'rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)((?:[,\s/]+[\d.]+%?)?
 
 
 def chaud(r, g, b):
-    """Teinte bleue à violette (165–305°) → terre cuite à ambre (14–40°), luminosité et saturation gardées."""
+    """Sarcelle (150–178°) → olive ; bleu à violet (178–305°) → terre cuite à ambre (14–40°) ; luminosité gardée."""
     h, l, s = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
     deg = h * 360
-    if s < 0.12 or not 165 <= deg <= 305:
+    if s < 0.12 or not 150 <= deg <= 305:
         return None
-    nh = (14 + (deg - 165) / 140 * 26) / 360
+    if deg < 178:  # vert d'eau, sarcelle → olive (aucune teinte apparentée au bleu)
+        r2, g2, b2 = colorsys.hls_to_rgb(84 / 360, l, min(0.6, s))
+        return round(r2 * 255), round(g2 * 255), round(b2 * 255)
+    nh = (14 + (deg - 178) / 127 * 26) / 360
     r2, g2, b2 = colorsys.hls_to_rgb(nh, l, min(0.78, max(s, 0.35)))
     return round(r2 * 255), round(g2 * 255), round(b2 * 255)
 
@@ -148,8 +227,70 @@ def ajouter_menu(h):
     return re.sub(r'(<body\b[^>]*>)', lambda m: m.group(1) + nav, h2, count=1)
 
 
+def _fin_bloc(h, debut, nom):
+    """Position juste après la balise fermante appariée de <nom> ouverte en `debut` (imbrication comprise)."""
+    prof = 0
+    for m in re.finditer(rf'<(/?){nom}\b[^>]*>', h[debut:], re.I):
+        prof += -1 if m.group(1) else 1
+        if prof == 0:
+            return debut + m.end()
+    return -1
+
+
+def retirer_sommaire(h):
+    """Ordre de Vial : aucun sommaire interne en boutons ou pastilles en haut du cours ; seul le menu latéral reste.
+    Repère, avant le corps du cours, un bloc nav/div/ul/ol/p fait presque uniquement de liens internes vers les parties.
+    Les liens qu'il est seul à porter (Bloc 2, Tableau, Algorithme…) rejoignent le menu latéral avant d'être retirés."""
+    mm = re.search(r'<nav id="brain-barre14".*?</nav>', h, re.S)
+    if not mm:
+        return h
+    lim = re.search(r'id="[\w-]*p2"', h[mm.end():])
+    limite = mm.end() + (lim.start() if lim else len(h) * 3 // 10)
+    pos = mm.end()
+    while True:
+        m = re.compile(r'<(nav|div|ul|ol|p)\b([^>]*)>', re.I).search(h, pos, limite)
+        if not m:
+            return h
+        nom = m.group(1).lower()
+        fin = _fin_bloc(h, m.start(), nom)
+        if fin < 0:
+            pos = m.end(); continue
+        bloc = h[m.start():fin]
+        liens = re.findall(r'<a\b[^>]*href="#([^"]+)"[^>]*>(.*?)</a>', bloc, re.S)
+        hors = re.sub(r'<a\b.*?</a>', '', bloc, flags=re.S)
+        hors = re.sub(r'<[^>]+>', '', hors)
+        hors = re.sub(r'[\s·•|,;–—\-/]+', '', hors)
+        if (len(liens) >= 5 and len(hors) <= 15 and 'class="r"' not in bloc and 'class="tm' not in bloc
+                and all(re.search(rf'id="{re.escape(i)}"', h) for i, _ in liens)):
+            menu = mm.group(0)
+            if len(re.findall(r'<a\b', menu)) < 6:  # menu construit faute de mieux : on le refait depuis le sommaire
+                menu = re.sub(r'<a\b.*?</a>', '', menu, flags=re.S)
+            deja = set(re.findall(r'href="#([^"]+)"', menu))
+            ajout = ''
+            for i, txt in liens:
+                if i in deja or (re.sub(r'<[^>]+>', '', txt).strip().lower().startswith('source') and '<b>§</b>' in menu):
+                    continue
+                lib = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', txt)).strip()
+                t = re.search(rf'<(h[1-4])\b[^>]*id="{re.escape(i)}"[^>]*>(.*?)</\1>', h, re.S)
+                if t:
+                    lib = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', t.group(2))).strip() or lib
+                num = re.match(r'(\d{1,2})[.)]?\s+', lib)
+                marque = num.group(1) if num else ('§' if lib.lower().startswith(('source', 'bibli', 'référ')) else '◆')
+                lib = lib[num.end():] if num else lib
+                ajout += f'<a href="#{i}"><b>{marque}</b>{lib}</a>'
+                deja.add(i)
+            if ajout:
+                k = menu.rfind('<a href="#', 0, menu.rfind('</nav>'))
+                dernier_src = re.search(r'<b>§</b>', menu[k:])
+                pos_ins = k if dernier_src else menu.rfind('</nav>')
+                menu = menu[:pos_ins] + ajout + menu[pos_ins:]
+            h = h[:mm.start()] + menu + h[mm.end():m.start()] + h[fin:]
+            return retirer_sommaire(h)
+        pos = m.end()
+
+
 def corriger(h):
-    h = RE_BLOC.sub('', h)
+    h = retirer_sommaire(ajouter_menu(RE_BLOC.sub('', h)))
     parts = PROTEGES.split(h)
     out = []
     i = 0
@@ -159,7 +300,7 @@ def corriger(h):
             out.append(parts[i + 1])  # bloc protégé intact
         i += 3
     h = ''.join(out)
-    h = recolorer(ajouter_menu(h))
+    h = recolorer(h)
     if '</head>' in h:
         h = h.replace('</head>', BLOC + '</head>', 1)
     else:
