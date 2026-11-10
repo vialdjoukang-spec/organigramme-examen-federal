@@ -20,13 +20,15 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
 5. **Déficits (µ3, 14 points).** Compare la leçon au tableau des 14 points de `PROMPT_Casern/PROMPT_LOTS_Lo_9.11.26.claude.md`
    (µ3). Ajoute en quelques phrases sourcées ce qui manque, par exemple 9.c alternatives, 11.A but chiffré, une fenêtre
    « Urgence » ou un tableau obligatoire. Une source nouvelle doit être lue, puis ajoutée à la bibliographie.
-6. **Images (µ6).** Choisis une à trois images utiles à cette leçon : imagerie, photographie clinique ou schéma.
-   - Lance `python3 outils/images.py --lot Claude/LOT_XXX --besoins <besoins.json>` (requête anglaise précise).
-   - Regarde les candidats avec l'outil Read, puis garde uniquement les images à licence libre (CC0, CC BY, CC BY-SA), pertinentes et
-     sans identifiant de patient.
-   - Insère chaque image au point voulu : `<figure><img src="images/<fichier>" alt="…"><figcaption>légende française —
-     auteur, licence, URL</figcaption></figure>`. Le chemin est relatif au dossier du LOT.
-   - Si aucune image ne convient, donne un lien de cas en fenêtre (Radiopaedia, Eurorad…).
+6. **Images (µ6 v2, `PROMPT_Casern/PROMPT_LOTS_Lo_10.11.26.claude.md` sur la branche claude/prompt-lo-images, PR #601).**
+   Une image est un objet d'enseignement, jamais une décoration. Couverture : au point 9, le cliché de la modalité décisive ;
+   au point 6, le signe visible quand il existe.
+   - Cherche : `python3 /home/user/organigramme-examen-federal/Claude/_outils/cliche.py chercher "<requête anglaise>"`.
+   - Prends : `... cliche.py prendre "File:…" --lot Claude/LOT_XXX` (licence vérifiée, WebP, reprise sur 429).
+   - Regarde l'image avec Read. Vérifie la modalité et la présence réelle du signe, puis place 1 à 4 repères en % (x, y).
+   - Compose : `... cliche.py figure --meta Claude/LOT_XXX/images/<nom>.json --titre … --cliche "<modalité, incidence…>"
+     --reperes '[[x,y,"lecture du repère"],…]' --pieges '["…"]' --decision "<conduite>"`, puis colle le bloc dans le point.
+   - Remplace toute figure déjà présente sans lecture guidée par ce format.
 7. Relance `controle3` jusqu'au **VERT**.
 
 Rapport en 5 lignes au plus : verdict, octets, déficits complétés, images insérées, faits retirés (aucun, idéalement).
