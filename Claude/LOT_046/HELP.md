@@ -4,21 +4,22 @@
 
 - ESC 2025 myocardite et péricardite (doi 10.1093/eurheartj/ehaf192) : texte intégral inaccessible (OUP 403, aucune copie en dépôt lisible). La tamponnade s'appuie donc sur ESC/ERS 2019 (échocardiographie dans le choc) et ESC 2023 (complication mécanique, échocardiographie immédiate). À compléter par la lecture de l'ESC 2025.
 - ESC 2023 SCA et ESC/ERS 2019 EP : lus via copies de dépôt institutionnel (orbi.uliege.be), mise en page à deux colonnes ; certains chiffres de tableaux sont fusionnés par l'extraction et n'ont pas été cités. La troponine hs 0 h/1 h n'est pas détaillée (valeurs seuils non citées).
-- Sans AIPS lisible dans le paquet : amoxicilline, amoxicilline-clavulanate (classe et conduite sans milligramme), ipratropium seul (seul l'Ipramol Steri-Nebs, association, est lisible), sulfate de magnésium IV (dose HUG non reportée), héparine non fractionnée (aucune dose), énoxaparine à dose curative dans l'EP.
-- Doses HUG exprimées en lettres (prednisone asthme, rythme de 20 minutes) car l'extrait HUG colle les nombres aux unités ; à reprendre si l'extraction change.
+- Sans AIPS lisible dans le paquet : ipratropium seul (seul l'Ipramol Steri-Nebs, association, est lisible), sulfate de magnésium IV (dose HUG non reportée), héparine non fractionnée (aucune dose), énoxaparine à dose curative dans l'EP. Amoxicilline et doxycycline : monopréparations HAM (Amoxi-Mepha 44911, Doxyclin 44000) présentes dans la liste HAM ; le texte ne dose pas ces antibiotiques ; à verser par `prep --ajouter --autorisation` si la rédaction est reprise.
+- Doses en lettres : corrigées après audit P3 (chiffres de l'extrait AIPS ou HUG, ou suppression de la dose ipratropium-salbutamol sans AIPS).
 - Volet assurances sociales (LAMal, LAA, LAI, incapacité de travail) : aucune source suisse lue dans le paquet ; seul le certificat d'incapacité de travail de SESAM 2 est cité.
 - Épidémiologie suisse propre à la dyspnée (OFS, Obsan) : non trouvée dans le paquet ; données suisses indirectes (HUG pneumonie, TVP, RMS 2020).
 - Pneumothorax : seul le résumé de la recommandation ERS/EACTS/ESTS 2024 est lu (pas le texte intégral) ; signes cliniques non cités.
 - Ajouts hors urls.txt initial : orbi.uliege.be ehad191 (ESC 2023), orbi.uliege.be ehz405 (ESC/ERS 2019), iris.univpm.it all.15032 (EAACI 2021), PMC11343900 (consensus crises hyperglycémiques 2024, ADA/EASD/JBDS/AACE/DDG, source européenne partielle pour la respiration de Kussmaul).
 - AIPS ajoutés à la main au paquet (nom de marque sans DCI HAM) : Ventolin 37397, Epipen 53836, Aspirine Cardio 51795, Nitrolingual 40558.
+- Après audit P3 : seuils BNP/NT-proBNP non aigus (35 et 125) retirés du contexte aigu ; les seuils aigus de l'ESC 2026 de l'insuffisance cardiaque (doi 10.1093/eurheartj/ehag100) n'ont pas été lus (texte OUP 403, seule la page de présentation escardio.org est lisible) : aucun seuil chiffré n'est donné dans la PA.
+- Reperfusion de l'embolie pulmonaire à haut risque (points 10 et 11) : ESC/ERS 2019 recommandation 6.6, extrait wa6f758-175 (thrombolyse systémique classe I niveau B ; embolectomie chirurgicale si thrombolyse contre-indiquée ou échouée). Aucune ESC EP 2026 trouvée.
+- Non traités faute de source lisible : décompression immédiate du pneumothorax compressif ; oxygène contrôlé 88 à 92 % dans la BPCO hypercapnique (point 10 de la PA). Fibrillation auriculaire : HUG 2023 antérieure à l'ESC 2024 (LV8), non revérifiée.
+- Phrases en lettres non signalées par l'audit (âges, durées, épidémiologie : « quatre pour cent », « soixante-cinq ans », etc.) laissées en l'état (passage unique).
 
 ## DX.1
 
-Molécules sans AIPS lisible dans le paquet (classe et conduite sans milligramme dans le corps du texte) :
-- Amoxicilline orale adulte : aucun document AIPS pour adulte (seules des suspensions pédiatriques ont été trouvées, Amoxicilline axapharm 66553, Co-Amoxicilline Spirig HC 66429 et Devatis 67383). La dose « 1 g trois fois par jour » est citée de la stratégie genevoise (HUG 2024), non de l'AIPS.
-- Doxycycline : aucun document AIPS ; mentionnée sans dose (alternative en cas d'allergie sévère, stratégie HUG 2024).
-- Méthylprednisolone, prednisone, nirmatrelvir-ritonavir, baloxavir : pas de dose dans le texte ; décision hospitalière ou stratégie HUG.
-- Lévofloxacine orale : seul l'AIPS i.v. (Levofloxacin Fresenius 62207) est lisible.
+Molécules versées au paquet après audit P3 (monopréparations HAM) : Amoxi-Mepha 44911 (AIPS adulte : 1500 à 3000 mg par jour en 3 à 4 doses, ligne ajoutée au tableau du point 11), doxycycline Doxyclin 44000, lévofloxacine orale Tavanic 54365. Amoxicillin Sandoz 49924 : absent du zip AIPS. Doxycycline et lévofloxacine orale restent sans dose dans le texte (stratégie HUG) ; à compléter si la rédaction est reprise.
+Sans dose dans le texte : méthylprednisone, prednisone, nirmatrelvir-ritonavir, baloxavir (décision hospitalière ou stratégie HUG). Corticoïdes de la PAC sévère : version ERS/ESICM/ESCMID/ALAT 2023 non revérifiée face aux données postérieures.
 
 Lacunes de source (affirmations générales non adossées à un extrait précis) :
 - Valeurs de référence SI du tableau 9 (saturation au moins 95 %, PaO2 environ 10 à 13 kPa, urée 2,5 à 7,5 mmol/l, CRP moins de 5 mg/L) : valeurs de laboratoire usuelles, non lues dans une source du paquet ; à vérifier selon le laboratoire.
@@ -30,18 +31,18 @@ Lacunes de source (affirmations générales non adossées à un extrait précis)
 ## DX.2
 - Texte intégral ESC 2021 et mise à jour 2023 non lisible (OUP/Wiley 403, ACC en maintenance) : seules les références PubMed sont citées ; classes et niveaux de preuve viennent de PMC10290873 (EHJ 2023, grand débat) et de revues secondaires (PMC9917599, PMC7835610, Rev Med Liège 2024). À relire sur le texte ESC.
 - Aucune recommandation suisse dédiée à l'insuffisance cardiaque aiguë trouvée (la stratégie HUG 2022 traite l'IC chronique). Aucune donnée OFS/Obsan spécifique à l'IC (OFS : maladies cardiovasculaires en bloc).
-- Molécules sans AIPS lisible pour l'usage aigu : noradrénaline (seule la présentation péri-opératoire existe), morphine (sans dose, non recommandée en routine), bumétanide, milrinone, lévosimendan ; bisoprolol non cité. Diamox AIPS : œdèmes 5 mg/kg, sans indication explicite d'IC aiguë ; le protocole ADVOR (500 mg/j) n'est pas dans l'AIPS.
+- Monopréparations HAM versées au paquet après audit P3 : noradrénaline Sintetica 60955, morphine Sintetica 51039, bisoprolol Concor 47311 (le texte ne les dose pas ; la noradrénaline reste citée sans dose, w4856f7-58). Sans AIPS : bumétanide ; milrinone (59467) et lévosimendan (Simdax 62463) existent dans la liste HAM mais n'ont pas été versés. Diamox AIPS : œdèmes 5 mg/kg, sans indication explicite d'IC aiguë ; le protocole ADVOR (500 mg/j) n'est pas dans l'AIPS.
 - Volet assurances (LAMal, forfaits, réadaptation cardiaque) : aucune source lue.
 - 3CPO : l'ID PubMed 18480196 était erroné (aprotinine) ; la bonne référence est 18614781.
+- ESC 2026 insuffisance cardiaque (doi 10.1093/eurheartj/ehag100, Eur Heart J 2026;47(38):5346) : le texte intégral n'a PAS été lu (OUP 403 ; PubMed ne donne que les métadonnées) ; seule la page de présentation escardio.org est lue (w529782-12, -13 : classification de la FEVG affinée, classification par stades, nomenclature des traitements révisée, indications actualisées). La nouvelle classification de la FEVG n'a donc pas pu être reportée : la classe « discrètement diminuée » 41 à 49 % a été retirée du texte (points 1 et 8) et la classification HUG 2022 est présentée comme antérieure à l'ESC 2026. Les classes de recommandation ESC 2021 citées au point 11 restent issues de revues secondaires et peuvent avoir changé. Le seuil d'inclusion NT-proBNP selon l'âge et la terminologie « décompensée » vs « aiguë » de l'ESC 2026 n'ont pas pu être vérifiés.
+- Contre-indications recopiées de l'AIPS pour torasémide, spironolactone, dobutamine, furosémide, dapagliflozine, empagliflozine ; nitrates : la revue belge est citée comme telle (l'ESC 2021 les classe IIb).
+- Néphropathie au contraste et prémédication « allergie à l'iode » : définitions éventuellement anciennes, non retravaillées (passage unique).
 
 ## DX.3
 
-Molécules sans AIPS lisible ou sans posologie de l'exacerbation (classe et conduite sans milligramme dans le HTML) :
-- Salbutamol inhalé (Ventolin dosieraerosol) : seule la forme injectable Ventolin (Swissmedic 44397) est lisible ; première ligne de l'exacerbation sans AIPS.
-- Prednisone Galepharm (69640) : AIPS sans dose BPCO ; dose standard HUG/GOLD non reproduite, durée 5 jours citée.
-- Amoxicilline-clavulanate adulte : AIPS lu = suspensions pédiatriques (66429) ; dose adulte HUG non reproduite.
-- Céfuroxime, lévofloxacine, azithromycine : pas d'AIPS lu ; doses non reproduites.
-- Doxycline (44000) : dose non lue.
+Molécules versées au paquet après audit P3 : salbutamol inhalé Ventolin nébuliseur-doseur 54320 (aips-37397-3, -43), Augmentin 45674 (aips-45674-4), doxycycline Doxyclin 44000 (aips-44000-8), Tavanic 54365 (aips-54365-5, 500 mg 1 fois par 24 h pour 7 à 10 jours dans l'exacerbation de bronchite chronique ; la stratégie HUG propose 500 mg 2 fois par jour : l'AIPS prime), amoxicilline Amoxi-Mepha 44911, prednisone Galepharm 69640 (5 à 60 mg par jour ; 40 mg pendant 5 jours selon HUG et GOLD, dans la fourchette).
+Sans dose AIPS dans le texte : céfuroxime orale (HUG seulement, aucun AIPS adulte oral versé), azithromycine, doxycycline pour l'exacerbation (l'AIPS Doxyclin donne la dose générale, non propre à la BPCO).
+Seuils BNP : seuils non aigus (35 et 125) retirés du contexte aigu ; seuils aigus de l'ESC non lus dans le paquet DX.3 (ESC 2026 non lisible, voir HELP DX.2).
 Lacunes de sources : épidémiologie suisse spécifique de l'exacerbation (OFS/Obsan, Ligue pulmonaire suisse bloquée par Cloudflare) ; alternatives au scanner (grossesse, DFGe, allergie iode) rédigées sans chiffre ni source ; techniques de palpation/percussion et plusieurs phrases mécanistes (point 6, 7) non citées.
 
 ## DX.4
@@ -55,7 +56,6 @@ Lacunes à traiter par le chef de production ou un autre rédacteur (aucune form
 5. Recommandations suisses de la Société suisse de pneumologie (Respiration 2018, PMID 29614508) : seul le résumé PubMed est lisible (karger.com renvoie 403) ; le texte de la crise est repris des HUG 2026 et de la GINA.
 6. GINA : rapport 2026 (mai 2026) lu en texte intégral (chap. 9 et introduction, extraits `gina26ch9-*`, `gina26intro-*`) et Summary Guide 2025 (`wfebf77-*`). Le rapport complet 2026 n'est pas rapatrié par le paquet (17 Mo) : il a été converti localement avec pdftotext puis réinjecté sous l'URL officielle.
 7. Embolie pulmonaire et syndrome coronarien aigu : le point 4 les cite comme diagnostics graves à exclure ; leur critère décisif n'est sourcé qu'indirectement (HUG TVP/IC). Les LOT dédiés (DX.6, DX.8) portent le détail.
-
 8. Extrait HUG w11618b-23 : « 10-15min » et « 5jours » (nombres collés aux unités) échappent au contrôle ; la durée du test de réversibilité et des 5 jours de DEP n'est donc pas reprise dans le cours (seuils de 10 % et 20 % cités).
 
 ## DX.5
@@ -116,6 +116,11 @@ Lacunes de sources (aucune phrase n'a été écrite sans extrait) :
 - Divergence assumée : Clexane (AIPS) recommande l'HNF en cas d'EP sans TVP clinique, l'ESC 2019 préfère HBPM ou fondaparinux ;
   le cours suit l'AIPS et cite l'ESC comme divergente.
 
+## Mise à jour après correction (2026-11-10)
+- Pradaxa (61385), Arixtra (55937), noradrénaline (Noradrenalin Sintetica 67023) et dobutamine (Dobutrex 45687) ont une AIPS lue : la rubrique « sans AIPS » ci-dessus est caduque. Doses citées : Pradaxa 150 mg deux fois par jour après au moins 5 jours d'héparine, Arixtra 7,5/5/10 mg selon le poids, noradrénaline 8 à 12 µg/min (70 kg), dobutamine 2,5 à 10 µg/kg/min.
+- LV8 : la grossesse (9.c, 11) cite l'ESC 2019 ; les ESC 2025 « maladies cardiovasculaires et grossesse » (chapitre TEV), plus récentes, restent à lire.
+- Le contrôle de nombres (controle3) ne lit pas les extraits OCR où les colonnes sont collées (« >_75 », « e8.5 », « 370 … 000 », tableau « 0 0.35 0.21 ») : 10 phrases (370 000 décès, 8,5 milliards, 80 ans et plus, 75 ans et plus, 6 semaines post-partum, 0,35 % et 7,56 %) restent A_nombre_absent_de_l_extrait alors que les chiffres figurent bien dans l'extrait cité.
+
 ## DX.9
 - Prednisolone, rituximab (anémie hémolytique auto-immune) : aucune information professionnelle AIPS lue ; le cours donne la posologie de la revue Mulder 2023 (PMC10545865) en toutes lettres, sans milligramme, et sans dose de rituximab.
 - Fumarate ferreux, acide folinique (Leucovorin) : pas de monopréparation AIPS lue ; mentionnés sans dose (HUG 2022).
@@ -124,8 +129,18 @@ Lacunes de sources (aucune phrase n'a été écrite sans extrait) :
 - Épidémiologie suisse chiffrée limitée à HUG 2022 (recrues, 7 %) ; aucune donnée OFS/Obsan sur l'anémie lue.
 - Folates plasmatiques : seuils HUG illisibles dans l'extraction PDF (figure 2) ; non chiffrés dans le cours.
 
+## Mise à jour après correction (2026-11-10)
+- Prednisolone Streuli (29348) et MabThera (54378) ont une AIPS lue : prednisolone autorisée dans l'anémie hémolytique auto-immune (5 à 60 mg/j, doses plus élevées possibles à court terme) ; rituximab sans indication suisse dans l'AHAI (indications lues : lymphomes, LLC, PR, vascularites, pemphigus). Les doses HUG de B12 et d'acide folique en toutes lettres ont été remplacées par les doses AIPS (Vitarubine, Vitarubine Oral, Acidum folicum 5 mg).
+- Seuil d'anémie de la grossesse (OMS/HUG) absent des points 8-9 : à sourcer (non fait, aucune source lue).
+- Maltofer (30124) et Leucovorin (48033, 58499) : AIPS présentes dans le corpus, non versées dans ce passage de correction.
+
 ## DX.10
 - Aucune recommandation suisse spécifique du pneumothorax (société suisse ou HUG) n'a été trouvée : base lausannoise (RMS 2023), ERS/EACTS/ESTS 2024, BTS 2023.
 - Oxygène, opioïdes, AINS, talc : aucune monopréparation AIPS lue ; classe et conduite sans milligramme.
 - Règles d'assurance / arrêt de travail : aucune source lue.
 - Lidocaïne Streuli (30015) et Dafalgan 500 mg (69266) lus dans l'AIPS ; Comboval (69568) présent dans le paquet par erreur de filtre, non cité.
+
+## Mise à jour après correction (2026-11-10)
+- Morphini HCl Streuli (56554) et Brufen (45031) : AIPS lues et citées (morphine i.v. 2 à 10 mg à 10 mg/min, i.m./s.c. 5 à 10 mg, maximum 30 mg toutes les 4 à 6 h, grossesse et allaitement ; ibuprofène dose la plus faible, maximum 2400 mg/j, grossesse). Morphine 56560 : aucune information professionnelle dans le corpus (seule 56554 versée). Oxygène médical et talc : aucune FI ; le cours le dit sans dose.
+- Imagerie chez la femme enceinte : aucune source lue ne la fixe ; la phrase de lacune a été retirée.
+- Point 4.a : le syndrome coronarien aigu est conservé en tête, mais l'ordre n'est plus justifié par un mécanisme non sourcé ; seule la liste des différentiels de la RMS (wfad2fa-13) est citée (la version d'audit « pneumothorax sous tension en premier » aurait fait de « ces deux diagnostics » un renvoi erroné ; la tension est déjà traitée au paragraphe suivant, avec « avant toute imagerie » cité de wf36769-4).
