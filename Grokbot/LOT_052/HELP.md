@@ -16,3 +16,6 @@ Mise à jour : 2026-11-10, correction de la Phase A.
 - Passage fix052b : StatPearls « Embryology, Bowel » (NBK545247) refuse curl et la lecture web ; la limite embryologique est sourcée par TeachMeAnatomy (extrait dans `_travail/evidence/teachmeanatomy_ams.txt`). À remplacer par une source suisse ou un manuel si l'audit l'exige.
 - Aucun extrait ne soutient Buscopan® en aigu ; il n'est pas cité.
 - L'échographie d'AAA n'a pas d'échelle : aucun diamètre n'est donné.
+- Passage fix052c : aucun extrait accessible de Larsen, Moore ou Langman n'a été trouvé. L'embryologie reste sourcée par TeachMeAnatomy, une citation par phrase : artère mésentérique supérieure, artère mésentérique inférieure et canal anal (ligne pectinée).
+- Aucun extrait ne donne l'admission LAMal de la morphine ; rien n'est affirmé.
+- Le seuil de l'AAA vient de deux articles de la Revue médicale suisse (2012, 2004), pas de l'ESC.
