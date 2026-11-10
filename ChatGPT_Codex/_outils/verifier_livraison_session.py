@@ -51,6 +51,13 @@ def main():
         if manifest.get(name) != {k: row[k] for k in ('octets', 'sha256')}:
             row['erreurs'].append('Manifeste différent des octets courants')
         text = raw.decode('utf-8')
+        question = 'Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?'
+        row['question_finale_occurrences'] = text.count(question)
+        row['ligne_max'] = max(map(len, text.splitlines()), default=0)
+        if row['question_finale_occurrences'] != 1:
+            row['erreurs'].append('Question finale littérale absente ou répétée')
+        if row['ligne_max'] > 3000:
+            row['erreurs'].append('Ligne dépassant 3000 caractères')
         nav = Navigation()
         nav.feed(text)
         duplicates = [key for key, n in Counter(nav.ids).items() if n > 1]
@@ -62,7 +69,7 @@ def main():
         points = [i for i in nav.sections if i.rsplit('-p', 1)[-1].isdigit()]
         if len(points) != 14 or {int(i.rsplit('-p', 1)[-1]) for i in points} != set(range(1, 15)):
             row['erreurs'].append('Les quatorze sections ne sont pas identifiées')
-        if f'<!-- FIN_FICHIER {p.stem} -->' not in text:
+        if not text.rstrip().endswith(f'<!-- FIN_FICHIER {p.stem} -->'):
             row['erreurs'].append('Marqueur FIN_FICHIER absent ou incohérent')
         rows.append(row)
     report = {'lot': lot, 'controle': 'Octets, manifeste, structure et renvois seulement ; P2, P3 et CI restent distincts.',
