@@ -44,6 +44,7 @@ Verdon 2008 (Swiss Med Wkly), Revue Médicale Suisse 2007 et 2025, HUG (douleur 
 9. D-dimères : la restriction « n'exclut l'embolie pulmonaire qu'en probabilité faible ou intermédiaire » provient d'ESC/ERS 2019 (Eur Heart J 2020;41:543), §4.4 lu par l'audit ; le paquet ne contient que le résumé PubMed (wf4ca70-1). À renforcer par le texte intégral. Unité du seuil 500 (µg/l FEU selon la méthode) non lue dans une source du paquet.
 10. Oxygène : l'extrait du protocole HUG SMUR 2023 (w8db60a-1) porte « O2 si FiO2 < 90 % » ; la correction demandée (saturation inférieure à 90 %) est écrite telle quelle ; coquille probable de la source (FiO2 pour SpO2).
 11. Ergométrie : la ligne de sensibilité/spécificité provient de l'atelier HUG 2007 (périmé, LV8), maintenue avec la mention « ancien atelier » ; à remplacer par ESC 2024 SCC (paquet DX.3).
+- Traitements de seconde ligne des symptômes récalcitrants (physiothérapie, acupuncture, infiltration) : seule une revue américaine (AAFP 2021) les décrit ; retirés du cours, à resourcer en Suisse/Europe.
 
 ## DX.2
 
