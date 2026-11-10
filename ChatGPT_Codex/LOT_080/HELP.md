@@ -1,3 +1,11 @@
+## Résultat complémentaire DX5
+
+DX5 reste à48/54=88,89%, finale non après seconde contrelecture. Les items Q1a, Q2a, Q3a, Q7a, Q11g et Q12a restent partiels. Le contrôle déterministe est VERT ; aucun critique/grave résiduel. Rapport : audits/LOT_080_Phase_B_V0_DX.5.html.audit.json. Aucun complément n’est présenté comme validé.
+
+# État courant — LOT080 non livré
+
+DX6 a reçu deux évaluations défavorables ; son dernier score est48/56=85,71%, finale non, zéro critique et zéro grave résiduel. Θ2 impose REFUSE et passage àLOT081. Les onze leçons restent poussées. Le rapport P3 précise les lacunes restantes des points3,6,7,9 et11 ; aucun succès P4 ni livraison n’est revendiqué.
+
 # État actualisé — reprise active
 
 La liste canonique a franchi P1. La Phase A a franchi P3 (92,59 %, finale oui). Les mentions de blocage P1 ci-dessous décrivent la première tentative et sont conservées comme historique. Les onze HTML ont été poussés. Neuf leçons ont une contrelecture P3 validée sur leur empreinte actuelle ; les corrections de DX5 et DX6 sont en cours.

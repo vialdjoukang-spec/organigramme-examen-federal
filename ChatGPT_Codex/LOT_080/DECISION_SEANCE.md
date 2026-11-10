@@ -13,3 +13,9 @@ La consigne ultérieure demande de continuer jusqu’à la fin des LOTs. Les con
 ## État courant après reprise
 
 La liste est gelée après P1 indépendante. Les onze leçons sont poussées ; neuf contrelectures P3 sont validées sur leurs empreintes actuelles. DX5 et DX6 reçoivent les corrections précises de leurs audits. Les dépôts individuels ci-dessus sont historiques ; le MANIFESTE et les rapports nommés selon les HTML portent les versions actuelles. Vial a confirmé le droit de fusion dès CI verte.
+
+## Décision après seconde évaluation de DX6
+
+Application de Θ2 : DX6 reçoit REFUSE (48/56=85,71%, finale non). Les onze leçons sont conservées sur la branche poussée ; LOT080 n’est pas livré. La file passe au LOT081. Rapport : audits/LOT_080_Phase_B_V0_DX.6.html.audit.json.
+
+DX5 également REFUSE : seconde contrelecture48/54=88,89%, finale non, aucun défaut critique/grave résiduel. Neuf leçons suronze franchissent P3 ; aucune PR de livraison n’est ouverte pour ce LOT.
