@@ -7,3 +7,7 @@
 - Remboursement LAMal des IPP / limitation éventuelle : non lu ; seule la catégorie de remise B de l'AIPS est citée.
 - Les points 6 (technique d'examen) et 4.a (graves) contiennent des énoncés d'enseignement classique non chiffrés et non cités (technique de palpation, auscultation) ; ils ne contiennent aucun nombre.
 - Passages PMC4993964 et PMC7129248 (urls.txt PA, hémoptysie / infections respiratoires basses) non utilisés dans cette leçon.
+
+## Mise à jour après correction (P3)
+- AIPS rapatriées : Pantozol 52710 / 58661, Pantoprazol-Mepha 59834, Gaviscon 62887, Nexium i.v. 56730 : doses du pantoprazole et du Gaviscon désormais citées. Oméprazole : aucune AIPS lue, non cité. L'affirmation « aucun document apparié » ci-dessus est périmée.
+- Source suisse de prise en charge (RMS 932, 2025) toujours non lue en texte intégral ; ERS 2020 : version plus récente non vérifiée.
