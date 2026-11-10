@@ -36,3 +36,13 @@ Ordre de Vial (« Tu dois corriger ») : la Phase A est réécrite par Grok Bot 
 - Embryologie : limites d'après TeachMeAnatomy (artère mésentérique supérieure) ; règle clinique d'après Sinz 2021. StatPearls (NBK545247) bloque la lecture automatique.
 - Images : fiche 1 = échographie axiale d'AAA, Mikael Häggström, CC0, sans échelle donc sans diamètre ; fiche 2 = Rhodes. Attribution complète dans chaque légende.
 - La question finale garde la formulation imposée par le prompt de Lo (ligne 24), qui contient « fenêtres » ; c'est la seule occurrence.
+
+## Passage fix052c — 2026-11-10
+
+- E1 = hernie étranglée ou occlusion avec signes d'ischémie (défense, lactates, syndrome inflammatoire ; HUG 2017, diapositives 8 et 14). L'occlusion simple est une urgence chirurgicale hospitalisée le jour même, sans rang E (RMS 2010, texte et figure 2).
+- AAA : seuil d'après Ponti et coll., RMS 2012 (valeurs normales de 1,4 à 3 cm), et Righini, RMS 2004 (AAA > 3 cm ; mesurer aussi le chenal persistant). Aucune source ESC n'est citée. L'image mesurée de l'auteur ne porte aucune valeur : aucun diamètre n'est lu sur l'image.
+- GEU : l'image CC0 « Blob sign of ectopic pregnancy » porte les légendes anglaises de l'auteur ; aucune version sans légende n'existe. Elle est présentée comme original légendé, puis annotée en français.
+- GEU, conduite : β-HCG positive → urgences de gynécologie (HUG 2018, fidèle à l'extrait) ; en choc, GEU rompue = urgence vitale, ambulance médicalisée (RMS 2010, extraits 16 et 17).
+- Morphine : dose de l'AIPS Morphin HCl Sintetica (Swissmedic 51039, mars 2024), avec la mise en garde de la notice sur le syndrome abdominal aigu d'étiologie inconnue. LAMal : aucun extrait, rien n'est ajouté.
+- Durées en chiffres quand l'extrait les écrit en chiffres. « 6 heures » s'appuie sur RMS 2006 (Gonzalez et coll., tableau 3). La néphropathie au contraste garde « trois à sept jours », car seul Sinz 2021 la soutient, en lettres, et `controle3.py` exige le chiffre dans l'extrait.
+- `images/0fa3bad94e3ca02b.png` est conservée : DX.1 l'utilise.
