@@ -129,7 +129,7 @@ def lignes(sortie):
     """µ7 : aucune ligne > 3 000 caractères — la liste Sources de l'assembleur passe à une ligne par source ; MANIFESTE resigné."""
     import hashlib
     h = open(sortie, encoding='utf-8').read()
-    h2 = h.replace('</li><li id="sb-', '</li>\n<li id="sb-').replace('<ol><li id="sb-', '<ol>\n<li id="sb-')
+    h2 = h.replace('</li><li', '</li>\n<li').replace('<ol><li id="sb-', '<ol>\n<li id="sb-')
     if h2 != h:
         open(sortie, 'w', encoding='utf-8').write(h2)
         man = os.path.join(os.path.dirname(sortie), 'MANIFESTE.json')
