@@ -27,7 +27,9 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
    Une image est un objet d'enseignement, jamais une décoration. Couverture : au point 9, le cliché de la modalité décisive ;
    au point 6, le signe visible quand il existe.
    - Cherche : `python3 /home/user/organigramme-examen-federal/Claude/_outils/cliche.py chercher "<requête anglaise>"`.
-   - Prends : `... cliche.py prendre "File:…" --lot Claude/LOT_XXX` (licence vérifiée, WebP, reprise sur 429).
+   - Prends : `... cliche.py prendre "File:…" --lot Claude/LOT_XXX` (licence vérifiée, WebP, reprise sur 429). Sur un 429
+     persistant, ne réessaie pas : ajoute la ligne `<chemin absolu du dossier LOT>|File:…` à `/home/user/wt/images_attente.txt`
+     (une file unique télécharge en série), note l'insertion à faire dans HELP.md et continue.
    - Regarde l'image avec Read. Vérifie la modalité et la présence réelle du signe, puis place 1 à 4 repères en % (x, y).
    - Compose : `... cliche.py figure --meta Claude/LOT_XXX/images/<nom>.json --titre … --cliche "<modalité, incidence…>"
      --reperes '[[x,y,"lecture du repère"],…]' --pieges '["…"]' --decision "<conduite>"`, puis colle le bloc dans le point.
