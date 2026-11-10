@@ -28,7 +28,7 @@ def build(n):
             rows = [r.split('|') for r in body.split(' ;; ')]
             t = '<thead><tr>' + ''.join(f'<th>{inline(n, c.strip())}</th>' for c in rows[0]) + '</tr></thead><tbody>'
             t += ''.join('<tr>' + ''.join(f'<td>{inline(n, c.strip())}</td>' for c in r) + '</tr>' for r in rows[1:]) + '</tbody>'
-            out.append(f'<div class="t"><table>{t}</table></div>')
+            out.append(f'<div class="t" style="overflow-x:auto"><table>{t}</table></div>')
         elif k.startswith('W'):
             key = k[1:]
             paras = ''.join(f'<div class="p">{inline(n, x.strip())}</div>' for x in body.split(' || '))
