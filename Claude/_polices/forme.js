@@ -1,0 +1,43 @@
+/* forme.js — menu latéral dynamique des cours (ordre de Vial du 10.11.2026). Seul script autorisé, externe et partagé.
+   Surligne la partie en cours de lecture et fait suivre le menu. Sans ce script, le menu reste pleinement utilisable (CSS seul). */
+(function () {
+  var m = document.getElementById('brain-barre14');
+  if (!m) return;
+  var liens = [].slice.call(m.querySelectorAll('a[href^="#"]'));
+  var cibles = liens.map(function (a) {
+    try { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) { return null; }
+  });
+  var actuel = -1, attente = 0;
+  m.classList.add('fm-dyn');
+  function suivre(a) {
+    var r = a.getBoundingClientRect(), mr = m.getBoundingClientRect();
+    if (m.scrollHeight > m.clientHeight + 2 && (r.top < mr.top + 48 || r.bottom > mr.bottom - 48))
+      m.scrollTop += r.top - mr.top - mr.height / 2 + r.height / 2;
+    if (m.scrollWidth > m.clientWidth + 2 && (r.left < mr.left + 24 || r.right > mr.right - 24))
+      m.scrollLeft += r.left - mr.left - mr.width / 2 + r.width / 2;
+  }
+  function maj() {
+    attente = 0;
+    var seuil = Math.min(window.innerHeight * 0.3, 260), k = -1, meilleur = -Infinity;
+    for (var i = 0; i < cibles.length; i++) {
+      var c = cibles[i];
+      if (!c) continue;
+      var t = c.getBoundingClientRect().top;
+      if (t <= seuil && t > meilleur) { meilleur = t; k = i; }
+    }
+    var doc = document.documentElement;
+    if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) {
+      for (var j = cibles.length - 1; j >= 0; j--) if (cibles[j]) { if (cibles[j].getBoundingClientRect().top < window.innerHeight) k = j; break; }
+    }
+    var p = doc.scrollHeight > window.innerHeight ? window.scrollY / (doc.scrollHeight - window.innerHeight) : 1;
+    m.style.setProperty('--fm-prog', Math.max(0, Math.min(1, p)).toFixed(3));
+    if (k === actuel) return;
+    if (actuel >= 0) { liens[actuel].classList.remove('fm-actif'); liens[actuel].removeAttribute('aria-current'); }
+    actuel = k;
+    if (k >= 0) { liens[k].classList.add('fm-actif'); liens[k].setAttribute('aria-current', 'location'); suivre(liens[k]); }
+  }
+  window.addEventListener('scroll', function () { if (!attente) attente = requestAnimationFrame(maj); }, { passive: true });
+  window.addEventListener('resize', maj);
+  window.addEventListener('hashchange', maj);
+  maj();
+})();
