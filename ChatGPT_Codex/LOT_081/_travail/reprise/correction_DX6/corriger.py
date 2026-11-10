@@ -1,0 +1,38 @@
+from pathlib import Path
+import json
+B=Path(__file__).parent; F=B/'fragments'; changes=[]
+def para(t,ids):
+ return '<div class="p">'+t+''.join('<sup class="r"><a href="#sb-'+i+'">'+i+'</a></sup>' for i in ids.split())+'.</div>\n'
+def replace(n,old,new):
+ p=F/f'p{n:02}.html';s=p.read_text();assert s.count(old)==1,(n,old,s.count(old));p.write_text(s.replace(old,new));changes.append({'point':n,'ancien':old,'nouveau':new})
+def append(n,label,rows):
+ p=F/f'p{n:02}.html';s=p.read_text();ident=f'dx6-correction-p{n}-{len(changes)}'; block='<p class="p">La fenêtre <button class="w" popovertarget="'+ident+'">'+label+'</button> précise donc ces éléments.</p><div id="'+ident+'" popover class="fenetre"><h4>'+label+'</h4>'+''.join(para(t,ids) for t,ids in rows)+'</div>\n';p.write_text(s+block);changes.append({'point':n,'ajout':label,'phrases':rows})
+replace(1,'selon le référentiel du collège d’urologie','selon le référentiel du collège de l’Association française d’urologie')
+replace(1,'L’EAU classe la pyélonéphrite parmi les infections urinaires systémiques, tandis que la cystite appartient aux infections localisées lorsqu’aucun signe systémique n’est présent','L’European Association of Urology définit en 2026 l’infection urinaire systémique par des manifestations générales infectieuses, avec ou sans symptômes urinaires locaux ; elle y inclut la pyélonéphrite, tandis que la cystite sans manifestations systémiques reste localisée')
+replace(11,'la durée minimale et l’intervalle de dose ne sont pas identiques','la durée minimale et la plage posologique diffèrent, tandis que la fréquence des deux lignes reste de deux prises quotidiennes')
+append(11,'Choix empirique : champ suisse et conditions européennes',[
+('La directive SSI concerne la femme adulte non enceinte sans complication ; son choix oral pour la patiente stable ne suffit donc pas à décider chez tous les patients présentant une infection systémique','p-champ p-ssi-trait'),
+('Pour les infections urinaires systémiques, la recommandation forte de l’EAU 2026 conditionne la ciprofloxacine empirique à une résistance locale inférieure à 10 %, à une contre-indication aux céphalosporines de troisième génération ou aux aminoglycosides, ainsi qu’à une hypersensibilité aux bêta-lactamines','p-suivi'),
+('L’EAU déconseille la ciprofloxacine et les autres fluoroquinolones en traitement empirique chez les patients provenant d’un service urologique ou ayant reçu une fluoroquinolone durant les six derniers mois ; cette information recueillie à l’anamnèse doit donc modifier le choix initial','p-suivi'),
+('Chez le patient critique, qui se détériore ou dont les voies urinaires sont obstruées, l’EAU demande une couverture antimicrobienne large tenant compte notamment des entérobactéries productrices de BLSE et de Pseudomonas aeruginosa ; la seule ligne ambulatoire ne répond donc pas à cette situation','p-suivi'),
+('La prescription hospitalière est choisie à partir de la gravité, des résistances locales et des cultures antérieures, puis son spectre est réduit lorsque l’antibiogramme le permet ; le drainage d’un obstacle infecté reste une mesure associée urgente','p-suivi p-drainage')])
+append(6,'Geste du toucher rectal lorsque la clinique le justifie',[
+('Chez l’homme présentant une douleur pelvienne ou périnéale, l’EAU demande un toucher rectal recherchant une prostate sensible ou augmentée de volume ; le geste répond donc à une hypothèse de localisation prostatique','p-systemique'),
+('La sémiologie du Collège national des enseignants de médecine interne décrit un patient allongé sur le dos sur un plan dur, cuisses fléchies et écartées, tandis que l’examinateur se place face à lui','p-normal'),
+('L’index est introduit dans l’anus et l’autre main déprime la région hypogastrique à sa rencontre, afin de palper la saillie prostatique située à la face antérieure du rectum','p-normal'),
+('Les deux lobes normaux sont symétriques, souples et séparés par un sillon médian ; une palpation normalement indolore fournit donc le comparateur d’une prostate sensible','p-normal')])
+replace(9,'Le bilan sanguin apprécie le retentissement et la fonction rénale lorsqu’il existe des signes systémiques','Dans une pyélonéphrite grave, le référentiel AFU demande NFS, CRP, urée et créatinine, afin d’explorer le retentissement biologique et la fonction rénale')
+append(9,'Prescription adaptée au terrain et à la question radiologique',[
+('Dans une présentation initiale typique simple, le référentiel AFU ne recommande pas de NFS, CRP ou créatinine systématiques ; cette restriction ne s’applique donc pas au bilan de la forme grave décrit plus haut','p-simple p-complique'),
+('La recherche urinaire porte sur les leucocytes, les hématies et les nitrites, tandis que l’ECBU avec antibiogramme est demandé dans toute pyélonéphrite selon l’EAU','p-clinique'),
+('En cas de grossesse, l’échographie ou l’IRM sont privilégiées pour rechercher une complication, car elles évitent l’exposition fœtale aux rayonnements du scanner','p-clinique'),
+('Lorsqu’un uroscanner est contre-indiqué, le référentiel AFU propose l’échographie rénale comme alternative ; la demande précise donc la recherche d’un obstacle et d’une dilatation des cavités','p-complique'),
+('Si une échographie révèle une hydronéphrose ou si l’on suspecte une obstruction haute, l’EAU demande une exploration en coupe par scanner ou IRM, afin de préciser la cause et les complications','p-systemique'),
+('Le scanner recherche notamment une hypodensité triangulaire à base externe au temps sécrétoire, un abcès intraparenchymateux ou une infection dans le fascia périrénal ; ces résultats décrits par l’AFU orientent donc vers une néphrite ou une complication locale','p-complique'),
+('L’enfant sort du champ de la directive SSI utilisée ici, donc son bilan ne doit pas être déduit automatiquement du protocole de la femme adulte non enceinte','p-champ')])
+append(7,'Déshydratation associée : observation et mécanisme',[
+('La déshydratation extracellulaire correspond à une déplétion hydrosodée selon la sémiologie universitaire ; elle peut donc modifier le retentissement d’un épisode accompagné de vomissements','p-hydratation p-clinique'),
+('La pesée, la pression artérielle couchée puis debout et la diurèse permettent de rechercher ce trouble, tandis que l’inspection et la palpation complètent l’évaluation','p-hydratation'),
+('Une hypotension orthostatique peut s’accompagner d’une tachycardie réflexe compensatrice ; ce mécanisme renseigne l’hydratation mais ne prouve donc pas à lui seul une origine urinaire','p-hydratation p-classif'),
+('Le pli cutané est moins fiable chez l’enfant ou la personne obèse et peut être accentué chez une personne âgée ou dénutrie ayant perdu de l’élasticité cutanée ; son interprétation dépend donc du terrain','p-hydratation')])
+(B/'MODIFICATIONS.json').write_text(json.dumps({'role':'Correction ciblée, aucune autoévaluation P3','modifications':changes,'limites_persistantes':['Incidence/prévalence suisse spécifique non acquise.','Chaîne cellulaire inflammatoire non complétée sans preuve supplémentaire.','Technique de percussion costovertébrale non détaillée faute de passage acquis ; toucher rectal désormais décrit.','Toutes les définitions de signes systémiques ne sont pas documentées ; aucune limite numérique inventée.','Année éditoriale AFU non déduite de la date de consultation ; définition/classification systémique EAU 2026 rendue explicite.']},ensure_ascii=False,indent=2)+'\n')
