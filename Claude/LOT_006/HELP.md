@@ -11,3 +11,10 @@
 - Point 6 : aucune image de signe visible (pli cutané, yeux enfoncés) n'est insérée ; aucune recherche n'a été faite faute de débit Wikimedia. Une seule image prise : invagination (échographie, point 9), CC BY-SA 3.0.
 - Dose d'ondansétron dans la gastro-entérite (recommandation ESPGHAN) : la leçon ne chiffre que l'AIPS (4 mg i.v., usage postopératoire). La dose pédiatrique ESPGHAN reste à lire et à ajouter avec la mention « la recommandation ESPGHAN donne… ; l'AIPS autorise la voie… ».
 - Corrections de citation : l'AIPS du paracétamol (n° 47503) remplace les ancres 43916 et 40363 sur les phrases du paracétamol ; l'ancre 43916 (Normolytoral®) a été retirée des étapes d'urgence par voie intraveineuse, qui ne portent aucune dose orale.
+
+## DX.5 Maladies inflammatoires non infectieuses : renforcement (10.11.2026)
+- Image point 9 : échographie duplex d'une artère temporale (signe du halo), Hellerhoff, CC BY-SA 4.0, insérée avec lecture guidée. Aucune image du point 6 (éruption de la maladie de Still, érythème noueux) : non recherchée, un seul `prendre` autorisé par le débit Wikimedia. À chercher : « adult-onset Still disease rash ».
+- Les doses EULAR 2018 (méthylprednisolone 250 à 1000 mg/jour, prednisone 40 à 60 mg/jour) sont conservées avec la mention « hors AIPS » ; le texte de la recommandation EULAR 2018 n'a pas été relu ici, à revérifier.
+- Citations AIPS séparées par molécule (69640, 35112, 58868001, 65510, 51480), lues dans le corpus local (AIPS du 08.10.2026). Naproxène dans la maladie de Still, méthotrexate et tocilizumab dans la maladie de Still de l'adulte : usages hors AIPS, sans recommandation lue.
+- Citation de la perte visuelle irréversible (sb-1, sb-8) : source à confirmer par lecture de la recommandation EULAR.
+- Surveillance : la densité osseuse sous prednisone n'est pas dans l'extrait AIPS lu.
