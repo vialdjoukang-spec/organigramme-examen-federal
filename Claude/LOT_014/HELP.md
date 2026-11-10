@@ -18,3 +18,13 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
   synonymes et termes à éviter retirés (L1-3). Le chiffre 75–80 % reste au point 2.
 - Images à insérer : ECG 12 dérivations d'un STEMI inférieur (point 9) et coronarographie d'une occlusion (point 9) ;
   requêtes Commons « inferior STEMI ECG 12 lead », « coronary angiography occlusion right coronary artery ».
+
+## DX.2 — Cardiomyopathie
+- Lacunes retirées : sensibilité et spécificité chiffrées du standard diagnostique ; nombre suisse annuel de décès codés
+  « cardiomyopathie » ; règle suisse propre à l'aptitude professionnelle ; dose AIPS absente d'une molécule (« À vérifier ») ;
+  attribution exacte de chaque ligne de la classification de risque de grossesse (classe III ou IV) ; liste de sortie propre.
+- Doses du tableau de pharmacologie : citation reportée sur l'AIPS de la spécialité nommée dans la ligne (Beloc ZOK 52110,
+  Camzyos 68477, Concor 47311, Cordarone comprimés 33393) au lieu de l'ESC 2023.
+- Point 1 : notions voisines déplacées au point 4 ; synonymes et termes à éviter retirés ; statut FMH déplacé au point 11.B.
+- Images à insérer : échocardiographie parasternale grand axe d'une CMH obstructive avec SAM ; IRM cardiaque avec rehaussement
+  tardif (LGE). Requêtes Commons « hypertrophic cardiomyopathy echocardiography SAM », « cardiac MRI late gadolinium enhancement ».
