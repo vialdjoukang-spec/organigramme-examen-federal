@@ -1,0 +1,39 @@
+{
+ "porte": "P1",
+ "lot": "050",
+ "ssp": "S2.11 Palpitations",
+ "date": "2026-11-10",
+ "verdict": "CORRIGER",
+ "finale": "non",
+ "liste_finale": [
+  {"rang": 1, "nom": "Extrasystoles atriales et ventriculaires idiopathiques", "grave": false, "E": null},
+  {"rang": 2, "nom": "Trouble panique et autres troubles anxieux", "grave": false, "E": null},
+  {"rang": 3, "nom": "Fibrillation atriale", "grave": true, "E": "E4"},
+  {"rang": 4, "nom": "Tachycardie sinusale secondaire (substance, médicament ou cause systémique)", "grave": false, "E": null},
+  {"rang": 5, "nom": "Tachycardie par réentrée intranodale", "grave": false, "E": null},
+  {"rang": 6, "nom": "Flutter atrial", "grave": true, "E": "E5"},
+  {"rang": 7, "nom": "Hyperthyroïdie", "grave": false, "E": null},
+  {"rang": 8, "nom": "Tachycardie réciproque par voie accessoire (syndrome de Wolff-Parkinson-White)", "grave": true, "E": "E3"},
+  {"rang": 9, "nom": "Tachycardie ventriculaire sur cardiopathie structurelle", "grave": true, "E": "E1"},
+  {"rang": 10, "nom": "Cardiomyopathie hypertrophique", "grave": true, "E": "E2"}
+ ],
+ "arbitrages": [
+  {"n": 1, "objet": "Ordre des rangs 1-3", "decision": "Ordre conservé, mais pour un lieu de soins explicite : consultation de premier recours. La cohorte de Zurich ne peut pas classer ces rangs : elle n'inclut que des palpitations avec tachyarythmie supraventriculaire et exclut rythme sinusal normal et TV (w76745a-8, w76745a-9). Tours (unité cardiologique) et Zurich placent la FA en tête : le critère doit dire que l'ordre s'inverse aux urgences.", "source": "w76745a-8 ; w76745a-9 ; w3fab16-6 ; https://academic.oup.com/europace/article/13/7/920/531707"},
+  {"n": 2, "objet": "DX.10 fourre-tout", "decision": "Oui, fourre-tout : il réunit cardiomyopathies (déjà substrat de DX.9) et canalopathies. Remplacer par « Cardiomyopathie hypertrophique » 🚩 E2, citée comme cause structurelle de palpitations. QT long et Brugada passent dans l'algorithme comme drapeaux rouges (syncope d'effort, mort subite familiale).", "source": "w1705d8-7 ; w40fa33-9 ; EHRA 2011 tableaux 1 et 7 : https://academic.oup.com/europace/article/13/7/920/531707"},
+  {"n": 3, "objet": "DX.4 imputation à une substance", "decision": "Imputation non soutenue : les 14,8 % de Zurich désignent le rythme sinusal tachycarde, sans cause attribuée ; la consommation régulière d'alcool ou de drogue concerne 5,4 % chacune. Renommer en « Tachycardie sinusale secondaire (substance, médicament ou cause systémique) » ; le rang 4 reste soutenu par le rythme, avec la réserve de population.", "source": "w76745a-29 ; w76745a-20 ; w41005f-14 ; w1705d8-7"},
+  {"n": 4, "objet": "Embolie pulmonaire, anémie, phéochromocytome, hypoglycémie écartés", "decision": "Exclusion validée comme DX autonomes : aucun extrait ne les chiffre comme cause de palpitations, sauf l'EP (2 cas sur 215 à Toulouse, 0,9 %). Ils deviennent des causes de DX.4 ; l'EP reçoit un nœud 🚩 dans l'algorithme (dyspnée, douleur thoracique, tachycardie sinusale).", "source": "w41005f-14 ; w1705d8-7"},
+  {"n": 5, "objet": "« AVRT » de Toulouse", "decision": "Ambigu : n = 22, soit 27,5 % des causes graves, probablement des tachycardies jonctionnelles (AVNRT et AVRT confondues). Ne pas l'utiliser pour chiffrer DX.5 ni DX.8 ; utiliser Zurich (AVNRT 9,0 %, AVRT 1,4 %, WPW inclus) et Tours (jonctionnelles 12,1 %, sans distinction).", "source": "w41005f-14 ; w76745a-30 ; w76745a-31 ; w3fab16-12"}
+ ],
+ "corrections": [
+  {"gravite": "Grave", "objet": "critere_ordre", "correction": "Retirer « fréquence comme cause de palpitations [...] cohorte de Zurich ». Écrire : cohorte de Zurich = palpitations avec tachyarythmie supraventriculaire, hors rythme sinusal normal et TV ; elle ordonne les rythmes de DX.3 à DX.8, pas les rangs 1-2.", "source": "w76745a-8 ; w76745a-9"},
+  {"gravite": "Grave", "objet": "DX.10", "correction": "Remplacer « Cardiomyopathie ou canalopathie héréditaire (substrat de mort subite du sujet jeune) » par « Cardiomyopathie hypertrophique » 🚩 E2. Retirer w41005f-3, hors sujet (facteurs de risque d'arythmie). Ajouter au paquet le tableau 1 EHRA 2011.", "source": "w1705d8-7 ; https://academic.oup.com/europace/article/13/7/920/531707"},
+  {"gravite": "Grave", "objet": "DX.2, source américaine exclusive", "correction": "Les 31 % viennent seulement de Weber et Kapoor (Rochester, États-Unis, 1996). Citer la reprise européenne EHRA 2011 : « psychosomatic disorders in 31 % (mainly panic and anxiety disorders) ». Ajouter le passage au paquet.", "source": "wac5dd7-1 ; https://academic.oup.com/europace/article/13/7/920/531707"},
+  {"gravite": "Moyen", "objet": "DX.4, nom", "correction": "« Tachycardie sinusale induite par une substance (alcool, cocaïne, sympathomimétiques) » devient « Tachycardie sinusale secondaire (substance, médicament ou cause systémique) ». L'imputation à 14,8 % n'est pas sourcée.", "source": "w76745a-29 ; w76745a-20"},
+  {"gravite": "Moyen", "objet": "DX.1, justification du rang", "correction": "Les 40 % au Holter (Kostis 1981, États-Unis) mesurent une prévalence chez des sujets sains, pas une cause de palpitations. En milieu spécialisé, les extrasystoles restent minoritaires (Zurich ESV 5,4 % et ESA 2,9 % ; Tours 4,2 % et 2,6 %). Écrire « Ne rang » et argumenter par le premier recours avec une source suisse ou européenne.", "source": "w07e241-8 ; w76745a-30 ; w3fab16-12 ; w40fa33-12"},
+  {"gravite": "Moyen", "objet": "DX.7, rang sans chiffre", "correction": "Aucun extrait ne chiffre l'hyperthyroïdie comme cause de palpitations. Écrire « 7e rang » avec un argument sourcé (bilan thyroïdien systématique ; facteur de FA) et préciser qu'elle se manifeste souvent par DX.3 ou DX.4.", "source": "w1705d8-57 ; wfef614-9"},
+  {"gravite": "Léger", "objet": "DX.2, rapport de vraisemblance 0,26", "correction": "Ajouter l'intervalle de confiance (0,07 à 1,01), qui inclut 1 : effet non significatif. Renommer le DX « Trouble panique et autres troubles anxieux ».", "source": "w30d111-5"},
+  {"gravite": "Léger", "objet": "Oubli possible : bradyarythmie (BAV, dysfonction sinusale)", "correction": "Pas d'ajout au top 10, faute de fréquence sourcée. La citer dans l'algorithme (bradycardie associée à une arythmie en médecine générale néerlandaise : OR 4,2, IC 95 % 1,3-14,0).", "source": "wed7c94-4 ; w1705d8-7 ; w40fa33-10"}
+ ],
+ "verifications_calcul": "Python : Zurich 52/278 = 18,71 % ; 41/278 = 14,75 % ; 25/278 = 8,99 % ; 21/278 = 7,55 % ; 4/278 = 1,44 %. Tours 308/688 = 44,77 % ; 104/688 = 15,12 % ; 83/688 = 12,06 % ; 15/688 = 2,18 %. Toulouse 5/80 = 6,25 % ; 22/80 = 27,5 %. Les chiffres de la liste concordent.",
+ "manque_pour_oui": "Corriger DX.10, DX.4 et le critère d'ordre ; ajouter au paquet le texte EHRA 2011 (31 %, tableau 1) ; sourcer le rang 1 en premier recours suisse ou européen ; recalculer SHA-256 au gel."
+}
