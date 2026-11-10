@@ -50,8 +50,8 @@ const [fichier, base, largeur] = process.argv.slice(2);
     await c.evaluate(e => window.scrollTo({ top: e.getBoundingClientRect().top + window.scrollY - 260, behavior: 'instant' }));
     await p.waitForTimeout(120);
     const genre = await c.evaluate(e => e.hasAttribute('popovertarget') ? 'pop' : (e.tagName === 'SUMMARY' ? 'det' : 'tm'));
-    if (genre === 'tm') { await c.hover().catch(() => {}); await c.evaluate(e => e.focus()); }
-    else await c.click().catch(() => {});
+    if (genre === 'tm') { await c.hover({ timeout: 1500 }).catch(() => {}); await c.evaluate(e => e.focus()); }
+    else await c.click({ timeout: 1500 }).catch(() => {});
     await p.waitForTimeout(350);
     ouvert = await c.evaluate((e, g) => {
       if (g === 'pop') { const f = document.getElementById(e.getAttribute('popovertarget')); return f && f.matches(':popover-open') ? 'popover' : null; }
