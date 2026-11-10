@@ -5,5 +5,6 @@ for f in sorted(glob.glob('src/p*.txt')):
         ids=m.group(1).split()
         return ''.join(f'<sup class="r"><a href="#sb-{i}">{i}</a></sup>' for i in ids)
     t=re.sub(r'\[\[([^\]]+)\]\]',rep,t)
+    t=t.replace('<div class="t"><table>','<div class="t" style="overflow-x:auto"><table>')
     open('fragments/'+os.path.basename(f).replace('.txt','.html'),'w',encoding='utf-8').write(t)
 print('ok')
