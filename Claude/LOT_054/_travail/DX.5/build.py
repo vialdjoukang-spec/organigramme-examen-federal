@@ -11,6 +11,8 @@ def btn(m):
     return '<button class="w" popovertarget="dx5-p%s-f%s">%s</button>'%(n,k,l)
 for f in sorted(glob.glob('draft/p*.html')):
     s=open(f).read()
+    s=re.sub(r'([.?!])[ ]*(\[\[(?:[A-Z]+\d+[ ,]*)+\]\])',lambda m:m.group(2)+m.group(1),s)
     s=re.sub(r'\[\[((?:[A-Z]+\d+[ ,]*)+)\]\]',sup,s)
+    s=s.replace('<div class="t">','<div class="t" style="overflow-x:auto">')
     s=re.sub(r'\{\{(\d+)-(\d+)\|([^}]*)\}\}',btn,s)
     open('fragments/'+os.path.basename(f),'w').write(s)
