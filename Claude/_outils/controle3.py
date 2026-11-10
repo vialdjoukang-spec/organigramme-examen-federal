@@ -74,6 +74,8 @@ def nombres_source(s):
         out |= nombres(tok)
     for n in re.findall(r'\b\d{1,3}(?:,\d{3})+\b', s):  # séparateur de milliers anglais (« 149,238 »)
         out.add(n.replace(',', ''))
+    for n in re.findall(r'\b\d+\u00b7\d+\b', s):  # point médian décimal du Lancet (« 70·8 »)
+        out |= nombres(' ' + n.replace('\u00b7', ',') + ' ') | nombres(' ' + n.replace('\u00b7', '.') + ' ')
     for n in re.findall(r'\d+(?:[.,]\d+)?', s):  # nombres collés à un glyphe OCR (« >_80 », « e8.5 »)
         out |= nombres(' ' + n + ' ')
     return out
