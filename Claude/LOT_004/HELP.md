@@ -104,3 +104,14 @@ Images :
 
 ## Gabarit
 - Polices Atkinson intégrées retirées ; fenêtres médicament en ligne remplacées par les cinq fenêtres uniques (#med-…) ; fenêtre « Urgence — conduite chronologique » (#urg-g4) ajoutée ; tableaux en div.t ; colonnes « Conduite si positif » (point 4) et « Contre-indication majeure » (point 11) ajoutées.
+
+## DX.9 Hypothyroïdie — renforcement du 10.11.2026
+- Prévalence suisse de l'hypothyroïdie manifeste et infraclinique : la ligne du point 2 renvoie à la Revue médicale suisse 2018 [S4] et au rapport OFSP [S5], mais aucun chiffre n'est donné. À lire dans ces deux textes (seuls les résumés ont été vus) puis à insérer avec la population et l'année.
+- Dépistage : aucune recommandation suisse trouvée. La ligne « Dépistage » du tableau du point 2 et la phrase de clôture du point 12 ont été retirées (affirmation sans source). À rétablir si une recommandation suisse ou européenne est lue.
+- Contrôle de la TSH « 2 mois après le début, puis chaque année » et « 3 à 4 mois après la TSH normale » : ces faits sont attribués à l'ETA 2013 [S2] (résumé PubMed). L'AIPS Euthyrox (54949) ne les porte pas : la citation AIPS a été retirée. Texte intégral ETA à relire pour confirmer les délais.
+- Coma myxœdémateux (11.B.1) : aucune posologie intraveineuse de lévothyroxine lue ; la conduite est gardée sans milligramme (« selon protocole hospitalier »). Source adaptée à chercher (recommandation ATA ou ETA sur le coma myxœdémateux).
+- Citations retirées car sans lien avec le fait : AIPS Euthyrox et BMJ 2019 sur l'examen physique (points 6 et 7), AIPS carbimazole sur l'arbre décisionnel et les fiches amiodarone, lithium et hydrocortisone. Les faits restent, sans renvoi (technique d'examen) ou avec la bonne source.
+- Doses : pédiatrie de la lévothyroxine (0 à 12 ans) citée à tort à l'ATA 2014 ; elle vient de l'AIPS Euthyrox (rubrique Enfants et adolescents). Corrigé. Toutes les doses du cours ont été relues dans les AIPS 54949, 29812, 57455, 53114, 38061, 23533 et 21037.
+- Test TRH et scintigraphie de suppression « en cas d'autonomie thyroïdienne » : phrase sans source et sans rapport avec l'hypothyroïdie ; remplacée par l'indication AIPS du test de suppression. Le test TRH n'est plus mentionné.
+- Code CIM de la thyroïdite de Hashimoto : « E06.3 » ramené à « E06 » (le sous-code n'a pas de source lue dans la bibliographie).
+- Image du point 9 (échographie de Hashimoto, Wikimedia, CC BY-SA 3.0) et image du point 6 (faciès myxœdémateux, collection Wellcome, CC BY 4.0) : insérées. L'image du point 6 est une photographie ancienne ; une photographie récente en couleur reste préférable si elle est trouvée.
