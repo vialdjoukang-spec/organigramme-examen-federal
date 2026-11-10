@@ -12,3 +12,5 @@
 - Point 6 (examen physique) : l'examen des nerfs crâniens, du voile et du réflexe nauséeux n'est pas documenté par les sources
   lues ; il est volontairement omis.
 - Sources 2026 datées dans le cache : à confirmer avant publication externe.
+- Céfotaxime et ampicilline-sulbactam : absents du corpus AIPS_20261008 (0 occurrence) ; cités comme classes de première ligne par la recommandation (wd852a9), sans dose, la dose enseignée étant celle de la ceftriaxone (44625) et de l'amoxicilline-acide clavulanique (56758).
+- Assurance et couverture des soins de déglutition : aucune source suisse lue ; phrase supprimée du cours.
