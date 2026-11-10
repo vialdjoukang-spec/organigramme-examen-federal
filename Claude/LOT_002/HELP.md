@@ -25,3 +25,8 @@ DX.8 : l'extrait CDC lu (page du 23.03.2026) ne donne ni titre de 512 ni dose d'
 DX.2, DX.3, DX.5 : citations hors sujet signalées dans « help » des audits (ESUR pour le produit de contraste, S12 Gallois, S3/S7/S8) : non toutes reprises ; DX.3 garde l'épidémiologie 2019 (Altpeter 2021).
 DX.1 : chiffres suisses du point 2 absents ; Floxapen versus association couvrant les anaérobies à trancher sur directive SSI (non lisible ici).
 Directive suisse SSI de la pharyngite : site non lisible depuis cet environnement ; Phase A cite l'ESCMID 2012 (européenne, datée).
+
+## Lacunes DX.7 (10.11.2026)
+- Seuil de CD4 pour la prophylaxie primaire de la toxoplasmose cérébrale (EACS) : texte PMC12757896 lu, il ne contient pas ce seuil ; ligne retirée du cours.
+- Sulfadiazine (hydratation) et orientation de l'enfant (ophtalmologue, neuropédiatre) : aucune source lue ; phrases retirées.
+- DX.2 : item « métastase ganglionnaire » (réunion pluridisciplinaire) retiré, aucune source lue.
