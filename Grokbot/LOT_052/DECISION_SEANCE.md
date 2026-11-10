@@ -46,3 +46,15 @@ Ordre de Vial (« Tu dois corriger ») : la Phase A est réécrite par Grok Bot 
 - Morphine : dose de l'AIPS Morphin HCl Sintetica (Swissmedic 51039, mars 2024), avec la mise en garde de la notice sur le syndrome abdominal aigu d'étiologie inconnue. LAMal : aucun extrait, rien n'est ajouté.
 - Durées en chiffres quand l'extrait les écrit en chiffres. « 6 heures » s'appuie sur RMS 2006 (Gonzalez et coll., tableau 3). La néphropathie au contraste garde « trois à sept jours », car seul Sinz 2021 la soutient, en lettres, et `controle3.py` exige le chiffre dans l'extrait.
 - `images/0fa3bad94e3ca02b.png` est conservée : DX.1 l'utilise.
+
+## Passage fix052d — 2026-11-10
+
+- Opiacés : la phrase « l'effet antalgique justifie à lui seul la prescription » est retirée. La restriction de l'AIPS 51039 est citée mot pour mot, puis la douleur forte du ventre aigu est posée comme la nécessité absolue (RMS 2006, extrait 16, cité entre guillemets). Le grade B reste, car il figure dans l'extrait 18 de la même source.
+- Délai : « sans délai, aux urgences » remplace « le jour même » partout (P3, P4, P5, P6, P10, P13, en-tête).
+- GEU : rang « E1 si rupture ou choc » dans le badge, le tableau P4 et la fiche 2. Le fichier DX.9 n'est pas modifié.
+- Masse pulsatile : E1 seulement si elle est douloureuse (HUG 2017, douleurs vives). L'anévrisme indolore n'ouvre pas la porte E1.
+- Biologie : CRP < 10 mg/l et lipase 13–60 U/l d'après les intervalles du CHUV (état au 16.10.2024). Pour les lactates, le document renvoie au fichier des examens : le cours renvoie aux valeurs du laboratoire.
+- 11.A : urgentiste dans les 10 minutes et chirurgien dans les 60 minutes (Boerner 2025), antibiotique dans l'heure en choc septique (Sinz 2021).
+- DX.2 : aucune source ne chiffre sa part isolée ; le cours garde « 80 % causes médicales, sans part isolée ».
+- La règle « la série la plus récente tranche » est présentée comme règle de lecture du cours, pas comme phrase d'une source.
+- Néphropathie au contraste : « se normalise ensuite en moins d'une semaine », sans chiffre, car l'extrait écrit la durée en lettres.
