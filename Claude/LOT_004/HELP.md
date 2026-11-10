@@ -79,3 +79,28 @@ Images :
 ### DX.5, complément du 10.11.2026
 - Sources lues (PubMed) et ajoutées : Juraschek 2018 (hypotension orthostatique), Renier 2018 (signes de l'insuffisance cardiaque), Elder 2016, Hamada 2018 (règle OMS à quatre symptômes), Damlin 2023 et Kış 2026 (endocardite), Pillay 2022 (Xpert), Butty Dettwiler 2026 (dépistage dès 50 ans en Suisse), ESMO 2020 et 2021 (titres seuls, sans abstract).
 - Chiffres retirés faute de source : 45° (jugulaire), 5 secondes (godet), 1 à 3 minutes (orthostatisme), DFGe < 30 mL/min (point 9.c), 50 ans pour la fatigue d'installation récente. À sourcer : recommandations suisses (SSMI, SGAIM), KDIGO pour l'insuffisance rénale, ESC 2021 pour le NT-proBNP.
+# LOT_004 — Phase A (G4 Fatigue, lassitude) : lacunes et points ouverts (renforcement du 10.11.2026)
+
+## Doses et AIPS
+- Chaque dose cite désormais l'AIPS de sa propre molécule (ancres sb-aips-52251 Zoloft, 54949 Euthyrox, 57851 Ferinject, 30124 Maltofer, 26061 Glucophage). Avant, tout renvoyait à l'AIPS Zoloft. Les doses, durées, contre-indications, grossesse, allaitement, enfant et interactions citées ont été relues dans le corpus AIPS local du 08.10.2026 (swissmedicinfo illisible depuis ici).
+- Le dosage « Maltofer 1 à 2 mois pour la carence sans anémie » (AIPS) diffère des 12 semaines de l'essai de Vaucher [9] ; les deux figurent, chacun avec sa source.
+
+## Lacunes retirées du cours (à combler)
+- Aucune donnée lue ne donne la fréquence de chaque DD chez les patients suisses fatigués (phrase retirée du Bloc 2).
+- Seuils OMS d'hémoglobine (120 et 130 g/L) : lus d'après un commentaire de la ligne directrice 2024, pas dans le texte OMS lui-même (parenthèse retirée de la bibliographie [18]).
+- « Revoir à 4 à 6 semaines » (étape 2, arbre, 11.B, algorithme) : intervalle de pratique, non trouvé dans NICE NG206 ; citation [8] conservée telle que l'auteur l'avait posée, à confirmer.
+- Cortisol « à 9 h » : l'heure n'a pas de source dans la bibliographie ; le texte dit « cortisol du matin ».
+- Point 12, Prévention : « Vaccinations selon le plan suisse » sans organisme ni année (OFSP/CFV) ; plan à lire et à dater.
+- Rôle de l'interleukine 6 dans la fatigue : détail retiré de la fenêtre « cytokines » (aucune source de la bibliographie).
+- Sources non AIPS (OFS, Obsan, mediX, NICE, ETA, OMS) non relues ici ; seuls Stadje, Nijrolder, Vaucher, TRUST, PHQ-9 et PHQ-2 ont été recoupés avec leurs résumés PubMed (chiffres concordants). mediX [17] : HbA1c faussée en cas d'anémie hémolytique, HbA1c cible 8 à 9 % après 80 ans, à recouper.
+
+## Citations corrigées
+- Les citations étaient étalées par paragraphe (jusqu'à 5 sources sur une phrase, NICE sur des données d'ESS, Stadje sur le PHQ). Elles sont remises phrase par phrase ; les étiquettes parasites « [2] » de la bibliographie et de la page Rappel mémoire sont retirées.
+- Numérotation : AIPS = [19] à [23] ; Epworth = [24] ; revue ME/CFS 2025 = [25].
+
+## Images (étape 6) : aucune insérée
+- Point 6 (pâleur conjonctivale) : Wikimedia Commons n'a rendu aucun cliché libre et pertinent (requêtes « conjunctival pallor », « pale conjunctiva anemia eye », « pallor conjunctivae », « palmar pallor anemia hand »). Rien n'est en file d'attente.
+- Point 9 : aucune modalité décisive pour le symptôme (diagnostic clinique, bilan biologique) ; pas de cliché.
+
+## Gabarit
+- Polices Atkinson intégrées retirées ; fenêtres médicament en ligne remplacées par les cinq fenêtres uniques (#med-…) ; fenêtre « Urgence — conduite chronologique » (#urg-g4) ajoutée ; tableaux en div.t ; colonnes « Conduite si positif » (point 4) et « Contre-indication majeure » (point 11) ajoutées.
