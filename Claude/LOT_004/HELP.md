@@ -123,3 +123,9 @@ Images :
 - Point 1 : synonymes et termes à éviter non sourcés. Point 11.D : critères de sortie non énumérés (aucune source lue).
 - Images en file d'attente (429) : (1) Acanthosis nigricans, File:Acanthious nigricans new photo for diagnosis… (CC BY-SA 4.0) pour « Région 2 — Peau » ; (2) File:Neuropathic heel ulcer diabetic.jpg (CC BY 3.0) pour « Région 4 — Pieds ». Insertion à faire avec cliche.py figure après téléchargement. Rétinopathie : aucun cliché libre trouvé.
 - Résidu ORANGE de controle3 (phrases > 32 mots) : 9 fenêtres médicament (blocs « Chefs de file / Indications / Posologie » séparés par <br>, non découpables) et 2 blocs du gabarit « Rappel mémoire ».
+
+## Finition contrôle3 (10.11.2026)
+- DX.2, sb-2 (Wolfe 2016) : résumé seul lu ; seuils chiffrés du texte intégral à vérifier (formule retirée de la bibliographie).
+- Phrases partagées : le gabarit Rappel mémoire (plan, mnémotechniques, fondement, aide-mémoire) reste identique dans la Phase A ; chaque DX le reformule en le liant à sa leçon.
+- DX.4 : blocs des fenêtres médicament (chlorure de sodium, chlorure de potassium, Actrapid, GlucaGen, glucose 40 %) réécrits en phrases verbales courtes, avec une citation par phrase chiffrée ; aucun fait retiré. Les fenêtres des tableaux (td) n'ont pas été modifiées.
+- DX.8 : arbre CIM, arbre décisionnel, sous-titres 9.b, 9.d, 11.B.1, 11.B.2, 11.B.6 et « Lecture guidée » rendus verbaux ; le « 2 » isolé de la ligne Troubles anxieux (F40/F41) a été retiré ; les codes F40/F41 restent sans source CIM-10 lue.
