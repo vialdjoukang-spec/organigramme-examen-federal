@@ -12,6 +12,8 @@ cd <WORKTREE>      # donné dans ta mission ; toutes les commandes partent de l�
 ```
 Tu n'écris QUE dans `Claude/LOT_XXX/` de ton worktree, et seulement dans tes chemins (`_travail/<CIBLE>/` et ton HTML final).
 Tu ne fais ni commit, ni push, ni branche : le chef de production s'en charge.
+Tes scripts et fichiers temporaires vont dans `_travail/<CIBLE>/` (jamais dans un dossier partagé : d'autres rédacteurs tournent en parallèle).
+Chaque phrase factuelle, y compris de physiopathologie, cite un extrait (LV1) : une phrase « de manuel » sans source est interdite.
 
 ## Étapes
 1. **Sources (E2).** Trouve 6 à 15 sources lisibles, Suisse d'abord puis Europe (LV5) : HUG « stratégies » (PDF, hug.ch),
