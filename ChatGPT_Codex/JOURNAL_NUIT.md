@@ -163,4 +163,6 @@ LOT082 DX1 : prescription Dafalgan explicitement adulte et précautions Condrosu
 
 LOT082 DX5 : doigt en maillet produit,182695octets, contrôleVERT zéro défaut ; premièreP3 indépendante engagée.
 
+LOT082 DX7 : durée quotidienne du corset, gestes de mesure et prévention précisés ;176581octets, secondeP3 indépendante engagée.
+
 LOTs livrés : 0/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
