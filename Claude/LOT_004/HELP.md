@@ -115,3 +115,11 @@ Images :
 - Test TRH et scintigraphie de suppression « en cas d'autonomie thyroïdienne » : phrase sans source et sans rapport avec l'hypothyroïdie ; remplacée par l'indication AIPS du test de suppression. Le test TRH n'est plus mentionné.
 - Code CIM de la thyroïdite de Hashimoto : « E06.3 » ramené à « E06 » (le sous-code n'a pas de source lue dans la bibliographie).
 - Image du point 9 (échographie de Hashimoto, Wikimedia, CC BY-SA 3.0) et image du point 6 (faciès myxœdémateux, collection Wellcome, CC BY 4.0) : insérées. L'image du point 6 est une photographie ancienne ; une photographie récente en couleur reste préférable si elle est trouvée.
+
+## DX.4 Diabète sucré — renforcement du 10.11.2026
+- Citations : réattribuées à la bonne molécule (AIPS relues : 26061, 63227, 66604, 68726, 55234, 55346, 55045, 44610, 31489, 29550719, 41181, 56471). Smear de « Ozempic » retiré de la bibliographie, ancres « B[cit]. Braun » réparées, chiffres de l'enquête Obsan / méta-analyse / consensus 2024 remis à leur source. Libellés [7] à [18] unifiés.
+- Perte de précision assumée : « réduire l'insuline à 0,05 UI/kg/heure » devient « de moitié par rapport au débit initial » (le chiffre vient du consensus 2024 [4], aucune AIPS ne le porte). Test monofilament « de 10 g » retiré (aucune source lue). À rétablir avec les Standards ADA 2026, section 12 (pied) ou une recommandation SSED.
+- 11.A : but glycémique chiffré (HbA1c cible) absent. La section 6 des Standards ADA 2026 (PMC12690178, DOI 10.2337/dc26-S006) renvoie un texte intégral vide ; à lire puis à insérer avec bibliographie.
+- Point 1 : synonymes et termes à éviter non sourcés. Point 11.D : critères de sortie non énumérés (aucune source lue).
+- Images en file d'attente (429) : (1) Acanthosis nigricans, File:Acanthious nigricans new photo for diagnosis… (CC BY-SA 4.0) pour « Région 2 — Peau » ; (2) File:Neuropathic heel ulcer diabetic.jpg (CC BY 3.0) pour « Région 4 — Pieds ». Insertion à faire avec cliche.py figure après téléchargement. Rétinopathie : aucun cliché libre trouvé.
+- Résidu ORANGE de controle3 (phrases > 32 mots) : 9 fenêtres médicament (blocs « Chefs de file / Indications / Posologie » séparés par <br>, non découpables) et 2 blocs du gabarit « Rappel mémoire ».
