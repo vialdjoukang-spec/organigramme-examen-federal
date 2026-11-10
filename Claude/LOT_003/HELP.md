@@ -62,3 +62,11 @@
 - Popup « bloc cardiaque congénital » et grossesse anti-SSA : le suivi spécialisé n'a pas de source citée (l'ancre AIPS 55901, ajoutée à tort par renfort_citations, a été retirée).
 - Les ancres sb-aips-55901 posées par renfort_citations sur des faits ACR/EULAR, EULAR ou non médicamenteux ont été retirées ou remplacées par sb-1 ; les ancres AIPS sont désormais une par molécule (55901, 66093, 53831, 54378).
 - Point 14 : la « raison » de chaque réponse n'est pas rédigée pour toutes les questions.
+
+## DX.4 Diabète insipide (renforcement, 10.11.2026)
+- Point 9 : le cliché IRM sagittal T1 de l'hypophyse (« File:Hypophyse MRT sag.png », CC BY-SA 3.0, flèche sur la posthypophyse hyperintense) est en file d'attente (`images_attente.txt`, erreur 429). Insertion à faire après le tableau 9.d (IRM hypothalamo-hypophysaire) : lecture guidée de la tache brillante posthypophysaire, dont l'absence oriente vers une AVP-D.
+- Point 6 : deux clichés insérés (LowSkinTurgor, DryTongue, CC BY-SA 4.0, partagés avec DX.8). Un champ visuel de Goldmann montrant une hémianopsie bitemporale (« File:Visual field bitemporal hemianopia.png », CC BY-SA 4.0) reste à prendre pour la ligne « Champ visuel et fond d'œil ».
+- Point 12 : la recommandation suisse de prévention (organisme, année) n'est pas encore lue pour le lithium (surveillance de la fonction tubulaire) et pour l'opéré de l'hypophyse ; le tableau reste sur l'AIPS Lithiofor et la pratique de service.
+- Point 2 : aucune donnée d'incidence suisse propre (OFS, Obsan) n'est lue ; le chiffre 1 sur 25 000 vient de la revue suisse de Refardt et Christ-Crain (2020), et le chiffre de polyurie vient d'une cohorte d'urologie américaine (Fisch, 2022).
+- Bibliographie : les huit extraits AIPS (Minirin comprimés 49002, Melt 57151, injectable 43585, Esidrex 24958, Glucose 5 % B. Braun 29550001, Euthyrox 54949, Hydrocortison Galepharm 57970, Lithiofor 38061) sont séparés par molécule, mais la date de consultation de chaque notice n'est pas consignée dans le fichier. Les doses de l'hydrocortisone, de l'Euthyrox et de l'Esidrex viennent des fenêtres médicament déjà présentes, non relues ici.
+- Point 9 : le test génétique (AVPR2, AQP2, AVP) et l'échographie rénale n'ont pas de source citée.
