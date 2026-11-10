@@ -9,3 +9,5 @@ Le PROMPT ne nomme pas de passe « moins de 150 Ko ». Il donne 20 points à la 
 Absents globaux, hors priorité 133-248 : 51 à 71, puis 79 et 81 à 102.
 
 Livrés et déjà fusionnés : LOT_103 PR 517 ; LOT_114 PR 518 ; LOT_116 PR 519 ; LOT_118 PR 520 ; LOT_120 PR 521 ; LOT_230 PR 528 ; LOT_236 PR 529 ; LOT_240 PR 530 ; LOT_246 PR 523 ; LOT_247 PR 522. Consolidation PR 515 fusionnée. PR 272 non touchée. Label audit-ok non posé.
+
+Production B, 10.11.2026 : LOT_051 livré PR 541 ; LOT_052 livré PR 542. Les lots 053 à 071, 079 et 081 à 102 restent réservés : pas d'échec, sources pas encore rédigées. Consolidation toujours 4 %, car les nouvelles leçons sont sous la bande 100–200 Ko.
