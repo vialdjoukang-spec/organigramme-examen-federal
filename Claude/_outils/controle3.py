@@ -24,7 +24,7 @@ CONNECT = re.compile(r"\b(car|donc|or|ainsi|puis|alors|parce que|puisque|lorsque
                      r"grâce à|à cause de|en raison de|si bien que|de ce fait|par ailleurs|en outre|"
                      r"autrement dit|c'est-à-dire|d'où|puisqu'|lorsqu'|qu'il)\b", re.I)
 # Formes verbales conjuguées fréquentes en rédaction médicale (3e pers., présent/futur/passé composé)
-VERBES = set("""mentionne mentionnent contient contiennent figure figurent résulte résultent ajoute ajoutent dépend dépendent rassemble rassemblent résume résument précise précisent indique indiquent décrit décrivent est sont a ont fait font peut peuvent doit doivent reste restent devient deviennent va vont
+VERBES = set("""propose proposent recommande recommandent conseille conseillent mentionne mentionnent contient contiennent figure figurent résulte résultent ajoute ajoutent dépend dépendent rassemble rassemblent résume résument précise précisent indique indiquent décrit décrivent est sont a ont fait font peut peuvent doit doivent reste restent devient deviennent va vont
 semble semblent permet permettent signe signent oriente orientent impose imposent confirme confirment élimine
 éliminent exclut excluent traite traitent associe associent survient surviennent provoque provoquent entraîne
 entraînent exige exigent reçoit reçoivent touche touchent atteint atteignent dépasse dépassent varie varient
