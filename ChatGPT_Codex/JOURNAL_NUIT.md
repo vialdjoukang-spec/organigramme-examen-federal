@@ -189,4 +189,6 @@ Tableau de midi PR600 : une tentative de fusion normale après CI visible verte 
 
 LOT083 DX4 : remise de contenu contrôlée, audit indépendant en attente.
 
-LOTs livrés : 2/23 ; leçons poussées : 35/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
+LOT083 DX5 : contenu grippe saisonnière poussé ; audit indépendant confié à os_rhum81.
+
+LOTs livrés : 2/23 ; leçons poussées : 36/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
