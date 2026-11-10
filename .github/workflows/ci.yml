@@ -4,6 +4,8 @@ name: CI
 on:
   pull_request:
     branches: [main]
+    # « edited » : la porte Prompt L1 lit le corps de la PR ; une modification du corps doit la rejouer.
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
   workflow_dispatch:
@@ -28,6 +30,11 @@ jobs:
           if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -q '^orig/'; then
             echo "ÉCHEC : la demande de fusion modifie orig/ (interdit I1)."; exit 1; fi
           echo "orig/ intact."
+      - name: Prompt L1 lu et appliqué (ordre de Vial du 10.11.2026, bloquant pour les LOTs)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: python3 tools/garde/prompt_l1.py
       - name: Budgets de taille (app_v2.html ≤ 6 Mo, image ≤ 200 Ko)
         run: python3 tools/budget.py
       - name: Arsenal · tests des outils d'économie de jetons
