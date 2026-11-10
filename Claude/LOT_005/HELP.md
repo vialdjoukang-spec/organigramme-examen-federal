@@ -39,3 +39,35 @@
 - Point 11.A (but chiffré), 11.D (critères de guérison et de sortie énumérés) et point 12 (recommandation suisse avec organisme et année) : pas de chiffre ni de source suisse lue ; à compléter à partir du texte intégral des sources 5 et 6 et d'une recommandation de la SSR.
 - Point 9 : une échographie de l'artère temporale (signe du halo) serait le cliché le plus utile ; aucune image libre trouvée. La coupe histologique de biopsie (Nephron, CC BY-SA 3.0) a été insérée à la place.
 - Arbre du point 1 : six libellés de nœuds restent nominaux (widget généré à partir de `data-modele`) ; contrôle3 les compte en B_phrase_nominale (orange).
+
+## DX.1 Infection urinaire — renforcement (10.11.2026)
+- Taille : 105 Ko, bande atteinte. EAU 2026 lu en ligne (sections 3.1 à 3.6, première partie du texte) ; la suite du texte (sections 3.7 et suivantes) reste à lire.
+- Sources à relire en texte intégral : EAU 2024 (S4, résumé lu), recommandations suisses pédiatriques (S6, référence citée sans lecture du texte).
+- Point 6 : aucune image, car l'infection urinaire n'a pas de signe visible à l'examen.
+- Point 9 : échographie (calcul de la jonction pyélo-urétérale avec hydronéphrose, Wikimedia Commons, CC BY 4.0) insérée ; une radiographie ou un scanner du calcul resterait à ajouter si une source libre est trouvée.
+- Sensibilité des signes d'examen (point 6) : aucun chiffre lu ; la phrase est qualitative.
+- Urgence chronologique : aucun délai en minutes n'a été lu dans les sources ; la conduite est ordonnée sans horodatage.
+- Les chiffres du bloc « Rappel mémoire » (16 SSP, 15 diagnostics) viennent du catalogue, sans source bibliographique.
+- Les citations en grappe [5][8][4] ajoutées automatiquement sur les sources et le rappel ont été retirées ; celles des points 2 et 14 (asymptomatique) restent à contrôler.
+
+## DX.2 Troubles électrolytiques — renforcement du 10.11.2026
+- Gluconate de calcium IV (hyperkaliémie) : aucune AIPS lisible dans le corpus local ; le volume et la durée (30 mL à 10 %, 10 minutes) ont été retirés du cours, la conduite est conservée. À compléter si une AIPS ou une recommandation suisse est lue.
+- Insuline et glucose dans l'hyperkaliémie (10 unités avec 25 g de glucose) : dose absente de l'AIPS Actrapid HM (n° 44610), retirée du cours ; la recommandation UK Kidney Association 2023 n'était pas dans la bibliographie.
+- Point 6 : image du signe de Chvostek ou de Trousseau non insérée (limitation de débit Wikimedia) ; à placer si la file images_attente.txt la télécharge.
+- ESE 2014 (Spasovski) : seul le résumé a été lu ; une lecture du texte intégral permettrait d'ajouter la gradation de gravité.
+
+## DX.4 — Infections (renforcement du 10.11.2026)
+- Cliché point 9 inséré : PMC13687686 (Campbell et al., Cureus 2026, CC BY), `images/PMC13687686_cureus-0018-00000116685-i01.webp`.
+- Cliché du point 6 (signe cutané de fasciite nécrosante, PMC12450101, figure `cureus-0017-00000091309-i01.jpg`) : échec de décodage à deux reprises avec `prendre-pmc`. À reprendre ; l'insertion se ferait sous le tableau du point 6.
+- Sans source lue, donc laissés sans renvoi : intervalle de surveillance des constantes (toutes les 1 à 4 heures), seuil de pression systolique < 90 mmHg, contrôle CRP au jour 2 à 3, délai CRP (6 à 8 h). Source à lire (Surviving Sepsis Campaign 2021, texte intégral : PMID 34605781, résumé indisponible via PubMed).
+- Retirés faute de source : « apyrexie en 48 à 72 heures » (11.A) et « apyrétique depuis 24 à 48 heures » (11.D, critère reformulé sans durée). Renvois retirés car erronés : AIPS Tamiflu cité pour la surveillance et la sortie ; Kemp 2020 cité pour la dose de Rocephin, la dose de pipéracilline-tazobactam et le qSOFA.
+- Restriction EMA 2018-2019 sur les fluoroquinolones : absente de l'AIPS Tavanic lue, conservée sans année ni renvoi ; à sourcer (communication EMA ou Swissmedic).
+- Point 12 : recommandation vaccinale suisse (organisme, année) à lire et à dater (plan de vaccination OFSP/CFV).
+- Rappel mémoire : les renvois [2] (Kemp) sur la grille TEMPO-IN et le nombre de diagnostics ne portent pas ces faits ; la grille est une construction du LOT.
+- Polices intégrées (@font-face) retirées ; fichier à 100 047 octets (bande atteinte de justesse).
+
+## DX.8 — renforcement (10.11.2026)
+- Point 1 : la définition exacte d'une société savante (point 1 du contrat µ3) n'est pas sourcée ; aucune source lue ne définit la catégorie « problèmes liés aux médicaments ».
+- Point 9 : le cliché de la modalité décisive (concentration plasmatique du paracétamol) n'est pas inséré. Le nomogramme de Wikimedia Commons trouvé porte une ligne de traitement à 150 µg/mL (usage américain) et des légendes vietnamiennes, ce qui contredit les seuils AIPS suisses du cours.
+- Retiré faute de source : la plage « 12 à 20/min » de fréquence respiratoire normale et la fenêtre « 0 à 5 minutes » de l'urgence opioïde (formulations qualitatives conservées).
+- Cité à tort puis corrigé : mécanisme du myosis et dysautonomie du sujet âgé (ancre paracétamol retirée), citations décalées du tableau d'épidémiologie, Points clés (ancre Banholzer remplacée par l'AIPS ou Spasovski).
