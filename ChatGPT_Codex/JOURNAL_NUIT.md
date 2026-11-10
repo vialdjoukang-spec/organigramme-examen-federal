@@ -77,4 +77,7 @@ Dépôt individuel : LOT_080_Phase_B_V0_DX.8.html, 149535 octets, SHA256 7383738
 
 Dépôt individuel : LOT_080_Phase_B_V0_DX.3.html, 130755 octets, SHA256 c33f3efeac911563f7d25122905ee27b3d2e7ddef04f69aade7982486d4dfcb1. Les audits médicaux sont consignés séparément ; le LOT n’est pas encore livré.
 
-LOTs livrés : 0/23 (080–102) ; leçons poussées : 6/253 nouvelles, 858 existantes consolidées ; blocages : 5 DX du LOT080 à pousser et audits DX en cours ; LOT081–102 à produire.
+
+Dépôt individuel : LOT_080_Phase_B_V0_DX.5.html, 100969 octets, SHA256 c5182997965c311b631bbb687f09ec398dbca0e898bf4457ca700a028d12e774. Les audits médicaux sont consignés séparément ; le LOT n’est pas encore livré.
+
+LOTs livrés : 0/23 (080–102) ; leçons poussées : 7/253 nouvelles, 858 existantes consolidées ; blocages : 4 DX du LOT080 à pousser et audits DX en cours ; LOT081–102 à produire.
