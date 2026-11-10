@@ -65,7 +65,14 @@ def prep(a):
     if a.urls:
         for u in [l.strip() for l in open(a.urls) if l.strip().startswith('http')]:
             try:
-                P += PQ.decouper(PQ.telecharger(u), 'w' + PQ.sha(u.encode())[:6], u)
+                t = PQ.telecharger(u)
+                if re.search(r'recaptcha|captcha|are you a robot|verify you are human|Access Denied|Just a moment', t[:4000], re.I) and len(t) < 20000:
+                    f = os.path.join(os.environ['PAQUET_CACHE'], PQ.sha(u.encode())[:24])
+                    for ext in ('.txt', '.raw'):
+                        if os.path.exists(f + ext):
+                            os.remove(f + ext)
+                    raise RuntimeError('page anti-robot (captcha) : non citable, retirée du cache')
+                P += PQ.decouper(t, 'w' + PQ.sha(u.encode())[:6], u)
             except Exception as e:
                 echecs.append(f'{u} : {e}')
     if a.dci:
@@ -98,6 +105,20 @@ def prep(a):
         print('ECHEC', e)
 
 
+def lignes(sortie):
+    """µ7 : aucune ligne > 3 000 caractères — la liste Sources de l'assembleur passe à une ligne par source ; MANIFESTE resigné."""
+    import hashlib
+    h = open(sortie, encoding='utf-8').read()
+    h2 = h.replace('</li><li id="sb-', '</li>\n<li id="sb-').replace('<ol><li id="sb-', '<ol>\n<li id="sb-')
+    if h2 != h:
+        open(sortie, 'w', encoding='utf-8').write(h2)
+        man = os.path.join(os.path.dirname(sortie), 'MANIFESTE.json')
+        m = json.load(open(man)) if os.path.exists(man) else {}
+        b = h2.encode()
+        m[os.path.basename(sortie)] = {'octets': len(b), 'sha256': hashlib.sha256(b).hexdigest()}
+        json.dump(m, open(man, 'w'), ensure_ascii=False, indent=1)
+
+
 def finir(a):
     racine, d = dossier(a.lot, a.cible)
     nom = f'LOT_{int(a.lot):03d}_Phase_A_V0.html' if a.cible in ('A', 'PA') else f'LOT_{int(a.lot):03d}_Phase_B_V0_{a.cible}.html'
@@ -106,6 +127,7 @@ def finir(a):
                         '--paquet', os.path.join(d, 'paquet.json'), '--contrat', os.path.join(d, 'contrat.json'),
                         '--titre', a.titre, '--sortie', sortie], capture_output=True, text=True)
     print(r.stdout.strip(), r.stderr.strip()[-500:])
+    lignes(sortie)
     r = subprocess.run([sys.executable, os.path.join(REF, 'controle3.py'), sortie, '--paquet', os.path.join(d, 'paquet.json'), '--ex', str(a.ex)],
                        capture_output=True, text=True)
     open(os.path.join(d, 'controle.json'), 'w').write(r.stdout)
@@ -125,6 +147,22 @@ def extraire(a):
             print(f"[{p['id']}] ({p['source'][:70]}, {p.get('date','')}) {p['texte'] if not a.court else p['texte'][:200]}\n")
 
 
+def manifeste(a):
+    """Recalcule MANIFESTE.json du LOT et coupe les lignes trop longues des 11 HTML (avant PR)."""
+    import glob
+    racine, _ = dossier(a.lot, 'PA')
+    for f in sorted(glob.glob(os.path.join(racine, 'LOT_*_Phase_*.html'))):
+        lignes(f)
+        h = open(f, 'rb').read()
+        if any(len(l) > 3000 for l in h.decode('utf-8', 'ignore').split('\n')):
+            print('LIGNE > 3000 :', f)
+    import hashlib
+    m = {os.path.basename(f): {'octets': len(open(f, 'rb').read()), 'sha256': hashlib.sha256(open(f, 'rb').read()).hexdigest()}
+         for f in sorted(glob.glob(os.path.join(racine, 'LOT_*_Phase_*.html')))}
+    json.dump(m, open(os.path.join(racine, 'MANIFESTE.json'), 'w'), ensure_ascii=False, indent=1)
+    print(len(m), 'fichiers au MANIFESTE')
+
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest='cmd', required=True)
@@ -136,5 +174,6 @@ if __name__ == '__main__':
     f.add_argument('--titre', required=True); f.add_argument('--ex', type=int, default=4)
     e = s.add_parser('extraire'); e.add_argument('--lot', required=True); e.add_argument('--cible', required=True)
     e.add_argument('--motif'); e.add_argument('--prefixe'); e.add_argument('--court', action='store_true')
+    m = s.add_parser('manifeste'); m.add_argument('--lot', required=True)
     a = ap.parse_args()
-    {'prep': prep, 'finir': finir, 'extraire': extraire}[a.cmd](a)
+    {'prep': prep, 'finir': finir, 'extraire': extraire, 'manifeste': manifeste}[a.cmd](a)
