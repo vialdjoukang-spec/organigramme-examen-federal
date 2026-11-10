@@ -8,3 +8,4 @@
 - `controle3.py` sur la Phase A : VERT, 101666 octets. Ce n'est pas un audit indépendant.
 - DX.2 ne démarre pas sans feu vert explicite de Bitunder.
 - 2026-11-10 18:22, ordre de Vial : plus de tournure « le médecin », plus de mot redoublé, bande 80–150 Ko, contraste AAA, mise en page relue. La Phase A est reprise dans ce cadre.
+- 2026-11-10 18:28, ordre de Vial : nom du diagnostic en grand en tête, aucun fond bleu, barre latérale identique qui suit la lecture, surligne la section active et montre la progression. L'accent est bordeaux pour la Phase A et vert forêt pour DX.1. Les deux leçons sont arrêtées pour l'audit. Pas de PR, pas de fusion, pas de DX.2.
