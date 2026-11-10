@@ -199,4 +199,6 @@ LOT083 : intégration de LOT_083_Phase_A_V0.html, preuves et version stable pous
 
 LOT083 : intégration de LOT_083_Phase_B_V0_DX.1.html, preuves et version stable poussées ; P3 selon rapport indépendant.
 
-LOTs livrés : 2/23 ; leçons poussées : 40/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
+LOT083 : intégration de LOT_083_Phase_B_V0_DX.2.html, preuves et version stable poussées ; P3 selon rapport indépendant.
+
+LOTs livrés : 2/23 ; leçons poussées : 41/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
