@@ -78,3 +78,13 @@
 - Point 6 : aucune image du signe visible (pâleur conjonctivale, koïlonychie, faciès myxœdémateux) n'est insérée. Un seul appel `prendre` a été fait (frottis du point 9), Wikimedia limitant le débit. Requêtes à placer en file : « conjunctival pallor anemia », « koilonychia », « myxedema facies ».
 - Les doses citent désormais l'AIPS de leur propre molécule (ancres sb-aips-<n°> : Euthyrox 54949, Maltofer 30124, Ferinject 57851, Vitarubin 21672, Glucophage 26061, Lantus 55346, NovoRapid 55045, Solu-Cortef 23533, NaCl 0,9 % 53772). L'AIPS du NaCl n'est pas dans le paquet local relu ; la ligne ne porte aucun milligramme.
 - Le « non-lecture » de la formule de Ganzoni : le cours renvoie à l'AIPS Ferinject (tableau selon poids et Hb) sans le reproduire.
+
+## LOT_005 Phase A (G5 Sensation de maladie) : lacunes retirées du cours (renforcement 10.11.2026)
+- Données manquantes : aucune fréquence du SSP dans la population suisse ; aucun rang de fréquence entre les DD ; fréquences non chiffrées pour DX.4, DX.9, DX.10, DX.11, DX.13, DX.15.
+- Recommandations de la Société suisse d'infectiologie : texte non consulté.
+- ESC 2023 (S19), définition universelle de l'infarctus 2018 (S20), ESE 2014 sur l'hyponatrémie (S15) : notices seulement, texte intégral non lu. Mise à jour 2026 des recommandations sur le sepsis : texte non lu (phrase retirée du cours).
+- Bornstein 2016 (seuil de 500 nmol/L), Umpierrez 2024 et OMS 2011 : seuils non relus.
+- Test à la corticotropine : dose de 250 µg retirée du cours faute d'AIPS lue (Synacthen) ; conduite conservée.
+- Seuils de troponine hs par dosage ; âges et intervalles de dépistage du cancer ; indemnités journalières selon le contrat ; article de loi sur l'aptitude à conduire ; bolus de glucose (AIPS Glucosum silencieux) ; NaCl 3 % sans AIPS (bolus 100 à 150 mL de source ESE/NDT, AIPS NaCl 10 % citée pour le sodium hypertonique).
+- Citations AIPS de dose attribuées à la mauvaise molécule par renfort_citations : reprises (chaque dose cite l'AIPS de sa molécule). Phrases chiffrées scindées (bilan de première intention, retour à domicile) : sources héritées du paragraphe (S2, S3, S4, S13), à relire.
+- Images : cliché de pneumonie lobaire inséré (point 9). Non insérés pour rester sous 200 Ko : ECG d'hyperkaliémie (images/Hyperkalemia_ECG.webp, CC BY 4.0, DX.2 : ondes T amples et pointues en V3 à V5) et pneumonie à Legionella (images/Severe_Pneumonia_Caused_by_Legionella_pneumophila_Serogroup_.webp).
