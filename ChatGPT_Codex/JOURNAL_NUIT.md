@@ -209,4 +209,6 @@ LOT083 : intégration de LOT_083_Phase_B_V0_DX.8.html, preuves et version stable
 
 LOT083 : intégration de LOT_083_Phase_B_V0_DX.5.html, preuves et version stable poussées ; P3 selon rapport indépendant.
 
+LOT083 DX5 : citation déplacée après la question finale, contenu clinique identique ; attestation indépendante demandée.
+
 LOTs livrés : 2/23 ; leçons poussées : 44/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
