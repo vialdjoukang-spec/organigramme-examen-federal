@@ -24,7 +24,7 @@ def conv(txt,n):
             while i<len(lines) and lines[i].startswith('|'):
                 rows.append(lines[i]);i+=1
             i-=1
-            t='<div class="t"><table>'
+            t='<div class="t" style="overflow-x:auto"><table>'
             for k,r in enumerate(rows):
                 hd=r.startswith('||'); cells=[c.strip() for c in r.lstrip('|').split('|')]
                 tag='th' if hd else 'td'
