@@ -57,4 +57,9 @@ Les preuves, candidats non classés, paquets, conditions de reprise et audits fi
 
 La conclusion précédente est un état historique, pas une clôture. Vial demande de poursuivre jusqu’à la fin des LOTs. Reprise au LOT080 : approfondissement des sources de la liste et rédaction des fragments de Phase A en parallèle. Les fragments restent préparatoires tant que les portes ne sont pas franchies.
 
-LOTs livrés : 0/23 (080–102) ; leçons poussées : 0/253 nouvelles, 858 existantes consolidées ; blocages : P1 des LOTs 080–102, 23 audits NON_FRANCHIE (dix rangs non démontrés par les paquets consultés).
+
+### LOT080 — première leçon rédigée
+
+P1 franchie après recontrôle indépendant ; liste gelée et cadres de classement conservés. Phase A assemblée, 170764 octets, 14 points, 154 références citées. Contrôle3 ORANGE, sans défaut A ou C ; audit médical P3 en cours. La présence du fichier poussé ne signifie pas que le LOT est livré. Les dix DX sont en rédaction parallèle.
+
+LOTs livrés : 0/23 (080–102) ; leçons poussées : 1/253 nouvelles, 858 existantes consolidées ; blocages : audit P3 Phase A et dix DX du LOT080 en cours, LOT081–102 à produire.
