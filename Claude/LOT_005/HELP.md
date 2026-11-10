@@ -18,7 +18,7 @@
 ## DX.7 — renforcement du 10.11.2026
 - Image point 6 (signe visible, pâleur conjonctivale) : la recherche Commons n'a rien renvoyé (429 probable) ; à insérer plus tard, requête « conjunctival pallor anemia », 1 repère sur la conjonctive.
 - Point 9.c (alternatives d'imagerie) : aucune source lue ; le seuil de DFGe (30 mL/min) a été retiré du texte (« fonction rénale sévèrement réduite »). À rétablir avec une source (lignes directrices ESUR sur les produits de contraste, et recommandation européenne sur l'imagerie de la femme enceinte).
-- Point 6 : les valeurs normales du pouls (60 à 100/min) et de la fréquence respiratoire (12 à 20/min) n'ont pas de source lue.
+- Point 6 : les valeurs normales du pouls (60 à 100/min) et de la fréquence respiratoire (12 à 20/min) n'avaient pas de source lue ; les deux chiffres ont été retirés du cours (11.11.2026). À rétablir avec une source lue.
 - Rocephin® et Dafalgan® : toutes les doses relues dans l'AIPS (n° 44625 et 47503) le 10.11.2026 ; la lidocaïne n'a plus de n° AIPS propre (n° 52094 non vérifié, retiré).
 - Prise de position OFSP/CFV (PCV) : texte relu le 10.11.2026 ; la formule « non relu » est supprimée.
 - Les défauts restants de controle3 (phrases « nominales » ou longues) naissent de la concaténation terme + définition des fenêtres ; ils disparaîtraient en reformulant les fenêtres du glossaire.
