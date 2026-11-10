@@ -51,7 +51,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 097 | S7.3 | Mouvements involontaires anormaux, tremblements, tics, troubles de la coordination | réservé |
 | 098 | S7.4 | Troubles de la parole ou du langage | réservé |
 | 099 | S7.5 | Étourdissements, vertiges | réservé |
-| 100 | S7.6 | Céphalées | réservé |
+| 100 | S7.6 | Céphalées | en cours |
 | 101 | S7.7 | Troubles cognitifs, notamment difficultés de concentration, troubles de la mémoire et de la compréhension | réservé |
 | 102 | S7.8 | Parésie, paralysie | réservé |
 
