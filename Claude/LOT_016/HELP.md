@@ -19,3 +19,15 @@ Registre ouvert lors du renfort L1 du 10.11.2026. Les formules de lacune retiré
 - Lacune retirée du cours : (cellule vidée)
 - Lacune retirée du cours : Une règle propre à la cachexie est une donnée non trouvée dans les sources consultées.
 - Lacune retirée du cours : Le bilan d'un cancer pendant la grossesse est une donnée non trouvée dans les sources consultées.
+
+## DX.2
+- Lacune retirée du cours : texte anglais officiel lu, traduction française officielle non lue.
+- Lacune retirée du cours : Le coût chiffré en francs est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Valeur diagnostique : la sensibilité et la spécificité chiffrées de ces signes pour distinguer dépression et cause somatique sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Le seuil de positivité de la GDS est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Valeur diagnostique : les sensibilités et spécificités chiffrées de ces signes sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Pour les deux questions de repérage, ces valeurs sont une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : la conduite propre au produit de contraste est une donnée non trouvée dans les sources consultées
+- Lacune retirée du cours : Ce choix est un raisonnement tiré des profils AIPS, pas une recommandation : une recommandation suisse dédiée au patient dénutri est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Son contenu détaillé est une donnée non trouvée dans les sources consultées.
+- Lacune retirée du cours : Aucune liste officielle suisse de critères de sortie propre à l'épisode dépressif n'a été trouvée
