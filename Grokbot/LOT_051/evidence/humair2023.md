@@ -15,7 +15,7 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 
 > En outre, la taille du pneumothorax n’est pas bien corrélée avec la sévérité des symptômes.4 La présence d’une dyspnée importante indique en général le besoin d’une intervention active, tandis que la taille du pneumothorax détermine plutôt sa vitesse de réso lution, et n’est qu’une indication relative à une intervention active.
 
-## humair2023.2
+## humair2023.2 (cité)
 
 > La pose d’un drain thoracique est indiquée en cas d’instabilité hémodynamique (pneumothorax sous tension), de pneumothorax bilatéral, d’hydropneumothorax, d’hémothorax con comitant, de symptômes sévères ou d’échec du traitement conservateur ou de l’aspiration manuelle à l’aiguille.
 

@@ -26,3 +26,11 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 ## fournier2008.4 (cité)
 
 > Cette stratification du risque de DAA pourrait être faite à partir de trois variables cliniques : une douleur thoracique ou dorsale aiguë déchirante ou d’apparition rapide (< 2 minutes), une asymétrie des pouls périphériques ou une asymétrie tensionnelle de > 20 mmHg aux membres supérieurs et un élargissement de l’aorte ou du médiastin à la radiographie standard du thorax.
+
+## fournier2008.5 (cité)
+
+> la dissection débute avec une rupture de l’intima, puis la pénétration du sang entre l’intima et la média et la création d’une fausse lumière.
+
+## fournier2008.6 (cité)
+
+> Des D-dimères faussement négatifs étaient retrouvés chez des patients de moins de 70 ans, lors de thrombose complète de la fausse lumière et de dissection peu étendue.

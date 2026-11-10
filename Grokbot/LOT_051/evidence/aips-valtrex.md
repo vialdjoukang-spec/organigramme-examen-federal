@@ -2,7 +2,7 @@
 
 Information professionnelle Valtrex® (valaciclovir), GlaxoSmithKline AG, AIPS/Swissmedic, n° d’autorisation 53116, mise à jour décembre 2025
 
-https://www.swissmedicinfo.ch
+https://files.refdata.ch/simis-public-prod/MedicinalDocuments/d1180e977490458dabfb3c4e73cc1719-fr.html
 Consulté le 10.11.2026. Priorité : aips.
 
 Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant = ancre de citation dans la Phase A.

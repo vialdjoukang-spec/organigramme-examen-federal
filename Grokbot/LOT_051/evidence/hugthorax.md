@@ -7,7 +7,7 @@ Consulté le 10.11.2026. Priorité : suisse.
 
 Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant = ancre de citation dans la Phase A.
 
-## hugthorax.0 (cité)
+## hugthorax.0
 
 > ↓ MV unilatéral • Hyperinflation • Déviation de la trachée • Emphysème sous-cutané • Turgescence jugulai re
 

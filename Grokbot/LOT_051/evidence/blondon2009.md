@@ -54,3 +54,31 @@ Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant
 ## blondon2009.11 (cité)
 
 > Sa survenue avant 40 ans doit faire rechercher la prise de toxiques, en particulier la cocaïne, ainsi que la présence d’un syndrome de Marfan.
+
+## blondon2009.12 (cité)
+
+> La visualisation d’une double lumière ou d’un flap intimal permet de poser un diagnostic certain.
+
+## blondon2009.13 (cité)
+
+> elle différencie les dissections aortiques en type A, touchant l’aorte ascendante et type B, ne touchant pas l’aorte ascendante.
+
+## blondon2009.14 (cité)
+
+> Quant aux dissections de type A, l’approche endovasculaire n’a aujourd’hui aucune place reconnue, et la chirurgie reste la seule option thérapeutique recommandée.
+
+## blondon2009.15 (cité)
+
+> Dans le cas d’une extension rétrograde de la dissection, les ostiums de coronaires peuvent aussi être comprimés, résultant en une ischémie myocardique aiguë. Atteignant préférentiellement l’artère coronaire droite [29], cette ischémie est visible sur 15% des ECG, et peut aller jusqu’à l’infarctus avec des ondes Q nouvelles ou une surélévation du segment ST (7%). Ces anormalités expliquent la publication de case-reports de faux diagnostics de syndromes coronariens aigus lors de dissection aortique, allant parfois jusqu’à la thrombolyse
+
+## blondon2009.16 (cité)
+
+> Le premier patient fut amené en ambulance médicalisée de France voisine au Service d’Accueil et d’Urgences de Genève, pour une suspicion de syndrome coronarien aigu. Dans cette démarche, il avait déjà bénéficié d’un traitement antiagrégant par aspirine et clopidogrel, ainsi qu’une dose d’enoxaparine 1mg/kg. A son arrivée, nous restions étonnés par la présence d’une douleur thoracique intense, transfixiante, avec une anamnèse de début extrêmement brusque et un ECG normal. Un scanner thoraco-abdominal confirma notre suspicion en montrant une dissection de type A descendant jusqu’aux artères rénales. Le patient décéda malheureusement en salle d’opération quelques heures plus tard.
+
+## blondon2009.17 (cité)
+
+> Ce fut alors dans un bilan d’embolie pulmonaire, suite à des Ddimères très élevés, que le diagnostic de dissection aortique de type B fut posé.
+
+## blondon2009.18 (cité)
+
+> Y figurent l’hématome intramural, correspondant à une dissection sans brèche intimale

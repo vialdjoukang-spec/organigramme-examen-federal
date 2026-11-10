@@ -2,7 +2,7 @@
 
 Information professionnelle Brivex® (brivudine), A. Menarini GmbH, AIPS/Swissmedic, n° d’autorisation 55465, mise à jour mai 2022
 
-https://www.swissmedicinfo.ch
+https://files.refdata.ch/simis-public-prod/MedicinalDocuments/63e3d57f98de4479b63df95a0f6036ed-fr.html
 Consulté le 10.11.2026. Priorité : aips.
 
 Extraits verbatim, chacun d’un seul tenant (espaces normalisés) ; identifiant = ancre de citation dans la Phase A.
