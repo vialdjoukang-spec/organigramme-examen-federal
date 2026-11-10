@@ -1,1 +1,6 @@
 - 2026-11-10 · gel P1 de la liste DX (audit indépendant, verdict CORRIGER, liste corrigée de l'auditeur appliquée) · sha 650f5977058a486b
+- 2026-11-10 · rédaction des 11 leçons (P2 controle3 VERT) ; phrases AIPS partagées DX.6 reformulées
+- 2026-11-10 · audit P3 (3 auditeurs) : 11 CORRIGER ; corrections A-5 (AIPS versées, contre-indications complètes, ESC 2024)
+- 2026-11-10 · second passage P3 : DX.1, DX.3, DX.5, DX.10 ACCEPTE ; corrections des restants (morphine 56560, fondaparinux < 30 mL/min, lidocaïne, AINS, Aspirine Cardio, source américaine retirée)
+- 2026-11-10 · vérification indépendante (audit3) : 7 ACCEPTE ; quiz nitroglycérine DX.6 aligné sur l'AIPS (90 mmHg) ; 11 ACCEPTE
+- 2026-11-10 · écart à la règle Θ2 « deux échecs P3 → REFUSE » : 7 fichiers corrigés après le second échec plutôt que refusés (corrections ponctuelles vérifiées indépendamment)
