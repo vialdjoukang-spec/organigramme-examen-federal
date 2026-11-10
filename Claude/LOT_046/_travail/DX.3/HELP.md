@@ -1,9 +1,6 @@
 # HELP DX.3 — Exacerbation de BPCO
 
-Molécules sans AIPS lisible ou sans posologie de l'exacerbation (classe et conduite sans milligramme dans le HTML) :
-- Salbutamol inhalé (Ventolin dosieraerosol) : seule la forme injectable Ventolin (Swissmedic 44397) est lisible ; première ligne de l'exacerbation sans AIPS.
-- Prednisone Galepharm (69640) : AIPS sans dose BPCO ; dose standard HUG/GOLD non reproduite, durée 5 jours citée.
-- Amoxicilline-clavulanate adulte : AIPS lu = suspensions pédiatriques (66429) ; dose adulte HUG non reproduite.
-- Céfuroxime, lévofloxacine, azithromycine : pas d'AIPS lu ; doses non reproduites.
-- Doxycline (44000) : dose non lue.
+Molécules versées au paquet après audit P3 : salbutamol inhalé Ventolin nébuliseur-doseur 54320 (aips-37397-3, -43), Augmentin 45674 (aips-45674-4), doxycycline Doxyclin 44000 (aips-44000-8), Tavanic 54365 (aips-54365-5, 500 mg 1 fois par 24 h pour 7 à 10 jours dans l'exacerbation de bronchite chronique ; la stratégie HUG propose 500 mg 2 fois par jour : l'AIPS prime), amoxicilline Amoxi-Mepha 44911, prednisone Galepharm 69640 (5 à 60 mg par jour ; 40 mg pendant 5 jours selon HUG et GOLD, dans la fourchette).
+Sans dose AIPS dans le texte : céfuroxime orale (HUG seulement, aucun AIPS adulte oral versé), azithromycine, doxycycline pour l'exacerbation (l'AIPS Doxyclin donne la dose générale, non propre à la BPCO).
+Seuils BNP : seuils non aigus (35 et 125) retirés du contexte aigu ; seuils aigus de l'ESC non lus dans le paquet DX.3 (ESC 2026 non lisible, voir HELP DX.2).
 Lacunes de sources : épidémiologie suisse spécifique de l'exacerbation (OFS/Obsan, Ligue pulmonaire suisse bloquée par Cloudflare) ; alternatives au scanner (grossesse, DFGe, allergie iode) rédigées sans chiffre ni source ; techniques de palpation/percussion et plusieurs phrases mécanistes (point 6, 7) non citées.
