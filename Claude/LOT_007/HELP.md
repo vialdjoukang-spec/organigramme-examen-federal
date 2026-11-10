@@ -39,3 +39,12 @@
 - Image point 6 (exophtalmie, rétraction palpébrale) en file d'attente : « File:Proptosis and lid retraction from Graves' Disease.jpg » (CC BY 3.0, J. Trobe) à prendre après l'erreur 429 ; ligne ajoutée à /home/user/wt/images_attente.txt. Insérer la figure au point 6, région 3 (Yeux), après la liste.
 - Doses d'urgence de la crise thyrotoxique : le résumé JTA 2016 ne donne aucune dose ; seules les doses AIPS (propylthiouracile 300 à 600 mg/j, propranolol 10 à 40 mg 3 à 4 fois/j) figurent.
 - Panneau « Rappel mémoire » (généré) : deux phrases reformulées pour passer le contrôle ; ses renvois sb-4 sont hérités de l'outil.
+
+## DX.9 Syndrome carcinoïde (renforcement 10.11.2026)
+- Incidence suisse du syndrome carcinoïde : aucune source suisse lue ; le cours cite SEER-Medicare et ENETS 2022 (la formule de lacune a été retirée du texte).
+- Prévention : aucune recommandation suisse propre lue ; le cours suit ENETS 2022 et le registre SwissNET.
+- Nicotinamide (pellagre) : aucune AIPS monopréparation lisible dans le corpus local ; le milligramme a été retiré, la conduite suit la recommandation ENETS (dose à rétablir après lecture de l'ENETS).
+- Octréotide, doses de crise carcinoïde et de prophylaxie : issues de l'ENETS 2022 (hors AIPS), conservées ; l'AIPS 49137 ne couvre que la voie i.v. générale.
+- Arrêt de l'octréotide court avant lutécium : « 8 à 24 h » (source non retrouvée) remplacé par « au moins 24 h » (AIPS 66580).
+- Images : aucun cliché inséré, la recherche Wikimedia n'a rien retourné (limitation de débit). À faire : TEP/scintigraphie des récepteurs de la somatostatine (point 9), flush carcinoïde (point 6).
+- Tableau médicaments du point 11 : colonnes durée et extrait AIPS encore absentes.
