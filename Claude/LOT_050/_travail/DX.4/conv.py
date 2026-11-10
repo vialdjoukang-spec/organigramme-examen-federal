@@ -16,6 +16,7 @@ def conv(path):
         l=lines[i]
         if not l.strip(): i+=1;continue
         if l.startswith('p: '): out.append(f'<div class="p">{inline(l[3:],n)}</div>')
+        elif l.startswith('html: '): out.append(inline(l[6:],n))
         elif l.startswith('h: '): out.append(f'<h4><em>{l[3:]}</em></h4>')
         elif l.startswith('- '):
             items=[]
