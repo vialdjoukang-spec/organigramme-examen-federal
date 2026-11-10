@@ -84,3 +84,10 @@ Lacunes retirées du cours et consignées ici (ajouts seulement) :
 - Recommandation suisse de la prise en charge de l'infection urinaire haute (SSI) : non lue ; points 1, 8, 11 et 12 (définition par une société savante, critères, prévention avec organisme et année) à compléter.
 - Valeurs normales SI de la bandelette et de l'ECBU (point 9.b) : source à lire.
 - Les citations « 55922 », « 67240 », « 44625 » placées sur des phrases sans dose (étapes, syndromes, imagerie) ont été retirées ou conservées seulement sur les phrases chiffrées héritées ; la bibliographie ne porte plus de renvois parasites.
+
+## DX.4 — Fièvre prolongée sans cause retrouvée (renforcement 10.11.2026)
+
+- Images non insérées (Wikimedia limite le débit, 429) : point 9, cliché PET-TDM au FDG d'une FUO (requête « FDG PET CT fever of unknown origin ») ; point 6, signe visible éventuel (artère temporale indurée, requête « temporal arteritis temporal artery »). À prendre avec `cliche.py prendre` puis composer avec `cliche.py figure`, à insérer en 9.c et au point 6.
+- Sources à relire dans le texte de Karrer (non lisible localement) : attribution des chiffres d'Europe centrale (30 à 50 % sans cause, 25 à 30 %, 10 à 20 %, 10 à 15 %, 5 à 10 %) au tableau de l'épidémiologie (cité S2, probablement S1), de la série belge de 436 patients (mortalité 6,9 % et 38 %, cités S2) et du seuil de corticoïde de 10 mg d'équivalent prednisone ; durée de 10 à 14 jours d'essai de prednisone ; durée de 2 à 4 semaines de doxycycline.
+- Dose d'urgence conservée : prednisone 40 à 60 mg par jour dans l'artérite à cellules géantes (recommandation EULAR 2025, S11) ; l'AIPS 69640 donne 5 à 60 mg par jour et autorise des doses plus élevées à court terme.
+- Chaque citation de dose cite l'AIPS de sa propre molécule (69640, 43522, 47503, 65952, 66191). Aucune autre AIPS n'a été ajoutée.
