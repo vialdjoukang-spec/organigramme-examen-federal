@@ -22,18 +22,18 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | livré PR 551 |
 | 061 | S3.10 | Nausées, vomissements | livré PR 552 |
 | 062 | S4.1 | Variations du développement sexuel | livré PR 553 |
-| 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | réservé |
-| 064 | S4.3 | Dysurie, pyurie, hématurie | réservé |
+| 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | livré PR 556 |
+| 064 | S4.3 | Dysurie, pyurie, hématurie | livré PR 557 |
 | 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | livré PR 558 |
-| 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | réservé |
-| 067 | S4.6 | Masse pelvienne | réservé |
-| 068 | S4.7 | Douleur pelvienne | réservé |
-| 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
-| 070 | S4.9 | Douleur, gonflement ou masse du scrotum | réservé |
-| 071 | S4.10 | Plaintes et dysfonctions sexuelles | réservé |
-| 079 | S4.18 | Écoulement vaginal | réservé |
-| 081 | S5.2 | Douleur dorsale ou lombaire | réservé |
-| 082 | S5.3 | Déformations du squelette et des articulations | réservé |
+| 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | livré PR 559 |
+| 067 | S4.6 | Masse pelvienne | livré PR 560 |
+| 068 | S4.7 | Douleur pelvienne | livré PR 562 |
+| 069 | S4.8 | Demande de contraception, contraception d’urgence | livré PR 563 |
+| 070 | S4.9 | Douleur, gonflement ou masse du scrotum | livré PR 564 |
+| 071 | S4.10 | Plaintes et dysfonctions sexuelles | livré PR 565 |
+| 079 | S4.18 | Écoulement vaginal | livré PR 568 |
+| 081 | S5.2 | Douleur dorsale ou lombaire | livré PR 569 |
+| 082 | S5.3 | Déformations du squelette et des articulations | livré PR 570 |
 | 083 | S5.4 | Myalgies | réservé |
 | 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | réservé |
 | 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | réservé |
