@@ -1,6 +1,4 @@
 # Journal de nuit — Grokbot — 2026-11-10
 
-- Consolidation du ressort : 874 leçons placées dans `Grokbot/`, PR https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/515 (non fusionnée : ce n’est pas un LOT de la mission).
-- LOT_103 : 11 leçons rédigées, branche `grok/lot-103`. Contrôle sans ROUGE. Bande d’octets non atteinte. Pas d’AIPS local.
+Livrés : LOT_103 11 leçons, PR 517 fusionnée ; LOT_114 11 leçons, PR 518 fusionnée ; LOT_116 11 leçons, PR 519 fusionnée ; LOT_118 https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/520 (main réintégré après 519, CI relancée) ; LOT_120 https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/521 (main réintégré, CI relancée) ; LOT_246 https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/523 (main réintégré, CI relancée) ; LOT_247 https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/522 (main réintégré, CI relancée). Consolidation PR 515 non fusionnée. Non livrés : 230, 236, 240.
 
-Livrés : LOT_103 11 leçons, grok/lot-103, https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/517 (main intégré, CI relancée, pas encore fusionnée) ; LOT_114 11 leçons, grok/lot-114, https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/518 (CI en attente). Consolidation PR 515 non fusionnée. Non livrés : 116, 118, 120, 230, 236, 240, 246, 247.
