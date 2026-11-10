@@ -1,0 +1,225 @@
+{
+  "lot": "LOT_081",
+  "porte": "P1",
+  "auditeur": "/root/sources_cutanees",
+  "proposant": "/root/audit_p1_lot080",
+  "date": "2026-11-10",
+  "verdict": "FRANCHIE",
+  "score_pct": null,
+  "finale": "oui",
+  "fichiers_audites": {
+    "PROPOSITION_P1.json": {
+      "octets": 45634,
+      "sha256": "b1a1279877228f58bc57dfcf008866e34319dd9df8efa2d2315cf209b43a1594"
+    },
+    "TABLEAU_COMPARATIF_PROPOSE.json": {
+      "octets": 13125,
+      "sha256": "c32e72f6978754d7f43794a1bb45a262efb4ca93406de26cfaa640bba50a3d5a"
+    },
+    "paquet_preparatoire_P1.json": {
+      "octets": 37863,
+      "sha256": "512f2c993d8ce88c7a11ca6c5b0a480f52fdf42609e6d0802017bafe2fe66910"
+    }
+  },
+  "selection": "Dix concurrents cliniques distincts retenus ; queue de cheval conservée en triage transversal pour éviter une seconde hernie.",
+  "tableau": "Dix lignes et cinq champs cliniques, avec cadre, sources etE comme métadonnées visibles. Aucune dose proposée.",
+  "urgences": "Branches vasculaire, compressive neurologique, infectieuse/obstructive et fracturaire conditionnelles ; imagerie/avis immédiats ou urgents conformes aux passages HUG, EAU, NICE et ESVS lus. Pas de file d’attente séquentielle imposée.",
+  "niveau_preuve_ordre": "Arbitrage conforme à l’instruction racine : arguments qualitatifs de fréquence dans un cadre visible ; aucune cohorte universelle ni comparaison quantitative exhaustive des paires n’est exigée. Les numéros voisins ne valent pas différence statistique démontrée.",
+  "corrections": [
+    {
+      "gravite": "Moyen",
+      "emplacement": "PROPOSITION_P1.critere_ordre et arguments des dix positions, reproduits dans dx ; limites visibles du tableau",
+      "motif": "La version soumise décrit des positions de travail et des rangs non démontrés ; la version à geler doit déclarer le cadre qualitatif et porter son argument positif, sans se présenter comme distribution globale.",
+      "operations": "CORRECTIONS_P1_AUDITEUR.json : champs de cadrage/fréquence et quatre extraits réels à ajouter.",
+      "statut": "appliquée et recontrôlée"
+    },
+    {
+      "gravite": "Moyen",
+      "emplacement": "mecanisme des lignes1/2/5, proposition et tableau",
+      "motif": "Resserrer la formulation sur les faits effectivement extraits : absence de corrélat pour non spécifique, hernie/radiculopathie concordante et obstacle/mise en tension pour colique.",
+      "operations": "Remplacements exacts contenus dans CORRECTIONS_P1_AUDITEUR.json.",
+      "statut": "appliquée et recontrôlée"
+    }
+  ],
+  "constats_par_position": [
+    {
+      "position": 1,
+      "nom": "Lombalgie commune non spécifique",
+      "cadre": "Adulte consultant en médecine générale pour lombalgie, après triage des signaux d’alarme.",
+      "argument_corrige": "Dans le cadre adulte de médecine générale, HUG qualifie la lombalgie commune de cause la plus fréquente et décrit environ90% de causes non spécifiques. Ce premier rang est direct ; il ne s’applique pas tel quel aux urgences.",
+      "sources": [
+        "l81-hug-commune",
+        "l81-hug-categories"
+      ]
+    },
+    {
+      "position": 2,
+      "nom": "Hernie discale lombaire avec radiculopathie",
+      "cadre": "Lombalgie avec douleur radiculaire et signes concordants, hors compression pluriradiculaire urgente.",
+      "argument_corrige": "Après le tableau commun, la présentation radiculaire donne la priorité à une hernie concordante : HUG attribue95% des syndromes radiculaires à la hernie, dans un groupe neurogène décrit à5–10% au SMPR. Casser place aussi la hernie devant la sténose dans sa synthèse. Ce raisonnement est conditionnel au syndrome ; il ne calcule aucun pourcentage suisse global de hernie.",
+      "sources": [
+        "l81-hug-radiculaire",
+        "l81-hug-categories",
+        "l81-de2016-frequences"
+      ]
+    },
+    {
+      "position": 3,
+      "nom": "Sténose lombaire dégénérative avec claudication neurogène",
+      "cadre": "Sujet plus âgé, douleur/claudication déclenchée à la marche, soulagée assis ou en flexion.",
+      "argument_corrige": "La synthèse allemande place la sténose après la hernie ; HUG caractérise le cadre de claudication apparaissant à la marche et soulagée assis. Ce troisième numéro représente ce concurrent neurogène ; il ne signifie pas que la sténose précède toute fracture chez tout patient âgé.",
+      "sources": [
+        "l81-de2016-frequences",
+        "l81-hug-stenose",
+        "l81-de2016-stenose-clinique"
+      ]
+    },
+    {
+      "position": 4,
+      "nom": "Fracture vertébrale ostéoporotique symptomatique",
+      "cadre": "Douleur récente du sujet fragile ou exposé aux corticoïdes, parfois après traumatisme minime.",
+      "argument_corrige": "La fragilité osseuse, les corticoïdes et le traumatisme même mineur rendent ce concurrent pertinent à cette place du parcours contextualisé. Les synthèses HUG et allemande placent les fractures parmi les causes spécifiques rencontrées avant les groupes tumoral et infectieux. Leurs chiffres de toutes fractures ne sont pas attribués à la seule forme ostéoporotique ; le voisinage avec la sténose dépend du terrain.",
+      "sources": [
+        "l81-hug-fracture",
+        "l81-hug2010-frequences",
+        "l81-de2016-frequences"
+      ]
+    },
+    {
+      "position": 5,
+      "nom": "Calcul urétéral symptomatique",
+      "cadre": "Douleur latérale du flanc, tableau de colique néphrétique ; représentation accrue aux urgences.",
+      "argument_corrige": "HUG2023 qualifie la colique néphrétique de motif parmi les plus fréquents aux urgences et précise que son obstacle est le plus souvent un calcul ou un fragment. Ce cinquième numéro ouvre le groupe viscéral urinaire lorsque la plainte est celle du flanc ; il n’attribue pas au calcul une proportion mesurée de toutes les dorsolombalgies.",
+      "sources": [
+        "audit81-hug23-colique-frequente",
+        "audit81-hug23-colique-definition",
+        "l81-hug-extrarachidien",
+        "l81-eau-calcul-clinique"
+      ]
+    },
+    {
+      "position": 6,
+      "nom": "Pyélonéphrite aiguë",
+      "cadre": "Douleur du flanc avec tableau infectieux urinaire systémique ; fièvre ou symptômes vésicaux parfois absents.",
+      "argument_corrige": "Après le tableau colique, le cadre de douleur de loge rénale avec fièvre, frissons ou symptômes urinaires fait rechercher l’infection haute décrite par HUG. Ce sixième numéro représente cette autre présentation du groupe viscéral ; il n’affirme ni un écart mesuré face au calcul ni que la fréquence de toutes les infections urinaires soit celle des pyélonéphrites.",
+      "sources": [
+        "audit81-hug21-pyelo-cadre",
+        "l81-hug-extrarachidien",
+        "l81-eau-pyelo-differentiel",
+        "l81-nice-pyelo-clinique"
+      ]
+    },
+    {
+      "position": 7,
+      "nom": "Métastase vertébrale symptomatique",
+      "cadre": "Douleur rachidienne nouvelle, persistante/progressive, surtout avec cancer connu ou signes évocateurs.",
+      "argument_corrige": "Les synthèses placent le groupe tumoral après les causes communes/neurogènes et fracturaires. La revue allemande précise que la grande majorité des tumeurs rachidiennes sont des métastases, ce qui soutient le choix de cette entité précise. Le contexte de cancer et de douleur nouvelle enrichit cette hypothèse ; le0,7% du groupe tumoral ne lui est pas attribué.",
+      "sources": [
+        "l81-hug-neoplasie",
+        "l81-hug2010-frequences",
+        "l81-de2016-frequences",
+        "audit81-de16-metastases-majoritaires",
+        "l81-nice-metastase-urgences"
+      ]
+    },
+    {
+      "position": 8,
+      "nom": "Spondyloarthrite axiale",
+      "cadre": "Douleur persistante/récidivante débutant avant 45 ans, caractère inflammatoire et manifestations associées.",
+      "argument_corrige": "HUG identifie la spondyloarthropathie axiale par début jeune, persistance, caractère inflammatoire et manifestations associées. Elle occupe ici la branche inflammatoire des causes spécifiques après les tableaux précédents ; les estimations anciennes de SA et la valeur divergente HUG2022 ne sont ni fusionnées ni appliquées à toute axSpA. Le numéro ne prétend pas mesurer un écart universel avec la métastase.",
+      "sources": [
+        "l81-hug-axspa",
+        "l81-hug2010-frequences",
+        "l81-hug-chiffres-divergents",
+        "l81-de2016-frequences"
+      ]
+    },
+    {
+      "position": 9,
+      "nom": "Spondylodiscite pyogène de novo",
+      "cadre": "Douleur rachidienne focale nouvelle/persistante avec facteurs infectieux, fièvre parfois absente.",
+      "argument_corrige": "HUG et Casser décrivent l’infection parmi les causes rares ; facteurs infectieux, gestes invasifs et douleur focale orientent vers cette entité précise. Ce numéro reste dans le groupe rare ; il n’affiche pas le0,01% du groupe infectieux comme une fréquence de la seule spondylodiscite pyogène et ne prétend pas établir un écart statistique face à l’AAA.",
+      "sources": [
+        "l81-hug-infection",
+        "l81-hug2010-frequences",
+        "l81-de2016-frequences",
+        "l81-hug-urgent-infection"
+      ]
+    },
+    {
+      "position": 10,
+      "nom": "Anévrisme de l’aorte abdominale symptomatique",
+      "cadre": "Douleur abdominale/dorsolombaire nouvelle, surtout sujet à risque, avec ou sans collapsus.",
+      "argument_corrige": "La série anglaise contient peu de diagnostics d’anévrisme aortique, sans préciser un sous-type AAA pour chacun. Cela soutient sa place dans le groupe rare sans produire un taux d’AAA symptomatique. Son rang d’exclusionE1, fondé sur la douleur abdominale/dorsale et la gravité vasculaire, prime immédiatement dès suspicion ; le dernier numéro ne prouve aucun écart de fréquence face à l’infection spinale.",
+      "sources": [
+        "l81-uk-population",
+        "l81-uk-extrarachidien",
+        "l81-esvs-aaa-clinique",
+        "l81-nice-aaa-urgence"
+      ]
+    }
+  ],
+  "limites_honnetes": [
+    "La synthèse ne démontre pas un classement universel de toutes les dorsolombalgies ni des écarts statistiques entre voisins.",
+    "Aucun chiffre de tumeurs, toutes fractures, SA ou infections n’est transféré silencieusement à un sous-type plus étroit.",
+    "Les comptes australiens de la revue OUP et les résultats américains/japonais du moteur ne justifient aucun rang CH/Europe.",
+    "L’article anglais est une série d’urgences avec nombreux diagnostics manquants et motifs incluant traumatismes et cou ; il ne devient pas premier recours suisse.",
+    "Le protocole coliqueHUG2024 est suivi par root et sources_uro81 ; je ne revendique pas sa lecture visuelle.",
+    "Aucune proposition ni tableau ni paquet du proposant modifié par cet auditeur ; seule cette correction ciblée est proposée."
+  ],
+  "sources_primaires_reconsultees": [
+    "https://www.hug.ch/sites/interhug/files/2022-12/strategies_lombalgie.pdf",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC4857557/",
+    "https://www.nice.org.uk/guidance/ng156/chapter/Recommendations",
+    "https://www.nice.org.uk/guidance/ng234/chapter/Recommendations",
+    "https://uroweb.org/guidelines/urolithiasis/chapter/guidelines",
+    "https://uroweb.org/guidelines/urological-infections/chapter/the-guideline",
+    "https://academic.oup.com/painmedicine/article/27/1/43/8172505"
+  ],
+  "sources_CH_complementaires_lues": {
+    "colique2023": "SOURCES_UROLOGIE_CH.json : points à retenir et définition effectivement lus, plus extrait primaire retrouvé par recherche.",
+    "IU2021": "SOURCES_UROLOGIE_CH.json : clinique de pyélonéphrite, distinction cystite/IUhaute effectivement lues ; pas lecture intégrale revendiquée."
+  },
+  "suite": "Root peut geler la liste avec ces cadres et signatures, puis lancer la rédaction parallèle des DX. Aucun gel ni Git réalisé par cet auditeur.",
+  "autorise_gel": true,
+  "gel_realise_par_auditeur": false,
+  "critique": 0,
+  "grave_non_corrige": 0,
+  "paquet_sha256": "512f2c993d8ce88c7a11ca6c5b0a480f52fdf42609e6d0802017bafe2fe66910",
+  "proposition_sha256": "b1a1279877228f58bc57dfcf008866e34319dd9df8efa2d2315cf209b43a1594",
+  "tableau_sha256": "c32e72f6978754d7f43794a1bb45a262efb4ca93406de26cfaa640bba50a3d5a",
+  "motif_verdict": "Les dix diagnostics sont retenus comme synthèse clinique qualitative contextualisée, selon le niveau de preuve explicitement demandé par root et déjà appliqué auLOT080. Le cadrage des présentations est conservé avec les arguments sourcés par position ; aucun pourcentage de population ou sous-groupe n’est transformé en fréquence globale de la SSP, et aucun écart statistique entre voisins n’est revendiqué. Le tableau est discriminant et les quatre prioritésE sont conditionnelles, sans attente séquentielle. La passe exacte est vérifiée et n’introduit ni nouveau rang numérique clinique ni nouvelle dose.",
+  "portee_finale": "Oui pour fixer cette architecture contextualisée et ses branches de triage. Ce verdict P1 ne valide aucun contenu de monographie, aucune dose et aucune porte P3/P4.",
+  "recontrole": {
+    "date": "2026-11-10",
+    "operations_exactes_verifiees": 42,
+    "passages_ajoutes_verifies": 4,
+    "nombre_passages_final": 41,
+    "noms_distincts": 10,
+    "lignes_tableau": 10,
+    "champs_cliniques_par_ligne": 5,
+    "rangs_exclusion_conditionnels": 4,
+    "citations_inconnues": 0,
+    "miroirs_dx_alignement": "noms, cadres, fréquence, mécanismes, E vérifiés contre les dix entités et le tableau ; les champs additionnels réalignés par root sont concordants.",
+    "auteur_application": "/root",
+    "acte_auditeur": "Lecture des formulations corrigées et de leurs preuves, vérification de chacune des42 valeurs après, des quatre passages ajoutés identiques aux preuves et des empreintes annoncées. Aucun des trois fichiers du proposant modifié par l’auditeur."
+  },
+  "historique": [
+    {
+      "verdict": "CORRECTIONS_CIBLEES_AVANT_GEL",
+      "finale": "non",
+      "fichiers_audites": {
+        "PROPOSITION_P1.json": "4285ef35c16eb9a4c4b0606986efaf7b27c44524cd0cf8b8f76366e92c0907bf",
+        "TABLEAU_COMPARATIF_PROPOSE.json": "2b69d686b4561de11e616695ff9406d417ab855496cf25d258e57c9db8aff978",
+        "paquet_preparatoire_P1.json": "e20234e72adf37b9bd4848dcead05aef57c003e14b219e74d641d2ec253a2928"
+      },
+      "motif": "Corrections ciblées de cadrage et de fidélité des mécanismes, proposées avant gel."
+    }
+  ],
+  "contraintes_de_gel": [
+    "Reprendre le critere_ordre qualitatif complet, les cadres par diagnostic et les sources ; ne pas publier les numéros comme prévalences universelles tous âges/tous lieux de soins.",
+    "Conserver la distinction rang de fréquence contextualisé et prioritéE ; le moindre doute de menace vitale ou neurologique passe immédiatement à sa branche.",
+    "Conserver hors leçon les divergences et limites quantitatives ; aucune conversion silencieuse de tumeur en métastase seule, de toutes fractures en forme ostéoporotique seule, de SA en toute axSpA, de groupe infectieux en seule forme pyogène.",
+    "L’ajout thérapeutique ou d’imagerie issu du protocole coliqueHUG2024 relève du paquet de contenu et sera audité sur ses propres preuves ; aucune dose n’est autorisée par ce verdict."
+  ]
+}

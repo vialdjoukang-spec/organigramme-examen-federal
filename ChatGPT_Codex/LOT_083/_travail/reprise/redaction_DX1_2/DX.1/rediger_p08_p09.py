@@ -1,0 +1,67 @@
+from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
+from rendu import outils
+
+B,p,c,h,w,table,liste,save=outils(1,8)
+t=h('8.a — Le diagnostic positif repose sur une concordance clinique')
+t+=p('La recommandation DGN révisée en2025 retient un diagnostic clinique du syndrome myofascial. Elle met en relation une sensibilité locale dans une bande tendue, une réponse musculaire locale et une douleur référée lors de la stimulation du point.','p83-myofascial-fibro','dgn83-bib')
+t+=p('La concordance implique que le clinicien puisse relier le foyer musculaire à la plainte. La reproduction d’un symptôme reconnu comme familier caractérise le point actif et donne une portée différente d’un simple point latent découvert à la palpation.','eu83-actif','eu83-latent')
+t+=p('La fiche IASP présente un socle de critères minimaux et des éléments confirmatoires, dans un domaine où les critères restent discutés. Leur rôle est donc de structurer le recueil clinique plutôt que de remplacer l’interprétation de toute la présentation.','iasp83-criteres')
+t+=h('8.b — Le socle décrit par l’IASP et les éléments qui le renforcent')
+rows=[
+[p('Socle : bande tendue palpable dans un muscle squelettique.','iasp83-criteres'),p('Le clinicien identifie le faisceau ferme avant d’en localiser le point le plus sensible.','p83-myofascial-fibro','iasp83-criteres'),p('Le constat tissulaire est situé dans le muscle examiné, pas dans tout le territoire de douleur référée.','c83-1','c83-7')],
+[p('Socle : foyer hypersensible à l’intérieur de cette bande.','iasp83-criteres'),p('La stimulation précise la sensibilité locale et les sensations déclenchées.','c83-7','iasp83-clinique'),p('Une sensibilité isolée est confrontée aux autres éléments, car des points latents existent aussi sans plainte.','eu83-phenotypes')],
+[p('Socle : reproduction d’une douleur référée par la stimulation du foyer.','iasp83-criteres'),p('Le patient localise la perception et décrit sa ressemblance avec les symptômes habituels.','eu83-latent','eu83-actif'),p('La douleur référée et la douleur locale sont recueillies séparément.','c83-1')],
+[p('Élément confirmatoire : secousse musculaire locale.','iasp83-criteres'),p('La palpation recherche une contraction brève du faisceau stimulé.','c83-7','iasp83-criteres'),p('Cette réponse se distingue du sursaut global lié à la douleur.','c83-7')],
+[p('Élément confirmatoire : sursaut du patient.','iasp83-criteres'),p('La réaction globale pendant la palpation est observée et consignée.','c83-7'),p('Elle ne se substitue pas à la recherche de la bande et du foyer.','iasp83-criteres')],
+[p('Élément confirmatoire : reconnaissance des symptômes dans le cas du point actif.','iasp83-criteres'),p('Le clinicien demande explicitement si la sensation reproduite est familière.','eu83-actif'),p('Le caractère actif dépend de cette relation clinique, pas de la seule existence d’une douleur à la pression.','eu83-actif','eu83-latent')],
+[p('Élément confirmatoire : topographie de la sensation référée.','iasp83-criteres'),p('Le territoire est confronté à la région musculaire examinée et au reste du bilan.','c83-9','c83-30'),p('Un dessin proche d’une irradiation radiculaire conserve son besoin de confrontation neurologique.','c83-30')],
+[p('Élément confirmatoire : faiblesse ou tension musculaire.','iasp83-criteres'),p('La force et les capacités fonctionnelles sont décrites avec la provocation douloureuse.','oa82-hug-force','c83-15'),p('Le résultat demande une recherche des causes articulaires, tendineuses ou nerveuses associées.','oa82-hug-force')],
+[p('Élément confirmatoire : douleur à l’étirement ou à la contraction.','iasp83-criteres'),p('L’examen précise le mouvement qui reproduit les symptômes.','iasp83-criteres'),p('Ce geste complète la palpation et l’appréciation de la tâche limitée.','iasp83-criteres','nice83-vie')]]
+t+=table(['Élément clinique','Recherche et interprétation','Piège à éviter'],rows)
+t+=h('8.c — Ce qui renforce le diagnostic et ce qui reste insuffisant')
+t+=p('Une douleur régionale reconnue, une bande tendue et une reproduction des symptômes constituent une synthèse positive. Le clinicien maintient toutefois le bilan des autres hypothèses si les symptômes, les déficits ou la biologie suggèrent une autre affection.','c83-25','p83-myofascial-fibro','dgn83-laboratoire')
+t+=p('Une irradiation seule ne démontre pas une radiculopathie et une CK élevée seule ne démontre pas un syndrome myofascial. L’analyse relie la topographie au bilan neurologique et la biologie à l’effort, aux médicaments et aux autres causes musculaires.','c83-30','dgn83-laboratoire')
+t+=p('La découverte d’un point latent chez une personne asymptomatique ne suffit pas à expliquer une plainte. Le lien entre point actif, symptôme familier et incapacité reste donc central pour décider de la pertinence du traitement.','eu83-phenotypes','eu83-actif','barbero83-resume')
+a=w('Point actif, réponse au traitement et réévaluation',[
+('L’effet immédiat d’un moyen local renseigne une réponse symptomatique. Les preuves de bénéfice des techniques passives sont surtout courtes et ne démontrent donc pas, à elles seules, une résolution durable.',['eu83-limite-effet','eu83-multimodal']),
+('Une douleur chronique primaire peut coexister avec une cause secondaire. Le suivi réévalue ainsi l’explication retenue si la présentation évolue ou si de nouveaux signes apparaissent.',['nice83-vie']),
+('La réponse attendue associe symptômes, activité et autonomie. Cette approche permet de garder la fonction au centre du suivi, plutôt que seulement la disparition d’une réaction à la palpation.',['eu83-multimodal','nice83-vie'])])
+t+=p('La fenêtre '+a+' situe les critères dans le temps. La chronicité au-delà de trois mois relève de la définition temporelle NICE et reste distincte du mécanisme étiologique de la douleur.','nice83-definition')
+save(t)
+
+B,p,c,h,w,table,liste,save=outils(1,9)
+t=h('9.a — La référence est clinique ; les examens ciblent une question')
+t+=p('La DGN décrit un diagnostic myofascial clinique. L’entretien, la palpation de la bande et du point ainsi que la reconnaissance des sensations familières constituent donc la référence du diagnostic positif.','p83-myofascial-fibro','eu83-actif')
+t+=p('Les examens complémentaires servent surtout à explorer les hypothèses alternatives : par exemple une bursite, une tendinopathie, une anomalie rachidienne ou une radiculopathie. Leur choix dépend ainsi de la question clinique et des constatations associées.','c83-27')
+t+=p('Une IRM musculaire peut révéler un signal anormal sans identifier à elle seule une cause spécifique. La DGN demande donc de le corréler aux constatations cliniques, biologiques et, selon la situation, génétiques ou histologiques.','dgn83-imagerie')
+t+=h('9.b — Première intention : préciser la demande et le résultat attendu')
+rows=[
+[p('Bilan clinique régional et neurologique.','c83-25','c83-30'),p('La demande décrit la distribution, le point qui reproduit les symptômes, la force, la sensibilité et les réflexes pertinents.','dgn83-localisation','c83-30'),p('Une concordance régionale soutient le syndrome ; une anomalie neurologique oriente la suite du bilan.','c83-25','c83-30')],
+[p('Approche biologique des myalgies selon DGN.','dgn83-laboratoire'),p('La numération-formule, la CRP ou la vitesse de sédimentation, les CK, les enzymes hépatiques et les électrolytes appartiennent au bilan de base décrit.','dgn83-laboratoire'),p('Ces examens recherchent une autre atteinte musculaire, infectieuse, inflammatoire ou métabolique ; leur résultat est confronté au tableau clinique.','dgn83-laboratoire')],
+[p('Bilan thyroïdien si le contexte le suggère.','p83-hypothyroidie'),p('La DGN associe la TSH aux hormones thyroïdiennes libres pour étudier une hypothyroïdie avec manifestations musculaires.','p83-hypothyroidie'),p('Une CK normale ou élevée est compatible avec cette cause, qui peut aussi favoriser les symptômes sous statine.','p83-hypothyroidie','p83-statine-frequence')],
+[p('Échographie ciblée en présence d’une question locale.','c83-27','dgn83-imagerie'),p('La prescription nomme la région et l’hypothèse à préciser, par exemple une atteinte tendineuse ou une bursite.','c83-27'),p('L’imagerie complète l’examen de la structure suspecte ; elle ne remplace pas la concordance clinique du point actif.','c83-27','eu83-actif')]]
+t+=table(['Examen ou étape','Prescription ciblée','Interprétation et conduite'],rows)
+a=w('CK : contexte d’effort, repos et erreur d’interprétation',[
+('La DGN décrit des CK élevées dans des myosites, des dystrophies, certaines atteintes neurogènes et après une activité musculaire importante. Le résultat doit donc être replacé dans le contexte de la personne.',['dgn83-laboratoire']),
+('Pour une mesure fiable hors situation urgente, elle décrit un repos physique préalable d’au moins une semaine et l’évitement d’injections intramusculaires ou d’un EMG à l’aiguille dans la période précédente. Ces précautions de contrôle ne retardent pas le bilan d’une menace aiguë.',['dgn83-laboratoire','p83-rhabdo-menace']),
+('Des myosites peuvent présenter des enzymes musculaires normales. Une faiblesse objective ou d’autres indices cliniques peuvent donc justifier la poursuite d’un bilan spécialisé malgré ce résultat.',['dgn83-laboratoire','dgn83-imagerie'])])
+t+=p('La fenêtre '+a+' prévient l’assimilation d’un chiffre isolé à un mécanisme. L’effort récent et les autres causes de variation sont ainsi recueillis avant une interprétation définitive.','dgn83-laboratoire')
+t+=h('9.c — Alternatives : modalité d’imagerie et injection sont deux décisions')
+t+=p('L’échographie musculaire est une méthode non invasive et rapidement accessible, tandis que l’IRM est privilégiée par la DGN pour apprécier une pathologie musculaire suspectée. L’IRM peut être focale ou plus étendue selon le problème clinique.','dgn83-imagerie')
+t+=p('Si l’IRM est contre-indiquée, le scanner peut répondre à certaines questions musculaires, notamment devant des calcifications ou du gaz. Toutefois, son irradiation et son contraste tissulaire plus limité restreignent sa place par rapport à l’IRM dans de nombreuses maladies musculaires.','dgn83-imagerie')
+t+=p('Chez l’enfant ou pendant la grossesse, une question clinique doit d’abord justifier l’examen envisagé. Le diagnostic du syndrome reste clinique ; le besoin d’une exploration d’un autre mécanisme et le besoin d’un produit de contraste sont donc examinés séparément.','p83-myofascial-fibro','c83-27','pa82-esur-alternative')
+rows=[
+[p('Grossesse et IRM avec gadolinium envisagée.','pa82-esur-gadolinium-grossesse'),p('ESUR réserve cette injection à une indication très forte, avec la plus petite dose d’un agent macrocyclique.','pa82-esur-gadolinium-grossesse'),p('La question clinique et la nécessité de l’injection sont discutées avant de choisir la modalité.','c83-27','pa82-esur-gadolinium-grossesse')],
+[p('Mère enceinte ou allaitante avec insuffisance rénale.','pa82-esur-mere-renale'),p('ESUR indique de ne pas administrer de gadolinium dans cette situation.','pa82-esur-mere-renale'),p('Cette restriction particulière prime sur les règles générales de poursuite de l’allaitement après un macrocyclique.','pa82-esur-mere-renale','pa82-esur-allaitement')],
+[p('DFGe inférieur à30ml/min/1.73m² avant une injection iodée intraveineuse.','pa82-esur-renal'),p('Ce niveau constitue un facteur de risque rénal dans le cadre décrit par ESUR.','pa82-esur-renal'),p('Une méthode répondant à la question sans produit iodé est envisagée.','pa82-esur-alternative')],
+[p('Antécédent de réaction à un produit de contraste.','pa82-esur-hypersensibilite'),p('ESUR propose d’envisager une autre modalité ou un examen sans injection si son rendement diagnostique suffit.','pa82-esur-hypersensibilite'),p('L’anamnèse du produit et de la réaction participe au choix de l’examen.','pa82-esur-hypersensibilite')]]
+t+=table(['Situation','Précaution','Conséquence pour la décision'],rows)
+t+=h('9.d — Deuxième intention : une anomalie objective précise le parcours')
+t+=p('Une suspicion de radiculopathie est évaluée par la convergence de la clinique, de l’examen neurologique et des examens ciblés, dont l’EMG ou l’imagerie selon la situation. La simple ressemblance d’une irradiation musculaire à un territoire nerveux reste insuffisante.','c83-9','c83-30')
+t+=p('Une faiblesse progressive avec CK importante ou dysphagie sous statine peut conduire au bilan d’une myopathie nécrosante immunomédiée. La recherche d’anticorps anti-HMGCR soutient ce diagnostic dans le tableau décrit par la DGN.','p83-statine-imnm')
+t+=p('Une suspicion de myosite peut justifier une IRM musculaire même si les enzymes sont normales. L’imagerie peut aussi aider à choisir un site de biopsie représentatif, tout en tenant compte de ses résultats non spécifiques.','dgn83-imagerie')
+t+=p('Les épisodes d’effort évocateurs d’une maladie métabolique relèvent d’une orientation neuromusculaire. La DGN signale que le test d’effort ischémique peut provoquer une rhabdomyolyse dans certaines glycogénoses et décrit une alternative non ischémique.','dgn83-localisation','dgn83-laboratoire')
+t+=p('Un syndrome des loges suspecté, une rhabdomyolyse compliquée ou une alarme neurologique conserve son parcours urgent. Aucun examen différé de confirmation d’un point gâchette ne se substitue donc à cette prise en charge.','p83-boast-loges-3','p83-rhabdo-menace','pa17-lomb22-urgence')
+save(t)

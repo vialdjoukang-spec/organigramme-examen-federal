@@ -1,5 +1,10 @@
 # CHANGELOG — PROMPT_Casern
 
+## Lo 10.11.26 — 2026-11-10 (Claude, ordre de Vial)
+- `PROMPT_LOTS_Lo_10.11.26.claude.md` remplace µ6 par **µ6 v2 : l'image, objet d'enseignement**. Elle est sourcée, interprétée (paire brut/annoté, lecture guidée, pièges, décision) et juxtaposée au point qu'elle sert. Une couverture minimale est fixée par point.
+- Base : l'inventaire de 2 061 figures des LOTs 133–248 (`Claude/_outils/inventaire_images.py`). 86 % de ces figures sont des SVG ; 23 seulement ont une lecture guidée et 11 une licence citée. Modèles retenus : LOT_191 et LOT_133.
+- Le reste du texte est identique à Lo 9.11.26.
+
 ## Navigation — 2026-11-08
 - Le prompt de production le plus récent prouvé est le V0 révisé le 30 octobre 2026, commit `541c396da0b8358850fdc3fef4ff1194691936fd`. Ce texte n’est pas sur `main`.
 - `00_LIRE_EN_PREMIER.md` pointe vers cette révision. Il ne prescrit plus V8.

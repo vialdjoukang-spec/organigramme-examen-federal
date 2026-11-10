@@ -1,0 +1,1 @@
+cd /home/user/wt/lot-001/Claude/LOT_001/_travail/DX.2 && python3 build.py && cd /home/user/wt/lot-001 && export PAQUET_CACHE=/tmp/claude_paquet_cache && python3 Claude/_outils/lecon.py finir --lot 001 --cible DX.2 --titre "DX.2 — Hypoglycémie" 2>&1 | grep -i -e "inconnue" -e "ÉCHEC"; cd Claude/LOT_001/_travail/DX.2 && python3 chk.py
