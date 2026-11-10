@@ -35,8 +35,8 @@ Chaque phrase factuelle, y compris de physiopathologie, cite un extrait (LV1) : 
      et `<div id="PREFIX-pN-fK" popover class="fenetre">…</div>` placé APRÈS le paragraphe (PREFIX = `pa` ou `dxi`, ex. `dx3`).
    - Citation : `<sup class="r"><a href="#sb-ID">ID</a></sup>` en fin de phrase factuelle, ID exact du paquet.
    - **Chaque nombre** (y compris âges, pourcentages, doses, seuils, années, « 1re », « 24 h ») d'une phrase citée doit figurer
-     dans l'extrait cité dans cette même phrase ; sinon ROUGE. Écris les nombres sans référence en toutes lettres
-     seulement s'ils ne sont pas des faits (« deux examens »). Attention : « COVID-19 », « SpO2 » isolé, « 3e » sont des nombres pour le contrôle.
+     dans l'extrait cité dans cette même phrase ; sinon ROUGE. Écrire un nombre factuel en toutes lettres pour échapper au contrôle
+     est interdit (LV3) : il doit figurer dans l'extrait cité. Attention : « COVID-19 », « SpO2 » isolé, « 3e » sont des nombres pour le contrôle.
    - Une phrase avec dose (mg, µg, UI) cite un extrait `aips-…` ; doses, voies, durées, grossesse/allaitement recopiés de l'AIPS,
      sans adoucir ; numéro Swissmedic lu dans la source AIPS (5 chiffres). Si une société savante diverge de l'AIPS
      (dose, contre-indication, grossesse), la conduite enseignée suit l'AIPS ; la recommandation divergente est citée comme telle,
