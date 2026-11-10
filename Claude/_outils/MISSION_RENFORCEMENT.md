@@ -13,7 +13,8 @@ ou nominales). Tu la reconstruis dans la chaîne M5 en gardant son fond, sans en
    aucune formule de lacune dans le cours. **Avant toute suppression d'un élément essentiel** (critères diagnostiques, schémas
    thérapeutiques, durées, indications chirurgicales, algorithme) dont la source est illisible (403, PDF binaire), cherche une
    source lisible équivalente : texte intégral PMC ou Europe PMC, pocket guideline, synthèse suisse ou européenne qui la reprend.
-   Le renforcement ne doit jamais appauvrir la leçon.
+   Le renforcement ne doit jamais appauvrir la leçon. Un nombre que la source écrit en toutes lettres s'écrit en toutes lettres
+   comme elle, cité ; jamais remplacé par une formule vague.
 4. `finir --lot XXX --cible <CIBLE> --titre "<titre exact>"` jusqu'au **VERT**, dans la bande 100–200 Ko. Le HTML final remplace
    l'ancien au même chemin.
 Rapport ≤ 6 lignes : verdict, octets, éléments supprimés faute de source, HELP. Ne commite rien.
