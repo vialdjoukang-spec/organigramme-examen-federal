@@ -17,6 +17,7 @@ import re, sys, json, html, hashlib, argparse, collections
 
 CIT = re.compile(r'<sup class="r"><a href="#sb-([\w.\-:]+)">')
 NUM = re.compile(r'(?<![\w])(\d+(?:[.,’\' ]\d+)*(?:[.,]\d+)?)(?![\w])')
+HORS_AIPS = re.compile(r"\b(?:L'|La |Le |Les )([A-Za-zÀ-ÿ-]{4,})(?: [a-zà-ÿ]+)? (?:est|sont) absente?s? de l'AIPS")
 DOSE = re.compile(r'\b\d+(?:[.,]\d+)?\s?(?:mg|µg|mcg|UI|g(?=\s?(?:/kg|/j|/jour|par jour|toutes|i\.?v|IV|per os|p\.o)))(?!\s?/\s?(?:l|L|dl|dL|mmol))\b')
 CONNECT = re.compile(r"\b(car|donc|or|ainsi|puis|alors|parce que|puisque|lorsque|quand|si|tandis que|alors que|"
                      r"afin de|afin que|pour que|de sorte que|c'est pourquoi|en effet|cependant|toutefois|"
@@ -119,6 +120,7 @@ def controler(chemin, paquet, a, vus_lot):
     h = brut.decode('utf-8', 'ignore')
     d = collections.defaultdict(list)
     ph = phrases_html(SOURCES.sub(' ', h))  # la section Sources (générée, identique partout) n'entre pas dans l'analyse
+    hors_aips = {m.lower() for m in HORS_AIPS.findall(texte(h))}
     # A — véracité
     for tag, b, t in ph:
         cites = CIT.findall(b)
@@ -135,7 +137,9 @@ def controler(chemin, paquet, a, vus_lot):
             if manq:
                 d['A_nombre_absent_de_l_extrait'].append(f'{sorted(manq)} :: {t[:120]}')
         if DOSE.search(t) and not any(c.lower().startswith('aips') for c in cites):
-            d['A_dose_sans_AIPS'].append(t[:140])
+            # Exemption déclarée : molécule explicitement « absente de l'AIPS » dans la leçon, dose citée sur une recommandation lue
+            if not (cites and any(m in t.lower() for m in hors_aips)):
+                d['A_dose_sans_AIPS'].append(t[:140])
     # A — formule de lacune dans le cours (LV7) : la lacune va dans HELP.md, jamais dans la leçon
     for tag, b, t in ph:
         if LACUNE.search(t):
