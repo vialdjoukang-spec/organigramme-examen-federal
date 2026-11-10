@@ -45,14 +45,14 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 091 | S6.6 | Absence ou perte de cheveux et de poils, pilosité excessive | livré PR 580 |
 | 092 | S6.7 | Macules, papules, pustules, vésicules, ulcères, abcès, bulles, épaississements, nécroses et tumeurs cutanées | livré PR 581 |
 | 093 | S6.8 | Plaintes concernant les ongles | livré PR 582 |
-| 094 | S6.9 | Rougeur cutanée localisée ou diffuse et/ou rougeur des muqueuses | réservé |
-| 095 | S7.1 | Troubles de l’équilibre, chutes | réservé |
-| 096 | S7.2 | Troubles de la marche | réservé |
-| 097 | S7.3 | Mouvements involontaires anormaux, tremblements, tics, troubles de la coordination | réservé |
-| 098 | S7.4 | Troubles de la parole ou du langage | réservé |
-| 099 | S7.5 | Étourdissements, vertiges | réservé |
-| 100 | S7.6 | Céphalées | réservé |
-| 101 | S7.7 | Troubles cognitifs, notamment difficultés de concentration, troubles de la mémoire et de la compréhension | réservé |
+| 094 | S6.9 | Rougeur cutanée localisée ou diffuse et/ou rougeur des muqueuses | livré PR 583 |
+| 095 | S7.1 | Troubles de l’équilibre, chutes | livré PR 585 |
+| 096 | S7.2 | Troubles de la marche | livré PR 586 |
+| 097 | S7.3 | Mouvements involontaires anormaux, tremblements, tics, troubles de la coordination | livré PR 587 |
+| 098 | S7.4 | Troubles de la parole ou du langage | livré PR 588 |
+| 099 | S7.5 | Étourdissements, vertiges | livré PR 589 |
+| 100 | S7.6 | Céphalées | livré PR 590 |
+| 101 | S7.7 | Troubles cognitifs, notamment difficultés de concentration, troubles de la mémoire et de la compréhension | livré PR 591 |
 | 102 | S7.8 | Parésie, paralysie | réservé |
 
 Statuts admis : réservé, en cours, livré PR n°, échec.
