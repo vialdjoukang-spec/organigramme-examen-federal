@@ -52,7 +52,7 @@ def migrer(h, prefixe):
     h = supprimer_bloc(h, r'<div class="arb"[^>]*>', 'div')
     h = supprimer_bloc(h, r'<details class="arbre"[^>]*>', 'details')
     # 2. titre du point 1
-    h = re.sub(r'(1\.\s*)Définition et sémantique', r'\1Définition', h)
+    h = re.sub(r'Définition et sémantique', 'Définition', h)
     # 3. notions voisines
     while True:
         m = re.search(r'<span class="dx"><input[^>]*><label[^>]*>\s*Notions voisines', h)
