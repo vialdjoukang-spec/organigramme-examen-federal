@@ -1,5 +1,5 @@
 import re,glob,os
-AL={'D':'wedbb38','H':'w2a9a6a','E':'w5984aa','O':'w446bbb','A':'w0211eb','V':'w985243','C':'wd3b7d1','B':'wad7cf6','b':'w192b8b','P':'wd99f25','G':'wc9a494','R':'w1d8720','F':'w50e187','BK':'aips-66834','DV':'aips-67313','TV':'aips-57316','TI':'aips-63052','BA':'aips-48306'}
+AL={'D':'wedbb38','H':'w2a9a6a','E':'w5984aa','O':'w446bbb','A':'w0211eb','V':'w985243','C':'wd3b7d1','B':'wad7cf6','b':'w192b8b','P':'wd99f25','G':'wc9a494','R':'w1d8720','F':'w50e187','M':'w87fb45','BK':'aips-66834','DV':'aips-67313','TV':'aips-57316','TI':'aips-63052','BA':'aips-48306'}
 def sup(m):
     out=''
     for t in m.group(1).split():
