@@ -1,7 +1,7 @@
 
 ## DX.8 Déshydratation (renforcement, 10.11.2026)
 - Point 12 : la recommandation suisse de prévention (organisme, année) n'est pas encore lue : plan canicule de l'OFSP ou du canton, et recommandation suisse de vaccination contre le rotavirus. À lire et dater avant d'ajouter une phrase chiffrée.
-- Point 11 : les contre-indications du NaCl 0,9 % Sintetica (n° 52041), du Ringer-Lactat Fresenius (n° 42692) et du Glucose 5 % Baxter (n° 41203) ne sont pas extraites ; le tableau des médicaments y met une précaution de conduite en attendant. Dafalgan (n° 47503) : voie et contre-indications à extraire de l'AIPS.
+- Point 11 : contre-indications AIPS du NaCl 0,9 %/0,45 % Sintetica (52041), du Ringer-Lactat Fresenius (42692), du Glucose 5 % Baxter (41203) et du Dafalgan (47503) extraites et ajoutées (10.11.2026). Reste à extraire : la voie du Dafalgan.
 - Point 9 : aucune modalité d'imagerie décisive (diagnostic biologique), donc pas de cliché au point 9.
 - Point 6 : deux clichés insérés (LowSkinTurgor, SkinTurgorExamination, CC BY-SA 4.0). Un cliché de yeux enfoncés ou de fontanelle déprimée chez le nourrisson reste à chercher.
 - Contrôle3 : les alertes B restantes viennent des fenêtres de médicaments incluses dans la phrase (le contrôle compte leur texte) et du widget d'arbre CIM (libellés nominaux) ; aucune phrase longue ou nominale du texte courant ne subsiste.
@@ -27,7 +27,6 @@
 - Point 11 : les contre-indications AIPS de plusieurs spécialités (Baxter, B.Braun, Bichsel) ne sont pas extraites ; la fenêtre « Urgence » reste un tableau, non une fenêtre popover.
 - Point 9 : le diagnostic est biologique, donc pas de cliché décisif ; un ECG d'hypokaliémie (LowKECG, CC BY-SA 3.0, kaliémie 1,1 mmol/L, cas extrême) est inséré en 9.b. Un cliché de respiration de Kussmaul ou de pli cutané reste à chercher au point 6.
 - Contrôle3 : phrases partagées avec d'autres fichiers du LOT, non reformulées car issues du gabarit de l'onglet « Rappel mémoire » (mnémotechnique « Tom Trouve… », « Dix Pêcheurs… », « Fondement physiologique », « Aide-mémoire de classement »).
-- Citations : renfort_citations a rattaché presque tout à [1] et à l'ancre AIPS unique (sb-aips-44610 = entrée S7 regroupant toutes les spécialités) ; une ré-attribution phrase par phrase (S1/S3/S8 selon le fait) reste à faire.
 - Corrections techniques : « B. Braun » coupé par une étiquette de citation, bibliographie enveloppée dans une section « sources », deux fenêtres de médicaments (NovoRapid®, Lantus®) transformées en liens vers des encadrés.
 
 ## DX.3 (IRC) — renforcement, 10.11.2026
@@ -87,3 +86,11 @@
 - Xgeva (n° 61865) : l'hypercalcémie maligne ne figure pas dans l'AIPS ; l'indication reste citée via l'Endocrine Society (source 17).
 - Citations de la renfort_citations corrigées à la main : tableaux Algorithme, Comparatif des 13 DD et Drapeaux rouges (sources 19, 12, 13 mal attribuées retirées ou reciblées) ; [S20] retiré de la bibliographie. Un contrôle des autres renvois chiffrés reste à faire par l'audit.
 - Images : IRM T1 sagittale de la selle (point brillant, point 9) et pli cutané de la main (point 6) insérées. Aucun cliché libre retenu pour Sjögren (parotides) ; à ajouter si disponible.
+
+## Série AIPS par molécule (10.11.2026, LOT_003)
+- Ancre `sb-aips-<n°>` par molécule dans la bibliographie de chaque fichier (DX.9 : 16 molécules ; DX.5 : 11 ; DX.1 : GlucaGen 31489 ajouté). L'AIPS n° 44610 (Actrapid HM et Insulatard HM) reste une seule entrée, comme l'impose le n° Swissmedic.
+- Les appels AIPS posés sur des phrases sans médicament sont retirés (DX.1, DX.4, DX.7, DX.8, DX.5) ; une phrase chiffrée restée sans source a reçu la source clinique la plus proche avant elle (rattachement mécanique) : à vérifier phrase par phrase, surtout DX.7 (renvois « DX.n »), DX.8 et DX.10.
+- DX.7 : la valeur normale de l'osmolalité plasmatique (285 mOsm/kg) est retirée de la fenêtre « osmolalité plasmatique » faute de source lue ; DX.4 : la plage de natrémie (135 à 145 mmol/L) est retirée du but 11.A pour la même raison. À sourcer puis à rétablir.
+- DX.1 : le glucagon « 0,5 à 1 mg » cite GlucaGen (AIPS 31489 : 1 mg chez l'adulte, 0,5 mg chez l'enfant de moins de 25 kg) ; « 10 à 15 minutes » avant glucose IV vient d'une source clinique, alors que l'AIPS dit 10 minutes.
+- DX.9 et DX.10 : contre-indications AIPS du mannitol (déshydratation importante, hyperosmolarité plasmatique préexistante) citées avec l'AIPS 31754 dans la fenêtre, dans le texte et, pour DX.10, dans le tableau. Elles n'excluent pas l'usage en urgence : la décision relève du médecin.
+- DX.7 : contre-indications du lithium (bilan hydrosodique par déshydratation, régime hyposodé, maladie d'Addison, etc.) ajoutées d'après l'AIPS 38061.
