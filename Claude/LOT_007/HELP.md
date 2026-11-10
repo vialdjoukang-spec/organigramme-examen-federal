@@ -30,3 +30,12 @@
 - Test de Minor : sensibilité et spécificité suisses contemporaines non lues.
 - Citations : S9 et S19 (rapports Swissmedic Veoza et Lynkuet) ne sont pas des AIPS ; les doses citent les AIPS 53836, 56551, 53128 et 69232 de leur propre molécule.
 - Images : une figure insérée (Rosacea 01, point 6). Point 9 : aucun cliché décisif, la démarche est clinique et biologique ; Minor non illustré (aucune image prise, faute d'une requête validée).
+
+## DX.4 Hyperthyroïdie — renforcement du 10.11.2026
+- AIPS du thiamazole seul (Thyrozol) absente du corpus local : le cours ne donne aucune dose de thiamazole ; la fenêtre renvoie à la posologie du carbimazole (AIPS 21037) comme repère.
+- AIPS de l'amiodarone (n° 53114) non lue : aucune dose d'amiodarone dans le cours.
+- Fréquence de contrôle « fT4 et TSH toutes les 4 à 6 semaines puis tous les 3 mois » : l'AIPS 21037 ne donne que « surveillance sérielle ». Chiffre à confirmer dans le texte intégral ETA 2018 ou ATA 2016 (résumés seuls lus).
+- Épidémiologie suisse : aucune prévalence suisse de l'hyperthyroïdie lue ; seules les valeurs mondiales (JAMA 2023) et la carte européenne de l'iode (2020) figurent.
+- Image point 6 (exophtalmie, rétraction palpébrale) en file d'attente : « File:Proptosis and lid retraction from Graves' Disease.jpg » (CC BY 3.0, J. Trobe) à prendre après l'erreur 429 ; ligne ajoutée à /home/user/wt/images_attente.txt. Insérer la figure au point 6, région 3 (Yeux), après la liste.
+- Doses d'urgence de la crise thyrotoxique : le résumé JTA 2016 ne donne aucune dose ; seules les doses AIPS (propylthiouracile 300 à 600 mg/j, propranolol 10 à 40 mg 3 à 4 fois/j) figurent.
+- Panneau « Rappel mémoire » (généré) : deux phrases reformulées pour passer le contrôle ; ses renvois sb-4 sont hérités de l'outil.
