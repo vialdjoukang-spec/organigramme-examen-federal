@@ -45,7 +45,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 091 | S6.6 | Absence ou perte de cheveux et de poils, pilosité excessive | livré PR 580 |
 | 092 | S6.7 | Macules, papules, pustules, vésicules, ulcères, abcès, bulles, épaississements, nécroses et tumeurs cutanées | livré PR 581 |
 | 093 | S6.8 | Plaintes concernant les ongles | livré PR 582 |
-| 094 | S6.9 | Rougeur cutanée localisée ou diffuse et/ou rougeur des muqueuses | réservé |
+| 094 | S6.9 | Rougeur cutanée localisée ou diffuse et/ou rougeur des muqueuses | livré PR 583 |
 | 095 | S7.1 | Troubles de l’équilibre, chutes | réservé |
 | 096 | S7.2 | Troubles de la marche | réservé |
 | 097 | S7.3 | Mouvements involontaires anormaux, tremblements, tics, troubles de la coordination | réservé |
