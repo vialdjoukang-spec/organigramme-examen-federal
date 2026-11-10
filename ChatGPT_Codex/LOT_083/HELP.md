@@ -2,7 +2,7 @@
 
 Les sources établissent des comparaisons dans des cadres distincts : myalgies localisées, généralisées, sportives, hivernales, médicamenteuses, endocriniennes et inflammatoires. Leurs populations ne permettent pas de construire dix probabilités comparables pour toutes les myalgies ; les numéros de présentation ne prétendent pas exprimer un tel classement. Ce point fait partie de l’audit P1 de reprise.
 
-EULAR2025 publié21juillet2026 : résumé éditorial réellement accessible, corps complet non obtenu. RMS2020 sert au P1 pour la clinique et les menaces de rhabdomyolyse ; les traitements seront actualisés dans les paquets dédiés. Les critères de classification ne seront pas présentés comme des critères diagnostiques. La notice du connecteur GOTS indique2022, mais le document lui-même est publié22juin2018 : date du document retenue.
+EULAR2025 publié21juillet2026 : accès initial limité au résumé lors de P1 ; corps complet obtenu et lu ensuite pour la rédaction DX8 et PA, passages consignés dans redaction_DX5_8/EXTRAITS_PA_EULAR.json et redaction_PA/paquet.json. Le paquet P1 gelé reste inchangé. RMS2020 sert au P1 pour la clinique et les menaces de rhabdomyolyse ; les traitements seront actualisés dans les paquets dédiés. Les critères de classification ne seront pas présentés comme des critères diagnostiques. La notice du connecteur GOTS indique2022, mais le document lui-même est publié22juin2018 : date du document retenue.
 
 ## Première passe historique
 
