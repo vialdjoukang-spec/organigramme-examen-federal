@@ -2,7 +2,7 @@
 
 ## État actuel
 
-23 nouvelles leçons sont poussées : les11 du LOT080, les11 du LOT081 et DX3 du LOT082. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
+24 nouvelles leçons sont poussées : les11 du LOT080, les11 du LOT081 et DX3/DX6 du LOT082. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
 
 ## Historique de la première passe documentaire — état alors constaté
 
@@ -134,4 +134,7 @@ LOT082 : branche historique reprise et main intégré. Conflit limité au journa
 
 LOT082 DX3 : première leçon déposée individuellement ;170601octets, contrôleORANGE B seulement, auditP3 indépendant à effectuer. PR567LOT081 fusionautomatique activée souscontrôles, mainavanceencore ; aucunefusionannoncée.
 
-LOTs livrés : 0/23 ; leçons poussées : 23/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
+
+LOT082 DX6 : dépôt individuel,129553octets, contrôleVERT zéro défaut ; contrelecture indépendante à effectuer.
+
+LOTs livrés : 0/23 ; leçons poussées : 24/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
