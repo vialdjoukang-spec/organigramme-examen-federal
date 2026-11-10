@@ -1,10 +1,9 @@
 # HELP — lacunes de la Phase A (LOT_051, S2.12 Douleur thoracique pariétale)
 
 ## Molécules sans AIPS lisible dans le paquet
-- Acide acétylsalicylique oral (Aspirin Cardio, Aspégic) : seule la préparation injectable antalgique Panpharma (47256) a été rapatriée ; la dose de charge de l'antiagrégation dans le STEMI n'est donc pas écrite.
-- Diclofénac par voie orale : seules les formes locales (Voltaren Dolo forte Emulgel 61859, Perskindol Diclofenac Patch 69254) ont un AIPS lu ; aucune dose orale écrite.
-- Nitroglycérine sublinguale (spray, capsule) : seules les solutions pour perfusion (Sintetica 55459, Macure 70562) ont été lues ; aucune dose sublinguale écrite.
-- Traitement de l'angor, de l'embolie pulmonaire, de la dissection aortique et du pneumothorax (anticoagulants, bêtabloquants, antiagrégants P2Y12) : conduite citée sans milligramme.
+- Aspirine Cardio (51795), Nitrolingual (40558), Nitroglycérine Streuli (36830) et Voltaren Dolo forte oral (58094) ont été rapatriés et utilisés ; ils ne sont plus à signaler comme absents.
+- Traitement de l'embolie pulmonaire, de la dissection aortique et du pneumothorax (anticoagulants, bêtabloquants, antiagrégants P2Y12) : conduite citée sans milligramme.
+- Point 8.b : le rapport de cotes de la source wb521dd-17 est incohérent dans la source même (non repris).
 
 ## Lacunes de sources
 - Les recommandations ESC 2019 (embolie pulmonaire), ESC 2023 (syndromes coronariens aigus), ESC 2024 (maladies aortiques) et ERS 2024 (pneumothorax) sont présentes dans le paquet par leur seul résumé ou leurs références ; les algorithmes détaillés (D-dimères, scores de Wells, délais d'imagerie aortique) n'ont pas été écrits.

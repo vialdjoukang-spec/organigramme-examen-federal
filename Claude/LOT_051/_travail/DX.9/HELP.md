@@ -1,9 +1,7 @@
 # HELP — DX.9 Pneumothorax spontané (LOT_051)
 
-## Molécules sans AIPS lisible
-- Lidocaïne injectable (anesthésie locale avant drain) : seuls Emla (46850) et Anesderm (56682), topiques cutanés, ont été rapatriés ; aucune dose écrite.
-- Morphine et autres opioïdes à action rapide : seules les formes retard M-retard (53644) et Sevre-Long (53952) ont été lues ; aucune dose aiguë écrite.
-- Talc, minocycline, analogues de la GnRH : conduite citée sans milligramme.
+## Molécules
+- Morphin-HCl Sintetica (51039) et Lidocaïne Streuli (30015) rapatriées et citées ; paracétamol oral, talc, minocycline, analogues de la GnRH : sans dose écrite.
 
 ## Lacunes de sources
 - Aucune donnée suisse d'incidence du pneumothorax spontané ; chiffres danois, britanniques, français.
