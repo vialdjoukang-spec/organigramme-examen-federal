@@ -60,3 +60,16 @@ Lacunes retirées du cours (ancienne section « Lacunes des données ») :
 - Noradrenalin Sintetica : AIPS 60955004 lue (octobre 2020) et ajoutée à la bibliographie.
 - Image point 6 (myosis, photographie clinique) : non cherchée ; à insérer si une photo libre est trouvée.
 - Sources S1, S3 à S6, S12, S14 non relues ici pour les chiffres ; seules S2, les AIPS et JBDS 01 ont été relues.
+
+## DX.9 Avalanche (renforcement du 10.11.2026)
+- ERC 2021 (Lott, PMID 33773826) et ERC 2025 (PMID 41117569) : seul le résumé est lisible (Europe PMC, texte intégral fermé). Les énoncés « adrénaline différée sous 30 °C » et « intervalle doublé entre 30 et 35 °C (6 à 10 min) » restent cités à ERC 2021, sans extrait intégral lu ; à confirmer sur le texte complet.
+- AIPS lues sur files.refdata.ch (10.11.2026) : adrénaline 56551, noradrénaline 67023, Ringer-Acetat Fresenius 58605. L'AIPS ne donne aucune consigne pour l'hypothermie ; le chauffage du soluté à 38–42 °C vient de l'ERC.
+- Valeurs de surveillance (11.C : ECG/PA 24 h, biologie toutes les 6 h, potassium > 5,5 mmol/L, sortie à 36 °C) héritées de la version précédente, citées à ERC 2021 sans extrait lu qui les porte ; source à trouver.
+- Point 6 : aucune image de signe visible (gelure) insérée ; Wikimedia Commons répondait 429.
+- Section « Rappel mémoire » : des citations sb-4 (Knapp 2025) y sont placées sur des phrases de classement qu'elle ne porte pas (script de renfort) ; non modifiées.
+
+## DX.2 (Traumatisme, cause d'hypothermie) — renforcement du 10.11.2026
+- Image manquante (point 9, cliché de la modalité décisive : échographie E-FAST positive ou scanner avec hémopéritoine) : les requêtes Wikimedia (FAST, Morison, hémopéritoine) ne renvoient aucun fichier libre pertinent ; Europe PMC propose des figures CC BY (ex. PMC13327850, scanner avec hémopéritoine et extravasation) mais le téléchargement renvoie une page anti-robot, non contournée. Insertion à faire quand une source répond : figure au point 9.d (scanner corps entier) avec repères et lecture guidée.
+- Prévention suisse : aucune recommandation suisse de prévention propre à l'entité n'a été lue ; la phrase de lacune a été retirée du cours (le point 12 s'appuie sur l'épidémiologie du point 2). À chercher : recommandation suisse de prévention des traumatismes et de l'hypothermie.
+- Schéma traumatologique de l'acide tranexamique (1 g en 10 minutes puis 1 g en 8 heures) : issu de la recommandation européenne (Rossaint 2023), absent de l'AIPS 69390 ; le cours cite la recommandation et l'AIPS (voie i.v. lente). Usage de la noradrénaline dans le choc hémorragique : idem, AIPS 60955 impose de corriger d'abord l'hypovolémie.
+- Doses lues dans l'AIPS local (zip du 08.10.2026) : noradrénaline 60955, acide tranexamique 69390, adrénaline 56472, amiodarone 41060, glucose 29550190, NaCl 42425, Ringer 58605.
