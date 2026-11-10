@@ -52,7 +52,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 098 | S7.4 | Troubles de la parole ou du langage | réservé |
 | 099 | S7.5 | Étourdissements, vertiges | réservé |
 | 100 | S7.6 | Céphalées | réservé |
-| 101 | S7.7 | Troubles cognitifs, notamment difficultés de concentration, troubles de la mémoire et de la compréhension | réservé |
+| 101 | S7.7 | Troubles cognitifs, notamment difficultés de concentration, troubles de la mémoire et de la compréhension | en cours |
 | 102 | S7.8 | Parésie, paralysie | réservé |
 
 Statuts admis : réservé, en cours, livré PR n°, échec.
