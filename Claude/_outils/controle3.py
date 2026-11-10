@@ -185,10 +185,14 @@ def controler(chemin, paquet, a, vus_lot):
     e = equilibre(h)
     if e:
         d['C_balises'].append(e)
-    # L1 (10.11.2026) : la bande de taille porte sur la page naturelle, hors fenêtres centrales (sans limite)
-    page = len(re.sub(r'<section\b[^>]*class="[^"]*\bfenetre\b[^"]*"[^>]*>.*?</section>', '', h, flags=re.S).encode('utf-8'))
+    # L1 (10.11.2026, précision de Vial) : la bande porte sur le cours entier, fenêtres comprises ;
+    # seules les images (<img>, <svg>, <picture>, URI data:image) sont hors limite.
+    sans_img = re.sub(r'<(svg|picture)\b.*?</\1>', '', h, flags=re.S | re.I)
+    sans_img = re.sub(r'<img\b[^>]*>', '', sans_img, flags=re.I)
+    sans_img = re.sub(r'data:image/[^"\')\s]+', '', sans_img)
+    page = len(sans_img.encode('utf-8'))
     if not (a.min <= page <= a.max):
-        d['C_taille_hors_bande'].append(f'{page} o hors fenêtres (bande {a.min}–{a.max})')
+        d['C_taille_hors_bande'].append(f'{page} o hors images (bande {a.min}–{a.max})')
     # L1 : architectures et contenus interdits
     if re.search(r'Où se situe le problème', h):
         d['C_L1_arbre_CIM_interdit'].append('arbre CIM emboîté « Où se situe le problème ? »')
@@ -214,7 +218,7 @@ if __name__ == '__main__':
     ap.add_argument('fichiers', nargs='+')
     ap.add_argument('--paquet')
     ap.add_argument('--points', type=int, default=14)
-    ap.add_argument('--min', type=int, default=80_000)  # L1 : page hors fenêtres 80–150 Ko
+    ap.add_argument('--min', type=int, default=80_000)  # L1 : cours entier 80–150 Ko, images hors limite
     ap.add_argument('--max', type=int, default=150_000)
     ap.add_argument('--ex', type=int, default=3, help='exemples par défaut (concision du rapport)')
     ap.add_argument('--script-ok', action='store_true')

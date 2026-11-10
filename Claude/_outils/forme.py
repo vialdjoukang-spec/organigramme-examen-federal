@@ -2,7 +2,7 @@
 """FORME — correction automatique de la forme des cours (ordre de Vial du 10.11.2026), zéro modèle, idempotent.
 
 1. Police obligatoire : Atkinson Hyperlegible, chargée depuis Claude/_polices/ (fichiers partagés, feuille commune
-   Claude/_polices/forme.css, ~70 octets ajoutés par leçon ; la bande 100–200 Ko reste respectée).
+   Claude/_polices/forme.css, ~70 octets ajoutés par leçon ; la bande L1 de 80–150 Ko, images exclues, reste respectée).
 2. Mise en page : texte courant justifié avec césure, interligne réduit (1,4), marges de paragraphe resserrées ;
    titres, tableaux, figures et listes de navigation restent alignés à gauche.
 3. Espaces inutiles : lignes vides multiples, paragraphes vides, espaces doubles dans le texte, espace avant
