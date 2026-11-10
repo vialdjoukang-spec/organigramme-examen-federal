@@ -193,4 +193,6 @@ LOT083 DX5 : contenu grippe saisonnière poussé ; audit indépendant confié à
 
 LOT083 DX9 : rhabdomyolyse d’effort, contenu et preuves poussés avant audit indépendant.
 
-LOTs livrés : 2/23 ; leçons poussées : 37/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
+LOT083 DX10 : dermatomyosite poussée, audit indépendant en cours.
+
+LOTs livrés : 2/23 ; leçons poussées : 38/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
