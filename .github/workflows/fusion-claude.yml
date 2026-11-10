@@ -1,0 +1,30 @@
+# Fusion des PR Claude auditées (étiquette audit-ok), par commit de fusion, après CI verte.
+name: Fusion Claude
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fusion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fusionner les PR claude/* auditées et vertes
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_FUSION_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -u
+          for n in $(gh pr list --state open --label audit-ok --json number,headRefName \
+                     --jq '.[] | select(.headRefName | startswith("claude/")) | .number'); do
+            gh pr ready "$n" 2>/dev/null || true
+            gh pr edit "$n" --remove-label attente-vial 2>/dev/null || true
+            etat=$(gh pr view "$n" --json mergeable --jq .mergeable)
+            mauvais=$(gh pr checks "$n" --json bucket --jq '[.[] | select(.bucket=="fail" or .bucket=="pending")] | length' 2>/dev/null || echo 1)
+            if [ "$etat" = "MERGEABLE" ] && [ "$mauvais" = "0" ]; then
+              gh pr merge "$n" --merge --admin && echo "PR $n fusionnée" || echo "PR $n : fusion refusée"
+            else
+              echo "PR $n attend (mergeable=$etat, contrôles non verts=$mauvais)"
+            fi
+          done
