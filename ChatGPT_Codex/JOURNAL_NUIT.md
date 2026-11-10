@@ -213,4 +213,6 @@ LOT083 DX5 : citation déplacée après la question finale, contenu clinique ide
 
 LOT083 DX8 : citation finale repositionnée, contenu clinique inchangé ; audit en cours.
 
+LOT083 DX4 : six corrections ciblées, seconde P3 indépendante 51/52 finale oui.
+
 LOTs livrés : 2/23 ; leçons poussées : 44/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; PR600 quatre contrôles requis attendus ; LOT083 production/P3 ; LOT084–102 à produire.
