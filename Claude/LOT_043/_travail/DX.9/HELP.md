@@ -12,3 +12,9 @@ Lacunes à traiter par le chef de production (aucune n'est écrite dans le cours
 8. AIPS lus : Xarelto 58728, Eliquis 61549, Lixiana 65149, Clexane 49456, Heparin-Na Braun 46613, Actilyse 48313. La dose pédiatrique et l'altéplase < 65 kg (1,5 mg/kg) ne sont pas détaillées. Aucune dose de ténectéplase (non commercialisée comme EP en Suisse selon le corpus lu : non vérifié).
 9. Le chiffre Verdon 2008 (2 EP sur 672 douleurs thoraciques) provient du résumé PubMed (PMID 18561039) ; texte intégral smw.ch illisible (PDF compressé).
 10. Aucune figure ni planche d'images (µ6) n'a été produite.
+
+## Après audit P3 (correction chirurgicale)
+- Scores de Genève : seuils du simplifié (faible 0-1, intermédiaire 2-4, élevé ≥ 5) repris de w762f21-39 ; l'âge > 65 ans du Genève révisé est appuyé par w338c1e-8 (PMC8702417) ; le tableau ESC 2019 lui-même n'a pas été lu (academic.oup.com 403) et l'extrait wbe4079-10 (« âge > 75 », erreur de la revue) n'est plus cité pour l'âge.
+- Altéplase : conditions de poids (≥ 65 kg : 10 mg puis 90 mg en 2 h ; < 65 kg : maximum 1,5 mg/kg) reprises de aips-48313-6. Énoxaparine : 1 mg/kg deux fois par jour en schéma standard (aips-49456-10).
+- LV5 : phrases reposant sur le seul guide AHA/ACC 2026 (termes massive/submassive, charge thrombotique, ambulation précoce) supprimées ; les passages restants de la revue PMC13732469 portent sur l'épidémiologie, le choc normotendu et la réadaptation, comparés à l'ESC 2019 par la revue.
+- Point 12 : prophylaxie sans recommandation suisse nommée et datée, à combler.
