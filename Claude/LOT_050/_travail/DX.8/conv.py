@@ -14,11 +14,12 @@ def blocks(lines,keys,n):
         if not l.strip(): flush(); i+=1; continue
         if l.startswith('- '): ul.append(inline(l[2:],keys,n)); i+=1; continue
         flush()
-        if l.startswith('## '): out.append(f'<h4><em>{inline(l[3:],keys,n)}</em></h4>')
+        if l.startswith('### '): out.append(f'<h4><em>{inline(l[4:],keys,n)}</em></h4>')
+        elif l.startswith('## '): out.append(f'<h4><em>{inline(l[3:],keys,n)}</em></h4>')
         elif l=='TABLE':
             rows=[];i+=1
             while lines[i].strip()!='ENDTABLE': rows.append(lines[i].rstrip()); i+=1
-            t='<div class="t"><table>'
+            t='<div class="t" style="overflow-x:auto"><table>'
             for k,r in enumerate(rows):
                 c=[inline(x.strip(),keys,n) for x in r.split('|')]
                 tag='th' if k==0 else 'td'
