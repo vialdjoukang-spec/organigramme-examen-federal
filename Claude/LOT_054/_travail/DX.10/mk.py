@@ -51,7 +51,7 @@ def build(n):
             out.append('<ul>'+''.join('<li>'+conv(re.sub(r'<<([^|>]+)\|([^|>]*)\|([^>]+)>>',btn2,i))+'</li>' for i in items)+'</ul>'); flush()
         elif line.startswith('T: '):
             rows=[r.split(' | ') for r in line[3:].split(' ;; ')]
-            h='<div class="t"><table><thead><tr>'+''.join(f'<th>{conv(c)}</th>' for c in rows[0])+'</tr></thead><tbody>'
+            h='<div class="t" style="overflow-x:auto"><table><thead><tr>'+''.join(f'<th>{conv(c)}</th>' for c in rows[0])+'</tr></thead><tbody>'
             for r in rows[1:]: h+='<tr>'+''.join(f'<td>{conv(c)}</td>' for c in r)+'</tr>'
             out.append(h+'</tbody></table></div>')
         else: raise SystemExit(f'ligne inconnue p{n}: {line[:60]}')
