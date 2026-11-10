@@ -331,7 +331,7 @@ H(9, '''<figure>
 <figure>
 <div style="position:relative;max-width:100%">
 <img src="images/0fa3bad94e3ca02b.png" alt="Même fichier, repères numérotés en surimpression, pixels d'origine inchangés." style="width:100%;height:auto;display:block">
-<svg viewBox="0 0 1280 731" style="position:absolute;left:0;top:0;width:100%;height:100%">
+<svg viewBox="0,0,1280,731" style="position:absolute;left:0;top:0;width:100%;height:100%">
 <circle cx="250" cy="560" r="28" fill="none" stroke="#9b1c1c" stroke-width="4"/>
 <text x="240" y="568" fill="#9b1c1c" font-size="32" font-family="Verdana,sans-serif">1</text>
 <circle cx="860" cy="300" r="28" fill="none" stroke="#9b1c1c" stroke-width="4"/>
@@ -366,7 +366,7 @@ W(9, "pa-p9-f2", "Contraste et irradiation, selon Sinz", [
 
 # --- 10 Arbre ---
 S(10, "L'algorithme part de [[pa-p10-f1|E1]], car l'occlusion mésentérique se recherche avant les causes plus fréquentes.", "sinz_fms_2021-9")
-S(10, "Si la pression systolique est de 90 mm Hg ou moins, alors le médecin réanime et cherche une hémorragie ou un sepsis.", "sinz_fms_2021-11")
+S(10, "Si la pression systolique est de 90 mm Hg ou moins, alors la réanimation commence et l'hémorragie ou le sepsis se recherche.", "sinz_fms_2021-11")
 S(10, "Si la douleur est intense et le ventre pauvre, surtout après 65 ans, alors E1 mène à une tomodensitométrie injectée.", "sinz_fms_2021-9")
 S(10, "Si une défense diffuse ou un air libre apparaît, alors E2 conduit au contrôle du foyer sans série radiologique supplémentaire.", "sinz_fms_2021-14")
 S(10, "Si un orifice herniaire est douloureux et irréductible, alors E3 impose de traiter l'incarcération.", "sinz_fms_2021-11")
@@ -382,7 +382,7 @@ H(10, '''<div class="t" style="overflow-x:auto"><table>
 <caption>Algorithme, les graves d'abord, en commençant par E1.</caption>
 <thead><tr><th>Si</th><th>Alors</th></tr></thead>
 <tbody>
-<tr><td>La pression systolique est de 90 mm Hg ou moins</td><td>Le médecin réanime et cherche une hémorragie ou un sepsis</td></tr>
+<tr><td>La pression systolique est de 90 mm Hg ou moins</td><td>La réanimation commence, et l'hémorragie ou le sepsis se recherche</td></tr>
 <tr><td>La douleur est intense et le ventre pauvre, surtout après 65 ans</td><td>E1 conduit à une tomodensitométrie injectée si le patient peut la recevoir</td></tr>
 <tr><td>Une défense diffuse ou un air libre apparaît</td><td>E2 conduit au contrôle du foyer sans série radiologique supplémentaire</td></tr>
 <tr><td>Un orifice herniaire est douloureux et irréductible</td><td>E3 impose de traiter l'incarcération</td></tr>

@@ -7,3 +7,4 @@
 - L'échographie titrée appendicite est refusée après inspection. Le cliché d'air libre et la tomodensitométrie d'appendicite sont gardés.
 - `controle3.py` sur la Phase A : VERT, 101666 octets. Ce n'est pas un audit indépendant.
 - DX.2 ne démarre pas sans feu vert explicite de Bitunder.
+- 2026-11-10 18:22, ordre de Vial : plus de tournure « le médecin », plus de mot redoublé, bande 80–150 Ko, contraste AAA, mise en page relue. La Phase A est reprise dans ce cadre.
