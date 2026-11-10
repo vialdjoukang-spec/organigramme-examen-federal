@@ -29,3 +29,10 @@
 - Contrôle3 : phrases partagées avec d'autres fichiers du LOT, non reformulées car issues du gabarit de l'onglet « Rappel mémoire » (mnémotechnique « Tom Trouve… », « Dix Pêcheurs… », « Fondement physiologique », « Aide-mémoire de classement »).
 - Citations : renfort_citations a rattaché presque tout à [1] et à l'ancre AIPS unique (sb-aips-44610 = entrée S7 regroupant toutes les spécialités) ; une ré-attribution phrase par phrase (S1/S3/S8 selon le fait) reste à faire.
 - Corrections techniques : « B. Braun » coupé par une étiquette de citation, bibliographie enveloppée dans une section « sources », deux fenêtres de médicaments (NovoRapid®, Lantus®) transformées en liens vers des encadrés.
+
+## DX.3 (IRC) — renforcement, 10.11.2026
+- Cibles à relire dans KDIGO 2024 (texte intégral non lu depuis ce poste) : cible de PA systolique inférieure à 120 mmHg (11.A) ; seuils « DFG supérieur à 30 mL/min » (point 6) et « PA inférieure à 140/90 » (tableau du point 6), rattachés par défaut à la source [1].
+- AIPS : les 17 fiches par molécule (ancres sb-aips-<n°>) reprennent les numéros de la bibliographie d’origine ; les doses n’ont pas été relues dans le corpus AIPS depuis ce poste (prep non lancé pour ne pas écrire hors des fichiers autorisés).
+- Fiches médicaments : les fenêtres au survol sont devenues des panneaux (a.tm.med vers div.mb) pour supprimer les phrases dupliquées ; la posologie hors AIPS du gluconate de calcium, de l’insuline et du salbutamol reste attribuée à la UK Kidney Association [8].
+- Épidémiologie : mortalité et histoire naturelle de l’IRC non sourcées dans la leçon ; à compléter avec une source suisse lue.
+- Image du point 6 : cliché d’œdème à godet d’un patient en insuffisance hépatique (Commons), faute de cliché libre d’œdème rénal.
