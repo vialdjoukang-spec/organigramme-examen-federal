@@ -20,3 +20,13 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Médecin prescripteur appelé au constat : aucune règle suisse explicite lue.
 - Pentobarbital : aucune information humaine sur contre-indications, interactions, insuffisance hépatique ou rénale ; mineur et femme enceinte : aucune source suisse lue.
 - Personne domiciliée à l'étranger : aucune règle particulière de constat trouvée.
+
+## DX.2 — Chute accidentelle de la personne âgée
+- Sensibilité et spécificité des signes externes et de l'examen médico-légal : non chiffrées dans les sources lues.
+- Recommandation suisse sur l'indication du CT cérébral chez le chuteur vivant sous anticoagulant : non trouvée (NICE NG232 utilisée).
+- Critères suisses de retour à domicile après une chute : non trouvés (NICE NG232 utilisée).
+- Complications de l'immobilisation (pneumonie, thrombose, escarres) : non chiffrées dans les sources suisses lues.
+- Série suisse récente de mortalité absolue après fracture du fémur proximal (après SwissDRG) : non trouvée le 30.10.2026.
+- Différence régionale chiffrée des chutes (ESS) : non trouvée ; stratégie chirurgicale de la fracture cervicale : hors sources lues.
+- Code de déontologie FMH, article sur les certificats : accès refusé.
+- Image candidate (point 9) : PMCT d'un hématome sous-dural ; non insérée faute de marge sous 150 Ko.
