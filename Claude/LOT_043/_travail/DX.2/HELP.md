@@ -11,3 +11,5 @@ Lacunes de sources, à traiter par un autre passage ou par l'auditeur (aucune fo
 7. Examen physique : technique détaillée de la palpation de la paroi thoracique (articulations chondrosternales, manœuvres de provocation) non lue ; seuls les principes sourcés figurent.
 8. Volet social et assurances (certificat d'incapacité, LAMal, AI, remboursement de la thérapie cognitivo-comportementale psychologue délégué) : aucune source suisse lue.
 9. Anciens extraits : la vignette HUG 2007 (Gaspoz, 1993) et le colloque HUG 2018 sont des supports de formation, non des recommandations ; leurs chiffres sont présentés comme tels.
+
+Correction post-audit : tableau AIPS Xanax complété (contre-indications alprazolam : inhibiteurs de la protéase et antifongiques azolés ; grossesse : contre-indiqué au 1er trimestre, indication absolue aux 2e et 3e) ; disulfirame ajouté pour Zoloft solution (aips-55391-13) ; lignes « ergométrie » hors sujet retirées. Non applicable : aucune.

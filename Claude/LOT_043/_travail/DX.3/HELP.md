@@ -14,3 +14,5 @@ Lacunes de sources (hors cours) :
 - Point 9.c (grossesse, DFGe < 30 mL/min, allergie à l'iode, IRM impossible) : aucune source lue.
 - Point 11.B volet social et assurances (LAMal, LAA, AI) : aucune source lue.
 - Conversion SI des cibles de LDL-cholestérol (mmol/L) : non sourcée ; valeur donnée en mg/dL comme la source.
+
+Correction post-audit : protocole HUG SMUR SCA 2023 (w8db60a) versé ; oxygène réservé à une saturation inférieure à 90 % (l'extrait porte « FiO2 < 90 % », coquille probable). AIPS Aspirine Cardio (51795) et Sortis (54085) versés et cités (dose, contre-indications, grossesse, allaitement) ; la statine « de haute intensité » des recommandations (40 à 80 mg) diverge de la dose initiale de 10 mg de l'AIPS : la dose de l'AIPS est seule recopiée. Isoket retard : n° 45979 (liste élargie Swissmedic) alors que l'extrait AIPS cité porte 39387 ; la liste Swissmedic n'étant pas dans le paquet, le n° reste cité tel quel, à vérifier. Cible LDL : conversion 55 mg/dL = 1,4 mmol/l écrite dans une cellule de tableau, sans source SI lue.

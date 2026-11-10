@@ -1,8 +1,8 @@
 # HELP — PA (LOT_043 S2.4 Gêne thoracique)
 
 ## Molécules sans AIPS lisible (classe et conduite sans milligramme)
-- Acide acétylsalicylique (cardio) : aucune information professionnelle cardiologique trouvée (la préparation AIPS retenue par la liste HAM est Aspirine Complexe, associée à un décongestionnant, donc écartée). Dose de charge citée seulement par la conduite NICE et le protocole HUG, sans milligramme.
-- Fentanyl intraveineux : seule la forme transdermique (Fentanyl-Mepha Patch, Swissmedic 57362) existe dans le paquet ; la dose du protocole HUG n'est pas reprise.
+- Acide acétylsalicylique : Aspirine Cardio (Swissmedic 51795, aips-51795-4 : 200 à 300 mg i.v. ou orale à résorption rapide dans l'infarctus aigu, puis 100 mg par jour) est versée au paquet et citée. Acide acétylsalicylique Panpharma Inj (47256) et Aspégic (38133) sont versés mais leur indication AIPS est la douleur (non l'infarctus) : la dose HUG de 250 mg (i.v. ou sachet) est donc enseignée comme protocole HUG, hors indication AIPS.
+- Fentanyl intraveineux : l'AIPS du fentanyl injectable (Sintetica 53987 versé ; autres : Mepha 53484, Piramal 31110) n'indique que l'anesthésie et la douleur postopératoire ; l'emploi du protocole HUG (EVA > 3) est présenté comme hors indication AIPS, sans dose.
 - Colchicine, anti-inflammatoires non stéroïdiens, corticostéroïdes (péricardite) ; inhibiteurs de la pompe à protons (reflux) : hors liste DCI de la Phase A ; conduite sans dose.
 - Héparine : la monographie AIPS lue est Heparin-Na B.Braun (Swissmedic 46613) ; la dose préhospitalière HUG (5000 UI) n'est pas citée.
 
@@ -20,3 +20,10 @@
 
 ## Sources principales
 Verdon 2008 (Swiss Med Wkly), Revue Médicale Suisse 2007 et 2025, HUG (douleur thoracique 2007, protocole SCA 15.12.2023), NICE CG95 (2010, mise à jour 2016), Haasenritter 2015, Bösner 2009 et 2010, cohortes préhospitalières danoise et suédoise, cohorte suédoise des syndromes aortiques, revue de la péricardite (ESC 2025 citée), AIPS Swissmedic (nitroglycérine 55459, héparine 46613, morphine 56554, paracétamol 66983).
+
+## Après audit P3 (correction chirurgicale)
+- Pneumothorax sous tension : source retenue = protocole thoracique HUG (traumatologie, 2021, w3687b3-2 : « Exsufflation/décompression IMMEDIATE avec Venflon®, ne pas attendre le bilan radio »). ERC 2025 (Special Circumstances in Resuscitation) : texte intégral inaccessible (403), non cité.
+- D-dimères : seuil ajusté à l'âge (âge × 10 µg/L) tiré de la méta-analyse BMJ 2013 (PMC3643284, w26fe26-9 à -11) ; l'ESC 2019 sur l'embolie pulmonaire n'a pas été lue dans ce LOT (score de Genève : voir DX.9).
+- Syndrome coronarien chronique : toujours décrit selon NICE (CG95) ; ESC 2024 (syndromes coronariens chroniques) non lue, à reprendre. Point 9.c (grossesse, DFGe < 30, iode) et point 12 (prévention suisse nommée et datée) restent à combler.
+- Oxygène : seuil HUG 15.12.2023 (< 90 %) ; la cible NICE 94-98 % reste citée au point 11.A comme objectif de saturation, sans valeur de déclenchement.
+- Taille : pour tenir la bande, retrait de 3 questions du point 14 (palpation, symptômes chez la femme, doses/interactions déjà au tableau), des questions 12 à 14 et de la ligne de pharmacocinétique de la nitroglycérine.

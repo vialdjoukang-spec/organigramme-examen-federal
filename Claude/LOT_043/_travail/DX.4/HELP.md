@@ -7,3 +7,5 @@
 - Bösner 8,1 % : le tableau source est « Upper respiratory infections » (98/1212), pas « bronchite aiguë » seule ; le cours le dit (points 1, 2, 14). Chiffres exacts uniquement en cellule de tableau, car le contrôle fusionne les nombres contigus d'un tableau source.
 - Point 6 : valeurs de signes (palpation pariétale, percussion) limitées à ce qu'établissent les sources lues.
 - Molécules AIPS lues : Dafalgan 47503, Ibuprofen-Mepha Teva 49156, Bisolvon Dextromethorphan 61441, Codein Knoll 19220.
+
+Correction post-audit : AIPS amoxicilline (Amoxi-Mepha 44911) et doxycycline (Supracycline Tabs 49771) versés. Lacune : l'AIPS de l'amoxicilline ne cite pas la bronchite aiguë (seulement exacerbations de bronchite chronique et pneumonie) et ne donne pas de durée pour cette indication ; l'AIPS de la doxycycline cite la bronchite mais sans durée spécifique ; aucune durée n'est donc écrite. Clarithromycine et azithromycine : AIPS non rapatriées. Codein Knoll : teneur 50 mg lue (aips-19220-27). Dextrométhorphane : contre-indications complétées (allaitement, alcoolisme, toxicomanie).
