@@ -1,5 +1,5 @@
 # Consolidation Grokbot
-Dernier passage : 2026-11-10T09:21:56+01:00 (Europe/Zurich).
+Dernier passage : 2026-11-10T09:18:45+01:00 (Europe/Zurich).
 Exigences remplies : **74 / 1760 (4 %)**.
 Revérifiées : 1686. Déjà conformes et inchangées : 74. FIN_FICHIER ajoutés : 0.
 Exigences : présence du fichier, 14 points, FIN_FICHIER, bande 100–200 Ko, aucun bloqueur, score ≥ 90.
@@ -7,7 +7,7 @@ Le détail par leçon est dans `Grokbot/consolidation/etat.json`. Aucun texte cl
 ## Synthèse par LOT
 | LOT | Leçons absentes | Présentes sous la bande | Autre défaut |
 |---|---|---|---|
-| 051 | 0 | 11 | 0 |
+| 051 | 11 | 0 | 0 |
 | 052 | 11 | 0 | 0 |
 | 053 | 11 | 0 | 0 |
 | 054 | 11 | 0 | 0 |
