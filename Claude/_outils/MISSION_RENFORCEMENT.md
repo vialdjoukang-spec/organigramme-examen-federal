@@ -27,6 +27,7 @@ déjà pour le paragraphe. Les ancres AIPS sont devenues `sb-aips-<n°>`.
    Une image est un objet d'enseignement, jamais une décoration. Couverture : au point 9, le cliché de la modalité décisive ;
    au point 6, le signe visible quand il existe.
    - Cherche : `python3 /home/user/organigramme-examen-federal/Claude/_outils/cliche.py chercher "<requête anglaise>"`.
+   - **Wikimedia limite actuellement le débit (429)** : n'appelle `prendre` qu'une fois. En cas d'échec, mets l'image en file d'attente (ci-dessous) et passe à la suite. Ne contourne jamais une protection anti-robot.
    - Prends : `... cliche.py prendre "File:…" --lot Claude/LOT_XXX` (licence vérifiée, WebP, reprise sur 429). Sur un 429
      persistant, ne réessaie pas : ajoute la ligne `<chemin absolu du dossier LOT>|File:…` à `/home/user/wt/images_attente.txt`
      (une file unique télécharge en série), note l'insertion à faire dans HELP.md et continue.
