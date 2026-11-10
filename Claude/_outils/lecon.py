@@ -57,6 +57,11 @@ def prep(a):
     racine, d = dossier(a.lot, a.cible)
     os.makedirs(d, exist_ok=True)
     pre = 'pa' if a.cible in ('A', 'PA') else 'dx' + a.cible.split('.')[-1]
+    ancien = os.path.join(d, 'contrat.json')
+    if a.ajouter and os.path.exists(ancien):  # --ajouter conserve l'entité et le code SSP déjà fixés
+        A0 = json.load(open(ancien))
+        a.entite = A0.get('ENTITE') or a.entite
+        a.ssp = a.ssp or A0.get('CODE_SSP')
     C = {'LOT': f'{int(a.lot):03d}', 'CODE_SSP': a.ssp or '', 'ENTITE': a.entite, 'PREFIX': pre, 'SECURITE': a.securite or '',
          'points': {str(i + 1): {'titre': t, 'octets': o, 'exige': e, 'squelette': SQ.get(i + 1, '')} for i, (t, o, e) in enumerate(POINTS)}}
     json.dump(C, open(os.path.join(d, 'contrat.json'), 'w'), ensure_ascii=False, indent=1)
@@ -189,7 +194,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest='cmd', required=True)
     p = s.add_parser('prep'); p.add_argument('--lot', required=True); p.add_argument('--cible', required=True)
-    p.add_argument('--entite', required=True); p.add_argument('--ssp'); p.add_argument('--securite')
+    p.add_argument('--entite', default=''); p.add_argument('--ssp'); p.add_argument('--securite')
     p.add_argument('--urls'); p.add_argument('--textes', nargs='*'); p.add_argument('--dci', nargs='*', default=[])
     p.add_argument('--aips-max', type=int, default=2); p.add_argument('--autorisation', nargs='*', default=[], help='n° Swissmedic à inclure d\'office'); p.add_argument('--ajouter', action='store_true')
     f = s.add_parser('finir'); f.add_argument('--lot', required=True); f.add_argument('--cible', required=True)
