@@ -2,7 +2,7 @@
 
 SSP S5.3 — Déformations du squelette et des articulations
 
-Dix entités précises proposées selon âge, territoire et contexte de soins. Ordre pédagogique de groupes fréquents contextualisés, puis traumatologie et causes complexes/rares ; aucun classement universel de fréquence ni chiffres transposés. Les numéros sont des positions de proposition, pas des DX canoniques.
+Dix entités précises proposées selon âge, territoire et contexte de soins. Ordre pédagogique de groupes fréquents contextualisés, puis traumatologie et causes complexes/rares ; aucun classement universel de fréquence ni chiffres transposés. Les numéros DX.1 à DX.10 sont figés après P1 ; ils ne constituent pas un classement universel de prévalence.
 
 - DX.1 — Arthrose déformante de la main : Adulte âgé, notamment après la ménopause ; fréquente dans ce cadre, aucun rang global.
 - DX.2 — Hallux valgus : Avant-pied adulte ; HUG le qualifie fréquent.
