@@ -5,7 +5,6 @@ Référence : `PROMPT_Casern/PROMPT_LOTS_Lo_9.11.26.claude.md` (branche `referen
 
 ## Environnement (à exporter dans chaque commande Bash)
 ```bash
-export OUTILS_REF=/tmp/claude-0/-home-user/15c9849e-78d1-5a00-9dcf-bd21b180736d/scratchpad/ref/outils
 export PAQUET_CACHE=/tmp/claude_paquet_cache
 L=/home/user/organigramme-examen-federal/Claude/_outils/lecon.py
 cd <WORKTREE>      # donné dans ta mission ; toutes les commandes partent de là

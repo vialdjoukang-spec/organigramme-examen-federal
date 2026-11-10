@@ -17,7 +17,7 @@ Exemples :
 import os, re, sys, json, argparse, subprocess, collections
 
 ICI = os.path.dirname(os.path.abspath(__file__))
-REF = os.environ.get('OUTILS_REF', os.path.join(ICI, '..', '..', 'outils'))
+REF = os.environ.get('OUTILS_REF', ICI)  # copies suivies de paquet.py, assembler.py, controle3.py (référence 9.11.26) dans Claude/_outils
 sys.path.insert(0, REF)
 os.environ.setdefault('PAQUET_CACHE', '/tmp/claude_paquet_cache')
 AIPS_ZIP = os.environ.get('AIPS_ZIP', '/home/user/Medina/AipsDownload_20261008.zip')
@@ -147,6 +147,8 @@ def finir(a):
                         '--paquet', os.path.join(d, 'paquet.json'), '--contrat', os.path.join(d, 'contrat.json'),
                         '--titre', a.titre, '--sortie', sortie], capture_output=True, text=True)
     print(r.stdout.strip(), r.stderr.strip()[-500:])
+    if r.returncode or 'CITATIONS INCONNUES' in r.stdout:
+        sys.exit(f'ASSEMBLAGE EN ÉCHEC (code {r.returncode}) : HTML non validé, corriger les fragments')
     lignes(sortie)
     r = subprocess.run([sys.executable, os.path.join(REF, 'controle3.py'), sortie, '--paquet', os.path.join(d, 'paquet.json'), '--ex', str(a.ex)],
                        capture_output=True, text=True)
