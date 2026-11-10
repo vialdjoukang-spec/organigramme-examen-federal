@@ -17,6 +17,7 @@ import re, sys, json, html, hashlib, argparse, collections
 
 CIT = re.compile(r'<sup class="r"><a href="#sb-([\w.\-:]+)">')
 NUM = re.compile(r'(?<![\w])(\d+(?:[.,’\' ]\d+)*(?:[.,]\d+)?)(?![\w])')
+HORS_AIPS = re.compile(r"\b(?:L'|La |Le |Les )([A-Za-zÀ-ÿ-]{4,})(?: [a-zà-ÿ]+)? (?:est|sont) absente?s? de l'AIPS")
 DOSE = re.compile(r'\b\d+(?:[.,]\d+)?\s?(?:mg|µg|mcg|UI|g(?=\s?(?:/kg|/j|/jour|par jour|toutes|i\.?v|IV|per os|p\.o)))(?!\s?/\s?(?:l|L|dl|dL|mmol))\b')
 CONNECT = re.compile(r"\b(car|donc|or|ainsi|puis|alors|parce que|puisque|lorsque|quand|si|tandis que|alors que|"
                      r"afin de|afin que|pour que|de sorte que|c'est pourquoi|en effet|cependant|toutefois|"
@@ -24,7 +25,7 @@ CONNECT = re.compile(r"\b(car|donc|or|ainsi|puis|alors|parce que|puisque|lorsque
                      r"grâce à|à cause de|en raison de|si bien que|de ce fait|par ailleurs|en outre|"
                      r"autrement dit|c'est-à-dire|d'où|puisqu'|lorsqu'|qu'il)\b", re.I)
 # Formes verbales conjuguées fréquentes en rédaction médicale (3e pers., présent/futur/passé composé)
-VERBES = set("""est sont a ont fait font peut peuvent doit doivent reste restent devient deviennent va vont
+VERBES = set("""propose proposent recommande recommandent conseille conseillent mentionne mentionnent contient contiennent figure figurent résulte résultent ajoute ajoutent dépend dépendent rassemble rassemblent résume résument précise précisent indique indiquent décrit décrivent est sont a ont fait font peut peuvent doit doivent reste restent devient deviennent va vont
 semble semblent permet permettent signe signent oriente orientent impose imposent confirme confirment élimine
 éliminent exclut excluent traite traitent associe associent survient surviennent provoque provoquent entraîne
 entraînent exige exigent reçoit reçoivent touche touchent atteint atteignent dépasse dépassent varie varient
@@ -47,8 +48,9 @@ faut suffit suffisent vise visent cible ciblent porte portent concerne concernen
 """.split())
 VERBE_RE = re.compile(r"\b(?:\w+(?:ent|ait|aient|era|eront|erait|eraient|ise|isent|it|issent))\b", re.I)
 PRONOM_VERBE = re.compile(r"\b(?:il|elle|ils|elles|on|qui|cela|ce|celle-ci|celui-ci)\s+(?:ne\s+|n'|se\s+|s'|l'|le\s+|la\s+|les\s+|y\s+|en\s+)*\w+", re.I)
-STRUCT = re.compile(r"\b(?:points?|DX\.?|rangs?|E|étapes?|îlots?|n°|LOT_?|Phase)\s*\d+(?:[.,]\d+)?", re.I)
-SOURCES = re.compile(r'<section\b[^>]*id="[\w-]*sources"[^>]*>.*?</section>', re.S | re.I)
+LACUNE = re.compile(r"\(\s*À vérifier|À vérifier\s*[:)]|reste à (?:lire|vérifier)|texte (?:intégral )?non (?:lu|relu)|non relue? dans|faute d'extrait lisible|aucune source (?:lue|lisible)", re.I)
+STRUCT = re.compile(r"\b(?:points?|DX\.?|rangs?|E|étapes?|îlots?|n°|LOT_?|Phase)\s*\d+(?:[.,]\d+)?|\b[A-Z]\d{2}(?:\.\d{1,2})?\b|\bCIM-1[01]\b|\b(?:le|au|du|appeler le)\s+14[0-9]\b|\binterleukine[- ]\d+\b|\bIL-\d+\b|^\s*\d{1,2}\.[A-D]\d?\b", re.I)
+SOURCES = re.compile(r'<section\b[^>]*id="[\w-]*sources"[^>]*>.*?</section>|<details\b[^>]*class="refs"[^>]*>.*?</details>', re.S | re.I)
 TAG_SS = re.compile(r'<(script|style)\b[^>]*>.*?</\1>', re.S | re.I)
 VIDES = {'br', 'hr', 'img', 'meta', 'link', 'input', 'source', 'col', 'wbr', 'area', 'base', 'embed', 'track', 'param'}
 
@@ -62,6 +64,22 @@ def nombres(s):
     for n in NUM.findall(s):
         n = re.sub(r'[’\' ]', '', n).replace(',', '.')
         out.add(re.sub(r'^0+(?=\d)', '', n))  # « 07 » et « 7 » désignent le même nombre
+    return out
+
+
+def nombres_source(s):
+    """Correctif local (Claude/_outils) : dans un extrait, des nombres de colonnes voisines séparés par une espace
+    (« 0 0.35 0.21 », « 98 8.1 ») sont fusionnés par NUM ; on ajoute aussi chaque nombre pris isolément. Le contrôle
+    reste strict : le nombre de la phrase doit figurer tel quel dans l'extrait cité."""
+    out = nombres(s)
+    for tok in re.split(r'[\s\u00a0\u202f]+', s):
+        out |= nombres(tok)
+    for n in re.findall(r'\b\d{1,3}(?:,\d{3})+\b', s):  # séparateur de milliers anglais (« 149,238 »)
+        out.add(n.replace(',', ''))
+    for n in re.findall(r'\b\d+\u00b7\d+\b', s):  # point médian décimal du Lancet (« 70·8 »)
+        out |= nombres(' ' + n.replace('\u00b7', ',') + ' ') | nombres(' ' + n.replace('\u00b7', '.') + ' ')
+    for n in re.findall(r'\d+(?:[.,]\d+)?', s):  # nombres collés à un glyphe OCR (« >_80 », « e8.5 »)
+        out |= nombres(' ' + n + ' ')
     return out
 
 
@@ -102,6 +120,7 @@ def controler(chemin, paquet, a, vus_lot):
     h = brut.decode('utf-8', 'ignore')
     d = collections.defaultdict(list)
     ph = phrases_html(SOURCES.sub(' ', h))  # la section Sources (générée, identique partout) n'entre pas dans l'analyse
+    hors_aips = {m.lower() for m in HORS_AIPS.findall(texte(h))}
     # A — véracité
     for tag, b, t in ph:
         cites = CIT.findall(b)
@@ -113,11 +132,18 @@ def controler(chemin, paquet, a, vus_lot):
                 d['A_citation_inconnue'].append(c)
         if paquet and cites and nums:
             source = ' '.join(paquet.get(c, '') for c in cites)
-            manq = {n for n in nums if n not in nombres(source)}
+            ns = nombres_source(source)
+            manq = {n for n in nums if n not in ns}
             if manq:
                 d['A_nombre_absent_de_l_extrait'].append(f'{sorted(manq)} :: {t[:120]}')
         if DOSE.search(t) and not any(c.lower().startswith('aips') for c in cites):
-            d['A_dose_sans_AIPS'].append(t[:140])
+            # Exemption déclarée : molécule explicitement « absente de l'AIPS » dans la leçon, dose citée sur une recommandation lue
+            if not (cites and any(m in t.lower() for m in hors_aips)):
+                d['A_dose_sans_AIPS'].append(t[:140])
+    # A — formule de lacune dans le cours (LV7) : la lacune va dans HELP.md, jamais dans la leçon
+    for tag, b, t in ph:
+        if LACUNE.search(t):
+            d['A_formule_lacune'].append(t[:140])
     # B — langue
     paras = re.findall(r'<(?:p|div class="p")(?:\s[^>]*)?>(.*?)</(?:p|div)>', h, re.S | re.I)
     sans_conn = sum(1 for p in paras if len(texte(p).split()) > 40 and not CONNECT.search(texte(p)))
@@ -158,7 +184,7 @@ def controler(chemin, paquet, a, vus_lot):
         d['C_balises'].append(e)
     if not (a.min <= len(brut) <= a.max):
         d['C_taille_hors_bande'].append(f'{len(brut)} o (bande {a.min}–{a.max})')
-    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee'))]
+    rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee'))]
     verdict = 'ROUGE' if rouge else ('ORANGE' if d else 'VERT')
     return {'fichier': chemin, 'octets': len(brut), 'sha256': hashlib.sha256(brut).hexdigest()[:16],
             'verdict': verdict, 'phrases': nph, 'connecteur%': round(100 * conn / nph),
