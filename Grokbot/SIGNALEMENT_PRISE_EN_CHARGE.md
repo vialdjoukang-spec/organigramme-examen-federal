@@ -13,36 +13,36 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 051 | S2.12 | Douleur de la paroi thoracique | livré PR 541 |
 | 052 | S3.1 | Douleur abdominale | livré PR 542 |
 | 053 | S3.2 | Distension abdominale | livré PR 544 |
-| 054 | S3.3 | Masse abdominale | réservé |
+| 054 | S3.3 | Masse abdominale | livré PR 545 |
 | 055 | S3.4 | Modification du transit intestinal, incontinence anale | livré PR 548 |
-| 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | réservé |
-| 057 | S3.6 | Hématémèse | réservé |
-| 058 | S3.7 | Constipation | réservé |
-| 059 | S3.8 | Diarrhée | réservé |
-| 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
-| 061 | S3.10 | Nausées, vomissements | réservé |
+| 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | livré PR 549 |
+| 057 | S3.6 | Hématémèse | livré PR 550 |
+| 058 | S3.7 | Constipation | livré PR 546 |
+| 059 | S3.8 | Diarrhée | livré PR 547 |
+| 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | livré PR 551 |
+| 061 | S3.10 | Nausées, vomissements | livré PR 552 |
 | 062 | S4.1 | Variations du développement sexuel | livré PR 553 |
-| 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | réservé |
-| 064 | S4.3 | Dysurie, pyurie, hématurie | réservé |
+| 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | livré PR 556 |
+| 064 | S4.3 | Dysurie, pyurie, hématurie | livré PR 557 |
 | 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | livré PR 558 |
-| 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | réservé |
-| 067 | S4.6 | Masse pelvienne | réservé |
-| 068 | S4.7 | Douleur pelvienne | réservé |
-| 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
-| 070 | S4.9 | Douleur, gonflement ou masse du scrotum | réservé |
-| 071 | S4.10 | Plaintes et dysfonctions sexuelles | réservé |
-| 079 | S4.18 | Écoulement vaginal | réservé |
-| 081 | S5.2 | Douleur dorsale ou lombaire | réservé |
-| 082 | S5.3 | Déformations du squelette et des articulations | réservé |
-| 083 | S5.4 | Myalgies | réservé |
-| 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | réservé |
-| 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | réservé |
-| 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | réservé |
-| 087 | S6.2 | Ecchymoses, hématomes, purpura | réservé |
-| 088 | S6.3 | Hyperpigmentation ou hypopigmentation | réservé |
-| 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | réservé |
-| 090 | S6.5 | Ictère | réservé |
-| 091 | S6.6 | Absence ou perte de cheveux et de poils, pilosité excessive | réservé |
+| 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | livré PR 559 |
+| 067 | S4.6 | Masse pelvienne | livré PR 560 |
+| 068 | S4.7 | Douleur pelvienne | livré PR 562 |
+| 069 | S4.8 | Demande de contraception, contraception d’urgence | livré PR 563 |
+| 070 | S4.9 | Douleur, gonflement ou masse du scrotum | livré PR 564 |
+| 071 | S4.10 | Plaintes et dysfonctions sexuelles | livré PR 565 |
+| 079 | S4.18 | Écoulement vaginal | livré PR 568 |
+| 081 | S5.2 | Douleur dorsale ou lombaire | livré PR 569 |
+| 082 | S5.3 | Déformations du squelette et des articulations | livré PR 570 |
+| 083 | S5.4 | Myalgies | livré PR 571 |
+| 084 | S5.5 | Douleur, brûlure, crampe ou engourdissement des extrémités | livré PR 572 |
+| 085 | S5.6 | Articulations gonflées ou douloureuses, raideur matinale, diminution de la mobilité articulaire | livré PR 573 |
+| 086 | S6.1 | Modifications des muqueuses buccales, génitales ou périanales | livré PR 574 |
+| 087 | S6.2 | Ecchymoses, hématomes, purpura | livré PR 576 |
+| 088 | S6.3 | Hyperpigmentation ou hypopigmentation | livré PR 577 |
+| 089 | S6.4 | Plaie infectée, retard de cicatrisation, ulcères cutanés | livré PR 578 |
+| 090 | S6.5 | Ictère | livré PR 579 |
+| 091 | S6.6 | Absence ou perte de cheveux et de poils, pilosité excessive | livré PR 580 |
 | 092 | S6.7 | Macules, papules, pustules, vésicules, ulcères, abcès, bulles, épaississements, nécroses et tumeurs cutanées | livré PR 581 |
 | 093 | S6.8 | Plaintes concernant les ongles | réservé |
 | 094 | S6.9 | Rougeur cutanée localisée ou diffuse et/ou rougeur des muqueuses | réservé |
