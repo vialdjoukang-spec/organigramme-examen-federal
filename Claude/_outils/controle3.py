@@ -72,6 +72,8 @@ def nombres_source(s):
     out = nombres(s)
     for tok in re.split(r'[\s\u00a0\u202f]+', s):
         out |= nombres(tok)
+    for n in re.findall(r'\b\d{1,3}(?:,\d{3})+\b', s):  # séparateur de milliers anglais (« 149,238 »)
+        out.add(n.replace(',', ''))
     for n in re.findall(r'\d+(?:[.,]\d+)?', s):  # nombres collés à un glyphe OCR (« >_80 », « e8.5 »)
         out |= nombres(' ' + n + ' ')
     return out
