@@ -1,0 +1,5 @@
+# HELP DX.8 — Embolie pulmonaire (S2.12)
+- AIPS lus pour toutes les DCI : apixaban (Eliquis 61549), rivaroxaban (Xarelto 58728), édoxaban (Lixiana 65149), dabigatran (Sandoz 68658), énoxaparine (Clexane 49456), fondaparinux (Arixtra 55937), héparine (Sintetica 67780), altéplase (Actilyse 48313).
+- Lacunes : texte intégral de l'ESC 2019 (OUP/europepmc en 403) non lu, seul son résumé PubMed est cité ; Wells et YEARS nommés sans leurs items (pas d'extrait lisible) ; volet social et assurances (point 11.B.7) sans source suisse lue ; enfant (EP) non traité ; AVK (phenprocoumone) absent du paquet.
+- Aucune source ne mesure la sensibilité de la paroi thoracique dans l'EP : seul Verdon 2007 (wb521dd-22) dit qu'un point sensible existe dans l'EP.
+- Défauts restants : ORANGE (connecteur 32 % < 35, 49 paragraphes > 40 mots sans connecteur, 15 phrases signalées nominales à tort pour verbes hors liste).
