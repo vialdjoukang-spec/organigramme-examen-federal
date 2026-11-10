@@ -150,7 +150,15 @@ background:#fff!important;box-shadow:inset 0 0 0 1px var(--fm-menu-bord)!importa
 table{font-size:.9em}}
 @media print{#brain-barre14{display:none!important}body{padding:0!important}body>*{max-width:none!important}}
 """
-CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE)
+CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
+    # L1 (10.11.2026) : fenêtre centrale occultante ouverte au clic d'un mot, sans script (:target)
+    "section.fenetre{display:none}"
+    "section.fenetre:target{display:block;position:fixed;inset:0;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)}"
+    "section.fenetre:target>*{max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
+    "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
+    "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
+    "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
+    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
