@@ -38,7 +38,7 @@ def biblio_sb(h):
     noms, ren = {}, {}
     for m in re.finditer(r'<div class="sb" id="sb-(\d+)">(.*?)</div>', h, re.S):
         t = texte(m.group(2))
-        a = re.search(r'(?:n°|autorisation)\s*(\d{5})', t)
+        a = re.search(r'(?:n°|autorisation|Swissmedic)\s*(?:n°\s*|Swissmedic\s*)?(\d{5})', t)
         if a and re.search(r'AIPS|Swissmedic|swissmedicinfo|information professionnelle', t, re.I):
             nid = f'aips-{a.group(1)}'
             while nid in ren.values():
