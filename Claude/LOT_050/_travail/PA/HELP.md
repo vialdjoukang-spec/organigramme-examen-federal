@@ -1,10 +1,8 @@
 # HELP — LOT_050 PA (Palpitations)
-Molécules sans AIPS lisible dans le paquet (classe et conduite sans milligramme dans le cours) :
-- vérapamil, diltiazem (contrôle de fréquence, point 11) : aucune information professionnelle AIPS rapatriée.
-- flécaïnide, digoxine, vernakalant, dronédarone, sotalol (contrôle du rythme) : idem ; doses du tableau HUG 2023 non reprises faute d'AIPS.
-- bisoprolol : AIPS lu (Stada 67675) ; indication « palpitations » propre au métoprolol (Mepha 66159).
+Molécules réellement sans AIPS dans le corpus (classe et conduite sans milligramme dans le cours) :
+- digoxine (seul DigiFab 59301 existe), vernakalant, propafénone.
+Rapatriées après audit : Isoptin 40783, Dilzem 46269 (aucune indication d'arythmie dans l'AIPS : usage pour la fréquence = HUG), Tambocor 45710, Multaq 59292, Sotalol-Mepha 54553, Beloc i.v. 56191, Concor 47311 (mêmes indications que Bisoprolol Stada), Eliquis 61549.
 Lacunes de sources (non écrites en chiffres) :
-- Apixaban : spécialité Eliquis non rapatriée, cours basé sur Apixaban Devatis (70399).
 - Hyperthyroïdie, trouble panique (critères DSM/CIM), QT long, Brugada, assurances LAMal/aptitude à la conduite : aucune source suisse ou européenne lue dans le paquet ; traités seulement par les passages disponibles (revue de Barcelone, HUG, AIPS amiodarone), à compléter.
 - Cohorte « Toulouse » (CJC Open 2026, PMC13386736) : la ville n'est pas confirmée dans l'extrait lu ; citée comme « hôpital universitaire ».
 - EHRA 2011 : seul le résumé PubMed est en paquet (le texte intégral est en 403) ; le « 31 % psychosomatique » est repris via Weber et l'étude de Tours.
