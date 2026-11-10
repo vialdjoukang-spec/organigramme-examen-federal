@@ -1,0 +1,7 @@
+# HELP DX.2 — lacunes de sources
+- Aucune prévalence/incidence suisse du myome (OFS/Obsan/Forum Médical Suisse/SGGG) trouvée dans les sources lues ; chiffres européens (HUG pour l'Europe, GBD) et internationaux utilisés.
+- Aucune recommandation SGGO/SGGG lisible sur le myome ; sources suisses : page HUG (mai 2026) et AIPS Swissmedic ; sources européennes : FIGO 2025 (traitement médical, diagnostic), ESGO/ISUOG/IOTA/ESGE 2021 (abstract), revues PubMed/PMC.
+- Conduite suisse sur le morcellement laparoscopique : non lue (seul l'avis FDA cité dans la revue de 2026 est disponible).
+- AIPS : Esmya (ulipristal 5 mg, myomes) absent du corpus AIPS ; Ulipristal Sandoz/Ullanesse = contraception d'urgence (hors sujet). Linzagolix (Yselty) : pas d'AIPS trouvé. Leuproréline (Lucrin Dépôt, Lucrin 3 mois) et triptoréline (Pamorelin LA 3,75 mg) : AIPS lus, indications sans myome utérin ; Zoladex (Swissmedic 48159, goséréline 3,6 mg) porte l'indication myome (préopératoire). Mirena (52996) : hyperménorrhée idiopathique seulement. Médroxyprogestérone orale, noréthistérone orale, contraceptifs oraux combinés, fer oral, AINS : pas d'AIPS exploité pour doses ; fer i.v. : Ferrum-Mepha Inject (68493), Carboxymaltose Ferrique Sandoz (68458) citables sans milligramme.
+- Remboursement LAMal/assurances du traitement des myomes : aucune source lue.
+- Technique de l'examen bimanuel : pas de source lue au-delà de la valeur diagnostique (FIGO 2025).
