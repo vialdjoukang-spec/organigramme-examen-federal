@@ -33,7 +33,7 @@ body>*:not(#brain-barre14):not([popover]):not(script):not(style){box-sizing:bord
 width:auto!important;margin-left:auto!important;margin-right:auto!important}
 main,article,.wrap,.page,.contenu,.monographie,.monograph,body>section{max-width:none!important;width:auto!important;
 background:transparent!important;box-shadow:none!important}
-main,article{padding:1.4rem 0 2rem!important}
+main,article{padding:.4rem 0 2rem!important}
 img,svg,video{max-width:100%!important;height:auto}
 p,.p,li,dd,dt,blockquote,figcaption,caption,td,label{color:var(--fm-encre)!important}
 p,.p,li,dd,blockquote,.df{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
@@ -53,7 +53,7 @@ a:hover{color:var(--fm-vin)}
 [id]{scroll-margin-top:16px}
 hr{border:0;border-top:1px solid var(--fm-bord);margin:1.4em 0}
 nav[aria-label="Plan"],nav[aria-label="Navigation"]{display:none!important}
-#brain-barre14{position:fixed!important;top:0!important;left:0!important;right:auto!important;bottom:0!important;width:268px!important;
+#brain-barre14{box-sizing:border-box!important;position:fixed!important;top:0!important;left:0!important;right:auto!important;bottom:0!important;width:268px!important;
 max-width:none!important;margin:0!important;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;
 align-items:stretch!important;justify-content:flex-start!important;gap:1px!important;overflow-y:auto!important;overflow-x:hidden!important;
 z-index:95!important;background:var(--fm-menu)!important;color:var(--fm-menu-txt)!important;padding:20px 12px 28px!important;
@@ -95,8 +95,9 @@ tbody tr:nth-child(even)>td{background-color:var(--fm-zebre)}
 tbody tr:hover>td{background-color:#fbf0df}
 caption{caption-side:top;text-align:left;font-weight:700;color:var(--fm-vin)!important;padding:.2em 0 .5em}
 sup.r{line-height:0;white-space:nowrap}
-sup.r a,.r a{display:inline-block;font-size:.66em!important;line-height:1.25;font-weight:700;padding:0 .32em!important;margin-left:2px;
-border-radius:4px;background:#f6e9d8!important;color:#8d3816!important;text-decoration:none!important;vertical-align:.35em}
+sup.r{font-size:.74em!important;vertical-align:super}
+sup.r a,.r a{display:inline-block;font-size:.92em!important;line-height:1.3;font-weight:700;padding:0 .3em!important;margin-left:2px;
+border-radius:4px;background:#f6e9d8!important;color:#8d3816!important;text-decoration:none!important;vertical-align:baseline}
 sup.r a:hover,.r a:hover{background:var(--fm-terre)!important;color:#fff!important}
 .tm{color:#8a3512;border-bottom:1.5px dotted #c27a3a;text-decoration:none}
 .tm.med{background:#fbefe2!important;color:#7a2f12!important;border-bottom:1.5px solid #c46a35!important}
@@ -108,10 +109,15 @@ font-size:.9em!important;font-weight:400!important;text-align:left!important}
 .tm .df .tm{color:#8a3512!important}
 button.w{color:var(--fm-terre)!important;border-bottom:1.5px dotted var(--fm-terre)!important;cursor:pointer}
 button.w:hover{background:#fbefe2!important}
-[popover].fenetre,.fenetre{background:#fff!important;color:var(--fm-encre)!important;border:1px solid #e3cfb2!important;border-top:5px solid var(--fm-terre)!important;
+[popover].fenetre{background:#fff!important;color:var(--fm-encre)!important;border:1px solid #e3cfb2!important;border-top:5px solid var(--fm-terre)!important;
 border-radius:14px!important;box-shadow:0 24px 60px -12px rgba(50,26,10,.45)!important;padding:18px 22px!important;line-height:1.45}
 .fenetre::backdrop{background:rgba(42,24,12,.32)!important}
 details{margin:.55em 0}
+details.fenetre>summary{color:var(--fm-olive)!important;font-weight:700}
+details.fenetre[open]{background:var(--fm-pale);border-left:4px solid var(--fm-a-mid,#c27a3a);padding:.5em 1em;border-radius:0 10px 10px 0;margin:.5em 0}
+details.fenetre[open]>summary{display:block!important;margin-bottom:.3em}
+details>div,details>p,details>ul,details>ol{color:var(--fm-encre)}
+#fm-bandeau~header h1,#fm-bandeau~h1,#fm-bandeau~* header h1{font-size:1.2em!important;color:var(--fm-doux)!important;margin:.6em 0 .4em!important}
 details:not([class]){border:1px solid var(--fm-bord);border-radius:10px;background:var(--fm-pale);padding:.45em .95em}
 details:not([class])>summary{cursor:pointer;font-weight:700;color:var(--fm-vin)}
 details:not([class])[open]>summary{margin-bottom:.35em;padding-bottom:.35em;border-bottom:1px solid var(--fm-bord)}
@@ -314,11 +320,11 @@ def retirer_sommaire(h):
 
 def teinte(nom):
     """Couleur d'accent propre à chaque leçon, déterministe : angle d'or sur un hachage du nom de fichier,
-    dans les 220° autorisés (0–165° et 305–360° : jamais de bleu, cyan, indigo ni violet)."""
+    dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo, violet ni mauve)."""
     import zlib
     k = zlib.crc32(nom.encode('utf-8'))
-    a = (k * 137.50776405) % 220
-    h = a if a < 165 else a + 140
+    a = (k * 137.50776405) % 175
+    h = a if a < 150 else a + 185
     def hx(l, s):
         r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
         return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
