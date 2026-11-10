@@ -10,3 +10,13 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Décès inattendu du nourrisson : aucune recommandation suisse spécifique trouvée ; la HAS (France, 2007) sert de référence européenne.
 - Valeur diagnostique (sensibilité, spécificité) des signes de l'examen externe et de l'absence de pétéchies : non chiffrée dans les sources lues.
 - Activité médico-légale romande (CURML) : 2018 est la dernière année trouvée.
+
+## DX.1 — Suicide assisté
+- Répartition cantonale des suicides assistés et coût : non chiffrés dans les sources lues.
+- Données européennes comparatives : non reprises.
+- Sensibilité et spécificité de l'évaluation clinique de la capacité et de l'examen externe : non publiées dans les sources lues.
+- Seuil toxicologique propre au suicide assisté : non fixé dans les sources lues.
+- Personne qui respire encore sous barbiturique : aucune source spécifique ; conduite déduite de l'ASSM et du CC.
+- Médecin prescripteur appelé au constat : aucune règle suisse explicite lue.
+- Pentobarbital : aucune information humaine sur contre-indications, interactions, insuffisance hépatique ou rénale ; mineur et femme enceinte : aucune source suisse lue.
+- Personne domiciliée à l'étranger : aucune règle particulière de constat trouvée.
