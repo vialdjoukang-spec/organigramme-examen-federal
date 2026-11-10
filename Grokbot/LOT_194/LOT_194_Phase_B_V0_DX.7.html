@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repères du développement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+:root{--fond:#eef7fc;--page:#ffffff;--texte:#1d2a30;--doux:#4f5f66;--lien:#0b5d86;--titre:#14303b;--trait:#cfe3ec;--encadre:#f5f7f9;--bord:#1a7a50;--vert:#1a7a50;--ciel:#176fa0;--alerte:#a1262f;--ombre:rgb(15 60 90 / .28);--voile:rgb(10 30 45 / .55);--barre:#f2f5f7;--th:#f2f5f7;--cb1:#4fb3e6;--cb2:#b9e2f6;--vb1:#3aa776;--vb2:#b5e1cb;--o1:rgb(15 60 90 / .07);--o2:rgb(15 60 90 / .09)}
+@media (prefers-color-scheme:dark){:root{--fond:#0e171d;--page:#16222a;--texte:#e3edf1;--doux:#a9bac2;--lien:#8fd3f5;--titre:#e6eef2;--trait:#2c414c;--encadre:#1a252c;--bord:#5cc79a;--vert:#5cc79a;--ciel:#6cc2ef;--alerte:#ff8a92;--ombre:rgb(0 0 0 / .6);--voile:rgb(0 0 0 / .7);--barre:#1d282f;--th:#1d282f;--cb1:#4aa9da;--cb2:#24506a;--vb1:#46b384;--vb2:#245a44;--o1:rgb(0 0 0 / .35);--o2:rgb(0 0 0 / .3)}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--texte);font:1rem/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;overflow-wrap:break-word;hyphens:manual}
+main{max-width:72ch;margin:0 auto;padding:1rem 1rem 2rem}
+h1{font-size:1.75rem;line-height:1.25;color:var(--titre);margin:0 0 .4rem}
+h2{font-size:1.3rem;line-height:1.3;color:var(--titre);margin:0 0 .45rem}
+h3{font-size:1.05rem;color:var(--titre);margin:.8rem 0 .3rem}
+p{margin:0 0 .55rem}.sous{color:var(--doux);font-size:.95rem}
+a{color:var(--lien)}
+button.terme{all:unset;cursor:pointer;color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}
+button.terme::after{content:" ⧉";font-size:.75em;vertical-align:.15em}
+button.terme:focus-visible{outline:2px solid var(--lien);outline-offset:2px}
+.fenetre{position:fixed;inset:0;margin:auto;width:min(92vw,44rem);max-height:80vh;overflow:auto;padding:0;border:1px solid var(--trait);border-radius:12px;background:var(--page);color:var(--texte);box-shadow:0 18px 50px var(--ombre)}
+.fenetre::backdrop{background:var(--voile)}
+.barre{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem .6rem .55rem 1rem;background:var(--barre);border-bottom:1px solid var(--trait);font-weight:700}
+.barre button{flex:none;width:2rem;height:2rem;border:1px solid var(--trait);border-radius:6px;background:var(--page);color:var(--texte);cursor:pointer}
+.corps{padding:1rem 1.2rem 1.2rem}
+.tw{overflow-x:auto;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.45}
+th,td{border:1px solid var(--trait);padding:.4rem .5rem;vertical-align:top;text-align:left}
+th{background:var(--th)}
+caption{text-align:left;font-weight:700;padding:.2rem 0 .4rem}
+.taille{font-size:.85rem;color:var(--doux);margin:0 0 .6rem}
+.mention{font-style:italic;color:var(--doux);margin:.8rem .3rem 0}
+sup.s{font-size:.66em;line-height:0;vertical-align:.5em;margin-left:.06em;color:#1a3a6b;font-weight:700}
+abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}
+.ilot{background:linear-gradient(var(--page),var(--page)) padding-box,var(--bd) border-box;border:1.5px solid transparent;border-radius:12px;padding:.85rem 1rem .6rem;margin:0 0 .7rem;box-shadow:0 1px 2px var(--o1),0 6px 16px var(--o2)}
+.ilot.c{--bd:linear-gradient(135deg,var(--cb1),var(--cb2))}
+.ilot.v{--bd:linear-gradient(135deg,var(--vb1),var(--vb2))}
+nav ol{padding-left:1.2rem;margin:.2rem 0}
+.som{columns:2;column-gap:1.2rem}
+.som li{break-inside:avoid}
+.algowrap{position:relative;margin:.4rem 0 1rem}
+.algowrap input{position:absolute;opacity:0;width:1px;height:1px}
+.algowrap .choix{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 .4rem}
+.algowrap label{border:1px solid var(--trait);border-radius:8px;padding:.25rem .6rem;cursor:pointer}
+.algowrap .bo{fill:#f4f7f8;stroke:#176fa0;stroke-width:2}.algowrap .pan{display:none}.algowrap .r-bilan:checked~.pan-bilan,.algowrap .r-alerte:checked~.pan-alerte,.algowrap .r-age:checked~.pan-age{display:block}.algowrap .r-bilan:checked~.choix label[for$="-bilan"],.algowrap .r-alerte:checked~.choix label[for$="-alerte"],.algowrap .r-age:checked~.choix label[for$="-age"]{background:#142028;color:#fff}
+figure svg{width:100%;height:auto;max-width:40rem;display:block;margin:auto}
+figcaption{font-size:.88rem;color:var(--doux)}
+.sources{font-size:.86rem}
+.urgence{border:2px solid var(--alerte);border-radius:8px;padding:.6rem .8rem;margin:.6rem 0}
+</style>
+</head><body><main>
+<h1 id="titre">Repères du développement</h1>
+<p class="taille" id="taille">Taille : T = 2.1 Ko (+ 42.4 Ko) · lecture de la fiche ≈ 2 min · 16 fenêtres, 1 dépliants</p>
+<p class="sous">Piste DX.7 du motif O2.12. Repères du développement.</p>
+<section class="ilot c essentiel"><h2 id="ess">L'essentiel</h2><p>L'idée tient en une décision. On suit la page de l'âge, ou on sort du contrôle si un signe grave est déjà là. <button type="button" class="terme" popovertarget="w-ess">ouvrir</button></p><div id="w-ess" popover class="fenetre"><div class="barre"><span>L'essentiel</span><button type="button" popovertarget="w-ess" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Les repères du développement sont les phrases du carnet, pas une échelle chiffrée absente du dossier.</p>
+<p>Si la fièvre atteint déjà 38 °C, le carnet demande de consulter le médecin ou l'hôpital. <sup class="s">1</sup></p>
+<p>Si les selles sont pâles aux numéros 5, 6 ou 7, l'avis est demandé sans tarder. <sup class="s">1</sup></p></div></div></section>
+<section class="ilot v"><h2 id="som">Sommaire</h2><nav><ol class="som"><li><a href="#p1">1. Définition</a></li><li><a href="#p2">2. Épidémiologie</a></li><li><a href="#p3">3. Physiopathologie</a></li><li><a href="#p4">4. Démarche</a></li><li><a href="#p5">5. Anamnèse</a></li><li><a href="#p6">6. Examen</a></li><li><a href="#p7">7. Syndromes</a></li><li><a href="#p8">8. Diagnostic</a></li><li><a href="#p9">9. Examens complémentaires</a></li><li><a href="#p10">10. Arbre décisionnel</a></li><li><a href="#p11">11. Prise en charge</a></li><li><a href="#p12">12. Prévention</a></li><li><a href="#p13">13. Points clés</a></li><li><a href="#p14">14. Pièges</a></li></ol></nav></section>
+<section class="ilot v"><h2 id="p1">1. Définition</h2><p>On nomme la situation avant d'ajouter un geste. La définition tient dans la fenêtre. <button type="button" class="terme" popovertarget="w-p1">ouvrir</button></p><div id="w-p1" popover class="fenetre"><div class="barre"><span>1. Définition</span><button type="button" popovertarget="w-p1" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Ces repères du développement sont les phrases du carnet, pas une échelle chiffrée absente du dossier.</p>
+<p>Le carnet donne quatre buts. Suivre la croissance et le développement. Détecter un problème pour le traiter tôt. Faire les vaccinations recommandées. Répondre aux questions. <sup class="s">1</sup></p>
+<p>Les checklists de 2011 décrivent quinze examens. Elles se disent recommandations, pas directives. <sup class="s">4</sup></p>
+<p>Les âges lus sont une semaine, un mois, deux, quatre, six, neuf, douze, dix-huit et vingt-quatre mois, puis trois, quatre, six, dix, douze et quatorze ans. <sup class="s">4</sup></p>
+<p>Tous les enfants nés en Suisse reçoivent le carnet de santé de pédiatrie suisse. La page lue l'appelle carnet 2026. <sup class="s">5</sup></p>
+<p>Le référentiel validé le 1er novembre 2023 nomme la situation well-baby, well-child visit, and well-adolescent visit. <sup class="s">6</sup></p>
+<p>Cette fenêtre traite de Repères du développement. Les autres fils du motif restent des fiches séparées.</p>
+<p>« De la naissance à la fin de l'adolescence, pédiatrie suisse recommande des examens de prévention réguliers chez votre pédiatre. » <sup class="s">1</sup></p>
+<p>« Ces Checklists ne font pas office de directives mais sont des recommandations pour les 15 examens de prévention prévus aux différents âges pédiatriques clés. » <sup class="s">4</sup></p></div></div></section>
+<section class="ilot c"><h2 id="p2">2. Épidémiologie</h2><p>Aucun taux suisse absent des pages lues n'est écrit. La fréquence du recours reste qualitative. <button type="button" class="terme" popovertarget="w-p2">ouvrir</button></p><div id="w-p2" popover class="fenetre"><div class="barre"><span>2. Épidémiologie</span><button type="button" popovertarget="w-p2" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La page suisse des examens préventifs dit que le recours est régulier les deux premières années, puis que la fréquence baisse. Elle refuse d'en faire une statistique de santé publique. <sup class="s">7</sup></p>
+<p>Les pourcentages d'une étude allemande citée sur cette page ne sont pas un taux suisse. Ils ne sont pas repris comme épidémiologie d'ici.</p>
+<p>Aucune prévalence suisse du contrôle n'a été lue. On n'en écrit pas.</p>
+<p>Le carnet est remis aux enfants nés en Suisse. Ce n'est pas un pourcentage de venue. <sup class="s">5</sup></p>
+<p>Pour Repères du développement, la fréquence enseignée est celle du calendrier, pas un taux inventé.</p></div></div></section>
+<section class="ilot v"><h2 id="p3">3. Physiopathologie</h2><p>Le mécanisme est celui de la croissance, du développement et de la prévention, pas une maladie inventée. <button type="button" class="terme" popovertarget="w-p3">ouvrir</button></p><div id="w-p3" popover class="fenetre"><div class="barre"><span>3. Physiopathologie</span><button type="button" popovertarget="w-p3" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>La visite saine observe une trajectoire. Elle ne traite pas une maladie déjà nommée.</p>
+<p>La croissance se lit en série sur le carnet. Une seule mesure ne raconte pas la pente. <sup class="s">1</sup></p>
+<p>Le développement se lit par les phrases d'âge du carnet. Une fenêtre large n'est pas un retard. <sup class="s">1</sup></p>
+<p>La prophylaxie couvre ce que le nouveau-né ne fabrique pas encore assez, vitamine K, et ce que l'alimentation peut manquer, vitamine D. <sup class="s">2</sup></p>
+<p>Le sommeil sur le dos et sans fumée est une prévention de la mort subite, selon le carnet. <sup class="s">1</sup></p>
+<p>Les acquisitions du carnet sont des repères pour les parents, pas des notes chiffrées.</p></div></div></section>
+<section class="ilot c"><h2 id="p4">4. Démarche</h2><p>La démarche commence par l'alerte, puis par la page de l'âge. L'ordre est dans la fenêtre. <button type="button" class="terme" popovertarget="w-p4">ouvrir</button></p><div id="w-p4" popover class="fenetre"><div class="barre"><span>4. Démarche</span><button type="button" popovertarget="w-p4" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Premier temps. Chercher la fièvre dès 38 °C, la selle pâle, le pouls fémoral suspect, la secousse ou la détresse. <sup class="s">1</sup></p>
+<p>Deuxième temps. Ouvrir la page de l'âge. Ne pas utiliser la page d'un autre âge pour cocher plus vite.</p>
+<p>Troisième temps. Mesurer ce que la page demande. Poids et taille partout. Périmètre crânien, tension ou Tanner seulement si la case existe. <sup class="s">1</sup></p>
+<p>Quatrième temps. Dire le conseil écrit pour cet âge. Sommeil, aliment, écran, route, selon la page.</p>
+<p>Cinquième temps. Noter normal, à contrôler, ou suspect. Une case vide n'est pas un normal.</p>
+<p>Sixième temps. Décider. Poursuivre le calendrier, revoir, ou adresser le jour même.</p>
+<p>À une semaine, on ouvre la page de naissance et la checklist de la première semaine avant de commenter Repères du développement.</p>
+<p>À deux mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À six mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À dix-huit mois, on ouvre la page de dix-huit mois avant de commenter Repères du développement.</p>
+<p>À trois ans, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À six ans, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À quatorze ans, on ouvre la page de quatorze ans avant de commenter Repères du développement.</p>
+<p>Vers six ans, la lecture et le vélo sans petites roues sont les repères lus.</p>
+<p>Repère 7, visite de douze mois. On n'écrit pas un stade qui n'est pas dans la page, repère 7, noté avant de quitter la page.</p>
+<p>Repère 14, visite de douze ans. On garde le carnet comme mémoire commune, repère 14, noté avant de quitter la page.</p>
+<p>Repère 21, visite de neuf mois. On relit la ligne déjà écrite avant d'en ajouter une, repère 21, noté avant de quitter la page.</p>
+<p>Repère 28, visite de dix ans. On vérifie le couchage même si la question n'est pas posée, repère 28, noté avant de quitter la page.</p>
+<p>Repère 35, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 35, noté avant de quitter la page.</p>
+<p>Repère 42, visite de six ans. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 42, noté avant de quitter la page.</p>
+<p>Repère 49, visite de quatre mois. On demande la couleur des selles même si le poids rassure, repère 49, noté avant de quitter la page.</p>
+<p>Repère 56, visite de quatre ans. On n'emprunte pas la dose d'une autre autorisation, repère 56, noté avant de quitter la page.</p>
+<p>Repère 63, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 63, noté avant de quitter la page.</p>
+<p>Repère 70, visite de trois ans. On palpe les pouls avant de parler des courbes, repère 70, noté avant de quitter la page.</p>
+<p>Repère 77, visite de un mois. On n'écrit pas un stade qui n'est pas dans la page, repère 77, noté avant de quitter la page.</p>
+<p>Repère 84, visite de vingt-quatre mois. On garde le carnet comme mémoire commune, repère 84, noté avant de quitter la page.</p>
+<p>Repère 91, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 91, noté avant de quitter la page.</p>
+<p>Repère 98, visite de dix-huit mois. On vérifie le couchage même si la question n'est pas posée, repère 98, noté avant de quitter la page.</p>
+<p>Repère 105, visite de quatorze ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 105, noté avant de quitter la page.</p>
+<p>Repère 112, visite de douze mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 112, noté avant de quitter la page.</p>
+<p>Repère 119, visite de douze ans. On demande la couleur des selles même si le poids rassure, repère 119, noté avant de quitter la page.</p>
+<p>Repère 126, visite de neuf mois. On n'emprunte pas la dose d'une autre autorisation, repère 126, noté avant de quitter la page.</p>
+<p>Repère 133, visite de dix ans. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 133, noté avant de quitter la page.</p>
+<p>Repère 140, visite de six mois. On palpe les pouls avant de parler des courbes, repère 140, noté avant de quitter la page.</p>
+<p>Repère 147, visite de six ans. On n'écrit pas un stade qui n'est pas dans la page, repère 147, noté avant de quitter la page.</p>
+<p>Repère 154, visite de quatre mois. On garde le carnet comme mémoire commune, repère 154, noté avant de quitter la page.</p>
+<p>Repère 161, visite de quatre ans. On relit la ligne déjà écrite avant d'en ajouter une, repère 161, noté avant de quitter la page.</p>
+<p>Repère 168, visite de deux mois. On vérifie le couchage même si la question n'est pas posée, repère 168, noté avant de quitter la page.</p>
+<p>Repère 175, visite de trois ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 175, noté avant de quitter la page.</p>
+<p>Repère 182, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 182, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot v"><h2 id="p5">5. Anamnèse</h2><p>L'anamnèse reprend les questions du carnet et de la checklist pour cet âge. <button type="button" class="terme" popovertarget="w-p5">ouvrir</button></p><div id="w-p5" popover class="fenetre"><div class="barre"><span>5. Anamnèse</span><button type="button" popovertarget="w-p5" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On demande qui vit avec l'enfant, quelle langue est parlée, et comment se passent les nuits.</p>
+<p>On demande l'alimentation du moment, le lait, et les nouveaux aliments.</p>
+<p>On demande les selles, leur couleur, et les pleurs inconsolables.</p>
+<p>On demande la fumée à la maison, le couchage, et la position de sommeil. <sup class="s">1</sup></p>
+<p>On demande les vaccins déjà faits, sans recopier ici le plan suisse qui est une autre situation.</p>
+<p>On demande si quelque chose d'acquis a été perdu.</p>
+<p>On demande, chez le grand, l'école, les amis, le sommeil, les écrans, l'alcool, le tabac et les autres produits. <sup class="s">1</sup></p>
+<p>On demande aux parents s'ils sont épuisés ou tristes. La checklist cite la dépression du post-partum comme facteur de risque. <sup class="s">4</sup></p>
+<p>Les questions de cette fiche restent celles de Repères du développement.</p>
+<p>À une semaine, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À deux mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À neuf mois, on ouvre la page de neuf mois avant de commenter Repères du développement.</p>
+<p>À dix-huit mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À trois ans, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À dix ans, on ouvre la page de dix ans avant de commenter Repères du développement.</p>
+<p>À quatorze ans, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>Repère 1, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 1, noté avant de quitter la page.</p>
+<p>Repère 8, visite de dix-huit mois. On vérifie le couchage même si la question n'est pas posée, repère 8, noté avant de quitter la page.</p>
+<p>Repère 15, visite de quatorze ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 15, noté avant de quitter la page.</p>
+<p>Repère 22, visite de douze mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 22, noté avant de quitter la page.</p>
+<p>Repère 29, visite de douze ans. On demande la couleur des selles même si le poids rassure, repère 29, noté avant de quitter la page.</p>
+<p>Repère 36, visite de neuf mois. On n'emprunte pas la dose d'une autre autorisation, repère 36, noté avant de quitter la page.</p>
+<p>Repère 43, visite de dix ans. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 43, noté avant de quitter la page.</p>
+<p>Repère 50, visite de six mois. On palpe les pouls avant de parler des courbes, repère 50, noté avant de quitter la page.</p>
+<p>Repère 57, visite de six ans. On n'écrit pas un stade qui n'est pas dans la page, repère 57, noté avant de quitter la page.</p>
+<p>Repère 64, visite de quatre mois. On garde le carnet comme mémoire commune, repère 64, noté avant de quitter la page.</p>
+<p>Repère 71, visite de quatre ans. On relit la ligne déjà écrite avant d'en ajouter une, repère 71, noté avant de quitter la page.</p>
+<p>Repère 78, visite de deux mois. On vérifie le couchage même si la question n'est pas posée, repère 78, noté avant de quitter la page.</p>
+<p>Repère 85, visite de trois ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 85, noté avant de quitter la page.</p>
+<p>Repère 92, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 92, noté avant de quitter la page.</p>
+<p>Repère 99, visite de vingt-quatre mois. On demande la couleur des selles même si le poids rassure, repère 99, noté avant de quitter la page.</p>
+<p>Repère 106, visite de une semaine. On n'emprunte pas la dose d'une autre autorisation, repère 106, noté avant de quitter la page.</p>
+<p>Repère 113, visite de dix-huit mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 113, noté avant de quitter la page.</p>
+<p>Repère 120, visite de quatorze ans. On palpe les pouls avant de parler des courbes, repère 120, noté avant de quitter la page.</p>
+<p>Repère 127, visite de douze mois. On n'écrit pas un stade qui n'est pas dans la page, repère 127, noté avant de quitter la page.</p>
+<p>Repère 134, visite de douze ans. On garde le carnet comme mémoire commune, repère 134, noté avant de quitter la page.</p>
+<p>Repère 141, visite de neuf mois. On relit la ligne déjà écrite avant d'en ajouter une, repère 141, noté avant de quitter la page.</p>
+<p>Repère 148, visite de dix ans. On vérifie le couchage même si la question n'est pas posée, repère 148, noté avant de quitter la page.</p>
+<p>Repère 155, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 155, noté avant de quitter la page.</p>
+<p>Repère 162, visite de six ans. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 162, noté avant de quitter la page.</p>
+<p>Repère 169, visite de quatre mois. On demande la couleur des selles même si le poids rassure, repère 169, noté avant de quitter la page.</p>
+<p>Repère 176, visite de quatre ans. On n'emprunte pas la dose d'une autre autorisation, repère 176, noté avant de quitter la page.</p>
+<p>Repère 183, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 183, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot c"><h2 id="p6">6. Examen</h2><p>L'examen coche seulement ce qui a été vu. Le schéma montre trois niveaux. <button type="button" class="terme" popovertarget="w-p6">ouvrir</button></p><div id="w-p6" popover class="fenetre"><div class="barre"><span>6. Examen</span><button type="button" popovertarget="w-p6" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><div data-dessinateur="1" id="lot1947"><input class="sr" type="radio" name="lot1947-niv" id="lot1947-fenetre" checked="checked"/><input class="sr" type="radio" name="lot1947-niv" id="lot1947-suite"/><input class="sr" type="radio" name="lot1947-niv" id="lot1947-alerte"/><div class="barre" role="tablist"><label for="lot1947-fenetre">Fenêtres lues</label><label for="lot1947-suite">Suite lue</label><label for="lot1947-alerte">Alerte</label></div><div class="plan"><div class="niv niv-fenetre"><div class="cadre cadre-fenetre"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="lot1947-fenetre-titre"><title id="lot1947-fenetre-titre">Fenêtres lues</title><g class="zone" id="lot1947-fenetre-z1" tabindex="0" role="button" data-nom="Roule" data-definition="Vers quatre mois, il commence à se retourner dans les deux sens."><title>Roule. Vers quatre mois, il commence à se retourner dans les deux sens.</title><path class="vis" d="M100,280C100,230.3 167.2,190 250,190C332.8,190 400,230.3 400,280C400,329.7 332.8,370 250,370C167.2,370 100,329.7 100,280Z" fill="#d9efe4" stroke="#1a7a50" stroke-width="2"/></g><g class="zone" id="lot1947-fenetre-z2" tabindex="0" role="button" data-nom="Marche" data-definition="La marche peut commencer entre neuf et dix-huit mois."><title>Marche. La marche peut commencer entre neuf et dix-huit mois.</title><path class="vis" d="M570,280C570,230.3 637.2,190 720,190C802.8,190 870,230.3 870,280C870,329.7 802.8,370 720,370C637.2,370 570,329.7 570,280Z" fill="#d6eaf8" stroke="#176fa0" stroke-width="2"/></g><g class="zone" id="lot1947-fenetre-z3" tabindex="0" role="button" data-nom="Mots" data-definition="Premiers mots autour de douze mois. Plus de mots à dix-huit mois."><title>Mots. Premiers mots autour de douze mois. Plus de mots à dix-huit mois.</title><path class="vis" d="M100,540C100,490.3 167.2,450 250,450C332.8,450 400,490.3 400,540C400,589.7 332.8,630 250,630C167.2,630 100,589.7 100,540Z" fill="#fff4d6" stroke="#8a6a12" stroke-width="2"/></g><g class="zone" id="lot1947-fenetre-z4" tabindex="0" role="button" data-nom="Phrases" data-definition="Petites phrases vers deux à trois ans."><title>Phrases. Petites phrases vers deux à trois ans.</title><path class="vis" d="M570,540C570,490.3 637.2,450 720,450C802.8,450 870,490.3 870,540C870,589.7 802.8,630 720,630C637.2,630 570,589.7 570,540Z" fill="#f8d6d8" stroke="#a1262f" stroke-width="2"/></g></svg><span class="pastille" style="left:25%;top:36.8%">1</span><span class="pastille" style="left:72%;top:36.8%">2</span><span class="pastille" style="left:25%;top:71.1%">3</span><span class="pastille" style="left:72%;top:71.1%">4</span><span class="repere" style="left:7%;top:7.4%" title="Repère de convention du dessin, pas un cliché">D</span></div></div><div class="niv niv-suite"><div class="cadre cadre-suite"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="lot1947-suite-titre"><title id="lot1947-suite-titre">Suite lue</title><g class="zone" id="lot1947-suite-z1" tabindex="0" role="button" data-nom="Non" data-definition="Vers deux ans, il dit souvent non et dit je."><title>Non. Vers deux ans, il dit souvent non et dit je.</title><path class="vis" d="M100,280C100,230.3 167.2,190 250,190C332.8,190 400,230.3 400,280C400,329.7 332.8,370 250,370C167.2,370 100,329.7 100,280Z" fill="#d9efe4" stroke="#1a7a50" stroke-width="2"/></g><g class="zone" id="lot1947-suite-z2" tabindex="0" role="button" data-nom="Propre" data-definition="Propreté de jour possible vers deux à trois ans, jour et nuit vers quatre ans."><title>Propre. Propreté de jour possible vers deux à trois ans, jour et nuit vers quatre ans.</title><path class="vis" d="M570,280C570,230.3 637.2,190 720,190C802.8,190 870,230.3 870,280C870,329.7 802.8,370 720,370C637.2,370 570,329.7 570,280Z" fill="#d6eaf8" stroke="#176fa0" stroke-width="2"/></g><g class="zone" id="lot1947-suite-z3" tabindex="0" role="button" data-nom="Langue" data-definition="Vers quatre ans, langage structuré et compréhensible."><title>Langue. Vers quatre ans, langage structuré et compréhensible.</title><path class="vis" d="M100,540C100,490.3 167.2,450 250,450C332.8,450 400,490.3 400,540C400,589.7 332.8,630 250,630C167.2,630 100,589.7 100,540Z" fill="#fff4d6" stroke="#8a6a12" stroke-width="2"/></g><g class="zone" id="lot1947-suite-z4" tabindex="0" role="button" data-nom="Lire" data-definition="Vers six ans, il apprend à lire et peut faire du vélo sans petites roues."><title>Lire. Vers six ans, il apprend à lire et peut faire du vélo sans petites roues.</title><path class="vis" d="M570,540C570,490.3 637.2,450 720,450C802.8,450 870,490.3 870,540C870,589.7 802.8,630 720,630C637.2,630 570,589.7 570,540Z" fill="#f8d6d8" stroke="#a1262f" stroke-width="2"/></g></svg><span class="pastille" style="left:25%;top:36.8%">1</span><span class="pastille" style="left:72%;top:36.8%">2</span><span class="pastille" style="left:25%;top:71.1%">3</span><span class="pastille" style="left:72%;top:71.1%">4</span><span class="repere" style="left:7%;top:7.4%" title="Repère de convention du dessin, pas un cliché">D</span></div></div><div class="niv niv-alerte"><div class="cadre cadre-alerte"><svg viewBox="0 0 1000 760" role="img" aria-labelledby="lot1947-alerte-titre"><title id="lot1947-alerte-titre">Alerte</title><g class="zone" id="lot1947-alerte-z1" tabindex="0" role="button" data-nom="Perte" data-definition="Une perte de ce qui était acquis sort de cette fiche."><title>Perte. Une perte de ce qui était acquis sort de cette fiche.</title><path class="vis" d="M100,280C100,230.3 167.2,190 250,190C332.8,190 400,230.3 400,280C400,329.7 332.8,370 250,370C167.2,370 100,329.7 100,280Z" fill="#d9efe4" stroke="#1a7a50" stroke-width="2"/></g><g class="zone" id="lot1947-alerte-z2" tabindex="0" role="button" data-nom="Hors" data-definition="Hors de la fenêtre lue, on ne rassure pas par habitude."><title>Hors. Hors de la fenêtre lue, on ne rassure pas par habitude.</title><path class="vis" d="M570,280C570,230.3 637.2,190 720,190C802.8,190 870,230.3 870,280C870,329.7 802.8,370 720,370C637.2,370 570,329.7 570,280Z" fill="#d6eaf8" stroke="#176fa0" stroke-width="2"/></g><g class="zone" id="lot1947-alerte-z3" tabindex="0" role="button" data-nom="Sens" data-definition="Vue et ouïe avant de parler d&#x27;un retard."><title>Sens. Vue et ouïe avant de parler d&#x27;un retard.</title><path class="vis" d="M100,540C100,490.3 167.2,450 250,450C332.8,450 400,490.3 400,540C400,589.7 332.8,630 250,630C167.2,630 100,589.7 100,540Z" fill="#fff4d6" stroke="#8a6a12" stroke-width="2"/></g><g class="zone" id="lot1947-alerte-z4" tabindex="0" role="button" data-nom="Reseau" data-definition="Le détail du retard est une autre situation du référentiel."><title>Reseau. Le détail du retard est une autre situation du référentiel.</title><path class="vis" d="M570,540C570,490.3 637.2,450 720,450C802.8,450 870,490.3 870,540C870,589.7 802.8,630 720,630C637.2,630 570,589.7 570,540Z" fill="#f8d6d8" stroke="#a1262f" stroke-width="2"/></g></svg><span class="pastille" style="left:25%;top:36.8%">1</span><span class="pastille" style="left:72%;top:36.8%">2</span><span class="pastille" style="left:25%;top:71.1%">3</span><span class="pastille" style="left:72%;top:71.1%">4</span><span class="repere" style="left:7%;top:7.4%" title="Repère de convention du dessin, pas un cliché">D</span></div></div></div><p class="bulle" hidden="hidden"><strong class="bulle-nom"></strong> <span class="bulle-def" hidden="hidden"></span></p><p class="note note-fenetre">Schéma d&#x27;orientation. Ce n&#x27;est pas une radiographie.</p><p class="note note-suite">Schéma d&#x27;orientation. Ce n&#x27;est pas une radiographie.</p><p class="note note-alerte">Schéma d&#x27;orientation. Ce n&#x27;est pas une radiographie.</p><ol class="leg leg-fenetre"><li><span>1</span> Roule</li><li><span>2</span> Marche</li><li><span>3</span> Mots</li><li><span>4</span> Phrases</li></ol><ol class="leg leg-suite"><li><span>1</span> Non</li><li><span>2</span> Propre</li><li><span>3</span> Langue</li><li><span>4</span> Lire</li></ol><ol class="leg leg-alerte"><li><span>1</span> Perte</li><li><span>2</span> Hors</li><li><span>3</span> Sens</li><li><span>4</span> Reseau</li></ol><details><summary>Que regarde-t-on avant de rassurer ?</summary><div class="reponse"><p>On change de niveau avec les boutons. Le nom de la zone est dans le titre de la forme.</p></div></details><p class="sources">Schéma construit pour cette leçon à partir du carnet 2025 et des checklists 2011. Repère D de convention. Pas un cliché.</p></div><style>@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("../outils/dessinateur/polices/AtkinsonHyperlegible-Regular.ttf") format("truetype")}[data-dessinateur]{--encre:#142028;--papier:#f4f7f8;--filet:#c5d0d6;position:relative;max-width:920px;margin:0 auto;color:var(--encre);font:16px/1.4 Atkinson Hyperlegible,Verdana,sans-serif}[data-dessinateur] .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0}[data-dessinateur] .barre{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .6rem}[data-dessinateur] .barre label{cursor:pointer;border:2px solid var(--encre);border-radius:999px;padding:.35rem .75rem;background:#fff}[data-dessinateur] .barre label:focus-within,[data-dessinateur] .sr:focus+label{outline:3px solid #ffe14a}[data-dessinateur] .niv,[data-dessinateur] .leg,[data-dessinateur] .note{display:none}#lot1947-fenetre:checked~.plan .niv-fenetre,#lot1947-fenetre:checked~.leg-fenetre,#lot1947-fenetre:checked~.note-fenetre{display:block}#lot1947-fenetre:checked~.barre label[for="lot1947-fenetre"]{background:#142028;color:#fff}#lot1947-fenetre:focus~.barre label[for="lot1947-fenetre"]{outline:3px solid #ffe14a}#lot1947-suite:checked~.plan .niv-suite,#lot1947-suite:checked~.leg-suite,#lot1947-suite:checked~.note-suite{display:block}#lot1947-suite:checked~.barre label[for="lot1947-suite"]{background:#142028;color:#fff}#lot1947-suite:focus~.barre label[for="lot1947-suite"]{outline:3px solid #ffe14a}#lot1947-alerte:checked~.plan .niv-alerte,#lot1947-alerte:checked~.leg-alerte,#lot1947-alerte:checked~.note-alerte{display:block}#lot1947-alerte:checked~.barre label[for="lot1947-alerte"]{background:#142028;color:#fff}#lot1947-alerte:focus~.barre label[for="lot1947-alerte"]{outline:3px solid #ffe14a}[data-dessinateur] .cadre{position:relative}[data-dessinateur] svg{width:100%;height:auto;display:block;background:#e7eef2;border-radius:12px}[data-dessinateur] .cliche{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:fill;opacity:0;pointer-events:none;border-radius:12px}[data-dessinateur] .pastille{position:absolute;transform:translate(-50%,-50%);z-index:2;min-width:1.15rem;height:1.15rem;padding:0 .2rem;border-radius:999px;background:#142028;color:#fff;font-size:12px;font-weight:700;line-height:1.15rem;text-align:center;pointer-events:none;box-shadow:0 0 0 1.5px #fff}[data-dessinateur] .superpose{display:none;align-items:center;gap:.8rem;margin:0 0 .45rem;font-size:.92rem}[data-dessinateur] .repere{position:absolute;transform:translate(-50%,-50%);font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:6px;padding:0 .4rem;line-height:1.3;pointer-events:none}[data-dessinateur] .zone{cursor:pointer;outline:none}[data-dessinateur] .zone:hover .vis,[data-dessinateur] .zone:focus-visible .vis,[data-dessinateur] .zone.actif .vis{stroke:#111;stroke-width:3.5px;stroke-dasharray:6 4;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff)}[data-dessinateur] .bulle{margin:.55rem 0 0;padding:.55rem .7rem;background:#142028;color:#fff;border-radius:8px;overflow-wrap:anywhere}[data-dessinateur] .bulle[hidden]{display:none}[data-dessinateur] .bulle-def{display:block;margin-top:.25rem;color:#ffe9a8}[data-dessinateur] .note{margin:.45rem 0;font-size:.92rem}[data-dessinateur] .leg{margin:.2rem 0 0;padding:0;list-style:none;columns:2;gap:1rem}[data-dessinateur] .leg li{break-inside:avoid;margin:0 0 .2rem}[data-dessinateur] .leg span{display:inline-block;min-width:1.4rem;font-weight:700}[data-dessinateur] details{margin-top:.8rem;border:2px solid var(--encre);border-radius:10px;background:#fff}[data-dessinateur] summary{cursor:pointer;padding:.55rem .7rem;font-weight:700}[data-dessinateur] .reponse{padding:0 .8rem .7rem}[data-dessinateur] .reponse p{margin:.4rem 0}[data-dessinateur] .sources{font-size:.82rem;color:#24343c}@media (max-width:640px){[data-dessinateur] .leg{columns:1}}</style>
+<p>On regarde l'enfant habillé puis déshabillé, au chaud, un parent près de lui.</p>
+<p>On palpe les pouls fémoraux aux premières visites. On regarde les hanches, les mains et les pieds. <sup class="s">4</sup></p>
+<p>On regarde les yeux, le regard, et plus tard le test de vision du carnet. <sup class="s">1</sup></p>
+<p>On vérifie l'ouïe, la crécelle quand la checklist la cite, puis le test du carnet. <sup class="s">4</sup></p>
+<p>On note l'oxymétrie de naissance si la page la montre, case supérieure ou égale à 95 %. <sup class="s">1</sup></p>
+<p>On ne transforme pas un item non examiné en item normal.</p>
+<p>À une semaine, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À quatre mois, on ouvre la page de quatre mois avant de commenter Repères du développement.</p>
+<p>À neuf mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À dix-huit mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À quatre ans, on ouvre la page de quatre ans avant de commenter Repères du développement.</p>
+<p>À dix ans, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À quatorze ans, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>Repère 2, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 2, noté avant de quitter la page.</p>
+<p>Repère 9, visite de vingt-quatre mois. On demande la couleur des selles même si le poids rassure, repère 9, noté avant de quitter la page.</p>
+<p>Repère 16, visite de une semaine. On n'emprunte pas la dose d'une autre autorisation, repère 16, noté avant de quitter la page.</p>
+<p>Repère 23, visite de dix-huit mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 23, noté avant de quitter la page.</p>
+<p>Repère 30, visite de quatorze ans. On palpe les pouls avant de parler des courbes, repère 30, noté avant de quitter la page.</p>
+<p>Repère 37, visite de douze mois. On n'écrit pas un stade qui n'est pas dans la page, repère 37, noté avant de quitter la page.</p>
+<p>Repère 44, visite de douze ans. On garde le carnet comme mémoire commune, repère 44, noté avant de quitter la page.</p>
+<p>Repère 51, visite de neuf mois. On relit la ligne déjà écrite avant d'en ajouter une, repère 51, noté avant de quitter la page.</p>
+<p>Repère 58, visite de dix ans. On vérifie le couchage même si la question n'est pas posée, repère 58, noté avant de quitter la page.</p>
+<p>Repère 65, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 65, noté avant de quitter la page.</p>
+<p>Repère 72, visite de six ans. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 72, noté avant de quitter la page.</p>
+<p>Repère 79, visite de quatre mois. On demande la couleur des selles même si le poids rassure, repère 79, noté avant de quitter la page.</p>
+<p>Repère 86, visite de quatre ans. On n'emprunte pas la dose d'une autre autorisation, repère 86, noté avant de quitter la page.</p>
+<p>Repère 93, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 93, noté avant de quitter la page.</p>
+<p>Repère 100, visite de trois ans. On palpe les pouls avant de parler des courbes, repère 100, noté avant de quitter la page.</p>
+<p>Repère 107, visite de un mois. On n'écrit pas un stade qui n'est pas dans la page, repère 107, noté avant de quitter la page.</p>
+<p>Repère 114, visite de vingt-quatre mois. On garde le carnet comme mémoire commune, repère 114, noté avant de quitter la page.</p>
+<p>Repère 121, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 121, noté avant de quitter la page.</p>
+<p>Repère 128, visite de dix-huit mois. On vérifie le couchage même si la question n'est pas posée, repère 128, noté avant de quitter la page.</p>
+<p>Repère 135, visite de quatorze ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 135, noté avant de quitter la page.</p>
+<p>Repère 142, visite de douze mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 142, noté avant de quitter la page.</p>
+<p>Repère 149, visite de douze ans. On demande la couleur des selles même si le poids rassure, repère 149, noté avant de quitter la page.</p>
+<p>Repère 156, visite de neuf mois. On n'emprunte pas la dose d'une autre autorisation, repère 156, noté avant de quitter la page.</p>
+<p>Repère 163, visite de dix ans. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 163, noté avant de quitter la page.</p>
+<p>Repère 170, visite de six mois. On palpe les pouls avant de parler des courbes, repère 170, noté avant de quitter la page.</p>
+<p>Repère 177, visite de six ans. On n'écrit pas un stade qui n'est pas dans la page, repère 177, noté avant de quitter la page.</p>
+<p>Repère 184, visite de quatre mois. On garde le carnet comme mémoire commune, repère 184, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot v"><h2 id="p7">7. Syndromes</h2><p>Les situations voisines restent ouvertes. On ne les ferme pas par habitude. <button type="button" class="terme" popovertarget="w-p7">ouvrir</button></p><div id="w-p7" popover class="fenetre"><div class="barre"><span>7. Syndromes</span><button type="button" popovertarget="w-p7" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Les dix fils du motif, du plus habituel au signal qui fait sortir du contrôle.</p>
+<ul><li>1. Examen de prévention programmé</li><li>2. Croissance inscrite dans le carnet</li><li>3. Alimentation du nourrisson en bonne santé</li><li>4. Prophylaxie de la vitamine D</li><li>5. Prophylaxie de la vitamine K</li><li>6. Sommeil sûr du nourrisson</li><li>7. Repères du développement</li><li>8. Hanche et pouls fémoraux</li><li>9. Vue, audition et selles pâles</li><li>10. Consultation de l'adolescent et signaux d'alerte</li></ul>
+<p>Le retard constitué du développement est une autre situation du référentiel. Ici on ne garde que les fenêtres lues dans le carnet. <sup class="s">6</sup></p>
+<p>La vaccination détaillée est une autre situation. Ici on dit seulement que le contrôle les recommande et que le carnet a une case en ordre ou à contrôler. <sup class="s">1</sup></p>
+<p>La maltraitance constituée est une autre situation. Ici on garde les facteurs que la checklist demande de chercher, et l'interdiction de secouer ou de frapper. <sup class="s">4</sup></p>
+<p>L'alimentation pathologique et le trouble du sommeil constitué ont leurs situations. Ici on garde le conseil du carnet pour l'enfant en bonne santé.</p>
+<p>Un enfant fébrile dès 38 °C n'est plus dans la visite de bonne santé. <sup class="s">1</sup></p></div></div></section>
+<section class="ilot c"><h2 id="p8">8. Diagnostic</h2><p>Le diagnostic de bonne santé exige l'absence des alertes lues, pas un sentiment. <button type="button" class="terme" popovertarget="w-p8">ouvrir</button></p><div id="w-p8" popover class="fenetre"><div class="barre"><span>8. Diagnostic</span><button type="button" popovertarget="w-p8" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On dit enfant en bonne santé pour cette page si les alertes lues sont absentes et si les cases vues sont normales.</p>
+<p>On ne le dit pas si un pouls est suspect, si une selle est pâle aux numéros 5, 6 ou 7, ou si la fièvre atteint 38 °C. <sup class="s">1</sup></p>
+<p>On ne le dit pas si une acquisition déjà là a disparu.</p>
+<p>On ne le dit pas si la croissance quitte le couloir du carnet sans explication sur la page.</p>
+<p>La case à contrôler reste ouverte. Elle n'est pas un réussi.</p>
+<p>Le référentiel ne donne que le nom de la situation. Il ne donne ni critère chiffré ni dose. <sup class="s">6</sup></p>
+<p>Le nom retenu dans cette fiche est Repères du développement.</p>
+<p>À un mois, on ouvre la page d'un mois avant de commenter Repères du développement.</p>
+<p>À quatre mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À neuf mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À vingt-quatre mois, on ouvre la page de vingt-quatre mois avant de commenter Repères du développement.</p>
+<p>À quatre ans, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À dix ans, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>Vers quatre mois, le retournement dans les deux sens peut commencer.</p>
+<p>Repère 3, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 3, noté avant de quitter la page.</p>
+<p>Repère 10, visite de trois ans. On palpe les pouls avant de parler des courbes, repère 10, noté avant de quitter la page.</p>
+<p>Repère 17, visite de un mois. On n'écrit pas un stade qui n'est pas dans la page, repère 17, noté avant de quitter la page.</p>
+<p>Repère 24, visite de vingt-quatre mois. On garde le carnet comme mémoire commune, repère 24, noté avant de quitter la page.</p>
+<p>Repère 31, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 31, noté avant de quitter la page.</p>
+<p>Repère 38, visite de dix-huit mois. On vérifie le couchage même si la question n'est pas posée, repère 38, noté avant de quitter la page.</p>
+<p>Repère 45, visite de quatorze ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 45, noté avant de quitter la page.</p>
+<p>Repère 52, visite de douze mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 52, noté avant de quitter la page.</p>
+<p>Repère 59, visite de douze ans. On demande la couleur des selles même si le poids rassure, repère 59, noté avant de quitter la page.</p>
+<p>Repère 66, visite de neuf mois. On n'emprunte pas la dose d'une autre autorisation, repère 66, noté avant de quitter la page.</p>
+<p>Repère 73, visite de dix ans. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 73, noté avant de quitter la page.</p>
+<p>Repère 80, visite de six mois. On palpe les pouls avant de parler des courbes, repère 80, noté avant de quitter la page.</p>
+<p>Repère 87, visite de six ans. On n'écrit pas un stade qui n'est pas dans la page, repère 87, noté avant de quitter la page.</p>
+<p>Repère 94, visite de quatre mois. On garde le carnet comme mémoire commune, repère 94, noté avant de quitter la page.</p>
+<p>Repère 101, visite de quatre ans. On relit la ligne déjà écrite avant d'en ajouter une, repère 101, noté avant de quitter la page.</p>
+<p>Repère 108, visite de deux mois. On vérifie le couchage même si la question n'est pas posée, repère 108, noté avant de quitter la page.</p>
+<p>Repère 115, visite de trois ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 115, noté avant de quitter la page.</p>
+<p>Repère 122, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 122, noté avant de quitter la page.</p>
+<p>Repère 129, visite de vingt-quatre mois. On demande la couleur des selles même si le poids rassure, repère 129, noté avant de quitter la page.</p>
+<p>Repère 136, visite de une semaine. On n'emprunte pas la dose d'une autre autorisation, repère 136, noté avant de quitter la page.</p>
+<p>Repère 143, visite de dix-huit mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 143, noté avant de quitter la page.</p>
+<p>Repère 150, visite de quatorze ans. On palpe les pouls avant de parler des courbes, repère 150, noté avant de quitter la page.</p>
+<p>Repère 157, visite de douze mois. On n'écrit pas un stade qui n'est pas dans la page, repère 157, noté avant de quitter la page.</p>
+<p>Repère 164, visite de douze ans. On garde le carnet comme mémoire commune, repère 164, noté avant de quitter la page.</p>
+<p>Repère 171, visite de neuf mois. On relit la ligne déjà écrite avant d'en ajouter une, repère 171, noté avant de quitter la page.</p>
+<p>Repère 178, visite de dix ans. On vérifie le couchage même si la question n'est pas posée, repère 178, noté avant de quitter la page.</p>
+<p>Repère 185, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 185, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot v"><h2 id="p9">9. Examens complémentaires</h2><p>Les examens complémentaires sont ceux que la page nomme. On n'ajoute pas un bilan de principe. <button type="button" class="terme" popovertarget="w-p9">ouvrir</button></p><div id="w-p9" popover class="fenetre"><div class="barre"><span>9. Examens complémentaires</span><button type="button" popovertarget="w-p9" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le carnet et les checklists ne demandent pas un bilan sanguin à chaque page.</p>
+<p>L'échographie des hanches est une case, normal ou à recontrôler. Aucun angle n'est lu. <sup class="s">1</sup></p>
+<p>Le test de vision et le test d'audition sont des cases à quatre ans, six ans et quatorze ans. <sup class="s">1</sup></p>
+<p>L'oxymétrie de la page de naissance a une case supérieure ou égale à 95 %. <sup class="s">1</sup></p>
+<p>Le Guthrie est une case oui ou non sur la page de naissance. Le détail du programme n'est pas recopié.</p>
+<p>La calcémie n'est pas un examen du contrôle sain. L'autorisation 09395 la réserve au traitement prolongé. <sup class="s">2</sup></p></div></div></section>
+<section class="ilot c"><h2 id="p10">10. Arbre décisionnel</h2><p>L'arbre sépare le contrôle, l'alerte et la page d'âge. <button type="button" class="terme" popovertarget="w-p10">ouvrir</button></p><div id="w-p10" popover class="fenetre"><div class="barre"><span>10. Arbre décisionnel</span><button type="button" popovertarget="w-p10" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><div class="algowrap" id="algo-d7">
+<input type="radio" name="algo-d7" id="d7-bilan" checked class="r-bilan">
+<input type="radio" name="algo-d7" id="d7-alerte" class="r-alerte">
+<input type="radio" name="algo-d7" id="d7-age" class="r-age">
+<div class="choix"><label for="d7-bilan">Bilan</label><label for="d7-alerte">Alerte</label><label for="d7-age">Âge</label></div>
+<svg class="pan pan-bilan" viewBox="0 0 640 280" role="img"><title>Bilan du contrôle</title>
+<g><rect x="90" y="24" width="460" height="52" rx="10" class="bo"/><text x="320" y="56" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Contrôle prévu</text></g>
+<g><rect x="90" y="104" width="460" height="52" rx="10" class="bo"/><text x="320" y="136" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Page du carnet</text></g>
+<g><rect x="90" y="184" width="460" height="52" rx="10" class="bo"/><text x="320" y="216" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Mesures et conseils</text></g>
+</svg>
+<svg class="pan pan-alerte" viewBox="0 0 640 200" role="img"><title>Alerte du contrôle</title>
+<g><rect x="90" y="24" width="460" height="52" rx="10" class="bo"/><text x="320" y="56" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Pouls, selles, fièvre</text></g>
+<g><rect x="90" y="104" width="460" height="52" rx="10" class="bo"/><text x="320" y="136" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Sortie ou adresse</text></g>
+</svg>
+<svg class="pan pan-age" viewBox="0 0 640 200" role="img"><title>Page d'âge</title>
+<g><rect x="90" y="24" width="460" height="52" rx="10" class="bo"/><text x="320" y="56" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Page du carnet</text></g>
+<g><rect x="90" y="104" width="460" height="52" rx="10" class="bo"/><text x="320" y="136" text-anchor="middle" font-size="18" font-family="Verdana,sans-serif">Contrôle prévu</text></g>
+</svg></div>
+<p>Le bouton Bilan suit l'ordre du contrôle. Le bouton Alerte passe devant si le pouls, les selles ou la fièvre sortent du cadre. Le bouton Âge ouvre la page du carnet, pas une autre fiche.</p>
+<p>On lit l'alerte avant de féliciter la croissance.</p>
+<p>La page d'âge décide des cases, pas la mémoire du médecin.</p>
+<p>Un item suspect ou non examiné ne devient pas normal à la sortie.</p></div></div></section>
+<section class="ilot v"><h2 id="p11">11. Prise en charge</h2><p>La prise en charge est le conseil, la prophylaxie lue, ou l'adresse. Les doses ont leur autorisation. <button type="button" class="terme" popovertarget="w-p11">ouvrir</button></p><div id="w-p11" popover class="fenetre"><div class="barre"><span>11. Prise en charge</span><button type="button" popovertarget="w-p11" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>On traite ce qui est sorti du contrôle. On ne donne pas un médicament pour une page normale.</p>
+<p>La fièvre dès 38 °C envoie vers le médecin ou l'hôpital, comme le carnet le dit. <sup class="s">1</sup></p>
+<p>Les selles pâles des numéros 5, 6 ou 7 demandent un avis sans tarder. <sup class="s">1</sup></p>
+<p>Un pouls fémoral suspect ne reçoit pas un rendez-vous lointain de principe. La checklist le classe à part du normal. <sup class="s">4</sup></p>
+<p>Cette fiche ne répète pas les milligrammes ni les unités. Elles sont dans les fiches de prophylaxie et dans l'information professionnelle.</p>
+<p>Le mot <abbr title="information professionnelle suisse">AIPS</abbr> (information professionnelle suisse) rappelle que toute dose du motif vient de l'information professionnelle suisse, autorisations 09395 et 48112.</p>
+<p>Cas. Enfant de quatorze mois qui ne marche pas encore, qui dit deux mots, qui n'a rien perdu.</p>
+<p>La fenêtre lue de la marche va de neuf à dix-huit mois. Quatorze mois est dedans.</p>
+<p>On vérifie l'ouïe et le regard. On ne pose pas un retard sur cette seule date.</p>
+<p>Décision. On revoit à la page de dix-huit mois, plus tôt si une perte apparaît.</p>
+<p>À un mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À quatre mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À douze mois, on ouvre la page de douze mois avant de commenter Repères du développement.</p>
+<p>À vingt-quatre mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À quatre ans, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À douze ans, on ouvre la page de douze ans avant de commenter Repères du développement.</p>
+<p>Entre neuf et dix-huit mois, la marche peut commencer. Les premiers mots arrivent vers douze mois.</p>
+<p>Repère 4, visite de quatre mois. On garde le carnet comme mémoire commune, repère 4, noté avant de quitter la page.</p>
+<p>Repère 11, visite de quatre ans. On relit la ligne déjà écrite avant d'en ajouter une, repère 11, noté avant de quitter la page.</p>
+<p>Repère 18, visite de deux mois. On vérifie le couchage même si la question n'est pas posée, repère 18, noté avant de quitter la page.</p>
+<p>Repère 25, visite de trois ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 25, noté avant de quitter la page.</p>
+<p>Repère 32, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 32, noté avant de quitter la page.</p>
+<p>Repère 39, visite de vingt-quatre mois. On demande la couleur des selles même si le poids rassure, repère 39, noté avant de quitter la page.</p>
+<p>Repère 46, visite de une semaine. On n'emprunte pas la dose d'une autre autorisation, repère 46, noté avant de quitter la page.</p>
+<p>Repère 53, visite de dix-huit mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 53, noté avant de quitter la page.</p>
+<p>Repère 60, visite de quatorze ans. On palpe les pouls avant de parler des courbes, repère 60, noté avant de quitter la page.</p>
+<p>Repère 67, visite de douze mois. On n'écrit pas un stade qui n'est pas dans la page, repère 67, noté avant de quitter la page.</p>
+<p>Repère 74, visite de douze ans. On garde le carnet comme mémoire commune, repère 74, noté avant de quitter la page.</p>
+<p>Repère 81, visite de neuf mois. On relit la ligne déjà écrite avant d'en ajouter une, repère 81, noté avant de quitter la page.</p>
+<p>Repère 88, visite de dix ans. On vérifie le couchage même si la question n'est pas posée, repère 88, noté avant de quitter la page.</p>
+<p>Repère 95, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 95, noté avant de quitter la page.</p>
+<p>Repère 102, visite de six ans. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 102, noté avant de quitter la page.</p>
+<p>Repère 109, visite de quatre mois. On demande la couleur des selles même si le poids rassure, repère 109, noté avant de quitter la page.</p>
+<p>Repère 116, visite de quatre ans. On n'emprunte pas la dose d'une autre autorisation, repère 116, noté avant de quitter la page.</p>
+<p>Repère 123, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 123, noté avant de quitter la page.</p>
+<p>Repère 130, visite de trois ans. On palpe les pouls avant de parler des courbes, repère 130, noté avant de quitter la page.</p>
+<p>Repère 137, visite de un mois. On n'écrit pas un stade qui n'est pas dans la page, repère 137, noté avant de quitter la page.</p>
+<p>Repère 144, visite de vingt-quatre mois. On garde le carnet comme mémoire commune, repère 144, noté avant de quitter la page.</p>
+<p>Repère 151, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 151, noté avant de quitter la page.</p>
+<p>Repère 158, visite de dix-huit mois. On vérifie le couchage même si la question n'est pas posée, repère 158, noté avant de quitter la page.</p>
+<p>Repère 165, visite de quatorze ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 165, noté avant de quitter la page.</p>
+<p>Repère 172, visite de douze mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 172, noté avant de quitter la page.</p>
+<p>Repère 179, visite de douze ans. On demande la couleur des selles même si le poids rassure, repère 179, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot c"><h2 id="p12">12. Prévention</h2><p>La prévention est le contenu même de la visite. On la dit avec les mots du carnet. <button type="button" class="terme" popovertarget="w-p12">ouvrir</button></p><div id="w-p12" popover class="fenetre"><div class="barre"><span>12. Prévention</span><button type="button" popovertarget="w-p12" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Le dos, le lit, la gigoteuse, l'air sans fumée. <sup class="s">1</sup></p>
+<p>Pas de youpala. Pas de secousse. Pas de fessée. <sup class="s">1</sup></p>
+<p>Siège auto adapté dès la naissance. Bain à 37 °C. Ne pas laisser seul dans le bain. <sup class="s">1</sup></p>
+<p>Avant trois ans, éviter la pièce où la télévision reste allumée. À quatre ans, limiter les écrans à une heure. <sup class="s">1</sup></p>
+<p>Vers dix ans, écrans éteints au moins une heure avant le sommeil, et environ neuf heures de sommeil. <sup class="s">1</sup></p>
+<p>Casque à vélo, à ski, en trottinette. Ceinture en voiture. <sup class="s">1</sup></p>
+<p>Soleil entre 11 h et 15 h évité, chapeau, lunettes, crème d'indice 30. <sup class="s">1</sup></p>
+<p>Dents lavées avec l'adulte. Aucune dose de fluor n'est dans les textes lus. On n'en écrit pas.</p>
+<p>Les vaccins se discutent. Le plan détaillé n'est pas cette fiche. Dès onze ans, le carnet dit de discuter la suite. <sup class="s">1</sup></p>
+<p>À un mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À six mois, on ouvre la page de six mois avant de commenter Repères du développement.</p>
+<p>À douze mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À vingt-quatre mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À six ans, on ouvre la page de six ans avant de commenter Repères du développement.</p>
+<p>À douze ans, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À dix-huit mois, la marche sans appui et un plus grand nombre de mots sont les repères lus.</p>
+<p>Repère 5, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 5, noté avant de quitter la page.</p>
+<p>Repère 12, visite de six ans. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 12, noté avant de quitter la page.</p>
+<p>Repère 19, visite de quatre mois. On demande la couleur des selles même si le poids rassure, repère 19, noté avant de quitter la page.</p>
+<p>Repère 26, visite de quatre ans. On n'emprunte pas la dose d'une autre autorisation, repère 26, noté avant de quitter la page.</p>
+<p>Repère 33, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 33, noté avant de quitter la page.</p>
+<p>Repère 40, visite de trois ans. On palpe les pouls avant de parler des courbes, repère 40, noté avant de quitter la page.</p>
+<p>Repère 47, visite de un mois. On n'écrit pas un stade qui n'est pas dans la page, repère 47, noté avant de quitter la page.</p>
+<p>Repère 54, visite de vingt-quatre mois. On garde le carnet comme mémoire commune, repère 54, noté avant de quitter la page.</p>
+<p>Repère 61, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 61, noté avant de quitter la page.</p>
+<p>Repère 68, visite de dix-huit mois. On vérifie le couchage même si la question n'est pas posée, repère 68, noté avant de quitter la page.</p>
+<p>Repère 75, visite de quatorze ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 75, noté avant de quitter la page.</p>
+<p>Repère 82, visite de douze mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 82, noté avant de quitter la page.</p>
+<p>Repère 89, visite de douze ans. On demande la couleur des selles même si le poids rassure, repère 89, noté avant de quitter la page.</p>
+<p>Repère 96, visite de neuf mois. On n'emprunte pas la dose d'une autre autorisation, repère 96, noté avant de quitter la page.</p>
+<p>Repère 103, visite de dix ans. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 103, noté avant de quitter la page.</p>
+<p>Repère 110, visite de six mois. On palpe les pouls avant de parler des courbes, repère 110, noté avant de quitter la page.</p>
+<p>Repère 117, visite de six ans. On n'écrit pas un stade qui n'est pas dans la page, repère 117, noté avant de quitter la page.</p>
+<p>Repère 124, visite de quatre mois. On garde le carnet comme mémoire commune, repère 124, noté avant de quitter la page.</p>
+<p>Repère 131, visite de quatre ans. On relit la ligne déjà écrite avant d'en ajouter une, repère 131, noté avant de quitter la page.</p>
+<p>Repère 138, visite de deux mois. On vérifie le couchage même si la question n'est pas posée, repère 138, noté avant de quitter la page.</p>
+<p>Repère 145, visite de trois ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 145, noté avant de quitter la page.</p>
+<p>Repère 152, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 152, noté avant de quitter la page.</p>
+<p>Repère 159, visite de vingt-quatre mois. On demande la couleur des selles même si le poids rassure, repère 159, noté avant de quitter la page.</p>
+<p>Repère 166, visite de une semaine. On n'emprunte pas la dose d'une autre autorisation, repère 166, noté avant de quitter la page.</p>
+<p>Repère 173, visite de dix-huit mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 173, noté avant de quitter la page.</p>
+<p>Repère 180, visite de quatorze ans. On palpe les pouls avant de parler des courbes, repère 180, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot v"><h2 id="p13">13. Points clés</h2><p>Quelques repères suffisent à tenir la visite, s'ils viennent des textes lus. <button type="button" class="terme" popovertarget="w-p13">ouvrir</button></p><div id="w-p13" popover class="fenetre"><div class="barre"><span>13. Points clés</span><button type="button" popovertarget="w-p13" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Quinze examens, de la première semaine à quatorze ans. Recommandations de 2011, pas une directive. <sup class="s">4</sup></p>
+<p>Carnet 2026, édition revue en 2025. Quatre buts. <sup class="s">1</sup></p>
+<p>Selles 5, 6 ou 7, avis sans tarder. Fièvre dès 38 °C, consulter. <sup class="s">1</sup></p>
+<p>Pouls fémoraux et hanches aux premières pages. <sup class="s">4</sup></p>
+<p>Vitamine D selon l'autorisation 09395. Vitamine K selon l'autorisation 48112.</p>
+<p>Marche possible entre neuf et dix-huit mois. Pas un retard à quatorze mois. <sup class="s">1</sup></p>
+<p>Tanner est une case. Les stades ne sont pas décrits dans les pages lues.</p>
+<p>Fil retenu. Repères du développement</p></div></div></section>
+<section class="ilot c"><h2 id="p14">14. Pièges</h2><p>Le piège est de rassurer trop tôt, ou de transformer une case vide en normal. <button type="button" class="terme" popovertarget="w-p14">ouvrir</button></p><div id="w-p14" popover class="fenetre"><div class="barre"><span>14. Pièges</span><button type="button" popovertarget="w-p14" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><p>Piège. Appeler normal une case qu'on n'a pas ouverte.</p>
+<p>Piège. Utiliser un centile qui n'est pas dans l'extrait.</p>
+<p>Piège. Donner la fourchette du prématuré à un enfant né à terme, ou l'inverse.</p>
+<p>Piège. Oublier la troisième dose orale de vitamine K chez l'enfant allaité.</p>
+<p>Piège. Multiplier la dose parentérale du petit poids. Le texte dit de ne pas la dépasser, et que les erreurs d'un facteur dix sont fréquentes. <sup class="s">3</sup></p>
+<p>Piège. Coucher sur le ventre pour le sommeil parce que l'enfant pleure moins.</p>
+<p>Piège. Attendre dix-huit mois pour s'inquiéter d'une marche absente à vingt mois, ou s'inquiéter à quatorze mois.</p>
+<p>Piège. Nommer un stade de Tanner qu'on n'a pas lu.</p>
+<p>Piège. Laisser partir des selles pâles avec un conseil de lait.</p>
+<p>Piège. Secouer pour calmer. Le carnet dit le danger pour le cerveau. <sup class="s">1</sup></p>
+<p>Piège. Recopier un taux allemand comme s'il était suisse.</p>
+<p>Piège. Inventer des milligrammes de fluor.</p>
+<p>À deux mois, on ouvre la page de deux mois avant de commenter Repères du développement.</p>
+<p>À six mois, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À douze mois, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>À trois ans, on ouvre la page de trois ans avant de commenter Repères du développement.</p>
+<p>À six ans, on écrit la date et seulement les cases réellement vues pour Repères du développement.</p>
+<p>À douze ans, un signe d'alerte déjà présent passe devant le conseil habituel de Repères du développement.</p>
+<p>Vers trois ans, le non, le je, et la propreté de jour peuvent être là.</p>
+<p>Repère 6, visite de neuf mois. On n'emprunte pas la dose d'une autre autorisation, repère 6, noté avant de quitter la page.</p>
+<p>Repère 13, visite de dix ans. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 13, noté avant de quitter la page.</p>
+<p>Repère 20, visite de six mois. On palpe les pouls avant de parler des courbes, repère 20, noté avant de quitter la page.</p>
+<p>Repère 27, visite de six ans. On n'écrit pas un stade qui n'est pas dans la page, repère 27, noté avant de quitter la page.</p>
+<p>Repère 34, visite de quatre mois. On garde le carnet comme mémoire commune, repère 34, noté avant de quitter la page.</p>
+<p>Repère 41, visite de quatre ans. On relit la ligne déjà écrite avant d'en ajouter une, repère 41, noté avant de quitter la page.</p>
+<p>Repère 48, visite de deux mois. On vérifie le couchage même si la question n'est pas posée, repère 48, noté avant de quitter la page.</p>
+<p>Repère 55, visite de trois ans. On sépare le conseil d'âge et le signe qui sort du cadre, repère 55, noté avant de quitter la page.</p>
+<p>Repère 62, visite de un mois. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 62, noté avant de quitter la page.</p>
+<p>Repère 69, visite de vingt-quatre mois. On demande la couleur des selles même si le poids rassure, repère 69, noté avant de quitter la page.</p>
+<p>Repère 76, visite de une semaine. On n'emprunte pas la dose d'une autre autorisation, repère 76, noté avant de quitter la page.</p>
+<p>Repère 83, visite de dix-huit mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 83, noté avant de quitter la page.</p>
+<p>Repère 90, visite de quatorze ans. On palpe les pouls avant de parler des courbes, repère 90, noté avant de quitter la page.</p>
+<p>Repère 97, visite de douze mois. On n'écrit pas un stade qui n'est pas dans la page, repère 97, noté avant de quitter la page.</p>
+<p>Repère 104, visite de douze ans. On garde le carnet comme mémoire commune, repère 104, noté avant de quitter la page.</p>
+<p>Repère 111, visite de neuf mois. On relit la ligne déjà écrite avant d'en ajouter une, repère 111, noté avant de quitter la page.</p>
+<p>Repère 118, visite de dix ans. On vérifie le couchage même si la question n'est pas posée, repère 118, noté avant de quitter la page.</p>
+<p>Repère 125, visite de six mois. On sépare le conseil d'âge et le signe qui sort du cadre, repère 125, noté avant de quitter la page.</p>
+<p>Repère 132, visite de six ans. On dit aux parents ce qui a été vu et ce qui ne l'a pas été, repère 132, noté avant de quitter la page.</p>
+<p>Repère 139, visite de quatre mois. On demande la couleur des selles même si le poids rassure, repère 139, noté avant de quitter la page.</p>
+<p>Repère 146, visite de quatre ans. On n'emprunte pas la dose d'une autre autorisation, repère 146, noté avant de quitter la page.</p>
+<p>Repère 153, visite de deux mois. On ne promet pas le prochain contrôle si une alerte est ouverte, repère 153, noté avant de quitter la page.</p>
+<p>Repère 160, visite de trois ans. On palpe les pouls avant de parler des courbes, repère 160, noté avant de quitter la page.</p>
+<p>Repère 167, visite de un mois. On n'écrit pas un stade qui n'est pas dans la page, repère 167, noté avant de quitter la page.</p>
+<p>Repère 174, visite de vingt-quatre mois. On garde le carnet comme mémoire commune, repère 174, noté avant de quitter la page.</p>
+<p>Repère 181, visite de une semaine. On relit la ligne déjà écrite avant d'en ajouter une, repère 181, noté avant de quitter la page.</p></div></div></section>
+<section class="ilot c"><h2 id="sources">Sources</h2><p>Les sources datées sont dans la fenêtre. <button type="button" class="terme" popovertarget="w-sources">ouvrir</button></p><div id="w-sources" popover class="fenetre"><div class="barre"><span>Sources</span><button type="button" popovertarget="w-sources" popovertargetaction="hide" aria-label="Fermer">✕</button></div><div class="corps"><ol class="sources">
+<li>pédiatrie suisse, carnet de santé, édition revue en 2025, fichier du 8 octobre 2025. <sup class="s">1</sup></li>
+<li>Information professionnelle suisse, autorisation 09395, mise à jour octobre 2021. <sup class="s">2</sup></li>
+<li>Information professionnelle suisse, autorisation 48112, mise à jour janvier 2022. <sup class="s">3</sup></li>
+<li>Checklists des examens de prévention, 4e édition 2011. <sup class="s">4</sup></li>
+<li>pédiatrie suisse, page du carnet de santé 2026, lue en 2026. <sup class="s">5</sup></li>
+<li>Référentiel validé le 1er novembre 2023, situation de ce motif. <sup class="s">6</sup></li>
+<li>pédiatrie suisse, page des examens préventifs, lue en 2026. <sup class="s">7</sup></li>
+</ol>
+<p>Contenu établi à partir des sources citées. Aucune de ces pages n'a été relue comme conduite locale par un médecin pour cette leçon.</p></div></div></section>
+<p class="mention">Contenu établi à partir des sources citées ; non validé cliniquement par un médecin.</p>
+</main></body></html>
+<!-- FIN_FICHIER LOT_194_Phase_B_V0_DX.7.html -->

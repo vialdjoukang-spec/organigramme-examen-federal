@@ -1,4 +1,11 @@
 # Journal de nuit — Grokbot — 2026-11-10
 
-Livrés : LOT_103 11 leçons, PR 517 fusionnée ; LOT_114 11 leçons, PR 518 fusionnée ; LOT_116 11 leçons, PR 519 fusionnée ; LOT_118 11 leçons, PR 520 fusionnée ; LOT_120 11 leçons, PR 521 fusionnée ; LOT_246 https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/523 (main réintégré après 521, CI relancée) ; LOT_247 https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/522 (main réintégré, CI relancée). Consolidation PR 515 non fusionnée. Non livrés : 230, 236, 240.
+Détecteur relancé : 373 branches, 2158 leçons sur 2728, Grokbot 984. Jauge : Grokbot/Progression_PR_Grokbot.html, progression globale 58 %.
 
+Périmètre 133-248 : aucun LOT entièrement absent. Leçons incomplètes trouvées, mais attribuées à Claude ou à ChatGPT_Codex (147, 148, 229, 231, 233, 234, 235, 237, 241, 242, 243, 244, 248) : non réécrites, autre dossier. Les LOT Grokbot de cette plage ont déjà leurs 11 leçons ; le score reste 70 parce que les fichiers sont sous la bande 100–200 Ko.
+
+Le PROMPT ne nomme pas de passe « moins de 150 Ko ». Il donne 20 points à la bande 100–200 Ko et demande ensuite de porter les leçons sous 90 %. Cette montée n'est pas commencée ici : elle exigerait de nouveaux extraits, et un simple remplissage inventerait du texte.
+
+Absents globaux, hors priorité 133-248 : 51 à 71, puis 79 et 81 à 102.
+
+Livrés et déjà fusionnés : LOT_103 PR 517 ; LOT_114 PR 518 ; LOT_116 PR 519 ; LOT_118 PR 520 ; LOT_120 PR 521 ; LOT_230 PR 528 ; LOT_236 PR 529 ; LOT_240 PR 530 ; LOT_246 PR 523 ; LOT_247 PR 522. Consolidation PR 515 fusionnée. PR 272 non touchée. Label audit-ok non posé.
