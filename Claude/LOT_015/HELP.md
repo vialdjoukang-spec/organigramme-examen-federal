@@ -22,3 +22,9 @@ Les lacunes ne figurent plus dans les cours (L1, LV7) ; elles sont consignées i
 - Dédoublonnage : efficacité de l'orlistat (gardée au pronostic), 7,2 mg de sémaglutide (gardé dans la fiche Wegovy), seuil de 3–5 % pour l'antihypertenseur (gardé aux objectifs), seuils MASLD (gardés aux objectifs), DXA et NT-proBNP de 2e intention (gardés dans leurs fenêtres propres), gain du sevrage tabagique (gardé dans l'histoire naturelle).
 - Réserve L1-2 : l'examen physique par région reste un tableau dans une fenêtre unique, et non une fenêtre par région, faute de budget (≤ 150 Ko, 149 949 o).
 - Image en attente : acanthosis nigricans (point 6) — Wikimedia 429.
+
+## DX.2 — Prise de poids d'origine médicamenteuse
+- Lacunes retirées : prévalence suisse non chiffrée ; aucun critère ni seuil de société savante propre ; mécanisme des inhibiteurs de l'intégrase non décrit ; aucune règle travail/assurance-invalidité propre ; aucune liste de sortie propre ; aucun essai 2026 propre.
+- Point 1 : « notions voisines » déplacées au point 4 sous le titre « Situations frontières » (faits uniques conservés : œdèmes sous amlodipine 11,1 %, pioglitazone et insuffisance cardiaque, hypothyroïdie sous lithium ou quétiapine) ; fréquence ESE retirée du point 1 (badge conservé au point 2).
+- AIPS ajoutées : Dexaméthasone Galepharm (57974), Prednisone Streuli® (29349, seuil de Cushing 7,5 mg ; décroissance progressive), lues le 10.11.2026. Les paliers de décroissance chiffrés viennent de la recommandation citée [S13] ; l'AIPS est citée pour la molécule.
+- Dédoublonnage : métformine hors indication (gardée au point 11, CHUV), étude GWAS lausannoise (gardée aux pistes de recherche), grossesse sous sémaglutide (gardée aux situations spéciales).
