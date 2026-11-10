@@ -1,0 +1,70 @@
+{
+  "lot": "LOT_006",
+  "reference_avant": "origin/main (= merge-base f86d17f848) ; après : claude/l1-lot-006 (8c786871b6 et 10 commits DX)",
+  "methode": "Texte sans balises (script/style exclus) avant/après ; multiensemble des nombres avec contexte 60 car. ; lignes de l'avant absentes de l'après (diff) ; références sb-/S-n ; 🚩 ; verbes d'action et examens ; contrôle manuel de chaque perte signalée. Liens a.ouvre et href=#… contre les id ; doublons d'id.",
+  "verdict": "corrections",
+  "critiques": [
+    {
+      "fichier": "LOT_006_Phase_A_V0.html",
+      "avant": "Algorithme discriminant, 12 étapes : 1 · 🚩 E1 coup de chaleur (DX.15) → 2 · E2 sepsis → 3 · E3 méningite → 4 · E4 neutropénie → 5 · E5 paludisme → 6 · E6 endocardite → 7–12 foyers fréquents puis FUO.",
+      "apres": "« L'algorithme discriminant suit l'arbre du point 10 : il écarte d'abord les six diagnostics graves, du rang E1 au rang E6 ». Or le point 10 ordonne : nœud 0 sepsis (E2), 1 méningite (E3), 2 coup de chaleur (E1), 3 neutropénie (E4), 4 endocardite (E6), 5 paludisme (E5). Le renvoi affirme un ordre que le point 10 ne suit pas ; l'ordre d'exclusion E1→E6 n'existe plus comme séquence d'actions.",
+      "correction": "Soit réordonner les nœuds 0 à 5 du point 10 selon E1→E6 (coup de chaleur, sepsis, méningite, neutropénie, paludisme, endocardite), soit réécrire le renvoi : « L'algorithme discriminant suit les nœuds du point 10 : les six drapeaux rouges (nœuds 0 à 5, rangs E indiqués au bloc 2), puis les foyers fréquents (6 à 10), puis le FUO (11). » Toutes les branches, actions et seuils de l'ancien algorithme sont par ailleurs présents au point 10 (vérifié étape par étape : 144, hémocultures/lactate/<1 h, dexaméthasone avant PL, antipseudomonas <1 h, frottis le jour même et 12–24 h + dengue, 3 paires + ETT/ETO, CRB-65 0–1 / ≥2, 48–72 h, fasciite, Tamiflu 36 h, coproculture, FDG-TEP-TDM sans traitement d'épreuve)."
+    }
+  ],
+  "mineurs": [
+    {
+      "fichier": "LOT_006_Phase_A_V0.html",
+      "avant": "Tableau comparatif, colonne « Conduite immédiate » : DX.7 « Paracétamol, hydratation ; pas d'AINS » ; DX.6 « Riamet ou Malarone » ; DX.13 « Antibiotique prolongé ; chirurgie selon l'ESC » ; DX.5 « Corticoïde après le diagnostic ».",
+      "apres": "« la conduite au point 10 » : ces conduites ne figurent pas au point 10 mais au point 11 (vérifié présentes : AINS évités, Riamet/Malarone, chirurgie ESC 2023).",
+      "correction": "Écrire « la conduite aux points 10 et 11 ». Même correction pour « la conduite suit au point 10 » sous le tableau des drapeaux rouges (avis de l'équipe d'endocardite au seul point 11)."
+    },
+    {
+      "fichier": "LOT_006_Phase_A_V0.html",
+      "avant": "Comparatif, mécanisme DX.7 : « Virémie et fuite plasmatique. »",
+      "apres": "Renvoi « le mécanisme suit au point 7 » ; 7.7 dit seulement « le virus de la dengue circule dans le sang ». « Fuite plasmatique » absent de la Phase A (présent 12 fois dans DX.7).",
+      "correction": "Ajouter en 7.7 : « la fuite plasmatique fait la gravité (signes d'alarme) »."
+    },
+    {
+      "fichier": "LOT_006_Phase_A_V0.html",
+      "avant": "Point 11 : « Dans le paludisme, on poursuit le traitement jusqu'à ce que la parasitémie devienne négative. » ; point 5 : « Céphalée avec raideur ou purpura : antibiotique et avis infectiologique » ; « Prothèse valvulaire … avis spécialisé ».",
+      "apres": "Phrases retirées ; reste « Surveiller glycémie, reins, parasitémie » et l'équipe d'endocardite au point 11 ; « avis infectiologique » (méningite) absent.",
+      "correction": "Rétablir l'objectif de parasitémie négative au point 11 et l'avis infectiologique au nœud 1 du point 10."
+    },
+    {
+      "fichier": "LOT_006_Phase_A_V0.html",
+      "avant": "Numérotation du point 10 déjà corrompue avant migration : « 710,11,12,18,15,14,6,5. Douleur lombaire… », « 810,… », « 1110,… ».",
+      "apres": "Inchangé (défaut antérieur, non introduit par L1).",
+      "correction": "Retirer l'appel de note collé aux numéros de nœuds 7 à 11."
+    },
+    {
+      "fichier": "LOT_006_Phase_B_V0_DX.8.html",
+      "avant": "Point 1 : « Néoplasie cause de FUO (CIM-10, R50.9 …)13 » : seule citation de la source 13 (OMS CIM-10 2019).",
+      "apres": "Ligne retirée avec l'arbre CIM ; source [13] conservée mais plus citée.",
+      "correction": "Retirer [13] de la liste ou la citer ailleurs."
+    },
+    {
+      "fichier": "LOT_006_Phase_B_V0_DX.3.html",
+      "avant": "« L'érysipèle atteint le derme superficiel et les lymphatiques … La cellulite atteint le derme profond et l'hypoderme … »",
+      "apres": "« L'érysipèle atteint aussi les lymphatiques, alors que la cellulite donne un érythème mal limité ; le traitement est le même » (derme superficiel / profond : 4 → 1 occurrence).",
+      "correction": "Garder « derme superficiel » et « derme profond et hypoderme » dans la phrase du point 1."
+    },
+    {
+      "fichier": "LOT_006_Phase_B_V0_DX.1, DX.2, DX.6, DX.7, DX.9, DX.10",
+      "avant": "Point 1 : notions voisines (bronchite sans antibiotique, pneumonie nosocomiale ; intoxication alimentaire et diarrhée du voyageur en DX.10).",
+      "apres": "Retirées conformément à L1 (point 1 = définition seule). Faits critiques retrouvés ailleurs (n'exclut pas la dengue, neuropaludisme, hypnozoïtes, prednisone < 10 mg, confirmation virologique). Intoxication alimentaire et diarrhée du voyageur n'existent plus dans DX.10.",
+      "correction": "Facultatif : citer ces deux entités au diagnostic différentiel de DX.10."
+    }
+  ],
+  "controles_sans_ecart": {
+    "branches_algorithme_point10": "12/12 étapes retrouvées au point 10 avec actions, seuils et délais (seul l'ordre diffère, voir critique)",
+    "drapeaux_rouges": "🚩 : Phase A 8 drapeaux du point 4 intacts ; DX.1–DX.10 compte 🚩 identique avant/après ; tableau DX.5 déplacé en fenêtre f-dx5-p5-2 intact",
+    "pieges_point14": "22 questions : toutes retrouvées aux points 4, 8, 9, 10, 11 ou dans les monographies (paracétamol 4 g/2 g, ibuprofène masque, qSOFA, 12–24 h, scanner avant PL, dexaméthasone 0,15 mg/kg 4 j, rifampicine 600 mg + contraception, ceftriaxone/calcium nouveau-né, Augmentin 625 mg < 30 mL/min, 0,5 G/L à 48 h, MASCC ≥ 21, FUO 38,3 °C ×2, FDG 40–60 % vs 25–35 %, ETO, AINS/dengue, Riamet 24 cp, Tamiflu 75 mg 36 h, fasciite, PAM ≥ 65 mmHg, surinfection, ordre DX)",
+    "frequences_point2": "Fréquences retirées du tableau DX toutes présentes au point 2 (34/21/10 %, 27,2 %, 51/22/7 %, Suisse 2017 30–50/25–30/10–15 %, 96/455, 92/108, 429, 0,6/100 000)",
+    "ordre_DX": "DX.1 → DX.15 canonique, noms mot pour mot",
+    "details_arbre": "aucun <details class=\"arbre\"> dans l'avant (seule une règle CSS morte) : sans objet",
+    "sources": "Listes dédoublées : chaque source unique de l'avant présente dans l'après (11/11 fichiers) ; aucun appel sb- perdu hors DX.8 sb-13",
+    "affirmations_nouvelles": "aucune affirmation médicale nouvelle non sourcée ; ajouts = renvois, intitulés de fenêtres, subfébrilité déplacée (sourcée 5)",
+    "liens": "a.ouvre : 30/14/18/10/12/19/18/13/21/30/17 liens, 0 mort ; 0 id dupliqué ; 0 href=# mort",
+    "artesunate_DX6": "Schéma OMS 2,4 mg/kg / 3 mg/kg présent à l'identique dans origin/main et dans l'après : non réintroduit par L1 (déjà présent avant migration)"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "lot": "LOT_002",
+  "date": "2026-11-10",
+  "reference": "origin/main (avant migration) contre claude/l1-lot-002 (d26c0730f7)",
+  "methode": "Texte sans balises (script/style retirés). Nombres et contexte, phrases chiffrées et non chiffrées (recouvrement de trigrammes < 0,6), mots-clés de sécurité (contre-indication, grossesse, allaitement, ClCr, mg/kg, Swissmedic, drapeaux rouges), références [S..]/sb-.., liens a.ouvre → section.fenetre. Écarts vérifiés à la main.",
+  "verdict": "corrections",
+  "critiques": [
+    {
+      "fichier": "LOT_002_Phase_B_V0_DX.5.html",
+      "avant": "10. Arbre décisionnel : <details class=\"arbre\"> « Devant un syndrome mononucléosique ou une adénopathie fébrile » : immunodéprimé fébrile → hospitaliser, PCR CMV, avis infectiologique ; baisse visuelle → fond d'œil le jour même ; diarrhée sanglante → endoscopie ; dyspnée → oxygène, scanner ; faiblesse ascendante → ponction lombaire ; douleur hypocondre gauche → échographie urgente ; grossesse → sérologie avec avidité ; sinon NFS, frottis, ALAT → sérologies ; ganglion > 4 semaines ou sus-claviculaire → biopsie excisionnelle [8]",
+      "apres": "Titre « 10. Arbre décisionnel » vide, immédiatement suivi de « 11. Prise en charge ». Le bloc a été supprimé par la passe mécanique 4a74d9c2dd (« arbre CIM retiré ») qui a confondu details.arbre clinique et arbre CIM. Plusieurs faits survivent dans les drapeaux rouges et fenêtres, mais l'algorithme du point 10 est perdu.",
+      "correction": "Restaurer le bloc <details class=\"arbre\"> du point 10 depuis origin/main (texte et renvois [8] inchangés)."
+    },
+    {
+      "fichier": "LOT_002_Phase_B_V0_DX.6.html",
+      "avant": "10. Arbre décisionnel : <details class=\"arbre\"> « Devant un mal de gorge fébrile » : stridor/salivation → urgence, ne pas examiner la gorge ; trismus ou luette déviée → ORL le jour même ; torticolis ou refus de boire → scanner cervical ; hypotension et éruption → soins intensifs ; neutrophiles < 0,5 G/L → hospitaliser [9] ; Centor 0–2 → symptomatique sans test [9] ; 3–4 → TDR ; TDR positif → antibiotique 10 jours [9] ; TDR négatif adulte → symptomatique ; enfant → culture.",
+      "apres": "Titre « 10. Arbre décisionnel » vide. Même cause (passe mécanique 4a74d9c2dd). Les seuils survivent ailleurs (drapeaux rouges, fenêtre TDR, 11.B), mais l'algorithme du point 10 est perdu.",
+      "correction": "Restaurer le bloc <details class=\"arbre\"> du point 10 depuis origin/main."
+    }
+  ],
+  "mineurs": [
+    {"fichier": "tous (DX.1–DX.10, Phase A)", "avant": "Rappel ①–⑤ : grille TEMPO-IN, « 12 diagnostics sur 15 » dans la famille infectieux·inflammatoire·immun, tableau ④ de classement des DX par famille", "apres": "Supprimé (suppression déclarée « rappel du général au particulier »). Aucun fait clinique sourcé unique perdu ; la liste DX et le tableau comparatif de Phase A restent.", "correction": "Aucune ; noter la suppression du classement par famille dans le journal de migration."},
+    {"fichier": "LOT_002_Phase_B_V0_DX.6.html", "avant": "« La benzylpénicilline (Pénicilline «Grünenthal», n° Swissmedic 56271) se donne par voie intraveineuse… »", "apres": "Dose et voie conservées ; le n° 56271 n'apparaît plus que dans la référence AIPS (sb-21).", "correction": "Acceptable (dédoublonnage déclaré) ; facultatif : rappeler le n° dans la monographie unique."},
+    {"fichier": "LOT_002_Phase_B_V0_DX.4.html", "avant": "« Fatigue chronique : la mononucléose est un facteur de risque, mais les deux entités sont distinctes. [2] »", "apres": "Absent (notion voisine retirée) ; fait unique non repris ailleurs.", "correction": "Reprendre une phrase sourcée [2] au point 4 ou 12 si jugé utile."},
+    {"fichier": "LOT_002_Phase_B_V0_DX.9.html", "avant": "« Elle se distingue de la tuberculose ganglionnaire (DX.12) par l'absence de caséum, et du lymphome (DX.2) par l'histologie [1]. »", "apres": "Phrase absente ; l'idée survit via « granulomes non caséeux » (glossaire sarcoïdose), sans renvoi [1].", "correction": "Facultatif : réintroduire la distinction sourcée au point 4."},
+    {"fichier": "LOT_002_Phase_B_V0_DX.3.html", "avant": "« Adénopathie réactionnelle (DX.1) : le ganglion montre une hyperplasie sans granulome [3]. » ; « son diagnostic reste toujours un diagnostic d'exclusion »", "apres": "Absents (notions voisines) ; « exclusion d'une infection » et « granulomes peuvent masquer le lymphome » survivent.", "correction": "Aucune obligatoire."},
+    {"fichier": "LOT_002_Phase_B_V0_DX.5.html", "avant": "« Infection aiguë par le VIH (B23.0) … une sérologie ou une PCR VIH positive la distingue [8]. »", "apres": "Absent (notion voisine et code CIM) ; la fenêtre sérologie VIH (test 4e génération, renvoi DX.13) survit.", "correction": "Aucune obligatoire."},
+    {"fichier": "LOT_002_Phase_B_V0_DX.10.html", "avant": "Synonymes (pseudolymphome, DRESS) ; « l'hyperplasie gingivale de la phénytoïne ne signe pas l'hypersensibilité [3] »", "apres": "Paragraphe retiré (synonymes déclarés) ; pseudolymphome, clonalité et hyperplasie gingivale restent mentionnés ailleurs.", "correction": "Aucune obligatoire."}
+  ],
+  "controles_sans_ecart": {
+    "nombres_nouveaux": "aucun nombre nouveau dans les 11 fichiers",
+    "affirmations_nouvelles": "aucune ; seules des phrases de renvoi vers fenêtres (« la fenêtre … rassemble le tableau détaillé ») et des reformulations de phrases existantes (DX.5 ibuprofène 400 mg/2400 mg [12], DX.8 papule d'inoculation [10]) apparaissent",
+    "doses_contre_indications_AIPS": "DX.5 et DX.6 : baisse des occurrences (monographies dédoublonnées) ; chaque dose, ClCr, contre-indication et mention grossesse/allaitement vérifiée présente au moins une fois avec la même valeur",
+    "references": "aucune référence [S..] ni ancre sb-.. perdue ; aucun n° Swissmedic perdu",
+    "drapeaux_rouges": "nombre de 🚩 identique avant/après dans les 11 fichiers",
+    "liens_fenetres": "209 liens a.ouvre, chacun vers une section.fenetre existante ; aucune fenêtre orpheline ; aucun id dupliqué ; aucun href interne mort",
+    "suppressions_declarees": "codes CIM (R59, A15–B83, J01–J94, C77–C95), mnémotechniques G1–G16 et DX, notions voisines, terminologie IDSA : retirés comme déclaré"
+  }
+}
