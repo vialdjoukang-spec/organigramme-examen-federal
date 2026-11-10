@@ -41,7 +41,9 @@ def rendre(C, cat, ia_nom, sortie):
             f'<article class="c" data-e="{prop}" data-p="{p}"><header><h2>LOT_{lot:03d} <small>{html.escape(code)}</small></h2>'
             f'<p>{html.escape(nom.split("|")[0].strip())}</p>{jauge(p, True)}<p class="m">{n}/11 leçons · propriétaire {html.escape(prop)}{(" · contributions " + html.escape(", ".join(contrib))) if contrib else ""}</p></header>'
             f'<details><summary>Leçons</summary><div class="ls">{mini}</div></details></article>')
-    g = round(sum(tot) / 248)
+    if ia_nom in IAS:  # jauge d'une IA : ses seuls LOTs attribués
+        tot = [tot[lot - 1] for lot in lots_de(ia_nom)]
+    g = round(sum(tot) / len(tot))
     n90, n0 = sum(1 for p in tot if p >= 90), sum(1 for p in tot if p == 0)
     resume = ''.join(f'<div class="ia"><b>{i}</b>{jauge(round(sum(v) / len(v)) if v else 0)}<small>{len(v)} LOTs attribués</small></div>'
                      for i, v in parias.items())
@@ -75,7 +77,7 @@ details{{margin-top:6px}}summary{{cursor:pointer;font-size:.82rem;color:var(--do
 </style></head><body><main>
 <section class="top"><h1>Progression_PR — {html.escape(ia_nom)}</h1>
 <div class="k"><div><b>{g} %</b><small>progression globale</small></div><div><b>{n90}</b><small>LOTs ≥ 90 %</small></div>
-<div><b>{248 - n90 - n0}</b><small>LOTs en cours</small></div><div><b>{n0}</b><small>LOTs absents</small></div>
+<div><b>{len(tot) - n90 - n0}</b><small>LOTs en cours</small></div><div><b>{len(tot)}</b><small>LOTs attribués</small></div><div><b>{n0}</b><small>LOTs absents</small></div>
 <div><b>{len(L)}/2728</b><small>leçons trouvées</small></div><div><b>{C.get("branches_scannees", "?")}</b><small>branches scannées</small></div>
 <div><b>{maj}</b><small>mise à jour (Zurich)</small></div></div>{jauge(g, True)}
 <div class="ias">{resume}</div>
