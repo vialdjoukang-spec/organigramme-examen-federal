@@ -159,4 +159,6 @@ LOT082 DX9 : restriction ESUR mère enceinte ou allaitante insuffisante rénale 
 
 LOT082 PhaseA : corrections ciblées après premierP3, notamment branche neurologique urgente HUG, dates et contre-indications ;197386octets, secondelecture indépendante demandée.
 
+LOT082 DX1 : prescription Dafalgan explicitement adulte et précautions Condrosulf complétées ;154083octets, secondeP3 indépendante engagée.
+
 LOTs livrés : 0/23 ; leçons poussées : 31/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
