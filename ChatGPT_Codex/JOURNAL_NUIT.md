@@ -173,4 +173,6 @@ Conservation des branches : GitHub a delete_branch_on_merge=true ; codex/lot-081
 
 La branche de consolidation codex/consolidation-chatgpt-20261110, également supprimée automatiquement après PR516, a été rétablie au commitf8541e8294fa5e5cd5bc7123bc17331fec1ce02b par push ordinaire.
 
-LOTs livrés : 1/23 ; leçons poussées : 32/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 rédaction/audit ; LOT083–102 à produire.
+LOT082 DX10 : leçon complète, 186648 octets, contrôle original ORANGE B seulement ; première P3 indépendante engagée.
+
+LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 rédaction/audit ; LOT083–102 à produire.
