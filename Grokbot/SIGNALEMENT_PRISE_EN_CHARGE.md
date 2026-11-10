@@ -26,7 +26,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 064 | S4.3 | Dysurie, pyurie, hématurie | livré PR 557 |
 | 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | livré PR 558 |
 | 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | livré PR 559 |
-| 067 | S4.6 | Masse pelvienne | réservé |
+| 067 | S4.6 | Masse pelvienne | livré PR 560 |
 | 068 | S4.7 | Douleur pelvienne | réservé |
 | 069 | S4.8 | Demande de contraception, contraception d’urgence | réservé |
 | 070 | S4.9 | Douleur, gonflement ou masse du scrotum | réservé |
