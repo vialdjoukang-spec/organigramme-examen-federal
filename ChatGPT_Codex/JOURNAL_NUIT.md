@@ -92,4 +92,6 @@ Dépôt individuel : LOT_080_Phase_B_V0_DX.6.html, 108203 octets, SHA256 1a1dfac
 
 Dépôt individuel : LOT_080_Phase_B_V0_DX.10.html, 170055 octets, SHA256 c64ceb661b4c8b9083f582ac6e314585c5180f6c8d8477fcfdb2713a392ba1ab. Les audits médicaux sont consignés séparément ; le LOT n’est pas encore livré.
 
-LOTs livrés : 0/23 (080–102) ; leçons poussées : 11/253 nouvelles, 858 existantes consolidées ; blocages : DX5 et DX6 du LOT080 en correction et contrelecture avant P4 ; LOT081–102 à produire.
+LOT081 DX2 : dépôt individuel ; contrôle technique VERT, audit P3 indépendant à effectuer.
+
+LOTs livrés : 0/23 ; leçons poussées : 12/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 en production, LOT082–102 à produire.
