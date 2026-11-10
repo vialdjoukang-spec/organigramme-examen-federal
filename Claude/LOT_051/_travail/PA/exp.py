@@ -7,6 +7,20 @@ def inline(s, n):
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'\[\[(f\d+)\|(.+?)\]\]', lambda m: f'<button class="w" popovertarget="pa-p{n}-{m.group(1)}">{m.group(2)}</button>', s)
     return s
+def nest(L, n):
+    h = ''; cur = -1
+    for l in L:
+        d = (len(l) - len(l.lstrip())) // 2
+        txt = inline(l.strip()[2:].strip(), n)
+        if d > cur:
+            h += '<ul><li>' * (d - cur) if cur >= 0 else '<ul>' * (d + 1) + '<li>'
+            if cur >= 0: pass
+        elif d == cur:
+            h += '</li><li>'
+        else:
+            h += '</li></ul>' * (cur - d) + '</li><li>'
+        h += txt; cur = d
+    return h + '</li></ul>' * (cur + 1)
 def conv(n):
     src = open(f'{D}/src/p{n:02d}.txt', encoding='utf-8').read()
     out = []
@@ -21,7 +35,7 @@ def conv(n):
             paras = m.group(2).split('¶')
             out.append(f'<div id="pa-p{n}-{m.group(1)}" popover class="fenetre">' + ''.join(f'<div class="p">{inline(p.strip(), n)}</div>' for p in paras) + '</div>')
         elif L[0].startswith('* '):
-            out.append('<ul>' + ''.join(f'<li>{inline(l[2:].strip(), n)}</li>' for l in L) + '</ul>')
+            out.append(nest(L, n))
         elif L[0].startswith('|'):
             rows = [[c.strip() for c in l.strip().strip('|').split('|')] for l in L]
             t = '<div class="t" style="overflow-x:auto"><table><thead><tr>' + ''.join(f'<th>{inline(c, n)}</th>' for c in rows[0]) + '</tr></thead><tbody>'
