@@ -75,3 +75,7 @@ Images :
 - Sans source lue : IMC normal < 25 kg/m² (écrit en lettres), gestes d'examen du point 6, 9.c (enfant, adulte, femme enceinte, personne âgée : choix polysomnographie ou polygraphie), seuil ESS 10 (cité [17], résumé non relu), prévention (organisme et année suisses), classement du SAOS (cité [9], seuils IAH 5, 15, 30 relus dans le résumé).
 - Image : polysomnographie (File:Polysomnography.png, Eumetaxas, CC BY-SA 3.0) au point 9.d ; les étiquettes du tracé indiquent des apnées centrales (effort absent), lues comme telles malgré la description Commons « obstructive ». Point 6 : aucune image cherchée (cou, pharynx de Mallampati à chercher quand Wikimedia lèvera sa limite).
 - Taille 100–200 Ko atteinte sans les polices intégrées ; le plan du Rappel mémoire a été mis à plat.
+
+### DX.5, complément du 10.11.2026
+- Sources lues (PubMed) et ajoutées : Juraschek 2018 (hypotension orthostatique), Renier 2018 (signes de l'insuffisance cardiaque), Elder 2016, Hamada 2018 (règle OMS à quatre symptômes), Damlin 2023 et Kış 2026 (endocardite), Pillay 2022 (Xpert), Butty Dettwiler 2026 (dépistage dès 50 ans en Suisse), ESMO 2020 et 2021 (titres seuls, sans abstract).
+- Chiffres retirés faute de source : 45° (jugulaire), 5 secondes (godet), 1 à 3 minutes (orthostatisme), DFGe < 30 mL/min (point 9.c), 50 ans pour la fatigue d'installation récente. À sourcer : recommandations suisses (SSMI, SGAIM), KDIGO pour l'insuffisance rénale, ESC 2021 pour le NT-proBNP.
