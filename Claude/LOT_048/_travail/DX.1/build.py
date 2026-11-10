@@ -1,5 +1,5 @@
 import re,sys,os,glob
-AL={'L':'w2a1b3e','S':'w8e4199','U':'wdc4ab4','C':'wf2638c','R':'wf80782','E1':'w76902d','E2':'w35cc18','B':'w688bfe','T':'w1f4933','P':'w116b26','Q':'w73f485','M':'wa12200','N':'w3fc4ec','D':'w2aac93','A':'wd122d9','NX':'aips-55609','PA':'aips-59834','OM':'aips-56313','LA':'aips-57801','PR':'aips-55090','AG':'aips-51969'}
+AL={'L':'w2a1b3e','S':'w8e4199','U':'wdc4ab4','C':'wf2638c','R':'wf80782','E1':'w76902d','E2':'w35cc18','B':'w688bfe','T':'w1f4933','P':'w116b26','Q':'w73f485','M':'wa12200','N':'w3fc4ec','D':'w2aac93','A':'wd122d9','NX':'aips-55609','PA':'aips-59834','OM':'aips-56313','LA':'aips-57801','PR':'aips-55090','AG':'aips-51969','F':'w2df0cf','G':'w7e05da'}
 def sup(m):
     out=''
     for t in m.group(1).split('|'):
