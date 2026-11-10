@@ -1,0 +1,9 @@
+# HELP DX.6 — Cancer colorectal (lacunes consignées)
+
+- AIPS : capécitabine (Xeloda 54657, Zentiva 62835, Teva 62822), fluorouracile (Accord 66825), oxaliplatine (Accord 67140, Sandoz 61663), irinotécan (Accord 66766, Labatec 59284) trouvés dans le corpus. Ajoutés par numéro : Avastin 56922, Erbitux 56072, Vectibix 57872, Keytruda 66231, Braftovi 66795, Movicol 53869, Imodium 40363. Aucune molécule déclarée sans AIPS.
+- Acide folinique (folinate de calcium) : AIPS non recherché ni cité ; aucune dose écrite. Régimes FOLFOX/FOLFIRI/FOLFOXIRI et lignes ultérieures (régorafénib, trifluridine-tipiracil, fruquintinib) : classe seulement, sans dose.
+- ESMO côlon localisé 2020, rectum localisé 2025, côlon métastatique 2023 : textes intégraux inaccessibles (Annals of Oncology bloqué 403/Cloudflare, ESMO.org 404) ; seules les notices PubMed (sans résumé) sont citées. Le contenu ESMO provient de l'adaptation pan-asiatique ESMO Open 2023 (PMC10220270), de la revue des recommandations rectales (PMC12298783), des recommandations françaises 2024 (résumé) et de NICE NG151/NG12. À compléter par les textes ESMO si accessibles.
+- Durée de l'adjuvant : l'AIPS (Xeloda, oxaliplatine) dit 6 mois ; IDEA, recommandations françaises et NICE retiennent 3 mois (CAPOX, faible risque) ; divergence signalée comme hors AIPS dans les points 11 et 14.
+- Chiffre féminin d'incidence (2 100, Ligue 2018-2022) : l'extrait paquet colle une note de bas de page (« 2'1004 ») ; le chiffre n'est donc écrit que dans un tableau.
+- Signes cliniques du fécalome (empreinte au doigt, matité déclive, etc.) et alternatives au scanner (colographie, allergie à l'iode, DFGe) : non trouvés dans les extraits lus ; non rédigés.
+- Épidémiologie européenne (GLOBOCAN/ECIS) et dépistage européen (ECG 2022) : non lus ; l'épidémiologie repose sur la Suisse (Ligue 2025, État de Genève 2019) et sur des études suisses.
