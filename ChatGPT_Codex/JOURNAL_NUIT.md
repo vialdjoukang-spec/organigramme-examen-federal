@@ -175,4 +175,6 @@ La branche de consolidation codex/consolidation-chatgpt-20261110, également sup
 
 LOT082 DX10 : leçon complète, 186648 octets, contrôle original ORANGE B seulement ; première P3 indépendante engagée.
 
+LOT082 DX10 : trois corrections ciblées au point11 après première P3 ; 187012 octets, seconde P3 indépendante engagée.
+
 LOTs livrés : 1/23 ; leçons poussées : 33/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT082 DX10 première P3 indépendante ; LOT083–102 à produire.
