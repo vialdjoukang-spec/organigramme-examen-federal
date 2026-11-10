@@ -6,4 +6,4 @@ Référence unique désormais présente sur main : PROMPT_Casern/PROMPT_LOTS_Lo_
 
 La première P1 échouée est conservée dans audits/P1.audit.json. Sélectionv3 par sources_uro81, audit indépendant root FRANCHIE sur21passages vérifiés ; liste canonique gelée. Ordre contextuel, dix entités discriminantes, E1radiuscomplication/E2Charcotactif conditionnels. Paquets complémentaires acquis avant rédaction.
 
-La PR567 du LOT081 reste sous surveillance CI ; aucune fusion annoncée avant preuve. Tous les auteurs écrivent seulement dans ChatGPT_Codex/LOT_082/, root seul utilise Git.
+La PR567 du LOT081 a été fusionnée après CI verte au commit d49f8b7ba5696e8ffd561708d681c9b4c412db06 ; ses onze empreintes auditées sont vérifiées sur main. Tous les auteurs écrivent seulement dans ChatGPT_Codex/LOT_082/, root seul utilise Git.

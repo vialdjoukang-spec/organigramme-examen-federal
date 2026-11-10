@@ -1,3 +1,11 @@
+# LOT082 — limites documentaires et historique
+
+La P1 de reprise est franchie : voir audits/P1_REPRISE.audit.json et LISTE_DX_CANONIQUE.json. Les constats ci-dessous décrivent uniquement le premier paquet incomplet ; ils ne décrivent pas l’état de la liste gelée ni des cours produits.
+
+Les limites actuelles restent explicites dans les audits P3 et les HELP des leçons : absence de certaines statistiques nationales, absence de cible thérapeutique numérique universelle, différences de portée des recommandations. Aucun chiffre n’est ajouté pour combler une lacune.
+
+## Historique du premier paquet
+
 # LOT_082 — obstacles documentaires
 
 ## Porte P1
