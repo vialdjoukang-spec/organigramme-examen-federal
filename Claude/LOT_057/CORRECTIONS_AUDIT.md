@@ -1,0 +1,8 @@
+# Corrections de l'audit P1 (à appliquer par les rédacteurs)
+
+- [Grave] DX 8 Dieulafoy, justification et badge → Retirer 3,5 % comme fréquence de l'hématémèse (dénominateur : toutes hémorragies digestives) ; écrire « 1,12 % des hémorragies digestives hautes (29/2582, Salamanque 2012) » ; compléter la mortalité historique 23–79 % par la baisse à 8,6 % après hémostase endoscopique (wa759ef-3). (wa759ef-2 ; wa759ef-3 ; https://www.wjgnet.com/1007-9327/full/v18/i40/5734.htm)
+- [Moyen] Rangs 6 et 7 (ordre de fréquence) → Permuter : tumeur (cancer gastrique 4 + GIST 4 = 8/156 = 5,1 %) avant gastropathie érosive (7/156 = 4,5 %), comme la justification additionne déjà les deux tumeurs. Préciser « adénocarcinome et GIST » dans la justification. (wc642c1-18)
+- [Moyen] DX 1, 3, 4 : chiffres zurichois → Préciser que 24 % (ulcère), 10 % (œsophagite) et 6 % (Mallory-Weiss) portent sur 197 hémorragies digestives hautes et basses de sujets âgés, non sur les seules hématémèses. (wacdd63-3)
+- [Moyen] DX 9 gastropathie d'HTP, justification → Supprimer la mortalité 10–20 %, propre à l'hémorragie sur hypertension portale (surtout variqueuse) ; écrire que la cause est rare (« Other ») et saigne surtout de façon occulte. (wc642c1-19 ; w33f178-47)
+- [Léger] DX 1, « mortalité propre 7,3 % » → Écrire « mortalité globale des patients porteurs d'ulcère 7,3 % » (mortalité brute, non attribuable). (waf9f9b-59)
+- [Léger] Pseudo-hématémèse → Hors liste ; l'introduire au point 1 et au premier nœud de l'algorithme (épistaxis déglutie, hémoptysie) avec source suisse/européenne lue, sinon « À vérifier » : aucun passage du paquet ne la traite. (paquet PA (absence constatée))
