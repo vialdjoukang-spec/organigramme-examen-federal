@@ -16,7 +16,7 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 054 | S3.3 | Masse abdominale | livré PR 545 |
 | 055 | S3.4 | Modification du transit intestinal, incontinence anale | livré PR 548 |
 | 056 | S3.5 | Prurit anal, douleur anale, protrusion anale | livré PR 549 |
-| 057 | S3.6 | Hématémèse | réservé |
+| 057 | S3.6 | Hématémèse | livré PR 550 |
 | 058 | S3.7 | Constipation | livré PR 546 |
 | 059 | S3.8 | Diarrhée | livré PR 547 |
 | 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
