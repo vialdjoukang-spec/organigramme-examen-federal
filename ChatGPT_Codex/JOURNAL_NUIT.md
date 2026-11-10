@@ -1,6 +1,10 @@
 # Journal — ordre de Vial du 10 novembre 2026
 
-## Résultat de la mission
+## État actuel
+
+20 nouvelles leçons sont poussées : les 11 du LOT080 et 9 du LOT081. Aucun LOT n’a encore franchi P4. Le LOT080 est clos en REFUSE pour DX5 et DX6 après deux échecs P3 ; le LOT081 est en production et audit, avec P1 franchie. Les 858 leçons existantes consolidées sont sur main.
+
+## Historique de la première passe documentaire — état alors constaté
 
 La mission de contenu reste non accomplie : aucune des 253 leçons des LOTs 080–102 n’est produite. Les 23 tentatives documentaires ont un audit indépendant P1 `NON_FRANCHIE` et aucun score clinique attribué (`score_pct: null`). Leurs branches sont poussées.
 
@@ -14,7 +18,7 @@ Les preuves, candidats non classés, paquets, conditions de reprise et audits fi
 
 [PR 516 fusionnée après CI verte](https://github.com/vialdjoukang-spec/organigramme-examen-federal/pull/516), commit `78d3abd2bab2f5ef465bd9d508c384cbcc4febb6`. Retard sur main vérifié nul avant fusion. Les 858 SHA-256 ont aussi été revérifiés sur main après fusion. Cette consolidation ne compte pas comme rédaction des leçons absentes.
 
-## Branches de tentative
+## Branches de la première tentative — historique antérieur aux reprises
 
 | LOT | Branche et preuves | Verdict | Premier motif |
 |---|---|---|---|
@@ -108,4 +112,6 @@ LOT081 DX3 : dépôt individuel ; contrôle technique VERT, audit P3 indépendan
 
 LOT081 DX6 : dépôt individuel ; contrôle technique VERT, audit P3 indépendant à effectuer. DX3 franchit P3 à48/52 ; DX7 à46/52 nécessite correction ciblée après sa première contrelecture.
 
-LOTs livrés : 0/23 ; leçons poussées : 19/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 DX7 en correction, autres audits en cours ; LOT082–102 à produire.
+LOT081 DX8 : dépôt individuel ; contrôle technique VERT, audit P3 indépendant à effectuer. DX4 et DX5 franchissent leur première contrelecture ; harmonisation des deux badges E de DX4 préparée.
+
+LOTs livrés : 0/23 ; leçons poussées : 20/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 DX7 en correction, autres audits en cours ; LOT082–102 à produire.
