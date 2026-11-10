@@ -149,4 +149,6 @@ LOT082 DX1 : arthrose déformante de la main produite,151447octets, contrôleORA
 
 LOT082 DX9 : Charcot du pied diabétique produit,191679octets, contrôleORANGE B seulement ; P3 indépendant engagé. DX8 premierP3non avec correction pharmacologique pédiatrique demandée.
 
-LOTs livrés : 0/23 ; leçons poussées : 30/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
+LOT082 PhaseA : leçon générale produite,194464octets ; contrôleORANGE B seulement, audit indépendant demandé.
+
+LOTs livrés : 0/23 ; leçons poussées : 31/253 après poussée de ce commit, 858 existantes consolidées ; blocages : LOT080 DX5 et DX6 REFUSE P3 ; LOT081 PR567 CI/fusion en cours ; LOT082 production/audits en cours ; LOT083–102 à produire.
