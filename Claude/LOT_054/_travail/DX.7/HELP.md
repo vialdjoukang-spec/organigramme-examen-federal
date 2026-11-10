@@ -1,0 +1,7 @@
+# HELP DX.7 — Lymphome non hodgkinien (LOT_054, S3.3)
+- Molécules : toutes ont un AIPS lisible (rituximab MabThera 54378 / Truxima 66648, cyclophosphamide Endoxan 25441, doxorubicine Adriblastin 50357, vincristine Vincristin-Teva 48000, prednisone Stada 66994, polatuzumab Polivy 67165, rasburicase Fasturtec 55789, allopurinol Zentiva 56050). Aucune molécule déclarée sans AIPS.
+- Lacune AIPS : doses CHOP (cyclophosphamide, doxorubicine, prednisone) par m² du protocole : l'AIPS ne donne pas le schéma R-CHOP ; le cours renvoie au protocole de l'hématologue sans milligramme inventé.
+- Polivy : l'AIPS suisse n'autorise que R/R avec bendamustine et rituximab ; pola-R-CHP (POLARIX) signalé hors indication AIPS.
+- Sources non lisibles : texte intégral ESMO DLBCL (Ann Oncol 2015) et folliculaire (2021) inaccessibles (annalsofoncology.org 403, oup 403) : seules les notices PubMed (sans résumé) sont citées ; aucune conduite n'est attribuée à ESMO au-delà des métadonnées. Recommandation ESMO DLBCL plus récente non retrouvée.
+- Lacunes : épidémiologie suisse par âge du LNH ; seuil de masse volumineuse (Lugano texte intégral non obtenu) ; recommandations suisses (SAKK/SSHO) non retrouvées ; données Burkitt abdominal et rétropéritonéal limitées au HUG 2010 ; point 12 (prévention) : aucun dépistage organisé identifié.
+- Points non sourcés (jugement de rédaction) : technique de palpation (6), alternatives d'imagerie chez la femme enceinte (9.c), critères de sortie (11.D), aspects assurances (11.B.5) — à faire relire.
