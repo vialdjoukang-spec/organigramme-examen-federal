@@ -21,10 +21,10 @@ Grokbot (Leona/Bitunder) prend en charge sur ordre de Vial du 10.11.2026 08:52 l
 | 059 | S3.8 | Diarrhée | réservé |
 | 060 | S3.9 | Rectorragie, méléna ; sang frais, mucus ou pus dans les selles | réservé |
 | 061 | S3.10 | Nausées, vomissements | réservé |
-| 062 | S4.1 | Variations du développement sexuel | réservé |
+| 062 | S4.1 | Variations du développement sexuel | livré PR 553 |
 | 063 | S4.2 | Anurie, pollakiurie, oligurie, polyurie | réservé |
 | 064 | S4.3 | Dysurie, pyurie, hématurie | réservé |
-| 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | réservé |
+| 065 | S4.4 | Questions relatives à la conception, notamment infertilité et stérilisation | livré PR 558 |
 | 066 | S4.5 | Troubles menstruels, dysménorrhée, symptômes prémenstruels | réservé |
 | 067 | S4.6 | Masse pelvienne | réservé |
 | 068 | S4.7 | Douleur pelvienne | réservé |
