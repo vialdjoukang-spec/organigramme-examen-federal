@@ -83,3 +83,13 @@
 - Délais « 2 semaines puis 4 à 6 semaines » (11.C) et « 4 à 12 semaines » (11.A) : rattachés à l'AIPS Cipralex et à la WFSBP (résumé) sans relecture des chiffres exacts.
 - Images : Flush01.webp (flush à la niacine, CC BY-SA 4.0, JBCH) au point 6 ; 12_lead_generated_sinus_rhythm.webp (ECG généré par simulateur, domaine public) au point 9. Aucun cliché de modalité décisive propre au flush émotionnel n'existe ; l'ECG est celui du tracé de repos normal.
 - Le gabarit µ7 n'est qu'approché : la section Sources est devenue `<section id="dx3-sources">` ; les définitions de codes CIM-10 (R23.x) ont été retirées des fenêtres de l'arbre (elles restent dans le modèle data-modele).
+
+## DX.2 Rosacée — renforcement du 10.11.2026 (lacunes et réserves)
+
+- Lacune : le métronidazole topique n'a pas d'AIPS lue ici ; il apparaît seulement comme comparateur de l'étude citée dans l'AIPS de Soolantra (65561), sans dose, et aucune recommandation de traitement ne le propose.
+- Lacune : aucune source lue n'appuie le sevrage progressif d'un dermocorticoïde (points 4 et 5), l'hygiène des paupières, l'inutilité d'un arrêt de travail ni la non-garantie du laser esthétique par la LAMal (point 11) ; ces phrases restent d'origine et attendent une source suisse (Fedlex, LAMal et OPAS) et une recommandation dermatologique.
+- Lacune : la phrase de la fenêtre Demodex (« leur nombre augmente dans la rosacée papulopustuleuse ») n'a pas de source lue ; l'AIPS de Soolantra ne décrit que l'aggravation transitoire au début du traitement.
+- Lacune : les seuils de 5-HIAA et de métanéphrines, les valeurs normales en unités SI et l'interprétation chiffrée ne figurent pas dans les fiches CHUV lues (DLA_INV_01_00296 et DLA_INV_01_00301) ; ils renvoient aux leçons DX.9 et DX.10.
+- Lacune : la dose d'adrénaline cite l'AIPS de Jext (61315), qui vise l'auto-injecteur ; l'ampoule d'adrénaline n'a pas d'AIPS lue.
+- Image : une seule figure au point 6 (Rosacea 01.jpg, Wikimedia Commons, CC BY 2.0). Le point 9 n'a pas de cliché décisif, car le diagnostic est clinique.
+- Corrections de citations faites en place : des renvois à la méta-analyse de prévalence [1] et à l'AIPS de Soolantra [4] étaient collés à des phrases sur le 5-HIAA, les métanéphrines, la TSH, le DFGe et l'imagerie ; ils sont retirés ou remplacés par la source qui porte le fait ([9], [10], [3]). Les tests de grossesse sous Roaccutan citent désormais l'AIPS 45307 et non celui de Soolantra. Le mécanisme d'action de Soolantra est ramené à la formule de l'AIPS (« non connu »).
