@@ -15,3 +15,10 @@ Les lacunes ne figurent plus dans les cours (L1, LV7) ; elles sont consignées i
 - Seuil universel de prise de poids pathologique : aucune source consultée n'en fixe un (phrase retirée du point 1).
 - Point 1 ramené à la définition ; « notions voisines » supprimées, faits uniques déplacés (lipœdème → frontières G12 ; obésité sarcopénique → fenêtre DXA ; langage centré sur la personne → mesures non médicamenteuses).
 - Monographies Wegovy, Mounjaro, Saxenda, Xenical condensées en phrases verbales (citations « mot pour mot » reformulées sans changer nombres ni conditions) ; le détail complet reste dans DX.1.
+
+## DX.1 — Obésité commune multifactorielle
+- Lacunes retirées du cours : mortalité suisse attribuable à l'obésité ; seuil, technique détaillée et normes de certains signes (tableaux 7.x) ; mécanisme détaillé du passage de l'insulinorésistance au diabète ; sensibilité et spécificité de la DXA et de l'impédancemétrie ; règles propres à l'obésité pour l'arrêt de travail, l'assurance-invalidité et l'incapacité après chirurgie ; critères cliniques chiffrés de sortie après chirurgie ; part de DX.1 parmi les personnes obèses.
+- Point 1 : « notions voisines » et synonymes supprimés ; faits uniques déplacés (obésité sarcopénique → fenêtre DXA ; langage centré sur la personne → mesures non médicamenteuses ; terrain polygénique → point 3). Lipœdème (liposuccion OPAS « en évaluation ») : conservé en Phase A (frontières G12).
+- Dédoublonnage : efficacité de l'orlistat (gardée au pronostic), 7,2 mg de sémaglutide (gardé dans la fiche Wegovy), seuil de 3–5 % pour l'antihypertenseur (gardé aux objectifs), seuils MASLD (gardés aux objectifs), DXA et NT-proBNP de 2e intention (gardés dans leurs fenêtres propres), gain du sevrage tabagique (gardé dans l'histoire naturelle).
+- Réserve L1-2 : l'examen physique par région reste un tableau dans une fenêtre unique, et non une fenêtre par région, faute de budget (≤ 150 Ko, 149 949 o).
+- Image en attente : acanthosis nigricans (point 6) — Wikimedia 429.
