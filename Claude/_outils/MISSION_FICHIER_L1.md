@@ -64,8 +64,15 @@ Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en ar
   « hors AIPS » ; elle ne porte aucune ancre AIPS collée pour la forme (`controle3` l'accepte ainsi). Si l'AIPS porte la dose
   et qu'une recommandation diverge, la conduite enseignée suit l'AIPS et la divergence est écrite.
 - Une dose d'urgence ne se donne jamais sans l'âge auquel elle s'applique.
-- Utilise tous les outils disponibles pour trouver la source (corpus AIPS, refdata, recherche web, PubMed, sites des sociétés
-  suisses) avant de conclure qu'une dose manque. Molécule sans AIPS suisse lisible ET sans recommandation suisse ou
+- **Fouille au-delà des sources du harnais, en restant en Suisse d'abord** (ordre de Vial du 11.11.2026). Tu disposes de
+  connecteurs : charge-les par `ToolSearch` (mots-clés : pubmed, consensus, elicit, legal, web). PubMed (résumés et textes
+  intégraux PMC), Consensus et Elicit (recherche d'articles : ajoute « Switzerland », « Swiss », le nom de la société ou de
+  l'hôpital), Legal Data Hunter (droit suisse : LAMal, OPAS, ordonnances, pays `CH`), recherche et lecture web. Cibles
+  suisses : sociétés de discipline (SSMIG, SSC, SSED, SSN, SSP, SSGO, SSORL, SSO, SSI, Ligue pulmonaire, pédiatrie suisse…),
+  Swiss Medical Forum, Revue Médicale Suisse, Praxis, Swiss Medical Weekly, guides des HUG, du CHUV, de l'Inselspital, de
+  l'USZ et de l'USB, OFSP, OFS, Obsan, Swissmedic, smarter medicine. Une source n'entre dans le cours que lue pendant ta
+  mission, datée, et ajoutée à la bibliographie ; un résumé ne porte que ce qu'il dit.
+- Épuise ces outils avant de conclure qu'une dose ou un chiffre suisse manque. Molécule sans AIPS suisse lisible ET sans recommandation suisse ou
   européenne lue : garde la conduite, retire le milligramme, note-le dans `HELP.md`.
 - Aucune formule de lacune ni de fabrication dans le cours (« à vérifier », « non lu », « lu le… ») : la lacune va dans `HELP.md`.
 - Porte mécanique : `python3 Claude/_outils/verif_aips.py <fichier>` sans défaut bloquant ; relis chaque alerte « dose absente ».

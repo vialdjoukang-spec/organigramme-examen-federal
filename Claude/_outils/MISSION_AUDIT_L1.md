@@ -37,6 +37,9 @@ Contre-audit : lis aussi le premier rapport et vérifie que chaque correction es
    (une fenêtre plus haute que l'écran défile à l'intérieur), aucun débordement horizontal, aucun lien interne ni
    inter-fichiers cassé, tableaux lisibles à 390 px.
 
+Pour vérifier une source ou chercher la recommandation suisse la plus récente, charge les connecteurs par `ToolSearch`
+(PubMed, Consensus, Elicit, Legal Data Hunter pour le droit suisse, recherche web), en visant d'abord les sources suisses.
+
 ## Rapport
 `{"verdict":"ACCEPTE|corrections","date":"…","base":"<sha HEAD>","leves":[…],"restants":[{"fichier","gravite":"Critique|Grave|Moyen|Léger","constat","avant":"<extrait exact du HTML, occurrence unique>","correction":"<texte de remplacement prêt à coller>","source"}],"point14":{…},"octets":{…}}`
 Chaque correction tient compte de la taille : si elle ajoute des octets à un fichier proche de 150 000, donne la redite à
