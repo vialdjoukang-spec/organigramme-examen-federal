@@ -1,0 +1,42 @@
+{
+  "lot": "LOT_004",
+  "date": "2026-11-10",
+  "reference": "origin/main (avant migration) contre claude/l1-lot-004 (après)",
+  "methode": "Texte sans balises ; diff des nombres avec contexte de 70 caractères ; diff des phrases par trigrammes (seuil 0,75) ; contrôle à la main des écarts ; contrôle des liens a.ouvre, des ID, des appels de source sup.r, des 🚩 et des numéros Swissmedic.",
+  "verdict": "corrections",
+  "critiques": [
+    {
+      "fichier": "LOT_004_Phase_B_V0_DX.1.html",
+      "avant": "Trouble dysthymique : « La dysthymie est une humeur basse chronique depuis au moins 2 ans, d'intensité moindre (CIM-11, 6A72) » [12] ; repris dans les notions voisines.",
+      "apres": "Absent : « dysthymi » 0 occurrence, seuil de 2 ans perdu. Fait unique et sourcé supprimé avec l'arbre CIM et les notions voisines.",
+      "correction": "Réinsérer au point 8 (diagnostic différentiel) ou dans une fenêtre : « La dysthymie est une humeur basse chronique depuis au moins 2 ans, d'intensité moindre (CIM-11, 6A72)<sup>12</sup>. »"
+    },
+    {
+      "fichier": "LOT_004_Phase_B_V0_DX.4.html",
+      "avant": "Tableau d'interprétation : « Diabète si confirmé — Répéter le test » ; point 8 : « Un seul test anormal suffit si une hyperglycémie symptomatique existe [20]. »",
+      "apres": "Nouvelle phrase de fenêtre f-dx4-diag : « un résultat anormal se confirme toujours par un second test. » Affirmation absolue, nouvelle, sans source, contraire au point 8 et à la source 20.",
+      "correction": "Écrire : « Un résultat anormal se confirme par un second test, sauf hyperglycémie symptomatique ou crise<sup>20</sup>. »"
+    }
+  ],
+  "mineurs": [
+    {"fichier": "LOT_004_Phase_A_V0.html", "avant": "R53 regroupe l'asthénie, la léthargie et la lassitude (définitions en infobulle).", "apres": "Inclusions de R53 absentes ; exclusions F48.0, G93.3, épuisement et sénilité conservées.", "correction": "Facultatif : ajouter « R53 inclut asthénie, léthargie et lassitude<sup>1</sup> » au point 1."},
+    {"fichier": "LOT_004_Phase_A_V0.html", "avant": "Notions voisines fatigue/somnolence/faiblesse/dyspnée, sans source.", "apres": "Phrase nouvelle : « Une somnolence, un déficit de force mesurable ou un essoufflement rendent la plainte atypique et réorientent la démarche. » Sens conservé, sans appel de source.", "correction": "Ajouter l'appel de source PROFILES [1] ou Stadje [2]."},
+    {"fichier": "LOT_004_Phase_A_V0.html", "avant": "Deux entrées bibliographiques id=\"src-24\" et id=\"src-25\" (Euthyrox et Epworth sous [S24]).", "apres": "Doublons d'ID et de numéros inchangés (préexistant, non créé par la migration).", "correction": "Renuméroter la seconde série (S26, S27) et mettre à jour ses appels."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.4.html", "avant": "Arbre : « Diabète de type 1 : destruction auto-immune des cellules bêta [23] ; type 2 : perte progressive de sécrétion d'insuline [23] ».", "apres": "Faits conservés au tableau de physiopathologie, sans l'appel [23] à cet endroit.", "correction": "Ajouter <sup>23</sup> à la ligne « Amorce » du tableau de physiopathologie."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.6.html", "avant": "« Elle se distingue ... de l'hémodilution de la grossesse. Elle exclut la polyglobulie. »", "apres": "Supprimé (notion voisine, sans source) ; seuils de grossesse 110,3 et 105,9 g/L conservés.", "correction": "Aucune obligatoire."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.7.html", "avant": "Sous-codes américains G93.31, G93.32, G93.39 (CDC, NLM) cités [17], [18].", "apres": "Sous-codes retirés avec l'arbre ; les références [17] et [18] restent en bibliographie sans aucun appel.", "correction": "Retirer [18] (source américaine devenue orpheline) ou la citer ; vérifier [17]."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.8.html", "avant": "Codes CIM-10 F40.0–F40.2, F41.0–F41.2 du sujet.", "apres": "Aucun code CIM du sujet ne subsiste (retrait imposé par L1-3.2).", "correction": "Facultatif : citer F41.0/F41.1 une fois au point 1."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.9.html", "avant": "Hypothyroïdie CIM-10 E03 ; CIM-11 5A00 ; Hashimoto en E06 ; goitre euthyroïdien exclu (TSH normale).", "apres": "Codes et phrase d'exclusion retirés avec l'arbre.", "correction": "Facultatif : citer E03 / 5A00 une fois au point 1."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.10.html", "avant": "Code CIM-10 G93.3 du sujet ; « Il exclut la fatigue sans cause nommée (R53). »", "apres": "G93.3 et R53 absents ; équivalent CIM-11 8E49 [15] conservé.", "correction": "Facultatif : citer G93.3 au point 1."},
+    {"fichier": "LOT_004_Phase_B_V0_DX.10.html", "avant": "Fenêtre bilan : « Bilan normal — Compatible avec une fatigue post-infectieuse [3]. »", "apres": "Page : « un bilan de base, normal, oriente vers la fatigue post-infectieuse » (léger renforcement).", "correction": "Écrire « reste compatible avec » au lieu de « oriente vers »."},
+    {"fichier": "tous", "avant": "id=\"__tabs\" présent deux fois (bloc d'aide final).", "apres": "Doublon préexistant, inchangé.", "correction": "Renommer le second __tabs dans le gabarit."}
+  ],
+  "controles_conformes": {
+    "nombres": "Hors arbre CIM, sommaire numéroté et lignes répétées, aucun chiffre ni seuil perdu. DX.5 : 0,25 mg, 30 min, 500 nmol/L, 52,2→84,6 %, 55,5→29,8 %, 0,75–0,97 conservés. DX.2 : 16,5 % et 47/571 (8,2 %) conservés.",
+    "reformulations": "« naît » → « résulte » (DX.2) et « reflète » → « indique » (DX.6, ferritine) conservent le sens.",
+    "drapeaux_rouges": "Nombre de 🚩 identique dans les 11 fichiers.",
+    "swissmedic": "Ensembles de numéros Swissmedic identiques dans les 11 fichiers.",
+    "liens": "Liens a.ouvre : 0 lien mort, 0 fenêtre orpheline, ID de fenêtres uniques.",
+    "sources": "Aucune référence nouvelle ; seules [17] et [18] de DX.7 perdent leurs appels."
+  }
+}

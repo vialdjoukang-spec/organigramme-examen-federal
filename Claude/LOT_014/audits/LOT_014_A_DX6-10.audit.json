@@ -1,0 +1,83 @@
+{
+  "lot": "LOT_014",
+  "perimetre": "Phase A (points 2,3,4,8,9,11,12 extraits par controle_lot.py, liste DX, tableau comparatif, E1-E10) et DX.6 a DX.10",
+  "date": "2026-11-11",
+  "auditeur": "Claude Opus 5.5 (audit medical qualitatif ; aucun texte audite redige par l'auditeur)",
+  "methode": "Rapport mecanique controle_lot.py lu sans le refaire ; 60 AIPS francaises du corpus AipsDownload_20261008.xml telechargees (files.refdata.ch) et lues ; chaque URL AIPS des sources rapprochee du numero d'autorisation de l'index du corpus ; chaque dose des fiches confrontee au texte AIPS ; Nashef 2012 (resume PubMed), AECVP 2017 (texte complet Europe PMC) et Asatryan 2017 (texte complet) relus ; diff texte origin/main contre HEAD pour les faits retires ; Playwright 1280 et 390 px.",
+  "verdict": "REFUSE",
+  "question_finale": "non : deux doses de DX.8 restent rattachees a la mauvaise AIPS malgre la correction annoncee ; le controle mecanique garde des critiques (titres DX.6 et DX.9 differents de la liste gelee, ressources externes) ; les six fichiers debordent a 390 px.",
+  "scores_14_points": {
+    "Phase_A": {"score": "27/28 = 96,4 %", "a_1": ["Q4 Demarche : conduite E2 incoherente (voir mineurs)"]},
+    "DX.6": {"score": "27/28 = 96,4 %", "a_1": ["Q11 Prise en charge : mise en garde AIPS du valproate chez l'homme absente"]},
+    "DX.7": {"score": "26/28 = 92,9 %", "a_1": ["Q1 Definition : seuils BTS de DEP (critere) au point 1", "Q11 Prise en charge : dose de charge AIPS de l'aminophylline omise ; Atrovent mal cite"]},
+    "DX.8": {"score": "25/28 = 89,3 %", "a_0": ["Q11 Prise en charge : doses d'amiodarone et de noradrenaline rattachees a la mauvaise AIPS"], "a_1": ["Q1 Definition : 2e paragraphe medico-legal hors definition"]},
+    "DX.9": {"score": "27/28 = 96,4 %", "a_1": ["Q1 Definition : criteres diagnostiques (QTc >= 480 ms, type 1 spontane) et SADS au point 1"]},
+    "DX.10": {"score": "27/28 = 96,4 %", "a_1": ["Q11 Prise en charge : aucune consigne de redaction de l'attestation ou du certificat de deces"]},
+    "regle": "Score du LOT : refuse tant qu'une critique subsiste (§12.2), meme si 5 fichiers sur 6 depassent 90 %."
+  },
+  "critiques": [
+    {
+      "fichier": "LOT_014_Phase_B_V0_DX.8.html",
+      "constat": "Fenetre f-dx8-p11-urg, ligne « TV refractaire, FEVG alteree » (l. 526) : « charge 5 mg/kg dans 250 ml de glucose 5 % en 20 minutes a 2 heures, renouvelable 2 a 3 fois par 24 heures ; entretien 10 a 20 mg/kg/24 h (Cordarone®, 41060) [S45][S31] ». [S45] est l'AIPS de Rapibloc 68611 et d'Esmolol OrPha 57413, pas celle de Cordarone. Les doses sont exactes (AIPS 41060, Posologie), mais le renvoi est faux, alors que HELP.md annonce l'amiodarone corrigee.",
+      "correction": "Remplacer [S45][S31] par [S15][S31] dans cette phrase.",
+      "source": "AIPS Cordarone solution injectable 41060 (mars 2025), Posologie : « Traitement de charge: en moyenne 5 mg/kg dans 250 ml de solution de glucose 5% [...] renouvelables 2 a 3 fois par 24 heures » ; index du corpus : URL 3a76577e… = 68611 Rapibloc."
+    },
+    {
+      "fichier": "LOT_014_Phase_B_V0_DX.8.html",
+      "constat": "Fenetre f-dx8-p11-urg, ligne H0–H1 (l. 515) : « l'AIPS fixe une dose initiale de 2 a 4 µg/min, augmentee progressivement [S19][S28]. Si la pression systolique ne reste pas > 90 mm Hg a 15 µg/min [...] (Noradrenalin Sintetica, 60955) [S19][S28] ». [S19] est l'AIPS de Dobutrex 45687. Doses exactes, renvoi faux (deux fois).",
+      "correction": "Remplacer [S19][S28] par [S20][S28] dans les deux phrases sur la noradrenaline.",
+      "source": "AIPS Noradrenalin Sintetica 60955 (octobre 2020) : « La posologie initiale doit etre de 2 a 4 μg/mn [...] > 90 mmHg avec une posologie de 15 μg/mn »."
+    },
+    {
+      "fichier": "LOT_014_Phase_A_V0.html ; LOT_014_Phase_B_V0_DX.6.html ; LOT_014_Phase_B_V0_DX.9.html",
+      "constat": "Rapport controle_lot.py (non refait) : titres « DX.6 — Mort subite inattendue en epilepsie (SUDEP) » et « DX.9 — Canalopathie hereditaire (syndrome du QT long, ...) » differents de la liste gelee (CRITIQUE A↔B). Le meme controle signale « script, image ou feuille de style externe present » dans les 6 fichiers (../_polices/forme.css et forme.js).",
+      "correction": "Aligner le h1 et la ligne du tableau DX de la Phase A sur LISTE_DX_CANONIQUE.md (parenthese deplacee en sous-titre) ; incorporer ou faire admettre par le harnais les deux ressources ../_polices.",
+      "source": "python3 harnais/controle_lot.py verifier --json Claude/LOT_014 (11.11.2026) ; LISTE_DX_CANONIQUE.md (SHA-256 3d2ef354…)."
+    }
+  ],
+  "graves": [
+    {
+      "fichier": "LOT_014_Phase_B_V0_DX.7.html",
+      "constat": "Fenetre f-dx7-p11-autres, ligne Aminophylline (l. 490) : « L'AIPS regle la dose sur la theophyllinemie (8 a 20 µg/mL) [...] et limite le debit i.v. a 20 mg/min ». L'AIPS donne pourtant un schema chiffre que le cours omet (texte adouci).",
+      "correction": "Ajouter : charge 5–6 mg/kg i.v. en 20–30 min sans theophylline anterieure, 3,0–3,6 mg/kg si theophylline anterieure ; entretien horaire selon l'age, le tabac et les comorbidites (tableau AIPS) ; maintenir l'avis GINA de non-emploi.",
+      "source": "AIPS Aminophyllin Amino 56507 (mai 2009), Posologie recommandee : « Sans traitement anterieur par theophylline 5–6 mg dans les 20–30 min. i.v. »."
+    },
+    {
+      "fichier": "6 fichiers du perimetre",
+      "constat": "Mobile 390 px : scrollWidth = 1285 (A), 1520 (DX.6), 1285 (DX.7), 787 (DX.8), 755 (DX.9), 615 (DX.10) ; a 1280 px : 1718 (A), 1899 (DX.6), 1718 (DX.7). Cause mesuree : les URL longues de la liste des sources (section#sources / ol.s li) ne se coupent pas.",
+      "correction": "Ajouter « ol.s li{overflow-wrap:anywhere;word-break:break-word} » (ou equivalent) puis remesurer : scrollWidth <= 390.",
+      "source": "Playwright Chromium, viewport 390x844 et 1280x844, 11.11.2026."
+    }
+  ],
+  "mineurs": [
+    {"classe": "Moyen", "fichier": "LOT_014_Phase_B_V0_DX.6.html", "constat": "Fiche valproate (Orfiril, Depakine) : la mise en garde AIPS chez l'homme apte a procreer (risque de troubles neurodeveloppementaux, information reguliere) manque.", "correction": "Ajouter la phrase AIPS dans la ligne Grossesse/precautions.", "source": "AIPS Orfiril 54331, encadre « Patients de sexe masculin aptes a procreer »."},
+    {"classe": "Moyen", "fichier": "LOT_014_Phase_B_V0_DX.9.html", "constat": "Point 1 : « Le QT long exige un intervalle QT corrige (QTc) >= 480 ms, et le Brugada un aspect de type 1 spontane » et la definition du SADS : criteres diagnostiques hors du point 8.", "correction": "Garder au point 1 la definition (canalopathie, maladie electrique primaire) ; deplacer seuils et SADS au point 8.", "source": "Consigne L1 : point 1 = Definition seule."},
+    {"classe": "Moyen", "fichier": "LOT_014_Phase_A_V0.html", "constat": "Conduite E2 (l. 177) : « si une dyspnee brutale a precede l'arret ou si l'ETCO2 reste < 1,7 kPa, il cherche une dissection [...] Puis il thrombolyse » : la logique reste ambigue.", "correction": "Ecrire : il suspecte une EP, exclut a la POCUS une tamponnade ou une dissection, puis thrombolyse et poursuit la RCP 60 a 90 min.", "source": "ERC 2025 Special Circumstances (S12) ; AIPS Actilyse 48313."},
+    {"classe": "Moyen", "fichier": "LOT_014_Phase_B_V0_DX.10.html", "constat": "Aucune mention de l'attestation ou du certificat de deces (case de la maniere de la mort, cause « SMSN » seulement apres enquete), alors que DX.6, DX.7 et la Phase A la traitent.", "correction": "Ajouter une ligne au point 11 : remplir l'attestation avec maniere « indeterminee » et cause en attente, puis l'annonce (guide DGS Vaud 2024, IRM-UZH 2026).", "source": "Guide de la nouvelle attestation de deces, DGS Vaud 2024 ; Merkblatt IRM-UZH MB02-603 (19.06.2026)."},
+    {"classe": "Moyen", "fichier": "LOT_014_Phase_B_V0_DX.8.html", "constat": "« L'ESC 2025 recommande l'autopsie complete de toute MSC avant 50 ans (classe I, niveau B) » : recommandation non retrouvee dans ce que j'ai lu ; elle correspond a l'ESC 2022 (arythmies ventriculaires). L'auditeur n'a pas ouvert le tableau des recommandations de l'ESC 2025.", "correction": "Verifier la recommandation dans l'ESC 2025 ; sinon attribuer a l'ESC 2022 [S33].", "source": "Non verifie (texte ESC 2025 non lu par l'auditeur)."},
+    {"classe": "Leger", "fichier": "LOT_014_Phase_B_V0_DX.7.html", "constat": "Fiche f-dx7-p11-ipra : « dans la BPCO severe, la dose unitaire vaut 250 a 500 µg » ; l'AIPS dit « dans les obstructions severes ».", "correction": "Remplacer « BPCO severe » par « obstructions severes ».", "source": "AIPS Atrovent 52584, Posologie."},
+    {"classe": "Leger", "fichier": "LOT_014_Phase_B_V0_DX.7.html ; LOT_014_Phase_B_V0_DX.8.html", "constat": "Point 1 de DX.7 : seuils BTS du DEP (33–50 %, < 33 %) ; point 1 de DX.8 : 2e paragraphe medico-legal. Les deux sortent de la definition.", "correction": "Deplacer les seuils au point 8 et le paragraphe medico-legal au point 4 ou 9.", "source": "Consigne L1."},
+    {"classe": "Leger", "fichier": "DX.7, DX.8, DX.9, DX.10", "constat": "Abreviations definies apres leur premier emploi : BACA, FR, FC, CSI (DX.7) ; EHRA, ICI, MP (DX.8) ; DAI (definie au 3. apres usage au 10.), LAGH et SGK (seulement dans les sources) (DX.9) ; AWMF, SUDI, APEA, SRC (DX.10). MCAD n'est jamais definie (DX.10, point 12).", "correction": "Definir chaque sigle a sa premiere occurrence ; MCAD = deficit en acyl-CoA deshydrogenase des acides gras a chaine moyenne.", "source": "Releve textuel de l'auditeur."},
+    {"classe": "Leger", "fichier": "LOT_014_Phase_B_V0_DX.9.html", "constat": "« Ces proteines provoquent des troubles du rythme, le plus souvent par mutation genetique » : la cause (mutation) et l'effet sont inverses.", "correction": "« Une mutation genetique altere le plus souvent ces proteines, qui provoquent alors des troubles du rythme. »", "source": "HUG (S9)."},
+    {"classe": "Leger", "fichier": "LOT_014_Phase_B_V0_DX.9.html", "constat": "« À verifier (AIPS) » sur nadolol, mexiletine, quinidine, cilostazol et ajmaline : aucune de ces molecules n'apparait dans l'index du corpus du 08.10.2026 (recherche par nom de specialite, de : Corgard, Namuscla, Chinidin, Pletal, Gilurytmal absents). Pas de critique, mais la formule devrait dire « absente du corpus AIPS ».", "correction": "Remplacer par « absente du corpus AIPS du 08.10.2026 ; aucune dose ».", "source": "Index AipsDownload_20261008.xml."}
+  ],
+  "verifications_conformes": [
+    "AIPS : les 60 URL des sources de A, DX.6–DX.10 pointent vers le numero d'autorisation annonce (index du corpus).",
+    "DX.7 : doses verifiees conformes a l'AIPS : Ventolin 0,25–0,5 mL et parenteral 500 µg/250 µg/3–20 µg/min ; calcul 5 µg/min = 30 mL/h refait ; Prednisone Streuli 100–200 mg/j ; Solu-Medrol 250 mg >= 5 min ; Solu-Cortef 100 mg >= 30 s ; Spiricort 25/50/75 % ; Betnesol ; Adrenalin Sintetica 0,3–0,5 mg s.c. et 500 µg ; Aguettant 1 mg et 2–2,5 mg ; MgSO4 4,05 mmol/g ; Ketalar 0,7–2 mg/kg ; ventolin CI beta-bloquants.",
+    "DX.6 : Buccolam, Rivotril (0,62 mg/kg/j = limite propylene glycol), Diazepam Desitin, Valium 0,15–0,25 mg/kg, Phenhydan 25–50 mg/min et 17 mg/kg, Orfiril, Keppra conformes ; definitions de Nashef 2012 (1 h, 30 min, eau sans submersion = possible, quasi-SUDEP > 1 h) conformes.",
+    "DX.8 : Cordarone (300/150 mg, charge et entretien, CI i.v. directe), Rapidocain, Dobutrex (calcul 4,2 mL/h refait), Noradrenalin : valeurs exactes ; 28/349 = 8,0 % et Asatryan 2017 verifies.",
+    "DX.9 : Tambocor (2 mg/kg >= 10 min, max 150 mg ; 600 mg/24 h ; 2 x 200 mg pour arythmies ventriculaires), Beloc i.v., Inderal, Isuprel (calcul 0,14–6,9 µg/min, 2–104 mL/h refait), MgSO4 1–2 g/h conformes.",
+    "DX.10 : Adrenaline Bichsel 0,01 mg/kg (reanimation), Aguettant 0,1 mg/mL exclu sous 5 kg, Dostinex 4 x 0,25 mg, Parlodel conformes ; 2/78 256 = 0,26/10 000 refait.",
+    "Phase A : incidences AECVP 2017 (0,01/1000 avant 35 ans ; 1/1000 a 35–40 ans) et Asatryan (16/349 EP et dissection, 23/349 coeur normal = 6,6 %) verifiees.",
+    "Faits retires (diff origin/main) : EP et dissection 16/349 retires de la Phase A mais conserves dans DX.3 et DX.4 ; dose d'adrenaline s.c. retiree de la Phase A mais conservee dans DX.7 ; mention « depemokimab absent de l'AIPS » retiree de DX.7 (lacune). Aucun fait source unique et utile perdu dans le perimetre.",
+    "Aucune source uniquement americaine en appui d'une decision : sources suisses, ESC, ERC, ILAE, GINA, BTS/SIGN, NICE, AWMF, HAS, RCPath."
+  ],
+  "design": {
+    "outil": "Playwright Chromium 1280x844 et 390x844, 11.11.2026",
+    "fenetres": "A 50, DX.6 27, DX.7 40, DX.8 33, DX.9 41, DX.10 42 fenetres ; chacune ouverte par son ancre : 0 lien casse, 0 fenetre orpheline, 0 fenetre hors centre ou hors ecran a 1280 et 390 px.",
+    "fiches_medicament": "Ouvrables (role=dialog, ancres valides) dans les 5 DX.",
+    "abreviations": "Pas d'element abbr ; definitions en clair, souvent apres le premier emploi ; MCAD jamais definie.",
+    "mobile_390": "ECHEC : scrollWidth 615 a 1520 px selon le fichier (URL des sources non coupees).",
+    "statut": "non conforme"
+  }
+}

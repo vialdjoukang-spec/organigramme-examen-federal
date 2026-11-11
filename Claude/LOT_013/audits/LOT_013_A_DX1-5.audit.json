@@ -1,0 +1,117 @@
+{
+ "lot": "LOT_013",
+ "perimetre": "Phase A (points 1-4, 8, 9, 11, 12, liste DX, tableau comparatif, algorithme) et DX.1 à DX.5 (points 1-4, 8, 9, 11, 12 ; fiches médicament ; point 14 de DX.2)",
+ "date": "2026-11-11",
+ "versions_auditees": {
+  "LOT_013_Phase_A_V0.html": "149635 o, sha256 11da8b60049f87a1…",
+  "LOT_013_Phase_B_V0_DX.1.html": "149638 o, 0a0f68c70985dcf5…",
+  "LOT_013_Phase_B_V0_DX.2.html": "149950 o, ab6b06cccd0c08f2…",
+  "LOT_013_Phase_B_V0_DX.3.html": "148617 o, 96d8e26551b09995…",
+  "LOT_013_Phase_B_V0_DX.4.html": "149143 o, 47b9f9da4ca928b0…",
+  "LOT_013_Phase_B_V0_DX.5.html": "149314 o, e2b113db14770ff5…"
+ },
+ "verdict": "corrections",
+ "critiques": [
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.2.html",
+   "classe": "Grave (dose attribuée à la mauvaise AIPS)",
+   "constat": "Point 14 : « Faible dose : bolus 400 mg, puis 4 mg/min pendant 120 min S26 » cite Beriplex (S26) pour la dose d'andexanet ; « 5 mg (un demi-comprimé), 4 semaines au plus S28 AIPS Stilnox » cite Ondexxya (S28) pour la dose de zolpidem ; « Non recommandé … [S28] » OK mais la fiche « non recommandé pour l'edoxaban ni l'énoxaparine [S33] » cite la liste de numéros S33. Doses exactes, renvois faux.",
+   "correction": "Remplacer S26 par S28 (Ondexxya 67759), S28 par S30 (Stilnox 49106) et S33 par S28 dans ces trois cellules.",
+   "source": "AIPS Ondexxya 67759 (« 400 mg à un débit cible de 30 mg/min / 4 mg/min pendant 120 minutes » ; « n'est pas recommandée pour la réversion de l'edoxaban ou de l'énoxaparine ») ; AIPS Stilnox 49106 (« un-demi comprimé (soit 5 mg) » ; « ne devrait pas dépasser 4 semaines »), corpus AipsDownload_20261008"
+  },
+  {
+   "fichier": "LOT_013_Phase_A_V0.html",
+   "classe": "Grave (chiffre et rang)",
+   "constat": "Point 14, critère d'ordre et tableau du point 2 : « DX.1 et DX.2 (1 774 contre environ 1 700, écart de 4,2 %) … quasi ex aequo ». La donnée OFS la plus récente, citée par DX.2 (S34, Eurostat hlth_cd_aro, W00–W19), compte 2 247 décès par chute en 2024 : la chute dépasse le suicide assisté de 26,7 %.",
+   "correction": "Remplacer « ≈ 1 700 (BPA) » par « 2 247 décès codés W00–W19 en 2024 (OFS via Eurostat), ≈ 1 700 accidents non professionnels (BPA) » ; corriger la justification d'ordre (la liste reste gelée : écrire que le rang DX.1/DX.2 suit le gel P1, pas la fréquence OFS).",
+   "source": "DX.2 [S34] Eurostat hlth_cd_aro CH 2024 ; Phase A [S10][S11]"
+  },
+  {
+   "fichier": "LOT_013_Phase_A_V0.html ; LOT_013_Phase_B_V0_DX.1.html ; LOT_013_Phase_B_V0_DX.5.html",
+   "classe": "Grave (source suisse la plus récente absente)",
+   "constat": "Points 1 et 8 : la manière de la mort repose sur SGRM 2009, IRM-UZH 2026 et le guide vaudois 2021. Le formulaire national « Attestation médicale de décès », version janvier 2026 (SSML, CDS, CCDJP), utilisé par DX.2 et DX.3, n'est ni cité ni exploité : définitions officielles des trois manières, case distincte « assistance au suicide », « Mort indéterminée (mort subite ou inattendue / une mort non naturelle ne peut pas être exclue) », case « annoncé à la police ou au MP », renvoi à l'OEC art. 89.",
+   "correction": "Citer ce formulaire au point 1 (définitions mot pour mot) et au point 8 (cases à cocher) de la Phase A ; au point 8 de DX.1 (case « assistance au suicide ») et de DX.5.",
+   "source": "Attestation médicale de décès, version janvier 2026, canton de Neuchâtel, https://www.ne.ch/sites/default/files/2026-01/Attestation_medicale_deces_nov2025.pdf (lu le 11.11.2026)"
+  },
+  {
+   "fichier": "6 fichiers (Phase A, DX.1–DX.5)",
+   "classe": "Grave (design mobile)",
+   "constat": "À 390 px, la page défile horizontalement : scrollWidth 1 287 px pour 390 px de viewport (Playwright, Chromium). Cause isolée : les URL insécables de section#sources > ol.s.",
+   "correction": "Ajouter au CSS interne : #sources li{overflow-wrap:anywhere;word-break:break-word}.",
+   "source": "Contrôle Playwright du 11.11.2026"
+  }
+ ],
+ "mineurs": [
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.2.html",
+   "classe": "Moyen",
+   "constat": "Fenêtre « chuteur trouvé vivant » : « Un trouble de la coagulation ou une chute de plus de 1 m ou de 5 marches l'imposent aussi » laisse croire que ces facteurs seuls imposent le CT dans les 8 h.",
+   "correction": "Écrire : « chez la personne qui a perdu connaissance ou présente une amnésie, l'âge ≥ 65 ans, un trouble de la coagulation, un mécanisme dangereux (chute > 1 m ou 5 marches) ou une amnésie rétrograde > 30 min imposent un CT dans les 8 h (rec. 1.5.9) ».",
+   "source": "NICE NG232 rec. 1.5.9 et 1.5.13 (lue le 11.11.2026)"
+  },
+  {
+   "fichier": "6 fichiers",
+   "classe": "Moyen",
+   "constat": "Abréviations non développées à la première apparition (Prompt V0, règle « abréviation développée à sa première apparition ») : Phase A CO (développé plus loin), EMS, CP, CC ; DX.1 MMSE, IML, HUG, FMH, CURML ; DX.2 AIPS, INR, AVK ; DX.3 OFS, ISRS, PAFA (développés plus loin) ; DX.4 AIPS, ECG, LAA ; DX.5 OFS, QT, HUG.",
+   "correction": "Développer chaque sigle à sa première occurrence dans le fichier.",
+   "source": "PROMPT_ULTIME_PRODUCTION_LOTS_V0.md l. 576"
+  },
+  {
+   "fichier": "6 fichiers",
+   "classe": "Moyen",
+   "constat": "Les sources renvoient à « evidence/ » et « .cache/aips/<numéro>.txt » ; aucun de ces dossiers n'existe pour LOT_013 dans le dépôt.",
+   "correction": "Déposer les extraits datés ou retirer la mention.",
+   "source": "Arborescence de la branche claude/lot-013-renfort-l1"
+  },
+  {
+   "fichier": "6 fichiers",
+   "classe": "Moyen (mécanique)",
+   "constat": "controle_lot.py : « script, image ou feuille de style externe présent » (../_polices/forme.css, forme.js ; Phase A : images/livor_mortis.webp).",
+   "correction": "Appliquer la décision du harnais sur les ressources partagées.",
+   "source": "harnais/controle_lot.py verifier"
+  },
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.5.html",
+   "classe": "Léger",
+   "constat": "Point 2 : « qu'elle en exclut depuis 2009,, soit 12,3 % » (double virgule ; l'OFS est masculin). Sources : numérotation saute de [S37] à [S39].",
+   "correction": "« qu'il en exclut depuis 2009, soit 12,3 % » ; renuméroter ou signaler S38.",
+   "source": "Lecture du fichier"
+  },
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.2.html",
+   "classe": "Léger",
+   "constat": "Point 1 (Définition seule) : « Le formulaire national … est en usage à Neuchâtel en janvier 2026 » est une information de contexte.",
+   "correction": "Déplacer cette phrase au point 8.",
+   "source": "Prompt V0, point 1 = Définition seule"
+  }
+ ],
+ "verifie_conforme": "Doses, voies, rythmes, contre-indications, grossesse/allaitement et numéros lus dans le corpus AIPS du 08.10.2026 : Naloxon OrPha 56952, Nyxoid 66930, Cyanokit 60539 (dont lactate ≥ 10 / > 8 mmol/L, 58 % et 82 %), Anexate 48280 (dont l'anomalie « insuffisants rénaux »), Fluimucil 20 % 31954 (dont 52,25 ml), Carbovit 61450 (PIL), Diaphin 55561/57720/57724, Methadon Sintetica 56542, Adrenalin Aguettant 66396 (1 et 0,1 mg/ml), Adrenalin Sintetica 56551, acide tranexamique (8 AIPS, aucune indication traumatique), Konakion MM 48112, Beriplex 00665, Praxbind 65804, Ondexxya 67759, Stilnox 49106, Cipralex 55961 ; pentobarbital absent des AIPS humaines (55815 et 62912 vétérinaires). Droit lu sur Fedlex : CPP art. 253 (état 01.04.2025), CP art. 115 et 318 (01.01.2026), OEC art. 35 et 89 al. 3 (01.06.2025), OPAS art. 5 let. d et 6 (01.07.2026). ASSM ch. 6.2.1 (2018, adapté 2021) : quatre conditions, tiers indépendant, deux entretiens à deux semaines, 30 jours, « non naturelle ». ERC 2025 (FC < 45/min, PAS < 90, TV, < 30 °C). Calculs refaits (Python) : 8,44 % ; 80,8 % ; 18,4 % ; 2,47 % ; 60,4 % ; 89,0 % ; ×9,5 ; 92,6 % ; 62,2 % ; 49,3 % ; 7,1 % ; 75,0 % ; 12,3 % ; 2 450 U.I. ; 52,5 ml.",
+ "non_verifie": "Chiffres OFROU 2025 (DX.4), Obsan 14/23/658 (DX.3), directive genevoise C.13 (DX.1), lois VD/GE/ZH : non rouverts dans cet audit.",
+ "score_12_2": {
+  "Phase_A": "P1 2, P2 1 (chute OFS 2024 absente), P3 2, P4 2, P8 1 (formulaire 2026 absent), P9 2, P11 2, P12 2 → 14/16 = 87,5 %",
+  "DX.1": "P1 2, P2 2, P3 2, P4 2, P8 1 (case « assistance au suicide » 2026 absente), P9 2, P11 2, P12 2 → 93,8 %",
+  "DX.2": "P1 1, P2 2, P3 2, P4 2, P8 2, P9 1 (seuils NICE ambigus), P11 2, P12 2, P14 1 (renvois faux) → 15/18 = 83,3 %",
+  "DX.3": "P1–P4, P8, P9, P11, P12 : 2 → 100 % (sigles à corriger)",
+  "DX.4": "P1–P4, P8, P9, P11, P12 : 2 → 100 % (sigles à corriger)",
+  "DX.5": "P1–P4, P8, P9, P11, P12 : 2 → 100 % (coquilles)",
+  "autres_points": "5, 6, 7, 10, 13, 14 lus pour la Phase A seulement, non notés ; non audités pour DX.1–DX.5 sauf P14 de DX.2."
+ },
+ "question_finale": {
+  "Phase_A": "non : rang DX.1/DX.2 justifié par un chiffre dépassé ; formulaire national 2026 absent",
+  "DX.1": "oui sous réserve du formulaire 2026",
+  "DX.2": "non : deux doses renvoient à la mauvaise AIPS ; seuils NICE ambigus",
+  "DX.3": "oui",
+  "DX.4": "oui",
+  "DX.5": "oui"
+ },
+ "design": {
+  "outil": "Playwright Chromium, 1280 et 390 px",
+  "fenetres": "Phase A 45, DX.1 44, DX.2 37, DX.3 38, DX.4 43, DX.5 34 : toutes ouvrables, cible présente, aucune orpheline, centrées à 1 280 px, plein écran fixe à 390 px",
+  "fiches_medicament": "ouvrables (DX.2, DX.4, DX.5)",
+  "abreviations": "aucun abbr.ab ; le Prompt V0 exige le développement au premier emploi : manques listés en mineurs",
+  "contraste": "0 élément texte < 4,5:1",
+  "mobile_390": "débordement horizontal de 897 px sur les 6 fichiers (URL des sources)",
+  "tailles": "138–150 Ko ; 6 fichiers entre 148 617 et 149 950 octets (< 150 000)",
+  "erreurs_js": "aucune"
+ }
+}
