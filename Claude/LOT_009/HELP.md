@@ -23,3 +23,9 @@
 ## Correction médicale (Phase A)
 - Prégabaline : l'AIPS Lyrica® 57057 (version du 01.07.2026) exclut la prégabaline si Clcr < 30 mL/min ; les anciens paliers « Clcr 15–30 : 25 à 150 mg/j ; < 15 : 25 à 75 mg/j » (fiche, tableau pharmacologique, situations spéciales) ont été remplacés. La question d'examen qui en dépendait a été retirée.
 - Vérification des doses : chaque nombre d'une phrase de dose est recherché dans la rubrique « Posologie/Mode d'emploi » de l'AIPS lue (jusqu'aux contre-indications) ; une phrase non vérifiée ne reçoit pas de citation AIPS et reste signalée.
+
+## DX.3 (Xérose cutanée)
+- Point 1 : groupe I de l'IFSI et place CIM-11 (ED54) déplacés au point 4 ; voisins exclus en fin de point 4.
+- Lacune (retirée du cours) : aucune sensibilité ni spécificité chiffrée des signes d'examen dans les sources lues.
+- Ajout sourcé : fenêtre « Caractérisation du prurit de la xérose » (guide européen S2k 2025, section 5.1 et 6.6.1).
+- Citations AIPS vérifiées : Lyrica® 57057 (exclusion sous 30 mL/min), Neurontin® 52520 (titration, palier < 15 mL/min), Zyrtec® 48143 (5 mg/j de 30 à < 60 mL/min).
