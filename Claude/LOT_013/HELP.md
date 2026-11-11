@@ -110,3 +110,12 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Volume chiffré des CT de triage, part des morts indéterminées dans l'activité des instituts et parmi les cas examinés, coût de la prise en charge médico-légale : non trouvés.
 - Règle d'annonce des cantons autres que Vaud, Genève et Zurich : non lue.
 - Resserrement : calculs dérivés R96–R99 et Y10–Y34 retirés ; six questions du point 14 retirées car leurs réponses figurent aux points 2, 8, 10 et 13 (Genève, Zurich, LAA, hypothermie, codes, lividités).
+
+## DX.8 — Décès inattendu du nourrisson ou de l'enfant (renfort L1 partiel du 11.11.2026)
+- Code de déontologie FMH : accès refusé (HTTP 403).
+- Coût et revue systématique (revue nationale) des décès d'enfants en Suisse ; coût d'une autopsie médicale de nourrisson : non trouvés.
+- Profondeur pédiatrique d'insertion de la sonde rectale : non trouvée (8 cm vise l'adulte).
+- Sensibilité et spécificité des signes de l'examen externe chez l'enfant : non chiffrées.
+- Recours à un interprète, campagne suisse de prévention du secouement, accord du MP avant les prélèvements d'organes : non trouvés.
+- Resserrement : tableau AIPS cabergoline/bromocriptine condensé (doses, indications, grossesse, allaitement et mises en garde maintenues mot pour mot ; listes complètes de contre-indications, effets et interactions résumées) ; pharmacocinétique et interactions de l'adrénaline retirées (présentes dans DX.4 et DX.6) ; lignes SIDS/UST, « SUDI, unexplained » et codes R95–R99 retirées de la fenêtre des définitions (présentes aux points 2 et 8) ; calculs dérivés retirés.
+- RESTE À FAIRE (renfort L1 inachevé) : 166,9 Ko hors images, au-dessus de la bande de 150 Ko ; 49 phrases longues et 16 phrases nominales (controle3 ORANGE). Il faut condenser environ 17 Ko de fenêtres au contenu distinct (questions clés, corrélation, épidémiologie, urgence, droits sociaux, critères, interprétation, point 14), puis reprendre la langue.
