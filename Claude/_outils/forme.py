@@ -153,7 +153,7 @@ table{font-size:.9em}}
 CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     # L1 (10.11.2026) : fenêtre centrale occultante ouverte au clic d'un mot, sans script (:target)
     "section.fenetre{display:none}"
-    "section.fenetre:target{display:block;position:fixed;inset:0;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)}"
+    "section.fenetre:target{display:block!important;position:fixed!important;inset:0!important;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)!important;max-width:none!important;max-height:none!important;width:auto!important;height:auto!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}"
     "section.fenetre:target>*{max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
     "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
     "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
