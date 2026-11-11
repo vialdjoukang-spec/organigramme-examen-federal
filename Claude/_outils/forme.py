@@ -153,11 +153,13 @@ table{font-size:.9em}}
 CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     # L1 (10.11.2026) : fenêtre centrale occultante ouverte au clic d'un mot, sans script (:target)
     "section.fenetre{display:none}"
-    "section.fenetre:target{display:block!important;position:fixed!important;inset:0!important;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)!important;max-width:none!important;max-height:none!important;width:auto!important;height:auto!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}"
-    "section.fenetre:target>*{max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
+    "section.fenetre:target{display:flex!important;flex-direction:column;position:fixed!important;inset:0!important;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)!important;max-width:none!important;max-height:none!important;width:auto!important;height:auto!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}"
+    "section.fenetre:target>*{margin-top:auto!important;margin-bottom:auto!important;flex:none;width:100%;box-sizing:border-box;max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
     "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
     "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
     "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
+    ".mb:target{position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:min(820px,92vw)!important;max-height:84vh!important;overflow:auto!important;z-index:200!important;background:#fff!important;color:#0b0b0b!important;border-radius:14px!important;border-top:5px solid var(--fm-a,#7c2431)!important;padding:20px 26px!important;font-size:1em!important;line-height:1.45!important;box-shadow:0 0 0 100vmax rgba(20,16,12,.62),0 24px 60px -12px rgba(0,0,0,.5)!important}"
+    ".mb:target b{color:#000!important}.mb:target a.fe{color:var(--fm-a,#7c2431)!important;float:right;margin:0 0 6px 12px!important}"
     "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in;hyphens:manual;-webkit-hyphens:manual}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
@@ -326,17 +328,54 @@ def retirer_sommaire(h):
         pos = m.end()
 
 
-def teinte(nom):
-    """Couleur d'accent propre à chaque leçon, déterministe : angle d'or sur un hachage du nom de fichier,
-    dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo, violet ni mauve)."""
-    import zlib
-    k = zlib.crc32(nom.encode('utf-8'))
-    a = (k * 137.50776405) % 175
+LOTS_MAX, LECONS = 260, 16  # identifiants pris en charge : LOT_001…LOT_260, Phase A (0) et DX.1…DX.15
+
+
+def _hx(h, l, s):
+    r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
+    return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
+
+
+def _palette(k, essai=0):
+    """Palette candidate du rang k : angle d'or sur la teinte (plage sans bleu), clarté sur 6 niveaux,
+    saturation sur 3 niveaux ; « essai » décale la teinte d'un degré en cas de collision après arrondi."""
+    a = (k * 137.50776405 + essai) % 175
     h = a if a < 150 else a + 185
-    def hx(l, s):
-        r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
-        return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
-    return hx(.27, .42), hx(.46, .34), hx(.965, .40), hx(.915, .34)
+    l = (.22, .25, .28, .31, .34, .37)[k % 6]
+    s = (.36, .44, .52)[(k // 6) % 3]
+    return (_hx(h, l, s), _hx(h, l + .19, s * .8), _hx(h, .965, .40), _hx(h, .915, .34))
+
+
+_TABLE = None
+
+
+def _table():
+    """Attribution déterministe et UNIQUE (vérifiée sur les couleurs arrondies) pour tous les rangs pris en charge."""
+    global _TABLE
+    if _TABLE is None:
+        vus, _TABLE = set(), {}
+        for k in range(LOTS_MAX * LECONS):
+            essai = 0
+            p = _palette(k)
+            while p in vus:  # unicité de la palette entière, contrôlée sur les couleurs arrondies
+                essai += 0.37
+                assert essai < 175, 'espace de palettes épuisé'
+                p = _palette(k, essai)
+            vus.add(p)
+            _TABLE[k] = p
+    return _TABLE
+
+
+def teinte(nom):
+    """Couleur d'accent propre à chaque leçon, déterministe et unique entre tous les cours (couleurs finales
+    comparées après arrondi), dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo,
+    violet ni mauve)."""
+    import zlib
+    m = re.search(r'LOT_(\d+)', nom)
+    d = re.search(r'DX\.(\d+)', nom)
+    if m and int(m.group(1)) <= LOTS_MAX and (not d or int(d.group(1)) < LECONS):
+        return _table()[int(m.group(1)) * LECONS + (int(d.group(1)) if d else 0)]
+    return _palette(zlib.crc32(nom.encode('utf-8')))
 
 
 def _texte(x):
@@ -409,6 +448,9 @@ def ecrire_css(dossier):
 
 
 if __name__ == '__main__':
+    if '--teintes' in sys.argv:  # contrôle de non-régression : une palette distincte par cours pris en charge
+        T = _table(); assert len(set(T.values())) == len(T), 'palettes en double'
+        print(f'{len(T)} palettes, toutes distinctes'); sys.exit(0)
     import os
     ecrire_css(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_polices'))
     verif = '--verifier' in sys.argv
