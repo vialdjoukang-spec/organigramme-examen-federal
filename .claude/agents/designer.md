@@ -5,6 +5,7 @@ tools: Read, Edit, Write, Glob, Grep, Bash
 model: sonnet
 ---
 
+> **Lis d'abord `Claude/CONSIGNES_VIAL.md` (recueil des consignes de Vial) et applique-le.**
 > **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
 
 > **INTERDIT (ordre de Vial, 11.11.2026) : fonds ivoire, beige, crème, sable — jugés morbides.** Fonds = blanc, bleu ciel ultra-pâle, vert ultra-pâle ou autre couleur vivante ultra-pâle (ex. #ffffff, #eef7fd, #f1fbf6, #f7f4ff) ; texte à fort contraste.

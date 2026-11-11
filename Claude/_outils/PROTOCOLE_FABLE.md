@@ -1,5 +1,6 @@
 # PROTOCOLE FABLE — renfort et audit L1 d'un LOT, en parallèle (ordre de Vial du 11.11.2026)
 
+> **Lis d'abord `Claude/CONSIGNES_VIAL.md` (recueil des consignes de Vial) et applique-le.**
 > **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
 
 
