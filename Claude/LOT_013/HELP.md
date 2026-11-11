@@ -45,3 +45,15 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Test des diatomées : aucune source suisse ou européenne lue (revue internationale 2026 utilisée).
 - Resserrement sous 150 Ko (détails retirés du cours, présents dans les AIPS sources et, pour l'adrénaline, dans DX.4 et DX.8) : pharmacocinétique, interactions, contre-indications détaillées et réserve d'emploi de l'adrénaline ; pharmacocinétique, interactions et liste des contre-indications de l'amiodarone ; mention des spécialités Noradrenalin Sintetica et Amiodarone Labatec ; calculs dérivés du CAS 2025 ; citation in extenso de l'art. 4 LPGA (renvoi conservé) ; ligne Paal 2022 sur l'arrêt du traitement à la température cible (hémorragie incontrôlable, lésion anoxique).
 - Image candidate (point 9 ou 6 : érythème de froid ou taches de Wischnewski) : non insérée faute de marge sous 150 Ko.
+
+## DX.7 — Homicide (renfort L1 du 11.11.2026)
+- Coût économique des homicides en Suisse : non trouvé.
+- Répartition cantonale des homicides (SPC) : non lue.
+- Valeur agrégée de l'Union européenne (Eurostat ICCS0101) : non renvoyée par la requête.
+- Sensibilité et spécificité des signes de l'examen externe et de l'autopsie : non chiffrées dans les sources lues.
+- Critères majeurs ou mineurs de l'homicide dans une recommandation suisse ou européenne : non trouvés.
+- Femme enceinte victime d'homicide (fœtus, prélèvements, état civil) : conduite non trouvée.
+- Accord du MP avant un prélèvement d'organes chez une victime en mort cérébrale : non trouvé.
+- Risque d'homicide ultérieur après strangulation non mortelle : seule une étude américaine (citée par l'Inselspital 2019) le chiffre ; retiré du cours, aucune donnée suisse ou européenne lue.
+- Code de déontologie FMH : accès refusé (voir Phase A).
+- Resserrement sous 150 Ko (détails retirés, présents dans les sources) : calculs dérivés de la SPC (pourcentages recalculés), texte allemand du § 15 GesG et textes in extenso de l'art. 321 CP (résumés dans la fenêtre du secret), exemple genevois/zurichois du cadre légal, colonne « Pourquoi » du tableau d'urgence, tableau « manière → usage clinique » du point 8 (repris par l'arbre), questions 3, 9, 10, 14 et 20 du point 14 (réponses présentes aux points 2, 8, 10 et 13).
