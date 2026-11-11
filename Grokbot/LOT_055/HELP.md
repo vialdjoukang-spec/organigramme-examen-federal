@@ -1,8 +1,8 @@
 # HELP — LOT_055
 
-- Sources cliniques : Revue médicale suisse, 2007 (stimulation sacrée) et 2009 (prise en charge de l'incontinence anale).
-- Aucune fréquence propre par diagnostic dans ces textes : la liste porte « Ne rang », dans l'ordre canonique.
-- Fachinformation non exposée par l'API publique. Doses prises dans la notice destinée aux patients, Imodium, n° 40363 (et 52975), contrôlée par Swissmedic en décembre 2025. Pas de 4 mg ni de 16 mg : la notice dit 2 mg par gélule.
-- Pas de cliché libre d'échographie endo-anale, de tracé de manométrie, de biologie, ni de photo périnéale sans identifiant. Un cliché de colite de Crohn a été écarté parce qu'il montrait une date de naissance.
-- Images retenues : IRM T2 sagittale (Hellerhoff, CC BY-SA 4.0) ; coloscopie d'une colite médicamenteuse ulcérée (Ahmad Tarhini, CC BY 4.0). Consultées le 10 novembre 2026.
-- Fenêtres cliniques sans image : manométrie, échographie endo-anale, biologie interprétée, inspection du périnée, réflexes du plancher.
+- Correction Bitunder post-audit (11.11.2026), d’après les audits fond (46/100) et forme (54/100).
+- Sources cliniques : Revue médicale suisse 2007 (stimulation sacrée), 2009 (incontinence anale), 2010 (queue de cheval, lombalgie aux urgences), 2024 (HUG, incontinence fécale du sujet âgé) ; OPAS annexe 1 au 1.7.2025 ; lignes directrices SSSNM du 30.09.2021.
+- Doses : information professionnelle suisse Imodium®/Imodium® lingual, n° 40363, état 12/2025 (arzneimittelinfo.ch), schéma chronique 4 mg puis 2–12 mg/j, maximum 16 mg/j.
+- Liste DX refaite (LISTE_DX_CANONIQUE.md) : dix causes concurrentes classées par fréquence sourcée ; E1 queue de cheval, E2 colite aiguë sévère, E3 cancer du rectum. Les fichiers Phase B DX.1–DX.10 suivent encore l’ancienne liste et sont à régénérer.
+- Images : IRM T2 sagittale (Hellerhoff, CC BY-SA 4.0) et coloscopie d’une colite médicamenteuse (Ahmad Tarhini, CC BY 4.0), relues pour E1/E3 et E2/E3 ; schémas de manométrie (Hariadhi, CC BY-SA 4.0) et de l’anorectum (NIH, domaine public) dans les fenêtres.
+- Pas de cliché libre de périnée ni de radioscopie d’électrode en S3.

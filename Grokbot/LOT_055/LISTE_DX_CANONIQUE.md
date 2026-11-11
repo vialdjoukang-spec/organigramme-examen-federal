@@ -2,17 +2,17 @@
 
 | Rang | Nom exact | Fréquence | Extrait | Grave | Rang E |
 | --- | --- | --- | --- | --- | --- |
-| DX.1 | fuite de gaz | Ne rang | rms2009-2 | non | — |
-| DX.2 | perte de selles | Ne rang | rms2009-2 | non | — |
-| DX.3 | regorgement | Ne rang | rms2009-3 | oui | E3 |
-| DX.4 | lésion sphinctérienne | Ne rang | rms2009-3 | non | — |
-| DX.5 | sphincter interne faible | Ne rang | rms2009-3 | non | — |
-| DX.6 | atteinte neurologique | Ne rang | rms2009-2 | oui | E1 |
-| DX.7 | diarrhée nouvelle | Ne rang | rms2009-2 | oui | E2 |
-| DX.8 | échec conservateur | Ne rang | rms2009-3 | non | — |
-| DX.9 | neuromodulation | Ne rang | rms2007-3 | non | — |
-| DX.10 | situation réfractaire | Ne rang | rms2009-3 | non | — |
+| DX.1 | lésion obstétricale du sphincter | 25 % | rms2009-5 | non | — |
+| DX.2 | regorgement sur fécalome | 2e rang | rms2009-5 | non | — |
+| DX.3 | diarrhée chronique | 3e rang | rms2024-2 | non | — |
+| DX.4 | lésion sphinctérienne iatrogène | 4e rang | rms2009-5 | non | — |
+| DX.5 | prolapsus rectal | 5e rang | rms2024-2 | non | — |
+| DX.6 | dégénérescence du sphincter interne | 6e rang | rms2009-5 | non | — |
+| DX.7 | atteinte neurologique chronique | 7e rang | rms2024-3 | non | — |
+| DX.8 | colite aiguë sévère | 8e rang | rms2024-2 | oui | E2 |
+| DX.9 | cancer du rectum | 9e rang | rms2024-2 | oui | E3 |
+| DX.10 | syndrome de la queue de cheval | 0,04 % | rms2010-1 | oui | E1 |
 
-Gel : les dix noms et l'ordre sont ceux du lot. Aucune fréquence propre par diagnostic n'est dans les sources ; la colonne dit Ne rang.
+Refonte Bitunder post-audit (11.11.2026) : dix causes réellement concurrentes d’une incontinence anale, classées par fréquence sourcée (lésion obstétricale « de loin la cause la plus fréquente », 25 % ; queue de cheval 0,04 % des lombalgiques). Rangs E selon la létalité : E1 compression des racines sacrées (urgence chirurgicale immédiate), E2 colite aiguë sévère (mégacôlon toxique), E3 cancer du rectum. L’ancienne liste (fuite de gaz, perte de selles, échec conservateur, neuromodulation, situation réfractaire) mélangeait symptômes et étapes de traitement ; elle est remplacée. Les fichiers Phase B DX.1–DX.10 suivent encore l’ancienne liste et devront être régénérés.
 
-SHA-256 af3c4b6e85bb0bd5bc3b5ddc018482395421b994f0f07bf187dbae1cd2ff63aa
+SHA-256 eea2755d730594a08a2e50a598d5a0c2953384fa73ca26d991a115f72d022e02
