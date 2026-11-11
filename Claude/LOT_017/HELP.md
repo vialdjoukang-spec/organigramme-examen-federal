@@ -169,3 +169,17 @@ Décisions en vigueur :
 - DX.9 : paracétamol retenu comme antalgique par déduction de l'indication AIPS (maux de tête), sans recommandation dédiée lue.
 Doutes médicaux à trancher :
 - DX.9 : « arrêt de l'antithrombotique discuté vers 3 mois » repose sur TREAT-CAD via la revue bâloise 2025, non sur une recommandation ; Horner avec atteinte du VI attribué au sinus caverneux ou au pont (revue 2015).
+
+## DX.10 — Anévrisme intracrânien compressif (réécriture L1, 2026-11-11)
+Lacunes ouvertes :
+- DX.10 : la bibliographie d'origine (S1–S60) était perdue avec la fin du fichier (points 7 à 14 absents) ; la leçon est réécrite sur 11 sources relues le 11.11.2026 et 5 AIPS. Les chiffres des anciennes sources non retrouvées (Dremel 2026, Bolou 2026, Kim 2024, Lucerne 2021–2023, registre européen des anévrismes caverneux, méta-analyse de mortalité préhospitalière) sont retirés.
+- DX.10 : aucune recommandation suisse propre à l'anévrisme compressif ni critère formel de sortie trouvés ; la conduite suit l'ESO 2022 et ESO/EANS/ESMINT 2026, les critères de sortie sont déduits de ces sources.
+- DX.10 : aucune cible chiffrée de pression artérielle avant occlusion dans l'ESO 2026 (seulement « lentement, sans dépasser, molécule courte ») ; aucune cible écrite.
+- DX.10 : Revue Médicale Suisse 2024 (Metral) lue en résumé seulement (texte réservé aux abonnés).
+- DX.10 : images à ajouter : photographie clinique d'un III complet (point 6, ptosis + œil en bas et en dehors + mydriase) et TDM d'HSA (point 9) ; seule l'angio-CT de la communicante postérieure (Commons, CC BY 4.0) est insérée.
+Décisions en vigueur :
+- DX.10 : nimodipine — l'ESO 2026 recommande la voie orale chez tous, l'AIPS suisse (48153, 45839) prévoit la perfusion puis 6 × 60 mg/j per os pendant 7 jours ; le cours enseigne l'AIPS et écrit la divergence.
+- DX.10 : labétalol (Trandate 41529) retenu comme antihypertenseur de courte durée ; l'HSA n'est pas une indication nommée de l'AIPS, écrit dans la fiche.
+Doutes médicaux à trancher :
+- DX.10 : la préférence pour la perfusion lente de labétalol plutôt que les bolus répétés est une déduction de « baisse lente » (ESO 2026), non une recommandation lue.
+- DX.10 : l'algorithme clip/endovasculaire (âge 60 ans, sac 7 mm, délai 7 jours) vient d'une revue narrative chinoise (Ge 2025), sans validation européenne.
