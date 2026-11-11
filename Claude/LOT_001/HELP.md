@@ -1,32 +1,25 @@
-# HELP — LOT_001 : lacunes à combler par Vial / une IA ayant accès à l'AIPS
+# LOT_001 — G1 Transpiration anormale : ce qui reste ouvert (mis à jour le 11.11.2026)
 
-Rien n'a été inventé : toute dose sans information professionnelle suisse (AIPS) lue a été retirée de la leçon.
+« DX.n » désigne `LOT_001_Phase_B_V0_DX.n.html` ; « Phase A » désigne `LOT_001_Phase_A_V0.html`.
 
-## Doses retirées faute d'AIPS lue (à relire dans swissmedicinfo.ch puis réintégrer)
-| Médicament | Leçon / contexte | Action |
-|---|---|---|
-| Clonazépam IV (Rivotril) | état de mal / sevrage | lire l'AIPS, puis réintégrer posologie IV |
-| Érythromycine | fenêtre pharmacologie | idem |
-| Glycopyrrolate oral | hyperhidrose | idem (statut d'autorisation suisse à vérifier) |
-| Oxybutynine, pilocarpine | hyperhidrose / sécheresse | idem |
-| Noradrénaline | choc septique | idem |
-| Fluconazole | antifongique | idem |
-| Métoprolol (Beloc ZOK) | bêtabloquant | idem |
-| Flucloxacilline (Floxapen, AIPS n° 37404) | antibiothérapie | fiche présente dans le corpus local, non relue pour la leçon |
-| Lidocaïne (Rapidocain) | anesthésie locale | idem |
-| Tibolone (2,5 mg/j) et progestérone micronisée (300 mg/j, hors AMM) | DX.5, avis SSGO | pas d'AIPS lue ; doses retirées, conduite gardée (SSGO S4) |
+## Lacunes ouvertes
+- Tout le LOT : swissmedicinfo.ch reste illisible depuis l'environnement des agents ; toute dose sans AIPS lue est absente des cours.
+- DX.6 : la posologie IV du clonazépam (Rivotril) manque, faute d'AIPS lue.
+- DX.9 : les posologies de la noradrénaline et du fluconazole manquent, faute d'AIPS lue.
+- DX.9 : la prophylaxie par oseltamivir, la ceftriaxone dans la maladie de Lyme, le paracétamol de l'enfant et l'ibuprofène rhumatismal manquent ; leurs sources restent à lire.
+- DX.5 : les doses de tibolone et de progestérone micronisée (hors AMM) manquent, faute d'AIPS lue ; la conduite SSGO reste enseignée.
+- Tout le LOT : les AIPS de l'érythromycine, de la pilocarpine, de la flucloxacilline (n° 37404) et de la lidocaïne (Rapidocain) n'ont pas été lues ; aucune dose n'en est donnée.
+- DX.3 : le texte intégral de l'ESC 2023 (aminoside dans l'endocardite à staphylocoque, schéma de gentamicine par germe) n'a pas été lu.
+- DX.3 : aucune source ne chiffre la fréquence de l'endocardite chez le consultant pour transpiration anormale.
+- DX.8 : le document de référence OFSP du 11.03.2024 (PrEP, art. 12b OPAS) n'a pas été relu en entier ; les rythmes de contrôle (3 mois, 3 à 6 mois) restent à vérifier.
+- DX.1 : aucune source lue ne dit si le score de sortie reste valable selon le dosage de troponine employé.
+- DX.7 : le délai de rendu de la culture et de la PCR manque dans les sources suisses lues.
+- DX.6 : l'IRM de l'encéphalopathie de Wernicke est téléchargée (`images/MRI_FLAIR_sequence_Wernicke_Encephalopathy.webp`) mais n'est pas insérée.
+- DX.8 : la radiographie de pneumocystose est téléchargée (`images/X-ray_of_ground_glass_opacities_of_pneumocystis_pneumonia.webp`) mais n'est pas insérée.
 
-Retirés aussi à DX.9 pour la taille (sources à rechercher si souhaité) : prophylaxie Tamiflu, ceftriaxone Lyme, paracétamol enfant, ibuprofène rhumatismal.
-Rétablis le 10.11.2026 : hydrocortisone 200 mg/j (SSC 2021 + AIPS Solu-Cortef 23533), seuil 0,25 µg/kg/min (SSC 2021), vancomycine (AIPS 59766).
+## Décisions en vigueur
+- DX.9 : l'hydrocortisone à 200 mg/j et le seuil de 0,25 µg/kg/min s'appuient sur la SSC 2021 et l'AIPS Solu-Cortef (n° 23533) ; la vancomycine suit l'AIPS n° 59766.
+- DX.5 : le cours enseigne la conduite de la SSGO sans dose pour la tibolone et la progestérone micronisée.
 
-## Images en file d'attente
-- DX.6 : IRM de l'encéphalopathie de Wernicke (image réelle, sourcée et licenciée, à trouver ; ex. Wikimedia Commons / Europe PMC).
-- DX.8 : image de la pneumocystose (radiographie ou scanner thoracique typique, même exigence de licence).
-
-## Lacunes ajoutées le 10.11.2026
-- DX.3 : position de l'ESC 2023 sur l'aminoside dans l'endocardite à staphylocoque, et schéma ESC 2023 par germe pour la gentamicine : texte intégral non lu (seul le résumé w842342 au corpus) ; à lire puis réintégrer.
-- DX.8 : texte intégral du document de référence OFSP du 11.03.2024 (PrEP, art. 12b OPAS) non relu dans cette session (PDF inaccessible) ; à vérifier pour les rythmes de contrôle (3 mois / 3 à 6 mois).
-- DX.3 : fréquence de l'endocardite parmi les consultants pour transpiration anormale (probabilité prétest chiffrée) : aucune source lue ; à chercher.
-
-- DX.1 : compatibilité du score de sortie avec le dosage de troponine non lue (phrase retirée du cours).
-- DX.7 : délai de rendu de la culture et de la PCR non trouvé dans une source suisse lue.
+## Doutes médicaux à trancher
+Aucun.

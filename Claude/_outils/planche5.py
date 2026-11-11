@@ -16,7 +16,7 @@ subprocess.run([sys.executable, os.path.join(ici, 'capture5.py'), *fichiers, '--
 JS = r"""
 const { chromium } = require('playwright'); const fs = require('fs');
 (async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 720, height: 450 } });
-  for (const f of process.argv.slice(2)) { await p.setContent('<body style="margin:0"><img src="file://' + f + '" style="width:720px;display:block">');
+  for (const f of process.argv.slice(2)) {  // le PNG est ouvert directement : un setContent préalable (about:blank → file://) restait bloqué 30 s
     await p.goto('file://' + f); await p.evaluate(() => { document.body.style.margin = 0; const i = document.querySelector('img'); i.style.width = '720px'; i.style.height = 'auto'; });
     await p.locator('img').screenshot({ path: f.replace(/\.png$/, '.jpg'), type: 'jpeg', quality: 62 }); }
   await b.close(); })();

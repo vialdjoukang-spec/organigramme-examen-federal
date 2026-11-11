@@ -158,16 +158,25 @@ CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
     "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
     "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
-    ".mb:target{position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:min(820px,92vw)!important;max-height:84vh!important;overflow:auto!important;z-index:200!important;background:#fff!important;color:#0b0b0b!important;border-radius:14px!important;border-top:5px solid var(--fm-a,#7c2431)!important;padding:20px 26px!important;font-size:1em!important;line-height:1.45!important;box-shadow:0 0 0 100vmax rgba(20,16,12,.62),0 24px 60px -12px rgba(0,0,0,.5)!important}"
-    # audit de design 11.11.2026 : la fiche s'ouvre partout (display) et garde sa largeur sur mobile, au-dessus de la colonne body>*
-    "body .mb:target:not(#brain-barre14){display:block!important;max-width:none!important;width:min(820px,92vw)!important;margin:0!important;box-sizing:border-box!important}"
-    # audit LOT_015 (11.11.2026) : une fiche « section.fenetre mb » s'ouvrait collée à gauche (inset:0 + largeur .mb) ;
-    # elle reprend le gabarit des fenêtres centrales : voile plein écran, boîte enfant centrée.
-    "body section.fenetre.mb:target:not(#brain-barre14){display:flex!important;inset:0!important;top:0!important;left:0!important;right:0!important;bottom:0!important;transform:none!important;width:auto!important;max-height:none!important;padding:4vh 4vw!important;background:rgba(20,16,12,.62)!important;border-radius:0!important;border-top:0!important;box-shadow:none!important}"
-    ".mb:target b{color:#000!important}.mb:target a.fe{color:var(--fm-a,#7c2431)!important;float:right;margin:0 0 6px 12px!important}"
+    # Fiche de molécule de l'ancien gabarit (<div class="mb">) : carte centrée, occultante par son ombre.
+    # Une fiche L1 « section.fenetre mb » est exclue de ces règles (:not(.fenetre)) : elle suit le gabarit des fenêtres
+    # centrales ci-dessus (voile plein écran, boîte enfant centrée). Audits LOT_015 et LOT_016 (11.11.2026) : sans
+    # cette exclusion, la largeur et le display:block de la carte collaient la fiche à gauche, sans fond assombri.
+    ".mb:target:not(.fenetre){position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:min(820px,92vw)!important;max-height:84vh!important;overflow:auto!important;z-index:200!important;background:#fff!important;color:#0b0b0b!important;border-radius:14px!important;border-top:5px solid var(--fm-a,#7c2431)!important;padding:20px 26px!important;font-size:1em!important;line-height:1.45!important;box-shadow:0 0 0 100vmax rgba(20,16,12,.62),0 24px 60px -12px rgba(0,0,0,.5)!important}"
+    # audit de design 11.11.2026 : la carte s'ouvre partout (display) et garde sa largeur sur mobile, au-dessus de la colonne body>*
+    "body .mb:target:not(.fenetre):not(#brain-barre14){display:block!important;max-width:none!important;width:min(820px,92vw)!important;margin:0!important;box-sizing:border-box!important}"
+    ".mb:target:not(.fenetre) b{color:#000!important}.mb:target a.fe{color:var(--fm-a,#7c2431)!important;float:right;margin:0 0 6px 12px!important}"
     "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in;hyphens:manual;-webkit-hyphens:manual}"
     # Audit LOT_013 (11.11.2026) : les URL insécables des sources débordaient à 390 px ; césure autorisée partout
-    "#sources li,[id$=sources] li,ol.s li,details.refs li,main a,section.fenetre a,code{overflow-wrap:anywhere;word-break:break-word}")
+    "#sources li,[id$=sources] li,ol.s li,details.refs li,main a,section.fenetre a,code{overflow-wrap:anywhere;word-break:break-word}"
+    # Planche LOT_016 (11.11.2026) : le « body{overflow-wrap:anywhere} » des cours écrasait la 1re colonne des tableaux
+    # (« Insuffisanc/es », « Hématologi/e ») ; dans une cellule, un mot ne se coupe que s'il dépasse la colonne.
+    "td,th{overflow-wrap:break-word}"
+    # Planches LOT_015 et LOT_016 : une source justifiée s'étirait en mots très espacés autour de son URL insécable.
+    "#sources li,[id$=sources] li,ol.s li,details.refs li{text-align:left;hyphens:manual;-webkit-hyphens:manual}"
+    # Planches LOT_014 à LOT_016 (designer, 11.11.2026) : le paragraphe d'introduction sous le bandeau porte la classe
+    # « s » des cours (font-size .82 à .86em, soit 13,9 à 14,6 px) ; il reprend la taille du texte courant.
+    "#fm-bandeau~header .s{font-size:1em!important;line-height:1.42!important}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
@@ -231,6 +240,36 @@ def recolorer(h):
     return h
 
 
+RE_SRC = re.compile(r'\s*(?:sources?|bibliographie|références)\b', re.I)
+
+
+def sans_doublon_menu(h):
+    """Menu : une seule entrée « Sources ». Un menu construit depuis les titres (entrée numérotée vers #fm-N) puis complété
+    par le sommaire interne (entrée § vers la section des sources) listait « Sources » deux fois ; l'entrée § reste seule."""
+    mm = re.search(r'<nav id="brain-barre14".*?</nav>', h, re.S)
+    if not mm:
+        return h
+    menu = mm.group(0)
+    src = [a for a in re.finditer(r'<a href="#([^"]+)"><b>([^<]*)</b>(.*?)</a>', menu, re.S) if RE_SRC.match(a.group(3))]
+    if len(src) < 2 or not any(a.group(2) == '§' for a in src):
+        return h
+    for a in reversed(src):
+        if a.group(2) != '§' and re.fullmatch(r'fm-\d+', a.group(1)):
+            menu = menu[:a.start()] + menu[a.end():]
+    return h[:mm.start()] + menu + h[mm.end():]
+
+
+def marque_sources(h):
+    """Menu : l'entrée « Sources » porte la marque § et jamais un numéro (neuf cours des LOT_014 à 016 la numérotaient
+    « 15 »). Seul le contenu du <b> de cette entrée change ; le libellé et la cible restent tels quels."""
+    mm = re.search(r'<nav id="brain-barre14".*?</nav>', h, re.S)
+    if not mm:
+        return h
+    menu = re.sub(r'(<a href="#[^"]+"><b>)\d+(</b>)(?=\s*(?:sources?|bibliographie|références)\s*</a>)', r'\1§\2',
+                  mm.group(0), flags=re.I)
+    return h[:mm.start()] + menu + h[mm.end():]
+
+
 def ajouter_menu(h):
     """Menu des parties : si la leçon n'a pas de #brain-barre14, il est construit à partir des titres h2."""
     if 'id="brain-barre14"' in h:
@@ -268,8 +307,15 @@ def ajouter_menu(h):
         h2 = re.sub(r'<h3((?:\s[^>]*)?)>(.*?)</h3>', ident3, h, flags=re.S)
     if len(liens) < 3:
         return h
-    nav = '<nav id="brain-barre14" aria-label="Parties du cours">' + ''.join(
-        f'<a href="#{i}"><b>{k}</b>{re.sub(r"^[0-9.\s]+", "", lib)[:60]}</a>' for k, (i, lib) in enumerate(liens, 1)) + '</nav>'
+    # La partie « Sources » porte la marque § et ne prend pas de numéro : le sommaire interne ne la rajoute plus (doublon).
+    items, k = [], 0
+    for i, lib in liens:
+        if RE_SRC.match(lib):
+            marque = '§'
+        else:
+            k += 1; marque = k
+        items.append(f'<a href="#{i}"><b>{marque}</b>{re.sub(r"^[0-9.\s]+", "", lib)[:60]}</a>')
+    nav = '<nav id="brain-barre14" aria-label="Parties du cours">' + ''.join(items) + '</nav>'
     return re.sub(r'(<body\b[^>]*>)', lambda m: m.group(1) + nav, h2, count=1)
 
 
@@ -443,7 +489,7 @@ def bandeau(h, nom):
 
 
 def corriger(h, nom=''):
-    h = retirer_sommaire(ajouter_menu(RE_BLOC.sub('', h)))
+    h = marque_sources(sans_doublon_menu(retirer_sommaire(ajouter_menu(RE_BLOC.sub('', h)))))
     parts = PROTEGES.split(h)
     out = []
     i = 0
