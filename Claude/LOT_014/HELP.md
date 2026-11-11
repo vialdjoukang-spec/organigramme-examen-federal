@@ -106,6 +106,6 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 
 ## Corrections après l'audit LOT_014_A_DX6-10 (11.11.2026, agent B)
 - DX.8 : l'autopsie de toute MSC avant 50 ans est attribuée à l'ESC 2022 [S33], comme le propose l'audit ; le texte de l'ESC 2025 (et celui de l'ESC 2022, page OUP refusée au robot) n'a pas pu être relu ici.
-- DX.10 : aucune « attestation médicale de décès nationale de janvier 2026 » n'a été trouvée en ligne ; le cours s'appuie sur le guide vaudois de l'attestation (2024, relu le 11.11.2026) et la fiche CoD de l'OFS (juillet 2025 : nouveau certificat au format OMS depuis 2024). À compléter si le document national est fourni.
+- DX.10 : attestation médicale de décès nationale (version janvier 2026, avec annexe OEC art. 89 al. 3) lue le 11.11.2026 sur ne.ch [S40] ; définitions de la mort naturelle et indéterminée reprises ; le formulaire n'a aucune rubrique propre au nourrisson. Guide vaudois 2024 [S38] et fiche CoD de l'OFS [S39] conservés.
 - DX.7 : dose de charge et d'entretien de l'aminophylline lues dans l'AIPS 56507 (téléchargée le 11.11.2026). DX.6 : mise en garde de l'AIPS Orfiril 54331 chez l'homme apte à procréer lue le même jour.
 - Ressources externes ../_polices/forme.css et forme.js : laissées en place (règle forme.py), à admettre par le harnais controle_lot.py.
