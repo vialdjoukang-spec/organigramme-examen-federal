@@ -341,9 +341,22 @@ def _palette(k, essai=0):
     saturation sur 3 niveaux ; « essai » décale la teinte d'un degré en cas de collision après arrondi."""
     a = (k * 137.50776405 + essai) % 175
     h = a if a < 150 else a + 185
-    l = (.22, .25, .28, .31, .34, .37)[k % 6]
+    l = (.17, .19, .21, .23, .25, .27)[k % 6]  # accent assez sombre pour un contraste ≥ 7:1 sur blanc
     s = (.36, .44, .52)[(k // 6) % 3]
+    while _contraste(_hx(h, l, s), '#ffffff') < 7.2 and l > .08:  # teintes jaunes : assombrir jusqu'au contraste ≥ 7:1
+        l -= .01
     return (_hx(h, l, s), _hx(h, l + .19, s * .8), _hx(h, .965, .40), _hx(h, .915, .34))
+
+
+def _lum(c):
+    v = [int(c[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    v = [x / 12.92 if x <= .04045 else ((x + .055) / 1.055) ** 2.4 for x in v]
+    return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]
+
+
+def _contraste(a, b):
+    la, lb = sorted((_lum(a), _lum(b)), reverse=True)
+    return (la + .05) / (lb + .05)
 
 
 _TABLE = None
@@ -357,7 +370,7 @@ def _table():
         for k in range(LOTS_MAX * LECONS):
             essai = 0
             p = _palette(k)
-            while p in vus:  # unicité de la palette entière, contrôlée sur les couleurs arrondies
+            while p in vus or _contraste(p[0], '#ffffff') < 7 or _contraste(p[0], p[2]) < 6.5:  # unique et lisible
                 essai += 0.37
                 assert essai < 175, 'espace de palettes épuisé'
                 p = _palette(k, essai)
@@ -450,6 +463,7 @@ def ecrire_css(dossier):
 if __name__ == '__main__':
     if '--teintes' in sys.argv:  # contrôle de non-régression : une palette distincte par cours pris en charge
         T = _table(); assert len(set(T.values())) == len(T), 'palettes en double'
+        assert min(_contraste(p[0], '#ffffff') for p in T.values()) >= 7, 'contraste insuffisant'
         print(f'{len(T)} palettes, toutes distinctes'); sys.exit(0)
     import os
     ecrire_css(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_polices'))
