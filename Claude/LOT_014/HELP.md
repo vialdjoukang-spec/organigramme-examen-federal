@@ -117,3 +117,26 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Pour rester sous 150 Ko, huit questions du point 14 sont retirées ; chacune redisait un fait présent au point 10, au
   point 13, dans la fenêtre d'urgence, dans les situations spéciales ou au point 11.D.
 - Renvois réalignés : point 13 (ESC 2019 [S1], Actilyse [S30], RCP 60–90 min [S1][S9][S10]) ; HNF [S31] ; aPTT sans [S37].
+
+## Questions d'examen retirées pour tenir sous 150 Ko (correction d'audit, 11.11.2026) : où figure la réponse
+DX.1 (point 14, 7 questions)
+- Moment de l'adrénaline dans une FV → arbre du point 10, point 13 et fenêtre f-dx1-p11-urg-acr.
+- Dose d'amiodarone (Cordarone) dans la FV résistante → fiche f-dx1-med-amiodarone.
+- Association amiodarone et lidocaïne → fiche f-dx1-med-lidocaine (limites).
+- Nitroglycérine sous sildénafil → fiche f-dx1-med-nitroglycerine et fenêtre f-dx1-p5-questions.
+- Inhibiteur du P2Y12 à éviter après un AVC → fiche f-dx1-med-prasugrel.
+- Geste propre à l'arrêt cardiaque de la femme enceinte → fenêtre f-dx1-p11-grossesse.
+- Moment de la FEVG avant un DAI (6–12 semaines) → points 9, 10, 12 et 13.
+DX.2 (fenêtre f-dx2-p14-qcm, 8 questions)
+- Adrénaline dans la FV réfractaire → fenêtre f-dx2-p11-urgence et point 13.
+- Mavacamten avec une FEVG de 52 % → fiche f-dx2-med-mavacamten.
+- Vérapamil chez la femme enceinte de 8 semaines → fenêtre f-dx2-p11-speciales (texte AIPS d'Isoptin).
+- CMH obstructive hypotendue en œdème pulmonaire → fenêtre f-dx2-p11-obstruction.
+- Premier traitement de l'obstruction → fenêtre f-dx2-p11-medic-cmh, points 3 et 10.
+- Test génétique sur un défunt (LAGH art. 18) → point 10 et fenêtre f-dx2-p9-autopsie.
+- CMH à l'autopsie, cause « hautement probable » (AECVP) → point 8 et fenêtre f-dx2-p4-dd.
+- Anticoagulation d'une CMH avec FA quel que soit le CHA2DS2-VASc → point 7, fenêtres f-dx2-p7-5 et f-dx2-p11-medic-fa.
+DX.5 (point 14, 2 questions)
+- Examen après un arrêt réanimé précédé d'une céphalée → point 10 (item 2), point 4, fenêtres f-dx5-p11-urg et f-dx5-p5-rf.
+- Thrombolyse pendant la réanimation d'un patient céphalalgique → point 13 (item 2), point 5 et fiche altéplase de f-dx5-p11-autres.
+- (Point 13 de DX.5 : l'item sur l'acide tranexamique est retiré ; la réponse reste au point 14 et dans f-dx5-p11-autres.)
