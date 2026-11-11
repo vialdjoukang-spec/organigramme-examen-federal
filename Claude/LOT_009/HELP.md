@@ -54,3 +54,9 @@
 - Ajouts sourcés (guide S2k 2025) : fenêtre « Caractérisation du prurit urticarien » ; fenêtre « Prurit de l'urticaire : données du guide européen » (antihistaminiques, cétirizine IV, 30 minutes sous glucocorticoïdes IV, omalizumab ISS7 −9,8/−8,1, antileucotriène, ciclosporine).
 - Le guide EAACI 2022 (Zuberbier) n'est pas en accès libre : citations antérieures conservées.
 - ORANGE résiduel : phrases de posologie répétées d'une fiche médicament à l'autre (antihistaminiques), conservées pour que chaque fiche reste complète.
+
+## DX.8 (Diabète)
+- Le cours d'origine pesait 69 Ko (sous la bande L1). Ajouts sourcés et lus le 11.11.2026 : Cai et al. 2026 (PMC12903515 : horaire, siège, facteurs associés, Th1/Th2) ; guide S2k 2025 (diabète de type 1 de l'enfant, petites fibres, antidiabétiques prurigineux, peau sèche, paroxétine et fluvoxamine) ; série bernoise (pôle diabète-antidiabétiques, 14/59 en groupe III, 25 % chez le sujet âgé selon une étude citée) ; Obsan 2020 (indicateurs suisses de suivi).
+- Doses AIPS vérifiées : Glucophage® 26061, Diflucan® 49503, Jardiance® 63227 (y compris 4,1 % contre 0,9 % d'infections génitales), Lantus® 55346.
+- Lacune retirée du cours : « le texte de la recommandation suisse correspondante n'a pas été consulté ».
+- La série de Cai est chinoise (hors Suisse/Europe) ; elle complète, sans les remplacer, les données suisses (Obsan, Berne) et européennes (S2k).
