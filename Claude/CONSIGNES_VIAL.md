@@ -25,6 +25,8 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 14. Examens complémentaires : par prélèvement (sang, urines, ponctions, LCR…), imagerie (IRM détaillée), explorations fonctionnelles ; indication de la demande en rouge gras ; rappel anatomo-physiologique en fenêtre.
 15. Pharmacologie : trois colonnes alignées (fonctionnement normal → altération et pathologies → classes) ; « Fonctionnement » = chaîne d'activation (stimulus, chaque produit, lieu, effet, rétrocontrôle), en étapes fléchées ; mnémotechnique sourcé.
 
+16 bis. **Partout : structures dépliables vers le bas au clic** (repliées = titre + une ligne) et **bande latérale plus sombre portant le plan cliquable de la page active** (ex. pharmacologie : systèmes physiologiques et fonctionnements altérés) ; sur mobile, tiroir « Plan ».
+
 ## Méthode
 16. Économie : rédiger seulement si vide ou ancienne architecture ; sinon retoucher ou auditer.
 17. Tous les outils et connecteurs pour chercher au-delà du harnais, en restant suisse.
