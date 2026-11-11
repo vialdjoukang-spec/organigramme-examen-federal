@@ -62,8 +62,17 @@ const [fichier, base, largeur] = process.argv.slice(2);
     if (ouvert) break;
     await nettoyer();
   }
+  if (!ouvert) {  // gabarit L1 : fenêtre centrale :target, ouverte par un lien a.ouvre (de préférence au point 9 ou 11)
+    const id = await p.evaluate(() => { const L = [...document.querySelectorAll('a.ouvre[href^="#f-"]')].filter(a => !a.closest('section.fenetre, nav'));
+      const c = L.find(a => /-p(9|11)-/.test(a.getAttribute('href'))) || L[0]; return c ? c.getAttribute('href').slice(1) : null; });
+    if (id) { await p.evaluate(i => { location.hash = '#' + i; }, id); await p.waitForTimeout(400);
+      const vu = await p.evaluate(i => { const s = document.getElementById(i); if (!s) return false; const r = s.getBoundingClientRect();
+        return getComputedStyle(s).display !== 'none' && r.height > 0 && r.width > 0; }, id);
+      if (vu) ouvert = ':target #' + id; }
+  }
   if (ouvert) { await p.screenshot({ path: base + '_2.png' }); res[2] = 'fenêtre ' + ouvert; } else res[2] = 'AUCUNE FENÊTRE';
   await nettoyer();
+  await p.evaluate(() => { if (location.hash) { history.replaceState(null, '', location.pathname); location.hash = '#'; } }); await p.waitForTimeout(150);
 
   const s9 = await allerPartie(9, ['examens complémentaires']);
   await p.waitForTimeout(250); await p.screenshot({ path: base + '_3.png' });
