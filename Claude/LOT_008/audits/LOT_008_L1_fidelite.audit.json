@@ -1,0 +1,72 @@
+{
+  "lot": "LOT_008",
+  "verdict": "corrections",
+  "reference": "origin/main:Claude/LOT_008 vs claude/l1-lot-008 @ da270200ab",
+  "methode": "Texte sans balises (span.df, cellules, title inclus), comparaison avant/après par phrase (recouvrement lexical et co-présence des nombres), comptage des nombres disparus, diff mot à mot des remplacements courts, comparaison verbatim des fiches médicament (id med-*) et des phrases de dose/seuil, contrôle des liens a.ouvre, des IDs et des citations sb-*. Aucun HTML modifié.",
+  "constats_conformes": [
+    "Fiches médicament (med-*) : 55 avant, 55 après, texte AIPS identique mot pour mot dans les 11 fichiers.",
+    "Phase A : liste DX (bloc2), tableau comparatif et algorithme identiques au caractère près.",
+    "Examens en fenêtres : indication, valeurs SI, signification et conduite conservées (contrôle DX.1, DX.4, DX.9, DX.10).",
+    "Liens : 265 a.ouvre, 263 fenêtres, aucun lien mort, aucun ID dupliqué, aucune fenêtre orpheline ni sans bouton Fermer.",
+    "Aucune affirmation médicale nouvelle : les phrases ajoutées sont des phrases de navigation vers les fenêtres.",
+    "Pertes sanctionnées par L1-3 : notions voisines, sémantique, cartouches CIM du point 1, bloc Rappel mémoire (TEMPO-IN, 16 SSP G1-G16, mnémotechniques) dans les 10 DX."
+  ],
+  "critiques": [
+    {
+      "fichier": "LOT_008_Phase_B_V0_DX.10.html",
+      "avant": "Point 1 : « Le SIRS rassemble des critères d'inflammation (température > 38 ou < 36 °C, FC > 90/min, FR > 20/min, leucocytes < 4 ou > 12 G/L) [1]. Ces critères sont non spécifiques, et on les a abandonnés pour définir le sepsis. »",
+      "apres": "Phrase supprimée. Le seuil FR > 20/min n'existe plus nulle part (seul qSOFA FR ≥ 22/min reste) ; les fenêtres Constantes et Formule sanguine écrivent « Critère SIRS » sans que le SIRS soit défini ; l'abandon du SIRS pour définir le sepsis disparaît.",
+      "correction": "Réinsérer la phrase, citation [1], dans la fenêtre Constantes (ou en infobulle sur « SIRS ») : critères complets et mention de leur abandon pour la définition du sepsis (Sepsis-3)."
+    }
+  ],
+  "mineurs": [
+    {
+      "fichier": "LOT_008_Phase_B_V0_DX.9.html",
+      "avant": "Point 1 : « Trois mécanismes tuent : l'asphyxie (65 à 100 % des décès), le traumatisme (5 à 29 %) et l'hypothermie (0 à 4 %) [2]. »",
+      "apres": "Les trois parts ne survivent qu'en point 14 (question d'examen « Quelle est la première cause de décès en avalanche ? »).",
+      "correction": "Placer la phrase sourcée [2] au point 2 (épidémiologie) ou 3 (physiopathologie) et réduire la réponse du point 14 à un renvoi, pour qu'elle soit lue à l'endroit où elle sert."
+    },
+    {
+      "fichier": "LOT_008_Phase_B_V0_DX.10.html",
+      "avant": "Point 1 : « Le terme « sepsis sévère » est jugé redondant depuis 2016 [1]. »",
+      "apres": "Supprimé ; « sepsis sévère » reste employé au point 2 (Schmid 2004, Kushimoto 2019) sans cette précision.",
+      "correction": "Ajouter la précision [1] dans la fenêtre épidémiologique où « sepsis sévère » apparaît."
+    },
+    {
+      "fichier": "LOT_008_Phase_A_V0.html",
+      "avant": "Point 1 : « Selon l'OMS, elle se classe en CIM-10 sous T68 si le froid ambiant l'explique, sous R68.0 sinon [2]. »",
+      "apres": "Supprimé (L1-3 : point 1 = définition seule) ; la source [2] reste listée et citée ailleurs.",
+      "correction": "Aucune obligatoire ; si l'on garde la distinction froid ambiant / sans froid ambiant, la reformuler sans code en définition."
+    },
+    {
+      "fichier": "LOT_008_Phase_A_V0.html",
+      "avant": "Citation sb-1 (PROFILES 2023) portée par « la catégorie G rassemble 16 symptômes généraux » (bloc rappel).",
+      "apres": "sb-1 n'est plus cité dans le corps ; la source [1] reste dans la bibliographie.",
+      "correction": "Citer [1] sur la mention de la SSP G8 en tête de Phase A, ou retirer [1] de la liste."
+    },
+    {
+      "fichier": "LOT_008_Phase_B_V0_DX.3.html",
+      "avant": "Point 9 : nasopharyngé, cathéter artériel pulmonaire et infrarouge tympanique présentés comme sites comparés, l'infrarouge tympanique étant inexact.",
+      "apres": "Phrase de navigation : « Viennent ensuite nasopharyngé, cathéter artériel pulmonaire et infrarouge tympanique. », sans qualificatif.",
+      "correction": "Écrire : « Les fenêtres nasopharyngé et cathéter artériel pulmonaire complètent ; l'infrarouge tympanique est inexact en hypothermie. »"
+    },
+    {
+      "fichier": "LOT_008_Phase_B_V0_DX.5.html",
+      "avant": "« six règles de baignade (six baderegeln) »",
+      "apres": "« six règles de baignade (la fenêtre règles de la SLRG le précise) » ; les six règles sont intactes dans la fenêtre.",
+      "correction": "Aucune ; changement de libellé de fenêtre sans perte de fond."
+    },
+    {
+      "fichier": "LOT_008_Phase_B_V0_DX.1.html",
+      "avant": "Trois verbes signalés par l'agent de migration.",
+      "apres": "Le diff mot à mot ne montre que des changements de casse et l'insertion « la fenêtre » ; aucun changement de sens, de seuil ni de conduite trouvé.",
+      "correction": "Aucune."
+    },
+    {
+      "fichier": "tous les DX",
+      "avant": "Phrases de navigation nominales ajoutées (« Viennent ensuite ECG ; », « enfin HbA1c . », « enfin neurologie . »).",
+      "apres": "Non verbales ou elliptiques, contraires à L1-3.3 (phrases verbales partout).",
+      "correction": "Reformuler en phrases verbales lors de la prochaine passe de forme."
+    }
+  ]
+}

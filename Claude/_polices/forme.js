@@ -41,9 +41,24 @@
   window.addEventListener('hashchange', maj);
   maj();
 })();
-/* L1 : la touche Échap ferme la fenêtre centrale ouverte (CSS :target). */
-document.addEventListener('keydown', function (e) {
-  if (e.key !== 'Escape' || !location.hash) return;
-  var s = document.getElementById(location.hash.slice(1));
-  if (s && s.classList.contains('fenetre')) { location.hash = ''; }
-});
+/* L1 : fermer une fenêtre centrale (bouton « Fermer » ou Échap) ramène le lecteur à sa position de lecture. */
+(function () {
+  var ouverte = false;
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    if (a.classList.contains('ouvre') || /^#med-/.test(a.getAttribute('href') || '')) { ouverte = true; return; }
+    if (a.classList.contains('fermer') || (a.classList.contains('fe') && a.closest('.mb'))) { e.preventDefault(); fermer(); }
+  });
+  function fermer() {
+    if (ouverte) { ouverte = false; history.back(); return; }
+    var y = window.scrollY;
+    location.hash = '';
+    window.scrollTo(0, y);
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !location.hash) return;
+    var s = document.getElementById(location.hash.slice(1));
+    if (s && (s.classList.contains('fenetre') || s.classList.contains('mb'))) { e.preventDefault(); fermer(); }
+  });
+})();

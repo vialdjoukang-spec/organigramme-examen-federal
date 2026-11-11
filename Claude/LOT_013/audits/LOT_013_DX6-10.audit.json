@@ -1,0 +1,87 @@
+{
+ "lot": "LOT_013",
+ "perimetre": "DX.6, DX.7, DX.9, DX.10 (versions de 57c4464c85), puis DX.8 (version poussée 77481a00ef, VERT à controle3) : points 1-4, 8, 9, 11, 12, fenêtres, fiches médicament, sources ; HELP comparé à origin/main ; design Playwright",
+ "date": "2026-11-11",
+ "auditeur": "Claude Opus 5.5, audit L1 (n'a rédigé aucun de ces textes)",
+ "versions_auditees": {
+  "LOT_013_Phase_B_V0_DX.6.html": "149269 o, sha256 3876aedbd8f99b42…, controle3 VERT",
+  "LOT_013_Phase_B_V0_DX.7.html": "147699 o, 3c6780bdb081bccf…, controle3 VERT",
+  "LOT_013_Phase_B_V0_DX.9.html": "143867 o, f14ab4ff02556117…, controle3 VERT",
+  "LOT_013_Phase_B_V0_DX.10.html": "149529 o, 6a9eeb3f007d5fa1…, controle3 VERT",
+  "LOT_013_Phase_B_V0_DX.8.html": "149394 o, e15025a77b65b6a2…, controle3 VERT (commit 77481a00ef)"
+ },
+ "verdict": "corrections",
+ "critiques": [
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.6.html ; DX.7 ; DX.8 ; DX.9 ; DX.10",
+   "classe": "Grave (source suisse la plus récente absente)",
+   "constat": "Aucun des cinq fichiers ne cite le formulaire national « Attestation médicale de décès », version janvier 2026 (0 occurrence). Il définit pourtant les trois manières : « Mort indéterminée (mort subite ou inattendue / une mort non naturelle ne peut pas être exclue) » ; « Mort non naturelle […] accident, suicide, homicide, etc. (même si le décès n'est survenu que des suites tardives) » ; case « Le cas a été annoncé à la police ou au ministère public ». C'est la définition officielle du scénario DX.10, la base du classement de la mort subite du nourrisson (DX.8) et des séquelles tardives (DX.6, DX.9). L'audit précédent a imposé la même correction à la Phase A, à DX.1 et à DX.5.",
+   "correction": "DX.10 point 1 et point 8 : ajouter la définition du formulaire 2026, mot pour mot. DX.8 point 8 : « mort subite ou inattendue » = case « indéterminée » tant que l'autopsie n'a pas conclu. DX.6, DX.7, DX.9 point 8 : citer la case cochée et la case d'annonce. Ajouter la source (comme DX.1 [S38]).",
+   "source": "Attestation médicale de décès, formulaire national, version janvier 2026, https://www.ne.ch/sites/default/files/2026-01/Attestation_medicale_deces_nov2025.pdf (PDF lu le 11.11.2026)"
+  },
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.6.html",
+   "classe": "Grave (consigne de réanimation ambiguë)",
+   "constat": "Le verbe « retenir » sert à dire « différer » (anglicisme de « withhold ») : point 3 « adrénaline […] retenue sous 30 °C car elle s'accumule » ; point 13 « Sous 30 °C, le médecin limite la défibrillation à trois chocs, retient l'amiodarone et ne répète pas l'adrénaline » ; fenêtre f-dx6-p11-div « l'amiodarone […] fait partie des médicaments retenus ». Un lecteur français comprend « choisie ». La fenêtre de conduite dit l'inverse : « il ne donne ni amiodarone ni adrénaline répétée ». Le tableau du point 3 (ligne FV réfractaire) propose l'amiodarone sans seuil de température.",
+   "correction": "Remplacer « retenir » par « ne pas administrer avant 30 °C » dans les trois passages. Ajouter « à partir de 30 °C » à la ligne FV du point 3.",
+   "source": "ERC 2025 Special Circumstances, cité dans la fenêtre f-dx6-p11-div du même fichier (« Below 30 °C adrenaline will accumulate… ») ; AIPS Cordarone 41060 (dose 300 mg puis 150 mg, vérifiée)"
+  },
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.8.html",
+   "classe": "Grave (dose attribuée à la mauvaise AIPS)",
+   "constat": "Fenêtre adrénaline du nourrisson. La ligne « Adrenalin Sintetica 1 mg/ml (novembre 2024)S23S24 » cite la dose « 0,01 mg d'adrénaline/kg […] diluée 1:10 » avec S25 (Bichsel 56472) au lieu de S24 (Sintetica 56551). La ligne « Adrenalin Aguettant 0,1 mg/mL (juin 2023)S23S24 » cite S24 en tête. Les doses sont exactes ; les renvois sont faux.",
+   "correction": "Ligne Sintetica : S23S24 → S24 et S25 → S24. Ligne Aguettant : S23S24 → S23.",
+   "source": "AIPS 56551 Adrenalin Sintetica (« La dose initiale pour enfants et adolescents est de 0,01 mg d'adrénaline/kg ») ; AIPS 56472 Bichsel (« initialement 0,01 mg/kg […] toutes les 3 à 5 minutes selon la durée de la réanimation ») ; AIPS 66396006 Aguettant (« n'est pas adapté pour délivrer une dose inférieure à 0,5 ml ») ; corpus AipsDownload_20261008"
+  },
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.6.html ; DX.7 ; DX.9 ; DX.10",
+   "classe": "Moyen (sigles non définis au premier emploi)",
+   "constat": "Sigles développés seulement dans la bibliographie, ou plus loin que leur premier emploi. DX.6 : MP (point 8), ERC (point 1), ROSC, HOPE, ICAR, LAA, LPGA, IO (dans le texte avant la fenêtre). DX.7 : IRM (tableau du point 3, développé seulement dans une fenêtre), LAVI (point 11). DX.9 : MP (point 2), SGRM (point 9). DX.10 : MP (point 3, développé au point 11), OFS (point 4), CT (point 3).",
+   "correction": "Développer chaque sigle à son premier emploi dans le texte, par exemple « ministère public (MP) » ou « Conseil européen de réanimation (ERC) ».",
+   "source": "harnais/HARNAIS_OBLIGATOIRE.md (règle des abréviations) ; Prompt V0"
+  },
+  {
+   "fichier": "LOT_013_Phase_B_V0_DX.6.html",
+   "classe": "Moyen (fiche médicament incomplète ; renvoi faux)",
+   "constat": "La fiche f-dx6-p11-adr n'a plus de ligne « Contre-indications » ni « Interactions ». La fiche amiodarone n'a plus de ligne « Interactions ». HELP note ce retrait. Dans f-dx6-p11-div, des faits de l'ERC (« admet 1 mg plus froid si l'accès à l'ECLS tarde, double les intervalles de 30 à 35 °C (6 à 10 minutes) ») sont cités S30, donc l'AIPS.",
+   "correction": "Rétablir une ligne courte : « Contre-indication AIPS : hypersensibilité, s'il existe une autre présentation ou un autre vasopresseur » ; « Interactions : IMAO, halothane » ; amiodarone : « CYP3A4, médicaments torsadogènes ». Remplacer S30 par S23 dans la phrase ERC.",
+   "source": "AIPS Adrenalin Aguettant 66396008 (rubrique Contre-indications) ; AIPS Cordarone 41060 (Interactions)"
+  }
+ ],
+ "mineurs": [
+  "DX.6 fenêtre amiodarone : « gasping syndrome » présenté comme citation AIPS ; l'AIPS 41060 en français dit « syndrome de suffocation ».",
+  "DX.6 point 13 et fenêtre assurance : la réduction de moitié (OLAA art. 50) vise l'accident non professionnel ; le préciser.",
+  "DX.7 point 1 : deuxième paragraphe sur la conduite du médecin (« il constate la mort, repère les indices… ») ; le déplacer au point 11, pour un point 1 limité à la définition.",
+  "DX.7 point 2 : 19 978 délits de violence domestique (2022) ; remplacer par le chiffre SPC 2025, ou dater explicitement.",
+  "DX.7 fenêtre déontologie : la LSP bernoise art. 28 est citée par S7 (article FMS 2023), donc par une source secondaire ; citer le texte cantonal.",
+  "DX.9 point 9.a : l'étude Grabherr 2018 (500 cas, 61,3 / 76,0 / 89,9 %) est aussi rattachée à S2, S6 et S4, qui ne la contiennent pas ; garder S42 seul.",
+  "DX.9 fenêtre dispositifs : la citation « immédiatement ou au plus tard dans un délai de 10 jours » est attribuée à Swissmedic mais citée S38 (RDM-UE) ; inverser S37 et S38.",
+  "DX.9 fenêtre pharmacologie : la dilution du KCl (Swissmedic 29552) est citée S30S31 ; S30 est le méthotrexate ; garder S31.",
+  "DX.10 point 2 : « 73 052 décès » vient d'Eurostat (non-résidents compris) ; l'OFS compte 71 942 décès de résidents. La fenêtre l'explique, mais le texte cite S16 (OFS) en premier : écrire « Eurostat, décès survenus en Suisse ».",
+  "DX.8 point 1 : HAS 2007 et RCPath 2016 restent les références européennes ; HELP le note. Aucune recommandation suisse récente sur la mort inattendue du nourrisson n'a été trouvée.",
+  "HELP contre origin/main : seuls des calculs dérivés, l'étude américaine du « risque × 7,5 » (DX.7), la mention Amiodarone Labatec 59528, la pharmacocinétique (DX.6) et la colonne des naissances du tableau SID (DX.8) ont disparu. Tous sont consignés dans HELP. Aucun fait sourcé unique et utile n'est perdu."
+ ],
+ "verifications_conformes": [
+  "CPP art. 253 al. 1-4 (Fedlex 01.04.2025, lu) ; OEC art. 35 al. 1 (deux jours, dix jours si inconnu), al. 2 (30 jours), al. 5 (lu) ; OMéd art. 63 al. 3 (15 jours, lu) ; ODim art. 66 al. 4 (renvoi à l'art. 87 RDM-UE, lu).",
+  "AIPS lues : Adrenalin Aguettant 66396008/66396006 (1 mg IV/IO toutes les 3 à 5 min, flush 20 mL, endotrachéale 2 à 2,5 mg ; enfant > 5 kg 0,01 mg/kg ; grossesse et allaitement mot pour mot) ; Cordarone 41060 (300 mg puis 150 mg, contre-indications levées en RCP, alcool benzylique 60 mg, transaminases > 3 × N) ; KCl B. Braun 29552 (tableau des débits mot pour mot) ; Methotrexat-Mepha 65510 ; Dostinex 51756 (0,25 mg toutes les 12 h pendant 2 jours) ; Parlodel 39001 ; Adrénaline Bichsel 56472 ; Adrenalin Sintetica 56551.",
+  "SPC 2025 (communiqué OFS du 23.03.2026) : 55 homicides consommés, moyenne de 48, 32 femmes (58,2 %), 61,8 % dans la sphère domestique, 19 femmes et 2 hommes tués dans le couple. Eurostat crim_off_cat 2024 : CH 0,50 ; DE 0,83 ; FR 1,28.",
+  "Never Event-Liste Schweiz 2021 : numéros 3, 5, 6, 7, 8, 11 et 12 conformes.",
+  "Calculs refaits : 32/55 = 58,2 % ; 34/55 = 61,8 % ; 4 065/73 052 = 5,56 % ; 107/73 052 = 0,146 % ; 259/78 256 = 3,31 ‰."
+ ],
+ "design": {
+  "outil": "Playwright Chromium, 390 × 844 et 1440 × 900 ; chaque fenêtre ouverte par son ancre",
+  "scrollWidth_390": {"DX.6": 390, "DX.7": 390, "DX.8": 390, "DX.9": 390, "DX.10": 390},
+  "fenetres": "DX.6 : 53, DX.7 : 53, DX.8 : 55, DX.9 : 34, DX.10 : 44 ; toutes visibles, en position fixe et centrées (écart < 20 px), sans débordement interne aux deux largeurs ; aucun lien interne mort",
+  "tableaux_390": "aucun tableau ne déborde hors d'un conteneur défilant",
+  "abreviations": "aucune infobulle ni balise abbr ; les définitions passent par le texte, et des sigles manquent (voir critique Moyen)",
+  "controle_lot": "seule critique mécanique : ressources externes forme.css et forme.js (décision de Vial du 10.11.2026 notée dans HELP)"
+ },
+ "scores_12_2": {
+  "DX.6": "exactitude AIPS 2 ; sources suisses récentes 1 (formulaire 2026 absent) ; clarté de la conduite 1 (« retenir ») ; sigles 1 ; design 2",
+  "DX.7": "exactitude 2 ; sources récentes 1 ; point 1 seul 1 ; sigles 1 ; design 2",
+  "DX.8": "exactitude AIPS 2 (doses) ; renvois AIPS 0 (S23/S24/S25 croisés) ; sources récentes 1 ; design 2",
+  "DX.9": "exactitude AIPS et délais légaux 2 ; renvois 1 ; sources récentes 1 ; sigles 1 ; design 2",
+  "DX.10": "exactitude 2 ; définition officielle 0 (formulaire 2026 absent du point 1) ; sigles 1 ; design 2"
+ },
+ "question_finale": "non : il manque le formulaire national 2026 (cinq fichiers), le sens univoque de « retenir » dans DX.6, les renvois AIPS de la fenêtre adrénaline de DX.8, les sigles au premier emploi et les deux lignes de la fiche adrénaline de DX.6."
+}
