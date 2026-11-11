@@ -44,3 +44,11 @@
 - Citations corrigées : la fiche SECO était citée à tort pour des prévalences ; l'AIPS Modasomil pour l'arbre décisionnel.
 - Normes d'examen sans source lue retirées (IMC 18,5–24,9, PA < 140/90 assis 5 min, 4 foyers, 60–100/min) ; gestes conservés.
 - Aucune image : diagnostic par journal et actigraphie ; proposition : actigramme libre de retard de phase en fenêtre 9.b.
+
+## DX.4 — Dépression (renfort L1, 11.11.2026)
+- Source européenne de décision ajoutée : NVL allemand Dépression unipolaire 3.0 (Härter 2023). AIPS séparée par molécule (7 monographies).
+- Agomélatine : calendrier « 3, 6, 12, 24 semaines » remplacé par celui de l'AIPS Valdoxan 57596 (toutes les 2 semaines jusqu'à un mois durant 6 mois).
+- Faits retirés faute de source lue : perte de poids > 5 %/mois, pouls 60–100/min, QTc 450/460 ms, TSH 0,4–4,0 mU/L, « réveil ≥ 2 h avant l'heure habituelle ».
+- Critères DSM-5 (5/9 symptômes, 2 semaines) conservés en tableau sans source lue : à adosser au DSM-5 ou à la CIM-11.
+- Taille au plancher (80,0 Ko) : prochain renfort à faire par ajout de contenu sourcé.
+- DX.3 : définitions des sigles CIM, DSM, HypnoLaus ajoutées.
