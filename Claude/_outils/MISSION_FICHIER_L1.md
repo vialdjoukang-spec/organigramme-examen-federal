@@ -31,6 +31,7 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
   une liste (VERBES) et par terminaison : lis-le avant de choisir tes verbes.
 
 ## Exigences pédagogiques de Vial (ordre du 11.11.2026)
+Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en arrière sur les LOTs antérieurs.
 - **Précision, densité, clarté.** Chaque phrase porte un fait utile et exact ; aucune phrase d'ambiance, aucune redite. La
   concision sert l'envie de lire et la vitesse de lecture : à information égale, la phrase la plus courte gagne.
 - **Prérequis anatomo-fonctionnels.** Si le diagnostic ne se comprend pas sans une base d'anatomie ou de physiologie (voies
