@@ -157,3 +157,15 @@ Décisions en vigueur :
 - DX.8 : acétazolamide et topiramate sont hors indication AIPS dans l'HTII ; les doses citent la Revue Médicale Suisse 2021 et le consensus britannique 2018 avec la mention « hors AIPS » ; les fiches recopient les AIPS 21191 et 53537 (lues sur refdata le 11.11.2026).
 Doutes médicaux à trancher :
 - DX.8 : tableau 4 du consensus britannique (intervalles de suivi) lu dans un texte XML aplati ; l'attribution « œdème sévère, champ stable : 4 semaines » et « œdème léger : 3–6 mois si amélioration, 3–4 mois si stable » est à vérifier sur le tableau d'origine.
+
+## DX.9 — Horner par dissection carotidienne (leçon achevée, 2026-11-11)
+Lacunes ouvertes :
+- DX.9 : la bibliographie d'origine (S1–S49) était perdue avec la fin du fichier ; la leçon est réécrite sur 9 sources relues le 11.11.2026 et 6 AIPS. Les chiffres des anciennes sources non retrouvées (Innsbruck, Zurich, Berne-Paris, série canadienne du Horner aigu, méta-analyses de récidive et de facteurs de risque, LONG-RECAP, styloïde) sont retirés faute de source relue.
+- DX.9, point 9 : aucun cliché IRM T1 FAT-SAT (croissant d'hématome) libre trouvé ; « File:Angio MR.jpg » (Commons) écarté, le signe n'y est pas lisible. Image à chercher.
+- DX.9, point 9.c : grossesse, DFGe < 30 mL/min, allergie à l'iode : seule source lue, la Revue Médicale Suisse 2017 (écho-Doppler non invasif) ; aucune règle suisse dédiée lue.
+- DX.9, point 11 : délai de lecture du test à l'apraclonidine, aptitude à la conduite (OAC) et durée d'arrêt de travail non sourcés, donc absents du cours.
+Décisions en vigueur :
+- DX.9 : aspirine 300 mg/j = dose AIPS après AIT (51795) et dose de TREAT-CAD ; la dissection n'est pas une indication AIPS en propre, écrit dans la fiche. Test à l'apraclonidine écrit « hors AIPS ».
+- DX.9 : paracétamol retenu comme antalgique par déduction de l'indication AIPS (maux de tête), sans recommandation dédiée lue.
+Doutes médicaux à trancher :
+- DX.9 : « arrêt de l'antithrombotique discuté vers 3 mois » repose sur TREAT-CAD via la revue bâloise 2025, non sur une recommandation ; Horner avec atteinte du VI attribué au sinus caverneux ou au pont (revue 2015).
