@@ -37,3 +37,10 @@
 - Critères DSM-5 (TAG 6 mois, 3/6 symptômes ; panique 1 mois) conservés en tableau sans source lue : à adosser au DSM-5 ou à la CIM-11 (CDDR, OMS).
 - Wittchen 2011 (14,0 %) non relu (accès payant).
 - Pas d'image : aucun examen d'imagerie décisif dans ce diagnostic.
+
+## DX.9 — Trouble du rythme circadien (renfort L1, agent B, 11.11.2026)
+- Aucune recommandation européenne de traitement lisible : le consensus BAP 2019 (Wilson, PMID 31271339) et le guide européen de l'insomnie 2023 sont derrière un accès payant. Les mesures restent attribuées à l'AASM (« l'AASM suggère… ») ; les décisions suisses s'appuient sur le SECO (lu le 11.11.2026) et l'AIPS. À compléter dès qu'un texte européen est lisible.
+- Pallesen 2021 (méta-analyse norvégienne, texte intégral lu) ajoutée : 26,5 % de trouble du travail posté, Eurofound 2017 (21 % posté, 19 % de nuit), critères ICSD-3 plus stricts (Finlande 24,1 % → 7,3 %).
+- Citations corrigées : la fiche SECO était citée à tort pour des prévalences ; l'AIPS Modasomil pour l'arbre décisionnel.
+- Normes d'examen sans source lue retirées (IMC 18,5–24,9, PA < 140/90 assis 5 min, 4 foyers, 60–100/min) ; gestes conservés.
+- Aucune image : diagnostic par journal et actigraphie ; proposition : actigramme libre de retard de phase en fenêtre 9.b.
