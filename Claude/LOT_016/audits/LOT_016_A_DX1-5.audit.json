@@ -1,0 +1,274 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "11dd9ab69d0c39a84f82179deb4ef7eb40b99b19",
+ "perimetre": "Phase A + DX.1 à DX.5 (DX.6 à DX.10 hors périmètre)",
+ "methode": "controle3 --script-ok : VERT pour les 6 fichiers. 51 AIPS téléchargées sur refdata, plus Topamax® et Exelon® retrouvés par l'index AipsDownload_20261008.xml. Contrôle par script de 793 renvois sb-aips : chaque citation « » est retrouvée mot pour mot (espaces ignorées) et chaque chiffre de la phrase figure dans l'AIPS. Plus de 90 renvois relus à la main (fiches .mb, urgences, crise thyrotoxique). Sources ouvertes : ETA/BTA 2026 (PMC13506520), HAS 2022, ESsCD 2025 partie 1, Reber 2019. Playwright (Chromium) à 1280 et 390 px sur les 310 fenêtres.",
+ "leves": [
+  "Citations AIPS entre guillemets : aucun écart mot pour mot sur les 793 renvois. Les faux positifs du script tiennent aux espaces insérées dans le texte refdata.",
+  "2b : la formulation du KCl est exacte et prudente. L'indication en alcalose, la contre-indication de l'acidose et les plafonds (10 mmol/h et 40 mmol/L si K+ > 2,5 ; 40 mmol/h et 80 mmol/L si K+ < 2,0) sont recopiés fidèlement. Seule la conduite du point 14 manque (voir restants).",
+  "2d : les doses de crise de DX.4 sont identiques à Taylor et al., Eur Thyroid J 2026 (CBZ 80–100 mg/j ; PTU 500–1000 mg puis 250 mg toutes les 4 h ; relais PTU 400 / CBZ 40 ; hydrocortisone 100 puis 50 mg × 4 ; colestyramine 4 g × 3 ; diltiazem 60–90 mg toutes les 6 h ; Lugol 8 gouttes × 4 ou SSKI 5 gouttes × 4, 1 h après l'ATS ; propranolol 60–80 mg toutes les 4 h). La mention « hors information professionnelle » et les paliers AIPS sont justes (Néo-Mercazole® 20–60 puis 5–20 mg/j ; Propycil® 300–600 mg/j dans les cas graves, entretien 25–150 mg/j). Seul défaut : les ancres (voir restants).",
+  "2e : l'indication palliative de Spiricort® est exacte, et l'AIPS de Zyprexa® n'est plus citée pour Spiricort®. Le texte français existe pourtant (voir restants).",
+  "HAS 2022 : neutrophiles < 800/mm³ → arrêt définitif et contre-indication de tous les ATS (vérifié dans le PDF). ESsCD 2025 : voie sans biopsie avant 45 ans si IgA anti-TG2 ≥ 10 × LSN, confirmée sur un second prélèvement (vérifié).",
+  "Liens internes : 0 lien cassé dans les 6 fichiers. Aucun débordement horizontal de page à 1280 ni à 390 px. Les fenêtres ordinaires sont centrées et occultantes. Les 4 tableaux larges à 390 px défilent dans leur cadre (lisibles).",
+  "L1 : point 1 limité à la définition dans les 6 fichiers ; aucun arbre CIM ni sommaire en pastilles ; menu latéral fixe ; palettes distinctes ; une fiche .mb par molécule ; point 14 ≥ 6 questions partout ; redites entre fichiers limitées aux lignes Benerva® communes à DX.1 et DX.3 (fiche propre à chaque DX)."
+ ],
+ "restants": [
+  {
+   "fichier": "Claude/_polices/forme.css (effet sur DX.1 à DX.5 : 45 fiches .mb)",
+   "gravite": "Grave",
+   "constat": "Contraire à L1-2 : à 1280 px, les fiches .mb (section.fenetre.mb) s'ouvrent à gauche (x = 26–794 px) au lieu du centre, et le fond n'est assombri que sous la fiche. Cause : la règle ci-dessous impose display:block et une largeur de 820 px, alors que section.fenetre:target, plus spécifique, annule le transform de centrage et l'ombre occultante. Vérifié avec Playwright sur les 45 fiches ; à 390 px, aucun défaut.",
+   "avant": "body .mb:target:not(#brain-barre14){display:block!important;max-width:none!important;width:min(820px,92vw)!important;margin:0!important;box-sizing:border-box!important}",
+   "correction": "Ajouter juste après cette règle : body section.fenetre.mb:target:not(#brain-barre14){display:flex!important;width:auto!important}. Le test Playwright de f-dx4-m-car donne alors une fiche centrée (90–1190 px à 1280 ; 26–364 px à 390) sur fond assombri. Si forme.css ne peut pas être modifiée, placer la même règle dans le <style> de chaque DX (+85 o ; échanges ci-dessous).",
+   "source": "Playwright (Chromium), 11.11.2026 ; L1-2"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Grave",
+   "constat": "Les 12 aria-label des fiches .mb contiennent du HTML (<sup><a>). Le guillemet de href ferme l'attribut et fait apparaître un lien « S19 » parasite en haut à gauche de la fiche ouverte. Le même défaut touche les 2 fiches de DX.1 (entrée suivante).",
+   "avant": "aria-label=\"Carbimazole — Néo-Mercazole® (comprimés 5 mg, n° 21037)<sup class=\"r\"><a href=\"#sb-aips-21037\">S19</a></sup>\">",
+   "correction": "aria-label=\"Carbimazole — Néo-Mercazole® (comprimés 5 mg, n° 21037)\">  (même retrait du <sup…</sup> dans les 11 autres aria-label de fiche : regex aria-label=\"([^\"]*)<sup class=$ → retirer jusqu'à </sup> ; gain d'environ 55 o par fiche)",
+   "source": "Capture Playwright 1280 px, f-dx4-m-car"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.1.html",
+   "gravite": "Grave",
+   "constat": "Même défaut d'aria-label : lien parasite « S13 » en tête de la fiche Farlutal® (et « S14 » sur Fortecortin®).",
+   "avant": "aria-label=\"Acétate de médroxyprogestérone — Farlutal® (n° 44307 ; comprimés 500 mg)<sup class=\"r\"><a href=\"#sb-aips-44307\">S13</a></sup>\">",
+   "correction": "aria-label=\"Acétate de médroxyprogestérone — Farlutal® (n° 44307 ; comprimés 500 mg)\">  (idem : aria-label=\"Dexaméthasone — Fortecortin® comprimés 4 mg (n° 48670)\">)",
+   "source": "Playwright"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Grave",
+   "constat": "Point 2c. La fiche eskétamine ne donne aucune dose : « Se référer à la rubrique Posologie » est un renvoi en forme de lacune, alors que l'AIPS 67103 (juin 2025) chiffre la posologie (tableau 1 et urgence psychiatrique).",
+   "avant": "<td>Se référer à la rubrique Posologie de l'AIPS : le traitement s'administre sous surveillance, avec une observation de 2 heures après la prise <sup class=\"r\"><a href=\"#sb-aips-67103\">S52</a></sup></td>",
+   "correction": "<td>Dépression résistante : semaines 1–4, deux séances par semaine, 56 mg le jour 1 (28 mg dès 65 ans), puis 56 mg ou 84 mg ; semaines 5–8, « 56 mg ou 84 mg une fois par semaine » ; dès la semaine 9, toutes les 2 semaines ou chaque semaine. Urgence psychiatrique : « 84 mg, deux fois par semaine pendant 4 semaines », réduits à 56 mg selon la tolérance. Chaque séance comprend au moins 2 heures de surveillance <sup class=\"r\"><a href=\"#sb-aips-67103\">S52</a></sup></td>  (+300 o ; marge DX.2 : 2,8 Ko)",
+   "source": "AIPS Spravato® 67103, Posologie/Mode d'emploi, tableau 1 et « Traitement aigu de courte durée », lu sur refdata le 11.11.2026"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Les contre-indications de Spravato® sont incomplètes. L'AIPS contre-indique aussi un événement cardiovasculaire récent (6 semaines), dont l'infarctus, ainsi que l'hypersensibilité à l'eskétamine ou à la kétamine.",
+   "avant": "antécédent d'hémorragie intracérébrale <sup class=\"r\"><a href=\"#sb-aips-67103\">S52</a></sup></td>",
+   "correction": "antécédent d'hémorragie intracérébrale ; événement cardiovasculaire, dont un infarctus du myocarde, au cours des 6 dernières semaines ; hypersensibilité à l'eskétamine ou à la kétamine <sup class=\"r\"><a href=\"#sb-aips-67103\">S52</a></sup></td>",
+   "source": "AIPS 67103, Contre-indications"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "La fiche venlafaxine n'a pas de ligne de contre-indications : ses trois lignes s'intitulent « Usage ». L'AIPS 54168 contre-indique l'hypersensibilité, l'âge inférieur à 18 ans et l'association aux IMAO.",
+   "avant": "Après un IMAO irréversible, le médecin attend 14 jours ; il arrête la venlafaxine 7 jours avant un IMAO",
+   "correction": "Contre-indications : hypersensibilité, âge inférieur à 18 ans et association aux IMAO ; après un IMAO irréversible, le médecin attend 14 jours et il arrête la venlafaxine 7 jours avant un IMAO",
+   "source": "AIPS Efexor® ER 54168, Contre-indications (lignes 69–71)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "La dose de Seroquel XR® s'arrête au titrage. L'AIPS ajoute la dose efficace de 150 et 300 mg/j en traitement adjuvant.",
+   "avant": "Elle débute à 50 mg aux jours 1 et 2, puis 150 mg aux jours 3 et 4 <sup class=\"r\"><a href=\"#sb-aips-58108\">S34</a></sup>",
+   "correction": "Elle débute à 50 mg aux jours 1 et 2, puis 150 mg aux jours 3 et 4 ; l'effet est établi à 150 et 300 mg/j <sup class=\"r\"><a href=\"#sb-aips-58108\">S34</a></sup>",
+   "source": "AIPS Seroquel XR® 58108, Posologie"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Point 2e. L'indication de Spiricort® est désormais juste, mais « texte allemand, seul texte du corpus » est faux. L'index AIPS du 08.10.2026 contient le texte français de 38840 (…930530-fr.html, juin 2026), et la Phase A le cite déjà.",
+   "avant": "L'AIPS (texte allemand, seul texte du corpus) cite le traitement palliatif de la leucémie et des lymphomes de l'adulte, mais aucune indication orexigène",
+   "correction": "L'AIPS vise le « traitement palliatif de la leucémie et des lymphomes chez l'adulte », mais aucune indication orexigène",
+   "source": "AIPS Spiricort® 38840 fr, Indications, ligne « Pour le traitement palliatif de la leucémie et des lymphomes chez l'adulte »"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Bibliographie S49 : remplacer l'URL allemande par l'URL française. L'entrée S15 (Zyprexa®) cite encore Spiricort® : supprimer cette redite (−140 o).",
+   "avant": "mise à jour juin 2026 (texte allemand, seul texte du corpus). https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a16cd4d36b564816839b422425930530-de.html.",
+   "correction": "mise à jour juin 2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a16cd4d36b564816839b422425930530-fr.html.  Et dans S15 : retirer « ; Spiricort®, n° 38840, indications (https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a16cd4d36b564816839b422425930530-fr.html) ».",
+   "source": "Index AipsDownload_20261008.xml (bundle 38840, fr)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "La recommandation protéique (ESPEN, S21) porte l'ancre AIPS de Zyprexa® : ce renvoi est faux.",
+   "avant": "(patients polymorbides hospitalisés) [S21]<sup class=\"r\"><a href=\"#sb-aips-53709\">S15</a></sup>.",
+   "correction": "(patients polymorbides hospitalisés) [S21].",
+   "source": "Contrôle par script : 0,8 g/kg et 1,73 sont absents de l'AIPS 53709"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.3.html",
+   "gravite": "Grave",
+   "constat": "Point 8 : formule de lacune dans le cours, interdite par LV7. HELP ne la consigne pas.",
+   "avant": "Aucun critère chiffré de l'anorexie du vieillissement n'a été trouvé dans les sources consultées ; l'ESPEN 2017 en donne la définition, et aucune méthode d'évaluation de l'appétit ne fait consensus",
+   "correction": "L'ESPEN 2017 définit l'anorexie du vieillissement sans seuil chiffré, et aucune méthode d'évaluation de l'appétit ne fait consensus",
+   "source": "ESPEN 2017 (S3), S8 ; consigner la lacune dans HELP.md"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Point 2d. Les doses d'ATS de la crise sont exactes face au consensus ETA/BTA 2026, mais elles portent les ancres AIPS 21037 et 56300, qui ne les contiennent pas. La phrase suivante (divergence) garde ces ancres à juste titre.",
+   "avant": "(voie orale, sonde ou rectale)<sup class=\"r\"><a href=\"#sb-aips-21037\">S19</a></sup><sup class=\"r\"><a href=\"#sb-aips-56300\">S20</a></sup>.</td>",
+   "correction": "(voie orale, sonde ou rectale) [S3].</td>",
+   "source": "Taylor 2026, Eur Thyroid J ETJ-26-0043 : « CBZ 80–100 mg/day » ; « PTU 500–1,000 mg loading dose … then 250 mg every 4 h »"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "La dose d'hydrocortisone de la crise vient du consensus, mais elle cite l'AIPS 23533, qui ne la donne pas.",
+   "avant": "puis 50 mg 4 fois par jour<sup class=\"r\"><a href=\"#sb-aips-23533\">S23</a></sup>.</td>",
+   "correction": "puis 50 mg 4 fois par jour [S3].</td>",
+   "source": "Taylor 2026 : « IV hydrocortisone 100 mg loading dose and then 50 mg four times a day »"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "La dose de relais (PTU 400 mg/j, CBZ 40 mg/j) vient du consensus, mais elle porte les ancres AIPS.",
+   "avant": "carbimazole 40 mg/j<sup class=\"r\"><a href=\"#sb-aips-56300\">S20</a></sup><sup class=\"r\"><a href=\"#sb-aips-21037\">S19</a></sup>.</td>",
+   "correction": "carbimazole 40 mg/j [S3].</td>",
+   "source": "Taylor 2026 : « PTU 400 mg a day/MMI 30 mg a day/CBZ 40 mg a day »"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Le propranolol à 60–80 mg toutes les 4 h vient du consensus, mais il ne cite que l'AIPS d'Inderal®, qui donne 10–40 mg 3 à 4 fois par jour.",
+   "avant": "dysfonction systolique<sup class=\"r\"><a href=\"#sb-aips-31706\">S21</a></sup>.",
+   "correction": "dysfonction systolique [S3].",
+   "source": "Taylor 2026 : « Propranolol 60–80 mg every 4 h » ; AIPS Inderal® 31706"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Fenêtre f-dx4-p1-causes : « notions voisines » (terme interdit par L1-3) et redite. Les causes de TSH basse isolée figurent déjà dans la ligne « Fausse thyrotoxicose » de la même fenêtre, dans le tableau d'interprétation et dans l'arbre.",
+   "avant": "<p>Plusieurs notions voisines ne sont pas une thyrotoxicose ",
+   "correction": "Supprimer le paragraphe entier, de « <p>Plusieurs notions voisines » au </p> qui suit « ne prouve donc pas une thyrotoxicose » (721 o libérés : ils couvrent la règle CSS de l'entrée 1 et l'ajout ci-dessous).",
+   "source": "L1-3.1 et L1-3.4"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "La fiche colestyramine ne donne aucune dose AIPS. La dose de crise (4 g × 3) est donnée ailleurs, hors information professionnelle.",
+   "avant": "Les autres médicaments se prennent 1 heure avant ou 4 à 6 heures après la colestyramine",
+   "correction": "Hypercholestérolémie : 1 sachet matin et soir, au plus 6 sachets (24 g) par jour ; les autres médicaments se prennent 1 heure avant ou 4 à 6 heures après la colestyramine",
+   "source": "AIPS Quantalan® 50711, Posologie"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Moyen",
+   "constat": "Point 2a, fait à rétablir. L'AIPS classe l'hypophosphatémie parmi les effets « fréquents » de Ferinject®. Le fait sert directement en crise cœliaque, où le phosphate est déjà bas pendant la renutrition.",
+   "avant": "le médecin contrôle alors le phosphate en cas de doses répétées.",
+   "correction": "le médecin contrôle alors le phosphate en cas de doses répétées. L'AIPS classe l'hypophosphatémie parmi les effets fréquents.  (+70 o ; échanges : deux entrées Léger ci-dessous, −300 o)",
+   "source": "AIPS Ferinject® 57851 : « Fréquent: hypophosphatémie (sur la base de résultats de laboratoire). »"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Moyen",
+   "constat": "Point 2b. La formulation est exacte et conforme à l'AIPS : indication en alcalose, contre-indication de l'acidose, plafonds recopiés. La réponse du point 14 ne donne pourtant pas de conduite face à une kaliémie de 2,2 mmol/L avec acidose.",
+   "avant": "Le consensus recommande 40 mmol de KCl en 4 à 8 h sous 2,5 mmol/L <sup class=\"r\"><a href=\"#sb-s20\">S20</a></sup>.</li>",
+   "correction": "Le consensus recommande 40 mmol de KCl en 4 à 8 h sous 2,5 mmol/L <sup class=\"r\"><a href=\"#sb-s20\">S20</a></sup>. Le médecin corrige donc le potassium sans délai : il choisit le lactate de potassium, respecte les plafonds de l'AIPS et surveille les fonctions cardiaques <sup class=\"r\"><a href=\"#sb-aips-29552\">S33</a></sup>.</li>  (+190 o)",
+   "source": "AIPS 29552 : « Acidose (utiliser le lactate de potassium) » ; « Surveiller les fonctions cardiaques »"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Échange de taille. Cette phrase répète la limite de 45 ans de la voie sans biopsie, déjà donnée au point 8, dans l'arbre et au point 14.",
+   "avant": "<td>Une sérologie positive ne dispense pas d'endoscopie dès 45 ans <sup class=\"r\"><a href=\"#sb-s15\">S15</a></sup>.</td>",
+   "correction": "<td>Le point 8 fixe la limite d'âge.</td>  (−95 o)",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Échange de taille. Dans la fiche KCl, la ligne « Divergence » répète le conflit alcalose/acidose, déjà écrit dans la fenêtre d'urgence et dans la ligne des contre-indications.",
+   "avant": ". L'AIPS indique l'alcalose métabolique et contre-indique l'acidose, fréquente dans la crise cœliaque <sup class=\"r\"><a href=\"#sb-aips-29552\">S33</a></sup><sup class=\"r\"><a href=\"#sb-s16\">S16</a></sup>. Le médecin applique",
+   "correction": ". Le médecin applique  (−205 o)",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "La citation de la grossesse sous Ferinject® laisse des guillemets non fermés : deux phrases AIPS sont fusionnées.",
+   "avant": "(voir « Efficacité clinique » « Ferinject est contre-indiqué pendant le premier trimestre de la grossesse (voir «Contre-indications» « Une bradycardie",
+   "correction": "(voir « Efficacité clinique »). » « Ferinject est contre-indiqué pendant le premier trimestre de la grossesse (voir «Contre-indications»). » « Une bradycardie",
+   "source": "AIPS 57851, Grossesse"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Le calcul est incohérent dans la source : 1 g de MgSO4·7H2O vaut 4,06 mmol, donc 4–6 g valent 16–24 mmol et 20–24 mmol valent 4,9–5,9 g (calcul fait avec Python). Reber 2019 écrit bien « 20–24 mmol MgSO4 (4–6 g) ».",
+   "avant": "donne 20–24 mmol (4–6 g) de MgSO4",
+   "correction": "donne 20–24 mmol (environ 5 à 6 g ; la source écrit 4–6 g) de MgSO4",
+   "source": "Reber 2019 (S20), tableau 4 ; AIPS 56394 (1–2 g = 4,05–8,1 mmol)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Point 2f. Les fréquences sont exactes : Topamax® 53537, « Très fréquents: poids diminué (10,4%) » ; Exelon® 54275, « Diminution de l'appétit (11%) », très fréquent (formes orales). L'ancre sb-aips-s26 n'a pas la forme sb-aips-<n°> et regroupe huit AIPS sous une seule URL, celle de Topamax®. Il faut la scinder.",
+   "avant": "<li id=\"sb-aips-s26\">[S26] Swissmedic, informations professionnelles (fichier AIPS du 08.10.2026) : Aricept® 54274, Exelon® 54275, Topamax® 53537, Fluctine® 46347, Glucophage® 26061, Ritaline® 20736, Ozempic® 66604, Elvanse® 63023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3e6b959ba43245cca44d2a13b843d81a-fr.html (Topamax®)</li>",
+   "correction": "<li id=\"sb-aips-53537\">[S26a] AIPS Topamax® (topiramate), 53537, juin 2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3e6b959ba43245cca44d2a13b843d81a-fr.html</li>\n<li id=\"sb-aips-54275\">[S26b] AIPS Exelon® (rivastigmine), 54275, janvier 2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/7ccba61d23834d418677594ae6c7c03e-fr.html</li>  ; dans la phrase « 10,4 % … 11 % » : remplacer le sup s26 par <sup class=\"r\"><a href=\"#sb-aips-53537\">S26a</a></sup><sup class=\"r\"><a href=\"#sb-aips-54275\">S26b</a></sup>",
+   "source": "AIPS 53537 (ligne 277) et 54275 (ligne 131), lues sur refdata le 11.11.2026"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Échange de taille (Phase A à 84 o de la limite). Cette phrase répète DX.6 (« DX.6 précise ces fréquences ») et cite huit AIPS sans chiffre.",
+   "avant": " Le donépézil, la fluoxétine, la metformine, le sémaglutide, le méthylphénidate et la lisdexamfétamine réduisent aussi l'appétit selon leurs AIPS <sup class=\"r\"><a href=\"#sb-aips-s26\">S26</a></sup>.",
+   "correction": "(supprimer : −207 o). Retirer aussi le sup s26 des quatre phrases générales (« chiffrent ce risque », tableau DX.6 deux fois, E8) : DX.6 porte les AIPS (−4 × 50 o).",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Ancre E8 : le renvoi sb-aips-s26 disparaît avec la scission.",
+   "avant": "révision médicamenteuse et repesée → DX.6 <sup class=\"r\"><a href=\"#sb-aips-s26\">S26</a></sup>",
+   "correction": "révision médicamenteuse et repesée → DX.6",
+   "source": "L1, ancres sb-aips-<n°>"
+  }
+ ],
+ "reponses_2a": {
+  "a_retablir": [
+   "Ferinject® : hypophosphatémie fréquente (fait d'examen et de sécurité, surtout en renutrition) — voir restants.",
+   "Facultatif si la marge le permet (+180 o) : interaction de l'acide folique à forte dose avec la phénytoïne, la primidone et les barbituriques (risque convulsif), citée dans l'AIPS 36752."
+  ],
+  "inutile_de_retablir": [
+   "Jumeaux : faible rendement à l'examen.",
+   "Syndromes génétiques et diabète de type 1 : déjà présents (fenêtre de prévention : trisomie 21, Turner, Williams, DT1, 5,1–6,0 %).",
+   "DH, RR 70,42 : chiffre sans usage clinique.",
+   "RSG : risque métabolique, médicaments, qualité du régime : détail diététique.",
+   "FODMAP : déjà cités dans la fenêtre SSNG.",
+   "Compte rendu du pathologiste : détail.",
+   "Évolution maligne : déjà couverte (EATL et adénocarcinome, drapeau 2).",
+   "Recherche 2026 : hors examen.",
+   "Dépistage du cancer : facultatif.",
+   "Effets de Maltofer® et de Capvaxive®, thrombose sous Vitarubine® : faible rendement.",
+   "Ligne grossesse du 9.c : couverte par les fiches (Ferinject® contre-indiqué au 1er trimestre, etc.)."
+  ],
+  "echanges": "Retirer 95 o (drapeau 3, limite de 45 ans) et 205 o (divergence KCl dans la fiche). Ajouter 70 o (Ferinject®) et 190 o (conduite KCl). Bilan −40 o : DX.5 passe à environ 149 455 o."
+ },
+ "reponse_2c": "Ligne de dose exacte de l'AIPS Spravato® 67103 (tableau 1, DRT) : « Semaines 1 - 4: (deux séances de traitement par semaine) : Début le jour 1, dose*: 56 mg ; Doses ultérieures: 56 mg ou 84 mg » ; « Semaines 5 - 8: 56 mg ou 84 mg une fois par semaine » ; « À partir de la semaine 9: 56 mg ou 84 mg toutes les 2 semaines ou une fois par semaine » ; « * Pour les patients de ≥65 ans, la dose initiale recommandée le jour 1 est de 28 mg ». Urgence psychiatrique : « La posologie recommandée de Spravato est de 84 mg, deux fois par semaine pendant 4 semaines. Une réduction de la dose à 56 mg doit être effectuée en fonction de la tolérance. »",
+ "reponse_2f": "10,4 % (Topamax® 53537, « Très fréquents: poids diminué (10,4%) ») et 11 % (Exelon® 54275, « Diminution de l'appétit (11%) », très fréquent) sont exacts. Il faut scinder l'entrée : l'ancre sb-aips-s26 n'est pas conforme et une URL unique couvre huit AIPS.",
+ "point14": {
+  "Phase_A": 10,
+  "DX.1": 13,
+  "DX.2": 13,
+  "DX.3": 8,
+  "DX.4": 10,
+  "DX.5": 9,
+  "conforme_min_6": true
+ },
+ "octets": {
+  "LOT_016_Phase_A_V0.html": 149916,
+  "LOT_016_Phase_B_V0_DX.1.html": 143893,
+  "LOT_016_Phase_B_V0_DX.2.html": 147179,
+  "LOT_016_Phase_B_V0_DX.3.html": 148147,
+  "LOT_016_Phase_B_V0_DX.4.html": 147691,
+  "LOT_016_Phase_B_V0_DX.5.html": 149493
+ },
+ "bande_80_150k": {
+  "LOT_016_Phase_A_V0.html": true,
+  "LOT_016_Phase_B_V0_DX.1.html": true,
+  "LOT_016_Phase_B_V0_DX.2.html": true,
+  "LOT_016_Phase_B_V0_DX.3.html": true,
+  "LOT_016_Phase_B_V0_DX.4.html": true,
+  "LOT_016_Phase_B_V0_DX.5.html": true
+ },
+ "question_finale": "non : les corrections Grave (centrage et occultation des fiches .mb, aria-label, dose de Spravato®, lacune de DX.3) restent à appliquer avant audit-ok."
+}

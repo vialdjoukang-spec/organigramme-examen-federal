@@ -30,6 +30,25 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
   soigné ; aucune redite dans le fichier ni avec un autre fichier du LOT. Le détecteur de `controle3` reconnaît le verbe par
   une liste (VERBES) et par terminaison : lis-le avant de choisir tes verbes.
 
+## Exigences pédagogiques de Vial (ordre du 11.11.2026)
+Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en arrière sur les LOTs antérieurs.
+- **Précision, densité, clarté.** Chaque phrase porte un fait utile et exact ; aucune phrase d'ambiance, aucune redite. La
+  concision sert l'envie de lire et la vitesse de lecture : à information égale, la phrase la plus courte gagne.
+- **Prérequis anatomo-fonctionnels.** Si le diagnostic ne se comprend pas sans une base d'anatomie ou de physiologie (voies
+  oculomotrices, voies optiques, innervation du larynx, nerf facial et ses branches, axe corticotrope, néphron, conduction
+  cardiaque…), le point 3 l'installe d'abord, en une fenêtre « Base à connaître », avec un **schéma réel pris ailleurs**
+  (Wikimedia Commons ou source ouverte, licence vérifiée : `python3 Claude/_outils/cliche.py chercher/prendre/figure`),
+  inséré avec sa lecture guidée (repères, pièges) et retouché ou annoté si cela sert le lecteur. **Jamais de SVG dessiné,
+  jamais d'image générée.** Si Wikimedia limite le débit, mets l'image en file (`/home/user/wt/images_attente.txt`) et
+  note l'insertion à faire dans `HELP.md`.
+- **Information vitale.** Ce qui tue, ce qui laisse une séquelle et ce qui ne supporte aucun délai se voit tout de suite :
+  drapeaux rouges, fenêtre « Urgence — conduite chronologique » (minutes, heures, jours), délai maximal de chaque geste,
+  et ce qu'il faut **prévoir** (complication attendue, surveillance, critère de transfert, piège qui fait perdre du temps).
+- **Diagnostics difficiles pour le médecin assistant débutant.** Quand le diagnostic est connu pour être mal compris ou
+  manqué (présentations trompeuses, raisonnement en plusieurs étapes, localisation neurologique, troubles hydro-
+  électrolytiques, endocrinologie dynamique…), explique le raisonnement pas à pas : mécanisme, puis signe, puis examen,
+  puis décision ; donne l'erreur classique du débutant et la façon de l'éviter, avec un exemple chiffré.
+
 ## Véracité (non négociable)
 - Chaque phrase chiffrée cite la source de la bibliographie qui porte ce chiffre : vérifie-le, ne colle jamais une source au hasard.
 - Sources suisses puis européennes, réellement lues et datées (URL lue pendant ta mission) ; version la plus récente ; aucune
@@ -39,9 +58,22 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
   `/home/user/Medina/AipsDownload_20261008.zip` (XML lu en flux : numéro d'autorisation → URL
   `https://files.refdata.ch/…-fr.html`, lisible par curl), ou `Claude/_outils/lecon.py prep/extraire`. La passe mécanique
   colle de mauvaises AIPS : contrôle chaque renvoi un à un.
-- Une dose qui vient d'une recommandation et que l'AIPS ne porte pas s'écrit comme telle (« hors AIPS », divergence écrite) ;
-  la conduite enseignée suit l'AIPS. Une dose d'urgence ne se donne jamais sans l'âge auquel elle s'applique.
-- Molécule sans AIPS suisse lisible : garde la conduite, retire le milligramme, note-le dans `HELP.md`.
+- **Quand l'AIPS ne porte pas la dose** (posologie, schéma, durée, âge), une **société savante suisse** fait foi au même titre
+  (ordre de Vial du 11.11.2026) : recommandation suisse lue et datée (sociétés de discipline, Swiss Medical Forum, Revue
+  Médicale Suisse, guides des hôpitaux universitaires, OFSP), puis européenne à défaut. La phrase cite cette source et écrit
+  « hors AIPS » ; elle ne porte aucune ancre AIPS collée pour la forme (`controle3` l'accepte ainsi). Si l'AIPS porte la dose
+  et qu'une recommandation diverge, la conduite enseignée suit l'AIPS et la divergence est écrite.
+- Une dose d'urgence ne se donne jamais sans l'âge auquel elle s'applique.
+- **Fouille au-delà des sources du harnais, en restant en Suisse d'abord** (ordre de Vial du 11.11.2026). Tu disposes de
+  connecteurs : charge-les par `ToolSearch` (mots-clés : pubmed, consensus, elicit, legal, web). PubMed (résumés et textes
+  intégraux PMC), Consensus et Elicit (recherche d'articles : ajoute « Switzerland », « Swiss », le nom de la société ou de
+  l'hôpital), Legal Data Hunter (droit suisse : LAMal, OPAS, ordonnances, pays `CH`), recherche et lecture web. Cibles
+  suisses : sociétés de discipline (SSMIG, SSC, SSED, SSN, SSP, SSGO, SSORL, SSO, SSI, Ligue pulmonaire, pédiatrie suisse…),
+  Swiss Medical Forum, Revue Médicale Suisse, Praxis, Swiss Medical Weekly, guides des HUG, du CHUV, de l'Inselspital, de
+  l'USZ et de l'USB, OFSP, OFS, Obsan, Swissmedic, smarter medicine. Une source n'entre dans le cours que lue pendant ta
+  mission, datée, et ajoutée à la bibliographie ; un résumé ne porte que ce qu'il dit.
+- Épuise ces outils avant de conclure qu'une dose ou un chiffre suisse manque. Molécule sans AIPS suisse lisible ET sans recommandation suisse ou
+  européenne lue : garde la conduite, retire le milligramme, note-le dans `HELP.md`.
 - Aucune formule de lacune ni de fabrication dans le cours (« à vérifier », « non lu », « lu le… ») : la lacune va dans `HELP.md`.
 - Porte mécanique : `python3 Claude/_outils/verif_aips.py <fichier>` sans défaut bloquant ; relis chaque alerte « dose absente ».
 
@@ -49,8 +81,16 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
 - Fichier trop court ou incomplet (points manquants, moins de 80 Ko) : complète-le par des faits distincts, sourcés et lus,
   là où µ3 les demande (anamnèse, examen par région, examens, prise en charge, fiches). Jamais de remplissage.
 - Fichier trop long : retire des **redites** (information déjà dite dans le fichier, ou tenue par la Phase A ou un autre DX du
-  LOT auquel on renvoie par un lien). **Aucun fait sourcé unique n'est perdu.** Chaque retrait est consigné dans `HELP.md`
-  (résumé, endroit où l'information reste). Si la bande est hors d'atteinte sans perdre un fait, arrête-toi et dis-le.
+  LOT auquel on renvoie par un lien). **Aucun fait sourcé unique n'est perdu.** Chaque retrait est listé dans le message de
+  ton commit (résumé, endroit où l'information reste) : l'auditeur le relit par `git log`. Si la bande est hors d'atteinte
+  sans perdre un fait, arrête-toi et dis-le.
+
+## HELP.md : court, à jour, rien d'autre (ordre de Vial du 11.11.2026)
+`Claude/LOT_NNN/HELP.md` ne contient que ce qui sert encore au projet, en trois rubriques : « Lacunes ouvertes » (source ou
+AIPS introuvable, image en attente), « Décisions en vigueur » (divergence AIPS ↔ recommandation tranchée, choix de liste) et
+« Doutes médicaux à trancher ». Une ligne par entrée, avec le fichier concerné. Pas d'historique, pas de journal d'agent,
+pas de liste de retraits : ce qui est résolu se supprime. Ajoute tes lignes sous la bonne rubrique (`>>` en fin de fichier
+si la rubrique manque) et supprime celles que ton travail résout.
 
 ## Fin de mission
 - `python3 Claude/_outils/forme.py <fichier>`, puis `controle3` et `verif_aips` une dernière fois.
