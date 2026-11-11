@@ -1,0 +1,24 @@
+{
+  "lot": "LOT_014",
+  "perimetre": "Audit 2 (contre-verification) : Phase A et DX.6 a DX.10, version HEAD b1a450b8ae",
+  "date": "2026-11-11",
+  "verdict": "corrections",
+  "methode": "60 URL AIPS rapprochees de l'index du corpus du 08.10.2026 (toutes conformes) ; renvois AIPS controles phrase par phrase et cellule par cellule par script (molecule nommee contre AIPS citee), puis relus a la main ; AIPS 56507, 54331, 41060, 60955 relues ; attestation nationale de deces (NE, janvier 2026) lue ; Europe PMC cherche pour l'autopsie avant 50 ans ; controle_lot.py relance ; Playwright 1280 et 390 px ; diff des corrections depuis 335b9540c5.",
+  "points_corriges": [
+    "DX.8 : amiodarone citee [S15] Cordarone 41060 ; noradrenaline citee [S20] Noradrenalin 60955 (2 phrases). Doses conformes aux AIPS.",
+    "DX.7 : aminophylline conforme a l'AIPS 56507 (charge 5–6 ou 3,0–3,6 mg/kg en 20–30 min, poids ideal ; non-fumeur 0,7 puis 0,5 mg/kg/h) ; Atrovent « obstructions severes » ; seuils BTS sortis du point 1.",
+    "DX.6 : mise en garde AIPS Orfiril chez l'homme apte a procreer ajoutee et citee [S26].",
+    "DX.9 : point 1 reduit a la definition ; QTc, type 1 et SADS au point 8 ; causalite de la mutation retablie.",
+    "Phase A : conduite E2 explicite (POCUS exclut tamponnade ou dissection, puis lyse et RCP 60 a 90 min).",
+    "DX.10 : attestation medicale de deces nationale (janvier 2026) citee [S40] ; les citations « mort indeterminee (mort subite ou inattendue / une mort non naturelle ne peut pas etre exclue) », la case d'annonce et le « doute fonde » sont conformes au formulaire lu ; MCAD defini.",
+    "Titres : DX.6 et DX.9 alignes sur LISTE_DX_CANONIQUE.md (controle_lot.py ne les signale plus).",
+    "Mobile : scrollWidth = 390 a 390 px et 1280 a 1280 px pour les 6 fichiers ; 233 fenetres ouvertes, toutes centrees, 0 lien casse, 0 orpheline.",
+    "Aucune erreur nouvelle trouvee dans les passages modifies."
+  ],
+  "restants": [
+    {"classe": "Leger", "fichier": "LOT_014_Phase_B_V0_DX.8.html", "constat": "« l'ESC 2022 recommande l'autopsie complete de toute MSC avant 50 ans (classe I, niveau B) [S33] » : texte ESC 2022 non accessible en lecture (OUP ferme, absent de PMC). Le texte lu de Tfelt-Hansen, Basso, Wilde et al. (EHRA, Europace 2023;25:euad203, PMC10450787) confirme seulement « ESC has provided strong recommendations on autopsy in all sudden death cases and in particular in those under 50 years ». Le niveau B n'est confirme par aucun texte lu.", "correction": "Ecrire « recommandation forte (classe I) de l'ESC 2022 » sans le niveau, et ajouter la source lue (Europace 2023, PMC10450787) ; ou lire le tableau de l'ESC 2022 et garder le niveau."},
+    {"classe": "Leger", "fichier": "DX.6, DX.7, DX.8, DX.9, DX.10", "constat": "Le controle phrase par phrase ne trouve plus aucune dose citee sur la seule AIPS d'une autre molecule. Des AIPS superflues restent toutefois attachees a des phrases de dose : DX.6 clonazepam [S28] (Phenhydan) ; DX.7 Ventolin [S16] (Atrovent), Solu-Medrol [S21], Solu-Cortef [S20], Betnesol [S19][S20][S21], « Solu-Cortef au moins 25 mg » [S20][S19][S22] ; DX.8 « Solu-MEDROL contre-indique chez le premature » suivi de 6 autres AIPS, et ligne H0 « equipe de choc » [S19] Dobutrex ; DX.9 lignes Inderal, Adrenalin et Tambocor suivies de 5 a 7 AIPS ; DX.10 phrases sur Adrenalin Aguettant suivies de [S18] (Adrenaline Bichsel).", "correction": "Garder sur chaque phrase de dose la seule AIPS de la specialite nommee ; deplacer les renvois groupes en fin de paragraphe."},
+    {"classe": "Leger", "fichier": "DX.7, DX.8, DX.9, DX.10", "constat": "Sigles employes avant leur definition : BACA, FR, FC, CSI (DX.7) ; EHRA, ICI, MP (DX.8) ; DAI, LAGH, SGK (DX.9) ; AWMF, SUDI, APEA, MP, SRC (DX.10).", "correction": "Definir chaque sigle a sa premiere occurrence dans l'ordre du HTML."},
+    {"classe": "Signal harnais", "fichier": "6 fichiers", "constat": "controle_lot.py signale toujours « script, image ou feuille de style externe present » (../_polices/forme.css et forme.js, imposes par le front-end uniforme L1).", "correction": "Faire trancher le conflit entre le harnais et la regle L1 ; ce point ne releve pas du contenu medical."}
+  ]
+}
