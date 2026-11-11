@@ -519,9 +519,11 @@
         "S4.3"
       ],
       "branche": "codex/p1-reprise-s4.2-s4.3",
-      "statut": "a_integrer",
+      "statut": "publie",
       "observe_le": "2026-10-20T17:00:53.105026+00:00",
-      "commit_local_prepare": "bb16d02f9074e1c88317da59d453b15dba161994"
+      "commit_local_prepare": "bb16d02f9074e1c88317da59d453b15dba161994",
+      "commit_fusion": "a02bc1cd18437a2d78db99b235b6496b1d196288",
+      "publication": "audit/P1-PUBLICATION-S4.2-S4.3-20261020.json"
     },
     {
       "etape": "ALPHA",
@@ -534,10 +536,11 @@
         "S4.5"
       ],
       "branche": "codex/p1-reprise-s4.4-s4.5",
-      "statut": "en_redaction",
+      "statut": "a_integrer",
       "pr_existante": 179,
       "head_pr_observe": "f22684c4b09aa7752bcb5abef1c4e07f47c8d40a",
-      "observe_le": "2026-10-20T17:25:32.012541+00:00"
+      "observe_le": "2026-10-20T17:25:32.012541+00:00",
+      "commit_local_prepare": "477ed11f4dbc3986f924897a0c930a2e142891c6"
     },
     {
       "etape": "ALPHA",
@@ -567,10 +570,28 @@
         "S4.7"
       ],
       "branche": "codex/p1-reprise-s4.6-s4.7",
-      "statut": "en_redaction",
+      "statut": "a_auditer",
       "pr_existante": 180,
       "observe_le": "2026-10-20T18:02:06.788808+00:00",
-      "reprise_de": "/root/p1_sol61_s4_6_s4_7"
+      "reprise_de": "/root/p1_sol61_s4_6_s4_7",
+      "commit_local_prepare": "df20e8300c5914cd81de6502007a0740f41ebd37"
+    },
+    {
+      "etape": "ALPHA",
+      "phase": "S",
+      "agent": "/root/p1_sol61_s4_8_s4_9",
+      "modele": "gpt-6.1-sol",
+      "raisonnement": "high",
+      "unites": [
+        "S4.8",
+        "S4.9"
+      ],
+      "branche": "codex/p1-reprise-s4.8-s4.9",
+      "statut": "a_auditer",
+      "pr_existante": 185,
+      "head_pr_observe": "888b36873349b9c47e8e5c5bb7a74b2eec48aa87",
+      "observe_le": "2026-10-20T18:06:52.780997+00:00",
+      "commit_local_prepare": "9f3da83dfb124866432dc54d1c18eb63add1d3b0"
     }
   ],
   "publications": {
@@ -757,6 +778,14 @@
     "ALPHA:S4.1": {
       "rapport": "audit/P1-PUBLICATION-S3.10-S4.1-20261020.json",
       "rapport_sha256": "b81982e4e07043e8a2165f3d602135f7050bc06f769d8a7d039a94da85a713b4"
+    },
+    "ALPHA:S4.2": {
+      "rapport": "audit/P1-PUBLICATION-S4.2-S4.3-20261020.json",
+      "rapport_sha256": "f926cb4803f47336911279f8044a97c88e15ea4e9e7e4204af6671e9d080134e"
+    },
+    "ALPHA:S4.3": {
+      "rapport": "audit/P1-PUBLICATION-S4.2-S4.3-20261020.json",
+      "rapport_sha256": "f926cb4803f47336911279f8044a97c88e15ea4e9e7e4204af6671e9d080134e"
     }
   },
   "audits_phases": {},
@@ -781,7 +810,7 @@
     ],
     "priorite_active": "P1",
     "statut": "en_cours",
-    "observe_le": "2026-10-20T18:37:27.011838+00:00",
+    "observe_le": "2026-10-20T18:52:14.592313+00:00",
     "rapport_file": "audit/P0-FILE-PR-20261020.json",
     "fusion_clinique": "manuelle_centralisee",
     "priorites_suivantes_bloquees": true,
@@ -790,10 +819,10 @@
       "branches": 22,
       "sources_archivees": 131
     },
-    "main_observe": "7047a8064294d1e3cd5d249d73bbf9cc1d930bd8",
+    "main_observe": "a02bc1cd18437a2d78db99b235b6496b1d196288",
     "pr_ouvertes_historiques": 105,
     "pr_correctifs": 268,
-    "branche": "codex/p1-integration-s4.2-s4.3",
+    "branche": "codex/p1-integration-s4.4-s4.5",
     "p0": {
       "statut": "terminee",
       "commit": "fbc2c07dd917ea07e15ff3a5ba70423c259c4e15",
@@ -805,15 +834,15 @@
       "pages": 39414896430,
       "preuve": "audit/P0-CLOTURE-FINALE-20261020.json"
     },
-    "prochaine_commande": "170 : pousser la troisième tête corrigée et contre-auditée, attendre tous contrôles finaux verts, fusion normale puis CI main/Pages/HTTP.179 et180 attribution en correction ;185 préparé non audité ;188 rédaction.",
-    "cours_audites_documentaires": 64,
-    "parties_auditees_documentaires": 896,
-    "ssp_S_audites": 48,
-    "ssp_S_publications_reconnues": 46,
+    "prochaine_commande": "PR179 : CI finale sur tête intégrée, attendre CI main170 verte avant fusion normale ; vérifier ensuite Pages/HTTP/SHA256.180 contre-audit final ;185 correctif à intégrer ;188 corrections.",
+    "cours_audites_documentaires": 66,
+    "parties_auditees_documentaires": 924,
+    "ssp_S_audites": 50,
+    "ssp_S_publications_reconnues": 48,
     "lot_courant": {
       "ssp": [
-        "S4.2",
-        "S4.3"
+        "S4.4",
+        "S4.5"
       ],
       "statut": "contre_audite_a_integrer",
       "publication_verifiee": false
@@ -827,20 +856,18 @@
     },
     "dernier_lot_publie": {
       "ssp": [
-        "S3.10",
-        "S4.1"
+        "S4.2",
+        "S4.3"
       ],
-      "pr": 167,
-      "commit": "7047a8064294d1e3cd5d249d73bbf9cc1d930bd8",
-      "pages": 39470922803,
-      "preuve": "audit/P1-PUBLICATION-S3.10-S4.1-20261020.json",
+      "pr": 170,
+      "commit": "a02bc1cd18437a2d78db99b235b6496b1d196288",
+      "pages": 39477748076,
+      "preuve": "audit/P1-PUBLICATION-S4.2-S4.3-20261020.json",
       "ci_main": {
-        "run": 39470922795,
-        "statut": "completed",
-        "conclusion": "success",
-        "head_sha": "7047a8064294d1e3cd5d249d73bbf9cc1d930bd8",
-        "url": "https://github.com/vialdjoukang-spec/organigramme-examen-federal/actions/runs/39470922795",
-        "preuve": "audit/P1-CI-MAIN-S3.10-S4.1-20261020.json"
+        "run": 39477737794,
+        "statut": "in_progress",
+        "conclusion": null,
+        "head_sha": "a02bc1cd18437a2d78db99b235b6496b1d196288"
       }
     },
     "dernier_echec_ci": {
@@ -934,9 +961,9 @@
       ],
       "auteur": "bb16d02f9074e1c88317da59d453b15dba161994",
       "gel_integration": "a091722",
-      "statut": "phases_contre_auditees_a_integrer",
+      "statut": "fusionne_publication_verifiee_ci_main_en_cours",
       "rapport_revision": "audit/P1-CONTRE-AUDIT-S4.2-S4.3-REVISION-20261020.json",
-      "publication_verifiee": false
+      "publication_verifiee": true
     },
     "correctif_source17": {
       "rapport": "audit/P1-CONTRE-AUDIT-SOURCE17-S3.10-S4.1-20261020.json",
@@ -946,7 +973,7 @@
       "nouvelle_ci_requise": false,
       "corps_28_parties_inchanges": true
     },
-    "pr_ouvertes": 102,
+    "pr_ouvertes": 101,
     "integration_170_source17": {
       "rapport": "audit/P1-CONTRE-AUDIT-INTEGRATION-S4.2-S4.3-SOURCE17-20261020.json",
       "rapport_sha256": "547f1dafcb9825971ce64407e47fc0d6f7c9857f11aa16fdc8c8e556858eff5b",
@@ -986,6 +1013,33 @@
       "html_inchange": true,
       "renvois": 19,
       "nouvelle_ci_requise": true
+    },
+    "lot_179_prepare": {
+      "ssp": [
+        "S4.4",
+        "S4.5"
+      ],
+      "auteur": "477ed11f4dbc3986f924897a0c930a2e142891c6",
+      "gel": "d21673fad75ede54c6701ffa7b1c090613055876",
+      "statut": "contre_audite_a_integrer",
+      "rapport_revision": "audit/P1-CONTRE-AUDIT-S4.4-S4.5-REVISION-20261020.json",
+      "publication_verifiee": false
+    },
+    "ci_170_finale": {
+      "head": "d1212383d778a19c418aa409c7a77bf5c45a8299",
+      "ci": 39476544456,
+      "visuel": 39476544587,
+      "checkpoint": 39476544498,
+      "statut": "completed_success",
+      "preuve": "audit/P1-CI-S4.2-S4.3-20261020.json",
+      "commit_fusion": "a02bc1cd18437a2d78db99b235b6496b1d196288",
+      "publication_verifiee": true
+    },
+    "ci_main_170": {
+      "run": 39477737794,
+      "statut": "in_progress",
+      "conclusion": null,
+      "head_sha": "a02bc1cd18437a2d78db99b235b6496b1d196288"
     }
   },
   "pause_utilisateur": {
