@@ -100,3 +100,21 @@ Décisions en vigueur
 - DX.5 : dans une ligne de tableau, une source est citée une fois ; dans une fiche `.mb`, l'AIPS est citée au titre et dans chaque cellule de dose.
 Doutes médicaux à trancher
 - DX.5 : place du téprotumumab en première ligne (ATA/ETA 2022) face à la méthylprednisolone (EUGOGO 2021), TEPEZZA étant hors LS ; « 100 mg » de sélénium de la revue lausannoise 2013 tenu pour une coquille de µg.
+
+## DX.4 — Myasthénie oculaire et généralisée (renfort L1, 2026-11-11)
+Lacunes ouvertes (LOT_017_Phase_B_V0_DX.4.html) :
+- prévalence suisse et coût global suisse de la myasthénie : non trouvés ; règle suisse d'aptitude professionnelle : non trouvée (H17-06) ;
+- mécanisme du test de la glace et définitions complètes des classes MGFA : aucune source lue ne les porte ;
+- méthylprednisolone intraveineuse et immunosuppresseurs de second choix (mycophénolate, ciclosporine, tacrolimus, méthotrexate) : aucune dose lue pour la myasthénie, donc aucun milligramme dans le cours ;
+- indications de Kiovig®, Octagam® et Intratect® : reprises de la note de [S21], AIPS non rapatriées le 11.11.2026 ;
+- relues le 11.11.2026 : [S1] (DGN, texte intégral), [S12] (SOP de la crise, texte intégral) et les 27 AIPS ; les autres sources gardent la lecture du 30.10.2026 ;
+- images : point 6, « File:Ptosis myasthenia gravis.jpg » (Wikimedia, CC BY 2.0) repérée, non insérée (marge de 1 Ko avant 150 Ko ; la légende guidée demande d'abord un retrait équivalent) ; point 9, cliché de thymome à chercher.
+Décisions en vigueur (DX.4) :
+- point 4 : rangs E alignés sur la liste canonique (anévrisme E1, AVC du tronc E2 ; botulisme et Miller Fisher sans rang ; crise = forme grave du DX, E6) ;
+- mortalité de la crise selon la SOP corrigée : « environ 2 à 5 %, plus de 16 % dans certaines séries » (le cours écrivait 2 à 16 %) ;
+- doses de la DGN (pyridostigmine 720 mg/j, enfant 1–7 mg/kg, prednisone 0,5–1 mg/kg, azathioprine 2–3 mg/kg, IgIV 0,4 g/kg × 5 j, rituximab 500 mg) écrites « hors AIPS » ; les doses AIPS restent citées mot pour mot ;
+- atropine : dose de l'AIPS de Mestinon® (1–2 mg i.v. lente, toutes les 5–30 min) et dose « carbamates » de l'AIPS de l'atropine (1–2 mg, toutes les 20–30 min) écrites côte à côte dans la fiche.
+Doutes médicaux à trancher (DX.4) :
+- IgIV dans la crise : la DGN donne 1 g/kg pendant 2 jours en alternative, la SOP 1,5–2 g/kg sur 2 à 3 jours ; le cours suit la DGN ;
+- âge des doses d'urgence : « adulte » écrit par déduction (la DGN traite l'enfant à part ; l'AIPS de Mestinon® ne précise pas d'âge pour l'atropine) ;
+- Soliris® : seule la dose adulte figure ; la dose pédiatrique au poids de l'AIPS (dès 6 ans) n'est pas reprise.
