@@ -50,7 +50,7 @@ h2.question{margin:20px 0 8px;font:700 1em/1.4 var(--police-titre);color:var(--e
 p{margin:0 0 .6em}
 ul,ol{margin:.2em 0 .8em;padding-left:1.4em}
 li{margin:0 0 .3em}
-sup.r{font-size:.68em;line-height:0}
+sup.r{font-size:max(11px,.68em);line-height:0}
 table sup.r{font-size:11px}table .rang{font-size:14px}
 sup.r a{margin-left:1px;padding:1px 4px;border-radius:4px;background:var(--appel-fond);color:var(--appel);font-weight:700;text-decoration:none;line-height:1.2}
 /* tableaux : cadre pâle arrondi, en-tête sable, filets fins et pâles */
@@ -102,6 +102,13 @@ figcaption .credit{display:block;margin-top:4px;font-size:.9em}
 section#sources li{font-size:.92em;margin-bottom:.45em}
 p.mode{font-weight:700}
 p.note{font-size:.92em;color:var(--gris)}
+.paire img{display:block;max-width:100%;height:auto;border-radius:8px}
+.paire>div{min-width:0}
+.paire svg text{paint-order:stroke;stroke:#fff;stroke-width:.2em;stroke-linejoin:round}
+ol.dx li{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:4px 18px;align-items:start}
+ol.dx .nom{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+@media (max-width:760px){ol.dx li{grid-template-columns:1fr}}
+
 /* écrans étroits : le menu devient un bandeau collant qui défile */
 @media (max-width:1099px){
 nav.rail{position:sticky;inset:auto;top:0;width:auto;padding:8px 4vw 6px;border-right:0;border-bottom:1px solid var(--menu-filet);display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
@@ -141,7 +148,7 @@ body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],bo
 <p>Parties du cours</p>
 <div class="piste" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement de la lecture"><div class="avance"></div></div>
 <div>
-<a href="#dx"><b>DX</b>Les dix DX</a>
+<a href="#dx"><b>DX</b>Les 10 DX</a>
 <a href="#p1"><b>1</b>Définition</a>
 <a href="#p2"><b>2</b>Épidémiologie</a>
 <a href="#p3"><b>3</b>Physiopathologie</a>
@@ -149,10 +156,10 @@ body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],bo
 <a href="#p5"><b>5</b>Anamnèse</a>
 <a href="#p6"><b>6</b>Examen</a>
 <a href="#p7"><b>7</b>Syndromes</a>
-<a href="#p8"><b>8</b>Critères</a>
+<a href="#p8"><b>8</b>Diagnostic positif</a>
 <a href="#p9"><b>9</b>Examens</a>
 <a href="#p10"><b>10</b>Arbre</a>
-<a href="#p11"><b>11</b>Conduite</a>
+<a href="#p11"><b>11</b>Prise en charge</a>
 <a href="#p12"><b>12</b>Prévention</a>
 <a href="#p13"><b>13</b>Points clés</a>
 <a href="#p14"><b>14</b>Pièges</a>
@@ -161,633 +168,623 @@ body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],bo
 </nav>
 <main>
 <h1>Hémorragie digestive aiguë</h1>
-<p class="kicker">Ce cours suit la pratique suisse devant une rectorragie, un méléna ou une hématochézie.</p>
+<p class="kicker">Phase A · cadre clinique, dix diagnostics concurrents et conduite suisse, du cabinet aux urgences</p>
 <section class="ilot" id="dx"><h2 class="partie">Dix diagnostics, dans l’ordre de fréquence retenu</h2>
+<p>La liste suit les séries suisses : d’abord les causes hautes, quatre fois plus fréquentes, puis les 2 premières causes basses, avec leur part propre<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 <ol class="dx">
-<li><strong>DX.1 — rectorragie</strong> Ne rang, parce que le sang rouge avec caillots oriente d’ordinaire vers le bas, tandis qu’un choc fait remonter la source<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li><strong>DX.2 — méléna</strong> Ne rang, parce que le noir n’appartient pas au seul haut lorsque le transit laisse l’hématine naître dans le côlon<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</li>
-<li><strong>DX.3 — hématochézie</strong> <span class="e">🚩 E2 hémorragie haute</span> Ne rang, parce que une évacuation rouge avec choc peut venir d’amont et l’instabilité est alors constante<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li><strong>DX.4 — diverticule</strong> Ne rang, parce que l’écoulement reste souvent arrêté de lui-même et le côlon droit en porte une large part<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li><strong>DX.5 — hémorroïde</strong> Ne rang, parce que les stades internes un et deux se ferment par infrarouge ou par ligature<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li><strong>DX.6 — angiodysplasie</strong> Ne rang, parce que le vaisseau colique se ferme par électrocoagulation à l’argon quand la coloscopie l’atteint<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li><strong>DX.7 — colite</strong> Ne rang, parce que le traitement suit la cause et passe en général par des médicaments<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li><strong>DX.8 — grêle</strong> Ne rang, parce que une atteinte isolée hors de portée de l’endoscope est surtout opérée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li><strong>DX.9 — varice</strong> <span class="e">🚩 E1 choc hémorragique</span> Ne rang, parce que l’anamnèse cherche le foie et un vasoactif est discuté avant la fibroscopie<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</li>
-<li><strong>DX.10 — source obscure</strong> Ne rang, parce que la source reste absente chez environ 5 % des patients après les deux premiers examens<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
+<li><span class="nom"><strong>DX.1 — ulcère gastroduodénal</strong> <span class="freq">38 %</span> <span class="e">🚩 E1 ulcère Forrest Ia, hémorragie massive</span></span><span class="pourquoi">Il ouvre la liste parce qu’il cause 38 % des hémorragies hautes, et son jet artériel tue en minutes<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.2 — varices œsophagiennes ou gastriques</strong> <span class="freq">16 %</span> <span class="e">🚩 E1 rupture variqueuse, choc hémorragique</span></span><span class="pourquoi">Elles font 16 % des sources hautes, et la cirrhose les annonce<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.3 — œsophagite</strong> <span class="freq">13 %</span></span><span class="pourquoi">Elle explique 13 % des saignements hauts, le plus souvent modestes et contrôlés par un inhibiteur de la pompe à protons<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.4 — tumeur digestive haute</strong> <span class="freq">7 %</span></span><span class="pourquoi">Une tumeur de l’œsophage, de l’estomac ou du duodénum donne 7 % des hémorragies hautes et alourdit le score de Rockall<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.5 — angiodysplasie</strong> <span class="freq">6 %</span></span><span class="pourquoi">Ces ectasies vasculaires fournissent 6 % des sources hautes et reviennent aussi dans le côlon, où l’argon les ferme<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.6 — lésion de Mallory-Weiss</strong> <span class="freq">4 %</span></span><span class="pourquoi">Cette déchirure muqueuse suit un vomissement violent et pèse 4 % des hémorragies hautes<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.7 — érosions gastroduodénales</strong> <span class="freq">4 %</span></span><span class="pourquoi">Des érosions superficielles expliquent encore 4 % des cas hauts, souvent sous anti-inflammatoire<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.8 — lésion de Dieulafoy</strong> <span class="freq">2 %</span></span><span class="pourquoi">Une artère sous-muqueuse anormalement large perce la muqueuse gastrique proximale et cause 2 % des saignements hauts<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.9 — hémorragie diverticulaire</strong></span><span class="pourquoi">Elle domine parmi les hémorragies basses, avec 20 à 48 % de ce groupe quatre fois plus rare que le haut<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
+<li><span class="nom"><strong>DX.10 — colite</strong></span><span class="pourquoi">Ischémique, infectieuse, inflammatoire ou radique, elle représente 6 à 21 % parmi les hémorragies basses<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</span></li>
 </ol>
-</section><section class="ilot" id="p1"><h3>1. Définition et sémantique</h3>
-<p>Les critères de siège, publiés en 2010 par la Revue médicale suisse, placent le saignement haut au-dessus du ligament de Treitz et le saignement bas au-dessous<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi l’hématémèse et le méléna parlent d’abord pour le haut, tandis que le sang rouge parle d’ordinaire pour le bas<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Un vomissement en marc de café traduit un saignement encore limité, parce que le sang a eu le temps de noircir dans l’estomac<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>La rectorragie se reconnaît au sang rouge mêlé de caillots, de ce fait on ne la confond pas avec un méléna noir<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>L’hématochézie est surtout vue lorsqu’une maladie inflammatoire ou une colite aiguë laisse suinter la muqueuse<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant une hémorragie haute massive peut rendre les selles rouges, et l’instabilité hémodynamique est alors constante<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Un méléna reste rare dans un saignement colique, surtout lorsque le volume est faible et que le transit est ralenti par la constipation<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ce tableau n’est pas une hémorragie génitale, parce que le sang vient du tube digestif et non du vagin<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ce n’est pas non plus un saignement de nez dégluti sans examen, du fait que le toucher et l’endoscope doivent encore situer la source<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le synonyme rectorragie est le sang rouge anal, tandis que le méléna est le sang digéré<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On évite d’appeler méléna un simple filet rouge sur le papier, parce que la couleur change la filière<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-
-<div id="w-treitz" popover class="fenetre">
-
-<p>Le ligament de Treitz marque la frontière utilisée en 2010, de ce fait tout saignement situé au-dessus compte pour le haut<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Au-dessous, le sang parcourt le grêle distal puis le côlon, ce qui laisse le temps à la couleur de changer ou de rester rouge<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On palpe mal ce ligament au lit, parce que seul l’endoscope ou le chirurgien le croise vraiment<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le piège consiste à classer un choc avec selles rouges dans le bas, tandis que la frontière peut être franchie d’amont<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On distingue le sang dégluti d'un saignement digestif, parce que le toucher et l'endoscope doivent encore situer la source<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi l'hématémèse est le sang vomi, et le méléna est le sang déjà digéré<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On n'emploie pas ces deux mots l'un pour l'autre, du fait que la filière change<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le caillot est rouge et frais, on signe une rectorragie, pas un méléna<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant le même patient peut montrer les deux teintes, et le choc dit alors l'amont<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On réserve le mot hématochézie à l'évacuation rouge abondante, souvent sur muqueuse malade<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Ainsi un filet sur le papier n'est pas ce tableau, et l'on ne lance pas la même filière<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On oriente le récit vers le tube, et l'on écarte le vagin lorsque le sang est clairement digestif<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<p class="note">Rangs E : l’ulcère Forrest Ia et la rupture variqueuse tuent en minutes et ouvrent l’arbre ; la fistule aorto-entérique, rare, se cherche dès qu’une prothèse aortique est connue<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+</section><section class="ilot" id="p1"><h3>1. Définition</h3>
+<p>La classification suisse de 2010 sépare l’hémorragie haute, née en amont du <button class="w" type="button" popovertarget="w-treitz">ligament de Treitz</button>, de l’hémorragie basse, née en aval<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>En haut, le saignement vient de l’œsophage, de l’estomac ou du duodénum ; en bas, il vient du grêle, du côlon, du rectum ou de l’anus<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’hématémèse est le sang vomi, tandis que le méléna correspond à des selles noires faites de sang déjà digéré<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Un vomissement couleur « marc de café » trahit en règle un saignement mineur, car le sang a stagné dans l’acide gastrique<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La rectorragie correspond à l’émission par l’anus de sang rouge et de caillots ; elle signe d’ordinaire une source basse<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’hématochézie, émission de sang rouge mêlé aux selles, reste le mode de présentation le plus habituel des hémorragies basses<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La couleur seule trompe donc souvent. Pourtant une hémorragie haute massive peut aussi se présenter par des selles rouges ; l’instabilité hémodynamique est alors toujours présente<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>À l’inverse, un méléna reste rare dans une hémorragie colique, sauf saignement mineur chez un patient constipé<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<div id="w-treitz" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-treitz" popovertargetaction="hide">Fermer</button>
+<h5>Ligament de Treitz : la frontière haut–bas</h5>
+<img src="images/duodenum-treitz.webp" width="900" height="641" alt="Duodénum en cadre, du pylore à l'angle duodéno-jéjunal">
+<p>Le dessin suit le cadre duodénal depuis le pylore jusqu’à l’angle de Treitz, où commence le jéjunum<sup class="r"><a href="#sb-commons-duodenum">[16]</a></sup>.</p>
+<p>C’est à cet angle, suspendu par le ligament de Treitz, que passe la limite entre hémorragie haute et hémorragie basse<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La deuxième portion porte la papille ; un saignement de cette zone reste haut, accessible au gastroscope standard<sup class="r"><a href="#sb-commons-duodenum">[16]</a></sup>.</p>
+<p>Au-delà de l’angle commence le grêle, que l’œsogastroduodénoscopie n’atteint plus : il faut alors la vidéo-capsule ou l’entéroscopie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Ce dessin vient de Luke Guthmann et reste sous licence CC BY-SA 3.0 sur Wikimedia Commons, consulté le 11.11.2026<sup class="r"><a href="#sb-commons-duodenum">[16]</a></sup>.</p>
 </div>
 </section><section class="ilot" id="p2"><h3>2. Épidémiologie en Suisse, puis en Europe</h3>
-<p>En 2010, la revue suisse décrit déjà les deux étages, et elle ne publie pas ici un taux national d’incidence<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Parmi les patients qui évacuent une hématochézie, la source est haute dans 10 à 15 % des cas, et le retentissement circulatoire y est souvent net<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Après la fibroscopie haute puis la coloscopie, la source reste absente chez environ 5 % des patients<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>L’entéroscopie à double ballon retrouve une lésion haute oubliée dans 23 % des dossiers qui lui sont adressés<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le saignement diverticulaire s’arrête le plus souvent seul, et le côlon droit en accueille environ 50 % des cas<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Lorsque le patient est stable, avancer l’endoscopie laisse presque inchangée la mortalité à 30 jours<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La même observation vaut pour la durée d’hospitalisation et pour le resaignement, de ce fait l’urgence horaire n’est pas automatique<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>En 2015, les selles peuvent rester noires pendant 5 jours alors que le saignement a déjà cessé<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Entre le début du saignement et les selles noires, on compte 4 à 20 heures, ce qui date mieux qu’une impression<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>L’âge et le sexe ne reçoivent pas, dans ces deux textes, une répartition chiffrée propre à chaque diagnostic de la liste<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le terrain cirrhotique, les anti-inflammatoires et les anticoagulants forment les groupes que l’anamnèse doit nommer, parce qu'ils changent la filière<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>La mortalité diminue lorsque le patient cirrhotique reçoit une prophylaxie antibiotique, de ce fait ce geste appartient à la santé publique hospitalière<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Les hémorragies basses se montrent le plus souvent par une hématochézie, ce qui explique le poids de ce motif aux urgences<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On lit ces ordres de grandeur comme des repères suisses, pas comme un registre national<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>de cette manière ces deux revues ne découpent pas l'âge ni le sexe pour chaque ligne de la liste<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On ne construit donc pas une pyramide locale<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le patient est stable, avancer l'examen ne change guère la mortalité à 30 jours, ni le séjour, ni le resaignement<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On garde alors le temps de préparer le côlon, si le pouls tient et que le sang est rouge<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant le choc retire ce confort, parce que l'instabilité impose la filière haute<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On situe environ la moitié des saignements diverticulaires à droite, de ce fait la coloscopie doit voir le côlon droit<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Ainsi une part des patients reste sans source après les deux premiers examens, et cette part ne se traite pas comme un diagnostic positif<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<p>Selon le Forum Médical Suisse de 2015, l’incidence annuelle des hémorragies hautes atteint environ 1/1000, avec une mortalité proche de 13 %<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le haut dépasse donc nettement le bas. Les hémorragies basses sont environ quatre fois plus rares, 1/4000 par an, et leur mortalité tombe à 2 à 4 %<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Ces chiffres proviennent de séries publiées que cite la revue suisse, et non d’un registre national<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Parmi les causes hautes, l’ulcère gastroduodénal vient en tête avec 38 %, devant les varices œsophagiennes ou gastriques, 16 %<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Suivent l’œsophagite, 13 %, puis la tumeur, 7 %, et l’angiodysplasie, 6 %<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La lésion de Mallory-Weiss et les érosions comptent chacune pour 4 %, la lésion de Dieulafoy pour 2 %, et aucune cause n’apparaît dans 8 % des cas<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le bas obéit à un autre ordre. Dans le bas, l’hémorragie diverticulaire domine avec 20 à 48 %, tandis que l’angiodysplasie varie entre 3 et 40 % selon les séries<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le côlon varie donc davantage que l’estomac. Les colites pèsent 6 à 21 %, les tumeurs et polypes 6 à 15 %, et les causes anorectales comme les hémorroïdes 3 à 14 %<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Chez 10 à 15 % des patients qui évacuent une hématochézie, la source est pourtant haute, ce qui change le premier examen<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Après une première gastroscopie et une coloscopie, environ 5 % des patients restent sans source visible<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>De plus, 23 % des patients adressés pour une entéroscopie à double ballon portent une lésion haute que la première gastroscopie n’avait pas vue<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Environ 50 % des saignements diverticulaires naissent dans le côlon droit, alors que les diverticules dominent à gauche<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Le terrain à risque réunit la cirrhose, les anti-inflammatoires non stéroïdiens, les anticoagulants et l’âge avancé, que le score de Rockall pondère<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<thead><tr><th>Chiffre</th><th>Population</th><th>Année</th><th>Source</th></tr></thead>
+<caption>Causes et fréquences, Forum Médical Suisse 2015</caption>
+<thead><tr><th>Cause</th><th>Part</th><th>Groupe de référence</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td>10 à 15 % de sources hautes.</td><td>Patients avec hématochézie.</td><td>2015.</td><td>Forum Médical Suisse.</td></tr>
-<tr><td>Environ 5 % sans source.</td><td>Après fibroscopie haute et coloscopie.</td><td>2010.</td><td>Revue médicale suisse.</td></tr>
-<tr><td>23 % de lésions hautes manquées.</td><td>Patients adressés en entéroscopie.</td><td>2010.</td><td>Revue médicale suisse.</td></tr>
-<tr><td>Environ 50 % au côlon droit.</td><td>Saignements diverticulaires.</td><td>2010.</td><td>Revue médicale suisse.</td></tr>
-<tr><td>Mortalité à 30 jours peu changée.</td><td>Patients stables.</td><td>2010.</td><td>Revue médicale suisse.</td></tr>
+<tr><td>Ulcère gastroduodénal</td><td>38 %</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Varices œsophagiennes ou gastriques</td><td>16 %</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Œsophagite</td><td>13 %</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Tumeur</td><td>7 %</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Angiodysplasie</td><td>6 %</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Mallory-Weiss, érosions</td><td>4 % chacune</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Dieulafoy</td><td>2 %</td><td>Hémorragies hautes</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Hémorragie diverticulaire</td><td>20 à 48 %</td><td>Hémorragies basses</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Colite</td><td>6 à 21 %</td><td>Hémorragies basses</td><td>Forum Médical Suisse, 2015</td></tr>
+<tr><td>Sans source après 2 examens</td><td>Environ 5 %</td><td>Gastroscopie et coloscopie faites</td><td>Revue médicale suisse, 2010</td></tr>
 </tbody></table></div>
 </section><section class="ilot" id="p3"><h3>3. Physiopathologie</h3>
-<p>L’hématine naît de la décomposition bactérienne du sang, de ce fait un transit long dans le côlon droit suffit à noircir un saignement d’aval<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Le noir des selles n’est pas à lui seul la preuve d’un saignement d’amont, parce que la même chimie agit plus bas lorsque le contact dure<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>À l’inverse, un saignement haut très rapide traverse l’intestin avant cette chimie, ce qui laisse les selles rouges<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Un vomissement rouge, joint à des selles noires liquides, fait classer le débit comme important<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le marc de café, lui, a stagné, de ce fait le débit est moindre que celui d’un vomissement rouge<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>La pression portale gonfle les veines sous-muqueuses de l’œsophage, ce qui prépare la rupture variqueuse lorsque la paroi cède<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Les anti-inflammatoires et les anticoagulants favorisent le saignement, parce qu'ils fragilisent la muqueuse ou empêchent le caillot<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Dans le diverticule, l’écoulement s’arrête souvent seul, de ce fait le vaisseau du collet se ferme sans geste dans beaucoup de cas<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>L’angiodysplasie colique saigne par un vaisseau muqueux fragile, et l’argon le ferme lorsque la pince le voit<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La colite suinte selon sa cause, de ce fait le médicament vise cette cause plutôt qu’un point unique<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le toucher rectal rencontre parfois un carcinome, parce qu'une tumeur basse peut saigner et se palper dans le même temps<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>La chaîne va du vaisseau à la couleur des selles, puis de la couleur au choix de l’endoscope, et enfin de l’endoscope au geste qui ferme<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<p>Le sang qui séjourne dans l’intestin est dégradé par les bactéries en hématine, ce qui noircit les selles en 4 à 20 heures<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Comme cette chimie demande du temps, un saignement du côlon droit au transit lent peut, lui aussi, produire un méléna<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Les selles noires durent parfois 5 jours après la fin du saignement ; le méléna ne prouve donc pas une hémorragie encore active<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le débit change alors toute la lecture. Un débit haut très abondant traverse au contraire l’intestin avant cette transformation, d’où des selles rouges et un patient instable<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Les composants du sang résorbés dans le grêle élèvent l’urée, si bien qu’elle est plus haute dans les hémorragies hautes que dans les basses<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le chiffre initial ment donc souvent. Au début, l’hémoglobine peut rester normale faute d’hémodilution ; après l’arrêt du saignement, elle peut encore baisser sans nouvelle perte<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>L’ulcère se nourrit de la prise d’anti-inflammatoires non stéroïdiens, que l’anamnèse doit toujours chercher devant une douleur épigastrique<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Lorsqu’<i>Helicobacter pylori</i> entretient l’ulcère, l’éradication de la bactérie suit la stabilisation de l’hémorragie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Ici, le danger devient immédiat. Lorsque l’ulcère érode un vaisseau, le jet est artériel : c’est le stade Forrest Ia, qui tue par choc en quelques minutes<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La varice traduit donc une pression portale élevée. La cirrhose élève la pression portale, si bien que des collatérales sous-muqueuses se dilatent dans l’œsophage et l’estomac jusqu’à la rupture<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le vomissement répété déchire la muqueuse de la jonction œso-gastrique ; c’est la lésion de Mallory-Weiss, qui saigne puis cicatrise souvent seule<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La lésion de Dieulafoy est une anomalie congénitale : une artère trop large court sous la muqueuse et saigne par un orifice minuscule<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Dans le côlon, l’artériole du collet diverticulaire se rompt, puis le saignement s’arrête en général spontanément<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Enfin, une prothèse aortique peut s’aboucher dans l’intestin ; cette fistule aorto-entérique reste rare, mais elle saigne massivement<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Ainsi, la <button class="w" type="button" popovertarget="w-hematine">chaîne qui va du vaisseau à la couleur</button> guide le choix du premier endoscope, avant même la biologie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<thead><tr><th>Perturbation</th><th>Exploration</th><th>Thérapeutique</th></tr></thead>
+<caption>Mécanisme, signe et conséquence pratique</caption>
+<thead><tr><th>Mécanisme</th><th>Ce que l’on voit</th><th>Conséquence</th></tr></thead>
 <tbody>
-<tr><td>Le sang stagne et noircit.</td><td>On interroge le transit et la couleur.</td><td>On ne conclut pas au seul estomac.</td></tr>
-<tr><td>Le sang haut file trop vite.</td><td>Le choc et les selles rouges se lisent ensemble.</td><td>La fibroscopie haute passe devant.</td></tr>
-<tr><td>La pression portale gonfle la varice.</td><td>La fibroscopie cherche le jet.</td><td>Le vasoactif commence avant l’image.</td></tr>
-<tr><td>L’artériole diverticulaire se rompt.</td><td>La coloscopie regarde le côlon droit.</td><td>On surveille l’arrêt spontané.</td></tr>
-<tr><td>Le vaisseau muqueux de l’angiodysplasie saigne.</td><td>La coloscopie le montre.</td><td>L’argon le ferme.</td></tr>
-<tr><td>La muqueuse de colite suinte.</td><td>La coloscopie décrit l’inflammation.</td><td>Le médicament suit la cause.</td></tr>
+<tr><td>Hématine formée en 4 à 20 h</td><td>Méléna</td><td>Gastroscopie d’abord si le niveau est douteux</td></tr>
+<tr><td>Transit haut très rapide</td><td>Selles rouges avec choc</td><td>Traiter comme une source haute</td></tr>
+<tr><td>Pression portale → varices</td><td>Hématémèse sur cirrhose</td><td>Vasoactif avant l’endoscopie</td></tr>
+<tr><td>Ulcère qui érode une artère</td><td>Jet Forrest Ia</td><td>Hémostase endoscopique combinée</td></tr>
+<tr><td>Déchirure après vomissements</td><td>Sang après des efforts de vomissement</td><td>Inhibiteur de la pompe à protons, rarement un geste</td></tr>
+<tr><td>Rupture d’une artériole diverticulaire</td><td>Hématochézie indolore</td><td>Coloscopie après préparation</td></tr>
+<tr><td>Sang digéré dans le grêle</td><td>Urée élevée</td><td>Argument pour une source haute</td></tr>
 </tbody></table></div>
-<div id="w-hematine" popover class="fenetre">
-
-<p>Le sang qui stagne subit l’action bactérienne, de ce fait l’hématine apparaît entre 4 et 20 heures après le début<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Si le transit est rapide, cette chimie n’a pas le temps, et les selles restent rouges malgré un départ haut<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Le méléna peut encore colorer les selles pendant 5 jours après l’arrêt, ce qui ne prouve pas un saignement actif<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Le piège d’examen est de dater le début à l’heure des premières selles noires, tandis que le délai réel est plus court<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi le sang qui reste dans l'estomac noircit, parce que l'acide lui laisse le temps de virer<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant un transit très rapide garde la teinte rouge, de ce fait la couleur seule ne situe pas l'étage<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On oriente d'abord par le choc, puis seulement par la teinte<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On mesure le pouls avant la teinte<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>de cette manière c'est le choc qui tranche l'étage<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque la pression portale monte, les veines sous-muqueuses se gonflent et la paroi devient mince<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On signe une varice possible dès que le foie est connu et que le sang digestif est présent<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque l'artériole du collet se rompt, le saignement est souvent épuisé de lui-même<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On surveille cet arrêt, parce qu'ouvrir d'emblée n'apporte rien si le rouge a déjà cessé<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi le vaisseau de l'angiodysplasie est fragile, et l'argon le ferme quand la coloscopie l'atteint<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On traite la colite selon sa cause, de ce fait un seul médicament ne couvre pas toutes les muqueuses<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant l'hémorroïde interne saigne sous la muqueuse, et les stades un et deux ne justifient pas une laparotomie<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On réserve le bloc à la lésion du grêle que l'endoscope ne peut pas enlever<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque l'hématine naît dans un côlon droit lent, le noir mime un saignement d'amont<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>On confirme alors le siège par l'endoscope, pas par la seule couleur du bassin<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi un caillot sombre dans la cuvette signe du sang déjà figé, et non le niveau du vaisseau<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On ne déduit pas l'estomac d'un méléna isolé, du fait que le temps de contact suffit à noircir un sang bas<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<div id="w-hematine" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-hematine" popovertargetaction="hide">Fermer</button>
+<h5>Du vaisseau à la couleur des selles</h5>
+<p>Le premier repère est le temps : l’hématine apparaît entre 4 et 20 heures après le début du saignement<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le deuxième repère est le débit, puisqu’un vomissement de sang frais associé à un méléna liquide signe une perte modérée à sévère<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le troisième repère est le site, car le côlon droit lent peut noircir un sang venu d’aval<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le patient se trompe souvent d’heure. Le piège consiste à dater le début du saignement à l’heure des premières selles noires, alors qu’il a commencé plusieurs heures plus tôt<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un autre piège tient à la durée : les selles peuvent rester noires 5 jours sans que le patient saigne encore<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Devant un doute, l’urée élevée et le vomissement de sang orientent vers le haut, alors que le toucher rectal confirme la couleur<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 </div>
-</section><section class="ilot" id="p4"><h3>4. Démarche diagnostique</h3>
-<p>On écarte d’abord le choc hémorragique de la varice, parce que ce qui tue vite ouvre la démarche avant les causes fréquentes<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>L’hématochézie avec instabilité garde le rang E2, du fait que une source haute massive reste possible et l’instabilité est alors constante<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le diverticule vient ensuite dans le raisonnement fréquent, parce que l’écoulement s’arrête souvent seul et siège volontiers à droite<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>L’hémorroïde interne de stade 1 ou de stade 2 se traite sans ouvrir l’abdomen, de ce fait elle ne prend pas le premier rang de létalité<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le piège de la varice est d’attendre l’endoscope pour commencer le vasoactif, tandis que le texte suisse le veut avant<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le piège de l’hématochézie est d’envoyer d’emblée au côlon un patient en choc, parce que le haut peut encore saigner<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si la coloscopie et la fibroscopie haute restent muettes, on garde la source obscure, puis on revoit l’étage haut avant le grêle<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Une lésion haute manquée explique 23 % des entéroscopies à double ballon, de ce fait le second regard haut précède le long endoscope<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
+</section>
+<section class="ilot" id="p4"><h3>4. Démarche diagnostique</h3>
+<p>La démarche commence par ce qui tue en minutes : l’ulcère qui saigne en jet et la rupture variqueuse, tous deux classés E1<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le pouls passe avant tout le reste. Avant toute question de siège, on mesure le pouls, la pression et leur variation orthostatique, puis on pose deux voies veineuses<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Ensuite, l’anamnèse oriente vers une cause précise : cirrhose, vomissements préalables, douleur épigastrique, anti-inflammatoires ou prothèse aortique<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le siège se déduit de la présentation : hématémèse ou méléna pour le haut, rectorragie pour le bas, sauf choc qui fait remonter la source<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Si le niveau reste incertain, la gastroscopie précède toujours la coloscopie, parce que 10 à 15 % des hématochézies viennent d’en haut<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le score de Glasgow-Blatchford trie ensuite les patients qui peuvent rentrer de ceux qu’il faut hospitaliser et endoscoper tôt<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Lorsque gastroscopie et coloscopie restent muettes, on les répète si la préparation était insuffisante, puis on explore le grêle<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
+<caption>Les dix diagnostics côte à côte</caption>
 <thead><tr><th>Diagnostic</th><th>Signe clé</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate</th><th>Rang E</th></tr></thead>
 <tbody>
-<tr><td>DX.1 rectorragie</td><td>Le sang est rouge et forme des caillots.</td><td>La coloscopie suit la préparation lorsque l’état tient.</td><td>Le saignement naît d’ordinaire en aval du ligament de Treitz.</td><td>On mesure le pouls et la pression avant de choisir l’examen.</td><td>Hors rang E</td></tr>
-<tr><td>DX.2 méléna</td><td>Les selles sont noires et collantes.</td><td>La fibroscopie haute vient en premier si le niveau est douteux.</td><td>L’hématine se forme aussi dans un côlon droit au transit lent.</td><td>On ne conclut pas au seul estomac.</td><td>Hors rang E</td></tr>
-<tr><td>DX.3 hématochézie</td><td>Le sang rouge sort par l’anus en quantité visible.</td><td>La fibroscopie haute précède si le choc est présent.</td><td>Une source haute massive peut mimer le bas.</td><td>E2, hémorragie haute tant que le choc n’est pas levé.</td><td>E2</td></tr>
-<tr><td>DX.4 diverticule</td><td>Le saignement est souvent indolore et abondant.</td><td>La coloscopie cherche le côlon droit après préparation.</td><td>L’artériole du collet se rompt puis s’arrête souvent seule.</td><td>On surveille l’arrêt spontané sans ouvrir d’emblée.</td><td>Hors rang E</td></tr>
-<tr><td>DX.5 hémorroïde</td><td>Le sang rouge tapisse les selles ou la cuvette.</td><td>L’anuscopie voit les paquets internes.</td><td>Les stades internes un et deux saignent sous la muqueuse.</td><td>Infrarouge ou ligature, sans laparotomie.</td><td>Hors rang E</td></tr>
-<tr><td>DX.6 angiodysplasie</td><td>Le saignement est intermittent et souvent peu douloureux.</td><td>La coloscopie montre le vaisseau muqueux.</td><td>La paroi fragile laisse passer le sang.</td><td>L’électrocoagulation à l’argon ferme le point vu.</td><td>Hors rang E</td></tr>
-<tr><td>DX.7 colite</td><td>Des selles glairo-sanglantes accompagnent l’évacuation.</td><td>La coloscopie décrit l’inflammation.</td><td>La muqueuse malade suinte.</td><td>Le médicament suit la cause une fois nommée.</td><td>Hors rang E</td></tr>
-<tr><td>DX.8 grêle</td><td>Le saignement reste obscur après les deux examens longs.</td><td>L’entéroscopie à double ballon reprend le dossier.</td><td>Une lésion isolée peut échapper aux examens standards.</td><td>La chirurgie s’impose si l’endoscope ne peut pas l’enlever.</td><td>Hors rang E</td></tr>
-<tr><td>DX.9 varice</td><td>L’hématémèse ou le méléna survient sur un foie connu.</td><td>La fibroscopie haute voit le jet ou le cordon.</td><td>La pression portale gonfle les veines sous-muqueuses.</td><td>Un vasoactif commence avant l’endoscope.</td><td>E1</td></tr>
-<tr><td>DX.10 source obscure</td><td>Aucun point de sortie n’est nommé au premier passage.</td><td>On refait d’abord l’étage haut.</td><td>Une lésion haute manquée explique une part des entéroscopies.</td><td>On ne passe pas au grêle avant d’avoir revu l’estomac.</td><td>Hors rang E</td></tr>
+<tr><td>DX.1 ulcère gastroduodénal</td><td>Douleur épigastrique, AINS, méléna</td><td>Gastroscopie</td><td>Érosion d’une artère de la paroi</td><td>IPP intraveineux, hémostase endoscopique</td><td>E1 si jet</td></tr>
+<tr><td>DX.2 varices œsophagiennes ou gastriques</td><td>Hématémèse sur cirrhose</td><td>Gastroscopie dès que possible</td><td>Hypertension portale</td><td>Vasoactif, antibiotique, ligature</td><td>E1</td></tr>
+<tr><td>DX.3 œsophagite</td><td>Reflux, saignement modeste</td><td>Gastroscopie</td><td>Inflammation de la muqueuse</td><td>IPP, rarement un geste</td><td>Hors E</td></tr>
+<tr><td>DX.4 tumeur digestive haute</td><td>Amaigrissement, dysphagie</td><td>Gastroscopie et biopsies</td><td>Tumeur ulcérée</td><td>Hémostase, puis bilan oncologique</td><td>Hors E</td></tr>
+<tr><td>DX.5 angiodysplasie</td><td>Saignement récidivant, anémie</td><td>Endoscopie</td><td>Ectasie vasculaire fragile</td><td>Coagulation à l’argon</td><td>Hors E</td></tr>
+<tr><td>DX.6 lésion de Mallory-Weiss</td><td>Sang après vomissements</td><td>Gastroscopie</td><td>Déchirure de la jonction</td><td>IPP, geste rare</td><td>Hors E</td></tr>
+<tr><td>DX.7 érosions gastroduodénales</td><td>Prise d’AINS</td><td>Gastroscopie</td><td>Atteinte superficielle</td><td>Arrêt de l’AINS si possible</td><td>Hors E</td></tr>
+<tr><td>DX.8 lésion de Dieulafoy</td><td>Hématémèse abondante sans ulcère</td><td>Gastroscopie répétée</td><td>Artère sous-muqueuse large</td><td>Hémostase endoscopique</td><td>Hors E</td></tr>
+<tr><td>DX.9 hémorragie diverticulaire</td><td>Hématochézie indolore</td><td>Coloscopie après préparation</td><td>Rupture d’une artériole du collet</td><td>Surveillance, geste si saignement actif</td><td>Hors E</td></tr>
+<tr><td>DX.10 colite</td><td>Diarrhée et douleur</td><td>Coloscopie et biopsies</td><td>Muqueuse inflammatoire</td><td>Traitement de la cause</td><td>Hors E</td></tr>
 </tbody></table></div>
 </section><section class="ilot" id="p5"><h3>5. Anamnèse ciblée et drapeaux rouges</h3>
-<p>On demande les anti-inflammatoires et les anticoagulants, parce qu'ils orientent le mécanisme et parfois la varice<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On cherche un foie connu ou une cirrhose, du fait que la suspicion de varice change le premier médicament<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On date le premier sang, le nombre de selles et la présence d’un vomissement, parce que la couleur situe l’étage<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On demande si le noir dure, du fait que la teinte peut survivre 5 jours au saignement déjà tari<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Un vomissement rouge avec des selles noires liquides fait craindre un débit important, de ce fait on ne rassure pas sur la seule teinte<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le drapeau du choc, pression basse ou pouls rapide, impose deux voies veineuses et un remplissage tôt, avant l’endoscope<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Sous bêtabloquant la tachycardie peut manquer, de ce fait l’absence de pouls rapide ne ferme pas l’hypovolémie<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Des selles rouges avec instabilité imposent de traiter le tableau comme un haut jusqu’à preuve contraire, parce que l’instabilité est alors constante<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le toucher qui trouve une masse fait chercher un carcinome rectal, et ce drapeau ne se négocie pas contre un simple paquet hémorroïdaire<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Après deux examens négatifs, le drapeau « source non vue » impose de recontrôler le haut, parce que 23 % des entéroscopies y trouvent une lésion oubliée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
+<p>On commence par dater le premier sang, compter les selles et noter tout vomissement, puisque le délai et la couleur situent l’étage<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La question de la cirrhose ou de ses facteurs de risque vient tôt, car elle fait suspecter des varices et change les médicaments de la première heure<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un saignement apparu après des efforts de vomissement oriente vers une lésion de Mallory-Weiss<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Une douleur épigastrique ou la prise d’anti-inflammatoires non stéroïdiens oriente vers l’ulcère gastroduodénal<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La diarrhée oriente ainsi vers le côlon. Une diarrhée avec douleurs abdominales fait évoquer une colite, alors qu’une radiothérapie pelvienne ancienne fait chercher des angiectasies rectales<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Cette question permet donc de sauver une vie. Une prothèse aortique doit faire penser à la fistule aorto-entérique, même si le premier saignement paraît modeste<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Une diverticulose connue ou une polypectomie récente expliquent souvent une hématochézie sans douleur<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Les anticoagulants se nomment avec précision, car l’effet d’un anti-Xa direct ne s’annule pas en quelques minutes<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le traitement en cours compte aussi pour le pouls : sous bêtabloquant, la tachycardie de repos peut manquer malgré l’hypovolémie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Les <button class="w" type="button" popovertarget="w-anamnese">indices anamnestiques du Forum Médical Suisse</button> se lisent comme une table de correspondance entre l’histoire et la lésion probable<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<thead><tr><th>Drapeau rouge</th><th>Signification</th><th>Action immédiate</th></tr></thead>
+<caption>Drapeaux rouges et action</caption>
+<thead><tr><th>Drapeau rouge</th><th>Ce qu’il signifie</th><th>Action immédiate</th></tr></thead>
 <tbody>
-<tr><td>Choc avec selles rouges.</td><td>Une source haute reste possible.</td><td>On traite comme un haut jusqu’à preuve contraire.</td></tr>
-<tr><td>Vomissement rouge et méléna liquide.</td><td>Saignement modéré à sévère.</td><td>On pose les voies et l’on prépare l’endoscope.</td></tr>
-<tr><td>Pouls normal sous bêtabloquant.</td><td>L’hypovolémie peut se cacher.</td><td>On ne se fie pas au seul pouls.</td></tr>
-<tr><td>Foie connu et sang digestif.</td><td>Varice à discuter.</td><td>Le vasoactif se décide avant l’endoscope.</td></tr>
-<tr><td>Masse au toucher.</td><td>Carcinome rectal possible.</td><td>On ne s’arrête pas à l’hémorroïde.</td></tr>
-<tr><td>Deux examens longs négatifs.</td><td>Source peut-être haute et manquée.</td><td>On revoit le haut avant le grêle.</td></tr>
+<tr><td>Choc avec selles rouges</td><td>Source haute possible, instabilité constante</td><td>Gastroscopie avant la coloscopie</td></tr>
+<tr><td>Vomissement de sang frais et méléna liquide</td><td>Saignement modéré à sévère</td><td>2 voies, remplissage, endoscopie rapide</td></tr>
+<tr><td>Cirrhose connue</td><td>Varices probables</td><td>Vasoactif et antibiotique avant l’endoscopie</td></tr>
+<tr><td>Prothèse aortique</td><td>Fistule aorto-entérique</td><td>Imagerie vasculaire et avis chirurgical</td></tr>
+<tr><td>Pouls normal sous bêtabloquant</td><td>Hypovolémie masquée</td><td>Juger aussi la pression et l’orthostatisme</td></tr>
+<tr><td>Anticoagulant ou plaquettes basses</td><td>Saignement entretenu</td><td>Corriger sans retarder l’endoscopie</td></tr>
 </tbody></table></div>
-<div id="w-ortho" popover class="fenetre">
-
-<p>On mesure la pression couchée puis debout, parce que les modifications orthostatiques révèlent une hypovolémie encore compensée<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Une tachycardie de repos oriente vers la perte de volume, tandis qu’un bêtabloquant peut l’effacer<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le piège est de déclarer le patient stable sur un seul chiffre de pouls, tandis que le contexte médicamenteux change la lecture<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On pose deux voies et on remplit tôt, de ce fait le lit ne reste pas sans abord pendant l’interrogatoire<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
+<div id="w-anamnese" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-anamnese" popovertargetaction="hide">Fermer</button>
+<h5>Indices anamnestiques et lésion probable</h5>
+<div class="t" style="overflow-x:auto">
+<table>
+<thead><tr><th>Indice</th><th>Lésion à évoquer</th></tr></thead>
+<tbody>
+<tr><td>Cirrhose ou facteurs de risque</td><td>Hémorragie variqueuse</td></tr>
+<tr><td>Sang après un vomissement</td><td>Lésion de Mallory-Weiss</td></tr>
+<tr><td>Douleur épigastrique, AINS</td><td>Ulcère gastroduodénal</td></tr>
+<tr><td>Diarrhée et douleurs abdominales</td><td>Colite</td></tr>
+<tr><td>Radiothérapie urogénitale ancienne</td><td>Angiectasies rectales postactiniques</td></tr>
+<tr><td>Prothèse aortique</td><td>Fistule aorto-entérique</td></tr>
+<tr><td>Diverticulose connue</td><td>Hémorragie diverticulaire</td></tr>
+<tr><td>Polypectomie récente</td><td>Hémorragie post-polypectomie</td></tr>
+</tbody></table></div>
+<p>Ce tableau reprend les correspondances publiées par le Forum Médical Suisse ; il oriente l’endoscope sans le remplacer<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le piège est d’oublier la prothèse aortique, parce que la fistule saigne d’abord peu avant une hémorragie massive<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 </div>
 </section><section class="ilot" id="p6"><h3>6. Examen physique ciblé, région par région</h3>
-<p>On commence par le pouls, la pression et le passage debout, avant d’ouvrir la bouche ou l’anus<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>À la bouche, un vomissement rouge signe un débit important, surtout s’il accompagne des selles noires liquides<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Un vomissement en marc de café, au contraire, parle pour un saignement plus limité, parce que le sang a stagné<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Au thorax, on compte le pouls et on prend la pression, de ce fait l’hypovolémie se lit avant l’abdomen<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Sous bêtabloquant, un pouls normal au thorax ne rassure pas, du fait que la tachycardie attendue peut manquer<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>À l’abdomen, on cherche un foie dur ou une ascite clinique, parce que ce terrain oriente vers la varice sans la prouver<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le ventre souple n’élimine pas un diverticule qui saigne, du fait que ce saignement est souvent peu douloureux<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Au pelvis et à l’anus, le toucher rectal peut montrer un méléna, du sang frais, ou parfois un carcinome<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>La technique du doigtier est lente, lubrifiée, et elle explore le canal avant le rectum, de ce fait on ne se contente pas d’un frottis de la marge<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le normal est un doigt qui revient sans sang et sans masse, tandis que le pathologique est le sang, le caillot ou l’irrégularité fixée<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>La photographie de la cuvette montre le sang tel que le patient le voit, et elle ne remplace pas le toucher<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</p>
-<p>La gastroscopie des cordons complète l’examen lorsque le foie est connu, parce que l’œil nu ne voit pas la varice œsophagienne<sup class="r"><a href="#sb-commons-wale">[7]</a></sup>.</p>
-<p>Le piège du toucher est d’appeler hémorroïde toute saillie, tandis que seuls les stades vus et décrits guident le geste<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Les stades internes 1 et 2 se traitent par infrarouge ou par ligature, de ce fait le doigt seul ne choisit pas l’instrument<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-
-<div id="w-toucher" popover class="fenetre">
-
-<p>Le doigt cherche trois choses : du sang noir, du sang rouge, et une masse qui pourrait être un carcinome<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>On explique le geste, on lubrifie, puis on avance doucement, parce que la douleur ferme l’anus et rate la lésion basse<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Un canal vide avec un doigtier noir oriente vers un méléna d’amont, tandis qu’un doigtier rouge oriente vers l’aval ou vers un haut très rapide<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le piège est de stopper l’examen à l’hémorroïde externe, tandis que la tumeur peut siéger juste au-dessus du doigt<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<h4>Signes vitaux</h4>
+<p>L’examen débute par le pouls, la pression artérielle et la recherche de <button class="w" type="button" popovertarget="w-ortho">modifications orthostatiques</button>, qui révèlent une hypovolémie encore compensée<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le pouls précède ainsi l’hémoglobine. Une tachycardie de repos signale la perte de volume ; sous bêtabloquant, elle peut manquer et ne rassure donc pas<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un pouls supérieur à 100 par minute ou une pression systolique inférieure à 100 mmHg comptent déjà dans le score de Rockall<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<h4>Bouche et vomissements</h4>
+<p>Du sang frais vomi avec un méléna liquide traduit un saignement modéré à sévère ; le marc de café plaide pour un débit plus faible<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<h4>Abdomen</h4>
+<p>À l’abdomen, les signes d’une cirrhose, comme une ascite, une circulation veineuse collatérale ou un foie dur, rendent les varices plus probables<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le ventre oriente donc aussi, parfois. Une douleur épigastrique, spontanée ou provoquée, soutient l’ulcère gastroduodénal, surtout sous anti-inflammatoire<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>L’hémorragie diverticulaire, elle, laisse souvent un ventre souple et indolore malgré un saignement abondant<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<h4>Anus et rectum</h4>
+<p>Ce geste simple reste donc indispensable. Le <button class="w" type="button" popovertarget="w-toucher">toucher rectal</button> est obligatoire : il ramène un méléna, du sang frais, et parfois révèle un carcinome rectal<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La couleur sur le doigtier se compare à la description du patient, souvent imprécise, et à la <button class="w" type="button" popovertarget="w-selles">photographie de la cuvette</button> lorsqu’elle existe<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</p>
+<p>Chez le cirrhotique, l’examen se complète par l’endoscopie, puisque seule la gastroscopie montre les <button class="w" type="button" popovertarget="w-wale">cordons variqueux</button><sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</p>
+<div class="t" style="overflow-x:auto">
+<table>
+<caption>Région par région</caption>
+<thead><tr><th>Région</th><th>Signe recherché</th><th>Lecture</th></tr></thead>
+<tbody>
+<tr><td>Signes vitaux</td><td>Pouls, pression, orthostatisme</td><td>Gravité et urgence</td></tr>
+<tr><td>Bouche</td><td>Sang frais ou marc de café</td><td>Débit et étage haut</td></tr>
+<tr><td>Abdomen</td><td>Ascite, collatérales, douleur épigastrique</td><td>Varices ou ulcère</td></tr>
+<tr><td>Anus et rectum</td><td>Méléna, sang frais, masse</td><td>Couleur et carcinome rectal</td></tr>
+<tr><td>Peau et muqueuses</td><td>Pâleur, extrémités froides</td><td>Retentissement circulatoire</td></tr>
+</tbody></table></div>
+<div id="w-ortho" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-ortho" popovertargetaction="hide">Fermer</button>
+<h5>Orthostatisme et pouls trompeur</h5>
+<p>On mesure le pouls et la pression couchés, puis après le passage debout si le patient le tolère<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Une hausse du pouls ou une baisse de pression au lever trahit une perte que les chiffres couchés masquent encore<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Ce pouls calme ment souvent. Sous bêtabloquant, le pouls reste bas malgré la perte, si bien que seule la pression ou l’orthostatisme alertent<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Au moindre doute, deux voies veineuses de bon calibre et un remplissage se posent avant l’endoscopie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 </div>
-<div id="w-selles" popover class="fenetre">
+<div id="w-toucher" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-toucher" popovertargetaction="hide">Fermer</button>
+<h5>Toucher rectal : hémorroïde ou carcinome</h5>
+<img src="images/hemorroides-internes.webp" width="800" height="689" alt="Hémorroïdes internes de stade 2 en rétrovision endoscopique">
+<p>La vue en rétrovision montre des coussinets hémorroïdaires internes bleutés autour de l’endoscope, sans masse dure<sup class="r"><a href="#sb-commons-hemorroides">[17]</a></sup>.</p>
+<p>Au doigt, ces paquets sont mous, dépressibles et souvent impalpables, alors qu’un carcinome rectal se sent comme une masse ferme et irrégulière<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le doigtier noir signe un méléna, le doigtier rouge un sang frais ; ni l’un ni l’autre ne localise seul la source<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Les hémorroïdes internes de stades 1 et 2 qui saignent relèvent de l’infrarouge ou de ligatures élastiques<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Le piège consiste à s’arrêter aux hémorroïdes vues, alors qu’une tumeur peut siéger juste au-dessus ; la coloscopie reste donc nécessaire<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Cette photographie vient de Jmarchn et reste sous licence CC BY-SA 3.0 sur Wikimedia Commons, consulté le 11.11.2026<sup class="r"><a href="#sb-commons-hemorroides">[17]</a></sup>.</p>
+</div>
+<div id="w-selles" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-selles" popovertargetaction="hide">Fermer</button>
+<h5>La cuvette : ce que le patient voit</h5>
 <img src="images/selles-sang.webp" width="764" height="1000" alt="Sang rouge et caillot dans la cuvette">
-<p>La cuvette pleine de sang rouge et d’un caillot illustre la rectorragie ou l’hématochézie, de ce fait la couleur se lit avant le diagnostic de siège<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</p>
-<p>L’auteur du cliché rattache cet aspect à un saignement du côlon ascendant, et pourtant la photo seule ne montre pas le côlon<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</p>
-<p>Des éclaboussures sur la faïence parlent pour un sang encore liquide, tandis qu’un méléna collerait et noircirait l’eau<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si le patient est instable devant ce spectacle, on pense encore à une source haute, parce que l’instabilité accompagne alors ce piège<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<p>La nappe rouge et le caillot montrent un sang frais, typique d’une rectorragie ou d’une hématochézie<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</p>
+<p>Le cliché ne dit pas le siège : avec un choc, la même cuvette peut venir d’une source haute<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un méléna, à l’inverse, rend l’eau noire et reste collé à la faïence<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 </div>
-<div id="w-wale" popover class="fenetre">
-<img src="images/varices-wale.webp" width="315" height="286" alt="Endoscopie, cordons variqueux avec signes rouges">
-<p>La gastroscopie montre des cordons qui bossellent la lumière, de ce fait la paroi lisse normale a disparu<sup class="r"><a href="#sb-commons-wale">[7]</a></sup>.</p>
-<p>Des stries rouges longent certains cordons, et ces signes ne sont pas encore un jet pulsatile<sup class="r"><a href="#sb-commons-wale">[7]</a></sup>.</p>
-<p>Sans jet et sans choc, ce cliché ne déclenche pas à lui seul le vasoactif, tandis que le jet du premier cliché le fait discuter<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le piège est de confondre un reflet humide avec un signe rouge, parce que la lampe sature les muqueuses pâles<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On commence par le pouls et la pression, puis seulement par l'anus<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>de cette manière la bouche se regarde lorsqu'un vomissement est rapporté<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On palpe l'abdomen en cherchant le foie, parce qu'un foie dur oriente vers la varice<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le pelvis est douloureux, on cherche une autre cause que le seul sang<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On inspecte le thorax pour le retentissement, parce que la source n'y est pas<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi le doigtier rouge confirme le sang, et une masse au doigt oriente vers le rectum<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On n'arrête pas le diagnostic à l'hémorroïde si le doigt ramène une masse<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On ausculte le cœur seulement pour le retentissement, et la source reste abdominale ou pelvienne<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi les membres froids signent la vasoconstriction, de ce fait le remplissage ne se discute plus<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On regarde la peau du ventre pour les veines visibles, parce qu'elles orientent vers une hypertension portale<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque l'anus montre un suintement rouge sans masse, on garde l'hémorroïde parmi les causes, sans fermer la liste<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On demande si le sang entoure la selle ou s'il se mêle aux glaires, afin de séparer l'hémorroïde du suintement muqueux<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si le pouls tombe, on hospitalise<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si le choc est là, on tranche<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant la teinte seule est trompeuse<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le foie est connu, on signe<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Avant l'image, on pose les voies<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Après le jet, on traite sur place<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Puis le relais est discuté au calme<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Dès que le rouge cesse, on surveille<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Sinon le haut est revu d'abord<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Au lit, le pouls est premier<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Chez le cirrhotique, on indique le vasoactif<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Sans masse au doigt, l'hémorroïde reste possible<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Avec un pouls lent, le bêtabloquant est un piège<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si les selles sont noires, on pense à l'amont<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant un transit lent est trompeur<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le bassin est rouge, on juge le pouls<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Avant la coloscopie, on stabilise<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Après deux examens muets, le haut est revu<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Puis l'argon est utilisé sur le vaisseau vu<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>à partir de là on écarte le bloc comme premier geste<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<div id="w-wale" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-wale" popovertargetaction="hide">Fermer</button>
+<h5>Cordons variqueux et signes rouges</h5>
+<img src="images/varices-wale.webp" width="315" height="286" alt="Gastroscopie, cordons variqueux avec signes rouges">
+<p>Les cordons bleutés font saillie dans la lumière de l’œsophage et effacent la paroi lisse<sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</p>
+<p>Les stries rouges longitudinales marquent une paroi amincie ; elles ne sont pas encore un saignement actif<sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</p>
+<p>Chez un patient qui a saigné, ces cordons imposent la ligature élastique, poursuivie jusqu’à l’éradication des varices<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 </div>
 </section><section class="ilot" id="p7"><h3>7. Approche syndromique</h3>
-<h4>7.1 Saignement haut</h4>
-<p>Le syndrome haut réunit hématémèse, marc de café ou méléna, avec un vomissement ou des selles noires<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Les signes fonctionnels sont le vomissement de sang ou de marc, et les selles noires, parce que le haut se vide vers le haut ou après digestion<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Les signes physiques sont la tachycardie, la chute de pression et parfois un foie clinique, de ce fait on les cherche avant l’endoscope<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<h4>7.2 Saignement bas</h4>
-<p>Le syndrome bas réunit rectorragie ou hématochézie, avec du sang rouge dans la cuvette<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Les signes fonctionnels sont l’évacuation rouge, les caillots et parfois les glaires, tandis que les signes physiques sont le doigtier rouge et l’absence de vomissement<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le choc s’ajoute au syndrome bas, le tableau est celui du haut, parce que l’instabilité accompagne alors une source d’amont très abondante<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<h4>7.3 Choc et varice</h4>
-<p>Le troisième syndrome est le choc hémorragique sur varice suspectée, avec soif, malaise, foie connu et sang dans le tube<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Les signes fonctionnels sont le malaise et le vomissement, et les signes physiques sont le pouls, la pression et les deux voies à poser tôt<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<h4>7.4 Source obscure</h4>
-<p>Le quatrième syndrome est la source obscure, lorsque les examens longs sont négatifs et que le sang continue ou revient<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Les signes fonctionnels sont la répétition du sang, tandis que le signe « physique » décisif est l’absence de lésion sur les deux premiers examens<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On définit chaque signe dans la phrase qui le porte, on le cherche par le geste nommé, et le mécanisme relie la couleur au temps de transit<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On reconnaît le syndrome haut au vomissement de sang ou aux selles noires, avant même l'endoscope<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi le syndrome bas se lit dans la cuvette rouge, tant que le pouls tient<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le malaise s'ajoute à un foie connu, on signe le choc variqueux et l'on pose les voies<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant des examens longs négatifs, avec un sang qui revient, orientent vers la source obscure<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On ne mélange pas ces quatre tableaux, parce que le premier geste change<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si le pouls file, le tableau est celui du haut<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On demande le récit du premier épisode, afin de séparer le noir ancien du rouge actuel<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi la soif et le malaise signent le retentissement, tandis que la teinte seule reste ambiguë<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On hospitalise lorsque le pouls ne tient pas, et l'on garde l'ambulatoire lorsque le pouls tient<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant un bêtabloquant déjà pris peut masquer la tachycardie, de ce fait on ne rassure pas sur un pouls lent<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On contrôle la pression couchée puis debout, parce que l'écart oriente vers une hypovolémie encore compensée<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque la bouche ramène du rouge et que les selles sont noires et liquides, on signe un débit important<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<h4>7.1 Syndrome d’hémorragie haute</h4>
+<p>Il réunit l’hématémèse, le vomissement en marc de café et le méléna ; l’urée s’élève souvent plus que dans le bas<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>On cherche donc le foie avant l’endoscope. Les signes physiques associent tachycardie, hypotension et parfois les stigmates de cirrhose, que l’on cherche avant l’endoscope<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un vomissement de sang frais suivi d’un méléna liquide signe un saignement au moins modéré, donc une surveillance rapprochée<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Si le sang apparaît juste après des vomissements répétés, on pense d’abord à une lésion de Mallory-Weiss, déchirure muqueuse due à l’effort de vomir<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>L’urée monte parce que le grêle résorbe les protéines du sang ; ce signe manque donc souvent quand la source est colique<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<h4>7.2 Syndrome d’hémorragie basse</h4>
+<p>Il se manifeste surtout par une hématochézie, plus rarement par une rectorragie isolée de sang rouge et de caillots<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le patient reste souvent stable, et le délai lié à la préparation colique ne modifie pas le pronostic<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Les causes anorectales, hémorroïdes, fissure et ulcère rectal, représentent 3 à 14 % des cas bas, ce qui rappelle l’intérêt du toucher rectal<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Une polypectomie récente ou une radiothérapie pelvienne ancienne oriente vers une hémorragie post-polypectomie ou des angiectasies rectales postactiniques<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le saignement diverticulaire s’arrête le plus souvent de lui-même, ce qui laisse le temps de préparer le côlon avant la coloscopie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<h4>7.3 Choc hémorragique</h4>
+<p>Le choc impose donc sa propre logique. Quel que soit l’étage, un choc fait traiter la source comme haute jusqu’à preuve du contraire<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Il réunit pâleur, extrémités froides, tachycardie et hypotension ; il impose les soins intensifs si besoin<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>L’hémoglobine du premier bilan rassure parfois à tort, puisqu’elle peut encore chuter après l’arrêt du saignement<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un bêtabloquant masque la tachycardie de repos, si bien que l’orthostatisme et la pâleur pèsent alors davantage que le pouls<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Lorsque l’hémorragie est hyperaiguë et le patient instable, on transfuse même si l’hémoglobine paraît encore normale<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<h4>7.4 Saignement d’origine obscure</h4>
+<p>On parle de source obscure lorsque gastroscopie et coloscopie bien préparées ne trouvent rien, soit environ 5 % des patients<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La vidéo-capsule pose alors un diagnostic chez 38 % à 87 % des patients, surtout pendant ou juste après l’épisode<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Quand le saignement persiste, une seconde capsule trouve la source chez 35 % à 75 % d’entre eux et change la conduite chez 10 %<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Quand la capsule localise la lésion, elle fixe la voie, orale ou anale, de l’entéroscopie à double ballon qui suivra<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Si l’on suspecte un diverticule de Meckel, on le recherche par une scintigraphie au pertechnétate de technétium<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
+<caption>Les quatre syndromes</caption>
 <thead><tr><th>Syndrome</th><th>Signes fonctionnels</th><th>Signes physiques</th></tr></thead>
 <tbody>
-<tr><td>7.1 saignement haut.</td><td>Vomissement de sang ou selles noires.</td><td>Pouls, pression, parfois foie clinique.</td></tr>
-<tr><td>7.2 saignement bas.</td><td>Évacuation rouge et caillots.</td><td>Doigtier rouge, anus et rectum.</td></tr>
-<tr><td>7.3 choc sur varice suspectée.</td><td>Malaise et sang digestif sur foie connu.</td><td>Voies veineuses et pression.</td></tr>
-<tr><td>7.4 source obscure.</td><td>Sang qui revient après examens négatifs.</td><td>Absence de lésion sur les deux premiers examens.</td></tr>
+<tr><td>7.1 haut</td><td>Hématémèse, marc de café, méléna</td><td>Tachycardie, urée élevée, stigmates de cirrhose</td></tr>
+<tr><td>7.2 bas</td><td>Hématochézie, rectorragie</td><td>Doigtier rouge, ventre souvent souple</td></tr>
+<tr><td>7.3 choc</td><td>Malaise, soif, syncope</td><td>Hypotension, extrémités froides</td></tr>
+<tr><td>7.4 obscur</td><td>Saignement qui revient</td><td>Anémie sans lésion vue</td></tr>
 </tbody></table></div>
 </section><section class="ilot" id="p8"><h3>8. Diagnostic positif et critères</h3>
-<p>Le critère de 2010 suffit à classer le haut lorsqu’il existe une hématémèse ou un méléna sans signe de transit colique lent<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Il ne suffit pas si les selles sont rouges et le patient instable, parce que le même critère rappelle que le haut massif peut mimer le bas<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le critère du bas est le sang rouge et les caillots, et il ne suffit pas seul lorsque le choc est là<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Le méléna se retient si les selles sont noires, même lorsque la source est colique droite, parce que l’hématine n’a pas de passeport anatomique<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Le critère de source obscure est l’absence de source après une fibroscopie haute et une coloscopie, ce qui concerne environ 5 % des patients<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Ce critère ne suffit pas à envoyer d’emblée au grêle, du fait que 23 % des entéroscopies retrouvent une lésion haute manquée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Les stades 1 et 2 de l’hémorroïde interne suffisent à proposer infrarouge ou ligature, et ils ne suffisent pas à opérer un ventre<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le critère de suspicion variqueuse est le terrain et le saignement, de ce fait le vasoactif se discute avant la preuve endoscopique<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Aucun score chiffré supplémentaire n’est exigé par ces deux textes pour ouvrir la filière, parce que la couleur et l’hémodynamique tranchent déjà<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On confirme le haut par l'hématémèse ou par le méléna, lorsque le transit n'a pas trompé la couleur<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>de cette manière des selles rouges avec un pouls tenu signent plutôt le bas<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On n'envoie pas au grêle tant que le haut n'a pas été revu<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque les stades un et deux sont vus, l'infrarouge ou la ligature suffisent<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On indique le vasoactif dès que le terrain évoque la varice, avant même l'image<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Ainsi le diagnostic positif exige un signe et un terrain, et non une impression de couleur<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On élimine l'hémorroïde comme cause unique si le choc est présent, parce que la turgescence veineuse n'explique pas l'instabilité<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Pourtant un toucher qui ramène une masse oriente vers un carcinome rectal, et l'on ne s'arrête pas à la turgescence vue<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On répète l'examen du pouls si le premier passage rassure trop, surtout lorsqu'un bêtabloquant est déjà là<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<p>Le critère de siège, fixé en 2010, reste le ligament de Treitz : en amont, l’hémorragie est haute ; en aval, elle est basse<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Le diagnostic de gravité repose sur des <button class="w" type="button" popovertarget="w-scores">scores validés</button>, calculés avant puis après l’endoscopie<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Le score de Glasgow-Blatchford se calcule avant l’endoscopie ; égal à 0, il autorise un retour à domicile sans gastroscopie en urgence<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Sa sensibilité atteint 99 %, mais sa spécificité n’est que de 32 % ; tout score de 1 ou plus impose l’hospitalisation<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Le score de Rockall ajoute l’endoscopie : de 0 à 2 points, la mortalité est de 0 %, et elle dépasse 40 % à partir de 8 points<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le même score prédit la récidive : moins de 5 % de 0 à 2 points, plus de 40 % à partir de 7 points<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>À l’endoscopie, l’ulcère classé Forrest Ia saigne en jet artériel ; c’est la forme qui justifie le rang E1<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un saignement actif ou un vaisseau visible au fond de l’ulcère appelle un traitement endoscopique combiné<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
+<caption>Critères et seuils</caption>
 <thead><tr><th>Critère</th><th>Ce qui suffit</th><th>Ce qui ne suffit pas</th></tr></thead>
 <tbody>
-<tr><td>Haut, 2010.</td><td>Hématémèse ou méléna sans transit colique trompeur.</td><td>Selles rouges avec choc.</td></tr>
-<tr><td>Bas.</td><td>Sang rouge et caillots, état tenu.</td><td>Le même sang lorsque l’instabilité est là.</td></tr>
-<tr><td>Source obscure.</td><td>Deux examens longs sans source.</td><td>Passer au grêle sans revoir le haut.</td></tr>
-<tr><td>Hémorroïde interne.</td><td>Stades un et deux vus.</td><td>Ouvrir l’abdomen pour ces stades.</td></tr>
-<tr><td>Varice suspectée.</td><td>Terrain et saignement.</td><td>Attendre l’image pour le vasoactif.</td></tr>
+<tr><td>Siège, 2010</td><td>Treitz : amont haut, aval bas</td><td>La seule couleur des selles</td></tr>
+<tr><td>Glasgow-Blatchford</td><td>Score 0 : ambulatoire possible</td><td>Score 1 ou plus : hospitaliser</td></tr>
+<tr><td>Rockall, mortalité</td><td>0 à 2 points : 0 %</td><td>8 points ou plus : plus de 40 %</td></tr>
+<tr><td>Rockall, récidive</td><td>0 à 2 points : moins de 5 %</td><td>7 points ou plus : plus de 40 %</td></tr>
+<tr><td>Forrest Ia</td><td>Jet artériel vu</td><td>Un caillot sombre sans vaisseau</td></tr>
 </tbody></table></div>
-</section><section class="ilot" id="p9"><h3>9. Examens complémentaires</h3>
-<h4>9.a Référence</h4>
-<p>L’examen de référence est l’endoscopie, car elle localise et parfois elle traite, dans les 24 heures, après stabilisation<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Si le niveau est incertain, la fibroscopie haute vient avant la coloscopie, de ce fait le gold standard se lit dans cet ordre<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
+<div id="w-scores" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-scores" popovertargetaction="hide">Fermer</button>
+<h5>Glasgow-Blatchford et Rockall</h5>
+<p>Le score de Glasgow-Blatchford est clinique et biologique ; il ne demande aucune endoscopie<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Un score nul permet le retour à domicile ; le patient prend alors un inhibiteur de la pompe à protons et attend une gastroscopie ambulatoire<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Il n’est utile que s’il vaut 0, car sa faible spécificité surestime le risque des autres patients<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Le score de Rockall comprend l’âge, le pouls, la pression systolique, les comorbidités, le diagnostic et les stigmates endoscopiques<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>L’âge compte 0 point avant 60 ans, 1 point entre 60 et 79 ans et 2 points après 80 ans<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Une insuffisance rénale, une insuffisance hépatique ou un cancer métastatique valent le maximum de 3 points<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le piège est de calculer le Rockall complet avant l’endoscopie, alors que deux de ses items n’existent qu’après elle<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+</div>
+</section>
+<section class="ilot" id="p9"><h3>9. Examens complémentaires</h3>
+<h4>9.a Examen de référence</h4>
+<p>L’œsogastroduodénoscopie est l’examen de choix devant une hématémèse, un méléna ou des rectorragies massives avec instabilité<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Elle localise la lésion et la traite souvent ; on la fait d’ordinaire dans un délai de 24 heures, une fois le patient stabilisé<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>La varice exige donc une endoscopie rapide. Si des varices sont suspectées, l’endoscopie se fait dès que possible après la stabilisation, sans attendre ce délai de 24 heures<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Devant des rectorragies chez un patient stable, la coloscopie après préparation colique devient l’examen de référence<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <h4>9.b Première intention</h4>
-<p>D’abord on mesure le pouls et la pression et l’on pose l’abord, puis on choisit l’endoscope selon le tableau<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Lorsque le pouls tient et que l’hémoglobine baisse peu, la prise en charge peut rester ambulatoire, de ce fait l’hôpital n’est pas automatique<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La coloscopie est l’examen des rectorragies lorsque l’état tient, et elle se fait après préparation<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
+<p>Le bilan sanguin comprend la <button class="w" type="button" popovertarget="w-bio">formule sanguine, l’urée, la coagulation et le groupe sanguin</button>, demandés dès la pose des voies<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un seul chiffre ne suffit donc jamais. Comme l’hémoglobine initiale peut être faussement rassurante, on la répète et on la lit avec le pouls et la pression<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Si l’hémoglobine baisse peu et que le patient reste stable, une hémorragie haute peut se gérer hors de l’hôpital<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <h4>9.c Situations particulières</h4>
-<p>La grossesse ne reçoit pas, dans ces textes, un scanner de remplacement, et Glypressine® reste réservée à l’indication vitale si l’endoscope ne stoppe pas le sang<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>L’enfant et l’adolescent n’ont pas de schéma dans l’information professionnelle, de ce fait on ne calque pas le bolus adulte<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>L’insuffisance rénale chronique n’a pas non plus de posologie propre, et l’allergie à l’iode ou l’IRM impossible ne sont pas les recours nommés ici<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Si l’endoscopie échoue, le recours écrit passe par l’embolisation ou par le bloc, de ce fait ces voies remplacent l’image manquante<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
+<p>Si l’estomac contient beaucoup de sang, l’érythromycine intraveineuse donnée 20 à 120 minutes avant la gastroscopie améliore la vision<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Son information professionnelle suisse ne couvre que les infections ; la dose prokinétique suit donc le protocole écrit du service d’endoscopie<sup class="r"><a href="#sb-aips-20258">[10]</a></sup>.</p>
+<p>Sous anticoagulant, un INR supérieur à 1,5 se corrige en priorité par des facteurs de coagulation, sans retarder l’endoscopie urgente<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Si l’hémorragie est active, des concentrés plaquettaires se discutent dès que les plaquettes passent sous 50 G/L<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Pendant la grossesse, Glypressine® reste contre-indiquée, sauf indication vitale lorsque l’endoscopie ne parvient pas à arrêter le saignement<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
 <h4>9.d Deuxième intention</h4>
-<p>L’entéroscopie à double ballon sert lorsque les deux premiers examens sont muets, après avoir revu le haut<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Une lésion isolée du grêle que l’endoscope ne retire pas relève surtout de la chirurgie, ce qui ferme cette branche<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La lecture du jet variqueux se fait sur le cliché annoté, parce que l’image décide entre la varice et l’hématochézie<sup class="r"><a href="#sb-commons-jet">[6]</a></sup>.</p>
-<p>La coloscopie de la muqueuse congestive se lit à part, de ce fait on ne lui prête pas un orifice que le cadre ne montre pas<sup class="r"><a href="#sb-commons-colite">[9]</a></sup>.</p>
+<p>Un examen négatif reste parfois incomplet. Si gastroscopie et coloscopie sont négatives, on les répète d’abord lorsque des caillots ou des selles ont gêné l’examen<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La vidéo-capsule explore ensuite le grêle ; chez 15 % à 25 % des patients, elle n’arrive pas jusqu’au cæcum<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’entéroscopie à double ballon visualise tout le grêle chez 40 % à 70 % des patients et permet biopsies et traitement<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’angiographie sélective sert en cas d’instabilité, d’échec de localisation ou d’échec du traitement endoscopique ; elle permet l’embolisation<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La scintigraphie aux globules rouges marqués ne repère la source que si le débit atteint au moins 0,3 ml/min<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Si la capsule reste négative, le pronostic est bon, car le resaignement ne dépasse pas 0 % à 17 % dans les 1 à 3 années suivantes<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’entéroscopie à double ballon trouve la source chez 77 % des patients si le saignement est actif, contre 58 % après son arrêt<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La scintigraphie localise la source chez 44 % à 68 % des patients, à condition que le saignement persiste au moment de l’examen<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’artériographie sélective avec embolisation a montré un bénéfice chez 20 % à 77 % des patients selon les séries, ce qui en fait le recours après échec endoscopique<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La lecture des <button class="w" type="button" popovertarget="w-endo">images d’endoscopie haute</button> et de <button class="w" type="button" popovertarget="w-colo">coloscopie</button> oriente le geste local, alors que le pouls fixe l’ordre des examens<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
+<caption>Interprétation des résultats</caption>
 <thead><tr><th>Résultat</th><th>Signification</th><th>Conduite</th></tr></thead>
 <tbody>
-<tr><td>Jet variqueux.</td><td>La varice saigne.</td><td>Vasoactif déjà commencé, puis traitement endoscopique.</td></tr>
-<tr><td>Cordons sans jet.</td><td>Varice visible, saignement non prouvé sur l’image.</td><td>On corrèle au choc avant de classer E1.</td></tr>
-<tr><td>Selles rouges et caillot.</td><td>Rectorragie ou hématochézie.</td><td>On juge l’hémodynamique avant le côlon.</td></tr>
-<tr><td>Muqueuse rouge sans orifice clair.</td><td>Colite à décrire.</td><td>Le médicament suit la cause.</td></tr>
-<tr><td>Deux examens sans source.</td><td>Source obscure possible.</td><td>On revoit le haut avant le grêle.</td></tr>
-<tr><td>Hémoglobine peu abaissée, état stable.</td><td>Retentissement limité.</td><td>La filière peut rester ambulatoire.</td></tr>
-</tbody></table></div><figure class="cliche">
-<p class="fiche">La fiche décrit une endoscopie digestive haute, en vue endoluminale de l'œsophage distal, sans latéralité inscrite, et l'horodatage visible est 13.10.2004<sup class="r"><a href="#sb-commons-jet">[6]</a></sup>.</p>
+<tr><td>Ulcère avec jet (Forrest Ia)</td><td>Saignement artériel actif</td><td>Adrénaline 1/25 000 et coagulation bipolaire ou clips</td></tr>
+<tr><td>Vaisseau visible au fond de l’ulcère</td><td>Risque élevé de récidive</td><td>Même hémostase combinée</td></tr>
+<tr><td>Varice œsophagienne qui saigne</td><td>Hémorragie variqueuse</td><td>Ligature élastique</td></tr>
+<tr><td>Varice gastroduodénale qui saigne</td><td>Hémorragie variqueuse gastrique</td><td>Injection de cyanoacrylate</td></tr>
+<tr><td>Mallory-Weiss, œsophagite</td><td>Lésion œsophagienne</td><td>IPP, geste rarement nécessaire</td></tr>
+<tr><td>Diverticule qui saigne</td><td>Hémorragie diverticulaire active</td><td>Adrénaline diluée, clips ou coagulation</td></tr>
+<tr><td>Urée élevée</td><td>Sang digéré dans le grêle</td><td>Argument pour une source haute</td></tr>
+<tr><td>Gastroscopie et coloscopie négatives</td><td>Source obscure</td><td>Répéter, puis capsule et entéroscopie</td></tr>
+</tbody></table></div>
+<figure class="cliche">
+<p class="fiche">Ce cliché montre l’œsophage distal en endoscopie haute, sans latéralité, avec un horodatage visible du 13.10.2004<sup class="r"><a href="#sb-commons-jet">[12]</a></sup>.</p>
 <div class="paire">
-<div><img src="images/varices-jet.webp" width="720" height="576" alt="Varice œsophagienne saignant en jet — cliché brut"></div>
-<div class="annot"><img src="images/varices-jet.webp" width="720" height="576" alt="Varice œsophagienne saignant en jet — copie">
-<svg viewBox="0 0 720 576" role="img" aria-label="Varice œsophagienne saignant en jet annoté"><circle cx="562" cy="138" r="25" fill="none" stroke="#6e1c24" stroke-width="4.3"/><text x="591" y="138" font-size="32" font-weight="700" fill="#6e1c24">1</text><circle cx="374" cy="276" r="25" fill="none" stroke="#6e1c24" stroke-width="4.3"/><text x="404" y="276" font-size="32" font-weight="700" fill="#6e1c24">2</text><circle cx="115" cy="207" r="25" fill="none" stroke="#6e1c24" stroke-width="4.3"/><text x="144" y="207" font-size="32" font-weight="700" fill="#6e1c24">3</text><image href="images/varices-jet.webp" width="720" height="576"/></svg>
+<div><img src="images/varices-jet.webp" width="720" height="576" alt="Varice œsophagienne saignant en jet, cliché brut"></div>
+<div class="annot"><img src="images/varices-jet.webp" width="720" height="576" alt="Varice œsophagienne saignant en jet, copie annotée">
+<svg viewBox="0 0 720 576" role="img" aria-label="Repères 1 à 3 sur la varice qui saigne"><circle cx="420" cy="290" r="25" fill="none" stroke="#6e1c24" stroke-width="4.3"/><text x="450" y="300" font-size="32" font-weight="700" fill="#6e1c24">1</text><circle cx="478" cy="208" r="25" fill="none" stroke="#6e1c24" stroke-width="4.3"/><text x="508" y="208" font-size="32" font-weight="700" fill="#6e1c24">2</text><circle cx="115" cy="140" r="30" fill="none" stroke="#6e1c24" stroke-width="4.3"/><text x="60" y="110" font-size="32" font-weight="700" fill="#6e1c24">3</text></svg>
 </div></div>
 <p><strong>Lecture guidée.</strong></p>
 <ol>
-<li>Le premier repère montre le jet rouge vif du quadrant supérieur droit, parce que le sang provoque un flux visible.</li>
-<li>Le deuxième repère suit un cordon longitudinal bleuté, donc la colonne variqueuse se lit avant le jet.</li>
-<li>Le troisième repère rappelle l'horodatage 13.10.2004 inscrit à gauche, et cette inscription n'est pas un nom<sup class="r"><a href="#sb-commons-jet">[6]</a></sup>.</li>
+<li>Le premier repère montre le jet rouge vif qui jaillit de la paroi, signe d’un saignement actif sous pression<sup class="r"><a href="#sb-commons-jet">[12]</a></sup>.</li>
+<li>Le deuxième repère suit un cordon longitudinal bleuté : le jet naît d’une varice, non du fond d’un cratère ulcéreux<sup class="r"><a href="#sb-commons-jet">[12]</a></sup>.</li>
+<li>Le troisième repère désigne l’horodatage 13.10.2004, une inscription de moniteur qui ne nomme personne<sup class="r"><a href="#sb-commons-jet">[12]</a></sup>.</li>
 </ol>
-<p>Les pièges sont un reflet de lampe, qui imite un jet, et un caillot sombre, qui n'est pas le vaisseau, et ce cliché ne dit pas le stade de cirrhose.</p>
-<p><strong>Ce que l'image décide.</strong> Le jet classe la varice avant l'hématochézie d'aval, donc la fibroscopie haute précède la coloscopie lorsque le choc est là<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<figcaption>Image : Jeremias, licence CC BY-SA 4.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bleeding_esophageal_varices.png, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence<sup class="r"><a href="#sb-commons-jet">[6]</a></sup>.</figcaption>
-</figure><figure class="cliche">
-<p class="fiche">La fiche décrit une gastroscopie endoluminale, sans latéralité inscrite, et la date d’origine est 27.08.2006<sup class="r"><a href="#sb-commons-wale">[7]</a></sup>.</p>
-<div class="paire">
-<div><img src="images/varices-wale.webp" width="315" height="286" alt="Cordons variqueux avec signes rouges — cliché brut"></div>
-<div class="annot"><img src="images/varices-wale.webp" width="315" height="286" alt="Cordons variqueux avec signes rouges — copie">
-<svg viewBox="0 0 315 286" role="img" aria-label="Cordons variqueux avec signes rouges annoté"><circle cx="158" cy="120" r="11" fill="none" stroke="#6e1c24" stroke-width="1.9"/><text x="173" y="120" font-size="14" font-weight="700" fill="#6e1c24">1</text><circle cx="227" cy="63" r="11" fill="none" stroke="#6e1c24" stroke-width="1.9"/><text x="242" y="63" font-size="14" font-weight="700" fill="#6e1c24">2</text><image href="images/varices-wale.webp" width="315" height="286"/></svg>
-</div></div>
-<p><strong>Lecture guidée.</strong></p>
-<ol>
-<li>Le premier repère entoure les cordons serpigineux qui comblent la lumière, donc la paroi lisse normale est déjà dépassée.</li>
-<li>Le deuxième repère montre des stries rouges longitudinales, et ces signes rouges ne sont pas un jet actif<sup class="r"><a href="#sb-commons-wale">[7]</a></sup>.</li>
-</ol>
-<p><strong>Ce que l'image décide.</strong> Ces cordons sans jet ne classent pas encore le choc, tandis que le cliché du jet sépare la varice de l’hématochézie d’aval<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<figcaption>Image : Samir, domaine public, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Esophageal_varices_-_wale.jpg, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence.<sup class="r"><a href="#sb-commons-wale">[7]</a></sup></figcaption>
-</figure><figure class="cliche">
-<p class="fiche">La fiche décrit une photographie clinique du sang extériorisé, vue de dessus, sans latéralité, et la date de prise est 28.07.2017<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</p>
-<div class="paire">
-<div><img src="images/selles-sang.webp" width="764" height="1000" alt="Sang rouge et caillot dans la cuvette — cliché brut"></div>
-<div class="annot"><img src="images/selles-sang.webp" width="764" height="1000" alt="Sang rouge et caillot dans la cuvette — copie">
-<svg viewBox="0 0 764 1000" role="img" aria-label="Sang rouge et caillot dans la cuvette annoté"><circle cx="382" cy="580" r="35" fill="none" stroke="#6e1c24" stroke-width="6.0"/><text x="421" y="580" font-size="45" font-weight="700" fill="#6e1c24">1</text><circle cx="367" cy="700" r="35" fill="none" stroke="#6e1c24" stroke-width="6.0"/><text x="406" y="700" font-size="45" font-weight="700" fill="#6e1c24">2</text><circle cx="214" cy="380" r="35" fill="none" stroke="#6e1c24" stroke-width="6.0"/><text x="253" y="380" font-size="45" font-weight="700" fill="#6e1c24">3</text><image href="images/selles-sang.webp" width="764" height="1000"/></svg>
-</div></div>
-<p><strong>Lecture guidée.</strong></p>
-<ol>
-<li>Le premier repère désigne la nappe rouge qui remplit l’eau, donc le sang est encore frais.</li>
-<li>Le deuxième repère montre un caillot sombre au centre, et ce caillot ne localise pas le viscère<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</li>
-<li>Le troisième repère compte les éclaboussures sur la faïence, ce qui témoigne d’un jet ou d’une chute, pas d’un filet noir.</li>
-</ol>
-<p><strong>Ce que l'image décide.</strong> Cet aspect est celui d’une rectorragie ou d’une hématochézie, donc il ne prouve pas à lui seul la varice ni le côlon ascendant que l’auteur du fichier évoque<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</p>
-<figcaption>Image : Togabi, licence CC BY-SA 4.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bloody_stool-1.jpg, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence.<sup class="r"><a href="#sb-commons-selles">[8]</a></sup></figcaption>
-</figure><figure class="cliche">
-<p class="fiche">La fiche décrit une coloscopie endoluminale, sans marquage droite-gauche, et la date de prise est 18.08.2020<sup class="r"><a href="#sb-commons-colite">[9]</a></sup>.</p>
-<div class="paire">
-<div><img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie, muqueuse congestive — cliché brut"></div>
-<div class="annot"><img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie, muqueuse congestive — copie">
-<svg viewBox="0 0 1000 800" role="img" aria-label="Coloscopie, muqueuse congestive annoté"><circle cx="220" cy="440" r="35" fill="none" stroke="#6e1c24" stroke-width="6.0"/><text x="259" y="440" font-size="45" font-weight="700" fill="#6e1c24">1</text><circle cx="550" cy="384" r="35" fill="none" stroke="#6e1c24" stroke-width="6.0"/><text x="589" y="384" font-size="45" font-weight="700" fill="#6e1c24">2</text><circle cx="740" cy="256" r="35" fill="none" stroke="#6e1c24" stroke-width="6.0"/><text x="779" y="256" font-size="45" font-weight="700" fill="#6e1c24">3</text><image href="images/colite-diverticulaire.webp" width="1000" height="800"/></svg>
-</div></div>
-<p><strong>Lecture guidée.</strong></p>
-<ol>
-<li>Le premier repère suit la paroi érythémateuse où le réseau vasculaire s’efface, donc la muqueuse n’est plus normale.</li>
-<li>Le deuxième repère désigne la lumière rétrécie par l’œdème, et ce rétrécissement n’est pas un jet<sup class="r"><a href="#sb-commons-colite">[9]</a></sup>.</li>
-<li>Le troisième repère montre un pli épais et luisant, sans orifice diverticulaire évident sur ce seul cliché.</li>
-</ol>
-<p><strong>Ce que l'image décide.</strong> On retient une colite muqueuse, et l’auteur du fichier la relie à une diverticulose, tandis que ce cadre ne montre pas le jet de la varice<sup class="r"><a href="#sb-commons-colite">[9]</a></sup>.</p>
-<figcaption>Image : Samir, licence CC BY-SA 4.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Segmental_colitis_associated_with_diverticulosis.jpg, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence.<sup class="r"><a href="#sb-commons-colite">[9]</a></sup></figcaption>
+<p>Les pièges sont le reflet de la lampe, qui imite un jet, et le caillot sombre, qui n’est pas le vaisseau<sup class="r"><a href="#sb-commons-jet">[12]</a></sup>.</p>
+<p><strong>Ce que l’image décide.</strong> Un jet sur un cordon variqueux appelle la ligature et le vasoactif, alors qu’un jet au fond d’un ulcère Forrest Ia appelle adrénaline et clips<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<figcaption>Image : Jeremias, licence CC BY-SA 4.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bleeding_esophageal_varices.png, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence<sup class="r"><a href="#sb-commons-jet">[12]</a></sup>.</figcaption>
 </figure>
-<div id="w-endo" popover class="fenetre">
-<img src="images/varices-jet.webp" width="720" height="576" alt="Endoscopie, jet de sang sur une varice œsophagienne">
-<p>L’endoscopie haute montre ici un jet, de ce fait la varice saigne sous les yeux et ne se discute plus comme une simple hématochézie<sup class="r"><a href="#sb-commons-jet">[6]</a></sup>.</p>
-<p>Ce que l’image décide : on traite la varice, et la coloscopie ne passe pas devant lorsque le choc accompagne ce jet<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>L’horodatage 13.10.2004 est une inscription de moniteur, et il ne nomme pas le patient<sup class="r"><a href="#sb-commons-jet">[6]</a></sup>.</p>
-<p>Le piège est d’appeler diverticule un cordon œsophagien, parce que l’étage de l’endoscope suffit à séparer les deux<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-</div>
-<div id="w-colo" popover class="fenetre">
-<img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie, muqueuse érythémateuse et lumière rétrécie">
-<p>La coloscopie montre une muqueuse rouge, œdématiée, au réseau vasculaire effacé, de ce fait on décrit une colite avant d’affirmer un diverticule<sup class="r"><a href="#sb-commons-colite">[9]</a></sup>.</p>
-<p>La date de prise 18.08.2020 situe le fichier, et elle n’est pas un critère clinique<sup class="r"><a href="#sb-commons-colite">[9]</a></sup>.</p>
-<p>Ce que l’image décide : le traitement de la colite suit la cause, en général par des médicaments, une fois l’inflammation nommée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le piège est de voir un orifice diverticulaire là où le pli n’en montre pas, parce que l’auteur parle de diverticulose sans que l’ostium soit évident<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-</div>
-<div id="w-prep" popover class="fenetre">
-<img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie après préparation">
-<p>La coloscopie des rectorragies se fait après préparation, de ce fait un côlon encore souillé ne doit pas être le seul essai<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Lorsque le niveau est incertain, cette préparation n’annule pas la fibroscopie haute préalable, parce que l’ordre suisse place le haut d’abord<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le piège est de retarder le haut instable pour « finir la préparation », tandis que le choc change la filière<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si l’hémoglobine baisse peu et que le pouls tient, l’examen peut s’organiser sans hospitaliser d’office<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-</div>
-<div id="w-bio" popover class="fenetre">
-<img src="images/selles-sang.webp" width="764" height="1000" alt="Aspect du sang extériorisé, lecture biologique visuelle">
-<p>La biologie visuelle du sang extériorisé commence par la couleur : rouge frais ou noir digéré, parce que cette teinte oriente l’étage<sup class="r"><a href="#sb-commons-selles">[8]</a></sup>.</p>
-<p>Des selles noires liquides avec un vomissement rouge parlent pour un débit important, de ce fait on ne classe pas ce rouge comme anodin<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Une baisse modeste de l’hémoglobine autorise l’ambulatoire seulement si le pouls et la pression tiennent, et ces textes ne donnent pas un seuil en grammes<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le piège de laboratoire est d’attendre un chiffre pour poser les voies, tandis que le remplissage commence sur les signes vitaux<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On lit le jet avant les cordons, parce que le sang qui sort sous pression signe la varice active<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi des stries rouges sur un cordon ne sont pas un jet, et le choc se juge au lit<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On regarde la cuvette pour la couleur, parce que le viscère n'y est pas nommé<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque la muqueuse est rouge et la lumière étroite, on décrit une colite sans affirmer un orifice absent<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On ne classe pas le rang E1 sur des cordons muets, tant que le choc n'est pas là<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi l'image est ce qui décide le geste local, tandis que le pouls décide l'ordre des examens<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On compare le caillot sombre à la nappe rouge, parce que le premier est déjà figé et la seconde est encore fraîche<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque aucun orifice diverticulaire n'est évident, on n'inventorie pas une cause de plus sur ce seul cliché<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On signe la colite sur l'érythème, l'œdème et la lumière étroite, et l'on laisse la cause au prélèvement<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi un horodatage sur l'écran n'est pas une identité, et l'on ne le confond pas avec un nom<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-</div>
-</section><section class="ilot" id="p10"><h3>10. Arbre décisionnel</h3>
+<figure class="cliche">
+<p class="fiche">Ce cliché provient d’une gastroscopie, sans latéralité inscrite, et sa date d’origine est le 27.08.2006<sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</p>
+<div class="paire">
+<div><img src="images/varices-wale.webp" width="315" height="286" alt="Cordons variqueux avec signes rouges, cliché brut"></div>
+<div class="annot"><img src="images/varices-wale.webp" width="315" height="286" alt="Cordons variqueux avec signes rouges, copie annotée">
+<svg viewBox="0 0 315 286" role="img" aria-label="Repères 1 et 2 sur les cordons variqueux"><circle cx="158" cy="120" r="11" fill="none" stroke="#6e1c24" stroke-width="1.9"/><text x="173" y="120" font-size="14" font-weight="700" fill="#6e1c24">1</text><circle cx="227" cy="63" r="11" fill="none" stroke="#6e1c24" stroke-width="1.9"/><text x="242" y="63" font-size="14" font-weight="700" fill="#6e1c24">2</text></svg>
+</div></div>
+<p><strong>Lecture guidée.</strong></p>
 <ol>
-<li>Si le choc hémorragique évoque une varice, on ouvre E1 par le vasoactif et par deux voies, car la fibroscopie haute suit, dans les 24 heures, après stabilisation<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</li>
-<li>Si les selles sont rouges et le patient instable, on garde E2, l’hémorragie haute possible, et on ne commence pas par le côlon<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li>Si le niveau reste incertain sans choc, la fibroscopie haute précède encore la coloscopie, de ce fait l’ordre ne s’inverse pas par habitude<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</li>
-<li>Lorsque le pouls et la pression tiennent et que l’hémoglobine baisse peu, la filière peut rester ambulatoire, puis la coloscopie vient après préparation en cas de rectorragie<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Si les deux examens sont négatifs, on revoit le haut, parce que 23 % des entéroscopies à double ballon y trouvent une lésion manquée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Si le grêle porte une lésion isolée que l’endoscope ne retire pas, dans ce cas la chirurgie devient le recours<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Si l’on voit une hémorroïde interne de stade 1 ou de stade 2, on propose l’infrarouge ou la ligature, et on ne classe pas cette hémorroïde en E1<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Si l’angiodysplasie colique est atteinte par la coloscopie, l’argon la ferme, de ce fait le geste endoscopique suffit souvent<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Si la colite est nommée, le médicament suit la cause, et l’on n’applique pas l’argon « par principe »<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Si l’endoscopie échoue sur une varice ou sur une autre source active, l’embolisation ou le bloc prennent le relais<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</li>
-<li>Si le pouls tient et que le sang est rouge, on prépare le côlon plutôt que d'ouvrir le ventre<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li>Si deux examens longs restent muets, on revoit l'estomac avant le grêle<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li>Si l'hémorroïde interne est de stade un ou deux, on propose l'infrarouge ou la ligature<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</li>
-<li>Ainsi l'arbre commence par le choc, et le reste se décide ensuite<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li>On tranche d'abord l'instabilité, puis le siège, puis le geste<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</li>
-<li>Lorsque le vasoactif est déjà indiqué, l'endoscope vient confirmer et ne vient pas autoriser le premier geste<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</li>
+<li>Le premier repère entoure les cordons serpigineux qui comblent la lumière et effacent la paroi lisse<sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</li>
+<li>Le deuxième repère montre des stries rouges longitudinales, signes d’une paroi amincie mais pas d’un jet<sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</li>
 </ol>
-
+<p><strong>Ce que l’image décide.</strong> Sans jet, ces varices ne classent pas encore le patient en E1 ; elles imposent pourtant la ligature jusqu’à l’éradication si elles ont saigné<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<figcaption>Image : Samir, domaine public, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Esophageal_varices_-_wale.jpg, consulté le 10.11.2026. Copie annotée : œuvre dérivée, libre de droits comme l’original<sup class="r"><a href="#sb-commons-wale">[13]</a></sup>.</figcaption>
+</figure>
+<figure class="cliche">
+<p class="fiche">Cette photographie montre le sang extériorisé vu de dessus, sans latéralité, et date du 28.07.2017<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</p>
+<div class="paire">
+<div><img src="images/selles-sang.webp" width="764" height="1000" alt="Sang rouge et caillot dans la cuvette, cliché brut"></div>
+<div class="annot"><img src="images/selles-sang.webp" width="764" height="1000" alt="Sang rouge et caillot dans la cuvette, copie annotée">
+<svg viewBox="0 0 764 1000" role="img" aria-label="Repères 1 à 3 sur la cuvette"><circle cx="382" cy="580" r="35" fill="none" stroke="#6e1c24" stroke-width="6"/><text x="421" y="580" font-size="45" font-weight="700" fill="#6e1c24">1</text><circle cx="367" cy="700" r="35" fill="none" stroke="#6e1c24" stroke-width="6"/><text x="406" y="700" font-size="45" font-weight="700" fill="#6e1c24">2</text><circle cx="214" cy="380" r="35" fill="none" stroke="#6e1c24" stroke-width="6"/><text x="253" y="380" font-size="45" font-weight="700" fill="#6e1c24">3</text></svg>
+</div></div>
+<p><strong>Lecture guidée.</strong></p>
+<ol>
+<li>Le premier repère désigne la nappe rouge qui colore l’eau : le sang est frais<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</li>
+<li>Le deuxième repère montre un caillot sombre, déjà figé, qui ne localise pas la lésion<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</li>
+<li>Le troisième repère pointe les éclaboussures de la faïence, qui témoignent d’un sang encore liquide<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</li>
+</ol>
+<p><strong>Ce que l’image décide.</strong> Cet aspect est celui d’une hématochézie ; avec un choc, il impose pourtant la gastroscopie avant la coloscopie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<figcaption>Image : Togabi, licence CC BY-SA 4.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bloody_stool-1.jpg, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence<sup class="r"><a href="#sb-commons-selles">[14]</a></sup>.</figcaption>
+</figure>
+<figure class="cliche">
+<p class="fiche">Ce cliché vient d’une coloscopie, sans marquage droite-gauche, et date du 18.08.2020<sup class="r"><a href="#sb-commons-colite">[15]</a></sup>.</p>
+<div class="paire">
+<div><img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie, muqueuse congestive, cliché brut"></div>
+<div class="annot"><img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie, muqueuse congestive, copie annotée">
+<svg viewBox="0 0 1000 800" role="img" aria-label="Repères 1 à 3 sur la colite"><circle cx="220" cy="440" r="35" fill="none" stroke="#6e1c24" stroke-width="6"/><text x="259" y="440" font-size="45" font-weight="700" fill="#6e1c24">1</text><circle cx="550" cy="384" r="35" fill="none" stroke="#6e1c24" stroke-width="6"/><text x="589" y="384" font-size="45" font-weight="700" fill="#6e1c24">2</text><circle cx="740" cy="256" r="35" fill="none" stroke="#6e1c24" stroke-width="6"/><text x="779" y="256" font-size="45" font-weight="700" fill="#6e1c24">3</text></svg>
+</div></div>
+<p><strong>Lecture guidée.</strong></p>
+<ol>
+<li>Le premier repère suit une paroi érythémateuse dont le réseau vasculaire s’efface<sup class="r"><a href="#sb-commons-colite">[15]</a></sup>.</li>
+<li>Le deuxième repère montre la lumière rétrécie par l’œdème, qui n’est pas un jet<sup class="r"><a href="#sb-commons-colite">[15]</a></sup>.</li>
+<li>Le troisième repère désigne un pli épais et luisant, sans orifice diverticulaire évident sur ce cliché<sup class="r"><a href="#sb-commons-colite">[15]</a></sup>.</li>
+</ol>
+<p><strong>Ce que l’image décide.</strong> On retient une colite, donc un traitement de la cause, le plus souvent médical, et non un geste d’hémostase<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<figcaption>Image : Samir, licence CC BY-SA 4.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Segmental_colitis_associated_with_diverticulosis.jpg, consulté le 10.11.2026. Copie annotée : œuvre dérivée sous la même licence<sup class="r"><a href="#sb-commons-colite">[15]</a></sup>.</figcaption>
+</figure>
+<div id="w-bio" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-bio" popovertargetaction="hide">Fermer</button>
+<h5>Biologie de la première heure</h5>
+<div class="t" style="overflow-x:auto">
+<table>
+<thead><tr><th>Examen</th><th>Lecture</th></tr></thead>
+<tbody>
+<tr><td>Hémoglobine</td><td>Peut rester normale au début, puis baisser après l’arrêt</td></tr>
+<tr><td>Urée</td><td>Plus haute si la source est haute</td></tr>
+<tr><td>Plaquettes</td><td>Concentrés à discuter sous 50 G/L si saignement actif</td></tr>
+<tr><td>INR</td><td>Corriger au-dessus de 1,5 sans retarder l’endoscopie</td></tr>
+<tr><td>Groupe et anticorps</td><td>Préparer la transfusion</td></tr>
+</tbody></table></div>
+<p>Moins transfuser protège donc souvent mieux. La transfusion suit une stratégie restrictive : le seuil usuel est une hémoglobine de 70 g/L, soit 7 g/dl<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>En cas de cardiopathie coronarienne stable, un seuil de 80 g/L suffit chez le patient sans symptôme<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Trop de sang nuit aussi au cirrhotique. Devant des varices, on évite une transfusion agressive, parce qu’elle élève la pression portale et relance le saignement<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>À l’inverse, une hémorragie hyperaiguë avec instabilité se transfuse même si l’hémoglobine paraît encore normale<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+</div>
+<div id="w-endo" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-endo" popovertargetaction="hide">Fermer</button>
+<h5>Endoscopie haute : varice ou ulcère</h5>
+<img src="images/varices-jet.webp" width="720" height="576" alt="Endoscopie, jet de sang sur une varice œsophagienne">
+<p>Le jet sur un cordon œsophagien signe une varice qui saigne ; la ligature élastique en est le traitement habituel<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Une varice gastroduodénale qui saigne se traite plutôt par injection de cyanoacrylate<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Devant un ulcère qui saigne ou qui montre un vaisseau visible, on associe une injection d’adrénaline au 1/25 000 et une coagulation bipolaire ou des clips<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’endoscope a ses limites claires. Après deux tentatives d’hémostase sans succès, l’ulcère relève de l’artériographie avec embolisation ou de la chirurgie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Un ulcère gastrique ou duodénal compliqué se recontrôle par gastroscopie à 6 semaines, avec biopsies de l’ulcère gastrique<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+</div>
+<div id="w-colo" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-colo" popovertargetaction="hide">Fermer</button>
+<h5>Coloscopie : diverticule ou colite</h5>
+<img src="images/colite-diverticulaire.webp" width="1000" height="800" alt="Coloscopie, muqueuse érythémateuse et lumière rétrécie">
+<p>La coloscopie se fait après préparation, car un côlon encombré de selles ou de caillots cache souvent une partie de la muqueuse<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Un diverticule qui saigne activement reçoit une injection d’adrénaline diluée au 1/25 000, des clips ou une coagulation thermique<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’argon traite ainsi les petits vaisseaux. Une angiodysplasie colique se ferme par électrocoagulation à l’argon<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Le traitement d’une colite dépend de sa cause et reste le plus souvent médical, si bien que les biopsies orientent ce choix<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+</div>
+</section>
+<section class="ilot" id="p10"><h3>10. Arbre décisionnel</h3>
+<ol class="algo">
+<li>Si un choc accompagne l’hémorragie, on exclut d’abord les deux E1, l’ulcère Forrest Ia et la rupture variqueuse : 2 voies, remplissage, gastroscopie dès la stabilisation<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>Si une cirrhose est connue ou probable, Glypressine® ou Sandostatine® et une prophylaxie antibiotique commencent avant l’endoscopie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>Si la source haute est suspectée sans signe de varice, l’inhibiteur de la pompe à protons intraveineux commence avant la gastroscopie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+<li>Si la varice saigne malgré la ligature et le vasoactif, on recourt à la sonde de Linton ou au shunt portosystémique intrahépatique (TIPS)<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+<li>Si l’ulcère saigne encore après deux hémostases endoscopiques, l’artériographie avec embolisation ou la chirurgie prennent le relais<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+<li>Si une prothèse aortique est connue, la fistule aorto-entérique se recherche par imagerie vasculaire avant de conclure à une autre cause<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>Si les selles sont rouges et le patient instable, la gastroscopie passe avant la coloscopie, parce que 10 à 15 % de ces sources sont hautes<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>Si le score de Glasgow-Blatchford est nul, le patient rentre chez lui, traité par inhibiteur de la pompe à protons, et revient pour la gastroscopie<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</li>
+<li>Si le score vaut 1 ou plus, on hospitalise et l’on fait une endoscopie précoce<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</li>
+<li>Si l’hémorragie est basse et le patient stable, la coloscopie suit la préparation colique ; ce délai ne change pas le pronostic<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+<li>Si gastroscopie et coloscopie sont négatives, on les répète, puis l’on passe à la vidéo-capsule et à l’entéroscopie à double ballon<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+</ol>
 </section><section class="ilot" id="p11"><h3>11. Prise en charge selon les recommandations suisses</h3>
 <h4>11.A But</h4>
-<p>Le but chiffré est une endoscopie dans les 24 heures après stabilisation, afin de localiser et parfois de traiter<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le second but, en cas de varice suspectée, est de débuter un vasoactif avant l’endoscope et de le poursuivre environ 5 jours<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
+<p>Le premier but est la stabilisation circulatoire, avec remplissage et surveillance étroite, au besoin aux soins intensifs<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le deuxième but est une endoscopie qui localise et traite, en règle dans les 24 heures, et dès que possible si une varice est suspectée<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le troisième but est d’éviter la récidive et ses décès, ce qui passe par le traitement de la cause et la prévention secondaire<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <h4>11.B Moyens</h4>
-<p>L’ordre commence par les voies, le remplissage et les signes vitaux, puis vient le médicament de la varice si le terrain le suggère<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Lorsque le poids dépasse 50 kg, Glypressine® se donne en bolus de 1 à 2 mg toutes les 4 à 6 heures, sauf contre-indication coronaire<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>En dessous de 50 kg, le bolus de Glypressine® est de 1 mg sur 4 à 6 heures, et l’insuffisance coronaire contre-indique la spécialité<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Le plafond de Glypressine® est de 12 mg pendant 36 heures, puis 6 mg, et la grossesse contre-indique un usage hors urgence vitale<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>On n’étend pas Glypressine® au-delà de 5 jours, parce que la compensation visée ne justifie pas un traitement plus long<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>On choisit la veine basilique pour le bolus, parce que le dos de la main expose à la nécrose cutanée<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Les contre-indications sont l’insuffisance coronaire, un événement ischémique actuel ou survenu durant les 3 derniers mois, la grossesse et l’hypersensibilité au principe actif<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Le n° 44470 identifie Glypressine® chez Swissmedic, et la spécialité appartient à Ferring<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Après environ 5 jours de vasoactif, un bêtabloquant non sélectif peut succéder, sans que ces textes en fixent ici la dose<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Chez le patient cirrhotique, une prophylaxie antibiotique est toujours indiquée, parce qu'elle s’associe à une mortalité diminuée<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Les hémorroïdes internes de stades 1 et 2 reçoivent un infrarouge ou une ligature, ce qui est le geste non opératoire large<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>L’angiodysplasie colique reçoit l’électrocoagulation à l’argon, de ce fait le médicament n’est pas le premier outil lorsque le vaisseau est vu<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La colite reçoit un médicament selon sa cause, et l’on ne récite pas une molécule absente du texte<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le grêle non résécable par l’endoscope va surtout à la chirurgie, ce qui est le geste lorsque la pince échoue<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Si l’endoscope échoue, l’embolisation ou le chirurgien prennent le relais, de ce fait ouvrir d’emblée n’est pas le premier réflexe<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Lorsque le pouls et la pression tiennent et que l’hémoglobine baisse peu, l’ambulatoire est possible, ce qui est la situation spéciale du patient stable<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Après 65 ans, l’information professionnelle ne fixe pas un autre rythme, de ce fait on ne crée pas un schéma « senior »<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>L’enfant, l’adolescent et l’insuffisance rénale chronique restent sans posologie écrite, et la grossesse contre-indique Glypressine® hors indication vitale si l’endoscope ne stoppe pas le sang<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Une contraception fiable couvre le traitement et les deux semaines qui suivent, parce que le risque fœtal est écrit dans l’information professionnelle<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>L’allaitement conduit à suspendre soit le médicament soit le lait, de ce fait les deux ne se cumulent pas<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Chaque ampoule de Glypressine® apporte moins de 1 mmol, soit 23 mg de sodium, et la grossesse contre-indique hors urgence vitale<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
+<p>La conduite de la première heure suit un ordre fixe, détaillé sous <button class="w" type="button" popovertarget="w-urgence">Urgence</button>, car chaque geste prépare le suivant<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Rien ne doit donc retarder l’endoscope. Les troubles de la coagulation se corrigent en parallèle : plaquettes sous 50 G/L, INR au-dessus de 1,5, sans retarder l’endoscopie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le seuil reste donc volontairement bas. La transfusion vise une hémoglobine de 70 g/L, ou 80 g/L en cas de cardiopathie coronarienne stable<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Devant toute suspicion d’hémorragie haute non variqueuse, un inhibiteur de la pompe à protons intraveineux à forte dose précède l’endoscopie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La revue suisse donne ce traitement en bolus intraveineux suivi d’une perfusion continue de 72 heures, avant même l’endoscopie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>En Suisse, <button class="w" type="button" popovertarget="w-nexium">Nexium®</button> intraveineux (n° 56730) est autorisé à 40 à 80 mg en 30 minutes, puis 8 mg/h pendant 72 heures après hémostase endoscopique<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>Si une varice est suspectée, <button class="w" type="button" popovertarget="w-gly">Glypressine®</button> (n° 44470) se donne à 1 à 2 mg i.v. toutes les 4 à 6 heures au-dessus de 50 kg<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Sous 50 kg, Glypressine® se donne à 1 mg i.v. toutes les 4 à 6 heures ; l’insuffisance coronaire la contre-indique<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>La posologie quotidienne maximale de Glypressine® est de 12 mg pendant 36 heures au maximum, puis de 6 mg par jour<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>L’alternative est <button class="w" type="button" popovertarget="w-sando">Sandostatine®</button> (n° 49137), en perfusion continue de 25 µg par heure pendant 5 jours au plus<sup class="r"><a href="#sb-aips-49137">[6]</a></sup>.</p>
+<p>La revue suisse conseille même d’en injecter un bolus avant le transport à l’hôpital lorsque la rupture de varices est suspectée<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>On garde le vasoactif environ 5 jours ; ensuite, un bêtabloquant non sélectif le remplace<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>L’infection aggrave en effet le pronostic du cirrhotique. Chez le cirrhotique qui saigne, la prophylaxie antibiotique est toujours indiquée ; elle réduit les infections, la récidive précoce et la mortalité<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La ceftriaxone, <button class="w" type="button" popovertarget="w-rocephin">Rocephin®</button> (n° 44625), est l’antibiotique de choix, une quinolone restant une alternative moins fiable<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Chez l’adulte, Rocephin® se donne en général à 1 à 2 g par jour en une injection ; l’allergie aux céphalosporines la contre-indique<sup class="r"><a href="#sb-aips-44625">[7]</a></sup>.</p>
+<p>Le lactulose complète ce traitement chez le cirrhotique, car il évacue le sang de l’intestin et prévient l’encéphalopathie hépatique<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Les gestes endoscopiques dépendent de la lésion : ligature des varices œsophagiennes, cyanoacrylate des varices gastriques, hémostase combinée de l’ulcère<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’œsophagite, la lésion de Mallory-Weiss et l’ulcère œsophagien guérissent le plus souvent sous inhibiteur de la pompe à protons seul<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Une angiodysplasie, haute ou colique, se ferme par électrocoagulation à l’argon, souvent en plusieurs séances<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Les hémorroïdes internes de stades 1 et 2 qui saignent reçoivent un traitement par infrarouge ou par ligatures élastiques<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Un saignement après polypectomie se traite au cours de la coloscopie, par adrénaline diluée, coagulation au contact, argon ou clips<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Une angiodysplasie du grêle se traite par entéroscopie à double ballon couplée à l’argon, alors qu’une tumeur du grêle relève surtout de la chirurgie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>L’hormonothérapie a été proposée contre ces angiodysplasies, mais ses effets indésirables, dont les thromboses, en limitent l’usage<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <h4>11.C Surveillance</h4>
-<p>On surveille la pression, l’ECG ou le pouls, la saturation en oxygène, le sodium, le potassium et les apports, parce que le suivi est exigé pendant le bolus<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>On surveille aussi le resaignement clinique et la couleur des selles, et l’on arrête le vasoactif au plus tard à 5 jours si la compensation est là<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
+<p>Sous Glypressine®, la pression artérielle, l’ECG ou le pouls, la saturation, le sodium, le potassium et les apports liquidiens se suivent de près<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>L’effet antidiurétique de la terlipressine peut en effet provoquer une hyponatrémie lorsque le bilan hydrique n’est pas contrôlé<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Sous Sandostatine®, la glycémie se surveille, puisque l’octréotide modifie l’homéostasie du glucose<sup class="r"><a href="#sb-aips-49137">[6]</a></sup>.</p>
+<p>Le pouls signale ainsi souvent la récidive. Le resaignement se guette par le pouls, la pression, la couleur des selles et l’hémoglobine répétée<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 <h4>11.D Pronostic</h4>
-<p>Le diverticule s’arrête souvent de lui-même, de ce fait ouvrir le ventre d’emblée n’est pas la règle<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Chez le cirrhotique, la prophylaxie antibiotique s’associe à une mortalité diminuée, ce qui est le gain pronostique nommé<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>La sortie ambulatoire se discute si le pouls tient, si l’hémoglobine baisse peu, et si la filière endoscopique prévue est claire<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La guérison du saignement diverticulaire se reconnaît à l’arrêt, tandis que la guérison variqueuse exige le contrôle de la poussée et le relais discuté<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On sort lorsque le pouls tient, que l’hémoglobine baisse peu, que l’endoscope est tracé et qu’aucun vasoactif n’est encore obligatoire<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
+<p>La mortalité reste proche de 13 % dans les hémorragies hautes, alors qu’elle est de 2 à 4 % dans les basses<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le score de Rockall chiffre le risque individuel ; au-delà de 8 points, plus de 40 % des patients décèdent<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Sous Nexium® i.v. après hémostase, la récidive à 3 jours baisse à 5,9 %, contre 10,3 % sous placebo<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>Le patient stable rentre avec une consigne claire, alors que tout patient instable relève d’un suivi hospitalier, selon le <button class="w" type="button" popovertarget="w-lamal">parcours suisse</button><sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
+<caption>Spécialités suisses, posologie et contre-indications</caption>
 <thead><tr><th>Spécialité</th><th>Place</th><th>Contre-indication majeure</th></tr></thead>
 <tbody>
-<tr><td>Glypressine, n° 44470.</td><td>Vasoactif de la varice suspectée, avant l’endoscope.</td><td>Insuffisance coronaire, grossesse, ischémie récente.</td></tr>
-<tr><td>Bêtabloquant non sélectif.</td><td>Relais après le vasoactif.</td><td>Ces deux revues ne fixent pas sa dose.</td></tr>
-<tr><td>Prophylaxie antibiotique.</td><td>Toujours chez le cirrhotique qui saigne.</td><td>Le texte ne nomme pas une spécialité chiffrée.</td></tr>
-<tr><td>Infrarouge ou ligature.</td><td>Hémorroïdes internes de stades un et deux.</td><td>Pas une laparotomie pour ces stades.</td></tr>
-<tr><td>Argon.</td><td>Angiodysplasie colique vue.</td><td>Inutile si le vaisseau n’est pas atteint.</td></tr>
+<tr><td>Glypressine®, n° 44470</td><td>Varices : 1 à 2 mg i.v. toutes les 4 à 6 h au-dessus de 50 kg<sup class="r"><a href="#sb-aips-44470">[4]</a></sup></td><td>Insuffisance coronaire, ischémie depuis moins de 3 mois, grossesse</td></tr>
+<tr><td>Sandostatine®, n° 49137</td><td>Varices : 25 µg par heure i.v., 5 jours au plus<sup class="r"><a href="#sb-aips-49137">[6]</a></sup></td><td>Hypersensibilité à l’octréotide</td></tr>
+<tr><td>Nexium® i.v., n° 56730</td><td>Ulcère : 80 mg en 30 min, puis 8 mg/h pendant 72 h<sup class="r"><a href="#sb-aips-56730">[5]</a></sup></td><td>Hypersensibilité aux benzimidazoles substitués</td></tr>
+<tr><td>Rocephin®, n° 44625</td><td>Cirrhotique : 1 à 2 g par jour<sup class="r"><a href="#sb-aips-44625">[7]</a></sup></td><td>Allergie aux céphalosporines</td></tr>
+<tr><td>Inderal®, n° 31706</td><td>Relais : 20 mg 2 fois par jour, à titrer<sup class="r"><a href="#sb-aips-31706">[8]</a></sup></td><td>Asthme, bradycardie, cirrhose décompensée</td></tr>
 </tbody></table></div>
-<div id="w-gly" popover class="fenetre">
-
-<p>Glypressine® est la terlipressine suisse, n° 44470, indiquée dans le traitement aigu des varices œsophagiennes hémorragiques<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Au-dessus de 50 kg, Glypressine® se donne à 1 à 2 mg toutes les 4 à 6 heures, et l’insuffisance coronaire contre-indique ce bolus<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>On ne dépasse pas 12 mg de Glypressine® par jour pendant 36 heures, puis 6 mg, parce que la grossesse contre-indique hors urgence vitale<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Les contre-indications comprennent l’insuffisance coronaire, l’ischémie des 3 derniers mois, la grossesse et l’hypersensibilité<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Le choc septique à débit cardiaque bas interdit aussi ce bolus, de ce fait on ne l’ajoute pas à une vasoplégie<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>L’effet antidiurétique peut baisser le sodium, ce qui justifie le ionogramme pendant le traitement<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Le QT peut s’allonger, de ce fait l’ECG accompagne les patients déjà à risque ou déjà traités par un allongeur du QT<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Des nécroses cutanées ont été rapportées, surtout si le diabète ou l’obésité sont là, et l’injection reste strictement intraveineuse<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>La veine basilique est le site, parce que le dos de la main expose à la nécrose locale<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Moins de 1 mmol de sodium, soit 23 mg, entrent avec l’ampoule, de ce fait l’apport sodé reste faible mais se compte<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>En cas d’indication vitale chez une femme enceinte, le médicament ne se discute que si l’endoscope ne peut pas arrêter le sang<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>La contraception se poursuit jusqu’à deux semaines après la dernière dose, et l’allaitement ne se combine pas au traitement<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
+<div id="w-urgence" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-urgence" popovertargetaction="hide">Fermer</button>
+<h5>Urgence : la première heure</h5>
+<ol>
+<li>On mesure pouls, pression et orthostatisme, puis on pose 2 voies veineuses de bon calibre et l’on commence le remplissage<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>On prélève formule sanguine, urée, coagulation et groupe, puis on corrige plaquettes et INR sans retarder l’endoscopie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>Si une varice est suspectée, on commence Glypressine® ou Sandostatine® et la ceftriaxone avant l’endoscopie<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>Sinon, on débute l’inhibiteur de la pompe à protons intraveineux à forte dose avant la gastroscopie<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+<li>On transfuse selon le seuil de 70 g/L, en évitant l’excès chez le cirrhotique<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>On fait la gastroscopie dès la stabilisation si une varice est suspectée, sinon dans les 24 heures<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</li>
+<li>En cas d’échec, on appelle la radiologie interventionnelle ou le chirurgien ; pour une varice, on pose une sonde de Linton ou l’on discute un TIPS<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</li>
+</ol>
 </div>
-<div id="w-urgence" popover class="fenetre">
-<img src="images/varices-jet.webp" width="720" height="576" alt="Jet variqueux, repère de la conduite initiale">
-<p>Urgence, conduite chronologique : d’abord les signes vitaux et les modifications orthostatiques, parce que l’hypovolémie se mesure avant l’image<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On pose ensuite deux voies veineuses et un remplissage, pendant que l’anamnèse cherche les anti-inflammatoires, les anticoagulants et la varice<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Si la varice est suspectée, Glypressine® commence avant l’endoscope, à 1 à 2 mg au-dessus de 50 kg, sauf contre-indication coronaire<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>L’endoscopie vient dans les 24 heures, après stabilisation, et le haut passe avant le côlon lorsque le niveau est incertain<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Si l’endoscope échoue, l’embolisation ou le chirurgien suivent, de ce fait le temps ne se perd pas en examens redondants<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Lorsque le pouls tient et que l’hémoglobine baisse peu, la chronologie peut quitter l’hôpital, parce que l’ambulatoire est alors accepté<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
+<div id="w-gly" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-gly" popovertargetaction="hide">Fermer</button>
+<h5>Glypressine® (terlipressine), n° 44470</h5>
+<p>L’indication suisse est le traitement aigu des varices œsophagiennes qui saignent ; elle ne couvre ni l’ulcère ni le diverticule<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Au-dessus de 50 kg, la dose est de 1 à 2 mg i.v. toutes les 4 à 6 heures ; sous 50 kg, elle est de 1 mg au même rythme<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>On ne dépasse pas 12 mg par jour durant les 36 premières heures, puis 6 mg par jour<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Le traitement se poursuit jusqu’à la compensation, sans dépasser 5 jours, en bolus dans la veine basilique plutôt que sur le dos de la main<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Les contre-indications sont l’insuffisance coronaire, un événement ischémique actuel ou survenu dans les 3 derniers mois, la grossesse et l’hypersensibilité<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Le choc septique avec débit cardiaque bas exclut aussi la terlipressine<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Chez la femme enceinte, elle ne se discute qu’en cas d’indication vitale, si l’endoscopie ne peut arrêter l’hémorragie<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Une contraception fiable couvre le traitement et les 2 semaines suivantes, et l’allaitement est exclu<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Aucune posologie n’est fixée pour l’enfant, l’adolescent, l’insuffisant rénal chronique ou le patient de 65 ans ou plus<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
 </div>
-<div id="w-lamal" popover class="fenetre">
-
-<p>Lorsque le pouls tient et que l’hémoglobine baisse peu, la revue suisse accepte l’ambulatoire, de ce fait l’assurance de soins n’impose pas l’hospitalisation d’office<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le patient instable, lui, relève de l’hôpital, car les voies, l’endoscope dans les 24 heures et parfois le vasoactif s’y organisent<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Le volet social consiste à expliquer la couleur des selles, les médicaments à suspendre et le rendez-vous d’endoscopie, parce que le patient repart avec une consigne datée<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On ne promet pas un remboursement chiffré absent de ces textes, et l’on trace néanmoins la filière réelle : cabinet stable ou plateau hospitalier<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On stabilise d'abord, puis l'endoscope vient ensuite lorsque le pouls le permet<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Ainsi le relais par bêtabloquant non sélectif vient après le vasoactif, et la dose n'est pas écrite ici<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On contre-indique Glypressine® si l'ischémie coronaire est récente, et l'on ne fixe pas un autre rythme<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Lorsque l'endoscope ne stoppe pas le sang chez une femme enceinte, Glypressine® reste l'exception vitale, et la grossesse contre-indique le reste<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>On surveille le sodium pendant le bolus, parce que l'effet antidiurétique peut le faire chuter<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>Ainsi le tracé et la pression se suivent en continu, et le soin intensif doit être disponible<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On choisit une veine profonde du bras, parce que la main expose à la nécrose locale<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant le médicament ne se prolonge pas quand le délai maximal est atteint, et l'on passe au relais<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On réserve le même bolus à l'indication des varices, et non au saignement diverticulaire<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Ainsi l'enfant et l'insuffisant rénal restent sans schéma écrit, de ce fait on ne transpose pas la dose adulte<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<div id="w-nexium" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-nexium" popovertargetaction="hide">Fermer</button>
+<h5>Nexium® i.v. (ésoméprazole), n° 56730</h5>
+<p>L’indication suisse est la prévention de la récidive après hémostase endoscopique d’un ulcère gastrique ou duodénal<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>Le schéma est de 40 à 80 mg en perfusion de 30 minutes, puis 8 mg/h en continu pendant 3 jours<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>Le relais oral suit avec l’ésoméprazole à 40 mg une fois par jour pendant 4 semaines<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>En cas d’insuffisance hépatique sévère, la perfusion continue est réduite de moitié, à 4 mg/h<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>La seule contre-indication reste une allergie connue à l’ésoméprazole, à un autre benzimidazole substitué ou à un excipient<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+<p>Devant un ulcère gastrique qui saigne, l’information professionnelle demande d’exclure un cancer avant de conclure<sup class="r"><a href="#sb-aips-56730">[5]</a></sup>.</p>
+</div>
+<div id="w-sando" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-sando" popovertargetaction="hide">Fermer</button>
+<h5>Sandostatine® (octréotide), n° 49137</h5>
+<p>L’indication suisse est le traitement d’urgence de l’hémorragie de varices gastro-œsophagiennes chez le cirrhotique, avec un traitement endoscopique<sup class="r"><a href="#sb-aips-49137">[6]</a></sup>.</p>
+<p>La dose est de 25 µg par heure en perfusion intraveineuse continue, pendant 5 jours au maximum, diluée dans du chlorure de sodium<sup class="r"><a href="#sb-aips-49137">[6]</a></sup>.</p>
+<p>La seule contre-indication est l’hypersensibilité à l’octréotide ou à un excipient<sup class="r"><a href="#sb-aips-49137">[6]</a></sup>.</p>
+<p>La glycémie se contrôle pendant la perfusion, car l’octréotide modifie la régulation du glucose<sup class="r"><a href="#sb-aips-49137">[6]</a></sup>.</p>
+</div>
+<div id="w-rocephin" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-rocephin" popovertargetaction="hide">Fermer</button>
+<h5>Rocephin® (ceftriaxone), n° 44625</h5>
+<p>Chez l’adulte, la dose usuelle est de 1 à 2 g par jour en une injection, toutes les 24 heures<sup class="r"><a href="#sb-aips-44625">[7]</a></sup>.</p>
+<p>Elle est contre-indiquée en cas d’hypersensibilité à la ceftriaxone ou à toute autre céphalosporine<sup class="r"><a href="#sb-aips-44625">[7]</a></sup>.</p>
+<p>Une allergie passée à la pénicilline, ou à toute bêta-lactamine, augmente le risque de réaction croisée<sup class="r"><a href="#sb-aips-44625">[7]</a></sup>.</p>
+<p>La solution préparée avec de la lidocaïne ne doit jamais entrer dans une veine<sup class="r"><a href="#sb-aips-44625">[7]</a></sup>.</p>
+</div>
+<div id="w-lamal" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-lamal" popovertargetaction="hide">Fermer</button>
+<h5>Parcours suisse : cabinet, urgences, remboursement</h5>
+<p>Au cabinet de médecine de famille, un patient stable avec un score de Glasgow-Blatchford à 0 peut rentrer sous inhibiteur de la pompe à protons<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Sa gastroscopie se programme alors en ambulatoire dans les jours suivants<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Tout score de 1 ou plus, tout choc et toute suspicion de varice imposent l’envoi aux urgences hospitalières<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>L’hémorragie basse mineure, sans comorbidité importante, peut aussi se gérer en ambulatoire avec une coloscopie préparée<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Depuis le 1er janvier 2026, les prestations ambulatoires de l’assurance obligatoire, dont l’endoscopie, se facturent selon TARDOC ou un forfait ambulatoire<sup class="r"><a href="#sb-ofsp-tardoc">[11]</a></sup>.</p>
+<p>Le cours ne donne aucun tarif chiffré, car le montant dépend de la position tarifaire retenue par l’établissement<sup class="r"><a href="#sb-ofsp-tardoc">[11]</a></sup>.</p>
 </div>
 </section><section class="ilot" id="p12"><h3>12. Prévention</h3>
-<p>La prévention primaire passe par l’anamnèse des anti-inflammatoires et des anticoagulants, parce que ces produits préparent le saignement que le texte suisse fait chercher<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Nommer un foie connu avant le premier vomissement appartient aussi à cette vigilance, du fait que la varice se discute dès le terrain<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>La prévention secondaire de la varice est le relais par bêtabloquant non sélectif après le vasoactif, de ce fait la poussée traitée ne se referme pas sans projet<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La prévention secondaire de l’hémorroïde interne de stade 1 ou 2 est l’infrarouge ou la ligature, ce qui évite la répétition du sang rouge<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La prévention secondaire de l’angiodysplasie atteinte est l’argon, parce que le vaisseau vu et fermé saigne moins souvent<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>La prévention tertiaire est le recours à la radiologie interventionnelle ou à la chirurgie lorsque l’endoscope a échoué, de ce fait la complication active a encore une porte<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>La prévention tertiaire du grêle est la chirurgie d’une lésion isolée non retirable par l’endoscope, ce qui limite la récidive obscure<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Le lien avec l’épidémiologie est direct : 10 à 15 % des hématochézies viennent du haut, de ce fait rater cet étage annule la prévention du choc<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>De même, 23 % des patients adressés en entéroscopie portent une lésion haute manquée, ce qui fait de la seconde lecture haute un geste de prévention tertiaire<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Ainsi la prévention secondaire passe par le bêtabloquant non sélectif après le vasoactif, et ces revues n'en écrivent pas la dose<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On traite les stades un et deux de l'hémorroïde interne pour éviter le prochain épisode rouge<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Ainsi revoir le haut avant le grêle évite une entéroscopie inutile, du fait que 23 % des dossiers adressés cachent encore une lésion haute<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>On cherche les anti-inflammatoires et les anticoagulants, parce que les suspendre lorsque c'est possible réduit le prochain épisode<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On indique la prophylaxie antibiotique chez le cirrhotique qui saigne, car elle est associée à une moindre mortalité, sans nom de spécialité ici<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Ainsi la prévention tertiaire suit le foie et la récidive, tandis que le premier épisode se traite déjà comme un problème circulatoire<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On réserve l'hôpital aux pouls qui ne tiennent pas, et l'ambulatoire suffit lorsque l'hémoglobine baisse peu<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant arrêter un anticoagulant ne remplace pas l'endoscope, de ce fait les deux gestes se pensent ensemble<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-
+<p>La prévention primaire commence par la révision des anti-inflammatoires et des anticoagulants, principaux facteurs de l’ulcère et du saignement<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Chez le cirrhotique porteur de varices œsophagiennes, <button class="w" type="button" popovertarget="w-inderal">Inderal®</button> (n° 31706) prévient la première hémorragie, sauf cirrhose décompensée<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>Une varice qui a saigné récidive donc volontiers. La prévention secondaire de la varice associe un bêtabloquant non sélectif, débuté après l’arrêt de l’octréotide, et des ligatures jusqu’à l’éradication<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Inderal® débute à 20 mg 2 fois par jour, puis monte jusqu’à 80 mg 2 fois par jour selon la baisse du pouls ; l’asthme le contre-indique<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>La cible est une baisse d’environ 25 % de la fréquence au repos, sans augmenter la dose sous 50 à 55 battements par minute<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>Un usage courant ne suffit donc pas à faire une indication. Le carvédilol, souvent cité comme alternative, n’a pas cette indication dans son information professionnelle suisse<sup class="r"><a href="#sb-aips-dilatrend">[9]</a></sup>.</p>
+<p>La prévention secondaire de l’ulcère passe par l’éradication d’<i>Helicobacter pylori</i> et une gastroscopie de contrôle à 6 semaines<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>La prévention tertiaire protège le cirrhotique des complications : antibiotique, lactulose contre l’encéphalopathie et surveillance de la fonction hépatique<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Ce lien avec l’épidémiologie est direct, puisque les varices représentent 16 % des hémorragies hautes et récidivent sans prévention<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<div id="w-inderal" popover class="fenetre"><button type="button" class="fermer" popovertarget="w-inderal" popovertargetaction="hide">Fermer</button>
+<h5>Inderal® (propranolol), n° 31706</h5>
+<p>En Suisse, il est autorisé pour prévenir le saignement des varices œsophagiennes dues à l’hypertension portale<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>On débute à 20 mg 2 fois par jour, puis on titre jusqu’à 80 mg 2 fois par jour, au maximum 160 mg 2 fois par jour<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>Les contre-indications comprennent l’asthme, la bradycardie, l’hypotension, l’insuffisance cardiaque décompensée, le bloc AV de haut degré et le jeûne prolongé<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>En cas d’hypertension portale, le propranolol peut aggraver la fonction hépatique et favoriser une encéphalopathie<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+<p>Il masque aussi la tachycardie d’une nouvelle hémorragie, ce qu’il faut rappeler au patient et à l’équipe<sup class="r"><a href="#sb-aips-31706">[8]</a></sup>.</p>
+</div>
 </section><section class="ilot" id="p13"><h3>13. Points clés</h3>
-<p>On mesure le choc et l’on pose les voies avant l’image, parce que la tachycardie peut manquer sous bêtabloquant<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Des selles rouges avec instabilité se traitent comme un haut jusqu’à preuve contraire, de ce fait la coloscopie ne passe pas devant<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>La varice suspectée reçoit un vasoactif avant l’endoscope, puis l’examen vient dans les 24 heures après stabilisation<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Après deux examens négatifs, on revoit le haut avant le grêle, parce qu'une lésion haute oubliée reste fréquente dans cette filière<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Glypressine® ne se prolonge pas au-delà de 5 jours, et l’insuffisance coronaire, la grossesse et l’ischémie récente la contre-indiquent<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-
+<p>Le choc fait traiter toute hémorragie comme haute, et les deux E1 sont l’ulcère Forrest Ia et la rupture variqueuse<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Le cirrhotique impose donc d’agir avant l’endoscope. Chez le cirrhotique, le vasoactif et la ceftriaxone commencent avant l’endoscopie, faite dès la stabilisation<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Sans suspicion de varice, l’inhibiteur de la pompe à protons intraveineux précède la gastroscopie, faite dans les 24 heures<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Un score de Glasgow-Blatchford à 0 autorise l’ambulatoire ; tout score supérieur impose l’hôpital<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>La transfusion vise 70 g/L, avec prudence chez le cirrhotique pour ne pas relancer la pression portale<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 </section><section class="ilot" id="p14"><h3>14. Pièges et questions fréquentes à l’examen fédéral suisse</h3>
-<p>Le sang rouge avec choc vient-il toujours du côlon ? Non, car un saignement d’amont très abondant rougit les selles, et le choc est alors constant<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Un méléna est-il la preuve de l’estomac ? Non, parce que l’hématine se forme aussi dans le côlon droit lorsque le transit est long<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Doit-on attendre l’endoscope pour le vasoactif d’une varice suspectée ? Non, parce que le traitement commence avant et l’examen suit dans les 24 heures<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Une hémorroïde de stade un doit-elle être opérée comme une péritonite ? Non, car l’infrarouge ou la ligature suffisent à ce stade, de cette manière qu’au stade deux<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Peut-on donner Glypressine® à un coronarien récent ? Non, car l’ischémie des 3 derniers mois contre-indique la spécialité, n° 44470<sup class="r"><a href="#sb-aips-44470">[5]</a></sup>.</p>
-<p>L’entéroscopie vient-elle avant une seconde lecture haute ? Non, du fait que 23 % des patients qui y arrivent ont une lésion haute manquée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>L’ambulatoire est-il interdit dès qu’il y a du sang ? Non, parce qu'il reste possible lorsque le pouls tient et que l’hémoglobine baisse peu<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>On retient que le choc reclasse un sang rouge en source haute possible<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>de cette manière le noir tardif n'est pas la preuve que le saignement continue<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On prépare le côlon seulement lorsque le pouls tient<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant le foie connu fait discuter la varice avant l'image<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On ne ferme pas le dossier sur une hémorroïde si le doigt trouve une masse<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Si les deux examens longs sont muets, on retourne d'abord en haut<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>On dose le vasoactif seulement dans l'indication lue, et l'on contre-indique le coronarien récent<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Ainsi l'ambulatoire existe, lorsque le pouls tient et que l'hémoglobine baisse peu<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si la pression chute au lever, on remplit<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si le doigt trouve une masse, on n'arrête pas là<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Pourtant le marc de café est un saignement limité<sup class="r"><a href="#sb-fms2015-1">[3]</a></sup>.</p>
-<p>Lorsque le jet est vu, on traite dans la foulée<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Avant le grêle, on refait le haut<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Après le vasoactif, le bêtabloquant peut succéder<sup class="r"><a href="#sb-fms2015-2">[4]</a></sup>.</p>
-<p>Puis on relit la couleur avec le pouls<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Dès que l'instabilité paraît, la filière haute s'impose<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Sinon l'ambulatoire reste ouvert<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Au thorax, le pouls est compté avant l'anus<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Chez l'enfant, on écarte la dose adulte<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Sans foie connu, la varice est moins probable<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Avec des glaires sanglantes, la colite est évoquée<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Si l'orifice diverticulaire est absent du cliché, on ne le crée pas<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Pourtant la lumière étroite suffit à décrire l'œdème<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Lorsque le caillot est sombre, le sang est déjà figé<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Avant la sortie, on vérifie que le pouls tient<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
-<p>Après la ligature, l'hémorroïde de stade un ou deux est traitée<sup class="r"><a href="#sb-rms2010-2">[2]</a></sup>.</p>
-<p>Puis la prévention suit, sans dose inventée pour le relais<sup class="r"><a href="#sb-rms2010-1">[1]</a></sup>.</p>
+<p>Des selles rouges avec choc viennent-elles du côlon ? Non, car un saignement haut massif rougit les selles, et l’instabilité est alors constante<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Le méléna prouve-t-il une source gastrique ? Non, car un côlon droit lent peut aussi noircir le sang<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Faut-il attendre la gastroscopie pour donner la terlipressine ? Non, car on la donne dès que l’on suspecte une varice<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Un patient dont le score de Glasgow-Blatchford n’est pas nul peut-il rentrer ? Non, car seul le score 0 le permet<sup class="r"><a href="#sb-rms2011">[3]</a></sup>.</p>
+<p>Peut-on donner Glypressine® à un coronarien récent ? Non, car un événement ischémique dans les 3 derniers mois la contre-indique<sup class="r"><a href="#sb-aips-44470">[4]</a></sup>.</p>
+<p>Que fait-on si la varice saigne malgré la ligature et le vasoactif ? On pose alors une sonde de Linton ou l’on discute un TIPS<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
+<p>Faut-il transfuser jusqu’à une hémoglobine normale ? Non, car un seuil de 70 g/L suffit chez la plupart des patients<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
+<p>Doit-on passer d’emblée à l’entéroscopie quand gastroscopie et coloscopie sont négatives ? Non, car 23 % des patients adressés ont une lésion haute manquée<sup class="r"><a href="#sb-rms2010">[1]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
+<caption>Révision rapide</caption>
 <thead><tr><th>Question</th><th>Réponse</th><th>Raison</th></tr></thead>
 <tbody>
-<tr><td>Le sang rouge avec choc vient-il du côlon ?</td><td>Non, pas d’office.</td><td>Le haut massif peut donner des rectorragies.</td></tr>
-<tr><td>Le méléna prouve-t-il l’estomac ?</td><td>Non.</td><td>L’hématine naît aussi dans un côlon droit lent.</td></tr>
-<tr><td>Glypressine chez un coronarien récent ?</td><td>Non.</td><td>L’ischémie récente contre-indique la spécialité.</td></tr>
+<tr><td>Premier geste devant un choc ?</td><td>2 voies et remplissage</td><td>La stabilisation précède l’endoscopie</td></tr>
+<tr><td>Antibiotique chez le cirrhotique ?</td><td>Toujours, ceftriaxone</td><td>Moins d’infections et de décès</td></tr>
+<tr><td>Varice gastrique qui saigne ?</td><td>Cyanoacrylate</td><td>La ligature vise l’œsophage</td></tr>
+<tr><td>Échec sur ulcère ?</td><td>Embolisation ou chirurgie</td><td>Après 2 hémostases endoscopiques</td></tr>
 </tbody></table></div>
 </section>
 <section class="ilot" id="question">
-<h2 class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</h2>
-<p>Oui, parce que ce cours est fondé sur les définitions, l’arbre et la conduite des revues suisses et sur l’information de Glypressine®.</p>
+<h2 class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</h2>
+<p>Oui, car il donne les dix causes réelles avec leurs fréquences suisses, l’ordre des gestes, les seuils de transfusion et les doses suisses vérifiées<sup class="r"><a href="#sb-fms2015">[2]</a></sup>.</p>
 </section>
 <section class="ilot" id="sources"><h2 class="partie">Sources</h2><ol>
-<li id="sb-rms2010-1">[1] Revue médicale suisse, 2010. Hémorragie digestive aiguë. <a href="https://www.revmed.ch/revue-medicale-suisse/2010/revue-medicale-suisse-233/hemorragie-digestive-aigue">revmed.ch</a>. Consulté le 10 novembre 2026.</li>
-<li id="sb-rms2010-2">[2] Revue médicale suisse, 2010. Hémorragie digestive aiguë, examens et traitements. <a href="https://www.revmed.ch/revue-medicale-suisse/2010/revue-medicale-suisse-233/hemorragie-digestive-aigue">revmed.ch</a>. Consulté le 10 novembre 2026.</li>
-<li id="sb-fms2015-1">[3] Forum Médical Suisse, 2015. Hémorragies digestives aiguës hautes et basses, sémiologie du méléna. <a href="https://doi.org/10.4414/fms.2015.02192">doi.org/10.4414/fms.2015.02192</a>. Consulté le 10 novembre 2026.</li>
-<li id="sb-fms2015-2">[4] Forum Médical Suisse, 2015. Hémorragies digestives aiguës, conduite. <a href="https://doi.org/10.4414/fms.2015.02192">doi.org/10.4414/fms.2015.02192</a>. Consulté le 10 novembre 2026.</li>
-<li id="sb-aips-44470">[5] Swissmedic, information professionnelle AIPS. Glypressine®, n° 44470, Ferring AG. <a href="https://arzneimittelinfo.ch/fr/glypressine-225192/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 10 novembre 2026.</li>
-<li id="sb-commons-jet">[6] Jeremias. Bleeding esophageal varices. Wikimedia Commons, licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Bleeding_esophageal_varices.png">commons.wikimedia.org</a>. Consulté le 10.11.2026. Horodatage visible 13.10.2004.</li>
-<li id="sb-commons-wale">[7] Samir. Esophageal varices, red wale. Wikimedia Commons, domaine public. <a href="https://commons.wikimedia.org/wiki/File:Esophageal_varices_-_wale.jpg">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
-<li id="sb-commons-selles">[8] Togabi. Bloody stool. Wikimedia Commons, licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Bloody_stool-1.jpg">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
-<li id="sb-commons-colite">[9] Samir. Segmental colitis associated with diverticulosis. Wikimedia Commons, licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Segmental_colitis_associated_with_diverticulosis.jpg">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
+<li id="sb-rms2010">[1] Revue médicale suisse, 2010, n° 233, p. 192–197. Hémorragie digestive aiguë. <a href="https://www.revmed.ch/revue-medicale-suisse/2010/revue-medicale-suisse-233/hemorragie-digestive-aigue">revmed.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-fms2015">[2] Forum Médical Suisse, 2015. Prise en charge dans le quotidien clinique : hémorragies digestives aiguës hautes et basses. <a href="https://doi.org/10.4414/fms.2015.02192">doi.org/10.4414/fms.2015.02192</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-rms2011">[3] Revue médicale suisse, 2011, n° 305. Hémorragie digestive haute : utilité des scores pronostiques. <a href="https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-305/hemorragie-digestive-haute-utilite-des-scores-pronostiques">revmed.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-44470">[4] Swissmedic, information professionnelle AIPS. Glypressine®, n° 44470, Ferring AG. <a href="https://arzneimittelinfo.ch/fr/glypressine-225192/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-56730">[5] Swissmedic, information professionnelle AIPS. Nexium® i.v., n° 56730. <a href="https://arzneimittelinfo.ch/fr/nexium-i-v-poudre-pour-solution-injectable-pour-perfusion-226746/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-49137">[6] Swissmedic, information professionnelle AIPS. Sandostatine®, n° 49137. <a href="https://arzneimittelinfo.ch/fr/sandostatine-225553/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-44625">[7] Swissmedic, information professionnelle AIPS. Rocephin®, n° 44625. <a href="https://arzneimittelinfo.ch/fr/rocephin-225206/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-31706">[8] Swissmedic, information professionnelle AIPS. Inderal®, n° 31706. <a href="https://arzneimittelinfo.ch/fr/inderal-224727/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-dilatrend">[9] Swissmedic, information professionnelle AIPS. Dilatrend® (carvédilol), indications. <a href="https://arzneimittelinfo.ch/fr/dilatrend-226020/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-aips-20258">[10] Swissmedic, information professionnelle AIPS. Erythrocin i.v., n° 20258, indications. <a href="https://arzneimittelinfo.ch/fr/erythrocin-i-v-224574/information-professionnelle">arzneimittelinfo.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-ofsp-tardoc">[11] Office fédéral de la santé publique. TARDOC et forfaits ambulatoires. <a href="https://www.bag.admin.ch/fr/tardoc-et-forfaits-ambulatoires">bag.admin.ch</a>. Consulté le 11 novembre 2026.</li>
+<li id="sb-commons-jet">[12] Bleeding esophageal varices. Wikimedia Commons, licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Bleeding_esophageal_varices.png">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
+<li id="sb-commons-wale">[13] Esophageal varices, wale. Wikimedia Commons, domaine public. <a href="https://commons.wikimedia.org/wiki/File:Esophageal_varices_-_wale.jpg">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
+<li id="sb-commons-selles">[14] Bloody stool. Wikimedia Commons, licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Bloody_stool-1.jpg">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
+<li id="sb-commons-colite">[15] Segmental colitis associated with diverticulosis. Wikimedia Commons, licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Segmental_colitis_associated_with_diverticulosis.jpg">commons.wikimedia.org</a>. Consulté le 10.11.2026.</li>
+<li id="sb-commons-duodenum">[16] Duodenum anatomy. Wikimedia Commons, licence CC BY-SA 3.0. <a href="https://commons.wikimedia.org/wiki/File:Duodenumanatomy.jpg">commons.wikimedia.org</a>. Consulté le 11.11.2026.</li>
+<li id="sb-commons-hemorroides">[17] Internal hemorrhoids 2Grad, endoscopy. Wikimedia Commons, licence CC BY-SA 3.0. <a href="https://commons.wikimedia.org/wiki/File:Internal_hemorrhoids_2Grad,_endoscopy.jpg">commons.wikimedia.org</a>. Consulté le 11.11.2026.</li>
 </ol></section>
 </main>
 </body>

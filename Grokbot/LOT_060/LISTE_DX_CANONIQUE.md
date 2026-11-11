@@ -1,18 +1,18 @@
 # Liste DX — LOT 060
 
-Ordre canonique gelé. Les fréquences propres à chaque ligne ne sont pas publiées comme un classement suisse unique : « Ne rang ».
+Ordre canonique refait le 11.11.2026 après audit A (bc-e351c7a4) : causes réelles, Forum Médical Suisse 2015 (tableaux 1A et 2). Causes hautes d’abord (incidence env. 1/1000, quatre fois la basse), puis les 2 premières causes basses avec leur part du groupe bas.
 
 | Rang | Nom exact | Fréquence | Grave | Rang E |
 | --- | --- | --- | --- | --- |
-| DX.1 | rectorragie | Ne rang |  |  |
-| DX.2 | méléna | Ne rang |  |  |
-| DX.3 | hématochézie | Ne rang |  | E2 |
-| DX.4 | diverticule | Ne rang |  |  |
-| DX.5 | hémorroïde | Ne rang |  |  |
-| DX.6 | angiodysplasie | Ne rang |  |  |
-| DX.7 | colite | Ne rang |  |  |
-| DX.8 | grêle | Ne rang |  |  |
-| DX.9 | varice | Ne rang |  | E1 |
-| DX.10 | source obscure | Ne rang |  |  |
+| DX.1 | ulcère gastroduodénal | 38 % | ulcère Forrest Ia, hémorragie massive | E1 |
+| DX.2 | varices œsophagiennes ou gastriques | 16 % | rupture variqueuse, choc hémorragique | E1 |
+| DX.3 | œsophagite | 13 % |  |  |
+| DX.4 | tumeur digestive haute | 7 % |  |  |
+| DX.5 | angiodysplasie | 6 % |  |  |
+| DX.6 | lésion de Mallory-Weiss | 4 % |  |  |
+| DX.7 | érosions gastroduodénales | 4 % |  |  |
+| DX.8 | lésion de Dieulafoy | 2 % |  |  |
+| DX.9 | hémorragie diverticulaire | 20 à 48 % des hémorragies basses |  |  |
+| DX.10 | colite | 6 à 21 % des hémorragies basses |  |  |
 
-SHA-256 6d49967a3c5b8b246c3d04b2bdd7b10cb34648b2caee5c2f5e6625bff85d1d46
+SHA-256 35bd3ccccd6c65e7b1dfeb027e31018e88b6750e7afa352f7d3dde2895445de4
