@@ -66,3 +66,9 @@
 - Ajouts sourcés (guide S2k 2025, section 4.2.1 et tableau des options) : DOPPS (jusqu'à 30 %), GEHIS (un tiers, 43,5/37,9/18,6 %, incidence 3 ans 17 %), mécanismes proposés, options évaluées (gabapentine 300 mg ×3/semaine, prégabaline 50 mg un jour sur deux, sertraline 25 mg, doxépine 10 mg ×2 : hors AIPS, chiffres lus dans le guide), difélikéfaline (essai de 378 patients, forme orale 39 %).
 - Le tableau du guide écrit « 0.5 mg/kg » pour la difélikéfaline (coquille) ; le cours retient 0,5 µg/kg, valeur du texte du guide et de l'AIPS Kapruvia® 68653.
 - Citations parasites retirées : la référence Fishbane [8] était accolée aux numéros d'étapes de l'urgence.
+
+## DX.10 (Hépatopathie chronique / cholestase)
+- Point 1 : la phrase « comorbidité » et les diagnostics voisins vont au point 4.
+- Ajouts sourcés : fenêtre « Caractérisation du prurit cholestatique » et « Mécanismes et essais clés », « Options évaluées » (guide S2k 2025, section 4.2.2 et tableau 7) ; « Cohorte suisse de cholangite biliaire primitive » (Terziroli Beretta-Piccoli 2018, résumé PubMed lu le 11.11.2026 ; texte intégral non libre) ; répartition bernoise de l'hépatopathie par groupe clinique (Lehmann 2020, tableau II).
+- Lacune : la prévalence réelle du prurit dans les maladies hépatobiliaires n'est pas connue (guide S2k).
+- Urgence : les numéros d'étapes portaient des citations ; la source [3] est reportée en fin d'étape.
