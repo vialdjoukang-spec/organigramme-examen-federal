@@ -29,6 +29,8 @@ Contre-audit : lis aussi le premier rapport et vérifie que chaque correction es
    avec un schéma réel sourcé et lu (jamais un SVG dessiné ni une image générée) ; information vitale visible d'emblée
    (drapeaux rouges, délais, ce qu'il faut prévoir) ; raisonnement pas à pas pour un diagnostic réputé difficile chez le
    médecin assistant débutant, avec l'erreur classique ; densité et concision (signale toute phrase creuse ou redite).
+   Ces exigences s'appliquent pleinement à partir du LOT_021. Jusqu'au LOT_020 (cours rédigés avant l'ordre), un manque
+   de ce type se note en « Léger », sans bloquer et sans correction exigée.
 6. **Design** (Playwright préinstallé, `chromium.launch()` sans option) à 1280 et 390 px : fenêtres centrées et occultantes
    (une fenêtre plus haute que l'écran défile à l'intérieur), aucun débordement horizontal, aucun lien interne ni
    inter-fichiers cassé, tableaux lisibles à 390 px.
