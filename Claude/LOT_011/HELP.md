@@ -23,3 +23,9 @@
 - Faits retirés faute de source européenne lue : APAP à domicile ou titration au laboratoire, CPAP/APAP préférée à la BPAP, éducation et télésuivi recommandés, effets indésirables de la PPC (sécheresse, irritation, congestion). À réintroduire après lecture du texte intégral ERS/ESRS 2026.
 - Image du point 9 : File:Polysomnography.png écartée (événements étiquetés « cA », probablement centraux : risque de contresens) ; recherche d'un tracé obstructif interrompue (délai Wikimedia). À reprendre.
 - Techniques d'examen (tour de cou, Mallampati, palpation thyroïdienne) : seuls les éléments à examiner sont sourcés (consensus européen) ; la technique gestuelle reste sans manuel lu.
+
+## DX.8 — Insomnie liée aux substances (renfort L1, agent B, 11.11.2026)
+- Normes et gestes chiffrés attribués à tort à l'AIPS Temesta (pouls 60–100, 12–20 cycles/min, 5 minutes assis, 30 s, 10 s, 3 m, IMC 25/30) : chiffres retirés, gestes conservés ; à sourcer dans un manuel d'examen clinique européen.
+- Tox Info Suisse 145 : source ajoutée (toxinfo.ch lu). Le chiffre de 400 mg de caféine (Drake 2013, étude américaine) reste un fait d'étude ; la règle « 6 heures avant le coucher » repose sur cette seule étude : chercher une confirmation européenne.
+- Trazodone : la phrase AASM 2017 est conservée comme information ; la décision repose sur l'AIPS (aucune indication d'insomnie).
+- Aucune image : diagnostic clinique sans modalité d'imagerie décisive.
