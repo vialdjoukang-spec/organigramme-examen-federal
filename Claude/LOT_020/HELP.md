@@ -82,3 +82,4 @@
 - DX.7 : durée de l'antibiothérapie ambulatoire — 5 à 10 jours (Zurich 2017), 3 à 7 jours (SSE 2020), 3 jours prolongés de 2 (HAS 2026), aucune durée de principe (SSOS 2020) ; le cours enseigne le contrôle à 48–72 heures sans trancher la durée.
 - DX.7 : seuil de procalcitonine de 0,25 cité sans unité (le support SPILF écrit « mg/L », probablement µg/L) ; score LRINEC laissé dans les unités de la source (g/dL, mg/dL).
 - DX.7 : AINS — signalés comme facteur d'évolution diffuse (revue 2025) mais sans différence de gravité dans l'étude prospective citée par la SPILF ; aucune consigne suisse lue, le cours n'écrit donc ni interdiction ni dose.
+- (Lacune) LOT_020_Phase_B_V0_DX.3.html : fenêtre « Base à connaître » (point 3) sans schéma réel ; marge de taille 360 o seulement (149 638 o).
