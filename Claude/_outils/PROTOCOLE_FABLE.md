@@ -1,5 +1,8 @@
 # PROTOCOLE FABLE — renfort et audit L1 d'un LOT, en parallèle (ordre de Vial du 11.11.2026)
 
+> **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
+
+
 But : chaque LOT (Phase A + DX.1–DX.10) renforcé L1, audité deux fois (médical + design), fusionné dans main, sans aucun
 relâchement de qualité. Plusieurs LOTs avancent de front, un chef de LOT par LOT. Le bloc L1 de
 `PROMPT_Casern/PROMPT_LOTS_L1_10.11.26.claude.md` prime ; ce protocole dit seulement qui fait quoi, et dans quel ordre.

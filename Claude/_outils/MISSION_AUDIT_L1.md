@@ -1,5 +1,8 @@
 # MISSION — auditeur indépendant d'une moitié de LOT (protocole Fable, 11.11.2026)
 
+> **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
+
+
 Ta mission te donne : le LOT (NNN), les fichiers, le worktree, le nom du rapport, et s'il s'agit de l'audit 1 ou du
 contre-audit. Tu n'as rédigé aucun de ces fichiers. Tu ne modifies AUCUN HTML, tu ne commites rien, pas de
 checkout/reset/stash. Tu écris un seul fichier : le rapport `Claude/LOT_NNN/audits/<nom>.audit.json`.

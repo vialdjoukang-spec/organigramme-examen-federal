@@ -1,5 +1,8 @@
 # Reprise MEDINA — dépôt vialdjoukang-spec/organigramme-examen-federal (état au 11.11.2026, 15 h, Zurich)
 
+> **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
+
+
 Message de transition écrit par la session précédente. À coller en tête de la prochaine session, ou à lire ici.
 
 ## Ordres de Vial en vigueur

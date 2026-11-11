@@ -1,5 +1,8 @@
 # MISSION — rédacteur d'UN fichier d'un LOT (protocole Fable, 11.11.2026)
 
+> **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
+
+
 Ta mission te donne : le LOT (NNN), le fichier (Phase A ou DX.i), le worktree. Tu n'écris QUE dans ce fichier, dans
 `Claude/LOT_NNN/HELP.md` (ajout en fin de fichier par `>>`) et dans `Claude/LOT_NNN/REPRISE.log` (ajout de lignes, jamais
 de remplacement). D'autres agents travaillent sur les autres fichiers du même worktree : jamais de checkout, reset, stash,
