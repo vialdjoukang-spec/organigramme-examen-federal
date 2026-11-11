@@ -25,7 +25,11 @@ Contre-audit : lis aussi le premier rapport et vérifie que chaque correction es
    fenêtre par région ; une fiche `.mb` par molécule ; point 14 ≥ 6 questions ; aucune redite dans un fichier ni entre
    fichiers du LOT ; aucune formule de lacune ou de fabrication ; 80 000–150 000 octets ; `controle3 --script-ok` VERT ;
    cohérence Phase A ↔ DX (noms exacts, rangs E, mêmes chiffres).
-5. **Design** (Playwright préinstallé, `chromium.launch()` sans option) à 1280 et 390 px : fenêtres centrées et occultantes
+5. **Pédagogie (ordre de Vial du 11.11.2026).** Prérequis anatomo-fonctionnels installés quand le diagnostic l'exige,
+   avec un schéma réel sourcé et lu (jamais un SVG dessiné ni une image générée) ; information vitale visible d'emblée
+   (drapeaux rouges, délais, ce qu'il faut prévoir) ; raisonnement pas à pas pour un diagnostic réputé difficile chez le
+   médecin assistant débutant, avec l'erreur classique ; densité et concision (signale toute phrase creuse ou redite).
+6. **Design** (Playwright préinstallé, `chromium.launch()` sans option) à 1280 et 390 px : fenêtres centrées et occultantes
    (une fenêtre plus haute que l'écran défile à l'intérieur), aucun débordement horizontal, aucun lien interne ni
    inter-fichiers cassé, tableaux lisibles à 390 px.
 
