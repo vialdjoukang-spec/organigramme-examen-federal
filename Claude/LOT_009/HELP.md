@@ -41,3 +41,9 @@
 - Ajout sourcé : fenêtre « Caractérisation du prurit à composante psychique » (Schneider et al. 2020, PMC9128937, lu le 11.11.2026 : début, type, vocabulaire, déclencheurs, horaire, réactions ; 77,7 % contre 48,8 % de variations liées au stress).
 - Doxépine : 25 à 100 mg/j vérifiés dans le guide S2k ; AIPS Doxepin Rivopharm 69433 citée pour la molécule.
 - Les consignes à l'impératif deviennent « Il faut … » (phrases verbales reconnues), sans changement de contenu.
+
+## DX.6 (Éruption / prurit médicamenteux)
+- Point 1 : diagnostics à ne pas confondre (DX.7, DX.9, DX.10) déplacés au point 4.
+- Lacunes retirées du cours : « aucun critère officiel suisse n'a été lu » ; critères cliniques détaillés du DRESS et de la nécrolyse non relus.
+- À vérifier hors cours : la décroissance des glucocorticoïdes (DRESS sévère 3 à 6 mois, DRESS léger 6 semaines à 3 mois) n'a pas pu être relue (texte intégral Brüggen 2024, PMC10652220, inaccessible le 11.11.2026) ; ces phrases restent sans citation.
+- Ajout sourcé : fenêtre « Caractérisation du prurit médicamenteux » (guide S2k 2025 : 5 % des réactions, 12 mois, HES 12–42 %, deux tiers, 15 mois).
