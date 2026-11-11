@@ -54,3 +54,10 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Point 1 : fenêtre des notions voisines déplacée au point 4 (entités qui imitent la myocardite), synonymes retirés (L1-3) ; lignes de définitions redondantes avec les fenêtres des critères et des classes du point 8 retirées.
 - Citations AIPS corrigées : amiodarone de la fenêtre d'urgence sur Cordarone 41060 (au lieu d'Adrenalin), lidocaïne sur Rapidocain 46461 (au lieu de Cordarone).
 - Images à insérer : IRM cardiaque avec LGE sous-épicardique (point 9), ECG de sus-décalage ST diffus ; requêtes Commons « myocarditis cardiac MRI late gadolinium enhancement », « myocarditis ECG ST elevation ».
+
+## DX.9 — Canalopathie héréditaire (renfort L1, agent B)
+- Lacunes retirées du cours : nadolol sans AIPS (« À vérifier ») et absence de propranolol intraveineux dans le corpus AIPS ; aucune dose n'est donnée pour ces deux molécules.
+- Point 1 : phrase de définition réparée ; fenêtre des notions voisines rattachée au point 4 (id f-dx9-p4-voisins) ; synonymes retirés (L1-3), le terme « autopsie négative » reste comme piège.
+- Redite retirée : dose de Beloc i.v. de la fenêtre des bêtabloquants (conservée dans la conduite d'urgence).
+- Citations AIPS corrigées : Cordarone 41060, Rapidocain 46461, Adrenalin 66396/56551 (pédiatrie), Tambocor 45710 (sujet âgé, insuffisance rénale).
+- Images à insérer : ECG de QT long et ECG de Brugada type 1 (point 9) ; requêtes Commons « long QT syndrome ECG », « Brugada syndrome type 1 ECG ».
