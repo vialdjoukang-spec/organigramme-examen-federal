@@ -23,6 +23,12 @@ Les lacunes ne figurent plus dans les cours (L1, LV7) ; elles sont consignées i
 - Réserve L1-2 : l'examen physique par région reste un tableau dans une fenêtre unique, et non une fenêtre par région, faute de budget (≤ 150 Ko, 149 949 o).
 - Image en attente : acanthosis nigricans (point 6) — Wikimedia 429.
 
+## DX.1 — Obésité commune (renfort L1 agent A, 11.11.2026)
+- VERT, 149 949 → 149 941 o. Renvois AIPS vérifiés : citations Wegovy®/Mounjaro® sur des phrases de classe (incrétines, GLP-1) jugées justes ; aucune AIPS d'une autre molécule trouvée. Ajout des renvois de section (LS S12, SMOB S10, OPAS S9, SGSSC S18, ESE S23, EASL S24, AIPS de chaque molécule) sur 60 phrases chiffrées qui n'en portaient pas.
+- Liste des contre-indications SMOB 2023 (§ 6) passée en tableau par domaine, texte intact. Numéros 7.1–7.8 retirés des deux phrases d'annonce du point 7 (les titres des fenêtres les gardent).
+- Point 14 : 15 questions sur 18 retirées (taille) ; fait conservé : TSH et lévothyroxine (arbre), freinage (arbre, tableau DX), Cushing (tableau des signes cataboliques), critères et seuils LS, 7,2 mg non remboursé, règles d'orlistat (fenêtre LS), Mounjaro® et pilule (fiche), chirurgie IMC 37 et 33 (fenêtre chirurgie, arbre), pancréatite (drapeaux, urgence incrétines), FIB-4 (fenêtre FIB-4), orlistat et lévothyroxine (fiche Xenical), vaccins (prévention, tableau), IMC 27 (point 1). Gardées : Saxenda® et hyperphagie, bypass tachycarde, chauffeur somnolent.
+- Doublon retiré : ligne NOIAN de la fenêtre urgence des incrétines (reste dans les drapeaux rouges). Fiches .mb : fenêtres Wegovy®, Mounjaro®, Saxenda®, Xenical en classe mb ; fiche courte dexaméthasone. Metformine citée sans dose (ESE R.5.7) : pas de fiche.
+
 ## DX.2 — Prise de poids d'origine médicamenteuse
 - Lacunes retirées : prévalence suisse non chiffrée ; aucun critère ni seuil de société savante propre ; mécanisme des inhibiteurs de l'intégrase non décrit ; aucune règle travail/assurance-invalidité propre ; aucune liste de sortie propre ; aucun essai 2026 propre.
 - Point 1 : « notions voisines » déplacées au point 4 sous le titre « Situations frontières » (faits uniques conservés : œdèmes sous amlodipine 11,1 %, pioglitazone et insuffisance cardiaque, hypothyroïdie sous lithium ou quétiapine) ; fréquence ESE retirée du point 1 (badge conservé au point 2).
