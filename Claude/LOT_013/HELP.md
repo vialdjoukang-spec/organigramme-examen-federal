@@ -57,3 +57,37 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Risque d'homicide ultérieur après strangulation non mortelle : seule une étude américaine (citée par l'Inselspital 2019) le chiffre ; retiré du cours, aucune donnée suisse ou européenne lue.
 - Code de déontologie FMH : accès refusé (voir Phase A).
 - Resserrement sous 150 Ko (détails retirés, présents dans les sources) : calculs dérivés de la SPC (pourcentages recalculés), texte allemand du § 15 GesG et textes in extenso de l'art. 321 CP (résumés dans la fenêtre du secret), exemple genevois/zurichois du cadre légal, colonne « Pourquoi » du tableau d'urgence, tableau « manière → usage clinique » du point 8 (repris par l'arbre), questions 3, 9, 10, 14 et 20 du point 14 (réponses présentes aux points 2, 8, 10 et 13).
+
+## DX.3 — Suicide non assisté (renfort L1, 11.11.2026)
+- Aucune lacune nouvelle ; fenêtre « notions voisines » du point 1 retirée (L1-3), ses faits déplacés (art. 115 CP, 61,8 % d'homicides domestiques, armes à feu et meurtres-suicides, termes du plan national).
+
+## DX.4 — Accident de la circulation routière (renfort L1, 11.11.2026)
+- Sensibilité et spécificité des signes de l'examen externe : non chiffrées dans les sources lues.
+- Écart OFS (221) / OFROU (250) pour 2024 : part due aux non-résidents ou aux décès tardifs non décomposée dans les sources lues.
+- Conduite médico-légale propre au fœtus après le décès de la mère : aucune source lue.
+- Accord préalable du MP avant prélèvement d'organes chez un mort cérébral en contexte médico-légal : non trouvé.
+- Place des vasopresseurs dans l'arrêt traumatique : aucune recommandation suisse propre (ERC 2025 seul).
+- Code de déontologie FMH, article sur les certificats : accès refusé (déjà noté en Phase A).
+- Taux cantonaux de tués par habitant : population cantonale non lue ; seul le taux vaudois 1986–1989 est cité.
+- Coûts des accidents de la route isolés de l'ensemble des accidents non professionnels (BPA) : non trouvés.
+- Étude d'autopsie Pfeifer 2017 (S27) : seul le résumé PubMed a été lu.
+- Fenêtre adrénaline : lignes pharmacocinétique, effets indésirables et interactions de l'AIPS 66396 retirées pour tenir la bande L1 (hors scénario médico-légal ; texte intégral dans l'AIPS).
+
+## DX.5 — Intoxication mortelle (renfort L1, 11.11.2026)
+- Morts dues au CO en Suisse : aucun chiffre dans les sources lues.
+- Répartition cantonale et coût des décès par intoxication : non trouvés.
+- Mécanisme cellulaire du cyanure : non détaillé dans les sources lues (le cours s'appuie sur le lactate).
+- Valeur de la CT post mortem pour les sachets de drogue et performance de l'imagerie dans ce scénario : non chiffrées.
+- Sensibilité et spécificité de l'examen externe : non chiffrées.
+- Ordre de choix des matrices quand le sang manque : non fixé dans les sources lues.
+- Femme enceinte décédée : aucune conduite propre lue.
+- Recommandation suisse sur les détecteurs de CO : non trouvée.
+- Oxygène médical : aucune AIPS dans le corpus du 08.10.2026 ni sur swissmedicinfo (n° 56407, 56408, 56667, 57228, 63141, 66641) ; aucune dose AIPS, seules les recommandations ECHM/Tox Info sont citées.
+- 4-DMAP et thiosulfate de sodium : non autorisés en Suisse, donc sans AIPS.
+- RDSPF vaudois : version LexFind du 01.01.2018 ; version consolidée postérieure non vérifiée.
+- Eurostat 2025 : non encore publié au 30.10.2026.
+- Palier de DFGe : aucune des AIPS d'antidote lues n'en donne.
+- Défaut corrigé : la passe mécanique avait collé sur les lignes des fiches AIPS des citations d'autres sources (ex. dose de Cyanokit citée sur Fluimucil) et des citations dans 22 aria-label ; 49 blocs réattribués d'après la version d'origine et le titre de chaque fenêtre.
+
+## Images DX.3–DX.5 (renfort L1, 11.11.2026)
+- Aucune figure insérée : marge restante sous 150 Ko de 0,7 à 1,4 Ko, insuffisante pour le texte d'une figure guidée (légende, repères, pièges). Candidates : DX.3 sillon de pendaison (point 6) ; DX.4 fracture en coin de Messerer ou PMCT d'un piéton (point 9) ; DX.5 lividités rouge clair au CO (point 6) et PMCT de sachets intracorporels (point 9).
