@@ -328,17 +328,54 @@ def retirer_sommaire(h):
         pos = m.end()
 
 
-def teinte(nom):
-    """Couleur d'accent propre à chaque leçon, déterministe : angle d'or sur un hachage du nom de fichier,
-    dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo, violet ni mauve)."""
-    import zlib
-    k = zlib.crc32(nom.encode('utf-8'))
-    a = (k * 137.50776405) % 175
+LOTS_MAX, LECONS = 260, 16  # identifiants pris en charge : LOT_001…LOT_260, Phase A (0) et DX.1…DX.15
+
+
+def _hx(h, l, s):
+    r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
+    return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
+
+
+def _palette(k, essai=0):
+    """Palette candidate du rang k : angle d'or sur la teinte (plage sans bleu), clarté sur 6 niveaux,
+    saturation sur 3 niveaux ; « essai » décale la teinte d'un degré en cas de collision après arrondi."""
+    a = (k * 137.50776405 + essai) % 175
     h = a if a < 150 else a + 185
-    def hx(l, s):
-        r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
-        return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
-    return hx(.27, .42), hx(.46, .34), hx(.965, .40), hx(.915, .34)
+    l = (.22, .25, .28, .31, .34, .37)[k % 6]
+    s = (.36, .44, .52)[(k // 6) % 3]
+    return (_hx(h, l, s), _hx(h, l + .19, s * .8), _hx(h, .965, .40), _hx(h, .915, .34))
+
+
+_TABLE = None
+
+
+def _table():
+    """Attribution déterministe et UNIQUE (vérifiée sur les couleurs arrondies) pour tous les rangs pris en charge."""
+    global _TABLE
+    if _TABLE is None:
+        vus, _TABLE = set(), {}
+        for k in range(LOTS_MAX * LECONS):
+            essai = 0
+            p = _palette(k)
+            while p in vus:  # unicité de la palette entière, contrôlée sur les couleurs arrondies
+                essai += 0.37
+                assert essai < 175, 'espace de palettes épuisé'
+                p = _palette(k, essai)
+            vus.add(p)
+            _TABLE[k] = p
+    return _TABLE
+
+
+def teinte(nom):
+    """Couleur d'accent propre à chaque leçon, déterministe et unique entre tous les cours (couleurs finales
+    comparées après arrondi), dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo,
+    violet ni mauve)."""
+    import zlib
+    m = re.search(r'LOT_(\d+)', nom)
+    d = re.search(r'DX\.(\d+)', nom)
+    if m and int(m.group(1)) <= LOTS_MAX and (not d or int(d.group(1)) < LECONS):
+        return _table()[int(m.group(1)) * LECONS + (int(d.group(1)) if d else 0)]
+    return _palette(zlib.crc32(nom.encode('utf-8')))
 
 
 def _texte(x):
@@ -411,6 +448,9 @@ def ecrire_css(dossier):
 
 
 if __name__ == '__main__':
+    if '--teintes' in sys.argv:  # contrôle de non-régression : une palette distincte par cours pris en charge
+        T = _table(); assert len(set(T.values())) == len(T), 'palettes en double'
+        print(f'{len(T)} palettes, toutes distinctes'); sys.exit(0)
     import os
     ecrire_css(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_polices'))
     verif = '--verifier' in sys.argv
