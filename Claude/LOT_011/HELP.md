@@ -6,7 +6,8 @@
 - Doses de thiamine du CBIP (250 mg ; 500–750 mg × 3) citées avec l'AIPS Benerva (≤ 200 mg/j) selon la règle « recommandation + AIPS ».
 
 ## DX.1 — Insomnie (renfort L1, 11.11.2026)
-- Sources S3 (OFS, admin.ch, accès refusé 403) et S4 (Wittchen 2011, non libre) non relues : chiffres conservés tels quels (un tiers ; 7,0 %), à relire sur la page source.
+- Sources S3 (OFS, communiqué du 3.10.2024) et S4 (Wittchen 2011, tableau 3) relues le 11.11.2026 : « un tiers » et 7,0 % confirmés.
+- Correction d'audit : Temesta comme hypnotique, 4 semaines au plus en règle générale (AIPS 36203) ; daridorexant retiré des hypnotiques limités à 4 semaines (antagonistes de l'orexine jusqu'à 3 mois, réévaluation dans les 3 mois, AIPS Quviviq 68481).
 - Techniques d'examen (abaisse-langue, palpation thyroïdienne postérieure, mobilisation passive) sans source européenne lue : à adosser à un manuel suisse d'examen clinique.
 - Aucune recommandation suisse de dépistage de l'insomnie repérée (phrase de lacune retirée du cours).
 - Sensibilité et spécificité des signes physiques non chiffrées dans les sources lues (phrase retirée du cours).
@@ -19,7 +20,8 @@
 - Image : diagnostic clinique, aucune modalité décisive ; la recherche Wikimedia d'un tracé de MPJ a expiré (débit limité). Proposition : tracé polysomnographique libre de MPJ en fenêtre 9.d.
 
 ## DX.2 — SAOS (renfort L1, 11.11.2026)
-- Sources américaines retirées comme appui de décision (AASM PAP 2019, AASM orthèses 2015) ; remplacées par le consensus européen 2024, l'ERS non-PPC 2021, l'ERS/ESRS PPC 2026 (résumé seul lu), la directive 2014/85/UE (McNicholas 2025, Ghosh 2016).
+- Sources américaines retirées comme appui de décision (AASM PAP 2019, AASM orthèses 2015) ; remplacées par le consensus d'experts européens en chirurgie du sommeil (Olszewska 2024), l'ERS non-PPC 2021, l'ERS/ESRS PPC 2026 (résumé seul lu), la directive 2014/85/UE (McNicholas 2025, Ghosh 2016).
+- Corrections d'audit : SURMOUNT-OSA, un seul chiffre (−25,3 contre −5,3/h, publication Malhotra 2024) ; tirzépatide « ne doit pas être utilisé pendant la grossesse » (AIPS 68726) ; conduite automobile adossée à la LCR art. 15d (Fedlex, lu le 11.11.2026) : le médecin informe le patient et peut signaler l'inaptitude à l'autorité cantonale.
 - Faits retirés faute de source européenne lue : APAP à domicile ou titration au laboratoire, CPAP/APAP préférée à la BPAP, éducation et télésuivi recommandés, effets indésirables de la PPC (sécheresse, irritation, congestion). À réintroduire après lecture du texte intégral ERS/ESRS 2026.
 - Image du point 9 : File:Polysomnography.png écartée (événements étiquetés « cA », probablement centraux : risque de contresens) ; recherche d'un tracé obstructif interrompue (délai Wikimedia). À reprendre.
 - Techniques d'examen (tour de cou, Mallampati, palpation thyroïdienne) : seuls les éléments à examiner sont sourcés (consensus européen) ; la technique gestuelle reste sans manuel lu.
@@ -34,8 +36,9 @@
 - Source européenne de décision ajoutée : guide allemand S3 révisé (Bandelow 2022). Citations erronées au GAD-7 (pouls, QT, TSH, examen) retirées.
 - Prégabaline : la mention « 25 à 150 mg entre 15 et 30 mL/min, 25 à 75 mg sous 15 mL/min » contredisait l'AIPS Lyrica 57057 (« ne doit pas être utilisée si Clcr < 30 mL/min ») : corrigée.
 - Normes chiffrées retirées faute de source lue : pouls 60–100/min, fréquence respiratoire 12–20/min, QTc 450/460 ms, TSH 0,4–4,0 mU/L.
-- Critères DSM-5 (TAG 6 mois, 3/6 symptômes ; panique 1 mois) conservés en tableau sans source lue : à adosser au DSM-5 ou à la CIM-11 (CDDR, OMS).
-- Wittchen 2011 (14,0 %) non relu (accès payant).
+- Critères DSM-5 : seuils chiffrés (6 mois, 3/6, 1 mois) retirés faute de texte lu (DSM-5-TR et CIM-11 CDDR non accessibles) ; critères présentés comme éléments cliniques. À réintroduire après lecture de la CIM-11 CDDR.
+- Wittchen 2011 (14,0 %) relu le 11.11.2026 (texte intégral, tableau 3) : confirmé.
+- Agomélatine : contrôles tous les 14 jours à une fois par mois pendant 6 mois, recontrôle dans les 48 h en cas d'élévation (AIPS 57596).
 - Pas d'image : aucun examen d'imagerie décisif dans ce diagnostic.
 
 ## DX.9 — Trouble du rythme circadien (renfort L1, agent B, 11.11.2026)
@@ -49,7 +52,9 @@
 - Source européenne de décision ajoutée : NVL allemand Dépression unipolaire 3.0 (Härter 2023). AIPS séparée par molécule (7 monographies).
 - Agomélatine : calendrier « 3, 6, 12, 24 semaines » remplacé par celui de l'AIPS Valdoxan 57596 (toutes les 2 semaines jusqu'à un mois durant 6 mois).
 - Faits retirés faute de source lue : perte de poids > 5 %/mois, pouls 60–100/min, QTc 450/460 ms, TSH 0,4–4,0 mU/L, « réveil ≥ 2 h avant l'heure habituelle ».
-- Critères DSM-5 (5/9 symptômes, 2 semaines) conservés en tableau sans source lue : à adosser au DSM-5 ou à la CIM-11.
+- Critères DSM-5 : seuils 5/9 et 2 semaines retirés faute de texte lu ; tableau adossé au PHQ-9 (9 critères cotés 0–3, Kroenke 2001). À réintroduire après lecture de la CIM-11 CDDR.
+- Corrections d'audit : mirtazapine, hausse jusqu'à 45 mg avant arrêt (AIPS 54447) ; amitriptyline du sujet âgé déprimé 10–25 mg puis 100–150 mg, prudence au-delà de 100 mg (AIPS 66978) ; IMAO ajoutés à Efexor ER ; urgence suicidaire reformulée sans chiffre, placement à des fins d'assistance adossé au CC art. 426 (Fedlex, lu le 11.11.2026). Aucun numéro d'appel ajouté (143/144 non sourcés).
+- Titre du point 11 : « recommandations européennes » (aucune recommandation suisse citée ; même correction en DX.1, DX.2, DX.3, DX.5).
 - Taille au plancher (80,0 Ko) : prochain renfort à faire par ajout de contenu sourcé.
 - DX.3 : définitions des sigles CIM, DSM, HypnoLaus ajoutées.
 
@@ -63,7 +68,8 @@
 ## DX.5 — Douleur chronique (renfort L1, 11.11.2026)
 - Source américaine retirée comme appui de décision : CDC 2022 (Dowell). Décisions adossées au guide NICE NG193 (lu en ligne), à la méta-analyse Cochrane Birkinshaw 2023 et aux AIPS.
 - Prégabaline : la formule « on l'évite ou on demande l'avis d'un néphrologue sous 30 mL/min » adoucissait l'AIPS Lyrica 57057 (« ne doit pas être utilisée ») : corrigée. Duloxétine et ibuprofène : contre-indications Clcr < 30 mL/min et hépatiques ajoutées selon leurs AIPS.
-- Lorazépam : « 4 semaines au plus comme hypnotique » non retrouvé dans l'AIPS Temesta 36203 (2 à 3 mois) : aligné sur l'AIPS.
+- Lorazépam : erreur corrigée après audit. L'AIPS Temesta 36203 (« Dépendance ») limite l'usage comme hypnotique à 4 semaines en règle générale ; 2 à 3 mois est la limite générale (anxiété). Fait rétabli.
+- Corrections d'audit : paracétamol toutes les 4 à 8 h (AIPS 47503) ; naloxone 0,4–2 mg en cas de surdosage d'opioïdes, 0,1–0,2 mg réservé à la dépression postopératoire (AIPS 56952) ; grossesse sous gabapentine, prégabaline (malformations au 1er trimestre, contraception) et duloxétine (nécessité absolue) selon leurs AIPS ; tableau Saroten aligné sur la fiche.
 - AIPS combinée scindée en 9 monographies ; duloxétine : AIPS Duloxetin Sandoz 65996 (générique) faute de spécialité originale dans le corpus.
 - Seuil DN4 ≥ 4/10 et détail des critères ACR 2016 (WPI, SSS) : seuls les résumés ont été lus ; à vérifier sur le texte intégral.
 - Objectifs « à 3 mois / à 12 mois », Bastien (ISI 7 items 0–4) et Sateia (ICSD-3) retirés faute de lecture ; l'ISI est décrit selon le guide européen.
