@@ -292,7 +292,7 @@ ol.dx a:hover{background:hsl(var(--h) 90% 96%)}ol.dx span.x{color:var(--doux)}
 .cl.vide{border-style:dashed}.cl b{display:block;font-size:.92rem}.cl small{color:var(--doux)}
 .mn{font-size:.8rem;color:hsl(275 35% 35%);background:hsl(275 70% 97%);border-radius:8px;padding:5px 8px;margin:4px 0 0 10px}
 a.rf{color:var(--doux);font-size:.72rem;text-decoration:none;vertical-align:super;margin-left:1px;cursor:pointer}
-.ph-src{font-size:.78rem;color:var(--doux);overflow-wrap:anywhere;padding-left:22px}.ph-src li:target,.ph-src li.vu{background:#dff0fb}
+.ch{list-style:none;margin:6px 0 4px;padding:0;font-size:.88rem;line-height:1.4}.ch li{position:relative;padding:5px 8px 5px 26px;margin:0 0 4px;background:#fff;border:1px solid hsl(165 40% 88%);border-radius:10px}.ch li::before{content:'→';position:absolute;left:8px;top:5px;color:hsl(165 60% 32%);font-weight:800}.ch li.rt{border-style:dashed;background:#f6fbff}.ch li.rt::before{content:'↺';color:hsl(205 70% 40%)}.ch .de{color:var(--doux)}.ch b{color:hsl(165 65% 24%)}.ch i{color:hsl(275 30% 38%)}.ch .ef{display:block}.rp{display:inline-flex;align-items:center;gap:6px;margin:2px 0 6px;border:1px solid hsl(205 60% 80%);background:#f3f8ff;color:hsl(205 70% 30%);border-radius:999px;padding:7px 13px;font-weight:700;font-size:.88rem;cursor:pointer}#mp{z-index:40;--h:205}#mp .mc h3{margin:4px 0 8px;font-size:1rem}.rap{list-style:none;margin:0;padding:0}.rap li{position:relative;padding:8px 10px 8px 30px;margin:0 0 6px;border:1px solid var(--trait);border-radius:12px;background:#fff;font-size:.92rem}.rap li::before{content:'↓';position:absolute;left:10px;top:8px;font-weight:800;color:hsl(205 70% 40%)}.rap li:first-child::before{content:'●'}.rap li.pb{border-color:hsl(12 70% 75%);background:#fff6f1}.rap li.pb::before{content:'!';color:var(--rouge)}.ph-src{font-size:.78rem;color:var(--doux);overflow-wrap:anywhere;padding-left:22px}.ph-src li:target,.ph-src li.vu{background:#dff0fb}
 @media(min-width:900px){
  .ph-tete{display:grid;grid-template-columns:1fr 1fr 1.05fr;gap:0;position:sticky;top:0;z-index:2;background:var(--fond);padding:6px 0;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
  .ph-tete div{padding:0 14px}.ph-tete div:nth-child(1){color:hsl(165 60% 32%)}.ph-tete div:nth-child(2){color:hsl(12 70% 45%)}.ph-tete div:nth-child(3){color:hsl(275 45% 45%)}
@@ -347,7 +347,7 @@ function ouvrirReflexe(c){const s=SSP[c];if(!s||!s.reflexe)return;const g=GR[s.g
   $('#mr .mb').innerHTML=h;$('#mr').classList.add('a');document.body.style.overflow='hidden';$('#mr .fx').focus();}
 function fermerReflexe(){$('#mr').classList.remove('a');document.body.style.overflow='';}
 $('#mr').addEventListener('click',e=>{if(e.target.id==='mr'||e.target.closest('[data-ferme]'))history.back()});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&($('#mr').classList.contains('a')||$('#fv').classList.contains('a')||$('#vue').classList.contains('a')))history.back()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#mp').classList.contains('a')){fermerRappel();return}if(e.key==='Escape'&&($('#mr').classList.contains('a')||$('#fv').classList.contains('a')||$('#vue').classList.contains('a')))history.back()});
 /* ----- Visionneuse de cours ----- */
 const liste=[];D.ssp.forEach(s=>{if(s.fA)liste.push({s,id:s.code+'-A',n:s.nom,f:s.fA});s.dx.forEach(d=>{if(d.f)liste.push({s,id:s.code+'-'+d.i,n:d.n,f:d.f})})});
 function ouvrirCours(id){const i=liste.findIndex(x=>x.id===id);if(i<0)return;const x=liste[i];$('#vue').dataset.i=i;
@@ -364,7 +364,7 @@ function algo(n){if(!n)return'';if(typeof n==='string')return '<p class="concl">
 function tableau(t){if(!t||!t.length)return'';const k=Object.keys(t[0]);return '<div class="tw"><table><tr>'+k.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr>'+t.map(r=>'<tr>'+k.map(x=>'<td>'+esc(r[x])+'</td>').join('')+'</tr>').join('')+'</table></div>';}
 function para(v){return Array.isArray(v)?'<ul>'+v.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>';}
 function fiche(id){const f=D.fiches[id];if(!f)return '<div class="fiche"><p class="vide">Fiche en préparation : elle sera rédigée sur sources suisses lues, puis auditée.</p></div>';
-  let h='<div class="fiche"><h3>'+esc(f.titre)+'</h3>';
+  let h='<div class="fiche"><h3>'+esc(f.titre)+'</h3>'+(f.rappel&&f.rappel.length?'<button type="button" class="rp" data-rappel="'+esc(id)+'">↳ Rappel anatomo-physiologique</button>':'');
   if(f.indication)h+='<h4>'+(id.startsWith('ph-')?'Indications actuelles':'Indication de la demande')+'</h4><div class="ind">'+para(f.indication)+'</div>';
   for(const s of f.sections||[])h+='<h4>'+esc(s.titre)+'</h4>'+(s.texte?para(s.texte):'')+tableau(s.tableau)+(s.algorithme?algo(s.algorithme):'');
   for(const g of f.images||[])h+='<figure><img loading="lazy" src="'+esc(D.base+g.fichier)+'" alt="'+esc(g.legende)+'"><figcaption>'+esc(g.legende)+' — '+esc(g.source||'')+'</figcaption></figure>';
@@ -372,8 +372,15 @@ function fiche(id){const f=D.fiches[id];if(!f)return '<div class="fiche"><p clas
   return h+'</div>';}
 function titreFiche(id){const f=D.fiches[id];if(f)return f.titre;for(const s of D.pharmaco.systemes||[])for(const l of s.lignes)for(const c of l.classes)if(c.fiche===id)return c.titre;return 'Fiche';}
 function ouvrirFiche(id){$('#ft').textContent=titreFiche(id);$('#fc').innerHTML=fiche(id);$('#fc').scrollTop=0;$('#fv').classList.add('a');document.body.style.overflow='hidden';}
-function fermerFiche(){$('#fv').classList.remove('a');document.body.style.overflow='';}
-$('#fr').onclick=()=>history.back();$('#fc').onclick=e=>{const c=e.target.closest('.cas>button');if(c)c.parentElement.classList.toggle('o')};
+function fermerFiche(){fermerRappel();$('#fv').classList.remove('a');document.body.style.overflow='';}
+/* Rappel anatomo-physiologique : fenêtre centrale, du général au problème */
+function ouvrirRappel(id){const f=D.fiches[id];if(!f||!f.rappel)return;const n=f.rappel.length;
+  $('#mp .mb').innerHTML='<div class="mh"><h2>Rappel anatomo-physiologique<small>'+esc(f.titre)+'</small></h2><button class="fx" type="button" data-ferme aria-label="Fermer">✕</button></div><div class="mc"><h3>Du général au problème</h3><ol class="rap">'+
+    f.rappel.map((e,i)=>'<li'+(i===n-1?' class="pb"':'')+'>'+(i===n-1?'<b>Le problème. </b>':'')+esc(e.texte)+(e.src||[]).map(k=>' ['+k+']').join('')+'</li>').join('')+'</ol><p class="note">Numéros : liste des sources de la fiche.</p></div>';
+  $('#mp').classList.add('a');$('#mp .fx').focus();}
+function fermerRappel(){$('#mp').classList.remove('a');}
+$('#mp').addEventListener('click',e=>{if(e.target.id==='mp'||e.target.closest('[data-ferme]'))fermerRappel()});
+$('#fr').onclick=()=>history.back();$('#fc').onclick=e=>{const r=e.target.closest('[data-rappel]');if(r)return ouvrirRappel(r.dataset.rappel);const c=e.target.closest('.cas>button');if(c)c.parentElement.classList.toggle('o')};
 /* ----- Examens complémentaires : arbre ----- */
 function nbFiches(n){return (n.fiche&&D.fiches[n.fiche]?1:0)+(n.enfants||[]).reduce((a,x)=>a+nbFiches(x),0);}
 function nbFeuilles(n){return (n.enfants&&n.enfants.length)?n.enfants.reduce((a,x)=>a+nbFeuilles(x),0):1;}
@@ -391,12 +398,15 @@ monter('#p-examens .arbre',D.examens);
 /* ----- Pharmacologie : trois colonnes alignées ----- */
 const PH=D.pharmaco.systemes||[];
 function refs(a,sys){return (a||[]).map(n=>'<a class="rf" data-ref="'+esc(sys)+'-'+n+'">['+n+']</a>').join('');}
+function chaine(f,sys){if(!Array.isArray(f))return f?'<p><b>Fonctionnement.</b> '+esc(f)+'</p>':'';
+  return '<p style="margin:6px 0 0"><b>Fonctionnement : chaîne d\'activation</b></p><ol class="ch">'+f.map(e=>e.retro?'<li class="rt">'+esc(e.retro)+refs(e.src,sys)+'</li>':
+    '<li><span class="de">'+esc(e.de)+' → </span><b>'+esc(e.produit)+'</b> <i>('+esc(e.lieu)+')</i><span class="ef">→ '+esc(e.effet)+refs(e.src,sys)+'</span></li>').join('')+'</ol>';}
 function vuePharmaco(id){const s=PH.find(x=>x.id===id)||PH[0];if(!s){$('#p-pharmaco').innerHTML='<p class="vide">Structure en préparation.</p>';return}
   let h='<div class="so">'+PH.map(x=>'<button type="button" data-go="pharmaco='+esc(x.id)+'"'+(x.id===s.id?' class="a"':'')+'>'+esc(x.titre)+(x.statut==='pilote'?' ✦':'')+'</button>').join('')+'</div>';
-  h+='<p class="ph-intro">'+esc(s.intro||'')+(s.statut==='squelette'?' Squelette : les colonnes 1 et 2 restent à rédiger sur sources suisses lues ; les classes et leurs fiches sont déjà rangées.':'')+'</p>';
+  h+='<p class="ph-intro">'+esc(s.intro||'')+(s.statut==='squelette'?' Squelette : la chaîne d\'activation est rédigée là où une source lue la porte ; éléments, fonction et altération restent à écrire ; les classes et leurs fiches sont déjà rangées.':'')+'</p>';
   h+='<div class="ph-tete"><div>Structure et fonctionnement</div><div>Altération et pathologies</div><div>Classes qui corrigent</div></div>';
   for(const l of s.lignes){const st=l.structure,al=l.alteration;
-    h+='<div class="lg"><div class="cel c1"><div class="lab">Structure et fonctionnement</div>'+(st?'<h4>'+esc(st.titre)+'</h4><ul>'+st.elements.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p><b>Fonction.</b> '+esc(st.fonction)+'</p><p><b>Fonctionnement.</b> '+esc(st.fonctionnement)+refs(st.src,s.id)+'</p>':'<h4>'+esc(l.groupe||'')+'</h4><p class="q2">À rédiger.</p>')+'</div>'+
+    h+='<div class="lg"><div class="cel c1"><div class="lab">Structure et fonctionnement</div>'+(st?(st.titre?'<h4>'+esc(st.titre)+'</h4>':'')+(st.elements?'<ul>'+st.elements.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'')+(st.fonction?'<p><b>Fonction.</b> '+esc(st.fonction)+'</p>':'')+chaine(st.fonctionnement,s.id)+(st.titre?'':'<p class="q2">Éléments et fonction à rédiger.</p>'):'<h4>'+esc(l.groupe||'')+'</h4><p class="q2">À rédiger.</p>')+'</div>'+
       '<div class="cel c2"><div class="lab">Altération et pathologies</div>'+(al?'<h4>'+esc(al.titre)+'</h4><ul>'+al.pathologies.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'+refs(al.src,s.id):'<p class="q2">À rédiger.</p>')+'</div>'+
       '<div class="cel c3"><div class="lab">Classes qui corrigent</div>'+l.classes.map(c=>'<button type="button" class="cl'+(D.fiches[c.fiche]?'':' vide')+'" data-go="fiche='+esc(c.fiche)+'"><b>'+esc(c.titre)+'</b>'+(c.exemple?'<small>'+esc(c.exemple)+'</small>':'')+(D.fiches[c.fiche]?'':'<small> · fiche en préparation</small>')+'</button>'+
         (c.mnemo?'<div class="mn">Mémo : '+esc(c.mnemo.texte)+refs(c.mnemo.src,s.id)+'</div>':'')).join('')+'</div></div>';}
@@ -468,6 +478,7 @@ def rendre(a):
 <section class="p" id="p-pharmaco"></section>
 </main>
 <div id="mr" class="mo" role="dialog" aria-modal="true" aria-label="Réflexe"><div class="mb"></div></div>
+<div id="mp" class="mo" role="dialog" aria-modal="true" aria-label="Rappel anatomo-physiologique"><div class="mb"></div></div>
 <div id="vue" role="dialog" aria-label="Cours"><div class="bar"><button id="vr" type="button" aria-label="Retour">←</button><b id="vt"></b><button id="vp" type="button" aria-label="Cours précédent">‹</button><button id="vs" type="button" aria-label="Cours suivant">›</button><a id="vn" target="_blank" rel="noopener" aria-label="Ouvrir dans un nouvel onglet">↗</a></div><iframe id="vf" title="Cours" src="about:blank"></iframe></div>
 <div id="fv" role="dialog" aria-label="Fiche"><div class="bar"><button id="fr" type="button" aria-label="Retour">←</button><b id="ft"></b></div><div class="corps" id="fc"></div></div>
 <script type="application/json" id="donnees">{json.dumps(donnees, ensure_ascii=False).replace("</", "<\\/")}</script>

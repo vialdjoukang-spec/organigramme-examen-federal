@@ -1,6 +1,6 @@
 {
  "format": "pharmaco-v2",
- "_lisez_moi": "Par système, des lignes alignées en trois colonnes : structure (anatomie et physiologie : éléments, fonction, fonctionnement) → altération (titre et pathologies) → classes (titre, fiche reliée, exemple, mnémotechnique sourcé ou rien). Les nombres de src renvoient à la liste sources du système. Squelette : structure et altération à null, classes reprises de l'ancien arbre (fiches conservées).",
+ "_lisez_moi": "Par système, des lignes alignées en trois colonnes : structure (anatomie et physiologie : éléments, fonction, fonctionnement) → altération (titre et pathologies) → classes (titre, fiche reliée, exemple, mnémotechnique sourcé ou rien). « fonctionnement » est la chaîne d'activation (ordre de Vial du 11.11.2026) : liste d'étapes {de, produit, lieu, effet, src} — déclencheur ou substrat, produit, lieu de production ou de conversion, effet sur la cible — terminée si elle est sourcée par {retro, src}. Une étape non sourcée n'est pas écrite. Les nombres de src renvoient à la liste sources du système. Squelette : seul le fonctionnement est rédigé ; éléments, fonction et altération restent à écrire ; classes reprises de l'ancien arbre.",
  "systemes": [
   {
    "id": "ph-cur-et-vaisseaux",
@@ -17,11 +17,83 @@
        "Récepteur AT1 de l'angiotensine II : muscle lisse vasculaire, surrénales, reins, cœur."
       ],
       "fonction": "L'angiotensine II contracte les vaisseaux, fait sécréter l'aldostérone et stimule la prolifération du muscle lisse.",
-      "fonctionnement": "L'ECA convertit l'angiotensine I en angiotensine II ; la même enzyme, la kininase II, dégrade la bradykinine. L'aldostérone fait réabsorber sodium et eau au tube contourné distal.",
+      "fonctionnement": [
+       {
+        "de": "Baisse de la pression de perfusion de l'artériole afférente, baisse du NaCl à la macula densa, stimulation sympathique β",
+        "produit": "rénine",
+        "lieu": "cellules juxtaglomérulaires du cortex rénal",
+        "effet": "clive l'angiotensinogène",
+        "src": [
+         25
+        ]
+       },
+       {
+        "de": "Angiotensinogène, α2-globuline synthétisée par le foie",
+        "produit": "angiotensine I",
+        "lieu": "plasma",
+        "effet": "décapeptide sans action biologique connue",
+        "src": [
+         25,
+         26
+        ]
+       },
+       {
+        "de": "Angiotensine I",
+        "produit": "angiotensine II",
+        "lieu": "enzyme de conversion des poumons et des autres tissus",
+        "effet": "octapeptide actif",
+        "src": [
+         25,
+         26
+        ]
+       },
+       {
+        "de": "Angiotensine II",
+        "produit": "récepteur AT1",
+        "lieu": "muscle lisse vasculaire, surrénales, reins, cœur",
+        "effet": "vasoconstriction, sécrétion d'aldostérone, réabsorption de Na⁺, libération de catécholamines, soif ; la pression artérielle monte",
+        "src": [
+         2,
+         26,
+         27
+        ]
+       },
+       {
+        "de": "Angiotensine II",
+        "produit": "aldostérone",
+        "lieu": "zone glomérulée de la corticosurrénale",
+        "effet": "fait réabsorber Na⁺ et sécréter K⁺ au tube collecteur cortical par le canal ENaC",
+        "src": [
+         25,
+         4,
+         28
+        ]
+       },
+       {
+        "de": "Bradykinine",
+        "produit": "dégradation",
+        "lieu": "enzyme de conversion, ou kininase II",
+        "effet": "la même enzyme inactive la bradykinine",
+        "src": [
+         2
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle négatif : l'angiotensine II freine la libération de rénine ; l'hypervolémie l'abaisse aussi.",
+        "src": [
+         26,
+         25
+        ]
+       }
+      ],
       "src": [
        1,
        2,
-       4
+       4,
+       25,
+       26,
+       27,
+       28
       ]
      },
      "alteration": {
@@ -97,11 +169,60 @@
        "Récepteurs α1 : vaisseaux."
       ],
       "fonction": "La stimulation β augmente la fréquence cardiaque et la contractilité du myocarde.",
-      "fonctionnement": "Fréquence et force accrues élèvent le travail cardiaque et la consommation d'oxygène.",
+      "fonctionnement": [
+       {
+        "de": "Angiotensine II",
+        "produit": "catécholamines",
+        "lieu": "terminaisons nerveuses présynaptiques et médullosurrénale",
+        "effet": "stimulent les récepteurs α et β",
+        "src": [
+         26
+        ]
+       },
+       {
+        "de": "Stimulation β1",
+        "produit": "fréquence et contractilité accrues",
+        "lieu": "myocarde",
+        "effet": "élèvent le travail cardiaque et la consommation d'oxygène",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Stimulation β",
+        "produit": "rénine",
+        "lieu": "cellules juxtaglomérulaires",
+        "effet": "active le système rénine-angiotensine-aldostérone",
+        "src": [
+         25,
+         7
+        ]
+       },
+       {
+        "de": "Stimulation α1",
+        "produit": "vasoconstriction",
+        "lieu": "muscle lisse des vaisseaux",
+        "effet": "élève la résistance périphérique",
+        "src": [
+         7,
+         21
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : les barorécepteurs règlent la décharge ; une chute de pression les stimule et relève la résistance périphérique.",
+        "src": [
+         29
+        ]
+       }
+      ],
       "src": [
        5,
        6,
-       7
+       7,
+       21,
+       25,
+       26,
+       29
       ]
      },
      "alteration": {
@@ -162,10 +283,49 @@
        "Cellules du myocarde ; nœud auriculo-ventriculaire."
       ],
       "fonction": "L'entrée transmembranaire de calcium règle le tonus artériolaire et le travail du myocarde.",
-      "fonctionnement": "Le tonus des artérioles fixe la résistance périphérique totale, la postcharge contre laquelle le cœur travaille.",
+      "fonctionnement": [
+       {
+        "de": "Ouverture des canaux calciques lents",
+        "produit": "entrée de Ca²⁺",
+        "lieu": "cellules du myocarde et muscle lisse vasculaire",
+        "effet": "déclenche la contraction",
+        "src": [
+         8,
+         9
+        ]
+       },
+       {
+        "de": "Ca²⁺ lié à la troponine C",
+        "produit": "force contractile",
+        "lieu": "protéines contractiles du myocarde",
+        "effet": "règle la force de contraction",
+        "src": [
+         23
+        ]
+       },
+       {
+        "de": "Tonus des artérioles",
+        "produit": "résistance périphérique totale",
+        "lieu": "artérioles",
+        "effet": "fixe la postcharge et le besoin en oxygène du myocarde",
+        "src": [
+         8
+        ]
+       },
+       {
+        "de": "Influx calcique",
+        "produit": "conduction auriculo-ventriculaire",
+        "lieu": "nœud AV",
+        "effet": "règle la transmission de l'excitation aux ventricules",
+        "src": [
+         9
+        ]
+       }
+      ],
       "src": [
        8,
-       9
+       9,
+       23
       ]
      },
      "alteration": {
@@ -217,11 +377,58 @@
        "Tube contourné distal : échange sodium-potassium dépendant de l'aldostérone."
       ],
       "fonction": "Le néphron réabsorbe le sodium, et l'eau le suit.",
-      "fonctionnement": "Le sodium et l'eau délivrés en excès au tube collecteur cortical y augmentent la sécrétion de potassium et d'ions H⁺.",
+      "fonctionnement": [
+       {
+        "de": "Filtrat glomérulaire",
+        "produit": "réabsorption de Na⁺, K⁺ et 2 Cl⁻",
+        "lieu": "anse de Henle, cotransporteur luminal",
+        "effet": "réabsorbe la plus grande part du sel délivré",
+        "src": [
+         10
+        ]
+       },
+       {
+        "de": "NaCl restant",
+        "produit": "réabsorption de Na⁺ et Cl⁻",
+        "lieu": "tubule distal, segment cortical de dilution",
+        "effet": "réabsorbe NaCl et favorise la réabsorption de Ca²⁺",
+        "src": [
+         11
+        ]
+       },
+       {
+        "de": "Aldostérone",
+        "produit": "échange Na⁺/K⁺",
+        "lieu": "tubule distal et tube collecteur cortical (ENaC)",
+        "effet": "réabsorbe Na⁺, l'eau suit, sécrète K⁺",
+        "src": [
+         4,
+         28
+        ]
+       },
+       {
+        "de": "Débit accru de Na⁺ et d'eau au tube collecteur cortical",
+        "produit": "sécrétion de K⁺ et H⁺",
+        "lieu": "tube collecteur cortical",
+        "effet": "augmente leur excrétion urinaire",
+        "src": [
+         11
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : la baisse du NaCl à la macula densa et de la volémie libère la rénine, qui restaure la réabsorption de sodium.",
+        "src": [
+         25,
+         11
+        ]
+       }
+      ],
       "src": [
        4,
        10,
-       11
+       11,
+       25,
+       28
       ]
      },
      "alteration": {
@@ -286,8 +493,56 @@
        "Nœud sinusal : courant pacemaker If."
       ],
       "fonction": "Le tonus vasculaire règle précharge et postcharge ; la fréquence sinusale règle le besoin en oxygène.",
-      "fonctionnement": "Le GMP cyclique, comme le facteur relaxant de l'endothélium, relâche le muscle lisse. Le courant If commande la dépolarisation diastolique spontanée du nœud sinusal.",
+      "fonctionnement": [
+       {
+        "de": "Endothélium",
+        "produit": "facteur de relaxation (EDRF)",
+        "lieu": "cellules endothéliales",
+        "effet": "élève le GMPc et relâche le muscle lisse vasculaire",
+        "src": [
+         12
+        ]
+       },
+       {
+        "de": "Tonus veineux",
+        "produit": "retour veineux",
+        "lieu": "veines de capacitance",
+        "effet": "fixe les pressions de remplissage, donc la précharge",
+        "src": [
+         12
+        ]
+       },
+       {
+        "de": "Courant pacemaker If",
+        "produit": "dépolarisation diastolique spontanée",
+        "lieu": "nœud sinusal",
+        "effet": "fixe la fréquence cardiaque",
+        "src": [
+         13
+        ]
+       },
+       {
+        "de": "Fréquence et contractilité",
+        "produit": "consommation d'oxygène",
+        "lieu": "myocarde",
+        "effet": "définit le besoin à couvrir par le débit coronaire",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Tonus des artérioles",
+        "produit": "postcharge",
+        "lieu": "artérioles systémiques et coronaires",
+        "effet": "règle le travail du cœur et l'apport coronaire",
+        "src": [
+         8
+        ]
+       }
+      ],
       "src": [
+       6,
+       8,
        12,
        13
       ]
@@ -333,8 +588,49 @@
        "Fibre myocardique : canaux sodiques, potassiques et calciques."
       ],
       "fonction": "Le potentiel d'action naît au nœud sinusal et franchit le nœud auriculo-ventriculaire.",
-      "fonctionnement": "La phase 3 du potentiel d'action, la repolarisation, dépend d'un courant potassique. Le nœud auriculo-ventriculaire fait partie du circuit des tachycardies réentrantes nodales.",
+      "fonctionnement": [
+       {
+        "de": "Courant pacemaker If",
+        "produit": "dépolarisation diastolique spontanée",
+        "lieu": "nœud sinusal",
+        "effet": "fixe le rythme",
+        "src": [
+         13
+        ]
+       },
+       {
+        "de": "Entrée rapide de Na⁺",
+        "produit": "pente ascendante du potentiel d'action",
+        "lieu": "fibres du myocarde et système de conduction",
+        "effet": "propage l'excitation dans les ventricules",
+        "src": [
+         14
+        ]
+       },
+       {
+        "de": "Courant potassique",
+        "produit": "repolarisation (phase 3)",
+        "lieu": "fibres du myocarde",
+        "effet": "fixe la durée du potentiel d'action et la période réfractaire",
+        "src": [
+         15
+        ]
+       },
+       {
+        "de": "Influx calcique ; adénosine",
+        "produit": "conduction auriculo-ventriculaire",
+        "lieu": "nœud AV",
+        "effet": "le calcium la porte, l'adénosine la ralentit",
+        "src": [
+         9,
+         16
+        ]
+       }
+      ],
       "src": [
+       9,
+       13,
+       14,
        15,
        16
       ]
@@ -396,7 +692,69 @@
        "Récepteur nucléaire PPARα."
       ],
       "fonction": "Le foie synthétise le cholestérol et retire les LDL du plasma par leur récepteur ; l'intestin absorbe le cholestérol.",
-      "fonctionnement": "Les LDL naissent des VLDL et sont dégradées surtout par le récepteur des LDL ; la PCSK9 détruit ce récepteur.",
+      "fonctionnement": [
+       {
+        "de": "HMG-CoA",
+        "produit": "mévalonate puis cholestérol",
+        "lieu": "foie, HMG-CoA réductase",
+        "effet": "fournit le cholestérol hépatique",
+        "src": [
+         17
+        ]
+       },
+       {
+        "de": "Triglycérides et cholestérol",
+        "produit": "VLDL",
+        "lieu": "foie",
+        "effet": "les délivre au plasma vers les tissus",
+        "src": [
+         17
+        ]
+       },
+       {
+        "de": "VLDL",
+        "produit": "LDL",
+        "lieu": "plasma",
+        "effet": "captées par le récepteur LDL du foie",
+        "src": [
+         17
+        ]
+       },
+       {
+        "de": "PCSK9 circulante",
+        "produit": "dégradation du récepteur LDL",
+        "lieu": "surface des hépatocytes",
+        "effet": "réduit la clairance des LDL",
+        "src": [
+         19
+        ]
+       },
+       {
+        "de": "Cholestérol alimentaire et biliaire",
+        "produit": "absorption",
+        "lieu": "intestin grêle, protéine NPC1L1",
+        "effet": "transporte le cholestérol vers le foie",
+        "src": [
+         18
+        ]
+       },
+       {
+        "de": "Particules riches en triglycérides",
+        "produit": "lipolyse",
+        "lieu": "lipoprotéine lipase, réglée par PPARα",
+        "effet": "élimine ces particules",
+        "src": [
+         20
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : moins de cholestérol dans le foie augmente les récepteurs LDL et la clairance du cholestérol sanguin.",
+        "src": [
+         17,
+         18
+        ]
+       }
+      ],
       "src": [
        17,
        18,
@@ -476,11 +834,64 @@
        "Troponine C ; canaux potassiques ATP-dépendants du muscle lisse."
       ],
       "fonction": "Le tonus artériel maintient la pression ; la contractilité maintient le débit.",
-      "fonctionnement": "La stimulation α contracte les vaisseaux ; la stimulation β1 augmente la contractilité et le volume systolique ; le calcium lié à la troponine C déclenche la contraction.",
+      "fonctionnement": [
+       {
+        "de": "Chute de pression",
+        "produit": "stimulation",
+        "lieu": "barorécepteurs",
+        "effet": "relève la résistance périphérique",
+        "src": [
+         29
+        ]
+       },
+       {
+        "de": "Noradrénaline sur les récepteurs α",
+        "produit": "vasoconstriction",
+        "lieu": "artérioles",
+        "effet": "élève la pression ; réduit la perfusion du rein, du foie, de la peau et des muscles",
+        "src": [
+         21
+        ]
+       },
+       {
+        "de": "Stimulation β1",
+        "produit": "inotropie",
+        "lieu": "myocarde",
+        "effet": "augmente le volume systolique",
+        "src": [
+         22
+        ]
+       },
+       {
+        "de": "Ca²⁺ lié à la troponine C",
+        "produit": "force contractile",
+        "lieu": "myocarde",
+        "effet": "règle la contraction",
+        "src": [
+         23
+        ]
+       },
+       {
+        "de": "Ouverture des canaux K⁺ sensibles à l'ATP",
+        "produit": "relâchement",
+        "lieu": "muscle lisse vasculaire",
+        "effet": "abaisse la résistance systémique et coronaire",
+        "src": [
+         23
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : les barorécepteurs perçoivent la pression ; sa chute les stimule et relève la résistance périphérique.",
+        "src": [
+         29
+        ]
+       }
+      ],
       "src": [
        21,
        22,
-       23
+       23,
+       29
       ]
      },
      "alteration": {
@@ -541,7 +952,12 @@
     "[21] AIPS Swissmedic. Noradrenalin Sintetica (noradrénaline), n° 60955004, octobre 2020. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/86a54866d68a4dcc8e99bb5f677e4158-fr.html (lu le 11.11.2026)",
     "[22] AIPS Swissmedic. Dobutrex (dobutamine), n° 45687, juin 2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/6fa17e08c613402486df42ccbe3f42d2-fr.html (lu le 11.11.2026)",
     "[23] AIPS Swissmedic. Simdax (lévosimendan), n° 62463, décembre 2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ec5306fff04e4564847ed9278f906c5d-fr.html (lu le 11.11.2026)",
-    "[24] Organisation mondiale de la santé. The use of stems in the selection of International Nonproprietary Names (INN) for pharmaceutical substances. WHO/EMP/RHT/TSN/2018.1. Genève, 2018. https://cdn.who.int/media/docs/default-source/international-nonproprietary-names-(inn)/stembook-2018.pdf (lu le 11.11.2026)"
+    "[24] Organisation mondiale de la santé. The use of stems in the selection of International Nonproprietary Names (INN) for pharmaceutical substances. WHO/EMP/RHT/TSN/2018.1. Genève, 2018. https://cdn.who.int/media/docs/default-source/international-nonproprietary-names-(inn)/stembook-2018.pdf (lu le 11.11.2026)",
+    "[25] Eurofins Biomnis. Précis de biopathologie : Rénine. 2015. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/RENINE.pdf (lu le 11.11.2026)",
+    "[26] AIPS Swissmedic. Rasilez (aliskirène), n° 58050, document refdata du 23.02.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a55ae0bebd3045ae95b4bd2c84f13b7f-fr.html (lu le 11.11.2026)",
+    "[27] Spanevello C, Banava E, Gachoud D, Berney A, Tzartzas K, Maccaferri GE. Polydipsie psychogène : une entité somato-psychiatrique (encore) méconnue. Rev Med Suisse 2020;16:318-21. https://api.unil.ch/iris/server/api/core/bitstreams/301f6b70-c119-4eef-9353-4b8992992faf/content (lu le 11.11.2026)",
+    "[28] Revue Médicale Suisse. Hyperkaliémie. Rev Med Suisse 2007;3(101). https://www.revmed.ch/revue-medicale-suisse/2007/revue-medicale-suisse-101/hyperkaliemie (lu le 11.11.2026)",
+    "[29] AIPS Swissmedic. Concor 5 plus (bisoprolol-hydrochlorothiazide), n° 52034, document refdata du 23.05.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/8423bece91ab4f84ba19903859b2c7ed-fr.html (lu le 11.11.2026)"
    ]
   },
   {
@@ -552,7 +968,49 @@
    "lignes": [
     {
      "id": "ph-sang-et-hemostase-antiagregants-plaquettaires",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Cyclo-oxygénase plaquettaire",
+        "produit": "thromboxane A₂",
+        "lieu": "thrombocytes",
+        "effet": "active l'agrégation",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "ADP sur le récepteur P2Y12",
+        "produit": "activation du complexe GPIIb/IIIa",
+        "lieu": "membrane plaquettaire",
+        "effet": "déclenche l'agrégation",
+        "src": [
+         2
+        ]
+       },
+       {
+        "de": "Cyclo-oxygénase endothéliale",
+        "produit": "prostacycline",
+        "lieu": "endothélium",
+        "effet": "réduit l'agrégation",
+        "src": [
+         1,
+         3
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle positif : l'ADP libérée amplifie l'activation par les autres agonistes.",
+        "src": [
+         2
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2,
+       3
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -568,7 +1026,52 @@
     },
     {
      "id": "ph-sang-et-hemostase-anticoagulants",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Vitamine K",
+        "produit": "facteurs II, VII, IX, X ; protéines C et S",
+        "lieu": "foie",
+        "effet": "rend ces facteurs fonctionnels",
+        "src": [
+         4,
+         5
+        ]
+       },
+       {
+        "de": "Facteur Xa et prothrombinase",
+        "produit": "thrombine",
+        "lieu": "plasma et caillot",
+        "effet": "active aussi les plaquettes",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Thrombine sur le fibrinogène (foie)",
+        "produit": "fibrine",
+        "lieu": "plasma",
+        "effet": "forme le caillot",
+        "src": [
+         7
+        ]
+       },
+       {
+        "retro": "Frein : l'antithrombine inhibe la coagulation ; les protéines C et S l'inhibent aussi.",
+        "src": [
+         8,
+         5
+        ]
+       }
+      ],
+      "src": [
+       4,
+       5,
+       6,
+       7,
+       8
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -592,7 +1095,39 @@
     },
     {
      "id": "ph-sang-et-hemostase-fibrinolytiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Activateurs t-PA et pro-urokinase",
+        "produit": "plasmine",
+        "lieu": "plasminogène (foie) fixé à la fibrine",
+        "effet": "active la fibrinolyse",
+        "src": [
+         9,
+         10
+        ]
+       },
+       {
+        "de": "Plasmine",
+        "produit": "produits de dégradation solubles",
+        "lieu": "caillot",
+        "effet": "lyse la fibrine insoluble",
+        "src": [
+         9
+        ]
+       },
+       {
+        "retro": "Équilibre : la fibrinolyse limite l'excès de fibrine ; trop faible, elle favorise la thrombose ; excessive, l'hémorragie.",
+        "src": [
+         9
+        ]
+       }
+      ],
+      "src": [
+       9,
+       10
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -604,7 +1139,48 @@
     },
     {
      "id": "ph-sang-et-hemostase-antianemiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Hypoxie",
+        "produit": "érythropoïétine",
+        "lieu": "rein",
+        "effet": "fait proliférer et mûrir les précurseurs érythroïdes de la moelle",
+        "src": [
+         11
+        ]
+       },
+       {
+        "de": "Fer alimentaire",
+        "produit": "absorption",
+        "lieu": "duodénum, puis ferroportine vers le sang porte",
+        "effet": "apporte le fer",
+        "src": [
+         12
+        ]
+       },
+       {
+        "de": "Fer circulant",
+        "produit": "transferrine et ferritine",
+        "lieu": "plasma ; foie, moelle, rate",
+        "effet": "transporte et stocke le fer pour l'hémoglobine",
+        "src": [
+         13
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : l'hepcidine du foie réduit l'entrée du fer dans l'entérocyte et dégrade la ferroportine.",
+        "src": [
+         12
+        ]
+       }
+      ],
+      "src": [
+       11,
+       12,
+       13
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -624,7 +1200,32 @@
     },
     {
      "id": "ph-sang-et-hemostase-hemostatiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Vitamine K",
+        "produit": "facteurs II, VII, IX, X",
+        "lieu": "foie",
+        "effet": "permet leur synthèse fonctionnelle",
+        "src": [
+         5
+        ]
+       },
+       {
+        "de": "Plasminogène",
+        "produit": "plasmine",
+        "lieu": "caillot",
+        "effet": "scinde la fibrine",
+        "src": [
+         14
+        ]
+       }
+      ],
+      "src": [
+       5,
+       14
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -639,7 +1240,22 @@
      "groupe": "Hémostatiques"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Aspirine Cardio 100 (acide acétylsalicylique), n° 51795, document refdata du 14.04.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/5c0d9caab7df4b4bad5c584cf5bb5fc5-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Plavix (clopidogrel), n° 70367, document refdata du 04.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ee6256bf749044049cf18c77db9e0cbe-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Nitroglycerin Sintetica (nitroglycérine), n° 55459, document refdata du 27.03.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/eafd69ba31ef42cfa7f242c538b24a02-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Marcoumar (phenprocoumone), n° 19395, document refdata du 08.08.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/41915e928d6649a58ece4a8d4263dbf6-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Konakion MM paediatric (phytoménadione), n° 48112021, document refdata du 25.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/de110c1e3fd54b0e9712feae6dd63c5c-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Eliquis (apixaban), n° 61549, document refdata du 04.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/cbe535f2c2af40c59f666a8110b1657c-fr.html (lu le 11.11.2026)",
+    "[7] Eurofins Biomnis. Précis de biopathologie : Fibrinogène. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/FIBRINOGENE.pdf (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Clexane/- multi (énoxaparine), n° 49456, document refdata du 04.06.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3b42abe606a74cccbcbd45f823b104f3-fr.html (lu le 11.11.2026)",
+    "[9] Eurofins Biomnis. Précis de biopathologie : Plasminogène. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/PLASMINOGENE.pdf (lu le 11.11.2026)",
+    "[10] AIPS Swissmedic. Actilyse Cathflo 2 mg (altéplase), n° 58665, document refdata du 16.10.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/87e70c0389184e6f95132ab40c485449-fr.html (lu le 11.11.2026)",
+    "[11] AIPS Swissmedic. Eprex (époétine alfa), n° 49078, document refdata du 27.01.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/b444a8e7b0f04d899c2e608818fa8051-fr.html (lu le 11.11.2026)",
+    "[12] Onkopedia : Eisenmangel und Eisenmangelanämie (DGHO, OeGHO, SGH-SSH, SGMO). 04.2025. https://www.onkopedia.com/de/onkopedia/guidelines/eisenmangel-und-eisenmangelanaemie/@@guideline/html/index.html (lu le 11.11.2026)",
+    "[13] AIPS Swissmedic. Ferinject (carboxymaltose ferrique), n° 57851, document refdata du 04.09.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/efc261d94e6041d5ad335324c3869bf3-fr.html (lu le 11.11.2026)",
+    "[14] AIPS Swissmedic. Cyklokapron (acide tranexamique), n° 33741, document refdata du 05.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/d06bd8fe476d406f82cf9dbb9dc31ef2-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-appareil-respiratoire",
@@ -649,7 +1265,42 @@
    "lignes": [
     {
      "id": "ph-appareil-respiratoire-bronchodilatateurs",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Acétylcholine sur les récepteurs M3",
+        "produit": "bronchoconstriction",
+        "lieu": "muscle lisse bronchique",
+        "effet": "rétrécit la bronche",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Stimulation β2",
+        "produit": "bronchodilatation",
+        "lieu": "muscle lisse bronchique",
+        "effet": "ouvre la bronche",
+        "src": [
+         2
+        ]
+       },
+       {
+        "de": "Stimulation β",
+        "produit": "moins de médiateurs",
+        "lieu": "mastocytes pulmonaires",
+        "effet": "réduit la libération d'histamine, de leucotriènes et de prostaglandine D2",
+        "src": [
+         3
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2,
+       3
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -669,7 +1320,44 @@
     },
     {
      "id": "ph-appareil-respiratoire-anti-inflammatoires",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Allergène fixé aux IgE des mastocytes",
+        "produit": "histamine et tryptase",
+        "lieu": "mastocytes et basophiles",
+        "effet": "déclenchent l'hypersensibilité immédiate",
+        "src": [
+         4,
+         5
+        ]
+       },
+       {
+        "de": "Mastocytes et éosinophiles",
+        "produit": "cystéinyl-leucotriènes",
+        "lieu": "voies respiratoires, récepteur CysLT1",
+        "effet": "bronchoconstriction, mucus, perméabilité vasculaire",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Interleukine 5",
+        "produit": "éosinophiles",
+        "lieu": "récepteur de l'IL-5 des éosinophiles",
+        "effet": "assure leur croissance, recrutement, activation et survie",
+        "src": [
+         7
+        ]
+       }
+      ],
+      "src": [
+       4,
+       5,
+       6,
+       7
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -689,7 +1377,34 @@
     },
     {
      "id": "ph-appareil-respiratoire-toux-rhinite-et-oxygene",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Allergène",
+        "produit": "histamine",
+        "lieu": "mastocytes et basophiles",
+        "effet": "agit sur les récepteurs H1 et H2 des voies respiratoires",
+        "src": [
+         4,
+         8
+        ]
+       },
+       {
+        "de": "Mucoprotéines",
+        "produit": "ponts disulfures",
+        "lieu": "mucus bronchique",
+        "effet": "structurent le mucus ; leur réduction le fluidifie",
+        "src": [
+         9
+        ]
+       }
+      ],
+      "src": [
+       4,
+       8,
+       9
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -712,7 +1427,17 @@
      "groupe": "Toux, rhinite et oxygène"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Spiriva Respimat (réutilisable) (tiotropium), n° 67396, document refdata du 12.09.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a5dff41209c44847983bbfa4e3bd2d9c-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Ventolin Nébuliseur-doseur/Diskus/Solution (salbutamol), n° 37397, document refdata du 28.04.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ba90f1e8b79344d9b0f8757a843ad94d-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Serevent (salmétérol), n° 53021, document refdata du 30.06.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/830b6d0dc22642d8b65f5af758328038-fr.html (lu le 11.11.2026)",
+    "[4] Eurofins Biomnis. Précis de biopathologie : Histamine. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/HISTAMINE.pdf (lu le 11.11.2026)",
+    "[5] Eurofins Biomnis. Précis de biopathologie : Tryptase. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/TRYPTASE.pdf (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Singulair (montélukast), n° 54390, document refdata du 14.08.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/513670bc174b4b2ea8dc5d4a20dd46a1-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Nucala (mépolizumab), n° 67350, document refdata du 02.03.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/468914d23be7496ab71cfc0641391a4b-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Cetirizin-Mepha 10 (cétirizine), n° 65119, document refdata du 18.09.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a20934bcb0334d06a0de327c7583cf38-fr.html (lu le 11.11.2026)",
+    "[9] AIPS Swissmedic. Fluimucil toux grasse - Granulé/Comprimés effervescents/Comprimés linguaux (acétylcystéine), n° 55604, document refdata du 04.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/31e8770ea662462f91a7bda0045ff3ce-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-appareil-digestif",
@@ -722,7 +1447,38 @@
    "lignes": [
     {
      "id": "ph-appareil-digestif-acidite-gastrique",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Voie céphalique (vagale) et aliments dans l'estomac",
+        "produit": "gastrine",
+        "lieu": "cellules G de l'antre et du duodénum",
+        "effet": "stimule les cellules pariétales",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Acétylcholine, histamine, gastrine",
+        "produit": "H⁺ (acide chlorhydrique)",
+        "lieu": "cellule pariétale, H⁺/K⁺-ATPase",
+        "effet": "acidifie l'estomac",
+        "src": [
+         2
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : sous pH 3, la somatostatine des cellules D antrales freine la gastrine.",
+        "src": [
+         1
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -742,7 +1498,41 @@
     },
     {
      "id": "ph-appareil-digestif-nausees-et-vomissements",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Chimiothérapie ou radiothérapie",
+        "produit": "sérotonine (5-HT)",
+        "lieu": "intestin grêle",
+        "effet": "active les récepteurs 5-HT3 des afférences vagales",
+        "src": [
+         3
+        ]
+       },
+       {
+        "de": "5-HT",
+        "produit": "réflexe nauséeux central",
+        "lieu": "area postrema, plancher du 4e ventricule",
+        "effet": "déclenche le vomissement",
+        "src": [
+         3
+        ]
+       },
+       {
+        "de": "Dopamine",
+        "produit": "stimulation",
+        "lieu": "zone gâchette des chémorécepteurs du tronc cérébral",
+        "effet": "active le centre des vomissements",
+        "src": [
+         4
+        ]
+       }
+      ],
+      "src": [
+       3,
+       4
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -762,7 +1552,42 @@
     },
     {
      "id": "ph-appareil-digestif-transit",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Acétylcholine et prostaglandines",
+        "produit": "péristaltisme propulsif",
+        "lieu": "paroi intestinale",
+        "effet": "fait avancer le contenu ; les récepteurs µ opioïdes freinent leur libération",
+        "src": [
+         5
+        ]
+       },
+       {
+        "de": "Volume des selles",
+        "produit": "motilité colique",
+        "lieu": "côlon, voies neuromusculaires",
+        "effet": "déclenche la défécation",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Acétylcholine sur les récepteurs muscariniques",
+        "produit": "contraction",
+        "lieu": "muscle lisse digestif, biliaire et urinaire",
+        "effet": "porte le tonus spasmodique",
+        "src": [
+         7
+        ]
+       }
+      ],
+      "src": [
+       5,
+       6,
+       7
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -782,7 +1607,32 @@
     },
     {
      "id": "ph-appareil-digestif-maladies-inflammatoires-de-l-intestin",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Inflammation chronique de la muqueuse",
+        "produit": "prostaglandine E2, thromboxane, leucotriènes",
+        "lieu": "muqueuse intestinale",
+        "effet": "y atteignent des concentrations excessives",
+        "src": [
+         8
+        ]
+       },
+       {
+        "de": "Activation immunitaire",
+        "produit": "TNFα",
+        "lieu": "sérum et selles",
+        "effet": "élevé dans la maladie de Crohn",
+        "src": [
+         9
+        ]
+       }
+      ],
+      "src": [
+       8,
+       9
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -802,7 +1652,32 @@
     },
     {
      "id": "ph-appareil-digestif-foie-et-pancreas",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Pancréas exocrine",
+        "produit": "lipase, amylase, protéases",
+        "lieu": "intestin",
+        "effet": "digèrent graisses, glucides et protéines du bol alimentaire",
+        "src": [
+         10
+        ]
+       },
+       {
+        "de": "Cholestérol et acides biliaires",
+        "produit": "bile",
+        "lieu": "foie",
+        "effet": "le cholestérol sécrété dans la bile peut la sursaturer",
+        "src": [
+         11
+        ]
+       }
+      ],
+      "src": [
+       10,
+       11
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -821,7 +1696,19 @@
      "groupe": "Foie et pancréas"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] Eurofins Biomnis. Précis de biopathologie : Gastrine. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/GASTRINE.pdf (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Pantozol 20/40/- i.v. (pantoprazole), n° 52710, document refdata du 30.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/f2deedcff1104532a3aa1c99232c3658-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Zofran (ondansétron), n° 50709, document refdata du 20.10.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/5c1daa321dc34a8a9235f87109f83d9c-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Paspertin (métoclopramide), n° 32733, document refdata du 01.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/16af4d992d9a4ce1b09aa46296ef6cdb-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Imodium Duo (lopéramide-siméthicone), n° 54880, document refdata du 24.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/8a6ced89bf9746998a2d8866eeb63bfb-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. MOVICOL Prêt à l’emploi (macrogol 3350), n° 66002, document refdata du 20.07.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/39a6950801dc470aa462b5dbe6f56ab7-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Buscopan Inject (butylscopolamine), n° 17352, document refdata du 21.04.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/f5abff16087541eca34e3497fd7e8e5b-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Asacol Comprimés pelliculés (mésalazine), n° 46062, document refdata du 22.08.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/aa2d59f7ce52458e91ceaf09175997c2-fr.html (lu le 11.11.2026)",
+    "[9] AIPS Swissmedic. Remicade (infliximab), n° 68736, document refdata du 22.11.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/1edd125176f9460c9cbc55fa1e2f3e8f-fr.html (lu le 11.11.2026)",
+    "[10] AIPS Swissmedic. Creon Micro/Creon 10'000 / 20'000 / 25'000 / 35'000 (pancréatine), n° 38219, document refdata du 17.04.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2153eb456c3a4360a9bf76b12782255e-fr.html (lu le 11.11.2026)",
+    "[11] AIPS Swissmedic. Ursofalk 500 mg Comprimés pelliculés (acide ursodésoxycholique), n° 60812, document refdata du 29.04.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/67de70e94e4145c28dac5a5fe44f768b-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-rein-eau-et-electrolytes",
@@ -851,7 +1738,41 @@
     },
     {
      "id": "ph-rein-eau-et-electrolytes-corrections-ioniques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Potassium",
+        "produit": "cation intracellulaire (≈ 150 mmol/l)",
+        "lieu": "liquide intracellulaire",
+        "effet": "règle le volume cellulaire et l'excitabilité neuromusculaire",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Équilibre acide-base",
+        "produit": "répartition du K⁺",
+        "lieu": "membranes cellulaires",
+        "effet": "déplace le K⁺ entre cellules et plasma (3,5 à 5,0 mmol/l)",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Aldostérone",
+        "produit": "sécrétion de K⁺",
+        "lieu": "tube collecteur cortical",
+        "effet": "élimine le K⁺ dans l'urine",
+        "src": [
+         2
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -879,7 +1800,31 @@
     },
     {
      "id": "ph-rein-eau-et-electrolytes-nephroprotection",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Glucose et Na⁺ filtrés",
+        "produit": "réabsorption",
+        "lieu": "tubule proximal, SGLT2",
+        "effet": "les rend au sang",
+        "src": [
+         3
+        ]
+       },
+       {
+        "de": "Na⁺ délivré au tubule distal",
+        "produit": "feed-back tubulo-glomérulaire",
+        "lieu": "appareil juxtaglomérulaire",
+        "effet": "règle la pression intraglomérulaire",
+        "src": [
+         3
+        ]
+       }
+      ],
+      "src": [
+       3
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -894,7 +1839,11 @@
      "groupe": "Néphroprotection"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Kalium chloratum 15% Sintetica (chlorure de potassium), n° 51434, document refdata du 10.10.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ff7a5bc222b743099ba657353509f6cd-fr.html (lu le 11.11.2026)",
+    "[2] Revue Médicale Suisse. Hyperkaliémie. Rev Med Suisse 2007;3(101). https://www.revmed.ch/revue-medicale-suisse/2007/revue-medicale-suisse-101/hyperkaliemie (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Forxiga (dapagliflozine), n° 65176, document refdata du 17.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/180f621a7ec64025aa2217331002b0a6-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-endocrinologie-et-metabolisme",
@@ -904,7 +1853,60 @@
    "lignes": [
     {
      "id": "ph-endocrinologie-et-metabolisme-diabete",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Repas",
+        "produit": "GLP-1 et GIP (incrétines)",
+        "lieu": "intestin",
+        "effet": "stimulent l'insuline si la glycémie est normale ou haute",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Glycémie et incrétines",
+        "produit": "insuline",
+        "lieu": "cellules β des îlots de Langerhans",
+        "effet": "fait capter le glucose, stocker le glycogène, freine la néoglucogenèse et la lipolyse",
+        "src": [
+         2
+        ]
+       },
+       {
+        "de": "Hypoglycémie",
+        "produit": "glucagon",
+        "lieu": "cellules α des îlots",
+        "effet": "libère le glucose du glycogène hépatique",
+        "src": [
+         3,
+         4
+        ]
+       },
+       {
+        "de": "GLP-1 et GIP",
+        "produit": "inactivation",
+        "lieu": "enzyme DPP-4",
+        "effet": "les hydrolyse rapidement",
+        "src": [
+         1
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : l'hyperglycémie et l'insuline freinent le glucagon ; le GLP-1 le freine aussi.",
+        "src": [
+         3,
+         1
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2,
+       3,
+       4
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -944,7 +1946,48 @@
     },
     {
      "id": "ph-endocrinologie-et-metabolisme-thyroide",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "TRH hypothalamique",
+        "produit": "TSH",
+        "lieu": "antéhypophyse",
+        "effet": "règle la synthèse et la libération des hormones thyroïdiennes",
+        "src": [
+         5
+        ]
+       },
+       {
+        "de": "Iodure capté par le symporteur NIS",
+        "produit": "T4 et T3",
+        "lieu": "thyroïde, peroxydase et thyroglobuline",
+        "effet": "organifie l'iode en hormones",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "T4 et T3",
+        "produit": "production énergétique",
+        "lieu": "noyaux cellulaires et mitochondries",
+        "effet": "élèvent le métabolisme et la thermogenèse",
+        "src": [
+         7
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle négatif : T4 et T3 freinent la TSH.",
+        "src": [
+         5
+        ]
+       }
+      ],
+      "src": [
+       5,
+       6,
+       7
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -960,7 +2003,52 @@
     },
     {
      "id": "ph-endocrinologie-et-metabolisme-surrenale",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Axe hypothalamo-hypophysaire",
+        "produit": "ACTH",
+        "lieu": "hypophyse",
+        "effet": "maintient la fonction de la corticosurrénale",
+        "src": [
+         8,
+         9
+        ]
+       },
+       {
+        "de": "ACTH",
+        "produit": "cortisol",
+        "lieu": "corticosurrénale",
+        "effet": "adapte l'organisme au stress ; effet diabétogène et catabolique",
+        "src": [
+         9
+        ]
+       },
+       {
+        "de": "Angiotensine II",
+        "produit": "aldostérone",
+        "lieu": "zone glomérulée",
+        "effet": "rétention sodée et excrétion de potassium",
+        "src": [
+         10,
+         11
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle négatif : les glucocorticoïdes freinent l'ACTH ; au-delà de 2 semaines, la surrénale s'atrophie.",
+        "src": [
+         8,
+         9
+        ]
+       }
+      ],
+      "src": [
+       8,
+       9,
+       10,
+       11
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -976,7 +2064,57 @@
     },
     {
      "id": "ph-endocrinologie-et-metabolisme-os-et-calcium",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Hypocalcémie, hyperphosphatémie",
+        "produit": "PTH",
+        "lieu": "parathyroïdes",
+        "effet": "réabsorbe Ca²⁺ au rein distal, rejette le phosphate, mobilise le calcium osseux",
+        "src": [
+         12
+        ]
+       },
+       {
+        "de": "PTH",
+        "produit": "calcitriol",
+        "lieu": "tubule proximal, 1α-hydroxylase",
+        "effet": "augmente l'absorption digestive de calcium",
+        "src": [
+         12
+        ]
+       },
+       {
+        "de": "RANKL",
+        "produit": "ostéoclastes",
+        "lieu": "os",
+        "effet": "assure leur formation, fonction et survie ; résorbent l'os",
+        "src": [
+         13
+        ]
+       },
+       {
+        "de": "Résorption osseuse",
+        "produit": "formation osseuse couplée",
+        "lieu": "os",
+        "effet": "l'une entraîne l'autre",
+        "src": [
+         14
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : l'hypercalcémie et le calcitriol freinent la PTH.",
+        "src": [
+         12
+        ]
+       }
+      ],
+      "src": [
+       12,
+       13,
+       14
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -996,7 +2134,24 @@
     },
     {
      "id": "ph-endocrinologie-et-metabolisme-obesite",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Repas",
+        "produit": "GLP-1",
+        "lieu": "intestin ; récepteurs du pancréas et du cerveau",
+        "effet": "règle le glucose et l'appétit",
+        "src": [
+         15,
+         1
+        ]
+       }
+      ],
+      "src": [
+       1,
+       15
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1008,7 +2163,28 @@
     },
     {
      "id": "ph-endocrinologie-et-metabolisme-goutte",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Purines",
+        "produit": "hypoxanthine → xanthine → acide urique",
+        "lieu": "xanthine oxydase",
+        "effet": "produit l'urate",
+        "src": [
+         16
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : l'hypoxanthine et la xanthine réutilisées freinent la synthèse purique.",
+        "src": [
+         16
+        ]
+       }
+      ],
+      "src": [
+       16
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1023,7 +2199,24 @@
      "groupe": "Goutte"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Januvia (sitagliptine), n° 57863, document refdata du 06.05.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/8e09b0031c2f47e0819a1cdf60f0ccd7-fr.html (lu le 11.11.2026)",
+    "[2] Eurofins Biomnis. Précis de biopathologie : Insuline. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/INSULINE.pdf (lu le 11.11.2026)",
+    "[3] Eurofins Biomnis. Précis de biopathologie : Glucagon. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/GLUCAGON.pdf (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. GlucaGen Novo Nordisk (glucagon), n° 31489, document refdata du 06.01.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/62a969113bb94424a0c393d058092c65-fr.html (lu le 11.11.2026)",
+    "[5] Eurofins Biomnis. Précis de biopathologie : TSH. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/TSH.pdf (lu le 11.11.2026)",
+    "[6] Eurofins Biomnis. Précis de biopathologie : Iode. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/IODE.pdf (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Euthyrox (lévothyroxine), n° 54949, document refdata du 14.05.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/f5352e0e4d9b44c1a66a6f1e69061d8d-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Hydrocortisone Galepharm (hydrocortisone), n° 57970, document refdata du 16.09.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/c3cc49cf817d4688a56a03bed83acfcd-fr.html (lu le 11.11.2026)",
+    "[9] AIPS Swissmedic. Spiricort (prednisolone), n° 38840, document refdata du 24.07.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a16cd4d36b564816839b422425930530-fr.html (lu le 11.11.2026)",
+    "[10] Eurofins Biomnis. Précis de biopathologie : Rénine. 2015. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/RENINE.pdf (lu le 11.11.2026)",
+    "[11] AIPS Swissmedic. Florinef (fludrocortisone), n° 31095, document refdata du 04.07.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3fd946330693449b86319bb80fa104f1-fr.html (lu le 11.11.2026)",
+    "[12] Eurofins Biomnis. Précis de biopathologie : PTH. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/PTH.pdf (lu le 11.11.2026)",
+    "[13] AIPS Swissmedic. Prolia (dénosumab), n° 60210, document refdata du 02.07.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3523c5cf2ccb4e72ac7c61babf8f1afa-fr.html (lu le 11.11.2026)",
+    "[14] AIPS Swissmedic. Fosamax (alendronate), n° 55475, document refdata du 16.01.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/e0ce9b8d485047028e2e5491125a8fc2-fr.html (lu le 11.11.2026)",
+    "[15] AIPS Swissmedic. Ozempic DualDose/FixDose (sémaglutide), n° 66604, document refdata du 02.10.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/48f685f4467d41759aa60bd75fa32de9-fr.html (lu le 11.11.2026)",
+    "[16] AIPS Swissmedic. Zyloric (allopurinol), n° 32917, document refdata du 22.01.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/3719e544ca4d466e8f51454e162078cd-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-infectiologie",
@@ -1033,7 +2226,31 @@
    "lignes": [
     {
      "id": "ph-infectiologie-betalactamines",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Transpeptidases bactériennes",
+        "produit": "paroi cellulaire",
+        "lieu": "bactérie",
+        "effet": "assurent sa synthèse",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "β-lactamases (pénicillinases)",
+        "produit": "inactivation",
+        "lieu": "bactérie résistante",
+        "effet": "détruisent les pénicillines sensibles",
+        "src": [
+         1
+        ]
+       }
+      ],
+      "src": [
+       1
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1057,7 +2274,42 @@
     },
     {
      "id": "ph-infectiologie-autres-antibiotiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Sous-unité 50 S du ribosome",
+        "produit": "synthèse protéique",
+        "lieu": "bactérie",
+        "effet": "assure la translocation des acides aminés",
+        "src": [
+         2
+        ]
+       },
+       {
+        "de": "Gyrase (topo-isomérase II) et topo-isomérase IV",
+        "produit": "ADN bactérien",
+        "lieu": "bactérie",
+        "effet": "permettent réplication et transcription",
+        "src": [
+         3
+        ]
+       },
+       {
+        "de": "Deux enzymes successives",
+        "produit": "acide folinique",
+        "lieu": "bactérie",
+        "effet": "permettent sa biosynthèse",
+        "src": [
+         4
+        ]
+       }
+      ],
+      "src": [
+       2,
+       3,
+       4
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1101,7 +2353,22 @@
     },
     {
      "id": "ph-infectiologie-antituberculeux",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "ARN polymérase ADN-dépendante",
+        "produit": "ARN bactérien",
+        "lieu": "mycobactérie",
+        "effet": "transcrit les gènes",
+        "src": [
+         5
+        ]
+       }
+      ],
+      "src": [
+       5
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1113,7 +2380,32 @@
     },
     {
      "id": "ph-infectiologie-antiviraux",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Neuraminidase virale",
+        "produit": "libération des virions",
+        "lieu": "surface de la cellule infectée",
+        "effet": "propage le virus de la grippe",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Phosphorylation",
+        "produit": "aciclovir triphosphate",
+        "lieu": "cellule infectée par un herpès-virus",
+        "effet": "inhibe la synthèse d'ADN viral",
+        "src": [
+         7
+        ]
+       }
+      ],
+      "src": [
+       6,
+       7
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1137,7 +2429,22 @@
     },
     {
      "id": "ph-infectiologie-antifongiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Enzymes fongiques dépendantes du cytochrome P450",
+        "produit": "synthèse des stérols",
+        "lieu": "champignon",
+        "effet": "produisent les stérols fongiques",
+        "src": [
+         8
+        ]
+       }
+      ],
+      "src": [
+       8
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1180,7 +2487,16 @@
      "groupe": "Vaccins"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Augmentin comprimés filmés (amoxicilline-acide clavulanique), n° 45674, document refdata du 12.06.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/8de2c67510f34adca2207e3a563907d2-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Klacid i.v. (clarithromycine), n° 51759, document refdata du 17.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/1361d8875ef4498196a418891b4d91c8-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Ciproxine Comprimés pelliculés/Granulés et solvant pour suspension buvable (ciprofloxacine), n° 47795, document refdata du 29.04.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/d989518257c34b35a46c6d966a61a466-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Bactrim forte (sulfaméthoxazole-triméthoprime), n° 48306, document refdata du 26.05.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/48ee4e6cb19942b987ce445ab3c93d2a-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Rifampicin Labatec (rifampicine), n° 50264, document refdata du 30.07.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/6611b79d62814bb48b5e150bf5fc2098-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Tamiflu (oseltamivir), n° 55196, document refdata du 08.04.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ca31b8a78bf34e4a9cdb47f07cbc7e02-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Valtrex (valaciclovir), n° 53116, document refdata du 26.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/d1180e977490458dabfb3c4e73cc1719-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Fluconazole Sandoz eco (fluconazole), n° 56235, document refdata du 07.10.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/fffc76ba3ec24a86b2752b92f8a48540-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-systeme-nerveux",
@@ -1190,7 +2506,32 @@
    "lignes": [
     {
      "id": "ph-systeme-nerveux-antiepileptiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Dépolarisation",
+        "produit": "potentiels d'action",
+        "lieu": "neurones, canaux sodiques voltage-dépendants",
+        "effet": "la libération pathologique de glutamate joue un rôle majeur dans les crises",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "GABA",
+        "produit": "ouverture des canaux chlorure",
+        "lieu": "membrane neuronale",
+        "effet": "freine l'excitabilité",
+        "src": [
+         2
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1214,7 +2555,22 @@
     },
     {
      "id": "ph-systeme-nerveux-maladie-de-parkinson",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Lévodopa, précurseur franchissant la barrière hémato-encéphalique",
+        "produit": "dopamine",
+        "lieu": "SNC, décarboxylase des acides aminés aromatiques",
+        "effet": "manque dans les noyaux gris centraux du parkinsonien",
+        "src": [
+         3
+        ]
+       }
+      ],
+      "src": [
+       3
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1234,7 +2590,31 @@
     },
     {
      "id": "ph-systeme-nerveux-migraine",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Crise migraineuse",
+        "produit": "dilatation et œdème",
+        "lieu": "vaisseaux crâniens et méninges",
+        "effet": "supposées déclencher la migraine",
+        "src": [
+         4
+        ]
+       },
+       {
+        "de": "Sérotonine sur les récepteurs 5-HT1",
+        "produit": "vasoconstriction",
+        "lieu": "vaisseaux crâniens",
+        "effet": "resserre les artères extra- et intracrâniennes",
+        "src": [
+         4
+        ]
+       }
+      ],
+      "src": [
+       4
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1250,7 +2630,32 @@
     },
     {
      "id": "ph-systeme-nerveux-demences",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Acétylcholine",
+        "produit": "transmission cholinergique",
+        "lieu": "SNC",
+        "effet": "dégradée par l'acétylcholinestérase",
+        "src": [
+         5
+        ]
+       },
+       {
+        "de": "Glutamate",
+        "produit": "activation des récepteurs NMDA",
+        "lieu": "SNC",
+        "effet": "un taux tonique élevé dérègle le neurone",
+        "src": [
+         6
+        ]
+       }
+      ],
+      "src": [
+       5,
+       6
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1266,7 +2671,32 @@
     },
     {
      "id": "ph-systeme-nerveux-sclerose-en-plaques-et-myasthenie",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Acétylcholine",
+        "produit": "récepteurs nicotiniques",
+        "lieu": "plaque motrice",
+        "effet": "déclenchent la contraction musculaire",
+        "src": [
+         7
+        ]
+       },
+       {
+        "de": "Cholinestérase",
+        "produit": "dégradation de l'acétylcholine",
+        "lieu": "jonction neuromusculaire",
+        "effet": "met fin au signal",
+        "src": [
+         8
+        ]
+       }
+      ],
+      "src": [
+       7,
+       8
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1281,7 +2711,16 @@
      "groupe": "Sclérose en plaques et myasthénie"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Lamictal (lamotrigine), n° 52853, document refdata du 20.05.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/303afb7dc7104fe8b3bb948f2537b2c7-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Temesta/Temesta Expidet (lorazépam), n° 36203, document refdata du 21.12.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/b4525d82676b4c3f9025743510eed542-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Madopar (lévodopa-bensérazide), n° 38096, document refdata du 15.11.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/4c73b0f4da6b4695929c458f54aa2501-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Imigran (sumatriptan), n° 51684, document refdata du 24.09.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/5b83a929b3704f5186d7378b1897ee6d-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Aricept/- Evess (donépézil), n° 54274, document refdata du 04.05.2021. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/61f9994fe9a64279bb43129f39cc846f-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Ebixa (mémantine), n° 55828, document refdata du 13.12.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/aa5037afd32d441c8be08626076bc158-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Rocuronium Fresenius (rocuronium), n° 60566, document refdata du 17.08.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2a2d4d90a0144eeea3fcfe9118cb4fad-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Mestinon/ Mestinon retard (pyridostigmine), n° 19943, document refdata du 12.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/25a45faf16614982b35c43257a301cca-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-psychiatrie",
@@ -1291,7 +2730,22 @@
    "lignes": [
     {
      "id": "ph-psychiatrie-antidepresseurs",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Sérotonine libérée",
+        "produit": "recapture",
+        "lieu": "transporteur de la sérotonine, neurone présynaptique",
+        "effet": "met fin au signal sérotoninergique",
+        "src": [
+         1
+        ]
+       }
+      ],
+      "src": [
+       1
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1315,7 +2769,31 @@
     },
     {
      "id": "ph-psychiatrie-antipsychotiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Dopamine sur les récepteurs D2",
+        "produit": "signalisation dopaminergique",
+        "lieu": "voie mésolimbique",
+        "effet": "porte délires et hallucinations, que son blocage inhibe",
+        "src": [
+         2
+        ]
+       },
+       {
+        "de": "Dopamine sur les récepteurs D2",
+        "produit": "contrôle moteur",
+        "lieu": "noyaux gris centraux (voie nigrostriée)",
+        "effet": "le blocage central de la dopamine y agit aussi",
+        "src": [
+         2
+        ]
+       }
+      ],
+      "src": [
+       2
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1335,7 +2813,22 @@
     },
     {
      "id": "ph-psychiatrie-thymoregulateurs",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Neuromédiateurs (sérotonine, dopamine, noradrénaline)",
+        "produit": "seconds messagers (phosphoinositides, AMPc)",
+        "lieu": "neurones",
+        "effet": "modulés par le lithium ; mécanisme non élucidé",
+        "src": [
+         3
+        ]
+       }
+      ],
+      "src": [
+       3
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1351,7 +2844,24 @@
     },
     {
      "id": "ph-psychiatrie-anxiolytiques-et-hypnotiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "GABA",
+        "produit": "ouverture des canaux chlorure",
+        "lieu": "récepteur GABA, site des benzodiazépines",
+        "effet": "freine l'excitabilité neuronale",
+        "src": [
+         4,
+         5
+        ]
+       }
+      ],
+      "src": [
+       4,
+       5
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1387,7 +2897,22 @@
     },
     {
      "id": "ph-psychiatrie-trouble-du-deficit-de-l-attention",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Dopamine et noradrénaline libérées",
+        "produit": "recapture",
+        "lieu": "neurones présynaptiques",
+        "effet": "abaisse leur concentration extraneuronale",
+        "src": [
+         6
+        ]
+       }
+      ],
+      "src": [
+       6
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1398,7 +2923,14 @@
      "groupe": "Trouble du déficit de l'attention"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Cipralex (escitalopram), n° 55961, document refdata du 17.06.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/9f23f0b944cc4f0eac53cb633020b58a-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Haldol decanoas (halopéridol), n° 44008, document refdata du 10.10.2023. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/c07fcd82b3e54974853aa671255741e1-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Quilonorm retard (lithium), n° 35960, document refdata du 23.05.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/b838b25e74724ca0880852bb54f099f1-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Temesta/Temesta Expidet (lorazépam), n° 36203, document refdata du 21.12.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/b4525d82676b4c3f9025743510eed542-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Anexate (flumazénil), n° 48280, document refdata du 12.02.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/bdd9c3e1d2904adb929d190b74c012f2-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Ritaline/-LA (méthylphénidate), n° 20736, document refdata du 08.07.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/dc6ecda01c504ccc8773dbac1dbc0de6-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-douleur-inflammation-et-anesthesie",
@@ -1408,7 +2940,32 @@
    "lignes": [
     {
      "id": "ph-douleur-inflammation-et-anesthesie-antalgiques-non-opioides",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Lésion ou inflammation",
+        "produit": "prostaglandines",
+        "lieu": "tissus et SNC",
+        "effet": "provoquent douleur, inflammation et fièvre ; leur inhibition expose à l'ulcère, à la rétention hydrosodée et au bronchospasme",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Pyrogènes endogènes",
+        "produit": "fièvre",
+        "lieu": "centre thermorégulateur de l'hypothalamus",
+        "effet": "agissent sur le centre thermorégulateur",
+        "src": [
+         2
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1428,7 +2985,32 @@
     },
     {
      "id": "ph-douleur-inflammation-et-anesthesie-opioides",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Opioïdes sur les récepteurs µ et κ",
+        "produit": "analgésie",
+        "lieu": "SNC supraspinal (µ) et spinal (κ)",
+        "effet": "réduisent la douleur",
+        "src": [
+         3
+        ]
+       },
+       {
+        "de": "Antagoniste compétitif",
+        "produit": "déplacement des agonistes",
+        "lieu": "récepteurs opioïdes",
+        "effet": "lève leurs effets",
+        "src": [
+         4
+        ]
+       }
+      ],
+      "src": [
+       3,
+       4
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1452,7 +3034,32 @@
     },
     {
      "id": "ph-douleur-inflammation-et-anesthesie-douleur-neuropathique",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Influx calcique, sous-unité α2-δ",
+        "produit": "glutamate, noradrénaline, substance P",
+        "lieu": "terminaisons neuronales du SNC",
+        "effet": "entretiennent l'excitabilité et la douleur",
+        "src": [
+         5
+        ]
+       },
+       {
+        "de": "Recapture de la noradrénaline, libération de sérotonine",
+        "produit": "monoamines synaptiques",
+        "lieu": "SNC",
+        "effet": "contribuent à l'analgésie du tramadol",
+        "src": [
+         6
+        ]
+       }
+      ],
+      "src": [
+       5,
+       6
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1468,7 +3075,32 @@
     },
     {
      "id": "ph-douleur-inflammation-et-anesthesie-anesthesie-et-urgence",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Entrée de Na⁺, puis sortie de K⁺",
+        "produit": "potentiel d'action",
+        "lieu": "axone, canaux ioniques",
+        "effet": "propage l'influx nerveux",
+        "src": [
+         7
+        ]
+       },
+       {
+        "de": "Acétylcholine",
+        "produit": "récepteurs nicotiniques",
+        "lieu": "plaque motrice",
+        "effet": "transmettent l'ordre de contraction",
+        "src": [
+         8
+        ]
+       }
+      ],
+      "src": [
+       7,
+       8
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1487,7 +3119,16 @@
      "groupe": "Anesthésie et urgence"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Brufen (ibuprofène), n° 45031, document refdata du 17.03.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/b63870557e734d65a125b488d681c6a6-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. DAFALGAN enfant (paracétamol), n° 43838, document refdata du 07.10.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/7a077e38e06e42c69de49bde0648bb26-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Morphini HCl Streuli solution injectable (morphine), n° 56554, document refdata du 22.05.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/cb79c0b47b314a5799c5b6e351a53ba0-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Naloxon OrPha (naloxone), n° 56952, document refdata du 09.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/af2b533874254aabbba66ae2d2d00008-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Lyrica (prégabaline), n° 57057, document refdata du 29.08.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/5926845263604af7afccac13280ac581-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Tramal retard (tramadol), n° 53683, document refdata du 30.04.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/79e7f98f8cee4adfb8e825c399813b03-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Xylocain (lidocaïne), n° 52097, document refdata du 29.05.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/46e2c0ad88c840269b1cee01356f80b4-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Rocuronium Fresenius (rocuronium), n° 60566, document refdata du 17.08.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2a2d4d90a0144eeea3fcfe9118cb4fad-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-immunologie-et-rhumatologie",
@@ -1497,7 +3138,38 @@
    "lignes": [
     {
      "id": "ph-immunologie-et-rhumatologie-glucocorticoides-systemiques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Stress",
+        "produit": "cortisol",
+        "lieu": "corticosurrénale sous ACTH",
+        "effet": "adapte l'organisme : effets diabétogène, catabolique, antiphlogistique",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Glucocorticoïde dans la cellule",
+        "produit": "protéines spécifiques",
+        "lieu": "noyau cellulaire",
+        "effet": "leur synthèse stimulée ou inhibée porte l'effet, après latence",
+        "src": [
+         2
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle négatif : les glucocorticoïdes freinent l'ACTH ; l'axe reste supprimé 30 à 36 h par dose.",
+        "src": [
+         1
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1509,7 +3181,22 @@
     },
     {
      "id": "ph-immunologie-et-rhumatologie-traitements-de-fond-conventionnels",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Acide folique",
+        "produit": "synthèse de l'ADN",
+        "lieu": "dihydrofolate réductase",
+        "effet": "permet la réplication cellulaire",
+        "src": [
+         3
+        ]
+       }
+      ],
+      "src": [
+       3
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1525,7 +3212,32 @@
     },
     {
      "id": "ph-immunologie-et-rhumatologie-biotherapies-et-therapies-ciblees",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Cytokines sur leurs récepteurs",
+        "produit": "phosphorylation des STAT",
+        "lieu": "Janus kinases (JAK) intracellulaires",
+        "effet": "activent l'expression des gènes de l'inflammation",
+        "src": [
+         4
+        ]
+       },
+       {
+        "de": "Activation immunitaire",
+        "produit": "TNFα soluble et membranaire",
+        "lieu": "sérum et selles",
+        "effet": "élevé dans la maladie de Crohn",
+        "src": [
+         5
+        ]
+       }
+      ],
+      "src": [
+       4,
+       5
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1545,7 +3257,44 @@
     },
     {
      "id": "ph-immunologie-et-rhumatologie-allergie-et-anaphylaxie",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Allergène fixé aux IgE des mastocytes, ou complément",
+        "produit": "histamine et tryptase",
+        "lieu": "mastocytes et basophiles",
+        "effet": "dégranulation",
+        "src": [
+         6,
+         7
+        ]
+       },
+       {
+        "de": "Histamine sur les récepteurs H1 et H2",
+        "produit": "vasodilatation et perméabilité",
+        "lieu": "vaisseaux, bronches, tube digestif, peau",
+        "effet": "chute de pression et de volume circulant",
+        "src": [
+         6,
+         8
+        ]
+       },
+       {
+        "de": "Adrénaline sur α et β",
+        "produit": "vasoconstriction et bronchodilatation",
+        "lieu": "vaisseaux et bronches",
+        "effet": "s'oppose au choc",
+        "src": [
+         8
+        ]
+       }
+      ],
+      "src": [
+       6,
+       7,
+       8
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1560,7 +3309,16 @@
      "groupe": "Allergie et anaphylaxie"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Spiricort (prednisolone), n° 38840, document refdata du 24.07.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a16cd4d36b564816839b422425930530-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Solu-CORTEF (hydrocortisone), n° 23533, document refdata du 18.11.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/521df69c10204956ac5a90a438143ee8-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Methotrexat Accord (méthotrexate), n° 66780, document refdata du 30.07.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/1bfb24f167524ed79d00fab256c053bf-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Olumiant (baricitinib), n° 66215, document refdata du 06.01.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/7c2b2e6fda8741b9a0f5af2e3dc54fca-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Remicade (infliximab), n° 68736, document refdata du 22.11.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/1edd125176f9460c9cbc55fa1e2f3e8f-fr.html (lu le 11.11.2026)",
+    "[6] Eurofins Biomnis. Précis de biopathologie : Histamine. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/HISTAMINE.pdf (lu le 11.11.2026)",
+    "[7] Eurofins Biomnis. Précis de biopathologie : Tryptase. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/TRYPTASE.pdf (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Jext 150 microgrammes/300 microgrammes (adrénaline), n° 61315, document refdata du 26.07.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/695d786a6b304d1c81ae07f98d02e3f8-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-oncologie",
@@ -1623,7 +3381,50 @@
    "lignes": [
     {
      "id": "ph-urologie-gynecologie-et-obstetrique-contraception-et-hormones",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "GnRH hypothalamique pulsatile",
+        "produit": "LH et FSH",
+        "lieu": "antéhypophyse",
+        "effet": "sont sécrétées de manière pulsatile",
+        "src": [
+         1,
+         2
+        ]
+       },
+       {
+        "de": "Pic de LH",
+        "produit": "ovulation",
+        "lieu": "ovaire",
+        "effet": "libère l'ovocyte",
+        "src": [
+         3
+        ]
+       },
+       {
+        "de": "Corps jaune",
+        "produit": "progestérone",
+        "lieu": "ovaire en phase lutéale",
+        "effet": "fournit la quasi-totalité de la progestérone de cette phase",
+        "src": [
+         4
+        ]
+       },
+       {
+        "retro": "Rétrocontrôle : estradiol, progestérone et inhibine règlent la sécrétion de FSH.",
+        "src": [
+         2
+        ]
+       }
+      ],
+      "src": [
+       1,
+       2,
+       3,
+       4
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1647,7 +3448,22 @@
     },
     {
      "id": "ph-urologie-gynecologie-et-obstetrique-obstetrique",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Fin de grossesse ; succion du mamelon",
+        "produit": "oxytocine",
+        "lieu": "neurohypophyse",
+        "effet": "contracte l'utérus, dont les récepteurs augmentent",
+        "src": [
+         5
+        ]
+       }
+      ],
+      "src": [
+       5
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1667,7 +3483,52 @@
     },
     {
      "id": "ph-urologie-gynecologie-et-obstetrique-urologie",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Stimulation α1",
+        "produit": "contraction du muscle lisse",
+        "lieu": "prostate, col vésical, urètre prostatique",
+        "effet": "composante dynamique de l'obstruction",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Testostérone",
+        "produit": "5α-dihydrotestostérone",
+        "lieu": "prostate, 5α-réductase",
+        "effet": "fait croître le tissu glandulaire",
+        "src": [
+         7
+        ]
+       },
+       {
+        "de": "Acétylcholine parasympathique sur M3",
+        "produit": "contraction",
+        "lieu": "détrusor",
+        "effet": "vide la vessie",
+        "src": [
+         8
+        ]
+       },
+       {
+        "de": "GMPc",
+        "produit": "hydrolyse",
+        "lieu": "muscle lisse du corps caverneux, PDE5",
+        "effet": "la PDE5 dégrade spécifiquement le GMPc",
+        "src": [
+         9
+        ]
+       }
+      ],
+      "src": [
+       6,
+       7,
+       8,
+       9
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1686,7 +3547,17 @@
      "groupe": "Urologie"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] Eurofins Biomnis. Précis de biopathologie : LH. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/LH.pdf (lu le 11.11.2026)",
+    "[2] Eurofins Biomnis. Précis de biopathologie : FSH. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/FSH.pdf (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. NorLevo 1 (lévonorgestrel), n° 62876, document refdata du 02.04.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/9bff59a030c74b00832a1f47aa3927a2-fr.html (lu le 11.11.2026)",
+    "[4] Eurofins Biomnis. Précis de biopathologie : Progestérone. s. d.. https://www.eurofins-biomnis.com/referentiel/liendoc/precis/PROGESTERONE.pdf (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Syntocinon spray nasal (oxytocine), n° 22114, document refdata du 27.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2e9b1e8fb6124882b40010c4478f777e-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. Xatral Uno (alfuzosine), n° 55188, document refdata du 03.07.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/4ddcd854e11d447c919dcffa3074638e-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Avodart (dutastéride), n° 56106, document refdata du 18.12.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/c5303af0d13e45689296e34ccc791e6d-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. VESICARE (solifénacine), n° 57203, document refdata du 15.09.2021. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2bc203c72bfb4bd4b09d9288ce4cee05-fr.html (lu le 11.11.2026)",
+    "[9] AIPS Swissmedic. CIALIS (tadalafil), n° 56018, document refdata du 24.03.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/df49840d7fde4b50ac83da16f34499ed-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-peau-yeux-et-orl",
@@ -1716,7 +3587,22 @@
     },
     {
      "id": "ph-peau-yeux-et-orl-ophtalmologie",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Humeur aqueuse",
+        "produit": "écoulement",
+        "lieu": "voies uvéosclérale et trabéculaire",
+        "effet": "fixe la pression intraoculaire",
+        "src": [
+         1
+        ]
+       }
+      ],
+      "src": [
+       1
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1743,7 +3629,9 @@
      "groupe": "ORL"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Xalatan (latanoprost), n° 53675, document refdata du 23.07.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/023f62ad6a39471a992ce4377d0aa046-fr.html (lu le 11.11.2026)"
+   ]
   },
   {
    "id": "ph-urgences-et-antidotes",
@@ -1753,7 +3641,31 @@
    "lignes": [
     {
      "id": "ph-urgences-et-antidotes-arret-cardiaque-et-choc",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Adrénaline sur α",
+        "produit": "vasoconstriction",
+        "lieu": "vaisseaux",
+        "effet": "s'oppose à la vasodilatation et à la fuite capillaire",
+        "src": [
+         1
+        ]
+       },
+       {
+        "de": "Adrénaline sur β",
+        "produit": "chronotropie et bronchodilatation",
+        "lieu": "cœur et bronches",
+        "effet": "accélère le cœur et ouvre la bronche",
+        "src": [
+         1
+        ]
+       }
+      ],
+      "src": [
+       1
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1769,7 +3681,44 @@
     },
     {
      "id": "ph-urgences-et-antidotes-antidotes",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Opioïde",
+        "produit": "récepteurs opioïdes",
+        "lieu": "SNC",
+        "effet": "dépriment la respiration et le SNC",
+        "src": [
+         2,
+         3
+        ]
+       },
+       {
+        "de": "Benzodiazépine",
+        "produit": "site des benzodiazépines du récepteur GABA",
+        "lieu": "SNC",
+        "effet": "porte les effets centraux des benzodiazépines",
+        "src": [
+         4
+        ]
+       },
+       {
+        "de": "Cystéine",
+        "produit": "glutathion",
+        "lieu": "cellules",
+        "effet": "inactive les composés électrophiles et oxydants",
+        "src": [
+         5
+        ]
+       }
+      ],
+      "src": [
+       2,
+       3,
+       4,
+       5
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1789,7 +3738,44 @@
     },
     {
      "id": "ph-urgences-et-antidotes-urgences-metaboliques",
-     "structure": null,
+     "structure": {
+      "fonctionnement": [
+       {
+        "de": "Hypoglycémie",
+        "produit": "glucagon",
+        "lieu": "cellules α",
+        "effet": "dégrade le glycogène hépatique en glucose",
+        "src": [
+         6
+        ]
+       },
+       {
+        "de": "Équilibre acide-base",
+        "produit": "répartition du K⁺",
+        "lieu": "membranes cellulaires",
+        "effet": "déplace le K⁺ entre cellules et plasma",
+        "src": [
+         7
+        ]
+       },
+       {
+        "de": "ACTH",
+        "produit": "cortisol",
+        "lieu": "corticosurrénale",
+        "effet": "assure l'adaptation au stress ; son absence menace la vie",
+        "src": [
+         8,
+         9
+        ]
+       }
+      ],
+      "src": [
+       6,
+       7,
+       8,
+       9
+      ]
+     },
      "alteration": null,
      "classes": [
       {
@@ -1808,7 +3794,17 @@
      "groupe": "Urgences métaboliques"
     }
    ],
-   "sources": []
+   "sources": [
+    "[1] AIPS Swissmedic. Jext 150 microgrammes/300 microgrammes (adrénaline), n° 61315, document refdata du 26.07.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/695d786a6b304d1c81ae07f98d02e3f8-fr.html (lu le 11.11.2026)",
+    "[2] AIPS Swissmedic. Naloxon OrPha (naloxone), n° 56952, document refdata du 09.09.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/af2b533874254aabbba66ae2d2d00008-fr.html (lu le 11.11.2026)",
+    "[3] AIPS Swissmedic. Tramal retard (tramadol), n° 53683, document refdata du 30.04.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/79e7f98f8cee4adfb8e825c399813b03-fr.html (lu le 11.11.2026)",
+    "[4] AIPS Swissmedic. Anexate (flumazénil), n° 48280, document refdata du 12.02.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/bdd9c3e1d2904adb929d190b74c012f2-fr.html (lu le 11.11.2026)",
+    "[5] AIPS Swissmedic. Fluimucil toux grasse - Granulé/Comprimés effervescents/Comprimés linguaux (acétylcystéine), n° 55604, document refdata du 04.02.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/31e8770ea662462f91a7bda0045ff3ce-fr.html (lu le 11.11.2026)",
+    "[6] AIPS Swissmedic. GlucaGen Novo Nordisk (glucagon), n° 31489, document refdata du 06.01.2022. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/62a969113bb94424a0c393d058092c65-fr.html (lu le 11.11.2026)",
+    "[7] AIPS Swissmedic. Kalium chloratum 15% Sintetica (chlorure de potassium), n° 51434, document refdata du 10.10.2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ff7a5bc222b743099ba657353509f6cd-fr.html (lu le 11.11.2026)",
+    "[8] AIPS Swissmedic. Hydrocortisone Galepharm (hydrocortisone), n° 57970, document refdata du 16.09.2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/c3cc49cf817d4688a56a03bed83acfcd-fr.html (lu le 11.11.2026)",
+    "[9] AIPS Swissmedic. Spiricort (prednisolone), n° 38840, document refdata du 24.07.2026. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/a16cd4d36b564816839b422425930530-fr.html (lu le 11.11.2026)"
+   ]
   }
  ]
 }

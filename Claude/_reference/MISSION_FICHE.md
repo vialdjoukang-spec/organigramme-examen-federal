@@ -39,6 +39,7 @@ questions d'examen, et permettent de **tout revoir, vite**.
 ```json
 {
  "titre": "…",
+ "rappel": [{"texte": "Le général : organe, fonction normale [n]", "src": [1]}, {"texte": "…", "src": [2]}, {"texte": "Le problème : ce qui se dérègle et que l'examen mesure ou que la classe corrige", "src": [3]}],
  "indication": ["Quand demander l'examen (ou : indications du médicament), en 2 à 5 lignes"],
  "sections": [
   {"titre": "…", "texte": "paragraphe" },
@@ -50,6 +51,10 @@ questions d'examen, et permettent de **tout revoir, vite**.
  "sources": ["[1] Auteur ou organisme. Titre. Année. URL (lu le JJ.MM.AAAA)"]
 }
 ```
+- `rappel` (obligatoire, ordre de Vial du 11.11.2026) : rappel anatomo-physiologique **concis**, 3 à 6 étapes d'une ou deux phrases
+  verbales, qui part du général (organe, fonction normale) et aboutit au problème (dernière étape : ce qui se dérègle, que l'examen
+  mesure ou que la classe corrige). Chaque étape cite ses sources par leur numéro dans `sources` (`src`), rien de mémoire. Le
+  réceptacle l'ouvre dans une fenêtre centrale par le bouton « Rappel anatomo-physiologique », jamais directement sur la page.
 - `indication` s'affiche en **rouge gras** : c'est l'indication de la demande (examen) ou les indications actuelles (médicament).
 - Dans les textes, cite la source par son numéro entre crochets : « … [2] ».
 - Examen : sections conseillées — Principe en une phrase ; Réalisation et conditions de prélèvement ; Valeurs et unités
