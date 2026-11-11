@@ -31,7 +31,7 @@ nav.rail p{margin:0 4px 0;padding:0 0 10px 3px;font:700 11px/1.2 var(--police-mo
 @keyframes avance{to{transform:scaleX(1)}}
 nav.rail a{display:flex;align-items:center;gap:12px;min-height:39px;margin:0 0 1px;padding:6px 10px 6px 9px;border-radius:0 9px 9px 0;color:var(--menu-encre);text-decoration:none;animation:marque linear both;animation-duration:auto;animation-range:entry 0% exit 85%}
 nav.rail a b{flex:0 0 25px;display:grid;place-items:center;height:25px;border-radius:50%;background:var(--pale);border:1px solid var(--doux);color:var(--accent);font:700 11px/1 var(--police-mono);animation:pastille linear both;animation-duration:auto;animation-range:entry 0% exit 85%}
-nav.rail a:hover{background:var(--doux);color:#000}
+nav.rail a:hover,nav.rail a:focus-visible{background:var(--doux)!important;color:#000!important}
 @keyframes marque{0%,100%{background-color:transparent;color:var(--menu-encre);box-shadow:none;font-weight:400}10%,90%{background-color:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}}
 @keyframes pastille{0%,100%{background-color:var(--pale);color:var(--accent)}10%,90%{background-color:var(--accent);color:#fff}}
 /* colonne de lecture : centrée dans l'espace à droite du menu (modèle : 864 px à 1440 px) */
@@ -71,7 +71,7 @@ td.ok{background:var(--ok)}td.mo{background:var(--mo)}td.ko{background:var(--ko)
 .rang,.e{display:inline-block;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:.86em;white-space:nowrap}
 .freq{font-weight:700;color:var(--leg);white-space:nowrap}
 ol.dx{list-style:none;padding:0;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
-ol.dx li{display:block;margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
+ol.dx li{display:grid;grid-template-columns:minmax(10rem,14rem) 1fr auto;gap:12px;align-items:baseline;margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
 ol.dx li:first-child{border-top:0}
 ol.dx li:nth-child(even){background:var(--zebre)}
 ol.algo>li{margin-bottom:.5em}
@@ -87,6 +87,9 @@ button.w:hover{background:var(--appel-fond)}
 .fenetre td:first-child{background:var(--th);border-bottom:2px solid var(--th-filet)}
 .fenetre img{max-width:100%;height:auto;border-radius:8px}
 figure.cliche{margin:12px 0 20px;padding:0}
+figure.schema{margin:6px 0 16px;padding:0}
+figure.schema svg{display:block;width:100%;max-width:660px;height:auto}
+.paire>div{min-width:0}
 .paire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .paire.une{grid-template-columns:1fr}
 .paire h5{margin:0 0 6px;font:700 1em/1.3 var(--police-titre);color:var(--modal)}
@@ -108,6 +111,7 @@ nav.rail a{flex:0 0 auto;min-height:34px;padding:4px 10px 4px 6px;border-radius:
 main{margin-left:0;padding:20px 5vw 60px}
 .paire{grid-template-columns:1fr}
 ol.dx li{grid-template-columns:1fr}}
+@media (max-width:640px){div.t table{min-width:40rem}}
 @media (max-width:480px){h1{padding:20px 18px 4px}h2.kicker{padding:2px 18px 20px}th,td{padding:8px}}
 @media print{nav.rail{display:none}main{margin:0}}
 #dx{view-timeline:--s0 block}#p1{view-timeline:--s1 block}#p2{view-timeline:--s2 block}#p3{view-timeline:--s3 block}#p4{view-timeline:--s4 block}#p5{view-timeline:--s5 block}#p6{view-timeline:--s6 block}#p7{view-timeline:--s7 block}#p8{view-timeline:--s8 block}#p9{view-timeline:--s9 block}#p10{view-timeline:--s10 block}#p11{view-timeline:--s11 block}#p12{view-timeline:--s12 block}#p13{view-timeline:--s13 block}#p14{view-timeline:--s14 block}#sources{view-timeline:--s15 block}
@@ -161,586 +165,655 @@ body:has(#p13:target) nav a[href="#p13"],body:has(#p14:target) nav a[href="#p14"
 </nav>
 <main>
 <h1>Prurit anal, douleur anale et protrusion anale</h1>
+<h2 class="kicker">Tri au cabinet de premier recours : du fréquent au grave, puis le parcours suisse</h2>
 <section class="ilot" id="dx">
 <h2>Dix concurrents du tri anal</h2>
+<p>La liste suit la fréquence, de la plainte la plus banale à la plus rare, tandis que le drapeau 🚩 marque ce qui peut tuer<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
 <ol class="dx">
-<li><strong>DX.1 — prurit</strong> Ne rang parmi les plaintes de marge, parce que le prurit est à la fois un symptôme cardinal interne et une atteinte cutanée souvent idiopathique<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
-<li><strong>DX.2 — douleur aiguë</strong> Ne rang : la douleur à la défécation ouvre le tri, parce qu'elle réunit peu de sang et la constipation dans la triade aiguë<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li><strong>DX.3 — protrusion</strong> Ne rang, parce que le prolapsus compte parmi les manifestations internes, au même titre que le saignement<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li><strong>DX.4 — thrombose péri-anale</strong> <span class="e">🚩 E2</span> Ne rang : on discute une incision de la tuméfaction douloureuse de la marge tant que l'on est avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li><strong>DX.5 — fissure aiguë</strong> Ne rang, parce que la brèche récente se reconnaît à la douleur rythmée par la selle, avec peu de sang<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li><strong>DX.6 — fissure chronique</strong> Ne rang : passé 6 à 8 semaines, le sphincter interne visible au fond signe la forme installée<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li><strong>DX.7 — abcès</strong> <span class="e">🚩 E1</span> Ne rang, parce que la tuméfaction rouge est la phase aiguë de l'infection des glandes et se draine<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li><strong>DX.8 — fistule</strong> Ne rang : la phase chronique montre un orifice externe, et la fistule constituée relève d'un spécialiste<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li><strong>DX.9 — proctalgia fugax</strong> Ne rang, parce que l'exclusion se pose quand la douleur ne dure que quelques secondes ou quelques minutes et que l'examen reste normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
-<li><strong>DX.10 — maladie hémorroïdaire</strong> Ne rang tenu par l'ordre des plaintes, bien que cette pathologie anale soit la plus fréquente<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li><strong>DX.1 — maladie hémorroïdaire</strong><span>Première lésion anale par sa fréquence, elle concerne <span class="freq">plus de 50 %</span> des gens à un moment de leur vie<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</span><span></span></li>
+<li><strong>DX.2 — fissure anale aiguë</strong><span>Très fréquente, elle coexiste avec la maladie hémorroïdaire chez environ 20 % des patients<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</span><span></span></li>
+<li><strong>DX.3 — thrombose péri-anale</strong><span>Fréquente et très douloureuse, elle ne menace pas la vie et s’incise seulement avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</span><span></span></li>
+<li><strong>DX.4 — fissure anale chronique</strong><span>Forme installée d’une lésion fréquente, elle se définit au-delà de 6 à 8 semaines, sphincter interne visible au fond<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</span><span></span></li>
+<li><strong>DX.5 — prurit anal</strong><span>Symptôme plus que maladie, il affecte <span class="freq">1 à 5 %</span> de la population<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</span><span></span></li>
+<li><strong>DX.6 — abcès para-anal</strong><span>Classé parmi les lésions anorectales courantes, il naît d’une glande anale infectée et se draine sans attendre<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</span><span class="e">🚩 E2</span></li>
+<li><strong>DX.7 — fistule para-anale</strong><span>Moins fréquente que l’abcès, dont elle est le temps chronique, elle se range parmi les suites courantes de la glande infectée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</span><span></span></li>
+<li><strong>DX.8 — proctalgia fugax</strong><span>Trouble fonctionnel bénin, elle se range parmi les diagnostics d’exclusion, posés devant un examen normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</span><span></span></li>
+<li><strong>DX.9 — fissure secondaire</strong><span>Peu fréquente, une fissure non postérieure ou atypique fait chercher Crohn, syphilis, tuberculose ou carcinome épidermoïde<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</span><span></span></li>
+<li><strong>DX.10 — gangrène de Fournier</strong><span>Rare, cette fasciite nécrosante des organes génitaux impose la chirurgie dans les heures qui suivent l’admission<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</span><span class="e">🚩 E1</span></li>
 </ol>
 </section>
 
 <section class="ilot" id="p1">
 <h3>1. Définition et sémantique</h3>
-<p>En 2014, une classification de cabinet sépare le coussin interne de la thrombose située sur la marge<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Le coussin est situé au-dessus de la ligne pectinée, alors que la thrombose intéresse des veines péri-anales<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Le terme d'hémorroïde externe est faux, parce qu'il désigne en réalité cette thrombose de la marge<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. La maladie interne, elle, se manifeste par un saignement, un prurit ou un prolapsus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La douleur ne domine pas quand le coussin interne est en cause<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Une brèche de l'épithélium, distale à la ligne dentée, définit la fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'ulcération linéaire va de la ligne pectinée jusqu'à la marge, ce qui recoupe la même entité<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. La forme récente se distingue de la forme installée, parce que le fond ne laisse pas encore voir le sphincter interne<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'infection des glandes anales produit deux temps, et l'abcès en est le temps aigu<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Or, la fistule en est le temps chronique, classé selon Parks<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le prurit anal est souvent idiopathique, ou bien lié à une hygiène trop pauvre ou trop agressive<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La proctalgia fugax reste un diagnostic d'exclusion, lorsque l'examen est normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On ne confond pas la protrusion, qui est un prolapsus, avec la simple marisque laissée après un thrombus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On ne confond pas non plus la douleur rythmée par la selle avec la douleur de quelques secondes de la proctalgie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-
-<p>En 2014, la revue suisse pose le cadre de la douleur anale aiguë vue au cabinet<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Le coussin reste au-dessus de la ligne pectinée, tandis que la thrombose occupe des veines de la marge<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Appeler ce nodule une hémorroïde externe est une erreur de nom, parce que la veine thrombosée n'est pas le coussin<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le mot juste change le geste, lorsque l'incision se discute encore<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Saignement, prurit et prolapsus forment le trio interne, alors que la douleur ne doit pas y tenir le premier rôle<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Dès que la douleur mène le récit, une autre lésion devient plus probable<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La fissure est une brèche épithéliale du canal, distale à la ligne dentée, ce qui la place sous la ligne et non dans le coussin<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Elle devient chronique passé 6 à 8 semaines, lorsque le sphincter interne se voit au fond<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'abcès et la fistule naissent d'une infection des glandes, or l'un est le temps aigu et l'autre le temps chronique<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La classification de Parks concerne la fistule, tandis que le cabinet reconnaît d'abord l'orifice ou la rougeur<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>La proctalgia fugax se pose par exclusion, parce que la douleur ne dure que quelques secondes ou quelques minutes<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. L'examen reste normal, et une hypertonie est alors probable<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Le prurit anal concerne 1 à 5 % des patients, ce qui en fait une plainte fréquente mais minoritaire<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Il est souvent idiopathique, ou bien lié à une hygiène trop pauvre ou trop rude<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La revue de 2011 décrit la proctologie utile au cabinet<sup class="r"><a href="#sb-rms2011-1">[6]</a></sup>. La conduite y reste clinique, tandis que l'inspection précède l'ordonnance<sup class="r"><a href="#sb-rms2011-1">[6]</a></sup>.</p>
-<p>Le cabinet nomme d'abord ce qu'il voit, puis il date, puis il choisit le geste<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Cette suite vient de la revue de 2014, qui cadre la douleur anale aiguë<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
-<p>Une marisque n'est pas un prolapsus, parce qu'elle ne sort pas à la poussée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le prolapsus, lui, compte parmi les manifestations internes, avec le saignement et le prurit<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>En 2014, la revue suisse de chirurgie viscérale du CHUV rappelle que la douleur anale n’est pas toujours hémorroïdaire<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Elle propose donc un tri fondé sur la lésion vue à l’examen, et non sur la seule plainte<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
+<p>Les coussins hémorroïdaires occupent le haut du canal, en amont de la ligne pectinée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. On parle de maladie hémorroïdaire quand ils grossissent et descendent, si bien que le saignement, le prurit et le prolapsus apparaissent<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Le mot « hémorroïde externe » est faux, car le nodule bleuté de la marge est une thrombose de veines péri-anales<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Ce nom erroné masque donc un mécanisme, une clinique et un traitement tout à fait différents<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>On appelle fissure une déchirure du revêtement du canal, en aval de la ligne dentée<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Elle devient chronique après 6 à 8 semaines, lorsque les fibres du sphincter interne se voient au fond de l’ulcération<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Abcès et fistule para-anaux ont la même origine, car tous deux viennent d’une glande anale infectée dans l’espace intersphinctérien<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. L’abcès en est le temps aigu ; la fistule, trajet tapissé d’épithélium jusqu’à un orifice cutané, en est le temps chronique, décrit par la classification de Parks<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Le prurit anal reste un symptôme plutôt qu’une maladie, et sa cause demeure le plus souvent idiopathique ou liée à l’hygiène<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En revanche, la proctalgia fugax désigne une douleur fonctionnelle bénigne, posée seulement par exclusion<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Enfin, la gangrène de Fournier nomme la fasciite nécrosante qui atteint les organes génitaux<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Elle commence comme un érysipèle banal, puis gagne les fascias à grande vitesse<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<p>Une marisque est un pli de peau laissé par un ancien thrombus, qui ne demande aucune chirurgie<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Par conséquent, on ne la confond ni avec un prolapsus, ni avec une tumeur à exciser<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
 </section>
 <section class="ilot" id="p2">
 <h3>2. Épidémiologie en Suisse, puis en Europe</h3>
-<p>La revue de 2014 décrit la douleur anale aiguë vue au cabinet<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Cependant, au cours de la vie, la part des personnes qui rencontrent la maladie hémorroïdaire dépasse 50 %<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La revue de 2011 rappelle la proctologie utile au praticien<sup class="r"><a href="#sb-rms2011-1">[6]</a></sup>. La même maladie touche alors 50 à 90 % de la population<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Elle génère 1177 consultations pour 100 000 habitants, ainsi que 40 à 48 journées d'hospitalisation par an<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Ce volume de consultations justifie un tri au cabinet, avant tout avis spécialisé<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Le prurit anal touche 1 à 5 %<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Il augmente après la selle, ce qui oriente déjà l'interrogatoire<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Une fissure accompagne environ 20 % des patients qui ont une maladie hémorroïdaire<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Toutefois, le siège postérieur concerne 80 % des fissures, et le siège antérieur 10 %, avec une prédominance féminine pour l'avant<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Huit semaines plus tard, le taux de guérison des fissures aiguës dépasse 80 % quand on traite le transit et l'hypertonie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Sous traitement conservateur, 80 % des formes aiguës ferment<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Quand une marisque sentinelle est présente, l'échec conservateur des fissures chroniques se voit dans 40 à 50 % des cas<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Environ 80 % des fissures opérées par fissurectomie guérissent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La sphinctérotomie latérale atteint 90 % de succès<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Néanmoins, à dix ans, l'incontinence concerne l'air dans 36 % des cas, les liquides dans 25 % et les selles moulées dans 5 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La douleur manque aux stades I à III, alors qu'un stade IV peut faire mal<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Cette répartition explique pourquoi une douleur dominante fait chercher autre chose que le seul coussin interne<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-
-<p>Au cours de la vie, plus de 50 % des gens rencontrent la maladie hémorroïdaire<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. En revanche, ce poids explique pourquoi la plainte anale arrive souvent avant toute autre lésion<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Une fissure coexiste chez environ 20 % des patients qui ont déjà une maladie hémorroïdaire<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le chiffre oblige à regarder la brèche, même quand le coussin est déjà nommé<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>L'atteinte va de 50 à 90 % de la population<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Par ailleurs, l'écart entre les deux bornes rappelle que la définition du cas change le pourcentage<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Cette maladie produit 1177 consultations pour 100 000 habitants<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. En outre, le taux montre la charge du cabinet, bien au-delà du cas rare<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Les séjours hospitaliers liés à cette maladie occupent 40 à 48 journées chaque année<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. De ce fait, ces séjours montrent que la forme simple du cabinet n'épuise pas le sujet<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Sous un soin conservateur, 80 % des fissures aiguës ferment<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Or, le siège est postérieur dans 80 % des cas, et antérieur dans 10 %<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Le siège antérieur se voit plus souvent chez la femme, ce qui empêche de juger toute fissure antérieure comme banale<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Une fissure qui ne ferme pas fait chercher Crohn, cancer ou infection sexuellement transmissible<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Plus de 80 % des fissures aiguës guérissent après huit semaines de soins du transit et de l'hypertonie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Le délai de huit semaines devient donc l'horizon du premier contrôle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'échec du soin conservateur touche 40 à 50 % des formes installées, surtout avec une marisque sentinelle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La marisque sentinelle n'est pas un détail, parce qu'elle annonce cet échec<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La fissurectomie obtient environ 80 % de guérisons<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Cependant, la sphinctérotomie latérale atteint près de 90 % de succès<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>À dix ans, l'incontinence à l'air concerne 36 % des opérés par sphinctérotomie latérale<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Toutefois, les liquides sont touchés dans 25 % des cas, et les selles formées dans 5 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Le prurit, limité à 1 à 5 %, reste pourtant assez commun pour un plan de peau<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Il augmente après la selle, ce qui oriente l'interrogatoire<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Le thrombus met 2 à 3 semaines à se résorber<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Ce délai sert de rendez-vous, parce qu'une marisque peut rester ensuite<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Avant 72 heures, l'incision du nodule douloureux de marge se discute<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Néanmoins, après ce délai, on reste sur le traitement conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La part des patients vus pour cette maladie justifie un plan simple et répété<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. En revanche, ces 40 à 48 journées passées à l'hôpital chaque année rappellent les formes qui quittent le cabinet<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>En Suisse romande, la revue de 2014 indique que plus de 50 % de la population est touchée par la maladie hémorroïdaire<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Cependant, la revue de 2011 retient une fourchette plus large, de 50 à 90 %<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>Pour 100 000 habitants, cette maladie entraîne chaque année 1 177 consultations et 40 à 48 journées d’hospitalisation<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Toutefois, ces taux proviennent d’une mise au point de proctologie publiée en 2011, et ils ne forment pas un total national<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>Une fissure concomitante se retrouve chez environ 20 % des patients hémorroïdaires<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. C’est pourquoi une douleur vive chez un hémorroïdaire connu fait d’abord chercher la brèche<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>La fissure touche les deux sexes, chez l’adulte jeune comme chez l’enfant ou le sujet âgé<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. En revanche, son siège varie peu, puisqu’elle occupe la commissure postérieure dans 80 % des cas et l’antérieure dans 10 %, surtout chez la femme<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Le pronostic de la forme aiguë est bon, puisque 80 % guérissent sous traitement conservateur<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. La revue de 2014 précise même que plus de 80 % des fissures aiguës ferment après 8 semaines de traitement médical<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>La forme chronique résiste davantage : le traitement conservateur échoue dans 40 à 50 % des cas<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Or la marisque sentinelle constitue le principal facteur de risque de cet échec<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Le prurit anal affecte 1 à 5 % de la population générale, et non une fraction des seuls consultants<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Il s’agit donc d’une plainte courante, même si elle reste minoritaire face aux hémorroïdes<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>À l’autre extrémité du spectre, la fasciite nécrosante reste rare, mais sa mortalité atteint 20 à 30 %<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Une minorité seulement des infections cutanées gagne ainsi les tissus profonds<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<p>Ces chiffres dessinent l’ordre du tri : le fréquent d’abord, mais le grave avant tout<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
 </section>
 <section class="ilot" id="p3">
 <h3>3. Physiopathologie</h3>
-<p>La continence fine aux gaz dépend des coussins, ce qui interdit de les retirer sans raison<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Quatre leviers se combinent : communication artère-veine, retour veineux faible, pression du ventre élevée et sphincter lisse trop tonique<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Le saignement est le symptôme cardinal, parce que le coussin est richement shunté<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. La baisse de l'hyperpression et la régulation du transit forment donc la base du traitement<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>La thrombose de la marge provient de veines péri-anales, et non du coussin situé au-dessus de la ligne pectinée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le thrombus se résorbe en 2 à 3 semaines, ce qui peut laisser un repli cutané<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Des selles dures précèdent la brèche, et les vaisseaux locaux sont pauvres, surtout en arrière<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Le spasme entretient ensuite la brèche, ce qui explique la douleur à chaque exonération<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Passé 6 à 8 semaines, le sphincter interne apparaît au fond et la fissure est devenue chronique<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Par ailleurs, la forme chronique associe une marisque distale et une papille hypertrophique<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Un abcès, ou une fistule située sous la brèche, peut s'y ajouter, d'où la surveillance du fond<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. L'infection des glandes ouvre l'abcès, puis la fistule si le trajet se chronicise<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>L'abcès montre une tuméfaction rouge, tandis que la fistule montre un orifice externe<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Le prurit s'entretient quand la peau reste humide ou quand le papier est abrasif<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La peau devient érythémateuse, grattée, parfois lichénifiée, alors que le canal reste souvent normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La proctalgie fugax relève d'une hypertonie probable, avec des accès de quelques secondes à quelques minutes<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Les coussins assurent la continence fine aux gaz, d’où l’exigence d’une chirurgie qui respecte l’anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Plusieurs mécanismes les font gonfler, comme le montre <button class="w" type="button" popovertarget="f-gaz">le schéma des quatre leviers</button><sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<div id="f-gaz" popover class="fenetre">
+<button class="fermer" type="button" popovertarget="f-gaz" popovertargetaction="hide">Fermer</button>
+<h5>Continence fine aux gaz et mécanismes</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 235" role="img" aria-label="Mécanismes de la maladie hémorroïdaire" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="235" fill="#ffffff"/>
+<rect x="20" y="30" width="190" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="115.0" y="66" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Shunts</text>
+<text x="115.0" y="85" text-anchor="middle" font-size="15" fill="#161616">artérioveineux</text>
+<rect x="235" y="30" width="190" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="66" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Retour veineux</text>
+<text x="330.0" y="85" text-anchor="middle" font-size="15" fill="#161616">insuffisant</text>
+<rect x="450" y="30" width="190" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="545.0" y="66" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Pression</text>
+<text x="545.0" y="85" text-anchor="middle" font-size="15" fill="#161616">abdominale haute</text>
+<rect x="180" y="150" width="300" height="70" rx="10" fill="#fde8e4" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Coussins gonflés</text>
+<text x="330.0" y="200" text-anchor="middle" font-size="15" fill="#161616">saignement, prolapsus</text>
+<line x1="115" y1="110" x2="250" y2="148" stroke="#674101" stroke-width="2" marker-end="url(#fl1)"/>
+<line x1="330" y1="110" x2="330" y2="148" stroke="#674101" stroke-width="2" marker-end="url(#fl1)"/>
+<line x1="545" y1="110" x2="410" y2="148" stroke="#674101" stroke-width="2" marker-end="url(#fl1)"/>
+</svg>
+<figcaption>Schéma original de ce cours : trois leviers convergent vers des coussins congestifs.</figcaption>
+</figure>
+<p>Les coussins se gorgent quand les shunts artérioveineux se dérèglent et que le drainage par les veines rectales supérieures faiblit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. En outre, la pression abdominale augmente lors d’une obésité, d’une grossesse, d’une constipation ou d’un prostatisme<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>Enfin, une hypertonie du sphincter lisse limite encore le retour veineux transsphinctérien<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Dès lors, le traitement baisse l’hyperpression et régule le transit avant toute exérèse<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+</div>
+
+<p>Le second mécanisme est un prolapsus muqueux, quand le tissu conjonctif de soutien s’affaiblit<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le coussin descend alors à la poussée, ce qui définit les stades selon la réduction du prolapsus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>La fissure naît d’un microtraumatisme par une selle dure, dans la région postéro-médiane du canal<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Cette zone reçoit moins de sang, en raison de la disposition des vaisseaux autour de l’anus<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Ensuite, la contraction réflexe du sphincter interne diminue davantage l’apport de sang<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La brèche, mal nourrie, ne cicatrise pas, si bien qu’un cercle vicieux s’installe entre constipation, douleur, spasme et ischémie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>La glande anale infectée forme une collection qui peut gagner la marge, la fosse ischio-rectale, l’espace entre les sphincters, ou encore dessiner un fer à cheval<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Lorsque le trajet persiste et s’épithélialise, la fistule apparaît<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Au contraire, la thrombose péri-anale survient dans des veines de la marge et non dans un coussin artério-veineux<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le caillot se résorbe en 2 à 3 semaines<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Le prurit s’entretient par l’humidité, le grattage et le papier agressif, si bien que macération et surinfection cutanées s’installent<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Quant à la proctalgia fugax, une hypertonie sphinctérienne semble expliquer les accès<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Dans la fasciite nécrosante, les toxines bactériennes liquéfient les tissus et des microthrombi créent une gangrène profonde<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. La maladie devient alors systémique, avec bactériémie et défaillance de plusieurs organes<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<caption>Corrélation entre la perturbation, l'exploration qui la montre et le geste qui la corrige.</caption>
-<tr><th>Perturbation</th><th>Exploration</th><th>Thérapeutique</th></tr>
-<tr><td>Le shunt et l'hyperpression font saigner le coussin.</td><td>L'inspection et le récit du saignement sans douleur dominante suffisent d'abord.</td><td>On régule le transit et l'on baisse l'hyperpression.</td></tr>
-<tr><td>Le spasme entretient la brèche peu vascularisée.</td><td>Écarter les fesses montre souvent la fissure, et le toucher retrouve le spasme.</td><td>On vise le transit et l'hypertonie.</td></tr>
-<tr><td>L'infection glandulaire collecte du pus.</td><td>La tuméfaction rouge se voit à l'inspection.</td><td>On incise et l'on draine.</td></tr>
-<tr><td>Le thrombus marge la peau.</td><td>La tuméfaction douloureuse de la marge se palpe et se voit.</td><td>L'incision se discute avant 72 heures, sinon le traitement reste conservateur.</td></tr>
-<tr><td>L'hypertonie brève déclenche la proctalgie.</td><td>L'examen normal permet l'exclusion.</td><td>Des bains de siège chauds soulagent cet accès.</td></tr>
+<caption>Chaîne mécanisme → examen qui le montre → geste qui le corrige.</caption>
+<tr><th>Mécanisme</th><th>Ce qui le montre</th><th>Geste</th></tr>
+<tr><td>Shunts et hyperpression gonflent les coussins.</td><td>Sang rouge dans les toilettes, sans douleur dominante.</td><td>Transit régulé, mucilages, veinotonique<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td></tr>
+<tr><td>Le spasme ischémie la brèche postérieure.</td><td>Fesses écartées, spasme au toucher prudent.</td><td>Selles molles et topique relaxant<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td></tr>
+<tr><td>La glande infectée collecte du pus.</td><td>Tuméfaction rouge de la marge.</td><td>Incision et drainage<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td></tr>
+<tr><td>Une veine de la marge thrombose.</td><td>Nodule tendu et douloureux, qui ne vient pas du canal.</td><td>Incision avant 72 heures, sinon conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td></tr>
+<tr><td>Les toxines détruisent les fascias.</td><td>Douleur hors de proportion avec la rougeur.</td><td>Excision chirurgicale large à l’hôpital<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</td></tr>
 </table>
 </div>
-
-<p>La continence fine au gaz dépend des coussins, parce qu'ils ferment le dernier interstice<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Les retirer sans mesure abîmerait cette continence, même si le saignement cessait<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Le mécanisme comprend des shunts artérioveineux, un mauvais retour veineux, la pression abdominale et un sphincter lisse hypertonique<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. En outre, aucun de ces quatre leviers ne se traite par un topique seul<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Le siège habituel est postérieur, après une selle dure, là où les vaisseaux manquent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Le spasme entretient ensuite la brèche, ce qui explique la douleur rythmée par la selle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Douleur de selle, une trace de sang et constipation composent la triade aiguë<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. De ce fait, cette triade désigne la fissure récente, tandis qu'un saignement abondant et indolore désigne autre chose<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'infection des glandes donne d'abord la collection, puis, si le trajet persiste, la fistule<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La rougeur diffuse signe le temps aigu, alors que l'orifice externe signe le temps chronique<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le thrombus de la marge se forme dans des veines péri-anales, et non dans le coussin sus-pectinéal<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Il se résorbe en 2 à 3 semaines, ce qui peut laisser une marisque<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Les stades I à III restent indolores, tandis qu'un stade IV peut devenir douloureux<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Une douleur au stade précoce fait donc chercher une lésion associée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Le prurit augmente après la selle, parce que le passage irrite une peau déjà fragilisée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La peau devient érythémateuse, grattée, parfois lichénifiée, et le canal reste souvent normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Une hygiène insuffisante laisse macérer, tandis qu'une hygiène agressive entretient le grattage<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Les deux excès aboutissent au même cercle, ce qui interdit le conseil unique<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La proctalgie brève correspond probablement à une hypertonie, lorsque l'examen n'a rien montré<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La durée, de quelques secondes à quelques minutes, la sépare de la fissure<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-gaz">Continence fine au gaz</button>
-<div id="f-gaz" popover class="fenetre">
-<p>La continence fine au gaz dépend des coussins, ce qui oblige à respecter l'anatomie si une chirurgie est discutée<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Aux stades 3 et 4, une chirurgie se discute, tandis que les stades 1 et 2 restent du domaine conservateur<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Hyperpression abdominale et hypertonie du sphincter lisse figurent parmi les mécanismes, parce que le retour veineux est déjà insuffisant<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. On baisse d'abord cette hyperpression, avant de parler d'exérèse<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-</div>
-<p>Le spasme du sphincter entretient la fissure, ce qui rend la selle douloureuse<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Des selles dures ouvrent la brèche sur un territoire peu vascularisé, souvent en arrière<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Un abcès ou une fistule sous la brèche peut s'ajouter à la forme chronique<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Or, cette complication concerne l'infection des glandes, au-delà de la seule brèche<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le retour veineux insuffisant laisse les coussins se gorger, lorsque la pression abdominale monte<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. L'hypertonie du sphincter lisse s'ajoute à ce mécanisme, ce qui ferme mal le cycle<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
 </section>
-
-
-<p>On draine.<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup> La collection rouge ne se laisse pas attendre.<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup></p>
-<p>On date.<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup> Le nodule de marge a une horloge de 72 heures.<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup></p>
-<p>On regarde.<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup> Écarter les fesses montre souvent la brèche.<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup></p>
-<p>On sèche.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup> La peau grattée a besoin d'air et de calme.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>On vérifie.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup> Un canal normal ne clôt pas le prurit.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>Quand la selle dure, la brèche postérieure et le spasme se renforcent, parce que la douleur revient à chaque passage.<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup></p>
-<p>Le coussin qui saigne sans douleur se traite d'abord par le transit et par la baisse de la pression abdominale, parce que ces deux leviers passent avant le geste.<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup></p>
-<p>La thrombose localisée se distingue de la collection diffuse par ses bords nets, ce qui décide entre une incision datée et un drainage.<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup></p>
-<p>On draine la tuméfaction rouge visible.<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup></p>
-<p>On date le nodule douloureux.<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup></p>
-<p>On écarte les deux fesses.<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup></p>
-<p>On sèche la peau grattée.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>On touche sans forcer le spasme.<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup></p>
-<p>On évite le papier abrasif.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>On régule d'abord le transit.<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup></p>
-<p>On refuse l'ordonnance téléphonique.<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup></p>
-<p>Le fond montre le sphincter interne.<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup></p>
-<p>Le frottis vise la mycose cutanée.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>La biopsie vise la lésion tumorale.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>Les bains chauds calment la proctalgie.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>Quand la selle est dure, la brèche postérieure et le spasme se renforcent ensemble, parce que la douleur revient à chaque passage et que seul un transit plus mou interrompt ce cercle.<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup></p>
-<p>Le coussin qui saigne sans douleur vraie se traite d'abord par le transit et par la baisse de la pression abdominale, parce que ces deux leviers précèdent toute discussion d'un geste.<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup></p>
-<p>La thrombose localisée se reconnaît à ses bords nets, tandis que la collection diffuse est rouge et mal limitée, ce qui sépare l'incision datée du drainage.<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup></p>
-<p>Une fissure qui reste ouverte malgré le soin du transit fait chercher autre chose que la constipation, parce que Crohn, un cancer ou une infection transmise sexuellement peuvent tenir la brèche.<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup></p>
-<p>Le prurit qui s'aggrave après la selle, sur une peau rouge et grattée avec un canal souvent normal, conduit au frottis puis, si le doute tumoral persiste, à la biopsie.<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup></p>
-<p>L'incision du nodule douloureux de la marge se discute tant que le délai de 72 heures n'est pas dépassé.<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup></p>
-<p>Quand le récit commence par un saignement à la selle et que la douleur ne mène pas, le coussin interne reste le premier nom, parce que ce signe ouvre le tri<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Un nodule douloureux limité à la marge se distingue du coussin, et l'incision se discute seulement avant 72 heures, délai après lequel le traitement reste conservateur, au moment de conclure<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Les stades I à III peuvent saigner ou procider sans faire mal, tandis qu'un stade IV peut devenir douloureux, ce qui impose de revoir la marge, avant la sortie du<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La brèche siège sous la ligne dentée, souvent après une selle dure, et le spasme entretient la douleur à chaque passage, ce qui vise le transit et l'hypertonie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Huit semaines de ce double soin font dépasser 80 % de guérisons pour la forme aiguë, et cet horizon sert à juger si la brèche a cédé, sans changer de<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Passé 6 à 8 semaines, le sphincter interne visible au fond renomme la fissure, et une marisque sentinelle accompagne souvent l'échec situé entre 40 et 50 %, et le rendez-vous<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La sphinctérotomie latérale atteint 90 %, cependant à dix ans l'air est concerné dans 36 % des cas, puis 25 % pour les liquides et 5 % pour les selles formées<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La tuméfaction rouge et diffuse est le temps aigu de l'infection des glandes, et elle se draine souvent sous anesthésie locale, dès que l'inspection la montre, pour ne pas perdre<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>La fistule, temps chronique, se reconnaît à un orifice externe, et le trajet douteux appelle une image endorectale ou une IRM pour voir les sphincters, dès la première consultation<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Pendant le drainage, chercher le trajet reste controversé, parce que l'on se limite à la collection et que la fistule constituée part vers un avis spécialisé, quand on revoit le<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le prurit concerne 1 à 5 % des patients, augmente après la selle et marque une peau rouge ou grattée, tandis que le canal reste souvent normal, à la lumière<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Un lavage trop pauvre et un lavage trop rude ferment le même cercle, et l'on garde la peau propre et sèche en évitant le papier abrasif, et cela se dit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Un accès de quelques secondes ou de quelques minutes, avec un examen normal, permet de retenir la proctalgia fugax et de proposer des bains de siège chauds, sans ajouter d'examen<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La fissure aiguë ferme dans 80 % des cas sous traitement conservateur, le siège est postérieur dans 80 % des cas et antérieur dans 10 %, avant d'adresser plus loin<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Le toucher confirme le spasme sans forcer, et l'anuscopie n'apporte pas le diagnostic, parce que la brèche vue en écartant les fesses suffit, si le tableau reste le même<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Une fissure qui ne ferme pas fait évoquer Crohn, un cancer ou une infection transmise sexuellement, et la forme installée montre souvent marisque et papille, et l'on s'y tient<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>La maladie touche 50 à 90 % de la population, produit 1177 consultations pour 100 000 habitants et occupe 40 à 48 journées d'hôpital chaque année, pour garder une conduite<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Les coussins aident la continence fine aux gaz, par des shunts artérioveineux, un retour veineux faible, une pression abdominale haute et un sphincter lisse tonique, dès que le doute apparaît<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>On ne donne pas l'ordonnance au téléphone, parce que l'inspection peut montrer une fissure, une thrombose ou une collection que le récit seul ne dit pas, sans multiplier les gestes<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Aux stades 1 et 2 le traitement conservateur suffit, tandis qu'aux stades 3 et 4 une chirurgie se discute, à condition de respecter l'anatomie, et le contrôle le confirme<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Metamucil® se prend avec un grand verre d'eau froide et reste contre-indiqué avant 6 ans, ainsi qu'en cas d'iléus, de sténose ou de fécalome, au lit du patient<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Un saignement intestinal de cause inconnue, une douleur abdominale inexpliquée et l'échec répété de l'effet laxatif interdisent aussi cette poudre de plantain, dans les jours qui suivent<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Si le changement alimentaire a échoué, grossesse et allaitement permettent la poudre, tandis que le diabète et les hormones thyroïdiennes imposent une surveillance, parce que la glycémie varie<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>On sépare la poudre des autres médicaments d'au moins 1 heure, parce que digitaliques, anticoagulants, antiépileptiques, antidépresseurs, sels et vitamines sont moins absorbés, et l'on l'explique ainsi<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Le thrombus de la marge se résorbe en 2 à 3 semaines, puis une marisque peut rester, ce que l'on dit quand les 72 heures sont dépassées et que l'on n'incise plus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Une fissure latérale ouvre un bilan vers Crohn, puis syphilis, tuberculose et carcinome, parce que ce siège n'est pas celui de la constipation ordinaire, à chaque nouvelle selle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La revue suisse de 2014 cadre la douleur anale aiguë au cabinet, et c'est là que l'on date le nodule, que l'on regarde la marge et que l'on choisit le geste<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
-<p>Voir la marge précède l'ordonnance, parce qu'un récit téléphonique ne distingue pas le coussin, la fissure, la thrombose et la collection rouge, pour la visite de contrôle<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Un dermocorticoïde de courte durée peut calmer le prurit, cependant il expose à l'atrophie cutanée, ce qui interdit de le continuer sur une peau déjà fine, si rien d'autre n'apparaît<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La classification de Parks concerne la fistule, mais le cabinet commence par l'orifice ou par la rougeur et ne devine pas un trajet invisible, et le plan reste celui-là<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
 <section class="ilot" id="p4">
 <h3>4. Démarche diagnostique</h3>
-<p>On exclut d'abord E1, parce que la tuméfaction rouge se draine sans attendre une image<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. E2 vient ensuite, lorsque le nodule douloureux de la marge peut encore être incisé avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La maladie hémorroïdaire reste la pathologie anale la plus fréquente, alors que la douleur ne doit pas y dominer<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Une douleur qui domine fait donc chercher une fissure, une thrombose ou un abcès<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La triade aiguë rassemble une douleur de selle, une trace de sang et la constipation, ce qui désigne la fissure récente<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Une fissure latérale, en revanche, conduit vers Crohn, vers la syphilis, vers la tuberculose ou vers un carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Quand la fissure ne guérit pas, on évoque Crohn, un cancer, ou une infection transmise par contact sexuel<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. La proctalgie ne se retient qu'après un examen normal, parce qu'elle est un diagnostic d'exclusion<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Le prurit qui augmente après la selle, avec un canal souvent normal, oriente vers la peau plutôt que vers le canal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Cependant, le saignement sans douleur dominante oriente, lui, vers le coussin interne<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>La démarche commence par exclure E1, car une rougeur périnéale qui s’étend, avec une douleur disproportionnée, évoque la fasciite nécrosante<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Cette urgence chirurgicale se traite à l’hôpital dans les quelques heures<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<p>E2 vient ensuite : la tuméfaction rouge et douloureuse de la marge signe l’abcès para-anal<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Sa douleur croît indépendamment de la selle, ce qui la sépare de la fissure<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Puis on date le nodule tendu de la marge, car son incision ne se discute qu’avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Au-delà, le caillot se traite sans geste, par les selles, un anti-inflammatoire et un veinotonique<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Quand la selle déclenche une douleur qui dure ensuite, avec un peu de sang sur le papier, on pense à la fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. En revanche, un saignement dans la cuvette sans douleur dominante oriente vers les hémorroïdes internes<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Si la fissure n’est pas postérieure, ou si la clinique paraît atypique, on cherche Crohn, syphilis, tuberculose ou carcinome épidermoïde<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. De même, une fissure rebelle à un traitement bien conduit fait suspecter Crohn ou cancer<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Un prurit avec un canal normal tourne l’attention vers la peau<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Enfin, des accès de quelques secondes à quelques minutes, sans lésion, autorisent la proctalgia fugax<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<caption>Dix diagnostics, le signe qui tranche, l'examen, le mécanisme, la conduite et le rang E.</caption>
+<caption>Dix diagnostics : signe qui tranche, examen, mécanisme, conduite immédiate et rang E.</caption>
 <tr><th>Diagnostic</th><th>Signe qui tranche</th><th>Examen</th><th>Mécanisme</th><th>Conduite et rang E</th></tr>
-<tr><td>DX.1 prurit. La peau gratte et le canal est souvent normal.</td><td>Le prurit augmente après la selle.</td><td>On regarde la peau, puis l'on demande un frottis.</td><td>L'hygiène trop pauvre ou trop agressive entretient le cercle.</td><td>On sèche la peau. Pas de rang E.</td></tr>
-<tr><td>DX.2 douleur aiguë. La douleur rythmée par la selle ouvre le tri.</td><td>Peu de sang accompagne la douleur de la selle.</td><td>Écarter les fesses suffit souvent.</td><td>Le spasme entretient une brèche.</td><td>On vise le transit. Pas de rang E.</td></tr>
-<tr><td>DX.3 protrusion. Le prolapsus est un symptôme cardinal interne.</td><td>La procidence apparaît à la poussée.</td><td>L'inspection à la selle reconstituée montre le prolapsus.</td><td>Le coussin descend au-delà de la marge.</td><td>Les stades III et IV vont vers un avis spécialisé. Pas de rang E.</td></tr>
-<tr><td>DX.4 thrombose péri-anale. Le nodule douloureux siège sur la marge.</td><td>La tuméfaction est localisée, non rouge et diffuse.</td><td>L'inspection de la marge tranche avec l'abcès.</td><td>Des veines péri-anales thrombosent.</td><td>🚩 E2. L'incision se discute avant 72 heures.</td></tr>
-<tr><td>DX.5 fissure aiguë. La brèche est récente et distale à la ligne dentée.</td><td>La triade unit douleur, peu de sang et constipation.</td><td>On écarte les fesses sans forcer le toucher.</td><td>Des selles dures ouvrent un terrain peu vascularisé.</td><td>On traite le transit et l'hypertonie. Pas de rang E.</td></tr>
-<tr><td>DX.6 fissure chronique. Le fond laisse voir le sphincter interne.</td><td>Le délai dépasse 6 à 8 semaines.</td><td>On voit la marisque distale et la papille hypertrophique.</td><td>Le spasme maintient la brèche.</td><td>La chirurgie ambulatoire se discute si le traitement échoue. Pas de rang E.</td></tr>
-<tr><td>DX.7 abcès. La collection est la phase aiguë.</td><td>La tuméfaction est rouge.</td><td>L'inspection suffit à reconnaître la collection.</td><td>Une glande anale s'infecte.</td><td>🚩 E1. On incise et l'on draine.</td></tr>
-<tr><td>DX.8 fistule. L'orifice externe signe la phase chronique.</td><td>Un orifice cutané écoule.</td><td>Si le trajet est douteux, l'échographie endorectale ou l'IRM le précise.</td><td>Le trajet glandulaire s'est chronicisé, selon Parks.</td><td>La fistule constituée va au spécialiste. Pas de rang E.</td></tr>
-<tr><td>DX.9 proctalgia fugax. L'accès est court et l'examen est normal.</td><td>La douleur dure quelques secondes ou quelques minutes.</td><td>L'examen normal permet l'exclusion.</td><td>L'hypertonie est probable.</td><td>Les bains chauds de siège restent le soulagement usuel. Pas de rang E.</td></tr>
-<tr><td>DX.10 maladie hémorroïdaire. C'est la pathologie anale la plus fréquente.</td><td>Le saignement domine, pas la douleur.</td><td>On examine, et l'on ne prescrit pas par téléphone.</td><td>Shunts, retour veineux faible et hyperpression se combinent.</td><td>Les stades 1 et 2 restent conservateurs. Pas de rang E.</td></tr>
+<tr><td>DX.1 maladie hémorroïdaire</td><td>Sang dans la cuvette, prolapsus, pas de douleur au premier plan.</td><td>Inspection à la poussée ; anuscopie pour le stade I.</td><td>Coussins congestifs qui prolabent.</td><td>Transit, mucilages, veinotonique. Pas de rang E.</td></tr>
+<tr><td>DX.2 fissure anale aiguë</td><td>Douleur à la selle qui persiste, peu de sang sur le papier.</td><td>Fesses écartées : brèche à 6 heures.</td><td>Microtraumatisme et spasme ischémiant.</td><td>Selles molles, topique relaxant. Pas de rang E.</td></tr>
+<tr><td>DX.3 thrombose péri-anale</td><td>Nodule tendu de la marge qui ne sort pas du canal.</td><td>Inspection et palpation douce.</td><td>Caillot dans une veine de la marge.</td><td>Incision avant 72 heures, sinon conservateur. Pas de rang E.</td></tr>
+<tr><td>DX.4 fissure anale chronique</td><td>Plainte de plus de 6 à 8 semaines.</td><td>Fibres du sphincter interne au fond, marisque sentinelle.</td><td>Cercle douleur, spasme, ischémie installé.</td><td>Topique, puis fissurectomie si échec. Pas de rang E.</td></tr>
+<tr><td>DX.5 prurit anal</td><td>Démangeaison accrue après la selle, canal normal.</td><td>Peau : érythème, grattage, lichénification ; frottis.</td><td>Humidité, irritants, hygiène inadaptée.</td><td>Peau propre et sèche. Pas de rang E.</td></tr>
+<tr><td>DX.6 abcès para-anal</td><td>Douleur croissante sans lien avec la selle, rougeur.</td><td>Tuméfaction rouge ; ultrason ou IRM si doute.</td><td>Glande intersphinctérienne infectée.</td><td>🚩 E2. Incision et drainage, souvent au cabinet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td></tr>
+<tr><td>DX.7 fistule para-anale</td><td>Orifice cutané qui suinte du pus.</td><td>Examen bidigital ; IRM ou ultrason du trajet.</td><td>Trajet épithélialisé après un abcès.</td><td>Équipe spécialisée. Pas de rang E.</td></tr>
+<tr><td>DX.8 proctalgia fugax</td><td>Accès de secondes à minutes, rien entre les crises.</td><td>Examen normal.</td><td>Hypertonie sphinctérienne probable.</td><td>Bains de siège chauds. Pas de rang E.</td></tr>
+<tr><td>DX.9 fissure secondaire</td><td>Siège latéral ou évolution atypique.</td><td>Bilan ciblé selon la cause suspectée.</td><td>Crohn, infection ou tumeur sous la brèche.</td><td>Avis spécialisé. Pas de rang E.</td></tr>
+<tr><td>DX.10 gangrène de Fournier</td><td>Douleur disproportionnée, rougeur génitale qui s’étend.</td><td>Clinique d’abord ; histologie au bloc.</td><td>Fasciite nécrosante toxique.</td><td>🚩 E1. Chirurgie hospitalière dans les heures.</td></tr>
 </table>
 </div>
-
-<p>Le premier regard cherche la tuméfaction rouge, parce qu'elle se draine sans attendre une image<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Le nodule localisé de marge vient ensuite, tant que ces 72 heures ne sont pas passées<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Passé 72 heures, le traitement de la thrombose reste conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. On prévient alors qu'une marisque peut persister après la résorption<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On écarte les fesses pour voir la fissure, ce qui suffit souvent à l'examen<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Une fissure latérale conduit le diagnostic vers Crohn, syphilis, tuberculose ou carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Le toucher confirme le spasme sans forcer, lorsque la douleur de selle est au premier plan<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. L'anuscopie est inutile dans cette situation, parce qu'elle n'ajoute pas le diagnostic<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>On ne prescrit pas au téléphone, parce que voir la marge change la conduite<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Le symptôme cardinal du coussin reste le saignement, et non la douleur<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Si le trajet fistuleux est douteux, l'image par échographie endorectale, ou bien l'IRM, montre le parcours et les muscles sphinctériens<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La fistule déjà constituée relève d'un avis spécialisé<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le prurit à canal normal conduit au frottis, afin de ne pas manquer une mycose<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La biopsie vient si l'on craint une lésion tumorale<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La proctalgie ne se retient qu'après un examen normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Toutefois, des bains de siège chauds en sont le soulagement usuel<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On date la plainte en heures pour la thrombose, et en semaines pour la fissure<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Les deux horloges ne se mélangent pas, parce que le geste change<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Une brèche postérieure après des selles dures reste le tableau le plus commun<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Néanmoins, le siège postérieur concerne 80 % des fissures, et le siège antérieur 10 %<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p class="note">Sur un téléphone, ce tableau défile vers la droite.</p>
 </section>
 <section class="ilot" id="p5">
 <h3>5. Anamnèse ciblée et drapeaux rouges</h3>
-<p>On date la douleur par rapport à la selle, parce que le rythme exonérateur désigne la fissure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. On demande aussi depuis quand le nodule de marge est douloureux, afin de savoir si l'on est encore avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Un saignement isolé, sans douleur dominante, oriente vers le coussin interne<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Une procidence à la poussée complète ce récit, parce que le prolapsus est un symptôme cardinal<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On fait préciser la durée des accès, lorsque le patient décrit des éclairs de quelques secondes à quelques minutes<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On interroge l'hygiène, trop pauvre ou trop agressive, parce que le prurit s'y nourrit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Une fissure latérale est un drapeau, car elle impose la recherche d'une maladie de Crohn, d'une syphilis, d'une tuberculose ou d'un carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Une fissure qui ne guérit pas impose la même vigilance, y compris pour une infection sexuellement transmissible<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>On ne prescrit pas par téléphone, parce que l'œil sur la marge modifie le choix<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Les selles dures et la constipation entrent dans la triade, ce qui relie l'histoire au spasme<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>La première question porte sur le lien avec la selle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Une douleur qui commence au passage et dure après oriente vers la fissure, alors qu’une douleur continue et croissante oriente vers l’abcès<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>On fait décrire le sang, car un peu de sang sur le papier oriente vers la fissure, alors qu’un saignement dans les toilettes oriente vers les hémorroïdes<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. L’histoire de constipation avec efforts de poussée complète souvent ce récit<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Depuis quand le nodule fait-il mal<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup> ? La réponse fixe le geste, puisque l’incision de la thrombose ne se propose qu’avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Le patient qui décrit une boule à la poussée précise si elle rentre seule, au doigt ou plus du tout<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Ce détail suffit souvent à placer le stade, de II à IV<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Pour le prurit, on demande les produits déjà appliqués, car plusieurs topiques figurent souvent à l’anamnèse<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On interroge aussi la toilette, parce qu’une hygiène insuffisante ou trop agressive entretient la démangeaison<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Des accès brefs, nocturnes ou diurnes, sans aucun symptôme entre eux, évoquent la proctalgia fugax<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Toutefois, ce nom ne se donne qu’après un examen normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Le terrain compte, car un patient immunodéprimé fait plus souvent une infection profonde, même si des sujets jeunes et sains peuvent l’être aussi<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Par ailleurs, une localisation peu fréquente de la fissure fait demander les expositions sexuelles<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Avant de proposer un mucilage, on demande depuis quand les habitudes de selle ont changé<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Un changement de plus de 2 semaines, une douleur abdominale inexpliquée ou un saignement intestinal non élucidé contre-indiquent Metamucil®<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<caption>Drapeaux rouges, ce qu'ils signifient et l'action qu'ils imposent.</caption>
+<caption>Drapeaux rouges, ce qu’ils signifient et l’action qu’ils imposent.</caption>
 <tr><th>Drapeau</th><th>Signification</th><th>Action</th></tr>
-<tr><td>La marge porte une tuméfaction rouge.</td><td>C'est la phase aiguë de l'infection glandulaire.</td><td>On incise et l'on draine, souvent sous anesthésie locale.</td></tr>
-<tr><td>Un nodule douloureux de la marge a moins de 72 heures.</td><td>Le thrombus est encore accessible à l'incision.</td><td>On discute l'incision, sinon le traitement devient conservateur.</td></tr>
-<tr><td>La fissure siège sur le côté.</td><td>Elle sort du terrain postérieur peu vascularisé.</td><td>On cherche Crohn, syphilis, tuberculose ou carcinome.</td></tr>
-<tr><td>La fissure ne guérit pas.</td><td>Le traitement conservateur a échoué ou une autre maladie est en cause.</td><td>On suspecte Crohn, cancer ou infection sexuellement transmissible.</td></tr>
-<tr><td>La douleur domine alors que l'on croyait à un simple coussin interne.</td><td>Les stades I à III restent indolores.</td><td>On cherche fissure, thrombose ou abcès.</td></tr>
-<tr><td>Le prurit s'accompagne d'une peau lichénifiée et le canal est normal.</td><td>La cause peut être cutanée, mycosique ou tumorale.</td><td>Le frottis vise la mycose, et la biopsie vise la lésion tumorale.</td></tr>
+<tr><td>🚩 Douleur hors de proportion avec une rougeur périnéale ou génitale qui s’étend.</td><td>Fasciite nécrosante, dont la gangrène de Fournier.</td><td>Transfert hospitalier pour chirurgie dans les heures<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</td></tr>
+<tr><td>🚩 Tuméfaction rouge, douleur croissante sans lien avec la selle.</td><td>Abcès para-anal.</td><td>Incision et drainage, souvent au cabinet sous anesthésie locale<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td></tr>
+<tr><td>Fissure latérale ou d’aspect atypique.</td><td>Crohn, syphilis, tuberculose, carcinome épidermoïde.</td><td>Bilan ciblé et avis spécialisé<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td></tr>
+<tr><td>Fissure rebelle à un traitement conservateur correct.</td><td>Crohn ou cancer.</td><td>Avis spécialisé et biopsie<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</td></tr>
+<tr><td>Douleur chez un patient aux hémorroïdes de stade I à III.</td><td>Ces stades ne font jamais mal.</td><td>Chercher thrombose ou fissure<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td></tr>
+<tr><td>Saignement intestinal inexpliqué ou changement de transit depuis plus de 2 semaines.</td><td>Contre-indication au mucilage.</td><td>Pas de Metamucil® ; bilan du transit<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</td></tr>
 </table>
 </div>
-
-<p>On demande d'abord si la douleur suit la selle, parce que ce rythme désigne la fissure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Peu de sang sur le papier, avec la constipation, définit la triade<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Un saignement sans douleur au premier plan oriente vers le coussin interne<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Le prolapsus se raconte à la poussée, ce qui le distingue d'une marisque fixe<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On date le nodule douloureux de la marge, afin de savoir si l'on est avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Au-delà, l'incision ne reste plus le choix de première ligne<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On demande depuis quand la brèche est vue, parce que 6 à 8 semaines séparent la forme aiguë de la forme chronique<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Une marisque distale et une papille hypertrophique racontent la forme installée<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Le prurit qui s'aggrave après la selle, avec un canal normal, oriente vers la peau<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On demande comment le patient se lave et s'essuie, parce que les deux excès d'hygiène comptent<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Une douleur de quelques secondes, avec un examen normal, fait évoquer la proctalgia fugax<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En revanche, elle ne se confond pas avec la douleur de selle, qui dure le temps du passage<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On cherche un suintement par un orifice, ce qui évoque la fistule plutôt que le prurit sec<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La fièvre et la rougeur diffuse racontent l'abcès, tandis qu'un orifice calme raconte la fistule<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Chez la femme, une fissure antérieure reste possible, parce que ce siège concerne 10 % des fissures et prédomine dans ce groupe<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. On ne la banalise pas, parce qu'une fissure qui ne guérit pas reste un signal<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-hygiene">Hygiène, deux excès</button>
+<p>La boule bleutée de la marge se distingue du coussin qui sort, et <button class="w" type="button" popovertarget="f-hygiene">les cinq gestes d’hygiène</button> se discutent dès que le prurit domine<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 <div id="f-hygiene" popover class="fenetre">
-<p>Souvent aucune cause nette n'est trouvée, ou bien le lavage est trop pauvre, ou bien il est trop rude<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Il augmente après la selle, tandis que le canal reste souvent normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La peau doit rester propre et sèche, le papier abrasif s'évite, et le transit se régularise<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Un dermocorticoïde court expose à l'atrophie, ce qui en limite la durée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<button class="fermer" type="button" popovertarget="f-hygiene" popovertargetaction="hide">Fermer</button>
+<h5>Hygiène péri-anale : ni trop, ni trop peu</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 152" role="img" aria-label="Cinq gestes pour la peau péri-anale" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="152" fill="#ffffff"/>
+<rect x="10" y="30" width="120" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="70.0" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Laver à l’eau</text>
+<text x="70.0" y="84" text-anchor="middle" font-size="14" fill="#161616">après chaque selle</text>
+<circle cx="70" cy="22" r="12" fill="#674101"/><text x="70" y="27" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1</text>
+<rect x="140" y="30" width="120" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="200.0" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Sécher</text>
+<text x="200.0" y="84" text-anchor="middle" font-size="14" fill="#161616">sans frotter</text>
+<circle cx="200" cy="22" r="12" fill="#674101"/><text x="200" y="27" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2</text>
+<rect x="270" y="30" width="120" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Pas de papier</text>
+<text x="330.0" y="84" text-anchor="middle" font-size="14" fill="#161616">abrasif</text>
+<circle cx="330" cy="22" r="12" fill="#674101"/><text x="330" y="27" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3</text>
+<rect x="400" y="30" width="120" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="460.0" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Transit régulier</text>
+<text x="460.0" y="84" text-anchor="middle" font-size="14" fill="#161616">mucilages</text>
+<circle cx="460" cy="22" r="12" fill="#674101"/><text x="460" y="27" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4</text>
+<rect x="530" y="30" width="120" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="590.0" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Pâte de zinc</text>
+<text x="590.0" y="84" text-anchor="middle" font-size="14" fill="#161616">si sévère</text>
+<circle cx="590" cy="22" r="12" fill="#674101"/><text x="590" y="27" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">5</text>
+<text x="330" y="140" text-anchor="middle" font-size="14" fill="#161616">but : une marge propre et sèche</text>
+</svg>
+<figcaption>Schéma original de ce cours, construit d’après la revue suisse de 2014.</figcaption>
+</figure>
+<p>Le but est une région propre et sèche, en supprimant tout agent irritant<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On lave à l’eau après chaque selle, puis on évite le papier abrasif<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Un transit régulier, avec des selles formées grâce aux mucilages, limite le frottement<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Dans les cas sévères, une pâte de zinc protège la peau<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 </div>
-<p>On demande si le sang est abondant ou limité à une trace, afin de séparer le coussin de la fissure<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. La fissure saigne peu, ce qui entre dans la triade avec la constipation<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On demande les traitements déjà tentés sur la peau, afin de savoir si un dermocorticoïde a déjà duré<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. L'atrophie se prévient en gardant cet usage court<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+
 </section>
 <section class="ilot" id="p6">
 <h3>6. Examen physique, région par région</h3>
 <h4>Marge anale</h4>
-<p>On écarte d'abord les fesses, parce que cet écartement montre souvent la fissure sans autre manœuvre<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Le normal est une marge souple, sans nodule violacé et sans collection rouge<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le pathologique est soit un nodule localisé de la marge, soit une tuméfaction rouge<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le premier oriente vers la thrombose, tandis que la seconde oriente vers l'abcès<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>On ouvre le <button class="w" type="button" popovertarget="f-cliche">cliché de la marge</button> quand il faut séparer ces deux aspects<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>L’examen reste souvent difficile à cause de la douleur, si bien qu’on se contente d’abord d’écarter les fesses<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Normale, la marge est souple, sans nodule, sans rougeur et sans orifice<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Le nodule tuméfié et induré de la marge, qui ne prolabe pas depuis le canal, signe la thrombose péri-anale<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. À l’inverse, une tuméfaction rouge et chaude signe l’abcès<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Pour apprendre à les séparer, on ouvre <button class="w" type="button" popovertarget="f-cliche">le cliché d’une thrombose de la marge</button> et l’on cherche soi-même le signe<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
 <div id="f-cliche" popover class="fenetre">
+<button class="fermer" type="button" popovertarget="f-cliche" popovertargetaction="hide">Fermer</button>
+<h5>Thrombose péri-anale : cliché brut, puis copie annotée</h5>
 <figure class="cliche">
-<p class="fiche">La modalité est la photographie clinique, et le cadrage est un gros plan de la marge anale. La position est celle de l'inspection, tandis que la latéralité n'est pas inscrite sur le fichier. Aucune identité ne reste visible sur le cliché.</p>
-<img src="images/thrombose-brut.jpg" width="500" height="375" alt="Cliché brut, thrombose péri-anale">
-<p>Regardez d'abord ce cliché brut et cherchez le signe vous-même<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<img src="images/thrombose-annote.jpg" width="500" height="375" alt="Copie annotée, thrombose péri-anale">
-<svg viewBox="0 0 500 375" role="img" aria-label="Repères de la copie annotée">
-<image href="images/thrombose-brut.jpg" width="500" height="375"/>
-<circle cx="300" cy="128" r="16" fill="none" stroke="#a01020" stroke-width="3"/>
-<text x="320" y="133" font-size="20" font-weight="700" fill="#a01020">1</text>
-<circle cx="250" cy="195" r="16" fill="none" stroke="#a01020" stroke-width="3"/>
-<text x="270" y="200" font-size="20" font-weight="700" fill="#a01020">2</text>
-<circle cx="420" cy="278" r="16" fill="none" stroke="#a01020" stroke-width="3"/>
-<text x="440" y="283" font-size="20" font-weight="700" fill="#a01020">3</text>
+<p class="fiche">Il s’agit d’une photographie clinique rapprochée de la marge, prise en position d’inspection, sans latéralité inscrite et sans identité visible<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<div class="paire">
+<div>
+<h5>Cliché brut</h5>
+<img src="images/thrombose-brut.jpg" width="500" height="375" alt="Cliché brut d’une thrombose péri-anale">
+</div>
+<div>
+<h5>Copie annotée</h5>
+<div class="cadre-img">
+<img src="images/thrombose-annote.jpg" width="500" height="375" alt="Copie annotée de la thrombose péri-anale">
+<svg viewBox="0 0 500 375" role="img" aria-label="Repères numérotés de la copie annotée">
+<circle cx="300" cy="128" r="17" fill="none" stroke="#ffffff" stroke-width="6"/><circle cx="300" cy="128" r="17" fill="none" stroke="#3a0a10" stroke-width="2.5"/>
+<circle cx="333" cy="128" r="13" fill="#ffffff"/><text x="333" y="134" text-anchor="middle" font-size="17" font-weight="700" fill="#161616">1</text>
+<circle cx="250" cy="195" r="17" fill="none" stroke="#ffffff" stroke-width="6"/><circle cx="250" cy="195" r="17" fill="none" stroke="#3a0a10" stroke-width="2.5"/>
+<circle cx="283" cy="195" r="13" fill="#ffffff"/><text x="283" y="201" text-anchor="middle" font-size="17" font-weight="700" fill="#161616">2</text>
+<circle cx="420" cy="278" r="17" fill="none" stroke="#ffffff" stroke-width="6"/><circle cx="420" cy="278" r="17" fill="none" stroke="#3a0a10" stroke-width="2.5"/>
+<circle cx="453" cy="278" r="13" fill="#ffffff"/><text x="453" y="284" text-anchor="middle" font-size="17" font-weight="700" fill="#161616">3</text>
 </svg>
-<p>Le premier repère est posé sur le point sombre au sommet du nodule<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Par ailleurs, le deuxième repère couvre le corps du nodule de marge, et le troisième la peau voisine qui n'est pas un placard diffus<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Ce point sombre ne prouve pas à lui seul une nécrose étendue, parce que le cliché montre surtout un nodule localisé<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le gant en bord d'image n'est pas une lésion, ce qui évite de le prendre pour un orifice<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Ce que l'image décide : ce nodule localisé de marge correspond à E2, tandis qu'une tuméfaction rouge diffuse correspondrait à E1<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. L'incision du nodule se discute avant 72 heures, alors que la collection rouge se draine<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<figcaption>Image : K.-H. Günther, Klinikum Main Spessart, licence CC BY 3.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Perianal_thrombosis_01.jpg , consulté le 10 novembre 2026. Copie annotée : œuvre dérivée sous la même licence.</figcaption>
+</div>
+</div>
+</div>
+<p>On regarde d’abord le cliché brut et l’on cherche le nodule, avant de lire les repères<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Le premier repère montre le point sombre du caillot au sommet du nodule, tandis que le deuxième couvre le corps tendu de la tuméfaction<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le troisième désigne une peau voisine qui reste sans rougeur diffuse ni collection<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Ce que l’image décide : ce nodule limité de la marge est une thrombose, sans rang E, et non l’abcès para-anal classé E2, rouge et chaud<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Il n’a pas non plus la rougeur qui s’étend vers le périnée de la gangrène de Fournier, classée E1<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Son incision se discute seulement si la douleur date de moins de 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<figcaption>Image : K.-H. Günther, Klinikum Main Spessart, « Perianal thrombosis 01 », licence CC BY 3.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Perianal_thrombosis_01.jpg, consulté le 10 novembre 2026. Copie annotée : œuvre dérivée sous la même licence.</figcaption>
 </figure>
 </div>
 <h4>Canal anal</h4>
-<p>Le toucher confirme le spasme, sans forcer, lorsque l'on suspecte une fissure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. L'anuscopie n'apporte rien dans cette situation, parce que la douleur suffit à limiter l'examen<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Le canal du prurit est souvent normal, ce qui déplace l'attention vers la peau<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Un orifice externe, en revanche, fait retenir la fistule<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<h4>Peau péri-anale</h4>
-<p>La peau normale est sèche, sans fissure de grattage et sans lichénification<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En outre, la peau pathologique est érythémateuse, grattée, parfois lichénifiée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On demande alors un frottis à la recherche d'une mycose, et une biopsie si une lésion tumorale est possible<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On garde ensuite la peau propre et sèche, en évitant le papier abrasif<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<h4>Périnée et abdomen</h4>
-<p>On palpe le périnée à la recherche d'une collection qui dépasse la marge, parce que l'abcès est une tuméfaction rouge<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. L'abdomen entre dans l'examen quand une fissure latérale fait suspecter une maladie de Crohn<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'examen de la proctalgie reste normal, ce qui autorise l'exclusion seulement après ce constat<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On ne force pas un anus douloureux, parce que le spasme se confirme déjà au toucher prudent<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Au doigt, on sent le sphincter contracté, mais l’on ne force jamais<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. L’anuscopie, souvent irréalisable à cause de la douleur, n’ajoute rien au diagnostic de fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Dans la grande majorité des cas, la brèche se situe au pôle postérieur, sur la ligne médiane, <button class="w" type="button" popovertarget="f-marge">à 6 heures en position gynécologique</button><sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<div id="f-marge" popover class="fenetre">
+<button class="fermer" type="button" popovertarget="f-marge" popovertargetaction="hide">Fermer</button>
+<h5>Où siège la fissure ?</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 300" role="img" aria-label="Siège des fissures en position gynécologique" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="300" fill="#ffffff"/>
+<circle cx="330" cy="150" r="120" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<circle cx="330" cy="150" r="40" fill="#ffffff" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330" y="155" text-anchor="middle" font-size="13" fill="#161616">orifice</text>
+<text x="330" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">12 h (antérieur)</text>
+<text x="330" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">6 h (postérieur)</text>
+<path d="M322 190 L330 268 L338 190 z" fill="#fde8e4" stroke="#7c2431" stroke-width="1.5"/>
+<text x="470" y="250" font-size="13" fill="#161616">fissure typique</text>
+<line x1="466" y1="246" x2="342" y2="232" stroke="#161616" stroke-width="1"/>
+<text x="470" y="90" font-size="13" fill="#161616">latérale : bilan</text>
+<line x1="466" y1="94" x2="410" y2="140" stroke="#161616" stroke-width="1"/>
+</svg>
+<figcaption>Schéma original de ce cours : cadran de la marge en position gynécologique.</figcaption>
+</figure>
+<p>Huit fissures sur dix siègent à la commissure postérieure, et une sur dix à la commissure antérieure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Ces proportions correspondent à 80 % et 10 % des cas<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Ailleurs, la lésion fait évoquer Crohn, syphilis, tuberculose ou carcinome épidermoïde<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+</div>
 
-<p>À la marge, on cherche le nodule violacé localisé, parce qu'il tranche avec le placard rouge<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. La collection rouge, elle, se draine, souvent sous anesthésie locale<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Dans le canal, écarter les fesses montre la brèche distale à la ligne dentée<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. De ce fait, le fond qui laisse voir le sphincter interne signe la forme chronique, passé 6 à 8 semaines<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Le toucher, s'il est fait, confirme le spasme sans forcer<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. On s'arrête si la douleur l'impose, parce que le diagnostic visuel suffit souvent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La peau péri-anale se lit à l'érythème, aux stries de grattage et à la lichénification<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Un canal normal n'innocente pas la peau, lorsque le prurit domine<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>L'orifice externe, sur le périnée, signe la fistule<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Or, en cas de doute sur le trajet, l'échographie endorectale ou l'IRM décrit les sphincters<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>L'abdomen se palpe si l'on craint une maladie de Crohn associée à une fissure latérale<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La fissure latérale ne constitue pas une fissure de constipation ordinaire<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On ne cherche pas la fistule pendant le drainage, parce que cette recherche reste controversée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Les fistules constituées vont au spécialiste, tandis que l'abcès se draine au cabinet quand l'anesthésie locale suffit<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>L'anuscopie ne confirme pas la fissure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Cependant, elle ne remplace pas le simple écartement des fesses<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On écarte les fesses avant tout instrument, parce que la brèche se voit ainsi<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Le toucher ne force pas le spasme, et l'anuscopie ne confirme pas la fissure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>La marisque distale et la papille hypertrophique se voient avec la fissure chronique<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Toutefois, leur présence, avec un délai de 6 à 8 semaines, confirme la forme installée<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Au stade I, seule l’anuscopie montre les coussins hypertrophiés, puisqu’ils ne prolabent pas<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. À partir du stade II, le prolapsus apparaît à la poussée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<h4>Peau péri-anale</h4>
+<p>Dans le prurit, la peau montre un érythème et de multiples lésions de grattage<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Aux stades avancés s’ajoutent des lésions eczématiformes ou lichénifiées, alors que le canal reste le plus souvent normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Un orifice cutané qui laisse sourdre du pus signe la fistule<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Ensuite, un examen bidigital permet parfois de palper le trajet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<h4>Périnée et organes génitaux</h4>
+<p>On regarde au-delà de la marge, parce qu’une rougeur qui s’étend vers le périnée ou les organes génitaux change tout<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Une douleur plus forte que ne le laisse prévoir l’érythème fait évoquer une fasciite<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<p>Fièvre et crépitations manquent souvent à l’admission, donc leur absence ne rassure pas<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Des bulles ou des zones d’aspect brûlé signent une nécrose déjà avancée<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
 </section>
 <section class="ilot" id="p7">
 <h3>7. Approche syndromique</h3>
 <h4>7.1 Douleur rythmée par la selle</h4>
-<p>Le signe fonctionnel est une douleur qui revient à chaque exonération, parce que le spasme ferme la brèche<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Le signe physique est la brèche distale, souvent vue en écartant les fesses<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On cherche ce syndrome en demandant le rapport avec la selle, puis en regardant la marge<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Peu de sang et la constipation complètent la triade, ce qui distingue cette douleur d'un saignement isolé<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-triade">Triade de la fissure</button>
+<p>Le signe fonctionnel est une douleur vive au passage de la selle, qui perdure après la défécation<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Quant au signe physique, il est une brèche distale, visible dès qu’on écarte doucement les fesses<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Trois signes vont ensemble dans la forme aiguë, à savoir la douleur à l’exonération, un saignement discret et la constipation, comme le montre <button class="w" type="button" popovertarget="f-triade">le cercle vicieux de la fissure</button><sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
 <div id="f-triade" popover class="fenetre">
-<p>La triade aiguë associe la douleur de la défécation, une faible quantité de sang et la constipation<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Néanmoins, le mécanisme est une brèche sur un terrain peu vascularisé, entretenue par le spasme<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Le piège est de croire qu'un coussin interne explique cette douleur, alors que les stades I à III restent indolores<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. On traite le transit et l'hypertonie, parce que ces deux leviers visent le spasme et la selle dure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<button class="fermer" type="button" popovertarget="f-triade" popovertargetaction="hide">Fermer</button>
+<h5>Triade et cercle vicieux de la fissure</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 300" role="img" aria-label="Cercle vicieux de la fissure anale" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="300" fill="#ffffff"/>
+<rect x="230" y="10" width="200" height="58" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Selle dure</text>
+<text x="330.0" y="54" text-anchor="middle" font-size="15" fill="#161616">microtraumatisme</text>
+<rect x="440" y="120" width="200" height="58" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="540.0" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Douleur</text>
+<text x="540.0" y="164" text-anchor="middle" font-size="15" fill="#161616">à la défécation</text>
+<rect x="230" y="230" width="200" height="58" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="254" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Spasme réflexe</text>
+<text x="330.0" y="274" text-anchor="middle" font-size="15" fill="#161616">du sphincter interne</text>
+<rect x="20" y="120" width="200" height="58" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="120.0" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Ischémie relative</text>
+<text x="120.0" y="164" text-anchor="middle" font-size="15" fill="#161616">brèche qui ne ferme pas</text>
+<line x1="430" y1="52" x2="500" y2="118" stroke="#674101" stroke-width="2" marker-end="url(#fl4)"/>
+<line x1="530" y1="180" x2="430" y2="250" stroke="#674101" stroke-width="2" marker-end="url(#fl4)"/>
+<line x1="230" y1="262" x2="140" y2="180" stroke="#674101" stroke-width="2" marker-end="url(#fl4)"/>
+<line x1="120" y1="118" x2="228" y2="50" stroke="#674101" stroke-width="2" marker-end="url(#fl4)"/>
+<text x="330" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#674101">cercle à briser</text>
+<text x="330" y="182" text-anchor="middle" font-size="14" fill="#161616">transit + relâchement</text>
+</svg>
+<figcaption>Schéma original de ce cours : quatre maillons à rompre par le transit et le relâchement du sphincter.</figcaption>
+</figure>
+<p>Une selle dure blesse le canal postérieur ; la douleur déclenche un spasme réflexe qui réduit la perfusion<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Puis l’ischémie bloque la cicatrisation, et la selle suivante rouvre la plaie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Le traitement rompt ce cercle sur deux maillons : des selles molles et un sphincter relâché<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Ainsi, un topique relaxant est toujours associé au mucilage<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
 </div>
-<h4>7.2 Saignement sans douleur dominante</h4>
-<p>Le signe fonctionnel est le saignement, symptôme cardinal du coussin<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Le signe physique peut manquer au repos, ce qui oblige à faire raconter la selle<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On ne laisse pas la douleur dominer le récit, parce qu'elle déplace le diagnostic vers la fissure, la thrombose ou l'abcès<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le prurit et le prolapsus peuvent s'y associer, puisqu'ils comptent parmi les manifestations internes<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<h4>7.3 Protrusion et nodule de marge</h4>
-<p>Le prolapsus se voit à la poussée, tandis que le nodule thrombotique est douloureux et fixé à la marge<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. On sépare donc la procidence du coussin et la thrombose veineuse péri-anale<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Une marisque résiduelle n'est pas une procidence active, parce qu'elle peut rester après la résorption du thrombus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Les stades 3 et 4 font discuter une chirurgie qui respecte l'anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-stades">Stades et douleur</button>
-<div id="f-stades" popover class="fenetre">
-<p>Les stades I à III restent indolores, et seul un stade IV peut devenir douloureux<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Aux stades I et II, le transit et les mucilages forment le traitement, tandis qu'un veinotonique oral couvre au moins six semaines<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Les topiques restent discutés, et l'on n'en fait pas le socle<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. En revanche, après l'échec de cette base, on discute une sclérothérapie ou une ligature<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Dès les stades III et IV, l'avis spécialisé s'impose<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Les stades 1 et 2 répondent en revanche au traitement conservateur<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-</div>
-<h4>7.4 Prurit et accès brefs</h4>
-<p>Le prurit augmente après la selle, et la peau peut être érythémateuse, grattée ou lichénifiée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Le canal souvent normal sépare ce syndrome d'une fissure, parce que la brèche, elle, se voit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La proctalgie se manifeste par des accès de quelques secondes à quelques minutes, avec un examen normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. L'hypertonie est probable, et les bains de siège chauds sont le moyen alors décrit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 
-<p>La douleur rythmée par l'exonération est le signe cardinal de la fissure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Par ailleurs, peu de sang et la constipation complètent le tableau aigu<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Le saignement sans douleur dominante raconte le coussin, parce que la douleur n'y tient pas le premier rôle<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Si la douleur apparaît quand même, on reprend le tri depuis la marge<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>La protrusion se montre à la poussée, et elle compte parmi les symptômes internes<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Une marisque laissée par un ancien thrombus reste fixe, tandis que le prolapsus descend à la poussée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Le nodule de marge, douloureux, localisé, se discute avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. La tuméfaction rouge et diffuse ne se discute pas de la même façon, parce qu'elle se draine<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le prurit avec peau abîmée et canal normal forme un syndrome cutané<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En outre, l'accès de quelques secondes, avec un examen normal, constitue un autre syndrome, celui de la proctalgie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La fistule se plaint d'un écoulement, alors que l'abcès se plaint d'une douleur croissante et d'une rougeur<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Les deux partagent l'infection des glandes, ce qui explique leur parenté<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>La fissure chronique associe marisque distale et papille hypertrophique<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. De ce fait, un abcès ou une fistule sous la brèche peut s'y ajouter<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Aux stades 1 et 2, le traitement conservateur suffit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Or, aux stades 3 et 4, on discute une chirurgie qui doit respecter l'anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Un prolapsus qui rentre ou qui sort raconte le stade, lorsque la douleur est absente<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Dès qu'un stade IV devient douloureux, on cherche une lésion de plus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Le syndrome de la collection se reconnaît à la rougeur et à la douleur croissante<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Le syndrome de la fistule se reconnaît à l'orifice et à l'écoulement, ce qui est le temps chronique<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<h4>7.2 Saignement sans douleur dominante</h4>
+<p>Le saignement constitue le symptôme cardinal de la maladie hémorroïdaire<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Prurit et prolapsus complètent la triade interne, tandis que la douleur reste au second plan<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Dès que la douleur domine, on cherche une thrombose ou une fissure associée<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le stade IV fait exception, puisqu’il peut devenir très douloureux<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<h4>7.3 Boule à la marge</h4>
+<p>Trois masses se discutent, à savoir le coussin qui prolabe, le caillot de la marge et la marisque<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Or chacune exige une conduite différente<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le classement du prolapsus se lit sur <button class="w" type="button" popovertarget="f-stades">le schéma des quatre stades</button><sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<div id="f-stades" popover class="fenetre">
+<button class="fermer" type="button" popovertarget="f-stades" popovertargetaction="hide">Fermer</button>
+<h5>Stades de la maladie hémorroïdaire et conduite</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 272" role="img" aria-label="Quatre stades de la maladie hémorroïdaire interne" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="272" fill="#ffffff"/>
+<rect x="10" y="10" width="150" height="230" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="85" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#674101">Stade I</text>
+<rect x="65" y="50" width="40" height="110" rx="6" fill="#ffffff" stroke="#dcc09b" stroke-width="1.5"/>
+<line x1="30" y1="160" x2="140" y2="160" stroke="#161616" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="85" cy="85" r="11" fill="#fde8e4" stroke="#7c2431" stroke-width="1.5"/>
+<text x="85" y="205" text-anchor="middle" font-size="14" fill="#161616">coussin gros</text>
+<text x="85" y="225" text-anchor="middle" font-size="14" fill="#161616">sans prolapsus</text>
+<rect x="172" y="10" width="150" height="230" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="247" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#674101">Stade II</text>
+<rect x="227" y="50" width="40" height="110" rx="6" fill="#ffffff" stroke="#dcc09b" stroke-width="1.5"/>
+<line x1="192" y1="160" x2="302" y2="160" stroke="#161616" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="247" cy="120" r="13" fill="#fde8e4" stroke="#7c2431" stroke-width="1.5"/>
+<text x="247" y="205" text-anchor="middle" font-size="14" fill="#161616">sort à la poussée</text>
+<text x="247" y="225" text-anchor="middle" font-size="14" fill="#161616">rentre seul</text>
+<rect x="334" y="10" width="150" height="230" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="409" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#674101">Stade III</text>
+<rect x="389" y="50" width="40" height="110" rx="6" fill="#ffffff" stroke="#dcc09b" stroke-width="1.5"/>
+<line x1="354" y1="160" x2="464" y2="160" stroke="#161616" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="409" cy="140" r="15" fill="#fde8e4" stroke="#7c2431" stroke-width="1.5"/>
+<text x="409" y="205" text-anchor="middle" font-size="14" fill="#161616">sort à la poussée</text>
+<text x="409" y="225" text-anchor="middle" font-size="14" fill="#161616">rentre au doigt</text>
+<rect x="496" y="10" width="150" height="230" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="571" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#674101">Stade IV</text>
+<rect x="551" y="50" width="40" height="110" rx="6" fill="#ffffff" stroke="#dcc09b" stroke-width="1.5"/>
+<line x1="516" y1="160" x2="626" y2="160" stroke="#161616" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="571" cy="172" r="17" fill="#fde8e4" stroke="#7c2431" stroke-width="1.5"/>
+<text x="571" y="205" text-anchor="middle" font-size="14" fill="#161616">dehors en</text>
+<text x="571" y="225" text-anchor="middle" font-size="14" fill="#161616">permanence</text>
+<text x="330" y="262" text-anchor="middle" font-size="13" fill="#161616">trait pointillé : marge anale</text>
+</svg>
+<figcaption>Schéma original de ce cours : position du coussin par rapport à la marge selon le stade.</figcaption>
+</figure>
+<p>Au stade I, le coussin hypertrophié reste dans le canal ; au stade II, il sort au Valsalva et rentre seul<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le stade III demande une réduction au doigt, et le stade IV reste irréductible<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Les stades I et II se traitent sans geste, alors que les stades III et IV justifient un avis spécialisé<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le stade 4 est souvent scléreux et accompagné de marisques<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+</div>
+
+<p>Le caillot ne vient pas du canal, ce qui le distingue d’un prolapsus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. La marisque, molle et indolore, persiste parfois après la résorption du thrombus<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<h4>7.4 Douleur continue avec rougeur</h4>
+<p>Une douleur qui augmente sans rapport avec la selle, avec tuméfaction et parfois écoulement purulent, désigne l’infection para-anale<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Si la rougeur déborde vers le périnée et que la douleur dépasse l’aspect, on pense à la fasciite<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<h4>7.5 Démangeaison et accès brefs</h4>
+<p>Le prurit s’aggrave après la selle et s’accompagne de grattage, avec un canal souvent normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En revanche, les accès brefs sans lésion forment le tableau de la proctalgia fugax<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 </section>
 <section class="ilot" id="p8">
 <h3>8. Diagnostic positif et critères</h3>
-<p>En 2014, le diagnostic de fissure chronique exige plus que la seule douleur<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Cependant, il faut que le délai dépasse 6 à 8 semaines et que le sphincter interne apparaisse au fond<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La forme chronique associe en outre une marisque distale et une papille hypertrophique<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. La forme aiguë, elle, se contente de la triade et d'une brèche récente<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'abcès se reconnaît à la tuméfaction rouge, sans qu'une image soit exigée quand ce signe est clair<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La fistule se reconnaît à l'orifice externe, et Parks sert à classer le trajet constitué<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>La thrombose péri-anale se pose devant une tuméfaction douloureuse de la marge, et le terme d'hémorroïde externe ne convient pas<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le coussin interne se retient quand le saignement, le prurit ou le prolapsus dominent, sans douleur au premier plan<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La proctalgia fugax ne s'affirme pas sur un seul accès, parce que l'examen doit être normal et les autres causes écartées<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Un prurit avec canal normal ne prouve pas l'absence de mycose ni de lésion tumorale, d'où le frottis et, si besoin, la biopsie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>La mise au point suisse de 2014 pose le diagnostic sur l’anamnèse et l’examen, sans imagerie systématique<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Dès lors, l’ultrason endorectal ou l’IRM ne servent qu’en cas de doute<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
+<p>La fissure chronique exige deux critères : plus de 6 à 8 semaines d’évolution et des fibres sphinctériennes visibles au fond<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. De plus, une marisque sentinelle ou une papille hypertrophiée renforcent le diagnostic<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>La proctalgia fugax répond aux critères de Rome III, mais elle reste un diagnostic d’exclusion<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. On ne la pose donc jamais devant une brèche, une rougeur ou un nodule<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Le stade hémorroïdaire se définit par la réduction du prolapsus, qui va de spontanée à impossible<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Quant à la fistule, sa classification de Parks repose sur les rapports du trajet avec les sphincters<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
-<caption>Critères qui suffisent, et ce qui ne suffit pas, d'après la mise au point de 2014.</caption>
+<caption>Critères qui suffisent, et ce qui ne suffit pas.</caption>
 <tr><th>Entité</th><th>Ce qui suffit</th><th>Ce qui ne suffit pas</th></tr>
-<tr><td>Fissure aiguë.</td><td>La triade et une brèche distale à la ligne dentée suffisent.</td><td>Un saignement isolé, sans douleur de selle, ne suffit pas.</td></tr>
-<tr><td>Fissure chronique.</td><td>Un délai de 6 à 8 semaines et le sphincter interne au fond suffisent, surtout avec marisque et papille.</td><td>La seule ancienneté racontée, sans voir le fond, ne suffit pas.</td></tr>
-<tr><td>Abcès.</td><td>La tuméfaction rouge suffit à retenir la phase aiguë.</td><td>Un orifice externe seul ne suffit pas, il oriente vers la fistule.</td></tr>
-<tr><td>Thrombose péri-anale.</td><td>La tuméfaction douloureuse de la marge suffit.</td><td>Le mot d'hémorroïde externe ne suffit pas, parce qu'il est faux.</td></tr>
-<tr><td>Maladie hémorroïdaire interne.</td><td>Saignement, prurit ou prolapsus, sans douleur dominante, suffisent à l'orienter.</td><td>Une douleur dominante ne suffit pas à la retenir.</td></tr>
-<tr><td>Proctalgia fugax.</td><td>Accès brefs et examen normal suffisent à l'exclusion.</td><td>Une douleur de selle ne suffit pas à la nommer.</td></tr>
+<tr><td>Fissure aiguë</td><td>Triade et brèche distale à la ligne dentée<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td><td>Un saignement isolé sans douleur.</td></tr>
+<tr><td>Fissure chronique</td><td>Plus de 6 à 8 semaines et sphincter interne visible au fond<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td><td>La seule durée racontée, sans examen.</td></tr>
+<tr><td>Thrombose péri-anale</td><td>Nodule tendu et induré de la marge qui ne prolabe pas<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td><td>Le mot « hémorroïde externe ».</td></tr>
+<tr><td>Abcès para-anal</td><td>Tuméfaction rouge et douleur croissante<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td><td>Un orifice calme, qui oriente vers la fistule.</td></tr>
+<tr><td>Proctalgia fugax</td><td>Accès brefs, examen normal, causes organiques exclues<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</td><td>Un seul accès, sans examen.</td></tr>
+<tr><td>Fasciite nécrosante</td><td>Douleur disproportionnée et extension rapide<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</td><td>L’absence de fièvre, souvent trompeuse.</td></tr>
 </table>
 </div>
-
-<p>On affirme la thrombose péri-anale sur un nodule douloureux de la marge, et non sur le mot d'hémorroïde externe<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Toutefois, le terme d'hémorroïde externe est faux<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On affirme la fissure aiguë sur la brèche et la triade, lorsque le fond ne montre pas encore le sphincter interne<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. On affirme la forme chronique passé 6 à 8 semaines, quand ce sphincter apparaît<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On affirme l'abcès sur la tuméfaction rouge<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Néanmoins, on affirme la fistule sur l'orifice externe, ou sur un trajet précisé par l'image en cas de doute<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>On affirme le prurit quand la peau est érythémateuse, grattée ou lichénifiée, et que le canal est souvent normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Le frottis et, si besoin, la biopsie empêchent de clore trop vite<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On affirme la proctalgia fugax seulement si l'accès est court et l'examen normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. C'est un diagnostic d'exclusion, ce qui interdit de le poser devant une brèche<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On affirme la maladie hémorroïdaire sur le saignement, le prurit ou le prolapsus, lorsque la douleur ne domine pas<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Une fissure concomitante existe chez environ 20 % de ces patients, et elle se cherche<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La revue de 2014 fournit ces critères de cabinet<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. En revanche, la revue de 2011 confirme les mêmes repères pour la fissure et pour le coussin<sup class="r"><a href="#sb-rms2011-1">[6]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-parks">Fistule, temps chronique</button>
+<p>Le trajet fistuleux se découvre sur <button class="w" type="button" popovertarget="f-parks">le schéma des fistules</button> avant toute décision opératoire<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
 <div id="f-parks" popover class="fenetre">
-<p>La fistule est le temps chronique de l'infection des glandes, et Parks sert à la classer<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. L'orifice externe la fait reconnaître, tandis que le trajet douteux appelle l'échographie endorectale ou l'IRM<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Chercher une fistule pendant le drainage reste controversé<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La fistule constituée relève d'un spécialiste, parce que le trajet et les sphincters décident du geste<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<button class="fermer" type="button" popovertarget="f-parks" popovertargetaction="hide">Fermer</button>
+<h5>Fistule para-anale : trajets et sphincters</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 330" role="img" aria-label="Schéma des trajets fistuleux selon les sphincters" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="330" fill="#ffffff"/>
+<rect x="270" y="20" width="120" height="250" rx="8" fill="#ffffff" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330" y="290" text-anchor="middle" font-size="14" fill="#161616">canal anal</text>
+<rect x="232" y="120" width="30" height="150" rx="6" fill="#f9e8d4" stroke="#dcc09b" stroke-width="1.5"/>
+<rect x="398" y="120" width="30" height="150" rx="6" fill="#f9e8d4" stroke="#dcc09b" stroke-width="1.5"/>
+<rect x="170" y="60" width="54" height="210" rx="8" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<rect x="436" y="60" width="54" height="210" rx="8" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="120" y="40" font-size="13" fill="#161616">sphincter externe</text>
+<text x="480" y="104" font-size="13" fill="#161616">sphincter interne</text>
+<path d="M270 230 C 250 245, 240 262, 228 280" fill="none" stroke="#7c2431" stroke-width="2.5"/>
+<path d="M270 190 C 200 200, 150 230, 120 280" fill="none" stroke="#674101" stroke-width="2.5" stroke-dasharray="6 4"/>
+<path d="M390 150 C 470 100, 540 120, 560 280" fill="none" stroke="#5c2a10" stroke-width="2.5" stroke-dasharray="2 4"/>
+<text x="20" y="300" font-size="13" fill="#161616">1 intersphinctérienne simple</text>
+<text x="20" y="318" font-size="13" fill="#161616">2 transsphinctérienne</text>
+<text x="400" y="300" font-size="13" fill="#161616">3 trajet haut, complexe</text>
+<circle cx="214" cy="276" r="11" fill="#ffffff" stroke="#161616" stroke-width="1.5"/><text x="214" y="281" text-anchor="middle" font-size="13" font-weight="700" fill="#161616">1</text>
+<circle cx="112" cy="270" r="11" fill="#ffffff" stroke="#161616" stroke-width="1.5"/><text x="112" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#161616">2</text>
+<circle cx="566" cy="270" r="11" fill="#ffffff" stroke="#161616" stroke-width="1.5"/><text x="566" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#161616">3</text>
+</svg>
+<figcaption>Schéma original de ce cours : trois types de trajets par rapport aux sphincters.</figcaption>
+</figure>
+<p>La fistule intersphinctérienne simple se met à plat par fistulotomie, avec plus de 80 % de succès<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Une fistule transsphinctérienne haute ou suprasphinctérienne interdit ce geste, à cause du risque d’incontinence<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Pour ces trajets complexes, on place d’abord un drain de Séton, puis l’on réalise une fistulectomie avec lambeau<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La colle de fibrine reste une alternative, avec 30 à 60 % de récidives<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
 </div>
-<p>On n'affirme pas la proctalgie si une rougeur, un nodule ou une brèche est visible<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. L'exclusion exige un examen normal, ce qui est le critère décisif<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+
 </section>
 <section class="ilot" id="p9">
 <h3>9. Examens complémentaires</h3>
 <h4>9.a Référence</h4>
-<p>La référence est clinique pour la fissure, l'abcès, la thrombose et le prolapsus, parce que l'inspection tranche déjà<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. L'anuscopie est inutile devant une fissure, et l'on ne la présente pas comme un gold standard<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>L’examen de référence reste clinique : inspection, écartement des fesses et toucher prudent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. En revanche, l’anuscopie est inutile devant une fissure typique<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Le généraliste peut donc poser lui-même le diagnostic différentiel, puisque l’anamnèse détaillée et l’examen y suffisent le plus souvent<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Devant une fissure typique, l’histoire clinique fait le diagnostic, si bien qu’aucun examen ne s’y ajoute<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Un saignement anal ne se traite jamais par téléphone<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. L’examen précède toujours la prescription, même chez un hémorroïdaire connu<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
 <h4>9.b Première intention</h4>
-<p>On écarte les fesses, on touche sans forcer si un spasme est en cause, et l'on regarde la peau<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Un frottis cherche une mycose quand le prurit domine et que le canal est normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On ouvre le <button class="w" type="button" popovertarget="f-cliche">même cliché de marge</button> pour relire E1 et E2, parce que la photographie enseigne l'inspection<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<h4>9.c Alternatives</h4>
-<p>Quand le trajet fistuleux est douteux, l'échographie endorectale ou l'IRM situe le parcours et les sphincters<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. La revue nomme ces deux examens dans le même doute, et elle ne décrit pas un autre circuit lié à la grossesse<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Si l'échographie endorectale est impossible, l'IRM reste l'examen nommé pour le trajet, parce que les deux sont cités ensemble<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. On n'injecte pas un produit de contraste sur la seule foi de ce texte, puisque la revue ne le prescrit pas<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-imagerie">Échographie et IRM</button>
-<div id="f-imagerie" popover class="fenetre">
-<p>L'échographie endorectale et l'IRM servent quand le trajet ou les sphincters restent douteux<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Elles ne remplacent pas l'inspection d'une tuméfaction rouge déjà évidente<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Un trajet trans-sphinctérien change l'adresse au spécialiste, parce que la fistule constituée ne se traite pas au cabinet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. L'image ne décide pas d'ouvrir une fistule dans le même temps que l'abcès, puisque cette recherche reste controversée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-</div>
-<h4>9.d Deuxième intention</h4>
-<p>Une biopsie cherche une lésion tumorale quand le prurit ou une fissure atypique le justifie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La fistule constituée, comme les stades III et IV, appelle un avis spécialisé, ce qui est déjà une deuxième ligne<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-bio">Frottis et biopsie</button>
+<p>Devant un saignement sans douleur, le stade se juge à l’examen : l’anuscopie montre les coussins du stade I, puis la poussée révèle le prolapsus du stade II<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Ainsi, le geste reste simple et se fait au cabinet<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>La thrombose se reconnaît à l’œil nu, car ce nodule de la marge ne descend pas du canal<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. De même, l’abcès se voit et se palpe sous forme d’une tuméfaction rouge de la marge<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Devant un prurit, un frottis cherche une mycose, et la décision suit <button class="w" type="button" popovertarget="f-bio">le schéma frottis ou biopsie</button><sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 <div id="f-bio" popover class="fenetre">
-<p>Le frottis répond à une question limitée, parce qu'il cherche une mycose sur une peau prurigineuse<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Un résultat qui montre une levure conduit à traiter la peau, tout en la gardant sèche<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La biopsie définit une autre question, celle d'une lésion tumorale<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Par ailleurs, elle ne se substitue pas au frottis, et le canal normal n'annule aucune des deux demandes<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<button class="fermer" type="button" popovertarget="f-bio" popovertargetaction="hide">Fermer</button>
+<h5>Frottis et biopsie devant un prurit anal</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 195" role="img" aria-label="Frottis et biopsie devant un prurit anal" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="195" fill="#ffffff"/>
+<rect x="230" y="10" width="200" height="60" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Prurit</text>
+<text x="330.0" y="55" text-anchor="middle" font-size="15" fill="#161616">canal normal</text>
+<rect x="30" y="110" width="250" height="70" rx="10" fill="#e6f4ea" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="155.0" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Frottis</text>
+<text x="155.0" y="160" text-anchor="middle" font-size="15" fill="#161616">cherche une mycose</text>
+<rect x="380" y="110" width="250" height="70" rx="10" fill="#fde8e4" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="505.0" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Biopsie cutanée</text>
+<text x="505.0" y="160" text-anchor="middle" font-size="15" fill="#161616">lésion spécifique ou tumorale</text>
+<line x1="300" y1="70" x2="170" y2="108" stroke="#674101" stroke-width="2" marker-end="url(#fl7)"/>
+<line x1="360" y1="70" x2="500" y2="108" stroke="#674101" stroke-width="2" marker-end="url(#fl7)"/>
+</svg>
+<figcaption>Schéma original de ce cours : deux prélèvements, deux questions différentes.</figcaption>
+</figure>
+<p>Le frottis répond à une question limitée : y a-t-il une mycose<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup> ? En revanche, la biopsie cutanée recherche une dermatose spécifique ou une tumeur<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Un canal normal n’annule aucune de ces deux demandes, puisque la lésion reste cutanée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
 </div>
+
+<p>Pour la thrombose et l’abcès évident, aucune image ne précède le geste, parce que l’inspection suffit<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. On peut relire <button class="w" type="button" popovertarget="f-cliche">le même cliché de marge</button> pour s’en convaincre<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<h4>9.c Alternatives</h4>
+<p>En cas de doute sur une collection ou un trajet, l’ultrason endorectal ou l’IRM montrent l’abcès et le chemin de la fistule<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. En outre, ces deux examens précisent les rapports avec les sphincters, comme le résume <button class="w" type="button" popovertarget="f-imagerie">le schéma de l’imagerie</button><sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<div id="f-imagerie" popover class="fenetre">
+<button class="fermer" type="button" popovertarget="f-imagerie" popovertargetaction="hide">Fermer</button>
+<h5>Ultrason endorectal ou IRM : quand ?</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 225" role="img" aria-label="Place de l’imagerie dans l’abcès et la fistule" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="225" fill="#ffffff"/>
+<rect x="20" y="20" width="190" height="70" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="115.0" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Inspection</text>
+<text x="115.0" y="70" text-anchor="middle" font-size="15" fill="#161616">et palpation</text>
+<rect x="235" y="20" width="190" height="70" rx="10" fill="#f9e8d4" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="330.0" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Doute clinique</text>
+<text x="330.0" y="70" text-anchor="middle" font-size="15" fill="#161616">sur la collection</text>
+<rect x="450" y="20" width="190" height="70" rx="10" fill="#e6f4ea" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="545.0" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">Ultrason endorectal</text>
+<text x="545.0" y="70" text-anchor="middle" font-size="15" fill="#161616">ou IRM</text>
+<line x1="210" y1="55" x2="233" y2="55" stroke="#674101" stroke-width="2" marker-end="url(#fl8)"/>
+<line x1="425" y1="55" x2="448" y2="55" stroke="#674101" stroke-width="2" marker-end="url(#fl8)"/>
+<rect x="450" y="130" width="190" height="80" rx="10" fill="#fef5eb" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="545.0" y="166" text-anchor="middle" font-size="14" fill="#161616">Décrit le trajet</text>
+<text x="545.0" y="184" text-anchor="middle" font-size="14" fill="#161616">et les sphincters</text>
+<rect x="20" y="130" width="190" height="80" rx="10" fill="#fde8e4" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="115.0" y="166" text-anchor="middle" font-size="14" fill="#161616">Collection évidente</text>
+<text x="115.0" y="184" text-anchor="middle" font-size="14" fill="#161616">drainage sans image</text>
+<line x1="545" y1="90" x2="545" y2="128" stroke="#674101" stroke-width="2" marker-end="url(#fl8)"/>
+<line x1="115" y1="90" x2="115" y2="128" stroke="#674101" stroke-width="2" marker-end="url(#fl8)"/>
+</svg>
+<figcaption>Schéma original de ce cours : l’image ne retarde jamais un drainage évident.</figcaption>
+</figure>
+<p>L’imagerie répond au doute clinique, et elle guide l’opérateur d’une fistule<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Elle ne retarde jamais le drainage d’une collection évidente<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Ainsi, le choix du geste sur une fistule repose sur ces rapports anatomiques<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+</div>
+
+<h4>9.d Deuxième intention</h4>
+<p>Une fissure atypique ou rebelle conduit à un bilan spécialisé de Crohn, d’infection ou de tumeur<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Si elle occupe un siège peu habituel, on pense aussi aux infections sexuellement transmissibles<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Lorsque la chirurgie d’une fistule se prépare, l’ultrason endorectal ou l’IRM servent aussi à planifier le geste<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Par ailleurs, chercher la fistule pendant le drainage d’un abcès reste controversé, car on risque de créer un faux trajet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Devant une fasciite, l’histologie est utile au diagnostic, mais la chirurgie ne l’attend pas<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Comme la maladie s’accompagne d’une bactériémie, elle relève d’emblée de l’hôpital<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
 <div class="t" style="overflow-x:auto">
 <table>
 <caption>Interprétation des résultats et conduite.</caption>
 <tr><th>Résultat</th><th>Signification</th><th>Conduite</th></tr>
-<tr><td>La marge montre un nodule localisé, non un placard rouge.</td><td>La thrombose péri-anale est plus probable que l'abcès.</td><td>On discute l'incision avant 72 heures.</td></tr>
-<tr><td>La tuméfaction est rouge.</td><td>La phase aiguë glandulaire est retenue.</td><td>On incise et l'on draine.</td></tr>
-<tr><td>Le fond de la fissure laisse voir le sphincter interne.</td><td>La fissure a dépassé le cap des 6 à 8 semaines.</td><td>On discute l'échec du traitement conservateur.</td></tr>
-<tr><td>L'échographie ou l'IRM précise un trajet et les sphincters.</td><td>La fistule est constituée dans un plan défini.</td><td>On adresse au spécialiste.</td></tr>
-<tr><td>Le frottis trouve une mycose.</td><td>Le prurit a une part infectieuse cutanée.</td><td>On traite la peau et l'on corrige l'hygiène.</td></tr>
-<tr><td>La biopsie montre une lésion tumorale.</td><td>Le prurit ou la fissure atypique cachait une tumeur.</td><td>On oriente vers la prise en charge de cette lésion.</td></tr>
-<tr><td>L'examen est normal et les accès sont brefs.</td><td>L'exclusion vers la proctalgia fugax devient possible.</td><td>On propose des bains de siège chauds.</td></tr>
+<tr><td>Nodule limité de la marge, sans rougeur diffuse.</td><td>Thrombose péri-anale.</td><td>Incision avant 72 heures, sinon conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td></tr>
+<tr><td>Tuméfaction rouge et chaude.</td><td>Abcès para-anal.</td><td>Incision et drainage<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td></tr>
+<tr><td>Fibres sphinctériennes au fond de la brèche.</td><td>Fissure chronique.</td><td>Topique, puis chirurgie si échec<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td></tr>
+<tr><td>Trajet décrit par l’IRM ou l’ultrason.</td><td>Fistule de type défini.</td><td>Équipe spécialisée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td></tr>
+<tr><td>Frottis positif pour une levure.</td><td>Mycose péri-anale.</td><td>Traitement de la peau, qui reste sèche<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</td></tr>
+<tr><td>Biopsie tumorale.</td><td>Lésion maligne sous le prurit ou la fissure.</td><td>Prise en charge spécialisée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</td></tr>
+<tr><td>Examen normal, accès brefs.</td><td>Proctalgia fugax.</td><td>Bains de siège chauds<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</td></tr>
 </table>
 </div>
-
-<p>L'examen de référence de la fissure reste clinique, parce qu'écarter les fesses la montre<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. L'anuscopie ne constitue pas l'examen de référence<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>En première intention, on regarde, on touche sans forcer, et l'on lit la peau<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Le frottis est le premier prélèvement du prurit, afin de chercher une mycose<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La biopsie est l'alternative quand une lésion tumorale est en jeu<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Elle ne remplace pas le frottis mycologique<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>En deuxième intention, si le trajet est douteux, l'image par échographie endorectale, ou bien l'IRM, décrit le trajet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Ces images ne précèdent pas le drainage d'une collection évidente<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>On ne demande pas d'image pour décider d'inciser un nodule de marge avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. L'inspection suffit, tandis que le délai, lui, vient de l'anamnèse<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Une fissure latérale déclenche un bilan de Crohn, de syphilis, de tuberculose ou d'un carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. En outre, une fissure qui ne guérit pas déclenche la même vigilance, y compris pour une infection sexuellement transmissible<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Le toucher qui confirme le spasme ne se force pas<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. La douleur elle-même est déjà un critère, lorsque elle suit l'exonération<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Le saignement isolé ne justifie pas, à lui seul, une exploration lourde au premier contact<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. De ce fait, on ne prescrit pas au téléphone, et l'on examine avant d'ajouter un examen<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Le frottis vise la mycose, et la biopsie vise la lésion tumorale<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Les deux prélèvements ne se remplacent pas, lorsque le canal est normal et que la peau gratte<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>L'image du trajet vient seulement si le doute persiste après l'inspection<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Une collection rouge évidente se draine sans attendre cette image<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
 </section>
 <section class="ilot" id="p10">
 <h3>10. Arbre décisionnel</h3>
-<ol>
-<li>Si la marge porte une tuméfaction rouge, on retient E1 et l'on incise pour drainer, souvent sous anesthésie locale<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li>Si le nodule douloureux est localisé à la marge et que l'on est avant 72 heures, on retient E2 et l'on discute l'incision<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li>Si ce délai est dépassé, le traitement de la thrombose reste conservateur, parce que le thrombus se résorbe en 2 à 3 semaines<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li>Si la douleur suit la selle, avec peu de sang, on retient la fissure et l'on écarte les fesses<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li>Si la fissure est latérale ou ne guérit pas, on cherche Crohn, syphilis, tuberculose, carcinome ou une infection sexuellement transmissible<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li>Si le fond montre le sphincter interne après 6 à 8 semaines, la fissure est chronique et la chirurgie ambulatoire se discute en cas d'échec<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li>Si le saignement domine sans douleur, on retient le coussin interne et l'on régule le transit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</li>
-<li>Si les stades sont 1 ou 2, le traitement conservateur suffit, alors que les stades 3 et 4 font discuter une chirurgie respectueuse de l'anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</li>
-<li>Si un orifice externe écoule, on retient la fistule et l'on adresse le trajet constitué<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li>Si le trajet est douteux, l'image par échographie endorectale, ou bien l'IRM, décrit le trajet et les sphincters<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li>Si le prurit domine et que le canal est normal, on regarde la peau, on sèche, on demande un frottis et, si besoin, une biopsie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
-<li>Si les accès durent quelques secondes ou quelques minutes et que l'examen est normal, on retient la proctalgia fugax et l'on propose des bains de siège chauds<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
+<p>L’arbre se lit de haut en bas, si bien qu’on écarte d’abord E1, puis E2, avant de traiter le fréquent<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
+<ol class="algo">
+<li>Si une rougeur périnéale ou génitale s’étend avec une douleur disproportionnée, on retient E1, la gangrène de Fournier, et l’on transfère pour une chirurgie dans les heures<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</li>
+<li>Si la marge porte une tuméfaction rouge et douloureuse sans extension, on retient E2 et l’on incise pour drainer, souvent au cabinet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
+<li>Si le nodule tendu de la marge date de moins de 72 heures, on discute son incision sous anesthésie locale<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li>Si ce délai est passé, on régularise les selles et l’on prescrit anti-inflammatoire et veinotonique<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li>Si la douleur suit la selle avec peu de sang, on retient la fissure et l’on vérifie son siège<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
+<li>Si la fissure n’est pas postérieure ou ne guérit pas, on adresse pour un bilan de Crohn, d’infection ou de tumeur<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</li>
+<li>Si la fissure dure plus de 6 à 8 semaines avec marisque sentinelle, on prévoit la fissurectomie en cas d’échec médical<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
+<li>Si le saignement domine sans douleur, on règle le transit et l’on stade le prolapsus<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</li>
+<li>Si le stade atteint III ou IV, ou si le traitement de base échoue, on demande un avis spécialisé<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li>Si un orifice cutané suinte, on adresse la fistule à une équipe spécialisée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
+<li>Si le prurit domine avec un canal normal, on soigne la peau, puis on fait un frottis ou une biopsie selon l’aspect<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
+<li>Si les accès durent quelques secondes et que l’examen reste normal, on propose des bains de siège chauds<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
 </ol>
-
-<p>Si E1 est écarté parce que la marge n'est pas un placard rouge, on passe au nodule localisé<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Si ce nodule a moins de 72 heures, E2 se discute pour une incision<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Si la brèche est médiane et postérieure, la fissure ordinaire reste probable<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Si elle est latérale, le bilan change, parce que Crohn, syphilis, tuberculose et carcinome entrent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Si le fond montre le sphincter interne, la forme est chronique<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Si le traitement conservateur a échoué, la chirurgie ambulatoire se discute<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Si le saignement est isolé, on reste sur le coussin et l'on régule le transit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Si les stades sont 3 ou 4, l'avis spécialisé précède la sortie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Si un orifice écoule, on nomme la fistule et l'on adresse le trajet constitué<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Si le prurit domine avec un canal normal, on sèche la peau et l'on prélude par un frottis<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Si l'accès dure quelques secondes et que tout l'examen est normal, on retient la proctalgie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Si la durée dépasse ce format court, on reprend la liste depuis la fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Si la peau est lichénifiée et le canal normal, le prurit mène le plan<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Si un orifice externe s'ajoute, la fistule passe devant le prurit<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Si le patient décrit des selles dures et une douleur à chaque passage, la fissure passe devant le coussin<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Si le sang vient sans cette douleur, on revient au coussin et au transit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
 </section>
 <section class="ilot" id="p11">
 <h3>11. Prise en charge selon les recommandations suisses</h3>
 <h4>11.A But</h4>
-<p>Le but, pour une fissure aiguë, est la guérison, et huit semaines de traitement du transit et de l'hypertonie font dépasser 80 % de guérisons<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Pour le coussin, le but est de faire cesser le saignement en baissant l'hyperpression, sans perdre la continence fine au gaz<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>Le premier but est de ne pas manquer une infection nécrosante, puis de drainer toute collection<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Ensuite, on vise la guérison de la fissure en brisant le cercle entre selle dure, douleur et spasme<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
+<p>Pour les hémorroïdes, on cherche à faire cesser le saignement sans sacrifier la continence fine aux gaz<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
 <h4>11.B Moyens</h4>
-<p>On commence par la régulation du transit et par des mucilages aux stades I et II<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. On associe un veinotonique par voie orale pendant au moins six semaines, tandis que les topiques restent discutés<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Après l'échec de cette base, la sclérothérapie ou la ligature entrent en discussion<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Or, dès les stades III et IV, on demande un avis spécialisé, et la chirurgie éventuelle doit respecter l'anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>On n'ouvre pas l'ordonnance au téléphone, parce que l'inspection modifie le choix<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. La poudre Metamucil® se prend à la dose de 7 g per os, une à trois fois, dans un grand verre d'eau froide<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Cette poudre facilite la selle en cas de maladie hémorroïdaire, ce qui rejoint la régulation du transit<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. On la mélange à l'eau froide et on la boit aussitôt, puis un second verre si l'on peut<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-meta">Metamucil®, contre-indications et situations particulières</button>
+<p>En Suisse, le parcours commence au cabinet de premier recours, qui pose le diagnostic et entreprend la prise en charge initiale<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Ce même cabinet repère aussi les cas à confier au spécialiste<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
+<p>L’abcès para-anal se draine au cabinet, sous anesthésie locale par infiltration intradermique<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. On pratique une incision radiaire ou l’excision d’une pastille cutanée, puis l’on place un drain pour éviter une fermeture précoce<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>On ne recherche pas la fistule pendant ce drainage, car le risque de créer un faux trajet rend ce geste controversé<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Des bains de siège assurent ensuite la fermeture secondaire<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>La fasciite nécrosante relève des urgences hospitalières, avec excision large des tissus atteints et antibiothérapie associée<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>. Puis une reprise chirurgicale à 48 heures se répète jusqu’à la stabilisation des lésions<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<p>Si la thrombose date de moins de 72 heures, on évacue le caillot par une incision sous anesthésie locale<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Après ce délai, on régularise les selles et l’on associe un anti-inflammatoire à un veinotonique<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Aux stades I et II, on corrige l’alimentation et l’on régule le transit avec des mucilages<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Puis on y associe pendant au moins 6 semaines un veinotonique oral, comme la diosmine (Daflon)<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>L’effet des topiques hémorroïdaires reste controversé<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Si la base échoue, le spécialiste discute sclérothérapie ou ligature élastique<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Le spécialiste reçoit donc les fistules, les fissures rebelles et les stades avancés, tandis que les urgences hospitalières reçoivent la fasciite<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Aux stades III et IV, il évalue l’hémorroïdectomie, l’hémorroïdopexie selon Longo ou la ligature sélective des artères hémorroïdaires<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Cette chirurgie doit rester soigneuse et respecter l’anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>En Suisse, Metamucil®, poudre de plantain des Indes enregistrée sous le n° 17387 chez Swissmedic, est vendu sans ordonnance en pharmacie ou en droguerie<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Ainsi, il facilite notamment la défécation en cas d’hémorroïdes, et <button class="w" type="button" popovertarget="f-meta">ses contre-indications</button> se vérifient avant toute prise<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
 <div id="f-meta" popover class="fenetre">
-<p>Contre-indications de Metamucil® : hypersensibilité aux téguments de plantain, hernie hiatale, rétrécissement de l'œsophage, iléus, sténose, paralysie intestinale, fécalome et douleur abdominale de cause inconnue<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Metamucil® est aussi contre-indiqué avant 6 ans, et quand un saignement intestinal reste inexpliqué<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>On l'évite quand les troubles du transit durent depuis plus de 2 semaines, ou quand l'effet laxatif a manqué de façon répétée<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. À partir de 6 ans, la prise de l'enfant est la moitié d'une cuillère à café<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Si le changement alimentaire a échoué, Metamucil® peut être pris pendant la grossesse et pendant l'allaitement<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Les patients diabétiques et ceux qui reçoivent des hormones thyroïdiennes restent sous surveillance clinique, parce que la glycémie peut varier<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>On laisse au moins 1 heure avant un autre médicament, parce que l'absorption peut diminuer, notamment pour les digitaliques, les anticoagulants, les antiépileptiques, les antidépresseurs, les sels minéraux et les vitamines<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Une cuillère à café bombée apporte 3.6 g de glucides utilisables, et 1 g de poudre contient 0,49 g de téguments<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Le numéro Swissmedic est le n° 17387, et sa révision date de 2015<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. L'inhalation répétée de la poudre peut sensibiliser, surtout chez un sujet déjà allergique, ce qui impose d'éviter de la respirer<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<button class="fermer" type="button" popovertarget="f-meta" popovertargetaction="hide">Fermer</button>
+<h5>Metamucil® : contre-indications et précautions</h5>
+<p>Metamucil® est contre-indiqué en cas d’hypersensibilité au plantain des Indes et chez l’enfant de moins de 6 ans<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Il l’est aussi en cas de hernie hiatale, de rétrécissement de l’œsophage ou de paralysie intestinale<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>On ne le donne pas si les habitudes de selle ont changé depuis plus de 2 semaines<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. De même, on l’arrête si plusieurs prises restent sans effet sur le transit<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>L’occlusion, la sténose intestinale, le calcul stercoral et une douleur abdominale d’origine indéterminée l’interdisent également<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Il en va de même d’un saignement intestinal non élucidé<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>Chez le diabétique, la prise se fait sous contrôle médical, car la glycémie peut varier<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Les patients sous hormones thyroïdiennes le prennent eux aussi sous contrôle médical, sans lien avec la glycémie<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>Un intervalle d’au moins 1 heure le sépare des digitaliques, anticoagulants, antiépileptiques, antidépresseurs, sels minéraux et vitamines<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Enfin, on évite d’inhaler la poudre, qui peut sensibiliser<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
 </div>
-<p>Pour la fissure, on vise le transit et l'hypertonie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Le traitement aigu reste conservateur, et une opération ambulatoire entre en discussion quand la fissure est chronique ou quand ce soin échoue<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>Parmi les fissures opérées par fissurectomie, environ 80 % guérissent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La sphinctérotomie latérale atteint 90 % de succès, cependant à dix ans l'incontinence touche l'air dans 36 % des cas<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Les liquides sont concernés dans 25 % des cas et les selles formées dans 5 %, ce qui se dit avant d'accepter ce geste<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Quand une marisque sentinelle est présente, l'échec conservateur des fissures chroniques atteint 40 à 50 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-urg">Urgence, conduite chronologique</button>
+
+<p>La dose adulte de Metamucil® est d’une cuillerée à café pleine, soit environ 7 g per os, 1 à 3 fois par jour<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. On la verse dans un grand verre d’eau froide, on boit aussitôt, puis un second verre si possible<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>Pour la fissure, la réduction du spasme constitue le but principal, au-delà des selles molles<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. C’est pourquoi on applique un topique relaxant : nitroglycérine 0,2 %, nifédipine 2 % ou diltiazem 2 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Ces trois topiques guérissent de 80 à 90 % des fissures, mais leurs effets indésirables diffèrent<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La nitroglycérine donne des céphalées, tandis que le diltiazem peut provoquer un prurit<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Comme sa demi-vie est très courte, la nifédipine doit s’appliquer au moins 3 à 4 fois par jour<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>La toxine botulique obtient environ 80 % de succès<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Pourtant, l’assurance de base (LAMal) ne la prend pas en charge, ce que l’on dit au patient avant de l’adresser<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>En cas d’échec du traitement conservateur, la fissurectomie guérit 80 % des patients<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Elle se justifie d’emblée quand une fissure chronique porte une marisque sentinelle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Ce n’est qu’en cas d’échec ou de récidive après fissurectomie que l’on discute une plastie ou une sphinctérotomie latérale partielle<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Ainsi, sa réussite avoisine les 90 %, mais l’incontinence à 10 ans touche 36 % des patients pour les gaz<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Le même geste expose à une incontinence aux liquides chez un quart des opérés, soit 25 %, et aux selles moulées dans 5 % des cas<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Le prurit se traite en gardant la région propre et sèche, et l’hydrocortisone 0,5 % ne s’emploie qu’à court terme<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En effet, prolongée, elle atrophie la peau<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Lors d’une proctalgia fugax, on propose des bains de siège chauds<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Si l’échec persiste, on discute nitroglycérine 0,2 %, diltiazem 2 %, salbutamol inhalé ou toxine botulique<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>La conduite en <button class="w" type="button" popovertarget="f-urg">urgence, pas à pas</button> tient sur une ligne de temps<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
 <div id="f-urg" popover class="fenetre">
-<p>Urgence, conduite chronologique. On regarde d'abord la marge en écartant les fesses<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<button class="fermer" type="button" popovertarget="f-urg" popovertargetaction="hide">Fermer</button>
+<h5>Urgence, conduite chronologique</h5>
+<figure class="schema">
+<svg viewBox="0 0 660 210" role="img" aria-label="Chronologie de la conduite en urgence" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif">
+<defs><marker id="fl9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#674101"/></marker></defs>
+<rect x="0" y="0" width="660" height="210" fill="#ffffff"/>
+<line x1="40" y1="70" x2="620" y2="70" stroke="#dcc09b" stroke-width="2"/>
+<circle cx="60" cy="70" r="9" fill="#674101"/>
+<text x="60" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">0</text>
+<text x="60" y="100" text-anchor="middle" font-size="14" fill="#161616">arrivée</text>
+<circle cx="250" cy="70" r="9" fill="#674101"/>
+<text x="250" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">72 h</text>
+<text x="250" y="100" text-anchor="middle" font-size="14" fill="#161616">limite d’incision</text>
+<circle cx="470" cy="70" r="9" fill="#674101"/>
+<text x="470" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#161616">2 à 3 sem.</text>
+<text x="470" y="100" text-anchor="middle" font-size="14" fill="#161616">thrombus résorbé</text>
+<rect x="20" y="125" width="300" height="70" rx="10" fill="#fde8e4" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="170.0" y="156" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Rougeur qui déborde, douleur</text>
+<text x="170.0" y="174" text-anchor="middle" font-size="14" fill="#161616">disproportionnée : hôpital</text>
+<rect x="340" y="125" width="300" height="70" rx="10" fill="#f9e8d4" stroke="#dcc09b" stroke-width="1.5"/>
+<text x="490.0" y="156" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Tuméfaction rouge limitée :</text>
+<text x="490.0" y="174" text-anchor="middle" font-size="14" fill="#161616">drainage au cabinet</text>
+</svg>
+<figcaption>Schéma original de ce cours : trois repères de temps et deux portes de sortie.</figcaption>
+</figure>
 <ol>
-<li>Si la tuméfaction est rouge, on incise et l'on draine, souvent sous anesthésie locale<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li>Si le nodule de marge est douloureux et que l'on est avant 72 heures, on discute l'incision<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li>Au-delà de 72 heures, on ne propose plus l'incision<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li>On ne part pas chercher une fistule dans le même temps, parce que cette recherche reste controversée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
-<li>Les fistules déjà constituées vont au spécialiste, tandis que la fissure latérale fait ouvrir un bilan de Crohn, de syphilis ou de carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
+<li>On cherche d’abord une rougeur qui déborde vers le périnée ou les organes génitaux, avec une douleur hors de proportion<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</li>
+<li>Si elle existe, on adresse aux urgences hospitalières, car la chirurgie doit suivre l’admission de quelques heures<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</li>
+<li>Si la tuméfaction rouge reste limitée à la marge, on l’incise et on la draine au cabinet sous anesthésie locale<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</li>
+<li>Si le nodule de marge date de moins de 72 heures, on évacue la thrombose<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li>Au-delà, le caillot se résorbe en 2 à 3 semaines sous traitement conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
 </ol>
 </div>
-<p>L'abcès se traite par incision et drainage<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Cependant, le prurit se traite en gardant la peau propre et sèche, en évitant le papier abrasif et en régularisant le transit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Un dermocorticoïde court expose à l'atrophie cutanée, ce qui limite sa durée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. La proctalgie se soulage par des bains de siège chauds<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+
 <div class="t" style="overflow-x:auto">
 <table>
-<caption>Médicament cité par l'information Swissmedic et conduites sans milligramme.</caption>
+<caption>Médicaments et gestes : place, précision et limite.</caption>
 <tr><th>Moyen</th><th>Place</th><th>Précision</th><th>Limite</th></tr>
-<tr><td>Metamucil®, poudre orale, n° 17387.</td><td>Mucilage pour réguler la selle, y compris quand des hémorroïdes gênent l'exonération.</td><td>Adulte, 7 g per os, une à trois prises, dans un grand verre d'eau froide<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</td><td>Contre-indiqué avant 6 ans, en cas d'iléus, de sténose ou de saignement inexpliqué.</td></tr>
-<tr><td>Veinotonique oral, sans nom de spécialité ici.</td><td>Associé aux stades I et II.</td><td>La durée minimale lue est de six semaines<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td><td>Aucune dose en milligrammes n'est reprise.</td></tr>
-<tr><td>Topiques.</td><td>Souvent proposés sur la marge.</td><td>Ils restent discutés.</td><td>Ils ne forment pas la base du traitement.</td></tr>
-<tr><td>Dermocorticoïde.</td><td>Poussée de prurit.</td><td>Usage court.</td><td>Le risque est l'atrophie cutanée.</td></tr>
+<tr><td>Metamucil®, poudre, n° 17387</td><td>Régulation des selles, hémorroïdes, fissure.</td><td>Adulte : 1 cuillerée à café pleine, environ 7 g, 1 à 3 fois par jour<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</td><td>Moins de 6 ans, sténose digestive, saignement inexpliqué.</td></tr>
+<tr><td>Diosmine (Daflon)</td><td>Stades I et II, thrombose après 72 heures.</td><td>Au moins 6 semaines aux stades I et II<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td><td>Dosage non repris ici.</td></tr>
+<tr><td>Topiques relaxants</td><td>Fissure aiguë ou chronique.</td><td>Nitroglycérine 0,2 %, nifédipine 2 %, diltiazem 2 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td><td>Céphalées, prurit.</td></tr>
+<tr><td>Toxine botulique</td><td>Fissure résistante.</td><td>Succès voisin de 80 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td><td>Non remboursée par l’assurance de base.</td></tr>
+<tr><td>Hydrocortisone 0,5 %</td><td>Poussée de prurit.</td><td>Court terme seulement<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</td><td>Atrophie cutanée.</td></tr>
 </table>
 </div>
 <h4>11.C Surveillance</h4>
-<p>On revoit la fissure aiguë en gardant l'horizon de huit semaines, parce que c'est le délai où le taux de guérison dépasse 80 %<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Passé 6 à 8 semaines, si le sphincter interne est visible au fond, on parle de forme chronique<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Le thrombus se surveille sur 2 à 3 semaines, délai de sa résorption, et l'on prévient qu'une marisque peut rester<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. On surveille aussi l'échec, surtout quand une marisque sentinelle accompagne une fissure chronique<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>On revoit la fissure aiguë à 8 semaines, car plus de 80 % des patients sont alors guéris<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Au-delà de 6 à 8 semaines sans guérison, la fissure devient chronique et l’on reprend la discussion<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Le thrombus se contrôle pendant sa résorption, soit 2 à 3 semaines, et l’on prévient qu’une marisque peut rester<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Puis, après un drainage, les soins locaux et les bains de siège se poursuivent jusqu’à la fermeture<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>Si l’abcès récidive, on suspecte une fistule et l’on adresse le patient<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
 <h4>11.D Pronostic, guérison et sortie</h4>
-<p>Avec un traitement conservateur, 80 % des formes aiguës guérissent<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. La sortie de la surveillance simple se discute quand la douleur de selle a cessé et que la brèche n'est plus vue<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>On ne promet pas la continence après sphinctérotomie, parce que les chiffres à dix ans restent ceux de l'air, des liquides et des selles formées<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La fistule constituée ne relève pas du seul domicile, parce qu'un avis spécialisé reste nécessaire<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>Le patient quitte le conseil quand le transit est réglé, la peau sèche, et qu'aucun drapeau de fissure latérale ou de collection rouge ne persiste<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Les stades 3 et 4 ne se règlent pas par le seul transit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-
-<p>Le but immédiat, devant la collection rouge, est le drainage<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Toutefois, le but, devant la fissure aiguë, est la guérison par le transit et par la baisse de l'hypertonie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Aux stades I et II, le transit et les mucilages constituent la base<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Un veinotonique oral s'y associe pour au moins six semaines, tandis que les topiques restent controversés<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Après l'échec de cette base, on discute sclérothérapie ou ligature<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Néanmoins, dès les stades III et IV, un avis spécialisé devient nécessaire<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Les stades 1 et 2 restent conservateurs, et les stades 3 et 4 font discuter une chirurgie qui respecte l'anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. En revanche, cette exigence vient du rôle des coussins dans la continence fine au gaz<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>La poudre se boit dans un grand verre d'eau froide, et un second verre est souhaitable<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. On laisse au moins 1 heure avant un autre médicament, parce que l'absorption peut diminuer<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Metamucil® est contre-indiqué avant 6 ans, en cas d'iléus, de sténose, de paralysie intestinale ou de fécalome<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Un saignement intestinal inexpliqué et une douleur abdominale de cause inconnue l'interdisent aussi<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Si le changement alimentaire a échoué, la poudre peut être prise pendant la grossesse et l'allaitement<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Les patients diabétiques et ceux qui reçoivent des hormones thyroïdiennes restent sous surveillance clinique<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>La fissure aiguë se traite d'abord de façon conservatrice<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Une opération ambulatoire entre en discussion quand la fissure est chronique ou quand ce soin échoue<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>On dit les chiffres de continence avant une sphinctérotomie latérale, parce que, à dix ans, l'air, les liquides et les selles formées ne sont pas épargnés de la même façon<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. La fissurectomie, de son côté, guérit environ 80 % des cas<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>L'incision du nodule de marge se discute avant 72 heures, puis le traitement devient conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Le drainage de l'abcès, lui, ne se décale pas sur ce délai<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
-<p>On garde la peau sèche, on évite le papier abrasif, et l'on limite le dermocorticoïde à cause de l'atrophie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Les bains de siège chauds soulagent la proctalgie, lorsque l'examen est resté normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>On revoit la fissure aiguë avec l'horizon de huit semaines<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Par ailleurs, on revoit le thrombus sur 2 à 3 semaines, délai de sa résorption<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La sortie simple suppose un transit réglé, une peau sèche et l'absence de collection rouge<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. En outre, les stades 3 et 4 ne sortent pas sur la seule régulation du transit<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Le numéro Swissmedic du mucilage est le n° 17387, et le texte a été revu en 2015<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. La boîte contient 336 g, ce qui permet de situer la durée d'un flacon sans inventer un rythme<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<button class="w" type="button" popovertarget="f-grossesse">Grossesse, allaitement, enfant</button>
-<div id="f-grossesse" popover class="fenetre">
-<p>Metamucil® peut être pris pendant la grossesse et pendant l'allaitement si le changement alimentaire a échoué<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Avant 6 ans, la poudre est contre-indiquée<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Dès 6 ans, la prise de l'enfant est la moitié d'une cuillère à café, tandis que l'adulte prend une cuillère à café bombée<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Une cuillère bombée apporte 3.6 g de glucides utilisables, ce qui concerne le patient diabétique<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>1 g de poudre contient 0,49 g de téguments et 0,51 g de saccharose<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. On ne la donne pas quand les troubles du transit durent depuis plus de 2 semaines, ni quand l'effet laxatif a manqué de façon répétée<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-</div>
-<p>On mélange la poudre à l'eau froide et on la boit aussitôt, avec un second verre si possible<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. La prise adulte se répète une à trois fois dans la journée, avant ou après les repas<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>L'hypersensibilité aux téguments de plantain interdit Metamucil®, de même qu'une hernie hiatale ou un rétrécissement de l'œsophage<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Un effet laxatif absent de façon répétée l'interdit aussi<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Les digitaliques, les anticoagulants, les antiépileptiques, les antidépresseurs, les sels minéraux et les vitamines peuvent être moins absorbés<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. On sépare alors les prises d'au moins 1 heure, parce que l'absorption peut diminuer<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Après échec du transit et des mucilages, la sclérothérapie ou la ligature entre en discussion<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. De ce fait, le veinotonique oral se poursuit au moins six semaines, tandis qu'aucun milligramme n'est nommé pour cette classe<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>On ne donne pas la poudre devant un iléus, une sténose ou un fécalome<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Or, on ne la donne pas non plus devant un saignement intestinal dont la cause est inconnue<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>La forme aiguë de la fissure guérit dans 80 % des cas sous traitement conservateur<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Le patient sort du suivi quand la douleur de selle a cessé et que la brèche n’est plus vue<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>La fistulotomie d’une fistule simple réussit dans plus de 80 % des cas<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. En revanche, après colle de fibrine, 30 à 60 % des fistules récidivent<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<p>La fasciite nécrosante garde une mortalité de 20 à 30 %, ce qui justifie la vigilance initiale<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
 </section>
 <section class="ilot" id="p12">
 <h3>12. Prévention</h3>
-<p>La prévention primaire repose sur la régulation du transit et sur la baisse de l'hyperpression, parce que ces deux leviers sont la base du traitement des coussins<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. On évite les selles dures, qui ouvrent la fissure sur un terrain peu vascularisé<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La prévention secondaire traite la fissure aiguë avant qu'elle ne montre le sphincter interne, c'est-à-dire avant 6 à 8 semaines<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. On discute l'incision de la thrombose avant 72 heures, afin de ne pas laisser évoluer le nodule sous le seul traitement conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La prévention tertiaire concerne les stades III et IV et les fistules constituées, parce que le cabinet ne couvre plus ces formes<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. On prévient aussi l'atrophie en limitant le dermocorticoïde, et l'on garde la peau sèche pour que le prurit ne se chronicise pas<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>La revue de 2011 porte ces conseils de cabinet<sup class="r"><a href="#sb-rms2011-1">[6]</a></sup>. Celle de 2014 les complète pour la douleur aiguë, ce qui fixe la référence suisse de ce cours<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Chez la femme, le siège antérieur de la fissure, minoritaire, rappelle de ne pas banaliser une fissure qui n'est pas postérieure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-
-<p>La prévention primaire régule le transit et baisse l'hyperpression abdominale<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Les selles dures ouvrent la fissure, ce qui donne à cette régulation un sens préventif<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>La prévention secondaire traite la fissure avant 6 à 8 semaines, afin que le sphincter interne ne devienne pas visible au fond<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Elle discute aussi l'incision de la thrombose avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>La prévention tertiaire concerne les stades III et IV et les fistules constituées<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Elle limite le dermocorticoïde, parce que l'atrophie cutanée est le prix d'un usage prolongé<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Chez la femme, on ne rassure pas trop vite une fissure antérieure<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Cependant, le siège postérieur reste le plus commun, dans 80 % des cas, et l'antérieur dans 10 %<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</p>
-<p>La revue suisse porte le conseil de ne pas prescrire au téléphone<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Toutefois, la revue de 2014 porte le conseil de drainer la collection et de dater le nodule<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>.</p>
-<p>Garder la peau sèche prévient le cercle du prurit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Éviter le papier abrasif en fait partie, tandis que le transit réglé diminue le frottement de la selle<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Régler la selle protège la fissure récente, parce que la constipation figure dans la triade<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Baisser l'hyperpression protège le coussin, parce que ce mécanisme entretient la maladie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
-<p>Apprendre à sécher la peau après la selle fait partie de la prévention du prurit<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Remplacer le papier abrasif par un soin non irritant en fait partie aussi<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>La prévention primaire corrige l’alimentation pour réduire l’hyperpression lors de la défécation<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Des selles molles et régulières évitent aussi le microtraumatisme qui ouvre la fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Le patient constipé reçoit les conseils de la notice : aliments riches en fibres, boisson abondante et activité physique<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>. Par ailleurs, le mucilage ne se prend pas juste avant le coucher<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>La prévention secondaire traite la fissure aiguë avant qu’elle ne devienne chronique, donc dans les 6 à 8 premières semaines<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>. Elle reconnaît aussi tôt l’infection profonde, dont la chirurgie précoce conditionne la survie<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</p>
+<p>La prévention tertiaire limite les séquelles : on évite la fistulotomie sur un trajet complexe, faute de quoi l’incontinence menace<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. On dose aussi l’hydrocortisone au plus court, pour éviter l’atrophie cutanée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Après un drainage, une incision large et un drain évitent la fermeture précoce, ce qui prévient la récidive de l’abcès<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Quant à la chirurgie hémorroïdaire, elle respecte l’anatomie afin d’éviter cicatrices, marisques et sténoses<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
+<p>Enfin, le personnel soignant qui prépare souvent la poudre de plantain se protège de l’inhalation, car une allergie peut apparaître<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
+<p>Pour la thrombose, on prévient le patient qu’une marisque peut persister, sans qu’aucune chirurgie soit nécessaire<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. De même, la régulation du transit par laxatifs accompagne le traitement de l’hypertonie dans la fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
 </section>
 <section class="ilot" id="p13">
 <h3>13. Points clés</h3>
 <ul>
-<li>La tuméfaction rouge se draine, et le nodule localisé de marge se discute avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li>La douleur ne domine pas dans la maladie interne, alors que la fissure se rythme sur la selle<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
-<li>Passé 6 à 8 semaines, le sphincter interne au fond signe la fissure chronique<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
-<li>Le prurit à canal normal appelle un frottis et, si besoin, une biopsie<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</li>
-<li>On n'ouvre pas l'ordonnance au téléphone, parce que la marge vue modifie le choix<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</li>
+<li>Une douleur disproportionnée avec une rougeur génitale qui s’étend impose l’hôpital dans les heures<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</li>
+<li>La tuméfaction rouge de la marge se draine, alors que le nodule de thrombose ne s’incise qu’avant 72 heures<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li>La fissure se reconnaît à la douleur de selle et se traite par selles molles et topique relaxant<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</li>
+<li>Les stades I à III ne font jamais mal, donc une douleur fait chercher une autre lésion<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</li>
+<li>Metamucil® est interdit si le transit a changé depuis plus de 2 semaines ou si un saignement reste inexpliqué<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</li>
 </ul>
-
-<p>Ces cinq repères ouvrent le tri, lorsque la marge, la selle et la peau ont été lues<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Le reste du cours précise le délai, le stade et le prélèvement<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
 </section>
 <section class="ilot" id="p14">
-<h3>14. Pièges et questions fréquentes à l'examen fédéral suisse</h3>
+<h3>14. Pièges et questions fréquentes à l’examen fédéral suisse</h3>
 <div class="t" style="overflow-x:auto">
 <table>
-<caption>Questions d'examen, réponse et raison.</caption>
+<caption>Questions d’examen, réponse et raison.</caption>
 <tr><th>Question</th><th>Réponse</th><th>Raison</th></tr>
-<tr><td>Peut-on appeler hémorroïde externe le nodule douloureux de la marge ?</td><td>Non, ce terme est faux.</td><td>Le nodule correspond à une thrombose des veines de la marge.</td></tr>
-<tr><td>Une douleur dominante aux stades I à III est-elle attendue ?</td><td>Non, ces stades restent indolores.</td><td>Seul un stade IV peut être douloureux, et la douleur fait chercher une autre lésion.</td></tr>
-<tr><td>Faut-il une anuscopie pour affirmer une fissure ?</td><td>Non, elle est inutile.</td><td>Écarter les fesses et un toucher sans forcer suffisent.</td></tr>
-<tr><td>Quand la fissure devient-elle chronique ?</td><td>Au-delà de 6 à 8 semaines, quand le sphincter interne se voit au fond.</td><td>La marisque distale et la papille hypertrophique s'y associent souvent.</td></tr>
-<tr><td>Que faire d'une tuméfaction rouge ?</td><td>Inciser et drainer.</td><td>C'est la phase aiguë de l'infection des glandes.</td></tr>
-<tr><td>Faut-il chercher la fistule pendant le drainage ?</td><td>Cette recherche reste controversée.</td><td>La fistule constituée, elle, va au spécialiste.</td></tr>
-<tr><td>Quel risque chiffré suit la sphinctérotomie latérale ?</td><td>À dix ans, 36 % des cas concernent l'air, 25 % les liquides et 5 % les selles formées<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td><td>Le succès approche 90 %, ce qui ne dispense pas de dire l'incontinence.</td></tr>
+<tr><td>Le nodule bleuté de la marge est-il une hémorroïde externe ?</td><td>Non.</td><td>C’est une thrombose de veines péri-anales<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</td></tr>
+<tr><td>Faut-il une anuscopie pour affirmer une fissure ?</td><td>Non.</td><td>Écarter les fesses et un toucher prudent suffisent<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>.</td></tr>
+<tr><td>L’absence de fièvre exclut-elle une fasciite ?</td><td>Non.</td><td>À l’admission, la fièvre et les crépitations manquent souvent<sup class="r"><a href="#sb-rms2014b-1">[10]</a></sup>.</td></tr>
+<tr><td>Cherche-t-on la fistule pendant le drainage d’un abcès ?</td><td>Non.</td><td>Ce geste reste controversé, avec un risque de faux trajet<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</td></tr>
+<tr><td>La sphinctérotomie latérale est-elle le premier geste chirurgical ?</td><td>Non.</td><td>Elle vient après échec ou récidive de la fissurectomie<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td></tr>
+<tr><td>La toxine botulique est-elle remboursée par l’assurance de base ?</td><td>Non.</td><td>Elle n’est pas prise en charge dans la fissure<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</td></tr>
+<tr><td>Un patient sous hormones thyroïdiennes peut-il prendre Metamucil® ?</td><td>Oui, sous contrôle médical.</td><td>La notice le prévoit, indépendamment du diabète<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</td></tr>
 </table>
 </div>
-<p>Pourquoi une fissure latérale n'est-elle pas une fissure banale ? Parce qu'elle cherche Crohn, la syphilis, la tuberculose ou un carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Pourquoi le prurit à canal normal n'est-il pas clos ? Parce qu'un frottis vise une mycose et qu'une biopsie vise une lésion tumorale<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-
-<p>Pourquoi le mot d'hémorroïde externe est-il un piège ? Parce que le nodule de marge est une thrombose de veines péri-anales<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>. Pourquoi une douleur aux stades I à III n'est-elle pas attendue ? Parce que ces stades restent indolores<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
-<p>Pourquoi l'anuscopie n'est-elle pas exigée devant une fissure ? Parce qu'elle est inutile, et qu'écarter les fesses suffit<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Pourquoi une fissure latérale change-t-elle le bilan ? Parce qu'elle fait chercher Crohn, syphilis, tuberculose ou carcinome<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Pourquoi ne cherche-t-on pas la fistule dans le même temps que le drainage ? Parce que cette recherche reste controversée<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>. Pourquoi la sphinctérotomie latérale ne se propose-t-elle pas comme un geste anodin ? Parce qu'à dix ans l'incontinence à l'air concerne 36 % des cas<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
-<p>Quel prélèvement répond au prurit à canal normal ? Le frottis vise une mycose, et la biopsie vise une lésion tumorale<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Quelle poudre a une dose lue, et laquelle n'en a pas ? Metamucil® a une dose lue, tandis que le veinotonique reste une classe sans milligramme<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Peut-on sortir un stade avancé sur le seul conseil de transit ? Non, parce que les stades 3 et 4 font discuter une chirurgie respectueuse de l'anatomie<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>. Peut-on poser la proctalgia fugax devant une brèche ? Non, parce qu'elle exige un examen normal<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
-<p>Pourquoi un dermocorticoïde ne se prolonge-t-il pas ? Parce qu'un usage court limite le risque d'atrophie cutanée<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>. Pourquoi un mucilage se sépare-t-il des autres médicaments ? Parce qu'un intervalle d'au moins 1 heure protège leur absorption<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
-<p>Que dit-on d'une fissure qui ne ferme pas ? On cherche Crohn, un cancer, ou une infection transmise sexuellement<sup class="r"><a href="#sb-rms2011-2">[7]</a></sup>. Néanmoins, que dit-on d'un nodule de marge dont le délai d'incision est dépassé ? Le traitement reste conservateur<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Pourquoi une fissure latérale n’est-elle jamais banale<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup> ? Parce qu’un tel siège oriente vers un Crohn, une syphilis, une tuberculose ou un cancer épidermoïde<sup class="r"><a href="#sb-rms2014-3">[3]</a></sup>.</p>
+<p>Pourquoi le prurit à canal normal ne se clôt-il pas sur une crème<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup> ? Parce qu’un frottis cherche une mycose et qu’une biopsie peut révéler une dermatose ou une tumeur<sup class="r"><a href="#sb-rms2014-5">[5]</a></sup>.</p>
+<p>Quel piège faut-il éviter devant la thrombose vue au quatrième jour<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup> ? L’incision n’a plus sa place, si bien qu’on traite par selles régulières, anti-inflammatoire et veinotonique<sup class="r"><a href="#sb-rms2014-2">[2]</a></sup>.</p>
+<p>Que répondre au patient qui réclame une ordonnance par téléphone pour des hémorroïdes<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup> ? On refuse, puisqu’un traitement ne se prescrit pas sans examen<sup class="r"><a href="#sb-rms2011-3">[8]</a></sup>.</p>
 </section>
 <section class="ilot" id="m13">
 <h3>Question finale</h3>
-<div class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</div>
-<p>Oui, car le tri sépare la collection rouge, le nodule de marge et la fissure, puis la conduite suit la revue suisse et la notice du mucilage<sup class="r"><a href="#sb-rms2014-4">[4]</a></sup>.</p>
+<div class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</div>
+<p>Oui, car il exclut d’abord la gangrène de Fournier, draine l’abcès, date la thrombose et traite la fissure avec son topique<sup class="r"><a href="#sb-rms2014-1">[1]</a></sup>. Il donne aussi les contre-indications complètes du mucilage et le parcours suisse, du cabinet au spécialiste<sup class="r"><a href="#sb-aips-17387-1">[9]</a></sup>.</p>
 </section>
 <section class="ilot" id="sources">
 <h3>Sources</h3>
 <ol>
-<li id="sb-rms2014-1">[1] Revue médicale suisse. Douleur anale aiguë. 2014. https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2014-2">[2] Revue médicale suisse. Douleur anale aiguë, maladie hémorroïdaire et thrombose péri-anale. 2014. https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2014-3">[3] Revue médicale suisse. Douleur anale aiguë, fissure. 2014. https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2014-4">[4] Revue médicale suisse. Douleur anale aiguë, abcès et fistule. 2014. https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2014-5">[5] Revue médicale suisse. Douleur anale aiguë, prurit et proctalgie. 2014. https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2011-1">[6] Revue médicale suisse. Proctologie du praticien. 2011. https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-279/proctologie-du-praticien (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2011-2">[7] Revue médicale suisse. Proctologie du praticien, fissure. 2011. https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-279/proctologie-du-praticien (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2011-3">[8] Revue médicale suisse. Proctologie du praticien, maladie hémorroïdaire. 2011. https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-279/proctologie-du-praticien (consulté le 10 novembre 2026).</li>
-<li id="sb-aips-17387-1">[9] Swissmedic, information destinée aux patients, Metamucil Regular, n° 17387, état 2015. https://www.swissmedicinfo.ch/ (consulté le 10 novembre 2026). https://arzneimittelinfo.ch/it/metamucil-regular-230202/foglietto-illustrativo</li>
+<li id="sb-rms2014-1">[1] Pittet O, Demartines N, Hahnloser D. Douleur anale aiguë. Revue médicale suisse. 2014 ; 10 (420). Introduction, conclusion et arbre décisionnel. https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2014-2">[2] Même article, partie « Maladie hémorroïdaire et thrombose des veines péri-anales ». Revue médicale suisse. 2014 ; 10 (420). https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2014-3">[3] Même article, partie « Fissure anale ». Revue médicale suisse. 2014 ; 10 (420). https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2014-4">[4] Même article, partie « Abcès et fistule para-anaux ». Revue médicale suisse. 2014 ; 10 (420). https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2014-5">[5] Même article, parties « Proctalgia fugax » et « Prurit anal ». Revue médicale suisse. 2014 ; 10 (420). https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-420/douleur-anale-aigue (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2011-1">[6] Roche B, Skala K, Robert-Yap J, Zufferey G. Proctologie du praticien. Revue médicale suisse. 2011 ; 7 (279) : 194-195. https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-279/proctologie-du-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2011-2">[7] Même article, partie « Fissure anale ». Revue médicale suisse. 2011 ; 7 (279). https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-279/proctologie-du-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2011-3">[8] Même article, partie « Hémorroïdes ». Revue médicale suisse. 2011 ; 7 (279). https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-279/proctologie-du-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-aips-17387-1">[9] Swissmedic, information destinée aux patients, Metamucil Regular, poudre, n° 17387, état janvier 2015, version française : https://arzneimittelinfo.ch/fr/metamucil-regular-224557/notice (consultée le 11 novembre 2026).</li>
+<li id="sb-rms2014b-1">[10] Chargui M, Uçkay I, Suva D, Christofilopoulos P, Lomessy A, Pittet D. Infections profondes des tissus mous. Revue médicale suisse. 2014 ; 10 (427). https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-427/infections-profondes-des-tissus-mous (consulté le 11 novembre 2026).</li>
 </ol>
-<p>Le contenu reprend les sources citées. En revanche, aucune validation clinique humaine n'est jointe à ce texte.</p>
+<p class="note">Le contenu reprend les sources citées ; aucune validation clinique humaine n’est jointe à ce texte.</p>
 </section>
 </main>
 </body>
