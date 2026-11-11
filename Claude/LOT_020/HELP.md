@@ -31,6 +31,10 @@
 - DX.6 : sources S22 à S26, S28 et S30 lues en résumé PubMed seulement ; S31 lue pour son introduction ; page BPA (S29) sans date affichée ; cours du collège français (S6) daté de 2011, édition plus récente non lue.
 - DX.6 : durée de l'antibioprophylaxie, dose de la corticothérapie de décompression, rappel antitétanique (plan de vaccination OFSP non lu), imagerie chez la femme enceinte et volet assurances (LAA) sans chiffre ou non rédigés, faute de source suisse lue.
 - DX.6 : technique de la canthotomie latérale non décrite (aucune source suisse lue) ; critères de guérison et de sortie du point 11.D déduits de S5, S6, S21 et S27.
+- DX.7 : aucune image insérée (point 9 : scanner cervico-facial injecté d'une cellulite collectée ; point 3 : espaces de diffusion) ; à chercher par `cliche.py`.
+- DX.7 : recommandation allemande AWMF S3 « Odontogene Infektionen » (007-006) illisible (protection anti-robot du registre AWMF) ; aucune recommandation suisse hospitalière écrite (SSCMF, HUG, Inselspital) lue sur la cellulite dentaire, le guide du CHUV 2022 ne la traitant pas en propre.
+- DX.7 : sources S5, S6 et S7 lues en résumé seulement ; communiqué OFS du 7.4.2025 (S8) lu par son résumé (accès direct refusé) ; aucune incidence suisse des cellulites dentaires trouvée.
+- DX.7 : LAMal art. 31 non lue (quota journalier de Legal Data Hunter atteint) ; le volet assurances repose sur l'OPAS art. 17 à 19 lue sur Fedlex ; aucune dose d'antalgique ni de gentamicine donnée (AIPS non lues).
 
 ## Décisions en vigueur
 - DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
@@ -54,6 +58,9 @@
 - DX.6 : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de polices intégrées et aucun chiffre) ; ses faits sont repris et sourcés sur 13 sources lues le 11.11.2026 et 6 AIPS (45674, 35438, 47503, 45031, 22398, 00637).
 - DX.6 : antibiotique = amoxicilline-acide clavulanique oral à la dose usuelle de l'AIPS 45674 (3 × 625 mg), indication « fracture de la face » hors AIPS (RMS 2020), ce que le cours écrit ; DX.5 enseigne le schéma intraveineux périopératoire bernois.
 - DX.6 : divergence écrite et non tranchée : incarcération du muscle droit inférieur « le plus souvent » (collège français 2011) contre vrai piégeage musculaire « exceptionnel » (RMS 2020).
+- DX.7 : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de polices intégrées et aucun chiffre) ; ses faits sont repris et sourcés sur 21 sources lues le 11.11.2026 et 4 AIPS (45674, 56758, 35438, 26313).
+- DX.7 : antibiotique = standard suisse amoxicilline-acide clavulanique (SSOS 2020) à la dose de l'AIPS 45674 (3 × 625 mg ; 1 g toutes les 12 h de la recommandation zurichoise admis par l'AIPS) ; l'amoxicilline seule de la HAS 2026 est écrite comme divergence.
+- DX.7 : grossesse et allaitement — l'AIPS 45674 (« nécessité absolue », ne pas allaiter) est suivie, la position plus permissive du Swiss Dental Journal 2016-2017 étant écrite ; métronidazole contre-indiqué au premier trimestre (AIPS 26313) contre « possible à tout stade » de la HAS.
 
 ## Doutes médicaux à trancher
 - DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
@@ -72,3 +79,6 @@
 - Phase A : doses pédiatriques d'adrénaline recopiées de l'AIPS 56551 par tranche d'âge ; à confronter au protocole HUG détaillé (non lu) si celui-ci diffère.
 - DX.6 : AINS après fracture orbitaire sous antithrombotique — la RMS 2020 cite les AINS, l'AIPS Brufen 45031 contre-indique la « tendance accrue aux saignements » ; le cours garde le paracétamol comme antalgique de base.
 - DX.6 : mouchage doux pendant la rhinoscopie (collège français) contre interdiction du mouchage (RMS 2020) ; le cours limite le premier au geste d'examen.
+- DX.7 : durée de l'antibiothérapie ambulatoire — 5 à 10 jours (Zurich 2017), 3 à 7 jours (SSE 2020), 3 jours prolongés de 2 (HAS 2026), aucune durée de principe (SSOS 2020) ; le cours enseigne le contrôle à 48–72 heures sans trancher la durée.
+- DX.7 : seuil de procalcitonine de 0,25 cité sans unité (le support SPILF écrit « mg/L », probablement µg/L) ; score LRINEC laissé dans les unités de la source (g/dL, mg/dL).
+- DX.7 : AINS — signalés comme facteur d'évolution diffuse (revue 2025) mais sans différence de gravité dans l'étude prospective citée par la SPILF ; aucune consigne suisse lue, le cours n'écrit donc ni interdiction ni dose.
