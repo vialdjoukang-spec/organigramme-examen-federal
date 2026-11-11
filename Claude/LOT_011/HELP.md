@@ -76,9 +76,11 @@
 - Pas d'image : aucun examen d'imagerie décisif pour la douleur chronique elle-même.
 
 ## Phase A et DX.6–10 — corrections d'audit (renfort L1, 11.11.2026)
-- Temesta (AIPS 36203) et Valium (AIPS 28840) : comme hypnotique, 4 semaines au plus en règle générale (Phase A, DX.6, DX.8) ; « 2 à 3 mois » ne figure dans aucune des deux AIPS lues. Critères « DSM-5 » de DX.8 renommés « critères pratiques (synthèse) » ; chiffre de 7,0 % (Wittchen, non relu) retiré ; OFS 2024 relu.
+- Temesta (AIPS 36203) et Valium (AIPS 28840) : comme hypnotique, 4 semaines au plus en règle générale (Phase A, DX.6, DX.8) ; « 2 à 3 mois » y est la durée générale (anxiété), pas celle de l'usage hypnotique. Critères « DSM-5 » de DX.8 renommés « critères pratiques (synthèse) » ; chiffre de 7,0 % (Wittchen, non relu) retiré ; OFS 2024 relu.
 - Phase A : DX.11–13 renumérotés G1–G3 (causes graves hors liste) ; tableau comparatif à 10 lignes + tableau séparé G1–G3 ; rang de liste sans fréquence quantifiée pour chaque DX. Conduite : LCR art. 15d (Fedlex, état 1.7.2026, lu le 11.11.2026) ; directive 2014/85/UE présentée comme cadre de l'UE. OAC non lue.
 - DX.6 : sevrage appuyé sur Praxis Suchtmedizin Schweiz (Alcool — Sevrage, mise à jour 23.5.2023, lu le 11.11.2026) ; ASAM retirée. Divergence notée : ce manuel cite le lorazépam en atteinte hépatique, alors que l'AIPS Temesta le contre-indique en dépendance alcoolique ; le cours suit l'AIPS.
 - DX.9 : aucune source européenne lue sur les médicaments du travail posté (BAP 2019 et guide européen 2023 non accessibles en texte intégral) ; décisions médicamenteuses marquées « décision spécialisée », AASM citée à titre d'information ; mesures non médicamenteuses appuyées sur l'INRS (QR 155, 2021, lu).
 - DX.7 : seuil de nouvelle supplémentation (75 µg/L) retiré, non vérifiable dans le résumé IRLSSG 2018 ; textes intégraux IRLSSG 2018 et RLS-Italia 2026 encore à lire.
 - Non traités (légers) : pitolisant et hors-AIPS de la venlafaxine/clomipramine (Phase A) ; seuils AUDIT d'une source européenne (DX.6) ; données de 1987 de DX.10.
+
+- Divergence à trancher (audit2) : Praxis Suchtmedizin Schweiz (23.5.2023) cite le lorazépam 1–4 mg/j dans le sevrage en cas de fonction hépatique réduite ; l'AIPS Temesta 36203 le contre-indique en dépendance alcoolique. Le cours suit l'AIPS.
