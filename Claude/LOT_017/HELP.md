@@ -146,3 +146,14 @@ Décisions en vigueur
 - DX.6 : pas de rang E, conformément à LISTE_DX_CANONIQUE.md (l'ancienne version écrivait « E8 »).
 Doutes médicaux à trancher
 - DX.6 : l'indice anti-JCV (seuils 0,9 et 1,5) n'a pas été retrouvé dans l'AIPS Tysabri n° 57273 ; seul le rythme du test (tous les 6 mois) est enseigné.
+
+## DX.8 — Hypertension intracrânienne idiopathique ou secondaire (création L1, 2026-11-11)
+Lacunes ouvertes :
+- DX.8 : aucun registre suisse d'incidence de l'HTII ; seule l'estimation de la Revue Médicale Suisse 2021 (1–2/100 000) est citée.
+- DX.8 : Praxis 2022 (USZ), critères de Friedman 2013, essai IIHTT 2014 et recommandation ESO 2017 (thrombose veineuse) lus en résumé seulement ; les critères sont repris de S1, S3 et S4.
+- DX.8 : valeurs normales chiffrées du LCR (protéines, glucose, cellules), doses d'héparine de la thrombose veineuse et gradation détaillée de Frisén absentes des sources lues : conduite gardée, chiffres non écrits.
+- DX.8 : images à ajouter : IRM (selle vide, globe aplati), veinographie (sténose transverse), champ visuel de Humphrey, schéma du circuit du LCR (fenêtre « Base à connaître ») ; la photographie du fond d'œil insérée (Bansal 2008, CC BY 2.0) est de faible définition, à remplacer si mieux existe.
+Décisions en vigueur :
+- DX.8 : acétazolamide et topiramate sont hors indication AIPS dans l'HTII ; les doses citent la Revue Médicale Suisse 2021 et le consensus britannique 2018 avec la mention « hors AIPS » ; les fiches recopient les AIPS 21191 et 53537 (lues sur refdata le 11.11.2026).
+Doutes médicaux à trancher :
+- DX.8 : tableau 4 du consensus britannique (intervalles de suivi) lu dans un texte XML aplati ; l'attribution « œdème sévère, champ stable : 4 semaines » et « œdème léger : 3–6 mois si amélioration, 3–4 mois si stable » est à vérifier sur le tableau d'origine.
