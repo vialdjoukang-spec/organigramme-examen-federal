@@ -173,7 +173,10 @@ CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     # (« Insuffisanc/es », « Hématologi/e ») ; dans une cellule, un mot ne se coupe que s'il dépasse la colonne.
     "td,th{overflow-wrap:break-word}"
     # Planches LOT_015 et LOT_016 : une source justifiée s'étirait en mots très espacés autour de son URL insécable.
-    "#sources li,[id$=sources] li,ol.s li,details.refs li{text-align:left;hyphens:manual;-webkit-hyphens:manual}")
+    "#sources li,[id$=sources] li,ol.s li,details.refs li{text-align:left;hyphens:manual;-webkit-hyphens:manual}"
+    # Planches LOT_014 à LOT_016 (designer, 11.11.2026) : le paragraphe d'introduction sous le bandeau porte la classe
+    # « s » des cours (font-size .82 à .86em, soit 13,9 à 14,6 px) ; il reprend la taille du texte courant.
+    "#fm-bandeau~header .s{font-size:1em!important;line-height:1.42!important}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
@@ -253,6 +256,17 @@ def sans_doublon_menu(h):
     for a in reversed(src):
         if a.group(2) != '§' and re.fullmatch(r'fm-\d+', a.group(1)):
             menu = menu[:a.start()] + menu[a.end():]
+    return h[:mm.start()] + menu + h[mm.end():]
+
+
+def marque_sources(h):
+    """Menu : l'entrée « Sources » porte la marque § et jamais un numéro (neuf cours des LOT_014 à 016 la numérotaient
+    « 15 »). Seul le contenu du <b> de cette entrée change ; le libellé et la cible restent tels quels."""
+    mm = re.search(r'<nav id="brain-barre14".*?</nav>', h, re.S)
+    if not mm:
+        return h
+    menu = re.sub(r'(<a href="#[^"]+"><b>)\d+(</b>)(?=\s*(?:sources?|bibliographie|références)\s*</a>)', r'\1§\2',
+                  mm.group(0), flags=re.I)
     return h[:mm.start()] + menu + h[mm.end():]
 
 
@@ -475,7 +489,7 @@ def bandeau(h, nom):
 
 
 def corriger(h, nom=''):
-    h = sans_doublon_menu(retirer_sommaire(ajouter_menu(RE_BLOC.sub('', h))))
+    h = marque_sources(sans_doublon_menu(retirer_sommaire(ajouter_menu(RE_BLOC.sub('', h)))))
     parts = PROTEGES.split(h)
     out = []
     i = 0
