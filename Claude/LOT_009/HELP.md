@@ -15,3 +15,7 @@
 ## DX.1 (Eczéma)
 - Point 1 : la phrase AIPS d'Advantan® (formes d'eczéma) et le code CIM-10 L20–L30 sont déplacés au point 8 ; les notions proches vont au point 4.
 - ORANGE résiduel : phrases longues portées par les définitions en infobulle (span.df) et quelques intitulés de situations spéciales ; le contenu est conservé tel quel.
+
+## DX.2 (Prurit d'origine mixte)
+- Ajouts sourcés (guide européen S2k 2025, PMC12529596, lu le 11.11.2026 ; série bernoise Lehmann 2020, PMC9128882) : fenêtre « Caractérisation du prurit mixte » (section 5.1, six questions, NRS/EVA, qualité), fenêtre « Sujet âgé » (section 6.6.1), association du groupe III aux catégories mixte et « autre » (Lehmann, tableau I et carte sémantique).
+- Citations : les mesures générales reçoivent [2] (tableau 5 du guide) ; les citations AIPS reportées par l'outil sur des phrases sans médicament ont été retirées.
