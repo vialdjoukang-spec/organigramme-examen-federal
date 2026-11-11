@@ -1,0 +1,189 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "2e63f582c7a2a9662564051bfa928618d0813c54",
+ "type": "vérification finale (audit 3)",
+ "perimetre": "Phase A + DX.1 à DX.5 (DX.6–10 non ouverts)",
+ "rapports_precedents": [
+  "Claude/LOT_016/audits/LOT_016_A_DX1-5.audit.json",
+  "Claude/LOT_016/audits/LOT_016_audit2_A_DX1-5.audit.json"
+ ],
+ "commit_des_corrections": "0ea84dbd",
+ "methode": "Diff mot à mot 0ea84dbd~1..0ea84dbd relu en entier ; les six HTML sont inchangés depuis 0ea84dbd. AIPS rapatriées de refdata par les URL des bibliographies (53 documents), 8 relues pour les 13 corrections (67103, 54168, 21037, 56300, 23533, 31706, 29552, 69781). Sondage : 42 phrases chiffrées hors AIPS tirées au sort par script (graine 20261111, 7 par fichier), sources rouvertes par leur URL. Scripts : ancres internes et inter-fichiers, identifiants en double, parité des guillemets, intitulés de lignes des 45 fiches .mb. Chaque correction proposée a été appliquée sur une copie hors dépôt : controle3 VERT, verif_aips OK, tailles sous 150 000 o.",
+ "limites": "Design (Playwright) non refait : le commit 0ea84dbd ne touche que du texte dans des cellules existantes (audit 2 : 310 fenêtres sans défaut). Comptes du point 14 repris de l'audit 2 (section inchangée sauf une réponse de DX.5). L'index AIPS local ne contient que les noms et les URL : l'absence de lactate de potassium est confirmée par nom de spécialité seulement ; la recherche par composition est celle du rédacteur (HELP.md). La phrase de NICE NG222 sur la durée du traitement est moins nette que « 6 mois après la rémission ».",
+ "leves": [
+  "1 DX.1 protéines : levé. « Apport protéique : l'ESPEN recommande 0,8 g de protéines par kilogramme et par jour si le DFGe est inférieur à 30 mL/min/1,73 m² sans dialyse » [S21] ; ESPEN 2023 relu (« 0.8 g/kg body weight/day for patients with eGFR <30 ml/min/1.73 m2 ») ; plus aucune mention de l'AIPS, controle3 VERT sans exemption.",
+  "2 DX.2 Spravato, allaitement : levé, conforme à l'AIPS 67103 (« soit de ne pas procéder au traitement… soit d'arrêter l'allaitement au début du traitement »).",
+  "3 DX.2 Spravato, âge : levé, conforme (« n'est pas indiquée chez les patients de moins de 18 ans » ; « Aucune donnée n'est disponible pour cette indication chez les patients âgés de 65 ans et plus »).",
+  "4 DX.2 Spravato, seconde indication : levé, conforme (« épisode sévère de dépression majeure (sans symptômes psychotiques)… urgence psychiatrique »).",
+  "5 DX.2 venlafaxine, redite des contre-indications : levée ; 14 jours après un IMAO irréversible et 7 jours avant : conformes à l'AIPS 54168. Reste l'intitulé « Usage » en triple (voir restants).",
+  "6 DX.4 jours 2–7, « doses hors AIPS » : levé ; carbimazole 40 mg/j et propylthiouracile 400 mg/j entrent dans les doses initiales (21037 : « 20–60 mg par jour » ; 56300 : « 300 - 600 mg par jour »).",
+  "7 DX.4 colonne de droite : levé ; « restent dans les doses initiales des AIPS (ligne des ATS) ; les AIPS fixent ensuite l'entretien : 5–20 mg/j ; 25–150 mg/j » : conforme aux deux AIPS, et la ligne des ATS existe bien au-dessus.",
+  "8 DX.4 hydrocortisone : levé ; AIPS 23533 : « doses initiales allant jusqu'à 100 mg », doses suivantes « à des intervalles de 2, 4 ou 6 heures » ; la crise thyrotoxique n'est pas une indication, ce que dit la colonne de droite.",
+  "9 et 10 DX.4 propranolol : levés ; les deux citations sont mot pour mot dans l'AIPS 31706, guillemets appariés (86/86), ancre S21 unique.",
+  "11 DX.5 point 14, potassium : levé (adapté) ; contre-indication « Acidose (utiliser le lactate de potassium) », paliers < 2,0 et > 2,5 mmol/L, 10 mmol/h : conformes à l'AIPS 29552 ; 40 mmol en 4–8 h : Reber 2019. Reste une ancre impropre (Léger, voir restants).",
+  "12 DX.5 fiche KCl : levé (« Renutrition »).",
+  "13 DX.5 Capvaxive : levé ; citation fermée, mot pour mot dans l'AIPS 69781 (138/138 guillemets)."
+ ],
+ "erreurs_nouvelles_creees_par_les_corrections": "Aucune erreur médicale ni de dose. Un seul défaut Léger créé (DX.5, ancre S33 sur l'absence de lactate de potassium). Aucune ancre cassée, aucun identifiant en double, guillemets appariés dans les six fichiers.",
+ "restants": [
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Fiche venlafaxine (f-dx2-m-ven) : TROIS lignes portent l'intitulé « Usage » (et non deux) ; l'indication, la dose et les contre-indications sont fondues dans la première, si bien que la fiche n'a ni ligne « Dose » ni ligne « Contre-indications », contrairement aux six autres fiches du fichier. C'est ce défaut qui a fait conclure à tort l'audit 1 (« pas de ligne de contre-indications ») puis créer la redite levée par l'audit 2. Correction en cinq remplacements (celui-ci et les quatre suivants) : la première ligne est scindée en Indication, Dose, Contre-indications, sans changer un mot du contenu. 1/5.",
+   "avant": "<table><tr><th>Usage</th><td>L'AIPS indique la venlafaxine",
+   "correction": "<table><tr><th>Indication</th><td>L'AIPS indique la venlafaxine",
+   "source": "AIPS Efexor® ER 54168 (refdata, relue le 11.11.2026) ; rubriques des fiches voisines de DX.2 (Indication, Dose, Contre-indications, Grossesse et allaitement) ; corrections appliquées sur copie : controle3 VERT, verif_aips OK, DX.2 = 148 062 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Fiche venlafaxine, 2/5 : ouverture de la ligne « Dose » (75 mg une fois par jour avec un repas, 150 mg après au moins 2 semaines, 375 mg « dans certains cas justifiés » : exact face à l'AIPS).",
+   "avant": "récidives <sup class=\"r\"><a href=\"#sb-aips-54168\">S21</a></sup>. La dose initiale vaut 75 mg",
+   "correction": "récidives <sup class=\"r\"><a href=\"#sb-aips-54168\">S21</a></sup>.</td></tr><tr><th>Dose</th><td>La dose initiale vaut 75 mg",
+   "source": "AIPS Efexor® ER 54168 (refdata, relue le 11.11.2026) ; rubriques des fiches voisines de DX.2 (Indication, Dose, Contre-indications, Grossesse et allaitement) ; corrections appliquées sur copie : controle3 VERT, verif_aips OK, DX.2 = 148 062 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Fiche venlafaxine, 3/5 : ouverture de la ligne « Contre-indications » (hypersensibilité, IMAO, moins de 18 ans : exact face à l'AIPS).",
+   "avant": "« dans certains cas justifiés » <sup class=\"r\"><a href=\"#sb-aips-54168\">S21</a></sup>. L'AIPS contre-indique",
+   "correction": "« dans certains cas justifiés » <sup class=\"r\"><a href=\"#sb-aips-54168\">S21</a></sup>.</td></tr><tr><th>Contre-indications</th><td>L'AIPS contre-indique",
+   "source": "AIPS Efexor® ER 54168 (refdata, relue le 11.11.2026) ; rubriques des fiches voisines de DX.2 (Indication, Dose, Contre-indications, Grossesse et allaitement) ; corrections appliquées sur copie : controle3 VERT, verif_aips OK, DX.2 = 148 062 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Fiche venlafaxine, 4/5 : deuxième « Usage » renommé. Au passage (Léger) : « avant et après chaque augmentation » déforme l'AIPS, qui demande un contrôle avant de débuter le traitement, puis périodiquement et après les augmentations de posologie.",
+   "avant": "<tr><th>Usage</th><td>La pression artérielle monte avec la dose : le médecin la contrôle avant et après chaque augmentation",
+   "correction": "<tr><th>Mises en garde et arrêt</th><td>La pression artérielle monte avec la dose : le médecin la contrôle avant le traitement, puis après chaque augmentation",
+   "source": "AIPS Efexor® ER 54168 (refdata, relue le 11.11.2026) ; rubriques des fiches voisines de DX.2 (Indication, Dose, Contre-indications, Grossesse et allaitement) ; corrections appliquées sur copie : controle3 VERT, verif_aips OK, DX.2 = 148 062 o ; AIPS 54168, Mises en garde, Système cardiovasculaire"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Fiche venlafaxine, 5/5 : troisième « Usage » renommé (place face aux ISRS, remboursement LS).",
+   "avant": "<tr><th>Usage</th><td>L'appétit ne distingue donc pas",
+   "correction": "<tr><th>Place et remboursement</th><td>L'appétit ne distingue donc pas",
+   "source": "AIPS Efexor® ER 54168 (refdata, relue le 11.11.2026) ; rubriques des fiches voisines de DX.2 (Indication, Dose, Contre-indications, Grossesse et allaitement) ; corrections appliquées sur copie : controle3 VERT, verif_aips OK, DX.2 = 148 062 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Sondage des 25 chiffres : la source citée ne porte pas le chiffre. S9 = OFSP, Plan d'action pour la prévention du suicide (il ne porte que l'objectif de −25 % d'ici 2030, cité à bon droit au point 2). Point 13, critères CIM-11 (au moins 5 symptômes sur 10, 2 semaines) : ni S9 ni S5 (NICE NG222) ne les portent ; la source est S1 (OMS, CDDR 2024, relue : « at least five of the following… », 2 semaines), déjà citée au point 8. Défaut antérieur aux corrections, non relevé par les audits 1 et 2. 1/3.",
+   "avant": "sans autre cause médicale <sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "correction": "sans autre cause médicale <sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>",
+   "source": "OMS CDDR 2024 (PDF iris.who.int relu le 11.11.2026) ; bibliographie de DX.2 (S1, S5, S9, S15)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Sondage des 25 chiffres : la source citée ne porte pas le chiffre. S9 = OFSP, Plan d'action pour la prévention du suicide (il ne porte que l'objectif de −25 % d'ici 2030, cité à bon droit au point 2). Point 13, « après 60 ans, plus de 5 % en 6 mois : investigation urgente de cancer » : la source est S15 (NICE NG12, mise à jour 2026, relue : « people aged 60 and over… more than 5% of body weight within a 6-month period »), non S9 ni S5. 2/3.",
+   "avant": "même si la dépression est évidente <sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "correction": "même si la dépression est évidente <sup class=\"r\"><a href=\"#sb-s15\">S15</a></sup>",
+   "source": "NICE NG12 (page relue le 11.11.2026)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Sondage des 25 chiffres : la source citée ne porte pas le chiffre. S9 = OFSP, Plan d'action pour la prévention du suicide (il ne porte que l'objectif de −25 % d'ici 2030, cité à bon droit au point 2). Point 13, « au moins 6 mois après la rémission » : S5 (NICE NG222) suffit ; S9 ne porte rien sur la durée du traitement. Réserve (Léger, sans correction exigée) : NG222 écrit « at least 6 months (including after symptoms remit) », formule moins nette que « 6 mois après la rémission ». 3/3.",
+   "avant": "puis s'arrête progressivement <sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "correction": "puis s'arrête progressivement <sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "source": "NICE NG222, Recommendations (page relue le 11.11.2026)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Ordre du 11.11.2026 arrivé pendant cet audit (MISSION_AUDIT_L1, point 1 : dose hors AIPS « sans ancre AIPS collée pour la forme »). Propranolol 60–80 mg/4 h : la phrase dit « hors AIPS » mais garde l'ancre AIPS 31706, qui ne porte pas cette dose. Correction testée avec le controle3 du jour (VERT) : [S3] devient une ancre, l'ancre AIPS part. La fiche f-dx4-m-pro garde la dose de l'AIPS. 1/2.",
+   "avant": "dose hors AIPS [S3]<sup class=\"r\"><a href=\"#sb-aips-31706\">S21</a></sup>",
+   "correction": "dose hors AIPS <sup class=\"r\"><a href=\"#sb-s3\">S3</a></sup>",
+   "source": "MISSION_AUDIT_L1.md (version 1c1bd60c) ; Taylor 2026 (S3) ; AIPS Inderal® 31706 ; test sur copie : controle3 VERT, verif_aips OK, DX.4 = 146 435 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Même règle, ATS de charge (carbimazole 80–100 mg/j, propylthiouracile 500–1000 mg puis 250 mg/4 h) : ancres AIPS 21037 et 56300 collées à des doses qui les dépassent. La colonne voisine garde à bon droit ces ancres pour les chiffres des AIPS (20–60 mg/j ; 300–600 mg/j). 2/2.",
+   "avant": "ces doses sortent de l'AIPS et viennent du consensus [S3]<sup class=\"r\"><a href=\"#sb-aips-21037\">S19</a></sup><sup class=\"r\"><a href=\"#sb-aips-56300\">S20</a></sup>",
+   "correction": "ces doses, hors AIPS, viennent du consensus <sup class=\"r\"><a href=\"#sb-s3\">S3</a></sup>",
+   "source": "idem"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Créé par la correction n° 11 de l'audit 2 (adaptée). « Aucune spécialité de lactate de potassium ne figure parmi les AIPS suisses » porte l'ancre S33 (AIPS 29552), qui ne dit pas cela : le fait vient de la recherche dans l'index AIPS du 08.10.2026 (confirmée ici par nom de spécialité : KCl Bichsel, B. Braun, Sintetica, Kaliumphosphat B. Braun, Kalium Hausmann, Plus Kalium ; aucun lactate). La phrase précédente porte déjà S33 pour la contre-indication ; la suivante le garde pour les paliers. Le reste de la réponse est exact (40 mmol en 4–8 h = 5–10 mmol/h ; plafond AIPS de 10 mmol/h au-dessus de 2,5 mmol/L ; aucun palier chiffré entre 2,0 et 2,5).",
+   "avant": "l'intensiviste arbitre le sel <sup class=\"r\"><a href=\"#sb-aips-29552\">S33</a></sup>. À 2,2 mmol/L",
+   "correction": "l'intensiviste arbitre le sel. À 2,2 mmol/L",
+   "source": "AIPS Kaliumchlorid B. Braun 29552 (relue) ; index AipsDownload_20261008.xml ; Reber 2019 ; test sur copie : controle3 VERT, verif_aips OK, −54 o"
+  }
+ ],
+ "sondage": {
+  "tirage": "42 phrases chiffrées hors AIPS tirées au sort (7 par fichier)",
+  "phrases_verifiees_sur_la_source": 34,
+  "chiffres_verifies": 44,
+  "ecarts_de_chiffre": 0,
+  "ecarts_de_source": 3,
+  "detail_ecarts": "DX.2 point 13 : trois phrases citent S9 (plan suisse de prévention du suicide) pour des chiffres que cette source ne porte pas (voir restants).",
+  "sources_rouvertes": [
+   "Bosch 2017 (PMC5384681) : 33 %, 69 % et 18 mois, 5–6 %, reprise de poids 35–55 %, 98 % d'anomalies biologiques, > 5 % en 6–12 mois, médicaments 3 contre 51 cas, 64 + 11 = 75/2677 = 2,8 %, endocrines 8 % contre 2 %",
+   "Reber 2019 (PMC6947262) : phosphate < 0,6 mmol/L ou baisse > 30 %, 72 h, 5 à 10 jours",
+   "ESPEN 2023 polymorbides (PDF) : 75 % des besoins, 0,8 g/kg/j si DFGe < 30",
+   "NICE NG12 (2026) : 60 ans, > 5 % en 6 mois",
+   "Martinez-Gutierrez 2024 (PMC11687243) : 3 mois",
+   "Fearon 2011 (résumé) : > 5 %, > 2 % si IMC < 20 ou sarcopénie",
+   "ESMO 2021 (PMC8233663) : 25–30 kcal/kg/j, 1,2 g/kg/j",
+   "OFS, chiffres clés du cancer 2022 (xlsx) : 25,5 % et 20,8 %",
+   "LiMA du 2.12.2025 (PDF) : 3 mois, garantie spéciale",
+   "Obsan _065 (API) : 9,8 %, 11,7 %, 7,9 %",
+   "SGAP 2018 (PDF) : 55–80 %",
+   "OMS CDDR 2024 (PDF) : 3–4 mois, moitié de récidives en 5 ans, 5 symptômes",
+   "Genton et Graf 2020 (PDF) : 80 %, 65 %, 35 %",
+   "HAS 2022 (PDF) : TSH 0,1–0,4 à 6 semaines, TSH tous les 2 à 4 mois, ATS 12 à 18 mois",
+   "Taylor 2026 (PMC13506520) : 2–3 mois",
+   "ESsCD 2025 partie 1 (PMC12704582) : 4 biopsies distales et 2 bulbaires, 45 ans, 10 × LSN, second prélèvement",
+   "ESsCD 2025 partie 2 (PMC13097674) : 12 mois, sérologie vers 12 mois, muqueuse vers 1 an"
+  ],
+  "non_rouvertes": "8 phrases du tirage sans chiffre décisionnel (âges de vignettes) ou redondantes avec une phrase vérifiée."
+ },
+ "controles": {
+  "controle3_script_ok_LOT_entier": "11 fichiers VERTS (Phase A, DX.1 à DX.10), aucun défaut",
+  "verif_aips_six_fichiers": "OK sur les six (9, 7, 10, 10, 15 et 14 AIPS citées), aucune alerte de dose",
+  "ancres_cassees": 0,
+  "identifiants_en_double": 0,
+  "guillemets": "appariés (31, 78, 75, 58, 86, 138)"
+ },
+ "point14": {
+  "Phase_A": 10,
+  "DX.1": 13,
+  "DX.2": 13,
+  "DX.3": 8,
+  "DX.4": 10,
+  "DX.5": 9,
+  "conforme_min_6": true,
+  "note": "comptes de l'audit 2"
+ },
+ "octets": {
+  "LOT_016_Phase_A_V0.html": 149573,
+  "LOT_016_Phase_B_V0_DX.1.html": 143631,
+  "LOT_016_Phase_B_V0_DX.2.html": 148060,
+  "LOT_016_Phase_B_V0_DX.3.html": 148088,
+  "LOT_016_Phase_B_V0_DX.4.html": 146523,
+  "LOT_016_Phase_B_V0_DX.5.html": 149745
+ },
+ "octets_apres_corrections_proposees": {
+  "LOT_016_Phase_B_V0_DX.2.html": 148062,
+  "LOT_016_Phase_B_V0_DX.4.html": 146435,
+  "LOT_016_Phase_B_V0_DX.5.html": 149691
+ },
+ "bilan": {
+  "Critique": 0,
+  "Grave": 0,
+  "Moyen": "2 défauts, tous deux dans DX.2 (8 remplacements)",
+  "Léger": "3 (DX.4 ×2, DX.5 ×1)",
+  "sans_defaut": [
+   "Phase A",
+   "DX.1",
+   "DX.3"
+  ]
+ },
+ "question_finale": "non : 2 défauts Moyen restent dans DX.2 (fiche venlafaxine à trois lignes « Usage » ; trois ancres S9 fausses au point 13). Les 13 corrections du contre-audit sont toutes exactes. Après ces 8 remplacements, tous testés, Phase A et DX.1–5 sont acceptables."
+}

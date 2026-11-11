@@ -1,147 +1,43 @@
-# LOT_014 — G14 Décès inattendu ou mort subite : lacunes et suites (renfort L1, 10.11.2026)
+# LOT_014 — G14 Décès inattendu ou mort subite : ce qui reste ouvert (mis à jour le 11.11.2026)
 
-Les formules de lacune ont été retirées des cours (LV7) et consignées ici. Les images restent à insérer : Wikimedia Commons
-répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n'a donc pu être vérifié ni mis en file.
+« DX.n » désigne `LOT_014_Phase_B_V0_DX.n.html` ; « Phase A » désigne `LOT_014_Phase_A_V0.html`.
 
-## Phase A (monographie du SSP)
-- Lacunes retirées : prise en charge financière de l'autopsie clinique et des tests des apparentés ; signe physique propre aux
-  prodromes ; registre suisse de la SUDEP (les chiffres suisses restent des estimations tirées de l'incidence internationale).
-- Image à insérer (µ6, Phase A) : cliché qui sépare EP massive et dissection aortique (POCUS : cœur droit dilaté contre
-  épanchement péricardique compressif). Requête Commons : « pericardial tamponade ultrasound » et « right ventricle dilatation
-  pulmonary embolism echocardiography ».
-- Réserve L1 : l'examen physique ciblé reste une fenêtre unique organisée en lignes par région (signe, technique, aspect,
-  piège) ; une fenêtre par région dépasserait la bande de 150 Ko (149,7 Ko atteints).
+## Lacunes ouvertes
+- Tout le LOT : aucun fichier ne porte d'image ; aucun titre de fichier Commons n'a pu être vérifié.
+- Phase A : image à insérer : POCUS qui sépare l'embolie massive (cœur droit dilaté) de la tamponnade.
+- DX.1 : images à insérer : ECG d'un STEMI inférieur et coronarographie d'une occlusion (point 9).
+- DX.2 : images à insérer : échocardiographie d'une CMH obstructive avec SAM et IRM avec rehaussement tardif.
+- DX.3 : images à insérer : angioscanner d'une embolie proximale et ETT avec ventricule droit dilaté.
+- DX.4 : image à insérer : angio-TDM d'une dissection de type A (voile intimal).
+- DX.5 : image à insérer : scanner d'une hémorragie sous-arachnoïdienne des citernes de la base.
+- DX.6 : images à insérer : EEG intercritique et IRM d'une sclérose hippocampique.
+- DX.7 : images à insérer : radiographie d'un pneumothorax sous tension et courbe débit-volume obstructive.
+- DX.8 : images à insérer : IRM cardiaque avec rehaussement sous-épicardique et ECG de sus-décalage diffus.
+- DX.9 : images à insérer : ECG de QT long et ECG de Brugada de type 1.
+- DX.10 : seul un schéma libre du couchage sûr convient ; aucune image de défunt.
+- Phase A : manquent la prise en charge financière de l'autopsie clinique et des tests des apparentés, un signe physique propre aux prodromes et un registre suisse de la SUDEP.
+- DX.1 : aucun signe physique propre à chaque syndrome du point 7 n'a été trouvé.
+- DX.2 : manquent la sensibilité et la spécificité du standard diagnostique, le nombre suisse annuel de décès, une règle suisse d'aptitude professionnelle, la classe de risque de grossesse (III ou IV) de chaque ligne et un dépistage suisse de population.
+- DX.2 : le disopyramide n'a aucune spécialité suisse autorisée ; le cours ne donne aucune dose.
+- DX.3 : manquent la technique de mesure de la pression veineuse jugulaire, la stratégie d'imagerie de l'enfant et les classes ESC 2025 de la grossesse (tableau 11 non lu).
+- DX.4 : aucune recommandation suisse propre au syndrome aortique aigu ; l'OFS 2024 n'isole pas les décès par anévrisme ou dissection.
+- DX.5 : aucune recommandation suisse propre à l'hémorragie intracrânienne ni au dépistage de l'anévrisme ; manquent le mécanisme de la crise convulsive et l'adaptation de l'alimentation après dépistage de la dysphagie.
+- DX.8 : aucune recommandation suisse propre à la myocardite ; les textes de l'ESC 2025 et de l'ESC 2022 n'ont pas pu être relus.
+- DX.9 : le nadolol n'a pas d'AIPS et le propranolol IV manque au corpus ; aucune dose n'est donnée.
 
-## DX.1 — Cardiopathie ischémique
-- Lacune retirée : signe physique propre à un syndrome du point 7 (« donnée non trouvée »).
-- Point 1 : la fenêtre « ce qui est / ce qui n'est pas » passe au point 4 (entités qui imitent la cardiopathie ischémique) ;
-  synonymes et termes à éviter retirés (L1-3). Le chiffre 75–80 % reste au point 2.
-- Images à insérer : ECG 12 dérivations d'un STEMI inférieur (point 9) et coronarographie d'une occlusion (point 9) ;
-  requêtes Commons « inferior STEMI ECG 12 lead », « coronary angiography occlusion right coronary artery ».
+## Décisions en vigueur
+- Tout le LOT : les fichiers pèsent 139 à 150 Ko, au plafond ; toute image ou tout ajout exige un retrait équivalent.
+- Tout le LOT : le point 1 ne porte que la définition ; les notions voisines figurent au point 4 ; synonymes et termes à éviter n'existent plus.
+- Tout le LOT : chaque dose vit dans la fiche AIPS de sa molécule ; les tableaux de médicaments de la page ne la répètent pas.
+- Tout le LOT : `../_polices/forme.css` et `forme.js` restent des ressources externes partagées.
+- Phase A : l'examen physique ciblé tient en une fenêtre unique, organisée par région.
+- DX.3 : l'anamnèse reste un tableau de questions ; l'héparine non fractionnée suit l'AIPS n° 46240 et la protamine l'AIPS n° 69842 ; les contre-indications de la lyse suivent l'ESC 2019.
+- DX.4 : la conduite suit l'ESC 2024 ; DX.8 suit l'ESC 2025, l'EHRA 2026, les HUG 2020 et l'AIPS.
+- DX.5 : le tableau d'interprétation du scanner et de la ponction reste sur la page.
+- DX.7 : l'aminophylline suit l'AIPS n° 56507.
+- DX.8 : l'autopsie de toute mort subite cardiaque avant 50 ans est attribuée à l'ESC 2022.
+- DX.10 : l'attestation médicale de décès nationale (version de janvier 2026) sert de référence ; elle n'a aucune rubrique propre au nourrisson.
+- Phase A : les chiffres suisses de la SUDEP sont des estimations tirées de l'incidence internationale.
 
-## DX.2 — Cardiomyopathie
-- Lacunes retirées : sensibilité et spécificité chiffrées du standard diagnostique ; nombre suisse annuel de décès codés
-  « cardiomyopathie » ; règle suisse propre à l'aptitude professionnelle ; dose AIPS absente d'une molécule (« À vérifier ») ;
-  attribution exacte de chaque ligne de la classification de risque de grossesse (classe III ou IV) ; liste de sortie propre.
-- Doses du tableau de pharmacologie : citation reportée sur l'AIPS de la spécialité nommée dans la ligne (Beloc ZOK 52110,
-  Camzyos 68477, Concor 47311, Cordarone comprimés 33393) au lieu de l'ESC 2023.
-- Point 1 : notions voisines déplacées au point 4 ; synonymes et termes à éviter retirés ; statut FMH déplacé au point 11.B.
-- Images à insérer : échocardiographie parasternale grand axe d'une CMH obstructive avec SAM ; IRM cardiaque avec rehaussement
-  tardif (LGE). Requêtes Commons « hypertrophic cardiomyopathy echocardiography SAM », « cardiac MRI late gadolinium enhancement ».
-
-## DX.4 — Dissection ou rupture aortique (renfort L1, 11.11.2026, agent A)
-- Lacune retirée du cours : « aucune recommandation suisse propre au syndrome aortique aigu » (la conduite suit l'ESC 2024).
-- AIPS du tableau des médicaments de l'urgence : les renvois étaient décalés d'une ligne par la passe mécanique (dose de
-  Trandate sur [S1][S17], dose de Brevibloc sur l'AIPS de Trandate, etc.) ; chaque ligne cite désormais l'AIPS de sa spécialité.
-  La colonne des doses du tableau de la page est retirée : chaque dose reste dans la fiche AIPS de sa molécule (L1-3, redite).
-- Point 1 : la distinction avec la MSC arythmique et sa fenêtre passent au point 4.
-- Examen : une fenêtre par région ; la ligne « pouls paradoxal » rejoint la fenêtre existante (technique conservée).
-- Redites fusionnées, sans fait perdu : OPAS (une seule mention, art. 12 à 12e), AECVP et conseil génétique des apparentés,
-  indication suisse de la nicardipine, contre-indication de la lyse, grossesse sous losartan.
-- Images à insérer : angio-TDM d'une dissection de type A (voile intimal) ; requête Commons « aortic dissection CT Stanford A ».
-
-## DX.6 — Mort subite inattendue en épilepsie (renfort L1, agent B)
-- Point 1 : la fenêtre des entités voisines passe au point 4 (id f-dx6-p4-voisin) ; la phrase qui l'ouvre est déplacée, non perdue.
-- Images à insérer : EEG intercritique et IRM d'une sclérose hippocampique (point 9) ; requêtes Commons « EEG epileptiform discharges », « hippocampal sclerosis MRI FLAIR ».
-
-## DX.7 — Asthme aigu grave (renfort L1, agent B)
-- Redites retirées sans perte : critères BTS de sévérité (fenêtre du point 1, conservés au point 8), paragraphe sédation/aminophylline de la fenêtre d'urgence (fusionné dans la question du point 11), pastilles de fréquence et de cibles.
-- Citations AIPS rattachées à la bonne spécialité : Adrenalin Aguettant 66396, Betnesol 30120, Solu-Medrol 35112, Solu-Cortef 23533.
-- Images à insérer : radiographie d'un pneumothorax sous tension chez l'asthmatique, courbe débit-volume obstructive ; requêtes Commons « tension pneumothorax chest x-ray », « obstructive flow volume loop ».
-
-## DX.8 — Myocardite (renfort L1, agent B)
-- Lacunes retirées du cours : « aucune recommandation suisse propre à la myocardite » (points 11, 12 et fenêtre sport) ; la prise en charge suit l'ESC 2025, l'EHRA 2026, les HUG 2020 et l'AIPS.
-- Point 1 : fenêtre des notions voisines déplacée au point 4 (entités qui imitent la myocardite), synonymes retirés (L1-3) ; lignes de définitions redondantes avec les fenêtres des critères et des classes du point 8 retirées.
-- Citations AIPS corrigées : amiodarone de la fenêtre d'urgence sur Cordarone 41060 (au lieu d'Adrenalin), lidocaïne sur Rapidocain 46461 (au lieu de Cordarone).
-- Images à insérer : IRM cardiaque avec LGE sous-épicardique (point 9), ECG de sus-décalage ST diffus ; requêtes Commons « myocarditis cardiac MRI late gadolinium enhancement », « myocarditis ECG ST elevation ».
-
-## DX.9 — Canalopathie héréditaire (renfort L1, agent B)
-- Lacunes retirées du cours : nadolol sans AIPS (« À vérifier ») et absence de propranolol intraveineux dans le corpus AIPS ; aucune dose n'est donnée pour ces deux molécules.
-- Point 1 : phrase de définition réparée ; fenêtre des notions voisines rattachée au point 4 (id f-dx9-p4-voisins) ; synonymes retirés (L1-3), le terme « autopsie négative » reste comme piège.
-- Redite retirée : dose de Beloc i.v. de la fenêtre des bêtabloquants (conservée dans la conduite d'urgence).
-- Citations AIPS corrigées : Cordarone 41060, Rapidocain 46461, Adrenalin 66396/56551 (pédiatrie), Tambocor 45710 (sujet âgé, insuffisance rénale).
-- Images à insérer : ECG de QT long et ECG de Brugada type 1 (point 9) ; requêtes Commons « long QT syndrome ECG », « Brugada syndrome type 1 ECG ».
-
-## DX.3 — Embolie pulmonaire massive (renfort L1, 11.11.2026, agent A)
-- Lacunes retirées du cours : technique de mesure de la pression veineuse jugulaire (« non décrite dans les sources
-  consultées ») ; stratégie d'imagerie propre à l'enfant (« les sources consultées ne donnent pas… ») ; classes ESC 2025
-  de la grossesse (« texte lu, classes non lues », tableau de recommandations 11 non lu).
-- Colonne des doses du tableau de la page retirée (redite des fiches AIPS). Deux doses ne vivaient que dans cette colonne et
-  sont rétablies dans leur fiche : HNF adulte 5 000 à 10 000 U.I. puis 20 000 à 30 000 U.I./j (AIPS 46240) ; protamine IV lente
-  en 10 min, 1 mL (10 mg) pour environ 1 400 U.I., bolus ≤ 5 mL (AIPS 69842).
-- Examen ciblé : constantes, thorax et corps après le décès ont leur fenêtre ; peau, diurèse et conscience, cou et membres
-  inférieurs renvoient aux fenêtres syndromiques 7.2, 7.1 et 7.5, qui donnent déjà signe, geste et mécanisme (faits propres
-  du tableau reportés : PESI 60 points, avis HUG sur la jugulaire, Homans, 80 % de TVP sans signe).
-- Examens complémentaires : une fenêtre par examen (biologie, ETT, angioscanner, capnographie, échographie de compression,
-  scintigraphie V/Q, angio-CT post-mortem).
-- Réserve L1 : l'anamnèse reste un tableau de questions sans fenêtre de caractérisation par symptôme (siège, irradiation,
-  horaire, typique ou non) : la bande de 150 Ko est atteinte (149 988 o) et les sources lues ne caractérisent pas chaque
-  symptôme au-delà de ce que disent les fenêtres 7.1 à 7.6.
-- Images à insérer : angioscanner thoracique d'une EP proximale (« saddle pulmonary embolism CT ») et ETT avec VD dilaté
-  (« right ventricle dilatation pulmonary embolism echocardiography »).
-
-## DX.10 — Syndrome de la mort subite du nourrisson (renfort L1, agent B)
-- Point 1 : définition seule ; libellé OFS/CIM et notions voisines, puis termes à éviter, déplacés au point 4 (ids f-dx10-p4-voisin, f-dx10-p4-termes) ; synonymes retirés (L1-3), le sigle SIDS est défini au point 1.
-- Phrases tronquées réparées (points 1 et 4) ; redite « revue de Parme » retirée de la fenêtre des examens (conservée au point 13).
-- Citations AIPS corrigées : Adrenalin Sintetica 56551, Adrenalin Aguettant 66396, Parlodel 39001 (bromocriptine), Nicorette Invisi 58175.
-- Citation allemande du Skriptum bernois et lucernois remplacée par sa traduction fidèle (phrase de 40 mots).
-- Images à insérer : aucune image de défunt ; schéma du couchage sûr seulement s'il est libre de droits (requête Commons « safe infant sleep position »).
-
-## DX.5 — Hémorragie intracrânienne spontanée (renfort L1, 11.11.2026, agent A)
-- Lacunes retirées du cours : recommandation suisse propre à l'HSA ou à l'hémorragie intracérébrale ; recommandation suisse de
-  dépistage de l'anévrisme ; mécanisme de la crise convulsive ; adaptation de l'alimentation après dépistage de la dysphagie.
-- Point 1 : la distinction avec l'hémorragie traumatique et sa fenêtre passent au point 4 ; synonymes et « termes à éviter »
-  retirés (L1-3) ; leurs chiffres (20 % d'HSA sans cause, 85 % d'attaques ischémiques) restent aux points 2 et 3.
-- AIPS : la cellule de l'adrénaline citait l'AIPS de Keppra (57519) ; elle cite celle d'Adrenalin Aguettant (66396).
-  Le tableau des médicaments de la page ne garde que le point critique : chaque dose AIPS reste dans sa fiche.
-- Examen : une fenêtre par région ; la fenêtre orpheline « situations particulières d'imagerie » est reliée au point 9.c.
-- Redites fusionnées sans fait perdu (létalité suisse, critères NICE recoupant l'arbre, antidotes, tranexamique, questions
-  d'examen redondantes). Les questions « scanner normal » sont fusionnées ; la question « arrêt réanimé » et la question
-  « lyse pendant la réanimation » sont retirées : leurs réponses restent aux points 10 et 13.
-- Réserve L1 : le tableau d'interprétation du scanner et de la ponction reste sur la page (bande atteinte, 149 997 o).
-- Images à insérer : scanner cérébral sans injection d'une HSA des citernes de la base ; requête Commons
-  « subarachnoid hemorrhage CT basal cisterns ».
-- DX.2 et DX.4 (relecture, agent A) : deux formules de lacune retirées du cours : absence de dépistage de population suisse
-  décrit (DX.2, point 12) ; décès suisses codés « anévrisme ou dissection de l'aorte » non isolés par l'OFS 2024 (DX.4, point 2).
-
-## Corrections après l'audit LOT_014_A_DX6-10 (11.11.2026, agent B)
-- DX.8 : l'autopsie de toute MSC avant 50 ans est attribuée à l'ESC 2022 [S33], comme le propose l'audit ; le texte de l'ESC 2025 (et celui de l'ESC 2022, page OUP refusée au robot) n'a pas pu être relu ici.
-- DX.10 : attestation médicale de décès nationale (version janvier 2026, avec annexe OEC art. 89 al. 3) lue le 11.11.2026 sur ne.ch [S40] ; définitions de la mort naturelle et indéterminée reprises ; le formulaire n'a aucune rubrique propre au nourrisson. Guide vaudois 2024 [S38] et fiche CoD de l'OFS [S39] conservés.
-- DX.7 : dose de charge et d'entretien de l'aminophylline lues dans l'AIPS 56507 (téléchargée le 11.11.2026). DX.6 : mise en garde de l'AIPS Orfiril 54331 chez l'homme apte à procréer lue le même jour.
-- Ressources externes ../_polices/forme.css et forme.js : laissées en place (règle forme.py), à admettre par le harnais controle_lot.py.
-
-## DX.3 — correction après audit (LOT_014_DX1-5.audit.json, 11.11.2026)
-- Le renfort L1 avait fait disparaître trois faits sourcés (constat de l'audit) : grille du PESI original et mortalité par
-  classe, contre-indications absolues et relatives de la lyse selon l'ESC 2019, chiffres ACOD contre HBPM-AVK. Ils sont
-  rétablis dans les fenêtres f-dx3-p8-reco, f-dx3-p11-alteplase et f-dx3-p11-acod.
-- Pour rester sous 150 Ko, huit questions du point 14 sont retirées ; chacune redisait un fait présent au point 10, au
-  point 13, dans la fenêtre d'urgence, dans les situations spéciales ou au point 11.D.
-- Renvois réalignés : point 13 (ESC 2019 [S1], Actilyse [S30], RCP 60–90 min [S1][S9][S10]) ; HNF [S31] ; aPTT sans [S37].
-
-## Questions d'examen retirées pour tenir sous 150 Ko (correction d'audit, 11.11.2026) : où figure la réponse
-DX.1 (point 14, 7 questions)
-- Moment de l'adrénaline dans une FV → arbre du point 10, point 13 et fenêtre f-dx1-p11-urg-acr.
-- Dose d'amiodarone (Cordarone) dans la FV résistante → fiche f-dx1-med-amiodarone.
-- Association amiodarone et lidocaïne → fiche f-dx1-med-lidocaine (limites).
-- Nitroglycérine sous sildénafil → fiche f-dx1-med-nitroglycerine et fenêtre f-dx1-p5-questions.
-- Inhibiteur du P2Y12 à éviter après un AVC → fiche f-dx1-med-prasugrel.
-- Geste propre à l'arrêt cardiaque de la femme enceinte → fenêtre f-dx1-p11-grossesse.
-- Moment de la FEVG avant un DAI (6–12 semaines) → points 9, 10, 12 et 13.
-DX.2 (fenêtre f-dx2-p14-qcm, 8 questions)
-- Adrénaline dans la FV réfractaire → fenêtre f-dx2-p11-urgence et point 13.
-- Mavacamten avec une FEVG de 52 % → fiche f-dx2-med-mavacamten.
-- Vérapamil chez la femme enceinte de 8 semaines → fenêtre f-dx2-p11-speciales (texte AIPS d'Isoptin).
-- CMH obstructive hypotendue en œdème pulmonaire → fenêtre f-dx2-p11-obstruction.
-- Premier traitement de l'obstruction → fenêtre f-dx2-p11-medic-cmh, points 3 et 10.
-- Test génétique sur un défunt (LAGH art. 18) → point 10 et fenêtre f-dx2-p9-autopsie.
-- CMH à l'autopsie, cause « hautement probable » (AECVP) → point 8 et fenêtre f-dx2-p4-dd.
-- Anticoagulation d'une CMH avec FA quel que soit le CHA2DS2-VASc → point 7, fenêtres f-dx2-p7-5 et f-dx2-p11-medic-fa.
-DX.5 (point 14, 2 questions)
-- Examen après un arrêt réanimé précédé d'une céphalée → point 10 (item 2), point 4, fenêtres f-dx5-p11-urg et f-dx5-p5-rf.
-- Thrombolyse pendant la réanimation d'un patient céphalalgique → point 13 (item 2), point 5 et fiche altéplase de f-dx5-p11-autres.
-- (Point 13 de DX.5 : l'item sur l'acide tranexamique est retiré ; la réponse reste au point 14 et dans f-dx5-p11-autres.)
-
-## Audit 2 (11.11.2026) — restes légers
-- DX.2, fiche du disopyramide : la formule « À vérifier (AIPS) » est remplacée par « Aucune AIPS suisse dans le corpus du
-  08.10.2026 ; pas de dose donnée ». Lacune : aucune spécialité suisse autorisée, donc aucune dose AIPS ; le cours n'en donne aucune.
-- DX.5 : la ligne de l'antivitamine K (fenêtre biologie, INR) cite aussi Konakion MM [S35].
+## Doutes médicaux à trancher
+Aucun.

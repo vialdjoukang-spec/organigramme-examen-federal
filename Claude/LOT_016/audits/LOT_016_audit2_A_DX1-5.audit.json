@@ -1,0 +1,200 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "689d19ca4ff0cc2067bff670488d30ee2bc0f9b2",
+ "type": "contre-audit (audit 2)",
+ "premier_rapport": "Claude/LOT_016/audits/LOT_016_A_DX1-5.audit.json",
+ "commit_des_corrections": "9ec97860",
+ "perimetre": "Phase A + DX.1 à DX.5 (DX.6 à DX.10 hors périmètre, non ouverts)",
+ "methode": "Diff mot à mot fb3a6d36..9ec97860 relu en entier. verif_aips.py : OK sur les 6 fichiers, aucune alerte de dose. controle3 --script-ok : VERT sur les 6 fichiers. 52 AIPS rapatriées de refdata ; environ 50 énoncés relus à la main sur le texte AIPS (Spravato 67103, Efexor ER 54168, Seroquel XR 58108, Quantalan 50711, Néo-Mercazole 21037, Propycil 56300, Inderal 31706, Solu-CORTEF 23533, Kaliumchlorid B. Braun 29552, Sulfate de magnésium Bichsel 56394, Ferinject 57851, Spiricort 38840 fr, Topamax 53537, Exelon 54275, Capvaxive 69781). Sources ouvertes : Taylor 2026 (PMC13506520, doses de crise) et Reber 2019 (PMC6947262, tableau 4). Playwright (Chromium) à 1280×800 et 390×844 sur les 310 fenêtres : ouverture, centrage, défilement interne, débordement. Script : ancres internes et inter-fichiers, identifiants en double, aria-label, parité des guillemets. Chaque correction proposée a été appliquée sur une copie : controle3 VERT, verif_aips OK, tailles sous 150 000 o.",
+ "limites": "Le sondage complet de 25 chiffres sur les sources non AIPS n'a pas été refait hors des passages corrigés (seuls Taylor 2026 et Reber 2019 ont été rouverts). Les comptes du point 14 sont repris de l'audit 1 : le commit n'a modifié qu'une réponse de DX.5. L'absence de lactate de potassium en Suisse repose sur une recherche par nom de spécialité dans l'index AIPS du 08.10.2026, pas par principe actif.",
+ "leves": [
+  "1 (forme.css, fiches .mb) : levé par le designer (commit cce63768) — voir reponses.f",
+  "2 et 3 (aria-label avec HTML, DX.4 et DX.1) : appliqués ; 0 aria-label contenant « < » dans les 6 fichiers ; plus de lien parasite",
+  "4 (Spravato, posologie) : appliqué, exact mot pour mot face à l'AIPS 67103 — voir reponses.a",
+  "5 (Spravato, contre-indications) : appliqué, complet (seul « ou l'un des excipients » est omis, sans conséquence)",
+  "6 (venlafaxine, contre-indications) : appliqué, contenu exact, mais redite créée — voir restants",
+  "7 (Seroquel XR, 150 et 300 mg/j) : appliqué, conforme (« Un effet a été constaté à des doses de 150 et 300 mg/jour »)",
+  "8 et 9 (Spiricort, texte français, URL -fr, redite de S15 retirée) : appliqués ; citation exacte",
+  "10 (protéines, ancre Zyprexa) : ancre corrigée (S21), mais phrase ajoutée fautive — voir restants",
+  "11 (DX.3, formule de lacune du point 8) : appliqué ; lacune consignée dans HELP.md ; phrase du mégestrol reformulée sans erreur",
+  "12 à 15 (DX.4, doses de crise) : adaptés (ancres AIPS gardées, mention « hors AIPS » et [S3]) ; exacts pour le propranolol et les ATS de charge, inexacts pour l'hydrocortisone et les jours 2–7 — voir reponses.b et restants",
+  "16 (DX.4, paragraphe « notions voisines ») : supprimé ; aucun fait perdu (biotine, somatostatine, dopamine, jeûne, premier trimestre, insuffisance hypophysaire restent dans le tableau et l'arbre)",
+  "17 (colestyramine, dose AIPS) : adapté et exact — voir reponses.c",
+  "18 (Ferinject, hypophosphatémie fréquente) : appliqué, conforme (« Fréquent: hypophosphatémie »)",
+  "19 (KCl, conduite au point 14) : appliqué, fidèle à l'AIPS mais ambigu — voir reponses.e et restants",
+  "20 (drapeau 3, limite de 45 ans) : appliqué ; la limite reste donnée au point 8, dans l'arbre et au point 14",
+  "21 (fiche KCl, redite retirée) : appliqué ; l'intitulé de ligne devient impropre — voir restants",
+  "22 (Ferinject, guillemets de la grossesse) : appliqué, citations conformes",
+  "23 (magnésium, 5 à 6 g) : appliqué, exact — voir reponses.e",
+  "24 à 26 (Phase A, scission de S26 en sb-aips-53537 et sb-aips-54275, phrase générale et renvois retirés) : appliqués ; plus aucune ancre sb-aips-s26 ; 10,4 % et 11 % exacts ; aucune ancre cassée"
+ ],
+ "restants": [
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.1.html",
+   "gravite": "Grave",
+   "constat": "Point d de la mission. « La dose est absente de l'AIPS » ne désigne aucune AIPS : la phrase suit trois médicaments (Farlutal®, Fortecortin®, Zyprexa®) et porte sur l'apport protéique, qui n'est pas un médicament et n'a pas d'information professionnelle. C'est une formule de lacune (LV7) et une phrase fausse quant à son objet ; l'ancre S21 (ESPEN 2023) est en revanche correcte. Placée après « Zyprexa® : pharmacocinétique pratiquement inchangée », elle se lit comme « la dose de Zyprexa® est absente de l'AIPS », ce qui est faux. Elle sert en fait l'exemption de controle3 (« X est absente de l'AIPS ») en déclarant le mot « dose » comme molécule hors AIPS ; aucune autre phrase du fichier n'en dépend (vérifié). Une phrase « Protéines : l'ESPEN recommande… » sans cette déclaration fait passer controle3 au ROUGE (A_dose_sans_AIPS) : la forme proposée nomme donc le vrai sujet.",
+   "avant": "La dose est absente de l'AIPS : l'ESPEN recommande des protéines à 0,8 g/kg/j",
+   "correction": "Les protéines alimentaires sont absentes de l'AIPS : l'ESPEN en recommande 0,8 g/kg/j",
+   "source": "L1 (aucune formule de lacune) ; ESPEN 2023 polymorbides (S21) ; controle3.py lignes 20 et 124–143 (exemption « <molécule> est absente de l'AIPS ») ; correction testée sur copie : controle3 VERT, verif_aips OK, +7 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Point a. La ligne « Grossesse et allaitement » de la fiche Spravato® ne dit rien de l'allaitement. L'AIPS 67103 écrit : « Il faut alors décider soit de ne pas procéder au traitement par Spravato pendant l'allaitement, soit d'arrêter l'allaitement au début du traitement par Spravato ».",
+   "avant": "La contraception hautement efficace s'applique jusqu'à 6 semaines après le dernier traitement",
+   "correction": "La contraception hautement efficace s'applique jusqu'à 6 semaines après le dernier traitement. Allaitement : la mère renonce au traitement ou arrête d'allaiter dès son début",
+   "source": "AIPS Spravato® 67103, Grossesse, allaitement (lu sur refdata le 11.11.2026) ; +85 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Point a. La fiche Spravato® ne donne pas la limite d'âge inférieure. AIPS 67103 : « L'utilisation de Spravato n'est pas indiquée chez les patients de moins de 18 ans. » ; pour l'urgence psychiatrique : « Aucune donnée n'est disponible pour cette indication chez les patients âgés de 65 ans et plus. » La dose de 28 mg dès 65 ans, elle, est exacte.",
+   "avant": "Chaque séance comprend au moins 2 heures de surveillance",
+   "correction": "Avant 18 ans, Spravato n'est pas indiqué ; dès 65 ans, l'urgence psychiatrique n'a pas été étudiée. Chaque séance comprend au moins 2 heures de surveillance",
+   "source": "AIPS 67103, Instructions posologiques particulières (Patients âgés ; Enfants et adolescents) ; +100 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Point a. La ligne « Indication » de la fiche Spravato® ne cite que la dépression résistante, alors que la ligne « Dose » chiffre aussi l'urgence psychiatrique, seconde indication de l'AIPS (épisode sévère de dépression majeure sans symptômes psychotiques, évalué comme une urgence psychiatrique).",
+   "avant": "en association à un antidépresseur oral ; « la décision de prescrire",
+   "correction": "en association à un antidépresseur oral ; épisode sévère évalué comme une urgence psychiatrique ; « la décision de prescrire",
+   "source": "AIPS 67103, Indications ; +60 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Erreur introduite par la correction n° 6 de l'audit 1. La fiche venlafaxine donnait déjà les contre-indications dans sa première ligne (« L'AIPS contre-indique l'hypersensibilité, l'association avec un IMAO et la prescription avant 18 ans »). L'ajout les répète dans la deuxième ligne : redite dans la même fiche (L1-3.4). Le constat de l'audit 1 (« pas de ligne de contre-indications ») était inexact.",
+   "avant": "Contre-indications : hypersensibilité, âge inférieur à 18 ans et association aux IMAO ; après un IMAO irréversible, le médecin attend 14 jours et il arrête",
+   "correction": "Après un IMAO irréversible, le médecin attend 14 jours et il arrête",
+   "source": "L1-3.4 ; AIPS Efexor® ER 54168, Contre-indications (les trois éléments sont exacts) ; −95 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Point b. Jours 2–7 : « doses hors AIPS » est faux. Le carbimazole à 40 mg/j et le propylthiouracile à 400 mg/j se situent dans les doses initiales des AIPS (Néo-Mercazole® « 20–60 mg par jour » ; Propycil® « 300 - 600 mg par jour » dans les cas graves). Seule la source de la conduite est le consensus.",
+   "avant": "carbimazole 40 mg/j, doses hors AIPS selon le consensus [S3]",
+   "correction": "carbimazole 40 mg/j selon le consensus [S3]",
+   "source": "AIPS 21037 et 56300, Posologie ; Taylor 2026 (S3)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Point b, même ligne, colonne de droite : la phrase oppose ces doses aux seuls paliers d'entretien et laisse croire qu'elles sortent des AIPS.",
+   "avant": "Ces doses viennent du consensus ; les AIPS fixent d'autres paliers d'entretien :",
+   "correction": "Ces doses restent dans les doses initiales des AIPS (ligne des ATS) ; les AIPS fixent ensuite l'entretien :",
+   "source": "AIPS 21037 (20–60 mg/j, puis 5–20 mg/j) et 56300 (300–600 mg/j, puis 25–150 mg/j)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Point b. Hydrocortisone : la dose de charge de 100 mg et les redoses toutes les 6 heures entrent dans la posologie de l'AIPS (« doses initiales allant jusqu'à 100 mg », doses suivantes « à des intervalles de 2, 4 ou 6 heures »). C'est l'indication qui sort de l'AIPS, ce que la colonne de droite dit déjà : « dose hors AIPS » est donc inexact et redit la colonne voisine.",
+   "avant": "puis 50 mg 4 fois par jour, dose hors AIPS selon le consensus [S3]",
+   "correction": "puis 50 mg 4 fois par jour selon le consensus [S3]",
+   "source": "AIPS Solu-CORTEF® 23533, Posologie usuelle ; −15 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Fiche propranolol, ligne Grossesse et allaitement : deux citations AIPS ont perdu leur guillemet ouvrant (84 « pour 86 » dans le fichier) et l'ancre S21 est triplée en fin de cellule. Défaut antérieur au commit 9ec97860, non relevé par l'audit 1.",
+   "avant": "<td> Il ne faut pas administrer ce médicament pendant la grossesse",
+   "correction": "<td>« Il ne faut pas administrer ce médicament pendant la grossesse",
+   "source": "AIPS Inderal® 31706, Grossesse, allaitement"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Suite de l'entrée précédente : guillemet ouvrant de la citation sur l'allaitement et retrait de l'ancre en double.",
+   "avant": "Allaitement : Il ne faut donc pas allaiter pendant la prise de ces médicaments. » <sup class=\"r\"><a href=\"#sb-aips-31706\">S21</a></sup>. <sup class=\"r\"><a href=\"#sb-aips-31706\">S21</a></sup></td>",
+   "correction": "Allaitement : « Il ne faut donc pas allaiter pendant la prise de ces médicaments. » <sup class=\"r\"><a href=\"#sb-aips-31706\">S21</a></sup></td>",
+   "source": "AIPS 31706 ; −55 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Moyen",
+   "constat": "Point e. La réponse ajoutée au point 14 est fidèle à l'AIPS 29552 (acidose contre-indiquée, « utiliser le lactate de potassium », « Surveiller les fonctions cardiaques »), mais « respecte les plafonds de l'AIPS » est ambigu pour le cas posé : à 2,2 mmol/L, l'AIPS ne chiffre aucun plafond (paliers < 2,0 et > 2,5 mmol/L seulement, ce que la fiche KCl écrit elle-même). De plus, la recherche par nom dans l'index AIPS du 08.10.2026 ne retrouve aucune spécialité de lactate de potassium (seulement KCl Bichsel, B. Braun, Sintetica et le phosphate de potassium B. Braun) : « il choisit » ne peut pas être une conduite ferme ; à vérifier par le rédacteur, puis consigner dans HELP.md.",
+   "avant": "il choisit le lactate de potassium, respecte les plafonds de l'AIPS et surveille les fonctions cardiaques",
+   "correction": "l'AIPS désigne le lactate de potassium, que l'intensiviste arbitre <sup class=\"r\"><a href=\"#sb-aips-29552\">S33</a></sup>. À 2,2 mmol/L, entre les deux paliers de l'AIPS, le débit du consensus (5 à 10 mmol/h) reste donc sous son plafond le plus bas (10 mmol/h), sous surveillance cardiaque",
+   "source": "AIPS Kaliumchlorid B. Braun 29552, Posologie et Contre-indications ; Reber 2019, tableau 4 (40 mmol en 4–8 h) ; index AipsDownload_20261008.xml ; +190 o, en deux phrases pour rester sous 40 mots (marge de DX.5 : 468 o)"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Fiche KCl : après la correction n° 21, la ligne « Divergence (renutrition) » n'énonce plus aucune divergence. Le débit du consensus (40 mmol en 4 à 8 h, soit 5 à 10 mmol/h) respecte d'ailleurs le plafond horaire de l'AIPS ; la seule divergence est l'acidose, donnée à la ligne suivante.",
+   "avant": "<td>Divergence (renutrition)</td><td>Le consensus suisse de renutrition donne 40 mmol",
+   "correction": "<td>Renutrition</td><td>Le consensus suisse de renutrition donne 40 mmol",
+   "source": "AIPS 29552 ; L1-3.3 ; −13 o"
+  },
+  {
+   "fichier": "Claude/LOT_016/LOT_016_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Citation AIPS de Capvaxive® non fermée (138 « pour 137 » dans le fichier). Défaut antérieur au commit, non relevé par l'audit 1.",
+   "avant": "mentionnés à la rubrique «Composition» </td>",
+   "correction": "mentionnés à la rubrique «Composition». » </td>",
+   "source": "AIPS Capvaxive® 69781, Contre-indications"
+  }
+ ],
+ "reponses": {
+  "a": "Fiche Spravato® (AIPS 67103, juin 2025). Posologie : exacte mot pour mot (semaines 1–4, deux séances par semaine, 56 mg le jour 1, 28 mg dès 65 ans, puis 56 ou 84 mg ; « 56 mg ou 84 mg une fois par semaine » ; dès la semaine 9, toutes les 2 semaines ou chaque semaine ; urgence : « 84 mg, deux fois par semaine pendant 4 semaines », 56 mg selon la tolérance ; au moins 2 heures de surveillance). Limite d'âge : seule la borne de 65 ans figure ; il manque « n'est pas indiquée chez les patients de moins de 18 ans » et l'absence de donnée dès 65 ans dans l'urgence (Moyen). Contre-indications : complètes et exactes. Grossesse : exacte, citation conforme, contraception jusqu'à 6 semaines ; l'allaitement manque alors que la ligne s'intitule « Grossesse et allaitement » (Moyen). Indication : la seconde indication (urgence psychiatrique) manque dans la ligne Indication (Léger).",
+  "b": "Les phrases disent sans ambiguïté que la dose vient du consensus et sort de l'AIPS ; la colonne voisine donne le chiffre de l'AIPS pour les ATS (20–60 mg/j ; 300–600 mg/j) et la fiche le donne pour le propranolol (10–40 mg 3 à 4 fois par jour). Exact pour le propranolol 60–80 mg/4 h et pour les ATS de charge. Inexact dans deux lignes : (1) jours 2–7, carbimazole 40 mg/j et propylthiouracile 400 mg/j sont dits « hors AIPS » alors qu'ils entrent dans les doses initiales des AIPS ; (2) hydrocortisone 100 mg puis 50 mg toutes les 6 h : c'est l'indication, non la dose, qui sort de l'AIPS 23533. Doses du consensus vérifiées sur Taylor 2026.",
+  "c": "Exact. AIPS 50711 : « commencer avec 1 sachet le matin et un sachet le soir. Au bout de 1 - 2 semaines, la dose peut être augmentée à 2 sachets matin et soir, et même à 6 sachets par jour dans de rares cas » ; « Une dose de 24 g/jour (6 sachets) » ; délai « au moins une heure avant ou 4 à 6 heures après ». L'adaptation du rédacteur est plus fidèle que la proposition de l'audit 1 (« au plus 6 sachets »). Seul le délai « au bout de 1 à 2 semaines » n'est pas repris (sans conséquence).",
+  "d": "Non, la formulation n'est pas correcte. L'ancre S21 est juste, mais « La dose est absente de l'AIPS » est une formule de lacune sans objet (aucune AIPS pour un nutriment) qui, placée après Zyprexa®, se lit comme une affirmation sur l'AIPS de Zyprexa®. Elle a été écrite pour l'exemption de controle3 (« X est absente de l'AIPS »). Remplacement testé : « Les protéines alimentaires sont absentes de l'AIPS : l'ESPEN en recommande 0,8 g/kg/j… » (controle3 VERT).",
+  "e": "Potassium : la conduite ajoutée est fidèle à l'AIPS 29552 (indication en alcalose métabolique ; contre-indication « Acidose (utiliser le lactate de potassium) » ; plafonds 200 mmol/j, 40 mmol/L, 10 mmol/h au-dessus de 2,5 mmol/L et 400 mmol/j, 80 mmol/L, 40 mmol/h sous 2,0 mmol/L ; « Surveiller les fonctions cardiaques ») et à Reber 2019 (40 mmol de KCl en 4–8 h sous 2,5 mmol/L). Deux réserves : à 2,2 mmol/L, « les plafonds de l'AIPS » ne désignent aucun chiffre (zone 2,0–2,5 non chiffrée) ; aucune spécialité de lactate de potassium n'a été retrouvée par son nom dans l'index AIPS du 08.10.2026. Magnésium : « environ 5 à 6 g » est exact (heptahydrate : 1 g = 4,05 mmol selon l'AIPS 56394, donc 20–24 mmol = 4,9–5,9 g) et Reber 2019 écrit bien « 20–24 mmol MgSO4 (4–6 g) » ; la ligne est correcte.",
+  "f": "Non observé. À 1280 px, les 45 fiches .mb de DX.1 à DX.5 s'ouvrent centrées (f-dx4-m-car : 90–1190 px) sur un voile plein écran, et défilent à l'intérieur quand elles dépassent l'écran ; à 390 px, aucun défaut. forme.css porte la règle du designer (commit cce63768). Défaut non compté."
+ },
+ "design": {
+  "fenetres_testees": {
+   "Phase_A": 49,
+   "DX.1": 44,
+   "DX.2": 58,
+   "DX.3": 62,
+   "DX.4": 46,
+   "DX.5": 51
+  },
+  "defauts_1280": 0,
+  "defauts_390": 0,
+  "debordement_horizontal": 0,
+  "ancres_cassees": 0,
+  "identifiants_en_double": 0
+ },
+ "point14": {
+  "Phase_A": 10,
+  "DX.1": 13,
+  "DX.2": 13,
+  "DX.3": 8,
+  "DX.4": 10,
+  "DX.5": 9,
+  "conforme_min_6": true,
+  "note": "comptes de l'audit 1, section inchangée sauf une réponse de DX.5"
+ },
+ "octets": {
+  "LOT_016_Phase_A_V0.html": 149573,
+  "LOT_016_Phase_B_V0_DX.1.html": 143618,
+  "LOT_016_Phase_B_V0_DX.2.html": 147855,
+  "LOT_016_Phase_B_V0_DX.3.html": 148088,
+  "LOT_016_Phase_B_V0_DX.4.html": 146579,
+  "LOT_016_Phase_B_V0_DX.5.html": 149532
+ },
+ "octets_apres_corrections_proposees": {
+  "LOT_016_Phase_B_V0_DX.1.html": 143625,
+  "LOT_016_Phase_B_V0_DX.2.html": 148014,
+  "LOT_016_Phase_B_V0_DX.4.html": 146523,
+  "LOT_016_Phase_B_V0_DX.5.html": 149710
+ },
+ "bande_80_150k": {
+  "LOT_016_Phase_A_V0.html": true,
+  "LOT_016_Phase_B_V0_DX.1.html": true,
+  "LOT_016_Phase_B_V0_DX.2.html": true,
+  "LOT_016_Phase_B_V0_DX.3.html": true,
+  "LOT_016_Phase_B_V0_DX.4.html": true,
+  "LOT_016_Phase_B_V0_DX.5.html": true
+ },
+ "bilan": {
+  "Critique": 0,
+  "Grave": 1,
+  "Moyen": 6,
+  "Léger": 6
+ },
+ "question_finale": "non : 1 Grave (DX.1) et 6 Moyen (DX.2 ×3, DX.4 ×2, DX.5 ×1) restent à corriger avant audit-ok ; Phase A et DX.3 sont sans défaut."
+}
