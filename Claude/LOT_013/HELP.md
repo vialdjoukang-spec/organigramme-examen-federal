@@ -30,3 +30,18 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Différence régionale chiffrée des chutes (ESS) : non trouvée ; stratégie chirurgicale de la fracture cervicale : hors sources lues.
 - Code de déontologie FMH, article sur les certificats : accès refusé.
 - Image candidate (point 9) : PMCT d'un hématome sous-dural ; non insérée faute de marge sous 150 Ko.
+
+## DX.6 — Accident de montagne, de sport ou noyade (renfort L1 du 11.11.2026)
+- Répartition cantonale des décès de montagne (graphiques du rapport CAS 2025) : non lisible en texte.
+- Nombre suisse de décès par hypothermie : non trouvé.
+- Sensibilité et spécificité des signes de l'examen externe et de la température centrale : non chiffrées dans les sources lues.
+- Code de déontologie FMH, article sur les certificats : accès refusé (voir Phase A).
+- Accord du MP avant un prélèvement d'organes en cas de décès extraordinaire : non trouvé.
+- Critères de sortie de l'hôpital du survivant réchauffé et réadaptation après hypothermie ou noyade : non trouvés.
+- Doses de glucose IV/IO au stade 2 révisé : absentes des sources lues.
+- Paliers chiffrés de débit de filtration glomérulaire dans les AIPS de l'adrénaline et de l'amiodarone : absents.
+- Recommandation suisse propre à la réanimation en montagne ou dans l'eau : non trouvée (ERC 2025 et ICAR 2023 utilisés).
+- Imagerie de contraste chez l'hypotherme vivant : non prévue dans les sources lues.
+- Test des diatomées : aucune source suisse ou européenne lue (revue internationale 2026 utilisée).
+- Resserrement sous 150 Ko (détails retirés du cours, présents dans les AIPS sources et, pour l'adrénaline, dans DX.4 et DX.8) : pharmacocinétique, interactions, contre-indications détaillées et réserve d'emploi de l'adrénaline ; pharmacocinétique, interactions et liste des contre-indications de l'amiodarone ; mention des spécialités Noradrenalin Sintetica et Amiodarone Labatec ; calculs dérivés du CAS 2025 ; citation in extenso de l'art. 4 LPGA (renvoi conservé) ; ligne Paal 2022 sur l'arrêt du traitement à la température cible (hémorragie incontrôlable, lésion anoxique).
+- Image candidate (point 9 ou 6 : érythème de froid ou taches de Wischnewski) : non insérée faute de marge sous 150 Ko.
