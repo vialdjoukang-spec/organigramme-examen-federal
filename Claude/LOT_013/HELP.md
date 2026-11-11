@@ -100,3 +100,13 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Conduite médico-légale envers le fœtus en cas de décès d'une femme enceinte : non trouvée.
 - Contre-indications de l'IRM post mortem en présence d'un implant : non trouvées.
 - Resserrement : liste suisse des médicaments à haut risque citée une seule fois (doublon retiré) ; texte AIPS grossesse du chlorure de potassium cité une seule fois (renvoi dans la fenêtre des situations spéciales).
+
+## DX.10 — Décès de nature indéterminée (renfort L1 du 11.11.2026)
+- Nombre annuel suisse de décès classés de nature indéterminée : non publié dans les sources lues.
+- Sensibilité et spécificité d'un examen pour la manière de la mort : non publiées.
+- Délai d'une reclassification définitive (Genève) : non trouvé.
+- Code de déontologie FMH, article sur les certificats : accès refusé (30.10.2026).
+- Explication complète de la hausse R96–R99 de 2024 et de l'écart avec l'UE : non trouvée (pistes OFS seules).
+- Volume chiffré des CT de triage, part des morts indéterminées dans l'activité des instituts et parmi les cas examinés, coût de la prise en charge médico-légale : non trouvés.
+- Règle d'annonce des cantons autres que Vaud, Genève et Zurich : non lue.
+- Resserrement : calculs dérivés R96–R99 et Y10–Y34 retirés ; six questions du point 14 retirées car leurs réponses figurent aux points 2, 8, 10 et 13 (Genève, Zurich, LAA, hypothermie, codes, lividités).
