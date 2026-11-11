@@ -17,6 +17,9 @@
 - DX.8 : sources S27, S28, S32, S33, S34 et S35 lues en résumé PubMed seulement (RMS 2023 sous abonnement) ; recommandation allemande AWMF des tumeurs salivaires non lue.
 - DX.8 : volet social et assurances (11.B) non rédigé ; AIPS du trastuzumab, du docétaxel, du bicalutamide et de la leuproréline non lues, donc aucune dose donnée.
 - DX.8 : stade T repris des recommandations britanniques 2016 (TNM 7) ; la 8e édition UICC citée par l'ESMO n'a pas été lue directement.
+- DX.5 : sources S3 et S7 à S11 lues en résumé PubMed seulement ; page AO Surgery Reference (S4) et page BPA (S12) sans date affichée ; extrait CNECMF 2025 (S6) réduit au sommaire et à la fonction manducatrice, le fond vient du cours du collège de 2014 (S5).
+- DX.5 : aucune recommandation suisse écrite (SSCMF, HUG, Inselspital) lue sur l'imagerie chez la femme enceinte, la dose d'antibioprophylaxie de l'enfant et le rappel antitétanique (plan de vaccination OFSP non lu) ; ces points restent sans chiffre dans le cours.
+- DX.5 : mortalité et critères officiels de guérison ou de sortie absents des sources lues ; les critères de sortie du point 11.D sont déduits des mesures de S5 et de S1.
 
 ## Décisions en vigueur
 - DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
@@ -30,6 +33,8 @@
 - DX.8 : fichier reconstruit au gabarit L1 (l'ancienne version portait encore popovers et polices intégrées) ; ses faits sont repris et sourcés un à un.
 - DX.8 : toxine botulique du syndrome de Frey écrite « hors AIPS » (Botox 52433 sans cette indication) ; la dose citée est celle d'un cas unique de l'USZ (2026).
 - DX.8 : conduite devant une masse = cytoponction échoguidée avant chirurgie (ESMO 2022, UK 2016) ; la parotidectomie exploratrice d'emblée du collège français 2014 est écrite comme divergence.
+- DX.5 : antibioprophylaxie = schéma de l'essai bernois (Schaller 2013 : amoxicilline-acide clavulanique 1,2 g i.v. toutes les 8 h jusqu'à 24 h postopératoires), dose conforme à l'AIPS 56758 mais indication « fracture de la face » hors AIPS, ce que le cours écrit ; durée courte enseignée (1 jour = 5 jours).
+- DX.5 : image insérée par `cliche.py` au point 9 : `images/Simple_mandible_fracture.webp` (CC BY 3.0, orthopantomogramme).
 
 ## Doutes médicaux à trancher
 - DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
@@ -39,3 +44,6 @@
 - DX.2 : antihypertenseur intraveineux de la phase aiguë : seul l'urapidil (AIPS 44486) a une fiche ; le labétalol (Trandate 41529) n'a pas été extrait.
 - DX.8 : protection oculaire nocturne écrite selon les HUG (« pansement occlusif ») avec renvoi à DX.1 ; même doute que DX.1 (adhésif palpébral).
 - DX.8 : place de la surveillance active de la tumeur de Warthin (revue européenne 2021) non confirmée par une source suisse lue.
+- DX.5 : chlorhexidine — l'AIPS 60340 prévoit l'emploi sous fixation intermaxillaire mais interdit l'application sur une plaie ; conduite à préciser tant que la plaie gingivale du foyer n'est pas fermée.
+- DX.5 : ibuprofène en phase hémorragique (contre-indication AIPS « tendance accrue aux saignements ») : aucune recommandation suisse lue sur l'antalgie de la fracture mandibulaire.
+- DX.5 : délai maximal avant ostéosynthèse d'une fracture ouverte : le collège français écrit « dans les heures qui suivent », sans chiffre ; pratique suisse non lue.
