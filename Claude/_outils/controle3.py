@@ -139,7 +139,9 @@ def controler(chemin, paquet, a, vus_lot):
                 d['A_nombre_absent_de_l_extrait'].append(f'{sorted(manq)} :: {t[:120]}')
         if DOSE.search(t) and not any(c.lower().startswith('aips') for c in cites):
             # Exemption déclarée : molécule explicitement « absente de l'AIPS » dans la leçon, dose citée sur une recommandation lue
-            if not (cites and any(m in t.lower() for m in hors_aips)):
+            # Ordre de Vial du 11.11.2026 : quand l'AIPS ne porte pas la dose, une société savante suisse fait foi ;
+            # la phrase cite alors cette source et dit « hors AIPS » (aucune ancre AIPS collée pour la forme).
+            if not (cites and (any(m in t.lower() for m in hors_aips) or re.search(r"hors (?:AIPS|information professionnelle)", t, re.I))):
                 d['A_dose_sans_AIPS'].append(t[:140])
     # A — formule de lacune dans le cours (LV7) : la lacune va dans HELP.md, jamais dans la leçon
     for tag, b, t in ph:

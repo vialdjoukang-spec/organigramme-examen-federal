@@ -30,8 +30,8 @@ relâchement de qualité. Plusieurs LOTs avancent de front, un chef de LOT par L
    bibliographie, bibliographie sans URL refdata, citation absente de l'AIPS citée). Chaque alerte « dose absente de
    l'AIPS citée » est relue : mauvaise AIPS collée → corriger ; dose de recommandation → la phrase le dit (« hors AIPS »,
    divergence écrite) et la conduite suit l'AIPS.
-4. **P3 — aucun fait perdu.** Tout retrait fait pour la taille est une redite, consignée dans `HELP.md` avec l'endroit où
-   l'information reste. Un rédacteur qui ne tient pas 150 Ko sans couper un fait s'arrête et le signale ; le chef de LOT
+4. **P3 — aucun fait perdu.** Tout retrait fait pour la taille est une redite, listée dans le message de commit avec
+   l'endroit où l'information reste. Un rédacteur qui ne tient pas 150 Ko sans couper un fait s'arrête et le signale ; le chef de LOT
    déplace le fait vers la Phase A ou un autre DX, ou trouve la redite.
 5. **Planche.** `python3 Claude/_outils/planche5.py Claude/LOT_NNN --sortie …` : 5 captures par cours, en lecture seule,
    envoyées à Vial. Aucune retouche de forme à ce stade.
@@ -62,6 +62,10 @@ relâchement de qualité. Plusieurs LOTs avancent de front, un chef de LOT par L
   (index : `AipsDownload_*.zip`, ou `Claude/_outils/lecon.py prep`).
 - Commits terminés par « Prompt L1 lu et appliqué. », Co-Authored-By et Claude-Session. Jamais de `--force`, jamais de
   suppression de branche.
+- Quand l'AIPS ne porte pas une dose, une société savante suisse lue et datée fait foi au même titre ; la phrase la cite et
+  écrit « hors AIPS ». Tous les outils disponibles servent à trouver la source avant de conclure à une lacune.
+- `HELP.md` d'un LOT reste court et à jour : lacunes ouvertes, décisions en vigueur, doutes à trancher ; ce qui est résolu
+  se supprime. Avant la PR, le chef de LOT le réécrit dans cette forme.
 - Un doute médical que les sources ne tranchent pas va dans `HELP.md` et dans le rapport au chef d'orchestre ; il ne se
   règle jamais par une phrase vague dans le cours.
 
