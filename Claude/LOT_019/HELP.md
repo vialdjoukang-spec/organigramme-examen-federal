@@ -14,6 +14,11 @@
 - DX.3 : S9 à S23 lus en résumé PubMed seulement, S7 dans sa partie en accès libre ; texte intégral ELS-UEP 2023 (Springer) et guide AWMF/DGPP des dysphonies inaccessibles (protection anti-robot).
 - DX.3 : aucune image ; seul cliché libre de nodules trouvé sur Commons (« File:V nod.jpg », domaine public, 252 × 240 px), trop peu résolu pour vérifier le signe ; cliché de laryngoscopie à trouver pour les points 6 et 9.
 - DX.3 : grossesse, allaitement, sujet âgé, insuffisance rénale ou hépatique : aucune source lue sur les nodules dans ces situations (seule la prudence AIPS de l'oméprazole est citée).
+- DX.4 : aucune incidence suisse du polype vocal (HUG, CHUV/RMS 2016, PubMed « Switzerland » lus) ; chiffres tirés du registre suédois de phonochirurgie et de séries hospitalières (Belgrade, centre tertiaire S23).
+- DX.4 : S8 à S10, S15 à S17 et S19 à S24 lus en résumé seulement (PubMed, Europe PMC) ; les études asiatiques du traitement conservateur ne sont citées qu'à travers la série italienne S14, lue en entier.
+- DX.4 : conduite d'urgence du polype obstructif fondée sur deux observations japonaises (Ochiai 2016, Chida 2018), faute de recommandation suisse ou européenne lue ; aucune dose écrite ; renvoi à la Phase A pour le tri de la dyspnée laryngée.
+- DX.4 : aucune image (recherche cliche.py « vocal cord polyp laryngoscopy » sans réponse) ; cliché de laryngoscopie d'un polype à insérer avec lecture guidée dans la fenêtre f-dx4-r-larynx.
+- DX.4 : microlaryngoscopie élective pendant la grossesse : aucune source lue ; seules les restrictions des trois AIPS sont écrites (f-dx4-p11-spec).
 
 ## Décisions en vigueur
 - Phase A : délai enseigné de l'examen ORL = 3 semaines (HUG) ; Collège ORL 2017 = 8 à 15 jours ; recommandation américaine 2018 = 4 semaines ; divergence écrite dans la fenêtre « délais » (point 8).
@@ -24,6 +29,9 @@
 - DX.6 : anciennes sources retirées (HUG cancers, CEN neurologie, Stachler 2018) ; leurs faits restent portés par HUG dysphonies organiques, Bohlender 2013 et Collège ORL 2017.
 - DX.3 : une seule fiche .mb (oméprazole, Antramups, AIPS 54380) : aucune molécule ne traite les nodules ; la fiche sert au reflux associé documenté et au piège d'examen.
 - DX.3 : OPAS art. 10–11 citée dans son état au 01.08.2026 (fedlex) : 12 séances par prescription, début dans les 8 semaines, médecin-conseil après 60 séances d'une heure par an.
+- DX.4 : trois fiches .mb accessoires (dobésilate de calcium Doxium 39217, triamcinolone Kenacort-A 26177, pantoprazole Pantozol 52710) ; dobésilate (cité par le CHUV, RMS 2016) et injection de corticoïde dans le pli vocal = hors AIPS, sans posologie pour le larynx ; le pantoprazole ne porte que la dose AIPS du reflux léger.
+- DX.4 : repos vocal postopératoire : Zurich 2013 (3 jours complets puis 4 jours doux) et registre suédois 2022 (aucun avantage du silence complet) sont écrits tous deux (f-dx4-p11-postop) ; aucune recommandation suisse ne tranche.
+- DX.4 : fichier reconstruit au gabarit L1 (l'ancien corps de 21 Ko utilisait des popovers) ; anciennes sources HUG, Collège ORL et Stachler 2018 relues et conservées, 25 sources ajoutées.
 
 ## Doutes médicaux à trancher
 - Phase A : « ni corticoïde ni antireflux, ni imagerie avant la laryngoscopie » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; source suisse ou européenne à trouver, sinon retirer.
@@ -36,3 +44,6 @@
 - DX.3 : critères de guérison, de fin de rééducation et de retour à domicile (point 11.D) composés à partir des sources, faute de critères d'une société savante.
 - DX.3 : repos vocal (4 à 5 jours conseillés, 3 jours fondés) et arrêt de travail (12 à 14 jours) viennent d'une enquête européenne sur polype et œdème de Reinke, non sur les nodules.
 - DX.3 : « ni antibiotique, ni corticoïde, ni antireflux avant d'avoir vu le larynx » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle.
+- DX.4 : taille du polype et qualité vocale : Bohlender 2013 (la voix suit souvent la taille et le siège) contre Öcal 2020 (aucune corrélation, 47 patients, résumé) ; les deux sont écrits (f-dx4-r-valeur).
+- DX.4 : terrain : le CHUV écrit « homme de 40 à 50 ans », alors que la Suède (52 % d'hommes, âge moyen 46 ans) et Belgrade (52,9 %) montrent une répartition presque égale ; les deux sont écrits (point 2).
+- DX.4 : « pas d'imagerie avant de voir le larynx, pas d'antireflux ni de corticoïde sans visualisation » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; même doute que la Phase A.
