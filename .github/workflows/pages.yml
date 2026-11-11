@@ -1,5 +1,6 @@
 # Publication GitHub Pages (Héphaïstos) : l'application et ses croquis (assets/) sont publiés.
 # index.html et app_v2.html sont deux copies du même fichier de travail ; progres.html affiche les jauges des binômes.
+# progression.html est le réceptacle des cours prêts (outils/receptacle.py, outils/publier_cours.py).
 # Après une fusion faite avec GITHUB_TOKEN (auto-fusion), le workflow
 # pages-apres-fusion.yml relance celui-ci via workflow_dispatch : une fusion
 # GITHUB_TOKEN ne déclenche pas on:push, et l'environnement github-pages
@@ -8,7 +9,7 @@ name: Pages
 on:
   push:
     branches: [main]
-    paths: [app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml]
+    paths: [app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml, 'Claude/_reference/**', 'Claude/_polices/**', outils/receptacle.py, outils/publier_cours.py]
   workflow_dispatch:
 permissions:
   contents: read
@@ -44,6 +45,8 @@ jobs:
           if [ -f .etat_local/prevalences/erreurs.pdf ]; then cp .etat_local/prevalences/erreurs.pdf _site/prevalences-erreurs.pdf; fi
           if [ -f .etat_local/prevalences/erreurs.json ]; then cp .etat_local/prevalences/erreurs.json _site/prevalences-erreurs.json; fi
           if [ -d assets ]; then cp -r assets _site/assets; fi
+          # Réceptacle : progression.html et les cours des SSP prêts (Claude/_reference/prets.txt)
+          python3 outils/publier_cours.py _site
           touch _site/.nojekyll
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
