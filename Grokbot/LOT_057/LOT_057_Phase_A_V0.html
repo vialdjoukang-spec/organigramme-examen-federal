@@ -4,34 +4,163 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LOT 057 — Hématémèse</title>
+<meta name="flash-design" content="v3 11.11.2026 (modèle Vial 01:09); palette: moutarde-chartreuse #564a08, pâle #fbf8eb, doux #f5efd7; histoire: la bile chartreuse du sang vomi, encre posée sur le langage pâle commun">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&amp;family=Atkinson+Hyperlegible+Mono:wght@400..800&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap">
 <style>
-body{font-family:Verdana,system-ui,sans-serif;font-size:17px;line-height:1.55;color:#1c140f;background:#fbf6ef;margin:0}
-main{max-width:48rem;margin:0 auto;padding:1.4rem 1.1rem 4rem}
-h1{font-size:2.6rem;line-height:1.05;color:#3d1010;margin:0 0 .4rem}
-h2,h3,h4{color:#3f1414;line-height:1.25}
-h3{font-size:1.35rem;margin:1.2rem 0 .4rem}
-.kicker{color:#4a2c24;font-size:1.05rem}
-.ilot{margin:1.2rem 0 1.6rem}
-table,td,th,caption{font-size:16px;vertical-align:top}
-table{border-collapse:collapse;width:100%;background:#fffaf4}
-th{text-align:left;background:#f3e2d6;color:#2b120f;padding:.35rem .45rem}
-td{padding:.35rem .45rem}
-.t{margin:.6rem 0 1rem}
-.freq{font-weight:700}
-.e{font-weight:700}
-a{color:#6b2a16}
-button.w{font:inherit;color:#6b2a16;background:#f6e7d4;padding:0 .25rem;cursor:pointer}
-.fenetre{background:#fffaf4;color:#1c140f;padding:1rem 1.1rem;max-width:860px;width:94vw}
-.fenetre img{max-width:100%;height:auto}
-figure.cliche{margin:1rem 0}
-.fiche{background:#f6e7d4;padding:.6rem .8rem;margin-bottom:.6rem}
-.paire{display:grid;grid-template-columns:1fr;gap:.8rem}
-svg{max-width:100%;height:auto;background:#1a1010}
-.question{font-size:1.15rem;margin:1.4rem 0 .6rem;color:#2b120f}
-sup.r{font-size:.75em}
+:root{--accent:#564a08;--pale:#fbf8eb;--doux:#f5efd7;--surtitre:"LOT_057 · Phase A";
+--encre:#161616;--titre:#111;--gris:#3d342e;--menu-bg:#faf6ef;--menu-filet:#e4d5c0;--menu-encre:#2b1f17;
+--h2:#803417;--h2-fond:#fdf6f0;--leg:#7c2431;--lien:#813110;--appel:#813314;--appel-fond:#f6e9d8;--modal:#794e0a;--fermer:#923c1a;
+--th:#f5e6cf;--th-encre:#2a160c;--th-filet:#dcc09b;--cadre:#e9dccb;--filet:#efe4d5;--col1:#fdf5f0;--zebre:#fef9f6;
+--ok:#dcfce7;--mo:#fef3c7;--ko:#fee2e2;--voile:rgba(23,20,15,.63);
+--menu-l:clamp(220px,18.5vw,300px);--col:54rem;
+--police-titre:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;
+--police-mono:"Atkinson Hyperlegible Mono","Atkinson Hyperlegible Next",ui-monospace,monospace}
+*{box-sizing:border-box}
+html{background:#fff;scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:#fff;color:var(--encre);font:400 clamp(16px,.5vw + 8.8px,18px)/1.6 "Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,system-ui,sans-serif;overflow-wrap:break-word;timeline-scope:--s0,--s1,--s2,--s3,--s4,--s5,--s6,--s7,--s8,--s9,--s10,--s11,--s12,--s13,--s14,--s15,--s16}
+b,strong{font-weight:700}
+a{color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+/* menu « Parties du cours » : fond crème, filet pâle à droite, pastilles numérotées */
+nav.rail{position:fixed;inset:0 auto 0 0;width:var(--menu-l);overflow:auto;z-index:4;padding:30px 12px 24px;background:var(--menu-bg);border-right:1px solid var(--menu-filet);font-size:13.5px;line-height:1.25}
+nav.rail p{margin:0 4px 0;padding:0 0 10px 3px;font:700 11px/1.2 var(--police-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.piste{height:2px;margin:0 4px 18px;background:var(--doux)}
+.avance{height:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:avance linear both;animation-timeline:scroll(root block)}
+@keyframes avance{to{transform:scaleX(1)}}
+nav.rail a{display:flex;align-items:center;gap:12px;min-height:39px;margin:0 0 1px;padding:6px 10px 6px 9px;border-radius:0 9px 9px 0;color:var(--menu-encre);text-decoration:none;animation:marque linear both;animation-range:entry 0% exit 85%}
+nav.rail a b{flex:0 0 25px;display:grid;place-items:center;height:25px;border-radius:50%;background:var(--pale);border:1px solid var(--doux);color:var(--accent);font:700 11px/1 var(--police-mono);animation:pastille linear both;animation-range:entry 0% exit 85%}
+nav.rail a:hover{background:var(--doux);color:#000}
+@keyframes marque{0%,100%{background-color:transparent;color:var(--menu-encre);box-shadow:none;font-weight:400}10%,90%{background-color:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}}
+@keyframes pastille{0%,100%{background-color:var(--pale);color:var(--accent)}10%,90%{background-color:var(--accent);color:#fff}}
+/* colonne de lecture : centrée dans l'espace à droite du menu (modèle : 864 px à 1440 px) */
+main{margin-left:var(--menu-l);padding:28px clamp(20px,4vw,64px) 80px}
+main>h1,main>p.kicker,main>.question,main>.p,main>section{max-width:var(--col);margin-left:auto;margin-right:auto}
+/* bandeau du titre : aplat pâle, barre gauche épaisse, coin arrondi à droite */
+h1,p.kicker{background:var(--pale);border-left:7px solid var(--accent);border-right:1px solid var(--doux)}
+h1{margin-top:0;margin-bottom:0;padding:26px 32px 4px;border-radius:4px 18px 0 0;border-top:1px solid var(--doux);font:800 clamp(32px,1.1rem + 1.3vw,44px)/1.18 var(--police-titre);letter-spacing:-.01em;color:var(--titre)}
+h1::before{content:var(--surtitre);display:block;margin:0 0 12px;font:700 11.5px/1.2 var(--police-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+p.kicker{margin:0 0 46px;padding:2px 32px 24px;border-radius:0 0 18px 4px;border-bottom:1px solid var(--doux);border-top:0;font:400 16px/1.5 "Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,system-ui,sans-serif;color:var(--gris)}
+/* parties : h3 numéroté sur aplat très pâle, h4 en italique */
+section.ilot{margin-bottom:34px;scroll-margin-top:16px}
+h3,section h2{margin:0 0 12px;padding:4px 6px;background:var(--h2-fond);font:700 1.25em/1.3 var(--police-titre);color:var(--h2)}
+.question{margin:28px 0 8px;font:700 1.05em/1.4 var(--police-titre);color:var(--encre)}
+.p{margin:0 0 .6em}
+h4{margin:22px 0 8px;font:italic 700 1.02em/1.35 var(--police-titre);color:var(--h2)}
+h2.question{margin:20px 0 8px;font:700 1em/1.4 var(--police-titre);color:var(--encre)}
+p{margin:0 0 .6em}
+ul,ol{margin:.2em 0 .8em;padding-left:1.4em}
+li{margin:0 0 .3em}
+sup.r{font-size:.68em;line-height:0}
+table sup.r{font-size:11px}table .rang{font-size:14px}
+sup.r a{margin-left:1px;padding:1px 4px;border-radius:4px;background:var(--appel-fond);color:var(--appel);font-weight:700;text-decoration:none;line-height:1.2}
+/* tableaux : cadre pâle arrondi, en-tête sable, filets fins et pâles */
+div.t{margin:0 0 20px}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:.92em;line-height:1.5;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
+caption{caption-side:top;text-align:left;padding:0 0 8px 1px;font:italic 700 14.5px/1.35 "Atkinson Hyperlegible Next",system-ui,sans-serif;color:var(--leg)}
+th,td{padding:9px 10px;vertical-align:top;text-align:left;color:var(--encre)}
+th{background:var(--th);color:var(--th-encre);font-weight:700;border-bottom:2px solid var(--th-filet)}
+th+th{border-left:1px solid var(--cadre)}
+td{border-top:0}
+td+td{border-left:1px solid var(--filet)}
+tr+tr td{border-top:1px solid var(--filet)}
+td:first-child{background:var(--col1);font-weight:700}
+tbody tr:nth-child(even) td{background:var(--zebre)}
+td.ok{background:var(--ok)}td.mo{background:var(--mo)}td.ko{background:var(--ko)}
+/* encadrés et listes de DX : même langage que les lignes de tableau */
+.porte{margin:10px 0 16px;padding:12px 16px 4px;background:var(--zebre);border:1px solid var(--filet);border-radius:10px}
+.rang{display:inline-block;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:.86em;white-space:nowrap}
+.freq{font-weight:700;color:var(--leg);white-space:nowrap}
+ol.dx{list-style:none;padding:0;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
+ol.dx li{margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
+ol.dx li:first-child{border-top:0}
+ol.dx li:nth-child(even){background:var(--zebre)}
+ol.algo>li{margin-bottom:.5em}
+/* termes cliquables : lien pointillé, ouvrent une fenêtre */
+button.w{font:inherit;font-weight:700;color:var(--lien);background:none;border:0;border-bottom:1.5px dotted var(--lien);border-radius:0;padding:0;margin:0;cursor:pointer;hyphens:none}
+button.w:hover{background:var(--appel-fond)}
+/* fenêtres : carte blanche arrondie, haut de l'écran, voile gris chaud */
+.fenetre{width:min(72rem,92vw);max-height:86vh;overflow:auto;margin:36px auto auto;padding:20px 22px 22px;border:0;border-radius:12px;background:#fff;color:var(--encre);font-size:max(16px,.95em);box-shadow:0 10px 30px rgba(23,20,15,.12)}
+.fenetre::backdrop{background:var(--voile)}
+.fenetre h4,.fenetre h5{margin:4px 0 14px;font:700 1.08em/1.3 var(--police-titre);color:var(--modal)}
+.fenetre button.fermer{float:right;margin:0 0 8px 16px;padding:2px 4px;font:inherit;font-weight:700;color:var(--fermer);background:none;border:0;cursor:pointer}
+.fenetre button.fermer::after{content:" ×"}
+.fenetre td:first-child{background:var(--th);border-bottom:2px solid var(--th-filet)}
+.fenetre img{max-width:100%;height:auto;border-radius:8px}
+figure.cliche{margin:12px 0 20px;padding:0}
+.paire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.paire.une{grid-template-columns:1fr}
+.paire h5{margin:0 0 6px;font:700 1em/1.3 var(--police-titre);color:var(--modal)}
+.cadre-img{position:relative;max-width:100%}
+.cadre-img>img{display:block;width:100%;height:auto;border-radius:8px}
+.cadre-img>svg{position:absolute;inset:0;width:100%;height:100%}
+figcaption{margin-top:8px;font-size:.94em;line-height:1.5;color:var(--gris)}
+figcaption .credit{display:block;margin-top:4px;font-size:.9em}
+.fiche{margin:0 0 14px;padding:12px 16px 2px;background:var(--zebre);border:1px solid var(--filet);border-radius:10px}
+.e{display:inline-block;margin-left:6px;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700}
+img,svg{max-width:100%;height:auto}
+section#sources li{font-size:.92em;margin-bottom:.45em}
+p.mode{font-weight:700}
+p.note{font-size:.92em;color:var(--gris)}
+/* écrans étroits : le menu devient un bandeau collant qui défile */
+@media (max-width:1099px){
+nav.rail{position:sticky;inset:auto;top:0;width:auto;padding:8px 4vw 6px;border-right:0;border-bottom:1px solid var(--menu-filet);display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+nav.rail p{padding:0;flex:0 0 auto}
+.piste{flex:1 1 30%;margin:0}
+nav.rail>div:last-child{flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.rail a{flex:0 0 auto;min-height:34px;padding:4px 10px 4px 6px;border-radius:9px;white-space:nowrap}
+main{margin-left:0;padding:20px 5vw 60px}
+.paire{grid-template-columns:1fr}
+ol.dx li{padding:8px 10px}}
+@media (max-width:480px){h1{padding:20px 18px 4px}p.kicker{padding:2px 18px 20px}th,td{padding:8px}}
+@media print{nav.rail{display:none}main{margin:0}}
+#dx{view-timeline:--s0 block}#comparatif{view-timeline:--s1 block}#p1{view-timeline:--s2 block}#p2{view-timeline:--s3 block}#p3{view-timeline:--s4 block}#p4{view-timeline:--s5 block}#p5{view-timeline:--s6 block}#p6{view-timeline:--s7 block}#p7{view-timeline:--s8 block}#p8{view-timeline:--s9 block}#p9{view-timeline:--s10 block}#p10{view-timeline:--s11 block}#p11{view-timeline:--s12 block}#p12{view-timeline:--s13 block}#p13{view-timeline:--s14 block}#p14{view-timeline:--s15 block}#sources{view-timeline:--s16 block}
+nav a[href="#dx"],nav a[href="#dx"] b{animation-timeline:--s0}
+nav a[href="#comparatif"],nav a[href="#comparatif"] b{animation-timeline:--s1}
+nav a[href="#p1"],nav a[href="#p1"] b{animation-timeline:--s2}
+nav a[href="#p2"],nav a[href="#p2"] b{animation-timeline:--s3}
+nav a[href="#p3"],nav a[href="#p3"] b{animation-timeline:--s4}
+nav a[href="#p4"],nav a[href="#p4"] b{animation-timeline:--s5}
+nav a[href="#p5"],nav a[href="#p5"] b{animation-timeline:--s6}
+nav a[href="#p6"],nav a[href="#p6"] b{animation-timeline:--s7}
+nav a[href="#p7"],nav a[href="#p7"] b{animation-timeline:--s8}
+nav a[href="#p8"],nav a[href="#p8"] b{animation-timeline:--s9}
+nav a[href="#p9"],nav a[href="#p9"] b{animation-timeline:--s10}
+nav a[href="#p10"],nav a[href="#p10"] b{animation-timeline:--s11}
+nav a[href="#p11"],nav a[href="#p11"] b{animation-timeline:--s12}
+nav a[href="#p12"],nav a[href="#p12"] b{animation-timeline:--s13}
+nav a[href="#p13"],nav a[href="#p13"] b{animation-timeline:--s14}
+nav a[href="#p14"],nav a[href="#p14"] b{animation-timeline:--s15}
+nav a[href="#sources"],nav a[href="#sources"] b{animation-timeline:--s16}
+@supports not (animation-timeline:scroll()){.piste{display:none}nav.rail a,nav.rail a b{animation:none}
+body:has(#dx:target) nav a[href="#dx"],body:has(#comparatif:target) nav a[href="#comparatif"],body:has(#p1:target) nav a[href="#p1"],body:has(#p2:target) nav a[href="#p2"],body:has(#p3:target) nav a[href="#p3"],body:has(#p4:target) nav a[href="#p4"],body:has(#p5:target) nav a[href="#p5"],body:has(#p6:target) nav a[href="#p6"],body:has(#p7:target) nav a[href="#p7"],body:has(#p8:target) nav a[href="#p8"],body:has(#p9:target) nav a[href="#p9"],body:has(#p10:target) nav a[href="#p10"],body:has(#p11:target) nav a[href="#p11"],body:has(#p12:target) nav a[href="#p12"],body:has(#p13:target) nav a[href="#p13"],body:has(#p14:target) nav a[href="#p14"],body:has(#sources:target) nav a[href="#sources"]{background:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}}
 </style>
 </head>
 <body>
+<nav class="rail" aria-label="Parties du cours">
+<p>Parties du cours</p>
+<div class="piste" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement de la lecture"><div class="avance"></div></div>
+<div>
+<a href="#dx"><b>DX</b>Les dix DX</a>
+<a href="#comparatif"><b>C</b>Comparatif</a>
+<a href="#p1"><b>1</b>Définition</a>
+<a href="#p2"><b>2</b>Épidémiologie</a>
+<a href="#p3"><b>3</b>Physiopathologie</a>
+<a href="#p4"><b>4</b>Démarche</a>
+<a href="#p5"><b>5</b>Anamnèse</a>
+<a href="#p6"><b>6</b>Examen</a>
+<a href="#p7"><b>7</b>Syndromes</a>
+<a href="#p8"><b>8</b>Diagnostic positif</a>
+<a href="#p9"><b>9</b>Examens</a>
+<a href="#p10"><b>10</b>Arbre</a>
+<a href="#p11"><b>11</b>Prise en charge</a>
+<a href="#p12"><b>12</b>Prévention</a>
+<a href="#p13"><b>13</b>Points clés</a>
+<a href="#p14"><b>14</b>Pièges</a>
+<a href="#sources"><b>§</b>Sources</a>
+</div>
+</nav>
 <main>
 <h1>Hématémèse</h1>
 <p class="kicker">Sang vomi, choc d’abord, puis la lésion que l’endoscope sépare<sup class="r"><a href="#sb-rms2019-1">[1]</a></sup>.</p>
