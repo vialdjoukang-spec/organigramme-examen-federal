@@ -19,6 +19,16 @@
 - DX.4 : conduite d'urgence du polype obstructif fondée sur deux observations japonaises (Ochiai 2016, Chida 2018), faute de recommandation suisse ou européenne lue ; aucune dose écrite ; renvoi à la Phase A pour le tri de la dyspnée laryngée.
 - DX.4 : aucune image (recherche cliche.py « vocal cord polyp laryngoscopy » sans réponse) ; cliché de laryngoscopie d'un polype à insérer avec lecture guidée dans la fenêtre f-dx4-r-larynx.
 - DX.4 : microlaryngoscopie élective pendant la grossesse : aucune source lue ; seules les restrictions des trois AIPS sont écrites (f-dx4-p11-spec).
+- DX.8 : aucune prévalence suisse de la dystonie laryngée (HUG, RMS, PubMed et Europe PMC interrogés) ; seuls des chiffres européens sont cités (Islande 2006, ESDE 2000).
+- DX.8 : S1-Leitlinien de la DGN « Dystonie » (AWMF 030-039) et « Neurogene Sprechstörungen » non lues (register.awmf.org protégé contre les robots) ; aucune recommandation suisse ou germanophone lue ne chiffre la dose laryngée de toxine.
+- DX.8 : onze sources européennes lues en résumé seulement (Marchese 2018, van Esch 2017, Cochrane 2004, ESDE 2000, Asgeirsson 2006, EFNS 2011, Geneid 2016, ELS 2001 et 2012, Moratin 2025, Ricard 2026) ; elles ne portent que ce que dit leur résumé.
+- DX.8 : aucune image (facultatif avant LOT_021) ; schéma des muscles intrinsèques et de l'innervation du larynx à insérer dans f-dx8-p3-base si souhaité.
+- DX.5 : aucune prévalence ni incidence suisse de l'œdème de Reinke (HUG, CHUV/RMS 2016, PubMed « Switzerland » lus) ; chiffres tirés de séries européennes (Glasgow, Rome, Copenhague) ; tabagisme suisse daté de 2013 (RMS 2015), pages OFS et OFSP plus récentes inaccessibles.
+- DX.5 : S7 à S16 et S19 à S24 lus en résumé PubMed seulement ; S21 (Stachler 2018) et S24 (Dewan 2022) sont américains et cités en complément, jamais seuls pour une décision.
+- DX.5 : image « File:Reinke-Oedem.jpg » (Phoni, CC BY-SA 4.0, Wikimedia) en file d'attente (téléchargement sans réponse) ; à insérer avec lecture guidée dans la fenêtre f-dx5-r-larynx.
+- DX.5 : conduite d'urgence fondée sur une observation londonienne (Pillai 2024, résumé) et sur le critère opératoire du CHUV, faute de recommandation suisse lue ; aucune dose écrite.
+- DX.5 : conditions de remboursement de la varénicline et du bupropion datées de 2015 (RMS) ; limitation actuelle de la liste des spécialités non lue ; OPAS (logopédie) non citée dans DX.5.
+- DX.5 : microlaryngoscopie pendant la grossesse : aucune source lue ; seules les restrictions des AIPS du sevrage sont écrites (f-dx5-p11-special).
 
 ## Décisions en vigueur
 - Phase A : délai enseigné de l'examen ORL = 3 semaines (HUG) ; Collège ORL 2017 = 8 à 15 jours ; recommandation américaine 2018 = 4 semaines ; divergence écrite dans la fenêtre « délais » (point 8).
@@ -32,6 +42,12 @@
 - DX.4 : trois fiches .mb accessoires (dobésilate de calcium Doxium 39217, triamcinolone Kenacort-A 26177, pantoprazole Pantozol 52710) ; dobésilate (cité par le CHUV, RMS 2016) et injection de corticoïde dans le pli vocal = hors AIPS, sans posologie pour le larynx ; le pantoprazole ne porte que la dose AIPS du reflux léger.
 - DX.4 : repos vocal postopératoire : Zurich 2013 (3 jours complets puis 4 jours doux) et registre suédois 2022 (aucun avantage du silence complet) sont écrits tous deux (f-dx4-p11-postop) ; aucune recommandation suisse ne tranche.
 - DX.4 : fichier reconstruit au gabarit L1 (l'ancien corps de 21 Ko utilisait des popovers) ; anciennes sources HUG, Collège ORL et Stachler 2018 relues et conservées, 25 sources ajoutées.
+- DX.8 : toxine botulique au larynx = hors AIPS (BOTOX 52433, Xeomin 62080, Dysport 55057 sans indication laryngée) ; doses écrites en unités, « hors AIPS », comme pratiques publiées (Madrid 2025 : 1,25 unité par côté ; Rome 2018 : départ à 2 unités), sans valeur de recommandation.
+- DX.8 : délai de l'examen ORL aligné sur la Phase A (trois semaines, HUG dysphonies organiques) ; le seuil de 8 à 15 jours du Collège ORL est écrit comme divergence, avec renvoi à la fenêtre « délais » de la Phase A.
+- DX.8 : pyridostigmine (Mestinon 19943) et tétrabénazine (Xenazine 58375) ont une fiche .mb sans dose pour la dystonie laryngée (usage hors AIPS) ; la dose AIPS de Xenazine n'est écrite que pour la maladie de Huntington.
+- DX.5 : fichier reconstruit au gabarit L1 (l'ancien corps de 22 Ko utilisait des popovers, avec 53 Ko de polices intégrées) ; HUG, Collège ORL et Stachler 2018 relus et conservés, CEN neurologie retirée (anatomie portée par RMS 2016), 23 sources ajoutées dont 4 AIPS.
+- DX.5 : aucune molécule ne traite l'œdème ; trois fiches .mb servent le sevrage tabagique : nicotine (Nicotinell patch 50582, Nicorette gomme 40580), varénicline (Varénicline-DALITA 70067), bupropion (Zyban 55263) ; doses AIPS seules.
+- DX.5 : sexe : le CHUV écrit « femmes et hommes dans la même proportion », les séries opératoires montrent une majorité de femmes (Glasgow 171/189) ; les deux sont écrits (point 2).
 
 ## Doutes médicaux à trancher
 - Phase A : « ni corticoïde ni antireflux, ni imagerie avant la laryngoscopie » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; source suisse ou européenne à trouver, sinon retirer.
@@ -47,3 +63,12 @@
 - DX.4 : taille du polype et qualité vocale : Bohlender 2013 (la voix suit souvent la taille et le siège) contre Öcal 2020 (aucune corrélation, 47 patients, résumé) ; les deux sont écrits (f-dx4-r-valeur).
 - DX.4 : terrain : le CHUV écrit « homme de 40 à 50 ans », alors que la Suède (52 % d'hommes, âge moyen 46 ans) et Belgrade (52,9 %) montrent une répartition presque égale ; les deux sont écrits (point 2).
 - DX.4 : « pas d'imagerie avant de voir le larynx, pas d'antireflux ni de corticoïde sans visualisation » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; même doute que la Phase A.
+- DX.8 : pyridostigmine comme antidote de recours d'une faiblesse due à la toxine : une seule revue européenne (Ionescu 2026) la propose ; à confirmer par un phoniatre ou un neurologue.
+- DX.8 : contrôle « 1 mois après l'injection » tiré des protocoles d'évaluation de Madrid (2025) et de Rome (2018), non d'une recommandation de société savante.
+- DX.8 : démarche diagnostique en trois niveaux (Ludlow 2008, origine américaine) citée à travers la revue européenne de 2026 ; aucun critère officiel suisse ou européen n'a été trouvé.
+- DX.8 : prise en charge par l'assurance (art. 71a, al. 1, let. b, OAMal) : application à la dystonie laryngée déduite du texte ; ni limitation de la liste des spécialités ni décision d'assureur lue.
+- DX.5 : suivi de la dysplasie (6 mois, 5 ans, visites toutes les 4 à 8 semaines) tiré de la position ELS 2020 sur la dysplasie laryngée en général, non sur l'œdème de Reinke.
+- DX.5 : Rome 2002 (S9) rapporte 3 carcinomes in situ sur 125 œdèmes, alors que Glasgow et Eskişehir ne trouvent aucun cancer ; les trois séries sont écrites (point 2), le pronostic 11.D ne parle que de cancer invasif.
+- DX.5 : repos vocal (4 à 5 jours conseillés, 3 jours fondés) et arrêt de travail (12 à 14 jours) viennent d'une enquête européenne ; aucune recommandation suisse ne tranche.
+- DX.5 : critères de guérison et de sortie (point 11.D) composés à partir des sources, faute de critères d'une société savante.
+- DX.5 : « pas d'antireflux ni d'imagerie en coupe avant de voir le larynx » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; même doute que la Phase A.
