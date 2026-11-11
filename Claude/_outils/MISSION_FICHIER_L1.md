@@ -58,9 +58,15 @@ Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en ar
   `/home/user/Medina/AipsDownload_20261008.zip` (XML lu en flux : numéro d'autorisation → URL
   `https://files.refdata.ch/…-fr.html`, lisible par curl), ou `Claude/_outils/lecon.py prep/extraire`. La passe mécanique
   colle de mauvaises AIPS : contrôle chaque renvoi un à un.
-- Une dose qui vient d'une recommandation et que l'AIPS ne porte pas s'écrit comme telle (« hors AIPS », divergence écrite) ;
-  la conduite enseignée suit l'AIPS. Une dose d'urgence ne se donne jamais sans l'âge auquel elle s'applique.
-- Molécule sans AIPS suisse lisible : garde la conduite, retire le milligramme, note-le dans `HELP.md`.
+- **Quand l'AIPS ne porte pas la dose** (posologie, schéma, durée, âge), une **société savante suisse** fait foi au même titre
+  (ordre de Vial du 11.11.2026) : recommandation suisse lue et datée (sociétés de discipline, Swiss Medical Forum, Revue
+  Médicale Suisse, guides des hôpitaux universitaires, OFSP), puis européenne à défaut. La phrase cite cette source et écrit
+  « hors AIPS » ; elle ne porte aucune ancre AIPS collée pour la forme (`controle3` l'accepte ainsi). Si l'AIPS porte la dose
+  et qu'une recommandation diverge, la conduite enseignée suit l'AIPS et la divergence est écrite.
+- Une dose d'urgence ne se donne jamais sans l'âge auquel elle s'applique.
+- Utilise tous les outils disponibles pour trouver la source (corpus AIPS, refdata, recherche web, PubMed, sites des sociétés
+  suisses) avant de conclure qu'une dose manque. Molécule sans AIPS suisse lisible ET sans recommandation suisse ou
+  européenne lue : garde la conduite, retire le milligramme, note-le dans `HELP.md`.
 - Aucune formule de lacune ni de fabrication dans le cours (« à vérifier », « non lu », « lu le… ») : la lacune va dans `HELP.md`.
 - Porte mécanique : `python3 Claude/_outils/verif_aips.py <fichier>` sans défaut bloquant ; relis chaque alerte « dose absente ».
 
@@ -68,8 +74,16 @@ Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en ar
 - Fichier trop court ou incomplet (points manquants, moins de 80 Ko) : complète-le par des faits distincts, sourcés et lus,
   là où µ3 les demande (anamnèse, examen par région, examens, prise en charge, fiches). Jamais de remplissage.
 - Fichier trop long : retire des **redites** (information déjà dite dans le fichier, ou tenue par la Phase A ou un autre DX du
-  LOT auquel on renvoie par un lien). **Aucun fait sourcé unique n'est perdu.** Chaque retrait est consigné dans `HELP.md`
-  (résumé, endroit où l'information reste). Si la bande est hors d'atteinte sans perdre un fait, arrête-toi et dis-le.
+  LOT auquel on renvoie par un lien). **Aucun fait sourcé unique n'est perdu.** Chaque retrait est listé dans le message de
+  ton commit (résumé, endroit où l'information reste) : l'auditeur le relit par `git log`. Si la bande est hors d'atteinte
+  sans perdre un fait, arrête-toi et dis-le.
+
+## HELP.md : court, à jour, rien d'autre (ordre de Vial du 11.11.2026)
+`Claude/LOT_NNN/HELP.md` ne contient que ce qui sert encore au projet, en trois rubriques : « Lacunes ouvertes » (source ou
+AIPS introuvable, image en attente), « Décisions en vigueur » (divergence AIPS ↔ recommandation tranchée, choix de liste) et
+« Doutes médicaux à trancher ». Une ligne par entrée, avec le fichier concerné. Pas d'historique, pas de journal d'agent,
+pas de liste de retraits : ce qui est résolu se supprime. Ajoute tes lignes sous la bonne rubrique (`>>` en fin de fichier
+si la rubrique manque) et supprime celles que ton travail résout.
 
 ## Fin de mission
 - `python3 Claude/_outils/forme.py <fichier>`, puis `controle3` et `verif_aips` une dernière fois.
