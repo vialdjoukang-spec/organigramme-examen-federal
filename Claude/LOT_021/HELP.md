@@ -1,0 +1,48 @@
+
+## Lacunes ouvertes
+- DX.7 : droit suisse (OIC, AI, LAMal) non vérifié pour la maladie de von Willebrand (Legal Data Hunter en quota, Fedlex illisible) ; volet assurances absent du point 11.
+- DX.7 : texte intégral des lignes directrices ASH ISTH NHF WFH 2021 sur la prise en charge illisible (PMC refusé) ; cibles chirurgicales et péridurale non enseignées, seul le résumé est cité.
+- DX.7 : aucune série suisse de prévalence trouvée (PubMed, RMS, SMW) ; la prévalence repose sur l'Italie et les lignes directrices 2021.
+- DX.9 : aucune incidence suisse publiée trouvée ; l'appui suisse se limite à Zurich (Epprecht 2018, Andrews-Fisch 1989) et Lucerne (cas 2025, Murer 2015).
+- DX.9 : flutamide absent du corpus AIPS suisse (AipsDownload_20261008) ; aucune dose donnée.
+- DX.9 : volet social et assurances (LAMal) du point 11 non rédigé, faute de source suisse lue.
+- DX.9 : S3–S6, S8–S14, S16 lues en résumé seulement (texte intégral fermé).
+- DX.10 : image en file (Wikimedia 429) « File:Sinonasal metastasis of intestinal cancer CTI 075.png » ; à insérer dans la fenêtre f-dx10-p9-irm (ou p9-tdm) via cliche.py figure, avec la ligne « métastase naso-sinusienne » à rétablir au tableau f-dx10-p4-dd en citant l'image.
+- DX.10 : LAA art. 9 et annexe 1 de l'OLAA (poussières de bois, maladie professionnelle) non lues (Legal Data Hunter saturé) ; le volet assurances ne cite que la Suva.
+- DX.10 : aucune incidence suisse spécifique (registre NICER/ONEC) trouvée ; le point 2 repose sur RARECARENet (via ESMO 2025) et les séries de Berne et de Zurich.
+## Décisions en vigueur
+- DX.7 : taux du facteur exprimés en UI/dL (30 et 50 UI/dL = 0,30 et 0,50 UI/mL des lignes directrices 2021), pour réserver les « UI/mL » aux doses AIPS.
+- DX.2 : concentré de complexe prothrombinique sous anti-Xa enseigné à 25–50 UI/kg d'après le guide HUG 2018, marqué « hors AIPS » (Beriplex® P/N n'est autorisé que sous antivitamine K).
+- DX.2 : SFORL 2016 écrit « Praxbind 5 mg » ; la fiche suit l'AIPS n° 65804 (5 g).
+- DX.2 : la figure du point 3 réutilise images/Coagulation_Cascade_with_Tests.webp (CC BY-SA 4.0), déjà présente dans le LOT.
+- DX.9 : aucune fiche .mb ; aucune molécule n'a d'indication validée (López 2017) ; tableau « Moyens thérapeutiques » à la place du tableau des médicaments.
+- DX.10 : schéma TPF enseigné selon l'AIPS Taxotere n° 53262 (75/75/750 × 5 j, 4 cycles) ; ESMO–EURACAN 2025 (SINTART : 75/80/800 × 4 j) cité comme divergence « hors AIPS ». L'AIPS Fluorouracil Accord n° 66825 (300–600 mg/m²/j, max 1 g/j) ne vise pas l'ORL : l'usage ORL du fluorouracile s'appuie sur l'AIPS Taxotere.
+## Doutes médicaux à trancher
+- DX.2 : le guide HUG des ACOD date de 2018 ; une édition plus récente (andexanet alfa en première ligne sous anti-Xa ?) n'a pas été trouvée.
+- DX.1 (lacune) : aucune recommandation suisse dédiée à l'épistaxis trouvée ; Ther Umsch 2020 (Inselspital) et Praxis 2015 (Lucerne) lus en résumé seulement ; volet assurances (LAMal, prise en charge des onguents) absent du point 11.
+- DX.1 (décision) : lidocaïne pendant la grossesse — SFORL 2016 l'autorise à tout terme, l'AIPS Xylocain Spray n° 52097 demande la prudence ; le cours suit l'AIPS. Compression : SFORL 10 min, Beck 2018 15–20 min, HUG 10–15 min, divergence écrite.
+- DX.1 (doute) : l'indication « épistaxis » de Cyklokapron (AIPS n° 33741) partage sa phrase avec « chez les patients manifestant une coagulopathie » ; restriction ou non au terrain coagulopathe à trancher.
+- Phase A (lacune) : aucune incidence suisse de l'épistaxis en population générale ; rangs DX.3, DX.4, DX.7, DX.9, DX.10 argumentés sans chiffre (Collège ORL 2017, HUG).
+- Phase A (décision) : figure « Base à connaître » = images/Kiesselbach_s_Plexus.webp (CC BY-SA 4.0, aussi dans DX.1) ; aucun schéma vasculaire libre à légendes non arabes trouvé (Wikimedia en 429).
+- Phase A (décision) : antibioprophylaxie du tamponnement — SFORL 2016 (non résorbable > 48 h) contre HUG 2010 (pas d'emblée) ; divergence écrite au point 11.
+- Phase A (alerte verif_aips) : Xylocain Spray 20–60 mg et 600 mg contrôlés à la main dans le tableau de l'AIPS n° 52097 (faux positif de format).
+- DX.9 : Nicolai 2012 cite Glad (650 mL sans embolisation, 1200 mL avec) : inversion probable dans la source ; chiffre non repris.
+- DX.5 (lacune) : aucune définition ni recommandation d'une société suisse propre à la perforation septale ; point 1 sur la méta-analyse EAORL 2025 (Cheung), Suisse limitée à SSORL (information patients), Bâle, Saint-Gall, Lugano et Berne.
+- DX.5 (lacune) : prévalence suisse de la cocaïne non citée (Panorama Addiction Suisse 2025/2026 et rapport OFSP 2016 refusés, 403) ; volet assurances (LAMal, bouton septal) absent du point 11 ; S3, S4, S6, S7, S9–S11, S15, S16 lues en résumé seulement.
+- DX.5 (décision) : mupirocine enseignée dans la seule indication AIPS n° 52361 (éradication staphylococcique) ; ENT UK propose une crème antibactérienne plus largement, divergence écrite au point 11.
+- DX.5 (décision) : « Base à connaître » = images/Gray854.webp (charpente) ; la vascularisation (Kiesselbach, Beck 2018) renvoie au schéma de DX.1 pour éviter la redite.
+- DX.10 : « sans attendre trois semaines » devant une neuropathie crânienne est une déduction de l'ESMO (signe de maladie avancée) ; aucun délai horaire chiffré n'est publié.
+- DX.3 (lacune, image en attente) : File:NasalFractCT.jpg (CC BY-SA 4.0, TDM de fracture nasale bilatérale) en file (429) ; à insérer par cliche.py figure dans la fenêtre f-dx3-p9-ct (point 9.d).
+- DX.3 (lacune) : volet assurances (LAA, LAMal) absent du point 11 (Legal Data Hunter en quota, Fedlex illisible) ; seul le volet médico-légal HUG est rédigé.
+- DX.3 (lacune) : aucune incidence suisse de la fracture nasale en population générale ; épidémiologie sur Berne (âgés, hockey, trottinette), Zurich et Hambourg ; Zurich, Heidelberg, Francfort et Bern 2019 lus en résumé seulement.
+- DX.3 (décision) : définition du point 1 sur le protocole HUG 2020 et l'AO Surgery Reference (aucune définition de société savante suisse trouvée) ; durée d'antibiotique (5 jours) prise des HUG, doses des AIPS.
+- DX.4 (lacune, image en attente) : File:ButtonBatteryIngestion.png (CC BY-SA 4.0, double contour de pile) en file ; à insérer par cliche.py figure dans la fenêtre f-dx4-x-radio (point 9.c).
+- DX.4 (lacune) : aucune recommandation ni incidence suisse propres au corps étranger nasal ; appui suisse = Gilgen-Anner (USB, Pädiatrie 2012), protocole Inselspital 2024 (ingestion) et communiqué des pédiatres suisses 2021 ; séries de piles nasales seulement israéliennes et chinoises, lues en résumé ; volet assurances absent.
+- DX.4 (décision) : pression positive (« baiser du parent ») enseignée en premier pour l'objet inerte antérieur selon Bâle 2012, Toulouse 2009 et Cook 2012 ; François 2019 (Rev Prat) la déconseille, divergence écrite au point 11. Miel : réservé à l'ingestion (Inselspital, hors AIPS), jamais au nez.
+- DX.8 (lacune) : aucune donnée suisse de prévalence propre ni de volet assurances (usage hors indication du bévacizumab, OIC) ; Legal Data Hunter en quota et Fedlex illisible. Les recommandations internationales 2020 (Ann Intern Med) et Curaçao 2000 ne sont lues qu'en résumé.
+- DX.8 (décision) : prophylaxie dentaire des MAV pulmonaires enseignée à 3 g d'amoxicilline (AIPS n° 49923) ; PNDS 2024/ESC donnent 2 g et 50 mg/kg, divergence écrite. Acide tranexamique : AIPS 7 jours, usage prolongé du PNDS marqué hors AIPS ; bévacizumab 5 mg/kg (PNDS) hors AIPS.
+- DX.8 (décision) : figure « Base à connaître » = images/PMC12608258_jcm-14-07724-g004.webp (CC BY, Europe PMC), Wikimedia en 429 pour le schéma capillaire.
+- DX.6 (lacune) : aucune recommandation suisse propre au PTI trouvée (PubMed, Europe PMC, RMS, SMW, Praxis 2014 sans résumé) ; appui suisse = registre PARC-ITP de Bâle (Schifferli 2023, 2025), ICIS (Kühne 2026) et SMW 2021 ; S5–S8 lues en résumé ; volet assurances (LAMal, usage hors indication) absent du point 11.
+- DX.6 (décision) : doses du PNDS CeReCAI 2024 / CEREVANCE 2025 marquées « hors AIPS » pour prednisone 1 mg/kg (AIPS sans schéma PTI), dexaméthasone 40 mg × 4 j (Fortecortin n° 48670 sans indication PTI) et rituximab 2 × 1000 mg (MabThera n° 54378 sans indication PTI) ; méthylprednisolone et vinblastine citées sans dose (AIPS non lues).
+- DX.6 (décision) : romiplostim enseigné à 1 µg/kg (AIPS n° 61541) ; PNDS 3 µg/kg et 10 µg/kg d'emblée en urgence, divergence écrite. Acide tranexamique : AIPS n° 33741 (1 g × 3/j, 7 j) ; PNDS 2–4 g/j hors AIPS.
+- DX.6 (doute) : mécanisme des IgIV (blocage des récepteurs Fc) non enseigné, l'AIPS Privigen le dit « non totalement élucidé ».
