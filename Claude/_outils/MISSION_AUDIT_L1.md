@@ -14,6 +14,8 @@ Lis d'abord le bloc L1 en tête de `PROMPT_Casern/PROMPT_LOTS_L1_10.11.26.claude
 Contre-audit : lis aussi le premier rapport et vérifie que chaque correction est réellement et correctement appliquée.
 
 ## À vérifier, par ordre de priorité
+
+- **Prérequis anatomo-fonctionnel (dès LOT_021, et LOT_020 DX.1) :** si le diagnostic exige une base d'anatomie ou de physiologie, son absence, ou l'absence d'image réelle expliquant le pourquoi du signe, est un défaut **Grave**.
 1. **Doses et AIPS.** `python3 Claude/_outils/verif_aips.py <fichiers>` : aucun défaut bloquant ; chaque alerte « dose
    absente » relue. Puis relis à la main au moins 40 renvois sur le texte AIPS réel (URL refdata de la bibliographie ; index
    `/home/user/Medina/AipsDownload_20261008.zip`), en priorité les urgences et les fiches : dose, voie, durée,

@@ -37,6 +37,7 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
 Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en arrière sur les LOTs antérieurs.
 - **Précision, densité, clarté.** Chaque phrase porte un fait utile et exact ; aucune phrase d'ambiance, aucune redite. La
   concision sert l'envie de lire et la vitesse de lecture : à information égale, la phrase la plus courte gagne.
+- **Rappel de Vial (11.11.2026) : obligation, pas option.** La base anatomo-fonctionnelle doit expliquer le *pourquoi* du signe (ex. paralysie faciale : innervation corticale bilatérale du front, controlatérale du bas du visage → la lésion centrale épargne le front, la périphérique paralyse toute l'hémiface), avec image réelle des voies (coupe 3D/sagittale ou schéma publié), puis les autres formes, étiologies et traitements, concisément.
 - **Prérequis anatomo-fonctionnels.** Si le diagnostic ne se comprend pas sans une base d'anatomie ou de physiologie (voies
   oculomotrices, voies optiques, innervation du larynx, nerf facial et ses branches, axe corticotrope, néphron, conduction
   cardiaque…), le point 3 l'installe d'abord, en une fenêtre « Base à connaître », avec un **schéma réel pris ailleurs**
