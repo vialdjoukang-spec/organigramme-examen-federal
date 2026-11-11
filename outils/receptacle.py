@@ -99,6 +99,10 @@ details summary{cursor:pointer;color:var(--doux);font-size:.84rem;padding:4px 0}
 #vue .tete small{display:block;color:var(--doux);font-weight:400}
 #vue button,#vue a.x{font:inherit;border:1px solid var(--trait);background:var(--carte);border-radius:9px;padding:8px 11px;cursor:pointer;color:var(--encre);text-decoration:none;flex:none}
 #vue iframe{flex:1;border:0;width:100%}
+#fv{position:fixed;inset:0;z-index:19;background:var(--fond);display:none;flex-direction:column}#fv.a{display:flex}
+#fv .tete{display:flex;gap:8px;align-items:center;padding:6px 8px;border-bottom:1px solid var(--trait);background:var(--carte)}#fv .tete b{flex:1;font-size:.9rem;line-height:1.2}
+#fv .tete button{font:inherit;border:1px solid var(--trait);background:var(--carte);border-radius:9px;padding:8px 11px;cursor:pointer}
+#fv .corps{flex:1;overflow:auto;padding:10px;max-width:860px;width:100%;margin:0 auto}#fv .fiche{margin:0}#fv .fiche ul{margin:4px 0;padding-left:18px}#fv .fiche li{margin:3px 0}
 .so{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--trait);margin:0 0 10px;scrollbar-width:none}.so button.a{color:var(--encre);font-weight:700;border-color:var(--acc)}
 .so.n2 button{font-size:.92rem;padding:7px 10px}.so.n3 button{font-size:.86rem;padding:6px 9px}
 .arb{list-style:none;margin:0;padding:0}.arb ul{list-style:none;margin:0 0 0 14px;padding:0 0 0 12px;border-left:2px solid var(--trait)}
@@ -133,7 +137,7 @@ function fermer(){$('#vue').classList.remove('a');const v=$('#vf');const c=docum
 $('#vr').onclick=()=>{fermer();history.replaceState(null,'','#cours')};
 $('#vp').onclick=()=>{const i=+$('#vue').dataset.i;if(i>0)ouvrir(i-1,false),history.replaceState({c:i-1},'','#cours='+liste[i-1].l.id)};
 $('#vs').onclick=()=>{const i=+$('#vue').dataset.i;if(i<liste.length-1)ouvrir(i+1,false),history.replaceState({c:i+1},'','#cours='+liste[i+1].l.id)};
-addEventListener('popstate',e=>{if(e.state&&e.state.c!=null&&location.hash.startsWith('#cours='))ouvrir(e.state.c,false);else if($('#vue').classList.contains('a'))fermer()});
+addEventListener('popstate',e=>{if(e.state&&e.state.c!=null&&location.hash.startsWith('#cours='))ouvrir(e.state.c,false);else{if($('#vue').classList.contains('a'))fermer();if($('#fv').classList.contains('a'))fermerFiche()}});
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-c]');if(a){e.preventDefault();ouvrir(liste.findIndex(x=>x.l.id===a.dataset.c))}});
 function filtrer(){const q=$('#q').value.trim().toLowerCase(),pret=$('#fp').classList.contains('a');
   $$('#p-cours .c').forEach(c=>{const t=c.dataset.t;const ok=(!pret||c.classList.contains('pret'))&&(!q||t.includes(q));c.style.display=ok?'':'none';
@@ -146,11 +150,14 @@ function tableau(t){if(!t||!t.length)return'';const k=Object.keys(t[0]);return '
 function para(v){return Array.isArray(v)?'<ul>'+v.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>';}
 function fiche(id){const f=D.fiches[id];if(!f)return '<div class="fiche"><p class="vide">Fiche en préparation : elle sera rédigée sur sources suisses lues, puis auditée.</p></div>';
   let h='<div class="fiche"><h3>'+esc(f.titre)+'</h3>';
-  if(f.indication)h+='<h4>Indication de la demande</h4><div class="ind">'+para(f.indication)+'</div>';
+  if(f.indication)h+='<h4>'+(id.startsWith('ph-')?'Indications actuelles':'Indication de la demande')+'</h4><div class="ind">'+para(f.indication)+'</div>';
   for(const s of f.sections||[]){h+='<h4>'+esc(s.titre)+'</h4>'+(s.texte?para(s.texte):'')+tableau(s.tableau)+(s.algorithme?algo(s.algorithme):'');}
   for(const g of f.images||[])h+='<figure><img loading="lazy" src="'+esc(D.base+g.fichier)+'" alt="'+esc(g.legende)+'"><figcaption>'+esc(g.legende)+' — '+esc(g.source||'')+'</figcaption></figure>';
   if(f.sources)h+='<h4>Sources</h4><ol class="src">'+f.sources.map(s=>'<li>'+esc(s)+'</li>').join('')+'</ol>';
   return h+'</div>';}
+function ouvrirFiche(id,titre){$('#ft').textContent=titre;$('#fc').innerHTML=fiche(id);$('#fc').scrollTop=0;$('#fv').classList.add('a');document.body.style.overflow='hidden';history.pushState({f:id},'','#fiche='+id);}
+function fermerFiche(){$('#fv').classList.remove('a');document.body.style.overflow='';}
+$('#fr').onclick=()=>history.back();$('#fc').onclick=e=>{const c=e.target.closest('.cas>button');if(c)c.parentElement.classList.toggle('o')};
 function nbFiches(n){return (n.fiche&&D.fiches[n.fiche]?1:0)+(n.enfants||[]).reduce((a,x)=>a+nbFiches(x),0);}
 function nbFeuilles(n){return (n.enfants&&n.enfants.length)?n.enfants.reduce((a,x)=>a+nbFeuilles(x),0):1;}
 function branche(n){const feuille=!(n.enfants&&n.enfants.length);
@@ -162,7 +169,7 @@ function monter(racine,arbre){const el=$(racine);if(!arbre.onglets.length){el.in
   el.onclick=e=>{const b=e.target.closest('.so button');if(b)return montrer(+b.dataset.i);
     const c=e.target.closest('.cas>button');if(c)return c.parentElement.classList.toggle('o');
     const a=e.target.closest('.arb button');if(!a)return;const li=a.parentElement,o=li.classList.toggle('o');a.setAttribute('aria-expanded',o);
-    if(a.dataset.fiche&&o&&!li.querySelector('.fiche'))li.querySelector('ul').innerHTML='<li>'+fiche(a.dataset.fiche)+'</li>';};
+    if(a.dataset.fiche){li.classList.remove('o');a.setAttribute('aria-expanded',false);ouvrirFiche(a.dataset.fiche,a.textContent)}};
   montrer(0);}
 monter('#p-examens .arbre',D.examens);monter('#p-pharmaco .arbre',D.pharmaco);
 /* ----- Lien profond ----- */
@@ -217,6 +224,7 @@ def rendre(a):
 <section class="p" id="p-pharmaco"><p class="sous">Du système à la classe, de la classe au chef de file : indications, posologie selon l'information professionnelle suisse, cinétique et dynamique.</p><div class="arbre"></div></section>
 </main>
 <div id="vue" role="dialog" aria-label="Cours"><div class="tete"><button id="vr" type="button" aria-label="Retour à la liste">←</button><b id="vt"></b><button id="vp" type="button" aria-label="Cours précédent">‹</button><button id="vs" type="button" aria-label="Cours suivant">›</button><a class="x" id="vn" target="_blank" rel="noopener" aria-label="Ouvrir dans un nouvel onglet">↗</a></div><iframe id="vf" title="Cours" src="about:blank"></iframe></div>
+<div id="fv" role="dialog" aria-label="Fiche"><div class="tete"><button id="fr" type="button" aria-label="Retour">←</button><b id="ft"></b></div><div class="corps" id="fc"></div></div>
 <script type="application/json" id="donnees">{json.dumps(donnees, ensure_ascii=False).replace("</", "<\\/")}</script>
 <script>{JS}</script></body></html>'''
     open(a.sortie, 'w', encoding='utf-8').write(doc)
