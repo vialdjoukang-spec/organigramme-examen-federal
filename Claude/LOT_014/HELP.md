@@ -109,3 +109,11 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - DX.10 : attestation médicale de décès nationale (version janvier 2026, avec annexe OEC art. 89 al. 3) lue le 11.11.2026 sur ne.ch [S40] ; définitions de la mort naturelle et indéterminée reprises ; le formulaire n'a aucune rubrique propre au nourrisson. Guide vaudois 2024 [S38] et fiche CoD de l'OFS [S39] conservés.
 - DX.7 : dose de charge et d'entretien de l'aminophylline lues dans l'AIPS 56507 (téléchargée le 11.11.2026). DX.6 : mise en garde de l'AIPS Orfiril 54331 chez l'homme apte à procréer lue le même jour.
 - Ressources externes ../_polices/forme.css et forme.js : laissées en place (règle forme.py), à admettre par le harnais controle_lot.py.
+
+## DX.3 — correction après audit (LOT_014_DX1-5.audit.json, 11.11.2026)
+- Le renfort L1 avait fait disparaître trois faits sourcés (constat de l'audit) : grille du PESI original et mortalité par
+  classe, contre-indications absolues et relatives de la lyse selon l'ESC 2019, chiffres ACOD contre HBPM-AVK. Ils sont
+  rétablis dans les fenêtres f-dx3-p8-reco, f-dx3-p11-alteplase et f-dx3-p11-acod.
+- Pour rester sous 150 Ko, huit questions du point 14 sont retirées ; chacune redisait un fait présent au point 10, au
+  point 13, dans la fenêtre d'urgence, dans les situations spéciales ou au point 11.D.
+- Renvois réalignés : point 13 (ESC 2019 [S1], Actilyse [S30], RCP 60–90 min [S1][S9][S10]) ; HNF [S31] ; aPTT sans [S37].
