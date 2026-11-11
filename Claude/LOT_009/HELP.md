@@ -19,3 +19,7 @@
 ## DX.2 (Prurit d'origine mixte)
 - Ajouts sourcés (guide européen S2k 2025, PMC12529596, lu le 11.11.2026 ; série bernoise Lehmann 2020, PMC9128882) : fenêtre « Caractérisation du prurit mixte » (section 5.1, six questions, NRS/EVA, qualité), fenêtre « Sujet âgé » (section 6.6.1), association du groupe III aux catégories mixte et « autre » (Lehmann, tableau I et carte sémantique).
 - Citations : les mesures générales reçoivent [2] (tableau 5 du guide) ; les citations AIPS reportées par l'outil sur des phrases sans médicament ont été retirées.
+
+## Correction médicale (Phase A)
+- Prégabaline : l'AIPS Lyrica® 57057 (version du 01.07.2026) exclut la prégabaline si Clcr < 30 mL/min ; les anciens paliers « Clcr 15–30 : 25 à 150 mg/j ; < 15 : 25 à 75 mg/j » (fiche, tableau pharmacologique, situations spéciales) ont été remplacés. La question d'examen qui en dépendait a été retirée.
+- Vérification des doses : chaque nombre d'une phrase de dose est recherché dans la rubrique « Posologie/Mode d'emploi » de l'AIPS lue (jusqu'aux contre-indications) ; une phrase non vérifiée ne reçoit pas de citation AIPS et reste signalée.
