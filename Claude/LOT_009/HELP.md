@@ -47,3 +47,10 @@
 - Lacunes retirées du cours : « aucun critère officiel suisse n'a été lu » ; critères cliniques détaillés du DRESS et de la nécrolyse non relus.
 - À vérifier hors cours : la décroissance des glucocorticoïdes (DRESS sévère 3 à 6 mois, DRESS léger 6 semaines à 3 mois) n'a pas pu être relue (texte intégral Brüggen 2024, PMC10652220, inaccessible le 11.11.2026) ; ces phrases restent sans citation.
 - Ajout sourcé : fenêtre « Caractérisation du prurit médicamenteux » (guide S2k 2025 : 5 % des réactions, 12 mois, HES 12–42 %, deux tiers, 15 mois).
+
+## DX.7 (Urticaire)
+- Point 1 : les trois entités voisines vont en fin de point 4.
+- Lacunes retirées du cours : examens du C4/C1-inhibiteur « non détaillés dans les sources lues » ; valeur chiffrée des signes d'examen et mesures de prévention non établies dans les sources lues.
+- Ajouts sourcés (guide S2k 2025) : fenêtre « Caractérisation du prurit urticarien » ; fenêtre « Prurit de l'urticaire : données du guide européen » (antihistaminiques, cétirizine IV, 30 minutes sous glucocorticoïdes IV, omalizumab ISS7 −9,8/−8,1, antileucotriène, ciclosporine).
+- Le guide EAACI 2022 (Zuberbier) n'est pas en accès libre : citations antérieures conservées.
+- ORANGE résiduel : phrases de posologie répétées d'une fiche médicament à l'autre (antihistaminiques), conservées pour que chaque fiche reste complète.
