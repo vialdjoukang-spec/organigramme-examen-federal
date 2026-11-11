@@ -332,13 +332,19 @@ def teinte(nom):
     """Couleur d'accent propre à chaque leçon, déterministe : angle d'or sur un hachage du nom de fichier,
     dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo, violet ni mauve)."""
     import zlib
-    k = zlib.crc32(nom.encode('utf-8'))
+    m = re.search(r'LOT_(\d+)', nom)
+    d = re.search(r'DX\.(\d+)', nom)
+    if m:  # rang unique (LOT, leçon) : angle d'or sur ce rang → teintes voisines jamais pareilles dans un LOT
+        k = int(m.group(1)) * 16 + (int(d.group(1)) if d else 0)
+    else:
+        k = zlib.crc32(nom.encode('utf-8'))
     a = (k * 137.50776405) % 175
     h = a if a < 150 else a + 185
     def hx(l, s):
         r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
         return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
-    return hx(.27, .42), hx(.46, .34), hx(.965, .40), hx(.915, .34)
+    l = (.24, .28, .32)[k % 3]  # clarté alternée : deux leçons voisines ne se confondent jamais
+    return hx(l, .42), hx(l + .19, .34), hx(.965, .40), hx(.915, .34)
 
 
 def _texte(x):
