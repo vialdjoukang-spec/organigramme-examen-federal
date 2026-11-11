@@ -56,6 +56,7 @@
 - DX.10 : cisplatine : dose AIPS 51077 (50–100 mg/m², pause de 4 semaines, renvoi à la littérature) ; schémas 100 mg/m² J1-J22-J43 ou 40 mg/m² hebdomadaire écrits « hors AIPS » d'après la S3 2019 (intervalle de 3 semaines ≠ pause AIPS de 4 semaines).
 - DX.10 : première ligne palliative : S3 2019 (platine + 5-FU + cétuximab, PD-1 en 2e ligne) et AIPS Keytruda 2026 (pembrolizumab ± platine/5-FU si CPS ≥ 1) écrits tous deux.
 - DX.10 : délai de la laryngoscopie écrit « trois à quatre semaines » (Ligue 2025 : 3 ; S3 2019 : 4), avec renvoi aux chiffres et délais de la Phase A.
+- DX.1 : croup de l'enfant = dexaméthasone orale et budésonide nébulisé hors AIPS ; seule Rectodelt 68119 porte indication et dose (100 mg) ; en cas d'intolérance orale, la conduite enseignée suit l'AIPS (suppositoire), divergence écrite au point 11.
 
 ## Doutes médicaux à trancher
 - Phase A : « ni corticoïde ni antireflux, ni imagerie avant la laryngoscopie » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; source suisse ou européenne à trouver, sinon retirer.
