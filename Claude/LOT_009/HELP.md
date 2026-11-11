@@ -29,3 +29,9 @@
 - Lacune (retirée du cours) : aucune sensibilité ni spécificité chiffrée des signes d'examen dans les sources lues.
 - Ajout sourcé : fenêtre « Caractérisation du prurit de la xérose » (guide européen S2k 2025, section 5.1 et 6.6.1).
 - Citations AIPS vérifiées : Lyrica® 57057 (exclusion sous 30 mL/min), Neurontin® 52520 (titration, palier < 15 mL/min), Zyrtec® 48143 (5 mg/j de 30 à < 60 mL/min).
+
+## DX.4 (Maladies systémiques)
+- Point 1 : la liste des causes est déplacée en fin de point 4.
+- Doses « hors AIPS » (colestyramine 4–16 g, rifampicine 300–600 mg, naltrexone 50 mg, sertraline 75–100 mg et 25 mg au départ, gabapentine 300 mg 3×/semaine après dialyse, prégabaline 50 mg un jour sur deux, paroxétine 20–40 mg, mirtazapine 15–30 mg) : chaque nombre retrouvé dans le guide européen S2k 2025 (tableaux des options thérapeutiques) ; la phrase cite le guide et l'AIPS de la molécule.
+- Bézafibrate : l'AIPS Cedur® retard 45352 contre-indique le produit quand la clairance vaut 60 mL/min ou moins (le cours disait « sous 60 ») ; corrigé.
+- Citations groupées scindées (une source par appel) pour que le contrôle lise chaque source.
