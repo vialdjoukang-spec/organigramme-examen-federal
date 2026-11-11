@@ -140,3 +140,8 @@ DX.5 (point 14, 2 questions)
 - Examen après un arrêt réanimé précédé d'une céphalée → point 10 (item 2), point 4, fenêtres f-dx5-p11-urg et f-dx5-p5-rf.
 - Thrombolyse pendant la réanimation d'un patient céphalalgique → point 13 (item 2), point 5 et fiche altéplase de f-dx5-p11-autres.
 - (Point 13 de DX.5 : l'item sur l'acide tranexamique est retiré ; la réponse reste au point 14 et dans f-dx5-p11-autres.)
+
+## Audit 2 (11.11.2026) — restes légers
+- DX.2, fiche du disopyramide : la formule « À vérifier (AIPS) » est remplacée par « Aucune AIPS suisse dans le corpus du
+  08.10.2026 ; pas de dose donnée ». Lacune : aucune spécialité suisse autorisée, donc aucune dose AIPS ; le cours n'en donne aucune.
+- DX.5 : la ligne de l'antivitamine K (fenêtre biologie, INR) cite aussi Konakion MM [S35].
