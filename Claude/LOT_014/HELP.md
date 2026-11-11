@@ -39,3 +39,18 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Redites fusionnées, sans fait perdu : OPAS (une seule mention, art. 12 à 12e), AECVP et conseil génétique des apparentés,
   indication suisse de la nicardipine, contre-indication de la lyse, grossesse sous losartan.
 - Images à insérer : angio-TDM d'une dissection de type A (voile intimal) ; requête Commons « aortic dissection CT Stanford A ».
+
+## DX.6 — Mort subite inattendue en épilepsie (renfort L1, agent B)
+- Point 1 : la fenêtre des entités voisines passe au point 4 (id f-dx6-p4-voisin) ; la phrase qui l'ouvre est déplacée, non perdue.
+- Images à insérer : EEG intercritique et IRM d'une sclérose hippocampique (point 9) ; requêtes Commons « EEG epileptiform discharges », « hippocampal sclerosis MRI FLAIR ».
+
+## DX.7 — Asthme aigu grave (renfort L1, agent B)
+- Redites retirées sans perte : critères BTS de sévérité (fenêtre du point 1, conservés au point 8), paragraphe sédation/aminophylline de la fenêtre d'urgence (fusionné dans la question du point 11), pastilles de fréquence et de cibles.
+- Citations AIPS rattachées à la bonne spécialité : Adrenalin Aguettant 66396, Betnesol 30120, Solu-Medrol 35112, Solu-Cortef 23533.
+- Images à insérer : radiographie d'un pneumothorax sous tension chez l'asthmatique, courbe débit-volume obstructive ; requêtes Commons « tension pneumothorax chest x-ray », « obstructive flow volume loop ».
+
+## DX.8 — Myocardite (renfort L1, agent B)
+- Lacunes retirées du cours : « aucune recommandation suisse propre à la myocardite » (points 11, 12 et fenêtre sport) ; la prise en charge suit l'ESC 2025, l'EHRA 2026, les HUG 2020 et l'AIPS.
+- Point 1 : fenêtre des notions voisines déplacée au point 4 (entités qui imitent la myocardite), synonymes retirés (L1-3) ; lignes de définitions redondantes avec les fenêtres des critères et des classes du point 8 retirées.
+- Citations AIPS corrigées : amiodarone de la fenêtre d'urgence sur Cordarone 41060 (au lieu d'Adrenalin), lidocaïne sur Rapidocain 46461 (au lieu de Cordarone).
+- Images à insérer : IRM cardiaque avec LGE sous-épicardique (point 9), ECG de sus-décalage ST diffus ; requêtes Commons « myocarditis cardiac MRI late gadolinium enhancement », « myocarditis ECG ST elevation ».
