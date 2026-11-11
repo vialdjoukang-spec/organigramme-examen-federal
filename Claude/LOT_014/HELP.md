@@ -101,3 +101,5 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Réserve L1 : le tableau d'interprétation du scanner et de la ponction reste sur la page (bande atteinte, 149 997 o).
 - Images à insérer : scanner cérébral sans injection d'une HSA des citernes de la base ; requête Commons
   « subarachnoid hemorrhage CT basal cisterns ».
+- DX.2 et DX.4 (relecture, agent A) : deux formules de lacune retirées du cours : absence de dépistage de population suisse
+  décrit (DX.2, point 12) ; décès suisses codés « anévrisme ou dissection de l'aorte » non isolés par l'OFS 2024 (DX.4, point 2).
