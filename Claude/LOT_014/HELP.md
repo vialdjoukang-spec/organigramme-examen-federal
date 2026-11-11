@@ -79,3 +79,10 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
   symptôme au-delà de ce que disent les fenêtres 7.1 à 7.6.
 - Images à insérer : angioscanner thoracique d'une EP proximale (« saddle pulmonary embolism CT ») et ETT avec VD dilaté
   (« right ventricle dilatation pulmonary embolism echocardiography »).
+
+## DX.10 — Syndrome de la mort subite du nourrisson (renfort L1, agent B)
+- Point 1 : définition seule ; libellé OFS/CIM et notions voisines, puis termes à éviter, déplacés au point 4 (ids f-dx10-p4-voisin, f-dx10-p4-termes) ; synonymes retirés (L1-3), le sigle SIDS est défini au point 1.
+- Phrases tronquées réparées (points 1 et 4) ; redite « revue de Parme » retirée de la fenêtre des examens (conservée au point 13).
+- Citations AIPS corrigées : Adrenalin Sintetica 56551, Adrenalin Aguettant 66396, Parlodel 39001 (bromocriptine), Nicorette Invisi 58175.
+- Citation allemande du Skriptum bernois et lucernois remplacée par sa traduction fidèle (phrase de 40 mots).
+- Images à insérer : aucune image de défunt ; schéma du couchage sûr seulement s'il est libre de droits (requête Commons « safe infant sleep position »).
