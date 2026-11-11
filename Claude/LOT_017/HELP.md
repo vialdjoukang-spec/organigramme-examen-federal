@@ -88,3 +88,15 @@ Reste à faire hors de ce fichier : images (point 3 : schéma réel des nerfs II
 - Lacunes retirées du cours : part suisse des AVC du tronc ; durée et pronostic de la diplopie après AVC du tronc ; coût suisse ; durée habituelle de l'arrêt de travail ; critères diagnostiques et critères de sortie propres au tronc (liste de sortie déduite des sources) ; délais intermédiaires arrivée–injection non chiffrés ; plages normales des thrombocytes, de l'INR et de la créatinine ; stratégie pédiatrique ; aucune recommandation suisse propre à l'AVC du tronc ; aucune vaccination mentionnée.
 - Retraits (aucun fait sourcé unique perdu) : fenêtres « terminologie » et « notions voisines » du point 1 (interdites L1-3 ; définition de l'AIT déplacée au point 8, 10 % de Tamhankar au point 4, le reste déjà aux points 2, 4, 6 et 7) ; fenêtre « quatre niveaux » déplacée au point 3 ; létalité 10,8 % (reste 11.D), récidive 9–15 % (reste point 12), sécurité routière (reste fenêtre conduite) retirées du point 2 ; HINTS+ 84,0→95,7 % retiré de 7.1 (reste point 5) ; « plus de 60 % » retiré de 7.7 (reste points 2 et 5) ; cas discordant de 9.d (reste 9.a) ; tableau grossesse/allaitement et tableau âges/rein/foie (repris dans chaque fiche) ; ligne « Extraits mot pour mot » des sources (chemins de travail).
 - Reste : aucune image (point 3 « Base à connaître », points 6 et 9) ; pas de fenêtre propre à l'IRM de diffusion (texte en 9.a) ; cellules de tableau encore partiellement télégraphiques ; captures capture5 non refaites.
+
+## DX.5 — Orbitopathie dysthyroïdienne (renfort L1, 2026-11-11)
+Lacunes ouvertes
+- DX.5 : aucune recommandation suisse dédiée (prise en charge, prévention) ni incidence suisse ; le cours suit EUGOGO 2021, ATA/ETA 2022 et Jules-Gonin 2013.
+- DX.5 : critères diagnostiques ATA/ETA (figure supplémentaire) et consensus WSOPRAS/ITEDS 2026 lus en résumé seulement, non intégrés ; valeurs de référence SI de TSH, T4L et T3 absentes des sources.
+- DX.5 : aucune image (photographie de la rétraction, TDM des muscles en fuseau) aux points 3, 6 et 9 ; statut en sélénium de la population suisse et règle d'arrêt de travail pour diplopie introuvables.
+- DX.5 : rituximab, tocilizumab, ciclosporine et azathioprine sans fiche `.mb` (aucune dose donnée, fenêtre commune `f-dx5-p11-l2`).
+Décisions en vigueur
+- DX.5 : méthylprednisolone, mycophénolate, sélénium et prednisone prophylactique enseignés selon l'EUGOGO et marqués « hors AIPS » ; l'AIPS de Solu-MEDROL limite les fortes doses à 48-72 heures (divergence écrite dans la fiche).
+- DX.5 : dans une ligne de tableau, une source est citée une fois ; dans une fiche `.mb`, l'AIPS est citée au titre et dans chaque cellule de dose.
+Doutes médicaux à trancher
+- DX.5 : place du téprotumumab en première ligne (ATA/ETA 2022) face à la méthylprednisolone (EUGOGO 2021), TEPEZZA étant hors LS ; « 100 mg » de sélénium de la revue lausannoise 2013 tenu pour une coquille de µg.
