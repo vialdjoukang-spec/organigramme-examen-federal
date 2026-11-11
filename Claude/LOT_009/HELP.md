@@ -14,7 +14,7 @@
 
 ## DX.1 (Eczéma)
 - Point 1 : la phrase AIPS d'Advantan® (formes d'eczéma) et le code CIM-10 L20–L30 sont déplacés au point 8 ; les notions proches vont au point 4.
-- ORANGE résiduel : phrases longues portées par les définitions en infobulle (span.df) et quelques intitulés de situations spéciales ; le contenu est conservé tel quel.
+- Finition L1 (11.11.2026) : phrases longues et nominales réécrites (définitions en infobulle comprises) ; contrôle VERT, aucun chiffre retiré.
 
 ## DX.2 (Prurit d'origine mixte)
 - Ajouts sourcés (guide européen S2k 2025, PMC12529596, lu le 11.11.2026 ; série bernoise Lehmann 2020, PMC9128882) : fenêtre « Caractérisation du prurit mixte » (section 5.1, six questions, NRS/EVA, qualité), fenêtre « Sujet âgé » (section 6.6.1), association du groupe III aux catégories mixte et « autre » (Lehmann, tableau I et carte sémantique).
@@ -73,3 +73,6 @@
 - Ajouts sourcés : fenêtre « Caractérisation du prurit cholestatique » et « Mécanismes et essais clés », « Options évaluées » (guide S2k 2025, section 4.2.2 et tableau 7) ; « Cohorte suisse de cholangite biliaire primitive » (Terziroli Beretta-Piccoli 2018, résumé PubMed lu le 11.11.2026 ; texte intégral non libre) ; répartition bernoise de l'hépatopathie par groupe clinique (Lehmann 2020, tableau II).
 - Lacune : la prévalence réelle du prurit dans les maladies hépatobiliaires n'est pas connue (guide S2k).
 - Urgence : les numéros d'étapes portaient des citations ; la source [3] est reportée en fin d'étape.
+
+## Finition L1 DX.1 à DX.5 (11.11.2026)
+- controle3 VERT pour DX.1 à DX.5 : phrases longues coupées, phrases nominales rendues verbales (fiches médicament, questions-réponses, étapes d'algorithme), citations déjà présentes rattachées aux phrases scindées. Aucun chiffre, aucune dose et aucun seuil retirés ; deux vignettes de questions (DX.3, DX.4) écrivent l'âge en lettres.
