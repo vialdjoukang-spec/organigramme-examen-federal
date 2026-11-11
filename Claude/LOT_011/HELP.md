@@ -17,3 +17,9 @@
 - Décisions jusqu'ici appuyées sur l'AASM 2025 seule : ajout de l'IRLSSG 2018 (fer, résumé lu) et du consensus RLS-Italia 2026 (résumé lu, PMID 42891733). Le texte intégral de ces deux sources reste à lire ; aucune recommandation suisse spécifique du SJSR n'a été trouvée.
 - Contre-indications AIPS restaurées : Sifrol en hémodialyse ; Neupro en insuffisance hépatique sévère (et retrait avant IRM) ; Tardyferon en affections hépatiques et rénales graves.
 - Image : diagnostic clinique, aucune modalité décisive ; la recherche Wikimedia d'un tracé de MPJ a expiré (débit limité). Proposition : tracé polysomnographique libre de MPJ en fenêtre 9.d.
+
+## DX.2 — SAOS (renfort L1, 11.11.2026)
+- Sources américaines retirées comme appui de décision (AASM PAP 2019, AASM orthèses 2015) ; remplacées par le consensus européen 2024, l'ERS non-PPC 2021, l'ERS/ESRS PPC 2026 (résumé seul lu), la directive 2014/85/UE (McNicholas 2025, Ghosh 2016).
+- Faits retirés faute de source européenne lue : APAP à domicile ou titration au laboratoire, CPAP/APAP préférée à la BPAP, éducation et télésuivi recommandés, effets indésirables de la PPC (sécheresse, irritation, congestion). À réintroduire après lecture du texte intégral ERS/ESRS 2026.
+- Image du point 9 : File:Polysomnography.png écartée (événements étiquetés « cA », probablement centraux : risque de contresens) ; recherche d'un tracé obstructif interrompue (délai Wikimedia). À reprendre.
+- Techniques d'examen (tour de cou, Mallampati, palpation thyroïdienne) : seuls les éléments à examiner sont sourcés (consensus européen) ; la technique gestuelle reste sans manuel lu.
