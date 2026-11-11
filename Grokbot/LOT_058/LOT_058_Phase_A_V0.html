@@ -1,26 +1,176 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Constipation chronique</title><style>body{margin:0;background:#f6f1e7;color:#1b1612;font:17px/1.55 Georgia,serif}
-main{max-width:920px;margin:0 auto;padding:16px 18px 64px}
-h1{font-size:40px;line-height:1.15;margin:0 0 8px}
-h2{font-size:26px;margin:1.6rem 0 .5rem}
-h3,h4{font-size:18px;margin:1rem 0 .3rem}
-.p{margin:0 0 .75rem}
-table{font-size:15px;border-collapse:collapse;width:100%}
-td,th{padding:6px 8px;vertical-align:top;border:1px solid #d9cfc0}
-button.w{background:#5c3b2e;color:#fff8f2;border:0;padding:2px 8px;cursor:pointer;font:inherit}
-.fenetre{max-width:min(880px,94vw);max-height:86vh;overflow:auto;padding:16px;background:#f6f1e7;color:#1b1612}
-.fenetre::backdrop{background:rgba(40,28,20,.45)}
-img{max-width:100%;height:auto}
-svg{max-width:100%;height:auto}
-figure{margin:0}
-.paire{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.question{margin:1rem 0;font-size:18px}
-sup.r a{font-size:11px;color:#5c3b2e;text-decoration:none}
-ol.dx{padding-left:1.2rem}</style></head><body><main>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constipation chronique</title>
+<meta name="flash-design" content="v3; palette: olive mousse #444d0d, pâle #f6f8ed, doux #ecf1db; histoire: la mousse du transit lent, posée sur le langage pâle commun">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&amp;family=Atkinson+Hyperlegible+Mono:wght@400..800&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap">
+<style>
+/* style_reference_v3.css — langage visuel du modèle Vial (11.11.2026, 01:09 ; captures Claude LOT_002, LOT_003, LOT_004).
+   Valeurs mesurées au pixel : voir modele_vial/ANALYSE_STYLE.md. Seules les variables --accent, --pale, --doux et --surtitre
+   changent d'un LOT à l'autre (teinte pâle propre à chaque leçon) ; tout le reste est le langage commun. */
+:root{--accent:#444d0d;--pale:#f6f8ed;--doux:#ecf1db;--surtitre:"LOT_058 · Phase A";
+--encre:#161616;--titre:#111;--gris:#3d342e;--menu-bg:#faf6ef;--menu-filet:#e4d5c0;--menu-encre:#2b1f17;
+--h2:#803417;--h2-fond:#fdf6f0;--leg:#7c2431;--lien:#813110;--appel:#813314;--appel-fond:#f6e9d8;--modal:#794e0a;--fermer:#923c1a;
+--th:#f5e6cf;--th-encre:#2a160c;--th-filet:#dcc09b;--cadre:#e9dccb;--filet:#efe4d5;--col1:#fdf5f0;--zebre:#fef9f6;
+--ok:#dcfce7;--mo:#fef3c7;--ko:#fee2e2;--voile:rgba(23,20,15,.63);
+--menu-l:clamp(220px,18.5vw,300px);--col:54rem;
+--police-titre:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;
+--police-mono:"Atkinson Hyperlegible Mono","Atkinson Hyperlegible Next",ui-monospace,monospace}
+*{box-sizing:border-box}
+html{background:#fff;scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:#fff;color:var(--encre);font:400 clamp(16px,.5vw + 8.8px,18px)/1.6 "Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,system-ui,sans-serif;overflow-wrap:break-word;timeline-scope:--s0,--s1,--s2,--s3,--s4,--s5,--s6,--s7,--s8,--s9,--s10,--s11,--s12,--s13,--s14,--s15}
+b,strong{font-weight:700}
+a{color:var(--lien);text-decoration:underline dotted 1.5px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+/* menu « Parties du cours » : fond crème, filet pâle à droite, pastilles numérotées */
+nav.rail{position:fixed;inset:0 auto 0 0;width:var(--menu-l);overflow:auto;z-index:4;padding:30px 12px 24px;background:var(--menu-bg);border-right:1px solid var(--menu-filet);font-size:13.5px;line-height:1.25}
+nav.rail p{margin:0 4px 0;padding:0 0 10px 3px;font:700 11px/1.2 var(--police-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.piste{height:2px;margin:0 4px 18px;background:var(--doux)}
+.avance{height:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:avance linear both;animation-timeline:scroll(root block)}
+@keyframes avance{to{transform:scaleX(1)}}
+nav.rail a{display:flex;align-items:center;gap:12px;min-height:39px;margin:0 0 1px;padding:6px 10px 6px 9px;border-radius:0 9px 9px 0;color:var(--menu-encre);text-decoration:none;animation:marque linear both;animation-range:entry 0% exit 85%}
+nav.rail a b{flex:0 0 25px;display:grid;place-items:center;height:25px;border-radius:50%;background:var(--pale);border:1px solid var(--doux);color:var(--accent);font:700 11px/1 var(--police-mono);animation:pastille linear both;animation-range:entry 0% exit 85%}
+nav.rail a:hover{background:var(--doux);color:#000}
+@keyframes marque{0%,100%{background-color:transparent;color:var(--menu-encre);box-shadow:none;font-weight:400}10%,90%{background-color:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}}
+@keyframes pastille{0%,100%{background-color:var(--pale);color:var(--accent)}10%,90%{background-color:var(--accent);color:#fff}}
+/* colonne de lecture : centrée dans l'espace à droite du menu (modèle : 864 px à 1440 px) */
+main{margin-left:var(--menu-l);padding:28px clamp(20px,4vw,64px) 80px}
+main>h1,main>h2,main>section{max-width:var(--col);margin-left:auto;margin-right:auto}
+/* bandeau du titre : aplat pâle, barre gauche épaisse, coin arrondi à droite */
+h1,h2.kicker{background:var(--pale);border-left:7px solid var(--accent);border-right:1px solid var(--doux)}
+h1{margin-top:0;margin-bottom:0;padding:26px 32px 4px;border-radius:4px 18px 0 0;border-top:1px solid var(--doux);font:800 clamp(32px,1.1rem + 1.3vw,44px)/1.18 var(--police-titre);letter-spacing:-.01em;color:var(--titre)}
+h1::before{content:var(--surtitre);display:block;margin:0 0 12px;font:700 11.5px/1.2 var(--police-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h2.kicker{margin-top:0;margin-bottom:46px;padding:2px 32px 24px;border-radius:0 0 18px 4px;border-bottom:1px solid var(--doux);font:400 15px/1.45 "Atkinson Hyperlegible Next",system-ui,sans-serif;color:var(--gris)}
+/* parties : h3 numéroté sur aplat très pâle, h4 en italique */
+section.ilot{margin-bottom:34px;scroll-margin-top:16px}
+h3,section.ilot>h2{margin:0 0 12px;padding:4px 6px;background:var(--h2-fond);font:700 1.25em/1.3 var(--police-titre);color:var(--h2)}
+h4{margin:22px 0 8px;font:italic 700 1.02em/1.35 var(--police-titre);color:var(--h2)}
+h2.question,.question{margin:20px 0 8px;font:700 1em/1.4 var(--police-titre);color:var(--encre)}
+p,.p{margin:0 0 .6em}
+ul,ol{margin:.2em 0 .8em;padding-left:1.4em}
+li{margin:0 0 .3em}
+sup.r{font-size:.68em;line-height:0}
+table sup.r{font-size:11px}table .rang{font-size:14px}
+sup.r a{margin-left:1px;padding:1px 4px;border-radius:4px;background:var(--appel-fond);color:var(--appel);font-weight:700;text-decoration:none;line-height:1.2}
+/* tableaux : cadre pâle arrondi, en-tête sable, filets fins et pâles */
+div.t{margin:0 0 20px}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:.92em;line-height:1.5;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
+caption{caption-side:top;text-align:left;padding:0 0 8px 1px;font:italic 700 14.5px/1.35 "Atkinson Hyperlegible Next",system-ui,sans-serif;color:var(--leg)}
+th,td{padding:9px 10px;vertical-align:top;text-align:left;color:var(--encre)}
+th{background:var(--th);color:var(--th-encre);font-weight:700;border-bottom:2px solid var(--th-filet)}
+th+th{border-left:1px solid var(--cadre)}
+td{border-top:1px solid var(--filet)}
+td+td{border-left:1px solid var(--filet)}
+tbody tr:first-child td{border-top:0}
+td:first-child{background:var(--col1);font-weight:700}
+tbody tr:nth-child(even) td{background:var(--zebre)}
+td.ok{background:var(--ok)}td.mo{background:var(--mo)}td.ko{background:var(--ko)}
+/* encadrés et listes de DX : même langage que les lignes de tableau */
+.porte{margin:10px 0 16px;padding:12px 16px 4px;background:var(--zebre);border:1px solid var(--filet);border-radius:10px}
+.rang{display:inline-block;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:.86em;white-space:nowrap}
+.freq,.e{display:inline-block;margin:0 4px;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:14px;line-height:1.45;white-space:nowrap}
+ol.dx{list-style:none;padding:0;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
+ol.dx li{display:block;margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
+ol.dx li:first-child{border-top:0}
+ol.dx li:nth-child(even){background:var(--zebre)}
+ol.algo>li{margin-bottom:.5em}
+/* termes cliquables : lien pointillé, ouvrent une fenêtre */
+button.w{font:inherit;font-weight:700;color:var(--lien);background:none;border:0;border-bottom:1.5px dotted var(--lien);border-radius:0;padding:0;margin:0;cursor:pointer;hyphens:none}
+button.w:hover{background:var(--appel-fond)}
+/* fenêtres : carte blanche arrondie, haut de l'écran, voile gris chaud */
+.fenetre{width:min(72rem,92vw);max-height:86vh;overflow:auto;margin:36px auto auto;padding:20px 22px 22px;border:0;border-radius:12px;background:#fff;color:var(--encre);font-size:max(16px,.95em);box-shadow:0 10px 30px rgba(23,20,15,.12)}
+.fenetre::backdrop{background:var(--voile)}
+.fenetre h5{margin:4px 0 14px;font:700 1.08em/1.3 var(--police-titre);color:var(--modal)}
+.fenetre button.fermer{float:right;margin:0 0 8px 16px;padding:2px 4px;font:inherit;font-weight:700;color:var(--fermer);background:none;border:0;cursor:pointer}
+.fenetre button.fermer::after{content:" ×"}
+.fenetre td:first-child{background:var(--th);border-bottom:2px solid var(--th-filet)}
+.fenetre img{max-width:100%;height:auto;border-radius:8px}
+figure.cliche{margin:12px 0 20px;padding:0}
+.paire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.paire.une{grid-template-columns:1fr}
+.paire h5{margin:0 0 6px;font:700 1em/1.3 var(--police-titre);color:var(--modal)}
+.cadre-img{position:relative;max-width:100%}
+.cadre-img>img{display:block;width:100%;height:auto;border-radius:8px}
+.cadre-img>svg{position:absolute;inset:0;width:100%;height:100%}
+figcaption{margin-top:8px;font-size:.94em;line-height:1.5;color:var(--gris)}
+figcaption .credit{display:block;margin-top:4px;font-size:.9em}
+section#sources li{font-size:.92em;margin-bottom:.45em}
+p.mode{font-weight:700}
+p.note{font-size:.92em;color:var(--gris)}
+/* écrans étroits : le menu devient un bandeau collant qui défile */
+@media (max-width:1099px){
+nav.rail{position:sticky;inset:auto;top:0;width:auto;padding:8px 4vw 6px;border-right:0;border-bottom:1px solid var(--menu-filet);display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+nav.rail p{padding:0;flex:0 0 auto}
+.piste{flex:1 1 30%;margin:0}
+nav.rail>div:last-child{flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.rail a{flex:0 0 auto;min-height:34px;padding:4px 10px 4px 6px;border-radius:9px;white-space:nowrap}
+main{margin-left:0;padding:20px 5vw 60px}
+.paire{grid-template-columns:1fr}
+ol.dx li{grid-template-columns:1fr}}
+@media (max-width:480px){h1{padding:20px 18px 4px}h2.kicker{padding:2px 18px 20px}th,td{padding:8px}}
+@media print{nav.rail{display:none}main{margin:0}}
+
+#dx{view-timeline:--s0 block}#p1{view-timeline:--s1 block}#p2{view-timeline:--s2 block}#p3{view-timeline:--s3 block}
+#p4{view-timeline:--s4 block}#p5{view-timeline:--s5 block}#p6{view-timeline:--s6 block}#p7{view-timeline:--s7 block}
+#p8{view-timeline:--s8 block}#p9{view-timeline:--s9 block}#p10{view-timeline:--s10 block}#p11{view-timeline:--s11 block}
+#p12{view-timeline:--s12 block}#p13{view-timeline:--s13 block}#p14{view-timeline:--s14 block}#sources{view-timeline:--s15 block}
+nav a[href="#dx"],nav a[href="#dx"] b{animation-timeline:--s0}
+nav a[href="#p1"],nav a[href="#p1"] b{animation-timeline:--s1}
+nav a[href="#p2"],nav a[href="#p2"] b{animation-timeline:--s2}
+nav a[href="#p3"],nav a[href="#p3"] b{animation-timeline:--s3}
+nav a[href="#p4"],nav a[href="#p4"] b{animation-timeline:--s4}
+nav a[href="#p5"],nav a[href="#p5"] b{animation-timeline:--s5}
+nav a[href="#p6"],nav a[href="#p6"] b{animation-timeline:--s6}
+nav a[href="#p7"],nav a[href="#p7"] b{animation-timeline:--s7}
+nav a[href="#p8"],nav a[href="#p8"] b{animation-timeline:--s8}
+nav a[href="#p9"],nav a[href="#p9"] b{animation-timeline:--s9}
+nav a[href="#p10"],nav a[href="#p10"] b{animation-timeline:--s10}
+nav a[href="#p11"],nav a[href="#p11"] b{animation-timeline:--s11}
+nav a[href="#p12"],nav a[href="#p12"] b{animation-timeline:--s12}
+nav a[href="#p13"],nav a[href="#p13"] b{animation-timeline:--s13}
+nav a[href="#p14"],nav a[href="#p14"] b{animation-timeline:--s14}
+nav a[href="#sources"],nav a[href="#sources"] b{animation-timeline:--s15}
+@supports not (animation-timeline:scroll()){
+.piste{display:none}
+nav.rail a,nav.rail a b{animation:none}
+body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],body:has(#p2:target) nav a[href="#p2"],body:has(#p3:target) nav a[href="#p3"]{background:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}
+body:has(#p4:target) nav a[href="#p4"],body:has(#p5:target) nav a[href="#p5"],body:has(#p6:target) nav a[href="#p6"],body:has(#p7:target) nav a[href="#p7"]{background:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}
+body:has(#p8:target) nav a[href="#p8"],body:has(#p9:target) nav a[href="#p9"],body:has(#p10:target) nav a[href="#p10"],body:has(#p11:target) nav a[href="#p11"]{background:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}
+body:has(#p12:target) nav a[href="#p12"],body:has(#p13:target) nav a[href="#p13"],body:has(#p14:target) nav a[href="#p14"],body:has(#sources:target) nav a[href="#sources"]{background:var(--doux);color:#000;box-shadow:inset 3px 0 0 var(--accent);font-weight:700}
+}
+</style>
+</head>
+<body>
+<nav class="rail" aria-label="Parties du cours">
+<p>Parties du cours</p>
+<div class="piste" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement de la lecture"><div class="avance"></div></div>
+<div>
+<a href="#dx"><b>DX</b>Les dix DX</a>
+<a href="#p1"><b>1</b>Définition</a>
+<a href="#p2"><b>2</b>Épidémiologie</a>
+<a href="#p3"><b>3</b>Physiopathologie</a>
+<a href="#p4"><b>4</b>Démarche</a>
+<a href="#p5"><b>5</b>Anamnèse</a>
+<a href="#p6"><b>6</b>Examen</a>
+<a href="#p7"><b>7</b>Syndromes</a>
+<a href="#p8"><b>8</b>Diagnostic positif</a>
+<a href="#p9"><b>9</b>Examens</a>
+<a href="#p10"><b>10</b>Arbre</a>
+<a href="#p11"><b>11</b>Prise en charge</a>
+<a href="#p12"><b>12</b>Prévention</a>
+<a href="#p13"><b>13</b>Points clés</a>
+<a href="#p14"><b>14</b>Pièges</a>
+<a href="#sources"><b>§</b>Sources</a>
+</div>
+</nav>
+<main>
 <h1>Constipation chronique</h1>
-<h2>Constipation chronique</h2>
-<section id="dx"><h2>Dix diagnostics en concurrence</h2>
+<h2 class="kicker">Constipation chronique</h2>
+<section class="ilot" id="dx"><h2>Dix diagnostics en concurrence</h2>
 <ol class="dx"><li><strong>DX.1 — Constipation de transit normal</strong> <span class="freq">68 %</span> Ce mécanisme couvre 68 % de la série adressée, car la scintigraphie n'y montre pas de ralentissement<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</li>
 <li><strong>DX.2 — Dyssynergie défécatoire</strong> <span class="freq">28 %</span> Ce mécanisme représente 28 % de la même série, puisque les critères de dyssynergie y sont remplis<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</li>
 <li><strong>DX.3 — Transit colique lent</strong> <span class="freq">4 %</span> Ce mécanisme ne représente que 4 % à la scintigraphie, donc ce n'est pas le cas ordinaire<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</li>
@@ -33,7 +183,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <li><strong>DX.10 — Occlusion intestinale mécanique</strong> <span class="e">🚩 E1</span> Le rang est E1, car une anse fermée se complique en heures. Ne rang de fréquence, car aucune part ne reste chiffrée pour l'occlusion<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</li>
 </ol>
 </section>
-<section id="p1"><h2>1. Définition et sémantique</h2>
+<section class="ilot" id="p1"><h2>1. Définition et sémantique</h2>
 <div class="p">L'exonération devient une constipation lorsqu'elle est difficile, insatisfaisante ou trop rare, car l'avis suisse retient exactement ces trois caractères<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>. Cette formulation rejoint le consensus de Rome IV publié en 2016, donc on ne lui substitue pas une définition de couloir<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>.</div>
 <div class="p">Dans cet avis, constipation est le nom de la forme chronique, sauf précision contraire<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>. La forme fonctionnelle y désigne une constipation non obstructive, ce qui laisse le transit normal ou lent<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>.</div>
 <div class="p">Deux erreurs ferment un dossier trop tôt<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>. La première erreur est une endoscopie sans alarme, tandis que la seconde administre un macrogol devant des niveaux<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
@@ -49,7 +199,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">On confirme la définition sur la selle difficile, insatisfaisante ou rare, et on refuse de la réduire à un nombre de jours, parce que la difficulté seule suffit<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>.</div>
 <div class="p">On ne confond pas le nom chronique avec une étiquette bénigne, car la définition décrit la selle, tandis que la gravité se décide à part, sur l'obstacle ou la lésion<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>.</div>
 </section>
-<section id="p2"><h2>2. Épidémiologie (Suisse, puis Europe)</h2>
+<section class="ilot" id="p2"><h2>2. Épidémiologie (Suisse, puis Europe)</h2>
 <div class="p">La prévalence groupée atteint 14 % dans la population générale, avec un intervalle de 12 % à 17 %, et elle monte avec l'âge<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>. Jusqu'à un adulte sur sept est concerné, surtout les femmes et les adultes âgés, ce qui pèse sur le premier recours<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>.</div>
 <div class="p">Le même avis retient au grade A la prédominance féminine<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>. En outre, après 75 ans, une base de médecine générale britannique rapporte un odds ratio de 1,96, dont l'intervalle va de 1,71 à 2,24<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>.</div>
 <div class="p">Avant 49 ans, le transit féminin dure 64,0 heures contre 59,5 heures plus tard<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>. L'écart est de 4,6 heures, et son intervalle va de 1,1 à 8,1, donc la différence des sexes se réduit après la ménopause<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>.</div>
@@ -75,7 +225,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">Au cabinet, on impose d'écarter l'occlusion avant toute selle ramollie, parce qu'un niveau hydroaérique change la conduite et interdit le macrogol tant que l'anse n'est pas levée<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 <div class="p">Le gradient social et la prédominance féminine ne dispensent pas de l'examen, parce qu'une occlusion ou un fécalome imite la même plainte aux deux sexes et dans tous les milieux<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>.</div>
 </section>
-<section id="p3"><h2>3. Physiopathologie</h2>
+<section class="ilot" id="p3"><h2>3. Physiopathologie</h2>
 <div class="p">Les causes primaires se rangent en trois catégories, soit le trouble de l'évacuation, le transit colique normal et le transit colique lent<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. Les causes secondaires viennent d'une autre maladie, d'un médicament ou d'une anomalie anatomique, ce qui change l'examen<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
 <div class="p">Au moins la moitié des constipations fonctionnelles n'ont pas de transit retardé, une fois le trouble défécatoire écarté<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. Étiqueter d'emblée un côlon lent rate donc souvent la cible, car le mécanisme distal domine la série<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
 <div class="p">L'hyposensibilité rectale touche 27 % des constipations fonctionnelles contre 4 % des syndromes de l'intestin irritable à constipation<sup class="r"><a href="#sb-sgg-10">[7]</a></sup>. Dès lors, les seuils de douleur des volontaires sains vont de 18 mmHg à 42 mmHg<sup class="r"><a href="#sb-sgg-10">[7]</a></sup>.</div>
@@ -117,7 +267,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">La fibre retient l'eau dans la selle, le macrogol l'attire par effet osmotique, et le stimulant pousse une selle déjà formée, donc on ne les empile pas<sup class="r"><a href="#sb-sgg-18">[15]</a></sup>.</div>
 <div class="p">Les cellules de Cajal, l'hyposensibilité rectale et la contraction paradoxale décrivent des mécanismes distincts, donc un seul laxatif ne les couvre pas, et le choix du geste suit le mécanisme retenu<sup class="r"><a href="#sb-sgg-11">[8]</a></sup>.</div>
 </section>
-<section id="p4"><h2>4. Démarche diagnostique</h2>
+<section class="ilot" id="p4"><h2>4. Démarche diagnostique</h2>
 <div class="p">On ouvre par l'occlusion intestinale mécanique, rang E1, car une anse fermée tue en heures<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>. Movicol est alors contre-indiqué, puisque l'obstruction et la perforation figurent sur l'information professionnelle<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 <div class="p">Le fécalome, ou coprostase, vient au rang E2<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>. La masse distend le côlon sans aligner les mêmes niveaux, ce qui sépare les deux clichés<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 <div class="p">Le cancer colorectal reste le rang E3<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>. Il tue moins vite, mais l'avis interdit toute chirurgie de constipation sans avoir exclu une néoplasie<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>.</div>
@@ -157,7 +307,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">On élimine d'abord ce qui ferme l'intestin, on traite ensuite ce qui est fréquent, et on n'inverse pas cet ordre parce qu'une constipation paraît familière au premier contact<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>.</div>
 <div class="p">La démarche reste la même au cabinet et aux urgences, sauf que l'urgence impose le cliché, tandis que le cabinet commence par l'entretien et par les mesures de vie<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 </section>
-<section id="p5"><h2>5. Anamnèse ciblée et drapeaux rouges</h2>
+<section class="ilot" id="p5"><h2>5. Anamnèse ciblée et drapeaux rouges</h2>
 <div class="p">On demande si l'exonération est difficile, insatisfaisante ou rare, car ces trois mots sont la définition<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>. On date le début et les manœuvres digitales, puisque la dyssynergie se lit dans cette chronologie<sup class="r"><a href="#sb-sgg-5">[3]</a></sup>.</div>
 <div class="p">Chaque médicament est revu avant d'ajouter un laxatif, car l'algorithme suisse place cette revue au début<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>. Les opioïdes appellent une stratégie propre lorsque l'antalgique ne peut pas être arrêté<sup class="r"><a href="#sb-sgg-29">[20]</a></sup>.</div>
 <div class="p">On sépare fibres, boisson et exercice, car leurs preuves ne se valent pas<sup class="r"><a href="#sb-sgg-13">[10]</a></sup>. L'eau seule ne corrige pas un adulte déjà hydraté, tandis que la fibre sans eau rate l'effet attendu<sup class="r"><a href="#sb-sgg-14">[11]</a></sup>.</div>
@@ -191,7 +341,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">L'entretien utile demande la consistance, l'effort, la digitation et la date d'un nouveau médicament, car ces quatre réponses orientent déjà vers la sortie, le transit ou l'ordonnance sans aucun examen<sup class="r"><a href="#sb-sgg-9">[6]</a></sup>.</div>
 <div class="p">Un drapeau rouge n'est pas une liste à cocher de mémoire, puisque l'algorithme le nomme sans détail, et l'action retenue est l'endoscopie prévue sur ce chemin<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>.</div>
 </section>
-<section id="p6"><h2>6. Examen physique ciblé, région par région</h2>
+<section class="ilot" id="p6"><h2>6. Examen physique ciblé, région par région</h2>
 <div class="p">On regarde d'abord la bouche et les muqueuses, car une sécheresse visible est le seul contexte où l'eau supplémentaire a une place<sup class="r"><a href="#sb-sgg-14">[11]</a></sup>. Une bouche humide ferme cette piste, puisque le patient déjà hydraté ne gagne rien à boire davantage<sup class="r"><a href="#sb-sgg-14">[11]</a></sup>.</div>
 <div class="p">On palpe ensuite le cou lorsque l'on cherche une maladie métabolique<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. L'avis ne fixe aucun seuil chiffré de thyréostimuline ni de calcémie, et l'anomalie se traite comme une cause<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
 <div class="p">L'abdomen se palpe et se percute avant tout laxatif osmotique<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>. Ainsi, un météorisme douloureux change la conduite, et une cicatrice fait chercher une bride<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
@@ -241,7 +391,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">L'examen qui change la conduite est court, car le toucher recherche la masse, le tonus et la fissure, et l'abdomen météorisé impose d'arrêter le laxatif avant même le résultat d'un bilan<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 <div class="p">La bouche sèche, le cou, l'abdomen souple et le pelvis douloureux ne racontent pas la même histoire, et chaque territoire oriente une cause distincte que l'entretien peut manquer<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
 </section>
-<section id="p7"><h2>7. Approche syndromique</h2>
+<section class="ilot" id="p7"><h2>7. Approche syndromique</h2>
 <div class="p">Sept tableaux se reconnaissent au lit, avant les tests<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. Chacun réunit des signes fonctionnels et un geste, car le mécanisme ne se devine pas au seul mot constipation<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
 <h4>7.1 Transit normal</h4>
 <div class="p">Les selles sont difficiles ou insatisfaisantes, et la scintigraphie, si on la faisait, ne montrerait pas de ralentissement<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. Le ventre est souple, le toucher ne trouve pas de masse, et les mesures de vie restent le premier geste<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
@@ -273,7 +423,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">La sortie bloquée, le côlon lent, le médicament et l'occlusion ne se rangent pas dans le même tiroir, puisqu'ils n'appellent ni le même geste ni la même surveillance<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</div>
 <div class="p">La coprostase est une masse que l'on palpe, l'occlusion est l'arrêt des gaz avec des niveaux, et les confondre conduit à ramollir une anse qu'il fallait libérer<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 </section>
-<section id="p8"><h2>8. Diagnostic positif et critères</h2>
+<section class="ilot" id="p8"><h2>8. Diagnostic positif et critères</h2>
 <div class="p">Le diagnostic positif s'appuie sur la définition de 2016 reprise par l'avis suisse<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>. Il suffit que l'exonération soit difficile, insatisfaisante ou trop rare, et que l'obstacle ait été écarté lorsque le contexte l'exige<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>.</div>
 <div class="p">Il ne suffit pas d'un nombre de selles, car une selle quotidienne difficile reste dans la définition<sup class="r"><a href="#sb-sgg-2">[1]</a></sup>. Il ne suffit pas non plus d'un transit lent isolé, puisque le trouble d'évacuation doit être cherché d'abord chez le patient résistant<sup class="r"><a href="#sb-sgg-9">[6]</a></sup>.</div>
 <div class="p">Les critères opératoires de l'intestin irritable à constipation ne sont pas ceux de la constipation fonctionnelle<sup class="r"><a href="#sb-sgg-10">[7]</a></sup>. L'hyposensibilité rectale y est plus rare, à 4 % contre 27 %, ce qui sépare les deux étiquettes<sup class="r"><a href="#sb-sgg-10">[7]</a></sup>.</div>
@@ -302,7 +452,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">Ce qui suffit au début reste la réponse aux mesures de vie, et l'échec de ces mesures impose de rechercher la dyssynergie, le prolapsus ou la rectocèle<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 <div class="p">Le diagnostic positif ne reste pas lié à la scintigraphie du premier jour, puisque la majorité répond aux mesures de vie et que le transit lent attend la sortie<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 </section>
-<section id="p9"><h2>9. Examens complémentaires</h2>
+<section class="ilot" id="p9"><h2>9. Examens complémentaires</h2>
 <h4>9.a</h4>
 <div class="p">Le standard qui sépare les mécanismes est la scintigraphie de transit, dans la série qui a classé 68 %, 28 % et 4 %<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. Elle n'est pas le premier geste du cabinet, car la majorité répond d'abord aux mesures de vie<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 <h4>9.b</h4>
@@ -372,7 +522,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">Le cliché debout sert à trancher, parce que des niveaux orientent vers l'occlusion tandis qu'une masse mouchetée oriente vers la coprostase, et la conduite n'est pas la même<sup class="r"><a href="#sb-commons-obs">[28]</a></sup>.</div>
 <div class="p">On réserve la manométrie à l'échec des mesures de vie, on exige la coloscopie avant une opération, et on n'envoie pas au bloc une sortie jamais testée<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>.</div>
 </section>
-<section id="p10"><h2>10. Arbre décisionnel</h2>
+<section class="ilot" id="p10"><h2>10. Arbre décisionnel</h2>
 <div class="p">L'arbre ouvre sur l'occlusion E1, puis suit l'algorithme suisse vers les fibres et les laxatifs<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>. Chaque embranchement est une action, et non une étiquette posée trop tôt<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>.</div>
 <ol><li>Si une occlusion intestinale mécanique est plausible, on n'administre aucun macrogol, car E1 se traite avant de forcer le côlon<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</li>
 <li>Si une alarme est nommée, l'endoscopie reste sur le chemin, avant l'étiquette fonctionnelle<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup>.</li>
@@ -390,7 +540,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">Si ces mesures échouent, la fibre soluble est le premier produit<sup class="r"><a href="#sb-sgg-16">[13]</a></sup>. Si la fibre échoue, le macrogol devient le fond, avec un secours stimulant à la demande<sup class="r"><a href="#sb-sgg-18">[15]</a></sup>.</div>
 <div class="p">Si la résistance persiste, on teste la sortie avant de dire le côlon lent<sup class="r"><a href="#sb-sgg-9">[6]</a></sup>. Si la dyssynergie est prouvée, on prescrit le biofeedback là où l'expertise existe<sup class="r"><a href="#sb-sgg-32">[21]</a></sup>.</div>
 </section>
-<section id="p11"><h2>11. Prise en charge selon les recommandations suisses</h2>
+<section class="ilot" id="p11"><h2>11. Prise en charge selon les recommandations suisses</h2>
 <h4>11.A</h4>
 <div class="p">Le but est une exonération moins difficile et une qualité de vie meilleure, puisque l'avis lie les mesures de vie à ces deux gains<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>. Aucun seuil chiffré de selles par semaine n'est fixé comme cible suisse dans ce texte<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 <h4>11.B</h4>
@@ -476,7 +626,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">Devant un opioïde qu'on ne peut pas arrêter, on recherche un antagoniste périphérique, et on n'ajoute pas un laxatif sans cette discussion avec celui qui prescrit<sup class="r"><a href="#sb-sgg-29">[20]</a></sup>.</div>
 <div class="p">On surveille le souffle, les jambes et la fatigue dès qu'un macrogol est en cours, et on l'arrête si ces signes apparaissent, sans prolonger la prise<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 </section>
-<section id="p12"><h2>12. Prévention</h2>
+<section class="ilot" id="p12"><h2>12. Prévention</h2>
 <div class="p">La prévention primaire repose sur les fibres avec une eau suffisante, car la fibre seule ne tient pas<sup class="r"><a href="#sb-sgg-13">[10]</a></sup>. L'avis suisse impose ces mesures avant tout examen, chez l'adulte sans alarme<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 <div class="p">La prévention secondaire repère le médicament et la maladie métabolique avant d'ajouter un laxatif<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>. Elle repère aussi la dyssynergie résistante, afin d'éviter l'étiquette fausse de transit lent<sup class="r"><a href="#sb-sgg-9">[6]</a></sup>.</div>
 <div class="p">La prévention tertiaire évite la colectomie prématurée et le macrogol dans une occlusion<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>. Elle passe par le centre spécialisé lorsque les moyens ordinaires ont échoué, ce qui protège d'une résection inutile<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>.</div>
@@ -490,7 +640,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="p">La prévention primaire repose sur le lest et l'eau, la secondaire sur la relecture de l'ordonnance, et la tertiaire interdit le macrogol devant une anse fermée<sup class="r"><a href="#sb-sgg-13">[10]</a></sup>.</div>
 <div class="p">Empêcher la selle de durcir vaut mieux que la rattraper, surveiller un médicament nouveau vaut mieux que d'en empiler un autre, et refuser la colectomie sans coloscopie protège du geste inutile<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>.</div>
 </section>
-<section id="p13"><h2>13. Points clés</h2>
+<section class="ilot" id="p13"><h2>13. Points clés</h2>
 <div class="p">Ces cinq repères suffisent à ouvrir, classer et traiter, car chacun renvoie à un fait de l'avis<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>. Le reste du cours les développe, sans ajouter un sixième slogan<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>.</div>
 <ul><li>On retient 14 % de prévalence groupée, qui monte avec l'âge<sup class="r"><a href="#sb-sgg-4">[2]</a></sup>.</li>
 <li>On retient 68 % de transit normal dans la série adressée, avant 28 % de dyssynergie et 4 % de transit lent<sup class="r"><a href="#sb-sgg-8">[5]</a></sup>.</li>
@@ -499,7 +649,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <li>On retient la coloscopie avant toute chirurgie de constipation, afin d'exclure une néoplasie<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>.</li>
 </ul>
 </section>
-<section id="p14"><h2>14. Pièges et questions d'examen</h2>
+<section class="ilot" id="p14"><h2>14. Pièges et questions d'examen</h2>
 <div class="p">Le piège d'examen est de demander une coloscopie à un adulte jeune sans alarme, alors que les mesures de vie n'ont pas été tentées<sup class="r"><a href="#sb-sgg-12">[9]</a></sup>. L'autre piège est de donner un macrogol devant des niveaux, alors que l'obstruction contre-indique le produit<sup class="r"><a href="#sb-aips-66002">[26]</a></sup>.</div>
 <div class="p">Confondre dyssynergie et transit lent conduit au mauvais traitement, car le biofeedback ne sert guère le transit lent isolé<sup class="r"><a href="#sb-sgg-9">[6]</a></sup>. Croire qu'un verre d'eau de plus ramollit une selle dure, sans fibre pour retenir cette eau, rate la physiologie<sup class="r"><a href="#sb-sgg-14">[11]</a></sup>.</div>
 <div class="p">La mélanose reste sans valeur de cancer, et la cohorte de 84,577 femmes ne montre pas de lien avec les laxatifs<sup class="r"><a href="#sb-sgg-21">[18]</a></sup>. En revanche, une chirurgie de constipation sans coloscopie préalable peut laisser passer une tumeur<sup class="r"><a href="#sb-sgg-37">[23]</a></sup>.</div>
@@ -518,7 +668,7 @@ ol.dx{padding-left:1.2rem}</style></head><body><main>
 <div class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</div>
 <div class="p">Oui, car les dix diagnostics, les deux clichés qui les séparent, la conduite suisse et les contre-indications du macrogol sont dans le cours.<sup class="r"><a href="#sb-sgg-alg">[25]</a></sup></div>
 </section>
-<section id="sources"><h2>Sources</h2>
+<section class="ilot" id="sources"><h2>Sources</h2>
 <ol><li id="sb-sgg-2">[1] Société suisse de gastroentérologie. Avis d&#x27;experts sur la constipation chronique, définition alignée sur le consensus publié en 2016. https://sggssg.ch/fileadmin/user_upload/EOS/P210624_Brosch_EOS_Chronic_Constipation_Web.pdf — consulté le 10 novembre 2026. Voir aussi https://sggssg.ch/empfehlungen.</li>
 <li id="sb-sgg-4">[2] Même avis, épidémiologie : prévalence, âge, sexe, qualité de vie. Adresse du document déjà citée. Consulté le 10 novembre 2026.</li>
 <li id="sb-sgg-5">[3] Même avis, histoire familiale. Adresse du document déjà citée. Consulté le 10 novembre 2026.</li>
