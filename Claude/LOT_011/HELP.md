@@ -29,3 +29,11 @@
 - Tox Info Suisse 145 : source ajoutée (toxinfo.ch lu). Le chiffre de 400 mg de caféine (Drake 2013, étude américaine) reste un fait d'étude ; la règle « 6 heures avant le coucher » repose sur cette seule étude : chercher une confirmation européenne.
 - Trazodone : la phrase AASM 2017 est conservée comme information ; la décision repose sur l'AIPS (aucune indication d'insomnie).
 - Aucune image : diagnostic clinique sans modalité d'imagerie décisive.
+
+## DX.3 — Troubles anxieux (renfort L1, 11.11.2026)
+- Source européenne de décision ajoutée : guide allemand S3 révisé (Bandelow 2022). Citations erronées au GAD-7 (pouls, QT, TSH, examen) retirées.
+- Prégabaline : la mention « 25 à 150 mg entre 15 et 30 mL/min, 25 à 75 mg sous 15 mL/min » contredisait l'AIPS Lyrica 57057 (« ne doit pas être utilisée si Clcr < 30 mL/min ») : corrigée.
+- Normes chiffrées retirées faute de source lue : pouls 60–100/min, fréquence respiratoire 12–20/min, QTc 450/460 ms, TSH 0,4–4,0 mU/L.
+- Critères DSM-5 (TAG 6 mois, 3/6 symptômes ; panique 1 mois) conservés en tableau sans source lue : à adosser au DSM-5 ou à la CIM-11 (CDDR, OMS).
+- Wittchen 2011 (14,0 %) non relu (accès payant).
+- Pas d'image : aucun examen d'imagerie décisif dans ce diagnostic.
