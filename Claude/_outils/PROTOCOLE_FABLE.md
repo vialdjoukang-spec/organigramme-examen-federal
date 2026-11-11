@@ -8,7 +8,8 @@ relâchement de qualité. Plusieurs LOTs avancent de front, un chef de LOT par L
 - **Chef de LOT** (une session ou un agent par LOT) : branche `claude/lot-NNN-renfort-l1`, worktree propre. Il ne rédige pas
   les DX : il prépare, répartit, tranche, corrige les restes d'audit, ouvre la PR.
 - **Rédacteur** : UN fichier par agent (un fichier lourd épuise un contexte). Onze rédacteurs peuvent tourner ensemble.
-- **Designer** (agent `designer`) : la forme des 11 cours, par les outils ; jamais le contenu médical.
+- **Designer** (agent `designer`) : la finition de l'aspect des cours à 100 %, sur sa branche `claude/designer`, par les
+  outils gratuits ; jamais le contenu médical, jamais une branche de LOT en cours.
 - **Auditeur** (agent `auditeur-medical`) : toujours neuf. Il n'audite jamais un texte qu'il a rédigé, et le contre-auditeur
   n'est jamais le premier auditeur. Deux auditeurs par passe : Phase A + DX.1–5, puis DX.6–10.
 
@@ -32,8 +33,8 @@ relâchement de qualité. Plusieurs LOTs avancent de front, un chef de LOT par L
 4. **P3 — aucun fait perdu.** Tout retrait fait pour la taille est une redite, consignée dans `HELP.md` avec l'endroit où
    l'information reste. Un rédacteur qui ne tient pas 150 Ko sans couper un fait s'arrête et le signale ; le chef de LOT
    déplace le fait vers la Phase A ou un autre DX, ou trouve la redite.
-5. **Designer.** Agent `designer` sur les 11 fichiers : contrôle à 1280 et 390 px, corrections de forme, planche de
-   5 captures par cours (`python3 Claude/_outils/planche5.py Claude/LOT_NNN --sortie …`), envoyée à Vial.
+5. **Planche.** `python3 Claude/_outils/planche5.py Claude/LOT_NNN --sortie …` : 5 captures par cours, en lecture seule,
+   envoyées à Vial. Aucune retouche de forme à ce stade.
 6. **P4 — audit 1 (médical + design).** Deux auditeurs neufs. Rapports `audits/LOT_NNN_A_DX1-5.audit.json` et
    `audits/LOT_NNN_DX6-10.audit.json` : verdict, défauts classés (Critique, Grave, Moyen, Léger), `avant` exact,
    `correction` prête à coller, source. Ils relisent à la main au moins 40 renvois AIPS par moitié, et la liste des retraits.
@@ -45,6 +46,15 @@ relâchement de qualité. Plusieurs LOTs avancent de front, un chef de LOT par L
    actifs » (ci.yml, checkpoint.yml, auto-fusion.yml, file-fusion.yml, garde-progres.yml). Étiquette `audit-ok`, fusion
    automatique par commit de fusion, abonnement à la PR ; les remarques de Codex sont vérifiées, et corrigées si elles
    sont vraies.
+
+## Finition par le designer (ordre de Vial du 11.11.2026)
+- Le designer travaille sur SA branche, `claude/designer`, sous le seul contrôle du chef d'orchestre. Il n'écrit jamais
+  dans une branche de LOT en cours.
+- Seuls les cours à 100 % (audités deux fois et fusionnés dans main) entrent dans sa chaîne. Il n'y touche que l'aspect :
+  feuille commune (`forme.py`, `forme.css`, `forme.js`), balisage de forme, figures et légendes ; jamais un fait, un
+  chiffre ou une phrase médicale. Outils gratuits seulement (forme.py, capture5.py, planche5.py, Playwright).
+- Chaque livraison du designer porte ses preuves (contrôle à 1280 et 390 px, planche avant/après, `controle3` VERT, octets
+  dans la bande, texte médical identique à l'octet hors balisage). Le chef d'orchestre les relit, puis ouvre la PR.
 
 ## Règles constantes
 - Sources suisses puis européennes, lues et datées ; aucune source seulement américaine en appui d'une décision ; rien d'inventé.
