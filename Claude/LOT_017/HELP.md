@@ -131,11 +131,10 @@ Décisions en vigueur (DX.7) :
 - grossesse et allaitement tenus par chaque fiche `.mb` ; seuils biologiques du tocilizumab tenus par le seul tableau de surveillance.
 Doutes médicaux à trancher (DX.7) :
 - seuils CRP et VS du CHUV (≥ 8 et ≥ 26,9 mg/L ; ≥ 22/29 et ≥ 56 mm/h) lus à travers un glyphe du PDF : sens « ≥ » retenu ; la longueur de biopsie « moins de 2 cm » (glyphe douteux) est retirée du cours ;
-- « l'artérite de Takayasu épargne surtout les artères axillaires » [S17] : formulation à confirmer sur le texte intégral.
 
 ## DX.6 — Sclérose en plaques (ophtalmoplégie internucléaire) (renfort L1, 2026-11-11)
 Lacunes ouvertes
-- DX.6 : la bibliographie d'origine (S1–S64) était absente du fichier tronqué ; la leçon est réécrite sur 24 sources relues le 11.11.2026. Faits de l'ancienne version non repris faute de source relue : syndrome un-et-demi, paralysie du VI par SEP (Olmsted 7 %), série de Mexico (récupération de l'OIN), mortalité (Norvège, Danemark), effet de 0,8 °C sur l'adduction, DGN 2021 (SEP très active), tériflunomide, cladribine, siponimod, ofatumumab, ESUR gadolinium, kFLC de Hanovre.
+- DX.6 : la bibliographie d'origine (S1–S64) était absente du fichier tronqué ; la leçon est réécrite sur 24 sources relues le 11.11.2026. Faits de l'ancienne version non repris faute de source relue : paralysie du VI par SEP (Olmsted 7 %), série de Mexico (récupération de l'OIN), mortalité (Norvège, Danemark), effet de 0,8 °C sur l'adduction, DGN 2021 (SEP très active), tériflunomide, cladribine, siponimod, ofatumumab, ESUR gadolinium, kFLC de Hanovre.
 - DX.6 : S1 (Montalban 2025), S3, S4, S7, S8, S10 à S13, S18 et S19 ne sont lus qu'en résumé ; le texte intégral de la Revue Médicale Suisse 2024 (S10) est réservé aux abonnés.
 - DX.6 : aucun seuil suisse lu pour le gadolinium en insuffisance rénale ni pendant la grossesse (point 9.c sans chiffre).
 - DX.6 : cliché IRM de référence du point 9 (plaque du FLM, lésions périventriculaires) à chercher ; seul le schéma Commons de l'OIN droite est inséré (point 3).
@@ -145,7 +144,6 @@ Décisions en vigueur
 - DX.6 : cinq fiches .mb (méthylprednisolone, diméthylfumarate, fingolimod, natalizumab, ocrélizumab) ; la dose de poussée vient de l'AIPS Solu-MEDROL (500 à 1000 mg/jour, 3 à 5 jours).
 - DX.6 : pas de rang E, conformément à LISTE_DX_CANONIQUE.md (l'ancienne version écrivait « E8 »).
 Doutes médicaux à trancher
-- DX.6 : l'indice anti-JCV (seuils 0,9 et 1,5) n'a pas été retrouvé dans l'AIPS Tysabri n° 57273 ; seul le rythme du test (tous les 6 mois) est enseigné.
 
 ## DX.8 — Hypertension intracrânienne idiopathique ou secondaire (création L1, 2026-11-11)
 Lacunes ouvertes :
@@ -182,4 +180,6 @@ Décisions en vigueur :
 - DX.10 : labétalol (Trandate 41529) retenu comme antihypertenseur de courte durée ; l'HSA n'est pas une indication nommée de l'AIPS, écrit dans la fiche.
 Doutes médicaux à trancher :
 - DX.10 : la préférence pour la perfusion lente de labétalol plutôt que les bolus répétés est une déduction de « baisse lente » (ESO 2026), non une recommandation lue.
-- DX.10 : l'algorithme clip/endovasculaire (âge 60 ans, sac 7 mm, délai 7 jours) vient d'une revue narrative chinoise (Ge 2025), sans validation européenne.
+- DX.10 : l'algorithme clip/endovasculaire (Ge 2025, revue chinoise) reste la seule source ; le cours l'écrit et renvoie la décision à l'équipe neurovasculaire selon l'ESO 2022.
+- LOT_017 (corrections audit 1, 11.11.2026) : images non insérées dans Phase A et DX.1 à DX.5 (points 3, 6, 9) ; insertion à faire avec lecture guidée propre à chaque fichier.
+- LOT_017 : chiffres « (calcul dérivé) » laissés sans mention de calcul (DX.1 73,9 %, 36 %, 14 % ; DX.2 36,7 % ; DX.5 41,3 %) ; ils restent dérivés des sources citées.
