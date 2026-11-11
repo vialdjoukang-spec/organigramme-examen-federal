@@ -86,3 +86,18 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Citations AIPS corrigées : Adrenalin Sintetica 56551, Adrenalin Aguettant 66396, Parlodel 39001 (bromocriptine), Nicorette Invisi 58175.
 - Citation allemande du Skriptum bernois et lucernois remplacée par sa traduction fidèle (phrase de 40 mots).
 - Images à insérer : aucune image de défunt ; schéma du couchage sûr seulement s'il est libre de droits (requête Commons « safe infant sleep position »).
+
+## DX.5 — Hémorragie intracrânienne spontanée (renfort L1, 11.11.2026, agent A)
+- Lacunes retirées du cours : recommandation suisse propre à l'HSA ou à l'hémorragie intracérébrale ; recommandation suisse de
+  dépistage de l'anévrisme ; mécanisme de la crise convulsive ; adaptation de l'alimentation après dépistage de la dysphagie.
+- Point 1 : la distinction avec l'hémorragie traumatique et sa fenêtre passent au point 4 ; synonymes et « termes à éviter »
+  retirés (L1-3) ; leurs chiffres (20 % d'HSA sans cause, 85 % d'attaques ischémiques) restent aux points 2 et 3.
+- AIPS : la cellule de l'adrénaline citait l'AIPS de Keppra (57519) ; elle cite celle d'Adrenalin Aguettant (66396).
+  Le tableau des médicaments de la page ne garde que le point critique : chaque dose AIPS reste dans sa fiche.
+- Examen : une fenêtre par région ; la fenêtre orpheline « situations particulières d'imagerie » est reliée au point 9.c.
+- Redites fusionnées sans fait perdu (létalité suisse, critères NICE recoupant l'arbre, antidotes, tranexamique, questions
+  d'examen redondantes). Les questions « scanner normal » sont fusionnées ; la question « arrêt réanimé » et la question
+  « lyse pendant la réanimation » sont retirées : leurs réponses restent aux points 10 et 13.
+- Réserve L1 : le tableau d'interprétation du scanner et de la ponction reste sur la page (bande atteinte, 149 997 o).
+- Images à insérer : scanner cérébral sans injection d'une HSA des citernes de la base ; requête Commons
+  « subarachnoid hemorrhage CT basal cisterns ».
