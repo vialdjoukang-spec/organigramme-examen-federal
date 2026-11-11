@@ -91,3 +91,12 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 
 ## Images DX.3–DX.5 (renfort L1, 11.11.2026)
 - Aucune figure insérée : marge restante sous 150 Ko de 0,7 à 1,4 Ko, insuffisante pour le texte d'une figure guidée (légende, repères, pièges). Candidates : DX.3 sillon de pendaison (point 6) ; DX.4 fracture en coin de Messerer ou PMCT d'un piéton (point 9) ; DX.5 lividités rouge clair au CO (point 6) et PMCT de sachets intracorporels (point 9).
+
+## DX.9 — Décès en lien avec un acte médical (renfort L1 du 11.11.2026)
+- Statistique suisse des décès liés à un acte médical : non trouvée (aucun système national, selon Sécurité des patients Suisse 2025).
+- Sensibilité et spécificité des signes de l'examen externe après un soin : non chiffrées dans les sources lues.
+- Base légale adoptée pour une déclaration des événements indésirables graves : non trouvée (motion 18.4210 en cours).
+- Code de déontologie FMH : accès refusé (HTTP 403, 30.10.2026).
+- Conduite médico-légale envers le fœtus en cas de décès d'une femme enceinte : non trouvée.
+- Contre-indications de l'IRM post mortem en présence d'un implant : non trouvées.
+- Resserrement : liste suisse des médicaments à haut risque citée une seule fois (doublon retiré) ; texte AIPS grossesse du chlorure de potassium cité une seule fois (renvoi dans la fenêtre des situations spéciales).
