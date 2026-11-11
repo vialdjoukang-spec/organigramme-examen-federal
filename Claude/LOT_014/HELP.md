@@ -28,3 +28,14 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Point 1 : notions voisines déplacées au point 4 ; synonymes et termes à éviter retirés ; statut FMH déplacé au point 11.B.
 - Images à insérer : échocardiographie parasternale grand axe d'une CMH obstructive avec SAM ; IRM cardiaque avec rehaussement
   tardif (LGE). Requêtes Commons « hypertrophic cardiomyopathy echocardiography SAM », « cardiac MRI late gadolinium enhancement ».
+
+## DX.4 — Dissection ou rupture aortique (renfort L1, 11.11.2026, agent A)
+- Lacune retirée du cours : « aucune recommandation suisse propre au syndrome aortique aigu » (la conduite suit l'ESC 2024).
+- AIPS du tableau des médicaments de l'urgence : les renvois étaient décalés d'une ligne par la passe mécanique (dose de
+  Trandate sur [S1][S17], dose de Brevibloc sur l'AIPS de Trandate, etc.) ; chaque ligne cite désormais l'AIPS de sa spécialité.
+  La colonne des doses du tableau de la page est retirée : chaque dose reste dans la fiche AIPS de sa molécule (L1-3, redite).
+- Point 1 : la distinction avec la MSC arythmique et sa fenêtre passent au point 4.
+- Examen : une fenêtre par région ; la ligne « pouls paradoxal » rejoint la fenêtre existante (technique conservée).
+- Redites fusionnées, sans fait perdu : OPAS (une seule mention, art. 12 à 12e), AECVP et conseil génétique des apparentés,
+  indication suisse de la nicardipine, contre-indication de la lyse, grossesse sous losartan.
+- Images à insérer : angio-TDM d'une dissection de type A (voile intimal) ; requête Commons « aortic dissection CT Stanford A ».
