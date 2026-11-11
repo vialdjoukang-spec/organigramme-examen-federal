@@ -1,0 +1,103 @@
+{
+ "lot": "LOT_005",
+ "verdict": "corrections",
+ "reference": "origin/main",
+ "branche": "claude/l1-lot-005",
+ "methode": "Texte sans balises avant/après ; segments chiffrés (736 en Phase A, 200 à 397 par DX) recherchés avec co-occurrence des nombres et des mots ; diff des PMID, DOI, URL et n° AIPS ; comptage 🚩 et <sup> ; contrôle des ancres et des identifiants ; relecture manuelle des écarts.",
+ "critiques": [
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Point 10, nœud 11 : « Humeur basse, PHQ-9 ≥ 10, bilan somatique normal → DX.6 : évaluer le risque suicidaire, puis psychothérapie et antidépresseur. »",
+   "apres": "Point 10, étape 12 : « Humeur basse, PHQ-9 ≥ 10 → DX.6 : psychothérapie, Zoloft®. » Seule mention du risque suicidaire de la Phase A : perdue.",
+   "correction": "Rétablir « évaluer le risque suicidaire » et la condition « bilan somatique normal » dans l'étape 12 du point 10."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Point 10, nœud 13 : « → DX.5 : exclure infection et cancer, chercher l'artérite à cellules géantes (céphalée, claudication de la mâchoire, trouble visuel), puis avis rhumatologique. »",
+   "apres": "Étape 13 : « → DX.5 : exclure infection et cancer, avis rhumatologique. » Drapeau rouge ACG (risque visuel) absent de toute la Phase A.",
+   "correction": "Réinsérer la recherche de l'ACG et ses trois signes dans l'étape 13."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Point 10 d'origine : « Pâleur, frilosité, TSH élevée → DX.10 : hémogramme, ferritine, fT4 » ; « …corticoïdes récents → DX.15 : hydrocortisone i.v. 100 mg, isotonique, puis cortisol et ACTH » ; « glucose i.v. ou insuline selon cétonémie » ; « CURB-65, antibiotique, oxygène si besoin » ; « arrêt ou substitution avec le prescripteur ».",
+   "apres": "Le point 10 est remplacé par l'ancien algorithme discriminant ; la branche anémie/hypothyroïdie, le déclencheur « corticoïdes récents », les prélèvements cortisol-ACTH, « selon cétonémie », « oxygène si besoin » et « avec le prescripteur » disparaissent de l'arbre.",
+   "correction": "Fusionner réellement les deux arbres : réintégrer ces branches et conditions dans le point 10 (16 étapes)."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Bloc 2 : 15 titres « DX.1 — Infection urinaire » … « DX.15 — Insuffisance surrénalienne aiguë », dans l'ordre canonique, avec « 🚩 E1 · à ne pas manquer »…",
+   "apres": "Bloc 2 : tableau dont la première colonne porte « DX.1 » à « DX.15 » sans nom. Les noms ne survivent que dans le rappel mémoire ④, regroupés par mécanisme (ordre perdu ; qualificatifs « présentation atypique sans signe d'organe » perdus).",
+   "correction": "Ajouter le nom complet de chaque DX dans la première colonne du tableau comparatif (ordre DX.1→DX.15 conservé ; badges E1–E6 déjà présents)."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Point 8, tableau « Scores et usage clinique immédiat » : « CURB-65 · Orienter la pneumonie vers domicile ou hôpital · ≥ 2 : hospitaliser ».",
+   "apres": "Tableau supprimé ; le seuil de décision CURB-65 ≥ 2 → hospitalisation n'apparaît plus nulle part (seuls les critères et la mortalité restent).",
+   "correction": "Rétablir le seuil « CURB-65 ≥ 2 : hospitaliser » au point 8 (diagnostic positif, DX.3) ou dans une fenêtre liée."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Point 5, « Drapeaux rouges : ce qu'ils imposent tout de suite » : « Perte de poids, adénopathie, sueurs nocturnes → Imagerie et avis spécialisé sous 1 à 2 semaines » ; « Confusion aiguë → … rétention urinaire ; évaluer avec le CAM » ; « Déficit focal → … alerter la filière AVC » ; « Choc → Hospitaliser ; … antibiotique dans l'heure si choc ».",
+   "apres": "Point 5 renvoie au point 4 (étape 2) et au point 10 ; le délai « 1 à 2 semaines », « rétention urinaire / CAM », « filière AVC » et « hospitaliser » ne figurent plus.",
+   "correction": "Réintégrer ces actions dans les fenêtres des drapeaux du point 4 (étape 2) ou dans une fenêtre « drapeaux rouges » du point 5."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "avant": "Point 4, tableau « DD dangereux : ce qui tranche, et piège » : « ECG en 10 minutes, troponine hs en série » (DX.13) ; « Crise surrénalienne : Attribuer l'hyponatrémie à un SIADH ou à un diurétique » (piège).",
+   "apres": "Tableau supprimé ; « troponine hs en série » et le piège SIADH/diurétique de la crise surrénalienne n'apparaissent plus.",
+   "correction": "Rétablir « en série » pour la troponine (point 9 ou tableau Bloc 2, DX.13) et le piège SIADH/diurétique dans la colonne « Piège et nuance » de DX.15."
+  }
+ ],
+ "mineurs": [
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Bloc 2 : qualificatif de preuve « (donnée de seconde main) » perdu pour « 64 % d'AVC non reconnus » (DX.12) et « 1 cancéreux sur 10 » (DX.14) ; « la faiblesse généralisée est une présentation fréquente » (DX.14) perdue.",
+   "correction": "Ajouter « donnée de seconde main » dans la colonne Fréquence sourcée de DX.12 et DX.14."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Bloc 2 : « 47 patients sur 571 » (DX.7), la liste « hyponatrémie, hypo- ou hyperkaliémie, hypercalcémie » (DX.2) et « comprend les DX.1, DX.3, DX.9 et DX.11 » (DX.4) ont disparu ; les pourcentages restent.",
+   "correction": "Réintégrer dans la colonne Signe clé ou Fréquence."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Point 14 : 3 questions sur 22 retirées (femmes 62 %/hommes 46 %, seuils Hb 130/120 g/L, PHQ-9 ≥ 10 à 88 %) ; les valeurs subsistent aux points 2 et 8 (dédoublonnage accepté). Point 12 : phrase « personnes âgées, polymorbides et polymédiquées » perdue.",
+   "correction": "Facultatif."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Rappel mémoire : ① ② ③ retirés (TEMPO-IN développé, mnémotechnique des 16 SSP G1→G16) ; ④ garde les clés E/M/P/O/I/N/X sans leur développement.",
+   "correction": "Redonner le développement de TEMPO-IN dans ④ (non médical)."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Fiches médicaments (20/20) : seules les rubriques « Groupe » et « Chefs de file » sont retirées ; DCI, ATC, indications, posologie AIPS et numéros Swissmedic sont identiques.",
+   "correction": "Aucune."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Aucun <details class=\"arbre\"> n'existait avant ni n'existe après. Les <details class=\"arbn\"> retirés formaient l'arbre CIM (div.arb), retiré conformément à L1-3.2. L'arbre clinique du point 10 subsiste (tableau en 16 étapes, 🚩 E1–E6). 🚩 19→13 : seules les mentions « 🚩 Ex · à ne pas manquer » des anciens paragraphes DX disparaissent ; les badges restent.",
+   "correction": "Aucune."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Points 7 (11 syndromes fusionnés) et 11.A (tableau des objectifs) : tous les signes, gestes, mécanismes, seuils et délais sont retrouvés, dans le tableau fusionné ou aux points 10, 11 et 14.",
+   "correction": "Aucune."
+  },
+  {
+   "fichier": "LOT_005_Phase_B_V0_DX.1 à DX.10",
+   "constat": "Les chiffres, doses, seuils, PMID, DOI, URL, numéros Swissmedic et 🚩 sont conservés. Les tableaux sont déplacés dans des fenêtres. Seuls les arbres CIM et les « notions voisines » du point 1 sont retirés (L1-3.1/3.2), d'où les 3 à 6 appels <sup> en moins dans DX.5, DX.6, DX.7 et DX.9. Aucune affirmation nouvelle non sourcée.",
+   "correction": "Aucune."
+  },
+  {
+   "fichier": "11 fichiers",
+   "constat": "Liens a.ouvre → fenêtres : 180 liens et 180 fenêtres, aucun lien mort, aucune fenêtre orpheline. Le seul identifiant dupliqué, « __tabs », préexiste dans le module rappel mémoire.",
+   "correction": "Dédoublonner « __tabs » à la prochaine passe de forme."
+  },
+  {
+   "fichier": "LOT_005_Phase_A_V0.html",
+   "constat": "Aucune affirmation médicale nouvelle. La phrase « malaise = présyncope, palpitations ou hypoglycémie » provient de l'ancienne fenêtre « syncope et malaise ». Les sources citées sont toutes conservées (53 entrées sb, 27 PMID, 20 n° AIPS).",
+   "correction": "Aucune."
+  }
+ ]
+}

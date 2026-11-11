@@ -21,9 +21,9 @@ FACES = ''.join(
 # gras 700 nettement distinct, fonds chauds très pâles, accents chauds sombres (contraste AA), aucun bleu ni violet,
 # colonne de texte ≈ 60 % de la page centrée à droite d'un menu latéral clair. Aucun script.
 CSS_LISIBLE = """
-:root{--fm-fond:#fff;--fm-encre:#161616;--fm-noir:#000;--fm-doux:#4a3f38;--fm-terre:#a3431e;--fm-vin:#7c2431;
---fm-ambre:#85560b;--fm-olive:#4d6524;--fm-bord:#e9dccb;--fm-pale:#fbf3e6;--fm-zebre:#fdf9f2;--fm-tete:#f5e6cf;
---fm-menu:#faf6ef;--fm-menu-bord:#e4d5c0;--fm-menu-txt:#2b1f17;--fm-col:min(60vw,100%)}
+:root{--fm-fond:#fff;--fm-encre:#0b0b0b;--fm-noir:#000;--fm-doux:#33291f;--fm-terre:#7f3a20;--fm-vin:#5f2129;
+--fm-ambre:#624512;--fm-olive:#3c4d22;--fm-bord:#e4dccf;--fm-pale:#faf7f2;--fm-zebre:#fbfaf7;--fm-tete:#f2ece3;
+--fm-menu:#faf8f5;--fm-menu-bord:#e4d5c0;--fm-menu-txt:#140f0b;--fm-col:min(60vw,100%)}
 html,body,body *:not(code):not(pre):not(kbd):not(samp){font-family:'Atkinson Hyperlegible',Verdana,'Segoe UI',system-ui,sans-serif!important}
 html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
 html,body{background:var(--fm-fond)!important;color:var(--fm-encre)!important}
@@ -43,7 +43,7 @@ p b,p strong,.p b,.p strong,li b,li strong,td b,td strong,dd b,dd strong,blockqu
 em,i{font-style:italic}
 h1,h2,h3,h4,h5,h6,td,th,caption,figcaption,nav li,.ls li{text-align:left;hyphens:manual}
 h1,h2,h3,h4,h5{font-weight:700!important;line-height:1.22;letter-spacing:-.005em}
-h1{color:#1c1410;font-size:2.05em;margin:.5em 0 .45em}
+h1{color:#0f0b08;font-size:2.05em;margin:.5em 0 .45em}
 h2{color:var(--fm-vin);font-size:1.5em;margin:1.5em 0 .5em;padding-bottom:.28em;border-bottom:2px solid var(--fm-bord)}
 h3{color:var(--fm-terre);font-size:1.22em;margin:1.25em 0 .4em}
 h4{color:var(--fm-ambre);font-size:1.06em;margin:1em 0 .3em}
@@ -80,27 +80,27 @@ background-size:3px calc(var(--fm-prog,0)*100%)!important;background-position:ri
 border-left:7px solid var(--fm-a)!important;border-radius:0 0 18px 18px;box-shadow:0 1px 0 var(--fm-a-doux)}
 #fm-bandeau .fm-code{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:0 0 .5em!important;text-align:left!important;color:var(--fm-a)!important;
 font-size:13px!important;font-weight:700!important;letter-spacing:.13em;text-transform:uppercase}
-#fm-bandeau .fm-phase{font-weight:400;letter-spacing:.04em;text-transform:none;color:#3d342e;font-size:14px}
+#fm-bandeau .fm-phase{font-weight:400;letter-spacing:.04em;text-transform:none;color:#241d18;font-size:14px}
 #fm-bandeau .fm-nom{margin:0!important;color:#111!important;font-size:clamp(1.9rem,2.7vw,2.75rem)!important;font-weight:700!important;line-height:1.1!important;
 text-align:left!important;hyphens:manual!important;letter-spacing:-.012em}
 .fm-double{display:none!important}
 table{border-collapse:separate!important;border-spacing:0!important;width:100%;background:#fff!important;border:1px solid var(--fm-bord)!important;
 border-radius:10px;overflow:hidden;margin:.7em 0 1.1em;font-size:.95em;line-height:1.38}
-th{background:var(--fm-tete)!important;color:#2a160c!important;font-weight:700!important;text-align:left;vertical-align:bottom;
+th{background:var(--fm-tete)!important;color:#140b06!important;font-weight:700!important;text-align:left;vertical-align:bottom;
 padding:.55em .75em!important;border:0!important;border-bottom:2px solid #dcc09b!important;border-right:1px solid #ecdcc4!important}
 td{padding:.5em .75em!important;vertical-align:top;border:0!important;border-top:1px solid #efe4d5!important;border-right:1px solid #f3eadd!important}
 th:last-child,td:last-child{border-right:0!important}
 tr:first-child>td{border-top:0!important}
 tbody tr:nth-child(even)>td{background-color:var(--fm-zebre)}
-tbody tr:hover>td{background-color:#fbf0df}
+tbody tr:hover>td{background-color:#f7f2ea}
 caption{caption-side:top;text-align:left;font-weight:700;color:var(--fm-vin)!important;padding:.2em 0 .5em}
 sup.r{line-height:0;white-space:nowrap}
 sup.r{font-size:.74em!important;vertical-align:super}
 sup.r a,.r a{display:inline-block;font-size:.92em!important;line-height:1.3;font-weight:700;padding:0 .3em!important;margin-left:2px;
-border-radius:4px;background:#f6e9d8!important;color:#8d3816!important;text-decoration:none!important;vertical-align:baseline}
+border-radius:4px;background:#f3ede4!important;color:#6a2e15!important;text-decoration:none!important;vertical-align:baseline}
 sup.r a:hover,.r a:hover{background:var(--fm-terre)!important;color:#fff!important}
-.tm{color:#8a3512;border-bottom:1.5px dotted #c27a3a;text-decoration:none}
-.tm.med{background:#fbefe2!important;color:#7a2f12!important;border-bottom:1.5px solid #c46a35!important}
+.tm{color:#6a2e15;border-bottom:1.5px dotted #a4785a;text-decoration:none}
+.tm.med{background:#f7f1ea!important;color:#5f2a12!important;border-bottom:1.5px solid #a6704f!important}
 .tm .df,.tm.med .df{background:#fffaf2!important;color:var(--fm-encre)!important;border:1px solid #e6d2b6!important;border-left:4px solid var(--fm-terre)!important;
 border-radius:10px!important;padding:10px 14px!important;box-shadow:0 14px 34px -10px rgba(70,38,14,.35)!important;line-height:1.45!important;
 font-size:.9em!important;font-weight:400!important;text-align:left!important}
@@ -126,7 +126,7 @@ padding:12px 16px!important;margin:1em 0!important}
 .cliche-guide img{border-radius:8px;background:#fff}
 .cliche-guide figcaption{font-size:.88em!important;color:var(--fm-doux)!important;margin-top:.5em;line-height:1.38}
 blockquote{border-left:4px solid #e2bf8f;background:var(--fm-pale);margin:.8em 0;padding:.5em 1em;border-radius:0 8px 8px 0}
-.alert{background:#fdf1ec!important;border-left:4px solid var(--fm-vin)!important;color:var(--fm-encre)!important}
+.alert{background:#fbf5f2!important;border-left:4px solid var(--fm-vin)!important;color:var(--fm-encre)!important}
 .key{background:var(--fm-pale)!important;border-left:4px solid var(--fm-ambre)!important;color:var(--fm-encre)!important}
 .cible,.arbn.cible,li.cible{background:#fbe7cc!important;border-color:#d9a25e!important;color:#161616!important}
 .cible b,.cible .dfn,.cible li,.cible .tm,.cible summary,.cible>summary::before{color:#161616!important}
@@ -153,12 +153,16 @@ table{font-size:.9em}}
 CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     # L1 (10.11.2026) : fenêtre centrale occultante ouverte au clic d'un mot, sans script (:target)
     "section.fenetre{display:none}"
-    "section.fenetre:target{display:block;position:fixed;inset:0;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)}"
-    "section.fenetre:target>*{max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
+    "section.fenetre:target{display:flex!important;flex-direction:column;position:fixed!important;inset:0!important;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)!important;max-width:none!important;max-height:none!important;width:auto!important;height:auto!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}"
+    "section.fenetre:target>*{margin-top:auto!important;margin-bottom:auto!important;flex:none;width:100%;box-sizing:border-box;max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
     "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
     "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
     "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
-    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in}")
+    ".mb:target{position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:min(820px,92vw)!important;max-height:84vh!important;overflow:auto!important;z-index:200!important;background:#fff!important;color:#0b0b0b!important;border-radius:14px!important;border-top:5px solid var(--fm-a,#7c2431)!important;padding:20px 26px!important;font-size:1em!important;line-height:1.45!important;box-shadow:0 0 0 100vmax rgba(20,16,12,.62),0 24px 60px -12px rgba(0,0,0,.5)!important}"
+    # audit de design 11.11.2026 : la fiche s'ouvre partout (display) et garde sa largeur sur mobile, au-dessus de la colonne body>*
+    "body .mb:target:not(#brain-barre14){display:block!important;max-width:none!important;width:min(820px,92vw)!important;margin:0!important;box-sizing:border-box!important}"
+    ".mb:target b{color:#000!important}.mb:target a.fe{color:var(--fm-a,#7c2431)!important;float:right;margin:0 0 6px 12px!important}"
+    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in;hyphens:manual;-webkit-hyphens:manual}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
@@ -326,17 +330,67 @@ def retirer_sommaire(h):
         pos = m.end()
 
 
-def teinte(nom):
-    """Couleur d'accent propre à chaque leçon, déterministe : angle d'or sur un hachage du nom de fichier,
-    dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo, violet ni mauve)."""
-    import zlib
-    k = zlib.crc32(nom.encode('utf-8'))
-    a = (k * 137.50776405) % 175
+LOTS_MAX, LECONS = 260, 16  # identifiants pris en charge : LOT_001…LOT_260, Phase A (0) et DX.1…DX.15
+
+
+def _hx(h, l, s):
+    r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
+    return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
+
+
+def _palette(k, essai=0):
+    """Palette candidate du rang k : angle d'or sur la teinte (plage sans bleu), clarté sur 6 niveaux,
+    saturation sur 3 niveaux ; « essai » décale la teinte d'un degré en cas de collision après arrondi."""
+    a = (k * 137.50776405 + essai) % 175
     h = a if a < 150 else a + 185
-    def hx(l, s):
-        r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
-        return '#%02x%02x%02x' % (round(r * 255), round(g * 255), round(b * 255))
-    return hx(.29, .62), hx(.47, .55), hx(.955, .70), hx(.90, .62)
+    l = (.17, .19, .21, .23, .25, .27)[k % 6]  # accent assez sombre pour un contraste ≥ 7:1 sur blanc
+    s = (.36, .44, .52)[(k // 6) % 3]
+    while _contraste(_hx(h, l, s), '#ffffff') < 7.2 and l > .08:  # teintes jaunes : assombrir jusqu'au contraste ≥ 7:1
+        l -= .01
+    return (_hx(h, l, s), _hx(h, l + .19, s * .8), _hx(h, .965, .40), _hx(h, .915, .34))
+
+
+def _lum(c):
+    v = [int(c[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    v = [x / 12.92 if x <= .04045 else ((x + .055) / 1.055) ** 2.4 for x in v]
+    return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]
+
+
+def _contraste(a, b):
+    la, lb = sorted((_lum(a), _lum(b)), reverse=True)
+    return (la + .05) / (lb + .05)
+
+
+_TABLE = None
+
+
+def _table():
+    """Attribution déterministe et UNIQUE (vérifiée sur les couleurs arrondies) pour tous les rangs pris en charge."""
+    global _TABLE
+    if _TABLE is None:
+        vus, _TABLE = set(), {}
+        for k in range(LOTS_MAX * LECONS):
+            essai = 0
+            p = _palette(k)
+            while p in vus or _contraste(p[0], '#ffffff') < 7 or _contraste(p[0], p[2]) < 6.5:  # unique et lisible
+                essai += 0.37
+                assert essai < 175, 'espace de palettes épuisé'
+                p = _palette(k, essai)
+            vus.add(p)
+            _TABLE[k] = p
+    return _TABLE
+
+
+def teinte(nom):
+    """Couleur d'accent propre à chaque leçon, déterministe et unique entre tous les cours (couleurs finales
+    comparées après arrondi), dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo,
+    violet ni mauve)."""
+    import zlib
+    m = re.search(r'LOT_(\d+)', nom)
+    d = re.search(r'DX\.(\d+)', nom)
+    if m and int(m.group(1)) <= LOTS_MAX and (not d or int(d.group(1)) < LECONS):
+        return _table()[int(m.group(1)) * LECONS + (int(d.group(1)) if d else 0)]
+    return _palette(zlib.crc32(nom.encode('utf-8')))
 
 
 def _texte(x):
@@ -409,6 +463,10 @@ def ecrire_css(dossier):
 
 
 if __name__ == '__main__':
+    if '--teintes' in sys.argv:  # contrôle de non-régression : une palette distincte par cours pris en charge
+        T = _table(); assert len(set(T.values())) == len(T), 'palettes en double'
+        assert min(_contraste(p[0], '#ffffff') for p in T.values()) >= 7, 'contraste insuffisant'
+        print(f'{len(T)} palettes, toutes distinctes'); sys.exit(0)
     import os
     ecrire_css(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_polices'))
     verif = '--verifier' in sys.argv
