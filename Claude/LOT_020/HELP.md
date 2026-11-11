@@ -1,7 +1,6 @@
 
 ## Lacunes ouvertes
 - DX.4 : céfotaxime absente du corpus AIPS du 08.10.2026 ; dose de la DGN 2024 écrite « hors AIPS », sans fiche `.mb`.
-- DX.4 : volet social et assurances du point 11.B non rédigé, faute de source suisse lue (piqûre de tique et LAA).
 - DX.4 : aucune image insérée (érythème migrant, paralysie faciale périphérique) ; à prendre par `cliche.py` quand Wikimedia le permet.
 - DX.4 : sources S4, S5, S7, S8 et S10 lues en résumé PubMed seulement ; recommandation SSI (sginf.ch) connue par le protocole HUG 2023, non lue directement.
 - DX.1 : recommandation DGN S2k 2022 (AWMF 030-013) illisible (protection anti-robot de l'AWMF, application JavaScript de dgn.org) ; remplacée par la revue Heckmann 2019 lue en résumé PubMed (texte intégral PMC6865187 à lire).
@@ -23,7 +22,7 @@
 - DX.9 : volet assurances suisses du point 11.B (LAMal, liste des spécialités, limitations de l'icatibant et des traitements de fond) non rédigé, faute de source suisse lue.
 - DX.9 : sources S8, S10, S11, S12 et S13 lues en résumé PubMed seulement (RMS sous abonnement ; la liste des cinq types DANCE n'est pas dans le résumé) ; protocole HUG de l'anaphylaxie lu par son résumé public ; guides EAACI de l'anaphylaxie et de l'urticaire (2021) non lus.
 - DX.9 : aucune recommandation suisse écrite lue sur l'angioœdème sous IEC (conduite : ANSM 2019, PNDS 2024, résumé RMS 2016) ; aucune dose de glucocorticoïde donnée ; acide tranexamique sans fiche `.mb` (AIPS Cyklokapron 33741 non lue, dose du PNDS écrite « hors AIPS »).
-- Phase A : recommandations DGN (paralysie de Bell S2k 2022, neuroborréliose S3 2024) et fiche Orphanet ORPHA:141132 illisibles (protection anti-robot) ; les phrases de l'ancienne version qui s'y appuyaient (corticoïdes dans la neuroborréliose, divergence HUG/DGN sur sérologies et ponction lombaire) ne sont pas reprises.
+- Phase A : recommandation DGN paralysie de Bell S2k 2022 et fiche Orphanet ORPHA:141132 illisibles (protection anti-robot) ; la DGN S3 2024 neuroborréliose est lisible en anglais (GMS 2025, PMC12584707) et DX.4 en porte les faits (pas de corticoïde, f-dx4-p11-choix).
 - Phase A : sources S5, S15, S16 et S17 lues en résumé PubMed seulement ; protocole HUG d'anaphylaxie (S18) lu en résumé de procédure ; aucune incidence chiffrée de la microsomie craniofaciale (recommandation européenne 2020 non lue en texte intégral).
 - Phase A : aucune dose pour l'antibiotique de la cellulite, le concentré de C1-inhibiteur et la thrombolyse (AIPS non lues ici ; les DX.7, DX.9 et DX.2 les portent) ; point 9.c sans alternative sourcée pour DFGe < 30 mL/min et allergie à l'iode ; volet assurances (LAA) du point 11.B non rédigé, faute de source suisse lue.
 - Phase A : aucune image propre (recherche `cliche.py` sans résultat utile) ; deux renvois vers les figures du DX.1 (`f-dx1-p3-base`, `f-dx1-r-front`) ; `File:RamsayHunt2.jpg` déjà en file pourrait illustrer la fenêtre `f-ssp-p6-oreille`.
@@ -54,7 +53,7 @@
 - DX.9 : image insérée par `cliche.py` : `images/AngioedemaFra.webp` (CC BY-SA 3.0, point 6, fenêtre du visage).
 - Phase A : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de style intégré et aucun chiffre) ; ses faits sont repris et sourcés sur 18 sources relues le 11.11.2026 et 5 AIPS (56551, 29349, 53116, 65952, 58178).
 - Phase A : rangs écrits « Ne rang » avec argument sourcé, dans l'ordre de la liste gelée ; aucune série lue ne chiffre la part de chaque DX dans S1.4.
-- Phase A : prednisone = HUG 2023 (1 mg/kg/j, 7 jours, « hors AIPS ») ; doxycycline = dose de l'AIPS 65952 (100 mg deux fois par jour, 10 à 60 jours), la durée de 14 jours de la RMS 2011 étant écrite « hors AIPS » ; enfant jusqu'à 12 ans selon l'AIPS, comme DX.4.
+- Phase A : prednisone = HUG 2023 (1 mg/kg/j, 7 jours, « hors AIPS ») ; doxycycline = dose de l'AIPS 65952 (100 mg deux fois par jour, 10 à 60 jours), la durée de 14 jours de la RMS 2011 étant comprise dans cet intervalle ; enfant jusqu'à 12 ans selon l'AIPS, comme DX.4.
 - DX.6 : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de polices intégrées et aucun chiffre) ; ses faits sont repris et sourcés sur 13 sources lues le 11.11.2026 et 6 AIPS (45674, 35438, 47503, 45031, 22398, 00637).
 - DX.6 : antibiotique = amoxicilline-acide clavulanique oral à la dose usuelle de l'AIPS 45674 (3 × 625 mg), indication « fracture de la face » hors AIPS (RMS 2020), ce que le cours écrit ; DX.5 enseigne le schéma intraveineux périopératoire bernois.
 - DX.6 : divergence écrite et non tranchée : incarcération du muscle droit inférieur « le plus souvent » (collège français 2011) contre vrai piégeage musculaire « exceptionnel » (RMS 2020).
@@ -82,4 +81,4 @@
 - DX.7 : durée de l'antibiothérapie ambulatoire — 5 à 10 jours (Zurich 2017), 3 à 7 jours (SSE 2020), 3 jours prolongés de 2 (HAS 2026), aucune durée de principe (SSOS 2020) ; le cours enseigne le contrôle à 48–72 heures sans trancher la durée.
 - DX.7 : seuil de procalcitonine de 0,25 cité sans unité (le support SPILF écrit « mg/L », probablement µg/L) ; score LRINEC laissé dans les unités de la source (g/dL, mg/dL).
 - DX.7 : AINS — signalés comme facteur d'évolution diffuse (revue 2025) mais sans différence de gravité dans l'étude prospective citée par la SPILF ; aucune consigne suisse lue, le cours n'écrit donc ni interdiction ni dose.
-- (Lacune) LOT_020_Phase_B_V0_DX.3.html : fenêtre « Base à connaître » (point 3) sans schéma réel ; marge de taille 360 o seulement (149 638 o).
+- (Lacune) LOT_020_Phase_B_V0_DX.3.html : fenêtre « Base à connaître » (point 3) sans schéma réel ; marge de taille 2,1 Ko (147 859 o).
