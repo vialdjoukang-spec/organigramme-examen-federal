@@ -3,8 +3,14 @@
 - DX.8 : aucune série épidémiologique suisse mesurée ; seule l'estimation Dystonie-info (10/10 000, site édité par Merz) existe, divergente d'ESDE (36/million) — les deux sont présentées.
 - DX.8 : médicaments oraux (anticholinergiques, benzodiazépines, baclofène, tétrabénazine) cités sans dose ni fiche .mb, faute d'AIPS suisse portant l'indication.
 - DX.8 : aptitude à la conduite (OAC, annexe 1) et remboursement LS des toxines non lus (quota Legal Data Hunter épuisé le 11.11.2026).
+- DX.5 : aucune série suisse publiée ne chiffre l'abrasion ou le corps étranger cornéen isolés ; le point 2 s'appuie sur la Suva (lésions oculaires) et l'étude d'Helsinki.
+- DX.5 : NICE CKS « corneal superficial injury » renvoie 403 depuis l'environnement ; délai de contrôle à 24 h non repris faute de lecture.
+
 ## Décisions en vigueur
 - DX.8 : extension de la dystonie donnée « entre un sur deux et deux sur trois » (Defazio 2021 vs Defazio 2017).
+- DX.5 : cyclopentolate — NHS Scotland 5.3 propose 1 % jusqu'à 3×/j pour le spasme ciliaire ; l'AIPS Cyclogyl (n° 32634) réserve le collyre à l'usage diagnostique par le médecin : le cours enseigne l'AIPS et écrit la divergence.
+- DX.5 : antibioprophylaxie après abrasion — hors indication AIPS (Floxal/Tobrex visent l'infection déclarée), réservée aux abrasions contaminées ou étendues et aux porteurs de lentilles (NHS 5.3, HUG 2025), Cochrane 2025 de très faible certitude.
+
 ## Doutes médicaux à trancher
 - DX.8 : Dystonie-info.ch (S1–S6) est édité par un fabricant de toxine ; à remplacer par une source suisse indépendante si trouvée.
 - [Lacune ouverte] Phase A : aucune série suisse ne classe les dix DX ; rangs tirés de séries européennes (Lifelines, PrevEOS, Varsovie, Oslo, ESDE, Est de l'Angleterre) ; seul chiffre suisse : Inselspital, spasme hémifacial ≈ 800 personnes.
