@@ -8,6 +8,19 @@ Ta mission te donne l'identifiant de la fiche (`id`) et son titre. Tu écris UN 
 Une fiche de révision pour l'examen fédéral suisse de médecine humaine, lue sur téléphone : **précise, dense, claire, courte**.
 Chaque phrase porte un fait utile. À information égale, la phrase la plus courte gagne. Phrases verbales complètes.
 
+## Loi de Pareto (ordre de Vial du 11.11.2026)
+Ces fiches remplacent les manuels trop vastes : elles gardent les 20 % d'information qui font 80 % des décisions et des
+questions d'examen, et permettent de **tout revoir, vite**.
+- **Tri sévère.** Avant d'écrire, liste ce qu'un médecin assistant doit savoir pour décider ; écarte le reste (historique,
+  raretés sans conséquence, mécanismes sans effet sur la conduite). Aucun bavardage, aucune phrase d'introduction.
+- **Structure identique d'une fiche à l'autre**, dans le même ordre, pour que l'œil sache où chercher : c'est ce qui rend
+  la révision rapide. Tableaux et cases plutôt que paragraphes ; un paragraphe ne dépasse pas trois phrases.
+- **Systématique.** Chaque examen : quand le demander, comment le lire dans l'ordre, que conclure, que faire. Chaque
+  classe : ce qu'elle corrige, comment la retenir, qui sont les chefs de file, comment on les prescrit en Suisse, ce qui tue.
+- **Démarche diagnostique et prise en charge locales** : la conduite enseignée est celle des sources suisses lues (guides
+  des hôpitaux universitaires, sociétés suisses, OFSP, AIPS) ; la source est citée à chaque décision.
+- Taille : vise le bas de la fourchette. Une fiche de 6 000 octets qui dit tout l'essentiel vaut mieux qu'une de 14 000.
+
 ## Véracité (non négociable)
 - Chaque valeur, seuil, dose et affirmation de décision vient d'une source **lue pendant ta mission**, suisse d'abord
   (sociétés suisses de discipline, Swiss Medical Forum, Revue Médicale Suisse, guides HUG, CHUV, Inselspital, USZ, USB, OFSP,
