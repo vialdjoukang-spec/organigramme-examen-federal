@@ -36,7 +36,9 @@ nav.rail a:hover{background:var(--doux);color:#000}
 @keyframes pastille{0%,100%{background-color:var(--pale);color:var(--accent)}10%,90%{background-color:var(--accent);color:#fff}}
 main{margin-left:var(--menu-l);padding:28px clamp(20px,4vw,64px) 80px}
 main>h1,main>h2,main>section{max-width:var(--col);margin-left:auto;margin-right:auto}
-h1{margin:0 0 46px;padding:26px 32px 24px;background:var(--pale);border:1px solid var(--doux);border-left:7px solid var(--accent);border-radius:4px 18px 18px 4px;font:800 clamp(32px,1.1rem + 1.3vw,44px)/1.18 var(--police-titre);letter-spacing:-.01em;color:var(--titre)}
+h1,h2.kicker{background:var(--pale);border-left:7px solid var(--accent);border-right:1px solid var(--doux)}
+h1{margin-top:0;margin-bottom:0;padding:26px 32px 4px;border-radius:4px 18px 0 0;border-top:1px solid var(--doux);font:800 clamp(32px,1.1rem + 1.3vw,44px)/1.18 var(--police-titre);letter-spacing:-.01em;color:var(--titre)}
+h2.kicker{margin-top:0;margin-bottom:46px;padding:2px 32px 24px;border-radius:0 0 18px 4px;border-bottom:1px solid var(--doux);font:400 15px/1.45 "Atkinson Hyperlegible Next",system-ui,sans-serif;color:var(--gris)}
 h1::before{content:var(--surtitre);display:block;margin:0 0 12px;font:700 11.5px/1.2 var(--police-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 section.ilot{margin-bottom:34px;scroll-margin-top:16px}
 h3{margin:0 0 12px;padding:4px 6px;background:var(--h2-fond);font:700 1.25em/1.3 var(--police-titre);color:var(--h2)}
@@ -45,7 +47,7 @@ div.question{margin:4px 0 12px;font:700 1.05em/1.45 var(--police-titre);color:va
 div.p{margin:0 0 .5em}
 ul,ol{margin:.2em 0 .8em;padding-left:1.4em}
 li{margin:0 0 .3em}
-sup.r{font-size:.68em;line-height:0}
+sup.r{font-size:max(11px,.68em);line-height:0}
 table sup.r{font-size:11px}
 sup.r a{margin-left:1px;padding:1px 4px;border-radius:4px;background:var(--appel-fond);color:var(--appel);font-weight:700;text-decoration:none;line-height:1.2}
 div.t{margin:0 0 20px}
@@ -66,7 +68,11 @@ td.ko{background:var(--ko)}
 .fiche{margin:0 0 12px;padding:10px 14px;background:var(--h2-fond);border:1px solid var(--filet);border-radius:10px}
 .e{display:inline-block;margin:0 4px;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:14px;line-height:1.6;white-space:nowrap}
 ol.dx{list-style:none;padding:0;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
-ol.dx li{margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
+ol.dx li{display:grid;grid-template-columns:minmax(10rem,14rem) 1fr auto;gap:12px;align-items:baseline;margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
+.rang{display:inline-block;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:.86em;white-space:nowrap}
+.freq{font-weight:700;color:var(--leg);white-space:nowrap}
+table .rang{font-size:14px}
+ol.algo>li{margin-bottom:.5em}
 ol.dx li:first-child{border-top:0}
 ol.dx li:nth-child(even){background:var(--zebre)}
 button.w{font:inherit;font-weight:700;color:var(--lien);background:none;border:0;border-bottom:1.5px dotted var(--lien);border-radius:0;padding:0;margin:0;cursor:pointer;hyphens:none}
@@ -77,9 +83,14 @@ button.w:hover{background:var(--appel-fond)}
 .fenetre td:first-child,.fenetre tbody tr:nth-child(even) td:first-child{background:var(--th);border-bottom:2px solid var(--th-filet);color:var(--th-encre)}
 .fenetre img,figure img{max-width:100%;height:auto;border-radius:8px}
 figure.cliche{margin:12px 0 20px;padding:0}
-.paire{position:relative;display:block;max-width:100%}
-.paire img{display:block;width:100%;height:auto;border-radius:8px}
-.paire svg{position:absolute;inset:0;width:100%;height:100%}
+.paire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.paire h5{margin:0 0 6px;font:700 1em/1.3 var(--police-titre);color:var(--modal)}
+.cadre-img{position:relative;max-width:100%}
+.cadre-img>img{display:block;width:100%;height:auto;border-radius:8px}
+.cadre-img>svg{position:absolute;inset:0;width:100%;height:100%}
+.fenetre button.fermer{float:right;margin:0 0 8px 16px;padding:2px 4px;font:inherit;font-weight:700;color:var(--fermer);background:none;border:0;cursor:pointer}
+.fenetre button.fermer::after{content:" ×"}
+figcaption .credit{display:block;margin-top:4px;font-size:.9em}
 figcaption{margin-top:8px;font-size:.94em;line-height:1.5;color:var(--gris)}
 section#sources li{font-size:.92em;margin-bottom:.45em}
 #dx{view-timeline:--s0 block}
@@ -142,15 +153,16 @@ html{scroll-behavior:auto}
 nav.rail{position:sticky;inset:auto;top:0;width:auto;padding:8px 4vw 6px;border-right:0;border-bottom:1px solid var(--menu-filet);display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
 nav.rail p{padding:0;flex:0 0 auto}
 .piste{flex:1 1 30%;margin:0}
-nav.rail>div:last-child{flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.rail>div:last-child{flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
 nav.rail a{flex:0 0 auto;min-height:34px;padding:4px 10px 4px 6px;border-radius:9px;white-space:nowrap}
 main{margin-left:0;padding:20px 5vw 60px}
 html{scroll-padding-top:74px}
 section.ilot{scroll-margin-top:74px}
-.paire{display:block}
+.paire{grid-template-columns:1fr}
+ol.dx li{grid-template-columns:1fr}
 }
 @media (max-width:480px){
-h1{padding:20px 18px 18px}
+h1{padding:20px 18px 4px}h2.kicker{padding:2px 18px 20px}
 th,td{padding:8px}
 }
 @media print{
@@ -184,636 +196,440 @@ main{margin:0}
 </nav>
 <main>
 <h1>Masse abdominale</h1>
-<section class="ilot" id="dx"><h3>Dix diagnostics en concurrence</h3><ol class="dx"><li><strong>DX.1 — Fécalome</strong> Ne rang : on l’évoque avant l’occlusion, car plus de 3 niveaux hydro-aériques orientent vers l’iléus plutôt que vers une simple stase<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li><strong>DX.2 — Globe vésical</strong> Ne rang : la matité hypogastrique médiane se vide souvent, tandis que l’échographie ne vient que si le relief persiste<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</li>
-<li><strong>DX.3 — Hépatomégalie</strong> Premier relief de l’hypochondre droit, car une douleur de cet étage oriente vers l’échographie<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li><strong>DX.4 — Cholécystite aiguë</strong> Diagnostic fréquent d’une douleur abdominale aiguë, car l’échographie cherche à confirmer ou à écarter la vésicule<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</li>
-<li><strong>DX.5 — Splénomégalie</strong> Ne rang : masse de l’hypochondre gauche, et le même étage se clarifie d’abord par l’échographie<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li><strong>DX.6 — Plastron appendiculaire</strong> Ne rang : l’appendicite figure parmi les indications majeures d’une échographie pour douleur aiguë, donc le plastron se cherche avant la tumeur<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</li>
-<li><strong>DX.7 — Anévrisme de l’aorte abdominale</strong> Forme fréquente chez l’homme âgé, car la prévalence masculine rapportée va de 6 à 8 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</li>
-<li><strong>DX.8 — Sarcome des tissus mous abdominaux</strong> Ne rang : beaucoup de ces lésions apparaissent par hasard sur une image demandée pour une gêne, donc elles ne précèdent pas les causes banales<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</li>
-<li><strong>DX.9 — Péritonite diverticulaire</strong> <span class="e">🚩 E2</span> Ne rang : la diverticulite se cherche déjà devant une douleur aiguë, et la forme péritonéale tue en heures<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</li>
-<li><strong>DX.10 — Rupture d’anévrisme de l’aorte abdominale</strong> <span class="e">🚩 E1</span> Forme rare au cabinet au regard de l’incidence hospitalière masculine des ruptures, qui reste de 2,7 pour 100,000<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</li></ol></section>
+<h2 class="kicker">Phase A · une tuméfaction sous la main, du cabinet de médecine de famille au centre suisse qui opère</h2>
+<section class="ilot" id="dx"><h3>Dix diagnostics en concurrence</h3><ol class="dx">
+<li><strong>DX.1 — Hernie de la paroi abdominale</strong><span>Sur une vie, la hernie inguinale touche 27 à 43 % des hommes et 3 à 6 % des femmes<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</span><span class="freq">27 à 43 %</span></li>
+<li><strong>DX.2 — Fibrome utérin</strong><span>Le fibrome touche 20 à 40 % des femmes en âge de procréer<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</span><span class="freq">20 à 40 %</span></li>
+<li><strong>DX.3 — Globe vésical</strong><span>Entre 60 et 80 ans, le risque cumulé de rétention urinaire aiguë atteint 23 %<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</span><span class="freq">23 %</span></li>
+<li><strong>DX.4 — Fécalome</strong><span>Quatrième rang : il complique la constipation, fréquente chez le sujet âgé, dont la prévalence monte à près de 80 % chez les résidents de long séjour<sup class="r"><a href="#sb-rms_constip-1">[4]</a></sup>.</span><span class="rang">fréquent</span></li>
+<li><strong>DX.5 — Masse rénale</strong><span>Cinquième rang : le kyste simple, de loin la lésion kystique rénale la plus fréquente, devient courant après 50 ans et se découvre souvent par hasard<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</span><span class="rang">fréquent</span></li>
+<li><strong>DX.6 — Anévrisme de l’aorte abdominale</strong><span>La prévalence atteint 6 à 8 % chez l’homme âgé, contre 1,3 % chez la femme de 65 à 80 ans<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</span><span class="freq">6 à 8 %</span></li>
+<li><strong>DX.7 — Grossesse</strong><span>Septième rang : elle reste fréquente parmi les femmes en âge de procréer, car la Suisse compte 78 300 naissances vivantes en 2024<sup class="r"><a href="#sb-ofs_naiss-1">[7]</a></sup>.</span><span class="rang">fréquente</span></li>
+<li><strong>DX.8 — Abcès diverticulaire</strong><span>Huitième rang : l’abcès est la complication fréquente des diverticulites compliquées, dont la part atteint le quart des poussées<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</span><span class="e">🚩 E2</span></li>
+<li><strong>DX.9 — Rupture d’anévrisme de l’aorte abdominale</strong><span>Rare : l’hôpital suisse traite 2,6 ruptures pour 100 000 hommes par an et en prend encore 2,7 en charge sans opérer<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</span><span class="e">🚩 E1</span></li>
+<li><strong>DX.10 — Sarcome des tissus mous abdominaux</strong><span>Rare : la Suisse recense 300 à 400 nouveaux sarcomes par an, dont 29 % siègent dans l’abdomen<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</span><span class="rang">rare</span></li></ol></section>
 <section class="ilot" id="p1"><h3 id="h1">1. Définition et sémantique</h3>
-<div class="p">Une tuméfaction abdominale est un relief que la main garde quand la paroi se relâche, car un simple bord d’organe chez un sujet maigre s’efface<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La recommandation de 2021 fixe un seuil opérationnel pour les parties molles<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Au-delà de 5 cm, une lésion profonde, croissante, atypique ou douloureuse part vers un centre, donc on ne la traite pas comme un lipome de cabinet<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Le mot masse ne signe pas un sarcome<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">On retient que le même mot couvre la paroi, la cavité péritonéale et le rétropéritoine, car le siège change l’examen<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">On écarte le synonyme tumeur tant que l’histologie manque, puisque la stase stercorale et la vessie pleine imitent un volume<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Un sac aortique entre dans le même mot clinique, or l’examen physique y est peu sensible<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Ce qui s’en approche sans en être : une voussure pariétale mobile avec la peau, un globe que le drainage efface, un foie bas chez un sujet longiligne<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Ce qui s’en distingue encore : la douleur d’hypochondre sans relief, que l’échographie éclaire quand même<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">L’année 2021 date cette recommandation suisse, et elle ne définit pas toutes les causes<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La recommandation de 2021 ne couvre pas le vaisseau, et le sac aortique relève d’un autre texte<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">En 2004, la rupture est décrite comme le moment où le diagnostic se fait souvent, avec une mortalité de 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On distingue trois sièges, la paroi, la cavité et le rétropéritoine, car chacun change l’image utile<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">On détaille le seuil des parties molles, car 5 cm changent le lieu de la prise en charge<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<button class="w" popovertarget="f-cinq">seuil des parties molles</button>
-<div id="f-cinq" popover class="fenetre"><h4>Seuil de 5 cm</h4><div class="p">Profondeur, croissance, aspect atypique ou symptôme suffisent aussi, même sous ce diamètre, pour adresser<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La biopsie radioguidée suit la suspicion, et le colloque discute radiothérapie et chimiothérapie<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La chirurgie reste le traitement standard, avec un suivi long parce que la récidive est fréquente<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
+<div class="p">La recommandation suisse de 2021 ne définit pas la masse abdominale en général ; elle fixe en revanche le seuil d’alerte d’une masse des tissus mous<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Toute masse des parties molles dépassant 5 cm, profonde sous le fascia, croissante, atypique ou symptomatique, doit être investiguée avec l’avis d’un centre spécialisé<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">La même alerte vaut pour une lésion qui récidive après l’exérèse d’une tumeur jugée bénigne, puisque ce faux lipome était peut-être déjà un sarcome<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Le sac aortique entre dans ce constat, mais l’examen physique est peu sensible et peu spécifique pour le reconnaître<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Ce qui s’en approche sans en être : le diastasis des muscles droits, banal après plusieurs grossesses, est parfois pris à tort pour une hernie, alors qu’il élargit seulement la ligne blanche<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">La vessie pleine n’est pas une tumeur, et le sondage la fait disparaître en même temps qu’il la traite<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">De même, la matité sus-pubienne d’une rétention se perçoit souvent mieux que la vessie elle-même, qui reste rarement palpable<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Le fécalome se définit comme un amas de selles compactes, d’ordinaire recto-sigmoïdien, qui peut remonter jusqu’au cæcum<sup class="r"><a href="#sb-rms_constip-2">[11]</a></sup>.</div>
+<div class="p">Quand la découverte vient de l’image et non de la main, on parle de trouvaille fortuite, situation fréquente pour le kyste rénal<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="p">Le seuil de 5 cm et ses <button class="w" popovertarget="f-cinq">critères d’alerte des parties molles</button> changent le lieu de la prise en charge, car ils envoient le patient au centre des sarcomes avant tout geste<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div id="f-cinq" popover class="fenetre"><button class="fermer" popovertarget="f-cinq" popovertargetaction="hide">Fermer</button><h4>Masse des tissus mous — critères d’alerte (2021)</h4>
+<div class="p">Le texte suisse retient 6 critères : plus de 5 cm, siège profond sous-fascial, croissance, aspect atypique, symptôme, récidive après exérèse d’une lésion dite bénigne<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Un seul critère suffit pour demander l’avis du centre, qui apporte une survie globale meilleure de 20 % qu’une prise en charge dispersée<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">L’erreur typique consiste à enlever une masse prise pour un lipome, car 72,2 % des résections non planifiées touchent un plan profond<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Le bilan associe ensuite échographie, scanner thoraco-abdomino-pelvien et biopsie radioguidée, tous organisés par le centre<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
 </div>
 </section>
 <section class="ilot" id="p2"><h3 id="h2">2. Épidémiologie (Suisse, puis Europe)</h3>
-<div class="p">Entre 2009 et 2018, les hôpitaux suisses ont traité 10,728 séjours pour anévrisme de l’aorte abdominale<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Les hommes représentent 87,1 % de cette cohorte, donc le sexe structure déjà la probabilité<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">L’incidence hospitalière standardisée des formes non rompues atteint 19,7 pour 100,000 hommes<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Elle tombe à 2,6 pour 100,000 femmes, ce qui inverse le poids du dépistage<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Les ruptures traitées ou non restent à 2,7 pour 100,000 hommes<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Chez les femmes, ce taux est de 0,4 pour 100,000, or la mortalité y demeure lourde<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Dans la cohorte, 22,7 % des séjours arrivent déjà rompus<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Parmi ces ruptures, 46 % sont opérées et 54 % restent en traitement conservateur<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Hors hôpital, la prévalence masculine citée va de 6 à 8 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Chez des femmes de 65 à 80 ans, une série montre 1,3 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La maladie est donc relativement fréquente chez l’homme âgé, tandis que la rupture qui tue reste plus rare<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La mortalité ajustée des ruptures traitées atteint 19,7 % chez l’homme et 32,4 % chez la femme<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">En électif, elle a baissé de 2,4 % en 2009 à 0,6 % en 2018 chez l’homme<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Chez la femme opérée à froid, la mortalité ajustée reste en recul, de 5,5 % à 1,4 % sur la même décennie<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Les sarcomes se divisent en formes des parties molles et en formes de l’os, et la récidive est fréquente<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Beaucoup se découvrent par hasard sur une image demandée pour une gêne, donc leur part au cabinet reste basse<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">En 2017, la cholécystite, l’appendicite et l’ascite dominent les indications d’échographie d’une douleur aiguë<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">L’Europe a servi de cadre au dépistage des hommes de 65 ans, car la Suisse publie surtout l’incidence hospitalière<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Plusieurs pays européens traitent jusqu’à 80 % des cas électifs par voie endovasculaire<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La part tombe vers 60 % quand l’anévrisme est déjà rompu, en revanche la Suisse a longtemps gardé la voie ouverte<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Une série montre 5,8 % de mortalité à 30 jours, tandis qu’une autre reste à 2,7 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Les essais cités comptent plus de 98 % d’hommes dans la série américaine, et plus de 80 % dans la série anglaise<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">L’essai a invité 34 000 patients et a suivi 34 000 contrôles<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le suivi moyen cité dure 4,1 années, et une croissance de 1 cm/an resserre déjà la surveillance<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Sur 2430 ruptures hospitalières, 46,2 % ont été opérées<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Les hôpitaux universitaires en ont reçu 33,1 %, les autres hôpitaux majeurs 56,3 %, et les petits sites 10,6 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La part endovasculaire des ruptures est passée de 29,1 % à 44,3 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">En 2016, la Suisse figurait parmi trois pays sur douze sans cursus spécifique d’échographie en médecine de famille<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">En urgence, la mortalité opératoire avoisine 40 %, alors que l’électif reste entre 5 et 6 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Les formes non rompues touchent 19,7 hommes pour 100,000, contre 2,6 femmes pour 100,000<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
+<div class="p">Le cabinet voit d’abord des masses bénignes, et la Suisse pratique chaque année plus de 25 000 cures de hernie inguinale, intervention viscérale numéro un du pays<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">La hernie ombilicale représente 2 à 10 % des hernies primaires de l’adulte, mais cette part grimpe à 20 à 40 % chez le cirrhotique<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">La rétention urinaire aiguë reste un problème surtout masculin, avec un rapport de 13 hommes pour 1 femme<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">À 70 ans, un homme court un risque de rétention 5 fois plus élevé qu’à 40 ans, car la prostate grossit avec l’âge<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Chez la femme, le fibrome a une incidence grossièrement estimée à 1 pour 100 années-femmes, avec un pic après la quarantaine<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</div>
+<div class="p">La constipation touche environ 16 % des adultes, puis 23 à 55 % des personnes âgées vivant à domicile<sup class="r"><a href="#sb-rms_constip-1">[4]</a></sup>.</div>
+<div class="p">La diverticulose atteint 5 % des sujets de 40 ans et 65 % de ceux de 85 ans, et elle touche autant l’homme que la femme<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Parmi ces porteurs, 15 à 25 % feront une diverticulite, et une masse est palpable dans 20 % des poussées<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">L’anévrisme de l’aorte est le DX qui tue : de 2009 à 2018, les hôpitaux suisses ont pris en charge 10 728 cas, dont 87,1 % d’hommes<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Dans cette cohorte, 22,7 % des patients arrivent avec un anévrisme déjà rompu, et seuls 46 % d’entre eux sont opérés<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">L’incidence hospitalière standardisée des anévrismes non rompus traités atteint 19,7 pour 100 000 hommes et 2,6 pour 100 000 femmes<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Après ajustement, la mortalité hospitalière des ruptures traitées reste de 32,4 % chez la femme sans amélioration sur la décennie<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">À froid, la mortalité ajustée chez la femme a baissé de 5,5 % en 2009 à 1,4 % en 2018<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">La rupture tue pourtant surtout hors de l’hôpital, puisque 75 % des patients décèdent avant d’y arriver<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Le sarcome reste exceptionnel en Europe, avec une incidence estimée à 4 à 5 pour 100 000 habitants par an<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Au cabinet de premier recours, on verra au plus 10 nouveaux sarcomes en toute une carrière, d’où un risque élevé de manquer le diagnostic<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">En Europe, l’essai anglais de dépistage a porté sur 67 800 hommes de 65 à 74 ans, et il a nourri la politique de dépistage du Royaume-Uni<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Les chiffres qui orientent : population, année et source</caption>
+<tr><th>Chiffre</th><th>Population</th><th>Année</th><th>Source</th></tr>
+<tr><td>Hernie inguinale : 27 à 43 % des hommes au cours de la vie<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>Adultes, données européennes reprises en Suisse.</td><td>2018</td><td>Revue médicale suisse<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td></tr>
+<tr><td>Rétention urinaire aiguë : risque cumulé de 23 %<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>Personnes de 60 à 80 ans.</td><td>2016</td><td>Revue médicale suisse<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td></tr>
+<tr><td>Fibrome : 20 à 40 % des femmes<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</td><td>Femmes en âge de procréer.</td><td>2005</td><td>Revue médicale suisse<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</td></tr>
+<tr><td>Anévrisme : 6 à 8 % des hommes, 1,3 % des femmes<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Hommes âgés ; femmes de 65 à 80 ans.</td><td>2004</td><td>Revue médicale suisse<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td></tr>
+<tr><td>Anévrisme rompu à l’arrivée : 22,7 % des 10 728 cas<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td><td>Hôpitaux suisses, 2009 à 2018.</td><td>2022</td><td>Swiss Medical Weekly<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td></tr>
+<tr><td>Sarcome : 300 à 400 nouveaux cas par an<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>Population suisse.</td><td>2021</td><td>Revue médicale suisse<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td></tr>
+</table></div>
 </section>
 <section class="ilot" id="p3"><h3 id="h3">3. Physiopathologie</h3>
-<h4>Chaîne de la paroi au vaisseau</h4>
-<div class="p">L’amorce peut être pariétale : la graisse sous-cutanée, le fascia, puis un franchissement vers la profondeur<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">L’échographie juge cette graisse, la vascularisation et le passage du fascia, donc elle relie le tissu à l’image<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Vient ensuite la cavité péritonéale, où une lésion se développe loin de la main<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Le rétropéritoine ferme la chaîne des parties molles, et on y cherche aussi des métastases au scanner thoraco-abdomino-pelvien<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Le vaisseau suit une autre chaîne : un diamètre au-delà de 3 cm définit déjà l’anévrisme<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le sac grandit, le thrombus mural se forme, puis la paroi cède, ce qui explique la rupture<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Une croissance de 1 cm/an accélère la décision, car le risque dépasse alors celui de l’attente<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">L’intestin obstrué se distend et dresse des niveaux, donc la douleur diffuse n’est pas une masse pleine<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Si l’obstacle est duodénal ou très proximal, ces niveaux manquent, or la souffrance existe quand même<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La pancréatite, quand on la suspecte, commence par l’inflammation locale, et le scanner la montre avant les calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La vésicule enflammée épaissit sa paroi et bloque le fond, ce qui crée un relief sous le foie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Le maintien d’un sarcome passe par une récidive fréquente, donc le suivi reste long après la chirurgie<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La radiothérapie et la chimiothérapie se discutent en colloque, car elles ne remplacent pas l’exérèse<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La morphine freine la douleur sans corriger la chaîne mécanique, et un iléus paralytique impose son arrêt<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">On suit la graisse sous-cutanée jusqu’au fascia, car l’échographie montre le franchissement quand il existe<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Le thrombus mural se forme dans le sac, puis la paroi cède, et la rupture impose une autre conduite<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Un obstacle haut reste possible quand les niveaux manquent, donc on ne conclut pas à un abdomen libre<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La chirurgie reste le traitement standard du sarcome, et le colloque discute radiothérapie et chimiothérapie<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La vésicule confirme ou écarte une cause fréquente de douleur aiguë, et le foie se voit dans le même temps<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">L’iléus paralytique, confirmé ou seulement soupçonné, impose l’arrêt de Morphin®<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="t" style="overflow-x:auto">
-<table>
-<tr>
-<th>Perturbation</th><th>Exploration</th><th>Thérapeutique</th>
-</tr>
-<tr>
-<td>Le fascia est franchi par une lésion profonde<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</td>
-<td>L’échographie montre ce franchissement du fascia<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</td>
-<td>Le centre discute la chirurgie, qui reste le traitement standard<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le diamètre dépasse 3 cm puis grandit<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>L’échographie mesure le plus grand axe<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>On adresse à partir de 5,5 cm chez l’homme<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le grêle se distend au-dessus d’un obstacle<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Les niveaux au-dessus de 3 apparaissent sur le cliché debout<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>On lève l’obstacle au lieu de purger une simple stase<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le pancréas s’enflamme et le scanner le montre<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Le scanner vient en premier dans cette suspicion<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’échographie ne vient qu’ensuite, pour les calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
+<h4>Amorce : un orifice, un réservoir, un sac</h4>
+<div class="p">Une hernie naît d’un orifice de la paroi par lequel le contenu abdominal s’engage, et sa réductibilité se teste au Valsalva<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Le risque vient de l’étranglement, faible chez l’homme à 5 %, mais de 35 à 40 % chez la femme, où la hernie crurale est plus probable<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">La rétention suit le plus souvent un obstacle sous la vessie, puis un défaut de contraction du détrusor ou une atteinte de la commande nerveuse<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Dans 50 à 70 % des rétentions masculines, l’hyperplasie bénigne de la prostate longtemps ignorée en est la cause<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Le fécalome peut lui-même provoquer une rétention, puisqu’il en explique 3 à 7 % des formes secondaires<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<h4>Développement : la loi de Laplace</h4>
+<div class="p">Le diverticule colique se forme là où les vaisseaux traversent la musculeuse, et la loi de Laplace explique la poussée de la paroi<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Une microperforation du dôme diverticulaire, couverte par la graisse péricolique, peut ensuite former un abcès local<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">L’anévrisme progresse en moyenne de 0,2 à 0,5 cm par an, et cette croissance s’accélère avec le diamètre, comme le prévoit Laplace<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Le tabac reste le seul facteur reconnu de croissance du sac, avec une hausse du rythme de 20 à 25 % par an chez le fumeur actif<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<h4>Installation et maintien</h4>
+<div class="p">Au-delà de 6 cm, le risque annuel de rupture passe à 14,1 % chez l’homme, ce qui explique le seuil opératoire<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">À diamètre égal, la femme rompt 3 fois plus souvent, et son sac cède en moyenne vers 5 cm contre 6 cm chez l’homme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Le kyste rénal simple a une densité proche de l’eau, de −10 à +20 UH, que le contraste ne modifie pas, contrairement au cancer<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="p">Le fibrome est plus fréquent chez la nullipare et l’obèse, et son pic d’incidence se situe après 40 ans<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</div>
+<div class="p">Le sarcome des tissus mous provient de cellules mésenchymateuses ; or l’abdomen, sans compartiment, oblige souvent à enlever en bloc les organes voisins<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Corrélation : perturbation, exploration, thérapeutique</caption>
+<tr><th>Perturbation</th><th>Exploration</th><th>Thérapeutique</th></tr>
+<tr><td>Le contenu s’engage dans un orifice de la paroi<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>L’examen debout puis couché au Valsalva suffit souvent ; l’échographie aide si le patient est obèse<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>On propose la cure avec filet si la hernie gêne, ou l’attente vigilante chez l’homme peu symptomatique<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td></tr>
+<tr><td>L’obstacle prostatique distend la vessie<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>La matité sus-pubienne et l’anamnèse suffisent ; l’échographie confirme les cas douteux<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>On draine la vessie par sonde transurétrale, puis on introduit un alphabloquant<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td></tr>
+<tr><td>Le sac aortique s’élargit selon Laplace<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>L’échographie mesure le plus grand diamètre<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>On surveille sous le seuil, puis on adresse pour avis chirurgical<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td></tr>
+<tr><td>Le diverticule perforé s’abcède dans la graisse<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>Le scanner confirme l’abcès et guide son drainage<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>On donne l’antibiothérapie et l’on draine les abcès de plus de 5 cm<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td></tr>
 </table></div>
 </section>
 <section class="ilot" id="p4"><h3 id="h4">4. Démarche diagnostique</h3>
-<div class="p">On commence par ce qui tue : la rupture, dont la mortalité masculine ajustée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Un relief battant, une douleur lombaire et une chute de pression orientent vers E1, donc on n’attend pas une belle image<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Vient E2, la péritonite diverticulaire, car la diverticulite se cherche déjà dans la douleur aiguë<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Une défense diffuse avec suspicion de perforation écarte le cliché simple de confort, et l’abdomen sans préparation ne sert que dans ce doute<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Puis les causes fréquentes : fécalome si les niveaux ne dépassent pas le seuil de 3<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Le globe se vide, la vésicule se confirme ou s’écarte, l’appendicite se localise<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">L’anévrisme non rompu, fréquent chez l’homme âgé, se mesure avant de parler de seuil opératoire<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le sarcome ne vient qu’après, quand la lésion dépasse 5 cm ou grandit, car le centre précède la biopsie au bloc<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Le piège est d’enlever a minima une lésion atypique, donc la biopsie radioguidée reste la règle si le doute persiste<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Autre piège : conclure à un iléus proximal parce que les niveaux manquent, alors que l’obstacle est haut<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Si le diamètre dépasse 5,5 cm chez l’homme, l’avis chirurgical s’impose<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Si la masse est sous-cutanée, l’échographie tranche la graisse et le fascia avant le scanner<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">On classe ensuite le sac non rompu, fréquent chez l’homme âgé, dont la prévalence va de 6 à 8 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le transfert vers l’hôpital majeur précède le bilan de confort, puisque 97,3 % des ruptures traitées s’y font<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">On n’adresse pas au centre une voussure qui s’efface quand la paroi se relâche, car le seuil de 5 cm vise une lésion qui persiste<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="t" style="overflow-x:auto">
-<table>
-<tr><th>Diagnostic</th><th>Signe qui oriente</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate</th><th>Rang E</th></tr>
-<tr>
-<td>Le fécalome se pétrit et ne fixe pas la main<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Les niveaux restent au plus à 3, sinon l’iléus prend la place<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Le cliché debout montre la distension quand elle existe<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>La stase encombre la lumière et la paroi reste intacte<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>On lève la stase avant de programmer un scanner<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Aucun rang E ne s’applique, et cette stase reste mécanique<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le globe donne une matité médiane tendue, que l’on reconnaît<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Le drainage l’efface, puis l’échographie ne sert que si le relief revient<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>L’échographie pelvienne confirme une vessie encore pleine<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>L’urine ne s’écoule plus et la vessie se distend<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>On sonde avant de parler d’une tumeur du pelvis<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Une rétention simple reste sans rang E<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-</tr>
-<tr>
-<td>L’hépatomégalie suit le rebord droit à l’inspiration<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’échographie est recommandée pour cet hypochondre<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Elle montre le foie que la main ne fait que deviner<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Le parenchyme augmente de volume ou se charge<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>On image avant de conclure à une tumeur du flanc<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Une grosseur isolée du foie reste sans rang E<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>La cholécystite se confirme ou s’écarte à l’échographie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Douleur sous le foie et fièvre orientent vers la vésicule<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>L’échographie de l’hypochondre vient en premier<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>La paroi vésiculaire souffre et le fond se bloque<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>On traite la vésicule si l’image la retient, sans partir vers l’aorte<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Cette vésicule enflammée reste sans rang E<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-</tr>
-<tr>
-<td>La splénomégalie occupe l’hypochondre gauche, et on la sépare du côlon<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’échographie de cet étage la sépare du côlon<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Le pôle inférieur se mesure sur une coupe longue<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>La pulpe augmente et déborde le gril costal<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>On cherche la cause hématologique ou portale après l’image<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Cette grosse rate reste sans rang E<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le plastron appendiculaire empâte la fosse droite, et on le palpe avant l’image<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Dans la douleur aiguë, on cherche l’appendicite à l’échographie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Elle localise l’empâtement mieux que la seule main<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>L’appendice enflammé se colle aux organes voisins<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>On adresse si la défense s’étend, sans biopsier au lit<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>La forme locale reste sans rang E<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-</tr>
-<tr>
-<td>L’anévrisme non rompu est relativement fréquent chez l’homme âgé<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>L’échographie mesure un diamètre au-delà de 3 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Deux plans évitent de sous-estimer le plus grand axe<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>La média s’amincit et le sac se dilate<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>On surveille sous 5,5 cm et on adresse au-delà<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Pas de rang E tant que la paroi tient<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le sarcome des parties molles siège sur la paroi, le péritoine ou le rétropéritoine, et on le situe<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</td>
-<td>Le seuil de 5 cm ou la croissance impose l’adressage<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>L’échographie d’abord si la lésion est sous-cutanée, puis le scanner<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</td>
-<td>Le clone mésenchymateux grossit dans un plan profond<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>On fait une biopsie radioguidée et on discute au colloque<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>Ce sarcome reste sans rang E par défaut<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-</tr>
-<tr>
-<td>La péritonite diverticulaire défend l’abdomen et tue en heures, donc on la retient comme E2<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Le doute de perforation ramène l’abdomen sans préparation, puis le scanner confirme<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’échographie peut chercher la diverticulite, sans l’exclure<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>La perforation laisse passer le contenu digestif, ce qui impose un geste<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>On traite E2 sans le confondre avec un fécalome<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Le rang affiché est E2 pour cette péritonite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-</tr>
-<tr>
-<td>La rupture d’anévrisme concentre une mortalité masculine qui reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-<td>Le relief expansif et le collapsus tranchent mieux que le diamètre seul<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Le centre majeur opère, car 97,3 % de ces traitements s’y font<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-<td>La paroi cède et le sang gagne le rétropéritoine, ce qui impose E1<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>On transfert vers l’hôpital majeur avant le bilan de confort<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-<td>Le rang affiché est E1 pour cette rupture<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-</tr>
+<div class="p">On commence par ce qui tue : devant une masse battante chez un homme âgé, on pense d’abord à la rupture E1, dont la mortalité globale atteint 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Dans ce cas, aucune imagerie de confort ne retarde le transfert, puisque 97,3 % des traitements de rupture se font en hôpital majeur<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Vient ensuite E2, l’abcès diverticulaire, qui associe fièvre, douleur de la fosse iliaque gauche et masse sensible<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Le scanner abdominal standard est alors l’examen de première intention, car il confirme l’abcès et peut en guider le drainage<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="p">Puis on trie les masses fréquentes : une voussure inguinale impulsive à la toux, réductible et palpable signe la hernie sans imagerie<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Une hernie douloureuse et irréductible, surtout chez la femme, impose au contraire l’avis chirurgical immédiat, car l’étranglement y frappe 35 à 40 % des cas<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Une masse médiane sus-pubienne chez l’homme âgé qui n’urine plus fait poser une sonde avant toute autre hypothèse<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Chez la femme en âge de procréer, l’échographie reste l’examen de choix en première intention, car elle n’irradie pas<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="p">Le piège majeur consiste à prendre un sarcome profond pour un lipome et à l’enlever au cabinet, alors que la biopsie radioguidée au centre est la règle<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>DX discriminants : élément qui tranche, piège, conduite</caption>
+<tr><th>DX</th><th>Élément qui tranche</th><th>Piège</th><th>Conduite</th></tr>
+<tr><td>Rupture d’anévrisme 🚩 E1<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Un anévrisme connu ou une masse battante chez l’homme âgé orientent<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Une aorte non palpée ne rassure pas, car l’examen est peu sensible<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>On organise le transfert vers le centre vasculaire<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td></tr>
+<tr><td>Abcès diverticulaire 🚩 E2<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>Le scanner montre la collection<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>L’échographie échoue souvent à cause du météorisme<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>On hospitalise pour antibiotiques intraveineux et drainage éventuel<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</td></tr>
+<tr><td>Globe vésical<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>Le sondage ramène l’urine et efface la masse<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>La confusion du sujet âgé peut cacher la rétention<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>On sonde en Charrière 16 avec gel, puis on note le volume<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td></tr>
+<tr><td>Sarcome<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>Une taille au-delà de 5 cm ou un siège profond alertent<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>L’exérèse d’un faux lipome compromet la chirurgie oncologique<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>On adresse au centre des sarcomes avant tout geste<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td></tr>
+</table></div>
+<div class="t" style="overflow-x:auto"><table><caption>Les 10 DX côte à côte : signe clé, examen qui tranche, mécanisme, conduite immédiate, rang E</caption>
+<tr><th>DX</th><th>Signe clé</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate</th><th>Rang E</th></tr>
+<tr><td>DX.1 Hernie de la paroi</td><td>La voussure grossit au Valsalva et se réduit<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>L’examen clinique suffit ; l’échographie aide chez l’obèse<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>Le contenu s’engage dans un orifice de la paroi<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>On surveille l’homme peu gêné et l’on opère la femme<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.2 Fibrome utérin</td><td>Des saignements abondants s’associent à une pesanteur pelvienne<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</td><td>L’échographie pelvienne avec Doppler fait la cartographie<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</td><td>L’hypoestrogénie réduit le volume de 35 à 65 %, preuve de sa dépendance hormonale<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</td><td>On complète le bilan échographique avant de choisir le traitement<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.3 Globe vésical</td><td>La matité sus-pubienne coexiste avec une miction impossible<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>Le sondage confirme ; l’échographie sert si le doute persiste<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>L’obstacle prostatique explique 50 à 70 % des cas masculins<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>On sonde en Charrière 16 avec gel<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.4 Fécalome</td><td>Des selles liquides surviennent chez un patient constipé<sup class="r"><a href="#sb-rms_constip-2">[11]</a></sup>.</td><td>Le toucher rectal découvre la masse fécale<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>Des selles compactes s’accumulent, parfois jusqu’au cæcum<sup class="r"><a href="#sb-rms_constip-2">[11]</a></sup>.</td><td>On associe extraction manuelle et lavements<sup class="r"><a href="#sb-rms_constip-1">[4]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.5 Masse rénale</td><td>La lésion est souvent une trouvaille d’imagerie<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>Le scanner classe les types II à IV de Bosniak<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>Le kyste simple garde une densité de −10 à +20 UH<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>Le type I ne demande rien ; les types III et IV vont à l’urologue<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.6 Anévrisme de l’aorte</td><td>Une masse pulsatile expansive se palpe parfois<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>L’échographie mesure le plus grand diamètre<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</td><td>La loi de Laplace accélère la croissance des gros sacs<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>On surveille selon le diamètre et l’on adresse dès 5,5 cm chez l’homme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.7 Grossesse</td><td>Un utérus palpable apparaît chez une femme en âge de procréer<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>L’échographie vient d’emblée<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>Le scanner irradie, ce qui justifie l’échographie première<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>On évite tout scanner avant l’échographie<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>—</td></tr>
+<tr><td>DX.8 Abcès diverticulaire</td><td>La fièvre accompagne une douleur de la fosse iliaque gauche et une masse dans 20 % des cas<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>Le scanner standard confirme la collection<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>Une microperforation couverte s’abcède dans la graisse<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>On hospitalise pour antibiotiques et drainage au-delà de 5 cm<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>🚩 E2</td></tr>
+<tr><td>DX.9 Rupture d’anévrisme</td><td>Une masse battante apparaît chez un homme âgé connu pour un sac<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Le centre vasculaire confirme et traite<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td><td>La paroi cède, surtout au-delà de 6 cm, avec 14,1 % de rupture annuelle chez l’homme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>On transfère aussitôt vers un hôpital majeur<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td><td>🚩 E1</td></tr>
+<tr><td>DX.10 Sarcome des tissus mous</td><td>La masse dépasse 5 cm, siège en profondeur ou grandit<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>La biopsie radioguidée au centre pose le type<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>La tumeur naît de cellules mésenchymateuses<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>On adresse au centre avant tout geste<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>—</td></tr>
 </table></div>
 </section>
 <section class="ilot" id="p5"><h3 id="h5">5. Anamnèse ciblée et drapeaux rouges</h3>
-<div class="p">On date la douleur, car une rupture se révèle souvent tard, au moment où la paroi cède<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Une syncope avec un relief battant pèse lourd, puisque 22,7 % des séjours hospitaliers arrivent déjà rompus<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Le dépistage discuté vise les hommes de 65 ans et plus, or le diagnostic est souvent tardif<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On demande si le volume grandit, car la croissance fait partie des motifs d’adressage au centre<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Une gêne ancienne avec découverte fortuite rassure un peu, tandis qu’on relance le bilan devant une douleur nouvelle<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">L’arrêt des gaz et des selles oriente vers l’iléus, donc on ne palpe pas une stase comme une tumeur fixe<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La fièvre avec douleur de la fosse iliaque droite fait chercher l’appendicite, et la fosse gauche fait chercher la diverticulite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Une douleur d’hypochondre après un repas gras fait chercher la vésicule, car l’échographie est alors recommandée<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Un tableau qui évoque une pancréatite change l’ordre, puisque le scanner passe devant<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">On liste les morphiniques déjà pris, car la dose suivante dépend de l’intensité et du traitement antérieur<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Chez la femme de 65 à 80 ans, la prévalence citée est de 1,3 % seulement, donc l’anévrisme y pèse moins<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">L’amaigrissement et un volume atypique ne prouvent pas le sarcome, or ils interdisent l’exérèse de passage<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">On demande si la masse a été vue d’abord sur une image, car la découverte par hasard change l’urgence perçue<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">On demande l’âge et le sexe, car le dépistage discuté concerne les hommes de 65 ans et plus<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On situe la douleur, car l’hypochondre oriente vers l’échographie et la douleur diffuse vers l’iléus ou la perforation<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="t" style="overflow-x:auto">
-<table>
-<tr>
-<th>Drapeau</th><th>Signification</th><th>Action</th>
-</tr>
-<tr>
-<td>Un collapsus avec relief battant annonce la rupture, et on la traite d’abord<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-<td>La mortalité masculine ajustée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-<td>On oriente vers un hôpital majeur, où se font 97,3 % des traitements<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</td>
-</tr>
-<tr>
-<td>Une douleur brutale du dos chez l’homme âgé pèse, et on la retient<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>La rupture est souvent le premier diagnostic posé<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>On ne renvoie pas le patient vers un contrôle dans l’année<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Une défense diffuse fait craindre la perforation<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’abdomen sans préparation ne sert que dans ce doute<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>On ne se contente pas d’un laxatif<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>Une lésion de plus de 5 cm qui grandit est atypique<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>Le sarcome entre alors dans les hypothèses, et on adresse<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>On adresse au centre plutôt que de biopsier au bloc<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-</tr>
-<tr>
-<td>Une dépression respiratoire sous Morphin® impose l’arrêt de l’ampoule<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</td>
-<td>Cette situation figure dans les prudences extrêmes, et on l’applique<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</td>
-<td>On arrête l’ampoule et on prépare 0,4 à 2 mg de naloxone<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</td>
-</tr>
+<div class="p">On demande d’abord si un anévrisme est connu, car le sac reste le plus souvent muet jusqu’à sa rupture, cause non négligeable de mort subite<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">L’âge et le sexe pèsent lourd, puisque la prévalence passe de 1,3 % chez la femme de 65 à 80 ans à 6 à 8 % chez l’homme âgé<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Le tabagisme se demande toujours, parce qu’il accélère la croissance d’un sac déjà connu<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Une voussure qui apparaît à l’effort et disparaît couchée oriente vers la hernie ; une douleur nouvelle et une irréductibilité changent l’urgence<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Chez l’homme âgé qui ne peut plus uriner, on cherche un prostatisme ancien : jet faible, nycturie, vidange incomplète<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">La liste des médicaments compte, car anticholinergiques, opiacés, benzodiazépines et antipsychotiques déclenchent des rétentions<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Des selles liquides chez un patient constipé font évoquer un fécalome plutôt qu’une diarrhée<sup class="r"><a href="#sb-rms_constip-2">[11]</a></sup>.</div>
+<div class="p">Chez le patient âgé constipé, douleurs, nausées, vomissements, agitation ou rétention urinaire annoncent l’iléus ou le fécalome<sup class="r"><a href="#sb-rms_constip-2">[11]</a></sup>.</div>
+<div class="p">La date des dernières règles et la contraception se demandent chez toute femme en âge de procréer, avant toute imagerie, puisque l’échographie doit alors passer en premier<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="p">Des saignements utérins abondants et une pesanteur pelvienne orientent vers le fibrome, puisque ses symptômes en découlent<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</div>
+<div class="p">Une douleur de la fosse iliaque gauche avec fièvre et constipation, signalée dans 70 % des poussées, oriente vers la diverticulite<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Une masse indolore qui grandit vite, ou qui revient après une exérèse, doit éveiller un haut degré de suspicion de sarcome<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Les antécédents familiaux de maladie kystique et d’insuffisance rénale se notent devant des kystes multiples des 2 reins<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Drapeaux rouges : signification et action immédiate</caption>
+<tr><th>Drapeau rouge</th><th>Signification</th><th>Action immédiate</th></tr>
+<tr><td>Masse battante chez un patient connu pour un anévrisme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>La rupture menace, et 50 % des patients rompus meurent encore pendant l’opération<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>On appelle le centre vasculaire et l’on organise le transfert héliporté<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td></tr>
+<tr><td>Hernie douloureuse, tendue, irréductible<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>L’étranglement menace l’intestin : en urgence, environ un quart des patientes subit une résection digestive<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>On adresse aux urgences chirurgicales le jour même<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td></tr>
+<tr><td>Fièvre, défense de la fosse iliaque gauche, masse sensible<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>Une diverticulite compliquée, souvent abcédée, est probable<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>On hospitalise pour scanner et antibiotiques intraveineux<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td></tr>
+<tr><td>Impossibilité d’uriner avec douleur sus-pubienne<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>La rétention aiguë menace la fonction rénale<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>On draine sans délai par sonde transurétrale<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td></tr>
+<tr><td>Masse des parties molles au-delà de 5 cm, ou profonde<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>Le sarcome devient une hypothèse à écarter<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>On adresse au centre des sarcomes sans biopsie chirurgicale<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td></tr>
 </table></div>
 </section>
 <section class="ilot" id="p6"><h3 id="h6">6. Examen physique ciblé, région par région</h3>
-<h4>Peau et paroi</h4>
-<div class="p">On regarde d’abord la peau, car une masse qui suit le pincement reste pariétale<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">L’échographie d’une lésion sous-cutanée montre la graisse, le flux et le fascia<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Au-delà de 5 cm ou en cas de croissance, on adresse cette lésion hors du cabinet<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
+<h4>Ligne médiane et aorte</h4>
+<div class="p">Normalement, l’aorte d’un sujet mince se sent battre sans s’élargir ; un pouls expansif latéral fait au contraire suspecter un sac<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Cependant l’examen physique reste peu sensible et peu spécifique, si bien qu’une aorte non palpée chez l’obèse n’exclut rien<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">La mesure revient donc à l’échographie, qu’on pratique au cabinet après formation pour le dépistage et le suivi<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<h4>Région inguinale et ombilic</h4>
+<div class="p">On examine la hernie debout, puis couché, en demandant une toux : la voussure impulsive et réductible signe le diagnostic clinique<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">L’ombilic s’examine en position debout et assise, et l’imagerie ne vient qu’en cas d’obésité, de grande hernie ou de récidive<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Chez la femme, la hernie de l’aine est plus souvent crurale, et ce type de hernie doit être opéré sans retard au vu du risque d’étranglement<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<h4>Hypogastre et pelvis</h4>
+<div class="p">La percussion sus-pubienne cherche une matité convexe vers le haut, car la vessie distendue se palpe rarement<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Le toucher rectal est indispensable : il apprécie la taille de la prostate et oriente vers une prostatite douloureuse ou un cancer induré<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Chez la femme, le status vulvaire et le toucher vaginal orientent vers un prolapsus ou un fibrome utérin<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Le fibrome palpé ou symptomatique se bilante par une échographie pelvienne abdominale et endovaginale couplée au Doppler<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</div>
+<h4>Flancs et fosses iliaques</h4>
+<div class="p">Palpée, la fosse iliaque gauche fait mal, comme le toucher rectal du côté du foyer, et un péritonisme fait craindre un abcès ou une perforation<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Le toucher rectal peut aussi découvrir un fécalome, cause non urologique de rétention, et des lésions de l’ampoule comme une tumeur du rectum<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Un flanc plein et fixe peut être rénal, et l’échographie sépare alors le <button class="w" popovertarget="f-kyste">kyste liquidien</button> d’une masse solide<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div id="f-kyste" popover class="fenetre"><button class="fermer" popovertarget="f-kyste" popovertargetaction="hide">Fermer</button><h4>Rein — kyste simple à l’échographie</h4>
+<div class="p">L’échographie est l’examen de base qui caractérise un kyste simple, à paroi fine et contenu anéchogène<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="p">Toute lésion de type II à IV selon Bosniak exige ensuite un scanner, méthode de référence des masses rénales<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="p">Le type I ne demande ni traitement ni contrôle, tandis que les types III et IV relèvent de l’urologue<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<figure><img src="images/kyste_renal_echo.jpg" alt="Échographie d’un petit kyste rénal simple, contenu anéchogène, mesure affichée par l’appareil"><figcaption>Petit kyste rénal simple, anéchogène, mesuré par les curseurs de l’appareil. Licence CC BY-SA 4.0, auteur Ptrump16, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Small_simple_renal_cyst.jpg, consulté le 10 novembre 2026. Image montrée telle quelle.</figcaption></figure>
+</div>
 <h4>Hypochondres</h4>
-<div class="p">Sous le rebord droit, on suit le foie à l’inspiration, et une douleur de cet étage indique l’échographie<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La vésicule se cherche dans le même geste, car on peut confirmer ou écarter une cholécystite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">À gauche, la rate descend à l’inspiration, donc une masse fixe de l’hypochondre gauche n’est pas un côlon mobile<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<h4>Flancs et fosses</h4>
-<div class="p">La fosse droite douloureuse et fébrile oriente vers l’appendicite, tandis que la fosse gauche oriente vers la diverticulite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Un côlon gauche plein et pétrissable, sans niveau au-dessus de 3, signe le fécalome<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Un flanc plein et fixe peut être rétropéritonéal, et le scanner thoraco-abdomino-pelvien cherche alors les métastases<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<h4>Pelvis et ligne médiane</h4>
-<div class="p">L’hypogastre mate et tendu évoque le globe, donc on le vide avant de décrire une tumeur du pelvis<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">L’IRM devient une alternative surtout dans le pelvis, quand le scanner ne suffit pas à fixer les plans<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Sur la ligne médiane, on cherche un pouls expansif et non un simple battement transmis, car l’examen physique reste peu sensible<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On mesure ensuite par l’échographie en coupes transversale et longitudinale, afin de ne pas sous-estimer le plus grand diamètre<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Sur la paroi, on pince la peau : si la masse suit, elle reste pariétale, et l’échographie montre le fascia<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">L’examen physique reste peu sensible pour le sac, donc une aorte non palpée ne rassure pas chez l’homme âgé<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le flanc droit douloureux après un repas oriente vers l’hypochondre, et l’échographie y vient en premier<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La fosse iliaque gauche douloureuse oriente vers la diverticulite, que l’on peut chercher à l’échographie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">On ausculte peu le sac : l’examen physique reste peu sensible, et la main ne remplace pas la mesure<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On confronte la douleur sous le foie à l’image de la vésicule, car l’échographie confirme ou écarte la cholécystite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<button class="w" popovertarget="f-ves">vésicule enflammée</button>
-<div id="f-ves" popover class="fenetre"><h4>Vésicule — paroi et contenu déclive</h4><div class="p">La lumière anéchogène est la bile, et les échos déclives avec ombre postérieure sont des calculs ou de la boue<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Cette image répond à une douleur d’hypochondre, indication où l’échographie vient en premier<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Elle ne mesure pas l’aorte, donc un sac battant ne se conclut pas sur cette coupe<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<figure><img src="images/cholecystite_echo.jpg" alt="Échographie d'une vésicule, paroi et calculs déclives"><figcaption>Licence CC0, Mikael Häggström, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ultrasonography_of_cholecystitis.jpg, consulté le 10 novembre 2026. Œuvre utilisée sans annotation nouvelle.</figcaption></figure></div>
-<div class="p">Un second cliché montre le niveau déclive, car la boue et les calculs expliquent un relief sous-hépatique<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<button class="w" popovertarget="f-boe">boue et calculs</button>
-<div id="f-boe" popover class="fenetre"><h4>Vésicule — niveau déclive</h4><div class="p">La paroi fine autour d’une lumière noire n’est pas un sarcome, et le contenu déclive signe la bile épaisse<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<figure><img src="images/vesicule_echo.jpg" alt="Échographie de vésicule avec boue et calculs"><figcaption>Licence CC0, Mikael Häggström, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ultrasonography_of_sludge_and_gallstones.jpg, consulté le 10 novembre 2026.</figcaption></figure></div>
-<div class="p">On mesure la rate quand l’hypochondre gauche est plein, car l’échographie sépare la pulpe du côlon<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<button class="w" popovertarget="f-rate">grand axe de la rate</button>
-<div id="f-rate" popover class="fenetre"><h4>Rate — mesure du grand axe</h4><div class="p">Les curseurs du cliché suivent le grand axe, et le chiffre affiché sur la machine ne se devine pas à l’œil<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Une rate basse à l’inspiration reste un diagnostic d’hypochondre, pas un anévrisme<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<figure><img src="images/rate_echo.jpg" alt="Échographie de rate avec curseurs de grand axe"><figcaption>Licence CC0, Mikael Häggström, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Maximum_length_of_spleen_on_ultrasonography.jpg, consulté le 10 novembre 2026.</figcaption></figure></div>
+<div class="p">Sous les côtes, un foie ou une rate qui descendent à l’inspiration imitent une masse ; l’échographie de l’hypochondre tranche alors en première intention<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
 </section>
 <section class="ilot" id="p7"><h3 id="h7">7. Approche syndromique</h3>
 <h4>7.1 Masse battante et collapsus</h4>
-<div class="p">Le signe fonctionnel est une douleur lombaire ou abdominale brutale, et le signe physique est un relief expansif<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le mécanisme est la déchirure du sac, dont la mortalité masculine ajustée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">On cherche ce couple avant tout autre relief, car la mortalité de la rupture citée atteint 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<h4>7.2 Défense, fièvre et plastron</h4>
-<div class="p">La douleur fébrile de fosse, la défense et un empâtement définissent le plastron ou la diverticulite compliquée<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Si la douleur devient diffuse et fait craindre une perforation, l’abdomen sans préparation reprend une place<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Des niveaux au-dessus de 3 avec un grêle distendu signent l’iléus sur le cliché debout<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<h4>7.3 Volume indolent</h4>
-<div class="p">Ici la gêne est ancienne ou absente, et l’image a souvent précédé la main<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Le seuil de 5 cm, la profondeur et la croissance décident de l’adressage, donc le calme clinique ne ferme pas le dossier<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Un anévrisme entre 3 et 5,5 cm peut rester silencieux, or il entre quand même dans une surveillance<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">L’ascite, elle, donne une matité déclive plutôt qu’un noyau dur, et l’échographie la montre<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Le couple douleur brutale et relief expansif oriente vers la rupture, dont la mortalité citée atteint 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">En Suisse, 22,7 % des séjours pour anévrisme arrivent déjà rompus, donc on ouvre la conduite sur la rupture<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La chirurgie en urgence, dans l’essai cité, porte une mortalité à 30 jours de 37 %, contre 6 % à froid<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le plastron fébrile de la fosse droite oriente vers l’appendicite, que l’échographie confirme ou écarte<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Si la défense devient diffuse, l’abdomen sans préparation reprend une place, car on suspecte une perforation<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Le volume indolent apparaît souvent sur une image demandée pour une gêne, et on ne le traite pas comme une urgence vasculaire<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Un sac silencieux entre 3 et 5,5 cm reste un anévrisme, et la surveillance annuelle concerne la tranche de 3 à 4,4 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">L’ascite se confirme à l’échographie, et la matité déclive ne se confond pas avec un noyau dur<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Même indolente, une lésion profonde au-delà de 5 cm impose l’adressage, car la taille fait partie des motifs<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Des niveaux nombreux, au-dessus de 3, avec un grêle distendu, signent l’iléus sur le cliché debout<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Dans ce tableau douloureux, on réserve Morphin®, à 10 mg pour 70 kg, à la nécessité absolue si la cause manque<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Un diamètre de 4,0 à 5,5 cm a été comparé dans une étude, et le seuil opératoire masculin reste plus haut<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
+<div class="p">Le sac reste souvent muet jusqu’à la rupture, si bien que le signe physique utile est une <button class="w" popovertarget="f-pouls">masse pulsatile expansive</button> chez l’homme âgé<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div id="f-pouls" popover class="fenetre"><button class="fermer" popovertarget="f-pouls" popovertargetaction="hide">Fermer</button><h4>Signe — masse pulsatile expansive</h4>
+<div class="p">Mécanisme : selon la loi de Laplace, la paroi s’élargit d’autant plus vite que le diamètre est grand<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Valeur : l’examen physique reste peu sensible et peu spécifique pour reconnaître un anévrisme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Conséquence : l’échographie pratiquée au cabinet après formation mesure le diamètre et sert au dépistage comme au suivi<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+</div>
+<div class="p">Ce syndrome impose le transfert, puisque 423 des 1 123 ruptures traitées, soit 37,4 %, venaient d’un hôpital régional<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<h4>7.2 Masse fébrile et sensible</h4>
+<div class="p">Fièvre et douleur de fosse iliaque gauche, puis une <button class="w" popovertarget="f-def">défense localisée</button> orientent vers la diverticulite compliquée qui s’abcède<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div id="f-def" popover class="fenetre"><button class="fermer" popovertarget="f-def" popovertargetaction="hide">Fermer</button><h4>Signe — défense localisée</h4>
+<div class="p">Définition : le péritonisme localisé en fosse iliaque gauche traduit une diverticulite compliquée<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Mécanisme : une microperforation couverte par la graisse péricolique entretient l’inflammation locale<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Valeur : un péritonisme diffus oriente plutôt vers la perforation ou la péritonite, dont la mortalité est plus lourde<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+</div>
+<div class="p">Si cette défense devient diffuse, la péritonite purulente ou stercorale des stades III et IV impose une laparotomie en urgence<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</div>
+<h4>7.3 Masse médiane sus-pubienne</h4>
+<div class="p">Le signe fonctionnel est l’envie d’uriner sans pouvoir le faire ; le signe physique est une <button class="w" popovertarget="f-mat">matité sus-pubienne</button> tendue<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div id="f-mat" popover class="fenetre"><button class="fermer" popovertarget="f-mat" popovertargetaction="hide">Fermer</button><h4>Signe — matité sus-pubienne</h4>
+<div class="p">Définition : la percussion, sonore au-dessus, devient mate au-dessus du pubis sur une zone convexe vers l’ombilic<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Valeur : elle se détecte plus facilement que la vessie elle-même, que la main ne sent que rarement<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Piège : chez l’obèse, l’échographie confirme la distension avant un sondage sus-pubien<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+</div>
+<div class="p">Chez la femme jeune, la même masse médiane peut être un utérus gravide ou fibromateux, d’où l’échographie en première intention<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<h4>7.4 Masse indolore et persistante</h4>
+<div class="p">La gêne est ancienne ou absente, et l’image a souvent précédé la main, comme pour un kyste rénal ou un sarcome de découverte fortuite<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Une <button class="w" popovertarget="f-imp">voussure impulsive</button> à la toux classe la masse dans la paroi et clôt souvent le diagnostic<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div id="f-imp" popover class="fenetre"><button class="fermer" popovertarget="f-imp" popovertargetaction="hide">Fermer</button><h4>Signe — voussure impulsive et réductible</h4>
+<div class="p">Définition : la voussure grossit à la toux ou au Valsalva, puis rentre quand le patient se couche ou sous une pression douce<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Technique : on examine debout puis couché, en plaçant la main sur l’orifice inguinal pendant la toux<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Piège : l’obésité masque la voussure, et l’échographie devient alors l’imagerie de première intention<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+</div>
+<div class="t" style="overflow-x:auto"><table><caption>Syndromes : signes fonctionnels et signes physiques</caption>
+<tr><th>Syndrome</th><th>Signes fonctionnels</th><th>Signes physiques</th></tr>
+<tr><td>7.1 Masse battante et collapsus</td><td>Le sac reste souvent muet jusqu’à la rupture<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Une masse pulsatile expansive se palpe, sans que son absence rassure<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td></tr>
+<tr><td>7.2 Masse fébrile et sensible</td><td>La fièvre et la douleur de la fosse iliaque gauche s’associent aux troubles du transit<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td><td>La défense localisée recouvre une masse palpable dans 20 % des cas<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td></tr>
+<tr><td>7.3 Masse médiane sus-pubienne</td><td>Le patient ressent l’envie d’uriner sans y parvenir<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>La matité sus-pubienne est tendue et douloureuse<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td></tr>
+<tr><td>7.4 Masse indolore et persistante</td><td>La gêne reste modeste ou manque<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>Une voussure impulsive classe la masse dans la paroi ; sinon, la masse profonde va à l’image<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td></tr>
+</table></div>
 </section>
 <section class="ilot" id="p8"><h3 id="h8">8. Diagnostic positif et critères</h3>
-<div class="p">En 2004, un diamètre au-delà de 3 cm définit déjà l’anévrisme dans l’essai de dépistage<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Ce seuil ne suffit pas à opérer, car les petits sacs se situent entre 3 et 5,5 cm et restent en surveillance<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Chez l’homme, 5,5 cm déclenche l’avis chirurgical<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Un grand sac, au-delà de 5,5 ou de 6 cm, relève de la chirurgie, donc le chiffre ne se choisit pas au jugé<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Une croissance de 1 cm/an suffit à resserrer la surveillance ou à adresser, même sous 5,5 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">En 2021, le sarcome des parties molles se suspecte au-delà de 5 cm, ou si la lésion est profonde, croissante, atypique ou symptomatique<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Aucun de ces traits ne remplace l’histologie, et la biopsie radioguidée se fait toujours en cas de suspicion<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Une exérèse locale a minima ne constitue pas un diagnostic, donc elle est refusée<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">L’iléus se retient sur des niveaux au-dessus de 3 et un grêle distendu, au cliché debout<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">L’absence de ces signes ne suffit pas si l’obstacle est proximal<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">La cholécystite et l’appendicite se confirment ou s’écartent par l’échographie, sans seuil millimétrique unique dans ce texte<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">La pancréatite suspectée se confirme d’abord au scanner, puis l’échographie cherche des calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Les petits sacs se situent entre 3 et 5,5 cm, et ce texte de 2004 les sépare des grands<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Au-delà de 5,5 cm ou de 6 cm, on adresse, car le texte rend chirurgical un grand sac<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La biopsie radioguidée est exigée dès la suspicion, et elle précède le colloque<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">En 2017, confirmer ou écarter la cholécystite, l’appendicite ou l’ascite reste l’usage principal de l’échographie de première ligne<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="t" style="overflow-x:auto">
-<table>
-<tr>
-<th>Critère</th><th>Année</th><th>Ce qui suffit</th><th>Ce qui ne suffit pas</th>
-</tr>
-<tr>
-<td>Le diamètre aortique au-delà de 3 cm définit le sac<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Le texte de 2004 retient ce seuil de définition<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Il suffit à nommer l’anévrisme déjà constitué<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Il ne suffit pas à opérer<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le diamètre de 5,5 cm chez l’homme impose l’avis<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Le même texte de 2004 fixe l’avis chirurgical<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Il suffit à adresser le patient vers le chirurgien<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Un sac de 4,0 cm ne suffit pas<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Une lésion des parties molles au-delà de 5 cm impose l’adressage<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>Cette recommandation date de 2021 et reste en vigueur<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>Elle suffit à investiguer et à adresser<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-<td>Elle ne suffit pas à sauter la biopsie radioguidée<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-</tr>
-<tr>
-<td>Des niveaux hydro-aériques nombreux, au-dessus de 3, signent l’iléus<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’article d’imagerie date de 2013 et reste le guide du tri<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Avec un grêle distendu, ils suffisent à retenir l’iléus<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>Leur absence ne suffit pas si l’obstacle est proximal<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
+<div class="p">L’anévrisme de l’aorte abdominale se retient dès que le diamètre mesuré atteint 3 cm, et les petits anévrismes vont de 3 à 5,5 cm<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Chez l’homme, le seuil opératoire est de 5,5 cm, alors que chez la femme on opère au plus tard dès 5 cm, puisque son sac rompt plus petit<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">La hernie inguinale reste un diagnostic clinique : douleur de l’aine, voussure palpable, impulsive au Valsalva et réductible<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">La rétention urinaire aiguë se confirme par le sondage, qui ramène le volume et soulage aussitôt le patient<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Le kyste rénal se classe selon Bosniak : le type I ne demande rien, le type II se surveille, les types III et IV vont à la chirurgie<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="p">Le fibrome se confirme par l’échographie pelvienne, qui précise nombre, taille et siège, tandis que l’IRM aide quand l’image reste difficile<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</div>
+<div class="p">La diverticulite compliquée se décrit selon Hinchey : le stade I est un abcès péricolique de moins de 4 cm, le stade II un abcès à distance, souvent pelvien<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</div>
+<div class="p">Aux stades III et IV, la péritonite purulente puis stercorale fait sortir le patient du cadre de l’abcès<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</div>
+<div class="p">Chez la femme enceinte, l’échographie reste l’imagerie d’emblée, et le scanner n’intervient qu’à faible dose après une échographie indéterminée<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Critères qui fixent le diagnostic et le seuil d’action</caption>
+<tr><th>DX</th><th>Critère</th><th>Seuil d’action</th></tr>
+<tr><td>Anévrisme de l’aorte<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Un diamètre de 3 cm ou plus définit l’anévrisme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>L’homme est opéré à 5,5 cm, la femme au plus tard dès 5 cm<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td></tr>
+<tr><td>Kyste rénal<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>La classe de Bosniak découle du scanner<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>Les types III et IV relèvent de la chirurgie<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td></tr>
+<tr><td>Abcès diverticulaire<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</td><td>Le stade de Hinchey se lit au scanner<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</td><td>Le stade II demande antibiotiques et drainage percutané<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</td></tr>
+<tr><td>Sarcome<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>L’histologie confirme le type et le grade<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>L’exérèse large R0 se planifie au centre<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td></tr>
+</table></div>
+<div class="t" style="overflow-x:auto"><table><caption>Classifications et seuils : source et année</caption>
+<tr><th>Classification ou seuil</th><th>Contenu</th><th>Source et année</th></tr>
+<tr><td>Bosniak</td><td>Le type I se laisse, le type II se surveille, les types III et IV s’opèrent<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>Revue médicale suisse, 2005</td></tr>
+<tr><td>Hinchey</td><td>Le stade I reste péricolique sous 4 cm ; les stades III et IV sont des péritonites<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</td><td>Revue médicale suisse, 2009</td></tr>
+<tr><td>Seuils de l’anévrisme</td><td>On surveille de 3 à 5,4 cm et l’on opère dès 5,5 cm chez l’homme<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Revue médicale suisse, 2004</td></tr>
+<tr><td>Alerte des parties molles</td><td>Une taille au-delà de 5 cm, la profondeur ou la croissance déclenchent l’avis du centre<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>Revue médicale suisse, 2021</td></tr>
 </table></div>
 </section>
 <section class="ilot" id="p9"><h3 id="h9">9. Examens complémentaires</h3>
-<h4>9.a Étalon</h4>
-<div class="p">Pour une lésion des parties molles suspecte, l’étalon est l’histologie obtenue par biopsie radioguidée, car l’image ne nomme pas le type<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Pour l’aorte, l’étalon de mesure reste l’échographie du plus grand diamètre, en transversal et en longitudinal<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Quand la rupture est déjà probable et le pouls tient encore, le scanner du centre vasculaire fixe l’anatomie opératoire, puisque 97,3 % de ces traitements se font en hôpital majeur<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<h4>9.b Première intention</h4>
-<div class="p">L’échographie vient en premier pour une douleur d’hypochondre<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Elle vient aussi en premier pour une masse sous-cutanée palpée<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">En médecine de famille, elle confirme ou écarte cholécystite, appendicite ou ascite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">La diverticulite peut s’y chercher, or ce n’est pas l’indication la mieux établie du texte<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Le même outil dépiste l’aorte, car il est rapide et voit le vaisseau chez la très grande majorité des patients<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<h4>9.c Situations où l’ordre change</h4>
-<div class="p">Si l’on suspecte une pancréatite, le scanner passe devant, puis l’échographie cherche les calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Une insuffisance rénale grave impose la plus grande prudence pour Morphin®, et seule une nécessité absolue autorise l’ampoule<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Si le scanner ne suffit pas à fixer les plans, l’IRM sert d’alternative, surtout dans le pelvis<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">L’abdomen sans préparation ne répond qu’au doute d’iléus ou de perforation, donc il ne classe pas une masse pleine<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<h4>9.d Deuxième intention</h4>
-<div class="p">Le scanner thoraco-abdomino-pelvien complète l’échographie, et on y cherche des métastases<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Il précise un sac dont le collet n’est pas vu à l’échographie, car un anévrisme thoracique associé changerait la prise en charge<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Il confirme la pancréatite déjà suspectée, donc il n’est pas un examen de routine pour toute voussure<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">En Suisse, la voie ouverte a concerné plus de 60 % des ruptures enregistrées dans le registre vasculaire cité<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La part endovasculaire des formes non rompues est passée de 46,5 % en 2009 à 67,0 % en 2018<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">L’examen physique reste peu sensible, donc on mesure le diamètre, et un sac au-delà de 3 cm est déjà un anévrisme<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le cliché debout montre des niveaux au-dessus de 3 quand le grêle se distend, et il ne sert pas à mesurer un sac<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">L’histologie par biopsie radioguidée reste l’étalon d’une lésion suspecte, et l’image ne la remplace pas<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">On lit le cliché axial de l’aorte avant de choisir le scanner, car le plus grand diamètre se juge déjà en deux plans<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<button class="w" popovertarget="f-sac">cliché axial de l’aorte</button>
-<div id="f-sac" popover class="fenetre"><h4>Cliché — sac aortique axial</h4>
+<h4>9.a Biologie</h4>
+<div class="p">Après le drainage d’une rétention, on demande sédiment et culture d’urine, électrolytes et créatinine, mais pas de PSA en urgence<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Le PSA dosé en urgence peut être faussement augmenté ; on le mesure à distance de l’épisode aigu, chez l’urologue<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Dans la diverticulite, la leucocytose et la CRP suivent l’évolution et décident l’hospitalisation si elles ne baissent pas en 72 h<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Une lipase à plus de 3 fois la norme confirme la pancréatite, qui peut imiter une masse épigastrique<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
+<div class="p">Le dosage de la créatinine précède aussi tout scanner injecté, puisque le contraste expose à l’insuffisance rénale<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
+<h4>9.b Échographie en première intention</h4>
+<div class="p">L’échographie domine en cas de douleur de l’hypochondre, car elle est rapide, non irradiante et transportable, même si le météorisme et l’obésité la gênent<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
+<div class="p">Chez toute femme en âge de procréer, comme chez la femme enceinte, elle passe avant le scanner<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="p">Elle mesure l’aorte au cabinet, puisque le dépistage et le suivi de l’anévrisme après formation figurent parmi ses indications<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div class="p">Près de 30 % des cabinets suisses de médecine de famille disposent d’un échographe, et 1 477 praticiens détiennent le certificat SGUM<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div class="p">Le <button class="w" popovertarget="f-sgum">parcours de formation SGUM et POCUS</button> fixe le nombre d’examens supervisés avant de pratiquer seul<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div id="f-sgum" popover class="fenetre"><button class="fermer" popovertarget="f-sgum" popovertargetaction="hide">Fermer</button><h4>Échographie au cabinet — formation et facturation</h4>
+<div class="p">Le module abdomen de la SGUM exige 500 examens, dont 400 abdominaux et 200 sous supervision<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div class="p">Le certificat POCUS, reconnu par l’ISFM en décembre 2016, exige 200 examens, dont la moitié au moins sous supervision<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div class="p">L’article de 2017 liait le remboursement Tarmed à ce cadre SGUM, une règle désormais historique<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div class="p">Depuis le 1er janvier 2026, TARDOC et les forfaits ambulatoires remplacent TARMED, avec un chapitre propre à la médecine de famille<sup class="r"><a href="#sb-ofsp_tardoc-1">[16]</a></sup>.</div>
+<div class="p">Le nouveau tarif compte environ 1 400 positions au lieu de plus de 4 600, et quelque 300 forfaits surtout hospitaliers<sup class="r"><a href="#sb-ofsp_tardoc-1">[16]</a></sup>.</div>
+</div>
+<div class="p">Pour le sac aortique, on lit le <button class="w" popovertarget="f-sac">cliché axial de l’anévrisme</button> avant de décider du scanner, car le plus grand diamètre se mesure en coupe transverse<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div id="f-sac" popover class="fenetre"><button class="fermer" popovertarget="f-sac" popovertargetaction="hide">Fermer</button><h4>Cliché — anévrisme de l’aorte en coupe axiale</h4>
 <figure class="cliche">
-<div class="fiche">Modalité : échographie. Coupe : axiale. Position : décubitus. Latéralité : ligne médiane. Inscription : pictogramme de position, aucun nom de patient.</div>
-<img src="images/aaa_axial_brut.jpg" alt="Cliché brut, échographie axiale d'un anévrisme de l'aorte abdominale">
+<div class="fiche">Modalité : échographie. Coupe : axiale. Position : décubitus dorsal. Latéralité : ligne médiane. Inscription : pictogramme de position, aucun nom de patient.</div>
 <div class="paire">
-<img src="images/aaa_axial_brut.jpg" alt="Même cliché avec repères, œuvre dérivée">
+<div><h5>Cliché brut</h5><div class="cadre-img"><img src="images/aaa_axial_brut.jpg" alt="Cliché brut : échographie axiale d’un anévrisme de l’aorte abdominale"></div></div>
+<div><h5>Même cliché annoté</h5><div class="cadre-img"><img src="images/aaa_axial_brut.jpg" alt="Même cliché avec 4 repères numérotés, œuvre dérivée">
 <svg viewBox="0 0 472 551" aria-hidden="true">
-<circle cx="300" cy="345" r="78" fill="none" stroke="#7a1f1c" stroke-width="3"/>
-<text x="286" y="350" fill="#7a1f1c" font-size="18" font-family="Verdana">1</text>
-<circle cx="210" cy="300" r="14" fill="none" stroke="#6b3418" stroke-width="3"/>
-<text x="205" y="305" fill="#6b3418" font-size="16" font-family="Verdana">2</text>
-<circle cx="250" cy="95" r="14" fill="none" stroke="#1c1612" stroke-width="3"/>
-<text x="245" y="100" fill="#1c1612" font-size="16" font-family="Verdana">3</text>
-<circle cx="78" cy="470" r="12" fill="none" stroke="#1c1612" stroke-width="3"/>
-<text x="73" y="475" fill="#1c1612" font-size="14" font-family="Verdana">4</text>
-</svg>
+<circle cx="285" cy="425" r="112" fill="none" stroke="#ffffff" stroke-width="5"/><circle cx="285" cy="425" r="112" fill="none" stroke="#7a1f1c" stroke-width="3"/>
+<rect x="271" y="402" width="28" height="30" rx="5" fill="#ffffff" fill-opacity=".92"/><text x="278" y="424" fill="#1c1612" font-size="20" font-weight="700" font-family="Verdana">1</text>
+<circle cx="160" cy="330" r="16" fill="none" stroke="#ffffff" stroke-width="5"/><circle cx="160" cy="330" r="16" fill="none" stroke="#7a1f1c" stroke-width="3"/>
+<rect x="112" y="290" width="28" height="30" rx="5" fill="#ffffff" fill-opacity=".92"/><text x="119" y="312" fill="#1c1612" font-size="20" font-weight="700" font-family="Verdana">2</text>
+<circle cx="250" cy="95" r="14" fill="none" stroke="#ffffff" stroke-width="5"/><circle cx="250" cy="95" r="14" fill="none" stroke="#7a1f1c" stroke-width="3"/>
+<rect x="270" y="80" width="28" height="30" rx="5" fill="#ffffff" fill-opacity=".92"/><text x="277" y="102" fill="#1c1612" font-size="20" font-weight="700" font-family="Verdana">3</text>
+<circle cx="78" cy="470" r="12" fill="none" stroke="#ffffff" stroke-width="5"/><circle cx="78" cy="470" r="12" fill="none" stroke="#7a1f1c" stroke-width="3"/>
+<rect x="96" y="455" width="28" height="30" rx="5" fill="#ffffff" fill-opacity=".92"/><text x="103" y="477" fill="#1c1612" font-size="20" font-weight="700" font-family="Verdana">4</text>
+</svg></div></div>
 </div>
-<figcaption>
-Lecture. Le repère 1 encercle la lumière ronde et anéchogène, qui est le sac. Le repère 2 pose le liseré de paroi et le contenu hétérogène qui peut être du thrombus. Le repère 3 rappelle la paroi abdominale du champ proche, normale avant le vaisseau. Le repère 4 est le pictogramme de position, pas une lésion.
-Ce que l'image décide : un sac aortique oriente vers la rupture E1 si le patient est instable, tandis qu'une aorte fine sur cette coupe impose de chercher la péritonite E2 ailleurs, au scanner.
-Attribution : Mikael Häggström, échographie axiale d'anévrisme de l'aorte abdominale, licence CC0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg, consulté le 10 novembre 2026. La copie annotée est une œuvre dérivée sous la même licence.
-</figcaption>
+<figcaption>Lecture : le repère 1 entoure la lumière ronde et anéchogène du sac ; le repère 2 montre la paroi et un contenu hétérogène compatible avec du thrombus ; le repère 3 marque la paroi abdominale du champ proche ; le repère 4 est le pictogramme de position, sans valeur clinique.
+Ce que l’image décide : un sac large chez un patient instable oriente vers la rupture d’anévrisme E1 et le transfert immédiat, tandis qu’une aorte fine renvoie la fièvre de la fosse iliaque gauche vers l’abcès diverticulaire E2, à chercher au scanner.
+<span class="credit">Mikael Häggström, échographie axiale d’un anévrisme de l’aorte abdominale, licence CC0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg, consulté le 10 novembre 2026 ; la copie annotée est une œuvre dérivée sous la même licence.</span></figcaption>
 </figure>
+<div class="p">En clair, ce cliché répond à la question du diamètre, mais il ne dit pas si le sac fuit<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
 </div>
-<div class="p">Si la pancréatite est suspectée, le scanner reste premier, et cette échographie ne le remplace pas<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<button class="w" popovertarget="f-pan">loge pancréatique</button>
-<div id="f-pan" popover class="fenetre"><h4>Pancréas — plage hypoéchogène</h4><div class="p">La plage hypoéchogène de la loge explique un relief profond, or elle ne nomme pas à elle seule le cancer<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Un volume profond douteux part ensuite au scanner thoraco-abdomino-pelvien, et on l’y mesure<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<figure><img src="images/pancreas_echo.jpg" alt="Échographie d'une plage hypoéchogène de la loge pancréatique"><figcaption>Licence CC0, Mikael Häggström, fichier intitulé échographie de cancer du pancréas, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ultrasonography_of_pancreatic_cancer.jpg, consulté le 10 novembre 2026.</figcaption></figure></div>
-<div class="p">On regarde le hile quand le foie est gros, car les voies biliaires et le flux se voient chez un opérateur formé<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<button class="w" popovertarget="f-bile">hile hépatique</button>
-<div id="f-bile" popover class="fenetre"><h4>Voies biliaires et Doppler</h4><div class="p">Les structures anéchogènes près du hile et le signal couleur distinguent canal et vaisseau<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Après un scanner de pancréatite, on cherche encore des calculs à l’échographie<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<figure><img src="images/voies_biliaires_echo.jpg" alt="Échographie du hile avec Doppler couleur"><figcaption>Licence CC0, Mikael Häggström, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ultrasonography_of_dilated_bile_ducts.jpg, consulté le 10 novembre 2026.</figcaption></figure></div>
-<div class="p">Un flanc plein peut être rénal, et l’échographie sépare le kyste liquidien d’une masse solide<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<button class="w" popovertarget="f-kyste">kyste rénal</button>
-<div id="f-kyste" popover class="fenetre"><h4>Rein — lésion anéchogène mesurée</h4><div class="p">Une lésion solide du rétropéritoine, elle, ne se clôt pas sur une image liquidienne<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Le cliché affiche une distance, que l’on lit sur l’appareil plutôt que de l’inventer<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<figure><img src="images/kyste_renal_echo.jpg" alt="Échographie d'un kyste rénal simple avec mesure affichée"><figcaption>Licence CC BY-SA 4.0, auteur Ptrump16, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Small_simple_renal_cyst.jpg, consulté le 10 novembre 2026. Œuvre dérivée : aucune, le fichier est montré tel quel.</figcaption></figure></div>
-<div class="p">Le sang ne nomme pas la masse, or il pèse quand la rupture est déjà dans la pièce, avec 22,7 % des séjours qui arrivent rompus<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<button class="w" popovertarget="f-bio">lecture du sang</button>
-<div id="f-bio" popover class="fenetre"><h4>Biologie — ce que le chiffre change</h4><div class="p">Une insuffisance rénale grave figure dans les prudences de Morphin®, donc le débit rénal se lit avant l’ampoule<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Dès que la pancréatite est suspectée, le texte de 2013 place le scanner en premier<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Un relief expansif avec chute de pression oriente vers la rupture, dont la mortalité citée atteint 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-</div>
-<div class="t" style="overflow-x:auto">
-<table>
-<tr>
-<th>Résultat</th><th>Signification</th><th>Conduite</th>
-</tr>
-<tr>
-<td>Le plus grand diamètre aortique dépasse 5,5 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Le risque de rupture l’emporte sur la surveillance simple, et on adresse<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>On demande alors un avis chirurgical<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le diamètre reste entre 3 et 4,4 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>Le sac est réel mais encore petit<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-<td>On revoit le patient chaque année<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</td>
-</tr>
-<tr>
-<td>Les niveaux dépassent 3 et le grêle se distend<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’iléus est présent sur le cliché debout<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>On cherche l’obstacle et on ne purge pas<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>L’échographie montre un passage du fascia<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</td>
-<td>La lésion n’est plus seulement sous-cutanée<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</td>
-<td>On adresse si la taille dépasse 5 cm ou si elle grandit<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</td>
-</tr>
-<tr>
-<td>Le scanner d’une pancréatite suspectée est positif<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’inflammation est confirmée avant la chasse aux calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-<td>L’échographie vient ensuite, et on y cherche les calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</td>
-</tr>
-<tr>
-<td>L’échographie écarte la cholécystite et l’appendicite<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>Deux causes fréquentes de douleur aiguë tombent<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-<td>On revient à l’examen si le relief, lui, persiste<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</td>
-</tr>
+<h4>9.c Scanner : indication et restrictions</h4>
+<div class="p">Si une diverticulite est suspectée, le scanner abdominal standard est l’examen de choix, et il guide le drainage d’un abcès<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="p">Le scanner thoraco-abdomino-pelvien complète l’échographie devant une masse suspecte de sarcome, tandis que l’IRM est préférée dans le pelvis<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Pour un kyste rénal de type II à IV, le scanner reste la référence ; l’IRM le remplace si le contraste iodé est contre-indiqué<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</div>
+<div class="p">Chez la femme enceinte ou le sujet jeune, on évite l’irradiation : le scanner délivre environ 10 mSv par passage, contre 4 mSv par an pour un habitant de Genève<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
+<div class="p">Le produit de contraste expose à l’insuffisance rénale et à l’allergie, et le patient âgé y est plus sensible que le jeune<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
+<div class="p">Après une échographie indéterminée, un scanner à faible dose irradie nettement moins pour une précision comparable dans l’appendicite ou la colique néphrétique<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
+<div class="p">L’abdomen sans préparation ne sert qu’au doute d’iléus ou de perforation, et il reste normal dans 30 % des perforations<sup class="r"><a href="#sb-rms_imagerie-1">[15]</a></sup>.</div>
+<h4>9.d Histologie et avis spécialisé</h4>
+<div class="p">Le sarcome ne se pose qu’à l’histologie, obtenue par une biopsie coaxiale radioguidée dont le risque d’ensemencement reste de 0,37 %<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="p">Pour une rétention, le bilan urologique se complète à distance par échographie transrectale et urétrocystoscopie, obligatoire si l’hématurie est macroscopique<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Après une diverticulite, la coloscopie à 2 à 6 semaines écarte un cancer colique, mais jamais à chaud<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Quel examen pour quelle masse</caption>
+<tr><th>Situation</th><th>Premier examen</th><th>Restriction</th></tr>
+<tr><td>Masse battante de la ligne médiane<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>L’échographie mesure le diamètre<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</td><td>La rupture se traite à 97,3 % dans un hôpital majeur<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</td></tr>
+<tr><td>Fièvre et masse de la fosse iliaque gauche<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>Le scanner standard est choisi d’emblée<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>L’échographie reste souvent peu concluante à cause des gaz<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td></tr>
+<tr><td>Masse pelvienne de la femme en âge de procréer<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>L’échographie vient en premier<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>Le scanner à faible dose ne vient qu’après une échographie indéterminée<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td></tr>
+<tr><td>Masse des parties molles suspecte<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>L’échographie, puis le scanner thoraco-abdomino-pelvien, sont demandés<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>La biopsie se fait au centre, par voie radioguidée<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td></tr>
 </table></div>
 </section>
 <section class="ilot" id="p10"><h3 id="h10">10. Arbre décisionnel</h3>
-<ol>
-<li>Si le relief est battant et la pression chute, on traite la rupture d’anévrisme comme E1 avant de chercher une autre image, car la mortalité masculine ajustée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</li>
-<li>Si la défense est diffuse et la fièvre présente, on cherche ensuite la péritonite diverticulaire, E2, car la diverticulite fait déjà partie des douleurs aiguës à éclaircir<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</li>
-<li>Si la douleur est seulement d’un hypochondre et le pouls est stable, l’échographie vient en premier<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li>Si l’on suspecte une pancréatite, le scanner passe devant, puis l’échographie cherche des calculs<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li>Si les niveaux hydro-aériques dépassent 3 et le grêle se distend, on retient l’iléus plutôt que le fécalome<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li>Si aucune de ces voies n’explique un volume profond de plus de 5 cm, on adresse au centre sans biopsie chirurgicale a minima<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</li>
-<li>Si l’aorte dépasse 5,5 cm chez l’homme, l’avis chirurgical ferme l’arbre de surveillance<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</li>
-<li>Si le sac reste entre 3 et 4,4 cm, le contrôle est annuel<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</li>
+<ol class="algo">
+<li>Rupture d’anévrisme de l’aorte abdominale E1 : si une masse battante apparaît chez un homme âgé ou un anévrisme connu, alors on organise le <button class="w" popovertarget="f-urg">transfert vers un centre vasculaire</button><sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</li>
+<li>Si la fièvre s’associe à une douleur de la fosse iliaque gauche et à une masse sensible, alors l’abcès diverticulaire E2 se cherche au scanner, à l’hôpital<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</li>
+<li>Si une hernie devient douloureuse et irréductible, alors on adresse le jour même aux urgences chirurgicales, surtout chez la femme<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</li>
+<li>Si une masse médiane sus-pubienne s’accompagne d’une miction impossible, alors on sonde aussitôt, avant d’investiguer la cause<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</li>
+<li>Si la patiente est en âge de procréer ou enceinte, alors l’échographie pelvienne passe en premier, avant tout scanner<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</li>
+<li>Si une masse des parties molles dépasse 5 cm, siège en profondeur ou grandit, alors on adresse au centre des sarcomes sans exérèse préalable<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</li>
+<li>Si une masse rénale stable est découverte par l’image, alors on la classe selon Bosniak, puis on surveille ou adresse<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</li>
+<li>Si la masse est inguinale, impulsive à la toux et réductible chez un homme peu gêné, alors l’attente vigilante reste une option sûre<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</li>
+<li>Si un fécalome est palpé chez un patient âgé, alors on l’évacue puis on cherche une rétention urinaire associée, qu’il explique dans 3 à 7 % des cas<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</li>
 </ol>
-<div class="p">Si le sac mesure de 4,5 à 5,4 cm, le contrôle revient à trois mois, car ce rythme est celui du texte de 2004<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Si la lésion est sous-cutanée, l’échographie reste l’examen de la graisse et du fascia<sup class="r"><a href="#sb-rms_sarcome-2">[2]</a></sup>.</div>
-<div class="p">Si la rupture est confirmée et le pouls tient, on oriente vers l’hôpital majeur, où se font 97,3 % des traitements<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Si les niveaux ne dépassent pas 3 et le côlon se pétrit, on retient le fécalome plutôt que l’occlusion<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Si la fièvre et la défense restent locales, on cherche l’appendicite ou la diverticulite avant une tumeur profonde<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Si la croissance atteint 1 cm/an, on resserre la surveillance même sous le seuil de 5,5 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
+<div class="p">L’ordre de l’arbre suit la létalité : la rupture passe avant tout, parce que 75 % des patients rompus meurent avant l’hôpital<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">L’abcès vient ensuite, car une diverticulite compliquée qui évolue vers la péritonite des stades III et IV impose la laparotomie en urgence<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</div>
+<div class="p">Les masses fréquentes et bénignes se trient après, souvent par le seul examen clinique ou une échographie au cabinet<sup class="r"><a href="#sb-rms_echo-1">[14]</a></sup>.</div>
+<div class="p">Si un doute persiste à chaque étape, l’échographie de première ligne précède le scanner, sauf suspicion de diverticulite, où le scanner standard s’impose d’emblée<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</div>
 </section>
 <section class="ilot" id="p11"><h3 id="h11">11. Prise en charge selon les recommandations suisses</h3>
-<h4>11.A But</h4>
-<div class="p">Le but chiffré est de faire baisser la mortalité des ruptures, encore de 19,7 % chez l’homme et de 32,4 % chez la femme après ajustement<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">À froid, le même pays a déjà montré une baisse, de 2,4 % à 0,6 % chez l’homme entre 2009 et 2018<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">On vise aussi à ne pas opérer trop tôt un sac de 4,0 à 5,5 cm, car cette fourchette a été comparée sans que le diamètre seul décide<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<h4>11.B Moyens</h4>
-<div class="p">D’abord on reconnaît la rupture instable et on l’oriente vers un hôpital majeur, puisque 97,3 % de ces traitements s’y font<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Ensuite 37,4 % des ruptures partent déjà d’un hôpital régional vers ce centre, donc le transfert fait partie du soin<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La chirurgie en urgence a une mortalité à 30 jours de 37 % dans l’essai de dépistage, tandis que l’électif y est à 6 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On propose l’opération en urgence quand le sac a rompu, car la mortalité spontanée citée atteint 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On injecte Morphin® à 10 mg pour 70 kg par voie sous-cutanée ou intramusculaire<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">On espace ces injections de Morphin® de 4 à 6 heures, car la fourchette individuelle va de 5 à 20 mg<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Par voie intraveineuse, Morphin® se donne de 2,5 à 15 mg<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">On la dilue dans 4 à 5 ml et on l’injecte en 4 à 5 minutes, donc l’injection reste lente<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">L’hypersensibilité au principe actif ou à un excipient contre-indique Morphin®, spécialité Swissmedic n° 51039<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Un abdomen aigu dont la cause est inconnue n’autorise cette ampoule qu’en nécessité absolue, car elle peut masquer le tableau<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Un iléus paralytique confirmé ou seulement soupçonné impose l’arrêt<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La dépression respiratoire, l’insuffisance rénale grave et le patient âgé imposent la même prudence extrême<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Après Morphin®, on garde la naloxone à portée, et le surdosage se traite par 0,4 à 2 mg intraveineux<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Hors médicament, l’échographie de première ligne ne se facture à l’assurance de base que dans le cadre Tarmed prévu<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">La Société suisse d’ultrasons en médecine gère les attestations, et le module abdomen exige 500 examens<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Le sarcome suspect se traite d’abord par chirurgie après colloque, donc la chimiothérapie ne devance pas l’exérèse<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">On refuse d’enlever la lésion atypique par une petite biopsie faite au bloc<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">L’échographie de médecine de famille confirme ou écarte la cholécystite, l’appendicite ou l’ascite, donc elle précède un scanner de confort<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Chez le patient âgé et en insuffisance rénale grave, on réduit Morphin® plutôt que d’appliquer d’emblée 20 mg<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Le volet social passe par l’assurance obligatoire des soins, puisque le remboursement de l’échographie dépend de la formation attestée<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<h4>11.C Surveillance</h4>
-<div class="p">Un sac de 3 à 4,4 cm se revoit chaque année<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">De 4,5 à 5,4 cm, le contrôle revient à trois mois<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Au-delà de 5,5 cm, on adresse pour avis chirurgical, et une croissance de 1 cm/an resserre encore le calendrier<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Après sarcome, le suivi reste long, car la récidive est fréquente<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">On arrête Morphin® dès qu’un iléus paralytique apparaît, sans attendre la fin de la boîte<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<h4>11.D Pronostic et sortie</h4>
-<div class="p">La rupture traitée garde un mauvais pronostic, et la mortalité ajustée reste de 32,4 % chez la femme<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">L’électif est devenu plus sûr, à 0,6 % chez l’homme en 2018<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La guérison n’est pas le mot juste pour un sac surveillé : le critère de sortie du doute aigu est un diamètre connu et un rendez-vous daté<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Pour le sarcome, la sortie du bilan initial suppose la biopsie faite et le colloque tenu, puisque le traitement standard reste chirurgical<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Pour l’iléus, on ne sort pas le patient tant que les niveaux au-dessus de 3 et la distension n’ont pas une cause et un plan<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Pour la vésicule et l’appendice écartés par une échographie fiable, la sortie se conçoit si la douleur cède et que boire redevient possible<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Entre 2009 et 2018, la mortalité élective masculine est passée de 2,4 % à 0,6 %, ce qui fixe un but réaliste à froid<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La voie ouverte a concerné plus de 60 % des ruptures du registre vasculaire cité, donc l’endoprothèse ne s’impose pas d’emblée<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">On propose l’opération quand le diamètre masculin dépasse 5,5 cm, car l’avis chirurgical est alors déclenché<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On dilue Morphin®, de 2,5 à 15 mg, dans 4 à 5 ml, et on l’injecte en 4 à 5 minutes<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La contre-indication formelle reste l’hypersensibilité, tandis que l’abdomen aigu de cause inconnue relève de la nécessité absolue<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Sans attestation, l’échographie ne se facture pas à l’assurance de base, car Tarmed limite le remboursement à ce cadre<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">On transfère, car 37,4 % des ruptures partent déjà d’un hôpital régional vers le site qui opère<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">De 3 à 4,4 cm, le contrôle reste annuel, et de 4,5 à 5,4 cm il revient à trois mois<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">On ouvre la monographie de Morphin® avant d’injecter, car la dose et les contre-indications s’y lisent<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<button class="w" popovertarget="f-mor">Morphin HCl Sintetica</button>
-<div id="f-mor" popover class="fenetre"><h4>Morphin® — information professionnelle 51039</h4><div class="p">La classe est celle des opioïdes, et la spécialité suisse est Morphin HCl Sintetica, n° 51039<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">L’ampoule de 10 mg pour 1 ml contient 7,6 mg de morphine base<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La voie sous-cutanée ou intramusculaire apporte 10 mg pour 70 kg, et on espace les injections de 4 à 6 heures<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La fourchette va de 5 à 20 mg, donc on cherche la plus petite dose qui calme<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La voie intraveineuse va de 2,5 à 15 mg, dilués dans 4 à 5 ml<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">L’injection dure 4 à 5 minutes, car la rapidité favorise la dépression respiratoire<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La contre-indication est l’hypersensibilité au principe actif ou à un excipient<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">L’abdomen aigu de cause inconnue, l’iléus paralytique et l’insuffisance rénale grave imposent une prudence maximale<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">On prévient la dépression respiratoire, puis on garde la naloxone entre 0,4 et 2 mg après Morphin®<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
+<h4>11.A Urgence : rupture d’anévrisme E1</h4>
+<div class="p">La <button class="w" popovertarget="f-urg">conduite chronologique de l’urgence</button> tient en un transfert, car le centre vasculaire décide seul de la technique<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div id="f-urg" popover class="fenetre"><button class="fermer" popovertarget="f-urg" popovertargetaction="hide">Fermer</button><h4>Urgence — conduite chronologique</h4>
+<div class="p">D’abord, on n’attend aucun seuil : celui de 5,5 cm vaut pour la chirurgie élective, alors que la rupture s’opère en urgence avec une mortalité proche de 40 %<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Ensuite, on appelle le centre vasculaire, joignable en Suisse 24 heures sur 24 par hélicoptère en moins d’une heure<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Le centre décide entre voie endovasculaire et chirurgie ouverte, celle-ci restant majoritaire pour plus de 60 % des ruptures du registre Swissvasc<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">La part endovasculaire des ruptures est passée de 29,1 % en 2009 à 44,3 % en 2018<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Dans le transport, la douleur se traite par Morphin HCl Sintetica® à dose réduite si le patient est en choc hypovolémique, selon l’information professionnelle<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
 </div>
-<div class="p">La conduite chronologique d’une rupture commence par le transfert, car 97,3 % des traitements se font en hôpital majeur<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<button class="w" popovertarget="f-urg">conduite quand le sac rompt</button>
-<div id="f-urg" popover class="fenetre"><h4>Urgence — conduite chronologique</h4><div class="p">À la première minute, on reconnaît le relief expansif et la chute de pression, sans exiger le diamètre de 5,5 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Dans les minutes suivantes, on appelle le centre majeur, puisque la mortalité masculine ajustée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Puis le transfert part souvent d’un site régional, comme pour les 37,4 % déjà référés dans la cohorte<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">La douleur ne reçoit Morphin® qu’en nécessité absolue si la cause reste incertaine, à 10 mg pour 70 kg au plus près de la fourchette basse<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">Enfin le chirurgien vasculaire décide, car la mortalité spontanée citée de la rupture atteint 80 à 90 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
+<div class="p">La rupture ne se gère pas au cabinet : en Suisse, 1 093 des 1 123 ruptures traitées, soit 97,3 %, l’ont été dans un hôpital majeur<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Chez l’homme, la mortalité ajustée des ruptures traitées reste de 19,7 %, d’où l’intérêt de centraliser cette chirurgie<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Hors rupture, la mortalité élective masculine est tombée de 2,4 % en 2009 à 0,6 % en 2018, et la voie endovasculaire est passée de 46,5 à 67,0 % des cas<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<div class="p">Sur les 8 298 anévrismes non rompus, 33,1 % ont été traités en hôpital universitaire, 56,3 % dans un autre grand hôpital et 10,6 % dans un petit site<sup class="r"><a href="#sb-smw_aaa-1">[9]</a></sup>.</div>
+<h4>11.B Antalgie : Morphin HCl Sintetica®</h4>
+<div class="p">Morphin HCl Sintetica® ne s’emploie qu’en cas de nécessité absolue lorsque l’abdomen aigu reste de cause inconnue, comme dans le choc ou l’iléus paralytique<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Par voie sous-cutanée ou intramusculaire, Morphin HCl Sintetica® se dose à 10 mg pour 70 kg toutes les 4 à 6 h, dans une fourchette de 5 à 20 mg<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Par voie intraveineuse, on dilue Morphin HCl Sintetica® : 2,5 à 15 mg dans 4 à 5 ml, injectés lentement en 4 à 5 min<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">En choc avec hypovolémie, on commence au bas de la fourchette et l’on surveille étroitement, car l’information de Morphin HCl Sintetica® impose une dose réduite<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Les <button class="w" popovertarget="f-mor">contre-indications et précautions de Morphin HCl Sintetica®</button> se relisent avant chaque ampoule, surtout chez le patient âgé<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div id="f-mor" popover class="fenetre"><button class="fermer" popovertarget="f-mor" popovertargetaction="hide">Fermer</button><h4>Morphin HCl Sintetica® — information professionnelle, n° Swissmedic 51039</h4>
+<div class="p">Contre-indication absolue : l’hypersensibilité à la morphine ou à un excipient interdit Morphin HCl Sintetica®<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">L’emploi exige une nécessité absolue en cas de dépression respiratoire, bronchopathie obstructive, abdomen aigu de cause inconnue, insuffisance hépatique ou rénale grave, traumatisme crânien, intoxication alcoolique aiguë<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">La même restriction concerne le sujet âgé, l’insuffisance thyroïdienne ou surrénalienne, le choc, l’hépatopathie aiguë et l’iléus paralytique<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Une surveillance étroite et une dose réduite s’imposent en cas d’hypotension avec hypovolémie, d’hyperplasie prostatique avec résidu, de sténose urinaire, de maladie biliaire, de maladie intestinale obstructive ou de pancréatite<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Chez l’homme porteur d’un résidu post-mictionnel, l’opiacé expose à la rupture vésicale, ce qui compte devant un globe<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Si un iléus paralytique est suspecté, on arrête l’opiacé sans attendre<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Pendant la grossesse, on ne l’emploie que si c’est clairement nécessaire, et l’allaitement est strictement contre-indiqué, car la morphine passe dans le lait<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">L’antidote est la naloxone, 0,4 à 2 mg i.v. à répéter après 2 à 3 min, réservée à une dépression respiratoire ou circulatoire marquée sous Morphin HCl Sintetica®<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Chez l’enfant, la naloxone se dose à 0,01 mg/kg, selon la même information de Morphin HCl Sintetica®<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
 </div>
-<div class="p">On vérifie qui a le droit de facturer l’échographie, car l’assurance de base suit la tarification Tarmed<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<button class="w" popovertarget="f-sgum">formation et remboursement</button>
-<div id="f-sgum" popover class="fenetre"><h4>SGUM, Tarmed et assurance de base</h4><div class="p">La Société suisse d’ultrasons en médecine propose 6 modules, et l’abdomen en fait partie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Le module abdomen demande 500 examens, dont 400 d’abdomen, et 200 restent supervisés<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Il existe 16 programmes de formation postgraduée qui intègrent l’échographie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">En décembre 2016, l’ISFM a accepté un certificat POCUS, qui exige 200 examens ciblés<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">La supervision couvre au minimum la moitié des explorations exigées par ce certificat<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-</div>
+<div class="t" style="overflow-x:auto"><table><caption>Médicament de l’urgence : dose, voie, durée, contre-indications</caption>
+<tr><th>Spécialité</th><th>Dose</th><th>Voie</th><th>Durée</th><th>Contre-indications</th><th>Extrait AIPS</th></tr>
+<tr><td>Morphin HCl Sintetica® 10 mg/1 ml<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>Morphin HCl Sintetica® : 10 mg pour 70 kg, fourchette 5 à 20 mg<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>Sous-cutanée ou intramusculaire<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>L’injection se répète toutes les 4 à 6 h<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>L’hypersensibilité contre-indique ; l’allaitement aussi<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>Abdomen aigu de cause inconnue : nécessité absolue seulement<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td></tr>
+<tr><td>Morphin HCl Sintetica® 10 mg/1 ml<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>Morphin HCl Sintetica® : 2,5 à 15 mg dilués dans 4 à 5 ml<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>Intraveineuse lente<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>L’injection dure 4 à 5 min<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>L’hypersensibilité contre-indique ; la grossesse exige une nécessité claire<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td><td>Hypovolémie : dose réduite et surveillance étroite<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</td></tr>
+</table></div>
+<h4>11.C Abcès diverticulaire E2</h4>
+<div class="p">L’antibiothérapie couvre les bacilles à Gram négatif et les anaérobes, et la diverticulite compliquée se traite à l’hôpital par voie intraveineuse<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Un abcès de moins de 5 cm ne demande en général pas de drainage, alors qu’au-delà on draine par voie percutanée<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Ce drainage permet ensuite, dans 60 à 80 % des cas, une résection avec anastomose primaire, et l’on opère si rien ne s’améliore 48 à 72 h après<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Après une poussée compliquée, la sigmoïdectomie élective se programme 8 à 12 semaines plus tard<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</div>
+<div class="p">La coloscopie ne se fait pas à chaud, mais 2 à 6 semaines après la poussée, pour écarter un cancer<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<h4>11.D Globe vésical</h4>
+<div class="p">Le drainage se fait en urgence par une sonde transurétrale, selon la règle « Charrière 16, gel, reflux »<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Si la sonde ne passe pas, on appelle l’urologue ; la voie sus-pubienne est contre-indiquée en cas de tumeur vésicale, d’anticoagulation ou de vessie vide<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">La vidange complète d’emblée est sûre, mais on surveille la diurèse de levée d’obstacle et l’hématurie a vacuo<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Un traitement ambulatoire suffit le plus souvent si le volume est inférieur à 1 000 ml et sans complication<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Un alphabloquant introduit tôt double les chances de reprise mictionnelle, et l’ablation de la sonde se tente après au moins 48 h de traitement<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<h4>11.E Hernie, fécalome, fibrome, kyste, sarcome</h4>
+<div class="p">Chez l’homme peu symptomatique, l’attente vigilante d’une hernie inguinale est sûre, alors que chez la femme on opère<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">La réparation utilise un filet dès 1 cm de défect, avec une récidive de 3,6 % contre 11,4 % sans filet<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Chez le cirrhotique, la hernie ombilicale opérée en urgence entraîne 45 % de morbidité et 20 % de mortalité, d’où une indication posée à froid<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</div>
+<div class="p">Le fécalome se traite par extraction manuelle et lavements ; ensuite, un laxatif quotidien et un toucher rectal répété évitent la récidive<sup class="r"><a href="#sb-rms_constip-1">[4]</a></sup>.</div>
+<div class="p">Le fibrome symptomatique est adressé au gynécologue après le bilan échographique, qui oriente le choix thérapeutique<sup class="r"><a href="#sb-rms_fibrome-1">[2]</a></sup>.</div>
+<div class="p">Le sarcome se traite par exérèse large R0 au centre, avec une récidive locale de 10 à 20 % à 10 ans<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<h4>11.F Parcours suisse et tarif</h4>
+<div class="p">Au cabinet de famille reviennent le tri, l’échographie de première ligne et le suivi, tandis que le centre opère ; depuis 2026, cette activité se facture selon TARDOC<sup class="r"><a href="#sb-ofsp_tardoc-1">[16]</a></sup>.</div>
+<div class="p">Le Conseil fédéral a approuvé TARDOC le 30 avril 2025, puis ses adaptations le 5 novembre 2025<sup class="r"><a href="#sb-ofsp_tardoc-1">[16]</a></sup>.</div>
 </section>
 <section class="ilot" id="p12"><h3 id="h12">12. Prévention</h3>
-<div class="p">La prévention primaire vise les hommes de 65 ans et plus, âge où un dépistage est discuté<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Le diagnostic de rupture est souvent tardif, donc repérer le sac avant qu’il cède change la mortalité<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La prévention secondaire est l’échographie unique de dépistage chez l’homme de cet âge, puisque la réduction relative des morts par rupture a atteint 42 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Chez la femme, le même geste est moins rentable dans les données citées, car la prévalence n’y est que de 1,3 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La prévention tertiaire est la surveillance des sacs déjà connus, annuelle de 3 à 4,4 cm<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Elle se resserre à trois mois entre 4,5 et 5,4 cm, afin d’opérer avant la rupture<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Ce calendrier sert le but chiffré du soin, car la mortalité masculine d’une rupture traitée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Pour le sarcome, la prévention tertiaire est le suivi long après exérèse, puisque la récidive est fréquente<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">Former 500 examens dont 400 d’abdomen évite aussi les examens inutiles, car un opérateur attesté tranche mieux la vésicule et le foie<sup class="r"><a href="#sb-rms_echo-1">[6]</a></sup>.</div>
-<div class="p">Le dépistage a décelé 1133 anévrismes parmi 27 147 patients, et la réduction relative des morts par rupture atteint 42 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Sur 67 800 hommes de 65 à 74 ans, on compte 65 décès par rupture, soit 0,19 %, contre 119 décès, soit 0,33 %<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La prévention secondaire s’appuie sur cette différence, car 0,19 % contre 0,33 % décrit le bras dépisté et le bras témoin<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">La prévention tertiaire du sarcome est le suivi long, puisque la récidive est fréquente après la chirurgie<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">La prévention primaire vise encore les hommes de 65 ans et plus, car le diagnostic de rupture reste souvent le premier<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
+<h4>Prévention primaire</h4>
+<div class="p">En prévention primaire, l’arrêt du tabac est la mesure qui freine le plus la croissance d’un futur sac, puisque le tabac l’accélère de 20 à 25 % par an<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Un régime pauvre en fibres et le manque d’activité physique sont associés à la diverticulose, ce qui oriente les conseils de mode de vie<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<h4>Prévention secondaire</h4>
+<div class="p">L’essai anglais MASS a invité environ 34 000 hommes, comparés à 34 000 témoins, et 27 147 se sont fait dépister<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Le dépistage a trouvé 1 133 anévrismes et réduit de 42 % les décès liés, avec 65 morts contre 119 dans le groupe témoin<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">À 30 jours, la mortalité était de 6 % après chirurgie élective et de 37 % après chirurgie d’urgence, ce qui justifie d’opérer avant la rupture<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Un homme sans anévrisme au dépistage n’a besoin d’aucun contrôle ultérieur<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">En prévention secondaire, le dépistage échographique de l’homme âgé trouve le sac avant sa rupture, quand la chirurgie élective reste sûre<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Le suivi échographique se fait chaque année entre 3 et 4,4 cm, puis tous les 3 mois entre 4,5 et 5,4 cm<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Une croissance de 1 cm par an impose un suivi rapproché ou l’opération, même sous le seuil<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<h4>Prévention tertiaire</h4>
+<div class="p">En prévention tertiaire, un régime riche en fibres est recommandé après une diverticulite pour prévenir la récidive<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</div>
+<div class="p">Après une poussée compliquée, la sigmoïdectomie élective, programmée 8 à 12 semaines plus tard, évite une nouvelle chirurgie d’urgence<sup class="r"><a href="#sb-rms_divert-2">[13]</a></sup>.</div>
+<div class="p">Après une rétention primaire, le risque de récidive avoisine 40 %, et l’alphabloquant poursuivi diminue ce risque<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</div>
+<div class="p">Chez le patient âgé constipé, un laxatif pris chaque jour prévient la récidive du fécalome<sup class="r"><a href="#sb-rms_constip-1">[4]</a></sup>.</div>
+<div class="p">Après un sarcome de haut grade, le contrôle se fait tous les 3 mois pendant 2 ans, puis tous les 6 mois jusqu’à 5 ans, puis chaque année<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
 </section>
 <section class="ilot" id="p13"><h3 id="h13">13. Points clés</h3>
-<ol>
-<li>On traite la rupture avant de classer les masses calmes, car sa mortalité masculine ajustée reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</li>
-<li>Une douleur d’hypochondre part vers l’échographie, et une pancréatite suspectée oriente vers le scanner<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</li>
-<li>Au-delà de 5 cm, une lésion profonde et croissante va au centre, sans exérèse a minima<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</li>
-<li>On opère l’homme à partir de 5,5 cm, et on surveille en dessous selon le calendrier publié<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</li>
-<li>Morphin® à 10 mg pour 70 kg ne s’utilise en abdomen aigu inexpliqué qu’en nécessité absolue<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</li>
-</ol>
+<ul>
+<li>La rupture d’anévrisme E1 tue 80 à 90 % des patients, et 75 % meurent avant l’hôpital<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</li>
+<li>La femme est opérée au plus tard dès 5 cm, l’homme à 5,5 cm, car l’examen physique ne remplace pas la mesure échographique<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</li>
+<li>L’abcès diverticulaire E2 se confirme au scanner et se draine au-delà de 5 cm<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</li>
+<li>Toute rétention se draine d’abord par sonde, et le PSA attend la fin de l’épisode aigu<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</li>
+<li>Une masse des parties molles au-delà de 5 cm, ou profonde, va au centre des sarcomes<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</li>
+<li>Morphin HCl Sintetica® reste réservée à la nécessité absolue si l’abdomen aigu n’a pas de cause<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</li>
+</ul>
 </section>
-<section class="ilot" id="p14"><h3 id="h14">14. Pièges et questions fréquentes à l'examen fédéral suisse</h3>
-<div class="p">Une petite biopsie au bloc suffit-elle devant une masse atypique de plus de 5 cm <sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>?</div>
-<div class="p">Non, car la biopsie radioguidée est la règle et l’exérèse a minima est refusée<sup class="r"><a href="#sb-rms_sarcome-1">[1]</a></sup>.</div>
-<div class="p">L’absence de niveaux hydro-aériques permet-elle d’écarter toute occlusion <sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>?</div>
-<div class="p">Non, puisqu’ils manquent si l’obstacle est duodénal ou proximal, alors que le seuil classique reste au-dessus de 3<sup class="r"><a href="#sb-rms_imagerie-1">[3]</a></sup>.</div>
-<div class="p">Faut-il opérer tout anévrisme dès 3 cm parce que le mot est déjà posé <sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>?</div>
-<div class="p">Non, car le seuil chirurgical masculin cité est de 5,5 cm et les sacs plus petits se surveillent<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Peut-on injecter d’emblée 20 mg de Morphin® pour faire taire une douleur abdominale sans diagnostic <sup class="r"><a href="#sb-aips-51039">[7]</a></sup>?</div>
-<div class="p">Non, car 20 mg est le haut de la fourchette, et l’abdomen aigu de cause inconnue n’autorise l’ampoule qu’en nécessité absolue<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-<div class="p">La mortalité élective suisse de 0,6 % chez l’homme en 2018 autorise-t-elle à banaliser la rupture <sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>?</div>
-<div class="p">Non, car la rupture traitée reste à 19,7 % chez l’homme et à 32,4 % chez la femme<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Un dépistage unique chez l’homme de 65 ans a-t-il réduit les morts par rupture <sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>?</div>
-<div class="p">Oui, car la réduction relative citée atteint 42 % dans cette population masculine<sup class="r"><a href="#sb-rms_aaa-1">[5]</a></sup>.</div>
-<div class="p">Faut-il croire que l’électif à 0,6 % rend la rupture rare à l’hôpital <sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>?</div>
-<div class="p">Non, car 22,7 % des séjours arrivent déjà rompus, et la mortalité masculine ajustée y reste de 19,7 %<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>.</div>
-<div class="p">Une ampoule de Morphin® à 10 mg pour 1 ml contient-elle 7,6 mg de morphine base <sup class="r"><a href="#sb-aips-51039">[7]</a></sup>?</div>
-<div class="p">Oui, car l’information de Morphin®, n° 51039, indique 7,6 mg de base pour 10 mg et 1 ml<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
+<section class="ilot" id="p14"><h3 id="h14">14. Pièges et questions fréquentes à l’examen fédéral suisse</h3>
+<div class="p">Le piège classique attribue à la femme le seuil masculin de 5,5 cm, alors que son sac rompt plus petit<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Un autre consiste à donner de la morphine à une femme qui allaite, alors que c’est une contre-indication stricte<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div>
+<div class="p">Le troisième prend un sarcome profond pour un lipome et l’enlève sans plan, ce qui compromet la marge R0<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Questions d’examen : réponse et raison</caption>
+<tr><th>Question</th><th>Réponse</th><th>Raison</th></tr>
+<tr><td>Quel examen pour une masse fébrile de la fosse iliaque gauche ?</td><td>Le scanner abdominal standard est demandé<sup class="r"><a href="#sb-rms_basses-1">[12]</a></sup>.</td><td>L’échographie est souvent gênée par le météorisme<sup class="r"><a href="#sb-rms_divert-1">[8]</a></sup>.</td></tr>
+<tr><td>Faut-il doser le PSA pendant une rétention ?</td><td>Non, on le dose à distance<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td><td>La valeur peut être faussement augmentée<sup class="r"><a href="#sb-rms_rua-1">[3]</a></sup>.</td></tr>
+<tr><td>Quand opérer un anévrisme chez la femme ?</td><td>On opère au plus tard dès 5 cm<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td><td>Le risque de rupture est 3 fois plus élevé à diamètre égal<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</td></tr>
+<tr><td>Faut-il surveiller une hernie inguinale chez la femme ?</td><td>Non, on l’opère<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td><td>L’étranglement survient dans 35 à 40 % des cas<sup class="r"><a href="#sb-rms_hernie-1">[1]</a></sup>.</td></tr>
+<tr><td>Où se fait la biopsie d’une masse suspecte de sarcome ?</td><td>Au centre, par voie coaxiale radioguidée<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td><td>L’ensemencement reste alors de 0,37 %<sup class="r"><a href="#sb-rms_sarcome-1">[10]</a></sup>.</td></tr>
+<tr><td>Quel kyste rénal ne demande aucun suivi ?</td><td>Le type I de Bosniak n’en demande pas<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td><td>Il est simple et ne se rehausse pas<sup class="r"><a href="#sb-rms_kyste-1">[5]</a></sup>.</td></tr>
+</table></div>
 </section>
-<section class="ilot" id="question"><h3>Question finale</h3><div class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</div><div class="p">Oui, car la mortalité hospitalière masculine d’une rupture reste de 19,7 %, donc cette forme commande la conduite avant une masse indolente<sup class="r"><a href="#sb-smw_aaa-1">[4]</a></sup>. Morphin® ne vient qu’en nécessité absolue lorsque la cause de l’abdomen aigu manque encore, car l’information professionnelle l’exige<sup class="r"><a href="#sb-aips-51039">[7]</a></sup>.</div>
-</section>
-<section class="ilot" id="sources"><h3>Sources</h3><ol class="sources"><li id="sb-rms_sarcome-1">[1] Revue médicale suisse, 16 juin 2021. Prise en charge des sarcomes des tissus mous abdominaux. https://www.revmed.ch/revue-medicale-suisse/2021/revue-medicale-suisse-743/prise-en-charge-des-sarcomes-des-tissus-mous-abdominaux (consulté le 10 novembre 2026).</li>
-<li id="sb-rms_sarcome-2">[2] Revue médicale suisse, 2021. Siège pariétal, péritonéal ou rétropéritonéal, et bilan d’imagerie. https://www.revmed.ch/revue-medicale-suisse/2021/revue-medicale-suisse-743/prise-en-charge-des-sarcomes-des-tissus-mous-abdominaux (consulté le 10 novembre 2026).</li>
-<li id="sb-rms_imagerie-1">[3] Revue médicale suisse, 2013. Douleurs abdominales aiguës hautes : quelle imagerie. https://www.revmed.ch/revue-medicale-suisse/2013/revue-medicale-suisse-399/douleurs-abdominales-aigues-hautes-quelle-imagerie (consulté le 10 novembre 2026).</li>
-<li id="sb-smw_aaa-1">[4] Swiss Medical Weekly, 2022. Incidence hospitalière et mortalité des anévrismes de l’aorte abdominale en Suisse, données de l’Office fédéral de la statistique, 2009-2018. https://smw.ch/index.php/smw/article/view/30191 (consulté le 10 novembre 2026).</li>
-<li id="sb-rms_aaa-1">[5] Revue médicale suisse, 2004. Dépistage et seuils de prise en charge de l’anévrisme de l’aorte abdominale. https://www.revmed.ch/revue-medicale-suisse/2004/revue-medicale-suisse-2466/faut-il-realiser-un-depistage-systematique-des-anevrismes-de-l-aorte-abdominale (consulté le 10 novembre 2026).</li>
-<li id="sb-rms_echo-1">[6] Revue médicale suisse, 10 mai 2017. Échographie en médecine de famille, formation SGUM et remboursement Tarmed. https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-562/echographie-un-outil-utile-pour-la-demarche-diagnostique-en-medecine-de-famille (consulté le 10 novembre 2026).</li>
-<li id="sb-aips-51039">[7] Information professionnelle suisse Morphin HCl Sintetica, n° Swissmedic 51039. Contre-indication : hypersensibilité. Prudence extrême si abdomen aigu de cause inconnue. https://ch.oddb.org/fr/gcc/fachinfo/reg/51039 (consulté le 10 novembre 2026).</li></ol></section>
+<section class="ilot" id="question"><h3>Question finale</h3><div class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</div>
+<div class="p">Oui : il hiérarchise les 10 DX, place la rupture E1 et l’abcès E2 en tête de la conduite, et donne la mortalité de 80 à 90 % qui justifie le transfert<sup class="r"><a href="#sb-rms_aaa-1">[6]</a></sup>.</div>
+<div class="p">Il fixe aussi les doses et les limites de Morphin HCl Sintetica® telles que l’information professionnelle les énonce<sup class="r"><a href="#sb-aips-51039">[17]</a></sup>.</div></section>
+<section class="ilot" id="sources"><h3>Sources</h3><ol class="sources"><li id="sb-rms_hernie-1">[1] Revue médicale suisse, 2018. Chirurgie des hernies de la paroi en 2018 : mise au point. https://www.revmed.ch/revue-medicale-suisse/2018/revue-medicale-suisse-611/chirurgie-des-hernies-de-la-paroi-en-2018-mise-au-point (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_fibrome-1">[2] Revue médicale suisse, 2005. Traitement conservateur des fibromes : recommandations pour la pratique. https://www.revmed.ch/revue-medicale-suisse/2005/revue-medicale-suisse-40/traitement-conservateur-des-fibromes-recommandations-pour-la-pratique (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_rua-1">[3] Revue médicale suisse, 2016. Rétention urinaire aiguë : une urgence d’origine mécanique ou fonctionnelle. https://www.revmed.ch/revue-medicale-suisse/2016/revue-medicale-suisse-541/retention-urinaire-aigue-une-urgence-d-origine-mecanique-ou-fonctionnelle (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_constip-1">[4] Revue médicale suisse, 2014. Constipation du sujet âgé : quelles spécificités ? https://www.revmed.ch/revue-medicale-suisse/2014/revue-medicale-suisse-449/constipation-du-sujet-age-quelles-specificites (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_kyste-1">[5] Revue médicale suisse, 2005. Quelle attitude lors de la découverte de kystes rénaux ? https://www.revmed.ch/revue-medicale-suisse/2005/revue-medicale-suisse-8/quelle-attitude-lors-de-la-decouverte-de-kystes-renaux (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_aaa-1">[6] Revue médicale suisse, 2004 (Righini et coll.). Faut-il réaliser un dépistage systématique des anévrismes de l’aorte abdominale ? https://www.revmed.ch/revue-medicale-suisse/2004/revue-medicale-suisse-2466/faut-il-realiser-un-depistage-systematique-des-anevrismes-de-l-aorte-abdominale (consulté le 10 novembre 2026).</li>
+<li id="sb-ofs_naiss-1">[7] Office fédéral de la statistique, communiqué 2025. Mouvement naturel de la population 2024 : naissances vivantes. https://dam-api.bfs.admin.ch/hub/api/dam/assets/35387848/master (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_divert-1">[8] Revue médicale suisse, 2004. La diverticulose et ses complications : épidémiologie, physiopathologie, diagnostic et traitement. https://www.revmed.ch/revue-medicale-suisse/2004/revue-medicale-suisse-2498/la-diverticulose-et-ses-complications-epidemiologie-physiopathologie-diagnostic-et-traitement (consulté le 10 novembre 2026).</li>
+<li id="sb-smw_aaa-1">[9] Swiss Medical Weekly, 2022;152:w30191. Incidence hospitalière, traitement et mortalité des anévrismes de l’aorte abdominale en Suisse, 2009-2018. https://smw.ch/index.php/smw/article/view/3222 (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_sarcome-1">[10] Revue médicale suisse, 16 juin 2021. Prise en charge des sarcomes des tissus mous abdominaux. https://www.revmed.ch/revue-medicale-suisse/2021/revue-medicale-suisse-743/prise-en-charge-des-sarcomes-des-tissus-mous-abdominaux (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_constip-2">[11] Revue médicale suisse, 2004. Constipation : un syndrome gériatrique mal aimé. https://www.revmed.ch/revue-medicale-suisse/2004/revue-medicale-suisse-2505/constipation-un-syndrome-geriatrique-mal-aime (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_basses-1">[12] Revue médicale suisse, 2013. Douleurs abdominales basses : quelle imagerie ? https://www.revmed.ch/revue-medicale-suisse/2013/revue-medicale-suisse-399/douleurs-abdominales-basses-quelle-imagerie (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_divert-2">[13] Revue médicale suisse, 2009. Traitement de la diverticulite sigmoïdienne. https://www.revmed.ch/revue-medicale-suisse/2009/revue-medicale-suisse-209/traitement-de-la-diverticulite-sigmoidienne (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_echo-1">[14] Revue médicale suisse, 10 mai 2017. Échographie : un outil utile pour la démarche diagnostique en médecine de famille. https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-562/echographie-un-outil-utile-pour-la-demarche-diagnostique-en-medecine-de-famille (consulté le 10 novembre 2026).</li>
+<li id="sb-rms_imagerie-1">[15] Revue médicale suisse, 2013. Douleurs abdominales aiguës hautes : quelle imagerie ? https://www.revmed.ch/revue-medicale-suisse/2013/revue-medicale-suisse-399/douleurs-abdominales-aigues-hautes-quelle-imagerie (consulté le 10 novembre 2026).</li>
+<li id="sb-ofsp_tardoc-1">[16] Office fédéral de la santé publique. TARDOC et forfaits ambulatoires. https://www.bag.admin.ch/fr/tardoc-et-forfaits-ambulatoires (consulté le 10 novembre 2026).</li>
+<li id="sb-aips-51039">[17] Information professionnelle suisse (AIPS) Morphin HCl Sintetica®, n° Swissmedic 51039, état de l’information 03/2024. https://www.arzneimittelinfo.ch/morphin-hcl-sintetica-220094/fachinformation (consulté le 10 novembre 2026).</li></ol></section>
 </main>
 </body>
 </html>
