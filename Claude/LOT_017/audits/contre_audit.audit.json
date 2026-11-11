@@ -1,0 +1,140 @@
+{
+  "verdict": "ACCEPTE",
+  "type": "contre-audit (MISSION_AUDIT_L1, protocole Fable) des corrections de l'audit 1 A et B",
+  "date": "2026-11-11",
+  "base": "a5998dd5d217307d33c28ba8d1426f486d920f5b",
+  "controles": {
+    "controle3_script_ok": "VERT sur les 11 fichiers, aucun défaut",
+    "verif_aips": "OK sur les 11 fichiers ; 2 alertes « dose absente » relues et justes : DX.3 ténectéplase 0,40 mg/kg écrit comme absent du tableau AIPS 69958 ; DX.5 téprotumumab 700 + 7 × 1400 = 10 500 mg, calcul exact sur AIPS 69795",
+    "liens": "0 lien interne ou inter-fichiers cassé, 0 src manquante ; 14 liens inter-fichiers, dont les 8 liens Phase A → fiches DX.4 (pyridostigmine, prednisone, méthylprednisolone, IgIV), DX.5 (méthylprednisolone, téprotumumab), DX.7 (prednisone, méthylprednisolone) : toutes les ancres existent",
+    "playwright": "Phase A, DX.10, DX.6 à 390 et 1280 px : scrollWidth = largeur de la fenêtre (aucun débordement), 0 tableau débordant non enveloppé, 0 erreur JS ; fenêtres :target f-ssp-m-pyridostigmine, f-dx10-m-nimodipine, f-dx6-p8-termes : position fixed, plein écran, voile rgba(20,16,12,0,62), défilement interne (scrollHeight 1887 et 1324 px à 390 px)"
+  },
+  "priorites": {
+    "nimodipine_DX10": "LEVÉ. AIPS 48153 (refdata, Nimotop perfusion, août 2025) relue : « le dosage initial sera de 0,5 mg … par la suite, la dose ne devrait pas dépasser 1 mg/heure ». Plafond présent dans la fiche (point 11) et la question 14. Aussi vérifiés sur la même AIPS : 1 mg/h × 2 h puis 2 mg/h, début dans les 4 jours, jusqu'au 10e–14e jour, relais oral 6 × 60 mg pendant 7 jours, contre-indication rifampicine, sécurité non établie avant 18 ans.",
+    "anti_JCV_DX6": "LEVÉ. AIPS 57273 (Tysabri, novembre 2024) relue : « le risque de LEMP est plutôt faible si l'indice est inférieur ou égal à 0,9. Le risque de LEMP augmente chez les patients présentant un indice supérieur à 1,5 et ayant été traités par Tysabri pendant plus de 2 ans ». Fiche natalizumab conforme ; dose 300 mg toutes les 4 semaines conforme.",
+    "Lagreze_2026_DX10": "LEVÉ. S6 (Lagrèze WA, Dtsch Arztebl Int 2026, PMC13389956) relu sur PMC : « sparing of the pupil does not rule out such a lesion (17). It follows that any patient with an oculomotor nerve palsy should undergo an imaging study of the brain, and an acute oculomotor nerve palsy accompanied by headache is a medical emergency calling for immediate imaging and often lumbar puncture ». Drapeaux rouges (céphalée sévère, anisocorie, autre signe neurologique, nystagmus aigu) et diplopie monoculaire « not dangerous » également conformes. S6 porte l'imagerie de tout III ; la nature vasculaire de cette imagerie reste portée par S4/S5, cités à côté.",
+    "Ge_2025_arbre_DX10": "LEVÉ. Ge 2025 (PMC12681010) relu : « younger patients (under 60 years old), those with ONP symptoms longer than 7 days, an aneurysm size ≥7 mm, or complete ONP » ; voie endovasculaire si ≥ 60 ans, mauvais état ou antithrombotique. Le critère des 7 jours est rétabli, la phrase dit l'origine non européenne et renvoie à l'ESO 2022.",
+    "liens_PhaseA_fiches_DX": "LEVÉ. Les 5 fiches Phase A gardent l'indication AIPS et renvoient aux fiches DX ; les faits retirés sont présents dans les fiches cibles : posologie AIPS Mestinon et plafond DGN 720 mg (DX.4), atropine 1–2 mg i.v. lente toutes les 5–30 min (DX.4, AIPS 19943 et 56533 relues), IgIV DGN 0,4 g/kg × 5 j ou 1 g/kg × 2 j (DX.4), Lausanne 0,5 mg/kg max 70 mg et paliers (DX.7 prednisone), CHUV 500 mg–1 g × 3 j et EULAR 0,25–1 g (DX.7 méthylprednisolone), EUGOGO 4,5 g et hyperglycémie 13,2 % (DX.5). Fait unique de la Phase A conservé : IgIV 0,4 g/kg × 5 j dans le Guillain-Barré (AIPS 58314)."
+  },
+  "sonde_doses_AIPS": {
+    "nombre": 22,
+    "resultat": "22/22 conformes au texte AIPS refdata",
+    "detail": [
+      "DX.10 nimodipine perfusion 48153 : 1 → 2 mg/h, 0,5 mg/h puis ≤ 1 mg/h, 4 jours, 10e–14e jour",
+      "DX.10 nimodipine relais oral : 6 × 60 mg/j pendant 7 jours (48153)",
+      "DX.6 natalizumab 57273 : 300 mg toutes les 4 semaines, perfusion d'1 h, surveillance 1 h",
+      "DX.6 natalizumab 57273 : indice anti-JCV ≤ 0,9 / > 1,5 après > 2 ans",
+      "DX.3 altéplase 48313 : 0,9 mg/kg, max 90 mg, 10 % en bolus, 60 min, ≥ 16 ans, ≤ 4,5 h",
+      "DX.9 altéplase 48313 (fiche allégée) : mêmes valeurs, contre-indications conformes",
+      "DX.3 ténectéplase 69958 : bolus 5–10 s, max 5000 U (25 mg), tableau 3000–5000 U par tranche de poids",
+      "DX.5 téprotumumab 69795 : 10 mg/kg puis 20 mg/kg × 7 toutes les 3 semaines",
+      "DX.5 carbimazole 21037 : 20–60 mg/j ; dès 12 ans 0,7–0,8 mg/kg, max 60 mg ; enfant max 30 mg",
+      "DX.5 propranolol 31706 : 10–40 mg 3–4 ×/j",
+      "DX.7 Solu-Medrol 35112 : ≤ 250 mg en ≥ 5 min, > 250 mg en ≥ 30 min, 48–72 h",
+      "DX.7 tocilizumab 58868 : 162 mg s.c. toutes les 2 semaines ou 1×/semaine, > 52 semaines possible",
+      "Phase A thiamine 10989 : adulte et adolescent dès 12 ans, parentéral jusqu'à 200 mg/j ; EFNS 3 × 200 mg écrit hors AIPS",
+      "DX.8 acétazolamide 21191 : 250–1000 mg/24 h (glaucome aigu, épilepsie) ; dose de l'HTII écrite hors AIPS",
+      "DX.8 topiramate 53537 : 25 mg le soir, + 25 mg par semaine jusqu'à 100 mg/j en 2 prises",
+      "DX.4 IgIV 58314 : 0,4 g/kg/j pendant 5 jours (Guillain-Barré) ; myasthénie hors AIPS",
+      "DX.4 atropine 56533 : carbamates 1–2 mg i.v./i.m. toutes les 20–30 min ; enfant 0,05 mg/kg",
+      "DX.4 atropine selon Mestinon 19943 : 1–2 mg i.v. lente toutes les 5–30 min",
+      "DX.1 apraclonidine 52813 : 1 goutte 3 ×/j, trois mois au maximum",
+      "DX.4 éculizumab 59282 : 900 mg/sem × 4, 1200 mg à la 5e semaine puis toutes les 2 semaines, vaccination ≥ 2 semaines avant",
+      "DX.9 clopidogrel 54509 : 75 mg/j ; DX.10 labétalol 41529 : 50 mg en ≥ 1 min, répété toutes les 5 min, max 200 mg, perfusion ≈ 2 mg/min",
+      "DX.6 ocrelizumab 66185 : 600 mg tous les 6 mois, première dose 2 × 300 mg à 2 semaines ; DX.3 apixaban 61549 : 5 mg × 2, 2,5 mg × 2 si 2 critères sur 3"
+    ]
+  },
+  "sonde_chiffres_sources": {
+    "nombre": 16,
+    "resultat": "16/16 conformes",
+    "detail": [
+      "Omary 2023 (DX.6 S6, PMC9886641) : sensibilité IRM 46,2 % et 63,2 % par patient ; spécificité 92,0 % ; VDI 0,96 ; seuil 1,12 ; cas à 2,56",
+      "Kremmyda 2020 (PMC7718182) : signes centraux 86,7 % contre 33,3 %",
+      "Fang 2017 (JAMA Ophthalmol) : anévrisme 6 %, tumeur 11 %, atteinte pupillaire 17 % des formes microvasculaires",
+      "Ge 2025 : < 60 ans, > 7 jours, ≥ 7 mm, paralysie complète",
+      "Lagrèze 2026 : imagerie de tout III, imagerie immédiate si céphalée",
+      "Metalyse 69958 : 36,9 % contre 34,8 % (mRS 0–1)"
+    ]
+  },
+  "corrections_audit1": {
+    "appliquees_et_justes": "Les 2 Graves (DX.10 fiche et Q14 nimodipine), les Moyens (point 1 Phase A, DX.1, DX.2, DX.5, DX.6 ; 66 formules de fabrication retirées, 0 restante ; ancres AIPS collées remplacées par « hors AIPS » ; atropine × 5 ramenée à la fiche ; anti-JCV ; Lagrèze ; Ge 7 jours ; renvoi DX.7 → DX.10 ; redite 11.A DX.7 ; fiches DX.9 allégées) et les Légers (46,2/63,2 %, Takayasu sur l'EULAR 2025, lacune du point 11 de DX.10, « 25 cm » ramené à 2 mentions, titres uniformes des 10 DX) sont réellement appliqués.",
+    "refus_justifies": "Anatomie III/IV/VI et FLM non mutualisée (réécriture de 4 fichiers à la limite de taille) ; OAC annexe 1 gardée par DX (règle de conduite propre) ; citations AIPS identiques dans les fiches d'une même molécule (règle de la fiche) ; images reportées (Léger avant le LOT_021) ; syndrome un-et-demi : Strupp ne le nomme pas, renvoi vers DX.3 f-dx3-p7-oin (ancre existante, source S13). Refus recevables.",
+    "faits_perdus": "Aucun. 1,4 % (Moorfields), 18 140 SEP en Suisse, botulisme 1–2 cas/an, Finsterer et amblyopie restent en Phase A ; Kremmyda 86,7/33,3 reste en DX.2, DX.3 et DX.4 (le relevé des corrections dit « algorithme », mais le chiffre n'y figure plus : sans conséquence, le fait est gardé ailleurs) ; les doses retirées des fiches Phase A existent dans les fiches DX cibles.",
+    "erreurs_creees": "Aucune erreur médicale ni lien cassé."
+  },
+  "leves": [
+    "DX.10 Grave — plafond nimodipine 1 mg/h dans la fiche",
+    "DX.10 Grave — plafond nimodipine 1 mg/h dans la question 14",
+    "Phase A Grave — fiches .mb recopiées : indication et lien vers la fiche DX",
+    "Phase A, DX.1, DX.2, DX.5, DX.6 Moyen — point 1 = définition",
+    "DX.1–DX.5, Phase A Moyen — formules de fabrication (0 restante)",
+    "Phase A Moyen — doses de recommandation écrites hors AIPS",
+    "DX.4 Moyen — atropine et arrêt 24 h",
+    "DX.6 Moyen — seuils anti-JCV",
+    "DX.10 Moyen — Lagrèze 2026 et Ge 2025",
+    "DX.7 Moyen — renvoi vers DX.10 et redite 11.A",
+    "DX.9 Moyen — fiches altéplase, aspirine et clopidogrel allégées",
+    "DX.6, DX.7, DX.8, DX.10, DX.9 Léger — 46,2/63,2 %, Takayasu, « 25 cm », formule de lacune, titres"
+  ],
+  "restants": [
+    {
+      "fichier": "LOT_017_Phase_A_V0.html",
+      "gravite": "Moyen",
+      "constat": "La redite inter-fichiers « thrombolyse dans les 4,5 heures » est corrigée en partie seulement : la Phase A la porte encore 4 fois (fenêtre d'urgence, phrase du point 11, deux tableaux), et DX.2 une fois. La règle complète reste dans la fenêtre d'urgence de la Phase A et dans DX.3. Les deux cellules de tableau peuvent renvoyer à DX.3. Ce retrait réduit le fichier de 120 octets environ.",
+      "avant": "<td>Filière AVC et imagerie immédiate ; thrombolyse dans les 4,5 heures si critères [S5][S45]</td>",
+      "correction": "<td>Filière AVC et imagerie immédiate ; délais de reperfusion dans DX.3 [S5][S45]</td>",
+      "source": "Même source ; DX.3, fiche altéplase (AIPS 48313)"
+    },
+    {
+      "fichier": "LOT_017_Phase_A_V0.html",
+      "gravite": "Moyen",
+      "constat": "Seconde cellule de la même redite (tableau comparatif).",
+      "avant": "<td>Filière AVC immédiate ; thrombolyse dans les 4,5 heures si critères [S5][S45]</td>",
+      "correction": "<td>Filière AVC immédiate ; délais de reperfusion dans DX.3 [S5][S45]</td>",
+      "source": "Même source"
+    },
+    {
+      "fichier": "LOT_017_Phase_A_V0.html",
+      "gravite": "Léger",
+      "constat": "Le mot « recopie » décrit la fabrication du cours, dans les fiches pyridostigmine, prednisone et téprotumumab. Il vaut mieux écrire « porte ». La correction est donnée pour la première occurrence ; il faut aussi remplacer « recopient » dans la fiche prednisone et « recopie » dans la fiche téprotumumab.",
+      "avant": "DX.4</a> recopie la posologie, les contre-indications, la grossesse et l'allaitement ; devant une crise cholinergique",
+      "correction": "DX.4</a> porte la posologie, les contre-indications, la grossesse et l'allaitement ; devant une crise cholinergique",
+      "source": "L1, aucune formule de fabrication"
+    },
+    {
+      "fichier": "LOT_017_Phase_B_V0_DX.10.html",
+      "gravite": "Léger",
+      "constat": "Ge 2025 présente ses critères du clip comme alternatifs (« or »). La phrase de l'arbre se lit comme des critères cumulatifs pour les trois premiers.",
+      "avant": "↳ Avant 60 ans, au-delà de 7 jours de III, avec un sac de 7 mm ou plus ou une paralysie complète, une revue chinoise (2025) conseille le clip",
+      "correction": "↳ Si le patient a moins de 60 ans, si le III dure depuis plus de 7 jours, si le sac mesure 7 mm ou plus ou si la paralysie est complète, une revue chinoise (2025) conseille le clip",
+      "source": "Ge Y et al., Rev Neurol 2025;80(10):40930, PMC12681010 : « Surgical clipping is preferred in younger patients (under 60 years old), those with ONP symptoms longer than 7 days, an aneurysm size ≥7 mm, or complete ONP »"
+    }
+  ],
+  "point14": {
+    "LOT_017_Phase_A_V0.html": 6,
+    "LOT_017_Phase_B_V0_DX.1.html": 12,
+    "LOT_017_Phase_B_V0_DX.2.html": 9,
+    "LOT_017_Phase_B_V0_DX.3.html": 15,
+    "LOT_017_Phase_B_V0_DX.4.html": 8,
+    "LOT_017_Phase_B_V0_DX.5.html": 10,
+    "LOT_017_Phase_B_V0_DX.6.html": 11,
+    "LOT_017_Phase_B_V0_DX.7.html": 14,
+    "LOT_017_Phase_B_V0_DX.8.html": 10,
+    "LOT_017_Phase_B_V0_DX.9.html": 10,
+    "LOT_017_Phase_B_V0_DX.10.html": 8
+  },
+  "octets": {
+    "note": "Total brut ; controle3 VERT hors images (bande 80 000–150 000). DX.7 dépasse 150 000 o en brut à cause des balises <img>, mais reste sous la limite hors images.",
+    "LOT_017_Phase_A_V0.html": 139133,
+    "LOT_017_Phase_B_V0_DX.1.html": 143283,
+    "LOT_017_Phase_B_V0_DX.2.html": 148695,
+    "LOT_017_Phase_B_V0_DX.3.html": 139848,
+    "LOT_017_Phase_B_V0_DX.4.html": 148207,
+    "LOT_017_Phase_B_V0_DX.5.html": 148611,
+    "LOT_017_Phase_B_V0_DX.6.html": 113021,
+    "LOT_017_Phase_B_V0_DX.7.html": 151151,
+    "LOT_017_Phase_B_V0_DX.8.html": 139370,
+    "LOT_017_Phase_B_V0_DX.9.html": 106740,
+    "LOT_017_Phase_B_V0_DX.10.html": 107845
+  }
+}
