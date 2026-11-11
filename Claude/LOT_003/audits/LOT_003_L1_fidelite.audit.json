@@ -1,0 +1,52 @@
+{
+  "lot": "LOT_003",
+  "verdict": "corrections",
+  "reference": "origin/main (avant) vs claude/l1-lot-003 @7f21a1bdf3 (après)",
+  "methode": "Texte extrait par html.parser (le « < » nu est conservé), sans <sup>. Comparaison avant/après des atomes nombre+unité avec un contexte de 60 caractères, des définitions span.df, des cellules de tableau et du vocabulaire perdu. Contrôle des références (ancres, n° Swissmedic, PMID, DOI, URL), des 🚩, de l'ordre des DX et de leur gravité, et des liens a.ouvre vers les fenêtres. Vérification manuelle de chaque perte signalée.",
+  "controles_conformes": [
+    "Références : ancres, n° Swissmedic, PMID, DOI et URL identiques avant et après dans les 11 fichiers.",
+    "Phase A : DX.1 à DX.13 gardent leur ordre ; DX.9 🚩E1, DX.10 🚩E2, DX.11 🚩E5, DX.12 🚩E3, DX.13 🚩E4 sont inchangés ; les 🚩 du point 5 sont intacts. La baisse de 24 à 12 🚩 vient du tableau comparatif et de l'algorithme retirés.",
+    "Phase A : le point 10 (arbre si X → Y) reste identique et couvre les 14 étapes de l'algorithme retiré. Les seuils sont conservés : 11,1 ; 33,3/320 ; 145 ; 3,0 ; 7,0/48 ; 60 ; 300 ; 21,4 ; 4,9 ; 3,8.",
+    "Phase A : les 15 molécules du tableau AIPS sont versées dans les fiches med-* avec dose, voie, durée, contre-indications, grossesse et allaitement. Lithiofor, Esidrex, Zometa et Cinacalcet gardent leur mention grossesse ou allaitement dans leur fiche.",
+    "Bloc details.arbre : aucun fichier LOT_003 n'en contenait avant (0 → 0). Les seuls details retirés sont les arbres CIM « arbn » (retrait imposé par L1-3.2).",
+    "DX.4, point 1 : la nomenclature AVP-D/AVP-R (2022) est conservée mot pour mot (AVP-D : 21 → 21 occurrences).",
+    "DX.9, point 14 : 10 questions passent à 5. Leurs faits restent présents ailleurs : critères, K+ ≥ 3,5, KCl ≤ 40 mmol/L, 10 mmol/h, 200 mmol/j, Clexane 40/20 mg, chevauchement 1 à 2 h, 0,5 à 0,6 U/kg, BHB < 0,6, glucose 5-10 % dès 13,9.",
+    "Points 10 des DX.1 à DX.10 : texte inchangé (même longueur avant et après).",
+    "Liens : 0 lien mort, 0 a.ouvre sans fenêtre, 0 fenêtre orpheline dans les 11 fichiers.",
+    "Nouveautés : aucune affirmation médicale nouvelle sans source. Les seuls ajouts sont des renvois (« Le détail figure dans la fenêtre… ») et des reformulations de phrases déjà sourcées.",
+    "Poids : tous les fichiers restent entre 100 et 200 Ko (Phase A : 150 401 o)."
+  ],
+  "critiques": [
+    {
+      "fichier": "LOT_003_Phase_B_V0_DX.6.html (9.c, fenêtres f-dx6-echographie-des-glandes-saliva, -sialographie, -scintigraphie-salivaire, -pet-ct)",
+      "avant": "échographie des glandes salivaires : hétérogénéité … graduée par OMERACT. Elle n'entre pas dans le score ACR/EULAR 2016. Piège : une échographie normale n'écarte pas le diagnostic. | sialographie : contraste iodé… sialectasies | PET-CT : … aide à chercher un lymphome",
+      "apres": "Fenêtre « Échographie des glandes salivaires » : Quand « Grossesse, enfant, peu invasif » / Limite « N'entre pas dans le score ». La définition, OMERACT et le piège ont disparu ; idem pour sialographie, scintigraphie et PET-CT.",
+      "correction": "La conversion tableau → fenêtre a supprimé les span.df de la 1re colonne. Réinsérer dans chaque fenêtre la définition et le piège avec leur appel [4]."
+    },
+    {
+      "fichier": "LOT_003_Phase_B_V0_DX.5.html (9.c, fenêtres f-dx5-tomodensitometrie-4d, -pet-a-la-fluorocholine, -irm)",
+      "avant": "TDM 4D : tomodensitométrie cervicale multiphasique après contraste iodé, troisième méthode recommandée | PET : fluorocholine marquée au fluor 18 ou méthionine au carbone 11, seconde intention | IRM : sensibilité inférieure",
+      "apres": "Les fenêtres gardent seulement les colonnes Quand/Limite. La description de l'examen et les traceurs (F-18, C-11) sont perdus.",
+      "correction": "Même défaut de conversion (span.df perdue). Réinsérer la définition de chaque examen dans sa fenêtre, appel [2]."
+    },
+    {
+      "fichier": "LOT_003_Phase_A_V0.html (point 11, fiches med-*)",
+      "avant": "Colonne « Extrait AIPS » : 15 citations verbatim, ex. « dose journalière maximale: 3000 mg » [27] ; « K+ sérique > 2,5 mmol/l : 200 mmol K+ » [37] ; « entre 0,6 et 1,0 mmol(mval)/l » [36].",
+      "apres": "Les fiches gardent dose, voie et contre-indications reformulées ; aucune citation AIPS verbatim ne subsiste (0/15).",
+      "correction": "Ajouter à chaque fiche une ligne « Extrait AIPS : « … » » avec son appel. C'est la preuve de lecture exigée par le Prompt V0 §23."
+    }
+  ],
+  "mineurs": [
+    {"fichier": "LOT_003_Phase_B_V0_DX.3.html (point 1)", "avant": "lésion rénale aiguë : baisse de la fonction rénale en moins de 7 jours ; peut se greffer sur une IRC", "apres": "Seuil « 7 jours » absent du fichier", "correction": "Retrait légitime (L1-3.1, notions voisines), mais le seuil discriminant est perdu. Le reporter dans la fenêtre du point 4 « Lésion rénale aiguë sur IRC »."},
+    {"fichier": "LOT_003_Phase_B_V0_DX.5.html (point 1)", "avant": "HPT secondaire : MRC stade 3 ou plus, carence en vitamine D ; HPT tertiaire ; thiazidiques : hypercalcémie qui peut persister après l'arrêt", "apres": "« stade 3 », « tertiaire » et la persistance sous thiazide sont absents", "correction": "Retrait L1-3.1. Reporter ces discriminants dans le tableau DD du point 4."},
+    {"fichier": "LOT_003_Phase_B_V0_DX.6.html (point 1)", "avant": "médicaments asséchants (liste) ; ICI : syndrome sec avec anti-SSA/SSB négatifs ; radiothérapie cervico-faciale", "apres": "Définitions absentes (retrait L1-3.1)", "correction": "Garder ces imitateurs au point 4 si l'on veut conserver le diagnostic différentiel."},
+    {"fichier": "LOT_003_Phase_B_V0_DX.2.html (point 1)", "avant": "Ne pas confondre avec la polydipsie secondaire, où la soif suit une perte d'eau : diabète sucré, hypercalcémie, diurétiques…", "apres": "Phrase absente ; les causes restent citées au point 9", "correction": "Facultatif : reporter le piège au point 14."},
+    {"fichier": "LOT_003_Phase_B_V0_DX.4.html (point 1)", "avant": "polydipsie primaire : … Le sodium est bas ou normal, jamais élevé.", "apres": "Discriminant absent sous cette forme", "correction": "Reporter dans le tableau DD du point 4."},
+    {"fichier": "LOT_003_Phase_A_V0.html (point 9.a)", "avant": "la privation hydrique de 1964 reste l'étalon historique (précision 70 à 77 %)", "apres": "La précision de 70 à 77 % est conservée ; la date 1964 est perdue", "correction": "Sans portée clinique ; à rétablir pour la fidélité."},
+    {"fichier": "LOT_003_Phase_A_V0.html (point 1, df)", "avant": "pollakiurie, nycturie, xérostomie, soif adaptée : définitions", "apres": "Absentes (retrait L1-3.1)", "correction": "Aucune si le retrait est voulu."},
+    {"fichier": "LOT_003_Phase_A_V0.html (fiches med-*)", "avant": "—", "apres": "« <a class=fe>fermer</a> … <b>Contre-indications (tableau AIPS) :</b> » : la ligne est placée après le bouton fermer. Fiche Actrapid : « …acidocétose[28] Voie sous-cutanée ou intraveineuse ; perfusion à 0,05–1,0 UI/mL » est un fragment sans verbe.", "correction": "Placer la ligne avant « fermer » et rédiger une phrase verbale (L1-3.3)."},
+    {"fichier": "DX.2, DX.9 (préexistant)", "avant": "Phrase de contre-indication Minirin (DX.2) ×3 ; posologie Clexane 40 mg (DX.9) ×3", "apres": "Toujours ×3", "correction": "La redondance n'a pas été traitée (L1-3.4). Vérifier si elle est visible ; sinon dédoublonner."},
+    {"fichier": "11 fichiers (préexistant)", "avant": "id=\"__tabs\" ×2", "apres": "id=\"__tabs\" ×2", "correction": "Identifiant dupliqué hors fenêtres : renommer le second."},
+    {"fichier": "LOT_003_Phase_B_V0_DX.6.html (préexistant)", "avant": "« Les critères l'excluent. , maladie associée aux IgG4 . » ; « dosage des maladie associée aux IgG4 »", "apres": "Inchangé", "correction": "Corriger la ponctuation et écrire « dosage des IgG4 »."}
+  ]
+}
