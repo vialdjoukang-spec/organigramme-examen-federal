@@ -53,3 +53,29 @@ Retraits pour la bande 80–150 Ko (aucun fait sourcé unique perdu ; l'informat
 - Sources : date de consultation commune en tête ; mentions de procédé retirées.
 
 Reste à faire : cellules de tableau encore télégraphiques (hors contrôle3) ; aucune image (point 6 et point 9 sans cliché) ; DX.8 absent du dossier au moment du renfort (fiche acétazolamide gardée entière en Phase A).
+
+## DX.2 — Paralysie oculomotrice microvasculaire (renfort L1, 2026-11-11)
+Migration faite à la main (gabarit `button.fen`/`popover` et citations `[Sx]` non reconnus par la passe mécanique) : 49 fenêtres `:target` à plat, citations par phrase, ancres `sb-…`, bibliographie en `<section id="dx2-sources">`.
+Structure L1 : point 1 = définition seule ; point 5 : fenêtres « diplopie » et « douleur orbitaire » (typique ou non) ; point 6 : 11 fenêtres, une par région ; point 7 : une fenêtre par syndrome ; point 9 : une fenêtre par examen (CRP-VS, glycémie-HbA1c, pression-lipides, IRM, angio-CT/angio-IRM, alternatives) ; point 11 : 5 fiches `.mb` (gadotérate, paracétamol, toxine botulique, prednisone, acide acétylsalicylique) ; point 14 : 9 questions avec renvoi au point.
+Lacunes retirées du cours (aucune source lue ne les comble) :
+- définition et critères publiés par une société savante suisse ou européenne : non trouvés (définition d'usage : Galtrey 2015 ; critères : Tamhankar 2013) ;
+- incidence suisse et incidence européenne en population ; coût en Suisse ; score ou stade validé ;
+- mécanisme de la douleur orbitaire ; type et intensité de la douleur (non décrits) ; durée d'application de la glace ;
+- alternative validée quand l'IRM est impossible ; fréquence initiale des contrôles ; délai avant chirurgie ;
+- règle suisse d'aptitude au travail ou d'arrêt de travail ; remboursement LAMal des prismes de Fresnel ;
+- anti-inflammatoire non stéroïdien proposé par Galtrey : aucune AIPS relue, donc aucune dose ;
+- conduite thérapeutique tirée de la comparaison du risque d'AVC à celui d'un AIT : aucune recommandation lue.
+Retraits pour redite (aucun fait sourcé unique perdu) :
+- fenêtres « notions voisines » et « terminologie » du point 1 (interdites par L1-3) : diplopie de l'ACG 7,15 % → tableau du point 4 ; pupille normale de la myasthénie → point 4 ; sagging eye 22 % à Barcelone et Basedow → fenêtre « imitateurs » ; 13 III par Tolosa-Hunt → fenêtre « douleur » ; synonymes anglais → fenêtre de définition ; le reste existait aux points 3, 4, 5 et 8 ;
+- fenêtre « ce qui ne suffit pas » du point 8 : chaque ligne répétait les points 3, 5, 9 et 14 ; une phrase de renvoi la remplace ;
+- comparaison avec la prévalence du ptosis de Salford (classement, tenu par la Phase A et le DX.1) et source S48 ;
+- tableau de la pupille (75 %, 17 %, 64 % déjà sur la page du point 3) ; ligne « muscle de Müller » de l'anatomie (tenue par le DX.1) ; lignes ACG, anévrisme, AVC et douleur du tableau de corrélation (points 9, 11 et 12) ;
+- fenêtre « situations spéciales » : textes de grossesse, d'allaitement et d'insuffisance d'organe laissés dans les seules fiches `.mb` ; citations Dotarem du point 9.c regroupées dans la fiche du gadotérate ;
+- point 12 : lignes secondaire et tertiaire qui répétaient les points 9 et 11 ; point 11.C : lignes HbA1c, pression artérielle et prednisone (points 9 et fiche) ; point 11.D : phrase sur la cohorte coréenne (point 2) ;
+- point 14 : six questions qui répétaient mot pour mot les points 5, 9, 11 et 4 ; colonne « limite » du tableau des divergences ; lignes « diplopie binoculaire » et « ptosis » du glossaire (définies aux points 5 et 6).
+AIPS relues sur refdata le 11.11.2026 (49784, 47503, 52433, 29349, 51795 ; dates de mise à jour conformes à la bibliographie) :
+- Prednisone Streuli® : citation de l'arrêt progressif corrigée (« interrompue subitement, mais terminée… », accord sur « la thérapie ») ;
+- Dotarem® : la phrase sur l'insuffisance rénale passe au style indirect (le HTML de refdata écrit « mmol /kg ») ;
+- indication du paracétamol et indication, sujet âgé du gadotérate ajoutées depuis l'AIPS ; toutes les citations entre guillemets des cinq fiches passent `verif_aips`.
+Non refait pendant cette mission : relecture des sources S1 à S47 hors AIPS (consultées le 30.10.2026 par le rédacteur initial ; chiffres repris tels quels).
+Reste à faire hors de ce fichier : images (point 3 : schéma réel des nerfs III, IV, VI ; point 6 : photographie d'une paralysie du III ou du VI ; point 9 : IRM ou angio-CT de référence) ; 5 captures par `capture5.py`. Marge de taille : 149,7 Ko sur 150 Ko, tout ajout exige un retrait.
