@@ -72,3 +72,13 @@
 - DX.5 : repos vocal (4 à 5 jours conseillés, 3 jours fondés) et arrêt de travail (12 à 14 jours) viennent d'une enquête européenne ; aucune recommandation suisse ne tranche.
 - DX.5 : critères de guérison et de sortie (point 11.D) composés à partir des sources, faute de critères d'une société savante.
 - DX.5 : « pas d'antireflux ni d'imagerie en coupe avant de voir le larynx » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; même doute que la Phase A.
+- [Lacune ouverte] DX.9 : aucune incidence ni prévalence suisse de la papillomatose (HUG, RMS 2024 du CHUV, PubMed « Switzerland » interrogés) ; chiffres norvégiens, danois, néerlandais et britanniques ; RMS 2024 (Salati, CHUV) lue en résumé seulement (texte réservé aux abonnés).
+- [Lacune ouverte] DX.9 : cidofovir sans AIPS suisse (absent du corpus refdata du 08.10.2026) : aucune fiche .mb ni dose ; cité seulement comme adjuvant de centre (HUG, Lepine 2024, Tjon Pian Gi 2013).
+- [Lacune ouverte] DX.9 : aucune image ; aucun cliché endoscopique libre de papillomatose laryngée trouvé par cliche.py (seuls des papillomes oesophagiens ou linguaux) ; à insérer dans f-dx9-r-larynx si une image libre apparaît.
+- [Lacune ouverte] DX.9 : remboursement du bévacizumab hors AIPS (OAMal art. 71a) non lu, donc non écrit ; seul le volet vaccinal (OFSP) est traité.
+- [Décision en vigueur] DX.9 : deux fiches .mb (Gardasil 9, AIPS 65387 ; Avastin, AIPS 56922) ; vaccin adjuvant et bévacizumab = hors AIPS ; dose du bévacizumab écrite « hors AIPS » (5 à 15 mg/kg, toutes les 2 à 6 semaines au départ, revue d'Amsterdam 2022), la dose AIPS du cancer colorectal est donnée comme référence.
+- [Décision en vigueur] DX.9 : Gardasil 9 de 15 à 26 ans : l'enseignement suit l'AIPS (3 doses) ; le schéma à 2 doses hors étiquette admis par la CFV/OFSP (Bulletin 22/2025) est écrit comme divergence.
+- [Décision en vigueur] DX.9 : fichier reconstruit au gabarit L1 (ancien corps de 21 Ko sans fait chiffré, popovers et polices intégrées) ; HUG dysphonies organiques relu et conservé ; Collège ORL 2017 retiré (non relu), ses faits repris par HUG et Lepine 2024 ; 27 sources dont 2 AIPS.
+- [Doute médical] DX.9 : but chiffré 11.A (repasser sous 4 interventions par an) et critères de sortie 11.D composés à partir des sources (Derkay via Lepine, RMS 2015), faute de critères d'une société savante.
+- [Doute médical] DX.9 : limite d'âge juvénile/adulte divergente (18 ans Oslo, 12 ans Kiel) ; les deux sont écrites.
+- [Doute médical] DX.9 : usage thérapeutique du vaccin contredit par l'AIPS (« n'a pas démontré d'effet thérapeutique ») mais soutenu par Odense 2019, Umeå 2024, Kiel 2025 ; les deux sont écrits, l'usage reste « hors AIPS ».
