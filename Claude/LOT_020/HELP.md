@@ -27,6 +27,10 @@
 - Phase A : sources S5, S15, S16 et S17 lues en résumé PubMed seulement ; protocole HUG d'anaphylaxie (S18) lu en résumé de procédure ; aucune incidence chiffrée de la microsomie craniofaciale (recommandation européenne 2020 non lue en texte intégral).
 - Phase A : aucune dose pour l'antibiotique de la cellulite, le concentré de C1-inhibiteur et la thrombolyse (AIPS non lues ici ; les DX.7, DX.9 et DX.2 les portent) ; point 9.c sans alternative sourcée pour DFGe < 30 mL/min et allergie à l'iode ; volet assurances (LAA) du point 11.B non rédigé, faute de source suisse lue.
 - Phase A : aucune image propre (recherche `cliche.py` sans résultat utile) ; deux renvois vers les figures du DX.1 (`f-dx1-p3-base`, `f-dx1-r-front`) ; `File:RamsayHunt2.jpg` déjà en file pourrait illustrer la fenêtre `f-ssp-p6-oreille`.
+- DX.6 : image du point 9 en file (`File:Tripod fx labeled with arrows.jpg`, CC0, Commons ; `cliche.py prendre` interrompu) ; à insérer dans la fenêtre `f-dx6-p9-tdm` par `cliche.py figure`.
+- DX.6 : sources S22 à S26, S28 et S30 lues en résumé PubMed seulement ; S31 lue pour son introduction ; page BPA (S29) sans date affichée ; cours du collège français (S6) daté de 2011, édition plus récente non lue.
+- DX.6 : durée de l'antibioprophylaxie, dose de la corticothérapie de décompression, rappel antitétanique (plan de vaccination OFSP non lu), imagerie chez la femme enceinte et volet assurances (LAA) sans chiffre ou non rédigés, faute de source suisse lue.
+- DX.6 : technique de la canthotomie latérale non décrite (aucune source suisse lue) ; critères de guérison et de sortie du point 11.D déduits de S5, S6, S21 et S27.
 
 ## Décisions en vigueur
 - DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
@@ -47,6 +51,9 @@
 - Phase A : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de style intégré et aucun chiffre) ; ses faits sont repris et sourcés sur 18 sources relues le 11.11.2026 et 5 AIPS (56551, 29349, 53116, 65952, 58178).
 - Phase A : rangs écrits « Ne rang » avec argument sourcé, dans l'ordre de la liste gelée ; aucune série lue ne chiffre la part de chaque DX dans S1.4.
 - Phase A : prednisone = HUG 2023 (1 mg/kg/j, 7 jours, « hors AIPS ») ; doxycycline = dose de l'AIPS 65952 (100 mg deux fois par jour, 10 à 60 jours), la durée de 14 jours de la RMS 2011 étant écrite « hors AIPS » ; enfant jusqu'à 12 ans selon l'AIPS, comme DX.4.
+- DX.6 : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de polices intégrées et aucun chiffre) ; ses faits sont repris et sourcés sur 13 sources lues le 11.11.2026 et 6 AIPS (45674, 35438, 47503, 45031, 22398, 00637).
+- DX.6 : antibiotique = amoxicilline-acide clavulanique oral à la dose usuelle de l'AIPS 45674 (3 × 625 mg), indication « fracture de la face » hors AIPS (RMS 2020), ce que le cours écrit ; DX.5 enseigne le schéma intraveineux périopératoire bernois.
+- DX.6 : divergence écrite et non tranchée : incarcération du muscle droit inférieur « le plus souvent » (collège français 2011) contre vrai piégeage musculaire « exceptionnel » (RMS 2020).
 
 ## Doutes médicaux à trancher
 - DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
@@ -63,3 +70,5 @@
 - DX.9 : adrénaline intramusculaire de l'adulte, 0,5 mg (AIPS Adrenalin Sintetica) et 0,3 mg (AIPS Epipen) : les deux doses sont écrites, la conduite d'urgence retient l'ampoule.
 - Phase A : chiffres de récupération (61 % Bell, 21 % zona) et incidence de 0,5 pour 1000 issus de la RMS 2011 ; une source suisse plus récente serait souhaitable.
 - Phase A : doses pédiatriques d'adrénaline recopiées de l'AIPS 56551 par tranche d'âge ; à confronter au protocole HUG détaillé (non lu) si celui-ci diffère.
+- DX.6 : AINS après fracture orbitaire sous antithrombotique — la RMS 2020 cite les AINS, l'AIPS Brufen 45031 contre-indique la « tendance accrue aux saignements » ; le cours garde le paracétamol comme antalgique de base.
+- DX.6 : mouchage doux pendant la rhinoscopie (collège français) contre interdiction du mouchage (RMS 2020) ; le cours limite le premier au geste d'examen.
