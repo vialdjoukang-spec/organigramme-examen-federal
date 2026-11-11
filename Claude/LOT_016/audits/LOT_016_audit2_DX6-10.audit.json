@@ -1,0 +1,126 @@
+{
+ "verdict": "ACCEPTE",
+ "date": "2026-11-11",
+ "base": "1c1bd60cc6caf0350c59ef0ad32b6f935e37929a",
+ "perimetre": "DX.6 à DX.10, contre-audit après les corrections du commit 6fb82083 ; Phase A et DX.1–5 non touchés",
+ "leves": [
+  "Défauts 1 à 5 (DX.10, aria-label des 5 fiches) : levés. Aucune balise dans un aria-label ; Playwright 1280 et 390 px : aucun texte hors de la carte dans les 42 fenêtres.",
+  "Défaut 6 (DX.10, Chirurgie) : levé. ESE/ES 2024, tableau 9 : « Hydrocortisone 100 mg I.V. bolus at induction, followed by … continuous infusion of hydrocortisone 200 mg over 24 hours » = « 100 mg i.v. à l'induction, puis 200 mg/24 h », écrit hors AIPS [S18]. AIPS 23533 : « 100 mg d'hydrocortisone i.v. avant le début de l'opération puis 100 mg d'hydrocortisone toutes les 6 heures » = phrase attribuée à l'AIPS [S7]. La fiche cite les trois niveaux mot pour mot.",
+  "Défaut 7 (DX.7, fiche potassium) : levé. Indication, plafonds (200/400 mmol par jour, 40/80 mmol/L, 10/40 par heure), 3 mmol/kg de l'enfant, contre-indications, grossesse et allaitement comparés au texte de l'AIPS 29552 : tout y figure. Aucun reste de Sintetica (56521) ni de Bichsel (56471) dans DX.7 et DX.9. Les citations sous S25 hors fiche sont dans l'AIPS 29552 ; « une paralysie respiratoire, une arythmie ventriculaire et le décès » vient de l'AIPS Actrapid [S18], citée dans la même phrase.",
+  "Défaut 8 (DX.10, redites) : levé. Les 19 mentions « (hors AIPS [S7]) » sont vraies : l'AIPS 23533 ne fixe ni dose de crise, ni dose par âge (« ajustée selon l'état du patient … plutôt que selon son âge et son poids corporel »), ni schéma de l'accouchement ; elle admet les voies i.v. et i.m. et les intervalles de 2, 4 ou 6 heures. La mention de la ligne « Chirurgie » signale un vrai écart (AIPS : 100 mg toutes les 6 heures).",
+  "Défaut 9 (DX.6, Fluctine) : levé. AIPS 46347 : « Des cas d'hyponatrémie (dont quelques-uns avec des concentrations de sodium inférieures à 110 mmol/l) ont été rapportés », sujets âgés, sous diurétique ou hypovolémiques ; aucune conduite d'arrêt. La phrase corrigée est exacte.",
+  "Défaut 10 (DX.6) : levé. « à l'adulte » ou « chez l'adulte » figure aux 3 endroits (drapeau G3, question du point 14, tableau d'urgence).",
+  "Défaut 11 (DX.8, Rifinah) : levé. AIPS 38931 : 3 comprimés sous 50 kg, 4 au-dessus (4 × 100 mg = 400 mg d'isoniazide) ; AIPS 69140 : « 5 (4-6) mg/kg par jour en 1 prise, maximum 300 mg par jour ». Le rédacteur a eu raison de ne pas citer le guide suisse : son tableau 7-1 donne 5 (4–6) mg/kg sans plafond en mg.",
+  "Défaut 12 (DX.9, leucocytes) : levé (fait exact ; 4e colonne à préciser, voir restants).",
+  "Défauts 13 et 14 (phrases partagées) : levés. controle3 --script-ok sur le LOT entier : 11 VERTS.",
+  "Défaut 15 (DX.10) : la partie refusée l'a été à bon droit. ESE/ES 2024, texte de R 3.x : « 200 mg hydrocortisone per 24 hours (preferably by continuous intravenous infusion, alternatively by intravenous or intramuscular injection of 50 mg hydrocortisone every 6 hours) ». Le tableau 9 n'écrit que « 50 mg I.V. boluses every 6 hours ». « 50 mg i.v. ou i.m. toutes les 6 heures » est donc porté par la source. R 2.12 n'est plus nommée qu'une fois ; la raison (rénine) est dans le « Rationale ».",
+  "Redites retirées de DX.8 pour la taille : aucun fait perdu. Les 12 mois et les corticoïdes de la méningite restent en 7.5, en question 14 et dans la fenêtre d'urgence (guide suisse : « 12 mois au total, avec ajout de corticostéroïdes »).",
+  "Aucune erreur nouvelle créée par les corrections dans les 5 fichiers (diff du commit 6fb82083 relu mot à mot)."
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Kaliumphosphat 1 Molar B. Braun (45880) est cité sous l'ancre sb-aips-29552 (AIPS du KCl) : la citation des contre-indications n'existe pas dans l'AIPS 29552. Correction 1 sur 4 : l'ancre de la phrase du tableau d'urgence.",
+   "avant": "insuffisance rénale. » <sup class=\"r\"><a href=\"#sb-aips-29552\">S25</a></sup></td>",
+   "correction": "insuffisance rénale. » <sup class=\"r\"><a href=\"#sb-aips-45880\">S36</a></sup></td>",
+   "source": "AIPS Kaliumphosphat 45880 (refdata, novembre 2024), Contre-indications, relue le 11.11.2026"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Correction 2 sur 4 : l'entrée S25 ne garde que l'AIPS 29552. L'URL abrégée « …/6e56… » n'est pas résoluble et verif_aips ne lit que la première URL d'une entrée. Date : le texte de l'AIPS 29552 porte « Mise à jour de l'information Janvier 2007 » (DX.9 l'écrit ainsi) ; « avril 2025 » est la date de dépôt de l'index refdata.",
+   "avant": "Swissmedic, AIPS Kaliumchlorid 7,45 % / 14,9 % B.&nbsp;Braun (29552), mise à jour avril 2025 ; Kaliumphosphat 1 Molar B.&nbsp;Braun (45880), novembre 2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/69e26f7a1e1e4e159f40bfc99b99aa0f-fr.html ; …/6e5616ab02ea4eec8fdb8f0b300e528c-fr.html — consultés le 11.11.2026.</li>",
+   "correction": "Swissmedic, AIPS Kaliumchlorid 7,45 % / 14,9 % B.&nbsp;Braun (29552), janvier 2007. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/69e26f7a1e1e4e159f40bfc99b99aa0f-fr.html — consulté le 11.11.2026.</li>",
+   "source": "AIPS 29552 (refdata), pied de texte ; index AipsDownload_20261008.xml (Date 2025-04-10, Period 2007-01-01)"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Correction 3 sur 4 : entrée de bibliographie propre S36 pour Kaliumphosphat 45880, ajoutée après S35.",
+   "avant": "0fbf8a305fc34409879ae7f7241f48ef-fr.html — consulté le 30.10.2026.</li>",
+   "correction": "0fbf8a305fc34409879ae7f7241f48ef-fr.html — consulté le 30.10.2026.</li>\n<li id=\"sb-aips-45880\"> <sup class=\"r\"><a href=\"#sb-aips-45880\">S36</a></sup> Swissmedic, AIPS Kaliumphosphat 1 Molar B.&nbsp;Braun (45880), novembre 2024. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/6e5616ab02ea4eec8fdb8f0b300e528c-fr.html — consulté le 11.11.2026.</li>",
+   "source": "AIPS 45880, URL vérifiée (Numéro d'autorisation 45880, novembre 2024)"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Correction 4 sur 4 : la légende du tableau des conflits cite S25 alors que sa seule ligne potassique est Kaliumphosphat 45880 ; elle cite S36. Après les 4 corrections : 149 693 o, controle3 du LOT 11 VERTS, verif_aips OK (essai sur copie).",
+   "avant": "<caption>Sources : <sup class=\"r\"><a href=\"#sb-aips-29552\">S25</a></sup> <sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup> <sup class=\"r\"><a href=\"#sb-aips-29554\">S26</a></sup>",
+   "correction": "<caption>Sources : <sup class=\"r\"><a href=\"#sb-aips-45880\">S36</a></sup> <sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup> <sup class=\"r\"><a href=\"#sb-aips-29554\">S26</a></sup>",
+   "source": "AIPS 45880 : indications et contre-indications citées dans ce tableau, relues"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.7.html",
+   "gravite": "Léger",
+   "constat": "La fiche écrit « l'AIPS fixe au plus 10 mmol par heure » ; l'AIPS 29552 imprime « 10 mmol / l heure » et « 40 mmol / l heure ». La lecture « par heure » est juste (l'AIPS Kaliumphosphat du même titulaire écrit « 10 mmol /heure » et « 40 mmol /heure »), mais elle doit être dite. Même lecture dans DX.9 (fiche f-dx9-m-kcliv) : sans correction, sa fiche Kaliumphosphat porte le texte littéral.",
+   "avant": "400 mmol par jour <sup class=\"r\"><a href=\"#sb-aips-29552\">S25</a></sup>.",
+   "correction": "400 mmol par jour <sup class=\"r\"><a href=\"#sb-aips-29552\">S25</a></sup>. L'AIPS imprime « 10 mmol / l heure » et « 40 mmol / l heure » <sup class=\"r\"><a href=\"#sb-aips-29552\">S25</a></sup> ; la fiche lit « par heure ».",
+   "source": "AIPS 29552 et 45880, Posologie, relues"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.8.html",
+   "gravite": "Léger",
+   "constat": "« Phase initiale de 2 à 3 mois » n'est pas attribuée et semble contredire les 2 mois du point 11. L'AIPS 57699 écrit « Durée de l'administration durant la phase initiale du traitement: 2–3 mois » (et aussi « Pendant les deux mois de la phase initiale ») ; le guide suisse V1.2024 écrit « par jour pendant deux mois » (2 HRZE / 4 HR). Le refus de retirer la phrase était fondé. 149 977 o après correction.",
+   "avant": "Phase initiale de 2 à 3 mois.",
+   "correction": "Phase initiale : 2–3 mois (AIPS) ; 2 mois (guide suisse).",
+   "source": "AIPS Pyrazinamide Labatec 57699 (octobre 2022) ; OFSP/Ligue pulmonaire V1.2024, chapitre 7, encadré « Traitement standard » (PDF relu)"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.9.html",
+   "gravite": "Léger",
+   "constat": "Ligne « Leucocytes » : MEED classe bien « Low white cell count » dans la colonne rouge (« Red: High impending risk to life »), sans seuil chiffré : « Bas » et « critère rouge » sont exacts. La 4e colonne « Formule sanguine à contrôler » n'est pas dans MEED, qui écrit : un taux bas de leucocytes s'associe à un risque accru d'hypophosphatémie de renutrition et doit entrer dans le plan de renutrition.",
+   "avant": "Formule sanguine à contrôler",
+   "correction": "Renutrition prudente : risque accru d'hypophosphatémie",
+   "source": "RCPsych MEED CR233 (mai 2022, mise à jour décembre 2025), tableau 1 ligne Haematology et section « White blood cell count » (PDF relu)"
+  },
+  {
+   "fichier": "LOT_016_Phase_B_V0_DX.10.html",
+   "gravite": "Léger",
+   "constat": "Ligne « Chirurgie » : les deux schémas sont attribués à la bonne source. Le schéma AIPS est exact mais sans durée ; l'AIPS écrit 24 heures (intervention moyenne) et au moins 72 heures (chirurgie majeure). Les 200 mg i.v. des petites interventions restent dans la fiche.",
+   "avant": "puis 100 mg toutes les 6 heures <sup class=\"r\"><a href=\"#sb-aips-23533\">S7</a></sup>.</td></tr>",
+   "correction": "puis 100 mg toutes les 6 heures pendant 24 heures, au moins 72 heures en chirurgie majeure <sup class=\"r\"><a href=\"#sb-aips-23533\">S7</a></sup>.</td></tr>",
+   "source": "AIPS Solu-CORTEF 23533 (octobre 2025), « Traitement de longue durée » ; ESE/ES 2024, tableau 9"
+  }
+ ],
+ "reponses": {
+  "a": "Oui. Chaque schéma est attribué à sa source et conforme au texte (ESE tableau 9 ; AIPS 23533). Les 19 « (hors AIPS) » avec ancre sont vraies. Seul manque : la durée du schéma AIPS (Léger).",
+  "b": "Fiche potassium conforme à la seule AIPS 29552, allaitement compris. « 10 mmol par heure » est la bonne lecture de « 10 mmol / l heure » (coquille confirmée par l'AIPS 45880 du même titulaire), à signaler dans la fiche. Kaliumphosphat : ancre sb-aips-45880 et entrée S36, 4 remplacements prêts à coller, essayés sur copie.",
+  "c": "Exact aux deux points.",
+  "d": "Rifinah : écart réel, bien écrit, appuyé sur la seule AIPS de l'isoniazide. Pyrazinamide : l'AIPS 57699 dit « 2–3 mois » (et « les deux mois de la phase initiale ») ; le guide suisse dit 2 mois.",
+  "e": "MEED : « Low white cell count », colonne rouge, aucun seuil chiffré.",
+  "f": "Confirmé sur le texte ESE/ES 2024 (i.v. ou i.m., 50 mg toutes les 6 heures).",
+  "g": "controle3 : 11 VERTS sur le LOT entier. verif_aips : aucun défaut bloquant ; 6 alertes « dose absente » relues, toutes fausses : Synacthène 250 µg (l'AIPS écrit 0,25 mg, 3 fois), kaliémie 4,2 mmol/L (valeur de laboratoire), 750 et 720 mg (calculs dérivés exacts : 5 × 150 mg dès 71 kg, 6 × 120 mg dès 65 kg)."
+ },
+ "controle3": {
+  "lot_entier_script_ok": "11/11 VERT",
+  "apres_corrections_proposees": "11/11 VERT (essai sur copie)",
+  "outil": "relancé avec controle3 du commit 1c1bd60c : 11/11 VERT"
+ },
+ "verif_aips": "aucun défaut bloquant ; 6 alertes « dose absente » relues, sans défaut",
+ "design": "Playwright 1280 et 390 px, 262 fenêtres ouvertes une à une : toutes centrées, occultantes et défilables ; aucun débordement horizontal ; aucun lien interne ni inter-fichiers cassé ; aucun tableau débordant.",
+ "pedagogie": "Léger, non bloquant (LOT antérieur au LOT_021) : aucun schéma anatomique réel sourcé dans DX.6–10 ; aucune correction exigée.",
+ "point14": {
+  "DX.6": 12,
+  "DX.7": 8,
+  "DX.8": 12,
+  "DX.9": 8,
+  "DX.10": 14
+ },
+ "octets": {
+  "DX.6": 148228,
+  "DX.7": 149369,
+  "DX.8": 149948,
+  "DX.9": 149562,
+  "DX.10": 148520
+ },
+ "octets_apres_corrections": {
+  "DX.7": 149693,
+  "DX.8": 149977,
+  "DX.9": 149587,
+  "DX.10": 148579
+ },
+ "verifications": "Sources rouvertes pendant ce contre-audit : AIPS refdata 23533, 29552, 45880, 44610, 46347, 38931, 69140, 57699, 54274, 66604, 26061, 63227, 54275, 60484 ; ESE/ES 2024 (Europe PMC PMC11180513) ; BSPED 2023 (PMC10646833) ; guide suisse de la tuberculose V1.2024 (PDF OFSP) ; MEED CR233 (PDF RCPsych). Environ 45 renvois AIPS et 25 chiffres de recommandation relus sur le texte.",
+ "base_note": "Fichiers DX.6–10 identiques à ceux du commit 6fb82083 (les commits suivants ne touchent que Claude/_outils).",
+ "remarque_protocole": "Léger, sans correction exigée : depuis le commit 0ebaa257, le protocole admet « hors AIPS » avec la seule source de la recommandation, sans ancre AIPS « collée pour la forme ». Les 19 « (hors AIPS [S7]) » de DX.10 restent vraies et conformes ; l'ancre S7 pourra être retirée lors d'une prochaine passe (gain d'environ 1 100 octets), sauf dans la ligne « Chirurgie » où l'AIPS porte un schéma divergent."
+}
