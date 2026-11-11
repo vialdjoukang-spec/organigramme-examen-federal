@@ -61,3 +61,21 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
 - Redite retirée : dose de Beloc i.v. de la fenêtre des bêtabloquants (conservée dans la conduite d'urgence).
 - Citations AIPS corrigées : Cordarone 41060, Rapidocain 46461, Adrenalin 66396/56551 (pédiatrie), Tambocor 45710 (sujet âgé, insuffisance rénale).
 - Images à insérer : ECG de QT long et ECG de Brugada type 1 (point 9) ; requêtes Commons « long QT syndrome ECG », « Brugada syndrome type 1 ECG ».
+
+## DX.3 — Embolie pulmonaire massive (renfort L1, 11.11.2026, agent A)
+- Lacunes retirées du cours : technique de mesure de la pression veineuse jugulaire (« non décrite dans les sources
+  consultées ») ; stratégie d'imagerie propre à l'enfant (« les sources consultées ne donnent pas… ») ; classes ESC 2025
+  de la grossesse (« texte lu, classes non lues », tableau de recommandations 11 non lu).
+- Colonne des doses du tableau de la page retirée (redite des fiches AIPS). Deux doses ne vivaient que dans cette colonne et
+  sont rétablies dans leur fiche : HNF adulte 5 000 à 10 000 U.I. puis 20 000 à 30 000 U.I./j (AIPS 46240) ; protamine IV lente
+  en 10 min, 1 mL (10 mg) pour environ 1 400 U.I., bolus ≤ 5 mL (AIPS 69842).
+- Examen ciblé : constantes, thorax et corps après le décès ont leur fenêtre ; peau, diurèse et conscience, cou et membres
+  inférieurs renvoient aux fenêtres syndromiques 7.2, 7.1 et 7.5, qui donnent déjà signe, geste et mécanisme (faits propres
+  du tableau reportés : PESI 60 points, avis HUG sur la jugulaire, Homans, 80 % de TVP sans signe).
+- Examens complémentaires : une fenêtre par examen (biologie, ETT, angioscanner, capnographie, échographie de compression,
+  scintigraphie V/Q, angio-CT post-mortem).
+- Réserve L1 : l'anamnèse reste un tableau de questions sans fenêtre de caractérisation par symptôme (siège, irradiation,
+  horaire, typique ou non) : la bande de 150 Ko est atteinte (149 988 o) et les sources lues ne caractérisent pas chaque
+  symptôme au-delà de ce que disent les fenêtres 7.1 à 7.6.
+- Images à insérer : angioscanner thoracique d'une EP proximale (« saddle pulmonary embolism CT ») et ETT avec VD dilaté
+  (« right ventricle dilatation pulmonary embolism echocardiography »).
