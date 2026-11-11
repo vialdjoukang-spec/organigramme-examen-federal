@@ -126,3 +126,9 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Phase A : conduite médico-légale propre à la femme enceinte décédée — aucune source lue (formule retirée du cours) ; fréquence suisse de DX.9 déjà notée plus haut.
 - Mentions « evidence/ » et « .cache/aips/ » retirées des six fichiers : ces dossiers n'existent pas dans le dépôt pour LOT_013.
 - controle_lot.py (ressources externes forme.css, forme.js, images/livor_mortis.webp) : ressources partagées autorisées par l'ordre de Vial du 10.11.2026 ; décision du harnais à confirmer.
+
+## Corrections d'audit DX.6–DX.10 (11.11.2026)
+- DX.6 : ligne du point 14 « dose de charge du résumé britannique absente de l'ERC publié » retirée pour la bande L1 (la dose AIPS 300 mg puis 150 mg reste dans la fiche amiodarone).
+- DX.6 : [S25] ICAR 2023 — article complet (Pasquier et al., Resuscitation 2023;184:109708) non lu, page anti-robot non contournée ; [S22] Rega — version française des pages non trouvée. Ces mentions sortent de la bibliographie du cours.
+- DX.7 : chiffre SPC 2025 de la violence domestique non relu ; le cours garde le chiffre 2022 daté. LSP bernoise art. 28 désormais citée sur BELEX (lu le 11.11.2026).
+- DX.8 : aucune recommandation suisse récente sur la mort inattendue du nourrisson ; HAS 2007 et RCPath 2016 restent les références européennes.
