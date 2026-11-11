@@ -160,7 +160,9 @@ CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
     ".mb:target{position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:min(820px,92vw)!important;max-height:84vh!important;overflow:auto!important;z-index:200!important;background:#fff!important;color:#0b0b0b!important;border-radius:14px!important;border-top:5px solid var(--fm-a,#7c2431)!important;padding:20px 26px!important;font-size:1em!important;line-height:1.45!important;box-shadow:0 0 0 100vmax rgba(20,16,12,.62),0 24px 60px -12px rgba(0,0,0,.5)!important}"
     ".mb:target b{color:#000!important}.mb:target a.fe{color:var(--fm-a,#7c2431)!important;float:right;margin:0 0 6px 12px!important}"
-    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in;hyphens:manual;-webkit-hyphens:manual}")
+    "a.ouvre{font-weight:600;text-decoration:underline dotted;text-underline-offset:3px;cursor:zoom-in;hyphens:manual;-webkit-hyphens:manual}"
+    # Audit LOT_013 (11.11.2026) : les URL insécables des sources débordaient à 390 px ; césure autorisée partout
+    "#sources li,[id$=sources] li,ol.s li,details.refs li,main a,section.fenetre a,code{overflow-wrap:anywhere;word-break:break-word}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
