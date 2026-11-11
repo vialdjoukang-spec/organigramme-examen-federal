@@ -47,8 +47,8 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a');
     if (!a) return;
-    if (a.classList.contains('ouvre')) { ouverte = true; return; }
-    if (a.classList.contains('fermer')) { e.preventDefault(); fermer(); }
+    if (a.classList.contains('ouvre') || /^#med-/.test(a.getAttribute('href') || '')) { ouverte = true; return; }
+    if (a.classList.contains('fermer') || (a.classList.contains('fe') && a.closest('.mb'))) { e.preventDefault(); fermer(); }
   });
   function fermer() {
     if (ouverte) { ouverte = false; history.back(); return; }
@@ -59,6 +59,6 @@
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape' || !location.hash) return;
     var s = document.getElementById(location.hash.slice(1));
-    if (s && s.classList.contains('fenetre')) { e.preventDefault(); fermer(); }
+    if (s && (s.classList.contains('fenetre') || s.classList.contains('mb'))) { e.preventDefault(); fermer(); }
   });
 })();
