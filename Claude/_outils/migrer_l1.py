@@ -50,7 +50,6 @@ RE_FEN = re.compile(r'<details\b[^>]*class=["\']?(?:fenetre|f)\b[^>]*>|<span cla
 def migrer(h, prefixe):
     # 1. arbre CIM
     h = supprimer_bloc(h, r'<div class="arb"[^>]*>', 'div')
-    h = supprimer_bloc(h, r'<details class="arbre"[^>]*>', 'details')
     # 2. titre du point 1
     h = re.sub(r'Définition et sémantique', 'Définition', h)
     # 3. notions voisines
