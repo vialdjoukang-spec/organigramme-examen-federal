@@ -60,3 +60,9 @@
 - Doses AIPS vérifiées : Glucophage® 26061, Diflucan® 49503, Jardiance® 63227 (y compris 4,1 % contre 0,9 % d'infections génitales), Lantus® 55346.
 - Lacune retirée du cours : « le texte de la recommandation suisse correspondante n'a pas été consulté ».
 - La série de Cai est chinoise (hors Suisse/Europe) ; elle complète, sans les remplacer, les données suisses (Obsan, Berne) et européennes (S2k).
+
+## DX.9 (Insuffisance rénale chronique, prurit urémique)
+- Point 1 : la phrase « comorbidité, non cause démontrée » et les diagnostics voisins vont au point 4.
+- Ajouts sourcés (guide S2k 2025, section 4.2.1 et tableau des options) : DOPPS (jusqu'à 30 %), GEHIS (un tiers, 43,5/37,9/18,6 %, incidence 3 ans 17 %), mécanismes proposés, options évaluées (gabapentine 300 mg ×3/semaine, prégabaline 50 mg un jour sur deux, sertraline 25 mg, doxépine 10 mg ×2 : hors AIPS, chiffres lus dans le guide), difélikéfaline (essai de 378 patients, forme orale 39 %).
+- Le tableau du guide écrit « 0.5 mg/kg » pour la difélikéfaline (coquille) ; le cours retient 0,5 µg/kg, valeur du texte du guide et de l'AIPS Kapruvia® 68653.
+- Citations parasites retirées : la référence Fishbane [8] était accolée aux numéros d'étapes de l'urgence.
