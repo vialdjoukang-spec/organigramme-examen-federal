@@ -1,0 +1,72 @@
+{
+ "verdict": "NON (pas prêt pour audit-ok). Aucune dose, voie, contre-indication ni mention grossesse/allaitement fausse trouvée dans les 70 AIPS refdata FR lues (corpus AipsDownload_20261008, téléchargement du 11.11.2026) : furosémide (30630, 30629, 36442), torasémide, HCTZ, acétazolamide, spironolactone, éplérénone, finérénone, Entresto, énalapril, candésartan, bisoprolol, dapagliflozine, empagliflozine, noradrénaline, prednisolone (Spiricort), héparine, Clexane, Marcoumar, ciclosporine, Bactrim forte, albumine 5 %/20 %, Métopirone, Isturisa, Signifor/Signifor LAR, Lysodren, Hydrocortisone Galepharm, Solu-Cortef, Alkindi, Minirin (3 formes), Genotropin, Imcivree, Testogel, Synacthen. Numéros Swissmedic des 70 URL contrôlés contre l'XML refdata : tous corrects. Faits sourcés retirés depuis origin/main : comparés par script (nombres + unités) et à la main (conduites, contre-indications, critères) ; tous retrouvés ailleurs dans le LOT, sauf la matière pédagogique du point 14. Restent : 2 fautes Graves de structure (examen physique non découpé par région dans 4 leçons ; point 14 vidé dans les 5) et 6 fautes Moyennes (renvois AIPS mal collés, point 1 de DX.7, redondance inter-leçons). Score §12.2 : AIPS 2/2 ; recommandations européennes 1/2 (ESC 2026 lu par diaporama et communiqué seulement ; ESE 2020, KDIGO 2021/2025, Müller 2026 non relus ici) ; renvois 1/2 ; examen physique 1/2 (DX.8 seul conforme) ; pièges d'examen 0/2 ; design 2/2. Manque pour « oui » : examen par région dans DX.6, DX.7, DX.9 et DX.10, au moins 5 questions-pièges par leçon, et correction des 6 renvois.",
+ "critiques": [
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.6.html, DX.7, DX.9, DX.10",
+   "constat": "Grave (L1-2, examen physique). Le point 6 garde un seul grand tableau sur la page (DX.6, DX.7 : « Examen région par région… ») ou une seule fenêtre-tableau (DX.9 f-dx9-p6-regions, DX.10 f-dx10-p6-regions). L1-2 exige une fenêtre par étape, dans l'ordre de l'examen. DX.8 est conforme (f-dx8-r-mes … f-dx8-r-gen, 9 fenêtres). HELP.md le reconnaît (« Reste : examen physique par région dans DX.6, DX.7, DX.9, DX.10 »).",
+   "correction": "Découper chaque ligne en une fenêtre `a.ouvre` (DX.6 : poids, cou-jugulaires, abdomen-reflux et foie, membres inférieurs, poumons, cœur, périphérie ; DX.7 : poids-croissance, signes vitaux, visage, membres inférieurs, thorax, abdomen, cœur-cou, peau-ganglions, infection ; DX.9 : 11 régions ; DX.10 : constantes, yeux, neurologie, peau, puberté, hydratation), cellules reprises mot pour mot. Faire la place par les redites listées dans « design ».",
+   "source": "PROMPT_LOTS_L1_10.11.26.claude.md, L1-2.3 « Examen physique CIBLÉ » ; contrôle HTML de ce jour"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.6.html à DX.10",
+   "constat": "Grave (pédagogie examen fédéral). Le point 14 ne garde qu'une ou deux questions : DX.6 1/13, DX.7 1/14, DX.8 1/17, DX.9 2/16, DX.10 1/15 (origin/main → branche). Les faits restent ailleurs (HELP.md), mais la rubrique 14 exige des pièges de dose, de critère, de gravité et de conduite. Exemple perdu : « Un homme obèse a 5 g/24 h de protéinurie et 38 g/L d'albumine. Est-ce un SN ? » (DX.7).",
+   "correction": "Rétablir 5 à 6 questions par leçon, en forme courte « question ? → réponse en une ligne + lien a.ouvre vers l'endroit où le fait est développé ». Le fait n'est pas réécrit, donc L1-3.4 est respecté. Prendre les questions de origin/main, en priorité : NT-proBNP de l'obèse et zone grise après 75 ans, nitroglycérine si PAS < 90 (DX.6) ; protéinurie néphrotique sans SN, hypovolémie de l'enfant, CBG et freinage (DX.7) ; MC4R hors indication d'Imcivree, plafond de 2,7 mg/j de Genotropin dans le SPW (DX.8) ; zone 51–138 nmol/L, rémission < 55 nmol/L, maximum d'Isturisa (DX.9) ; hyponatrémie sous desmopressine, ordre hydrocortisone avant lévothyroxine (DX.10).",
+   "source": "PROMPT_LOTS_L1_10.11.26.claude.md, tableau de la rubrique 14 ; git show origin/main:Claude/LOT_015/…"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.9.html",
+   "constat": "Moyen (renvoi AIPS mal collé). S10 = AIPS Dexaméthasone Galepharm n° 57974. Elle ne mentionne ni le freinage à 1 mg ni de seuil de cortisol. Elle sert pourtant de source à la recommandation ESE et aux seuils : point 8 « l'ESE 2020 recommande le freinage minute à 1 mg de dexaméthasone en premier (R.3.6)S10 » ; aussi 9.b, arbre, tableau de 9.b (« ≤ 50 nmol/L »), MACS, récidive, tableau de dépistage du point 12.",
+   "correction": "Remplacer S10 par S15 (ESE 2020, R.3.6) ou S16/S17 sur ces phrases. Garder S10 sur une seule phrase : « Le freinage à 1 mg est un usage diagnostique hors information professionnelle de la dexaméthasone. »",
+   "source": "AIPS Dexaméthasone Galepharm n° 57974 (refdata FR, lue le 11.11.2026) ; Pasquali R et al., ESE 2020 (S15)"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.10.html",
+   "constat": "Moyen (renvoi AIPS mal collé). L'AIPS Hydrocortisone Galepharm (comprimés 10 mg, n° 57970) ne contient aucune dose IV. Elle est pourtant citée sur des doses ESE : fenêtre Urgence, « Il poursuit par 200 mg d'hydrocortisone sur 24 heures… ou 50 mg… toutes les 6 heures[s33][aips-57970] ». Même défaut pour 100 mg IV en minutes 0–5, chirurgie programmée (« 100 mg… à l'induction, puis 200 mg sur 24 heures »), anesthésie générale et accouchement (situations spéciales).",
+   "correction": "Retirer [aips-57970] de ces 5 phrases et laisser S33 (ESE/ES 2024). Ajouter une seule fois : « L'AIPS de Solu-Cortef® ne fixe pas de dose de crise (divergence écrite). » Cette phrase existe déjà ; la garder.",
+   "source": "AIPS Hydrocortisone Galepharm n° 57970 (l. « Insuffisance surrénale chronique : 10 à 20 mg… ») ; Beuschlein F et al., ESE/ES 2024"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.9.html et DX.10",
+   "constat": "Moyen (renvoi). Les doses pédiatriques de la BSPED (« 25 mg avant 1 an, 50 mg de 1 à 5 ans, 100 mg dès 6 ans » ; « 2 mg/kg (maximum 100 mg) ») portent [aips-23533]. Or le même paragraphe écrit : « L'AIPS de Solu-CORTEF® ne précise pas de dose pédiatrique d'urgence ».",
+   "correction": "Retirer [aips-23533] de ces phrases ; garder S31 (DX.9) ou S43 (DX.10) seuls.",
+   "source": "AIPS Solu-Cortef® n° 23533 (rubrique Enfants : « Ne pas administrer des doses inférieures à 25 mg par jour », sans dose de crise) ; BSPED 2023"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.9.html",
+   "constat": "Moyen (renvoi). Fiche pasiréotide : la dose de Signifor LAR (« 10 mg toutes les 4 semaines… jusqu'à 40 mg ») porte [aips-61254], qui est Signifor s.c. La source juste est Signifor LAR n° 65148. Celle-ci donne aussi un maximum de 20 mg toutes les 4 semaines en Child-Pugh B, absent de la fiche.",
+   "correction": "Créer l'ancre sb-aips-65148 et l'appeler sur la phrase LAR. Ajouter : « Child-Pugh B : départ à 10 mg, maximum 20 mg toutes les 4 semaines ; Child-Pugh C : contre-indiqué. »",
+   "source": "AIPS SIGNIFOR LAR n° 65148, Posologie (« par palier de 10 mg jusqu'à 40 mg » ; « La dose maximale est de 20 mg toutes les 4 semaines »)"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.10.html",
+   "constat": "Moyen (renvoi). Fiche desmopressine : la cellule « MINIRIN® solution injectable, 4 µg/mL (n° 43585)[aips-49002][aips-57151] » cite les AIPS des comprimés et du Melt. Les doses de la ligne sont justes (43585 : 1–4 µg ; 0,1–1 µg dès 1 an ; 0,05 µg chez le nourrisson).",
+   "correction": "Remplacer les deux appels par [aips-43585].",
+   "source": "AIPS MINIRIN® solution injectable n° 43585"
+  },
+  {
+   "fichier": "LOT_015_Phase_B_V0_DX.7.html",
+   "constat": "Moyen (L1-3.1). Le point 1 contient « …qu'il faut distinguer de leurs voisines » et un lien vers la fenêtre f-dx7-p1-voisins (« Ce qui est un SN, ce qui ne l'est pas, ce qui s'en approche »). Ce sont les notions voisines interdites au point 1. Les autres leçons ouvrent cette fenêtre depuis le point 4.",
+   "correction": "Supprimer la phrase et le lien au point 1. Ouvrir f-dx7-p1-voisins depuis le point 4 (démarche) ; renommer son id en f-dx7-p4-voisins.",
+   "source": "PROMPT_LOTS_L1_10.11.26.claude.md, L1-3.1"
+  },
+  {
+   "fichier": "DX.2, DX.7, DX.8, DX.9, DX.10",
+   "constat": "Moyen (L1-3.4, redondance entre leçons). Le schéma chirurgical de l'AIPS (« 100 mg… puis toutes les 6 heures pendant au moins 72 heures ») figure dans 5 leçons. Dans DX.9, il occupe la fiche f-dx9-m-hc (1,4 Ko). Dans DX.10, il apparaît à la fois dans la fiche hydrocortisone et dans l'urgence.",
+   "correction": "Le garder dans la fiche hydrocortisone de DX.10 seulement. Ailleurs, écrire une phrase de renvoi (« schéma chirurgical : fiche hydrocortisone de DX.10 »).",
+   "source": "AIPS Solu-Cortef® 23533 ; Spiricort® 38840 ; recherche textuelle sur les 11 HTML"
+  }
+ ],
+ "mineurs": [
+  "DX.6, point 1 : la phrase « L'ESC 2026 ne garde que deux phénotypes… » et la phrase « La prise de poids de ce diagnostic traduit une rétention… » dépassent la définition (L1-3.1). Les déplacer aux points 3 et 8.",
+  "DX.6 : la classe IIa du sémaglutide et du tirzépatide est donnée « si FEVG ≥ 45 % ». L'ESC 2026 fixe l'ICFEP à ≥ 50 % (communiqué ESC du 28.08.2026, lu). Le seuil de 45 % vient des essais et doit être cité mot pour mot du diaporama S43 ou corrigé. Le texte intégral (ehag100) n'est pas lu (S4 : « texte intégral non lu ») : le dire une fois au point 11.",
+  "DX.10, test au tétracosactide : « cortisol à 30 et 60 minutes [S33]S45 ». L'AIPS Synacthen 31723 ne prévoit qu'un prélèvement à 30 min (normal si > 500 nmol/L ou hausse ≥ 200 nmol/L). Elle exige d'interroger le patient sur une allergie ou un asthme avant l'injection. Retirer S45 de la mention « 60 min » et ajouter la précaution allergique de l'AIPS.",
+  "DX.7, fiche Bactrim forte : la contre-indication AIPS « Nouveau-nés présentant une hyperbilirubinémie ou un déficit… en G6PD » manque, ainsi que l'allaitement (HELP dit qu'il reste dans DX.9). Ajouter un renvoi à la fiche cotrimoxazole de DX.9.",
+  "DX.9 : les fiches Isturisa et Métopirone n'ont pas de ligne Grossesse. AIPS 67262 : « ne doit pas être utilisé pendant la grossesse, sauf en cas de nécessité manifeste » ; AIPS 27867 : « n'est pas recommandé pendant la grossesse… à moins que le bénéfice… ». La ligne Grossesse du point 11 ne donne que la conduite S18.",
+  "DX.6 : la phrase « Elle l'exclut aussi avec l'aliskirène… DFG < 60 mL/min/1,73 m² » est répétée dans 3 fiches (Entresto, énalapril, candésartan). L'indication Forxiga/Jardiance est citée deux fois (l. 528 et 535 du texte). « Sans diagnostic connu, un gain rapide… peptide natriurétique » apparaît en tête de page et au point 13.",
+  "DX.7 : « Protéinurie néphrotique sans SN… albumine > 30 g/L » apparaît 4 fois (tableau du point 4, tableau du point 8, fenêtre p1-voisins, p1-def). L'apport protéique « 0,8–1,0 g/kg/24 h » apparaît 2 fois.",
+  "DX.10 : « acuité à l'échelle de Snellen… Goldmann » 2 fois ; « 12 mois… lésion visible à l'IRM » 3 fois (point 5, arbre, fenêtre des critères) ; signes de crise surrénalienne 2 fois (drapeaux rouges, urgence) ; la phrase-gabarit « La dose AIPS de Wegovy®… figurent dans la fiche de DX.1 » ×3.",
+  "DX.9 : « tests de freinage à 2 jours, dexaméthasone-CRH ou desmopressine en centre expert » 2 fois (pseudo-Cushing, l. 202 et 379) ; le mécanisme du pasiréotide 2 fois (tableau du point 3 et fiche).",
+  "DX.9, point 12 : le tableau « qui tester » repose sur S21 (Endocrine Society 2008, coparrainée par l'ESE ; vérifié). Ajouter S20 (SFE 2022) ou S15 (ESE 2020) pour que la décision ne repose pas sur une source de 2008 seule."
+ ],
+ "design": "Playwright (Chromium, 1280×800 et 390×844, 11.11.2026). 244 fenêtres ouvertes une à une par :target (DX.6 44, DX.7 41, DX.8 55, DX.9 55, DX.10 49 ; fiches .mb 24/16/7/13/8). Toutes s'affichent en position fixe, sont centrées (écart < 6 % de la largeur), ne débordent pas et portent un lien Fermer. Aucune fenêtre orpheline, aucun lien interne cassé, pas de défilement horizontal à 390 px. Défaut léger : dans les tableaux des fiches .mb, `th{vertical-align:bottom}` met l'étiquette (Indication, Dose AIPS) au bas de cellules hautes. Sur mobile, le libellé tombe sous le pli : régler vertical-align:top pour les en-têtes de ligne (forme.css, hors périmètre de la leçon). Examen physique en une fenêtre par région : DX.6 non (tableau sur la page), DX.7 non (tableau sur la page + 1 fenêtre œdème), DX.8 oui (9 fenêtres), DX.9 non (1 fenêtre-tableau), DX.10 non (1 fenêtre-tableau). Place à libérer (estimations sur le HTML) : DX.6, retirer grossesse et allaitement des listes de contre-indications des fiches, car le tableau du point 11 les donne (≈ 1,5 Ko) ; factoriser la phrase aliskirène (≈ 0,5 Ko) ; retirer la ligne « version patients ≤ 50 % » de f-dx6-p1-def (≈ 0,4 Ko). DX.7 : garder « protéinurie néphrotique sans SN » au point 8 seulement (≈ 0,8 Ko). DX.9 : remplacer f-dx9-m-hc par un renvoi à DX.10 (≈ 1,2 Ko) ; retirer le doublon pseudo-Cushing et le mécanisme du pasiréotide dans le tableau du point 3 (≈ 0,4 Ko). DX.10 : fusionner les 3 fiches-coquilles GLP-1 en une phrase de la fenêtre GLP-1 (≈ 1,5 Ko) ; retirer le doublon Snellen-Goldmann, le critère des 12 mois et les signes de crise (≈ 0,6 Ko) ; retirer le schéma Solu-Cortef de l'urgence « chirurgie programmée » (≈ 0,4 Ko). Chaque leçon pèse aujourd'hui 149,7 à 151,2 Ko ; DX.6 (151 205 o) et DX.10 (150 072 o) dépassent déjà 150 Ko (L1-1)."
+}
