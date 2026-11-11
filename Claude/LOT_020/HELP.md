@@ -20,6 +20,9 @@
 - DX.5 : sources S3 et S7 à S11 lues en résumé PubMed seulement ; page AO Surgery Reference (S4) et page BPA (S12) sans date affichée ; extrait CNECMF 2025 (S6) réduit au sommaire et à la fonction manducatrice, le fond vient du cours du collège de 2014 (S5).
 - DX.5 : aucune recommandation suisse écrite (SSCMF, HUG, Inselspital) lue sur l'imagerie chez la femme enceinte, la dose d'antibioprophylaxie de l'enfant et le rappel antitétanique (plan de vaccination OFSP non lu) ; ces points restent sans chiffre dans le cours.
 - DX.5 : mortalité et critères officiels de guérison ou de sortie absents des sources lues ; les critères de sortie du point 11.D sont déduits des mesures de S5 et de S1.
+- DX.9 : volet assurances suisses du point 11.B (LAMal, liste des spécialités, limitations de l'icatibant et des traitements de fond) non rédigé, faute de source suisse lue.
+- DX.9 : sources S8, S10, S11, S12 et S13 lues en résumé PubMed seulement (RMS sous abonnement ; la liste des cinq types DANCE n'est pas dans le résumé) ; protocole HUG de l'anaphylaxie lu par son résumé public ; guides EAACI de l'anaphylaxie et de l'urticaire (2021) non lus.
+- DX.9 : aucune recommandation suisse écrite lue sur l'angioœdème sous IEC (conduite : ANSM 2019, PNDS 2024, résumé RMS 2016) ; aucune dose de glucocorticoïde donnée ; acide tranexamique sans fiche `.mb` (AIPS Cyklokapron 33741 non lue, dose du PNDS écrite « hors AIPS »).
 
 ## Décisions en vigueur
 - DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
@@ -35,6 +38,8 @@
 - DX.8 : conduite devant une masse = cytoponction échoguidée avant chirurgie (ESMO 2022, UK 2016) ; la parotidectomie exploratrice d'emblée du collège français 2014 est écrite comme divergence.
 - DX.5 : antibioprophylaxie = schéma de l'essai bernois (Schaller 2013 : amoxicilline-acide clavulanique 1,2 g i.v. toutes les 8 h jusqu'à 24 h postopératoires), dose conforme à l'AIPS 56758 mais indication « fracture de la face » hors AIPS, ce que le cours écrit ; durée courte enseignée (1 jour = 5 jours).
 - DX.5 : image insérée par `cliche.py` au point 9 : `images/Simple_mandible_fracture.webp` (CC BY 3.0, orthopantomogramme).
+- DX.9 : sébétralstat — l'AIPS 69540 (300 mg, dose supplémentaire au besoin) fait foi, la dose de 600 mg du guide WAO 2025 est écrite comme divergence ; clémastine — AIPS 35501 (2 mg chez l'adulte) suivie, 0,05 mg/kg du guide S2k écrit ; adrénaline — paliers d'âge de l'AIPS 56551, intervalle S2k écrit.
+- DX.9 : image insérée par `cliche.py` : `images/AngioedemaFra.webp` (CC BY-SA 3.0, point 6, fenêtre du visage).
 
 ## Doutes médicaux à trancher
 - DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
@@ -47,3 +52,5 @@
 - DX.5 : chlorhexidine — l'AIPS 60340 prévoit l'emploi sous fixation intermaxillaire mais interdit l'application sur une plaie ; conduite à préciser tant que la plaie gingivale du foyer n'est pas fermée.
 - DX.5 : ibuprofène en phase hémorragique (contre-indication AIPS « tendance accrue aux saignements ») : aucune recommandation suisse lue sur l'antalgie de la fracture mandibulaire.
 - DX.5 : délai maximal avant ostéosynthèse d'une fracture ouverte : le collège français écrit « dans les heures qui suivent », sans chiffre ; pratique suisse non lue.
+- DX.9 : icatibant ou C1-INH dans l'angioœdème sous IEC, écrits « hors AIPS » d'après le seul résumé RMS 2016 (S12) ; l'efficacité n'est pas établie par les sources lues.
+- DX.9 : adrénaline intramusculaire de l'adulte, 0,5 mg (AIPS Adrenalin Sintetica) et 0,3 mg (AIPS Epipen) : les deux doses sont écrites, la conduite d'urgence retient l'ampoule.
