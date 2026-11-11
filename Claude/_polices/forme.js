@@ -3,6 +3,12 @@
 (function () {
   var m = document.getElementById('brain-barre14');
   if (!m) return;
+  /* Une seule entrée « Sources » : l'entrée numérotée vers un titre #fm-N s'efface devant l'entrée § (cours déjà publiés). */
+  var src = [].slice.call(m.querySelectorAll('a[href^="#"]')).filter(function (a) {
+    return /^\s*(sources?|bibliographie|références)(\s|$)/i.test(a.lastChild ? a.lastChild.textContent : '');
+  });
+  if (src.some(function (a) { return a.firstChild && a.firstChild.textContent === '§'; }))
+    src.forEach(function (a) { if (/^#fm-\d+$/.test(a.getAttribute('href')) && a.firstChild.textContent !== '§') m.removeChild(a); });
   var liens = [].slice.call(m.querySelectorAll('a[href^="#"]'));
   var cibles = liens.map(function (a) {
     try { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) { return null; }
