@@ -103,3 +103,9 @@ répondait 429 à la recherche elle-même (10.11.2026), aucun titre de fichier n
   « subarachnoid hemorrhage CT basal cisterns ».
 - DX.2 et DX.4 (relecture, agent A) : deux formules de lacune retirées du cours : absence de dépistage de population suisse
   décrit (DX.2, point 12) ; décès suisses codés « anévrisme ou dissection de l'aorte » non isolés par l'OFS 2024 (DX.4, point 2).
+
+## Corrections après l'audit LOT_014_A_DX6-10 (11.11.2026, agent B)
+- DX.8 : l'autopsie de toute MSC avant 50 ans est attribuée à l'ESC 2022 [S33], comme le propose l'audit ; le texte de l'ESC 2025 (et celui de l'ESC 2022, page OUP refusée au robot) n'a pas pu être relu ici.
+- DX.10 : aucune « attestation médicale de décès nationale de janvier 2026 » n'a été trouvée en ligne ; le cours s'appuie sur le guide vaudois de l'attestation (2024, relu le 11.11.2026) et la fiche CoD de l'OFS (juillet 2025 : nouveau certificat au format OMS depuis 2024). À compléter si le document national est fourni.
+- DX.7 : dose de charge et d'entretien de l'aminophylline lues dans l'AIPS 56507 (téléchargée le 11.11.2026). DX.6 : mise en garde de l'AIPS Orfiril 54331 chez l'homme apte à procréer lue le même jour.
+- Ressources externes ../_polices/forme.css et forme.js : laissées en place (règle forme.py), à admettre par le harnais controle_lot.py.
