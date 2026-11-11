@@ -46,6 +46,7 @@
 - Point 1 : diagnostics à ne pas confondre (DX.7, DX.9, DX.10) déplacés au point 4.
 - Lacunes retirées du cours : « aucun critère officiel suisse n'a été lu » ; critères cliniques détaillés du DRESS et de la nécrolyse non relus.
 - À vérifier hors cours : la décroissance des glucocorticoïdes (DRESS sévère 3 à 6 mois, DRESS léger 6 semaines à 3 mois) n'a pas pu être relue (texte intégral Brüggen 2024, PMC10652220, inaccessible le 11.11.2026) ; ces phrases restent sans citation.
+- Finition L1 (11.11.2026) : chiffres non relus retirés du cours — « 6 semaines à 3 mois » (DRESS léger, urgence) et « 3 à 6 mois » (question d'examen) ; le texte dit désormais « diminuer progressivement ». La phrase de l'urgence sur le DRESS sévère (3 à 6 mois, citée sur l'AIPS 29349) reste à recouper avec Brüggen 2024 dès que le texte intégral est accessible.
 - Ajout sourcé : fenêtre « Caractérisation du prurit médicamenteux » (guide S2k 2025 : 5 % des réactions, 12 mois, HES 12–42 %, deux tiers, 15 mois).
 
 ## DX.7 (Urticaire)
