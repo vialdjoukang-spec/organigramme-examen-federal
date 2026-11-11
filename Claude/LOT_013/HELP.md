@@ -119,3 +119,8 @@ Registre des lacunes retirées des leçons lors du renfort L1 du 10.11.2026. Auc
 - Recours à un interprète, campagne suisse de prévention du secouement, accord du MP avant les prélèvements d'organes : non trouvés.
 - Resserrement : tableau AIPS cabergoline/bromocriptine condensé (doses, indications, grossesse, allaitement et mises en garde maintenues mot pour mot ; listes complètes de contre-indications, effets et interactions résumées) ; pharmacocinétique et interactions de l'adrénaline retirées (présentes dans DX.4 et DX.6) ; lignes SIDS/UST, « SUDI, unexplained » et codes R95–R99 retirées de la fenêtre des définitions (présentes aux points 2 et 8) ; calculs dérivés retirés.
 - RESTE À FAIRE (renfort L1 inachevé) : 166,9 Ko hors images, au-dessus de la bande de 150 Ko ; 49 phrases longues et 16 phrases nominales (controle3 ORANGE). Il faut condenser environ 17 Ko de fenêtres au contenu distinct (questions clés, corrélation, épidémiologie, urgence, droits sociaux, critères, interprétation, point 14), puis reprendre la langue.
+
+## Corrections d'audit Phase A et DX.1–DX.5 (11.11.2026)
+- Phase A : conduite médico-légale propre à la femme enceinte décédée — aucune source lue (formule retirée du cours) ; fréquence suisse de DX.9 déjà notée plus haut.
+- Mentions « evidence/ » et « .cache/aips/ » retirées des six fichiers : ces dossiers n'existent pas dans le dépôt pour LOT_013.
+- controle_lot.py (ressources externes forme.css, forme.js, images/livor_mortis.webp) : ressources partagées autorisées par l'ordre de Vial du 10.11.2026 ; décision du harnais à confirmer.
