@@ -35,3 +35,9 @@
 - Doses « hors AIPS » (colestyramine 4–16 g, rifampicine 300–600 mg, naltrexone 50 mg, sertraline 75–100 mg et 25 mg au départ, gabapentine 300 mg 3×/semaine après dialyse, prégabaline 50 mg un jour sur deux, paroxétine 20–40 mg, mirtazapine 15–30 mg) : chaque nombre retrouvé dans le guide européen S2k 2025 (tableaux des options thérapeutiques) ; la phrase cite le guide et l'AIPS de la molécule.
 - Bézafibrate : l'AIPS Cedur® retard 45352 contre-indique le produit quand la clairance vaut 60 mL/min ou moins (le cours disait « sous 60 ») ; corrigé.
 - Citations groupées scindées (une source par appel) pour que le contrôle lise chaque source.
+
+## DX.5 (Composante psychique)
+- Point 1 : distinctions F45.8, F54, F43.2 et délire d'infestation déplacées en fin de point 4.
+- Ajout sourcé : fenêtre « Caractérisation du prurit à composante psychique » (Schneider et al. 2020, PMC9128937, lu le 11.11.2026 : début, type, vocabulaire, déclencheurs, horaire, réactions ; 77,7 % contre 48,8 % de variations liées au stress).
+- Doxépine : 25 à 100 mg/j vérifiés dans le guide S2k ; AIPS Doxepin Rivopharm 69433 citée pour la molécule.
+- Les consignes à l'impératif deviennent « Il faut … » (phrases verbales reconnues), sans changement de contenu.
