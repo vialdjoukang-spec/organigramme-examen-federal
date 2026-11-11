@@ -39,7 +39,7 @@ main{margin-left:var(--menu-l);padding:28px clamp(20px,4vw,64px) 80px}
 main>h1,main>h2,main>section{max-width:var(--col);margin-left:auto;margin-right:auto}
 /* bandeau du titre : aplat pâle, barre gauche épaisse, coin arrondi à droite */
 h1,h2.kicker{background:var(--pale);border-left:7px solid var(--accent);border-right:1px solid var(--doux)}
-h1{margin-top:0;margin-bottom:46px;padding:26px 32px 27px;border-radius:4px 18px 18px 4px;border-top:1px solid var(--doux);border-bottom:1px solid var(--doux);font:800 clamp(32px,1.1rem + 1.3vw,44px)/1.18 var(--police-titre);letter-spacing:-.01em;color:var(--titre)}
+h1{margin-top:0;margin-bottom:0;padding:26px 32px 4px;border-radius:4px 18px 0 0;border-top:1px solid var(--doux);font:800 clamp(32px,1.1rem + 1.3vw,44px)/1.18 var(--police-titre);letter-spacing:-.01em;color:var(--titre)}
 h1::before{content:var(--surtitre);display:block;margin:0 0 12px;font:700 11.5px/1.2 var(--police-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 h2.kicker{margin-top:0;margin-bottom:46px;padding:2px 32px 24px;border-radius:0 0 18px 4px;border-bottom:1px solid var(--doux);font:400 15px/1.45 "Atkinson Hyperlegible Next",system-ui,sans-serif;color:var(--gris)}
 /* parties : h3 numéroté sur aplat très pâle, h4 en italique */
@@ -72,7 +72,7 @@ td.ok{background:var(--ok)}td.mo{background:var(--mo)}td.ko{background:var(--ko)
 .rang,.e{display:inline-block;margin:0 .28em;padding:0 8px;border-radius:999px;background:var(--appel-fond);color:var(--leg);font-weight:700;font-size:.86em;white-space:nowrap;vertical-align:baseline}
 .freq{font-weight:700;color:var(--leg);white-space:nowrap}
 ol.dx{list-style:none;padding:0;border:1px solid var(--cadre);border-radius:10px;overflow:hidden}
-ol.dx li{display:block;margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
+ol.dx li{display:grid;grid-template-columns:minmax(10rem,14rem) 1fr auto;gap:12px;align-items:baseline;margin:0;padding:9px 12px;border-top:1px solid var(--filet)}
 ol.dx li:first-child{border-top:0}
 ol.dx li:nth-child(even){background:var(--zebre)}
 ol.algo>li{margin-bottom:.5em}
@@ -87,7 +87,7 @@ button.w:hover{background:var(--appel-fond)}
 .fenetre button.fermer::after{content:" ×"}
 .fenetre td:first-child{background:var(--th);border-bottom:2px solid var(--th-filet)}
 .fenetre img{max-width:100%;height:auto;border-radius:8px}
-figure.cliche,figure.bio{margin:12px 0 20px;padding:0}
+figure.cliche,figure.bio,figure.schema{margin:12px 0 20px;padding:0}
 figure img,figure svg{display:block;max-width:100%;height:auto}
 .paire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .paire.une{grid-template-columns:1fr}
@@ -111,7 +111,7 @@ main{margin-left:0;padding:20px 5vw 60px}
 .paire{grid-template-columns:1fr}
 ol.dx li{grid-template-columns:1fr}
 main>section{scroll-margin-top:76px}}
-@media (max-width:480px){h1{padding:20px 18px 20px}h2.kicker{padding:2px 18px 20px}th,td{padding:8px}}
+@media (max-width:480px){h1{padding:20px 18px 4px}h2.kicker{padding:2px 18px 20px}th,td{padding:8px}table.comp,table.comp tbody,table.comp tr,table.comp td{display:block;width:100%}table.comp thead{display:none}table.comp tr{border-top:1px solid var(--filet)}table.comp td{border-left:0}table.comp td::before{content:attr(data-l);display:block;font-size:14px;font-weight:700;color:var(--leg)}}
 @media print{nav.rail{display:none}main{margin:0}}
 #dx{view-timeline:--s0 block}
 #p1{view-timeline:--s1 block}
@@ -157,7 +157,7 @@ body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],bo
 <p>Parties du cours</p>
 <div class="piste" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement de la lecture"><div class="avance"></div></div>
 <div>
-<a href="#dx"><b>DX</b>Les dix DX</a>
+<a href="#dx"><b>DX</b>Les 10 DX</a>
 <a href="#p1"><b>1</b>Définition</a>
 <a href="#p2"><b>2</b>Épidémiologie</a>
 <a href="#p3"><b>3</b>Physiopathologie</a>
@@ -177,707 +177,458 @@ body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],bo
 </nav>
 <main>
 <h1>Variations du développement sexuel</h1>
+<h2 class="kicker">Du nouveau-né aux organes génitaux atypiques jusqu’à la transition : trier l’urgence surrénalienne, nommer la cause, décider sans hâte ce qui peut attendre</h2>
 <section id="dx">
-<h2>Dix situations à tenir ensemble</h2>
+<h2>Les 10 diagnostics à distinguer, du plus fréquent au plus rare</h2>
+<div class="p">Le classement suit l’incidence suisse quand elle existe, puis les effectifs du registre européen, qui comptent des participants et non des naissances<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</div>
 <ol class="dx">
-<li><strong>DX.1 — urgence néonatale</strong> <span class="e">🚩 E1</span> Ne rang : la perte de sel se traite avant tout classement par fréquence, car elle menace la vie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li><strong>DX.2 — forme non urgente</strong> Ne rang : elle regroupe les variations qui laissent le temps du bilan une fois la menace vitale écartée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li><strong>DX.3 — assignation précoce</strong> Ne rang : l'assignation figure parmi les buts initiaux, mais elle n'est pas un diagnostic de mécanisme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li><strong>DX.4 — indication psychosociale</strong> Ne rang : un motif seulement social ne justifie pas l'opération, et ce refus ne se compte pas en pourcentage<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
-<li><strong>DX.5 — hyperplasie surrénalienne</strong> <span class="e">🚩 E2</span> Ne rang : elle domine les causes surrénaliennes dépistées, sans pourcentage de rang dans cette liste<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
-<li><strong>DX.6 — insensibilité aux androgènes</strong> Ne rang : la mutation du récepteur est un mécanisme propre, rare au sens où elle ne se confond pas avec l'excès d'androgènes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li><strong>DX.7 — dysgénésie</strong> Ne rang : elle touche la fabrication de la gonade, et aucune série suisse citée ne lui donne un pourcentage de liste<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li><strong>DX.8 — état civil</strong> Ne rang : la mention du sexe est une question de registre, pas une maladie de plus à classer par incidence<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</li>
-<li><strong>DX.9 — troisième catégorie</strong> Ne rang : la commission la rejette pour l'instant, et les associations la jugent stigmatisante<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
-<li><strong>DX.10 — suivi prolongé</strong> Ne rang : le conseil dure jusqu'à l'âge adulte de ce fait il ferme la liste au lieu d'ouvrir un rang de fréquence<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
+<li><strong>DX.1 — Hypospadias :</strong><span> Au sens large, environ 5 naissances sur 1000 portent une variation, et les garçons avec hypospadias en forment la part dominante, 1er rang<sup class="r"><a href="#sb-dsdnet2018">[10]</a></sup>.</span><span class="freq">73 %</span></li>
+<li><strong>DX.2 — Déficit en 21-hydroxylase avec perte de sel :</strong><span> Zurich a dépisté 1 hyperplasie sur 10 749 nouveau-nés, presque toujours due à ce déficit, 2e rang<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</span><span class="e">🚩 E1</span></li>
+<li><strong>DX.3 — Insensibilité complète aux androgènes :</strong><span> Le registre européen recrute 71 participants, soit le groupe 46,XY le plus fourni, 3e rang<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</span></li>
+<li><strong>DX.4 — Dysgénésie gonadique 46,XY :</strong><span> Avec les ovotestis, elle réunit 63 participants dans le même registre, 4e rang<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</span></li>
+<li><strong>DX.5 — Dysgénésie gonadique mixte 45,X/46,XY :</strong><span> Ce mosaïcisme compte 45 participants, 5e rang<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</span></li>
+<li><strong>DX.6 — Insensibilité partielle aux androgènes :</strong><span> On en recense 35 dans la cohorte, 6e rang<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</span></li>
+<li><strong>DX.7 — Défaut de synthèse des androgènes 46,XY :</strong><span> Ces blocs de la testostérone réunissent 20 participants, 7e rang<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</span></li>
+<li><strong>DX.8 — Déficit en 11β-hydroxylase :</strong><span> Il est rare, puisque le programme suisse l’a vu 1 fois sur 333 221 nouveau-nés, 8e rang<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</span></li>
+<li><strong>DX.9 — Déficit en 3β-hydroxystéroïde déshydrogénase avec perte de sel :</strong><span> Rare, il a échappé au buvard chez une fillette suisse diagnostiquée à 3 ans, 9e rang<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</span><span class="e">🚩 E2</span></li>
+<li><strong>DX.10 — Déficit en 17α-hydroxylase :</strong><span> Rare aussi, il est passé inaperçu au dépistage d’un garçon à terme, 10e rang<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</span></li>
 </ol>
-
+<div class="p">Le registre compte aussi 301 syndromes de Turner et 218 syndromes de Klinefelter, mais ces variations des chromosomes sexuels sortent du tri néonatal des organes génitaux atypiques<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</div>
+<div class="p">Les rangs E ne suivent pas la fréquence, car ils mesurent la vitesse à laquelle la perte de sel peut tuer un nourrisson<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </section>
 <section id="comparatif">
-<h2>Tableau comparatif</h2>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Signe clé</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate</th><th>Rang E</th></tr></thead><tbody>
-<tr><td>DX.1 urgence</td><td>Ionogramme</td><td>Déficit cortisol</td><td>Correction du sel</td><td>E1</td></tr>
-<tr><td>DX.2 forme</td><td>Bilan programmé</td><td>Mécanisme variable</td><td>Centre spécialisé</td><td>Hors</td></tr>
-<tr><td>DX.3 assignation</td><td>Entretien descriptif</td><td>Identité en jeu</td><td>Report possible</td><td>Hors</td></tr>
-<tr><td>DX.4 psychosocial</td><td>Avis éthique</td><td>Motif social</td><td>Pas d'opération</td><td>Hors</td></tr>
-<tr><td>DX.5 hyperplasie</td><td>17-hydroxyprogestérone</td><td>Bloc enzymatique</td><td>Hydrocortisone orale</td><td>E2</td></tr>
-<tr><td>DX.6 insensibilité</td><td>Caryotype XY</td><td>Récepteur muet</td><td>Gonades surveillées</td><td>Hors</td></tr>
-<tr><td>DX.7 dysgénésie</td><td>Échographie pelvienne</td><td>Gonade mal formée</td><td>Surveillance tumorale</td><td>Hors</td></tr>
-<tr><td>DX.8 état civil</td><td>Acte de naissance</td><td>Cadre juridique</td><td>Correction d'erreur</td><td>Hors</td></tr>
-<tr><td>DX.9 catégorie</td><td>Texte de 2012</td><td>Stigmate social</td><td>Deux mentions</td><td>Hors</td></tr>
-<tr><td>DX.10 suivi</td><td>Transition organisée</td><td>Continuité des soins</td><td>Équipe du centre</td><td>Hors</td></tr>
+<h2>Tableau comparatif des 10 DX</h2>
+<div class="t" style="overflow-x:auto"><table class="comp"><caption>Ce qui distingue les 10 DX au lit du nouveau-né et au laboratoire</caption><thead><tr><th>DX et signe clé</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate</th><th>Rang E</th></tr></thead><tbody>
+<tr><td data-l="DX et signe clé">DX.1 Hypospadias : le méat s’ouvre sous le gland, souvent sans autre anomalie.</td><td data-l="Examen qui tranche">L’examen clinique suffit si les gonades sont palpables.</td><td data-l="Mécanisme">La fermeture de l’urètre reste incomplète.</td><td data-l="Conduite immédiate">On cherche les gonades et on adresse si elles manquent.</td><td data-l="Rang E">Il reste sans rang E, car il ne menace pas la vie.</td></tr>
+<tr><td data-l="DX et signe clé">DX.2 Déficit en 21-hydroxylase : une fille 46,XX naît virilisée, ou un garçon paraît normal.</td><td data-l="Examen qui tranche">La 17-hydroxyprogestérone et l’ionogramme tranchent.</td><td data-l="Mécanisme">La surrénale produit trop peu de cortisol et d’aldostérone.</td><td data-l="Conduite immédiate">On traite la perte de sel avant tout bilan d’assignation.</td><td data-l="Rang E">Il occupe le rang E1.</td></tr>
+<tr><td data-l="DX et signe clé">DX.3 Insensibilité complète : un phénotype féminin peut cacher des testicules inguinaux.</td><td data-l="Examen qui tranche">Un caryotype 46,XY sans utérus à l’échographie oriente.</td><td data-l="Mécanisme">Ici, le récepteur des androgènes reste muet.</td><td data-l="Conduite immédiate">On organise le bilan au centre, sans geste précipité.</td><td data-l="Rang E">Il reste hors des rangs E.</td></tr>
+<tr><td data-l="DX et signe clé">DX.4 Dysgénésie gonadique 46,XY : les organes génitaux sont atypiques ou féminins.</td><td data-l="Examen qui tranche">On s’aide du caryotype et de l’imagerie des structures müllériennes.</td><td data-l="Mécanisme">Ici, le testicule se forme mal pendant la vie fœtale.</td><td data-l="Conduite immédiate">On évalue le risque tumoral de la gonade.</td><td data-l="Rang E">Le risque tumoral existe, mais il ne justifie pas de rang E.</td></tr>
+<tr><td data-l="DX et signe clé">DX.5 Dysgénésie mixte : l’asymétrie des gonades oriente le diagnostic.</td><td data-l="Examen qui tranche">Le caryotype montre la mosaïque 45,X/46,XY.</td><td data-l="Mécanisme">Une lignée sans Y est associée à une lignée XY.</td><td data-l="Conduite immédiate">On discute la gonade au centre interdisciplinaire.</td><td data-l="Rang E">Il porte un risque tumoral, sans rang E.</td></tr>
+<tr><td data-l="DX et signe clé">DX.6 Insensibilité partielle : la virilisation reste incomplète.</td><td data-l="Examen qui tranche">L’analyse du gène AR confirme le mécanisme.</td><td data-l="Mécanisme">Le récepteur répond en partie seulement.</td><td data-l="Conduite immédiate">On reporte toute décision irréversible.</td><td data-l="Rang E">Il ne porte pas de rang E.</td></tr>
+<tr><td data-l="DX et signe clé">DX.7 Défaut de synthèse : un garçon 46,XY est peu virilisé.</td><td data-l="Examen qui tranche">Les stéroïdes en spectrométrie de masse situent le bloc.</td><td data-l="Mécanisme">La testostérone ou sa forme active manque.</td><td data-l="Conduite immédiate">On mesure pendant la minipuberté.</td><td data-l="Rang E">Il reste sans menace vitale à la naissance.</td></tr>
+<tr><td data-l="DX et signe clé">DX.8 Déficit en 11β-hydroxylase : une fille est virilisée sans perte de sel.</td><td data-l="Examen qui tranche">Le profil des stéroïdes surrénaliens le distingue.</td><td data-l="Mécanisme">Le dernier pas vers le cortisol est bloqué.</td><td data-l="Conduite immédiate">On confie l’enfant à l’endocrinologie pédiatrique.</td><td data-l="Rang E">Il ne perd pas de sel, donc il reste sans rang E.</td></tr>
+<tr><td data-l="DX et signe clé">DX.9 Déficit en 3β-HSD : le buvard peut rester normal malgré des organes atypiques.</td><td data-l="Examen qui tranche">Le profil complet des stéroïdes le révèle.</td><td data-l="Mécanisme">Le bloc précède la 17-hydroxyprogestérone.</td><td data-l="Conduite immédiate">On surveille l’ionogramme comme pour le DX.2.</td><td data-l="Rang E">Il occupe le rang E2.</td></tr>
+<tr><td data-l="DX et signe clé">DX.10 Déficit en 17α-hydroxylase : un garçon 46,XY peut paraître peu viril.</td><td data-l="Examen qui tranche">Le profil des stéroïdes le montre, pas le buvard.</td><td data-l="Mécanisme">Les androgènes et le cortisol manquent ensemble.</td><td data-l="Conduite immédiate">On complète le bilan en centre.</td><td data-l="Rang E">Il reste hors rang E dans ce cours.</td></tr>
 </tbody></table></div>
-
+</section>
+<section id="algorithme">
+<h2>Algorithme de tri, l’urgence d’abord</h2>
+<ol class="algo">
+<li>Si le nouveau-né vomit ou paraît gravement malade → on traite le E1, la crise de perte de sel, par une hydrocortisone parentérale sans délai<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</li>
+<li>Si l’ionogramme montre un sodium bas et un potassium haut → on traite aussi le E2 possible, car le DX.9 perd du sel comme le DX.2<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Si aucune gonade n’est palpable chez un enfant virilisé → on pense d’abord à une fille 46,XX avec déficit en 21-hydroxylase, cause dominante chez les 46,XX<sup class="r"><a href="#sb-dsdnet2018">[10]</a></sup>.</li>
+<li>Si les gonades sont palpables → on ne ferme pas le déficit surrénalien, car le dépistage seul a détecté 11 garçons sur 13 dans la série suisse<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Si le buvard est normal mais les organes restent atypiques → on demande un profil complet des stéroïdes, qui révèle les blocs des DX.9 et DX.10<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Si l’état est stable → le caryotype classe la variation en XX ou XY, puis le centre conduit le bilan de cause<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
+<li>Si une opération est proposée sans urgence → on la reporte jusqu’à ce que l’enfant puisse décider, selon la commission d’éthique<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
+</ol>
 </section>
 <section class="ilot" id="p1">
 <h3>1. Définition et sémantique</h3>
-<div class="p">Une variation du développement sexuel désigne un écart chromosomique, gonadique ou anatomique, et la revue suisse de 2016 retient ce libellé<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le terme anglais disorder of sex development reste contesté, car des groupes concernés le jugent stigmatisant<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On écarte les mots hermaphrodite et ambiguïté sexuelle devant les parents, puisque ces formules blessent sans rien préciser<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le néonatologue décrit un bourgeon médian et des bourrelets latéraux, car ces mots restent exacts sans assigner un sexe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La définition large englobe des hypospades peu sévères et une rétention testiculaire bilatérale de ce fait elle gonfle le compte jusqu'à 1 pour 200 naissances<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le phénotype qui empêche d'assigner le sexe sans examens correspond à environ 1 pour 2000 naissances<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce cadre n'est pas un diagnostic psychiatrique, car il décrit un développement et non un trouble de l'identité déclaré par l'enfant<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une hypospade isolée et peu sévère s'approche du spectre large, mais elle ne constitue pas à elle seule une urgence néonatale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Aucune société savante unique n'a clos le vocabulaire parce que la commission éthique suisse recommande en 2012 l'expression variations du développement sexuel<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">La commission reconnaît aussi les souffrances laissées par d'anciennes opérations, et cette reconnaissance fait partie de la définition éthique du soin<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le conseil commence à la naissance et se prolonge jusqu'à l'âge adulte, car l'identité ne se tranche pas dans la salle de naissance<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Cette revue décrit une prise en charge interdisciplinaire, car aucun métier isolé ne couvre tout le dossier<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Quand on nomme la variation, on choisit un mot qui décrit l'anatomie sans accuser l'enfant d'un désordre<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Après la naissance, le premier geste de langage est de décrire, et l'assignation vient seulement quand les faits sont réunis<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Cette commission admet le tort des pratiques anciennes, et le vocabulaire retenu devient variations du développement sexuel<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Parmi ses orientations, quatorze recommandations tiennent ensemble le corps, la parole et le registre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Un vomissement précoce impose déjà le ionogramme sanguin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Décrire le bourgeon évite d'annoncer un sexe trop tôt<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le vocabulaire retenu reste celui de variation, non de faute<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Une équipe interdisciplinaire porte le dossier dès le début<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'aspect extérieur seul ne suffit à fermer aucun dossier<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Nommer l'anatomie reste plus sûr que deviner le sexe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le registre civil reste étranger à l'examen biologique<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le tort des anciennes opérations est désormais reconnu<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Décrire d'abord reste plus sûr qu'assigner<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le mot variation reste celui de la commission<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'anatomie se décrit avant que le sexe se dise<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<button class="w" type="button" popovertarget="w-lexique">Vocabulaire retenu</button>
-<div id="w-lexique" class="fenetre" popover="manual">
-<h4>Vocabulaire retenu</h4>
-<div class="p">On retient variation plutôt que désordre, car le second mot ajoute une faute que la biologie ne démontre pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La commission aligne son vocabulaire sur cette précaution, et les équipes suisses gagnent à parler d'une seule voix<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">On parle de variation du développement sexuel quand le sexe chromosomique, gonadique ou anatomique ne suit pas le chemin attendu<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le sexe chromosomique se fixe à la fécondation, mais il peut différer des gonades et du phénotype, si bien qu’une fille XY ou un garçon XX existent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Le mot compte, car l’anglais « disorder of sex development » est contesté par des groupes de soutien qui préfèrent « variation »<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La commission nationale d’éthique a d’ailleurs formulé en 2012 la recommandation de parler de variations du développement sexuel<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">Le classement repose sur le caryotype, qui range chaque situation parmi les variations XX, XY ou des chromosomes sexuels<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. On évite enfin « hermaphrodite » et « ambiguïté sexuelle » devant les parents, puisque ces mots blessent et n’expliquent rien<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le <button class="w" type="button" popovertarget="w-lexique">vocabulaire juste</button> se choisit avant la première phrase dite à la famille<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-lexique" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-lexique" popovertargetaction="hide">Fermer</button>
+<h4>Vocabulaire juste</h4>
+<div class="t" style="overflow-x:auto"><table><caption>Les mots à employer et ceux à éviter</caption><thead><tr><th>Situation</th><th>On dit</th><th>On évite</th></tr></thead><tbody>
+<tr><td>On nomme l’ensemble.</td><td>On parle de variation du développement sexuel.</td><td>On évite « trouble » ou « anomalie du sexe ».</td></tr>
+<tr><td>On décrit le tubercule génital.</td><td>On dit « bourgeon médian ».</td><td>On évite « pénis » ou « clitoris » avant le bilan.</td></tr>
+<tr><td>On décrit les replis.</td><td>On dit « bourrelets latéraux ».</td><td>On évite « scrotum » ou « grandes lèvres » avant le bilan.</td></tr>
+<tr><td>On parle aux parents.</td><td>On dit « votre enfant ».</td><td>On évite « hermaphrodite ».</td></tr>
+</tbody></table></div>
+<div class="p">Ces termes descriptifs restent exacts quel que soit le caryotype, ce qui laisse la place au bilan<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </div>
 </section>
 <section class="ilot" id="p2">
-<h3>2. Épidémiologie</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Chiffre</th><th>Population</th><th>Année</th><th>Source</th></tr></thead><tbody>
-<tr><td>1 pour 200</td><td>Définition large</td><td>2016</td><td>Revue suisse</td></tr>
-<tr><td>1 pour 2000</td><td>Sans assignation</td><td>2016</td><td>Revue suisse</td></tr>
-<tr><td>40 naissances</td><td>Suisse</td><td>2015</td><td>Revue suisse</td></tr>
-<tr><td>97 %</td><td>Dépistage Zurich</td><td>2002</td><td>Série zurichoise</td></tr>
-<tr><td>50 %</td><td>Valeur prédictive</td><td>2002</td><td>Série zurichoise</td></tr>
-<tr><td>90 %</td><td>Part de la 21</td><td>2002</td><td>Série zurichoise</td></tr>
+<h3>2. Épidémiologie (Suisse, puis Europe)</h3>
+<h4>En Suisse</h4>
+<div class="p">La fréquence varie selon la définition retenue<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Si l’on compte les hypospadias peu sévères, les anomalies chromosomiques et les testicules non descendus des 2 côtés, elle atteint 1 naissance sur 200<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Elle tombe à environ 1 sur 2 000 quand le phénotype empêche d’attribuer un sexe sans examens complémentaires<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Une revue suisse estime qu’environ 40 enfants naissent chaque année dans le pays avec une telle variation<sup class="r"><a href="#sb-rms2015">[2]</a></sup>. Sa fourchette de prévalence, de 1 sur 5 000 à 1 sur 100, montre donc à quel point le chiffre suit le périmètre choisi<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
+<div class="p">Pour l’hyperplasie surrénalienne, la Suisse dispose d’une mesure directe, car le programme de Zurich dépiste la moitié de la population depuis 1992<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Du 1er janvier 1993 au 31 mai 2001, il a testé 333 221 nouveau-nés et trouvé 31 cas, soit 1 sur 10 749<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Parmi eux, 30 portaient un déficit en 21-hydroxylase et 1 un déficit en 11β-hydroxylase<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Avant le dépistage, une étude suisse de 1960 à 1974 situait le déficit en 21-hydroxylase à 1 sur 15 472<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Le dépistage a donc fait apparaître environ 1 cas sur 3 qui échappait auparavant au diagnostic<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>En Europe</h4>
+<div class="p">Au sens large, la littérature européenne retient environ 5 variations pour 1000 naissances, dont 73 % sont des garçons avec hypospadias<sup class="r"><a href="#sb-dsdnet2018">[10]</a></sup>. Devant des organes génitaux atypiques, la répartition change, car environ 75 % des enfants sont 46,XY et 10 à 15 % sont 46,XX<sup class="r"><a href="#sb-dsdnet2018">[10]</a></sup>. Chez les 46,XX, le déficit en 21-hydroxylase explique 90 à 95 % des cas, tandis que les autres causes monogéniques restent rarissimes<sup class="r"><a href="#sb-dsdnet2018">[10]</a></sup>.</div>
+<div class="p">Le registre européen dsd-LIFE a recruté 1040 participants dans 14 centres de 6 pays, entre février 2014 et septembre 2015<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>. Ses effectifs ne sont pas des incidences, donc ils donnent seulement l’ordre relatif des causes rencontrées en consultation spécialisée<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Effectifs du registre européen, rangés dans l’ordre des DX</caption><thead><tr><th>Groupe</th><th>Participants recrutés</th><th>DX correspondant</th></tr></thead><tbody>
+<tr><td>L’hyperplasie surrénalienne 46,XX compte 226 participants.</td><td>Elle forme le groupe le plus fourni après le syndrome de Turner.</td><td>Elle correspond surtout au DX.2.</td></tr>
+<tr><td>L’insensibilité complète compte 71 participants.</td><td>Elle mène les groupes 46,XY.</td><td>Elle correspond au DX.3.</td></tr>
+<tr><td>La dysgénésie 46,XY avec ovotestis compte 63 participants.</td><td>Elle suit de près.</td><td>Elle correspond au DX.4.</td></tr>
+<tr><td>Le mosaïcisme 45,X/46,XY compte 45 participants.</td><td>Il se range ensuite.</td><td>Il correspond au DX.5.</td></tr>
+<tr><td>L’insensibilité partielle compte 35 participants.</td><td>Elle reste moins fréquente.</td><td>Elle correspond au DX.6.</td></tr>
+<tr><td>L’hypospadias sévère compte 25 participants.</td><td>Ce chiffre ne reflète que les formes adressées.</td><td>Il correspond au DX.1.</td></tr>
+<tr><td>Les défauts de synthèse comptent 20 participants.</td><td>Ils ferment la série 46,XY.</td><td>Ils correspondent au DX.7.</td></tr>
 </tbody></table></div>
-<div class="p">La fréquence varie avec la définition retenue, car le même mot recouvre des situations très inégales<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avec la définition large, la fréquence peut aller jusqu'à 1 pour 200 naissances<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Quand le phénotype interdit une assignation sans examens, la fréquence est d'environ 1 pour 2000 naissances<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">En Suisse, l'incidence retenue par la revue de 2015 est d'environ 40 naissances par année<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le spectre des phénotypes montre une prévalence située entre 1 pour 5000 et 1 pour 100<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Ces deux ordres de grandeur coexistent parce que l'un compte les formes évidentes et l'autre un spectre beaucoup plus large<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le dépistage de l'hyperplasie sur papier buvard a été introduit en Suisse en 1992<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">L'évaluation zurichoise porte sur la période qui va de 1993 à 2001, et elle a été publiée en 2002<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La sensibilité du dépistage y atteint 97 % parce que 30 des nouveau-nés repérés sur 31 ont été détectés par le test<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La valeur prédictive positive d'un rappel est de 50 %, donc un rappel sur deux confirme vraiment l'hyperplasie<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La spécificité affichée est de 99.99 %, ce qui limite les rappels abusifs dans l'ensemble de la cohorte<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le déficit en 21-hydroxylase représente plus de 90 % des hyperplasies congénitales des surrénales<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Chez les filles de la série, la suspicion clinique avant le dépistage atteint 76 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Chez les garçons, cette suspicion clinique atteint seulement 15 % parce que l'aspect masculin ne donne pas l'alerte<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Quinze des 31 enfants ont bénéficié du dépistage, puisque le diagnostic n'avait pas été posé cliniquement<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le prélèvement se fait entre 72 et 96 heures de vie, et plus de 99 % des nouveau-nés sont atteints par le programme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Un cas de la série montrait 11.6 nmol de 17-hydroxyprogestérone au jour 4, puis 220 nmol au jour 11<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Ce faux négatif rappelle que le dépistage ne remplace pas l'examen, car les deux outils se complètent<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La crise de perte de sel menace la vie dans la période néonatale quand le diagnostic manque<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Plus tard, une puberté précoce ou une petite taille peuvent révéler une forme qui a échappé au début<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">L'enjeu de santé publique est double parce que il faut éviter la mort néonatale et éviter les opérations décidées trop tôt<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La définition large augmente le compte des naissances<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le réseau suisse reste justifié par le nombre annuel<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le buvard suisse reste un filet, pas un diagnostic<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Le même registre rappelle une incidence de 1 sur 15 000 pour l’hyperplasie surrénalienne et de 1 sur 4 500 pour les anomalies génitales<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</div>
 </section>
 <section class="ilot" id="p3">
 <h3>3. Physiopathologie</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Perturbation</th><th>Exploration</th><th>Thérapeutique</th></tr></thead><tbody>
-<tr><td>Bloc du cortisol</td><td>17-hydroxyprogestérone</td><td>Hydrocortisone</td></tr>
-<tr><td>Perte de sel</td><td>Ionogramme</td><td>Volume et sel</td></tr>
-<tr><td>Récepteur muet</td><td>Caryotype XY</td><td>Pas d'androgène inutile</td></tr>
-<tr><td>Gonade incomplète</td><td>Échographie</td><td>Surveillance</td></tr>
+<h4>Le développement attendu</h4>
+<div class="p">Les gonades restent indifférenciées jusqu’à la 6e semaine, puis le gène SRY du chromosome Y oriente la gonade vers le testicule<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. D’autres gènes, comme WNT4 et RSPO1, guident l’ovaire, alors que DAX1 freine le testicule<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">À partir de la 8e semaine, les gonades sécrètent leurs hormones et le phénotype en dépend<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le canal de Müller donne l’utérus, les trompes et le haut du vagin, sauf si l’hormone antimüllérienne testiculaire le fait régresser<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La testostérone et la dihydrotestostérone virilisent ensuite les organes externes, où le bourgeon médian devient verge et les bourrelets latéraux deviennent scrotum<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<h4>Les 4 questions de l’endocrinologue</h4>
+<div class="p">Devant chaque enfant, on se demande si la variation touche la formation des gonades, la synthèse des stéroïdes, un excès d’androgènes ou la sensibilité aux androgènes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Cette grille range les 10 DX, puisque les dysgénésies relèvent de la gonade et les blocs enzymatiques de la synthèse<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Les 10 DX rangés selon la question endocrinienne</caption><thead><tr><th>Question</th><th>DX concernés</th><th>Conséquence</th></tr></thead><tbody>
+<tr><td>La gonade se forme-t-elle bien ?</td><td>Les DX.4 et DX.5 répondent non.</td><td>Le testicule produit peu d’hormones, ce qui sous-virilise.</td></tr>
+<tr><td>Les stéroïdes sont-ils synthétisés ?</td><td>Les DX.2, DX.7, DX.8, DX.9 et DX.10 répondent non.</td><td>Un bloc enzymatique explique le défaut hormonal.</td></tr>
+<tr><td>Les androgènes sont-ils en excès ?</td><td>Les DX.2 et DX.8 répondent oui chez la fille.</td><td>Les androgènes surrénaliens virilisent un fœtus 46,XX.</td></tr>
+<tr><td>Les tissus répondent-ils aux androgènes ?</td><td>Les DX.3 et DX.6 répondent non.</td><td>Le récepteur muet bloque la virilisation, même avec une testostérone normale.</td></tr>
+<tr><td>La fermeture de l’urètre est-elle complète ?</td><td>Le DX.1 est concerné.</td><td>Le méat reste sous le gland, souvent sans autre défaut.</td></tr>
 </tbody></table></div>
-<div class="p">La chaîne part du chromosome, passe par la gonade et les hormones, puis aboutit au conduit et à l'aspect externe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un testicule produit l'hormone antimüllérienne et la testostérone, donc les conduits féminins régressent et les conduits masculins se stabilisent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un ovaire ne produit pas cette hormone antimüllérienne, ce qui permet à l'utérus de persister<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le déficit en 21-hydroxylase, lié à CYP21A2 et transmis sur un mode récessif, bloque cortisol et aldostérone<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'ACTH monte alors, et les précurseurs sont dérivés vers les androgènes, ce qui virilise un fœtus au caryotype féminin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le même bloc explique la perte de sel, car l'aldostérone manque quand le déficit est sévère<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'insensibilité aux androgènes vient le plus souvent d'une mutation du gène AR, transmise selon un mode récessif lié à l'X<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le tissu ne lit plus la testostérone, mais l'hormone antimüllérienne des testicules reste active de ce fait l'utérus est absent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La dysgénésie concerne la fabrication même de la gonade, et le caryotype classe ensuite le dossier en variation XX ou XY<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chaque maillon se relie à un examen, car le caryotype lit le chromosome, l'échographie lit la gonade et le dosage lit l'hormone<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le traitement corrige le maillon accessible de ce fait l'hydrocortisone freine l'ACTH quand le bloc est surrénalien<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Aucun médicament ne réécrit le chromosome, ce qui impose de séparer la substitution hormonale de la chirurgie irréversible<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le dépistage mesure la 17-hydroxyprogestérone parce que ce précurseur s'accumule en amont du bloc en 21-hydroxylase<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">L'amorce est embryonnaire, le développement se joue avant la naissance, et le maintien dépend ensuite des hormones produites<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si le bloc est partiel, la virilisation est moindre et la perte de sel peut manquer, ce qui explique les formes non classiques<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La dysgénésie et l'insensibilité ne partagent pas ce bloc enzymatique de ce fait le même phénotype n'entraîne pas le même traitement<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'échographie montre l'utérus quand il existe, et son absence oriente vers une hormone antimüllérienne déjà active in utero<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le caryotype ne dit pas la fonction surrénalienne, ce qui impose de ne pas s'arrêter à XX ou à XY<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La correction du cortisol freine l'ACTH de ce fait elle réduit la production d'androgènes d'origine surrénalienne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La substitution d'aldostérone, elle, vise le sel, et elle ne virilise pas le nouveau-né à l'inverse des androgènes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On relie ainsi perturbation, exploration et geste, car un maillon sans examen reste une hypothèse<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Cette chaîne se lit du gène vers l'hormone puis vers le phénotype, et chaque maillon appelle son examen<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Quand le cortisol manque, l'hypophyse augmente l'ACTH de ce fait la surrénale pousse les androgènes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Sans aldostérone, le sodium urinaire augmente, tandis que le potassium tend à monter<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'hormone antimüllérienne, si le testicule fonctionne, fait régresser les canaux qui auraient formé l'utérus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chez un fœtus au caryotype féminin, l'excès d'androgènes virilise le bourgeon et fusionne les bourrelets<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ainsi le même bloc explique à la fois la virilisation et la crise de sel, ce qui empêche de séparer les deux temps<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Durant les premières semaines, les hormones maternelles encore présentes grandissent l'utérus, ce qui aide l'échographie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Pourtant un utérus vu n'annonce pas le sel, car l'image et l'ionogramme répondent à deux questions différentes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avec une hormone antimüllérienne active, les canaux de Müller régressent, donc l'utérus ne se forme pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Entre le gène et le phénotype, plusieurs hormones peuvent manquer, et chaque manque se dose à part<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Sans cortisol, l'ACTH augmente et pousse la surrénale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Sans aldostérone, le sodium urinaire augmente chez le nouveau-né<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les androgènes en excès virilisent un fœtus féminin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'hormone antimüllérienne empêche l'utérus de se former<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les androgènes circulent mais le tissu ne répond plus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La gonade mal formée ne produit pas le signal attendu<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le chromosome ne dit rien sur la réserve de sel<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Deux questions distinctes se posent : image et ionogramme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Freiner l'ACTH diminue les androgènes d'origine surrénalienne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le précurseur surrénalien augmente en amont du bloc<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le cortisol manquant explique la montée de l'ACTH<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le sodium perdu explique la soif et l'apathie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un utérus absent oriente vers l'hormone antimüllérienne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le récepteur muet explique l'aspect féminin externe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'image et le sel restent deux questions séparées<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le précurseur élevé oriente vers le bloc<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Quand le cortisol manque vraiment, l'hypophyse augmente l'ACTH, la surrénale produit trop d'androgènes, et ce chemin explique encore clairement la virilisation du fœtus féminin comme la pigmentation du nouveau-né<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Dans l'insensibilité complète, les testicules fabriquent l'hormone antimüllérienne, les canaux qui auraient formé l'utérus régressent, et l'aspect externe reste féminin parce que le récepteur n'utilise pas les androgènes circulants<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<button class="w" type="button" popovertarget="w-sels">Chaîne du bloc en cortisol</button>
-<div id="w-sels" class="fenetre" popover="manual">
-<h4>Chaîne du bloc en cortisol</h4>
-<div class="p">Le cortisol manque, l'ACTH monte, et les androgènes surrénaliens virilisent le fœtus au caryotype féminin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'aldostérone manque dans la forme sévère de ce fait le rein perd du sel et le potassium augmente<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce mécanisme explique pourquoi un garçon d'aspect ordinaire peut quand même faire une crise<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>Le bloc surrénalien</h4>
+<div class="p">L’hyperplasie surrénalienne congénitale comprend des maladies autosomiques récessives qui bloquent la synthèse du cortisol<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Dans le déficit en 21-hydroxylase, des mutations du gène CYP21 situé sur le bras court du chromosome 6 sont en cause<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Quand le cortisol manque, la surrénale stimulée détourne ses précurseurs vers les androgènes, ce qui explique la <button class="w" type="button" popovertarget="w-sels">virilisation d’une fille et la perte de sel</button><sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div id="w-sels" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-sels" popovertargetaction="hide">Fermer</button>
+<h4>Bloc de la 21-hydroxylase</h4>
+<figure class="schema">
+<svg viewBox="0 0 680 270" width="680" height="270" role="img" aria-label="Schéma du bloc de la 21-hydroxylase">
+<rect x="10" y="10" width="660" height="250" rx="12" fill="#fdf6f0"/>
+<text x="30" y="45" fill="#2a160c" font-size="17">Cholestérol</text>
+<text x="30" y="90" fill="#2a160c" font-size="17">Progestérone →</text>
+<text x="30" y="135" fill="#2a160c" font-size="17">17-hydroxyprogestérone, qui s’accumule →</text>
+<rect x="372" y="68" width="8" height="80" fill="#75254e"/>
+<text x="390" y="90" fill="#2a160c" font-size="17">aldostérone basse : perte de sel</text>
+<text x="390" y="135" fill="#2a160c" font-size="17">cortisol bas</text>
+<text x="372" y="175" fill="#5c1d14" font-size="15">bloc de la 21-hydroxylase</text>
+<text x="30" y="210" fill="#2a160c" font-size="17">Cortisol bas → ACTH élevée → surrénale stimulée</text>
+<text x="30" y="242" fill="#2a160c" font-size="17">Précurseurs détournés → androgènes en excès → virilisation</text>
+</svg>
+<figcaption>Schéma original de ce cours : le précurseur s’accumule en amont du bloc, alors que le cortisol et l’aldostérone manquent en aval.</figcaption>
+</figure>
+<div class="p">Le précurseur accumulé, la 17-hydroxyprogestérone, est justement ce que mesure le buvard du dépistage suisse<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Si la forme perd du sel, l’information professionnelle exige d’ajouter un minéralocorticoïde à l’hydrocortisone<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</div>
 </div>
+<div class="p">La perte de sel menace la vie dès la période néonatale, alors que certains nouveau-nés atteints n’ont aucun signe clinique<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Chez le garçon, le même excès d’androgènes ne change pas l’aspect des organes, ce qui explique les diagnostics manqués<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Les DX.9 et DX.10 bloquent la chaîne plus haut, si bien que la 17-hydroxyprogestérone ne monte pas au 4e jour<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Pour le récepteur des androgènes, le gène AR est porté par le chromosome X, ce qui explique une transmission par la mère dans l’insensibilité complète<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </section>
 <section class="ilot" id="p4">
 <h3>4. Démarche diagnostique</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>DX</th><th>Élément qui tranche</th><th>Piège</th><th>Conduite</th></tr></thead><tbody>
-<tr><td>E1 urgence</td><td>Ionogramme</td><td>Aspect rassurant</td><td>Corriger le sel</td></tr>
-<tr><td>E2 hyperplasie</td><td>17-hydroxyprogestérone</td><td>Garçon silencieux</td><td>Substituer</td></tr>
-<tr><td>Insensibilité</td><td>Utérus absent</td><td>Hernie banale</td><td>Centre spécialisé</td></tr>
-<tr><td>Dysgénésie</td><td>Gonades floues</td><td>Assignation hâtive</td><td>Imagerie</td></tr>
+<div class="p">À la naissance, la première question des parents porte sur le sexe, et la réponse pèse sur toute la suite de la prise en charge<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. On répond d’abord à la menace vitale, puis on explique que le bilan prendra quelques jours<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">L’ordre est fixe, puisque l’ionogramme et la 17-hydroxyprogestérone passent d’abord, avant le caryotype, l’imagerie et les dosages hormonaux<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. On adresse ensuite l’enfant à un centre tertiaire, où le groupe interdisciplinaire réunit les spécialités utiles, de la médecine fœtale à la génétique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">En Suisse romande, ce modèle fonctionne ainsi au CHUV de Lausanne et aux HUG de Genève<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La commission d’éthique veut que ce conseil accompagne l’enfant jusqu’à l’âge adulte, dans quelques centres spécialisés seulement<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<h4>Les rangs E, les graves d’abord</h4>
+<div class="p">Avant de chercher la cause, on écarte les 2 DX qui tuent, car leur traitement ne peut pas attendre le caryotype<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Les 2 rangs E et ce qu’ils imposent dès la 1re heure</caption><thead><tr><th>Rang</th><th>DX</th><th>Ce qui menace</th><th>Ce qu’on fait</th></tr></thead><tbody>
+<tr><td>🚩 E1 est le 1er rang.</td><td>Le DX.2 est le déficit en 21-hydroxylase avec perte de sel.</td><td>La crise de perte de sel peut tuer un nouveau-né<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>On donne une hydrocortisone parentérale puis un minéralocorticoïde<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</td></tr>
+<tr><td>🚩 E2 suit.</td><td>Le DX.9 est le déficit en 3β-hydroxystéroïde déshydrogénase avec perte de sel.</td><td>Il perd du sel et échappe au buvard<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>On surveille l’ionogramme même si le buvard est normal<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
 </tbody></table></div>
-<div class="p">La démarche ouvre sur l'urgence néonatale E1, car une perte de sel tue avant que les formes stables ne soient classées<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On mesure le ionogramme et la glycémie dès que le nouveau-né vomit, se pigmente ou choque, puisque ces signes précèdent la preuve enzymatique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'hyperplasie surrénalienne E2 vient ensuite, car elle est la cause surrénalienne la plus fréquente du spectre dépisté<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le caryotype et la palpation des gonades écartent ensuite l'insensibilité aux androgènes et la dysgénésie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'assignation précoce n'est pas un diagnostic parce que elle est une décision sociale qui peut attendre<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une indication seulement psychosociale ne classe pas non plus le mécanisme, et elle ne justifie pas une opération<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le piège des garçons est l'aspect masculin complet de ce fait l'absence de virilisation visible ne ferme pas l'hyperplasie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si le résultat hormonal confirme le bloc, on traite la perte de sel sans attendre une réunion d'assignation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La série zurichoise montre que la moitié environ des cas échappe à l'œil clinique, ce qui justifie le papier buvard même quand l'examen rassure<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Après les deux urgences vitales ou évolutives, l'indication psychosociale se discute à part, car elle ne sauve pas une vie<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'état civil et la troisième catégorie ne se diagnostiquent pas au ionogramme, et ils ferment la démarche au lieu de l'ouvrir<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le suivi prolongé vient en dernier dans l'arbre de tri, puisque la survie immédiate a déjà été assurée<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Trois examens tranchent tôt : le ionogramme, le dosage du précurseur surrénalien et le caryotype<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le piège est d'attendre le résultat génétique pour corriger un choc parce que le gène ne remplace pas le sel<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si le dosage du précurseur surrénalien est élevé chez un nouveau-né virilisé, on traite comme une hyperplasie jusqu'à preuve contraire<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avant d'annoncer un sexe, on décrit le bourgeon médian et les bourrelets latéraux, car ces mots n'assignent personne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Dès que le ionogramme montre une perte de sel, l'urgence néonatale passe devant l'hyperplasie, puisque le sel tue plus vite<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Dès les premières heures, vomissement et pigmentation ouvrent l'urgence, tandis que l'aspect du périnée attend<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Cependant un garçon d'aspect ordinaire n'est pas classé rassurant parce que la série suisse a montré des formes silencieuses<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ainsi la démarche garde deux files, l'une pour le sel et l'autre pour le mécanisme, et elles ne se confondent pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le sel passe avant le nom que l'on donne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un garçon silencieux peut quand même manquer de cortisol<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'assignation reste une décision, et non un mécanisme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un motif seulement social ne classe pas la maladie<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Palper les gonades oriente, sans conclure à soi seul<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le caryotype classe, il ne remplace pas le ionogramme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Corriger le choc ne peut pas attendre le gène<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un papier rassurant ne remplace pas un examen clinique<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le ionogramme reste le premier geste utile<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le gène reste inutile devant un choc installé<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le motif social reste insuffisant pour opérer<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">La glycémie basse signe parfois le manque de cortisol<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Le dépistage ne dispense pas d’examiner, car un programme de dépistage ne remplace pas le savoir clinique<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Inversement, la clinique seule a reconnu 53 % des cas, contre 97 % pour le buvard<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">À l’appel du laboratoire, on revoit l’enfant le jour même, car 5 des enfants rappelés perdaient déjà du sel<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Chez un garçon, on ne se laisse pas rassurer par des organes typiques, puisque la clinique a manqué 11 garçons sur 13<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Ce déficit domine aussi par le nombre, puisqu’il représente plus de 90 % des hyperplasies surrénaliennes<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Le E2 reste rare, mais on le garde en tête dès que le buvard rassure à tort<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
 </section>
 <section class="ilot" id="p5">
 <h3>5. Anamnèse ciblée et drapeaux rouges</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Drapeau rouge</th><th>Signification</th><th>Action immédiate</th></tr></thead><tbody>
-<tr><td>Vomissements</td><td>Perte de sel possible</td><td>Ionogramme</td></tr>
-<tr><td>Pigmentation</td><td>ACTH élevé</td><td>Dosage du cortisol</td></tr>
-<tr><td>Choc</td><td>Insuffisance aiguë</td><td>Remplissage</td></tr>
-<tr><td>Orifice unique</td><td>Virilisation</td><td>Bilan surrénalien</td></tr>
-<tr><td>Buvard normal</td><td>Faux négatif possible</td><td>Réexaminer</td></tr>
+<div class="p">L’histoire commence souvent avant la naissance, avec 4 situations prénatales typiques, dont l’anomalie vue à l’échographie de 20 à 22 semaines<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. On demande aussi si un caryotype fœtal contredit le sexe vu à l’échographie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Dès la fin du 1er trimestre, l’angle entre le tubercule génital et la colonne permet une identification fiable à plus de 95 %<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Un angle obtus oriente vers un fœtus féminin, alors qu’un angle aigu oriente vers un fœtus masculin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">On cherche ensuite dans la famille une infertilité inexpliquée ou une variation déjà connue, car plusieurs DX se transmettent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le déficit en 21-hydroxylase suit un mode autosomique récessif, alors que l’insensibilité aux androgènes passe par le chromosome X<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Chez le nouveau-né, on note s’il boit, s’il vomit et comment évolue son poids, puisque la perte de sel commence parfois avant la fin de la 1re semaine<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Dans la série suisse, 5 enfants montraient déjà un début de perte de sel quand le rappel les a atteints<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Drapeaux rouges à l’anamnèse et ce qu’ils déclenchent</caption><thead><tr><th>Drapeau rouge</th><th>DX menacé</th><th>Réaction</th></tr></thead><tbody>
+<tr><td>🚩 L’enfant vomit ou paraît gravement malade.</td><td>Le DX.2 ou le DX.9 sont menacés.</td><td>On démarre l’hydrocortisone parentérale sans délai<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td></tr>
+<tr><td>🚩 Le laboratoire rappelle pour un buvard positif.</td><td>Le DX.2 est menacé, même chez un garçon normal.</td><td>On contrôle l’ionogramme le jour même, car 5 enfants perdaient déjà du sel au rappel<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+<tr><td>🚩 Un enfant virilisé a des bourrelets vides à la palpation.</td><td>Le DX.2 est probable.</td><td>On demande la 17-hydroxyprogestérone et l’ionogramme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+<tr><td>🚩 L’enfant traité par hydrocortisone vomit ses granulés.</td><td>Le DX.2 se décompense.</td><td>On contacte l’équipe, qui juge s’il faut redonner une dose<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td></tr>
+<tr><td>🚩 Les parents voient l’enfant moins boire.</td><td>Un stress augmente le besoin en cortisol.</td><td>On double ou triple la dose orale selon l’information professionnelle<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td></tr>
 </tbody></table></div>
-<div class="p">On demande d'abord si une anomalie génitale a été vue à l'échographie entre 20 et 22 semaines, car ce délai situe la découverte prénatale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On demande ensuite les fausses couches, l'infertilité familiale et une consanguinité, puisque le déficit en 21-hydroxylase est récessif<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On cherche une exposition maternelle à des androgènes ou à des perturbateurs endocriniens parce que la revue suisse signale ce facteur suspecté<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La chronologie des vomissements compte, car une perte de sel s'installe après les premiers jours et non dans la salle de naissance<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un refus alimentaire, une perte de poids et une somnolence constituent un drapeau rouge, et ils imposent le ionogramme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une pigmentation des organes génitaux oriente vers un ACTH élevé, donc vers un déficit en cortisol<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un seul orifice périnéal chez un nouveau-né virilisé impose le bilan surrénalien avant toute hypothèse esthétique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Deux gonades palpées dans les bourrelets rendent un ovaire simple moins probable, ce qui oriente vers un testicule ou une ovotestis<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une discordance entre un caryotype prénatal et l'aspect à la naissance déclenche le groupe spécialisé parce que le discours aux parents doit rester descriptif<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On demande ce que les parents ont déjà compris parce que une décision irréversible ne se prend pas sur leur seule angoisse si le geste peut attendre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Un papier buvard normal au jour 4 n'efface pas un drapeau clinique parce que la série contient un faux négatif devenu évident au jour 11<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Les garçons sont le groupe à risque de diagnostic manqué, puisque leur suspicion clinique n'était que de 15 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">On demande aussi ce que la famille a déjà vécu avec une variation, car le suivi suisse concerne environ 40 naissances par année et les récits circulent<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Chez les parents, on cherche une consanguinité et des fausses couches parce que le bloc enzymatique se transmet<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Lorsque le nouveau-né vomit et se pigmente dans les premiers jours, le drapeau rouge est déjà levé<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Durant la grossesse, une image entre 20 et 22 semaines peut avoir déjà alerté, et on demande ce qui a été dit aux parents<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avec une consanguinité, le bloc récessif devient plus plausible de ce fait l'histoire familiale n'est pas une curiosité<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Lorsque la famille a déjà vécu une variation, on écoute le récit avant de proposer un mot nouveau<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On demande les fausses couches et l'infertilité familiale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avec une consanguinité, un bloc récessif devient plus plausible<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une image prénatale déjà connue oriente la première phrase<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les garçons échappent plus souvent au regard clinique<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Vomir et se pigmenter lèvent le drapeau ensemble<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'histoire familiale se raconte avant le conseil génétique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce que les parents ont entendu compte autant que le bilan<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le vécu associatif explique la crainte du stigmate<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">L'infertilité familiale oriente le choix du gène<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le garçon banal reste le piège du dépistage<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Les fausses couches répétées orientent vers un bloc<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le récit parental reste un fait clinique à part entière<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">On recueille enfin ce que les parents ont déjà entendu, parce que le diagnostic peut raviver d’anciennes blessures<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La pédopsychiatrie décrit en effet ces situations comme une clinique du traumatisme, qui demande un accompagnement long<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </section>
 <section class="ilot" id="p6">
 <h3>6. Examen physique ciblé, région par région</h3>
-<h4>Peau</h4>
-<div class="p">L'examen général précède l'examen génital parce que un choc ou une déshydratation change la priorité<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On regarde la coloration, la vigueur et la respiration avant de commenter l'aspect du périnée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La peau est inspectée à la recherche d'une pigmentation des mamelons, du scrotum ou des grandes lèvres parce que cette teinte suggère un ACTH élevé<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>Abdomen</h4>
-<div class="p">L'abdomen est palpé à plat, car une masse ou une défense oriente vers une autre urgence que la variation elle-même<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les surrénales ne se palpent pas à l'état habituel, donc une masse abdominale ne se conclut pas comme une hyperplasie au seul toucher<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>Pelvis</h4>
-<div class="p">On examine le pelvis en comptant les orifices, car le bourgeon et chaque bourrelet peuvent cacher une gonade<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On note la position de l'anus et le caractère fusionné ou non des bourrelets, car ces deux signes situent le stade de virilisation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une gonade palpée se distingue d'un ganglion ou d'une hernie, et le doute impose l'échographie plutôt qu'une affirmation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'examen évite d'annoncer un sexe, puisque le néonatologue doit résister à rassurer par une assignation improvisée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chez le nouveau-né, l'utérus et les ovaires sont encore stimulés par les hormones maternelles, ce qui facilite leur repérage échographique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">À l'adolescence, cette aide hormonale a disparu de ce fait l'échographie initiale se complète souvent par une résonance pelvienne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le piège est de confondre un aspect masculin avec un caryotype XY, car une hyperplasie au caryotype féminin peut aller jusqu'à un aspect de garçon<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le schéma des stades montre une fusion qui progresse, mais il ne mesure ni le sodium ni le potassium<sup class="r"><a href="#sb-prader">[7]</a></sup>.</div>
-<div class="p">La technique du compte des orifices se fait sans écarteur agressif parce que la douleur et l'œdème faussent le stade<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On répète la palpation des bourrelets quand l'enfant est calme parce que une gonade mobile échappe à un seul passage<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La valeur de l'examen est d'orienter, et non de conclure, car l'image et le dosage restent nécessaires<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le piège d'interprétation est de prendre une fusion légère pour une forme bénigne, alors que le sel peut quand même manquer<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On regarde aussi la bouche et le facies seulement pour ne pas manquer un syndrome associé, sans en faire le centre du diagnostic<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le thorax et le cœur s'auscultent comme chez tout nouveau-né malade, car un choc ne se réduit pas au périnée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Pigmentation des plis et des mamelons oriente vers un ACTH élevé de ce fait on ne parle pas d'un simple hâle<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Sur la peau, les plis et les mamelons foncés orientent vers l'ACTH, et ce signe se voit mieux à la lumière du jour<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Dans l'aine, une hernie chez une enfant fait chercher une gonade, car un testicule peut s'y loger<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Au périnée, on compte les orifices et on décrit le bourgeon, puisque le dessin ne remplace pas cette description<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les plis foncés se lisent mieux à la lumière du jour<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chaque orifice du périnée se compte, puis se nomme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une hernie inguinale chez une fille fait chercher la gonade<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le bourgeon médian se décrit sans lui donner un sexe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les bourrelets latéraux se palpent à la recherche d'une gonade<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un aspect masculin complet peut cacher un caryotype féminin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'abdomen se palpe, les surrénales se voient à l'image<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La peau pigmentée reste autre chose qu'un hâle anodin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le bourgeon se décrit, il ne se baptise pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La gonade inguinale impose de chercher plus loin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La pigmentation impose de penser à l'ACTH<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les orifices se comptent avant toute photo inutile<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le dessin montre des stades, pas un ionogramme<sup class="r"><a href="#sb-prader">[7]</a></sup>.</div>
-<button class="w" type="button" popovertarget="w-prader">Stades de virilisation</button>
-<div id="w-prader" class="fenetre" popover="manual">
+<h4>État général</h4>
+<div class="p">On examine d’abord l’état général, la courbe de poids et l’hydratation, car la perte de sel prime sur la description des organes<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Un enfant qui boit mal et maigrit reçoit un ionogramme avant toute autre mesure<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>Organes génitaux externes</h4>
+<div class="p">On décrit ensuite le bourgeon médian, les bourrelets latéraux, l’emplacement du méat et le nombre d’orifices<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Ces mots restent exacts quel que soit le caryotype, donc ils évitent une assignation prématurée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Le degré de fusion se cote sur les <button class="w" type="button" popovertarget="w-prader">stades de virilisation</button>, qui vont du phénotype féminin au phénotype masculin<sup class="r"><a href="#sb-prader">[7]</a></sup>. Ce stade décrit l’anatomie ; en revanche, il ne mesure ni l’urgence ni la cause, que l’ionogramme et le caryotype tranchent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-prader" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-prader" popovertargetaction="hide">Fermer</button>
 <h4>Stades de virilisation</h4>
 <figure class="cliche">
-<p class="fiche">Ce schéma est une modalité de dessin clinique, en vue antérieure, et il aligne les stades de virilisation.</p>
-<img src="images/prader-brut.png" alt="Schéma des stades de Prader, cliché brut">
-<img src="images/prader-annote.jpg" alt="Schéma des stades de Prader, copie annotée">
-<svg viewBox="0 0 850 219" width="850" height="219"><circle cx="425" cy="48" r="16" fill="#7a2418"/><text x="421" y="53" fill="#ffffff" font-size="16">1</text><circle cx="667" cy="48" r="16" fill="#7a2418"/><text x="663" y="53" fill="#ffffff" font-size="16">2</text><circle cx="789" cy="48" r="16" fill="#7a2418"/><text x="785" y="53" fill="#ffffff" font-size="16">3</text></svg>
-<div class="p">Ici le premier repère montre l'orifice unique du stade intermédiaire, car la fusion des bourrelets a commencé<sup class="r"><a href="#sb-prader">[7]</a></sup>.</div>
-<div class="p">Sur ce dessin, le deuxième repère montre un phallus allongé, ce qui ne prouve pas un sexe chromosomique masculin<sup class="r"><a href="#sb-prader">[7]</a></sup>.</div>
-<div class="p">À droite, le troisième repère montre l'aspect masculin complet, or une hyperplasie peut se cacher derrière cet aspect<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce que l'image décide : le stade virilisé impose la recherche de l'urgence néonatale E1<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'hyperplasie surrénalienne E2 ne se confirme qu'ensuite, car le dessin ignore le sel et le papier buvard<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le piège est de conclure au sexe à partir du dessin parce que le ionogramme n'y figure pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<figcaption>Sarah Heland, Jacqueline Hewitt, George McGillivray et Susan Walker, schéma de 2015, licence CC BY-SA 2.5, Wikimedia Commons, https://commons.wikimedia.org/wiki/File :Prader_staging_for_virilisation_of_female_genitalia.png , consulté le 10 novembre 2026. La copie annotée est une œuvre dérivée sous la même licence.</figcaption>
-</figure>
+<p class="fiche">Modalité : il s’agit d’un dessin clinique du périnée, vu de face. Les vignettes vont de F, féminin, à M, masculin, et chaque stade est inscrit en haut à gauche<sup class="r"><a href="#sb-prader">[7]</a></sup>.</p>
+<div class="paire">
+<div><h5>Schéma brut</h5><img src="images/prader-brut.png" alt="Schéma des stades de virilisation des organes génitaux externes, du stade féminin au stade masculin" width="850" height="219"></div>
+<div><h5>Copie annotée</h5><div class="cadre-img"><img src="images/prader-annote.jpg" alt="Même schéma avec 3 repères numérotés sur les stades III, V et M" width="850" height="219"><svg viewBox="0 0 850 219" aria-hidden="true"><circle cx="425" cy="48" r="22" fill="none" stroke="#5c1d14" stroke-width="2"/><circle cx="667" cy="48" r="22" fill="none" stroke="#5c1d14" stroke-width="2"/><circle cx="789" cy="48" r="22" fill="none" stroke="#5c1d14" stroke-width="2"/></svg></div></div>
 </div>
+<div class="p">Le repère 1 montre au stade III un bourgeon médian élargi au-dessus d’un orifice unique, signe d’une fusion déjà avancée<sup class="r"><a href="#sb-prader">[7]</a></sup>. Le repère 2 suit au stade V un bourgeon allongé en verge, alors que le repère 3 désigne le phénotype masculin complet<sup class="r"><a href="#sb-prader">[7]</a></sup>.</div>
+<div class="p">Ce que l’image décide : un stade avancé sans gonade palpable fait rechercher en priorité le DX.2, E1, et l’ionogramme décide de l’urgence, pas le dessin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le E2, le DX.9, peut donner un aspect moins virilisé avec un buvard normal, donc le stade ne l’écarte pas<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<figcaption>Sarah Heland, Jacqueline Hewitt, George McGillivray et Susan Walker, schéma de 2015, licence CC BY-SA 2.5, Wikimedia Commons, <a href="https://commons.wikimedia.org/wiki/File:Prader_staging_for_virilisation_of_female_genitalia.png">https://commons.wikimedia.org/wiki/File:Prader_staging_for_virilisation_of_female_genitalia.png</a>, consulté le 10 novembre 2026. La copie annotée est une œuvre dérivée sous la même licence.</figcaption>
+</figure>
+</div><h4>Régions inguinales et gonades</h4>
+<div class="p">La palpation des gonades oriente fortement, car une gonade palpable dans les bourrelets fait penser à un tissu testiculaire<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Elle ne ferme pourtant pas le déficit surrénalien chez un garçon, où la clinique a manqué 11 cas sur 13<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Un hypospadias isolé avec des testicules descendus des 2 côtés relève du DX.1, alors qu’un hypospadias avec gonade non palpable impose le bilan complet<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Une asymétrie entre une gonade palpable et une gonade absente fait penser à la dysgénésie mixte du DX.5<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Chez une fille d’aspect typique, une hernie inguinale qui contient une gonade fait évoquer le DX.3, donc on demande le caryotype<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </section>
 <section class="ilot" id="p7">
 <h3>7. Approche syndromique</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Syndrome</th><th>Signes fonctionnels</th><th>Signes physiques</th></tr></thead><tbody>
-<tr><td>7.1 perte de sel</td><td>Vomissements et choc</td><td>Virilisation</td></tr>
-<tr><td>7.2 insensibilité</td><td>Hernie ou aménorrhée</td><td>Aspect féminin</td></tr>
-<tr><td>7.3 dysgénésie</td><td>Retard pubertaire</td><td>Gonades incomplètes</td></tr>
-<tr><td>7.4 forme tardive</td><td>Absence de règles</td><td>Développement divergent</td></tr>
-</tbody></table></div>
-<div class="p">L'approche syndromique sépare le mécanisme parce que le même aspect externe recouvre des maladies différentes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>7.1 Perte de sel</h4>
-<div class="p">Au point 7.1, la perte de sel associe vomissements, déshydratation et pigmentation, et le geste est le ionogramme immédiat<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les signes physiques du point 7.1 sont la virilisation et parfois l'aspect masculin complet chez un fœtus au caryotype féminin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le mécanisme du point 7.1 est le manque de cortisol et d'aldostérone avec excès d'androgènes, ce qui relie le choc au bloc enzymatique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>7.2 Insensibilité aux androgènes</h4>
-<div class="p">Au point 7.2, l'insensibilité aux androgènes produit un aspect féminin externe, avec des testicules et sans utérus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les signes fonctionnels du point 7.2 apparaissent souvent plus tard, comme une hernie inguinale ou une aménorrhée primaire<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le mécanisme du point 7.2 est la mutation du récepteur de ce fait les androgènes circulent mais le tissu ne répond pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>7.3 Dysgénésie</h4>
-<div class="p">Au point 7.3, la dysgénésie se marque par des gonades incomplètes, et l'échographie plus le caryotype orientent le bilan<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les signes physiques du point 7.3 varient du phénotype féminin à un aspect ambigu, ce qui interdit une règle unique d'assignation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">On regroupe les présentations en 4 tableaux cliniques, parce que chacun appelle un premier examen différent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<h4>7.1 Fille virilisée sans gonade palpable</h4>
+<div class="p">Ce tableau évoque d’abord le DX.2, puis le DX.8 et le DX.9, si bien qu’on dose la 17-hydroxyprogestérone et l’ionogramme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Chez la fille virilisée, la clinique avait évoqué le diagnostic dans 76 % des cas suisses<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>7.2 Garçon peu virilisé avec gonades palpables</h4>
+<div class="p">Ce tableau oriente vers les DX.6, DX.7 et DX.10, donc on demande le caryotype et le profil des stéroïdes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Chez le garçon, la suspicion clinique tombait à 15 %, ce qui laissait au buvard l’essentiel des diagnostics de DX.2<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>7.3 Gonades asymétriques</h4>
+<div class="p">Une gonade palpable d’un côté et absente de l’autre fait penser aux DX.4 et DX.5<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. On évalue alors le risque tumoral, qui guide une éventuelle gonadectomie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Cette décision se prend au centre, car la chirurgie gagne à être centralisée et rarement précoce<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le caryotype se fait donc avant toute exploration chirurgicale, puisqu’il classe la variation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Dans ces 3 premiers tableaux, la naissance impose le même réflexe, qui consiste à mesurer le sel avant de nommer la cause<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Un tableau rassurant ne doit donc jamais retarder l’ionogramme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
 <h4>7.4 Découverte tardive</h4>
-<div class="p">Au point 7.4, la découverte à l'adolescence se fait par un retard pubertaire ou un développement contraire au sexe présumé<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Cette forme tardive n'annule pas le risque passé parce que certaines hyperplasies ont déjà exposé l'enfant à une perte de sel non vue<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le point 7.1 est celui que le dépistage suisse cherche à ne plus manquer parce que la sensibilité de 97 % ne vaut que si le clinique reste éveillé<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le tableau comparatif des syndromes ne mélange pas le droit et la biologie, car l'état civil n'est pas un mécanisme enzymatique<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Pour chaque signe, la définition tient en une phrase verbale, le geste est nommé, et le mécanisme est relié<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un vomissement isolé se définit comme un rejet alimentaire, se recherche par l'histoire des dernières heures, et s'explique par le manque de sel ou par une autre cause<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une pigmentation se définit comme un assombrissement des plis, se recherche à la lumière du jour, et s'explique par l'ACTH<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Une aménorrhée primaire se définit par l'absence de règles à l'âge attendu, se recherche à l'interrogatoire, et peut révéler une insensibilité ou une dysgénésie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Vomissements répétés avec pigmentation orientent vers le point 7.1, et le ionogramme vient avant toute photo de famille<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Hernie inguinale chez une enfant et absence d'utérus font chercher le point 7.2 parce que le récepteur peut être muet<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Gonades à peine ébauchées signent le point 7.3 de ce fait l'échographie et le caryotype marchent ensemble<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Retard de règles ou puberté contraire au sexe déclaré révèle le point 7.4, et le bilan reprend à cet âge<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chez le nourrisson qui vomit, le point 7.1 se traite comme une insuffisance surrénale aiguë jusqu'à preuve contraire<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chez l'adolescente sans règles, le point 7.2 reste possible même si l'enfance a paru banale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Chez l'enfant dont les gonades sont floues, le point 7.3 demande l'image et le chromosome ensemble<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le point 7.1 associe vomissement, sel et pigmentation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le point 7.2 reste un aspect féminin sans utérus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le point 7.3 montre des gonades incomplètes à l'image<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le point 7.4 apparaît quand la puberté ne vient pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Hernie et aménorrhée racontent parfois la même insensibilité<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le point 7.1 est celui que le buvard cherche à rattraper<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Aucun de ces quatre tableaux ne suffit au premier regard<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le mécanisme impose le geste, non l'émotion familiale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'aménorrhée primaire impose de revoir l'enfance<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La hernie de la fille impose une échographie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">L’insensibilité complète se découvre parfois à l’adolescence, quand l’IRM complète l’échographie sans irradier<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La forme tardive du déficit en 21-hydroxylase échappe au dépistage, comme le montre une fille diagnostiquée par un test à l’ACTH à 5 ans<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Une découverte tardive ravive souvent des questions anciennes, si bien que la pédopsychiatrie accompagne aussi ce moment<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Quand l’adolescent apprend sa variation, on explique son anatomie, sa génétique et ses traitements, afin qu’il devienne acteur de ses soins<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Pour l’hypospadias du DX.1, la fréquence au sens large atteint 73 % des variations, si bien que la plupart des enfants n’ont besoin que d’un avis chirurgical<sup class="r"><a href="#sb-dsdnet2018">[10]</a></sup>. Toutefois, un hypospadias sévère avec gonade non palpable impose le bilan complet des variations XY<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Les 4 présentations et leur premier examen</caption><thead><tr><th>Présentation</th><th>DX à évoquer</th><th>Premier examen</th></tr></thead><tbody>
+<tr><td>Le 7.1 réunit les filles virilisées.</td><td>On évoque les DX.2, DX.8 et DX.9.</td><td>On dose la 17-hydroxyprogestérone et l’ionogramme.</td></tr>
+<tr><td>Le 7.2 réunit les garçons peu virilisés.</td><td>On évoque les DX.6, DX.7 et DX.10.</td><td>On demande le caryotype et le profil des stéroïdes.</td></tr>
+<tr><td>Le 7.3 réunit les gonades asymétriques.</td><td>On évoque les DX.4 et DX.5.</td><td>On demande le caryotype, sur plusieurs tissus si besoin.</td></tr>
+<tr><td>Le 7.4 réunit les découvertes tardives.</td><td>On évoque le DX.3 et la forme tardive du DX.2.</td><td>On demande le caryotype ou un test à l’ACTH.</td></tr>
+</tbody></table></div>
 </section>
 <section class="ilot" id="p8">
 <h3>8. Diagnostic positif et critères</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Critère</th><th>Ce qui suffit</th><th>Ce qui ne suffit pas</th></tr></thead><tbody>
-<tr><td>Langage 2012</td><td>Report si possible</td><td>Angoisse parentale seule</td></tr>
-<tr><td>Caryotype</td><td>Classe XX ou XY</td><td>Aspect externe seul</td></tr>
-<tr><td>17-hydroxyprogestérone</td><td>Oriente le bloc</td><td>Un dosage isolé hors contexte</td></tr>
-<tr><td>Lieu de soin</td><td>Centre spécialisé</td><td>Décision dispersée</td></tr>
+<div class="p">Le diagnostic positif répond à une question simple : quel examen prouve la cause, une fois la menace vitale écartée<sup class="r"><a href="#sb-rms2016">[1]</a></sup> ? Pour le DX.2, la 17-hydroxyprogestérone élevée oriente, puis l’analyse des stéroïdes urinaires a confirmé le cas suisse manqué au 4e jour, selon la série publiée en 2002<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">La génétique confirme ensuite le mécanisme, avec CYP21A2 pour le déficit en 21-hydroxylase et le gène AR pour les insensibilités<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La spectrométrie de masse demande moins de sang et standardise les dosages, ce qui modifie déjà la pratique pédiatrique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Ce qui prouve chaque DX</caption><thead><tr><th>DX</th><th>Preuve</th><th>Ce qui ne suffit pas</th></tr></thead><tbody>
+<tr><td>Le DX.1 se prouve à l’examen.</td><td>Le méat ectopique et 2 testicules palpables le signent.</td><td>Un hypospadias avec gonade absente ne suffit pas.</td></tr>
+<tr><td>Le DX.2 se prouve au laboratoire.</td><td>La 17-hydroxyprogestérone élevée et CYP21A2 le confirment.</td><td>Un buvard normal au 4e jour reste insuffisant.</td></tr>
+<tr><td>Le DX.3 se prouve par la génétique.</td><td>Un caryotype 46,XY et une variante du gène AR le confirment.</td><td>Un phénotype féminin ne suffit pas.</td></tr>
+<tr><td>Le DX.4 se prouve sur la gonade.</td><td>Le caryotype 46,XY et l’analyse de la gonade le montrent.</td><td>L’échographie seule ne suffit pas.</td></tr>
+<tr><td>Le DX.5 se prouve au caryotype.</td><td>La mosaïque 45,X/46,XY le signe.</td><td>Un seul tissu normal ne suffit pas à l’écarter.</td></tr>
+<tr><td>Le DX.6 se prouve par la génétique.</td><td>Une variante du gène AR avec réponse partielle le confirme.</td><td>Une testostérone normale ne suffit pas.</td></tr>
+<tr><td>Le DX.7 se prouve par les stéroïdes.</td><td>Le profil en spectrométrie de masse montre le bloc.</td><td>Un dosage isolé hors minipuberté ne suffit pas.</td></tr>
+<tr><td>Le DX.8 se prouve par les stéroïdes.</td><td>Le profil surrénalien le distingue du DX.2.</td><td>La seule 17-hydroxyprogestérone ne suffit pas.</td></tr>
+<tr><td>Le DX.9 se prouve par les stéroïdes.</td><td>Le profil complet montre le bloc en amont.</td><td>Un buvard normal ne suffit pas à l’écarter.</td></tr>
+<tr><td>Le DX.10 se prouve par les stéroïdes.</td><td>Le profil complet montre le bloc.</td><td>Le buvard ne le détecte pas.</td></tr>
 </tbody></table></div>
-<div class="p">Aucun score unique ne suffit pour toutes les variations parce que les mécanismes ne partagent pas les mêmes critères<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Pour la forme surrénalienne, le caryotype demandé en première intention répartit le dossier entre variation XX et variation XY<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le précurseur surrénalien élevé oriente vers le bloc, mais un seul dosage isolé de l'aspect clinique ne conclut pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'échographie des surrénales et des organes internes dans les premiers jours confirme la présence ou l'absence d'utérus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce qui ne suffit pas est l'aspect extérieur seul, car il ne dit ni le chromosome ni la réserve en sel<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce qui ne suffit pas non plus est l'angoisse parentale, puisque le mécanisme reste à démontrer<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La minipuberté, entre 2 et 6 mois, offre un moment hormonal favorable pour les dosages quand la période néonatale a été manquée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les analyses par spectrométrie de masse utilisent moins de volume, et elles commencent à modifier la pratique pédiatrique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">En 2012, la commission pose un critère d'action : aucune décision irréversible qui détermine le sexe ne devrait précéder la parole de l'enfant, si le geste peut être reporté<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Une indication seulement psychosociale ne constitue pas un critère opératoire, et ce refus est explicite<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le critère de lieu est aussi posé, car le conseil se concentre dans un nombre restreint de centres spécialisés en Suisse<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le dépistage ne vise pas la forme non classique à début tardif, car la 17-hydroxyprogestérone de naissance peut rester non élevée<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">On situe la parole de l'enfant vers 10 ou 14 ans, puisque la revue suisse y rattache le discernement<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Aucun dosage isolé ne remplace l'ensemble du tableau parce que un chiffre hors âge se lit mal<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Cette prise de position date de 2012, et elle refuse qu'une opération irréversible devance la parole lorsque le geste peut attendre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Dans un petit nombre de centres suisses, le conseil reste actif de la naissance jusqu'à l'âge adulte<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Vers 10 ou 14 ans, la revue situe un âge où l'enfant peut participer, et cet âge ne se décrète pas au berceau<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Reporter reste licite quand l'acte peut attendre la parole<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le conseil dure de la naissance jusqu'à l'âge adulte<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Un seul dosage détaché de l'âge ne suffit pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'angoisse parentale ne constitue pas un critère opératoire<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La minipuberté permet une seconde série de dosages<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Peu de centres suisses concentrent ce conseil spécialisé<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'utérus vu ou absent change la famille de mécanismes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La mention du sexe au registre se corrige, elle ne se devine pas<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">La parole de l'enfant reste un critère d'action<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'âge du dosage reste décisif pour l'interpréter<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La minipuberté permet des dosages plus lisibles<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<button class="w" type="button" popovertarget="w-ethique">Critère éthique suisse</button>
-<div id="w-ethique" class="fenetre" popover="manual">
-<h4>Critère éthique suisse</h4>
-<div class="p">Trois principes portent l'avis : le bien de l'enfant, son autonomie, et le soin dû aux parents<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le bien du nourrisson n'est pas celui de l'adolescent de ce fait la même opération ne se justifie pas aux deux âges<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Un refus peut s'exprimer tôt et sans mots, ce qui compte déjà dans la discussion<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-</div>
+<div class="p">Le DX.9 et le DX.10 ne se voient pas par la 17-hydroxyprogestérone de la 1re semaine<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Ainsi, dans la série suisse, la fille avec déficit en 3β-hydroxystéroïde déshydrogénase avait 6,8 nmol/L au 4e jour et n’a été reconnue qu’à 3 ans<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Le garçon avec déficit en 17α-hydroxylase avait 22,7 nmol/L au 4e jour, sans alerte du dépistage<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
 </section>
 <section class="ilot" id="p9">
 <h3>9. Examens complémentaires</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Résultat</th><th>Signification</th><th>Conduite</th></tr></thead><tbody>
-<tr><td>11,6 nmol au jour 4</td><td>Faux négatif publié</td><td>Ne pas clore</td></tr>
-<tr><td>220 nmol au jour 11</td><td>Bloc confirmé dans ce cas</td><td>Traiter</td></tr>
-<tr><td>Rappel positif</td><td>Valeur prédictive 50 %</td><td>Confirmer</td></tr>
-<tr><td>Utérus présent</td><td>Écarte l'insensibilité complète</td><td>Poursuivre le bilan surrénalien</td></tr>
-<tr><td>Utérus absent</td><td>Hormone antimüllérienne active</td><td>Chercher des gonades</td></tr>
-</tbody></table></div>
-<h4>9.a Référence</h4>
-<div class="p">La référence pour l'hyperplasie dépistée est la 17-hydroxyprogestérone sur papier buvard, car c'est l'examen du programme suisse depuis 1992<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Cet examen de référence ne couvre pas toutes les variations parce que les blocs autres que la 21-hydroxylase lui échappent en grande partie<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Un résultat de 11,6 nmol au jour 4 peut être faussement rassurant, et 220 nmol au jour 11 a confirmé le bloc dans le cas publié<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La valeur prédictive de 50 % signifie qu'un rappel se confirme une fois sur deux, donc le rappel n'est pas encore le diagnostic<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La spécificité de 99,99 % montre que le programme évite une avalanche de faux positifs, tout en gardant une sensibilité de 97 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<h4>9.b Première intention</h4>
-<div class="p">En première intention, on demande le ionogramme, la glycémie, le caryotype et l'échographie abdominopelvienne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le caryotype reste indiqué en première intention dans de nombreux cas parce que il classe la variation en XX ou en XY<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'échographie des premiers jours regarde les surrénales, l'utérus et les gonades parce que les hormones maternelles grandissent encore l'utérus et les ovaires<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les dosages hormonaux se calent sur l'âge parce que les taux varient pendant les premiers mois<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Entre 2 et 6 mois, la minipuberté permet des dosages plus parlants si la naissance n'a pas tranché<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La spectrométrie de masse réduit le volume de sang ou d'urine, et elle modifie déjà la pratique pédiatrique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si le diagnostic est soupçonné seulement à l'adolescence, l'échographie se complète par une résonance magnétique pelvienne<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>9.c Alternatives</h4>
-<div class="p">Chez l'enfant, l'échographie remplace les examens irradiants chaque fois qu'elle répond à la question<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Pendant la grossesse, le bilan prénatal repose sur l'échographie spécialisée parce que un discours mal choisi blesse les parents<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'angle du tubercule génital, après le premier trimestre, distingue un fœtus féminin d'un fœtus masculin avec une précision supérieure à 95 %<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un angle obtus oriente vers un fœtus féminin, tandis qu'un angle aigu oriente vers un fœtus masculin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Quatre situations prénatales reviennent : anomalie au dépistage de 20 à 22 semaines, bilan malformatif, discordance caryotype-phénotype, et famille déjà informée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si une insuffisance rénale sévère contre-indique un produit de contraste, l'échographie reste l'examen de repli<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si une allergie à l'iode interdit le contraste iodé, on choisit l'échographie ou une résonance sans produit<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si la résonance est impossible, l'échographie pelvienne garde sa place et le dosage sanguin n'en dépend pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>9.d Deuxième intention</h4>
-<div class="p">En deuxième intention viennent le panel de gènes, la spectrométrie des stéroïdes et, plus tard, l'imagerie pelvienne approfondie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le gène CYP21A2 se cherche quand le bloc en 21-hydroxylase est probable, et le gène AR se cherche quand l'insensibilité est probable<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'anamnèse familiale d'infertilité oriente ce choix génétique, car toutes les variations ne sont pas liées à l'X<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'interprétation d'un utérus vu à l'échographie écarte l'insensibilité complète, puisque cette forme n'a pas d'utérus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'interprétation d'un précurseur surrénalien très élevé conduit au traitement de l'hyperplasie sans attendre le séquençage<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'interprétation d'un ionogramme normal n'élimine pas une forme non classique, et elle autorise seulement à ralentir l'urgence vitale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La plaque montrée est légendée 46 XX, mais les chromosomes n'y sont pas appariés de ce fait elle ne prouve pas seule le sexe chromosomique<sup class="r"><a href="#sb-caryo">[6]</a></sup>.</div>
-<div class="p">Le schéma de 2015 aligne les stades, et il sert à décrire la fusion sans photographier un enfant identifiable<sup class="r"><a href="#sb-prader">[7]</a></sup>.</div>
-<div class="p">Après le premier trimestre, l'angle du tubercule se mesure, et une précision supérieure à 95 % a été publiée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Si le diagnostic attend l'adolescence, l'imagerie par résonance complète l'échographie, car les organes sont alors mieux vus<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Durant la minipuberté, entre 2 et 6 mois, les dosages gonadiques deviennent plus lisibles si la naissance a laissé un doute<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Lorsque le diagnostic n'arrive qu'à l'adolescence, la résonance pelvienne complète l'échographie parce que les organes sont alors plus lisibles<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avec un angle du tubercule supérieur à 95 % de fiabilité après le premier trimestre, l'image prénatale oriente sans conclure seule<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Entre 72 et 96 heures, le papier buvard cherche le précurseur, et un résultat rassurant au jour 4 reste insuffisant dans le cas publié<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Puisque plus de 99 % des nouveau-nés sont atteints par le programme, l'absence de prélèvement est une exception à rattraper<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Les hormones maternelles grandissent encore l'utérus du nouveau-né<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">À l'adolescence, la résonance complète souvent l'échographie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le caryotype reste un examen de première intention<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On demande la glycémie avec le ionogramme si l'enfant choque<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le buvard ne vise pas la forme non classique tardive<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Un contraste iodé se refuse si l'allergie est connue<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'insuffisance rénale sévère écarte le produit de contraste<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le panel de gènes vient après le tableau clinique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'anamnèse d'infertilité oriente le choix du gène<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Un rappel positif se confirme, il ne se décrète pas<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">L'échographie précoce reste plus parlante plus tard<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le doute clinique reste ouvert malgré le buvard<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le contraste iodé reste interdit si l'allergie existe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La résonance pelvienne précise un doute d'adolescente<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<button class="w" type="button" popovertarget="w-caryo">Métaphase et lecture</button>
-<div id="w-caryo" class="fenetre" popover="manual">
-<h4>Métaphase et lecture</h4>
+<h4>9.a Examens de référence</h4>
+<div class="p">Le profil des stéroïdes en spectrométrie de masse et la génétique ciblée servent de référence, car ils nomment la cause exacte<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le séquençage de CYP21A2 ou du gène AR confirme ainsi le mécanisme pressenti<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<h4>9.b Examens de 1re intention</h4>
+<div class="p">L’ionogramme se demande dès le 1er jour chez tout enfant suspect, parce qu’il décide de l’urgence avant tout examen de cause<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Le <button class="w" type="button" popovertarget="w-iono">sodium et le potassium</button> s’interprètent avec le poids et la clinique<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div id="w-iono" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-iono" popovertargetaction="hide">Fermer</button>
+<h4>Ionogramme du nouveau-né</h4>
+<div class="p">Chez 5 enfants suisses, le rappel du 6e au 9e jour a trouvé un sodium à 135 mmol/L et un potassium à 6,5 mmol/L<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Ce profil marque un début de perte de sel, donc il impose de traiter avant la crise<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">On répète la mesure, car une valeur encore normale au 1er jour ne protège pas des jours suivants<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Sous Florinef®, l’information professionnelle impose aussi un contrôle des électrolytes<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</div>
+</div>
+<div class="p">Le <button class="w" type="button" popovertarget="w-caryo">caryotype</button> vient en 1re intention, car il range la variation en XX ou en XY et guide tout le reste<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-caryo" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-caryo" popovertargetaction="hide">Fermer</button>
+<h4>Caryotype</h4>
 <figure class="bio">
-<img src="images/caryotype-46xx.jpg" alt="Métaphase légendée 46 XX, cliché brut">
-<div class="p">La plaque est une métaphase légendée 46 XX, et la barre indique 10 µm<sup class="r"><a href="#sb-caryo">[6]</a></sup>.</div>
-<div class="p">Les chromosomes ne sont pas classés par paires sur cette vue, donc on ne tranche pas le sexe ici<sup class="r"><a href="#sb-caryo">[6]</a></sup>.</div>
-<div class="p">Ce que l'image décide : la métaphase seule ne sépare pas l'urgence néonatale de l'hyperplasie, car le classement et le dosage manquent<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<figcaption>Josef Reischig, métaphase humaine légendée 46 XX, licence CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File :Human_karyotype_(259_32)_Karyotype_Human_46,XX_(woman).jpg , consulté le 10 novembre 2026.</figcaption>
+<img src="images/caryotype-46xx.jpg" alt="Caryotype humain 46,XX : 22 paires d'autosomes et 2 chromosomes X" width="1100" height="704">
+<figcaption>Josef Reischig, métaphase humaine légendée 46,XX, licence CC BY-SA 3.0, <a href="https://commons.wikimedia.org/wiki/File:Human_karyotype_(259_32)_Karyotype_Human_46,XX_(woman).jpg">https://commons.wikimedia.org/wiki/File:Human_karyotype_(259_32)_Karyotype_Human_46,XX_(woman).jpg</a>, consulté le 10 novembre 2026.</figcaption>
 </figure>
+<div class="p">Ce caryotype 46,XX montre 2 chromosomes X et aucun Y<sup class="r"><a href="#sb-caryo">[6]</a></sup>. Devant un enfant virilisé, il oriente vers le DX.2, mais il ne dit rien de la perte de sel<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Un caryotype 46,XY oriente vers les DX.3, DX.4, DX.6, DX.7 ou DX.10, tandis qu’une mosaïque 45,X/46,XY signe le DX.5<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</div>
 </div>
-<button class="w" type="button" popovertarget="w-echo">Échographie du nouveau-né</button>
-<div id="w-echo" class="fenetre" popover="manual">
-<h4>Échographie du nouveau-né</h4>
-<div class="p">On demande l'échographie abdominale du nouveau-né afin de voir l'utérus, les gonades et les surrénales<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On la demande tôt, car les hormones maternelles grandissent encore l'utérus et facilitent sa lecture<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Elle ne remplace pas le dosage sanguin du précurseur, donc un utérus présent n'écarte pas l'hyperplasie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<h4>9.c Alternatives et imagerie</h4>
+<div class="p">L’<button class="w" type="button" popovertarget="w-echo">échographie pelvienne</button> se fait dans les premiers jours, quand les hormones maternelles rendent l’utérus plus visible<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-echo" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-echo" popovertargetaction="hide">Fermer</button>
+<h4>Échographie pelvienne et inguinale</h4>
+<figure class="schema">
+<svg viewBox="0 0 640 220" width="640" height="220" role="img" aria-label="Schéma des 3 questions posées à l'échographie">
+<rect x="10" y="10" width="620" height="200" rx="12" fill="#fdf6f0"/>
+<text x="30" y="55" fill="#2a160c" font-size="17">1. Un utérus est-il visible derrière la vessie ?</text>
+<text x="30" y="110" fill="#2a160c" font-size="17">2. Où sont les gonades : abdomen, canal inguinal, bourrelets ?</text>
+<text x="30" y="165" fill="#2a160c" font-size="17">3. Le vagin et l’urètre s’ouvrent-ils dans un sinus commun ?</text>
+</svg>
+<figcaption>Schéma original de ce cours : les questions que l’on pose à l’échographiste, sans image réelle de patient.</figcaption>
+</figure>
+<div class="p">Un utérus visible chez un enfant virilisé sans gonade palpable soutient le DX.2<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Son absence chez un enfant XY oriente vers une hormone antimüllérienne active, donc vers les DX.3, DX.6 ou DX.7<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">L’échographie et l’IRM n’irradient pas, et l’IRM sert surtout à l’adolescence<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </div>
-<button class="w" type="button" popovertarget="w-ohp">17-hydroxyprogestérone interprétée</button>
-<div id="w-ohp" class="fenetre" popover="manual">
-<h4>17-hydroxyprogestérone interprétée</h4>
-<div class="p">Dans le cas publié, 11,6 nmol au jour 4 étaient dans la zone qui rassurait, puis 220 nmol au jour 11 ont confirmé le bloc<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">On n'utilise pas ces deux valeurs comme bornes normales, car elles décrivent un faux négatif et non un intervalle de référence<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Un rappel a une valeur prédictive de 50 % de ce fait on confirme par le tableau clinique et un nouveau dosage<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">La <button class="w" type="button" popovertarget="w-ohp">17-hydroxyprogestérone</button> se lit sur le buvard du 4e jour, mais un résultat normal n’exclut pas le diagnostic<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div id="w-ohp" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-ohp" popovertargetaction="hide">Fermer</button>
+<h4>17-hydroxyprogestérone : valeurs publiées en Suisse</h4>
+<figure class="schema">
+<svg viewBox="0 0 660 230" width="660" height="230" role="img" aria-label="Échelle des valeurs de 17-hydroxyprogestérone publiées dans la série suisse">
+<rect x="10" y="10" width="640" height="210" rx="12" fill="#fdf6f0"/>
+<rect x="40" y="100" width="580" height="6" fill="#d9bfa6"/>
+<text x="40" y="70" fill="#2a160c" font-size="15">6,8 : DX.9 au 4e jour</text>
+<text x="40" y="140" fill="#2a160c" font-size="15">11,6 : DX.2 manqué au 4e jour</text>
+<text x="40" y="165" fill="#2a160c" font-size="15">15,5 : forme tardive au 4e jour</text>
+<text x="40" y="190" fill="#2a160c" font-size="15">22,7 : DX.10 au 4e jour</text>
+<text x="360" y="70" fill="#2a160c" font-size="15">111 : pic sans maladie</text>
+<text x="360" y="140" fill="#2a160c" font-size="15">220 : même enfant au 11e jour</text>
+<text x="360" y="165" fill="#2a160c" font-size="15">363 : pic avec maladie</text>
+<text x="360" y="195" fill="#5c1d14" font-size="15">valeurs en nmol/L</text>
+</svg>
+<figcaption>Schéma original de ce cours, construit avec les seules valeurs publiées par le programme de Zurich.</figcaption>
+</figure>
+<div class="p">Chez la fille manquée, la valeur valait 11,6 nmol/L au 4e jour, puis 220 nmol/L au 11e jour devant une hypertrophie clitoridienne<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Le pic de 17-hydroxyprogestérone valait 363 nmol/L chez les enfants malades, contre 111 nmol/L chez les rappels sans maladie<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Les prématurés produisent beaucoup de faux positifs, car 24 des 30 rappels sans maladie concernaient des enfants nés avant terme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. La valeur prédictive positive passait ainsi de 50 % chez tous les nouveau-nés à 82 % chez les enfants à terme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">La spécificité atteignait 99,99 %, alors que la sensibilité restait de 97 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
 </div>
-<button class="w" type="button" popovertarget="w-mini">Minipuberté</button>
-<div id="w-mini" class="fenetre" popover="manual">
+<h4>9.d Examens de 2e intention</h4>
+<div class="p">Les autres dosages hormonaux gagnent à être faits pendant la <button class="w" type="button" popovertarget="w-mini">minipuberté</button>, quand l’axe gonadique s’active<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-mini" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-mini" popovertargetaction="hide">Fermer</button>
 <h4>Minipuberté</h4>
-<div class="p">Entre 2 et 6 mois, l'axe gonadique se réveille brièvement, et les dosages deviennent plus lisibles<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On saisit ce moment si la naissance n'a pas permis de conclure, plutôt que de multiplier les prises trop tôt<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Ce moment ne remplace pas le papier buvard des 72 à 96 heures, car la crise, elle, ne peut pas attendre la minipuberté<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Entre 2 et 6 mois, la minipuberté représente une période favorable aux diagnostics par dosages hormonaux<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Les taux varient beaucoup pendant les premiers mois, donc on choisit le moment du prélèvement<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">Cette période sert surtout aux DX.6, DX.7 et DX.4, où la réponse testiculaire compte, alors que le DX.2 ne peut pas l’attendre<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </div>
+<div class="p">Le test à l’ACTH vient plus tard, quand une forme tardive se discute, comme chez la fille suisse diagnostiquée à 5 ans<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Dans les centres suisses, ces examens se discutent d’ailleurs au groupe interdisciplinaire, et non au cas par cas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Interpréter les résultats publiés en Suisse</caption><thead><tr><th>Examen</th><th>Résultat</th><th>Interprétation</th></tr></thead><tbody>
+<tr><td>Le buvard du 4e jour est normal.</td><td>La valeur valait 11,6 nmol/L chez la fille manquée<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>On répète le dosage si la clinique reste suspecte.</td></tr>
+<tr><td>Le contrôle du 11e jour est élevé.</td><td>La même fille atteignait 220 nmol/L<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>Le déficit en 21-hydroxylase est alors confirmé par les stéroïdes urinaires.</td></tr>
+<tr><td>L’ionogramme du rappel est perturbé.</td><td>Le sodium valait 135 mmol/L et le potassium 6,5 mmol/L<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>La perte de sel commence, donc on traite.</td></tr>
+<tr><td>Le buvard d’un prématuré est élevé.</td><td>Sur 30 rappels sans maladie, 24 concernaient des prématurés<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>On contrôle avant de conclure.</td></tr>
+<tr><td>Le buvard est normal chez une fille atypique.</td><td>La valeur valait 6,8 nmol/L dans le DX.9<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td><td>On demande le profil complet des stéroïdes.</td></tr>
+</tbody></table></div>
 </section>
 <section class="ilot" id="p10">
 <h3>10. Arbre décisionnel</h3>
-<ol>
-<li>Si le nouveau-né choque, vomit ou se pigmente, on traite l'urgence néonatale E1 avant tout le reste<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si le ionogramme montre une perte de sel, on corrige le volume et on démarre la substitution, car le mécanisme précis peut attendre quelques heures de laboratoire<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si le nouveau-né est stable et virilisé, on demande le dosage du précurseur surrénalien pour chercher l'hyperplasie surrénalienne E2<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si le caryotype est féminin et le précurseur surrénalien élevé, l'hyperplasie devient l'hypothèse de travail<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si le caryotype est masculin et les gonades sont palpées, on éloigne l'hyperplasie virilisante classique et on cherche une autre variation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si l'aspect est féminin, l'utérus absent et les gonades présentes, on oriente vers l'insensibilité aux androgènes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si les gonades sont dysgénésiques, la surveillance tumorale se discute dans un centre, sans opération esthétique précipitée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si les parents demandent une chirurgie pour motif social seul, on refuse l'opération, puisque cette indication ne suffit pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si la mention du sexe à l'état civil pose problème, on explique la voie de correction sans créer une troisième catégorie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si l'enfant grandit, le suivi prolongé reprend le dossier à la puberté et lors du passage vers les soins adultes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Si le geste peut attendre que l'enfant s'exprime, on le reporte, car la commission l'a écrit en 2012<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
-<li>Si le papier buvard rassure alors que le nouveau-né choque, on reprend l'urgence néonatale, car un faux négatif a déjà été publié<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
-<li>Si l'équipe hésite entre deux mécanismes, elle traite d'abord le sel et elle classe ensuite<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>Le sel se traite avant que le mécanisme se nomme<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>L'acte reportable reste reporté jusqu'à la parole<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
-<li>Le faux négatif reste possible malgré un buvard calme<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<ol class="algo">
+<li>On exclut d’abord le E1, le déficit en 21-hydroxylase avec perte de sel, par l’ionogramme et la 17-hydroxyprogestérone<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Si l’enfant vomit ou paraît gravement malade, on passe sans délai à l’hydrocortisone parentérale<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</li>
+<li>On exclut ensuite le E2, le déficit en 3β-hydroxystéroïde déshydrogénase avec perte de sel, même si le buvard est normal, car il échappe à la 17-hydroxyprogestérone<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Si l’état est stable et le caryotype XX, on retient le DX.2 sans perte de sel ou le DX.8 selon le profil des stéroïdes<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Si le caryotype est XY avec utérus absent, on oriente vers les DX.3, DX.6 ou DX.7 selon la réponse aux androgènes<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
+<li>Si le caryotype est XY avec structures müllériennes, on oriente vers la dysgénésie du DX.4<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
+<li>Si le caryotype montre 45,X/46,XY, on retient le DX.5, puis le centre évalue le risque tumoral de la gonade<sup class="r"><a href="#sb-dsdlife2017">[11]</a></sup>.</li>
+<li>Si l’enfant a un hypospadias avec 2 testicules descendus et aucun autre signe, on retient le DX.1<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
 </ol>
+<div class="p">Dans chaque branche, le centre interdisciplinaire décide, et aucune décision irréversible ne se prend sans urgence<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">L’arbre se lit de haut en bas, parce que la 1re branche protège la vie et que les suivantes nomment la cause<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Si un résultat contredit la clinique, on remonte d’un niveau au lieu de forcer une conclusion<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Un buvard normal ne fait donc jamais sauter la 1re branche, puisque la fille manquée de la série suisse avait une valeur normale au 4e jour<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. De même, un garçon aux organes typiques reste dans la 1re branche tant que le rappel du dépistage n’est pas levé<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
 </section>
 <section class="ilot" id="p11">
 <h3>11. Prise en charge selon les recommandations suisses</h3>
-<div class="t" style="overflow-x:auto"><table><thead><tr><th>Molécule</th><th>Voie</th><th>Rythme</th><th>Contre-indication majeure</th></tr></thead><tbody>
-<tr><td>Hydrocortisone en granulé</td><td>Orale</td><td>Plusieurs prises</td><td>Hypersensibilité</td></tr>
-<tr><td>Même granulé</td><td>Pas de sonde</td><td>Stress modéré</td><td>Obstruction de sonde</td></tr>
-<tr><td>Forme parentérale</td><td>Stress sévère</td><td>Décision d'équipe</td><td>Hors granulé oral</td></tr>
-</tbody></table></div>
 <h4>11.A But</h4>
-<div class="p">Le but chiffré du système suisse, dans la série de Zurich, est une sensibilité de dépistage de 97 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Ce chiffre ne fixe pas une dose, car il mesure la détection, et la détection n'a de sens que si le traitement suit<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le but clinique immédiat est d'empêcher la crise de perte de sel parce que cette crise menace la vie<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le but à distance est d'éviter une chirurgie irréversible motivée seulement par le regard social<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Le 1er but consiste à garder l’enfant en vie, car la crise de perte de sel d’une hyperplasie surrénalienne est une urgence vitale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le 2e but protège son choix futur, puisque la commission d’éthique écarte toute décision irréversible qui peut attendre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">Le 3e but vise une vie adulte autonome, ce qui suppose un suivi continu jusqu’à la transition<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 <h4>11.B Moyens</h4>
-<div class="p">Quand un syndrome adrénogénital est en cause, Alkindi® se prescrit de 10 à 15 mg par mètre carré et par jour, sous le n° 68226<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. Sans ce syndrome, la substitution surrénalienne se situe de 8 à 10 mg par mètre carré et par jour<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. La dose quotidienne se répartit en trois ou quatre prises, et on la tient au plus bas palier qui équilibre l'enfant<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. L'hypersensibilité au principe actif ou à un excipient contre-indique le granulé, et l'arrêt brutal expose à une crise mortelle<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Le granulé ne convient pas à une sonde nasogastrique, car il risque d'obstruer la sonde<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">On donne le granulé sur la langue ou dans une nourriture molle non chaude, puis on fait boire, y compris du lait maternel<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">On ne dilue pas le granulé dans un biberon, puisqu'une partie de la dose resterait dans le récipient<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Lors d'un stress modéré, on double ou on triple la dose orale, puis on revient à la dose habituelle<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Un stress sévère peut exiger une voie parentérale parce que le granulé oral ne couvre pas cette situation<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Au passage d'un comprimé écrasé vers ce granulé, on surveille la première semaine, car l'exposition peut baisser à dose nominale égale<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">On place la réanimation et le ionogramme avant le conseil d'assignation parce que le sel ne peut pas attendre le débat<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On informe les parents avec des mots descriptifs, et on réunit l'équipe pluridisciplinaire dans un centre qui en a l'habitude<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La chirurgie génitale, quand elle se discute, attend la compréhension de l'enfant si elle n'est pas vitale<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les questions de fertilité se traitent une par une, plus tard, et non dans la nuit du diagnostic<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">À la puberté, certains adolescents ont besoin d'hormones sexuelles, et cette indication se pose au cas par cas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'absence de règles ou de puberté peut être le moment où la variation se révèle, donc le suivi ne s'arrête pas à la petite enfance<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le conseil se donne dans un nombre restreint de centres suisses, de la naissance jusqu'à l'âge adulte<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Une indication seulement psychosociale ne justifie pas l'opération, et ce point reste non négociable<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Aucune décision irréversible déterminant le sexe ne devrait précéder la capacité de l'enfant à s'exprimer, lorsque le geste est reportable<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'acte de naissance ne connaît que le féminin et le masculin, et le changement de cette mention devrait rester simple<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Depuis le 1er février 2014, l'Office fédéral de l'état civil facilite ce changement par l'article 43, au titre d'une correction d'erreur<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Cette facilitation n'est pas une reconnaissance pleine des variations, ce qui limite sa portée symbolique<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Les associations n'ont pas demandé une troisième catégorie parce que elles la jugent stigmatisante<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<h4>11.C Surveillance</h4>
-<div class="p">La surveillance suit la croissance, le ionogramme et les signes d'excès ou de manque d'hydrocortisone<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On revoit l'enfant quand l'appétit, le poids ou la pigmentation changent, car ces signes précèdent les complications<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le passage vers les soins adultes est une période vulnérable, et une simple transmission de dossier ne suffit pas<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le jeune doit comprendre son anatomie, son mécanisme, sa génétique et ses traitements, afin de tenir un auto-soin<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le soutien psychologique fait partie du suivi, car la stigmatisation complique l'adaptation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On respecte l'identité vécue par l'adolescent, et on ne la confond pas avec la mention écrite à la naissance<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<h4>11.D Pronostic et sortie</h4>
-<div class="p">La sortie de l'épisode aigu exige une alimentation reprise, un ionogramme corrigé, des parents informés et un centre identifié<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La guérison au sens d'une disparition du variant n'existe pas de ce fait le critère de sortie concerne l'urgence et non l'identité<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le pronostic de fertilité reste individuel, et il se rediscute à l'adolescence plutôt qu'il ne se promet à la naissance<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">L'orientation vers le centre spécialisé organise la suite, et les démarches auprès de la caisse-maladie accompagnent ce suivi<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Pendant un stress sévère, la voie parentérale peut remplacer le granulé, car la bouche ne suffit plus<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Après un comprimé écrasé, la première semaine de granulé se surveille de près parce que l'équivalence clinique se vérifie au lit<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Cette conduite suisse concentre le conseil parce que disperser les décisions augmente le risque d'une chirurgie de convenance<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Avant que l'enfant puisse s'exprimer, on reporte l'acte qui fixerait le sexe, si cet acte peut attendre sans danger<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Dès la salle de naissance, les parents entendent des mots descriptifs, et le registre n'est pas rempli sous la pression du couloir<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Durant la transition, le jeune explique son anatomie et ses traitements, car l'auto-soin commence par cette compréhension<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Avec une équipe qui reste la même d'un âge à l'autre, la substitution continue, car le transfert de dossier ne soigne personne à lui seul<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Après la prise, une boisson aide à avaler tout le granulé, et le lait maternel fait partie des liquides prévus<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Si presque tout le granulé est recraché, on reprend contact parce que une prise perdue peut ouvrir une crise<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">La réanimation précède la conversation sur l'assignation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les mots descriptifs arrivent avant le formulaire d'état civil<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Disperser les avis augmente le risque d'une opération hâtive<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">La fertilité se rediscute, elle ne se promet pas au berceau<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La transition se prépare, elle ne se subit pas un soir<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le granulé se donne, la capsule ne s'avale pas<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Une boisson après la prise aide à tout avaler<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">La sonde nasogastrique ne convient pas à ce granulé<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Recracher la prise oblige à reprendre contact vite<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">L'identité vécue ne se confond pas avec la mention écrite<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le soutien psychologique fait partie du suivi au long cours<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Deux mentions existent au registre, pas une troisième<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">La capsule reste fermée hors de la bouche<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Le biberon reste un mauvais récipient pour le granulé<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Le couloir reste un mauvais lieu pour assigner<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le relais adulte reste à préparer longtemps avant<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les parents informés restent partie du critère de sortie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La troisième case reste refusée par les associations<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le lait maternel reste une boisson possible ensuite<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">L'état civil suisse ne connaît que deux mentions, le changement facilité reste une correction d'une erreur d'inscription, et les associations ont refusé une troisième case qu'elles jugeaient stigmatisante plutôt que libératrice<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<button class="w" type="button" popovertarget="w-urgence">Urgence — conduite chronologique</button>
-<div id="w-urgence" class="fenetre" popover="manual">
+<div class="p">Le traitement de la crise associe une hydrocortisone parentérale, un minéralocorticoïde et la correction du sel, selon la <button class="w" type="button" popovertarget="w-urgence">conduite chronologique</button><sup class="r"><a href="#sb-aips-23533">[8]</a></sup>. Ce traitement passe avant toute discussion d’assignation, si bien que l’équipe d’urgence n’attend pas le caryotype<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-urgence" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-urgence" popovertargetaction="hide">Fermer</button>
 <h4>Urgence — conduite chronologique</h4>
-<div class="p">D'abord on assure la voie veineuse et le ionogramme parce que la perte de sel ne se voit pas sur le périnée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">En parallèle on envoie la 17-hydroxyprogestérone, tandis que le sucre et le volume sont déjà corrigés<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Ensuite seulement on parle du sexe avec des mots descriptifs parce que l'opération peut attendre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">On ne diffère pas la correction d'un choc jusqu'au résultat du gène<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<ol class="algo">
+<li>On reconnaît la crise quand l’enfant vomit ou paraît gravement malade, et on démarre sans attendre une hydrocortisone parentérale<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</li>
+<li>Avec Solu-Cortef®, la voie intraveineuse vient en premier en urgence, et une dose allant jusqu’à 100 mg s’injecte en au moins 30 secondes<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</li>
+<li>Chez l’enfant, Solu-Cortef® peut se réduire selon la gravité, mais l’information professionnelle fixe un minimum de 25 mg par jour<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</li>
+<li>Les injections de Solu-Cortef® se répètent toutes les 2, 4 ou 6 heures selon la réponse clinique<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</li>
+<li>On corrige en même temps le sodium et la volémie selon le protocole du service, puisque la forme avec perte de sel exige un minéralocorticoïde en plus<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</li>
+<li>Dès que la voie orale est possible, Florinef® se donne de 2 à 5 µg/kg par jour chez l’enfant de 0 à 12 ans<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</li>
+<li>On traite l’enfant par voie parentérale là où une réanimation est possible<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</li>
+<li>La forte dose de Solu-Cortef® ne dépasse en général pas 48 à 72 heures, puis on revient à la substitution orale<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</li>
+</ol>
+<div class="p">Les contre-indications de Solu-Cortef® comprennent l’hypersensibilité, la voie péridurale et la voie intrathécale hors certaines chimiothérapies<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>. Celles de Florinef® comprennent notamment les mycoses systémiques et l’hypertension sévère<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</div>
 </div>
-<button class="w" type="button" popovertarget="w-alkindi">Granulé d'hydrocortisone</button>
-<div id="w-alkindi" class="fenetre" popover="manual">
-<h4>Granulé d'hydrocortisone</h4>
-<div class="p">On fait suivre le granulé d'une boisson, et le lait maternel convient parce que la notice suisse le cite<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">On réserve la poudre à la langue ou à la nourriture, puisque la capsule elle-même ne s'avale pas<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Si le granulé est recraché, une nouvelle prise peut éviter la crise, et le service est prévenu<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<div class="p">En Suisse, 5 nouveau-nés ont reçu de l’hydrocortisone et de la fludrocortisone dès que le rappel les a atteints, entre le 6e et le 9e jour<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Aucun n’a fait de crise, donc le dépistage précoce a évité ce que le traitement d’urgence doit sinon rattraper<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Doses de l’information professionnelle suisse, de la crise à l’entretien</caption><thead><tr><th>Molécule ®</th><th>Dose AIPS</th><th>Durée</th><th>Contre-indications</th><th>Source AIPS</th></tr></thead><tbody>
+<tr><td>Solu-Cortef® est l’hydrocortisone parentérale.</td><td>On injecte jusqu’à 100 mg en IV en au moins 30 secondes, et l’enfant reçoit au moins 25 mg par jour<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</td><td>La forte dose dure en général 48 à 72 heures au plus<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</td><td>Les contre-indications sont l’hypersensibilité et les voies péridurale ou intrathécale<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</td><td>L’information professionnelle porte le n° 23533.</td></tr>
+<tr><td>Florinef® est la fludrocortisone orale.</td><td>On donne 2 à 5 µg/kg par jour de 0 à 12 ans<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</td><td>Le traitement est durable, avec contrôle des électrolytes<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</td><td>Les contre-indications sont les mycoses systémiques, les ulcères aigus et l’hypertension sévère<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</td><td>L’information professionnelle porte le n° 31095.</td></tr>
+<tr><td>Alkindi® est l’hydrocortisone orale en granulés.</td><td>On donne 10 à 15 mg/m² par jour en 3 ou 4 prises dans l’hyperplasie surrénalienne<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td><td>L’entretien dure toute la vie, sans arrêt brutal<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td><td>Les contre-indications sont l’hypersensibilité, la dysphagie et le prématuré sans alimentation orale établie<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td><td>L’information professionnelle porte le n° 68226.</td></tr>
+</tbody></table></div>
+<div class="p">Solu-Cortef® se prescrit selon son <button class="w" type="button" popovertarget="w-solucortef">information professionnelle</button>, qui cite l’hyperplasie surrénalienne parmi ses indications<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</div>
+<div id="w-solucortef" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-solucortef" popovertargetaction="hide">Fermer</button>
+<h4>Solu-Cortef®, hydrocortisone injectable</h4>
+<div class="p">En urgence, Solu-Cortef® se donne d’abord par voie intraveineuse, et une dose jusqu’à 100 mg s’injecte en au moins 30 secondes<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>. Ainsi, chez l’enfant, on adapte la dose à la gravité sans descendre sous 25 mg par jour<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</div>
+<div class="p">Solu-Cortef® est contre-indiqué en cas d’hypersensibilité, par voie péridurale, par voie intrathécale hors certaines chimiothérapies, et par voie intramusculaire chez un enfant atteint de purpura thrombopénique<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>. Chez le prématuré, des cas isolés de cardiomyopathie hypertrophique sont décrits, donc on surveille le cœur<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</div>
+<div class="p">Dans la forme avec perte de sel, l’hydrocortisone seule ne suffit pas, car un minéralocorticoïde doit s’y ajouter<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</div>
 </div>
-<button class="w" type="button" popovertarget="w-civil">Mention à l'état civil</button>
-<div id="w-civil" class="fenetre" popover="manual">
-<h4>Mention à l'état civil</h4>
-<div class="p">Le changement facilité en 2014 reste une correction d'erreur au sens de l'article 43<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le registre ne prévoit que deux mentions, et la commission ne crée pas la troisième<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Les associations ont refusé cette troisième case parce que elles y voyaient un stigmate de plus<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
+<div class="p">Florinef® complète l’hydrocortisone dans la forme avec perte de sel, comme le précise son <button class="w" type="button" popovertarget="w-florinef">information professionnelle</button><sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</div>
+<div id="w-florinef" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-florinef" popovertargetaction="hide">Fermer</button>
+<h4>Florinef®, fludrocortisone</h4>
+<div class="p">Florinef® traite la perte de sel des enfants atteints d’hyperplasie surrénalienne congénitale<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>. Chez l’enfant de 0 à 12 ans, on donne 2 à 5 µg/kg par jour, alors que l’adulte reçoit 0,1 mg par jour<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</div>
+<div class="p">Florinef® est contre-indiqué en cas de mycose systémique, d’ulcère digestif aigu, d’herpès oculaire, de zona, de varicelle, d’hypertension sévère ou d’hypersensibilité<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>. On adapte aussi l’apport de sel et on contrôle les électrolytes pendant tout le traitement<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>.</div>
 </div>
-<button class="w" type="button" popovertarget="w-transition">Passage vers les soins adultes</button>
-<div id="w-transition" class="fenetre" popover="manual">
-<h4>Passage vers les soins adultes</h4>
-<div class="p">La transition vers les soins adultes est un processus, et non un transfert de dossier un soir de garde<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le jeune explique son anatomie et ses traitements avec ses mots parce que l'auto-soin commence par cette compréhension<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le centre qui a suivi l'enfance reste responsable du relais, jusqu'à ce que l'équipe adulte soit vraiment en place<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">Après la crise, l’hydrocortisone orale d’<button class="w" type="button" popovertarget="w-alkindi">Alkindi®</button> assure l’entretien, à 10 à 15 mg/m² par jour en 3 ou 4 prises<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. En revanche, dans l’insuffisance surrénalienne sans hyperplasie, la dose est plus basse, de 8 à 10 mg/m² par jour<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<div id="w-alkindi" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-alkindi" popovertargetaction="hide">Fermer</button>
+<h4>Alkindi®, granulés d’hydrocortisone</h4>
+<div class="p">Alkindi® se donne à 10 à 15 mg/m² par jour en 3 ou 4 prises dans l’hyperplasie surrénalienne congénitale<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. En revanche, il est contre-indiqué en cas d’hypersensibilité, de dysphagie, ou chez un prématuré qui ne se nourrit pas encore par la bouche<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<div class="p">On dépose les granulés directement en bouche ou avec une cuillère, car on peut aussi les mettre sur une compote froide ou tiède avalée en moins de 5 minutes<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. L’enveloppe de la capsule ne s’avale pas, et le produit ne passe pas par une sonde nasogastrique, qui reste une voie incompatible<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<div class="p">Si l’enfant recrache ou vomit la plupart des granulés, les parents contactent l’équipe, car une nouvelle dose peut être nécessaire<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. Interrompre soudain le traitement peut provoquer une crise surrénalienne mortelle<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+</div>
+<div class="p">Lors d’un stress modéré, on double ou triple la dose orale, tandis qu’un stress sévère impose de passer à la voie parentérale<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. Les parents sont formés à ces gestes, car ils voient les premiers signes à la maison<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<div class="p">Une indication chirurgicale reste rarement nécessaire pendant la petite enfance, si bien que la chirurgie gagne à être centralisée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La gonadectomie se discute dans certaines variations, selon le risque tumoral établi par le bilan biologique et pathologique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">La commission refuse de fixer le sexe par un geste irréversible tant que l’enfant ne peut pas donner son avis, si ce geste peut attendre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>. Une indication seulement psychosociale ne justifie pas une telle opération, ce qui protège l’enfant d’un <button class="w" type="button" popovertarget="w-ethique">geste précipité</button><sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div id="w-ethique" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-ethique" popovertargetaction="hide">Fermer</button>
+<h4>Éthique et consentement</h4>
+<div class="p">Le représentant légal ne peut pas consentir à une intervention mutilante hors urgence médicale, si bien qu’on attend que l’enfant puisse consentir<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La capacité de discernement se situe selon les cas vers 10 ou 14 ans<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">La commission nationale d’éthique a publié 14 recommandations le 9 novembre 2012, dont la reconnaissance des souffrances passées<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+</div>
+<div class="p">L’accompagnement psychologique suit l’enfant et sa famille, car l’interprétation de l’information pèse sur la construction de l’identité<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. La pédopsychiatrie propose ainsi un suivi long, qu’elle module selon la famille et sa culture<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<h4>11.C Surveillance</h4>
+<div class="p">Sous fludrocortisone, on contrôle les électrolytes et on adapte l’apport de sel, comme l’exige l’information professionnelle de Florinef®<sup class="r"><a href="#sb-aips-31095">[9]</a></sup>. On répète aussi l’ionogramme pendant les premiers jours, car une valeur normale au 1er jour ne protège pas des jours suivants<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Sous Alkindi®, on contrôle la prise réelle des granulés, puisque des granulés recrachés imposent parfois une nouvelle dose<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. Chez le prématuré qui reçoit Solu-Cortef®, on surveille le cœur, car des cardiomyopathies hypertrophiques isolées sont décrites<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</div>
+<h4>11.D Pronostic et sortie</h4>
+<div class="p">Avec un traitement commencé dès le rappel, aucun des 5 enfants suisses qui perdaient du sel n’a fait de crise<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Le pronostic vital repose donc surtout sur la vitesse du diagnostic et de l’éducation des parents<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">La crise se traite aux urgences ou en néonatologie, puis l’enfant rejoint le centre où travaille le groupe interdisciplinaire, comme au CHUV ou aux HUG<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le pédiatre installé assure ensuite le suivi de proximité, et la revue suisse lui demande de reconnaître plus tôt ces variations souvent diagnostiquées tard<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">La commission d’éthique veut revoir ce que l’assurance-maladie et l’assurance-invalidité remboursent, et relever l’âge limite de l’AI<sup class="r"><a href="#sb-nek2012">[3]</a></sup>. Le suivi au long cours repose ainsi sur un centre de référence, un cabinet de pédiatrie et des parents formés<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">À l’adolescence, la <button class="w" type="button" popovertarget="w-transition">transition vers les soins adultes</button> se prépare tôt, puisque le risque de rupture du suivi est élevé<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div id="w-transition" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-transition" popovertargetaction="hide">Fermer</button>
+<h4>Transition</h4>
+<div class="p">La transition n’est pas un simple transfert de dossier, mais un processus pluridisciplinaire centré sur le patient<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le jeune apprend son anatomie, sa physiopathologie, sa génétique et ses traitements, afin qu’il gagne en autonomie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<div class="p">La honte et la stigmatisation accompagnent souvent ces variations, donc le soutien psychologique reste primordial<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
 </div>
 </section>
 <section class="ilot" id="p12">
 <h3>12. Prévention</h3>
-<div class="p">La prévention secondaire repose sur le dépistage néonatal suisse de la 17-hydroxyprogestérone, introduit en 1992<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Le prélèvement entre 72 et 96 heures vise à reconnaître le bloc avant la crise, et plus de 99 % des nouveau-nés sont inclus<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La prévention secondaire échoue si l'on se fie au seul aspect des garçons, dont la suspicion clinique était de 15 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">La prévention primaire, dans une famille déjà porteuse de CYP21A2, repose sur le conseil génétique avant une nouvelle grossesse<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">On évite d'exposer inutilement un fœtus à des androgènes connus parce que la revue rattache certaines virilisations à l'environnement hormonal<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La prévention tertiaire maintient la substitution, la surveillance de croissance et le refus des opérations seulement sociales<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La commission, en 2012, fournit le cadre tertiaire : centres peu nombreux, parole de l'enfant, et rejet d'une chirurgie de convenance<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Reconnaître les souffrances des pratiques anciennes prévient leur répétition, ce qui est déjà une prévention<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Le lien avec l'épidémiologie est direct, car environ 40 naissances par année en Suisse justifient un réseau et non des conduites dispersées<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">On informe les parents porteurs avant une grossesse suivante, car le déficit se transmet dans la fratrie<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Même un garçon sans signe extérieur reste dans le filet du dépistage, puisque son aspect ne protège pas du déficit<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">À l'âge adulte, un relais organisé évite la rupture de substitution parce que la transition reste une période fragile<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Cette prévention tertiaire tient dans l'organisation, puisque des centres peu nombreux évitent les décisions dispersées<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Avant l'opération, on vérifie que le motif n'est pas seulement social parce que la commission l'a écrit clairement<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Depuis 2014, faciliter un changement de mention ne crée pas une troisième case, et l'article 43 reste une correction<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Le conseil génétique précède une grossesse dans une famille porteuse<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Les garçons manqués compromettent la prévention du dépistage suisse<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Vérifier le motif social évite une opération de convenance<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Une correction facilitée reste autre chose qu'une catégorie nouvelle<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Des centres peu nombreux tiennent la prévention tertiaire<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">L'auto-soin à l'âge adulte se prépare dès l'adolescence<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le conseil génétique reste utile avant une grossesse<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">La dispersion des avis reste un risque opératoire<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Les garçons silencieux restent la cible du buvard<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>Prévention primaire</h4>
+<div class="p">En prévention primaire, le conseil génétique explique à la famille le mode récessif du déficit en 21-hydroxylase avant une grossesse suivante<sup class="r"><a href="#sb-rms2016">[1]</a></sup>. Le groupe interdisciplinaire comprend d’ailleurs la médecine fœtale, qui prépare le discours prénatal<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
+<h4>Prévention secondaire</h4>
+<div class="p">En prévention secondaire, le buvard du 4e jour prévient la crise, puisque le dépistage a profité à 15 des 31 enfants suisses, soit 48 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Les garçons en bénéficient le plus, car le buvard a trouvé 11 garçons sur 13, soit 85 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Ce dépistage ne cible pas la forme non classique, dont la 17-hydroxyprogestérone néonatale peut rester normale<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Une valeur limite déclenche un contrôle, ce qui réduit les faux positifs chez les prématurés<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<h4>Prévention tertiaire</h4>
+<div class="p">En prévention tertiaire, les parents d’un enfant traité doublent ou triplent la dose lors d’un stress modéré<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>. Si l’enfant vomit, ils savent qu’une hydrocortisone parentérale doit commencer sans délai<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<div class="p">La prévention des dommages concerne aussi les gestes, car la commission d’éthique écarte toute opération irréversible qui peut attendre<sup class="r"><a href="#sb-nek2012">[3]</a></sup>. Sur le plan civil, l’Office fédéral de l’état civil permet depuis le 1er février 2014 une modification plus simple de la <button class="w" type="button" popovertarget="w-civil">mention du sexe</button><sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
+<div id="w-civil" class="fenetre" popover="auto">
+<button class="fermer" type="button" popovertarget="w-civil" popovertargetaction="hide">Fermer</button>
+<h4>État civil</h4>
+<div class="p">L’acte de naissance suisse n’admet que les mentions féminin ou masculin, et la commission demande qu’on puisse la modifier sans complication bureaucratique<sup class="r"><a href="#sb-nek2012">[3]</a></sup>. Elle rejette pour l’instant une 3e catégorie<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
+<div class="p">L’Office fédéral traite en effet ce changement comme la rectification d’une erreur au sens de l’article 43<sup class="r"><a href="#sb-rms2015">[2]</a></sup>. Une 3e catégorie ne figure pas parmi les demandes des associations, qui la jugent stigmatisante<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
+</div>
 </section>
 <section class="ilot" id="p13">
 <h3>13. Points clés</h3>
-<ol>
-<li>On traite la perte de sel avant de discuter le sexe, car l'urgence néonatale tue et l'assignation peut attendre<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>On décrit le bourgeon et les bourrelets, et on n'annonce pas un sexe sur le seul aspect<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>On refuse une opération dont le seul motif est psychosocial<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
-<li>On concentre le conseil dans un centre spécialisé, de la naissance à l'âge adulte<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
-<li>On ne croit pas qu'un garçon d'aspect banal soit hors de danger, car le dépistage a été fait pour ces formes silencieuses<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
-<li>On explique la mention d'état civil comme une correction d'erreur, et l'on garde les deux cases prévues<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</li>
-</ol>
+<ul>
+<li>Le déficit en 21-hydroxylase avec perte de sel est le E1, et l’ionogramme décide de l’urgence<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>La crise se traite par Solu-Cortef® intraveineux, au moins 25 mg par jour chez l’enfant, puis par Florinef®<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</li>
+<li>Un buvard normal au 4e jour n’exclut pas le DX.2, et il ne détecte ni le DX.9 ni le DX.10<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Des gonades palpables n’écartent pas l’hyperplasie, car la clinique a manqué 11 garçons suisses sur 13<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</li>
+<li>Le caryotype vient en 1re intention une fois la menace vitale traitée<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</li>
+<li>Aucune opération irréversible ne se fait sans urgence avant que l’enfant puisse décider<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</li>
+</ul>
 </section>
 <section class="ilot" id="p14">
-<h3>14. Pièges et questions fréquentes à l'examen fédéral suisse</h3>
-<div class="p">Quelle erreur reste fréquente si l'on annonce un sexe au seul aspect du nouveau-né <sup class="r"><a href="#sb-rms2016">[1]</a></sup> ?</div>
-<div class="p">L'erreur consiste à assigner trop tôt parce que l'aspect ignore le chromosome et le sel<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Quelle conduite impose le protocole quand le nouveau-né vomit et se pigmente <sup class="r"><a href="#sb-rms2016">[1]</a></sup> ?</div>
-<div class="p">Le protocole impose le ionogramme et la correction du sel avant toute discussion d'assignation<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Pourquoi une indication seulement psychosociale ne suffit pas pour opérer <sup class="r"><a href="#sb-nek2012">[3]</a></sup> ?</div>
-<div class="p">Elle ne suffit pas parce que la commission refuse qu'un motif social seul décide d'une opération<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Pourquoi un papier buvard normal au jour 4 reste insuffisant si l'examen inquiète <sup class="r"><a href="#sb-zuerich2002">[4]</a></sup> ?</div>
-<div class="p">Il reste insuffisant parce que un cas de la série était normal au jour 4 puis positif au jour 11<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Pourquoi la facilitation de 2014 ne constitue pas une troisième catégorie d'état civil <sup class="r"><a href="#sb-rms2015">[2]</a></sup> ?</div>
-<div class="p">Elle ne constitue pas cette catégorie parce que elle applique l'article 43 comme correction d'une erreur<sup class="r"><a href="#sb-rms2015">[2]</a></sup>.</div>
-<div class="p">Quelle fourchette concerne Alkindi® dans le syndrome adrénogénital, et qu'est-ce qui l'interdit <sup class="r"><a href="#sb-aips-68226">[5]</a></sup> ?</div>
-<div class="p">La fourchette va de 10 à 15 mg par mètre carré et par jour, et l'hypersensibilité au principe actif ou à un excipient contre-indique Alkindi®<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">Quand faut-il décrire un bourgeon et des bourrelets plutôt qu'un sexe déjà choisi <sup class="r"><a href="#sb-rms2016">[1]</a></sup> ?</div>
-<div class="p">Il faut ces mots dès l'examen, car ils décrivent sans assigner un sexe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Quel piège reste si l'on rassure un garçon d'aspect banal sans ionogramme <sup class="r"><a href="#sb-zuerich2002">[4]</a></sup> ?</div>
-<div class="p">Ce piège est la crise de perte de sel parce que l'aspect masculin alerte peu dans la série suisse<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Quelle phrase de la commission interdit d'opérer pour un motif seulement social <sup class="r"><a href="#sb-nek2012">[3]</a></sup> ?</div>
-<div class="p">La phrase dit que ce motif ne suffit pas, car le corps de l'enfant n'est pas un problème de regard<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Quelle description reste juste au périnée avant d'annoncer un sexe <sup class="r"><a href="#sb-rms2016">[1]</a></sup> ?</div>
-<div class="p">On décrit le bourgeon médian et les bourrelets latéraux, car ces mots restent vrais quel que soit le chromosome<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Annoncer le sexe sur l'aspect seul reste l'erreur classique<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Rassurer un garçon banal sans ionogramme reste dangereux<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">Opérer pour le regard des autres ne suffit jamais<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</div>
-<div class="p">Un arrêt brutal du granulé provoque une crise surrénalienne<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
-<div class="p">L'aspect seul reste une mauvaise annonce de sexe<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-<div class="p">Le garçon calme reste une fausse sécurité<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
-<div class="p">L'arrêt brutal reste une cause de crise<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</div>
+<h3>14. Pièges et questions fréquentes à l’examen fédéral suisse</h3>
+<div class="p">Les pièges suivent presque tous la même pente, celle qui fait croire qu’un résultat rassurant clôt la question<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="t" style="overflow-x:auto"><table><caption>Questions pièges, réponse et raison</caption><thead><tr><th>Question</th><th>Réponse</th><th>Raison</th></tr></thead><tbody>
+<tr><td>Un buvard normal exclut-il l’hyperplasie ?</td><td>Non, il ne l’exclut pas.</td><td>Une fille suisse avait 11,6 nmol/L au 4e jour, puis 220 nmol/L au 11e jour<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+<tr><td>Un garçon aux organes normaux peut-il perdre du sel ?</td><td>Oui, il le peut.</td><td>Chez les garçons suisses, la suspicion clinique n’atteignait que 15 %<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+<tr><td>Le stade de virilisation mesure-t-il l’urgence ?</td><td>Non, il décrit seulement la fusion.</td><td>Seul l’ionogramme mesure l’urgence<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+<tr><td>Alkindi® convient-il pendant la crise ?</td><td>Non, il sert à l’entretien.</td><td>Si l’enfant vomit, l’hydrocortisone doit passer par voie parentérale<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td></tr>
+<tr><td>L’hydrocortisone seule suffit-elle dans la forme avec perte de sel ?</td><td>Non, elle ne suffit pas.</td><td>Un minéralocorticoïde doit s’y ajouter<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>.</td></tr>
+<tr><td>Peut-on donner Alkindi® par sonde nasogastrique ?</td><td>Non, la voie est incompatible.</td><td>L’information professionnelle l’exclut<sup class="r"><a href="#sb-aips-68226">[5]</a></sup>.</td></tr>
+<tr><td>Faut-il opérer tôt pour apaiser les parents ?</td><td>Non, on attend.</td><td>Une indication seulement psychosociale ne justifie pas l’opération<sup class="r"><a href="#sb-nek2012">[3]</a></sup>.</td></tr>
+<tr><td>Le dépistage détecte-t-il la forme tardive ?</td><td>Non, il n’est pas conçu pour elle.</td><td>Une fille suisse a été diagnostiquée par un test à l’ACTH à 5 ans<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+<tr><td>Un caryotype XX ferme-t-il la question de la perte de sel ?</td><td>Non, il oriente seulement.</td><td>Seul l’ionogramme mesure le sel<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</td></tr>
+</tbody></table></div>
+<div class="p">Le piège le plus grave reste le garçon sans signe, renvoyé à domicile avant le résultat du buvard<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. Dans la série suisse, la clinique n’a reconnu que 2 garçons sur 13, ce qui rend le rappel du dépistage décisif<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+<div class="p">Un 2e piège consiste à croire qu’un nouveau-né prématuré au buvard élevé est malade, alors que la plupart des faux positifs concernaient des prématurés<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>. On contrôle donc avant d’annoncer, ce qui évite une angoisse inutile aux parents<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
 </section>
-
-<div class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</div>
-<div class="p">Oui, car le raisonnement va de la perte de sel au refus d'une chirurgie seulement sociale, et il suffit pour sécuriser le nouveau-né tout en nommant les limites du registre<sup class="r"><a href="#sb-rms2016">[1]</a></sup>.</div>
-
+<section id="question">
+<h2 class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</h2>
+<div class="p">Oui, car il ordonne les DX par fréquence sourcée, place la perte de sel en E1 et donne les doses suisses de Solu-Cortef® et de Florinef®<sup class="r"><a href="#sb-aips-23533">[8]</a></sup>. Il précise aussi les limites du buvard, si bien que le diagnostic ne s’arrête pas à un résultat normal<sup class="r"><a href="#sb-zuerich2002">[4]</a></sup>.</div>
+</section>
 <section class="ilot" id="sources">
 <h2>Sources</h2>
 <ol>
-<li id="sb-rms2016">[1] Revue médicale suisse, 2016. Patients avec variation du développement sexuel. https://www.revmed.ch/revue-medicale-suisse/2016/revue-medicale-suisse-538/patients-avec-variation-du-developpement-sexuel-un-exemple-de-prise-en-charge-interdisciplinaire consulté le 10 novembre 2026.</li>
-<li id="sb-rms2015">[2] Revue médicale suisse, 2015. Vivre avec les intersexes. https://www.revmed.ch/revue-medicale-suisse/2015/revue-medicale-suisse-483/vivre-avec-les-intersexes-une-approche-multidisciplinaire consulté le 10 novembre 2026.</li>
-<li id="sb-nek2012">[3] Commission nationale d'éthique dans le domaine de la médecine humaine, prise de position 20/2012. https://www.nek-cne.admin.ch/inhalte/Medienmitteilungen/fr/MM_NEK_Geschlechtsvariante_f.pdf consulté le 10 novembre 2026.</li>
-<li id="sb-zuerich2002">[4] Swiss Neonatal Screening Program, hôpital des enfants de Zurich, Journal of Clinical Endocrinology and Metabolism, 2002. https://doi.org/10.1210/jc.2002-012093 consulté le 10 novembre 2026.</li>
-<li id="sb-aips-68226">[5] Alkindi, information professionnelle Swissmedic, n° 68226. https://www.swissmedicinfo.ch/ShowText.aspx ?authNr=68226&amp ;lang=DE&amp ;textType=FI consulté le 10 novembre 2026.</li>
-<li id="sb-caryo">[6] Métaphase humaine légendée 46 XX, Josef Reischig, licence CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File :Human_karyotype_(259_32)_Karyotype_Human_46,XX_(woman).jpg consulté le 10 novembre 2026.</li>
-<li id="sb-prader">[7] Schéma des stades de virilisation, Sarah Heland, Jacqueline Hewitt, George McGillivray, Susan Walker, 2015, licence CC BY-SA 2.5. https://commons.wikimedia.org/wiki/File :Prader_staging_for_virilisation_of_female_genitalia.png consulté le 10 novembre 2026.</li>
+<li id="sb-rms2016">[1] Revue médicale suisse, 2016, volume 12, pages 1923 à 1929. Patients avec variation du développement sexuel : un exemple de prise en charge interdisciplinaire. <a href="https://www.revmed.ch/revue-medicale-suisse/2016/revue-medicale-suisse-538/patients-avec-variation-du-developpement-sexuel-un-exemple-de-prise-en-charge-interdisciplinaire">https://www.revmed.ch/revue-medicale-suisse/2016/revue-medicale-suisse-538/patients-avec-variation-du-developpement-sexuel-un-exemple-de-prise-en-charge-interdisciplinaire</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-rms2015">[2] Revue médicale suisse, 2015. Vivre avec les intersexes : une approche multidisciplinaire. <a href="https://www.revmed.ch/revue-medicale-suisse/2015/revue-medicale-suisse-483/vivre-avec-les-intersexes-une-approche-multidisciplinaire">https://www.revmed.ch/revue-medicale-suisse/2015/revue-medicale-suisse-483/vivre-avec-les-intersexes-une-approche-multidisciplinaire</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-nek2012">[3] Commission nationale d’éthique dans le domaine de la médecine humaine, communiqué du 9 novembre 2012 et prise de position 20/2012. <a href="https://www.nek-cne.admin.ch/inhalte/Medienmitteilungen/fr/MM_NEK_Geschlechtsvariante_f.pdf">https://www.nek-cne.admin.ch/inhalte/Medienmitteilungen/fr/MM_NEK_Geschlechtsvariante_f.pdf</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-zuerich2002">[4] Programme suisse de dépistage néonatal, hôpital universitaire des enfants de Zurich. Journal of Clinical Endocrinology and Metabolism, 2002, volume 87, pages 4106 à 4110. <a href="https://doi.org/10.1210/jc.2002-012093">https://doi.org/10.1210/jc.2002-012093</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-aips-68226">[5] Alkindi®, information professionnelle Swissmedic, n° 68226. <a href="https://www.swissmedicinfo.ch/ShowText.aspx?authNr=68226&amp;lang=DE&amp;textType=FI">https://www.swissmedicinfo.ch/ShowText.aspx?authNr=68226&amp;lang=DE&amp;textType=FI</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-caryo">[6] Métaphase humaine légendée 46,XX, licence CC BY-SA 3.0. <a href="https://commons.wikimedia.org/wiki/File:Human_karyotype_(259_32)_Karyotype_Human_46,XX_(woman).jpg">https://commons.wikimedia.org/wiki/File:Human_karyotype_(259_32)_Karyotype_Human_46,XX_(woman).jpg</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-prader">[7] Schéma des stades de virilisation, 2015, licence CC BY-SA 2.5. <a href="https://commons.wikimedia.org/wiki/File:Prader_staging_for_virilisation_of_female_genitalia.png">https://commons.wikimedia.org/wiki/File:Prader_staging_for_virilisation_of_female_genitalia.png</a>, consulté le 10 novembre 2026.</li>
+<li id="sb-aips-23533">[8] Solu-Cortef®, information professionnelle Swissmedic, n° 23533. <a href="https://arzneimittelinfo.ch/solu-cortef-218953/fachinformation">https://arzneimittelinfo.ch/solu-cortef-218953/fachinformation</a>, consulté le 11 novembre 2026.</li>
+<li id="sb-aips-31095">[9] Florinef®, information professionnelle Swissmedic, n° 31095. <a href="https://arzneimittelinfo.ch/florinef-219063/fachinformation">https://arzneimittelinfo.ch/florinef-219063/fachinformation</a>, consulté le 11 novembre 2026.</li>
+<li id="sb-dsdnet2018">[10] European Journal of Endocrinology, 2018, volume 179, numéro 4, page R197 : prise de position du réseau européen DSDnet sur le diagnostic génétique des variations du développement sexuel. <a href="https://academic.oup.com/ejendo/article/179/4/R197/6655415">https://academic.oup.com/ejendo/article/179/4/R197/6655415</a>, consulté le 11 novembre 2026.</li>
+<li id="sb-dsdlife2017">[11] BMC Endocrine Disorders, 2017 : cohorte européenne dsd-LIFE, description de l’échantillon. <a href="https://doi.org/10.1186/s12902-017-0198-y">https://doi.org/10.1186/s12902-017-0198-y</a>, consulté le 11 novembre 2026.</li>
 </ol>
 </section>
 </main>
