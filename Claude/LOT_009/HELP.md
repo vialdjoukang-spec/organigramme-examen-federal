@@ -8,3 +8,10 @@
 - Aucune source ne mesure la fréquence de chaque DD parmi les patients suisses qui démangent.
 - Doses : référence AIPS groupée [19] (S19, une spécialité et son n° Swissmedic par molécule) ; chaque nombre de dose a été retrouvé dans le texte AIPS lu (index Refdata du 08.10.2026, lu le 10.11.2026).
 - Images : aucune image insérée (la Phase A ne porte pas de signe visuel propre).
+
+## Images (toutes les leçons DX)
+- Wikimedia Commons ne répond pas (limitation 429 : `cliche.py chercher` reste bloqué au-delà de 90 s le 11.11.2026). Aucune image insérée, aucun titre de fichier à mettre en file. À faire dès que l'API répond : point 6 (signe visible) et point 9 (modalité décisive) de chaque DX — eczéma (DX.1), xérose et eczéma craquelé (DX.3), urticaire et dermographisme (DX.7), ictère/lésions de grattage (DX.10).
+
+## DX.1 (Eczéma)
+- Point 1 : la phrase AIPS d'Advantan® (formes d'eczéma) et le code CIM-10 L20–L30 sont déplacés au point 8 ; les notions proches vont au point 4.
+- ORANGE résiduel : phrases longues portées par les définitions en infobulle (span.df) et quelques intitulés de situations spéciales ; le contenu est conservé tel quel.
