@@ -10,7 +10,8 @@ Pour chaque leçon :
      soit la mauvaise AIPS est collée, soit la dose vient d'une recommandation et la phrase doit le dire).
 
 Usage : python3 Claude/_outils/verif_aips.py Claude/LOT_0XX/*.html [--cache DIR] [--json]
-Code de sortie 1 si un défaut 1 ou 2 existe (les défauts 3 sont des alertes à relire).
+Code de sortie 1 si un défaut 1 ou 2 existe, ou si une AIPS citée n'a pas pu être lue (une vérification non faite
+n'est jamais un succès). Les défauts 3 sont des alertes à relire.
 """
 import re, sys, os, html, json, hashlib, subprocess, argparse
 
@@ -75,7 +76,7 @@ def verifier(chemin, cache):
                 if manq:
                     d['dose_absente'].append({'aips': anc, 'nombres': manq, 'phrase': brut.strip()[:200]})
     return {'fichier': os.path.basename(chemin), 'aips_citees': len(cites),
-            'bloquant': bool(d['ancre_sans_biblio'] or d['biblio_sans_url'] or d['citation_absente']),
+            'bloquant': bool(d['ancre_sans_biblio'] or d['biblio_sans_url'] or d['citation_absente'] or d['aips_illisible']),
             'defauts': {k: v for k, v in d.items() if v}}
 
 

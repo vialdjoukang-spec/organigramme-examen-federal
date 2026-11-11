@@ -30,6 +30,24 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
   soigné ; aucune redite dans le fichier ni avec un autre fichier du LOT. Le détecteur de `controle3` reconnaît le verbe par
   une liste (VERBES) et par terminaison : lis-le avant de choisir tes verbes.
 
+## Exigences pédagogiques de Vial (ordre du 11.11.2026)
+- **Précision, densité, clarté.** Chaque phrase porte un fait utile et exact ; aucune phrase d'ambiance, aucune redite. La
+  concision sert l'envie de lire et la vitesse de lecture : à information égale, la phrase la plus courte gagne.
+- **Prérequis anatomo-fonctionnels.** Si le diagnostic ne se comprend pas sans une base d'anatomie ou de physiologie (voies
+  oculomotrices, voies optiques, innervation du larynx, nerf facial et ses branches, axe corticotrope, néphron, conduction
+  cardiaque…), le point 3 l'installe d'abord, en une fenêtre « Base à connaître », avec un **schéma réel pris ailleurs**
+  (Wikimedia Commons ou source ouverte, licence vérifiée : `python3 Claude/_outils/cliche.py chercher/prendre/figure`),
+  inséré avec sa lecture guidée (repères, pièges) et retouché ou annoté si cela sert le lecteur. **Jamais de SVG dessiné,
+  jamais d'image générée.** Si Wikimedia limite le débit, mets l'image en file (`/home/user/wt/images_attente.txt`) et
+  note l'insertion à faire dans `HELP.md`.
+- **Information vitale.** Ce qui tue, ce qui laisse une séquelle et ce qui ne supporte aucun délai se voit tout de suite :
+  drapeaux rouges, fenêtre « Urgence — conduite chronologique » (minutes, heures, jours), délai maximal de chaque geste,
+  et ce qu'il faut **prévoir** (complication attendue, surveillance, critère de transfert, piège qui fait perdre du temps).
+- **Diagnostics difficiles pour le médecin assistant débutant.** Quand le diagnostic est connu pour être mal compris ou
+  manqué (présentations trompeuses, raisonnement en plusieurs étapes, localisation neurologique, troubles hydro-
+  électrolytiques, endocrinologie dynamique…), explique le raisonnement pas à pas : mécanisme, puis signe, puis examen,
+  puis décision ; donne l'erreur classique du débutant et la façon de l'éviter, avec un exemple chiffré.
+
 ## Véracité (non négociable)
 - Chaque phrase chiffrée cite la source de la bibliographie qui porte ce chiffre : vérifie-le, ne colle jamais une source au hasard.
 - Sources suisses puis européennes, réellement lues et datées (URL lue pendant ta mission) ; version la plus récente ; aucune
