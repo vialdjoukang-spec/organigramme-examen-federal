@@ -118,3 +118,17 @@ Doutes médicaux à trancher (DX.4) :
 - IgIV dans la crise : la DGN donne 1 g/kg pendant 2 jours en alternative, la SOP 1,5–2 g/kg sur 2 à 3 jours ; le cours suit la DGN ;
 - âge des doses d'urgence : « adulte » écrit par déduction (la DGN traite l'enfant à part ; l'AIPS de Mestinon® ne précise pas d'âge pour l'atropine) ;
 - Soliris® : seule la dose adulte figure ; la dose pédiatrique au poids de l'AIPS (dès 6 ans) n'est pas reprise.
+
+## DX.7 — Artérite à cellules géantes (renfort L1, 2026-11-11)
+Lacunes ouvertes (LOT_017_Phase_B_V0_DX.7.html) :
+- incidence et coût suisses de l'ACG, dépistage en population, règle suisse travail et invalidité (H17-06), délai de conduite après la perte d'un œil (H17-DX7-03) : non trouvés ;
+- [S1] (CHUV 2015, Serval) : relecture impossible le 11.11.2026 (captcha) ; seuils exacts de l'algorithme lausannois non repris (H17-12) ; technique détaillée du DPAR et de la mesure du ptosis sans source (H17-DX7-04) ;
+- relues le 11.11.2026 : les 7 AIPS (texte refdata), [S2], [S18], [S19], [S20], [S21], [S22] (résumés) ; les autres sources gardent la lecture du 30.10.2026 ; [S17] (EULAR 2025) non relu ;
+- images : histologie de la biopsie insérée (point 9, Wikimedia, CC BY-SA 3.0) ; restent à chercher le halo échographique (point 9) et une artère temporale indurée (point 6), absents de Wikimedia et de PMC par `cliche.py`.
+Décisions en vigueur (DX.7) :
+- point 1 réduit à la définition : les notions voisines (PPR, Takayasu, imitations, neuropathie non artéritique) passent dans le tableau du point 4 ; « artérite temporale » passe en 7.5 ;
+- prednisone 40–60 mg puis 15–20 mg (EULAR) citée avec l'AIPS 29349, dont l'intervalle 5–60 mg/jour la couvre ; schéma lausannois (0,5 mg/kg, paliers), méthylprednisolone 500 mg–1 g et essai bernois écrits « hors AIPS » ;
+- grossesse et allaitement tenus par chaque fiche `.mb` ; seuils biologiques du tocilizumab tenus par le seul tableau de surveillance.
+Doutes médicaux à trancher (DX.7) :
+- seuils CRP et VS du CHUV (≥ 8 et ≥ 26,9 mg/L ; ≥ 22/29 et ≥ 56 mm/h) lus à travers un glyphe du PDF : sens « ≥ » retenu ; la longueur de biopsie « moins de 2 cm » (glyphe douteux) est retirée du cours ;
+- « l'artérite de Takayasu épargne surtout les artères axillaires » [S17] : formulation à confirmer sur le texte intégral.
