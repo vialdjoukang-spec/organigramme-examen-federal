@@ -12,6 +12,11 @@
 - DX.2 : aucune image insérée (point 9 : scanner avec hyperdensité de l'artère cérébrale moyenne ou IRM de diffusion ; point 6 : paralysie faciale centrale) ; à chercher par `cliche.py`.
 - DX.2 : volet social et assurances (point 11.B) et imagerie chez la femme enceinte non rédigés, faute de source suisse lue.
 - DX.2 : dates d'édition des chapitres en ligne du CEN (items 340 et 101) non affichées sur les pages ; sources ESO et registres lues en résumé seulement (Europe PMC).
+- DX.8 : incidence suisse des cancers des glandes salivaires (NKRS/OFS, C07–C08) introuvable ; l'épidémiologie suisse repose sur la série de l'USZ 2010–2019.
+- DX.8 : aucune image insérée (point 9 : IRM d'adénome pléomorphe et d'extension périneurale, figures CC BY 4.0 de Kim 2022, PMC9641923 ; point 3 : loge parotidienne et nerf facial) ; à prendre par `cliche.py`.
+- DX.8 : sources S27, S28, S32, S33, S34 et S35 lues en résumé PubMed seulement (RMS 2023 sous abonnement) ; recommandation allemande AWMF des tumeurs salivaires non lue.
+- DX.8 : volet social et assurances (11.B) non rédigé ; AIPS du trastuzumab, du docétaxel, du bicalutamide et de la leuproréline non lues, donc aucune dose donnée.
+- DX.8 : stade T repris des recommandations britanniques 2016 (TNM 7) ; la 8e édition UICC citée par l'ESMO n'a pas été lue directement.
 
 ## Décisions en vigueur
 - DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
@@ -22,6 +27,9 @@
 - DX.1 : images insérées par `cliche.py` : `images/Bellspalsy-neurology.webp` (CC BY-SA 4.0, point 6) et `images/Gray788.webp` (domaine public, point 3).
 - DX.2 : thrombolyse enseignée selon les AIPS Actilyse 48313 et Metalyse 5000 U 69958 (4,5 heures ; INR > 1,3 contre-indique) ; fenêtres tardives et INR ≤ 1,7 de la HAS 2025 écrits comme divergences hors autorisation.
 - DX.2 : ténectéplase 0,25 mg/kg (HAS, ESO) et aspirine 75–300 mg ou clopidogrel 300 mg de charge (CEN) écrits « hors AIPS » ; double antiagrégation de 21 jours (ESO 2021) signalée hors indication suisse du clopidogrel (AVC de 7 jours à 6 mois).
+- DX.8 : fichier reconstruit au gabarit L1 (l'ancienne version portait encore popovers et polices intégrées) ; ses faits sont repris et sourcés un à un.
+- DX.8 : toxine botulique du syndrome de Frey écrite « hors AIPS » (Botox 52433 sans cette indication) ; la dose citée est celle d'un cas unique de l'USZ (2026).
+- DX.8 : conduite devant une masse = cytoponction échoguidée avant chirurgie (ESMO 2022, UK 2016) ; la parotidectomie exploratrice d'emblée du collège français 2014 est écrite comme divergence.
 
 ## Doutes médicaux à trancher
 - DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
@@ -29,3 +37,5 @@
 - DX.1 : dose de corticoïde chez l'enfant non portée par une recommandation suisse lue (l'AIPS ne donne que des fractions générales de la dose adulte).
 - DX.2 : cible de pression en prévention secondaire, < 130/80 mmHg (ESO 2022, retenue) contre < 140/90 mmHg (CEN) ; cible LDL < 1,8 mmol/l (ESO) contre 0,55 g/L (CEN) : à confronter à une recommandation suisse (SSC/AGLA, Société suisse de l'AVC).
 - DX.2 : antihypertenseur intraveineux de la phase aiguë : seul l'urapidil (AIPS 44486) a une fiche ; le labétalol (Trandate 41529) n'a pas été extrait.
+- DX.8 : protection oculaire nocturne écrite selon les HUG (« pansement occlusif ») avec renvoi à DX.1 ; même doute que DX.1 (adhésif palpébral).
+- DX.8 : place de la surveillance active de la tumeur de Warthin (revue européenne 2021) non confirmée par une source suisse lue.
