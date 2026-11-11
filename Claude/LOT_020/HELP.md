@@ -23,6 +23,10 @@
 - DX.9 : volet assurances suisses du point 11.B (LAMal, liste des spécialités, limitations de l'icatibant et des traitements de fond) non rédigé, faute de source suisse lue.
 - DX.9 : sources S8, S10, S11, S12 et S13 lues en résumé PubMed seulement (RMS sous abonnement ; la liste des cinq types DANCE n'est pas dans le résumé) ; protocole HUG de l'anaphylaxie lu par son résumé public ; guides EAACI de l'anaphylaxie et de l'urticaire (2021) non lus.
 - DX.9 : aucune recommandation suisse écrite lue sur l'angioœdème sous IEC (conduite : ANSM 2019, PNDS 2024, résumé RMS 2016) ; aucune dose de glucocorticoïde donnée ; acide tranexamique sans fiche `.mb` (AIPS Cyklokapron 33741 non lue, dose du PNDS écrite « hors AIPS »).
+- Phase A : recommandations DGN (paralysie de Bell S2k 2022, neuroborréliose S3 2024) et fiche Orphanet ORPHA:141132 illisibles (protection anti-robot) ; les phrases de l'ancienne version qui s'y appuyaient (corticoïdes dans la neuroborréliose, divergence HUG/DGN sur sérologies et ponction lombaire) ne sont pas reprises.
+- Phase A : sources S5, S15, S16 et S17 lues en résumé PubMed seulement ; protocole HUG d'anaphylaxie (S18) lu en résumé de procédure ; aucune incidence chiffrée de la microsomie craniofaciale (recommandation européenne 2020 non lue en texte intégral).
+- Phase A : aucune dose pour l'antibiotique de la cellulite, le concentré de C1-inhibiteur et la thrombolyse (AIPS non lues ici ; les DX.7, DX.9 et DX.2 les portent) ; point 9.c sans alternative sourcée pour DFGe < 30 mL/min et allergie à l'iode ; volet assurances (LAA) du point 11.B non rédigé, faute de source suisse lue.
+- Phase A : aucune image propre (recherche `cliche.py` sans résultat utile) ; deux renvois vers les figures du DX.1 (`f-dx1-p3-base`, `f-dx1-r-front`) ; `File:RamsayHunt2.jpg` déjà en file pourrait illustrer la fenêtre `f-ssp-p6-oreille`.
 
 ## Décisions en vigueur
 - DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
@@ -40,6 +44,9 @@
 - DX.5 : image insérée par `cliche.py` au point 9 : `images/Simple_mandible_fracture.webp` (CC BY 3.0, orthopantomogramme).
 - DX.9 : sébétralstat — l'AIPS 69540 (300 mg, dose supplémentaire au besoin) fait foi, la dose de 600 mg du guide WAO 2025 est écrite comme divergence ; clémastine — AIPS 35501 (2 mg chez l'adulte) suivie, 0,05 mg/kg du guide S2k écrit ; adrénaline — paliers d'âge de l'AIPS 56551, intervalle S2k écrit.
 - DX.9 : image insérée par `cliche.py` : `images/AngioedemaFra.webp` (CC BY-SA 3.0, point 6, fenêtre du visage).
+- Phase A : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de style intégré et aucun chiffre) ; ses faits sont repris et sourcés sur 18 sources relues le 11.11.2026 et 5 AIPS (56551, 29349, 53116, 65952, 58178).
+- Phase A : rangs écrits « Ne rang » avec argument sourcé, dans l'ordre de la liste gelée ; aucune série lue ne chiffre la part de chaque DX dans S1.4.
+- Phase A : prednisone = HUG 2023 (1 mg/kg/j, 7 jours, « hors AIPS ») ; doxycycline = dose de l'AIPS 65952 (100 mg deux fois par jour, 10 à 60 jours), la durée de 14 jours de la RMS 2011 étant écrite « hors AIPS » ; enfant jusqu'à 12 ans selon l'AIPS, comme DX.4.
 
 ## Doutes médicaux à trancher
 - DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
@@ -54,3 +61,5 @@
 - DX.5 : délai maximal avant ostéosynthèse d'une fracture ouverte : le collège français écrit « dans les heures qui suivent », sans chiffre ; pratique suisse non lue.
 - DX.9 : icatibant ou C1-INH dans l'angioœdème sous IEC, écrits « hors AIPS » d'après le seul résumé RMS 2016 (S12) ; l'efficacité n'est pas établie par les sources lues.
 - DX.9 : adrénaline intramusculaire de l'adulte, 0,5 mg (AIPS Adrenalin Sintetica) et 0,3 mg (AIPS Epipen) : les deux doses sont écrites, la conduite d'urgence retient l'ampoule.
+- Phase A : chiffres de récupération (61 % Bell, 21 % zona) et incidence de 0,5 pour 1000 issus de la RMS 2011 ; une source suisse plus récente serait souhaitable.
+- Phase A : doses pédiatriques d'adrénaline recopiées de l'AIPS 56551 par tranche d'âge ; à confronter au protocole HUG détaillé (non lu) si celui-ci diffère.
