@@ -154,7 +154,7 @@ CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     # L1 (10.11.2026) : fenêtre centrale occultante ouverte au clic d'un mot, sans script (:target)
     "section.fenetre{display:none}"
     "section.fenetre:target{display:flex!important;flex-direction:column;position:fixed!important;inset:0!important;z-index:200;overflow:auto;padding:4vh 4vw;background:rgba(20,16,12,.62)!important;max-width:none!important;max-height:none!important;width:auto!important;height:auto!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}"
-    "section.fenetre:target>*{margin-top:auto!important;margin-bottom:auto!important;flex:none;width:100%;max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
+    "section.fenetre:target>*{margin-top:auto!important;margin-bottom:auto!important;flex:none;width:100%;box-sizing:border-box;max-width:min(1100px,94vw);margin:0 auto;background:#fff;color:#161616;padding:6px 28px}"
     "section.fenetre:target>*:first-child{border-radius:14px 14px 0 0;padding-top:22px}"
     "section.fenetre:target>*:last-child{border-radius:0 0 14px 14px;padding-bottom:22px}"
     "section.fenetre a.fermer{float:right;font-weight:700;text-decoration:none}"
