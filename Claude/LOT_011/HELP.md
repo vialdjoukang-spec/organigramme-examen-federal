@@ -52,3 +52,10 @@
 - Critères DSM-5 (5/9 symptômes, 2 semaines) conservés en tableau sans source lue : à adosser au DSM-5 ou à la CIM-11.
 - Taille au plancher (80,0 Ko) : prochain renfort à faire par ajout de contenu sourcé.
 - DX.3 : définitions des sigles CIM, DSM, HypnoLaus ajoutées.
+
+## DX.10 — Parasomnies (renfort L1, agent B, 11.11.2026)
+- Formules de lacune retirées du cours : « aucune sensibilité ni spécificité chiffrée… », « sensibilité et spécificité… non disponibles », « posologie : à lire dans l'AIPS » (lévétiracétam, lamotrigine). Les valeurs diagnostiques de la vidéo-polysomnographie restent à trouver.
+- Mainieri 2023 (revue italienne, texte intégral lu le 11.11.2026) ajoute la fenêtre des formes particulières (alimentation nocturne, sexsomnie).
+- Prazosine : aucune spécialité dans le corpus AIPS ; la décision repose sur l'AASM 2018 et la méta-analyse néerlandaise de Yücel (source européenne).
+- Normes d'examen sans source lue retirées (IMC 18,5–24,9, 5 minutes de repos, pouls 60–100).
+- Aucune image : la vidéo-polysomnographie est décisive, mais aucun tracé libre n'a été cherché (débit Wikimedia limité) ; proposition : hypnogramme libre d'éveil du sommeil lent en fenêtre 9.a.
