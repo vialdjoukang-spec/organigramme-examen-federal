@@ -29,6 +29,10 @@
 - DX.5 : conduite d'urgence fondée sur une observation londonienne (Pillai 2024, résumé) et sur le critère opératoire du CHUV, faute de recommandation suisse lue ; aucune dose écrite.
 - DX.5 : conditions de remboursement de la varénicline et du bupropion datées de 2015 (RMS) ; limitation actuelle de la liste des spécialités non lue ; OPAS (logopédie) non citée dans DX.5.
 - DX.5 : microlaryngoscopie pendant la grossesse : aucune source lue ; seules les restrictions des AIPS du sevrage sont écrites (f-dx5-p11-special).
+- DX.10 : schéma « File:Gray954.png » (coupe frontale du larynx, Gray, domaine public) mis en file d'attente (téléchargement sans réponse) ; à insérer avec lecture guidée dans la fenêtre f-dx10-p3-base.
+- DX.10 : ESMO/EHNS/ESTRO 2020 (annalsofoncology.org, protection anti-robot) et Collège ORL item 86 (campusorl.fr injoignable) non relus ; le Collège est retiré, ses faits sont portés par la S3 allemande 2019, les HUG et la Ligue.
+- DX.10 : aucune recommandation suisse de société savante (SSORL, SAKK) lue sur le cancer du larynx ; la S3 allemande 2019 (version en vigueur) porte la conduite ; Dulguerov RMS 2015 et Guedj RMS 2026 lus en résumé seulement.
+- DX.10 : 9.c alternatives : aucune source lue sur l'imagerie en cas d'allergie à l'iode, de DFGe < 30 mL/min ou de grossesse ; seul le choix scanner ↔ IRM (S3, Bâle 2014) est écrit.
 
 ## Décisions en vigueur
 - Phase A : délai enseigné de l'examen ORL = 3 semaines (HUG) ; Collège ORL 2017 = 8 à 15 jours ; recommandation américaine 2018 = 4 semaines ; divergence écrite dans la fenêtre « délais » (point 8).
@@ -48,6 +52,10 @@
 - DX.5 : fichier reconstruit au gabarit L1 (l'ancien corps de 22 Ko utilisait des popovers, avec 53 Ko de polices intégrées) ; HUG, Collège ORL et Stachler 2018 relus et conservés, CEN neurologie retirée (anatomie portée par RMS 2016), 23 sources ajoutées dont 4 AIPS.
 - DX.5 : aucune molécule ne traite l'œdème ; trois fiches .mb servent le sevrage tabagique : nicotine (Nicotinell patch 50582, Nicorette gomme 40580), varénicline (Varénicline-DALITA 70067), bupropion (Zyban 55263) ; doses AIPS seules.
 - DX.5 : sexe : le CHUV écrit « femmes et hommes dans la même proportion », les séries opératoires montrent une majorité de femmes (Glasgow 171/189) ; les deux sont écrits (point 2).
+- DX.10 : fichier reconstruit au gabarit L1 (ancien corps de 20 Ko) ; HUG et Ligue relus et conservés (Ligue datée de novembre 2025), « 260 cas par an » conservé ; 11 sources et 3 AIPS (cisplatine 51077, Erbitux 56072, Keytruda 66231).
+- DX.10 : cisplatine : dose AIPS 51077 (50–100 mg/m², pause de 4 semaines, renvoi à la littérature) ; schémas 100 mg/m² J1-J22-J43 ou 40 mg/m² hebdomadaire écrits « hors AIPS » d'après la S3 2019 (intervalle de 3 semaines ≠ pause AIPS de 4 semaines).
+- DX.10 : première ligne palliative : S3 2019 (platine + 5-FU + cétuximab, PD-1 en 2e ligne) et AIPS Keytruda 2026 (pembrolizumab ± platine/5-FU si CPS ≥ 1) écrits tous deux.
+- DX.10 : délai de la laryngoscopie écrit « trois à quatre semaines » (Ligue 2025 : 3 ; S3 2019 : 4), avec renvoi aux chiffres et délais de la Phase A.
 
 ## Doutes médicaux à trancher
 - Phase A : « ni corticoïde ni antireflux, ni imagerie avant la laryngoscopie » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; source suisse ou européenne à trouver, sinon retirer.
@@ -82,3 +90,24 @@
 - [Doute médical] DX.9 : but chiffré 11.A (repasser sous 4 interventions par an) et critères de sortie 11.D composés à partir des sources (Derkay via Lepine, RMS 2015), faute de critères d'une société savante.
 - [Doute médical] DX.9 : limite d'âge juvénile/adulte divergente (18 ans Oslo, 12 ans Kiel) ; les deux sont écrites.
 - [Doute médical] DX.9 : usage thérapeutique du vaccin contredit par l'AIPS (« n'a pas démontré d'effet thérapeutique ») mais soutenu par Odense 2019, Umeå 2024, Kiel 2025 ; les deux sont écrits, l'usage reste « hors AIPS ».
+- (Lacune ouverte) DX.7 : aucune incidence suisse de la paralysie laryngée en population ; chiffres suisses tirés de séries (Zurich 2025, Saint-Gall 2023) et d'une incidence de 5,1/100 000/an citée par Zurich ; Collège ORL 2017 (campusorl.fr, connexion refusée) non relu, donc non cité.
+- (Lacune ouverte) DX.7 : S7 à S10, S13, S14 et S19 lus en résumé seulement (Europe PMC) ; ils ne portent que ce que dit leur résumé.
+- (Lacune ouverte) DX.7 : aucune image (cliche.py chercher sans réponse) ; schéma du trajet des nerfs récurrents (Gray, domaine public) pour f-dx7-p3-base et cliché de paralysie unilatérale pour f-dx7-r-larynx à insérer si souhaité.
+- (Décision en vigueur) DX.7 : fichier reconstruit au gabarit L1 (ancien corps de 21 Ko en popovers, 53 Ko de polices intégrées) ; HUG et CEN relus et conservés, Collège ORL retiré (non relu), 17 sources ajoutées dont RMS 2020 (CHUV), Zurich 2025, Saint-Gall 2023, OPAS art. 10–11 et AIPS Xylocain Spray 52097.
+- (Décision en vigueur) DX.7 : une seule fiche .mb (lidocaïne, Xylocain Spray 52097), anesthésique de l'injection laryngée sous anesthésie locale (Zurich) ; aucune molécule ne traite la paralysie ; doses d'attente de la dyspnée laryngée renvoyées à la Phase A, aucune dose écrite dans DX.7 hors AIPS.
+- (Décision en vigueur) DX.7 : verif_aips signale « dose absente » pour 200 et 600 mg (Xylocain) : faux positif de mise en page, l'AIPS 52097 porte « 20-200 » et « 600 » dans la colonne mg du tableau posologique (vérifié à la main).
+- (Doute médical) DX.7 : conduite d'urgence de la paralysie bilatérale fondée sur des revues (Lechien 2024 : trachéotomie immédiate 36,2 % ; Iéna 2022 ; Stuttgart 2021) et sur le CHUV, sans protocole suisse minuté ; délais « dès l'arrivée / sans délai » non chiffrés.
+- (Doute médical) DX.7 : délai d'attente avant geste définitif : HUG « six premiers mois », CHUV « environ un an » avant réinnervation bilatérale sélective, Zurich (revue citée) injection dans les 12 mois post-thyroïdectomie ; les trois sont écrits.
+- (Doute médical) DX.7 : critères de guérison et de sortie (11.D) composés à partir des sources (Saint-Gall, Zurich, Iéna), faute de critères d'une société savante.
+- DX.10 : critères de guérison et de sortie (11.D) composés à partir des recommandations de la S3, faute de critères formels d'une société savante.
+- DX.10 : conservation laryngée à 10 ans (81 % contre 62 %) tirée de l'essai américain RTOG, cité à travers la S3 allemande ; aucune donnée suisse équivalente lue.
+- DX.10 : gestes des premières minutes (position assise, oxygène, coniotomie) tirés de la RMS 2015 sur la dyspnée haute en général, non spécifique au cancer laryngé.
+- [Lacune ouverte] DX.1 : aucune incidence suisse de la laryngite aiguë ni du croup (HUG, RMS, PubMed « Switzerland ») ; chiffres allemands (Reiter 2015), Clinical Evidence 2014 et série bâloise (Heininger 2013, croup chez l'enfant grippé hospitalisé).
+- [Lacune ouverte] DX.1 : SwissPedDose (dose suisse harmonisée de dexaméthasone, budésonide et adrénaline nébulisée dans le croup) non lue, accès réservé aux professionnels ; doses de dexaméthasone (0,15–0,6 mg/kg) et budésonide (2 mg) écrites « hors AIPS » d'après Petrocheilou 2014 (Athènes, résumé) et Cochrane 2023 ; adrénaline nébulisée sans dose.
+- [Lacune ouverte] DX.1 : Siebert 2023 (HUG), Cochrane 2015 et 2023, Petrocheilou 2014 et Clinical Evidence 2014 lus en résumé seulement ; volet social et assurances (arrêt de travail des professionnels de la voix) sans source lue, non écrit.
+- [Lacune ouverte] DX.1 : aucune image (cliche.py sans réponse de Wikimedia) ; cliché de laryngite aiguë (cordes rouges et œdématiées) à insérer dans f-dx1-r-larynx.
+- [Décision en vigueur] DX.1 : fichier reconstruit au gabarit L1 (ancien corps de 22 Ko creux, 53 Ko de polices intégrées, popovers) ; HUG dysphonies organiques et Collège ORL 2017 relus et conservés ; HUG fonctionnelles, neurologiques, cancers et Stachler 2018 retirés (leurs faits utiles sont portés par S1, S3, S5) ; 16 sources dont 5 AIPS.
+- [Décision en vigueur] DX.1 : fiches .mb : Rectodelt 68119 (seule AIPS suisse portant le croup, dose AIPS 100 mg), dexaméthasone 57974 et budésonide 50192 (croup hors AIPS), paracétamol 46206, ibuprofène 67372.
+- [Décision en vigueur] DX.1 : délai d'examen ORL enseigné = 3 semaines (HUG) avec laryngoscopie immédiate du fumeur ; Collège 8–15 jours et Reiter 3 mois écrits comme divergence (f-dx1-p11-delais).
+- [Doute médical] DX.1 : air froid extérieur 30 min dans le croup : bénéfique dans l'essai genevois 2023 (S8), non soutenu par Petrocheilou 2014 (résumé) ; seul l'essai genevois est écrit, à confirmer par un pédiatre.
+- [Doute médical] DX.1 : critères de sortie du croup (11.D) composés à partir de S7, S8 et S9, faute de critères d'une société savante.
