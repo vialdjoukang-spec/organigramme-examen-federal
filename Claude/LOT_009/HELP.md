@@ -48,6 +48,9 @@
 - À vérifier hors cours : la décroissance des glucocorticoïdes (DRESS sévère 3 à 6 mois, DRESS léger 6 semaines à 3 mois) n'a pas pu être relue (texte intégral Brüggen 2024, PMC10652220, inaccessible le 11.11.2026) ; ces phrases restent sans citation.
 - Finition L1 (11.11.2026) : chiffres non relus retirés du cours — « 6 semaines à 3 mois » (DRESS léger, urgence) et « 3 à 6 mois » (question d'examen) ; le texte dit désormais « diminuer progressivement ». La phrase de l'urgence sur le DRESS sévère (3 à 6 mois, citée sur l'AIPS 29349) reste à recouper avec Brüggen 2024 dès que le texte intégral est accessible.
 - Ajout sourcé : fenêtre « Caractérisation du prurit médicamenteux » (guide S2k 2025 : 5 % des réactions, 12 mois, HES 12–42 %, deux tiers, 15 mois).
+- Correction audit (11.11.2026) : « 3 à 6 mois » retiré de l'urgence (absent de l'AIPS Prednisone 29349) ; le texte dit la règle AIPS (au-delà de 8 à 10 jours, diminution lente et par paliers). Lacune : aucune durée de décroissance du DRESS n'a été lue dans une source accessible.
+- Bilastine grossesse/allaitement alignée sur l'AIPS Bilaxten 61446 (« ne doit pas être administré », sauf nécessité absolue pendant l'allaitement), comme DX.7.
+- Brüggen 2024 : seul le résumé est lisible (texte PMC non libre le 11.11.2026). Restent à recouper sur le texte intégral : « 2 à 5 cas par million », surveillance « premier mois puis 6 mois », charges EBV/CMV/HHV-6.
 
 ## DX.7 (Urticaire)
 - Point 1 : les trois entités voisines vont en fin de point 4.
