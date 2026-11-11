@@ -1,16 +1,18 @@
 # Liste DX — LOT_061
 
-Les noms et l'ordre sont inchangés. « Ne rang » : le pourcentage suisse disponible ne classe pas ce DX sans casser l'ordre gelé.
+Liste refaite après audit (correction Bitunder, 11 novembre 2026) sur le tableau 1 de la Revue médicale suisse 2017 (diagnostic différentiel des nausées et vomissements), complété par la revue suisse de 2020 et la Revue médicale suisse 2016. Ordre : fréquence décroissante argumentée (« Ne rang ») ; rangs E par létalité.
 
-| DX.1 | aigus | Ne rang | rms2002-2 | non |
-| DX.2 | retardés | Ne rang | rms2002-2 | non |
-| DX.3 | anticipés | Ne rang | rms2002-2 | non |
-| DX.4 | postopératoires | Ne rang | rms2017-1 | non |
-| DX.5 | chimiothérapie | Ne rang | rms2017-1 | non |
-| DX.6 | personne âgée | Ne rang | rms2017-3 | non |
-| DX.7 | iléus | Ne rang | rms2017-2 | E1 |
-| DX.8 | mal des transports | Ne rang | rms2017-3 | non |
-| DX.9 | multifactorielles | Ne rang | rms2017-1 | non |
-| DX.10 | échec du premier antiémétique | Ne rang | rms2017-2 | E2 |
+| Rang | Nom exact | Fréquence | Extrait | Grave | Rang E |
+|---|---|---|---|---|---|
+| DX.1 | Effet indésirable médicamenteux | Ne rang (cause probablement la plus fréquente) | vav2020-1 | non | — |
+| DX.2 | Gastro-entérite aiguë | Ne rang (cause aiguë la plus courante sans douleur ni céphalée) | afp2013-1 | non | — |
+| DX.3 | Nausées et vomissements de la grossesse | Ne rang (parmi les femmes enceintes, jusqu'à 70 %) | vav2020-1 | non | — |
+| DX.4 | Nausées et vomissements postopératoires | Ne rang (parmi les opérés, 10 à 30 %) | rms2017-1 | non | — |
+| DX.5 | Nausées et vomissements de la chimiothérapie | Ne rang (parmi les patients traités, 30 %) | rms2017-1 | non | — |
+| DX.6 | Atteinte vestibulaire | Ne rang (tableau 1, sans pourcentage) | rms2017-4 | non | — |
+| DX.7 | Gastroparésie | Ne rang (parmi les diabétiques de type 1, 20 à 40 %) | vav2020-1 | non | — |
+| DX.8 | Occlusion intestinale | Ne rang | vav2020-1 | oui : occlusion, strangulation | E2 |
+| DX.9 | Hypertension intracrânienne | Ne rang | vav2020-1 | oui : engagement cérébral | E3 |
+| DX.10 | Ischémie mésentérique aiguë | Ne rang (rare, environ une hospitalisation sur mille) | rms2016-1 | oui : ischémie mésentérique, nécrose | E1 |
 
-Gel des dix noms : SHA-256 0cdc51ac73ae95e795150729c476d9ada3d7514c513c64fe5ae0fc5e32f4e6a5
+Gel des dix noms : SHA-256 5b17ef3086bbeb7dcde57ff880f56c2259261a85ecbf63d812a86befcd83e086

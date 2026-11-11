@@ -107,14 +107,17 @@ section.ilot{scroll-margin-top:76px}
 nav.rail{position:sticky;inset:auto;top:0;width:auto;padding:8px 4vw 6px;border-right:0;border-bottom:1px solid var(--menu-filet);display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
 nav.rail p{padding:0;flex:0 0 auto}
 .piste{flex:1 1 30%;margin:0}
-nav.rail>div:last-child{flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
-nav.rail a{flex:0 0 auto;min-height:34px;padding:4px 10px 4px 6px;border-radius:9px;white-space:nowrap}
+nav.rail>div:last-child{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:2px 4px}
+nav.rail a{flex:0 0 auto;min-height:32px;padding:3px 8px 3px 5px;border-radius:9px;white-space:nowrap;font-size:13px}
 main{margin-left:0;padding:20px 5vw 60px}
 .paire{grid-template-columns:1fr}
 ol.dx li{grid-template-columns:1fr}}
+@media (max-width:700px){nav.rail{position:static}}
 @media (max-width:480px){h1{padding:20px 18px 4px}h2.kicker{padding:2px 18px 20px}th,td{padding:8px}}
 @media print{nav.rail{display:none}main{margin:0}}
-/* LOT 061 : le rédacteur n'a pas de kicker ; le bandeau est autonome. Les paragraphes sont des div.p. */
+/* LOT 061 : kicker gris sous le titre ; paragraphes en div.p ; boutons de fenêtre chacun sur sa ligne ; schémas SVG à 14 px au moins sur mobile. */
+button.w{display:block;margin:8px 0 12px;text-align:left}
+.fenetre svg.schema{width:100%;max-width:440px;height:auto}
 .p{margin:0 0 .6em}
 section h2:not(.question){margin:0 0 12px;padding:4px 6px;background:var(--h2-fond);font:700 1.25em/1.3 var(--police-titre);color:var(--h2)}
 ol.dx li{display:block}
@@ -171,566 +174,565 @@ body:has(#dx:target) nav a[href="#dx"],body:has(#p1:target) nav a[href="#p1"],bo
 </nav>
 <main>
 <h1>Nausées et vomissements</h1>
-<div class="p">Ce symptôme se range par sa cause avant tout médicament, parce qu'un antiémétique donné trop tôt masque l'obstacle.</div>
+<h2 class="kicker">Un symptôme banal qui cache parfois une urgence : on nomme la cause avant de prescrire l’antiémétique.</h2>
 <section class="ilot" id="dx">
-<h2>Dix concurrents, dans l'ordre gelé</h2>
-<div class="p">L'ordre ci-dessous est celui de la liste gelée, et chaque ligne porte Ne rang lorsque le pourcentage suisse ne peut pas classer ce concurrent sans bousculer cet ordre.</div>
+<h2>Dix concurrents, du plus fréquent au plus rare</h2>
+<div class="p">Les dix diagnostics ci-dessous sont de vraies causes concurrentes, tirées du tableau suisse de diagnostic différentiel<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. L’ordre suit la fréquence attendue en pratique, et le badge rouge classe les trois causes qui tuent : E1 d’abord, puis E2 et E3.</div>
 <ol class="dx">
-<li><strong>DX.1 — aigus</strong> Ne rang : les vomissements aigus suivent le cytostatique, tandis que le retardé et l'anticipé occupent d'autres temps<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</li>
-<li><strong>DX.2 — retardés</strong> Ne rang : la forme retardée se prolonge après la perfusion, donc l'association se continue souvent par la bouche durant 3 à 5 jours<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</li>
-<li><strong>DX.3 — anticipés</strong> Ne rang : l'anticipé précède l'injection et traduit un conditionnement, si bien que tenir les premières cures reste la prévention la plus solide<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</li>
-<li><strong>DX.4 — postopératoires</strong> Ne rang : la plainte concerne une part des personnes opérées, or ce concurrent ne se confond pas avec le taux de toute la population<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</li>
-<li><strong>DX.5 — chimiothérapie</strong> Ne rang : sous chimiothérapie la conduite se décide selon le potentiel émétisant, et le groupe ne fournit pas à lui seul un rang de fréquence<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li><strong>DX.6 — personne âgée</strong> Ne rang : il est un concurrent distinct. Le sujet âgé concentre les effets extrapyramidaux, et il les subit à dose haute de métoclopramide. Aucun pourcentage suisse ne le classe ici, et il reste hors rang<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</li>
-<li><strong>DX.7 — iléus</strong> <span class="e">🚩 E1</span> Ne rang : l'iléus se traite par la sonde, l'eau et les ions avant l'antiémétique, parce que la cause digestive prime<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li><strong>DX.8 — mal des transports</strong> Ne rang : le mal des transports relève des antihistaminiques ou des anticholinergiques, or le timbre de scopolamine n'est pas distribué en Suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</li>
-<li><strong>DX.9 — multifactorielles</strong> Ne rang : les nausées qui durent sont souvent multifactorielles, et ce caractère interdit de leur donner un rang unique<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</li>
-<li><strong>DX.10 — échec du premier antiémétique</strong> <span class="e">🚩 E2</span> Ne rang : puisque les symptômes persistent, on revient à la cause avant un second médicament<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
+<li><strong>DX.1 — Effet indésirable médicamenteux</strong> Premier rang : les médicaments sont, selon la revue suisse de 2020, sans doute la première cause de vomissements, des antibiotiques aux antiarythmiques<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</li>
+<li><strong>DX.2 — Gastro-entérite aiguë</strong> Deuxième rang, parmi les causes fréquentes : sans douleur abdominale aiguë ni céphalée marquée, un vomissement aigu relève le plus souvent d’une infection digestive qui guérit seule<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</li>
+<li><strong>DX.3 — Nausées et vomissements de la grossesse</strong> Troisième rang : parmi les femmes enceintes, jusqu’à 70 % sont nauséeuses au premier trimestre, cause endocrinienne en tête<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</li>
+<li><strong>DX.4 — Nausées et vomissements postopératoires</strong> Quatrième rang : parmi les patients opérés, la fourchette suisse va de 10 à 30 %, et le score d’Apfel affine ce risque<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</li>
+<li><strong>DX.5 — Nausées et vomissements de la chimiothérapie</strong> Cinquième rang : parmi les patients sous chimiothérapie, 30 % sont nauséeux, selon le potentiel émétisant de la cure<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</li>
+<li><strong>DX.6 — Atteinte vestibulaire</strong> Sixième rang, parmi les causes du tableau suisse : le mal des transports, la névrite vestibulaire et la maladie de Ménière y figurent sans pourcentage<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</li>
+<li><strong>DX.7 — Gastroparésie</strong> Septième rang : parmi les patients avec un diabète de type 1, 20 à 40 % développent une gastroparésie, mais ce terrain reste une minorité des consultations<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</li>
+<li><strong>DX.8 — Occlusion intestinale</strong> <span class="e">🚩 E2</span> Huitième rang, parmi les causes chirurgicales : adhérences, tumeurs, volvulus et invaginations bloquent le grêle ou le côlon, et l’obstacle étranglé se perd en heures<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</li>
+<li><strong>DX.9 — Hypertension intracrânienne</strong> <span class="e">🚩 E3</span> Neuvième rang, parmi les causes neurologiques : tumeur, saignement ou blocage du liquide céphalorachidien donnent des vomissements soudains, souvent sans nausée préalable<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</li>
+<li><strong>DX.10 — Ischémie mésentérique aiguë</strong> <span class="e">🚩 E1</span> Dixième rang : cette cause est rare, environ une hospitalisation sur mille, mais elle tue le plus vite des dix<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</li>
 </ol>
 </section>
 <section class="ilot" id="p1">
 <h3><strong>1. Définition et sémantique</strong></h3>
-<div class="p">On appelle nausée le besoin désagréable qui annonce un vomissement, et ce mot nomme un symptôme plutôt qu'une maladie<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Le vomissement, lui, expulse le contenu gastrique, donc les deux termes ne s'échangent pas.</div>
-<div class="p">Cette classification des temps émétiques date de 2002, et elle structure encore le raisonnement<sup class="r"><a href="#sb-rms2002-1">[4]</a></sup>. Elle sépare l'aigu, le retardé et l'anticipé, parce que le moment par rapport au cytostatique change le traitement<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le synonyme admissible est « envie de vomir », lorsque le malade décrit la sensation sans expulsion. On évite « indigestion » et « gastrite », car ces mots supposent une lésion que le symptôme, seul, ne prouve pas.</div>
-<div class="p">Ce cadre n'est pas un diagnostic d'organe. Il s'approche de la douleur abdominale et de l'anorexie, cependant il s'en distingue dès qu'une expulsion ou qu'une envie franche domine le récit.</div>
-<button class="w" type="button" popovertarget="f-def">sens du mot nausée</button>
+<div class="p">La nausée est une sensation déplaisante d’envie de vomir ; elle accompagne de nombreuses maladies et revient sans cesse en médecine de premier recours<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Le vomissement, lui, est l’expulsion active du contenu gastrique, si bien que les deux mots ne s’échangent pas.</div>
+<div class="p">On distingue le vomissement de la régurgitation, qui remonte sans effort ni nausée, et de la rumination. Cette distinction oriente déjà : une régurgitation fait penser à l’œsophage, alors qu’un vomissement mobilise le centre bulbaire et ses afférences<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
+<div class="p">La classification de la Revue médicale suisse sépare les causes par système et distingue le tableau aigu du tableau chronique<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. Pour trancher, le repère temporel suisse de 2020 retient alors l’aigu en dessous d’une semaine et le chronique au-delà d’un mois<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</div>
+<div class="p">Le synonyme admis est « envie de vomir ». On évite « gastrite » ou « indigestion », parce que ces mots affirment une lésion que le symptôme seul ne prouve jamais.</div>
+<div class="p">Le cadre n’est donc pas un diagnostic, mais une porte d’entrée. Il voisine avec la douleur abdominale, la céphalée et le vertige, et c’est le symptôme associé qui ouvre la bonne liste.</div>
+<button class="w" type="button" popovertarget="f-def">vomissement, régurgitation, rumination</button>
 <div id="f-def" class="fenetre" popover>
-<div class="p">Le mot nausée désigne le besoin désagréable de vomir, et il reste un symptôme tant que la cause n'est pas nommée<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Confondre ce mot avec une gastrite ferme trop tôt la recherche, parce que des mécanismes différents aboutissent au même récit.</div>
-<div class="p">Cinq familles d'antiémétiques s'opposent à des neurotransmetteurs, donc le choix du médicament suit la cause et non l'inverse<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Les glucocorticoïdes et les benzodiazépines s'y ajoutent, lorsque le temps émétisant ou l'anxiété l'exige<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
+<button class="fermer" type="button" popovertarget="f-def" popovertargetaction="hide">Fermer</button>
+<h5>Trois mots qui ne désignent pas le même geste</h5>
+<div class="p">Le vomissement est actif : le diaphragme et la paroi abdominale se contractent sous la commande du centre du vomissement, qui réagit quand un seuil d’activation est franchi<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>. Il s’annonce souvent par une nausée, une salivation et des sueurs.</div>
+<div class="p">La régurgitation est passive et sans nausée ; elle évoque un sphincter œsophagien inférieur insuffisant ou une sténose de l’œsophage. La rumination, enfin, ramène sans effort un bol déjà avalé, souvent dans un contexte psychosomatique.</div>
+<div class="p">Le piège d’examen consiste à donner un antiémétique à une régurgitation. Rien n’y répond, puisque le centre du vomissement n’est pas en cause.</div>
 </div>
-<div class="p">Quand le malade dit seulement « envie », l'expulsion n'a pas eu lieu, or le mot nausée suffit déjà à ouvrir la recherche de cause<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Le vomissement, lui, est un acte, et il se décrit à part.</div>
-<div class="p">Cette séparation de 2002 ne nomme pas l'organe responsable, et elle ne le prétend pas<sup class="r"><a href="#sb-rms2002-1">[4]</a></sup>. Elle sert, en revanche, à choisir le moment du médicament par rapport au cytostatique<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">L'aigu colle à la perfusion, et il s'y limite. Le retardé se prolonge après elle, tandis que l'anticipé la précède<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Trois temps, trois conduites, et aucun ne se déduit du seul mot nausée.</div>
-<div class="p">Appeler cela une gastrite ferme une lésion que le récit ne prouve pas. On garde donc le symptôme tant que la cause n'est pas montrée<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">L'anorexie et la douleur abdominale voisinent ce récit, cependant elles ne l'épuisent pas. Dès qu'une envie franche ou une expulsion domine, le cadre émétique reprend la main, et il reprend la conduite<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Cinq familles d'antiémétiques s'opposent à des messagers différents, et les glucocorticoïdes s'y ajoutent<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Les benzodiazépines s'y ajoutent aussi, lorsque l'anxiété ou le conditionnement entre dans le tableau<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Le synonyme utile reste descriptif. Il dit la sensation, or il ne dit pas le diagnostic. Confondre les deux, c'est traiter un mot au lieu d'une cause<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
 </section>
 <section class="ilot" id="p2">
 <h3><strong>2. Épidémiologie (Suisse, puis Europe)</strong></h3>
-<div class="p">En 2017, environ 7 % de la population ressent une nausée, et ce chiffre place le symptôme hors des raretés<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Une maladie chronique avancée s'accompagne de nausée dans 30 % des cas, ce qui pèse sur l'observance<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Parmi les personnes opérées, la fourchette va de 10 à 30 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Sous chimiothérapie, 30 % des malades sont nauséeux, or la qualité de vie s'en trouve altérée<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Les textes lus ne séparent pas ces taux par sexe. L'âge, en revanche, modifie la dose : dès 75 ans la dose intraveineuse initiale se plafonne<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Un score d'Apfel égal à 1 annonce 21 % de risque postopératoire, et la prémédication se discute déjà<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Dès un score de 2, le risque atteint 39 %, donc la prémédication devrait être introduite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<button class="w" type="button" popovertarget="f-apfel">lire le score d'Apfel</button>
-<div id="f-apfel" class="fenetre" popover>
-<div class="p">Le score additionne des facteurs de risque postopératoire, donc il ne nomme pas la molécule<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. À 1, le risque est de 21 % et la prémédication se discute<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. À 2, le risque est de 39 % et elle devrait être introduite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le piège est de traiter un iléus avec cette prémédication, parce que le score suppose un abdomen opératoire et non un arrêt de transit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-</div>
-<div class="p">Une prophylaxie de chimiothérapie commence dès qu'un potentiel dépasse 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le haut risque dépasse 90 %, tandis que le risque modéré couvre 30 à 90 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le risque faible occupe la bande de 10 à 30 %, et il s'y tient<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Sous 10 %, on parle de risque minime<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Ces bandes décrivent un potentiel de produit, or elles ne classent pas les dix concurrents entre eux.</div>
+<div class="p">En Suisse, on estime en 2017 qu’environ 7 % de la population générale souffre de nausées<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Si la maladie chronique est avancée, cardiaque, rénale ou hépatique, la proportion monte à 30 %, ce qui pèse sur l’observance<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
+<div class="p">Après une opération, 10 à 30 % des patients sont nauséeux selon la même revue<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. La revue suisse de 2020 avance un chiffre voisin, environ 25 % des interventions, et le risque augmente quand l’opérée est une femme ou subit une laparotomie<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">Sous chimiothérapie, 30 % des patients restent nauséeux, car la cure dicte ce risque<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Une cure à haut risque dépasse 90 % de vomissements sans prophylaxie, tandis qu’une cure modérée se situe entre 30 et 90 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">La grossesse fournit la plus grande cohorte, car le Forum Médical Suisse décrit des nausées chez jusqu’à 85 % des femmes enceintes en 2010<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>. L’hyperémèse gravidique reste rare, de 1 à 20 pour 1000 grossesses, mais elle hospitalise<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>.</div>
+<div class="p">Le diabète de type 1 se complique de gastroparésie dans 20 à 40 % des cas, d’après la revue suisse de 2020<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>. Ce chiffre explique donc pourquoi un diabétique qui vomit après les repas mérite une autre lecture qu’un jeune adulte fébrile.</div>
+<div class="p">À l’autre bout du spectre, l’ischémie mésentérique représente environ une hospitalisation sur mille, car elle reste rare, mais elle frappe surtout après 60 ans, plus souvent la femme<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>. En Europe, l’étude AMESI de 2022 à 2023 l’a retrouvée dans 0,038 % des admissions adultes, et 49 % de ces malades sont morts à l’hôpital<sup class="r"><a href="#sb-amesi2024-1">[13]</a></sup>.</div>
 <div class="t" style="overflow-x:auto"><table>
-<tr><th>Chiffre</th><th>Population</th><th>Année</th><th>Lecture</th></tr>
-<tr><td>La nausée touche environ 7 % des gens.</td><td>La population générale est concernée.</td><td>Le repère date de 2017.</td><td>Le symptôme est fréquent<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</td></tr>
-<tr><td>Une maladie chronique avancée s'accompagne de nausée dans 30 % des cas.</td><td>Les malades chroniques avancés sont visés.</td><td>Le même texte date de 2017.</td><td>L'observance en souffre<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</td></tr>
-<tr><td>Les personnes opérées se situent entre 10 et 30 %.</td><td>Le bloc opératoire fournit ce groupe.</td><td>L'année reste 2017.</td><td>Le postopératoire se prévoit<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</td></tr>
-<tr><td>Sous chimiothérapie, 30 % des malades sont nauséeux.</td><td>Les cures cytotoxiques sont concernées.</td><td>Le constat date de 2017.</td><td>La qualité de vie baisse<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</td></tr>
+<caption>Fardeau chiffré, du groupe le plus large au plus étroit</caption>
+<tr><th>Groupe</th><th>Proportion</th><th>Source et année</th><th>Lecture clinique</th></tr>
+<tr><td>Population générale</td><td>Environ 7 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup></td><td>Revue médicale suisse, 2017</td><td>Le symptôme est banal, ce qui rend le tri indispensable.</td></tr>
+<tr><td>Femmes enceintes</td><td>Jusqu’à 85 %<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup></td><td>Forum Médical Suisse, 2010</td><td>Un test de grossesse précède tout antiémétique chez la femme en âge de procréer.</td></tr>
+<tr><td>Patients opérés</td><td>10 à 30 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup></td><td>Revue médicale suisse, 2017</td><td>Le score d’Apfel décide de la prophylaxie.</td></tr>
+<tr><td>Patients sous chimiothérapie</td><td>30 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup></td><td>Revue médicale suisse, 2017</td><td>La prophylaxie suit le potentiel émétisant de la cure.</td></tr>
+<tr><td>Diabète de type 1</td><td>20 à 40 % de gastroparésie<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup></td><td>Revue suisse, 2020</td><td>La vidange gastrique lente entretient la nausée des repas.</td></tr>
+<tr><td>Admissions adultes</td><td>0,038 % d’ischémie mésentérique<sup class="r"><a href="#sb-amesi2024-1">[13]</a></sup></td><td>Étude AMESI, 2022 à 2023</td><td>Une cause rare, mais la plus létale.</td></tr>
 </table></div>
-<div class="p">L'histoire naturelle va du malaise isolé à l'arrêt des apports, puis à la déshydratation si les vomissements se répètent. L'enjeu de santé publique est donc double : tenir l'observance des cures, et ne pas manquer l'iléus derrière un symptôme banal<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Le taux de 2017, environ 7 %, décrit la population générale, or il ne classe aucun des dix concurrents<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Il dit seulement que le symptôme n'est pas rare.</div>
-<div class="p">Les 30 % des maladies chroniques avancées pèsent sur l'observance, or ils ne se confondent pas avec le taux opératoire<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. La fourchette opératoire, elle, va de 10 à 30 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Sous chimiothérapie, 30 % des malades sont nauséeux, ce qui altère la qualité de vie<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Ce pourcentage décrit un groupe traité, et il ne donne pas un rang au DX de chimiothérapie.</div>
-<div class="p">Les textes de 2017 ne séparent pas ces taux par sexe<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. L'âge, en revanche, change la dose injectable dès 75 ans, et il la plafonne<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Un score d'Apfel de 1 correspond à 21 %, donc la prémédication se discute sans être imposée<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. À 2, le risque est de 39 %, et la prémédication devrait alors être introduite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le haut risque de cure dépasse 90 %, et il se situe au-dessus de cette borne<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le risque modéré couvre 30 à 90 %, tandis que le faible va de 10 à 30 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le minime reste sous 10 %, et la prophylaxie commence dès que le potentiel dépasse 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Ces bandes classent la cure, pas le ventre. Un iléus ne se range pas dans un pourcentage de chimiothérapie, or sa conduite est mécanique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les nausées qui durent sont souvent multifactorielles, ce qui interdit un rang unique<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. On les écrit donc « Ne rang », et l'on garde les pourcentages pour enseigner le fardeau.</div>
+<div class="p">L’histoire naturelle dépend entièrement de la cause. Une gastro-entérite guérit seule en quelques jours, alors qu’une ischémie non reconnue évolue vers la nécrose intestinale ; l’enjeu de santé publique est donc de soulager vite sans manquer la rare urgence<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
+<div class="p">La nausée chronique coûte autrement : elle dégrade la qualité de vie et fait abandonner des traitements utiles, ce qui justifie de la prévenir activement sous chimiothérapie<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
 </section>
 <section class="ilot" id="p3">
 <h3><strong>3. Physiopathologie</strong></h3>
-<div class="p">Les stimuli digestifs montent par le vague et par les nerfs splanchniques, et ces afférences remontent vers le centre<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Cette voie est commune à la gastroparésie, à l'iléus, à la gastro-entérite, à l'occlusion vasculaire, ainsi qu'à la chimiothérapie et à la radiothérapie de l'abdomen<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Cinq familles d'antiémétiques bloquent des neurotransmetteurs, donc le récepteur visé dépend de la cause<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Les antisérotoninergiques, les antidopaminergiques, les antagonistes NK-1, les antihistaminiques et les anticholinergiques couvrent ces familles<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Le récepteur 5-HT3 est bloqué par l'ondansétron, par le granisétron et par le palonosétron, et ce blocage coupe le signal sérotoninergique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. En chimiothérapie, le palonosétron dépasse les autres anti-5-HT3, or l'avantage n'est pas établi après une opération<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">La dompéridone agit en périphérie, tandis que le métoclopramide est procinétique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. À dose haute, le métoclopramide peut donner des effets extrapyramidaux, surtout chez le sujet âgé<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">L'ondansétron allonge le transit colique, donc un iléus déjà installé peut s'aggraver après la dose<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. L'intervalle QT s'allonge de façon dépendante de la dose, ce qui relie l'ion, le cœur et le choix du produit<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Les vomissements anticipés relèvent d'un réflexe conditionné, or les benzodiazépines en sont le traitement<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Sur les vomissements retardés, les antagonistes NK-1 paraissaient prometteurs, et c'est surtout là qu'on les discutait<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
+<div class="p">Le vomissement est d’abord un réflexe de protection, qui évite d’absorber un toxique. Son centre est un réseau du tronc cérébral, entre noyau solitaire, substance réticulée et noyaux moteurs, qui ne décharge que si un seuil est franchi<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
+<div class="p">Cinq voies afférentes alimentent ce centre, et chacune porte ses propres neurotransmetteurs. Comprendre la voie, c’est choisir l’antagoniste ; c’est aussi deviner la cause avant même l’examen<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
+<h4>La chaîne, de l’amorce au réflexe</h4>
+<div class="p">La zone gâchette se trouve dans l’area postrema, sur le plancher du 4e ventricule, et elle reçoit le sang sans filtre<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>. Ses capillaires fenestrés échappent à la barrière hémato-encéphalique, si bien qu’un cytostatique, un médicament, une hypercalcémie ou une urémie l’activent directement par le sang.</div>
+<div class="p">Le tube digestif fait remonter ses signaux par le nerf vague et les nerfs splanchniques, donc par une voie périphérique. Gastroparésie, gastro-entérite, iléus, occlusion vasculaire et radiothérapie abdominale empruntent cette route, qui utilise la sérotonine, la substance P et la dopamine<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
+<div class="p">L’appareil vestibulaire transmet le mouvement, la maladie de Ménière ou l’infection labyrinthique par l’acétylcholine et l’histamine<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>. Voilà pourquoi un antihistaminique soulage le mal des transports, alors qu’un antisérotoninergique y reste médiocre.</div>
+<div class="p">La voie haute part du cortex, des structures limbiques et des méninges : hypertension intracrânienne, méningite, anxiété, douleur et réflexe conditionné l’empruntent<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>. Ainsi, l’anticipation de la chimiothérapie en est l’exemple le plus pur.</div>
+<div class="p">Sous chimiothérapie, la sérotonine relâchée par le cytostatique active les récepteurs 5-HT3, ce qui explique la phase aiguë<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>.</div>
+<div class="p">L’ischémie mésentérique, enfin, irrite les afférences viscérales bien avant que l’abdomen ne devienne chirurgical, ce qui trompe l’examinateur. La douleur reste alors intense alors que la palpation est pauvre, et cette discordance est le signe qui sauve<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
 <div class="t" style="overflow-x:auto"><table>
-<tr><th>Perturbation</th><th>Exploration qui la montre</th><th>Thérapeutique qui la corrige</th></tr>
-<tr><td>Le vague et les splanchniques portent le stimulus digestif.</td><td>L'anamnèse cherche l'iléus, l'occlusion vasculaire ou la gastroparésie.</td><td>On réhydrate, on corrige les ions, et l'on pose une sonde si l'iléus est retenu<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>Le récepteur 5-HT3 transmet le signal sérotoninergique.</td><td>Le récit de chimiothérapie ou de radiothérapie oriente vers ce récepteur.</td><td>Un anti-5-HT3 coupe ce signal<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</td></tr>
-<tr><td>La dopamine périphérique ralentit l'estomac.</td><td>La gastroparésie se discute quand les repas déclenchent la plainte.</td><td>La dompéridone agit en périphérie, et le métoclopramide est procinétique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</td></tr>
-<tr><td>Un conditionnement précède le cytostatique.</td><td>L'horaire, avant l'injection, signe l'anticipé.</td><td>Les benzodiazépines traitent cette forme, et le contrôle des premières cures la prévient<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</td></tr>
-<tr><td>Le QT s'allonge si le potassium ou le magnésium est bas.</td><td>Le ionogramme précède l'ondansétron.</td><td>On corrige l'hypokaliémie et l'hypomagnésémie avant le produit<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</td></tr>
+<caption>Corrélation : perturbation, exploration, traitement</caption>
+<tr><th>Voie afférente et messager</th><th>Cause typique</th><th>Exploration qui la montre</th><th>Thérapeutique qui la vise</th></tr>
+<tr><td>Zone gâchette ; sérotonine, dopamine</td><td>Cytostatique, médicament, urémie, hypercalcémie</td><td>Liste des médicaments, ionogramme, créatinine, calcémie</td><td>Retrait du produit ; anti-5-HT3 ou antidopaminergique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup></td></tr>
+<tr><td>Vague et splanchniques ; 5-HT, substance P</td><td>Gastro-entérite, occlusion, ischémie, gastroparésie</td><td>Examen de l’abdomen, puis imagerie dirigée</td><td>Traitement de la cause ; sonde en cas d’iléus<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup></td></tr>
+<tr><td>Vestibule ; acétylcholine, histamine</td><td>Mal des transports, névrite vestibulaire, Ménière</td><td>Nystagmus, manœuvres positionnelles</td><td>Antihistaminique ou anticholinergique<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup></td></tr>
+<tr><td>Cortex et méninges</td><td>Hypertension intracrânienne, méningite, anticipation</td><td>Examen neurologique, fond d’œil, imagerie cérébrale</td><td>Cause neurologique ; benzodiazépine pour l’anticipation<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup></td></tr>
+<tr><td>Glosso-pharyngé ; 5-HT</td><td>Infection pharyngée</td><td>Examen de la gorge</td><td>Traitement de l’infection<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup></td></tr>
 </table></div>
-<button class="w" type="button" popovertarget="f-voie">chaîne vague, récepteur, médicament</button>
+<button class="w" type="button" popovertarget="f-voie">cinq voies vers le centre du vomissement</button>
 <div id="f-voie" class="fenetre" popover>
-<div class="p">L'amorce est un stimulus digestif, cellulaire ou conditionné<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le développement passe par le vague, les splanchniques ou le 5-HT3, puis l'installation donne la nausée, et le maintien dépend de la cause encore active<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Couper le récepteur sans chercher l'iléus laisse l'obstacle en place, donc le médicament vient après la cause<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le piège est de traiter un conditionnement avec un procinétique, ou un iléus avec un produit qui ralentit encore le côlon<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
+<button class="fermer" type="button" popovertarget="f-voie" popovertargetaction="hide">Fermer</button>
+<h5>Cinq afférences, un seul centre</h5>
+<svg class="schema" viewBox="0 0 320 561" role="img" aria-label="Cinq afférences vers le centre du vomissement">
+<rect x="4" y="6" width="312" height="119" rx="10" fill="#f8f3fc"/>
+<text x="18" y="31" font-size="15" font-weight="700" fill="#161616">Zone gâchette (area postrema)</text>
+<text x="18" y="52" font-size="15" fill="#161616">Cytostatiques, médicaments,</text>
+<text x="18" y="73" font-size="15" fill="#161616">urémie, hypercalcémie ;</text>
+<text x="18" y="94" font-size="15" fill="#161616">sérotonine, dopamine,</text>
+<text x="18" y="115" font-size="15" fill="#161616">substance P</text>
+<path d="M152 129 L168 129 L160 141 Z" fill="#53327b"/>
+<rect x="4" y="145" width="312" height="98" rx="10" fill="#efe8f6"/>
+<text x="18" y="170" font-size="15" font-weight="700" fill="#161616">Tube digestif (vague, splanchniques)</text>
+<text x="18" y="191" font-size="15" fill="#161616">Gastro-entérite, occlusion,</text>
+<text x="18" y="212" font-size="15" fill="#161616">ischémie, gastroparésie ;</text>
+<text x="18" y="233" font-size="15" fill="#161616">5-HT, substance P</text>
+<path d="M152 247 L168 247 L160 259 Z" fill="#53327b"/>
+<rect x="4" y="263" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="288" font-size="15" font-weight="700" fill="#161616">Vestibule</text>
+<text x="18" y="309" font-size="15" fill="#161616">Mouvement, névrite, Ménière ;</text>
+<text x="18" y="330" font-size="15" fill="#161616">acétylcholine, histamine</text>
+<path d="M152 344 L168 344 L160 356 Z" fill="#53327b"/>
+<rect x="4" y="360" width="312" height="98" rx="10" fill="#efe8f6"/>
+<text x="18" y="385" font-size="15" font-weight="700" fill="#161616">Cortex, système limbique, méninges</text>
+<text x="18" y="406" font-size="15" fill="#161616">Hypertension intracrânienne,</text>
+<text x="18" y="427" font-size="15" fill="#161616">méningite, anxiété,</text>
+<text x="18" y="448" font-size="15" fill="#161616">anticipation</text>
+<path d="M152 462 L168 462 L160 474 Z" fill="#53327b"/>
+<rect x="4" y="478" width="312" height="77" rx="10" fill="#fdf6f0"/>
+<text x="18" y="503" font-size="15" font-weight="700" fill="#161616">Centre du vomissement</text>
+<text x="18" y="524" font-size="15" fill="#161616">Le réflexe part quand la somme</text>
+<text x="18" y="545" font-size="15" fill="#161616">des signaux dépasse le seuil</text>
+</svg>
+<div class="p">Le schéma se lit de haut en bas : chaque voie apporte son messager, et le centre bulbaire déclenche le réflexe quand la somme dépasse le seuil<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>. L’antagoniste se choisit donc selon la voie dominante.</div>
+<div class="p">Le piège consiste à couper un récepteur alors que l’obstacle reste en place. Un anti-5-HT3 calme le réflexe, mais il ne lève ni une occlusion ni une ischémie, et il allonge le transit colique<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
 </div>
-<div class="p">L'amorce digestive, cellulaire ou conditionnée n'est pas encore la nausée, et elle le devient plus tard. Elle devient une nausée quand le signal est installé, et elle se maintient tant que la cause reste active<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le vague et les splanchniques portent l'afférence de la gastroparésie, de la gastro-entérite et de l'iléus<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Or L'occlusion vasculaire, la chimiothérapie et la radiothérapie abdominale empruntent la même voie<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les antisérotoninergiques bloquent le 5-HT3, or ce récepteur porte le signal aigu de la cure<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Les antidopaminergiques, eux, sont procinétiques, et le métoclopramide en est l'exemple à surveiller chez le sujet âgé<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Les antagonistes NK-1 semblaient surtout utiles sur le temps retardé<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Les antihistaminiques et les anticholinergiques couvrent le mal des transports, cependant ce timbre de scopolamine manque sur le marché suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">La dompéridone reste périphérique, et elle ne se confond pas avec un setron<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. La dexaméthasone est le corticoïde antiémétique qu'on retient le plus souvent, tandis que le midazolam se discute chez le sujet anxieux à haut risque<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Le palonosétron dépasse les autres anti-5-HT3 pendant une cure, or rien n'établit le même avantage au lendemain d'une opération<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Sur l'aigu, granisétron, ondansétron et tropisétron se valent, et leurs efficacités se rejoignent<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">La constipation survient dans 5 à 10 % des cas avec les anti-5-HT3, et les céphalées s'y annoncent<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. L'allongement du QT concerne l'ondansétron et le granisétron, ce qui impose d'écouter le cœur avant de les choisir<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Un syndrome sérotoninergique reste rare, cependant il se dit au malade qui cumule d'autres produits sérotoninergiques<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le glaucome à angle aigu écarte les anticholinergiques, et on ne les y prescrit pas<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Corriger l'eau et les ions précède l'antiémétique, parce que le signal se maintient si le déficit persiste<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. La sonde, en cas d'iléus, s'interpose avant la molécule, et elle le doit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">Chaque messager a donc son antagoniste : on bloque la sérotonine, la dopamine, la substance P, l’histamine ou l’acétylcholine, et l’on peut ajouter un glucocorticoïde ou une benzodiazépine<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
+<div class="p">La dompéridone accélère la vidange du tube digestif supérieur sans franchir la barrière hémato-encéphalique ; ce même effet procinétique la contre-indique dans l’obstruction intestinale<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le métoclopramide, lui, traverse cette barrière, si bien qu’il expose aux effets extrapyramidaux.</div>
+<div class="p">Les antagonistes NK-1 bloquent la substance P au centre comme en périphérie, et ils renforcent surtout l’anti-5-HT3 associé à la dexaméthasone<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
 </section>
 <section class="ilot" id="p4">
 <h3><strong>4. Démarche diagnostique</strong></h3>
-<div class="p">🚩 On écarte d'abord E1, l'iléus, parce qu'un arrêt de transit se complique vers l'ischémie si l'on attend un second antiémétique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. E2 vient ensuite : l'échec du premier antiémétique signifie que la cause est encore là.</div>
-<div class="p">Trois concurrents tranchent le début du raisonnement. L'iléus se marque par l'arrêt des gaz et impose la sonde<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. L'aigu de chimiothérapie se marque par l'horaire collé à la perfusion, et il appelle l'anti-5-HT3 avec un corticoïde<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Le postopératoire se marque par le score d'Apfel, donc la prémédication se discute dès 21 % et s'introduit dès 39 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le piège de l'iléus est de le prendre pour une gastro-entérite parce que les deux vomissent. Si les gaz ne passent plus, la sonde passe avant le médicament<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le piège de l'anticipé est de renforcer le conditionnement en laissant les premières cures mal contrôlées<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le piège du sujet âgé est la dose haute de métoclopramide, car les effets extrapyramidaux y sont plus nets<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le piège du mal des transports est de prescrire un timbre de scopolamine, or ce timbre n'est pas distribué en Suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
+<div class="p">🚩 On écarte d’abord E1, l’ischémie mésentérique aiguë, parce qu’elle tue le plus vite : une douleur brutale, intense et sans rapport avec un abdomen encore souple impose le scanner<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>. Vient ensuite E2, l’occlusion intestinale, puis E3, l’hypertension intracrânienne.</div>
+<div class="p">La première question est donc la gravité, la seconde la fréquence. La revue suisse de 2020 sépare le vomissement aigu, de moins d’une semaine, du vomissement chronique, au-delà d’un mois, et chaque durée appelle sa propre liste<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</div>
+<div class="p">Devant un tableau aigu sans signe d’alarme, on pense en premier lieu au médicament récemment introduit, à la gastro-entérite et à la grossesse. Ainsi, chez la femme en âge de procréer, le test de grossesse fait partie du premier bilan, au même titre que les électrolytes<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</div>
+<div class="p">Le contexte tranche souvent seul, car une anesthésie récente oriente vers les nausées postopératoires, une cure récente vers la chimiothérapie, un trajet en bateau vers le vestibule. Le diabétique ancien qui vomit ses repas de la veille fait penser à la gastroparésie<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">Le symptôme associé est la clé du tri. Ainsi, une douleur abdominale ramène vers le ventre, une céphalée ou un déficit vers le crâne, un vertige rotatoire vers l’oreille interne<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
+<div class="p">Deux pièges dominent l’examen fédéral. Le premier est l’infarctus inférieur qui se présente par des nausées, puisque la paroi postérieure peut donner ce tableau trompeur<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>. Le second est l’hypertension intracrânienne, dont le vomissement survient brutalement, souvent sans nausée préalable<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
 <div class="t" style="overflow-x:auto"><table>
+<caption>Tableau comparatif des dix concurrents</caption>
 <tr><th>Concurrent</th><th>Signe clé</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate et rang E</th></tr>
-<tr><td>DX.1 aigus</td><td>Les vomissements collent à la perfusion.</td><td>L'horaire par rapport au cytostatique tranche.</td><td>Le 5-HT3 porte le signal aigu.</td><td>On associe un anti-5-HT3 et un corticoïde. Sans rang E de létalité minute.</td></tr>
-<tr><td>DX.2 retardés</td><td>La plainte revient après la fin de la perfusion.</td><td>Le calendrier des jours suivants tranche.</td><td>Le signal se prolonge au-delà de l'aigu.</td><td>On poursuit souvent l'association par la bouche 3 à 5 jours. Sans rang E minute.</td></tr>
-<tr><td>DX.3 anticipés</td><td>La nausée précède l'injection.</td><td>L'avance sur l'heure de cure tranche.</td><td>Un conditionnement est en jeu.</td><td>On tient les premières cures et l'on discute une benzodiazépine. Sans rang E minute.</td></tr>
-<tr><td>DX.4 postopératoires</td><td>La plainte suit une anesthésie.</td><td>Le score d'Apfel estime le risque.</td><td>Plusieurs facteurs s'additionnent.</td><td>On discute la prémédication dès le score 1. Sans rang E minute.</td></tr>
-<tr><td>DX.5 chimiothérapie</td><td>Une cure est en cours ou prévue.</td><td>Le potentiel émétisant du produit tranche.</td><td>Le cytostatique active les afférences.</td><td>La prophylaxie commence au-dessus de 10 % de potentiel. Sans rang E minute.</td></tr>
-<tr><td>DX.6 personne âgée</td><td>L'âge élevé modifie le risque médicamenteux.</td><td>La liste des procinétiques tranche.</td><td>La dose haute de métoclopramide libère des effets extrapyramidaux.</td><td>On évite cette dose haute. Sans rang E minute.</td></tr>
-<tr><td>DX.7 iléus</td><td>Les gaz et les selles s'arrêtent, et le ventre se tend.</td><td>Le cliché d'abdomen debout montre des niveaux.</td><td>Le vague et les splanchniques portent l'obstacle.</td><td>🚩 E1 : sonde, eau et ions avant tout second antiémétique.</td></tr>
-<tr><td>DX.8 mal des transports</td><td>Le mouvement déclenche la plainte.</td><td>Le récit de trajet tranche, si l'abdomen est libre.</td><td>L'histamine et l'acétylcholine sont en jeu.</td><td>On choisit un antihistaminique disponible en Suisse. Sans rang E minute.</td></tr>
-<tr><td>DX.9 multifactorielles</td><td>Plusieurs causes tiennent ensemble une nausée qui dure.</td><td>Aucune cause unique ne suffit.</td><td>Les afférences s'additionnent.</td><td>On traite chaque cause retenue. Sans rang E minute.</td></tr>
-<tr><td>DX.10 échec du premier antiémétique</td><td>La plainte continue après une première molécule.</td><td>On revérifie la cause avant de changer de produit.</td><td>Le médicament ne corrige pas l'obstacle.</td><td>🚩 E2 : retour à la cause, surtout si E1 n'est pas exclu.</td></tr>
+<tr><td>DX.1 Effet indésirable médicamenteux</td><td>Début après un nouveau produit</td><td>Anamnèse médicamenteuse, digoxinémie si besoin</td><td>Zone gâchette</td><td>Discuter l’arrêt du produit</td></tr>
+<tr><td>DX.2 Gastro-entérite aiguë</td><td>Diarrhée, entourage atteint, fièvre modérée</td><td>Clinique ; coproculture si sévère</td><td>Vague, toxine</td><td>Réhydratation orale</td></tr>
+<tr><td>DX.3 Nausées et vomissements de la grossesse</td><td>Aménorrhée, pic vers la 9e semaine</td><td>Test de grossesse</td><td>Hormonal</td><td>Fractionner les repas ; cétonurie et poids</td></tr>
+<tr><td>DX.4 Nausées et vomissements postopératoires</td><td>Réveil d’anesthésie, opiacés</td><td>Score d’Apfel</td><td>Anesthésiques, opiacés</td><td>Prophylaxie selon le score</td></tr>
+<tr><td>DX.5 Nausées et vomissements de la chimiothérapie</td><td>Horaire par rapport à la cure</td><td>Potentiel émétisant du protocole</td><td>Sérotonine, substance P</td><td>Prophylaxie selon la cure</td></tr>
+<tr><td>DX.6 Atteinte vestibulaire</td><td>Vertige, nystagmus, mouvement</td><td>Examen vestibulaire</td><td>Acétylcholine, histamine</td><td>Antihistaminique</td></tr>
+<tr><td>DX.7 Gastroparésie</td><td>Satiété précoce, aliments de la veille</td><td>Scintigraphie de vidange après gastroscopie</td><td>Vidange ralentie</td><td>Équilibre glycémique, procinétique</td></tr>
+<tr><td>DX.8 Occlusion intestinale</td><td>Arrêt des gaz, distension, vomissements fécaloïdes</td><td>Imagerie abdominale</td><td>Distension</td><td>🚩 E2 : jeûne, sonde, chirurgien</td></tr>
+<tr><td>DX.9 Hypertension intracrânienne</td><td>Céphalée, vomissement en jet, déficit</td><td>Imagerie cérébrale</td><td>Voie centrale</td><td>🚩 E3 : urgences, neurochirurgie</td></tr>
+<tr><td>DX.10 Ischémie mésentérique aiguë</td><td>Douleur disproportionnée à l’examen</td><td>Angio-CT abdominal</td><td>Afférences viscérales</td><td>🚩 E1 : urgences, revascularisation</td></tr>
 </table></div>
-<div class="p">On ouvre par E1, l'iléus, parce qu'il se traite par la sonde, l'eau et les ions<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. E2 vient ensuite : l'échec du premier antiémétique renvoie à la cause encore active, et il ne cache pas E1<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les huit autres concurrents n'ont pas de rang de létalité minute. Ils se distinguent par l'horaire, le produit ou le terrain, or aucun ne se place devant l'arrêt de transit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">L'aigu se reconnaît au collage avec la perfusion, or l'anti-5-HT3 s'y associe à un corticoïde<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Cette association s'injecte trente minutes avant le cytostatique, et on respecte ce délai<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le retardé se poursuit souvent par la bouche durant 3 à 5 jours après une cure hautement émétisante<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. L'anticipé, lui, est un conditionnement, or les benzodiazépines le traitent<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le postopératoire se chiffre par Apfel, tandis que la chimiothérapie se chiffre par le potentiel du produit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Mélanger ces deux échelles, c'est prémédiquer une cure avec un score d'opération, ou l'inverse, et on l'évite.</div>
-<div class="p">Le sujet âgé concentre le risque extrapyramidal du métoclopramide à dose haute, et il le concentre surtout alors<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le mal des transports se traite par antihistaminique ou anticholinergique, hors glaucome à angle aigu<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Le tableau comparatif se lit en ligne, et chaque ligne répond à la même question : quel signe tranche. La dernière colonne dit le geste, puis le rang E s'il existe<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Prendre une gastro-entérite pour un iléus est le piège le plus coûteux, car les deux vomissent. Quand les gaz cessent, la sonde précède le médicament, et on ne l'inverse pas<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Si les gaz cessent, on traite l'arrêt.</div>
-<div class="p">Si le ventre se tend, la sonde s'impose.</div>
-<div class="p">Si la langue est sèche, l'eau passe devant.</div>
-<div class="p">Si la douleur est vive, on s'inquiète.</div>
-<div class="p">Si l'horaire colle, l'aigu est retenu.</div>
-<div class="p">Si la plainte précède, on discute l'anticipé.</div>
-<div class="p">Si le produit échoue, on reprend la cause.</div>
-<div class="p">Si plusieurs mécanismes coexistent, on refuse un rang.</div>
-<div class="p">Si le potentiel est haut, la prophylaxie s'écrit.</div>
-<div class="p">Si le QT est long, l'ondansétron s'exclut.</div>
-<div class="p">Quand les repas déclenchent, la gastroparésie se discute.</div>
-<div class="p">Quand les premières cures tiennent, l'anticipé se prévient.</div>
-<div class="p">Quand le côlon ralentit, on arrête le setron.</div>
-<div class="p">Quand l'apomorphine est présente, l'association s'interdit.</div>
-<div class="p">Quand le foie est atteint, la dose se plafonne.</div>
-<div class="p">Quand l'âge est élevé, on plafonne l'injection.</div>
-<div class="p">Quand la grossesse est connue, on diffère l'ondansétron.</div>
-<div class="p">Quand l'allaitement se poursuit, on choisit le sevrage.</div>
-<div class="p">Quand le glaucome est connu, l'anticholinergique s'écarte.</div>
-<div class="p">Quand le timbre manque, on choisit un autre produit.</div>
-<div class="p">Chez le sujet âgé, le procinétique se surveille.</div>
-<div class="p">Chez l'anxieux, la benzodiazépine se discute.</div>
-<div class="p">Chez l'opéré, le score oriente la prémédication.</div>
-<div class="p">Chez l'enfant, l'âge est décisif.</div>
-<div class="p">Après la perfusion, le retardé se poursuit.</div>
-<div class="p">Après l'échec, la cause se recherche encore.</div>
-<div class="p">Avant le cytostatique, l'association se prépare.</div>
-<div class="p">Avant l'injection, les ions se corrigent.</div>
-<div class="p">Sous une cure, le potentiel est décisif.</div>
-<div class="p">Dès le conditionnement, la prévention change.</div>
-<div class="p">Parmi les setrons, le palonosétron se distingue en cure.</div>
-<div class="p">Sans transit, le médicament attend.</div>
-<div class="p">Avec une hypersensibilité, le produit s'arrête.</div>
-<div class="p">Pourtant le ventre souple ne suffit pas.</div>
-<div class="p">Cependant la douleur violente compte, et elle tranche.</div>
-<div class="p">Or la gastro-entérite vomit aussi.</div>
-<div class="p">Hors Suisse, le timbre ne se copie pas.</div>
-<div class="p">Selon le temps, le médicament change.</div>
-<div class="p">Pendant la cure, l'horaire se date.</div>
-<div class="p">Entre deux produits, la cause se reprend.</div>
-<div class="p">Pour le mal des transports, l'antihistaminique suffit.</div>
-<div class="p">Face à un silence, on ausculte encore.</div>
-<div class="p">Dans la bouche, la sécheresse oriente.</div>
-<div class="p">Sur le cliché, les niveaux orientent.</div>
-<div class="p">Près du rachis, le repère reste médian.</div>
-<div class="p">Autour du bassin, le cadre se ferme.</div>
-<div class="p">Malgré la souplesse, l'occlusion vasculaire se garde.</div>
-<div class="p">Même un film pauvre laisse l'échec ouvert, et il le laisse.</div>
-<div class="p">Seul le gaz qui repasse rassure.</div>
-<div class="p">Aucun setron ne lève un obstacle, et il échoue.</div>
-<div class="p">Toute dose haute se surveille chez l'âgé.</div>
-<div class="p">Chaque drapeau change un geste, et il compte.</div>
-<div class="p">Ici la sonde précède le confort.</div>
-<div class="p">Là le corticoïde s'associe au setron.</div>
-<div class="p">Alors la benzodiazépine vise le conditionnement.</div>
-<div class="p">Ainsi la prophylaxie suit le potentiel.</div>
-<div class="p">Ensuite les boissons se fractionnent.</div>
-<div class="p">Enfin les gaz se réévaluent.</div>
-<div class="p">Déjà à un facteur, on discute seulement.</div>
-<div class="p">Encore après l'échec, E1 se revérifie.</div>
-<div class="p">Toujours les ions précèdent l'injection.</div>
-<div class="p">Jamais l'apomorphine ne s'associe au setron.</div>
-<div class="p">Parfois le syndrome sérotoninergique se signale.</div>
-<div class="p">Souvent les nausées durables s'additionnent.</div>
-<div class="p">Rarement le QT se néglige.</div>
-<div class="p">D'abord on cherche la cause.</div>
-<div class="p">Puis la sonde se pose si besoin.</div>
-<div class="p">Voilà pourquoi le film ne tranche pas seul, et il se complète.</div>
-<div class="p">Reste le contrôle des premières cures.</div>
-<div class="p">Vient ensuite la poursuite par la bouche.</div>
-<div class="p">Le timbre manque en Suisse, et il n'y est pas.</div>
-<div class="p">Compte le potentiel, pas le nom commercial.</div>
-<div class="p">Pèse l'observance quand la nausée dure.</div>
-<div class="p">Le collage avec la perfusion est le guide.</div>
-<div class="p">Écarte un pointeur qui n'est pas un calcul.</div>
-<div class="p">Confirme l'arrêt avant tout second produit.</div>
-<div class="p">Élimine l'obstacle avant de perfuser.</div>
-<div class="p">Indique la sonde dès que les gaz cessent.</div>
-<div class="p">On réserve le métoclopramide hors dose haute.</div>
-<div class="p">Contrôle le cœur si un setron est prévu.</div>
-<div class="p">Surveille la constipation sous anti-sérotonine.</div>
-<div class="p">Mesure le risque opératoire par le score.</div>
-<div class="p">On appelle la prophylaxie dès un potentiel notable.</div>
-<div class="p">Interdit le confort médicamenteux dans l'obstacle.</div>
-<div class="p">Répète l'examen si la douleur augmente.</div>
-<div class="p">On opère le tri par les gaz d'abord.</div>
-<div class="p">On s'adresse au geste digestif, non au réflexe.</div>
-<div class="p">Prescrit après la cause, jamais avant.</div>
-<div class="p">Confirme que les boissons sont reprises.</div>
-<div class="p">Vérifie que les vomissements ont cessé.</div>
-<div class="p">Note que les gaz sont revenus.</div>
-<div class="p">Garde E2 ouvert si le film est pauvre.</div>
-<div class="p">Ferme E1 seulement quand le transit reprend.</div>
-<div class="p">Sépare l'aigu du retardé par l'horloge.</div>
-<div class="p">On relie l'anticipé aux cures mal tenues.</div>
-<div class="p">Distingue le score opératoire du potentiel de cure.</div>
-<div class="p">On refuse de classer par le seul fardeau.</div>
-<div class="p">Accepte Ne rang quand l'ordre est gelé.</div>
-<div class="p">Quand les gaz ont cessé, que le ventre se tend et que la douleur monte, la sonde passe devant l'antiémétique, or un second produit ne répare pas l'arrêt<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Si la plainte colle à la perfusion, l'association d'un setron et d'un corticoïde se prépare avant le cytostatique, tandis que le temps qui se prolonge ensuite se poursuit souvent par la bouche<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Chez le sujet âgé, le métoclopramide à dose haute libère des effets extrapyramidaux, or on le surveille<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Ce terrain ne reçoit pas le timbre absent du marché suisse, et il s'en passe<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le glaucome à angle aigu écarte l'anticholinergique, et on le retient<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Après un premier échec, on retourne à la cause encore active, et l'on vérifie que l'arrêt de transit n'a pas été manqué, parce qu'empiler une molécule ne tient pas lieu de diagnostic<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Avant toute injection d'ondansétron, les déficits en potassium et en magnésium se corrigent, or le risque sur le QT existe déjà pour ce setron et pour le granisétron<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Sous une cure au potentiel élevé, la prophylaxie s'écrit tôt, tandis qu'un potentiel faible ne se traite pas comme un haut risque, et le minime se distingue encore de ces deux bandes<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Dès que les premières cures sont mal contrôlées, le conditionnement s'installe, et les benzodiazépines deviennent alors le traitement de ce temps qui précède l'injection<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Parmi les voies qui montent au centre, le vague et les splanchniques portent la gastroparésie, l'iléus et l'occlusion vasculaire, cependant chacune de ces causes garde son geste propre<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Sans préparation et sans injection, le cliché debout montre des anses larges et des niveaux, en revanche il ne sépare pas à lui seul un arrêt fonctionnel d'un obstacle<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Avec l'apomorphine, Ondansetron Accord® est contre-indiqué, et l'hypotension comme la perte de connaissance font partie de cet interdit, donc l'association ne se tente pas<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Pendant la grossesse, l'ondansétron n'est pas le réflexe de confort, et l'allaitement conduit à ne pas traiter ou à sevrer, selon l'information professionnelle suisse<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Entre le score qui estime le risque opératoire et le potentiel qui classe la cure, les seuils ne s'échangent pas, or prémédiquer l'un avec l'échelle de l'autre trompe le geste<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Pour les nausées qui durent, plusieurs mécanismes s'additionnent souvent, ce qui interdit un rang unique, tandis que le geste le plus dangereux, l'arrêt de transit, garde la priorité<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Face à une constipation sous setron, on prévient le malade, et l'on surveille aussi les céphalées et l'asthénie, cependant un arrêt de transit apparu après la dose fait revoir la cause<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Dans le thorax, l'auscultation cherche un rythme déjà fragile avant d'ajouter un setron qui allonge le QT, et elle n'est pas un rite détaché de cette décision<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Sur un abdomen tympanique et silencieux, la sonde se discute, tandis qu'un intervalle trop court ne se baptise pas silence, et la palpation ne précède pas l'écoute<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Près d'une marque de coin ou d'un pointeur, on ne lit pas une calcification, or ces artefacts se retirent de la liste des niveaux avant de conclure<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Malgré un abdomen encore souple, une douleur très vive garde son rang, et l'occlusion vasculaire ne se rassure pas sur cette souplesse du début<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Même lorsque les boissons sont reprises et que les vomissements ont cessé, la sortie attend que les gaz repassent et que le plan de la cure suivante soit écrit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Seul le contrôle des premières cures empêche le conditionnement de s'installer, et les benzodiazépines traitent le temps déjà installé, or les deux gestes ne se remplacent pas<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Aucun pourcentage de population ne classe les dix concurrents, cependant ces taux enseignent le fardeau, et l'ordre gelé reste celui de la liste, avec Ne rang sur chaque ligne<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Toute poursuite après une cure très émétisante se fait souvent par la bouche pendant quelques jours, tandis que l'aigu, lui, se joue avant le cytostatique<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Chaque famille d'antiémétique vise un messager, et les corticoïdes comme les benzodiazépines s'y ajoutent selon le temps ou l'anxiété, or le choix suit la cause<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
-<div class="p">Ici la dompéridone reste périphérique, le métoclopramide est procinétique, et la dexaméthasone est le corticoïde qu'on retient le plus souvent, tandis que le midazolam se réserve à l'anxieux<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Là où le palonosétron dépasse les autres setrons, c'est pendant la cure, en revanche cet avantage ne s'étend pas, de façon démontrée, au lendemain d'une opération<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
+<div class="p">Le tableau se lit en ligne, et la dernière colonne dit le geste. Les trois badges rouges ne sont pas les plus fréquents ; ils sont simplement ceux qu’on ne rattrape pas si on les manque<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
+<div class="p">Pour le rang E2, une occlusion du grêle ou du côlon peut naître d’adhérences, d’une tumeur, d’un volvulus ou d’une invagination<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>. Quand s’y ajoutent vomissements fécaloïdes, arrêt des gaz et distension, le diagnostic se précise, et ces signes figurent parmi les symptômes d’alarme suisses.</div>
+<div class="p">L’hypertension intracrânienne prend le rang E3, car l’engagement peut suivre une hémorragie ou une tumeur ; elle se dépiste à l’examen neurologique avant toute imagerie<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
 </section>
 <section class="ilot" id="p5">
 <h3><strong>5. Anamnèse ciblée et drapeaux rouges</strong></h3>
-<div class="p">Chaque question cherche une cause, parce que l'antiémétique ne vient qu'après cette recherche<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. On date le début, le lien avec un repas, une cure, une opération ou un trajet.</div>
-<div class="p">On demande si les gaz et les selles passent encore, car leur arrêt oriente vers l'iléus<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. On demande l'heure par rapport au cytostatique, afin de séparer l'aigu, le retardé et l'anticipé<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">On relève les médicaments déjà pris, surtout un procinétique, un anti-5-HT3 ou une benzodiazépine<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. On demande un glaucome à angle aigu avant tout anticholinergique, parce que ces produits y sont évités<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">On cherche une grossesse avant l'ondansétron, car son usage n'y est pas recommandé<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. On cherche un QT long connu, une hypokaliémie ou une prise d'apomorphine, puisque ces trois situations changent la spécialité<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
+<div class="p">Chaque question cherche une cause, puisque l’antiémétique ne vient qu’après cette recherche<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. On date le début, on décrit le contenu vomi et on note le lien avec un repas, une cure, une opération, un trajet ou une prise médicamenteuse.</div>
+<div class="p">La liste des médicaments se dresse en entier, y compris l’automédication. Opiacés, érythromycine, aminosides, colchicine, lévodopa et chimiothérapies donnent des vomissements aigus, tandis que digoxine et théophylline en excès les entretiennent<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
+<div class="p">On demande la date des dernières règles et l’éventualité d’une grossesse ; la réponse change à elle seule le choix du traitement<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. On s’enquiert aussi d’un diabète ancien, d’une chirurgie abdominale passée ou d’une hernie connue.</div>
+<div class="p">Les gaz et les selles passent-ils encore ? Si leur arrêt s’accompagne d’un ventre qui gonfle, on pense à l’occlusion ; leur présence ne l’exclut pas au tout début.</div>
+<div class="p">On interroge enfin sur la céphalée, les troubles visuels, le vertige et la somnolence, car la voie centrale ne se devine pas à l’examen du ventre<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
 <div class="t" style="overflow-x:auto"><table>
+<caption>Drapeaux rouges : signification et action</caption>
 <tr><th>Drapeau rouge</th><th>Signification</th><th>Action immédiate</th></tr>
-<tr><td>Les gaz ne passent plus et le ventre se tend.</td><td>Ce drapeau évoque l'iléus, E1.</td><td>On pose une sonde, on réhydrate et l'on corrige les ions<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>Une douleur abdominale intense accompagne le vomissement.</td><td>L'occlusion vasculaire figure parmi les stimuli digestifs à chercher.</td><td>On ne couvre pas ce tableau avec un antiémétique seul<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>Le malade a déjà reçu un antiémétique et vomit encore.</td><td>C'est E2, l'échec du premier produit.</td><td>On retourne à la cause avant une seconde molécule<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>Un QT long congénital est connu.</td><td>L'ondansétron allonge le QT.</td><td>La spécialité est contre-indiquée<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</td></tr>
-<tr><td>Le malade reçoit de l'apomorphine.</td><td>L'association a donné hypotension et perte de conscience.</td><td>L'association est contre-indiquée<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</td></tr>
-<tr><td>Un glaucome à angle aigu est connu.</td><td>Les anticholinergiques y sont dangereux.</td><td>On les évite<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</td></tr>
+<tr><td>Douleur abdominale brutale, intense, disproportionnée à l’examen</td><td>Ischémie mésentérique, E1</td><td>Urgences et angio-CT abdominal<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup></td></tr>
+<tr><td>Arrêt des gaz, distension, vomissements fécaloïdes</td><td>Occlusion intestinale, E2</td><td>Urgences, jeûne et sonde gastrique<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup></td></tr>
+<tr><td>Céphalée, vomissement en jet, déficit neurologique focal</td><td>Hypertension intracrânienne, E3</td><td>Urgences et imagerie cérébrale<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup></td></tr>
+<tr><td>Hématémèse, méléna ou hématochézie</td><td>Hémorragie digestive</td><td>Urgences, voie veineuse, endoscopie<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup></td></tr>
+<tr><td>Déshydratation, acidose ou abdomen aigu</td><td>Évolution compliquée</td><td>Bilan complémentaire et réhydratation<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup></td></tr>
+<tr><td>Perte de poids, dysphagie progressive, âge au-delà de 50 ans</td><td>Cause organique chronique</td><td>Gastroscopie programmée<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup></td></tr>
 </table></div>
-<button class="w" type="button" popovertarget="f-drap">lire un drapeau</button>
+<button class="w" type="button" popovertarget="f-drap">trier un drapeau rouge</button>
 <div id="f-drap" class="fenetre" popover>
-<div class="p">Un drapeau n'est pas un commentaire : il impose un geste<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. L'arrêt des gaz impose la sonde, et le QT long impose de ne pas donner l'ondansétron<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Le piège d'examen est de collectionner les symptômes sans en tirer l'action. Si le drapeau est présent, le geste part avant le résultat d'un examen de confort.</div>
+<button class="fermer" type="button" popovertarget="f-drap" popovertargetaction="hide">Fermer</button>
+<h5>Du drapeau au geste</h5>
+<svg class="schema" viewBox="0 0 320 401" role="img" aria-label="Tri d&#x27;un drapeau rouge">
+<rect x="4" y="6" width="312" height="77" rx="10" fill="#fdf6f0"/>
+<text x="18" y="31" font-size="15" font-weight="700" fill="#161616">Douleur disproportionnée</text>
+<text x="18" y="52" font-size="15" fill="#161616">E1 : urgences, angio-CT</text>
+<text x="18" y="73" font-size="15" fill="#161616">abdominal</text>
+<path d="M152 87 L168 87 L160 99 Z" fill="#53327b"/>
+<rect x="4" y="103" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="128" font-size="15" font-weight="700" fill="#161616">Arrêt des gaz, distension</text>
+<text x="18" y="149" font-size="15" fill="#161616">E2 : urgences, jeûne, sonde,</text>
+<text x="18" y="170" font-size="15" fill="#161616">chirurgien</text>
+<path d="M152 184 L168 184 L160 196 Z" fill="#53327b"/>
+<rect x="4" y="200" width="312" height="77" rx="10" fill="#efe8f6"/>
+<text x="18" y="225" font-size="15" font-weight="700" fill="#161616">Céphalée, déficit focal</text>
+<text x="18" y="246" font-size="15" fill="#161616">E3 : urgences, imagerie</text>
+<text x="18" y="267" font-size="15" fill="#161616">cérébrale</text>
+<path d="M152 281 L168 281 L160 293 Z" fill="#53327b"/>
+<rect x="4" y="297" width="312" height="98" rx="10" fill="#f8f3fc"/>
+<text x="18" y="322" font-size="15" font-weight="700" fill="#161616">Aucun drapeau, patient qui boit</text>
+<text x="18" y="343" font-size="15" fill="#161616">Cabinet : cause, réhydratation</text>
+<text x="18" y="364" font-size="15" fill="#161616">orale, test de grossesse si</text>
+<text x="18" y="385" font-size="15" fill="#161616">besoin</text>
+</svg>
+<div class="p">Un drapeau impose un geste et un lieu : la douleur disproportionnée envoie aux urgences pour un angio-CT, l’arrêt des gaz pour une sonde et un avis chirurgical<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>. Ainsi, le cabinet ne garde que le patient sans drapeau, capable de boire.</div>
+<div class="p">Le piège est de collectionner les symptômes sans en tirer l’action. Quand le drapeau est présent, on n’attend pas le résultat d’un examen de confort.</div>
 </div>
-<div class="p">L'horaire est la première question, or il sépare l'aigu, le retardé et l'anticipé<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. On date l'épisode par rapport à la perfusion, et l'on ne se fie pas au seul mot nausée.</div>
-<div class="p">Les gaz sont le second repère. S'ils ne passent plus, l'iléus passe devant le médicament<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le ventre tendu renforce ce rang, tandis qu'un ventre souple ne l'efface pas si la douleur est violente<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La liste des produits déjà pris est une question à part. Un procinétique, un anti-5-HT3 ou une benzodiazépine change la suite, or on en tient compte<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le glaucome à angle aigu se demande avant tout anticholinergique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">La grossesse se demande avant l'ondansétron, car ce produit n'est pas le premier réflexe dans cet état<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. L'âge se demande aussi, puisque, dès 75 ans, on plafonne la première dose injectée<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Le potentiel émétisant de la cure est une question de chimiothérapie, et il ne se confond pas avec le score d'Apfel<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Un potentiel au-dessus de 10 % ouvre déjà une prophylaxie, et elle s'impose alors<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les drapeaux se lisent comme des bifurcations, et non comme une liste à cocher. Chaque drapeau change un geste, or un drapeau sans geste est une case vide<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">L'échec d'un premier antiémétique est lui-même un drapeau. Il renvoie à la cause, et il ne justifie pas d'empiler une seconde molécule tant que E1 n'est pas écarté<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">Le récit de la patiente enceinte mérite une question précise sur l’intensité, car le seuil de gravité est chiffré. Des vomissements de 5 à 10 fois par jour, une perte de poids et une cétonurie font passer de la nausée banale à l’hyperémèse<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>.</div>
+<div class="p">Chez le patient sous chimiothérapie, l’horaire se note par rapport au cytostatique. Avant la perfusion, on parle de vomissement anticipé ; dans les vingt-quatre premières heures, de vomissement aigu ; ensuite, de vomissement tardif<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>.</div>
 </section>
 <section class="ilot" id="p6">
 <h3><strong>6. Examen physique ciblé, région par région</strong></h3>
-<h4>Bouche et tête</h4>
-<div class="p">La bouche normale est humide, et la langue sèche signe des apports qui ne couvrent plus les pertes. On regarde les muqueuses avant de conclure à une simple nausée de trajet, parce que la sécheresse change la priorité vers l'eau et les ions<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<h4>Cou et thorax</h4>
-<div class="p">Le cou et le thorax se palpent et s'auscultent pour ne pas manquer une détresse qui accompagne le vomissement. Le cœur s'écoute surtout si un anti-5-HT3 est envisagé, car l'ondansétron et le granisétron allongent le QT<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
+<h4>État général et hydratation</h4>
+<div class="p">On mesure d’abord le pouls, la tension, la température et le poids. Une muqueuse sèche, un pli cutané persistant et une tachycardie traduisent la perte hydrique, et ils imposent la réhydratation avant tout médicament<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
 <h4>Abdomen</h4>
-<div class="p">L'abdomen normal est souple, et les bruits hydro-aériques sont présents. Le ventre tendu, tympanique et silencieux oriente vers l'iléus, donc la sonde se discute dès ce constat<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La valeur de ce geste est d'écarter E1 avant le médicament. Or Le piège est un ventre encore souple au tout début d'une occlusion vasculaire : l'intensité de la douleur, elle, ne se rassure pas sur un abdomen encore libre<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<h4>Peau, membres et examen neurologique</h4>
-<div class="p">La peau se pince pour juger la souplesse cutanée, et un pli qui persiste accompagne les pertes. Les membres se regardent si un métoclopramide à dose haute a été donné, parce que les effets extrapyramidaux s'y voient, surtout chez le sujet âgé<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">L'examen neurologique cherche une agitation ou une rigidité nouvelle, or il la rattache à un antidopaminergique récent. Il ne remplace pas la question du glaucome avant un anticholinergique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<button class="w" type="button" popovertarget="f-abd">geste sur l'abdomen</button>
+<div class="p">On inspecte, on ausculte, on percute, puis on palpe. Un ventre distendu, tympanique, avec des bruits rares ou métalliques évoque l’occlusion, et les orifices herniaires se palpent toujours<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">Le signe qui sauve reste la discordance : une douleur intense alors que la palpation est presque normale doit faire penser à l’ischémie mésentérique<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>. Une défense ou une contracture, plus tardive, signe déjà la souffrance pariétale.</div>
+<h4>Tête, yeux et examen neurologique</h4>
+<div class="p">La raideur de nuque, la conscience, les pupilles et un déficit focal se cherchent chez tout patient qui vomit avec une céphalée<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. Le fond d’œil complète l’examen quand on suspecte une hypertension intracrânienne.</div>
+<div class="p">Un nystagmus spontané, aggravé par les mouvements de la tête, oriente vers le vestibule. On le distingue d’une atteinte cérébelleuse, qui figure elle aussi au tableau suisse des causes neurologiques<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
+<h4>Terrain : grossesse et diabète</h4>
+<div class="p">Chez la femme enceinte, on pèse la patiente et l’on cherche une cétonurie, car une perte de plus de 5 % du poids avec cétonurie définit l’hyperémèse<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>. Une déshydratation franche, ou une acidose au gaz du sang, impose alors une évaluation hospitalière<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</div>
+<div class="p">Chez le diabétique de type 1 qui vomit ses repas, on pense à la gastroparésie, puisque 20 à 40 % de ces patients la développent<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>. Si une sclérodermie ou une vagotomie figure dans l’histoire, l’hypothèse se renforce<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
+<h4>Cœur, thorax et peau</h4>
+<div class="p">L’auscultation cardiaque et l’ECG ne sont pas un rite : un infarctus de la paroi postérieure peut se présenter par des nausées seules<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>. Un ictère, enfin, oriente vers la colique biliaire ou l’hépatite.</div>
+<button class="w" type="button" popovertarget="f-abd">examiner un abdomen qui vomit</button>
 <div id="f-abd" class="fenetre" popover>
-<div class="p">On regarde, on percute, puis on ausculte, et l'on ne palpe en dernier que si la défense n'est pas évidente. Le silence et le tympanisme ensemble orientent vers l'arrêt de transit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le piège est d'ausculter trop brièvement et d'appeler silence un simple intervalle. On prend le temps d'entendre, ou l'on ne conclut pas.</div>
+<button class="fermer" type="button" popovertarget="f-abd" popovertargetaction="hide">Fermer</button>
+<h5>L’ordre du geste abdominal</h5>
+<svg class="schema" viewBox="0 0 320 380" role="img" aria-label="Ordre de l&#x27;examen abdominal">
+<rect x="4" y="6" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="31" font-size="15" font-weight="700" fill="#161616">1. Inspecter</text>
+<text x="18" y="52" font-size="15" fill="#161616">Distension, cicatrices, hernie</text>
+<text x="18" y="73" font-size="15" fill="#161616">visible</text>
+<path d="M152 87 L168 87 L160 99 Z" fill="#53327b"/>
+<rect x="4" y="103" width="312" height="56" rx="10" fill="#efe8f6"/>
+<text x="18" y="128" font-size="15" font-weight="700" fill="#161616">2. Ausculter</text>
+<text x="18" y="149" font-size="15" fill="#161616">Bruits rares ou métalliques</text>
+<path d="M152 163 L168 163 L160 175 Z" fill="#53327b"/>
+<rect x="4" y="179" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="204" font-size="15" font-weight="700" fill="#161616">3. Percuter</text>
+<text x="18" y="225" font-size="15" fill="#161616">Tympanisme de la distension</text>
+<text x="18" y="246" font-size="15" fill="#161616">gazeuse</text>
+<path d="M152 260 L168 260 L160 272 Z" fill="#53327b"/>
+<rect x="4" y="276" width="312" height="98" rx="10" fill="#fdf6f0"/>
+<text x="18" y="301" font-size="15" font-weight="700" fill="#161616">4. Palper en dernier</text>
+<text x="18" y="322" font-size="15" fill="#161616">Défense, orifices herniaires ;</text>
+<text x="18" y="343" font-size="15" fill="#161616">douleur forte et ventre souple</text>
+<text x="18" y="364" font-size="15" fill="#161616">: penser ischémie</text>
+</svg>
+<div class="p">On regarde la distension et les cicatrices, on écoute avant de toucher, puis on percute à la recherche du tympanisme. La palpation vient en dernier, avec les orifices herniaires, car une hernie étranglée est une cause d’occlusion facile à manquer<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">Le piège est de se rassurer sur un ventre souple. Au début d’une ischémie, la palpation reste pauvre alors que le patient souffre beaucoup<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
 </div>
-<div class="p">Les muqueuses sont le premier terrain visible. Une langue sèche oriente vers l'eau, et elle précède l'antiémétique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Conclure à un mal des transports devant une bouche sèche, c'est manquer les pertes, et on les cherche d'abord.</div>
-<div class="p">Le cou est palpé afin de ne pas laisser passer une détresse liée au vomissement. Le thorax s'ausculte dans le même temps, or le cœur s'écoute si un anti-5-HT3 est envisagé<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">L'ondansétron et le granisétron allongent le QT, donc l'auscultation n'est pas un rite<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Elle cherche un rythme déjà fragile avant d'ajouter ce risque.</div>
-<div class="p">L'abdomen est souple dans la situation ordinaire, or les bruits hydro-aériques sont présents. Un ventre tendu, tympanique et silencieux oriente vers l'iléus, et la sonde se discute dès ce constat<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le silence seul n'est pas un diagnostic, et il ne suffit pas. Il se confronte au tympanisme et à l'arrêt des gaz, car un intervalle trop court mime le silence<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. On écoute assez longtemps pour ne pas baptiser silence une pause.</div>
-<div class="p">Une occlusion vasculaire peut laisser le ventre encore souple au début. L'intensité de la douleur n'est pas rassurée par cette souplesse, or elle garde le rang de gravité<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La peau se pince pour juger les pertes, et un pli qui persiste accompagne la déshydratation. Les membres se regardent si un métoclopramide à dose haute a été donné, surtout chez le sujet âgé<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Une rigidité nouvelle ou une agitation après un antidopaminergique est un effet extrapyramidal, or elle se rattache au produit<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Cet examen ne remplace pas la question du glaucome avant un anticholinergique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">L'ordre du geste abdominal est regarder, percuter, ausculter, puis palper si la défense n'est pas déjà évidente. Palper d'abord un ventre de défense, c'est brouiller le signe que l'on cherchait<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
 </section>
 <section class="ilot" id="p7">
 <h3><strong>7. Approche syndromique</strong></h3>
-<h4>7.1 Syndrome émétique lié au cytostatique</h4>
-<div class="p">Les signes fonctionnels sont la nausée, puis les vomissements, puis le refus de boire. Les signes physiques sont une langue sèche et un abdomen encore souple, si aucune occlusion ne s'y ajoute<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">La nausée se définit comme le besoin désagréable d'expulser, et on la fait préciser dans le temps<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Le geste est de dater l'épisode par rapport à la perfusion, parce que l'aigu, le retardé et l'anticipé ne se traitent pas de la même façon<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le mécanisme de l'aigu passe par le 5-HT3, donc l'anti-5-HT3 et le corticoïde arrivent trente minutes avant le cytostatique<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Le mécanisme de l'anticipé est un conditionnement, et l'on le traite par benzodiazépines<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<h4>7.2 Syndrome d'arrêt de transit</h4>
-<div class="p">Les signes fonctionnels sont l'arrêt des gaz, l'arrêt des selles et des vomissements qui soulagent peu. Or Les signes physiques sont un ventre tendu, tympanique et pauvre en bruits<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">L'iléus se recherche par ces trois signes ensemble, et le geste suivant est la sonde. Le mécanisme est l'afférence vagale et splanchnique, donc un antiémétique seul ne lève pas l'obstacle<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La gastroparésie partage la nausée des repas, cependant les gaz passent encore. L'occlusion vasculaire partage la douleur, or le ventre peut rester souple au début, ce qui ne rassure pas<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<button class="w" type="button" popovertarget="f-syn">deux syndromes à ne pas fusionner</button>
+<h4>7.1 Syndrome occlusif</h4>
+<div class="p">Les signes fonctionnels associent douleur en crampes, vomissements de plus en plus fécaloïdes et arrêt des matières et des gaz. À l’examen, l’abdomen est distendu et tympanique, avec des cicatrices ou une hernie qui orientent la cause<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">Le mécanisme est une distension en amont d’un obstacle, qui irrite les afférences vagales et splanchniques<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>. Le geste immédiat est donc le jeûne, la réhydratation intraveineuse et la sonde gastrique, avant tout antiémétique.</div>
+<div class="p">Ce syndrome rassemble l’occlusion mécanique, l’iléus réflexe et, au stade tardif, l’ischémie, puis la nécrose. La douleur continue et la fièvre font craindre la strangulation, qui relève du chirurgien.</div>
+<h4>7.2 Syndrome vestibulaire aigu</h4>
+<div class="p">Un vertige rotatoire, des nausées intenses, une instabilité et un nystagmus forment ce syndrome. Le mouvement l’aggrave, alors le patient se tient immobile, les yeux fermés<sup class="r"><a href="#sb-rms2017-6">[6]</a></sup>.</div>
+<div class="p">Le message vestibulaire utilise l’acétylcholine et l’histamine, ce qui explique l’efficacité de la diphenhydramine ou du dimenhydrinate<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le piège reste l’accident cérébelleux, qui mime ce tableau et impose un examen neurologique soigneux.</div>
+<div class="p">Le vertige positionnel paroxystique bénin, une maladie de Ménière ou le mal des transports irritent le labyrinthe et produisent le même tableau<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>. On les sépare alors par l’histoire : déclenchement par la position, crises avec acouphènes ou trajet en voiture.</div>
+<h4>7.3 Syndrome d’hypertension intracrânienne</h4>
+<div class="p">Céphalée matinale, vomissements soudains et troubles de la conscience composent la triade d’alarme. Le vomissement y survient souvent sans nausée préalable, ce qui le distingue d’une cause digestive<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">Lorsque la céphalée est brutale, l’hémorragie sous-arachnoïdienne entre dans la discussion ; si la raideur de nuque s’accompagne de fièvre, on craint la méningite<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. Dès qu’un processus intracrânien aigu est suspecté, le CT de la tête devient l’examen indiqué<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</div>
+<button class="w" type="button" popovertarget="f-syn">occlusif, vestibulaire ou central</button>
 <div id="f-syn" class="fenetre" popover>
-<div class="p">Fusionner les deux syndromes conduit à perfuser un anti-5-HT3 dans un intestin arrêté<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. L'ondansétron ralentit encore le côlon, donc le syndrome d'arrêt se reconnaît avant le syndrome de cure.</div>
-<div class="p">Le piège est un malade sous chimiothérapie qui, en plus, ne passe plus les gaz. On traite alors l'iléus d'abord, et la prophylaxie de cure ensuite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<button class="fermer" type="button" popovertarget="f-syn" popovertargetaction="hide">Fermer</button>
+<h5>Trois syndromes qui ne se fusionnent pas</h5>
+<svg class="schema" viewBox="0 0 320 325" role="img" aria-label="Trois syndromes et leur geste">
+<rect x="4" y="6" width="312" height="98" rx="10" fill="#f8f3fc"/>
+<text x="18" y="31" font-size="15" font-weight="700" fill="#161616">7.1 Occlusif</text>
+<text x="18" y="52" font-size="15" fill="#161616">Arrêt des gaz, distension,</text>
+<text x="18" y="73" font-size="15" fill="#161616">vomissements fécaloïdes :</text>
+<text x="18" y="94" font-size="15" fill="#161616">sonde et chirurgien</text>
+<path d="M152 108 L168 108 L160 120 Z" fill="#53327b"/>
+<rect x="4" y="124" width="312" height="77" rx="10" fill="#efe8f6"/>
+<text x="18" y="149" font-size="15" font-weight="700" fill="#161616">7.2 Vestibulaire</text>
+<text x="18" y="170" font-size="15" fill="#161616">Vertige rotatoire, nystagmus :</text>
+<text x="18" y="191" font-size="15" fill="#161616">antihistaminique</text>
+<path d="M152 205 L168 205 L160 217 Z" fill="#53327b"/>
+<rect x="4" y="221" width="312" height="98" rx="10" fill="#fdf6f0"/>
+<text x="18" y="246" font-size="15" font-weight="700" fill="#161616">7.3 Central</text>
+<text x="18" y="267" font-size="15" fill="#161616">Céphalée, vomissement en jet</text>
+<text x="18" y="288" font-size="15" fill="#161616">sans nausée : imagerie</text>
+<text x="18" y="309" font-size="15" fill="#161616">cérébrale</text>
+</svg>
+<div class="p">Chaque syndrome a son geste : la sonde pour l’occlusion, l’antihistaminique pour le vestibule, l’imagerie cérébrale pour la voie centrale<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. Les mélanger conduit à calmer un vomissement dont la cause continue d’évoluer.</div>
+<div class="p">Le piège typique est le patient sous chimiothérapie qui ne passe plus les gaz. On traite alors l’occlusion d’abord, et la prophylaxie de la cure ensuite<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
 </div>
-<div class="p">Le syndrome de cure et le syndrome d'arrêt ne se fusionnent pas. Le premier se date sur la perfusion, tandis que le second se date sur les gaz<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Les gaz qui cessent font passer la sonde avant le setron<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Dans le syndrome de cure, la langue peut être sèche et l'abdomen encore souple, tant qu'aucune occlusion ne s'y mêle<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Or La souplesse n'autorise pas, pour autant, à ignorer un arrêt de transit concomitant.</div>
-<div class="p">L'aigu de ce syndrome passe par le 5-HT3, donc le setron et le corticoïde s'injectent trente minutes avant le cytostatique<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Le retardé, lui, se continue souvent 3 à 5 jours, et la voie devient orale<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">L'anticipé est un conditionnement, et les benzodiazépines le traitent<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. La prévention la plus solide reste le contrôle des premières cures, or un échec initial installe le réflexe<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Dans le syndrome d'arrêt, la sonde, l'eau et les ions sont le traitement, et, si les symptômes persistent, l'antiémétique se discute ensuite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Perfuser un anti-5-HT3 dans un intestin arrêté ralentit encore le côlon<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Les deux syndromes peuvent coexister chez le même malade opéré d'une tumeur. On tranche alors par les gaz et par le ventre, et non par le seul fait qu'une cure a eu lieu<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Tenir les deux syndromes dans des paragraphes séparés évite de mêler leurs gestes. Le geste de l'un aggrave l'autre si l'on inverse l'ordre<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
 </section>
 <section class="ilot" id="p8">
 <h3><strong>8. Diagnostic positif et critères</strong></h3>
-<div class="p">Le symptôme est positif dès que le malade décrit un besoin désagréable de vomir, ou dès qu'une expulsion est observée<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Cela ne suffit pas à nommer la cause, et les critères de temps datent de 2002<sup class="r"><a href="#sb-rms2002-1">[4]</a></sup>.</div>
-<div class="p">L'aigu est retenu quand les vomissements suivent le cytostatique, le retardé quand ils se prolongent ensuite, et l'anticipé quand ils précèdent l'injection<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Un seul de ces temps ne suffit pas si les gaz sont arrêtés : l'iléus prend alors le pas<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le score d'Apfel n'est pas un diagnostic, or il estime un risque. Un score de 1 correspond à 21 %, et un score de 2 correspond à 39 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le potentiel émétisant classe la cure, et il ne classe pas le malade. Le haut risque dépasse 90 %, et le risque modéré s'étend de 30 jusqu'à 90 %, ce qui les distingue<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le risque faible occupe 10 à 30 %, tandis que le minime demeure inférieur à 10 %, et il y reste<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">Le symptôme est positif dès que le patient décrit une envie déplaisante de vomir ou qu’une expulsion est observée<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Ce constat ne nomme pas la cause ; il ouvre simplement la liste des dix concurrents.</div>
+<div class="p">La durée classe le tableau, car on parle d’aigu en dessous d’une semaine et de chronique au-delà d’un mois, selon la revue suisse de 2020<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. Entre les deux, on reste dans la zone d’enquête, sans étiquette définitive.</div>
+<div class="p">Sous chimiothérapie, la Revue médicale suisse de 2002 a fixé trois temps qui restent valides<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>. Ainsi, l’aigu couvre le premier jour, le tardif se prolonge jusqu’à la fin de la première semaine, et l’anticipé précède le cytostatique<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>.</div>
+<div class="p">La revue suisse plus récente confirme ce découpage, puisque la nausée aiguë survient avant 24 h et la retardée au-delà de 24 à 48 h<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. La fin de la perfusion ne fait donc pas la frontière ; c’est l’horloge depuis le cytostatique qui compte.</div>
+<div class="p">Pour la grossesse, l’hyperémèse se reconnaît à trois critères cliniques réunis : vomissements persistants, perte de poids de plus de 5 % et cétonurie<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>.</div>
+<div class="p">Le score d’Apfel, enfin, n’établit aucun diagnostic. Il prédit le risque postopératoire à partir de quatre facteurs, de moins de 1 % sans facteur à 79 % avec les quatre<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</div>
 <div class="t" style="overflow-x:auto"><table>
-<tr><th>Critère</th><th>Ce qui suffit</th><th>Ce qui ne suffit pas</th></tr>
-<tr><td>Le besoin désagréable de vomir est décrit.</td><td>Le symptôme nausée est positif.</td><td>La cause reste à nommer<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</td></tr>
-<tr><td>Les vomissements suivent le cytostatique.</td><td>Le temps aigu est retenu.</td><td>L'iléus n'est pas exclu par ce seul horaire<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</td></tr>
-<tr><td>Les vomissements précèdent l'injection.</td><td>L'anticipé, donc le conditionnement, est retenu.</td><td>Une benzodiazépine ne remplace pas le contrôle des premières cures<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</td></tr>
-<tr><td>Les gaz sont arrêtés et le ventre se tend.</td><td>L'iléus est le diagnostic à traiter d'abord.</td><td>Un antiémétique ne tient pas lieu de sonde<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>Le score d'Apfel vaut 2.</td><td>Le risque postopératoire atteint 39 % et la prémédication s'introduit.</td><td>Le score ne nomme pas la molécule à la place de l'information suisse<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
+<caption>Critères datés et ce qu’ils permettent</caption>
+<tr><th>Critère</th><th>Source et année</th><th>Ce qui suffit</th><th>Ce qui ne suffit pas</th></tr>
+<tr><td>Envie de vomir décrite ou vomissement observé</td><td>Revue médicale suisse, 2017</td><td>Le symptôme est affirmé</td><td>La cause reste à nommer</td></tr>
+<tr><td>Durée de moins d’une semaine ou de plus d’un mois</td><td>Revue suisse, 2020</td><td>Le tableau est aigu ou chronique</td><td>La gravité n’est pas jugée</td></tr>
+<tr><td>Vomissement dans les 24 premières heures après la cure</td><td>Revue médicale suisse, 2002</td><td>Le temps aigu est retenu<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup></td><td>Une occlusion n’est pas exclue</td></tr>
+<tr><td>Vomissement du 2e au 7e jour</td><td>Revue médicale suisse, 2002</td><td>Le temps tardif est retenu<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup></td><td>La cure suivante reste à protéger</td></tr>
+<tr><td>Vomissements persistants, perte de plus de 5 %, cétonurie</td><td>Forum Médical Suisse, 2010</td><td>L’hyperémèse est retenue<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup></td><td>Une autre cause n’est pas exclue</td></tr>
+<tr><td>Score d’Apfel de 2</td><td>Revue médicale suisse, 2017</td><td>Le risque atteint 39 % et la prophylaxie s’introduit<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup></td><td>Le score ne nomme pas la molécule</td></tr>
 </table></div>
-<div class="p">Le diagnostic positif de l'aigu est un horaire, et il n'est pas un dosage. Le vomissement colle à la perfusion, or c'est ce collage qui appelle l'association anti-5-HT3 et corticoïde<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le diagnostic positif du retardé est la poursuite après la perfusion. Or Après une cure très émétisante, on prolonge souvent l'association 3 à 5 jours, par voie orale<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le diagnostic positif de l'anticipé est l'apparition avant le cytostatique. C'est un réflexe conditionné, or les benzodiazépines le prennent en charge<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Le diagnostic positif du postopératoire est le score d'Apfel, or ces pourcentages datent de 2017<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Un score de 1 annonce 21 % de risque, et il n'annonce pas la même chose qu'un score de 2, soit 39 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le diagnostic positif de la chimiothérapie, comme groupe, est la cure elle-même, cependant la conduite suit le potentiel. Au-dessus de 10 %, une prophylaxie commence, et on l'écrit<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Au-dessus de 90 %, le risque est haut<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le diagnostic positif de l'iléus est l'arrêt des gaz avec un ventre qui se tend. La sonde est alors le critère de traitement, et non un antiémétique d'épreuve<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le diagnostic positif de l'échec du premier antiémétique est la persistance des symptômes. On revient à la cause, or un second produit ne se justifie pas tant que E1 reste plausible<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Ces critères datent des textes de 2002 pour les temps de cure<sup class="r"><a href="#sb-rms2002-1">[4]</a></sup>. Or Ils datent de 2017 pour le score, les bandes et la démarche<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Aucun critère ne se remplace par une impression de gravité non écrite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">La gastroparésie se définit par une vidange ralentie sans obstacle ; la gastroscopie écarte d’abord une sténose pyloroduodénale ou un ulcère, deux causes chroniques du tableau suisse<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
+<div class="p">L’ischémie mésentérique, à l’inverse, ne repose sur aucun critère biologique. Aucun dosage ne l’affirme, et c’est l’angio-CT qui la prouve<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
 </section>
 <section class="ilot" id="p9">
 <h3><strong>9. Examens complémentaires</strong></h3>
 <h4>9.a Référence</h4>
-<div class="p">Pour le symptôme lui-même, la référence est clinique : le récit suffit à affirmer la nausée<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Or Pour séparer E1 iléus de E2 échec du premier antiémétique, le cliché d'abdomen debout devient l'examen qui tranche<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">La référence reste clinique : l’anamnèse et l’examen désignent la cause dans la plupart des cas, et l’article suisse de 2017 ne propose aucun examen systématique<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. Quand la douleur est disproportionnée, la référence devient l’angio-CT abdominal, dont la spécificité atteint 95 à 100 % pour l’ischémie<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
 <h4>9.b Première intention</h4>
-<div class="p">On demande le cliché debout quand les gaz s'arrêtent ou que le ventre se tend, et l'on demande en même temps les ions<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. L'hypokaliémie et l'hypomagnésémie se corrigent avant l'ondansétron, parce que le QT en dépend<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<h4>9.c Situations qui changent l'examen</h4>
-<div class="p">Pendant la grossesse, l'ondansétron n'est pas le premier réflexe, et il ne sert pas de test de grossesse<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Chez l'enfant, la cause se cherche aussi, or les doses injectables suivent l'âge et le poids plutôt qu'un schéma d'adulte<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Quand la filtration glomérulaire est très basse, l'extrait suisse ne donne pas un ajustement en milligrammes : il plafonne en revanche la dose quotidienne si le foie est atteint<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. L'allergie à l'iode et l'impossibilité d'une IRM ne bloquent pas le cliché debout, parce que ce cliché n'injecte pas d'iode et ne demande pas d'aimant.</div>
+<div class="p">Le premier bilan suisse comprend les électrolytes, la glycémie, la créatinine, les tests hépatiques, l’amylase si le ventre fait mal, un état urinaire et un test de grossesse<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. On ajoute la digoxinémie quand l’anamnèse le suggère.</div>
+<div class="p">L’ionogramme a une seconde utilité : une hypokaliémie ou une hypomagnésémie se corrige avant l’ondansétron, parce que ce produit allonge le QT<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Si une occlusion est suspectée, on demande un cliché d’abdomen debout et couché, qui recherche des niveaux hydroaériques du grêle<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. Ce cliché oriente, mais il ne montre ni l’ischémie ni la cause de l’obstacle.</div>
+<h4>9.c Situations qui changent l’examen</h4>
+<div class="p">Chez la femme en âge de procréer, le test de grossesse est obligatoire avant de commencer l’ondansétron<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. Si la grossesse est confirmée, on privilégie l’échographie et l’on réserve les rayons aux situations où la vie de la mère est en jeu.</div>
+<div class="p">En cas d’insuffisance rénale ou d’allergie aux produits de contraste, le scanner injecté se discute au cas par cas, en pesant le risque contre la létalité de E1. L’IRM, elle, exige la collaboration du patient et dure près d’une heure, si bien qu’elle n’a pas sa place dans l’ischémie aiguë<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
+<div class="p">Chez l’enfant, l’imagerie suit la clinique et l’échographie passe en premier ; les antiémétiques injectables y obéissent à des bornes d’âge écrites dans l’information professionnelle<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
 <h4>9.d Deuxième intention</h4>
-<div class="p">Un examen en coupe se discute seulement si le cliché et le ventre se contredisent, ou si l'occlusion vasculaire reste plausible<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Il ne retarde pas la sonde quand E1 est déjà cliniquement retenu.</div>
+<div class="p">Selon la clinique, la deuxième étape suisse comprend l’échographie abdominale, la gastroscopie, la coproculture, l’ECG, la TSH et la radiographie du thorax<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. Ensuite, la troisième étape réserve le CT ou l’IRM cérébrale au doute de cause centrale.</div>
+<div class="p">Un CT de la tête s’impose dès qu’un processus intracrânien aigu est suspecté, sans attendre la fin du bilan digestif<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</div>
 <div class="t" style="overflow-x:auto"><table>
+<caption>Interpréter les résultats</caption>
 <tr><th>Résultat</th><th>Signification</th><th>Conduite</th></tr>
-<tr><td>Le cliché debout montre des anses larges et des interfaces horizontales.</td><td>L'arrêt de transit est visible, et E1 devient probable.</td><td>On pose la sonde et l'on corrige l'eau et les ions avant un second antiémétique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>Le cliché debout ne montre pas ces signes, alors qu'un premier antiémétique a échoué.</td><td>E1 n'est pas l'étiquette, et E2 reste ouvert.</td><td>On retourne à la cause, cure, ions ou autre stimulus digestif<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
-<tr><td>L'ionogramme montre une hypokaliémie ou une hypomagnésémie, sans borne chiffrée recopiée ici.</td><td>Le QT est plus vulnérable.</td><td>On corrige ces ions avant l'ondansétron<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</td></tr>
-<tr><td>Les ions sont déjà corrigés et le ventre est libre.</td><td>Le blocage métabolique est levé.</td><td>L'antiémétique discuté peut alors venir, si la cause le justifie<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</td></tr>
+<tr><td>Test de grossesse positif</td><td>DX.3 probable ; grossesse extra-utérine à écarter</td><td>Échographie ; pas d’ondansétron en première intention<sup class="r"><a href="#sb-aips-66785">[8]</a></sup></td></tr>
+<tr><td>Hypokaliémie ou hypomagnésémie</td><td>Pertes digestives ; QT fragilisé</td><td>Corriger avant l’ondansétron<sup class="r"><a href="#sb-aips-66785">[8]</a></sup></td></tr>
+<tr><td>Niveaux hydroaériques du grêle, anses dilatées</td><td>Occlusion probable, E2</td><td>Jeûne, sonde, avis chirurgical<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup></td></tr>
+<tr><td>Angio-CT : occlusion de l’artère mésentérique supérieure</td><td>Ischémie, E1</td><td>Revascularisation sans délai<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup></td></tr>
+<tr><td>Imagerie cérébrale : masse ou saignement</td><td>Hypertension intracrânienne, E3</td><td>Neurochirurgie<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup></td></tr>
+<tr><td>Bilan normal, contexte de nouveau médicament</td><td>DX.1 probable</td><td>Discuter la nécessité du produit<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup></td></tr>
 </table></div>
-<button class="w" type="button" popovertarget="f-radio">cliché d'abdomen debout</button>
+<button class="w" type="button" popovertarget="f-radio">cliché d’abdomen debout</button>
 <div id="f-radio" class="fenetre" popover>
+<button class="fermer" type="button" popovertarget="f-radio" popovertargetaction="hide">Fermer</button>
+<h5>Radiographie d’abdomen debout : lire une occlusion du grêle</h5>
 <figure class="cliche">
-<p class="fiche"><b>Fiche Cliché.</b> La modalité est une radiographie de l'abdomen sans préparation. L'incidence est une face, or la position est debout. La latéralité est une face, et elle ne nomme pas de côté. L'inscription montre des marques techniques partielles, et elle ne porte pas d'identité à retenir.</p>
+<p class="fiche"><b>Fiche Cliché.</b> La modalité est une radiographie de l’abdomen sans préparation. L’incidence est une face, la position est debout, et aucun côté n’est désigné. Les marques du coin supérieur sont techniques et ne portent aucune identité.</p>
 <div class="paire">
 <div>
 <img src="images/Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.webp" width="723" height="900" alt="Radiographie d'abdomen debout, cliché brut">
-<p class="p">Lisez d'abord seul ce cliché, et cherchez vous-même les anses trop larges.</p>
+<p class="p">Le cliché brut se lit d’abord, avant la copie annotée.</p>
 </div>
 <div class="annot">
 <img src="images/Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.webp" width="723" height="900" alt="Radiographie d'abdomen debout, support annoté">
 <svg viewBox="0 0 723 900" role="img" aria-label="Copie annotée du cliché d'abdomen debout">
 <image href="images/Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.webp" width="723" height="900"/>
-<circle cx="361" cy="340" r="28" fill="none" stroke="#7a1f12" stroke-width="4"/>
-<text x="396" y="348" font-size="32" font-weight="700" fill="#7a1f12">1</text>
-<circle cx="530" cy="250" r="28" fill="none" stroke="#7a1f12" stroke-width="4"/>
-<text x="564" y="258" font-size="32" font-weight="700" fill="#7a1f12">2</text>
-<circle cx="250" cy="540" r="28" fill="none" stroke="#7a1f12" stroke-width="4"/>
-<text x="284" y="548" font-size="32" font-weight="700" fill="#7a1f12">3</text>
-<circle cx="370" cy="780" r="28" fill="none" stroke="#7a1f12" stroke-width="4"/>
-<text x="404" y="788" font-size="32" font-weight="700" fill="#7a1f12">4</text>
+<circle cx="361" cy="340" r="28" fill="none" stroke="#000" stroke-width="9"/>
+<circle cx="361" cy="340" r="28" fill="none" stroke="#fff" stroke-width="4"/>
+<text x="397" y="352" font-size="36" font-weight="700" fill="#fff" stroke="#000" stroke-width="7" paint-order="stroke">1</text>
+<circle cx="530" cy="250" r="28" fill="none" stroke="#000" stroke-width="9"/>
+<circle cx="530" cy="250" r="28" fill="none" stroke="#fff" stroke-width="4"/>
+<text x="566" y="262" font-size="36" font-weight="700" fill="#fff" stroke="#000" stroke-width="7" paint-order="stroke">2</text>
+<circle cx="250" cy="540" r="28" fill="none" stroke="#000" stroke-width="9"/>
+<circle cx="250" cy="540" r="28" fill="none" stroke="#fff" stroke-width="4"/>
+<text x="286" y="552" font-size="36" font-weight="700" fill="#fff" stroke="#000" stroke-width="7" paint-order="stroke">3</text>
+<circle cx="370" cy="780" r="28" fill="none" stroke="#000" stroke-width="9"/>
+<circle cx="370" cy="780" r="28" fill="none" stroke="#fff" stroke-width="4"/>
+<text x="406" y="792" font-size="36" font-weight="700" fill="#fff" stroke="#000" stroke-width="7" paint-order="stroke">4</text>
 </svg>
-<p class="p">La copie annotée numérote quatre repères, et l'original du fichier reste intact.</p>
+<p class="p">La copie annotée numérote quatre repères, et l’original du fichier reste intact.</p>
 </div>
 </div>
 <div class="p"><b>Lecture guidée.</b></div>
 <ol>
 <li>Le rachis lombaire sert de repère médian, et il reste vertical sur cette face.</li>
-<li>Des anses larges occupent la partie haute, ce qui élargit l'ombre gazeuse.</li>
-<li>Des interfaces horizontales s'empilent, donc le liquide et le gaz ne progressent plus.</li>
-<li>Le bassin ferme le bas du cliché, et il montre que l'abdomen est couvert.</li>
+<li>Des anses grêles dilatées occupent la partie haute, ce qui élargit l’ombre gazeuse.</li>
+<li>Des niveaux hydroaériques s’empilent en marches d’escalier, parce que le liquide et le gaz ne progressent plus.</li>
+<li>Le bassin ferme le bas du cliché, et il montre que l’abdomen est couvert en entier.</li>
 </ol>
 <div class="p"><b>Pièges.</b></div>
 <ul>
-<li>Un pointeur graphique parasite le centre et ne représente ni une calcification ni un corps étranger.</li>
-<li>Ce seul cliché ne sépare pas un iléus fonctionnel d'un obstacle mécanique, ni d'une occlusion vasculaire.</li>
-<li>Les marques du coin supérieur ne sont pas un diagnostic.</li>
+<li>Un pointeur graphique au centre ne représente ni une calcification ni un corps étranger.</li>
+<li>Ce cliché ne distingue pas un iléus réflexe d’un obstacle mécanique, et il reste muet sur une ischémie.</li>
+<li>Les marques du coin supérieur ne constituent pas un diagnostic.</li>
 </ul>
-<h4>Ce que l'image décide</h4>
-<p class="p">Les niveaux et les anses larges orientent vers E1 iléus, et ils font passer la sonde avant un second antiémétique. Un film sans ces signes, après un premier échec, laisse E2 ouvert, et il renvoie à la cause<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</p>
-<figcaption>Image : James Heilman, CC BY-SA 3.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.jpg , consulté le 2026-11-10. Copie annotée : œuvre dérivée sous la même licence.</figcaption>
+<h4>Ce que l’image décide</h4>
+<p class="p">Des anses dilatées avec des niveaux confirment l’occlusion, E2, et font poser la sonde avant tout antiémétique ; la revue suisse décrit ce cliché debout et couché<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. Une douleur disproportionnée impose malgré tout l’angio-CT, car seul le scanner voit l’ischémie.</p>
+<figcaption>Image : James Heilman, CC BY-SA 3.0, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.jpg, consultée le 10 novembre 2026<sup class="r"><a href="#sb-commons-heilman">[16]</a></sup>. Copie annotée : œuvre dérivée sous la même licence.</figcaption>
 </figure>
 </div>
-<button class="w" type="button" popovertarget="f-ions">ions avant l'antiémétique</button>
+<button class="w" type="button" popovertarget="f-ions">ions avant l’antiémétique</button>
 <div id="f-ions" class="fenetre" popover>
-<div class="p">La biologie utile ici n'est pas un chiffre inventé : une hypokaliémie ou une hypomagnésémie se corrige avant l'ondansétron<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Le vomissement fait perdre ces ions, donc le tracé devient le risque si l'on injecte trop tôt.</div>
-<svg viewBox="0 0 640 120" role="img" aria-label="Ordre vomissement, ions, puis antiémétique">
-<rect x="8" y="28" width="180" height="64" rx="8" fill="#efe4d2"/>
-<rect x="230" y="28" width="180" height="64" rx="8" fill="#efe4d2"/>
-<rect x="452" y="28" width="180" height="64" rx="8" fill="#efe4d2"/>
-<text x="28" y="66" font-size="16" fill="#1c140f">Vomissement</text>
-<text x="268" y="66" font-size="16" fill="#1c140f">Corriger les ions</text>
-<text x="476" y="66" font-size="16" fill="#1c140f">Puis antiémétique</text>
+<button class="fermer" type="button" popovertarget="f-ions" popovertargetaction="hide">Fermer</button>
+<h5>Corriger les ions avant l’ondansétron</h5>
+<svg class="schema" viewBox="0 0 320 283" role="img" aria-label="Ordre ions puis antiémétique">
+<rect x="4" y="6" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="31" font-size="15" font-weight="700" fill="#161616">Vomissements répétés</text>
+<text x="18" y="52" font-size="15" fill="#161616">Pertes de potassium et de</text>
+<text x="18" y="73" font-size="15" fill="#161616">magnésium</text>
+<path d="M152 87 L168 87 L160 99 Z" fill="#53327b"/>
+<rect x="4" y="103" width="312" height="77" rx="10" fill="#efe8f6"/>
+<text x="18" y="128" font-size="15" font-weight="700" fill="#161616">Ionogramme et correction</text>
+<text x="18" y="149" font-size="15" fill="#161616">Hypokaliémie et hypomagnésémie</text>
+<text x="18" y="170" font-size="15" fill="#161616">corrigées</text>
+<path d="M152 184 L168 184 L160 196 Z" fill="#53327b"/>
+<rect x="4" y="200" width="312" height="77" rx="10" fill="#fdf6f0"/>
+<text x="18" y="225" font-size="15" font-weight="700" fill="#161616">Puis ondansétron</text>
+<text x="18" y="246" font-size="15" fill="#161616">ECG si autres produits qui</text>
+<text x="18" y="267" font-size="15" fill="#161616">allongent le QT</text>
 </svg>
-<div class="p">Lire ce schéma de gauche à droite suffit à ne pas inverser l'ordre<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Le piège est d'attendre une borne chiffrée, alors que le texte dit déjà de corriger le déficit.</div>
+<div class="p">Le vomissement fait perdre potassium et magnésium ; or une hypokaliémie ou une hypomagnésémie préexistante se corrige avant l’ondansétron, qui allonge le QT selon la dose<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">L’ordre est donc fixe : mesurer, corriger, puis seulement injecter. Chez le patient qui reçoit d’autres médicaments allongeant le QT, un ECG de surveillance est recommandé<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
 </div>
-<div class="p">La référence du syndrome d'arrêt est le cliché d'abdomen debout, or elle montre des anses larges avec des niveaux. Elle ne sépare pas, à elle seule, un iléus fonctionnel d'un obstacle mécanique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La première intention, avant ce film, est clinique : les gaz, le ventre, la langue. Le film vient confirmer, or il ne remplace pas la sonde si les gaz ont déjà cessé<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les ions se corrigent avant l'ondansétron, et l'information suisse le dit sans donner ici une borne chiffrée de kaliémie. On corrige le déficit, puis on discute l'antiémétique<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Quand le foie est atteint, la dose quotidienne se plafonne, et ce plafond ne se devine pas. Il est écrit pour Ondansetron Accord®, hors de toute invention de milligramme supplémentaire<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">La grossesse change l'usage de l'ondansétron, qui n'y est pas le premier réflexe. Le cliché debout n'est pas un test de grossesse, or il ne se retarde pas pour cette raison<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Chez l'enfant, les bornes d'âge sont écrites : la cure émétisante injectable se discute au-delà de 6 mois, et la prévention postopératoire au-delà de 1 mois<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Ces bornes changent l'examen, or elles ne changent pas la priorité de la sonde si les gaz cessent.</div>
-<div class="p">L'allergie à l'iode n'empêche pas le cliché sans préparation, parce que ce cliché n'injecte rien. L'impossibilité d'une IRM ne le bloque pas non plus, et le film reste accessible<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La deuxième intention est de revenir à la cause si le film est pauvre et si le premier antiémétique a échoué. E2 reste ouvert, tandis que E1 se réexamine si un signe digestif a été sous-estimé<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Un pointeur ou une marque de coin sur le cliché n'est pas une calcification, or elle ne se lit pas comme un calcul. On les écarte de la lecture, et l'on ne les compte pas parmi les niveaux<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
 </section>
 <section class="ilot" id="p10">
 <h3>10. Arbre décisionnel</h3>
 <ul>
-<li>Si les gaz ne passent plus ou si le ventre se tend, on traite E1 iléus d'abord. La sonde, l'eau et les ions passent avant un second antiémétique, parce que la cause digestive prime<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>Si le cliché debout montre des niveaux, on confirme cette priorité et l'on ne masque pas l'image avec une nouvelle molécule<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>Si un premier antiémétique a échoué et que le cliché est libre, on classe E2 et l'on retourne à la cause plutôt qu'à une deuxième ordonnance automatique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>Si la plainte colle à une cure, on sépare l'aigu, le retardé et l'anticipé, puis l'on choisit le couple anti-5-HT3 et corticoïde ou la benzodiazépine selon le temps<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</li>
-<li>Si une opération est prévue, le score d'Apfel décide de discuter ou d'introduire la prémédication<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>Si le mouvement seul déclenche la plainte et que l'abdomen est libre, on retient le mal des transports et l'on n'utilise pas le timbre absent du marché suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</li>
-<li>Si plusieurs causes tiennent ensemble une nausée qui dure, on les traite une par une, car le tableau est multifactoriel<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</li>
+<li>🚩 Si la douleur abdominale est brutale et disproportionnée à l’examen, on pense E1, ischémie mésentérique : urgences et angio-CT avant tout antiémétique<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</li>
+<li>Si les gaz s’arrêtent, que le ventre se distend ou que les vomissements deviennent fécaloïdes, on traite E2, l’occlusion : jeûne, sonde gastrique et avis chirurgical<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</li>
+<li>Si une céphalée, un déficit focal ou une somnolence accompagnent le vomissement, on traite E3 : urgences et imagerie cérébrale<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</li>
+<li>Si la patiente est en âge de procréer, on demande un test de grossesse avant de choisir le médicament<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</li>
+<li>Si un produit vient d’être introduit, on discute d’abord sa nécessité plutôt que d’ajouter un antiémétique<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</li>
+<li>Si la diarrhée et l’entourage orientent vers la gastro-entérite, on réhydrate par la bouche et l’on surveille<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</li>
+<li>Si une opération ou une cure est prévue, le score d’Apfel ou le potentiel émétisant décident de la prophylaxie<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
+<li>Si le vertige domine, on cherche le nystagmus et l’on traite le vestibule par un antihistaminique<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</li>
 </ul>
-<div class="p">Si les gaz passent et si le ventre est souple, E1 n'est pas le premier geste, et l'on cherche l'horaire de la plainte. Si la plainte colle à la perfusion, l'aigu se traite par l'association anti-5-HT3 et corticoïde<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Si la plainte précède l'injection, l'anticipé est probable, et les benzodiazépines entrent en discussion<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Si elle se prolonge après, on garde souvent l'association 3 à 5 jours, par voie orale<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Si le contexte est opératoire, le score d'Apfel se calcule. À 1, soit 21 %, la prémédication se discute, et on ne l'impose pas<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. À 2, soit 39 %, elle devrait être introduite<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Si une cure est prévue, le potentiel se lit avant le produit. Dès 10 %, une prophylaxie commence, et le risque devient haut dès qu'il dépasse 90 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Si le sujet est âgé et si un métoclopramide à dose haute est en cours, les effets extrapyramidaux se cherchent, or cette dose haute s'évite<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Si le mal des transports domine, le timbre de scopolamine ne se prescrit pas en Suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Si le premier antiémétique a échoué, on ne le double pas. On revient à la cause, et l'on vérifie que E1 n'a pas été manqué<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Si plusieurs mécanismes coexistent, le rang unique est refusé, car les nausées durables sont souvent multifactorielles<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Le geste prioritaire reste pourtant le plus dangereux, et c'est l'iléus.</div>
-<div class="p">Chaque « si » du schéma se lit jusqu'au geste, et non jusqu'au nom du concurrent. Un nom sans geste ne change pas la prise en charge<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">L’arbre s’ouvre sur la létalité, puis il descend vers la fréquence. Si aucun drapeau n’est présent et que le patient boit, la prise en charge reste au cabinet, avec une réévaluation dès que l’évolution déçoit.</div>
+<div class="p">Si le premier antiémétique échoue, on ne double pas la dose. On revient à la cause, et l’on vérifie qu’une occlusion ou une ischémie n’a pas été manquée<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</div>
 </section>
 <section class="ilot" id="p11">
 <h3><strong>11. Prise en charge selon les recommandations suisses</strong></h3>
 <h4>11.A But</h4>
-<div class="p">Le but est de reprendre les apports une fois la cause traitée, et de tenir une prophylaxie dès qu'un potentiel de cure dépasse 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Pour l'anticipé, le but est de contrôler les premières cures, parce que le conditionnement s'y grave<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
+<div class="p">Le but est de traiter la cause, de rétablir l’eau et les électrolytes, puis de soulager ; l’antiémétique n’intervient qu’après discussion avec le patient, si la nausée persiste<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>. Sous chimiothérapie ou avant une opération à risque, le but devient préventif.</div>
 <h4>11.B Moyens</h4>
-<div class="p">L'ordre suisse est fixe : cause, eau, ions, sonde si l'iléus est retenu, puis seulement l'antiémétique si les symptômes persistent<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Ondansetron Accord® est sur ordonnance, et son numéro Swissmedic est 66785<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
+<div class="p">Le parcours suisse commence au cabinet de médecine de famille, puisque la plupart des causes y sont bénignes. On y cherche la cause, on réhydrate par la bouche en petites gorgées fractionnées et l’on corrige ce qui peut l’être, comme un médicament inutile<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">On adresse aux urgences dès qu’un drapeau rouge apparaît : douleur disproportionnée, arrêt des gaz, vomissements fécaloïdes, déficit neurologique, hémorragie digestive ou déshydratation que la voie orale ne corrige plus<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>. La réhydratation intraveineuse et la sonde gastrique s’y décident alors.</div>
+<div class="p">À l’hôpital, l’ischémie mésentérique relève d’une revascularisation, de plus en plus souvent endovasculaire, et l’occlusion d’un avis chirurgical<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>. L’hypertension intracrânienne relève de la neurochirurgie.</div>
+<div class="p">Le choix de l’antiémétique suit donc la voie en cause. Un antihistaminique comme la diphenhydramine ou le dimenhydrinate traite le vestibule, un procinétique la gastroparésie, une benzodiazépine l’anticipation<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
+<div class="p">La dompéridone ne se donne jamais dans une obstruction intestinale, puisque son effet procinétique y est contre-indiqué<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Quant au métoclopramide, il expose aux effets extrapyramidaux, surtout à dose élevée chez le sujet âgé.</div>
+<div class="p">Pour la chimiothérapie, la revue suisse adapte la prophylaxie selon la cure<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. Ainsi, la cure hautement émétisante reçoit anti-NK1, dexaméthasone et anti-5-HT3, alors que la cure modérée associe anti-5-HT3 et dexaméthasone<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</div>
+<div class="p">Le texte suisse admet aussi l’antagoniste NK-1 dans la cure modérément émétisante, toujours avec l’anti-5-HT3 et le glucocorticoïde<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. Une cure faible reçoit un seul agent, et une cure minime aucune prophylaxie.</div>
+<div class="p">Après une cure hautement émétisante, l’association se poursuit par la bouche durant trois à cinq jours contre le temps tardif<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>. L’anticipation, enfin, se prévient en contrôlant parfaitement les premières cures et se traite par benzodiazépine, avec un soutien psychologique.</div>
+<div class="p">Avant une opération, le score d’Apfel compte quatre facteurs : être une femme, avoir déjà vomi après une anesthésie ou en voyage, ne pas fumer, recevoir des opiacés ensuite<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. Si un seul facteur est présent, le risque atteint 21 %, et il monte à 39 % dès le deuxième, ce qui fait introduire la prophylaxie<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</div>
+<div class="p">Un risque élevé appelle une combinaison de 2 ou 3 agents, un risque modéré un seul agent, et un risque faible aucune prophylaxie<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. La dexaméthasone se donne alors à l’induction de l’anesthésie.</div>
+<div class="p">La spécialité injectable citée ici est Ondansetron Accord®, numéro Swissmedic 66785, remise sur ordonnance ; ses doses et ses contre-indications figurent dans l’information professionnelle suisse<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
 <button class="w" type="button" popovertarget="f-urg">Urgence — conduite chronologique</button>
 <div id="f-urg" class="fenetre" popover>
+<button class="fermer" type="button" popovertarget="f-urg" popovertargetaction="hide">Fermer</button>
+<h5>Urgence : les gestes dans l’ordre</h5>
+<svg class="schema" viewBox="0 0 320 380" role="img" aria-label="Chronologie aux urgences">
+<rect x="4" y="6" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="31" font-size="15" font-weight="700" fill="#161616">Constantes et voie veineuse</text>
+<text x="18" y="52" font-size="15" fill="#161616">Pouls, tension, température,</text>
+<text x="18" y="73" font-size="15" fill="#161616">glycémie</text>
+<path d="M152 87 L168 87 L160 99 Z" fill="#53327b"/>
+<rect x="4" y="103" width="312" height="77" rx="10" fill="#fdf6f0"/>
+<text x="18" y="128" font-size="15" font-weight="700" fill="#161616">Écarter E1, E2, E3</text>
+<text x="18" y="149" font-size="15" fill="#161616">Angio-CT, sonde et chirurgien,</text>
+<text x="18" y="170" font-size="15" fill="#161616">imagerie cérébrale</text>
+<path d="M152 184 L168 184 L160 196 Z" fill="#53327b"/>
+<rect x="4" y="200" width="312" height="77" rx="10" fill="#efe8f6"/>
+<text x="18" y="225" font-size="15" font-weight="700" fill="#161616">Réhydrater, corriger les ions</text>
+<text x="18" y="246" font-size="15" fill="#161616">Potassium et magnésium avant</text>
+<text x="18" y="267" font-size="15" fill="#161616">l’ondansétron</text>
+<path d="M152 281 L168 281 L160 293 Z" fill="#53327b"/>
+<rect x="4" y="297" width="312" height="77" rx="10" fill="#f8f3fc"/>
+<text x="18" y="322" font-size="15" font-weight="700" fill="#161616">Antiémétique selon la cause</text>
+<text x="18" y="343" font-size="15" fill="#161616">Après discussion avec le</text>
+<text x="18" y="364" font-size="15" fill="#161616">patient</text>
+</svg>
 <ol>
-<li>On cherche la cause tout de suite : iléus, occlusion vasculaire, cure, opération ou trajet<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>Si E1 est plausible, la sonde, la réhydratation et les ions commencent avant un second antiémétique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>On corrige l'hypokaliémie et l'hypomagnésémie avant toute injection d'ondansétron<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</li>
-<li>Ensuite seulement, si la plainte tient encore, on discute l'antiémétique adapté au temps et à l'âge<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
+<li>On mesure pouls, tension, température et glycémie, puis on pose une voie veineuse si le patient ne boit plus<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</li>
+<li>On cherche E1 : une douleur disproportionnée fait demander l’angio-CT abdominal sans attendre<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</li>
+<li>On cherche E2 : arrêt des gaz et distension imposent le jeûne, la sonde gastrique et l’avis chirurgical<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</li>
+<li>On cherche E3 : une céphalée avec déficit fait demander l’imagerie cérébrale<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</li>
+<li>On réhydrate et l’on corrige potassium et magnésium avant tout ondansétron<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</li>
+<li>On ne discute l’antiémétique qu’ensuite, selon la cause retenue et après avoir parlé avec le patient<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</li>
 </ol>
 </div>
 <button class="w" type="button" popovertarget="f-accord">Ondansetron Accord®</button>
 <div id="f-accord" class="fenetre" popover>
-<div class="p">Ondansetron Accord® appartient aux anti-5-HT3, avec le granisétron et le palonosétron, or il bloque le récepteur sérotoninergique<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. La dompéridone reste périphérique, le métoclopramide est procinétique, et la dexaméthasone est, parmi les corticoïdes, celle qu'on emploie le plus<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Ondansetron Accord® se perfuse à 8 mg pendant au moins 15 minutes juste avant un cytostatique hautement émétisant<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. L'apomorphine est contre-indiquée, parce qu'une hypotension et une perte de conscience ont été rapportées<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">La prévention postopératoire de l'adulte tient en 4 mg injectés lentement pendant l'induction<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. L'injection dure au moins 30 secondes, et l'on préfère un temps de 2 à 5 minutes<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">La dose intraveineuse unique ne dépasse pas 16 mg, or au-delà de 8 mg elle se dilue dans 50 à 100 ml<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Après le schéma initial, la poursuite par la bouche ne dépasse pas 8 mg, l'intervalle est de 12 heures, et la durée maximale est de 5 jours<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Dès 75 ans, la dose intraveineuse initiale de 8 mg perfusée en 15 minutes ne se dépasse pas<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. À partir de 65 ans, toute dose intraveineuse se dilue dans 50 à 100 ml, or elle se perfuse en 15 minutes<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">En insuffisance hépatique modérée ou sévère, la dose quotidienne ne dépasse pas 8 mg<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Une hypersensibilité à un composant contre-indique aussi la spécialité, et le QT long congénital la contre-indique également<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Chez l'enfant de 6 mois à 17 ans, la cure émétisante s'encadre de trois doses de 0,15 mg/kg, et on les espace selon l'horaire écrit<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. La première de ces doses précède la cure de 30 minutes, et les suivantes viennent 4 heures puis 8 heures plus tard<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">L'indication pédiatrique de chimiothérapie commence au-delà de 6 mois, et la prévention postopératoire injectable au-delà de 1 mois, donc on respecte ces bornes d'âge<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. On annonce céphalées, asthénie et constipation, cette dernière dans 5 à 10 % des cas avec les anti-5-HT3<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">L'ondansétron et le granisétron allongent le QT, et un syndrome sérotoninergique reste rare<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Après la dose, un iléus impose une surveillance, parce que des cas isolés sont décrits<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">On ne recommande pas l'ondansétron pendant la grossesse, parce que le risque pour le fœtus est retenu<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Pendant l'allaitement, on s'abstient ou l'on sèvre, car le passage dans le lait humain n'est pas établi chez la mère<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Le métoclopramide à dose haute expose le sujet âgé aux effets extrapyramidaux, donc on l'évite dans ce cadre<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le midazolam se discute chez le sujet anxieux à haut risque, et ce timbre de scopolamine manque sur le marché suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Le glaucome à angle aigu interdit les anticholinergiques, et on les écarte<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. L'association anti-5-HT3 plus corticoïde entre dans la veine trente minutes avant le cytostatique, car ce couple est le choix pour l'aigu<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Après une cure hautement émétisante, la poursuite par la bouche dure souvent 3 à 5 jours<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Sur la phase aiguë, granisétron, ondansétron et tropisétron se valent, donc le choix porte sur le QT et la disponibilité<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</div>
-<div class="p">Si le score d'Apfel vaut 2, le risque de 39 % justifie d'introduire la prémédication<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Si le score vaut 1, le risque de 21 % ouvre la discussion, et il ne l'impose pas encore<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le haut risque dépasse 90 %, et la prophylaxie d'une cure commence dès qu'un potentiel dépasse 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le risque modéré couvre 30 à 90 %, et il s'en distingue ainsi<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le faible se tient entre 10 et 30 %, et le minime, lui, ne dépasse pas 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les antagonistes NK-1 se discutaient surtout pour le temps retardé, or les benzodiazépines traitent l'anticipé<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Hors médicament, on fractionne les boissons, on traite l'iléus par la sonde, et l'on rassure le conditionnement en tenant les premières cures<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<button class="fermer" type="button" popovertarget="f-accord" popovertargetaction="hide">Fermer</button>
+<h5>Ondansetron Accord®, Swissmedic 66785</h5>
+<div class="p">Ondansetron Accord® se donne à 8 mg chez l’adulte, en perfusion ou par la bouche, selon l’indication<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Ondansetron Accord® est contre-indiqué avec l’apomorphine, puisque l’association a provoqué hypotension marquée et perte de connaissance, et en cas d’hypersensibilité à l’un des composants<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Le produit est proscrit dans le syndrome congénital du QT long ; un QTc acquis ou un risque d’allongement appelle seulement la prudence et un ECG de surveillance<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Pour une cure modérément émétisante ou une radiothérapie, l’adulte reçoit 8 mg en perfusion d’au moins 15 minutes juste avant le traitement<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. La voie orale reste possible, avec 8 mg pris 1 à 2 heures avant<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Pour une cure hautement émétisante, la perfusion de 8 mg précède immédiatement le cytostatique<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. La dose unique ne dépasse jamais 16 mg, et l’on dilue dans 50 à 100 ml au-delà de 8 mg<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">En chimiothérapie seulement, la suite se donne par voie orale, au maximum 8 mg toutes les 12 heures et pendant 5 jours au plus<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">On renforce l’effet si l’on ajoute 20 mg de dexaméthasone intraveineuse, donnés 30 à 45 minutes avant la cure<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Après une opération, l’adulte reçoit une seule injection intraveineuse lente de 4 mg pendant l’induction ; la voie orale n’y a pas de schéma propre<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">L’injection dure au moins 30 secondes, et de préférence 2 à 5 minutes<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Chez l’enfant de 1 mois à 17 ans, la prévention postopératoire se fait à 0,1 mg/kg, sans dépasser 4 mg, injectés lentement au moment de l’induction ou après<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Si le nourrisson a moins de 4 mois, on ne répète pas l’injection, car il élimine le produit plus lentement<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Chez l’enfant de 6 mois à 17 ans sous cure émétisante, on injecte 0,15 mg/kg 30 minutes avant la cure<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. La même dose se répète ensuite 4 et 8 heures après la première<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Dès 75 ans, la dose intraveineuse initiale de 8 mg perfusée en 15 minutes ne se dépasse pas<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">À partir de 65 ans, toute dose intraveineuse se dilue dans 50 à 100 ml et se perfuse en 15 minutes, avec au moins 4 heures entre deux perfusions<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">En insuffisance hépatique modérée ou sévère, la dose quotidienne reste limitée à 8 mg<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Pendant la grossesse, le produit n’est pas recommandé, car des fentes labiopalatines ont été observées après une exposition au premier trimestre<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Avant le traitement, toute femme en âge de procréer fait un test de grossesse<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. Ensuite, une contraception à taux d’échec inférieur à 1 % se poursuit jusqu’au surlendemain de la dernière dose<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">La mère qui allaite ne reçoit pas le produit, ou elle sèvre l’enfant<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
 </div>
+<div class="p">Au cabinet, la consultation se facture depuis le 1er janvier 2026 selon TARDOC, qui a remplacé TARMED pour les prestations ambulatoires<sup class="r"><a href="#sb-ofsp-tardoc">[15]</a></sup>. Les forfaits ambulatoires, eux, s’appliquent quand le traitement ambulatoire a lieu à l’hôpital.</div>
+<div class="p">La prévention chirurgicale par antagoniste NK-1 figure hors Liste des spécialités, ce qui pèse sur sa prise en charge par l’assurance de base<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. Quant au timbre de scopolamine, il n’est pas distribué en Suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
 <h4>11.C Surveillance</h4>
-<div class="p">Après l'injection, on surveille le récit cardiaque, parce que des symptômes ont été décrits dans le sillage immédiat de la voie veineuse<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. On surveille aussi le transit, la constipation et les effets extrapyramidaux si un procinétique a été choisi<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">On arrête l'ondansétron si un iléus apparaît, si le QT s'allonge de façon menaçante, ou si une hypersensibilité se déclare<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. On n'empile pas une seconde molécule tant que E1 n'est pas écarté<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">On surveille la diurèse, le poids, la reprise des boissons et la disparition des vomissements. Chez la femme enceinte, la cétonurie et le poids disent si l’hyperémèse recule<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>.</div>
+<div class="p">Après l’ondansétron, on surveille le transit : le produit allonge le passage colique, et le patient qui présente des signes d’occlusion subaiguë reste sous observation<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. Ainsi, des cas isolés d’iléus sont décrits, surtout avec une maladie intestinale ou certains cytostatiques.</div>
+<div class="p">On surveille aussi le cœur : des ischémies myocardiques allant jusqu’à l’infarctus ont été rapportées, parfois juste après l’injection intraveineuse, et le spasme coronaire en semble la cause principale<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Un syndrome sérotoninergique peut survenir quand l’ondansétron s’associe à d’autres médicaments sérotoninergiques, ce qui impose une surveillance clinique adaptée<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>. Les céphalées sont très fréquentes et se signalent au patient.</div>
+<div class="p">Avec le métoclopramide, on guette les mouvements anormaux et l’agitation ; ils traduisent des effets extrapyramidaux, plus marqués chez le sujet âgé à dose élevée<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
 <h4>11.D Pronostic, guérison, sortie</h4>
-<div class="p">La nausée altère la qualité de vie et l'observance, donc le pronostic fonctionnel dépend du contrôle des cures et de l'iléus<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Les textes lus décrivent ce fardeau, et ils ne fournissent pas de taux de mortalité.</div>
-<div class="p">La guérison se juge critère par critère. Or Les gaz repassent<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Les boissons sont reprises. Les vomissements cessent. Les ions bas ont été corrigés avant ou pendant le traitement<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">La sortie se juge elle aussi critère par critère. E1 est écarté ou déjà drainé par la sonde<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Le malade boit. Aucun drapeau de QT long ou d'apomorphine n'est laissé sans conduite, et il appelle un arrêt<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Le plan de prophylaxie de la prochaine cure est écrit si un potentiel dépasse 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Le but est de faire cesser le symptôme sans masquer une cause qui se traite autrement. La sonde, l'eau et les ions sont ce traitement quand les gaz cessent<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Les moyens médicamenteux viennent après cette discussion, si les symptômes persistent<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Ondansetron Accord®, numéro Swissmedic 66785, est la spécialité injectable citée ici, et elle est sur ordonnance<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Ses contre-indications comprennent l'apomorphine et le QT long congénital, ainsi que l'hypersensibilité au produit. On n'associe pas l'apomorphine, car l'hypotension et la perte de connaissance sont décrites<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">L'hypokaliémie et l'hypomagnésémie se corrigent avant l'injection, or le QT est déjà un risque des setrons. L'ondansétron et le granisétron allongent ce QT<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">La surveillance porte sur les céphalées, l'asthénie et la constipation, or cette dernière concerne 5 à 10 % des malades sous anti-5-HT3, et on les surveille<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Un iléus qui apparaît après la dose fait arrêter le produit et reprendre la cause digestive<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Chez le sujet de 75 ans, la dose intraveineuse initiale se plafonne, et l'atteinte hépatique plafonne aussi la dose quotidienne<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Ces plafonds sont ceux de l'information suisse, et ils ne se transposent pas d'un autre pays.</div>
-<div class="p">La grossesse n'est pas une indication de confort pour l'ondansétron, or on ne l'y choisit pas d'emblée. L'allaitement conduit à ne pas traiter ou à sevrer, selon ce que l'information professionnelle écrit<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">La sortie exige des gaz qui repassent, des boissons reprises et des vomissements qui cessent. E1 est écarté ou déjà drainé, et le plan de la prochaine cure est écrit si le potentiel dépasse 10 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Aucun taux de mortalité n'est fourni par les textes lus, or il ne figure pas dans ces textes. Le fardeau décrit est celui de la qualité de vie et de l'observance, en 2017<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
+<div class="p">Le pronostic est celui de la cause. La gastro-entérite guérit seule, alors que l’ischémie mésentérique garde une mortalité élevée, de 39 % après traitement endovasculaire contre 50 % après chirurgie ouverte<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
+<div class="p">L’étude européenne AMESI confirme ce poids : 49 % des patients sont morts à l’hôpital et 53,3 % à 90 jours<sup class="r"><a href="#sb-amesi2024-1">[13]</a></sup>. Le délai médian avant l’admission atteignait 24 h, ce qui montre que la perte de temps survient surtout avant l’hôpital<sup class="r"><a href="#sb-amesi2024-1">[13]</a></sup>.</div>
+<div class="p">L’hyperémèse gravidique se complique rarement de rupture œsophagienne, de syndrome de Mallory-Weiss ou d’encéphalopathie de Wernicke, d’où l’exigence de ne jamais laisser durer une hyperémèse sans apports<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>.</div>
+<div class="p">La guérison se juge sur des critères simples, car le patient boit, les vomissements ont cessé, les gaz passent et les électrolytes sont corrigés. La sortie exige en plus une cause nommée, un plan écrit pour la prochaine cure ou la prochaine anesthésie, et des consignes de retour en cas de drapeau rouge.</div>
 </section>
 <section class="ilot" id="p12">
 <h3><strong>12. Prévention</strong></h3>
-<div class="p">La prévention primaire tient les premières cures et introduit une prophylaxie dès 10 % de potentiel émétisant<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Elle discute la prémédication dès un score d'Apfel de 1, soit 21 % de risque, et dès un score de 2 elle l'introduit, ce qui correspond à 39 % de risque<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La prévention secondaire corrige les ions avant l'ondansétron et revient à la cause si le premier antiémétique échoue<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Elle empêche ainsi qu'un E2 masque un E1<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">La prévention tertiaire évite le métoclopramide à dose haute chez le sujet âgé, et elle évite le timbre de scopolamine absent du marché suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Elle évite aussi l'ondansétron pendant la grossesse, et elle plafonne la dose à 75 ans ainsi qu'en cas d'atteinte hépatique<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">Ces trois niveaux rejoignent les taux de 2017 : 7 % de la population, 30 % des maladies chroniques avancées, 10 à 30 % des personnes opérées, 30 % sous chimiothérapie<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Or Prévenir ici, c'est réduire ce fardeau sans cacher un abdomen arrêté.</div>
-<div class="p">Prévenir, au premier niveau, c'est tenir les premières cures afin que l'anticipé ne s'installe pas<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. Une prophylaxie de cure commence dès 10 % de potentiel, et elle est déjà attendue dans le haut risque au-dessus de 90 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
-<div class="p">Au bloc, la prémédication se discute dès un score d'Apfel de 1, soit 21 %, or on l'envisage déjà<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Dès un score de 2, on l'introduit, et le risque correspondant est de 39 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. Ce score ne se transfère pas à un iléus médical.</div>
-<div class="p">La prévention secondaire est le retour à la cause quand le premier produit échoue. Elle corrige les ions avant une nouvelle injection, et elle empêche qu'un E2 recouvre un E1<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</div>
-<div class="p">La prévention tertiaire retire les produits qui nuisent au terrain. Le métoclopramide à dose haute s'évite chez le sujet âgé, et on l'y évite<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Le timbre de scopolamine ne se propose pas, puisqu'il n'est pas distribué en Suisse<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">L'ondansétron s'évite pendant la grossesse, et l'on plafonne aussi à 75 ans comme en cas d'atteinte du foie<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. Le glaucome à angle aigu écarte les anticholinergiques<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
-<div class="p">Ces trois niveaux visent les taux de 2017, or ils ne les confondent pas<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Dans la population le taux est de 7 %, et dans les maladies chroniques avancées il est de 30 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Après une opération il va de 10 à 30 %, et sous chimiothérapie il est de 30 %<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
+<div class="p">La prévention primaire vise les situations prévisibles. Avant une cure, la prophylaxie commence dès que le potentiel émétisant dépasse 10 %, et elle s’intensifie avec lui<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
+<div class="p">Avant une opération, on calcule le score d’Apfel et l’on introduit la prophylaxie dès deux facteurs<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>. Si un voyage est prévu, on prend l’antihistaminique avant le départ pour prévenir le mal des transports<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</div>
+<div class="p">La prévention primaire de l’anticipation tient au contrôle parfait des premières cures, car un échec initial installe le réflexe conditionné<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>.</div>
+<div class="p">La prévention secondaire dépiste tôt les causes graves, puisqu’elles se cachent derrière un symptôme banal. Elle repose sur les symptômes d’alarme suisses, qui font compléter le bilan sans attendre<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</div>
+<div class="p">Elle passe aussi par la révision des traitements : quand un médicament est suspecté, on en discute la nécessité avant d’ajouter un antiémétique<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup>.</div>
+<div class="p">La prévention tertiaire évite les complications du traitement lui-même, ce qui protège le patient fragile. Elle corrige les ions avant l’ondansétron et écarte les produits contre-indiqués chez la femme enceinte<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p">Elle limite aussi les doses de métoclopramide chez le sujet âgé et proscrit la dompéridone dans l’obstruction<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. Enfin, devant une hyperémèse prolongée, on ne laisse pas la patiente sans apports, car les complications rares incluent l’encéphalopathie de Wernicke<sup class="r"><a href="#sb-fms2010-1">[11]</a></sup>.</div>
+<button class="w" type="button" popovertarget="f-prev">prévenir sans nuire</button>
+<div id="f-prev" class="fenetre" popover>
+<button class="fermer" type="button" popovertarget="f-prev" popovertargetaction="hide">Fermer</button>
+<h5>Prévenir sans nuire</h5>
+<div class="p">Les anticholinergiques s’évitent dans le glaucome à angle aigu, si bien qu’on vérifie cet antécédent avant de les prescrire en prévention<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
+<div class="p">Les antihistaminiques diminuent la vigilance et brouillent la vision, ce qui compte pour le voyageur qui prend le volant<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>.</div>
+<div class="p">Quand elle sert de prévention chirurgicale, la dexaméthasone s’injecte dès l’induction anesthésique<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</div>
+</div>
 </section>
 <section class="ilot" id="p13">
 <h3><strong>13. Points clés</strong></h3>
 <ul>
-<li>On cherche la cause avant l'antiémétique, et l'iléus reçoit la sonde, l'eau et les ions<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>L'aigu, le retardé et l'anticipé ne partagent ni le moment ni le médicament<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>.</li>
-<li>Un score d'Apfel de 2, soit 39 %, fait introduire la prémédication<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
-<li>Ondansetron Accord®, numéro 66785, se contre-indique avec l'apomorphine et le QT long congénital<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>.</li>
-<li>Le cliché debout sépare E1 iléus de E2 échec du premier antiémétique<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</li>
+<li>On nomme la cause avant de prescrire, et l’on réhydrate avant l’antiémétique<sup class="r"><a href="#sb-rms2017-4">[4]</a></sup>.</li>
+<li>Une douleur disproportionnée à l’examen fait suspecter l’ischémie mésentérique, E1, et demander l’angio-CT<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</li>
+<li>Le test de grossesse précède l’ondansétron chez toute femme en âge de procréer<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</li>
+<li>La cure hautement émétisante reçoit anti-NK1, dexaméthasone et anti-5-HT3<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</li>
+<li>Un score d’Apfel de 2 fait introduire la prophylaxie postopératoire, car le risque atteint alors 39 %<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</li>
 </ul>
-<div class="p">Le rang E1 est l'iléus, or le rang E2 est l'échec du premier antiémétique. Les autres concurrents restent sans badge de létalité minute<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>.</div>
 </section>
 <section class="ilot" id="p14">
-<h3><strong>14. Pièges et questions fréquentes à l'examen fédéral</strong></h3>
-<div class="p"><strong>Question.</strong> Un score d'Apfel de 1 impose-t-il déjà la prémédication<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup> ?</div>
-<div class="p"><strong>Réponse.</strong> Non, il ouvre la discussion, car le risque est de 21 %, alors que l'introduction est écrite pour un score de 2, soit 39 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. La raison est que les deux seuils ne disent pas le même geste.</div>
-<div class="p"><strong>Question.</strong> Peut-on donner l'ondansétron dans un iléus pour « voir » ?</div>
-<div class="p"><strong>Réponse.</strong> Non, la sonde et les ions passent d'abord, et le produit ralentit encore le côlon<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. La raison est qu'un confort médicamenteux ne lève pas l'obstacle.</div>
-<div class="p"><strong>Question.</strong> Le timbre de scopolamine est-il le traitement suisse du mal des transports ?</div>
-<div class="p"><strong>Réponse.</strong> Non, ce timbre n'est pas distribué en Suisse, et l'on choisit un antihistaminique ou un autre anticholinergique disponible, hors glaucome à angle aigu<sup class="r"><a href="#sb-rms2017-3">[3]</a></sup>. La raison est une disponibilité nationale, pas une mode.</div>
-<div class="p"><strong>Question.</strong> Quelle dose initiale retient-on après 75 ans <sup class="r"><a href="#sb-aips-66785">[6]</a></sup>?</div>
-<div class="p"><strong>Réponse.</strong> La dose intraveineuse initiale d'Ondansetron Accord®, 8 mg en 15 minutes, ne se dépasse pas, et l'apomorphine reste contre-indiquée<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. La raison est la baisse de clairance avec l'âge, écrite dans l'information suisse.</div>
-<h2 class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</h2>
-<div class="p">Oui, car le tri part de l'iléus, le cliché debout sépare E1 de E2, et Ondansetron Accord® y est dosé avec ses contre-indications suisses.</div>
-<div class="p"><strong>Question.</strong> Un potentiel de 10 % justifie-t-il déjà une prophylaxie de cure<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup> ?</div>
-<div class="p"><strong>Réponse.</strong> Oui, la prophylaxie commence dès que le potentiel dépasse 10 %, et le haut risque, lui, dépasse 90 %<sup class="r"><a href="#sb-rms2017-2">[2]</a></sup>. La raison est une bande écrite, pas une habitude de service.</div>
-<div class="p"><strong>Question.</strong> Le retardé se traite-t-il comme l'aigu, avec la même injection unique ?</div>
-<div class="p"><strong>Réponse.</strong> Non, l'aigu reçoit l'association anti-5-HT3 et corticoïde trente minutes avant le cytostatique, tandis que le retardé dure souvent 3 à 5 jours, et l'on passe alors à la voie orale<sup class="r"><a href="#sb-rms2002-2">[5]</a></sup>. La raison est le temps, qui change le geste.</div>
-<div class="p"><strong>Question.</strong> Peut-on associer l'ondansétron à l'apomorphine si la nausée est forte ?</div>
-<div class="p"><strong>Réponse.</strong> Non, Ondansetron Accord® est contre-indiqué avec l'apomorphine, et le numéro Swissmedic 66785 le rappelle<sup class="r"><a href="#sb-aips-66785">[6]</a></sup>. La raison est le risque d'hypotension et de perte de connaissance.</div>
-<div class="p">Le piège récurrent est de classer les dix concurrents par un pourcentage de 2017<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>. Ces pourcentages enseignent le fardeau, or ils ne respectent pas l'ordre gelé, et c'est pourquoi chaque ligne porte Ne rang<sup class="r"><a href="#sb-rms2017-1">[1]</a></sup>.</div>
+<h3><strong>14. Pièges et questions fréquentes à l’examen fédéral suisse</strong></h3>
+<div class="p"><strong>Question :</strong> Un score d’Apfel de 1 impose-t-il déjà la prophylaxie<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup> ?</div>
+<div class="p"><strong>Réponse :</strong> Non, il ouvre seulement la discussion, puisque le risque est de 21 %, alors que la prophylaxie s’introduit à partir de deux facteurs, soit 39 %<sup class="r"><a href="#sb-rms2017-5">[5]</a></sup>.</div>
+<div class="p"><strong>Question :</strong> Peut-on donner l’ondansétron à un patient occlus pour le soulager ?</div>
+<div class="p"><strong>Réponse :</strong> Non, la sonde et la cause passent d’abord, car le produit allonge encore le transit colique et masque l’évolution<sup class="r"><a href="#sb-aips-66785">[8]</a></sup>.</div>
+<div class="p"><strong>Question :</strong> Une jeune femme vomit depuis la veille : quel examen précède le traitement ?</div>
+<div class="p"><strong>Réponse :</strong> Le test de grossesse passe d’abord, car il fait partie du premier bilan suisse et conditionne le choix de l’antiémétique<sup class="r"><a href="#sb-vav2020-2">[10]</a></sup>.</div>
+<div class="p"><strong>Question :</strong> Un vomissement en jet sans nausée, avec céphalée, oriente-t-il vers le ventre<sup class="r"><a href="#sb-vav2020-1">[9]</a></sup> ?</div>
+<div class="p"><strong>Réponse :</strong> Non, car il oriente vers l’hypertension intracrânienne, E3, et impose l’imagerie cérébrale<sup class="r"><a href="#sb-afp2013-1">[14]</a></sup>.</div>
+<div class="p"><strong>Question :</strong> Le vomissement tardif de chimiothérapie commence-t-il à la fin de la perfusion ?</div>
+<div class="p"><strong>Réponse :</strong> Non, car l’aigu est limité au premier jour suivant le cytostatique, puis le tardif prend le relais jusqu’au septième jour<sup class="r"><a href="#sb-rms2002-2">[7]</a></sup>.</div>
+<div class="p">Le piège le plus coûteux reste le ventre souple, car il rassure à tort. Une douleur intense avec une palpation pauvre est une ischémie mésentérique jusqu’à preuve du contraire<sup class="r"><a href="#sb-rms2016-1">[12]</a></sup>.</div>
+<h2 class="question">Ce cours, lu seul avec ses fenêtres, suffit-il pour gagner 90 à 100 % des points sur ce sujet et pour traiter ce patient en sécurité ?</h2>
+<div class="p">Oui, car il classe les dix vraies causes par fréquence et par létalité, ouvre l’arbre sur l’ischémie mésentérique, et dose Ondansetron Accord® avec ses contre-indications suisses.</div>
 </section>
 <section class="ilot" id="sources">
 <h3>Sources</h3>
 <ol>
-<li id="sb-rms2017-1">[1] Revue médicale suisse, utilisation des antiémétiques par le praticien, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2017-2">[2] Revue médicale suisse, démarche et score d'Apfel, même article, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2017-3">[3] Revue médicale suisse, médicaments antiémétiques disponibles en Suisse, même article, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2002-1">[4] Revue médicale suisse, prévention des nausées après chimiothérapie, 2002 — https://www.revmed.ch/revue-medicale-suisse/2002/revue-medicale-suisse-2402/prevention-et-traitement-des-nausees-et-vomissements-apres-chimiotherapie-anticancereuse (consulté le 10 novembre 2026).</li>
-<li id="sb-rms2002-2">[5] Revue médicale suisse, temps aigus, retardés et anticipés, même article, 2002 — https://www.revmed.ch/revue-medicale-suisse/2002/revue-medicale-suisse-2402/prevention-et-traitement-des-nausees-et-vomissements-apres-chimiotherapie-anticancereuse (consulté le 10 novembre 2026).</li>
-<li id="sb-aips-66785">[6] Information professionnelle suisse, Ondansetron Accord, solution injectable, Swissmedic 66785, mise à jour 2023 — https://arzneimittelinfo.ch/fr/ondansetron-accord-228571/information-professionnelle (consulté le 10 novembre 2026).</li>
-<li id="sb-commons-heilman">[7] Wikimedia Commons, radiographie d'abdomen debout, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.jpg (consulté le 10 novembre 2026).</li>
+<li id="sb-rms2017-1">[1] Revue médicale suisse, utilisation des antiémétiques par le praticien, introduction et fréquence, 2017;13(566):1207-1211 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2017-2">[2] Revue médicale suisse, même article, prise en charge, score d’Apfel et potentiel émétogène, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2017-3">[3] Revue médicale suisse, même article, antiémétiques disponibles en Suisse, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2017-4">[4] Revue médicale suisse, même article, tableau 1 (diagnostic différentiel) et étapes de la prise en charge, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2017-5">[5] Revue médicale suisse, même article, tableaux 2 (score d’Apfel) et 4 (traitement selon l’indication), 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2017-6">[6] Revue médicale suisse, même article, physiopathologie et figure 1, 2017 — https://www.revmed.ch/revue-medicale-suisse/2017/revue-medicale-suisse-566/utilisation-des-antiemetiques-par-le-praticien (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2002-2">[7] Revue médicale suisse, prévention et traitement des nausées et vomissements après chimiothérapie anticancéreuse, 2002 — https://www.revmed.ch/revue-medicale-suisse/2002/revue-medicale-suisse-2402/prevention-et-traitement-des-nausees-et-vomissements-apres-chimiotherapie-anticancereuse (consulté le 11 novembre 2026).</li>
+<li id="sb-aips-66785">[8] Information professionnelle suisse, Ondansetron Accord, solution injectable, Swissmedic 66785, mise à jour mai 2023 — https://arzneimittelinfo.ch/fr/ondansetron-accord-228571/information-professionnelle (consulté le 11 novembre 2026).</li>
+<li id="sb-vav2020-1">[9] La gazette médicale (Aerzteverlag medinfo, Suisse), nausées et vomissements : diagnostic différentiel large, 2020;9(2) — https://www.medinfo-verlag.ch/nausees-et-vomissements/ (consulté le 11 novembre 2026).</li>
+<li id="sb-vav2020-2">[10] La gazette médicale, même article, symptômes d’alarme et étapes de clarification, 2020 — https://www.medinfo-verlag.ch/nausees-et-vomissements/ (consulté le 11 novembre 2026).</li>
+<li id="sb-fms2010-1">[11] Forum Médical Suisse, nausée, vomissements et hyperémèse gravidique, 2010 — https://doi.org/10.4414/fms.2010.07137 (consulté le 11 novembre 2026).</li>
+<li id="sb-rms2016-1">[12] Revue médicale suisse, diagnostic et traitement des ischémies mésentériques, 2016;12(528) — https://www.revmed.ch/revue-medicale-suisse/2016/revue-medicale-suisse-528/diagnostic-et-traitement-des-ischemies-mesenteriques (consulté le 11 novembre 2026).</li>
+<li id="sb-amesi2024-1">[13] Étude AMESI, incidence, diagnostic, prise en charge et devenir de l’ischémie mésentérique aiguë, étude prospective multicentrique, 2024 — https://pmc.ncbi.nlm.nih.gov/articles/PMC10807222/ (consulté le 11 novembre 2026).</li>
+<li id="sb-afp2013-1">[14] American Family Physician, evaluation of nausea and vomiting in adults: a case-based approach, 2013;88(6):371-379 — https://www.aafp.org/afp/2013/0915/p371.pdf (consulté le 11 novembre 2026).</li>
+<li id="sb-ofsp-tardoc">[15] Office fédéral de la santé publique, TARDOC et forfaits ambulatoires, nouveau tarif médical, 2026 — https://www.bag.admin.ch/fr/tardoc-et-forfaits-ambulatoires (consulté le 11 novembre 2026).</li>
+<li id="sb-commons-heilman">[16] Wikimedia Commons, radiographie d’abdomen debout montrant une occlusion du grêle, James Heilman, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Upright_abdominal_X-ray_demonstrating_a_bowel_obstruction.jpg (consulté le 11 novembre 2026).</li>
 </ol>
-<p class="p">Le contenu reprend les sources citées. Il n'a pas été validé cliniquement pour un soin réel.</p>
+<p class="p">Le contenu reprend les sources citées ; il ne remplace pas le jugement clinique devant un patient réel.</p>
 </section>
 </main>
 </body>
