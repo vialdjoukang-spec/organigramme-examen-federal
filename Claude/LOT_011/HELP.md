@@ -59,3 +59,12 @@
 - Prazosine : aucune spécialité dans le corpus AIPS ; la décision repose sur l'AASM 2018 et la méta-analyse néerlandaise de Yücel (source européenne).
 - Normes d'examen sans source lue retirées (IMC 18,5–24,9, 5 minutes de repos, pouls 60–100).
 - Aucune image : la vidéo-polysomnographie est décisive, mais aucun tracé libre n'a été cherché (débit Wikimedia limité) ; proposition : hypnogramme libre d'éveil du sommeil lent en fenêtre 9.a.
+
+## DX.5 — Douleur chronique (renfort L1, 11.11.2026)
+- Source américaine retirée comme appui de décision : CDC 2022 (Dowell). Décisions adossées au guide NICE NG193 (lu en ligne), à la méta-analyse Cochrane Birkinshaw 2023 et aux AIPS.
+- Prégabaline : la formule « on l'évite ou on demande l'avis d'un néphrologue sous 30 mL/min » adoucissait l'AIPS Lyrica 57057 (« ne doit pas être utilisée ») : corrigée. Duloxétine et ibuprofène : contre-indications Clcr < 30 mL/min et hépatiques ajoutées selon leurs AIPS.
+- Lorazépam : « 4 semaines au plus comme hypnotique » non retrouvé dans l'AIPS Temesta 36203 (2 à 3 mois) : aligné sur l'AIPS.
+- AIPS combinée scindée en 9 monographies ; duloxétine : AIPS Duloxetin Sandoz 65996 (générique) faute de spécialité originale dans le corpus.
+- Seuil DN4 ≥ 4/10 et détail des critères ACR 2016 (WPI, SSS) : seuls les résumés ont été lus ; à vérifier sur le texte intégral.
+- Objectifs « à 3 mois / à 12 mois », Bastien (ISI 7 items 0–4) et Sateia (ICSD-3) retirés faute de lecture ; l'ISI est décrit selon le guide européen.
+- Pas d'image : aucun examen d'imagerie décisif pour la douleur chronique elle-même.
