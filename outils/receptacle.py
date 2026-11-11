@@ -126,13 +126,14 @@ $$('nav.on button').forEach(b=>b.onclick=()=>{onglet(b.dataset.o);history.replac
 /* ----- Cours ----- */
 const liste=[];D.ssp.forEach(s=>s.lecons.forEach(l=>{if(l.f)liste.push({s,l})}));
 function ouvrir(i,pousser=true){const {s,l}=liste[i];$('#vue').dataset.i=i;$('#vt').innerHTML=esc(l.n)+'<small>'+esc(s.nom)+'</small>';
-  $('#vf').src=D.base+l.f;$('#vn').href=D.base+l.f;$('#vue').classList.add('a');document.body.style.overflow='hidden';
+  const vieux=$('#vf');const cadre=document.createElement('iframe');cadre.id='vf';cadre.title='Cours';cadre.src=D.base+l.f;vieux.replaceWith(cadre);$('#vn').href=D.base+l.f;$('#vue').classList.add('a');document.body.style.overflow='hidden';
   if(pousser)history.pushState({c:i},'','#cours='+l.id);}
-function fermer(){$('#vue').classList.remove('a');$('#vf').src='about:blank';document.body.style.overflow='';}
-$('#vr').onclick=()=>history.back();
+/* Le cadre est recréé à chaque ouverture et retiré à la fermeture : les ancres suivies dans un cours ne s'empilent pas dans l'historique de la page. */
+function fermer(){$('#vue').classList.remove('a');const v=$('#vf');const c=document.createElement('iframe');c.id='vf';c.title='Cours';c.src='about:blank';v.replaceWith(c);document.body.style.overflow='';}
+$('#vr').onclick=()=>{fermer();history.replaceState(null,'','#cours')};
 $('#vp').onclick=()=>{const i=+$('#vue').dataset.i;if(i>0)ouvrir(i-1,false),history.replaceState({c:i-1},'','#cours='+liste[i-1].l.id)};
 $('#vs').onclick=()=>{const i=+$('#vue').dataset.i;if(i<liste.length-1)ouvrir(i+1,false),history.replaceState({c:i+1},'','#cours='+liste[i+1].l.id)};
-addEventListener('popstate',e=>{if(e.state&&e.state.c!=null)ouvrir(e.state.c,false);else fermer()});
+addEventListener('popstate',e=>{if(e.state&&e.state.c!=null&&location.hash.startsWith('#cours='))ouvrir(e.state.c,false);else if($('#vue').classList.contains('a'))fermer()});
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-c]');if(a){e.preventDefault();ouvrir(liste.findIndex(x=>x.l.id===a.dataset.c))}});
 function filtrer(){const q=$('#q').value.trim().toLowerCase(),pret=$('#fp').classList.contains('a');
   $$('#p-cours .c').forEach(c=>{const t=c.dataset.t;const ok=(!pret||c.classList.contains('pret'))&&(!q||t.includes(q));c.style.display=ok?'':'none';
