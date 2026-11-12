@@ -1,0 +1,5 @@
+# Corrections de l'audit P1 (à appliquer par les rédacteurs)
+
+- [majeure] Ordre des DX (Phase A, points 2 et 7) → Remplacer l'ordre pédagogique par l'ordre de fréquence gelé : otomycose 4, dermatite 5, corps étranger 6, perforation traumatique 7, cholestéatome 8 ; supprimer la phrase qui déclare l'ordre pédagogique. (https://doi.org/10.1007/s00106-008-1830-y ; https://doi.org/10.1002/lio2.709)
+- [majeure] Rangs E de la Phase A (fenêtre « signes d'alarme ») → Réserver E1 à E3 aux diagnostics graves : E1 fuite de liquide cérébrospinal, E2 otite externe nécrosante, E3 cholestéatome ; les situations d'alarme (sepsis, mastoïdite, pile bouton) restent des drapeaux sans rang E. (PROMPT_LOTS_L1_10.11.26.claude.md, règle A-2 ; https://doi.org/10.1017/S0022215125102910)
+- [mineure] Tableau comparatif : mention « E : » sur le corps étranger → Retirer le rang E du corps étranger ; garder la pile bouton comme drapeau de conduite. (ENT UK, Foreign bodies in the external auditory canal (source 9 de la Phase A))

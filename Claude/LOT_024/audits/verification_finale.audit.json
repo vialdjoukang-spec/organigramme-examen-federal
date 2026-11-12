@@ -1,0 +1,133 @@
+{
+ "lot": "LOT_024",
+ "audit": "Vérification finale indépendante, ciblée sur git diff 24f5ab2..6672611 et restants_leves_par_redacteur (médical et conformité)",
+ "base": "6672611",
+ "date": "2026-11-12",
+ "verdict": "CORRECTIONS",
+ "portes": "controle3 --script-ok : 11/11 VERT ; verif_aips : 11/11 OK ; aips_fiche verifier : 0 défaut bloquant ; abreviations : 0 ; forme --verifier : 11 conformes",
+ "methode": "Texte refdata brut du cache ~/.cache/medina_aips (fiches lues le 12.11.2026) comparé par grep aux citations ; calcul 80 × 400/457 = 70,02 refait en Python",
+ "restants_contre_audit": {
+  "medical": "13/13 levés (1 critique, 1 grave, 5 moyens, 6 légers), sauf le léger SFORL : levé en DX.7, mais pas à la première occurrence de DX.6",
+  "conformite": "6/6 levés (Weber, légende, double espace, palette Phase A #183e1d, phrase de 43 mots, abréviations Phase A)"
+ },
+ "points_demandes": {
+  "ciproxine_dx3": "Contre-indication grossesse/allaitement, grossesse « sauf en cas d'indication claire », allaitement, dose 2× 500 à 2× 750 mg, 7 à 14 jours : mot pour mot avec l'AIPS 47795.",
+  "date_ciproxine_47795": "Tranché : août 2025. La fiche refdata en vigueur porte « Mise à jour de l’information Août 2025 » ; 2026-04-29 est la date de publication du document refdata, pas la mise à jour de l'AIPS. Le cours (S16) écrit « août 2025 » : correct.",
+  "coamoxi_dx2": "Citations 51–80 et 29–51 mg/kg/jour mot pour mot (AIPS 53982, août 2026) ; 80 mg/kg/j d'amoxicilline écrit « recommandation SSI hors AIPS » : levé.",
+  "bactrim_dx2": "Grossesse et allaitement mot pour mot ; contre-indications incomplètes (voir restants).",
+  "ibuprofene_dx7": "Contre-indications Algifor-L 55766 et Algifor Junior 56046 complètes et conformes au fond.",
+  "rocephin_dx8_dx10": "Contre-indications présentes ; deux contre-indications liées au solvant lidocaïne sont présentées comme générales (voir restants).",
+  "elidel_dx5": "« Un traitement prolongé continu doit être évité » mot pour mot (AIPS 55965).",
+  "panotile_phase_a": "Non acceptable en l'état. La phrase AIPS est « La prudence est de mise en cas d’emploi pendant la grossesse et l’allaitement. » Le cours tronque la citation et reprend l'allaitement hors guillemets. Le sens reste juste : Léger.",
+  "sforl_cosnoe_palette_phrases": "COSNOE conforme (S4). SFORL développée en DX.7, pas à la première occurrence de DX.6. Palette Phase A verte, conforme à forme.py. Phrase de 43 mots scindée sans perte de fond."
+ },
+ "restants": [
+  {
+   "gravite": "Moyen",
+   "fichier": "LOT_024_Phase_B_V0_DX.2.html",
+   "emplacement": "ligne 269, fenêtre Bactrim forte, Contre-indications",
+   "avant": "Hypersensibilité aux sulfamides, antécédent de syndrome de Stevens-Johnson, déficit en G6PD (glucose-6-phosphate déshydrogénase), insuffisance rénale sévère, troisième trimestre de grossesse",
+   "correction": "Recopier la liste AIPS complète : hypersensibilité (principes actifs, sulfamides, triméthoprime, excipients) ; érythème multiforme, Stevens-Johnson, nécrolyse épidermique toxique, DRESS ; déficit en G6PD, Hb Cologne et Hb Zurich ; porphyrie aiguë ; nouveau-nés hyperbilirubinémiques ; atteintes graves du parenchyme hépatique ; insuffisance rénale sévère (clairance < 15 ml/min) ; anémie mégaloblastique, thrombopénie, granulopénie ; prématurés et nouveau-nés durant les six premières semaines ; troisième trimestre ; dofétilide.",
+   "source": "AIPS Bactrim forte 48306 (mars 2023), rubrique Contre-indications"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_A_V0.html",
+   "emplacement": "ligne 302, fenêtre Situations spéciales",
+   "avant": "« La prudence est de mise en cas d’emploi pendant la grossesse », et la même phrase couvre l’allaitement",
+   "correction": "« La prudence est de mise en cas d’emploi pendant la grossesse et l’allaitement »",
+   "source": "AIPS Panotile 31957 (mars 2021)"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_B_V0_DX.8.html (l. 267) et LOT_024_Phase_B_V0_DX.10.html (l. 322)",
+   "emplacement": "fenêtre ceftriaxone, Contre-indications",
+   "avant": "troubles de la conduction cardiaque ; insuffisance cardiaque aiguë décompensée",
+   "correction": "Rattacher ces deux contre-indications au solvant à base de lidocaïne (voie intramusculaire), comme l'AIPS, au lieu de les présenter comme générales",
+   "source": "AIPS Rocephin 44625 (juin 2025), Contre-indications"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_B_V0_DX.2.html",
+   "emplacement": "ligne 240, fenêtre Co-Amoxi, paragraphe final",
+   "avant": "L'AIPS indique, pour l'association : « Otite moyenne: 51–80 mg/kg/jour (44,6 mg d'AMX/6,4 mg de CLV jusqu'à 70 mg/10 mg) »",
+   "correction": "Supprimer la redite de la ligne Dose AIPS de la même fenêtre : « La borne AIPS de 80 mg/kg/j pour l'association représente au plus 70 mg/kg/j d'amoxicilline (80 × 400/457 = 70,0). »",
+   "source": "Règle L1 : aucune redite"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_B_V0_DX.2.html",
+   "emplacement": "ligne 238, fenêtre Co-Amoxi, Contre-indications",
+   "avant": "Hypersensibilité aux pénicillines et aux céphalosporines ; ictère ou trouble hépatique lors d'un traitement antérieur",
+   "correction": "« hypersensibilité connue aux pénicillines et céphalosporines ou à un constituant de Co-Amoxi-Mepha » ; « ictère ou des troubles de la fonction hépatique pendant un traitement antérieur par Co-Amoxi-Mepha »",
+   "source": "AIPS Co-Amoxi-Mepha 53982 (août 2026)"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_B_V0_DX.6.html",
+   "emplacement": "ligne 52, première occurrence",
+   "avant": "Société française d'ORL (SFORL)",
+   "correction": "Société française d'oto-rhino-laryngologie et de chirurgie de la face et du cou (SFORL)",
+   "source": "Restant léger SFORL du contre-audit médical"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_B_V0_DX.4.html",
+   "emplacement": "ligne 126, lecture guidée, repère 3",
+   "avant": "tapissée de peau pâle,.",
+   "correction": "tapissée de peau pâle.",
+   "source": "Coquille introduite par 6672611"
+  },
+  {
+   "gravite": "Léger",
+   "fichier": "LOT_024_Phase_B_V0_DX.10.html",
+   "emplacement": "ligne 132, point 7",
+   "avant": "Elle le latéralise vers l’oreille saine dans une cophose",
+   "correction": "« Le Weber se latéralise vers l’oreille saine dans une cophose » : « Elle » a perdu son antécédent après la reformulation du renvoi",
+   "source": "Reformulation du commit 6672611"
+  }
+ ],
+ "decompte": {
+  "critique": 0,
+  "grave": 0,
+  "moyen": 1,
+  "leger": 7
+ },
+ "question_finale": "non — il manque les contre-indications complètes de Bactrim forte en DX.2 ; les 7 légers restent à corriger avant audit-ok.",
+ "restants_leves_par_redacteur": [
+  "Moyen Bactrim DX.2 : contre-indications recopiées mot pour mot de l'AIPS 48306 (11 items dont porphyrie, nouveau-nés <6 semaines, dofétilide, formule sanguine).",
+  "Panotile Phase A : citation « grossesse et l'allaitement » complète ; mot coupé « allait e ment » par la fiche refdata, recomposé et signalé.",
+  "Rocephin DX.8 et DX.10 : contre-indications séparées en générales et propres au solvant lidocaïne, mot pour mot AIPS 44625.",
+  "Co-Amoxi DX.2 : citation 51–80 mg/kg supprimée de la fenêtre (redite) ; contre-indications mot pour mot AIPS 53995.",
+  "SFORL DX.6 l. 52 : forme développée complète à la première occurrence.",
+  "DX.4 : « pâle,. » corrigé ; DX.10 : « Elle » remplacé par « Le Weber »."
+ ],
+ "controle_ultime": {
+  "verdict": "CORRECTIONS",
+  "base": "f0aed9a",
+  "date": "2026-11-12",
+  "auditeur": "Claude, contrôle ultime indépendant (non rédacteur)",
+  "verifie_conforme": [
+   "Bactrim DX.2 l. 269 : 11 contre-indications identiques à l'AIPS 48306 (HTML refdata relu le 12.11.2026, comparaison par script).",
+   "Co-Amoxi DX.2 l. 238 : 2 citations identiques dans l'AIPS 53995 (comprimés, mars 2026) et l'AIPS 53982 (suspension, août 2026) ; même marque, deux formes annoncées dans le titre de la fenêtre : pas d'incohérence ; citation 51–80 mg/kg présente une seule fois.",
+   "Rocephin DX.8 l. 267 et DX.10 l. 322 : 4 contre-indications générales et 4 propres au solvant lidocaïne identiques à l'AIPS 44625 (juin 2025) ; partage conforme à la structure de l'AIPS.",
+   "SFORL DX.6 l. 52 : forme développée exacte. DX.4 l. 126 « pâle. » corrigé. DX.10 l. 132 « Le Weber se latéralise » correct.",
+   "Portes : controle3 --script-ok 11/11 sans défaut ; verif_aips 11/11 OK ; aips_fiche verifier 0 défaut bloquant ; abreviations 0 sigle ; forme --verifier 11/11 conforme."
+  ],
+  "restants": [
+   "Moyen — Phase A l. 302 (Panotile, AIPS 31957) : « l’allait e ment. » La source coupe le mot. — Faux : le HTML refdata découpe le mot en trois balises <span> sans espace ; le texte rendu est « l’allaitement. ». Correction : « La prudence est de mise en cas d’emploi pendant la grossesse et l’allaitement. » et supprimer « La source coupe le mot. ». La clé restants_leves_par_redacteur annonce « recomposé », ce que le cours ne fait pas.",
+   "Léger — DX.10 l. 132 : « Il se latéralise vers l’oreille atteinte » suit une phrase qui cite le Weber et le Rinne ; référent ambigu. Correction : « Le Weber se latéralise vers l’oreille atteinte… »."
+  ],
+  "decompte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 1,
+   "leger": 1
+  }
+ },
+ "restants_leves_orchestrateur": [
+  "Moyen Panotile Phase A l. 302 : « l’allait e ment. » La source coupe le mot. → « l’allaitement. » (texte affiché de l'AIPS 31957 ; correction prescrite par controle_ultime, appliquée telle quelle)",
+  "Léger DX.10 l. 132 : « Il se latéralise » → « Le Weber se latéralise »",
+  "Outil Claude/_outils/verif_aips.py : la fiche refdata est lue aussi avec les balises en ligne collées (mots découpés en <span>) ; citation admise si présente dans l'une des deux lectures ; 527 fichiers LOT_0* : aucune régression"
+ ]
+}
