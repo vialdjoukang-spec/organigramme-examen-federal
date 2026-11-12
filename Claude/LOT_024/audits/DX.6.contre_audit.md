@@ -1,0 +1,8 @@
+# DX.6 — Corps étranger du conduit auditif — contre-audit (12.11.2026)
+
+Réécriture complète sur le gabarit L1 (ancien fichier : popovers, titre « DX.7 » erroné, ~10 Ko de texte générique) ; numéro réaligné sur LISTE_DX_CANONIQUE (CORRECTIONS_AUDIT : rang E retiré, pile bouton = drapeau).
+
+**Audit A (médical)** — passe mécanique `controle3 --paquet` sur les textes réellement lus (ENT UK, NHS GGC, HUG, SFORL, ESFBI, Schuldt, Dubois, Peridis, Akgül, UKBB/Kispi, Leong, 6 AIPS) : aucun nombre absent de sa source (seuls les numéros de repères et libellés 9.a–9.d sont signalés, faux positifs ; « 11 enfants » = « Eleven » du résumé). Relecture manuelle : affirmations sans source retirées (LAMal, tranches horaires inventées, « peau grisâtre », sténose, TDM du rocher, mécanisme de l'insecte, côté « erroné » chez l'adulte).
+**Audit B (conformité)** — controle3 `--script-ok` VERT, 81 682 o ; 14 points ; point 1 = définition seule ; 0 popover ; fenêtres :target ; 6 fiches `.mb` (Dafalgan sirop 43838, Algifor Junior 56046, Dafalgan 47503, Algifor-L 55766, Ciproxin HC 54807, Otalgan 10714) ; verif_aips OK ; 10 questions au point 14 ; image en couleur (OpenStax CC BY 4.0) avec repères ; aucune phrase partagée avec le LOT.
+
+**Réserves.** Audits faits par passes distinctes de l'agent rédacteur (pas d'outil de sous-agent disponible). Divergence ENT UK (huile) / SFORL (eau savonneuse) pour l'insecte : écrite dans le cours. Aucune photographie otoscopique libre d'un corps étranger trouvée (Commons limité, 429) : à ajouter au point 6/9 si une image CC BY apparaît. Règles d'irrigation des HUG (≤ 8 mm, paroi supérieure) issues du chapitre cérumen.
