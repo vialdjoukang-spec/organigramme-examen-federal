@@ -1,5 +1,7 @@
 # LOT_025 — liste canonique gelée (porte P1)
 
+**Liste gelée 12.11.2026** (Phase A audit-ok, vérification indépendante, base f81a918).
+
 DX.1 — Pharyngite aiguë
 DX.2 — Xérostomie médicamenteuse
 DX.3 — Candidose buccale
