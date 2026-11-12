@@ -30,7 +30,10 @@ def norm(s):
     return re.sub(r'\s*([.,;:!?()«»"])\s*', r'\1', s).strip(' .;,')
 
 
-def texte(h):
+def texte(h, colle=False):
+    # colle=True : balises en ligne retirées sans espace, car refdata découpe parfois un mot en plusieurs <span> (« allait|e|ment »)
+    if colle:
+        h = re.sub(r'</?(?:span|b|i|em|strong|u|font)\b[^>]*>', '', h)
     return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', h)))
 
 
@@ -39,7 +42,8 @@ def aips(url, cache):
     if not os.path.exists(f) or os.path.getsize(f) < 2000:
         subprocess.run(['curl', '-sS', '--retry', '2', '-m', '60', '-o', f, url], check=False)
     try:
-        return norm(texte(open(f, encoding='utf-8', errors='ignore').read()))
+        h = open(f, encoding='utf-8', errors='ignore').read()
+        return norm(texte(h)) + ' ¦ ' + norm(texte(h, colle=True))  # citation admise si présente dans l'une des deux lectures
     except OSError:
         return ''
 
