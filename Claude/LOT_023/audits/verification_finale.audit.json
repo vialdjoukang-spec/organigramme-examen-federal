@@ -79,5 +79,26 @@
   "3_Robot": "DX.6 : chiffres du résumé PubMed 30308612 (S22, Ann Surg 2019;269:621-630) : 112 patients, complications globales 59 % vs 80 % (RR 0,74 ; IC 0,57-0,96), RR pulmonaires 0,54, cardiaques 0,47, oncologie comparable à 40 mois ; 29,2/42,8 % et 10/13 jours retirés.",
   "4_Madopar_DR": "DX.2 : phrase mot pour mot « Les comprimés de Madopar DR peuvent être cassés en deux » (AIPS 38096, juin 2023) ; énoncé erroné « DR avalés entiers, standard fragmentés » corrigé.",
   "5_FOOD": "DX.1 : « Cette sonde précoce s'accompagnait de plus d'hémorragies digestives »."
+ },
+ "controle_ultime": {
+  "verdict": "audit-ok",
+  "restants": [],
+  "date": "2026-11-12",
+  "base": "1946366",
+  "perimetre": "git diff 1b42089..1946366 -- Claude/LOT_023 (DX.1, DX.2, DX.6)",
+  "controles": {
+   "1_Robot_DX6": "Conforme au résumé PubMed 30308612 relu (efetch) : 112 patients, 59 % contre 80 %, RR 0,74 (IC 0,57-0,96), RR pulmonaire 0,54, cardiaque 0,47, oncologie comparable à 40 mois. S22 listée (sb-robot), citée 3 fois, lien PubMed. « Il montrait » corrigé.",
+   "2_A2DS2_DX1": "Pondération conforme à Hoffmann, Stroke 2012 (PMID 22798325 relu) : âge>=75 1, FA 1, dysphagie 2, sexe masculin 1, NIHSS 5-15 = 3, >=16 = 5, total 10. Calcul 1+1+1+3 = 6, +2 = 8 exact. S17 ajoutée en fin de liste : renvois S1-S17 (DX.1) et S1-S22 (DX.6) vérifiés par script, 0 ancre incohérente, 0 source non citée.",
+   "3_Madopar_DX2": "Phrase « Les comprimés de Madopar DR peuvent être cassés en deux » identique à l'AIPS 38096 (aips_fiche fiche, mise à jour juin 2023) ; gélules et DR avalés entiers sans être croqués, standard fragmentés à volonté : conforme.",
+   "4_FOOD_DX1": "Sujet explicite (« Cette sonde précoce ») ; fond et source S2 inchangés.",
+   "5_restants": "5/5 restants de la vérification finale levés dans le texte."
+  },
+  "portes": {
+   "controle3 --script-ok": "11/11 VERT, 0 défaut",
+   "verif_aips.py": "11/11 OK",
+   "aips_fiche.py verifier": "0 défaut bloquant",
+   "abreviations.py": "0 sigle non développé"
+  },
+  "observation": "Le résumé ROBOT écrit « medium follow-up of 40 months » ; « suivi médian » reste une lecture raisonnable, sans correction exigée."
  }
 }
