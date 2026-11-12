@@ -1,0 +1,190 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "4369ce2011afe085367576c6dba1da9a38c1c9f4",
+ "audit": "audit 1 (B : DX.6–DX.10)",
+ "leves": [
+  "verif_aips : OK sur les 5 fichiers (19 AIPS citées), aucun défaut bloquant",
+  "controle3 --script-ok : VERT ×5, aucun défaut",
+  "≈45 renvois AIPS relus sur le texte refdata en cache (Eylea, Lucentis, Vabysmo, Ozurdex, Diamox, Mydriaticum, Neosynephrin, Entonox, Solu-MEDROL, Actilyse, Metalyse, Aspirine Cardio, Plavix, Actemra, RINVOQ, Metoject, Prednisone Streuli) : doses, voies, CI, grossesse, allaitement, âges conformes",
+  "≈30 chiffres sondés sur la source : RMS 2015 névrite (2/3 FO normal, 25 %/72 %, 16 %, 30 % vs 15 %, ONTT n=156/151/150), CHUV 2015 (4 %, 500 mg <60 kg / 1 g, RX thorax tous les 2 ans), registre suisse AVC (788/265 min, 83 %, 41 %, 30,5 %, 10,6 %, 32,7 %, 30,7 %, 8,3 %, <30 %), ESO 2025 (4,5 h, preuve très faible, force faible) : exacts",
+  "Point 1 = définition seule dans les 5 fichiers ; aucune ancienne architecture ; point 14 ≥ 8 questions partout",
+  "Design Playwright 1280/390 : 218 fenêtres fixes, centrées, défilement interne, aucun débordement horizontal, aucune erreur console, images présentes",
+  "Palettes distinctes, fonds non bleus ; aucune redite de phrase intra- ou inter-fichiers (hors crédit d'image commun DX.5/DX.7)",
+  "Faits perdus : retraits des commits relus ; seul le « syndrome d'ischémie oculaire » (différentiel de l'OVCR) a disparu de DX.6, faute de source lue ; à rétablir dès qu'une source suisse ou européenne lue le porte (non chiffré ici, COUF inaccessible depuis la session)"
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Grave",
+   "constat": "Appel S13 vers une ancre inexistante (#sb-s13) ; l'étiquette S13 désigne dans la bibliographie l'AIPS Prednisone Streuli : l'inhibition de la voie IL-6 par le tocilizumab est attribuée à la mauvaise source.",
+   "avant": "bloquent cette voie <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-s13\">S13</a></sup>",
+   "correction": "bloquent cette voie <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-aips-58868\">S15</a></sup>",
+   "source": "AIPS Actemra 58868 (refdata, mise à jour 09.2026) : « effets de l'inhibition de l'IL-6 sur la protéine C réactive (CRP) et les neutrophiles »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Grave",
+   "constat": "Même citation fantôme S13 (#sb-s13) : la suppression de la CRP sous tocilizumab renvoie, par son étiquette, à l'AIPS de la prednisone.",
+   "avant": "biologie normale <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-s13\">S13</a></sup>",
+   "correction": "biologie normale <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-aips-58868\">S15</a></sup>",
+   "source": "AIPS Actemra 58868 : « l'inhibition de l'IL-6 peut atténuer la réponse à l'infection en termes de concentration de CRP »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Grave",
+   "constat": "Citation fantôme S13 (#sb-s13) sur le bilan avant tocilizumab.",
+   "avant": "facteurs de risque infectieux <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-s13\">S13</a></sup>",
+   "correction": "facteurs de risque infectieux <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-aips-58868\">S15</a></sup>",
+   "source": "AIPS Actemra 58868 : « Actemra ne devrait pas être administré à des patients présentant une infection active »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Grave",
+   "constat": "Citation fantôme S14 (#sb-s14) ; l'étiquette S14 désigne l'AIPS Solu-MEDROL, alors que la contre-indication « tuberculose active » appartient à l'AIPS RINVOQ.",
+   "avant": "dépistage indispensable <sup class=\"r\"><a href=\"#sb-s14\">S14</a></sup>",
+   "correction": "dépistage indispensable <sup class=\"r\"><a href=\"#sb-aips-67257\">S16</a></sup>",
+   "source": "AIPS RINVOQ 67257 (06.2026), contre-indications : « patients atteints de tuberculose active »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Moyen",
+   "constat": "Citation fantôme S12 (#sb-s12) ; l'étiquette S12 désigne le glossaire de Soowamber, qui ne traite pas des traitements à relever. S1 suffit.",
+   "avant": "immunosuppresseurs <sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup><sup class=\"r\"><a href=\"#sb-s12\">S12</a></sup>",
+   "correction": "immunosuppresseurs <sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>",
+   "source": "Bibliographie DX.10 : ancres présentes sb-s1…s10, sb-s16 [S11], sb-s17 [S12], sb-aips-* [S13–S17]"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Moyen",
+   "constat": "Ancre AIPS collée pour la forme : la cible EULAR 2018 (15–20 mg à 2–3 mois, 5 mg à un an) ne figure pas dans l'AIPS Prednisone Streuli.",
+   "avant": "puis 5 mg/jour après un an <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup><sup class=\"r\"><a href=\"#sb-aips-29349\">S13</a></sup>",
+   "correction": "puis 5 mg/jour après un an <sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup>",
+   "source": "AIPS Prednisone Streuli 29349 : posologie générale 5-60 mg/jour, aucune cible de décroissance de l'ACG"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "Ancre AIPS collée pour la forme : l'AIPS Actilyse ne mentionne pas THEIA.",
+   "avant": "L'essai THEIA a utilisé la même dose dans l'OACR<sup class=\"r\"><a href=\"#sb-aips-48313\">S13</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "correction": "L'essai THEIA a utilisé la même dose dans l'OACR<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "source": "AIPS Actilyse 48313 (06.2025), lue : aucune mention de l'OACR ni de THEIA"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "Ancre AIPS collée pour la forme : l'AIPS Metalyse ne mentionne pas TenCRAOS.",
+   "avant": "TenCRAOS a utilisé 0,25 mg/kg dans l'OACR<sup class=\"r\"><a href=\"#sb-aips-69958\">S14</a></sup><sup class=\"r\"><a href=\"#sb-s6\">S6</a></sup>",
+   "correction": "TenCRAOS a utilisé 0,25 mg/kg dans l'OACR<sup class=\"r\"><a href=\"#sb-s6\">S6</a></sup>",
+   "source": "AIPS Metalyse 69958 (05.2025)"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "Ancre AIPS collée pour la forme : le bras témoin de THEIA et TenCRAOS ne relève pas de l'AIPS Aspirine Cardio.",
+   "avant": "dans le bras de comparaison<sup class=\"r\"><a href=\"#sb-aips-51795\">S15</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup><sup class=\"r\"><a href=\"#sb-s6\">S6</a></sup>",
+   "correction": "dans le bras de comparaison<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup><sup class=\"r\"><a href=\"#sb-s6\">S6</a></sup>",
+   "source": "AIPS Aspirine Cardio 51795 (03.2026)"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "Même défaut au point 14 : la dose de comparaison des essais n'est pas portée par l'AIPS.",
+   "avant": "C'est aussi la dose de comparaison des essais<sup class=\"r\"><a href=\"#sb-aips-51795\">S15</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "correction": "C'est aussi la dose de comparaison des essais<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "source": "AIPS Aspirine Cardio 51795"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.9.html",
+   "gravite": "Léger",
+   "constat": "L'AIPS Actilyse limite la contre-indication aux antivitamines K avec INR > 1,3, et non à tout anticoagulant oral.",
+   "avant": "anticoagulant oral avec INR supérieur à 1,3",
+   "correction": "antivitamine K avec INR supérieur à 1,3",
+   "source": "AIPS Actilyse 48313 : « anticoagulants oraux (p.ex. sous antagonistes de la vitamine K avec un INR >1,3) »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Point 2 « Suisse, puis Europe » : l'incidence de 1 à 5/100 000 est un chiffre des États-Unis que la revue genevoise reprend ; le texte la présente comme une donnée suisse.",
+   "avant": "Selon une revue suisse, l'incidence de la névrite optique est comprise entre 1 et 5 cas pour 100 000 personnes et par an",
+   "correction": "La revue genevoise cite une incidence de 1 à 5 cas pour 100 000 personnes et par an, mesurée aux États-Unis",
+   "source": "Steffen & Tabibian, Rev Med Suisse 2015;11:2388 (PDF lu le 11.11.2026) : « aux Etats-Unis […] Son incidence est estimée entre 1 et 5/100 000 personnes/an »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.6.html",
+   "gravite": "Moyen",
+   "constat": "Redite inter-fichiers : la fiche .mb de l'acétazolamide (≈1,5 Ko) double la fiche f-a-m-acetazolamide de la Phase A (mêmes AIPS 21191/22002, même dose du glaucome aigu). DX.7 renvoie déjà à la fiche de Phase A (décision HELP). Supprimer aussi la section f-dx6-m-acetazolamide et l'entrée S15 sb-aips-21191 si elle n'est plus citée.",
+   "avant": "L’<a class=\"ouvre\" href=\"#f-dx6-m-acetazolamide\">acétazolamide</a>",
+   "correction": "L’<a href=\"LOT_018_Phase_A_V0.html#f-a-m-acetazolamide\">acétazolamide</a>",
+   "source": "HELP.md, décision DX.7 ; LOT_018_Phase_A_V0.html#f-a-m-acetazolamide"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.7.html",
+   "gravite": "Léger",
+   "constat": "Le titre omet le rang 🚩 E3 de la liste canonique (DX.9 le porte).",
+   "avant": "<h2 class=\"fm-double\" id=\"fm-1\">DX.7 — Décollement de rétine rhegmatogène</h2>",
+   "correction": "<h2 class=\"fm-double\" id=\"fm-1\">DX.7 — Décollement de rétine rhegmatogène <span class=\"g\">🚩 E3</span></h2>",
+   "source": "LISTE_DX_CANONIQUE.md"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Léger",
+   "constat": "Le titre omet le rang 🚩 E2 de la liste canonique.",
+   "avant": "<h2 class=\"fm-double\">DX.10 — Artérite à cellules géantes avec atteinte visuelle</h2>",
+   "correction": "<h2 class=\"fm-double\">DX.10 — Artérite à cellules géantes avec atteinte visuelle <span class=\"g\">🚩 E2</span></h2>",
+   "source": "LISTE_DX_CANONIQUE.md"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.10.html",
+   "gravite": "Léger",
+   "constat": "Phrase de fabrication ; elle ne porte qu'un lien.",
+   "avant": "La fenêtre <a class=\"ouvre\" href=\"#f-dx10-p11-urg\">Urgence — conduite chronologique</a> précise les gestes minute par minute, puis jour par jour.",
+   "correction": "Une perte visuelle impose la <a class=\"ouvre\" href=\"#f-dx10-p11-urg\">conduite d’urgence</a> du jour même.",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Phrase de fabrication.",
+   "avant": "Les <a class=\"ouvre\" href=\"#f-dx6-p11-sortie\">critères de guérison et de sortie</a> s’énumèrent un par un.",
+   "correction": "Le patient quitte le suivi rapproché quand il remplit les <a class=\"ouvre\" href=\"#f-dx6-p11-sortie\">critères de guérison et de sortie</a>.",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.8.html",
+   "gravite": "Léger",
+   "constat": "Phrase de fabrication.",
+   "avant": "Les <a class=\"ouvre\" href=\"#f-dx8-p11-sortie\">critères de sortie</a> s'énumèrent un par un.",
+   "correction": "Le patient rentre à domicile quand il remplit les <a class=\"ouvre\" href=\"#f-dx8-p11-sortie\">critères de sortie</a>.",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.9.html",
+   "gravite": "Léger",
+   "constat": "Phrase de fabrication.",
+   "avant": "Le <a class=\"ouvre\" href=\"#f-dx9-p11-sortie\">pronostic et les critères de sortie</a> s'énumèrent un par un ; la",
+   "correction": "La récupération dépend du délai (voir <a class=\"ouvre\" href=\"#f-dx9-p11-sortie\">pronostic et critères de sortie</a>) ; la",
+   "source": "L1-3.4"
+  }
+ ],
+ "doutes_non_bloquants": [
+  "DX.7 : positionnement « regard vers le bas » avant chirurgie (COUF seul) ; la position dépend du siège de la déhiscence — à confronter à une consigne de rétinologie suisse (déjà au HELP).",
+  "DX.8 et DX.10 : deux fiches Solu-MEDROL et Phase A une troisième ; contenu propre à l'indication (SEP / rhumatologie), mais CI, grossesse et allaitement se répètent : envisager un renvoi vers f-a-m-methylprednisolone.",
+  "DX.10 : la cible de décroissance suit EULAR 2018 (via RMS 2020), EULAR 2025 n'étant lu qu'en résumé.",
+  "Pédagogie (LOT ≤ 020, Léger) : DX.6, DX.9 et DX.10 n'ont pas de schéma anatomo-fonctionnel réel au point 3 ; DX.10 affiche en h1 le nom de la situation et non celui du diagnostic."
+ ],
+ "point14": {
+  "DX.6": 10,
+  "DX.7": 8,
+  "DX.8": 10,
+  "DX.9": 9,
+  "DX.10": 9
+ },
+ "octets": {
+  "DX.6": 93331,
+  "DX.7": 86580,
+  "DX.8": 84463,
+  "DX.9": 95765,
+  "DX.10": 100072
+ }
+}
