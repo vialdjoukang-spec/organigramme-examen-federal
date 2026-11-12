@@ -15,17 +15,17 @@ DX.10 — Fuite otologique de liquide cérébrospinal 🚩 E1
 ## Fichiers
 | Fichier | Titre | Octets | controle3 | Fenêtres | Fiches .mb (AIPS) | Sources | sha8 |
 |---|---|---|---|---|---|---|---|
-| Phase_A_V0.html | S1.8 — Écoulement auriculaire | discharge fr | 90342 | ORANGE | 40 | 0 (31957,44911,54807) | 20 | dc493b99 |
+| Phase_A_V0.html | S1.8 — Écoulement auriculaire | discharge fr | 90883 | VERT | 40 | 0 (31957,44911,54807) | 20 | c9bd24f9 |
 | Phase_B_V0_DX.1.html | Otite externe aiguë bactérienne | 89073 | VERT | 41 | 4 (31957,45031,47503,54807) | 12 | 21a444b3 |
-| Phase_B_V0_DX.2.html | Otite moyenne aiguë perforée | 91179 | VERT | 40 | 7 (31957,43838,44911,48306,49460,53982,53995,54807,56046,57192) | 22 | 3b9818c5 |
-| Phase_B_V0_DX.3.html | Otite moyenne chronique suppurée sans choles | 84282 | VERT | 43 | 4 (31957,47795,51898,54807) | 19 | 463c4579 |
-| Phase_B_V0_DX.4.html | Otomycose | 88172 | VERT | 42 | 4 (31957,37510,46100,54807) | 17 | b75f26bb |
-| Phase_B_V0_DX.5.html | Dermatite eczémateuse du conduit auditif | 87157 | ROUGE | 43 | 4 (31957,36481,54807,55965) | 14 | 7a3d0389 |
-| Phase_B_V0_DX.6.html | Corps étranger du conduit auditif | 81707 | VERT | 38 | 6 (10714,43838,47503,54807,55766,56046) | 19 | a5ff4624 |
-| Phase_B_V0_DX.7.html | Perforation tympanique traumatique | 87440 | VERT | 37 | 7 (10714,31957,43838,47503,54807,55766,56046) | 22 | f5960930 |
-| Phase_B_V0_DX.8.html | Cholestéatome de l’oreille moyenne 🚩 E3 | 83517 | VERT | 37 | 1 (44625) | 16 | 8b5b51be |
-| Phase_B_V0_DX.9.html | Otite externe nécrosante 🚩 E2 | 88774 | VERT | 39 | 3 (46050,47795,57929,63001) | 23 | 7d45e580 |
-| Phase_B_V0_DX.10.html | Fuite otologique de liquide cérébrospinal 🚩  | 83115 | ROUGE | 38 | 3 (44625,69222,69781) | 16 | 9275e4b5 |
+| Phase_B_V0_DX.2.html | Otite moyenne aiguë perforée | 91815 | VERT | 40 | 7 (31957,43838,44911,48306,49460,53982,53995,54807,56046,57192) | 22 | 6cddbc70 |
+| Phase_B_V0_DX.3.html | Otite moyenne chronique suppurée sans choles | 84446 | VERT | 43 | 4 (31957,47795,51898,54807) | 19 | 4265e4ca |
+| Phase_B_V0_DX.4.html | Otomycose | 88191 | VERT | 42 | 4 (31957,37510,46100,54807) | 17 | 194d0c71 |
+| Phase_B_V0_DX.5.html | Dermatite eczémateuse du conduit auditif | 87267 | VERT | 43 | 4 (31957,36481,54807,55965) | 14 | 78be558a |
+| Phase_B_V0_DX.6.html | Corps étranger du conduit auditif | 81755 | VERT | 38 | 6 (10714,43838,47503,54807,55766,56046) | 19 | 740bbaa6 |
+| Phase_B_V0_DX.7.html | Perforation tympanique traumatique | 89102 | VERT | 37 | 7 (10714,31957,43838,47503,54807,55766,56046) | 22 | f49ed07a |
+| Phase_B_V0_DX.8.html | Cholestéatome de l’oreille moyenne 🚩 E3 | 83990 | VERT | 37 | 1 (44625) | 16 | f0d1e904 |
+| Phase_B_V0_DX.9.html | Otite externe nécrosante 🚩 E2 | 88793 | ORANGE | 39 | 3 (46050,47795,57929,63001) | 23 | 200368e3 |
+| Phase_B_V0_DX.10.html | Fuite otologique de liquide cérébrospinal 🚩  | 83820 | VERT | 38 | 3 (44625,69222,69781) | 16 | e5fd916b |
 
 ## Audits
 - LISTE_DX.audit.json : verdict CORRIGER, {}
@@ -42,6 +42,10 @@ DX.10 — Fuite otologique de liquide cérébrospinal 🚩 E1
   - Grave · LOT_024_Phase_B_V0_DX.10.html · Fiche Rocephin : rubrique intitulée « Grossesse et allaitement » sans la ligne allaitement de l'AIPS (interrompre l'allaitement si le traite
   - Grave · LOT_024_Phase_B_V0_DX.9.html · Les 4 dates de mise à jour AIPS sont fausses (relu refdata en direct le 12.11.2026) : la version citée n'a pas été lue.
   - Grave · LOT_024_Phase_B_V0_DX.10.html · Les 3 dates de mise à jour AIPS sont fausses (Rocephin daté juin 2025 dans le DX.8, juillet 2025 ici).
+- contre_audit_conformite.audit.json : verdict CORRECTIONS, {'mineure': 6, 'majeure': 1, 'informative': 2}
+- contre_audit_medical.audit.json : verdict CORRECTIONS, {'Critique': 1, 'Grave': 1, 'Moyen': 5, 'Léger': 6}
+  - Critique · LOT_024_Phase_B_V0_DX.3.html · 
+  - Grave · LOT_024_Phase_B_V0_DX.2.html · 
 - phase_A.contre_audit.json : verdict ACCEPTE, {}, seconde passe ACCEPTE
 - restants_leves_par_redacteur.json : verdict None, {}
 
