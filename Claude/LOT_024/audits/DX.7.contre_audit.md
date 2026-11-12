@@ -1,0 +1,8 @@
+# DX.7 — Perforation tympanique traumatique — contre-audit (12.11.2026)
+
+Réécriture complète sur le gabarit L1 (ancien fichier : popovers, titre « DX.8 » erroné) ; numéro réaligné sur LISTE_DX_CANONIQUE.
+
+**Audit A (médical)** — `controle3 --paquet` sur les textes lus (HUG perforation et fracture du rocher, HUG otites, Jellinge 2015, Hempel 2012, Duek 2022, Sinkkonen 2014, Zoorob 2026, Sagiv 2018, Borgstein 2008, SFORL, ENT UK, 7 AIPS, légendes Hawke) : aucun nombre absent de sa source (faux positifs : repères 1–4, 7.1–7.3, 9.a–9.d). Corrections après relecture : « otite moyenne chronique » (texte HUG exact), implant cochléaire vérifié, série pédiatrique attribuée à Sagiv (pas Borgstein), mécanismes non sourcés retirés (innervation, eau froide, épithélium, latéralité « droitier »).
+**Audit B (conformité)** — controle3 VERT, 85 030 o ; 14 points ; fenêtre « Urgence — conduite chronologique » ; 7 fiches `.mb` (Dafalgan 47503, Algifor-L 55766, Dafalgan sirop 43838, Algifor Junior 56046, et 3 interdites : Panotile 31957, Ciproxin HC 54807, Otalgan 10714) ; verif_aips OK ; 9 questions au point 14 ; 3 images en couleur (Blausen CC BY 3.0, Hawke CC BY 4.0 J4 et 3 semaines) avec repères ; aucune phrase partagée avec le LOT.
+
+**Réserves.** Aucune goutte auriculaire suisse n'a l'indication « perforation » : la conduite renvoie l'otorrhée surinfectée à l'ORL (SFORL), sans antibiotique chiffré. Règles Weber/Rinne (sens de latéralisation) : physiologie classique, non écrite telle quelle dans le support HUG. Article RMS 2026 (Quinodoz, Voruz, partie 1) payant : non lu, non cité. Audits faits par passes distinctes de l'agent rédacteur (pas d'outil de sous-agent).

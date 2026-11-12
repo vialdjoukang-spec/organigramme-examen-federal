@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tableau du dispositif</title>
+<style>
+:root{--fond:#f6f8fb;--carte:#fff;--trait:#d8e1ea;--titre:#123c5a;--ok:#1b7f5a;--mes:#2d6a9f;--att:#9a6700;--non:#b00020}
+body{margin:0;background:var(--fond);color:#14202b;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:16px}
+h1{color:var(--titre);margin:.3em 0}
+h2{color:var(--titre);border-bottom:2px solid var(--trait);padding-bottom:4px;margin-top:28px}
+.t{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;background:var(--carte);min-width:900px}
+th,td{border:1px solid var(--trait);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#e9f0f7;position:sticky;top:0}
+tr.fam td{background:#eef3f8;font-weight:700;color:var(--titre)}
+.p{display:inline-block;border-radius:10px;padding:1px 8px;font-size:12.5px;font-weight:700;color:#fff;white-space:nowrap}
+.bloq{background:var(--ok)}.mes{background:var(--mes)}.att{background:var(--att)}.non{background:var(--non)}
+code{font-size:13px}
+.legende span{margin-right:12px}
+@media (prefers-color-scheme:dark){:root{--fond:#0f1720;--carte:#16212c;--trait:#2a3a4a;--titre:#9cc8ee}body{color:#e3ebf3}th{background:#1d2b39}tr.fam td{background:#1a2734}}
+</style></head><body><main>
+<h1>Tableau du dispositif — entités fonctionnelles et ce qu’elles empêchent réellement</h1>
+<p>Relevé du 12.11.2026. <b>Tous les agents sont en pause.</b> Chaque ligne distingue le <b>blocage</b> (l’action fautive devient impossible), la <b>détection</b> (elle est vue après coup) et la <b>consigne</b> (elle dépend de l’obéissance de l’agent).</p>
+<p class="legende"><span class="p bloq">Bloquant testé</span> <span class="p mes">Mesuré</span> <span class="p att">Attendu, non mesuré</span> <span class="p non">Non couvert</span></p>
+
+<h2>1. Parties en présence</h2>
+<div class="t"><table><tr><th>Partie</th><th>Pouvoir</th><th>Responsabilité</th><th>Ce qu’elle ne fait jamais</th></tr>
+<tr><td><b>Vial</b></td><td>Autorité finale : GO, pause, consignes, décisions médicales en doute</td><td>Choisit l’environnement et l’ordre des chantiers</td><td>Relire le code ou suivre la CI à la main</td></tr>
+<tr><td><b>Claude principal</b> (orchestrateur)</td><td>Rédige la Phase A, gèle la liste DX, distribue, corrige, ouvre les PR</td><td>Qualité, traçabilité, économie du dispositif</td><td>Lever la pause sans GO ; fusionner une CI rouge ; auditer son propre texte</td></tr>
+<tr><td><b>Agents rédacteurs</b> (5 × 2 DX par LOT)</td><td>Écrivent un fichier chacun sur leur branche</td><td>Cours L1 sourcé, portes gratuites vertes</td><td>Noter leur propre travail ; toucher un fichier d’un autre</td></tr>
+<tr><td><b>Auditeurs indépendants</b> (audit A/B, contre-audit)</td><td>Verdict ACCEPTE / CORRECTIONS / REFUSE</td><td>Erreurs médicales, AIPS, sources</td><td>Auditer un texte qu’ils ont rédigé</td></tr>
+<tr><td><b>Scripts du harnais</b></td><td>Mesurer, résumer, extraire, bloquer</td><td>Tout ce qui est mécanique, à coût nul</td><td>Juger le fond médical</td></tr>
+<tr><td><b>GitHub Actions</b> (garde, CI, Iris, auto-fusion)</td><td>Refuser une PR non conforme ; fusionner une PR verte et étiquetée</td><td>Contrôle externe, indépendant de la machine</td><td>Valider le contenu médical</td></tr>
+<tr><td><b>Plateforme Claude Code</b></td><td>Injecte les CLAUDE.md des dépôts attachés ; exécute les crochets</td><td>Exécution des agents</td><td>Elle échappe au harnais : l’injection ne se règle qu’au choix de l’environnement</td></tr>
+</table></div>
+
+<h2>2. Entités fonctionnelles</h2>
+<div class="t"><table>
+<tr><th>Entité</th><th>Rôle</th><th>Déclencheur</th><th>Empêche réellement</th><th>Preuve</th><th>Limite</th></tr>
+
+<tr class="fam"><td colspan="6">Verrous (blocage avant l’action)</td></tr>
+<tr><td><code>verrou_lecture.py</code></td><td>Refuse la lecture intégrale d’un HTML &gt; 50 Ko</td><td>Chaque appel d’outil (PreToolUse)</td><td>La première fuite mesurée : un cours entier relu à chaque tour suivant</td><td><span class="p bloq">Bloquant testé</span> Read sans limite et <code>cat</code> refusés ; Read borné et grep permis</td><td>Un agent peut encore lire par gros morceaux successifs ; le Gaspillon le verra (G4)</td></tr>
+<tr><td><code>verrou_medina.py</code></td><td>Refuse tout outil visant le dépôt MEDINA</td><td>Chaque appel d’outil</td><td>Toute lecture ou écriture dans MEDINA, agents compris</td><td><span class="p bloq">Bloquant testé</span> refus en direct (code 2)</td><td>N’empêche pas l’injection de son CLAUDE.md tant que le dépôt est attaché</td></tr>
+<tr><td>Garde CI (<code>garde</code>, <code>checkpoint</code>)</td><td>Refuse une PR sans « Prompt L1 lu et appliqué » ni « Automates actifs »</td><td>Chaque PR</td><td>Une PR de LOT hors protocole</td><td><span class="p bloq">Bloquant testé</span> PR #650–652</td><td>Contrôle de forme, pas de fond</td></tr>
+<tr><td><code>publier_cours.py</code></td><td>Exige un contre-audit au verdict ACCEPTE</td><td>Publication d’un LOT</td><td>La publication d’un LOT non contre-audité</td><td><span class="p bloq">Bloquant testé</span> PR #651</td><td>Fait confiance au verdict écrit</td></tr>
+<tr><td>Auto-fusion / file de fusion</td><td>Fusionne seulement une PR verte et étiquetée <code>audit-ok</code></td><td>CI terminée</td><td>La fusion d’un travail non audité ou rouge</td><td><span class="p bloq">Bloquant testé</span></td><td>L’étiquette reste une décision humaine ou de Claude</td></tr>
+<tr><td>Pause / GO</td><td>Gèle toute production</td><td>Ordre de Vial</td><td>Toute dépense sans décision</td><td><span class="p bloq">Respecté</span> aucun agent depuis la pause</td><td>Discipline de l’orchestrateur, sans verrou technique</td></tr>
+
+<tr class="fam"><td colspan="6">Portes de contrôle (bloquent le passage à l’audit)</td></tr>
+<tr><td><code>controle3.py</code></td><td>Forme L1 : taille, 14 points, fenêtres, structure</td><td>Avant audit</td><td>Un cours hors forme envoyé à un auditeur payant</td><td><span class="p mes">Mesuré</span> porte VERTE exigée à chaque LOT</td><td>Ne lit pas le sens</td></tr>
+<tr><td><code>aips_fiche.py verifier</code></td><td>Compare Grossesse, Allaitement, CI et date à l’AIPS citée</td><td>Avant audit</td><td>Une interdiction adoucie, une rubrique absente, une date fausse</td><td><span class="p mes">Mesuré</span> 14 défauts bloquants du LOT_024 retrouvés sans modèle</td><td>Ne juge ni les doses ni les indications</td></tr>
+<tr><td><code>verif_aips.py</code></td><td>Doses affirmées contre l’AIPS</td><td>Avant audit</td><td>Une dose sans appui AIPS</td><td><span class="p mes">Mesuré</span> en usage depuis les premiers LOT</td><td>Repérage par motifs</td></tr>
+<tr><td><code>abreviations.py</code></td><td>Sigle développé à sa première occurrence</td><td>Avant audit</td><td>Un sigle opaque pour le lecteur</td><td><span class="p att">Attendu</span> testé, pas encore en série</td><td>Première occurrence seulement</td></tr>
+<tr><td>Auditeurs + contre-audit</td><td>Fond médical, sources, AIPS</td><td>Après les portes</td><td>Erreurs médicales publiées</td><td><span class="p mes">Mesuré</span> critiques Co-Amoxi, Algifor, Mestinon trouvés et corrigés</td><td>Coûteux : d’où les portes gratuites en amont</td></tr>
+
+<tr class="fam"><td colspan="6">Mémoire persistante et second cerveau (évitent de relire)</td></tr>
+<tr><td><code>resumeur.py</code></td><td>MEMOIRE.md par LOT : liste gelée, états, verdicts, restants, sources lues</td><td>Veille 10 min ; avant chaque agent</td><td>La relecture du LOT pour savoir où il en est</td><td><span class="p mes">Mesuré</span> 12 Ko au lieu de ≈ 950 Ko (LOT_023)</td><td>Périmé si la veille ne tourne pas</td></tr>
+<tr><td><code>memoire_agent.py</code></td><td>Carnet par agent, une ligne par fait établi</td><td>À chaque étape utile</td><td>La relecture à la reprise ou au relais d’un agent</td><td><span class="p att">Attendu</span></td><td>Consigne : vaut ce que l’agent y écrit</td></tr>
+<tr><td><code>cerveau.py</code></td><td>Recherche BM25 sur mémoires, carnets, consignes, audits, sources</td><td>Toute question « déjà fait ? »</td><td>La relecture pour retrouver un fait</td><td><span class="p mes">Testé</span> la question Mestinon trouve le bon audit au 1er rang</td><td>Lexical, non sémantique</td></tr>
+<tr><td><code>extrait.py</code></td><td>Lecture par point, fenêtre ou motif</td><td>À la place d’une lecture entière</td><td>La lecture de 85–150 Ko pour en utiliser 3–20</td><td><span class="p mes">Testé</span> plan du DX.1 : 14 points, 38 fenêtres</td><td>Rendu obligatoire par le verrou de lecture</td></tr>
+
+<tr class="fam"><td colspan="6">Caches et accès aux sources (évitent de refaire)</td></tr>
+<tr><td><code>sources_cache.py</code></td><td>Une page rapatriée une fois ; citations par mots-clés</td><td>Toute lecture web</td><td>Le refetch d’une source déjà lue</td><td><span class="p att">Attendu</span> 185 refetch passés (G1), avant sa mise en service</td><td>Cache local perdu entre machines ; l’index seul est versionné</td></tr>
+<tr><td>Disjoncteur (dans <code>sources_cache.py</code>)</td><td>2 échecs en 24 h coupent un domaine 24 h</td><td>Échec d’un rapatriement</td><td>La relance en boucle d’un site qui refuse</td><td><span class="p att">Attendu</span> 74 relances passées (G2)</td><td>Ne couvre que les accès faits par le script</td></tr>
+<tr><td><code>aips_fiche.py trouve</code></td><td>Corpus refdata hors ligne : n°, date, URL de l’AIPS</td><td>Toute molécule</td><td>La recherche web d’une AIPS</td><td><span class="p mes">Testé</span> 0,5 s ; Mestinon 19943 / 19945 / 56387</td><td>Corpus du 08.10.2026 : la date se vérifie en ligne</td></tr>
+<tr><td><code>aips_fiche.py fiche</code></td><td>AIPS réduite à ses rubriques (≈ 3 Ko)</td><td>Rédaction</td><td>La lecture d’une AIPS entière (40–120 Ko)</td><td><span class="p mes">Mesuré</span> sur LOT_024</td><td>Rubriques découpées par motifs</td></tr>
+<tr><td><code>images_lot.py</code></td><td>Quête d’images en lot, licences, tri couleur</td><td>Une fois par LOT</td><td>Une quête répétée par chaque agent ; le noir et blanc en premier choix</td><td><span class="p att">Attendu</span></td><td>Limité par Wikimedia (429)</td></tr>
+
+<tr class="fam"><td colspan="6">Mesure, détection, surveillance (constatent sans bloquer)</td></tr>
+<tr><td><code>suivi.py</code></td><td>Tours, contexte, coût, outils par agent</td><td>Veille 10 min</td><td>La dérive invisible de consommation</td><td><span class="p mes">Mesuré</span> 754 M éq. sur 177 entrées</td><td>Constate seulement</td></tr>
+<tr><td><code>modele.py</code></td><td>Coût prévu d’un LOT avec IC 95 % ; économie réelle des agents « [H] »</td><td>Veille 10 min</td><td>Les décisions à l’aveugle sur le coût</td><td><span class="p mes">Mesuré</span> validation LOT par LOT ; −36 % prévu</td><td>Économie encore à confirmer sur un LOT réel</td></tr>
+<tr><td><code>gaspillon.py</code></td><td>9 détecteurs de gaspillage</td><td>Veille 10 min</td><td>Rien en direct : il rend chaque fuite visible et chiffrée</td><td><span class="p mes">Mesuré</span> 662 sorties géantes ≈ 173 M (estimation haute)</td><td>Ses alertes G3 et G9 sont devenues des verrous</td></tr>
+<tr><td><code>veille_harnais.sh</code></td><td>Boucle gratuite : mémoire, suivi, modèle, Gaspillon, index ; consigne ses propres échecs</td><td>Lancée au GO</td><td>Une mémoire périmée ; un verrou disparu sans alerte</td><td><span class="p att">Attendu</span> syntaxe vérifiée, non lancée</td><td>Meurt avec la machine</td></tr>
+<tr><td>Iris (CI visuelle)</td><td>60 captures, accessibilité, contraste, débordement</td><td>Chaque PR</td><td>Une régression visuelle non vue</td><td><span class="p mes">Mesuré</span> #652 conforme</td><td>Visuel seulement</td></tr>
+
+<tr class="fam"><td colspan="6">Orientation et continuité</td></tr>
+<tr><td><code>bracelet.py</code></td><td>Une tâche → 1 à 3 outils locaux</td><td>Début de tâche</td><td>Le « tout allumer » et l’oubli de l’outil adapté</td><td><span class="p mes">Testé</span> sur 4 tâches types</td><td>Mots-clés</td></tr>
+<tr><td><code>BRIEF_HARNAIS.md</code></td><td>2 Ko de règles au lieu de ≈ 300 Ko de lectures</td><td>Départ de chaque agent</td><td>Les lectures initiales inutiles</td><td><span class="p att">Attendu</span></td><td>Le socle injecté par la plateforme reste</td></tr>
+<tr><td><code>installer.sh</code></td><td>Restaure corpus AIPS, verrous, contrôles</td><td>Nouvelle machine</td><td>La perte des garde-fous au changement de session</td><td><span class="p bloq">Testé</span> ici</td><td>Le cache des sources n’est pas versionné (droits d’auteur)</td></tr>
+</table></div>
+
+<h2>3. Ce qu’aucune entité n’empêche encore</h2>
+<div class="t"><table><tr><th>Fuite ou risque</th><th>Pourquoi</th><th>Remède possible</th></tr>
+<tr><td><span class="p non">Non couvert</span> CLAUDE.md de MEDINA injecté (≈ 9 k tokens par tour et par agent)</td><td>Décidé par la plateforme, hors des crochets</td><td>Ne sélectionner que <code>organigramme-examen-federal</code> à la prochaine session</td></tr>
+<tr><td><span class="p non">Non couvert</span> Contexte de la boucle principale (jusqu’à 900 k tokens)</td><td>Chaque notification relit toute la conversation</td><td>Relais de session avec la fiche de reprise ; déléguer davantage aux agents</td></tr>
+<tr><td><span class="p non">Non couvert</span> Croissance quadratique des tours d’un agent</td><td>Chaque tour relit tout le contexte</td><td>Budget de tours (G7) à transformer en relais automatique</td></tr>
+<tr><td><span class="p non">Non couvert</span> Erreur médicale que ni les portes ni l’audit ne voient</td><td>Le fond reste un jugement</td><td>Contre-audit indépendant maintenu ; doute porté à Vial</td></tr>
+</table></div>
+</main></body></html>
