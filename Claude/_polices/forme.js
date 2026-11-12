@@ -68,3 +68,22 @@
     if (s && (s.classList.contains('fenetre') || s.classList.contains('mb'))) { e.preventDefault(); fermer(); }
   });
 })();
+/* Sources : toute URL écrite en clair dans une entrée de bibliographie (li[id^="sb-"]) devient un lien cliquable (nouvel onglet). */
+(function () {
+  var re = /https?:\/\/[^\s<>"«»]+[^\s<>"«».,;:)\]]/g;
+  [].slice.call(document.querySelectorAll('li[id^="sb-"]')).forEach(function (li) {
+    var w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT, null), n, t = [];
+    while ((n = w.nextNode())) if (!(n.parentNode.closest && n.parentNode.closest('a')) && re.test(n.nodeValue)) t.push(n);
+    t.forEach(function (n) {
+      var s = n.nodeValue, f = document.createDocumentFragment(), i = 0, m;
+      re.lastIndex = 0;
+      while ((m = re.exec(s))) {
+        f.appendChild(document.createTextNode(s.slice(i, m.index)));
+        var a = document.createElement('a'); a.href = m[0]; a.textContent = m[0]; a.target = '_blank'; a.rel = 'noopener';
+        f.appendChild(a); i = m.index + m[0].length;
+      }
+      f.appendChild(document.createTextNode(s.slice(i)));
+      n.parentNode.replaceChild(f, n);
+    });
+  });
+})();

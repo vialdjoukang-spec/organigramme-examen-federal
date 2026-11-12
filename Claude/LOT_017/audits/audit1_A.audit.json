@@ -1,0 +1,147 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "16b52d4fd300ec5183b16ac37a28c8a6fddb5ae0",
+ "auditeur": "audit 1 (indépendant, aucun fichier rédigé), Claude Opus 5.5",
+ "perimetre": [
+  "LOT_017_Phase_A_V0.html",
+  "LOT_017_Phase_B_V0_DX.1.html",
+  "LOT_017_Phase_B_V0_DX.2.html",
+  "LOT_017_Phase_B_V0_DX.3.html",
+  "LOT_017_Phase_B_V0_DX.4.html",
+  "LOT_017_Phase_B_V0_DX.5.html"
+ ],
+ "controles_automatiques": {
+  "verif_aips": "6/6 OK, aucun défaut bloquant ; 2 alertes « dose absente » relues : DX.3 ténectéplase 0,40 mg/kg (dose déconseillée par l'ESO, écrite comme absente de l'AIPS : correct) ; DX.5 téprotumumab 700/1 400/10 500 mg (calcul à 70 kg depuis 10 puis 20 mg/kg × 7 de l'AIPS 69795 : exact).",
+  "controle3_script_ok": "VERT pour les 6 fichiers, defauts {}",
+  "liens": "0 lien interne cassé, 0 identifiant dupliqué ; liens inter-fichiers Phase A → DX.4/5/7 et DX.4 → Phase A/DX.2 résolus",
+  "playwright": "chromium headless 1280×800 et 390×844 : aucune défilement horizontal de page ; 282 fenêtres :target ouvertes une à une, toutes fixes, centrées, contenues dans l'écran, sans débordement interne."
+ },
+ "renvois_aips_relus": "47 renvois relus sur le texte refdata (cache verif_aips) : Mestinon 19943 (posologie, atropine 1–2 mg i.v. lente toutes les 5–30 min, 5 mg/4–6 h après arrêt), Prednisone Streuli 29349 (5–60 mg/j, allaitement), Solu-MEDROL 35112 (SEP 500–1000 mg, débit >250 mg en 30 min, hépatotoxicité ≥1 g/j), Solu-CORTEF 23533 (≤100 mg i.v. en 30 s), Benerva 10989 (≤200 mg/j parentéral, dès 12 ans), Diamox 21191 (glaucome 250–1000 mg/24 h, pas de dose HTIC), Privigen 58314 (SGB 0,4 g/kg × 5 j ; myasthénie hors indication), TEPEZZA 69795 (10 puis 20 mg/kg × 7 toutes les 3 semaines ; CI grossesse), selenase 53770 (100–200 µg Se/j), Aspirine Cardio 51795 (AIT 300 mg 1×/j), Dafalgan 47503 (≤4000 mg ; IR 3000/2000 mg), Dotarem 49784 (0,1 mmol/kg, pas avant 7 j), BOTOX 52433 (VI ≥1 mois : 1,25–2,5 U droit médial ; max 25 U), Actilyse 48313 (0,9 mg/kg max 90 mg, 10 % bolus, ≥16 ans), Metalyse 69958 (tableau de poids, 70–<80 kg = 20 mg/4000 U/4 ml), Trandate 41529 (50 mg i.v. ≥1 min, répété toutes les 5 min, ≤200 mg), Ebrantil 44486 (10–50 mg i.v. ; 2 mg/min, 9 mg/h, ≤48 h), Eliquis 61549 (2,5 mg × 2 si 2 critères ; <15 ml/min non recommandé), Imurek 31887 (1–3 mg/kg, paliers 0,5 mg/kg, réévaluer à 3 mois), Soliris 59282 (MAg 900 mg × 4 puis 1200 mg/14 j), Ultomiris 67278 (2400/3000, 2700/3300, 3000/3600 mg), Zilbrysq 69066 (16,6/23/32,4 mg ≈0,3 mg/kg), Vyvgart 69286/69725 (10 mg/kg ; 1200 mg dès 120 kg ; 1000 mg s.c.), Rystiggo 69227 (280/420/560/840 mg), Atropine Sintetica 56533 (carbamates 1–2 mg toutes les 20–30 min ; enfant 0,05 mg/kg), Néo-Mercazole 21037 (20–60 mg ; 0,7–0,8 mg/kg ; enfant ≤30 mg), Propycil 56300 (relais après organogenèse). Toutes conformes ; aucune dose AIPS fausse.",
+ "chiffres_sondes": "28 chiffres sondés dont 8 sur la source elle-même (PubMed : Comer 2007 87 % à 5 mois et 67 % de paralysies [doi:10.1038/sj.eye.6702415] ; Neumann 2020 VNI suffisante 38 % de 92 [doi:10.1212/WNL.0000000000008688] ; Sridharan 1995 46/400 ptosis, 34 aponévrotiques, 11 mécaniques, 1 myasthénie, 8,5 % [doi:10.1093/ageing/24.1.21]) et le reste par cohérence interne et calcul (SPARCL 4731, 2,3 vs 1,4 % ; Tamhankar 16,5 % IC 10,7–24,6 ; schéma EUGOGO 4,5 g et plafond 8 g ; coûts Soliris 15 532,80 CHF × 26 = 403 852,80 CHF ; Actilyse 80 kg = 72 mg, 7,2 + 64,8 mg). Aucun chiffre contredit.",
+ "leves": [],
+ "restants": [
+  {
+   "fichier": "LOT_017_Phase_A_V0.html",
+   "gravite": "Grave",
+   "constat": "L1-3.4 et règle « une fiche .mb par molécule » : les fiches de la Phase A (pyridostigmine, prednisone, méthylprednisolone, IgIV, téprotumumab) recopient mot pour mot les citations AIPS des fiches de DX.4, DX.2 et DX.5 (détecteur de redites : 20 phrases identiques Phase A ↔ DX.4, 20 Phase A ↔ DX.2, 6 Phase A ↔ DX.5 ; ex. « Comprimés, dragées: 1 à 3 dragées 2 à 4 fois par jour… », « Mestinon/Mestinon retard ne doit pas être administré… suxaméthonium », « Pendant l'application systémique des corticostéroïdes on ne doit pas allaiter »). La redite entre fichiers du LOT est strictement prohibée.",
+   "avant": "<tr><th>Dose</th><td>« Comprimés, dragées: 1 à 3 dragées 2 à 4 fois par jour, éventuellement des doses plus élevées. » ; « Comprimés retard: 1 à 3 comprimés retard deux fois par jour. »<sup class=\"r\"><a href=\"#sb-aips-19943\">S2</a></sup> Une dragée contient 60 mg et un comprimé retard 180 mg<sup class=\"r\"><a href=\"#sb-aips-19943\">S2</a></sup>. La recommandation de la DGN (2023) admet jusqu'à 720 mg par jour, plafond que l'AIPS ne chiffre pas [S9]<sup class=\"r\"><a href=\"#sb-aips-19943\">S2</a></sup>.</td></tr>\n<tr><th>Contre-indications</th><td>« Hypersensibilité au principe actif ou à l'un des excipients conformément à la composition. » ; « En cas d'obstruction mécanique des voies digestives ou urinaires. » ; « Mestinon/Mestinon retard ne doit pas être administré en même temps que des myorelaxants dépolarisants comme le suxaméthonium. »<sup class=\"r\"><a href=\"#sb-aips-19943\">S2</a></sup> L'asthme et la bronchopneumopathie chronique obstructive (BPCO) imposent une grande prudence ; la bradycardie et le bloc atrio-ventriculaire imposent la prudence<sup class=\"r\"><a href=\"#sb-aips-19943\">S2</a></sup>.</td></tr>\n<tr><th>Grossesse et allaitement</th><td>« Le bromure de pyridostigmine passe la barrière placentaire. » ; « Le médicament ne doit être utilisé pendant la grossesse qu'après avoir soigneusement considéré le rapport utilité/risque et seulement pour des indications thérapeutiques strictes, avec un dosage soigneux et sous surveillance médicale. » ; « Lorsqu'un traitement est nécessaire, il faut surveiller le nourrisson afin de détecter tout effet possible ou cesser d'allaiter. »<sup class=\"r\"><a href=\"#sb-aips-19943\">S2</a></sup> La DGN demande une consultation en centre spécialisé en cas de grossesse ou de désir d'enfant [S9].</td></tr>\n",
+   "correction": "<tr><th>Dose et sécurité</th><td>La posologie, les contre-indications, la grossesse et l'allaitement figurent dans la fiche de la leçon <a href=\"LOT_017_Phase_B_V0_DX.4.html\">DX.4</a> ; la Phase A n'en retient que le geste d'urgence : devant une crise cholinergique, le médecin arrête la pyridostigmine et injecte de l'atropine selon cette fiche.</td></tr>\n",
+   "source": "PROMPT_LOTS_L1 L1-3.4 ; MISSION_AUDIT_L1 point 4. Appliquer le même allègement aux sections id=\"f-ssp-m-prednisone\" (renvoi DX.7/DX.2), \"f-ssp-m-methylprednisolone\" et \"f-ssp-m-teprotumumab\" (renvoi DX.5), \"f-ssp-m-immunoglobulines\" (renvoi DX.4) : garder indication et renvoi, retirer les citations AIPS déjà portées par la fiche DX. Gain estimé 6 à 8 Ko, utile car le fichier est à 149 410 o."
+  },
+  {
+   "fichier": "LOT_017_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 = Définition seule non respecté : les fenêtres du point 1 portent la classification et les symptômes du ptosis, un tableau mécanisme ↔ DX, les trois familles de mouvements anormaux, la consigne SSO/SSML de conduite et les chiffres de Kremmyda (86,7 % vs 33,3 %), ces derniers redits mot pour mot dans DX.4.",
+   "avant": "Kremmyda et coll. (Munich, 2020) ont trouvé des signes oculomoteurs centraux chez 86,7 % des paralysies d'origine centrale, contre 33,3 % des paralysies périphériques",
+   "correction": "(phrase supprimée : le chiffre reste au point 7 de DX.4 ; déplacer de même la phrase SSO/SSML vers la fenêtre de conduite du point 12 et le tableau des mécanismes du ptosis vers le point 3)",
+   "source": "L1-3.1"
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 : la fenêtre « Définitions de la DOG » présente les entités voisines (dermatochalasis, blépharochalasis, blépharoplastie) : « notions voisines » interdites ; la dermatochalasis est en outre redite dans un second tableau du même fichier (diagnostic différentiel).",
+   "avant": "<tr><td>Dermatochalasis</td><td>« eine meist mit steigendem Lebensalter zunehmende Erschlaffung der Lidhaut und der subkutanen Gewebe »</td><td>La peau relâchée surplombe le bord palpébral. La DOG parle alors de pseudo-ptosis : le bord palpébral lui-même ne descend pas.</td></tr>",
+   "correction": "",
+   "source": "L1-3.1, L1-3.4 ; retirer aussi la ligne Blépharochalasis et le piège blépharoplastie du point 1 (déjà tenus au point 4)."
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 : liste de termes apparentés (sémantique interdite).",
+   "avant": "Les sources emploient « microvascular », « presumed microvascular », « vasculopathic » ou « ischemic » pour cette même entité",
+   "correction": "",
+   "source": "L1-3.1 (supprimer la phrase et ses appels S5 S1 S12 qui la suivent)"
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.5.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 : la fenêtre « Définitions officielles et leurs nuances » est de la terminologie (syndrome de Means ou de Saint-Yves, « ophtalmopathie » des AIPS, préférence de Jules-Gonin).",
+   "avant": "Les informations professionnelles suisses du téprotumumab et de l'iode 131 écrivent « ophtalmopathie thyroïdienne » ou « endocrine »",
+   "correction": "",
+   "source": "L1-3.1 ; supprimer aussi « La forme euthyroïdienne porte en Suisse romande le nom de syndrome de Means ou de Saint-Yves » et « Jules-Gonin juge ce mot moins adapté, car la maladie touche les muscles et la graisse de l'orbite, pas l'œil lui-même » avec leurs appels."
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Formules de fabrication ou de lacune dans le cours : 57 mentions « (déduction …) » (DX.1 15, DX.2 20, DX.3 5, DX.4 13, DX.5 4), « calcul dérivé … recalculé par outil » (DX.3), « corpus AipsDownload_20261008.xml » (bibliographie DX.3), « fréquence non quantifiée » et « part avec diplopie non chiffrée » (Phase A). Exemple le plus net ci-contre (fiche aspirine).",
+   "avant": "ce choix est une déduction, pas une recommandation suisse",
+   "correction": "aucune recommandation suisse ne tranche ce cas",
+   "source": "MISSION_AUDIT_L1 point 4 ; dans DX.3 remplacer « (calcul dérivé de 0,9 mg/kg, recalculé par outil) » par « (0,9 mg/kg) » et supprimer « (corpus AipsDownload_20261008.xml) » ; ailleurs, supprimer la parenthèse « (déduction …) » quand le raisonnement découle d'une phrase sourcée, sinon retirer la phrase."
+  },
+  {
+   "fichier": "LOT_017_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Ancre AIPS collée pour la forme sur des doses de recommandation que l'AIPS ne porte pas : Diamox (consensus britannique 250–500 mg × 2, IIHTT 4 g, essai seulement américain), EUGOGO 0,5–1 g de méthylprednisolone, Lausanne 2015, EFNS thiamine 3 × 200 mg, DGN IgIV, EUGOGO sélénite. La mention « hors AIPS » est là, mais l'ancre sb-aips n'appuie pas le chiffre.",
+   "avant": "L'essai américain Idiopathic Intracranial Hypertension Treatment Trial (IIHTT) montait jusqu'à 4 g par jour, et la majorité tolérait 1 g par jour ; la dose optimale n'est pas établie [S16]",
+   "correction": "Selon le consensus britannique, la dose optimale n'est pas établie [S16]",
+   "source": "MISSION_AUDIT_L1 point 1 (« sans ancre AIPS collée pour la forme ») ; supprimer en outre la balise <sup class=\"r\"><a href=\"#sb-aips-…\"> qui suit chaque phrase de dose de recommandation dans les fiches de la Phase A (la phrase garde sa source S9, S12, S16, S26, S42)."
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Redites dans le fichier : la dose d'atropine de la crise cholinergique figure 5 fois (urgence, citation AIPS, fiche Mestinon, fiche atropine, point 14) ; l'arrêt de l'anticholinestérasique 24 heures avant la corticothérapie figure 3 fois (fiche prednisone, point 11, point 14).",
+   "avant": "L'AIPS conseille d'arrêter si possible l'anticholinestérasique 24 heures avant ; le médecin surveille déglutition et respiration",
+   "correction": "La réponse est au point 11",
+   "source": "L1-3.4 ; garder la dose d'atropine dans la seule fiche atropine (qui juxtapose déjà les deux AIPS) et renvoyer depuis l'urgence et le point 14."
+  },
+  {
+   "fichier": "LOT_017_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redites inter-fichiers hors fiches : anatomie des noyaux III/IV/VI et du FLM (Phase A, DX.1, DX.2, DX.3, DX.4), « thrombolyse intraveineuse dans les 4,5 heures si les critères sont remplis » (6 occurrences Phase A/DX.2), OAC annexe 1 (Phase A et DX.2), Tours 88,3 %/75,7 %, déclaration du botulisme en 2 heures (Phase A, DX.1, DX.4), question du point 14 « diabétique avec VI isolé » posée dans la Phase A et dans DX.2.",
+   "avant": "Un diabétique de 70 ans a un VI isolé. Faut-il seulement surveiller ?",
+   "correction": "Un patient de 74 ans a une diplopie verticale et une rougeur de l'œil après une thyroïdite. Que chercher d'abord ?",
+   "source": "L1-3.4 ; la Phase A garde la synthèse anatomique, les DX renvoient par lien vers f-ssp-p3-anat (comme le fait déjà DX.4)."
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.3.html",
+   "gravite": "Moyen",
+   "constat": "Aucune image dans les six fichiers (0 img, 0 svg) : points 3 (schéma réel des voies), 6 (photographies des signes) et 9 (cliché brut et interprété) sans figure, alors que L1-2.3 exige l'image anormale interprétée dans la fenêtre d'examen. Cinq images sourcées existent déjà dans Claude/LOT_017/images (voie oculosympathique, OIN, angio-CT de la communicante postérieure, œdème papillaire, ACG) ; seule l'insertion manque ici.",
+   "avant": "",
+   "correction": "Insérer dans les fenêtres de la Phase A (point 3, voie oculosympathique ; point 9, angio-CT) et de DX.2/DX.3 (point 9) les images déjà présentes dans images/ avec légende verbale et source ; images hors limite de taille.",
+   "source": "L1-2.3 ; HELP.md (« Reste à faire : images » pour Phase A, DX.1, DX.2, DX.3, DX.4, DX.5)"
+  },
+  {
+   "fichier": "LOT_017_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Cellules de tableau télégraphiques, sans verbe (ex. « Facteur à supprimer (déduction de S31) », « Chirurgie esthétique éventuelle, à la charge du patient ») ; même constat dans DX.2 à DX.5 (reconnu dans HELP.md).",
+   "avant": "Facteur à supprimer (déduction de S31)",
+   "correction": "Le patient cesse de se frotter les yeux.",
+   "source": "L1-3.3"
+  },
+  {
+   "fichier": "LOT_017_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Pédagogie (ordre du 11.11.2026, plein effet à partir du LOT_021) : pas de schéma réel installant les prérequis anatomiques ; information vitale visible d'emblée présente (drapeaux rouges en tête) ; raisonnement pas à pas présent. Noté sans correction exigée.",
+   "avant": "",
+   "correction": "",
+   "source": "MISSION_AUDIT_L1 point 5"
+  }
+ ],
+ "medical": "Aucune erreur médicale démontrée : seuils d'intubation de la crise myasthénique (CV <20 mL/kg, PImax, PEmax), fenêtres de thrombolyse et cible tensionnelle 185/110 puis 180/105, imagerie vasculaire immédiate de tout III quelle que soit la pupille, CRP/VS et IRM précoce dès 50 ans, dose cumulée de méthylprednisolone <8 g, contre-indication de l'iode radioactif dans l'orbitopathie active sévère : conformes aux sources citées (ESO, DGN 2023, SOP crise, EUGOGO 2021, ATA/ETA 2022). Doutes de HELP.md (IgIV 2 g/kg SOP vs DGN ; téprotumumab vs méthylprednisolone en première ligne) correctement écrits comme divergences.",
+ "faits_perdus": "Messages de commit sans liste de retraits ; liste lue dans HELP.md. Les faits que la Phase A déclarait renvoyés vers DX.4/DX.5 sont présents (numéros 19943/19945, arrêt 24 h avant corticoïde, IgIV, EUGOGO 4,5 g, hyperglycémie 13,2 % du téprotumumab). Aucun fait sourcé unique perdu constaté.",
+ "point14": {
+  "LOT_017_Phase_A_V0.html": 7,
+  "LOT_017_Phase_B_V0_DX.1.html": 12,
+  "LOT_017_Phase_B_V0_DX.2.html": 12,
+  "LOT_017_Phase_B_V0_DX.3.html": 15,
+  "LOT_017_Phase_B_V0_DX.4.html": 10,
+  "LOT_017_Phase_B_V0_DX.5.html": 11,
+  "note": "comptes de points d'interrogation ; tous ≥ 6 ; une question redite Phase A ↔ DX.2"
+ },
+ "octets": {
+  "LOT_017_Phase_A_V0.html": 149410,
+  "LOT_017_Phase_B_V0_DX.1.html": 144763,
+  "LOT_017_Phase_B_V0_DX.2.html": 149756,
+  "LOT_017_Phase_B_V0_DX.3.html": 140055,
+  "LOT_017_Phase_B_V0_DX.4.html": 148953,
+  "LOT_017_Phase_B_V0_DX.5.html": 149283,
+  "note": "tous dans 80 000–150 000 ; marge < 1,1 Ko pour Phase A, DX.2, DX.4 et DX.5 : toute correction de ce rapport retire plus d'octets qu'elle n'en ajoute"
+ },
+ "bilan": {
+  "Critique": 0,
+  "Grave": 1,
+  "Moyen": 9,
+  "Léger": 2
+ }
+}

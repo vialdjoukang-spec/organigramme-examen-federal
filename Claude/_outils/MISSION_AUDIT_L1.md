@@ -1,5 +1,9 @@
 # MISSION — auditeur indépendant d'une moitié de LOT (protocole Fable, 11.11.2026)
 
+> **Lis d'abord `Claude/CONSIGNES_VIAL.md` (recueil des consignes de Vial) et applique-le.**
+> **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
+
+
 Ta mission te donne : le LOT (NNN), les fichiers, le worktree, le nom du rapport, et s'il s'agit de l'audit 1 ou du
 contre-audit. Tu n'as rédigé aucun de ces fichiers. Tu ne modifies AUCUN HTML, tu ne commites rien, pas de
 checkout/reset/stash. Tu écris un seul fichier : le rapport `Claude/LOT_NNN/audits/<nom>.audit.json`.
@@ -11,6 +15,8 @@ Lis d'abord le bloc L1 en tête de `PROMPT_Casern/PROMPT_LOTS_L1_10.11.26.claude
 Contre-audit : lis aussi le premier rapport et vérifie que chaque correction est réellement et correctement appliquée.
 
 ## À vérifier, par ordre de priorité
+
+- **Prérequis anatomo-fonctionnel (dès LOT_021, et LOT_020 DX.1) :** si le diagnostic exige une base d'anatomie ou de physiologie, son absence, ou l'absence d'image réelle expliquant le pourquoi du signe, est un défaut **Grave**.
 1. **Doses et AIPS.** `python3 Claude/_outils/verif_aips.py <fichiers>` : aucun défaut bloquant ; chaque alerte « dose
    absente » relue. Puis relis à la main au moins 40 renvois sur le texte AIPS réel (URL refdata de la bibliographie ; index
    `/home/user/Medina/AipsDownload_20261008.zip`), en priorité les urgences et les fiches : dose, voie, durée,

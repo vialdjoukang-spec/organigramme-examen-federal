@@ -1,0 +1,84 @@
+
+## Lacunes ouvertes
+- DX.4 : céfotaxime absente du corpus AIPS du 08.10.2026 ; dose de la DGN 2024 écrite « hors AIPS », sans fiche `.mb`.
+- DX.4 : aucune image insérée (érythème migrant, paralysie faciale périphérique) ; à prendre par `cliche.py` quand Wikimedia le permet.
+- DX.4 : sources S4, S5, S7, S8 et S10 lues en résumé PubMed seulement ; recommandation SSI (sginf.ch) connue par le protocole HUG 2023, non lue directement.
+- DX.1 : recommandation DGN S2k 2022 (AWMF 030-013) illisible (protection anti-robot de l'AWMF, application JavaScript de dgn.org) ; remplacée par la revue Heckmann 2019 lue en résumé PubMed (texte intégral PMC6865187 à lire).
+- DX.1 : point 9 sans valeurs normales SI de la glycémie et de l'HbA1c, faute de source suisse lue sur les seuils du diabète.
+- DX.1 : Lacryvisc® (protocole HUG) absent du corpus AIPS du 08.10.2026 ; fiche carbomère établie sur Viscotears® n° 48624.
+- DX.1 : date éditoriale du référentiel du Collège des enseignants de neurologie (S4) non affichée sur la page lue.
+- DX.2 : guide suisse de l'AVC aigu non lu (« Stroke-Richtlinien » du Berner Stroke Network, Inselspital : PDF en erreur 404 depuis le harnais) ; les seuils et délais reposent sur les AIPS, la HAS 2025 et les résumés ESO.
+- DX.2 : aucune image insérée (point 9 : scanner avec hyperdensité de l'artère cérébrale moyenne ou IRM de diffusion ; point 6 : paralysie faciale centrale) ; à chercher par `cliche.py`.
+- DX.2 : volet social et assurances (point 11.B) et imagerie chez la femme enceinte non rédigés, faute de source suisse lue.
+- DX.2 : dates d'édition des chapitres en ligne du CEN (items 340 et 101) non affichées sur les pages ; sources ESO et registres lues en résumé seulement (Europe PMC).
+- DX.8 : incidence suisse des cancers des glandes salivaires (NKRS/OFS, C07–C08) introuvable ; l'épidémiologie suisse repose sur la série de l'USZ 2010–2019.
+- DX.8 : aucune image insérée (point 9 : IRM d'adénome pléomorphe et d'extension périneurale, figures CC BY 4.0 de Kim 2022, PMC9641923 ; point 3 : loge parotidienne et nerf facial) ; à prendre par `cliche.py`.
+- DX.8 : sources S27, S28, S32, S33, S34 et S35 lues en résumé PubMed seulement (RMS 2023 sous abonnement) ; recommandation allemande AWMF des tumeurs salivaires non lue.
+- DX.8 : volet social et assurances (11.B) non rédigé ; AIPS du trastuzumab, du docétaxel, du bicalutamide et de la leuproréline non lues, donc aucune dose donnée.
+- DX.8 : stade T repris des recommandations britanniques 2016 (TNM 7) ; la 8e édition UICC citée par l'ESMO n'a pas été lue directement.
+- DX.5 : sources S3 et S7 à S11 lues en résumé PubMed seulement ; page AO Surgery Reference (S4) et page BPA (S12) sans date affichée ; extrait CNECMF 2025 (S6) réduit au sommaire et à la fonction manducatrice, le fond vient du cours du collège de 2014 (S5).
+- DX.5 : aucune recommandation suisse écrite (SSCMF, HUG, Inselspital) lue sur l'imagerie chez la femme enceinte, la dose d'antibioprophylaxie de l'enfant et le rappel antitétanique (plan de vaccination OFSP non lu) ; ces points restent sans chiffre dans le cours.
+- DX.5 : mortalité et critères officiels de guérison ou de sortie absents des sources lues ; les critères de sortie du point 11.D sont déduits des mesures de S5 et de S1.
+- DX.9 : volet assurances suisses du point 11.B (LAMal, liste des spécialités, limitations de l'icatibant et des traitements de fond) non rédigé, faute de source suisse lue.
+- DX.9 : sources S8, S10, S11, S12 et S13 lues en résumé PubMed seulement (RMS sous abonnement ; la liste des cinq types DANCE n'est pas dans le résumé) ; protocole HUG de l'anaphylaxie lu par son résumé public ; guides EAACI de l'anaphylaxie et de l'urticaire (2021) non lus.
+- DX.9 : aucune recommandation suisse écrite lue sur l'angioœdème sous IEC (conduite : ANSM 2019, PNDS 2024, résumé RMS 2016) ; aucune dose de glucocorticoïde donnée ; acide tranexamique sans fiche `.mb` (AIPS Cyklokapron 33741 non lue, dose du PNDS écrite « hors AIPS »).
+- Phase A : recommandation DGN paralysie de Bell S2k 2022 et fiche Orphanet ORPHA:141132 illisibles (protection anti-robot) ; la DGN S3 2024 neuroborréliose est lisible en anglais (GMS 2025, PMC12584707) et DX.4 en porte les faits (pas de corticoïde, f-dx4-p11-choix).
+- Phase A : sources S5, S15, S16 et S17 lues en résumé PubMed seulement ; protocole HUG d'anaphylaxie (S18) lu en résumé de procédure ; aucune incidence chiffrée de la microsomie craniofaciale (recommandation européenne 2020 non lue en texte intégral).
+- Phase A : aucune dose pour l'antibiotique de la cellulite, le concentré de C1-inhibiteur et la thrombolyse (AIPS non lues ici ; les DX.7, DX.9 et DX.2 les portent) ; point 9.c sans alternative sourcée pour DFGe < 30 mL/min et allergie à l'iode ; volet assurances (LAA) du point 11.B non rédigé, faute de source suisse lue.
+- Phase A : aucune image propre (recherche `cliche.py` sans résultat utile) ; deux renvois vers les figures du DX.1 (`f-dx1-p3-base`, `f-dx1-r-front`) ; `File:RamsayHunt2.jpg` déjà en file pourrait illustrer la fenêtre `f-ssp-p6-oreille`.
+- DX.6 : image du point 9 en file (`File:Tripod fx labeled with arrows.jpg`, CC0, Commons ; `cliche.py prendre` interrompu) ; à insérer dans la fenêtre `f-dx6-p9-tdm` par `cliche.py figure`.
+- DX.6 : sources S22 à S26, S28 et S30 lues en résumé PubMed seulement ; S31 lue pour son introduction ; page BPA (S29) sans date affichée ; cours du collège français (S6) daté de 2011, édition plus récente non lue.
+- DX.6 : durée de l'antibioprophylaxie, dose de la corticothérapie de décompression, rappel antitétanique (plan de vaccination OFSP non lu), imagerie chez la femme enceinte et volet assurances (LAA) sans chiffre ou non rédigés, faute de source suisse lue.
+- DX.6 : technique de la canthotomie latérale non décrite (aucune source suisse lue) ; critères de guérison et de sortie du point 11.D déduits de S5, S6, S21 et S27.
+- DX.7 : aucune image insérée (point 9 : scanner cervico-facial injecté d'une cellulite collectée ; point 3 : espaces de diffusion) ; à chercher par `cliche.py`.
+- DX.7 : recommandation allemande AWMF S3 « Odontogene Infektionen » (007-006) illisible (protection anti-robot du registre AWMF) ; aucune recommandation suisse hospitalière écrite (SSCMF, HUG, Inselspital) lue sur la cellulite dentaire, le guide du CHUV 2022 ne la traitant pas en propre.
+- DX.7 : sources S5, S6 et S7 lues en résumé seulement ; communiqué OFS du 7.4.2025 (S8) lu par son résumé (accès direct refusé) ; aucune incidence suisse des cellulites dentaires trouvée.
+- DX.7 : LAMal art. 31 non lue (quota journalier de Legal Data Hunter atteint) ; le volet assurances repose sur l'OPAS art. 17 à 19 lue sur Fedlex ; aucune dose d'antalgique ni de gentamicine donnée (AIPS non lues).
+
+## Décisions en vigueur
+- DX.4 : doxycycline avant 12 ans — l'AIPS 65952 la réserve aux situations vitales, la DGN 2024 a levé la limite d'âge ; le cours suit l'AIPS (ceftriaxone d'abord) et écrit la divergence.
+- DX.4 : pénicilline G à 3–4 millions d'unités toutes les 4 heures (HUG 2023) écrite « hors AIPS pour cette indication » ; l'AIPS 56271 ne détaille pas la borréliose.
+- DX.4 : AIPS de la ceftriaxone = Ceftriaxon Labatec 59876 (posologie Lyme lue mot pour mot) ; l'ancienne ancre `s18` est remplacée par `sb-aips-59876`.
+- DX.1 : corticoïde = protocole HUG 2023 (prednisone 1 mg/kg/j, 7 jours, « hors AIPS ») ; dose double SFORL (grades V–VI) et schémas allemands écrits comme divergences.
+- DX.1 : antiviral = HUG 2023 (grades IV–VI ou arguments pour un zona) ; IRM = position suisse (atypie, récidive, enfant, pas de récupération à un mois), l'IRM systématique de la SFORL étant écrite.
+- DX.1 : images insérées par `cliche.py` : `images/Bellspalsy-neurology.webp` (CC BY-SA 4.0, point 6) et `images/Gray788.webp` (domaine public, point 3).
+- DX.2 : thrombolyse enseignée selon les AIPS Actilyse 48313 et Metalyse 5000 U 69958 (4,5 heures ; INR > 1,3 contre-indique) ; fenêtres tardives et INR ≤ 1,7 de la HAS 2025 écrits comme divergences hors autorisation.
+- DX.2 : ténectéplase 0,25 mg/kg (HAS, ESO) et aspirine 75–300 mg ou clopidogrel 300 mg de charge (CEN) écrits « hors AIPS » ; double antiagrégation de 21 jours (ESO 2021) signalée hors indication suisse du clopidogrel (AVC de 7 jours à 6 mois).
+- DX.8 : fichier reconstruit au gabarit L1 (l'ancienne version portait encore popovers et polices intégrées) ; ses faits sont repris et sourcés un à un.
+- DX.8 : toxine botulique du syndrome de Frey écrite « hors AIPS » (Botox 52433 sans cette indication) ; la dose citée est celle d'un cas unique de l'USZ (2026).
+- DX.8 : conduite devant une masse = cytoponction échoguidée avant chirurgie (ESMO 2022, UK 2016) ; la parotidectomie exploratrice d'emblée du collège français 2014 est écrite comme divergence.
+- DX.5 : antibioprophylaxie = schéma de l'essai bernois (Schaller 2013 : amoxicilline-acide clavulanique 1,2 g i.v. toutes les 8 h jusqu'à 24 h postopératoires), dose conforme à l'AIPS 56758 mais indication « fracture de la face » hors AIPS, ce que le cours écrit ; durée courte enseignée (1 jour = 5 jours).
+- DX.5 : image insérée par `cliche.py` au point 9 : `images/Simple_mandible_fracture.webp` (CC BY 3.0, orthopantomogramme).
+- DX.9 : sébétralstat — l'AIPS 69540 (300 mg, dose supplémentaire au besoin) fait foi, la dose de 600 mg du guide WAO 2025 est écrite comme divergence ; clémastine — AIPS 35501 (2 mg chez l'adulte) suivie, 0,05 mg/kg du guide S2k écrit ; adrénaline — paliers d'âge de l'AIPS 56551, intervalle S2k écrit.
+- DX.9 : image insérée par `cliche.py` : `images/AngioedemaFra.webp` (CC BY-SA 3.0, point 6, fenêtre du visage).
+- Phase A : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de style intégré et aucun chiffre) ; ses faits sont repris et sourcés sur 18 sources relues le 11.11.2026 et 5 AIPS (56551, 29349, 53116, 65952, 58178).
+- Phase A : rangs écrits « Ne rang » avec argument sourcé, dans l'ordre de la liste gelée ; aucune série lue ne chiffre la part de chaque DX dans S1.4.
+- Phase A : prednisone = HUG 2023 (1 mg/kg/j, 7 jours, « hors AIPS ») ; doxycycline = dose de l'AIPS 65952 (100 mg deux fois par jour, 10 à 60 jours), la durée de 14 jours de la RMS 2011 étant comprise dans cet intervalle ; enfant jusqu'à 12 ans selon l'AIPS, comme DX.4.
+- DX.6 : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de polices intégrées et aucun chiffre) ; ses faits sont repris et sourcés sur 13 sources lues le 11.11.2026 et 6 AIPS (45674, 35438, 47503, 45031, 22398, 00637).
+- DX.6 : antibiotique = amoxicilline-acide clavulanique oral à la dose usuelle de l'AIPS 45674 (3 × 625 mg), indication « fracture de la face » hors AIPS (RMS 2020), ce que le cours écrit ; DX.5 enseigne le schéma intraveineux périopératoire bernois.
+- DX.6 : divergence écrite et non tranchée : incarcération du muscle droit inférieur « le plus souvent » (collège français 2011) contre vrai piégeage musculaire « exceptionnel » (RMS 2020).
+- DX.7 : fichier reconstruit au gabarit L1 (l'ancienne version portait popovers, 53 Ko de polices intégrées et aucun chiffre) ; ses faits sont repris et sourcés sur 21 sources lues le 11.11.2026 et 4 AIPS (45674, 56758, 35438, 26313).
+- DX.7 : antibiotique = standard suisse amoxicilline-acide clavulanique (SSOS 2020) à la dose de l'AIPS 45674 (3 × 625 mg ; 1 g toutes les 12 h de la recommandation zurichoise admis par l'AIPS) ; l'amoxicilline seule de la HAS 2026 est écrite comme divergence.
+- DX.7 : grossesse et allaitement — l'AIPS 45674 (« nécessité absolue », ne pas allaiter) est suivie, la position plus permissive du Swiss Dental Journal 2016-2017 étant écrite ; métronidazole contre-indiqué au premier trimestre (AIPS 26313) contre « possible à tout stade » de la HAS.
+
+## Doutes médicaux à trancher
+- DX.4 : les HUG (2023) traitent par voie orale toute neuroborréliose précoce, alors que la SSI réserverait la voie orale à la paralysie faciale isolée ; à trancher sur le texte SSI.
+- DX.1 : occlusion nocturne — HUG et RMS écrivent « pansement » ou « compresse » occlusifs, la SFORL interdit toute compresse posée sur l'œil ; le cours enseigne l'adhésif palpébral.
+- DX.1 : dose de corticoïde chez l'enfant non portée par une recommandation suisse lue (l'AIPS ne donne que des fractions générales de la dose adulte).
+- DX.2 : cible de pression en prévention secondaire, < 130/80 mmHg (ESO 2022, retenue) contre < 140/90 mmHg (CEN) ; cible LDL < 1,8 mmol/l (ESO) contre 0,55 g/L (CEN) : à confronter à une recommandation suisse (SSC/AGLA, Société suisse de l'AVC).
+- DX.2 : antihypertenseur intraveineux de la phase aiguë : seul l'urapidil (AIPS 44486) a une fiche ; le labétalol (Trandate 41529) n'a pas été extrait.
+- DX.8 : protection oculaire nocturne écrite selon les HUG (« pansement occlusif ») avec renvoi à DX.1 ; même doute que DX.1 (adhésif palpébral).
+- DX.8 : place de la surveillance active de la tumeur de Warthin (revue européenne 2021) non confirmée par une source suisse lue.
+- DX.5 : chlorhexidine — l'AIPS 60340 prévoit l'emploi sous fixation intermaxillaire mais interdit l'application sur une plaie ; conduite à préciser tant que la plaie gingivale du foyer n'est pas fermée.
+- DX.5 : ibuprofène en phase hémorragique (contre-indication AIPS « tendance accrue aux saignements ») : aucune recommandation suisse lue sur l'antalgie de la fracture mandibulaire.
+- DX.5 : délai maximal avant ostéosynthèse d'une fracture ouverte : le collège français écrit « dans les heures qui suivent », sans chiffre ; pratique suisse non lue.
+- DX.9 : icatibant ou C1-INH dans l'angioœdème sous IEC, écrits « hors AIPS » d'après le seul résumé RMS 2016 (S12) ; l'efficacité n'est pas établie par les sources lues.
+- DX.9 : adrénaline intramusculaire de l'adulte, 0,5 mg (AIPS Adrenalin Sintetica) et 0,3 mg (AIPS Epipen) : les deux doses sont écrites, la conduite d'urgence retient l'ampoule.
+- Phase A : chiffres de récupération (61 % Bell, 21 % zona) et incidence de 0,5 pour 1000 issus de la RMS 2011 ; une source suisse plus récente serait souhaitable.
+- Phase A : doses pédiatriques d'adrénaline recopiées de l'AIPS 56551 par tranche d'âge ; à confronter au protocole HUG détaillé (non lu) si celui-ci diffère.
+- DX.6 : AINS après fracture orbitaire sous antithrombotique — la RMS 2020 cite les AINS, l'AIPS Brufen 45031 contre-indique la « tendance accrue aux saignements » ; le cours garde le paracétamol comme antalgique de base.
+- DX.6 : mouchage doux pendant la rhinoscopie (collège français) contre interdiction du mouchage (RMS 2020) ; le cours limite le premier au geste d'examen.
+- DX.7 : durée de l'antibiothérapie ambulatoire — 5 à 10 jours (Zurich 2017), 3 à 7 jours (SSE 2020), 3 jours prolongés de 2 (HAS 2026), aucune durée de principe (SSOS 2020) ; le cours enseigne le contrôle à 48–72 heures sans trancher la durée.
+- DX.7 : seuil de procalcitonine de 0,25 cité sans unité (le support SPILF écrit « mg/L », probablement µg/L) ; score LRINEC laissé dans les unités de la source (g/dL, mg/dL).
+- DX.7 : AINS — signalés comme facteur d'évolution diffuse (revue 2025) mais sans différence de gravité dans l'étude prospective citée par la SPILF ; aucune consigne suisse lue, le cours n'écrit donc ni interdiction ni dose.
+- (Lacune) LOT_020_Phase_B_V0_DX.3.html : fenêtre « Base à connaître » (point 3) sans schéma réel ; marge de taille 2,1 Ko (147 859 o).

@@ -1,0 +1,227 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "36fe4a9ff268ed5856dc64358caa55b490f85a83",
+ "audit": "audit 1 (A) — Phase A et DX.1 à DX.5",
+ "leves": [
+  "verif_aips : 6 fichiers OK ; seule alerte (Phase A, Xylocain 20–60 mg / 600 mg) = faux positif : tableau AIPS n° 52097 lu.",
+  "Relecture manuelle de 52 renvois AIPS sur le texte refdata réel (29 AIPS) : Cyklokapron (posologie épistaxis, 25 mg/kg, CI, 1 % dans le lait, > 5 % troubles digestifs), Xylocain (20–60/600 mg, 4–5 mg/kg dès 3 ans, menthol < 2 ans, grossesse, allaitement), Otrivin 24926/58857 (rhinoscopie, grossesse, 1–2 ans, < 1 an, coma du nouveau-né, 0,0125 mg/goutte, 1 semaine, rhinite sèche), Nasivin 45138/54613, Konakion (5–10 mg, INR ≥ 9 / < 9, 0,5–1 mg, 1–3 h / 4–6 h, 30 s, < 1 an), Beriplex (25/35/50 UI/kg, 5000 UI, 3 UI/kg/min et 210 UI/min, 30 min, INR < 1,3, TIH, FVII 4 h), Praxbind (5 g, TTd, 12 et 24 h), Ondexxya (400 mg + 4 mg/min, 800 mg + 8 mg/min, dose inconnue, édoxaban, chirurgie), Marcoumar (160 h, 2,0–3,5, 2 jours, épistaxis passagère sans vitamine K), demi-vies rivaroxaban/apixaban/édoxaban/dabigatran, dabigatran CI < 30 mL/min et TCA > 80 s, Augmentin (3 × 625 mg, IR, CI, allaitement), Dalacin (600–1200 mg, allaitement), Co-Amoxi 53982/56758, Dafalgan, Tetagam 250 UI, Revaxis, Boostrix, Bactroban (3 mois, 5–10 j, allaitement), Avamys, Sel Emser (4 ans), Bepanthen (aucune donnée clinique, 7 jours) : tous exacts. Doses hors AIPS correctement signalées (CCP sous anti-Xa, miel, Beriplex hors AVK).",
+  "Exactitude : 93 phrases chiffrées sondées automatiquement sur SFORL 2016, HUG 2010, HUG trauma nez 2020, Collège ORL 2017 et Beck 2018 (texte intégral) ; écarts restants = artefacts de tableaux ; contrôles manuels (Hb 7/10 g/dL SFORL, PAS < 80 mmHg, drainage < 24 h, réduction J7 et consolidation J10–14, contrôle ORL J3–J5, 65 % d'hémostase par spray HUG, critères ACR/EULAR 2022 = 10 points) conformes.",
+  "Faits perdus : aucun retrait déclaré dans les commits ; comparaison automatique avec la version f85c1d934 : aucun chiffre sourcé perdu.",
+  "Prérequis anatomo-fonctionnel avec image réelle sourcée présent dans les six fichiers et lié au pourquoi du signe : Kiesselbach (Phase A, DX.1), cascade de coagulation (DX.2), Gray852/854 (DX.3), Gray855 (DX.4), Gray854 (DX.5) ; licences et attributions présentes, aucun SVG dessiné ni image générée. Aucun défaut Grave à ce titre.",
+  "Information vitale visible d'emblée : chapeau avec 🚩 E1–E3, fenêtre « Urgence — conduite chronologique » et drapeaux rouges dans les six fichiers ; raisonnement pas à pas avec erreur du débutant dans Phase A, DX.1–DX.4, et en tableau dans DX.5.",
+  "controle3 --script-ok : VERT pour les six fichiers ; aucune ancienne architecture ; fenêtres :target ; liens internes et inter-fichiers (dont #dx5-p1, #dx9-p1, #dx10-p1) valides ; noms des DX identiques à la liste gelée ; rangs E cohérents.",
+  "Design Playwright 1280 et 390 px : aucun débordement horizontal de page ; 242 fenêtres ouvertes une à une : centrées, fixes, occultantes, défilement interne."
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 non limité à la définition (L1-3.1) : la classification EHRA en trois niveaux de saignement et sa fenêtre f-dx2-p1-niv sont des critères de sévérité, qui relèvent du point 8 (où f-dx2-p8-sev cite déjà l'EHRA).",
+   "avant": "Le guide pratique de l'European Heart Rhythm Association (EHRA) de 2021 distingue trois niveaux de saignement : <a class=\"ouvre\" href=\"#f-dx2-p1-niv\">gênant ou mineur, majeur sans menace vitale, et menaçant le pronostic vital</a><sup class=\"r\"><a href=\"#sb-ehra\">S2</a></sup>.",
+   "correction": "(phrase supprimée du point 1 ; la section <section class=\"fenetre\" id=\"f-dx2-p1-niv\">…</section> est déplacée, sans changement, juste après le </p> du point 8 cité dans le défaut suivant)",
+   "source": "PROMPT_LOTS_L1_10.11.26 L1-3.1 ; µ3 point 8"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Réception au point 8 de la classification EHRA retirée du point 1 (aucun octet ajouté au total du fichier).",
+   "avant": "Les <a class=\"ouvre\" href=\"#f-dx2-p8-crit\">éléments d'imputabilité</a> et les <a class=\"ouvre\" href=\"#f-dx2-p8-sev\">critères de sévérité</a> fondent ensuite la conduite.",
+   "correction": "Les <a class=\"ouvre\" href=\"#f-dx2-p8-crit\">éléments d'imputabilité</a> et les <a class=\"ouvre\" href=\"#f-dx2-p8-sev\">critères de sévérité</a> fondent ensuite la conduite. Le guide pratique de l'European Heart Rhythm Association (EHRA) de 2021 distingue trois niveaux de saignement : <a class=\"ouvre\" href=\"#f-dx2-p1-niv\">gênant ou mineur, majeur sans menace vitale, et menaçant le pronostic vital</a><sup class=\"r\"><a href=\"#sb-ehra\">S2</a></sup>.",
+   "source": "Steffel 2021 EHRA (S2)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 non limité à la définition (L1-3.1) : une phrase d'épidémiologie et de difficulté pratique, vague (« relativement fréquent »), sans chiffre. Le fichier pèse 81 856 octets : la suppression (≈ 250 octets) le laisse au-dessus de 80 000.",
+   "avant": "Il constitue un motif de consultation pédiatrique relativement fréquent, souvent anodin en apparence, mais parfois difficile à diagnostiquer et à extraire<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>. ",
+   "correction": "",
+   "source": "L1-3.1"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Unités non SI (µ4.5) et incohérence avec la Phase A et DX.1, qui écrivent 70 g/L : le seuil transfusionnel est donné en g/dL, et il est répété trois fois dans le fichier (point 9, 11.A, 11.C), redite interdite (L1-3.4).",
+   "avant": "La SFORL propose de transfuser au-dessous de 7 g/dL, ou de 10 g/dL en cas d'insuffisance coronarienne aiguë<sup class=\"r\"><a href=\"#sb-sforl\">S1</a></sup>.",
+   "correction": "La SFORL propose de transfuser au-dessous de 70 g/L, ou de 100 g/L en cas d'insuffisance coronarienne aiguë<sup class=\"r\"><a href=\"#sb-sforl\">S1</a></sup>.",
+   "source": "SFORL 2016, p. 8 (« à partir de 7 g/dL et à partir de 10 g/dL chez les patients … insuffisance coronarienne aiguë », grade B), lu le 11.11.2026"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Redite du seuil transfusionnel en 11.A (déjà au point 9) ; unité g/dL.",
+   "avant": "maintient l'hémoglobine au-dessus de 7 g/dL, ou de 10 g/dL en cas d'insuffisance coronarienne aiguë, et reprend",
+   "correction": "maintient l'hémoglobine au-dessus du seuil transfusionnel de la SFORL, et reprend",
+   "source": "L1-3.4 ; µ4.5"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Unité g/dL dans le calendrier de surveillance (11.C).",
+   "avant": "Moins de 7 g/dL, ou moins de 10 g/dL si coronaropathie aiguë",
+   "correction": "Moins de 70 g/L, ou moins de 100 g/L si coronaropathie aiguë",
+   "source": "µ4.5"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Redite intra-fichier (L1-3.4) : l'effet des corticoïdes nasaux (8 % → 20 % en douze mois) figure au point 3 et au point 5. On garde le point 5, où il guide l'interrogatoire.",
+   "avant": "Les sprays de corticoïdes nasaux font passer le risque d’épistaxis de 8 % à 20 % en douze mois dans un essai contrôlé<sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup>.",
+   "correction": "",
+   "source": "Beck 2018 (S2)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Redite intra-fichier : la règle « ne jamais cautériser les deux faces » figure au point 12 et, mot pour mot, au point 13 (et une troisième fois dans l'arbre décisionnel « jamais des deux côtés en même temps »). On la garde au point 13 (point clé) et on l'ôte du point 12.",
+   "avant": "le médecin ne cautérise jamais les deux faces de la cloison en même temps<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup><sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup>. La pression",
+   "correction": "il évite une nouvelle agression de la cloison<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup><sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup>. La pression",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_021_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Redite intra-fichier : la liste des trois diagnostics graves (E1, E2, E3) figure dans le chapeau puis à nouveau dans le bloc 2 avant l'algorithme.",
+   "avant": "Trois diagnostics graves portent le badge 🚩 et ouvrent l'algorithme : l'épistaxis sous antithrombotique (E1), le purpura thrombopénique immunologique (E2) et le cancer des fosses nasales ou des sinus (E3)<sup class=\"r\"><a href=\"#sb-s7\">S7</a></sup><sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup><sup class=\"r\"><a href=\"#sb-s4\">S4</a></sup>. ",
+   "correction": "Les trois diagnostics graves du chapeau ouvrent l'algorithme. ",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_021_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Redites entre Phase A et DX.1 (L1-3.4) : durée du tamponnement non résorbable (48 à 72 heures) et paliers de cautérisation reproduits presque mot pour mot ; la fenêtre « Base à connaître » de la Phase A reprend aussi la même image (Kiesselbach) et une lecture guidée voisine de celle de DX.1 (décision HELP). La Phase A garde le tri ; le détail technique vit dans DX.1.",
+   "avant": "Un tamponnement non résorbable reste en place 48 à 72 heures dans la pratique<sup class=\"r\"><a href=\"#sb-s3\">S3</a></sup>.",
+   "correction": "Sa durée et son ablation sont détaillées dans <a href=\"LOT_021_Phase_B_V0_DX.1.html#dx1-p11\">DX.1</a>.",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_021_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Ancre AIPS mal attribuée : la phrase nomme l'oxymétazoline mais ne cite que l'AIPS de la lidocaïne (n° 52097) ; l'AIPS Nasivin n° 45138 (S25) est en bibliographie.",
+   "avant": "oxymétazoline</a><sup class=\"r\"><a href=\"#sb-aips-52097\">S24</a></sup><sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.",
+   "correction": "oxymétazoline</a><sup class=\"r\"><a href=\"#sb-aips-52097\">S24</a></sup><sup class=\"r\"><a href=\"#sb-aips-45138\">S25</a></sup><sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.",
+   "source": "AIPS VICKS Nasivin Classic n° 45138 (refdata, lue le 11.11.2026)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Ancres AIPS mal attribuées : le mécanisme du rivaroxaban et de l'apixaban est appuyé sur l'AIPS de l'andexanet alfa, alors que les AIPS Xarelto (S19) et Eliquis (S20) figurent en bibliographie.",
+   "avant": "inhibe la thrombine<sup class=\"r\"><a href=\"#sb-aips-67759\">S17</a></sup><sup class=\"r\"><a href=\"#sb-aips-65149\">S22</a></sup>",
+   "correction": "inhibe la thrombine<sup class=\"r\"><a href=\"#sb-aips-58728\">S19</a></sup><sup class=\"r\"><a href=\"#sb-aips-61549\">S20</a></sup><sup class=\"r\"><a href=\"#sb-aips-65149\">S22</a></sup>",
+   "source": "AIPS Xarelto n° 58728, Eliquis n° 61549"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Méta-commentaire (µ4.7) dans la fenêtre des diagnostics discriminants.",
+   "avant": ", dont ce cours reprend les gestes sans les répéter.</p>",
+   "correction": ".</p>",
+   "source": "µ4.7"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Redite intra-fichier : « Une évolution inhabituelle impose de revoir la cause » figure dans le tableau puis dans le paragraphe suivant.",
+   "avant": "<td>Une évolution inhabituelle impose de revoir la cause.</td>",
+   "correction": "<td>Le bord reste stable d'un contrôle à l'autre.</td>",
+   "source": "L1-3.4 ; ENT UK 2024 (S12)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Point 1 : la classification par diamètre (petite, moyenne, grande) est un critère de stade, qui relève du point 8.",
+   "avant": " Elle classe la perforation selon son plus grand diamètre : petite sous 0,5 cm, moyenne de 0,5 à 2 cm, grande au-delà de 2 cm<sup class=\"r\"><a href=\"#sb-s2\">S2</a></sup>.</p>",
+   "correction": "</p>",
+   "source": "L1-3.1 ; à replacer au point 8 (Kaiser 2024, S2), le fichier pesant 83 886 octets"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Phrase agrammaticale dans la fenêtre « Urgence — conduite chronologique ».",
+   "avant": "Tox Info Suisse conseille au numéro 145",
+   "correction": "Tox Info Suisse répond au numéro 145",
+   "source": "µ4.1"
+  },
+  {
+   "fichier": "Phase A et DX.1 à DX.5",
+   "gravite": "Léger",
+   "constat": "Méta-commentaire en tête de chaque fichier (« Ce fichier traite… », µ4.7). Exemple DX.3.",
+   "avant": "<p class=\"s\">Ce fichier traite le troisième diagnostic de la situation de départ « Épistaxis ». ",
+   "correction": "<p class=\"s\">La fracture des os propres du nez est le troisième diagnostic de la situation « Épistaxis ». ",
+   "source": "µ4.7 ; même reformulation verbale à appliquer dans DX.1, DX.2, DX.4 et DX.5"
+  },
+  {
+   "fichier": "Phase A et DX.1 à DX.5",
+   "gravite": "Moyen",
+   "constat": "Point 11 : le volet social et assurances exigé par µ3 manque dans les six fichiers (aucune mention de LAMal, LAA, certificat ou incapacité de travail ; lacune reconnue dans HELP.md). Pour DX.3 (accident) il est utile à l'examen : prise en charge par l'assurance-accidents. Legal Data Hunter était hors quota pendant l'audit ; aucun texte n'est inventé ici.",
+   "avant": "(absence)",
+   "correction": "Ajouter au point 11 de DX.3 une phrase sourcée sur Fedlex lue et datée : LAA (RS 832.20) art. 6 et 8, OLAA (RS 832.202) art. 13 (couverture des accidents non professionnels selon la durée de travail hebdomadaire), sinon couverture accident de la LAMal ; dans DX.1, DX.2, DX.4 et DX.5, une phrase sur la prise en charge LAMal des soins et des onguents, source suisse lue.",
+   "source": "µ3 point 11 ; HELP.md (lacunes DX.1, DX.3, DX.4, DX.5)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.3.html",
+   "gravite": "Moyen",
+   "constat": "Image en attente (HELP.md) : le cliché TDM de fracture nasale (File:NasalFractCT.jpg) n'est pas inséré dans f-dx3-p9-ct ; aucune photographie du signe visible (déformation, ecchymose) au point 6 (µ6). La base anatomique Gray852/Gray854 est présente et explique le pourquoi des signes : aucun défaut sur ce point.",
+   "avant": "(absence)",
+   "correction": "Insérer la figure par `python3 Claude/_outils/cliche.py figure` dans f-dx3-p9-ct dès la levée du 429 Wikimedia (paire brute/annotée, lecture guidée, décision).",
+   "source": "µ6 ; HELP.md"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Image en attente (HELP.md) : la radiographie de pile bouton (double contour, File:ButtonBatteryIngestion.png) n'est pas insérée dans f-dx4-x-radio ; aucune photographie d'un corps étranger visible en rhinoscopie au point 6. La base anatomique Gray855 est présente et explique l'écoulement unilatéral.",
+   "avant": "(absence)",
+   "correction": "Insérer la figure par `cliche.py figure` dans f-dx4-x-radio ; ajouter une photographie libre de corps étranger nasal en rhinoscopie au point 6.",
+   "source": "µ6 ; HELP.md"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Point 6 : aucune photographie du signe visible (point saignant ou ectasie de la tache vasculaire) ; seule la base anatomique (Kiesselbach, conforme) illustre le fichier.",
+   "avant": "(absence)",
+   "correction": "Ajouter une photographie libre (Wikimedia Commons) d'une ectasie de la tache vasculaire en rhinoscopie, avec lecture guidée.",
+   "source": "µ6 point 6"
+  },
+  {
+   "fichier": "LOT_021_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Phase A : aucun cliché ne sépare les deux DX les plus dangereux (µ6, Phase A) ; l'image Oral_petechiae.webp, déjà dans le LOT, pourrait servir à opposer DX.6 à DX.2.",
+   "avant": "(absence)",
+   "correction": "Insérer images/Oral_petechiae.webp (licence déjà vérifiée par le rédacteur de DX.6) dans la fenêtre de l'examen physique, avec la décision « hémogramme immédiat ».",
+   "source": "µ6"
+  },
+  {
+   "fichier": "Phase A et DX.1 à DX.5",
+   "gravite": "Léger",
+   "constat": "Design à 390 px : les tableaux larges des fenêtres (par ex. f-dx1-p4-dd, 492 px pour 300 px utiles) défilent horizontalement dans leur conteneur div.t ; la page n'a aucun débordement horizontal et toutes les fenêtres sont centrées, fixes et défilantes. Lecture possible mais peu confortable.",
+   "avant": "(feuille commune)",
+   "correction": "Relever par le designer (forme.css commun) une règle mobile : tableaux en blocs empilés sous 480 px, ou police réduite à 0,9 rem dans .fenetre table.",
+   "source": "L1-4 ; contrôle Playwright du 11.11.2026"
+  }
+ ],
+ "point14": {
+  "Phase_A_V0": 8,
+  "DX.1": 8,
+  "DX.2": 10,
+  "DX.3": 8,
+  "DX.4": 11,
+  "DX.5": 10,
+  "conforme_>=6": true
+ },
+ "octets": {
+  "Phase_A_V0": 105295,
+  "DX.1": 98319,
+  "DX.2": 103527,
+  "DX.3": 116200,
+  "DX.4": 81856,
+  "DX.5": 83886,
+  "bornes_80000_150000": true,
+  "note": "DX.4 proche du plancher : toute suppression doit laisser ≥ 80 000 octets."
+ },
+ "compte": {
+  "Critique": 0,
+  "Grave": 0,
+  "Moyen": 9,
+  "Léger": 14
+ }
+}

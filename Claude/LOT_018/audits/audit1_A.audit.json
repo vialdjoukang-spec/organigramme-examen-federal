@@ -1,0 +1,145 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "4369ce2011afe085367576c6dba1da9a38c1c9f4",
+ "audit": "audit 1 — Phase A + DX.1 à DX.5",
+ "leves": [
+  "controle3 --script-ok VERT sur les 6 fichiers ; verif_aips OK (aucun défaut bloquant) ; alerte dose_absente DX.2 Mydrane 0,62 mg relue : faux positif (AIPS 66151 : « une dose de 0,2 ml contient 0,04 mg tropicamide, 0,62 mg phényléphrine, 2 mg lidocaïne »).",
+  "Renvois AIPS relus sur le texte refdata (≥ 40) : Diamox 21191 (glaucome aigu 250–1000 mg/24 h, long cours, CI, grossesse, allaitement), Solu-MEDROL 35112 (5/30 min, CI, grossesse, allaitement), Cyclogyl 32634 (gouttes adulte/enfant/jeune enfant, < 1 an, surveillance 30 min, physostigmine 2 mg puis 1–2 mg, enfant 0,5 mg max 2 mg), Atropine 46994, Mydrane 66151, Aprokam 63029 (0,1 ml = 1 mg, reconstitution), Nevanac 58745, Maxidex 30058, Mydriaticum 23855, Neosynephrin 65568 (CI enfant), Eylea 2 mg 62393 (DMLA et OMD : 4 sem × 3 mois puis ≤ 8 sem ; CI grossesse/allaitement), Eylea 8 mg (4 sem × 3), Visudyne 6 mg/m² 10 min, Beovu, Vabysmo, Lucentis, Ozurdex 60324, Xalatan (1×/j, plus fréquent diminue l’effet), Timoptic (0,25 % 2×/j, enfant), Trusopt (ClCr < 30 non recommandé), Alphagan (CI < 2 ans, IMAO). Tous conformes, sauf DX.5 P14 (ci-dessous).",
+  "Taille hors images : Phase A 118 437 o (182 275 avec PNG base64 en fenêtre), DX.1 91 236, DX.2 94 512, DX.3 98 475, DX.4 84 788, DX.5 104 733 : tous dans 80–150 Ko.",
+  "Aucun lien interne ni inter-fichiers cassé ; aucun SVG dessiné (SVG = copies annotées de photographies réelles) ; aucune ancienne architecture (arbre CIM, sommaire en pastilles) ; fenêtres :target fixes, centrées, occultantes, défilement interne, à 1280 et 390 px ; aucun débordement horizontal de page.",
+  "Cohérence Phase A ↔ DX : noms exacts des dix DX et rangs E1 = DX.9, E2 = DX.10, E3 = DX.7 conformes à la liste gelée.",
+  "Seuils OAC annexe 1 (0,5/0,2 ; 0,6 monoculaire ; 0,8/0,5) et LiGHT 74,2 % sans collyre à 3 ans conformes."
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_018_Phase_A_V0.html",
+   "gravite": "Grave",
+   "constat": "Point 1 hors définition (L1-3) : il porte le premier geste de l’anamnèse et ouvre une fenêtre de sémantique du symptôme (id f-a-semantique). Ce contenu relève du point 5.",
+   "avant": "Selon le Collège des ophtalmologistes universitaires de France (COUF), le premier geste précise <a class=\"ouvre\" href=\"#f-a-semantique\">ce que le patient entend par perte de vision</a>, sa latéralité et son installation",
+   "correction": "Elle touche un œil ou les deux, et elle s’installe brutalement ou progressivement",
+   "source": "PROMPT L1-3.1 ; COUF (S2)"
+  },
+  {
+   "fichier": "LOT_018_Phase_A_V0.html",
+   "gravite": "Grave",
+   "constat": "Corollaire de la correction précédente : la fenêtre f-a-semantique doit être rattachée au point 5, sinon elle devient orpheline.",
+   "avant": "Le patient décrit la séquence avec ses mots ;",
+   "correction": "Le patient décrit la séquence avec ses mots, et le médecin précise <a class=\"ouvre\" href=\"#f-a-semantique\">ce qu’il entend par perte de vision</a> ;",
+   "source": "PROMPT µ3 point 5"
+  },
+  {
+   "fichier": "LOT_018_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Formule de fabrication (L1 : aucune formule de lacune ou de fabrication).",
+   "avant": "<p>Une absence de seuil numérique dans la source ne justifie pas d’en inventer un. ",
+   "correction": "<p>",
+   "source": "MISSION_AUDIT_L1 §4"
+  },
+  {
+   "fichier": "LOT_018_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Formule de fabrication au point 12 (prévention secondaire). Les intervalles HUG existent d’ailleurs dans DX.4 (point 12).",
+   "avant": " Aucun intervalle suisse de dépistage non vérifié n’est inventé.",
+   "correction": " Les rythmes de dépistage figurent dans DX.4 (glaucome) et DX.5 (rétinopathie diabétique).",
+   "source": "HUG (DX.4 S2 ; DX.5 S1)"
+  },
+  {
+   "fichier": "LOT_018_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Formule de fabrication au point 14 (sur la manière dont la leçon a été rédigée).",
+   "avant": "Ces questions pédagogiques sont rédigées pour cette leçon à partir des sources citées ; elles ne sont pas présentées comme des questions officielles de l’examen fédéral. ",
+   "correction": "",
+   "source": "MISSION_AUDIT_L1 §4"
+  },
+  {
+   "fichier": "LOT_018_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Formule de fabrication dans la fiche .mb acétazolamide.",
+   "avant": "n’a pas été étudiée, et aucune dose pédiatrique n’est extrapolée ;",
+   "correction": "n’a pas été étudiée, et l’AIPS ne fixe aucune dose pédiatrique ;",
+   "source": "AIPS Diamox 21191"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.5.html",
+   "gravite": "Moyen",
+   "constat": "Réponse inexacte au point 14 : l’AIPS Eylea n’impose pas 8 semaines comme intervalle maximal définitif dans l’OMD. Elle limite l’espacement à 8 semaines, puis fait vérifier au terme de la première année si les intervalles peuvent encore être espacés.",
+   "avant": "<td>Huit semaines.</td><td>Les intervalles se prolongent jusqu’à 8 semaines au maximum après trois injections mensuelles (point 11)",
+   "correction": "<td>Huit semaines la première année.</td><td>Après trois injections mensuelles, l’AIPS espace les intervalles jusqu’à 8 semaines, puis fait vérifier au bout d’un an s’ils peuvent encore être espacés (point 11)",
+   "source": "AIPS Eylea 62393 (refdata, 09.2026) : « vérifier au terme de la première année de traitement si les intervalles entre les injections peuvent encore être espacés »"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Redite interne : « amblyopie irréversible après 6 ans » apparaît cinq fois (essentiel, point 3, fenêtre amblyopie, 11.D, point 13). On garde les occurrences du point 3, de la fenêtre et du point 13. Nuance médicale : le seuil de 6 ans est un repère du COUF, pas une limite absolue de traitabilité.",
+   "avant": " Chez l’enfant, une amétropie asymétrique laissée sans lunettes produit une amblyopie définitive après l’âge de 6 ans<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.",
+   "correction": "",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Suite de la même redite (11.D).",
+   "avant": "Le pronostic de l’amblyopie dépend de l’âge, puisqu’elle devient irréversible après 6 ans<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.",
+   "correction": "Le pronostic de l’amblyopie dépend de l’âge auquel la correction commence (point 3)<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Redite entre fichiers : les seuils d’acuité de l’OAC (premier et second groupe) sont enseignés en entier dans DX.1 (f-dx1-oac) et à nouveau dans la fenêtre f-dx2-p8-oac. DX.2 garde ce qui est propre à la cataracte (éblouissement, perte récente d’un œil).",
+   "avant": "<tr><td>Acuité visuelle, mesurée œil par œil</td><td>0,5 au meilleur œil et 0,2 à l’autre ; 0,6 en vision monoculaire<sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup>.</td><td>0,8 au meilleur œil et 0,5 à l’autre<sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup>.</td></tr>",
+   "correction": "<tr><td>Acuité visuelle, mesurée œil par œil</td><td colspan=\"2\">Les seuils des deux groupes figurent dans la fenêtre <a href=\"LOT_018_Phase_B_V0_DX.1.html#f-dx1-oac\">seuils légaux de conduite</a> de DX.1.</td></tr>",
+   "source": "L1-3.4 ; OAC annexe 1"
+  },
+  {
+   "fichier": "LOT_018_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "L’AIPS Alphagan ne range pas l’allaitement parmi les contre-indications formelles : elle écrit « ne doit pas être utilisé pendant l’allaitement ».",
+   "avant": "L'AIPS le contre-indique pendant l'allaitement ;",
+   "correction": "L'AIPS exclut son emploi pendant l'allaitement ;",
+   "source": "AIPS Alphagan 54605"
+  },
+  {
+   "fichier": "Phase A, DX.1, DX.4, DX.5",
+   "gravite": "Léger",
+   "constat": "À 390 px, des tableaux de fenêtres dépassent la largeur et défilent horizontalement dans leur conteneur, sans débordement de la page. Fenêtres concernées : Phase A (f-a-semantique, f-a-anamnese, f-a-p9-imagerie, f-a-interactions), DX.1 (f-dx1-epi, correl, ddx, flou, medic), DX.4 (p4-dx, p5-symptomes, p11-medic) et DX.5 (p2-chiffres, p3-correl, p4-dd, p11-med).",
+   "avant": "",
+   "correction": "Réglage forme.css commun (agent designer) : passer en lecture par lignes (display:block par cellule) sous 480 px.",
+   "source": "Playwright 390 px"
+  },
+  {
+   "fichier": "Phase A, DX.2, DX.4",
+   "gravite": "Léger",
+   "constat": "Pédagogie (LOT ≤ 020, non bloquant) : les points de la page naturelle de la Phase A sont très brefs (environ 600 o chacun). Il manque les schémas réels de prérequis déjà notés dans HELP.md : point 3 de la Phase A, images de cataracte de DX.2, papille et humeur aqueuse de DX.4.",
+   "avant": "",
+   "correction": "Aucune correction exigée avant le LOT_021.",
+   "source": "MISSION_AUDIT_L1 §5"
+  }
+ ],
+ "point14": {
+  "LOT_018_Phase_A_V0.html": "13 questions (fenêtre f-a-pieges)",
+  "LOT_018_Phase_B_V0_DX.1.html": 8,
+  "LOT_018_Phase_B_V0_DX.2.html": 9,
+  "LOT_018_Phase_B_V0_DX.3.html": 9,
+  "LOT_018_Phase_B_V0_DX.4.html": 10,
+  "LOT_018_Phase_B_V0_DX.5.html": 9
+ },
+ "octets": {
+  "LOT_018_Phase_A_V0.html": {
+   "total": 182275,
+   "hors_images": 118437
+  },
+  "LOT_018_Phase_B_V0_DX.1.html": 91236,
+  "LOT_018_Phase_B_V0_DX.2.html": 94512,
+  "LOT_018_Phase_B_V0_DX.3.html": {
+   "total": 99479,
+   "hors_images": 98475
+  },
+  "LOT_018_Phase_B_V0_DX.4.html": 84788,
+  "LOT_018_Phase_B_V0_DX.5.html": {
+   "total": 108182,
+   "hors_images": 104733
+  }
+ }
+}
