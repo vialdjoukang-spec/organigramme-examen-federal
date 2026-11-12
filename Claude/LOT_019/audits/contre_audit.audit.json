@@ -1,0 +1,107 @@
+{
+ "verdict": "ACCEPTE",
+ "date": "2026-11-11",
+ "base": "85814cc0dcd37919ffb3c921df974298523aeaf8",
+ "auditeur": "contre-audit Claude (n'a rédigé ni corrigé aucun fichier)",
+ "perimetre": "Claude/LOT_019/*.html (Phase A + DX.1 à DX.10) ; audit1_A, audit1_B, corrections1.md",
+ "controles": {
+  "controle3_script_ok": "VERT sur les 11 fichiers, défauts {}",
+  "verif_aips": "OK partout ; seule alerte DX.7 Xylocain 52097 « dose absente » = faux positif (tableau AIPS : oropharynx 20-200 mg, max 600 mg ; enfant ≥3 ans laryngotrachéal ≤3 mg/kg, lus)",
+  "structure_script": "0 ancre href=#… sans cible, 0 renvoi inter-fichiers cassé (dont DX.1→Phase A #f-ssp-m-adrenaline, DX.4→#f-ssp-p8-delais, DX.10→Phase A), 0 id dupliqué, 0 section.fenetre/fiche imbriquée, 0 balise mal fermée, 0 gabarit « ({ » résiduel, tableaux à nombre de colonnes constant",
+  "playwright": "Chromium headless (build 1243 préinstallé ; launch() sans option échoue car build 1254 absent, chemin explicite utilisé). 1280×800 et 390×844 : 461 fenêtres ouvertes par :target, toutes visibles, contenues dans l'écran, aucun défilement horizontal de page. Clics réels : DX.1 stridor et f-dx1-p7-tab ; DX.10 fiches cisplatine, cétuximab, pembrolizumab (depuis la fenêtre Médicaments) ; DX.8 41 cibles de renvoi dont les 9 convertis (p8-crit, p9-emg, m-toxine ×3, p11-urg, p11-spec, p11-ass, m-pyridostigmine, m-tetrabenazine) : tous ouvrent leur fenêtre."
+ },
+ "verification_corrections": {
+  "DX.1 stridor": "Appliquée et juste : paragraphe d'appel + fenêtre sortis après </section> de f-dx1-p7-tab, texte inchangé ; s'ouvre au clic.",
+  "DX.1 croup/Rectodelt": "Appliquée et juste. AIPS 68119 (refdata 05.05.2026) relue : indication pseudocroup/croup/asthme ≤12 ans ; 1 suppositoire 100 mg, répétable une fois après 12-24 h, max 200 mg, ≤2 jours ; grossesse indication impérative ; allaitement arrêt si doses élevées. Affirmation « seule la prednisone rectale porte l'indication croup en Suisse » vérifiée sur 21 AIPS (dexaméthasone Galepharm 57974/66710, Fortecortin 48670/48669, Mephameson 31890, Dexamethason Zentiva 41074, Betnesol, Spiricort, prednisone/prednisolone Streuli, Stada, axapharm, Spirig, Galepharm, Pulmicort 50192, Budesonid-Mepha, Solu-Medrol, Solu-Cortef, Solu-Moderin, adrénaline 56551/56514/56472) : aucune ne contient « croup ». Refus du « protocole HUG » justifié.",
+  "DX.1 adrénaline": "Appliquée : lien vers f-ssp-m-adrenaline (AIPS 56551 sans voie inhalée, lue) + « hors AIPS pour la voie inhalée ».",
+  "DX.1 point 1 / point 2": "Appliquées : point 1 réduit à la définition AIPS ; fenêtre terminologique déplacée en fin de point 4 (f-dx1-p4-croup, non imbriquée, s'ouvre) ; formule de lacune supprimée (consignée HELP.md).",
+  "DX.4 délai": "Appliquée et juste : 3 semaines, « surtout » chez le fumeur (HUG) ; Collège 8-15 j écrit comme divergence, lien vers la fenêtre Phase A qui le porte.",
+  "DX.2 UEP": "Appliquée ; faits UEP/guide allemand conservés dans la fenêtre Classification étiologique.",
+  "Phase A point 1": "Appliquée ; enrouement/aphonie/composantes déplacés au point 5, sources conservées.",
+  "DX.5 chiffres": "Appliquée ; Rome 44/125 et Glasgow 90 % conservés aux points 2 et 14 ; nouvelles cellules justes (S9 : tabac principal facteur de récidive ; S10 histologie).",
+  "DX.8 renvois ×9": "Appliquée : 9 <a class=\"ouvre\"> vers cibles existantes, cellules fantômes supprimées, colonnes constantes.",
+  "DX.10 fiches ×2 + E3 + TNM": "Appliquées : fermeture de f-dx10-p11-med avant la fiche cisplatine, plus de fermeture en double ; titre « 🚩 E3 » ; phrase TNM déplacée au point 8 (fait conservé).",
+  "DX.6 redites / h1": "Appliquées ; faits conservés ailleurs (profil vocal DX.4 S7 ; rééducation DX.2/3/5).",
+  "DX.7": "Appliquée : 9.a-9.g ; fait sexe/tabac/cause maligne conservé au point 2 (Valence S9, vérifié sur PubMed 36228989).",
+  "DX.9 tableau drapeaux rouges": "Appliquée, sens et sources inchangés.",
+  "refus": "Images (Léger avant LOT_021) et reformulation massive DX.9 : refus recevables (non bloquants)."
+ },
+ "faits_perdus": "Aucun : chaque retrait listé dans corrections1.md a été retrouvé ailleurs dans le LOT avec sa source.",
+ "sonde_doses_AIPS": [
+  "68119 Rectodelt 100 mg, 2e après 12-24 h, max 200 mg, ≤2 j, grossesse, allaitement",
+  "57974 dexaméthasone grossesse et allaitement (arrêt)",
+  "46206 paracétamol 4000 mg/j, 15-22 kg 1 g, 22-30 kg 1,5 g, 30-40 kg 2 g",
+  "46206 ≤3 g/j hépatique ; avis médical si ClCr <50",
+  "67372 ibuprofène 1200 mg/j, CI ClCr <30, NYHA III-IV, cirrhose/ascite",
+  "51077 cisplatine 50-100 mg/m² ou 15-20 mg/m²/j ×5, pause 4 sem",
+  "51077 neuropathie 300-600 mg/m² cumulés",
+  "56072 cétuximab 400 puis 250 mg/m²/sem, début 1 sem avant RT",
+  "66231 pembrolizumab 200 mg/3 sem ou 400 mg/6 sem, 30 min",
+  "66231 néoadjuvant CETEC 2×200 mg ou 1×400 mg",
+  "54380 oméprazole 20 mg/j reflux symptomatique, examens si 4 sem insuffisantes",
+  "50582 Nicotinell 21/14/7 mg/24 h",
+  "40580 Nicorette 4 mg si 1re cigarette <20 min et >20 cig/j",
+  "40580 gomme 2 mg + patch 25 ou 15 mg/16 h ; 4 mg non associable",
+  "70067 varénicline 0,5 mg ×1 j1-3, ×2 j4-7, puis 1 mg ×2",
+  "70067 ClCr <30 : 1 mg ×1/j",
+  "55263 bupropion 150 mg ×6 j puis 150 mg ×2, 8 h d'intervalle, max 300",
+  "55263 >65 ans et hépatique : 150 mg ×1",
+  "52097 Xylocain 10 mg/pression, 20-200 mg oropharynx, max 600, enfant ≥3 ans ≤3 mg/kg",
+  "65387 Gardasil 9 : 9-14 ans 3 doses 0-2-6 ou 2 doses (5-13 mois) ; ≥15 ans 3 doses",
+  "56551 adrénaline : aucune voie inhalée"
+ ],
+ "sonde_chiffres": "27 chiffres vérifiés sur PubMed, tous exacts : Glasgow 24436463 (3902 biopsies, 189 cas, 18 H/171 F, 170 = 90 % sans dysplasie, 16 = 8 %, 2 = 1 %, 1 <1 %) ; Rome 11893974 (125, 52, 64, 6, 3, 44 récidives en 2,5 ans, reflux 4 = 3,2 %) ; Rome 35690531 (76 : 8/36/4/28 ; F0 147,58/101,06 Hz ; jitter 3,733/2,254 ; shimmer 11,172/9,037 ; NHR 0,278/0,235 ; 30 témoins) ; Laccourreye 21568053 (591, récupération 19,6 %) ; Valence 36228989 (18,1 %) ; Cochrane 36626194 (RR 0,55).",
+ "leves": [
+  "Tous les Graves de l'audit 1 (DX.1 stridor ; DX.8 ×9 ; DX.10 ×2) levés",
+  "Tous les Moyens levés (DX.1 ×4, DX.4, DX.10 E3, DX.6 ×2 ; DX.9 levé pour le tableau des drapeaux rouges)",
+  "Légers appliqués levés (Phase A, DX.2, DX.5, DX.1 dose, DX.8, DX.10 ×2, DX.7 ×2, DX.6 h1)"
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Point 14 (créé par la correction) : la comparaison avec la dose de dexaméthasone calculée au poids est ancrée sur l'AIPS Rectodelt, qui n'en parle pas ; la Cochrane (S7) porte les doses de 0,15 à 0,60 mg/kg.",
+   "avant": "La dose ne se calcule pas au poids, contrairement à celle de la dexaméthasone (<a class=\"ouvre\" href=\"#f-dx1-m-prednisone\">fiche</a>)<sup class=\"r\"><a href=\"#sb-aips-68119\">S11</a></sup>.</td></tr>",
+   "correction": "La dose ne se calcule pas au poids (<a class=\"ouvre\" href=\"#f-dx1-m-prednisone\">fiche</a>)<sup class=\"r\"><a href=\"#sb-aips-68119\">S11</a></sup>, contrairement à celle de la dexaméthasone<sup class=\"r\"><a href=\"#sb-s7\">S7</a></sup>.</td></tr>",
+   "source": "AIPS 68119 ; Cochrane CD001955.pub5 (PMID 36626194)"
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.9.html",
+   "gravite": "Léger",
+   "constat": "Tableau de synthèse des médicaments : pour 9-14 ans, seul le schéma à 2 doses est donné, alors que l'AIPS 65387 pose d'abord la primovaccination à 3 doses (0, 2, 6 mois) et admet 2 doses ; la fiche du même fichier est juste.",
+   "avant": "<td>De 9 à 14 ans : 2 doses de 0,5 ml, la seconde entre 5 et 13 mois après la première ; dès 15 ans : 3 doses à 0, 2 et 6 mois<sup",
+   "correction": "<td>De 9 à 14 ans : 3 doses à 0, 2 et 6 mois, ou 2 doses de 0,5 ml, la seconde entre 5 et 13 mois après la première ; dès 15 ans : 3 doses à 0, 2 et 6 mois<sup",
+   "source": "AIPS Gardasil 9, n° 65387, mai 2026, Posologie"
+  },
+  {
+   "fichier": "LOT_019_Phase_A_V0.html, DX.2, DX.3, DX.5",
+   "gravite": "Léger",
+   "constat": "Redite inter-fichiers résiduelle (non créée par les corrections) : « la respiration, la vibration laryngée et la projection de la voix (dans les résonateurs) » figure dans 4 fichiers après son retrait de DX.6. À réduire au cours qui la porte en propre (DX.3) lors d'une prochaine passe ; non bloquant.",
+   "avant": "",
+   "correction": "",
+   "source": "L1-3.4"
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "La phrase ajoutée « Le guide allemand de 2022 adopte cette proposition, si bien que le terme « malrégulatif » figure dans sa classification » redit la phrase précédente (les dysphonies régulatives regroupent… les formes malrégulatives). Peut être supprimée (−180 o) sans perte.",
+   "avant": " Le guide allemand de 2022 adopte cette proposition, si bien que le terme « malrégulatif » figure dans sa classification<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.",
+   "correction": "",
+   "source": "redite intra-paragraphe"
+  }
+ ],
+ "point14": "Inchangé quant au nombre de questions (≥6 partout selon audit 1 et controle3 VERT) ; DX.8 point 14 désormais cliquable.",
+ "octets": {
+  "LOT_019_Phase_A_V0.html": 139666,
+  "LOT_019_Phase_B_V0_DX.1.html": 83907,
+  "LOT_019_Phase_B_V0_DX.10.html": 109823,
+  "LOT_019_Phase_B_V0_DX.2.html": 138432,
+  "LOT_019_Phase_B_V0_DX.3.html": 123382,
+  "LOT_019_Phase_B_V0_DX.4.html": 132907,
+  "LOT_019_Phase_B_V0_DX.5.html": 135845,
+  "LOT_019_Phase_B_V0_DX.6.html": 121093,
+  "LOT_019_Phase_B_V0_DX.7.html": 99803,
+  "LOT_019_Phase_B_V0_DX.8.html": 121087,
+  "LOT_019_Phase_B_V0_DX.9.html": 103926
+ }
+}

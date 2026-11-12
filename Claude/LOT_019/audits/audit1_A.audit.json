@@ -1,0 +1,132 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "8a9bced9ea4f4d0d915778016eb3f3715060360f",
+ "auditeur": "Claude (audit 1, agent indépendant)",
+ "perimetre": [
+  "LOT_019_Phase_A_V0.html",
+  "LOT_019_Phase_B_V0_DX.1.html",
+  "LOT_019_Phase_B_V0_DX.2.html",
+  "LOT_019_Phase_B_V0_DX.3.html",
+  "LOT_019_Phase_B_V0_DX.4.html",
+  "LOT_019_Phase_B_V0_DX.5.html"
+ ],
+ "controles": {
+  "verif_aips": "OK pour les 6 fichiers (A : 4 AIPS, DX.1 : 5, DX.2 : 0, DX.3 : 1, DX.4 : 3, DX.5 : 4) ; aucun défaut bloquant, aucune alerte « dose absente ».",
+  "controle3_script_ok": "VERT pour les 6 fichiers (defauts {}).",
+  "aips_relus_a_la_main": "46 renvois relus sur le texte refdata en cache : Rectodelt 68119 (dose 100 mg, 2e suppositoire à 12-24 h, 2 jours max, CI, grossesse, allaitement), Dexaméthasone Galepharm 57974 (grossesse, allaitement), Pulmicort 50192 (ultrasons, grossesse, allaitement), Dafalgan 46206 (4 g, paliers 15-22/22-30/30-40 kg, 3 g foie, Gilbert, ClCr < 50), Irfen Dolo 67372 (1200 mg, 3 jours, ClCr < 30, NYHA III-IV, 3e trimestre), Adrenalin Sintetica 56551 (CI systémiques, indication vitale, allaitement ; aucune voie inhalée), Solu-Medrol 35112 (œdème laryngé non infectieux, adrénaline 1er choix, 10-500 mg, ≥ 0,5 mg/kg/24 h, alcool benzylique), Botox 52433 (dysphonie en effet indésirable, pas d'indication laryngée), Gardasil 9 65387 (0-2-6 mois, 2 doses à 5-13 mois, tête et cou 9-45 ans, 15 min, allaitement), Antramups 54380 (20 mg, allaitement), Doxium 39217 (500-2000 mg, adulte, repas), Kenacort-A 26177 (jusqu'à 10 mg petites régions, 2 semaines), Pantozol 52710 (20 mg, insuffisance hépatique sévère, 12 ans), Nicotinell 50582 (21/14/7 mg, paliers par 20 cigarettes, 7 jours), Nicorette gomme 40580 (8-12/j, 8 semaines, 4 mg si 1re cigarette < 20 min et > 20 cig/j, Invisi), Varénicline-DALITA 70067 (ClCr < 30, 24 semaines), Zyban 55263 (150 mg × 6 j puis 2 × 150, 8 h, 7 semaines, > 65 ans, CI). Tout concorde ; les doses hors AIPS (dexaméthasone 0,15-0,6 mg/kg, budésonide 2 mg, pénicilline V de l'essai) sont écrites « hors AIPS » ; aucun Compendium.",
+  "chiffres_sondes_sur_source": "27 chiffres vérifiés sur la source elle-même (PubMed/PMC) : Siebert 2023 (49,2 %, 23,7 %, 46,1 %, < 10 °C, 30 min, Westley ≥ 2) ; Cochrane croup 2023 (RR 0,55, 0,15 vs 0,60 mg/kg, 2/6/12 h) ; Cochrane laryngite 2015 (3 essais, 351, 100 patients, pénicilline V 800 mg × 2 × 5 j, 106) ; Glasgow 2014 (171/189, 90 % sans dysplasie, 2001-2010) ; Rome 2002 (44/125, 2,5 ans, 4 soit 3,2 %, 3 CIS) ; registre suédois 2022 (828 opérés, 2008-2018, 13 cliniques, 88,3 %, VHI-10 16,9, DMI 6, 52 % d'hommes, 46 ans). Aucun écart.",
+  "design_playwright": "1280 et 390 px : aucun débordement horizontal de page ; 288 fenêtres ouvertes une à une : centrées, position fixe, occultantes, défilement interne ; aucun tableau débordant dans une fenêtre ; liens internes et inter-fichiers (DX.1, DX.3, DX.4, DX.5 → A, DX.2/7/9/10…) tous résolus. Une seule fenêtre ne s'ouvre pas (DX.1, f-dx1-p7-stridor, imbriquée).",
+  "regles_L1": "Point 1 = définition dans les 6 fichiers, avec deux écarts mineurs (terminologie dans DX.1 et DX.2) ; aucune ancienne architecture (pas de popover, de sommaire en pastilles, d'arbre CIM) ; fenêtres :target ; une fiche .mb par molécule traitante (sauf adrénaline dans DX.1) ; tailles 83 619 à 139 666 o ; noms et rangs E identiques entre Phase A et DX ; trois phrases identiques seulement entre fichiers du LOT.",
+  "faits_perdus": "Messages de commit relus : retraits = ancienne architecture et une phrase non sourcée (DX.3) ; ancienne version de DX.1 (bd84ec4b5) comparée : contenu générique sans chiffre ni fait sourcé unique, rien à rétablir."
+ },
+ "leves": [],
+ "restants": [
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Grave",
+   "constat": "La fenêtre f-dx1-p7-stridor est imbriquée dans f-dx1-p7-tab. Quand on clique sur « stridor », la cible change, la fenêtre parente perd :target et se masque (display:none), donc la fenêtre enfant reste invisible (0 × 0 px à 1280 et 390 px). La définition du stridor est inaccessible, et forme.css ne contient aucune règle :has(:target).",
+   "avant": "<p>Le <a class=\"ouvre\" href=\"#f-dx1-p7-stridor\">stridor</a> mérite une définition précise, car son temps respiratoire localise l'obstacle.</p>",
+   "correction": "Couper ce paragraphe ET la section <section class=\"fenetre\" id=\"f-dx1-p7-stridor\" …>…</section> qui le suit, puis les coller juste après la balise </section> de fermeture de f-dx1-p7-tab (au niveau de la page naturelle du point 7). Ne rien changer au texte (0 octet ajouté).",
+   "source": "Test Playwright, :target dans Claude/_polices/forme.css (section.fenetre{display:none})."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "La conduite d'urgence du croup s'écarte de l'AIPS sans le dire. La seule spécialité suisse qui porte l'indication et la dose est Rectodelt (100 mg intrarectal, S11). Pourtant, en cas d'intolérance orale, la fenêtre propose le budésonide nébulisé (hors AIPS), alors que la voie rectale est précisément l'alternative de l'AIPS.",
+   "avant": "Si l'enfant ne tolère pas la voie orale, le budésonide nébulisé remplace la dexaméthasone<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.",
+   "correction": "La dexaméthasone orale du protocole des HUG est employée hors AIPS ; l'AIPS suisse ne porte la dose que pour la prednisone en suppositoire. Si l'enfant ne tolère pas la voie orale, il reçoit donc un suppositoire de Rectodelt® de 100 mg<sup class=\"r\"><a href=\"#sb-aips-68119\">S11</a></sup>. Le budésonide nébulisé reste une option de la revue grecque, hors AIPS<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.",
+   "source": "AIPS Rectodelt 68119 (indication pseudocroup/croup, posologie 100 mg, mode d'emploi rectal chez le nourrisson) ; Petrocheilou 2014."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "L'adrénaline nébulisée est prescrite trois fois (points 3, 5, 10 et fenêtre d'urgence), mais elle n'a ni fiche .mb ni renvoi vers la fiche existante de la Phase A. Cela enfreint la règle « une fiche .mb par molécule ».",
+   "avant": "<td>L'adrénaline nébulisée s'ajoute au corticoïde dans cette forme seulement<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.</td>",
+   "correction": "<td>L'<a class=\"ouvre\" href=\"LOT_019_Phase_A_V0.html#f-ssp-m-adrenaline\">adrénaline nébulisée</a> s'ajoute au corticoïde dans cette forme seulement, hors AIPS pour la voie inhalée<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.</td>",
+   "source": "AIPS Adrenalin Sintetica 56551 (aucune voie inhalée) ; fiche Phase A f-ssp-m-adrenaline."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Le point 1 contient une fenêtre de terminologie (« Pseudocroup, croup viral et laryngo-trachéite »), qui distingue des termes apparentés et liste les diagnostics à écarter. C'est de la sémantique interdite au point 1 (L1-3) ; le contenu relève du point 4.",
+   "avant": "<section class=\"fenetre\" id=\"f-dx1-p1-croup\" role=\"dialog\" aria-label=\"Pseudocroup\">",
+   "correction": "Déplacer la section f-dx1-p1-croup entière, avec son appel <a class=\"ouvre\" href=\"#f-dx1-p1-croup\">pseudocroup</a> et la phrase Clinical Evidence (toux aboyante, stridor, enrouement nocturne), à la fin du point 4 « Démarche diagnostique ». Au point 1, garder seulement : « Chez l'enfant, la forme obstructive est le pseudocroup (laryngo-trachéite sténosante aiguë), selon l'AIPS suisse de la prednisone en suppositoire<sup class=\"r\"><a href=\"#sb-aips-68119\">S11</a></sup>. » (taille inchangée).",
+   "source": "PROMPT L1-3.1."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Le point 2 s'ouvre sur une formule de lacune (LV7, µ4.7) qui décrit la recherche documentaire au lieu de la maladie.",
+   "avant": "<p>Aucune incidence suisse de la laryngite aiguë ne figure dans les publications des HUG, l'Office fédéral de la statistique ou la Revue Médicale Suisse. Une revue allemande",
+   "correction": "<p>Une revue allemande",
+   "source": "PROMPT µ4.7 (aucune formule de lacune) ; lacune déjà consignée dans HELP.md."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Au point 10, le délai d'examen laryngé contredit la Phase A (HUG : trois semaines, plus tôt chez le fumeur ; divergence du Collège tenue dans la fenêtre « délais »). La règle « 3 semaines chez un fumeur, ou 8 à 15 jours sans cause » donne en outre au fumeur un délai plus long qu'au non-fumeur, ce qui inverse la logique du risque.",
+   "avant": "Sinon, si la dysphonie dépasse 3 semaines chez un fumeur, ou 8 à 15 jours sans cause évidente, un spécialiste examine le larynx",
+   "correction": "Sinon, si la dysphonie dépasse 3 semaines, ou plus tôt chez le fumeur, un spécialiste examine le larynx ; le Collège français d'ORL abaisse ce seuil à 8 à 15 jours (divergence écrite dans la Phase A)",
+   "source": "HUG Dysphonies organiques (S1) ; Collège ORL item 86 (S6) ; Phase A, fenêtre « délais » et décision HELP.md l. 38."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Le tableau des définitions du point 1 contient une ligne de terminologie : la proposition de l'UEP de renommer la dysphonie « malrégulative », et la critique de « non organique » et de « fonctionnel ». C'est de la sémantique au point 1.",
+   "avant": "<tr><td>Union des phoniatres européens (UEP), prise de position</td><td>2022</td><td>Le comité propose de remplacer « dysphonie fonctionnelle » par « dysphonie malrégulative »",
+   "correction": "Retirer cette ligne du tableau (et la phrase suivante sur le rangement parmi les dysphonies régulatives) du point 1 ; si on la juge utile, la placer au point 3 ou 7.",
+   "source": "PROMPT L1-3.1."
+  },
+  {
+   "fichier": "LOT_019_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Le point 1 ajoute des définitions de termes voisins (enrouement, aphonie) et les « cinq composantes mesurables », qui frôlent la liste de termes apparentés.",
+   "avant": "L'enrouement désigne la voix rauque ou éraillée",
+   "correction": "Déplacer les deux phrases enrouement/aphonie et la phrase des cinq composantes vers le point 5 (caractérisation du symptôme), où elles servent.",
+   "source": "PROMPT L1-3.1."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.5.html",
+   "gravite": "Léger",
+   "constat": "Plusieurs chiffres sont répétés hors du point 14. Les 44 récidives sur 125 de Rome apparaissent aux points 2, 11 et 14, et les 90 % sans dysplasie de Glasgow aux points 2, 9 et 7.",
+   "avant": "L'endoscopie de contrôle suit la chirurgie ; 44 des 125 patients romains ont récidivé en 2,5 ans<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.",
+   "correction": "L'endoscopie de contrôle suit la chirurgie, car la récidive est fréquente chez le fumeur (point 2)<sup class=\"r\"><a href=\"#sb-s9\">S9</a></sup>.",
+   "source": "PROMPT L1-3.4."
+  },
+  {
+   "fichier": "LOT_019_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "La dose de Rectodelt (100 mg, renouvelable une fois, 2 jours) figure quatre fois : fiche, tableau 11, fenêtre et point 14. Les autres passages pourraient renvoyer à la fiche.",
+   "avant": "L'AIPS fixe une dose unique de 100 mg, renouvelable une fois, sans dépasser 2 jours (<a class=\"ouvre\" href=\"#f-dx1-m-prednisone\">fiche</a>)",
+   "correction": "La dose ne se calcule pas au poids, contrairement à la dexaméthasone (<a class=\"ouvre\" href=\"#f-dx1-m-prednisone\">fiche</a>)",
+   "source": "PROMPT L1-3.4."
+  },
+  {
+   "fichier": "tous (A, DX.1 à DX.5)",
+   "gravite": "Léger",
+   "constat": "Pédagogie (ordre du 11.11.2026, non bloquante avant LOT_021) : aucun schéma anatomo-fonctionnel du larynx ni cliché de laryngoscopie interprété. Les images Commons repérées dans HELP.md (Reinke-Oedem.jpg, Gray954.png, Vocal Folds.jpg) restent à insérer.",
+   "avant": "",
+   "correction": "Insérer par cliche.py les images déjà identifiées, avec leur lecture guidée, dans les fenêtres prévues (f-dx5-r-larynx, f-dx4-r-larynx, point 3 de la Phase A).",
+   "source": "MISSION_AUDIT_L1 point 5 ; HELP.md."
+  }
+ ],
+ "point14": {
+  "LOT_019_Phase_A_V0.html": 10,
+  "LOT_019_Phase_B_V0_DX.1.html": 10,
+  "LOT_019_Phase_B_V0_DX.2.html": 10,
+  "LOT_019_Phase_B_V0_DX.3.html": 9,
+  "LOT_019_Phase_B_V0_DX.4.html": 10,
+  "LOT_019_Phase_B_V0_DX.5.html": 14,
+  "conforme": "≥ 6 partout"
+ },
+ "octets": {
+  "LOT_019_Phase_A_V0.html": 139666,
+  "LOT_019_Phase_B_V0_DX.1.html": 83619,
+  "LOT_019_Phase_B_V0_DX.2.html": 138529,
+  "LOT_019_Phase_B_V0_DX.3.html": 123382,
+  "LOT_019_Phase_B_V0_DX.4.html": 132761,
+  "LOT_019_Phase_B_V0_DX.5.html": 135863,
+  "conforme": "80 000–150 000 partout ; les corrections ajoutent < 400 o (DX.1 seul fichier grossi, loin du plafond)"
+ }
+}
