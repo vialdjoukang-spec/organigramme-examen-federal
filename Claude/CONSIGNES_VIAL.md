@@ -14,6 +14,7 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 7. **Base anatomo-fonctionnelle obligatoire partout où le signe en dépend** (cours, examens, pharmacologie) : concise, puissante, du général vers le problème, expliquant le *pourquoi* du signe (ex. paralysie faciale : innervation corticale bilatérale du front → la lésion centrale épargne le front). Image réelle (coupe, schéma publié), jamais générée ni SVG dessiné ; puis autres formes, étiologies, traitements.
 8. Images cliniques réelles et de qualité (licence vérifiée).
 8 bis. **Images en couleurs de préférence** (12.11.2026) : photo clinique ou schéma publié en couleur (Blausen, OpenStax, PMC CC BY…) ; noir et blanc (Gray) seulement à défaut.
+8 ter. **Démarche → examens → interprétation → prise en charge → suivi : précision agressive** (12.11.2026) : examen ciblé selon les sociétés suisses, interprétation chiffrée, traitement structuré et surveillé ; tableaux dans les fenêtres ; couleurs plus vivantes, surtout le fond.
 9. **Toujours dans des fenêtres** (centrales, occultantes) : ne jamais saturer la page active.
 
 ## Forme
