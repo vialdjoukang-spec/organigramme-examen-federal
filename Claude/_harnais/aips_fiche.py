@@ -8,6 +8,8 @@ gardée en cache JSON ; les agents lisent la fiche compacte (≈ 2–4 Ko) au li
                                           Allaitement et Contre-indications au texte de l'AIPS citée ; signale toute
                                           interdiction adoucie (« ne doit pas », « absolue nécessité », « sevr… »),
                                           toute date « mise à jour » fausse dans la bibliographie.
+  trouve <nom|n°> …                    → corpus refdata hors ligne (AipsDownload_20261008.xml) : n° Swissmedic,
+                                          date, URL française de l'AIPS (SmPC) et de la notice (PIL) ; zéro recherche web ; aucune recherche web.
 Cache : $AIPS_CACHE (défaut ~/.cache/medina_aips) ; HTML brut + JSON des rubriques.
 Code 1 si un défaut ADOUCI ou DATE est trouvé.
 """
@@ -98,11 +100,40 @@ def verifier(chemin):
     return defauts
 
 
+def corpus_index():
+    """Index n° → (type nom, date, url fr) ; « SmPC » = information professionnelle (AIPS),
+    « PIL » = notice patient ; l'URL SmPC se passe ensuite à `fiche <url>` ; construit une fois depuis le XML refdata, puis JSON."""
+    fi = os.path.join(CACHE, 'corpus_index.json')
+    if os.path.exists(fi): return json.load(open(fi, encoding='utf-8'))
+    import xml.etree.ElementTree as ET
+    ns = '{https://simisinfo.refdata.ch/MedicinalDocuments/1.0/}'; idx = {}
+    for _, b in ET.iterparse(os.path.join(CACHE, 'AipsDownload_20261008.xml')):
+        if b.tag != ns + 'MedicinalDocumentsBundle': continue
+        if b.findtext(ns + 'Domain') == 'Human':
+            n = b.findtext(f'{ns}RegulatedAuthorization/{ns}Identifier')
+            for d in b.findall(ns + 'AttachedDocument'):
+                if d.findtext(ns + 'Language') == 'fr':
+                    u = [r.findtext(ns + 'Url') for r in d.findall(ns + 'DocumentReference') if r.findtext(ns + 'ContentType') == 'text/html']
+                    idx.setdefault(n, []).append([b.findtext(ns + 'Type') + ' ' + (d.findtext(ns + 'Description') or ''), (b.findtext(ns + 'Date') or '')[:10], (u or [''])[0]])
+        b.clear()
+    json.dump(idx, open(fi, 'w', encoding='utf-8'), ensure_ascii=False); return idx
+
+
+def trouve(q):
+    idx = corpus_index(); q2 = q.lower(); r = []
+    for n, docs in idx.items():
+        for nom, date, url in docs:
+            if q == n or q2 in (nom or '').lower(): r.append(f'{n} · {nom} · {date} · {url}')
+    print('\n'.join(r[:15]) or f'absent du corpus : {q} → swissmedicinfo.ch ou « À vérifier (AIPS) »')
+
+
 if __name__ == '__main__':
-    ap = argparse.ArgumentParser(); ap.add_argument('action', choices=['fiche', 'verifier']); ap.add_argument('cibles', nargs='+')
+    ap = argparse.ArgumentParser(); ap.add_argument('action', choices=['fiche', 'verifier', 'trouve']); ap.add_argument('cibles', nargs='+')
     a = ap.parse_args()
     if a.action == 'fiche':
         for c in a.cibles: fiche(c)
+    elif a.action == 'trouve':
+        for c in a.cibles: trouve(c)
     else:
         n = 0
         for c in a.cibles:
