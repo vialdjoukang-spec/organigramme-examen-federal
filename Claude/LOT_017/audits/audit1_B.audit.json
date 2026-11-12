@@ -1,0 +1,185 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "16b52d4fd300ec5183b16ac37a28c8a6fddb5ae0",
+ "audit": "audit 1 (auditeur indépendant, aucun fichier rédigé), DX.6 à DX.10",
+ "leves": [
+  "verif_aips : 0 défaut et 0 alerte sur les 5 fichiers (25 AIPS citées)",
+  "controle3 --script-ok : VERT pour les 5 fichiers",
+  "Doute HELP DX.6 (indice anti-JCV) : les seuils 0,9 et 1,5 sont présents dans l'AIPS 57273 (voir restants)",
+  "Doute HELP DX.7 (seuils du CHUV) : non contrôlable (captcha), sens « ≥ » plausible",
+  "Doute HELP DX.10 (labétalol) : les contre-indications du tableau (BAV, asthme, bradycardie sévère) concordent avec l'AIPS 41529"
+ ],
+ "verifications": {
+  "aips_relues_main": "44 renvois relus sur le texte refdata. Solu-MEDROL (SEP 500–1000 mg/j, 30 min, 3–5 j ; hépatotoxicité dès 1 g/j ; artérite absente des indications). Tecfidera (dès 13 ans, 120→240 mg ×2, contre-indications rénales, hépatiques et VIH). Gilenya (dès 10 ans, 0,25 mg si ≤ 40 kg, QTc ≥ 500 ms). Tysabri (définition de la forme sévère, perfusion d'1 h avec 1 h d'observation, test tous les 6 mois). Ocrevus (dès 12 ans, NYHA IV). Prednisone Streuli (ACG dans les indications, 5–60 mg, seuil de Cushing 7,5 mg). RINVOQ (indication ACG récidivante, 15 mg, DFGe 15–30, 42,3 % contre 22,2 %). Actemra (56 %, 53,1 %, 14 %, 17,6 % ; 1862, 3296 et 3817 mg). Metoject (décès par prise quotidienne). Diamox (grossesse). Topamax (contre-indication en grossesse dans la migraine). Actilyse (0,9 mg/kg, dès 16 ans, 4,5 h). Marcoumar (INR 2,0–3,0). Plavix et Iopidine (contre-indications). Dafalgan (> 40 kg : 500–1000 mg ; > 50 kg : 1 g). Nimotop (perfusion et comprimés ; plafond de 1 mg/h omis). Trandate (contre-indications).",
+  "sources_sondees": "S6 Omary DX.6 (46,2 / 63,2 / 92,0 / 5,77) ; S4 Iaquinto DX.6 (663, 617–711) ; S3 Kanagalingam DX.9 (12 %, 2 mm) ; S4 Kaufmann DX.9 (44 %, 90 % en 30 jours, CONCORDIA NIHSS < 6, bêtabloquants) ; S4 Ge DX.10 (1,7 mm, plus de 80 %, 53/17 % et 90/64 %, 60 ans, 7 mm). Tous ces chiffres sont exacts.",
+  "design": "Playwright (le Chromium par défaut manquait ; exécutable chromium_headless_shell-1243) à 1280 et 390 px : aucun débordement horizontal ; les 233 fenêtres sont fixes, centrées et contenues dans l'écran ; aucun tableau ne déborde ; aucun lien interne cassé ; aucun identifiant en double ; aucun script propre à la leçon. Les images sont présentes dans images/ (chargement différé).",
+  "L1": "Le point 1 est une définition, sauf la fenêtre de DX.6 (Moyen). Aucune ancienne architecture et aucun popover. Le point 6 compte une fenêtre par région, de 7 à 10 selon le fichier. Les fiches .mb sont uniques dans chaque fichier. Les noms et les rangs E concordent avec LISTE_DX_CANONIQUE et la Phase A (64 %/17 % d'Olmsted et seuil de 25 cm identiques)."
+ },
+ "restants": [
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.10.html",
+   "gravite": "Grave",
+   "constat": "Fiche nimodipine (point 11) : l'AIPS Nimotop perfusion n° 48153 écrit, pour les sujets nettement sous 70 kg ou à pression instable, « le dosage initial sera de 0,5 mg […] Par la suite, la dose ne devrait pas dépasser 1 mg/heure ». Le cours garde le départ à 0,5 mg/h mais omet ce plafond : le lecteur appliquera la montée standard à 2 mg/h chez le patient fragile, avec un risque d'hypotension dans l'HSA. Même omission dans la question 14.",
+   "avant": "elle commence à 0,5 mg/heure si le poids est nettement inférieur à 70 kg ou si la pression est instable",
+   "correction": "elle commence à 0,5 mg/heure si le poids est nettement inférieur à 70 kg ou si la pression est instable, puis ne dépasse pas 1 mg/heure",
+   "source": "AIPS Nimotop solution pour perfusion n° 48153, rubrique Posologie (refdata, lue le 11.11.2026)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.10.html",
+   "gravite": "Grave",
+   "constat": "Question 14 (nimodipine) : même plafond AIPS de 1 mg/h absent, alors que la réponse enseigne la dose réduite.",
+   "avant": "La dose initiale descend à 0,5 mg/heure si le poids est nettement inférieur ou la pression instable (fiche nimodipine)",
+   "correction": "La dose initiale descend à 0,5 mg/heure si le poids est nettement inférieur ou la pression instable, puis ne dépasse pas 1 mg/heure (fiche nimodipine)",
+   "source": "AIPS 48153"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.6.html",
+   "gravite": "Moyen",
+   "constat": "Fait perdu à rétablir : HELP note que les seuils de l'indice anti-JCV (0,9 et 1,5) « n'ont pas été retrouvés » dans l'AIPS Tysabri. Ils y figurent : « le risque de LEMP est plutôt faible si l'indice est inférieur ou égal à 0,9. Le risque de LEMP augmente chez les patients présentant un indice supérieur à 1,5 et ayant été traités par Tysabri pendant plus de 2 ans ». Doute HELP levé ; fait utile à l'examen fédéral. Ajout d'environ 170 octets (fichier à 113 Ko, sans échange nécessaire).",
+   "avant": "un traitement de plus de deux ans et un immunosuppresseur antérieur",
+   "correction": "un traitement de plus de deux ans et un immunosuppresseur antérieur ; le risque reste plutôt faible si l'indice des anticorps anti-JCV vaut 0,9 ou moins, et il augmente au-delà de 1,5 après plus de 2 ans de traitement",
+   "source": "AIPS Tysabri n° 57273, Mises en garde (refdata, lue le 11.11.2026)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.6.html",
+   "gravite": "Moyen",
+   "constat": "L1-3.1 : le point 1 ouvre la fenêtre « Termes officiels des critères de McDonald 2024 » (2,4 Ko : glossaire poussée, SCI, DIS, DIT, nerf optique comme 5e région). C'est une fenêtre de terminologie et de critères dans le point Définition. La déplacer au point 8 (critères) et garder au point 1 la seule définition.",
+   "avant": "Le diagnostic exige des <a class=\"ouvre\" href=\"#f-dx6-p1-termes\">lésions typiques</a>",
+   "correction": "Le diagnostic exige des lésions typiques — et déplacer la section f-dx6-p1-termes (renommée f-dx6-p8-termes) après le premier paragraphe du point 8, avec un lien « critères de McDonald 2024 » ; supprimer toute redite avec le point 8 au passage.",
+   "source": "PROMPT_LOTS_L1_10.11.26 L1-3.1"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.10.html",
+   "gravite": "Moyen",
+   "constat": "LV5 : la décision « imagerie vasculaire de tout III, quelle que soit la pupille » ne repose que sur Fang 2017 (Mayo, États-Unis) et une revue narrative chinoise (Ge 2025) ; la question 14 cite S5 seul. Aucune source suisse ou européenne n'appuie la décision la plus vitale du cours. Citer une source européenne (Lagrèze, Dtsch Arztebl 2026, S6, si elle le porte ; ou les sources européennes de DX.2) à côté de S5.",
+   "avant": "Une pupille normale n'exclut pas la compression, donc l'angio-CT reste obligatoire (point 6)<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>",
+   "correction": "Une pupille normale n'exclut pas la compression, donc l'angio-CT reste obligatoire (point 6)<sup class=\"r\"><a href=\"#sb-s6\">S6</a></sup><sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup> — après vérification que S6 (Dtsch Arztebl 2026, texte intégral) porte bien l'imagerie de tout III ; sinon ajouter une source européenne qui la porte.",
+   "source": "PROMPT L1 LV5 ; S5 = JAMA Ophthalmol 2017 (Olmsted, États-Unis)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.10.html",
+   "gravite": "Moyen",
+   "constat": "LV5 : l'arbre décisionnel oriente le choix clip/endovasculaire (âge 60 ans, sac 7 mm, paralysie complète) sur une revue narrative chinoise sans validation européenne (doute déjà noté dans HELP). La source omet en outre son quatrième critère (symptômes du III depuis plus de 7 jours). L'arbre doit dire que la décision revient à l'équipe neurovasculaire selon l'ESO 2022, la revue n'étant qu'une orientation.",
+   "avant": "alors la revue de 2025 penche pour le clip",
+   "correction": "alors une revue narrative chinoise de 2025, sans valeur de recommandation européenne, penche pour le clip ; l'équipe neurovasculaire tranche selon l'ESO 2022",
+   "source": "S4 Ge 2025 (texte lu le 11.11.2026 : « under 60 years old, those with ONP symptoms longer than 7 days, an aneurysm size ≥7 mm, or complete ONP ») ; S3 ESO 2022"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "LV5 : la décision d'arbre « III paralysé → imagerie vasculaire immédiate (E1) » cite seulement S32 (Fang, JAMA Ophthalmol, États-Unis). Renvoyer à DX.10, qui porte les sources ESO, sans ajouter d'octets (fichier à 149 986 o hors image).",
+   "avant": "l'imagerie vasculaire immédiate s'impose (E1), même si l'ACG est probable",
+   "correction": "l'imagerie vasculaire immédiate s'impose (E1, DX.10), même si l'ACG est probable",
+   "source": "DX.10, S2 et S3 (ESO 2026 et 2022)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "L1-3.4, redite : le schéma de la prednisone « 40–60 mg, puis 15–20 mg à 2–3 mois, arrêt à 12–18 mois » revient 6 fois (arbre, 11.A, urgence, fiche, points 13 et 14). Le fichier est à 149 986 o hors image, à 14 o de la limite : retirer la redite de 11.A libère environ 200 o pour les corrections.",
+   "avant": " La dose doit atteindre 15–20 mg par jour en 2 à 3 mois<sup class=\"r\"><a href=\"#sb-s17\">S17</a></sup><sup class=\"r\"><a href=\"#sb-aips-29349\">S5</a></sup>.",
+   "correction": "",
+   "source": "PROMPT L1 L1-3.4"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "L1-3.4, redite entre fichiers : les fiches .mb altéplase, aspirine et clopidogrel répètent celles de DX.3, l'apraclonidine celle de DX.1 et le paracétamol celles de DX.2 et DX.10. La fiche altéplase seule pèse 2 076 o. Comme dans la Phase A, l'allègement garde la dose, l'âge et la contre-indication majeure, puis renvoie à la fiche complète de DX.3.",
+   "avant": "<section class=\"fenetre mb\" id=\"f-dx9-m-alteplase\" role=\"dialog\" aria-label=\"Altéplase\">",
+   "correction": "Réduire la fiche à : dose 0,9 mg/kg (maximum 90 mg, 10 % en bolus puis 60 minutes), dès 16 ans, au plus tard à 4,5 h, contre-indications hémorragie intracrânienne et anticoagulation efficace (S13), puis « Fiche complète : DX.3 (AVC du tronc) ». Faire de même pour l'aspirine et le clopidogrel.",
+   "source": "PROMPT L1 L1-3.4 ; HELP Phase A (fiches allégées avec renvoi)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "La sensibilité de l'IRM (46,2 %) revient 4 fois, et le point 13 l'écrit « ne dépasse pas 46,2 % » alors que S6 donne 46,2 % par œil et 63,2 % par patient (valeur exacte au point 9).",
+   "avant": "car sa sensibilité ne dépasse pas 46,2 % face à l'oculographie",
+   "correction": "car sa sensibilité, face à l'oculographie, n'atteint que 46,2 % par œil et 63,2 % par patient",
+   "source": "S6 Omary 2023 (PMC9886641, texte intégral relu le 11.11.2026)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.7.html",
+   "gravite": "Léger",
+   "constat": "Doute HELP non tranché : « L'évoquer après 50 ans : elle épargne surtout les artères axillaires » (Takayasu) est obscur et sans verbe clair sur la règle. À reformuler sur le texte intégral EULAR 2025, ou à retirer.",
+   "avant": "L'évoquer après 50 ans : elle épargne surtout les artères axillaires",
+   "correction": "Elle touche surtout le sujet jeune ; après 50 ans, l'imagerie la distingue de l'ACG par la distribution des lésions",
+   "source": "S17 EULAR 2025 (texte intégral à relire)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.10.html",
+   "gravite": "Léger",
+   "constat": "LV7 : la première phrase du point 11 est une formule de lacune sur les sources (« Aucune société suisse ne publie… »), alors que la lacune doit rester dans HELP.md.",
+   "avant": "Aucune société suisse ne publie de recommandation propre sur l'anévrisme compressif ; la conduite suit donc l'ESO",
+   "correction": "La conduite suit l'ESO",
+   "source": "PROMPT L1 LV7"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.8.html",
+   "gravite": "Léger",
+   "constat": "Redite : le seuil « plus de 25 cm » revient 8 fois (points 1, 4, 8, 9, 10, 13, 14, fenêtres). En garder deux mentions, l'une au critère (point 8) et l'autre à la fenêtre de la pression. Au point 1, la première phrase (date de l'EHF) et la phrase « pseudotumor cerebri » ne définissent rien : terminologie à déplacer au point 7.",
+   "avant": "La Fédération européenne des céphalées (European Headache Federation, EHF) a publié sa recommandation en 2018",
+   "correction": "Réunir les deux premières phrases : « La Fédération européenne des céphalées (EHF, 2018) définit l'HTII comme… »",
+   "source": "PROMPT L1 L1-3.1 et L1-3.4"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Images d'examen absentes : IRM DX.6, halo à l'échographie DX.7, IRM et veinographie DX.8, IRM T1 avec suppression de graisse DX.9, photographie d'un III complet et TDM d'HSA DX.10. Ces manques sont notés dans HELP ; avant le LOT_021, ils se notent en « Léger ».",
+   "avant": "aria-label=\"IRM cérébrale et médullaire\"",
+   "correction": "Insérer les clichés sourcés quand ils sont trouvés (cliche.py), avec un cliché brut et un cliché interprété.",
+   "source": "MISSION_AUDIT_L1 point 5"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Fait perdu : le syndrome un-et-demi (OIN et paralysie du regard latéral homolatéral) est retiré faute de source relue. C'est un classique de l'examen fédéral. Le rétablir en une phrase au point 7 s'il figure dans S9 (Strupp 2011) ou dans une autre source européenne relue.",
+   "avant": "Puis, l'examen : l'IRM cherche la plaque",
+   "correction": "Ajouter au point 7 une phrase sourcée : « Une lésion qui touche aussi le noyau du VI ou la formation réticulée pontique paramédiane homolatérale donne le syndrome un-et-demi : regard latéral aboli d'un côté, et seule l'abduction de l'autre œil persiste. »",
+   "source": "S9 Strupp 2011 (à relire)"
+  },
+  {
+   "fichier": "Claude/LOT_017/LOT_017_Phase_B_V0_DX.9.html",
+   "gravite": "Léger",
+   "constat": "Les <title> du LOT n'ont pas le même format (« DX.n — nom — SSP » dans DX.7 et DX.8, « LOT_017 — SSP — Phase B V0 — DX.n » dans DX.9 et DX.10, « SSP — DX.6 — nom » dans DX.6). Il faut les uniformiser.",
+   "avant": "<title>LOT_017 — S1.1 Diplopie, ptosis, mouvements oculaires anormaux — Phase B V0 — DX.9",
+   "correction": "<title>DX.9 — Syndrome de Horner par dissection de l'artère carotide interne — S1.1 Diplopie, ptosis, mouvements oculaires anormaux",
+   "source": "L1-4"
+  }
+ ],
+ "point14": {
+  "DX.6": 11,
+  "DX.7": 14,
+  "DX.8": 10,
+  "DX.9": 10,
+  "DX.10": 8
+ },
+ "octets": {
+  "DX.6": {
+   "total": 113068,
+   "hors_images": 112077
+  },
+  "DX.7": {
+   "total": 151272,
+   "hors_images": 149986,
+   "alerte": "14 o sous la limite : toute correction doit retirer autant"
+  },
+  "DX.8": {
+   "total": 139452,
+   "hors_images": 138333
+  },
+  "DX.9": {
+   "total": 107921,
+   "hors_images": 106711
+  },
+  "DX.10": {
+   "total": 107604,
+   "hors_images": 106730
+  }
+ },
+ "compte": {
+  "Critique": 0,
+  "Grave": 2,
+  "Moyen": 7,
+  "Léger": 7
+ }
+}
