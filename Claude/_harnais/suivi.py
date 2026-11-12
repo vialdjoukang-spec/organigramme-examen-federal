@@ -113,6 +113,10 @@ if __name__ == '__main__':
     ap.add_argument('--html', default='Claude/_harnais/progression_agents.html')
     a = ap.parse_args()
     L = collecter(a.projets)
+    # Historique conservé : une nouvelle session (machine vierge) n'efface pas les agents des sessions précédentes.
+    if os.path.exists(a.donnees):
+        ids = {r['id'] for r in L}
+        L += [r for r in map(json.loads, open(a.donnees, encoding='utf-8')) if r['id'] not in ids]
     os.makedirs(os.path.dirname(a.donnees), exist_ok=True)
     with open(a.donnees, 'w', encoding='utf-8') as f:
         for r in L:
