@@ -1,0 +1,49 @@
+{
+ "audit": "audit1_conformite",
+ "lot": "LOT_025",
+ "base": "756f425",
+ "verdict": "CORRECTIONS",
+ "portes": {
+  "controle3_script_ok": "VERT sur 8 DX ; ORANGE sur DX.9, DX.10, Phase A, tranché ci-dessous : tous des faux positifs",
+  "abreviations": "0 sigle non développé",
+  "forme_verifier": "11 fichiers conformes",
+  "verif_aips": "10 DX OK",
+  "liens_ancres": "1 ancre inter-DX cassée ; fenêtres :target non imbriquées (0 imbrication), toutes liées, ids sans doublon",
+  "taille_hors_images": "images en fichiers externes (aucune base64) ; DX.5 83 043 o et DX.10 83 864 o, soit au moins 80 Ko hors images",
+  "titres": "10 titres DX = liste canonique mot pour mot, mêmes numéros ; présents aussi dans la Phase A"
+ },
+ "tranche_controle3_orange": "Échantillon de 16 phrases DX.10, 20 phrases DX.9, 2 phrases Phase A : toutes ont un verbe conjugué (trouve, comporte, explore, demande, place, publie, n'est). Faux positifs de la liste VERBES, aucune correction.",
+ "verifie_ok": [
+  "point 1 = définition (DX.1 à DX.10) ; fenêtres : 30 à 48 par fichier",
+  "point 6 : une fenêtre par région (4 à 10) ; point 11 A, B, C, D présents partout ; point 14 : 8 à 12 questions",
+  "forme.css uniforme ; palette --fm-a distincte par fichier",
+  "redites inter-fichiers : seulement licences et références bibliographiques partagées (DX.1/8, 4/5, 9/10), légitimes",
+  "planche : fenêtres centrales occultantes et tableaux lisibles (DX.2 et DX.5 vérifiés)"
+ ],
+ "restants": [
+  {
+   "gravite": "Majeure",
+   "fichier": "Claude/LOT_025/LOT_025_Phase_B_V0_DX.2.html",
+   "avant": "href=\"LOT_025_Phase_B_V0_DX.7.html#f-dx7-m-pilocarpine\"",
+   "correction": "Remplacer par #f-dx7-m-salagen : f-dx7-m-pilocarpine n'existe pas dans DX.7 (ids présents : f-dx7-m-salagen, f-dx7-m-plaquenil)."
+  },
+  {
+   "gravite": "Mineure",
+   "fichier": "Claude/LOT_025/LOT_025_Phase_B_V0_DX.1.html",
+   "avant": "point 6 : « Étape 1 — État général… » à « Étape 4 »",
+   "correction": "Homogénéité : les autres DX nomment « Région N — » ou le segment seul ; harmoniser en « Région N — » (facultatif)."
+  },
+  {
+   "gravite": "Mineure",
+   "fichier": "Claude/LOT_025/LOT_025_Phase_B_V0_DX.5.html",
+   "avant": "point 1 : fenêtre « Les agressions qui ulcèrent la muqueuse » (tableau des causes)",
+   "correction": "Point 1 = définition seule : déplacer ce tableau au point 3 si la fenêtre est lue comme contenu hors définition (facultatif)."
+  }
+ ],
+ "limites": "Phrases de 12 à 28 mots : mesure de controle3 uniquement (VERT), sans relecture phrase par phrase des 8 DX verts.",
+ "restants_leves_par_redacteur": [
+  "Majeure DX.2 : lien #f-dx7-m-pilocarpine remplacé par #f-dx7-m-salagen (grep : 0 occurrence de l'ancien id).",
+  "Mineure DX.1 : « Étape 1 à 4 » renommées « Région 1 à 4 » au point 6.",
+  "Mineure DX.5 : tableau des causes au point 1 laissé en place (facultatif, non déplacé)."
+ ]
+}
