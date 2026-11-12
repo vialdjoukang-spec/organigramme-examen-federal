@@ -1,6 +1,6 @@
 # Reprise — nouvelle session (environnement unique : organigramme-examen-federal)
 
-**État : PAUSE.** Aucun agent ne tourne. Rien ne reprend sans le GO écrit de Vial.
+**État : LOT_023, 024, 025 fusionnés le 12.11.2026.** Aucun agent ne tourne. Prochaine étape : la file (LOT suivants), 2 LOT en parallèle (10 agents) — objectif de Vial, coût estimé ≈ 96 % d'un ancien LOT (r = 0,48).
 
 ## Étape 0 (machine vierge, une commande, ≈ 1 min)
 `bash Claude/_harnais/installer.sh` — corpus AIPS hors ligne, verrous (lecture intégrale, MEDINA), contrôle de syntaxe.
@@ -26,9 +26,11 @@ Ne lis rien d'autre au démarrage : ni CONTINUATION.md, ni PROCHAINE_ACTION.md, 
 
 3. **Planche de captures obligatoire par LOT** (ordre de Vial, 12.11.2026) : `python3 Claude/_outils/planche5.py Claude/LOT_0NN --sortie Claude/LOT_0NN/PLANCHE_LOT_0NN.html` (gratuit, Playwright), commitée avec le LOT et envoyée à Vial avant la PR.
 
+4. **Leçons du 12.11** : `Claude/_outils/verif_aips.py` lit désormais les mots refdata découpés en `<span>` (fusionner `main` dans toute branche LOT avant ses portes) ; donner aux agents les chemins ABSOLUS des outils (`/home/user/organigramme-examen-federal/Claude/_harnais/`), sinon ils ne les trouvent pas depuis leur worktree ; chaque LOT : rédaction → designer → audits médical + conformité → corrections → vérification finale → contrôle ultime ciblé (jusqu'à audit-ok) → planche → PR → fusion après CI verte.
+
 ## Branches (toutes poussées, propres)
 | Chantier | Branche | Reste |
 |---|---|---|
 | LOT_023 | fusionné (PR #655, 12.11.2026, contrôle ultime audit-ok) | planche `Claude/LOT_023/PLANCHE_LOT_023.html` (PR #656) |
 | LOT_024 | fusionné (PR #657, 12.11.2026, contrôle ultime levé, planche `Claude/LOT_024/PLANCHE_LOT_024.html`) | rien |
-| LOT_025 | `claude/lot-025-renfort-l1` (Phase A) + `claude/lot-025-agent-1..5` (DX.1+8, 2+7, 3+6, 4+5, 9+10) | Phase A : contre-audit CORRECTIONS (4 graves Salagen/Kenacort/renvois, 8 moyens), rédacteur lancé 12.11 ; 5 rédacteurs DX lancés 12.11 (workflow lot025-redaction) ; puis fusion des branches agents dans renfort-l1, designer, audits, planche, PR |
+| LOT_025 | fusionné (PR #658, 12.11.2026, contrôle ultime audit-ok, planche) | 2 légers non bloquants : crédit photo DX.5 mot pour mot (affiliation NJDS) ; précision Schirmer répétée DX.7 |
