@@ -1,0 +1,114 @@
+# LOT_019 — HELP (lacunes ouvertes, décisions en vigueur, doutes médicaux)
+
+## Lacunes ouvertes
+- Phase A : aucune incidence ni prévalence suisse de la dysphonie-symptôme, ni distribution chiffrée des dix DX (HUG, RMS, OFS lus) ; rangs argumentés en mots, seul le cancer du larynx est chiffré (OFS 2021).
+- Phase A : dose de l'adrénaline en aérosol et de la méthylprednisolone dans la dyspnée laryngée de l'adulte introuvable (RMS 2015;11:1486 cite les molécules sans dose ; AIPS 56551 ne décrit pas la voie inhalée) : aucun milligramme écrit pour l'aérosol.
+- Phase A : prise en charge de la logopédie par l'assurance obligatoire (OPAS) non lue ; le volet assurances se limite à la vaccination HPV (OFSP).
+- Phase A : RMS 2016;12(533):1661 « Lésions bénignes courantes des cordes vocales » (PDF image, illisible sans OCR) et NICE NG12 (accès refusé) non lus, donc non cités.
+- Phase A : aucune image (facultatif avant LOT_021) ; schéma d'innervation du larynx (point 3) et cliché de laryngoscopie (point 9) à insérer par cliche.py si souhaité.
+- DX.6 : aucune fréquence suisse du kyste vocal en population (HUG, RMS, revues suisses de PubMed) ; chiffres tirés de séries de consultation et opératoires (Zurich, Graz, Palerme).
+- DX.6 : image « File:Vocal Folds.jpg » (Bohlender, CC BY 3.0, Wikimedia) en file d'attente (téléchargement sans réponse) ; à insérer avec lecture guidée dans la fenêtre f-dx6-p9-laryngo.
+- DX.6 : grossesse et allaitement non traités au point 11 (aucune source lue sur la microlaryngoscopie élective dans ces situations).
+- DX.6 : OPAS art. 10–11 (fedlex, état 01.01.2026) et RMS 2016;12:1661 (HTML de revmed.ch) lus et cités dans DX.6 ; la Phase A peut les reprendre pour lever ses deux lacunes correspondantes.
+- DX.3 : aucune fréquence suisse des nodules en population (HUG, CHUV, RMS, PubMed « Switzerland ») ; chiffres tirés de séries de consultation (Liège, Anvers, Gand, Glasgow, Milan).
+- DX.3 : S9 à S23 lus en résumé PubMed seulement, S7 dans sa partie en accès libre ; texte intégral ELS-UEP 2023 (Springer) et guide AWMF/DGPP des dysphonies inaccessibles (protection anti-robot).
+- DX.3 : aucune image ; seul cliché libre de nodules trouvé sur Commons (« File:V nod.jpg », domaine public, 252 × 240 px), trop peu résolu pour vérifier le signe ; cliché de laryngoscopie à trouver pour les points 6 et 9.
+- DX.3 : grossesse, allaitement, sujet âgé, insuffisance rénale ou hépatique : aucune source lue sur les nodules dans ces situations (seule la prudence AIPS de l'oméprazole est citée).
+- DX.4 : aucune incidence suisse du polype vocal (HUG, CHUV/RMS 2016, PubMed « Switzerland » lus) ; chiffres tirés du registre suédois de phonochirurgie et de séries hospitalières (Belgrade, centre tertiaire S23).
+- DX.4 : S8 à S10, S15 à S17 et S19 à S24 lus en résumé seulement (PubMed, Europe PMC) ; les études asiatiques du traitement conservateur ne sont citées qu'à travers la série italienne S14, lue en entier.
+- DX.4 : conduite d'urgence du polype obstructif fondée sur deux observations japonaises (Ochiai 2016, Chida 2018), faute de recommandation suisse ou européenne lue ; aucune dose écrite ; renvoi à la Phase A pour le tri de la dyspnée laryngée.
+- DX.4 : aucune image (recherche cliche.py « vocal cord polyp laryngoscopy » sans réponse) ; cliché de laryngoscopie d'un polype à insérer avec lecture guidée dans la fenêtre f-dx4-r-larynx.
+- DX.4 : microlaryngoscopie élective pendant la grossesse : aucune source lue ; seules les restrictions des trois AIPS sont écrites (f-dx4-p11-spec).
+- DX.8 : aucune prévalence suisse de la dystonie laryngée (HUG, RMS, PubMed et Europe PMC interrogés) ; seuls des chiffres européens sont cités (Islande 2006, ESDE 2000).
+- DX.8 : S1-Leitlinien de la DGN « Dystonie » (AWMF 030-039) et « Neurogene Sprechstörungen » non lues (register.awmf.org protégé contre les robots) ; aucune recommandation suisse ou germanophone lue ne chiffre la dose laryngée de toxine.
+- DX.8 : onze sources européennes lues en résumé seulement (Marchese 2018, van Esch 2017, Cochrane 2004, ESDE 2000, Asgeirsson 2006, EFNS 2011, Geneid 2016, ELS 2001 et 2012, Moratin 2025, Ricard 2026) ; elles ne portent que ce que dit leur résumé.
+- DX.8 : aucune image (facultatif avant LOT_021) ; schéma des muscles intrinsèques et de l'innervation du larynx à insérer dans f-dx8-p3-base si souhaité.
+- DX.5 : aucune prévalence ni incidence suisse de l'œdème de Reinke (HUG, CHUV/RMS 2016, PubMed « Switzerland » lus) ; chiffres tirés de séries européennes (Glasgow, Rome, Copenhague) ; tabagisme suisse daté de 2013 (RMS 2015), pages OFS et OFSP plus récentes inaccessibles.
+- DX.5 : S7 à S16 et S19 à S24 lus en résumé PubMed seulement ; S21 (Stachler 2018) et S24 (Dewan 2022) sont américains et cités en complément, jamais seuls pour une décision.
+- DX.5 : image « File:Reinke-Oedem.jpg » (Phoni, CC BY-SA 4.0, Wikimedia) en file d'attente (téléchargement sans réponse) ; à insérer avec lecture guidée dans la fenêtre f-dx5-r-larynx.
+- DX.5 : conduite d'urgence fondée sur une observation londonienne (Pillai 2024, résumé) et sur le critère opératoire du CHUV, faute de recommandation suisse lue ; aucune dose écrite.
+- DX.5 : conditions de remboursement de la varénicline et du bupropion datées de 2015 (RMS) ; limitation actuelle de la liste des spécialités non lue ; OPAS (logopédie) non citée dans DX.5.
+- DX.5 : microlaryngoscopie pendant la grossesse : aucune source lue ; seules les restrictions des AIPS du sevrage sont écrites (f-dx5-p11-special).
+- DX.10 : schéma « File:Gray954.png » (coupe frontale du larynx, Gray, domaine public) mis en file d'attente (téléchargement sans réponse) ; à insérer avec lecture guidée dans la fenêtre f-dx10-p3-base.
+- DX.10 : ESMO/EHNS/ESTRO 2020 (annalsofoncology.org, protection anti-robot) et Collège ORL item 86 (campusorl.fr injoignable) non relus ; le Collège est retiré, ses faits sont portés par la S3 allemande 2019, les HUG et la Ligue.
+- DX.10 : aucune recommandation suisse de société savante (SSORL, SAKK) lue sur le cancer du larynx ; la S3 allemande 2019 (version en vigueur) porte la conduite ; Dulguerov RMS 2015 et Guedj RMS 2026 lus en résumé seulement.
+- DX.10 : 9.c alternatives : aucune source lue sur l'imagerie en cas d'allergie à l'iode, de DFGe < 30 mL/min ou de grossesse ; seul le choix scanner ↔ IRM (S3, Bâle 2014) est écrit.
+
+## Décisions en vigueur
+- Phase A : délai enseigné de l'examen ORL = 3 semaines (HUG) ; Collège ORL 2017 = 8 à 15 jours ; recommandation américaine 2018 = 4 semaines ; divergence écrite dans la fenêtre « délais » (point 8).
+- Phase A : nerf moteur des cordes = nerf laryngé récurrent (Collège ORL, CEN, RMS 2020) ; la page HUG « dysphonies neurologiques » écrit « nerf laryngé supérieur », non repris.
+- Phase A : les priorités E1–E5 de l'ancienne version sont remplacées par les rangs gelés (E1 DX.7, E2 DX.9, E3 DX.10) ; obstruction aiguë, épiglottite et aphasie restent des exclusions hors liste (point 4, drapeaux, arbre).
+- Phase A : toxine botulique dans la dysphonie spasmodique = hors AIPS (BOTOX 52433 sans cette indication) ; aucune dose écrite, renvoi à DX.8.
+- DX.6 : aucune fiche .mb, car aucune molécule n'est indiquée dans le kyste (HUG : microchirurgie seule ; Bohlender 2013 : corticoïde local non recommandé en routine, mitomycine C déconseillée) ; aucune dose écrite.
+- DX.6 : anciennes sources retirées (HUG cancers, CEN neurologie, Stachler 2018) ; leurs faits restent portés par HUG dysphonies organiques, Bohlender 2013 et Collège ORL 2017.
+- DX.3 : une seule fiche .mb (oméprazole, Antramups, AIPS 54380) : aucune molécule ne traite les nodules ; la fiche sert au reflux associé documenté et au piège d'examen.
+- DX.3 : OPAS art. 10–11 citée dans son état au 01.08.2026 (fedlex) : 12 séances par prescription, début dans les 8 semaines, médecin-conseil après 60 séances d'une heure par an.
+- DX.4 : trois fiches .mb accessoires (dobésilate de calcium Doxium 39217, triamcinolone Kenacort-A 26177, pantoprazole Pantozol 52710) ; dobésilate (cité par le CHUV, RMS 2016) et injection de corticoïde dans le pli vocal = hors AIPS, sans posologie pour le larynx ; le pantoprazole ne porte que la dose AIPS du reflux léger.
+- DX.4 : repos vocal postopératoire : Zurich 2013 (3 jours complets puis 4 jours doux) et registre suédois 2022 (aucun avantage du silence complet) sont écrits tous deux (f-dx4-p11-postop) ; aucune recommandation suisse ne tranche.
+- DX.4 : fichier reconstruit au gabarit L1 (l'ancien corps de 21 Ko utilisait des popovers) ; anciennes sources HUG, Collège ORL et Stachler 2018 relues et conservées, 25 sources ajoutées.
+- DX.8 : toxine botulique au larynx = hors AIPS (BOTOX 52433, Xeomin 62080, Dysport 55057 sans indication laryngée) ; doses écrites en unités, « hors AIPS », comme pratiques publiées (Madrid 2025 : 1,25 unité par côté ; Rome 2018 : départ à 2 unités), sans valeur de recommandation.
+- DX.8 : délai de l'examen ORL aligné sur la Phase A (trois semaines, HUG dysphonies organiques) ; le seuil de 8 à 15 jours du Collège ORL est écrit comme divergence, avec renvoi à la fenêtre « délais » de la Phase A.
+- DX.8 : pyridostigmine (Mestinon 19943) et tétrabénazine (Xenazine 58375) ont une fiche .mb sans dose pour la dystonie laryngée (usage hors AIPS) ; la dose AIPS de Xenazine n'est écrite que pour la maladie de Huntington.
+- DX.5 : fichier reconstruit au gabarit L1 (l'ancien corps de 22 Ko utilisait des popovers, avec 53 Ko de polices intégrées) ; HUG, Collège ORL et Stachler 2018 relus et conservés, CEN neurologie retirée (anatomie portée par RMS 2016), 23 sources ajoutées dont 4 AIPS.
+- DX.5 : aucune molécule ne traite l'œdème ; trois fiches .mb servent le sevrage tabagique : nicotine (Nicotinell patch 50582, Nicorette gomme 40580), varénicline (Varénicline-DALITA 70067), bupropion (Zyban 55263) ; doses AIPS seules.
+- DX.5 : sexe : le CHUV écrit « femmes et hommes dans la même proportion », les séries opératoires montrent une majorité de femmes (Glasgow 171/189) ; les deux sont écrits (point 2).
+- DX.10 : fichier reconstruit au gabarit L1 (ancien corps de 20 Ko) ; HUG et Ligue relus et conservés (Ligue datée de novembre 2025), « 260 cas par an » conservé ; 11 sources et 3 AIPS (cisplatine 51077, Erbitux 56072, Keytruda 66231).
+- DX.10 : cisplatine : dose AIPS 51077 (50–100 mg/m², pause de 4 semaines, renvoi à la littérature) ; schémas 100 mg/m² J1-J22-J43 ou 40 mg/m² hebdomadaire écrits « hors AIPS » d'après la S3 2019 (intervalle de 3 semaines ≠ pause AIPS de 4 semaines).
+- DX.10 : première ligne palliative : S3 2019 (platine + 5-FU + cétuximab, PD-1 en 2e ligne) et AIPS Keytruda 2026 (pembrolizumab ± platine/5-FU si CPS ≥ 1) écrits tous deux.
+- DX.10 : délai de la laryngoscopie écrit « trois à quatre semaines » (Ligue 2025 : 3 ; S3 2019 : 4), avec renvoi aux chiffres et délais de la Phase A.
+- DX.1 : croup de l'enfant = dexaméthasone orale et budésonide nébulisé hors AIPS ; seule Rectodelt 68119 porte indication et dose (100 mg) ; en cas d'intolérance orale, la conduite enseignée suit l'AIPS (suppositoire), divergence écrite au point 11.
+
+## Doutes médicaux à trancher
+- Phase A : « ni corticoïde ni antireflux, ni imagerie avant la laryngoscopie » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; source suisse ou européenne à trouver, sinon retirer.
+- Phase A : RMS 2015 chiffre l'épiglottite de l'adulte à « 1/1 000 000 d'habitants par an » (valeur jugée douteuse, non reprise) ; seule la mortalité de 7 % est citée.
+- Phase A : Gardasil 9 (AIPS 65387) ne nomme pas la papillomatose laryngée ; le lien vaccination → baisse de la papillomatose juvénile repose sur Lepine 2024 (données australiennes).
+- DX.6 : histoire naturelle (Kirke 2020) et lien aspect–histologie (Alfonso-Ying 2026) viennent de séries américaines, présentées comme descriptives ; la décision de surveiller s'appuie sur HUG et Bohlender.
+- DX.6 : « chirurgie au-delà de 9 ans » est écrit pour les nodules (RMS 2016) ; aucune source lue ne fixe un âge pour opérer le kyste de l'enfant.
+- DX.6 : logopédie avant chirurgie : Bohlender (les lésions kystiques ne répondent normalement pas) et Schindler 2013 (voix perçue améliorée, opération parfois évitée) divergent ; les deux sont écrits.
+- DX.3 : résultat de la logopédie : « disparition complète dans la plupart des cas » (CHUV, RMS 2016) contre aucune disparition complète chez 11 femmes (Holmberg 2001) ; les deux sont écrits.
+- DX.3 : critères de guérison, de fin de rééducation et de retour à domicile (point 11.D) composés à partir des sources, faute de critères d'une société savante.
+- DX.3 : repos vocal (4 à 5 jours conseillés, 3 jours fondés) et arrêt de travail (12 à 14 jours) viennent d'une enquête européenne sur polype et œdème de Reinke, non sur les nodules.
+- DX.3 : « ni antibiotique, ni corticoïde, ni antireflux avant d'avoir vu le larynx » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle.
+- DX.4 : taille du polype et qualité vocale : Bohlender 2013 (la voix suit souvent la taille et le siège) contre Öcal 2020 (aucune corrélation, 47 patients, résumé) ; les deux sont écrits (f-dx4-r-valeur).
+- DX.4 : terrain : le CHUV écrit « homme de 40 à 50 ans », alors que la Suède (52 % d'hommes, âge moyen 46 ans) et Belgrade (52,9 %) montrent une répartition presque égale ; les deux sont écrits (point 2).
+- DX.4 : « pas d'imagerie avant de voir le larynx, pas d'antireflux ni de corticoïde sans visualisation » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; même doute que la Phase A.
+- DX.8 : pyridostigmine comme antidote de recours d'une faiblesse due à la toxine : une seule revue européenne (Ionescu 2026) la propose ; à confirmer par un phoniatre ou un neurologue.
+- DX.8 : contrôle « 1 mois après l'injection » tiré des protocoles d'évaluation de Madrid (2025) et de Rome (2018), non d'une recommandation de société savante.
+- DX.8 : démarche diagnostique en trois niveaux (Ludlow 2008, origine américaine) citée à travers la revue européenne de 2026 ; aucun critère officiel suisse ou européen n'a été trouvé.
+- DX.8 : prise en charge par l'assurance (art. 71a, al. 1, let. b, OAMal) : application à la dystonie laryngée déduite du texte ; ni limitation de la liste des spécialités ni décision d'assureur lue.
+- DX.5 : suivi de la dysplasie (6 mois, 5 ans, visites toutes les 4 à 8 semaines) tiré de la position ELS 2020 sur la dysplasie laryngée en général, non sur l'œdème de Reinke.
+- DX.5 : Rome 2002 (S9) rapporte 3 carcinomes in situ sur 125 œdèmes, alors que Glasgow et Eskişehir ne trouvent aucun cancer ; les trois séries sont écrites (point 2), le pronostic 11.D ne parle que de cancer invasif.
+- DX.5 : repos vocal (4 à 5 jours conseillés, 3 jours fondés) et arrêt de travail (12 à 14 jours) viennent d'une enquête européenne ; aucune recommandation suisse ne tranche.
+- DX.5 : critères de guérison et de sortie (point 11.D) composés à partir des sources, faute de critères d'une société savante.
+- DX.5 : « pas d'antireflux ni d'imagerie en coupe avant de voir le larynx » ne repose que sur la recommandation américaine (Stachler 2018, résumé), présentée comme telle ; même doute que la Phase A.
+- [Lacune ouverte] DX.9 : aucune incidence ni prévalence suisse de la papillomatose (HUG, RMS 2024 du CHUV, PubMed « Switzerland » interrogés) ; chiffres norvégiens, danois, néerlandais et britanniques ; RMS 2024 (Salati, CHUV) lue en résumé seulement (texte réservé aux abonnés).
+- [Lacune ouverte] DX.9 : cidofovir sans AIPS suisse (absent du corpus refdata du 08.10.2026) : aucune fiche .mb ni dose ; cité seulement comme adjuvant de centre (HUG, Lepine 2024, Tjon Pian Gi 2013).
+- [Lacune ouverte] DX.9 : aucune image ; aucun cliché endoscopique libre de papillomatose laryngée trouvé par cliche.py (seuls des papillomes oesophagiens ou linguaux) ; à insérer dans f-dx9-r-larynx si une image libre apparaît.
+- [Lacune ouverte] DX.9 : remboursement du bévacizumab hors AIPS (OAMal art. 71a) non lu, donc non écrit ; seul le volet vaccinal (OFSP) est traité.
+- [Décision en vigueur] DX.9 : deux fiches .mb (Gardasil 9, AIPS 65387 ; Avastin, AIPS 56922) ; vaccin adjuvant et bévacizumab = hors AIPS ; dose du bévacizumab écrite « hors AIPS » (5 à 15 mg/kg, toutes les 2 à 6 semaines au départ, revue d'Amsterdam 2022), la dose AIPS du cancer colorectal est donnée comme référence.
+- [Décision en vigueur] DX.9 : Gardasil 9 de 15 à 26 ans : l'enseignement suit l'AIPS (3 doses) ; le schéma à 2 doses hors étiquette admis par la CFV/OFSP (Bulletin 22/2025) est écrit comme divergence.
+- [Décision en vigueur] DX.9 : fichier reconstruit au gabarit L1 (ancien corps de 21 Ko sans fait chiffré, popovers et polices intégrées) ; HUG dysphonies organiques relu et conservé ; Collège ORL 2017 retiré (non relu), ses faits repris par HUG et Lepine 2024 ; 27 sources dont 2 AIPS.
+- [Doute médical] DX.9 : but chiffré 11.A (repasser sous 4 interventions par an) et critères de sortie 11.D composés à partir des sources (Derkay via Lepine, RMS 2015), faute de critères d'une société savante.
+- [Doute médical] DX.9 : limite d'âge juvénile/adulte divergente (18 ans Oslo, 12 ans Kiel) ; les deux sont écrites.
+- [Doute médical] DX.9 : usage thérapeutique du vaccin contredit par l'AIPS (« n'a pas démontré d'effet thérapeutique ») mais soutenu par Odense 2019, Umeå 2024, Kiel 2025 ; les deux sont écrits, l'usage reste « hors AIPS ».
+- (Lacune ouverte) DX.7 : aucune incidence suisse de la paralysie laryngée en population ; chiffres suisses tirés de séries (Zurich 2025, Saint-Gall 2023) et d'une incidence de 5,1/100 000/an citée par Zurich ; Collège ORL 2017 (campusorl.fr, connexion refusée) non relu, donc non cité.
+- (Lacune ouverte) DX.7 : S7 à S10, S13, S14 et S19 lus en résumé seulement (Europe PMC) ; ils ne portent que ce que dit leur résumé.
+- (Lacune ouverte) DX.7 : aucune image (cliche.py chercher sans réponse) ; schéma du trajet des nerfs récurrents (Gray, domaine public) pour f-dx7-p3-base et cliché de paralysie unilatérale pour f-dx7-r-larynx à insérer si souhaité.
+- (Décision en vigueur) DX.7 : fichier reconstruit au gabarit L1 (ancien corps de 21 Ko en popovers, 53 Ko de polices intégrées) ; HUG et CEN relus et conservés, Collège ORL retiré (non relu), 17 sources ajoutées dont RMS 2020 (CHUV), Zurich 2025, Saint-Gall 2023, OPAS art. 10–11 et AIPS Xylocain Spray 52097.
+- (Décision en vigueur) DX.7 : une seule fiche .mb (lidocaïne, Xylocain Spray 52097), anesthésique de l'injection laryngée sous anesthésie locale (Zurich) ; aucune molécule ne traite la paralysie ; doses d'attente de la dyspnée laryngée renvoyées à la Phase A, aucune dose écrite dans DX.7 hors AIPS.
+- (Décision en vigueur) DX.7 : verif_aips signale « dose absente » pour 200 et 600 mg (Xylocain) : faux positif de mise en page, l'AIPS 52097 porte « 20-200 » et « 600 » dans la colonne mg du tableau posologique (vérifié à la main).
+- (Doute médical) DX.7 : conduite d'urgence de la paralysie bilatérale fondée sur des revues (Lechien 2024 : trachéotomie immédiate 36,2 % ; Iéna 2022 ; Stuttgart 2021) et sur le CHUV, sans protocole suisse minuté ; délais « dès l'arrivée / sans délai » non chiffrés.
+- (Doute médical) DX.7 : délai d'attente avant geste définitif : HUG « six premiers mois », CHUV « environ un an » avant réinnervation bilatérale sélective, Zurich (revue citée) injection dans les 12 mois post-thyroïdectomie ; les trois sont écrits.
+- (Doute médical) DX.7 : critères de guérison et de sortie (11.D) composés à partir des sources (Saint-Gall, Zurich, Iéna), faute de critères d'une société savante.
+- DX.10 : critères de guérison et de sortie (11.D) composés à partir des recommandations de la S3, faute de critères formels d'une société savante.
+- DX.10 : conservation laryngée à 10 ans (81 % contre 62 %) tirée de l'essai américain RTOG, cité à travers la S3 allemande ; aucune donnée suisse équivalente lue.
+- DX.10 : gestes des premières minutes (position assise, oxygène, coniotomie) tirés de la RMS 2015 sur la dyspnée haute en général, non spécifique au cancer laryngé.
+- [Lacune ouverte] DX.1 : aucune incidence suisse de la laryngite aiguë ni du croup (HUG, RMS, PubMed « Switzerland ») ; chiffres allemands (Reiter 2015), Clinical Evidence 2014 et série bâloise (Heininger 2013, croup chez l'enfant grippé hospitalisé).
+- [Lacune ouverte] DX.1 : SwissPedDose (dose suisse harmonisée de dexaméthasone, budésonide et adrénaline nébulisée dans le croup) non lue, accès réservé aux professionnels ; doses de dexaméthasone (0,15–0,6 mg/kg) et budésonide (2 mg) écrites « hors AIPS » d'après Petrocheilou 2014 (Athènes, résumé) et Cochrane 2023 ; adrénaline nébulisée sans dose.
+- [Lacune ouverte] DX.1 : Siebert 2023 (HUG), Cochrane 2015 et 2023, Petrocheilou 2014 et Clinical Evidence 2014 lus en résumé seulement ; volet social et assurances (arrêt de travail des professionnels de la voix) sans source lue, non écrit.
+- [Lacune ouverte] DX.1 : aucune image (cliche.py sans réponse de Wikimedia) ; cliché de laryngite aiguë (cordes rouges et œdématiées) à insérer dans f-dx1-r-larynx.
+- [Décision en vigueur] DX.1 : fichier reconstruit au gabarit L1 (ancien corps de 22 Ko creux, 53 Ko de polices intégrées, popovers) ; HUG dysphonies organiques et Collège ORL 2017 relus et conservés ; HUG fonctionnelles, neurologiques, cancers et Stachler 2018 retirés (leurs faits utiles sont portés par S1, S3, S5) ; 16 sources dont 5 AIPS.
+- [Décision en vigueur] DX.1 : fiches .mb : Rectodelt 68119 (seule AIPS suisse portant le croup, dose AIPS 100 mg), dexaméthasone 57974 et budésonide 50192 (croup hors AIPS), paracétamol 46206, ibuprofène 67372.
+- [Décision en vigueur] DX.1 : délai d'examen ORL enseigné = 3 semaines (HUG) avec laryngoscopie immédiate du fumeur ; Collège 8–15 jours et Reiter 3 mois écrits comme divergence (f-dx1-p11-delais).
+- [Doute médical] DX.1 : air froid extérieur 30 min dans le croup : bénéfique dans l'essai genevois 2023 (S8), non soutenu par Petrocheilou 2014 (résumé) ; seul l'essai genevois est écrit, à confirmer par un pédiatre.
+- [Doute médical] DX.1 : critères de sortie du croup (11.D) composés à partir de S7, S8 et S9, faute de critères d'une société savante.

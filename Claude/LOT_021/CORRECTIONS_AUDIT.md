@@ -1,0 +1,5 @@
+# Corrections de l'audit P1 (à appliquer par les rédacteurs)
+
+- [majeure] Rang de l'épistaxis sous antithrombotique (DX.4) → Passer en DX.2 ; fracture des os propres du nez en DX.3, corps étranger nasal en DX.4 ; renommer les fichiers Phase B et les <h2>, réaligner le tableau du point 8 et les liens (https://doi.org/10.2500/ar.2013.4.0049 ; https://doi.org/10.1111/coa.12904 ; https://doi.org/10.1007/s00405-020-05875-2)
+- [majeure] Rangs E attribués à des situations et non à des DX ; aucun badge 🚩 sur la liste → Poser 🚩 E1 sur DX.2 (antithrombotique), 🚩 E2 sur DX.6 (PTI), 🚩 E3 sur DX.10 (cancer naso-sinusien) ; les citer dans la phrase d'introduction et en tête de l'algorithme ; renommer les alarmes situationnelles du point 4 sans le préfixe E (PROMPT_LOTS_L1_10.11.26 µ1.2 ; https://doi.org/10.1016/j.anl.2017.08.002)
+- [mineure] Point 2 : aucun chiffre de fréquence → Ajouter les parts sourcées (20 % sous anticoagulant oral à Zurich, 63,9 % des hospitalisés en Thuringe, perforation 0,9 %, PTI 6,1/100 000/an) et signaler les rangs 6–10 comme indicatifs (https://doi.org/10.1007/s00405-020-05875-2 ; PMID 12868370 ; https://doi.org/10.1111/ejh.13803)
