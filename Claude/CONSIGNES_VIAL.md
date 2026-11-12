@@ -23,6 +23,7 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 12. Groupes PROFILES G, S, F, O avec dénomination exacte et icône ; boutons « Cours et diagnostics » et « Banque QCM et questions type examen ».
 13. Nom réel du SSP (jamais « LOT », ni « Vue d'ensemble ») ; diagnostics numérotés, décalés ; bouton « Réflexe Gn » : raisonnement rapide étape par étape, prévalence en %, dénominateur en exposant rouge.
 14. Examens complémentaires : par prélèvement (sang, urines, ponctions, LCR…), imagerie (IRM détaillée), explorations fonctionnelles ; indication de la demande en rouge gras ; rappel anatomo-physiologique en fenêtre.
+14 bis. **Bilans biologiques : l'interprétation est obligatoire.** Tableau : colonne « anomalie », puis colonnes « à rechercher à l'anamnèse », « à la clinique », « examen de référence (gold standard) », et à droite « diagnostic ».
 15. Pharmacologie : trois colonnes alignées (fonctionnement normal → altération et pathologies → classes) ; « Fonctionnement » = chaîne d'activation (stimulus, chaque produit, lieu, effet, rétrocontrôle), en étapes fléchées ; mnémotechnique sourcé.
 
 16 bis. **Partout : structures dépliables vers le bas au clic** (repliées = titre + une ligne) et **bande latérale plus sombre portant le plan cliquable de la page active** (ex. pharmacologie : systèmes physiologiques et fonctionnements altérés) ; sur mobile, tiroir « Plan ».
