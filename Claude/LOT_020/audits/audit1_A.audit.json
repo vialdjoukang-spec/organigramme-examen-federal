@@ -1,0 +1,185 @@
+{
+ "verdict": "ACCEPTE",
+ "date": "2026-11-11",
+ "base": "74489d8bd898c0e696afede6bdb12c7b2a548bba",
+ "audit": "audit 1 (auditeur indépendant, aucun fichier rédigé), moitié A du LOT_020 : Phase A, DX.1 à DX.5",
+ "leves": [],
+ "controles": {
+  "controle3_script_ok": "VERT pour les 6 fichiers, défauts {}",
+  "verif_aips": "OK pour les 6 fichiers (5+5+6+7+4+5 AIPS citées), aucune alerte « dose absente »",
+  "aips_relus_main": "46 renvois relus sur le texte refdata : Actilyse 48313 (0,9 mg/kg, max 90 mg, 10 % bolus, INR > 1,3, plaquettes < 100 000, ≥ 16 ans, héparine ≤ 10 000 UI), Metalyse 69958 (5 paliers de poids, < 18 ans, lait éliminé 24 h), Aspirine Cardio 51795 (AIT 100 mg ×3 ou 300 mg ×1), Plavix 54509 (7 jours à 6 mois), Ebrantil 44486 (10–50 mg i.v., effet en 5 min), Valtrex 53116 (250/500 mg, 1000 mg ×3 7 j, paliers rénaux), Zovirax i.v. 44772 (5 et 10 mg/kg toutes les 8 h, 250 mg/m² chez l'enfant, encéphalite 10 j), Famvir 52693 (500 mg ×2, ×3 après 50 ans), Brivex 55465, Prednisone Streuli 29349 (5–60 mg, 10 j sans risque, insuffisance surrénale > 2 sem., fractions pédiatriques, lait 5–25 %), Doxycyclin-Mepha 65952 (Lyme 100 mg ×2 10–60 j, indication neurologique limitée au visage), Ceftriaxon Labatec 59876 (50 mg/kg max 2 g 14 j), Co-Amoxi-Mepha i.v. 56758 (1200 mg 3–4×/j, 27,5 mg/kg, paliers rénaux), Dafalgan 47503 (4000 mg, 2000 mg de 9 à 12 ans, paliers rénaux), Brufen 45031 (2400 mg, 20 mg/kg, 500 mg sous 30 kg), Adrenalin Sintetica 56551 (0,5/0,3/0,15 mg, 0,01 mg/kg, toutes les 5 min), Firazyr 58178 (30 mg, 6 h, pédiatrie : palier manquant signalé). Aucune dose fausse.",
+  "chiffres_sondes": "28 chiffres relus sur la source elle-même : HUG 2023 (12–72 h, 50–70 %, prednisone 1 mg/kg 7 j, Valtrex 1000 mg ×3, HB IV–VI, 300–350 CHF, 61 %) ; RMS 2011 (0,5/1000, 3–5 sem., 10 %, 2–6 mois, 61 % et 21 %, < 1 % des zonas, doxycycline 200 mg 14 j) ; CEN item 340 (220/120, 185/110, 1,8 g/L, SaO2 < 95 %, NNT 20, craniectomie < 60 ans NIHSS > 16, endartériectomie 15 j, RR 4 et 1,5, 150 000/an, 20 %/40 %/30 %, 30°, angio-œdème sous IEC) ; DGN 2024 PMC12584707 (RR 0,98 et 0,94, 14–21 j forme tardive, 4 molécules, SNG votante, pas de stéroïdes) ; PubMed Zix 2011 (420 patients, 707 fractures, 28 %, 21 %, 13 %, 43/35/12/7 %) ; Schaller 2013 (62 inclus, 59 analysés, 6/30 contre 6/29, 1,2 g i.v. toutes les 8 h, 625 mg). Aucun chiffre inventé.",
+  "design_playwright": "1280 et 390 px pour les 6 fichiers : aucun débordement horizontal ; 352 fenêtres ouvertes une à une (49/56/60/65/59/63), toutes position:fixed dans l'écran, sans débordement interne ; 0 ancre interne cassée, 0 id dupliqué ; liens inter-fichiers vers des fichiers présents (cibles f-dx1-p3-base et f-dx1-r-front existantes) ; 3 images chargées ; 0 erreur console.",
+  "architecture": "Aucun arbre CIM, aucun sommaire à pastilles, aucun popover ni police intégrée ; seulement forme.css et forme.js communs."
+ },
+ "restants": [
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Doxycycline : la durée de 14 jours est déclarée « hors AIPS » alors que l'AIPS 65952 donne 100 mg deux fois par jour « pendant 10-60 jours » pour la maladie de Lyme aux stades 1 et 2. 14 jours se situent donc dans l'intervalle AIPS. DX.4 l'écrit correctement (« dans cet intervalle ») : la Phase A et le DX contredisent.",
+   "avant": "La Revue Médicale Suisse retient 200 mg par jour pendant 14 jours, durée absente de l'AIPS et donc hors AIPS",
+   "correction": "La Revue Médicale Suisse retient 200 mg par jour pendant 14 jours, une durée comprise dans l'intervalle de l'AIPS",
+   "source": "AIPS Doxycyclin-Mepha 65952 (refdata, lu le 11.11.2026) : « Maladie de Lyme, stades 1 et 2: 100 mg de doxycycline par voie orale deux fois par jour pendant 10-60 jours » ; RMS 2011;7:1901 (doxycycline 200 mg/j pendant 14 jours)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Icatibant chez l'enfant : le tableau du poids s'arrête à 50 kg et omet deux paliers de l'AIPS (51 à 65 kg : 25 mg ; plus de 65 kg : 30 mg). Un adolescent de 55 kg n'a pas de dose dans la fiche. (Sans objet si la fiche f-ssp-m-icatibant est supprimée au profit de f-dx9-m-icatibant, voir plus bas.)",
+   "avant": "De 2 à 17 ans, la dose suit le poids : 10 mg de 12 à 25 kg, 15 mg de 26 à 40 kg, 20 mg de 41 à 50 kg",
+   "correction": "De 2 à 17 ans, la dose suit le poids : 10 mg de 12 à 25 kg, 15 mg de 26 à 40 kg, 20 mg de 41 à 50 kg, 25 mg de 51 à 65 kg et 30 mg au-delà de 65 kg",
+   "source": "AIPS Firazyr 58178, tableau 1 « Posologie chez les enfants et adolescents » : 51 kg à 65 kg 25 mg (2,5 ml) ; > 65 kg 30 mg (3,0 ml)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redondance inter-fichiers (L1-3.4) : la Phase A porte sa propre fiche .mb « Prednisone » (section f-ssp-m-prednisone, environ 2 Ko), qui double la fiche f-dx1-m-prednisone du DX.1. La Phase A pèse 147 079 o : supprimer les cinq fiches doublées libère environ 9,8 Ko.",
+   "avant": "<a class=\"ouvre\" href=\"#f-ssp-m-prednisone\">Prednisone</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.1.html#f-dx1-m-prednisone\">Prednisone</a> — même remplacement pour l'occurrence en minuscule (href=\"#f-ssp-m-prednisone\"), puis suppression de la section <section class=\"fenetre mb\" id=\"f-ssp-m-prednisone\" …>…</section>.",
+   "source": "Prompt L1, L1-3.4 (aucune répétition d'une leçon à l'autre) ; renvoi inter-fichiers déjà pratiqué par la Phase A (f-dx1-p3-base, f-dx1-r-front)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redondance inter-fichiers (L1-3.4) : la Phase A porte sa propre fiche .mb « Valaciclovir » (section f-ssp-m-valaciclovir, environ 2 Ko), qui double la fiche f-dx1-m-valaciclovir du DX.1. La Phase A pèse 147 079 o : supprimer les cinq fiches doublées libère environ 9,8 Ko.",
+   "avant": "<a class=\"ouvre\" href=\"#f-ssp-m-valaciclovir\">Valaciclovir</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.1.html#f-dx1-m-valaciclovir\">Valaciclovir</a> — même remplacement pour l'occurrence en minuscule (href=\"#f-ssp-m-valaciclovir\"), puis suppression de la section <section class=\"fenetre mb\" id=\"f-ssp-m-valaciclovir\" …>…</section>.",
+   "source": "Prompt L1, L1-3.4 (aucune répétition d'une leçon à l'autre) ; renvoi inter-fichiers déjà pratiqué par la Phase A (f-dx1-p3-base, f-dx1-r-front)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redondance inter-fichiers (L1-3.4) : la Phase A porte sa propre fiche .mb « Doxycycline » (section f-ssp-m-doxycycline, environ 2 Ko), qui double la fiche f-dx4-m-doxycycline du DX.4. La Phase A pèse 147 079 o : supprimer les cinq fiches doublées libère environ 9,8 Ko.",
+   "avant": "<a class=\"ouvre\" href=\"#f-ssp-m-doxycycline\">Doxycycline</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.4.html#f-dx4-m-doxycycline\">Doxycycline</a> — même remplacement pour l'occurrence en minuscule (href=\"#f-ssp-m-doxycycline\"), puis suppression de la section <section class=\"fenetre mb\" id=\"f-ssp-m-doxycycline\" …>…</section>.",
+   "source": "Prompt L1, L1-3.4 (aucune répétition d'une leçon à l'autre) ; renvoi inter-fichiers déjà pratiqué par la Phase A (f-dx1-p3-base, f-dx1-r-front)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redondance inter-fichiers (L1-3.4) : la Phase A porte sa propre fiche .mb « Adrénaline » (section f-ssp-m-adrenaline, environ 2 Ko), qui double la fiche f-dx9-m-adrenaline du DX.9. La Phase A pèse 147 079 o : supprimer les cinq fiches doublées libère environ 9,8 Ko.",
+   "avant": "<a class=\"ouvre\" href=\"#f-ssp-m-adrenaline\">Adrénaline</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.9.html#f-dx9-m-adrenaline\">Adrénaline</a> — même remplacement pour l'occurrence en minuscule (href=\"#f-ssp-m-adrenaline\"), puis suppression de la section <section class=\"fenetre mb\" id=\"f-ssp-m-adrenaline\" …>…</section>.",
+   "source": "Prompt L1, L1-3.4 (aucune répétition d'une leçon à l'autre) ; renvoi inter-fichiers déjà pratiqué par la Phase A (f-dx1-p3-base, f-dx1-r-front)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redondance inter-fichiers (L1-3.4) : la Phase A porte sa propre fiche .mb « Icatibant » (section f-ssp-m-icatibant, environ 2 Ko), qui double la fiche f-dx9-m-icatibant du DX.9. La Phase A pèse 147 079 o : supprimer les cinq fiches doublées libère environ 9,8 Ko.",
+   "avant": "<a class=\"ouvre\" href=\"#f-ssp-m-icatibant\">Icatibant</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.9.html#f-dx9-m-icatibant\">Icatibant</a> — même remplacement pour l'occurrence en minuscule (href=\"#f-ssp-m-icatibant\"), puis suppression de la section <section class=\"fenetre mb\" id=\"f-ssp-m-icatibant\" …>…</section>.",
+   "source": "Prompt L1, L1-3.4 (aucune répétition d'une leçon à l'autre) ; renvoi inter-fichiers déjà pratiqué par la Phase A (f-dx1-p3-base, f-dx1-r-front)."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redondance inter-fichiers : la fenêtre f-ssp-p8-hb reproduit mot pour mot l'échelle de House-Brackmann du DX.1 (f-dx1-r-hb), par exemple « L'asymétrie n'est pas défigurante ; l'œil se ferme complètement avec effort ». Environ 1,8 Ko à libérer.",
+   "avant": "<a class=\"ouvre\" href=\"#f-ssp-p8-hb\">échelle de House-Brackmann</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.1.html#f-dx1-r-hb\">échelle de House-Brackmann</a> — puis supprimer la section <section class=\"fenetre\" id=\"f-ssp-p8-hb\" …>…</section>.",
+   "source": "Prompt L1, L1-3.4."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Échelle de House-Brackmann répétée une quatrième fois dans le LOT (Phase A, DX.1, DX.3, DX.4). Le DX.1 porte la version complète et sourcée.",
+   "avant": "<a class=\"ouvre\" href=\"#f-dx4-r-hb\">échelle de House-Brackmann</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.1.html#f-dx1-r-hb\">échelle de House-Brackmann</a> — garder dans f-dx4-r-hb seulement la phrase « Les grades IV à VI définissent l'atteinte sévère dans le protocole genevois », ou supprimer la section.",
+   "source": "Prompt L1, L1-3.4."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.3.html",
+   "gravite": "Léger",
+   "constat": "Même redondance : la fenêtre f-dx3-r-grade reproduit l'échelle de House-Brackmann du DX.1. Ce fichier pèse 149 638 o (marge de 362 o) : le retrait de cette redite donne la marge nécessaire aux autres corrections.",
+   "avant": "<a class=\"ouvre\" href=\"#f-dx3-r-grade\">grade du déficit</a>",
+   "correction": "<a class=\"ouvre\" href=\"LOT_020_Phase_B_V0_DX.1.html#f-dx1-r-hb\">grade du déficit</a> — puis remplacer le tableau des six grades de f-dx3-r-grade par un renvoi, ou supprimer la section.",
+   "source": "Prompt L1, L1-3.4."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 hors contrat (L1-3.1, point 1 = définition seule) : la répartition 80 % ischémie / 20 % hémorragie est une donnée épidémiologique. Elle double en outre, avec d'autres chiffres, la répartition 85/10/5 % du point 2 (S3).",
+   "avant": "Les Hôpitaux universitaires de Genève (HUG) attribuent 80 % des cas à l'obstruction d'un vaisseau et 20 % à sa rupture",
+   "correction": "(supprimer la phrase et son appel S1 ; la répartition par type figure au point 2, fenêtre f-dx2-p2-chiffres)",
+   "source": "Prompt L1, L1-3.1 ; µ3 point 1."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "Point 11.B incomplet : le volet social et assurances manque (incapacité de travail, aptitude à la conduite après un AVC ou un AIT, réadaptation, assurance-invalidité). HELP le consigne comme lacune.",
+   "avant": "<a class=\"ouvre\" href=\"#f-dx2-p11-spec\">situations particulières</a>",
+   "correction": "<a class=\"ouvre\" href=\"#f-dx2-p11-spec\">situations particulières</a>, le <a class=\"ouvre\" href=\"#f-dx2-p11-social\">volet social et assurances</a> — puis créer la section f-dx2-p11-social (aptitude à la conduite après AVC/AIT selon les directives suisses de la médecine du trafic, réadaptation, incapacité de travail et AI), seulement sur une source suisse lue et datée. Retirer en échange, dans f-dx2-p2-chiffres, la phrase « En France, la mortalité atteint 20 % à un mois et 40 % à un an, et la récidive touche 30 % des patients à cinq ans » (redite non suisse).",
+   "source": "µ3 point 11.B ; CEN item 340 (mortalité 20 % à 1 mois, lu le 11.11.2026)."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.4.html",
+   "gravite": "Moyen",
+   "constat": "Point 11.B incomplet : le volet social et assurances manque (HELP : « non rédigé »). En Suisse, la LAA traite la piqûre de tique comme un accident : c'est une notion d'examen utile.",
+   "avant": "11.C Surveillance",
+   "correction": "Avant 11.C, ajouter une phrase du type : « En Suisse, la piqûre de tique compte comme un accident au sens de la LAA ; le salarié la déclare donc à son assureur-accidents, et la borréliose qui en découle est prise en charge à ce titre. » Ne l'insérer qu'après lecture et datation de la page Suva ou du texte LAA (art. 4 LPGA), avec source citée.",
+   "source": "LPGA art. 4 (définition de l'accident) et page Suva sur les piqûres de tique, à lire et dater (non lues par l'auditeur)."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Point 1 : le second paragraphe porte la classification (forme précoce et forme tardive, durées), qui relève du point 3 ou du point 8 (L1-3.1).",
+   "avant": "La forme tardive évolue sur des mois ou des années et touche surtout l'encéphale et la moelle",
+   "correction": "(déplacer la phrase vers la fenêtre f-dx4-p8-class, qui classe déjà la forme selon la durée, ou la supprimer si elle y figure)",
+   "source": "Prompt L1, L1-3.1."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Point 1 : une phrase sort de la définition et porte une notion clinique (asymétrie constitutionnelle). Elle appartient au point 4 ou au point 6.",
+   "avant": "Le Collège français des enseignants de neurologie rappelle qu'une asymétrie existe souvent sans aucun déficit moteur, car elle est parfois constitutionnelle",
+   "correction": "(déplacer au point 6, examen du visage au repos, ou supprimer)",
+   "source": "Prompt L1, L1-3.1."
+  },
+  {
+   "fichier": "LOT_020_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Fait perdu partiel (commit 202fd929b) : la position de la DGN sur les corticoïdes dans la neuroborréliose a été retirée parce que la DGN était jugée illisible. DX.4 l'a pourtant lue en texte intégral (S6, PMC12584707) : pas de corticoïde avec l'antibiotique dans la paralysie faciale d'une neuroborréliose probable ou confirmée. Le fait reste présent dans le LOT (DX.4), donc il n'est pas perdu ; HELP doit corriger la mention « DGN illisible ».",
+   "avant": "(HELP.md, ligne Phase A « recommandations DGN … neuroborréliose S3 2024 … illisibles »)",
+   "correction": "Corriger HELP : la DGN S3 2024 sur la neuroborréliose est lisible en version anglaise (GMS 2025, PMC12584707) ; un renvoi de la Phase A vers DX.4 (f-dx4-p11-choix) suffit.",
+   "source": "Rauer S et al., DGN S3 Neuroborreliose v6.0 du 30.04.2024, GMS Ger Med Sci 2025, PMC12584707 (lu le 11.11.2026)."
+  },
+  {
+   "fichier": "LOT_020_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Point 9 sans les sous-titres 9.a à 9.d imposés par µ3. Le contenu existe : IRM de référence, scanner, alternatives.",
+   "avant": "L'IRM est l'examen de référence du diagnostic ; le scanner la remplace lorsqu'elle n'est pas disponible sans délai",
+   "correction": "9.a L'IRM est l'examen de référence du diagnostic ; le scanner la remplace lorsqu'elle n'est pas disponible sans délai",
+   "source": "µ3 point 9."
+  },
+  {
+   "fichier": "LOT_020 (Phase A, DX.2, DX.3, DX.4)",
+   "gravite": "Léger",
+   "constat": "Pédagogie (règle 5, cours antérieurs à l'ordre du 11.11) : il manque un cliché de référence au point 9 (scanner ou IRM de diffusion pour DX.2, IRM du nerf pour DX.3) et une image clinique (érythème migrant pour DX.4). Le schéma réel de la base anatomique du DX.3 manque aussi (HELP). Aucune correction n'est exigée.",
+   "avant": "",
+   "correction": "À compléter par cliche.py au prochain renfort.",
+   "source": "MISSION_AUDIT_L1 § 5 ; µ6."
+  }
+ ],
+ "point14": {
+  "LOT_020_Phase_A_V0.html": 10,
+  "LOT_020_Phase_B_V0_DX.1.html": 10,
+  "LOT_020_Phase_B_V0_DX.2.html": 9,
+  "LOT_020_Phase_B_V0_DX.3.html": 9,
+  "LOT_020_Phase_B_V0_DX.4.html": 10,
+  "LOT_020_Phase_B_V0_DX.5.html": "≥ 10",
+  "conforme": "≥ 6 questions partout, sous forme question / réponse / raison"
+ },
+ "octets": {
+  "LOT_020_Phase_A_V0.html": 147079,
+  "LOT_020_Phase_B_V0_DX.1.html": 137015,
+  "LOT_020_Phase_B_V0_DX.2.html": 130047,
+  "LOT_020_Phase_B_V0_DX.3.html": 149638,
+  "LOT_020_Phase_B_V0_DX.4.html": 132179,
+  "LOT_020_Phase_B_V0_DX.5.html": 127267,
+  "note": "Tous les fichiers sont entre 80 000 et 150 000 o. DX.3 (149 638) et la Phase A (147 079) sont proches du plafond ; les corrections de la Phase A retirent des octets (environ 11,6 Ko de redites)."
+ },
+ "decompte": {
+  "Critique": 0,
+  "Grave": 0,
+  "Moyen": 11,
+  "Léger": 7
+ }
+}

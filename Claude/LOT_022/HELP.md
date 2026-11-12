@@ -1,0 +1,53 @@
+
+## Lacunes ouvertes
+- DX.8 : aucune série épidémiologique suisse mesurée ; seule ESDE (36/million) est enseignée, l'estimation Dystonie-info (Merz) étant retirée.
+- DX.8 : médicaments oraux (anticholinergiques, benzodiazépines, baclofène, tétrabénazine) cités sans dose ni fiche .mb, faute d'AIPS suisse portant l'indication.
+- DX.8 : aptitude à la conduite (OAC, annexe 1) et remboursement LS des toxines non lus (quota Legal Data Hunter épuisé le 11.11.2026).
+- DX.5 : aucune série suisse publiée ne chiffre l'abrasion ou le corps étranger cornéen isolés ; le point 2 s'appuie sur la Suva (lésions oculaires) et l'étude d'Helsinki.
+- DX.5 : NICE CKS « corneal superficial injury » renvoie 403 depuis l'environnement ; délai de contrôle à 24 h non repris faute de lecture.
+
+## Décisions en vigueur
+- DX.8 : extension de la dystonie donnée « entre un sur deux et deux sur trois » (Defazio 2021 vs Defazio 2017).
+- DX.5 : cyclopentolate — NHS Scotland 5.3 propose 1 % jusqu'à 3×/j pour le spasme ciliaire ; l'AIPS Cyclogyl (n° 32634) réserve le collyre à l'usage diagnostique par le médecin : le cours enseigne l'AIPS et écrit la divergence.
+- DX.5 : antibioprophylaxie après abrasion — hors indication AIPS (Floxal/Tobrex visent l'infection déclarée), réservée aux abrasions contaminées ou étendues et aux porteurs de lentilles (NHS 5.3, HUG 2025), Cochrane 2025 de très faible certitude.
+
+## Doutes médicaux à trancher
+- DX.8 : Dystonie-info.ch (Merz) ne porte plus que des faits descriptifs sans chiffre ni décision (S1–S3 : activités, aggravation par le stress, asymétrie, lunettes à supports, Meige) ; à remplacer par une source suisse indépendante si trouvée.
+- [Lacune ouverte] Phase A : aucune série suisse ne classe les dix DX ; rangs tirés de séries européennes (Lifelines, PrevEOS, Varsovie, Oslo, ESDE, Est de l'Angleterre) ; seul chiffre suisse : Inselspital, spasme hémifacial ≈ 800 personnes.
+- [Lacune ouverte] Phase A : prévalence européenne non trouvée pour blépharite, myokymie, corps étranger/abrasion, apraxie de l'ouverture → rang argumenté (2e, 3e, 5e, 10e).
+- [Lacune ouverte] Phase A : AIPS Akineton® porte trois n° (24035, 24036, 54937) sans attribuer celui de la solution injectable ; ancre sb-aips-24035 retenue, à confirmer.
+- [Décision en vigueur] Phase A : dose d'urgence de la dystonie aiguë enseignée selon l'AIPS suisse du bipéridène (adulte 2,5–5 mg i.m./i.v. lente ; enfant 1–3 mg selon l'âge) ; procyclidine/benztropine (RCEM) non reprises.
+- [Doute médical à trancher] Phase A : abrasion, corps étranger, myokymie et dystonie aiguë reposent sur des sources britanniques (NHS Scotland, RCEM, Moorfields, NHS) faute de guide suisse lu.
+- [Décision en vigueur] DX.6 : cycloplégie de confort (cyclopentolate 1 % jusqu'à 3×/j, NHS Scotland) enseignée hors AIPS et réservée à l'ophtalmologue, car l'AIPS Cyclogyl (n° 32634) limite le produit à l'usage diagnostique par le médecin.
+- [Décision en vigueur] DX.6 : kératite bactérienne enseignée selon le schéma AIPS Ciloxan (seule quinolone locale suisse dont l'AIPS cite l'ulcère cornéen) ; schéma ofloxacine NHS Scotland signalé hors AIPS.
+- [Lacune ouverte] DX.6 : aucune incidence suisse de l'ensemble des kératites infectieuses ; seules des séries suisses par germe (Acanthamoeba, herpès, champignons, cabinet) sont citées ; aucune recommandation suisse de société d'ophtalmologie lue sur la kératite (HUG 2025 + NHS Scotland 2025–2026).
+- [Doute médical à trancher] DX.6 : antifongiques et anti-amibiens (natamycine, voriconazole local, PHMB, propamidine) cités sans dose ni fiche .mb, faute d'AIPS suisse portant l'indication ophtalmique.
+- [Lacune ouverte] DX.9 : aucune série suisse ne chiffre la dystonie palpébrale médicamenteuse ; chiffres tirés de la RMS 2018 (HUG), des AIPS Haldol/Paspertin et de Catthoor 2025 (Europe).
+- [Lacune ouverte] DX.9 : benzodiazépine pédiatrique de la dystonie aiguë (AIPS Paspertin) citée sans molécule ni dose, faute d'AIPS ou de recommandation suisse lue ; page EMA 2013 (métoclopramide) non lisible (429), citée via Catthoor 2025.
+- [Lacune ouverte] DX.9 : photographie clinique d'un blépharospasme médicamenteux (point 6) non trouvée ; seule la figure de la voie nigrostriée est insérée.
+- [Décision en vigueur] DX.9 : tétrabénazine sans dose (AIPS Xenazine : Huntington seulement) ; usage dans la forme tardive présenté comme hors autorisation.
+- [Doute médical à trancher] DX.9 : critères de la forme tardive tirés d'une série américaine (Baizabal-Carvallo 2026, résumé), utilisée pour la sémiologie seulement.
+- [Lacune ouverte] DX.2 : aucune série suisse ne chiffre la blépharite ; fréquences tirées d'Espagne (Viso 2012), d'Allemagne (Zierl 2022) et d'une méta-analyse 2026 ; NICE CKS illisible (403), College of Optometrists lu en partie publique seulement.
+- [Lacune ouverte] DX.2 : lotilaner absent du corpus AIPS refdata du 08.10.2026 (efficacité citée, sans dose) ; doxycycline sans dose de blépharite (AIPS Doxylag sans cette indication, doses d'essais Cochrane écrites « hors AIPS »).
+- [Décision en vigueur] DX.2 : acide fusidique (Fucithalmic) limité à une semaine selon l'AIPS, alors que la stratégie HUG 2025 propose dix jours ; divergence écrite dans la fiche.
+- [Lacune ouverte] DX.3 : aucune prévalence suisse ni européenne de la myokymie palpébrale en population ; Rev Med Suisse 2022 (Hübers, crampes et fasciculations) illisible (iris.unil.ch derrière un contrôle anti-robot) ; seules des séries de consultants sont citées.
+- [Décision en vigueur] DX.3 : toxine botulique présentée hors indication AIPS (BOTOX n° 52433 : blépharospasme et hémispasme facial seulement) ; dose de l'indication voisine affichée comme telle ; appui sur une série américaine (Banik 2004) en tant que donnée, non comme recommandation.
+- [Doute médical à trancher] DX.3 : plusieurs appuis sont des résumés ou des cas isolés hors Europe (Kitaguchi, Ito, Kakouri, Ahsan, Khan) ; utilisés pour la sémiologie des drapeaux rouges seulement.
+- [Lacune ouverte] DX.10 : aucune série ni recommandation suisse sur l'apraxie d'ouverture ; seule source suisse lue : cas CHUV/Jules-Gonin (Dimitriou 2015) ; chiffres tirés de séries européennes (Giessen, Amsterdam, Lyon, Nîmes, Copenhague).
+- [Lacune ouverte] DX.10 : anticholinergiques (Krack 1994) et lévodopa cités sans molécule ni dose, faute d'AIPS suisse portant l'indication ; aptitude à la conduite (OAC) non sourcée.
+- [Décision en vigueur] DX.10 : toxine prétarsale enseignée selon l'AIPS BOTOX n° 52433 (sites prétarsaux d'emblée) ; apraxie associée au blépharospasme = indication AIPS, forme isolée = hors information professionnelle.
+- [Doute médical à trancher] DX.10 : myectomie chiffrée sur une série américaine (Georgescu 2008), décision chirurgicale appuyée sur Moorfields (Ting 2024) ; Tozlovanu 2001 (Montréal) appuie le mécanisme prétarsal.
+- [Lacune ouverte] DX.1 : aucune prévalence suisse mesurée de l'œil sec avec les critères TFOS 2025 ; seule l'estimation du Service d'ophtalmologie des HUG (« un peu moins d'un tiers ») est citée, à côté de Lifelines (9,1 %).
+- [Lacune ouverte] DX.1 : rapports TFOS DEWS III (AJO 2025) lus en résumé seulement (texte intégral 403) ; Revue Médicale Suisse (Liapi 2016, Breitenstein 2020) lue en résumé (payante).
+- [Décision en vigueur] DX.1 : substituts lacrymaux enseignés par quatre AIPS (Viscotears 48624, Tears Naturale 40512, Vitamin A Blache 22398, Ikervis 66093) ; les larmes « dispositifs médicaux » sans AIPS ne reçoivent ni dose ni fiche.
+- [Lacune ouverte] DX.4 : aucune série épidémiologique ni recommandation suisse publiée sur les tics ; seul le compte rendu du congrès SGP/SGKJPP de Bâle 2014 (Pädiatrie 1/2015) est cité, puis ESSTS 2022, PNDS français 2022 et Varsovie 2008.
+- [Lacune ouverte] DX.4 : remboursement hors indication (OAMal art. 71a–71d) de l'aripiprazole pour tics non sourcé (Fedlex illisible, Legal Data Hunter au quota) ; volet assurances du point 11 à compléter.
+- [Décision en vigueur] DX.4 : doses de tiapride (AIPS 39220) et d'halopéridol (AIPS 26891) enseignées selon l'AIPS ; aripiprazole et clonidine hors AIPS selon ESSTS 2022 ; halopéridol : ESSTS 0,25–3 mg/j contre AIPS jusqu'à 6 mg/j chez l'adulte, l'AIPS est suivie et la divergence écrite.
+- [Décision en vigueur] DX.4 : schéma réel images/Basal_ganglia_circuits.webp (CC BY-SA 3.0), partagé avec d'autres DX du LOT, avec lecture guidée propre.
+- [Lacune ouverte] DX.7 : aucune définition ni critère diagnostique de société savante suisse ou européenne trouvé pour le spasme hémifacial ; point 1 appuyé sur l'Inselspital (neurochirurgie) et Jesuthasan 2025 (J Neurol).
+- [Lacune ouverte] DX.7 : alternative à l'IRM (IRM contre-indiquée) et remboursement LS des toxines non sourcés ; site de la Liste des spécialités (OFSP) illisible depuis l'agent ; aptitude à la conduite (OAC) non lue.
+- [Décision en vigueur] DX.7 : carbamazépine, clonazépam, baclofène et gabapentine (cités par l'Inselspital) présentés sans dose, en fiches .mb tirées de leurs AIPS, car aucune AIPS ne porte le spasme hémifacial.
+- [Doute médical à trancher] DX.7 : perte d'effet de la toxine au long cours, affirmée par l'Inselspital, contredite par Jesuthasan 2025 (efficacité jusqu'à 10 ans) ; zone de transition 3–5 mm (Inselspital) contre 2,5 mm (Haller 2016) ; les deux sont écrites.
+- [Doute médical à trancher] DX.7 : repère n° 1 de l'IRM Wikimedia (MRI_Hemifacial_spasm.webp) placé sur l'angle pontocérébelleux droit selon la légende de l'auteur ; position exacte de la boucle à vérifier par un radiologue.
+- [Lacune ouverte] DX.1 : la photographie insérée au point 9 (Kellogg, CC BY 3.0) montre une érosion confluente d'œil sec sévère ; aucune image libre de kératite ponctuée inférieure trouvée.
+- [Lacune ouverte] DX.3, DX.4 : aucune photographie ni vidéo libre de la myokymie ou du tic palpébral recherchée à ce jour (audit 1, léger).

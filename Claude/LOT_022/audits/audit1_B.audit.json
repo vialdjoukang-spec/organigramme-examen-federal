@@ -1,0 +1,217 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-11",
+ "base": "4b09249aeff6db5f37225f0709de605becc87f5c",
+ "audit": "audit 1, moitié B (DX.6–DX.10)",
+ "leves": [
+  "controle3 --script-ok VERT sur les 5 fichiers",
+  "verif_aips.py OK (7/6/3/5/1 AIPS) ; 23 liens refdata conformes à l'index AIPS du 08.10.2026 (Akineton : l'URL citée correspond au n° 24035)",
+  "41 renvois AIPS relus sur le texte refdata : Akineton (adulte 2,5–5 mg i.m./i.v. lente répétable à 30 min, max 10–20 mg/j ; enfant 1/2/3 mg ; oral 1–4 mg 1–4×/j ; CI angle étroit ; t½ 24,3 h ; F 33 %), Paspertin (10 mg ×3, max 30 mg ou 0,5 mg/kg, 5 j, 6 h d'intervalle, enfant 0,1–0,15 mg/kg, IR −50 %), Haldol (SEP 34 %, occupation D2 60–80 %), BOTOX (1,25–2,5 U, 25 U/œil, 100 U/12 sem, ptose 11 %, >5 U/site peu utile, >12 ans, hémispasme = blépharospasme unilatéral), Xeomin (100 U, 8 sem, doublement), Dysport (40→60/80, max 120 U/œil, s.c., œil atteint seul), Ciloxan (schéma ulcère J1–J14, dès 1 an, précipités 17 %), Virgan (5×/j puis 3×/j 7 j, ≤21 j, non recommandé <18 ans), Zovirax (200 mg ×5 ; indication kératite herpétique présente) : tous conformes",
+  "ESDE (152, 117, 57/36/14 par million, IC) conforme au résumé PubMed ; RMS 2018 « jusqu'à 60 % / 2 à 3 % » et cas de 5 mg de bipéridène conformes au PDF UNIGE",
+  "Base anatomo-fonctionnelle présente dans les 5 fichiers avec image réelle sourcée et lecture guidée qui explique le pourquoi du signe (cornée Gray871, nerf facial au tronc cérébral, orbiculaire + boucle des ganglions de la base, voies dopaminergiques, coupe sagittale de paupière Gray893 vérifiée repère par repère) : aucun manque Grave",
+  "IRM DX.7 : repère de boucle vérifié (correct) ; seul le repère 2 est à recentrer (Léger)",
+  "Design Playwright 1280 et 390 px : aucun débordement horizontal, 224 fenêtres fixed centrées et occultantes (défilement interne quand plus hautes que l'écran), aucun lien interne, inter-fichiers ou image cassé",
+  "Point 14 : 9/9/9/8/9 questions ; aucune formule de lacune ni de fabrication dans le corps ; messages de commit sans liste de retraits"
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Grave",
+   "constat": "Point 2 ouvre l'épidémiologie sur l'estimation de Dystonie-info.ch (site d'un fabricant de toxine, Merz) : 10/10 000, soit environ 28 fois l'ESDE (36/million) que retient la Phase A ; chiffre non mesuré, source non indépendante, incohérence Phase A ↔ DX.8.",
+   "avant": "<p>L'information suisse Dystonie-info estime que le blépharospasme touche environ 10 personnes sur 10 000<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>. L'étude européenne ESDE, conduite dans huit pays, mesure pourtant une prévalence",
+   "correction": "<p>Aucune série suisse ne mesure la prévalence du blépharospasme essentiel. L'étude européenne ESDE, conduite dans huit pays, mesure une prévalence",
+   "source": "ESDE, J Neurol 2000;247:787-92, doi:10.1007/s004150070094 (résumé PubMed relu le 11.11.2026 : 36 [31–41]/million) ; dystonie-info.ch relu le 11.11.2026 (« environ 10 personnes sur 10 000 », pied de page renvoyant à Merz Therapeutics)"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Ligne de tableau tirée de la même source commerciale (10/10 000) : à retirer avec la phrase d'ouverture.",
+   "avant": "<tr><td>Estimation suisse destinée au public</td><td>Environ 10 personnes sur 10 000 ; femmes un peu plus touchées ; début dans la seconde moitié de la vie</td><td><sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup></td></tr>",
+   "correction": "",
+   "source": "Idem ; prépondérance féminine et âge déjà portés par S9–S11 dans le même tableau."
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de conclusion qui oppose l'« estimation suisse » commerciale aux registres ; devient sans objet et redit la ligne « Prévalence selon la région ».",
+   "avant": "<p>Aucune série suisse mesurée ne fixe la prévalence ; l'estimation suisse et les registres européens divergent d'un facteur important<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup><sup class=\"r\"><a href=\"#sb-s7\">S7</a></sup>.</p>",
+   "correction": "",
+   "source": "—"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Décision thérapeutique appuyée sur le site du fabricant (S3), alors que EFNS 2011 (S8) et Cochrane 2020 (S12) portent déjà la toxine en première ligne dans l'en-tête : redite à source non indépendante.",
+   "avant": "Le traitement local par toxine est le meilleur choix dans les dystonies focales, selon l'information suisse sur la dystonie<sup class=\"r\"><a href=\"#sb-s3\">S3</a></sup>.",
+   "correction": "",
+   "source": "EFNS 2011 doi:10.1111/j.1468-1331.2010.03042.x ; Cochrane CD004900 (2020)"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Autres appuis Dystonie-info (S1, S2, S4, S5, S6 : histoire naturelle, retentissement, Meige, lunettes, SCP) : réancrer chaque fait sur S9/S10/S11/S8 quand ils le portent (ex. « essentiel = idiopathique » : Defazio 2017 S10 ; SCP réservée aux formes réfractaires : EFNS S8) ; à défaut, qualifier la source dans la bibliographie (« site édité par Merz Therapeutics, fabricant de Xeomin ») — déjà fait — et ne jamais l'utiliser pour un chiffre ni une décision. Aucune source suisse indépendante équivalente trouvée : la Société suisse de la dystonie (dystonie.ch, association de patients financée par cotisations) n'a pas de page blépharospasme ; aucune revue RMS récente sur le sujet.",
+   "avant": "Cette technique se réserve aux troubles moteurs très lourds, réfractaires aux autres traitements<sup class=\"r\"><a href=\"#sb-s4\">S4</a></sup>.",
+   "correction": "Cette technique se réserve aux dystonies sévères réfractaires aux autres traitements<sup class=\"r\"><a href=\"#sb-s8\">S8</a></sup>.",
+   "source": "EFNS 2011 (S8) ; www.dystonie.ch lu le 11.11.2026 ; recherche RMS/PubMed sans résultat suisse indépendant"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 = définition seule : la fenêtre « Apraxie de l'ouverture associée » ajoute une notion voisine et redit la définition et le mécanisme prétarsal du DX.10 (point 1 et point 3 de DX.10).",
+   "avant": "<section class=\"fenetre\" id=\"f-dx8-p1-aeo\" role=\"dialog\" aria-label=\"Apraxie de l&#x27;ouverture des paupières associée\"><div class=\"fen\"><a class=\"fermer\" href=\"#\" aria-label=\"Fermer\">Fermer ✕</a><h4>Apraxie de l'ouverture des paupières associée</h4>\n<p>L'apraxie de l'ouverture est un échec transitoire de la réouverture volontaire des yeux, sans spasme visible, alors que le frontal se contracte<sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup>. Elle résulte d'une contraction involontaire de la portion prétarsale de l'orbiculaire, qui s'oppose à la réouverture<sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup>. Le bénéfice des injections prétarsales suggère qu'il s'agit souvent d'un blépharospasme prétarsal<sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup>. Isolée, elle peut aussi venir d'un défaut de contraction du releveur ; elle relève alors du <a href=\"LOT_022_Phase_B_V0_DX.10.html\">DX.10</a><sup class=\"r\"><a href=\"#sb-s10\">S10</a></sup>.</p>\n</div></section>",
+   "correction": "",
+   "source": "L1-3.1 et L1-3.4"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Léger",
+   "constat": "Lien vers la fenêtre supprimée : remplacer par un renvoi au DX.10.",
+   "avant": "<a class=\"ouvre\" href=\"#f-dx8-p1-aeo\">difficulté à rouvrir les yeux</a>",
+   "correction": "difficulté à rouvrir les yeux (<a href=\"LOT_022_Phase_B_V0_DX.10.html\">DX.10</a>)",
+   "source": "—"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Base anatomo-fonctionnelle (Gray, orbiculaire) : le repère 3 « fibres orbitaires qui abaissent le sourcil » tombe dans la portion palpébrale (zone beige centrale), non sur l'anneau orbitaire rouge ; vérifié par rendu de la copie annotée.",
+   "avant": "<circle cx=\"95\" cy=\"174\" r=\"15\"",
+   "correction": "<circle cx=\"150\" cy=\"127\" r=\"15\"",
+   "source": "Contrôle visuel de images/Gray_musculus_orbicularis_oculi.webp (anneau rouge = portion orbitaire)"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Moyen",
+   "constat": "Étiquette du repère 3 à déplacer avec son cercle.",
+   "avant": "<text x=\"113\" y=\"174\"",
+   "correction": "<text x=\"168\" y=\"127\"",
+   "source": "—"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Léger",
+   "constat": "Numérotation des sources : S13 absente (S12 puis S14).",
+   "avant": "—",
+   "correction": "Renuméroter S14→S13, S15→S14, S16→S15 (libellés visibles seulement).",
+   "source": "—"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.6.html",
+   "gravite": "Moyen",
+   "constat": "Cohérence liste gelée : le h2 de la kératite aiguë ne porte pas le badge 🚩 E1, contrairement à DX.5 (E2) et DX.9 (E3).",
+   "avant": "<h2 class=\"fm-double\">DX.6 — Kératite aiguë</h2>",
+   "correction": "<h2 class=\"fm-double\">DX.6 — Kératite aiguë <span class=\"g\">🚩 E1</span></h2>",
+   "source": "LISTE_DX_CANONIQUE.md"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.6.html",
+   "gravite": "Moyen",
+   "constat": "Redite inter-fichiers : la base « cornée » reprend presque mot pour mot celle du DX.5 (cinq couches, 50 µm, 80–85 %, 551–565 µm, Bowman sans régénération) avec la même gravure Gray871 ; dans la fenêtre, la lecture guidée redit en outre Bowman et l'endothélium.",
+   "avant": "<p>La cornée compte cinq couches : l'épithélium, la couche de Bowman, le stroma, la membrane de Descemet et l'endothélium<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>. L'épithélium mesure environ 50 µm et se renouvelle en 7 à 10 jours<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>. Ses jonctions serrées empêchent les larmes et les germes de pénétrer entre les cellules<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>.</p>",
+   "correction": "<p>La cornée, dont le <a href=\"LOT_022_Phase_B_V0_DX.5.html\">DX.5</a> détaille les couches, résiste à l'infection par son épithélium : ses jonctions serrées empêchent les larmes et les germes de pénétrer entre les cellules, et il se renouvelle en 7 à 10 jours<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>.</p>",
+   "source": "L1-3.4 ; DX.5 f-dx5-p3-base"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.6.html",
+   "gravite": "Moyen",
+   "constat": "Suite de la même redite (Bowman, épaisseur stromale) ; l'endothélium seul est propre à la kératite.",
+   "avant": "<p>La couche de Bowman ne se régénère pas ; une lésion qui la franchit laisse donc une cicatrice<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>. Le stroma représente 80 à 85 % de l'épaisseur cornéenne, dont le centre mesure 551 à 565 µm<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>. L'endothélium pompe l'eau hors du stroma et ne se régénère pas chez l'adulte<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>.</p>",
+   "correction": "<p>L'endothélium pompe l'eau hors du stroma et ne se régénère pas chez l'adulte ; sa perte laisse un œdème cornéen durable<sup class=\"r\"><a href=\"#sb-anat\">S15</a></sup>.</p>",
+   "source": "S15 (déjà cité) ; vérifier que S15 porte l'œdème, sinon couper après « adulte »"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "La copie annotée porte quatre repères ; la lecture guidée en annonce cinq.",
+   "avant": "(repères quatre et cinq)",
+   "correction": "(repère quatre)",
+   "source": "—"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Redite dans le fichier : la réduction de 50 % des récidives stromales figure au point 2 et dans la fiche aciclovir.",
+   "avant": "En prévention des récidives stromales, l'antiviral oral à faible dose réduit les récidives de 50 %<sup class=\"r\"><a href=\"#sb-nhs-hsv\">S3</a></sup>.",
+   "correction": "",
+   "source": "NHS Scotland (S3)"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.7.html",
+   "gravite": "Léger",
+   "constat": "IRM DX.7 vérifiée par rendu : le repère 1 entoure bien le vide de signal artériel en boucle au contact du complexe VII–VIII dans l'angle pontocérébelleux droit (côté gauche de l'image), conforme à la légende de l'auteur ; le repère 2, annoncé « pont », est posé sur le bord antérieur du pont et la citerne prépontique : le centrer sur le pont.",
+   "avant": "<circle cx=\"470\" cy=\"295\" r=\"34\"",
+   "correction": "<circle cx=\"495\" cy=\"355\" r=\"34\"",
+   "source": "Contrôle visuel de images/MRI_Hemifacial_spasm.webp (Kivapoika, CC BY-SA 3.0)"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.7.html",
+   "gravite": "Léger",
+   "constat": "Étiquette du repère 2 à déplacer avec son cercle.",
+   "avant": "<text x=\"509\" y=\"295\"",
+   "correction": "<text x=\"534\" y=\"355\"",
+   "source": "—"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.9.html",
+   "gravite": "Léger",
+   "constat": "Repère 1 (SNc) posé sur l'étiquette « SNc » plutôt que sur l'origine des fibres rouges.",
+   "avant": "<circle cx=\"509\" cy=\"635\" r=\"34\"",
+   "correction": "<circle cx=\"497\" cy=\"592\" r=\"34\"",
+   "source": "Contrôle visuel de l'image"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.10.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 = définition seule : la dernière phrase commente le terme (sémantique), interdite au point 1 ; à déplacer au point 3 si utile.",
+   "avant": " Le mot « apraxie » est donc trompeur : il décrit un phénomène clinique, et non une apraxie corticale au sens neuropsychologique<sup class=\"r\"><a href=\"#sb-s21\">S21</a></sup>.",
+   "correction": "",
+   "source": "L1-3.1"
+  },
+  {
+   "fichier": "LOT_022_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Cohérence Phase A ↔ DX.9 et exactitude : la Phase A attribue « 2 à 3 % » à tout neuroleptique, alors que la RMS 2018 (HUG) citée au DX.9 donne jusqu'à 60 % sous neuroleptique conventionnel (halopéridol) et 2 à 3 % sous atypique ; PDF relu.",
+   "avant": "<td>Dystonie médicamenteuse aiguë</td><td>2 à 3 % des patients qui débutent un neuroleptique</td>",
+   "correction": "<td>Dystonie médicamenteuse aiguë</td><td>Jusqu'à 60 % sous neuroleptique conventionnel, 2 à 3 % sous atypique</td>",
+   "source": "Burkhard PR et al. Mouvements anormaux aux urgences. Rev Med Suisse 2018;14:888-91 (archive-ouverte UNIGE, texte intégral lu le 11.11.2026) ; ajouter cette source à la bibliographie de la Phase A"
+  },
+  {
+   "fichier": "LOT_022_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Même incohérence dans le tableau des dix DX.",
+   "avant": "<td>2 à 3 % des patients qui débutent un neuroleptique ; laryngospasme possible [S16]</td>",
+   "correction": "<td>Jusqu'à 60 % sous neuroleptique conventionnel, 2 à 3 % sous atypique ; laryngospasme possible [S16]</td>",
+   "source": "Idem"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.8.html",
+   "gravite": "Léger",
+   "constat": "Titres h1 hétérogènes dans le LOT (DX.6 « Blépharospasme — fermeture involontaire des paupières », DX.8 « Blépharospasme (situation de départ S1.6) », DX.7/9/10 « S1.6 — Blépharospasme ») : aligner sur la Phase A.",
+   "avant": "—",
+   "correction": "Uniformiser le h1 de DX.6 et DX.8 sur « S1.6 — Blépharospasme ».",
+   "source": "L1-4"
+  },
+  {
+   "fichier": "LOT_022_Phase_B_V0_DX.7.html",
+   "gravite": "Léger",
+   "constat": "Fiches BOTOX (n° 52433) quasi identiques dans DX.7, DX.8, DX.9 et DX.10 ; tolérable (une fiche par molécule et par cours), mais chaque fiche devrait ne garder que la ligne propre à l'indication du DX.",
+   "avant": "—",
+   "correction": "Aucune correction exigée.",
+   "source": "L1-3.4"
+  }
+ ],
+ "point14": {
+  "LOT_022_Phase_B_V0_DX.6.html": 9,
+  "LOT_022_Phase_B_V0_DX.7.html": 9,
+  "LOT_022_Phase_B_V0_DX.8.html": 9,
+  "LOT_022_Phase_B_V0_DX.9.html": 8,
+  "LOT_022_Phase_B_V0_DX.10.html": 9
+ },
+ "octets": {
+  "LOT_022_Phase_B_V0_DX.6.html": 98465,
+  "LOT_022_Phase_B_V0_DX.7.html": 98239,
+  "LOT_022_Phase_B_V0_DX.8.html": 95677,
+  "LOT_022_Phase_B_V0_DX.9.html": 85784,
+  "LOT_022_Phase_B_V0_DX.10.html": 91566
+ },
+ "note_octets": "Toutes les corrections retirent des octets, sauf le badge E1 (+30 o) et le renvoi DX.10 (+40 o) ; aucun fichier ne dépasse 100 Ko."
+}

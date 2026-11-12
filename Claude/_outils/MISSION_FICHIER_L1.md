@@ -1,5 +1,9 @@
 # MISSION — rédacteur d'UN fichier d'un LOT (protocole Fable, 11.11.2026)
 
+> **Lis d'abord `Claude/CONSIGNES_VIAL.md` (recueil des consignes de Vial) et applique-le.**
+> **RÈGLE DE CONCISION (ordre de Vial, 11.11.2026) — tous les agents, Claude compris ; Vial exclu.** Écris extrêmement court : rapports, messages, commits, PR. Vers Vial, seulement ce qu'il doit décider, chaque question avec le lien ou le fichier de référence pour trancher ; le reste se traite entre agents, aussi brièvement.
+
+
 Ta mission te donne : le LOT (NNN), le fichier (Phase A ou DX.i), le worktree. Tu n'écris QUE dans ce fichier, dans
 `Claude/LOT_NNN/HELP.md` (ajout en fin de fichier par `>>`) et dans `Claude/LOT_NNN/REPRISE.log` (ajout de lignes, jamais
 de remplacement). D'autres agents travaillent sur les autres fichiers du même worktree : jamais de checkout, reset, stash,
@@ -34,6 +38,7 @@ rebase, `--force`, `git add -A` ni `git commit -a`. Fichiers temporaires dans un
 Elles s'appliquent aux cours rédigés à partir du LOT_021 ; aucun retour en arrière sur les LOTs antérieurs.
 - **Précision, densité, clarté.** Chaque phrase porte un fait utile et exact ; aucune phrase d'ambiance, aucune redite. La
   concision sert l'envie de lire et la vitesse de lecture : à information égale, la phrase la plus courte gagne.
+- **Rappel de Vial (11.11.2026) : obligation, pas option.** La base anatomo-fonctionnelle doit expliquer le *pourquoi* du signe (ex. paralysie faciale : innervation corticale bilatérale du front, controlatérale du bas du visage → la lésion centrale épargne le front, la périphérique paralyse toute l'hémiface), avec image réelle des voies (coupe 3D/sagittale ou schéma publié), puis les autres formes, étiologies et traitements, concisément.
 - **Prérequis anatomo-fonctionnels.** Si le diagnostic ne se comprend pas sans une base d'anatomie ou de physiologie (voies
   oculomotrices, voies optiques, innervation du larynx, nerf facial et ses branches, axe corticotrope, néphron, conduction
   cardiaque…), le point 3 l'installe d'abord, en une fenêtre « Base à connaître », avec un **schéma réel pris ailleurs**

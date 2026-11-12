@@ -1,0 +1,1 @@
+- 2026-11-11 · gel P1 de la liste DX (audit indépendant, verdict GEL) · sha 67720f5b0c3add67

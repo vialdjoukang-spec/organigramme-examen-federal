@@ -200,6 +200,21 @@ def controler(chemin, paquet, a, vus_lot):
         d['C_L1_arbre_CIM_interdit'].append('arbre CIM emboîté « Où se situe le problème ? »')
     if re.search(r'<h[1-4][^>]*>(?:<[^>]+>)*\s*1\.\s*Définition et sémantique', h) or re.search(r'>\s*Notions voisines\s*<', h):
         d['C_L1_definition_alourdie'].append('point 1 : « sémantique » ou « notions voisines » interdits')
+    # L1 (11.11.2026, audits LOT_018-019) : ancres internes sans cible, fenêtres imbriquées, gabarit non converti.
+    ids = set(re.findall(r'\bid="([^"]+)"', h))
+    for x in sorted({x for x in re.findall(r'href="#([^"]+)"', h) if x not in ids}):
+        d['C_L1_ancre_absente'].append(x)
+    pile = []
+    for m in re.finditer(r'<section\b([^>]*)>|</section>', h):
+        if m.group(0) == '</section>':
+            if pile: pile.pop()
+            continue
+        fen = 'fenetre' in m.group(1)
+        if fen and any(pile):
+            d['C_L1_fenetre_imbriquee'].append((re.search(r'id="([^"]+)"', m.group(1)) or [None, '?'])[1])
+        pile.append(fen)
+    for x in re.findall(r'\(\{[^)]{0,80}\}\)', h):
+        d['C_L1_gabarit_non_converti'].append(x[:60])
     rouge = [k for k in d if k.startswith(('A_nombre', 'A_citation', 'A_dose', 'A_formule_lacune', 'C_points', 'C_FIN', 'C_balises', 'B_phrase_partagee', 'C_L1_'))]
     verdict = 'ROUGE' if rouge else ('ORANGE' if d else 'VERT')
     return {'fichier': chemin, 'octets': len(brut), 'sha256': hashlib.sha256(brut).hexdigest()[:16],
