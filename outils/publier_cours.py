@@ -9,6 +9,10 @@ from receptacle import plage
 
 site = sys.argv[1]
 prets = open('Claude/_reference/prets.txt', encoding='utf-8').read().strip()
+# Tout LOT fusionné avec son contre-audit (Claude/LOT_NNN/audits/contre_audit.audit.json) est prêt d'office.
+_auto = sorted(int(f.split('LOT_')[1][:3]) for f in glob.glob('Claude/LOT_[0-9][0-9][0-9]/audits/contre_audit.audit.json'))
+if _auto:
+    prets = ','.join([prets] + [str(n) for n in _auto if n not in plage(prets)]) if prets else ','.join(map(str, _auto))
 subprocess.run([sys.executable, 'outils/receptacle.py', '--audites', prets, '--sortie', os.path.join(site, 'progression.html')], check=True)
 for d in ('Claude/_polices', 'Claude/_reference'):
     shutil.copytree(d, os.path.join(site, d), dirs_exist_ok=True)
