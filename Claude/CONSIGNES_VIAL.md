@@ -33,3 +33,10 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 17. Tous les outils et connecteurs pour chercher au-delà du harnais, en restant suisse.
 18. Exigences pédagogiques dès LOT_021, sans retour en arrière (sauf demande explicite, ex. LOT_020 DX.1).
 19. Jamais --force ni suppression de branche ; rapport HTML de progression chaque matin à 8 h.
+
+## Politique de production (ordre de Vial, 12.11.2026)
+20. **Claude seul** fait la Phase A (renforce si elle existe, conçoit sinon), gèle la liste DX et passe d'un LOT au suivant.
+21. Les 10 DX d'un LOT sont distribués à **5 agents seulement** (2 DX chacun), chacun sur sa branche ; Claude orchestre et fusionne.
+22. **File active** = 10 LOTs menés en parallèle ; une seule file active à la fois ; la suivante commence quand la précédente est close.
+23. Phase A du LOT n finie → Claude enchaîne la Phase A du LOT n+1 pendant que les agents avancent. Un agent performant est maintenu ; il est remplacé (gratuitement) après ≤ 10 chapitres cumulés ou plus tôt s'il faiblit.
+24. La page de progression se met à jour seule (script gratuit) à chaque LOT fusionné avec son contre-audit.
