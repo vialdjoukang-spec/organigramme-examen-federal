@@ -1,0 +1,46 @@
+{
+  "verdict": "CORRECTIONS",
+  "date": "2026-11-12",
+  "type": "verification_finale_independante",
+  "base": "501557e",
+  "sha_audite": "a4f476e",
+  "perimetre": "git diff 501557e..a4f476e -- Claude/LOT_023 (Phase A, DX.1, DX.2, DX.6, DX.7, DX.9, DX.10, deux audits)",
+  "portes": {
+    "controle3 --script-ok": "11/11 VERT, 0 défaut",
+    "verif_aips.py": "11/11 OK",
+    "aips_fiche.py verifier": "0 défaut bloquant",
+    "abreviations.py": "0 sigle non développé",
+    "forme.py palette Phase A": "palette brune #4d341e unique dans le dépôt (teinte() déterministe, hors bleu) : changement légitime"
+  },
+  "controles": {
+    "1_restants_contre_audit2_medical": "8/8 levés dans le texte (Madopar DR, Opdivo, Vyvgart juin 2026, prednisone, accord, Robot, LIQ, Botox). La levée n° 6 (Robot) crée deux nouveaux restants (2 et 3).",
+    "1_restants_contre_audit2_conformite": "5/5 levés (HUG, Imani, UEG/ESNM, phrases longues, forme Phase A).",
+    "2_citations_AIPS": "Mot pour mot avec aips_fiche fiche et la SmPC refdata lue le 12.11.2026 : OPDIVO 65660 (septembre 2026) grossesse et allaitement conformes, « (nivolumab) » hors guillemets ; BOTOX 52433 (mai 2025) conformes, « pour BOTOX (toxine botulique de type A) : » hors guillemets ; Vyvgart 69286 « Juin 2026 » conforme ; Prednisone Streuli 29349 grossesse et « Pendant l'application systémique des corticostéroïdes on ne doit pas allaiter. » conformes ; Madopar 38096 « Madopar DR (Dual Release) Comprimés à libération prolongée » et « LIQ (Liquid) … Comprimés pour suspension buvable » conformes.",
+    "3_citations_ajoutees": "DX.2 UEG [S1] conforme (PMC12269739 : « Dysphagia in Parkinson's disease (PD) results from degeneration of dopaminergic and non-dopaminergic pathways, impacting all swallowing phases. »). DX.1 FOOD [S2] conforme (« non-significant reduction of mortality by 5.8% (p = 0·09) and a higher rate of gastrointestinal bleedings »). DX.1 A2DS2 [S2] NON conforme (restant 1).",
+    "4_phrases_scindees": "PISCES, TRPV1 (« raccourcissent la réponse pharyngée » : « shortening of the pharyngeal swallow response »), NIHSS, UEG : fond conservé, phrases verbales. Robot : erreur d'antécédent (restant 2). FOOD : antécédent ambigu (restant 5)."
+  },
+  "restants": [
+    {"n": 1, "gravite": "Moyen", "fichier": "LOT_023_Phase_B_V0_DX.1.html", "emplacement": "point 5, exemple chiffré (l. 92) ; même défaut préexistant dans la fenêtre f-dx1-p8-scores (l. 185)",
+     "avant": "Son score A2DS2 (âge, fibrillation auriculaire, dysphagie, sexe, sévérité de l'AVC) atteint 6 points<sup>S2</sup>. Ce total compte âge 1, fibrillation 1, sexe 1 et sévérité 3, puis 8 …<sup>S2</sup>",
+     "correction": "S2 (ESO/ESSD 2021, PMC8564153, texte intégral relu) ne contient pas le mot A2DS2. Citer S3 (ESO SAP 2026, PMC13151663, qui nomme A2DS2) pour le score, et une source de pondération réellement lue (Hoffmann S et al., Stroke 2012, développement du score A2DS2) pour les points ; à défaut écrire « pondération hors source lue ». Calcul 1+1+1+3 = 6, puis +2 = 8 : exact.",
+     "source": "PMC8564153 et PMC13151663 recherchés le 12.11.2026."},
+    {"n": 2, "gravite": "Moyen", "fichier": "LOT_023_Phase_B_V0_DX.6.html", "emplacement": "point 11, paragraphe chirurgie mini-invasive",
+     "avant": "L'essai Robot comparait l'œsophagectomie mini-invasive assistée par robot à l'œsophagectomie transthoracique ouverte. Elle montrait moins de complications majeures avec l'accès robotique",
+     "correction": "« Il montrait moins de complications… » : « Elle » renvoie à l'œsophagectomie ouverte et inverse le sens.",
+     "source": "Grammaire (antécédent masculin « essai »)."},
+    {"n": 3, "gravite": "Moyen", "fichier": "LOT_023_Phase_B_V0_DX.6.html", "emplacement": "même paragraphe, chiffres attribués à l'essai Robot",
+     "avant": "moins de complications majeures avec l'accès robotique, 29,2 % contre 42,8 %, et un séjour de 10 jours contre 13<sup>S4</sup>",
+     "correction": "Le comparateur ajouté (chirurgie ouverte) attribue ces chiffres à l'essai ROBOT, qui publie 59 % contre 80 % de complications chirurgicales (RR 0,74). Lire S4 (RMS 2023, texte intégral non accessible ici) : si 29,2/42,8 % et 10/13 jours viennent d'une autre étude, la nommer ; sinon reprendre les valeurs de l'essai ROBOT.",
+     "source": "van der Sluis PC et al., Ann Surg 2019;269:621-630, PMID 30308612, résumé lu le 12.11.2026."},
+    {"n": 4, "gravite": "Moyen", "fichier": "LOT_023_Phase_B_V0_DX.2.html", "emplacement": "fiche Madopar, phrase touchée « Les gélules et les comprimés DR … »",
+     "avant": "Les gélules et les comprimés DR (Madopar DR, Dual Release, comprimés à libération prolongée) s'avalent entiers, alors que les comprimés standard peuvent être fragmentés",
+     "correction": "« Les gélules et les comprimés DR s'avalent entiers sans être croqués ; les comprimés DR peuvent toutefois être cassés en deux, et les comprimés standard fragmentés à volonté. » (nuance utile chez le dysphagique).",
+     "source": "AIPS Madopar® n° 38096 : « les comprimés DR soient toujours avalés entiers sans être croqués. Les comprimés de Madopar DR peuvent être cassés en deux. »"},
+    {"n": 5, "gravite": "Léger", "fichier": "LOT_023_Phase_B_V0_DX.1.html", "emplacement": "point 11, essai FOOD (l. 276)",
+     "avant": "Elle s'est faite au prix de plus d'hémorragies digestives",
+     "correction": "« Ce gain s'est accompagné de plus d'hémorragies digestives » (antécédent ambigu).",
+     "source": "PMC8564153."}
+  ],
+  "compte": {"critique": 0, "grave": 0, "moyen": 4, "leger": 1},
+  "question_finale": "non : 4 Moyens (source A2DS2 erronée, antécédent « Elle » de l'essai Robot, chiffres Robot à confronter à S4, sécabilité des comprimés DR omise)."
+}
