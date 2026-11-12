@@ -1,0 +1,1 @@
+- 2026-11-11 · gel P1 de la liste DX (audit indépendant, verdict CORRIGER, liste corrigée de l'auditeur appliquée) · sha 8382c940ec23b457
