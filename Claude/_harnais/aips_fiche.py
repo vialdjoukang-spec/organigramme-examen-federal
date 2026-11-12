@@ -11,7 +11,7 @@ gardée en cache JSON ; les agents lisent la fiche compacte (≈ 2–4 Ko) au li
   trouve <nom|n°> …                    → corpus refdata hors ligne (AipsDownload_20261008.xml) : n° Swissmedic,
                                           date, URL française de l'AIPS (SmPC) et de la notice (PIL) ; zéro recherche web ; aucune recherche web.
 Cache : $AIPS_CACHE (défaut ~/.cache/medina_aips) ; HTML brut + JSON des rubriques.
-Code 1 si un défaut ADOUCI ou DATE est trouvé.
+Code 1 si un défaut ADOUCI, DATE, ABSENT ou SANS_AIPS est trouvé.
 """
 import re, sys, os, json, html, hashlib, subprocess, argparse
 
@@ -82,6 +82,8 @@ def verifier(chemin):
     for fid, corps in re.findall(r'<section class="fenetre mb" id="([^"]+)".*?<div class="fen">(.*?)</div></section>', h, re.S):
         ancres = set(re.findall(r'href="#sb-((?:aips-[0-9a-z]+|s\d+))"', corps)) & set(urls)
         if not ancres:
+            if re.search(r'hors AIPS', texte(corps), re.I):  # molécule déclarée hors AIPS : aucune dose affirmée (règle du brief)
+                defauts.append((fid, 'HORS_AIPS', 'fiche déclarée hors AIPS : vérifier qu’aucune dose n’y est affirmée')); continue
             defauts.append((fid, 'SANS_AIPS', 'aucune AIPS refdata citée dans la fiche')); continue
         A = [charger(urls[a]) for a in ancres]
         lignes = dict((texte(k).lower(), texte(v)) for k, v in re.findall(r'<tr>\s*<t[hd][^>]*>(.*?)</t[hd]>\s*<td[^>]*>(.*?)</td>\s*</tr>', corps, re.S))
@@ -90,7 +92,7 @@ def verifier(chemin):
             ref = ' '.join(a['rubriques'].get(rub, '') for a in A)
             if ref and not ligne:
                 defauts.append((fid, 'ABSENT', f'ligne {rub} absente alors que l’AIPS la renseigne'))
-            elif niveau(ref) >= 2 and niveau(ligne) < min(niveau(ref), 2):
+            elif niveau(ref) >= 2 and niveau(ligne) < niveau(ref):  # une exception n'adoucit jamais une interdiction
                 extrait = re.search(r'[^.]*(?:' + INTERDIT + '|' + EXCEPTION + r')[^.]*\.', ref, re.I)
                 defauts.append((fid, 'ADOUCI', f'{rub} : AIPS « {extrait.group(0).strip()[:160] if extrait else ""} » ; fiche « {ligne[:120]} »'))
         for a, k in zip(A, ancres):
@@ -140,6 +142,6 @@ if __name__ == '__main__':
             D = verifier(c)
             for d in D:
                 print(f'{os.path.basename(c)} · {d[0]} · {d[1]} · {d[2]}')
-            n += sum(1 for d in D if d[1] in ('ADOUCI', 'DATE', 'ABSENT'))
+            n += sum(1 for d in D if d[1] in ('ADOUCI', 'DATE', 'ABSENT', 'SANS_AIPS'))
         print(f'{n} défaut(s) bloquant(s)')
         sys.exit(1 if n else 0)
