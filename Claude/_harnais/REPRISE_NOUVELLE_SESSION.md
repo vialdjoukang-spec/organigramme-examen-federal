@@ -30,5 +30,5 @@ Ne lis rien d'autre au démarrage : ni CONTINUATION.md, ni PROCHAINE_ACTION.md, 
 | Chantier | Branche | Reste |
 |---|---|---|
 | LOT_023 | fusionné (PR #655, 12.11.2026, contrôle ultime audit-ok) | planche `Claude/LOT_023/PLANCHE_LOT_023.html` (PR #656) |
-| LOT_024 | `claude/lot-024-renfort-l1` | audit1 A/B levé ; contre-audit conformité CORRECTIONS (controle3 ROUGE DX.5/DX.9 : 2 phrases dupliquées DX.4/5 et DX.9/10 ; Phase A ORANGE phrase 43 mots ; forme.py : palette Phase A violette au lieu de verte, double espace crédits DX.4/5 ; abréviations Phase A AIPS, ENT UK) ; contre-audit médical CORRECTIONS (1 critique Ciproxine DX.3 grossesse/allaitement, 1 grave Co-Amoxi DX.2 80 mg/kg/j hors AIPS, 5 moyens, 6 légers) ; agent correcteur lancé le 12.11 (vérifier `restants_leves_par_redacteur` dans les 2 JSON) ; puis contrôle ultime ciblé, PR, fusion |
-| LOT_025 | `claude/lot-025-renfort-l1` + `claude/lot-025-agent-1..5` (WIP) | contre-audit Phase A ; reprise des 5 agents depuis leur WIP |
+| LOT_024 | fusionné (PR #657, 12.11.2026, contrôle ultime levé, planche `Claude/LOT_024/PLANCHE_LOT_024.html`) | rien |
+| LOT_025 | `claude/lot-025-renfort-l1` (Phase A) + `claude/lot-025-agent-1..5` (DX.1+8, 2+7, 3+6, 4+5, 9+10) | Phase A : contre-audit CORRECTIONS (4 graves Salagen/Kenacort/renvois, 8 moyens), rédacteur lancé 12.11 ; 5 rédacteurs DX lancés 12.11 (workflow lot025-redaction) ; puis fusion des branches agents dans renfort-l1, designer, audits, planche, PR |

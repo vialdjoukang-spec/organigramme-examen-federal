@@ -23,8 +23,8 @@
 | 20 | 11 | oui | ACCEPTE |
 | 21 | 11 | oui | ACCEPTE |
 | 22 | 11 | oui | ACCEPTE |
-| 23 | 11 | non | — |
-| 24 | 11 | non | — |
+| 23 | 11 | oui | CORRECTIONS |
+| 24 | 11 | oui | — |
 | 25 | 11 | non | — |
 | 26 | 11 | non | — |
 | 27 | 11 | non | — |
