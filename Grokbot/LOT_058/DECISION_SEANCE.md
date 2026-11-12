@@ -1,7 +1,6 @@
-# Décision de séance — LOT_058
+# Décision de séance — LOT_058 bande
 
-- Date : 2026-11-10. S3.7 Constipation.
-- Branche : grok/lot-058, depuis origin/main.
-- Sources lues : voir les extraits dans _travail/evidence.
-- Aucune dose inventée.
-- controle3.py : zéro ROUGE, ORANGE de taille seulement.
+- Date : 2026-11-10. Remontée en bande 100–200 Ko.
+- Sources : Revue médicale suisse 2026, 2014 et 2004.
+- Aucune dose.
+- controle3.py : verdict VERT.
