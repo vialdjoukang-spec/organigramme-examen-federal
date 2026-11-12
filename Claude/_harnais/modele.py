@@ -10,7 +10,7 @@
 Entrée : Claude/_harnais/donnees/agents.jsonl (suivi.py) + journaux pour la trajectoire de contexte.
 Sortie : Claude/_harnais/donnees/modele.json
 """
-import json, os, glob, re, sys, math, random
+import os, sys, json, os, glob, re, sys, math, random
 import numpy as np
 
 random.seed(7); np.random.seed(7)
@@ -39,10 +39,17 @@ def trajectoire(aid):
 
 A = [json.loads(l) for l in open('Claude/_harnais/donnees/agents.jsonl', encoding='utf-8')]
 A = [a for a in A if a['type'] != 'principal' and a['tours'] > 5 and a.get('fini')]
+# Trajectoires conservées dans le dépôt : une machine vierge (journaux locaux absents) garde l'historique.
+FT = 'Claude/_harnais/donnees/trajectoires.json'
+TR = json.load(open(FT, encoding='utf-8')) if os.path.exists(FT) else {}
 for a in A:
-    a['traj'] = trajectoire(a['id'])
+    a['traj'] = trajectoire(a['id']) or TR.get(a['id'])
+    if a['traj']: TR[a['id']] = a['traj']
     a['ndx'] = 2 if a['type'] == 'redaction_2DX' else 1
+json.dump(TR, open(FT, 'w', encoding='utf-8'))
 A = [a for a in A if a['traj']]
+if len(A) < 20:
+    print(f'Données insuffisantes ({len(A)} agents avec trajectoire) : modele.json conservé tel quel.'); sys.exit(0)
 # 1. identité mécanique
 pred = [0.1 * a['traj']['T'] * a['traj']['Cmoy'] + 1.25 * a['cache_creation_input_tokens'] + 5 * a['output_tokens'] for a in A]
 obs = [a['cout'] for a in A]
