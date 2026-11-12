@@ -1,0 +1,71 @@
+{
+ "lot": "LOT_024",
+ "tete_auditee": "bb6ce9c",
+ "auditeur": "a24c (contre-audit de conformité indépendant)",
+ "verdict": "CORRECTIONS",
+ "portes": {
+  "controle3 --script-ok": "9 fichiers VERT sur 11 ; DX.5 et DX.9 ROUGE (B_phrase_partagee_entre_fichiers, 1 chacun) ; Phase A ORANGE (1 phrase de 43 mots)",
+  "abreviations.py": "4 sigles non développés, tous en Phase A : AIPS, ENT, UK, HC ; les 10 DX sont verts",
+  "forme.py --verifier": "3 fichiers à corriger : Phase A (palette violette au lieu de la palette attendue, ordre des sources), DX.4 et DX.5 (double espace avant l'année dans la ligne de crédit image)",
+  "liens et ancres": "aucun lien mort entre fichiers, aucune ancre inter-DX cassée (cible f-dx6-p7-signes présente) ; aucune image manquante",
+  "structure": "10 DX : 14 points chacun, point 1 sans tableau ni figure (3 à 5 phrases), 11.A à 11.D présents, point 6 de 8 à 14 fenêtres, point 14 de 12 à 23 lignes (>= 6) ; titres Phase B identiques à la liste canonique, même ordre",
+  "bande 80-150 Ko": "10 DX de 81,7 à 91,2 Ko ; Phase A 90,3 Ko ; tous dans la bande"
+ },
+ "restants": [
+  {
+   "gravite": "mineure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_B_V0_DX.9.html (ligne 149) et LOT_024_Phase_B_V0_DX.10.html (ligne 132)",
+   "avant": "L’épreuve de Weber se lit comme en DX.6 : voir les définitions du Weber et du Rinne.",
+   "correction": "Phrase de renvoi identique dans deux fichiers : controle3 la compte comme redite (ROUGE sur DX.9). Varier la formule : en DX.9 « Le Weber suit la lecture du DX.6 : voir ses définitions. » ; en DX.10 « Pour le Weber, se reporter aux définitions du DX.6. »"
+  },
+  {
+   "gravite": "mineure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_B_V0_DX.4.html (ligne 125) et LOT_024_Phase_B_V0_DX.5.html (ligne 139)",
+   "avant": "La copie annotée porte les repères que la lecture guidée explique.",
+   "correction": "Même phrase de légende dans deux fichiers (ROUGE controle3 sur DX.5). Reformuler la légende de DX.5, par exemple « Les repères de la copie annotée renvoient aux phrases de la lecture guidée. »"
+  },
+  {
+   "gravite": "mineure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_B_V0_DX.4.html (ligne 128) et DX.5.html (ligne 142)",
+   "avant": "Image : Koda K. —  2026, CC BY ... / Hirano K, ... Shimane T. —  2025, CC BY ...",
+   "correction": "Supprimer le double espace avant l'année (forme.py --verifier échoue) ; lancer forme.py sur ces deux fichiers."
+  },
+  {
+   "gravite": "majeure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_A_V0.html (ligne 9, ligne 7)",
+   "avant": "<body style=\"--fm-a:#4a2f6b;--fm-a-mid:#7d5aa6 ... (violet)",
+   "correction": "forme.py attend --fm-a:#183e1d (vert) pour la Phase A ; aligner la palette sur celle du cours (forme.py sans --verifier), ce qui réordonne aussi les sources de fin de page."
+  },
+  {
+   "gravite": "mineure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_A_V0.html (ligne 463)",
+   "avant": "Que craindre devant une otite externe rebelle chez un diabétique âgé ? Une otite externe nécrosante, dont l’ostéomyélite du rocher est associée à une mortalité de 10 à 21 % (point 4) ; DX.9 donne les autres chiffres ...",
+   "correction": "Phrase de 43 mots (limite 28). Couper en deux : « Elle évoque une otite externe nécrosante. L’ostéomyélite du rocher est associée à une mortalité de 10 à 21 % (point 4). DX.9 donne les autres chiffres avec leurs sources. »"
+  },
+  {
+   "gravite": "mineure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_A_V0.html (ligne 158, première occurrence en prose)",
+   "avant": "… les gouttes ototoxiques sont contre-indiquées en cas de perforation [AIPS 31957] [AIPS 54807]",
+   "correction": "Développer AIPS à la première occurrence : « information professionnelle suisse sur les médicaments (AIPS) » ; le sigle n'est développé nulle part dans la Phase A."
+  },
+  {
+   "gravite": "mineure",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_A_V0.html (point 11, guide ENT UK)",
+   "avant": "Le guide ENT UK répartit les gestes : le soignant de proximité éclaire l…",
+   "correction": "Écrire « Le guide de la société britannique d’oto-rhino-laryngologie (ENT UK) » à la première occurrence."
+  },
+  {
+   "gravite": "informative",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_A_V0.html (point 11, grossesse)",
+   "avant": "l’AIPS de Ciproxin HC demande de ne pas l’utiliser pendant la grossesse",
+   "correction": "HC est une partie du nom de spécialité (Ciproxin HC, hydrocortisone) : faux positif de abreviations.py ; lever en notant « Ciproxin HC (ciprofloxacine et hydrocortisone) » si le rédacteur le souhaite."
+  },
+  {
+   "gravite": "informative",
+   "fichier": "Claude/LOT_024/LOT_024_Phase_B_V0_DX.3.html et DX.5.html ; DX.6 et DX.7",
+   "avant": "Schémas dupliqués DX.5/DX.3 non touchés ; fiches DX.6/DX.7 séparées.",
+   "correction": "Jugement : aucune redite textuelle détectée par controle3 entre ces fichiers (VERT sur DX.3, DX.6, DX.7). Chaque DX reste un fichier autonome, la duplication d'un schéma entre deux fichiers n'est pas une redite de phrase ; accepté sans correction."
+  }
+ ],
+ "reserves": "Aucun cours lu en entier. Phrases nominales et sigles développés en masse dans les 10 DX : seuls les contrôles automatiques (controle3, abreviations.py) et des extraits ont été examinés, sans relecture phrase par phrase. Les tableaux d'interprétation et le contenu médical ne sont pas audités ici (conformité de forme seulement)."
+}
