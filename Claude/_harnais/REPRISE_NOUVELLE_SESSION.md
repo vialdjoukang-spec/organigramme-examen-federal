@@ -28,5 +28,5 @@ Ne lis rien d'autre au démarrage : ni CONTINUATION.md, ni PROCHAINE_ACTION.md, 
 | Chantier | Branche | Reste |
 |---|---|---|
 | LOT_023 | fusionné (PR #655, 12.11.2026, contrôle ultime audit-ok) | rien |
-| LOT_024 | `claude/lot-024-renfort-l1` | audit1 A/B levé ; contre-audit conformité CORRECTIONS (controle3 ROUGE DX.5/DX.9 : 2 phrases dupliquées DX.4/5 et DX.9/10 ; Phase A ORANGE phrase 43 mots ; forme.py : palette Phase A violette au lieu de verte, double espace crédits DX.4/5 ; abréviations Phase A AIPS, ENT UK) ; contre-audit médical `audits/contre_audit_medical.audit.json` (lire son verdict) ; corriger, revérifier, PR |
+| LOT_024 | `claude/lot-024-renfort-l1` | audit1 A/B levé ; contre-audit conformité CORRECTIONS (controle3 ROUGE DX.5/DX.9 : 2 phrases dupliquées DX.4/5 et DX.9/10 ; Phase A ORANGE phrase 43 mots ; forme.py : palette Phase A violette au lieu de verte, double espace crédits DX.4/5 ; abréviations Phase A AIPS, ENT UK) ; contre-audit médical CORRECTIONS (1 critique Ciproxine DX.3 grossesse/allaitement, 1 grave Co-Amoxi DX.2 80 mg/kg/j hors AIPS, 5 moyens, 6 légers) ; agent correcteur lancé le 12.11 (vérifier `restants_leves_par_redacteur` dans les 2 JSON) ; puis contrôle ultime ciblé, PR, fusion |
 | LOT_025 | `claude/lot-025-renfort-l1` + `claude/lot-025-agent-1..5` (WIP) | contre-audit Phase A ; reprise des 5 agents depuis leur WIP |
