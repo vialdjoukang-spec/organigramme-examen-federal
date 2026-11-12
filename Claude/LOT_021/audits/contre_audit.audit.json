@@ -1,0 +1,133 @@
+{
+ "verdict": "CORRECTIONS",
+ "date": "2026-11-11",
+ "base": "6d4264b44228db2a5f51776e4ce7edf32e6e19e3",
+ "audit": "contre-audit (Claude, indépendant)",
+ "leves": [
+  "Audit 1 A : A0–A16 appliqués et vérifiés par script (avant absent, correction présente ou variante équivalente) ; A1/A14/B9 : fenêtres déplacées au point 8, faits conservés (EHRA DX.2, diamètres DX.5, types DX.7).",
+  "A17 (volet LAA/LAMal) refusé faute de Fedlex lu : refus justifié (pas d'invention), lacune tracée dans HELP.md ; A18–A22, B21 reportés (images en file 429, feuille commune) : justifiés, non bloquants.",
+  "B0–B1 : fiches .mb de DX.6 sorties de f-dx6-medic ; Playwright 1280 px : 8/8 fiches (privigen, prednisone, dexa, eltrombopag, romiplostim, avatrombopag, tranexamique, rituximab) s'ouvrent depuis f-dx6-medic, display flex, plein écran ; aucune fenêtre imbriquée dans les 11 fichiers.",
+  "B2 : figure OpenStax 1909 Blood Clotting (CC BY 3.0, licence JSON vérifiée) insérée dans la Base de DX.6 ; 4 repères vérifiés par superposition : brèche, spasme, clou plaquettaire, fibrine — justes.",
+  "B5 : cascade Otocast retirée de DX.7 (reste dans DX.2), figure OpenStax insérée ; repère 4 juste, repères 1–3 mal placés (restant).",
+  "B6–B7 : unité DX.7 corrigée (30 à 50 UI/dL ; aucun « 0,30 et 50 » restant) ; arbre décisionnel « Facteur 30 à 50 UI/dL » ; point 9 renvoie au point 8. UI/mL restants = cibles AIPS Haemate (0,6/0,4 UI/mL), conformes à la décision HELP.",
+  "B13 (modifié) : DX.8 « dépiste une MAV pulmonaire, qui commande l'antibioprophylaxie dentaire » : modification juste ; 3 critères de Curaçao = diagnostic certain vérifié (Shovlin 2000, PMID 10751092). B20 DX.10 erreur classique sourcée. B11–B19, B22–B23 appliqués.",
+  "Retraits du corrections1.md : chaque fait retiré subsiste ailleurs (8→20 % DX.1 p5 ; seuils DX.7 p8 ; opsonisation DX.6 p3 ; gastroscopie/coloscopie DX.8 ; diamètres DX.5 p8). Aucun fait perdu.",
+  "controle3 --script-ok (proto) : VERT ×11, 81 649 à 116 252 octets. verif_aips : aucun BLOQUANT (seule alerte Phase A Xylocain 20–60/600 mg, faux positif confirmé sur l'AIPS 52097).",
+  "Playwright 1280 et 390 px : scrollWidth = largeur (aucun débordement), 0 ancre interne cassée, 0 lien inter-fichiers cassé, toutes les images existent sur disque.",
+  "Sonde de 21 doses AIPS sur le texte refdata : Cyklokapron 33741 (2 cp/1 eff ×3/j 7 j ; 25 mg/kg/dose ; indication épistaxis), Konakion 48112 (phenprocoumone 5–10 mg IV ; acénocoumarol 5 mg IV ; INR≥9 10 mg IV, <9 2–5 mg), Beriplex 00665 (25/35/50 UI FIX/kg ; ≤5000 UI ; ≤3 UI/kg/min et 210 UI/min), Praxbind 65804 (5 g, 2×2,5 g 5–10 min), Ondexxya 67759 (400 mg + 4 mg/min 120 min / 800 + 8 ; faible dose ≤5 mg apixaban, ≤10 mg rivaroxaban ou ≥8 h), Privigen 58314 (TIP 0,8–1 g/kg J1, répétable dans 3 j, ou 0,4 g/kg/j 2–5 j), Revolade 60122 (50 mg ; 25 mg asiatique/hépatique ; max 75 mg, arrêt après 4 sem.), Nplate 61541 (1 µg/kg, paliers 1, max 10 µg/kg), Octostim 52711 (0,3 µg/kg IV dans 10 mL NaCl 10–20 min ; SC <35 kg ; CI clairance <50 mL/min et type IIb), Haemate 45780 (0,02 UI/mL par UI/kg ; >0,6 et >0,4 UI/mL), Taxotere 53262 (TPF 75/75/750×5 j, 4 cycles), Amoxicilline 49923 (3 g dose unique) : tous conformes.",
+  "Sonde de 15 chiffres sur la source : ASH ISTH NHF WFH 2021 (PMC7805340) sensibilité 0,75, spécificité 0,54, mutation 75–82 % sous 0,30 et 44–60 % entre 0,30 et 0,50, ratio <0,7 contre ancien 0,5 ; Rodeghiero 1987 (PMID 3492222) 1218 écoliers de 11–14 ans, 0,82 %, type 1 ; Sanders 2013 WiN (PMID 23506463) 635 adultes, 3,3 %, SMR coronarien 0,60 ; Curaçao 3 critères = certain : tous exacts. Beck 2018 (8→20 %, 90–95 %) non relu (PMC/Europe PMC inaccessibles)."
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Correction B5 incomplète : sur la figure OpenStax (1909 Blood Clotting), le repère 1 tombe sur la paroi et la légende, le repère 2 sur une hématie échappée hors du vaisseau (et non sur le clou qui grossit), le repère 3 dans un blanc à gauche du complexe VIIIa (contrôle par superposition des cercles sur l'image). Lecture guidée trompeuse.",
+   "avant": "<circle cx=\"112\" cy=\"480\" r=\"34\" fill=\"none\" stroke=\"#b00020\" stroke-width=\"5.8\" stroke-dasharray=\"14\"/><text x=\"150\" y=\"480\"",
+   "correction": "<circle cx=\"90\" cy=\"528\" r=\"34\" fill=\"none\" stroke=\"#b00020\" stroke-width=\"5.8\" stroke-dasharray=\"14\"/><text x=\"128\" y=\"528\"",
+   "source": "Image File:1909_Blood_Clotting.jpg, panneau 3 « Forming platelet plug » (x≈90, y≈528 à 797 px)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Repère 2 (suite) : placer sur les plaquettes qui convergent vers le clou dans la lumière.",
+   "avant": "<circle cx=\"64\" cy=\"595\" r=\"34\" fill=\"none\" stroke=\"#b00020\" stroke-width=\"5.8\" stroke-dasharray=\"14\"/><text x=\"102\" y=\"595\"",
+   "correction": "<circle cx=\"170\" cy=\"540\" r=\"34\" fill=\"none\" stroke=\"#b00020\" stroke-width=\"5.8\" stroke-dasharray=\"14\"/><text x=\"208\" y=\"540\"",
+   "source": "Même image, panneau 3 « Platelet plug grows in size »"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Repère 3 (suite) : placer sur le facteur VIIIa de la cascade (b).",
+   "avant": "<circle cx=\"526\" cy=\"413\" r=\"34\" fill=\"none\" stroke=\"#b00020\" stroke-width=\"5.8\" stroke-dasharray=\"14\"/><text x=\"564\" y=\"413\"",
+   "correction": "<circle cx=\"558\" cy=\"382\" r=\"34\" fill=\"none\" stroke=\"#b00020\" stroke-width=\"5.8\" stroke-dasharray=\"14\"/><text x=\"596\" y=\"382\"",
+   "source": "Même image, panneau b, « VIIIa–IXa complex »"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Défaut A3–A5 (g/dL, redite du seuil transfusionnel) corrigé dans DX.2 mais pas dans DX.1 : le seuil SFORL figure 4 fois en g/dL (points 5, 7, 9 ×2), alors que Phase A et DX.2 écrivent 70/100 g/L. Unité à harmoniser ; le point 7 garde l'explication.",
+   "avant": "la SFORL propose une transfusion sous 7 g/dL d’hémoglobine",
+   "correction": "la SFORL propose une transfusion sous 70 g/L d’hémoglobine",
+   "source": "SFORL 2016 (S1)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Suite : unité du point 7.",
+   "avant": "Le seuil monte à 10 g/dL chez le patient",
+   "correction": "Le seuil monte à 100 g/L chez le patient",
+   "source": "S1"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Moyen",
+   "constat": "Suite : redite du seuil au point 9 (déjà au point 7 et dans le tableau du point 9) ; retrait ≈ −110 octets.",
+   "avant": "<p><b>Interprétation.</b> L’hémoglobine mesure le retentissement, et la SFORL propose de transfuser sous 7 g/dL, ou sous 10 g/dL en cas d’insuffisance coronarienne aiguë<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>. Une thrombopénie",
+   "correction": "<p><b>Interprétation.</b> L’hémoglobine mesure le retentissement et se lit au seuil transfusionnel du point 7<sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>. Une thrombopénie",
+   "source": "S1"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Suite : unités du point 5 et du tableau du point 9.",
+   "avant": "<td>Hémogramme ; seuil transfusionnel de 10 g/dL<sup",
+   "correction": "<td>Hémogramme ; seuil transfusionnel de 100 g/L<sup",
+   "source": "S1"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Suite : doublon d'unité.",
+   "avant": "<td>Hémoglobine inférieure à 70 g/L (7 g/dL)</td>",
+   "correction": "<td>Hémoglobine inférieure à 70 g/L</td>",
+   "source": "S1"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Unités non SI (g/dL, PNDS français) ; le LOT écrit g/L.",
+   "avant": "au-dessus de 9 à 10 g/dL",
+   "correction": "au-dessus de 90 à 100 g/L",
+   "source": "PNDS PTI 2024 (S1)"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Suite : unité du score hémorragique.",
+   "avant": "10 points avec une perte de plus de 2 g/dL",
+   "correction": "10 points avec une perte de plus de 20 g/L",
+   "source": "S1"
+  },
+  {
+   "fichier": "LOT_021_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Suite : unité de l'urgence vitale.",
+   "avant": "ou un saignement viscéral avec retentissement hémodynamique ou perte de plus de 2 g/dL",
+   "correction": "ou un saignement viscéral avec retentissement hémodynamique ou perte de plus de 20 g/L",
+   "source": "S1"
+  }
+ ],
+ "point14": {
+  "note": "controle3 VERT sur les 11 fichiers (≥ 6 questions)"
+ },
+ "octets": {
+  "Phase_A": 105051,
+  "DX.1": 98151,
+  "DX.2": 103404,
+  "DX.3": 116252,
+  "DX.4": 81649,
+  "DX.5": 83907,
+  "DX.6": 102151,
+  "DX.7": 96724,
+  "DX.8": 101372,
+  "DX.9": 87300,
+  "DX.10": 89105,
+  "effet_corrections": "DX.1 ≈ −110 ; DX.6 et DX.7 ≈ 0"
+ },
+ "compte": {
+  "Critique": 0,
+  "Grave": 0,
+  "Moyen": 6,
+  "Léger": 5
+ }
+}
