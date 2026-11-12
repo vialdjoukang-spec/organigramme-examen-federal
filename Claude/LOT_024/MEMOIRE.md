@@ -15,17 +15,17 @@ DX.10 — Fuite otologique de liquide cérébrospinal 🚩 E1
 ## Fichiers
 | Fichier | Titre | Octets | controle3 | Fenêtres | Fiches .mb (AIPS) | Sources | sha8 |
 |---|---|---|---|---|---|---|---|
-| Phase_A_V0.html | S1.8 — Écoulement auriculaire | discharge fr | 90191 | VERT | 40 | 0 (31957,44911,54807) | 20 | d1a5e7db |
+| Phase_A_V0.html | S1.8 — Écoulement auriculaire | discharge fr | 90342 | ORANGE | 40 | 0 (31957,44911,54807) | 20 | dc493b99 |
 | Phase_B_V0_DX.1.html | Otite externe aiguë bactérienne | 89073 | VERT | 41 | 4 (31957,45031,47503,54807) | 12 | 21a444b3 |
 | Phase_B_V0_DX.2.html | Otite moyenne aiguë perforée | 91179 | VERT | 40 | 7 (31957,43838,44911,48306,49460,53982,53995,54807,56046,57192) | 22 | 3b9818c5 |
 | Phase_B_V0_DX.3.html | Otite moyenne chronique suppurée sans choles | 84282 | VERT | 43 | 4 (31957,47795,51898,54807) | 19 | 463c4579 |
-| Phase_B_V0_DX.4.html | Otomycose | 85086 | VERT | 42 | 4 (31957,37510,46100,54807) | 16 | b58f7abc |
-| Phase_B_V0_DX.5.html | Dermatite eczémateuse du conduit auditif | 83942 | VERT | 43 | 4 (31957,36481,54807,55965) | 13 | e333f87a |
-| Phase_B_V0_DX.6.html | Corps étranger du conduit auditif | 83494 | VERT | 38 | 6 (10714,43838,47503,54807,55766,56046) | 19 | e3be0be8 |
-| Phase_B_V0_DX.7.html | Perforation tympanique traumatique | 87411 | VERT | 37 | 7 (10714,31957,43838,47503,54807,55766,56046) | 22 | 381f5ea7 |
+| Phase_B_V0_DX.4.html | Otomycose | 88172 | VERT | 42 | 4 (31957,37510,46100,54807) | 17 | b75f26bb |
+| Phase_B_V0_DX.5.html | Dermatite eczémateuse du conduit auditif | 87157 | ROUGE | 43 | 4 (31957,36481,54807,55965) | 14 | 7a3d0389 |
+| Phase_B_V0_DX.6.html | Corps étranger du conduit auditif | 81707 | VERT | 38 | 6 (10714,43838,47503,54807,55766,56046) | 19 | a5ff4624 |
+| Phase_B_V0_DX.7.html | Perforation tympanique traumatique | 87440 | VERT | 37 | 7 (10714,31957,43838,47503,54807,55766,56046) | 22 | f5960930 |
 | Phase_B_V0_DX.8.html | Cholestéatome de l’oreille moyenne 🚩 E3 | 83517 | VERT | 37 | 1 (44625) | 16 | 8b5b51be |
-| Phase_B_V0_DX.9.html | Otite externe nécrosante 🚩 E2 | 88666 | VERT | 39 | 3 (46050,47795,57929,63001) | 23 | 995443a6 |
-| Phase_B_V0_DX.10.html | Fuite otologique de liquide cérébrospinal 🚩  | 84714 | VERT | 38 | 3 (44625,69222,69781) | 16 | ea0ad731 |
+| Phase_B_V0_DX.9.html | Otite externe nécrosante 🚩 E2 | 88774 | VERT | 39 | 3 (46050,47795,57929,63001) | 23 | 7d45e580 |
+| Phase_B_V0_DX.10.html | Fuite otologique de liquide cérébrospinal 🚩  | 83115 | ROUGE | 38 | 3 (44625,69222,69781) | 16 | 9275e4b5 |
 
 ## Audits
 - LISTE_DX.audit.json : verdict CORRIGER, {}
@@ -43,6 +43,7 @@ DX.10 — Fuite otologique de liquide cérébrospinal 🚩 E1
   - Grave · LOT_024_Phase_B_V0_DX.9.html · Les 4 dates de mise à jour AIPS sont fausses (relu refdata en direct le 12.11.2026) : la version citée n'a pas été lue.
   - Grave · LOT_024_Phase_B_V0_DX.10.html · Les 3 dates de mise à jour AIPS sont fausses (Rocephin daté juin 2025 dans le DX.8, juillet 2025 ici).
 - phase_A.contre_audit.json : verdict ACCEPTE, {}, seconde passe ACCEPTE
+- restants_leves_par_redacteur.json : verdict None, {}
 
 ## Lacunes (HELP.md, 8 dernières)
 - DX.5 : Panotile (AIPS : dermatites eczémateuses) enseigné seulement sans antécédent de gouttes ; néomycine évitée si allergie suspectée (Sood 2002).
@@ -54,7 +55,7 @@ DX.10 — Fuite otologique de liquide cérébrospinal 🚩 E1
 
 - DX.3 : l'AIPS Ciproxine (47795) cite l'otite moyenne purulente chronique (2 × 500–750 mg, 7–14 j), mais Cochrane 2025 ne montre guère de bénéfice à l'ajouter aux gouttes ; le cours la réserve aux signes généraux (Bozorg Grayeli 2020) et écrit la divergence.
 
-## Sources déjà lues dans ce LOT (121) — réutiliser avant toute recherche
+## Sources déjà lues dans ce LOT (123) — réutiliser avant toute recherche
 - CIMS/SMIFK. PROFILES 2023 — Situations as Starting Points, SSP S1.8 «  — https://www.smifk-cims.ch/profiles-2023/ssps
 - Hôpitaux universitaires de Genève (HUG), service d’ORL et de chirurgie — https://www.hug.ch/orl-chirurgie-cervico-faciale/otite-externe
 - Société suisse d’infectiologie (SSI). Otite moyenne aiguë, version val — https://ssi.guidelines.ch/guideline/2406/fr
@@ -100,4 +101,4 @@ DX.10 — Fuite otologique de liquide cérébrospinal 🚩 E1
 - Welleschik B. Otitis media entdifferenziert2, photographie otoscopique — https://commons.wikimedia.org/wiki/File:Otitis_media_entdifferenziert2.jpg
 - Hawke M. Subtotal perforation of the right tympanic membrane, photogra — https://commons.wikimedia.org/wiki/File:Subtotal_Perforation_of_the_right_tympanic_membrane.tif
 - HUG, da Graça S. L’oreille aux urgences ambulatoires (UUA), support de — https://www.hug.ch/sites/interhug/files/atelier_mpr/24.07.19_presentation_sur_otites_5.pdf
-- (+ 76 autres : grep -h '<li id="sb-' dans les cours)
+- (+ 78 autres : grep -h '<li id="sb-' dans les cours)

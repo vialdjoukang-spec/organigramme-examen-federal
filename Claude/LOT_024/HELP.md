@@ -1,6 +1,5 @@
 ## Lacunes ouvertes
-- DX.4 : photo otoscopique libre d'une otomycose non trouvée (Commons « Otomycosis.jpg » = eczéma du pavillon, écartée) ; seul le schéma Blausen est inséré.
-- DX.5 : photo clinique libre d'un eczéma du conduit non trouvée ; seul le schéma OpenStax est inséré.
+- DX.4 et DX.5 : photographies otoscopiques libres en couleurs insérées (PMC12907254, Koda 2026, otomycose ; PMC12189848, Hirano 2025, eczéma chronique du conduit chez un atopique), CC BY 4.0, repères vérifiés par superposition PIL le 12.11.2026 ; Commons « Otomycosis.jpg » écartée (eczéma du pavillon).
 - DX.4 et DX.5 : audits A et B faits par le rédacteur (pas d'outil de sous-agent) ; audit indépendant à refaire.
 ## Décisions en vigueur
 - DX.5 : Panotile (AIPS : dermatites eczémateuses) enseigné seulement sans antécédent de gouttes ; néomycine évitée si allergie suspectée (Sood 2002).
