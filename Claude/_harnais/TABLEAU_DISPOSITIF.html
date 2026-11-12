@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau du dispositif</title>
+<style>
+:root{--fond:#f7f6f2;--carte:#fff;--texte:#1d1d1b;--doux:#5f5e58;--ligne:#e2e0d8;--groupe:#ecebe4;
+--mes:#1f6f4a;--mes-f:#e3f2ea;--tes:#1d5a8c;--tes-f:#e2edf7;--att:#8a5a00;--att-f:#fbf0d9;--aucune:#9b2c2c;--aucune-f:#f8e3e3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--fond:#161614;--carte:#1f1f1c;--texte:#ecebe6;--doux:#a8a69d;--ligne:#34332e;--groupe:#2a2925;
+--mes:#7fd3a8;--mes-f:#1d3328;--tes:#8fc1ec;--tes-f:#1b2b3a;--att:#f0c56a;--att-f:#3a2e15;--aucune:#f19a9a;--aucune-f:#3d1f1f}}
+:root[data-theme="dark"]{--fond:#161614;--carte:#1f1f1c;--texte:#ecebe6;--doux:#a8a69d;--ligne:#34332e;--groupe:#2a2925;
+--mes:#7fd3a8;--mes-f:#1d3328;--tes:#8fc1ec;--tes-f:#1b2b3a;--att:#f0c56a;--att-f:#3a2e15;--aucune:#f19a9a;--aucune-f:#3d1f1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--texte);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1400px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:22px;margin:0 0 4px}
+.sous{color:var(--doux);margin:0 0 18px}
+.legende{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.b{display:inline-block;padding:1px 7px;border-radius:9px;font-size:12px;font-weight:600;white-space:nowrap}
+.mes{color:var(--mes);background:var(--mes-f)}.tes{color:var(--tes);background:var(--tes-f)}
+.att{color:var(--att);background:var(--att-f)}.aucune{color:var(--aucune);background:var(--aucune-f)}
+.cadre{overflow-x:auto;background:var(--carte);border:1px solid var(--ligne);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:1100px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--ligne);vertical-align:top;text-align:left}
+th{position:sticky;top:0;background:var(--carte);font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--doux)}
+tr.g td{background:var(--groupe);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+td:first-child{font-weight:600;white-space:nowrap}
+code{font-size:12.5px}
+td p{margin:4px 0 0}
+section{margin-top:22px}
+h2{font-size:16px;margin:0 0 8px}
+ol{margin:0;padding-left:20px}
+li{margin:3px 0}
+</style>
+</head>
+<body>
+<main>
+<h1>Tableau théorique du dispositif</h1>
+<p class="sous">Harnais d’économie · relevé du 12.11.2026 · état : PAUSE. Sources : RAPPORT_HARNAIS.html, GASPILLON.html, en-têtes de <code>Claude/_harnais/</code>, et tests rejoués ce jour sur une machine vierge (branche <code>claude/lot-024-renfort-l1</code>).</p>
+<div class="legende">
+<span class="b mes">mesurée</span> chiffre relevé sur données réelles
+<span class="b tes">testée</span> exécutée ce jour, résultat observé
+<span class="b att">attendue</span> effet prévu, non encore observé
+<span class="b aucune">aucune</span> jamais exercé
+</div>
+
+<div class="cadre"><table>
+<thead><tr><th>Entité</th><th>Rôle</th><th>Déclencheur</th><th>Ce qu’elle empêche réellement</th><th>Preuve</th><th>Limite</th></tr></thead>
+<tbody>
+
+<tr class="g"><td colspan="6">Installation et sélection</td></tr>
+<tr><td><code>installer.sh</code></td><td>Restaure le corpus AIPS hors ligne, pose le verrou MEDINA, compile les scripts.</td><td>Manuel, une fois par machine vierge.</td><td>Une session sans corpus AIPS ni verrou.</td><td><span class="b tes">testée</span><p>Exécuté ce jour : corpus restauré, Mestinon 19943 retrouvé hors ligne.</p></td><td>N’écrit <code>~/.claude/settings.json</code> que s’il est absent : un fichier préexistant laisse le verrou non enregistré, sans alerte.</td></tr>
+<tr><td><code>bracelet.py</code></td><td>Tâche → 1 à 3 outils locaux.</td><td>Volontaire, début de tâche.</td><td>Rien de bloquant : il oriente.</td><td><span class="b tes">testée</span><p>« grossesse allaitement AIPS avant audit » → <code>aips_fiche</code>, <code>extrait</code>, <code>controle3</code>.</p></td><td>Mots-clés par regex ; aucun effet si l’agent ne l’appelle pas.</td></tr>
+<tr><td><code>BRIEF_HARNAIS.md</code></td><td>Brief unique remis à chaque agent.</td><td>Lancement d’un agent.</td><td>Les lectures d’amorçage (MISSION, CONSIGNES, prompt L1 entier).</td><td><span class="b mes">mesurée</span> 2,65 Ko<p><span class="b att">attendue</span> ≈ 300 Ko de lectures évitées.</p></td><td>Le CLAUDE.md exige la lecture du bloc L1 : le brief doit en porter l’intégralité normative, pas un résumé.</td></tr>
+
+<tr class="g"><td colspan="6">Lecture économe</td></tr>
+<tr><td><code>extrait.py</code></td><td>Lit un cours par point, fenêtre ou motif.</td><td>À la place de tout Read d’un cours.</td><td>La lecture intégrale d’un HTML de 80–150 Ko (G3), première fuite mesurée.</td><td><span class="b tes">testée</span><p>Plan d’un cours de 90 Ko (40 fenêtres) en 0,04 s.</p></td><td>Facultatif : un Read sans borne reste possible. Repose sur le balisage <code>h3 id="…-pN"</code>.</td></tr>
+<tr><td><code>sources_cache.py</code></td><td>Cache partagé des sources ; citations par mots ; disjoncteur par domaine.</td><td>Avant toute recherche web.</td><td>Le rapatriement double (G1 : 185 alertes) et la relance d’un domaine mort (G2 : 74).</td><td><span class="b att">attendue</span><p>Index : 2 sources ; disjoncteur : aucun domaine coupé.</p></td><td>Contournable par WebFetch ou curl direct. Texte hors dépôt : perdu à chaque machine vierge.</td></tr>
+<tr><td><code>aips_fiche.py trouve | fiche</code></td><td>N° Swissmedic, date, URL AIPS hors ligne ; fiche compacte de rubriques.</td><td>Rédaction, toute question de molécule.</td><td>La recherche web d’un n° d’autorisation ; la lecture d’une AIPS entière (40–120 Ko).</td><td><span class="b tes">testée</span><p>Tranche le restant LOT_023 : Mestinon 19943 comprimés, 19945 dragées, 56387 retard.</p></td><td>Corpus figé au 8.10.2026 ; une AIPS mise à jour depuis échappe.</td></tr>
+
+<tr class="g"><td colspan="6">Mémoires</td></tr>
+<tr><td><code>resumeur.py</code> → MEMOIRE.md</td><td>État d’un LOT : liste gelée, verdicts, restants, sources lues.</td><td>Avant chaque agent ; veille (10 min).</td><td>La relecture des onze cours, des audits et des sources.</td><td><span class="b mes">mesurée</span><p>LOT_024 : 12,4 Ko au lieu de 944 Ko (÷ 76).</p></td><td>La veille ne le régénère que si <code>/home/user/wt/r-0NN</code> existe : absent sur machine vierge (recréé ce jour pour 024 seul).</td></tr>
+<tr><td><code>memoire_agent.py</code></td><td>Carnet d’un agent, une ligne par fait établi, ajout seul.</td><td>Lu au départ, écrit à chaque étape.</td><td>La relecture par un agent qui reprend ou remplace.</td><td><span class="b aucune">aucune</span><p>Aucun dossier <code>memoire/</code> dans les LOT 023–025.</p></td><td>Dépend entièrement de la discipline de l’agent.</td></tr>
+<tr><td><code>cerveau.py</code></td><td>Recherche BM25 sur mémoires, carnets, consignes, audits, sources.</td><td>Avant toute relecture.</td><td>« Relire pour retrouver ».</td><td><span class="b tes">testée</span><p>« Mestinon allaitement » → en tête un audit du LOT_017 : pertinence faible.</p></td><td>Lexical ; index pauvre tant que carnets et cache des sources sont vides.</td></tr>
+
+<tr class="g"><td colspan="6">Portes de contrôle</td></tr>
+<tr><td><code>aips_fiche.py verifier</code></td><td>Compare Grossesse, Allaitement, Contre-indications et dates au texte de l’AIPS citée.</td><td>Avant audit (code 1 bloque).</td><td>Une interdiction adoucie ou une date fausse qui arrive jusqu’à l’audit.</td><td><span class="b tes">testée</span><p>LOT_024 renfort : 21 défauts bloquants (10 date, 5 adouci, 6 absent), dont Rocephin « allaitement interrompu » contre « ne doit pas être utilisée ». Rapport : retrouve les 14 bloquants de l’audit.</p></td><td>28 s par LOT ; heuristique lexicale ; ne contrôle pas les doses (rôle de <code>verif_aips.py</code>).</td></tr>
+<tr><td><code>abreviations.py</code></td><td>Signale tout sigle non développé à sa première occurrence.</td><td>Avant audit (code 1).</td><td>Le défaut « sigle non développé » relevé par chaque audit B.</td><td><span class="b tes">testée</span><p>LOT_024 : 81 sigles, code 1, en 0,07 s.</p></td><td>Bruit : AIPS (10), ORL (8), IRM, QT, UK signalés. Sans liste blanche, la porte bloque tout et sera contournée.</td></tr>
+<tr><td><code>controle3.py</code>, <code>verif_aips.py</code></td><td>Contrôle des 3 axes ; contrôle des doses.</td><td>Avant audit.</td><td>Un fichier hors bande ou une dose non conforme à l’AIPS.</td><td><span class="b mes">mesurée</span><p>En service sur les LOT antérieurs (hors harnais).</p></td><td>Non rejoués ce jour.</td></tr>
+
+<tr class="g"><td colspan="6">Observation</td></tr>
+<tr><td><code>suivi.py</code></td><td>Compteur par agent : tours, contexte, sortie, coût, accès web.</td><td>Veille (10 min) ; après chaque agent.</td><td>Rien : il rend la dépense visible.</td><td><span class="b mes">mesurée</span><p>176 agents, 753 M tokens équivalents depuis le 11.11.</p></td><td>Lit les journaux locaux : l’historique d’une machine perdue ne survit que par <code>agents.jsonl</code> versionné.</td></tr>
+<tr><td><code>gaspillon.py</code></td><td>9 détecteurs de gaspillage sur les journaux.</td><td>Veille (10 min).</td><td>Rien a priori : il détecte après coup.</td><td><span class="b mes">mesurée</span><p>1 444 alertes sur 169 agents ; seul G5 chiffré (173 M évitables).</p></td><td>G5 compte un Read d’image en caractères (PNG « 407 k car. ») : coût évitable probablement surestimé. G1–G4, G6–G9 non chiffrés.</td></tr>
+<tr><td><code>modele.py</code></td><td>Identité mécanique, régression, Monte-Carlo ; mesure réelle des agents [H].</td><td>Veille (10 min).</td><td>Rien : il prévoit et mesure.</td><td><span class="b mes">mesurée</span> identité R² 0,9995 ; régression R² 0,43<p><span class="b att">attendue</span> −36 % (86 → 54 M par LOT).</p></td><td>Validation hors échantillon : 1 LOT sur 4 dans l’IC sans effet LOT. Leviers supposés, non observés. Aucun agent [H] : économie réelle inconnue.</td></tr>
+
+<tr class="g"><td colspan="6">Veille</td></tr>
+<tr><td><code>veille_harnais.sh</code></td><td>Boucle locale : MEMOIRE.md, suivi, modèle, Gaspillon, index du cerveau ; consigne ses échecs.</td><td>Lancée au GO ; cycle de 10 min.</td><td>Des mémoires et mesures périmées.</td><td><span class="b aucune">aucune</span><p>Jamais lancée sur cette machine.</p></td><td>Meurt avec la machine. Vérifie la présence du fichier du verrou, pas son enregistrement. N’empêche rien.</td></tr>
+<tr><td>Veille GitHub (<code>garde-progres.yml</code>, <code>harnais-5min.yml</code>)</td><td>Relance Codex si rien ne monte ; contrôle fonctionnel du harnais de surveillance.</td><td>Cron GitHub (10 min, 5 min).</td><td>L’arrêt silencieux du chantier sans PC allumé.</td><td><span class="b mes">mesurée</span><p>En service sur le dépôt.</p></td><td>Indépendante du harnais d’économie : ne régénère ni mémoire ni mesure.</td></tr>
+
+<tr class="g"><td colspan="6">Verrou</td></tr>
+<tr><td><code>verrou_medina.py</code></td><td>Crochet PreToolUse : refuse tout outil visant le dépôt MEDINA, sous-agents compris.</td><td>Chaque appel d’outil.</td><td>Les accès au dépôt fermé (G9 : 110 alertes avant verrou).</td><td><span class="b tes">testée</span><p>Chemin absolu refusé (code 2) ; il a bloqué ma propre commande de test ce jour.</p></td><td>Un chemin relatif passe : <code>cd /home/user &amp;&amp; ls Med…</code> → code 0. Dépend de l’enregistrement par <code>installer.sh</code>.</td></tr>
+
+<tr class="g"><td colspan="6">Agents</td></tr>
+<tr><td>Agents spécialisés (<code>redacteur</code>, <code>auditeur-medical</code>, <code>auditeur-conformite</code>, <code>designer</code>, <code>mecanique</code>)</td><td>Rédaction, audit, forme, tâches mécaniques.</td><td>Lancement par la boucle principale.</td><td>L’auto-notation : aucun auditeur ne juge son propre texte.</td><td><span class="b mes">mesurée</span><p>Rédaction 2 DX : médiane 10 M, 256 tours, 433 k en fin.</p></td><td>Harnais volontaire. 0 agent [H] à ce jour. 12 agents arrêtés : 41 M perdus ; LOT_025 : 5 agents en pause (≈ 34 M) à reprendre depuis leur WIP.</td></tr>
+<tr><td>Boucle principale</td><td>Orchestration, notifications, PR.</td><td>Permanente.</td><td>—</td><td><span class="b mes">mesurée</span><p>2 239 tours, contexte moyen 492 k, maximum 900 k.</p></td><td>Aucun script ne la borne : relais par fiche de reprise seulement.</td></tr>
+
+<tr class="g"><td colspan="6">PR et CI</td></tr>
+<tr><td>PR #652 (harnais, brouillon)</td><td>Livrer le harnais sur <code>main</code>.</td><td>GO de Vial.</td><td>Une fusion sans contrôle.</td><td><span class="b tes">testée</span><p>8 contrôles verts (garde, tests, html, liens, schemas, visuel, checkpoint, etiquette) ; 2 sautés (auto-fusion, référence).</p></td><td>La CI vérifie la forme du dépôt, pas l’économie annoncée.</td></tr>
+<tr><td>CI <code>garde</code></td><td>Refuse toute PR de LOT sans « Prompt L1 lu et appliqué ».</td><td>Chaque PR.</td><td>Un LOT livré hors prompt L1.</td><td><span class="b mes">mesurée</span><p>Verte sur #652.</p></td><td>Vérifie une déclaration, pas son exactitude ; le contenu médical reste aux audits.</td></tr>
+
+</tbody></table></div>
+
+<section>
+<h2>Défauts à corriger au GO, avant tout agent [H]</h2>
+<ol>
+<li>Verrou : couvrir les chemins relatifs et <code>cd</code> vers <code>/home/user</code>.</li>
+<li><code>installer.sh</code> : fusionner le crochet dans un <code>settings.json</code> existant au lieu de l’ignorer.</li>
+<li><code>abreviations.py</code> : liste blanche (AIPS, ORL, IRM, QT, ECG…) sinon porte inutilisable.</li>
+<li>Veille : créer les worktrees <code>/home/user/wt/r-023…025</code> avant lancement, sinon MEMOIRE.md n’est pas régénéré.</li>
+<li>Gaspillon G5 : exclure ou convertir en tokens les lectures d’images.</li>
+</ol>
+</section>
+</main>
+</body>
+</html>
