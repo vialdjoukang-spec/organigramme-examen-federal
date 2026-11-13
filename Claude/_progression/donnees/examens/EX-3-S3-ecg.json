@@ -10,58 +10,129 @@
   "S3"
  ],
  "axe_secondaire": [
-  "—"
+  "Repos"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Électrocardiogramme standard de repos à 12 dérivations",
+  "synonymes": "ECG ; ECG 12 pistes ; électrocardiogramme de surface",
+  "prelevement_conditions": "Le patient reste allongé au repos ; on place 4 électrodes de membres et 6 précordiales et l'on enregistre à 25 mm/s (déduction pour le calcul de fréquence ; non vérifié CH). Un tracé d'une seule dérivation de plus de 30 s suffit pour poser une fibrillation auriculaire si un médecin le relit (HUG 2023).",
+  "bon_usage_suisse": "Les HUG décrivent l'ECG comme peu coûteux et facile, donc ils le placent dans le bilan initial systématique de toute syncope, avec l'anamnèse, l'examen et un test de Schellong court de 3 min ; ce trio pose un diagnostic dans plus de 50 % des syncopes (HUG 2024). Le dépistage systématique de la fibrillation auriculaire n'est pas recommandé ; l'ESC recommande un dépistage opportuniste par pouls ou ECG après 65 ans (HUG 2023, d'après l'ESC 2020)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "On enregistre l'ECG dès l'arrivée devant une syncope, une douleur thoracique ou des palpitations, car des signes d'ischémie aiguë, un bloc AV de haut degré ou une tachycardie ventriculaire classent le patient à haut risque et imposent une prise en charge urgente (HUG 2024). Si l'on suspecte une cause ischémique, on dose aussi les troponines (HUG 2024).",
+  "diagnostic_etiologie": "L'ECG pose le diagnostic de fibrillation auriculaire, car il montre l'absence d'ondes P répétées et des RR irrégulièrement irréguliers (HUG 2023). Il oriente l'étiologie d'une syncope : Brugada, préexcitation, QTc long ou court, ondes epsilon (HUG 2024).",
+  "depistage_pretherapeutique": "On fait un ECG avant un médicament qui allonge le QT, afin de connaître le QTc de base (CHUV 2024). Après 75 ans ou si le risque d'AVC est élevé, on doit envisager un dépistage systématique de la fibrillation auriculaire par ECG (ESC, classe IIa, cité par HUG 2023).",
+  "suivi_surveillance": "Chez tout patient en fibrillation auriculaire, on fait un ECG 12 dérivations afin de chercher des troubles de conduction, une ischémie ou une cardiopathie structurelle (HUG 2023). On répète l'ECG sous psychotrope à risque 1 à 2 semaines après l'initiation (CHUV 2024).",
+  "ne_pas_demander": "On ne demande pas d'échocardiographie pour une syncope seule avec un ECG normal, car son rendement reste faible (HUG 2024). On ne fait pas d'imagerie cérébrale ni de Doppler carotidien sans signe neurologique focal (HUG 2024)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
+   "parametre": "Rythme",
+   "normal": "Sinusal : une onde P avant chaque QRS (non vérifié CH)",
+   "anomalie": "L'absence d'ondes P répétées avec des RR irrégulièrement irréguliers définit la fibrillation auriculaire (HUG 2023).",
+   "seuil_alerte": "Tachycardie ventriculaire ; fibrillation auriculaire lente < 40/min (HUG 2024)"
+  },
+  {
+   "parametre": "Fréquence cardiaque",
+   "normal": "Le sujet éveillé non sportif garde une fréquence ≥ 50/min (déduction ; HUG 2024)",
+   "anomalie": "Une bradycardie sinusale de 40 à 50/min inexpliquée et asymptomatique reste à bas risque (HUG 2024).",
+   "seuil_alerte": "Bradycardie persistante < 40/min ou pauses sinusales chez un patient éveillé non sportif (HUG 2024)"
+  },
+  {
+   "parametre": "Conduction auriculo-ventriculaire (PR)",
+   "normal": "120–200 ms (non vérifié CH)",
+   "anomalie": "Un bloc AV du 1er degré avec PR nettement prolongé ou un Mobitz 1 constitue une anomalie à bas risque (HUG 2024).",
+   "seuil_alerte": "Bloc AV du 2e degré Mobitz II ou du 3e degré (HUG 2024)"
+  },
+  {
+   "parametre": "QRS",
+   "normal": "< 120 ms (non vérifié CH)",
+   "anomalie": "Un bloc de branche, une hypertrophie ventriculaire ou des ondes Q évoquent une cardiopathie et classent la syncope à haut risque (HUG 2024).",
+   "seuil_alerte": "QRS préexcité (Wolff-Parkinson-White) (HUG 2024)"
+  },
+  {
+   "parametre": "QTc",
+   "normal": "≤ 450 ms (homme) ; ≤ 460 ms (femme) (RMS 2016)",
+   "anomalie": "Si le QTc dépasse 460 ms ou reste sous 340 ms, la syncope est classée à haut risque (HUG 2024).",
+   "seuil_alerte": "QTc ≥ 500 ms (CHUV 2024)"
+  },
+  {
+   "parametre": "Segment ST et onde T",
    "normal": "—",
-   "anomalie": "—",
-   "seuil_alerte": "—"
+   "anomalie": "Des signes d'ischémie aiguë imposent une prise en charge urgente ; des T négatives en V1–V3 avec ondes epsilon évoquent une cardiomyopathie ventriculaire droite arythmogène (HUG 2024).",
+   "seuil_alerte": "Signes d'ischémie aiguë (HUG 2024)"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Fréquence cardiaque",
+   "formule": "À 25 mm/s, on calcule fréquence = 1500 ÷ nombre de petits carreaux (1 mm) entre deux R, ou 300 ÷ nombre de grands carreaux (5 mm).",
+   "a_quoi_ca_sert": "On lit la fréquence en quelques secondes sans appareil, donc on repère vite une bradycardie < 40/min.",
+   "exemple": "Deux R sont séparés de 5 grands carreaux. On calcule 300 ÷ 5 = 60/min.",
+   "source": "Cette formule découle de la vitesse de 25 mm/s, soit 1500 mm par minute (déduction ; non vérifié CH)."
+  },
+  {
+   "nom": "QTc de Fridericia",
+   "formule": "On calcule QTc = QT ÷ ∛RR, avec RR en secondes ; on préfère Fridericia à Bazett au-delà de 80–90/min.",
+   "a_quoi_ca_sert": "Le QTc compare le QT au seuil de 450 ou 460 ms quelle que soit la fréquence.",
+   "exemple": "Un QT de 360 ms à 100/min donne RR = 0.6 s et ∛0.6 = 0.843 ; on calcule 360 ÷ 0.843 = 427 ms, donc le QTc reste normal.",
+   "source": "Guinand et coll. (HUG) indiquent la formule dans la Revue Médicale Suisse 2016 ; 12 : 1049-53 (lu le 13.11.2026) ; voir aussi la fiche ECG sous psychotropes."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "L'ECG montre un bloc AV du 3e degré avec un échappement à 35/min.",
+   "associees_presentes": "Le QRS dure 140 ms.",
+   "associees_a_rechercher": "On cherche une ischémie (troponines), une hyperkaliémie et un médicament bradycardisant, car ces causes se corrigent (HUG 2024 ; déduction).",
+   "syndrome_anamnese": "Le patient de 78 ans a fait une syncope en position assise, sans prodrome.",
+   "syndrome_status": "Le pouls est lent et régulier ; le patient reste éveillé.",
+   "confirmation": "Le bloc AV du 3e degré figure parmi les critères ECG de haut risque (HUG 2024).",
+   "diagnostic": "Il s'agit d'une syncope cardiaque rythmique par bloc AV complet.",
+   "conduite": "On hospitalise le patient sous monitorage, car le haut risque impose une prise en charge urgente ; on prépare la stimulation cardiaque (HUG 2024 ; non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "Un tracé de 40 s montre des RR irrégulièrement irréguliers sans onde P, à 128/min.",
+   "associees_presentes": "Le patient a des palpitations depuis 2 jours.",
+   "associees_a_rechercher": "On dose FSC, TSH, fonction rénale, électrolytes, HbA1c et lipides, et l'on fait une échocardiographie transthoracique, car la FA demande ce bilan chez tous les patients (HUG 2023).",
+   "syndrome_anamnese": "Le patient de 72 ans est hypertendu et ronfle.",
+   "syndrome_status": "Le pouls est irrégulier.",
+   "confirmation": "Un tracé > 30 s sans onde P avec RR irrégulièrement irréguliers confirme la FA (HUG 2023).",
+   "diagnostic": "Il s'agit d'une fibrillation auriculaire de découverte récente.",
+   "conduite": "On évalue le score CHA2DS2-VASc pour l'anticoagulation et l'on vise une fréquence < 110/min (< 80/min si les symptômes persistent), selon la démarche « Avoid stroke, Better symptom control, Cardiovascular risk » de l'ESC (HUG 2023)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si l'on ne fait pas d'ECG devant une syncope",
+    "consequence": "On méconnaît un bloc AV, un QT long ou un Brugada et le patient risque une mort subite (HUG 2024)."
+   },
+   {
+    "si": "Si l'on pose une FA sur la seule alerte d'une montre sans tracé",
+    "consequence": "On anticoagule sans diagnostic, car sans tracé il faut confirmer par ECG (HUG 2023)."
+   },
+   {
+    "si": "Si l'on applique Bazett à une fréquence élevée",
+    "consequence": "On surestime le QTc (RMS 2016)."
+   },
+   {
+    "si": "Si l'on demande une échocardiographie pour toute syncope",
+    "consequence": "On engage un coût sans rendement, car la syncope seule n'est pas une indication (HUG 2024)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On lit l'ECG en « R-F-C-Q-S » : Rythme, Fréquence, Conduction (PR), QRS-QT, puis ST-T (déduction)."
  },
  "sources": [
-  "—"
+  "HUG, Service de médecine de premier recours. Syncope, stratégie 2024, doi:10.53738/REVMED.2024.20.888.1707 (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours. Fibrillation auriculaire, stratégie 2023, doi:10.53738/REVMED.2023.19.843.1757 (lu le 13.11.2026)",
+  "Guinand A et coll. (HUG). Évaluation de l'intervalle QT en présence d'un élargissement du QRS. Rev Med Suisse 2016 ; 12 : 1049-53 (lu le 13.11.2026)",
+  "CHUV, Département de psychiatrie. Suivi ECG des patients hospitalisés, version 2.0 du 19.03.2024 (lu le 13.11.2026)"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S3-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "Cette fiche explique la genèse de l'onde P, du QRS et de la repolarisation."
   }
  ]
 }
