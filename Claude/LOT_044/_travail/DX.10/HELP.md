@@ -1,0 +1,9 @@
+# HELP — DX.10 Dissection aortique aiguë (lacunes à traiter par le chef de production)
+
+1. Doses intraveineuses sans notice AIPS lue : morphine i.v. (seule la capsule orale Kapanol® 53842 est dans l'AIPS lu, inutilisable), fentanyl, nitroprussiate, nicardipine, diltiazem et vérapamil i.v. Le texte donne classe et conduite sans milligramme (source : ESC 2024, figure 31 et tableau 45).
+2. Esmolol OrPha LYO (65741) : l'AIPS ne cite pas la dissection aortique (indications : tachycardie, hypertension périopératoire) ; l'usage décrit par l'ESC est donc hors notice, signalé tel quel dans le point 11. Idem Trandate (indication AIPS : urgences hypertensives) et Urapidil Stragen i.v. (non cité par l'ESC pour la dissection).
+3. Épidémiologie suisse (incidence, mortalité) : aucune donnée suisse lue (OFS/Obsan/SwissVasc) ; les chiffres sont européens (ESC 2024, SMW 2017).
+4. Volet social et assurances (incapacité de travail, AI/LAA, conduite automobile après dissection) : aucune source suisse lue ; le point 11.B.6 se limite à l'adhésion au traitement.
+5. Alternatives d'imagerie en grossesse, allergie à l'iode et DFGe < 30 : l'ESC 2024 ne les détaille pas dans les passages lus (supplément Table S4 non lu) ; le point 9.c reste sur TOE et IRM sans conduite chiffrée propre à ces situations.
+6. Seuils chirurgicaux électifs de Marfan (50 mm) et de valve bicuspide (55 mm) : repris de la revue SMW 2017 (alignée sur l'ESC 2014) ; les seuils individualisés de l'ESC 2024 (chapitre 9.2, anévrismes) n'ont pas été relus.
+7. Paquet : PDF ESC ehae179 (orbi.uliege.be) lu via pdftotext, pp. 3607–3649 et 3660 (fichiers esc2024aorte.txt et esc2024aorte_gen.txt dans ce dossier) ; pages PMC avec reCAPTCHA remplacées par efetch (PMC9605578, 9834910, 8762162, 11231041, 13732653) ; NBK441963 (StatPearls) et PMC11772412 (Herz) peu ou pas utilisés.
