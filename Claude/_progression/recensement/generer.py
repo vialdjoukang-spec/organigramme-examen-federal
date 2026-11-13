@@ -4,7 +4,7 @@
 Usage : python3 generer.py   (aucune dépendance hors bibliothèque standard)
 On modifie le JSON, puis on relance ce script : la page se régénère gratuitement.
 """
-import html, json, os, re
+import glob, html, json, os, re, sys
 from collections import Counter, OrderedDict
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -105,34 +105,121 @@ def niveau(n):
            '<span class="niv c" title="Cible complète">cible</span>'
 
 
-def tableau_lignes(lignes, C, cle_tech, tabl, colonne_fonction):
-    out = []
-    for code, reg in REG.items():
-        rr = [r for r in lignes if r["region"] == code]
-        if not rr:
+# --- Enrichissement par diagnostic : enrichi/*.json (clé = id), fusionné au recensement -------------------------
+# Les fichiers dont le nom commence par « _ » (démo, brouillons) restent hors de la page finale ;
+# « python3 generer.py --demo » les inclut et écrit _demo_RECENSEMENT.html pour les essais.
+DEMO = "--demo" in sys.argv
+if DEMO:
+    SORTIE = os.path.join(ICI, "_demo_RECENSEMENT.html")
+
+
+def _liste(v):
+    if v is None:
+        return []
+    if isinstance(v, (str, int, float)):
+        return [str(v)] if str(v).strip() else []
+    return [str(x) for x in v if x not in (None, "")]
+
+
+def charger_enrichi():
+    enr = {}
+    for p in sorted(glob.glob(os.path.join(ICI, "enrichi", "*.json"))):
+        nom = os.path.basename(p)
+        if nom.startswith("_") and not DEMO:
             continue
-        ncol = 7 if colonne_fonction else 6
-        out.append(f'<tbody class="grp" data-r="{code}"><tr class="band"><th colspan="{ncol}" style="--c:{reg["couleur"]}">'
-                   f'{E(reg["nom"])} <span class="cnt" data-cnt="{code}">{len(rr)}</span> fiches affichées</th></tr>')
-        for r in rr:
-            ex = titres_existants(r, C["corr"])
-            ex_html = (f'<details class="exd"><summary class="ok">Partiel : {len(ex)} fiche{"s" if len(ex) > 1 else ""} de technique</summary>'
-                       + "<br>".join(E(t) for t in ex) + "</details>") if ex else '<span class="non">Aucune fiche existante</span>'
-            techs = " ".join(pastille_tech(t["tech"], tabl, t["detail"]) for t in r[cle_tech])
-            codes = " ".join(sorted({t["tech"] for t in r[cle_tech]}))
-            fct = f'<td data-label="Fonction explorée">{T(r["fonction"])}</td>' if colonne_fonction else ""
-            texte = r.get("signe") or r.get("anomalie")
-            cherche = E((r["diagnostic"] + " " + r["systeme"] + " " + texte + " " + " ".join(t["detail"] for t in r[cle_tech])).lower())
-            out.append(
-                f'<tr class="row" data-r="{code}" data-t="{codes}" data-l="{r["lettre"]}" data-n="{r["niveau"]}" data-s="{cherche}">'
-                f'<td data-label="Système">{T(r["systeme"])}</td>{fct}'
-                f'<td data-label="Type">{pastille_lettre(r["lettre"])}</td>'
-                f'<td data-label="Diagnostic"><strong>{T(r["diagnostic"])}</strong> {niveau(r["niveau"])}</td>'
-                f'<td data-label="Technique(s)">{techs}</td>'
-                f'<td data-label="{"Signe clé" if not colonne_fonction else "Anomalie clé"}">{T(texte)}</td>'
-                f'<td data-label="Existant" class="exi">{ex_html}</td></tr>')
-        out.append("</tbody>")
-    return "\n".join(out)
+        try:
+            bloc = json.load(open(p, encoding="utf-8"))
+        except Exception as e:  # un fichier en cours d'écriture ne bloque pas la page
+            print(f"Enrichissement ignoré ({nom}) : {e}")
+            continue
+        if isinstance(bloc, dict):
+            enr.update({k: v for k, v in bloc.items() if isinstance(v, dict)})
+    for v in enr.values():
+        g = v.get("gold") if isinstance(v.get("gold"), dict) else {}
+        v["gold"] = {"examen": str(g.get("examen") or ""), "pourquoi": _liste(g.get("pourquoi")),
+                     "quand": _liste(g.get("quand")), "montre": _liste(g.get("montre")),
+                     "premiere_intention": str(g.get("premiere_intention") or "")}
+        autres = [a for a in (v.get("autres") or []) if isinstance(a, dict) and a.get("examen")]
+        autres.sort(key=lambda a: a["rang"] if isinstance(a.get("rang"), (int, float)) else 99)
+        v["autres"] = [{"examen": str(a["examen"]), "rang": a.get("rang"), "quand": _liste(a.get("quand")),
+                        "pourquoi_pas_gold": _liste(a.get("pourquoi_pas_gold")), "montre": _liste(a.get("montre"))}
+                       for a in autres]
+        for c in ("syndrome", "traitement", "sources"):
+            v[c] = _liste(v.get(c))
+        if not isinstance(v.get("images"), dict):
+            v["images"] = {"manque": "Aucune image n'est encore référencée pour ce diagnostic."}
+    return enr
+
+
+ENR = charger_enrichi()
+if DEMO:  # une entrée de démo peut porter sa propre ligne de recensement (« ligne »)
+    for k, v in ENR.items():
+        cle = "imagerie" if k.startswith("IMG") else "explorations"
+        if isinstance(v.get("ligne"), dict) and not any(r["id"] == k for r in D[cle]):
+            D[cle].append(dict(v["ligne"], id=k))
+
+
+def puce_tech(code, tabl, detail):
+    t = tabl[code]
+    titre = t["nom"] + (" — " + t["physique"] if "physique" in t else "")
+    return (f'<li><span class="pill" title="{E(titre)}">{E(t["nom"] if code not in ("TDM", "IRM") else code)}</span>'
+            f'<span class="det">{T(detail)}</span></li>')
+
+
+def examens_html(r, cle_tech, tabl):
+    """Référence (pastille OR) + 1re intention + autres examens numérotés ; sinon les techniques du recensement."""
+    en = ENR.get(r["id"])
+    if not en or not en["gold"]["examen"]:
+        return '<ul class="techl">' + "".join(puce_tech(t["tech"], tabl, t["detail"]) for t in r[cle_tech]) + "</ul>"
+    g = en["gold"]
+    h = (f'<button type="button" class="gold" data-ex="g" aria-haspopup="dialog"><span class="ref">Référence</span>'
+         f'<span class="exn">{E(g["examen"])}</span></button>')
+    if g["premiere_intention"]:
+        h += f'<p class="pi"><span class="k">1re intention :</span> {E(g["premiere_intention"])}</p>'
+    if en["autres"]:
+        h += '<ol class="autres">' + "".join(
+            f'<li><button type="button" class="exb" data-ex="{i}" aria-haspopup="dialog">{E(a["examen"])}</button></li>'
+            for i, a in enumerate(en["autres"])) + "</ol>"
+    return h
+
+
+def donnees_tableau(prefixe, lignes, C, cle_tech, tabl, fonction):
+    """Lignes triées région > système > lettre ; le JS construit le tbody et recalcule les rowspan après filtrage."""
+    ordre_r, ordre_l, prem = list(REG), list(LET), {}
+    for i, r in enumerate(lignes):
+        prem.setdefault((r["region"], r["systeme"]), i)
+    tri = sorted(enumerate(lignes), key=lambda p: (ordre_r.index(p[1]["region"]), prem[(p[1]["region"], p[1]["systeme"])],
+                                                    ordre_l.index(p[1]["lettre"]), p[0]))
+    rows = []
+    for _, r in tri:
+        ex = titres_existants(r, C["corr"])
+        exi = (f'<details class="exd"><summary>Partiel : {len(ex)} fiche{"s" if len(ex) > 1 else ""} de technique</summary>'
+               '<ul class="exl">' + "".join(f"<li>{E(t)}</li>" for t in ex) + "</ul></details>") if ex else \
+              '<span class="non">Aucune fiche existante</span>'
+        en = ENR.get(r["id"])
+        texte = r.get("signe") or r.get("anomalie") or ""
+        noms_ex = " ".join([en["gold"]["examen"]] + [a["examen"] for a in en["autres"]]) if en else ""
+        rows.append({
+            "id": r["id"], "r": r["region"], "s": r["systeme"], "l": r["lettre"], "n": r["niveau"],
+            "t": " ".join(sorted({t["tech"] for t in r[cle_tech]})),
+            "q": (r["diagnostic"] + " " + r["systeme"] + " " + texte + " " + r.get("fonction", "") + " "
+                  + " ".join(t["detail"] for t in r[cle_tech]) + " " + noms_ex).lower(),
+            "sh": T(r["systeme"]), "dxt": T(r["diagnostic"]),
+            "c": {"dx": f'<button type="button" class="dxb" data-p="{prefixe}" data-dx="{E(r["id"])}" aria-haspopup="dialog">{T(r["diagnostic"])}</button>',
+                  "niv": niveau(r["niveau"]), "ex": examens_html(r, cle_tech, tabl), "sg": T(texte), "exi": exi,
+                  "fct": T(r.get("fonction", "")) if fonction else ""}})
+    return rows
+
+
+DONNEES_LIGNES = {}
+
+
+def donnees_json():
+    ids = {r["id"] for rows in DONNEES_LIGNES.values() for r in rows}
+    d = {"lignes": DONNEES_LIGNES, "reg": {c: r["nom"] for c, r in REG.items()},
+         "let": {c: pastille_lettre(c) for c in LET}, "letn": {c: l["nom"] for c, l in LET.items()},
+         "enr": {k: {kk: vv for kk, vv in v.items() if kk != "ligne"} for k, v in ENR.items() if k in ids}}
+    return json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/").replace("<!--", "<\\u0021--")
 
 
 def tableau_fiches_tech(fiches, tabl):
@@ -176,7 +263,7 @@ def filtres(prefixe, tabl):
     tch = "".join(f'<button type="button" class="chip" data-f="t" data-v="{c}" style="--c:{t["couleur"]}" aria-pressed="false">{E(t["nom"])} <b data-ct="{c}"></b></button>' for c, t in tabl.items())
     lts = "".join(f'<button type="button" class="chip" data-f="l" data-v="{c}" style="--c:{l["couleur"]}" aria-pressed="false" title="{E(l["nom"])}">{E(l["lettre"])} <small>{E(l["nom"].split(" ")[0])}</small> <b data-cl="{c}"></b></button>' for c, l in LET.items())
     return f'''
-<div class="filt" id="f-{prefixe}" data-cible="tb-{prefixe}">
+<div class="filt" id="f-{prefixe}" data-p="{prefixe}" data-cible="tb-{prefixe}">
  <div class="frow"><label>Région <select data-f="r"><option value="">Toutes</option>{regs}</select></label>
  <label>Niveau <select data-f="n"><option value="">Minimum et cible</option><option value="M">Minimum seulement</option><option value="C">Complément de la cible</option></select></label>
  <label class="grow">Recherche <input type="search" data-f="q" placeholder="ex. : diffusion, Doppler, fracture"></label>
@@ -220,8 +307,12 @@ def images_html(C, mot):
 
 
 def onglet(prefixe, titre, lignes, fiches, C, tabl, cle_tech, nom_tech, fonction, nom_exist, mot_rais, mot_img, intro):
-    entete = (f'<th>Système</th>{"<th>Fonction explorée</th>" if fonction else ""}<th>Type</th><th>Diagnostic ou tableau-cible</th>'
-              f'<th>{E(nom_tech)}</th><th>{"Anomalie clé" if fonction else "Signe sémiologique clé"}</th><th>Existant</th>')
+    entete = ('<th scope="col">Région</th><th scope="col">Système</th><th scope="col" class="ctr">Type</th>'
+              '<th scope="col" class="dx">Diagnostic ou tableau-cible</th><th scope="col" class="ctr">Niveau</th>'
+              + ('<th scope="col">Fonction explorée</th>' if fonction else '')
+              + f'<th scope="col">{"Explorations" if fonction else "Examens : référence, puis autres"}</th>'
+              + f'<th scope="col">{"Anomalie clé" if fonction else "Signe sémiologique clé"}</th><th scope="col">Existant</th>')
+    DONNEES_LIGNES[prefixe] = donnees_tableau(prefixe, lignes, C, cle_tech, tabl, fonction)
     return f'''
 <section class="panel" id="p-{prefixe}" role="tabpanel" aria-labelledby="o-{prefixe}">
  <h2 class="band2">{E(titre)}</h2>
@@ -231,8 +322,8 @@ def onglet(prefixe, titre, lignes, fiches, C, tabl, cle_tech, nom_tech, fonction
  {compteurs(C, lignes, tabl, nom_tech)}
  <h3>Inventaire filtrable</h3>
  {filtres(prefixe, tabl)}
- <div class="tw"><table class="t main" id="tb-{prefixe}"><thead><tr>{entete}</tr></thead>
- {tableau_lignes(lignes, C, cle_tech, tabl, fonction)}
+ <div class="tw tmain"><table class="t main" id="tb-{prefixe}" data-fct="{1 if fonction else 0}"><colgroup><col class="c-reg"><col class="c-sys"><col class="c-let"><col class="c-dx"><col class="c-niv">{'<col class="c-fct">' if fonction else ''}<col class="c-ex"><col class="c-sg"><col class="c-exi"></colgroup><thead><tr>{entete}</tr></thead>
+ <tbody><tr><td colspan="9">Chargement du tableau…</td></tr></tbody>
  </table></div>
  <h3>Fiches transversales de technique ({C["ftM"]} au minimum, {C["ftT"]} dans la cible)</h3>
  {tableau_fiches_tech(fiches, tabl)}
@@ -249,6 +340,280 @@ sources = "".join(f'<li><strong>{T(s["nom"])}</strong> : {T(s["role"])} <span cl
 lettres_leg = "".join(f'<li>{pastille_lettre(c)} {E(l["nom"])}</li>' for c, l in LET.items())
 tech_leg = "".join(f'<li>{pastille_tech(c, TI)} <span class="muted">{E(t["physique"])}</span></li>' for c, t in TI.items())
 
+
+# --- Feuille de style du tableau principal, de la fenêtre centrale et du popover (chaîne brute, hors f-string) ----
+CSS2 = r"""
+/* Couleurs à rôle unique (EYE SPOT) : --or = examen de référence seulement ; --rep = numéros et flèches des repères seulement. */
+:root{--or:#d4af37;--rep:#00c8ff}
+/* Tableau principal : grille géométrique fixe, défilement horizontal et vertical internes, colonne Diagnostic collante */
+.tmain{max-height:82vh;overflow:auto;border:1px solid #111;border-radius:8px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+table.main{table-layout:fixed;width:1574px;border-collapse:separate;border-spacing:0;font-size:.93rem}
+#tb-exp{width:1774px}
+table.main col.c-reg{width:120px} table.main col.c-sys{width:150px} table.main col.c-let{width:56px}
+table.main col.c-dx{width:240px} table.main col.c-niv{width:88px} table.main col.c-fct{width:200px}
+table.main col.c-ex{width:340px} table.main col.c-sg{width:360px} table.main col.c-exi{width:220px}
+table.main th,table.main td{border:0;border-bottom:1px solid var(--ligne);border-right:1px solid var(--ligne);padding:8px 10px;vertical-align:top;text-align:left;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+table.main thead th{hyphens:manual} table.main thead th.ctr{padding-left:2px;padding-right:2px}
+table.main thead th{position:sticky;top:0;z-index:3;background:#fff;color:#000;border-bottom:2px solid #111;font-size:.85rem}
+table.main thead th.dx{left:0;z-index:4}
+table.main td.dx{position:sticky;left:0;z-index:2;background:#fff}
+table.main th.dx,table.main td.dx{box-shadow:inset -2px 0 0 #111}
+table.main .ctr,table.main td.let,table.main td.niv{text-align:center}
+table.main th.reg{background:var(--n3);color:#000;font-weight:800;border-bottom:2px solid #111}
+table.main td.sys{font-weight:700}
+table.main tr.r0>*{border-top:2px solid #111}
+table.main tbody tr:first-child>*{border-top:0}
+.stk{position:sticky;top:calc(var(--th,44px) + 6px)}
+th.reg .cnt{display:block;font-weight:600;font-size:.8rem;margin-top:4px}
+table.main abbr.let{width:30px;height:30px;font-size:.95rem;line-height:1}
+table.main .niv{display:inline-block;width:62px;text-align:center;padding:2px 0;font-size:.72rem;border-radius:4px}
+button.dxb{all:unset;cursor:pointer;font-weight:800;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+ul.techl,ul.exl,ul.enum{margin:0;padding:0}
+ul.exl,ul.enum{padding-left:1.2em;list-style:disc}
+ul.exl li,ul.enum li{margin:2px 0}
+ul.techl{list-style:none}
+ul.techl li{display:grid;grid-template-columns:112px 1fr;gap:8px;align-items:start;margin:0 0 6px}
+ul.techl .pill{display:block;width:112px;text-align:center;white-space:normal;overflow-wrap:normal;word-break:normal;line-height:1.2;padding:2px 4px;border-radius:6px}
+ul.techl .det{color:#000;font-size:.88rem}
+.exd summary{cursor:pointer}
+button.gold{display:block;width:100%;text-align:left;font:inherit;font-weight:700;background:var(--or);color:#000;border:1px solid #000;border-radius:8px;padding:4px 10px 6px;cursor:pointer;line-height:1.3}
+button.gold .ref,.badge{display:block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.pi{margin:6px 0 0;font-size:.88rem} .pi .k{font-weight:800}
+ol.autres{margin:8px 0 0;padding-left:1.7em} ol.autres li{margin:3px 0}
+button.exb{all:unset;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+button.dxb:focus-visible,button.gold:focus-visible,button.exb:focus-visible,.rep:focus-visible,.fen button:focus-visible{outline:3px solid #000;outline-offset:2px}
+/* Popover d'examen */
+#pop{position:fixed;z-index:60;width:min(380px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;background:#fff;color:#000;border:2px solid #000;border-radius:10px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+#pop[hidden]{display:none}
+#pop .badge{display:inline-block;border:1px solid #000;border-radius:6px;padding:1px 6px;margin:0 0 4px}
+#pop .badge.or{background:var(--or)}
+#pop h4{margin:0 28px 6px 0;font-size:1rem}
+#pop h5{margin:10px 0 2px;font-size:.85rem}
+#pop .ferme{position:absolute;top:6px;right:6px}
+/* Fenêtre centrale : page floutée derrière un voile blanc */
+html.fige,html.fige body{overflow:hidden}
+.voile{position:fixed;inset:0;z-index:50;background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto}
+.voile[hidden]{display:none}
+.fen{position:relative;background:#fff;color:#000;border:2px solid #000;border-radius:12px;width:100%;max-width:980px;padding:16px 18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.25);outline:0}
+.fen>h2{margin:0 44px 6px 0}
+.fen h3{margin:18px 0 6px}
+.ferme{font:inherit;font-weight:800;background:#fff;color:#000;border:2px solid #000;border-radius:999px;width:34px;height:34px;cursor:pointer;line-height:1}
+.fen>.ferme{position:absolute;top:12px;right:12px}
+.fen .meta{margin:0 0 10px;font-size:.9rem}
+.manque{border:2px dashed #000;border-radius:8px;padding:10px 12px}
+.bascule{font:inherit;font-weight:700;background:#fff;color:#000;border:2px solid #000;border-radius:8px;padding:6px 14px;cursor:pointer;margin:0 0 8px}
+.bascule[aria-pressed=true]{background:#000;color:#fff}
+.fig{margin:0;text-align:center}
+.cadre{position:relative;display:inline-block;max-width:100%;vertical-align:top;background:#000}
+.cadre img{display:block;max-width:100%;max-height:60vh;width:auto;height:auto}
+.cadre svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.cadre svg .l0{stroke:#000;stroke-width:5;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.cadre svg .l1{stroke:var(--rep);stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.cadre svg polygon{fill:var(--rep);stroke:#000;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.rep,.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--rep);color:#000;border:2px solid #000;font:800 .9rem/1 system-ui,sans-serif}
+.rep{position:absolute;transform:translate(-50%,-50%);cursor:pointer;padding:0}
+.rep[aria-pressed=true]{box-shadow:0 0 0 3px #fff,0 0 0 6px #000}
+.fig figcaption{font-size:.88rem;margin-top:6px}
+.lesion{border:2px solid #000;border-radius:8px;padding:8px 12px;margin:10px 0 0}
+.lesion p{margin:4px 0} .lesion .aide{font-style:italic}
+.cred{font-size:.78rem;margin:4px 0;overflow-wrap:anywhere}
+.cred a{color:#000;text-decoration:underline}
+@media (max-width:760px){
+ table.main{width:1258px} #tb-exp{width:1438px}
+ table.main col.c-reg{width:84px} table.main col.c-sys{width:100px} table.main col.c-let{width:44px} table.main col.c-dx{width:170px}
+ table.main th,table.main td{padding:6px 7px} table.main abbr.let{width:26px;height:26px}
+ table.main col.c-ex{width:300px} table.main col.c-sg{width:300px} table.main col.c-exi{width:180px} table.main col.c-fct{width:180px}
+ .tmain{max-height:75vh}
+ .fen{padding:12px 12px 16px} .voile{padding:12px}
+}
+"""
+
+MARKUP = """
+<div class="voile" id="voile" hidden>
+ <div class="fen" role="dialog" aria-modal="true" aria-labelledby="fen-t" tabindex="-1">
+  <button type="button" class="ferme" aria-label="Fermer la fenêtre">✕</button>
+  <h2 id="fen-t"></h2>
+  <div id="fen-c"></div>
+ </div>
+</div>
+<div id="pop" role="dialog" aria-label="Détail de l'examen" tabindex="-1" hidden></div>
+"""
+
+JS = r"""
+(function(){
+ var DON=JSON.parse(document.getElementById('donnees').textContent);
+ var MAP={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+ function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return MAP[c];});}
+ function liste(a){return (a&&a.length)?'<ul class="enum">'+a.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'';}
+ function hauteurs(){document.querySelectorAll('table.main').forEach(function(t){var h=t.tHead.offsetHeight;if(h)t.style.setProperty('--th',h+'px');});}
+ /* Onglets */
+ var tabs=document.querySelectorAll('.tabs [role=tab]');
+ function montre(id){tabs.forEach(function(b){var on=b.id===id;b.setAttribute('aria-selected',on);document.getElementById(b.getAttribute('aria-controls')).hidden=!on;});
+  try{localStorage.setItem('rts-onglet',id);}catch(e){}
+  hauteurs();}
+ tabs.forEach(function(b){b.addEventListener('click',function(){montre(b.id);});});
+ /* Filtres + reconstruction du tbody (rowspan recalculés sur les lignes visibles) */
+ var INDEX={};
+ document.querySelectorAll('.filt').forEach(function(f){
+  var pref=f.dataset.p,table=document.getElementById(f.dataset.cible),rows=DON.lignes[pref]||[],
+      fct=table.dataset.fct==='1',ncol=table.tHead.rows[0].cells.length,
+      sel=function(k){return f.querySelector('[data-f='+k+']');},
+      chips=[].slice.call(f.querySelectorAll('.chip'));
+  INDEX[pref]={};rows.forEach(function(r){INDEX[pref][r.id]=r;});
+  f.querySelector('[data-tot]').textContent=rows.length;
+  function actifs(k){return chips.filter(function(c){return c.dataset.f===k&&c.getAttribute('aria-pressed')==='true';}).map(function(c){return c.dataset.v;});}
+  function aT(r,t){return (' '+r.t+' ').indexOf(' '+t+' ')>=0;}
+  function passe(r,ign){
+   var reg=sel('r').value,niv=sel('n').value,q=sel('q').value.trim().toLowerCase(),ts=actifs('t'),ls=actifs('l');
+   if(reg&&r.r!==reg)return false;
+   if(niv&&r.n!==niv)return false;
+   if(q&&r.q.indexOf(q)<0)return false;
+   if(ign!=='t'&&ts.length&&!ts.some(function(t){return aT(r,t);}))return false;
+   if(ign!=='l'&&ls.length&&ls.indexOf(r.l)<0)return false;
+   return true;}
+  function etendue(v,i,egal){var k=i;while(k<v.length&&egal(v[k]))k++;return k-i;}
+  function construit(v){
+   var h=[],n=v.length;
+   for(var i=0;i<n;i++){
+    var r=v[i],p=i?v[i-1]:null,c='',neuveR=!p||p.r!==r.r;
+    if(neuveR){var k=etendue(v,i,function(x){return x.r===r.r;});
+     c+='<th scope="rowgroup" class="reg" rowspan="'+k+'"><div class="stk">'+esc(DON.reg[r.r])+'<span class="cnt">'+k+' fiche'+(k>1?'s':'')+'</span></div></th>';}
+    if(neuveR||p.s!==r.s){c+='<td class="sys" rowspan="'+etendue(v,i,function(x){return x.r===r.r&&x.s===r.s;})+'"><div class="stk">'+r.sh+'</div></td>';}
+    if(neuveR||p.s!==r.s||p.l!==r.l){c+='<td class="let" rowspan="'+etendue(v,i,function(x){return x.r===r.r&&x.s===r.s&&x.l===r.l;})+'"><div class="stk">'+DON.let[r.l]+'</div></td>';}
+    c+='<td class="dx">'+r.c.dx+'</td><td class="niv">'+r.c.niv+'</td>'+(fct?'<td class="fct">'+r.c.fct+'</td>':'')
+      +'<td class="ex">'+r.c.ex+'</td><td class="sg">'+r.c.sg+'</td><td class="exi">'+r.c.exi+'</td>';
+    h.push('<tr data-id="'+esc(r.id)+'"'+(neuveR?' class="r0"':'')+'>'+c+'</tr>');
+   }
+   if(!n)h.push('<tr><td colspan="'+ncol+'">Aucune fiche ne correspond aux filtres.</td></tr>');
+   table.tBodies[0].innerHTML=h.join('');
+  }
+  var etat=null;
+  function maj(){
+   /* on ne reconstruit que si les filtres ont changé : un « change » tardif (sortie du champ de recherche)
+      ne doit pas remplacer le bouton sur lequel on est en train de cliquer */
+   var e=[sel('r').value,sel('n').value,sel('q').value.trim().toLowerCase(),actifs('t').join(),actifs('l').join()].join('§');
+   if(e===etat)return;etat=e;
+   var vis=rows.filter(function(r){return passe(r);}),visM=vis.filter(function(r){return r.n==='M';}).length;
+   construit(vis);
+   f.querySelector('[data-vis]').textContent=vis.length;f.querySelector('[data-visM]').textContent=visM;
+   chips.forEach(function(c){var k=c.dataset.f,v=c.dataset.v,n=0;
+    rows.forEach(function(r){if(passe(r,k)&&(k==='t'?aT(r,v):r.l===v))n++;});
+    var b=c.querySelector('b');if(b)b.textContent='('+n+')';});
+  }
+  f.addEventListener('input',maj);f.addEventListener('change',maj);
+  chips.forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');maj();});});
+  f.querySelector('.raz').addEventListener('click',function(){sel('r').value='';sel('n').value='';sel('q').value='';chips.forEach(function(c){c.setAttribute('aria-pressed','false');});maj();});
+  maj();
+ });
+ var memo=null;try{memo=localStorage.getItem('rts-onglet');}catch(e){}
+ montre(memo&&document.getElementById(memo)?memo:'o-img');
+ window.addEventListener('resize',hauteurs);
+
+ /* Popover d'examen */
+ var pop=document.getElementById('pop'),popDe=null;
+ function fermePop(rend){if(pop.hidden)return;pop.hidden=true;if(rend!==false&&popDe&&document.contains(popDe))popDe.focus({preventScroll:true});popDe=null;}
+ function placePop(b){
+  var rc=b.getBoundingClientRect(),w=pop.offsetWidth,h=pop.offsetHeight,W=document.documentElement.clientWidth,H=window.innerHeight;
+  var x=Math.max(16,Math.min(rc.left,W-w-16)),y=rc.bottom+6;
+  if(y+h>H-16)y=Math.max(16,rc.top-h-6);
+  pop.style.left=x+'px';pop.style.top=y+'px';}
+ function ouvrePop(id,k,b){
+  var en=DON.enr[id];if(!en)return;var t,badge,secs,g=en.gold;
+  if(k==='g'){t=g.examen;badge='Examen de référence';
+   secs=[['Pourquoi c’est la référence',g.pourquoi],['Quand on la réalise',g.quand],['Ce qu’elle montre',g.montre]];}
+  else{var a=en.autres[+k];if(!a)return;t=a.examen;badge='Autre examen n° '+(+k+1);
+   secs=[['Pourquoi ce n’est pas la référence',a.pourquoi_pas_gold],['Quand on la réalise quand même',a.quand],['Ce qu’elle montre',a.montre]];}
+  var h='<button type="button" class="ferme" aria-label="Fermer">✕</button><span class="badge'+(k==='g'?' or':'')+'">'+esc(badge)+'</span><h4>'+esc(t)+'</h4>',vide=true;
+  if(k==='g'&&g.premiere_intention){h+='<h5>Examen de 1re intention</h5>'+liste([g.premiere_intention]);}
+  secs.forEach(function(s){if(s[1]&&s[1].length){vide=false;h+='<h5>'+esc(s[0])+'</h5>'+liste(s[1]);}});
+  if(vide)h+='<p>Aucune justification n’est encore rédigée.</p>';
+  pop.innerHTML=h;pop.hidden=false;popDe=b;placePop(b);pop.focus({preventScroll:true});
+ }
+ /* au défilement, le popover suit son examen tant que celui-ci reste visible, sinon il se ferme */
+ window.addEventListener('scroll',function(e){if(pop.hidden||pop.contains(e.target))return;
+  var rc=popDe&&popDe.getBoundingClientRect();
+  if(rc&&rc.bottom>0&&rc.top<window.innerHeight&&rc.right>0&&rc.left<document.documentElement.clientWidth)placePop(popDe);else fermePop(false);},true);
+
+ /* Fenêtre centrale du diagnostic */
+ var voile=document.getElementById('voile'),fen=voile.querySelector('.fen'),fenT=document.getElementById('fen-t'),fenC=document.getElementById('fen-c'),fenDe=null;
+ function fermeDx(){if(voile.hidden)return;fermePop(false);voile.hidden=true;document.documentElement.classList.remove('fige');if(fenDe&&document.contains(fenDe))fenDe.focus({preventScroll:true});}
+ function lien(u){return /^https?:\/\//i.test(u||'')?' <a href="'+esc(u)+'" target="_blank" rel="noopener">page de l’image</a>':'';}
+ function credit(nom,o){if(!o)return '';return '<p class="cred"><strong>'+nom+'</strong>'+(o.technique?' : '+esc(o.technique):'')+(o.credit?' — crédit : '+esc(o.credit):'')+(o.licence?' — licence : '+esc(o.licence):'')+(lien(o.url)?' —'+lien(o.url):'')+'</p>';}
+ function ouvreDx(pref,id,b){
+  fermePop(false);
+  var r=INDEX[pref][id],en=DON.enr[id];if(!r)return;fenDe=b;
+  fenT.innerHTML=r.dxt;
+  var h='<p class="meta">'+esc(DON.reg[r.r])+' · '+r.sh+' · '+esc(DON.letn[r.l])+' · '+(r.n==='M'?'Minimum indispensable':'Cible complète')+'</p>';
+  if(!en){
+   h+='<p class="manque">Enrichissement en cours : le cliché, le regroupement syndromique et le traitement de ce diagnostic ne sont pas encore rédigés.</p><h3>Examens</h3>'+r.c.ex+'<h3>Signe clé</h3><p>'+r.c.sg+'</p>';
+  }else{
+   var im=en.images||{};
+   if(im.manque||!(im.normal||im.patho))h+='<p class="manque"><strong>Aucune image libre fiable.</strong> '+esc(im.manque||'')+'</p>';
+   else h+=(im.normal&&im.patho?'<button type="button" class="bascule" aria-pressed="false">Voir la pathologie</button>':'')
+     +'<figure class="fig"><div class="cadre"><img alt=""><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg></div><figcaption></figcaption></figure><div class="lesion" aria-live="polite" hidden></div>';
+   if(en.syndrome.length)h+='<h3>Regroupement syndromique</h3>'+liste(en.syndrome);
+   if(en.traitement.length)h+='<h3>Traitement</h3>'+liste(en.traitement);
+   if(!im.manque)h+=credit('Cliché normal',im.normal)+credit('Cliché pathologique',im.patho);
+   if(en.sources.length)h+='<div class="cred"><strong>Sources</strong>'+liste(en.sources)+'</div>';
+  }
+  fenC.innerHTML=h;voile.hidden=false;document.documentElement.classList.add('fige');voile.scrollTop=0;fen.focus({preventScroll:true});
+  if(en&&en.images&&!en.images.manque&&(en.images.normal||en.images.patho))images(en.images);
+ }
+ function images(im){
+  var img=fenC.querySelector('.cadre img'),svg=fenC.querySelector('.cadre svg'),cadre=fenC.querySelector('.cadre'),
+      cap=fenC.querySelector('figcaption'),les=fenC.querySelector('.lesion'),bt=fenC.querySelector('.bascule'),vue=im.normal?'normal':'patho';
+  function rend(){
+   var o=im[vue]||{},nom=vue==='normal'?'Cliché normal':'Cliché pathologique';
+   cadre.querySelectorAll('.rep').forEach(function(n){n.remove();});svg.innerHTML='';les.hidden=true;les.innerHTML='';
+   img.onload=function(){if(vue==='patho')reperes(o);};
+   img.onerror=function(){cap.innerHTML='<strong>Image introuvable</strong> : '+esc(o.fichier||'');};
+   img.alt=nom+(o.technique?' : '+o.technique:'');img.src=o.fichier||'';
+   cap.innerHTML='<strong>'+nom+'</strong>'+(o.technique?' — '+esc(o.technique):'');
+   if(bt){bt.textContent=vue==='normal'?'Voir la pathologie':'Revoir le cliché normal';bt.setAttribute('aria-pressed',vue==='patho');}
+   if(vue==='patho'&&(o.reperes||[]).length){les.hidden=false;les.innerHTML='<p class="aide">Cliquez un numéro sur l’image pour lire la lésion élémentaire.</p>';}
+  }
+  function reperes(o){
+   var a=(img.naturalWidth/img.naturalHeight)||1,s='';
+   (o.reperes||[]).forEach(function(p){
+    var x=+p.x,y=+p.y,fx=+p.fx,fy=+p.fy;if([x,y,fx,fy].some(isNaN))return;
+    /* calcul en unités réelles (x × rapport largeur/hauteur) pour que la pointe ne soit pas déformée par preserveAspectRatio="none" */
+    var X=x*a,FX=fx*a,dx=X-FX,dy=y-fy,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,H=Math.min(4.5,L*.6),W=H*.55,bx=X-ux*H,by=y-uy*H;
+    var pts=[[X,y],[bx-uy*W,by+ux*W],[bx+uy*W,by-ux*W]].map(function(q){return (q[0]/a).toFixed(2)+','+q[1].toFixed(2);}).join(' ');
+    var ln='x1="'+fx+'" y1="'+fy+'" x2="'+(bx/a).toFixed(2)+'" y2="'+by.toFixed(2)+'"';
+    s+='<line class="l0" '+ln+'/><line class="l1" '+ln+'/><polygon points="'+pts+'"/>';
+    var b=document.createElement('button');b.type='button';b.className='rep';b.textContent=p.n;
+    b.style.left=fx+'%';b.style.top=fy+'%';b.setAttribute('aria-pressed','false');b.setAttribute('aria-label','Repère '+p.n+' : afficher la lésion');
+    b.addEventListener('click',function(){
+     cadre.querySelectorAll('.rep').forEach(function(z){z.setAttribute('aria-pressed',z===b);});
+     les.hidden=false;les.innerHTML='<p><span class="num">'+esc(p.n)+'</span> <strong>'+esc(p.lesion)+'</strong></p><p>'+esc(p.semio)+'</p>';});
+    cadre.appendChild(b);
+   });
+   svg.innerHTML=s;
+  }
+  if(bt)bt.addEventListener('click',function(){vue=vue==='normal'?'patho':'normal';rend();});
+  rend();
+ }
+
+ /* Délégation des clics et du clavier */
+ document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t.closest('#pop .ferme')){fermePop();return;}
+  var b=t.closest('[data-ex]');
+  if(!pop.hidden&&!pop.contains(t)&&b!==popDe)fermePop(false);
+  if(b){var tr=b.closest('tr[data-id]');if(tr){if(!pop.hidden&&popDe===b)fermePop();else ouvrePop(tr.dataset.id,b.dataset.ex,b);}return;}
+  var d=t.closest('.dxb');if(d){ouvreDx(d.dataset.p,d.dataset.dx,d);return;}
+  if(t===voile||t.closest('#voile .fen>.ferme'))fermeDx();
+ });
+ document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){if(!pop.hidden){fermePop();e.preventDefault();}else if(!voile.hidden){fermeDx();e.preventDefault();}return;}
+  if(e.key==='Tab'&&!voile.hidden){
+   var f=[].slice.call(fen.querySelectorAll('button,a[href]')).filter(function(x){return x.offsetParent!==null;});if(!f.length)return;
+   if(e.shiftKey&&(document.activeElement===f[0]||document.activeElement===fen)){f[f.length-1].focus();e.preventDefault();}
+   else if(!e.shiftKey&&document.activeElement===f[f.length-1]){f[0].focus();e.preventDefault();}
+  }
+ });
+})();
+"""
 PAGE = f'''<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recensement topo-systémique</title>
@@ -258,7 +623,7 @@ PAGE = f'''<!doctype html>
 *{{box-sizing:border-box}}
 html{{-webkit-text-size-adjust:100%}}
 body{{margin:0;background:var(--fond);color:var(--txt);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}}
-header.top{{background:linear-gradient(100deg,#0057ff,#7c3aed 45%,#e6007e);color:#fff;padding:20px 16px 18px}}
+header.top{{background:var(--n1);color:#000;padding:20px 16px 18px}}
 header.top h1{{margin:0 0 6px;font-size:clamp(1.35rem,3.2vw,2rem);line-height:1.2}}
 header.top p{{margin:0;max-width:70ch;opacity:.95}}
 header.top abbr{{color:#fff}}
@@ -293,7 +658,6 @@ table.s td:first-child{{text-align:left}}
 tr.tot td{{font-weight:800;border-top:2px solid #111827}}
 tr.band th{{background:var(--c);color:#fff;font-size:1.05rem;padding:9px 10px}}
 tr.band .cnt{{background:#fff;color:var(--c);border-radius:999px;padding:0 9px;font-weight:800;margin-left:6px}}
-table.main td:nth-child(1){{width:13%}}
 .pill{{display:inline-block;background:var(--c);color:#fff;font-weight:700;font-size:.78rem;border-radius:999px;padding:1px 8px;white-space:nowrap}}
 .tp{{display:block;margin:0 0 4px}} .tp .det{{color:var(--muted);font-size:.88rem}}
 abbr.let{{display:inline-grid;place-items:center;width:1.7em;height:1.7em;border-radius:50%;background:var(--c);color:#fff;font-weight:800;text-decoration:none}}
@@ -317,17 +681,15 @@ ul.leg{{list-style:none;padding:0;margin:6px 0;display:flex;flex-wrap:wrap;gap:6
 ul.rais li,ul.exl li{{margin:4px 0}}
 footer{{max-width:1500px;margin:0 auto;padding:0 16px 40px}}
 @media (max-width:760px){{
- table.main thead,table.t:not(.s) thead{{display:none}}
- table.main,table.main tbody,table.main tr,table.main td,
- table.t:not(.s),table.t:not(.s) tbody,table.t:not(.s) tr,table.t:not(.s) td{{display:block;width:100%!important}}
- table.main tr.row,table.t:not(.s) tbody tr{{border:1px solid var(--ligne);border-radius:8px;margin:8px 0;padding:6px 8px}}
- table.main td,table.t:not(.s) td{{border:0;padding:3px 0}}
- table.main td::before,table.t:not(.s) td::before{{content:attr(data-label);display:block;font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase}}
- tr.band,tr.band th{{display:block;border-radius:8px}}
+ table.t:not(.s):not(.main) thead{{display:none}}
+ table.t:not(.s):not(.main),table.t:not(.s):not(.main) tbody,table.t:not(.s):not(.main) tr,table.t:not(.s):not(.main) td{{display:block;width:100%!important}}
+ table.t:not(.s):not(.main) tbody tr{{border:1px solid var(--ligne);border-radius:8px;margin:8px 0;padding:6px 8px}}
+ table.t:not(.s):not(.main) td{{border:0;padding:3px 0}}
+ table.t:not(.s):not(.main) td::before{{content:attr(data-label);display:block;font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase}}
  table.s{{font-size:.85rem}} table.s th,table.s td{{padding:5px 4px}}
 }}
 /* EYE SPOT strict (Vial 13.11.2026) : 3 couleurs au plus, aucun mélange ni dégradé ; la couleur ne sert qu'à discriminer les niveaux de titres.
-   N1 = bandeau, titres d'onglet et onglet actif ; N2 = titres de section (h2, h3) ; N3 = bandes de région dans les tableaux. Tout le reste : noir sur blanc. */
+   N1 = bandeau, titres d'onglet et onglet actif ; N2 = titres de section (h2, h3) ; N3 = bandes de région (colonne Région fusionnée). Rôles uniques ajoutés : OR = examen de référence ; cyan = numéros et flèches des repères. Tout le reste : noir sur blanc. */
 :root{{--n1:#bcd0f7;--n2:#f9dcae;--n3:#cfeedd}}
 header.top{{background:var(--n1)!important;color:#000!important}} header.top *,header.top abbr{{color:#000!important}}
 .band2,#p-exp .band2{{background:var(--n1)!important;color:#000!important}}
@@ -342,6 +704,7 @@ tr.band th{{background:var(--n3)!important;color:#000!important}} tr.band .cnt{{
 table.t thead th{{background:#fff!important;color:#000!important;border-bottom:2px solid #111}}
 .ok,.non{{color:#000!important}} .non{{font-weight:800}}
 .dot{{display:none!important}} .filt{{border:1px solid #9ca3af!important;background:#fff!important}} details.card>summary,.live strong,a{{color:#000!important}} details.card>summary{{text-decoration:underline}}
+{CSS2}
 </style></head>
 <body>
 <header class="top">
@@ -387,44 +750,9 @@ table.t thead th{{background:#fff!important;color:#000!important;border-bottom:2
  <h3>Limites</h3>
  <p>Ce recensement reste une estimation d'expert : il couvre les diagnostics que l'on attend d'un médecin généraliste en formation, mais il ne remplace pas une confrontation ligne à ligne avec le catalogue PROFILES. Les fiches existantes traitent des techniques, si bien qu'elles touchent des systèmes entiers sans fournir de fiche diagnostique ; la colonne « Existant » le signale par la mention « Partiel ». On régénère cette page en modifiant <code>recensement.json</code>, puis en lançant <code>python3 generer.py</code>.</p>
 </footer>
-<script>
-(function(){{
- var tabs=document.querySelectorAll('.tabs [role=tab]');
- function montre(id){{tabs.forEach(function(b){{var on=b.id===id;b.setAttribute('aria-selected',on);document.getElementById(b.getAttribute('aria-controls')).hidden=!on;}});
-  try{{localStorage.setItem('rts-onglet',id);}}catch(e){{}}}}
- tabs.forEach(function(b){{b.addEventListener('click',function(){{montre(b.id);}});}});
- var memo=null;try{{memo=localStorage.getItem('rts-onglet');}}catch(e){{}}
- montre(memo&&document.getElementById(memo)?memo:'o-img');
- document.querySelectorAll('.filt').forEach(function(f){{
-  var tb=document.getElementById(f.dataset.cible),rows=[].slice.call(tb.querySelectorAll('tr.row')),
-      sel=function(k){{return f.querySelector('[data-f='+k+']');}},
-      chips=[].slice.call(f.querySelectorAll('.chip'));
-  f.querySelector('[data-tot]').textContent=rows.length;
-  function actifs(k){{return chips.filter(function(c){{return c.dataset.f===k&&c.getAttribute('aria-pressed')==='true';}}).map(function(c){{return c.dataset.v;}});}}
-  function passe(r,ign){{
-   var reg=sel('r').value,niv=sel('n').value,q=sel('q').value.trim().toLowerCase(),ts=actifs('t'),ls=actifs('l');
-   if(reg&&r.dataset.r!==reg)return false;
-   if(niv&&r.dataset.n!==niv)return false;
-   if(q&&r.dataset.s.indexOf(q)<0)return false;
-   if(ign!=='t'&&ts.length&&!ts.some(function(t){{return (' '+r.dataset.t+' ').indexOf(' '+t+' ')>=0;}}))return false;
-   if(ign!=='l'&&ls.length&&ls.indexOf(r.dataset.l)<0)return false;
-   return true;}}
-  function maj(){{
-   var vis=0,visM=0,parR={{}};
-   rows.forEach(function(r){{var ok=passe(r);r.hidden=!ok;if(ok){{vis++;if(r.dataset.n==='M')visM++;parR[r.dataset.r]=(parR[r.dataset.r]||0)+1;}}}});
-   tb.querySelectorAll('tbody.grp').forEach(function(g){{var n=parR[g.dataset.r]||0;g.hidden=!n;var c=g.querySelector('[data-cnt]');if(c)c.textContent=n;}});
-   f.querySelector('[data-vis]').textContent=vis;f.querySelector('[data-visM]').textContent=visM;
-   chips.forEach(function(c){{var k=c.dataset.f,v=c.dataset.v,n=0;
-    rows.forEach(function(r){{if(!passe(r,k))return;if(k==='t'?(' '+r.dataset.t+' ').indexOf(' '+v+' ')>=0:r.dataset.l===v)n++;}});
-    var b=c.querySelector('b');if(b)b.textContent='('+n+')';}});
-  }}
-  f.addEventListener('input',maj);f.addEventListener('change',maj);
-  chips.forEach(function(c){{c.addEventListener('click',function(){{c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');maj();}});}});
-  f.querySelector('.raz').addEventListener('click',function(){{sel('r').value='';sel('n').value='';sel('q').value='';chips.forEach(function(c){{c.setAttribute('aria-pressed','false');}});maj();}});
-  maj();
- }});
-}})();
-</script>
+{MARKUP}
+<script type="application/json" id="donnees">{donnees_json()}</script>
+<script>{JS}</script>
 </body></html>'''
 
 open(SORTIE, "w", encoding="utf-8").write(PAGE)
