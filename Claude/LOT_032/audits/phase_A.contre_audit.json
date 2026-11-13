@@ -1,7 +1,11 @@
 {
  "lot": "LOT_032",
  "fichier": "LOT_032_Phase_A_V0.html",
- "version": {"octets": 147624, "sha256_16": "21289f82db53f777", "commit": "445528e69"},
+ "version": {
+  "octets": 147624,
+  "sha256_16": "21289f82db53f777",
+  "commit": "445528e69"
+ },
  "auditeur": "contre-audit médical indépendant (Claude, n'a rien rédigé), 13.11.2026",
  "verdict": "CORRECTIONS",
  "resume": "Point 1 = définition seule ; liste de 10 DX classée avec rangs E1–E7 ; portes vertes ; doses Dafalgan, Brufen, Rocephin, Nimotop (relais 6 × 60 mg), Aspirine Cardio (100 mg 3×/j ou 300 mg 1×/j après AIT) conformes aux AIPS refdata ; grossesse et allaitement recopiés mot pour mot ; dexaméthasone de méningite et colchicine correctement « hors AIPS ». Mais l'amoxicilline anti-Listeria (NICE NG240 1.6.6, source S8 lue) manque dans l'antibiothérapie probabiliste (Grave), la dose de 0,5 mg/h de Nimotop est omise, plusieurs contre-indications sont paraphrasées et l'algorithme E7 place la radiographie dynamique avant l'IRM malgré des signes neurologiques.",
@@ -78,5 +82,52 @@
    "correction": "Préciser : « pendant le suivi prolongé de 3 à 6 mois, 91 des 93 participants sous aspirine recevaient 100 mg par jour » (S18, PMC11803590) ; ne pas étendre ce chiffre à la phase des 3 premiers mois sans source lue."
   }
  ],
- "compte": {"Critique": 0, "Grave": 1, "Moyen": 5, "Mineur": 2}
+ "compte": {
+  "Critique": 0,
+  "Grave": 1,
+  "Moyen": 5,
+  "Mineur": 2
+ },
+ "restants_leves_par_redacteur_1": [
+  {
+   "gravite": "Grave",
+   "lieu": "p11 DX.5 et p10 E2",
+   "preuve": "Amoxicilline IV ajoutée si risque de Listeria (NICE NG240 1.6.6, hors AIPS) et ligne « Listeria confirmée » : amoxicilline/ampicilline 21 jours, avis infectiologique co-trimoxazole 7 jours (1.6.14) ; nœud E2 et algorithme E2 complétés ; facteurs de risque non lus, donc non énumérés."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "fiche Nimotop, Dose perfusion",
+   "preuve": "Phrase 0,5 mg/h (= 2,5 ml/h) recopiée mot pour mot de l'AIPS 48153 entre guillemets."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "contre-indications Nimotop, Aspirine Cardio, Brufen",
+   "preuve": "Textes AIPS 48153, 51795 et 45031 recopiés mot pour mot entre guillemets ; verif_aips.py : OK, 0 citation absente."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "p10 algorithme E7",
+   "preuve": "Deux branches séparées : sans signe neurologique → radiographie dynamique flexion-extension ; avec signes → IRM d'abord, aucune manipulation du cou, avis rachidien (S2)."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "p11 DX.4 et calendrier 11.C",
+   "preuve": "DX.4 : lignes « Lésion médullaire » (chirurgien rachidien de garde, centre médullaire dans les 4 heures, NG41 1.6) et « Après imagerie » (À vérifier) ; calendrier : lignes DX.4, DX.9 (AINS à une semaine, S17) et DX.10 (À vérifier)."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "p9 liquide cérébrospinal, p11 Entourage",
+   "preuve": "Aucune source suisse lue ne chiffre les seuils ni la molécule (S7 : « Prophylaxie selon âge et OM ») : seuils et molécule marqués « à vérifier », sans valeur inventée."
+  },
+  {
+   "gravite": "Mineur",
+   "lieu": "p11 DX.6 Pression artérielle",
+   "preuve": "Trandate®, AIPS n° 41529 (refdata 08.05.2026) cité ; dose selon le protocole des HUG."
+  },
+  {
+   "gravite": "Mineur",
+   "lieu": "fiche Aspirine Cardio, Dose",
+   "preuve": "Remplacé par « pendant le suivi prolongé de 3 à 6 mois de TREAT-CAD, 91 des 93 participants sous aspirine recevaient 100 mg par jour » (S18)."
+  }
+ ]
 }
