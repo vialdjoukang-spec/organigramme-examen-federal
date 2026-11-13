@@ -1,0 +1,100 @@
+{
+ "lot": "PROG",
+ "perimetre": "Claude/_progression/donnees/examens/EX-3-S11-* : 8 fiches d'explorations fonctionnelles (polysomnographie, polygraphie-ventilatoire-nocturne, test-iteratif-latence-endormissement, test-maintien-eveil, actimetrie, agenda-sommeil, ecg-psychotropes-qt, eeg-psychiatrie-delirium-catatonie-electroconvulsivotherapie)",
+ "date": "2026-11-13",
+ "auditeur": "Claude (audit indépendant, non-rédacteur)",
+ "verdict": "CORRECTIONS",
+ "resume": "Les calculs, refaits à la main, sont tous justes. Les seuils HUG de l'IAH, le score NoSAS, les seuils SFRMS du TILE et du TME, les critères ECG du CHUV et les catégories d'Epworth du CHUV sont fidèles aux sources relues. Restent 2 corrections majeures : l'EEG de l'encéphalite anti-NMDAR décrit faussement l'« extreme delta brush » comme un ralentissement global, et l'exemple du TILE conclut à tort qu'une latence moyenne de 8,0 min n'est pas pathologique alors que l'ICSD-3 retient ≤ 8 min. S'y ajoutent 8 corrections mineures (omissions d'indications, définition de l'hypopnée en polygraphie, terminologie, mécanisme).",
+ "verifie_conforme": [
+  "HUG Pneumologie, « Troubles respiratoires du sommeil » (relu le 13.11.2026) : léger 5–15/h, modéré 15–30/h, sévère > 30/h ; persistance des mouvements thoraciques dans l'apnée obstructive. Les fiches polysomnographie et polygraphie reprennent exactement ces seuils.",
+  "NoSAS (Marti-Soler 2016, Lausanne) : cou > 40 cm = 4 ; IMC 25–< 30 = 3, ≥ 30 = 5 ; ronflement = 2 ; âge > 55 ans = 4 ; homme = 2 ; seuil ≥ 8 pour IAH ≥ 20/h. Exemple 4 + 5 + 2 + 4 + 2 = 17 juste.",
+  "Calculs refaits : IAH polygraphie (120 + 60) ÷ 6 = 30/h ; IAH polysomnographie 90 ÷ 5 = 18/h et 90 ÷ 8 = 11,25/h ; latence TILE 40 ÷ 5 = 8 min ; TME 117 ÷ 4 = 29,25 min ; milieu du sommeil 3 h + 4 h = 7 h ; efficacité 432 ÷ 480 = 90 % et 360 ÷ 480 = 75 % ; Bazett RR 0,667 s, √ = 0,816, 400 ÷ 0,816 = 490 ms ; Fridericia ∛0,667 = 0,874, 400 ÷ 0,874 = 458 ms ; Bogossian 460 − 70 = 390 ms ; cas BBG : QT brut ≈ 485 × 0,795 = 385 ms, QT modifié 310 ms, QTc ≈ 390 ms < 450 ms, cohérent avec la conclusion.",
+  "SFRMS R1 2021 (relue dans le cache) : latence < 8 min anormale (Se 94,5 %, Sp 73,3 %), < 5 min franchement pathologique ; profil < 8 min + ≥ 2 SOREMP chez 5,9 % des hommes et 1,1 % des femmes ; sevrage fluoxétine > 3 mois, ISRS > 5 semaines ; essai sans sommeil compté 20 min.",
+  "Swiss Med Wkly 2009 (Mathis, Hess, relu) : SOREM = sommeil paradoxal dans les 15 min ; ≥ 2 SOREM et latence < 5 min : Se 70 %, Sp 97 % ; essai arrêté à 20 min sans sommeil.",
+  "SFRMS R2-bis 2014 (relue) : âge et sexe n'influenceraient pas la latence ; < 19 min prédit de très mauvaises performances de conduite ; inaptitude si < 19 min avec somnolence au volant.",
+  "CHUV Forum Med Suisse 2011 (relu) : Epworth 0–10 absence, 11–14 somnolence légère, ≥ 15 sévère ; les valeurs 13 (légère) et 18 (sévère) des fiches TME et TILE suivent donc correctement la source suisse.",
+  "CHUV, Suivi ECG des patients hospitalisés v2.0 du 19.03.2024 (relu) : ECG à l'admission chez tous ; QTc > 470 ms → avis interniste pour QT long congénital ; QTc ≥ 500 ms → avis urgent (monitoring) ; halopéridol et clozapine sur les listes CredibleMeds. Normes QTc ≤ 450 ms (homme) et ≤ 460 ms (femme) conformes à la RMS 2016.",
+  "Rev Med Suisse 2008 (Etter, Bertschy, relu) : « L'ECT est pratiquée sous anesthésie générale et curarisation, avec monitorage de l'électro-encéphalogramme pour contrôler l'activité convulsive, de l'électrocardiogramme et de l'oxymétrie » : la fiche EEG le reprend fidèlement.",
+  "Riemann 2023 (European Insomnia Guideline) : actimétrie non recommandée en routine (C), utile au diagnostic différentiel (A) ; agenda recommandé (A) ; cibles d'efficacité 85–90 %.",
+  "Narcolepsie : hypocrétine LCR ≤ 110 pg/mL et HLA DQB1*06:02 porté par environ 25 % de la population conformes à l'ICSD-3 et aux sources citées."
+ ],
+ "restants": [
+  {
+   "gravite": "majeure",
+   "fiche": "EX-3-S11-eeg-psychiatrie-delirium-catatonie-electroconvulsivotherapie",
+   "champ": "temps1_indications.diagnostic_etiologie ; temps2_examen[2] (parametre, anomalie) ; temps3_interpretation[1].entite_anormale_chiffree ; annexeA_pieges.mnemotechnique",
+   "avant": "« son EEG montre souvent un ralentissement global à prédominance antérieure (extreme delta brush) » ; « Ce tracé caractérise l'encéphalite à anticorps anti-récepteur NMDA »",
+   "correction": "L'extreme delta brush n'est pas un ralentissement global : il s'agit d'une activité delta rythmique de 1 à 3 Hz sur laquelle se superposent des bouffées bêta de 20 à 30 Hz, souvent bifrontale (Schmitt 2012, Neurology ; européen-international, non vérifié CH). Il n'apparaît que chez une minorité d'adultes (environ 30 %), alors que l'anomalie la plus fréquente reste un ralentissement diffus non spécifique ; il est évocateur mais pas caractéristique, et un EEG sans ce motif n'exclut pas l'encéphalite. La RMS 2016 relue ne cite que le titre de la référence (« Extreme delta brush: a unique EEG pattern ») et ne décrit pas le tracé. Il faut donc réécrire le temps 2 (« ralentissement diffus, parfois extreme delta brush : delta 1–3 Hz + bêta 20–30 Hz superposé ») et corriger le temps 1, le cas clinique et le mnémotechnique « brosse delta »."
+  },
+  {
+   "gravite": "majeure",
+   "fiche": "EX-3-S11-test-iteratif-latence-endormissement",
+   "champ": "calculs[0].exemple ; temps2_examen[1].anomalie ; annexeA_pieges.mnemotechnique",
+   "avant": "« (3 + 6 + 2 + 9 + 20) ÷ 5 = 40 ÷ 5 = 8 min : la latence n'est donc pas inférieure à 8 min » ; « sous 8 minutes et au moins 2 SOREMP »",
+   "correction": "L'ICSD-3 (AASM 2014), qui définit la narcolepsie, retient une latence moyenne ≤ 8 min avec ≥ 2 SOREMP, et un SOREMP de la polysomnographie de la nuit précédente (sommeil paradoxal ≤ 15 min après l'endormissement) peut remplacer un SOREMP du TILE. Une moyenne de 8,0 min remplit donc le critère de l'ICSD-3 ; seule la SFRMS écrit « < 8 min ». Il faut prendre un exemple non ambigu (par exemple (5 + 9 + 4 + 12 + 20) ÷ 5 = 10 min, puis le calcul faux sans l'essai blanc : 30 ÷ 4 = 7,5 min) ou écrire que 8,0 min atteint le seuil ICSD-3 (≤ 8 min). Il faut aussi ajouter la règle du SOREMP nocturne dans le temps 2 et écrire « 8 min ou moins » dans le mnémotechnique."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-polygraphie-ventilatoire-nocturne",
+   "champ": "temps2_examen[3].anomalie (Hypopnée)",
+   "avant": "« baisse partielle du flux d'au moins 10 s, suivie d'une désaturation ou d'un micro-éveil »",
+   "correction": "La polygraphie n'enregistre pas l'EEG, donc elle ne peut pas coter le micro-éveil : l'hypopnée y repose sur une baisse du flux ≥ 30 % pendant ≥ 10 s associée à une désaturation ≥ 3 % (règle recommandée de l'AASM) ou ≥ 4 % (règle acceptable) (AASM Scoring Manual ; non vérifié CH). Écrire que la polygraphie peut sous-estimer les hypopnées pour cette raison."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-polygraphie-ventilatoire-nocturne",
+   "champ": "temps1_indications.ne_pas_demander",
+   "avant": "« quand l'apnée centrale, l'insomnie, la narcolepsie ou une parasomnie sont suspectées »",
+   "correction": "Ajouter les comorbidités qui font préférer la polysomnographie, parce que la polygraphie à domicile y est moins fiable : insuffisance cardiaque ou respiratoire significative (BPCO sévère), maladie neuromusculaire, suspicion d'hypoventilation, AVC, traitement opioïde au long cours, insomnie sévère (AASM, Kapur 2017, JCSM ; non vérifié CH)."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-polygraphie-ventilatoire-nocturne",
+   "champ": "annexeA_pieges.mnemotechnique ; temps3_interpretation[1].conduite",
+   "avant": "« sous 5/h c'est normal, de 15 à 30/h c'est modéré, au-delà de 30/h c'est sévère » ; cas « s'endort au volant » sans mention de la conduite automobile",
+   "correction": "Le mnémotechnique oublie le stade léger de 5 à 15/h (HUG) : l'ajouter. Dans le cas du patient qui s'endort au volant, ajouter qu'on aborde immédiatement l'arrêt de la conduite, car la somnolence au volant engage la sécurité routière (Swiss Med Wkly 2009)."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-polysomnographie",
+   "champ": "temps1_indications.diagnostic_etiologie ; temps2_examen[1].normal",
+   "avant": "Indications limitées aux apnées obstructives et centrales ; architecture normale « — »",
+   "correction": "Ajouter les autres indications propres à la polysomnographie, car seule elle enregistre EEG, EMG et vidéo : trouble du comportement en sommeil paradoxal (perte de l'atonie), parasomnies complexes ou crises nocturnes, mouvements périodiques des membres, hypoventilation, titrage de la PPC (AASM ; non vérifié CH). Pour l'architecture, donner au moins l'efficacité du sommeil > 85 % (Riemann 2023, déjà cité dans le chantier) plutôt que « — »."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-ecg-psychotropes-qt",
+   "champ": "temps3_interpretation[0].confirmation ; annexeA_pieges.mnemotechnique",
+   "avant": "« donc les deux critères du CHUV sont atteints » ; « une hausse de 60 ms fait réévaluer la molécule »",
+   "correction": "Le document CHUV 2024 relu pose une alternative (« QTc ≥ 500 ms ou [allongement du] QTc ≥ 60 ms ») qui déclenche la même conduite : un seul critère suffit. Écrire « les critères du CHUV sont atteints (un seul suffit) » et, dans le mnémotechnique, « une hausse de 60 ms ou plus déclenche la même conduite qu'un QTc ≥ 500 ms »."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-agenda-sommeil",
+   "champ": "temps3_interpretation[0].diagnostic",
+   "avant": "« une insomnie chronique, que l'on qualifie de primaire si aucune comorbidité ne l'explique »",
+   "correction": "L'ICSD-3 et la ligne directrice européenne 2023 ont abandonné la distinction primaire/secondaire : on parle de trouble insomnie chronique (≥ 3 nuits par semaine depuis ≥ 3 mois), qu'une comorbidité existe ou non, et la TCC-I reste le traitement de première ligne dans les deux cas (Riemann 2023). Supprimer « primaire » ou le signaler comme terme ancien."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-actimetrie",
+   "champ": "temps3_interpretation[0].conduite",
+   "avant": "« car la mélatonine avance la phase et la lumière abaisse la mélatonine »",
+   "correction": "La lumière du matin avance la phase de l'horloge circadienne (courbe de réponse de phase), et non principalement parce qu'elle abaisse la mélatonine ; la mélatonine n'avance la phase que si elle est prise tôt, quelques heures avant l'endormissement habituel. Écrire : « car la mélatonine prise en début de soirée et la lumière vive du matin avancent toutes deux l'horloge interne » (non vérifié CH). Ajouter que l'ICSD-3 demande un agenda ou une actimétrie d'au moins 7 jours (idéalement 14) pour documenter un retard de phase."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S11-eeg-psychiatrie-delirium-catatonie-electroconvulsivotherapie",
+   "champ": "annexeA_pieges ; temps1_indications.diagnostic_etiologie",
+   "avant": "Aucun piège sur le delirium de sevrage ; catatonie limitée à l'encéphalite anti-NMDAR",
+   "correction": "Ajouter que le delirium de sevrage alcoolique ou benzodiazépinique montre une activité rapide de bas voltage et non un ralentissement, donc un EEG non ralenti n'exclut pas un delirium (non vérifié CH). Ajouter que l'EEG d'une catatonie primaire reste habituellement normal, ce qui aide à la distinguer d'un état de mal non convulsivant ou d'une encéphalite, et que l'EEG s'impose aussi devant une catatonie pour exclure un état de mal non convulsivant (non vérifié CH)."
+  }
+ ],
+ "non_tranche": [
+  "EX-3-S11-eeg-psychiatrie-… : le champ « calculs » du gabarit examen est absent (règle 0.2). controle.py l'accepte et d'autres fiches EX-3 l'omettent aussi ; décision de charpente (« calculs »: [] ou champ facultatif) à prendre globalement.",
+  "EX-3-S11-polygraphie : un IAH de 30/h est « modéré » selon les HUG (sévère au-dessus de 30) mais « sévère » selon l'AASM (≥ 30/h) ; la fiche suit correctement la source suisse, une mention de la limite internationale serait utile.",
+  "EX-3-S11-agenda-sommeil, temps2 « la moitié des patients traités ne la normalisent pas (Riemann 2023) » : attribution non retrouvée dans les extraits disponibles ; à revérifier dans le texte intégral.",
+  "Sources RMS 2018 (apnées, NoSAS, pneumopathie lipidique) et HUG « Polysomnographie » absentes du cache partagé : contenu plausible et cohérent, non relu mot pour mot."
+ ],
+ "besoin_outils_partages": "Aucun. Suggestion : que controle.py signale l'absence du champ « calculs » dans les fiches d'examen (gabarit unique)."
+}
