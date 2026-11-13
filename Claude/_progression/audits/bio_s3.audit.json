@@ -54,5 +54,55 @@
     "Hémocultures : pour la bactériémie à S. aureus, la recommandation d'échocardiographie et sa classe dans l'ESC 2023 n'ont pas pu être relues dans le texte original (page OUP inaccessible). « Échocardiographie si le score de risque est élevé » reste à vérifier dans l'ESC 2023, section 5.4.",
     "Troponine T hs : la valeur < 14 ng/L de la fiche HUG 3808 n'a pas pu être relue, car le symbole « < » est perdu dans le cache texte. Le 99e percentile Roche connu est 14 ng/L."
   ],
-  "besoin_outils_partages": "aips_fiche.py fiche renvoie « ABSENT » pour DigiFab 59301 : le document refdata est la notice FDA en anglais, sans les rubriques françaises. Il a été lu par sources_cache.py cherche."
+  "besoin_outils_partages": "aips_fiche.py fiche renvoie « ABSENT » pour DigiFab 59301 : le document refdata est la notice FDA en anglais, sans les rubriques françaises. Il a été lu par sources_cache.py cherche.",
+  "restants_leves_1": [
+    {
+      "restant": 1,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-hemocultures.json",
+      "gravite": "mineure",
+      "preuve": "sources[0] : « 5049 » remplacé par « 4982 » (HUG fiche 4982, Hémoculture pédiatrie, « < 3 ans et/ou < 15kg », relue dans le cache rpa Bactériologie)."
+    },
+    {
+      "restant": 2,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bnp-nt-probnp.json",
+      "gravite": "mineure",
+      "preuve": "Piège « BNP dosé sous sacubitril/valsartan » ajouté ; AIPS Entresto 65673 ajoutée aux sources (« le BNP est un substrat de la néprilysine, le NT-proBNP ne l'est pas », relu)."
+    },
+    {
+      "restant": 3,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bnp-nt-probnp.json",
+      "gravite": "mineure",
+      "preuve": "temps2_examen[0].anomalie : « adulte 450 ng/L » remplacé par « < 50 ans 450 ng/L »."
+    },
+    {
+      "restant": 4,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-troponines-hypersensibles.json",
+      "gravite": "mineure",
+      "preuve": "temps3_interpretation[2] : zone d'observation définie « 0 h < 52 ng/L et Δ1h < 5 ng/L, sans 0 h < 12 ng/L avec Δ1h < 3 ng/L » (Mueller 2016)."
+    },
+    {
+      "restant": 5,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bilan-lipidique.json",
+      "gravite": "mineure",
+      "preuve": "temps3_interpretation[5].confirmation : « Myopathie sévère à la statine ; rhabdomyolyse seulement si atteinte rénale ou myoglobinurie (ESC/EAS 2019) »."
+    }
+  ],
+  "verification_1": {
+    "date": "2026-11-13",
+    "verificateur": "Claude (vérification indépendante, non-rédacteur)",
+    "commit_verifie": "b74c682db",
+    "verdict": "audit-ok",
+    "critiques": 0,
+    "graves": 0,
+    "moyens": 0,
+    "constats": [
+      "Restant 1 levé exactement : sources[0] des hémocultures cite 4982 au lieu de 5049 ; cache rpa Bactériologie relu : fiche 4982 « Hémoculture Pédiatrie », BACTEC Peds Plus/F, « réservé uniquement pour les enfants < 3 ans et/ou < 15kg », mise en production 03.09.2025 ; fiche 5049 = antigène Aspergillus.",
+      "Restant 2 levé exactement : piège « BNP dosé sous sacubitril/valsartan » ajouté ; AIPS Entresto 65673 relue (refdata SmPC du 2026-01-23) : « le BNP est un substrat de la néprilysine, le NT-proBNP ne l'est pas », BNP augmenté et NT-proBNP réduit dans PARADIGM-HF ; rubriques citées présentes.",
+      "Restant 3 levé exactement : « adulte 450 ng/L » remplacé par « < 50 ans 450 ng/L ».",
+      "Restant 4 levé exactement : zone d'observation = 0 h < 52 ng/L et Δ1h < 5 ng/L hors rule-out (0 h < 12 et Δ1h < 3), conforme à Mueller 2016 déjà vérifié par l'audit.",
+      "Restant 5 levé exactement : « Myopathie sévère à la statine ; rhabdomyolyse seulement si atteinte rénale ou myoglobinurie (ESC/EAS 2019) » ; Mach 2019 déjà en sources de la fiche.",
+      "Diff du commit b74c682db limité aux 5 champs et à l'ajout d'une source ; aucune autre modification. controle.py VERT."
+    ],
+    "restants": []
+  }
 }

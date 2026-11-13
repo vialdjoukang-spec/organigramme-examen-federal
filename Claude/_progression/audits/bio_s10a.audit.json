@@ -76,5 +76,71 @@
     "Électrophorèse : le « rapport impliquée/non impliquée > 8 » (UZH 2025) figure sur la diapositive du MGUS à chaînes légères, sans préciser qu'il s'agit d'un seuil de risque rénal. La lecture « risque rénal » de la fiche reste plausible, mais n'est pas démontrée.",
     "Hémogramme leucocytes : « hospitalisation et antibiothérapie IV » pour toute neutropénie fébrile (non vérifié CH). Une prise en charge ambulatoire orale est possible chez le patient à bas risque (score MASCC) ; aucune source suisse n'a été relue."
   ],
-  "besoin_outils_partages": "sources_cache.py lire renvoie 0 caractère pour les PDF image de zlm.insel.ch (Referenzwerte_Haemostase_.pdf) ; lu par rendu d'image (pdftoppm). La Liste des analyses OFSP 2026 (PDF de 12.9 Mo) est absente du cache : elle a été lue par téléchargement direct. La mettre en cache sous forme de texte éviterait de la relire."
+  "besoin_outils_partages": "sources_cache.py lire renvoie 0 caractère pour les PDF image de zlm.insel.ch (Referenzwerte_Haemostase_.pdf) ; lu par rendu d'image (pdftoppm). La Liste des analyses OFSP 2026 (PDF de 12.9 Mo) est absente du cache : elle a été lue par téléchargement direct. La mettre en cache sous forme de texte éviterait de la relire.",
+  "restants_leves_1": [
+    {
+      "restant": 1,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-hemogramme-leucocytes-formule.json",
+      "gravite": "mineure",
+      "preuve": "temps3_interpretation[1].entite_anormale_chiffree : « 1.1 G/L » retiré ; patient originaire de Somalie (cas 3 UZH 2025), valeur non lisible dans la source."
+    },
+    {
+      "restant": 2,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-ferritine-bilan-martial.json",
+      "gravite": "mineure",
+      "preuve": "temps2_examen[0].anomalie : > 100 µg/L → « devant une microcytose, étude de l'hémoglobine (HUG 2022) » ; « inflammation ou surcharge » marqué (non vérifié CH)."
+    },
+    {
+      "restant": 3,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-electrophorese-proteines.json",
+      "gravite": "mineure",
+      "preuve": "annexeA_pieges : piège « norme FLC ancienne chez le patient âgé » ajouté avec normes USB selon l'âge ; source USB Labormedizin Update 15/2025 ajoutée."
+    },
+    {
+      "restant": 4,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-frottis-sanguin.json",
+      "gravite": "mineure",
+      "preuve": "sources : Insel ZLM Normalwerte Hämostaselabor v6.0 (07.10.2025) ajoutée pour ADAMTS13 > 51 %."
+    },
+    {
+      "restant": 5,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-hemolyse-haptoglobine-ldh-bilirubine.json",
+      "gravite": "mineure",
+      "preuve": "sources : Insel ZLM Normalwerte Hämostaselabor v6.0 et Viollier haptoglobine (35142) ajoutées."
+    },
+    {
+      "restant": 6,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-fibrinogene-dimeres.json",
+      "gravite": "mineure",
+      "preuve": "temps1_indications.diagnostic_etiologie : « (formulaire hémostase Insel) » remplacé par « (non vérifié CH) »."
+    },
+    {
+      "restant": 7,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-immunoglobulines-g-m-e.json",
+      "gravite": "mineure",
+      "preuve": "temps3_interpretation[3].associees_a_rechercher : PCR Aspergillus retirée ; IgE anti-A. fumigatus, IgG (précipitines), éosinophiles, TDM thoracique, (non vérifié CH)."
+    },
+    {
+      "restant": 8,
+      "fichier": "Claude/_progression/donnees/examens/EX-1-S10-hemogramme-leucocytes-formule.json",
+      "gravite": "mineure",
+      "preuve": "temps3_interpretation[2].conduite : SSH 2023 limité à la TDM ; abstention thérapeutique et surveillance clinique et de l'hémogramme (non vérifié CH)."
+    }
+  ],
+  "verification_1": {
+    "date": "2026-11-13",
+    "verificateur": "Claude (vérification indépendante, n'a rien rédigé)",
+    "verdict": "audit-ok",
+    "restants": [],
+    "constat": "Les 8 restants sont levés exactement (commit faf906874, 7 fiches) ; diff limité aux 8 champs prescrits ; aucun champ ajouté ni retiré ; JSON valide ; controle.py VERT.",
+    "sources_relues": [
+      "USB Labormedizin Update 15/2025 (cache) : normes FLC <70 / ≥70 ans conformes, entrée en vigueur 01.12.2025",
+      "HUG SMPR Anémie 2022 (cache) : microcytose + ferritine > 100 µg/L → électrophorèse de l'Hb",
+      "Viollier haptoglobine 35142 (cache) : 0.30–2.00 g/L",
+      "UZH/Stadtspital Zürich 15.05.2025 (cache) : cas 3, patient de Somalie, Leukopenie chronique sans infections, Duffy ; aucune valeur lisible",
+      "Insel ZLM Normalwerte Hämostaselabor v6.0 : PDF image non mis en cache ; valeur ADAMTS13 > 51 % reprise de la lecture de l'auditeur (pdftoppm)"
+    ],
+    "non_tranche_maintenus": "Les 2 points non tranchés de l'audit (seuil FLC > 8, neutropénie fébrile à bas risque) restent hors restants.",
+    "besoin_outils_partages": "sources_cache.py : PDF image (zlm.insel.ch) sans texte en cache ; prévoir un rendu OCR mis en cache."
+  }
 }
