@@ -1,0 +1,233 @@
+{
+ "lot": "LOT_029",
+ "fichier": "LOT_029_Phase_A_V0.html",
+ "version": {
+  "octets": 127169,
+  "sha256_16": "0f6adcc4f516488d",
+  "commit": "32ec080"
+ },
+ "auditeur": "contre-audit médical indépendant (Claude, n'a rien rédigé), 13.11.2026",
+ "verdict": "CORRECTIONS",
+ "resume": "Aucune erreur Critique : définitions, seuils NICE NG127 (2e et 98e centiles, 2 lignes), chiffres S5 (amniocentèse, 6 semaines, 21 jours) relus dans le cache ; doses Keppra (7→21 mg/kg ; 10→30 mg/kg sous 40 kg), Buccolam (2,5/5/7,5/10 mg, 10 minutes), Fortecortin (4–16 mg, 2–8 mg), Ritaline (5 mg, +5–10 mg/semaine, 60 mg) conformes aux AIPS refdata ; valganciclovir et valaciclovir correctement « hors AIPS » sans dose. Mais contre-indications et grossesse/allaitement non recopiés mot pour mot (Grave), confirmation urinaire de la PCR salivaire absente et arbre décisionnel sans algorithme.",
+ "portes": {
+  "controle3": "VERT (137 phrases, 0 défaut)",
+  "verif_aips": "OK, 6 AIPS",
+  "aips_fiche_verifier": "0 défaut bloquant",
+  "abreviations": "0 sigle non développé",
+  "forme": "conforme",
+  "taille_ko": 127,
+  "points": 14,
+  "fenetres": 36,
+  "questions_p14": 8,
+  "images": "3 en couleurs, annotées, licence citée"
+ },
+ "controles": [
+  "Point 1 : définition seule (macrocéphalie > +2 DS, microcéphalie ≤ −2 DS, technique du PC) ; aucun autre contenu.",
+  "Liste DX : 10 diagnostics classés par fréquence indicative avec rangs E1–E4 justifiés (f-p2-rangs, f-p4-rangs) ; inversion DX.2/DX.3 et CMV/TSAF documentée.",
+  "NICE NG127 1.22.2–1.22.4 relu dans le cache : trois mesures, plus grande reportée, < 2e centile, 2 lignes, > 98e centile familial sans orientation : conforme.",
+  "S5 Paediatrica 30.06.2026 relu : amniocentèse « garantit l'absence de séquelles » (verbatim), traitement de six semaines si thrombopénie ou transaminases isolées, PCR dans les 21 jours : conforme.",
+  "Valcyte AIPS 55905 : contre-indication grossesse/allaitement citée mot pour mot ; Diamox AIPS 21191 : deux citations verbatim."
+ ],
+ "restants": [
+  {
+   "gravite": "Grave",
+   "lieu": "f-p11-medicaments, colonnes Contre-indication et Grossesse et allaitement (Ritaline, Keppra, Fortecortin, Buccolam)",
+   "avant": "Ritaline : « Hyperthyroïdie, troubles du rythme, maladie cardiovasculaire » ; Keppra : « Hypersensibilité au lévétiracétam » et « Femme en âge de procréer conseillée par un spécialiste ; arrêt brutal à éviter » ; Fortecortin : grossesse absente ; Buccolam : grossesse absente.",
+   "correction": "Recopier mot pour mot : Ritaline (AIPS 20736, mars 2026) liste complète dont « Glaucome. · Phéochromocytome. · Antécédents familiaux ou diagnostic de syndrome de Tourette » et crises d'angoisse ; Keppra (AIPS 55297, avril 2023) « Hypersensibilité au lévétiracétam ainsi qu'aux substances de structure apparentée, ou à l'un des excipients » et la phrase grossesse entre guillemets ; Fortecortin (AIPS 48670) « ne doit pas être administré pendant la grossesse, et en particulier au cours du premier trimestre, sauf en cas de nécessité absolue » ; Buccolam (AIPS 62556) « Les données sont insuffisantes pour évaluer l'innocuité du midazolam pendant la grossesse »."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "Point 8 (f-p8-criteres DX.8), point 9 (f-p9-cmv, PCR néonatale), point 14 question 4",
+   "avant": "« PCR positive sur urine ou salive avant 21 jours » sans règle de confirmation.",
+   "correction": "Ajouter, après relecture de S19 (ECCI 2024, absente du cache sources) : une PCR salivaire positive se confirme par une PCR urinaire (faux positif par lait maternel) ; si l'enfant a plus de 21 jours, PCR sur la goutte de sang séché du dépistage néonatal. Sinon écrire « À vérifier »."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "Point 10 Arbre décisionnel (2 Ko, 0 fenêtre)",
+   "avant": "Dix phrases « Si… alors… » en liste, sans algorithme graphique ni tableau.",
+   "correction": "Ajouter une fenêtre « Algorithme » (SVG ou tableau à embranchements) : mesure ×3 → croisement de 2 lignes / signes d'HTIC (E1) → microcéphalie < 21 jours (E4) → forme anormale → macrocéphalie stable familiale, avec délai et examen à chaque nœud."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "Point 1 Définition",
+   "avant": "« On parle à l'inverse de microcéphalie congénitale lorsque le PC est inférieur ou égal à −2 DS pour l'âge et le sexe à la naissance S20. »",
+   "correction": "Définir la microcéphalie à tout âge (PC < −2 DS pour l'âge et le sexe, congénitale ou acquise ; sévère < −3 DS), puisque le point 7 traite des formes acquises."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "f-p4-tableau (ligne DX.3) contre f-p4-rangs et point 10 (E1)",
+   "avant": "Tableau comparatif : « Orientation immédiate en neurochirurgie » ; rang E1 et arbre : « orientation immédiate en pédiatrie ».",
+   "correction": "Uniformiser selon NICE NG127 1.22.3 : « refer immediately to paediatric services », la neurochirurgie après imagerie."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "f-p11-medicaments, ligne Dexaméthasone",
+   "avant": "« Orale ou intraveineuse » sous l'AIPS 48670 (Fortecortin comprimés).",
+   "correction": "Écrire « Orale (AIPS 48670, comprimés) ; la voie intraveineuse relève d'une autre AIPS » ou citer l'AIPS de la forme injectable."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "f-p11-cmv, ligne valaciclovir maternel",
+   "avant": "« Jusqu'au résultat de l'amniocentèse ».",
+   "correction": "Ajouter la phrase de S5 : « Le valaciclovir peut être poursuivi pour réduire le risque de séquelles, mais cette indication reste discutée et doit être encadrée par des équipes expertes. »"
+  }
+ ],
+ "compte": {
+  "critique": 0,
+  "grave": 1,
+  "moyen": 2,
+  "leger": 4
+ },
+ "restants_leves_par_redacteur_1": [
+  "Grave f-p11-medicaments : contre-indications et grossesse/allaitement de Ritaline (AIPS 20736, mars 2026), Keppra (55297, avril 2023), Fortecortin (48670, janvier 2022) et Buccolam (62556, décembre 2024) recopiés mot pour mot entre guillemets depuis aips_fiche.py fiche.",
+  "Moyen PCR CMV : points 8, 9 (f-p8-criteres, f-p9, f-p9-cmv), 14 Q4 et algorithme précisent « salive positive confirmée par PCR urinaire ; après 21 jours, PCR sur sang séché du dépistage », lu dans S19 ECCI 2024 (PMC10999471 : « A positive CMV PCR on saliva should be confirmed by a CMV PCR on a urine sample » ; DBS pour diagnostic rétrospectif).",
+  "Moyen point 10 : fenêtre f-p10-algo ajoutée, tableau de 10 nœuds (mesure ×3, E1, croisement simple, E2, E4, microcéphalie sans virus, forme anormale, macrocéphalie stable, accélération vers 6 mois, PTEN) avec constat, conduite, délai, examen, source.",
+  "Léger point 1 : microcéphalie définie à tout âge (PC < 2e centile, congénitale ou acquise, S14 NICE NG127) puis forme congénitale ≤ −2 DS à la naissance (S20) ; « sévère < −3 DS » non ajouté faute de source lue le disant hors microcéphalie primitive.",
+  "Léger f-p4-tableau ligne DX.3 : « Orientation immédiate en pédiatrie, puis neurochirurgie après imagerie », aligné sur E1 et NICE NG127 1.22.3.",
+  "Léger dexaméthasone : voie écrite « Orale (AIPS 48670, comprimés) ; la voie intraveineuse relève d’une autre AIPS ».",
+  "Léger f-p11-cmv valaciclovir : phrase de S5 ajoutée verbatim (« Le valaciclovir peut être poursuivi pour réduire le risque de séquelles, mais cette indication reste discutée et doit être encadrée par des équipes expertes. »)."
+ ],
+ "verification_1": {
+  "auditeur": "vérification indépendante ciblée (Claude, n'a rien rédigé)",
+  "date": "13.11.2026",
+  "version": {
+   "commit": "c3d2626",
+   "octets": 133267,
+   "sha256_16": "44faa72b1b6e65ae"
+  },
+  "verdict": "CORRECTIONS",
+  "portes": "controle3 VERT ; verif_aips OK (6 AIPS) ; aips_fiche verifier 0 défaut ; abreviations 0 ; forme conforme ; restaurer_fond --verifier 0 (fond blanc)",
+  "leves_confirmes": [
+   "Grave (partiel) : Ritaline, Keppra, Fortecortin (contre-indication, grossesse, allaitement) et Buccolam (grossesse, allaitement) conformes mot pour mot à aips_fiche.py fiche (refdata, hors cache relu dans le HTML brut).",
+   "Moyen PCR CMV : S19 (Europe PMC PMC10999471, relu le 13.11.2026) dit « A positive CMV PCR on saliva should be confirmed by a CMV PCR on a urine sample » et DBS « for retrospective diagnosis » au-delà de trois semaines : conforme aux points 8, 9, 10 et 14.",
+   "Moyen algorithme : fenêtre f-p10-algo de 10 nœuds (constat, conduite, délai, examen, source) présente et conforme à NICE NG127 1.22.2–1.22.4.",
+   "Léger f-p4-tableau DX.3, dexaméthasone orale (AIPS 48670 comprimés) et phrase valaciclovir de S5 (verbatim relu dans le cache) : levés."
+  ],
+  "restants": [
+   {
+    "gravite": "Moyen",
+    "lieu": "Point 1 Définition",
+    "avant": "« La microcéphalie désigne, à tout âge, un PC inférieur au 2e centile pour l’âge et le sexe, qu’elle soit congénitale ou acquise après la naissance S14. »",
+    "correction": "S14 (NICE NG127 1.22.2, relu) ne définit pas la microcéphalie : c'est un seuil d'orientation « below the 2nd centile, refer for paediatric assessment » chez l'enfant de moins de 4 ans ; ni « à tout âge » ni « congénitale ou acquise ». Citer une source lue qui donne la définition (PC < −2 DS pour l'âge et le sexe) ou écrire « À vérifier » ; restreindre le seuil NICE à « moins de 4 ans, seuil d'orientation »."
+   },
+   {
+    "gravite": "Moyen",
+    "lieu": "f-p11-medicaments, Buccolam, colonne Contre-indication",
+    "avant": "« Myasthénie grave, insuffisance respiratoire sévère, apnée du sommeil, insuffisance hépatique sévère » (paraphrase, sans guillemets, hypersensibilité omise) ; la clé restants_leves_par_redacteur_1 affirme pourtant le mot pour mot.",
+    "correction": "Recopier l'AIPS 62556 : « Hypersensibilité au principe actif, aux benzodiazépines ou à l'un des excipients » · « Myasthénie grave » · « Insuffisance respiratoire sévère » · « Syndrome d'apnée du sommeil » · « Insuffisance hépatique sévère »."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "f-p11-medicaments, Valcyte et Diamox",
+    "avant": "Valcyte : « Contre-indiqué pendant la grossesse et l’allaitement » ; Diamox : « Pas pendant la grossesse sauf absolue nécessité » (paraphrases sans guillemets).",
+    "correction": "Valcyte (AIPS 55905) : « Valcyte est contre-indiqué pendant la grossesse, l’allaitement ainsi que chez l’homme désireux de concevoir un enfant » ; Diamox (AIPS 21191) : « Diamox ne doit pas être utilisé pendant la grossesse, surtout durant le 1er trimestre, sauf en cas d'absolue nécessité » et l'allaitement « un sevrage peut être nécessaire le cas échéant »."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "f-p10-algo nœuds 1 et 8",
+    "avant": "Nœud 1 « Retenir la mesure » ; nœud 8 « Rassurer, suivre la courbe, ne pas orienter de routine ».",
+    "correction": "Nœud 1 : « reporter la plus grande des trois mesures, corrigée pour l'âge gestationnel » (1.22.2). Nœud 8 : « mesurer le PC des parents ; si une macrocéphalie familiale est probable, pas d'orientation de routine » (1.22.4) ; « rassurer » n'est pas dans la source."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "Points 8, 9 et nœud 5 (sang séché)",
+    "avant": "PCR sur sang séché présentée sans limite.",
+    "correction": "Ajouter selon S19 : test de référence rétrospectif « but may miss cases » ; un résultat négatif n'exclut pas l'infection."
+   }
+  ],
+  "compte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 2,
+   "leger": 3
+  }
+ },
+ "restants_leves_par_redacteur_2": {
+  "date": "13.11.2026",
+  "version": {
+   "octets": 134797,
+   "sha256_16": "e64c0255ae946fbc"
+  },
+  "portes": "controle3 VERT ; verif_aips OK (6 AIPS) ; aips_fiche verifier 0 ; abreviations 0 ; forme conforme ; restaurer_fond --verifier 0",
+  "leves": [
+   "Moyen point 1 : définition tirée de S25 nouvelle (Brighton Collaboration, Vaccine 2017, PMC5710988 lu le 13.11.2026 : « more than 2 standard deviations (SDs) below the mean for age and sex or less than the 3rd percentile », forme acquise) ; S14 retiré du point 1 ; seuil NICE restreint à « avant 4 ans, seuil d'orientation » (point 6 image, f-p7-syndromes, tableau seuils).",
+   "Moyen Buccolam : contre-indications recopiées mot pour mot de l'AIPS 62556 (refdata relu), hypersensibilité incluse, entre guillemets.",
+   "Léger Valcyte et Diamox : citations verbatim AIPS 55905 et 21191 (grossesse, allaitement, contre-indications) ; verif_aips OK.",
+   "Léger algorithme : nœud 1 « reporter la plus grande des trois mesures, corrigée pour l'âge gestationnel » ; nœud 8 « mesurer le PC des parents ; pas d'orientation de routine si macrocéphalie familiale probable » (NG127 1.22.2, 1.22.4).",
+   "Léger sang séché : points 8, 9 et nœud 5 précisent que la PCR sur sang séché peut manquer des cas et qu'un résultat négatif n'exclut pas l'infection (S19 : « gold standard for retrospective diagnosis of cCMV, but may miss cases »)."
+  ]
+ },
+ "verification_2": {
+  "auditeur": "vérification indépendante ciblée 2 (Claude, n'a rien rédigé)",
+  "date": "13.11.2026",
+  "version": {
+   "commit": "91f36db",
+   "octets": 134797,
+   "sha256_16": "e64c0255ae946fbc"
+  },
+  "verdict": "CORRECTIONS",
+  "portes": "controle3 VERT ; verif_aips OK (6 AIPS) ; aips_fiche verifier 0 défaut ; abreviations 0 ; forme conforme",
+  "leves_confirmes": [
+   "Moyen point 1 : S25 (Brighton, PMC5710988, texte intégral relu hors cache le 13.11.2026) dit « more than 2 standard deviations (SDs) below the mean for age and sex or less than the 3rd percentile » et décrit la forme acquise « head circumference falls within the normal range at birth with subsequent development of microcephaly over time due to deceleration of brain growth » : conforme ; seuil NICE restreint à « avant 4 ans, seuil d'orientation ».",
+   "Moyen Buccolam contre-indications : identiques mot pour mot à l'AIPS 62556 (refdata relu hors cache).",
+   "Léger Valcyte et Diamox grossesse/allaitement : verbatim conforme (« 1 er trimestre » est l'espacement de la source).",
+   "Léger algorithme nœuds 1 et 8 : conformes à NG127 1.22.2 et 1.22.4.",
+   "Léger sang séché : limite « may miss cases » ajoutée aux points 8, 9 et au nœud 5."
+  ],
+  "restants": [
+   {
+    "gravite": "Moyen",
+    "lieu": "f-p11-medicaments, Buccolam, colonne Dose",
+    "avant": "« 2,5 mg avant 1 an »",
+    "correction": "AIPS 62556, Posologie usuelle « À partir de 6 mois » ; tranche « >6 mois à <1 an 2.5 mg » ; pharmacocinétique : « Buccolam n'est pas indiqué pour les enfants âgés de 3 à 6 mois ». Écrire « 2,5 mg de 6 mois à moins de 1 an ; avant 6 mois : hors AIPS » (cours sur le nourrisson : risque de dose hors autorisation)."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "f-p11-medicaments, Valcyte, colonne Contre-indication",
+    "avant": "« Hypersensibilité au valganciclovir ou au ganciclovir » (paraphrase sans guillemets, excipients omis) alors que restants_leves_par_redacteur_2 affirme les contre-indications verbatim.",
+    "correction": "« Valcyte est contre-indiqué chez les patients présentant une hypersensibilité connue au valganciclovir, au ganciclovir ou à l’un des excipients conformément à la composition »."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "f-p11-medicaments, Diamox, colonne Contre-indication",
+    "avant": "« hyponatrémie et/ou hypokaliémie, affection rénale ou hépatique grave » (citation tronquée).",
+    "correction": "Recopier la liste AIPS 21191 : « Hypersensibilité à la substance active ou à un excipient selon la composition » · « hyponatrémie et/ou hypokaliémie, affection rénale ou hépatique grave ou une dysfonction (y compris la cirrhose…), insuffisance corticosurrénalienne ainsi qu'acidose hyperchlorémique » · hypersensibilité aux sulfamides."
+   }
+  ],
+  "compte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 1,
+   "leger": 2
+  }
+ },
+ "restants_leves_par_redacteur_3": [
+  "Moyen Buccolam dose (f-p11-medicaments) : « 2,5 mg de 6 mois à moins de 1 an ; avant 6 mois : hors AIPS », conforme à AIPS 62556 (« >6 mois à <1 an 2.5 mg », innocuité 0 à 6 mois non établie).",
+  "Léger Valcyte contre-indication : citation verbatim AIPS 55905 (hypersensibilité connue au valganciclovir, au ganciclovir ou à l’un des excipients conformément à la composition) entre guillemets.",
+  "Léger Diamox contre-indication : liste AIPS 21191 recopiée mot pour mot (excipient, hyponatrémie… acidose hyperchlorémique, sulfamides) entre guillemets."
+ ],
+ "verification_3": {
+  "auditeur": "vérification indépendante ciblée 3 (Claude, n'a rien rédigé)",
+  "date": "13.11.2026",
+  "version": {
+   "commit": "dc2cb47",
+   "octets": 135315,
+   "sha256_16": "1f2e8d0b58e27b21"
+  },
+  "verdict": "audit-ok",
+  "portes": "controle3 --script-ok VERT ; verif_aips OK (6 AIPS) ; aips_fiche verifier 0 défaut bloquant ; abreviations 0 ; forme conforme",
+  "leves_confirmes": [
+   "Moyen Buccolam dose : SmPC AIPS 62556 (refdata 04.03.2025, relu hors cache) « >6 mois à <1 an 2.5 mg », « L'innocuité et l'efficacité du midazolam chez les enfants âgés de 0 à 6 mois n'ont pas été établies » : « 2,5 mg de 6 mois à moins de 1 an ; avant 6 mois : hors AIPS » conforme.",
+   "Léger Valcyte contre-indication : identique mot pour mot à la SmPC AIPS 55905 (refdata 11.02.2025, relu hors cache).",
+   "Léger Diamox contre-indication : trois fragments identiques mot pour mot à la SmPC AIPS 21191 (refdata 24.09.2026, relu hors cache) ; seule la contre-indication du traitement au long cours en cas de glaucome chronique non congestif à angle fermé est omise, sans portée pédiatrique (non compté)."
+  ],
+  "diff_controle": "git show dc2cb47 : seules les trois cellules ci-dessus changent dans f-p11-medicaments ; aucune nouvelle affirmation non sourcée, démarche et suivi inchangés.",
+  "restants": [],
+  "compte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 0,
+   "leger": 0
+  }
+ }
+}
