@@ -1,0 +1,3 @@
+- 13.11 11:47 · source · HUG RPA chimie urgences/liquides bio/virologie/immuno/toxico (LCR, NH4, antiépileptiques, B1) ; RMS 2016 Degraeve méningite ; CHUV TDM 2013 ; Bien 2019 ; AIPS VPA/LTG/PHT
+- 13.11 11:47 · decision · 9 fiches EX-1-S1 remplies ; passerelles charpente gardées (pourquoi —), ajouts après
+- 13.11 11:47 · reste · Panel anti-NMDAR et onconeuronaux : labo suisse non trouvé (envoi externe) ; ZLM Insel disjoncté ; ammoniémie clinique non vérifiée CH
