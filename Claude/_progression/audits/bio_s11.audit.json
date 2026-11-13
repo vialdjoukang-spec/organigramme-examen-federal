@@ -192,5 +192,27 @@
    "gravite": "mineure",
    "preuve": "Les 18 passerelles « — » ont chacune un jumeau même type/même cible avec « pourquoi » ; suppression impossible : charpente.py (l. 520) les réinjecte, besoin d'outil signalé."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, non rédacteur)",
+  "verdict": "audit-ok",
+  "resume": "Restants 1 à 12 levés exactement ; diff a11c02c9a relu contre les sources du cache : AIPS Leponex (« Ne pas réexposer le patient à la clozapine », « ne doivent pas être re-traités par Leponex », tableau 1 : 0-18 sem. hebdo, >18-52 sem. mensuel, >52 sem.-24 mois toutes les 12 sem., >24 mois annuel ; interruption ≥ 3 jours, tableaux 4-5 ; arrêt si ANC < 1,0 × 10⁹), AIPS Depakine (TP anormalement bas confirmé « doit conduire à arrêter le traitement » ; hausse isolée et transitoire des transaminases fréquente en début de traitement), HUG RPA CHIMURG 3803 (« Transport sur glace impératif », « Acheminer le prélèvement dans l'heure », « à jeun recommandé mais pas obligatoire »), 3923 (« Patient À JEUN », « Double détermination en cas de suspicion de macroprolactinémie »), 9317 barbituriques (méthode KIMS, immunodosage), Insel ZLM (LDL < 2,59 optimal, 2,59-3,34 tolérable, 3,37-4,12 limite haute). Portes : controle.py VERT, charpente.py 0 fiche écrite, verif_aips.py OK sur les 10 fiches.",
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-1-S11-* (10 fiches)",
+    "champ": "passerelles",
+    "constat": "Restant 13 non levé : 18 passerelles « — » subsistent ; chacune a bien un jumeau même type/même cible avec « pourquoi » (vérifié, 0 orphelin) ; charpente.py l. 521 réinjecte les passerelles de charpente.",
+    "correction": "Outil partagé : charpente.py ne doit pas réinjecter une passerelle « — » quand un jumeau rempli existe, ou controle.py doit la signaler ; à traiter par le responsable des outils."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-1-S11-bilan-etiologique-delirium ; EX-1-S11-surveillance-valproate-carbamazepine",
+    "champ": "entete.prelevement_conditions (ammoniémie)",
+    "constat": "La correction a retiré « prescrite seule » alors que HUG RPA 3803 maintient « Cette analyse doit être prescrite seule ».",
+    "correction": "Rétablir « prescrite seule (HUG RPA 3803) » à côté de la glace et du délai d'une heure."
+   }
+  ]
+ }
 }
