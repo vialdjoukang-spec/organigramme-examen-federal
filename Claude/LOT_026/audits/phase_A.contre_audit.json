@@ -1,375 +1,414 @@
 {
- "lot": "LOT_026",
- "fichier": "LOT_026_Phase_A_V0.html",
- "version": {
-  "octets": 103283,
-  "sha256_16": "ce455fa0403c349e",
-  "commit": "a868184"
- },
- "auditeur": "contre-audit médical indépendant (Claude, n'a rien rédigé), 13.11.2026",
- "verdict": "CORRECTIONS",
- "resume": "Aucune erreur Critique : doses, contre-indications et citations grossesse/allaitement des AIPS 54807, 44911, 53116 vérifiées sur les fiches refdata ; SSI 2406 et HUG relus dans le cache. Mais la précision exigée par l'ordre de Vial du 12.11.2026 (démarche → examens → prise en charge → suivi) manque : tableau comparatif 10×5 absent, point 9 non structuré, molécules et doses renvoyées aux fichiers DX ou absentes, et situations particulières de la SSI omises alors que la source a été lue.",
- "portes": {
-  "controle3": "ORANGE (B_phrase_nominale ×9, légendes)",
-  "aips_fiche_verifier": "0 défaut bloquant",
-  "verif_aips": "OK, 3 AIPS",
-  "abreviations": "0 sigle non développé",
-  "taille_ko": 103,
-  "points": 14,
-  "fenetres": 38,
-  "questions_p14": 8
- },
- "restants": [
-  {
-   "gravite": "Grave",
-   "lieu": "Phase A, en tête ou point 4",
-   "avant": "Aucun tableau de dix lignes avec signe clé, examen qui tranche, mécanisme, conduite immédiate et rang E (f-p2-rangs donne la fréquence, f-p4-graves ne couvre que les graves).",
-   "correction": "Ajouter une fenêtre « Tableau comparatif des dix DX » : 10 lignes × 5 colonnes (signe clé, examen qui tranche, mécanisme, conduite immédiate, rang E), conforme à µ1.4, contenu repris des points 3, 6, 8 et 11 avec leurs sources.",
-   "source": "PROMPT L1 µ1.4"
+  "lot": "LOT_026",
+  "fichier": "LOT_026_Phase_A_V0.html",
+  "version": {
+    "octets": 103283,
+    "sha256_16": "ce455fa0403c349e",
+    "commit": "a868184"
   },
-  {
-   "gravite": "Grave",
-   "lieu": "Point 11, fenêtre f-p11-oma",
-   "avant": "« Absence de réponse à l’amoxicilline après 72 heures | Amoxicilline et acide clavulanique » ; « Allergie aux pénicillines … | Céfuroxime » (sans dose) ; allergie à toutes les bêta-lactamines absente.",
-   "correction": "Recopier la SSI lue : amoxicilline-acide clavulanique 40 mg/kg/12 h per os (adulte 1 g/8 h) si antibiothérapie dans les 30 jours, OMA récidivante, risque de pneumocoque résistant ou échec à 72 h ; céfuroxime 15 mg/kg/12 h (adulte 500 mg/12 h) si allergie sans contre-indication aux céphalosporines ; clarithromycine 7,5 mg/kg/12 h (adulte cotrimoxazole 160/800 mg/12 h) si toutes les bêta-lactamines sont contre-indiquées ; ajouter pour chaque molécule son AIPS (aips_fiche.py trouve) ou « hors AIPS ».",
-   "source": "S2 SSI 2406, rubrique Traitement empirique, situations particulières 1 à 3"
-  },
-  {
-   "gravite": "Grave",
-   "lieu": "Point 9",
-   "avant": "Un seul tableau « Examen ciblé » sans 9.a gold standard, 9.b première intention, 9.c alternatives (grossesse, enfant, DFGe < 30 mL/min, IRM impossible), 9.d seconde intention ; aucun tableau d’interprétation résultat → signification → conduite ; « Laboratoire et IRM ou tomodensitométrie » sans examen ni seuil.",
-   "correction": "Structurer 9.a (otoscopie, gold standard clinique ; imagerie pour la forme nécrosante), 9.b, 9.c, 9.d ; ajouter un tableau « Interprétation » : otoscopie (aspect → diagnostic → conduite), Weber/Rinne (latéralisation et signe → type de surdité → conduite), forme nécrosante (CRP/VS en unités SI, TDM : érosion osseuse ; IRM : extension aux tissus mous, suivi), paralysie faciale (glycémie, HbA1c, sérologies, électroneurographie au 10e jour : seuil pronostique) ; chiffres repris d’une source suisse ou européenne lue, sinon « À vérifier ».",
-   "source": "PROMPT L1 µ3 point 9 ; ordre de Vial du 12.11.2026 ; S3, S5"
-  },
-  {
-   "gravite": "Grave",
-   "lieu": "Point 11, f-p11-douleur et f-p11-urgences",
-   "avant": "« Les doses d’antalgique selon l’âge et le poids figurent dans les fichiers DX » ; « La corticothérapie orale du protocole des HUG figure dans le fichier DX.6 » ; E3 : « Antiviral systématique et corticoïde ».",
-   "correction": "Supprimer les renvois ; écrire ici la molécule, la dose, la voie et la durée : prednisone 1 mg/kg/j per os, 7 jours, puis arrêt (HUG S5) avec son AIPS ; paracétamol et ibuprofène avec dose AIPS adulte et enfant (mg/kg, dose maximale) et contre-indication majeure ; ligne Médicaments complète (molécule ®, dose AIPS, voie, durée, contre-indication, extrait AIPS).",
-   "source": "S5 HUG 04.04.2023 (« Prednisone 1mg/kg/j PO, 7j et stop ») ; PROMPT L1 µ3 point 11"
-  },
-  {
-   "gravite": "Grave",
-   "lieu": "Point 11, f-p11-urgences (E1) et f-p11-externe",
-   "avant": "« Nettoyage, biopsie pour culture, hospitalisation et antibiotique intraveineux » ; « antibiotique systémique contre Pseudomonas et staphylocoque ».",
-   "correction": "Préciser, d’après une source suisse ou européenne lue : molécule antipseudomonale, voie, durée totale (semaines), critères de relais oral, surveillance datée (douleur, CRP/VS, imagerie de contrôle), critères d’échec et d’arrêt ; à défaut écrire « À vérifier » sans dose.",
-   "source": "S3 HUG (avis ORL immédiat, antibiotique systémique) ; ordre de Vial du 12.11.2026"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 13, 5e phrase",
-   "avant": "« l’antibiotique reste immédiat seulement avant 2 ans en cas d’atteinte bilatérale ou d’otorrhée »",
-   "correction": "« L’antibiotique est immédiat dans l’otite bilatérale avant 2 ans et dans l’otite perforée avec otorrhée à tout âge ; sinon il est différé. » (la phrase actuelle limite l’otorrhée à l’enfant de moins de 2 ans).",
-   "source": "S2 SSI 2406"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 1",
-   "avant": "Définition tirée de S23 (revue canadienne) et de S7 (page patient du CHUV), sans société savante nommée et datée.",
-   "correction": "Citer une définition de société savante ou de protocole suisse daté (HUG, SSO-ORL) ou européenne ; sinon le signaler comme déduction ; garder la définition seule.",
-   "source": "PROMPT L1 µ3 point 1, grille Q1"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 11, AIPS 54807, 44911, 53116",
-   "avant": "Contre-indications paraphrasées ; Amoxi-Mepha : omission de « leucémie lymphoïde » ; Ciproxin HC : omission de « n’est pas indiqué pour le traitement d’une otite moyenne ».",
-   "correction": "Recopier mot pour mot la rubrique Contre-indications de chaque AIPS (règle du harnais), entre guillemets, avec la date de mise à jour.",
-   "source": "AIPS 44911 (sept. 2026), 54807 (mars 2024), 53116 (déc. 2025)"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 11, f-p11-urgences, Valtrex",
-   "avant": "« elle réduit la dose en insuffisance rénale »",
-   "correction": "Donner les seuils de l’AIPS : clairance ≥ 50 mL/min 1000 mg 3×/j ; 30–49 mL/min 1000 mg 2×/j ; < 30 mL/min selon le tableau AIPS ; prudence chez le sujet âgé.",
-   "source": "AIPS 53116, Mises en garde, insuffisance rénale"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 11, f-p11-externe ; point 6, f-p6-conduit",
-   "avant": "« Antibiotique local non ototoxique » ; otomycose : « Nettoyage et antifongique local », sans molécule.",
-   "correction": "Nommer la molécule du protocole HUG (ofloxacine, Floxal®, 4 gouttes 2×/j) avec son AIPS, et l’antifongique local avec son AIPS, ou « hors AIPS ».",
-   "source": "S3 HUG 14.07.2022, tableau des traitements"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 11, 11.A et 11.D",
-   "avant": "But non chiffré ; aucun critère de guérison ni de sortie énuméré ; volet social et assurances, sujet âgé, insuffisance hépatique absents.",
-   "correction": "11.A : buts chiffrés (douleur contrôlée en 48–72 h, guérison de l’otite externe en 7–14 jours, antibiotique évité dans l’OMA non compliquée) ; 11.D : critères de guérison et de sortie un par un ; ajouter sujet âgé, insuffisance rénale ou hépatique, arrêt de travail et assurance.",
-   "source": "PROMPT L1 µ3 point 11 ; S2, S3"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Point 8",
-   "avant": "Critères sans société savante datée ni seuil (OMA, otite externe, zona otique).",
-   "correction": "Dater chaque jeu de critères (SSI 2024 pour l’OMA, HUG 2022 pour l’otite externe, HUG 2023 pour la paralysie faciale) et dire explicitement ce qui ne suffit pas (tympan rouge isolé, fièvre isolée).",
-   "source": "PROMPT L1 µ3 point 8 ; S2, S3, S5"
-  },
-  {
-   "gravite": "Moyen",
-   "lieu": "Liste canonique (avant gel, porte P1)",
-   "avant": "DX.10 « Carcinome épidermoïde oropharyngé » alors que S7 et S9 couvrent la sphère ORL et la cavité buccale ; angine et abcès péri-amygdalien, causes référées fréquentes, absents ; DX.8 classé 8e alors que S19 le dit cause la plus fréquente d’otalgie avec oreille normale.",
-   "correction": "Soit renommer DX.10 « Carcinome épidermoïde des voies aérodigestives supérieures », soit justifier l’oropharynx ; justifier par écrit l’exclusion de l’angine (couverte par S1.9 ?) ; argumenter le rang de DX.8 face à DX.4 et DX.5.",
-   "source": "PROMPT L1 µ1.2 ; S7, S9, S19"
-  },
-  {
-   "gravite": "Léger",
-   "lieu": "Point 11, f-p11-oma",
-   "avant": "SSI : enfant 25 mg/kg toutes les 12 heures ; AIPS : 50–100 mg/kg/jour en 3 à 4 prises.",
-   "correction": "Écrire la dose AIPS d’abord, puis la mention SSI comme recommandation suisse divergente sur le nombre de prises, dans la même fenêtre (sans renvoi à DX.2).",
-   "source": "AIPS 44911 ; S2"
-  },
-  {
-   "gravite": "Léger",
-   "lieu": "Point 11, f-p11-externe",
-   "avant": "« garde la position 3 à 5 minutes selon les HUG »",
-   "correction": "Ajouter que l’AIPS de Ciproxin HC prescrit 30 à 60 secondes, oreille atteinte vers le haut, et agiter le flacon.",
-   "source": "AIPS 54807, Posologie"
-  },
-  {
-   "gravite": "Léger",
-   "lieu": "Points 8, 11.D, 14",
-   "avant": "« la mortalité atteint 50 % selon les HUG » ; « peut tuer jusqu’à 50 % des patients »",
-   "correction": "Écrire « jusqu’à 50 % selon les HUG », en précisant qu’il s’agit d’une borne haute ancienne ; chercher un chiffre européen récent (S16/S17) ou laisser « À vérifier ».",
-   "source": "S3 HUG (« Rare, mais jusqu’à 50% de mortalité »)"
-  },
-  {
-   "gravite": "Léger",
-   "lieu": "Points 3 et 8, légendes",
-   "avant": "controle3 ORANGE : 9 phrases nominales (légendes, « Coupe frontale de l’oreille : où naît la douleur. »).",
-   "correction": "Rendre les légendes verbales ou les exclure du contrôle par la classe prévue.",
-   "source": "controle3.py"
-  },
-  {
-   "gravite": "Léger",
-   "lieu": "Point 14",
-   "avant": "Huit pièges en prose.",
-   "correction": "Les mettre en tableau Question | Réponse | Raison (µ3 point 14).",
-   "source": "PROMPT L1 µ3"
-  }
- ],
- "compte": {
-  "Critique": 0,
-  "Grave": 5,
-  "Moyen": 8,
-  "Léger": 5
- },
- "verifie_conforme": [
-  "Ciproxin HC : 3 gouttes 2×/j 7 jours dès 2 ans, test de sensibilité, CI perforation ; grossesse et allaitement mot pour mot",
-  "Amoxi-Mepha : 1500–3000 mg/j adulte, 50–100 mg/kg/j enfant ; grossesse et allaitement mot pour mot",
-  "Valtrex : 1000 mg 3×/j 7 jours, au plus tard 72 h ; grossesse et allaitement mot pour mot",
-  "SSI 2406 : antibiotique immédiat (bilatérale < 2 ans, otorrhée), différé 48–72 h / 24–48 h, amoxicilline 1 g/8 h 5 jours, 25 mg/kg/12 h, durées 10 j / 5–7 j",
-  "HUG S3 : 3 % adressés à l’ORL, céruménolytique 5–10 gouttes 2×/j 3–5 j, douleur au tragus pathognomonique",
-  "HUG S5 : protection oculaire, House-Brackmann, neurologie au 10e jour IV–VI",
-  "Images : Blausen CC BY 3.0 et Welleschik CC BY-SA 3.0, en couleurs, attribuées",
-  "Arbre décisionnel : graves d’abord (E1, E3, complications, E2), chaque nœud mène à une action"
- ],
- "restants_leves_par_redacteur_1": {
-  "base_commit": "ac20a41",
-  "fichier_apres": {
-   "octets": 132197,
-   "sha256_16": "f1bb885b351a3bca"
-  },
-  "portes": {
-   "controle3": "VERT",
-   "verif_aips": "OK, 12 AIPS",
-   "aips_fiche_verifier": "0 défaut bloquant",
-   "abreviations": "0 sigle non développé",
-   "forme": "conforme"
-  },
-  "leves": [
-   {
-    "gravite": "Grave",
-    "lieu": "Phase A, en tête ou point 4",
-    "preuve": "Fenêtre f-p4-comparatif ajoutée au point 4 : 10 lignes × colonnes signe clé, examen qui tranche, mécanisme, conduite immédiate, rang E, sources S2–S22."
-   },
-   {
-    "gravite": "Grave",
-    "lieu": "Point 11, fenêtre f-p11-oma",
-    "preuve": "f-p11-oma : co-amoxicilline 40 mg/kg/12 h (adulte 1 g/8 h, AIPS 53995), céfuroxime 15 mg/kg/12 h (adulte 500 mg/12 h, AIPS 49460), clarithromycine 7,5 mg/kg/12 h (AIPS 57770), adulte cotrimoxazole 160/800 mg/12 h (AIPS 48306), indications SSI 1 à 3 recopiées."
-   },
-   {
-    "gravite": "Grave",
-    "lieu": "Point 9",
-    "preuve": "Point 9 restructuré 9.a–9.d (otoscopie de référence ; COSNOE 2024 S27 pour la forme nécrosante ; alternatives enfant, grossesse, clairance < 30 mL/min) + fenêtre f-p9-interpretation (15 lignes résultat → signification → conduite) ; ligne « Laboratoire et IRM » remplacée par CRP, VS, TDM, IRM."
-   },
-   {
-    "gravite": "Grave",
-    "lieu": "Point 11, f-p11-douleur et f-p11-urgences",
-    "preuve": "Renvois DX supprimés : doses AIPS paracétamol (47503, 43838) et ibuprofène (61210, 66932) dans f-p11-douleur ; prednisone 1 mg/kg/j 7 j puis arrêt (S5, AIPS 29349) en E3 et dans f-p11-urgences ; fenêtre f-p11-medicaments (10 molécules : dose AIPS, voie, durée, contre-indication)."
-   },
-   {
-    "gravite": "Grave",
-    "lieu": "Point 11, f-p11-urgences (E1) et f-p11-externe",
-    "preuve": "E1 et f-p11-externe précisés : antibiotique IV anti-Pseudomonas aeruginosa ; molécule, durée et relais oral déclarés décidés par ORL et infectiologue (non chiffrés par S3/S4) ; ligne de suivi nécrosante ajoutée (CRP, VS, imagerie, échec, COSNOE S27)."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 13, 5e phrase",
-    "preuve": "Point 13 : « l’antibiotique est immédiat dans l’otite bilatérale avant 2 ans et dans l’otite perforée avec otorrhée à tout âge, sinon il est différé »."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 1",
-    "preuve": "Point 1 : définition de la SSI (08.05.2024) citée mot pour mot « douleur récente de l’oreille et ses équivalents » (S2)."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, AIPS 54807, 44911, 53116",
-    "preuve": "Contre-indications recopiées mot pour mot entre guillemets avec date : Ciproxin HC (mars 2024, dont « n'est pas indiqué pour le traitement d'une otite moyenne »), Amoxi-Mepha (septembre 2026, dont leucémie lymphoïde), Valtrex (décembre 2025) ; verif_aips OK."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-urgences, Valtrex",
-    "preuve": "Tableau AIPS Valtrex dans f-p11-urgences : ≥ 50 mL/min 1000 mg 3×/j ; 30–49 : 1000 mg 2×/j ; 10–29 : 1000 mg 1×/j ; < 10 : 500 mg 1×/j ; réduction chez le sujet âgé."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-externe ; point 6, f-p6-conduit",
-    "preuve": "Floxal® nommé (hors AIPS dans l’oreille, collyre seul en Suisse, sans dose) ; Ciproxin HC avec AIPS 54807 pour l’otite simple ; otomycose : Nizoral® en mèche, hors AIPS (f-p6-conduit)."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, 11.A et 11.D",
-    "preuve": "11.A chiffré (douleur en 48–72 h, guérison en 7 à 14 jours, antibiotique évité dans l’OMA non compliquée) ; 11.D : tableau des critères de guérison et de sortie par diagnostic, sujet âgé, insuffisance rénale et hépatique, coût ENMG 300–350 francs et assurance, arrêt de travail (déduction)."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 8",
-    "preuve": "Point 8 daté : HUG 14.07.2022 (otite externe), SSI 2024 (OMA : tympan rouge isolé ou fièvre isolée insuffisants), HUG 2022–2023 (zona), COSNOE 2024 (nécrosante)."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Liste canonique (avant gel, porte P1)",
-    "preuve": "f-p2-rangs : justification écrite de l’oropharynx (déduction, CHUV S7), de l’exclusion de l’angine et de l’abcès péri-amygdalien (traités au LOT_025, SSP S1.9) et du rang de DX.8 (2,7 % de douleur S20, première cause à oreille normale S19)."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Point 11, f-p11-oma",
-    "preuve": "f-p11-oma : dose AIPS Amoxi-Mepha écrite d’abord, puis la SSI comme recommandation suisse divergente sur le nombre de prises ; renvoi DX.2 supprimé."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Point 11, f-p11-externe",
-    "preuve": "f-p11-externe : ajout AIPS Ciproxin HC « pendant 30 à 60 secondes », oreille vers le haut, flacon agité."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Points 8, 11.D, 14",
-    "preuve": "Points 8, 11.D, 14 : « jusqu’à 50 % selon les HUG, borne haute ancienne », résumés S16/S17 cités comme non réactualisants."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Points 3 et 8, légendes",
-    "preuve": "controle3 VERT : légendes et phrases signalées rendues verbales (0 phrase nominale)."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Point 14",
-    "preuve": "Point 14 converti en tableau Question | Réponse | Raison | Source (8 lignes)."
-   }
-  ]
- },
- "verification_1": {
+  "auditeur": "contre-audit médical indépendant (Claude, n'a rien rédigé), 13.11.2026",
   "verdict": "CORRECTIONS",
-  "date": "2026-11-13",
-  "verificateur": "Claude (vérification indépendante ciblée, Phase A, non-rédacteur)",
-  "fichier": {
-   "octets": 132197,
-   "sha256_16": "f1bb885b351a3bca",
-   "commit": "1d4162b"
-  },
+  "resume": "Aucune erreur Critique : doses, contre-indications et citations grossesse/allaitement des AIPS 54807, 44911, 53116 vérifiées sur les fiches refdata ; SSI 2406 et HUG relus dans le cache. Mais la précision exigée par l'ordre de Vial du 12.11.2026 (démarche → examens → prise en charge → suivi) manque : tableau comparatif 10×5 absent, point 9 non structuré, molécules et doses renvoyées aux fichiers DX ou absentes, et situations particulières de la SSI omises alors que la source a été lue.",
   "portes": {
-   "controle3": "VERT",
-   "verif_aips": "OK, 12 AIPS",
-   "aips_fiche_verifier": "0 défaut bloquant",
-   "abreviations": "0",
-   "forme": "conforme"
+    "controle3": "ORANGE (B_phrase_nominale ×9, légendes)",
+    "aips_fiche_verifier": "0 défaut bloquant",
+    "verif_aips": "OK, 3 AIPS",
+    "abreviations": "0 sigle non développé",
+    "taille_ko": 103,
+    "points": 14,
+    "fenetres": 38,
+    "questions_p14": 8
   },
-  "restants_contre_audit": "18/18 levés : contrôlés un par un dans le HTML ; SSI 2406 (validée 08.05.2024), HUG S3 (14.07.2022) et S5 (04.04.2023), COSNOE S27 (PubMed 38644734) et AIPS 53116, 54807, 44911, 61210, 53995, 49460, 57770, 48306, 29349 relus hors cache rédacteur : citations conformes mot pour mot (Valtrex tableau rénal, Ciproxin HC 30 à 60 secondes et contre-indications, Amoxi-Mepha leucémie lymphoïde, prednisone 1 mg/kg/j 7 j et stop, 3 %, jusqu'à 50 %, 61 %, 300–350 CHF).",
   "restants": [
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-oma (ligne clarithromycine) et f-p11-medicaments",
-    "avant": "« Clarithromycine 7,5 mg/kg toutes les 12 heures … | Même durée que l’amoxicilline » ; tableau : « Per os » sans durée.",
-    "correction": "Écrire la durée de l’AIPS : « En cas de pharyngites dues aux streptocoques et d'otite moyenne aiguë, le traitement doit durer au moins 10 jours » (AIPS 57770, mai 2026) ; pour céfuroxime, cotrimoxazole et co-amoxicilline, citer la durée AIPS ou signaler que « même durée » est une déduction.",
-    "source": "AIPS 57770 Posologie ; SSI 2406 ne fixe aucune durée pour les situations particulières"
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-speciales",
-    "avant": "Grossesse et allaitement recopiés pour Ciproxin HC, Amoxi-Mepha et Valtrex seulement.",
-    "correction": "Ajouter mot pour mot la rubrique Grossesse et Allaitement des AIPS ajoutées : Co-Amoxi-Mepha 53995, Zinat 49460, Clarithromycine Spirig HC 57770, Bactrim forte 48306, Prednisone Streuli 29349, Dafalgan 47503, Irfen Dolo 61210.",
-    "source": "BRIEF_HARNAIS, règle AIPS (grossesse, allaitement mot pour mot)"
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-douleur, palier « Douleur sévère »",
-    "avant": "« Tramadol ou morphine si nécessaire » sans dose, sans AIPS ni mention « hors AIPS ».",
-    "correction": "Donner pour le tramadol la dose AIPS (aips_fiche.py trouve tramadol), voie, durée et contre-indication, ou écrire « hors AIPS » ; idem pour la morphine, ou retirer la molécule et écrire « opiacé selon le spécialiste » (HUG : « Tramal ou Morphine si nécessaire »).",
-    "source": "S3 HUG ; ordre de Vial du 12.11.2026 (molécule AIPS, dose, durée)"
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Point 11, f-p11-medicaments, ligne Co-Amoxi-Mepha",
-    "avant": "Contre-indication majeure : « Ictère ou atteinte hépatique lors d’un traitement antérieur ».",
-    "correction": "Mettre d’abord « hypersensibilité connue aux pénicillines et céphalosporines » (AIPS 53995, mars 2026), puis l’ictère.",
-    "source": "AIPS 53995 Contre-indications"
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "Point 11, f-p11-medicaments, ligne Bactrim forte",
-    "avant": "« Insuffisance rénale sévère » sans seuil.",
-    "correction": "« Insuffisance rénale sévère (clairance de la créatinine < 15 ml/min) » ; demi-dose de 15 à 30 ml/min (AIPS 48306).",
-    "source": "AIPS 48306 Contre-indications et Posologie"
-   }
+    {
+      "gravite": "Grave",
+      "lieu": "Phase A, en tête ou point 4",
+      "avant": "Aucun tableau de dix lignes avec signe clé, examen qui tranche, mécanisme, conduite immédiate et rang E (f-p2-rangs donne la fréquence, f-p4-graves ne couvre que les graves).",
+      "correction": "Ajouter une fenêtre « Tableau comparatif des dix DX » : 10 lignes × 5 colonnes (signe clé, examen qui tranche, mécanisme, conduite immédiate, rang E), conforme à µ1.4, contenu repris des points 3, 6, 8 et 11 avec leurs sources.",
+      "source": "PROMPT L1 µ1.4"
+    },
+    {
+      "gravite": "Grave",
+      "lieu": "Point 11, fenêtre f-p11-oma",
+      "avant": "« Absence de réponse à l’amoxicilline après 72 heures | Amoxicilline et acide clavulanique » ; « Allergie aux pénicillines … | Céfuroxime » (sans dose) ; allergie à toutes les bêta-lactamines absente.",
+      "correction": "Recopier la SSI lue : amoxicilline-acide clavulanique 40 mg/kg/12 h per os (adulte 1 g/8 h) si antibiothérapie dans les 30 jours, OMA récidivante, risque de pneumocoque résistant ou échec à 72 h ; céfuroxime 15 mg/kg/12 h (adulte 500 mg/12 h) si allergie sans contre-indication aux céphalosporines ; clarithromycine 7,5 mg/kg/12 h (adulte cotrimoxazole 160/800 mg/12 h) si toutes les bêta-lactamines sont contre-indiquées ; ajouter pour chaque molécule son AIPS (aips_fiche.py trouve) ou « hors AIPS ».",
+      "source": "S2 SSI 2406, rubrique Traitement empirique, situations particulières 1 à 3"
+    },
+    {
+      "gravite": "Grave",
+      "lieu": "Point 9",
+      "avant": "Un seul tableau « Examen ciblé » sans 9.a gold standard, 9.b première intention, 9.c alternatives (grossesse, enfant, DFGe < 30 mL/min, IRM impossible), 9.d seconde intention ; aucun tableau d’interprétation résultat → signification → conduite ; « Laboratoire et IRM ou tomodensitométrie » sans examen ni seuil.",
+      "correction": "Structurer 9.a (otoscopie, gold standard clinique ; imagerie pour la forme nécrosante), 9.b, 9.c, 9.d ; ajouter un tableau « Interprétation » : otoscopie (aspect → diagnostic → conduite), Weber/Rinne (latéralisation et signe → type de surdité → conduite), forme nécrosante (CRP/VS en unités SI, TDM : érosion osseuse ; IRM : extension aux tissus mous, suivi), paralysie faciale (glycémie, HbA1c, sérologies, électroneurographie au 10e jour : seuil pronostique) ; chiffres repris d’une source suisse ou européenne lue, sinon « À vérifier ».",
+      "source": "PROMPT L1 µ3 point 9 ; ordre de Vial du 12.11.2026 ; S3, S5"
+    },
+    {
+      "gravite": "Grave",
+      "lieu": "Point 11, f-p11-douleur et f-p11-urgences",
+      "avant": "« Les doses d’antalgique selon l’âge et le poids figurent dans les fichiers DX » ; « La corticothérapie orale du protocole des HUG figure dans le fichier DX.6 » ; E3 : « Antiviral systématique et corticoïde ».",
+      "correction": "Supprimer les renvois ; écrire ici la molécule, la dose, la voie et la durée : prednisone 1 mg/kg/j per os, 7 jours, puis arrêt (HUG S5) avec son AIPS ; paracétamol et ibuprofène avec dose AIPS adulte et enfant (mg/kg, dose maximale) et contre-indication majeure ; ligne Médicaments complète (molécule ®, dose AIPS, voie, durée, contre-indication, extrait AIPS).",
+      "source": "S5 HUG 04.04.2023 (« Prednisone 1mg/kg/j PO, 7j et stop ») ; PROMPT L1 µ3 point 11"
+    },
+    {
+      "gravite": "Grave",
+      "lieu": "Point 11, f-p11-urgences (E1) et f-p11-externe",
+      "avant": "« Nettoyage, biopsie pour culture, hospitalisation et antibiotique intraveineux » ; « antibiotique systémique contre Pseudomonas et staphylocoque ».",
+      "correction": "Préciser, d’après une source suisse ou européenne lue : molécule antipseudomonale, voie, durée totale (semaines), critères de relais oral, surveillance datée (douleur, CRP/VS, imagerie de contrôle), critères d’échec et d’arrêt ; à défaut écrire « À vérifier » sans dose.",
+      "source": "S3 HUG (avis ORL immédiat, antibiotique systémique) ; ordre de Vial du 12.11.2026"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 13, 5e phrase",
+      "avant": "« l’antibiotique reste immédiat seulement avant 2 ans en cas d’atteinte bilatérale ou d’otorrhée »",
+      "correction": "« L’antibiotique est immédiat dans l’otite bilatérale avant 2 ans et dans l’otite perforée avec otorrhée à tout âge ; sinon il est différé. » (la phrase actuelle limite l’otorrhée à l’enfant de moins de 2 ans).",
+      "source": "S2 SSI 2406"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 1",
+      "avant": "Définition tirée de S23 (revue canadienne) et de S7 (page patient du CHUV), sans société savante nommée et datée.",
+      "correction": "Citer une définition de société savante ou de protocole suisse daté (HUG, SSO-ORL) ou européenne ; sinon le signaler comme déduction ; garder la définition seule.",
+      "source": "PROMPT L1 µ3 point 1, grille Q1"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 11, AIPS 54807, 44911, 53116",
+      "avant": "Contre-indications paraphrasées ; Amoxi-Mepha : omission de « leucémie lymphoïde » ; Ciproxin HC : omission de « n’est pas indiqué pour le traitement d’une otite moyenne ».",
+      "correction": "Recopier mot pour mot la rubrique Contre-indications de chaque AIPS (règle du harnais), entre guillemets, avec la date de mise à jour.",
+      "source": "AIPS 44911 (sept. 2026), 54807 (mars 2024), 53116 (déc. 2025)"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 11, f-p11-urgences, Valtrex",
+      "avant": "« elle réduit la dose en insuffisance rénale »",
+      "correction": "Donner les seuils de l’AIPS : clairance ≥ 50 mL/min 1000 mg 3×/j ; 30–49 mL/min 1000 mg 2×/j ; < 30 mL/min selon le tableau AIPS ; prudence chez le sujet âgé.",
+      "source": "AIPS 53116, Mises en garde, insuffisance rénale"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 11, f-p11-externe ; point 6, f-p6-conduit",
+      "avant": "« Antibiotique local non ototoxique » ; otomycose : « Nettoyage et antifongique local », sans molécule.",
+      "correction": "Nommer la molécule du protocole HUG (ofloxacine, Floxal®, 4 gouttes 2×/j) avec son AIPS, et l’antifongique local avec son AIPS, ou « hors AIPS ».",
+      "source": "S3 HUG 14.07.2022, tableau des traitements"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 11, 11.A et 11.D",
+      "avant": "But non chiffré ; aucun critère de guérison ni de sortie énuméré ; volet social et assurances, sujet âgé, insuffisance hépatique absents.",
+      "correction": "11.A : buts chiffrés (douleur contrôlée en 48–72 h, guérison de l’otite externe en 7–14 jours, antibiotique évité dans l’OMA non compliquée) ; 11.D : critères de guérison et de sortie un par un ; ajouter sujet âgé, insuffisance rénale ou hépatique, arrêt de travail et assurance.",
+      "source": "PROMPT L1 µ3 point 11 ; S2, S3"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Point 8",
+      "avant": "Critères sans société savante datée ni seuil (OMA, otite externe, zona otique).",
+      "correction": "Dater chaque jeu de critères (SSI 2024 pour l’OMA, HUG 2022 pour l’otite externe, HUG 2023 pour la paralysie faciale) et dire explicitement ce qui ne suffit pas (tympan rouge isolé, fièvre isolée).",
+      "source": "PROMPT L1 µ3 point 8 ; S2, S3, S5"
+    },
+    {
+      "gravite": "Moyen",
+      "lieu": "Liste canonique (avant gel, porte P1)",
+      "avant": "DX.10 « Carcinome épidermoïde oropharyngé » alors que S7 et S9 couvrent la sphère ORL et la cavité buccale ; angine et abcès péri-amygdalien, causes référées fréquentes, absents ; DX.8 classé 8e alors que S19 le dit cause la plus fréquente d’otalgie avec oreille normale.",
+      "correction": "Soit renommer DX.10 « Carcinome épidermoïde des voies aérodigestives supérieures », soit justifier l’oropharynx ; justifier par écrit l’exclusion de l’angine (couverte par S1.9 ?) ; argumenter le rang de DX.8 face à DX.4 et DX.5.",
+      "source": "PROMPT L1 µ1.2 ; S7, S9, S19"
+    },
+    {
+      "gravite": "Léger",
+      "lieu": "Point 11, f-p11-oma",
+      "avant": "SSI : enfant 25 mg/kg toutes les 12 heures ; AIPS : 50–100 mg/kg/jour en 3 à 4 prises.",
+      "correction": "Écrire la dose AIPS d’abord, puis la mention SSI comme recommandation suisse divergente sur le nombre de prises, dans la même fenêtre (sans renvoi à DX.2).",
+      "source": "AIPS 44911 ; S2"
+    },
+    {
+      "gravite": "Léger",
+      "lieu": "Point 11, f-p11-externe",
+      "avant": "« garde la position 3 à 5 minutes selon les HUG »",
+      "correction": "Ajouter que l’AIPS de Ciproxin HC prescrit 30 à 60 secondes, oreille atteinte vers le haut, et agiter le flacon.",
+      "source": "AIPS 54807, Posologie"
+    },
+    {
+      "gravite": "Léger",
+      "lieu": "Points 8, 11.D, 14",
+      "avant": "« la mortalité atteint 50 % selon les HUG » ; « peut tuer jusqu’à 50 % des patients »",
+      "correction": "Écrire « jusqu’à 50 % selon les HUG », en précisant qu’il s’agit d’une borne haute ancienne ; chercher un chiffre européen récent (S16/S17) ou laisser « À vérifier ».",
+      "source": "S3 HUG (« Rare, mais jusqu’à 50% de mortalité »)"
+    },
+    {
+      "gravite": "Léger",
+      "lieu": "Points 3 et 8, légendes",
+      "avant": "controle3 ORANGE : 9 phrases nominales (légendes, « Coupe frontale de l’oreille : où naît la douleur. »).",
+      "correction": "Rendre les légendes verbales ou les exclure du contrôle par la classe prévue.",
+      "source": "controle3.py"
+    },
+    {
+      "gravite": "Léger",
+      "lieu": "Point 14",
+      "avant": "Huit pièges en prose.",
+      "correction": "Les mettre en tableau Question | Réponse | Raison (µ3 point 14).",
+      "source": "PROMPT L1 µ3"
+    }
   ],
   "compte": {
-   "critique": 0,
-   "grave": 0,
-   "moyen": 3,
-   "leger": 2
+    "Critique": 0,
+    "Grave": 5,
+    "Moyen": 8,
+    "Léger": 5
+  },
+  "verifie_conforme": [
+    "Ciproxin HC : 3 gouttes 2×/j 7 jours dès 2 ans, test de sensibilité, CI perforation ; grossesse et allaitement mot pour mot",
+    "Amoxi-Mepha : 1500–3000 mg/j adulte, 50–100 mg/kg/j enfant ; grossesse et allaitement mot pour mot",
+    "Valtrex : 1000 mg 3×/j 7 jours, au plus tard 72 h ; grossesse et allaitement mot pour mot",
+    "SSI 2406 : antibiotique immédiat (bilatérale < 2 ans, otorrhée), différé 48–72 h / 24–48 h, amoxicilline 1 g/8 h 5 jours, 25 mg/kg/12 h, durées 10 j / 5–7 j",
+    "HUG S3 : 3 % adressés à l’ORL, céruménolytique 5–10 gouttes 2×/j 3–5 j, douleur au tragus pathognomonique",
+    "HUG S5 : protection oculaire, House-Brackmann, neurologie au 10e jour IV–VI",
+    "Images : Blausen CC BY 3.0 et Welleschik CC BY-SA 3.0, en couleurs, attribuées",
+    "Arbre décisionnel : graves d’abord (E1, E3, complications, E2), chaque nœud mène à une action"
+  ],
+  "restants_leves_par_redacteur_1": {
+    "base_commit": "ac20a41",
+    "fichier_apres": {
+      "octets": 132197,
+      "sha256_16": "f1bb885b351a3bca"
+    },
+    "portes": {
+      "controle3": "VERT",
+      "verif_aips": "OK, 12 AIPS",
+      "aips_fiche_verifier": "0 défaut bloquant",
+      "abreviations": "0 sigle non développé",
+      "forme": "conforme"
+    },
+    "leves": [
+      {
+        "gravite": "Grave",
+        "lieu": "Phase A, en tête ou point 4",
+        "preuve": "Fenêtre f-p4-comparatif ajoutée au point 4 : 10 lignes × colonnes signe clé, examen qui tranche, mécanisme, conduite immédiate, rang E, sources S2–S22."
+      },
+      {
+        "gravite": "Grave",
+        "lieu": "Point 11, fenêtre f-p11-oma",
+        "preuve": "f-p11-oma : co-amoxicilline 40 mg/kg/12 h (adulte 1 g/8 h, AIPS 53995), céfuroxime 15 mg/kg/12 h (adulte 500 mg/12 h, AIPS 49460), clarithromycine 7,5 mg/kg/12 h (AIPS 57770), adulte cotrimoxazole 160/800 mg/12 h (AIPS 48306), indications SSI 1 à 3 recopiées."
+      },
+      {
+        "gravite": "Grave",
+        "lieu": "Point 9",
+        "preuve": "Point 9 restructuré 9.a–9.d (otoscopie de référence ; COSNOE 2024 S27 pour la forme nécrosante ; alternatives enfant, grossesse, clairance < 30 mL/min) + fenêtre f-p9-interpretation (15 lignes résultat → signification → conduite) ; ligne « Laboratoire et IRM » remplacée par CRP, VS, TDM, IRM."
+      },
+      {
+        "gravite": "Grave",
+        "lieu": "Point 11, f-p11-douleur et f-p11-urgences",
+        "preuve": "Renvois DX supprimés : doses AIPS paracétamol (47503, 43838) et ibuprofène (61210, 66932) dans f-p11-douleur ; prednisone 1 mg/kg/j 7 j puis arrêt (S5, AIPS 29349) en E3 et dans f-p11-urgences ; fenêtre f-p11-medicaments (10 molécules : dose AIPS, voie, durée, contre-indication)."
+      },
+      {
+        "gravite": "Grave",
+        "lieu": "Point 11, f-p11-urgences (E1) et f-p11-externe",
+        "preuve": "E1 et f-p11-externe précisés : antibiotique IV anti-Pseudomonas aeruginosa ; molécule, durée et relais oral déclarés décidés par ORL et infectiologue (non chiffrés par S3/S4) ; ligne de suivi nécrosante ajoutée (CRP, VS, imagerie, échec, COSNOE S27)."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 13, 5e phrase",
+        "preuve": "Point 13 : « l’antibiotique est immédiat dans l’otite bilatérale avant 2 ans et dans l’otite perforée avec otorrhée à tout âge, sinon il est différé »."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 1",
+        "preuve": "Point 1 : définition de la SSI (08.05.2024) citée mot pour mot « douleur récente de l’oreille et ses équivalents » (S2)."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, AIPS 54807, 44911, 53116",
+        "preuve": "Contre-indications recopiées mot pour mot entre guillemets avec date : Ciproxin HC (mars 2024, dont « n'est pas indiqué pour le traitement d'une otite moyenne »), Amoxi-Mepha (septembre 2026, dont leucémie lymphoïde), Valtrex (décembre 2025) ; verif_aips OK."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-urgences, Valtrex",
+        "preuve": "Tableau AIPS Valtrex dans f-p11-urgences : ≥ 50 mL/min 1000 mg 3×/j ; 30–49 : 1000 mg 2×/j ; 10–29 : 1000 mg 1×/j ; < 10 : 500 mg 1×/j ; réduction chez le sujet âgé."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-externe ; point 6, f-p6-conduit",
+        "preuve": "Floxal® nommé (hors AIPS dans l’oreille, collyre seul en Suisse, sans dose) ; Ciproxin HC avec AIPS 54807 pour l’otite simple ; otomycose : Nizoral® en mèche, hors AIPS (f-p6-conduit)."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, 11.A et 11.D",
+        "preuve": "11.A chiffré (douleur en 48–72 h, guérison en 7 à 14 jours, antibiotique évité dans l’OMA non compliquée) ; 11.D : tableau des critères de guérison et de sortie par diagnostic, sujet âgé, insuffisance rénale et hépatique, coût ENMG 300–350 francs et assurance, arrêt de travail (déduction)."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 8",
+        "preuve": "Point 8 daté : HUG 14.07.2022 (otite externe), SSI 2024 (OMA : tympan rouge isolé ou fièvre isolée insuffisants), HUG 2022–2023 (zona), COSNOE 2024 (nécrosante)."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Liste canonique (avant gel, porte P1)",
+        "preuve": "f-p2-rangs : justification écrite de l’oropharynx (déduction, CHUV S7), de l’exclusion de l’angine et de l’abcès péri-amygdalien (traités au LOT_025, SSP S1.9) et du rang de DX.8 (2,7 % de douleur S20, première cause à oreille normale S19)."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Point 11, f-p11-oma",
+        "preuve": "f-p11-oma : dose AIPS Amoxi-Mepha écrite d’abord, puis la SSI comme recommandation suisse divergente sur le nombre de prises ; renvoi DX.2 supprimé."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Point 11, f-p11-externe",
+        "preuve": "f-p11-externe : ajout AIPS Ciproxin HC « pendant 30 à 60 secondes », oreille vers le haut, flacon agité."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Points 8, 11.D, 14",
+        "preuve": "Points 8, 11.D, 14 : « jusqu’à 50 % selon les HUG, borne haute ancienne », résumés S16/S17 cités comme non réactualisants."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Points 3 et 8, légendes",
+        "preuve": "controle3 VERT : légendes et phrases signalées rendues verbales (0 phrase nominale)."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Point 14",
+        "preuve": "Point 14 converti en tableau Question | Réponse | Raison | Source (8 lignes)."
+      }
+    ]
+  },
+  "verification_1": {
+    "verdict": "CORRECTIONS",
+    "date": "2026-11-13",
+    "verificateur": "Claude (vérification indépendante ciblée, Phase A, non-rédacteur)",
+    "fichier": {
+      "octets": 132197,
+      "sha256_16": "f1bb885b351a3bca",
+      "commit": "1d4162b"
+    },
+    "portes": {
+      "controle3": "VERT",
+      "verif_aips": "OK, 12 AIPS",
+      "aips_fiche_verifier": "0 défaut bloquant",
+      "abreviations": "0",
+      "forme": "conforme"
+    },
+    "restants_contre_audit": "18/18 levés : contrôlés un par un dans le HTML ; SSI 2406 (validée 08.05.2024), HUG S3 (14.07.2022) et S5 (04.04.2023), COSNOE S27 (PubMed 38644734) et AIPS 53116, 54807, 44911, 61210, 53995, 49460, 57770, 48306, 29349 relus hors cache rédacteur : citations conformes mot pour mot (Valtrex tableau rénal, Ciproxin HC 30 à 60 secondes et contre-indications, Amoxi-Mepha leucémie lymphoïde, prednisone 1 mg/kg/j 7 j et stop, 3 %, jusqu'à 50 %, 61 %, 300–350 CHF).",
+    "restants": [
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-oma (ligne clarithromycine) et f-p11-medicaments",
+        "avant": "« Clarithromycine 7,5 mg/kg toutes les 12 heures … | Même durée que l’amoxicilline » ; tableau : « Per os » sans durée.",
+        "correction": "Écrire la durée de l’AIPS : « En cas de pharyngites dues aux streptocoques et d'otite moyenne aiguë, le traitement doit durer au moins 10 jours » (AIPS 57770, mai 2026) ; pour céfuroxime, cotrimoxazole et co-amoxicilline, citer la durée AIPS ou signaler que « même durée » est une déduction.",
+        "source": "AIPS 57770 Posologie ; SSI 2406 ne fixe aucune durée pour les situations particulières"
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-speciales",
+        "avant": "Grossesse et allaitement recopiés pour Ciproxin HC, Amoxi-Mepha et Valtrex seulement.",
+        "correction": "Ajouter mot pour mot la rubrique Grossesse et Allaitement des AIPS ajoutées : Co-Amoxi-Mepha 53995, Zinat 49460, Clarithromycine Spirig HC 57770, Bactrim forte 48306, Prednisone Streuli 29349, Dafalgan 47503, Irfen Dolo 61210.",
+        "source": "BRIEF_HARNAIS, règle AIPS (grossesse, allaitement mot pour mot)"
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-douleur, palier « Douleur sévère »",
+        "avant": "« Tramadol ou morphine si nécessaire » sans dose, sans AIPS ni mention « hors AIPS ».",
+        "correction": "Donner pour le tramadol la dose AIPS (aips_fiche.py trouve tramadol), voie, durée et contre-indication, ou écrire « hors AIPS » ; idem pour la morphine, ou retirer la molécule et écrire « opiacé selon le spécialiste » (HUG : « Tramal ou Morphine si nécessaire »).",
+        "source": "S3 HUG ; ordre de Vial du 12.11.2026 (molécule AIPS, dose, durée)"
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Point 11, f-p11-medicaments, ligne Co-Amoxi-Mepha",
+        "avant": "Contre-indication majeure : « Ictère ou atteinte hépatique lors d’un traitement antérieur ».",
+        "correction": "Mettre d’abord « hypersensibilité connue aux pénicillines et céphalosporines » (AIPS 53995, mars 2026), puis l’ictère.",
+        "source": "AIPS 53995 Contre-indications"
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "Point 11, f-p11-medicaments, ligne Bactrim forte",
+        "avant": "« Insuffisance rénale sévère » sans seuil.",
+        "correction": "« Insuffisance rénale sévère (clairance de la créatinine < 15 ml/min) » ; demi-dose de 15 à 30 ml/min (AIPS 48306).",
+        "source": "AIPS 48306 Contre-indications et Posologie"
+      }
+    ],
+    "compte": {
+      "critique": 0,
+      "grave": 0,
+      "moyen": 3,
+      "leger": 2
+    }
+  },
+  "restants_leves_par_redacteur_2": {
+    "base_commit": "b3fabfe",
+    "source_restants": "verification_1.restants (5)",
+    "fichier_apres": {
+      "octets": 137832,
+      "sha256_16": "cefea8e559eca154"
+    },
+    "portes": {
+      "controle3": "VERT",
+      "verif_aips": "OK, 13 AIPS",
+      "aips_fiche_verifier": "0 défaut bloquant",
+      "abreviations": "0 sigle non développé",
+      "forme": "conforme"
+    },
+    "leves": [
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-oma et f-p11-medicaments",
+        "preuve": "Clarithromycine « au moins 10 jours » (AIPS 57770), céfuroxime 7 jours (5 à 10) (AIPS 49460), cotrimoxazole au moins 5 jours (AIPS 48306) ; Co-Amoxi-Mepha : durée non fixée par l’AIPS, « déduction » écrite ; « Même durée » supprimé."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-speciales",
+        "preuve": "Grossesse et allaitement mot pour mot ajoutés pour 53995, 49460, 57770, 48306 (dont 3e trimestre contre-indiqué), 29349, 47503, 61210 (3e trimestre contre-indiqué) et 52900."
+      },
+      {
+        "gravite": "Moyen",
+        "lieu": "Point 11, f-p11-douleur",
+        "preuve": "Morphine retirée ; tramadol (Tramadol Zentiva, AIPS 52900, avril 2025) 50 à 100 mg toutes les 4 à 6 h, max 400 mg/j, > 12 ans, ligne au tableau des médicaments avec contre-indications, référence sb-aips-52900 ajoutée."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "f-p11-medicaments, Co-Amoxi-Mepha",
+        "preuve": "Contre-indication : « Hypersensibilité connue aux pénicillines et céphalosporines » d’abord, puis l’ictère (AIPS 53995)."
+      },
+      {
+        "gravite": "Léger",
+        "lieu": "f-p11-medicaments, Bactrim forte",
+        "preuve": "« Insuffisance rénale sévère (clairance de la créatinine < 15 ml/min), demi-dose de 15 à 30 ml/min » (AIPS 48306)."
+      }
+    ]
+  },
+  "verification_2": {
+    "verdict": "audit-ok",
+    "date": "2026-11-13",
+    "verificateur": "Claude (vérification indépendante ciblée 2, Phase A, non-rédacteur)",
+    "fichier": {
+      "octets": 137832,
+      "sha256_16": "cefea8e559eca154",
+      "commit": "efda986"
+    },
+    "portes": {
+      "controle3": "VERT",
+      "verif_aips": "OK, 13 AIPS",
+      "aips_fiche_verifier": "0 défaut bloquant",
+      "abreviations": "0",
+      "forme": "conforme (137832→137832 o)"
+    },
+    "restants_verification_1": "5/5 levés exactement : contrôlés dans le diff b3fabfe..efda986 et contre les AIPS retéléchargées hors cache sur files.refdata.ch le 13.11.2026.",
+    "controles": [
+      "Clarithromycine : « En cas de pharyngites dues aux streptocoques et d'otite moyenne aiguë, le traitement doit durer au moins 10 jours » (AIPS 57770) conforme ; céfuroxime « 7 (5 à 10) jours » (AIPS 49460) conforme ; cotrimoxazole « au moins 5 jours » (AIPS 48306) conforme ; Co-Amoxi-Mepha sans durée AIPS, déduction écrite comme telle ; « Même durée » supprimé.",
+      "Grossesse et allaitement : 18 citations (53995, 49460, 57770, 48306, 29349, 47503, 61210, 52900) retrouvées mot pour mot dans les AIPS fraîches (Zinat : coupure de balise HTML « nécessair e » seulement).",
+      "Tramadol Zentiva (AIPS 52900, avril 2025, Helvepharm) : « Adultes et enfants de plus de 12 ans 50–100 mg … toutes les 4–6 heures », 400 mg/j, contre-indications intoxication aiguë et IMAO dans les 14 jours conformes ; morphine retirée.",
+      "Co-Amoxi-Mepha : « hypersensibilité connue aux pénicillines et céphalosporines » puis ictère, conforme à l’AIPS 53995.",
+      "Bactrim forte : « Insuffisance rénale sévère (clairance de la créatinine <15 ml/min) » et « 15–30 ml/min La moitié de la posologie habituelle » conformes à l’AIPS 48306."
+    ],
+    "restants": [
+      {
+        "gravite": "Léger",
+        "lieu": "f-p11-medicaments, ligne Tramadol Zentiva",
+        "constat": "Contre-indications abrégées : l’AIPS 52900 cite aussi l’hypersensibilité au tramadol et l’épilepsie insuffisamment contrôlée.",
+        "correction": "Ajouter « épilepsie insuffisamment contrôlée » à la ligne (facultatif, non bloquant)."
+      }
+    ],
+    "compte": {
+      "critique": 0,
+      "grave": 0,
+      "moyen": 0,
+      "leger": 1
+    }
   }
- },
- "restants_leves_par_redacteur_2": {
-  "base_commit": "b3fabfe",
-  "source_restants": "verification_1.restants (5)",
-  "fichier_apres": {
-   "octets": 137832,
-   "sha256_16": "cefea8e559eca154"
-  },
-  "portes": {
-   "controle3": "VERT",
-   "verif_aips": "OK, 13 AIPS",
-   "aips_fiche_verifier": "0 défaut bloquant",
-   "abreviations": "0 sigle non développé",
-   "forme": "conforme"
-  },
-  "leves": [
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-oma et f-p11-medicaments",
-    "preuve": "Clarithromycine « au moins 10 jours » (AIPS 57770), céfuroxime 7 jours (5 à 10) (AIPS 49460), cotrimoxazole au moins 5 jours (AIPS 48306) ; Co-Amoxi-Mepha : durée non fixée par l’AIPS, « déduction » écrite ; « Même durée » supprimé."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-speciales",
-    "preuve": "Grossesse et allaitement mot pour mot ajoutés pour 53995, 49460, 57770, 48306 (dont 3e trimestre contre-indiqué), 29349, 47503, 61210 (3e trimestre contre-indiqué) et 52900."
-   },
-   {
-    "gravite": "Moyen",
-    "lieu": "Point 11, f-p11-douleur",
-    "preuve": "Morphine retirée ; tramadol (Tramadol Zentiva, AIPS 52900, avril 2025) 50 à 100 mg toutes les 4 à 6 h, max 400 mg/j, > 12 ans, ligne au tableau des médicaments avec contre-indications, référence sb-aips-52900 ajoutée."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "f-p11-medicaments, Co-Amoxi-Mepha",
-    "preuve": "Contre-indication : « Hypersensibilité connue aux pénicillines et céphalosporines » d’abord, puis l’ictère (AIPS 53995)."
-   },
-   {
-    "gravite": "Léger",
-    "lieu": "f-p11-medicaments, Bactrim forte",
-    "preuve": "« Insuffisance rénale sévère (clairance de la créatinine < 15 ml/min), demi-dose de 15 à 30 ml/min » (AIPS 48306)."
-   }
-  ]
- }
 }
