@@ -181,5 +181,25 @@
    "gravite": "mineure",
    "preuve": "temps2_examen[0].seuil_alerte : « < 3.0 mmol/L : hypoglycémie sévère ; > 33 mmol/L : état hype… » → « < 3.0 mmol/L : hypoglycémie cliniquement significative (niveau 2, ADA/IHSG) ; > 33 mmol/L … » (correction de l'audit appliquée)."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, non-rédacteur)",
+  "verdict": "audit-ok",
+  "resume": "Les 12 restants (2 majeures, 10 mineures) sont levés exactement selon les corrections de l'audit (diff dde8acb86 relu champ par champ). Sources relues : SFE/SFHTA/AFCE 2016 partie 2 (cache 5de02d0ee063e13d : seuils RAR 64/23 en rénine directe, 830/300 en ARP), HUG RPA CHIMURG (cache 99d15af55bf64665 : 3905 « > 500 nmol/l exclut », œstrogènes augmentent le cortisol total ; 8087 forte suspicion, contact endocrinologue, 1 mg po de Milicortène ½ h avant le test), brochure neoscreening (cache c2fd8352d2ca1b4b : 11 maladies dont acidurie glutarique de type 1). Aucune contradiction résiduelle (grep : « exclue », « intoxication », « seulement si », « ICP-MS » zinc, « hypoglycémie sévère »). Portes : controle.py VERT, charpente.py 0 fiche écrite, verif_aips.py OK, JSON valides. 0 critique, 0 grave, 0 moyen.",
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-1-S8-acylcarnitines",
+    "champ": "entete.bon_usage_suisse",
+    "constat": "« repérée aussi sur le profil des acylcarnitines (C5DC) » est placé sous l'attribution « neoscreening.ch » ; la brochure relue cite l'acidurie glutarique de type 1 parmi les 11 maladies mais ne mentionne ni acylcarnitines ni C5DC. Suggestion : « (C5DC, non vérifié CH) ». Non bloquant."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-1-S8-oligo-elements",
+    "champ": "entete.nom_exact",
+    "constat": "« Zinc, cuivre et sélénium sériques ou plasmatiques (spectrométrie, ICP-MS) » : l'ICP-MS sérique ne vaut que pour Cu et Se selon Medics 09.2022 ; formulation générique tolérable. Non bloquant."
+   }
+  ]
+ }
 }
