@@ -139,5 +139,88 @@
    "gravite": "mineure",
    "preuve": "brochure Unisanté 2026.10 relue (depistagesein-vd.ch) et ajoutée aux sources ; 2 cancers d'intervalle, 50 positifs/1000, 9 rappels sur 10 bénins mis à jour ; 7 cancers et + 15 % signalés version antérieure 2020."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, non rédacteur)",
+  "verdict": "audit-ok",
+  "methode": "Diff 12fda5e6c (4 fiches) relu champ par champ contre les 9 restants ; sources relues : brochure Unisanté 2026.10 (depistagesein-vd.ch, cache), Europe PMC plein texte de l'ESUR 2025 (PMC12559033), de l'EUSOBI 2020 (PMC7002629) et de l'EUSOBI 2024 (PMC11399176) ; citations CHUV reprises de l'audit (pages non rapatriées). verbal.py 0/262, controle.py VERT ; charpente.py exécutée sur une copie : 1 fiche écrite (EX-2-S7-biopsie-guidee-sein, passerelle vers le frottis réinjectée).",
+  "restants_leves": [
+   {
+    "restant": 1,
+    "leve": true,
+    "note": "« Dans certains cas … bilan d'extension local », « pas de façon systématique », « Happi » et bon_usage_suisse corrigés ; la justification (découvertes bénignes, biopsies, exérèses élargies) porte « non vérifié CH », ce qui est correct."
+   },
+   {
+    "restant": 2,
+    "leve": true,
+    "note": "Passerelle retirée de la fiche ; levée fragile, car charpente.py passerelles() la réinjecte (vérifié sur copie : 1 fiche écrite), donc la porte « charpente 0 fiche » reste rouge tant que l'outil partagé n'est pas corrigé."
+   },
+   {
+    "restant": 3,
+    "leve": true,
+    "note": "« devrait » écrit dans les deux fiches et dans le piège ; EUSOBI 2024 relue : « should start screening as early as 25 years » et « sometimes differ between women at very high risk and those with an intermediate high risk »."
+   },
+   {
+    "restant": 4,
+    "leve": true,
+    "note": "Exception ESUR 2025 conforme au texte : « When TVUS is not feasible (virgins, adolescents, … pain, vaginismus, or claustrophobia), MRI can be indicated as a first-line technique »."
+   },
+   {
+    "restant": 5,
+    "leve": true,
+    "note": "Prise en charge LAMal pour raisons médicales spécifiques attribuée au CHUV ; « non vérifié CH » gardé pour le dépistage des seins denses."
+   },
+   {
+    "restant": 6,
+    "leve": true,
+    "note": "« peuvent contre-indiquer l'examen (CHUV) » et explication mécanique « non vérifiée CH » dans prelevement_conditions et dans le piège."
+   },
+   {
+    "restant": 7,
+    "leve": true,
+    "note": "Phrase prescrite ajoutée mot pour mot à calculs[1].exemple."
+   },
+   {
+    "restant": 8,
+    "leve": true,
+    "note": "B4 « libellé non vérifié CH » ; EUSOBI 2020 relue : « All stereotactic biopsies performed for calcifications should be followed by specimen radiography » ; B4 n'y figure que dans le titre d'une référence."
+   },
+   {
+    "restant": 9,
+    "leve": true,
+    "note": "Brochure 2026.10 relue : 50 positifs sur 1000, 2 cancers d'intervalle, « dans neuf cas sur dix … lésion bénigne », Swiss Cancer Screening et Ligue (50–74 ans, tous les deux ans), double lecture (« au minimum deux radiologues ») sans chiffre de gain ; + 15 % absent de 2026.10, donc attribué à 2020 à juste titre. Erreur résiduelle : voir restants."
+   }
+  ],
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S7-mammographie",
+    "champ": "sources[2] ; calculs[1].source",
+    "avant": "ses chiffres de 7 cancers pour 1000 … ne figurent pas dans le texte de la brochure 2026.10 / le chiffre de 7 cancers vient de la version antérieure de 2020",
+    "correction": "La brochure 2026.10 écrit « dans 43 cas, les bilans concluent à une origine bénigne ; dans 7 cas, un cancer sera diagnostiqué » : attribuer les 7 cancers à Unisanté 2026.10 et ne garder pour 2020 que le + 15 % de la double lecture."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S7-mammographie",
+    "champ": "bon_usage_suisse ; ne_pas_demander ; syndrome_anamnese ; syndrome_status ; confirmation ; annexeA_pieges (franchise)",
+    "avant": "(Unisanté 2020) / (brochure Unisanté 2020)",
+    "correction": "Ces mentions ne portent pas « version antérieure » ; la brochure 2026.10 confirme la prise en charge à 90 % hors franchise dans le programme cantonal, l'examen clinique annuel des seins et la franchise appliquée hors programme : citer « Unisanté 2026.10 » là où le texte 2026.10 le confirme, sinon écrire « Unisanté 2020, version antérieure »."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S7-mammographie ; EX-2-S7-irm-mammaire-pelvienne",
+    "champ": "temps1_indications.depistage_pretherapeutique",
+    "avant": "le haut risque intermédiaire (> 20 % sans mutation)",
+    "correction": "L'EUSOBI 2024 range dans le haut risque intermédiaire les femmes à forte histoire familiale sans mutation connue et celles porteuses d'une mutation de faible pénétrance (CHEK2, BARD1) : écrire « sans mutation connue ou avec une mutation de faible pénétrance (CHEK2, BARD1) »."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S7-biopsie-guidee-sein",
+    "champ": "passerelles (outil partagé)",
+    "avant": "charpente.py passerelles() relie tout geste guidé S7 à toutes les fiches d'anapath S7",
+    "correction": "Outil partagé à corriger par son responsable (restreindre la cible Prélèvement à EX-4-S7-biopsie-sein-endometre-col pour la biopsie du sein) ; tant que ce n'est pas fait, charpente.py écrit 1 fiche et réinjecte la passerelle erronée."
+   }
+  ]
+ }
 }
