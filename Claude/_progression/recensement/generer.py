@@ -381,6 +381,7 @@ button.gold .ref,.badge{display:block;font-size:.68rem;font-weight:800;text-tran
 .pi{margin:6px 0 0;font-size:.88rem} .pi .k{font-weight:800}
 ol.autres{margin:8px 0 0;padding-left:1.7em} ol.autres li{margin:3px 0}
 button.exb{all:unset;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+ol.autres li>button.exb{display:block;text-align:left}
 button.dxb:focus-visible,button.gold:focus-visible,button.exb:focus-visible,.rep:focus-visible,.fen button:focus-visible{outline:3px solid #000;outline-offset:2px}
 /* Popover d'examen */
 #pop{position:fixed;z-index:60;width:min(380px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;background:#fff;color:#000;border:2px solid #000;border-radius:10px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
