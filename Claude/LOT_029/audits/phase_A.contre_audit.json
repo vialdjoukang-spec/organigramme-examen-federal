@@ -1,0 +1,81 @@
+{
+ "lot": "LOT_029",
+ "fichier": "LOT_029_Phase_A_V0.html",
+ "version": {
+  "octets": 127169,
+  "sha256_16": "0f6adcc4f516488d",
+  "commit": "32ec080"
+ },
+ "auditeur": "contre-audit médical indépendant (Claude, n'a rien rédigé), 13.11.2026",
+ "verdict": "CORRECTIONS",
+ "resume": "Aucune erreur Critique : définitions, seuils NICE NG127 (2e et 98e centiles, 2 lignes), chiffres S5 (amniocentèse, 6 semaines, 21 jours) relus dans le cache ; doses Keppra (7→21 mg/kg ; 10→30 mg/kg sous 40 kg), Buccolam (2,5/5/7,5/10 mg, 10 minutes), Fortecortin (4–16 mg, 2–8 mg), Ritaline (5 mg, +5–10 mg/semaine, 60 mg) conformes aux AIPS refdata ; valganciclovir et valaciclovir correctement « hors AIPS » sans dose. Mais contre-indications et grossesse/allaitement non recopiés mot pour mot (Grave), confirmation urinaire de la PCR salivaire absente et arbre décisionnel sans algorithme.",
+ "portes": {
+  "controle3": "VERT (137 phrases, 0 défaut)",
+  "verif_aips": "OK, 6 AIPS",
+  "aips_fiche_verifier": "0 défaut bloquant",
+  "abreviations": "0 sigle non développé",
+  "forme": "conforme",
+  "taille_ko": 127,
+  "points": 14,
+  "fenetres": 36,
+  "questions_p14": 8,
+  "images": "3 en couleurs, annotées, licence citée"
+ },
+ "controles": [
+  "Point 1 : définition seule (macrocéphalie > +2 DS, microcéphalie ≤ −2 DS, technique du PC) ; aucun autre contenu.",
+  "Liste DX : 10 diagnostics classés par fréquence indicative avec rangs E1–E4 justifiés (f-p2-rangs, f-p4-rangs) ; inversion DX.2/DX.3 et CMV/TSAF documentée.",
+  "NICE NG127 1.22.2–1.22.4 relu dans le cache : trois mesures, plus grande reportée, < 2e centile, 2 lignes, > 98e centile familial sans orientation : conforme.",
+  "S5 Paediatrica 30.06.2026 relu : amniocentèse « garantit l'absence de séquelles » (verbatim), traitement de six semaines si thrombopénie ou transaminases isolées, PCR dans les 21 jours : conforme.",
+  "Valcyte AIPS 55905 : contre-indication grossesse/allaitement citée mot pour mot ; Diamox AIPS 21191 : deux citations verbatim."
+ ],
+ "restants": [
+  {
+   "gravite": "Grave",
+   "lieu": "f-p11-medicaments, colonnes Contre-indication et Grossesse et allaitement (Ritaline, Keppra, Fortecortin, Buccolam)",
+   "avant": "Ritaline : « Hyperthyroïdie, troubles du rythme, maladie cardiovasculaire » ; Keppra : « Hypersensibilité au lévétiracétam » et « Femme en âge de procréer conseillée par un spécialiste ; arrêt brutal à éviter » ; Fortecortin : grossesse absente ; Buccolam : grossesse absente.",
+   "correction": "Recopier mot pour mot : Ritaline (AIPS 20736, mars 2026) liste complète dont « Glaucome. · Phéochromocytome. · Antécédents familiaux ou diagnostic de syndrome de Tourette » et crises d'angoisse ; Keppra (AIPS 55297, avril 2023) « Hypersensibilité au lévétiracétam ainsi qu'aux substances de structure apparentée, ou à l'un des excipients » et la phrase grossesse entre guillemets ; Fortecortin (AIPS 48670) « ne doit pas être administré pendant la grossesse, et en particulier au cours du premier trimestre, sauf en cas de nécessité absolue » ; Buccolam (AIPS 62556) « Les données sont insuffisantes pour évaluer l'innocuité du midazolam pendant la grossesse »."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "Point 8 (f-p8-criteres DX.8), point 9 (f-p9-cmv, PCR néonatale), point 14 question 4",
+   "avant": "« PCR positive sur urine ou salive avant 21 jours » sans règle de confirmation.",
+   "correction": "Ajouter, après relecture de S19 (ECCI 2024, absente du cache sources) : une PCR salivaire positive se confirme par une PCR urinaire (faux positif par lait maternel) ; si l'enfant a plus de 21 jours, PCR sur la goutte de sang séché du dépistage néonatal. Sinon écrire « À vérifier »."
+  },
+  {
+   "gravite": "Moyen",
+   "lieu": "Point 10 Arbre décisionnel (2 Ko, 0 fenêtre)",
+   "avant": "Dix phrases « Si… alors… » en liste, sans algorithme graphique ni tableau.",
+   "correction": "Ajouter une fenêtre « Algorithme » (SVG ou tableau à embranchements) : mesure ×3 → croisement de 2 lignes / signes d'HTIC (E1) → microcéphalie < 21 jours (E4) → forme anormale → macrocéphalie stable familiale, avec délai et examen à chaque nœud."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "Point 1 Définition",
+   "avant": "« On parle à l'inverse de microcéphalie congénitale lorsque le PC est inférieur ou égal à −2 DS pour l'âge et le sexe à la naissance S20. »",
+   "correction": "Définir la microcéphalie à tout âge (PC < −2 DS pour l'âge et le sexe, congénitale ou acquise ; sévère < −3 DS), puisque le point 7 traite des formes acquises."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "f-p4-tableau (ligne DX.3) contre f-p4-rangs et point 10 (E1)",
+   "avant": "Tableau comparatif : « Orientation immédiate en neurochirurgie » ; rang E1 et arbre : « orientation immédiate en pédiatrie ».",
+   "correction": "Uniformiser selon NICE NG127 1.22.3 : « refer immediately to paediatric services », la neurochirurgie après imagerie."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "f-p11-medicaments, ligne Dexaméthasone",
+   "avant": "« Orale ou intraveineuse » sous l'AIPS 48670 (Fortecortin comprimés).",
+   "correction": "Écrire « Orale (AIPS 48670, comprimés) ; la voie intraveineuse relève d'une autre AIPS » ou citer l'AIPS de la forme injectable."
+  },
+  {
+   "gravite": "Léger",
+   "lieu": "f-p11-cmv, ligne valaciclovir maternel",
+   "avant": "« Jusqu'au résultat de l'amniocentèse ».",
+   "correction": "Ajouter la phrase de S5 : « Le valaciclovir peut être poursuivi pour réduire le risque de séquelles, mais cette indication reste discutée et doit être encadrée par des équipes expertes. »"
+  }
+ ],
+ "compte": {
+  "critique": 0,
+  "grave": 1,
+  "moyen": 2,
+  "leger": 4
+ }
+}
