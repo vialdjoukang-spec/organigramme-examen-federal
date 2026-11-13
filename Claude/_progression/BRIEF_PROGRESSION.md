@@ -24,9 +24,11 @@ termes discriminants en gras. N'invente aucun code CIM-10.
 bleu normal · rouge pathologie · vert traitement du système · violet hors système · ocre non médicamenteux · orange danger.
 
 **Ordres de Vial du 13.11.2026 (page `outils/receptacle.py`)**
-T1 Thème : bouton « Thème », 20 thèmes (`Claude/_progression/themes.json`, défaut 1, localStorage sous try/catch) ; 3 teintes au plus, atténuées 50–70 %, en fonds locaux répartis autrement par thème, texte #111/#222 ≥ 7:1 (calcul dans receptacle.py).
+T1 Thème : bouton « Thème », 20 thèmes (`Claude/_progression/themes.json`, défaut 1, localStorage sous try/catch) ; 3 teintes au plus (EYE SPOT comprise), en fonds locaux répartis autrement par thème, texte #111/#222 ≥ 7:1 (calcul dans receptacle.py).
 T2 Ligne : chaîne pharmacologique sur une ligne par station, Normal → Altération (VITE DIT CAFé, « — » repliés) → Pathologie → Traitement (barre) ; à 390 px la ligne défile dans son cadre ; psychiatrie : pathologie CIM-10 → barre ; fiche d'examen : blocs Temps 1/2/3 empilés (largeur ≤ 760 px).
 T3 Menu : bande latérale constante et contextuelle = plan numéroté de la page ou de la fiche ouverte, élément visible surligné (IntersectionObserver) ; tiroir « ☰ Plan » sur téléphone.
+T4 EYE SPOT : tous les titres et sous-titres de la page active (module, système, fiche, temps, colonnes de chaîne, en-têtes de fenêtre, menu) sur une seule bande `--eye`, teinte propre à la page et au thème (`eye()` du JS : angle d'or, voisins ≥ 52°), texte #000 ≥ 7:1 ; sous-titres : épaisseur ou graisse, jamais une autre couleur.
+T5 Atténuation 60–80 % vers le blanc, variable par thème et par usage (titre, menu, rail, tableau, mot, bande, encadré) ; receptacle.py refuse de générer hors bornes (60–80 %, contraste ≥ 7:1 sur zones et sur les 360 teintes EYE SPOT).
 
 **AIPS (posologie, grossesse, allaitement, contre-indications)**
 `python3 Claude/_harnais/aips_fiche.py trouve <DCI|n°>` (corpus refdata hors ligne : n°, date, URL) puis
