@@ -86,5 +86,60 @@
   "Léger f-p4-tableau ligne DX.3 : « Orientation immédiate en pédiatrie, puis neurochirurgie après imagerie », aligné sur E1 et NICE NG127 1.22.3.",
   "Léger dexaméthasone : voie écrite « Orale (AIPS 48670, comprimés) ; la voie intraveineuse relève d’une autre AIPS ».",
   "Léger f-p11-cmv valaciclovir : phrase de S5 ajoutée verbatim (« Le valaciclovir peut être poursuivi pour réduire le risque de séquelles, mais cette indication reste discutée et doit être encadrée par des équipes expertes. »)."
- ]
+ ],
+ "verification_1": {
+  "auditeur": "vérification indépendante ciblée (Claude, n'a rien rédigé)",
+  "date": "13.11.2026",
+  "version": {
+   "commit": "c3d2626",
+   "octets": 133267,
+   "sha256_16": "44faa72b1b6e65ae"
+  },
+  "verdict": "CORRECTIONS",
+  "portes": "controle3 VERT ; verif_aips OK (6 AIPS) ; aips_fiche verifier 0 défaut ; abreviations 0 ; forme conforme ; restaurer_fond --verifier 0 (fond blanc)",
+  "leves_confirmes": [
+   "Grave (partiel) : Ritaline, Keppra, Fortecortin (contre-indication, grossesse, allaitement) et Buccolam (grossesse, allaitement) conformes mot pour mot à aips_fiche.py fiche (refdata, hors cache relu dans le HTML brut).",
+   "Moyen PCR CMV : S19 (Europe PMC PMC10999471, relu le 13.11.2026) dit « A positive CMV PCR on saliva should be confirmed by a CMV PCR on a urine sample » et DBS « for retrospective diagnosis » au-delà de trois semaines : conforme aux points 8, 9, 10 et 14.",
+   "Moyen algorithme : fenêtre f-p10-algo de 10 nœuds (constat, conduite, délai, examen, source) présente et conforme à NICE NG127 1.22.2–1.22.4.",
+   "Léger f-p4-tableau DX.3, dexaméthasone orale (AIPS 48670 comprimés) et phrase valaciclovir de S5 (verbatim relu dans le cache) : levés."
+  ],
+  "restants": [
+   {
+    "gravite": "Moyen",
+    "lieu": "Point 1 Définition",
+    "avant": "« La microcéphalie désigne, à tout âge, un PC inférieur au 2e centile pour l’âge et le sexe, qu’elle soit congénitale ou acquise après la naissance S14. »",
+    "correction": "S14 (NICE NG127 1.22.2, relu) ne définit pas la microcéphalie : c'est un seuil d'orientation « below the 2nd centile, refer for paediatric assessment » chez l'enfant de moins de 4 ans ; ni « à tout âge » ni « congénitale ou acquise ». Citer une source lue qui donne la définition (PC < −2 DS pour l'âge et le sexe) ou écrire « À vérifier » ; restreindre le seuil NICE à « moins de 4 ans, seuil d'orientation »."
+   },
+   {
+    "gravite": "Moyen",
+    "lieu": "f-p11-medicaments, Buccolam, colonne Contre-indication",
+    "avant": "« Myasthénie grave, insuffisance respiratoire sévère, apnée du sommeil, insuffisance hépatique sévère » (paraphrase, sans guillemets, hypersensibilité omise) ; la clé restants_leves_par_redacteur_1 affirme pourtant le mot pour mot.",
+    "correction": "Recopier l'AIPS 62556 : « Hypersensibilité au principe actif, aux benzodiazépines ou à l'un des excipients » · « Myasthénie grave » · « Insuffisance respiratoire sévère » · « Syndrome d'apnée du sommeil » · « Insuffisance hépatique sévère »."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "f-p11-medicaments, Valcyte et Diamox",
+    "avant": "Valcyte : « Contre-indiqué pendant la grossesse et l’allaitement » ; Diamox : « Pas pendant la grossesse sauf absolue nécessité » (paraphrases sans guillemets).",
+    "correction": "Valcyte (AIPS 55905) : « Valcyte est contre-indiqué pendant la grossesse, l’allaitement ainsi que chez l’homme désireux de concevoir un enfant » ; Diamox (AIPS 21191) : « Diamox ne doit pas être utilisé pendant la grossesse, surtout durant le 1er trimestre, sauf en cas d'absolue nécessité » et l'allaitement « un sevrage peut être nécessaire le cas échéant »."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "f-p10-algo nœuds 1 et 8",
+    "avant": "Nœud 1 « Retenir la mesure » ; nœud 8 « Rassurer, suivre la courbe, ne pas orienter de routine ».",
+    "correction": "Nœud 1 : « reporter la plus grande des trois mesures, corrigée pour l'âge gestationnel » (1.22.2). Nœud 8 : « mesurer le PC des parents ; si une macrocéphalie familiale est probable, pas d'orientation de routine » (1.22.4) ; « rassurer » n'est pas dans la source."
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "Points 8, 9 et nœud 5 (sang séché)",
+    "avant": "PCR sur sang séché présentée sans limite.",
+    "correction": "Ajouter selon S19 : test de référence rétrospectif « but may miss cases » ; un résultat négatif n'exclut pas l'infection."
+   }
+  ],
+  "compte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 2,
+   "leger": 3
+  }
+ }
 }
