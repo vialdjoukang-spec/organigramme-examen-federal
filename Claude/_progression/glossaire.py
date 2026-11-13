@@ -20,7 +20,10 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 DON = os.path.join(ICI, 'donnees')
 GLO = os.path.join(ICI, 'glossaire.json')
 V = '—'
-SIGLE = re.compile(r'(?<![0-9A-Za-zÀ-ÖØ-öø-ÿ_])([A-ZÀ-ÖØ-Þ][A-Z0-9À-ÖØ-Þ]{1,5})(?![0-9A-Za-zÀ-ÖØ-öø-ÿ_])')
+# Sigle = mot de 2 à 9 signes portant au moins deux capitales : capitales seules (HUG), casse mixte (sTfR, PcP, HBs)
+# ou capitales collées à un chiffre (ADAMTS13) ; audit verbal_vv_s10, restant 12.
+SIGLE = re.compile(r'(?<![0-9A-Za-zÀ-ÖØ-öø-ÿ_])((?=[0-9A-Za-zÀ-ÖØ-öø-ÿ]*[A-ZÀ-ÖØ-Þ][0-9a-zß-öø-ÿ]*[A-ZÀ-ÖØ-Þ])'
+                   r'[A-Za-zÀ-ÖØ-öø-ÿ][0-9A-Za-zÀ-ÖØ-öø-ÿ]{1,8})(?![0-9A-Za-zÀ-ÖØ-öø-ÿ_])')
 NON_SIGLE = re.compile(r'^(?:[IVXL]+|S1[0-2]|S\d|[A-Z]\d{1,3}|EX|PH|PS|SF)$')
 ID = re.compile(r'^(?:EX-\d|PH|PS|SF)-[A-Za-z0-9.-]+$')
 MOT = re.compile(r'(?<![0-9A-Za-zÀ-ÖØ-öø-ÿ_-])([A-Za-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)+|[A-Za-z][A-Za-z0-9]*)(?![0-9A-Za-zÀ-ÖØ-öø-ÿ_])')
