@@ -549,7 +549,8 @@ JS = r"""
    h+='<p class="manque">Enrichissement en cours : le cliché, le regroupement syndromique et le traitement de ce diagnostic ne sont pas encore rédigés.</p><h3>Examens</h3>'+r.c.ex+'<h3>Signe clé</h3><p>'+r.c.sg+'</p>';
   }else{
    var im=en.images||{};
-   if(im.manque||!(im.normal||im.patho))h+='<p class="manque"><strong>Aucune image libre fiable.</strong> '+esc(im.manque||'')+'</p>';
+   if(im.manque)h+='<p class="manque"><strong>Aucune image libre fiable.</strong> '+esc(im.manque)+'</p>';
+   else if(!(im.normal||im.patho)){var ac=im.a_chercher||{};h+='<p class="manque"><strong>Clichés en cours de recherche.</strong></p>'+(ac.patho?'<ul><li><strong>Normal attendu :</strong> '+esc(ac.normal||'')+'</li><li><strong>Pathologique attendu :</strong> '+esc(ac.patho)+'</li></ul>':'');}
    else h+=(im.normal&&im.patho?'<button type="button" class="bascule" aria-pressed="false">Voir la pathologie</button>':'')
      +'<figure class="fig"><div class="cadre"><img alt=""><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg></div><figcaption></figcaption></figure><div class="lesion" aria-live="polite" hidden></div>';
    if(en.syndrome.length)h+='<h3>Regroupement syndromique</h3>'+liste(en.syndrome);
