@@ -20,8 +20,13 @@ termes discriminants en gras. N'invente aucun code CIM-10.
 0.5 Sources suisses d'abord : AIPS Swissmedic, puis sociétés et hôpitaux universitaires suisses, puis européennes
 (signalées). « Selon X » seulement si la page de X a été lue ; sinon « (non vérifié CH) ».
 0.6 Forme : Atkinson Hyperlegible, ≈ 15 px, colonne ≤ 760 px, une seule fenêtre ouverte, contraste ≥ 7:1,
-**fond blanc, couleur vive partout ailleurs (aplats foncés vifs + texte blanc, contraste ≥ 7:1 ; un système = une couleur)** (`python3 Claude/_outils/restaurer_fond.py --verifier <html>`). Couleurs à sens fixe :
+**fond de page blanc**. Couleurs à sens fixe, en marqueurs (liseré, bordure, pastille) :
 bleu normal · rouge pathologie · vert traitement du système · violet hors système · ocre non médicamenteux · orange danger.
+
+**Ordres de Vial du 13.11.2026 (page `outils/receptacle.py`)**
+T1 Thème : bouton « Thème », 20 thèmes (`Claude/_progression/themes.json`, défaut 1, localStorage sous try/catch) ; 3 teintes au plus, atténuées 50–70 %, en fonds locaux répartis autrement par thème, texte #111/#222 ≥ 7:1 (calcul dans receptacle.py).
+T2 Ligne : chaîne pharmacologique sur une ligne par station, Normal → Altération (VITE DIT CAFé, « — » repliés) → Pathologie → Traitement (barre) ; à 390 px la ligne défile dans son cadre ; psychiatrie : pathologie CIM-10 → barre ; fiche d'examen : blocs Temps 1/2/3 empilés (largeur ≤ 760 px).
+T3 Menu : bande latérale constante et contextuelle = plan numéroté de la page ou de la fiche ouverte, élément visible surligné (IntersectionObserver) ; tiroir « ☰ Plan » sur téléphone.
 
 **AIPS (posologie, grossesse, allaitement, contre-indications)**
 `python3 Claude/_harnais/aips_fiche.py trouve <DCI|n°>` (corpus refdata hors ligne : n°, date, URL) puis
