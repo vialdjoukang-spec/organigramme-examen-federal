@@ -1,3 +1,5 @@
+Liste gelée 13.11.2026
+
 # LOT_028 — liste canonique (S1.12 Troubles de l’audition : hyperacousie, hypoacousie, surdité, sifflements, acouphènes), proposée par la Phase A L1 du 13.11.2026
 
 Numérotation conservée : identique aux fichiers `LOT_028_Phase_B_V0_DX.n.html` existants (aucune correspondance à refaire).
