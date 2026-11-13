@@ -180,7 +180,12 @@ CSS = FACES + re.sub(r'\n', '', CSS_LISIBLE) + (
     "#sources li,[id$=sources] li,ol.s li,details.refs li{text-align:left;hyphens:manual;-webkit-hyphens:manual}"
     # Planches LOT_014 à LOT_016 (designer, 11.11.2026) : le paragraphe d'introduction sous le bandeau porte la classe
     # « s » des cours (font-size .82 à .86em, soit 13,9 à 14,6 px) ; il reprend la taille du texte courant.
-    "#fm-bandeau~header .s{font-size:1em!important;line-height:1.42!important}")
+    "#fm-bandeau~header .s{font-size:1em!important;line-height:1.42!important}"
+    # Audit 1 conformité LOT_032 (13.11.2026) : barre des cours du lot et encadré clé portés dans la feuille commune
+    "nav.fm-lot{display:flex;flex-wrap:wrap;gap:6px;margin:.6rem 0 1rem}"
+    "nav.fm-lot a{display:inline-block;padding:3px 10px;border-radius:14px;border:1px solid var(--fm-a-mid);background:var(--fm-a-pale);color:var(--fm-a)!important;text-decoration:none;font-size:.85em}"
+    "nav.fm-lot a[aria-current]{background:var(--fm-a);color:#fff!important;font-weight:700}"
+    ".k{background:var(--fm-a-pale);border-left:4px solid var(--fm-a-mid);padding:.6rem .8rem;margin:.8rem 0}")
 # Feuille partagée + unique script externe autorisé (menu dynamique ; ordre de Vial du 10.11.2026, toléré par controle3.py)
 BLOC = '<link id="forme-vial" rel="stylesheet" href="../_polices/forme.css"><script src="../_polices/forme.js" defer></script>'
 RE_BLOC = re.compile(r'<style id="forme-vial">.*?</style>|<link id="forme-vial"[^>]*>|<script id="forme-vial-js"[^>]*></script>'
@@ -443,7 +448,11 @@ FIXES = {29: {0: (132, .9, .205), 1: (12, .9, .335), 2: (42, .75, .245), 3: (342
               10: (30, .75, .285)},
          31: {0: (120, .85, .21), 1: (8, .9, .33), 2: (50, .8, .215), 3: (345, .85, .35), 4: (88, .85, .19),
               5: (148, .9, .19), 6: (22, .9, .29), 7: (338, .8, .36), 8: (65, .85, .19), 9: (0, .75, .24),
-              10: (34, .8, .27)}}
+              10: (34, .8, .27)},
+         # LOT_032 (audit 1 conformité, 13.11.2026) : accents vivants, ΔE76 ≥ 13 entre les 11 cours, contraste ≥ 7:1.
+         32: {0: (51, .9, .21), 1: (354, .9, .365), 2: (120, .9, .21), 3: (24, .75, .315), 4: (336, .75, .375),
+              5: (87, .9, .205), 6: (18, .9, .325), 7: (150, .75, .225), 8: (39, .9, .245), 9: (342, .9, .36),
+              10: (69, .75, .21)}}
 
 
 def teinte(nom):

@@ -1,0 +1,141 @@
+{
+ "verdict": "ACCEPTE",
+ "date": "2026-11-13",
+ "base": "261de5333e1f9aa9f03354520fb9c352d4d00e22",
+ "auditeur": "audit 1 conformité L1 indépendant (Claude, n'a rien rédigé)",
+ "perimetre": "11 cours Claude/LOT_032/LOT_032_*.html + PLANCHE_LOT_032.html ; aucun cours modifié",
+ "portes": {
+  "controle3_script_ok": "11/11 VERT",
+  "controle3_brut": "11/11 VERT, aucun ORANGE",
+  "verif_aips": "OK (11 fichiers)",
+  "aips_fiche_verifier": "0 défaut bloquant",
+  "abreviations": "0 sigle non développé",
+  "forme_verifier": "11/11 conforme",
+  "restaurer_fond_verifier": "code 0 (fond blanc)"
+ },
+ "sha8": {
+  "Phase_A": "979b46db",
+  "DX.1": "10818e93",
+  "DX.10": "4df546e4",
+  "DX.2": "ced19b54",
+  "DX.3": "d3577ba0",
+  "DX.4": "7391458f",
+  "DX.5": "36cf42b5",
+  "DX.6": "9a2f9bc8",
+  "DX.7": "0378e124",
+  "DX.8": "aa9c8097",
+  "DX.9": "36e10ff7"
+ },
+ "leves": [
+  "Taille hors images dans la bande 80–150 Ko : 84 844 (DX.3) à 145 286 o (Phase A ; 150 830 o bruts, balises <img> comprises, images en fichiers externes, aucune manquante).",
+  "ORANGE controle3 : aucun, ni avec ni sans --script-ok ; rien à juger phrase par phrase. Contrôle manuel de la longueur : 9 phrases de 31–32 mots hors citations AIPS (liste en Léger), aucune phrase nominale hors étiquettes 11.A–11.D.",
+  "14 points numérotés dans chaque cours (h3 « Sources » en plus pour 9 DX) ; titres canoniques : h1 « Raideur et douleur cervicales — S1.16 » partout, h2 « DX.n — <nom> » identiques à LISTE_DX_CANONIQUE.md avec drapeaux E1–E7 corrects ; les 10 noms figurent mot pour mot dans la Phase A.",
+  "Fenêtres : 30 à 47 par cours, toutes <section class=\"fenetre\"> au niveau 2, aucune imbriquée, aucun id dupliqué, aucune fenêtre orpheline, aucune ancre interne cassée, aucun lien inter-fichiers cassé (ancres comprises). Planche : fenêtres centrées et occultantes (Phase A vue 2).",
+  "Point 1 = définition seule dans Phase A et DX.1–DX.9 (réserves Léger DX.6 et Moyen DX.10 ci-dessous).",
+  "Point 6 : une fenêtre par région dans les 11 cours (4 à 8 fenêtres).",
+  "Point 11 : 11.A but, 11.B moyens, 11.C surveillance, 11.D pronostic présents dans les 11 cours ; tableaux en fenêtres (27 à 45 tableaux par cours), traitement structuré molécule/dose AIPS/durée/contrôle/échec et surveillance datée présents (ordre du 12.11.2026).",
+  "Point 14 ≥ 6 questions partout (7 à 14).",
+  "forme.css lié par chaque cours (../_polices/forme.css + forme.js), un seul <style> local de 531–578 o ; fond blanc conforme à l'ordre de Vial du 13.11.2026.",
+  "Palettes : 11 couleurs d'accent distinctes (aucun doublon exact).",
+  "Redites exactes inter-fichiers (phrases ≥ 8 mots) : 20, toutes dans les bibliographies ou les mentions de date de lecture ; aucune redite exacte dans le corps.",
+  "Planche : 55 captures (11 cours × 5 vues), régénérée au même commit que les cours."
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_032_Phase_B_V0_DX.10.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 non limité à la définition : la seconde phrase porte un seuil diagnostique (intervalle atlas-dent ≥ 3,0 mm) qui appartient au point 8 et y figure déjà (fenêtre « Instabilité horizontale C1–C2 : mesures et seuils », 3,0 mm ou plus) : contamination du point 1 et redite intra-fichier.",
+   "avant": " Une équipe polonaise retient l’instabilité lorsque l’intervalle entre l’arc antérieur de l’atlas et la dent de l’axe atteint au moins 3,0 mm<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>.</p>",
+   "correction": "</p>",
+   "source": "L1 : point 1 = définition seule ; aucune redite"
+  },
+  {
+   "fichier": "LOT_032_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "Redite intra-fichier : la justification « la plupart des infarctus surviennent dans la semaine qui suit » figure dans l'encadré d'ouverture puis au point 11.A.",
+   "avant": "La prise en charge prévient l’accident ischémique initial ou sa récidive, car la plupart des infarctus surviennent dans la semaine qui suit les signes locaux",
+   "correction": "La prise en charge prévient l’accident ischémique initial ou sa récidive pendant la semaine où le risque culmine",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_032_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Redite inter-fichiers : les fiches AIPS de la Phase A (f-p11-m-paracetamol 1,9 Ko, f-p11-m-ibuprofene 2,1 Ko, f-p11-m-aspirine 2,3 Ko) reprennent mot pour mot les fiches de DX.2 (f-p11-dafalgan, f-p11-brufen) et DX.7 (f-p11-aspirine) ; le paracétamol a en outre une fiche dans DX.1, DX.4 et DX.9. La Phase A, à 145 Ko, gagnerait ≈ 6 Ko.",
+   "avant": "id=\"f-p11-m-paracetamol\"",
+   "correction": "Remplacer le corps des trois fenêtres de Phase A par une phrase et un lien vers la fiche du DX : « La fiche recopie l’AIPS dans <a href=\"LOT_032_Phase_B_V0_DX.2.html#f-p11-dafalgan\">DX.2</a>. » (Brufen → DX.2#f-p11-brufen ; Aspirine Cardio → DX.7#f-p11-aspirine).",
+   "source": "L1 : aucune redite entre fichiers du LOT"
+  },
+  {
+   "fichier": "tous (11 cours)",
+   "gravite": "Moyen",
+   "constat": "Palettes peu vivantes et peu distinctes : toutes les couleurs d'accent --fm-a sont sombres (luminosité 0,17–0,27) et peu saturées (--fm-a-mid 0,29–0,41) ; les teintes couvrent seulement 340°–142° (aucun bleu, cyan ni violet) ; 7 cours sur 11 sont brun/olive dans 76° (Phase A 54°, DX.1 16°, DX.4 79°, DX.5 41°, DX.6 3°, DX.9 67°, DX.10 29°) ; paires à 12–13° : DX.4/DX.9, DX.3/DX.8, DX.5/DX.10, DX.1/DX.10, DX.1/DX.6, Phase A/DX.9.",
+   "avant": "<body style=\"--fm-a:#3b2b1c;--fm-a-mid:#765b41;--fm-a-pale:#faf6f3;--fm-a-doux:#f1e9e2\">",
+   "correction": "Redistribuer les accents sur le cercle chromatique (pas ≈ 33°), --fm-a à luminosité ≈ 0,30–0,35 et saturation ≥ 0,6, --fm-a-mid saturation ≥ 0,55 ; exemple DX.10 : --fm-a:#1d4ed8;--fm-a-mid:#3b82f6;--fm-a-pale:#f5f8ff;--fm-a-doux:#e3ecfd. Fond blanc inchangé (ordre du 13.11.2026).",
+   "source": "L1 : palette différente par cours ; mission : couleurs vivantes (accents seulement, fond blanc)"
+  },
+  {
+   "fichier": "LOT_032_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Point 1 : la définition inclut le moyen diagnostique (« que le médecin retient lorsque le scanner cérébral sans contraste le montre »), qui relève des points 8–9.",
+   "avant": "que le médecin retient lorsque le scanner cérébral sans contraste le montre",
+   "correction": "que le scanner cérébral sans contraste met le plus souvent en évidence",
+   "source": "L1 : point 1 = définition seule"
+  },
+  {
+   "fichier": "Phase A, DX.1, DX.3, DX.7, DX.10",
+   "gravite": "Léger",
+   "constat": "9 phrases de 31–32 mots (> 28) hors citations : Phase A ×3 (« 🚩 E2 — Si fièvre… », « NICE précise… », « Les HUG réservent la radiographie… »), DX.1 (« Les divergences entre la Revue médicale suisse… »), DX.3 (« Aucune source suisse lue ne chiffre… »), DX.7 (définition, point 1), DX.10 ×2 (« L’étude néerlandaise BeSt… », « La polyarthrite rhumatoïde touche… »).",
+   "avant": "",
+   "correction": "Couper chacune en deux phrases au point-virgule ou à la virgule principale.",
+   "source": "L1 : phrases verbales 12–28 mots"
+  },
+  {
+   "fichier": "DX.2, DX.3, DX.5, DX.6",
+   "gravite": "Léger",
+   "constat": "Point 6 : une fenêtre par cours n'est pas une région (DX.2 « Dermatomes du membre supérieur », DX.3 « Score modifié de la JOA (mJOA) », DX.6 « Échelles de gravité », DX.5 « Signes propres au nourrisson »), sans redite constatée.",
+   "avant": "",
+   "correction": "Aucune obligatoire ; à défaut, déplacer les scores au point 8.",
+   "source": "L1 : point 6 une fenêtre par région"
+  },
+  {
+   "fichier": "tous (11 cours)",
+   "gravite": "Léger",
+   "constat": "Front-end : nav.fm-lot et .k sont définis dans le <style> local, non dans forme.css, avec variantes (fond #fff en DX.4/DX.9, bordure 5 px en DX.4/DX.9, th de fenêtre colorés en DX.2/DX.7 seulement) ; rendu cohérent sur la planche.",
+   "avant": "",
+   "correction": "Porter nav.fm-lot, .k et section.fenetre th dans forme.css et retirer les variantes locales.",
+   "source": "L1 : front-end uniforme (forme.css)"
+  }
+ ],
+ "orange_controle3": "aucun ORANGE dans les 11 cours (avec ou sans --script-ok) ; aucun faux positif VERBES à arbitrer.",
+ "point14": {
+  "Phase_A": 14,
+  "DX.1": 8,
+  "DX.2": 11,
+  "DX.3": 8,
+  "DX.4": 7,
+  "DX.5": 8,
+  "DX.6": 9,
+  "DX.7": 10,
+  "DX.8": 8,
+  "DX.9": 8,
+  "DX.10": 8
+ },
+ "octets": {
+  "Phase_A": {
+   "brut": 150830,
+   "hors_images": 145286
+  },
+  "DX.1": 87741,
+  "DX.2": 92149,
+  "DX.3": 84844,
+  "DX.4": 90947,
+  "DX.5": 88333,
+  "DX.6": 89318,
+  "DX.7": 85751,
+  "DX.8": 86846,
+  "DX.9": 87498,
+  "DX.10": 85722
+ },
+ "non_verifie": "Rendu dynamique à 1280/390 px non rejoué (Playwright absent de l'environnement) ; jugé sur la planche.",
+ "note": "La consigne « couleurs vivantes surtout le fond » est annulée pour le fond par l'ordre de Vial du 13.11.2026 (BRIEF_HARNAIS) : fond blanc exigé et vérifié ; la vivacité ne porte que sur les accents. ACCEPTE : zéro Critique, zéro Grave ; 4 Moyen et 4 Léger à corriger au renfort."
+}
