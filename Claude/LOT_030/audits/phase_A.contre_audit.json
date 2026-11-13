@@ -1,0 +1,97 @@
+{
+ "lot": "LOT_030",
+ "fichier": "Claude/LOT_030/LOT_030_Phase_A_V0.html",
+ "sha8": "15cfdcf7",
+ "date": "2026-11-13",
+ "auditeur": "contre-audit médical indépendant (Claude)",
+ "verdict": "CORRECTIONS",
+ "portes": {
+  "controle3": "VERT",
+  "verif_aips": "OK (5 AIPS)",
+  "aips_fiche_verifier": "0 défaut",
+  "abreviations": "0",
+  "forme": "conforme",
+  "restaurer_fond": "rc 0"
+ },
+ "verifie_conforme": [
+  "AIPS 54189 grossesse/allaitement mot pour mot",
+  "BIHAM : guérison >50 % 1 sem., 60-80 % 2 sem., >90 % 4 sem. ; NNT 11 ; corticoïde nasal effet dès J14",
+  "SSI : co-amoxicilline si échec 72 h ; enfant 25 mg/kg/12 h 10 (-14) j ; doxycycline CI grossesse ; aucune imagerie si non compliquée",
+  "4 images couleur avec repères et licences",
+  "point 14 : 12 questions"
+ ],
+ "restants": [
+  {
+   "gravite": "majeure",
+   "avant": "p10 arbre : « Si la fièvre atteint 39,0 °C avec écoulement purulent pendant 3 à 4 jours, alors il prescrit l’amoxicilline (DX.5) ; sinon, il surveille (DX.4) »",
+   "correction": "Remplacer par les trois indications SSI/BIHAM, chacune suffisante : absence d’amélioration après ≥ 10 jours ; fièvre ≥ 39,0 °C ET écoulement purulent OU douleur faciale ≥ 3–4 jours consécutifs ; aggravation après 5–6 jours d’amélioration initiale (double sickening) → amoxicilline ; sinon surveillance attentive (watchful waiting).",
+   "source": "S5 (ssi.guidelines.ch/2410, « Indication de l’antibiothérapie »), S4 arbre BIHAM"
+  },
+  {
+   "gravite": "majeure",
+   "avant": "p8 critère SSI : « Les symptômes durent 10 jours ou plus, ou la fièvre atteint 39,0 °C avec écoulement purulent pendant 3 à 4 jours » ; p13 « l’antibiotique se discute après 10 jours ou devant une fièvre de 39,0 °C prolongée »",
+   "correction": "Compléter : « ≥ 10 jours sans amélioration », « écoulement purulent ou douleur faciale », et ajouter le 3e critère SSI (double aggravation après 5–6 jours) ; harmoniser p4 DX.4 « On surveille sans antibiotique » (une forme > 10 jours sans amélioration remplit le critère SSI).",
+   "source": "S5, S4"
+  },
+  {
+   "gravite": "majeure",
+   "avant": "p11 et p14 : « La SSI recommande l’amoxicilline à 1 g toutes les 12 heures, alors que l’AIPS … 1500 mg à 3000 mg par jour ; cette divergence se discute avec l’infectiologue »",
+   "correction": "La SSI écrit « Amoxicilline 1g/12h ou 1g/8h per os, 5–7 jours » (2 à 3 g/j), donc dans la fourchette AIPS 44911 : supprimer la « divergence » ; citer les deux schémas en p11 et p14 ; ajouter co-amoxicilline SSI 1 g/8 h et céfuroxime 500 mg/12 h (SSI, avec n° AIPS via aips_fiche.py trouve) et doxycycline 100 mg/12 h (CI grossesse).",
+   "source": "S5 « Traitement empirique » ; AIPS 44911"
+  },
+  {
+   "gravite": "modérée",
+   "avant": "p4 tableau DX.5 : « La fièvre dépasse 39 °C. » / examen qui tranche « Le scanner injecté montre une complication. » / « On adresse en urgence si l’œil est atteint »",
+   "correction": "Signe clé : critères EPOS (≥ 3 : écoulement coloré unilatéral, douleur locale sévère, fièvre > 38 °C, VS/CRP élevées, double aggravation) ; examen qui tranche : la clinique (aucune imagerie si non compliquée, SSI) ; conduite : amoxicilline selon SSI. La complication orbitaire relève de E1, pas de DX.5.",
+   "source": "S8, S5"
+  },
+  {
+   "gravite": "modérée",
+   "avant": "p1 Définition : définitions de la rhinosinusite aiguë (EPOS), de la rhinite allergique, de la rhinite non allergique et de la rhinorrhée de LCS",
+   "correction": "Point 1 = définition seule de l’écoulement nasal (rhinorrhée antérieure/postérieure, SSP S1.14) ; déplacer les définitions des DX en p7/p8 (la définition EPOS de la RSA y figure déjà : redite).",
+   "source": "Règle L1 ; S1, S8"
+  },
+  {
+   "gravite": "modérée",
+   "avant": "p11 traitement par diagnostic : « paracétamol ou un AINS », « antihistaminique intranasal », « spray d’ipratropium ou un antileucotriène », « céfuroxime … dose non reprise »",
+   "correction": "Pour chaque molécule : fiche AIPS (aips_fiche.py trouve/fiche) avec dose, durée, CI, grossesse/allaitement mot pour mot, ou mention explicite « hors AIPS » sans dose.",
+   "source": "Ordre de Vial 12.11.2026 ; BRIEF AIPS"
+  },
+  {
+   "gravite": "modérée",
+   "avant": "p11/11.C rhinite allergique : « La dose initiale se maintient jusqu’au contrôle. » / « Il ajuste la dose après contrôle des symptômes. »",
+   "correction": "Dater : délai de réévaluation du contrôle (selon HUG S2/ARIA), critère d’échec chiffré, passage mométasone 200 → 100 µg/j (AIPS 54189), indication et durée de l’immunothérapie (3 ans) avec prérequis (tests concordants).",
+   "source": "S2, AIPS 54189"
+  },
+  {
+   "gravite": "mineure",
+   "avant": "p9 tests allergologiques : « Le patient arrête d’abord les antihistaminiques »",
+   "correction": "Préciser le délai d’arrêt avant prick-test selon S2, sinon « À vérifier ».",
+   "source": "S2"
+  },
+  {
+   "gravite": "mineure",
+   "avant": "p11 traitement fuite de LCS : « Il vaccine contre pneumocoque, Haemophilus et méningocoque » placé dans la colonne Contrôle",
+   "correction": "Mettre la vaccination dans Moyen ; Contrôle = arrêt de l’écoulement, signes méningés, récidive (IRM/bêta-2-transferrine).",
+   "source": "S9"
+  },
+  {
+   "gravite": "mineure",
+   "avant": "p9 : « L’IRM remplace le scanner pour localiser une fistule invisible, car elle détecte le LCS sans dépendre du défaut osseux »",
+   "correction": "Supprimer : redite de la fenêtre Recherche de LCS, étape 3.",
+   "source": "Règle L1 (aucune redite)"
+  },
+  {
+   "gravite": "mineure",
+   "avant": "Source [S12] Hox V et al. (corticoïdes systémiques)",
+   "correction": "Citée 0 fois dans le texte : l’utiliser (corticoïde oral court dans la polypose, avec AIPS) ou la retirer.",
+   "source": "S12"
+  },
+  {
+   "gravite": "mineure",
+   "avant": "p10 Arbre décisionnel : texte « Si… alors » sans schéma",
+   "correction": "Ajouter un algorithme graphique (SVG ou tableau en arbre) reprenant E1–E4 puis durée/côté/aspect.",
+   "source": "Règle L1"
+  }
+ ]
+}
