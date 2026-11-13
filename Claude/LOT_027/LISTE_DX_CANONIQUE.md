@@ -1,5 +1,7 @@
 # LOT_027 — liste canonique (porte P1)
 
+**Liste gelée 13.11.2026**
+
 **Liste proposée le 13.11.2026** par la Phase A réécrite selon L1 ; elle sera gelée après l’audit A-4 de la Phase A.
 
 DX.1 — Pulpite dentaire
