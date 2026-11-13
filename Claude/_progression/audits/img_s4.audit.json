@@ -195,5 +195,49 @@
    "gravite": "mineure",
    "preuve": "depistage_pretherapeutique : seuil PLCOm2012 1.5 % ajouté « en plus » des critères d'inclusion établis (âge, tabagisme)."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "auditeur": "vérificateur indépendant (Claude, vi_s41), non rédacteur",
+  "verdict": "audit-ok",
+  "perimetre": "13 restants de restants_leves_1 et diff complet du commit 73cd2a364 (6 fiches EX-2-S4)",
+  "leves_exactement": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "sources_relues": [
+   "HUG colloque EP 240413_ep_colloque_mpr_complete.pdf (cache) : « CT 9 to 20 mSv », « V/Q 1.1 mSv », tableau « exposure to breast tissue (mSv) », référence Einstein et al. JAMA 2007;298:317-323 : unité mSv, date 2013 et Einstein 2007 conformes.",
+   "Heerink WJ et al., Eur Radiol 2017;27:138-148 (résumé PubMed PMID 27108299 relu) : FNA aiguille plus grosse → complications globales ; poumon traversé et petite lésion → majeures ; trocart aucun facteur : conforme.",
+   "ESC 2019 (haut risque = instabilité hémodynamique ; troponine + VD/VG ≥ 1 = intermédiaire élevé), BTS 2023 (pneumothorax spontané primaire/secondaire), ESC/ERS 2022 (endartériectomie curative, angioplastie/médicaments améliorent), glossaire Fleischner (nodule ≤ 3 cm) : non en cache, énoncés conformes au savoir établi et marqués « européen/international, non vérifié CH » comme l'exige la règle 0.5."
+  ],
+  "portes": "verbal.py 0/418 ; controle.py VERT ; aucune occurrence résiduelle de « 1500 », « mGy » ni « litre et demi » dans les fiches S4.",
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S4-angio-tdm-thoracique",
+    "champ": "entete.bon_usage_suisse",
+    "constat": "Redondance : « L'enquête de l'OFSP 2023 retient 5 mSv… » puis « la valeur suisse actuelle reste toutefois 5 mSv (OFSP 2023) » dans le même champ (règle L1 : sans redondance).",
+    "correction": "Supprimer la seconde mention ou fusionner : « …contre 1.2 mSv au plus pour la perfusion à haute dose, chiffres antérieurs à la valeur suisse actuelle de 5 mSv »."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S4-angio-tdm-thoracique",
+    "champ": "temps3_interpretation[2].associees_a_rechercher",
+    "constat": "La définition ESC 2019 du haut risque comprend aussi l'arrêt cardiaque et la chute de PAS ≥ 40 mmHg pendant > 15 min, ou le besoin de vasopresseurs ; la fiche reprend la formule abrégée proposée par l'audit.",
+    "correction": "Facultatif : ajouter « arrêt cardiaque, chute de PAS ≥ 40 mmHg ou vasopresseurs »."
+   }
+  ],
+  "besoin_outils_partages": "verif_aips.py exige des fichiers en argument (pas de mode « tout le dépôt ») : le brief l'appelle sans argument."
+ }
 }
