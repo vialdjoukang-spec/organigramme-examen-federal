@@ -1,0 +1,116 @@
+{
+  "verdict": "CORRECTIONS",
+  "date": "2026-11-13",
+  "fichier": "Claude/LOT_031/LOT_031_Phase_A_V0.html",
+  "sha256_16": "9b7cdae9734fdc6b",
+  "base": "a7bcafcebfd8730aa56f44e20127c65aacc8a82b",
+  "auditeur": "contre-audit médical indépendant Claude (n'a rédigé ni corrigé aucun fichier ; cours lu par extrait.py point N --texte, jamais en entier)",
+  "portes": {
+    "controle3_script_ok": "VERT, défauts {}",
+    "verif_aips": "OK · 5 AIPS citées",
+    "aips_fiche_verifier": "0 défaut bloquant",
+    "abreviations": "0 sigle non développé",
+    "forme_verifier": "conforme 104024 o",
+    "restaurer_fond_verifier": "rc 0"
+  },
+  "controles_medicaux": {
+    "point_1": "Définition seule (HUG + EPOS2020), conforme.",
+    "liste_dx": "10 DX discriminants, rangs de fréquence et rangs E1–E4 justifiés et sourcés ; vérifié verbatim dans sources_cache : HUG 2023 (2 millions, 1/3 asthme, risque ×8, VPP 77 % et 82–85 %, vasoconstricteur > 10 h), RUG HUG trauma nez (drainage < 24 h, cone beam ≤ 24 h), CHUV (atrésie unilatérale corrigée vers 6–12 mois).",
+    "criteres": "EPOS2020 (aiguë < 12 sem, chronique ≥ 12 sem, post-virale > 5 j / > 10 j, bactérienne 3/5), ARIA intermittente/persistante, NOSE > 30, SNOT-22 9 points, NAIROS 20 points : exacts.",
+    "aips": "Relus dans les SmPC refdata : Nasonex 54189 (avril 2021 ; 200 µg RA dès 12 ans ; polypes dès 18 ans 400 µg ; RSA > 1 sem et < 4 sem), Otrivin 24926 (février 2025 ; 0,1 % dès 12 ans, ≤ 3 applications, ≤ 1 semaine), Dymista 62675 (novembre 2025 ; dès 6 ans, 2 sem / 4–8 sem), Zyrtec 48143 (mai 2023 ; 4 semaines max chez l'enfant en saisonnière), Augmentin 45674 (septembre 2026 ; 3 × 625 mg > 40 kg) : doses, durées, grossesse, allaitement et dates exacts.",
+    "tableau_algorithme": "Tableau comparatif 10 DX × 10 colonnes, traitement structuré, urgences chronologiques, surveillance datée présents ; arbre décisionnel en ol.algo « Si… alors » E1→E4 puis causes fréquentes, cohérent.",
+    "images": "4 images réelles en couleurs (BruceBlaus CC BY-SA 4.0, Blausen CC BY 3.0, Bhimji CC BY 4.0, Blausen/ReneeWrites CC BY 4.0), fichiers présents, repères légendés et décision écrite.",
+    "point_14": "9 questions ≥ 6, conforme.",
+    "question_finale": "Non en l'état, oui après les corrections modérées ci-dessous : aucune erreur critique, mais la précision agressive (ordre de Vial du 12.11.2026) n'est pas atteinte sur DX.8, DX.9, DX.7 et les drapeaux rouges tumoraux."
+  },
+  "restants": [
+    {
+      "gravite": "modérée",
+      "avant": "Point 11, traitement structuré DX.8 : « Allergie à la pénicilline : clindamycine selon les HUG, dose À vérifier (AIPS) ».",
+      "correction": "L'AIPS 58919 (Clindamycine Sandoz, gélules, mise à jour 2026-06-10, refdata c208ffc53084443f8969d8677029726b) est au corpus : `aips_fiche.py fiche` puis recopier la dose orale adulte, contre-indications, grossesse et allaitement mot pour mot, avec fiche médicament."
+    },
+    {
+      "gravite": "modérée",
+      "avant": "DX.9 atrésie choanale : « bilan des anomalies associées » sans les nommer ; aucune mention du syndrome CHARGE (grep = 0).",
+      "correction": "Nommer le syndrome CHARGE (la page CHUV S6 lue le cite) dans la région 8 du point 6 et dans le traitement structuré : rechercher colobome, cardiopathie, retard de croissance, anomalies génitales et auriculaires ; avis génétique."
+    },
+    {
+      "gravite": "modérée",
+      "avant": "Surveillance DX.9 : « Suivi moyen de 12 mois dans la série de Dublin ».",
+      "correction": "Remplacer par la source suisse déjà lue : CHUV « Le bébé devra de nouveau être vu à 3, 6 et 12 mois » (contrôle endoscopique, prothèses nasales/stents) ; garder 55 % de resténose (Dublin) comme critère d'échec."
+    },
+    {
+      "gravite": "modérée",
+      "avant": "Tableau de surveillance datée : DX.7 corps étranger absent ; DX.7 traitement : « Contrôle de l'absence d'inhalation » sans délai ni critère.",
+      "correction": "Ajouter la ligne DX.7 : contrôle de la fosse controlatérale et des oreilles après extraction (protocole HUG S8), recherche de lésion septale après pile bouton (contrôle ORL rapproché, perforation, synéchie) ; ne pas instiller de solution saline avant extraction d'une pile bouton si la source le dit, sinon « À vérifier »."
+    },
+    {
+      "gravite": "modérée",
+      "avant": "Drapeaux rouges (point 5) et région 6 : « gêne auriculaire unilatérale » seule ; ni otite séreuse unilatérale de l'adulte, ni épistaxis récidivante de l'adolescent masculin, ni atteinte des nerfs crâniens (hypoesthésie V2, diplopie).",
+      "correction": "Ajouter une ligne de drapeau rouge : otite séromuqueuse unilatérale de l'adulte (carcinome du nasopharynx), épistaxis unilatérales récidivantes du garçon pubère (angiofibrome nasopharyngien juvénile : pas de biopsie au cabinet, imagerie d'abord), hypoesthésie de la joue ; source NHS S15/S27 ou ESMO-EURACAN S14, sinon « À vérifier »."
+    },
+    {
+      "gravite": "mineure",
+      "avant": "Points 5 et 6 : croûtes, ensellure et saignements orientés seulement vers tumeur ou hématome.",
+      "correction": "Mentionner la granulomatose avec polyangéite (croûtes, ensellure sans traumatisme, atteinte rénale ou pulmonaire) comme cause à exclure des croûtes chroniques, avec ANCA (anticorps anti-cytoplasme des polynucléaires neutrophiles) ; source à lire, sinon « À vérifier »."
+    },
+    {
+      "gravite": "mineure",
+      "avant": "Point 9 : le corps étranger se cherche à l'endoscope, la radiographie n'aide que s'il est radio-opaque ; rien sur la pile bouton.",
+      "correction": "Préciser que la pile bouton et les aimants sont radio-opaques : une radiographie face/profil se discute si l'objet n'est pas visible ou si l'ingestion est possible (source à lire, sinon « À vérifier »)."
+    },
+    {
+      "gravite": "mineure",
+      "avant": "Prick-test : « les antihistaminiques doivent être arrêtés avant le test » sans délai.",
+      "correction": "Donner le délai d'arrêt écrit par la stratégie HUG S4 (ou « À vérifier ») pour la précision d'examen demandée."
+    },
+    {
+      "gravite": "mineure",
+      "avant": "Fiche Zyrtec, contre-indications : seule « Insuffisance rénale terminale… » est citée ; fiche Augmentin : « ou ictère sous Augmentin antérieur » paraphrasé hors guillemets.",
+      "correction": "Recopier mot pour mot : « Hypersensibilité au principe actif, la cétirizine, à un autre dérivé de la pipérazine ou à l'un des excipients. » ; Augmentin : « … de même que chez les patients qui ont présenté un ictère ou des troubles de la fonction hépatique pendant un traitement antérieur par Augmentin. »"
+    },
+    {
+      "gravite": "mineure",
+      "avant": "DX.2 : Otrivin 0,1 % dès 12 ans seulement.",
+      "correction": "Ajouter la dose AIPS enfant 2–11 ans (0,05 % : 1 pulvérisation 1–2 fois par jour par narine, ≤ 3 applications ; « Enfants de moins de 1 an: la préparation ne doit pas être utilisée » ; 1–2 ans selon prescription médicale), recopiée de l'AIPS 24926."
+    }
+  ],
+  "restants_leves_par_redacteur_1": [
+    "1 clindamycine : dose AIPS 58919 gélules (adulte 600–1200 mg/j en 3–4 doses) + fenêtre f-p11-clin (CI, grossesse, allaitement, mise à jour juillet 2026 mot pour mot) + bibliographie.",
+    "2 CHARGE : nommé en région 8 (f-p6-nne) avec néonatologue, ORL, généticien (CHUV S6) et dans le contrôle DX.9 du traitement structuré.",
+    "3 surveillance DX.9 : « revue à 3, 6 et 12 mois » et retrait des prothèses (CHUV S6) ; 55 % de resténose (Dublin) gardé comme critère d'échec.",
+    "4 DX.7 : ligne de surveillance ajoutée (perforation après pile/aimants, sinusite, consultation ORL, HUG S8) ; controlatéral, oreilles, délai et instillation saline écrits « À vérifier » (absents de S8) ; contrôle d'inhalation reformulé selon S8.",
+    "5 drapeaux rouges : surdité/otite séromuqueuse unilatérale de l'adulte (carcinome du nasopharynx, NHS S28 lue), hypoesthésie de joue/diplopie/trismus (S15, S27), angiofibrome juvénile « À vérifier » ; région 6 : deux lignes audition et nerf maxillaire.",
+    "6 granulomatose avec polyangéite : drapeau rouge (croûtes, saignements, rein/poumon, ANCA développé, NHS S29 lue) et mention en point 6 (ensellure sans traumatisme « À vérifier »).",
+    "7 point 9 : pile bouton et aimants radio-opaques écrits comme déduction ; indication de radiographie face/profil « À vérifier ».",
+    "8 prick-test : médicaments à stopper recopiés de HUG S4 (antihistaminiques, tricycliques, neuroleptiques, corticostéroïdes) ; délai absent de S4, écrit « À vérifier ».",
+    "9 Zyrtec : contre-indication d'hypersensibilité recopiée mot pour mot ; Augmentin : phrase de contre-indication entière recopiée entre guillemets.",
+    "10 Otrivin : dose AIPS 24926 enfants 2–11 ans 0,05 %, 1–2 ans sur prescription, « Enfants de moins de 1 an: la préparation ne doit pas être utilisée. » dans le tableau DX.2 et la fenêtre f-p11-xylo."
+  ],
+  "verification_1": {
+    "verdict": "audit-ok",
+    "date": "2026-11-13",
+    "base": "3d680db76",
+    "sha256_16": "b061cc46874439a0",
+    "auditeur": "Claude, vérificateur indépendant (non rédacteur)",
+    "critique": 0,
+    "grave": 0,
+    "moyen": 0,
+    "mineure": 1,
+    "restants_contre_audit": "10/10 levés exactement (1 clindamycine, 2 CHARGE, 3 suivi DX.9, 4 surveillance DX.7, 5 drapeaux rouges, 6 GPA, 7 pile bouton, 8 prick-test, 9 Zyrtec/Augmentin, 10 Otrivin enfant).",
+    "controles": [
+      "AIPS 58919 relue hors cache (refdata c208ffc5…, mise à jour juillet 2026) : gélules moyen/sévère adultes 600–1200 mg/j, enfants 8–16 mg/kg/j en 3 ou 4 doses ; prise, contre-indication, grossesse, allaitement mot pour mot.",
+      "AIPS 24926 relue hors cache : 0,05 % 2–11 ans, 1–2 ans sur prescription, « Enfants de moins de 1 an: la préparation ne doit pas être utilisée. » conformes.",
+      "AIPS 48143 et 45674 relues hors cache : contre-indications recopiées mot pour mot.",
+      "S28 NHS (surdité unilatérale, nasendoscopie), S29 NHS (ANCA, urine, spécialiste), S15/S27 NHS (extension, nasoendoscopie, biopsie, scanner, IRM, adressage urgent), S6 CHUV (3, 6, 12 mois ; néonatologiste, ORL, généticien ; CHARGE ; aspiration au sérum), S8 HUG (pile, aimants, sinusite, ingestion/inhalation, position assise), S4 HUG (médicaments à stopper) : énoncés conformes ; absences correctement écrites « À vérifier » ou « déduction ».",
+      "Portes : controle3 --script-ok VERT, verif_aips OK (6 AIPS), aips_fiche verifier 0 défaut, abreviations 0, forme --verifier conforme, restaurer_fond --verifier 0."
+    ],
+    "restants": [
+      {
+        "gravite": "mineure",
+        "avant": "Surveillance DX.9 : « date du retrait des prothèses fixée par l'équipe ».",
+        "correction": "Préciser selon S6 CHUV : « Celles-ci sont généralement retirées au bout de 3 à 6 semaines, ou parfois un peu plus. »"
+      }
+    ]
+  }
+}
