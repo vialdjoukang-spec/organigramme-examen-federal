@@ -175,5 +175,99 @@
    "gravite": "mineure",
    "preuve": "diagnostic_etiologie : « On devrait ponctionner un nodule (ETA 2023, recommandation faible) » ; « doit » gardé pour le ganglion (recommandation forte)."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, ni rédacteur ni auditeur)",
+  "verdict": "audit-ok",
+  "resume": "Les 11 restants sont levés exactement dans les champs désignés (diff de 335b732c5 relu mot à mot) ; aucune erreur critique, grave ou moyenne introduite. Portes : verbal 0/252, controle VERT, JSON valides.",
+  "restants_controles": [
+   {
+    "restant": 1,
+    "leve": true,
+    "preuve": "suivi_surveillance, temps2_examen[0].normal, temps3_interpretation[0].confirmation, annexeA_pieges consequence et mnémotechnique : cote 1, 2 ou 3 = réponse métabolique complète sous traitement standard ; réserve cote 3 limitée à la désescalade (conforme au tableau 3 de Lugano)."
+   },
+   {
+    "restant": 2,
+    "leve": true,
+    "preuve": "temps2_examen[1] : baisse = partielle ; sans changement significatif = absence de réponse ; hausse ou nouveau foyer = progression ; seuil d'alerte corrigé."
+   },
+   {
+    "restant": 3,
+    "leve": true,
+    "preuve": "diagnostic_etiologie : bilan initial et maladie résiduelle (Barwick 2019)."
+   },
+   {
+    "restant": 4,
+    "leve": true,
+    "preuve": "IRM médullaire suivi_surveillance : IRM corps entier ou TEP-TDM ; TEP-TDM plus spécifique."
+   },
+   {
+    "restant": 5,
+    "leve": true,
+    "preuve": "calculs[0].a_quoi_ca_sert : nadir et ganglion > 1,5 cm, (Lugano 2014)."
+   },
+   {
+    "restant": 6,
+    "leve": true,
+    "preuve": "CBCT « dentaire », non transposable (déduction)."
+   },
+   {
+    "restant": 7,
+    "leve": true,
+    "preuve": "EPOS 2020 relu (cache, § 1.6.1) : 8 semaines de corticoïde nasal plus cure courte de corticoïde systémique (CRSwNP) ou d'antibiotique à large spectre (ou macrolide au long cours, CRSsNP) ; la fiche reprend la correction."
+   },
+   {
+    "restant": 8,
+    "leve": true,
+    "preuve": "« (déduction ; non vérifié CH) »."
+   },
+   {
+    "restant": 9,
+    "leve": true,
+    "preuve": "temps2_examen[3].anomalie et piège : médiane 3 mm, déduction d'Amoodi 2022."
+   },
+   {
+    "restant": 10,
+    "leve": true,
+    "preuve": "Russ 2017 retiré ; ETA 2023 tableau 1, risque estimé 0 %."
+   },
+   {
+    "restant": 11,
+    "leve": true,
+    "preuve": "« On devrait » pour le nodule (recommandation faible), « doit » pour le ganglion (forte)."
+   }
+  ],
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S10-tdm-extension",
+    "champ": "calculs[0].a_quoi_ca_sert",
+    "constat": "Lugano 2014 exige aussi une hausse absolue du plus grand ou du plus petit diamètre depuis le nadir (0,5 cm si la lésion ≤ 2 cm, 1,0 cm au-delà) ; la phrase reste exacte mais incomplète.",
+    "correction": "Ajouter « et si son diamètre augmente d'au moins 0,5 cm (lésion ≤ 2 cm) ou 1 cm (lésion > 2 cm) »."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S2-radiographie-tdm-sinus-rochers-massif",
+    "champ": "temps1_indications.depistage_pretherapeutique",
+    "constat": "L'EPOS 2020 admet aussi un macrolide à faible dose au long cours à la place de la cure courte d'antibiotique (CRSsNP).",
+    "correction": "Facultatif : « … ou d'antibiotique, ou un macrolide au long cours »."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S10-tep-tdm",
+    "champ": "temps2_examen[0]",
+    "constat": "La cote 3 figure à la fois dans « normal » et dans « anomalie » (bon pronostic) : redondance sans erreur.",
+    "correction": "Facultatif : retirer la phrase sur la cote 3 de « anomalie »."
+   }
+  ],
+  "besoins_outils_partages": [
+   "charpente.py écrit 1 fiche hors périmètre sur la branche (EX-2-S7-biopsie-guidee-sein : passerelle « Prélèvement » vers EX-4-S7-frottis-cervico-uterin, pourquoi en minuscule) ; modification annulée par le vérificateur, à corriger par le propriétaire de charpente.py ou du lot S7.",
+   "verif_aips.py exige des fichiers en argument ; non pertinent ici (aucune posologie dans ces 5 fiches)."
+  ],
+  "sources_relues": [
+   "Fokkens WJ et al. EPOS 2020 executive summary, Rhinology 2020;58:82-111 (texte en cache, § 1.6.1, relu le 13.11.2026).",
+   "Lugano 2014 et Barwick 2019 : vérifiés sur les extraits cités par l'audit ; non refetchés (disjoncteur PMC)."
+  ]
+ }
 }
