@@ -10,58 +10,142 @@
   "S4"
  ],
  "axe_secondaire": [
-  "—"
+  "Repos"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Pressions respiratoires maximales statiques : pression inspiratoire maximale (PImax), pression expiratoire maximale (PEmax) et pression inspiratoire nasale au reniflement (SNIP)",
+  "synonymes": "Force des muscles respiratoires ; MIP et MEP (anglais) ; test du reniflement",
+  "prelevement_conditions": "Le patient fait au moins 4 manœuvres de PImax, car un effet d'apprentissage existe ; on retient un plateau d'une seconde, à la CRF pour la PImax et à la CPT pour la PEmax (atelier SPLF). Pour la SNIP, il renifle brièvement (< 500 ms) 10 à 20 fois, ce qui rend la mesure plus facile que la PImax (atelier SPLF).",
+  "bon_usage_suisse": "Devant toute suspicion de maladie neuromusculaire, on doit mesurer les pressions générées par les muscles respiratoires, car elles reflètent indirectement leur force (SPLF 2011, G1+, européenne). Les valeurs de référence de la SNIP viennent d'Uldry et Fitting, au CHUV, et la SPLF les recommande (atelier SPLF)."
  },
  "temps1_indications": {
   "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "diagnostic_etiologie": "Devant une dyspnée inexpliquée, une restriction ou une coupole diaphragmatique surélevée, on mesure la PImax et la SNIP, car une faiblesse des muscles respiratoires peut expliquer le tableau (atelier SPLF).",
+  "depistage_pretherapeutique": "Au bilan initial d'une maladie neuromusculaire, on fait une spirométrie, la CV couchée et les pressions maximales (PImax ou SNIP, PEmax), car l'atteinte respiratoire y est fréquente et les EFR y sont systématiques (SPLF 2011, G1+).",
+  "suivi_surveillance": "Dans la SLA, on contrôle la spirométrie et les pressions tous les 3 mois ; dans la plupart des autres maladies neuromusculaires, on les contrôle une fois par an, parce qu'elles évoluent plus lentement ; on rapproche le suivi si un paramètre chute vite (SPLF 2011).",
+  "ne_pas_demander": "On ne conclut pas sur une PImax basse isolée, car la manœuvre dépend de la coopération ; on l'associe donc à la SNIP, puisque les deux mesures divergent parfois chez un même patient (atelier SPLF)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
+   "parametre": "PImax",
+   "normal": "> 80 cmH2O (homme), > 60 cmH2O (femme) ; par âge (Uldry-Fitting) : homme 20–35 ans 109,5 ± 27, 66–80 ans 82,5 ± 22,5 ; femme 20–35 ans 77,5 ± 18, 66–80 ans 58 ± 16 cmH2O",
+   "anomalie": "Si la PImax tombe vers 50–60 % du prédit, on évoque un début d'atteinte musculaire respiratoire, ou une distension sévère qui désavantage le diaphragme (atelier SPLF).",
+   "seuil_alerte": "PImax < 60 cmH2O (critère de VNI dans les maladies neuromusculaires)"
+  },
+  {
+   "parametre": "SNIP",
+   "normal": "Homme 20–35 ans 117 ± 29,5, 66–80 ans 91 ± 21,5 ; femme 20–35 ans 84 ± 14,5, 66–80 ans 75,5 ± 11 cmH2O (Uldry-Fitting)",
+   "anomalie": "Si la SNIP baisse, elle reflète mieux la CV que la PImax chez le patient neuromusculaire (atelier SPLF, d'après Stefanutti 2000).",
+   "seuil_alerte": "SNIP et PImax < 60 % du prédit (critère de VNI dans la SLA)"
+  },
+  {
+   "parametre": "PEmax",
    "normal": "—",
-   "anomalie": "—",
+   "anomalie": "Si la PEmax tombe sous 45 cmH2O, la toux devient inefficace (atelier SPLF).",
+   "seuil_alerte": "PEmax < 45 cmH2O"
+  },
+  {
+   "parametre": "CV couchée",
+   "normal": "> 90 % de la CV assise",
+   "anomalie": "Si la CV chute de plus de 20 % en position couchée, elle évoque une faiblesse diaphragmatique sévère (atelier SPLF).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Débit expiratoire de pointe à la toux",
+   "normal": "> 230–270 L/min",
+   "anomalie": "Si ce débit passe sous 255 L/min, la toux devient inefficace et l'encombrement menace (atelier SPLF, d'après Sancho 2007).",
+   "seuil_alerte": "< 255 L/min"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "PImax en % du prédit",
+   "formule": "On divise la PImax mesurée par la valeur de référence pour l'âge et le sexe, puis on multiplie par 100.",
+   "a_quoi_ca_sert": "Ce pourcentage décide de la surveillance et de la VNI, car un seuil de 60 % sert de critère dans les maladies neuromusculaires.",
+   "exemple": "Une femme de 25 ans obtient une PImax de 68 cmH2O pour une valeur théorique de 77 ; on calcule 68 ÷ 77 × 100 = 88 % ; comme 88 % > 60 %, la PImax n'impose pas de VNI.",
+   "source": "L'atelier SPLF des muscles respiratoires présente ce cas ; la source est européenne (lu le 13.11.2026)."
+  },
+  {
+   "nom": "CV couchée",
+   "formule": "On calcule (CV assise − CV couchée) ÷ CV assise × 100.",
+   "a_quoi_ca_sert": "Ce pourcentage dépiste une faiblesse du diaphragme, car couché le patient ne peut plus compter sur la gravité pour abaisser le diaphragme ; au-delà de 20 %, la faiblesse est sévère.",
+   "exemple": "La CV atteint 3,0 L assis et 2,2 L couché ; on calcule (3,0 − 2,2) ÷ 3,0 × 100 = 27 % ; comme 27 % > 20 %, on évoque une faiblesse diaphragmatique sévère.",
+   "source": "L'atelier SPLF des muscles respiratoires fixe ce seuil ; la source est européenne (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
+   "entite_anormale_chiffree": "La SNIP tombe à 55 % du prédit et la CV à 48 % chez un patient atteint de SLA.",
+   "associees_presentes": "La CV diminue de plus de 20 % en position couchée.",
+   "associees_a_rechercher": "On mesure les gaz du sang et on fait une oxymétrie nocturne, car une hypoventilation nocturne peut précéder l'hypercapnie diurne (SPLF 2011).",
+   "syndrome_anamnese": "Le patient décrit une dyspnée en position couchée, une fatigue et des céphalées matinales.",
+   "syndrome_status": "On observe une respiration abdominale paradoxale en décubitus et un recrutement des muscles accessoires (atelier SPLF).",
+   "confirmation": "Une CV < 50 % et une SNIP < 60 % du prédit remplissent les critères de VNI de la SLA (EFNS 2005, cité par l'atelier SPLF).",
+   "diagnostic": "Il s'agit d'une insuffisance respiratoire restrictive d'origine neuromusculaire.",
+   "conduite": "On propose une VNI, car ces critères l'indiquent chez un patient symptomatique (EFNS 2005, cité par l'atelier SPLF) ; on contrôle ensuite les EFR tous les 3 mois (SPLF 2011)."
+  },
+  {
+   "entite_anormale_chiffree": "La PImax (68 cmH2O) et la SNIP restent proches de la normale, alors que la CPT tombe à 69 % et la CVF à 48 % du prédit.",
+   "associees_presentes": "La DLCO baisse à 69 %, mais le KCO reste normal (98 %).",
+   "associees_a_rechercher": "On mesure la pression transdiaphragmatique (Pdi), car la PImax et la SNIP peuvent rester faussement normales dans une paralysie diaphragmatique, surtout unilatérale (atelier SPLF).",
+   "syndrome_anamnese": "La patiente se plaint d'une dyspnée d'effort croissante.",
+   "syndrome_status": "On recherche une respiration paradoxale en décubitus.",
+   "confirmation": "Une Pdi au reniflement basse (51 cmH2O pour une norme > 80) confirme la faiblesse du diaphragme (atelier SPLF, cas clinique).",
+   "diagnostic": "Il s'agit d'une faiblesse diaphragmatique.",
+   "conduite": "On adresse la patiente au laboratoire de pneumologie pour des tests spécifiques (Pdi, stimulation phrénique), car les tests volontaires ne suffisent pas (atelier SPLF)."
+  },
+  {
+   "entite_anormale_chiffree": "La PImax et la SNIP atteignent 50–60 % du prédit chez un patient BPCO très distendu (CRF à 160 % du prédit).",
+   "associees_presentes": "La CPT et le VR augmentent.",
    "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "syndrome_anamnese": "Le patient BPCO s'essouffle à l'effort.",
+   "syndrome_status": "Le thorax est distendu.",
+   "confirmation": "La distension explique la baisse, car elle place le diaphragme en désavantage mécanique (atelier SPLF).",
+   "diagnostic": "Il s'agit d'une faiblesse inspiratoire fonctionnelle liée à la distension, et non d'une myopathie.",
+   "conduite": "On peut proposer un réentraînement des muscles inspiratoires à au moins 30 % de la PImax, car il améliore la PImax (+13 cmH2O) et la distance de marche (+32 m) (SPLF 2010, grade B, cité par l'atelier)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si le patient a une paralysie diaphragmatique unilatérale,",
+    "consequence": "La PImax et la SNIP peuvent rester normales, et l'on méconnaît la paralysie (atelier SPLF)."
+   },
+   {
+    "si": "Si l'on retient la PImax d'une seule manœuvre,",
+    "consequence": "On sous-estime la force, car un effet d'apprentissage impose au moins 4 manœuvres (atelier SPLF)."
+   },
+   {
+    "si": "Si le patient BPCO est très distendu,",
+    "consequence": "La PImax baisse sans maladie musculaire, et l'on pose à tort une myopathie (atelier SPLF)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« 60 – 60 – 50 – 45 » : une PImax < 60 cmH2O, une SNIP < 60 % du prédit et une CV < 50 % font discuter la VNI ; une PEmax < 45 cmH2O rend la toux inefficace."
  },
  "sources": [
-  "—"
+  "SPLF, atelier « Explorations non invasives des muscles respiratoires » (cdn2.splf.fr, 2015), avec les valeurs de référence d'Uldry C et Fitting JW (CHUV, Lausanne) ; source européenne (France) (lu le 13.11.2026)",
+  "SPLF. Recommandations pour la pratique clinique concernant les explorations fonctionnelles respiratoires 2008-2010, texte long, juin 2011 ; source européenne (France), non vérifiée CH (lu le 13.11.2026)"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S4-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "La physiologie des muscles respiratoires explique pourquoi une faiblesse diminue les volumes et la toux."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-3-S4-oxymetrie-nocturne",
+   "pourquoi": "On cherche une hypoventilation nocturne si les pressions baissent dans une maladie neuromusculaire."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S4-gaz-sang-arteriels",
+   "pourquoi": "On mesure la PaCO2, car une hypercapnie diurne ≥ 45 mmHg fait partie des critères de VNI."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-3-S1-electroneuromyogramme",
+   "pourquoi": "On cherche la cause neuromusculaire d'une faiblesse des muscles respiratoires."
   }
  ]
 }

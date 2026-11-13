@@ -13,66 +13,135 @@
   "Nycthémère-sommeil"
  ],
  "entete": {
-  "nom_exact": "Oxymétrie nocturne (saturométrie de pouls continue pendant le sommeil)",
-  "synonymes": "Saturométrie nocturne ; oxymétrie de pouls nocturne ; nächtliche Oxymetrie",
-  "prelevement_conditions": "Le patient porte un capteur digital une nuit à domicile ; l'appareil enregistre la SpO2 et le pouls (déduction).",
-  "bon_usage_suisse": "L'oxymétrie nocturne peut servir au tri, mais elle reste peu sensible et peu spécifique pour les apnées du sommeil (RMS 2018) ; les questionnaires et le tri ne posent pas le diagnostic, que la SSSSC confie à la polygraphie (SSSSC 2020, extrait)."
+  "nom_exact": "Oxymétrie nocturne : enregistrement continu de la SpO2 et du pouls pendant la nuit",
+  "synonymes": "Oxymétrie de pouls nocturne ; saturométrie nocturne",
+  "prelevement_conditions": "Le patient porte toute la nuit un capteur au doigt ou au lobe de l'oreille, souvent à domicile. Le capteur exige une bonne perfusion et reste fiable seulement entre 70 et 100 % de saturation, car il ne détecte ni la carboxyhémoglobine ni la méthémoglobine (SPLF 2017, européenne).",
+  "bon_usage_suisse": "L'oxymétrie nocturne coûte peu, reste accessible et peut se répéter aussi souvent que nécessaire (SPLF 2011). Pour un SAOS, elle reste peu sensible et peu spécifique, donc on lui préfère la polygraphie ou la polysomnographie (RMS 2018, pneumologie des HUG). Les questionnaires et le tri ne posent pas le diagnostic, que la SSSSC confie à la polygraphie (SSSSC 2020, extrait)."
  },
  "temps1_indications": {
   "urgence_aigu": "—",
-  "diagnostic_etiologie": "On peut utiliser l'oxymétrie nocturne pour orienter vers des apnées, mais on confirme toujours par polygraphie ou polysomnographie, car elle manque de sensibilité et de spécificité (RMS 2018).",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "On ne demande pas l'oxymétrie nocturne pour exclure un syndrome d'apnées, car un tracé normal ne l'exclut pas (RMS 2018)."
+  "diagnostic_etiologie": "Dans une maladie neuromusculaire, on peut faire une oxymétrie nocturne pour dépister une hypoventilation, surtout si les bicarbonates veineux augmentent sans hypercapnie diurne (SPLF 2011).",
+  "depistage_pretherapeutique": "Dans la myopathie de Duchenne, l'oxymétrie nocturne simple peut remplacer la polysomnographie quand celle-ci n'est pas disponible (SPLF 2011). Avant une chirurgie, un ODI4% ≥ 5/h chez un patient suspect de SAOS s'associe à plus de complications postopératoires (étude citée par SPLF 2011).",
+  "suivi_surveillance": "Sous oxygène nocturne, dans un syndrome obésité-hypoventilation avec hypertension pulmonaire, on vérifie par oxymétrie que la saturation reste entre 88 et 92 % (RMS 2019, CHUV).",
+  "ne_pas_demander": "On ne pose pas un SAOS sur une oxymétrie seule, car elle reste peu sensible et peu spécifique (RMS 2018) ; devant toute suspicion de SAOS, la SPLF recommande d'emblée une polygraphie ventilatoire (SPLF 2011, G1)."
  },
  "temps2_examen": [
   {
-   "parametre": "SpO2 nocturne",
-   "normal": "—",
-   "anomalie": "Des désaturations répétées évoquent des apnées, car celles-ci causent des épisodes de désaturation nocturne (HUG).",
+   "parametre": "Temps passé sous 90 % (T90)",
+   "normal": "≤ 2 % du temps de sommeil",
+   "anomalie": "Si la SpO2 reste sous 90 % plus de 2 % du temps de sommeil, on suspecte une hypoventilation nocturne, que la PaCO2 ou les bicarbonates étayent (SPLF 2011, d'après Hukins). Si elle reste sous 90 % plus de 5 % du temps dans une SLA, le critère HAS de VNI est rempli (SPLF 2011).",
+   "seuil_alerte": "SpO2 < 89 % plus de 5 minutes consécutives (critère de VNI dans les maladies neuromusculaires progressives)"
+  },
+  {
+   "parametre": "Index de désaturation ≥ 4 % (ODI4%)",
+   "normal": "< 5 /h",
+   "anomalie": "Si l'ODI4% atteint 5/h ou plus chez un patient suspect de SAOS, le risque postopératoire augmente (étude citée par SPLF 2011) ; dans la SLA, 15 désaturations par heure pourraient justifier une VNI (Pinto, cité par SPLF 2011). Des désaturations répétées évoquent des apnées, car celles-ci causent des épisodes de désaturation nocturne (HUG).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Forme de la courbe",
+   "normal": "Tracé stable sans oscillation",
+   "anomalie": "Si la courbe oscille avec des chutes progressives et des retours rapides à la ligne de base, elle évoque des apnées ou hypopnées ; si elle descend lentement sur plusieurs minutes sans revenir à la ligne de base, avec un pouls qui s'accélère, elle évoque une hypoventilation (SPLF 2011).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "ODI4%",
+   "formule": "On compte les chutes de SpO2 d'au moins 4 % et on divise leur nombre par la durée d'enregistrement en heures.",
+   "a_quoi_ca_sert": "Cet index dit combien de fois par heure le sang se désature ; un index élevé évoque des apnées, mais seule la polygraphie pose le diagnostic.",
+   "exemple": "On compte 96 désaturations ≥ 4 % sur 8 h ; on calcule 96 ÷ 8 = 12 /h ; comme 12 ≥ 5, le patient entre dans le groupe à risque postopératoire accru de l'étude citée.",
+   "source": "La SPLF définit la désaturation comme une chute de 4 % (ECN 2017) et cite le seuil de 5/h (recommandations 2011) ; la source est européenne (lu le 13.11.2026)."
+  },
+  {
+   "nom": "T90",
+   "formule": "On divise le temps passé sous 90 % de SpO2 par le temps total de sommeil, puis on multiplie par 100.",
+   "a_quoi_ca_sert": "Ce pourcentage mesure le poids de l'hypoxémie sur la nuit ; au-delà de 2 %, il fait suspecter une hypoventilation.",
+   "exemple": "Le patient passe 24 minutes sous 90 % sur 400 minutes de sommeil ; on calcule 24 ÷ 400 × 100 = 6 % ; comme 6 % > 2 %, on suspecte une hypoventilation, et comme 6 % > 5 %, le critère HAS de VNI de la SLA est aussi rempli.",
+   "source": "Les recommandations SPLF 2011 citent les seuils de Hukins et de la HAS ; la source est européenne (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "L'oxymétrie montre des désaturations cycliques toute la nuit.",
-   "associees_presentes": "Le patient ronfle.",
-   "associees_a_rechercher": "On calcule le score NoSAS ou STOP-BANG, car ils ont une bonne valeur prédictive négative (RMS 2018).",
-   "syndrome_anamnese": "La conjointe a observé des pauses respiratoires.",
-   "syndrome_status": "Le patient est obèse.",
-   "confirmation": "On confirme par polygraphie, car l'oxymétrie ne pose pas le diagnostic (RMS 2018 ; SSSSC 2020, extrait).",
-   "diagnostic": "Il s'agit d'une suspicion de syndrome d'apnées du sommeil.",
-   "conduite": "On demande une polygraphie ventilatoire, car elle mesure le flux et les efforts respiratoires (HUG)."
+   "entite_anormale_chiffree": "La SpO2 reste sous 89 % pendant 12 minutes consécutives chez un patient atteint de SLA.",
+   "associees_presentes": "Les bicarbonates veineux augmentent, alors que la PaCO2 diurne reste normale (SPLF 2011).",
+   "associees_a_rechercher": "On mesure la PaCO2 diurne et la CV, car une PaCO2 ≥ 45 mmHg ou une CVF < 50 % renforce l'indication de VNI (consensus Chest 1999, cité par l'atelier SPLF).",
+   "syndrome_anamnese": "Le patient décrit des céphalées matinales, une fatigue et une dyspnée en position couchée.",
+   "syndrome_status": "On observe une respiration abdominale paradoxale en décubitus.",
+   "confirmation": "Une désaturation < 89 % plus de 5 minutes consécutives remplit le critère oxymétrique de VNI (consensus 1999 et HAS 2005, cités par SPLF 2011).",
+   "diagnostic": "Il s'agit d'une hypoventilation nocturne d'origine neuromusculaire.",
+   "conduite": "On propose une VNI nocturne, car le patient remplit le critère de VNI, et on contrôle les EFR tous les 3 mois dans la SLA (SPLF 2011)."
+  },
+  {
+   "entite_anormale_chiffree": "La SpO2 nocturne reste sous 88 % une grande partie de la nuit chez un patient dont l'IMC atteint 42 kg/m².",
+   "associees_presentes": "Les bicarbonates veineux augmentent.",
+   "associees_a_rechercher": "On mesure une gazométrie artérielle diurne et on fait une polygraphie nocturne, car le diagnostic de SOH exige une hypercapnie diurne prouvée et un trouble du sommeil caractérisé (RMS 2019).",
+   "syndrome_anamnese": "Le patient décrit une somnolence diurne, des céphalées matinales et une dyspnée (RMS 2019).",
+   "syndrome_status": "On observe une obésité sévère.",
+   "confirmation": "Une PaCO2 ≥ 45 mmHg à l'éveil chez un obèse (IMC ≥ 30 kg/m²), sans autre cause, confirme le SOH (RMS 2019).",
+   "diagnostic": "Il s'agit d'un syndrome obésité-hypoventilation.",
+   "conduite": "On adresse le patient au pneumologue pour une CPAP ou une ventilation à deux niveaux de pression, et on vise une perte de poids de 25 à 30 %, car elle améliore, voire guérit, l'hypoventilation (RMS 2019)."
+  },
+  {
+   "entite_anormale_chiffree": "L'oxymétrie compte 25 désaturations ≥ 4 % par heure chez un ronfleur.",
+   "associees_presentes": "La courbe montre des oscillations en dents de scie avec des retours rapides à la ligne de base (SPLF 2011).",
+   "associees_a_rechercher": "On demande une polygraphie ventilatoire, car la SPLF la recommande en première intention devant toute suspicion de SAOS (SPLF 2011, G1).",
+   "syndrome_anamnese": "Le conjoint rapporte des ronflements et des pauses respiratoires ; le patient somnole le jour (RMS 2018).",
+   "syndrome_status": "On mesure le tour de cou, car un cou de plus de 40 cm augmente le risque (RMS 2018).",
+   "confirmation": "Seule la polygraphie ou la polysomnographie pose le diagnostic et la sévérité par l'IAH (RMS 2018).",
+   "diagnostic": "On suspecte un SAOS.",
+   "conduite": "On ne traite pas sur l'oxymétrie seule, parce qu'elle reste peu sensible et peu spécifique (RMS 2018)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "Si l'on rassure sur une oxymétrie normale",
-    "consequence": "On méconnaît des apnées sans désaturation profonde, car l'examen est peu sensible (RMS 2018)."
+    "si": "Si l'on se rassure sur une oxymétrie normale chez un ronfleur somnolent,",
+    "consequence": "On méconnaît un SAOS, car l'oxymétrie reste peu sensible (RMS 2018)."
+   },
+   {
+    "si": "Si le patient a les doigts froids ou une vasoconstriction,",
+    "consequence": "Le signal devient faux, car l'oxymètre exige une bonne perfusion capillaire (SPLF 2017)."
+   },
+   {
+    "si": "Si le patient est intoxiqué au CO,",
+    "consequence": "L'oxymètre affiche une saturation faussement rassurante, car il ne détecte pas la carboxyhémoglobine (SPLF 2017)."
+   },
+   {
+    "si": "Si l'on applique à un patient neuromusculaire le seuil de 30 % du temps sous 90 % utilisé dans la BPCO,",
+    "consequence": "On méconnaît l'hypoventilation, car sa PaO2 diurne reste souvent normale (SPLF 2011)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« 4 %, 90 %, 5 minutes » : une désaturation compte à partir de 4 % ; on mesure le temps sous 90 % ; plus de 5 minutes sous 89 % alerte dans les maladies neuromusculaires."
  },
  "sources": [
-  "Gardier S, d'après Lador F (HUG). Dépistage et conséquences du syndrome des apnées du sommeil. Rev Med Suisse 2018 ; 14 : 156 (lu le 13.11.2026)",
+  "SPLF. Recommandations pour la pratique clinique concernant les explorations fonctionnelles respiratoires 2008-2010, texte long, juin 2011 ; source européenne (France), non vérifiée CH (lu le 13.11.2026)",
+  "SPLF, Collège des enseignants de pneumologie. Explorations fonctionnelles respiratoires (ECN 2017) ; source européenne (France), non vérifiée CH (lu le 13.11.2026)",
+  "Gardier S, d'après Lador F (pneumologie, HUG). Dépistage et conséquences du syndrome des apnées du sommeil. Rev Med Suisse 2018;14:156 (lu le 13.11.2026)",
+  "Service de pneumologie, CHUV. Syndrome obésité-hypoventilation. Rev Med Suisse 2019;15:2100-3 (lu le 13.11.2026)",
+  "SPLF, atelier « Explorations non invasives des muscles respiratoires » (cdn2.splf.fr, 2015), avec les valeurs de référence d'Uldry C et Fitting JW (CHUV, Lausanne) ; source européenne (France) (lu le 13.11.2026)",
   "HUG, Service de pneumologie. Troubles respiratoires du sommeil (lu le 13.11.2026)"
  ],
  "passerelles": [
   {
    "type": "Sommeil",
    "cible": "EX-3-S11-polysomnographie",
-   "pourquoi": "La polysomnographie confirme ou exclut le syndrome que l'oxymétrie suggère."
+   "pourquoi": "On demande la polysomnographie, car elle reste l'examen de référence du SAOS et enregistre le sommeil."
   },
   {
    "type": "Sommeil",
    "cible": "EX-3-S11-polygraphie-ventilatoire-nocturne",
-   "pourquoi": "La polygraphie est l'étape diagnostique suivante recommandée par la SSSSC."
+   "pourquoi": "On demande la polygraphie, car elle pose le SAOS et caractérise l'hypoventilation que l'oxymétrie ne fait que suggérer."
   },
   {
    "type": "Fondement",
    "cible": "SF-S4-physiologie",
-   "pourquoi": "Cette fiche explique la saturation de l'hémoglobine et ses variations nocturnes."
+   "pourquoi": "La physiologie de la ventilation pendant le sommeil explique pourquoi l'hypoventilation apparaît d'abord la nuit."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S4-gaz-sang-arteriels",
+   "pourquoi": "On mesure la PaCO2 diurne, car elle confirme l'hypoventilation que l'oxymétrie suggère."
   }
  ]
 }

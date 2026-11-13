@@ -13,73 +13,127 @@
   "Repos"
  ],
  "entete": {
-  "nom_exact": "Pléthysmographie corporelle totale (volumes pulmonaires statiques)",
-  "synonymes": "Pléthysmographie du corps entier ; Bodyplethysmographie ; mesure de la CPT, de la CRF et du VR",
-  "prelevement_conditions": "Le patient respire assis dans une cabine fermée ; l'examen mesure la capacité résiduelle fonctionnelle, le volume résiduel et la capacité pulmonaire totale, que la spirométrie ne mesure pas ; les techniques de dilution de l'hélium ou de l'azote les mesurent aussi (Paediatrica 2023).",
-  "bon_usage_suisse": "En Suisse, le pneumologue réalise la pléthysmographie ; Tarmed la cotait à 171.40 points contre 30.75 pour la spirométrie (Paediatrica 2023). Les HUG la classent parmi les examens spécialisés des stades avancés de BPCO (HUG 2026)."
+  "nom_exact": "Pléthysmographie corporelle : mesure des volumes pulmonaires statiques (CPT, CRF, VR)",
+  "synonymes": "Volumes pulmonaires non mobilisables ; technique alternative : dilution gazeuse à l'hélium",
+  "prelevement_conditions": "Le patient s'assoit dans une cabine close et respire dans un embout, car l'appareil mesure le volume non mobilisable, en pratique le VR, dont on déduit la CPT (SPLF 2017, européenne). On couple toujours l'examen à une spirométrie, parce que la CPT se calcule comme la CV plus le VR (SPLF 2017).",
+  "bon_usage_suisse": "La pléthysmographie reste un examen de laboratoire spécialisé : contrairement à la spirométrie, le médecin de famille ne la pratique pas au cabinet ; elle valait 171,40 points TARMED (Paediatrica 2023 ; tarif actuel à vérifier). Dans la BPCO, les HUG la réservent aux stades avancés (HUG BPCO 2026)."
  },
  "temps1_indications": {
   "urgence_aigu": "—",
-  "diagnostic_etiologie": "On demande la pléthysmographie si la spirométrie montre une capacité vitale basse sans obstruction, car seule une mesure des volumes prouve un trouble restrictif (Paediatrica 2023). Dans la BPCO, le pneumologue mesure le volume résiduel et le piégeage gazeux (RMS 2023).",
+  "diagnostic_etiologie": "Si la spirométrie montre une CVF basse sans obstruction, on doit mesurer la CPT, car seule sa baisse au 5e percentile définit le syndrome restrictif (SPLF 2011, recommandation G1 ; Paediatrica 2023). Au diagnostic d'asthme, on peut mesurer le VR et la CPT afin de préciser une distension (SPLF 2011, G2).",
   "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "On suit les volumes dans les maladies hémato-oncologiques ou du tissu conjonctif et dans les malformations thoraciques, car ces maladies exigent la mesure de la CRF (Paediatrica 2023).",
-  "ne_pas_demander": "On ne demande pas la pléthysmographie pour poser une BPCO, car la spirométrie après bronchodilatateur suffit (RMS 2023 ; HUG 2026)."
+  "suivi_surveillance": "Dans la BPCO avancée, on peut mesurer les volumes, car une distension (CPT > 120 % du prédit et VR/CPT > 30 %) accompagne souvent l'obstruction (HUG BPCO 2026 ; SPLF 2017). On suit les volumes dans les maladies hémato-oncologiques ou du tissu conjonctif et dans les malformations thoraciques, car ces maladies exigent la mesure de la CRF (Paediatrica 2023).",
+  "ne_pas_demander": "On ne remplace pas la CPT par la seule règle « CVF < 80 % et VEMS/CVF > 70 % », car cette définition n'est qu'un pis-aller qu'il faut vérifier par la pléthysmographie (SPLF 2011). On ne demande pas la pléthysmographie pour poser une BPCO, car la spirométrie après bronchodilatateur suffit (RMS 2023 ; HUG 2026)."
  },
  "temps2_examen": [
   {
-   "parametre": "CPT (capacité pulmonaire totale)",
-   "normal": "≥ LLN (5e percentile) (non vérifié CH)",
-   "anomalie": "Une CPT basse indique le trouble ventilatoire restrictif (Paediatrica 2023).",
+   "parametre": "CPT",
+   "normal": "Entre la LIN et la LSN (z selon les équations GLI entre −1,645 et +1,645) ; en pratique 80–120 % du prédit",
+   "anomalie": "Si la CPT passe sous la LIN (ou sous 80 % du prédit chez la femme et 83 % chez l'homme), le patient a un trouble ventilatoire restrictif (HUG 2008 ; SPLF 2011). Si elle dépasse 120 % du prédit avec un rapport VR/CPT > 30 %, le poumon est distendu (SPLF 2017).",
    "seuil_alerte": "—"
   },
   {
-   "parametre": "VR (volume résiduel) et CRF",
-   "normal": "—",
-   "anomalie": "Un VR élevé signe un piégeage gazeux ; une distension abaisse la CV et peut simuler une restriction (pseudo-restriction) (Paediatrica 2023 ; RMS 2023).",
+   "parametre": "VR",
+   "normal": "Proche de 100 % du prédit",
+   "anomalie": "Si le VR augmente, de l'air reste piégé en fin d'expiration ; on l'observe surtout dans l'emphysème, où il atteint parfois 200 % du prédit (SPLF 2017).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Rapport VR/CPT",
+   "normal": "≤ 30 %",
+   "anomalie": "Si le rapport dépasse 30 % et que la CPT dépasse 120 % du prédit, on parle de distension pulmonaire (SPLF 2017).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Trouble mixte",
+   "normal": "VEMS/CVF ≥ 0,70 et CPT ≥ 80 % du prédit",
+   "anomalie": "Si le rapport VEMS/CVF tombe sous 0,70 et que la CPT passe sous 80 % du prédit, le patient associe obstruction et restriction (SPLF 2017).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Rapport VR/CPT",
+   "formule": "On additionne la capacité vitale et le volume résiduel (CPT = CV + VR), puis on divise le VR par la CPT.",
+   "a_quoi_ca_sert": "Ce calcul donne tout l'air que le thorax contient en fin d'inspiration forcée ; on compare la CPT au prédit pour poser une restriction ou une distension, et le rapport VR/CPT mesure la part d'air piégé.",
+   "exemple": "La CV atteint 3,96 L et le VR 4,52 L ; on calcule CPT = 3,96 + 4,52 = 8,48 L, puis VR/CPT = 4,52 ÷ 8,48 = 0,53 ; comme 53 % dépasse 30 %, le poumon est distendu si la CPT dépasse aussi 120 % du prédit.",
+   "source": "Le Collège des enseignants de pneumologie (SPLF) résout ce cas dans « EFR pour ECN 2017 » ; cette source est européenne (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "La CVF atteint 62 % du prédit avec un rapport VEMS/CVF normal, et la CPT reste sous la LLN.",
-   "associees_presentes": "Le VEMS baisse proportionnellement.",
-   "associees_a_rechercher": "On mesure la DLCO et l'on demande une imagerie thoracique, car elles distinguent une atteinte interstitielle d'une cause pariétale ou neuromusculaire (non vérifié CH).",
-   "syndrome_anamnese": "Le patient s'essouffle à l'effort.",
-   "syndrome_status": "On cherche des crépitants, une cyphoscoliose ou une faiblesse musculaire.",
-   "confirmation": "La CPT basse confirme le trouble restrictif (Paediatrica 2023).",
-   "diagnostic": "Il s'agit d'un trouble ventilatoire restrictif vrai.",
-   "conduite": "Le pneumologue cherche la cause, car le traitement dépend de l'atteinte (non vérifié CH)."
+   "entite_anormale_chiffree": "La CPT atteint 56 % du prédit ; le VEMS atteint 50 % et la CVF 43 %, si bien que le rapport VEMS/CVF dépasse 0,90.",
+   "associees_presentes": "L'IMC atteint 38 kg/m² (SPLF 2017, cas d'école).",
+   "associees_a_rechercher": "On mesure la DLCO et le KCO, car une baisse du transfert oriente vers une maladie infiltrante pulmonaire (SPLF 2017).",
+   "syndrome_anamnese": "La patiente est essoufflée à l'effort.",
+   "syndrome_status": "On observe une obésité ; on recherche aussi des crépitants, une cyphoscoliose et une faiblesse musculaire.",
+   "confirmation": "La CPT sous 80 % du prédit confirme le trouble ventilatoire restrictif (SPLF 2017).",
+   "diagnostic": "Il s'agit d'un trouble ventilatoire restrictif, compatible avec l'obésité si la DLCO reste normale (déduction).",
+   "conduite": "On cherche la cause selon la DLCO : si elle baisse, on demande un scanner thoracique haute résolution afin d'exclure une pneumopathie interstitielle ; si elle reste normale, on explore la paroi et les muscles respiratoires (déduction)."
   },
   {
-   "entite_anormale_chiffree": "La CVF est basse chez un patient obstructif, mais la CPT reste normale et le VR augmente.",
-   "associees_presentes": "Le rapport VEMS/CVF se situe sous la LLN.",
-   "associees_a_rechercher": "On cherche un emphysème, car il cause la distension (HUG 2026).",
-   "syndrome_anamnese": "Le patient fume depuis 30 ans.",
-   "syndrome_status": "Le thorax est distendu.",
-   "confirmation": "Le VR élevé avec CPT normale confirme une pseudo-restriction par piégeage (Paediatrica 2023).",
-   "diagnostic": "Il s'agit d'une BPCO avec piégeage gazeux, sans restriction.",
-   "conduite": "On traite l'obstruction selon le groupe GOLD (RMS 2023)."
+   "entite_anormale_chiffree": "La CPT atteint 132 % du prédit, le VR près de 200 % et le rapport VR/CPT 51 %.",
+   "associees_presentes": "Le patient a un trouble ventilatoire obstructif modéré, et la DLCO tombe à 45 % du prédit (SPLF 2017, cas d'école).",
+   "associees_a_rechercher": "On dose l'alpha-1-antitrypsine, car son déficit cause un emphysème, surtout chez le fumeur (HUG BPCO 2026).",
+   "syndrome_anamnese": "Le patient de 66 ans a beaucoup fumé et s'essouffle au moindre effort.",
+   "syndrome_status": "Le thorax paraît distendu, et le murmure vésiculaire s'affaiblit.",
+   "confirmation": "Si l'on trouve une obstruction, une distension et un transfert bas, on évoque un emphysème (SPLF 2017).",
+   "diagnostic": "Il s'agit d'une BPCO emphysémateuse avec distension.",
+   "conduite": "On adresse le patient au pneumologue, car une BPCO sévère justifie un avis spécialisé, qui discute notamment une réduction de volume (HUG BPCO 2026)."
+  },
+  {
+   "entite_anormale_chiffree": "La CVF baisse à 60 % du prédit avec un rapport VEMS/CVF de 0,55, mais la CPT atteint 110 % du prédit.",
+   "associees_presentes": "Le VR augmente, et c'est lui qui ampute la CV.",
+   "associees_a_rechercher": "On cherche la réversibilité sous bronchodilatateur, car elle oriente vers un asthme ou une BPCO (HUG asthme 2022).",
+   "syndrome_anamnese": "Le patient s'essouffle à l'effort et a des antécédents d'obstruction bronchique.",
+   "syndrome_status": "On entend un expirium prolongé.",
+   "confirmation": "La CPT normale exclut une restriction vraie : la baisse de la CV reflète une pseudo-restriction par distension (Paediatrica 2023).",
+   "diagnostic": "Il s'agit d'un trouble ventilatoire obstructif avec distension, sans restriction.",
+   "conduite": "On traite l'obstruction et on ne lance pas de bilan de restriction, car la CPT n'est pas basse (déduction)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "Si l'on conclut à une restriction sur la spirométrie seule",
-    "consequence": "On méconnaît une pseudo-restriction par distension, donc le patient reçoit un mauvais traitement (Paediatrica 2023)."
+    "si": "Si l'on pose une restriction sur une CV basse sans mesurer la CPT,",
+    "consequence": "On méconnaît une pseudo-restriction par distension, et l'on lance un bilan de fibrose inutile (Paediatrica 2023)."
+   },
+   {
+    "si": "Si l'on interprète la CPT d'un patient de plus de 80 ans,",
+    "consequence": "On conclut avec prudence, car les normes de volumes du sujet âgé restent rares et l'intervalle de confiance de la CPT approche 1 L (SPLF 2011 ; SPLF 2023)."
+   },
+   {
+    "si": "Si l'on ignore l'origine du patient,",
+    "consequence": "On surestime la restriction ; les HUG multipliaient la valeur prédite par 0,9 chez les personnes d'origine africaine noire, pakistanaise, polynésienne ou indienne (HUG 2008)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« Petite CPT = restriction ; grande CPT et VR/CPT > 30 % = distension » : on lit la CPT avant de parler de restriction."
  },
  "sources": [
-  "Reppucci D, Trachsel D. Exploration de la fonction pulmonaire en pédiatrie. Paediatrica 2023 ; 34(3) (lu le 13.11.2026)",
-  "Leuppi JD et coll. BPCO : une maladie encore négligée. Rev Med Suisse 2023 ; 19 : 1627-33 (lu le 13.11.2026)",
-  "HUG, Service de médecine de premier recours. BPCO, stratégie 2026 (lu le 13.11.2026)"
+  "Perrin E, Junod N. Fonctions pulmonaires au cabinet. HUG, atelier de médecine de premier recours, 23.01.2008 (lu le 13.11.2026)",
+  "Reppucci D, Trachsel D. Exploration de la fonction pulmonaire en pédiatrie. Paediatrica 2023;34(3) (Pédiatrie suisse), qui reprend les critères ERS/ATS 2022 (lu le 13.11.2026)",
+  "SPLF, Collège des enseignants de pneumologie. Explorations fonctionnelles respiratoires (ECN 2017) ; source européenne (France), non vérifiée CH (lu le 13.11.2026)",
+  "SPLF. Recommandations pour la pratique clinique concernant les explorations fonctionnelles respiratoires 2008-2010, texte long, juin 2011 ; source européenne (France), non vérifiée CH (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours, stratégie « BPCO » 2026 (hug.ch, strategie-bpco-version-finale.pdf) (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours, stratégie « Asthme » 2022 (hug.ch, strategies_asthme_06.10.2022.pdf) (lu le 13.11.2026)",
+  "SPLF, groupe Fonction. Équations de référence GLI. Rev Mal Respir 2023;40:198-201 ; source européenne (France) (lu le 13.11.2026)",
+  "Leuppi JD et coll. BPCO : une maladie encore négligée. Rev Med Suisse 2023 ; 19 : 1627-33 (lu le 13.11.2026)"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S4-physiologie",
-   "pourquoi": "Cette fiche explique les volumes statiques et la loi de Boyle-Mariotte sur laquelle repose la cabine."
+   "pourquoi": "La physiologie définit les volumes mobilisables et non mobilisables que la pléthysmographie mesure."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-3-S4-spirometrie-test-reversibilite",
+   "pourquoi": "On mesure toujours la spirométrie avec les volumes, car la CPT se calcule comme la CV plus le VR."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-3-S4-dlco",
+   "pourquoi": "On mesure la DLCO, car elle oriente la cause d'une restriction ou d'une distension."
   }
  ]
 }

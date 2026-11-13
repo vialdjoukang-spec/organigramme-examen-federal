@@ -13,46 +13,110 @@
   "Effort"
  ],
  "entete": {
-  "nom_exact": "Test de marche de 6 minutes",
-  "synonymes": "TM6 ; 6-Minuten-Gehtest ; six-minute walk test",
-  "prelevement_conditions": "Le patient marche le plus loin possible pendant 6 min dans un couloir ; on mesure la distance et la saturation pendant l'effort (non vérifié CH).",
-  "bon_usage_suisse": "Les HUG réservent le test de marche de 6 minutes aux BPCO de grade GOLD 2 à 4 ; il est plus facile d'accès lorsque le pneumologue le demande (HUG 2026)."
+  "nom_exact": "Test de marche de 6 minutes (TM6)",
+  "synonymes": "Six-minute walk test (6MWT) ; test de marche de six minutes",
+  "prelevement_conditions": "Le patient marche le plus loin possible pendant 6 minutes, aller et retour dans un couloir de 30 à 50 m, sans courir ; l'opérateur ne l'encourage pas, car les encouragements modifient la distance (HUG 3-04, 2010). On mesure la pression artérielle, la dyspnée, la SpO2 et la fréquence cardiaque après 10 minutes assis, puis la distance, la SpO2 et la fréquence cardiaque aux minutes 2, 4 et 6 (HUG 3-04, 2010). On reporte le test après un infarctus de moins d'un mois, devant un angor instable, une hypertension non contrôlée, une valvulopathie aortique sévère symptomatique, une embolie pulmonaire récente, une péricardite aiguë, un asthme instable ou une instabilité hémodynamique, parce que l'effort aggraverait ces états (HUG 3-04, 2010).",
+  "bon_usage_suisse": "Les HUG indiquent le TM6 dans la BPCO de grade GOLD 2 à 4, car il mesure la capacité d'effort, révèle une désaturation et prédit le pronostic (HUG BPCO 2026). On garde le même parcours pour un même patient, parce que la reproductibilité en dépend (HUG 3-04, 2010)."
  },
  "temps1_indications": {
   "urgence_aigu": "On ne fait pas ce test pendant une exacerbation, parce qu'il évalue la capacité d'effort à l'état stable (déduction).",
-  "diagnostic_etiologie": "On fait le test pour mettre en évidence une désaturation à l'effort, car elle peut manquer au repos (HUG 2026).",
-  "depistage_pretherapeutique": "On mesure la distance avant une réadaptation respiratoire, afin d'en juger l'efficacité ensuite (HUG 2026).",
-  "suivi_surveillance": "On répète le test pour évaluer un traitement, par exemple la réadaptation respiratoire, car la distance reflète l'état de santé et prédit le pronostic (HUG 2026).",
-  "ne_pas_demander": "On ne demande pas le test dans une BPCO GOLD 1, car les HUG l'indiquent pour les grades 2 à 4 (HUG 2026)."
+  "diagnostic_etiologie": "On fait un TM6 pour chercher une désaturation à l'effort, car la mesure au repos peut la manquer (HUG 3-04, 2010 ; SPLF 2017).",
+  "depistage_pretherapeutique": "Avant de prescrire une oxygénothérapie de déambulation, on fait un TM6, car il identifie et quantifie la désaturation, puis il teste l'effet de l'oxygène (HUG 3-04, 2010).",
+  "suivi_surveillance": "On répète le TM6 après un réentraînement à l'effort ou un traitement, car il mesure leur effet ; seul un changement supérieur à la différence minimale cliniquement importante (25 à 54 m dans la BPCO) devrait compter (Bruyneel 2023).",
+  "ne_pas_demander": "On n'utilise pas le TM6 pour détecter des modifications fines de l'échange gazeux à l'effort, car il manque de sensibilité ; on demande alors une épreuve fonctionnelle à l'exercice (SPLF 2017). On ne demande pas le test dans une BPCO GOLD 1, car les HUG l'indiquent pour les grades 2 à 4 (HUG 2026)."
  },
  "temps2_examen": [
   {
-   "parametre": "Distance parcourue en 6 min",
-   "normal": "—",
-   "anomalie": "Si la distance est courte, la capacité d'effort est réduite et le pronostic moins bon (HUG 2026).",
+   "parametre": "Distance parcourue",
+   "normal": "≥ distance prédite d'Enright-Sherrill (homme : 7,57 × taille cm − 5,02 × âge − 1,76 × poids kg − 309 m ; femme : 2,11 × taille cm − 2,29 × poids kg − 5,78 × âge + 667 m)",
+   "anomalie": "Si la distance reste sous la valeur prédite, la capacité fonctionnelle baisse ; ces équations n'ont toutefois qu'une validité modérée (Bruyneel 2023).",
    "seuil_alerte": "—"
   },
   {
    "parametre": "SpO2 pendant la marche",
-   "normal": "—",
-   "anomalie": "La saturation baisse à l'effort chez certains patients BPCO, ce que le test révèle (HUG 2026).",
+   "normal": "Pas de chute sous 90 %",
+   "anomalie": "Si la SpO2 descend sous 90 % pendant l'épreuve, on doit recommencer le test sous oxygène, sauf avis médical contraire (HUG 3-04, 2010).",
+   "seuil_alerte": "SpO2 < 90 % ; ≤ 88 % dans la FPI (critère de gravité)"
+  },
+  {
+   "parametre": "Variation de distance entre deux tests",
+   "normal": "< DMCI (25 à 54 m dans la BPCO)",
+   "anomalie": "Si la distance change de plus que la DMCI, le changement compte cliniquement ; en dessous, on ne doit pas en tenir compte (Bruyneel 2023).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Récupération",
+   "normal": "Retour de la fréquence cardiaque et de la SpO2 à leur valeur de départ",
+   "anomalie": "Si la fréquence cardiaque et la SpO2 tardent à revenir à leur valeur de départ, l'opérateur note ce temps de récupération, car il complète la lecture de l'effort (HUG 3-04, 2010).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Distance prédite",
+   "formule": "On applique l'équation d'Enright-Sherrill : homme = 7,57 × taille (cm) − 5,02 × âge − 1,76 × poids (kg) − 309 m ; femme = 2,11 × taille (cm) − 2,29 × poids (kg) − 5,78 × âge + 667 m.",
+   "a_quoi_ca_sert": "Cette équation donne la distance d'une personne saine de même âge, sexe, taille et poids ; on exprime ensuite la distance mesurée en % de cette valeur.",
+   "exemple": "Un homme de 70 ans mesure 175 cm et pèse 80 kg ; on calcule 1324,75 − 351,4 − 140,8 − 309 = 523,6 m ; s'il parcourt 380 m, il atteint 380 ÷ 524 × 100 = 73 % du prédit.",
+   "source": "Bruyneel et al. (HES-SO) reprennent ces équations dans Kinesither Rev 2023 (lu le 13.11.2026)."
+  },
+  {
+   "nom": "Variation et DMCI",
+   "formule": "On soustrait la distance initiale de la distance finale et on compare l'écart à la DMCI.",
+   "a_quoi_ca_sert": "Ce calcul dit si un progrès ou une aggravation compte vraiment pour le patient, car un écart plus petit que la DMCI peut relever du hasard.",
+   "exemple": "La distance passe de 320 m à 380 m après réadaptation ; on calcule 380 − 320 = 60 m ; comme 60 m dépasse 54 m, le progrès compte, quelle que soit la DMCI retenue dans la BPCO.",
+   "source": "Bruyneel et al. (HES-SO) donnent la DMCI de 25 à 54 m dans Kinesither Rev 2023 (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "La SpO2 chute pendant la marche alors qu'elle reste normale au repos.",
-   "associees_presentes": "Le patient a une BPCO GOLD 3.",
-   "associees_a_rechercher": "On fait une gazométrie si la SpO2 de repos descend sous 92 % ou si l'on suspecte une hypercapnie (HUG 2026).",
-   "syndrome_anamnese": "Le patient doit s'arrêter pour respirer en marchant à son propre rythme.",
-   "syndrome_status": "Le patient a une expiration prolongée.",
-   "confirmation": "Le test montre une désaturation à l'effort (HUG 2026).",
-   "diagnostic": "Il s'agit d'une BPCO sévère avec désaturation d'effort.",
-   "conduite": "On adresse le patient au pneumologue, car lui seul pose l'indication à l'oxygénothérapie, à l'état stable (HUG 2026) ; on propose la réadaptation et l'on répète le test pour en mesurer l'effet (HUG 2026)."
+   "entite_anormale_chiffree": "Le patient parcourt 380 m (73 % du prédit), et sa SpO2 descend à 86 % dès la 2e minute.",
+   "associees_presentes": "La dyspnée augmente en fin de test, et la fréquence cardiaque monte.",
+   "associees_a_rechercher": "On mesure les gaz du sang au repos, car une PaO2 < 7,3 kPa (55 mmHg) ou une SpO2 < 88 % à 2 reprises sur 3 semaines pose l'oxygénothérapie de longue durée (HUG BPCO 2026). On fait une gazométrie si la SpO2 de repos descend sous 92 % ou si l'on suspecte une hypercapnie (HUG 2026).",
+   "syndrome_anamnese": "Le patient, atteint d'une BPCO de grade GOLD 3, s'essouffle en marchant à plat.",
+   "syndrome_status": "Au repos, la SpO2 reste à 92 %.",
+   "confirmation": "Le test refait sous oxygène corrige la désaturation (HUG 3-04, 2010).",
+   "diagnostic": "Il s'agit d'une désaturation à l'effort au cours d'une BPCO sévère.",
+   "conduite": "On discute une oxygénothérapie de déambulation, car le TM6 sert à la prescrire et à en évaluer l'effet ; le pneumologue pose l'indication à l'état stable (HUG 3-04, 2010 ; HUG BPCO 2026)."
+  },
+  {
+   "entite_anormale_chiffree": "La SpO2 tombe à 85 % au TM6 chez un patient atteint de FPI, dont la DLCO atteint 38 % du prédit.",
+   "associees_presentes": "La CVF baisse et la CPT passe sous la LIN.",
+   "associees_a_rechercher": "On contrôle la CVF et la DLCO tous les 6 mois, car une baisse de la CVF de plus de 10 % en 6 mois aggrave le pronostic (SPLF 2011).",
+   "syndrome_anamnese": "Le patient s'essouffle de plus en plus à l'effort et tousse sec.",
+   "syndrome_status": "On entend des crépitants secs aux bases.",
+   "confirmation": "Une désaturation ≤ 88 % au TM6 signe une maladie sévère (SPLF 2011).",
+   "diagnostic": "Il s'agit d'une fibrose pulmonaire idiopathique avancée.",
+   "conduite": "On adresse le patient à un centre de transplantation, car une SpO2 < 88 % au TM6 avec rayon de miel fait partie des critères ISHLT (SPLF 2011)."
+  },
+  {
+   "entite_anormale_chiffree": "Après un programme de réadaptation, la distance augmente de 320 m à 380 m.",
+   "associees_presentes": "La dyspnée de fin de test diminue.",
+   "associees_a_rechercher": "—",
+   "syndrome_anamnese": "Le patient BPCO a suivi un réentraînement à l'effort.",
+   "syndrome_status": "—",
+   "confirmation": "Le gain de 60 m dépasse la DMCI de 25 à 54 m (Bruyneel 2023).",
+   "diagnostic": "Le réentraînement améliore cliniquement la capacité de marche.",
+   "conduite": "On refait les tests suivants sur le même parcours et sans encouragement, parce que la reproductibilité en dépend (HUG 3-04, 2010)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
+   {
+    "si": "Si le couloir mesure moins de 30 m,",
+    "consequence": "La distance diminue artificiellement, et l'on sous-estime le patient (Bruyneel 2023)."
+   },
+   {
+    "si": "Si l'opérateur encourage le patient,",
+    "consequence": "La distance augmente, et l'on ne peut plus comparer les tests (HUG 3-04, 2010)."
+   },
+   {
+    "si": "Si le patient découvre le test,",
+    "consequence": "Le résultat varie, car la connaissance préalable du test modifie la distance (Bruyneel 2023)."
+   },
+   {
+    "si": "Si les doigts sont froids et que l'oxymètre capte mal,",
+    "consequence": "On croit à tort à une désaturation, car l'oxymètre exige une bonne perfusion capillaire (SPLF 2017)."
+   },
    {
     "si": "Si l'on se contente de la SpO2 de repos",
     "consequence": "On méconnaît une désaturation d'effort (HUG 2026)."
@@ -62,16 +126,31 @@
     "consequence": "Le patient reçoit une indication non posée à l'état stable et s'expose aux brûlures s'il fume (HUG 2026)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« 6 minutes, 30 mètres, 90 % » : le patient marche 6 minutes sur un couloir d'au moins 30 m sans encouragement, et l'on refait le test sous oxygène si la SpO2 passe sous 90 %."
  },
  "sources": [
+  "HUG, Équipe de soins respiratoires. Procédure 3-04 « Test de marche de 6 minutes », approuvée notamment par le Pr J.-P. Janssens (pneumologie), diffusée le 10.02.2010 (lu le 13.11.2026)",
+  "Bruyneel A-V, Gafner SC, Reinmann A et al. (HES-SO Genève et Valais). Évaluation de la capacité fonctionnelle de marche : test de marche de six minutes. Kinesither Rev 2023;23(254):44-49 (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours, stratégie « BPCO » 2026 (hug.ch, strategie-bpco-version-finale.pdf) (lu le 13.11.2026)",
+  "SPLF, Collège des enseignants de pneumologie. Explorations fonctionnelles respiratoires (ECN 2017) ; source européenne (France), non vérifiée CH (lu le 13.11.2026)",
+  "SPLF. Recommandations pour la pratique clinique concernant les explorations fonctionnelles respiratoires 2008-2010, texte long, juin 2011 ; source européenne (France), non vérifiée CH (lu le 13.11.2026)",
   "HUG, Service de médecine de premier recours. BPCO, stratégie 2026 (Gugler T) (lu le 13.11.2026)"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S4-physiologie",
-   "pourquoi": "Cette fiche explique l'adaptation ventilatoire et circulatoire à l'effort."
+   "pourquoi": "La physiologie de l'effort explique pourquoi l'échange gazeux peut se dégrader seulement à la marche."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S4-gaz-sang-arteriels",
+   "pourquoi": "On mesure la PaO2 au repos, car elle pose l'oxygénothérapie de longue durée."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-3-S4-dlco",
+   "pourquoi": "On rapproche la désaturation à l'effort de la DLCO, car un transfert bas l'explique souvent."
   }
  ]
 }
