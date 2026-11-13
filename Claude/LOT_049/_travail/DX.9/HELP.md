@@ -1,0 +1,9 @@
+# HELP — DX.9 Pneumothorax spontané (dont compressif), LOT_049
+
+1. Texte intégral de la directive ERS/EACTS/ESTS 2024 non obtenu (erj.ersjournals.com et OUP en 403, hors PMC) : seuls les résumés PubMed (PMID 38806203, 38804185) sont cités ; le détail des 24 recommandations et la formulation exacte sur le pneumothorax compressif manquent. Les repères BTS 2023 (haut risque, 2,5 L, 5-7 jours, indications chirurgicales) viennent de la revue J Thorac Dis 2024 (PMC11320271), pas du texte BTS (403).
+2. « Décompression sans attendre l'imagerie » : aucun extrait ne l'écrit mot pour mot ; la règle est déduite de N6/N26 (diagnostic clinique, ponction pour convertir la tension). Site et aiguille : méta-analyse WJES 2025 (Insel Gruppe Berne) et Laan 2016, pas de recommandation suisse lue.
+3. Aucune incidence suisse (OFS/Obsan) lue ; chiffres anglais, français, néerlandais.
+4. Imagerie : aucun extrait sur la sensibilité de la radiographie, de l'échographie pulmonaire ou du scanner ; examen de référence non sourcé.
+5. Techniques d'examen (percussion, auscultation comparative) et syndromes 7.x : cadre rédigé avec les seuls signes sourcés (N26, Z6) ; à compléter par un manuel suisse. Pédiatrie et aspects sociaux/assurances (LAMal, arrêt de travail, aptitude au vol) : aucune source lue, non traités.
+6. Antalgie : aucun texte de recommandation sur l'analgésie du pneumothorax ; paracétamol (Dafalgan 47503), ibuprofène (Ibuprofen-Mepha Teva 49156), morphine (Morphini HCl Streuli 56554), lidocaïne (Streuli 30015) cités selon l'AIPS, sans posologie propre à la douleur pleurale ; doses citées = indication douloureuse la plus proche, à arbitrer.
+7. Sources non européennes/hors Suisse utilisées comme support secondaire : revue de Hong Kong (J Thorac Dis 2024) pour relayer la BTS 2023 ; enquête australienne 2025 (décision clinique).
