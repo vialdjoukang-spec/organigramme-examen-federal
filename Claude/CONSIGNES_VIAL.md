@@ -16,6 +16,8 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 8 bis. **Images en couleurs de préférence** (12.11.2026) : photo clinique ou schéma publié en couleur (Blausen, OpenStax, PMC CC BY…) ; noir et blanc (Gray) seulement à défaut.
 8 ter. **Démarche → examens → interprétation → prise en charge → suivi : précision agressive** (12.11.2026) : examen ciblé selon les sociétés suisses, interprétation chiffrée, traitement structuré et surveillé ; tableaux dans les fenêtres 
 8 quater. **Fond d'écran blanc, couleur vive ailleurs** (13.11.2026) : fond de page toujours blanc (`restaurer_fond.py --verifier`) ; couleur vive vivement souhaitée partout ailleurs (titres, bandeaux, en-têtes de tableaux, encadrés, boutons, badges), contraste texte ≥ 7:1.
+8 quinquies. **Progression.html** (13.11.2026) : bouton Thème (20 thèmes, ≤ 3 couleurs par page, atténuées de 50 à 70 % en fonds locaux, caractères rehaussés en contraste) ; chaîne Normal → Altération (VITE DIT CAFé) → Pathologie → Traitement sur UNE MÊME LIGNE, raisonnement linéaire ; menu latéral constant et contextuel à la page active ; charpente remaniable pendant la rédaction.
+8 sexies. **EYE SPOT 👀** (13.11.2026) : sur la page active, tous les titres et sous-titres sont posés sur une bande d'une couleur UNIQUE, visible du premier coup ; couleur locale qui change d'une page à l'autre. Thèmes : atténuation variable de 60 à 80 %.
 9. **Toujours dans des fenêtres** (centrales, occultantes) : ne jamais saturer la page active.
 
 ## Forme
