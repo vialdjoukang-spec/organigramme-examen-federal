@@ -1,0 +1,21 @@
+import sys,re
+sys.path.insert(0,'/tmp/claude-0/-home-user/15c9849e-78d1-5a00-9dcf-bd21b180736d/scratchpad')
+from lib import *
+def S(t): return re.sub(r"\[((?:aips|w[0-9a-f]{5,6})(?:-[0-9]+)+)\]",lambda m:c(m.group(1)),t)
+R=[]
+def r(a,b): R.append({'avant':S(a),'apres':S(b)})
+r("La paroxétine ne doit pas être nouvellement prescrite chez les femmes qui envisagent une grossesse ou qui sont enceintes[aips-58636-46].",
+  "La paroxétine ne doit pas être nouvellement prescrite chez les femmes qui envisagent une grossesse ou qui sont enceintes[aips-58636-46]. Pendant l'allaitement, l'allaitement doit être arrêté si la sertraline est nécessaire[aips-55391-62]. Pour l'escitalopram, le sevrage de l'allaitement s'impose si le traitement s'avère nécessaire[aips-62641-48]. La paroxétine ne devrait pas être administrée pendant l'allaitement, et la mère ne doit pas allaiter si elle est indispensable[aips-58636-50].")
+r("Chez la femme enceinte, la sertraline ne doit être utilisée qu'en cas d'indication impérieuse, avec une contraception appropriée chez les femmes en âge de procréer[aips-55391-58].",
+  "Chez la femme en âge de procréer, la sertraline ne doit être utilisée qu'en cas d'indication impérieuse et avec une contraception appropriée[aips-55391-58].")
+r("Cinquième étape : utiliser une benzodiazépine ponctuelle si la détresse persiste, puis prévoir l'ISRS pour le long cours[w2677dd-39].",
+  "Cinquième étape : si la détresse persiste, prescrire brièvement une benzodiazépine, puis prévoir l'ISRS pour le long cours[w2677dd-39]. Xanax® (Swissmedic 43216) a pour indication les troubles paniques chroniques graves[aips-43216-0][aips-43216-1].")
+r("Ainsi, le sevrage se fait sur 2 à 3 semaines après 2 mois de traitement[wc2aeaf-40].",
+  "La décroissance d'une benzodiazépine se fait sur 2 à 3 semaines après 2 mois de traitement[wc2aeaf-40].")
+r("Les lignes directrices ne les recommandent donc pas en première intention[wc2aeaf-41].</div>",
+  "Les lignes directrices ne les recommandent donc pas en première intention[wc2aeaf-41].</div>\n"
+  "<div class=\"p\">Dans l'information professionnelle suisse, Xanax® (alprazolam, Swissmedic 43216) a pour indication les troubles paniques chroniques graves[aips-43216-0][aips-43216-1]. La dose initiale est de 0.5 à 1.5 mg par jour en prises fractionnées, la dose efficace se situe entre 4 et 6 mg par jour, et la dose ne dépasse pas 6 mg par jour[aips-43216-6]. Il est contre-indiqué en cas de myasthénie grave, d'insuffisance respiratoire sévère et d'apnées du sommeil[aips-43216-12]. Il ne doit pas être administré pendant l'allaitement, et l'allaitement doit alors être interrompu[aips-43216-32].</div>\n"
+  "<div class=\"p\">Temesta® (lorazépam, Swissmedic 36203) vise les états anxieux, à raison de 1 mg deux à trois fois par jour[aips-36203-0][aips-36203-5]. La durée ne dépasse généralement pas 2 à 3 mois, et l'arrêt se fait progressivement[aips-36203-5]. Il est contre-indiqué en cas de myasthénie grave, d'insuffisance respiratoire sévère et d'apnée du sommeil[aips-36203-8]. Le lorazépam ne doit pas être administré pendant la grossesse ni utilisé pendant l'allaitement[aips-36203-24][aips-36203-26].</div>\n"
+  "<div class=\"p\">Rivotril® (clonazépam, Swissmedic 37756) a pour indications les épilepsies, et non le trouble panique[aips-37756-0][aips-37756-1]. L'association clonazépam-sertraline citée plus haut relève donc d'un essai et non de l'indication suisse. Efexor® ER (venlafaxine, Swissmedic 54168) est indiqué dans le trouble panique avec ou sans agoraphobie[aips-54168-0][aips-54168-1]. La dose est de 37,5 mg par jour pendant 7 jours, puis de 75 mg une fois par jour, avec un maximum de 225 mg par jour[aips-54168-7].</div>\n"
+  "<div class=\"p\">Fluctine® (fluoxétine, Swissmedic 46347) a pour indications la dépression et la boulimie, et non le trouble panique[aips-46347-0][aips-46347-1]. Inderal® (propranolol, Swissmedic 31706) mentionne les tachycardies liées à l'anxiété, à raison de 10 à 40 mg trois à quatre fois par jour[aips-31706-0][aips-31706-1][aips-31706-4]. Cette indication de l'information professionnelle ne contredit pas les revues citées plus haut, car celles-ci jugent le propranolol insuffisamment prouvé dans le trouble panique lui-même.</div>")
+save('DX.2',R); check('DX.2',R)

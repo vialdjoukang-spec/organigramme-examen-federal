@@ -1,0 +1,22 @@
+import sys,re
+sys.path.insert(0,'/tmp/claude-0/-home-user/15c9849e-78d1-5a00-9dcf-bd21b180736d/scratchpad')
+from lib import *
+def S(t): return re.sub(r"\[((?:aips|w[0-9a-f]{5,6})(?:-[0-9]+)+)\]",lambda m:c(m.group(1)),t)
+R=[]
+def r(a,b): R.append({'avant':S(a),'apres':S(b)})
+r("Si la FA date de plus de 48 heures ou d'une durée inconnue, on anticoagule 3 semaines ou on exclut un thrombus par ETO avant la cardioversion[wfef614-41].",
+  "Si la FA date de plus de 24 heures ou d'une durée inconnue, on anticoagule 3 semaines ou on exclut un thrombus par ETO avant la cardioversion[w273d23-37].")
+r("En cas de saignement mettant en jeu le pronostic vital, l'andexanet alfa renverse l'apixaban, l'édoxaban et le rivaroxaban, alors que l'idarucizumab renverse le dabigatran[w66645d-39].",
+  "En cas de saignement mettant en jeu le pronostic vital, l'andexanet alfa (Ondexxya®, Swissmedic 67759) est indiqué en Suisse pour l'apixaban ou le rivaroxaban[aips-67759-0][aips-67759-1]. L'idarucizumab renverse quant à lui le dabigatran[w66645d-39].")
+r("Il est contre-indiqué en cas de baisse de la fonction ventriculaire gauche, d'infarctus du myocarde ancien ou récent et de bloc de branche complet[aips-45710-12].",
+  "Il est contre-indiqué en cas de baisse de la fonction ventriculaire gauche, d'infarctus présent ou ancien, de fibrillation permanente sans cardioversion prévue et de syndrome de Brugada connu[aips-45710-12].")
+r("Le diltiazem est contre-indiqué en cas d'insuffisance cardiaque à fraction d'éjection inférieure à 40 %, et la digoxine en cas d'insuffisance rénale[wfef614-36][wfef614-38].",
+  "Dilzem® (diltiazem, Swissmedic 46269) n'a pour indications que la maladie coronarienne et l'hypertension dans l'information professionnelle suisse[aips-46269-0][aips-46269-1]. Son usage pour la fréquence de la FA suit donc la stratégie des HUG[wfef614-34]. Il est contre-indiqué en cas d'insuffisance cardiaque décompensée, de bloc auriculo-ventriculaire de deuxième ou troisième degré et de bradycardie inférieure à 55 pulsations par minute[aips-46269-6].</div>\n"
+  "<div class=\"p\">Isoptin® (vérapamil, Swissmedic 40783) est indiqué dans la fibrillation et le flutter auriculaires à rythme ventriculaire rapide, sauf en cas de syndrome de Wolff-Parkinson-White[aips-40783-0][aips-40783-1]. La posologie habituelle se situe entre 240 et 480 mg par jour[aips-40783-2]. Il est contre-indiqué en cas de bloc auriculo-ventriculaire de deuxième ou troisième degré et d'insuffisance cardiaque à fraction d'éjection inférieure à 35 %[aips-40783-5]. Le bisoprolol (Concor®, Swissmedic 47311) n'a pas d'indication de FA, car ses indications sont l'hypertension, l'angine de poitrine, le syndrome hypercinétique et l'insuffisance cardiaque stable[aips-47311-0][aips-47311-1]. Beloc® i.v. (métoprolol, Swissmedic 56191) s'emploie dans les troubles du rythme, avec jusqu'à 5 mg en injection lente, répétée à 5 minutes d'intervalle[aips-56191-0][aips-56191-1][aips-56191-2].</div>\n"
+  "<div class=\"p\">Par ailleurs, en cas d'échec des traitements médicamenteux, l'ablation du nœud atrio-ventriculaire avec implantation d'un stimulateur est un dernier recours[wfef614-39].")
+r("Dans la cirrhose de classe Child-Turcotte-Pugh C, tous les ACOD sont contre-indiqués[w66645d-29].",
+  "Dans la cirrhose de classe Child-Turcotte-Pugh C, tous les ACOD sont contre-indiqués[w66645d-22].")
+r("Le sotalol est de deuxième ligne, et la dronédarone est contre-indiquée en cas d'insuffisance cardiaque congestive de classe NYHA III-IV[wfef614-48].",
+  "Le sotalol est de deuxième ligne selon les HUG[wfef614-48]. Multaq® (dronédarone, Swissmedic 59292) maintient le rythme sinusal à raison de 400 mg deux fois par jour aux repas[aips-59292-0][aips-59292-3]. Il est contre-indiqué en cas d'insuffisance cardiaque ou d'antécédent d'insuffisance cardiaque, de dysfonction systolique ventriculaire gauche et de fibrillation permanente, ce qui dépasse la limite fixée par les HUG[aips-59292-6]. Sotalol-Mepha® (Swissmedic 54553) commence à 80 à 160 mg par jour[aips-54553-0][aips-54553-3]. Il est contre-indiqué en cas de syndrome du QT long, d'hypokaliémie et d'insuffisance cardiaque décompensée[aips-54553-11].")
+r("On évalue le risque d'AVC par le score CHA2DS2-VASc, et la sévérité","On évalue le risque d'AVC par le score CHA2DS2-VA de l'ESC 2024 (CHA2DS2-VASc pour les HUG 2023), et la sévérité")
+save('DX.3',R); check('DX.3',R)
