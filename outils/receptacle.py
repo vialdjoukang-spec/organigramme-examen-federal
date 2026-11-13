@@ -90,27 +90,66 @@ def contraste(a, b):
     return (x + .05) / (y + .05)
 
 
+ATT_MIN, ATT_MAX, CONTRASTE_MIN = 0.60, 0.80, 7.0  # bornes (ordre de Vial du 13.11.2026) : refus de générer hors bornes
+# Bande EYE SPOT : hsl(teinte de page, S, L) atténuée vers le blanc selon le thème ; S et L par famille de page, pour que deux pages
+# de familles différentes à teinte proche restent distinctes (profondeur et saturation).
+EYE_PALIERS = {'cours': (0.72, 0.42), 'examens': (0.84, 0.35), 'pharmaco': (0.55, 0.48), 'fondamentales': (0.66, 0.40), 'fiche': (0.78, 0.45), 'vue': (0.72, 0.42)}
+EYE_S, EYE_L = EYE_PALIERS['cours']
+
+
+def attenue(rgb, a):
+    return '#' + ''.join('%02x' % int(c * (1 - a) + 255 * a + 0.5) for c in rgb)
+
+
+def hex_rgb(h):
+    return tuple(int(h[k:k + 2], 16) for k in (1, 3, 5))
+
+
+def hsl_rgb(h, s, l):
+    """Même calcul que hsl() du JS de la page (teinte entière en degrés)."""
+    c = (1 - abs(2 * l - 1)) * s
+    x = c * (1 - abs((h / 60) % 2 - 1))
+    m = l - c / 2
+    r, g, b = [(c, x, 0), (x, c, 0), (0, c, x), (0, x, c), (x, 0, c), (c, 0, x)][int(h // 60) % 6]
+    return tuple(int((v + m) * 255 + 0.5) for v in (r, g, b))
+
+
+def teinte(h):
+    import colorsys
+    return round(colorsys.rgb_to_hls(*(v / 255 for v in hex_rgb(h)))[0] * 360) % 360
+
+
 def themes(chemin):
-    """20 thèmes (ordre de Vial du 13.11.2026) : au plus 3 couleurs atténuées de 50 à 70 % vers le blanc, en fonds locaux ;
-    texte #111 et #222 dessus, contraste >= 7:1 calculé ici (échec = arrêt). Rend (liste pour la page, CSS par thème)."""
+    """20 thèmes (ordres de Vial du 13.11.2026). Au plus 3 couleurs par thème, la bande EYE SPOT comptant parmi elles :
+    les deux premières teintent les zones (menu, rail, tableau, mot, bande, encadré), la dernière est la graine EYE SPOT
+    (bande unique de tous les titres de la page active, teinte tournée par page dans le JS). Atténuation 60-80 % vers le
+    blanc, variable par thème et par usage ; contraste >= 7:1 calculé ici : zones avec #111 et #222, bande EYE SPOT avec
+    #000 et #111 sur les 360 teintes possibles (échec = arrêt). Rend (liste pour la page, CSS par thème)."""
     T = json.load(open(chemin, encoding='utf-8'))
-    roles, out, css = T['roles'], [], []
+    roles, usages, out, css = T['roles'], T['usages'], [], []
+    assert len(T['themes']) == 20, 'il faut 20 thèmes'
     for i, t in enumerate(T['themes']):
-        assert len(t['couleurs']) <= 3, f"thème {i + 1} : plus de 3 couleurs"
-        teintes = []
-        for c in t['couleurs']:
-            a = c['attenuation']
-            assert 0.5 <= a <= 0.7, f"thème {i + 1} : atténuation {a} hors 50-70 %"
-            h = '#' + ''.join('%02x' % round(int(c['base'][k:k + 2], 16) * (1 - a) + 255 * a) for k in (1, 3, 5))
-            r = min(contraste(h, '#111111'), contraste(h, '#222222'))
-            assert r >= 7, f"thème {i + 1} : contraste {r:.2f} < 7 sur {h}"
-            teintes.append(h)
-        v = []
+        n = len(t['couleurs'])
+        assert 2 <= n <= 3, f"thème {i + 1} : {n} couleurs (3 au plus, EYE SPOT comprise)"
+        att = t['attenuation']
+        for u in usages:
+            assert ATT_MIN <= att[u] <= ATT_MAX, f"thème {i + 1} : atténuation {u} = {att[u]} hors 60-80 %"
+        v, cmin = [], 99
         for r in roles:
             j = t['roles'][r]
-            v.append(f'--t-{r}:{teintes[j] if j >= 0 else "#fff"};--b-{r}:{teintes[j] if j >= 0 else "#6b6b6b"}')
+            assert -1 <= j < n - 1, f"thème {i + 1} : rôle {r} sur la couleur {j} (la dernière est réservée à EYE SPOT)"
+            h = attenue(hex_rgb(t['couleurs'][j]['base']), att[r]) if j >= 0 else '#ffffff'
+            c = min(contraste(h, '#111111'), contraste(h, '#222222'))
+            assert c >= CONTRASTE_MIN, f"thème {i + 1} : contraste {c:.2f} < 7 sur {r} {h}"
+            cmin = min(cmin, c)
+            v.append(f'--t-{r}:{h};--b-{r}:{h if j >= 0 else "#6b6b6b"}')
+        h0, ae = (teinte(t['couleurs'][-1]['base']) + 29 * i) % 360, att['titre']  # graine décalée par thème : une même page change de couleur d'un thème à l'autre
+        ce = min(min(contraste(attenue(hsl_rgb(d, sp, lp), ae), '#000000'), contraste(attenue(hsl_rgb(d, sp, lp), ae), '#111111')) for d in range(360) for sp, lp in EYE_PALIERS.values())
+        assert ce >= CONTRASTE_MIN, f"thème {i + 1} : bande EYE SPOT, contraste {ce:.2f} < 7"
         css.append(f':root[data-theme="{i}"]{{{";".join(v)}}}')
-        out.append({'nom': t['nom'], 'teintes': teintes, 'contraste_min': round(min(min(contraste(h, '#111111'), contraste(h, '#222222')) for h in teintes), 2)})
+        teintes = [attenue(hex_rgb(c['base']), att['menu']) for c in t['couleurs'][:-1]] + [attenue(hsl_rgb(h0, EYE_S, EYE_L), ae)]  # aperçu : zones + bande EYE SPOT de l'accueil
+        out.append({'nom': t['nom'], 'teintes': teintes, 'eye': {'h0': h0, 'a': ae, 'p': EYE_PALIERS},
+                    'attenuation': att, 'contraste_min': round(min(cmin, ce), 2)})
     return out, ''.join(css)
 
 
@@ -118,17 +157,19 @@ POLICE = ''.join("@font-face{font-family:'Atkinson Hyperlegible';font-style:%s;f
 
 CSS = """
 :root{--encre:#111;--doux:#222;--trait:#c4c4c4;--neutre:#6b6b6b;--mw:258px;--ht:96px;
+--eye:#dcdcdc;--eye-b:rgba(0,0,0,.24);
 --bleu:#0646db;--rouge:#b10521;--vert:#03651b;--violet:#7906df;--ocre:#8a6203;--orange:#c24a05}
-/* Thèmes (Claude/_progression/themes.json) : au plus 3 teintes atténuées de 50 à 70 % en fonds locaux, texte #111/#222 >= 7:1,
-   fond de page blanc. Les couleurs à sens fixe (partie 0.6) ne sont que des marqueurs : liseré, bordure ou pastille. */
+/* Thèmes (Claude/_progression/themes.json) : au plus 3 teintes atténuées de 60 à 80 % (EYE SPOT comprise), texte #111/#222 >= 7:1,
+   fond de page blanc. EYE SPOT : tous les titres et sous-titres de la page active sur une seule bande --eye (teinte propre à la page
+   et au thème, calculée par eye() dans le JS), texte #000 >= 7:1 ; les sous-titres varient en épaisseur et en graisse, jamais en couleur. Les couleurs à sens fixe (partie 0.6) ne sont que des marqueurs : liseré, bordure ou pastille. */
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;background:#fff}body{margin:0;background:#fff;color:var(--encre);font:15px/1.45 "Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
 button,input{font-family:inherit;color:var(--encre)}
 header.h{position:sticky;top:0;z-index:12;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}
-h1{font-size:1.15rem;margin:0 0 2px}.sous{color:var(--doux);font-size:.87rem;margin:0 0 6px}
+h1{font-size:1.15rem;margin:0 0 4px;display:inline-block}.sous{color:var(--doux);font-size:.87rem;margin:0 0 6px}
 .hl{display:flex;gap:8px;align-items:flex-end;min-width:0}
 nav.on{flex:1;min-width:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}nav.on::-webkit-scrollbar{display:none}
 nav.on button{font:inherit;font-weight:700;border:2px solid var(--neutre);border-bottom:0;background:#fff;padding:7px 13px;border-radius:10px 10px 0 0;white-space:nowrap;cursor:pointer}
-nav.on button.a{background:var(--t-entete);border-color:var(--b-entete)}
+nav.on button.a{background:var(--eye);border-color:#111;color:#000}
 #theme{font:inherit;font-weight:700;border:2px solid var(--neutre);background:#fff;border-radius:10px;padding:5px 10px;margin-bottom:5px;cursor:pointer;flex:none;display:flex;gap:6px;align-items:center}
 .pal{display:inline-flex;gap:2px}.pal i{width:12px;height:12px;border-radius:3px;border:1px solid var(--neutre);display:block}
 #themes{position:absolute;right:10px;top:100%;z-index:40;background:#fff;border:2px solid var(--neutre);border-radius:12px;padding:8px;display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;width:min(360px,calc(100vw - 20px));max-height:70vh;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.18)}
@@ -137,23 +178,27 @@ nav.on button.a{background:var(--t-entete);border-color:var(--b-entete)}
 .cadre{display:grid;grid-template-columns:var(--mw) minmax(0,1fr);align-items:start}
 /* Bande latérale de menu : constante, contextuelle, numérotée */
 #menu{position:sticky;top:var(--ht);height:calc(100vh - var(--ht));overflow:auto;background:var(--t-menu);border-right:1px solid var(--b-menu);padding:10px 8px 40px;font-size:.9rem;z-index:8}
-#menu .mt{margin:0 0 8px;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;line-height:1.3}
+#menu .mt{margin:0 0 8px;padding:6px 8px;border-radius:8px;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;line-height:1.3}
 #menu ol{list-style:none;margin:0;padding:0;counter-reset:m}
-#menu li.g{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 3px;padding:2px 4px;border-bottom:1px solid var(--neutre)}
+#menu li.g{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 3px;padding:2px 6px;border-radius:6px}
 #menu li.n{counter-increment:m}#menu a,#menu .v{display:flex;gap:7px;padding:4px 6px;border-radius:6px;text-decoration:none;color:var(--encre);line-height:1.25}
 #menu li.n a::before,#menu li.n .v::before{content:counter(m);flex:0 0 1.9em;text-align:right;font-weight:700;font-size:.8rem;background:#fff;border:1px solid var(--neutre);border-radius:5px;padding:0 3px;align-self:flex-start}
 #menu a:hover{background:#fff}#menu a.a{background:#fff;font-weight:700;box-shadow:inset 4px 0 0 #111}
 #menu .x{display:none}
 #planbtn{display:none}
+/* EYE SPOT : une seule bande pour tous les titres de la page active */
+h1,#menu .mt,#menu li.g,.c .code,.c h2,#vue .tete,.col h2,.col h3,.col h4,.ch>.eh,#fen .ft h3,#fen h4,#fen h5{background:var(--eye)!important;color:#000}
+h1,.col h2,.col h3,.col h4,#fen .ft h3,#fen h4,#fen h5{border:1px solid var(--eye-b)}
+h1{padding:3px 10px;border-radius:8px}
 main{min-width:0;padding:14px;background:#fff}
 section.p{display:none}section.p.a{display:block}
 .barre{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
 .barre input{flex:1 1 220px;font:inherit;padding:10px 12px;border:1px solid var(--neutre);border-radius:10px;background:#fff}
-.pu{font:inherit;font-weight:700;border:2px solid var(--neutre);background:#fff;border-radius:999px;padding:6px 13px;cursor:pointer}.pu.a{background:var(--t-entete);border-color:var(--b-entete)}
+.pu{font:inherit;font-weight:700;border:2px solid var(--neutre);background:#fff;border-radius:999px;padding:6px 13px;cursor:pointer}.pu.a{background:var(--t-mot);border-color:#111}
 .grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .c{background:#fff;border:1px solid var(--trait);border-radius:14px;padding:0 0 10px;overflow:hidden}
-.c>*{margin-left:14px;margin-right:14px}.c .code{margin:0 0 6px;padding:5px 14px;background:var(--t-bande);border-bottom:1px solid var(--b-bande);font-size:.82rem;font-weight:700;letter-spacing:.02em}
-.c h2{font-size:1rem;margin-top:0;margin-bottom:2px;line-height:1.25}
+.c>*{margin-left:14px;margin-right:14px}.c .code{margin:0;padding:6px 14px 0;font-size:.82rem;font-weight:700;letter-spacing:.02em}
+.c h2{font-size:1rem;margin:0 0 6px;padding:2px 14px 8px;line-height:1.25;border-bottom:1px solid var(--eye-b)}
 .j{display:grid;grid-template-columns:1fr 44px;align-items:center;gap:8px;margin-top:6px;margin-bottom:6px}.j span{font-size:.8rem;font-weight:700;text-align:right}
 .t{height:8px;background:#e6e6e6;border:1px solid #9a9a9a;border-radius:99px;overflow:hidden}.f{height:100%;width:var(--p);background:#3d3d3d}
 details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
@@ -163,7 +208,7 @@ details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
 .ls .g{flex:none}.ls .mono{font-weight:700}
 .vide{color:var(--doux);font-size:.93rem;padding:4px 0;margin:0}
 #vue{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:20;background:#fff;display:none;flex-direction:column}#vue.a{display:flex}
-#vue .tete{display:flex;gap:6px;align-items:center;padding:6px 8px;border-bottom:1px solid var(--b-entete);background:var(--t-entete)}
+#vue .tete{display:flex;gap:6px;align-items:center;padding:6px 8px;border-bottom:1px solid var(--eye-b)}
 #vue .tete b{flex:1;min-width:0;font-size:.87rem;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 #vue .tete small{display:block;font-weight:400}
 #vue button,#vue a.x{font:inherit;font-weight:700;border:2px solid #111;background:#fff;color:#111;border-radius:9px;padding:6px 11px;cursor:pointer;text-decoration:none;flex:none}
@@ -175,10 +220,10 @@ details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
 .rail button b{flex:0 0 auto;min-width:2.5em;text-align:center;font-size:.78rem;background:#fff;border:1px solid var(--neutre);border-radius:6px;padding:0 3px}
 .rail button.a{background:#fff;font-weight:700;box-shadow:inset 4px 0 0 #111}
 .col{min-width:0;max-width:760px}
-.col h2{font-size:1.2rem;margin:0 0 6px;background:var(--t-entete);border:1px solid var(--b-entete);padding:7px 12px;border-radius:10px}
-.col h3{font-size:1.05rem;margin:18px 0 6px;display:flex;gap:8px;align-items:baseline;background:var(--t-entete);border:1px solid var(--b-entete);padding:4px 8px;border-radius:8px;scroll-margin-top:calc(var(--ht) + 8px)}
+.col h2{font-size:1.2rem;margin:0 0 6px;padding:9px 12px;border-radius:10px;font-weight:800}
+.col h3{font-size:1.05rem;margin:18px 0 6px;display:flex;gap:8px;align-items:baseline;padding:5px 8px;border-radius:8px;scroll-margin-top:calc(var(--ht) + 8px)}
 .num{background:#fff;border:1px solid var(--neutre);border-radius:6px;text-align:center;min-width:1.8em;padding:0 4px;font-weight:700}
-.col h4{font-size:.9rem;margin:8px 0 3px;background:var(--t-encadre);border:1px solid var(--b-encadre);padding:2px 8px;border-radius:6px}
+.col h4{font-size:.9rem;margin:8px 0 3px;padding:2px 8px;border-radius:6px}
 .meta{color:var(--doux);font-size:.87rem;margin:0 0 8px}.meta b{color:var(--encre)}
 .bas{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
 .lf{list-style:none;margin:0;padding:0;display:grid;gap:3px}
@@ -200,7 +245,7 @@ details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
 .defile{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;margin:6px 0 12px;border:1px solid var(--trait);border-radius:10px}
 .glisse{display:none;font-size:.8rem;color:var(--doux);margin:4px 0 0}
 .ch{display:grid;grid-template-columns:minmax(150px,1.15fr) 16px minmax(150px,1fr) 16px minmax(118px,.85fr) 16px minmax(165px,1.2fr);min-width:631px;font-size:.88rem}
-.ch>.eh{background:var(--t-grille);border-bottom:1px solid var(--b-grille);font-weight:700;font-size:.8rem;padding:5px 7px;scroll-snap-align:start;display:flex;align-items:center;gap:5px}
+.ch>.eh{font-weight:700;font-size:.8rem;padding:5px 7px;scroll-snap-align:start;display:flex;align-items:center;gap:5px}
 .ch>.eh::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--pt);flex:none}.ch>.eh.fl::before{display:none}
 .ch>div{padding:6px 7px;border-bottom:1px solid var(--trait);min-width:0;overflow-wrap:anywhere}
 .ch>.fl{padding:6px 0;text-align:center;font-weight:700;color:var(--encre)}
@@ -221,11 +266,11 @@ details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
 /* Fenêtre unique, occultante ; la bande de menu reste visible à gauche */
 #fen{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:30;background:rgba(10,12,16,.62);display:none;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}#fen.a{display:flex}
 #fen .fc{background:#fff;width:100%;max-width:760px;border-radius:14px;padding:14px 18px 22px;border:1px solid var(--trait)}
-#fen .ft{display:flex;gap:8px;align-items:flex-start}#fen .ft h3{flex:1;margin:0;font-size:1.15rem;background:var(--t-entete);border:1px solid var(--b-entete);padding:7px 12px;border-radius:10px}
+#fen .ft{display:flex;gap:8px;align-items:flex-start}#fen .ft h3{flex:1;margin:0;font-size:1.15rem;font-weight:800;padding:9px 12px;border-radius:10px}
 #fen .x{font:inherit;border:2px solid #111;background:#fff;font-weight:700;border-radius:8px;padding:4px 10px;cursor:pointer}
-#fen h4{margin:14px 0 4px;font-size:.98rem;padding:4px 8px;background:var(--t-encadre);border:1px solid var(--b-encadre);border-radius:6px;scroll-margin-top:8px}
+#fen h4{margin:14px 0 4px;font-size:.98rem;padding:4px 8px;border-radius:6px;scroll-margin-top:8px}
 #fen table{border-collapse:collapse;width:100%;font-size:.88rem;margin:2px 0}#fen td,#fen th{border:1px solid var(--trait);padding:5px 6px;vertical-align:top;text-align:left}
-#fen th{background:var(--t-tableau);font-weight:700}#fen td.l{width:38%;font-weight:700;background:var(--t-tableau)}#fen h5{margin:10px 0 3px;font-size:.9rem;padding:2px 8px}#fen ul{margin:2px 0;padding-left:1.2em}
+#fen th{background:var(--t-tableau);font-weight:700}#fen td.l{width:38%;font-weight:700;background:var(--t-tableau)}#fen h5{margin:10px 0 3px;font-size:.9rem;padding:2px 8px;border-radius:5px}#fen ul{margin:2px 0;padding-left:1.2em}
 .tw{overflow-x:auto}
 @media(max-width:1180px){.mod{grid-template-columns:minmax(0,1fr);gap:8px}
  .rail{position:static;max-height:none;flex-direction:row;overflow-x:auto}.rail button{white-space:nowrap}}
@@ -247,18 +292,32 @@ const TH=D.themes;
 function theme(i,garder){i=(i>=0&&i<TH.length)?i:0;document.documentElement.dataset.theme=i;
   $$('#themes button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.t===i?'true':'false'));
   $('#theme .pal').innerHTML=TH[i].teintes.map(c=>'<i style="background:'+c+'"></i>').join('');$('#theme').title='Thème '+(i+1)+' · '+TH[i].nom;
-  if(garder){try{localStorage.setItem('progression-theme',String(i))}catch(e){}}}
+  if(garder){try{localStorage.setItem('progression-theme',String(i))}catch(e){}}if(window.EYE_OK)eye();}
 $('#themes').innerHTML=TH.map((t,i)=>'<button type="button" data-t="'+i+'" aria-pressed="false"><span class="pal">'+t.teintes.map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>').join('');
 $('#theme').onclick=e=>{e.stopPropagation();$('#themes').classList.toggle('a')};
 $('#themes').onclick=e=>{const b=e.target.closest('[data-t]');if(b){theme(+b.dataset.t,true);$('#themes').classList.remove('a')}};
 document.addEventListener('click',e=>{if(!e.target.closest('#themes,#theme'))$('#themes').classList.remove('a')});
 theme(+document.documentElement.dataset.theme||0);
+/* ----- EYE SPOT : une couleur de bande par page active, dérivée de l'identifiant de la page et du thème ----- */
+function hsl(h,s,l){const c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h/60)%2-1)),m=l-c/2;const t=[[c,x,0],[x,c,0],[0,c,x],[0,x,c],[x,0,c],[c,0,x]][Math.floor(h/60)%6];return t.map(v=>Math.floor((v+m)*255+.5));}
+const fnv=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h};
+let PAGES=['cours'];
+function eyeTeinte(cle){const e=TH[+document.documentElement.dataset.theme||0].eye;let k=PAGES.indexOf(cle);
+  if(k<0){const p=cle.split('|')[1]||'cours';const hp=eyeTeinte(p);let h=(e.h0+Math.round(137.508*(PAGES.length+fnv(cle.split('|')[0])%997)))%360;
+    const d=Math.abs(h-hp)%360;if(Math.min(d,360-d)<40)h=(h+180)%360;return h}
+  return (e.h0+Math.round(137.508*k))%360;}
+function eyeHex(cle,e){const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}
+function eye(){const e=TH[+document.documentElement.dataset.theme||0].eye,cle=pageCle(),x=eyeHex(cle,e);
+  document.documentElement.style.setProperty('--eye',x);document.documentElement.dataset.page=cle;document.documentElement.dataset.eye=x;}
+function pageBase(){const o=($('nav.on button.a')||{}).dataset.o||'cours';const el=$('#p-'+o);return o==='cours'||!el||el.dataset.i==null?o:o+':'+el.dataset.i}
+function pageCle(){const b=pageBase();if($('#fen').classList.contains('a'))return 'fiche:'+$('#fen').dataset.id+'|'+b;
+  if($('#vue').classList.contains('a'))return 'vue:'+$('#vue').dataset.i+'|'+b;return b}
 /* ----- Hauteur de l'en-tête (bande de menu collée dessous) ----- */
 const hauteur=()=>document.documentElement.style.setProperty('--ht',$('header.h').offsetHeight+'px');hauteur();
 if(window.ResizeObserver)new ResizeObserver(hauteur).observe($('header.h'));
 /* ----- Bande latérale de menu : constante, contextuelle, numérotée, élément visible surligné ----- */
 let IO=null;
-function menu(titre,items,racine){const m=$('#menu');if(IO){IO.disconnect();IO=null}
+function menu(titre,items,racine){const m=$('#menu');if(IO){IO.disconnect();IO=null}if(window.EYE_OK)eye();
   m.querySelector('.mt').textContent=titre;
   m.querySelector('ol').innerHTML=items.length?items.map(x=>x.g?'<li class="g">'+esc(x.g)+'</li>':x.id?'<li class="n"><a href="#'+esc(x.id)+'" data-m="'+esc(x.id)+'"'+(x.c?' data-c="'+esc(x.c)+'"':'')+(x.a?' class="a"':'')+'>'+esc(x.t)+'</a></li>':'<li class="n"><span class="v">'+esc(x.t)+'</span></li>').join(''):'<li class="n"><span class="v">—</span></li>';
   const liens=$$('a[data-m]',m).filter(a=>!a.dataset.c);const cibles=liens.map(a=>document.getElementById(a.dataset.m)).filter(Boolean);
@@ -358,7 +417,7 @@ function rendreFiche(id){const f=fi(id);if(!f)return {h:'<p class="vide">Identif
   h+='<h4 id="fb-p">Annexe B · Passerelles</h4>'+(f.passerelles.length?'<div class="tw"><table><tr><th>Type</th><th>Fiche cible</th><th>Pourquoi</th></tr>'+f.passerelles.map(p=>'<tr><td>'+esc(p.type)+'</td><td>'+lienF(p.cible)+'</td><td>'+esc(p.pourquoi)+'</td></tr>').join('')+'</table></div>':'<p class="vide">—</p>');
   return {h,s};}
 /* Une seule fenêtre ouverte : ouvrir une fiche remplace la précédente ; la bande de menu montre alors le plan de la fiche. */
-function ouvrirF(id){const f=fi(id);if(!f)return;const r=rendreFiche(id);$('#fen .ft h3').textContent=f.titre;$('#fen .fb').innerHTML=r.h;$('#fen').classList.add('a');$('#fen').scrollTop=0;
+function ouvrirF(id){const f=fi(id);if(!f)return;$('#fen').dataset.id=id;const r=rendreFiche(id);$('#fen .ft h3').textContent=f.titre;$('#fen .fb').innerHTML=r.h;$('#fen').classList.add('a');$('#fen').scrollTop=0;
   document.body.style.overflow='hidden';history.replaceState(null,'','#f='+encodeURIComponent(id));$('#menu').classList.remove('ouvert');
   menu('Fiche · '+f.titre,r.s,$('#fen'));$('#fen .x').focus();}
 function fermerF(){$('#fen').classList.remove('a');document.body.style.overflow='';const o=$('nav.on button.a');history.replaceState(null,'','#'+(o?o.dataset.o:''));menuOnglet();}
@@ -442,7 +501,10 @@ function corpsPh(i,o){const sy=S.pharmaco[i];let h='<h2>'+esc(sy.code)+' · '+es
 /* Sciences fondamentales : par système, gabarit cadre → entités → liens → ponts cliniques. */
 function corpsSF(i){const sy=S.fondamentales[i];return {h:'<h2>'+esc(sy.code)+' · '+esc(sy.nom)+'</h2><p class="meta">Gabarit : cadre d\'ensemble → entités → liens logiques → ponts cliniques</p>'+
   sy.fiches.map((id,j)=>'<h3 id="sf-'+j+'"><span class="num">'+(j+1)+'</span>'+esc(fi(id).titre)+'</h3>'+listeF([id])).join(''),s:sy.fiches.map((id,j)=>['sf-'+j,fi(id).titre])};}
-if(S){module('#p-examens','Examens',S.examens.map(x=>({n:x.n,t:x.titre})),corpsEx);
+/* Rangs EYE SPOT entrelacés (cours, puis examens:i, pharmaco:i, fondamentales:i) : pas d'angle d'or de 137,5° ; voisins de rail
+   et premières pages des onglets écartés d'au moins 52° de teinte. */
+if(S){const MS=['examens','pharmaco','fondamentales'];for(let i=0;i<Math.max(...MS.map(m=>S[m].length));i++)MS.forEach(m=>{if(i<S[m].length)PAGES.push(m+':'+i)});
+  window.EYE_OK=1;module('#p-examens','Examens',S.examens.map(x=>({n:x.n,t:x.titre})),corpsEx);
   module('#p-pharmaco','Pharmacologie',S.pharmaco.map(x=>({n:x.code,t:x.nom})),corpsPh);
   module('#p-fondamentales','Sciences fondamentales',S.fondamentales.map(x=>({n:x.code,t:x.nom})),corpsSF);}
 else $$('#p-examens,#p-pharmaco,#p-fondamentales').forEach(x=>x.innerHTML='<p class="vide">Charpente absente : lancer Claude/_progression/charpente.py.</p>');
@@ -451,6 +513,7 @@ filtrer();
 const h=location.hash.slice(1);if(h.startsWith('cours=')){const i=liste.findIndex(x=>x.l.id===h.slice(6));if(i>=0){history.replaceState(null,'','#cours');ouvrir(i)}}
 else if(h.startsWith('f=')&&F[decodeURIComponent(h.slice(2))]){const id=decodeURIComponent(h.slice(2));onglet({examens:'examens',pharmaco:'pharmaco',psychiatrie:'pharmaco',fondamentales:'fondamentales'}[F[id].module]);ouvrirF(id)}
 else if(['examens','pharmaco','fondamentales'].includes(h))onglet(h);
+window.EYE_OK=1;eye();
 """
 
 
@@ -522,7 +585,7 @@ if __name__ == '__main__':
     ap.add_argument('--reference', default='Claude/_reference', help='ancien chemin (examens.json, pharmaco.json), conservé en lecture seule, non affiché')
     ap.add_argument('--donnees', default='Claude/_progression/donnees', help='source de vérité des onglets Examens, Pharmacologie, Sciences fondamentales')
     ap.add_argument('--base', default='', help='préfixe des liens vers les cours (vide : relatif à la page)')
-    ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus, atténuées 50-70 %')
+    ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées 60-80 %, contraste >= 7:1')
     ap.add_argument('--sortie', default='progression.html')
     a = ap.parse_args()
     print('%d SSP prêts, %d cours ouvrables, %d octets' % rendre(a))
