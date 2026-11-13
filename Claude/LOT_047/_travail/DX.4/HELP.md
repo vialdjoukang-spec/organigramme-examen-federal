@@ -1,0 +1,12 @@
+# HELP — DX.4 Pyrosis fonctionnel (LOT_047)
+- Épidémiologie suisse : aucun chiffre suisse lu ; chiffres de cohortes internationales (Savarino, Neurogastroenterol Motil 2023, Dis Esophagus 2026). Âge et sexe propres au pyrosis fonctionnel : non lus.
+- Critères Rome IV/V du pyrosis fonctionnel : texte intégral des critères non lu (fréquence minimale non citée) ; seuls la durée (3 mois / début 6 mois avant) et la persistance sous 8 semaines (Rome V) sont sourcés.
+- Examen physique (point 6) : aucune source ne décrit la technique ; contenu limité aux rôles sourcés.
+- Liste précise des symptômes d'alarme : non lue.
+- Imipramine, nortriptyline : aucune information professionnelle suisse trouvée (Anafranil = clomipramine, non cité). Amitriptyline (Saroten 66978) et citalopram (Citalopram Spirig HC 58593) : aucune indication AIPS dans le pyrosis fonctionnel ; aucune dose écrite.
+- Alternatives pour enfant, DFGe < 30, allergie iode, IRM : aucune source lue ; non rédigées.
+- Aspects social et assurances : aucune source lue ; non rédigés.
+- Source suisse RMS 972 (2026) : résumé seul (article réservé aux abonnés) ; rapport HTA OFSP : résumé seul.
+- PMID 28251844 (physiopathologie GERD) : 429 au premier rapatriement, passages présents après relance.
+- AGA 2022 (wdbbc94, États-Unis) : encore citée pour des points secondaires (éducation, sevrage des inhibiteurs, durées, chirurgie) ; ses indications d'endoscopie et de traitement d'essai ont été retirées ou remplacées par Lyon 2.0 et l'AIPS. À remplacer par une source européenne lisible si disponible.
+- Amitriptyline : grossesse et allaitement ajoutés (aips-66978-30, -31).

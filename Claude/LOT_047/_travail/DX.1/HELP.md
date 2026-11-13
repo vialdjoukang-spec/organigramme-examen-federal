@@ -1,0 +1,12 @@
+# HELP DX.1 — lacunes de sources (LOT_047, S2.8, reflux gastro-œsophagien)
+- Prévalence et incidence du RGO en Suisse : aucune enquête de population suisse lue ; chiffres européens et mondiaux seulement (point 2).
+- Mortalité propre au RGO : aucune source lue ; seule la mortalité compétitive du Barrett non dysplasique est citée (Lenglinger 2012).
+- Examen physique : aucune source lue ne décrit de signe physique propre au reflux ni la technique des gestes ; le point 6 se limite aux gestes de dépistage et de différentiel sourcés.
+- Relaxations transitoires du sphincter, mécanismes détaillés de la douleur œsophagienne : seuls les résumés (Bertin 2026, Tack 2018) sont lus.
+- Grossesse, enfant, insuffisance rénale sévère, allergie à l'iode, IRM impossible pour les examens du point 9 : aucune source lue.
+- Alginates, famotidine, hydrotalcite : aucune monopréparation AIPS lue ; alginates décrits par la NICE et une méta-analyse, sans dose.
+- Antidépresseur tricyclique, vonoprazan, clopidogrel, corticoïde topique : aucune monopréparation AIPS lue ; place décrite sans milligramme.
+- Doses des IPP : seules les informations professionnelles lues (Esomep 60574, Pantoprazol-Mepha Teva 59834, Pariet 55090) fondent les doses ; l'AIPS d'Esomep ne décrit pas de posologie pour la dose double.
+- Barrett : seul le résumé ESGE 2023 est lu (extraits partiels des recommandations MR1 et MR2 ; intervalles de surveillance non cités).
+- Recommandation suisse officielle de prévention du RGO : non trouvée ; points 12 fondés sur la Revue Médicale Suisse 2026 et la NICE CG184.
+- Document pharmaJournal 5/2024 (Unisanté) : colonnes de tableaux mêlées à l'extraction ; seuls les passages lisibles sont cités.
