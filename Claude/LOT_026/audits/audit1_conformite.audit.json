@@ -1,0 +1,115 @@
+{
+ "audit": "audit1_conformite",
+ "lot": "LOT_026",
+ "date": "2026-11-13",
+ "base": "e9056ff",
+ "verdict": "CORRECTIONS",
+ "portes": {
+  "controle3_script_ok": "VERT sur les 11 fichiers (Phase A + DX.1 à DX.10), 0 défaut ; aucun ORANGE à trancher",
+  "verif_aips": "11 fichiers OK (0 à 13 AIPS citées ; DX.3 sans molécule AIPS)",
+  "aips_fiche_verifier": "0 défaut bloquant",
+  "abreviations": "0 sigle non développé dans les 11 cours ; 1 signalement dans la planche (« V0 », numéro de version) : faux positif",
+  "forme_verifier": "11 cours conformes ; PLANCHE « à corriger » : forme.py y insérerait forme.css avant le doctype ; la planche est un relevé de captures, hors périmètre de forme.css, à ne pas corriger",
+  "taille_hors_images": "aucune base64 dans les cours, images en fichiers externes (24 références, toutes présentes dans images/) ; 86 425 o (DX.10) à 139 181 o (Phase A), tous entre 80 et 150 Ko",
+  "titres": "<title> et bandeau fm-nom des 10 DX = liste canonique mot pour mot, mêmes numéros ; les 10 noms figurent dans la Phase A ; h1 unique « S1.10 — Otalgie » partout",
+  "liens_ancres": "0 ancre interne cassée, 0 id en double, 0 fenêtre imbriquée ; 168 liens inter-fichiers tous résolus ; 2 fenêtres sans aucun lien d'ouverture (DX.2, DX.7)"
+ },
+ "tranche_controle3_orange": "Aucun ORANGE : controle3 --script-ok VERT sur les 11 fichiers. Relecture par script de toutes les phrases : les phrases de moins de 12 mots sont des légendes ou intertitres (« Ce que l'image décide. », « Coupe sagittale de la bouche et du pharynx. ») ; les dépassements au-delà de 28 mots sont marginaux (29 à 33 mots, sigles développés compris : DX.10 « Le cancer est 2,4 fois plus fréquent chez l'homme… », Phase A doses Zinat et Amoxi-Mepha) et tolérés par controle3.",
+ "verifie_ok": [
+  "point 1 : un seul paragraphe de définition, sans fenêtre ni tableau, dans les 11 fichiers (50 à 89 mots) ; écart en DX.9 ci-dessous",
+  "fenêtres :target centrales occultantes (planche vues 2 et 4 de Phase A, DX.2, DX.7, DX.10 relues) ; 33 à 41 fenêtres par fichier, dont 30 à 38 avec tableau",
+  "point 6 : une fenêtre par région, 4 à 7 régions par fichier",
+  "point 11 : 11.A, 11.B, 11.C et 11.D présents dans les 11 fichiers",
+  "point 14 : 8 à 10 questions par fichier (≥ 6)",
+  "forme.css lié partout ; fonds vivants tous distincts (#fcc0e2, #c2fcc0, #edfcc0, #fcd2c0, #fcc2c0, #c0fcd6, #d9fcc0, #fcf7c0, #fce2c0, #fcc0d0, #fcc0f4) ; contraste --fm-a sur fond 5,8 à 10,0, AA respecté",
+  "redites inter-fichiers : citations AIPS mot pour mot (grossesse, allaitement, contre-indications), références et licences partagées, phrase de date des sources ; légitimes",
+  "aucune formule de lacune : les deux « à vérifier » sont un intitulé de liste de contrôle (DX.5) et une ligne de vaccination (DX.10)",
+  "planche : 55 captures, 5 par cours, 11 cours, même commit que les cours (e9056ff)"
+ ],
+ "restants": [
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.7.html",
+   "gravite": "Moyen",
+   "constat": "La fiche f-dx7-m-dafalgan (paracétamol, AIPS 47503) n'est ouverte par aucun lien : contenu inaccessible et antalgie absente du texte du point 11.B.",
+   "avant": "et les <a class=\"ouvre\" href=\"#f-dx7-m-ciproxinhc\">gouttes de ciprofloxacine</a>.",
+   "correction": ", les <a class=\"ouvre\" href=\"#f-dx7-m-ciproxinhc\">gouttes de ciprofloxacine</a> et le <a class=\"ouvre\" href=\"#f-dx7-m-dafalgan\">paracétamol</a> contre la douleur.",
+   "source": "grep href=\"#f-dx7-m-dafalgan\" : 0 occurrence ; +70 o, DX.7 à 88 738 o"
+  },
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.2.html",
+   "gravite": "Moyen",
+   "constat": "La fenêtre f-dx2-cascade (« Du mécanisme au signe, puis au geste ») n'est ouverte par aucun lien : contenu inaccessible.",
+   "avant": "et celle des <a class=\"ouvre\" href=\"#f-dx2-resist\">résistances suisses</a> explique le choix de la dose.",
+   "correction": "et celle des <a class=\"ouvre\" href=\"#f-dx2-resist\">résistances suisses</a> explique le choix de la dose. La <a class=\"ouvre\" href=\"#f-dx2-cascade\">cascade du mécanisme au geste</a> relie chaque signe à la conduite qu’il impose.",
+   "source": "grep href=\"#f-dx2-cascade\" : 0 occurrence ; +130 o, DX.2 à 98 732 o"
+  },
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 hors définition (examen clinique et projection de la douleur) ; le repère « à environ 1 cm de la jonction » est écrit 6 fois dans le fichier (point 1, lecture guidée ×2, deux tableaux, points clés).",
+   "avant": " Il survient sur une dent délabrée ou restaurée et se palpe en regard de la racine, à environ 1 cm de la jonction entre la dent et la gencive<sup class=\"r\"><a href=\"#sb-s3\">S3</a></sup>. Dans le cadre de l'otalgie, la douleur de cette dent peut se projeter dans l'oreille, qui reste alors normale à l'examen<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>.",
+   "correction": "",
+   "source": "Supprimer les deux phrases du point 1 ; replacer si besoin la phrase de projection de la douleur dans l'oreille au point 3 (seule occurrence de ce fait). −330 o."
+  },
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Redites mot pour mot : « Tous les patients reçoivent une antalgie régulière par paracétamol ou ibuprofène » (point 11 et points clés) et « Sinon, … diffère l’antibiotique de 48 à 72 heures après 2 ans… » (point 10 et points clés) ; « une mastoïdite, une méningite ou une paralysie faciale imposent l’hôpital » (chapeau et point 4).",
+   "avant": "<li>Tous les patients reçoivent une antalgie régulière par paracétamol ou ibuprofène <sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.</li>",
+   "correction": "<li>L’antalgie régulière accompagne chaque otite, avec ou sans antibiotique <sup class=\"r\"><a href=\"#sb-s1\">S1</a></sup>.</li>",
+   "source": "script de redites (empreintes de 9 mots) ; facultatif"
+  },
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.4.html",
+   "gravite": "Léger",
+   "constat": "Point 1 fondé sur le manuel MSD (source américaine) ; DX.3 répète au point 1 la même définition par la recommandation américaine d’ORL. Préférer une source suisse ou européenne, ou écrire la source comme non européenne.",
+   "avant": "Le manuel MSD (Merck Sharp and Dohme) définit le barotraumatisme otique",
+   "correction": "Garder la phrase si aucune source suisse ou européenne ne définit le terme, et ajouter « (source américaine) » après « Merck Sharp and Dohme ».",
+   "source": "règle L1 : sources suisses puis européennes ; facultatif"
+  },
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Intitulés du point 6 hétérogènes : DX.1 et DX.6 sans « Région N », DX.2 et DX.7 avec « Région N : », les autres « Région N — ».",
+   "avant": "point 6, aria-label et h4 des fenêtres de région",
+   "correction": "Harmoniser en « Région N — <segment> » dans DX.1, DX.2, DX.6 et DX.7 (facultatif).",
+   "source": "homogénéité du LOT"
+  },
+  {
+   "fichier": "Claude/LOT_026/LOT_026_Phase_B_V0_DX.6.html",
+   "gravite": "Léger",
+   "constat": "Palettes proches : DX.1 (#c2fcc0, --fm-a #295026) et DX.6 (#d9fcc0, #2b4d1e) en vert ; DX.4 (#fcc2c0), DX.9 (#fcc0d0) et Phase A (#fcc0e2) en rose-rouge. Distinctes mais peu discernables d’un onglet à l’autre.",
+   "avant": "--fm-fond:#d9fcc0",
+   "correction": "Choisir pour DX.6 une teinte éloignée (par exemple bleu-violet #d6c0fc, contraste AA à recontrôler) via forme.py (facultatif).",
+   "source": "forme.py, _palette"
+  }
+ ],
+ "point14": {
+  "Phase A": 8,
+  "DX.1": 10,
+  "DX.2": 9,
+  "DX.3": 8,
+  "DX.4": 10,
+  "DX.5": 10,
+  "DX.6": 10,
+  "DX.7": 9,
+  "DX.8": 9,
+  "DX.9": 10,
+  "DX.10": 10
+ },
+ "octets": {
+  "Phase A": 139181,
+  "DX.1": 98559,
+  "DX.2": 98732,
+  "DX.3": 90150,
+  "DX.4": 86651,
+  "DX.5": 87478,
+  "DX.6": 95543,
+  "DX.7": 88738,
+  "DX.8": 91830,
+  "DX.9": 88580,
+  "DX.10": 86425,
+  "PLANCHE": 3518092
+ },
+ "limites": "Audit de conformité seulement (pas d'exactitude médicale ni de relecture AIPS au texte). Rendu à 390 px non mesuré : Playwright absent de cet environnement ; design jugé sur les captures de la planche (1280 px). Disque plein : worktree en extraction partielle (cours, outils, polices)."
+}

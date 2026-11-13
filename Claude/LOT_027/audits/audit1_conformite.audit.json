@@ -1,0 +1,221 @@
+{
+ "verdict": "corrections",
+ "date": "2026-11-13",
+ "base": "cde2fde",
+ "auditeur": "audit 1 de conformité L1 indépendant (Claude, non rédacteur)",
+ "portes": {
+  "controle3_script_ok": "10 VERT ; Phase A ORANGE (25 A, 22 B)",
+  "verif_aips": "OK, 11 fichiers",
+  "aips_fiche_verifier": "0 défaut bloquant",
+  "abreviations": "0",
+  "forme_verifier": "11 cours conformes ; PLANCHE « à corriger »"
+ },
+ "orange_phase_A": {
+  "A_chiffre_sans_citation": "25 relevées : 22 faux positifs (numéros de liste 1.–4. des lectures guidées, territoires V1/V2/V3, dent 38, « rangs 4 et 5 ») ; 3 justifiées (halo « 5 jours » de la liste d’image, « après 50 ans » ×2 dans « Ce que l’image décide » et la liste) → restants Léger.",
+  "B_phrase_nominale": "22 relevées : toutes portent un verbe conjugué (n’ont, cite, numérote, couvre, assure, entoure, examine, bombe, garde, donne, tue, offre, cherche, ponctionne, s’accompagne, ouvre, date, passe, accompagne) → faux positifs de la liste VERBES ; défauts réels de longueur seulement : « Son AIPS date de juillet 2025. » (5 mots) et « L’ORL ponctionne la tuméfaction du voile pour chercher du pus. » (10 mots), Léger ; « La copie annotée … numérote … » ×6 = remplissage (restant Moyen)."
+ },
+ "leves": [
+  "14 points présents dans les 11 fichiers, titres h3 canoniques (Définition … Pièges et questions fréquentes à l’examen fédéral suisse) ; <title> « <diagnostic> — S1.11 » uniforme.",
+  "Point 1 = définition seule dans Phase A, DX.2, 3, 4, 5, 6, 7, 8, 10 (DX.5 et DX.10 : fenêtre terminologique admise).",
+  "Fenêtres : 26 à 44 par fichier, aucune imbriquée, aucune orpheline ; 25 à 35 fenêtres contiennent un tableau (ordre du 12.11.2026).",
+  "Point 6 : une fenêtre par région dans les 11 fichiers (4 à 6 régions).",
+  "Point 11 : 11.A, 11.B, 11.C, 11.D présents partout, avec traitement structuré et surveillance datée.",
+  "Point 14 : 8 à 11 questions avec réponse dans chaque fichier (≥ 6).",
+  "Liens : aucune ancre interne cassée (seuls href=\"#\" de fermeture), barre inter-DX complète et sans lien mort, forme.css chargé par les 11 cours.",
+  "Design Playwright : 1280 et 390 px sans débordement horizontal de page ; fenêtres fixes centrées (90–1190 px ; 16–374 px), voile occultant, défilement interne quand la fenêtre dépasse l’écran.",
+  "Phrases > 28 mots hors bibliographie : rares (0 à 4 par DX ; surtout notices AIPS et références)."
+ ],
+ "restants": [
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Grave",
+   "constat": "151 494 octets hors images (aucune image embarquée) : au-dessus du plafond L1 de 150 000 octets ; retirer au moins 1 494 octets de redites (proposition ≈ 1 840 o ci-dessous, sans perte de fait).",
+   "avant": "<tr><td>Céfuroxime, Zinat®<sup class=\"r\"><a href=\"#sb-aips-49460\">AIPS 49460</a></sup></td><td>Sinusite bactérienne aiguë : 250 mg deux fois par jour, durant 7 (5 à 10) jours<sup class=\"r\"><a href=\"#sb-aips-49460\">AIPS 49460</a></sup>.</td><td>« Zinat ne devrait donc pas être utilisé pendant la grossesse, à moins que cela s'avère clairement nécessaire. » « Son utilisation n'est donc pas recommandée pendant la période d'allaitement. »</td></tr>",
+   "correction": "(supprimer la ligne : dose et grossesse de Zinat® déjà portées par DX.4, fiche Céfuroxime axétil)",
+   "source": "L1 80–150 Ko ; LOT_027_Phase_B_V0_DX.4.html fiche n° 49460"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Grave",
+   "constat": "Suite de la réduction de taille : ligne Doxycycline redondante avec la fiche de DX.4.",
+   "avant": "<tr><td>Doxycycline, Doxycyclin-Mepha®<sup class=\"r\"><a href=\"#sb-aips-65952\">AIPS 65952</a></sup></td><td>200 mg le premier jour, puis 100 mg par jour en une prise<sup class=\"r\"><a href=\"#sb-aips-65952\">AIPS 65952</a></sup>.</td><td>« La doxycycline ne doit pas être administrée pendant la grossesse, sauf nécessité absolue ». « Par conséquent, la doxycycline ne doit pas être administrée à la femme qui allaite ».</td></tr>",
+   "correction": "(supprimer la ligne ; DX.4 porte la fiche Doxycyclin-Mepha® n° 65952)",
+   "source": "LOT_027_Phase_B_V0_DX.4.html"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de remplissage répétée six fois (redite de la légende de l’image, sans information) ; sa suppression contribue à la réduction de taille.",
+   "avant": "<p class=\"p\">La copie annotée (territoires sensitifs des trois branches du trijumeau) numérote les repères décrits ci-dessous.</p>",
+   "correction": "(supprimer)",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de remplissage répétée six fois (redite de la légende de l’image, sans information) ; sa suppression contribue à la réduction de taille.",
+   "avant": "<p class=\"p\">La copie annotée (anatomie de la dent et du parodonte) numérote les repères décrits ci-dessous.</p>",
+   "correction": "(supprimer)",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de remplissage répétée six fois (redite de la légende de l’image, sans information) ; sa suppression contribue à la réduction de taille.",
+   "avant": "<p class=\"p\">La copie annotée (péricoronarite de la troisième molaire inférieure gauche) numérote les repères décrits ci-dessous.</p>",
+   "correction": "(supprimer)",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de remplissage répétée six fois (redite de la légende de l’image, sans information) ; sa suppression contribue à la réduction de taille.",
+   "avant": "<p class=\"p\">La copie annotée (abcès périamygdalien droit : voile bombé et luette déviée) numérote les repères décrits ci-dessous.</p>",
+   "correction": "(supprimer)",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de remplissage répétée six fois (redite de la légende de l’image, sans information) ; sa suppression contribue à la réduction de taille.",
+   "avant": "<p class=\"p\">La copie annotée (orthopantomogramme : fracture du corps mandibulaire droit) numérote les repères décrits ci-dessous.</p>",
+   "correction": "(supprimer)",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Moyen",
+   "constat": "Phrase de remplissage répétée six fois (redite de la légende de l’image, sans information) ; sa suppression contribue à la réduction de taille.",
+   "avant": "<p class=\"p\">La copie annotée (écho-doppler de l’artère temporale : signe du halo) numérote les repères décrits ci-dessous.</p>",
+   "correction": "(supprimer)",
+   "source": "L1 : aucune redite"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Redite intra-fichier : la disparition du halo après environ 5 jours figure deux fois (liste des pièges de l’image, puis point 9 avec S17) ; l’occurrence de la liste est en outre sans citation (ORANGE A justifié).",
+   "avant": "<li>Le halo disparaît après environ 5 jours de corticoïdes, si bien qu’un écho-Doppler tardif peut être faussement normal.</li>",
+   "correction": "(supprimer ; l’occurrence citée S17 reste)",
+   "source": "S17 PNDS ACG 2024"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Chiffre « 50 ans » et décision thérapeutique sans citation (ORANGE A justifié).",
+   "avant": "Une claudication de la mâchoire après 50 ans impose la prednisone avant la biopsie.</li>",
+   "correction": "Une claudication de la mâchoire après 50 ans impose la prednisone avant la biopsie<sup class=\"r\"><a href=\"#sb-s17\">S17</a></sup>.</li>",
+   "source": "S17 PNDS ACG 2024"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Redite inter-fichiers et intra-fichier : les 100 à 150 urgences hebdomadaires de Zurich figurent deux fois en Phase A (texte et tableau DX.1), puis dans DX.1 et DX.2 ; garder la ligne du tableau de la Phase A et la phrase de DX.1.",
+   "avant": "<p>La policlinique de chirurgie orale de l’Université de Zurich traite 100 à 150 urgences par semaine, surtout des pulpites et des abcès<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>. Près des deux tiers de ces patients n’ont pas de médecin-dentiste attitré ou ne l’ont plus consulté depuis longtemps, d’où des urgences en grande partie évitables<sup class=\"r\"><a href=\"#sb-s5\">S5</a></sup>. En Finlande, la douleur dentaire du dernier mois touchait 7 % des adultes de 25 à 64 ans en 1990, puis 12 % en 2014<sup class=\"r\"><a href=\"#sb-s6\">S6</a></sup>.</p>",
+   "correction": "(supprimer ; le tableau de fréquence porte déjà le fait avec S5)",
+   "source": "L1 : aucune redite entre fichiers"
+  },
+  {
+   "fichier": "LOT_027_Phase_B_V0_DX.9.html",
+   "gravite": "Moyen",
+   "constat": "Point 1 non limité à la définition : « fréquente après 50 ans » est épidémiologique (et redit au point 2) ; « ce qui explique la prédominance des symptômes céphaliques » relève de la physiopathologie.",
+   "avant": "définissent l’ACG comme une vasculite des gros vaisseaux, fréquente après 50 ans<sup",
+   "correction": "définissent l’ACG comme une vasculite des gros vaisseaux<sup",
+   "source": "L1 point 1 = définition seule"
+  },
+  {
+   "fichier": "LOT_027_Phase_B_V0_DX.1.html",
+   "gravite": "Léger",
+   "constat": "Point 1 : la classe III de Baume est définie par l’indication thérapeutique (biopulpectomie) ; la conduite appartient au point 11.",
+   "avant": "qui réunit les pulpes vivantes justifiant une biopulpectomie",
+   "correction": "qui réunit les pulpes vivantes irrémédiablement enflammées",
+   "source": "L1 point 1 = définition seule ; S1 (à relire pour le libellé exact)"
+  },
+  {
+   "fichier": "LOT_027_Phase_B_V0_DX.2.html",
+   "gravite": "Léger",
+   "constat": "Redite inter-fichiers : les 100 à 150 urgences hebdomadaires zurichoises répètent la Phase A et DX.1.",
+   "avant": "La policlinique de chirurgie orale de Zurich traite entre 100 et 150 urgences chaque semaine, et la douleur y reste le motif central ",
+   "correction": "À la policlinique de chirurgie orale de Zurich, la douleur reste le motif central des urgences ",
+   "source": "L1 : aucune redite entre fichiers"
+  },
+  {
+   "fichier": "LOT_027_Phase_B_V0_DX.3.html / DX.8 / DX.2 / DX.7",
+   "gravite": "Léger",
+   "constat": "Phrases de renvoi creuses et redites d’un fichier à l’autre (« La fenêtre … précise/détaille… » : 13 dans DX.3, 12 dans DX.8 ; « Le médecin de premier recours joue un rôle propre, que la fenêtre … précise » dans DX.2 et DX.7 ; « Le tableau moyens structurés donne pour chaque mesure la molécule… » dans DX.2, DX.3, DX.7). Remplacer chacune par un fait clé suivi du lien, ou les fusionner en une phrase.",
+   "avant": "Le médecin de premier recours joue un rôle propre, que la fenêtre <a class=\"ouvre\" href=\"#f-dx7-mpr\">rôle du médecin de premier recours</a> précise.",
+   "correction": "Le médecin de premier recours adresse le patient à l’ORL le jour même et ne ponctionne pas lui-même (<a class=\"ouvre\" href=\"#f-dx7-mpr\">rôle du médecin de premier recours</a>).",
+   "source": "L1 : phrases verbales sans redondance (à vérifier sur le contenu de f-dx7-mpr)"
+  },
+  {
+   "fichier": "Palettes (11 cours)",
+   "gravite": "Léger",
+   "constat": "Fonds tous distincts mais confinés à l’arc rouge–jaune–vert (teinte 350° à 141°, même saturation/luminosité) ; paires presque identiques : Phase A #e6fbbc / DX.5 #f4fbbc / DX.10 #fbf4bc (≈ 10–14°), DX.2 #fbbfbc / DX.7 #fbbcc6, DX.8 #bcfbc5 / DX.3 #bcfbd1. Aucun bleu ni violet.",
+   "avant": "--fm-fond:#f4fbbc",
+   "correction": "--fm-fond:#bce3fb (DX.5) ; puis DX.10 #d6bcfb, DX.3 #bcf3fb, DX.7 #f6bcfb, à reporter aussi dans --fm-menu et l’accent, contraste AA à revérifier",
+   "source": "Ordre de Vial du 12.11.2026 : couleurs vivantes, palette propre à chaque cours"
+  },
+  {
+   "fichier": "LOT_027_Phase_A_V0.html",
+   "gravite": "Léger",
+   "constat": "Le h2 d’en-tête de la Phase A (« Face, mâchoire et dents ») diffère du titre canonique du <title> et de la planche.",
+   "avant": "<h2>LOT_027 — S1.11 Face, mâchoire et dents — Phase A : monographie du SSP et dix diagnostics différentiels",
+   "correction": "<h2>LOT_027 — S1.11 Douleurs faciales, mandibulaires ou dentaires, trismus — Phase A : monographie du SSP et dix diagnostics différentiels",
+   "source": "titres canoniques"
+  },
+  {
+   "fichier": "Tous",
+   "gravite": "Léger",
+   "constat": "À 390 px, la plupart des tableaux de fenêtre dépassent la largeur et défilent horizontalement dans la fenêtre (3e colonne coupée, ex. DX.8 « Questions ciblées ») ; aucun débordement de page. Identifiants de fenêtres hors convention « f-…-pN-… » dans DX.2, 3, 7, 8 (extrait.py plan n’affecte pas les fenêtres aux points) : sans effet pour le lecteur.",
+   "avant": "",
+   "correction": "Pas de correction de contenu exigée.",
+   "source": "Playwright 1280/390"
+  },
+  {
+   "fichier": "PLANCHE_LOT_027.html",
+   "gravite": "Léger",
+   "constat": "forme.py --verifier : « à corriger » (forme.css absent) ; 55 captures (11 × 5) présentes, ordre Phase A puis DX.1→DX.10 conforme aux titres canoniques.",
+   "avant": "",
+   "correction": "Régénérer la planche avec planche5.py après corrections ; pas de correction de contenu.",
+   "source": "forme.py"
+  }
+ ],
+ "point14": {
+  "Phase_A_V0": 8,
+  "Phase_B_V0_DX.1": 10,
+  "Phase_B_V0_DX.2": 8,
+  "Phase_B_V0_DX.3": 9,
+  "Phase_B_V0_DX.4": 10,
+  "Phase_B_V0_DX.5": 9,
+  "Phase_B_V0_DX.6": 9,
+  "Phase_B_V0_DX.7": 8,
+  "Phase_B_V0_DX.8": 9,
+  "Phase_B_V0_DX.9": 10,
+  "Phase_B_V0_DX.10": 11
+ },
+ "octets": {
+  "LOT_027_Phase_A_V0.html": 151494,
+  "LOT_027_Phase_B_V0_DX.1.html": 86445,
+  "LOT_027_Phase_B_V0_DX.10.html": 86008,
+  "LOT_027_Phase_B_V0_DX.2.html": 86712,
+  "LOT_027_Phase_B_V0_DX.3.html": 92678,
+  "LOT_027_Phase_B_V0_DX.4.html": 88122,
+  "LOT_027_Phase_B_V0_DX.5.html": 90588,
+  "LOT_027_Phase_B_V0_DX.6.html": 96768,
+  "LOT_027_Phase_B_V0_DX.7.html": 87563,
+  "LOT_027_Phase_B_V0_DX.8.html": 90449,
+  "LOT_027_Phase_B_V0_DX.9.html": 86658
+ },
+ "palettes_fond": {
+  "LOT_027_Phase_A_V0.html": "#e6fbbc",
+  "LOT_027_Phase_B_V0_DX.1.html": "#fbe7bc",
+  "LOT_027_Phase_B_V0_DX.10.html": "#fbf4bc",
+  "LOT_027_Phase_B_V0_DX.2.html": "#fbbfbc",
+  "LOT_027_Phase_B_V0_DX.3.html": "#bcfbd1",
+  "LOT_027_Phase_B_V0_DX.4.html": "#cefbbc",
+  "LOT_027_Phase_B_V0_DX.5.html": "#f4fbbc",
+  "LOT_027_Phase_B_V0_DX.6.html": "#fbdabc",
+  "LOT_027_Phase_B_V0_DX.7.html": "#fbbcc6",
+  "LOT_027_Phase_B_V0_DX.8.html": "#bcfbc5",
+  "LOT_027_Phase_B_V0_DX.9.html": "#dbfbbc"
+ }
+}
