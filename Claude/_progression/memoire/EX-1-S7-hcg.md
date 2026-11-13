@@ -1,0 +1,1 @@
+- 13.11 12:20 · source · HUG RPA chimie urgences (hCG, FSH, LH, E2, P4, testo) + bactério 4517/4532/4533 en cache ; SGGG 52/68/86 lus
