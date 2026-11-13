@@ -1,6 +1,6 @@
 # Reprise — nouvelle session (environnement unique : organigramme-examen-federal)
 
-**État : LOT_023, 024, 025 fusionnés le 12.11.2026.** Aucun agent ne tourne. Prochaine étape : la file (LOT suivants), 2 LOT en parallèle (10 agents) — objectif de Vial, coût estimé ≈ 96 % d'un ancien LOT (r = 0,48).
+**État : LOT_023 à 027 fusionnés (12–13.11.2026) ; LOT_028 et 029 en cours, 2 LOT en parallèle.** Aucun agent ne tourne. Prochaine étape : la file (LOT suivants), 2 LOT en parallèle (10 agents) — objectif de Vial, coût estimé ≈ 96 % d'un ancien LOT (r = 0,48).
 
 ## Étape 0 (machine vierge, une commande, ≈ 1 min)
 `bash Claude/_harnais/installer.sh` — corpus AIPS hors ligne, verrous (lecture intégrale, MEDINA), contrôle de syntaxe.
@@ -28,9 +28,15 @@ Ne lis rien d'autre au démarrage : ni CONTINUATION.md, ni PROCHAINE_ACTION.md, 
 
 4. **Leçons du 12.11** : `Claude/_outils/verif_aips.py` lit désormais les mots refdata découpés en `<span>` (fusionner `main` dans toute branche LOT avant ses portes) ; donner aux agents les chemins ABSOLUS des outils (`/home/user/organigramme-examen-federal/Claude/_harnais/`), sinon ils ne les trouvent pas depuis leur worktree ; chaque LOT : rédaction → designer → audits médical + conformité → corrections → vérification finale → contrôle ultime ciblé (jusqu'à audit-ok) → planche → PR → fusion après CI verte.
 
+5. **Disque** : le quota de session s'est rempli le 13.11 (conteneur redémarré). Supprimer chaque worktree d'agent après push (`git worktree remove`), purger le scratchpad des LOT fusionnés. Coût mesuré (suivi.py compte désormais les agents Workflow) : LOT_026 = 50 M éq., LOT_027 = 57 M, contre ≈ 67 M pour un LOT d'avant le harnais (16, 19–22) : −21 % par LOT, 2 LOT ≈ 159 % d'un ancien LOT (modèle prévu : 96 %).
+
 ## Branches (toutes poussées, propres)
 | Chantier | Branche | Reste |
 |---|---|---|
 | LOT_023 | fusionné (PR #655, 12.11.2026, contrôle ultime audit-ok) | planche `Claude/LOT_023/PLANCHE_LOT_023.html` (PR #656) |
 | LOT_024 | fusionné (PR #657, 12.11.2026, contrôle ultime levé, planche `Claude/LOT_024/PLANCHE_LOT_024.html`) | rien |
 | LOT_025 | fusionné (PR #658, 12.11.2026, contrôle ultime audit-ok, planche) | 2 légers non bloquants : crédit photo DX.5 mot pour mot (affiliation NJDS) ; précision Schirmer répétée DX.7 |
+| LOT_026 | fusionné (PR #662, 13.11.2026, audit-ok, planche) | rien |
+| LOT_027 | fusionné (PR #663, 13.11.2026, audit-ok, planche) | rien |
+| LOT_028 | `claude/lot-028-renfort-l1` | chaîne complète en cours (workflow `lot028-complet`, scripts dans le dossier de session) |
+| LOT_029 | `claude/lot-029-renfort-l1` | chaîne complète en cours (workflow `lot029-complet`) |
