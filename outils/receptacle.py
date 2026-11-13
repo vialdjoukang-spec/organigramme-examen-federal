@@ -93,8 +93,33 @@ def contraste(a, b):
 ATT_MIN, ATT_MAX, CONTRASTE_MIN = 0.60, 0.80, 7.0  # bornes (ordre de Vial du 13.11.2026) : refus de générer hors bornes
 # Bande EYE SPOT : hsl(teinte de page, S, L) atténuée vers le blanc selon le thème ; S et L par famille de page, pour que deux pages
 # de familles différentes à teinte proche restent distinctes (profondeur et saturation).
-EYE_PALIERS = {'cours': (0.72, 0.42), 'examens': (0.84, 0.35), 'pharmaco': (0.55, 0.48), 'fondamentales': (0.66, 0.40), 'fiche': (0.78, 0.45), 'vue': (0.72, 0.42)}
+# Plainte de Vial du 13.11.2026 (la bande doit se distinguer dès l'entrée, à chaque thème) : atténuation de la bande fixée au bas
+# de la fourchette (EYE_ATT = 60 %), saturation plancher EYE_S_MIN, et teinte écartée d'au moins EYE_ECART degrés des teintes de
+# zones du thème (menu, rail, tableau, mot, bande, encadré) par projection de la roue sur les arcs libres (eye_libres, eye_teinte).
+EYE_ATT, EYE_S_MIN, EYE_ECART = 0.60, 0.70, 40
+EYE_PALIERS = {k: (max(s, EYE_S_MIN), l) for k, (s, l) in {'cours': (0.72, 0.42), 'examens': (0.84, 0.35), 'pharmaco': (0.55, 0.48), 'fondamentales': (0.66, 0.40), 'fiche': (0.78, 0.45), 'vue': (0.72, 0.42)}.items()}
 EYE_S, EYE_L = EYE_PALIERS['cours']
+
+
+def ecart(a, b):
+    d = abs(a - b) % 360
+    return min(d, 360 - d)
+
+
+def eye_libres(zones):
+    """Teintes (degrés entiers) écartées d'au moins EYE_ECART de chaque teinte de zone ; même calcul que libres() du JS."""
+    return [d for d in range(360) if all(ecart(d, z) >= EYE_ECART for z in zones)]
+
+
+def eye_teinte(h, libres):
+    """Projette la teinte brute h (0-359) sur les arcs libres, en gardant l'ordre et l'étalement ; même calcul que le JS."""
+    return libres[h * len(libres) // 360]
+
+
+def eye_hex(h0, zones, cle, k):
+    """Couleur de bande de la page de rang k (rangs du JS : cours = 0, puis examens:i, pharmaco:i, fondamentales:i entrelacés)."""
+    s, l = EYE_PALIERS.get(cle.split(':')[0], EYE_PALIERS['cours'])
+    return attenue(hsl_rgb(eye_teinte((h0 + round(137.508 * k)) % 360, eye_libres(zones)), s, l), EYE_ATT)
 
 
 def attenue(rgb, a):
@@ -119,12 +144,14 @@ def teinte(h):
     return round(colorsys.rgb_to_hls(*(v / 255 for v in hex_rgb(h)))[0] * 360) % 360
 
 
-def themes(chemin):
+def themes(chemin, rangs={'cours': 0}):
     """20 thèmes (ordres de Vial du 13.11.2026). Au plus 3 couleurs par thème, la bande EYE SPOT comptant parmi elles :
     les deux premières teintent les zones (menu, rail, tableau, mot, bande, encadré), la dernière est la graine EYE SPOT
     (bande unique de tous les titres de la page active, teinte tournée par page dans le JS). Atténuation 60-80 % vers le
     blanc, variable par thème et par usage ; contraste >= 7:1 calculé ici : zones avec #111 et #222, bande EYE SPOT avec
-    #000 et #111 sur les 360 teintes possibles (échec = arrêt). Rend (liste pour la page, CSS par thème)."""
+    #000 et #111 sur les 360 teintes possibles (échec = arrêt). La bande est posée dès le premier rendu : --eye de la page
+    d'entrée (rangs : cours et premières pages des onglets) écrit dans le CSS du thème, sans attendre le JS ni montrer de gris.
+    Rend (liste pour la page, CSS par thème)."""
     T = json.load(open(chemin, encoding='utf-8'))
     roles, usages, out, css = T['roles'], T['usages'], [], []
     assert len(T['themes']) == 20, 'il faut 20 thèmes'
@@ -143,12 +170,20 @@ def themes(chemin):
             assert c >= CONTRASTE_MIN, f"thème {i + 1} : contraste {c:.2f} < 7 sur {r} {h}"
             cmin = min(cmin, c)
             v.append(f'--t-{r}:{h};--b-{r}:{h if j >= 0 else "#6b6b6b"}')
-        h0, ae = (teinte(t['couleurs'][-1]['base']) + 29 * i) % 360, att['titre']  # graine décalée par thème : une même page change de couleur d'un thème à l'autre
+        h0, ae = (teinte(t['couleurs'][-1]['base']) + 29 * i) % 360, EYE_ATT  # graine décalée par thème : une même page change de couleur d'un thème à l'autre
+        assert ATT_MIN <= ae <= ATT_MAX
+        zones = sorted({teinte(t['couleurs'][t['roles'][r]]['base']) for r in roles if t['roles'][r] >= 0})
+        libres = eye_libres(zones)
+        assert len(libres) >= 120, f"thème {i + 1} : {len(libres)} teintes libres seulement pour EYE SPOT"
+        assert all(ecart(eye_teinte(d, libres), z) >= EYE_ECART for d in range(360) for z in zones), f"thème {i + 1} : bande trop proche d'une zone"
+        assert min(s for s, l in EYE_PALIERS.values()) >= EYE_S_MIN
         ce = min(min(contraste(attenue(hsl_rgb(d, sp, lp), ae), '#000000'), contraste(attenue(hsl_rgb(d, sp, lp), ae), '#111111')) for d in range(360) for sp, lp in EYE_PALIERS.values())
         assert ce >= CONTRASTE_MIN, f"thème {i + 1} : bande EYE SPOT, contraste {ce:.2f} < 7"
-        css.append(f':root[data-theme="{i}"]{{{";".join(v)}}}')
-        teintes = [attenue(hex_rgb(c['base']), att['menu']) for c in t['couleurs'][:-1]] + [attenue(hsl_rgb(h0, EYE_S, EYE_L), ae)]  # aperçu : zones + bande EYE SPOT de l'accueil
-        out.append({'nom': t['nom'], 'teintes': teintes, 'eye': {'h0': h0, 'a': ae, 'p': EYE_PALIERS},
+        ex = {c: eye_hex(h0, zones, c, k) for c, k in rangs.items()}
+        css.append(f':root[data-theme="{i}"]{{{";".join(v)};--eye:{ex["cours"]}}}')
+        css.extend(f':root[data-theme="{i}"][data-page="{c}"]{{--eye:{x}}}' for c, x in ex.items() if c != 'cours')
+        teintes = [attenue(hex_rgb(c['base']), att['menu']) for c in t['couleurs'][:-1]] + [ex['cours']]  # aperçu : zones + bande EYE SPOT de l'accueil
+        out.append({'nom': t['nom'], 'teintes': teintes, 'eye': {'h0': h0, 'a': ae, 'p': EYE_PALIERS, 'z': zones, 'e': EYE_ECART},
                     'attenuation': att, 'contraste_min': round(min(cmin, ce), 2)})
     return out, ''.join(css)
 
@@ -157,7 +192,7 @@ POLICE = ''.join("@font-face{font-family:'Atkinson Hyperlegible';font-style:%s;f
 
 CSS = """
 :root{--encre:#111;--doux:#222;--trait:#c4c4c4;--neutre:#6b6b6b;--mw:258px;--ht:96px;
---eye:#dcdcdc;--eye-b:rgba(0,0,0,.24);
+--eye:#ffffff;--eye-b:rgba(0,0,0,.24);
 --bleu:#0646db;--rouge:#b10521;--vert:#03651b;--violet:#7906df;--ocre:#8a6203;--orange:#c24a05}
 /* Thèmes (Claude/_progression/themes.json) : au plus 3 teintes atténuées de 60 à 80 % (EYE SPOT comprise), texte #111/#222 >= 7:1,
    fond de page blanc. EYE SPOT : tous les titres et sous-titres de la page active sur une seule bande --eye (teinte propre à la page
@@ -318,10 +353,13 @@ theme(+document.documentElement.dataset.theme||0);
 function hsl(h,s,l){const c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h/60)%2-1)),m=l-c/2;const t=[[c,x,0],[x,c,0],[0,c,x],[0,x,c],[x,0,c],[c,0,x]][Math.floor(h/60)%6];return t.map(v=>Math.floor((v+m)*255+.5));}
 const fnv=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h};
 let PAGES=['cours'];
+/* Teinte projetée sur les arcs écartés d'au moins e.e degrés des teintes de zones du thème (e.z) : même calcul qu'eye_teinte() en Python. */
+const ecart=(a,b)=>{const d=Math.abs(a-b)%360;return Math.min(d,360-d)};
+function libre(e,h){if(!e.L){e.L=[];for(let d=0;d<360;d++)if(e.z.every(z=>ecart(d,z)>=e.e))e.L.push(d)}return e.L[Math.floor(h*e.L.length/360)]}
 function eyeTeinte(cle){const e=TH[+document.documentElement.dataset.theme||0].eye;let k=PAGES.indexOf(cle);
-  if(k<0){const p=cle.split('|')[1]||'cours';const hp=eyeTeinte(p);let h=(e.h0+Math.round(137.508*(PAGES.length+fnv(cle.split('|')[0])%997)))%360;
-    const d=Math.abs(h-hp)%360;if(Math.min(d,360-d)<40)h=(h+180)%360;return h}
-  return (e.h0+Math.round(137.508*k))%360;}
+  if(k<0){const p=cle.split('|')[1]||'cours';const hp=eyeTeinte(p);const h=(e.h0+Math.round(137.508*(PAGES.length+fnv(cle.split('|')[0])%997)))%360;
+    const m=libre(e,h);return ecart(m,hp)<40?libre(e,(h+180)%360):m}
+  return libre(e,(e.h0+Math.round(137.508*k))%360);}
 function eyeHex(cle,e){const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}
 function eye(){const e=TH[+document.documentElement.dataset.theme||0].eye,cle=pageCle(),x=eyeHex(cle,e);
   document.documentElement.style.setProperty('--eye',x);document.documentElement.dataset.page=cle;document.documentElement.dataset.eye=x;}
@@ -602,14 +640,19 @@ def rendre(a):
             f'<article id="ssp-{lot}" class="c{" pret" if lot in prets else ""}" data-t="{recherche}"><div class="code">{E(code)}{" · prêt" if lot in prets else ""}</div><h2>{E(nom)}</h2>'
             f'<div class="j"><div class="t"><div class="f" style="--p:{p}%;--h:{round(1.2 * p)}"></div></div><span>{p} %</span></div>'
             f'<details{" open" if lot in prets and len(prets) <= 3 else ""}><summary>{"Ouvrir les cours" if lot in prets else "Diagnostics prévus"}</summary><ul class="ls">{"".join(items)}</ul></details></article>')
-    th, css_th = themes(a.themes)
+    prog = progression(a.donnees)
+    rangs, MS = {'cours': 0}, ('examens', 'pharmaco', 'fondamentales')  # rangs EYE SPOT des pages d'entrée, dans l'ordre de PAGES du JS
+    for m in MS:
+        if (prog.get('S') or {}).get(m):
+            rangs[m + ':0'] = len(rangs)
+    th, css_th = themes(a.themes, rangs)
     glo = json.load(open(a.glossaire, encoding='utf-8')) if os.path.exists(a.glossaire) else {}
-    donnees = {'base': a.base, 'ssp': ssp, 'prog': progression(a.donnees), 'themes': th,
+    donnees = {'base': a.base, 'ssp': ssp, 'prog': prog, 'themes': th,
                'glo': {k: glo.get(k, {}) for k in ('abreviations', 'scores')}}
     n_empl = len(donnees['prog']['F'])
     maj = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).strftime('%d.%m.%Y %H:%M')
     doc = f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Progression — Examen fédéral de médecine humaine</title><script>(function(){{var t=0;try{{t=parseInt(localStorage.getItem('progression-theme'),10)||0}}catch(e){{}}if(!(t>=0&&t<{len(th)}))t=0;document.documentElement.dataset.theme=t}})()</script>
+<title>Progression — Examen fédéral de médecine humaine</title><script>(function(){{var t=0;try{{t=parseInt(localStorage.getItem('progression-theme'),10)||0}}catch(e){{}}if(!(t>=0&&t<{len(th)}))t=0;var r=document.documentElement,h=location.hash.slice(1);r.dataset.theme=t;r.dataset.page={json.dumps([c for c in rangs if c != 'cours'])}.indexOf(h+':0')>=0?h+':0':'cours'}})()</script>
 <style>{POLICE.replace('BASE', a.base)}{css_th}{CSS}</style></head><body>
 <header class="h"><h1>Progression — Examen fédéral</h1><p class="sous">{len(prets)} situations de départ prêtes · {n_cours} cours ouvrables · {n_empl} emplacements de fiches · mise à jour {maj} (Zurich)</p>
 <div class="hl" style="position:relative"><nav class="on"><button data-o="cours" class="a">Cours</button><button data-o="examens">Examens paracliniques</button><button data-o="pharmaco">Pharmacologie</button><button data-o="fondamentales">Sciences fondamentales</button></nav>
@@ -642,7 +685,7 @@ if __name__ == '__main__':
     ap.add_argument('--reference', default='Claude/_reference', help='ancien chemin (examens.json, pharmaco.json), conservé en lecture seule, non affiché')
     ap.add_argument('--donnees', default='Claude/_progression/donnees', help='source de vérité des onglets Examens, Pharmacologie, Sciences fondamentales')
     ap.add_argument('--base', default='', help='préfixe des liens vers les cours (vide : relatif à la page)')
-    ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées 60-80 %, contraste >= 7:1')
+    ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées 60-80 %%, contraste >= 7:1')
     ap.add_argument('--glossaire', default='Claude/_progression/glossaire.json', help='sigles (survol) et scores (fenêtre au clic) des fiches')
     ap.add_argument('--sortie', default='progression.html')
     a = ap.parse_args()
