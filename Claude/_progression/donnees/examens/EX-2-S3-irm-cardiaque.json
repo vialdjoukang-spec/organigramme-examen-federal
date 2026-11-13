@@ -13,55 +13,126 @@
   "IRM"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Imagerie par résonance magnétique cardiaque : séquences ciné, séquences pondérées T2 et cartographies T1 et T2, rehaussement tardif après chélate de gadolinium, perfusion de stress si besoin",
+  "synonymes": "IRM cardiaque, CMR (cardiovascular magnetic resonance), cardio-IRM",
+  "prelevement_conditions": "On injecte un chélate de gadolinium, puis on acquiert les séquences tardives en inversion-récupération, afin de montrer le rehaussement tardif (HUG 2020). On vérifie la fonction rénale avant l'injection (non vérifié CH).",
+  "bon_usage_suisse": "L'IRM n'émet aucun rayonnement ionisant ; aucune dose OFSP ne s'applique donc. Selon les HUG, la biopsie reste l'étalon de la myocardite, mais l'IRM est aujourd'hui l'examen de référence pour caractériser le tissu myocardique inflammatoire (Rev Med Suisse 2020). L'ESC 2024 recommande l'IRM de stress, comme la SPECT, chez le patient à vraisemblance modérée à élevée de syndrome coronarien chronique."
  },
  "temps1_indications": {
   "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
+  "diagnostic_etiologie": "Si la probabilité clinique de myocardite existe (douleur, dyspnée, troponine élevée, coronaires saines), on fait une IRM, car les critères de Lake Louise révisés en 2018 permettent alors de retenir l'inflammation (HUG 2020). Si la vraisemblance de syndrome coronarien chronique est modérée à élevée (15–85 %) ou si la maladie coronaire est connue, on peut chercher l'ischémie par IRM de perfusion de stress (ESC 2024).",
+  "depistage_pretherapeutique": "Avant une biopsie myocardique, on fait l'IRM afin de guider le prélèvement et d'en améliorer le rendement (HUG 2020).",
   "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "ne_pas_demander": "On ne fait pas d'IRM de stress si la vraisemblance clinique reste ≤ 5 %, car aucun test n'est alors requis (ESC 2024). On ne prend pas l'IRM pour exclure un SCA, parce que la coronarographie reste l'examen de choix pour l'écarter formellement (HUG 2020)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Myocarde en T2 (œdème)",
+   "normal": "Signal T2 homogène ; rapport myocarde/muscle squelettique ≤ 2,0",
+   "anomalie": "Si le signal T2 augmente (rapport > 2,0) ou si le temps T2 s'allonge, le myocarde contient de l'eau : l'œdème signe une inflammation active (HUG 2020 ; Lake Louise 2018).",
+   "seuil_alerte": "Rapport T2 > 2,0"
+  },
+  {
+   "parametre": "Myocarde en T1 (T1 natif, ECV, rehaussement tardif)",
+   "normal": "Aucun rehaussement tardif ; T1 et ECV dans les normes du centre",
+   "anomalie": "Si le T1 ou l'ECV augmente, ou si un rehaussement tardif non ischémique apparaît, le myocarde est lésé (Lake Louise 2018) ; dans la myocardite, le rehaussement siège le plus souvent en inféro-latéral, mais il peut être multifocal ou diffus (HUG 2020).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Fonction ventriculaire (séquences ciné)",
+   "normal": "Cinétique segmentaire normale ; FEVG selon les normes du centre",
+   "anomalie": "Si une hypokinésie régionale ou une baisse de la FEVG apparaît, la fonction ventriculaire est atteinte (HUG 2020).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Péricarde",
+   "normal": "Aucun épanchement ni hypersignal",
+   "anomalie": "Si un épanchement ou un hypersignal du péricarde apparaît, le péricarde participe à l'inflammation ; ce critère supplémentaire soutient la myocardite (HUG 2020).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Perfusion de stress (16 segments du VG)",
+   "normal": "Perfusion homogène sous stress",
+   "anomalie": "Si au moins 2 des 16 segments montrent un défaut de perfusion sous stress, ou si au moins 3 segments deviennent dysfonctionnels sous dobutamine, l'ischémie est à risque élevé (ESC 2019).",
+   "seuil_alerte": "≥ 2/16 segments en perfusion ; ≥ 3/16 sous dobutamine"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Rapport T2",
+   "formule": "On calcule R = intensité du signal du myocarde en T2 ÷ intensité du signal du muscle squelettique.",
+   "a_quoi_ca_sert": "Ce rapport dit si le myocarde contient trop d'eau ; au-delà de 2,0, il signe un œdème.",
+   "exemple": "Le myocarde donne 450 unités et le muscle squelettique 200 unités ; on calcule 450 ÷ 200 = 2,25 ; comme 2,25 > 2,0, on retient l'œdème (critère T2 de Lake Louise).",
+   "source": "Les seuils viennent des HUG (Valiton V et al, Rev Med Suisse 2020;16:1133-9, tableau 3) et de Ferreira VM et al (J Am Coll Cardiol 2018;72:3158-76), lus le 13.11.2026."
+  },
+  {
+   "nom": "FEVG",
+   "formule": "On calcule FEVG (%) = (VTD − VTS) ÷ VTD × 100, où VTD est le volume télédiastolique et VTS le volume télésystolique, mesurés sur les séquences ciné.",
+   "a_quoi_ca_sert": "Ce calcul dit quelle part de son volume le ventricule gauche éjecte à chaque battement.",
+   "exemple": "Le VTD mesure 150 ml et le VTS 90 ml ; on calcule (150 − 90) ÷ 150 × 100 = 40 % : le ventricule éjecte 40 % de son volume.",
+   "source": "On définit ainsi la FEVG ; on la mesure sur les séquences ciné (Valiton V et al, Rev Med Suisse 2020;16:1133-9), lu le 13.11.2026."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
+   "entite_anormale_chiffree": "L'IRM montre un critère T2 (rapport > 2,0 ou T2 allongé) et un critère T1 (T1, ECV ou rehaussement tardif non ischémique).",
+   "associees_presentes": "La troponine est élevée et l'ECG montre souvent un sus-décalage ST (57,5 % dans une série que citent les HUG).",
+   "associees_a_rechercher": "On exclut un SCA par coronarographie, car elle reste l'examen de choix pour l'écarter formellement ; on cherche un épanchement péricardique (HUG 2020).",
+   "syndrome_anamnese": "Le patient décrit une douleur thoracique ou une dyspnée nouvelle (< 3 mois), souvent après une infection virale.",
+   "syndrome_status": "On cherche des signes d'insuffisance cardiaque ou une arythmie, car ils font la gravité.",
+   "confirmation": "Les deux critères réunis rendent l'inflammation myocardique très probable ; un seul critère la soutient avec moins de spécificité (Lake Louise 2018).",
+   "diagnostic": "Le patient a une myocardite aiguë.",
+   "conduite": "On traite surtout les symptômes, et on dépiste puis on traite tôt l'insuffisance cardiaque et les arythmies (HUG 2020) ; on discute une biopsie guidée par l'IRM si l'évolution est grave, car la biopsie reste l'étalon."
+  },
+  {
+   "entite_anormale_chiffree": "La perfusion de stress montre un défaut dans ≥ 2 des 16 segments du VG.",
+   "associees_presentes": "Le patient a un angor d'effort.",
+   "associees_a_rechercher": "On cherche un rehaussement tardif dans le même territoire coronaire, car il distingue la cicatrice d'un myocarde ischémique encore viable (non vérifié CH).",
+   "syndrome_anamnese": "Le patient décrit une douleur thoracique d'effort.",
    "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "confirmation": "L'ischémie est à risque élevé (ESC 2019).",
+   "diagnostic": "Le patient a un syndrome coronarien chronique à risque élevé.",
+   "conduite": "On adresse le patient à la coronarographie invasive, car une ischémie qui couvre un large territoire de perfusion en est l'indication (ESC 2024)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si la troponine est normale,",
+    "consequence": "alors on n'exclut pas une myocardite chronique (HUG 2020) ; on garde donc l'IRM si la clinique l'évoque."
+   },
+   {
+    "si": "Si l'IRM ne montre qu'un seul critère (T2 ou T1),",
+    "consequence": "alors la myocardite reste possible mais moins spécifique (Lake Louise 2018) ; on décide avec la clinique."
+   },
+   {
+    "si": "Si l'on demande une IRM pour exclure un SCA,",
+    "consequence": "alors on retarde la coronarographie, qui reste l'examen de choix (HUG 2020)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« T2 + T1 = Lake Louise » : l'œdème (T2) et la lésion (T1) réunis signent la myocardite."
  },
  "sources": [
-  "—"
+  "Valiton V, Carballo D, Seebach JD, Meyer P (HUG). La myocardite en 2020. Rev Med Suisse 2020;16:1133-9 (archive ouverte UNIGE), lu le 13.11.2026",
+  "Ferreira VM et al. Cardiovascular magnetic resonance in nonischemic myocardial inflammation: expert recommendations (critères de Lake Louise 2018). J Am Coll Cardiol 2018;72:3158-76 (résumé PubMed lu le 13.11.2026) ; source non suisse",
+  "Vrints C et al. 2024 ESC Guidelines for the management of chronic coronary syndromes. Eur Heart J 2024;45:3415-3537 (texte lu le 13.11.2026 ; tableaux de recommandations en image non lus) ; source européenne",
+  "Knuuti J et al. 2019 ESC Guidelines for the diagnosis and management of chronic coronary syndromes. Eur Heart J 2020;41:407-477 (tableau 6, risque d'événement élevé ; calcium coronaire), lu le 13.11.2026 ; source européenne"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S3-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "La fraction d'éjection et la perfusion myocardique sont des grandeurs de physiologie cardiaque que l'IRM mesure."
+  },
+  {
+   "type": "Prélèvement",
+   "cible": "EX-4-S3-biopsie-myocardique",
+   "pourquoi": "L'IRM guide la biopsie myocardique afin d'en améliorer le rendement (HUG 2020)."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S3-troponines-hypersensibles",
+   "pourquoi": "Une troponine élevée avec des coronaires saines conduit à l'IRM, qui confirme ou non la myocardite."
   }
  ]
 }
