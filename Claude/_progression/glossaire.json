@@ -1,6 +1,16 @@
 {
  "_note": "Glossaire des sigles et des scores (ordre de Vial du 13.11.2026). Les développements reprennent la forme écrite dans les fiches ou le nom officiel de l'institution, de la méthode ou du produit ; « à vérifier » signale un développement non confirmé sur source. Chaque score cite sa publication de référence. Porte : python3 Claude/_progression/glossaire.py ; page : outils/receptacle.py.",
  "abreviations": {
+  "PI": "Prostate Imaging (dans PI-RADS : imagerie de la prostate)",
+  "RADS": "Reporting and Data System (dans PI-RADS : système de lecture et de compte rendu de l'IRM prostatique)",
+  "PI-RADS": "Prostate Imaging-Reporting and Data System : système de lecture et de compte rendu de l'IRM prostatique, en catégories de 1 à 5",
+  "PSMA": "antigène membranaire spécifique de la prostate (prostate-specific membrane antigen), cible de la TEP au PSMA",
+  "MAG3": "mercaptoacétyltriglycine marquée au technétium 99m (99mTc-MAG3), traceur tubulaire du néphrogramme isotopique",
+  "ISUP": "International Society of Urological Pathology ; grade ISUP : grade histologique du cancer de la prostate, de 1 à 5",
+  "ESUR": "European Society of Urogenital Radiology (Société européenne de radiologie urogénitale)",
+  "EAU": "European Association of Urology (Association européenne d'urologie)",
+  "DMSA": "acide dimercaptosuccinique marqué au technétium 99m (99mTc-DMSA), traceur de la scintigraphie corticale rénale",
+  "BRCA2": "gène BRCA2 (breast cancer gene 2), dont une mutation germinale augmente le risque de cancer du sein et de la prostate",
   "5-HT2C": "récepteur de la sérotonine de type 2C",
   "A1AT": "alpha-1-antitrypsine",
   "AAN": "anticorps antinucléaires",
@@ -2019,6 +2029,102 @@
     }
    ],
    "source": "Balthazar EJ, Robinson DL, Megibow AJ, Ranson JH. Acute pancreatitis: value of CT in establishing prognosis. Radiology 1990;174:331-336 ; barème et pronostic repris du tableau 3 de Leppäniemi A et al., WSES 2019 (lu le 13.11.2026)."
+  },
+  "PI-RADS": {
+   "alias": [
+    "PI-RADS v2.1",
+    "catégorie PI-RADS"
+   ],
+   "definition": "La classification PI-RADS (version 2.1) exprime, de 1 à 5, la probabilité qu'une lésion vue à l'IRM prostatique corresponde à un cancer cliniquement significatif (grade ISUP ≥ 2) ; on la lit sur le T2, la diffusion et le rehaussement.",
+   "cotation": [
+    {
+     "item": "Catégorie 1 : cancer significatif très improbable",
+     "points": 1
+    },
+    {
+     "item": "Catégorie 2 : cancer significatif improbable",
+     "points": 2
+    },
+    {
+     "item": "Catégorie 3 : présence d'un cancer significatif équivoque",
+     "points": 3
+    },
+    {
+     "item": "Catégorie 4 : cancer significatif probable",
+     "points": 4
+    },
+    {
+     "item": "Catégorie 5 : cancer significatif très probable",
+     "points": 5
+    }
+   ],
+   "interpretation": [
+    {
+     "plage": "1–2",
+     "sens": "Un cancer de grade ISUP ≥ 2 se trouve dans 6 % des cas ; si la densité de PSA reste < 0,20 ng/mL/cm³ sans anamnèse familiale, on omet la biopsie et l'on surveille le PSA (EAU, faible)."
+    },
+    {
+     "plage": "3",
+     "sens": "Un cancer significatif se trouve dans 20 % des cas ; si la densité de PSA reste < 0,10 ng/mL/cm³ sans anamnèse familiale, on surveille, sinon on discute une biopsie ciblée avec prélèvements périlésionnels (EAU, faible)."
+    },
+    {
+     "plage": "4",
+     "sens": "Un cancer significatif se trouve dans 55 % des cas, donc on fait une biopsie ciblée et périlésionnelle (EAU, faible)."
+    },
+    {
+     "plage": "5",
+     "sens": "Un cancer significatif se trouve dans 83 % des cas, donc on fait une biopsie ciblée et périlésionnelle (EAU, faible)."
+    }
+   ],
+   "source": "Turkbey B et al. Prostate Imaging Reporting and Data System Version 2.1. Eur Urol 2019;76:340-351 (libellés des catégories, non relus : à vérifier) ; taux de cancers et conduite repris des recommandations EAU sur le cancer de la prostate, section 5.2.4, lues le 13.11.2026."
+  },
+  "Bosniak": {
+   "alias": [
+    "classification de Bosniak",
+    "Bosniak 2019"
+   ],
+   "definition": "La classification de Bosniak (mise à jour 2019) range un kyste rénal en cinq classes selon sa paroi, ses cloisons, sa densité ou son signal et son rehaussement à la TDM ou à l'IRM ; elle prédit le risque de malignité et la conduite.",
+   "cotation": [
+    {
+     "item": "Classe I : paroi fine ≤ 2 mm, lisse ; liquide homogène (−9 à 20 UH ; signal du LCR en IRM) ; ni cloison ni calcification",
+     "points": "I"
+    },
+    {
+     "item": "Classe II : 1 à 3 cloisons fines ≤ 2 mm ; calcifications de tout type ; masse homogène hyperdense ≥ 70 UH sans injection ; petites masses homogènes trop petites pour être caractérisées",
+     "points": "II"
+    },
+    {
+     "item": "Classe 2F : paroi ou cloison lisse minimement épaissie (3 mm) et rehaussée, ou ≥ 4 cloisons fines rehaussées",
+     "points": "2F"
+    },
+    {
+     "item": "Classe III : une paroi ou une cloison rehaussée épaisse (≥ 4 mm) ou irrégulière (saillie convexe ≤ 3 mm à bords obtus)",
+     "points": "III"
+    },
+    {
+     "item": "Classe IV : un ou plusieurs nodules rehaussés (saillie ≥ 4 mm à bords obtus, ou saillie de toute taille à bords aigus)",
+     "points": "IV"
+    }
+   ],
+   "interpretation": [
+    {
+     "plage": "I–II",
+     "sens": "Le kyste est bénin, donc on ne le suit pas."
+    },
+    {
+     "plage": "2F",
+     "sens": "Quelques kystes sont malins, donc on les surveille jusqu'à cinq ans."
+    },
+    {
+     "plage": "III",
+     "sens": "Plus de 50 % sont malins, donc on discute la chirurgie ou la surveillance active."
+    },
+    {
+     "plage": "IV",
+     "sens": "La plupart sont malins, donc on opère."
+    }
+   ],
+   "source": "Silverman SG et al. Bosniak classification of cystic renal masses, version 2019. Radiology 2019;292:475-488 ; critères et conduite repris du tableau 5.1 des recommandations EAU sur le cancer du rein, lues le 13.11.2026."
   }
  },
  "hors_sigles": {
