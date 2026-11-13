@@ -1,0 +1,12 @@
+# HELP — LOT_048 DX.3 Œsophagite à éosinophiles (S2.9)
+- IPP (ésoméprazole Nexium n° 55609 lu ; Esomep, Omeprazol Zentiva, Pantoprazol-Mepha, Pantoprazole NOBEL, Lansoprazol Zentiva, Agopton lus) : aucune indication d'œsophagite à éosinophiles dans l'AIPS ; usage hors indication, donc classe et conduite sans milligramme pour l'OeE (la dose de 40 mg de Nexium cité concerne l'œsophagite de reflux). La dose de la ligne directrice européenne de 2017 n'est pas enseignée.
+- Jorveza (budésonide orodispersible) : absent des tableaux HAM (erweiterte_ham_ind.xlsx) ; n° 66999 lu dans AipsDownload_20261008.xml et rapatrié avec --autorisation 66999 (monopréparation, indication OeE adulte).
+- Dupixent (dupilumab, n° 66649) : monographie lue ; indication OeE dès 1 an et 15 kg après échec des traitements conventionnels.
+- Budésonide en suspension visqueuse et fluticasone déglutie : hors indication, aucune monographie AIPS pour l'OeE ; pas de milligramme.
+- Ligne directrice EUREOS 2026 partie 2 (traitement) : non accessible ; seul le résumé de la partie 1 (diagnostic, épidémiologie) est lu ; le traitement suit la ligne directrice de 2017, l'AIPS et des revues 2024-2026.
+- Aucune ligne directrice d'une société suisse (SSG) lue ; sources suisses : Rev Med Suisse 2026 (résumé seul), registre vaudois 2015, base suisse 2008 et 2013, cohorte SEECS 2026, revue Schoepfer 2024.
+- LAMal, limitations de remboursement (Jorveza, Dupixent, formules élémentaires), AI : aucune source suisse lue ; la prise en charge des coûts n'est documentée que de façon générale.
+- Grossesse et allaitement des examens (endoscopie, baryum) : non couverts ; grossesse et allaitement des médicaments : AIPS lu pour Jorveza, Dupixent et Nexium.
+- Cancers de la cavité buccale et du pharynx : aucune recommandation ESMO-EHNS lue ; seuls la prévalence de dysphagie (31,5 %) et le principe de l'avis ORL sont cités.
+- Images : aucune figure insérée (pas d'inspection visuelle ; cliché endoscopique de référence à chercher par Image_Codex_Finder).
+- Le contrôle des nombres impose l'écriture « 100,000 » (virgule des milliers) comme dans les extraits.
