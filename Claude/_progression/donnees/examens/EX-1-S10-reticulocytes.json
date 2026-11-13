@@ -15,100 +15,109 @@
  "entete": {
   "nom_exact": "Réticulocytes, numération absolue par cytométrie en flux, avec contenu en hémoglobine (Ret-He) et fraction de haute fluorescence (HFR) (HUG fiche 2671)",
   "synonymes": "Rétics, numération réticulocytaire, hémogramme I automatique avec réticulocytes",
-  "prelevement_conditions": "Sang veineux EDTA (Hémogard mauve 2 ml, minimum 0,2 ml) ; 24 h/24, rendu en 24 h (HUG).",
-  "bon_usage_suisse": "Liste des analyses : 1649.00, réticulocytes quantitatifs automatisés (11,9 points) ; 1648.00, méthode manuelle microscopique avec corps de Heinz (30,6 points) (HUG). Demander devant une anémie ou une cytopénie, avec l'hémoglobine du même prélèvement."
+  "prelevement_conditions": "On prélève du sang veineux EDTA (Hémogard mauve 2 ml, minimum 0,2 ml) ; les HUG l'analysent 24 h/24 et rendent le résultat en 24 h (HUG).",
+  "bon_usage_suisse": "La Liste des analyses indique les réticulocytes quantitatifs automatisés (1649.00, 11,9 points) et la méthode manuelle microscopique avec corps de Heinz (1648.00, 30,6 points) (HUG). On les demande devant une anémie ou une cytopénie, avec l'hémoglobine du même prélèvement, parce que leur lecture dépend du degré d'anémie."
  },
  "temps1_indications": {
-  "urgence_aigu": "Anémie aiguë avec ictère ou urines foncées (hémolyse) ou saignement : la valeur absolue sépare réponse médullaire présente et absente.",
-  "diagnostic_etiologie": "Classer l'anémie : régénérative (perte ou destruction périphérique : hémolyse, hémorragie) ou arégénérative (production insuffisante : carence en fer, B12 ou folates, inflammation, insuffisance rénale, atteinte médullaire) (déduction physiologique).",
+  "urgence_aigu": "Devant une anémie aiguë avec ictère ou urines foncées (hémolyse) ou un saignement, la valeur absolue dit si la moelle répond ou non.",
+  "diagnostic_etiologie": "On classe l'anémie : elle est régénérative si la perte ou la destruction est périphérique (hémolyse, hémorragie), arégénérative si la production est insuffisante (carence en fer, B12 ou folates, inflammation, insuffisance rénale, atteinte médullaire) (déduction physiologique).",
   "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "Réponse à la supplémentation en fer, B12 ou folates (hausse des réticulocytes avant celle de l'hémoglobine) ; récupération médullaire après chimiothérapie ; anémie hémolytique chronique (déduction physiologique).",
-  "ne_pas_demander": "Pas sans hémoglobine du même prélèvement : interprétation impossible. Pas de méthode manuelle (1648.00, 30,6 points) quand l'automate suffit (1649.00, 11,9 points)."
+  "suivi_surveillance": "On suit la réponse à la supplémentation en fer, B12 ou folates, car les réticulocytes montent avant l'hémoglobine ; on suit aussi la récupération médullaire après chimiothérapie et l'anémie hémolytique chronique (déduction physiologique).",
+  "ne_pas_demander": "On ne les demande pas sans l'hémoglobine du même prélèvement, car l'interprétation devient impossible. On ne demande pas la méthode manuelle (1648.00, 30,6 points) quand l'automate suffit (1649.00, 11,9 points)."
  },
  "temps2_examen": [
   {
    "parametre": "Réticulocytes, valeur absolue",
    "normal": "20–120 G/l, tout âge (HUG fiche 2671 ; CHUV LCH 30.06.2026)",
-   "anomalie": "↑ > 120 G/l avec anémie : régénérative ; ≤ 120 G/l malgré l'anémie : réponse inadaptée ; < 20 G/l : arégénérative franche (lecture des bornes)",
+   "anomalie": "Au-dessus de 120 G/l avec une anémie, la réponse est régénérative ; à 120 G/l ou moins malgré l'anémie, la réponse est inadaptée ; sous 20 G/l, l'anémie est franchement arégénérative (lecture des bornes).",
    "seuil_alerte": "—"
   },
   {
    "parametre": "Réticulocytes, valeur relative",
    "normal": "5–15 ‰ (CHUV LCH)",
-   "anomalie": "Lire l'absolu : le ‰ monte artificiellement quand les érythrocytes chutent (déduction)",
+   "anomalie": "On lit la valeur absolue, parce que le ‰ augmente artificiellement quand les érythrocytes chutent (déduction).",
    "seuil_alerte": "—"
   },
   {
    "parametre": "Ret-He (hémoglobine des réticulocytes)",
    "normal": "29–35 pg (HUG)",
-   "anomalie": "↓ < 29 pg : réticulocytes peu hémoglobinisés, fer disponible insuffisant (non vérifié CH)",
+   "anomalie": "Sous 29 pg, les réticulocytes sont peu hémoglobinisés et le fer disponible est insuffisant (non vérifié CH).",
    "seuil_alerte": "—"
   },
   {
    "parametre": "HFR (fraction immature)",
    "normal": "0–2,3 ‰ (HUG)",
-   "anomalie": "↑ > 2,3 ‰ : stimulation médullaire récente (non vérifié CH)",
+   "anomalie": "Au-dessus de 2,3 ‰, elle signe une stimulation médullaire récente (non vérifié CH).",
    "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Réticulocytes absolus",
+   "formule": "On calcule réticulocytes (G/l) = taux de réticulocytes (‰) ÷ 1000 × érythrocytes (T/l) × 1000, soit simplement ‰ × érythrocytes en T/l ; la norme absolue va de 20 à 120 G/l (HUG fiche 2671).",
+   "a_quoi_ca_sert": "Ce calcul transforme le pourcentage en nombre réel, car seul le nombre réel dit si la moelle produit assez quand les globules rouges manquent.",
+   "exemple": "Le patient a 30 ‰ de réticulocytes et 2.5 T/l d'érythrocytes (valeurs d'exemple). On calcule 30 × 2.5 = 75 G/l. Le ‰ (30) dépasse la norme relative de 5–15 ‰ (CHUV), mais 75 G/l reste < 120 G/l ; l'anémie n'est donc pas régénérative.",
+   "source": "Les HUG indiquent la norme absolue 20–120 G/l (RPA, fiche 2671, 03.09.2025) et le CHUV la norme relative 5–15 ‰ (LCH, 30.06.2026) (lus le 13.11.2026) ; la conversion est une déduction arithmétique ; les valeurs de l'exemple servent seulement à l'illustration."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "Hb 85 g/l, réticulocytes 260 G/l",
-   "associees_presentes": "Bilirubine libre ↑, LDH ↑",
-   "associees_a_rechercher": "Haptoglobine, test de Coombs direct (HUG fiche 2951), frottis (sphérocytes, schizocytes) ; recherche d'un saignement",
-   "syndrome_anamnese": "Ictère, urines foncées, médicament nouveau ou hémorragie digestive",
-   "syndrome_status": "Ictère, splénomégalie ou méléna",
+   "entite_anormale_chiffree": "Le patient a une Hb à 85 g/l et des réticulocytes à 260 G/l.",
+   "associees_presentes": "La bilirubine libre et la LDH sont élevées.",
+   "associees_a_rechercher": "On dose l'haptoglobine, on fait un test de Coombs direct (HUG fiche 2951) et un frottis (sphérocytes, schizocytes), et on recherche un saignement.",
+   "syndrome_anamnese": "On recherche un ictère, des urines foncées, un médicament nouveau ou une hémorragie digestive.",
+   "syndrome_status": "On cherche un ictère, une splénomégalie ou un méléna.",
    "confirmation": "Anémie régénérative",
-   "diagnostic": "Hémolyse (Coombs positif : auto-immune) ou hémorragie",
-   "conduite": "Bilan d'hémolyse (fiche hémolyse) ; Coombs direct ; endoscopie si saignement digestif."
+   "diagnostic": "Il a une hémolyse (auto-immune si le Coombs est positif) ou une hémorragie.",
+   "conduite": "On fait le bilan d'hémolyse (fiche hémolyse) et le Coombs direct, et on fait une endoscopie si le saignement est digestif."
   },
   {
-   "entite_anormale_chiffree": "Hb 90 g/l, réticulocytes 35 G/l, VGM bas",
+   "entite_anormale_chiffree": "Le patient a une Hb à 90 g/l, des réticulocytes à 35 G/l et un VGM bas.",
    "associees_presentes": "Microcytose, hypochromie",
-   "associees_a_rechercher": "Ferritine et bilan martial ; CRP",
-   "syndrome_anamnese": "Ménorragies, saignement digestif occulte, régime pauvre en fer",
+   "associees_a_rechercher": "On dose la ferritine, le bilan martial et la CRP.",
+   "syndrome_anamnese": "On recherche des ménorragies, un saignement digestif occulte ou un régime pauvre en fer.",
    "syndrome_status": "Pâleur, ongles cassants",
    "confirmation": "Anémie arégénérative microcytaire",
-   "diagnostic": "Carence en fer probable",
-   "conduite": "Ferritine ; chercher la perte ; réticulocytes de contrôle après fer."
+   "diagnostic": "Une carence en fer est probable.",
+   "conduite": "On dose la ferritine, on cherche la perte et on contrôle les réticulocytes après le fer."
   },
   {
-   "entite_anormale_chiffree": "Hb 95 g/l, réticulocytes 15 G/l, VGM élevé ou neutropénie et thrombopénie associées",
-   "associees_presentes": "Macrocytose ou bi-/pancytopénie",
-   "associees_a_rechercher": "Vitamine B12, folates ; frottis ; myélogramme si cytopénies multiples ou blastes",
-   "syndrome_anamnese": "Alcool, gastrectomie, médicaments myélotoxiques",
-   "syndrome_status": "Glossite, troubles de la sensibilité profonde",
+   "entite_anormale_chiffree": "Le patient a une Hb à 95 g/l, des réticulocytes à 15 G/l et un VGM élevé, ou une neutropénie et une thrombopénie associées.",
+   "associees_presentes": "Le patient a une macrocytose ou une bi- ou pancytopénie.",
+   "associees_a_rechercher": "On dose la vitamine B12 et les folates, on fait un frottis, et un myélogramme si les cytopénies sont multiples ou si des blastes apparaissent.",
+   "syndrome_anamnese": "On recherche l'alcool, une gastrectomie et des médicaments myélotoxiques.",
+   "syndrome_status": "On cherche une glossite et des troubles de la sensibilité profonde.",
    "confirmation": "Anémie arégénérative franche",
-   "diagnostic": "Carence en B12 ou folates, ou insuffisance médullaire",
-   "conduite": "Substituer la carence prouvée ; sinon avis hématologique et myélogramme."
+   "diagnostic": "Il a une carence en B12 ou en folates, ou une insuffisance médullaire.",
+   "conduite": "On substitue la carence prouvée ; sinon, on demande un avis hématologique et un myélogramme."
   },
   {
-   "entite_anormale_chiffree": "Réticulocytes passant de 40 à 150 G/l 7 jours après fer i.v.",
-   "associees_presentes": "Hb en hausse lente",
+   "entite_anormale_chiffree": "Les réticulocytes passent de 40 à 150 G/l 7 jours après du fer i.v.",
+   "associees_presentes": "L'Hb augmente lentement.",
    "associees_a_rechercher": "—",
    "syndrome_anamnese": "Traitement martial récent",
    "syndrome_status": "—",
-   "confirmation": "Réponse médullaire au fer",
-   "diagnostic": "Carence en fer en correction",
-   "conduite": "Poursuivre la substitution ; contrôler hémoglobine et ferritine."
+   "confirmation": "On constate que la moelle répond au fer.",
+   "diagnostic": "La carence en fer se corrige.",
+   "conduite": "On poursuit la substitution et on contrôle hémoglobine et ferritine."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "Pourcentage lu seul dans une anémie profonde",
-    "consequence": "Fausse régénération : lire la valeur absolue en G/l."
+    "si": "Si on lit le pourcentage seul dans une anémie profonde,",
+    "consequence": "on croit à tort à une régénération ; on lit donc la valeur absolue en G/l."
    },
    {
-    "si": "Réticulocytes hauts après hémorragie ou supplémentation pris pour une hémolyse",
-    "consequence": "Bilan d'hémolyse inutile : confronter haptoglobine et contexte."
+    "si": "Si on prend des réticulocytes hauts après une hémorragie ou une supplémentation pour une hémolyse,",
+    "consequence": "on fait un bilan d'hémolyse inutile ; on confronte donc l'haptoglobine et le contexte."
    },
    {
-    "si": "Anémie arégénérative attribuée à une carence sans frottis",
-    "consequence": "Hémopathie maligne méconnue : frottis, et myélogramme si cytopénies multiples."
+    "si": "Si on attribue une anémie arégénérative à une carence sans frottis,",
+    "consequence": "on méconnaît une hémopathie maligne ; on fait donc un frottis, et un myélogramme si les cytopénies sont multiples."
    }
   ],
-  "mnemotechnique": "« Rétics hauts : la moelle répond, la perte est ailleurs ; rétics bas : la moelle ne peut pas ; rétics qui montent : le traitement marche. »"
+  "mnemotechnique": "On retient : « si les rétics sont hauts, la moelle répond et la perte est ailleurs ; s'ils sont bas, la moelle ne peut pas ; s'ils montent, le traitement marche. »"
  },
  "sources": [
   "HUG, Répertoire des prestations d'analyses, Laboratoire d'hématologie et d'hémostase (rpa.hug.ch), fiche 2671 Réticulocytes (03.09.2025), lu le 13.11.2026",
@@ -128,12 +137,12 @@
   {
    "type": "Confirmation",
    "cible": "EX-1-S10-hemolyse-haptoglobine-ldh-bilirubine",
-   "pourquoi": "Réticulocytes hauts : haptoglobine, LDH et bilirubine prouvent l'hémolyse."
+   "pourquoi": "Si les réticulocytes sont hauts, haptoglobine, LDH et bilirubine prouvent l'hémolyse."
   },
   {
    "type": "Confirmation",
    "cible": "EX-1-S10-ferritine-bilan-martial",
-   "pourquoi": "Réticulocytes bas et microcytose : la ferritine tranche la carence en fer."
+   "pourquoi": "Si les réticulocytes sont bas avec une microcytose, la ferritine tranche la carence en fer."
   }
  ]
 }
