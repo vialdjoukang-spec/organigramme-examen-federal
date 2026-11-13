@@ -13,55 +13,128 @@
   "TDM"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Tomodensitométrie des surrénales : acquisition sans injection en coupes fines, complétée au besoin par une phase injectée portale et une phase tardive (lavage), pour caractériser une masse surrénalienne",
+  "synonymes": "Scanner des surrénales ; TDM surrénalienne ; adrenal CT ; adrenal protocol CT",
+  "prelevement_conditions": "La phase sans injection suffit souvent, car une masse homogène ≤ 10 UH est bénigne et ne demande aucune autre image (ESE 2023). Si l'on injecte de l'iode pour le lavage, on connaît d'abord la fonction rénale. Chez l'enfant, l'adolescent et la femme enceinte, on préfère l'IRM, parce qu'elle évite les rayons X (ESE 2023).",
+  "bon_usage_suisse": "L'enquête suisse 2023 publiée pour l'OFSP attribue 9.9 mSv en moyenne à une TDM de l'abdomen (Samara et al. 2026, tableau 2) ; une TDM limitée aux surrénales couvre un champ plus court, donc sa dose est probablement plus basse (déduction). La SGR-SSR admet une phase sans injection pour caractériser une lésion surrénalienne, alors qu'elle la déconseille dans les autres TDM abdominales qui n'en tirent aucun gain (smarter medicine 2020). On ne répète pas la TDM d'un adénome typique, car l'ESE ne recommande plus aucune image de suivi (ESE 2023)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "La TDM des surrénales sert rarement en urgence. Une masse découverte chez une femme enceinte ou chez une personne de moins de 40 ans doit toutefois être évaluée vite, parce que l'ESE y suggère d'opérer une masse indéterminée (ESE 2023).",
+  "diagnostic_etiologie": "Devant un incidentalome surrénalien, on doit caractériser la masse par imagerie, d'abord par une TDM sans injection (ESE 2023, preuve modérée), car une densité ≤ 10 UH prouve un adénome riche en lipides. Si l'incidentalome a été vu sur une TDM injectée, on ajoute une acquisition sans injection, parce que seule elle mesure la densité native (déduction de l'ESE 2023).",
+  "depistage_pretherapeutique": "Pour une masse ≥ 4 cm, hétérogène ou > 20 UH, on discute en réunion multidisciplinaire et l'on préfère en général la chirurgie ; on complète par une TDM thoracique ou une TEP-TDM au FDG pour le bilan d'extension (ESE 2023), car la malignité peut alors atteindre 50 %.",
+  "suivi_surveillance": "Pour une masse homogène de 11 à 20 UH et < 4 cm sans excès hormonal, l'ESE suggère une imagerie complémentaire immédiate, ou une TDM sans injection ou une IRM à 12 mois (preuve très faible), parce que la croissance distingue l'adénome d'une tumeur maligne. Pour une masse indéterminée non opérée, on refait l'image à 6–12 mois et l'on discute la résection si le grand axe augmente de plus de 20 % et d'au moins 5 mm (ESE 2023).",
+  "ne_pas_demander": "On ne refait aucune image d'une masse aux caractères clairement bénins (ESE 2023, preuve modérée), car le risque de malignité au suivi n'atteint que 0,2 %. On ne biopsie pas une masse surrénalienne, sauf si le patient a un cancer extra-surrénalien, si la masse est hormonalement inactive et si l'histologie change la conduite (ESE 2023). On ne dose pas les métanéphrines devant un adénome homogène ≤ 10 UH, car la probabilité d'un phéochromocytome y est proche de zéro (ESE 2023)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
+   "parametre": "Densité sans injection (UH)",
+   "normal": "Masse homogène ≤ 10 UH",
+   "anomalie": "Une masse homogène de 11 à 20 UH reste indéterminée ; au-delà de 20 UH ou si elle est hétérogène, elle devient suspecte (ESE 2023).",
+   "seuil_alerte": "> 20 UH ou masse hétérogène"
+  },
+  {
+   "parametre": "Grand axe de la masse",
+   "normal": "< 4 cm",
+   "anomalie": "Une masse ≥ 4 cm, hétérogène ou > 20 UH peut être maligne jusqu'à 50 % des cas, donc on discute la chirurgie (ESE 2023).",
+   "seuil_alerte": "≥ 4 cm"
+  },
+  {
+   "parametre": "Lavage du contraste (phase tardive)",
    "normal": "—",
-   "anomalie": "—",
+   "anomalie": "Les seuils de lavage absolu ≥ 60 % et relatif ≥ 40 % manquent 22 % et 8 % des tumeurs malignes, donc l'ESE leur accorde une preuve très faible (ESE 2023).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Évolution au contrôle de 6–12 mois",
+   "normal": "Masse stable",
+   "anomalie": "Une hausse du grand axe de plus de 20 % et d'au moins 5 mm fait discuter la résection (ESE 2023).",
+   "seuil_alerte": "> 20 % et ≥ 5 mm"
+  },
+  {
+   "parametre": "Atteinte bilatérale",
+   "normal": "Lésion unique",
+   "anomalie": "Si les deux surrénales portent une lésion, on évalue chacune selon le même protocole, et l'on dose la 17-hydroxyprogestérone en cas d'hyperplasie bilatérale sans sécrétion autonome de cortisol (ESE 2023).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Lavage du contraste",
+   "formule": "On calcule le lavage absolu (%) = (UH portale − UH tardive) ÷ (UH portale − UH sans injection) × 100, puis le lavage relatif (%) = (UH portale − UH tardive) ÷ UH portale × 100.",
+   "a_quoi_ca_sert": "Ces rapports mesurent la vitesse à laquelle la masse perd le contraste ; un adénome le perd vite, mais l'ESE juge ces seuils peu fiables.",
+   "exemple": "Une masse mesure 25 UH sans injection, 85 UH en phase portale et 40 UH en phase tardive ; on calcule (85 − 40) ÷ (85 − 25) = 45 ÷ 60 = 75 % pour le lavage absolu, puis 45 ÷ 85 ≈ 53 % pour le lavage relatif, donc les deux dépassent les seuils de 60 % et 40 %.",
+   "source": "Les formules sont les définitions usuelles du lavage (non vérifié CH) ; les seuils et leur performance viennent de l'ESE 2023, section 4.1.1, lue le 13.11.2026 ; l'exemple est fictif."
+  },
+  {
+   "nom": "Croissance surrénalienne",
+   "formule": "On calcule (grand axe actuel − grand axe initial) ÷ grand axe initial × 100 ; la croissance compte si elle dépasse 20 % et atteint au moins 5 mm.",
+   "a_quoi_ca_sert": "Ce calcul décide si une masse indéterminée doit être discutée pour une résection.",
+   "exemple": "Une masse passe de 30 mm à 37 mm ; on calcule 7 ÷ 30 ≈ 23 %, et elle a grandi de 7 mm, donc on discute la résection.",
+   "source": "La règle vient de l'ESE 2023, recommandation R5.2, lue le 13.11.2026 ; l'exemple est fictif."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "La TDM sans injection montre une masse surrénalienne gauche homogène de 22 mm à 8 UH.",
+   "associees_presentes": "La surrénale droite est normale.",
+   "associees_a_rechercher": "On fait chez tous un test de freinage par 1 mg de dexaméthasone, et l'on mesure le rapport aldostérone/rénine si le patient est hypertendu ou hypokaliémique (ESE 2023), car un adénome bénin peut sécréter.",
+   "syndrome_anamnese": "Le patient a passé la TDM pour une douleur abdominale ; on cherche une hypertension et une hypokaliémie, car elles imposent le rapport aldostérone/rénine (ESE 2023).",
+   "syndrome_status": "On mesure la pression artérielle et l'on cherche des signes de syndrome de Cushing manifeste.",
+   "confirmation": "Comme la masse est homogène et mesure ≤ 10 UH, elle est un adénome bénin (ESE 2023, preuve modérée).",
+   "diagnostic": "On retient un adénome surrénalien bénin, dont la sécrétion reste à préciser.",
+   "conduite": "On ne prescrit aucune nouvelle image ; si le cortisol après freinage dépasse 50 nmol/L, on retient une sécrétion autonome modérée de cortisol et l'on répète le test (ESE 2023)."
+  },
+  {
+   "entite_anormale_chiffree": "La TDM montre une masse surrénalienne droite hétérogène de 55 mm, à 35 UH sans injection.",
+   "associees_presentes": "La masse contient des zones qui ne se rehaussent pas.",
+   "associees_a_rechercher": "On mesure les métanéphrines avant tout geste, car la masse n'a pas l'aspect d'un adénome bénin, et l'on cherche des métastases par TDM thoracique ou TEP-TDM au FDG (ESE 2023).",
+   "syndrome_anamnese": "On demande un cancer extra-surrénalien connu, car il oriente vers une métastase et seul il peut justifier une biopsie (ESE 2023).",
+   "syndrome_status": "On mesure la pression artérielle et l'on cherche des signes d'excès hormonal.",
+   "confirmation": "Une masse ≥ 4 cm, hétérogène et > 20 UH peut être maligne jusqu'à 50 % des cas (ESE 2023).",
+   "diagnostic": "On suspecte un carcinome corticosurrénalien ou un phéochromocytome.",
+   "conduite": "On discute le cas en réunion multidisciplinaire et l'on préfère en général la chirurgie ; on ne biopsie pas une masse dont on n'a pas prouvé l'inactivité hormonale (ESE 2023)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "on mesure la densité sur une phase injectée",
+    "consequence": "on prend un adénome pour une masse indéterminée et l'on prescrit des examens inutiles, car le seuil de 10 UH ne vaut que sans injection (ESE 2023)."
+   },
+   {
+    "si": "on se fie aux seuils de lavage",
+    "consequence": "on peut rassurer à tort, car les seuils de 60 % et 40 % manquent jusqu'à 22 % et 8 % des tumeurs malignes (ESE 2023)."
+   },
+   {
+    "si": "on biopsie une masse sans avoir dosé les métanéphrines",
+    "consequence": "on expose le patient à une crise hypertensive si la masse est un phéochromocytome (non vérifié CH)."
+   },
+   {
+    "si": "on répète la TDM d'un adénome ≤ 10 UH",
+    "consequence": "on irradie le patient sans bénéfice, car le risque de malignité au suivi n'atteint que 0,2 % (ESE 2023)."
+   },
+   {
+    "si": "on fait une TDM chez une femme enceinte",
+    "consequence": "on expose le fœtus aux rayons X alors que l'IRM répond à la question (ESE 2023)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « 10-20-4 » : une densité ≤ 10 UH rassure, une densité > 20 UH inquiète, et une masse ≥ 4 cm fait discuter la chirurgie."
  },
  "sources": [
-  "—"
+  "Fassnacht M, Tsagarakis S, Terzolo M et al. European Society of Endocrinology clinical practice guidelines on the management of adrenal incidentalomas, in collaboration with the European Network for the Study of Adrenal Tumors. Eur J Endocrinol 2023;189(1):G1-G42 (européen, recommandations R2.2–R6.3 et section 4.1.1, texte intégral lu le 13.11.2026).",
+  "Société suisse de radiologie (SGR-SSR) — liste Top 5 smarter medicine, Radiologie (2020), recommandations 2 et 3, lue le 13.11.2026.",
+  "Samara ET et al. Medical exposure from diagnostic examinations and procedures of the Swiss population: 2023 review. Health Phys 2026;131(5):424-433 (enquête OFSP ; tableaux 2 et 5, texte intégral PMC13608267 lu le 13.11.2026)."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S8-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "Le cortex surrénalien stocke du cholestérol pour fabriquer les stéroïdes, ce qui explique la densité basse de l'adénome riche en lipides."
+  },
+  {
+   "type": "Fondement",
+   "cible": "SF-S8-anatomie",
+   "pourquoi": "Les surrénales coiffent le pôle supérieur des reins dans le rétropéritoine, ce qui explique pourquoi une TDM ciblée couvre un champ court."
   }
  ]
 }
