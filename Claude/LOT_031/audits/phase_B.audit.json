@@ -1,0 +1,353 @@
+{
+ "lot": "LOT_031",
+ "phase": "B",
+ "fichiers": "Phase B DX.1–DX.10",
+ "date": "13.11.2026",
+ "base": "47441a7c4",
+ "type": "fusion des restants : audit 1 médical + audit 1 conformité L1",
+ "sources": [
+  "audit1_medical.audit.json",
+  "audit1_conformite.audit.json"
+ ],
+ "verdicts_sources": {
+  "audit1_medical": "CORRECTIONS",
+  "audit1_conformite": "CORRECTIONS_MINEURES"
+ },
+ "verdict": "CORRECTIONS",
+ "compte": {
+  "total": 18,
+  "medical": 9,
+  "conformite": 9,
+  "par_gravite": {
+   "Grave": 1,
+   "Majeur": 2,
+   "Moyen": 2,
+   "Mineur": 4,
+   "modérée": 1,
+   "mineure": 8
+  }
+ },
+ "non_verifie": [
+  "Exactitude des chiffres contre les sources (audit 2) ; superposition des repères d’images ; contraste AA mesuré au pixel"
+ ],
+ "restants": [
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 1,
+   "gravite": "Grave",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.3.html",
+   "point": 11,
+   "avant": "Azélastine et fluticasone (Dymista®) 2 pulvérisations 1 fois par jour au début, puis 1 en entretien S1",
+   "constat": "Dose HUG contraire à l'AIPS 62675 et sans citation AIPS (DX.1 du même lot écrit justement que l'AIPS diverge de la stratégie HUG) ; la ligne mométasone voisine omet « dans chaque narine » et les µg.",
+   "correction": "Dymista® : « Dès 6 ans, une nébulisation dans chaque narine deux fois par jour (matin et soir) » AIPS 62675 (mise à jour novembre 2025) ; durée 2 semaines (aiguë), 4 à 8 semaines (perannuelle) ; ajouter AIPS 62675 aux sources. Mométasone : 2 pulvérisations dans chaque narine 1×/j (200 µg), entretien 100 µg AIPS 54189.",
+   "source": "SmPC refdata 056d8c71fb284394bdc5e325439ceb62 retéléchargée le 13.11.2026"
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 2,
+   "gravite": "Majeur",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.2.html",
+   "point": 11,
+   "avant": "Amoxicilline en premier choix selon les experts suisses ; dose selon l'AIPS du produit choisi | Échec après 72 heures : amoxicilline et acide clavulanique",
+   "constat": "Traitement structuré incomplet (ordre de Vial) : ni dose AIPS, ni monographie, ni guideline de la Société suisse d'infectiologie (SSI 2410, déjà en cache), alors que les critères de prescription y sont fixés.",
+   "correction": "Ligne 6 : amoxicilline « 1500 mg - 3000 mg d'amoxicilline/jour en 3 à 4 doses individuelles », max 4000–6000 mg ; enfant ≤ 40 kg 50–100 mg/kg/j en 3–4 prises AIPS 44911 (Amoxi-Mepha, mise à jour septembre 2026), 5–7 jours ; échec : Augmentin « 2 x 1 g (875/125) ou 3 x 625 mg (500/125) par jour » pour « sinusites aiguës » AIPS 45674 (septembre 2026) ; citer SSI 2410 (amoxicilline premier choix, co-amoxicilline réservée, imagerie non recommandée, TDM injectée si complication) ; ajouter monographies avec grossesse (« la prudence est donc de rigueur ») et allaitement (« ne doit donc pas être administrée pendant la période d'allaitement ») mot pour mot.",
+   "source": "SmPC 174c174fbc1a4bcb8daa6f13b5231a20 et 8de2c67510f34adca2207e3a563907d2 retéléchargées ; ssi.guidelines.ch/guideline/2410/fr (sources_cache)"
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 3,
+   "gravite": "Majeur",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.1..10.html (fenêtres f-dx1-p7-voisins, f-dx2-p7-differentiel, f-dx3-p4-diff, f-dx4-p7-voisins, f-dx5-p7-comp, f-dx6-p7-voisins, f-dx7-p7-differentiel, f-dx8-p4-diff, f-dx9-p7-voisins, f-dx10-p7-comp)",
+   "point": "4/7",
+   "avant": "Ordres relevés : DX.1 2-3-4-5-6-7🚩-10🚩 ; DX.2 grippe… 7-1 ; DX.3 1-2-4-5-10 ; DX.4 1→10 numérique (dont lui-même, sans 🚩) ; DX.5 1-2-3-4-6-10 ; DX.6 1-2-3-4-5-7-9-10 ; DX.7 2-8-6-9 ; DX.8 4-7 ; DX.9 1→10 numérique ; DX.10 5-4-7",
+   "constat": "Les DD ne suivent pas la liste gelée : graves E1 DX.9, E2 DX.8, E3 DX.7, E4 DX.10 d'abord (🚩), puis rang de fréquence DX.2, DX.1, DX.4, DX.5, DX.6, DX.3. Omissions : DX.1 sans DX.8/9 ; DX.2 sans 3, 4, 5, 6, 8, 9, 10 ; DX.3 sans 6, 7, 8, 9 ; DX.5 sans 7, 8, 9 ; DX.6 sans 8 ; DX.7 sans 1, 3, 4, 5, 10 ; DX.8 sans 1, 2, 3, 5, 6, 9, 10 ; DX.10 sans 1, 2, 3, 6, 8, 9.",
+   "correction": "Réordonner chaque tableau : 🚩 E1 DX.9 → 🚩 E2 DX.8 → 🚩 E3 DX.7 → 🚩 E4 DX.10 (hors DX courant), puis DX.2, DX.1, DX.4, DX.5, DX.6, DX.3 ; retirer la ligne du DX courant (DX.4, DX.9) ; ajouter les lignes manquantes (un discriminant + examen qui tranche, sources déjà citées) ; entités hors liste après les 9 DX."
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 4,
+   "gravite": "Moyen",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.9.html",
+   "point": 11,
+   "avant": "Paracétamol (Dafalgan® enfant, sirop) 15 mg par kg par prise, 3 (à 4) prises par jour, au maximum 75 mg par kg et par jour AIPS 43838 Aussi court que possible",
+   "constat": "Dose appliquée sans réserve au nouveau-né opéré (10e–13e jour) alors que l'AIPS signale une demi-vie plus longue chez le nouveau-né et un risque d'effets indésirables graves (propylèneglycol + éthanol) ; la réserve n'apparaît que dans la monographie.",
+   "correction": "Ajouter dans la ligne du tableau : « Nouveau-né : demi-vie plus longue (env. 3,5 h) et excipient propylèneglycol, d'où dosage au poids réel et prescription par le néonatologue » AIPS 43838 (septembre 2025)."
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 5,
+   "gravite": "Moyen",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.8.html",
+   "point": "4/11",
+   "avant": "Lavage des fosses nasales (Rhinomer®), gouttes vasoconstrictrices (Nasivin®) Sans dose dans le protocole",
+   "constat": "Oxymétazoline (Nasivin®) ni dosée selon l'AIPS ni marquée « hors AIPS » (règle L1) ; même mention dans f-dx8-p4-urg.",
+   "correction": "Écrire « Oxymétazoline (Nasivin®) : hors AIPS dans ce cours, aucune dose reprise ; durée limitée à une semaine par analogie avec AIPS 24926 (déduction) » ou relire l'AIPS Nasivin® et recopier dose, grossesse, allaitement, date."
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 6,
+   "gravite": "Mineur",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.4.html",
+   "point": 9,
+   "avant": "Débit inspiratoire nasal de pointe (PNIF) Mesure globale du flux, suivi En litres par minute ; plus bas le matin",
+   "constat": "Interprétation non chiffrée (ordre de Vial) : aucun seuil ni variation significative du PNIF.",
+   "correction": "Donner la valeur de référence ou la variation significative lue dans l'EAACI 2011 (S6) ; à défaut écrire « seuil non chiffré dans S6 : À vérifier »."
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 7,
+   "gravite": "Mineur",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.6.html",
+   "point": 11,
+   "avant": "Durée non fixée par les HUG",
+   "constat": "Délai de réévaluation du corticoïde nasal non tranché (restant de la Phase A) sans mention « À vérifier ».",
+   "correction": "« Délai de réévaluation non fixé par les HUG ni la S2k lue : À vérifier » ; réévaluer au contrôle ORL suivant."
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 8,
+   "gravite": "Mineur",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.2.html",
+   "point": 11,
+   "avant": "« rhino-sinusite aiguë non compliquée (symptômes >1 semaine; <4 semaines) sans signe ni symptôme d'une infection bactérienne grave »",
+   "constat": "Le « < » brut n'est pas échappé : l'extraction texte coupe la citation (« (symptômes >1 semaine; AIPS 54189 »).",
+   "correction": "Écrire &lt;4 semaines et &gt;1 semaine dans le HTML."
+  },
+  {
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 9,
+   "gravite": "Mineur",
+   "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.3.html",
+   "point": "3/9/11",
+   "avant": "S11 Zucker (États-Unis), S12 Margulis (Israël), S13 Neighbors (États-Unis)",
+   "constat": "Trois sources non européennes portent des chiffres (SNOT-22, oxymétazoline) alors que la règle est Suisse puis Europe ; elles sont signalées mais non indispensables.",
+   "correction": "Garder seulement comme complément signalé, ou remplacer par S4/S6/S9 européennes lorsque la donnée existe."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 1,
+   "gravite": "modérée",
+   "fichier": "LOT_031_Phase_B_V0_DX.2.html",
+   "avant": "Point 1 : 4 phrases, dont « Il réserve le terme de forme post-virale aux symptômes qui durent au-delà de 10 jours ou qui s'aggravent après 5 jours ».",
+   "correction": "Garder au point 1 la seule définition (HUG IVRS / rhinosinusite aiguë virale) ; les seuils post-viraux sont déjà au point 8 : supprimer la phrase du point 1."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 2,
+   "gravite": "mineure",
+   "fichier": "LOT_031_Phase_B_V0_DX.3.html",
+   "avant": "Point 1, 2e phrase : « Elle se distingue du rebond aigu, qui suit l'arrêt d'un traitement court… » (notion voisine, 30 mots).",
+   "correction": "Déplacer la distinction vers le point 7 ou 8 (déjà traitée dans la fenêtre « Rebond aigu ou rhinite médicamenteuse chronique »)."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 3,
+   "gravite": "mineure",
+   "fichier": "LOT_031_Phase_B_V0_DX.5.html, LOT_031_Phase_A_V0.html, LOT_031_Phase_B_V0_DX.10.html",
+   "avant": "Point 1 avec sémantique : « Les HUG la nomment « polypose nasale » » (DX.5) ; « L'EPOS2020 nomme ce symptôme « blocage, obstruction ou congestion nasale » et en fait un critère majeur » (A) ; « Le terme regroupe des carcinomes… » (DX.10).",
+   "correction": "Retirer la phrase de dénomination du point 1 (règle L1-1 : ni sémantique ni termes apparentés) ; l'histologie de DX.10 peut aller au point 3."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 4,
+   "gravite": "mineure",
+   "fichier": "LOT_031_Phase_B_V0_DX.7.html, LOT_031_Phase_B_V0_DX.8.html",
+   "avant": "Point 1, 2e phrase : formes nécrosantes pile bouton / aimants (DX.7) ; description du schéma et des complications (DX.8).",
+   "correction": "Limiter le point 1 à la phrase de définition ; ces éléments existent déjà aux points 5, 6 et 11."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 5,
+   "gravite": "mineure",
+   "fichier": "LOT_031_Phase_B_V0_DX.8.html",
+   "avant": "Drainage < 24 h + antibiotique 5 jours + contrôle jour 3–5 répétés aux points 4, 11 et 13.",
+   "correction": "Au point 4, renvoyer par lien à la fenêtre du point 11 au lieu de redonner la conduite."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 6,
+   "gravite": "mineure",
+   "fichier": "LOT_031_Phase_A_V0.html, DX.3, DX.5, DX.8, DX.9, DX.10",
+   "avant": "12 phrases de 29–32 mots (ex. A point 4 « Le médecin exclut d'abord l'atrésie choanale bilatérale… » 32 mots ; DX.10 « La prévention primaire vise surtout les poussières de bois… » 30 mots).",
+   "correction": "Couper chaque phrase en deux phrases verbales de 12–28 mots."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 7,
+   "gravite": "mineure",
+   "fichier": "palettes (designer)",
+   "avant": "6 accents verts proches et très sombres (A #245c2c ≈ DX.5 #20591c ≈ DX.9 #1f422b).",
+   "correction": "Faire recalculer par le designer des accents mieux répartis sur le cercle chromatique (hors cyan–violet) et plus saturés, fond blanc inchangé ; régénérer la planche."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 8,
+   "gravite": "mineure",
+   "fichier": "DX.1, DX.4, DX.6, DX.9 ; DX.2, DX.7",
+   "avant": "Apostrophe courbe dans le titre du point 14 (4 cours) ; régions du point 6 sans « Région N — » (DX.2, DX.7).",
+   "correction": "Uniformiser le titre canonique (apostrophe droite comme les 7 autres) et numéroter les régions."
+  },
+  {
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 9,
+   "gravite": "mineure",
+   "fichier": "7 cours (Nose_Anatomy.webp) ; DX.10",
+   "avant": "Même schéma BruceBlaus repris dans 7 cours ; DX.10 n'a que deux schémas anatomiques, sans image réelle de tumeur (endoscopie ou TDM).",
+   "correction": "Remplacer, là où c'est possible, par une image propre au diagnostic (PMC CC BY) ; pour DX.10, chercher une coupe TDM/IRM ou une endoscopie sous licence libre."
+  }
+ ],
+ "restants_leves_par_redacteur_1": [
+  {
+   "n": 0,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 1,
+   "preuve": "DX.3 f-dx3-p11-cause : Dymista® « Une nébulisation dans chaque narine, deux fois par jour (matin et soir) », 2 sem./4–8 sem., grossesse mot pour mot, AIPS 62675 (novembre 2025) ajoutée aux sources ; mométasone « 2 pulvérisations de spray dans chaque narine » 200 µg puis 100 µg AIPS 54189."
+  },
+  {
+   "n": 1,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 2,
+   "preuve": "DX.2 f-dx2-p11-structure ligne 6 : amoxicilline 1500–3000 mg/j en 3–4 doses, max 4000–6000 mg, ≤ 40 kg 50–100 mg/kg/j AIPS 44911 ; SSI 2410 (S14) 1 g/12 h, 5–7 j adulte, 10 (–14) j enfant, réévaluation 72 h ; échec : Augmentin « 2 x 1 g (875/125) ou 3 x 625 mg (500/125) » AIPS 45674 ; imagerie non recommandée, TDM injectée si complication ; fiches f-dx2-p11-amoxi et f-dx2-p11-augmentin (grossesse, allaitement, contre-indications mot pour mot)."
+  },
+  {
+   "n": 2,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 3,
+   "preuve": "10 fenêtres DD réordonnées 🚩 E1 DX.9 → E2 DX.8 → E3 DX.7 → E4 DX.10 → DX.2, 1, 4, 5, 6, 3, ligne du DX courant retirée (DX.4, DX.9 et lignes de référence), lignes manquantes ajoutées (signe qui oriente + examen qui tranche, lien vers le DX), lignes « Traité dans le DX » remplacées, entités hors liste après les 9 DX."
+  },
+  {
+   "n": 3,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 4,
+   "preuve": "DX.9 f-dx9-p11 ligne Paracétamol : nouveau-né, demi-vie « env. 3,5 heures » et propylèneglycol qui « peut induire des effets indésirables graves chez les nouveau-nés », dose au poids réel par le néonatologue (déduction) AIPS 43838."
+  },
+  {
+   "n": 4,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 5,
+   "preuve": "DX.8 points 4 et 11 : oxymétazoline (Nasivin®) écrite « hors AIPS dans ce cours », sans dose (3 occurrences, dont f-dx8-p4-urg)."
+  },
+  {
+   "n": 5,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 6,
+   "preuve": "DX.4 f-dx4-p9 PNIF : « meilleure de 3 mesures variant de moins de 10 % » (S6 lue, Europe PMC PMC3294630) ; « seuil normal non chiffré dans S6 : À vérifier »."
+  },
+  {
+   "n": 6,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 7,
+   "preuve": "DX.6 f-dx6-p11 : « Délai de réévaluation non fixé par les HUG ni la S2k lue : À vérifier ; réévaluer au contrôle ORL suivant »."
+  },
+  {
+   "n": 7,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 8,
+   "preuve": "DX.2 : &gt;1 semaine et &lt;4 semaines échappés dans la citation AIPS 54189."
+  },
+  {
+   "n": 8,
+   "origine": "audit1_medical.audit.json",
+   "n_origine": 9,
+   "preuve": "DX.3 : S11, S12, S13 gardées comme complément explicitement signalé « complément non européen », avec la source européenne S4/S7/S9 en regard (SNOT-22, oxymétazoline, réduction des cornets)."
+  },
+  {
+   "n": 9,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 1,
+   "preuve": "DX.2 point 1 : phrase des seuils post-viraux supprimée (déjà au point 8) ; reste la définition HUG + EPOS2020."
+  },
+  {
+   "n": 10,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 2,
+   "preuve": "DX.3 point 1 : paragraphe « rebond aigu » supprimé (déjà dans la fenêtre « Rebond aigu ou rhinite médicamenteuse chronique »)."
+  },
+  {
+   "n": 11,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 3,
+   "preuve": "Point 1 : dénomination « polypose nasale » (DX.5) et phrase EPOS2020 (Phase A) supprimées ; histologie DX.10 déplacée en tête du point 3 ; sigle HUG développé à sa nouvelle première occurrence (DX.5)."
+  },
+  {
+   "n": 12,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 4,
+   "preuve": "Point 1 réduit à la définition : DX.7 (formes nécrosantes, déjà aux points 5, 6, 11) et DX.8 (schéma et complications) ; HUG développé au point 2 de DX.7."
+  },
+  {
+   "n": 13,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 5,
+   "preuve": "DX.8 point 4 (f-dx8-p4-etap, f-dx8-p4-urg) : délai, antibiotique et contrôle remplacés par des liens vers f-dx8-p11-trait et f-dx8-p11-surv."
+  },
+  {
+   "n": 14,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 6,
+   "preuve": "36 phrases de 29–32 mots (A, DX.3, 4, 5, 7, 8, 9, 10) coupées ou resserrées : aucune phrase hors tableau au-delà de 28 mots (script controle3.phrases_html), controle3 11/11 VERT."
+  },
+  {
+   "n": 15,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 7,
+   "preuve": "forme.py FIXES[31] : 11 accents recalculés sur 0–150° et 335–360° (saturation 0,75–0,9, ΔE76 min 12,2, contraste ≥ 7,2:1 sur blanc), fond blanc inchangé (restaurer_fond --verifier vert), planche régénérée (planche5.py)."
+  },
+  {
+   "n": 16,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 8,
+   "preuve": "Titre du point 14 à apostrophe droite dans DX.1, 4, 6, 9 ; régions du point 6 numérotées « Région N — » dans DX.2 (7) et DX.7 (5)."
+  },
+  {
+   "n": 17,
+   "origine": "audit1_conformite.audit.json",
+   "n_origine": 9,
+   "preuve": "Images propres : DX.10 TDM réelle du carcinome du sinus maxillaire (PMC12702791, CC BY 4.0), DX.8 photo d’hématome septal (PMC11326054, CC BY), DX.7 sténose après pile bouton (PMC10199780, CC BY 4.0) remplacent Nose_Anatomy ; repères vérifiés par superposition PIL ; DX.4 et DX.9 portent déjà des images PMC propres, schéma gardé en anatomie de repère dans A, DX.2, 3, 4, 9."
+  }
+ ],
+ "verification_1": {
+  "verdict": "audit-ok",
+  "date": "2026-11-13",
+  "base": "96c673663",
+  "methode": "Vérification indépendante ciblée des 18 restants et du diff 26161b0f..96c67366 ; AIPS relues hors cache via aips_fiche.py fiche (62675, 54189, 44911, 45674, 43838) et sources_cache (SSI 2410, EAACI 2011 PMC3294630 relu sur ebi.ac.uk, légendes et licences PMC12702791, PMC11326054, PMC10199780) ; portes controle3 11/11 VERT, verif_aips OK, aips_fiche verifier 0 défaut, abreviations 0, forme --verifier conforme, restaurer_fond --verifier vert.",
+  "restants_leves": "18/18 levés exactement (n 0 à 17) : Dymista et mométasone mot pour mot AIPS ; amoxicilline AIPS 44911 et SSI 2410 (1 g/12 h, 1 g/8 h, 5–7 j, 10 (–14) j, imagerie, TDM injectée) conformes ; Augmentin « sinusites aiguës » 2 x 1 g ou 3 x 625 mg conforme ; grossesse, allaitement, contre-indications recopiés ; 10 tableaux DD dans l'ordre 9-8-7-10-2-1-4-5-6-3 sans le DX courant ; nouveau-né AIPS 43838 (« env. 3,5 heures », propylèneglycol) conforme ; Nasivin hors AIPS ; PNIF « best of 3 outcomes with less than 10% variation » conforme ; points 1 réduits ; titres 14 et régions conformes ; images propres sourcées.",
+  "compte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 0,
+   "mineur": 4
+  },
+  "restants": [
+   {
+    "gravite": "mineur",
+    "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.7.html",
+    "point": 6,
+    "constat": "Image PMC10199780 (Harrington, Cureus 2023) annoncée « Creative Commons BY 4.0 » (légende et bibliographie S13) alors que l'article est sous CC BY 3.0 (license_ref creativecommons.org/licenses/by/3.0).",
+    "correction": "Écrire « CC BY 3.0 » dans la légende, la bibliographie et images/PMC10199780_pile_bouton_stenose.json."
+   },
+   {
+    "gravite": "mineur",
+    "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.2.html",
+    "point": 1,
+    "constat": "Le point 1 garde une phrase de dénomination : « Le document européen EPOS2020 nomme le rhume « rhinosinusite aiguë virale » », du même type que celles retirées par le restant n 11 (règle L1-1).",
+    "correction": "Déplacer cette phrase de dénomination au point 3 ou 8 ; garder au point 1 la seule définition HUG."
+   },
+   {
+    "gravite": "mineur",
+    "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.8.html",
+    "point": 4,
+    "constat": "Après le renvoi par liens (restant n 13), la phrase de clôture de f-dx8-p4-etap redonne encore le délai (« Le délai de 24 heures vaut pour l'hématome… vers le septième jour »).",
+    "correction": "Remplacer par un renvoi à f-dx8-p11-surv sans chiffre."
+   },
+   {
+    "gravite": "mineur",
+    "fichier": "Claude/LOT_031/LOT_031_Phase_B_V0_DX.2/5/10.html (tableaux DD)",
+    "point": "4/7",
+    "constat": "Quelques lignes de la liste gelée n'ont pas de lien vers leur DX (DX.2 : DX.7 ; DX.5 : DX.10, 2, 1, 4, 6, 3 ; DX.10 : DX.7, 4, 5), alors que la preuve du restant n 2 annonce « lien vers le DX ».",
+    "correction": "Ajouter le lien LOT_031_Phase_B_V0_DX.N.html dans la cellule source ou diagnostic de ces lignes."
+   }
+  ],
+  "note_palette": "FIXES[31] accepté (accents saturés 0,75–0,9, fond blanc) ; A 120°, DX.4 88°, DX.5 148°, DX.8 65° restent dans la bande vert-jaune, à surveiller sans bloquer."
+ }
+}
