@@ -15,6 +15,8 @@ Read toujours avec `limit` ; une sortie d'outil > 20 000 caractères est une ale
 **Ordre de Vial du 12.11.2026 (prioritaire)** : de la démarche diagnostique jusqu'à la prise en charge et au suivi, précision agressive — examen ciblé selon les sociétés suisses (indication, seuil, interprétation, conduite), traitement structuré (molécule AIPS, dose, durée, contrôle, critères d'échec), surveillance datée ; en tableaux dans les fenêtres, concision profonde ; puiser davantage dans la source lue en amont, sans perte de temps.
 **Fond d'écran BLANC, couleur vive partout ailleurs** (ordre de Vial du 13.11.2026) : fond de page blanc (porte `Claude/_outils/restaurer_fond.py --verifier`) ; couleurs vives et franches sur tout le reste — titres, bandeaux, en-têtes de tableaux, encadrés, boutons, rail, badges 🚩, repères — palette propre au cours, contraste texte ≥ 7:1.
 
+**Phrases VERBALES obligatoires** (Vial, 13.11.2026) : verbe conjugué et connecteurs logiques dans chaque phrase, concision maintenue ; jamais de phrase nominale ; tout calcul : formule, usage pratique simple, exemple chiffré.
+
 **Règles L1 (non négociables)** : 14 points ; point 1 = définition seule ; fenêtres `:target` non imbriquées ; 80–150 Ko hors images ;
 phrases verbales 12–28 mots ; aucune redite ; sources suisses puis européennes lues et datées ; rien d'inventé ; déduction
 écrite comme telle ; images réelles EN COULEURS d'abord (Blausen, OpenStax, PMC CC BY), repères vérifiés par superposition PIL ;
