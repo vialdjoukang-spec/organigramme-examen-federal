@@ -188,5 +188,97 @@
    "gravite": "mineure",
    "preuve": "seuil Baveno VII écrit « > 25 kPa, très en faveur » avec la réserve IMC ≥ 30 et stéatohépatite non alcoolique (cache FMC-HGE relu) ; ne_pas_demander écrit comme déduction, avec le rappel EFSUMB (diamètre et vitesse portale toujours rapportés)."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, non-rédacteur)",
+  "verdict": "audit-ok",
+  "resume": "Les 12 restants sont levés : le vérificateur a relu le diff du commit 466da1df4 sur les 5 fiches et l'a confronté aux sources (BSG 2020 texte intégral Europe PMC PMC7398479 ; cours IRA-CHUV Pitzschke 2018 ; synthèse FMC-HGE de Baveno VII ; smarter medicine SSG 2017 ; Berzigotti, en cache). Les portes controle.py, charpente.py (0 fiche écrite) et verbal.py (0 phrase nominale sur 294) restent vertes. Il reste 0 critique, 0 grave, 0 moyen et 3 mineurs.",
+  "restants_verifies": [
+   {
+    "restant": 1,
+    "leve": true,
+    "preuve": "BSG 2020 : « For a non-lesional liver biopsy, we recommend a transvenous approach if the INR is >1.4 (strength of recommendation MODERATE) » et « For percutaneous lesional biopsies, the INR should be <2.0 » ; la BSG juge la TJLB non faisable pour une biopsie ciblée d'une lésion focale."
+   },
+   {
+    "restant": 2,
+    "leve": true,
+    "preuve": "BSG 2020 : « Common practice has been to consider transjugular over percutaneous biopsy in patients with a platelet count <50×10^9/L and/or to transfuse platelets »."
+   },
+   {
+    "restant": 3,
+    "leve": true,
+    "preuve": "BSG 2020 : mortalité toutes causes à 7 jours de 2 pour 1000, jusqu'à 12 pour 1000 si l'on cherche un cancer ; mort directement liée au geste au plus 1 sur 10 000."
+   },
+   {
+    "restant": 4,
+    "leve": true,
+    "preuve": "depistage_pretherapeutique = « — » ; Gut 2018 retirée des sources de la biopsie ; passerelle Prélèvement → EX-1-S5-tp-facteur-v (identifiant existant, type conforme au cahier § 5.2)."
+   },
+   {
+    "restant": 5,
+    "leve": true,
+    "preuve": "11.4 mSv attribués à l'abdomen supérieur (Samara 2026, tableau 4, ajouté aux sources) ; 10.5 mSv marqués « à relire »."
+   },
+   {
+    "restant": 6,
+    "leve": true,
+    "preuve": "Listes SGR-SSR séparées comme demandé ; le piège dit « on ajoute une irradiation sans gain diagnostique »."
+   },
+   {
+    "restant": 7,
+    "leve": true,
+    "preuve": "Cours IRA-CHUV 2018 relu en cache : cosmique 0,38, terrestre 0,35, rayonnement propre 0,34 et radon 3,2 mSv/an ; somme 4.27, 9.9 ÷ 4.27 ≈ 2.3 ans exact ; la SSG s'appuie bien sur la liste Choosing Wisely (AGA 2012) et cite la FDA."
+   },
+   {
+    "restant": 8,
+    "leve": true,
+    "preuve": "urgence_aigu et depistage_pretherapeutique restreints à la pancréatite, avec « on devrait envisager » et la réserve sur le gaz des collections (WSES 2019)."
+   },
+   {
+    "restant": 9,
+    "leve": true,
+    "preuve": "La phrase reprend la recommandation 1.10 de la WSES 2020 (adulte et enfant, si une imagerie est indiquée, 1B)."
+   },
+   {
+    "restant": 10,
+    "leve": true,
+    "preuve": "Rate ≤ 12 cm et < 45 cm² (Berzigotti) ; EASL 2018 et 2025 remplacées par « (non vérifié CH) »."
+   },
+   {
+    "restant": 11,
+    "leve": true,
+    "preuve": "Les deux champs visés portent « indication relative de chirurgie (Gut 2018) » ; voir le mineur 1 ci-dessous pour une occurrence résiduelle hors champ."
+   },
+   {
+    "restant": 12,
+    "leve": true,
+    "preuve": "FMC-HGE (Baveno VII) : « une élasticité > 25 kPa est très en faveur d'une HTPCS … mais pas chez les patients obèses (IMC ≥ 30 kg/m2) ayant une NASH (B1) » ; ne_pas_demander écrit comme déduction avec le rappel EFSUMB."
+   }
+  ],
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S5-bili-irm",
+    "champ": "temps3_interpretation (associees_a_rechercher, CA 19-9)",
+    "avant": "On dose le CA 19-9, car une valeur > 37 U/ml s'ajoute aux signes d'inquiétude",
+    "correction": "Écrire « s'ajoute aux indications relatives de chirurgie (Gut 2018) », car le terme « signes d'inquiétude » appartient à Fukuoka ; l'occurrence a échappé à la levée du restant 11."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S5-biopsie-guidee-foie-pancreas",
+    "champ": "temps2_examen[1].normal et seuil_alerte ; ne_pas_demander ; mnémotechnique",
+    "avant": "INR jusqu'à 2.0 / ≤ 2.0 pour une lésion ciblée / INR > 2.0",
+    "correction": "La BSG écrit « the INR should be <2.0 » (et « an INR of 1.5–2.0 is not a contraindication ») : écrire « INR < 2.0 » et « INR ≥ 2.0 » pour la borne, afin de suivre la source à la lettre."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S5-tdm-abdomino-pelvienne",
+    "champ": "entete.bon_usage_suisse",
+    "avant": "ce chiffre reprend toutefois une liste américaine … donc il ne vaut pas tel quel pour la Suisse",
+    "correction": "La SSG juge la liste Choosing Wisely « intégralement applicable et pertinente pour la Suisse » ; écrire la réserve comme une déduction chiffrée (« par calcul avec les composantes OFSP, on obtient ≈ 2.3 ans, donc moins que les trois ans cités »)."
+   }
+  ],
+  "besoins_outils_partages": "Aucun. Le texte intégral BSG 2020 n'était pas indexé dans sources_cache.py (aucune entrée « BSG », « liver » ni PMC7398479) ; le vérificateur l'a relu via Europe PMC hors cache."
+ }
 }
