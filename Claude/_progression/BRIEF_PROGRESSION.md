@@ -20,7 +20,7 @@ termes discriminants en gras. N'invente aucun code CIM-10.
 0.5 Sources suisses d'abord : AIPS Swissmedic, puis sociétés et hôpitaux universitaires suisses, puis européennes
 (signalées). « Selon X » seulement si la page de X a été lue ; sinon « (non vérifié CH) ».
 0.6 Forme : Atkinson Hyperlegible, ≈ 15 px, colonne ≤ 760 px, une seule fenêtre ouverte, contraste ≥ 7:1,
-**fond blanc** (`python3 Claude/_outils/restaurer_fond.py --verifier <html>`). Couleurs à sens fixe :
+**fond blanc, couleur vive partout ailleurs (aplats foncés vifs + texte blanc, contraste ≥ 7:1 ; un système = une couleur)** (`python3 Claude/_outils/restaurer_fond.py --verifier <html>`). Couleurs à sens fixe :
 bleu normal · rouge pathologie · vert traitement du système · violet hors système · ocre non médicamenteux · orange danger.
 
 **AIPS (posologie, grossesse, allaitement, contre-indications)**
