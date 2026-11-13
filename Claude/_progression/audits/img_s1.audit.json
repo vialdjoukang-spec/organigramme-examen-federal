@@ -118,5 +118,58 @@
    "gravite": "mineure",
    "preuve": "bon_usage_suisse : TEP à la tyrosine 18F retirée, faute de source EANM lue (réseau coupé) ; indications épilepsie et gliome non écrites."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, non-rédacteur)",
+  "verdict": "audit-ok",
+  "resume": "Les 7 restants sont levés ; le diff de f5e441741 n'introduit aucune erreur critique, grave ou moyenne. Portes : controle.py VERT, charpente.py 0 écrite, verbal.py 0 phrase nominale, verif_aips sans échec.",
+  "controle_restants": [
+   {
+    "restant": 1,
+    "leve": true,
+    "preuve": "TDM : calculs[1] (a_quoi_ca_sert, exemple, source), temps2[0].seuil_alerte et temps3[0].conduite portent « ASPECTS ≥ 6 » comme exemple ESO-ESMINT 2019 et « grand noyau » À vérifier ; aucune autre mention d'exclusion par ASPECTS < 6 dans la fiche."
+   },
+   {
+    "restant": 2,
+    "leve": true,
+    "preuve": "IRM : « qui dure depuis moins de 6 semaines » dans ne_pas_demander et bon_usage_suisse, conforme au titre SSMIG 2014."
+   },
+   {
+    "restant": 3,
+    "leve": true,
+    "preuve": "TDM : k À vérifier ; 0,0021 tête seule et 0,0031 tête et cou concordent avec AAPM Report 96 ; 890 × 0,0021 = 1,87 et 890 × 0,0031 = 2,76 exacts ; Samara Health Physics 2026 remplacé par le rapport OFSP 2023 (2,4 mSv) dans calculs, bon_usage_suisse et sources."
+   },
+   {
+    "restant": 4,
+    "leve": true,
+    "preuve": "Médecine nucléaire : règle OPAS reprise mot pour mot de la correction, cohérente avec bon_usage_suisse."
+   },
+   {
+    "restant": 5,
+    "leve": true,
+    "preuve": "NRI : mention des essais randomisés depuis 2022 À vérifier ajoutée après l'occlusion basilaire."
+   },
+   {
+    "restant": 6,
+    "leve": true,
+    "preuve": "ETF : « ou » retiré et conjonction signalée À vérifier, ce que la correction admettait faute de relecture ; relu ici (Mohammad 2021, PMC7982529, Europe PMC via PubMed, 13.11.2026) : l'étape 3 de l'algorithme définit le grade III par « distending the ipsilateral lateral ventricle AND the AHW measures >6 mm », et le remplissage ≥ 50 % n'est que typique (« typically fills 50% or more »). Voir restant mineur ci-dessous."
+   },
+   {
+    "restant": 7,
+    "leve": true,
+    "preuve": "Médecine nucléaire : TEP à la tyrosine 18F (210 MBq, 4,8 mSv) retirée de bon_usage_suisse, option prévue par la correction ; aucune autre mention dans la fiche."
+   }
+  ],
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S1-echographie-transfontanellaire",
+    "champ": "temps2_examen[0].anomalie",
+    "avant": "« s'il remplit ≥ 50 % du ventricule et le dilate de façon aiguë (corne antérieure > 6 mm), elle est de grade III (consensus canadien 2021) ; la conjonction exacte (et ou ou) n'a pas été relue … (À vérifier) »",
+    "correction": "Le consensus (étape 3) classe en grade III l'hémorragie qui distend le ventricule ET dont la largeur de la corne antérieure dépasse 6 mm ; le grade II est celle qui ne le distend pas ; le remplissage (< 50 % au grade II, ≥ 50 % au grade III) n'est que typique. Écrire : « si le sang dilate de façon aiguë le ventricule (corne antérieure > 6 mm), l'hémorragie est de grade III ; elle remplit alors typiquement ≥ 50 % du ventricule (consensus canadien 2021) » et retirer le « À vérifier »."
+   }
+  ],
+  "besoins_outils": "sources_cache : pmc.ncbi.nlm.nih.gov sous disjoncteur ; Mohammad 2021 lu par l'outil PubMed (texte intégral PMC), non indexé dans sources_index.jsonl."
+ }
 }
