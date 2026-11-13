@@ -187,8 +187,8 @@ nav.on button.a{background:var(--eye);border-color:#111;color:#000}
 #menu .x{display:none}
 #planbtn{display:none}
 /* EYE SPOT : une seule bande pour tous les titres de la page active */
-h1,#menu .mt,#menu li.g,.c .code,.c h2,#vue .tete,.col h2,.col h3,.col h4,.ch>.eh,#fen .ft h3,#fen h4,#fen h5{background:var(--eye)!important;color:#000}
-h1,.col h2,.col h3,.col h4,#fen .ft h3,#fen h4,#fen h5{border:1px solid var(--eye-b)}
+h1,#menu .mt,#menu li.g,.c .code,.c h2,#vue .tete,.col h2,.col h3,.col h4,.ch>.eh,#fen .ft h3,#fen h4,#fen h5,#sco h3{background:var(--eye)!important;color:#000}
+h1,.col h2,.col h3,.col h4,#fen .ft h3,#fen h4,#fen h5,#sco h3{border:1px solid var(--eye-b)}
 h1{padding:3px 10px;border-radius:8px}
 main{min-width:0;padding:14px;background:#fff}
 section.p{display:none}section.p.a{display:block}
@@ -274,6 +274,18 @@ details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
 #fen .calc{border:1px solid var(--trait);border-left:4px solid var(--bleu);border-radius:6px;padding:4px 10px 6px;margin:6px 0}
 #fen .calc p{margin:4px 0}#fen .calc .src{font-size:.82rem}
 #fen pre.fx,#fen pre.ex{white-space:pre-wrap;overflow-wrap:anywhere;margin:4px 0;padding:6px 8px;border-radius:5px;background:var(--t-tableau);color:#111;font-size:.86rem}
+/* Glossaire : sigle en survol (souris : title ; clavier et toucher : focus, bulle dessinée), score ouvert en fenêtre au clic. */
+abbr[title]{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help;position:relative;border-radius:3px}
+abbr[title]:focus{outline:2px solid #111;outline-offset:1px}
+#bulle{position:fixed;z-index:60;display:none;max-width:min(320px,calc(100vw - 24px));background:#fff;color:#111;border:2px solid #111;border-radius:8px;padding:5px 9px;font-size:.84rem;font-weight:400;line-height:1.35;box-shadow:0 3px 10px rgba(0,0,0,.2);pointer-events:none}#bulle.a{display:block}
+button.sc{font:inherit;color:inherit;background:none;border:0;border-bottom:2px solid currentColor;padding:0 1px;margin:0;cursor:pointer;line-height:inherit}
+button.sc::after{content:" ⓘ";font-size:.8em}button.sc:focus-visible{outline:2px solid #111;outline-offset:1px}
+#sco{position:fixed;inset:0;z-index:55;background:rgba(10,12,16,.55);display:none;align-items:flex-start;justify-content:center;padding:6vh 12px;overflow:auto}#sco.a{display:flex}
+#sco .fc{background:#fff;width:100%;max-width:640px;border-radius:14px;padding:14px 18px 20px;border:1px solid var(--trait)}
+#sco .ft{display:flex;gap:8px;align-items:flex-start}#sco h3{flex:1;margin:0;font-size:1.08rem;font-weight:800;padding:8px 12px;border-radius:10px}
+#sco .x{font:inherit;border:2px solid #111;background:#fff;font-weight:700;border-radius:8px;padding:4px 10px;cursor:pointer}
+#sco h4{margin:12px 0 4px;font-size:.95rem;font-weight:800}#sco table{border-collapse:collapse;width:100%;font-size:.88rem}#sco td,#sco th{border:1px solid var(--trait);padding:5px 6px;vertical-align:top;text-align:left}
+#sco th{background:var(--t-tableau)}#sco td.pt{width:22%;font-weight:700;white-space:nowrap}#sco .src{font-size:.82rem}
 #fen pre.fx{font-family:ui-monospace,'DejaVu Sans Mono',Consolas,'Courier New',monospace;font-weight:700}#fen pre.ex{font-family:inherit}
 .tw{overflow-x:auto}
 @media(max-width:1180px){.mod{grid-template-columns:minmax(0,1fr);gap:8px}
@@ -390,11 +402,29 @@ const COUL={normal:'bleu',trajet:'bleu',stations:'bleu',structure_fonction:'bleu
  systeme:'vert',classes:'vert',bandes:'vert',pharmacologie_psychiatrique:'vert',hors_systeme:'violet',hors_psychiatrie:'violet',non_medicamenteux:'ocre',psychotherapies_mesures:'ocre',mesures_legales_sociales:'ocre',
  ne_pas_demander:'orange',seuil_alerte:'orange',annexeA_pieges:'orange',pieges:'orange'};
 const lbl=k=>LBL[k]||(k.charAt(0).toUpperCase()+k.slice(1)).replace(/_/g,' ');
+/* Glossaire (Claude/_progression/glossaire.json) : chaque sigle devient un survol <abbr title> accessible au clavier et au toucher
+   (tabindex) ; chaque score (clé ou alias) devient un bouton qui ouvre sa cotation détaillée et son interprétation. Un seul passage
+   d'expression régulière, du nom le plus long au plus court, sur le texte déjà échappé : aucune bulle n'est enveloppée deux fois. */
+const GL=D.glo||{abreviations:{},scores:{}},GA=GL.abreviations||{},GS=GL.scores||{},GN={};
+Object.entries(GS).forEach(([k,v])=>[k].concat(v.alias||[]).forEach(n=>GN[n]=k));
+const GNOMS=Object.keys(GA).concat(Object.keys(GN)).filter((x,i,a)=>a.indexOf(x)===i).sort((a,b)=>b.length-a.length);
+const GRX=GNOMS.length?new RegExp('(?<![0-9A-Za-zÀ-ÖØ-öø-ÿ_])('+GNOMS.map(x=>esc(x).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![0-9A-Za-zÀ-ÖØ-öø-ÿ_])','g'):null;
+const GDE={};GNOMS.forEach(n=>GDE[esc(n)]=n);
+/* Bulle du sigle au clavier et au toucher : un seul élément fixe, placé sous le sigle et gardé dans l'écran (un tableau qui défile ne la coupe pas). */
+function bulle(a){const b=$('#bulle');if(!a){b.classList.remove('a');return}b.textContent=a.getAttribute('title');b.classList.add('a');
+  const r=a.getBoundingClientRect(),w=b.offsetWidth,h=b.offsetHeight;let x=Math.min(Math.max(12,r.left),innerWidth-w-12),y=r.bottom+6;if(y+h>innerHeight-8)y=Math.max(8,r.top-h-6);
+  b.style.left=x+'px';b.style.top=y+'px';}
+document.addEventListener('focusin',e=>{const a=e.target.closest&&e.target.closest('abbr[title]');bulle(a||null)});
+document.addEventListener('focusout',e=>{if(e.target.matches&&e.target.matches('abbr[title]'))bulle(null)});
+addEventListener('scroll',()=>{const a=document.activeElement;if($('#bulle').classList.contains('a'))bulle(a&&a.matches&&a.matches('abbr[title]')?a:null)},true);
+function gl(x){const h=esc(x);if(!GRX)return h;return h.replace(GRX,m=>{const n=GDE[m]||m;
+  if(GN[n])return '<button type="button" class="sc" data-sc="'+esc(GN[n])+'" aria-haspopup="dialog" title="'+esc('Score : cotation et interprétation')+'">'+m+'</button>';
+  return '<abbr tabindex="0" title="'+esc(GA[n])+'">'+m+'</abbr>';});}
 const lienF=id=>F[id]?'<button type="button" class="lien" data-f="'+esc(id)+'">'+esc(fi(id).titre)+'<small>'+esc(id)+'</small></button>':esc(id);
 const vide=x=>x==null||x===V||(Array.isArray(x)?x.every(vide):typeof x==='object'?Object.values(x).every(vide):false);
 function val(v,k,t2){
   if(v==null)return esc(V);
-  if(typeof v==='string'||typeof v==='number')return F[v]?lienF(v):esc(v);
+  if(typeof v==='string'||typeof v==='number')return F[v]?lienF(v):gl(v);
   if(Array.isArray(v)){if(!v.length)return esc(V);
     if(typeof v[0]!=='object')return v.length===1?val(v[0]):'<ul>'+v.map(x=>'<li>'+val(x)+'</li>').join('')+'</ul>';
     const ks=Object.keys(v[0]).filter(x=>x!=='vite_dit_cafe'&&x!=='traitement');
@@ -406,9 +436,9 @@ function val(v,k,t2){
 /* Bloc optionnel « Calculs » (après le Temps 2) : chaque paramètre calculé montre sa formule en chasse fixe, son usage pratique,
    un exemple résolu pas à pas et sa source ; le titre de chaque calcul suit la bande EYE SPOT (#fen h5). */
 function calculs(l){const r=(Array.isArray(l)?l:[]).filter(x=>x&&!vide(x));if(!r.length)return '<p class="vide">—</p>';
-  return r.map(x=>'<div class="calc"><h5>'+esc(x.nom||V)+'</h5><pre class="fx"><code>'+esc(x.formule||V)+'</code></pre>'
-    +'<p><b>À quoi ça sert :</b> '+esc(x.a_quoi_ca_sert||V)+'</p><p><b>Exemple résolu :</b></p><pre class="ex">'+esc(x.exemple||V)+'</pre>'
-    +'<p class="src">Source : '+esc(x.source||V)+'</p></div>').join('');}
+  return r.map(x=>'<div class="calc"><h5>'+esc(x.nom||V)+'</h5><pre class="fx"><code>'+gl(x.formule||V)+'</code></pre>'
+    +'<p><b>À quoi ça sert :</b> '+gl(x.a_quoi_ca_sert||V)+'</p><p><b>Exemple résolu :</b></p><pre class="ex">'+gl(x.exemple||V)+'</pre>'
+    +'<p class="src">Source : '+gl(x.source||V)+'</p></div>').join('');}
 const BLOCS={examen:[['entete','En-tête'],['temps1_indications','Temps 1 · Indications'],['temps2_examen','Temps 2 · L\'examen — un paramètre lu seul'],
   ['calculs','Calculs · formule, usage, exemple résolu'],
   ['temps3_interpretation','Temps 3 · Interprétation — plusieurs anomalies associées'],['annexeA_pieges','Annexe A · Pièges'],['sources','Sources']]};
@@ -425,15 +455,27 @@ function rendreFiche(id){const f=fi(id);if(!f)return {h:'<p class="vide">Identif
     const t2=k==='temps2_examen'&&so?{parametre:so.temps2[0],normal:so.temps2[1],anomalie:so.temps2[2]}:null;
     h+='<h4 id="'+ancre+'" class="'+(c?'k-'+c:'')+'">'+esc(t)+'</h4>'+(k==='calculs'?calculs(f[k]):val(f[k],k,t2));}
   s.push({id:'fb-p',t:'Passerelles'});
-  h+='<h4 id="fb-p">Annexe B · Passerelles</h4>'+(f.passerelles.length?'<div class="tw"><table><tr><th>Type</th><th>Fiche cible</th><th>Pourquoi</th></tr>'+f.passerelles.map(p=>'<tr><td>'+esc(p.type)+'</td><td>'+lienF(p.cible)+'</td><td>'+esc(p.pourquoi)+'</td></tr>').join('')+'</table></div>':'<p class="vide">—</p>');
+  h+='<h4 id="fb-p">Annexe B · Passerelles</h4>'+(f.passerelles.length?'<div class="tw"><table><tr><th>Type</th><th>Fiche cible</th><th>Pourquoi</th></tr>'+f.passerelles.map(p=>'<tr><td>'+esc(p.type)+'</td><td>'+lienF(p.cible)+'</td><td>'+gl(p.pourquoi)+'</td></tr>').join('')+'</table></div>':'<p class="vide">—</p>');
   return {h,s};}
 /* Une seule fenêtre ouverte : ouvrir une fiche remplace la précédente ; la bande de menu montre alors le plan de la fiche. */
 function ouvrirF(id){const f=fi(id);if(!f)return;$('#fen').dataset.id=id;const r=rendreFiche(id);$('#fen .ft h3').textContent=f.titre;$('#fen .fb').innerHTML=r.h;$('#fen').classList.add('a');$('#fen').scrollTop=0;
   document.body.style.overflow='hidden';history.replaceState(null,'','#f='+encodeURIComponent(id));$('#menu').classList.remove('ouvert');
   menu('Fiche · '+f.titre,r.s,$('#fen'));$('#fen .x').focus();}
 function fermerF(){$('#fen').classList.remove('a');document.body.style.overflow='';const o=$('nav.on button.a');history.replaceState(null,'','#'+(o?o.dataset.o:''));menuOnglet();}
+/* Fenêtre de score : posée au-dessus de la fiche, fermée par ✕, Échap ou clic hors du cadre ; le focus revient au bouton du score. */
+let SCO_RET=null;
+function ouvrirS(k){const s=GS[k];if(!s)return;SCO_RET=document.activeElement;
+  $('#sco h3').textContent=k;
+  $('#sco .fb').innerHTML='<p>'+esc(s.definition)+'</p><h4>Cotation détaillée</h4><div class="tw"><table><tr><th>Item</th><th>Points</th></tr>'
+    +(s.cotation||[]).map(c=>'<tr><td>'+esc(c.item)+'</td><td class="pt">'+esc(c.points)+'</td></tr>').join('')+'</table></div>'
+    +'<h4>Interprétation</h4><div class="tw"><table><tr><th>Plage</th><th>Sens</th></tr>'+(s.interpretation||[]).map(c=>'<tr><td class="pt">'+esc(c.plage)+'</td><td>'+esc(c.sens)+'</td></tr>').join('')+'</table></div>'
+    +'<p class="src">Source : '+esc(s.source)+'</p>';
+  $('#sco').classList.add('a');$('#sco').scrollTop=0;$('#sco .x').focus();}
+function fermerS(){$('#sco').classList.remove('a');if(SCO_RET&&SCO_RET.focus)SCO_RET.focus();SCO_RET=null;}
+$('#sco').onclick=e=>{if(e.target.id==='sco'||e.target.closest('#sco .x'))fermerS()};
+document.addEventListener('click',e=>{const b=e.target.closest('button.sc[data-sc]');if(b){e.preventDefault();e.stopPropagation();ouvrirS(b.dataset.sc)}},true);
 $('#fen').onclick=e=>{if(e.target.id==='fen'||e.target.closest('#fen .x'))fermerF()};
-addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#fen').classList.contains('a'))fermerF()});
+addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#sco').classList.contains('a'))fermerS();else if($('#fen').classList.contains('a'))fermerF()});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){e.preventDefault();ouvrirF(b.dataset.f)}});
 const btnF=(id,ancre)=>{const f=fi(id);return '<li'+(ancre?' id="'+esc(ancre)+'"':'')+'><button type="button" data-f="'+esc(id)+'">'+esc(f.titre)+(f.etiquettes&&f.etiquettes.length?f.etiquettes.map(e=>'<span class="etq">'+esc(e)+'</span>').join(''):'')+'<small>'+esc(id)+'</small></button></li>'};
 const listeF=(ids,pre)=>ids.length?'<ul class="lf">'+ids.map(id=>btnF(id,pre?pre+id:'')).join('')+'</ul>':'<p class="vide">—</p>';
@@ -561,7 +603,9 @@ def rendre(a):
             f'<div class="j"><div class="t"><div class="f" style="--p:{p}%;--h:{round(1.2 * p)}"></div></div><span>{p} %</span></div>'
             f'<details{" open" if lot in prets and len(prets) <= 3 else ""}><summary>{"Ouvrir les cours" if lot in prets else "Diagnostics prévus"}</summary><ul class="ls">{"".join(items)}</ul></details></article>')
     th, css_th = themes(a.themes)
-    donnees = {'base': a.base, 'ssp': ssp, 'prog': progression(a.donnees), 'themes': th}
+    glo = json.load(open(a.glossaire, encoding='utf-8')) if os.path.exists(a.glossaire) else {}
+    donnees = {'base': a.base, 'ssp': ssp, 'prog': progression(a.donnees), 'themes': th,
+               'glo': {k: glo.get(k, {}) for k in ('abreviations', 'scores')}}
     n_empl = len(donnees['prog']['F'])
     maj = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).strftime('%d.%m.%Y %H:%M')
     doc = f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -582,6 +626,8 @@ def rendre(a):
 <button id="planbtn" type="button" aria-controls="menu">☰ Plan</button>
 <div id="vue" role="dialog" aria-label="Cours"><div class="tete"><button id="vr" type="button" aria-label="Retour à la liste">←</button><b id="vt"></b><button id="vp" type="button" aria-label="Cours précédent">‹</button><button id="vs" type="button" aria-label="Cours suivant">›</button><a class="x" id="vn" target="_blank" rel="noopener" aria-label="Ouvrir dans un nouvel onglet">↗</a></div><iframe id="vf" title="Cours" src="about:blank"></iframe></div>
 <div id="fen" role="dialog" aria-modal="true" aria-label="Fiche"><div class="fc"><div class="ft"><h3></h3><button type="button" class="x" aria-label="Fermer la fiche">✕</button></div><div class="fb"></div></div></div>
+<div id="bulle" role="tooltip"></div>
+<div id="sco" role="dialog" aria-modal="true" aria-label="Score"><div class="fc"><div class="ft"><h3></h3><button type="button" class="x" aria-label="Fermer le score">✕</button></div><div class="fb"></div></div></div>
 <script type="application/json" id="donnees">{json.dumps(donnees, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")}</script>
 <script>{JS}</script></body></html>'''
     open(a.sortie, 'w', encoding='utf-8').write(doc)
@@ -597,6 +643,7 @@ if __name__ == '__main__':
     ap.add_argument('--donnees', default='Claude/_progression/donnees', help='source de vérité des onglets Examens, Pharmacologie, Sciences fondamentales')
     ap.add_argument('--base', default='', help='préfixe des liens vers les cours (vide : relatif à la page)')
     ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées 60-80 %, contraste >= 7:1')
+    ap.add_argument('--glossaire', default='Claude/_progression/glossaire.json', help='sigles (survol) et scores (fenêtre au clic) des fiches')
     ap.add_argument('--sortie', default='progression.html')
     a = ap.parse_args()
     print('%d SSP prêts, %d cours ouvrables, %d octets' % rendre(a))

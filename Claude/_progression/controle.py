@@ -8,7 +8,8 @@ Vérifie sur Claude/_progression/donnees/ :
  4. passerelles valides : type autorisé (partie 5.2 et interfaces de la partie 2), cible existante, pas d'auto-renvoi ;
  5. aucun terme vague sans chiffre dans une posologie remplie ;
  6. bloc optionnel « calculs » : un calcul rempli porte ses 5 champs (nom, formule, a_quoi_ca_sert, exemple, source) ;
- 7. systèmes S1 et S11 séparés : système de l'identifiant = système de la fiche ; une molécule commune a deux fiches distinctes.
+ 7. systèmes S1 et S11 séparés : système de l'identifiant = système de la fiche ; une molécule commune a deux fiches distinctes ;
+ 8. glossaire (glossaire.py) : tout sigle et tout score cité dans une fiche remplie existe dans glossaire.json.
 Usage : python3 Claude/_progression/controle.py [dossier]
 """
 import glob, json, os, re, sys
@@ -145,9 +146,12 @@ def main():
             for i in sy['fiches']:
                 if i not in fiches:
                     e(f'structure : emplacement sans fiche : {i}')
+    import glossaire  # porte 8 : sigles et scores des fiches remplies présents dans glossaire.json
+    g_err, _, _, n_ab, n_sc = glossaire.verifier(DON, os.path.join(ICI, 'glossaire.json'))
+    err.extend(g_err)
     n_p = sum(len(f.get('passerelles', [])) for f in fiches.values())
     communes = sorted(d for d, ss in dci.items() if {'S1', 'S11'} <= ss)
-    print(f'CONTRÔLE partie 8 · {len(fiches)} fiches · {n_p} passerelles · molécules S1+S11 en fiches distinctes : {", ".join(communes) or "aucune"}')
+    print(f'CONTRÔLE partie 8 · {len(fiches)} fiches · {n_p} passerelles · molécules S1+S11 en fiches distinctes : {", ".join(communes) or "aucune"} · glossaire {n_ab} sigles, {n_sc} scores')
     for m in err[:18]:
         print('  ✗', m)
     if len(err) > 18:
