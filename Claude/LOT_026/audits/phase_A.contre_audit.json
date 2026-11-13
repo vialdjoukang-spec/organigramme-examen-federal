@@ -268,5 +268,66 @@
     "preuve": "Point 14 converti en tableau Question | Réponse | Raison | Source (8 lignes)."
    }
   ]
+ },
+ "verification_1": {
+  "verdict": "CORRECTIONS",
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante ciblée, Phase A, non-rédacteur)",
+  "fichier": {
+   "octets": 132197,
+   "sha256_16": "f1bb885b351a3bca",
+   "commit": "1d4162b"
+  },
+  "portes": {
+   "controle3": "VERT",
+   "verif_aips": "OK, 12 AIPS",
+   "aips_fiche_verifier": "0 défaut bloquant",
+   "abreviations": "0",
+   "forme": "conforme"
+  },
+  "restants_contre_audit": "18/18 levés : contrôlés un par un dans le HTML ; SSI 2406 (validée 08.05.2024), HUG S3 (14.07.2022) et S5 (04.04.2023), COSNOE S27 (PubMed 38644734) et AIPS 53116, 54807, 44911, 61210, 53995, 49460, 57770, 48306, 29349 relus hors cache rédacteur : citations conformes mot pour mot (Valtrex tableau rénal, Ciproxin HC 30 à 60 secondes et contre-indications, Amoxi-Mepha leucémie lymphoïde, prednisone 1 mg/kg/j 7 j et stop, 3 %, jusqu'à 50 %, 61 %, 300–350 CHF).",
+  "restants": [
+   {
+    "gravite": "Moyen",
+    "lieu": "Point 11, f-p11-oma (ligne clarithromycine) et f-p11-medicaments",
+    "avant": "« Clarithromycine 7,5 mg/kg toutes les 12 heures … | Même durée que l’amoxicilline » ; tableau : « Per os » sans durée.",
+    "correction": "Écrire la durée de l’AIPS : « En cas de pharyngites dues aux streptocoques et d'otite moyenne aiguë, le traitement doit durer au moins 10 jours » (AIPS 57770, mai 2026) ; pour céfuroxime, cotrimoxazole et co-amoxicilline, citer la durée AIPS ou signaler que « même durée » est une déduction.",
+    "source": "AIPS 57770 Posologie ; SSI 2406 ne fixe aucune durée pour les situations particulières"
+   },
+   {
+    "gravite": "Moyen",
+    "lieu": "Point 11, f-p11-speciales",
+    "avant": "Grossesse et allaitement recopiés pour Ciproxin HC, Amoxi-Mepha et Valtrex seulement.",
+    "correction": "Ajouter mot pour mot la rubrique Grossesse et Allaitement des AIPS ajoutées : Co-Amoxi-Mepha 53995, Zinat 49460, Clarithromycine Spirig HC 57770, Bactrim forte 48306, Prednisone Streuli 29349, Dafalgan 47503, Irfen Dolo 61210.",
+    "source": "BRIEF_HARNAIS, règle AIPS (grossesse, allaitement mot pour mot)"
+   },
+   {
+    "gravite": "Moyen",
+    "lieu": "Point 11, f-p11-douleur, palier « Douleur sévère »",
+    "avant": "« Tramadol ou morphine si nécessaire » sans dose, sans AIPS ni mention « hors AIPS ».",
+    "correction": "Donner pour le tramadol la dose AIPS (aips_fiche.py trouve tramadol), voie, durée et contre-indication, ou écrire « hors AIPS » ; idem pour la morphine, ou retirer la molécule et écrire « opiacé selon le spécialiste » (HUG : « Tramal ou Morphine si nécessaire »).",
+    "source": "S3 HUG ; ordre de Vial du 12.11.2026 (molécule AIPS, dose, durée)"
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "Point 11, f-p11-medicaments, ligne Co-Amoxi-Mepha",
+    "avant": "Contre-indication majeure : « Ictère ou atteinte hépatique lors d’un traitement antérieur ».",
+    "correction": "Mettre d’abord « hypersensibilité connue aux pénicillines et céphalosporines » (AIPS 53995, mars 2026), puis l’ictère.",
+    "source": "AIPS 53995 Contre-indications"
+   },
+   {
+    "gravite": "Léger",
+    "lieu": "Point 11, f-p11-medicaments, ligne Bactrim forte",
+    "avant": "« Insuffisance rénale sévère » sans seuil.",
+    "correction": "« Insuffisance rénale sévère (clairance de la créatinine < 15 ml/min) » ; demi-dose de 15 à 30 ml/min (AIPS 48306).",
+    "source": "AIPS 48306 Contre-indications et Posologie"
+   }
+  ],
+  "compte": {
+   "critique": 0,
+   "grave": 0,
+   "moyen": 3,
+   "leger": 2
+  }
  }
 }
