@@ -12,6 +12,9 @@ génère, contrôle, corrige par remplacements groupés. Plusieurs appels d'outi
 **Jamais de lecture intégrale d'un cours** (première fuite mesurée) : `extrait.py plan|point N|cherche <motif>` ;
 Read toujours avec `limit` ; une sortie d'outil > 20 000 caractères est une alerte du Gaspillon. Verdict d'audit réutilisé si le sha8 est inchangé. Une source : `sources_cache.py cherche <url> <mot>` (phrases verbatim).
 
+**Ordre de Vial du 12.11.2026 (prioritaire)** : de la démarche diagnostique jusqu'à la prise en charge et au suivi, précision agressive — examen ciblé selon les sociétés suisses (indication, seuil, interprétation, conduite), traitement structuré (molécule AIPS, dose, durée, contrôle, critères d'échec), surveillance datée ; en tableaux dans les fenêtres, concision profonde ; puiser davantage dans la source lue en amont, sans perte de temps.
+Couleurs plus vivantes, surtout le fond d'écran (palette propre à chaque cours, contraste AA conservé).
+
 **Règles L1 (non négociables)** : 14 points ; point 1 = définition seule ; fenêtres `:target` non imbriquées ; 80–150 Ko hors images ;
 phrases verbales 12–28 mots ; aucune redite ; sources suisses puis européennes lues et datées ; rien d'inventé ; déduction
 écrite comme telle ; images réelles EN COULEURS d'abord (Blausen, OpenStax, PMC CC BY), repères vérifiés par superposition PIL ;
