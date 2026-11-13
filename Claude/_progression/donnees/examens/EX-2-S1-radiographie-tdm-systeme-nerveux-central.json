@@ -17,7 +17,7 @@
   "nom_exact": "Tomodensitométrie (CT) cérébrale sans injection, complétée au besoin par une angiographie CT des vaisseaux du cou et intracrâniens et par un CT de perfusion ; CT du rachis cervical en traumatologie. La radiographie du crâne n'a presque plus d'indication.",
   "synonymes": "Scanner cérébral, CT cérébral natif, angio-CT cérébral et des vaisseaux du cou, CT de perfusion, CT de la colonne cervicale.",
   "prelevement_conditions": "Le CT natif ne demande aucune préparation, car il n'utilise pas de produit de contraste ; on l'obtient donc vite chez le patient instable. L'angio-CT et le CT de perfusion exigent une injection iodée : on s'informe donc de la fonction rénale et d'une allergie aux produits de contraste, parce que l'injection expose à ces deux risques.",
-  "bon_usage_suisse": "L'OFSP fixe le NRD du CT du crâne de l'adulte à un CTDIvol de 51 mGy et un DLP de 890 mGy·cm (valeur cible : 42 mGy et 750 mGy·cm) ; chez l'enfant de moins de 1,5 an, le NRD tombe à 25 mGy et 350 mGy·cm (directive R-06-06, 2018). Selon l'enquête suisse 2023, la dose efficace moyenne d'un CT cérébral est de 2,4 mSv (bloc calculs). La Société suisse des céphalées recommande de ne pas faire de CT du crâne pour une céphalée non aiguë et de préférer l'IRM quand une imagerie s'impose, parce que l'IRM n'irradie pas (smarter medicine 2026)."
+  "bon_usage_suisse": "L'OFSP fixe le NRD du CT du crâne de l'adulte à un CTDIvol de 51 mGy et un DLP de 890 mGy·cm (valeur cible : 42 mGy et 750 mGy·cm) ; chez l'enfant de moins de 1,5 an, le NRD tombe à 25 mGy et 350 mGy·cm (directive R-06-06, 2018). Selon le rapport OFSP sur l'enquête suisse 2023, la dose efficace moyenne d'un CT cérébral est de 2,4 mSv (bloc calculs). La Société suisse des céphalées recommande de ne pas faire de CT du crâne pour une céphalée non aiguë et de préférer l'IRM quand une imagerie s'impose, parce que l'IRM n'irradie pas (smarter medicine 2026)."
  },
  "temps1_indications": {
   "urgence_aigu": "Devant un AVC suspecté, on doit faire en urgence une imagerie cérébrale avec imagerie vasculaire, car elle sépare l'hémorragie de l'ischémie et montre l'occlusion d'une grosse artère que la thrombectomie peut traiter (ESO-ESMINT 2019, avis d'experts). Après un traumatisme crânien, on doit faire le CT dans l'heure chez l'adulte si le GCS vaut ≤ 12 à l'arrivée ou < 15 deux heures après le choc, si une fracture ouverte, embarrée ou de la base est suspectée, ou si une crise, un déficit focal ou plus d'un vomissement survient (NICE, traumatisme crânien 2023). Si l'adulte a perdu connaissance ou a une amnésie, on doit faire le CT dans les 8 heures quand il a ≥ 65 ans, un trouble de l'hémostase, un mécanisme dangereux ou une amnésie rétrograde de plus de 30 minutes (NICE 2023). Devant une céphalée brutale, on fait un CT natif, car du sang dans l'espace sous-arachnoïdien pose le diagnostic d'hémorragie méningée (NICE, hémorragie méningée 2022).",
@@ -31,7 +31,7 @@
    "parametre": "Parenchyme cérébral (CT natif)",
    "normal": "Substance grise plus dense que la substance blanche, différenciation nette",
    "anomalie": "Si une hypodensité efface la différenciation entre substance grise et blanche (noyau lenticulaire, ruban insulaire, cortex), une ischémie précoce existe ; on la cote par l'ASPECTS (bloc calculs).",
-   "seuil_alerte": "ASPECTS < 6 (infarctus étendu, ESO-ESMINT 2019)"
+   "seuil_alerte": "ASPECTS < 6 : infarctus étendu (décision en centre de thrombectomie ; À vérifier)"
   },
   {
    "parametre": "Sang intracrânien (CT natif)",
@@ -67,17 +67,17 @@
  "calculs": [
   {
    "nom": "Dose efficace (CT)",
-   "formule": "On calcule E (mSv) = DLP (mGy·cm) × k, où k vaut 0,0031 mSv/(mGy·cm) pour la tête (coefficient de la Commission internationale de protection radiologique, publication 102, repris par l'enquête suisse 2023).",
+   "formule": "On calcule E (mSv) = DLP (mGy·cm) × k, où k est un coefficient de conversion propre à la région irradiée ; sa valeur pour la tête seule reste À vérifier, car les tables usuelles de dosimétrie, non relues ici, donnent ≈ 0,0021 mSv/(mGy·cm) pour la tête de l'adulte et 0,0031 pour la tête et le cou.",
    "a_quoi_ca_sert": "Ce calcul traduit le DLP affiché par la console en millisieverts ; on compare ainsi le CT cérébral aux autres examens.",
-   "exemple": "Pour un CT du crâne au NRD (DLP 890 mGy·cm), on calcule 890 × 0,0031 = 2,76 mSv ; la moyenne suisse vaut 2,4 mSv, donc le service se situe un peu au-dessus de la moyenne.",
-   "source": "Les chiffres viennent de la directive OFSP R-06-06 (2018) et de Samara et coll. (Health Physics 2026, tableaux 4 et 5), qu'on a lus le 13.11.2026."
+   "exemple": "Pour un CT du crâne au NRD (DLP 890 mGy·cm), on calcule 890 × 0,0021 = 1,87 mSv si k vaut 0,0021 (tête seule, À vérifier), mais 890 × 0,0031 = 2,76 mSv si l'on prend le coefficient tête et cou ; le rapport OFSP 2023 donne une dose efficace moyenne de 2,4 mSv pour un CT cérébral.",
+   "source": "Le DLP vient de la directive OFSP R-06-06 (2018) et les 2,4 mSv du rapport OFSP sur l'enquête 2023 (Krämer, Schönleitner, Samara, 21.07.2025), qui ne donne pas k ; la valeur de k reste À vérifier."
   },
   {
    "nom": "ASPECTS",
    "formule": "On part de 10 points et on retire 1 point par région du territoire sylvien qui montre une ischémie précoce : noyau caudé, noyau lenticulaire, capsule interne, ruban insulaire, puis 6 régions corticales (M1 à M6).",
-   "a_quoi_ca_sert": "Ce score chiffre l'étendue de l'infarctus sur le CT natif ; plus il baisse, plus l'infarctus est étendu, et sous 6 il sort du critère de thrombectomie de l'ESO-ESMINT 2019.",
-   "exemple": "Si le noyau lenticulaire, le ruban insulaire et la région M2 sont hypodenses, on calcule 10 − 3 = 7 ; comme 7 ≥ 6, la thrombectomie reste possible dans les 6 heures.",
-   "source": "La définition vient de Barber et coll. (Lancet 2000, non relue ici), et le seuil ≥ 6 vient de l'ESO-ESMINT 2019, qu'on a lu le 13.11.2026."
+   "a_quoi_ca_sert": "Ce score chiffre l'étendue de l'infarctus sur le CT natif ; plus il baisse, plus l'infarctus est étendu ; l'ESO-ESMINT 2019 prend ASPECTS ≥ 6 comme exemple d'infarctus non étendu. Un ASPECTS < 6 ne suffit pas à exclure d'emblée la thrombectomie, car les essais « grand noyau » publiés depuis 2022 n'ont pas été relus ici (À vérifier).",
+   "exemple": "Si le noyau lenticulaire, le ruban insulaire et la région M2 sont hypodenses, on calcule 10 − 3 = 7 ; comme 7 ≥ 6, l'infarctus reste non étendu au sens de l'exemple de l'ESO-ESMINT 2019, donc la thrombectomie reste possible dans les 6 heures.",
+   "source": "La définition vient de Barber et coll. (Lancet 2000, non relue ici), et l'exemple « ASPECTS ≥ 6 » vient de l'ESO-ESMINT 2019, qu'on a lu le 13.11.2026 ; les essais « grand noyau » publiés depuis 2022 n'ont pas été relus (À vérifier)."
   }
  ],
  "temps3_interpretation": [
@@ -89,7 +89,7 @@
    "syndrome_status": "On trouve une hémiparésie droite et une aphasie.",
    "confirmation": "L'AVC est ischémique, par occlusion d'une grosse artère, avec un infarctus encore limité.",
    "diagnostic": "Le patient a un AVC ischémique sylvien gauche par occlusion du segment M1.",
-   "conduite": "On doit faire une thrombectomie avec le meilleur traitement médical, thrombolyse IV comprise si elle est indiquée, car l'ESO-ESMINT 2019 la recommande fortement dans les 6 heures si l'ASPECTS vaut ≥ 6 ; la thrombectomie ne doit pas retarder la thrombolyse, ni l'inverse."
+   "conduite": "On doit faire une thrombectomie avec le meilleur traitement médical, thrombolyse IV comprise si elle est indiquée, car l'ESO-ESMINT 2019 la recommande fortement dans les 6 heures si l'infarctus n'est pas étendu, par exemple ASPECTS ≥ 6 ; la thrombectomie ne doit pas retarder la thrombolyse, ni l'inverse."
   },
   {
    "entite_anormale_chiffree": "Le CT natif, fait 3 heures après une céphalée brutale, montre du sang hyperdense dans les citernes de la base et les sillons.",
@@ -149,7 +149,7 @@
  },
  "sources": [
   "OFSP, Directive R-06-06 « Niveaux de référence diagnostiques en tomodensitométrie », révision 2 du 15.06.2018, tableaux 1 et 2, lue le 13.11.2026",
-  "Samara ET, Ott B, Dagassan-Berndt D. Effective dose estimations for the Swiss survey on medical radiation exposure of the population in 2023. Health Physics 2026 (document OFSP, tableaux 4 et 5), lu le 13.11.2026",
+  "Krämer, Schönleitner, Samara. Rapport OFSP sur l'enquête suisse 2023 relative à l'exposition de la population aux rayonnements médicaux (21.07.2025), dose efficace moyenne du CT cérébral 2,4 mSv ; relu par l'audit img_s1 du 13.11.2026 ; le coefficient k n'y figure pas (À vérifier)",
   "Turc G et al. European Stroke Organisation (ESO) – European Society for Minimally Invasive Neurological Therapy (ESMINT) Guidelines on Mechanical Thrombectomy in Acute Ischaemic Stroke. Eur Stroke J 2019;4(1):6-12 (PMC6533858), recommandations lues le 13.11.2026 ; source européenne",
   "NICE NG232, Head injury: assessment and early management (2023), recommandations 1.5.2, 1.5.4, 1.5.8 à 1.5.13 et 1.4.16, lues le 13.11.2026 ; source européenne (Royaume-Uni)",
   "NICE NG228, Subarachnoid haemorrhage caused by a ruptured aneurysm: diagnosis and management (23.11.2022), recommandations 1.1.10 à 1.1.19 et 1.2.4 à 1.2.6, lues le 13.11.2026 ; source européenne (Royaume-Uni)",
