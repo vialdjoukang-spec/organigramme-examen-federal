@@ -271,6 +271,10 @@ details summary{cursor:pointer;font-weight:700;font-size:.87rem;padding:4px 0}
 #fen h4{margin:14px 0 4px;font-size:.98rem;padding:4px 8px;border-radius:6px;scroll-margin-top:8px}
 #fen table{border-collapse:collapse;width:100%;font-size:.88rem;margin:2px 0}#fen td,#fen th{border:1px solid var(--trait);padding:5px 6px;vertical-align:top;text-align:left}
 #fen th{background:var(--t-tableau);font-weight:700}#fen td.l{width:38%;font-weight:700;background:var(--t-tableau)}#fen h5{margin:10px 0 3px;font-size:.9rem;padding:2px 8px;border-radius:5px}#fen ul{margin:2px 0;padding-left:1.2em}
+#fen .calc{border:1px solid var(--trait);border-left:4px solid var(--bleu);border-radius:6px;padding:4px 10px 6px;margin:6px 0}
+#fen .calc p{margin:4px 0}#fen .calc .src{font-size:.82rem}
+#fen pre.fx,#fen pre.ex{white-space:pre-wrap;overflow-wrap:anywhere;margin:4px 0;padding:6px 8px;border-radius:5px;background:var(--t-tableau);color:#111;font-size:.86rem}
+#fen pre.fx{font-family:ui-monospace,'DejaVu Sans Mono',Consolas,'Courier New',monospace;font-weight:700}#fen pre.ex{font-family:inherit}
 .tw{overflow-x:auto}
 @media(max-width:1180px){.mod{grid-template-columns:minmax(0,1fr);gap:8px}
  .rail{position:static;max-height:none;flex-direction:row;overflow-x:auto}.rail button{white-space:nowrap}}
@@ -399,9 +403,16 @@ function val(v,k,t2){
       if(r.traitement)h+='<h5 class="k-vert">'+lbl('traitement')+' : '+esc(r.nom)+'</h5>'+val(r.traitement);});
     return h;}
   return '<table>'+Object.entries(v).map(([a,b])=>'<tr><td class="l '+(COUL[a]?'c-'+COUL[a]:'')+'">'+esc(lbl(a))+'</td><td>'+val(b,a)+'</td></tr>').join('')+'</table>';}
+/* Bloc optionnel « Calculs » (après le Temps 2) : chaque paramètre calculé montre sa formule en chasse fixe, son usage pratique,
+   un exemple résolu pas à pas et sa source ; le titre de chaque calcul suit la bande EYE SPOT (#fen h5). */
+function calculs(l){const r=(Array.isArray(l)?l:[]).filter(x=>x&&!vide(x));if(!r.length)return '<p class="vide">—</p>';
+  return r.map(x=>'<div class="calc"><h5>'+esc(x.nom||V)+'</h5><pre class="fx"><code>'+esc(x.formule||V)+'</code></pre>'
+    +'<p><b>À quoi ça sert :</b> '+esc(x.a_quoi_ca_sert||V)+'</p><p><b>Exemple résolu :</b></p><pre class="ex">'+esc(x.exemple||V)+'</pre>'
+    +'<p class="src">Source : '+esc(x.source||V)+'</p></div>').join('');}
 const BLOCS={examen:[['entete','En-tête'],['temps1_indications','Temps 1 · Indications'],['temps2_examen','Temps 2 · L\'examen — un paramètre lu seul'],
+  ['calculs','Calculs · formule, usage, exemple résolu'],
   ['temps3_interpretation','Temps 3 · Interprétation — plusieurs anomalies associées'],['annexeA_pieges','Annexe A · Pièges'],['sources','Sources']]};
-const COURT={entete:'En-tête',temps1_indications:'Temps 1 · Indications',temps2_examen:'Temps 2 · L\'examen',temps3_interpretation:'Temps 3 · Interprétation',annexeA_pieges:'Pièges'};
+const COURT={entete:'En-tête',temps1_indications:'Temps 1 · Indications',temps2_examen:'Temps 2 · L\'examen',calculs:'Calculs',temps3_interpretation:'Temps 3 · Interprétation',annexeA_pieges:'Pièges'};
 const META=['id','module','type','titre','sous_onglet','systeme','etiquettes','entree_primaire','axe_secondaire','passerelles','classe','sous_classe','bloc','code_cim10'];
 function rendreFiche(id){const f=fi(id);if(!f)return {h:'<p class="vide">Identifiant absent : '+esc(id)+'</p>',s:[]};
   const so=f.sous_onglet?S.examens[f.sous_onglet-1]:null,s=[];
@@ -412,7 +423,7 @@ function rendreFiche(id){const f=fi(id);if(!f)return {h:'<p class="vide">Identif
   const ordre=BLOCS[f.type]||Object.keys(f).filter(k=>!META.includes(k)).map(k=>[k,lbl(k)]);
   for(const [k,t] of ordre){if(!(k in f))continue;const c=COUL[k],ancre='fb-'+s.length;s.push({id:ancre,t:COURT[k]||t});
     const t2=k==='temps2_examen'&&so?{parametre:so.temps2[0],normal:so.temps2[1],anomalie:so.temps2[2]}:null;
-    h+='<h4 id="'+ancre+'" class="'+(c?'k-'+c:'')+'">'+esc(t)+'</h4>'+val(f[k],k,t2);}
+    h+='<h4 id="'+ancre+'" class="'+(c?'k-'+c:'')+'">'+esc(t)+'</h4>'+(k==='calculs'?calculs(f[k]):val(f[k],k,t2));}
   s.push({id:'fb-p',t:'Passerelles'});
   h+='<h4 id="fb-p">Annexe B · Passerelles</h4>'+(f.passerelles.length?'<div class="tw"><table><tr><th>Type</th><th>Fiche cible</th><th>Pourquoi</th></tr>'+f.passerelles.map(p=>'<tr><td>'+esc(p.type)+'</td><td>'+lienF(p.cible)+'</td><td>'+esc(p.pourquoi)+'</td></tr>').join('')+'</table></div>':'<p class="vide">—</p>');
   return {h,s};}

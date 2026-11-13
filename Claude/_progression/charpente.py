@@ -182,6 +182,8 @@ G_EXAMEN = {
  'entete': {'nom_exact': V, 'synonymes': V, 'prelevement_conditions': V, 'bon_usage_suisse': V},
  'temps1_indications': {'urgence_aigu': V, 'diagnostic_etiologie': V, 'depistage_pretherapeutique': V, 'suivi_surveillance': V, 'ne_pas_demander': V},
  'temps2_examen': [{'parametre': V, 'normal': V, 'anomalie': V, 'seuil_alerte': V}],
+ # Bloc optionnel (Vial, 13.11.2026) : un paramètre calculé = formule, usage pratique, exemple résolu, source.
+ 'calculs': [{'nom': V, 'formule': V, 'a_quoi_ca_sert': V, 'exemple': V, 'source': V}],
  'temps3_interpretation': [{'entite_anormale_chiffree': V, 'associees_presentes': V, 'associees_a_rechercher': V, 'syndrome_anamnese': V,
                             'syndrome_status': V, 'confirmation': V, 'diagnostic': V, 'conduite': V}],
  'annexeA_pieges': {'lignes': [{'si': V, 'consequence': V}], 'mnemotechnique': V},
@@ -501,6 +503,9 @@ def passerelles():
             lien(f['id'], 'Fondement', 'SF-T-immunologie')
 
 
+OPTIONNELS = ('calculs',)  # blocs de gabarit facultatifs : présents dans les fiches neuves, ajoutés à la main ailleurs
+
+
 def fusion(ancien, neuf):
     """Garde ce qui est rempli dans l'ancien fichier ; complète les champs manquants par « — »."""
     if isinstance(neuf, dict) and isinstance(ancien, dict):
@@ -533,6 +538,10 @@ def ecrire():
         p = os.path.join(d, fid + '.json')
         if os.path.exists(p) and not force:
             f = fusion(json.load(open(p, encoding='utf-8')), f)
+            ancien = json.load(open(p, encoding='utf-8'))
+            for k in OPTIONNELS:  # un bloc optionnel n'est jamais injecté dans une fiche existante : elle reste intacte
+                if k not in ancien:
+                    f.pop(k, None)
             f['passerelles'] = fusion_passerelles(json.load(open(p, encoding='utf-8')).get('passerelles', []), FICHES[fid]['passerelles'])
         txt = json.dumps(f, ensure_ascii=False, indent=1) + '\n'
         if not os.path.exists(p) or open(p, encoding='utf-8').read() != txt:
