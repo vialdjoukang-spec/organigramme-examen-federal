@@ -7,6 +7,10 @@ exister dans Claude/_progression/glossaire.json : « abreviations » (sigle → 
 sigle d'un survol <abbr> et ouvre chaque score dans une fenêtre au clic ; elle applique la même détection.
 Ne sont pas des sigles : chiffres romains, codes de système (S1–S12), lettre + chiffres (vitamine B12, J7, C3, F20),
 identifiants de fiches et champs bibliographiques (« sources », « source » : initiales d'auteurs).
+Sigles à casse mixte (PaO2, IgE, COHb, HbA1c, eGFR, hCG, NT-proBNP…) : tout segment qui mêle minuscules et au moins
+deux majuscules, ou une majuscule après la première lettre. Un mot composé par tirets (anti-HBc, TnI-hs, NT-proBNP) est
+lu de gauche à droite en prenant à chaque position la plus longue suite de segments présente au glossaire ; un segment
+à casse mixte qui ne s'y trouve pas est signalé. Unités (mL, kPa, mmHg, mU, mOsm…) exclues.
 Un score est cité par son nom ou ses alias, ou par « score (de) Nom » : le nom doit exister dans « scores ».
 Usage : python3 Claude/_progression/glossaire.py [--contexte]     (controle.py appelle aussi cette porte)
 """
@@ -19,6 +23,9 @@ V = '—'
 SIGLE = re.compile(r'(?<![0-9A-Za-zÀ-ÖØ-öø-ÿ_])([A-ZÀ-ÖØ-Þ][A-Z0-9À-ÖØ-Þ]{1,5})(?![0-9A-Za-zÀ-ÖØ-öø-ÿ_])')
 NON_SIGLE = re.compile(r'^(?:[IVXL]+|S1[0-2]|S\d|[A-Z]\d{1,3}|EX|PH|PS|SF)$')
 ID = re.compile(r'^(?:EX-\d|PH|PS|SF)-[A-Za-z0-9.-]+$')
+MOT = re.compile(r'(?<![0-9A-Za-zÀ-ÖØ-öø-ÿ_-])([A-Za-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)+|[A-Za-z][A-Za-z0-9]*)(?![0-9A-Za-zÀ-ÖØ-öø-ÿ_])')
+MIXTE = re.compile(r'^(?=.*[a-z])(?:.+[A-Z]|[A-Z].*[A-Z])')
+UNITE = re.compile(r'^(?:[mµnpfkcd]?(?:L|Pa|U|UA|UI|IU|Eq|Osm|Da|Hz|Hg|mHg|H2O|gH2O|gH))$|^(?:mmHg|cmH2O|kgH|kgH2O|mosmol|kDa)$')
 URL = re.compile(r'https?://\S+')
 META = {'id', 'module', 'type', 'titre', 'systeme', 'etiquettes', 'passerelles', 'sous_onglet', 'entree_primaire', 'axe_secondaire',
         'classe', 'sous_classe', 'bloc', 'code_cim10', 'sources', 'source'}
@@ -37,8 +44,25 @@ def textes(x, cle=''):
         yield URL.sub(' ', x)
 
 
-def sigles(t):
-    return [m.group(1) for m in SIGLE.finditer(t) if not NON_SIGLE.match(m.group(1))]
+def mixte(p):
+    return bool(MIXTE.match(p)) and not UNITE.match(p) and not NON_SIGLE.match(p)
+
+
+def sigles(t, connus=frozenset()):
+    """Sigles en majuscules, puis sigles à casse mixte (seuls ou dans un mot composé par tirets)."""
+    r = [m.group(1) for m in SIGLE.finditer(t) if not NON_SIGLE.match(m.group(1))]
+    for m in MOT.finditer(t):
+        p, i = m.group(1).split('-'), 0
+        while i < len(p):
+            j = next((j for j in range(len(p), i, -1) if '-'.join(p[i:j]) in connus), None)
+            if j and (j - i > 1 or mixte(p[i])):
+                r.append('-'.join(p[i:j]))
+                i = j
+                continue
+            if mixte(p[i]):
+                r.append(p[i])
+            i += 1
+    return r
 
 
 SCORE_CITE = re.compile(r"\b[Ss]cores? (?:de |du |d'|des )?([A-Z0-9][\w-]*)")
@@ -66,6 +90,7 @@ def verifier(don=DON, glo=GLO):
     g = json.load(open(glo, encoding='utf-8')) if os.path.exists(glo) else {}
     ab, sc, hors = g.get('abreviations', {}), g.get('scores', {}), g.get('hors_sigles', {})
     noms = noms_scores(sc)
+    connus = frozenset(ab) | frozenset(noms) | frozenset(hors)
     err, manq, n = [], {}, 0
     for k, s in sc.items():
         for c in ('definition', 'cotation', 'interpretation', 'source'):
@@ -83,7 +108,7 @@ def verifier(don=DON, glo=GLO):
     for f in fiches():
         n += 1
         for t in textes(f):
-            for s in sigles(t):
+            for s in sigles(t, connus):
                 if s not in ab and s not in noms and s not in hors:
                     manq.setdefault(s, []).append((f['id'], t))
             for m in SCORE_CITE.finditer(t):
