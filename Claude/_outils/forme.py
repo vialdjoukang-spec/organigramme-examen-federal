@@ -436,6 +436,13 @@ def _table():
     return _TABLE
 
 
+# Palettes fixées à la main après audit (ΔE76 ≥ 12 entre cours du même lot, saturation 0,75–0,9,
+# contraste ≥ 7:1 sur blanc, teintes autorisées seulement) : clé = lot, valeur = {0 (Phase A) ou n° DX: (teinte, sat., clarté)}.
+FIXES = {29: {0: (132, .9, .205), 1: (12, .9, .335), 2: (42, .75, .245), 3: (342, .9, .355), 4: (150, .75, .22),
+              5: (24, .9, .295), 6: (81, .9, .195), 7: (336, .75, .37), 8: (60, .75, .2), 9: (351, .9, .36),
+              10: (30, .75, .285)}}
+
+
 def teinte(nom):
     """Couleur d'accent propre à chaque leçon, déterministe et unique entre tous les cours (couleurs finales
     comparées après arrondi), dans les 175° autorisés (0–150° et 335–360° : jamais de bleu, cyan, indigo,
@@ -443,6 +450,9 @@ def teinte(nom):
     import zlib
     m = re.search(r'LOT_(\d+)', nom)
     d = re.search(r'DX\.(\d+)', nom)
+    if m and int(m.group(1)) in FIXES and (int(d.group(1)) if d else 0) in FIXES[int(m.group(1))]:
+        h, s, l = FIXES[int(m.group(1))][int(d.group(1)) if d else 0]
+        return (_hx(h, l, s), _hx(h, l + .19, s * .8), _hx(h, .965, .40), _hx(h, .915, .34))
     if m and int(m.group(1)) <= LOTS_MAX and (not d or int(d.group(1)) < LECONS):
         return _table()[int(m.group(1)) * LECONS + (int(d.group(1)) if d else 0)]
     return _palette(zlib.crc32(nom.encode('utf-8')))
