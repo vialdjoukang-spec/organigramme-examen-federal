@@ -1,5 +1,7 @@
 # LOT_030 — liste canonique (S1.14 Écoulement nasal), proposée par la Phase A L1 du 13.11.2026
 
+Liste gelée 13.11.2026
+
 Numérotation conservée : identique aux fichiers `LOT_030_Phase_B_V0_DX.n.html` existants (aucune correspondance à refaire).
 
 DX.1 — Rhinite virale aiguë
