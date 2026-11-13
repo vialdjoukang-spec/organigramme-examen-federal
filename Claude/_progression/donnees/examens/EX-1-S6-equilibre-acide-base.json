@@ -7,61 +7,185 @@
  "systeme": "S6",
  "etiquettes": [],
  "entree_primaire": [
-  "—"
+  "Sang et buvard",
+  "Urines"
  ],
  "axe_secondaire": [
-  "—"
+  "Biochimie"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Bilan acide-base métabolique : bicarbonate (CO2 total), chlorures, trou anionique calculé, lactate ; pH et PaCO2 (gaz du sang) ; trou anionique urinaire ; trou osmolaire",
+  "synonymes": "Équilibre acido-basique ; réserve alcaline ; CO2 total ; anion gap ; Säure-Basen-Status",
+  "prelevement_conditions": "Bicarbonate sur sang veineux (HUG RPA) ; pH et PaCO2 sur sang artériel (fiche gaz du sang S4) ; tube fermé, analyse rapide (non vérifié CH). Trou anionique urinaire : spot urinaire avec Na, K, Cl (RMS 2005).",
+  "bon_usage_suisse": "Liste des analyses : 1205.00 bicarbonate veineux 7.8 points ; 1229.00 chlorures 2.9 points ; 1517.00 lactate 20.7 points (fiches HUG RPA). Gazométries répétées seulement si le résultat change la prise en charge (smarter medicine SSMIG 2016)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "Choc, sepsis, intoxication (méthanol, éthylène glycol, salicylés, metformine), acidocétose, insuffisance rénale aiguë ; pH ≤ 7.1 ou bicarbonate < 12 mmol/L : critère d'hémodialyse en urgence (RMS 2016).",
+  "diagnostic_etiologie": "Acidose métabolique : trou anionique (augmenté ou normal), compensation respiratoire attendue, trou osmolaire si trou anionique augmenté, trou anionique urinaire si trou anionique normal (RMS 2005).",
+  "depistage_pretherapeutique": "Maladie rénale chronique : CO2 total dans le bilan d'une hématurie glomérulaire (HUG HM 2024) ; avant metformine en insuffisance rénale (non vérifié CH).",
+  "suivi_surveillance": "Acidocétose, acidose lactique, bicarbonate IV : bicarbonate, pH, potassium et calcémie rapprochés (RMS 2016 : surveillance stricte de la calcémie sous bicarbonate) ; maladie rénale chronique (non vérifié CH).",
+  "ne_pas_demander": "Gazométrie de routine sans question clinique (smarter medicine SSMIG 2016). Ne pas calculer un trou anionique sans tenir compte d'une hypoalbuminémie (RMS 2005)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Bicarbonate (CO2 total) veineux",
+   "normal": "21–28.5 mmol/L (HUG CHIMURG, 03.09.2025)",
+   "anomalie": "↓ < 21 mmol/L : acidose métabolique ou compensation d'une alcalose respiratoire ; ↑ > 28.5 mmol/L : alcalose métabolique ou compensation d'une acidose respiratoire",
+   "seuil_alerte": "< 12 mmol/L : hémodialyse en urgence à discuter (RMS 2016)"
+  },
+  {
+   "parametre": "Chlorures plasmatiques",
+   "normal": "96–107 mmol/L (HUG CHIMURG, 03.09.2025)",
+   "anomalie": "↑ acidose hyperchlorémique (trou anionique normal) ; ↓ alcalose de vomissements (non vérifié CH)",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Trou anionique = Na − Cl − HCO3",
+   "normal": "11 ± 2 mmol/L ; 15 ± 2 mmol/L si le potassium est inclus (RMS 2005)",
+   "anomalie": "↑ accumulation d'un acide (lactate, corps cétoniques, toxiques, urémie) ; normal : perte de bicarbonate ou apport de NaCl (RMS 2005)",
+   "seuil_alerte": "Norme abaissée de 0.25 mmol/L par g/L d'albumine sous 40 g/L (RMS 2005)"
+  },
+  {
+   "parametre": "Lactate",
+   "normal": "0.4–1.9 (HUG CHIMURG, 03.09.2025 : unité imprimée « µmol/L », lire mmol/L par déduction)",
+   "anomalie": "↑ hypoperfusion, sepsis, metformine, convulsions (non vérifié CH)",
+   "seuil_alerte": "> 4 mmol/L avec hypotension : choc septique (non vérifié CH)"
+  },
+  {
+   "parametre": "pH et PaCO2 artériels",
+   "normal": "pH 7.35–7.45 ; PaCO2 4.7–6.0 kPa (35–45 mmHg) (non vérifié CH)",
+   "anomalie": "pH < 7.35 acidémie ; > 7.45 alcalémie ; PaCO2 attendue en acidose métabolique : ΔPaCO2 = 1.25 × ΔHCO3 (mmHg) (RMS 2005)",
+   "seuil_alerte": "pH ≤ 7.1 (RMS 2016)"
+  },
+  {
+   "parametre": "Trou osmolaire = osmolalité mesurée − calculée",
+   "normal": "≤ 10 mOsm/kg (RMS 2005)",
+   "anomalie": "> 10 mOsm/kg après soustraction de l'éthanol : méthanol, éthylène glycol, acidose lactique ou cétose sévère (RMS 2005)",
+   "seuil_alerte": "Acidose à trou anionique augmenté avec trou osmolaire > 10 : toxique jusqu'à preuve du contraire (RMS 2005)"
+  },
+  {
+   "parametre": "Trou anionique urinaire = Na + K − Cl",
+   "normal": "Négatif quand l'ammoniurie répond à une acidose (RMS 2005)",
+   "anomalie": "Positif dans une acidose à trou anionique normal : défaut d'excrétion d'acide (acidose tubulaire) (RMS 2005)",
    "seuil_alerte": "—"
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
+   "entite_anormale_chiffree": "pH 7.20, HCO3 15.5 mmol/L, trou anionique 22 mmol/L, trou osmolaire 64 mOsm/kg, lactate 3.9 mmol/L, glycémie 1.4 mmol/L",
+   "associees_presentes": "Éthanolémie 48 mmol/L, cétonurie ++",
+   "associees_a_rechercher": "β-hydroxybutyrate (non détecté par la bandelette), méthanol, éthylène glycol",
+   "syndrome_anamnese": "Alcoolisation massive puis jeûne et vomissements",
+   "syndrome_status": "Hypotension, tachypnée, conscience altérée",
+   "confirmation": "Trou osmolaire résiduel après soustraction de l'éthanol ; dosage des toxiques (RMS 2005)",
+   "diagnostic": "Acidocétose alcoolique (cas RMS 2005)",
+   "conduite": "Glucose et thiamine, réhydratation, correction de K, P et Mg ; recherche des alcools toxiques (RMS 2005)"
+  },
+  {
+   "entite_anormale_chiffree": "pH 7.28, HCO3 14 mmol/L, PaCO2 attendue ≈ 28 mmHg (40 − 1.25 × 10), mesurée 42 mmHg",
+   "associees_presentes": "Acidose métabolique",
+   "associees_a_rechercher": "Hypoventilation : sédation, épuisement",
+   "syndrome_anamnese": "Sepsis, sédatifs",
+   "syndrome_status": "Bradypnée",
+   "confirmation": "PaCO2 > PaCO2 attendue (RMS 2005)",
+   "diagnostic": "Trouble mixte : acidose métabolique et acidose respiratoire",
+   "conduite": "Assistance ventilatoire à discuter ; traiter la cause (non vérifié CH)"
+  },
+  {
+   "entite_anormale_chiffree": "HCO3 16 mmol/L, trou anionique 10 mmol/L, Cl 115 mmol/L, trou anionique urinaire négatif",
+   "associees_presentes": "Hypokaliémie",
+   "associees_a_rechercher": "Diarrhée, stomie",
+   "syndrome_anamnese": "Diarrhée aiguë",
+   "syndrome_status": "Déshydratation",
+   "confirmation": "Trou anionique urinaire négatif : ammoniurie conservée (RMS 2005)",
+   "diagnostic": "Acidose hyperchlorémique par perte digestive de bicarbonate",
+   "conduite": "Réhydratation, potassium (non vérifié CH)"
+  },
+  {
+   "entite_anormale_chiffree": "HCO3 17 mmol/L, trou anionique normal, trou anionique urinaire positif, pH urinaire > 5.5",
+   "associees_presentes": "Hypokaliémie, néphrocalcinose",
+   "associees_a_rechercher": "Calculs, médicaments (inhibiteur de l'anhydrase carbonique)",
+   "syndrome_anamnese": "Lithiases récidivantes, Sjögren",
    "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "confirmation": "Défaut d'excrétion rénale d'acide (RMS 2005)",
+   "diagnostic": "Acidose tubulaire rénale distale probable",
+   "conduite": "Avis néphrologique ; alcalinisation (non vérifié CH)"
+  },
+  {
+   "entite_anormale_chiffree": "HCO3 36 mmol/L, Cl 88 mmol/L, K 2.9 mmol/L, vomissements",
+   "associees_presentes": "Hypokaliémie, hypochlorémie",
+   "associees_a_rechercher": "Chlore urinaire, diurétiques",
+   "syndrome_anamnese": "Vomissements répétés",
+   "syndrome_status": "Déshydratation",
+   "confirmation": "Chlore urinaire bas (non vérifié CH)",
+   "diagnostic": "Alcalose métabolique de contraction sensible au chlore (non vérifié CH)",
+   "conduite": "NaCl 0.9 % et KCl (non vérifié CH)"
+  },
+  {
+   "entite_anormale_chiffree": "pH 7.05, HCO3 9 mmol/L, créatinine 650 µmol/L, oligo-anurie",
+   "associees_presentes": "Hyperkaliémie",
+   "associees_a_rechercher": "Surcharge, urémie",
+   "syndrome_anamnese": "Maladie rénale connue, diurèse effondrée",
+   "syndrome_status": "Respiration de Kussmaul",
+   "confirmation": "pH ≤ 7.1 et bicarbonate < 12 mmol/L (RMS 2016)",
+   "diagnostic": "Acidose métabolique sévère d'insuffisance rénale",
+   "conduite": "Néphrologue : hémodialyse en urgence ; bicarbonate au cas par cas avec surveillance de la calcémie (RMS 2016)"
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Trou anionique lu sans correction chez un patient à albumine 20 g/L",
+    "consequence": "Acidose lactique ou toxique masquée : trou « normal » à tort (RMS 2005)"
+   },
+   {
+    "si": "Corps cétoniques recherchés seulement à la bandelette",
+    "consequence": "Acidocétose à β-hydroxybutyrate méconnue : la bandelette ne le détecte pas (RMS 2005)"
+   },
+   {
+    "si": "Trou osmolaire non calculé devant une acidose à trou anionique augmenté",
+    "consequence": "Intoxication au méthanol ou à l'éthylène glycol manquée, antidote et dialyse retardés (RMS 2005)"
+   },
+   {
+    "si": "Bicarbonate IV sans contrôle de la calcémie",
+    "consequence": "Hypocalcémie ionisée symptomatique (RMS 2016)"
+   },
+   {
+    "si": "Seringue de gaz du sang avec bulle d'air ou analysée tard",
+    "consequence": "PaCO2 et pH faux, trouble mixte mal classé (non vérifié CH)"
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« pH, Pair, Pas d'oubli » : pH (acidémie ?), paire HCO3/PaCO2 (primaire et compensation 1.25 × ΔHCO3), trous anionique, osmolaire et urinaire (RMS 2005)."
  },
  "sources": [
-  "—"
+  "HUG, Répertoire des prestations d'analyses (RPA), Laboratoire de chimie clinique des urgences : fiches potassium, sodium, chlorures, bicarbonate, créatinine, urée, lactate, protéinurie, albumine urinaire, urates, phosphore (mises en production 03.09.2025 à 19.08.2026 ; lu le 13.11.2026)",
+  "Revue Médicale Suisse 2005 ; 1 : 2106-15 : « L'acidocétose alcoolique : une cause d'acidose métabolique », Sibaï K., Eggimann P. (CHUV) (lu le 13.11.2026)",
+  "Revue Médicale Suisse 2016 ; 12 : 398-403 : « Quand appeler le néphrologue aux urgences ? », Favre N., Burnier M., Kissling S. (CHUV) (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours : stratégie « Hématurie microscopique », Frerot C., El Bentiri H., 2024 (lu le 13.11.2026)",
+  "smarter medicine, Liste Top 5 Médecine interne générale hospitalière (SSMIG, 2016) (lu le 13.11.2026)",
+  "OFSP, Liste des analyses : positions et points tarifaires lus sur les fiches HUG RPA citées (lu le 13.11.2026)",
+  "Mentions « (non vérifié CH) » : connaissances internationales non relues sur une source suisse ce jour ; à vérifier avant usage."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S6-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "Tampon bicarbonate, excrétion rénale d'acide (ammoniogenèse) et compensation ventilatoire"
+  },
+  {
+   "type": "Fondement",
+   "cible": "SF-S6-physiopathologie-generale",
+   "pourquoi": "Acidoses à trou anionique augmenté et normal ; alcaloses"
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S4-gaz-sang-arteriels",
+   "pourquoi": "pH, PaCO2 et PaO2 artériels pour classer le trouble et sa compensation"
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-T-toxicologie-urgence",
+   "pourquoi": "Trou osmolaire élevé : dosage des alcools toxiques et salicylés"
   }
  ]
 }
