@@ -5,73 +5,152 @@
  "titre": "ECG sous psychotropes : QT",
  "sous_onglet": 3,
  "systeme": "S11",
- "etiquettes": [],
+ "etiquettes": [
+  "S3"
+ ],
  "entree_primaire": [
   "S11"
  ],
  "axe_secondaire": [
-  "—"
+  "Repos"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Électrocardiogramme 12 dérivations de repos avec mesure de l'intervalle QT corrigé (QTc) avant et sous psychotrope",
+  "synonymes": "ECG de surveillance du QT ; QTc sous psychotropes ; suivi ECG en psychiatrie",
+  "prelevement_conditions": "On enregistre l'ECG au repos, en décubitus, après quelques minutes de calme ; on mesure le QT du début du QRS à la fin de l'onde T, puis on le corrige selon la fréquence cardiaque (RMS 2016, HUG). On note le médicament, sa dose et la date de la dernière modification, car le contrôle se fait 1 à 2 semaines (5 demi-vies) après l'initiation ou après une augmentation de dose ≥ 100 % (CHUV 2024).",
+  "bon_usage_suisse": "Le Département de psychiatrie du CHUV recommande un ECG à l'admission chez tous les patients hospitalisés ; il réserve ensuite le suivi ECG aux psychotropes qui figurent sur les listes CredibleMeds, parce qu'un médicament absent de ces listes ne demande pas de suivi cardiaque (CHUV, version 2.0 du 19.03.2024)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "On enregistre un ECG sans délai si le patient sous psychotrope fait une syncope inexpliquée, un malaise, des palpitations, une dyspnée ou un angor, car ces symptômes peuvent annoncer des torsades de pointes (CHUV 2024). On le fait aussi lors d'une intoxication par un psychotrope, parce que l'allongement du QT dépend de la dose (Girardin, RMS 2007).",
+  "diagnostic_etiologie": "On cherche un QT long congénital quand le QTc dépasse 470 ms à l'admission ; l'interniste évalue alors, sans urgence, l'indication à des tests cardiogénétiques, car un QT long familial contre-indique de nombreux psychotropes (CHUV 2024).",
+  "depistage_pretherapeutique": "Avant un psychotrope inscrit sur CredibleMeds, on évalue sept facteurs de risque (cardiopathie, mort subite familiale, co-médication allongeant le QT, kaliémie < 3.5 mmol/L, symptômes cardiaques, QTc > 470 ms ou autre anomalie ECG, femme > 70 ans) ; si l'un est présent, on devrait demander l'avis de l'interniste ou du cardiologue avant d'initier, afin d'optimiser le risque ou de changer de molécule (CHUV 2024). La mesure du QT est recommandée dès l'introduction d'un psychotrope connu pour l'allonger (Girardin, RMS 2007).",
+  "suivi_surveillance": "On contrôle l'ECG 1 à 2 semaines après l'initiation et après toute augmentation de dose ≥ 100 %, car l'effet atteint son équilibre après environ 5 demi-vies (CHUV 2024). Sous méthadone, on ajoute un ECG par an et dès 120 mg/j ; sous sertindole, on suit l'ECG à 3 semaines, à 3 mois, puis tous les 3 mois et autour de chaque augmentation de dose (CHUV 2024, d'après l'information professionnelle Swissmedic).",
+  "ne_pas_demander": "On ne répète pas l'ECG pour un psychotrope absent des listes CredibleMeds, car le CHUV ne prévoit alors aucun suivi cardiaque. Pour fluoxétine, fluvoxamine, paroxétine, sertraline et trazodone, le suivi ECG n'est pas nécessaire si le patient n'a aucun facteur de risque cardiaque (CHUV 2024)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "QTc (intervalle QT corrigé), homme adulte",
+   "normal": "≤ 450 ms (RMS 2016, HUG)",
+   "anomalie": "Le QTc s'allonge au-delà de 450 ms chez l'homme ; au-delà de 470 ms à l'admission, on cherche un QT long congénital (CHUV 2024).",
+   "seuil_alerte": "QTc ≥ 500 ms : avis urgent de l'interniste ou du cardiologue de garde (CHUV 2024)"
+  },
+  {
+   "parametre": "QTc, femme adulte",
+   "normal": "≤ 460 ms (RMS 2016, HUG)",
+   "anomalie": "Le QTc s'allonge au-delà de 460 ms chez la femme, car le QT normal de la femme est plus long que celui de l'homme (RMS 2016).",
+   "seuil_alerte": "QTc ≥ 500 ms (CHUV 2024)"
+  },
+  {
+   "parametre": "Variation du QTc sous traitement (ΔQTc)",
+   "normal": "< 60 ms par rapport à l'ECG de base (CHUV 2024)",
+   "anomalie": "Le QTc augmente de 60 ms ou plus par rapport à l'ECG d'avant traitement ; on réévalue alors la molécule (CHUV 2024).",
+   "seuil_alerte": "ΔQTc ≥ 60 ms (CHUV 2024)"
+  },
+  {
+   "parametre": "Largeur du QRS",
+   "normal": "QRS fin (< 120 ms) (non vérifié CH)",
+   "anomalie": "Un bloc de branche ou un rythme électroentraîné élargit le QRS et allonge le QT sans trouble de la repolarisation, donc on corrige autrement (RMS 2016).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Intervalle JT (fin du QRS → fin de T), corrigé",
+   "normal": "P95 = 350 ms ; P98 = 370 ms (Rautaharju, cité par RMS 2016)",
+   "anomalie": "Le JT corrigé dépasse 350 ms ; il reflète alors une repolarisation prolongée même si le QRS est large (RMS 2016).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Kaliémie associée",
+   "normal": "≥ 3.5 mmol/L (CHUV 2024)",
+   "anomalie": "Une kaliémie < 3.5 mmol/L augmente le risque de torsades de pointes sous psychotrope (CHUV 2024).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "QTc de Bazett",
+   "formule": "On calcule QTc = QT ÷ √RR, avec QT en ms et RR en secondes (intervalle RR = 60 ÷ fréquence cardiaque).",
+   "a_quoi_ca_sert": "Le QT raccourcit quand le cœur accélère, donc on le ramène à une fréquence de 60/min pour le comparer au seuil de 450 ou 460 ms.",
+   "exemple": "Un patient a un QT de 400 ms à 90/min. On calcule RR = 60 ÷ 90 = 0.667 s, puis √0.667 = 0.816, puis 400 ÷ 0.816 = 490 ms : Bazett surestime ce QTc, car il devient faux au-delà de 80–90/min (RMS 2016).",
+   "source": "Guinand et coll. (cardiologie, HUG) indiquent la formule de Bazett dans la Revue Médicale Suisse 2016 ; 12 : 1049-53 (lu le 13.11.2026)."
+  },
+  {
+   "nom": "QTc de Fridericia",
+   "formule": "On calcule QTc = QT ÷ ∛RR (racine cubique de RR en secondes).",
+   "a_quoi_ca_sert": "Fridericia corrige moins fort que Bazett, donc on la préfère quand la fréquence dépasse 80–90/min, situation fréquente sous clozapine ou anticholinergiques (déduction).",
+   "exemple": "Pour le même QT de 400 ms à 90/min, on calcule ∛0.667 = 0.874, puis 400 ÷ 0.874 = 458 ms : ce QTc reste sous 500 ms.",
+   "source": "Le tableau 1 de la Revue Médicale Suisse 2016 ; 12 : 1049-53 indique la formule de Fridericia (lu le 13.11.2026)."
+  },
+  {
+   "nom": "QT de Bogossian",
+   "formule": "On calcule QT modifié = QT − (largeur du QRS ÷ 2), puis on le corrige pour la fréquence par la méthode habituelle.",
+   "a_quoi_ca_sert": "Un bloc de branche allonge le QT sans risque propre, donc on retire la moitié du QRS afin de ne pas arrêter à tort un psychotrope.",
+   "exemple": "Un patient a un QRS de 140 ms et un QT de 460 ms. On calcule 460 − 70 = 390 ms, puis on corrige ce QT de 390 ms selon la fréquence.",
+   "source": "La figure 3 de la Revue Médicale Suisse 2016 ; 12 : 1049-53 décrit cette méthode simplifiée (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "Le QTc atteint 512 ms (Fridericia) deux semaines après l'introduction d'halopéridol, alors qu'il valait 440 ms avant.",
+   "associees_presentes": "Le patient a une kaliémie à 3.2 mmol/L et reçoit aussi du citalopram.",
+   "associees_a_rechercher": "On cherche une hypomagnésémie, un QT long familial, une bradycardie et un inhibiteur enzymatique, car ces conditions augmentent le risque de torsades de pointes (CHUV 2024).",
+   "syndrome_anamnese": "Le patient signale des palpitations et un malaise bref.",
+   "syndrome_status": "Le pouls est irrégulier ; la pression artérielle reste normale.",
+   "confirmation": "L'ECG montre un QTc ≥ 500 ms et un ΔQTc ≥ 60 ms, donc les deux critères du CHUV sont atteints (CHUV 2024).",
+   "diagnostic": "Il s'agit d'un QT long acquis d'origine médicamenteuse, aggravé par une hypokaliémie et une association de deux psychotropes à risque.",
+   "conduite": "On demande un avis urgent de l'interniste ou du cardiologue de garde, car un QTc ≥ 500 ms peut justifier un monitoring ; on arrête ou réduit la molécule, ou on passe à une molécule à risque plus faible, et on corrige le potassium ; on ne poursuit que si le patient n'a aucun symptôme, si l'indication est majeure et après avis cardiologique (CHUV 2024)."
+  },
+  {
+   "entite_anormale_chiffree": "Le QTc mesure 485 ms (Bazett) chez un patient porteur d'un bloc de branche gauche (QRS 150 ms) avant un antipsychotique.",
+   "associees_presentes": "La fréquence cardiaque atteint 95/min.",
+   "associees_a_rechercher": "On recalcule le QT modifié (QT − QRS/2) ou le JT, car Bazett surestime le QTc avec un QRS large et une fréquence élevée (RMS 2016).",
+   "syndrome_anamnese": "Le patient n'a ni syncope ni palpitations.",
+   "syndrome_status": "L'examen cardiaque est sans particularité.",
+   "confirmation": "Le QT modifié corrigé reste sous 450 ms, donc la repolarisation est normale (déduction selon RMS 2016).",
+   "diagnostic": "Il s'agit d'un faux QT long lié au bloc de branche.",
+   "conduite": "On peut débuter le traitement, mais on devrait d'abord demander l'avis de l'interniste, car le bloc de branche figure parmi les facteurs de risque du CHUV ; on contrôle l'ECG 1 à 2 semaines après l'initiation (CHUV 2024)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si l'on applique Bazett à une fréquence de 100/min",
+    "consequence": "On surestime le QTc et l'on arrête à tort un psychotrope efficace, car Bazett devient faux au-delà de 80–90/min (RMS 2016)."
+   },
+   {
+    "si": "Si l'on lit un QTc long sans regarder la largeur du QRS",
+    "consequence": "On attribue au médicament un allongement dû au bloc de branche (RMS 2016)."
+   },
+   {
+    "si": "Si l'on contrôle l'ECG le lendemain de l'introduction",
+    "consequence": "On rassure à tort, car l'effet n'atteint son équilibre qu'après environ 5 demi-vies, soit 1 à 2 semaines (CHUV 2024)."
+   },
+   {
+    "si": "Si l'on oublie la kaliémie et les co-médications",
+    "consequence": "Le patient garde un risque de torsades de pointes, car l'hypokaliémie et l'association de molécules à risque s'additionnent (CHUV 2024 ; Girardin, RMS 2007)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « 470 – 500 – 60 » : au-delà de 470 ms on cherche un QT long congénital, à 500 ms on appelle en urgence, et une hausse de 60 ms fait réévaluer la molécule (CHUV 2024)."
  },
  "sources": [
-  "—"
+  "CHUV, Département de psychiatrie (Service de psychiatrie générale ; Unité de pharmacogénétique et psychopharmacologie clinique). Suivi ECG des patients hospitalisés, version 2.0 du 19.03.2024, https://www.chuv.ch/fileadmin/sites/dp/documents/dp-uppc-suiviecg.pdf (lu le 13.11.2026)",
+  "Guinand A, Namdar M, Burri H, Shah D (HUG, cardiologie). Évaluation de l'intervalle QT en présence d'un élargissement du QRS. Rev Med Suisse 2016 ; 12 : 1049-53, doi:10.53738/REVMED.2016.12.520.1049 (lu le 13.11.2026)",
+  "Girardin F, Gaspoz JM. Surveillance de l'intervalle QT chez le patient psychiatrique. Rev Med Suisse 2007 ; 3 : 945-8 (résumé lu le 13.11.2026)"
  ],
  "passerelles": [
   {
    "type": "Suivi thérapeutique",
    "cible": "PH-S11-antipsychotiques",
-   "pourquoi": "—"
+   "pourquoi": "Les antipsychotiques (halopéridol, sertindole, amisulpride, quétiapine…) figurent sur les listes CredibleMeds, donc leur fiche fixe le suivi ECG."
   },
   {
    "type": "Suivi thérapeutique",
    "cible": "PH-S11-antidepresseurs",
-   "pourquoi": "—"
+   "pourquoi": "Le citalopram et l'escitalopram allongent le QT, donc l'ECG guide leur dose."
   },
   {
    "type": "Fondement",
    "cible": "SF-S11-neurobiologie-circuits-neurotransmetteurs",
-   "pourquoi": "—"
+   "pourquoi": "Cette fiche explique pourquoi les psychotropes bloquent les canaux potassiques de la repolarisation."
   }
  ]
 }
