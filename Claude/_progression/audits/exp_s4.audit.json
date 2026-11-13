@@ -1,0 +1,106 @@
+{
+ "lot": "PROG",
+ "perimetre": "Claude/_progression/donnees/examens/EX-3-S4-* : 7 fiches d'explorations fonctionnelles (spirometrie-test-reversibilite, plethysmographie, dlco, pressions-respiratoires, test-marche-6-minutes, oxymetrie-nocturne, test-provocation-bronchique)",
+ "date": "2026-11-13",
+ "auditeur": "Claude (audit indépendant, non-rédacteur)",
+ "verdict": "CORRECTIONS",
+ "resume": "Tous les calculs sont justes une fois refaits à la main. Les équations d'Enright-Sherrill, les délais d'arrêt des bronchodilatateurs, les contre-indications et les critères de répétabilité ATS/ERS 2019 sont exacts. Restent 4 corrections majeures, dont 2 sur la méthacholine : le principe de la pléthysmographie est faux (elle mesure la CRF, pas le VR) ; les seuils PD20 et PC20 de la méthacholine sont périmés (ERS 2017 : test négatif au-delà de 400 µg) ; la « normale » du TM6 est fixée à la distance prédite moyenne au lieu de la LIN. S'y ajoutent 7 corrections mineures (critère périmé, attribution, cohérence interne).",
+ "verifie_conforme": [
+  "ATS/ERS 2019 Standardization of Spirometry (PMC6794117, texte intégral relu le 13.11.2026 via Europe PMC) : délais d'arrêt SABA 4–6 h, SAMA 12 h, LABA 24 h, ultra-LABA 36 h, LAMA 36–48 h ; « withholding times ... shorter than those for methacholine challenge testing because the bronchoprotection ... lasts longer » : la phrase de la fiche provocation est donc bien attribuée ; contre-indications relatives : infarctus < 1 semaine, chirurgie cérébrale, thoracique ou abdominale < 4 semaines, chirurgie oculaire < 1 semaine, pneumothorax ; répétabilité ≤ 0,150 L après 6 ans ; volume rétro-extrapolé < 5 % de la CVF ou 0,100 L (la plus grande des deux valeurs).",
+  "Enright PL, Sherrill DL 1998 (résumé PubMed 9817683 relu) : homme 7,57 × taille − 5,02 × âge − 1,76 × poids − 309 m ; femme 2,11 × taille − 2,29 × poids − 5,78 × âge + 667 m. Les équations sont recopiées exactement ; elles concernent les 40–80 ans et n'expliquent qu'environ 40 % de la variance.",
+  "ERS/ATS 2014 field walking tests (résumé PubMed 25359355 relu) : on doit faire deux tests parce qu'il existe un effet d'apprentissage, ce qui concorde avec le piège « le patient découvre le test ».",
+  "Calculs refaits à la main, tous justes : Tiffeneau 1,8/3,2 = 0,56 ; 1,8/3,0 = 60 % (GOLD 2) ; réversibilité 0,27/2,14 = 12,6 % ; z = −2,8 donne une atteinte modérée (ERS/ATS 2022 : −2,51 à −4) ; CPT 3,96 + 4,52 = 8,48 L et VR/CPT 0,53 ; KCO 19,5/3,11 = 6,27 ; CVF/DLCO 84/50 = 1,68 ; PImax 68/77 = 88 % ; CV couchée (3,0 − 2,2)/3,0 = 27 % ; Enright 1324,75 − 351,4 − 140,8 − 309 = 523,55 m et 380/523,6 = 73 % ; ODI 96/8 = 12/h ; T90 24/400 = 6 % ; chute du VEMS (3,0 − 2,3)/3,0 = 23 % ; DEP (450 − 380)/380 = 18 % ; 7,8 µmol de méthacholine (195,7 g/mol) ≈ 1 526 µg.",
+  "Cohérents avec les standards connus : grades GOLD 1–4 sur le VEMS après bronchodilatateur ; PRISm ; réponse au bronchodilatateur > 10 % de la valeur prédite (ERS/ATS 2022) ; définition du syndrome obésité-hypoventilation (PaCO2 ≥ 45 mmHg, IMC ≥ 30) ; perte de poids de 25 à 30 % ; critères de VNI du consensus de 1999 (PaCO2 ≥ 45 mmHg, SpO2 ≤ 88 % pendant 5 min consécutives, PImax < 60 cmH2O, CVF < 50 %) ; critères d'oxygénothérapie de longue durée (PaO2 ≤ 7,3 kPa, SpO2 ≤ 88 %)."
+ ],
+ "restants": [
+  {
+   "gravite": "majeure",
+   "fiche": "EX-3-S4-plethysmographie",
+   "champ": "entete.prelevement_conditions",
+   "avant": "« car l'appareil mesure le volume non mobilisable, en pratique le VR, dont on déduit la CPT »",
+   "correction": "Le pléthysmographe mesure le volume gazeux thoracique en fin d'expiration calme, c'est-à-dire la CRF (loi de Boyle-Mariotte, manœuvre contre l'obturateur). On en déduit ensuite VR = CRF − VRE et CPT = CRF + CI, ou CPT = VR + CV (ATS/ERS 2005, Wanger ; européen-international, non vérifié CH). Écrire : « car l'appareil mesure la CRF (volume gazeux thoracique) en appliquant la loi de Boyle-Mariotte ; on en déduit le VR et la CPT grâce à la spirométrie couplée »."
+  },
+  {
+   "gravite": "majeure",
+   "fiche": "EX-3-S4-test-provocation-bronchique",
+   "champ": "temps2_examen[PD20].normal et anomalie ; temps2_examen[PC20].normal et anomalie",
+   "avant": "« PD20 ≥ 7,8 µmol (≈ 1500 µg) ; zone grise de 800 à 3100 µg » ; « PC20 > 8 mg/mL » (SPLF 2011)",
+   "correction": "Ces seuils sont périmés. La norme ERS 2017 (Coates AL et al., Eur Respir J 2017;49:1601526) exprime le résultat en PD20 délivrée : > 400 µg = test négatif ; 100–400 µg = HRB légère ; 25–100 µg = modérée ; < 25 µg = marquée. Une publication de 2024 confirme ce seuil : « the current recommendation for a negative methacholine test is a 20% decrease in FEV1 at a dose greater than 400 µg » (PMC11502631, résumé relu le 13.11.2026). Selon ATS 2000, la PC20 normale est > 16 mg/mL et la zone limite va de 4 à 16 mg/mL. Écrire le seuil européen actuel et ne citer SPLF 2011 que comme historique, car ses doses dépendent d'anciens nébuliseurs."
+  },
+  {
+   "gravite": "majeure",
+   "fiche": "EX-3-S4-test-provocation-bronchique",
+   "champ": "temps3_interpretation[1] (entite, diagnostic) et temps3_interpretation[2] (entite, confirmation)",
+   "avant": "« Le VEMS chute de 20 % à 1200 µg … hyperréactivité bronchique en zone grise » ; « la PC20 dépasse 8 mg/mL … un test négatif élimine un asthme »",
+   "correction": "Selon ERS 2017, une PD20 de 1 200 µg (> 400 µg) donne un test négatif et non une zone grise ; il faut reformuler le cas (par exemple PD20 de 200 µg = HRB légère, compatible avec une rhinite atopique sans asthme). Pour la PC20, retenir > 16 mg/mL comme test négatif (ATS 2000) au lieu de > 8 mg/mL."
+  },
+  {
+   "gravite": "majeure",
+   "fiche": "EX-3-S4-test-marche-6-minutes",
+   "champ": "temps2_examen[Distance parcourue].normal et temps3_interpretation[0].entite_anormale_chiffree",
+   "avant": "« normal : ≥ distance prédite d'Enright-Sherrill » ; cas « 380 m (73 % du prédit) » lu comme anormal",
+   "correction": "L'équation donne une médiane : la moitié des sujets sains marchent moins et elle n'explique qu'environ 40 % de la variance (Enright 1998, résumé relu). La normale se définit donc par la limite inférieure, c'est-à-dire la prédiction moins 153 m chez l'homme et moins 139 m chez la femme (Enright 1998, texte intégral, à relire). Dans le cas, la LIN vaut 523,6 − 153 ≈ 371 m : les 380 m restent dans la normale, et seule la désaturation à 86 % est anormale. Corriger la case « normal » et l'entité du cas."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-spirometrie-test-reversibilite",
+   "champ": "temps2_examen[Qualité des manœuvres].normal",
+   "avant": "« expiration ≥ 6 s (> 10 ans) »",
+   "correction": "ATS/ERS 2019 a supprimé la durée minimale de 6 s de 2005, car elle classait à tort des manœuvres valides comme inadéquates. Les critères de fin d'expiration sont un plateau (< 0,025 L dans la dernière seconde), ou une durée d'expiration ≥ 15 s, ou une CVF répétable (PMC6794117, relu). Écrire ces critères."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-spirometrie-test-reversibilite",
+   "champ": "temps1_indications.depistage_pretherapeutique",
+   "avant": "« Avant chirurgie thoracique ou abdominale ou opération ophtalmique récente, on attend au moins 4 semaines »",
+   "correction": "Le délai vaut 1 semaine après une chirurgie oculaire et 4 semaines après une chirurgie thoracique, abdominale ou cérébrale (ATS/ERS 2019, tableau 2, relu). L'en-tête de la même fiche le dit déjà ; harmoniser les deux cases."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-dlco",
+   "champ": "temps2_examen[DLCO].seuil_alerte ; temps3_interpretation[0].conduite ; EX-3-S4-test-marche-6-minutes temps3_interpretation[1].conduite",
+   "avant": "« DLCO < 39 % … baisse de la CVF > 10 % en 6 mois … SpO2 < 88 % au TM6 avec rayon de miel : critères ISHLT » (ISHLT 2006, via SPLF 2011)",
+   "correction": "Ces critères datent du consensus ISHLT 2006 et le consensus ISHLT 2021 les a remplacés (Leard LE et al., J Heart Lung Transplant 2021, PMC8979471 ; titre vérifié, texte non relu). Préciser « ISHLT 2006 (critères anciens) » ou citer les critères 2021 après lecture. Ajouter à la conduite de la FPI le traitement antifibrosant (nintédanib, pirfénidone), car la prise en charge actuelle commence par lui ; ce point est non vérifié CH."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-dlco",
+   "champ": "temps2_examen[KCO].anomalie et calculs[KCO].exemple",
+   "avant": "« si le KCO reste normal alors que la DLCO baisse, le poumon est surtout plus petit » ; KCO 98 % lu comme normal donc pariétal",
+   "correction": "Quand le VA baisse parce que le poumon ne s'expand pas (paroi, muscles), le KCO devrait monter au-dessus de la normale (souvent 120–150 %). Un KCO seulement « normal » avec un VA bas traduit donc déjà une perte modérée d'unités alvéolo-capillaires (Hughes et Pride 2012 ; ERS/ATS 2017 ; non relu ici, non vérifié CH). Nuancer la phrase ainsi : « KCO élevé avec VA bas = petit poumon pur ; KCO normal avec VA bas = interpréter avec prudence »."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-plethysmographie",
+   "champ": "temps2_examen[Rapport VR/CPT].normal",
+   "avant": "« ≤ 30 % »",
+   "correction": "Le rapport VR/CPT augmente avec l'âge : il vaut environ 25 % chez l'adulte jeune et approche 40 % après 70 ans. On doit donc le juger par rapport à la LSN des équations de référence, et non avec un seuil fixe de 30 %, sinon on surdiagnostique un piégeage chez le sujet âgé (déduction physiologique ; ERS/ATS 2022, non relu). Écrire « ≤ LSN pour l'âge (≈ 30 % chez l'adulte jeune) »."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-plethysmographie",
+   "champ": "temps3_interpretation[0].diagnostic et conduite",
+   "avant": "« trouble ventilatoire restrictif, compatible avec l'obésité si la DLCO reste normale (déduction) » pour une CPT à 56 % et un IMC de 38",
+   "correction": "Une obésité d'IMC 38 abaisse surtout la CRF et le VRE, mais elle laisse le plus souvent la CPT normale ou peu diminuée. Une CPT à 56 % (restriction sévère) ne doit donc pas être attribuée à l'obésité seule. Écrire : « restriction sévère que l'obésité seule n'explique pas ; on recherche une atteinte interstitielle, pariétale ou neuromusculaire » (déduction ; non vérifié CH)."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-3-S4-test-provocation-bronchique",
+   "champ": "temps1_indications.ne_pas_demander (contre-indications)",
+   "avant": "« VEMS < 50 % du prédit ou < 1,2 L … pression > 200/110 mmHg … glaucome ou adénome de la prostate » (SPLF 2011)",
+   "correction": "Ajouter la norme européenne actuelle (ERS 2017) : on ne fait pas le test si le VEMS est < 60 % du prédit ou < 1,5 L, ni dans les 3 mois après un infarctus ou un AVC, ni devant une hypertension non contrôlée ou un anévrisme aortique (Coates 2017, non relu ici). Le glaucome et l'adénome prostatique n'y figurent pas ; les garder seulement comme précaution historique de SPLF 2011."
+  }
+ ],
+ "non_tranche": [
+  "Sources non relues : aucune source principale de ces 7 fiches ne figure dans le cache partagé (sources_cache index). Il s'agit de Paediatrica 2023, SPLF 2011, SPLF ECN 2017, atelier SPLF 2015, HUG 3-04 2010, HUG BPCO 2026, HUG Asthme 2022/2026, RMS 2018/2019/2023 et Bruyneel 2023. Le réseau a refusé paediatrica.ch, splf.fr et ncbi (disjoncteur) ; seul Europe PMC répondait. Les attributions à ces sources ne sont donc pas contre-vérifiées mot pour mot.",
+  "EX-3-S4-oxymetrie-nocturne : le critère HAS 2005 de VNI dans la SLA s'écrit-il « SpO2 < 90 % » ou « < 88 % » pendant plus de 5 % du temps ? Il faut le vérifier dans la conférence de consensus HAS 2005 ou dans SPLF 2011.",
+  "EX-3-S4-pressions-respiratoires : les seuils « SNIP et PImax < 60 % du prédit, CV < 50 % » sont attribués à « EFNS 2005 ». Ils ressemblent plutôt à la conférence de consensus française HAS 2005 sur la SLA ; l'attribution est à vérifier dans l'atelier SPLF.",
+  "EX-3-S4-test-marche-6-minutes : « l'opérateur ne l'encourage pas » (HUG 3-04) contredit peut-être ERS/ATS 2014, qui prévoit des phrases d'encouragement standardisées chaque minute (texte intégral non relu).",
+  "EX-3-S4-dlco : le seuil CVF/DLCO > 1,4 (SPLF 2011) et l'expression « avec atteinte interstitielle » posent question. Le rapport sert à dépister une HTAP dans la sclérodermie sans atteinte interstitielle importante, et la littérature cite souvent un seuil de 1,6 (DETECT, ESC/ERS 2022). À vérifier.",
+  "EX-3-S4-test-provocation-bronchique : la variabilité du DEP est calculée sur le minimum, au-delà de 20 % sur 5 jours (HUG 2026). GINA utilise l'amplitude divisée par la moyenne et un seuil > 10 % chez l'adulte. Il faut vérifier que la fiche recopie fidèlement HUG 2026."
+ ],
+ "besoin_outils_partages": [
+  "sources_cache.py : ncbi.nlm.nih.gov est coupé par le disjoncteur, alors que l'API REST Europe PMC (www.ebi.ac.uk/europepmc/webservices/rest/<PMCID>/fullTextXML) répond. Ajouter ce point d'accès en repli automatique pour les URL PMC.",
+  "Les rédacteurs des fiches EX-3-S4 n'ont pas versé leurs sources dans le cache partagé. La porte devrait exiger qu'une source déclarée « lu le » figure dans sources_index.jsonl, sinon l'audit ne peut pas la relire."
+ ]
+}
