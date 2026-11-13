@@ -7,61 +7,178 @@
  "systeme": "S11",
  "etiquettes": [],
  "entree_primaire": [
-  "—"
+  "Sang et buvard",
+  "Urines"
  ],
  "axe_secondaire": [
-  "—"
+  "Biochimie"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Bilan biologique initial d'un premier épisode psychiatrique (psychotique, maniaque ou dépressif sévère)",
+  "synonymes": "Bilan organique d'entrée, bilan somatique du premier épisode",
+  "prelevement_conditions": "Sang veineux (plasma, sérum, EDTA) et urine spot ; glycémie et lipides à jeun si un traitement métabolique est prévu (pHEL 07.2026).",
+  "bon_usage_suisse": "La Liste des analyses fixe la TSH (1718.10) à 7,3 points ; le laboratoire ajoute la T4 libre si la TSH dépasse 6,0 mU/L, et les T4 et T3 libres si elle est < 0,4 mU/L (HUG RPA 7798) ; les drogues urinaires sont aux positions 1686.00/1687.00 (HUG RPA). On préfère un panel ciblé à un panel exhaustif, car le premier épisode a rarement une cause rare (non vérifié CH)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
+  "urgence_aigu": "Si le patient est confus, fébrile, a des signes neurologiques focaux, des céphalées, une crise d'épilepsie ou une catatonie, on exclut en urgence une cause organique (delirium, encéphalite), parce qu'elle menace la vie et ne répond pas à l'antipsychotique (non vérifié CH).",
+  "diagnostic_etiologie": "On exclut une cause organique ou toxique avant de retenir un trouble psychiatrique primaire, car la CIM-10 place F06 (trouble mental organique) et F1x.5 (psychose induite) avant F20–F29 (non vérifié CH).",
+  "depistage_pretherapeutique": "Avant un antipsychotique ou un thymorégulateur, on mesure la glycémie ou l'HbA1c, les lipides, le poids et la PA, afin de disposer d'une base pour suivre leurs effets métaboliques (pHEL). Avant le lithium, on dose la créatinine et la TSH et on fait un ECG (AIPS Quilonorm), parce que le lithium atteint le rein, la thyroïde et le cœur. Avant le valproate, on fait un test de grossesse (AIPS Depakine), car le valproate expose le fœtus.",
   "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "ne_pas_demander": "On ne demande pas une batterie élargie (auto-anticorps, cuivre, céruloplasmine) sans signe d'orientation, parce que ces causes sont rares (non vérifié CH). On ne demande pas les T4 et T3 libres si la TSH est normale, car le laboratoire ne les ajoute qu'en cas de TSH anormale (HUG RPA 7798)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "TSH",
+   "normal": "0,27–4,20 mU/L (HUG RPA 7798)",
+   "anomalie": "La TSH baisse dans l'hyperthyroïdie et monte dans l'hypothyroïdie.",
+   "seuil_alerte": "TSH effondrée avec T4 libre élevée et agitation : hyperthyroïdie à traiter (non vérifié CH)"
+  },
+  {
+   "parametre": "Sodium plasmatique",
+   "normal": "136–145 mmol/L (Insel ZLM)",
+   "anomalie": "Le sodium baisse en cas de potomanie, de SIADH ou de médicament ; il monte si le patient est déshydraté.",
+   "seuil_alerte": "< 125 mmol/L ou symptômes neurologiques : urgence (non vérifié CH)"
+  },
+  {
+   "parametre": "Calcium total",
+   "normal": "2,20–2,52 mmol/L (HUG RPA 3778)",
+   "anomalie": "Le calcium augmente dans l'hyperparathyroïdie et dans les néoplasies.",
+   "seuil_alerte": "> 3,0 mmol/L (non vérifié CH)"
+  },
+  {
+   "parametre": "Glycémie à jeun",
+   "normal": "< 5,6 mmol/L (HUG SMPR 2022)",
+   "anomalie": "Une glycémie de 5,6–6,9 mmol/L signe un prédiabète.",
+   "seuil_alerte": "≥ 7,0 mmol/L : diabète (HUG SMPR 2022) ; hypoglycémie < 3,0 mmol/L (non vérifié CH)"
+  },
+  {
+   "parametre": "CRP",
+   "normal": "< 5 mg/L (Insel ZLM)",
+   "anomalie": "La CRP augmente en cas d'infection ou d'inflammation.",
+   "seuil_alerte": "↑ avec fièvre et confusion : encéphalite ou sepsis à exclure (non vérifié CH)"
+  },
+  {
+   "parametre": "Créatinine",
+   "normal": "H 62–106 µmol/L ; F 44–80 µmol/L (HUG RPA 3785)",
+   "anomalie": "La créatinine monte en cas d'insuffisance rénale, ce qui oblige à adapter la dose du lithium.",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Drogues urinaires (immunodosage)",
+   "normal": "Négatif (HUG RPA 9312–9318)",
+   "anomalie": "Un test positif fait évoquer une psychose induite.",
+   "seuil_alerte": "Confirmation si conséquence (1683.10)"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Calcium corrigé (albumine)",
+   "formule": "On calcule calcium corrigé (mmol/L) = calcium total mesuré (mmol/L) + (40 − albumine en g/L) / 40 ; on ajoute donc 0,025 mmol/L par g/L d'albumine manquant sous 40 g/L (SFMU 2014).",
+   "a_quoi_ca_sert": "Ce calcul estime le calcium qu'aurait le patient avec une albumine normale, afin de ne pas manquer une hypercalcémie qui explique des symptômes psychiques chez un patient dénutri.",
+   "exemple": "Un patient déprimé et dénutri a un calcium total de 2,45 mmol/L et une albumine de 28 g/L (valeurs d'exemple). On calcule 40 − 28 = 12 ; puis 12 / 40 = 0,30 ; puis 2,45 + 0,30 = 2,75 mmol/L. Comme le calcium corrigé dépasse 2,52 mmol/L (limite HUG RPA 3778), le patient a une hypercalcémie, alors que son calcium total semblait normal.",
+   "source": "Pic D. Hypercalcémie aiguë : ce qu'il faut savoir (Urgences 2014, SFMU, chapitre 41 ; source européenne, France ; lu le 13.11.2026) indique la formule ; HUG RPA 3778 donne la norme 2,20–2,52 mmol/L (lu le 13.11.2026) ; les valeurs sont choisies pour l'illustration."
+  },
+  {
+   "nom": "Osmolalité calculée",
+   "formule": "On calcule osmolalité calculée = 2 × Na + glucose + urée, toutes en mmol/L (RMS 2010).",
+   "a_quoi_ca_sert": "Ce calcul estime l'osmolalité sans la mesurer, afin de dire si une hyponatrémie (par exemple d'une potomanie) est hypotonique.",
+   "exemple": "Le patient du cas a Na 118 mmol/L ; on prend glucose 5 mmol/L et urée 3 mmol/L (valeurs d'exemple). On calcule 2 × 118 = 236 ; puis 236 + 5 + 3 = 244 mOsm/kg. Comme ce résultat reste < 275 mOsm/kg, l'hyponatrémie est hypotonique.",
+   "source": "La Revue Médicale Suisse 2010 ; 6 : 2074-9 (Vuagniaux et Vollenweider, CHUV) indique la formule (lu le 13.11.2026) ; valeurs de glucose et d'urée choisies pour l'illustration."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "La TSH est < 0,01 mU/L et la T4 libre est élevée.",
+   "associees_presentes": "Le patient est agité, dort mal, perd du poids et a une tachycardie.",
+   "associees_a_rechercher": "On lit la T3 libre, que le laboratoire ajoute (HUG RPA 7798), et on dose les anticorps anti-récepteur de la TSH, afin de chercher une maladie de Basedow (non vérifié CH).",
+   "syndrome_anamnese": "Le patient fait un premier épisode maniaque ou anxieux.",
+   "syndrome_status": "On observe un tremblement fin et un goitre (non vérifié CH).",
+   "confirmation": "Le bilan thyroïdien complet confirme l'hyperthyroïdie.",
+   "diagnostic": "Le patient a un trouble mental organique dû à une hyperthyroïdie (F06).",
+   "conduite": "On demande un avis endocrinologique et on donne un bêtabloquant, parce que les symptômes psychiques cèdent avec le traitement de la thyroïde (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "Le sodium est à 118 mmol/L.",
+   "associees_presentes": "Le patient est confus et hallucine.",
+   "associees_a_rechercher": "On mesure les osmolalités plasmatique et urinaire et on cherche une potomanie, un ISRS ou un diurétique, afin de trouver la cause de l'hyponatrémie.",
+   "syndrome_anamnese": "Le patient boit beaucoup (polydipsie).",
+   "syndrome_status": "Sa vigilance fluctue.",
+   "confirmation": "Les osmolalités orientent la cause (non vérifié CH).",
+   "diagnostic": "Le patient fait un delirium hyponatrémique (F05).",
+   "conduite": "On corrige lentement sous surveillance, car une correction trop rapide expose à une myélinolyse (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "Les cannabinoïdes urinaires sont positifs et le reste du bilan est normal.",
+   "associees_presentes": "Le patient a des idées délirantes et il est désorganisé.",
+   "associees_a_rechercher": "On cherche d'autres substances, et on demande une IRM si le patient a des signes neurologiques, afin de ne pas manquer une cause lésionnelle (non vérifié CH).",
+   "syndrome_anamnese": "Le patient consomme du cannabis tous les jours.",
+   "syndrome_status": "Le patient est psychotique sans signe neurologique.",
+   "confirmation": "L'évolution sous abstinence permet de trancher (non vérifié CH).",
+   "diagnostic": "On hésite entre un trouble psychotique induit par le cannabis (F12.5) et une schizophrénie débutante.",
+   "conduite": "On vise l'abstinence, on donne un antipsychotique et on adresse au suivi spécialisé du premier épisode, parce que seule l'évolution sous abstinence distingue la psychose induite de la schizophrénie (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "Le calcium est à 3,1 mmol/L.",
+   "associees_presentes": "Le patient est déprimé, constipé et confus.",
+   "associees_a_rechercher": "On dose la PTH, le phosphate et la créatinine.",
+   "syndrome_anamnese": "L'asthénie s'est installée progressivement.",
+   "syndrome_status": "Le patient est déshydraté.",
+   "confirmation": "La PTH oriente la cause (non vérifié CH).",
+   "diagnostic": "Le patient a une hypercalcémie (hyperparathyroïdie ou néoplasie) qui explique ses symptômes psychiques.",
+   "conduite": "On réhydrate, parce que l'hypercalcémie déshydrate et que la déshydratation l'aggrave, et on demande un avis endocrinologique ou oncologique (non vérifié CH)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "On ne fait pas de dépistage toxique lors d'un premier épisode psychotique.",
+    "consequence": "On méconnaît une psychose induite et on prescrit à tort un antipsychotique au long cours (non vérifié CH)."
+   },
+   {
+    "si": "On prend une vigilance fluctuante pour une psychose.",
+    "consequence": "On méconnaît le delirium et on ne traite pas sa cause somatique (HUG aide-mémoire delirium)."
+   },
+   {
+    "si": "On omet le test de grossesse avant le valproate.",
+    "consequence": "Le fœtus est exposé au valproate (AIPS Depakine)."
+   },
+   {
+    "si": "On ne cherche pas de cause organique quand le premier épisode survient après 40 ans.",
+    "consequence": "On manque une cause neurologique ou endocrinienne (non vérifié CH)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « TSH-Na-Ca-Glu-Tox-hCG » : thyroïde, sodium, calcium, glucose, toxiques, grossesse (déduction)."
  },
  "sources": [
-  "—"
+  "HUG, Répertoire des prestations d'analyses (RPA), Laboratoire de chimie clinique des urgences, rpa.hug.ch (fiches citées par numéro ; mise en production 03.09.2025 sauf mention) (lu le 13.11.2026) : 7798 TSH, 3778 calcium, 3785 créatinine, 9312–9318 drogues",
+  "Inselspital Bern, Zentrum für Labormedizin, « Cobas PRO – Referenzwerte » v21.0 du 25.06.2026 (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours, stratégie « Diabète de type 2 », 2022 (lu le 13.11.2026)",
+  "pHEL (Pharmacie des Hôpitaux de l'Est lémanique), Flash info « Antipsychotiques et troubles métaboliques », MAJ 07.2026, reprenant CHUV UPPC 2024 « Suivi des effets secondaires (notamment métaboliques) lors de traitement par des psychotropes chez l'adulte » (lu le 13.11.2026)",
+  "AIPS Swissmedic Quilonorm® retard (lithium), n° 35960, mise à jour mars 2025 (lu le 13.11.2026)",
+  "AIPS Swissmedic Depakine® (valproate), n° 34734, mise à jour septembre 2025 (lu le 13.11.2026)",
+  "HUG, Soins palliatifs, « Delirium – aide-mémoire destiné aux soignants » (lu le 13.11.2026)",
+  "Mentions « (non vérifié CH) » : connaissance générale non adossée à une source suisse lue ; à vérifier."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S11-neurobiologie-circuits-neurotransmetteurs",
-   "pourquoi": "—"
+   "pourquoi": "Des causes organiques peuvent produire des symptômes psychiques."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-2-S11-irm-cerebrale-premier-episode-psychotique",
+   "pourquoi": "Si le patient a des signes neurologiques, on demande une imagerie."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S11-depistage-toxicologique-urinaire-sanguin",
+   "pourquoi": "On recherche une cause toxique."
+  },
+  {
+   "type": "Diagnostic psychiatrique",
+   "cible": "PS-F20-F29",
+   "pourquoi": "On retient une psychose primaire seulement après avoir exclu une cause organique."
   }
  ]
 }

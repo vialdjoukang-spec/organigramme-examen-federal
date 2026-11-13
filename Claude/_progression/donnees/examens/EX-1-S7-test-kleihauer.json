@@ -7,61 +7,122 @@
  "systeme": "S7",
  "etiquettes": [],
  "entree_primaire": [
-  "—"
+  "Sang et buvard"
  ],
  "axe_secondaire": [
-  "—"
+  "Cytologie et hématologie"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Quantification des érythrocytes fœtaux dans le sang maternel (test de Kleihauer-Betke ou cytométrie en flux)",
+  "synonymes": "Kleihauer, HbF, hémorragie fœto-maternelle",
+  "prelevement_conditions": "On prélève du sang veineux sur EDTA. Le CHUV demande un tube EDTA-K de 2,6 mL, stable 24 h à température ambiante, et rend le résultat en 2–3 jours par cytométrie en flux, qui remplace le Kleihauer ; Viollier demande 500 µL d'EDTA et compte au microscope 7 j/7 (CHUV DLA_INV_01_00190 ; Viollier 18036).",
+  "bon_usage_suisse": "L'hémoglobine fœtale est cotée 1401.00, à 36,90 CHF, dans la liste des analyses (Viollier 18036) ; la cytométrie du CHUV est facturée 64,8 CHF (CHUV DLA_INV_01_00190)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
+  "urgence_aigu": "Si une femme RhD négatif porte un fœtus RhD positif ou inconnu et subit un traumatisme abdominal, une version externe, un décollement placentaire ou un saignement, on estime le volume de sang fœtal passé chez elle afin de doser l'anti-D (SGGG avis 68 ; CHUV).",
+  "diagnostic_etiologie": "On la demande si on suspecte une hémorragie fœto-maternelle (CHUV DLA_INV_01_00190). Si le TIA reste négatif 24–48 h après l'anti-D, on recherche une transfusion fœto-maternelle massive (SGGG avis 68), car le sang fœtal a pu consommer tout l'anti-D injecté (déduction).",
   "depistage_pretherapeutique": "—",
   "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "ne_pas_demander": "Si le génotypage montre un fœtus RHD négatif, on ne donne pas d'anti-D, donc on ne quantifie pas pour le doser (déduction de SGGG avis 68). Pour suivre l'HbF d'un drépanocytaire, on demande plutôt l'hémoglobine fœtale quantitative (CHUV DLA_INV_01_00190)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
-   "seuil_alerte": "—"
+   "parametre": "Érythrocytes fœtaux dans le sang maternel",
+   "normal": "Pourcentage d'érythrocytes fœtaux sur les érythrocytes totaux (CHUV) ; norme chiffrée non publiée par ces laboratoires",
+   "anomalie": "Si le taux monte, il signe une hémorragie fœto-maternelle ; on calcule le volume transfusé (mL) = ‰ d'érythrocytes fœtaux × 5 (SGGG avis 68).",
+   "seuil_alerte": "Volume > 30 mL de sang fœtal (≈ 6 ‰, déduction) : 300 µg d'anti-D ne suffisent plus (300 µg neutralisent 15 mL d'érythrocytes, ≈ 30 mL de sang) (SGGG avis 68)"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Volume fœto-maternel",
+   "formule": "On calcule le volume de sang fœtal (mL) = ‰ d'érythrocytes fœtaux × 5 ; si le laboratoire rend un %, on multiplie d'abord ce % par 10 pour obtenir des ‰.",
+   "a_quoi_ca_sert": "Ce calcul dit combien de sang du bébé est passé chez la mère, donc si la dose standard d'anti-D suffit.",
+   "exemple": "Une mère RhD négatif a 10 ‰ d'érythrocytes fœtaux après un accident. On calcule 10 × 5 = 50 mL de sang fœtal. Comme 50 mL dépassent 30 mL, une seringue de 300 µg ne suffit pas. Si le CHUV rend 1 %, on calcule d'abord 1 × 10 = 10 ‰, puis 10 × 5 = 50 mL.",
+   "source": "L'avis d'experts SGGG n° 68 donne la formule ‰ × 5 et la limite de 30 mL (lu le 13.11.2026) ; la conversion de % en ‰ est une déduction."
+  },
+  {
+   "nom": "Dose d'anti-D",
+   "formule": "On calcule la dose d'anti-D (µg) = volume de sang fœtal RhD positif (mL) × 10 µg.",
+   "a_quoi_ca_sert": "Ce calcul donne la dose qui neutralise tout le sang fœtal passé, afin que la mère ne fabrique pas d'anticorps anti-D.",
+   "exemple": "Pour 50 mL de sang fœtal, on calcule 50 × 10 = 500 µg d'anti-D. Une seringue de Rhophylac 300 apporte 300 µg, qui couvrent 30 mL ; on calcule donc 500 − 300 = 200 µg à ajouter.",
+   "source": "L'information professionnelle Rhophylac® 300 n° 53609 (mise à jour février 2026) et l'avis d'experts SGGG n° 68 donnent 10 µg par mL de sang RhD positif (lus le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
+   "entite_anormale_chiffree": "Le Kleihauer est à 10 ‰ chez une mère RhD négatif, après un accident de voiture à 32 SA.",
+   "associees_presentes": "On estime le volume à 10 × 5 = 50 mL de sang fœtal (SGGG avis 68).",
+   "associees_a_rechercher": "On surveille le rythme cardiaque fœtal et on cherche des signes d'anémie fœtale et un décollement placentaire, car l'hémorragie peut anémier le fœtus (non vérifié CH).",
+   "syndrome_anamnese": "La patiente a subi un traumatisme abdominal.",
+   "syndrome_status": "Elle a des contractions et une douleur utérine (non vérifié CH).",
+   "confirmation": "On mesure exactement le volume par cytométrie en flux (SGGG avis 68).",
+   "diagnostic": "On retient une hémorragie fœto-maternelle importante, car elle dépasse 30 mL.",
+   "conduite": "On donne 10 µg d'anti-D par mL de sang RhD positif, soit ≈ 500 µg au total, car 300 µg ne couvrent qu'≈ 30 mL de sang (AIPS Rhophylac 53609 ; SGGG avis 68) ; on surveille le fœtus (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "Le TIA est négatif 36 h après 300 µg d'anti-D donnés après l'accouchement.",
+   "associees_presentes": "Le nouveau-né est RhD positif.",
+   "associees_a_rechercher": "On quantifie les érythrocytes fœtaux (SGGG avis 68).",
+   "syndrome_anamnese": "L'accouchement a été compliqué (non vérifié CH).",
    "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "confirmation": "On confirme par Kleihauer ou par cytométrie en flux (SGGG avis 68).",
+   "diagnostic": "On doit exclure une transfusion fœto-maternelle massive, car l'anti-D ne se détecte plus (déduction).",
+   "conduite": "On complète l'anti-D selon le volume calculé afin de prévenir l'allo-immunisation ; on peut encore rattraper la dose jusqu'à 14 jours (SGGG avis 68)."
+  },
+  {
+   "entite_anormale_chiffree": "Une mère thalassémique a une HbF élevée de façon durable.",
+   "associees_presentes": "Elle a une microcytose (non vérifié CH).",
+   "associees_a_rechercher": "On fait une électrophorèse de l'hémoglobine (non vérifié CH).",
+   "syndrome_anamnese": "Elle a une hémoglobinopathie connue.",
+   "syndrome_status": "—",
+   "confirmation": "Les valeurs maternelles restent stables dans le temps (SGGG avis 68).",
+   "diagnostic": "Le résultat est un faux positif maternel, car ses propres globules rouges contiennent de l'HbF (SGGG avis 68).",
+   "conduite": "On préfère la cytométrie en flux, et on ne surdose pas l'anti-D, car le Kleihauer compte aussi les globules maternels riches en HbF (SGGG avis 68 ; déduction)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si la mère a une hémoglobinopathie (thalassémie),",
+    "consequence": "on lit son HbF élevée comme une hémorragie fœto-maternelle (SGGG avis 68)."
+   },
+   {
+    "si": "Si on n'explore pas un TIA négatif après l'anti-D,",
+    "consequence": "on sous-traite une hémorragie massive, et la mère s'allo-immunise contre l'antigène D (SGGG avis 68)."
+   },
+   {
+    "si": "Si la mère et le fœtus sont incompatibles dans le système ABO,",
+    "consequence": "les érythrocytes fœtaux sont détruits, donc on sous-estime le volume (non vérifié CH)."
+   },
+   {
+    "si": "Si on donne la dose standard d'anti-D après un gros traumatisme sans quantifier,",
+    "consequence": "la dose ne suffit pas quand le sang fœtal dépasse 30 mL (SGGG avis 68)."
+   },
+   {
+    "si": "Si on lit en ‰ un résultat du CHUV rendu en %,",
+    "consequence": "on sous-estime le volume d'un facteur 10, donc on sous-dose l'anti-D (déduction de CHUV DLA_INV_01_00190 et SGGG avis 68)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "Retiens « Fois 5, fois 10 » : on multiplie les ‰ par 5 pour obtenir les mL de sang fœtal, puis les mL par 10 µg pour obtenir la dose d'anti-D (SGGG avis 68 ; AIPS Rhophylac)."
  },
  "sources": [
-  "—"
+  "gynécologie suisse SSGO, avis d'experts n° 68, recommandations pour l'administration d'immunoglobuline anti-D pendant la grossesse, 9.1.2020 (lu le 13.11.2026)",
+  "CHUV, catalogue des analyses DLA_INV_01_00190 « Quantification érythrocytes fœtaux », V12, 10.04.2026 (lu le 13.11.2026)",
+  "Viollier, répertoire des analyses n° 18036 « HbF cells (Kleihauer-Betke test, pregnancy) » (lu le 13.11.2026)",
+  "Swissmedic, information professionnelle Rhophylac® 300 n° 53609, mise à jour février 2026 (lu le 13.11.2026)",
+  "Mentions « (non vérifié CH) » : connaissance générale non adossée à une source suisse lue ; à vérifier."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S7-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "L'hémoglobine fœtale résiste à l'élution acide, ce qui permet de compter les hématies fœtales."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S10-bilan-pretransfusionnel",
+   "pourquoi": "On contrôle le groupe RhD, puis le TIA avant et après l'anti-D."
   }
  ]
 }

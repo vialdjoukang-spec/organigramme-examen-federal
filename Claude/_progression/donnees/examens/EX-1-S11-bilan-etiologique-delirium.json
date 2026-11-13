@@ -7,61 +7,199 @@
  "systeme": "S11",
  "etiquettes": [],
  "entree_primaire": [
-  "—"
+  "Sang et buvard",
+  "Urines"
  ],
  "axe_secondaire": [
-  "—"
+  "Biochimie"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Bilan étiologique biologique du delirium (état confusionnel aigu)",
+  "synonymes": "Syndrome confusionnel aigu ; delirium (F05)",
+  "prelevement_conditions": "Sang veineux et urine ; ammoniémie sur plasma, transport sur glace impératif dans l'heure, à jeun recommandé mais pas obligatoire (HUG RPA 3803) ; vitamine B1 sur sang total, le matin à jeun, avant toute prise médicamenteuse (HUG RPA Tox 91).",
+  "bon_usage_suisse": "La Liste des analyses fixe l'ammoniaque (1045.00) à 37,8 points (HUG RPA 3803) et la vitamine B1 (1748.00) à 68,4 points (HUG RPA Tox 91). On oriente le bilan par les facteurs précipitants, car le delirium a presque toujours une cause somatique à corriger (HUG aide-mémoire delirium)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
+  "urgence_aigu": "Si l'attention et la vigilance changent brutalement et fluctuent, on recherche aussitôt les médicaments (psychotropes, opiacés, antibiotiques), une infection pulmonaire ou urinaire, Na, K, Ca, les fonctions rénale et hépatique, une anémie, une déshydratation, une hypoglycémie, un trouble endocrinien, une hypoxémie, un globe et un fécalome, parce que le delirium traduit une cause somatique qu'il faut corriger (HUG aide-mémoire delirium).",
+  "diagnostic_etiologie": "Selon l'orientation, on dose l'ammoniémie (hépatopathie, valproate), la lithiémie ou le taux du médicament, l'alcoolémie et la vitamine B1 (alcool, dénutrition), et on prélève des hémocultures si le patient a de la fièvre, afin de confirmer la cause suspectée plutôt que de multiplier les dosages (non vérifié CH).",
   "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "suivi_surveillance": "On contrôle les anomalies après leur correction, afin de vérifier qu'elles se normalisent. Si le delirium vient d'une déshydratation, d'une atteinte du SNC, d'une hypoxémie, d'une hyponatrémie ou d'une infection respiratoire, l'amélioration reste incertaine malgré la correction (HUG aide-mémoire delirium).",
+  "ne_pas_demander": "On n'attribue pas d'emblée le delirium à une culture urinaire positive sans signe urinaire, car la bactériurie asymptomatique est fréquente chez l'âgé (non vérifié CH). On ne demande pas une batterie étendue (auto-anticorps, LCR) sans orientation, parce qu'elle retarde la recherche des causes fréquentes (non vérifié CH)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Sodium plasmatique",
+   "normal": "136–145 mmol/L (Insel ZLM)",
+   "anomalie": "Le sodium baisse dans un SIADH, sous diurétique ou sous ISRS ; il monte si le patient est déshydraté.",
+   "seuil_alerte": "< 125 mmol/L ou > 155 mmol/L (non vérifié CH)"
+  },
+  {
+   "parametre": "Glycémie",
+   "normal": "À jeun < 5,6 mmol/L (HUG SMPR 2022)",
+   "anomalie": "↑ : hyperglycémie, décompensation diabétique",
+   "seuil_alerte": "< 3,0 mmol/L : hypoglycémie (non vérifié CH)"
+  },
+  {
+   "parametre": "Calcium total",
+   "normal": "2,20–2,52 mmol/L (HUG RPA 3778)",
+   "anomalie": "↑ ou ↓",
+   "seuil_alerte": "> 3,0 mmol/L (non vérifié CH)"
+  },
+  {
+   "parametre": "Créatinine",
+   "normal": "H 62–106 µmol/L ; F 44–80 µmol/L (HUG RPA 3785)",
+   "anomalie": "La créatinine monte en cas d'insuffisance rénale, et les médicaments éliminés par le rein s'accumulent alors.",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "CRP",
+   "normal": "< 5 mg/L (Insel ZLM)",
+   "anomalie": "↑ : infection, inflammation",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Ammoniémie",
+   "normal": "Adulte 11–35 µmol/L (HUG RPA 3803)",
+   "anomalie": "↑ : encéphalopathie hépatique, valproate",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Vitamine B1 (thiamine pyrophosphate)",
+   "normal": "65–200 nmol/L, sang total (HUG RPA Tox 91)",
+   "anomalie": "↓ : carence (alcool, dénutrition)",
+   "seuil_alerte": "Suspicion de Wernicke : thiamine sans attendre le résultat (non vérifié CH)"
+  },
+  {
+   "parametre": "TSH",
+   "normal": "0,27–4,20 mU/L (HUG RPA 7798)",
+   "anomalie": "↑ ou ↓ : trouble endocrinien",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Osmolalité calculée",
+   "formule": "On calcule osmolalité calculée = 2 × Na + glucose + urée, toutes en mmol/L (RMS 2010).",
+   "a_quoi_ca_sert": "Ce calcul estime l'osmolalité sans la mesurer ; on le compare à l'osmolalité mesurée afin de dépister des osmoles cachées.",
+   "exemple": "Le patient du cas SIADH a Na 121 mmol/L ; on prend glucose 5 mmol/L et urée 4 mmol/L (valeurs d'exemple). On calcule 2 × 121 = 242 ; puis 242 + 5 + 4 = 251 mOsm/kg. Comme ce résultat reste < 275 mOsm/kg, l'hyponatrémie est hypotonique.",
+   "source": "La Revue Médicale Suisse 2010 ; 6 : 2074-9 (Vuagniaux et Vollenweider, CHUV) indique la formule (lu le 13.11.2026) ; valeurs de glucose et d'urée choisies pour l'illustration."
+  },
+  {
+   "nom": "Natrémie et glycémie",
+   "formule": "On compte une baisse de 1,5 mmol/L de natrémie pour chaque hausse de 5 mmol/L de la glycémie au-delà de la norme ; baisse attendue = (glycémie − limite supérieure normale) ÷ 5 × 1,5 (RMS 2010).",
+   "a_quoi_ca_sert": "Ce calcul dit si une hyperglycémie explique seule la natrémie basse d'un patient confus ; si la natrémie est plus basse que prévu, on cherche une autre cause.",
+   "exemple": "Un patient confus a une glycémie à 26 mmol/L et une natrémie à 128 mmol/L ; on prend 6 mmol/L comme limite supérieure de la glycémie (hypothèse de l'exemple). On calcule 26 − 6 = 20 ; puis 20 ÷ 5 = 4 ; puis 4 × 1,5 = 6 mmol/L. La natrémie « sans le glucose » vaudrait donc 128 + 6 = 134 mmol/L ; comme elle reste basse, l'hyperglycémie n'explique pas tout et on cherche une autre cause.",
+   "source": "La Revue Médicale Suisse 2010 ; 6 : 2074-9 (Vuagniaux et Vollenweider, CHUV) indique la règle : « chaque ↑ de 5 mmol/l de la glycémie au-delà de la norme = ↓ 1,5 mmol/l de natrémie » (lu le 13.11.2026) ; limite de 6 mmol/L et valeurs choisies pour l'illustration."
+  },
+  {
+   "nom": "Clairance Cockcroft-Gault",
+   "formule": "On calcule clairance (mL/min) = [(140 − âge) ÷ (72 × créatinine en mg/dL)] × poids en kg, puis × 0,85 chez la femme (RMS 2020).",
+   "a_quoi_ca_sert": "Cette formule estime la fonction rénale en tenant compte du poids, afin d'adapter la dose des médicaments éliminés par le rein qui s'accumulent et entretiennent le delirium.",
+   "exemple": "Une femme de 85 ans pèse 50 kg et a une créatinine de 1,0 mg/dL (valeurs d'exemple). On calcule 140 − 85 = 55 ; puis 72 × 1,0 = 72 ; puis 55 ÷ 72 = 0,76 ; puis 0,76 × 50 = 38 ; enfin 38 × 0,85 ≈ 32 mL/min. Sa créatinine paraît normale, mais sa clairance est basse, donc on vérifie la dose de chaque médicament éliminé par le rein.",
+   "source": "La Revue Médicale Suisse 2020 ; 16 : 1489-93, « Comment estimer la filtration glomérulaire dans le contexte de l'adaptation posologique de médicaments ? » (auteurs belges et français), indique la formule de Cockcroft et Gault (tableau 1, lu le 13.11.2026) ; valeurs choisies pour l'illustration."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "Le sodium est à 121 mmol/L sous ISRS.",
+   "associees_presentes": "Confusion, chutes",
+   "associees_a_rechercher": "On mesure les osmolalités plasmatique et urinaire et la natriurèse, et on cherche un diurétique, afin de distinguer un SIADH d'une autre cause.",
+   "syndrome_anamnese": "On a introduit récemment un ISRS chez une personne âgée.",
+   "syndrome_status": "Euvolémie",
+   "confirmation": "L'osmolalité urinaire reste inappropriée (non vérifié CH).",
+   "diagnostic": "Le patient fait un delirium par hyponatrémie, probablement due à un SIADH médicamenteux.",
+   "conduite": "On arrête l'ISRS parce qu'il entretient le SIADH, on restreint les apports hydriques et on corrige lentement, car une correction rapide expose à une myélinolyse (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "La CRP est à 140 mg/L et les leucocytes sont à 15 G/L.",
+   "associees_presentes": "Fièvre, toux",
+   "associees_a_rechercher": "On demande une radiographie thoracique, des hémocultures et des gaz du sang, afin de confirmer la pneumonie et d'en mesurer la gravité (non vérifié CH).",
+   "syndrome_anamnese": "Le patient est devenu dyspnéique récemment.",
+   "syndrome_status": "On entend des crépitants et on mesure une hypoxémie.",
+   "confirmation": "L'imagerie thoracique confirme le foyer.",
+   "diagnostic": "Le patient fait un delirium sur pneumonie.",
+   "conduite": "On donne un antibiotique et de l'oxygène, parce que l'infection et l'hypoxémie entretiennent le delirium, et on ajoute les mesures non médicamenteuses (HUG aide-mémoire)."
+  },
+  {
+   "entite_anormale_chiffree": "L'ammoniémie est à 95 µmol/L chez un patient cirrhotique.",
+   "associees_presentes": "Astérixis, somnolence",
+   "associees_a_rechercher": "On cherche une hémorragie digestive, une infection, une constipation ou des sédatifs, car ces facteurs déclenchent l'encéphalopathie hépatique (non vérifié CH).",
+   "syndrome_anamnese": "Le patient a une cirrhose connue.",
+   "syndrome_status": "On observe un astérixis et une ascite.",
+   "confirmation": "On identifie le facteur déclenchant (non vérifié CH).",
+   "diagnostic": "Le patient fait une encéphalopathie hépatique.",
+   "conduite": "On donne du lactulose et on traite le déclencheur, parce que l'encéphalopathie ne régresse pas tant que sa cause persiste (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "La vitamine B1 est à 40 nmol/L chez un patient alcoolique.",
+   "associees_presentes": "Le patient présente une ataxie et une ophtalmoplégie (non vérifié CH).",
+   "associees_a_rechercher": "On dose la glycémie, le magnésium et l'alcoolémie.",
+   "syndrome_anamnese": "Le patient consomme de l'alcool de façon chronique et il est dénutri.",
+   "syndrome_status": "On observe un nystagmus et une ataxie.",
+   "confirmation": "Les signes répondent à la thiamine (non vérifié CH).",
+   "diagnostic": "Le patient fait une encéphalopathie de Wernicke.",
+   "conduite": "On donne la thiamine IV sans attendre le résultat et avant tout apport glucosé, parce que le glucose consomme la thiamine restante et peut précipiter l'encéphalopathie (non vérifié CH)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "On retarde la thiamine en attendant le dosage de B1.",
+    "consequence": "Le syndrome de Wernicke-Korsakoff peut devenir irréversible ; on prélève donc d'abord, puis on traite aussitôt (déduction de HUG RPA Tox 91)."
+   },
+   {
+    "si": "On prend un delirium hypoactif pour une dépression.",
+    "consequence": "La cause organique reste alors non traitée (non vérifié CH)."
+   },
+   {
+    "si": "On traite une bactériurie asymptomatique comme si elle était la cause.",
+    "consequence": "L'antibiotique est inutile et la cause réelle passe inaperçue (non vérifié CH)."
+   },
+   {
+    "si": "On donne une benzodiazépine pour un delirium hors sevrage alcoolique.",
+    "consequence": "La benzodiazépine aggrave le delirium ; on la réserve donc au delirium de sevrage (Smarter Medicine MIG hospitalière 2016)."
+   },
+   {
+    "si": "On n'achemine pas l'ammoniémie sur glace, ou on l'achemine au-delà d'une heure.",
+    "consequence": "Le laboratoire rend alors une fausse hyperammoniémie, car l'ammoniac continue de se former dans le tube (HUG RPA 3803)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « MIME » : Médicaments, Infections, Métabolique, Élimination (globe, fécalome) (déduction de HUG aide-mémoire delirium)."
  },
  "sources": [
-  "—"
+  "HUG, Soins palliatifs, « Delirium – aide-mémoire destiné aux soignants » (lu le 13.11.2026)",
+  "HUG, Répertoire des prestations d'analyses (RPA), Laboratoire de chimie clinique des urgences, rpa.hug.ch (fiches citées par numéro ; mise en production 03.09.2025 sauf mention) (lu le 13.11.2026) : 3803 ammonium, 3778 calcium, 3785 créatinine, 7798 TSH",
+  "HUG, RPA, Laboratoire de toxicologie et suivi thérapeutique, rpa.hug.ch (fiches citées par numéro ; mise en production 03.09.2025 ou 05.08.2026) (lu le 13.11.2026) : 91 vitamine B1",
+  "Inselspital Bern, Zentrum für Labormedizin, « Cobas PRO – Referenzwerte » v21.0 du 25.06.2026 (lu le 13.11.2026)",
+  "HUG, Service de médecine de premier recours, stratégie « Diabète de type 2 », 2022 (lu le 13.11.2026)",
+  "Smarter Medicine, liste Top 5 Médecine interne générale hospitalière (2016), smartermedicine.ch (lu le 13.11.2026)",
+  "Mentions « (non vérifié CH) » : connaissance générale non adossée à une source suisse lue ; à vérifier."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S11-neurobiologie-circuits-neurotransmetteurs",
-   "pourquoi": "—"
+   "pourquoi": "Le delirium associe un déficit cholinergique et un excès dopaminergique (non vérifié CH)."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-9-S11-delirium",
+   "pourquoi": "On pose d'abord le diagnostic clinique (CAM), puis on fait le bilan."
+  },
+  {
+   "type": "Diagnostic psychiatrique",
+   "cible": "PS-F00-F09",
+   "pourquoi": "Le delirium est codé F05 dans la CIM-10."
+  },
+  {
+   "type": "Interface S1 ↔ S11",
+   "cible": "EX-1-S1-ammoniemie",
+   "pourquoi": "La fiche neurologique lit l'ammoniémie du côté du système nerveux."
+  },
+  {
+   "type": "Interface S1 ↔ S11",
+   "cible": "EX-1-S1-vitamines-b1-b12",
+   "pourquoi": "La fiche neurologique lit la carence en B1 et en B12."
   }
  ]
 }

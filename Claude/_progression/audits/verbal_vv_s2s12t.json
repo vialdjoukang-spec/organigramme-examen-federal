@@ -1,0 +1,16 @@
+{
+  "audit": "Vérification indépendante de la réécriture verbale et explicitée des fiches EX-1-S2-*, EX-1-S12-*, EX-1-T-* (commits 43ea40117 et 7ef807dfe, comparés à e4fc7255e)",
+  "date": "2026-11-13",
+  "verdict": "audit-ok",
+  "constats": [
+    "Le fond reste inchangé : aucun chiffre, seuil, URL ni clé n'a disparu dans les 8 fiches ; les seuls chiffres ajoutés appartiennent aux exemples du bloc calculs.",
+    "Les 7 calculs (Centor, PSA libre/total, TA, TA corrigé, trou osmolaire, éthanolémie en mmol/L, dose de NAC) sont exacts une fois recalculés à la main, et leurs formules concordent avec les sources en cache (SSI 2408, RMS 2018 n° 626, RMS 2005 n° 32, HUG RPA 9342, Pharmacie HUG NAC 2024).",
+    "verbal.py compte 0 phrase nominale sur 598 ; glossaire.py et controle.py restent verts."
+  ],
+  "corrections_faites": [
+    {"fiche": "EX-1-S2-prelevement-gorge", "champ": "ne_pas_demander", "correction": "Le pourquoi « porteurs sains » ne figure pas dans SSI 2408 ; il est désormais signalé (non vérifié CH)."},
+    {"fiche": "EX-1-S2-prelevement-gorge", "champ": "calculs[0]", "correction": "La SSI écrit « considérer de faire un TDR » chez l'enfant de plus de 3 ans : la force passe de « on teste » à « on peut faire le test »."},
+    {"fiche": "glossaire.json", "champ": "scores.Centor", "correction": "Les items reprennent la formulation SSI 2408 (exsudats amygdaliens ; histoire de fièvre ou température > 38 °C) et le score s'applique aussi à l'enfant."}
+  ],
+  "restants": []
+}

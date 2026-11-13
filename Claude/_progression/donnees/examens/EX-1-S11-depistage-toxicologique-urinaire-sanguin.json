@@ -14,55 +14,144 @@
   "Pharmaco-toxicologie"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Dépistage toxicologique : immunodosages urinaires (amphétamines, THC, cocaïne, opiacés, méthadone, benzodiazépines, barbituriques), alcoolémie, tricycliques plasmatiques, recherche de substances inconnues par LC-MS/MS",
+  "synonymes": "Screening toxicologique, toxiques urinaires, General Unknown Screening",
+  "prelevement_conditions": "On recueille une urine spot pour les drogues (méthode KIMS) et du plasma pour l'alcoolémie et les tricycliques. Pour l'alcoolémie, on désinfecte sans alcool et on prélève sans garrot, car l'alcool du désinfectant fausse le dosage. Le laboratoire analyse 24 h/24, et il rend 95 % des résultats en 1 h (HUG RPA 9312–9319, 9331, 9342).",
+  "bon_usage_suisse": "La Liste des analyses code les drogues en 1686.00 (1re à 4e) et 1687.00 (5e à 10e) et les réserve, en cabinet, aux traitements de substitution ou de sevrage ; la confirmation (1683.10) vaut 99 points, les tricycliques (1730.00) 75,6 points et l'alcool éthylique (1311.00) 20,7 points ; on ne demande la recherche de substances inconnues (1428.10) qu'une fois par échantillon et seulement en cas d'intoxication (HUG RPA)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "Si un trouble de conscience, une agitation, une psychose aiguë ou des convulsions restent inexpliqués, ou si l'on présume une intoxication volontaire, on lance la recherche de substances inconnues (HUG RPA Tox 2) et on dose le paracétamol plasmatique (100–200 µmol/L = zone thérapeutique, HUG RPA 9330), parce qu'un toxique traitable peut expliquer le tableau. En cas d'intoxication, on interprète le paracétamol par le nomogramme à ≥ 4 h de l'ingestion et on demande l'avis de Tox Info Suisse (145) (non vérifié CH).",
+  "diagnostic_etiologie": "Lors d'un premier épisode psychotique, maniaque ou anxieux aigu, on recherche une cause toxique, car une psychose induite ne se traite pas comme un trouble primaire (non vérifié CH).",
+  "depistage_pretherapeutique": "On fait le dépistage avant un traitement de substitution ou de sevrage, car la Liste des analyses le limite à cette indication en cabinet (limitation 1686.00, HUG RPA).",
+  "suivi_surveillance": "On contrôle l'abstinence pendant un traitement de substitution, et on recueille l'urine sous surveillance afin d'éviter une substitution de l'échantillon (non vérifié CH).",
+  "ne_pas_demander": "On n'utilise pas un immunodosage positif seul pour une décision légale ou une sanction, parce qu'une réaction croisée peut le rendre faussement positif ; on demande alors une confirmation chromatographique (position 1683.10) (non vérifié CH). On ne compte pas sur le test « opiacés » pour le fentanyl, l'oxycodone ou le tramadol, car il ne les reconnaît pas (non vérifié CH). On ne fait pas de dépistage hors urgence sans le consentement du patient (non vérifié CH)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Immunodosage urinaire par classe (amphétamines, THC, opiacés, méthadone, benzodiazépines, barbituriques)",
+   "normal": "Négatif (HUG RPA 9312–9318)",
+   "anomalie": "Un test positif signale une substance de la classe ou une réaction croisée (non vérifié CH).",
+   "seuil_alerte": "Positif inattendu avec conséquence clinique ou légale : confirmation par chromatographie (1683.10)"
+  },
+  {
+   "parametre": "Cocaïne (benzoylecgonine urinaire)",
+   "normal": "Négatif ; cible : benzoylecgonine, principal marqueur urinaire (HUG RPA 9315)",
+   "anomalie": "Un test positif signe une prise de cocaïne.",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Alcoolémie (éthanol plasmatique)",
+   "normal": "Non détecté ; 1 g/L = 21,7 mmol/L (HUG RPA 9342)",
+   "anomalie": "Sa présence signe une consommation récente.",
+   "seuil_alerte": "> 65 mmol/L (3 g/L) chez un non-tolérant : coma possible (non vérifié CH)"
+  },
+  {
+   "parametre": "Tricycliques plasmatiques (qualitatif)",
+   "normal": "Négatif ; résultat en commentaire (HUG RPA 9331)",
+   "anomalie": "Un test positif signe une prise de tricyclique.",
+   "seuil_alerte": "Positif avec QRS > 100 ms : cardiotoxicité (non vérifié CH)"
+  },
+  {
+   "parametre": "Recherche de substances inconnues (LC-MS/MS)",
+   "normal": "Négatif ; bibliothèque ≈ 850 composés : médicaments, toxiques, stupéfiants, métabolites (HUG RPA Tox 2)",
+   "anomalie": "Un résultat positif permet d'identifier la substance.",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Éthanolémie en mmol/L",
+   "formule": "On calcule éthanol (mmol/L) = éthanol (g/L) × 21,7 (HUG RPA 9342).",
+   "a_quoi_ca_sert": "Cette conversion permet de comparer une alcoolémie rendue en mmol/L à un seuil exprimé en g/L, et de retirer l'éthanol du trou osmolaire.",
+   "exemple": "Le patient du cas a une alcoolémie de 35 mmol/L. On divise : 35 ÷ 21,7 ≈ 1,6 g/L. Comme 1,6 g/L reste sous les 3 g/L (65 mmol/L) du seuil d'alerte de la fiche, l'alcool n'explique pas à lui seul un coma, donc on cherche les autres substances.",
+   "source": "Ce facteur vient de la fiche HUG RPA 9342 (alcoolémie, 03.09.2025 ; 1 g/L = 21,7 mmol/L) (lu le 13.11.2026) ; seuil de 3 g/L : non vérifié CH."
+  },
+  {
+   "nom": "Trou osmolaire calculé",
+   "formule": "On calcule l'osmolarité : 2 × Na + glucose + urée (mmol/L) ; trou osmolaire = osmolalité mesurée − osmolarité calculée ; on soustrait ensuite l'éthanolémie (mmol/L). La valeur normale reste < 10 mosmol/kgH₂O.",
+   "a_quoi_ca_sert": "Il révèle un alcool toxique que le dépistage ne dose pas (méthanol, éthylène glycol) ; si le trou dépasse 10 après avoir retiré l'éthanol, on suspecte un alcool toxique, et la suspicion devient forte au-delà de 25.",
+   "exemple": "Le patient a Na 140, glucose 5 et urée 5 mmol/L ; l'osmolalité mesurée vaut 340 mosmol/kgH₂O et l'éthanolémie 1 g/L. On calcule : 2 × 140 + 5 + 5 = 290. On soustrait : 340 − 290 = 50. On convertit l'éthanol : 1 g/L = 21,7 mmol/L. On retire l'éthanol : 50 − 21,7 = 28,3 ; comme 28,3 dépasse 25, on suspecte fortement le méthanol ou l'éthylène glycol.",
+   "source": "Cette formule vient de la Revue Médicale Suisse 2005, n° 32, « L'acidocétose alcoolique : une cause d'acidose métabolique pas si rare que ça… » (lu le 13.11.2026) ; conversion de l'éthanol : HUG RPA 9342 (1 g/L = 21,7 mmol/L)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "Les amphétamines et le THC urinaires sont positifs.",
+   "associees_presentes": "Le patient hallucine, dort mal, a une tachycardie et une mydriase.",
+   "associees_a_rechercher": "On mesure la glycémie, la CK et la créatinine, on fait un ECG et un test hCG, afin de dépister les complications des stimulants et une grossesse (non vérifié CH).",
+   "syndrome_anamnese": "Le patient a consommé récemment et n'a pas d'antécédent psychiatrique.",
+   "syndrome_status": "Le patient est agité ; on recherche une hyperthermie.",
+   "confirmation": "L'évolution sous abstinence oriente le diagnostic ; on demande une chromatographie si une conséquence légale en dépend (non vérifié CH).",
+   "diagnostic": "Le patient a un trouble psychotique induit par les stimulants (F15.5) ou par le cannabis (F12.5).",
+   "conduite": "On surveille, on donne une benzodiazépine si le patient est agité, et on réévalue la psychiatrie après le sevrage, parce que seule l'évolution sans substance distingue la psychose induite d'un trouble primaire (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "Les opiacés urinaires sont positifs chez un patient sous méthadone.",
+   "associees_presentes": "Le patient a un myosis et il est somnolent.",
+   "associees_a_rechercher": "On demande une confirmation chromatographique (6-monoacétylmorphine), car ce métabolite signe l'héroïne (non vérifié CH).",
+   "syndrome_anamnese": "Le patient consomme d'autres opiacés en parallèle.",
+   "syndrome_status": "On recherche des traces d'injection (non vérifié CH).",
+   "confirmation": "La chromatographie confirme la substance (non vérifié CH).",
+   "diagnostic": "Le patient consomme des opiacés en parallèle, car la méthadone a son propre test et ne rend pas le test « opiacés » positif (HUG RPA 9312).",
+   "conduite": "On mène un entretien motivationnel et on réévalue le traitement de substitution, parce que la consommation parallèle signale souvent une dose insuffisante ou un besoin non couvert (non vérifié CH)."
+  },
+  {
+   "entite_anormale_chiffree": "La recherche de substances inconnues trouve de la quétiapine et du tramadol ; l'alcoolémie est à 35 mmol/L.",
+   "associees_presentes": "Le patient est somnolent et a un myosis.",
+   "associees_a_rechercher": "On dose le paracétamol et la CK et on fait un ECG (QTc), parce que le paracétamol est souvent associé et que la quétiapine allonge le QT.",
+   "syndrome_anamnese": "Le patient s'est intoxiqué volontairement.",
+   "syndrome_status": "Son score de Glasgow est abaissé.",
+   "confirmation": "On dose des taux spécifiques s'ils sont utiles (non vérifié CH).",
+   "diagnostic": "Le patient a fait une intoxication médicamenteuse volontaire avec de l'alcool.",
+   "conduite": "On surveille, on appelle Tox Info Suisse (145) et on évalue le risque suicidaire avant la sortie, parce que le patient reste à risque de récidive (non vérifié CH)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "On prend un immunodosage positif pour une preuve.",
+    "consequence": "Une réaction croisée peut donner un faux positif, ce qui cause un préjudice thérapeutique ou légal (non vérifié CH)."
+   },
+   {
+    "si": "On tient un test « opiacés » négatif pour une absence d'opioïde.",
+    "consequence": "On méconnaît le fentanyl, l'oxycodone ou le tramadol (non vérifié CH)."
+   },
+   {
+    "si": "On désinfecte à l'alcool avant de prélever l'alcoolémie.",
+    "consequence": "L'alcoolémie est faussée (HUG RPA 9342)."
+   },
+   {
+    "si": "On tient un dépistage négatif pour l'absence de cause toxique.",
+    "consequence": "Le dépistage ne détecte ni le GHB ni les nouvelles substances ; le GHB a son dosage propre (HUG RPA Tox 4039)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « CACOMBB » : Cocaïne, Amphétamines, Cannabis, Opiacés, Méthadone, Benzodiazépines, Barbituriques."
  },
  "sources": [
-  "—"
+  "HUG, Répertoire des prestations d'analyses (RPA), Laboratoire de chimie clinique des urgences, rpa.hug.ch (fiches citées par numéro ; mise en production 03.09.2025 sauf mention) (lu le 13.11.2026) : 9312–9319, 9330, 9331, 9342",
+  "HUG, RPA, Laboratoire de toxicologie et suivi thérapeutique, rpa.hug.ch (fiches citées par numéro ; mise en production 03.09.2025 ou 05.08.2026) (lu le 13.11.2026) : 2 recherche de médicaments inconnus, 4039 GHB",
+  "Mentions « (non vérifié CH) » : connaissance générale non adossée à une source suisse lue ; à vérifier."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S11-neurobiologie-circuits-neurotransmetteurs",
-   "pourquoi": "—"
+   "pourquoi": "Les substances psychoactives agissent sur la neurotransmission."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-8-S11-tests-urinaires-rapides-drogues",
+   "pourquoi": "Si le test rapide est positif, on le confirme au laboratoire."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-T-toxicologie-urgence",
+   "pourquoi": "En cas d'intoxication aiguë, on y trouve les taux et les antidotes."
+  },
+  {
+   "type": "Diagnostic psychiatrique",
+   "cible": "PS-F10-F19",
+   "pourquoi": "On y classe les troubles liés aux substances (F10–F19)."
   }
  ]
 }
