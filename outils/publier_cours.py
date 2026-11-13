@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """PUBLIER_COURS — prépare dans le site Pages la page réceptacle et les cours prêts (zéro modèle).
-Copie : progression.html (générée par outils/receptacle.py), Claude/_polices, Claude/_reference, et pour chaque SSP de
+Copie : progression.html (générée par outils/receptacle.py), Claude/_polices, Claude/_reference, Claude/_progression/donnees, et pour chaque SSP de
 Claude/_reference/prets.txt ses onze cours et son dossier d'images. Un SSP absent de prets.txt n'est jamais publié.
 Usage : python3 outils/publier_cours.py _site"""
 import json, os, sys, glob, shutil, subprocess
@@ -16,7 +16,7 @@ _ok = sorted(set(plage(prets)) | {n for n, v in _verdicts.items() if v == 'ACCEP
 _ok = [n for n in _ok if _verdicts.get(n, 'ACCEPTE') == 'ACCEPTE']
 prets = ','.join(map(str, _ok))
 subprocess.run([sys.executable, 'outils/receptacle.py', '--audites', prets, '--sortie', os.path.join(site, 'progression.html')], check=True)
-for d in ('Claude/_polices', 'Claude/_reference'):
+for d in ('Claude/_polices', 'Claude/_reference', 'Claude/_progression/donnees'):  # données des fiches, publiées à part (cahier, partie 8)
     shutil.copytree(d, os.path.join(site, d), dirs_exist_ok=True)
 n = 0
 for lot in sorted(plage(prets)):
