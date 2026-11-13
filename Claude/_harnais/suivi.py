@@ -67,7 +67,8 @@ def collecter(projets):
         principal = lire_agent(sess)
         principal.update(id='principal-' + sid[:8], desc='boucle principale', type='principal', lot=None)
         lignes.append(principal)
-        for f in glob.glob(os.path.join(projets, '*', sid, 'subagents', 'agent-*.jsonl')):
+        for f in (glob.glob(os.path.join(projets, '*', sid, 'subagents', 'agent-*.jsonl'))
+                  + glob.glob(os.path.join(projets, '*', sid, 'subagents', 'workflows', '*', 'agent-*.jsonl'))):  # agents lancés par Workflow
             aid = os.path.basename(f)[6:-6]
             meta = {}
             try:
