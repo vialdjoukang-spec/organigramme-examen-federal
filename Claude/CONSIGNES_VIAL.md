@@ -15,7 +15,7 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 8. Images cliniques réelles et de qualité (licence vérifiée).
 8 bis. **Images en couleurs de préférence** (12.11.2026) : photo clinique ou schéma publié en couleur (Blausen, OpenStax, PMC CC BY…) ; noir et blanc (Gray) seulement à défaut.
 8 ter. **Démarche → examens → interprétation → prise en charge → suivi : précision agressive** (12.11.2026) : examen ciblé selon les sociétés suisses, interprétation chiffrée, traitement structuré et surveillé ; tableaux dans les fenêtres 
-8 quater. **Fond d'écran blanc, lisible** (13.11.2026) : jamais de fond coloré ; couleur réservée aux accents (`restaurer_fond.py --verifier`).
+8 quater. **Fond d'écran blanc, couleur vive ailleurs** (13.11.2026) : fond de page toujours blanc (`restaurer_fond.py --verifier`) ; couleur vive vivement souhaitée partout ailleurs (titres, bandeaux, en-têtes de tableaux, encadrés, boutons, badges), contraste texte ≥ 7:1.
 9. **Toujours dans des fenêtres** (centrales, occultantes) : ne jamais saturer la page active.
 
 ## Forme

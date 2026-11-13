@@ -1,6 +1,6 @@
 # Reprise — nouvelle session (environnement unique : organigramme-examen-federal)
 
-**État : LOT_023 à 027 fusionnés (12–13.11.2026) ; LOT_028 et 029 en cours, 2 LOT en parallèle.** Aucun agent ne tourne. Prochaine étape : la file (LOT suivants), 2 LOT en parallèle (10 agents) — objectif de Vial, coût estimé ≈ 96 % d'un ancien LOT (r = 0,48).
+**État (13.11.2026) : LOT_023 à 032 fusionnés ; LOT_033–034 EN PAUSE. Priorité de Vial : chantier PROGRESSION (`Claude/_progression/`, cahier d'architecture v2) — charpente puis contenu.** Aucun agent ne tourne. Prochaine étape : la file (LOT suivants), 2 LOT en parallèle (10 agents) — objectif de Vial, coût estimé ≈ 96 % d'un ancien LOT (r = 0,48).
 
 ## Étape 0 (machine vierge, une commande, ≈ 1 min)
 `bash Claude/_harnais/installer.sh` — corpus AIPS hors ligne, verrous (lecture intégrale, MEDINA), contrôle de syntaxe.
@@ -38,5 +38,6 @@ Ne lis rien d'autre au démarrage : ni CONTINUATION.md, ni PROCHAINE_ACTION.md, 
 | LOT_025 | fusionné (PR #658, 12.11.2026, contrôle ultime audit-ok, planche) | 2 légers non bloquants : crédit photo DX.5 mot pour mot (affiliation NJDS) ; précision Schirmer répétée DX.7 |
 | LOT_026 | fusionné (PR #662, 13.11.2026, audit-ok, planche) | rien |
 | LOT_027 | fusionné (PR #663, 13.11.2026, audit-ok, planche) | rien |
-| LOT_028 | `claude/lot-028-renfort-l1` | chaîne complète en cours (workflow `lot028-complet`, scripts dans le dossier de session) |
-| LOT_029 | `claude/lot-029-renfort-l1` | chaîne complète en cours (workflow `lot029-complet`) |
+| LOT_028 à 032 | fusionnés (PR #664, #666, #667, #668, #669 ; 13.11.2026 ; audit-ok, fond blanc, planches) | rien |
+| LOT_033 | `claude/lot-033-renfort-l1` (Phase A audit-ok, liste gelée) + `claude/lot-033-agent-1..5` (WIP 1 et 3 poussés) | EN PAUSE (Vial, 13.11) : reprendre au step rédaction DX (workflow `lot033-complet`, resume) |
+| LOT_034 | `claude/lot-034-renfort-l1` (Phase A audit-ok, liste gelée) + agents 1–2 commencés | EN PAUSE (Vial, 13.11) : reprendre au step rédaction DX (workflow `lot034-complet`) |
