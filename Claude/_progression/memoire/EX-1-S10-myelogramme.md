@@ -1,0 +1,2 @@
+- 13.11 10:56 · decision · Remplie 13.11.2026 (HUG RPA fiches FICHE_<n>_.html, CHUV LCH8 30.06.2026)
+- 13.11 10:56 · reste · Seuil IMWG plasmocytes non lu ; seuil anti-HBs protecteur (plan de vaccination OFSP) non lu
