@@ -13,55 +13,129 @@
   "TDM"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Coronarographie par tomodensitométrie synchronisée à l'ECG, avec injection iodée (coroscanner) ; on lui associe souvent une acquisition sans injection qui mesure le calcium coronaire.",
+  "synonymes": "Coroscanner, coro-CT, angio-CT coronaire, CCTA (coronary computed tomography angiography) ; acquisition native : calcium coronaire.",
+  "prelevement_conditions": "Le patient doit avoir une fréquence cardiaque lente et régulière et tenir l'apnée, car le mouvement brouille les coronaires ; on lui donne donc souvent un bêtabloquant oral ou IV avant l'examen (ESC 2024). On évalue la fonction rénale et une allergie aux produits de contraste avant d'adresser le patient, parce que l'examen exige une injection iodée (ESC 2024).",
+  "bon_usage_suisse": "L'OFSP fixe le NRD du CT du thorax à un CTDIvol de 7 mGy et un DLP de 250 mGy·cm (75e percentile, directive R-06-06, 2018) ; un service qui le dépasse régulièrement doit justifier ou réduire sa dose. La tomodensitométrie délivre près de 76 % de la dose médicale de la population suisse (1,69 mSv par personne en 2023, OFSP) ; on justifie donc chaque coroscanner. L'OFSP chiffre la coronarographie invasive à 14 mSv, ce qui dépasse nettement un CT thoracique au NRD (≈ 3,5 mSv, bloc calculs). L'index smarter medicine ne contient pas de liste de cardiologie (consulté le 13.11.2026)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
+  "urgence_aigu": "Devant une douleur thoracique aiguë à risque faible ou intermédiaire de SCA, quand l'ECG et la troponine ne tranchent pas, on peut faire un coroscanner afin d'exclure une maladie coronaire (ESC 2023 : non vérifié CH).",
+  "diagnostic_etiologie": "Chez le patient qui a des symptômes de syndrome coronarien chronique, on choisit le test selon la vraisemblance clinique (âge, sexe, symptômes, facteurs de risque), parce que la valeur du test en dépend (ESC 2024). À ≤ 5 %, on ne fait aucun test ; à > 5–15 %, on peut tester si les symptômes limitent le patient ; à > 15–50 %, l'ESC soutient de plus en plus le coroscanner en première intention, car il exclut une maladie coronaire obstructive ; à > 15–85 %, on oriente vers une imagerie anatomique ou fonctionnelle ; à ≥ 85 %, on peut aller directement à la coronarographie invasive.",
+  "depistage_pretherapeutique": "Si la vraisemblance reste faible (> 5–15 %), on peut mesurer le calcium coronaire, car un calcium nul ramène le patient en vraisemblance très faible (< 5 %) et permet de différer les examens (ESC 2024).",
   "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "ne_pas_demander": "On ne demande pas de coroscanner chez l'asymptomatique sans question clinique, car un examen de dépistage sans preuve expose au surdiagnostic et à des examens en cascade (smarter medicine SSMIG 2021). On l'évite si le patient a une insuffisance rénale sévère, une allergie documentée aux produits iodés ou une tachyarythmie réfractaire aux bêtabloquants (ESC 2024). Chez le patient âgé aux coronaires très calcifiées ou en fibrillation auriculaire, on préfère un test fonctionnel, parce que le calcium et le rythme irrégulier gênent la lecture des sténoses (ESC 2024)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Calcium coronaire (acquisition sans injection)",
+   "normal": "Calcium absent (valeur nulle)",
+   "anomalie": "Si du calcium apparaît, une plaque athéroscléreuse existe ; mais le calcium prédit mal une sténose obstructive, et un calcium nul n'exclut pas une plaque non calcifiée (ESC 2019).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Lumière des artères coronaires (réduction de diamètre)",
+   "normal": "Lumière régulière, sans plaque ni sténose",
+   "anomalie": "On exprime la sténose en réduction de diamètre et on retient habituellement 50 % ou 70 % comme seuils visuels ; seule une sténose > 90 % prédit avec précision un retentissement hémodynamique (ESC 2024).",
+   "seuil_alerte": "Tronc commun ≥ 50 % ; IVA proximale ≥ 70 % (ESC 2024)"
+  },
+  {
+   "parametre": "Plaque (composition)",
+   "normal": "Paroi fine, sans plaque",
+   "anomalie": "La plaque peut être calcifiée, non calcifiée ou mixte ; seule l'injection montre la plaque non calcifiée, car l'acquisition native ne voit que le calcium (ESC 2019).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "FFR dérivée du scanner (FFR-CT), si le centre la calcule",
+   "normal": "> 0,80",
+   "anomalie": "La FFR-CT concorde bien avec la FFR invasive (ESC 2024) ; on lui applique donc, par déduction, le seuil invasif : à ≤ 0,80, la sténose retentit sur le débit.",
+   "seuil_alerte": "≤ 0,80"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Dose efficace",
+   "formule": "On calcule E (mSv) = DLP (mGy·cm) × k, où k vaut 0,014 mSv/(mGy·cm) pour le thorax et le cœur (coefficient retenu par l'enquête suisse 2023).",
+   "a_quoi_ca_sert": "Ce calcul traduit le DLP affiché par la console en millisieverts ; on compare ainsi le coroscanner aux autres examens et au NRD.",
+   "exemple": "Pour le CT de localisation d'une TEP myocardique, le DLP vaut 40 mGy·cm ; on calcule 40 × 0,014 = 0,56 mSv. Pour un CT thoracique au NRD (DLP 250 mGy·cm), on calcule 250 × 0,014 = 3,5 mSv ; c'est 4 fois moins que les 14 mSv d'une coronarographie invasive (14 ÷ 3,5 = 4).",
+   "source": "Les chiffres viennent de Samara ET et al (Health Physics 2026, enquête OFSP 2023, tableau 5), de la directive OFSP R-06-06 (révision du 15.06.2018) et du graphique OFSP des doses, lus le 13.11.2026."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
+   "entite_anormale_chiffree": "Le coroscanner montre une sténose ≥ 50 % du tronc commun ou ≥ 70 % de l'IVA proximale.",
+   "associees_presentes": "Le patient a un angor typique ou une dyspnée d'effort.",
+   "associees_a_rechercher": "On cherche une atteinte tritronculaire proximale, car le tronc commun, l'IVA proximale et l'atteinte tritronculaire définissent le risque d'événement élevé (ESC 2019).",
+   "syndrome_anamnese": "Le patient décrit une douleur rétrosternale d'effort, calmée par le repos.",
+   "syndrome_status": "L'examen clinique reste souvent normal.",
+   "confirmation": "La maladie coronaire est obstructive et à risque élevé.",
+   "diagnostic": "Le patient a un syndrome coronarien chronique à risque élevé d'événement.",
+   "conduite": "On adresse le patient à la coronarographie invasive, car l'ESC 2024 la conseille dans cette situation afin de décider une revascularisation ; on débute en parallèle la prévention médicamenteuse."
+  },
+  {
+   "entite_anormale_chiffree": "Le coroscanner montre une sténose de 50 à 90 % hors du tronc commun et de l'IVA proximale.",
+   "associees_presentes": "Les symptômes sont compatibles, mais atypiques.",
+   "associees_a_rechercher": "On mesure la FFR-CT ou on fait une imagerie de stress, parce que seule une sténose > 90 % prédit à coup sûr son retentissement (ESC 2024).",
+   "syndrome_anamnese": "Le patient décrit une gêne thoracique d'effort.",
    "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "confirmation": "La sténose est anatomique ; son retentissement reste à prouver.",
+   "diagnostic": "Le patient a une maladie coronaire de retentissement incertain.",
+   "conduite": "On décide la suite selon la preuve fonctionnelle (FFR ≤ 0,80, ou ischémie ≥ 10 % du VG en scintigraphie), car ces seuils définissent le risque élevé (ESC 2019)."
+  },
+  {
+   "entite_anormale_chiffree": "Le calcium coronaire est nul et le coroscanner ne montre ni plaque ni sténose.",
+   "associees_presentes": "La vraisemblance clinique était faible.",
+   "associees_a_rechercher": "On cherche une cause non coronaire de la douleur (pariétale, digestive, pulmonaire), car l'examen écarte la maladie coronaire obstructive.",
+   "syndrome_anamnese": "Le patient décrit une douleur atypique.",
+   "syndrome_status": "—",
+   "confirmation": "Un calcium nul a une valeur prédictive négative > 95 % pour une maladie coronaire obstructive (ESC 2024).",
+   "diagnostic": "Le patient n'a pas de maladie coronaire obstructive.",
+   "conduite": "On arrête les examens coronaires et on traite la cause retrouvée, parce qu'un nouveau test n'apporterait rien."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si le rythme est rapide ou irrégulier (fibrillation auriculaire),",
+    "consequence": "alors les coronaires deviennent floues et la sténose est mal jugée ; on prémédique donc par bêtabloquant ou on choisit un test fonctionnel (ESC 2024)."
+   },
+   {
+    "si": "Si l'on conclut d'un calcium nul à l'absence de toute plaque,",
+    "consequence": "alors on manque une plaque non calcifiée ; on garde donc la clinique comme guide (ESC 2019)."
+   },
+   {
+    "si": "Si les coronaires d'un patient âgé sont très calcifiées,",
+    "consequence": "alors le calcium gêne la mesure de la lumière ; on préfère donc un test fonctionnel (ESC 2024)."
+   },
+   {
+    "si": "Si l'on traite une sténose de 50 à 70 % comme une ischémie prouvée,",
+    "consequence": "alors on expose le patient à une revascularisation sans preuve de retentissement ; on prouve donc l'ischémie avant (FFR ≤ 0,80)."
+   },
+   {
+    "si": "Si l'on oublie de contrôler la fonction rénale et l'allergie avant l'examen,",
+    "consequence": "alors on injecte un produit iodé sans connaître le risque du patient (ESC 2024)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« 0 – 50 – 70 – 90 » : un calcium à 0 rassure, 50 % du tronc commun ou 70 % de l'IVA proximale imposent la coronarographie, et seule une sténose > 90 % se passe d'une preuve fonctionnelle."
  },
  "sources": [
-  "—"
+  "Vrints C et al. 2024 ESC Guidelines for the management of chronic coronary syndromes. Eur Heart J 2024;45:3415-3537 (texte lu le 13.11.2026 ; tableaux de recommandations en image non lus) ; source européenne",
+  "Knuuti J et al. 2019 ESC Guidelines for the diagnosis and management of chronic coronary syndromes. Eur Heart J 2020;41:407-477 (tableau 6, risque d'événement élevé ; calcium coronaire), lu le 13.11.2026 ; source européenne",
+  "OFSP, Directive R-06-06 « Niveaux de référence diagnostiques en tomodensitométrie », révision 2 du 15.06.2018, tableau 1, lue le 13.11.2026",
+  "Samara ET, Ott B, Dagassan-Berndt D. Effective dose estimations for the Swiss survey on medical radiation exposure of the population in 2023. Health Physics 2026 (document OFSP, tableaux 1, 4 et 5), lu le 13.11.2026",
+  "OFSP, « Doses de rayonnements en médecine », graphique des doses efficaces caractéristiques (bag.admin.ch/fr/doses-de-rayonnements-en-medecine), lu le 13.11.2026",
+  "OFSP, « Exposition diagnostique aux rayonnements en médecine », enquête 2023 (1,69 mSv par personne ; CT ≈ 76 % de la dose), lu le 13.11.2026",
+  "smarter medicine, Liste Top 5 Médecine interne générale ambulatoire (2021_II), SSMIG, lue le 13.11.2026"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S3-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "La physiologie du débit coronaire explique pourquoi une sténose anatomique ne crée une ischémie qu'au-delà d'un certain degré."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-2-S3-scintigraphie-myocardique",
+   "pourquoi": "Une sténose intermédiaire au coroscanner se confirme par une imagerie de perfusion qui prouve l'ischémie."
   }
  ]
 }
