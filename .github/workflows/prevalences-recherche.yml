@@ -81,7 +81,7 @@ jobs:
           upper=$(printf '%s' "$CATEGORIE" | tr '[:lower:]' '[:upper:]')
           cp ".etat_local/prevalences/${upper}.json" work/etat/
           if [ -f ".etat_local/prevalences/audit-${upper}.json" ]; then cp ".etat_local/prevalences/audit-${upper}.json" work/etat/; fi
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: recherche-${{ matrix.categorie }}
