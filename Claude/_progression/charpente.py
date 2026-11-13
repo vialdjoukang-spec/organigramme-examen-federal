@@ -508,6 +508,22 @@ def fusion(ancien, neuf):
     return neuf if ancien == V or ancien in ('', None, [], {}) else ancien
 
 
+def fusion_passerelles(ancien, neuf):
+    """Fusion non destructive, dédoublonnée par (type, cible). Une fiche remplie (au moins un « pourquoi » rédigé)
+    ne reçoit jamais de passerelle « — » de la charpente ; une entrée « — » cède devant la même (type, cible) rédigée."""
+    def rempli(p):
+        return p.get('pourquoi') not in (V, '', None)
+    remplie = any(rempli(p) for p in ancien)
+    sortie, index = [], {}
+    for p in list(ancien) + [x for x in neuf if not remplie or rempli(x)]:
+        k = (p.get('type'), p.get('cible'))
+        if k not in index:
+            index[k] = len(sortie); sortie.append(p)
+        elif rempli(p) and not rempli(sortie[index[k]]):
+            sortie[index[k]] = p
+    return sortie
+
+
 def ecrire():
     force = '--force' in sys.argv
     n = 0
@@ -517,7 +533,7 @@ def ecrire():
         p = os.path.join(d, fid + '.json')
         if os.path.exists(p) and not force:
             f = fusion(json.load(open(p, encoding='utf-8')), f)
-            f['passerelles'] = FICHES[fid]['passerelles'] + [x for x in f['passerelles'] if x not in FICHES[fid]['passerelles']]
+            f['passerelles'] = fusion_passerelles(json.load(open(p, encoding='utf-8')).get('passerelles', []), FICHES[fid]['passerelles'])
         txt = json.dumps(f, ensure_ascii=False, indent=1) + '\n'
         if not os.path.exists(p) or open(p, encoding='utf-8').read() != txt:
             open(p, 'w', encoding='utf-8').write(txt); n += 1
