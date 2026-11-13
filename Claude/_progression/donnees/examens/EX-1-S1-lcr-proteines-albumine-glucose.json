@@ -15,15 +15,15 @@
  "entete": {
   "nom_exact": "Protéines totales, albumine et glucose du LCR, avec glycémie et albumine sériques simultanées ; synthèse intrathécale d'IgG et bandes oligoclonales",
   "synonymes": "Protéinorachie, glycorachie, quotient albumine LCR/sérum, index IgG",
-  "prelevement_conditions": "LCR : ne pas remplir sous vide (HUG RPA). Glycémie prélevée au même moment (RMS 2016). Bandes oligoclonales et synthèse intrathécale : LCR + sérum obligatoires, envoyés ensemble (HUG RPA 6154, 7036).",
-  "bon_usage_suisse": "Liste des analyses : 1635.00 protéines d'un liquide corporel, 7.8 points ; 1356.00 glucose, 2.3 points ; 1022.00 albumine (méthode immunologique), 10.1 points ; 1461.00 bandes oligoclonales LCR-sérum, 175.5 points, rendu en 12 jours (HUG RPA)."
+  "prelevement_conditions": "On ne remplit pas le tube de LCR sous vide (HUG RPA). On prélève la glycémie au même moment (RMS 2016). Pour les bandes oligoclonales et la synthèse intrathécale, on envoie obligatoirement le LCR et le sérum ensemble (HUG RPA 6154, 7036).",
+  "bon_usage_suisse": "La Liste des analyses fixe les protéines d'un liquide corporel (1635.00) à 7.8 points, le glucose (1356.00) à 2.3 points, l'albumine par méthode immunologique (1022.00) à 10.1 points et les bandes oligoclonales LCR-sérum (1461.00) à 175.5 points ; le laboratoire rend ces dernières en 12 jours (HUG RPA)."
  },
  "temps1_indications": {
-  "urgence_aigu": "Syndrome méningé fébrile : protéines et glucose du LCR avec glycémie, dans le bilan LCR minimal (RMS 2016).",
-  "diagnostic_etiologie": "Inflammation intrathécale (sclérose en plaques, encéphalite auto-immune) : bandes oligoclonales et synthèse intrathécale d'IgG sur paire LCR-sérum (HUG RPA 6154, 7036).",
+  "urgence_aigu": "Si le patient présente un syndrome méningé fébrile, on dose les protéines et le glucose du LCR avec la glycémie, car ils font partie du bilan LCR minimal (RMS 2016).",
+  "diagnostic_etiologie": "Si l'on suspecte une inflammation intrathécale (sclérose en plaques, encéphalite auto-immune), on recherche les bandes oligoclonales et la synthèse intrathécale d'IgG sur une paire LCR-sérum (HUG RPA 6154, 7036).",
   "depistage_pretherapeutique": "—",
   "suivi_surveillance": "—",
-  "ne_pas_demander": "Glycorachie sans glycémie simultanée : ratio impossible (RMS 2016). Bandes oligoclonales sur LCR sans sérum : analyse non réalisable (HUG RPA 6154)."
+  "ne_pas_demander": "On ne demande pas la glycorachie sans glycémie simultanée, car on ne peut alors pas calculer le ratio (RMS 2016). On ne demande pas les bandes oligoclonales sur le LCR sans sérum, car le laboratoire ne peut pas réaliser l'analyse (HUG RPA 6154)."
  },
  "temps2_examen": [
   {
@@ -35,13 +35,13 @@
   {
    "parametre": "Glucose du LCR",
    "normal": "2.8–4.0 mmol/L (HUG RPA 3728)",
-   "anomalie": "↓ < 2,2 mmol/L : orientation bactérienne (RMS 2016)",
+   "anomalie": "↓ < 2,2 mmol/L : cette baisse oriente vers une cause bactérienne (RMS 2016)",
    "seuil_alerte": "—"
   },
   {
    "parametre": "Ratio glucose LCR/sérum",
    "normal": "> 0,67 (RMS 2016)",
-   "anomalie": "< 0,5 : orientation bactérienne, sensibilité excellente, spécificité 57,1 % (RMS 2016)",
+   "anomalie": "< 0,5 : ce ratio oriente vers une cause bactérienne ; sa sensibilité est excellente, mais sa spécificité n'atteint que 57,1 % (RMS 2016)",
    "seuil_alerte": "Ratio < 0,5 avec pléiocytose : traiter comme une méningite bactérienne"
   },
   {
@@ -53,78 +53,95 @@
   {
    "parametre": "Bandes oligoclonales LCR-sérum",
    "normal": "Négatif (HUG RPA 6154)",
-   "anomalie": "Bandes présentes dans le LCR seul : synthèse intrathécale d'IgG",
+   "anomalie": "Si les bandes sont présentes dans le LCR seul, elles signent une synthèse intrathécale d'IgG.",
    "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Ratio glycorachie/glycémie",
+   "formule": "On divise le glucose du LCR (mmol/L) par la glycémie prélevée au même moment (mmol/L).",
+   "a_quoi_ca_sert": "Ce ratio dit si le LCR manque de sucre par rapport au sang, car une bactérie consomme le glucose ; il reste fiable même si la glycémie est haute (diabétique).",
+   "exemple": "Le glucose du LCR vaut 1,5 mmol/L et la glycémie 7 mmol/L ; on calcule 1,5 ÷ 7 = 0,21 ; comme 0,21 < 0,5, on oriente vers une méningite bactérienne (normal > 0,67).",
+   "source": "Degraeve A, Clemente M, Huttner B, Rutschmann O (HUG) le décrivent dans Rev Med Suisse 2016;12:1310-5 (lu le 13.11.2026)."
+  },
+  {
+   "nom": "Index IgG",
+   "formule": "On calcule l'index IgG ainsi : (IgG du LCR ÷ IgG du sérum) ÷ (albumine du LCR ÷ albumine du sérum), avec toutes les valeurs dans la même unité.",
+   "a_quoi_ca_sert": "Cet index dit si le cerveau fabrique lui-même des IgG, car il retire la part d'IgG qui passe du sang au LCR par une barrière perméable ; s'il dépasse 0,7, il signe une synthèse intrathécale.",
+   "exemple": "IgG LCR 60 mg/L et IgG sérum 10 000 mg/L donnent 0,0060 ; albumine LCR 250 mg/L et albumine sérum 40 000 mg/L donnent 0,00625 ; on calcule 0,0060 ÷ 0,00625 = 0,96 ; comme 0,96 > 0,7, on retient une synthèse intrathécale d'IgG.",
+   "source": "DocCheck Flexikon le décrit sous « Delpech-Lichtblau-Quotient » ; cette source est européenne (Allemagne) et reste non vérifiée CH (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "Glucose LCR 1,5 mmol/L pour une glycémie 7 mmol/L (ratio 0,21), protéines 3 g/L",
-   "associees_presentes": "Pléiocytose neutrophile > 2000 GB/µL, lactate > 3,5 mmol/L (RMS 2016)",
-   "associees_a_rechercher": "Gram, culture, hémocultures (RMS 2016)",
+   "entite_anormale_chiffree": "Le glucose du LCR vaut 1,5 mmol/L pour une glycémie de 7 mmol/L (ratio 0,21) et les protéines atteignent 3 g/L.",
+   "associees_presentes": "La pléiocytose est neutrophile (> 2000 GB/µL) et le lactate dépasse 3,5 mmol/L (RMS 2016).",
+   "associees_a_rechercher": "On demande le Gram, la culture et des hémocultures (RMS 2016).",
    "syndrome_anamnese": "Fièvre, céphalées aiguës",
-   "syndrome_status": "Raideur de nuque, confusion",
-   "confirmation": "Culture ou PCR bactérienne positive",
+   "syndrome_status": "La nuque est raide et le patient est confus.",
+   "confirmation": "La culture ou la PCR bactérienne revient positive.",
    "diagnostic": "Méningite bactérienne",
-   "conduite": "ATB et dexaméthasone dans les 30 minutes ; schéma : voir LCR cytologie (RMS 2016)"
+   "conduite": "On donne les ATB et la dexaméthasone dans les 30 minutes ; le schéma figure dans la fiche LCR cytologie (RMS 2016)."
   },
   {
-   "entite_anormale_chiffree": "Protéines 0,9 g/L, glucose normal, ratio > 0,5",
-   "associees_presentes": "Pléiocytose lymphocytaire 10–100 GB/µL (RMS 2016)",
+   "entite_anormale_chiffree": "Les protéines valent 0,9 g/L, le glucose reste normal et le ratio dépasse 0,5.",
+   "associees_presentes": "La pléiocytose est lymphocytaire (10–100 GB/µL) (RMS 2016).",
    "associees_a_rechercher": "PCR virales (RMS 2016)",
    "syndrome_anamnese": "Évolution subaiguë",
    "syndrome_status": "Syndrome méningé isolé",
-   "confirmation": "PCR entérovirus ou HSV-2",
+   "confirmation": "La PCR entérovirus ou HSV-2 revient positive.",
    "diagnostic": "Méningite virale",
-   "conduite": "Selon le virus (RMS 2016)"
+   "conduite": "On traite selon le virus trouvé (RMS 2016)."
   },
   {
-   "entite_anormale_chiffree": "Bandes oligoclonales présentes dans le LCR, absentes du sérum",
-   "associees_presentes": "Index ou synthèse intrathécale d'IgG ↑",
-   "associees_a_rechercher": "IRM encéphalique et médullaire",
-   "syndrome_anamnese": "Épisode neurologique focal antérieur (névrite optique, myélite)",
+   "entite_anormale_chiffree": "Les bandes oligoclonales apparaissent dans le LCR mais manquent dans le sérum.",
+   "associees_presentes": "L'index ou la synthèse intrathécale d'IgG augmente.",
+   "associees_a_rechercher": "On demande une IRM encéphalique et médullaire.",
+   "syndrome_anamnese": "Le patient a déjà présenté un épisode neurologique focal (névrite optique, myélite).",
    "syndrome_status": "Signes de dissémination",
-   "confirmation": "Critères diagnostiques de la sclérose en plaques (non vérifié CH)",
+   "confirmation": "Le patient remplit les critères diagnostiques de la sclérose en plaques (non vérifié CH).",
    "diagnostic": "Inflammation intrathécale chronique",
-   "conduite": "Avis neurologique spécialisé (non vérifié CH)"
+   "conduite": "On demande un avis neurologique spécialisé (non vérifié CH)."
   },
   {
-   "entite_anormale_chiffree": "Protéines du LCR ↑ sans pléiocytose (dissociation albumino-cytologique)",
+   "entite_anormale_chiffree": "Les protéines du LCR augmentent sans pléiocytose : c'est la dissociation albumino-cytologique.",
    "associees_presentes": "—",
    "associees_a_rechercher": "ENMG",
-   "syndrome_anamnese": "Faiblesse ascendante après une infection",
+   "syndrome_anamnese": "Le patient s'affaiblit des jambes vers le tronc après une infection.",
    "syndrome_status": "Aréflexie",
-   "confirmation": "ENMG démyélinisant (non vérifié CH)",
-   "diagnostic": "Polyradiculonévrite aiguë (Guillain-Barré)",
-   "conduite": "Surveillance respiratoire, immunoglobulines IV (non vérifié CH)"
+   "confirmation": "L'ENMG montre une atteinte démyélinisante (non vérifié CH).",
+   "diagnostic": "Il s'agit d'une polyradiculonévrite aiguë (Guillain-Barré).",
+   "conduite": "On surveille la fonction respiratoire et on donne des immunoglobulines IV (non vérifié CH)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "Glycorachie lue sans glycémie chez un diabétique",
-    "consequence": "Hypoglycorachie relative méconnue : calculer le ratio (RMS 2016)"
+    "si": "Si l'on lit la glycorachie sans glycémie chez un diabétique,",
+    "consequence": "On méconnaît alors une hypoglycorachie relative ; il faut donc calculer le ratio (RMS 2016)."
    },
    {
     "si": "PL traumatique",
     "consequence": "Protéines faussement élevées par le sang (non vérifié CH)"
    },
    {
-    "si": "Bandes oligoclonales demandées sans tube de sérum",
-    "consequence": "Analyse impossible, PL à refaire (HUG RPA 6154)"
+    "si": "Si l'on demande les bandes oligoclonales sans tube de sérum,",
+    "consequence": "Le laboratoire ne peut pas faire l'analyse, et il faut refaire la PL (HUG RPA 6154)."
    },
    {
-    "si": "Ratio glucose < 0,5 pris comme spécifique",
-    "consequence": "Spécificité 57,1 % : confronter à la cellularité et au lactate (RMS 2016)"
+    "si": "Si l'on prend un ratio glucose < 0,5 pour un signe spécifique,",
+    "consequence": "On se trompe, car sa spécificité n'atteint que 57,1 % ; on le confronte donc à la cellularité et au lactate (RMS 2016)."
    }
   ],
-  "mnemotechnique": "« Bactérie : sucre ↓, protéines ↑ » : glucose < 2,2 mmol/L et ratio < 0,5 ; protéines > 2,2 g/L (RMS 2016)."
+  "mnemotechnique": "« Bactérie : sucre ↓, protéines ↑ » : on pense à une bactérie si le glucose tombe < 2,2 mmol/L, si le ratio passe < 0,5 et si les protéines dépassent 2,2 g/L (RMS 2016)."
  },
  "sources": [
   "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences : fiches 3728 glucose LCR, 3730 protéines LCR, 9855 albumine LCR (mise en production 03.09.2025) (lu le 13.11.2026)",
   "HUG, RPA, Liquides biologiques : fiches 6154 bandes oligoclonales LCR (mise en production 03.09.2025) (lu le 13.11.2026)",
   "HUG, RPA, Immunologie et allergologie clinique : fiches 7036 synthèse intrathécale IgG (mise en production 03.09.2025) (lu le 13.11.2026)",
   "Degraeve A, Clemente M, Huttner B, Rutschmann O (HUG). Syndrome méningé fébrile au service des urgences : prise en charge. Rev Med Suisse 2016;12:1310-5 (texte intégral, archive ouverte UNIGE) (lu le 13.11.2026)",
+  "DocCheck Flexikon, « Delpech-Lichtblau-Quotient » (IgG-Index), dernière modification 29.07.2024 (source européenne, Allemagne ; non vérifié CH) (lu le 13.11.2026)",
   "Mentions « (non vérifié CH) » : connaissances internationales non relues sur une source suisse ce jour ; à vérifier avant usage."
  ],
  "passerelles": [
@@ -141,17 +158,17 @@
   {
    "type": "Confirmation",
    "cible": "EX-1-S8-glycemie-hba1c",
-   "pourquoi": "Glycémie simultanée pour le ratio"
+   "pourquoi": "On a besoin de la glycémie simultanée pour calculer le ratio."
   },
   {
    "type": "Confirmation",
    "cible": "EX-2-S1-irm-encephalique-medullaire",
-   "pourquoi": "Bandes oligoclonales : lésions de démyélinisation"
+   "pourquoi": "Si les bandes oligoclonales sont présentes, l'IRM cherche des lésions de démyélinisation."
   },
   {
    "type": "Confirmation",
    "cible": "EX-3-S1-electroneuromyogramme",
-   "pourquoi": "Dissociation albumino-cytologique : polyradiculonévrite"
+   "pourquoi": "Si la dissociation albumino-cytologique apparaît, l'ENMG confirme la polyradiculonévrite."
   }
  ]
 }
