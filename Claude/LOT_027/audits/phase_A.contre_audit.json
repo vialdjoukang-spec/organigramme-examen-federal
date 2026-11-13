@@ -1,101 +1,118 @@
 {
-  "lot": "LOT_027",
-  "phase": "A",
-  "fichier": "Claude/LOT_027/LOT_027_Phase_A_V0.html",
-  "sha256_8": "ec04cf03",
-  "auditeur": "contre-audit médical indépendant (Claude, non rédacteur)",
-  "date": "2026-11-13",
-  "verdict": "CORRECTIONS",
-  "question_finale": "non tant que les restants majeurs ne sont pas corrigés : la prise en charge des urgences E1 et E3 et le suivi de l'artérite et de la carbamazépine manquent de molécule, de dose ou de calendrier.",
-  "verifie_conforme": [
-    "Point 1 : définition seule (S1.11, douleur faciale, dentaire, trismus), sans épidémiologie ni conduite.",
-    "Liste DX : dix diagnostics discriminants, ordre de fréquence sourcé (S5, S6, S8, S11, S14, S15, S17), rangs 4 et 5 déclarés sans chiffre lu, rangs E1–E3 cohérents avec le point 4 et LISTE_DX_CANONIQUE.md.",
-    "SSI 2410 vérifiée mot pour mot : amoxicilline 1 g/12 h ou 1 g/8 h 5–7 jours ; co-amoxicilline 1 g/8 h ; céfuroxime 500 mg/12 h ; doxycycline 100 mg/12 h CAVE grossesse ; enfant 25 mg/kg/12 h 10 (–14) jours ; 20–25 % de H. influenzae résistants.",
-    "PNDS ACG 2024 vérifié : halo sensibilité 68 %, spécificité 81 % ; disparition après environ 5 jours ; histologie persistante au moins 15 jours ; seuils ACR/EULAR 2022 VS ≥ 50 mm/h ou CRP ≥ 10 mg/L.",
-    "SDCEP abcès dentaire vérifié : pas d'antibiotique si péri-radiculaire ; 3–5 jours ; réévaluation à 3 jours ; T > 38 °C ou < 36 °C ; transfert si trismus important, plancher, dyspnée, dysphagie, cellulite rapide.",
-    "RMS 2021 (CHUV) vérifiée : ponction, amygdalectomie à chaud ou incision sous anesthésie locale, 72 h d'antibiothérapie IV, durée 10–14 jours, histologie de l'amygdale.",
-    "AIPS 61210 vérifiée : 400 mg, intervalle 4 à 6 h, 1200 mg/j en automédication, CI troisième trimestre et ClCr < 30 ml/min, décembre 2024. AIPS 45723 juillet 2025, 46206 février 2025, 29349 juin 2026 : dates conformes.",
-    "Images : 6 images en couleurs locales (WebP + JSON de licence), lecture guidée, pièges et décision ; point 14 : 8 questions avec réponse et source.",
-    "Portes : verif_aips OK (4 AIPS), aips_fiche verifier 0 défaut bloquant, abreviations 0, forme conforme ; controle3 ORANGE non bloquant (25 chiffres sans citation, surtout légendes d'images ; 22 phrases nominales ; 5 phrases > 28 mots)."
-  ],
-  "restants": [
-    {
-      "id": "R1",
-      "gravite": "majeure",
-      "lieu": "p10 Arbre décisionnel, ligne E3",
-      "avant": "Si un abcès dentaire s’accompagne d’un trismus important, d’une tuméfaction diffuse ou d’une fièvre, le médecin transfère à l’hôpital S3.",
-      "correction": "Aligner sur p4 et p11 (SDCEP) : transfert hospitalier si trismus important, plancher buccal gonflé, dyspnée, dysphagie, cellulite rapide ou immunodépression inquiétante ; une fièvre ou une tuméfaction qui s’étend sans ces signes relève du drainage dentaire avec antibiotique et réévaluation à 3 jours."
-    },
-    {
-      "id": "R2",
-      "gravite": "majeure",
-      "lieu": "p11 fenêtre E3 et tableau « Antibiotiques : quand et lesquels »",
-      "avant": "Le SDCEP cite la pénicilline V ou l’amoxicilline pendant 3 à 5 jours (aucune dose, aucune AIPS).",
-      "correction": "Ajouter la dose AIPS suisse mot pour mot : aips_fiche.py fiche Ospen® (n° 37057, SmPC 2024-12-17) pour la pénicilline V et une AIPS d’amoxicilline (aips_fiche.py trouve amoxicilline), avec grossesse, allaitement et contre-indications recopiés ; garder 3–5 jours et réévaluation J3 (SDCEP)."
-    },
-    {
-      "id": "R3",
-      "gravite": "majeure",
-      "lieu": "p11 fenêtre E1, lignes « Jours 1 à 3 » et « Jours 3 à 14 »",
-      "avant": "Le patient reste hospitalisé 72 heures sous antibiotique intraveineux … durée totale 10 à 14 jours (molécule non nommée).",
-      "correction": "Nommer la molécule IV puis orale, sa dose et sa durée selon une source suisse lue (SSI, CHUV ou HUG ; la RMS 2021 ne la nomme pas) et l’AIPS correspondante (p. ex. co-amoxicilline, n° 55185 ou 67240), avec l’alternative en cas d’allergie ; à défaut écrire « À vérifier » plutôt que laisser la ligne sans molécule."
-    },
-    {
-      "id": "R4",
-      "gravite": "majeure",
-      "lieu": "p11 fenêtre E2 « Semaines suivantes » et tableau de surveillance 11.C",
-      "avant": "Le spécialiste réduit la prednisone et discute un traitement d’épargne.",
-      "correction": "Écrire le calendrier du PNDS 2024 (lu, S17) : paliers 15 mg/j à 3 mois, 5 à 10 mg/j à 6 mois, sevrage à 12 mois ; sous 5 mg/j décroissance de 1 mg toutes les 2 à 4 semaines (insuffisance corticotrope) ; épargne (tocilizumab ou méthotrexate) si ces objectifs ne sont pas atteints ; prévention de l’ostéoporose cortico-induite (bisphosphonate si ClCr > 35 mL/min, calcium seulement si apports < 800–1200 mg/j) ; lipides à 8–12 semaines ; aspirine non systématique. Remplacer « seul traitement autorisé en France » par le statut suisse de l’AIPS Actemra® (n° 58868, SmPC 2026-10-03)."
-    },
-    {
-      "id": "R5",
-      "gravite": "majeure",
-      "lieu": "p11 fenêtre Carbamazépine et tableau de surveillance 11.C « Névralgie sous carbamazépine »",
-      "avant": "Le médecin adapte la dose à la douleur et aux effets indésirables ; seul HLA-A*3101 est cité.",
-      "correction": "Ajouter d’après l’AIPS 45723 (Mises en garde, mot pour mot) : recherche de HLA-B*1502 chez les patients d’origine chinoise Han, thaïe ou d’Asie du Sud-Est ; numération formule sanguine avec thrombocytes et réticulocytes et fer sérique avant traitement, puis surveillance ; arrêt dès les moindres signes de dépression médullaire significative ; natrémie (hyponatrémie) chez les sujets à risque ; contrôle hépatique."
-    },
-    {
-      "id": "R6",
-      "gravite": "majeure",
-      "lieu": "p11 fenêtres E2, Antibiotiques, Situations spéciales (doses marquées « hors AIPS »)",
-      "avant": "Doses de prednisone (PNDS 40–80 mg), méthylprednisolone (250–1000 mg) et amoxicilline (SSI) données « hors AIPS ».",
-      "correction": "La règle AIPS (doses AIPS suisses seulement ; hors AIPS sans dose) impose de citer d’abord la posologie de l’AIPS existante (Prednisone Streuli 29349, AIPS d’amoxicilline/co-amoxicilline) ; garder la dose SSI ou PNDS comme recommandation de société explicitement attribuée, ou demander l’arbitrage de Vial (étiquette attente-vial) si la règle doit céder à la précision."
-    },
-    {
-      "id": "R7",
-      "gravite": "mineure",
-      "lieu": "p11 fenêtre « Fracture mandibulaire ouverte » et tableau Antibiotiques",
-      "avant": "Il prescrit un antibiotique à large spectre dès les urgences.",
-      "correction": "Nommer la molécule et la dose selon une source lue (RCEM ne la nomme pas : chercher une recommandation suisse ou européenne) ou écrire « À vérifier »."
-    },
-    {
-      "id": "R8",
-      "gravite": "mineure",
-      "lieu": "p11 fenêtre Paracétamol et ibuprofène",
-      "avant": "L’ibuprofène … sans dépasser 1200 mg par jour en automédication.",
-      "correction": "Ajouter la limite AIPS 61210 mot pour mot : « Sans prescription médicale, Irfen Dolo L est indiqué pour un traitement de courte durée de 3 jours au maximum », qui impose de revoir le patient ou le dentiste au-delà."
-    },
-    {
-      "id": "R9",
-      "gravite": "mineure",
-      "lieu": "p10 Arbre décisionnel, ligne E1",
-      "avant": "… s’associe à un voile bombé, une luette déviée ou un trismus …",
-      "correction": "Harmoniser avec p4 (« et » au lieu de « ou ») ou préciser qu’un seul signe suffit à l’adresse ORL ; le tableau et l’arbre doivent porter le même critère."
-    },
-    {
-      "id": "R10",
-      "gravite": "mineure",
-      "lieu": "forme / palette",
-      "avant": "Palette olive sombre (--fm-a #313b1c, fond #f7faf3) peu saturée.",
-      "correction": "Ordre de Vial du 12.11.2026 : couleur d’accent et fond d’écran plus vivants, propres au cours, contraste AA conservé."
-    },
-    {
-      "id": "R11",
-      "gravite": "mineure",
-      "lieu": "controle3 (ORANGE)",
-      "avant": "5 phrases > 28 mots (IRM trois séquences, légende halo, « Ce que l’image décide », citations AIPS carbamazépine et prednisone) ; 22 phrases nominales signalées.",
-      "correction": "Scinder les phrases longues hors citations verbatim ; contrôler les phrases nominales réelles (la plupart sont des faux positifs de légende)."
-    }
-  ],
-  "compte": {"critique": 0, "majeure": 6, "mineure": 5}
+ "lot": "LOT_027",
+ "phase": "A",
+ "fichier": "Claude/LOT_027/LOT_027_Phase_A_V0.html",
+ "sha256_8": "ec04cf03",
+ "auditeur": "contre-audit médical indépendant (Claude, non rédacteur)",
+ "date": "2026-11-13",
+ "verdict": "CORRECTIONS",
+ "question_finale": "non tant que les restants majeurs ne sont pas corrigés : la prise en charge des urgences E1 et E3 et le suivi de l'artérite et de la carbamazépine manquent de molécule, de dose ou de calendrier.",
+ "verifie_conforme": [
+  "Point 1 : définition seule (S1.11, douleur faciale, dentaire, trismus), sans épidémiologie ni conduite.",
+  "Liste DX : dix diagnostics discriminants, ordre de fréquence sourcé (S5, S6, S8, S11, S14, S15, S17), rangs 4 et 5 déclarés sans chiffre lu, rangs E1–E3 cohérents avec le point 4 et LISTE_DX_CANONIQUE.md.",
+  "SSI 2410 vérifiée mot pour mot : amoxicilline 1 g/12 h ou 1 g/8 h 5–7 jours ; co-amoxicilline 1 g/8 h ; céfuroxime 500 mg/12 h ; doxycycline 100 mg/12 h CAVE grossesse ; enfant 25 mg/kg/12 h 10 (–14) jours ; 20–25 % de H. influenzae résistants.",
+  "PNDS ACG 2024 vérifié : halo sensibilité 68 %, spécificité 81 % ; disparition après environ 5 jours ; histologie persistante au moins 15 jours ; seuils ACR/EULAR 2022 VS ≥ 50 mm/h ou CRP ≥ 10 mg/L.",
+  "SDCEP abcès dentaire vérifié : pas d'antibiotique si péri-radiculaire ; 3–5 jours ; réévaluation à 3 jours ; T > 38 °C ou < 36 °C ; transfert si trismus important, plancher, dyspnée, dysphagie, cellulite rapide.",
+  "RMS 2021 (CHUV) vérifiée : ponction, amygdalectomie à chaud ou incision sous anesthésie locale, 72 h d'antibiothérapie IV, durée 10–14 jours, histologie de l'amygdale.",
+  "AIPS 61210 vérifiée : 400 mg, intervalle 4 à 6 h, 1200 mg/j en automédication, CI troisième trimestre et ClCr < 30 ml/min, décembre 2024. AIPS 45723 juillet 2025, 46206 février 2025, 29349 juin 2026 : dates conformes.",
+  "Images : 6 images en couleurs locales (WebP + JSON de licence), lecture guidée, pièges et décision ; point 14 : 8 questions avec réponse et source.",
+  "Portes : verif_aips OK (4 AIPS), aips_fiche verifier 0 défaut bloquant, abreviations 0, forme conforme ; controle3 ORANGE non bloquant (25 chiffres sans citation, surtout légendes d'images ; 22 phrases nominales ; 5 phrases > 28 mots)."
+ ],
+ "restants": [
+  {
+   "id": "R1",
+   "gravite": "majeure",
+   "lieu": "p10 Arbre décisionnel, ligne E3",
+   "avant": "Si un abcès dentaire s’accompagne d’un trismus important, d’une tuméfaction diffuse ou d’une fièvre, le médecin transfère à l’hôpital S3.",
+   "correction": "Aligner sur p4 et p11 (SDCEP) : transfert hospitalier si trismus important, plancher buccal gonflé, dyspnée, dysphagie, cellulite rapide ou immunodépression inquiétante ; une fièvre ou une tuméfaction qui s’étend sans ces signes relève du drainage dentaire avec antibiotique et réévaluation à 3 jours."
+  },
+  {
+   "id": "R2",
+   "gravite": "majeure",
+   "lieu": "p11 fenêtre E3 et tableau « Antibiotiques : quand et lesquels »",
+   "avant": "Le SDCEP cite la pénicilline V ou l’amoxicilline pendant 3 à 5 jours (aucune dose, aucune AIPS).",
+   "correction": "Ajouter la dose AIPS suisse mot pour mot : aips_fiche.py fiche Ospen® (n° 37057, SmPC 2024-12-17) pour la pénicilline V et une AIPS d’amoxicilline (aips_fiche.py trouve amoxicilline), avec grossesse, allaitement et contre-indications recopiés ; garder 3–5 jours et réévaluation J3 (SDCEP)."
+  },
+  {
+   "id": "R3",
+   "gravite": "majeure",
+   "lieu": "p11 fenêtre E1, lignes « Jours 1 à 3 » et « Jours 3 à 14 »",
+   "avant": "Le patient reste hospitalisé 72 heures sous antibiotique intraveineux … durée totale 10 à 14 jours (molécule non nommée).",
+   "correction": "Nommer la molécule IV puis orale, sa dose et sa durée selon une source suisse lue (SSI, CHUV ou HUG ; la RMS 2021 ne la nomme pas) et l’AIPS correspondante (p. ex. co-amoxicilline, n° 55185 ou 67240), avec l’alternative en cas d’allergie ; à défaut écrire « À vérifier » plutôt que laisser la ligne sans molécule."
+  },
+  {
+   "id": "R4",
+   "gravite": "majeure",
+   "lieu": "p11 fenêtre E2 « Semaines suivantes » et tableau de surveillance 11.C",
+   "avant": "Le spécialiste réduit la prednisone et discute un traitement d’épargne.",
+   "correction": "Écrire le calendrier du PNDS 2024 (lu, S17) : paliers 15 mg/j à 3 mois, 5 à 10 mg/j à 6 mois, sevrage à 12 mois ; sous 5 mg/j décroissance de 1 mg toutes les 2 à 4 semaines (insuffisance corticotrope) ; épargne (tocilizumab ou méthotrexate) si ces objectifs ne sont pas atteints ; prévention de l’ostéoporose cortico-induite (bisphosphonate si ClCr > 35 mL/min, calcium seulement si apports < 800–1200 mg/j) ; lipides à 8–12 semaines ; aspirine non systématique. Remplacer « seul traitement autorisé en France » par le statut suisse de l’AIPS Actemra® (n° 58868, SmPC 2026-10-03)."
+  },
+  {
+   "id": "R5",
+   "gravite": "majeure",
+   "lieu": "p11 fenêtre Carbamazépine et tableau de surveillance 11.C « Névralgie sous carbamazépine »",
+   "avant": "Le médecin adapte la dose à la douleur et aux effets indésirables ; seul HLA-A*3101 est cité.",
+   "correction": "Ajouter d’après l’AIPS 45723 (Mises en garde, mot pour mot) : recherche de HLA-B*1502 chez les patients d’origine chinoise Han, thaïe ou d’Asie du Sud-Est ; numération formule sanguine avec thrombocytes et réticulocytes et fer sérique avant traitement, puis surveillance ; arrêt dès les moindres signes de dépression médullaire significative ; natrémie (hyponatrémie) chez les sujets à risque ; contrôle hépatique."
+  },
+  {
+   "id": "R6",
+   "gravite": "majeure",
+   "lieu": "p11 fenêtres E2, Antibiotiques, Situations spéciales (doses marquées « hors AIPS »)",
+   "avant": "Doses de prednisone (PNDS 40–80 mg), méthylprednisolone (250–1000 mg) et amoxicilline (SSI) données « hors AIPS ».",
+   "correction": "La règle AIPS (doses AIPS suisses seulement ; hors AIPS sans dose) impose de citer d’abord la posologie de l’AIPS existante (Prednisone Streuli 29349, AIPS d’amoxicilline/co-amoxicilline) ; garder la dose SSI ou PNDS comme recommandation de société explicitement attribuée, ou demander l’arbitrage de Vial (étiquette attente-vial) si la règle doit céder à la précision."
+  },
+  {
+   "id": "R7",
+   "gravite": "mineure",
+   "lieu": "p11 fenêtre « Fracture mandibulaire ouverte » et tableau Antibiotiques",
+   "avant": "Il prescrit un antibiotique à large spectre dès les urgences.",
+   "correction": "Nommer la molécule et la dose selon une source lue (RCEM ne la nomme pas : chercher une recommandation suisse ou européenne) ou écrire « À vérifier »."
+  },
+  {
+   "id": "R8",
+   "gravite": "mineure",
+   "lieu": "p11 fenêtre Paracétamol et ibuprofène",
+   "avant": "L’ibuprofène … sans dépasser 1200 mg par jour en automédication.",
+   "correction": "Ajouter la limite AIPS 61210 mot pour mot : « Sans prescription médicale, Irfen Dolo L est indiqué pour un traitement de courte durée de 3 jours au maximum », qui impose de revoir le patient ou le dentiste au-delà."
+  },
+  {
+   "id": "R9",
+   "gravite": "mineure",
+   "lieu": "p10 Arbre décisionnel, ligne E1",
+   "avant": "… s’associe à un voile bombé, une luette déviée ou un trismus …",
+   "correction": "Harmoniser avec p4 (« et » au lieu de « ou ») ou préciser qu’un seul signe suffit à l’adresse ORL ; le tableau et l’arbre doivent porter le même critère."
+  },
+  {
+   "id": "R10",
+   "gravite": "mineure",
+   "lieu": "forme / palette",
+   "avant": "Palette olive sombre (--fm-a #313b1c, fond #f7faf3) peu saturée.",
+   "correction": "Ordre de Vial du 12.11.2026 : couleur d’accent et fond d’écran plus vivants, propres au cours, contraste AA conservé."
+  },
+  {
+   "id": "R11",
+   "gravite": "mineure",
+   "lieu": "controle3 (ORANGE)",
+   "avant": "5 phrases > 28 mots (IRM trois séquences, légende halo, « Ce que l’image décide », citations AIPS carbamazépine et prednisone) ; 22 phrases nominales signalées.",
+   "correction": "Scinder les phrases longues hors citations verbatim ; contrôler les phrases nominales réelles (la plupart sont des faux positifs de légende)."
+  }
+ ],
+ "compte": {
+  "critique": 0,
+  "majeure": 6,
+  "mineure": 5
+ },
+ "restants_leves_par_redacteur_1": {
+  "R1": "p10 E3 aligné sur p4/p11 : trismus, plancher gonflé, dyspnée, dysphagie, cellulite rapide ou immunodépression → hôpital ; sinon drainage, antibiotique et réévaluation J3 (S3).",
+  "R2": "E3 et tableau Antibiotiques : posologies AIPS Ospen 37057 et Amoxi-Mepha 44911 + tableau AIPS (grossesse, allaitement, contre-indication mot pour mot), 3–5 jours et J3 gardés.",
+  "R3": "E1 J1–3 et J3–14 : RMS sans molécule écrit tel quel ; co-amoxicilline en déduction (couverture aéro-anaérobie) avec doses AIPS 56758 i.v. et 55185 orale ; alternative allergique discutée avec l'infectiologue.",
+  "R4": "E2 : lignes Jour 1 (bisphosphonate si ClCr > 35, calcium sur enquête), S8–12 lipides, aspirine non systématique, paliers M3/M6/M12, 1 mg/2–4 sem sous 5 mg, épargne si palier manqué ; Actemra AIPS 58868 (162 mg s.c./2 sem) remplace « autorisé en France » ; 11.C mis à jour.",
+  "R5": "Fenêtre carbamazépine : tableau AIPS 45723 mot pour mot (HLA-B*1502, NFS + thrombocytes + réticulocytes + fer, arrêt si dépression médullaire, natrémie J0/2 sem/mensuelle 3 mois, foie) ; ligne 11.C remplacée.",
+  "R6": "Doses PNDS/SSI désormais adossées à l'AIPS (Prednisone 29349 5–60 mg/j, Solu-Medrol 35112 48–72 h, Amoxi-Mepha 44911, Co-Amoxicilline 55185, Zinat 49460, Doxycyclin-Mepha 65952) ; plus aucun « hors AIPS » avec dose.",
+  "R7": "Fracture ouverte (fenêtre trauma et tableau) : « le RCEM ne nomme ni molécule ni dose », choix fixé avec le chirurgien maxillo-facial ; aucune dose inventée.",
+  "R8": "Antalgie : citation AIPS 61210 « … 3 jours au maximum » ajoutée, puis revoir médecin ou dentiste.",
+  "R9": "p10 E1 harmonisé avec p4 (voile bombé, luette déviée, trismus et voix « patate chaude ») ; trismus souvent absent chez l'enfant.",
+  "R10": "Style palette-cours : accent vert vif #2f5a00 (8,1:1 sur blanc), fond dégradé vert-menthe #dcf2b4→#e3f6e6 (encre 17:1) ; forme.py --verifier conforme.",
+  "R11": "controle3 : 0 phrase > 32 mots (IRM, légende halo, « Ce que l'image décide », citations carbamazépine et prednisone scindées) ; 22 phrases nominales restantes vérifiées verbales (faux positifs)."
+ }
 }
