@@ -1,4 +1,4 @@
-Liste proposée 13.11.2026 (gel après audit-ok de la Phase A, porte P1)
+Liste gelée 13.11.2026 (audit-ok de la Phase A, porte P1)
 
 # LOT_031 — liste canonique (S1.15 Obstruction nasale), proposée par la Phase A L1 du 13.11.2026
 
