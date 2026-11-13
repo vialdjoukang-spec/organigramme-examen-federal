@@ -13,55 +13,128 @@
   "Médecine nucléaire"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Imagerie de médecine nucléaire du cerveau : TEP au 18F-FDG (métabolisme du glucose), TEP amyloïde, TEMP du transporteur de la dopamine à l'ioflupane (123I) et TEMP de perfusion cérébrale au 99mTc-ECD.",
+  "synonymes": "TEP-FDG cérébrale, TEP amyloïde, TEMP à l'ioflupane (DaTSCAN), TEP à la 18F-DOPA, scintigraphie de perfusion cérébrale.",
+  "prelevement_conditions": "Pour la TEMP à l'ioflupane, on bloque la thyroïde par environ 120 mg d'iodure de potassium par voie orale 1 à 4 heures avant l'injection, afin qu'elle ne capte pas l'iode radioactif ; on injecte 110 à 185 MBq par voie IV et on acquiert les images 3 à 6 heures plus tard (AIPS DaTSCAN, mars 2026). On évite les substances à forte affinité pour le transporteur de la dopamine (amphétamine, bupropion, méthylphénidate, modafinil, cocaïne), car elles compromettent le diagnostic (AIPS). L'AIPS cite en contre-indication : « Grossesse, allaitement. » ; si l'examen est indispensable, « l'allaitement maternel doit être interrompu pendant 3 jours ».",
+  "bon_usage_suisse": "L'OFSP fixe l'activité de référence de la TEMP cérébrale au 99mTc-ECD à 700 MBq pour 70 kg, soit 5,4 mSv (directive NRD de médecine nucléaire, 01.02.2023). Selon l'enquête suisse 2023, la part CT d'une TEP-CT cérébrale de démence est de 0,25 mSv (DLP 79 mGy·cm). L'OPAS ne rembourse la TEP-FDG que si un spécialiste (psychiatrie, neurologie ou gériatrie) la prescrit après un examen interdisciplinaire, chez un patient de 80 ans au plus, dont la démence a commencé il y a 5 ans au plus et dont le score MMSE vaut ≥ 10 ; la TEP amyloïde exige en plus qu'aucune TEP ni TEMP n'ait précédé (Swiss Memory Clinics 2024)."
  },
  "temps1_indications": {
   "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
+  "diagnostic_etiologie": "Devant un syndrome parkinsonien cliniquement flou, on peut faire une TEMP à l'ioflupane, car elle montre la perte des terminaisons dopaminergiques du striatum et aide à séparer un tremblement essentiel d'un syndrome parkinsonien dégénératif (AIPS ; EANM-SNMMI 2020, source européenne). Devant une démence, elle distingue la démence à corps de Lewy, où le striatum est pathologique, de la maladie d'Alzheimer, où il reste normal (Swiss Memory Clinics 2024). La TEP-FDG est l'imagerie moléculaire de premier choix des démences neurodégénératives : on la demande si un trouble cognitif léger fait craindre une démence débutante, si une démence reste sans étiologie claire, ou si l'origine neurodégénérative d'un trouble cognitif reste douteuse, par exemple devant une dépression (Swiss Memory Clinics 2024).",
+  "depistage_pretherapeutique": "On demande une TEP amyloïde comme examen complémentaire dans un cas peu clair, quand le LCR n'a pas tranché ou que la ponction lombaire est impossible, car elle prouve la présence ou l'absence de pathologie amyloïde (Swiss Memory Clinics 2024).",
   "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "ne_pas_demander": "On ne fait pas de TEMP à l'ioflupane pendant la grossesse ou l'allaitement, car l'AIPS les contre-indique. L'OPAS ne rembourse la TEP amyloïde que si aucune TEP ni TEMP cérébrale ne l'a précédée ; on choisit donc l'examen moléculaire avant d'en demander un premier (Swiss Memory Clinics 2024). Pour le diagnostic de mort, les directives ASSM 2017 citent le Doppler, l'angio-CT avec perfusion, l'angiographie par soustraction et l'IRM, mais pas la scintigraphie ; on choisit donc l'une de ces méthodes."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Striatum (TEMP à l'ioflupane)",
+   "normal": "Striatum en virgule, symétrique, aux bords nets",
+   "anomalie": "Si la fixation baisse, d'abord dans le putamen postérieur opposé aux signes, le striatum prend une forme de point au lieu d'une virgule (EANM-SNMMI 2020).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Métabolisme cortical du glucose (TEP-FDG)",
+   "normal": "Métabolisme dans les valeurs normales de l'analyse statistique par voxels",
+   "anomalie": "Un hypométabolisme régional dont la topographie correspond au phénotype clinique signale une neurodégénérescence ; son schéma oriente vers une maladie d'Alzheimer, une démence à corps de Lewy ou une dégénérescence lobaire fronto-temporale (Swiss Memory Clinics 2024).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Amyloïde cortical (TEP amyloïde)",
+   "normal": "Lecture visuelle négative par un lecteur formé",
+   "anomalie": "Une fixation corticale prouve une pathologie bêta-amyloïde, mais sa spécificité baisse avec l'âge (Swiss Memory Clinics 2024).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Dose efficace (TEMP)",
+   "formule": "On calcule E (mSv) = activité injectée (MBq) × coefficient de dose (mSv/MBq) ; pour l'ioflupane, le coefficient vaut 25 µSv/MBq, soit 0,025 mSv/MBq.",
+   "a_quoi_ca_sert": "Ce calcul traduit l'activité injectée en dose pour le patient ; on compare ainsi les examens et on justifie l'activité choisie.",
+   "exemple": "Pour 185 MBq d'ioflupane, on calcule 185 × 0,025 = 4,63 mSv ; pour 110 MBq, on calcule 110 × 0,025 = 2,75 mSv. Selon l'OFSP, la dose d'une TEMP au 99mTc-ECD au NRD (700 MBq) est de 5,4 mSv.",
+   "source": "On a lu l'AIPS DaTSCAN (mars 2026) et la directive OFSP des NRD de médecine nucléaire (01.02.2023) le 13.11.2026."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "La TEMP à l'ioflupane montre un striatum en point des deux côtés, plus marqué à gauche.",
+   "associees_presentes": "La perte est plus marquée dans le putamen postérieur.",
+   "associees_a_rechercher": "On vérifie que le patient ne prend ni bupropion, ni méthylphénidate, ni amphétamine, ni modafinil, car ces substances réduisent la liaison et miment un déficit (AIPS).",
+   "syndrome_anamnese": "Le patient décrit un tremblement de repos de la main droite.",
+   "syndrome_status": "On trouve une rigidité et une lenteur à droite.",
+   "confirmation": "La perte des terminaisons dopaminergiques se voit d'abord dans le putamen postérieur opposé aux signes (EANM-SNMMI 2020).",
+   "diagnostic": "Le patient a un syndrome parkinsonien dégénératif ; l'examen ne sépare pas la maladie de Parkinson d'une atrophie multisystématisée ou d'une paralysie supranucléaire progressive, car l'AIPS cite toutes ces maladies parmi les causes de perte.",
+   "conduite": "On écarte ainsi un tremblement essentiel et un parkinsonisme médicamenteux, puis le neurologue décide du traitement."
+  },
+  {
+   "entite_anormale_chiffree": "Chez un patient dément, la TEMP à l'ioflupane montre un striatum pathologique.",
+   "associees_presentes": "Le patient a des signes parkinsoniens.",
+   "associees_a_rechercher": "On cherche les autres arguments de démence à corps de Lewy, car l'examen ne fait que soutenir le diagnostic.",
+   "syndrome_anamnese": "Les proches décrivent un déclin cognitif depuis 2 ans.",
+   "syndrome_status": "On trouve une rigidité discrète.",
+   "confirmation": "Un striatum pathologique oriente vers la démence à corps de Lewy, alors qu'un striatum normal orienterait vers une maladie d'Alzheimer (Swiss Memory Clinics 2024).",
+   "diagnostic": "Le patient a probablement une démence à corps de Lewy.",
+   "conduite": "On adresse le patient à une clinique de la mémoire, qui fixe le traitement et le suivi."
+  },
+  {
+   "entite_anormale_chiffree": "La TEP-FDG d'un patient de 68 ans, qui a un trouble cognitif léger, montre un hypométabolisme dont la topographie correspond à son trouble de la mémoire.",
+   "associees_presentes": "L'IRM ne montre ni tumeur ni lésion vasculaire suffisante.",
+   "associees_a_rechercher": "On dose les biomarqueurs du LCR (amyloïde bêta, tau, phospho-tau), car ils soutiennent le diagnostic précoce (Swiss Memory Clinics 2024).",
+   "syndrome_anamnese": "Le patient oublie les faits récents depuis 2 ans.",
+   "syndrome_status": "Le score MMSE est de 26 sur 30.",
+   "confirmation": "La TEP-FDG prouve une neurodégénérescence et prédit de façon fiable le passage du trouble cognitif léger à la maladie d'Alzheimer (Swiss Memory Clinics 2024).",
+   "diagnostic": "Le patient a un trouble cognitif léger d'origine neurodégénérative, compatible avec une maladie d'Alzheimer débutante.",
+   "conduite": "On vérifie d'abord les conditions de remboursement (≤ 80 ans, début ≤ 5 ans, MMSE ≥ 10, prescription après examen interdisciplinaire), puis on planifie le suivi en clinique de la mémoire."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si le patient prend du bupropion, du méthylphénidate ou une amphétamine,",
+    "consequence": "alors la TEMP à l'ioflupane peut montrer un faux déficit ; on en tient compte dans la lecture, comme l'AIPS le demande."
+   },
+   {
+    "si": "Si l'on oublie de bloquer la thyroïde,",
+    "consequence": "alors la thyroïde capte l'iode radioactif ; on donne donc environ 120 mg d'iodure de potassium 1 à 4 heures avant l'injection (AIPS)."
+   },
+   {
+    "si": "Si l'on lit une TEP amyloïde positive chez un sujet âgé comme une maladie d'Alzheimer,",
+    "consequence": "alors on se trompe parfois, car des sujets âgés sans trouble cognitif portent aussi de l'amyloïde (Swiss Memory Clinics 2024)."
+   },
+   {
+    "si": "Si l'on attend de la TEMP à l'ioflupane qu'elle sépare la maladie de Parkinson d'une atrophie multisystématisée,",
+    "consequence": "alors on lui demande trop, car elle montre la perte dopaminergique présente dans les deux maladies (AIPS)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "« Virgule ou point » : un striatum en virgule est normal, un striatum en point signe la perte dopaminergique."
  },
  "sources": [
-  "—"
+  "Swissmedic, information professionnelle DaTSCAN (ioflupane 123I), n° 55717, mise à jour mars 2026 (posologie, contre-indications, interactions, dosimétrie), lue le 13.11.2026",
+  "Morbelli S et al. EANM practice guideline/SNMMI procedure standard for dopaminergic imaging in Parkinsonian syndromes 1.0. Eur J Nucl Med Mol Imaging 2020;47:1885-1912 (PMC7300075), lu le 13.11.2026 ; source européenne",
+  "Popp J et al. Recommandations de Swiss Memory Clinics pour le diagnostic des troubles cognitifs – mise à jour 2024 (chapitres 8.1 et 8.2, conditions OPAS), lues le 13.11.2026",
+  "OFSP, Directive « Niveaux de référence diagnostiques pour les examens de médecine nucléaire », 01.02.2023, annexe 1, tableau 1.1, lue le 13.11.2026",
+  "Samara ET, Ott B, Dagassan-Berndt D. Effective dose estimations for the Swiss survey on medical radiation exposure of the population in 2023. Health Physics 2026 (document OFSP, tableaux 4 et 5), lu le 13.11.2026",
+  "ASSM, Directives médico-éthiques « Diagnostic de la mort dans le contexte de la transplantation d'organes et préparation du prélèvement d'organes », 2017, chapitre 3.3 et annexe E, lues le 13.11.2026"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S1-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "La voie nigro-striée explique pourquoi la perte des terminaisons dopaminergiques se voit d'abord dans le putamen."
+  },
+  {
+   "type": "Interface S1 ↔ S11",
+   "cible": "EX-2-S11-imagerie-troubles-neurocognitifs",
+   "pourquoi": "La TEP-FDG et la TEMP à l'ioflupane servent aussi le bilan psychiatrique des troubles neurocognitifs."
+  },
+  {
+   "type": "Interface S1 ↔ S11",
+   "cible": "PH-S11-antidepresseurs-bupropion",
+   "pourquoi": "Le bupropion bloque le transporteur de la dopamine et peut fausser la TEMP à l'ioflupane."
+  },
+  {
+   "type": "Interface S1 ↔ S11",
+   "cible": "PH-S11-psychostimulants-methylphenidate",
+   "pourquoi": "Le méthylphénidate bloque le transporteur de la dopamine et peut mimer un déficit à la TEMP."
   }
  ]
 }

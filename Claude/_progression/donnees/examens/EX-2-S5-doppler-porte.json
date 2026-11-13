@@ -13,55 +13,133 @@
   "Échographie-Doppler"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Échographie-Doppler du système porte (veine porte, veine splénique, veine mésentérique supérieure, veines hépatiques)",
+  "synonymes": "Doppler portal ; écho-Doppler hépatique ; Doppler spléno-portal",
+  "prelevement_conditions": "Le patient reste à jeun, car le repas augmente le débit portal et fausse la vitesse ; on mesure la vitesse au milieu de la lumière, au croisement de l'artère hépatique, avec un angle corrigé, sur au moins 2 cycles cardiaques ou 2 à 3 secondes (Berzigotti, recommandations EFSUMB). On garde le même appareil pour le suivi, parce que les valeurs changent d'une machine à l'autre.",
+  "bon_usage_suisse": "Le Doppler n'irradie pas (0 mSv) ; il devrait donc précéder la TDM pour chercher une thrombose porte (Baveno VII, européen). Selon Berzigotti (Inselspital), l'EFSUMB recommande que le compte rendu donne toujours le diamètre, la vitesse portale et la taille de la rate."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "Devant une douleur abdominale avec fièvre ou vomissements chez un patient à risque, on fait le Doppler en premier pour chercher une thrombose porte récente, puis on la confirme par une imagerie injectée (Baveno VII, européen) ; on agit vite, car une thrombose qui gagne la veine mésentérique menace l'intestin.",
+  "diagnostic_etiologie": "Devant des signes d'hypertension portale sans hépatopathie connue, on fait le Doppler pour classer l'obstacle (pré-hépatique, intra-hépatique ou post-hépatique), car le traitement dépend du site (Berzigotti). Il vérifie la perméabilité des veines porte et hépatiques, ce qui écarte une thrombose porte ou un syndrome de Budd-Chiari.",
+  "depistage_pretherapeutique": "Avant une transplantation ou une chirurgie hépatique, on vérifie la perméabilité porte, car une thrombose change la technique et l'indication de l'anticoagulation (Baveno VII, européen).",
+  "suivi_surveillance": "Chez le cirrhotique compensé, on cherche périodiquement les signes d'hypertension portale (Berzigotti) ; une thrombose partielle non traitée se recontrôle à 3 mois, car son extension fait discuter l'anticoagulation (Baveno VII, C2).",
+  "ne_pas_demander": "Par déduction, d'après Berzigotti et Baveno VII, on ne demande pas le Doppler pour mesurer seul la gravité de l'hypertension portale, parce que l'élastographie hépatique et les plaquettes suffisent à exclure ou à retenir une hypertension portale cliniquement significative ; l'EFSUMB demande toutefois de toujours rapporter le diamètre et la vitesse portale (Berzigotti)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Diamètre de la veine porte",
+   "normal": "6 à 12 mm",
+   "anomalie": "Un diamètre > 13 mm évoque une hypertension portale ; ce signe est spécifique (90 à 100 %) mais peu sensible (< 50 %) (Berzigotti).",
+   "seuil_alerte": "> 15 mm : grosses varices probables"
+  },
+  {
+   "parametre": "Sens et vitesse du flux portal",
+   "normal": "Flux hépatopète ; vitesse maximale moyennée (TAMv) > 20 à 24 cm/s",
+   "anomalie": "Une vitesse ralentie (TAMv < 20 cm/s, vitesse moyenne < 14 cm/s) signe une hypertension portale avec une sensibilité de 80 à 88 % ; un flux inversé (hépatofuge) la signe avec 100 % de spécificité (Berzigotti).",
+   "seuil_alerte": "Vitesse moyenne < 10 cm/s : survie réduite et risque de thrombose"
+  },
+  {
+   "parametre": "Lumière porte (perméabilité)",
+   "normal": "Lumière anéchogène entièrement colorée en Doppler",
+   "anomalie": "Un matériel endoluminal sans flux signe une thrombose ; un réseau de veines serpigineuses au hile remplace la porte dans le cavernome (Baveno VII).",
+   "seuil_alerte": "Thrombose étendue à la veine mésentérique supérieure"
+  },
+  {
+   "parametre": "Veines splénique et mésentérique supérieure",
+   "normal": "< 10 mm ; diamètre variable avec la respiration",
+   "anomalie": "Un diamètre > 11 mm et une variation respiratoire < 40 % signent une hypertension portale avec 100 % de spécificité (Berzigotti).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Collatérales porto-systémiques",
+   "normal": "Absentes",
+   "anomalie": "Une veine para-ombilicale reperméabilisée ou une dérivation spléno-rénale signe une hypertension portale avec 100 % de spécificité (Berzigotti) et la rend cliniquement significative (Baveno VII).",
+   "seuil_alerte": "Collatérales présentes : gradient probablement > 16 mmHg"
+  },
+  {
+   "parametre": "Rate et veines hépatiques",
+   "normal": "Rate d'aire < 45 cm² ; veines hépatiques perméables à flux triphasique",
+   "anomalie": "La splénomégalie est le signe le plus sensible mais peu spécifique ; l'absence de flux dans les veines hépatiques évoque un syndrome de Budd-Chiari (Berzigotti).",
+   "seuil_alerte": "Absence de flux hépatique avec ascite aiguë"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Index de congestion",
+   "formule": "On divise l'aire de la veine porte (cm²) par la vitesse moyenne du flux (cm/s) ; l'aire vaut π × rayon² et la vitesse moyenne vaut TAMv × 0.57.",
+   "a_quoi_ca_sert": "Cet index combine calibre et vitesse : plus la veine est large et lente, plus la pression monte ; un index > 0.08 signe une hypertension portale.",
+   "exemple": "La veine porte mesure 14 mm (rayon 0.7 cm) ; l'aire vaut 3.14 × 0.7 × 0.7 = 1.54 cm². La TAMv mesure 18 cm/s, donc on obtient une vitesse moyenne de 18 × 0.57 = 10.3 cm/s. L'index vaut 1.54 ÷ 10.3 = 0.15 ; comme 0.15 > 0.08, on retient une congestion portale.",
+   "source": "La formule de Moriyasu (1986), le seuil de 0.08 et le facteur 0.57 sont repris par Berzigotti (Inselspital)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "La veine porte mesure 14 mm, la vitesse moyenne tombe à 10 cm/s et une veine para-ombilicale est reperméabilisée.",
+   "associees_presentes": "La rate est augmentée et une ascite minime apparaît parfois.",
+   "associees_a_rechercher": "On mesure l'élasticité hépatique et les plaquettes, car une élasticité > 25 kPa est très en faveur de l'hypertension portale cliniquement significative, sauf chez le patient obèse (IMC ≥ 30) atteint de stéatohépatite non alcoolique, où ce seuil perd sa valeur (Baveno VII) ; on cherche des varices par endoscopie si les critères d'exclusion manquent.",
+   "syndrome_anamnese": "Le patient connaît une hépatopathie chronique (alcool, virus, MASLD) ou consulte pour une hémorragie digestive.",
+   "syndrome_status": "On trouve une splénomégalie, une circulation veineuse collatérale abdominale, parfois une ascite.",
+   "confirmation": "Les collatérales porto-systémiques suffisent à affirmer l'hypertension portale cliniquement significative (Baveno VII).",
+   "diagnostic": "On retient une hypertension portale cliniquement significative sur cirrhose.",
+   "conduite": "On propose un bêtabloquant non sélectif, de préférence le carvédilol, car il prévient la décompensation (Baveno VII, européen) ; on traite la cause de la cirrhose."
+  },
+  {
+   "entite_anormale_chiffree": "Un thrombus sans flux occupe plus de 50 % du tronc porte depuis moins de 6 mois.",
+   "associees_presentes": "Le thrombus peut gagner la veine splénique ou mésentérique supérieure.",
+   "associees_a_rechercher": "On confirme par TDM injectée et l'on recherche un CHC, car une thrombose tumorale ne s'anticoagule pas de la même façon (Baveno VII).",
+   "syndrome_anamnese": "Le patient décrit une douleur abdominale, de la fièvre, des nausées ou des vomissements ; parfois la thrombose est fortuite.",
+   "syndrome_status": "L'examen reste peu parlant, sauf si l'intestin souffre (défense, iléus).",
+   "confirmation": "L'imagerie injectée confirme la thrombose ; un thrombus hyperdense plaide pour une thrombose récente (Baveno VII).",
+   "diagnostic": "On retient une thrombose porte récente non tumorale.",
+   "conduite": "On anticoagule si la thrombose est récente (< 6 mois) et complète ou partielle > 50 %, symptomatique, ou si le patient attend une greffe (Baveno VII, C2), car l'anticoagulation favorise la reperméabilisation."
+  },
+  {
+   "entite_anormale_chiffree": "La porte est remplacée par un réseau de veines serpigineuses au hile, sans cirrhose.",
+   "associees_presentes": "La rate est grande et des varices existent souvent.",
+   "associees_a_rechercher": "On cherche une thrombophilie et un syndrome myéloprolifératif, car ils expliquent souvent la thrombose ancienne (Baveno VII, non détaillé ici).",
+   "syndrome_anamnese": "Le patient consulte pour une hémorragie variqueuse ou une splénomégalie, souvent sans hépatopathie connue.",
+   "syndrome_status": "On trouve une splénomégalie sans signe d'insuffisance hépatique.",
+   "confirmation": "Le Doppler et l'imagerie injectée confirment le cavernome.",
+   "diagnostic": "On retient une hypertension portale pré-hépatique par cavernome porte.",
+   "conduite": "On dépiste les varices par endoscopie et l'on discute l'anticoagulation avec l'hépatologue, car la cause et le risque hémorragique guident la décision."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "on mesure la vitesse portale chez un patient qui vient de manger",
+    "consequence": "la vitesse paraît normale et l'on manque une hypertension portale."
+   },
+   {
+    "si": "on compare deux mesures faites sur deux appareils différents",
+    "consequence": "on conclut à tort à une aggravation ou à une amélioration, car chaque machine a ses valeurs."
+   },
+   {
+    "si": "on retient une hypertension portale sur un seul diamètre porte > 13 mm",
+    "consequence": "on se trompe souvent, car ce signe manque de sensibilité ; seules l'inversion du flux et les collatérales sont spécifiques à 100 %."
+   },
+   {
+    "si": "on oublie de chercher un CHC devant une thrombose porte sur cirrhose",
+    "consequence": "on anticoagule une thrombose tumorale et l'on retarde le traitement du cancer."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « D-V-S-C-R » : Diamètre, Vitesse, Sens, Collatérales, Rate ; seuls le Sens inversé et les Collatérales prouvent à eux seuls l'hypertension portale."
  },
  "sources": [
-  "—"
+  "Berzigotti A (Inselspital, Hôpital universitaire de Berne) — « Ultrasound assessment of portal hypertension », support d'enseignement BMUS (recommandations EFSUMB citées), lu le 13.11.2026.",
+  "de Franchis R et al. Baveno VII – Renewing consensus in portal hypertension. J Hepatol 2022;76:959-974 (européen ; seuils lus dans la synthèse FMC-HGE « Consensus en hypertension portale : Baveno VII », Postu 2023, le 13.11.2026).",
+  "HUG, Service de médecine de premier recours — stratégie « Élévation des tests hépatiques » (2024), lue le 13.11.2026."
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S5-physiologie",
-   "pourquoi": "—"
+   "pourquoi": "La vitesse portale dépend du débit splanchnique et de la résistance hépatique, car la pression portale vaut résistance × débit."
+  },
+  {
+   "type": "Fondement",
+   "cible": "SF-S5-physiopathologie-generale",
+   "pourquoi": "La fibrose élève la résistance intra-hépatique, ce qui ralentit le flux puis ouvre les collatérales."
   }
  ]
 }
