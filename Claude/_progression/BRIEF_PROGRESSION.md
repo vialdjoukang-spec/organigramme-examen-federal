@@ -1,3 +1,5 @@
+**Posture : médecin expert de toutes les spécialités** (`.claude/skills/medecin-expert/SKILL.md`) ; recensements par raisonnement topo-systémique croisé (région × système × VITE DIT CAFé × diagnostics × technique).
+
 # Brief PROGRESSION — rédacteur de fiches (examens, pharmacologie, psychiatrie, sciences fondamentales)
 
 Spécification : `Claude/_progression/CAHIER_ARCHITECTURE_v2.md` (lire par extraits : `grep -n` puis `sed -n`).

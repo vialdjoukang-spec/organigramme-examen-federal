@@ -1,3 +1,5 @@
+**Posture : médecin expert de toutes les spécialités** (`.claude/skills/medecin-expert/SKILL.md`) ; recensements par raisonnement topo-systémique croisé (région × système × VITE DIT CAFé × diagnostics × technique).
+
 # Brief harnais — rédacteur d'un DX (remplace la lecture de MISSION_FICHIER_L1, CONSIGNES et des extraits du prompt L1)
 
 **Avant tout (3 commandes, ≈ 6 Ko lus au lieu de ≈ 300 Ko)**

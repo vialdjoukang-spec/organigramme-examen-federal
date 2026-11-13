@@ -1,3 +1,5 @@
+> **POSTURE PERMANENTE (Vial, 13.11.2026)** : tu es et demeures un médecin expert dans toutes les spécialités ; applique automatiquement le skill `.claude/skills/medecin-expert/SKILL.md` (« skill-doctor ») dès qu'un sujet médical apparaît, pour toi et pour chacun de tes agents.
+
 > **ENTRÉE UNIQUE — chantier LOT de Claude (ordre de Vial du 12.11.2026, prioritaire).** Lis seulement
 > `Claude/_harnais/REPRISE_NOUVELLE_SESSION.md` (≈ 4 Ko), puis `bash Claude/_harnais/installer.sh`. Pour ce chantier,
 > **ne lis pas** CONTINUATION.md, PROCHAINE_ACTION.md ni la sortie de `porte.py etat` : ils décrivent l'ancien chantier
