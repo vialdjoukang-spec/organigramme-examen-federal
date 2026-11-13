@@ -1,0 +1,3 @@
+- 13.11 00:14 · decision · Phase A L1 réécrite 13.11 ; liste renumérotée par fréquence (corresp. dans LISTE_DX_CANONIQUE.md) ; E1 APA, E2 ACG, E3 abcès dentaire
+- 13.11 00:14 · source · Lues : SSI 2410, RMS 2021 APA, Inselspital NT, EAN 2019 (UCL), PNDS ACG 2024, RCEM 2021, SDCEP pulpite/abcès/péricoronarite, HUG ATM/rhino, SDJ 2013 Zurich
+- 13.11 00:28 · reste · 13.11 restants R1–R11 du contre-audit Phase A levés (rédacteur 1) ; AIPS ajoutées 37057 44911 55185 56758 49460 65952 35112 58868
