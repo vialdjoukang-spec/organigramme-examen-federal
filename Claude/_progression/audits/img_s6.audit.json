@@ -171,5 +171,40 @@
    "gravite": "mineure",
    "preuve": "entete.bon_usage_suisse : « chez l'enfant et chez la femme enceinte suspects de lithiase (EAU Urolithiasis, forte) »."
   }
- ]
+ ],
+ "verification_1": {
+  "date": "2026-11-13",
+  "verificateur": "Claude (vérification indépendante, non-rédacteur)",
+  "verdict": "audit-ok",
+  "resume": "Le vérificateur a relu le diff du commit 3925fca24 et les sources : Esser 2016 (arrêt des diurétiques 3 jours, angio-TDM/IRM préférées, excrétion < 5 min, T1/2 > 20 min « compatible »), EAU Prostate Cancer (IRM ou calculateur, forte ; PSA répété après 4 semaines, faible ; TRUS 8 % plus petit que l'IRM), EAU LUTS 4.10.1 (grand résidu, hématurie, lithiase, LE 4 ; faible), EAU Infections 3.6 (« should be considered ») et 3.17, EAU RCC (biopsie avant ablation/systémique forte, avant surveillance faible, coaxiale forte, kyste sans portion solide forte, seconde biopsie LE 4, réserve OMS 2022). La majeure (restant 1) et les restants 2 à 8, 10 et 11 sont levés exactement. Il reste 2 mineures, aucune critique, grave ni moyenne ; controle.py VERT, charpente.py 0 écrite, verbal.py 0 phrase nominale.",
+  "leves_exactement": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   10,
+   11
+  ],
+  "restants": [
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S6-biopsie-guidee-rein-prostate",
+    "champ": "passerelles",
+    "constat": "Le restant 9 n'est levé qu'en partie : la passerelle « Prélèvement » vers EX-4-S6-cytologie-urinaire figure toujours dans la fiche, avec le pourquoi générique « prélèvement obtenu par ce geste », parce que charpente.py (ligne 439) la recrée pour tout geste guidé de 2 Imagerie vers toute fiche 4 Anapath du même système ; la preuve de restants_leves_1 (« retirée ») est donc inexacte.",
+    "correction": "Besoin d'outil : charpente.py doit exclure les fiches 4 Anapath qui ne sont pas un produit du geste (ici la cytologie urinaire) ou laisser un retypage ; à défaut, consigner la réserve. Ne pas modifier la fiche à la main, car charpente.py la régénère."
+   },
+   {
+    "gravite": "mineure",
+    "fiche": "EX-2-S6-echographie-renale-vesicale",
+    "champ": "temps2_examen[7].anomalie",
+    "constat": "La correction attribue la surestimation sus-pubienne de 9,9 mL à « EAU, symptômes du bas appareil urinaire » ; ce chiffre ne figure pas dans EAU LUTS mais dans EAU Prostate Cancer 5.2.3 (référence 219), juste après les 8 % de l'échographie endorectale.",
+    "correction": "Écrire « … le surestime d'environ 9,9 mL ; l'IRM le mesure le mieux, et l'échographie endorectale le sous-estime d'environ 8 % (EAU Prostate Cancer, 5.2.3) »."
+   }
+  ],
+  "besoins_outils": "charpente.py (ligne 439) : la règle Prélèvement « 2 Imagerie geste guidé → toute fiche 4 Anapath du même système » recrée des passerelles erronées (biopsie guidée → cytologie urinaire) et impose un pourquoi sans verbe conjugué."
+ }
 }
