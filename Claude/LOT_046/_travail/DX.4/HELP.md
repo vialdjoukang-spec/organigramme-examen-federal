@@ -1,0 +1,12 @@
+# HELP — DX.4 « Crise d'asthme » (LOT_046, S2.7 Dyspnée)
+
+Lacunes à traiter par le chef de production ou un autre rédacteur (aucune formule de lacune n'est écrite dans le HTML).
+
+1. Salbutamol : l'AIPS Ventolin (37397, solution concentrée ; nébuliseur-doseur 54320, Diskus 53898) est désormais dans le paquet et citée (indications, 1 à 2 inhalations, état de mal asthmatique, grossesse, allaitement). Restent sans AIPS les génériques du salbutamol seul. Le schéma HUG (5 mg nébulisés toutes les 15-20 minutes) diverge de l'AIPS (état de mal : 0,25 à 0,5 ml toutes les 4 à 6 heures) et est présenté comme divergent.
+2. Sulfate de magnésium injectable : AIPS Bichsel 56394 lue ; l'asthme n'est pas parmi ses indications (troubles neuromusculaires, éclampsie, troubles du rythme), et sa posologie ne couvre pas l'asthme : la dose unique de la crise sévère réfractaire (GINA 2026 et HUG) reste hors AIPS et sans milligramme dans le cours. Le n° 46768 (Mg 5-Sulfat 10 %) n'a pas pu être versé au paquet (aucun document AIPS retourné).
+3. Prednisolone pédiatrique et dexaméthasone : pas d'AIPS exploité ; conduite pédiatrique citée depuis la GINA 2026, doses en mots seulement.
+4. Épidémiologie suisse des exacerbations : seules données lues = prévalence 5-7 % (HUG 2026), 7 % chez l'adulte en 2002 (audit Baselland, PMC9843545) et la série hospitalière de Baselland 2018-2019. Aucune statistique OFS/Obsan sur les hospitalisations pour asthme n'a pu être lue (à ajouter si une source est trouvée).
+5. Recommandations suisses de la Société suisse de pneumologie (Respiration 2018, PMID 29614508) : seul le résumé PubMed est lisible (karger.com renvoie 403) ; le texte de la crise est repris des HUG 2026 et de la GINA.
+6. GINA : rapport 2026 (mai 2026) lu en texte intégral (chap. 9 et introduction, extraits `gina26ch9-*`, `gina26intro-*`) et Summary Guide 2025 (`wfebf77-*`). Le rapport complet 2026 n'est pas rapatrié par le paquet (17 Mo) : il a été converti localement avec pdftotext puis réinjecté sous l'URL officielle.
+7. Embolie pulmonaire et syndrome coronarien aigu : le point 4 les cite comme diagnostics graves à exclure ; leur critère décisif n'est sourcé qu'indirectement (HUG TVP/IC). Les LOT dédiés (DX.6, DX.8) portent le détail.
+8. Extrait HUG w11618b-23 : « 10-15min » et « 5jours » (nombres collés aux unités) échappent au contrôle ; la durée du test de réversibilité et des 5 jours de DEP n'est donc pas reprise dans le cours (seuils de 10 % et 20 % cités).

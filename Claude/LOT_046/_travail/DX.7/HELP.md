@@ -1,0 +1,9 @@
+# HELP DX.7 — lacunes de sources (aucune formule de lacune dans le HTML)
+- AIPS versés au paquet et utilisés (fenêtres et tableau du point 11) : Tambocor 45710/45711, Dilzem 46269/49577, Isoptin 40783/46364/53374, Multaq 59292, Cordarone orale 33393, Lixiana 65149, Eliquis 61549. Dilzem : l'AIPS n'indique que la maladie coronarienne et l'hypertension ; le contrôle de fréquence par diltiazem suit les HUG 2023 et l'ESC 2024 et est signalé comme tel. Multaq : l'AIPS contre-indique l'insuffisance cardiaque, alors que le tableau HUG l'admet si la fraction d'éjection est conservée ; le cours suit l'AIPS.
+- Digoxine, vernakalant : aucune monopréparation retenue ; conduite citée sans milligramme (HUG 2023, ESC 2024). Le fichier des HAM du 30.09.2026 ne contient aucune digoxine.
+- Flécaïnide par voie orale en prise unique de 200 à 300 mg (« pill in the pocket » cité par les HUG) : absent de l'AIPS Tambocor comprimés, donc non enseigné.
+- Épidémiologie : le risque à vie de 37 % à 55 ans (HUG 2023) n'est pas citable par le contrôle (« 55ans » collé dans le PDF) ; remplacé par l'estimation d'environ 40 % de l'étude suisse CoLaus. Calendrier ECG de 48-72 h, 7 jours et 14 jours (HUG, « 7jours » collé) : donné dans un tableau, hors contrôle numérique des phrases.
+- Seuils de cardioversion : le HUG 2023 (48 h, 12 h) est cité comme version antérieure ; l'enseignement suit l'ESC 2024 (24 h).
+- Volet assurances (LAMal, incapacité de travail, permis de conduire) : aucune source suisse lue ; le volet social cite seulement le soutien psychosocial et la coordination (ESC 2024).
+- Formes graves de dyspnée par FA : épidémiologie suisse hors CoLaus (Lausanne) non retrouvée ; Swiss-AF cité nulle part.
+- Texte ESC 2024 extrait d'une copie PDF (uninsubria.it) ; colonnes parfois mêlées, passages citables seulement par phrases entières.
