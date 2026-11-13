@@ -1,0 +1,2 @@
+- 13.11 11:35 · decision · Rempli 13.11.2026 : HUG rpa, stratégies SMPR 2023-2024, Viollier, RMS 2017, LA 01.07.2026
+- 13.11 11:35 · reste · Remboursement LA de l'A1AT sur selles (1032.00 = sang) à vérifier

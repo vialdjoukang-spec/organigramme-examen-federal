@@ -1,0 +1,28 @@
+{
+ "fiches": "EX-1-S3-* (6 fiches : ANCA, bilan lipidique, BNP/NT-proBNP, digoxinémie et antiarythmiques, hémocultures, troponines hs)",
+ "date": "2026-11-13",
+ "reecriture_verifiee": "b139cfd10 (Progression S3 : phrases verbales explicitées, calculs), comparée champ par champ à b139cfd10^",
+ "verdict": "audit-ok",
+ "fond": "Les chiffres, seuils, codes de la Liste des analyses, sources et citations AIPS restent inchangés hors bloc calculs (comparaison numérique automatique champ par champ) ; le seul chiffre nouveau (22,5 %, troponines) figurait déjà dans la même fiche.",
+ "calculs_recalcules": [
+  "LDL de Friedewald : 6,0 − 1,2 − 2,2 ÷ 2,2 = 3,8 mmol/L > cible de 3,0 (faible risque) — exact (HUG 9031 ; ESC/EAS 2019).",
+  "Non-HDL : 5,0 − 0,9 = 4,1 mmol/L > cible de 2,2 (très haut risque) — exact (ESC/EAS 2019).",
+  "Δ1h hs-cTnT : 10 − 8 = 2 (rule-out) ; 27 − 20 = 7 (rule-in) ; 23 − 20 = 3 avec 0 h = 20 (observation) — exact (ESC 2023).",
+  "Digoxine : M = 780,9 g/mol ; 9,0 nmol/L × 0,781 ≈ 7,0 ng/mL — exact (déduction signalée).",
+  "Fab (digoxinémie) : 7,0 × 70 ÷ 100 = 4,9 → 5 flacons — exact (AIPS DigiFab 59301, formule 2).",
+  "Fab (ingestion) : 25 × 0,25 = 6,25 mg × 0,8 = 5 mg ÷ 0,5 = 10 flacons — exact (AIPS DigiFab, formule 1 et tableau 1).",
+  "Cockcroft-Gault : 65 × 70 ÷ (72 × 1,5) = 4550 ÷ 108 ≈ 42 mL/min ; femme 42 × 0,85 ≈ 36 ; 30–60 mL/min → dose ÷ 2 — exact, formule et paliers relus dans l'AIPS Sotalol-Mepha 54553."
+ ],
+ "corrections_faites": [
+  {"fiche": "EX-1-S3-digoxinemie-suivi-antiarythmiques", "champ": "calculs[0].exemple, calculs[1].exemple", "correction": "L'AIPS DigiFab écrit « > 6 ng/mL » (strict) pour l'intoxication chronique de l'adulte ; l'exemple à 6,0 ng/mL qui « atteint » le seuil devient 9,0 nmol/L ≈ 7,0 ng/mL, et l'exemple Fab passe à 7,0 ng/mL (4,9 → 5 flacons)."},
+  {"fiche": "EX-1-S3-digoxinemie-suivi-antiarythmiques", "champ": "temps3[hypothyroïdie].associees_a_rechercher", "correction": "Pourquoi ajouté (thyroïdite auto-immune), gardé « non vérifié CH »."},
+  {"fiche": "EX-1-S3-troponines-hypersensibles", "champ": "temps3[rule-in].conduite", "correction": "Le pourquoi du type 2 était inversé (« parce que l'exploration devient inutile ») ; il dit désormais que le déséquilibre apport/besoin en oxygène explique la lésion, donc que l'exploration invasive devient parfois inutile."},
+  {"fiche": "EX-1-S3-troponines-hypersensibles", "champ": "temps1.ne_pas_demander", "correction": "Pourquoi ajouté à « ni CK-MB ni copeptine » (la hs-cTn seule suffit, ESC 2023)."},
+  {"fiche": "EX-1-S3-hemocultures", "champ": "temps3[contaminant, S. aureus].conduite", "correction": "Pourquoi ajouté (contaminant : déduction signalée ; S. aureus : germe typique d'endocardite, ESC 2023)."},
+  {"fiche": "EX-1-S3-bilan-lipidique", "champ": "temps1.ne_pas_demander", "correction": "Pourquoi ajouté à l'ALAT de routine sous statine, signalé « déduction »."},
+  {"fiche": "EX-1-S3-bnp-nt-probnp", "champ": "temps1.ne_pas_demander", "correction": "Pourquoi ajouté (limitation 1576.00 : dyspnée aiguë, une fois par échantillon primaire)."},
+  {"fiche": "glossaire.json", "champ": "abreviations", "correction": "17 sigles à casse mixte, non captés par glossaire.py, ajoutés : NT-proBNP, proBNP, ApoB, Lp(a), LDL-C, QTc, TSHu, CK-MB, cTnT, cTnI, hs-cTn, hs-cTnT, hs-cTnI, SCORE2-OP, SCORE2-Diabetes, PR3-ANCA, MPO-ANCA."}
+ ],
+ "portes": "verbal.py 0/409 ; glossaire.py VERT ; controle.py VERT ; charpente.py 0 écrite.",
+ "restants": []
+}

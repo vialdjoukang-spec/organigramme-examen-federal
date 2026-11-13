@@ -7,61 +7,165 @@
  "systeme": "S10",
  "etiquettes": [],
  "entree_primaire": [
-  "—"
+  "Sang et buvard"
  ],
  "axe_secondaire": [
   "Hémostase"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Temps de Quick exprimé en taux de prothrombine (%) et en INR ; temps de thromboplastine partielle activée (aPTT, TCA) (HUG fiches 2725 et 2714)",
+  "synonymes": "Quick, TP, temps de prothrombine, INR, PTT, aPTT, TCA, « crase »",
+  "prelevement_conditions": "On prélève du sang veineux citraté (Hémogard bleu 2,7 ml chez l'adulte, 1,8 ml chez l'enfant ; minimum 1 ml), après avoir purgé la tubulure ; on achemine le tube dans les 4 h à température ambiante et on signale toute anticoagulation ; les HUG l'analysent 24 h/24 et rendent le résultat en 24 h (HUG). On élimine les 2 premiers ml pour toutes les analyses d'hémostase sauf l'INR (HUG).",
+  "bon_usage_suisse": "La Liste des analyses indique l'INR (1700.00, 5,4 points) et l'aPTT (1019.00, 7,8 points) (HUG). smarter medicine (SSAR 2018) indique que l'examen préopératoire de routine n'aide guère à identifier les patients à risque de complications."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "On les demande en urgence devant une hémorragie, un surdosage en AVK, une insuffisance hépatique aiguë ou une suspicion de CIVD (avec plaquettes, fibrinogène et D-dimères), et avant un geste urgent chez un patient anticoagulé.",
+  "diagnostic_etiologie": "Devant un saignement anormal, un TP bas isolé oriente vers la voie extrinsèque (facteur VII : carence en vitamine K, AVK, foie) ; un TCA allongé isolé oriente vers la voie intrinsèque (VIII, IX, XI, XII, anticoagulant lupique, héparine) ; si les deux sont anormaux, on pense à la voie commune, à la CIVD ou à l'insuffisance hépatique.",
+  "depistage_pretherapeutique": "On les dose avant une anticoagulation (valeurs de base) ; avant une ponction médullaire chez l'anticoagulé, on exige un INR ≤ 1,5 (HUG), parce qu'un INR plus haut expose à l'hématome ; avant un geste invasif, on ne les dose que s'il existe une anamnèse hémorragique, une hépatopathie ou un anticoagulant.",
+  "suivi_surveillance": "Sous AVK, on vise un INR de 2,0–3,0, ou de 2,0–3,5 si la valve est mécanique (AIPS Marcoumar) ; sous HNF, on suit le TCA ou l'anti-Xa (fiche suivi des anticoagulants) ; dans l'insuffisance hépatique, on suit le TP et le facteur V (fiche S5).",
+  "ne_pas_demander": "On ne fait pas de bilan préopératoire systématique sans anamnèse hémorragique (SSAR 2018), parce qu'il produit des allongements sans portée clinique. On ne dose pas l'INR pour un AOD ; sous dabigatran, « l'activité anticoagulatoire de Pradaxa peut être déterminée approximativement par un test TTPa » (AIPS Pradaxa n° 61385, si le temps de thrombine n'est pas disponible), et le dosage anti-IIa quantifie (HUG). On ne dose pas protéines C et S, résistance à la PCa ni anticoagulant lupique sous anticoagulant (HUG), car ils deviennent ininterprétables."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "Taux de prothrombine (Quick)",
+   "normal": "≥ 70 %, tout âge (HUG fiche 2725) ; 75–125 % (CHUV LCH, 30.06.2026)",
+   "anomalie": "Sous 70 %, il signe un déficit de la voie extrinsèque ou commune.",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "INR",
+   "normal": "Sans AVK : lire le Quick (HUG n'affiche pas d'intervalle d'INR) ; sous AVK : 2,0–3,0 ou 2,0–3,5 (AIPS Marcoumar)",
+   "anomalie": "Au-dessus de 1,5 sous anticoagulant, il contre-indique la ponction médullaire (HUG).",
+   "seuil_alerte": "> 4,5 : Marcoumar suspendu ; ≥ 9 : Konakion MM 10,0 mg i.v. (AIPS)"
+  },
+  {
+   "parametre": "TCA (aPTT)",
+   "normal": "26–37 s, tout âge (HUG fiche 2714) ; 24–38 s (CHUV LCH)",
+   "anomalie": "Au-dessus de 37 s, il signe un déficit de la voie intrinsèque, une héparine ou un anticoagulant lupique.",
+   "seuil_alerte": "Sous dabigatran : TCA > 2× la LSN à l'état résiduel, ou > 80 s : risque hémorragique accru (AIPS Pradaxa, tableau 1)"
+  },
+  {
+   "parametre": "Temps de thrombine",
+   "normal": "15–18 s (CHUV LCH) ; HUG : rendu en ratio (fiche 8898)",
+   "anomalie": "Il s'allonge sous héparine, sous dabigatran et dans l'hypo- ou la dysfibrinogénémie.",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "INR",
+   "formule": "On calcule INR = (temps de Quick du patient ÷ temps de Quick témoin) puissance ISI ; l'ISI est l'indice de sensibilité du réactif, que le fabricant établit par rapport au standard de l'OMS (Guis et al. 2017, européen).",
+   "a_quoi_ca_sert": "Ce calcul rend le temps de Quick comparable d'un laboratoire à l'autre, afin qu'un patient sous AVK garde la même cible partout.",
+   "exemple": "Le patient a un temps de Quick de 30 s, le témoin 12 s et le réactif un ISI de 1,0 (valeurs d'exemple). On calcule 30 ÷ 12 = 2,5 ; puis 2,5 puissance 1,0 = 2,5. Comme 2,5 se situe dans la cible de 2,0–3,0 (AIPS Marcoumar), on maintient la dose.",
+   "source": "Une équipe du Centre hospitalier Saint-Joseph de Marseille (Guis, Hamri et al.) indique la formule et la définition de l'ISI dans « Évaluation des performances d'une nouvelle Néoplastine avec un ISI à 1 : STA-NeoPTimal », JFBM 2017 (européen, France ; non vérifié CH ; lu le 13.11.2026) ; la cible vient de l'AIPS Marcoumar n° 19395 ; les valeurs de l'exemple servent seulement à l'illustration."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
+   "entite_anormale_chiffree": "Le Quick est à 45 % (INR 1,7) sans AVK, avec un TCA normal.",
+   "associees_presentes": "Le patient mange peu, prend des antibiotiques ou a une cholestase.",
+   "associees_a_rechercher": "On dose le facteur V (normal dans la carence en vitamine K, bas dans l'insuffisance hépatique) et le facteur VII, et on fait un bilan hépatique (fiche S5).",
+   "syndrome_anamnese": "On recherche un jeûne prolongé, une malabsorption ou l'alcool.",
+   "syndrome_status": "On cherche des ecchymoses et des signes d'hépatopathie.",
+   "confirmation": "Le profil signe un déficit de la voie extrinsèque.",
+   "diagnostic": "Il a une carence en vitamine K ou une insuffisance hépatique débutante.",
+   "conduite": "Si le facteur V est normal, on donne de la vitamine K1 puis on contrôle le Quick ; s'il est bas, on fait un bilan hépatique, parce que le foie ne produit plus les facteurs."
+  },
+  {
+   "entite_anormale_chiffree": "Le TCA est isolément à 52 s, sans héparine ni saignement.",
+   "associees_presentes": "Le patient a eu des thromboses ou des fausses couches.",
+   "associees_a_rechercher": "On recherche l'anticoagulant lupique (HUG fiche 2716) et les anticorps anti-cardiolipine et anti-β2-glycoprotéine I, hors anticoagulant.",
+   "syndrome_anamnese": "On recherche une thrombose veineuse ou artérielle et des pertes fœtales.",
+   "syndrome_status": "On cherche un livedo et des signes de thrombose.",
+   "confirmation": "Le TCA est allongé sans tendance hémorragique.",
+   "diagnostic": "Il a un anticoagulant lupique ; on parle de syndrome des antiphospholipides si la clinique est compatible.",
+   "conduite": "On fait le bilan antiphospholipides hors anticoagulant et on demande un avis d'hémostase, car les anticoagulants faussent la recherche d'anticoagulant lupique et que le diagnostic de syndrome des antiphospholipides décide d'une anticoagulation prolongée (motif : déduction)."
+  },
+  {
+   "entite_anormale_chiffree": "Un homme a un TCA isolé à 60 s et une hémarthrose.",
+   "associees_presentes": "Il a saigné après une extraction dentaire ou une chirurgie.",
+   "associees_a_rechercher": "On dose les facteurs VIII, IX et XI et le facteur von Willebrand (HUG).",
+   "syndrome_anamnese": "On recherche une anamnèse familiale de saignements.",
+   "syndrome_status": "Hémarthrose, hématomes musculaires",
+   "confirmation": "Le profil signe un déficit de la voie intrinsèque.",
+   "diagnostic": "Il a une hémophilie A ou B, ou une maladie de von Willebrand.",
+   "conduite": "On demande un avis d'hémostase ; on évite les injections intramusculaires et les AINS, parce qu'ils font saigner."
+  },
+  {
+   "entite_anormale_chiffree": "Le Quick est à 40 %, le TCA à 50 s, les plaquettes à 60 G/l et le fibrinogène est bas.",
+   "associees_presentes": "D-dimères très élevés",
+   "associees_a_rechercher": "On cherche des schizocytes au frottis et la cause : sepsis, cancer, complication obstétricale, polytraumatisme.",
+   "syndrome_anamnese": "On recherche un sepsis, un choc ou un accouchement compliqué.",
+   "syndrome_status": "On observe des saignements diffus aux points de ponction et un purpura.",
+   "confirmation": "Le profil signe une consommation des facteurs et des plaquettes.",
+   "diagnostic": "Coagulation intravasculaire disséminée",
+   "conduite": "On traite la cause et on substitue selon le saignement (fiche fibrinogène et D-dimères), parce que seule la cause arrête la consommation et que la substitution d'un patient qui ne saigne pas n'est pas utile (motif : déduction)."
+  },
+  {
+   "entite_anormale_chiffree": "L'INR est à 2,4 sous phenprocoumone pour une FA.",
    "associees_presentes": "—",
    "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
+   "syndrome_anamnese": "Observance correcte",
    "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "confirmation": "L'INR se situe dans la cible de 2,0–3,0 (AIPS Marcoumar).",
+   "diagnostic": "Anticoagulation efficace",
+   "conduite": "On maintient la dose et on fixe le prochain contrôle selon le calendrier du suivi, car l'INR varie avec l'alimentation, les médicaments et les maladies intercurrentes (motif : déduction)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si on prélève par une voie héparinée,",
+    "consequence": "le TCA est faussement allongé et on reporte le geste ; on prélève donc sur une voie sans héparine."
+   },
+   {
+    "si": "Si on achemine le tube après 4 h,",
+    "consequence": "le résultat devient non fiable (HUG : 4 h à température ambiante)."
+   },
+   {
+    "si": "Si on prend un INR et un TCA normaux pour l'absence d'AOD,",
+    "consequence": "un saignement opératoire peut survenir ; on demande donc l'anti-Xa ou l'anti-IIa spécifique (HUG)."
+   },
+   {
+    "si": "Si on fait un bilan de crase préopératoire systématique,",
+    "consequence": "on trouve des allongements sans portée clinique et on reporte l'intervention inutilement (SSAR 2018)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient : « le TP explore l'extrinsèque (VII) ; le TCA explore l'intrinsèque (XII, XI, IX, VIII) ; les deux explorent la voie commune (X, V, II, fibrinogène) »."
  },
  "sources": [
-  "—"
+  "HUG, Répertoire des prestations d'analyses, Laboratoire d'hématologie et d'hémostase (rpa.hug.ch), fiches 2725 Quick/INR (03.12.2025), 2714 PTT (03.09.2025), 8898 Temps de thrombine ; feuille de demande HEMOS du 04.11.2026, lu le 13.11.2026",
+  "CHUV, Laboratoire central d'hématologie, LCH_MAN_LCH8_PT_003 « Intervalles de référence des résultats de laboratoire », version 3, applicable le 30.06.2026, lu le 13.11.2026",
+  "AIPS Swissmedic, Marcoumar®, n° 19395, mise à jour octobre 2020 (refdata 08.08.2026) ; Konakion MM, n° 48112013 (refdata 25.02.2026) ; Pradaxa®, n° 61385 (refdata 26.02.2024), lu le 13.11.2026",
+  "HUG, procédure « Ponction aspiration avec ou sans biopsie de moelle osseuse chez l'adulte », 22.12.2023, lu le 13.11.2026",
+  "smarter medicine, Top-5 Anesthésiologie et médecine périopératoire 2018 (SSAR), smartermedicine.ch, lu le 13.11.2026",
+  "Européen : Guis F., Hamri L., Izmirlian E. et al., Centre hospitalier Saint-Joseph, Marseille, « Évaluation des performances d'une nouvelle Néoplastine avec un ISI à 1 : STA-NeoPTimal », JFBM 2017 (formule de l'INR), lu le 13.11.2026"
  ],
  "passerelles": [
   {
    "type": "Fondement",
    "cible": "SF-S10-physiologie",
    "pourquoi": "—"
+  },
+  {
+   "type": "Fondement",
+   "cible": "SF-S10-physiopathologie-generale",
+   "pourquoi": "Chaque temps mesure un groupe de facteurs des voies extrinsèque, intrinsèque et commune."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S5-tp-facteur-v",
+   "pourquoi": "Si le TP est bas, le facteur V distingue l'insuffisance hépatique de la carence en vitamine K."
+  },
+  {
+   "type": "Confirmation",
+   "cible": "EX-1-S10-fibrinogene-dimeres",
+   "pourquoi": "Si le TP est bas et le TCA long, le fibrinogène et les D-dimères signent la CIVD."
+  },
+  {
+   "type": "Suivi thérapeutique",
+   "cible": "EX-1-S10-suivi-biologique-anticoagulants",
+   "pourquoi": "La fiche suivi indique l'INR des AVK et l'anti-Xa des héparines et des AOD."
   }
  ]
 }

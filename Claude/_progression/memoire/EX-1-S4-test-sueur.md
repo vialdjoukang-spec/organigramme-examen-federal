@@ -1,0 +1,2 @@
+- 13.11 11:47 · decision · rempli 13.11.2026 (HUG RPA, USB, RMS, EORTC 2020, Liste des analyses) ; passerelle SF-S4-physiologie laissée « — » (charpente)
+- 13.11 11:47 · reste · seuils chlorure sudoral : source suisse non lue (BORIS bloqué) ; européen AWMF via Ulm

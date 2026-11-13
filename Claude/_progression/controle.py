@@ -7,7 +7,9 @@ Vérifie sur Claude/_progression/donnees/ :
  3. aucune case vide sans « — » (chaîne vide, null, liste ou objet vides) ;
  4. passerelles valides : type autorisé (partie 5.2 et interfaces de la partie 2), cible existante, pas d'auto-renvoi ;
  5. aucun terme vague sans chiffre dans une posologie remplie ;
- 6. systèmes S1 et S11 séparés : système de l'identifiant = système de la fiche ; une molécule commune a deux fiches distinctes.
+ 6. bloc optionnel « calculs » : un calcul rempli porte ses 5 champs (nom, formule, a_quoi_ca_sert, exemple, source) ;
+ 7. systèmes S1 et S11 séparés : système de l'identifiant = système de la fiche ; une molécule commune a deux fiches distinctes ;
+ 8. glossaire (glossaire.py) : tout sigle et tout score cité dans une fiche remplie existe dans glossaire.json.
 Usage : python3 Claude/_progression/controle.py [dossier]
 """
 import glob, json, os, re, sys
@@ -25,6 +27,8 @@ TYPES_P = {'Prélèvement', 'Test compagnon', 'Confirmation', 'In vivo ↔ in vi
 VAGUE = re.compile(r'\b(faible dose|dose (habituelle|usuelle|faible|élevée)|à adapter|adapter|selon (la )?(réponse|tolérance|clinique)|progressive(ment)?|'
                    r'quelques|usuel(le)?|variable|individuel(le)?|si besoin|à titrer)\b', re.I)
 
+OPTIONNELS = ('calculs',)  # bloc facultatif du gabarit d'examen ; vérifié seulement s'il existe
+CHAMPS_CALC = ('nom', 'formule', 'a_quoi_ca_sert', 'exemple', 'source')
 err = []
 
 
@@ -49,6 +53,8 @@ def couvre(g, f, chemin):
         if not isinstance(f, dict):
             return e(f'gabarit : {chemin} devrait être un objet')
         for k, v in g.items():
+            if k in OPTIONNELS and k not in f:
+                continue
             if k not in f:
                 e(f'gabarit : champ absent {chemin}.{k}')
             else:
@@ -97,6 +103,17 @@ def main():
             e(f'S1/S11 : pathologie psychiatrique hors S11 : {i}')
         if f.get('type') in gab:
             couvre(gab[f['type']], f, i)
+        if 'calculs' in f:
+            if not isinstance(f['calculs'], list):
+                e(f'calculs : liste attendue : {i}')
+            else:
+                for n, c in enumerate(f['calculs']):
+                    if not isinstance(c, dict):
+                        e(f'calculs : objet attendu : {i}.calculs[{n}]'); continue
+                    if any(c.get(x) not in (V, '', None) for x in CHAMPS_CALC):
+                        manque = [x for x in CHAMPS_CALC if c.get(x) in (V, '', None)]
+                        if manque:
+                            e(f'calcul incomplet ({", ".join(manque)}) : {i}.calculs[{n}]')
         vides({k: v for k, v in f.items() if k not in ('passerelles', 'etiquettes')}, i)
         for k in ('posologie', 'posologie_par_age'):
             if k in f:
@@ -129,9 +146,12 @@ def main():
             for i in sy['fiches']:
                 if i not in fiches:
                     e(f'structure : emplacement sans fiche : {i}')
+    import glossaire  # porte 8 : sigles et scores des fiches remplies présents dans glossaire.json
+    g_err, _, _, n_ab, n_sc = glossaire.verifier(DON, os.path.join(ICI, 'glossaire.json'))
+    err.extend(g_err)
     n_p = sum(len(f.get('passerelles', [])) for f in fiches.values())
     communes = sorted(d for d, ss in dci.items() if {'S1', 'S11'} <= ss)
-    print(f'CONTRÔLE partie 8 · {len(fiches)} fiches · {n_p} passerelles · molécules S1+S11 en fiches distinctes : {", ".join(communes) or "aucune"}')
+    print(f'CONTRÔLE partie 8 · {len(fiches)} fiches · {n_p} passerelles · molécules S1+S11 en fiches distinctes : {", ".join(communes) or "aucune"} · glossaire {n_ab} sigles, {n_sc} scores')
     for m in err[:18]:
         print('  ✗', m)
     if len(err) > 18:
