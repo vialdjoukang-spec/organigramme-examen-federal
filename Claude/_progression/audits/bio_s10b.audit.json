@@ -154,5 +154,38 @@
       "gravite": "mineure",
       "preuve": "conduite et seuil_alerte : « Avis hépatologique ; traitement à discuter … (HUG 2014 ; critères actuels non vérifiés CH) »."
     }
-  ]
+  ],
+  "verification_1": {
+    "date": "2026-11-13",
+    "verificateur": "Claude (vérification indépendante, n'a rien rédigé)",
+    "verdict": "audit-ok",
+    "constat": "Les 10 restants (1 majeur, 9 mineurs) sont levés exactement (commit 4de16fc3b, 7 fiches) ; diff limité aux champs prescrits plus une ligne de piège et une source demandées par l'audit ; aucun champ de gabarit ajouté ni retiré ; JSON valide ; controle.py VERT.",
+    "restants": [
+      {
+        "gravite": "mineure",
+        "fiche": "EX-1-S10-suivi-biologique-anticoagulants",
+        "champ": "annexeA_pieges (ligne « Tube d'HNF acheminé au-delà de 1 h »)",
+        "avant": "Héparine neutralisée in vitro : faux sous-dosage et hausse injustifiée du débit (HUG fiche 2712).",
+        "correction": "La fiche HUG 2712 (28.10.2026) donne seulement le délai (« Acheminer le prélèvement dans l'heure ») ; elle n'énonce ni la neutralisation in vitro ni ses suites. Retirer « (HUG fiche 2712) » de la conséquence ou la marquer comme déduction."
+      },
+      {
+        "gravite": "mineure",
+        "fiche": "EX-1-S10-tp-inr-tca",
+        "champ": "temps1_indications.ne_pas_demander",
+        "avant": "sous dabigatran, le TCA n'est qu'une estimation qualitative (AIPS Pradaxa)",
+        "correction": "L'AIPS Pradaxa écrit « l'activité anticoagulatoire de Pradaxa peut être déterminée approximativement par un test TTPa » : écrire « estimation approximative » (le mot « qualitative » vient de la correction de l'audit, pas de l'AIPS)."
+      }
+    ],
+    "sources_relues": [
+      "HUG fiche 2712 anti-Xa HNF (rpa.hug.ch, mise en production 28.10.2026) : acheminer dans l'heure par transporteur ; externes décanté/congelé, sinon tube citrate/CTAD dans les 4 h",
+      "AIPS Clexane 49456 (SmPC 04.06.2026) : chute confirmée de 30 à 50 % → arrêt immédiat de l'énoxaparine et relais non héparinique",
+      "smarter medicine Hématologie 2023 (SSH) : enfant sans saignement muqueux, pas de traitement quel que soit le nombre de plaquettes ; adulte rarement au-dessus de 20–30 × 10⁹/l sauf intervention ou risque hémorragique supplémentaire",
+      "AIPS Marcoumar 19395 (SmPC 08.08.2026) : INR dès le 3e ou 4e jour ; < cible 1½ cp (4,5 mg), cible 1 cp (3 mg), > 3,5 ½ cp (1,5 mg) ; entretien ½ à 1½ cp/j",
+      "AIPS Pradaxa (refdata) : tableau 1, TCA > 2× LSN à l'état résiduel ; TCA > 80 s lié à un risque hémorragique élevé",
+      "EACS 12.0 : « oral thrush » (PcP et toxoplasmose) ; le tableau de prophylaxie primaire écrit « recurrent oral thrush » : la source est elle-même double, la correction reste conforme",
+      "Conseil scientifique Luxembourg 2026 (reprend la HAS) : VS sans intérêt dans les indications résiduelles, CRP préférée quand un marqueur est indiqué"
+    ],
+    "non_tranche_maintenus": "Les 3 points non tranchés de l'audit (volume CD4 CHUV, commentaire standardisé OFSP n° 2, pages CHUV leucémies) restent hors restants.",
+    "besoin_outils_partages": "sources_cache.py : les fiches HUG rpa (FICHE_<n>_.html) et la page smarter medicine Hématologie 2023 (URL « translate-to-franzoesisch-haematologie-2023 ») sont difficiles à retrouver par index ; ajouter un alias par numéro de fiche HUG et par titre. Les essais d'URL smarter medicine erronées ont ajouté des pages « not-found » à l'index : prévoir de ne pas indexer les pages 404."
+  }
 }
