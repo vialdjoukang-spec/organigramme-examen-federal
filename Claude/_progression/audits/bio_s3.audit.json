@@ -1,90 +1,108 @@
 {
-  "lot": "PROG",
-  "perimetre": "Claude/_progression/donnees/examens/EX-1-S3-* (6 fiches de biologie)",
+ "lot": "PROG",
+ "perimetre": "Claude/_progression/donnees/examens/EX-1-S3-* (6 fiches de biologie)",
+ "date": "2026-11-13",
+ "auditeur": "Claude (audit indépendant, non-rédacteur)",
+ "verdict": "CORRECTIONS",
+ "resume": "Aucune erreur grave ni majeure. Valeurs, unités, seuils et cotations relus contre les sources : HUG rpa (fiches 3804, 3808, 9031, 3972, 9326, 6647, 7126, 8701, 8702, 2893), AIPS DigiFab 59301, Amiodarone Zentiva 53114 (avril 2024), Sotalol-Mepha 54553, Entresto 65673, AGLA (2 pages), smarter medicine SGAIM 2016, Mueller 2016 (PMID 26794254) et Bossuyt 2017 (PMID 28905856). 5 corrections mineures restent à faire.",
+ "verifie_conforme": [
+  "Troponine T hs : Liste des analyses 1734.00, 20,7 points, avec ses limitations (HUG 3808). Algorithme 0 h/1 h (< 12 et Δ < 3 ; ≥ 52 ou Δ ≥ 5), VPN 99,1 %, VPP 77,2 %, zone d'observation 22,2 % des patients avec 22,5 % d'infarctus (Mueller 2016).",
+  "NT-proBNP : 1576.00, 63,0 points, limitation « dyspnée aiguë, pas le suivi d'une thérapie ». Seuils 300/450/900/1800 ng/L (HUG 3804).",
+  "Bilan lipidique : cotations 1230.00/1410.10/1731.00/1539.00 ; Friedewald valable seulement si TG < 3,5 mmol/L ; patient non à jeun possible ; Lp(a) > 300 mg/L (HUG 9031 et 3972). Âges des calculateurs AGLA/SCORE2/SCORE2-Diabetes conformes (AGLA). Recommandation SGAIM 2021 > 75 ans et réserve de l'AGLA conformes.",
+  "Hémocultures : 8–10 ml par flacon, 2 à 3 paires sur 24 h, transport ≤ 24 h à température ambiante, paire périphérique simultanée si cathéter central, cotations 3304.00/3305.00/3354.00/3355.00, flacon pédiatrique pour < 3 ans et/ou < 15 kg (HUG).",
+  "ANCA : 1109.00/1110.00 (25,2 points), 1160.10 (33,3), 1161.10 (46,8), IFI négative à 1/20 (HUG). Immunodosage en dépistage primaire (Bossuyt 2017). Points ACR/EULAR 2022 GPA, MPA et EGPA exacts.",
+  "Digoxine : zone thérapeutique 0,65–1,15 nmol/L, prélèvement 8 à 12 h après la prise, pic à 60–90 min, 1267.00 (9,9 points) (HUG 9326). DigiFab : indications (10 mg/4 mg/0,1 mg/kg ; > 6 ng/mL adulte, > 4 ng/mL enfant ; K⁺ > 5,5 mmol/L adulte, > 6 enfant), flacons = digoxinémie × poids / 100, 0,5 mg fixé par flacon, interférence des immunodosages. Amiodarone : TSHu, transaminases 1,5–3 × LSN (4–9 % et 10–20 %), seuil > 3 × LSN, hypokaliémie à corriger. Sotalol : dose divisée par 2 à 30–60 mL/min et par 4 à 10–30 mL/min ; QTc 450/500/550 ms ; torsades 1,3 % contre 10,8 %."
+ ],
+ "restants": [
+  {
+   "gravite": "mineure",
+   "fiche": "EX-1-S3-hemocultures",
+   "champ": "sources[0]",
+   "avant": "HUG, Répertoire des prestations d'analyses, Bactériologie (rpa.hug.ch), fiches 6647, 7126, 5049 (03.09.2025), lu le 13.11.2026",
+   "correction": "La fiche HUG 5049 porte sur l'antigène Aspergillus (galactomannane), pas sur l'hémoculture. Remplacer « 5049 » par « 4982 » : c'est l'une des fiches du flacon pédiatrique BACTEC Peds Plus (< 3 ans et/ou < 15 kg), source réelle de la règle pédiatrique citée."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-1-S3-bnp-nt-probnp",
+   "champ": "annexeA_pieges.lignes",
+   "avant": "(absent)",
+   "correction": "Ajouter un piège : « Si : BNP dosé sous sacubitril/valsartan → Conséquence : BNP élevé par l'inhibition de la néprilysine, insuffisance cardiaque surestimée ; doser le NT-proBNP (AIPS Entresto 65673) ». Ajouter cette AIPS aux sources."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-1-S3-bnp-nt-probnp",
+   "champ": "temps2_examen[0].anomalie",
+   "avant": "↑ au-dessus du seuil d'âge : adulte 450 ng/L ; 50–75 ans 900 ng/L ; > 75 ans 1800 ng/L (HUG)",
+   "correction": "↑ au-dessus du seuil d'âge : < 50 ans 450 ng/L ; 50–75 ans 900 ng/L ; > 75 ans 1800 ng/L (HUG). Le mot « adulte » laisse croire que 450 ng/L vaut à tout âge adulte, contrairement au temps 3 et au piège de la fiche."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-1-S3-troponines-hypersensibles",
+   "champ": "temps3_interpretation[2].entite_anormale_chiffree",
+   "avant": "hs-cTnT entre les deux zones (ex. 0 h 12–51 ng/L et Δ1h 3–4 ng/L)",
+   "correction": "hs-cTnT ni rule-out ni rule-in : 0 h < 52 ng/L et Δ1h < 5 ng/L, sans remplir le rule-out (0 h < 12 et Δ1h < 3). L'exemple actuel omet les cas « 0 h < 12 avec Δ1h 3–4 » et « 0 h 12–51 avec Δ1h < 3 » (Mueller 2016)."
+  },
+  {
+   "gravite": "mineure",
+   "fiche": "EX-1-S3-bilan-lipidique",
+   "champ": "temps3_interpretation[5].confirmation",
+   "avant": "Rhabdomyolyse",
+   "correction": "Myopathie sévère à la statine ; parler de rhabdomyolyse seulement si une atteinte rénale ou une myoglobinurie est présente (ESC/EAS 2019)."
+  }
+ ],
+ "non_tranche": [
+  "Hémocultures : pour la bactériémie à S. aureus, la recommandation d'échocardiographie et sa classe dans l'ESC 2023 n'ont pas pu être relues dans le texte original (page OUP inaccessible). « Échocardiographie si le score de risque est élevé » reste à vérifier dans l'ESC 2023, section 5.4.",
+  "Troponine T hs : la valeur < 14 ng/L de la fiche HUG 3808 n'a pas pu être relue, car le symbole « < » est perdu dans le cache texte. Le 99e percentile Roche connu est 14 ng/L."
+ ],
+ "besoin_outils_partages": "aips_fiche.py fiche renvoie « ABSENT » pour DigiFab 59301 : le document refdata est la notice FDA en anglais, sans les rubriques françaises. Il a été lu par sources_cache.py cherche.",
+ "restants_leves_1": [
+  {
+   "restant": 1,
+   "fichier": "Claude/_progression/donnees/examens/EX-1-S3-hemocultures.json",
+   "gravite": "mineure",
+   "preuve": "sources[0] : « 5049 » remplacé par « 4982 » (HUG fiche 4982, Hémoculture pédiatrie, « < 3 ans et/ou < 15kg », relue dans le cache rpa Bactériologie)."
+  },
+  {
+   "restant": 2,
+   "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bnp-nt-probnp.json",
+   "gravite": "mineure",
+   "preuve": "Piège « BNP dosé sous sacubitril/valsartan » ajouté ; AIPS Entresto 65673 ajoutée aux sources (« le BNP est un substrat de la néprilysine, le NT-proBNP ne l'est pas », relu)."
+  },
+  {
+   "restant": 3,
+   "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bnp-nt-probnp.json",
+   "gravite": "mineure",
+   "preuve": "temps2_examen[0].anomalie : « adulte 450 ng/L » remplacé par « < 50 ans 450 ng/L »."
+  },
+  {
+   "restant": 4,
+   "fichier": "Claude/_progression/donnees/examens/EX-1-S3-troponines-hypersensibles.json",
+   "gravite": "mineure",
+   "preuve": "temps3_interpretation[2] : zone d'observation définie « 0 h < 52 ng/L et Δ1h < 5 ng/L, sans 0 h < 12 ng/L avec Δ1h < 3 ng/L » (Mueller 2016)."
+  },
+  {
+   "restant": 5,
+   "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bilan-lipidique.json",
+   "gravite": "mineure",
+   "preuve": "temps3_interpretation[5].confirmation : « Myopathie sévère à la statine ; rhabdomyolyse seulement si atteinte rénale ou myoglobinurie (ESC/EAS 2019) »."
+  }
+ ],
+ "verification_1": {
   "date": "2026-11-13",
-  "auditeur": "Claude (audit indépendant, non-rédacteur)",
-  "verdict": "CORRECTIONS",
-  "resume": "Aucune erreur grave ni majeure. Valeurs, unités, seuils et cotations relus contre les sources : HUG rpa (fiches 3804, 3808, 9031, 3972, 9326, 6647, 7126, 8701, 8702, 2893), AIPS DigiFab 59301, Amiodarone Zentiva 53114 (avril 2024), Sotalol-Mepha 54553, Entresto 65673, AGLA (2 pages), smarter medicine SGAIM 2016, Mueller 2016 (PMID 26794254) et Bossuyt 2017 (PMID 28905856). 5 corrections mineures restent à faire.",
-  "verifie_conforme": [
-    "Troponine T hs : Liste des analyses 1734.00, 20,7 points, avec ses limitations (HUG 3808). Algorithme 0 h/1 h (< 12 et Δ < 3 ; ≥ 52 ou Δ ≥ 5), VPN 99,1 %, VPP 77,2 %, zone d'observation 22,2 % des patients avec 22,5 % d'infarctus (Mueller 2016).",
-    "NT-proBNP : 1576.00, 63,0 points, limitation « dyspnée aiguë, pas le suivi d'une thérapie ». Seuils 300/450/900/1800 ng/L (HUG 3804).",
-    "Bilan lipidique : cotations 1230.00/1410.10/1731.00/1539.00 ; Friedewald valable seulement si TG < 3,5 mmol/L ; patient non à jeun possible ; Lp(a) > 300 mg/L (HUG 9031 et 3972). Âges des calculateurs AGLA/SCORE2/SCORE2-Diabetes conformes (AGLA). Recommandation SGAIM 2021 > 75 ans et réserve de l'AGLA conformes.",
-    "Hémocultures : 8–10 ml par flacon, 2 à 3 paires sur 24 h, transport ≤ 24 h à température ambiante, paire périphérique simultanée si cathéter central, cotations 3304.00/3305.00/3354.00/3355.00, flacon pédiatrique pour < 3 ans et/ou < 15 kg (HUG).",
-    "ANCA : 1109.00/1110.00 (25,2 points), 1160.10 (33,3), 1161.10 (46,8), IFI négative à 1/20 (HUG). Immunodosage en dépistage primaire (Bossuyt 2017). Points ACR/EULAR 2022 GPA, MPA et EGPA exacts.",
-    "Digoxine : zone thérapeutique 0,65–1,15 nmol/L, prélèvement 8 à 12 h après la prise, pic à 60–90 min, 1267.00 (9,9 points) (HUG 9326). DigiFab : indications (10 mg/4 mg/0,1 mg/kg ; > 6 ng/mL adulte, > 4 ng/mL enfant ; K⁺ > 5,5 mmol/L adulte, > 6 enfant), flacons = digoxinémie × poids / 100, 0,5 mg fixé par flacon, interférence des immunodosages. Amiodarone : TSHu, transaminases 1,5–3 × LSN (4–9 % et 10–20 %), seuil > 3 × LSN, hypokaliémie à corriger. Sotalol : dose divisée par 2 à 30–60 mL/min et par 4 à 10–30 mL/min ; QTc 450/500/550 ms ; torsades 1,3 % contre 10,8 %."
+  "verificateur": "Claude (vérification indépendante, non-rédacteur)",
+  "commit_verifie": "b74c682db",
+  "verdict": "audit-ok",
+  "critiques": 0,
+  "graves": 0,
+  "moyens": 0,
+  "constats": [
+   "Restant 1 levé exactement : sources[0] des hémocultures cite 4982 au lieu de 5049 ; cache rpa Bactériologie relu : fiche 4982 « Hémoculture Pédiatrie », BACTEC Peds Plus/F, « réservé uniquement pour les enfants < 3 ans et/ou < 15kg », mise en production 03.09.2025 ; fiche 5049 = antigène Aspergillus.",
+   "Restant 2 levé exactement : piège « BNP dosé sous sacubitril/valsartan » ajouté ; AIPS Entresto 65673 relue (refdata SmPC du 2026-01-23) : « le BNP est un substrat de la néprilysine, le NT-proBNP ne l'est pas », BNP augmenté et NT-proBNP réduit dans PARADIGM-HF ; rubriques citées présentes.",
+   "Restant 3 levé exactement : « adulte 450 ng/L » remplacé par « < 50 ans 450 ng/L ».",
+   "Restant 4 levé exactement : zone d'observation = 0 h < 52 ng/L et Δ1h < 5 ng/L hors rule-out (0 h < 12 et Δ1h < 3), conforme à Mueller 2016 déjà vérifié par l'audit.",
+   "Restant 5 levé exactement : « Myopathie sévère à la statine ; rhabdomyolyse seulement si atteinte rénale ou myoglobinurie (ESC/EAS 2019) » ; Mach 2019 déjà en sources de la fiche.",
+   "Diff du commit b74c682db limité aux 5 champs et à l'ajout d'une source ; aucune autre modification. controle.py VERT."
   ],
-  "restants": [
-    {
-      "gravite": "mineure",
-      "fiche": "EX-1-S3-hemocultures",
-      "champ": "sources[0]",
-      "avant": "HUG, Répertoire des prestations d'analyses, Bactériologie (rpa.hug.ch), fiches 6647, 7126, 5049 (03.09.2025), lu le 13.11.2026",
-      "correction": "La fiche HUG 5049 porte sur l'antigène Aspergillus (galactomannane), pas sur l'hémoculture. Remplacer « 5049 » par « 4982 » : c'est l'une des fiches du flacon pédiatrique BACTEC Peds Plus (< 3 ans et/ou < 15 kg), source réelle de la règle pédiatrique citée."
-    },
-    {
-      "gravite": "mineure",
-      "fiche": "EX-1-S3-bnp-nt-probnp",
-      "champ": "annexeA_pieges.lignes",
-      "avant": "(absent)",
-      "correction": "Ajouter un piège : « Si : BNP dosé sous sacubitril/valsartan → Conséquence : BNP élevé par l'inhibition de la néprilysine, insuffisance cardiaque surestimée ; doser le NT-proBNP (AIPS Entresto 65673) ». Ajouter cette AIPS aux sources."
-    },
-    {
-      "gravite": "mineure",
-      "fiche": "EX-1-S3-bnp-nt-probnp",
-      "champ": "temps2_examen[0].anomalie",
-      "avant": "↑ au-dessus du seuil d'âge : adulte 450 ng/L ; 50–75 ans 900 ng/L ; > 75 ans 1800 ng/L (HUG)",
-      "correction": "↑ au-dessus du seuil d'âge : < 50 ans 450 ng/L ; 50–75 ans 900 ng/L ; > 75 ans 1800 ng/L (HUG). Le mot « adulte » laisse croire que 450 ng/L vaut à tout âge adulte, contrairement au temps 3 et au piège de la fiche."
-    },
-    {
-      "gravite": "mineure",
-      "fiche": "EX-1-S3-troponines-hypersensibles",
-      "champ": "temps3_interpretation[2].entite_anormale_chiffree",
-      "avant": "hs-cTnT entre les deux zones (ex. 0 h 12–51 ng/L et Δ1h 3–4 ng/L)",
-      "correction": "hs-cTnT ni rule-out ni rule-in : 0 h < 52 ng/L et Δ1h < 5 ng/L, sans remplir le rule-out (0 h < 12 et Δ1h < 3). L'exemple actuel omet les cas « 0 h < 12 avec Δ1h 3–4 » et « 0 h 12–51 avec Δ1h < 3 » (Mueller 2016)."
-    },
-    {
-      "gravite": "mineure",
-      "fiche": "EX-1-S3-bilan-lipidique",
-      "champ": "temps3_interpretation[5].confirmation",
-      "avant": "Rhabdomyolyse",
-      "correction": "Myopathie sévère à la statine ; parler de rhabdomyolyse seulement si une atteinte rénale ou une myoglobinurie est présente (ESC/EAS 2019)."
-    }
-  ],
-  "non_tranche": [
-    "Hémocultures : pour la bactériémie à S. aureus, la recommandation d'échocardiographie et sa classe dans l'ESC 2023 n'ont pas pu être relues dans le texte original (page OUP inaccessible). « Échocardiographie si le score de risque est élevé » reste à vérifier dans l'ESC 2023, section 5.4.",
-    "Troponine T hs : la valeur < 14 ng/L de la fiche HUG 3808 n'a pas pu être relue, car le symbole « < » est perdu dans le cache texte. Le 99e percentile Roche connu est 14 ng/L."
-  ],
-  "besoin_outils_partages": "aips_fiche.py fiche renvoie « ABSENT » pour DigiFab 59301 : le document refdata est la notice FDA en anglais, sans les rubriques françaises. Il a été lu par sources_cache.py cherche.",
-  "restants_leves_1": [
-    {
-      "restant": 1,
-      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-hemocultures.json",
-      "gravite": "mineure",
-      "preuve": "sources[0] : « 5049 » remplacé par « 4982 » (HUG fiche 4982, Hémoculture pédiatrie, « < 3 ans et/ou < 15kg », relue dans le cache rpa Bactériologie)."
-    },
-    {
-      "restant": 2,
-      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bnp-nt-probnp.json",
-      "gravite": "mineure",
-      "preuve": "Piège « BNP dosé sous sacubitril/valsartan » ajouté ; AIPS Entresto 65673 ajoutée aux sources (« le BNP est un substrat de la néprilysine, le NT-proBNP ne l'est pas », relu)."
-    },
-    {
-      "restant": 3,
-      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bnp-nt-probnp.json",
-      "gravite": "mineure",
-      "preuve": "temps2_examen[0].anomalie : « adulte 450 ng/L » remplacé par « < 50 ans 450 ng/L »."
-    },
-    {
-      "restant": 4,
-      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-troponines-hypersensibles.json",
-      "gravite": "mineure",
-      "preuve": "temps3_interpretation[2] : zone d'observation définie « 0 h < 52 ng/L et Δ1h < 5 ng/L, sans 0 h < 12 ng/L avec Δ1h < 3 ng/L » (Mueller 2016)."
-    },
-    {
-      "restant": 5,
-      "fichier": "Claude/_progression/donnees/examens/EX-1-S3-bilan-lipidique.json",
-      "gravite": "mineure",
-      "preuve": "temps3_interpretation[5].confirmation : « Myopathie sévère à la statine ; rhabdomyolyse seulement si atteinte rénale ou myoglobinurie (ESC/EAS 2019) »."
-    }
-  ]
+  "restants": []
+ }
 }
