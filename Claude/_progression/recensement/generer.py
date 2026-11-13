@@ -326,6 +326,22 @@ footer{{max-width:1500px;margin:0 auto;padding:0 16px 40px}}
  tr.band,tr.band th{{display:block;border-radius:8px}}
  table.s{{font-size:.85rem}} table.s th,table.s td{{padding:5px 4px}}
 }}
+/* EYE SPOT strict (Vial 13.11.2026) : 3 couleurs au plus, aucun mélange ni dégradé ; la couleur ne sert qu'à discriminer les niveaux de titres.
+   N1 = bandeau, titres d'onglet et onglet actif ; N2 = titres de section (h2, h3) ; N3 = bandes de région dans les tableaux. Tout le reste : noir sur blanc. */
+:root{{--n1:#bcd0f7;--n2:#f9dcae;--n3:#cfeedd}}
+header.top{{background:var(--n1)!important;color:#000!important}} header.top *,header.top abbr{{color:#000!important}}
+.band2,#p-exp .band2{{background:var(--n1)!important;color:#000!important}}
+.tabs button{{border:2px solid #111!important;color:#000!important;background:#fff!important}} .tabs button[aria-selected=true]{{background:var(--n1)!important}}
+h2,.regle h2{{background:var(--n2);color:#000!important;padding:4px 10px;border-radius:6px}}
+h3{{background:var(--n2);color:#000;border-left:0!important;padding:4px 10px;border-radius:6px}}
+tr.band th{{background:var(--n3)!important;color:#000!important}} tr.band .cnt{{background:#fff!important;color:#000!important;border:1px solid #111}}
+.regle{{border:1px solid #9ca3af!important;background:#fff!important}}
+.tile{{border:1px solid #9ca3af!important;border-top-width:1px!important}} .tile .k{{color:#000!important}}
+.pill,abbr.let,.niv.m,.niv.c,.chip[aria-pressed=true]{{background:#fff!important;color:#000!important;border:1px solid #111!important}}
+.chip{{border:1px solid #9ca3af!important}} .chip[aria-pressed=true]{{font-weight:800;outline:2px solid #111}}
+table.t thead th{{background:#fff!important;color:#000!important;border-bottom:2px solid #111}}
+.ok,.non{{color:#000!important}} .non{{font-weight:800}}
+.dot{{display:none!important}} .filt{{border:1px solid #9ca3af!important;background:#fff!important}} details.card>summary,.live strong,a{{color:#000!important}} details.card>summary{{text-decoration:underline}}
 </style></head>
 <body>
 <header class="top">
