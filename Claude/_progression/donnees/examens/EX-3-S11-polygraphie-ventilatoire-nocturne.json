@@ -16,60 +16,125 @@
   "Nycthémère-sommeil"
  ],
  "entete": {
-  "nom_exact": "—",
-  "synonymes": "—",
-  "prelevement_conditions": "—",
-  "bon_usage_suisse": "—"
+  "nom_exact": "Polygraphie ventilatoire (respiratoire) nocturne ambulatoire",
+  "synonymes": "Polygraphie respiratoire ; PG ; respiratorische Polygraphie ; home sleep apnea test",
+  "prelevement_conditions": "Le patient porte l'appareil une nuit à domicile ; l'appareil enregistre le flux nasal, les mouvements thoraciques et abdominaux, la saturation en oxygène et souvent la fréquence cardiaque, mais il n'enregistre pas le sommeil, donc il faut savoir quand le patient dort (RMS 2018 ; HUG). Le patient garde son traitement et note l'heure du coucher et du lever (déduction).",
+  "bon_usage_suisse": "Les recommandations de la SSSSC (version du 17.06.2020, documents de référence de l'OPAS publiés par l'OFSP) demandent une évaluation clinique globale (anamnèse, status) puis une polygraphie ; un médecin titulaire du certificat de polygraphie doit l'interpréter manuellement (extraits lus ; texte intégral non lu). Les questionnaires de dépistage ne confirment pas le diagnostic et ne posent pas l'indication au traitement (SSSSC 2020, extrait)."
  },
  "temps1_indications": {
-  "urgence_aigu": "—",
-  "diagnostic_etiologie": "—",
-  "depistage_pretherapeutique": "—",
-  "suivi_surveillance": "—",
-  "ne_pas_demander": "—"
+  "urgence_aigu": "On ne fait pas de polygraphie en urgence, parce qu'elle répond à une question chronique ; on traite d'abord une insuffisance respiratoire aiguë (déduction).",
+  "diagnostic_etiologie": "On demande la polygraphie si le patient ronfle et rapporte des apnées observées, une somnolence diurne, des sueurs nocturnes, une nycturie, des troubles mnésiques ou de l'érection, car ces signes évoquent un syndrome d'apnées du sommeil (RMS 2018). Un score STOP-BANG ≥ 3 ou un score NoSAS ≥ 8 annonce un risque élevé d'IAH ≥ 20/h et doit conduire à un enregistrement du sommeil (RMS 2018).",
+  "depistage_pretherapeutique": "On cherche les apnées avant une chirurgie chez le patient à risque, car l'apnéique fait plus de complications postopératoires et reste plus longtemps hospitalisé (RMS 2018). On y pense aussi chez la femme enceinte ronfleuse, car les apnées peuvent retentir sur le fœtus (RMS 2018).",
+  "suivi_surveillance": "On contrôle l'efficacité d'une orthèse d'avancement mandibulaire par un nouvel enregistrement (non vérifié CH) ; sous PPC, on lit plutôt les données de l'appareil (non vérifié CH).",
+  "ne_pas_demander": "On ne demande pas de polygraphie quand l'apnée centrale, l'insomnie, la narcolepsie ou une parasomnie sont suspectées, car l'appareil n'enregistre pas le sommeil ; on choisit alors la polysomnographie (RMS 2018 ; déduction). On ne remplace pas la polygraphie par l'oxymétrie nocturne, car celle-ci reste peu sensible et peu spécifique (RMS 2018)."
  },
  "temps2_examen": [
   {
-   "parametre": "—",
-   "normal": "—",
-   "anomalie": "—",
+   "parametre": "IAH (index d'apnées-hypopnées, par heure)",
+   "normal": "< 5/h (déduction : le stade léger commence à 5/h selon les HUG)",
+   "anomalie": "L'IAH définit la sévérité : léger de 5 à 15/h, modéré de 15 à 30/h, sévère au-dessus de 30/h (HUG).",
+   "seuil_alerte": "IAH > 30/h : syndrome sévère (HUG)"
+  },
+  {
+   "parametre": "Apnée",
+   "normal": "Aucune interruption du flux ≥ 10 s",
+   "anomalie": "L'apnée correspond à un arrêt complet du flux pendant au moins 10 s (RMS 2018 ; HUG).",
    "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Type d'apnée (efforts thoraco-abdominaux)",
+   "normal": "—",
+   "anomalie": "Dans l'apnée obstructive, les mouvements thoraciques persistent ; dans l'apnée centrale, ils disparaissent et le ronflement est plus rare (HUG).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Hypopnée",
+   "normal": "—",
+   "anomalie": "L'hypopnée correspond à une baisse partielle du flux d'au moins 10 s, suivie d'une désaturation ou d'un micro-éveil ; le seuil exact suit les règles de codage de l'AASM (non vérifié CH).",
+   "seuil_alerte": "—"
+  },
+  {
+   "parametre": "Saturation nocturne (SpO2)",
+   "normal": "—",
+   "anomalie": "Les apnées causent parfois des désaturations nocturnes répétées (HUG).",
+   "seuil_alerte": "—"
+  }
+ ],
+ "calculs": [
+  {
+   "nom": "Index d'apnées-hypopnées",
+   "formule": "On calcule IAH = (nombre d'apnées + nombre d'hypopnées) ÷ durée de sommeil en heures ; en polygraphie, on divise par la durée d'enregistrement valide, car l'appareil ne mesure pas le sommeil.",
+   "a_quoi_ca_sert": "L'IAH dit combien de fois par heure la respiration s'arrête ou diminue, donc il classe la sévérité.",
+   "exemple": "Une polygraphie compte 120 apnées et 60 hypopnées sur 6 h. On calcule (120 + 60) ÷ 6 = 30/h, donc le syndrome est modéré à la limite du sévère (HUG).",
+   "source": "Le Service de pneumologie des HUG indique les seuils 5, 15 et 30/h (page « Troubles respiratoires du sommeil », lue le 13.11.2026)."
+  },
+  {
+   "nom": "Score NoSAS",
+   "formule": "On additionne : cou > 40 cm = 4 ; IMC 25–30 = 3 ou IMC ≥ 30 = 5 ; ronflement = 2 ; âge > 55 ans = 4 ; sexe masculin = 2.",
+   "a_quoi_ca_sert": "Ce score lausannois trie les patients : à ≥ 8 points, le risque d'IAH ≥ 20/h est élevé et l'on enregistre le sommeil.",
+   "exemple": "Un homme de 60 ans ronfle, a un cou de 42 cm et un IMC de 31. On calcule 4 + 5 + 2 + 4 + 2 = 17 points, donc le risque est élevé.",
+   "source": "La figure 1 de la Revue Médicale Suisse 2018 ; 14 : 156 indique la cotation (VPN 0.90, VPP 0.47) (lu le 13.11.2026)."
   }
  ],
  "temps3_interpretation": [
   {
-   "entite_anormale_chiffree": "—",
-   "associees_presentes": "—",
-   "associees_a_rechercher": "—",
-   "syndrome_anamnese": "—",
-   "syndrome_status": "—",
-   "confirmation": "—",
-   "diagnostic": "—",
-   "conduite": "—"
+   "entite_anormale_chiffree": "L'IAH atteint 38/h sur une polygraphie de 7 h.",
+   "associees_presentes": "Les apnées sont obstructives, avec des désaturations répétées.",
+   "associees_a_rechercher": "On cherche HTA, arythmie, diabète de type 2 et insulinorésistance, car les apnées s'associent à ces atteintes (RMS 2018).",
+   "syndrome_anamnese": "Le patient ronfle, sa conjointe observe des pauses et il somnole le jour.",
+   "syndrome_status": "Le patient a un IMC de 33 et un cou de 44 cm.",
+   "confirmation": "La polygraphie interprétée manuellement montre un IAH > 30/h (HUG ; SSSSC 2020, extrait).",
+   "diagnostic": "Il s'agit d'un syndrome d'apnées obstructives du sommeil sévère.",
+   "conduite": "On propose la PPC, traitement de choix, car elle améliore la somnolence, la qualité de vie, la conduite et les performances cognitives ; l'indication repose sur une évaluation globale de la sévérité et des symptômes (RMS 2018 ; SSSSC 2020, extrait)."
+  },
+  {
+   "entite_anormale_chiffree": "L'IAH vaut 8/h chez un patient très somnolent.",
+   "associees_presentes": "Les événements restent rares et les désaturations sont faibles.",
+   "associees_a_rechercher": "On cherche une sous-estimation par polygraphie, car l'appareil compte aussi les heures d'éveil (déduction).",
+   "syndrome_anamnese": "Le patient s'endort au volant et dort peu en semaine.",
+   "syndrome_status": "L'examen ne montre rien de particulier.",
+   "confirmation": "Le résultat reste incertain, donc une polysomnographie est recommandée (SSSSC 2020, extrait).",
+   "diagnostic": "Il s'agit d'une polygraphie non concluante.",
+   "conduite": "On adresse le patient à un centre de médecine du sommeil certifié SSSSC pour une polysomnographie, car celle-ci mesure le sommeil réel (HUG)."
   }
  ],
  "annexeA_pieges": {
   "lignes": [
    {
-    "si": "—",
-    "consequence": "—"
+    "si": "Si l'on rassure sur une polygraphie normale chez un patient très symptomatique",
+    "consequence": "On méconnaît un syndrome, car l'appareil ne mesure pas le sommeil (RMS 2018) ; on doit demander une polysomnographie (SSSSC 2020, extrait)."
+   },
+   {
+    "si": "Si l'on pose l'indication à la PPC sur un questionnaire seul",
+    "consequence": "Le patient reçoit un traitement sans diagnostic, car les questionnaires ne confirment rien (SSSSC 2020, extrait)."
+   },
+   {
+    "si": "Si l'on prescrit un spray nasal topique contre les apnées",
+    "consequence": "On expose le patient à une pneumopathie lipidique, donc on ne conseille plus ces produits (RMS 2018)."
    }
   ],
-  "mnemotechnique": "—"
+  "mnemotechnique": "On retient « 5 – 15 – 30 » : sous 5/h c'est normal, de 15 à 30/h c'est modéré, au-delà de 30/h c'est sévère (HUG)."
  },
  "sources": [
-  "—"
+  "HUG, Service de pneumologie. Troubles respiratoires du sommeil (page web, Dre C. Cantero), https://www.hug.ch/pneumologie/troubles-respiratoires-sommeil (lu le 13.11.2026)",
+  "Gardier S, d'après Lador F (pneumologie, HUG). Dépistage et conséquences du syndrome des apnées du sommeil. Rev Med Suisse 2018 ; 14 : 156 (lu le 13.11.2026)",
+  "SSSSC. Recommandations pour le diagnostic et le traitement des apnées-hypopnées du sommeil, version du 17.06.2020, document de référence de l'OPAS publié par l'OFSP (extraits lus par moteur de recherche ; PDF retiré du site de l'OFSP, texte intégral non lu)"
  ],
  "passerelles": [
   {
    "type": "Sommeil",
    "cible": "EX-3-S4-oxymetrie-nocturne",
-   "pourquoi": "—"
+   "pourquoi": "L'oxymétrie nocturne ne mesure que la saturation, donc elle reste un tri moins sensible que la polygraphie."
   },
   {
    "type": "Fondement",
    "cible": "SF-S11-neurobiologie-circuits-neurotransmetteurs",
-   "pourquoi": "—"
+   "pourquoi": "Cette fiche explique la régulation veille-sommeil que la polygraphie n'enregistre pas."
+  },
+  {
+   "type": "Sommeil",
+   "cible": "EX-3-S11-polysomnographie",
+   "pourquoi": "La polysomnographie prend le relais si la polygraphie est négative, incertaine ou techniquement insuffisante."
   }
  ]
 }
