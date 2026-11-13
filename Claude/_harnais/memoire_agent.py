@@ -10,7 +10,8 @@ Fichier : Claude/LOT_0NN/memoire/<cible>.md (versionné avec le LOT).
 import sys, os, datetime
 
 def chemin(lot, cible):
-    d = f'Claude/LOT_{int(lot):03d}/memoire'; os.makedirs(d, exist_ok=True); return f'{d}/{cible}.md'
+    d = 'Claude/_progression/memoire' if lot == 'PROG' else f'Claude/LOT_{int(lot):03d}/memoire'  # PROG : chantier PROGRESSION
+    os.makedirs(d, exist_ok=True); return f'{d}/{cible}.md'
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
