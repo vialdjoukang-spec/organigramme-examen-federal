@@ -543,9 +543,14 @@ def ecrire():
                 if k not in ancien:
                     f.pop(k, None)
             f['passerelles'] = fusion_passerelles(json.load(open(p, encoding='utf-8')).get('passerelles', []), FICHES[fid]['passerelles'])
-        txt = json.dumps(f, ensure_ascii=False, indent=1) + '\n'
-        if not os.path.exists(p) or open(p, encoding='utf-8').read() != txt:
-            open(p, 'w', encoding='utf-8').write(txt); n += 1
+        if os.path.exists(p):
+            brut = open(p, encoding='utf-8').read()
+            if json.loads(brut) == f:
+                continue
+            fin = '\n' if brut.endswith('\n') else ''
+        else:
+            fin = '\n'
+        open(p, 'w', encoding='utf-8').write(json.dumps(f, ensure_ascii=False, indent=1) + fin); n += 1
     return n
 
 
