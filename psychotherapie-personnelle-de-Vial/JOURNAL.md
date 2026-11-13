@@ -28,3 +28,8 @@
 - Consigne de Vial : ouvrir le dossier psychotherapie-personnelle-de-Vial sur branche seance-01-01-consignation (ou main après merge) ; préparer la séance suivante selon le plan phase 1 fondations, séances 01.01 à 01.04. Séance du jour = 01.02, concentration exclusive sur l'histoire de vie. Noter toute consigne dans JOURNAL.md et le fichier de séance correspondant.
 - Signal de sécurité actif : « dur ».
 - Préparation mise à jour : voir 01.02-histoire-de-vie.md.
+
+### 2026-11-13 — Rappel séance 01.02 ce soir 19h (Europe/Zurich)
+- Consigne de Vial : ouvrir le dossier psychotherapie-personnelle-de-Vial sur GitHub (repo organigramme-examen-federal, branche seance-01-01-consignation ou main après merge) et préparer la séance suivante selon le plan : phase 1 fondations, séances 01.01 à 01.04. Si la séance du jour est 01.02, concentration sur l'histoire de vie. Noter toute consigne de Vial dans le JOURNAL.md et le fichier de séance correspondant.
+- Signal de sécurité actif : « dur ».
+- Préparation 01.02 confirmée et actualisée : ligne de temps (enfance Cameroun → aujourd'hui), nœuds, zones d'ombre, clôture par titre de film. Vigilance sur émergents de 01.01 sans interprétation.
