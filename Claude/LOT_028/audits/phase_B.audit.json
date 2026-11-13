@@ -1,0 +1,281 @@
+{
+  "lot": "LOT_028",
+  "phase": "B",
+  "fichiers": "Phase B DX.1–DX.10",
+  "date": "13.11.2026",
+  "base": "d1cdb6a",
+  "type": "fusion des restants : audit 1 médical + audit 1 conformité L1",
+  "sources": [
+    "audit1_medical.audit.json",
+    "audit1_conformite.audit.json"
+  ],
+  "verdicts_sources": {
+    "audit1_medical": "CORRECTIONS",
+    "audit1_conformite": "CORRECTIONS"
+  },
+  "verdict": "CORRECTIONS",
+  "compte": {
+    "total": 26,
+    "medical": 13,
+    "conformite": 13,
+    "par_gravite": {
+      "Grave": 4,
+      "Moyenne": 6,
+      "Mineure": 5,
+      "Moyen": 3,
+      "Mineur": 8
+    }
+  },
+  "non_verifie": [
+    "Exactitude des chiffres contre les sources (audit 2) ; superposition des repères d’images ; contraste AA mesuré au pixel"
+  ],
+  "restants": [
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 1,
+      "gravite": "Grave",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.7.html",
+      "lieu": "point 11, fenêtres « Traitement de fond gradué » et « Médicaments : molécule, dose AIPS, durée, contrôle » ; point 11.D (BEMED)",
+      "avant": "« Bétahistine, dose européenne : 48 mg deux fois par jour, hors AIPS » (S4) ; « Bétahistine, dose des HUG : 72 à 96 mg par jour en 3 ou 4 prises, hors AIPS » (S2) ; « Gentamicine intratympanique : une injection à 26,7 mg/mL, hors AIPS » (S4) ; BEMED « 2 × 24 mg et 3 × 48 mg ». Doses chiffrées pour des usages hors AIPS (au-delà du maximum AIPS de 48 mg/j, AIPS 36119), contraires à la règle « hors AIPS : sans dose » et au piège 4 du même cours.",
+      "correction": "Supprimer ces posologies : écrire « Bétahistine à dose supérieure à 48 mg/j : hors AIPS, décision de l'ORL (S2, S4) », « Gentamicine intratympanique : hors AIPS, décision de l'ORL (S4) », et pour BEMED « placebo, dose AIPS basse et dose élevée hors AIPS : aucune différence de fréquence des crises sur 9 mois (S6) ». Garder seulement 24 à 48 mg/j en 2 ou 3 prises (AIPS 36119, janvier 2026, vérifié hors cache)."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 2,
+      "gravite": "Grave",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.5.html",
+      "lieu": "point 11, fenêtre « Traumatisme sonore aigu : traitement structuré », phrase de clôture de la fiche Prednisone, point 14 (question sur 1 mg/kg/j)",
+      "avant": "« Dose 1 mg/kg/j, recommandation du CHUV, hors AIPS » ; « Dose maximale dans l'essai militaire 1 mg/kg, au plus 60 mg par jour, schéma d'essai hors AIPS » ; « la dose de 1 mg/kg/j vient donc de la recommandation du CHUV » ; question 14 « La dose de 1 mg/kg/j de prednisone, recommandée par le CHUV, figure-t-elle dans l'AIPS ? ». Posologie chiffrée pour une indication hors AIPS (surdité non listée dans l'AIPS 29349), incohérente avec DX.6 qui applique « posologie hors AIPS fixée par l'ORL ».",
+      "correction": "Remplacer les deux lignes « Dose » par « Posologie : hors AIPS, fixée par l'ORL selon le schéma de la surdité brusque du CHUV (S5), appliqué par analogie (déduction) » ; supprimer « au plus 60 mg » ; reformuler la question 14 : « Le traitement corticoïde du traumatisme sonore figure-t-il dans les indications de l'AIPS de la prednisone ? — Non : hors AIPS, schéma fixé par l'ORL (S14, S5) »."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 3,
+      "gravite": "Moyenne",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.2.html",
+      "lieu": "point 4, paragraphe d'ouverture (et point 5, question adulte)",
+      "avant": "« Chez l'adulte, un épanchement unilatéral sans rhume impose de penser à une tumeur du rhinopharynx, car le NICE prévoit alors une filière de suspicion de cancer S5. » Le NICE NG98 1.1.5 (relu en cache) dit seulement « Consider making a referral ... using a suspected cancer pathway referral for adults of Chinese or south-east Asian family origin » ; la fenêtre 11 « Urgence » le dit correctement : contradiction interne et généralisation non sourcée.",
+      "correction": "Écrire : « Chez l'adulte, un épanchement unilatéral sans infection des voies aériennes supérieures impose un examen du rhinopharynx par l'ORL (déduction, S1 S5) ; le NICE envisage une filière de suspicion de cancer chez l'adulte d'origine chinoise ou d'Asie du Sud-Est (S5). »"
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 4,
+      "gravite": "Moyenne",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.2.html",
+      "lieu": "point 4, fenêtre « Diagnostics discriminants : graves d'abord, puis fréquents » (f-dx2-p4-dx)",
+      "avant": "Ordre : 🚩 E3 Cholestéatome ; 🚩 Tumeur du rhinopharynx ; 🚩 E1 Surdité brusque ; OMA ; Bouchon ; Surdité de perception coexistante — E3 précède E1, contraire aux rangs E gelés (E1 surdité brusque, E2 fistule, E3 cholestéatome, E4 schwannome).",
+      "correction": "Réordonner : 🚩 E1 Surdité brusque (DX.6) ; 🚩 E3 Cholestéatome (DX.9) ; 🚩 Tumeur du rhinopharynx de l'adulte ; puis OMA, Bouchon de cérumen (DX.1, rang 2), surdité de perception coexistante."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 5,
+      "gravite": "Moyenne",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.8.html",
+      "lieu": "point 4, fenêtre « Diagnostic différentiel d'une surdité unilatérale de perception » (f-dx8-p4-diff)",
+      "avant": "Ordre : Schwannome (E4) ; Surdité brusque (E1) ; Maladie de Ménière ; Fistule durale (E2) ; Presbyacousie ; Bruit ; Otospongiose — la fistule E2 est placée après Ménière (non grave).",
+      "correction": "Après la ligne du DX traité, ordonner : Surdité brusque 🚩 E1 ; Fistule artérioveineuse durale 🚩 E2 ; puis fréquents par rang : Presbyacousie (1), Bruit (4), Otospongiose (5), Ménière (6)."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 6,
+      "gravite": "Moyenne",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.6.html",
+      "lieu": "point 4, fenêtre « Tableau comparatif : surdité brusque et diagnostics voisins »",
+      "avant": "Ordre : Surdité brusque ; Bouchon ; Ménière ; Schwannome (E4) ; Accident vasculaire cérébelleux antéro-inférieur ; Bruit ; Fistule périlymphatique — l'accident vasculaire et le schwannome E4 viennent après deux diagnostics bénins.",
+      "correction": "Ordonner graves d'abord : Accident vasculaire du territoire cérébelleux antéro-inférieur 🚩 ; Schwannome vestibulaire 🚩 E4 ; Fistule périlymphatique ; puis Bouchon (rang 2), Bruit (rang 4), Ménière (rang 6)."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 7,
+      "gravite": "Moyenne",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.4.html",
+      "lieu": "point 4, fenêtre « Tableau comparatif : presbyacousie et diagnostics voisins »",
+      "avant": "Ordre : Presbyacousie ; Bouchon ; Bruit ; Surdité brusque (E1) ; Schwannome (E4) ; Otospongiose ; Cholestéatome (E3) — graves non en tête, E3 après E4 et après l'otospongiose.",
+      "correction": "Ordonner : Surdité brusque 🚩 E1 ; Cholestéatome 🚩 E3 ; Schwannome 🚩 E4 ; puis Bouchon (2), Bruit (4), Otospongiose (5) ; ajouter la fistule durale 🚩 E2 (acouphène pulsatile, IRM) si la place le permet."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 8,
+      "gravite": "Moyenne",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.9.html",
+      "lieu": "point 11, fenêtre « Traitement préopératoire de l'oreille qui coule » et 11.B",
+      "avant": "« Antibiotique local ou oral : Choix de l'ORL ; molécule non précisée par la source lue — Quelques jours avant l'opération » ; aucune source de la Société suisse d'ORL (SGORL) n'est citée alors que sa fiche « Opération pour cholestéatome » (orl-hno.ch) est déjà dans le cache des sources (13.11.2026). L'ordre de Vial exige molécule, dose, durée, contrôle et critère d'échec.",
+      "correction": "Lire la fiche SGORL en cache (sources_cache.py cherche <url orl-hno.ch> ...), la citer en source suisse pour la chirurgie, le suivi et la reprise ; pour l'antibiotique préopératoire, écrire « molécule et dose : À vérifier (aucune recommandation suisse lue) ; gouttes Ciproxin HC et Panotile contre-indiquées sur perforation (AIPS 54807, 31957) »."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 9,
+      "gravite": "Mineure",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.3.html",
+      "lieu": "point 4, fenêtre « Diagnostic différentiel d'une surdité de transmission ou mixte » ; sources",
+      "avant": "Cholestéatome 🚩 E3 placé en 3e ligne, après l'otite avec épanchement ; source suisse principale = site personnel d'un otologue (S1 Mudry) alors que la page HUG « Otospongiose » est en cache et non citée.",
+      "correction": "Placer Cholestéatome 🚩 E3 juste après la ligne de l'otospongiose ; ajouter la page HUG otospongiose (lue, datée) comme source suisse institutionnelle aux points 2, 9 et 11."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 10,
+      "gravite": "Mineure",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.9.html",
+      "lieu": "point 4, fenêtre « Tableau comparatif : cholestéatome et diagnostics voisins »",
+      "avant": "Schwannome vestibulaire (E4) en dernière ligne, après des diagnostics bénins (bouchon, otospongiose).",
+      "correction": "Placer les diagnostics graves en tête après la ligne du DX : Cholestéatome à tympan fermé, Schwannome 🚩 E4 ; puis OMC simple, OME (3), bouchon (2), otospongiose (5)."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 11,
+      "gravite": "Mineure",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.1.html",
+      "lieu": "point 11, fenêtre « Irrigation : technique, contrôle, critères d'échec »",
+      "avant": "Ligne « Geste : Seringue limitée au tiers antérieur du conduit, au plus 8 mm » puis ligne « Matériel : Irrigateur électronique ; ni aiguille boutonnée ni seringue manuelle » : consigne contradictoire.",
+      "correction": "Écrire « Geste : embout de l'irrigateur limité au tiers antérieur du conduit, au plus 8 mm, jet vers la paroi supérieure (S1) » et garder « Matériel : irrigateur électronique, pas de seringue manuelle (NICE, S4) »."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 12,
+      "gravite": "Mineure",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.5.html",
+      "lieu": "point 11.C, fenêtre « Calendrier de surveillance »",
+      "avant": "« Régulièrement avant 40 ans si exposé — Audiomobile de la Suva » : périodicité non chiffrée (ordre de Vial : surveillance datée).",
+      "correction": "Donner la périodicité des examens préventifs de l'ouïe d'après la brochure Suva 1909 (S1) relue, avec la phrase source ; à défaut écrire « périodicité : À vérifier (Suva) »."
+    },
+    {
+      "origine": "audit1_medical.audit.json",
+      "n_origine": 13,
+      "gravite": "Mineure",
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.6.html",
+      "lieu": "point 11, fenêtre « Prednisone — Prednisone Streuli® (n° 29349) »",
+      "avant": "Ligne Grossesse suivie de « La rubrique commune de l'AIPS ajoute : « Pendant l'application systémique des corticostéroïdes on ne doit pas allaiter. » », phrase répétée mot pour mot dans la ligne Allaitement (redondance).",
+      "correction": "Supprimer la phrase d'allaitement de la ligne Grossesse ; la garder seulement dans la ligne Allaitement."
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 1,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.5.html",
+      "gravite": "Grave",
+      "constat": "Règle « hors AIPS sans dose » violée : la prednisone pour la surdité due au bruit est hors AIPS, mais le point 11 (tableau) écrit « Dose 1 mg/kg/j, recommandation du CHUV, hors AIPS » et « 1 mg/kg, au plus 60 mg par jour, schéma d’essai hors AIPS » ; la phrase « la dose de 1 mg/kg/j vient donc de la recommandation du CHUV » et la question du point 14 répètent la dose.",
+      "avant": "Dose 1 mg/kg/j, recommandation du CHUV, hors AIPS",
+      "correction": "Remplacer chaque dose hors AIPS par « hors AIPS » sans chiffre (points 11 et 14) ; garder seulement la posologie générale recopiée de l’AIPS Prednisone Streuli®.",
+      "source": "BRIEF_HARNAIS (AIPS) ; ordre du lot"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 2,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.7.html",
+      "gravite": "Grave",
+      "constat": "Doses hors AIPS chiffrées au point 11 : bétahistine « 48 mg deux fois par jour, hors AIPS » (position européenne), « 72 à 96 mg par jour en 3 ou 4 prises, hors AIPS » (HUG), gentamicine intratympanique « 26,7 mg/mL, hors AIPS », essai BEMED « 3 × 48 mg … hors AIPS pour la seconde dose ».",
+      "avant": "Bétahistine, dose des HUG … 72 à 96 mg par jour en 3 ou 4 prises, hors AIPS",
+      "correction": "Écrire « dose supérieure à l’AIPS : hors AIPS » et « gentamicine intratympanique : hors AIPS » sans chiffre ; pour BEMED, dire que la dose haute ne surpasse pas le placebo, sans la chiffrer.",
+      "source": "BRIEF_HARNAIS (AIPS)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 3,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_A_V0.html",
+      "gravite": "Moyen",
+      "constat": "Point 11 : la phrase dit le céruménolytique « hors AIPS dans le corpus lu ; aucune dose n’est donc écrite », puis la phrase suivante donne « 2 à 3 gouttes d’huile d’olive, 3 à 4 fois par jour pendant 3 à 5 jours » (NHS) : contradiction interne.",
+      "avant": "Le NHS propose 2 à 3 gouttes d’huile d’olive, 3 à 4 fois par jour pendant 3 à 5 jours.",
+      "correction": "Supprimer le schéma chiffré ou annoncer explicitement qu’il s’agit d’un produit non médicamenteux décrit par le NHS, sans le présenter comme dose.",
+      "source": "BRIEF_HARNAIS (AIPS)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 4,
+      "fichier": "Claude/LOT_028/(inter-fichiers DX.2, 3, 4, 6, 7, 8, 9)",
+      "gravite": "Moyen",
+      "constat": "Redites de gabarit entre cours (similarité 3-grammes 0,5 à 0,76) : « La base anatomique, … et la corrélation clinique relient ces mécanismes aux décisions » (DX.4, 6, 9) ; « Les questions ciblées, les drapeaux rouges et les populations particulières structurent cet entretien » (DX.4, 6, 9) ; « Les questions ciblées donnent la valeur de chaque réponse, et les drapeaux rouges … la filière » (DX.3, 8) ; « Ce diagnostic occupe le … rang par fréquence dans la Phase A … et ne porte aucun rang d’urgence » (DX.2, 7) ; « Le tableau syndromique les détaille/compare, et chaque syndrome a sa propre fenêtre » (DX.2, 7) ; « Le lecteur recherche d’abord seul les structures de l’image brute … » (DX.2, 7). controle3 ne les voit pas (empreinte exacte).",
+      "avant": "La base anatomique , les hypothèses et la corrélation clinique relient ces mécanismes aux décisions.",
+      "correction": "Réécrire ces phrases de renvoi avec un contenu propre au diagnostic (le mécanisme qui commande la décision) ou les supprimer au profit du seul lien.",
+      "source": "Prompt L1 (aucune redite, y compris inter-fichiers)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 5,
+      "fichier": "Claude/LOT_028/(11 cours)",
+      "gravite": "Moyen",
+      "constat": "Bande 12–28 mots non tenue (controle3 ne contrôle que > 32) : 58 phrases hors tableau dépassent 28 mots (Phase A 17, DX.10 13, DX.5 10, DX.7 5, DX.4 3, DX.8 3, DX.1 2, DX.2 2, DX.3 2, DX.6 1, DX.9 0) et 30 phrases font moins de 12 mots (DX.7 8, DX.1 6, DX.6 6, Phase A 3, DX.2 3, DX.8 2, DX.3 1, DX.4 1), surtout des renvois du type « Le calendrier de surveillance précise contrôles et critères d’échec. ».",
+      "avant": "Le NHS déconseille de porter des bouchons en permanence et d’éviter tout bruit, car ces conduites augmentent la sensibilité ; un usage bref reste utile (30 mots, Phase A)",
+      "correction": "Couper au point-virgule les phrases > 28 mots ; fusionner les renvois < 12 mots avec la phrase de contenu voisine.",
+      "source": "Prompt L1 (phrases verbales 12–28 mots)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 6,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.3.html",
+      "gravite": "Mineur",
+      "constat": "Point 1 non limité à la définition : « Le remodelage osseux traverse d’abord un stade spongieux de destruction, puis un stade de sclérose… » relève de la physiopathologie (point 3).",
+      "avant": "Le remodelage osseux traverse d’abord un stade spongieux de destruction, puis un stade de sclérose",
+      "correction": "Déplacer la phrase au point 3.",
+      "source": "Prompt L1 (point 1 = définition seule)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 7,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.7.html",
+      "gravite": "Mineur",
+      "constat": "Point 1 : la durée des épisodes (20 minutes à 12 heures) et la liste des symptômes auriculaires sont des critères diagnostiques déjà repris au point 8 et au chapeau ; la phrase HUG « fonction de l’oreille interne qui fluctue » décrit l’évolution.",
+      "avant": "chaque épisode de vertige dure entre 20 minutes et 12 heures S5",
+      "correction": "Garder la seule définition Bárány au point 1 ; laisser les critères au point 8.",
+      "source": "Prompt L1"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 8,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.10.html",
+      "gravite": "Mineur",
+      "constat": "Point 1 : la seconde phrase (le sang artériel se jette dans les veines sans capillaires) décrit le mécanisme (point 3) ; première phrase de 32 mots.",
+      "avant": "le sang artériel s’y jette directement dans les veines, sans passer par les capillaires",
+      "correction": "Réduire le point 1 à la définition et aux synonymes ; déplacer le mécanisme au point 3.",
+      "source": "Prompt L1"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 9,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.3.html",
+      "gravite": "Mineur",
+      "constat": "Phrase nominale non détectée par controle3 (faux positif VERBE_RE sur « Seulement ») au point 14 : « Réponse. Seulement en troisième ligne, pour une surdité stable depuis au moins 12 mois… ».",
+      "avant": "Réponse. Seulement en troisième ligne, pour une surdité stable depuis au moins 12 mois et des seuils compris dans la plage d’indication.",
+      "correction": "« Réponse. On le propose seulement en troisième ligne, … »",
+      "source": "Prompt L1 (phrases verbales)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 10,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_A_V0.html",
+      "gravite": "Mineur",
+      "constat": "Phrase nominale (faux positif « cliniquement ») : « Contenu établi à partir des sources citées ; non validé cliniquement par un médecin. » ; titre du point 14 avec apostrophe typographique (’) au lieu de la forme canonique du prompt (').",
+      "avant": "14. Pièges et questions fréquentes à l’examen fédéral suisse",
+      "correction": "« Ce contenu reprend les sources citées et n’a pas été validé cliniquement par un médecin. » ; titre canonique avec apostrophe droite.",
+      "source": "Prompt L1 ligne 228"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 11,
+      "fichier": "Claude/LOT_028/LOT_028_Phase_B_V0_DX.8.html",
+      "gravite": "Mineur",
+      "constat": "Arbre (point 10) : « Si la surdité s’est installée en 3 jours ou moins, alors le patient part dans les 24 heures » omet la condition NICE « survenue dans les 30 derniers jours », présente dans DX.2 et DX.7.",
+      "avant": "Si la surdité s’est installée en 3 jours ou moins, alors le patient part dans les 24 heures vers l’ORL ou une urgence (DX.6).",
+      "correction": "Ajouter « depuis moins de 30 jours ».",
+      "source": "NICE NG98 (cité S6 du lot)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 12,
+      "fichier": "Claude/LOT_028/(palettes)",
+      "gravite": "Mineur",
+      "constat": "Fonds vivants tous distincts et hors bleu, mais quatre roses proches (Phase A #fcb1cc, DX.6 #fcb1bb, DX.8 #fcb1e0, DX.5 #fcb1f4 : écart de teinte ≈ 15–20°) et trois verts proches (DX.3 #b3fcb1, DX.7 #b1fcd0, DX.10 #d0fcb1) ; DX.1, 2, 4, 6, 7, 9 portent en plus un body{background} redondant avec --fm-fond.",
+      "avant": "html:root{--fm-fond:#fcb1e0",
+      "correction": "Écarter les teintes d’au moins 30° (ex. turquoise, lilas, ocre) ; supprimer la règle body redondante.",
+      "source": "Ordre de Vial 12.11.2026 (palette propre à chaque cours)"
+    },
+    {
+      "origine": "audit1_conformite.audit.json",
+      "n_origine": 13,
+      "fichier": "Claude/LOT_028/PLANCHE_LOT_028.html",
+      "gravite": "Mineur",
+      "constat": "Planche : 55 captures (11 cours × 5) lisibles, fenêtres occultantes et fonds vivants visibles ; forme.py --verifier la marque « à corriger » (page hors gabarit forme.css, générée par planche5.py) — sans effet sur les cours.",
+      "avant": "PLANCHE_LOT_028.html à corriger 3453652→3453900 o",
+      "correction": "Exclure la planche de forme.py ou l’y passer une fois.",
+      "source": "forme.py"
+    }
+  ]
+}
