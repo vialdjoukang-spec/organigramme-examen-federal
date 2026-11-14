@@ -39,3 +39,16 @@ Sept IMG non demandés par l'audit restent sans affection : 005, 007, 018, 098, 
 - **R2, doublons** : cinq affections passent en forme courte avec `renvoi_physiopathologie` : hémorragie sous anticoagulant (S1-Ia et S3-Ia vers PP-S10-Ia), ACG (S2-V vers PP-S3-A), Hashimoto (S2-A vers PP-S8-A) et cancer thyroïdien (S2-T vers PP-S8-T). L'EP reste complète en S4-V, et S3-V garde la TVP. Les fiches S11 et S12 restent responsables de leurs propres doublons (S1 garde la forme complète).
 - **R3, passerelles** : le texte provisoire « LOT correspondant » est supprimé. Chaque fiche renvoie à 1 à 3 LOT SSP du `CATALOGUE_248.csv` (numéro et code vérifiés par script) et à des passerelles croisées PP ↔ PP.
 - **R4, style** : la fiche écrit « corticoïdes en bolus (selon AIPS) » et « exposition la plus courte possible ».
+
+## Tour 2 (suite de AUDIT_PP_S1_S4_V2.md)
+
+| # | Statut | Correction |
+|---|---|---|
+| S10 | Fait, mot pour mot | Chaque source suisse ne reste que dans la fiche qu'elle concerne : Michel 2021 en PP-S1-V ; SSH 2018 en PP-S3-F ; Barben 2023 et Rueegg 2013 en PP-S4-C ; SSP asthme 2018 en PP-S4-A ; SSP BPCO 2018 en PP-S4-D. Les 27 autres copies sont supprimées. |
+| N1 | Fait, mot pour mot | PP-S1-Tr distingue la compression médullaire (niveau sensitif, syndrome pyramidal, troubles sphinctériens) du syndrome de la queue de cheval (déficit flasque, anesthésie en selle, rétention, perte du tonus anal). |
+| N2 | Fait | La phrase de réserve sur le classement en Tr (causes tumorales PP-S9-T et dégénératives PP-S9-D) est ajoutée au champ `honnetete` de PP-S1-Tr. |
+| N3 | Fait | TV et FV : la défibrillation dépolarise tout le myocarde ; une TV avec pouls relève d'une cardioversion synchronisée. |
+| N4 | Fait | Lymphome cérébral primitif : la fiche précise « uvéite postérieure (lymphome vitréo-rétinien associé) ». |
+| N5 | Partiel | Ludwig renvoie à `EX-2-S2-echographie-irm-cervico-faciales`, et Takayasu à `EX-2-S4-angio-tdm-thoracique`. Le dépôt ne contient aucun EX d'échographie oculaire : la liste du décollement de rétine reste vide. |
+
+Validation : `verbal.py` ne trouve aucune phrase nominale sur 1 427 ; `controle.py` est VERT. Restent à faire, en compléments S5 : lire Michel 2021 (UNIGE, unige:152319) et les recommandations SSP 2018 ; chercher des sources SOG/SSO et SSORL pour S2 ; couvrir les IMG 005, 007, 018, 098, 119, 128 et 139.
