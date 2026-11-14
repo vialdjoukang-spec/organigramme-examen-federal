@@ -31,3 +31,7 @@ Cinq diagnostics : hydronéphrose d'enfant, cortex hyperéchogène, infarctus po
 ## Passage IMG-224 à IMG-220
 
 Cinq diagnostics : adénome surrénalien sans injection, angiomyolipomes graisseux et kyste Bosniak I en partiel ; uro-TDM et carcinome à cellules claires introuvables. Relectures de la flèche de l'adénome, des plages graisseuses et de la région d'intérêt à 4,6 UH. Durée approximative : 20 minutes (estimation).
+
+## Passage IMG-219 à IMG-215
+
+Cinq diagnostics : calcul urétéral droit sans injection en partiel ; pyélonéphrite emphysémateuse, phase néphrographique, abcès postopératoire et fibrose rétropéritonéale introuvables. Relecture du foyer hyperdense déjà fléché. Durée approximative : 15 minutes (estimation).

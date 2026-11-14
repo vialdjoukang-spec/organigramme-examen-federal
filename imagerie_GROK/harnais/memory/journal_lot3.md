@@ -40,3 +40,8 @@ IMG-223 | introuvable | pas d'uro-TDM ; la phase parenchymateuse a été écart�
 IMG-222 | partiel | Hellerhoff 2009, angiomyolipomes bilatéraux hypodenses, flèches | aorte non opacifiée, pas de rein normal
 IMG-221 | partiel | SCiardullo 2016, Bosniak I sans injection, 4,6 UH | protocole multiphasique et version 2019 absents
 IMG-220 | introuvable | pas de TDM sans injection d'un carcinome à cellules claires ; papillaire écarté
+IMG-219 | introuvable | pas de TDM de pyélonéphrite emphysémateuse
+IMG-218 | introuvable | pas de phase néphrographique ; TDM blanche et phase portale écartées
+IMG-217 | partiel | Heilman 2009, calcul de l'uretère proximal droit déjà fléché | faible dose non écrite, pas de normale
+IMG-216 | introuvable | pas de TDM d'abcès postopératoire
+IMG-215 | introuvable | pas de TDM de fibrose rétropéritonéale
