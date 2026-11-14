@@ -23,3 +23,5 @@ Septième lot, EXP-123 à EXP-119. Un partiel, quatre introuvables. Le reflux a 
 Huitième lot, EXP-118 à EXP-115. Un complet, trois introuvables. L'anse géante a été entourée après une grille. Les scripts ont validé le complet sans avertissement. Estimation. Le lot demandé s'arrête à EXP-115. Prochain id hors lot : EXP-114.
 
 Fiches de technique, premier lot FTE-58 à FTE-54. Un partiel, quatre introuvables. Le relevé d'impédancemétrie a été ouvert : la flèche vise la légende « Normal range ». Estimation. Reprise : FTE-53.
+
+Deuxième lot FTE-53 à FTE-49. Cinq introuvables. Les transits barytés et un rénogramme pathologique déjà vu n'ont pas été recyclés. Estimation. Reprise : FTE-48.
