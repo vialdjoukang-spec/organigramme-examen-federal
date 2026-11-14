@@ -181,7 +181,7 @@ def porte(candidat, tech_patho, region, sexe_patho, age_patho=""):
             raisons.append("sexe non concordant")
     mod_c = modalite((candidat.get("description") or "") + " " + (candidat.get("titre") or ""))
     mod_p = modalite(tech_patho)
-    if not mod_c or (mod_p and mod_c != mod_p):
+    if not mod_p or not mod_c or mod_c != mod_p:
         raisons.append("modalité non attestée ou différente")
     if not candidat.get("thumb") and not candidat.get("octets"):
         raisons.append("pas de fichier image")
