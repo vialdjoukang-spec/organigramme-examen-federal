@@ -75,6 +75,7 @@ def manifest():
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
         "author": "Essai de harnais, image synthétique, aucun patient",
         "sex": "M",
+        "adulte": "oui",
         "modality": "RX", "sequence": "thorax", "plane": "face", "region": "thorax",
         "note": "Image dessinée par script pour l'essai du rendu. Aucun patient.",
     }
@@ -119,9 +120,9 @@ def main():
     msex = {
         "id": "IMG-134", "dx": dx["dx"], "cliche": dx["cliche"], "statut": "complet",
         "normal": {"file": "x", "license": "CC0 1.0", "author": "a", "source_url": "https://example.org/n",
-                   "modality": "RX", "sequence": "thorax", "plane": "face", "sex": "M"},
+                   "modality": "RX", "sequence": "thorax", "plane": "face", "sex": "M", "adulte": "oui"},
         "patho": {"file": "x", "license": "CC0 1.0", "author": "a", "source_url": "https://example.org/p",
-                  "modality": "RX", "sequence": "thorax", "plane": "face", "caption_source": "essai", "sex": "F",
+                  "modality": "RX", "sequence": "thorax", "plane": "face", "caption_source": "essai", "sex": "F", "adulte": "oui",
                   "arrows": [{"tip": [0.63, 0.24], "from": [0.48, 0.16], "label": "Ligne pleurale viscérale",
                               "role": "principale", "evidence": "essai", "confidence": "moyenne", "contour": CONTOUR,
                               "definition": "Air dans l'espace pleural.",
@@ -129,13 +130,20 @@ def main():
     }
     errs, warns = [], []
     V.check(msex, dx, errs, warns)
-    if not any("discordant" in e for e in errs):
-        fail(f"sexe discordant non bloqué : {errs}")
-    msex["normal"].pop("sex"); msex["patho"]["sex"] = "À vérifier"; msex["statut"] = "complet"
+    if any("discordant" in e or "sexe requis" in e for e in errs):
+        fail(f"le thorax ne doit pas exiger le même sexe : {errs}")
+    dxp = dict(dx, region="Pelvis", dx="Fibromes utérins", cliche="US — endovaginale")
+    errs = []
+    V.check(msex, dxp, errs, warns)
+    if not any("sexe requis" in e or "discordant" in e for e in errs):
+        fail(f"bassin/utérus sans sexe concordant non bloqué : {errs}")
+    msex["normal"]["adulte"] = "non"
     errs = []
     V.check(msex, dx, errs, warns)
-    if not any("sexe non établi" in e for e in errs):
-        fail(f"sexe non établi non bloqué : {errs}")
+    if not any("adulte" in e for e in errs):
+        fail(f"sujet non adulte non bloqué : {errs}")
+    msex["normal"]["adulte"] = "oui"
+    msex["normal"].pop("sex"); msex["patho"]["sex"] = "À vérifier"
     msex.pop("normal")
     errs = []
     V.check(msex, dx, errs, warns)

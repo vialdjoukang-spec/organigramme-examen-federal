@@ -3,7 +3,7 @@
 ## Faits
 
 - 14.11.2026, bulle IMG-001 : le texte n'est plus coupé. La définition est une fiche sous l'image, dans le panneau, relue en entier sur bureau (`progression/captures-interface/IMG-001_desktop_bulle.png`, jusqu'à « Confiance : haute ») et sur mobile (`IMG-001_mobile_bulle.png`). La bande reste sur le foyer.
-- Sexe IMG-001 : la légende Cerevisae ne le donne pas. Commons n'a pas d'autre fichier. Les articles CC BY-NC-ND sont écartés. PMC4489032 (CC BY 4.0) est une cohorte : le mot male y est un pourcentage, pas le sexe du cliché. Pas de remplacement.
+- Règle de Vial du 14.11.2026 10:48 : le même sexe n'est exigé que pour le bassin, le sein et les organes génitaux. Ailleurs, les deux clichés doivent être ceux d'un adulte (`adulte` = oui). `validate.py` applique cette règle. IMG-001 reste partiel : la pathologique n'est pas établie comme adulte.
 
 ## Faits (précédent)
 
@@ -16,7 +16,7 @@
 
 ## En cours
 
-- Quatre agents sur VM séparées, base `cursor/interface-didactique-ffbc`, fichiers disjoints. Ils n'ont pas encore poussé : pas de PR de lot tant qu'il n'y a pas de commit.
+- Quatre lots encore au travail : la règle adulte n'a pas pu leur être envoyée tant qu'ils n'ont pas fini. L'auditeur l'a reçue. Le redessin des contours grossiers continue sur cette branche.
 - Lot 1 `bc-3c7f04cb-b49c-5f3b-9c92-3af7023e9930` : paires IMG-001 à IMG-129 (16), puis pathologiques IMG-002 à IMG-070.
 - Lot 2 `bc-8f34385d-cb6c-53e4-ad71-fdd28d1deedb` : IMG-132 à IMG-166 (15), puis IMG-071 à IMG-141.
 - Lot 3 `bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa` : IMG-167 à IMG-244 (15), puis IMG-142 à IMG-260.
