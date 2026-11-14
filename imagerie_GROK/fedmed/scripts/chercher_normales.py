@@ -87,7 +87,10 @@ def europepmc(requete):
 
 def incidence(texte):
     t = (texte or "").lower()
-    for mot, canon in (("coron", "coronal"), ("sagitt", "sagittal"), ("axial", "axial"), ("profil", "profil")):
+    for mot, canon in (
+        ("longitud", "longitudinal"), ("coron", "coronal"), ("sagitt", "sagittal"),
+        ("axial", "axial"), ("profil", "profil"), ("transvers", "axial"),
+    ):
         if mot in t:
             return canon
     if re.search(r"\bde face\b|\bface view\b|\bpa view\b|\bap view\b", t):
@@ -110,20 +113,32 @@ def modalite(texte):
     return ""
 
 
+ORGANES = (
+    ("hépat", "liver"), ("hepat", "liver"), ("foie", "liver"),
+    ("rein", "kidney"), ("rén", "kidney"), ("poumon", "lung"),
+    ("thorax", "chest"), ("plevr", "chest"), ("céréb", "brain"),
+    ("cereb", "brain"), ("encéph", "brain"), ("aorte", "aorta"),
+    ("cœur", "heart"), ("coeur", "heart"), ("rachis", "spine"),
+    ("sein", "breast"), ("pelv", "pelvis"), ("genou", "knee"),
+)
+
+
 def requete(fiche):
     im = fiche["enr"].get("images") or {}
     cherche = (im.get("a_chercher") or {}).get("normal") or ""
     tech = (im.get("patho") or {}).get("technique") or ""
     region = (fiche.get("contexte") or {}).get("region") or ""
-    base = cherche or tech
-    mod = modalite(base + " " + tech)
+    blob = f"{cherche} {tech} {region}".lower()
+    mod = modalite(blob)
     mots = {
         "rx": "normal radiograph",
         "tdm": "normal CT",
         "irm": "normal MRI",
         "us": "normal ultrasound",
-    }.get(mod, "normal medical imaging")
-    return f"{mots} {region}", mod, tech
+        "mn": "normal scintigraphy",
+    }.get(mod, "normal")
+    organe = next((en for fr, en in ORGANES if fr in blob), "")
+    return f"{mots} {organe} normal anatomy".strip(), mod, tech
 
 
 NORMALITE = re.compile(
@@ -249,7 +264,8 @@ def figures_europepmc(requete):
 def une(ident):
     fiche = C.lire_json(C.FENETRES / f"{ident}.json")
     fusion = C.lire_json(C.FUSION / f"{ident}.json")
-    if fusion.get("normal_ajoute") or fusion.get("recherche_normale"):
+    deja = fusion.get("recherche_normale") or {}
+    if fusion.get("normal_ajoute") or (deja.get("ajoutee") or deja.get("refus")):
         return "déjà"
     q, mod, tech = requete(fiche)
     region = (fiche.get("contexte") or {}).get("region") or ""
@@ -259,7 +275,7 @@ def une(ident):
         fusion["recherche_normale"] = {"ajoutee": False, "requete": q, "refus": ["pathologie pédiatrique"]}
         C.ecrire_json(C.FUSION / f"{ident}.json", fusion)
         return "pédiatrique, non cherchée"
-    candidats = commons(q) 
+    candidats = commons(q) or commons(q.split()[0] + " " + q.split()[1] if len(q.split()) > 1 else q) 
     refus = []
     retenus = []
     for cand in candidats:
