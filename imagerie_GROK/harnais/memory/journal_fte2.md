@@ -8,3 +8,11 @@ Fiches de technique, FTE-43 vers FTE-30. Un seul tracé normal de référence. S
 - FTE-39 introuvable. Pas de VNG ni de vHIT normal. PMC5348540 est un cas de saccades de refixation.
 
 Dernier fait : FTE-39. Prochain : FTE-38.
+
+- FTE-38 introuvable. Pas d'otoémissions ni de PEA humains libres. ABR de souris écarté. Licence Open-i non lue.
+- FTE-37 partiel. Vianogianluca, CC BY-SA 4.0. Tympanométrie 226 Hz et réflexes. Pic gauche, compliance 1,83 ml, pression −31 daPa. L'oreille droite est à −70 daPa.
+- FTE-36 partiel. Alshuaib, Al-Kandari et Hasan, CC BY 3.0. Audiogramme titré normal, seuils entre 0 et 15 dB. Pas d'audiométrie vocale.
+- FTE-35 introuvable. Pas de courbe d'oxymétrie nocturne.
+- FTE-34 partiel. Theiler 2021, PMC8285307, CC BY 4.0. Agenda de 24 h, 17 au 20 mai. Numéro d'actimètre laissé hors cadre. Pas de nom.
+
+Dernier fait : FTE-34. Prochain : FTE-33.
