@@ -19,3 +19,7 @@ Cinq diagnostics : orchi-épididymite et torsion en Doppler partiels, hyperplasi
 ## Passage IMG-239 à IMG-235
 
 Cinq diagnostics : rétention sur vessie trabéculée, sténose ostiale de l'artère mésentérique supérieure et anévrisme aortique axial en partiel ; tumeur de vessie et endofuite introuvables. Relectures du contour de la paroi vésicale, de la sténose fléchée et du sac aortique jusqu'au trait de mesure. Durée approximative : 25 minutes (estimation). Les scripts ont fourni les fichiers, les dates de dépôt et la validation (estimation).
+
+## Passage IMG-234 à IMG-230
+
+Cinq diagnostics : néphroblastome, greffon et traumatisme rénal introuvables (Open-i en page d'erreur) ; rein en fer à cheval et polykystose avancée en partiel, appariés à un rein droit normal de 9,34 cm. Relectures de l'isthme et du bouquet de kystes. Durée approximative : 20 minutes (estimation).

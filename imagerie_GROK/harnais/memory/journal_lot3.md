@@ -25,3 +25,8 @@ IMG-238 | introuvable | pas d'échographie de tumeur de vessie ; schémas et his
 IMG-237 | partiel | Spangler 2024, CC BY 4.0, sténose ostiale de l'AMS déjà fléchée | chronique non écrit, pas de normale
 IMG-236 | introuvable | pas d'angio-TDM d'endofuite
 IMG-235 | partiel | Häggström 2019, anévrisme axial déjà mesuré ; Heilman 2016, aorte 1,88 cm | rupture absente
+IMG-234 | introuvable | pas d'échographie de néphroblastome ni de neuroblastome | Open-i en page d'erreur
+IMG-233 | introuvable | pas de Doppler de complication du greffon
+IMG-232 | introuvable | pas de TDM artérielle de traumatisme rénal
+IMG-231 | partiel | Dilmen 2013, série rein en fer à cheval | isthme placé à l'œil ; normale longitudinale
+IMG-230 | partiel | Hansen, Nielsen, Ewertsen 2017, polykystose avancée ; Ptrump16 2022, rein droit 9,34 cm | caractère autosomique dominant non écrit
