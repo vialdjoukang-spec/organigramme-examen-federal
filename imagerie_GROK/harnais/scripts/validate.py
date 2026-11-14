@@ -14,6 +14,8 @@ Rules:
   E  complet et région bassin, sein ou organes génitaux => sexe M/F écrit et identique des deux côtés
   E  dans ces régions, sexes établis et discordants => erreur
   E  complet => contour rectangulaire de ≤ 5 points interdit
+  E  polygone trop régulier (variance des rayons et des angles quasi nulle) interdit
+  E  lésion non ponctuelle : au moins 8 sommets distincts
   E  complet => >= 1 arrow role=principale
   E  every arrow: tip/from in [0,1], label, role in whitelist, evidence, confidence in haute|moyenne|basse
   E  every arrow: contour = polygone fermé (dernier point = premier, ≥ 3 sommets distincts, chaque point dans [0,1])
@@ -148,6 +150,63 @@ def coarse_rectangle(contour):
             return False
     return True
 
+def _angles(verts):
+    ang = []
+    n = len(verts)
+    for i in range(n):
+        ax, ay = verts[i][0] - verts[i - 1][0], verts[i][1] - verts[i - 1][1]
+        bx, by = verts[(i + 1) % n][0] - verts[i][0], verts[(i + 1) % n][1] - verts[i][1]
+        na, nb = math.hypot(ax, ay), math.hypot(bx, by)
+        if na < 1e-8 or nb < 1e-8:
+            continue
+        cos = max(-1.0, min(1.0, (ax * bx + ay * by) / (na * nb)))
+        ang.append(math.acos(cos))
+    return ang
+
+def too_regular(contour):
+    """Variance des rayons et des angles quasi nulle : polygone régulier, pas une silhouette."""
+    if not isinstance(contour, list) or len(contour) < 4:
+        return False
+    pts = []
+    for p in contour:
+        q = _pt(p)
+        if q is None:
+            return False
+        pts.append(q)
+    if math.hypot(pts[0][0] - pts[-1][0], pts[0][1] - pts[-1][1]) <= 0.015:
+        verts = pts[:-1]
+    else:
+        verts = pts
+    uniq = []
+    for x, y in verts:
+        if not any(abs(x - a) < 1e-3 and abs(y - b) < 1e-3 for a, b in uniq):
+            uniq.append((x, y))
+    if len(uniq) < 6:
+        return False
+    cx = sum(p[0] for p in uniq) / len(uniq)
+    cy = sum(p[1] for p in uniq) / len(uniq)
+    radii = [math.hypot(x - cx, y - cy) for x, y in uniq]
+    mean = sum(radii) / len(radii)
+    if mean < 1e-6:
+        return False
+    var_r = sum((r - mean) ** 2 for r in radii) / len(radii)
+    cv = math.sqrt(var_r) / mean
+    ang = _angles(uniq)
+    if len(ang) < 6:
+        return False
+    mean_a = sum(ang) / len(ang)
+    var_a = sum((a - mean_a) ** 2 for a in ang) / len(ang)
+    return cv < 0.045 and math.sqrt(var_a) < 0.12
+
+def ponctuelle(contour):
+    """Petite lésion : le cadre du contour tient dans 4 % de l'image."""
+    pts = [_pt(p) for p in contour if _pt(p)]
+    if len(pts) < 3:
+        return True
+    xs = [p[0] for p in pts]
+    ys = [p[1] for p in pts]
+    return max(max(xs) - min(xs), max(ys) - min(ys)) < 0.04
+
 def contour_ok(contour, errs, tag):
     """Polygone fermé, ≥ 3 sommets distincts, chaque point dans l'image (0–1)."""
     if not isinstance(contour, list) or len(contour) < 4:
@@ -259,6 +318,14 @@ def check(m, dx, errs, warns):
         contour_ok(a.get("contour"), errs, t)
         if st == "complet" and coarse_rectangle(a.get("contour")):
             errs.append(f"{t}: contour rectangulaire (≤ 5 points)")
+        ctn = a.get("contour")
+        if isinstance(ctn, list) and ctn and not ponctuelle(ctn):
+            verts = ctn[:-1] if len(ctn) > 1 else ctn
+            uniq = {(round(p[0], 3), round(p[1], 3)) for p in verts if _pt(p)}
+            if len(uniq) < 8:
+                errs.append(f"{t}: lésion non ponctuelle avec moins de 8 sommets")
+        if too_regular(ctn):
+            errs.append(f"{t}: polygone trop régulier (rayons et angles quasi constants)")
         if c == "basse" and (a.get("label") or "").strip().lower() not in av:
             errs.append(f"{t}: confiance basse mais «{a.get('label')}» absent de a_verifier")
     if st == "partiel" and not (m.get("pair_match") or m.get("a_verifier")):

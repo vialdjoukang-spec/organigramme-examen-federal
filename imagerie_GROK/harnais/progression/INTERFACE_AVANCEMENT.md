@@ -5,7 +5,9 @@
 - 14.11.2026, bulle IMG-001 : le texte n'est plus coupé. La définition est une fiche sous l'image, dans le panneau, relue en entier sur bureau (`progression/captures-interface/IMG-001_desktop_bulle.png`, jusqu'à « Confiance : haute ») et sur mobile (`IMG-001_mobile_bulle.png`). La bande reste sur le foyer.
 - Règle de Vial du 14.11.2026 10:48, précisée : le même sexe seulement pour bassin, sein, organes génitaux. Ailleurs, adulte suffit. L'adulte vient de la légende ou d'un signe visible, noté dans `adulte_preuve`. Sans signe concluant : « À vérifier ». `validate.py` refuse un complet sans cette preuve.
 - IMG-001 patho : adulte À vérifier (ethmoïde pneumatisé, pas de suture ni de physe sur la coupe). IMG-134 : oui des deux côtés (physes humérales soudées). IMG-136 : oui des deux côtés (squelette adulte). IMG-250 : oui des deux côtés (utérus adulte) mais sexe non écrit, donc pas complet. Aucun des quatre n'est complet (séquence ou sexe).
-- Lot 3 (`bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa`) a poussé 30 id sur cette branche (0 complet, journal `LOT3_SEXE.md`, captures `captures-interface/lot3/`). Il appliquait encore l'ancien sexe partout. La règle adulte lui a été renvoyée. IMG-243 relu : décagone régulier dans un carré, pas le bord du testicule. Ce contour n'est pas accepté.
+- `scripts/segment.py` segmente depuis la pointe (scikit-image : seuil, watershed, contour actif). SAM n'est pas installé : repli annoncé. `validate.py` rejette un polygone trop régulier et une lésion non ponctuelle de moins de 8 points.
+- IMG-243 relu après segmentation : le contour suit le champ parenchymateux (bord du secteur et ligne cutanée), le point rouge est dedans, ce n'est plus un décagone. Capture `captures-interface/segment/IMG-243.png`. Reste partiel (sexe du testicule non écrit).
+- Essais non retenus à l'œil : IMG-023 (tout le cerveau), IMG-061 (la moitié de la mandibule), IMG-064 (la flèche incrustée). Ils ne sont pas écrits dans les manifestes.
 
 ## Faits (précédent)
 
