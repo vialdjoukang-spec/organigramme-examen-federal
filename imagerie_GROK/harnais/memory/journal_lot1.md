@@ -24,3 +24,8 @@ IMG-067 | partiel | Hellerhoff, CC BY-SA 4.0, nodule solide à foyers échogène
 IMG-066 | introuvable | — | pas de cou de profil simple ; pièces en face, thorax de profil ou transit baryté
 IMG-065 | introuvable | — | pas de TDM injectée ; seulement des photographies cliniques
 IMG-064 | partiel | Med Chaos, CC0, profil, signe du pouce fléché ; normal Med Chaos, CC BY-SA 3.0, panneau gauche recadré | normal en phonation, autre cliché ; définition non relue
+IMG-063 | partiel | James Heilman, CC BY-SA 4.0, TDM axiale, abcès rétropharyngé | injection non écrite ; parapharyngé non isolé ; pas de normal
+IMG-062 | partiel | Michael Goodyear, CC BY-SA 4.0, masse tonsillaire droite rehaussée | photo d'écran ; pas de thorax ; pas de normal
+IMG-061 | partiel | Pidalka44, domaine public, panoramique, kyste sur dent de sagesse ; normal Roquex, CC0 | ostéonécrose absente ; contention sur le normal
+IMG-060 | partiel | Jmarchn, CC0, masse ethmoïdale, métastase d'adénocarcinome intestinal | injection non écrite ; pas une tumeur primitive ; pas de normal
+IMG-059 | partiel | Hellerhoff, CC BY-SA 4.0, fracture longitudinale du rocher droit | ligne peu visible, confiance basse ; pas de normal

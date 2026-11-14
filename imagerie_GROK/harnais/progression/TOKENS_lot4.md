@@ -1,3 +1,5 @@
 IMG-086 à IMG-069 (estimation, sans chronomètre). Dix-huit diagnostics : un complet, quinze partiels, deux introuvables. Ce passage (IMG-070 et IMG-069) a demandé quatre lectures visuelles et deux aperçus. Le contour de Hashimoto a été étendu au parenchyme hypoéchogène. Les scripts ont servi le cache et validé. Reprise : IMG-068.
 
 IMG-068 à IMG-064 (estimation). Cinq diagnostics : trois partiels, deux introuvables. Le foyer chaud a été placé dans le lobe marqué L après quadrillage. Le nodule thyroïdien a été élargi jusqu'aux foyers échogènes. L'épiglotte a été recadrée sur la pointe de la flèche rouge d'origine, après deux boîtes trop hautes ou trop basses. Open-i a renvoyé une page d'erreur non JSON. Les scripts ont téléchargé, normalisé et validé sans erreur. Reprise : IMG-063.
+
+IMG-063 à IMG-059 (estimation). Cinq partiels. L'abcès a été sorti de la voie aérienne. La masse tonsillaire suit le trait déjà présent. Le kyste mandibulaire est à gauche de l'image. La masse ethmoïdale a été déplacée hors du globe, sur trois aperçus. La fracture du rocher reste en confiance basse. Les scripts ont validé sans erreur. Reprise : IMG-058.
