@@ -1,0 +1,9 @@
+# Journal audit 3g
+Audit indépendant du 14.11.2026. Images ouvertes avant tout verdict. Ordre IMG-092 → IMG-087. Ces manifestes n'ont pas été rédigés par l'auditeur.
+
+IMG-092 | corrigé | CC BY 4.0, Herregods et al., PMC6100675 : le rectangle couvrait le sacrum, le contour suit la sacro-iliaque droite que montrent les flèches du STIR, à gauche de l'image, et le partiel tient, panneau b en T1 contrasté, pas de normale, cas hors définition ASAS, définition non relue.
+IMG-091 | corrigé | CC BY 4.0, Chan et Oh, PMC4960080 : le rectangle était sur les épineuses, le contour suit la collection épidurale postérieure et le bombement discal, liquide blanc donc T2, niveau L4-L5 lu dans le texte, et le partiel tient, gadolinium absent, pas de normale, définition non relue.
+IMG-090 | corrigé | CC BY-SA 4.0, Hellerhoff : le rectangle prenait tout le panneau T1, le contour suit le disque et les plateaux L3-L4, et le partiel tient, planche avec T2, STIR, contraste et scanner, pas de normale, définition non relue.
+IMG-089 | corrigé | CC0, Häggström : le rectangle couvrait plusieurs corps et la pointe manquait le foyer, le contour suit le nodule condensant, et le partiel tient, coupe lombaire et non corps entier, faible dose non écrite, myélome condensant, pas de normale, définition non relue.
+IMG-088 | corrigé | CC BY-SA 4.0, Hellerhoff : l'introuvable est levé après requêtes réelles, le contour suit la métastase hypointense de L2 sur le T1 de gauche et la pointe est sur le rétrécissement canalaire, et le partiel tient, segment lombaire, planche de quatre séquences, légende de sténose, pas de normale, définition non relue.
+IMG-087 | corrigé | domaine public, Glitzy queen00 : le rectangle prenait les parties molles, deux contours suivent les tassements cunéiformes, le supérieur puis celui d'en dessous, et le partiel tient, photo oblique, pas de profil normal, définition non relue.
