@@ -35,3 +35,13 @@ Ces corrections répondent à `AUDIT_EXP_001_051.md`. Le JSON a été validé av
 | L8 | Partiellement | J'ai cherché sur le web le 14.11.2026 et ajouté deux sources suisses : Ligue suisse contre l'épilepsie (« Épilepsie et conduite » 2019, flyer epi.ch 2026, en 001) et Suva (audiomobile, feuillet 1909, en 021). **SSC (adoption ESC) et SGKN restent « non lu, À vérifier ».** |
 
 Restent « À vérifier » : AIPS éthosuximide, endossement des recommandations ESC par la SSC, normes ENMG suisses, Swiss Resuscitation Council, source suisse du dépistage visuel.
+
+## Tour 2 (AUDIT_EXP_001_051_V2.md)
+
+| # | Statut | Correction appliquée mot pour mot |
+|---|---|---|
+| N1 | Fait | **007** : `autres[0].quand` réécrit d'après ASSM 2017 (ch. 3.2.1 et 3.3). La lésion infratentorielle isolée est désormais attribuée au **projet 2025**. `autres[1].quand` : examen admis par l'ASSM 2017, avec la mise en garde chez l'enfant attribuée au projet 2025. `autres[1].montre` : pics systoliques < 50 cm/s ou signal biphasique. |
+| N2 | Fait | **048** : `traitement[0]` et la source ERC 2025 ALS portent maintenant « non lu, À vérifier ; moment de l'amiodarone à vérifier ». **049** : même mention (algorithme bradycardie, non lu). |
+| N3 | Fait | Dates « Mise à jour de l'information » corrigées : Levetiracetam DESITIN cpr 65154 en avril 2023, Vabysmo 68395 en octobre 2026, Eylea 62393 en septembre 2026. Corrigées dans le traitement comme dans les sources. |
+
+JSON revalidé (51 entrées).
