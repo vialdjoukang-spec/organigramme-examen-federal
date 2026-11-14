@@ -64,3 +64,8 @@ IMG-027 | partiel | James Heilman, CC BY-SA 3.0, déplacement de la ligne média
 IMG-026 | partiel | Hellerhoff, CC BY-SA 3.0, contusions frontales droites | lésions axonales non vues
 IMG-025 | partiel | Lucien Monfils, CC BY-SA 3.0, croissant sous-dural aigu, flèches d'origine | forme chronique absente
 IMG-024 | partiel | Hellerhoff, CC BY-SA 3.0, lentille extradurale droite | injection non écrite
+IMG-023 | partiel | Palumbo et al., CC BY 4.0, SPECT ioflupane, putamina du panneau B | les autres syndromes parkinsoniens ne sont pas séparés
+IMG-022 | partiel | Nevit Dilmen, CC BY-SA 3.0, ventricules larges, LCS blanc | T2 non nommé ; sillons de la convexité non sur la coupe
+IMG-021 | introuvable | — | pas de T1 ; schéma et films de rats
+IMG-020 | introuvable | — | pas de T1 coronal ; le T1 trouvé est axial
+IMG-019 | partiel | Hellerhoff, CC BY-SA 3.0, T1 gadolinium, schwannome du conduit gauche déjà entouré | pas de rocher normal
