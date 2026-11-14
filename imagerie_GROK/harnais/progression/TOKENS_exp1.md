@@ -17,3 +17,5 @@ Quatrième lot, EXP-138 à EXP-134. Cinq introuvables. Une HGPO a été ouverte 
 Cinquième lot, EXP-133 à EXP-129. Quatre introuvables, un partiel. Le cadre vert cA 42 s était déjà sur le tracé ; le polygone a été élargi pour le couvrir. Un compte rendu avec numéro de dossier a été écarté. Estimation. Reprise : EXP-128.
 
 Sixième lot, EXP-128 à EXP-124. Deux partiels, trois introuvables. Le cadre rouge oA a été mesuré sur les pixels du fichier, puis revu sur l'aperçu. La conduction fibulaire normale a été lue (52 m/s). Estimation. Reprise : EXP-123.
+
+Septième lot, EXP-123 à EXP-119. Un partiel, quatre introuvables. Le reflux a été relu deux fois : le polygone a été abaissé jusqu'au pic sous la ligne de base. Estimation. Reprise : EXP-118.

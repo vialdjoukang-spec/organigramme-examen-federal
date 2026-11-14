@@ -56,4 +56,12 @@ Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error 
 - EXP-125 introuvable. Dynamomètre de Jamar photographié au repos, aiguille à zéro. Pas de lever de chaise.
 - EXP-124 introuvable. Timed Up and Go, Tinetti, vitesse de marche : rien.
 
-Prochain id : EXP-123.
+## EXP-123 à EXP-119
+
+- EXP-123 partiel. Grande saphène insuffisante à l'ostium, Valsalva positif, spectre sous la ligne de base (Nini00, CC BY-SA 3.0). Position debout non écrite. Pas de veine compétente. Pas de nom ; date 11 Nov 03 et service de Lagos sur l'en-tête.
+- EXP-122 introuvable. TcPO2 et pression d'orteil : rien. Open-i renvoie une fasciotomie.
+- EXP-121 introuvable. IPS : schémas du geste, pas de courbe. Thermographies Open-i en CC BY-NC-ND.
+- EXP-120 introuvable. Jamar photographié au repos, aiguille à zéro.
+- EXP-119 introuvable. ENMG de plexus : rien de libre. Open-i en page d'erreur.
+
+Prochain id : EXP-118.
