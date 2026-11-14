@@ -1,8 +1,10 @@
 # IMG-250 — modification générique du gabarit
 
+Les couleurs intégrées sont celles du 14.11.2026, 13 h 14 : fond `#E1F3FA`, bordure `#87CEEB`, texte `#0B2540`. Le diff ci-dessous est celui de la branche, écrit à 13 h 04 avec `#E6F4FF` et `#9CCBF0`.
+
 Appliquée sur la branche `cursor/vitrine-IMG-250` seulement, pour que les captures de cette paire montrent la règle de Vial du 14.11.2026, 13 h 04. Le fichier touché est `imagerie_GROK/harnais/scripts/app_template.html`. `build_app.py` n'est pas modifié.
 
-Cartes explicatives : fond `#E6F4FF`, bordure `#9CCBF0`, texte `#0B2540`.
+Cartes explicatives proposées alors : fond `#E6F4FF`, bordure `#9CCBF0`, texte `#0B2540`.
 
 - bulle de survol : `.atip:not(:empty)` et `.structTip`
 - indice : `.step`

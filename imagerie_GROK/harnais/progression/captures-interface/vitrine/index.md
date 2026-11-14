@@ -5,7 +5,7 @@
 - `03-anatomie-poumons.png` — Étape 2, poumons vert et turquoise, même couleur à gauche et à droite. À droite, le poumon droit s'arrête sur la ligne pleurale.
 - `04-anatomie-coeur.png` — Étape 3, silhouette cardiaque magenta, même ovale des deux côtés, posée sur l'opacité cardiaque.
 - `05-anatomie-diaphragme.png` — Étape 4, coupoles orange sur les bases.
-- `06-survol-poumon-droit-gauche.png` — Survol à gauche : les deux poumons droits s'allument, bulle blanche sur fond opaque.
+- `06-survol-poumon-droit-gauche.png` — Survol à gauche : les deux poumons droits s'allument, carte bleu ciel, texte foncé.
 - `07-survol-poumon-gauche-droite.png` — Survol à droite : l'homologue gauche s'allume aussi.
 - `08-survol-coeur.png` — Survol du cœur, remplissage magenta des deux côtés, description lisible.
 - `09-survol-paroi.png` — Survol de la paroi : le trait cyan s'épaissit des deux côtés, sans teinter tout le cliché. La description est au-dessus de chaque image.
@@ -18,7 +18,7 @@
 - `16-autres-lesions.png` — « Lésion révélée. » Aucune autre lésion n'est visible sur ce cliché.
 - `17-zoom-plus.png` — Zoom + sur la pathologique seule. Le trait pointillé suit l'image.
 - `18-zoom-lie.png` — Zoom lié : les deux côtés grandissent ensemble, le contour reste sur la lésion.
-- `19-survol-source.png` — Bulle Source opaque : auteur, CC0, URL et légende entiers.
+- `19-survol-source.png` — Bulle Source bleu ciel : auteur, CC0, URL et légende entiers.
 - `20-mobile-initiale.png` — Mobile. Les deux clichés tiennent à l'écran, avec l'âge, le sexe et « Diagnostic : Pneumothorax ».
 - `21-mobile-anatomie.png` — Mobile, les quatre couches, mêmes couleurs des deux côtés.
 - `22-mobile-survol.png` — Mobile, poumon droit allumé, et la description est écrite au-dessus de chaque cliché.

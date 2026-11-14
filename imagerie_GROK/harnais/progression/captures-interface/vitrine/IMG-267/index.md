@@ -8,7 +8,7 @@ Statut laissé **partiel**. `validate.py --only IMG-267` : 0 erreur. Pas un comp
 - `02-anatomie-paroi.png` — Étape 1, peau cyan des deux côtés.
 - `03-anatomie-clavicule.png` — Étape 2, clavicule jaune. Le trait suit le corps et s'arrête avant l'acromion.
 - `04-anatomie-tete.png` — Étape 3, tête magenta. Le trait s'arrête au col. Il ne descend pas dans la diaphyse.
-- `05-survol-tete-gauche-vers-droite.png` — Survol à gauche : les deux têtes s'allument, texte blanc sur fond opaque.
+- `05-survol-tete-gauche-vers-droite.png` — Survol à gauche : les deux têtes s'allument, texte foncé sur carte bleu ciel.
 - `06-survol-tete-droite-vers-gauche.png` — Survol à droite : l'homologue gauche s'allume aussi.
 - `07-survol-clavicule-gauche-vers-droite.png` — Les deux clavicules s'allument.
 - `08-survol-clavicule-droite-vers-gauche.png` — Survol inverse de la clavicule.
@@ -27,5 +27,5 @@ Statut laissé **partiel**. `validate.py --only IMG-267` : 0 erreur. Pas un comp
 - `20-survol-source.png` — Bulle : Häggström, CC0, URL, légende du vide articulaire.
 - `21-mobile-initiale.png` — Les deux clichés, âges, sexes, diagnostic.
 - `22-mobile-anatomie.png` — Trois couches, mêmes couleurs des deux côtés.
-- `23-mobile-survol.png` — Les deux têtes sont marquées survolées. Le texte de la bulle est peu lisible sur cette capture.
+- `23-mobile-survol.png` — Les deux têtes sont marquées survolées. Le texte foncé de la carte bleu ciel est lisible sur cette capture.
 - `24-mobile-source.png` — Bulle Source entière sur le cliché normal.

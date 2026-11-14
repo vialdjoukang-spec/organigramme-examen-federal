@@ -8,7 +8,7 @@ Bureau 1440×900, mobile 390×844. Statut validé : partiel. `validate.py --only
 - `02-anatomie-paroi.png` — Étape 1, paroi cyan des deux côtés, sur la peau. Petit décrochement postérieur sur la normale, au contact de la table.
 - `03-anatomie-poumons.png` — Étape 2, poumon droit vert et poumon gauche turquoise, même couleur des deux côtés. Le poumon droit pathologique est le plus petit.
 - `04-anatomie-coeur.png` — Étape 3, gros vaisseaux magenta. Le contour normal couvre le tronc pulmonaire et l'aorte, un peu en dedans du bord droit. Le contour pathologique s'arrête devant le corps vertébral.
-- `05-survol-poumon-droit-depuis-gauche.png` — Survol à gauche : les deux poumons droits s'allument, bulle blanche sur fond sombre.
+- `05-survol-poumon-droit-depuis-gauche.png` — Survol à gauche : les deux poumons droits s'allument, carte bleu ciel, texte foncé.
 - `06-survol-poumon-gauche-depuis-droite.png` — Survol à droite : l'homologue gauche s'allume aussi.
 - `07-survol-coeur.png` — Survol du cœur pathologique, remplissage magenta des deux côtés.
 - `08-survol-paroi.png` — Survol du trait de paroi : le nom s'affiche des deux côtés. L'épaississement du trait est peu visible. Le remplissage ne couvre pas le cliché.
@@ -22,7 +22,7 @@ Bureau 1440×900, mobile 390×844. Statut validé : partiel. `validate.py --only
 - `16-zoom-plus.png` — Zoom + sur la pathologique. Le pointillé, le poumon et le cœur suivent l'image.
 - `17-zoom-moins.png` — Un cran en arrière, le manteau reste dans le cadre.
 - `18-zoom-lie.png` — Zoom lié : les deux côtés grandissent ensemble. La normale garde en plus son échelle 1,12.
-- `19-survol-source.png` — Bulle Source opaque : Häggström, CC0, URL et légende.
+- `19-survol-source.png` — Bulle Source bleu ciel : Häggström, CC0, URL et légende.
 - `20-mobile-initiale.png` — Mobile. Âge, sexe, Source, diagnostic. Les deux clichés sont l'un sous l'autre.
 - `21-mobile-anatomie.png` — Mobile, trois couches, mêmes couleurs. Le bas du cliché pathologique sort de l'écran.
 - `22-mobile-survol.png` — Mobile, poumon droit allumé des deux côtés, description au-dessus de chaque cliché.

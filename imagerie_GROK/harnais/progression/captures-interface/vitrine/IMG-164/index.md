@@ -7,7 +7,7 @@ Bureau 1440×900. Mobile : viewport 390×844, image enregistrée en 2× (780×16
 - `03-anatomie-poumons.png` — Étape 2. Poumon droit vert #7CFF4F, poumon gauche turquoise #4DFFDF, même couleur des deux côtés.
 - `04-anatomie-coeur.png` — Étape 3. Silhouette magenta. Bords médiastinaux suivis ; sommet et base presque droits.
 - `05-anatomie-diaphragme.png` — Étape 4. À gauche, la coupole droite et la base gauche sont orange, le segment sous le cœur est plus droit. À droite, le trait est presque horizontal, avec un cran : il ne suit pas les coupoles.
-- `06-survol-poumon-droit-depuis-gauche.png` — Survol à gauche : les deux poumons droits s'allument, bulle blanche sur fond opaque.
+- `06-survol-poumon-droit-depuis-gauche.png` — Survol à gauche : les deux poumons droits s'allument, carte bleu ciel, texte foncé.
 - `07-survol-poumon-gauche-depuis-droite.png` — Survol à droite : l'homologue gauche s'allume aussi.
 - `08-survol-coeur.png` — Les deux silhouettes cardiaques s'épaississent, description lisible.
 - `09-survol-paroi.png` — Le trait cyan s'épaissit des deux côtés, sans remplir le cliché.

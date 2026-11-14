@@ -7,7 +7,7 @@ Bureau 1440×900, sauf les trois dernières (mobile 390×844). `validate.py --on
 - `03-anatomie-poumons.png` — Étape 2. Poumon droit vert, poumon gauche turquoise, le long des plages sombres. Encoche cardiaque à droite de l'image.
 - `04-anatomie-foie.png` — Étape 3. Foie orange sous le poumon droit. Le bord gauche du foie est assez droit. L'abdomen est coupé par le cadre.
 - `05-anatomie-coeur.png` — Étape 4. Magenta des deux côtés. À droite, le trait est crénelé et ne couvre que le panneau de fusion du haut.
-- `06-survol-coeur-gauche-vers-droite.png` — Survol du cœur à gauche : les deux cœurs s'allument, bulle blanche sur fond sombre, même texte.
+- `06-survol-coeur-gauche-vers-droite.png` — Survol du cœur à gauche : les deux cœurs s'allument, carte bleu ciel, texte foncé, même texte.
 - `07-survol-coeur-droite-vers-gauche.png` — Survol du cœur à droite : le cœur gauche s'allume aussi.
 - `08-survol-poumon-droit.png` — Le poumon droit s'allume seul. Pas de poumon sur le zoom pathologique.
 - `09-survol-poumon-gauche.png` — Même chose à gauche de la patiente.

@@ -2,7 +2,7 @@
 
 `validate.py --only IMG-250` : déclaré partiel, validé partiel, 0 erreur, 1 avertissement (plan : sagittal ≠ non précisé). Ce n'est pas un complet.
 
-Cartes (règle du 14.11.2026, 13 h 04) : fond `#E6F4FF`, bordure `#9CCBF0`, texte `#0B2540`. Le numéro de flèche sur l'image reste une pastille sombre.
+Cartes (règle du 14.11.2026, 13 h 14) : fond `#E1F3FA`, bordure `#87CEEB`, texte `#0B2540`. Le numéro de flèche sur l'image reste une pastille sombre.
 
 - `01-vue-initiale.png` — Bureau 1440×900. 36 ans · femme et 41 ans · femme, Source, indice « Diagnostic : Fibrome utérin » sur carte bleu ciel. Aucun trait. Zoom des deux côtés.
 - `02-anatomie-myometre.png` — Myomètre cyan des deux côtés. À gauche le trait longe le secteur coupé par le cadre. À droite il suit l'éventail.
@@ -10,7 +10,7 @@ Cartes (règle du 14.11.2026, 13 h 04) : fond `#E6F4FF`, bordure `#9CCBF0`, text
 - `04-survol-myometre-gauche-vers-droite.png` — Les deux myomètres s'allument. Bulle bleu ciel, même phrase des deux côtés.
 - `05-survol-myometre-droite-vers-gauche.png` — Survol à droite : l'homologue gauche s'allume aussi.
 - `06-survol-endometre-gauche.png` — Le feuillet s'allume à gauche. Rien en face : pas de contour homologue.
-- `07-legende-couleurs.png` — Légende bleu ciel. Pastilles `#00E5FF`, `#FF4DFF`, pointillé `#FF1744`. L'introduction dit « Technique non précisée » (le code US n'est pas reconnu). Aspects non sourcés : « à vérifier ».
+- `07-legende-couleurs.png` — Légende bleu ciel. Pastilles `#00E5FF`, `#FF4DFF`, pointillé `#FF1744`. L'introduction dit l'aspect échographique. Les aspects restent « à vérifier » : aucune source lue le 14.11.2026.
 - `08-indice-diagnostic.png` — Indice 1 : Fibrome utérin.
 - `09-indice-region.png` — Indice 2 : utérus.
 - `10-indice-signe.png` — Indice 3 : masse d'environ 5 cm.

@@ -7,7 +7,7 @@ Bureau 1440×900, mobile 390×844. `validate.py --only IMG-132` : partiel, 0 err
 - `03-anatomie-poumons.png` — Étape 2. Vert et turquoise, mêmes couleurs des deux côtés. Le poumon du côté du L ne couvre que l'apex encore clair.
 - `04-anatomie-coeur.png` — Étape 3. Silhouette magenta. À gauche elle suit le cœur, bord inférieur peu bombé. À droite elle ne couvre que le médiastin encore bordé par le poumon aéré.
 - `05-anatomie-diaphragme.png` — Étape 4. Orange sur les bases visibles. À droite, le trait suit la base du poumon clair, pas une coupole prouvée sous l'opacité.
-- `06-survol-poumon-droit-vers-droite.png` — Survol à gauche : les deux poumons droits s'allument, texte blanc sur fond sombre des deux côtés.
+- `06-survol-poumon-droit-vers-droite.png` — Survol à gauche : les deux poumons droits s'allument, texte foncé sur carte bleu ciel des deux côtés.
 - `07-survol-poumon-gauche-vers-gauche.png` — Survol à droite : l'homologue gauche s'allume, même texte.
 - `08-survol-coeur.png` — Les deux silhouettes cardiaques s'allument.
 - `09-survol-paroi.png` — Les quatre traits de paroi s'épaississent, sans remplir le cliché.
