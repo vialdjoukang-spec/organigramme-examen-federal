@@ -35,3 +35,6 @@ Auditeur indépendant, 14.11.2026. J'ai lu CORRECTIONS_TEXTE_TH.md, puis le text
 ## 3. Verdict
 
 **corrections requises** : 1 critique (N1) et 3 majeurs (N2–N4), tous corrigeables mot pour mot par les patchs ci-dessus. Une fois ces quatre patchs et les trois mineurs appliqués, TH peut recevoir « audit-ok » sans nouveau tour.
+
+## Clôture
+Patchs du V2 appliqués mot pour mot (149, 146, 147, 122, mineurs) : **audit-ok** pour le texte de TH (IMG-105 à 165), conformément au verdict.
