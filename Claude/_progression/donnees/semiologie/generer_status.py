@@ -289,7 +289,7 @@ th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px soli
 th{font-weight:700;border-bottom:2px solid #000;background:#FFFFFF}
 td:nth-child(1){width:34%%}td:nth-child(2){width:24%%}
 td ul{margin:0;padding-left:1.1em}td li{margin:0 0 4px}
-.cartes{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.cartes{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
 .carte{border:1px solid var(--trait);padding:12px 14px;min-width:0}
 .carte h4.carte-t{font-size:1.05rem;margin:0 0 6px}
 .carte-t{color:var(--carte)}
@@ -322,6 +322,7 @@ body.modal-ouverte .cadre{filter:blur(6px)}
 #fenetre .leg{margin:8px 40px 0 0}
 #fenetre .cr{font-size:.85rem;margin:4px 0 0}
 @media (max-width:860px){
+ html{scroll-padding-top:60px}
  .cadre{display:block}
  .basc{display:block;position:sticky;top:0;z-index:20;width:100%%;text-align:left;background:#FFFFFF;color:#000;border:0;border-bottom:2px solid #000;font:700 1rem system-ui,sans-serif;padding:12px 16px;cursor:pointer}
  nav.menu{position:static;height:auto;max-height:none;border-right:0;border-bottom:1px solid var(--fin);padding:8px 16px 16px;display:none}
