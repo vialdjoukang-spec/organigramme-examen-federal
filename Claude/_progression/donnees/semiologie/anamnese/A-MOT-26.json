@@ -64,27 +64,47 @@
  "drapeaux_rouges": [
   {
    "question": "Le mal de tête a-t-il atteint son maximum en moins d'une minute ?",
-   "si_oui": "Céphalée en coup de tonnerre : suspecter une hémorragie sous-arachnoïdienne et adresser aux urgences pour une TDM cérébrale sans injection immédiate, puis une ponction lombaire si la TDM est normale (déduction, non vérifié CH)."
+   "si_oui": "Céphalée en coup de tonnerre : suspecter une hémorragie sous-arachnoïdienne et adresser aux urgences ; une angio-TDM faite dans les 6 heures est très sensible ; au-delà de 6 heures et avec une imagerie normale, la ponction lombaire est indiquée (HUG 2022, tableau d'imagerie et § 5.3)."
   },
   {
    "question": "Avez-vous de la fièvre avec la nuque raide ou une confusion ?",
-   "si_oui": "Méningite ou encéphalite possibles : faire prélever les hémocultures et débuter l'antibiothérapie sans attendre l'imagerie, aux urgences."
+   "si_oui": "Méningite ou encéphalite possibles : faire prélever les hémocultures et débuter l'antibiothérapie sans attendre l'imagerie, aux urgences (HUG 2022, tableau 2 ; conduite : déduction, non vérifié CH)."
   },
   {
    "question": "Avez-vous eu une faiblesse, un trouble de la parole ou une perte de vision ?",
-   "si_oui": "Déficit neurologique : AVC, hématome ou masse ; orienter vers la filière AVC."
+   "si_oui": "Déficit neurologique : AVC, hématome ou masse ; orienter vers la filière AVC (déduction, non vérifié CH)."
   },
   {
    "question": "Avez-vous plus de 50 ans et est-ce un mal de tête nouveau, avec douleur en mâchant ou baisse de la vue ?",
-   "si_oui": "Artérite à cellules géantes : doser VS et CRP le jour même et traiter sans délai, car la cécité menace."
+   "si_oui": "Artérite à cellules géantes : doser VS et CRP le jour même et traiter sans délai, car la cécité menace (déduction, non vérifié CH)."
   },
   {
    "question": "Prenez-vous un anticoagulant, ou vous êtes-vous cogné la tête ?",
-   "si_oui": "Hématome intracrânien : TDM cérébrale en urgence."
+   "si_oui": "Hématome intracrânien : TDM cérébrale en urgence (déduction, non vérifié CH)."
   },
   {
    "question": "Êtes-vous enceinte ou avez-vous accouché récemment ?",
-   "si_oui": "Pré-éclampsie ou thrombose veineuse cérébrale : mesurer la tension, chercher une protéinurie, adresser en urgence."
+   "si_oui": "Pré-éclampsie ou thrombose veineuse cérébrale : mesurer la tension, chercher une protéinurie, adresser en urgence (déduction, non vérifié CH)."
+  },
+  {
+   "question": "Avez-vous eu un cancer, ou une maladie ou un traitement qui affaiblit vos défenses (VIH, greffe, chimiothérapie) ?",
+   "si_oui": "Céphalée nouvelle sur néoplasie ou immunodépression : chercher une métastase ou une infection opportuniste par imagerie cérébrale rapide (HUG 2022, tableau 2)."
+  },
+  {
+   "question": "Le mal de tête change-t-il avec la position, ou la toux, l'éternuement ou l'effort le déclenchent-ils ?",
+   "si_oui": "Céphalée positionnelle ou d'effort : chercher une hypo- ou hypertension du LCR, une masse de la fosse postérieure ou une thrombose veineuse ; demander une imagerie (HUG 2022, tableau 2)."
+  },
+  {
+   "question": "Ce mal de tête date-t-il de moins de 3 mois, a-t-il changé de caractère, ou s'aggrave-t-il de jour en jour ?",
+   "si_oui": "Céphalée récente ou progressive : examiner le fond d'œil (œdème papillaire) et demander une imagerie (HUG 2022, tableau 2)."
+  },
+  {
+   "question": "Avez-vous mal autour d'un œil, avec l'œil rouge qui larmoie ou une paupière tombante ?",
+   "si_oui": "Œil douloureux avec signes autonomes : algie vasculaire, mais aussi lésion hypophysaire ou du sinus caverneux, ou glaucome aigu ; demander une imagerie ou un avis ophtalmologique (HUG 2022, tableau 2)."
+  },
+  {
+   "question": "Prenez-vous un antidouleur plus de 10 à 15 jours par mois, ou avez-vous commencé un nouveau médicament juste avant ce mal de tête ?",
+   "si_oui": "Surconsommation d'antalgiques ou céphalée médicamenteuse : revoir le traitement et prévenir la chronicisation (HUG 2022, tableau 2)."
   }
  ],
  "hypotheses": [
@@ -95,7 +115,9 @@
     "hématome intracérébral",
     "thrombose veineuse cérébrale",
     "dissection carotidienne ou vertébrale",
-    "artérite à cellules géantes"
+    "artérite à cellules géantes",
+    "syndrome de vasoconstriction cérébrale réversible",
+    "apoplexie hypophysaire"
    ],
    "question_discriminante": "Le mal de tête est-il arrivé d'un coup, comme un coup de tonnerre ?"
   },
@@ -118,10 +140,11 @@
    "question_discriminante": "Le mal de tête est-il plus fort le matin et augmente-t-il quand vous toussez ?"
   },
   {
-   "lettre": "I (iatrogène)",
+   "lettre": "I (iatrogène, toxique)",
    "diagnostics": [
     "céphalée par abus de médicaments",
-    "céphalée des dérivés nitrés"
+    "céphalée des dérivés nitrés",
+    "intoxication au monoxyde de carbone"
    ],
    "question_discriminante": "Combien de jours par mois prenez-vous un antidouleur ?"
   },
@@ -172,6 +195,7 @@
  },
  "synthese_cs": "Exemple : patiente de 34 ans, céphalée maximale en moins d'une minute il y a 3 heures, sans fièvre ni déficit. Je retiens une hémorragie sous-arachnoïdienne jusqu'à preuve du contraire et je demande une TDM cérébrale sans injection en urgence.",
  "pieges": [
+  "Les 15 drapeaux rouges SNNOOP10 (HUG 2022, tableau 2) sont : symptômes systémiques dont fièvre, néoplasie, déficit neurologique, début brutal, âge > 50 ans, changement ou début récent (< 3 mois), céphalée positionnelle, déclenchée par la toux, l'éternuement ou l'effort, œdème papillaire, céphalée progressive ou atypique, grossesse ou post-partum, œil douloureux avec signes autonomes, début post-traumatique, immunodépression (VIH), surconsommation d'antalgiques ou nouveau médicament.",
   "Le soulagement par un antalgique ne distingue pas une céphalée primaire d'une céphalée secondaire (HUG 2022).",
   "L'absence de tous les drapeaux rouges SNNOOP10 rend une cause secondaire peu probable ; leur présence impose d'approfondir (HUG 2022).",
   "Le candidat oublie souvent de compter les jours d'antalgiques par mois : l'abus médicamenteux chronicise la céphalée.",
