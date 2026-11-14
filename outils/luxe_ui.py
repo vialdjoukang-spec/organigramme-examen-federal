@@ -27,7 +27,7 @@ def css():
 /* Skill designer : fond blanc, aplats francs, aucun trait. Les fenêtres .gm ne sont pas visées. */
 body{background:#fff}
 h1,#menu .mt,#menu li.g,.c .code,.c h2,#vue .tete b,.col h2,.col h3,.col h4,.ch>.eh,#fen .ft h3,#fen h4,#fen h5,#sco h3{
-  font-family:Fraunces,"Atkinson Hyperlegible",serif;font-weight:600;letter-spacing:-.02em;color:var(--e-titre,#000);border:none!important}
+  font-family:Fraunces,"Atkinson Hyperlegible",serif;font-weight:600;letter-spacing:-.02em;color:#000;border:none!important}
 #vue .tete b{font-size:1.45rem;line-height:1.12;font-weight:600}
 header.h,nav.on button,#theme,#themes,#themes button,#menu,.rail,.rail button,.c,.barre input,.pu,#planbtn,#vue .tete,#vue .tete button,#vue .tete a,#fen .x,#sco .x,#menu .x{
   border:none!important;border-radius:0!important;box-shadow:none!important}
@@ -40,7 +40,7 @@ nav.on button.a,#theme{background:var(--eye)}
 .rail button{padding:10px 8px;gap:10px;align-items:center;font-size:13px}
 .rail button.a{background:var(--eye)!important}
 .rail button b{border:none!important;background:transparent!important;min-width:0;padding:0;font-size:13px;font-weight:600}
-#menu,#menu a,.rail,.rail button{color:var(--e-menu,#111)}
+#menu,#menu a,.rail,.rail button{color:#111}
 .glyphe{display:inline-flex;flex:none;align-items:center;justify-content:center;color:currentColor}
 .glyphe svg{width:22px;height:22px;display:block}
 #themes{max-height:70vh;overflow:auto}

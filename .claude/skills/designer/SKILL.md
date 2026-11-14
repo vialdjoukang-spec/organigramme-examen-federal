@@ -28,4 +28,4 @@ Tu dessines l'interface pour qu'elle se lise d'un coup, avec beaucoup d'air et d
 - Sur le téléphone, le menu devient le tiroir Plan, le texte prend la largeur, et les onglets se lisent en entier.
 
 ## Contraste
-- Le texte sur un aplat atteint un contraste d'au moins 7:1. L'encre est `#111` ou `#fff`, selon le champ `encre` du rôle.
+- Le texte sur un aplat atteint un contraste d'au moins 7:1. Il reste `#111` ou `#000`. Une couleur sombre est atténuée de 65 % vers le blanc, une couleur claire de 0 %.
