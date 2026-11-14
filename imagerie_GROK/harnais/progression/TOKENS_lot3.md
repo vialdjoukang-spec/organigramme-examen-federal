@@ -127,3 +127,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 9 lectures (sclérose combinée ramenée sur les flèches, myélite dans la moelle, infarctus sur le segment fléché en diffusion). Estimation.
 - Durée : une passe. Estimation : Open-i a fourni la diffusion de l'infarctus en CC BY et a écarté la fistule en NC.
 - Épargné par les scripts (estimation) : `fetch_commons.py` a écarté le schéma des yeux de hibou ; `validate.py` a accepté les cinq fichiers sans erreur.
+
+## IMG-096, IMG-095, IMG-094, IMG-093, IMG-092
+
+- Éléments traités : 5 diagnostics, 4 partiels et 1 introuvable.
+- Appels de jugement visuel : environ 10 lectures (scoliose, fracture de L4 ramenée sur la flèche rouge, fracture de C2 ramenée sur la flèche blanche, STIR sacro-iliaque). Estimation.
+- Durée : une passe. Estimation : Open-i a renvoyé des licences inconnues ou NC. Une scoliose en appui a été écartée pour une date gravée.
+- Épargné par les scripts (estimation) : les catégories Commons ont donné la scoliose et les fractures ; `validate.py` a accepté les cinq fichiers sans erreur.

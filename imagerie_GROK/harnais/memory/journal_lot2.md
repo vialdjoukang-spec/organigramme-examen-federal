@@ -79,3 +79,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-099 | introuvable | recherches Commons vides, Open-i en CC BY-NC | piège : pas de vides de flux en licence blanche.
 - IMG-098 | partiel | Kobayashi, BMC Neurology 2022, CC BY 4.0, hypersignal de diffusion en crayon | piège : pas d'IRM de diffusion normale. Le schéma des yeux de hibou n'est pas une IRM.
 - IMG-097 | introuvable | recherches Commons vides, Open-i à licence inconnue | piège : pas de gadolinium de fibrose ou de récidive. Reprise à IMG-096.
+- IMG-096 | introuvable | échographies fœtales seulement, Open-i en NC-SA | piège : pas d'échographie du rachis d'un nouveau-né.
+- IMG-095 | partiel | Silverjonny, domaine public, scoliose idiopathique de l'adolescent, PA | piège : la station debout n'est pas écrite. Un autre cliché avait une date gravée.
+- IMG-094 | partiel | James Heilman, CC BY-SA 4.0, fracture comminutive de L4, flèche rouge | piège : injection et instabilité non écrites.
+- IMG-093 | partiel | Utz et al., Insights into Imaging 2013, CC BY 4.0, fracture des isthmes de C2 | piège : l'absence d'injection n'est pas écrite.
+- IMG-092 | partiel | Herregods et al., JBSR 2016, CC BY 4.0, STIR de sacro-iliite, flèches | piège : pas d'IRM normale. La légende dit que le cas ne remplit pas la définition ASAS. Reprise à IMG-091.
