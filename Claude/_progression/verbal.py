@@ -8,7 +8,7 @@ import json, re, sys, glob, os, importlib.util
 ici = os.path.dirname(os.path.abspath(__file__))
 spec = importlib.util.spec_from_file_location('c3', os.path.join(ici, '..', '_outils', 'controle3.py'))
 c3 = importlib.util.module_from_spec(spec); sys.argv, _a = [sys.argv[0]], sys.argv; spec.loader.exec_module(c3); sys.argv = _a
-EXEMPTS = {'id', 'module', 'type', 'titre', 'sous_onglet', 'systeme', 'etiquettes', 'entree_primaire', 'axe_secondaire',
+EXEMPTS = {'id', 'module', 'type', 'titre', 'fonction', 'mecanisme_nom', 'nom', 'sous_onglet', 'systeme', 'etiquettes', 'entree_primaire', 'axe_secondaire',
            'nom_exact', 'synonymes', 'sources', 'parametre', 'normal', 'seuil_alerte', 'cible', 'type_passerelle', 'code', 'cim10'}
 def phrases(v, chemin):
     if isinstance(v, dict):
