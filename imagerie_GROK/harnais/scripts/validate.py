@@ -9,8 +9,10 @@ Rules:
   E  licence in whitelist (CC0, Public domain/PD, CC BY x.y, CC BY-SA x.y); author + source_url present
   E  complet => modality, plane (and sequence when given) identical normal vs patho; modality matches cliché
   E  complet => image normale présente
-  E  complet => sexe établi par le champ sex (M ou F) et identique des deux côtés ; « À vérifier » ou champ vide interdit
-  E  sexe établi des deux côtés et discordant => erreur, quel que soit le statut
+  E  complet => les deux clichés sont d'un adulte (champ adulte = oui) et chaque oui a une adulte_preuve
+       (légende ou signe de maturité : physes soudées, dentition définitive, sutures ou morphologie adultes).
+  E  complet et région bassin, sein ou organes génitaux => sexe M/F écrit et identique des deux côtés
+  E  dans ces régions, sexes établis et discordants => erreur
   E  complet => contour rectangulaire de ≤ 5 points interdit
   E  complet => >= 1 arrow role=principale
   E  every arrow: tip/from in [0,1], label, role in whitelist, evidence, confidence in haute|moyenne|basse
@@ -70,6 +72,35 @@ def _pt(v):
     if not inunit(v):
         return None
     return (float(v[0]), float(v[1]))
+
+SEX_REG = re.compile(
+    r"\b(seins?|mammaire|mammographie|breast|utérus|uterus|utérin\w*|uterin\w*|ovaires?|"
+    r"prostate|testicules?|pénis|penis|vagin\w*|vulve|scrotum|endomètre|endometre|"
+    r"génitaux|genitaux|cervix|grossesse|placenta)\b|bassin(?!\s+versant)",
+    re.I)
+
+def sexe_requis(m, dx):
+    """Vial, 14.11.2026 10:48 : le sexe concordant n'est exigé que là où il change l'anatomie."""
+    if (dx or {}).get("region") == "Pelvis":
+        return True
+    blob = " ".join([
+        (dx or {}).get("dx") or "", (dx or {}).get("cliche") or "",
+        m.get("dx") or "", m.get("cliche") or "",
+        (m.get("normal") or {}).get("region") or "",
+        (m.get("patho") or {}).get("region") or "",
+    ])
+    return bool(SEX_REG.search(blob))
+
+def adulte_code(v):
+    """oui, non, '' si absent ou « À vérifier », None si illisible."""
+    s = norm(v)
+    if s in ("oui", "adulte", "adult", "yes"):
+        return "oui"
+    if s in ("non", "enfant", "child", "no"):
+        return "non"
+    if not s or s in ("à vérifier", "a vérifier", "a verifier"):
+        return ""
+    return None
 
 def sex_code(v):
     """M, F, '' si absent ou « À vérifier », None si la valeur n'est pas reconnue."""
@@ -178,14 +209,25 @@ def check(m, dx, errs, warns):
         if os.path.isfile(fa) and os.path.isfile(fb) and open(fa, "rb").read() == open(fb, "rb").read():
             errs.append("normal et patho identiques (même fichier)")
     sn, sp = sex_code(n.get("sex")), sex_code(p.get("sex"))
+    requis = sexe_requis(m, dx)
     if sn is None or sp is None:
         errs.append("sexe illisible (attendu : M, F ou « À vérifier »)")
-    elif sn and sp and sn != sp:
+    elif requis and sn and sp and sn != sp:
         errs.append(f"sexe discordant : normal {sn} ≠ patho {sp}")
-    elif st == "complet" and (not sn or not sp):
-        errs.append("complet : sexe non établi par la légende")
-    elif st == "partiel" and (n or p) and (not sn or not sp):
-        warns.append("sexe non établi par la légende")
+    elif requis and st == "complet" and (not sn or not sp or sn != sp):
+        errs.append("complet : sexe requis (bassin, sein ou organes génitaux) non concordant")
+    elif (not requis) and sn and sp and sn != sp:
+        warns.append(f"sexe différent hors région sexuelle : normal {sn} ≠ patho {sp}")
+    an, ap = adulte_code(n.get("adulte")), adulte_code(p.get("adulte"))
+    if an is None or ap is None:
+        errs.append("adulte illisible (attendu : oui, non ou « À vérifier »)")
+    elif st == "complet" and (an != "oui" or ap != "oui"):
+        errs.append("complet : les deux clichés doivent être ceux d'un adulte")
+    elif st == "complet":
+        for tag, side in (("normal", n), ("patho", p)):
+            preuve = (side.get("adulte_preuve") or "").strip()
+            if not preuve or norm(preuve) in ("à vérifier", "a vérifier", "a verifier"):
+                errs.append(f"complet : {tag} adulte sans adulte_preuve")
     if p and not p.get("caption_source"):
         warns.append("patho: caption_source absent")
     arrows = (p or {}).get("arrows") or []
