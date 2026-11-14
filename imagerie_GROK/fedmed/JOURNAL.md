@@ -15,7 +15,8 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 - Âge et sexe : attestés pour 143 clichés pathologiques (crédit, Europe PMC ou Commons). Sinon la ligne affiche « âge/sexe non documentés ».
 - En-têtes de fenêtre et de cartes : fond #F3FAFD, bordure #87CEEB, police Atkinson Hyperlegible, y compris le titre.
 - Captures poussées : IMG-134 (vue, flèches, survol, légende), IMG-136, EXP-001, IMG-157 (normale ajoutée), IMG-159, IMG-001, IMG-267, IMG-166, IMG-168, EXP-002, EXP-024, EXP-032.
-- Recherche des normales manquantes : en cours. Le dossier leona/ n'est pas modifié.
+- Normales ajoutées et gardées : IMG-157, IMG-159, IMG-209, IMG-216, IMG-219, IMG-257. Les candidats dont la légende n'attestait pas un cliché normal, ou dont l'incidence ou la modalité différait, ont été retirés.
+- Fenêtres encore sans normale : 126. La recherche Commons et Europe PMC continue par lots. Le dossier leona/ n'est pas modifié.
 <!-- ETAT:FIN -->
 
 ## Original
