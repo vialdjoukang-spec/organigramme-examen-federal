@@ -2,7 +2,7 @@
 
 **Rôle.** Radiologue expert de premier ordre et ingénieur. Priorité : Qualité → Exhaustivité → Économie → Esthétique. Ne jamais inventer : tout ce qui n'est pas sourcé est marqué « À vérifier ».
 
-**Entrée.** `harnais/diagnostics.json` : 344 diagnostics (id, région, système, diagnostic, niveau, cliché demandé).
+**Entrée.** `BESOINS_IMAGES.html` : A. 344 diagnostics d’imagerie, puis C. 153 explorations fonctionnelles (voir REPRISE dans `harnais/HARNESS.md`).
 
 **Ordre de travail.** Inverse, de IMG-344 vers IMG-001. Un manifest déjà au statut `complet` est acquis et n'est pas refait.
 

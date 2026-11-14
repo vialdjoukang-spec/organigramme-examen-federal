@@ -49,3 +49,8 @@ Requêtes API en anglais (terminologie radiologique), limitées ; légende lue e
 - Manifests de test : `manifest/TEST-*.json` (ignorés par défaut, `--include-test` pour les voir) — à supprimer après essai.
 
 ## Consigne Vial 2026-11-14 01:02 : ordre INVERSE (fin → début) dans chaque lot ; cadres de noms fermés par défaut, ouverts au clic sur le numéro.
+
+## REPRISE — ordre impératif (MAJ 2026-11-14 01:25)
+Source unique : `imagerie_GROK/BESOINS_IMAGES.html` (remplace l'ancien « Clichés à réunir »). Extraire ses tableaux avant tout.
+1. **A. Imagerie (IMG-001…344)** d'abord, ordre inverse 344 → 001 ; reprendre les manifests existants.
+2. **C. Explorations fonctionnelles (EXP-001…153)** une fois A achevé : paire tracé normal + pathologique, mêmes règles (licence, appariement, flèches, manifest). Courbes ventilatoires et tests dynamiques/métaboliques : schémas dessinés par script, sources de valeurs citées.
