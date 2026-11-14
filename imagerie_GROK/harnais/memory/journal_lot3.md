@@ -55,3 +55,8 @@ IMG-208 | introuvable | pas de radiographie du cou d'une pile bouton ni d'aimant
 IMG-207 | partiel | Hellerhoff 2020, pneumatose d'entérocolite ulcéro-nécrosante | pneumatose hépatique peu distincte
 IMG-206 | introuvable | pas de Doppler mésentérique de volvulus
 IMG-205 | partiel | Gaillard 2017, signe de la cible chez un enfant de 3 ans | pas d'anse normale
+IMG-204 | partiel | Dawes 2017, sténose du pylore à 6 semaines, flèche sur le canal | pas de pylore normal
+IMG-203 | partiel | Hellerhoff 2012, colectasie d'une rectocolite, abdomen couché | pas d'abdomen normal
+IMG-202 | partiel | Hellerhoff 2012, iléon terminal cerclé en entéro-IRM T2 | pas d'entéro-IRM normale
+IMG-201 | introuvable | pas de thorax debout de pneumopéritoine ; planche de 1906 hors licence
+IMG-200 | partiel | Hellerhoff 2023, grêle dilaté et grêle à jeun surligné | volvulus absent

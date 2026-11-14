@@ -43,3 +43,7 @@ Cinq diagnostics, tous partiels : hématome de la gaine des droits, hernie ingui
 ## Passage IMG-209 à IMG-205
 
 Cinq diagnostics : pneumatose d'entérocolite et cible d'invagination en partiel ; hémorragie triphasique, pile bouton et volvulus mésentérique introuvables. Relectures de la paroi mousseuse et des anneaux concentriques. Durée approximative : 20 minutes (estimation).
+
+## Passage IMG-204 à IMG-200
+
+Cinq diagnostics : pylore, colectasie, iléon terminal et bride en partiel ; pneumopéritoine introuvable. Relectures du canal pylorique, du côlon dilaté, du cercle rouge et du grêle orange. Durée approximative : 25 minutes (estimation).
