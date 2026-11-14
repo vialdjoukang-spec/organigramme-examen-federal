@@ -47,3 +47,6 @@ PATCH SY-10 `etiologies` :
 Ces points sont signalés honnêtement dans les fiches ; il faudra les sourcer au prochain passage.
 
 Question finale : **non** tant que C7 reste ouvert ; **oui** après C7 et l'arbitrage du botulisme.
+
+## Clôture
+Les patchs C7, botulisme et les deux légers ont été appliqués mot pour mot, comme le prévoyait l'auditeur : **audit-ok** pour SY-1 à SY-27.

@@ -31,3 +31,11 @@ Réponse à `AUDIT_SYNDROMES_01_27.md`. Toutes les doses ont été relues par UR
 - La dose quotidienne de prednisolone de l'essai de Sullivan 2007 manque : le résumé lu via PubMed ne la donne pas.
 - Les recommandations suisses (SSI, Société suisse de neurologie) n'ont pas été lues, et le script USZ Neurostatus n'a pas été récupéré.
 - La dose d'hydrocortisone (SY-21) et l'icatibant hors AOH (angio-œdème sous IEC) restent à vérifier.
+
+## Tour 2 (réponse à `AUDIT_SYNDROMES_01_27_V2.md`)
+
+- C7 — SY-21 : l'hydrocortisone est citée mot pour mot d'après l'AIPS Solu-CORTEF® n° 23533 (octobre 2025), relue par URL refdata le 14.11.2026. Indication : « Choc dû à insuffisance corticosurrénalienne ». L'AIPS donne des doses initiales jusqu'à 100 mg IV en 30 s au minimum, puis des doses toutes les 2, 4 ou 6 h. Elle ne fixe aucune dose pour la crise surrénalienne : le schéma revient à l'endocrinologue.
+- Botulisme — SY-10 : reclassé en « I (infectieux) » comme toxi-infection à Clostridium botulinum ; l'entrée « F » vaut désormais « — ».
+- L8 — SY-27 : le renvoi IMG-132 est retiré de la radiographie et gardé sur l'échographie.
+- L9 — SY-13 : les contre-indications AIPS du mannitol sont ajoutées (Mannitol 20% B. Braun n° 31754).
+- Les 27 JSON se rechargent avec json.load ; ni commit ni push.
