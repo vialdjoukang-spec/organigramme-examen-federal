@@ -64,3 +64,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-114 | partiel | Hellerhoff, CC BY-SA 4.0, distension emphysémateuse asymétrique ; normale Häggström PA | piège : le fichier dit PA, la légende dit AP ; BPCO non établie.
 - IMG-113 | partiel | Yale Rosen, CC BY-SA 2.0, métastases pulmonaires d'un carcinome rénal | piège : injection non visible ; lymphangite absente.
 - IMG-112 | partiel | Ptrump16, CC BY-SA 4.0, nodule calcifié cerclé sur TDM faible dose | piège : pas un cancer ; le dépistage n'est pas nommé. Reprise à IMG-111.
+- IMG-111 | partiel | Jmarchn, CC0, carcinome épidermoïde excavé, aorte opacifiée | piège : pas d'étage abdominal ni de TNM.
+- IMG-110 | partiel | Ptrump16, CC BY-SA 4.0, nodule calcifié unique sur TDM faible dose | piège : le cliché fléché avait un numéro d'examen. Calcification bénigne.
+- IMG-109 | partiel | Hellerhoff, CC BY-SA 3.0, TDM axiale de pneumonie COVID-19 | piège : injection non écrite ; grippe absente.
+- IMG-108 | partiel | Christaras A, CC BY 2.5, pneumonie avec cavernes et abcès, PA ; normale Häggström | piège : atteinte bilatérale, une seule caverne contourée.
+- IMG-107 | partiel | Allen et al., Ann Thorac Med 2010, CC BY 4.0, pneumocystose en TDM haute résolution | piège : autres mycoses absentes. « A57 » n'est pas un nom. Reprise à IMG-106.
