@@ -47,3 +47,6 @@ Mise à jour : 11.11.2026. Une consigne nouvelle s'ajoute ici le jour même.
 22. **File active** = 10 LOTs menés en parallèle ; une seule file active à la fois ; la suivante commence quand la précédente est close.
 23. Phase A du LOT n finie → Claude enchaîne la Phase A du LOT n+1 pendant que les agents avancent. Un agent performant est maintenu ; il est remplacé (gratuitement) après ≤ 10 chapitres cumulés ou plus tôt s'il faiblit.
 24. La page de progression se met à jour seule (script gratuit) à chaque LOT fusionné avec son contre-audit.
+
+
+**Ordre des sources (Vial, 14.11.2026)** : Suisse d'abord (société savante, faculté de médecine, OFSP, AIPS) → sinon société savante européenne → en dernier et pire recours l'OMS ; préciser entre parenthèses toute source non suisse. **Images** : jamais créées par l'IA pour la clinique ou l'imagerie ; uniquement des images réelles tirées d'Internet sous licence libre (ou fournies par Vial).
