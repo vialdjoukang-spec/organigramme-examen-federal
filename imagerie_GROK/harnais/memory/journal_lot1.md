@@ -17,3 +17,5 @@ IMG-074 | partiel | Nevit Dilmen, CC BY-SA 3.0, kyste médian anéchogène | pas
 IMG-073 | partiel | Nevit Dilmen, CC BY-SA 3.0, calcul de Wharton fléché | sialadénite non vue ; pas de normal
 IMG-072 | partiel | Schomynv, CC BY-SA 3.0, adénome pléomorphe parotidien, PAROTID TRV | cytologie non revue ; pas de normal
 IMG-071 | partiel | Mme Mim, CC BY-SA 4.0, ganglion rond sans hile, métastase de mélanome | siège cervical non écrit ; pas de normal
+IMG-070 | partiel | Hellerhoff, CC BY-SA 3.0, adénome parathyroïdien droit, flèche verte | pas de normal
+IMG-069 | partiel | Drahreg01, CC BY-SA 3.0, lobe droit longitudinal, Hashimoto | De Quervain absent ; pas de normal
