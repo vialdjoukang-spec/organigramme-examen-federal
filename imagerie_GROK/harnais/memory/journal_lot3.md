@@ -80,3 +80,8 @@ IMG-183 | introuvable | pas de bili-IRM hépatospécifique de fuite biliaire
 IMG-182 | introuvable | pas d'échographie d'atrésie ni de kyste du cholédoque
 IMG-181 | partiel | Sumiya 2021, polype de 10 mm du collet vésiculaire | cancer non inscrit sur l'image
 IMG-180 | introuvable | pas de bili-IRM ; cholangiographie et MRCP hors licence écartées
+IMG-179 | partiel | Samir 2013, cholangiocarcinome déjà cerclé | ampullome absent, injection non écrite
+IMG-178 | partiel | Cerevisae 2022, calcul du cholédoque et voie dilatée déjà légendés | angiocholite absente
+IMG-177 | partiel | Dilmen 2012, calcul vésiculaire avec cône d'ombre | plan de la vésicule normale non écrit
+IMG-176 | partiel | Cerevisae 2023, paroi épaissie et calcul déjà légendés | plan axial contre vésicule normale non précisée
+IMG-175 | introuvable | pas de Doppler de TIPS ni de transplantation ; Open-i en page d'erreur

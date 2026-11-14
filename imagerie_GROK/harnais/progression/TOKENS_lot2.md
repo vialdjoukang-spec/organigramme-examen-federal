@@ -63,3 +63,7 @@ Cinq diagnostics : pancréatite auto-immune fléchée, TIPMP en bili-IRM, adéno
 ## Passage IMG-184 à IMG-180
 
 Cinq diagnostics : pancréatite exsudative et polype vésiculaire en partiel ; fuite biliaire, atrésie ou kyste du cholédoque, et cholangite sclérosante introuvables. Relecture pour tenir la coulée hors de l'estomac et le polype dans le panneau mode B. Durée approximative : 25 minutes (estimation). Open-i a répondu ; les MRCP de cholangite sclérosante étaient hors licence (estimation).
+
+## Passage IMG-179 à IMG-175
+
+Cinq diagnostics : cholangiocarcinome cerclé, calcul du cholédoque, calcul vésiculaire et cholécystite lithiasique en partiel ; Doppler de TIPS ou de transplantation introuvable. Une vésicule sans calcul sert de normale aux deux échographies vésiculaires. Relectures du cerclage, du calcul cholédocien et de la paroi. Durée approximative : 25 minutes (estimation). Open-i a d'abord renvoyé une page d'erreur, puis la vésicule normale (estimation).
