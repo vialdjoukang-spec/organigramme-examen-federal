@@ -85,4 +85,6 @@ IMG-264 | introuvable | pas de Doppler de rétention placentaire | histologie, e
 IMG-263 | partiel | CDC/Jim Gathany, domaine public, fœtus en mode B | une coupe ; pas de pathologie nommée
 IMG-262 | introuvable | pas de Doppler ombilical de retard de croissance | le spectre légendé inversé n'était pas inversé
 IMG-261 | introuvable | pas d'échographie endovaginale de placenta prævia | schémas, sus-pubien ou Doppler peropératoire
+IMG-260 | partiel | X.Compagnion, domaine public, clarté nucale, calipers | premier trimestre seulement
+IMG-259 | partiel | Häggström, CC0, sac sans embryon, endovaginal | pas de caliper sur l'image
 

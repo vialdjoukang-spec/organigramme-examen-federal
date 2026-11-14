@@ -154,3 +154,12 @@ Reprise : IMG-265.
 - Épargné par les scripts (estimation) : Open-i est resté en page HTML. Europe PMC a donné les légendes avant le téléchargement. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-260.
+
+## Passe IMG-260 à IMG-259
+
+- Éléments traités : 2 diagnostics, fin de la plage. Deux partiels. Aucun complet.
+- Appels de jugement visuel : environ 4 lectures. Le cadre de la clarté nucale a été remonté sur les calipers. Le sac a été élargi jusqu'à la vésicule vitelline. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les légendes Commons ont fixé le diagnostic avant le contour. Le gain chiffré n'est pas mesuré.
+
+Reprise : aucun id manquant de IMG-280 à IMG-259.
