@@ -55,3 +55,12 @@ Reprise : IMG-320.
 - Épargné par les scripts (estimation) : le filtre de licence a écarté les planches d'atlas avant lecture. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-315.
+
+## Passe IMG-315 à IMG-311
+
+- Éléments traités : 5 diagnostics. Deux partiels, trois introuvables. Aucun complet.
+- Appels de jugement visuel : environ 6 lectures. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les recherches vides ont clos trois introuvables sans téléchargement. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-310.

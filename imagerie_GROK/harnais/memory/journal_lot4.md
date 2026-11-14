@@ -30,4 +30,9 @@ IMG-319 | partiel | Hellerhoff, CC BY-SA 3.0, exostose du fémur distal, deux in
 IMG-318 | partiel | Richardson, CC BY-SA 3.0, Ewing du tibia, flèche source | une incidence ; ostéosarcome humain licencié absent
 IMG-317 | introuvable | pas de critères d'agressivité en deux incidences | ostéosarcomes hors licence, chien, ou thorax
 IMG-316 | partiel | Heilman, CC BY-SA 4.0, gaz de fasciite nécrosante | injection non écrite sur la légende
+IMG-315 | partiel | Jto410, CC BY-SA 3.0, STIR d'ostéomyélite tibiale subaiguë | pas l'enfant, pas le tableau aigu
+IMG-314 | introuvable | pas d'échographie d'anévrisme poplité | le dessin de gangrène n'est pas une échographie
+IMG-313 | introuvable | pas de Doppler de faux anévrisme fémoral | catégorie vide
+IMG-312 | partiel | Häggström, CC0, reflux saphène en B-flow | position debout non écrite
+IMG-311 | introuvable | pas de Doppler artériel de membre | recherches Commons vides
 
