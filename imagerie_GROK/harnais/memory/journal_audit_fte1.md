@@ -11,3 +11,8 @@ FTE-52 | confirmé | Introuvable, aucun fichier. Le manifeste écarte un kit de 
 FTE-51 | confirmé | Introuvable, aucun fichier. Pas de vidéofluoroscopie ni de FEES retenue ; les requêtes sont présentes.
 FTE-50 | confirmé | Introuvable, aucun fichier. La requête cherche une échographie périnéale, aucun tracé normal n'est retenu.
 FTE-49 | confirmé | Introuvable, aucun fichier. Les requêtes de cystomanométrie et de débitmétrie sont présentes.
+FTE-48 | confirmé | Introuvable, aucun fichier. Les requêtes cherchent une courbe de débitmétrie normale.
+FTE-47 | confirmé | Introuvable, aucun fichier. Le manifeste écarte un cliché de marqueurs encore tous présents au 7e jour ; les requêtes sont présentes.
+FTE-46 | confirmé | Introuvable, aucun fichier. Les requêtes de pH-impédancemétrie œsophagienne sont présentes.
+FTE-45 | confirmé | Introuvable, aucun fichier. La requête nomme un schéma de ballonnet, pas une courbe de pressions.
+FTE-44 | corrigé | CC BY-SA 3.0, Sudip K. Ghosh, description relue. Le polygone coupait le bleu et la pointe était hors du rouge ; le contour suit la bande distale, pointe au bord d'amont. Reste partiel : sphincter supérieur, jonction et diaphragme crural non contournés, pas de tracé pathologique.
