@@ -31,3 +31,13 @@ Prochain id : EXP-138.
 - EXP-139 introuvable. Jeûne de 72 h : la requête « fast » ramène un kit social et des autotests COVID.
 
 Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error ».
+
+## EXP-138 à EXP-134
+
+- EXP-138 introuvable. HGPO Powner 2014 relue : à 120 min les glycémies sont vers 6 mmol/L, pas un diabète. Pas d'autre courbe.
+- EXP-137 introuvable. Freinage, cortisol salivaire, cortisol libre : rien. DST Global.png est un logo.
+- EXP-136 introuvable. Synacthène et stimulation à l'ACTH : rien.
+- EXP-135 introuvable. Oxymètres et courbe de dissociation, pas une oxymétrie de nuit.
+- EXP-134 introuvable. « MWT » ramène un colloque.
+
+Prochain id : EXP-133.
