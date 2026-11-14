@@ -33,4 +33,9 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-147 | introuvable | Commons : histologie et schéma, pas d'IRM T2 ; Open-i en erreur HTML | piège : rien en T2 cardiaque.
 - IMG-146 | introuvable | épanchement avec numéro d'examen, écho de chien, tamponnade avec prénom MATEJ | piège : identifiants.
 - IMG-145 | partiel | Koya 2004, BMC Nephrology, CC BY 2.0, végétation tricuspide fléchée | piège : pas de voie transœsophagienne. Open-i en NC-ND.
-- IMG-144 | partiel | Pantaleo 2012, BMC Cancer, CC BY 2.0, subocclusions du tronc commun et de la circonflexe, flèches | piège : angioplastie absente. Reprise à IMG-143.
+- IMG-144 | partiel | Pantaleo 2012, BMC Cancer, CC BY 2.0, subocclusions du tronc commun et de la circonflexe, flèches | piège : angioplastie absente.
+- IMG-143 | partiel | Doregan, CC BY-SA 4.0, rehaussement tardif, infarctus inférieur | piège : viabilité non mesurée ; pas de normale.
+- IMG-142 | partiel | Eckert 2015, IJMS, CC BY 4.0, sténose serrée de l'IVA au coroscanner | piège : marque HNCV ; pas de normale.
+- IMG-141 | partiel | Hellerhoff, CC BY-SA 3.0, hernie diaphragmatique gauche du nouveau-né | piège : pas de thorax néonatal normal.
+- IMG-140 | partiel | Jto410, CC BY-SA 3.0, TDM sagittale, rupture de l'œsophage distal | piège : pas d'opacification orale hydrosoluble.
+- IMG-139 | partiel | Pota 2018, J Med Case Rep, PMC5834850, CC BY 4.0, médiastinite nécrosante | piège : la collection vue est surtout pleurale ; confiance basse. Reprise à IMG-138.

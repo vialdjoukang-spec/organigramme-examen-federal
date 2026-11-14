@@ -64,3 +64,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 12 lectures (Doppler aortique, échos de péricarde rejetés pour identifiant ou espèce, végétation et son contour abaissé, deux coronarographies). Estimation.
 - Durée : une passe. Estimation : Open-i répondait tantôt par une page HTML, tantôt par des licences NC-ND.
 - Épargné par les scripts (estimation) : `fetch_commons.py` a listé les catégories vides de myocardite en IRM et a marqué les vidéos ; `validate.py` a accepté les introuvables et les partiels sans normale.
+
+## IMG-143, IMG-142, IMG-141, IMG-140, IMG-139
+
+- Éléments traités : 5 diagnostics, tous partiels.
+- Appels de jugement visuel : environ 10 lectures (rehaussement tardif, sténose de l'IVA, hernie néonatale, deux TDM de Boerhaave, médiastinite et contour resserré deux fois). Estimation.
+- Durée : une passe. Estimation : Open-i a donné des licences NC pour l'infarctus et une page d'erreur pour la médiastinite.
+- Épargné par les scripts (estimation) : `fetch_commons.py` a trouvé le fichier « 4CH IR infarct » et la catégorie Boerhaave ; `validate.py` a contrôlé les cinq manifestes sans erreur.
