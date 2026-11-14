@@ -13,7 +13,7 @@ for x in d['imagerie']:
     g = enr.get(x['id'], {}).get('gold', {}).get('examen')
     im = enr.get(x['id'], {}).get('images', {})
     ac = im.get('a_chercher') or {}
-    cl = (f"<b>Normal :</b> {E(ac['normal'])}<br><b>Pathologique :</b> {E(ac['patho'])}" if ac.get('patho')
+    cl = (f"<b>Normal :</b> {E(ac.get('normal','(normal trouvé)'))}<br><b>Pathologique :</b> {E(ac['patho'])}" if ac.get('patho')
           else E(g or f"{t['tech']} — {t['detail'].split(',')[0].strip()}"))
     st = 'trouvé' if im.get('patho') else ('manque' if im.get('manque') else 'à chercher')
     n_ok += st == 'trouvé'
