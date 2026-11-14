@@ -69,3 +69,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-109 | partiel | Hellerhoff, CC BY-SA 3.0, TDM axiale de pneumonie COVID-19 | piège : injection non écrite ; grippe absente.
 - IMG-108 | partiel | Christaras A, CC BY 2.5, pneumonie avec cavernes et abcès, PA ; normale Häggström | piège : atteinte bilatérale, une seule caverne contourée.
 - IMG-107 | partiel | Allen et al., Ann Thorac Med 2010, CC BY 4.0, pneumocystose en TDM haute résolution | piège : autres mycoses absentes. « A57 » n'est pas un nom. Reprise à IMG-106.
+- IMG-106 | partiel | Giller Boris, CC0, caverne fibreuse de l'apex gauche ; normale Häggström PA | piège : texte illisible en bas, aucun nom.
+- IMG-105 | partiel | Hellerhoff, CC BY-SA 3.0, pneumonie sur le profil ; normale Häggström PA | piège : la face du même cas montre peu l'infiltrat.
+- IMG-104 | partiel | Chan et Oh, Int J Emerg Med 2016, CC BY 4.0, compression de la queue de cheval en T2 | piège : pas d'IRM normale.
+- IMG-103 | partiel | Cyborg Ninja, flèche de User:SUM1, CC BY 4.0, cavité cervicale en T2 | piège : la pondération demandée est T1. Le T1 trouvé était en NC.
+- IMG-102 | partiel | Lucien Monfils, CC BY-SA 3.0, épendymome cervical entouré en rouge | piège : gadolinium non indiqué. Reprise à IMG-101.

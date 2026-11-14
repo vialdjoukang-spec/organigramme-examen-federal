@@ -113,3 +113,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 9 lectures (carcinome excavé déplacé hors de l'aorte, nodule faible dose, COVID, abcès, pneumocystose et la mention A57). Estimation.
 - Durée : une passe. Estimation : un nodule fléché a été écarté pour un numéro d'examen gravé.
 - Épargné par les scripts (estimation) : `fetch_commons.py` a donné les licences ; `validate.py` a accepté les cinq partiels sans erreur.
+
+## IMG-106, IMG-105, IMG-104, IMG-103, IMG-102
+
+- Éléments traités : 5 diagnostics, tous partiels.
+- Appels de jugement visuel : environ 10 lectures (caverne tuberculeuse, profil de pneumonie, compression lombaire, seringomyélie ramenée sur la flèche, épendymome et sa pointe dans le tracé rouge). Estimation.
+- Durée : une passe. Estimation : Open-i a renvoyé des licences NC ou inconnues.
+- Épargné par les scripts (estimation) : la catégorie des radiographies de tuberculose a donné la caverne en CC0 ; `validate.py` a accepté les cinq partiels sans erreur.
