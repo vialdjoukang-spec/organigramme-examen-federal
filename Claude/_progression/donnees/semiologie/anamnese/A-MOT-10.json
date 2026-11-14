@@ -1,0 +1,172 @@
+{
+  "id": "A-MOT-10",
+  "titre": "Diarrhée",
+  "systeme": "S5 — Digestif et hépato-bilio-pancréatique",
+  "niveau": "m",
+  "ssp": "59",
+  "ouverture": "Parlez-moi de cette diarrhée.",
+  "questions": [
+    {
+      "axe": "Temps",
+      "items": [
+        "Depuis quand : quelques jours, plus de 2 semaines, plus d'un mois ?",
+        "Combien de selles par jour ?",
+        "Allez-vous à selle aussi la nuit ?"
+      ]
+    },
+    {
+      "axe": "Caractéristiques",
+      "items": [
+        "Les selles sont-elles liquides, molles, grasses et difficiles à évacuer ?",
+        "Y a-t-il du sang, du pus ou des glaires ?",
+        "Quelle quantité : beaucoup ou de petites quantités fréquentes ?",
+        "Avez-vous de la fièvre ? Combien ?",
+        "Avez-vous mal au ventre, des crampes, des vomissements ?",
+        "Avez-vous soif, la bouche sèche, des vertiges en vous levant, peu d'urines ?",
+        "Avez-vous maigri ?"
+      ]
+    },
+    {
+      "axe": "Facteurs d'influence",
+      "items": [
+        "Avez-vous voyagé récemment ? Où ?",
+        "Avez-vous mangé quelque chose de suspect : fruits de mer, œufs, viande peu cuite ?",
+        "D'autres personnes autour de vous sont-elles malades ?",
+        "Avez-vous pris des antibiotiques ces trois derniers mois ?",
+        "Est-ce lié au lait, au gluten, au stress ?"
+      ]
+    },
+    {
+      "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+      "items": [
+        "Avez-vous une maladie inflammatoire de l'intestin ou une maladie qui affaiblit l'immunité ? Prenez-vous des immunosuppresseurs ?",
+        "Avez-vous été hospitalisé récemment ? Vivez-vous en EMS ?",
+        "Avez-vous des rapports sexuels anaux ?",
+        "Êtes-vous enceinte ?",
+        "Travaillez-vous dans l'alimentation, une crèche ou les soins ?",
+        "Y a-t-il dans votre famille une maladie de Crohn, une colite, une maladie cœliaque, un cancer du côlon ?",
+        "Quels médicaments prenez-vous : metformine, laxatifs, magnésium ?"
+      ]
+    }
+  ],
+  "drapeaux_rouges": [
+    {
+      "question": "Avez-vous du sang dans les selles ?",
+      "si_oui": "Drapeau rouge HUG 2023 : colite invasive, MICI, ischémie ; coprocultures, discuter hospitalisation et antibiothérapie empirique."
+    },
+    {
+      "question": "Avez-vous plus de 38,5 °C de fièvre ?",
+      "si_oui": "Drapeau rouge HUG 2023 : diarrhée invasive ; examens et antibiothérapie à discuter."
+    },
+    {
+      "question": "Avez-vous des vertiges en vous levant, peu d'urines, la bouche très sèche ?",
+      "si_oui": "Déshydratation clinique (SY-81) : réhydratation, électrolytes, fonction rénale."
+    },
+    {
+      "question": "Avez-vous pris des antibiotiques ces trois derniers mois ou été hospitalisé ?",
+      "si_oui": "Colite à Clostridioides difficile (IMG-196) : recherche de toxine."
+    },
+    {
+      "question": "Prenez-vous des immunosuppresseurs, avez-vous plus de 65 ans, êtes-vous enceinte ?",
+      "si_oui": "Drapeaux rouges liés au patient (HUG 2023) : seuil bas pour les examens et l'hospitalisation."
+    },
+    {
+      "question": "Avez-vous la diarrhée depuis plus de 4 semaines, avec perte de poids ou réveils nocturnes ?",
+      "si_oui": "Diarrhée chronique organique : MICI, malabsorption (SY-39), néoplasie ; bilan."
+    }
+  ],
+  "hypotheses": [
+    {
+      "lettre": "I — Infectieux",
+      "diagnostics": [
+        "gastro-entérite virale (norovirus)",
+        "bactérie invasive (Campylobacter, Salmonella, Shigella, E. coli entéro-hémorragique)",
+        "C. difficile",
+        "parasite (Giardia) après voyage"
+      ],
+      "question_discriminante": "Avez-vous voyagé, pris des antibiotiques, ou d'autres personnes sont-elles malades ?"
+    },
+    {
+      "lettre": "A — Auto-immun et inflammatoire",
+      "diagnostics": [
+        "maladie de Crohn (IMG-202)",
+        "rectocolite hémorragique (IMG-203)",
+        "maladie cœliaque",
+        "colite microscopique"
+      ],
+      "question_discriminante": "Allez-vous à selle la nuit, avec du sang, depuis des semaines ?"
+    },
+    {
+      "lettre": "Ia — Iatrogène",
+      "diagnostics": [
+        "antibiotiques",
+        "metformine, laxatifs, magnésium, IPP",
+        "colite aux inhibiteurs de checkpoint"
+      ],
+      "question_discriminante": "Avez-vous commencé un nouveau médicament ?"
+    },
+    {
+      "lettre": "V — Vasculaire",
+      "diagnostics": [
+        "colite ischémique"
+      ],
+      "question_discriminante": "Avez-vous plus de 60 ans, une maladie des artères, et une douleur brutale suivie de sang ?"
+    },
+    {
+      "lettre": "T — Tumoral",
+      "diagnostics": [
+        "cancer colorectal",
+        "tumeur neuroendocrine"
+      ],
+      "question_discriminante": "Avez-vous plus de 50 ans, maigri, ou du sang dans les selles ?"
+    },
+    {
+      "lettre": "F — Fonctionnel et métabolique",
+      "diagnostics": [
+        "syndrome de l'intestin irritable",
+        "hyperthyroïdie (SY-50)",
+        "intolérance au lactose",
+        "insuffisance pancréatique exocrine"
+      ],
+      "question_discriminante": "La diarrhée disparaît-elle la nuit et après la selle la douleur cède-t-elle ?"
+    }
+  ],
+  "idees_craintes_attentes": [
+    "Qu'est-ce qui vous inquiète ?",
+    "Pensez-vous que c'est lié à quelque chose que vous avez mangé ?",
+    "Qu'attendez-vous : un médicament, un certificat, des examens ?"
+  ],
+  "liens": {
+    "status": [
+      "S-01",
+      "S-12",
+      "S-15",
+      "S-03"
+    ],
+    "syndromes": [
+      "SY-81",
+      "SY-39",
+      "SY-79",
+      "SY-32",
+      "SY-50"
+    ],
+    "imagerie": [
+      "IMG-196",
+      "IMG-202",
+      "IMG-203",
+      "IMG-197"
+    ]
+  },
+  "synthese_cs": "Monsieur X, 70 ans, sous immunosuppresseurs, présente depuis 4 jours une diarrhée sanglante avec fièvre à 39 °C, 3 semaines après une antibiothérapie. Il cumule plusieurs drapeaux rouges : j'évoque une colite à C. difficile ou bactérienne invasive, je demande coprocultures et toxine, j'évalue la déshydratation et je discute l'hospitalisation.",
+  "pieges": [
+    "Prescrire du lopéramide en cas de diarrhée sanglante ou fébrile.",
+    "Oublier de rechercher le voyage, l'antibiothérapie récente et le contexte professionnel (alimentation, crèche).",
+    "Prescrire des antibiotiques à toutes les diarrhées aiguës : la plupart guérissent spontanément (HUG 2023)."
+  ],
+  "sources": [
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « Les diarrhées aiguës », 2023 (tableau 1 des drapeaux rouges) — lu (14.11.2026)",
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « La douleur abdominale chronique d'origine digestive », 2023 (red flags) — lu (14.11.2026)",
+    "ASSM, « La communication dans la médecine au quotidien », guide pratique, 3e éd. 2022 (texte inchangé depuis 2019), § 2.2 ARRR et § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence), CC BY 4.0, DOI 10.5281/zenodo.7148494 — lu (texte intégral, 14.11.2026)",
+    "PROFILES 2017, Joint Commission of the Swiss Medical Schools : EPA 1 (1.1 à 1.13, 1a à 1g) et liste des situations SSP — lu (texte intégral, 14.11.2026)"
+  ]
+}

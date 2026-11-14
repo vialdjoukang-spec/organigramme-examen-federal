@@ -1,0 +1,217 @@
+{
+  "id": "A-MOT-8",
+  "titre": "Douleur abdominale",
+  "systeme": "S5 — Digestif et hépato-bilio-pancréatique",
+  "niveau": "m",
+  "ssp": "52, 203 (et 53, 54)",
+  "ouverture": "Racontez-moi cette douleur au ventre depuis le début.",
+  "questions": [
+    {
+      "axe": "Temps",
+      "items": [
+        "Quand la douleur a-t-elle commencé ?",
+        "Est-elle venue d'un coup, en quelques secondes, ou progressivement ?",
+        "Est-elle permanente ou vient-elle par vagues ?",
+        "Est-ce la première fois ? Depuis combien de temps cela revient-il ?"
+      ]
+    },
+    {
+      "axe": "Lieu",
+      "items": [
+        "Montrez-moi avec un doigt où vous avez mal.",
+        "Où la douleur a-t-elle commencé, et où est-elle maintenant ?",
+        "Est-ce que la douleur part dans le dos, l'épaule, l'aine ou les organes génitaux ?"
+      ]
+    },
+    {
+      "axe": "Caractéristiques",
+      "items": [
+        "Comment est la douleur : crampe, coup de poignard, brûlure, pesanteur ?",
+        "Combien sur 10 ?",
+        "Avez-vous vomi ? Quoi : de la nourriture, de la bile, du sang, quelque chose qui sent les selles ?",
+        "Allez-vous à selle ? Avez-vous des gaz ? Diarrhée, sang, selles noires ?",
+        "Avez-vous de la fièvre, des frissons ?",
+        "Avez-vous les yeux jaunes, les urines foncées ?",
+        "Avez-vous des brûlures en urinant ?"
+      ]
+    },
+    {
+      "axe": "Facteurs d'influence",
+      "items": [
+        "Qu'est-ce qui aggrave : manger, bouger, tousser, respirer ?",
+        "Cherchez-vous une position qui soulage, ou restez-vous immobile ?",
+        "Est-ce que manger soulage ou aggrave ?",
+        "Est-ce lié à un repas gras ?"
+      ]
+    },
+    {
+      "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+      "items": [
+        "Quelle est la date de vos dernières règles ? Pouvez-vous être enceinte ? Avez-vous des pertes ou des saignements ?",
+        "Avez-vous déjà été opéré du ventre ?",
+        "Avez-vous des calculs dans la vésicule ou les reins ?",
+        "Prenez-vous des anti-inflammatoires, de l'aspirine, des anticoagulants ?",
+        "Combien d'alcool buvez-vous ?",
+        "Avez-vous des problèmes de cœur, d'arythmie ou d'artères ?",
+        "Avez-vous maigri sans le vouloir ?"
+      ]
+    }
+  ],
+  "drapeaux_rouges": [
+    {
+      "question": "La douleur est-elle venue d'un coup, très forte, et vous empêche-t-elle de bouger ?",
+      "si_oui": "Perforation, péritonite (SY-32), ischémie mésentérique, rupture d'anévrisme : bilan et avis chirurgical urgents."
+    },
+    {
+      "question": "Pouvez-vous être enceinte ?",
+      "si_oui": "Grossesse extra-utérine (SY-46) jusqu'à preuve du contraire : test de grossesse immédiat, échographie (IMG-258)."
+    },
+    {
+      "question": "Avez-vous eu un malaise, êtes-vous pâle ou étourdi ?",
+      "si_oui": "Choc hémorragique (SY-21) : GEU rompue, rupture d'anévrisme aortique (IMG-235), hémorragie digestive (SY-38)."
+    },
+    {
+      "question": "La douleur est-elle beaucoup plus forte que ce que je trouve à l'examen, avec une arythmie connue ?",
+      "si_oui": "Ischémie mésentérique aiguë (IMG-193) : angio-TDM en urgence."
+    },
+    {
+      "question": "Vomissez-vous et n'avez-vous plus de gaz ni de selles ?",
+      "si_oui": "Occlusion intestinale (SY-33, IMG-200) : sonde gastrique, imagerie."
+    },
+    {
+      "question": "Avez-vous de la fièvre, des frissons et les yeux jaunes ?",
+      "si_oui": "Angiocholite (triade de Charcot, SY-35) : hémocultures, antibiotiques, drainage biliaire."
+    },
+    {
+      "question": "Avez-vous plus de 50 ans avec une douleur nouvelle, ou avez-vous maigri ?",
+      "si_oui": "Red flag HUG 2023 : néoplasie, ischémie ; examens ciblés rapides."
+    }
+  ],
+  "hypotheses": [
+    {
+      "lettre": "V — Vasculaire",
+      "diagnostics": [
+        "rupture d'anévrisme de l'aorte abdominale",
+        "ischémie mésentérique",
+        "syndrome coronarien inférieur (douleur épigastrique)",
+        "infarctus splénique ou rénal"
+      ],
+      "question_discriminante": "Avez-vous une arythmie, une maladie des artères, et la douleur est-elle disproportionnée ?"
+    },
+    {
+      "lettre": "I — Infectieux et inflammatoire",
+      "diagnostics": [
+        "appendicite (SY-34)",
+        "cholécystite, angiocholite",
+        "diverticulite",
+        "pyélonéphrite (SY-45)",
+        "infection génitale haute (SY-49)",
+        "pancréatite",
+        "gastro-entérite"
+      ],
+      "question_discriminante": "Où la douleur a-t-elle commencé, et a-t-elle migré vers le bas à droite ?"
+    },
+    {
+      "lettre": "Obstructif et mécanique",
+      "diagnostics": [
+        "occlusion (brides, hernie étranglée, volvulus)",
+        "colique néphrétique (SY-43)",
+        "colique biliaire",
+        "torsion d'annexe ou testiculaire"
+      ],
+      "question_discriminante": "La douleur vient-elle par vagues, et vous agitez-vous sans trouver de position ?"
+    },
+    {
+      "lettre": "Ia — Iatrogène",
+      "diagnostics": [
+        "ulcère perforé sous AINS",
+        "hématome de paroi sous anticoagulant",
+        "pancréatite médicamenteuse"
+      ],
+      "question_discriminante": "Prenez-vous des anti-inflammatoires ou un anticoagulant ?"
+    },
+    {
+      "lettre": "Gynéco-obstétrical",
+      "diagnostics": [
+        "grossesse extra-utérine",
+        "kyste ovarien rompu",
+        "torsion d'annexe"
+      ],
+      "question_discriminante": "Quelle est la date de vos dernières règles ?"
+    },
+    {
+      "lettre": "F — Métabolique et extra-abdominal",
+      "diagnostics": [
+        "acidocétose diabétique (SY-54)",
+        "pneumonie basale",
+        "insuffisance surrénale (SY-53)",
+        "hypercalcémie (SY-56)"
+      ],
+      "question_discriminante": "Avez-vous très soif et urinez-vous beaucoup ?"
+    },
+    {
+      "lettre": "F — Fonctionnel (chronique)",
+      "diagnostics": [
+        "syndrome de l'intestin irritable",
+        "dyspepsie fonctionnelle"
+      ],
+      "question_discriminante": "La douleur dure-t-elle depuis des mois, soulagée par la selle, sans red flag ?"
+    }
+  ],
+  "idees_craintes_attentes": [
+    "Qu'est-ce que vous pensez que c'est ?",
+    "Qu'est-ce qui vous inquiète le plus ?",
+    "Qu'attendez-vous : un antidouleur, un examen, une opération ?"
+  ],
+  "liens": {
+    "status": [
+      "S-01",
+      "S-12",
+      "S-13",
+      "S-14",
+      "S-15",
+      "S-16",
+      "S-10"
+    ],
+    "syndromes": [
+      "SY-32",
+      "SY-33",
+      "SY-34",
+      "SY-35",
+      "SY-38",
+      "SY-43",
+      "SY-45",
+      "SY-46",
+      "SY-49",
+      "SY-54",
+      "SY-21"
+    ],
+    "imagerie": [
+      "IMG-194",
+      "IMG-195",
+      "IMG-176",
+      "IMG-184",
+      "IMG-193",
+      "IMG-200",
+      "IMG-201",
+      "IMG-217",
+      "IMG-235",
+      "IMG-252",
+      "IMG-258"
+    ]
+  },
+  "synthese_cs": "Monsieur X, 22 ans, présente depuis 18 heures une douleur péri-ombilicale qui a migré en fosse iliaque droite, avec anorexie, nausées et fébricule à 38 °C. J'évoque une appendicite aiguë et je demande un bilan inflammatoire et un avis chirurgical.",
+  "pieges": [
+    "Oublier le test de grossesse chez toute femme en âge de procréer.",
+    "Oublier qu'une douleur épigastrique peut être un infarctus inférieur : ECG.",
+    "Se rassurer chez le sujet âgé ou sous corticoïdes : la défense manque souvent.",
+    "Examiner l'abdomen sans les orifices herniaires (S-13) et, chez l'homme jeune, sans les testicules (S-14) : en CS, nommer l'examen génital et le toucher rectal sans les effectuer."
+  ],
+  "sources": [
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « La douleur abdominale chronique d'origine digestive », 2023 (red flags) — lu (14.11.2026)",
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « Dyspepsie », 2022 — lu (14.11.2026)",
+    "ASSM, « La communication dans la médecine au quotidien », guide pratique, 3e éd. 2022 (texte inchangé depuis 2019), § 2.2 ARRR et § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence), CC BY 4.0, DOI 10.5281/zenodo.7148494 — lu (texte intégral, 14.11.2026)",
+    "PROFILES 2017, Joint Commission of the Swiss Medical Schools : EPA 1 (1.1 à 1.13, 1a à 1g) et liste des situations SSP — lu (texte intégral, 14.11.2026)",
+    "MEBEKO/OFSP, Exigences, Directives et Informations MED 2026 (édictées le 3.3.2026) : 11 stations de 13 min ; examen intime nommé à l'examinateur, jamais effectué — lu (14.11.2026)"
+  ]
+}

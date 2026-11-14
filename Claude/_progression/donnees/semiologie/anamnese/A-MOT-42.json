@@ -1,0 +1,180 @@
+{
+ "id": "A-MOT-42",
+ "titre": "Fièvre",
+ "systeme": "T",
+ "niveau": "m",
+ "ssp": "6",
+ "ouverture": "Racontez-moi depuis quand vous avez de la fièvre et comment cela se passe.",
+ "questions": [
+  {
+   "axe": "Temps",
+   "items": [
+    "Depuis combien de jours avez-vous de la fièvre ?",
+    "Avez-vous mesuré la température ? Combien ?",
+    "La fièvre revient-elle tous les jours, ou par épisodes ?",
+    "Avez-vous des frissons qui vous font claquer des dents ?"
+   ]
+  },
+  {
+   "axe": "Lieu (foyer)",
+   "items": [
+    "Avez-vous mal quelque part : tête, gorge, oreilles, sinus, dents ?",
+    "Toussez-vous, crachez-vous, êtes-vous essoufflé ?",
+    "Avez-vous mal au ventre, la diarrhée, des vomissements ?",
+    "Avez-vous des brûlures en urinant ou mal dans le dos ?",
+    "Avez-vous une rougeur de la peau, une plaie, une articulation gonflée ?"
+   ]
+  },
+  {
+   "axe": "Caractéristiques",
+   "items": [
+    "Avez-vous la nuque raide ou du mal à supporter la lumière ?",
+    "Avez-vous des taches rouges sur la peau qui ne s'effacent pas quand on appuie ?",
+    "Êtes-vous confus ou très somnolent ?"
+   ]
+  },
+  {
+   "axe": "Expositions",
+   "items": [
+    "Avez-vous voyagé ces derniers mois ? Où, quand êtes-vous rentré ? Avez-vous pris une prévention contre le paludisme ?",
+    "Avez-vous été piqué par une tique ?",
+    "Avez-vous des animaux, ou été en contact avec des animaux ?",
+    "Quelqu'un autour de vous est-il malade ?",
+    "Avez-vous eu des rapports sexuels non protégés ?"
+   ]
+  },
+  {
+   "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+   "items": [
+    "Avez-vous une maladie ou un traitement qui affaiblit vos défenses : chimiothérapie, cortisone, biothérapie, greffe, pas de rate ?",
+    "Avez-vous une prothèse, une valve cardiaque, un cathéter ?",
+    "Avez-vous été opéré ou hospitalisé récemment ?",
+    "Vous injectez-vous des drogues ?",
+    "Avez-vous commencé un nouveau médicament ?"
+   ]
+  }
+ ],
+ "drapeaux_rouges": [
+  {
+   "question": "Êtes-vous rentré d'un pays où il y a du paludisme dans les trois derniers mois ?",
+   "si_oui": "Paludisme jusqu'à preuve du contraire : test le jour même ; un premier test négatif ne suffit pas, répéter deux fois à moins de 24 heures d'intervalle (HUG 2026)."
+  },
+  {
+   "question": "Avez-vous des taches rouges ou violettes qui ne s'effacent pas à la pression ?",
+   "si_oui": "Purpura fébrile : méningococcémie possible, antibiothérapie immédiate et 144 (A-MOT-48)."
+  },
+  {
+   "question": "Avez-vous la nuque raide, un mal de tête intense ou une confusion ?",
+   "si_oui": "Méningite : hémocultures et antibiotiques sans délai (SY-5)."
+  },
+  {
+   "question": "Êtes-vous sous chimiothérapie ?",
+   "si_oui": "Neutropénie fébrile possible : formule sanguine et antibiothérapie urgente."
+  },
+  {
+   "question": "Êtes-vous essoufflé, confus, ou avez-vous une tension basse ?",
+   "si_oui": "Sepsis : évaluer le qSOFA et adresser aux urgences (SY-79)."
+  }
+ ],
+ "hypotheses": [
+  {
+   "lettre": "I (infectieux)",
+   "diagnostics": [
+    "sepsis",
+    "méningite",
+    "paludisme",
+    "endocardite",
+    "pyélonéphrite",
+    "pneumonie",
+    "infection virale"
+   ],
+   "question_discriminante": "Où avez-vous voyagé ces trois derniers mois ?"
+  },
+  {
+   "lettre": "T (tumoral)",
+   "diagnostics": [
+    "lymphome",
+    "leucémie",
+    "cancer du rein"
+   ],
+   "question_discriminante": "Avez-vous des sueurs nocturnes qui mouillent les draps et perdu du poids ?"
+  },
+  {
+   "lettre": "A (auto-immun, inflammatoire)",
+   "diagnostics": [
+    "maladie de Still",
+    "vascularite",
+    "artérite à cellules géantes",
+    "lupus"
+   ],
+   "question_discriminante": "Avez-vous mal aux articulations et une éruption qui va et vient avec la fièvre ?"
+  },
+  {
+   "lettre": "I (iatrogène)",
+   "diagnostics": [
+    "fièvre médicamenteuse",
+    "DRESS",
+    "syndrome malin des neuroleptiques",
+    "syndrome sérotoninergique"
+   ],
+   "question_discriminante": "Avez-vous commencé un médicament dans les six dernières semaines ?"
+  },
+  {
+   "lettre": "V (vasculaire)",
+   "diagnostics": [
+    "embolie pulmonaire",
+    "thrombose veineuse profonde"
+   ],
+   "question_discriminante": "Avez-vous une jambe gonflée ou une douleur dans la poitrine en respirant ?"
+  },
+  {
+   "lettre": "D (métabolique, endocrinien)",
+   "diagnostics": [
+    "thyrotoxicose"
+   ],
+   "question_discriminante": "Avez-vous des palpitations et perdu du poids en mangeant bien ?"
+  }
+ ],
+ "idees_craintes_attentes": [
+  "Qu'est-ce qui, à votre avis, provoque ces symptômes ?",
+  "Qu'est-ce qui vous inquiète le plus ?",
+  "Qu'attendez-vous de la consultation d'aujourd'hui ?"
+ ],
+ "liens": {
+  "status": [
+   "S-01",
+   "S-03",
+   "S-04",
+   "S-07",
+   "S-09",
+   "S-10",
+   "S-12",
+   "S-28"
+  ],
+  "syndromes": [
+   "SY-5",
+   "SY-24",
+   "SY-26",
+   "SY-45",
+   "SY-79"
+  ],
+  "imagerie": [
+   "IMG-105",
+   "IMG-218",
+   "IMG-342"
+  ]
+ },
+ "synthese_cs": "Exemple : homme de 30 ans rentré du Cameroun il y a 10 jours, fièvre à 39,5 °C avec frissons depuis 2 jours, sans prophylaxie antipaludique. Je recherche un paludisme le jour même et je répète le test deux fois en moins de 24 heures s'il est négatif.",
+ "pieges": [
+  "Les maladies cosmopolites sont les plus fréquentes au retour de voyage, mais il faut toujours exclure un paludisme (HUG 2026).",
+  "Où, quand, qui, comment : grille d'exposition au retour de voyage (HUG 2026, tableau 1).",
+  "Le temps d'incubation exclut certains diagnostics : par exemple, une fièvre débutant moins de 7 jours après l'arrivée en zone d'endémie n'est pas un paludisme (HUG 2026).",
+  "Le candidat oublie de demander les médicaments récents."
+ ],
+ "sources": [
+  "ASSM, « La communication dans la médecine au quotidien », 3e éd. 2022, § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence) et § 2.2-2.3 (ARRR, NURSE), CC BY 4.0, DOI 10.5281/zenodo.7148494 (lu, texte intégral)",
+  "PROFILES 2017, SSP 6 et EPA 1.1-1.3 (lu, texte intégral)",
+  "HUG, Service de médecine de premier recours, stratégie « Fièvre au retour de voyage » 2026, DOI 10.53738/REVMED.2026.22.976.49153 (lu : points à retenir, § 3.1 et tableau 1)",
+  "Éléments cliniques non couverts par les textes ci-dessus : déduction d'expert (non vérifié CH), à confronter à une source suisse"
+ ]
+}

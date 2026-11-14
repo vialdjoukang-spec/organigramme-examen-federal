@@ -1,0 +1,177 @@
+{
+  "id": "A-MOT-6",
+  "titre": "Toux, expectoration, hémoptysie",
+  "systeme": "S4 — Respiratoire et thorax",
+  "niveau": "m",
+  "ssp": "45",
+  "ouverture": "Parlez-moi de cette toux.",
+  "questions": [
+    {
+      "axe": "Temps",
+      "items": [
+        "Depuis combien de temps toussez-vous : moins de 3 semaines, 3 à 8 semaines, plus de 8 semaines ?",
+        "Est-ce que cela a commencé avec un rhume ?",
+        "Toussez-vous plutôt la nuit, le matin, à l'effort ?"
+      ]
+    },
+    {
+      "axe": "Caractéristiques",
+      "items": [
+        "Est-ce une toux sèche ou grasse ?",
+        "Crachez-vous ? De quelle couleur et en quelle quantité ?",
+        "Avez-vous craché du sang ? Combien : des filets, une cuillère, plus ?",
+        "Avez-vous de la fièvre, des frissons ?",
+        "Êtes-vous essoufflé, avez-vous mal à la poitrine ?",
+        "Avez-vous maigri, transpiré la nuit, êtes-vous très fatigué ?",
+        "Votre voix a-t-elle changé ? Avez-vous du mal à avaler ?"
+      ]
+    },
+    {
+      "axe": "Facteurs d'influence",
+      "items": [
+        "Toussez-vous couché, après les repas, avec des brûlures dans la poitrine ou un goût acide ?",
+        "Avez-vous le nez qui coule ou des écoulements dans la gorge ?",
+        "Est-ce pire au froid, à l'effort, au contact de poussières ou d'animaux ?",
+        "Prenez-vous un médicament contre la tension finissant par « -pril » ?"
+      ]
+    },
+    {
+      "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+      "items": [
+        "Fumez-vous ou avez-vous fumé ? Combien de paquets par jour, pendant combien d'années ?",
+        "Avez-vous de l'asthme, une BPCO, une maladie du cœur ?",
+        "Avez-vous été en contact avec quelqu'un qui a la tuberculose ? Avez-vous vécu ou voyagé dans un pays où elle est fréquente ? Avez-vous été en prison ou dans un foyer ?",
+        "Avez-vous travaillé avec de l'amiante ou des poussières ?",
+        "Êtes-vous vacciné contre la grippe, le pneumocoque, la coqueluche ?",
+        "Avez-vous une maladie qui affaiblit l'immunité ?"
+      ]
+    }
+  ],
+  "drapeaux_rouges": [
+    {
+      "question": "Avez-vous craché du sang ?",
+      "si_oui": "Hémoptysie : rechercher cancer, tuberculose, embolie pulmonaire ; massive (plus d'un verre) = urgence vitale, voie aérienne d'abord."
+    },
+    {
+      "question": "Avez-vous plus de 40 ans et fumez-vous ou avez-vous fumé ? Avez-vous été exposé à l'amiante ?",
+      "si_oui": "Red flag HUG 2025 : radiographie ou TDM thoracique à la recherche d'un cancer bronchique (IMG-111)."
+    },
+    {
+      "question": "Avez-vous maigri, transpiré la nuit, êtes-vous épuisé ?",
+      "si_oui": "Symptômes B : cancer, tuberculose (IMG-106), lymphome."
+    },
+    {
+      "question": "Êtes-vous essoufflé ou avez-vous mal dans la poitrine ?",
+      "si_oui": "Pneumonie, embolie, épanchement, cancer : imagerie thoracique."
+    },
+    {
+      "question": "Votre voix est-elle enrouée depuis plus de 3 semaines ou avez-vous du mal à avaler ?",
+      "si_oui": "Red flag HUG 2025 : atteinte du nerf récurrent, cancer ORL ou œsophagien ; laryngoscopie."
+    },
+    {
+      "question": "Avez-vous des infections respiratoires à répétition ?",
+      "si_oui": "Red flag HUG 2025 : bronchectasies, déficit immunitaire, obstruction bronchique (corps étranger, tumeur)."
+    }
+  ],
+  "hypotheses": [
+    {
+      "lettre": "I — Infectieux",
+      "diagnostics": [
+        "pneumonie",
+        "tuberculose",
+        "coqueluche",
+        "toux post-infectieuse",
+        "bronchectasies surinfectées"
+      ],
+      "question_discriminante": "La toux a-t-elle commencé avec de la fièvre, et êtes-vous en contact avec la tuberculose ?"
+    },
+    {
+      "lettre": "T — Tumoral",
+      "diagnostics": [
+        "cancer bronchique",
+        "métastases pulmonaires",
+        "tumeur ORL"
+      ],
+      "question_discriminante": "Avez-vous plus de 40 ans, fumez-vous, avez-vous maigri ?"
+    },
+    {
+      "lettre": "A — Immuno-allergique",
+      "diagnostics": [
+        "asthme (forme à toux prédominante)",
+        "bronchite à éosinophiles",
+        "pneumopathie d'hypersensibilité"
+      ],
+      "question_discriminante": "Est-ce pire la nuit, à l'effort, au froid ?"
+    },
+    {
+      "lettre": "F — Fonctionnel",
+      "diagnostics": [
+        "écoulement nasal postérieur (rhinosinusite)",
+        "reflux gastro-œsophagien",
+        "toux réfractaire inexpliquée"
+      ],
+      "question_discriminante": "Avez-vous des écoulements dans la gorge ou un goût acide ?"
+    },
+    {
+      "lettre": "Ia — Iatrogène",
+      "diagnostics": [
+        "toux sous IEC"
+      ],
+      "question_discriminante": "Prenez-vous un médicament dont le nom finit par « -pril » ?"
+    },
+    {
+      "lettre": "D/V — Chronique ou vasculaire",
+      "diagnostics": [
+        "BPCO",
+        "fibrose pulmonaire",
+        "insuffisance cardiaque",
+        "embolie pulmonaire"
+      ],
+      "question_discriminante": "Êtes-vous essoufflé de plus en plus depuis des mois ?"
+    }
+  ],
+  "idees_craintes_attentes": [
+    "Qu'est-ce qui vous inquiète avec cette toux ?",
+    "Pensez-vous à une cause particulière ?",
+    "Qu'attendez-vous : un sirop, un examen, un arrêt de travail ?"
+  ],
+  "liens": {
+    "status": [
+      "S-09",
+      "S-07",
+      "S-04",
+      "S-01",
+      "S-10"
+    ],
+    "syndromes": [
+      "SY-26",
+      "SY-27",
+      "SY-29",
+      "SY-17"
+    ],
+    "imagerie": [
+      "IMG-105",
+      "IMG-106",
+      "IMG-110",
+      "IMG-111",
+      "IMG-114",
+      "IMG-117",
+      "IMG-125"
+    ]
+  },
+  "synthese_cs": "Monsieur X, 63 ans, fumeur à 40 UPA, tousse depuis 10 semaines avec deux épisodes de crachats striés de sang et une perte de 4 kg. Cette toux chronique avec hémoptysie et amaigrissement chez un fumeur impose d'exclure un cancer bronchique ; je demande une imagerie thoracique.",
+  "pieges": [
+    "Prescrire un antibiotique pour une toux post-infectieuse sans fièvre.",
+    "Oublier l'IEC : la toux peut apparaître des semaines ou des mois après l'introduction.",
+    "Confondre hémoptysie et hématémèse ou saignement ORL : demander si le sang vient avec la toux.",
+    "Ne pas penser à la tuberculose chez un patient migrant ou précaire : isoler en cas de doute."
+  ],
+  "sources": [
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « Toux chronique », 2025 (red flags : fumeur de plus de 40 ans ou exposé à l'amiante, douleur thoracique, symptômes B, dyspnée, infections à répétition, dysphonie persistante ou dysphagie) — lu (14.11.2026)",
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « La bronchopneumopathie chronique obstructive », 2026 — lu (14.11.2026)",
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « Asthme », 2026 — lu (14.11.2026)",
+    "ASSM, « La communication dans la médecine au quotidien », guide pratique, 3e éd. 2022 (texte inchangé depuis 2019), § 2.2 ARRR et § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence), CC BY 4.0, DOI 10.5281/zenodo.7148494 — lu (texte intégral, 14.11.2026)",
+    "PROFILES 2017, Joint Commission of the Swiss Medical Schools : EPA 1 (1.1 à 1.13, 1a à 1g) et liste des situations SSP — lu (texte intégral, 14.11.2026)",
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « Recommandations de dépistage chez l'adulte », 2026 (AUDIT-C ; dépistage du cancer bronchique dès 20 UPA) — lu (14.11.2026)"
+  ]
+}

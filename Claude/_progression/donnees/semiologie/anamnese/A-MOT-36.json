@@ -1,0 +1,146 @@
+{
+ "id": "A-MOT-36",
+ "titre": "Mal de gorge",
+ "systeme": "S2",
+ "niveau": "m",
+ "ssp": "35",
+ "ouverture": "Racontez-moi ce qui se passe avec votre gorge.",
+ "questions": [
+  {
+   "axe": "Temps",
+   "items": [
+    "Depuis combien de jours avez-vous mal ?",
+    "Est-ce que cela s'aggrave ou s'améliore ?"
+   ]
+  },
+  {
+   "axe": "Lieu",
+   "items": [
+    "Avez-vous mal des deux côtés ou surtout d'un côté ?"
+   ]
+  },
+  {
+   "axe": "Caractéristiques",
+   "items": [
+    "Avez-vous du mal à avaler, même votre salive ?",
+    "Votre voix a-t-elle changé, comme si vous aviez une patate chaude dans la bouche ?",
+    "Avez-vous du mal à ouvrir la bouche ?"
+   ]
+  },
+  {
+   "axe": "Symptômes associés (Centor)",
+   "items": [
+    "Avez-vous eu de la fièvre, 38 degrés ou plus ?",
+    "Toussez-vous ?",
+    "Avez-vous des ganglions douloureux sous la mâchoire ?",
+    "Avez-vous le nez qui coule ou les yeux qui piquent ?",
+    "Avez-vous une éruption sur la peau ?",
+    "Êtes-vous très fatigué depuis des jours ?"
+   ]
+  },
+  {
+   "axe": "Facteurs d'influence",
+   "items": [
+    "Quelqu'un autour de vous a-t-il eu une angine ?",
+    "Avez-vous eu des rapports sexuels oraux récemment ?"
+   ]
+  },
+  {
+   "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+   "items": [
+    "Avez-vous déjà eu un abcès de la gorge ou une ablation des amygdales ?",
+    "Avez-vous des allergies aux antibiotiques ?",
+    "Prenez-vous un médicament qui peut faire baisser les globules blancs ?",
+    "Fumez-vous ?"
+   ]
+  }
+ ],
+ "drapeaux_rouges": [
+  {
+   "question": "Avez-vous du mal à respirer, ou faites-vous un bruit en inspirant ?",
+   "si_oui": "Obstruction des voies aériennes (épiglottite, abcès) : ne pas examiner la gorge à l'abaisse-langue, appeler le 144 et l'ORL (SY-15)."
+  },
+  {
+   "question": "Avez-vous du mal à ouvrir la bouche, la voix étouffée, et bavez-vous parce que vous ne pouvez pas avaler ?",
+   "si_oui": "Abcès périamygdalien ou rétropharyngé, épiglottite : avis ORL en urgence."
+  },
+  {
+   "question": "Avez-vous un gonflement du cou sous la mâchoire, dur et rouge ?",
+   "si_oui": "Cellulite cervicale ou angine de Ludwig : urgence."
+  },
+  {
+   "question": "Prenez-vous du méthimazole, du métamizole, de la clozapine ou une chimiothérapie ?",
+   "si_oui": "Agranulocytose possible : formule sanguine en urgence."
+  }
+ ],
+ "hypotheses": [
+  {
+   "lettre": "I (infectieux)",
+   "diagnostics": [
+    "épiglottite",
+    "abcès périamygdalien ou rétropharyngé",
+    "pharyngite à streptocoque du groupe A",
+    "mononucléose infectieuse",
+    "primo-infection VIH",
+    "gonococcie pharyngée",
+    "pharyngite virale"
+   ],
+   "question_discriminante": "Toussez-vous et avez-vous le nez qui coule ?"
+  },
+  {
+   "lettre": "I (iatrogène)",
+   "diagnostics": [
+    "agranulocytose médicamenteuse"
+   ],
+   "question_discriminante": "Avez-vous commencé un nouveau médicament ces dernières semaines ?"
+  },
+  {
+   "lettre": "T (tumoral)",
+   "diagnostics": [
+    "cancer de l'oropharynx ou du larynx"
+   ],
+   "question_discriminante": "Avez-vous mal au même endroit depuis plus de trois semaines, avec une voix enrouée ?"
+  },
+  {
+   "lettre": "A (auto-immun, inflammatoire)",
+   "diagnostics": [
+    "thyroïdite subaiguë (douleur cervicale antérieure)",
+    "reflux"
+   ],
+   "question_discriminante": "La douleur est-elle plutôt en bas du cou, devant, sur la thyroïde ?"
+  }
+ ],
+ "idees_craintes_attentes": [
+  "Qu'est-ce qui vous fait penser que c'est une angine ?",
+  "Avez-vous peur d'une complication ?",
+  "Souhaitez-vous un antibiotique, ou d'abord savoir si c'est utile ?"
+ ],
+ "liens": {
+  "status": [
+   "S-04",
+   "S-07",
+   "S-08"
+  ],
+  "syndromes": [
+   "SY-15"
+  ],
+  "imagerie": [
+   "IMG-063",
+   "IMG-064",
+   "IMG-065"
+  ]
+ },
+ "synthese_cs": "Exemple : homme de 22 ans, odynophagie depuis 2 jours, fièvre à 38,6 °C, sans toux, exsudat amygdalien et adénopathies cervicales antérieures sensibles : Centor 4 sur 4. Je fais un test rapide du streptocoque A et je ne prescris l'antibiotique que s'il est positif.",
+ "pieges": [
+  "Score de Centor (HUG 2021) : fièvre ≥ 38,0 °C, absence de toux, exsudat amygdalien, adénopathies cervicales antérieures douloureuses ; 0-2 points : ni test rapide ni antibiotique ; 3-4 points : test rapide si un antibiotique est envisagé.",
+  "La plupart des pharyngites sont virales et ne justifient pas d'antibiotique (HUG 2021).",
+  "Le réflexe nauséeux ne se teste pas en station (Informations MEBEKO 2026) : le candidat le nomme sans le faire ; devant une détresse respiratoire, il n'examine pas la gorge à l'abaisse-langue.",
+  "Le score de McIsaac (âge) est proposé en France ; les HUG retiennent Centor (HUG 2021)."
+ ],
+ "sources": [
+  "ASSM, « La communication dans la médecine au quotidien », 3e éd. 2022, § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence) et § 2.2-2.3 (ARRR, NURSE), CC BY 4.0, DOI 10.5281/zenodo.7148494 (lu, texte intégral)",
+  "PROFILES 2017, SSP 35 et EPA 1.1-1.3 (lu, texte intégral)",
+  "HUG, Service de médecine de premier recours, stratégie « Infections des voies respiratoires supérieures (IVRS) » 2021 (lu : points à retenir, tableau 2 du score de Centor et sa conduite)",
+  "Éléments cliniques non couverts par les textes ci-dessus : déduction d'expert (non vérifié CH), à confronter à une source suisse"
+ ]
+}
