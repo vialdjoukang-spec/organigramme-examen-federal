@@ -21,3 +21,5 @@ Sixième lot, EXP-128 à EXP-124. Deux partiels, trois introuvables. Le cadre ro
 Septième lot, EXP-123 à EXP-119. Un partiel, quatre introuvables. Le reflux a été relu deux fois : le polygone a été abaissé jusqu'au pic sous la ligne de base. Estimation. Reprise : EXP-118.
 
 Huitième lot, EXP-118 à EXP-115. Un complet, trois introuvables. L'anse géante a été entourée après une grille. Les scripts ont validé le complet sans avertissement. Estimation. Le lot demandé s'arrête à EXP-115. Prochain id hors lot : EXP-114.
+
+Fiches de technique, premier lot FTE-58 à FTE-54. Un partiel, quatre introuvables. Le relevé d'impédancemétrie a été ouvert : la flèche vise la légende « Normal range ». Estimation. Reprise : FTE-53.
