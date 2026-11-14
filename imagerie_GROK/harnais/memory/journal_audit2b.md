@@ -8,3 +8,8 @@ IMG-247 — confirmé — paire déjà partielle : la légende ne désigne pas l
 IMG-246 — corrigé — le contour des veines entrait dans le parenchyme ; il suit l'amas tubulé, pointe dedans. Le cadre couleur du panneau (b) reste sur le flux. Légende réduite au titre, définitions « À vérifier ». Déjà partiel (axial contre longitudinal).
 IMG-245 — confirmé — le contour couvre le nodule hypoéchogène du pôle supérieur et s'arrête avant les lacunes anéchogènes. Côté gauche conforme à la légende. Déjà partiel (axial contre longitudinal). Licences CC BY-SA.
 IMG-244 — corrigé — l'épididyme hétérogène est au-dessus du testicule sombre et l'hyperhémie est dans le cadre couleur ; contours laissés. Légende réduite au titre, définitions « À vérifier ». Déjà partiel.
+IMG-243 — corrigé — la pointe était dans le noir, au bord de la boîte ; elle est dans le parenchyme sans couleur. Légende réduite au titre, définition « À vérifier ». Déjà partiel. Licences CC BY 3.0 et CC BY-SA 4.0.
+IMG-242 — confirmé — le cliché humain est un préréglage Prostate à 9 MHz, sonde au contact inférieur, pas une voie sus-pubienne ; l'autre fichier est un colley.
+IMG-241 — confirmé — la catégorie IRM du cancer de prostate ne contient qu'un espaceur rectal, pas une coupe T2 du cancer.
+IMG-240 — confirmé — aucune cystographie TDM libre d'une rupture vésicale ou urétrale.
+IMG-239 — corrigé — le contour et la pointe étaient dans l'urine ; le polygone suit la paroi gauche trabéculée, pointe sur son bord interne. Pas de résidu mesuré ni de normale, déjà partiel. Licence CC0.
