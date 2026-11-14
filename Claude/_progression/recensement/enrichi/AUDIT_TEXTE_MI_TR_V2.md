@@ -48,3 +48,6 @@ Ajouter aux sources : « AIPS Co-Amoxi-Mepha i.v. (refdata) ».
 ## Verdict
 
 **Corrections requises**, avec un seul point bloquant : le patch du § 2 (296, 315). Une fois ce patch appliqué, le texte de MI_TR peut recevoir `audit-ok`. Les mineurs du § 3 restent souhaitables mais ne bloquent pas.
+
+## Clôture
+Patchs du tour 2 appliqués mot pour mot (296, 315 Co-Amoxi-Mepha 56758 ; céfuroxime hors AIPS ; 304, 308, 327, 341) : **audit-ok** pour le texte de MI_TR (IMG-289 à 344).
