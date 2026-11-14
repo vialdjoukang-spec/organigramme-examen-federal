@@ -11,3 +11,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-069 partiel. ECG normal domaine public (Rodhullandemu, sans nom) et panneau A de Hughes 2024, Europace, PMC11057018, CC BY 4.0, ondes T négatives d'une forme apicale. La planche contient aussi l'IRM. Épaisseur septale, remplissage et VO2 absents.
 - EXP-068 partiel. Même ECG normal. Pathologique : E307, Rosengarten, CC BY-SA 3.0, grandes ondes R en V5. Le seuil de Sokolow-Lyon > 35 mm est dans la description, pas chiffré sur le papier. Étalonnage du tracé pathologique absent.
 - EXP-067 partiel. MAPA de Jmarchn, systolique nocturne au-dessus de 140 mmHg, homme de 66 ans sans nom. L'autre courbe est un effet blouse blanche pédiatrique (Smida), pas une MAPA adulte normale. Moyenne diurne 135/85 non imprimée.
+- EXP-066 introuvable. Aucune ergospirométrie à VO2 abaissée. File:Gas exchange during max test.jpg monte vers 3800 ml/min et n'est pas donnée comme pathologique.
+- EXP-065 partiel. ECG de péricardite, James Heilman, CC BY-SA 3.0 : sus-décalage diffus et sous-décalage en aVR. Photo sans étalonnage. Pas de sous-décalage du PR nommé par la légende, pas de tamponnade. Normale : même ECG domaine public sans nom.
+- EXP-064 partiel. Doppler continu ECHOpedia E00695, TR 4,28 m/s, gradient 73 mmHg. Pas de spectre normal. Le cas s'intitule sténose pulmonaire. Le seuil de 20 mmHg au cathétérisme n'est pas sur l'image.
+- EXP-063 partiel. Doppler continu E00184, insuffisance aortique, PHT 135 ms. Pas de fuite mitrale, pas de PISA, pas de spectre normal.
+- EXP-062 partiel. Doppler continu E00264 : 6,78 m/s, gradient moyen 119 mmHg, gradient maximal 184 mmHg. Pas de spectre aortique normal. Surface valvulaire absente.
