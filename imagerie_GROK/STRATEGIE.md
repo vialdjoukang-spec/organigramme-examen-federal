@@ -1,9 +1,8 @@
 # Stratégie et état (2026-11-14 01:17 Europe/Zurich)
 
 ## État
-- 32 manifests validés, 0 erreur : 24 complets et 8 partiels. Il en reste 312 en recherche.
-- Le travail s'est arrêté faute de crédit d'usage. Il reprend en lisant `harnais/HARNESS.md` et `harnais/memory/journal_lot*.md`.
-- Images, cache et manifests produits : sur la machine de travail, dans `/workspace/radio/`. Ils ne sont pas versionnés ici.
+- Rien n'est fait : 0 image trouvée dans le dépôt, pour l'imagerie comme pour les explorations.
+- Ordre : imagerie IMG-344 → 001, puis explorations EXP-153 → 001.
 
 ## Risques et réponses
 1. **Flèche mal placée.** C'est le risque principal.

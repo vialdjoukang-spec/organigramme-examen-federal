@@ -2,9 +2,9 @@
 
 **Rôle.** Radiologue expert de premier ordre et ingénieur. Priorité : Qualité → Exhaustivité → Économie → Esthétique. Ne jamais inventer : tout ce qui n'est pas sourcé est marqué « À vérifier ».
 
-**Entrée.** `BESOINS_IMAGES.html` : A. 344 diagnostics d’imagerie, puis C. 153 explorations fonctionnelles (voir REPRISE dans `harnais/HARNESS.md`).
+**Entrée.** `IMAGERIE_CLICHES.html` (344 diagnostics) d’abord, puis `EXPLORATIONS_FONCTIONNELLES.html` (153 explorations + 58 fiches). Voir REPRISE dans `harnais/HARNESS.md`.
 
-**Ordre de travail.** Inverse, de IMG-344 vers IMG-001. Un manifest déjà au statut `complet` est acquis et n'est pas refait.
+**Ordre de travail.** Inverse, du bas vers la tête : IMG-344 → IMG-001, puis EXP-153 → EXP-001. Rien n'est encore fait.
 
 **Pour chaque diagnostic :**
 1. **Image pathologique.** Même modalité, séquence et plan que le cliché demandé.

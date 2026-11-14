@@ -50,7 +50,7 @@ Requêtes API en anglais (terminologie radiologique), limitées ; légende lue e
 
 ## Consigne Vial 2026-11-14 01:02 : ordre INVERSE (fin → début) dans chaque lot ; cadres de noms fermés par défaut, ouverts au clic sur le numéro.
 
-## REPRISE — ordre impératif (MAJ 2026-11-14 01:25)
-Source unique : `imagerie_GROK/BESOINS_IMAGES.html` (remplace l'ancien « Clichés à réunir »). Extraire ses tableaux avant tout.
-1. **A. Imagerie (IMG-001…344)** d'abord, ordre inverse 344 → 001 ; reprendre les manifests existants.
-2. **C. Explorations fonctionnelles (EXP-001…153)** une fois A achevé : paire tracé normal + pathologique, mêmes règles (licence, appariement, flèches, manifest). Courbes ventilatoires et tests dynamiques/métaboliques : schémas dessinés par script, sources de valeurs citées.
+## REPRISE — ordre impératif (MAJ 2026-11-14 01:35)
+Deux sources, rien n'est encore fait (0 trouvé) :
+1. **Imagerie** : `imagerie_GROK/IMAGERIE_CLICHES.html` (IMG-001…344), d'abord, ordre inverse du bas vers la tête : IMG-344 → IMG-001.
+2. **Explorations fonctionnelles** : `imagerie_GROK/EXPLORATIONS_FONCTIONNELLES.html` (C. EXP-001…153, puis D. FTE, 58 fiches), une fois l'imagerie achevée, même ordre inverse. Paire tracé normal + pathologique, mêmes règles (licence, appariement, flèches, manifest). Courbes ventilatoires et tests dynamiques/métaboliques : schémas dessinés par script, valeurs sourcées.
