@@ -15,3 +15,8 @@ IMG-248 | introuvable | pas d'échographie transrectale ; planche de 1916 hors l
 IMG-247 | partiel | Mak et Tzeng 2018, CC BY 3.0, testicule non descendu panneau (b) | légende ne désigne pas le panneau ; voie dite scrotale
 IMG-246 | partiel | Mak et Tzeng 2018, Doppler couleur du plexus | normale axiale, pas la même coupe
 IMG-245 | partiel | Jmarchn 2016, nodule hypoéchogène de séminome gauche | normale axiale avec boîte Doppler
+IMG-244 | partiel | Mak et Tzeng 2018, Doppler d'orchi-épididymite | normale = testicules à flux conservé, plan différent
+IMG-243 | partiel | Mak et Tzeng 2018, boîte Doppler vide de torsion | plan non précisé
+IMG-242 | introuvable | pas d'échographie sus-pubienne ; préréglage endocavitaire et collie écartés
+IMG-241 | introuvable | pas d'IRM T2 de cancer de prostate
+IMG-240 | introuvable | pas de cystographie TDM de rupture vésicale
